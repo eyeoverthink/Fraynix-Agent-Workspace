@@ -1,7 +1,8 @@
 param(
     [string]$JavaPath,
     [string]$PrimaryModel = 'fraynix-3b:latest',
-    [string]$SecondaryModel = 'fraymus-oracle:latest'
+    [string]$SecondaryModel = 'fraymus-oracle:latest',
+    [ValidateSet('Chat','Models','Tools')][string]$CaptureTab = 'Tools'
 )
 $ErrorActionPreference = 'Stop'
 if (!$JavaPath) { $JavaPath = (Get-Command java -ErrorAction Stop).Source }
@@ -18,7 +19,7 @@ foreach ($iteration in 0..1) {
     $stdout = Join-Path $repo "build\native-studio-$iteration.stdout.log"
     $stderr = Join-Path $repo "build\native-studio-$iteration.stderr.log"
     $arguments = @('--enable-native-access=ALL-UNNAMED', ('"-Dfraymus.factoryWorkspace=' + $workspace + '"'),
-        '-Dfraymus.studioSmoke=true', ('"-Dfraymus.smokeModel=' + $models[$iteration] + '"'),
+        '-Dfraymus.studioSmoke=true', ('"-Dfraynix.captureTab=' + $CaptureTab + '"'), ('"-Dfraymus.smokeModel=' + $models[$iteration] + '"'),
         ('"-Dfraymus.studioCapture=' + (Join-Path $repo "build\native-studio-$iteration.png") + '"'),
         '-cp', '"lib/*"', 'Main', '--factory-smoke-exit')
     $process = Start-Process -FilePath $JavaPath -ArgumentList $arguments -WorkingDirectory $dist -WindowStyle Hidden -RedirectStandardOutput $stdout -RedirectStandardError $stderr -PassThru
@@ -39,10 +40,12 @@ foreach ($iteration in 0..1) {
     if ($output -notmatch 'tabs=\[Chat, Create, Models, Kernel, Tools, Jobs\].*skill=world.inspect skillJournalIndex=\d+') {
         throw 'Native tools tab or journaled live-world inspection was not verified'
     }
+    if($output -notmatch 'LIVE_CHAT_NATIVE_PASSED frames=\d+ responseSha256=[a-f0-9]{64} nonceVerified=true') { throw 'Live stream evidence / nonce check failed' }
     if ($output -notmatch 'FACTORY_UI_SMOKE_PASSED.*identitySet=([^\r\n]+)') { throw 'Missing scene identity verification' }
     $identities += $Matches[1]
     $records = @(Get-Content -LiteralPath $journal | Where-Object { $_.Trim() } | ForEach-Object { $_ | ConvertFrom-Json })
     if ($records.Count -ne $before + 1 -or !$records[-1].success -or $records[-1].model -ne $models[$iteration]) { throw 'Completed chat not persisted exactly once' }
+    if(!$records[-1].evidence -or $records[-1].evidence.done -ne 'true' -or $records[-1].prompt -match 'Current editor observations:') { throw 'Stream evidence missing or scene JSON mixed into human prompt' }
     if ($iteration -eq 1 -and $output -notmatch 'FACTORY_AUTORESTORE') { throw 'Second run did not restore the scene' }
     Write-Output "Native studio run $iteration passed: $($models[$iteration]) -> $($records[-1].endpoint); saved exchanges=$($records.Count)"
 }

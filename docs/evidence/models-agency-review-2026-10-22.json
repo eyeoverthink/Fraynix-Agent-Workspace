@@ -1,0 +1,657 @@
+{
+  "reviewDatePacific": "2026-10-22",
+  "scope": {
+    "suppliedFiles": 139,
+    "suppliedBytes": 3338767,
+    "packages": [
+      {
+        "name": "Fraymus_Modelfiles",
+        "files": 103,
+        "bytes": 2489322
+      },
+      {
+        "name": "fraymus-agency",
+        "files": 22,
+        "bytes": 216076
+      },
+      {
+        "name": "fraymus-ultimate-agent",
+        "files": 14,
+        "bytes": 633369
+      }
+    ],
+    "pdfPages": 17,
+    "zipMembers": 9,
+    "zipMemberContentsMatchStandaloneFiles": true,
+    "githubRepositoryMetadataRecords": 280,
+    "base44AppFiles": 1227,
+    "githubSnapshots": [
+      {
+        "repository": "eyeoverthink/creator-nexus",
+        "commit": "929aa97aa45eeea262a1d7862963b8689ef9d627",
+        "files": 408,
+        "bytes": 2982866,
+        "sourceReview": "selected implementation paths, not every source line"
+      },
+      {
+        "repository": "eyeoverthink/fraymus-bridge",
+        "commit": "299293866752cc8f3ad29e753074180a70e5a49c",
+        "files": 62,
+        "bytes": 104691,
+        "sourceReview": "selected implementation paths, not every source line"
+      },
+      {
+        "repository": "eyeoverthink/fraymus-comms-protocol",
+        "commit": "7be2705f68a6066c23afde1d9dbd7f3f78ca5ed2",
+        "files": 1250,
+        "bytes": 156556236,
+        "sourceReview": "selected implementation paths, not every source line"
+      },
+      {
+        "repository": "eyeoverthink/Fraynix-Studios",
+        "commit": "cef123a9117a424ba82a2d9b221b4f6320707b2a",
+        "files": 819,
+        "bytes": 6169165,
+        "sourceReview": "selected implementation paths, not every source line"
+      }
+    ],
+    "externalLocalSkillDiscovery": {
+      "documents": 91,
+      "withScriptPaths": 44,
+      "scriptPaths": 134,
+      "fullImplementationAudit": false
+    }
+  },
+  "originalFiles": {
+    "checked": 139,
+    "unchanged": 139,
+    "changed": []
+  },
+  "modelExport": {
+    "tagRecipes": 32,
+    "manifestDigests": 23,
+    "weightBlobs": 5,
+    "populatedAdaptersObserved": 0
+  },
+  "localModelDiscovery": {
+    "primaryAdvertisedRows": 35,
+    "secondaryAdvertisedRows": 19,
+    "distinctNames": 47,
+    "cloudProxyNames": 1,
+    "distinctLocalNames": 46,
+    "selectedMetadata": [
+      {
+        "model": "llama3:latest",
+        "endpoint": "http://127.0.0.1:11434",
+        "digest": "46e0c10c039e019119339687c3c1757cc81b9da49709a3b3924863ba87ca666e",
+        "details": {
+          "parent_model": "",
+          "format": "gguf",
+          "family": "llama",
+          "families": [
+            "llama"
+          ],
+          "parameter_size": "8.0B",
+          "quantization_level": "Q4_K_M"
+        },
+        "capabilities": [
+          "completion",
+          "tools"
+        ],
+        "native_context": {
+          "llama.context_length": 131072
+        },
+        "system_characters": 0,
+        "template_contains_tools": true
+      },
+      {
+        "model": "llama3:latest",
+        "endpoint": "http://127.0.0.1:11435",
+        "digest": "365c0bd3c000a25d28ddbf732fe1c6add414de7275464c4e4d1c3b5fcb5d8ad1",
+        "details": {
+          "parent_model": "",
+          "format": "gguf",
+          "family": "llama",
+          "families": [
+            "llama"
+          ],
+          "parameter_size": "8.0B",
+          "quantization_level": "Q4_0"
+        },
+        "capabilities": [
+          "completion"
+        ],
+        "native_context": {
+          "llama.context_length": 8192
+        },
+        "system_characters": 0,
+        "template_contains_tools": false
+      },
+      {
+        "model": "llama3.1:8b",
+        "endpoint": "http://127.0.0.1:11434",
+        "digest": "46e0c10c039e019119339687c3c1757cc81b9da49709a3b3924863ba87ca666e",
+        "details": {
+          "parent_model": "",
+          "format": "gguf",
+          "family": "llama",
+          "families": [
+            "llama"
+          ],
+          "parameter_size": "8.0B",
+          "quantization_level": "Q4_K_M"
+        },
+        "capabilities": [
+          "completion",
+          "tools"
+        ],
+        "native_context": {
+          "llama.context_length": 131072
+        },
+        "system_characters": 0,
+        "template_contains_tools": true
+      },
+      {
+        "model": "eyeoverthink/FRAYNIX-AGENT:8b",
+        "endpoint": "http://127.0.0.1:11434",
+        "digest": "3115770a6d980ceabcaa62fdd43b17a77c6800297091150138cc83a6c498c2ca",
+        "details": {
+          "parent_model": "llama3.1:8b",
+          "format": "gguf",
+          "family": "llama",
+          "families": [
+            "llama"
+          ],
+          "parameter_size": "8.0B",
+          "quantization_level": "Q4_K_M"
+        },
+        "capabilities": [
+          "tools",
+          "completion"
+        ],
+        "native_context": {
+          "llama.context_length": 131072
+        },
+        "system_characters": 79306,
+        "template_contains_tools": false
+      },
+      {
+        "model": "fraynix-ultimate:8b",
+        "endpoint": "http://127.0.0.1:11434",
+        "digest": "b5cfd56a214cb6e1c34fcbe9f81006420a72d125bc63aa2e3ce43ee6688e1280",
+        "details": {
+          "parent_model": "llama3.1:8b",
+          "format": "gguf",
+          "family": "llama",
+          "families": [
+            "llama"
+          ],
+          "parameter_size": "8.0B",
+          "quantization_level": "Q4_K_M",
+          "runner": "llamacpp"
+        },
+        "capabilities": [
+          "completion",
+          "tools"
+        ],
+        "native_context": {
+          "llama.context_length": 131072
+        },
+        "system_characters": 3531,
+        "template_contains_tools": true
+      },
+      {
+        "model": "fraynix-3b:latest",
+        "endpoint": "http://127.0.0.1:11434",
+        "digest": "1aed8456f7ee0095c2628f5c87afb75bac250bc5c913298d7a207bae0f3555aa",
+        "details": {
+          "parent_model": "llama3.2:latest",
+          "format": "gguf",
+          "family": "llama",
+          "families": [
+            "llama"
+          ],
+          "parameter_size": "3.2B",
+          "quantization_level": "Q4_K_M"
+        },
+        "capabilities": [
+          "tools",
+          "completion"
+        ],
+        "native_context": {
+          "llama.context_length": 131072
+        },
+        "system_characters": 23246,
+        "template_contains_tools": false
+      },
+      {
+        "model": "niles:latest",
+        "endpoint": "http://127.0.0.1:11434",
+        "digest": "8c0c7652b950c643300c219514c80f97956d3dfbc0a3f5db2e4c5c30d0c7f7fe",
+        "details": {
+          "parent_model": "gemma4:latest",
+          "format": "gguf",
+          "family": "gemma4",
+          "families": [
+            "gemma4"
+          ],
+          "parameter_size": "8.0B",
+          "quantization_level": "Q4_K_M"
+        },
+        "capabilities": [
+          "completion",
+          "vision",
+          "audio",
+          "tools",
+          "thinking"
+        ],
+        "native_context": {
+          "gemma4.context_length": 131072
+        },
+        "system_characters": 5369,
+        "template_contains_tools": false
+      },
+      {
+        "model": "qwen3-vl:4b",
+        "endpoint": "http://127.0.0.1:11434",
+        "digest": "b305dff61efda21790ab26e9e778432836945ba06d249e0d843200e72111ee11",
+        "details": {
+          "parent_model": "qwen3-vl:4b",
+          "format": "gguf",
+          "family": "qwen3vl",
+          "families": [
+            "qwen3vl"
+          ],
+          "parameter_size": "4.4B",
+          "quantization_level": "Q4_K_M"
+        },
+        "capabilities": [
+          "completion",
+          "vision",
+          "tools",
+          "thinking"
+        ],
+        "native_context": {
+          "qwen3vl.context_length": 262144
+        },
+        "system_characters": 0,
+        "template_contains_tools": false
+      },
+      {
+        "model": "hermes3:latest",
+        "endpoint": "http://127.0.0.1:11434",
+        "digest": "4f6b83f30b62bc3d0cf9be09266db222805ee815c8fd7d8b38f863f655be78b7",
+        "details": {
+          "parent_model": "",
+          "format": "gguf",
+          "family": "llama",
+          "families": [
+            "llama"
+          ],
+          "parameter_size": "8.0B",
+          "quantization_level": "Q4_0"
+        },
+        "capabilities": [
+          "completion",
+          "tools"
+        ],
+        "native_context": {
+          "llama.context_length": 131072
+        },
+        "system_characters": 0,
+        "template_contains_tools": true
+      },
+      {
+        "model": "hermes3:latest",
+        "endpoint": "http://127.0.0.1:11435",
+        "digest": "4f6b83f30b62bc3d0cf9be09266db222805ee815c8fd7d8b38f863f655be78b7",
+        "details": {
+          "parent_model": "",
+          "format": "gguf",
+          "family": "llama",
+          "families": [
+            "llama"
+          ],
+          "parameter_size": "8.0B",
+          "quantization_level": "Q4_0"
+        },
+        "capabilities": [
+          "completion",
+          "tools"
+        ],
+        "native_context": {
+          "llama.context_length": 131072
+        },
+        "system_characters": 0,
+        "template_contains_tools": true
+      },
+      {
+        "model": "gpt-oss:120b",
+        "endpoint": "http://127.0.0.1:11435",
+        "digest": "a951a23b46a1f6093dafee2ea481d634b4e31ac720a8a16f3f91e04f5a40ecd9",
+        "details": {
+          "parent_model": "",
+          "format": "gguf",
+          "family": "gptoss",
+          "families": [
+            "gptoss"
+          ],
+          "parameter_size": "116.8B",
+          "quantization_level": "MXFP4"
+        },
+        "capabilities": [
+          "completion",
+          "tools",
+          "thinking"
+        ],
+        "native_context": {
+          "gptoss.context_length": 131072,
+          "gptoss.rope.scaling.original_context_length": 4096
+        },
+        "system_characters": 0,
+        "template_contains_tools": true
+      },
+      {
+        "model": "fraymus-oracle:latest",
+        "endpoint": "http://127.0.0.1:11435",
+        "digest": "7a92990aaf40f7791d1248101652471d63ec26a1bc164a92684e9fbacaf9b62b",
+        "details": {
+          "parent_model": "llama3.2:latest",
+          "format": "gguf",
+          "family": "llama",
+          "families": [
+            "llama"
+          ],
+          "parameter_size": "3.2B",
+          "quantization_level": "Q4_K_M"
+        },
+        "capabilities": [
+          "tools",
+          "completion"
+        ],
+        "native_context": {
+          "llama.context_length": 131072
+        },
+        "system_characters": 1999,
+        "template_contains_tools": false
+      }
+    ],
+    "inferenceRunDuringReview": false
+  },
+  "agency": {
+    "python_variants_compile": 5,
+    "actual_tools": {
+      "listCount": 1,
+      "scriptExit": 0,
+      "scriptOutput": "FIXTURE_EXECUTED",
+      "docReturned": true
+    },
+    "entry_path_traversal_rejected": true,
+    "unrelated_hash_completion": {
+      "summary": "Unrelated report cites 25719166",
+      "currentSuccessfulExecution": "c4cdc42706b03b23",
+      "verdict": [
+        "COMPLETED",
+        "cites receipt 25719166"
+      ]
+    },
+    "retargeted_receipt_still_verifies": {
+      "verified": true,
+      "verificationOutput": "4 checked, 0 mismatched"
+    },
+    "script_effects_escape_entry_root": {
+      "exit": 0,
+      "outsideMarkerWritten": true
+    },
+    "duplicate_claim": {
+      "sameTaskRead": true,
+      "successfulClaimUpdates": [
+        1,
+        1
+      ]
+    },
+    "second_daemon_marks_active_failed": {
+      "changed": 1,
+      "status": "FAILED"
+    },
+    "actual_agent_loop": {
+      "steps": 1,
+      "tool": "exec_skill_script",
+      "exit": 0
+    },
+    "supplied_database": {
+      "receipts": 13,
+      "validPayloadHashes": 13,
+      "tasks": [
+        [
+          "COMPLETED",
+          2
+        ],
+        [
+          "FAILED",
+          1
+        ]
+      ]
+    },
+    "failed_cli_exit": {
+      "exitCode": 0,
+      "reportedFailure": true,
+      "fixture": "Local deterministic no-action HTTP model; no external inference"
+    }
+  },
+  "dreamer": {
+    "originalRustBuildExit": 1,
+    "adaptation": "Only wasm_bindgen imports/attributes removed for native logic probes; this is not a WASM build.",
+    "nativeLogicExit": 0,
+    "nativeLogicOutput": "theta_ab=3.6622840220736563;theta_ba=3.6622840220736563\nemployees=8\ndream=[DREAMER outside->inside phi=1.618033988749895] Prompt: fixture prompt | Generating 10 wild ideas -> 1 pragmatic winner for Vaughn's profit\nresonance:0=1\nresonance:0.5=0.19098300562505255\nresonance:1=0.3819660112501051\nresonance:-1=0.3819660112501051\nresonance:NaN=NaN\nresonance:inf=NaN\nmemory:0=continuity:0,radius:10\nmemory:0.5=continuity:0.5,radius:3.2577911215314725\nmemory:1=continuity:1,radius:0\nmemory:NaN=continuity:1,radius:0\nmemory:inf=continuity:1,radius:0\nmemory:-inf=continuity:0,radius:10\nprofit_nan=Profit today for Vaughn Scott: $NaN | Goal: rich every day, first to market | Continuity: 0.000\nprofit_after_nan=Profit today for Vaughn Scott: $NaN | Goal: rich every day, first to market | Continuity: 0.000\n",
+    "packageMediaValidJSON": false,
+    "packageMediaError": "Expecting ',' delimiter: line 1 column 38 (char 37)",
+    "missingReferencedArtifacts": [
+      "Cargo.toml",
+      "scripts/dreamer.py",
+      "scripts/employer_factory.py",
+      "scripts/profit_logger.py",
+      "scripts/branding.py",
+      "scripts/deploy.sh",
+      "wasm/fraymus.data",
+      "OuroborosRSIEngine.java",
+      "src/main/java/fraymus/evolution/OuroborosRSIEngine.java",
+      "pkg/fraymus_dreamer_bg.wasm"
+    ],
+    "nativeCargoManifestPresent": false,
+    "originalRustBuildError": "wasm_bindgen crate/import/attributes unresolved; no Cargo.toml supplied"
+  },
+  "wat": {
+    "originalCompiles": false,
+    "originalError": "failed to compile: wasm[0]::function[0]::resonance\n\nCaused by:\n    0: WebAssembly translation error\n    1: Invalid input WebAssembly code at offset 122: type mismatch: expected f64 but nothing on stack\n",
+    "adaptation": "One local.get instruction inserted in the probe copy to fix stack underflow; arithmetic/data unchanged. Original remains invalid.",
+    "afterStackOnlyRepair": {
+      "resonance0": 0.0,
+      "expectedResonance0": 1.0,
+      "resonance1": -0.6180339887498949,
+      "expectedResonance1": 0.3819660112501051,
+      "radiusHalf": 8.090169943749475,
+      "expectedRadiusHalf": 3.2577911215314725,
+      "radius0": 16.18033988749895,
+      "expectedRadius0": 10.0
+    },
+    "dataSegments": {
+      "headerBytes": 145,
+      "secondSegmentOffset": 128,
+      "headerBytesOverwritten": 17,
+      "headerPreserved": false
+    }
+  },
+  "githubPureEngines": {
+    "source": "Fraynix-Studios@cef123a9117a424ba82a2d9b221b4f6320707b2a",
+    "transmuter": {
+      "runs": [
+        {
+          "length": 0,
+          "roundTrip": false,
+          "decodedOriginalNull": true,
+          "valid": false,
+          "wasmValid": true,
+          "dnaBytes": 2048
+        },
+        {
+          "length": 1,
+          "roundTrip": true,
+          "decodedOriginalNull": false,
+          "valid": true,
+          "wasmValid": true,
+          "dnaBytes": 2048
+        },
+        {
+          "length": 257,
+          "roundTrip": true,
+          "decodedOriginalNull": false,
+          "valid": true,
+          "wasmValid": true,
+          "dnaBytes": 2048
+        },
+        {
+          "length": 4097,
+          "roundTrip": true,
+          "decodedOriginalNull": false,
+          "valid": true,
+          "wasmValid": true,
+          "dnaBytes": 2048
+        }
+      ],
+      "execute42": 42,
+      "badVersion": {
+        "validatorValid": true,
+        "webAssemblyValid": false
+      },
+      "badLedgerHash": {
+        "validatorValid": true,
+        "ledgerMatchesActual": false
+      }
+    },
+    "glyphsmith": {
+      "all256BytesRoundTrip": true,
+      "carrierIncluded": true
+    },
+    "hdc": {
+      "dimensions": 16384,
+      "xorBindUnbind": true
+    },
+    "mail": {
+      "adaptation": "Only browser import alias rewritten in scratch copy; no relay calls or real identities",
+      "rfc8032SelfTest": true,
+      "nativeEd25519CrossVerify": true,
+      "changedMessageRejected": true
+    }
+  },
+  "githubJavaPersistence": {
+    "jdk": "21.0.2",
+    "fiveRequiredSourcesCompiled": true,
+    "test": "OuroborosStateTest",
+    "exitCode": 1,
+    "firstAssertionPassed": "empty directory loads no fabricated state",
+    "failure": "AccessDeniedException opening directory in OuroborosState.atomicSnapshot:109 during first save",
+    "remainingAssertionsExecuted": false,
+    "adaptedSourceUsed": false
+  },
+  "studioBaseline": {
+    "command": "gradlew.bat --offline --no-daemon --console=plain :check",
+    "result": "BUILD SUCCESSFUL",
+    "elapsedSeconds": 12,
+    "junitTasks": "up-to-date",
+    "executableHarnesses": "ran successfully",
+    "newApplicationCode": false
+  },
+  "boundaries": {
+    "liveBase44FunctionsMeasured": false,
+    "cloudLLMCalls": false,
+    "messagesSent": false,
+    "modelsCreated": false,
+    "packagesInstalled": false,
+    "suppliedSourcePatched": false,
+    "externalSkillsExecuted": false,
+    "testFixturesExecuted": true,
+    "credentialsIncluded": false
+  },
+  "reproduction": {
+    "localScratchDirectory": "build/model-agency-review-2026-10-22 (ignored)",
+    "probeScripts": [
+      "inventory_probe.py",
+      "probe_agency.py",
+      "probe_dreamer.py",
+      "probe_wat.py",
+      "probe_github.mjs"
+    ],
+    "probeAdaptations": [
+      "Dreamer: remove wasm_bindgen import/attributes only for native logic probe",
+      "WAT: add one local.get in probe copy to expose remaining math/data behavior",
+      "Mail: rewrite one browser import alias to file URL in probe copy"
+    ]
+  },
+  "base44PublicEndpointChecks": [
+    {
+      "method": "GET",
+      "url": "https://fraymus-transmuter.base44.app/login",
+      "checkedAtUTC": "2026-10-23T06:30:49.171235+00:00",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "location": "",
+      "authenticate": "",
+      "bytes": 16748,
+      "title": "Fraymus Transmuter",
+      "spaScriptCount": 5
+    },
+    {
+      "method": "GET",
+      "url": "https://fraymus-transmuter.base44.app/api/mcp",
+      "checkedAtUTC": "2026-10-23T06:30:49.761820+00:00",
+      "status": 401,
+      "contentType": "application/json",
+      "location": "",
+      "authenticate": "Bearer error=\"invalid_token\", error_description=\"Authentication required\", resource_metadata=\"https://fraymus-transmuter.base44.app/.well-known/oauth-protected-resource/api/mcp\"",
+      "bytes": 74,
+      "response": {
+        "error": "invalid_token",
+        "error_description": "Authentication required"
+      }
+    },
+    {
+      "method": "POST",
+      "url": "https://fraymus-transmuter.base44.app/api/mcp",
+      "checkedAtUTC": "2026-10-23T06:30:50.237617+00:00",
+      "status": 401,
+      "contentType": "application/json",
+      "location": "",
+      "authenticate": "Bearer error=\"invalid_token\", error_description=\"Authentication required\", resource_metadata=\"https://fraymus-transmuter.base44.app/.well-known/oauth-protected-resource/api/mcp\"",
+      "bytes": 74,
+      "response": {
+        "error": "invalid_token",
+        "error_description": "Authentication required"
+      }
+    },
+    {
+      "method": "GET",
+      "url": "https://fraymus-transmuter.base44.app/.well-known/oauth-protected-resource/api/mcp",
+      "checkedAtUTC": "2026-10-23T06:31:15.950517+00:00",
+      "status": 200,
+      "contentType": "application/json",
+      "response": {
+        "resource": "https://fraymus-transmuter.base44.app/api/mcp",
+        "resource_name": "Fraymus Transmuter",
+        "authorization_servers": [
+          "https://app.base44.com"
+        ],
+        "scopes_supported": [
+          "app:mcp",
+          "offline"
+        ],
+        "resource_documentation": "https://docs.base44.com/mcp"
+      }
+    }
+  ],
+  "base44AuthenticatedToolDiscovery": {
+    "performed": false,
+    "reason": "OAuth authentication required; no authenticated Base44 connection available",
+    "availablePluginCatalogSearch": "Base44 returned no matches"
+  }
+}

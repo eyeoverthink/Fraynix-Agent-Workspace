@@ -41,6 +41,7 @@ The application is Java-based; the graphical runtime uses native libraries, and 
 - Review a concrete operation list and physics preview, then apply and save it.
 - Restore checkpoints and undo an AI edit after restarting the application.
 - Inspect live model/service status, kernel memory and processing receipts.
+- Stream actual Ollama replies, test a fresh connection nonce, load/unload models and save runtime profiles in **Models**.
 - Inspect the captured world, search memory, parse Java, generate world documentation and verify file hashes through **Fraynix > Tools**.
 - Verify journal continuity on restart, inspect retained staging evidence and review unfinished tool calls.
 
@@ -137,7 +138,7 @@ The test machine had a Ryzen 9 3900X, about 96 GiB RAM and an RTX 3070 with 8 Gi
 
 Without the actual application schema, it guessed component class names incorrectly. With the schema and observation, its first scene proposal passed. The 3B comparison missed the three numerical checks and produced a scene proposal rejected for duplicate JSON fields. These are two single-attempt tasks per model, not a general capability benchmark.
 
-**Integration limitation:** the current application bridge has a 120-second read timeout. The measured warm 120B proposal exceeded it, and the first default Ollama load attempt exceeded its five-minute load allowance. The successful test used an isolated temporary server with a 15-minute load timeout. Preloading, configurable request timeouts and per-model resource profiles are the next integration work; merely selecting the tag does not establish dependable 120B use inside the current UI.
+**Current integration:** Chat streams replies and provides load/unload, cancellation and saved profiles, with a default 900-second response-idle allowance. The older scene adapter also allows 900 seconds. Ollama's server-side load timeout is separate: the historical 120B test needed an isolated server with a 15-minute load allowance. Cold 120B operation was not repeated for this release. See [live model controls](docs/LIVE_MODEL_CONTROLS.md).
 
 See [model test evidence](docs/MODEL_TEST_RESULTS.md) and [sanitized measurements](docs/evidence/gpt-oss-120b-2026-10-22.json). Weights, private conversations and the user's model-store paths are not included.
 
@@ -152,9 +153,9 @@ See [model test evidence](docs/MODEL_TEST_RESULTS.md) and [sanitized measurement
 
 | Fraynix tab | Live purpose |
 | --- | --- |
-| Chat | Local conversation with optional current scene context and persisted exchanges |
+| Chat | Streamed replies, collapsed scene attachments, separate conversations and saved HTTP evidence |
 | Create | Observation, spatial queries, structured proposal, detached validation, reviewed apply and undo |
-| Models | Local services, exact model tags, availability and residency |
+| Models | Live tags/residency, connection checks, load/unload and saved runtime profiles |
 | Kernel | Embedded kernel status, verified journal continuity and memory search |
 | Tools | Compiled local tool registry, typed inputs, host capabilities, actual results and restored receipts |
 | Jobs | Checkpoint actions, inspection tasks, receipts and trace locations |
@@ -257,7 +258,9 @@ See [continuity, typed tools and recovery](docs/CONTINUITY_AND_SKILLS.md) for co
 
 ## Development plan
 
-1. **Large-model operation:** preload/unload controls, configurable timeouts, cancellation behavior, context/thread/GPU profiles, and warm/cold measurements in the UI.
+The [model/agency and Base44 source review](docs/MODELS_AGENCY_REVIEW.md) covers the supplied model exports, Python agency, Dreamer bundle and selected existing GitHub implementations. The [full integration plan](docs/IMPLEMENTATION_PLAN.md) maps them into one Java-first Studio, distinguishes GUI/CLI/provider boundaries and defines verification gates. These documents describe proposed integration; they do not imply the separate packages already run inside Studio.
+
+1. **Large-model operation:** complete cold-load supervision, context budgeting and measured routing on top of the implemented streaming, cancellation, loading and runtime profiles.
 2. **Measured model routing:** compare small fast models and larger planners on repeatable task suites; route only after observed results justify the choice.
 3. **Creator quality:** add goal-level checks for intended layouts, constraints and behavior beyond numerical stability.
 4. **Factory expansion:** introduce versioned data/component templates, reusable creation recipes and domain-specific processors behind the same transaction and verifier boundaries.

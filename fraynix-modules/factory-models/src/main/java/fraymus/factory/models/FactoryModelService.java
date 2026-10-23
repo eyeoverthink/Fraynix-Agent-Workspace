@@ -3,6 +3,7 @@ package fraymus.factory.models;
 import fraymus.llm.LocalModelCatalog;
 import fraymus.model.LocalOllamaModelAdapter;
 import fraymus.model.ModelAdapter;
+import fraymus.OllamaIntegration;
 import org.json.*;
 import java.io.*;
 import java.net.*;
@@ -102,6 +103,22 @@ public final class FactoryModelService {
             model.name(), prompt, parameters, List.of(), history));
         return new Reply(model.name(), model.endpoint(), response.isSuccess() ? response.getContent() : response.getError(),
             response.isSuccess(), (System.nanoTime() - start) / 1_000_000, Instant.now());
+    }
+
+    public OllamaIntegration.StreamReply streamChat(Model model,String prompt,List<ModelAdapter.Message> history,ModelRunSettings settings,
+                                                   OllamaIntegration.RequestControl control,java.util.function.Consumer<OllamaIntegration.StreamUpdate> listener) throws IOException {
+        checkRoute(model);
+        var messages=new ArrayList<Map<String,String>>();
+        for(var message:history)messages.add(Map.of("role",String.valueOf(message.getRole()).toLowerCase(Locale.ROOT),"content",message.getContent()));
+        messages.add(Map.of("role","user","content",prompt));
+        return OllamaIntegration.localService(model.endpoint()).streamChat(model.name(),messages,settings,control,listener);
+    }
+    public OllamaIntegration.StreamReply manageModel(Model model,boolean load,ModelRunSettings settings,OllamaIntegration.RequestControl control) throws IOException {
+        checkRoute(model);return OllamaIntegration.localService(model.endpoint()).manageModel(model.name(),load,settings,control);
+    }
+    private void checkRoute(Model model) {
+        if(!model.available()||!loopback(model.endpoint()))throw new IllegalArgumentException("Select an available local model");
+        if(!LocalModelCatalog.endpointForModel(model.name(),primary).equals(model.endpoint()))throw new IllegalStateException("Model routing changed; refresh services");
     }
 
     private static JSONObject get(String endpoint, String path) throws IOException {

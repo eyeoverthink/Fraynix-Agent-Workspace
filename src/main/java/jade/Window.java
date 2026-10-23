@@ -34,6 +34,8 @@ public class Window implements Observer {
     private boolean smokeRestored;
     private int smokeInspectorFrames;
     private editor.SceneAgentNativeSmoke sceneAgentSmoke;
+    private int startupCaptureFrames;
+    private boolean startupCaptured;
 
     private static Window window = null;
 
@@ -42,7 +44,7 @@ public class Window implements Observer {
     private Window() {
         this.width = 1920;
         this.height = 1080;
-        this.title = "Fraynix Studio";
+        this.title = "Fraynix Studio | Live chat";
         EventSystem.addObserver(this);
     }
 
@@ -231,6 +233,13 @@ public class Window implements Observer {
 
             this.imguiLayer.update(dt, currentScene);
             runFactorySmoke();
+            String startupCapture=System.getProperty("fraynix.captureOnStartup","");
+            var workspace=imguiLayer.getFraynixPanel().workspace();
+            if(!startupCaptured&&!startupCapture.isBlank()&&workspace.historyReady()&&!workspace.busy()
+                &&!workspace.snapshot().observedAt().equals(java.time.Instant.EPOCH)&&++startupCaptureFrames>=60){
+                try{editor.StudioFrameCapture.save(java.nio.file.Path.of(startupCapture),width,height);startupCaptured=true;System.out.println("STUDIO_STARTUP_CAPTURE_SAVED");}
+                catch(java.io.IOException failure){startupCaptured=true;System.err.println("Startup frame capture failed: "+failure.getMessage());}
+            }
             glfwSwapBuffers(glfwWindow);
             MouseListener.endFrame();
 

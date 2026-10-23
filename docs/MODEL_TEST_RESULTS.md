@@ -29,6 +29,6 @@ The 3B runs used CPU-only execution, with a 2K context for calculations and 4K f
 
 ## Integration consequences
 
-Provide the actual component schema and state even to a large model. Keep validation and review in the loop. Add per-model load/request allowances and preloading before using 120B reliably through the desktop bridge: its current 120-second read timeout is shorter than this measured warm proposal.
+Provide the actual component schema and state even to a large model. Keep validation and review in the loop. Add per-model load/request allowances and preloading before using 120B reliably through the desktop bridge: the October 22 bridge had a 120-second read timeout, shorter than this measured warm proposal. The October 23 release adds streaming/configurable Chat idle timeouts and a 900-second allowance on the older adapter; server-side cold loading remains separate and was not retested here.
 
 The test model was unloaded and its temporary server stopped. The live editor project was not changed. The source evidence remains local; the included JSON summary removes personal machine paths and ephemeral server details.

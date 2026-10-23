@@ -50,7 +50,7 @@ public final class SceneAgentPanel implements AutoCloseable {
     }
     public void imgui(Scene scene) {
         ImGui.textWrapped("Fraynix can inspect components, query space and propose scene changes. Preview runs real physics on a detached copy.");
-        ImGui.beginDisabled(agent != null && agent.busy());
+        ImGui.beginDisabled(workspace.busy() || agent != null && agent.busy());
         ImGui.setNextItemWidth(-1);
         if (ImGui.beginCombo("##CreatorModel", workspace.selectedModel().isEmpty() ? "Select a local model" : workspace.selectedModel())) {
             for (var model : workspace.snapshot().models()) if (model.available()

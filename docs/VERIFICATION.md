@@ -19,7 +19,7 @@ See `evidence/standalone-verification.json` for the structured extraction record
 
 `gradlew.bat clean check distZip installDist` compiles the editor and all three checked-in modules, runs the editor JUnit suite, runs the executable runtime/transaction/kernel/model harnesses, and packages the application.
 
-The current integration has 57 editor JUnit tests. Those cover geometry, physics registration, picking/placement coordinates, serialization, checkpoints, actual scene transactions, protected identities, invalid JSON/fields, detached collisions, rollback, stale drafts, persistent undo and the live-world tool worker. The shared modules use six executable harnesses in addition to JUnit.
+The current integration has 58 editor JUnit tests. Those cover geometry, physics registration, picking/placement coordinates, serialization, checkpoints, actual scene transactions, protected identities, invalid JSON/fields, detached collisions, rollback, stale drafts, persistent undo and the live-world tool worker. The shared modules use six executable harnesses in addition to JUnit.
 
 ## Continuity and local tools
 
@@ -41,6 +41,10 @@ Validate a clean clone outside every original checkout. Confirm Gradle resolves 
 
 ## Local model evidence
 
-The GPT-OSS 120B test is documented separately in `MODEL_TEST_RESULTS.md`. It ran against the same scene protocol and actual JBox2D validator before extraction. It is retained as measured model evidence, not a claim that the new application's two-minute bridge timeout already supports its cold start.
+The GPT-OSS 120B test is documented separately in `MODEL_TEST_RESULTS.md`. It ran against the same scene protocol and actual JBox2D validator before extraction. It is historical measured model evidence. Client timeouts are now configurable for Chat, but server-side loading is separate and cold 120B operation was not repeated for the live-chat release.
 
 The final extraction results are recorded in `evidence/standalone-verification.json` after verification completes.
+
+## October 23: live model controls
+
+The full check passed with 58 JUnit tests and six executable module harnesses. Native restart checks used the actual Ultimate and bicameral models on ports 11434 and 11435, verified HTTP streams and fresh nonce responses, rendered all six tabs and retained fixture identities/physics. Real load/unload residency was also verified. See [live controls](LIVE_MODEL_CONTROLS.md) and [sanitized measurements](evidence/live-model-controls-2026-10-23.json).
