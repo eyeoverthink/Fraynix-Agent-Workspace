@@ -36,6 +36,9 @@ foreach ($iteration in 0..1) {
         Get-Content -LiteralPath $stderr -Tail 25
         throw "Native studio run $iteration failed (exit=$($process.ExitCode))"
     }
+    if ($output -notmatch 'tabs=\[Chat, Create, Models, Kernel, Tools, Jobs\].*skill=world.inspect skillJournalIndex=\d+') {
+        throw 'Native tools tab or journaled live-world inspection was not verified'
+    }
     if ($output -notmatch 'FACTORY_UI_SMOKE_PASSED.*identitySet=([^\r\n]+)') { throw 'Missing scene identity verification' }
     $identities += $Matches[1]
     $records = @(Get-Content -LiteralPath $journal | Where-Object { $_.Trim() } | ForEach-Object { $_ | ConvertFrom-Json })

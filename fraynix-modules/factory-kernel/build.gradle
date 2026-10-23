@@ -25,3 +25,14 @@ tasks.register('verifyIntegration', JavaExec) {
     mainClass = 'fraymus.factory.kernel.FactoryKernelIntegrationTest'
 }
 tasks.named('check') { dependsOn 'verifyIntegration' }
+tasks.register('verifyJournal', JavaExec) {
+    dependsOn testClasses
+    classpath = sourceSets.test.runtimeClasspath
+    mainClass = 'fraymus.factory.kernel.JournalContinuityTest'
+}
+tasks.register('verifySkills', JavaExec) {
+    dependsOn testClasses
+    classpath = sourceSets.test.runtimeClasspath
+    mainClass = 'fraymus.factory.kernel.LocalSkillsTest'
+}
+tasks.named('verifyIntegration') { dependsOn 'verifyJournal', 'verifySkills' }

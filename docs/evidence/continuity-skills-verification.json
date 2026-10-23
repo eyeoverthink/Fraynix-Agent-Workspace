@@ -1,0 +1,83 @@
+{
+  "date": "2026-10-22",
+  "project": "Fraynix-Studio",
+  "jdk": "21.0.2",
+  "build": "offline rerun-tasks :check :distZip :installDist passed",
+  "editorJUnit": 57,
+  "moduleHarnesses": [
+    "FactoryRuntimeTest",
+    "WorldTransactionTest",
+    "FactoryKernelIntegrationTest",
+    "FactoryModelsTest",
+    "JournalContinuityTest",
+    "LocalSkillsTest"
+  ],
+  "journalChecks": [
+    "legacy and J2 format",
+    "independent Merkle prefix roots",
+    "every serialized field tamper rejected",
+    "anchor mismatch rejected",
+    "exact recovery evidence bytes",
+    "abandoned staging retained without replay",
+    "failed write not published",
+    "concurrent threads",
+    "two concurrent JVM writers"
+  ],
+  "toolChecks": [
+    "all five compiled handlers",
+    "actual captured identities and components",
+    "JDK AST and syntax diagnostics without source execution",
+    "persisted hybrid retrieval",
+    "unique world report",
+    "positive and negative SHA-256 comparison",
+    "capability and schema denial",
+    "absolute and traversal paths rejected",
+    "receipts restored",
+    "unfinished call visible without automatic replay"
+  ],
+  "symlinkProbe": "skipped: Windows process lacks symlink creation privilege",
+  "native": {
+    "launches": 2,
+    "tabs": [
+      "Chat",
+      "Create",
+      "Models",
+      "Kernel",
+      "Tools",
+      "Jobs"
+    ],
+    "sceneEntities": 8,
+    "physicsBodies": 8,
+    "stableSceneIdentities": true,
+    "liveWorldTool": "world.inspect",
+    "models": [
+      "fraynix-3b:latest",
+      "fraymus-oracle:latest"
+    ],
+    "stores": 2,
+    "availableLocalModelNames": 46,
+    "chatPersisted": true
+  },
+  "cliChecks": [
+    "skills",
+    "verify-journal",
+    "java.analyze",
+    "memory.search",
+    "artifact.verify",
+    "missing grant refused"
+  ],
+  "boundaries": [
+    "journal integrity does not authenticate identity or prevent a full valid-history rewrite",
+    "pending-file crash simulation, not physical power-loss testing",
+    "application file checks are not an OS sandbox",
+    "general tools are operator-driven; not automatically invoked by Chat/Create"
+  ],
+  "screenshot": "docs/images/tools-preview.png",
+  "projectMemoryRefresh": [
+    "README.md",
+    "docs/ARCHITECTURE.md",
+    "docs/CONTINUITY_AND_SKILLS.md",
+    "docs/VERIFICATION.md",
+    "generated self-memory and forecast re-ingested"
+  ]
+}

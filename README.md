@@ -27,6 +27,7 @@ The model receives the actual authored component data and spatial relationships.
 | Local AI | Generate answers and proposed operations | Installed Ollama models, exact-tag routing across configured loopback services |
 | Offline kernel | Process tasks and retain evidence | Task/planner/executor/verifier interfaces, hybrid memory, routing state, journals and trace storage |
 | Persistence | Keep creations and history across restarts | Checksummed checkpoints, atomic saves, chat journals, durable proposal receipts and guarded undo |
+| Local tools | Execute versioned functions under host grants | Five typed JDK-only handlers with input/output checks and journaled results |
 
 The application is Java-based; the graphical runtime uses native libraries, and Ollama runs in a separate local process. The shared entity/component runtime and kernel build from JDK-only Java sources. The model adapter also uses JSON-java.
 
@@ -40,6 +41,8 @@ The application is Java-based; the graphical runtime uses native libraries, and 
 - Review a concrete operation list and physics preview, then apply and save it.
 - Restore checkpoints and undo an AI edit after restarting the application.
 - Inspect live model/service status, kernel memory and processing receipts.
+- Inspect the captured world, search memory, parse Java, generate world documentation and verify file hashes through **Fraynix > Tools**.
+- Verify journal continuity on restart, inspect retained staging evidence and review unfinished tool calls.
 
 The model observes **structured scene state**, rather than seeing pixels. It does not automatically know every file on the computer or every memory in the kernel. Task retrieval supplies relevant memory; scene observations supply the current component/space data.
 
@@ -152,7 +155,8 @@ See [model test evidence](docs/MODEL_TEST_RESULTS.md) and [sanitized measurement
 | Chat | Local conversation with optional current scene context and persisted exchanges |
 | Create | Observation, spatial queries, structured proposal, detached validation, reviewed apply and undo |
 | Models | Local services, exact model tags, availability and residency |
-| Kernel | Embedded kernel status and memory search |
+| Kernel | Embedded kernel status, verified journal continuity and memory search |
+| Tools | Compiled local tool registry, typed inputs, host capabilities, actual results and restored receipts |
 | Jobs | Checkpoint actions, inspection tasks, receipts and trace locations |
 
 ## Creation protocol and guarantees
@@ -234,6 +238,8 @@ The embedded kernel is also usable without opening the graphical editor:
 ```powershell
 .\scripts\Run-Kernel.ps1 -Offline status "$PWD"
 .\scripts\Run-Kernel.ps1 -Offline refresh-memory "$PWD"
+.\scripts\Run-Kernel.ps1 -Offline skills "$PWD"
+.\scripts\Run-Kernel.ps1 -Offline verify-journal "$PWD"
 ```
 
 Optional real-model checks require the chosen local models and configured services:
@@ -246,6 +252,8 @@ Optional real-model checks require the chosen local models and configured servic
 Distributions are written to `build/distributions/Fraynix-Studio-0.1.0.zip`; the unpacked application is `build/install/Fraynix-Studio/`. GitHub Actions builds on Windows/JDK 21 and retains distribution and test-report artifacts. Interactive OpenGL and real-model checks are local, separate validation surfaces.
 
 See [current verification](docs/VERIFICATION.md).
+
+See [continuity, typed tools and recovery](docs/CONTINUITY_AND_SKILLS.md) for contracts, capability grants, CLI examples, explicit damaged-tail recovery and limits. Hash-chain verification checks internal consistency; it is not a signature, an OS sandbox or verification of every kernel state file. General dispatcher calls are currently operator-driven; the existing Create agent retains its own scene/spatial tool protocol.
 
 ## Development plan
 

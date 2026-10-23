@@ -13,7 +13,8 @@ import java.util.*;
 public final class FactoryKernelService implements AutoCloseable {
     public record Receipt(UUID taskId, boolean passed, String outcome, String strategy, String adapter, String tracePath) {}
     public record MemoryResult(String path, String preview, double score) {}
-    public record Monitor(java.time.Instant at, Map<String, String> status, List<MemoryResult> hits, List<String> receipts) {}
+    public record Monitor(java.time.Instant at, Map<String, String> status, List<MemoryResult> hits, List<String> receipts,
+                          List<LocalSkillDispatcher.Definition> skills, List<String> skillReceipts) {}
     private final Path workspace;
     private final OfflineKernel kernel;
 
@@ -46,8 +47,11 @@ public final class FactoryKernelService implements AutoCloseable {
     }
 
     public synchronized Monitor monitor(String query) throws IOException {
+        var continuity = kernel.getJournal().verify();
         var status = new LinkedHashMap<String, String>();
         kernel.getStatus().forEach((key, value) -> status.put(key, String.valueOf(value)));
+        status.put("journalIntegrity", "verified");
+        status.put("pendingJournalFiles", continuity.pendingFiles().toString());
         var hits = query == null || query.isBlank() ? List.<MemoryResult>of() : kernel.getMemoryStore().search(query, List.of(), 8).stream()
             .map(hit -> new MemoryResult(String.valueOf(hit.getDocument().getPath()), hit.getDocument().getPreview(), hit.getTotalScore())).toList();
         var receipts = new ArrayList<String>();
@@ -58,7 +62,34 @@ public final class FactoryKernelService implements AutoCloseable {
                 receipts.add(Files.readString(path));
             }
         }
-        return new Monitor(java.time.Instant.now(), Collections.unmodifiableMap(status), hits, List.copyOf(receipts));
+        var skillReceipts = new ArrayList<String>();
+        var entries = kernel.getJournal().getEntries();
+        var unfinished = new LinkedHashSet<String>();
+        for (var entry : entries) {
+            String call = entry.metadata().get("callId");
+            if (call == null) continue;
+            if (entry.type().equals("skill_started")) unfinished.add(call);
+            else if (Set.of("skill_succeeded", "skill_failed", "skill_rejected").contains(entry.type())) unfinished.remove(call);
+        }
+        status.put("unfinishedSkillCalls", unfinished.toString());
+        for (int i = entries.size() - 1; i >= 0 && skillReceipts.size() < 12; i--) {
+            var entry = entries.get(i);
+            if (Set.of("skill_succeeded", "skill_failed", "skill_rejected").contains(entry.type())) {
+                var info = new StringBuilder(entry.type() + " | " + entry.message() + " | journal entry " + entry.index() + "\n");
+                new TreeMap<>(entry.metadata()).forEach((key, value) -> {
+                    String display = value.length() > 4000 ? value.substring(0, 4000) + "... (display truncated; full value in journal)" : value;
+                    info.append(key).append(": ").append(display).append('\n');
+                });
+                skillReceipts.add(info.toString());
+            }
+        }
+        return new Monitor(java.time.Instant.now(), Collections.unmodifiableMap(status), hits, List.copyOf(receipts),
+            new LocalSkillDispatcher(workspace, kernel).definitions(), List.copyOf(skillReceipts));
+    }
+
+    public synchronized LocalSkillDispatcher.Result invokeSkill(String id, Map<String, String> input,
+            Set<LocalSkillDispatcher.Capability> grants, fraymus.factory.WorldSnapshot snapshot) throws IOException {
+        return new LocalSkillDispatcher(workspace, kernel).invoke(id, input, grants, snapshot);
     }
 
     private static long modified(Path path) {

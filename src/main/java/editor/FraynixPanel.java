@@ -19,12 +19,19 @@ public final class FraynixPanel implements AutoCloseable {
     private final java.util.Set<String> renderedTabs = new java.util.LinkedHashSet<>();
     private boolean smokeSent;
     private boolean focusCreate = Boolean.getBoolean("fraymus.openCreate");
+    private String selectedSkill = "world.inspect";
+    private final java.util.Map<String, ImString> skillFields = new java.util.HashMap<>();
+    private boolean smokeToolSent;
     public FraynixPanel(FactorySession session) { workspace = new FraynixWorkspace(session.workspace()); sceneAgent = new SceneAgentPanel(session, workspace); }
     public SceneAgentPanel sceneAgent() { return sceneAgent; }
     public FraynixWorkspace workspace() { return workspace; }
     public void imgui(Scene scene) {
         workspace.tick();
         sceneAgent.tick(scene);
+        var session = Window.getFactorySession();
+        if (smoke && !smokeToolSent && session.monitor() != null && !session.isRunning() && !session.isMonitoring()) {
+            session.requestSkill(scene, "world.inspect", java.util.Map.of()); smokeToolSent = true;
+        }
         if (smoke && !smokeSent && workspace.historyReady() && !workspace.selectedModel().isBlank()) {
             workspace.select(System.getProperty("fraymus.smokeModel", "fraynix-3b:latest"));
             workspace.send("Reply with STUDIO_OK. This is a local editor integration test.", "");
@@ -44,6 +51,7 @@ public final class FraynixPanel implements AutoCloseable {
             if (tab("Create")) { sceneAgent.imgui(scene); ImGui.endTabItem(); }
             if (tab("Models")) { models(); ImGui.endTabItem(); }
             if (tab("Kernel")) { kernel(); ImGui.endTabItem(); }
+            if (tab("Tools")) { tools(scene); ImGui.endTabItem(); }
             if (tab("Jobs")) { jobs(scene); ImGui.endTabItem(); }
             ImGui.endTabBar();
             focusCreate = false;
@@ -51,7 +59,7 @@ public final class FraynixPanel implements AutoCloseable {
         ImGui.end();
     }
     private boolean tab(String name) {
-        String next = java.util.stream.Stream.of("Chat", "Create", "Models", "Kernel", "Jobs").filter(n -> !renderedTabs.contains(n)).findFirst().orElse("Chat");
+        String next = java.util.stream.Stream.of("Chat", "Create", "Models", "Kernel", "Tools", "Jobs").filter(n -> !renderedTabs.contains(n)).findFirst().orElse("Tools");
         boolean select = smoke && next.equals(name) || (focusCreate || !System.getProperty("fraymus.sceneAgentSmoke", "").isBlank()) && name.equals("Create");
         boolean open = ImGui.beginTabItem(name, select ? imgui.flag.ImGuiTabItemFlags.SetSelected : 0);
         if (open) renderedTabs.add(name);
@@ -60,7 +68,9 @@ public final class FraynixPanel implements AutoCloseable {
     public boolean smokeReady() {
         if (!smoke) return true;
         if (!workspace.error().isBlank()) throw new IllegalStateException(workspace.error());
-        if (!smokeSent || workspace.busy() || workspace.exchanges().isEmpty() || renderedTabs.size() < 5 || Window.getFactorySession().monitor() == null) return false;
+        var session = Window.getFactorySession();
+        if (!session.skillError().isBlank()) throw new IllegalStateException(session.skillError());
+        if (!smokeToolSent || session.skillResult() == null || !smokeSent || workspace.busy() || workspace.exchanges().isEmpty() || renderedTabs.size() < 6 || session.monitor() == null) return false;
         var exchange = workspace.exchanges().get(workspace.exchanges().size() - 1);
         if (!exchange.success()) throw new IllegalStateException(exchange.reply());
         return true;
@@ -70,7 +80,8 @@ public final class FraynixPanel implements AutoCloseable {
         System.out.println("STUDIO_UI_SMOKE_PASSED tabs=" + renderedTabs + " availableModels="
             + workspace.snapshot().models().stream().filter(FactoryModelService.Model::available).count()
             + " chatModel=" + exchange.model() + " endpoint=" + exchange.endpoint() + " response=" + exchange.reply().replace('\n', ' ')
-            + " documents=" + Window.getFactorySession().monitor().status().get("documents"));
+            + " documents=" + Window.getFactorySession().monitor().status().get("documents")
+            + " skill=" + Window.getFactorySession().skillResult().skill() + " skillJournalIndex=" + Window.getFactorySession().skillResult().journalIndex());
     }
     private void chat(Scene scene) {
         ImGui.setNextItemWidth(-1);
@@ -145,7 +156,7 @@ public final class FraynixPanel implements AutoCloseable {
         if (monitor == null) ImGui.text("Loading kernel status...");
         else {
             ImGui.text("Observed " + monitor.at());
-            for (String key : new String[]{"offlineEnforced", "documents", "trackedArtifacts", "journalEntries", "repairLessons", "repairTemplates", "f0Available"}) {
+            for (String key : new String[]{"offlineEnforced", "documents", "trackedArtifacts", "journalEntries", "journalIntegrity", "pendingJournalFiles", "unfinishedSkillCalls", "repairLessons", "repairTemplates", "f0Available"}) {
                 ImGui.text(key + ": " + monitor.status().getOrDefault(key, "unavailable"));
             }
             if (ImGui.collapsingHeader("Runtime details")) monitor.status().forEach((key, value) -> ImGui.textWrapped(key + ": " + value));
@@ -160,6 +171,46 @@ public final class FraynixPanel implements AutoCloseable {
         }
         ImGui.separator();
         ImGui.textWrapped("The legacy full-system shell and its other organs are not started by this editor. This window runs the shared factory engine, kernel, and local model adapter.");
+    }
+    private void tools(Scene scene) {
+        var session = Window.getFactorySession(); var monitor = session.monitor();
+        ImGui.textWrapped("Compiled local tools. Calls use this project's captured world and files; each result is recorded in the verified journal.");
+        if (monitor == null) { ImGui.textWrapped(session.monitorError().isBlank() ? "Loading tool registry..." : session.monitorError()); return; }
+        if (ImGui.beginCombo("##LocalSkill", selectedSkill)) {
+            for (var skill : monitor.skills()) if (ImGui.selectable(skill.id(), selectedSkill.equals(skill.id()))) selectedSkill = skill.id();
+            ImGui.endCombo();
+        }
+        var definition = monitor.skills().stream().filter(s -> s.id().equals(selectedSkill)).findFirst().orElseThrow();
+        ImGui.textWrapped(definition.description());
+        ImGui.textWrapped("Requires: " + definition.capabilities());
+        ImGui.textWrapped("Operator grants: world read, memory read, workspace file read, new report creation.");
+        var inputs = new java.util.TreeMap<String, String>();
+        new java.util.TreeMap<>(definition.input().fields()).forEach((name, field) -> {
+            var value = skillFields.computeIfAbsent(selectedSkill + "." + name, ignored -> new ImString(Math.min(field.maxLength() + 1, 8192)));
+            ImGui.setNextItemWidth(-1); ImGui.inputText(name, value); inputs.put(name, value.get());
+        });
+        ImGui.textDisabled("File paths are relative to the workspace shown in Jobs.");
+        ImGui.beginDisabled(session.isRunning() || session.isMonitoring());
+        if (ImGui.button("Run local tool")) {
+            try { session.requestSkill(scene, selectedSkill, inputs); uiError = ""; }
+            catch (RuntimeException error) { uiError = error.getMessage(); }
+        }
+        ImGui.endDisabled();
+        if (session.isRunning()) ImGui.text("Kernel operation running...");
+        if (!session.skillError().isBlank()) ImGui.textWrapped(session.skillError());
+        if (!uiError.isBlank()) ImGui.textWrapped(uiError);
+        var result = session.skillResult();
+        if (result != null) {
+            ImGui.separator(); ImGui.textWrapped(result.skill() + " | " + result.status() + " | journal entry " + result.journalIndex());
+            result.output().forEach((key, value) -> {
+                if (value.length() > 3000) { if (ImGui.treeNode(key)) { ImGui.textWrapped(value.substring(0, 3000) + "... (full result saved in journal)"); ImGui.treePop(); } }
+                else ImGui.textWrapped(key + ": " + value);
+            });
+        }
+        if (ImGui.collapsingHeader("Persisted tool receipts")) for (int i = 0; i < monitor.skillReceipts().size(); i++) {
+            if (ImGui.treeNode("Tool receipt " + (i + 1))) { ImGui.textWrapped(monitor.skillReceipts().get(i)); ImGui.treePop(); }
+        }
+        if (ImGui.collapsingHeader("Implementation evidence")) ImGui.textWrapped("v" + definition.version() + " | SHA-256 of dispatcher class: " + definition.implementationSha256());
     }
     private void jobs(Scene scene) {
         var session = Window.getFactorySession();

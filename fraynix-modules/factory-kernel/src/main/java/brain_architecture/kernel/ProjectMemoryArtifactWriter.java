@@ -50,9 +50,9 @@ public final class ProjectMemoryArtifactWriter {
 
         Path operationalMemory = generatedRoot.resolve("SELF_BUILD_MEMORY.md");
         Path forecastMemory = generatedRoot.resolve("SELF_BUILD_FORECAST.md");
-        Path canonicalDoc = configuration.getWorkspaceRoot().resolve(CANONICAL_DOC_PATH).normalize();
-        Path architectureDoc = configuration.getWorkspaceRoot().resolve(ARCHITECTURE_DOC_PATH).normalize();
-        Path goalsDoc = configuration.getWorkspaceRoot().resolve(GOALS_DOC_PATH).normalize();
+        Path canonicalDoc = projectDoc(Path.of("README.md"), CANONICAL_DOC_PATH);
+        Path architectureDoc = projectDoc(Path.of("docs", "ARCHITECTURE.md"), ARCHITECTURE_DOC_PATH);
+        Path goalsDoc = projectDoc(Path.of("docs", "CONTINUITY_AND_SKILLS.md"), GOALS_DOC_PATH);
         Path trueOutlineDoc = configuration.getWorkspaceRoot().resolve(TRUE_OUTLINE_PATH).normalize();
         Path auditMatrixDoc = configuration.getWorkspaceRoot().resolve(AUDIT_MATRIX_PATH).normalize();
         Path continuityProtocolDoc = configuration.getWorkspaceRoot().resolve(CONTINUITY_PROTOCOL_PATH).normalize();
@@ -71,6 +71,8 @@ public final class ProjectMemoryArtifactWriter {
         if (Files.exists(goalsDoc)) {
             artifacts.add(configuration.getWorkspaceRoot().relativize(goalsDoc));
         }
+        Path verification = configuration.getWorkspaceRoot().resolve("docs/VERIFICATION.md");
+        if (Files.isRegularFile(verification)) artifacts.add(configuration.getWorkspaceRoot().relativize(verification));
         if (Files.exists(trueOutlineDoc)) {
             Path relative = configuration.getWorkspaceRoot().relativize(trueOutlineDoc);
             dualCanonDocs.add(relative);
@@ -89,6 +91,11 @@ public final class ProjectMemoryArtifactWriter {
         artifacts.add(configuration.getWorkspaceRoot().relativize(operationalMemory));
         artifacts.add(configuration.getWorkspaceRoot().relativize(forecastMemory));
         return new MemoryArtifacts(artifacts, dualCanonDocs, canonicalDoc, architectureDoc, goalsDoc, operationalMemory, forecastMemory);
+    }
+
+    private Path projectDoc(Path standalone, Path legacy) {
+        Path local = configuration.getWorkspaceRoot().resolve(standalone).normalize();
+        return Files.isRegularFile(local) ? local : configuration.getWorkspaceRoot().resolve(legacy).normalize();
     }
 
     private String buildOperationalMemory(Map<String, Object> status, Path canonicalDoc, Path architectureDoc, Path goalsDoc) {
@@ -150,6 +157,13 @@ public final class ProjectMemoryArtifactWriter {
         builder.append("- Semantic repairs exist for imports, signature drift, missing methods, missing fields, public type/file mismatches, and package/source-path mismatches.\n");
         builder.append("- PDF distillation produces labeled local corpus memory (`spec`, `code-idea`, `test-idea`, `failure`, `research`, `vision`).\n");
         builder.append("- Successful repairs are persisted as lessons and templates so future mutation proposals can reuse what already worked.\n\n");
+        if (Files.isRegularFile(configuration.getWorkspaceRoot().resolve("docs/CONTINUITY_AND_SKILLS.md"))) {
+            builder.append("## Studio Integration\n\n");
+            builder.append("- Studio owns its checked-in Java modules and uses README.md, docs/ARCHITECTURE.md and docs/CONTINUITY_AND_SKILLS.md as current project references.\n");
+            builder.append("- Five compiled local tools use typed schemas and host capability grants; successful results and unfinished calls remain in the verified journal.\n");
+            builder.append("- General tool calls are operator-driven. Create retains its separate staged scene protocol.\n");
+            builder.append("- Consult docs/VERIFICATION.md for measured coverage and limits. Hash consistency is not identity authentication or an OS sandbox.\n\n");
+        }
 
         builder.append("## Repair Memory Summary\n\n");
         List<RepairMemoryStore.RepairLesson> lessons = repairMemoryStore.snapshotLessons();
@@ -189,6 +203,9 @@ public final class ProjectMemoryArtifactWriter {
         builder.append("## Immediate Goal\n\n");
         builder.append("Raise the system from deterministic self-repair toward deterministic self-construction: the same offline kernel that repairs itself should also improve how it produces future repairs, tests, and reproducible build surfaces.\n\n");
         builder.append("## Near-Term Forecast\n\n");
+        if (Files.isRegularFile(configuration.getWorkspaceRoot().resolve("docs/CONTINUITY_AND_SKILLS.md"))) {
+            builder.append("- Studio priorities: durable queued jobs, measured per-model time/resource profiles and selected read-only agent tools under explicit host grants.\n");
+        }
         builder.append("- Expand template-backed reuse from missing methods and fields into signature repairs and generated regression tests.\n");
         builder.append("- Record repair outcomes as compact local lessons that distinguish successful template reuse from heuristic fallback.\n");
         builder.append("- Improve proposal ranking so repeated successful templates outrank generic generated artifacts even before evolution scoring.\n\n");

@@ -150,4 +150,28 @@ public class FactorySceneIntegrationTest {
             assertFalse(restarted.world().snapshot().entities().stream().flatMap(e -> e.components().stream()).anyMatch(c -> c.type().equals("factory.task") && c.values().get("status").equals("running")));
         }
     }
+
+    @Test public void localToolsUseTheLiveCapturedWorldWithoutAddingEntitiesAndRestoreReceipts() throws Exception {
+        Path project = Files.createTempDirectory("factory-live-tools-"); Scene scene = scene();
+        UUID id = scene.getGameObjects().get(0).getPersistentId();
+        try (var session = new FactorySession(project)) {
+            session.requestSkill(scene, "world.inspect", Map.of());
+            long deadline = System.nanoTime() + 15_000_000_000L;
+            while (session.isRunning() && System.nanoTime() < deadline) { Thread.sleep(10); session.poll(); }
+            assertFalse("Local tool timed out", session.isRunning()); assertEquals("", session.skillError());
+            var output = session.skillResult().output();
+            assertEquals("1", output.get("entities"));
+            var record = JsonParser.parseString(output.get("world")).getAsJsonArray().get(0).getAsJsonObject();
+            assertEquals(id.toString(), record.get("id").getAsString());
+            assertTrue(output.get("world").contains("editor.jade.Transform"));
+            assertEquals(1, scene.getGameObjects().size());
+            assertEquals(1, session.world().snapshot().entities().size());
+        }
+        try (var service = new fraymus.factory.kernel.FactoryKernelService(project)) {
+            var monitor = service.monitor("");
+            assertEquals("verified", monitor.status().get("journalIntegrity"));
+            assertEquals(5, monitor.skills().size());
+            assertTrue(monitor.skillReceipts().get(0).contains("world.inspect"));
+        }
+    }
 }

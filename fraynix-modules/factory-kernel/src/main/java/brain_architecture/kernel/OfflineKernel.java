@@ -611,6 +611,7 @@ public final class OfflineKernel implements AutoCloseable {
         status.put("trackedArtifacts", memoryStore.snapshotTrackedArtifacts().size());
         status.put("journalEntries", journal.size());
         status.put("merkleRoot", journal.getLastMerkleRoot());
+        status.put("journalRestore", "hash chain and Merkle roots validated on open");
         status.put("router", router.getStatistics());
         status.put("causal", memoryStore.causalStatistics());
         status.put("ingestionPolicy", memoryStore.ingestionPolicyStatistics());

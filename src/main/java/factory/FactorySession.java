@@ -2,6 +2,7 @@ package factory;
 
 import fraymus.factory.*;
 import fraymus.factory.kernel.FactoryKernelService;
+import fraymus.factory.kernel.LocalSkillDispatcher;
 import imgui.ImGui;
 import jade.Window;
 import scenes.Scene;
@@ -30,6 +31,9 @@ public final class FactorySession implements AutoCloseable {
     private FactoryKernelService.Monitor monitor;
     private long lastMonitorNanos;
     private String memoryQuery = "", monitorError = "";
+    private CompletableFuture<LocalSkillDispatcher.Result> skillFuture;
+    private LocalSkillDispatcher.Result skillResult;
+    private String skillError = "";
 
     public FactorySession(Path workspace) {
         this.workspace = workspace.toAbsolutePath().normalize();
@@ -70,14 +74,27 @@ public final class FactorySession implements AutoCloseable {
     public boolean isMonitoring() { return monitorFuture != null; }
     public void requestMonitor(String query) {
         memoryQuery = query;
-        if (monitorFuture != null || active != null) return;
+        if (monitorFuture != null || active != null || skillFuture != null) return;
         lastMonitorNanos = System.nanoTime();
         monitorFuture = CompletableFuture.supplyAsync(() -> {
             try (var service = new FactoryKernelService(workspace)) { return service.monitor(query); }
             catch (IOException error) { throw new CompletionException(error); }
         }, worker);
     }
-    public boolean isRunning() { return active != null; }
+    public boolean isRunning() { return active != null || skillFuture != null; }
+    public LocalSkillDispatcher.Result skillResult() { return skillResult; }
+    public String skillError() { return skillError; }
+    public void requestSkill(Scene scene, String id, Map<String, String> input) {
+        if (isRunning() || isMonitoring()) throw new IllegalStateException("Wait for the current kernel operation");
+        capture(scene); WorldSnapshot snapshot = world.snapshot(); Map<String, String> fields = Map.copyOf(input);
+        skillError = ""; skillResult = null;
+        // This host policy authorizes these four local capabilities for explicit operator tool calls.
+        var grants = EnumSet.allOf(LocalSkillDispatcher.Capability.class);
+        skillFuture = CompletableFuture.supplyAsync(() -> {
+            try (var service = new FactoryKernelService(workspace)) { return service.invokeSkill(id, fields, grants, snapshot); }
+            catch (IOException error) { throw new CompletionException(error); }
+        }, worker);
+    }
     public String status() { return status; }
     public boolean hasCheckpoint() {
         return Files.isRegularFile(checkpoints.path()) || Files.isRegularFile(checkpoints.path().resolveSibling(checkpoints.path().getFileName() + ".previous"));
@@ -118,7 +135,7 @@ public final class FactorySession implements AutoCloseable {
     }
 
     public void inspect(Scene scene) throws IOException {
-        if (active != null) throw new IllegalStateException("An inspection is already running");
+        if (isRunning()) throw new IllegalStateException("A kernel operation is already running");
         roundTrip = sceneAdapter.verifyRoundTrip(scene, schemas);
         save(scene);
         activeEntity = world.snapshot().entities().stream().filter(FactorySession::isInspectionStatus)
@@ -137,12 +154,17 @@ public final class FactorySession implements AutoCloseable {
     }
 
     public void poll() {
+        if (skillFuture != null && skillFuture.isDone()) {
+            try { skillResult = skillFuture.join(); }
+            catch (CompletionException error) { skillError = "Tool: " + error.getCause().getMessage(); }
+            skillFuture = null; lastMonitorNanos = 0;
+        }
         if (monitorFuture != null && monitorFuture.isDone()) {
             try { monitor = monitorFuture.join(); monitorError = ""; }
             catch (CompletionException error) { monitorError = "Kernel: " + error.getCause().getMessage(); }
             monitorFuture = null;
         }
-        if (monitorFuture == null && active == null && System.nanoTime() - lastMonitorNanos > 10_000_000_000L) requestMonitor(memoryQuery);
+        if (monitorFuture == null && active == null && skillFuture == null && System.nanoTime() - lastMonitorNanos > 10_000_000_000L) requestMonitor(memoryQuery);
         if (active == null || !active.isDone()) return;
         try {
             var receipt = active.join(); trace = receipt.tracePath();
@@ -191,7 +213,7 @@ public final class FactorySession implements AutoCloseable {
         if (ImGui.button("Save checkpoint")) execute(() -> save(scene));
         ImGui.sameLine();
         if (ImGui.button("Restore checkpoint")) execute(() -> Window.installFactoryScene(restore()));
-        if (active == null && ImGui.button("Verify save / restore")) execute(() -> inspect(scene));
+        if (!isRunning() && ImGui.button("Verify save / restore")) execute(() -> inspect(scene));
         ImGui.textWrapped(status);
         if (!trace.isEmpty()) ImGui.textWrapped("Trace: " + trace);
     }

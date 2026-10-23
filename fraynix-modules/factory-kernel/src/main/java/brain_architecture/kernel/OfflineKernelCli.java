@@ -23,6 +23,7 @@ public final class OfflineKernelCli {
 
         String command = args[0].toLowerCase(Locale.ROOT);
         switch (command) {
+            case "skills", "skill", "verify-journal", "recover-journal-tail" -> fraymus.factory.kernel.StudioSkillCli.main(args);
             case "status" -> runStatus(args);
             case "profile" -> runProfile(args);
             case "ingest" -> runIngest(args);
@@ -492,6 +493,10 @@ public final class OfflineKernelCli {
     private static void printUsage() {
         System.out.println("OfflineKernelCli commands:");
         System.out.println("  status <workspace>");
+        System.out.println("  skills <workspace>");
+        System.out.println("  skill <workspace> <id> --grant CAPABILITY key=value ...");
+        System.out.println("  verify-journal <workspace>");
+        System.out.println("  recover-journal-tail <workspace> <verifiedPrefixCount> <verifiedPrefixMerkleRoot>");
         System.out.println("  profile <workspace>");
         System.out.println("  ingest <workspace> <path...>");
         System.out.println("  task <workspace> <goal> [--artifact path] [--constraint text] [--mode supervised|automated|mutation] [--f0] [--model id] [--model-root path] [--model-runner path] [--model-backend name] [--maxTokens n]");

@@ -13,6 +13,11 @@ flowchart LR
     Review --> Save[Atomic checkpoint and undo receipt]
     Save --> Scene
     Kernel[Offline kernel and persistent memory] --> UI
+    UI --> Registry[Typed local skill dispatcher]
+    Registry --> Captured[Captured world and bounded project files]
+    Registry --> Memory[Existing hybrid memory]
+    Registry --> Parser[JDK compiler AST parser]
+    Registry --> Journal[Verified hash-chain journal]
 ```
 
 ## Components
@@ -24,6 +29,10 @@ flowchart LR
 `FraynixWorkspace` manages background model observation and conversational inference. `FactoryModelService` uses the checked-in local-model catalog and existing Ollama adapter. UI availability is derived from `/api/tags`; residency comes from `/api/ps`.
 
 `SceneAgent` captures a `SceneKnowledge` observation and runs a model/tool/validation loop. `SceneProposal` converts accepted operations to a staged transaction. `SceneSimulation` validates a detached candidate with real JBox2D. `SceneEditHistory` owns before/candidate checkpoints, receipts and restart-safe undo.
+
+`LocalSkillDispatcher` adds five compiled local functions with versioned input/output contracts and explicit host capability grants. `FactorySession` supplies its immutable world snapshot to the worker. The Tools tab renders definitions and journaled results; the CLI can invoke non-world tools with explicit grants. No imported Markdown executes or grants authority. The Create model loop retains its existing protocol.
+
+`MerkleAppendOnlyJournal` validates legacy/J2 history on load and before append. Cross-process locks serialize writers; forced staging and atomic replacement precede in-memory publication. Abandoned staging and unfinished tool calls remain visible. See [contracts and recovery](CONTINUITY_AND_SKILLS.md) for the limits of integrity evidence, explicit recovery and file-access checks.
 
 ## Data flow
 

@@ -19,7 +19,15 @@ See `evidence/standalone-verification.json` for the structured extraction record
 
 `gradlew.bat clean check distZip installDist` compiles the editor and all three checked-in modules, runs the editor JUnit suite, runs the executable runtime/transaction/kernel/model harnesses, and packages the application.
 
-The inherited integration has 56 editor JUnit tests. Those cover geometry, physics registration, picking/placement coordinates, serialization, checkpoints, actual scene transactions, protected identities, invalid JSON/fields, detached collisions, rollback, stale drafts and persistent undo. The shared modules use four executable harnesses in addition to JUnit.
+The current integration has 57 editor JUnit tests. Those cover geometry, physics registration, picking/placement coordinates, serialization, checkpoints, actual scene transactions, protected identities, invalid JSON/fields, detached collisions, rollback, stale drafts, persistent undo and the live-world tool worker. The shared modules use six executable harnesses in addition to JUnit.
+
+## Continuity and local tools
+
+The next implementation slice adds `JournalContinuityTest` and `LocalSkillsTest` to the normal `check` dependency graph. These verify every journal field, independent Merkle roots, legacy format compatibility, explicit anchored tail recovery with byte-preserved evidence, staged-crash restart, failed writes, same-process writers and concurrent JVM writers. They execute all five local handlers, actual JDK parsing/diagnostics, persisted memory search, generated docs, positive/negative hashes, capability/schema denial, path boundaries and restored/unfinished receipts.
+
+The local Windows symlink creation probe was skipped because the process lacks the required privilege. Absolute paths and traversal were tested. The tools enforce application path/capability checks; these tests do not establish an OS sandbox, signature authentication or hardware power-loss durability.
+
+The native Studio script now requires all six tabs and a completed `world.inspect` receipt. It runs twice with real local models and checks stable scene identities/physics, persisted chat and scene restore. Current slice evidence is recorded in `evidence/continuity-skills-verification.json`.
 
 ## Native surface
 
