@@ -1,0 +1,1209 @@
+{
+  "snapshotDate": "2026-10-22",
+  "sourceRepository": "https://github.com/eyeoverthink/Vaughn-Scotts-Fraymus-Engine",
+  "sourceHead": "4b6c2b1f802dcf52e8013997a6b0d5fbe00e466d",
+  "workingTreeIncluded": true,
+  "meaning": "SHA-256 of imported files before Fraynix-Studio adaptations; this is an origin record, not a manifest of final release contents.",
+  "files": [
+    {
+      "path": ".gitattributes",
+      "sha256": "7d20cce5d1303ceb68aa00977b1c9dc48387f99dd226628e1dac07acd7b5b2e1",
+      "bytes": 245
+    },
+    {
+      "path": ".github/workflows/build.yml",
+      "sha256": "03f8b3576d57f76e519f7e7479d8a368c9fc3d958854e78553e32d9898916c2c",
+      "bytes": 827
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES.md",
+      "sha256": "2d0425aa44d5f89bec91971397b63657b8376d4980f716ffde83b83fe96e3909",
+      "bytes": 2913
+    },
+    {
+      "path": "assets/images/blendImage1.png",
+      "sha256": "6887f6e6c6052da0b165e4dcd049fdf4c923877a9d07bdf65dc3c6b56584c759",
+      "bytes": 931
+    },
+    {
+      "path": "assets/images/blendImage2.png",
+      "sha256": "7ff2be9c93496b819369dd85f15a84e343df008f01b9c45ed07c37d40835666d",
+      "bytes": 931
+    },
+    {
+      "path": "assets/images/gizmos.png",
+      "sha256": "1845c2bac0a951eb396b65662c44a529bec48ddfd2c6ca39c90512549105298f",
+      "bytes": 1408
+    },
+    {
+      "path": "assets/images/spritesheet.png",
+      "sha256": "74f5592bd41952d6e9e4cda4aae2914944a762bf83bab183673397fccd14e96c",
+      "bytes": 2340
+    },
+    {
+      "path": "assets/images/spritesheets/decorationsAndBlocks.png",
+      "sha256": "9a26bca9505d31968c0af1ec6a8095a978728f83463ae547c5b3c3b47be70a17",
+      "bytes": 4429
+    },
+    {
+      "path": "assets/images/spritesheets/icons.png",
+      "sha256": "982b4435fb1377fc301dc7469b397c7d1ab1b89f1f6fafcdf1ad203fc451dfdd",
+      "bytes": 2938
+    },
+    {
+      "path": "assets/images/spritesheets/pipes.png",
+      "sha256": "502e477279252b5d90afe0b6a70e4f4032d52022e5bde533fdd2e7990c560835",
+      "bytes": 866
+    },
+    {
+      "path": "assets/images/testImage.png",
+      "sha256": "3af31b3f82096f2401d66456da5dcaa5c3aead409ab1ec777324b92beb19464a",
+      "bytes": 420
+    },
+    {
+      "path": "assets/images/testImage2.png",
+      "sha256": "99dfe04a55855468799c665eebfc5438886766a0720e7ba78bdc641fc6b81a95",
+      "bytes": 371
+    },
+    {
+      "path": "assets/shaders/debugLine2D.glsl",
+      "sha256": "d4119bd374d6d86919d54e8f3efe97eb8f03548fcee07a3a6c898a580258b06b",
+      "bytes": 404
+    },
+    {
+      "path": "assets/shaders/default.glsl",
+      "sha256": "9e37301d5295a2c945565d8fdaac5cd70d5b2b06f2e6c6f7d3136b831268e63c",
+      "bytes": 823
+    },
+    {
+      "path": "assets/shaders/pickingShader.glsl",
+      "sha256": "cd2b46012f28eaebbfe31733d8d07cab37606c7151b526333649d1172c485cde",
+      "bytes": 1011
+    },
+    {
+      "path": "build.gradle",
+      "sha256": "b5f267a0672a367f21bd9e5fbdb377389b3018c984d9d2a30c70df8d49bed80a",
+      "bytes": 2429
+    },
+    {
+      "path": "fraynix-modules/factory-kernel/build.gradle",
+      "sha256": "8f62d6e58bb5fa5fb7ebd80524656a3b535e27b961ec1a700211fc982f5c49e7",
+      "bytes": 1070
+    },
+    {
+      "path": "fraynix-modules/factory-kernel/src/main/java/brain_architecture/integration/unified/UnifiedDiagnosticEntry.java",
+      "sha256": "fba0add937ef298f43b28b62e984162f68ecb27607f78792d9a4b50af37fd054",
+      "bytes": 2089
+    },
+    {
+      "path": "fraynix-modules/factory-kernel/src/main/java/brain_architecture/integration/unified/UnifiedDiagnostics.java",
+      "sha256": "27642248fab7a14b3b1687b4539f8ef0c8d02889c2fb8d1503166dffdb16f44e",
+      "bytes": 3037
+    },
+    {
+      "path": "fraynix-modules/factory-kernel/src/main/java/brain_architecture/integration/unified/UnifiedEvolutionEvaluation.java",
+      "sha256": "77fd7b0f90c7faeb615a359afdca72e947f265ba6da33d4dfa59bd96b4d7b467",
+      "bytes": 3838
+    },
+    {
+      "path": "fraynix-modules/factory-kernel/src/main/java/brain_architecture/integration/unified/UnifiedEvolutionIteration.java",
+      "sha256": "666b98bba291fc6db3f98007c1c971f3d39e50af11cc9e2da2e8bab46b47a29e",
+      "bytes": 2224
+    },
+    {
+      "path": "fraynix-modules/factory-kernel/src/main/java/brain_architecture/integration/unified/UnifiedExecutionTrace.java",
+      "sha256": "3a44f3d24e6e41b4e86e3a0c543e743f4aa9b659afd56c0daf5e2ce656de7a77",
+      "bytes": 6193
+    },
+    {
+      "path": "fraynix-modules/factory-kernel/src/main/java/brain_architecture/integration/unified/UnifiedJournalEntry.java",
+      "sha256": "889e7373684a83e54ea416a64854e1d75bbe6faf687cf625d72a50e6013e13ab",
+      "bytes": 2133
+    },
+    {
+      "path": "fraynix-modules/factory-kernel/src/main/java/brain_architecture/integration/unified/UnifiedKernelGateway.java",
+      "sha256": "77ac13b3b43430a278532b458005c0ccd08c63bc45ee436d96ad6c61f1f389b1",
+      "bytes": 6712
+    },
+    {
+      "path": "fraynix-modules/factory-kernel/src/main/java/brain_architecture/integration/unified/UnifiedMemoryHit.java",
+      "sha256": "dd3c347a0016498738edacb3e3125cd0186744b6881c695d06c3ac8087183b43",
+      "bytes": 3801
+    },
+    {
+      "path": "fraynix-modules/factory-kernel/src/main/java/brain_architecture/integration/unified/UnifiedMutationProposal.java",
+      "sha256": "3a102e9d6140ba5f23e4cabf13f563c6a13441fd1ffc24c6c208dffcdc009291",
+      "bytes": 6450
+    },
+    {
+      "path": "fraynix-modules/factory-kernel/src/main/java/brain_architecture/integration/unified/UnifiedProposalPreview.java",
+      "sha256": "71d4a4a15262b9d035b3bbc3d36bef581711d2e6c2951242271148cdc41fb9f6",
+      "bytes": 3260
+    },
+    {
+      "path": "fraynix-modules/factory-kernel/src/main/java/brain_architecture/integration/unified/UnifiedResult.java",
+      "sha256": "d102553d6683e2fb600c0a801241ea8f3ad54413cb44a309f4694bfbb544d171",
+      "bytes": 3462
+    },
+    {
+      "path": "fraynix-modules/factory-kernel/src/main/java/brain_architecture/integration/unified/UnifiedTask.java",
+      "sha256": "015dc2a8465f737203c5114d7cba8026b49d58e0d62732de2bba50c7be724513",
+      "bytes": 4615
+    },
+    {
+      "path": "fraynix-modules/factory-kernel/src/main/java/brain_architecture/kernel/CanonicalTruthAuditor.java",
+      "sha256": "6ffb1b426a6c0a6a6fcd4b2e1991f6250a99eefe80215cc6c0038b167684d042",
+      "bytes": 41373
+    },
+    {
+      "path": "fraynix-modules/factory-kernel/src/main/java/brain_architecture/kernel/ClaimRecord.java",
+      "sha256": "7ba9b8771b2d98b262c31fbbc2bb464487db4f20eb8dcfe9072822456874267c",
+      "bytes": 1081
+    },
+    {
+      "path": "fraynix-modules/factory-kernel/src/main/java/brain_architecture/kernel/ClaimStatus.java",
+      "sha256": "c22e59db1c89b5303ddb7cab90d1e51ef7ffe6574f6e3dd5a1d2aad6fc43ccf0",
+      "bytes": 191
+    },
+    {
+      "path": "fraynix-modules/factory-kernel/src/main/java/brain_architecture/kernel/CorpusMutationSeed.java",
+      "sha256": "e2e41c2937d9cbd0ee804a8b66ee4c009e9d5e0d0a683cde02f1b34a3608331f",
+      "bytes": 1764
+    },
+    {
+      "path": "fraynix-modules/factory-kernel/src/main/java/brain_architecture/kernel/EvolutionReport.java",
+      "sha256": "b4d909f904a44802255134fe3e10e3f25b5a8008c612e61e655360cac12db7ec",
+      "bytes": 2878
+    },
+    {
+      "path": "fraynix-modules/factory-kernel/src/main/java/brain_architecture/kernel/ExecutionTrace.java",
+      "sha256": "c8509ef6bdffcbfeb5232b0684cd89f9caa825cc226d118dcf83dbbccf527c5b",
+      "bytes": 4301
+    },
+    {
+      "path": "fraynix-modules/factory-kernel/src/main/java/brain_architecture/kernel/F0RuntimeSubstrateAdapter.java",
+      "sha256": "7301c4c71bbf0d857e748d6f210c4d4d3c70a2736f55ef53b3595eb827fdcebb",
+      "bytes": 3809
+    },
+    {
+      "path": "fraynix-modules/factory-kernel/src/main/java/brain_architecture/kernel/FoundationalSubstrateBootstrapper.java",
+      "sha256": "677c4108d7b26c84b745c772d02621fcd46f5f9010a207b69c7e38cde881cbde",
+      "bytes": 86264
+    },
+    {
+      "path": "fraynix-modules/factory-kernel/src/main/java/brain_architecture/kernel/FoundationalSubstrateReport.java",
+      "sha256": "471fc1452ad9eb05a4b968e4dde59ebc5f7f04af1e3a5abfba782324c14a634e",
+      "bytes": 4554
+    },
+    {
+      "path": "fraynix-modules/factory-kernel/src/main/java/brain_architecture/kernel/GgufRuntimeModule.java",
+      "sha256": "0c1bd419cf4b860086338d63ee1daca5f78dd4893449f6c44c6ffdc2e8eedde8",
+      "bytes": 3239
+    },
+    {
+      "path": "fraynix-modules/factory-kernel/src/main/java/brain_architecture/kernel/GgufTokenPrimitiveEngine.java",
+      "sha256": "e2ed6fd76f433501805024bd067210531384acca747338550b468514a324ca7a",
+      "bytes": 10009
+    },
+    {
+      "path": "fraynix-modules/factory-kernel/src/main/java/brain_architecture/kernel/HybridMemoryStore.java",
+      "sha256": "20ae2e16aedd359df1eb4835e4fb5a60c42e874a91d5d962a0e6302b48d3be7d",
+      "bytes": 37725
+    },
+    {
+      "path": "fraynix-modules/factory-kernel/src/main/java/brain_architecture/kernel/KernelConfiguration.java",
+      "sha256": "0683d47c737f1019763c2f05659f25a1fca506a0a3ddc8077eb3f17f518059f2",
+      "bytes": 2794
+    },
+    {
+      "path": "fraynix-modules/factory-kernel/src/main/java/brain_architecture/kernel/KernelExecutionBridgeAdapter.java",
+      "sha256": "a3a82477100a3fe2178ec822fbc012a019be03bed8fa6dd64a5b08384485044f",
+      "bytes": 8629
+    },
+    {
+      "path": "fraynix-modules/factory-kernel/src/main/java/brain_architecture/kernel/KernelHypervectorSpace.java",
+      "sha256": "789016b45f04182e69f9901d3d33a91d72f3222f0d935703bc100e8905487102",
+      "bytes": 1373
+    },
+    {
+      "path": "fraynix-modules/factory-kernel/src/main/java/brain_architecture/kernel/KernelRunResult.java",
+      "sha256": "d57578e906630d323254b1ace573f8208da1924b42b6d2622821087ced5e2c91",
+      "bytes": 1731
+    },
+    {
+      "path": "fraynix-modules/factory-kernel/src/main/java/brain_architecture/kernel/KernelStateStore.java",
+      "sha256": "8045dcfd14065bc2e7297a50b1d78e4ff389dfa19bebfe94259962ab269cd99c",
+      "bytes": 12041
+    },
+    {
+      "path": "fraynix-modules/factory-kernel/src/main/java/brain_architecture/kernel/KernelVerifier.java",
+      "sha256": "c3ea6ffb10642783ada569c53f8370ae7dfa0e1bb5d98f68654f8a7cd5bb15f8",
+      "bytes": 13042
+    },
+    {
+      "path": "fraynix-modules/factory-kernel/src/main/java/brain_architecture/kernel/LocalModelDescriptor.java",
+      "sha256": "f29ab4745c7b17e10204038c305d6347d407bd46a58b23ee2e206c573c18ef86",
+      "bytes": 2332
+    },
+    {
+      "path": "fraynix-modules/factory-kernel/src/main/java/brain_architecture/kernel/LocalModelRuntimeAdapter.java",
+      "sha256": "7828b9973ebf9f54dc4b40cfd46aa7a06f53e8e9d8f9313f568c2c5e4d96529f",
+      "bytes": 27313
+    },
+    {
+      "path": "fraynix-modules/factory-kernel/src/main/java/brain_architecture/kernel/LocalModelRuntimeDescriptor.java",
+      "sha256": "81df3230e3c0c3f297991d024e8108374d0c460d33c00c3830c41bf683f9a075",
+      "bytes": 1336
+    },
+    {
+      "path": "fraynix-modules/factory-kernel/src/main/java/brain_architecture/kernel/LocalModelSubstrateCatalog.java",
+      "sha256": "314b80055d29f3866e937b0a9a4af57ea51dcbb417ecb270112084848790b3e8",
+      "bytes": 2503
+    },
+    {
+      "path": "fraynix-modules/factory-kernel/src/main/java/brain_architecture/kernel/MemoryBenchmarkReport.java",
+      "sha256": "5cdf74b60e95e64282b77b64181a53faa8d3cbbd0b73a2c81b1317e4ba8a1bd1",
+      "bytes": 1577
+    },
+    {
+      "path": "fraynix-modules/factory-kernel/src/main/java/brain_architecture/kernel/MemoryDocument.java",
+      "sha256": "fa5671f9217424a4e050fc2d2f614d74e77c2e9f2d92b573f11ae0c4104d23b7",
+      "bytes": 1915
+    },
+    {
+      "path": "fraynix-modules/factory-kernel/src/main/java/brain_architecture/kernel/MemoryHit.java",
+      "sha256": "56fdb28d2d638a45c837933f18e4f51aa07efb887b6d48bf9683bfa202fb640a",
+      "bytes": 2207
+    },
+    {
+      "path": "fraynix-modules/factory-kernel/src/main/java/brain_architecture/kernel/MerkleAppendOnlyJournal.java",
+      "sha256": "6d0cb13086c2187d19a01ca9a5a3fc95b00c16fabce900f0d39ffffca7a92cfe",
+      "bytes": 6480
+    },
+    {
+      "path": "fraynix-modules/factory-kernel/src/main/java/brain_architecture/kernel/MutationCandidate.java",
+      "sha256": "b5059955449cc5dace9de2be942314cb78ab71c52cec1cc9250d8fb1faca1545",
+      "bytes": 1417
+    },
+    {
+      "path": "fraynix-modules/factory-kernel/src/main/java/brain_architecture/kernel/MutationOperation.java",
+      "sha256": "255c54808e147745597a863fd0d6189ea7ab7a65deaf9b2f42512d31042bd87c",
+      "bytes": 1779
+    },
+    {
+      "path": "fraynix-modules/factory-kernel/src/main/java/brain_architecture/kernel/MutationProposal.java",
+      "sha256": "eed12494e1bb362cb1f3cfff4e0191b56001a6a9019e6bcbe991e8b84b2b8602",
+      "bytes": 2122
+    },
+    {
+      "path": "fraynix-modules/factory-kernel/src/main/java/brain_architecture/kernel/MutationProposalEngine.java",
+      "sha256": "50a6ddbb77337e8090ddda6ecb958979fa5e7aaabd95809fe5cecee29c597d3e",
+      "bytes": 123787
+    },
+    {
+      "path": "fraynix-modules/factory-kernel/src/main/java/brain_architecture/kernel/MutationProposalPreview.java",
+      "sha256": "12b8c00d8bde506000094cf638fadaa06bdafd5edafa1435456916e7a54d6e13",
+      "bytes": 1665
+    },
+    {
+      "path": "fraynix-modules/factory-kernel/src/main/java/brain_architecture/kernel/OfflineKernel.java",
+      "sha256": "7466b61dca5e6dfd44d8fc6d7fda64562265d85661d625df0432ff2b16d6f916",
+      "bytes": 48354
+    },
+    {
+      "path": "fraynix-modules/factory-kernel/src/main/java/brain_architecture/kernel/OfflineKernelBenchmark.java",
+      "sha256": "dbb2457d53bcc1d170aa6b9857471bbc6b189c3b38f0455f1ff6a1e7229a28b6",
+      "bytes": 1277
+    },
+    {
+      "path": "fraynix-modules/factory-kernel/src/main/java/brain_architecture/kernel/OfflineKernelCli.java",
+      "sha256": "a84d034103d8e924521491fe56df80f7bc568968acf247452fc25ba0efdea6bf",
+      "bytes": 24166
+    },
+    {
+      "path": "fraynix-modules/factory-kernel/src/main/java/brain_architecture/kernel/OfflineKernelExample.java",
+      "sha256": "53a1af0583ee44b35d302145dde6e22ec00effb5d165d57edda9b6f755763287",
+      "bytes": 1711
+    },
+    {
+      "path": "fraynix-modules/factory-kernel/src/main/java/brain_architecture/kernel/OfflineToolchainManifest.java",
+      "sha256": "70d0171fdeec10efa9ac02f97c5bc053d61ee43e2069ef8b7894064e0a886387",
+      "bytes": 2719
+    },
+    {
+      "path": "fraynix-modules/factory-kernel/src/main/java/brain_architecture/kernel/OptionalPdfTextExtractor.java",
+      "sha256": "1835ee92a91277c0668149e580a9cf0787b12c09af10326cfec70bc196574cd8",
+      "bytes": 5091
+    },
+    {
+      "path": "fraynix-modules/factory-kernel/src/main/java/brain_architecture/kernel/PdfDistillationChunk.java",
+      "sha256": "21f0119ae8d97309ffd06c9791acfa111dc0a7c1ea83a785353b5292e73db271",
+      "bytes": 1735
+    },
+    {
+      "path": "fraynix-modules/factory-kernel/src/main/java/brain_architecture/kernel/PdfDistillationEngine.java",
+      "sha256": "ebe9288e018795818d9f310cba26765f772cbee54ad3a07027a8ae524dbcab1c",
+      "bytes": 13098
+    },
+    {
+      "path": "fraynix-modules/factory-kernel/src/main/java/brain_architecture/kernel/PdfDistillationReport.java",
+      "sha256": "e499ef33d0e6e5af28b3ea72d0df33ac2ad9c9cdb03367dbc496ae16c090e791",
+      "bytes": 2784
+    },
+    {
+      "path": "fraynix-modules/factory-kernel/src/main/java/brain_architecture/kernel/PlanActionHint.java",
+      "sha256": "e768218a7c84f75955d922fb973532ea44c1e4d60be50304d14f5c0d3fe66aa1",
+      "bytes": 238
+    },
+    {
+      "path": "fraynix-modules/factory-kernel/src/main/java/brain_architecture/kernel/PlanStep.java",
+      "sha256": "e8136d7ca0380eeb753d038df9d21bc9a78ee9a1ca3e0c126884bc24e1aa7575",
+      "bytes": 599
+    },
+    {
+      "path": "fraynix-modules/factory-kernel/src/main/java/brain_architecture/kernel/ProjectMemoryArtifactWriter.java",
+      "sha256": "71aca75a62ecf39c5b19381c18e68df60f7eb18b9596cbf7d0207d51db1d7429",
+      "bytes": 15292
+    },
+    {
+      "path": "fraynix-modules/factory-kernel/src/main/java/brain_architecture/kernel/RepairMemoryStore.java",
+      "sha256": "c0334826495efe79c5362b165bf4cff8f009a119a080e477fb57df9f3a780493",
+      "bytes": 40483
+    },
+    {
+      "path": "fraynix-modules/factory-kernel/src/main/java/brain_architecture/kernel/RetrievalProfile.java",
+      "sha256": "74c29e4a0b85ac8b6ef3ce02277d1e5b3e33d14391e1f5d988441ef464b14521",
+      "bytes": 177
+    },
+    {
+      "path": "fraynix-modules/factory-kernel/src/main/java/brain_architecture/kernel/ShadowMutationEngine.java",
+      "sha256": "a499d9aa35b8fcc7517361af13d3d492012c84f10f49c30d86bb1326cc7dfb2d",
+      "bytes": 15677
+    },
+    {
+      "path": "fraynix-modules/factory-kernel/src/main/java/brain_architecture/kernel/StrategyBanditRouter.java",
+      "sha256": "91f0ae1580abf2b60008d23b565c35b41a0345b5acfc51418cbde6dfc6058830",
+      "bytes": 5238
+    },
+    {
+      "path": "fraynix-modules/factory-kernel/src/main/java/brain_architecture/kernel/SubstrateAction.java",
+      "sha256": "f42605284779e0f5e04da72e67a8decead30523d169811f2f663a5f839edb106",
+      "bytes": 2072
+    },
+    {
+      "path": "fraynix-modules/factory-kernel/src/main/java/brain_architecture/kernel/SubstrateAdapter.java",
+      "sha256": "a52d1f10cb630feaef086c977b298195c0a11ebbf2dd6f619bb1d83c337a1545",
+      "bytes": 513
+    },
+    {
+      "path": "fraynix-modules/factory-kernel/src/main/java/brain_architecture/kernel/SubstrateResult.java",
+      "sha256": "63e794ab035f562e3907a374fd0a4bccb663afc93ca6b31f8b34e0561867dfec",
+      "bytes": 849
+    },
+    {
+      "path": "fraynix-modules/factory-kernel/src/main/java/brain_architecture/kernel/SubstrateSession.java",
+      "sha256": "9e1f39dfbb05da1b3f1724a3509abad222eaa02fbc1f159bc752b204314612ed",
+      "bytes": 891
+    },
+    {
+      "path": "fraynix-modules/factory-kernel/src/main/java/brain_architecture/kernel/SubstrateSnapshot.java",
+      "sha256": "f685cbcd1f0414d99168e772c0d1c58bd5d2e7313bbdfeeb5d46878fcdd0eaf4",
+      "bytes": 770
+    },
+    {
+      "path": "fraynix-modules/factory-kernel/src/main/java/brain_architecture/kernel/TaskBudget.java",
+      "sha256": "b93980cf11eb32dff8e803c42b8d95bd2139050bb3360360dc9a37c1aaf8ce69",
+      "bytes": 955
+    },
+    {
+      "path": "fraynix-modules/factory-kernel/src/main/java/brain_architecture/kernel/TaskEnvelope.java",
+      "sha256": "384cab12801ce56ba5f7ea62679724bf91f0779b4ea612c2cc4a98eed3e82bd6",
+      "bytes": 5934
+    },
+    {
+      "path": "fraynix-modules/factory-kernel/src/main/java/brain_architecture/kernel/TaskMode.java",
+      "sha256": "d5c5cbd59ae44bee54636c4e560b2ccc9d02b55f8509b89dc18fa98250c6e1d0",
+      "bytes": 150
+    },
+    {
+      "path": "fraynix-modules/factory-kernel/src/main/java/brain_architecture/kernel/TaskPlanner.java",
+      "sha256": "daa5f3fd4bf49aa062261388ef6434550d5cb85635ddcc91b1cf6afbdb70831b",
+      "bytes": 3509
+    },
+    {
+      "path": "fraynix-modules/factory-kernel/src/main/java/brain_architecture/kernel/TokenizerDigest.java",
+      "sha256": "8cea92b071ffe77c78cba6e1ce933f821bf81bc2c383adc4efef5b3f6dfc4f33",
+      "bytes": 1618
+    },
+    {
+      "path": "fraynix-modules/factory-kernel/src/main/java/brain_architecture/kernel/TraceReplayStore.java",
+      "sha256": "6f39d34008d08a8b3708070e4a4a722752fcc414e9d64d5f1c19b8107013fb76",
+      "bytes": 2359
+    },
+    {
+      "path": "fraynix-modules/factory-kernel/src/main/java/brain_architecture/kernel/UserSpaceSubstrateAdapter.java",
+      "sha256": "7742e4ab8180e2a5a982f635d47c164229b12accbe97542060cc89e9bc628ba6",
+      "bytes": 4553
+    },
+    {
+      "path": "fraynix-modules/factory-kernel/src/main/java/brain_architecture/kernel/ValidationCommand.java",
+      "sha256": "7b43df53d38d5b03e776e7f1596c99bd5991362ec14608daa27a9ec5b473e6f1",
+      "bytes": 867
+    },
+    {
+      "path": "fraynix-modules/factory-kernel/src/main/java/brain_architecture/kernel/ValidationSuite.java",
+      "sha256": "a6f0f78b3d9691a9ba3e0a2ca05ec174384cad9c1255f4c6b867c0c6b91e32d2",
+      "bytes": 3186
+    },
+    {
+      "path": "fraynix-modules/factory-kernel/src/main/java/brain_architecture/kernel/ValidationSuiteFactory.java",
+      "sha256": "9ffadf128d32bbbd4e6153e84d081c2088893d450767d0466934d4bfa63067d7",
+      "bytes": 6341
+    },
+    {
+      "path": "fraynix-modules/factory-kernel/src/main/java/brain_architecture/kernel/VerifierDiagnostic.java",
+      "sha256": "94275f84fcb68b81f4f8f69f4f5a57619530605189433ccc4f73d8f75aa84f40",
+      "bytes": 1466
+    },
+    {
+      "path": "fraynix-modules/factory-kernel/src/main/java/brain_architecture/kernel/VerifierResult.java",
+      "sha256": "857ca5b2d41e525b9bbf517e6dd26b9e6c42426a38eb6c2df5a52fa08c7becdb",
+      "bytes": 2352
+    },
+    {
+      "path": "fraynix-modules/factory-kernel/src/main/java/brain_architecture/kernel/WebServer.java",
+      "sha256": "96190dc1f2eba552a19f41489e6b742ae3b336cdf556bac411b10d3b57011090",
+      "bytes": 10754
+    },
+    {
+      "path": "fraynix-modules/factory-kernel/src/main/java/brain_architecture/kernel/WorkspaceProfile.java",
+      "sha256": "00a19296ca6850d5651b167e352e1c38bde5be1ded873c13ca28b339f7f8977f",
+      "bytes": 2137
+    },
+    {
+      "path": "fraynix-modules/factory-kernel/src/main/java/fraymus/causal/CausalModel.java",
+      "sha256": "a471aa487e09dd5211b3f3fd752e18ca3765f47e665fad6ddae725176effcdf8",
+      "bytes": 8862
+    },
+    {
+      "path": "fraynix-modules/factory-kernel/src/main/java/fraymus/causal/DAGVerifier.java",
+      "sha256": "bd98aaa4fb3f0843ef06061b3d04a44fc233505e857d4feb97076fa25bda7395",
+      "bytes": 10902
+    },
+    {
+      "path": "fraynix-modules/factory-kernel/src/main/java/fraymus/causal/DoCalculusEngine.java",
+      "sha256": "a1168bb7d10e2dec36231fd46efd506d0a3aa7f76d2b33a423c4d0f996197883",
+      "bytes": 13090
+    },
+    {
+      "path": "fraynix-modules/factory-kernel/src/main/java/fraymus/causal/SCMEnforcementEngine.java",
+      "sha256": "a9e0993a9943a8d21a5f4211606d3c74d4163313fd00059ffecabb6bd9be08a4",
+      "bytes": 14205
+    },
+    {
+      "path": "fraynix-modules/factory-kernel/src/main/java/fraymus/execution/ExecutionBridge.java",
+      "sha256": "19d39cd602be67c7ffeff016e09ce93ec252cb50aa0d973eabf59810b41f8be5",
+      "bytes": 17387
+    },
+    {
+      "path": "fraynix-modules/factory-kernel/src/main/java/fraymus/factory/kernel/ArtifactValidator.java",
+      "sha256": "43ad5f051cc17cb68f0fcaa4f04db556846bd0f27c554cca00dc90fd8fdfa476",
+      "bytes": 894
+    },
+    {
+      "path": "fraynix-modules/factory-kernel/src/main/java/fraymus/factory/kernel/FactoryDemo.java",
+      "sha256": "709a04c31d5390acc0ac3366b1be01844132eb90d3ffac469b3a866dc07eab55",
+      "bytes": 2191
+    },
+    {
+      "path": "fraynix-modules/factory-kernel/src/main/java/fraymus/factory/kernel/FactoryKernelService.java",
+      "sha256": "39477ad0a4ca966806ddc98f73e09e4d07a87d177b429dcc9c0f4b2d00d8424a",
+      "bytes": 4990
+    },
+    {
+      "path": "fraynix-modules/factory-kernel/src/main/java/fraymus/hdc/SharedHypervectorCore.java",
+      "sha256": "44dcff4af01b6b5a7acef709edb352618d6df61e5716a55084889aaa0c865279",
+      "bytes": 3868
+    },
+    {
+      "path": "fraynix-modules/factory-kernel/src/main/java/fraymus/llm/ModelLoader.java",
+      "sha256": "687b5551ce2dda1544b371f8bef5dca0c69f129dff07d0992763e562cd478797",
+      "bytes": 9514
+    },
+    {
+      "path": "fraynix-modules/factory-kernel/src/test/java/fraymus/factory/kernel/FactoryKernelIntegrationTest.java",
+      "sha256": "abd5f8905e0d1ca971d0dc970324c496314830fb8eb37547166fd3f1432cec2d",
+      "bytes": 1735
+    },
+    {
+      "path": "fraynix-modules/factory-models/build.gradle",
+      "sha256": "ea0761055d0a37119159db7fc10c9151eba954b09664fa80816a9ac550138920",
+      "bytes": 1161
+    },
+    {
+      "path": "fraynix-modules/factory-models/src/main/java/fraymus/OllamaIntegration.java",
+      "sha256": "5e1050aba8555eb321fc8d4478ceb87ceefbc01d2ba1c44ba471670b76659884",
+      "bytes": 19572
+    },
+    {
+      "path": "fraynix-modules/factory-models/src/main/java/fraymus/factory/models/ConversationStore.java",
+      "sha256": "7fbc98c9bf0770fced069e573ae6953e579424b66c400c706c2dca4119122339",
+      "bytes": 1968
+    },
+    {
+      "path": "fraynix-modules/factory-models/src/main/java/fraymus/factory/models/FactoryModelService.java",
+      "sha256": "3fc31b7350e9632af1ec0f6f9059bba8460ed8269e188f1f59aa286c18a874dc",
+      "bytes": 7983
+    },
+    {
+      "path": "fraynix-modules/factory-models/src/main/java/fraymus/llm/CapabilityProfile.java",
+      "sha256": "156bf1f5d1ba09cda55743b572945afb9102d40b41e194f0cca1d2e9da10e685",
+      "bytes": 2470
+    },
+    {
+      "path": "fraynix-modules/factory-models/src/main/java/fraymus/llm/LocalModelCatalog.java",
+      "sha256": "72803d524ce3c66ee6ca0bc9507de3dde5ac410dc1e071e23e5304cacec5a193",
+      "bytes": 6565
+    },
+    {
+      "path": "fraynix-modules/factory-models/src/main/java/fraymus/llm/ModelAbstractionLayer.java",
+      "sha256": "531442700a0aa58490a20e08d96adb3487b19174905851d4eaec27e5267a83b1",
+      "bytes": 3761
+    },
+    {
+      "path": "fraynix-modules/factory-models/src/main/java/fraymus/llm/ModelBackend.java",
+      "sha256": "0fd7bc1916253cef8898adec52b58beae1445263dde9705f5835ba680b9dd1e6",
+      "bytes": 179
+    },
+    {
+      "path": "fraynix-modules/factory-models/src/main/java/fraymus/llm/ModelDescriptor.java",
+      "sha256": "23c21ea806de08e8f67703c0faffc31cd822f0a7d5a4ece58715302890902082",
+      "bytes": 2613
+    },
+    {
+      "path": "fraynix-modules/factory-models/src/main/java/fraymus/llm/ModelRole.java",
+      "sha256": "e19dee25c49a15d5b863c8e45a16a02cc502fc8197b8d5470c80864d4fa08ef6",
+      "bytes": 1889
+    },
+    {
+      "path": "fraynix-modules/factory-models/src/main/java/fraymus/llm/ModelSelectionPolicy.java",
+      "sha256": "d61f2309dde1d48f82103a7829ab6a4750d2d159f7347962162cc85579e97b5d",
+      "bytes": 4935
+    },
+    {
+      "path": "fraynix-modules/factory-models/src/main/java/fraymus/llm/ModelSelectionResult.java",
+      "sha256": "3a8be03576658a8954d900ce977f42f42c47ecdecbcbcfb83c8ae9ac25bdd2f5",
+      "bytes": 303
+    },
+    {
+      "path": "fraynix-modules/factory-models/src/main/java/fraymus/llm/OpenModelRegistry.java",
+      "sha256": "1c9c0f24d4d310622e360609b3ef2a23aa068f6fa5722af32e804de4e2366302",
+      "bytes": 12083
+    },
+    {
+      "path": "fraynix-modules/factory-models/src/main/java/fraymus/model/CapabilityProfile.java",
+      "sha256": "d3dba77e976e411788ef68e599563f9f19c32c6ec43dab11a70c99636b227158",
+      "bytes": 10470
+    },
+    {
+      "path": "fraynix-modules/factory-models/src/main/java/fraymus/model/LocalOllamaModelAdapter.java",
+      "sha256": "c05dce891850c1ae5cc511364c9f4b3f47d3b47a8ec645d117b62fba3ac1c46b",
+      "bytes": 3648
+    },
+    {
+      "path": "fraynix-modules/factory-models/src/main/java/fraymus/model/ModelAdapter.java",
+      "sha256": "212520fc042377fce3e6c10b146b1421a7f9907635132731ce86eae99996eb97",
+      "bytes": 10039
+    },
+    {
+      "path": "fraynix-modules/factory-models/src/main/java/fraymus/model/ModelDescriptor.java",
+      "sha256": "18f2d77c37257be2c61e9e14a8089a99ec7156b7a857606686f8787f74cdfa1a",
+      "bytes": 7484
+    },
+    {
+      "path": "fraynix-modules/factory-models/src/test/java/fraymus/factory/models/FactoryModelsTest.java",
+      "sha256": "9c0fe82871c0fb18996feeb04ee972f58b3a827b11c7224af40fc1e0e2dde847",
+      "bytes": 5294
+    },
+    {
+      "path": "fraynix-modules/factory-runtime/build.gradle",
+      "sha256": "640fb9c20de8257f53b7676ff1447078452fb052b355e98ddfb515e3a6e912a9",
+      "bytes": 849
+    },
+    {
+      "path": "fraynix-modules/factory-runtime/src/main/java/fraymus/factory/ComponentRecord.java",
+      "sha256": "584141844b9e18fa96345088d67338f06e768091ecefffb273041c683b0f3e8c",
+      "bytes": 375
+    },
+    {
+      "path": "fraynix-modules/factory-runtime/src/main/java/fraymus/factory/ComponentSchema.java",
+      "sha256": "3d49444ad33d87219416c96fca70d979aa9f9dc622de1aae290802c6828bbf95",
+      "bytes": 1812
+    },
+    {
+      "path": "fraynix-modules/factory-runtime/src/main/java/fraymus/factory/EntityRecord.java",
+      "sha256": "b5b2b35726d3bc756ee6d087657f75122d4bb4f614665253030ca745e7bc165c",
+      "bytes": 366
+    },
+    {
+      "path": "fraynix-modules/factory-runtime/src/main/java/fraymus/factory/FactoryWorld.java",
+      "sha256": "2207d0fd62e4ab0728265469fc80bd7aa48f99e3adb74805344bc3d9faa112c7",
+      "bytes": 4140
+    },
+    {
+      "path": "fraynix-modules/factory-runtime/src/main/java/fraymus/factory/SchemaRegistry.java",
+      "sha256": "14bb4fc6a7a08a89f2f51a65403c67ccefcb34cd4f646b272be6a61b6d71f62e",
+      "bytes": 801
+    },
+    {
+      "path": "fraynix-modules/factory-runtime/src/main/java/fraymus/factory/SpatialIndex2D.java",
+      "sha256": "45909e936e0363c5e5c385d471518da3fb8f656e4670776066ae86d4a61e72d7",
+      "bytes": 2197
+    },
+    {
+      "path": "fraynix-modules/factory-runtime/src/main/java/fraymus/factory/WorldCheckpointStore.java",
+      "sha256": "68659d5dabb9697c3272c8379776a0e50a3f474e04f6f8b6ac47927f19771c19",
+      "bytes": 7739
+    },
+    {
+      "path": "fraynix-modules/factory-runtime/src/main/java/fraymus/factory/WorldSnapshot.java",
+      "sha256": "fc3813405d9ae64fb5cd31c3103f3fce0068184efbe0885c2ba7d5b662ca0ab1",
+      "bytes": 284
+    },
+    {
+      "path": "fraynix-modules/factory-runtime/src/main/java/fraymus/factory/WorldTransaction.java",
+      "sha256": "3c40efbe4be79db107c1ae2ea9377b1230832ed4d2d8bfe62c34fd97c684c0c4",
+      "bytes": 3198
+    },
+    {
+      "path": "fraynix-modules/factory-runtime/src/test/java/fraymus/factory/FactoryRuntimeTest.java",
+      "sha256": "4ef6e38558e984f6124ab3d2dca58eee4198a11a49c4aea8b44e9d98de290f95",
+      "bytes": 3124
+    },
+    {
+      "path": "fraynix-modules/factory-runtime/src/test/java/fraymus/factory/WorldTransactionTest.java",
+      "sha256": "82b71deb39c15c54e581ca3628610a91ec58ef3c85cf141f6a4d326f080c5ef1",
+      "bytes": 2014
+    },
+    {
+      "path": "gradle.lockfile",
+      "sha256": "7a56a19032defdbd6c933d2cd5be01097c67a38b8f2ac81dd6d629cac26b7624",
+      "bytes": 1471
+    },
+    {
+      "path": "gradle/wrapper/gradle-wrapper.jar",
+      "sha256": "b3a875ddc1f044746e1b1a55f645584505f4a10438c1afea9f15e92a7c42ec13",
+      "bytes": 46175
+    },
+    {
+      "path": "gradle/wrapper/gradle-wrapper.properties",
+      "sha256": "137a45811ade89eb5d35fc3df0441aa891a69c55ae65780f23303e5acaf597f7",
+      "bytes": 339
+    },
+    {
+      "path": "gradlew",
+      "sha256": "fb68debc1b1acf8ec55dc0d5e5495e1dedd0bd6b61f304bee61613eeb2bd9b92",
+      "bytes": 8618
+    },
+    {
+      "path": "gradlew.bat",
+      "sha256": "fedad02c18e266ec094995a5751b7fe1eb6e74f66bf75db64fae2e50eb22c234",
+      "bytes": 2896
+    },
+    {
+      "path": "level.txt",
+      "sha256": "a11ab7dc9e352ee72f005cfd500e8f6756b90424bc6c61ce60471cf35bfdb441",
+      "bytes": 16979
+    },
+    {
+      "path": "libs/jbox2d-library.jar",
+      "sha256": "8d6d78431b0403a4236b7e266cf6c62aee63332d8381433150a16f202c574350",
+      "bytes": 287585
+    },
+    {
+      "path": "scripts/Run-Factory-Test.ps1",
+      "sha256": "9da15a547504f2c0bced5538af8cbe1af751b5ca7556f4eff97e9380cf3a6623",
+      "bytes": 703
+    },
+    {
+      "path": "scripts/Run-Fraymus.ps1",
+      "sha256": "50fb4506eb5d72ba735ab642b39d9a6074278996f07e59fbb764d07c6ba26897",
+      "bytes": 892
+    },
+    {
+      "path": "scripts/Verify-Native-Factory.ps1",
+      "sha256": "6d15d391f85d0227e865792561566e35316c6317dd1f478ba27016ca8d89bad0",
+      "bytes": 2360
+    },
+    {
+      "path": "scripts/Verify-Native-SceneAgent.ps1",
+      "sha256": "44700a2b8b8c83fbd44851addb31bbaeaad47e169495572b5cbd13b5461c133c",
+      "bytes": 2264
+    },
+    {
+      "path": "scripts/Verify-Native-Studio.ps1",
+      "sha256": "a1ee8d7228f8b573943e56b6c6fc78494bd249ec8ad7912e0abec79f0e96ff50",
+      "bytes": 3116
+    },
+    {
+      "path": "settings.gradle",
+      "sha256": "384a9a7416bfcb4034613ecfdeff820cc9b272d3f06da35778e003165b5d4ef4",
+      "bytes": 880
+    },
+    {
+      "path": "src/main/java/Main.java",
+      "sha256": "f2088d65051d73da16f791701329df6d094a00c3b29a055e34a3adeade436d77",
+      "bytes": 384
+    },
+    {
+      "path": "src/main/java/components/Component.java",
+      "sha256": "b346036c4bb8e6be28ad2154918e6999488d78825c6a441e8a8c14e167846f14",
+      "bytes": 4618
+    },
+    {
+      "path": "src/main/java/components/ComponentDeserializer.java",
+      "sha256": "44dad74112b350382bb0b70d8dce12ce81b9fd6a884c9c8a7f13ba8d34d45e79",
+      "bytes": 1931
+    },
+    {
+      "path": "src/main/java/components/EditorCamera.java",
+      "sha256": "698b87b3afb8385557d75f8691879a2ce6a67068faccd503961a09af4c8d06f0",
+      "bytes": 2665
+    },
+    {
+      "path": "src/main/java/components/FontRenderer.java",
+      "sha256": "2ea331d2715c55ec6e7ebd7d59f1c8d8254b2dd94472268234ac57fcaa8af2f0",
+      "bytes": 324
+    },
+    {
+      "path": "src/main/java/components/Gizmo.java",
+      "sha256": "a2ed4e3504eb531fc0f6f2ab08b3f3797bd60923b1d266b301e3a6bba57ffbe8",
+      "bytes": 6058
+    },
+    {
+      "path": "src/main/java/components/GizmoSystem.java",
+      "sha256": "81ca40eb66f276e26a70366a3b2b174d65ca18c0e2511204d235db3598ecc545",
+      "bytes": 1414
+    },
+    {
+      "path": "src/main/java/components/GridLines.java",
+      "sha256": "625c4c5c5759e55f88eef22619ddad69bcd2c1da151d76b4f21eadccd162286c",
+      "bytes": 1678
+    },
+    {
+      "path": "src/main/java/components/MouseControls.java",
+      "sha256": "1f327482a3758f2314b4fba7b34f186ae78c19dbf698217f506c78ea30aac845",
+      "bytes": 1293
+    },
+    {
+      "path": "src/main/java/components/NonPickable.java",
+      "sha256": "5eba42cbc42167a306d56b4396704e710991b816933cfbae3cf29f43ba6e1da1",
+      "bytes": 68
+    },
+    {
+      "path": "src/main/java/components/ScaleGizmo.java",
+      "sha256": "280355d8fe1704ea8083de230d3adafb0ce7d90737238ba34d6e0c7eeea7e711",
+      "bytes": 662
+    },
+    {
+      "path": "src/main/java/components/Sprite.java",
+      "sha256": "e77d7ca783b89c3a658f34076a0d007e5b39170e20aaa70b033d3056275b6220",
+      "bytes": 1096
+    },
+    {
+      "path": "src/main/java/components/SpriteRenderer.java",
+      "sha256": "a0c204dd52a66b2f93bcb192232d509ef635495f1974e492f329bb54261cf02d",
+      "bytes": 2346
+    },
+    {
+      "path": "src/main/java/components/Spritesheet.java",
+      "sha256": "3abc0d5d9812193f154023660714102b32bf3c8d31c5b7bc8d83765c65e3163b",
+      "bytes": 1740
+    },
+    {
+      "path": "src/main/java/components/TranslateGizmo.java",
+      "sha256": "d3b64c40e171117a891995a988e3528f6001ccd7e6eb35a06ea362b749e52f95",
+      "bytes": 1329
+    },
+    {
+      "path": "src/main/java/editor/FraynixPanel.java",
+      "sha256": "db38770b4f3e706115d5d60c0e8317d620564646512bea02eced075a5351c084",
+      "bytes": 11855
+    },
+    {
+      "path": "src/main/java/editor/FraynixWorkspace.java",
+      "sha256": "3ff1690fa2cd15765fc498ad850a568012965f7a6a5b1d97743008594f00a367",
+      "bytes": 6852
+    },
+    {
+      "path": "src/main/java/editor/GameViewWindow.java",
+      "sha256": "7378f1e1eec804ab095cfa04f4e2ed640ca520667b25b14051ea140b1c338e45",
+      "bytes": 3550
+    },
+    {
+      "path": "src/main/java/editor/JImGui.java",
+      "sha256": "2678defa06b4bdea9aad1ce4f7d535ab5960c8ad195c090bfb5450dc8c03292b",
+      "bytes": 6673
+    },
+    {
+      "path": "src/main/java/editor/MenuBar.java",
+      "sha256": "c5084ccc3d74ae5dfa7a22db9d3211c5a0271a6ea4bc81cef877d867c761b897",
+      "bytes": 888
+    },
+    {
+      "path": "src/main/java/editor/PhysicsComponents.java",
+      "sha256": "62919998fabbdf2240739719344e1db6ae54fdc6e4e94ec23ca7c78ccb83d37a",
+      "bytes": 1289
+    },
+    {
+      "path": "src/main/java/editor/PropertiesWindow.java",
+      "sha256": "5d0c31cbd006b2364b5ce6d20b87831625727e0ca137816ab005225b5b12a605",
+      "bytes": 4051
+    },
+    {
+      "path": "src/main/java/editor/SceneAgent.java",
+      "sha256": "669b3b80782d379791c47708478bb604a69837f028044f98ce9cbc9d34534572",
+      "bytes": 11283
+    },
+    {
+      "path": "src/main/java/editor/SceneAgentNativeSmoke.java",
+      "sha256": "791d59c1e5df0f2a5dc1745828f7c7e34f066e80dee224f886f0c445183b263d",
+      "bytes": 5271
+    },
+    {
+      "path": "src/main/java/editor/SceneAgentPanel.java",
+      "sha256": "a2c559c92801a311bf3f1c1bfefe07a5d37f1628186f2cf87de0b579cda17470",
+      "bytes": 9838
+    },
+    {
+      "path": "src/main/java/editor/ScenePanel.java",
+      "sha256": "526a665bf6a4d24bd8ba7621e41c013d61111c012e12aa6d527b1ab67bfbb906",
+      "bytes": 1448
+    },
+    {
+      "path": "src/main/java/editor/StudioFrameCapture.java",
+      "sha256": "f1d2c8b7f16d2825c79df1d085910dae83a0834afc568e71af95068a3411cfd4",
+      "bytes": 1075
+    },
+    {
+      "path": "src/main/java/editor/StudioLayout.java",
+      "sha256": "a36bc37a4d537944117cbd4a8aa662a527301cb38a077f74eaa657679b38c712",
+      "bytes": 4034
+    },
+    {
+      "path": "src/main/java/editor/ViewportCoordinates.java",
+      "sha256": "58d6dd795219e7c5ceb17a457c6fca31771c2e626b6c0de95061b2878c219ac0",
+      "bytes": 690
+    },
+    {
+      "path": "src/main/java/factory/FactorySceneAdapter.java",
+      "sha256": "7d9b38cb25e7bdcb563b9d012e7feccbcf1cd0b98455abc3d6b28a167630ff66",
+      "bytes": 7671
+    },
+    {
+      "path": "src/main/java/factory/FactorySession.java",
+      "sha256": "642ba055c5dacddb890dc0bf5e3ef6e8e0de04e30dbbd475de9baf68729af2d5",
+      "bytes": 12287
+    },
+    {
+      "path": "src/main/java/factory/SceneEditHistory.java",
+      "sha256": "91caad1c747ba6e89f24b7d745536345e4311c1bacd242e64ca6aa3b250a9f62",
+      "bytes": 5751
+    },
+    {
+      "path": "src/main/java/factory/SceneJson.java",
+      "sha256": "020f85b259ae884debb20316fc87a43b96931560086f410c67849d3b09c4d7b3",
+      "bytes": 4200
+    },
+    {
+      "path": "src/main/java/factory/SceneKnowledge.java",
+      "sha256": "5d69a5975e94b2e4bedb95b3e30090a8dcf782717df46b83db67d24f7774ef5d",
+      "bytes": 10823
+    },
+    {
+      "path": "src/main/java/factory/SceneProposal.java",
+      "sha256": "658074145716dbb7ebcb0eb69fc3f2b97386d8bf4d243a75763de5ef4808341a",
+      "bytes": 14991
+    },
+    {
+      "path": "src/main/java/factory/SceneSimulation.java",
+      "sha256": "ef067b691ccc259e43719d03f971b52f39220ce60947e9f49be12be1ca316f2b",
+      "bytes": 3829
+    },
+    {
+      "path": "src/main/java/jade/Camera.java",
+      "sha256": "acfa4f7f929843bd79f3698e1d40884e8e5c7980b9060307efb07c819a84df79",
+      "bytes": 2092
+    },
+    {
+      "path": "src/main/java/jade/GameObject.java",
+      "sha256": "e5a5a178b02824eef61a0f92a6651c9acccb36cecdcf737f3430f3c547035ec0",
+      "bytes": 4838
+    },
+    {
+      "path": "src/main/java/jade/GameObjectDeserializer.java",
+      "sha256": "1ed80e175e38b67afbdcb83ff473a2533db90ae761aeabee55b9cdb6124be4e6",
+      "bytes": 1143
+    },
+    {
+      "path": "src/main/java/jade/ImGuiLayer.java",
+      "sha256": "1394fbcdf1513d4e01a4652c9a06104185aeb08239e9c5cfd76c840193b02d3a",
+      "bytes": 12666
+    },
+    {
+      "path": "src/main/java/jade/KeyListener.java",
+      "sha256": "39d36368fe0a8f85d4cf795c899919362f54d8cb4fdc21f01b9ea50ced1e4f45",
+      "bytes": 1254
+    },
+    {
+      "path": "src/main/java/jade/MouseListener.java",
+      "sha256": "855c31c4d851112a73236b0d5ded84a883f2536e5a84937c26e4326b49b1f12f",
+      "bytes": 5655
+    },
+    {
+      "path": "src/main/java/jade/Prefabs.java",
+      "sha256": "f52eb38bf100086ca0fd776d2a67b78f223b149a5a9249a66ed8144e232cb050",
+      "bytes": 565
+    },
+    {
+      "path": "src/main/java/jade/Transform.java",
+      "sha256": "ef5d863dc06253a81fb19c7244da603014ac52a19e21673288dea566c65aaaaf",
+      "bytes": 1602
+    },
+    {
+      "path": "src/main/java/jade/Window.java",
+      "sha256": "098b4b3807f8e87fb0da048315fbe913f4aac4108c1a6f815da7b3b2d5f22903",
+      "bytes": 14492
+    },
+    {
+      "path": "src/main/java/observers/EventSystem.java",
+      "sha256": "083fe9dccf0a41a507a8839ca963dcff08e5aab0b13c4e255894ac655ce8d0ec",
+      "bytes": 506
+    },
+    {
+      "path": "src/main/java/observers/Observer.java",
+      "sha256": "60b5e30f647386123a9dc740ecbc72366757f067b9c8be168cba37c5e4d3a5d5",
+      "bytes": 165
+    },
+    {
+      "path": "src/main/java/observers/events/Event.java",
+      "sha256": "5fb289b482b808d99c64d0912acff3b2ed07124732ea3136f0e55a9c1f24e505",
+      "bytes": 227
+    },
+    {
+      "path": "src/main/java/observers/events/EventType.java",
+      "sha256": "10c581a6d2c3e89e7608ca5737bf5778f74307b198956a8f14476f2219eccb0f",
+      "bytes": 155
+    },
+    {
+      "path": "src/main/java/physics2d/Physics2D.java",
+      "sha256": "863c30b527afb13f30e84d78438567520899a461d6b70e83a9734cdcda3fe4be",
+      "bytes": 9663
+    },
+    {
+      "path": "src/main/java/physics2d/components/Box2DCollider.java",
+      "sha256": "7018bbc93167a6f4be87d373d2fb5c8d6cecf602478410f61e21069f66e7014d",
+      "bytes": 708
+    },
+    {
+      "path": "src/main/java/physics2d/components/CircleCollider.java",
+      "sha256": "1d57f298b253b89e9e18297d23b718df1bf66c2d77b6e39238f24918026d1fab",
+      "bytes": 484
+    },
+    {
+      "path": "src/main/java/physics2d/components/Collider.java",
+      "sha256": "ecb1469ad540a533fbc9a77fe80d9fe04050405c6d37696a1a2fcbe7f3d4d4dd",
+      "bytes": 821
+    },
+    {
+      "path": "src/main/java/physics2d/components/Rigidbody2D.java",
+      "sha256": "3b65d6dafa8c8f38421286a93c8d667ccdf45e40d7b1b0a2a95ed1cc3ccefb90",
+      "bytes": 2325
+    },
+    {
+      "path": "src/main/java/physics2d/enums/BodyType.java",
+      "sha256": "ecf854b6f70c885ac4f0593eca1a8a618840c43324c1196e7c779822f5c7823c",
+      "bytes": 97
+    },
+    {
+      "path": "src/main/java/physics2dtmp/PhysicsSystem2D.java",
+      "sha256": "790da2837f97a0622b9075f2d5d489cdc6c5cc5df1c16e49c18fe3620054e31b",
+      "bytes": 4581
+    },
+    {
+      "path": "src/main/java/physics2dtmp/forces/ForceGenerator.java",
+      "sha256": "62cce17bfe11c3d0f6fad51bcbafc1af85c1511898af55a28d4eb081c9be1f55",
+      "bytes": 167
+    },
+    {
+      "path": "src/main/java/physics2dtmp/forces/ForceRegistration.java",
+      "sha256": "92c55a46bc56b360361ddc99a715e63690c695399deed50ef543aeb076cecbf8",
+      "bytes": 591
+    },
+    {
+      "path": "src/main/java/physics2dtmp/forces/ForceRegistry.java",
+      "sha256": "92515a63b14affd4fccc465643b2dae930bfcd00c2c90384978bd8eeb917de5c",
+      "bytes": 1004
+    },
+    {
+      "path": "src/main/java/physics2dtmp/forces/Gravity2D.java",
+      "sha256": "8bd92f17a9126bd77972a40923a69c829ef40fcc3eef7be682c07c79472d718e",
+      "bytes": 437
+    },
+    {
+      "path": "src/main/java/physics2dtmp/primitives/AABB.java",
+      "sha256": "899896d80f190b305b188d37dfaac8dfb18af096f271882c623967a74c0a102b",
+      "bytes": 994
+    },
+    {
+      "path": "src/main/java/physics2dtmp/primitives/Box2D.java",
+      "sha256": "745dbd8a7ea2a3e596335098c01b4f63aa9e0b12f124fce25025da7559007dc4",
+      "bytes": 1835
+    },
+    {
+      "path": "src/main/java/physics2dtmp/primitives/Circle.java",
+      "sha256": "814ec038fa1905fd496f150f9959b7e8a9029c582d38cd765e5c0d84e6cf1cd1",
+      "bytes": 546
+    },
+    {
+      "path": "src/main/java/physics2dtmp/primitives/Collider2D.java",
+      "sha256": "8ae5d6854ad9e642021042af6be11814dd70a81b343c4ee81a1a0e52c717e371",
+      "bytes": 282
+    },
+    {
+      "path": "src/main/java/physics2dtmp/primitives/Ray2D.java",
+      "sha256": "81e212cc8064b5dc5f000d410b8bb4ad9a59788c1255d1d32eb9fa39a3462335",
+      "bytes": 476
+    },
+    {
+      "path": "src/main/java/physics2dtmp/primitives/RaycastResult.java",
+      "sha256": "b8b79396ceb0ca9cec1d87c72539e7c7b7d928bef93006b78db3ccbce9662a62",
+      "bytes": 808
+    },
+    {
+      "path": "src/main/java/physics2dtmp/rigidbody/CollisionManifold.java",
+      "sha256": "6f94cd58be6e7753dcedaf671e551d610e543418826a0d298d4a4073aa5ab807",
+      "bytes": 1030
+    },
+    {
+      "path": "src/main/java/physics2dtmp/rigidbody/Collisions.java",
+      "sha256": "6c74e59bbc6e344487fb84f9f734a1ab6591932cfe1253875f77c3addbcc6321",
+      "bytes": 1567
+    },
+    {
+      "path": "src/main/java/physics2dtmp/rigidbody/IntersectionDetector2D.java",
+      "sha256": "43296c18e03e25e3d24feea59cd1b75746e380306a9a468bd7c9155b7f54e399",
+      "bytes": 15729
+    },
+    {
+      "path": "src/main/java/physics2dtmp/rigidbody/Rigidbody2D.java",
+      "sha256": "0a4dfff4026280002cdc29d1242a804c91109d1a12143021ac118e65859e9fcf",
+      "bytes": 2993
+    },
+    {
+      "path": "src/main/java/renderer/DebugDraw.java",
+      "sha256": "f961bb90d0691f671dd9da8c2d3f887030d4dbe82bd2f0abcdd98548055828a9",
+      "bytes": 6781
+    },
+    {
+      "path": "src/main/java/renderer/Framebuffer.java",
+      "sha256": "664a980106e6b2d148dda57d72b75bb11504b32af2c55004054644d25a95fe6b",
+      "bytes": 1458
+    },
+    {
+      "path": "src/main/java/renderer/Line2D.java",
+      "sha256": "99ce9b6099408f394ae7327f5ea4eb027e3fa660e35d35acc0261b8d09222007",
+      "bytes": 1051
+    },
+    {
+      "path": "src/main/java/renderer/PickingTexture.java",
+      "sha256": "14e7206d5b61a39bb1b773f953fd222f665900a4ae0a54b910aef2181766fc53",
+      "bytes": 2809
+    },
+    {
+      "path": "src/main/java/renderer/RenderBatch.java",
+      "sha256": "860f9515e1f2908694fda9198e3021c1a4c9e455a2a27b86a197ffd3095567f6",
+      "bytes": 10708
+    },
+    {
+      "path": "src/main/java/renderer/Renderer.java",
+      "sha256": "1faf30c0654bad47bf034feb974ffde5822dd5bfc626993616604c35d30f238b",
+      "bytes": 2195
+    },
+    {
+      "path": "src/main/java/renderer/Shader.java",
+      "sha256": "97d2937541248aab6bcfd796ef4cf9bce461b05f138f12a782ff77d787d9593f",
+      "bytes": 6774
+    },
+    {
+      "path": "src/main/java/renderer/Texture.java",
+      "sha256": "4d795d9898dceda497b6019b6bc4cf0091b64619811d78c040d2ff31fc89024a",
+      "bytes": 3475
+    },
+    {
+      "path": "src/main/java/scenes/LevelEditorSceneInitializer.java",
+      "sha256": "79a8f8323e7d370b3cde345e09a0d62a69168eece0347da3ebbcb75b8c1f9468",
+      "bytes": 5031
+    },
+    {
+      "path": "src/main/java/scenes/Scene.java",
+      "sha256": "90c28e463d1bd2e5d402073378115c8705ce174e9303a791e6d3743c3cad91d3",
+      "bytes": 7686
+    },
+    {
+      "path": "src/main/java/scenes/SceneInitializer.java",
+      "sha256": "098d5919f63898affafaf868e62c480bcc18bd7cc218bc60a1fcd94cad252d5c",
+      "bytes": 191
+    },
+    {
+      "path": "src/main/java/util/AssetPool.java",
+      "sha256": "dfabe50e4832b12a3fdf5a8a4334825ad455172e6d44ffbdcf7881e152b6edda",
+      "bytes": 2077
+    },
+    {
+      "path": "src/main/java/util/GridPlacement.java",
+      "sha256": "26d89a3aafdbdbca10b3686bad2293454a0cbeb6041e7550a490328bb3f12a19",
+      "bytes": 865
+    },
+    {
+      "path": "src/main/java/util/JMath.java",
+      "sha256": "82a2f50905b79ac5f09f662eb37d59d51982364e0bcd6e16fcef48b62fd62041",
+      "bytes": 1238
+    },
+    {
+      "path": "src/main/java/util/Settings.java",
+      "sha256": "796f6f8d1d77e056367210cb91fc8998bed77774290feff3f693ebcb4c0e3bfc",
+      "bytes": 229
+    },
+    {
+      "path": "src/main/resources/META-INF/MANIFEST.MF",
+      "sha256": "4da6e32f91dc21da483b4bbaa05647af1fd5a7f1b80d62f4a5385211030d490a",
+      "bytes": 43
+    },
+    {
+      "path": "src/test/java/factory/EditorPhysicsRegressionTest.java",
+      "sha256": "17a52992b4f7978b9e70294cccb06ed1e00f061f4bb647a4498bf67080f1e2cb",
+      "bytes": 6194
+    },
+    {
+      "path": "src/test/java/factory/FactorySceneIntegrationTest.java",
+      "sha256": "15a7631765bbf35713aaa297b9a14e326cb45c5d5c2eca0766c93aa179b8f2ca",
+      "bytes": 10692
+    },
+    {
+      "path": "src/test/java/factory/GridPlacementRegressionTest.java",
+      "sha256": "9663335e365ff0dabc6b425c2356ba674d566564e0452cd49023b7ac79aff631",
+      "bytes": 2413
+    },
+    {
+      "path": "src/test/java/factory/SceneAgentIntegrationTest.java",
+      "sha256": "da0d61b67b71f0816b5e9df67c96169fb58841eb56f7088a819e7b0f198755ec",
+      "bytes": 15588
+    },
+    {
+      "path": "src/test/java/physics2dtmp/CollisionDetectorTests.java",
+      "sha256": "970901698cd3583e86cb150e9a856b6a4592a6ad605985443ba4a2110b36b0fa",
+      "bytes": 29206
+    }
+  ]
+}

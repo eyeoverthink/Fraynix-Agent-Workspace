@@ -1,0 +1,10 @@
+[kernel]
+runtime = "local-offline"
+java = "17"
+verify = "scripts/Verify-Studio.ps1"
+run = "scripts/Run-Kernel.ps1"
+cli = "brain_architecture.kernel.OfflineKernelCli"
+
+[notes]
+source = "checked-in Studio modules only"
+first_build_requires_cached_dependencies = true

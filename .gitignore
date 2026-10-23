@@ -1,0 +1,39 @@
+# Generated outputs in every module.
+.gradle/
+build/
+out/
+.idea/
+.vscode/
+*.iml
+*.class
+*.log
+hs_err_pid*
+replay_pid*
+.DS_Store
+Thumbs.db
+
+# User projects, checkpoints, conversations, local model configuration and weights.
+.factory/
+.northstar-kernel/
+.fraynix-studio/
+.fraymus/
+projects/
+scene-edits/
+chat/
+*.fworld
+*.fworld.*
+*.gguf
+*.safetensors
+*.pth
+*.pt
+local-model-catalog.json
+ollama-stores.json
+
+# Credentials never belong in source control.
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+id_ed25519*
+id_rsa*

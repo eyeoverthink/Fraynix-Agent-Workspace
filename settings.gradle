@@ -1,0 +1,15 @@
+rootProject.name = 'Fraynix-Studio'
+
+// This repository owns its source. Never select a sibling checkout by drive or property.
+def configuredRoot = providers.gradleProperty('fraynixRoot').orNull
+if (configuredRoot != null && configuredRoot != 'bundled') {
+    throw new GradleException('Fraynix-Studio builds only its checked-in modules. External fraynixRoot overrides are not supported.')
+}
+def assetRoot = file('fraynix-modules')
+['factory-runtime', 'factory-kernel', 'factory-models'].each { module ->
+    if (!new File(assetRoot, "${module}/build.gradle").isFile()) {
+        throw new GradleException("Missing checked-in module ${module}; restore the complete Fraynix-Studio checkout.")
+    }
+    include module
+    project(":${module}").projectDir = new File(assetRoot, module)
+}

@@ -1,0 +1,210 @@
+{
+  "purpose": "Verify actual local GPT-OSS 120B inference and test its suitability for the Fraynix scene planner.",
+  "scope": "Two single-attempt tasks per model. These runs are not a general model benchmark or a proof of superiority.",
+  "runtime": {
+    "cpu": {
+      "Name": "AMD Ryzen 9 3900X 12-Core Processor            ",
+      "NumberOfCores": 12,
+      "NumberOfLogicalProcessors": 24
+    },
+    "memory": {
+      "TotalPhysicalMemory": 103018995712
+    },
+    "gpu": "NVIDIA GeForce RTX 3070, 8192 MiB, 1733 MiB",
+    "modelDisk": {
+      "FriendlyName": "ST12000NM001G-2MV103",
+      "BusType": "SATA",
+      "Size": 12000138625024
+    },
+    "cloudDisabled": true,
+    "gpuLayers": 0,
+    "cpuThreads": 12,
+    "loadTimeoutMinutes": 15
+  },
+  "model_metadata": {
+    "model": "gpt-oss:120b",
+    "details": {
+      "parent_model": "",
+      "format": "gguf",
+      "family": "gptoss",
+      "families": [
+        "gptoss"
+      ],
+      "parameter_size": "116.8B",
+      "quantization_level": "MXFP4"
+    },
+    "parameter_count": 116829156672,
+    "architecture": "gptoss",
+    "capabilities": [
+      "completion",
+      "tools",
+      "thinking"
+    ]
+  },
+  "test_cases": {
+    "grid": "Four deterministic checks: negative-coordinate grid snap, collider density/mass, resting tile height, and exact rigidbody/collider class names.",
+    "scene": "Actual SceneProposal protocol and immutable observation. Preserve one original entity; add a static floor and a falling box. Strictly parse, stage, round-trip and run 120 actual JBox2D steps; check bounds, body count, contact, settled position and original preservation."
+  },
+  "models": {
+    "gpt-oss-120b": {
+      "grid": {
+        "case": "grid",
+        "model": "gpt-oss:120b",
+        "wall_seconds": 446.604465100012,
+        "first_token_seconds": 359.89039640000556,
+        "first_content_seconds": 433.6698910000123,
+        "done_reason": "stop",
+        "load_seconds": 341.0464907,
+        "prompt_tokens": 307,
+        "generated_tokens": 472,
+        "generation_tokens_per_second": 5.409067800223919,
+        "prompt_seconds": 7.111057,
+        "generation_seconds": 87.260877,
+        "options": {
+          "num_ctx": 4096,
+          "num_predict": 768,
+          "num_thread": 12,
+          "num_gpu": 0,
+          "temperature": 0,
+          "seed": 42
+        },
+        "json_valid": true,
+        "checks": {
+          "snappedCenter": true,
+          "rectangleMass": true,
+          "restingCenterY": true,
+          "requiredComponents": false
+        },
+        "all_checks_passed": false
+      },
+      "scene": {
+        "case": "scene",
+        "model": "gpt-oss:120b",
+        "wall_seconds": 136.6963063000003,
+        "first_token_seconds": 27.540715000010096,
+        "first_content_seconds": 63.05796079999709,
+        "done_reason": "stop",
+        "load_seconds": 0.0039225,
+        "prompt_tokens": 1201,
+        "generated_tokens": 576,
+        "generation_tokens_per_second": 5.249255234573724,
+        "prompt_seconds": 26.878523,
+        "generation_seconds": 109.729852,
+        "options": {
+          "num_ctx": 4096,
+          "num_predict": 2048,
+          "num_thread": 12,
+          "num_gpu": 0,
+          "temperature": 0,
+          "seed": 42
+        },
+        "json_valid": true,
+        "engine_validation": {
+          "passed": true,
+          "protectedOriginalPreserved": true,
+          "newEntities": 2,
+          "physicsBodies": 2,
+          "simulationSteps": 120,
+          "peakContactPairs": 1,
+          "tileFinalY": 0.13998860120773315,
+          "changes": [
+            "Create Floor (60e5787b-76af-476b-8485-cf17df9fc92e)",
+            "Add physics2d.components.Rigidbody2D on Floor",
+            "Add physics2d.components.Box2DCollider on Floor",
+            "Set Floor / physics2d.components.Rigidbody2D {\"bodyType\":\"Static\",\"velocity.x\":0,\"velocity.y\":0}",
+            "Set Floor / physics2d.components.Box2DCollider {\"halfSize.x\":4,\"halfSize.y\":0.5,\"offset.x\":0,\"offset.y\":0}",
+            "Create Falling tile (fbc9b621-c6b7-4291-be38-625ffe0c0834)",
+            "Add physics2d.components.Rigidbody2D on Falling tile",
+            "Add physics2d.components.Box2DCollider on Falling tile",
+            "Set Falling tile / physics2d.components.Rigidbody2D {\"bodyType\":\"Dynamic\",\"velocity.x\":0,\"velocity.y\":0}",
+            "Set Falling tile / physics2d.components.Box2DCollider {\"halfSize.x\":0.25,\"halfSize.y\":0.25,\"offset.x\":0,\"offset.y\":0}"
+          ]
+        }
+      }
+    },
+    "fraynix-3b-latest": {
+      "grid": {
+        "case": "grid",
+        "model": "fraynix-3b:latest",
+        "wall_seconds": 13.297275100005209,
+        "first_token_seconds": 8.840842799996608,
+        "first_content_seconds": 8.840842799996608,
+        "done_reason": "stop",
+        "load_seconds": 5.6311541,
+        "prompt_tokens": 464,
+        "generated_tokens": 65,
+        "generation_tokens_per_second": 14.59118966009936,
+        "prompt_seconds": 3.152605,
+        "generation_seconds": 4.454743,
+        "options": {
+          "num_ctx": 2048,
+          "num_predict": 768,
+          "num_thread": 12,
+          "num_gpu": 0,
+          "temperature": 0,
+          "seed": 42
+        },
+        "json_valid": true,
+        "checks": {
+          "snappedCenter": false,
+          "rectangleMass": false,
+          "restingCenterY": false,
+          "requiredComponents": false
+        },
+        "all_checks_passed": false
+      },
+      "scene": {
+        "case": "scene",
+        "model": "fraynix-3b:latest",
+        "wall_seconds": 49.7368201000063,
+        "first_token_seconds": 13.490992800012464,
+        "first_content_seconds": 13.490992800012464,
+        "done_reason": "stop",
+        "load_seconds": 3.5999219,
+        "prompt_tokens": 1352,
+        "generated_tokens": 402,
+        "generation_tokens_per_second": 11.091295766286864,
+        "prompt_seconds": 9.842223,
+        "generation_seconds": 36.244638,
+        "options": {
+          "num_ctx": 4096,
+          "num_predict": 2048,
+          "num_thread": 12,
+          "num_gpu": 0,
+          "temperature": 0,
+          "seed": 42
+        },
+        "json_valid": true,
+        "engine_validation": {
+          "passed": false,
+          "error": "java.lang.IllegalArgumentException: Duplicate JSON field: components"
+        }
+      }
+    }
+  },
+  "first_attempt": {
+    "case": "grid",
+    "model": "gpt-oss:120b",
+    "wall_seconds": 306.94420650000393,
+    "error": "HTTP Error 500: Internal Server Error",
+    "error_type": "HTTPError",
+    "body": "{\"error\":\"timed out waiting for llama-server to start - \"}",
+    "note": "Default five-minute server load allowance expired while the local weight tensors were still loading."
+  },
+  "limitations": [
+    "Inference used CPU-only mode, 12 threads and a 4K context for GPT-OSS, not the advertised 128K context.",
+    "Low reasoning effort for GPT-OSS, temperature zero and seed 42. No multi-turn repair or manual editing of responses.",
+    "The 3B grid baseline used a 2K context; its scene test used 4K. Tasks were single attempts, with no statistical significance claim.",
+    "The grid task provided a package name but not the two exact application class names. Its component-name check tests ungrounded API guessing, not arithmetic; the scene task supplies the actual API schema.",
+    "The 3B baseline ran during the large model initial disk load; performance comparisons are observational, not controlled hardware benchmarks.",
+    "Test fixtures and validation were separate from the live editor project. No proposed change was applied to the live scene.",
+    "The temporary test server used a 15-minute model-load timeout. The application bridge current read timeout is 120 seconds.",
+    "No model weights were changed, trained, merged, downloaded or uploaded."
+  ],
+  "observed_memory": {
+    "peak_sampled_runner_working_set_GiB": 61.26246643066406,
+    "minimum_sampled_available_system_RAM_GiB": 9.412960052490234,
+    "minimum_sampled_free_commit_GiB": 12.119075775146484,
+    "sampling_note": "Approximately 10-second sampling; not an exact instantaneous peak."
+  }
+}

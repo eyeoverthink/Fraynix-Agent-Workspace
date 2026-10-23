@@ -1,0 +1,116 @@
+plugins {
+    id 'application'
+}
+
+group = 'ai.fraynix.studio'
+version = '0.1.0'
+
+repositories {
+    mavenCentral()
+}
+
+def lwjglVersion = '3.3.3'
+def imguiVersion = '1.86.11'
+
+dependencies {
+    implementation project(':factory-runtime')
+    implementation project(':factory-kernel')
+    implementation project(':factory-models')
+    implementation files('libs/jbox2d-library.jar')
+    implementation 'com.google.code.gson:gson:2.8.6'
+    implementation 'org.joml:joml:1.9.23'
+    implementation platform("org.lwjgl:lwjgl-bom:${lwjglVersion}")
+    ['lwjgl', 'lwjgl-glfw', 'lwjgl-opengl', 'lwjgl-stb'].each { module ->
+        implementation "org.lwjgl:${module}"
+        runtimeOnly "org.lwjgl:${module}::natives-windows"
+    }
+    implementation "io.github.spair:imgui-java-binding:${imguiVersion}"
+    implementation "io.github.spair:imgui-java-lwjgl3:${imguiVersion}"
+    runtimeOnly "io.github.spair:imgui-java-natives-windows:${imguiVersion}"
+    testImplementation 'junit:junit:4.13.2'
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+    options.compilerArgs += ['-Xlint:-options']
+}
+
+application {
+    mainClass = 'Main'
+    applicationName = 'Fraynix-Studio'
+    applicationDefaultJvmArgs = ['--enable-native-access=ALL-UNNAMED']
+}
+
+tasks.named('run', JavaExec) {
+    workingDir = projectDir
+    enableAssertions = true
+}
+
+tasks.named('test', Test) {
+    useJUnit()
+    testLogging {
+        events 'passed', 'skipped', 'failed'
+    }
+}
+
+tasks.register('runFactoryDemo', JavaExec) {
+    dependsOn classes
+    classpath = sourceSets.main.runtimeClasspath
+    mainClass = 'fraymus.factory.kernel.FactoryDemo'
+    args = [layout.buildDirectory.dir('factory-demo').get().asFile.absolutePath]
+}
+tasks.register('verifySourceIsolation') {
+    group = 'verification'
+    description = 'Rejects module/source roots outside this repository.'
+    doLast {
+        def root = rootDir.canonicalFile.toPath()
+        def roots = []
+        allprojects.each { candidate ->
+            def projectPath = candidate.projectDir.canonicalFile.toPath()
+            if (!projectPath.startsWith(root)) throw new GradleException("External project directory: ${candidate.path}")
+            if (candidate != rootProject && new File(candidate.projectDir, '.git').exists()) {
+                throw new GradleException("Nested Git repository in ${candidate.path}")
+            }
+            candidate.extensions.findByType(SourceSetContainer)?.each { sourceSet ->
+                sourceSet.allSource.srcDirs.each { source ->
+                    if (!source.canonicalFile.toPath().startsWith(root)) throw new GradleException("External source directory in ${candidate.path}")
+                }
+            }
+            roots.add([project: candidate.path, directory: root.relativize(projectPath).toString()])
+        }
+        def report = layout.buildDirectory.file('source-isolation.json').get().asFile
+        report.parentFile.mkdirs()
+        report.text = groovy.json.JsonOutput.prettyPrint(groovy.json.JsonOutput.toJson([isolated: true, projects: roots]))
+        logger.lifecycle('Verified every project/source root belongs to Fraynix-Studio.')
+    }
+}
+
+tasks.named('check') { dependsOn 'verifySourceIsolation', ':factory-runtime:verifyRuntime', ':factory-kernel:verifyIntegration', ':factory-models:verifyModels' }
+
+distributions {
+    main {
+        contents {
+            from('assets') { into 'assets' }
+            from('level.txt')
+            from('Launch-Fraynix-Studio.bat')
+            from('scripts/Configure-Models.ps1') { into 'scripts' }
+            from('docs') { into 'docs' }
+            from('README.md')
+            from('THIRD_PARTY_NOTICES.md')
+        }
+    }
+}
+
+dependencyLocking {
+    lockAllConfigurations()
+}
+
+tasks.named('wrapper', Wrapper) {
+    gradleVersion = '9.3.1'
+    distributionType = Wrapper.DistributionType.BIN
+}
