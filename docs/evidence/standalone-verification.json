@@ -1,0 +1,71 @@
+{
+  "date": "2026-10-22",
+  "java": "21",
+  "platform": "Windows x64",
+  "cleanCheckout": {
+    "passed": true,
+    "tests": 56,
+    "failures": 0
+  },
+  "sharedHarnesses": [
+    "FactoryRuntimeTest",
+    "WorldTransactionTest",
+    "FactoryKernelIntegrationTest",
+    "FactoryModelsTest"
+  ],
+  "sourceIsolation": {
+    "isolated": true,
+    "projects": [
+      {
+        "project": ":",
+        "directory": ""
+      },
+      {
+        "project": ":factory-kernel",
+        "directory": "fraynix-modules\\factory-kernel"
+      },
+      {
+        "project": ":factory-models",
+        "directory": "fraynix-modules\\factory-models"
+      },
+      {
+        "project": ":factory-runtime",
+        "directory": "fraynix-modules\\factory-runtime"
+      }
+    ]
+  },
+  "externalRootOverrideRejected": true,
+  "defaultNamespaceIsolation": {
+    "exitCode": 0,
+    "nativeSmokePassed": true,
+    "newDefaultCheckpointExists": true,
+    "originalCheckpointUnchanged": true,
+    "originalAppResponding": true
+  },
+  "nativeRestart": {
+    "passed": true,
+    "runs": 2,
+    "entities": 8,
+    "bodies": 8,
+    "stableIdentities": true
+  },
+  "nativeCreator": {
+    "actualLocalModel": "fraynix-3b:latest",
+    "applyAndRestorePassed": true,
+    "undoAfterRestartPassed": true
+  },
+  "modelDiscovery": {
+    "localNames": 46,
+    "loopbackServices": 2,
+    "cloudProxiesIncluded": 0
+  },
+  "originalSourceFilesAndGitStatusUnchanged": true,
+  "notIncludedInGit": [
+    "model weights",
+    "user checkpoints",
+    "conversations",
+    "local catalog",
+    "build caches",
+    "credentials"
+  ]
+}

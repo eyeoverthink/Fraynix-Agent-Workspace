@@ -1,6 +1,19 @@
 # Verification
 
-The independent Studio project requires validation after extraction; historical integration results alone do not establish its build status.
+The independent Studio project was verified on October 22, 2026 using JDK 21 on Windows x64. Historical integration results are kept separate from the extraction results below.
+
+## Verified extraction results
+
+- A clean source checkout compiled and passed all 56 editor JUnit tests and the four executable runtime, transaction/spatial, kernel and model harnesses.
+- The source build produced the new `Fraynix-Studio-0.1.0.zip`, including all three module JARs, dependency/native libraries, launcher, assets and documentation.
+- The packaged native editor passed two process launches with eight restored sample entities, eight JBox2D bodies, rendered physics inspection and stable persistent identities.
+- A real local `fraynix-3b:latest` proposal passed native preview, application, save and exact deserialization. A second process restored it and used durable undo to recover the original scene.
+- A default launch created the checkpoint in `.fraynix-studio/projects/default`; the earlier app's checkpoint stayed byte-identical and its process remained responsive.
+- Every Gradle project/source root resolved inside the new checkout. An explicit external `fraynixRoot` override was rejected.
+- Local model discovery observed 46 exact names across two local services, including the 120B model's secondary endpoint, and excluded cloud proxies. The generated catalog is not tracked.
+- The source repository's imported file hashes and Git status remained unchanged.
+
+See `evidence/standalone-verification.json` for the structured extraction record. GitHub Actions provides a separate hosted Windows build result; it does not run the interactive native or real-model checks.
 
 ## Automated surface
 

@@ -14,6 +14,8 @@ Observe the world -> ask a local model -> query components and space
 
 The model receives the actual authored component data and spatial relationships. The engine owns identities, validates changes, runs physics, and persists the result. This makes Fraynix Studio a foundation for local scene, entity, component and agent creation. General software generation and autonomous factories are development goals beyond the current scene-editing protocol.
 
+![Fraynix Studio showing the rigidbody inspector, scene viewport and a validated local-model creation preview](docs/images/creator-preview.png)
+
 ## System outline
 
 | Part | Responsibility | Current implementation |
