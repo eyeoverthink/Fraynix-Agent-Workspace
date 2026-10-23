@@ -1,0 +1,90 @@
+{
+  "nodes": [
+    {
+      "id": "life0",
+      "type": "text",
+      "x": 0,
+      "y": 0,
+      "width": 430,
+      "height": 230,
+      "text": "# 1. Observe\n\nSource: [[src/main/java/factory/SceneKnowledge.java]]\n\n[[docs/obsidian/02-world-and-physics|World and physics]]\n[[docs/obsidian/04-memory-and-continuity|Durable state]]"
+    },
+    {
+      "id": "life1",
+      "type": "text",
+      "x": 500,
+      "y": 0,
+      "width": 430,
+      "height": 230,
+      "text": "# 2. Model queries/proposal\n\nSource: [[src/main/java/editor/SceneAgent.java]]\n\n[[docs/obsidian/02-world-and-physics|World and physics]]\n[[docs/obsidian/04-memory-and-continuity|Durable state]]"
+    },
+    {
+      "id": "life2",
+      "type": "text",
+      "x": 1000,
+      "y": 0,
+      "width": 430,
+      "height": 230,
+      "text": "# 3. Validate and simulate\n\nSource: [[src/main/java/factory/SceneSimulation.java]]\n\n[[docs/obsidian/02-world-and-physics|World and physics]]\n[[docs/obsidian/04-memory-and-continuity|Durable state]]"
+    },
+    {
+      "id": "life3",
+      "type": "text",
+      "x": 0,
+      "y": 360,
+      "width": 430,
+      "height": 230,
+      "text": "# 4. Review\n\nSource: [[src/main/java/editor/SceneAgentPanel.java]]\n\n[[docs/obsidian/02-world-and-physics|World and physics]]\n[[docs/obsidian/04-memory-and-continuity|Durable state]]"
+    },
+    {
+      "id": "life4",
+      "type": "text",
+      "x": 500,
+      "y": 360,
+      "width": 430,
+      "height": 230,
+      "text": "# 5. Fingerprint and commit\n\nSource: [[src/main/java/factory/FactorySession.java]]\n\n[[docs/obsidian/02-world-and-physics|World and physics]]\n[[docs/obsidian/04-memory-and-continuity|Durable state]]"
+    },
+    {
+      "id": "life5",
+      "type": "text",
+      "x": 1000,
+      "y": 360,
+      "width": 430,
+      "height": 230,
+      "text": "# 6. Checkpoint and undo\n\nSource: [[src/main/java/factory/SceneEditHistory.java]]\n\n[[docs/obsidian/02-world-and-physics|World and physics]]\n[[docs/obsidian/04-memory-and-continuity|Durable state]]"
+    }
+  ],
+  "edges": [
+    {
+      "id": "lifeEdge0",
+      "fromNode": "life0",
+      "toNode": "life1",
+      "toEnd": "arrow"
+    },
+    {
+      "id": "lifeEdge1",
+      "fromNode": "life1",
+      "toNode": "life2",
+      "toEnd": "arrow"
+    },
+    {
+      "id": "lifeEdge2",
+      "fromNode": "life2",
+      "toNode": "life3",
+      "toEnd": "arrow"
+    },
+    {
+      "id": "lifeEdge3",
+      "fromNode": "life3",
+      "toNode": "life4",
+      "toEnd": "arrow"
+    },
+    {
+      "id": "lifeEdge4",
+      "fromNode": "life4",
+      "toNode": "life5",
+      "toEnd": "arrow"
+    }
+  ]
+}

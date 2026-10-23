@@ -70,9 +70,12 @@ public class EditorPhysicsRegressionTest {
         Scene scene = new Scene(null); GameObject object = object(scene, "tile"); PhysicsComponents.rigidbody(object); PhysicsComponents.box(object);
         try (FactorySession session = new FactorySession(Files.createTempDirectory("inspection-repeat-"))) {
             for (int i=0; i<2; i++) {
-                session.inspect(scene); long deadline = System.nanoTime() + 30_000_000_000L;
+                // Inspection starts verifier JVMs and persists kernel state. Shared CI disks
+                // can exceed 30 seconds; this is an idempotence test, not a latency benchmark.
+                session.inspect(scene); long deadline = System.nanoTime() + 120_000_000_000L;
                 while (session.isRunning() && System.nanoTime() < deadline) { Thread.sleep(20); session.poll(); }
-                assertFalse(session.isRunning()); assertTrue(session.status(), session.status().contains("Round-trip verified"));
+                assertFalse("Inspection exceeded 120 seconds: " + session.status(), session.isRunning());
+                assertTrue(session.status(), session.status().contains("Round-trip verified"));
             }
             assertEquals(1, scene.getGameObjects().size()); assertEquals(3, object.getAllComponents().size());
             assertEquals(1, session.world().snapshot().entities().stream().filter(e -> e.name().equals("Fraynix scene inspection")).count());

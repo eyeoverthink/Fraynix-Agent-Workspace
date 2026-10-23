@@ -1,0 +1,205 @@
+{
+  "nodes": [
+    {
+      "id": "studio",
+      "type": "file",
+      "file": "docs/readmes/001/obsidian/01-studio.md",
+      "x": 70,
+      "y": 70,
+      "width": 460,
+      "height": 280,
+      "color": "#7A3154"
+    },
+    {
+      "id": "world",
+      "type": "file",
+      "file": "docs/readmes/001/obsidian/02-world-and-physics.md",
+      "x": 660,
+      "y": 70,
+      "width": 460,
+      "height": 280,
+      "color": "#7A3154"
+    },
+    {
+      "id": "physics",
+      "type": "file",
+      "file": "docs/readmes/001/obsidian/02-world-and-physics.md",
+      "x": 1250,
+      "y": 70,
+      "width": 460,
+      "height": 280,
+      "color": "#7A3154"
+    },
+    {
+      "id": "models",
+      "type": "file",
+      "file": "docs/readmes/001/obsidian/03-local-models.md",
+      "x": 70,
+      "y": 440,
+      "width": 460,
+      "height": 280,
+      "color": "#7A3154"
+    },
+    {
+      "id": "creator",
+      "type": "file",
+      "file": "docs/readmes/001/obsidian/02-world-and-physics.md",
+      "x": 660,
+      "y": 440,
+      "width": 460,
+      "height": 280,
+      "color": "#7A3154"
+    },
+    {
+      "id": "kernel",
+      "type": "file",
+      "file": "docs/readmes/001/obsidian/04-memory-and-continuity.md",
+      "x": 1250,
+      "y": 440,
+      "width": 460,
+      "height": 280,
+      "color": "#7A3154"
+    },
+    {
+      "id": "tools",
+      "type": "file",
+      "file": "docs/readmes/001/obsidian/05-tools-and-jobs.md",
+      "x": 70,
+      "y": 810,
+      "width": 460,
+      "height": 280,
+      "color": "#7A3154"
+    },
+    {
+      "id": "storage",
+      "type": "file",
+      "file": "docs/readmes/001/obsidian/04-memory-and-continuity.md",
+      "x": 660,
+      "y": 810,
+      "width": 460,
+      "height": 280,
+      "color": "#7A3154"
+    },
+    {
+      "id": "factory",
+      "type": "file",
+      "file": "docs/readmes/001/obsidian/06-agent-factory-plan.md",
+      "x": 1250,
+      "y": 810,
+      "width": 460,
+      "height": 280,
+      "color": "#6B6873"
+    },
+    {
+      "id": "edition",
+      "type": "file",
+      "file": "README-001.md",
+      "x": -550,
+      "y": 70,
+      "width": 430,
+      "height": 400
+    },
+    {
+      "id": "image",
+      "type": "file",
+      "file": "docs/readmes/001/images/dreamer120b-live.png",
+      "x": -550,
+      "y": 530,
+      "width": 430,
+      "height": 285
+    }
+  ],
+  "edges": [
+    {
+      "id": "edge0",
+      "fromNode": "studio",
+      "toNode": "world",
+      "label": "current",
+      "toEnd": "arrow"
+    },
+    {
+      "id": "edge1",
+      "fromNode": "world",
+      "toNode": "physics",
+      "label": "current",
+      "toEnd": "arrow"
+    },
+    {
+      "id": "edge2",
+      "fromNode": "studio",
+      "toNode": "models",
+      "label": "current",
+      "toEnd": "arrow"
+    },
+    {
+      "id": "edge3",
+      "fromNode": "models",
+      "toNode": "creator",
+      "label": "current",
+      "toEnd": "arrow"
+    },
+    {
+      "id": "edge4",
+      "fromNode": "world",
+      "toNode": "creator",
+      "label": "current",
+      "toEnd": "arrow"
+    },
+    {
+      "id": "edge5",
+      "fromNode": "creator",
+      "toNode": "physics",
+      "label": "current",
+      "toEnd": "arrow"
+    },
+    {
+      "id": "edge6",
+      "fromNode": "creator",
+      "toNode": "storage",
+      "label": "current",
+      "toEnd": "arrow"
+    },
+    {
+      "id": "edge7",
+      "fromNode": "studio",
+      "toNode": "tools",
+      "label": "current",
+      "toEnd": "arrow"
+    },
+    {
+      "id": "edge8",
+      "fromNode": "tools",
+      "toNode": "kernel",
+      "label": "current",
+      "toEnd": "arrow"
+    },
+    {
+      "id": "edge9",
+      "fromNode": "kernel",
+      "toNode": "storage",
+      "label": "current",
+      "toEnd": "arrow"
+    },
+    {
+      "id": "edge10",
+      "fromNode": "models",
+      "toNode": "tools",
+      "label": "planned",
+      "toEnd": "arrow"
+    },
+    {
+      "id": "edge11",
+      "fromNode": "tools",
+      "toNode": "factory",
+      "label": "planned",
+      "toEnd": "arrow"
+    },
+    {
+      "id": "edge12",
+      "fromNode": "kernel",
+      "toNode": "factory",
+      "label": "planned",
+      "toEnd": "arrow"
+    }
+  ]
+}

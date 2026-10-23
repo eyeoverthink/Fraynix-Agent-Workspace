@@ -1,0 +1,218 @@
+{
+  "wat": {
+    "compiles": true,
+    "binaryBytes": 1110,
+    "dnaTested": 256,
+    "dnaFailures": [],
+    "radius": [
+      {
+        "input": "-1",
+        "actual": "10.0",
+        "expected": 10.0
+      },
+      {
+        "input": "0",
+        "actual": "10.0",
+        "expected": 10.0
+      },
+      {
+        "input": "0.25",
+        "actual": "6.267415028125263",
+        "expected": 6.278340674826093
+      },
+      {
+        "input": "0.5",
+        "actual": "3.1598300562505255",
+        "expected": 3.2577911215314725
+      },
+      {
+        "input": "0.75",
+        "actual": "0.6772450843757882",
+        "expected": 1.061320299152929
+      },
+      {
+        "input": "0.9",
+        "actual": "0.0",
+        "expected": 0.2409716832074904
+      },
+      {
+        "input": "1",
+        "actual": "0.0",
+        "expected": 0.0
+      },
+      {
+        "input": "2",
+        "actual": "0.0",
+        "expected": 0.0
+      },
+      {
+        "input": "1e+300",
+        "actual": "0.0",
+        "expected": 0.0
+      },
+      {
+        "input": "nan",
+        "actual": "nan",
+        "expected": null
+      },
+      {
+        "input": "inf",
+        "actual": "0.0",
+        "expected": null
+      }
+    ],
+    "resonance": {
+      "0": "1.0",
+      "-1": "0.3819660112501051",
+      "0.5": "0.19098300562505255",
+      "1": "0.3819660112501051",
+      "1e+20": "1.0",
+      "nan": "nan"
+    },
+    "initialHeaderBytesBeforeFirstNull": 185,
+    "activeRegionOverlapsHeader": true,
+    "fossilRegionOverlapsHeader": true,
+    "ordinaryCorruptionRetained": 1,
+    "legal255BytesRewrittenAs": [
+      84,
+      84
+    ],
+    "checksumForZero": 0,
+    "checksumFor12": 3,
+    "checksumFor21": 3,
+    "hostCallbacks": [
+      [
+        335,
+        1
+      ],
+      [
+        335,
+        169
+      ],
+      [
+        335,
+        0
+      ],
+      [
+        335,
+        3
+      ],
+      [
+        335,
+        3
+      ]
+    ]
+  },
+  "dataset": {
+    "records": 200,
+    "coreInstructions": 5,
+    "toolMessageCount": 0,
+    "toolCallFieldCount": 0,
+    "finalClaimingMeasured": 160,
+    "modelLoadCalls": 0,
+    "backwardCalls": 0,
+    "dnaForFRAY": "CACGCCAGCAACCCGC"
+  },
+  "portal": {
+    "emitterProducesValidWasm": true,
+    "emittedBytes": 150,
+    "compressionRoundTripChangedActiveBytes": 80,
+    "nonWatTextAcceptedAsCompiled": true,
+    "fossilRestoresOriginalBinary": false,
+    "fossilInsteadRegeneratesNewBinary": true,
+    "commitsLabelAfterNetworkFailure": "3 (Auto-Saved)",
+    "networkRequestsBlocked": 2
+  },
+  "daemonProbe": [
+    "dnaAll256RoundTrip=true",
+    "malformedDNA_AAC_truncatesToBytes=0",
+    "wholeDNAFileDecodeMatchesPayloadOnly=false",
+    "corruptedExistingFileAcceptedAfterRestart=true",
+    "corruptedBytesRetained=true",
+    "corruptFossilRestoreReportedSuccess=true",
+    "restoredCorruptBytes=CORRUPTED_FOSSIL",
+    "failedCommandReturnedTextWithoutFailureType=true"
+  ],
+  "localModel": {
+    "checkedAt": "2026-10-23T14:07:39.7219961Z",
+    "endpoint": "http://127.0.0.1:11435",
+    "model": "gpt-oss:120b",
+    "manifestDigest": "a951a23b46a1f6093dafee2ea481d634b4e31ac720a8a16f3f91e04f5a40ecd9",
+    "modelLayer": {
+      "mediaType": "application/vnd.ollama.image.model",
+      "digest": "sha256:6be6d66a3f546d8c19b130dc41dc24b2fc159f84ffbc76a0ee0676205083cf5a",
+      "size": 65369799840
+    },
+    "blobBytes": 65369799840,
+    "blobSha256Recomputed": false,
+    "details": {
+      "parent_model": "",
+      "format": "gguf",
+      "family": "gptoss",
+      "families": [
+        "gptoss"
+      ],
+      "parameter_size": "116.8B",
+      "quantization_level": "MXFP4"
+    },
+    "capabilities": [
+      "completion",
+      "tools",
+      "thinking"
+    ],
+    "dreamerInstalled": false
+  },
+  "causalSuite": {
+    "casesRun": 4,
+    "verdictsDenied": 4,
+    "recurrentCandidate": {
+      "effectiveInformationBits": 1.463365,
+      "partitionBits": 0.532181,
+      "mirrorDelta": 0.5484,
+      "counterfactualGain": 0.0025,
+      "counterfactualThreshold": 0.05
+    }
+  },
+  "executionScope": {
+    "originalInputsUnchanged": true,
+    "filesInventoried": 20,
+    "uniquePhysicalContents": 12,
+    "originalJavaSourcesCompile": true,
+    "pythonSourcesParse": true,
+    "powershellParseErrors": 0,
+    "daemonServerStarted": false,
+    "cloudJobStarted": false,
+    "suppliedCloudEndpointsContacted": false,
+    "installerExecuted": false,
+    "gitPushExecuted": false,
+    "new120bInferenceRun": false,
+    "probeAdaptations": [
+      "Java subclass suppressed unrelated drive discovery and Git; original verification methods exercised",
+      "Portal exposed two read-only accessors for memory/binary; DOM, fetch and timer stubs; original WASM emitter executed",
+      "Python selected only known dataset/codec functions via AST; no script main/GPU/Git execution"
+    ],
+    "missingInput": "gemini-code-1792742219980.txt",
+    "relatedInstallerRead": "gemini-code-1792743482854.txt"
+  },
+  "attachmentInventory": [
+    {
+      "name": "Modelfile",
+      "bytes": 6975,
+      "lines": 75,
+      "sha256": "4503867db6954938683375aa2fbe9d36b6ac730edfc187c45971c17de0c5ab53"
+    },
+    {
+      "name": "GPU-narrative-1",
+      "bytes": 22379,
+      "lines": 394,
+      "sha256": "ad491a9f278a271813f663fa3462fe2e528f3ba1fecede933a3cd081640dc2e8"
+    },
+    {
+      "name": "GPU-narrative-2",
+      "bytes": 22379,
+      "lines": 394,
+      "sha256": "ad491a9f278a271813f663fa3462fe2e528f3ba1fecede933a3cd081640dc2e8"
+    }
+  ],
+  "generatedAt": "2026-10-23T14:14:53.234787+00:00"
+}

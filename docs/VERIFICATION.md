@@ -48,3 +48,25 @@ The final extraction results are recorded in `evidence/standalone-verification.j
 ## October 23: live model controls
 
 The full check passed with 58 JUnit tests and six executable module harnesses. Native restart checks used the actual Ultimate and bicameral models on ports 11434 and 11435, verified HTTP streams and fresh nonce responses, rendered all six tabs and retained fixture identities/physics. Real load/unload residency was also verified. See [live controls](LIVE_MODEL_CONTROLS.md) and [sanitized measurements](evidence/live-model-controls-2026-10-23.json).
+
+## October 23: README edition 001
+
+The local offline `:check` passed with 58 JUnit tests, zero failures and six
+module harnesses. The previous hosted run exceeded the repeated-inspection
+test's 30-second asynchronous deadline. That test now allows 120 seconds and
+reports session status on timeout; its identity, component-count and
+idempotence assertions remain unchanged. Local success and hosted success are
+separate evidence; use Actions for the exact publication commit.
+
+`scripts/Verify-Documentation.ps1` validates sequential edition numbers,
+normalized text hashes, frozen assets, local links, wiki links, JSON Canvas
+references and the viewer's embedded datasets. Browser checks covered module
+search/state filtering, node selection, zoom/reset, section navigation, file
+search, screenshot expansion, keyboard search focus and a 390-pixel viewport.
+All four gallery images loaded and no warning/error console entries were
+observed. The browser preview served only the frozen documentation directory
+on loopback; other checkout links were checked by the documentation verifier.
+
+See [README-001](../README-001.md), its
+[verification record](readmes/001/verification.json), and the
+[edition policy](readmes/README_SEQUENCE.md).

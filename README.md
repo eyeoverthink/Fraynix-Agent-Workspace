@@ -1,5 +1,7 @@
 # Fraynix Studio
 
+> **Latest system edition: [README 001](README-001.md)** · [Sequential editions](docs/readmes/INDEX.md) · [Interactive explorer](docs/readmes/001/index.html) · [Obsidian maps](docs/obsidian/00-home.md)
+
 **A local creator system combining a Java entity/component engine, a visual physics playground, persistent memory, and local AI.**
 
 Created by **Vaughn Scott / eyeoverthink**. This is the independent home of the combined editor and Fraynix runtime, with its own source tree, Git history, build, distribution, and default project storage.
@@ -259,6 +261,10 @@ See [continuity, typed tools and recovery](docs/CONTINUITY_AND_SKILLS.md) for co
 ## Development plan
 
 The [model/agency and Base44 source review](docs/MODELS_AGENCY_REVIEW.md) covers the supplied model exports, Python agency, Dreamer bundle and selected existing GitHub implementations. The [full integration plan](docs/IMPLEMENTATION_PLAN.md) maps them into one Java-first Studio, distinguishes GUI/CLI/provider boundaries and defines verification gates. These documents describe proposed integration; they do not imply the separate packages already run inside Studio.
+
+The [Dreamer 120B package review](docs/DREAMER_120B_REVIEW.md) tests the newer F: package, WAT, Java daemon, portal and proposed B200 trainer. It includes measured defects, a staged model recipe and the plan for binding real model calls to Studio's existing tools. The proposed trainer does not currently train weights.
+
+The reviewed [Dreamer 120B inference model](docs/DREAMER_120B_SETUP.md) is installed in the F: Ollama service, tested through Studio and published as [eyeoverthink/fraynix-dreamer-ultimate:120b](https://ollama.com/eyeoverthink/fraynix-dreamer-ultimate:120b). The setup guide contains the local command, measured cold/warm timings and public-registry verification.
 
 1. **Large-model operation:** complete cold-load supervision, context budgeting and measured routing on top of the implemented streaming, cancellation, loading and runtime profiles.
 2. **Measured model routing:** compare small fast models and larger planners on repeatable task suites; route only after observed results justify the choice.

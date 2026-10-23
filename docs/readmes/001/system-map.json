@@ -1,0 +1,280 @@
+{
+  "edition": 1,
+  "date": "2026-10-23",
+  "title": "The local creator system",
+  "snapshot": true,
+  "sourceBaseline": "30398fa7c490179600e4ee35e6c1a8f27bf7b11e",
+  "modules": [
+    {
+      "id": "studio",
+      "label": "Studio",
+      "state": "verified",
+      "description": "Dockable Java editor, frame loop and UI-owned scene session.",
+      "source": "src/main/java/jade/Window.java",
+      "note": "docs/readmes/001/obsidian/01-studio.md",
+      "x": 35,
+      "y": 35
+    },
+    {
+      "id": "world",
+      "label": "World runtime",
+      "state": "verified",
+      "description": "Versioned entities/components, schemas, stable IDs and transactions.",
+      "source": "fraynix-modules/factory-runtime/src/main/java/fraymus/factory/FactoryWorld.java",
+      "note": "docs/readmes/001/obsidian/02-world-and-physics.md",
+      "x": 330,
+      "y": 35
+    },
+    {
+      "id": "physics",
+      "label": "Physics",
+      "state": "verified",
+      "description": "JBox2D bodies and colliders; detached proposal simulation.",
+      "source": "src/main/java/factory/SceneSimulation.java",
+      "note": "docs/readmes/001/obsidian/02-world-and-physics.md",
+      "x": 625,
+      "y": 35
+    },
+    {
+      "id": "models",
+      "label": "Local models",
+      "state": "verified",
+      "description": "Real Ollama streams, exact endpoint/tag routing and Dreamer 120B.",
+      "source": "fraynix-modules/factory-models/src/main/java/fraymus/factory/models/FactoryModelService.java",
+      "note": "docs/readmes/001/obsidian/03-local-models.md",
+      "x": 35,
+      "y": 220
+    },
+    {
+      "id": "creator",
+      "label": "Creator protocol",
+      "state": "verified",
+      "description": "Scene queries, typed proposals, review, apply/save and durable undo.",
+      "source": "src/main/java/editor/SceneAgent.java",
+      "note": "docs/readmes/001/obsidian/02-world-and-physics.md",
+      "x": 330,
+      "y": 220
+    },
+    {
+      "id": "kernel",
+      "label": "Offline kernel",
+      "state": "implemented",
+      "description": "Hybrid retrieval, typed tasks, verifier, traces and repair-memory machinery.",
+      "source": "fraynix-modules/factory-kernel/src/main/java/brain_architecture/kernel/OfflineKernel.java",
+      "note": "docs/readmes/001/obsidian/04-memory-and-continuity.md",
+      "x": 625,
+      "y": 220
+    },
+    {
+      "id": "tools",
+      "label": "Typed tools",
+      "state": "verified",
+      "description": "Five compiled handlers, schema checks, host grants and actual receipts.",
+      "source": "fraynix-modules/factory-kernel/src/main/java/fraymus/factory/kernel/LocalSkillDispatcher.java",
+      "note": "docs/readmes/001/obsidian/05-tools-and-jobs.md",
+      "x": 35,
+      "y": 405
+    },
+    {
+      "id": "storage",
+      "label": "Durable state",
+      "state": "verified",
+      "description": "World checkpoints, edit history, conversations and journal continuity.",
+      "source": "fraynix-modules/factory-runtime/src/main/java/fraymus/factory/WorldCheckpointStore.java",
+      "note": "docs/readmes/001/obsidian/04-memory-and-continuity.md",
+      "x": 330,
+      "y": 405
+    },
+    {
+      "id": "factory",
+      "label": "Agent factory",
+      "state": "planned",
+      "description": "Shared model/tool loop, durable jobs, agent specs and reusable recipes.",
+      "source": "docs/IMPLEMENTATION_PLAN.md",
+      "note": "docs/readmes/001/obsidian/06-agent-factory-plan.md",
+      "x": 625,
+      "y": 405
+    }
+  ],
+  "edges": [
+    {
+      "id": "edge0",
+      "from": "studio",
+      "to": "world",
+      "state": "current"
+    },
+    {
+      "id": "edge1",
+      "from": "world",
+      "to": "physics",
+      "state": "current"
+    },
+    {
+      "id": "edge2",
+      "from": "studio",
+      "to": "models",
+      "state": "current"
+    },
+    {
+      "id": "edge3",
+      "from": "models",
+      "to": "creator",
+      "state": "current"
+    },
+    {
+      "id": "edge4",
+      "from": "world",
+      "to": "creator",
+      "state": "current"
+    },
+    {
+      "id": "edge5",
+      "from": "creator",
+      "to": "physics",
+      "state": "current"
+    },
+    {
+      "id": "edge6",
+      "from": "creator",
+      "to": "storage",
+      "state": "current"
+    },
+    {
+      "id": "edge7",
+      "from": "studio",
+      "to": "tools",
+      "state": "current"
+    },
+    {
+      "id": "edge8",
+      "from": "tools",
+      "to": "kernel",
+      "state": "current"
+    },
+    {
+      "id": "edge9",
+      "from": "kernel",
+      "to": "storage",
+      "state": "current"
+    },
+    {
+      "id": "edge10",
+      "from": "models",
+      "to": "tools",
+      "state": "planned"
+    },
+    {
+      "id": "edge11",
+      "from": "tools",
+      "to": "factory",
+      "state": "planned"
+    },
+    {
+      "id": "edge12",
+      "from": "kernel",
+      "to": "factory",
+      "state": "planned"
+    }
+  ],
+  "roadmap": [
+    {
+      "id": "tool-loop",
+      "title": "Shared model/tool loop",
+      "state": "next",
+      "range": "2\u20134 focused sessions",
+      "confidence": "Medium",
+      "gate": "A real model reads a current entity through the existing dispatcher and receives the actual result; failures cannot complete the task.",
+      "dependencies": "Typed assistant/tool messages, host grants, accumulated streamed calls and cancellation."
+    },
+    {
+      "id": "durable-jobs",
+      "title": "Durable jobs and agent specs",
+      "state": "planned",
+      "range": "4\u20138 sessions",
+      "confidence": "Medium-low",
+      "gate": "One accepted lease/commit under competing workers; crash/restart preserves status, evidence and cancellation.",
+      "dependencies": "Tool-loop results, persisted state machine, lease and idempotence contracts."
+    },
+    {
+      "id": "recipes",
+      "title": "Reusable creation recipes",
+      "state": "planned",
+      "range": "3\u20136 sessions after foundation",
+      "confidence": "Medium-low",
+      "gate": "A behavior-validated artifact becomes a persisted recipe that improves a later task.",
+      "dependencies": "Durable task binding, goal-level validators and repair/recipe memory."
+    },
+    {
+      "id": "artifacts",
+      "title": "Artifact recovery and portability",
+      "state": "planned",
+      "range": "2\u20135 sessions for a bounded format",
+      "confidence": "Medium",
+      "gate": "Exact empty/binary/Unicode round trips; active corruption and invalid backups are handled distinctly.",
+      "dependencies": "Versioned envelopes, trusted digest scope and interoperable fixtures."
+    },
+    {
+      "id": "training",
+      "title": "Optional receipt-backed training",
+      "state": "optional",
+      "range": "Estimate after preflight",
+      "confidence": "Unresolved",
+      "gate": "Actual adapter tensors plus held-out improvement over a pinned base.",
+      "dependencies": "Curated real receipts, supported training representation, confirmed GPU and measured time/memory."
+    }
+  ],
+  "evidence": [
+    {
+      "title": "Dreamer 120B activation",
+      "path": "docs/evidence/dreamer120b-activation-2026-10-23.json",
+      "detail": "38 frames, exact fresh nonce, scene preserved, registry layers matched."
+    },
+    {
+      "title": "Live model controls",
+      "path": "docs/evidence/live-model-controls-2026-10-23.json",
+      "detail": "Real streaming, native tabs, saved profiles and model lifecycle."
+    },
+    {
+      "title": "Continuity and typed tools",
+      "path": "docs/evidence/continuity-skills-verification.json",
+      "detail": "Journal consistency, five handlers, restored receipts and worker boundary."
+    },
+    {
+      "title": "Standalone project",
+      "path": "docs/evidence/standalone-verification.json",
+      "detail": "Source isolation, packaged runtime and native creator checks."
+    },
+    {
+      "title": "Earlier 120B scene experiment",
+      "path": "docs/evidence/gpt-oss-120b-2026-10-22.json",
+      "detail": "Task-specific numerical checks and actual JBox2D landing/collision."
+    },
+    {
+      "title": "Edition verification",
+      "path": "docs/readmes/001/verification.json",
+      "detail": "Documentation, Canvas, links, viewer and local check record."
+    }
+  ],
+  "screenshots": [
+    {
+      "title": "Dreamer 120B in Studio",
+      "path": "docs/readmes/001/images/dreamer120b-live.png",
+      "caption": "October 23 activation; 11 authored objects, 8 bodies, exact returned nonce."
+    },
+    {
+      "title": "Validated creation preview",
+      "path": "docs/readmes/001/images/creator-preview.png",
+      "caption": "Earlier native fixture showing Rigidbody2D and a simulated model proposal."
+    },
+    {
+      "title": "Model runtime controls",
+      "path": "docs/readmes/001/images/live-model-controls.png",
+      "caption": "Earlier controls check using Ultimate: services, connection nonce and settings."
+    },
+    {
+      "title": "Typed local tools",
+      "path": "docs/readmes/001/images/tools-preview.png",
+      "caption": "Earlier native Tools run with a real world.inspect result and journal entry."
+    }
+  ]
+}

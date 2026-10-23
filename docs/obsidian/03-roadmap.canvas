@@ -1,0 +1,79 @@
+{
+  "nodes": [
+    {
+      "id": "tool-loop",
+      "type": "text",
+      "x": 0,
+      "y": 0,
+      "width": 450,
+      "height": 290,
+      "text": "# Shared model/tool loop\n\n**State:** next\n**Scenario:** 2–4 focused sessions; Medium confidence.\n\n**Gate:** A real model reads a current entity through the existing dispatcher and receives the actual result; failures cannot complete the task.\n\n[[docs/obsidian/06-agent-factory-plan|Forecast context]]"
+    },
+    {
+      "id": "durable-jobs",
+      "type": "text",
+      "x": 520,
+      "y": 0,
+      "width": 450,
+      "height": 290,
+      "text": "# Durable jobs and agent specs\n\n**State:** planned\n**Scenario:** 4–8 sessions; Medium-low confidence.\n\n**Gate:** One accepted lease/commit under competing workers; crash/restart preserves status, evidence and cancellation.\n\n[[docs/obsidian/06-agent-factory-plan|Forecast context]]"
+    },
+    {
+      "id": "recipes",
+      "type": "text",
+      "x": 1040,
+      "y": 0,
+      "width": 450,
+      "height": 290,
+      "text": "# Reusable creation recipes\n\n**State:** planned\n**Scenario:** 3–6 sessions after foundation; Medium-low confidence.\n\n**Gate:** A behavior-validated artifact becomes a persisted recipe that improves a later task.\n\n[[docs/obsidian/06-agent-factory-plan|Forecast context]]"
+    },
+    {
+      "id": "artifacts",
+      "type": "text",
+      "x": 0,
+      "y": 380,
+      "width": 450,
+      "height": 290,
+      "text": "# Artifact recovery and portability\n\n**State:** planned\n**Scenario:** 2–5 sessions for a bounded format; Medium confidence.\n\n**Gate:** Exact empty/binary/Unicode round trips; active corruption and invalid backups are handled distinctly.\n\n[[docs/obsidian/06-agent-factory-plan|Forecast context]]"
+    },
+    {
+      "id": "training",
+      "type": "text",
+      "x": 520,
+      "y": 380,
+      "width": 450,
+      "height": 290,
+      "text": "# Optional receipt-backed training\n\n**State:** optional\n**Scenario:** Estimate after preflight; Unresolved confidence.\n\n**Gate:** Actual adapter tensors plus held-out improvement over a pinned base.\n\n[[docs/obsidian/06-agent-factory-plan|Forecast context]]"
+    }
+  ],
+  "edges": [
+    {
+      "id": "road0",
+      "fromNode": "tool-loop",
+      "toNode": "durable-jobs",
+      "label": "foundation",
+      "toEnd": "arrow"
+    },
+    {
+      "id": "road1",
+      "fromNode": "durable-jobs",
+      "toNode": "recipes",
+      "label": "foundation",
+      "toEnd": "arrow"
+    },
+    {
+      "id": "road2",
+      "fromNode": "recipes",
+      "toNode": "artifacts",
+      "label": "foundation",
+      "toEnd": "arrow"
+    },
+    {
+      "id": "road3",
+      "fromNode": "artifacts",
+      "toNode": "training",
+      "label": "optional",
+      "toEnd": "arrow"
+    }
+  ]
+}

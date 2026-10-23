@@ -1,0 +1,116 @@
+{
+  "generatedAt": "2026-10-23T15:20:29.478434+00:00",
+  "model": "eyeoverthink/fraynix-dreamer-ultimate:120b",
+  "localAlias": "fraynix-dreamer-ultimate:120b",
+  "endpoint": "http://127.0.0.1:11435",
+  "authenticatedAccount": "eyeoverthink",
+  "publicationURL": "https://ollama.com/eyeoverthink/fraynix-dreamer-ultimate:120b",
+  "coldTest": {
+    "context": "4096",
+    "done": "true",
+    "done_reason": "stop",
+    "elapsedMillis": "274232",
+    "endpoint": "http://127.0.0.1:11435",
+    "eval_count": "47",
+    "eval_duration": "7768825000",
+    "expectedNonce": "DREAMER_2A6EEE01",
+    "firstAnswerMillis": "272521",
+    "firstTokenMillis": "266829",
+    "frames": "38",
+    "historyMessages": "0",
+    "httpStatus": "200",
+    "load_duration": "260765908900",
+    "model": "eyeoverthink/fraynix-dreamer-ultimate:120b",
+    "prompt_eval_count": "231",
+    "prompt_eval_duration": "5441747000",
+    "reply": "DREAMER_2A6EEE01",
+    "reportedModel": "eyeoverthink/fraynix-dreamer-ultimate:120b",
+    "requestId": "919527b6-9b9a-488d-b57c-da485cd6f3ea",
+    "requestSha256": "78b662550028a4bf7073839fa1aefae6ebf7d2cfdf66b90df260bfd522c04963",
+    "requestedModel": "eyeoverthink/fraynix-dreamer-ultimate:120b",
+    "responseSha256": "8a2f53e2b34d7cac61f41955d41c57ca12b3430709220995f771bf5503cfabae",
+    "total_duration": "273990914400",
+    "transport": "ollama-http-ndjson",
+    "verified": "true"
+  },
+  "warmTest": {
+    "transport": "ollama-http",
+    "reasoning": "low",
+    "response": "My name is FRAYNIX\u2011DREAMER, and 19\u202f+\u202f23\u202f=\u202f42.",
+    "done": true,
+    "totalSeconds": 13.4547697,
+    "loadSeconds": 0.0020275
+  },
+  "publication": {
+    "localDigest": "F4C2235F63046D4731F69256D0E33E23E6954F7DAB685EA8CA1DE5F002787E7D",
+    "remoteBodyDigest": "12D69520BC43023F6FD80B37C630284D9AFA950EC565D872B5826DA221F93AAD",
+    "remoteLayerCount": 5,
+    "weightsMatch": true,
+    "systemMatch": true,
+    "modelLayer": {
+      "mediaType": "application/vnd.ollama.image.model",
+      "digest": "sha256:6be6d66a3f546d8c19b130dc41dc24b2fc159f84ffbc76a0ee0676205083cf5a",
+      "size": 65369799840,
+      "from": "gpt-oss:120b"
+    },
+    "systemLayer": {
+      "mediaType": "application/vnd.ollama.image.system",
+      "digest": "sha256:fb93140f3e2b99dc76aad2583f5c0f2b4d47325b6dfbc0fd795e2ae365d5f051",
+      "size": 705
+    },
+    "scenePreserved": true,
+    "allLayerDigestsMatch": true,
+    "configDigestMatches": true,
+    "layers": 5,
+    "PageStatus": 200,
+    "PageContainsModelName": true,
+    "PageContains120b": true,
+    "pushExitCode": 0,
+    "registryManifestStatus": 200
+  },
+  "scene": {
+    "sha256Before": "a958381eba6784304ad5770fceefbe3c2106af9ad9cc74633afdf893ca7e5a71",
+    "sha256After": "a958381eba6784304ad5770fceefbe3c2106af9ad9cc74633afdf893ca7e5a71",
+    "bytes": 15088,
+    "checkpointRevision": 30,
+    "authoredObjects": 11,
+    "physicsBodies": 8,
+    "nativeFrameInspected": true,
+    "framePath": "docs/images/dreamer120b-live.png"
+  },
+  "runtimeProfile": {
+    "context": 4096,
+    "outputTokens": 1024,
+    "threads": 12,
+    "gpuLayers": 0,
+    "idleSeconds": 900,
+    "keepAliveSeconds": 1800,
+    "temperature": 1,
+    "repeatPenalty": 1,
+    "clearCustomStops": true
+  },
+  "server": {
+    "loadTimeout": "15m",
+    "maxLoadedModels": 1,
+    "parallelRequests": 1,
+    "primaryServicePreserved": true
+  },
+  "residentAfterTesting": {
+    "name": "eyeoverthink/fraynix-dreamer-ultimate:120b",
+    "size": 65490397428,
+    "size_vram": 0,
+    "context_length": 4096,
+    "expires_at": "2026-10-23T08:47:06.6221778-07:00"
+  },
+  "recipeSha256": "a5b9ef2458be4ca89aa390b0728e883bbf5b0a75951370bbdc45aaf2d5bfe0bc",
+  "scope": {
+    "studioChatControllerExercised": true,
+    "nativeAppReopenedWithSelectedModel": true,
+    "newWeightTraining": false,
+    "automaticToolLoopInstalled": false,
+    "fullWeightBlobRehashed": false,
+    "projectConversationsPublishedToOllama": false,
+    "cloudTrainingStarted": false,
+    "windowsBootServiceInstalled": false
+  }
+}

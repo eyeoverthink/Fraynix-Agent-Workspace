@@ -99,8 +99,12 @@ distributions {
             from('level.txt')
             from('Launch-Fraynix-Studio.bat')
             from('scripts/Configure-Models.ps1') { into 'scripts' }
+            from('scripts/Start-FDrive-Ollama.ps1') { into 'scripts' }
             from('docs') { into 'docs' }
             from('README.md')
+            from('AGENTS.md')
+            from(fileTree(rootDir) { include 'README-*.md' })
+            from('models') { into 'models'; include '*.Modelfile' }
             from('THIRD_PARTY_NOTICES.md')
         }
     }

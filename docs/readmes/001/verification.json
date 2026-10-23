@@ -1,0 +1,41 @@
+{
+  "edition": 1,
+  "date": "2026-10-23",
+  "sourceBaseline": "30398fa7c490179600e4ee35e6c1a8f27bf7b11e",
+  "localCheck": {
+    "command": "gradlew.bat --offline --no-daemon --console=plain :check",
+    "result": "passed",
+    "junitTests": 58,
+    "failures": 0,
+    "executableHarnesses": 6,
+    "sourceIsolation": true
+  },
+  "priorHostedRun": {
+    "url": "https://github.com/eyeoverthink/Fraynix-Studio/actions/runs/39920771053",
+    "result": "failed",
+    "cause": "Repeated-inspection idempotence test exceeded its former 30-second asynchronous deadline",
+    "change": "120-second deadline with unchanged behavior assertions and explicit timeout diagnostics"
+  },
+  "hostedPublicationRun": "See Actions for the exact publication commit; result is independent of local checks",
+  "browserQA": {
+    "status": "passed",
+    "date": "2026-10-23",
+    "surface": "In-app Chromium browser, scoped read-only loopback documentation preview",
+    "checks": {
+      "initialModules": "9 of 9, local-model detail rendered",
+      "stateFilter": "Planned selects 1 of 9 modules",
+      "search": "checkpoint selects Durable state",
+      "nodeAndCardSelection": "Physics node and Local models card update the detail/source links",
+      "zoomAndReset": "90 52.5 720 420 after zoom; 0 0 900 525 after reset",
+      "navigation": "System, roadmap, tree, evidence and screenshots hash panels rendered",
+      "fileSearch": "SceneAgent matches 5 of 322 source/script paths",
+      "screenshots": "All 4 images loaded; modal showed the 1920x1080 Dreamer activation image and closed",
+      "keyboard": "Control+K focuses module-search",
+      "narrowLayout": "390x844 viewport; document width 375px with navigation scrolling inside its rail",
+      "console": "No warning or error entries observed"
+    },
+    "scope": "Browser interactions and layout only. Local source/evidence hyperlinks validated on disk by Verify-Documentation.ps1. No live service telemetry is claimed."
+  },
+  "documentationVerifier": "scripts/Verify-Documentation.ps1",
+  "claims": "Screenshots are recorded runs. Roadmap effort ranges are planning scenarios."
+}
