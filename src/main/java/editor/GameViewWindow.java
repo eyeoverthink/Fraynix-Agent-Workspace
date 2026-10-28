@@ -40,6 +40,15 @@ public class GameViewWindow {
         if (ImGui.menuItem("Grid", "", util.Settings.SHOW_GRID)) util.Settings.SHOW_GRID = !util.Settings.SHOW_GRID;
         if (ImGui.menuItem("Snap to grid", "", util.Settings.SNAP_TO_GRID)) util.Settings.SNAP_TO_GRID = !util.Settings.SNAP_TO_GRID;
         ImGui.endMenuBar();
+        if(ImGui.button("Save level")) Window.levels().save();
+        ImGui.sameLine();ImGui.beginDisabled(Window.levels().busy() || Window.isPlaying());
+        if(ImGui.button("Import level...")) Window.levels().choose("Import");
+        ImGui.endDisabled();ImGui.sameLine();ImGui.beginDisabled(Window.levels().busy());
+        if(ImGui.button("Export level...")) Window.levels().choose("Export");
+        ImGui.endDisabled();ImGui.sameLine();ImGui.beginDisabled(Window.isPlaying());
+        if(ImGui.button("Reload saved")) EventSystem.notify(null,new Event(EventType.LoadLevel));
+        ImGui.endDisabled();
+        ImGui.textWrapped(Window.levels().status());
         ImGui.textWrapped(agent.GameInput.status());
 
         ImVec2 windowSize = getLargestSizeForViewport();

@@ -8,6 +8,8 @@ The numbered series preserves the system's development as linked, evidence-based
 
 | [002](../../README-002.md) | 2026-10-28 | Full Mario gameplay, live actor controls and sensory Hrm cortex | [Interactive viewer](002/index.html) · [source tree](002/FILE_TREE.md) · [Obsidian note](../obsidian/09-full-game-and-cortex.md) |
 
-Latest edition: **002**. Future editions increment the number and add rows here.
+| [003](../../README-003.md) | 2026-10-28 | Obstacle recovery, explicit placement, level files and compatible local models | [Interactive viewer](003/index.html) · [source tree](003/FILE_TREE.md) · [Obsidian note](../obsidian/10-reliable-play-and-level-files.md) |
+
+Latest edition: **003**. Future editions increment the number and add rows here.
 
 See [the sequence policy](README_SEQUENCE.md) and [machine-readable manifest](editions.json). The historical root README is recoverable through Git history; no duplicate copy was created for edition 001.

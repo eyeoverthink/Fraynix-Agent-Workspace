@@ -12,6 +12,7 @@ public class MouseListener {
     private double scrollX, scrollY;
     private double xPos, yPos, lastY, lastX, worldX, worldY, lastWorldX, lastWorldY;
     private boolean mouseButtonPressed[] = new boolean[9];
+    private final long[] pressSequence = new long[9];
     private boolean isDragging;
 
     private int mouseButtonDown = 0;
@@ -54,6 +55,7 @@ public class MouseListener {
     public static void mouseButtonCallback(long window, int button, int action, int mods) {
         if (button < 0 || button >= get().mouseButtonPressed.length) return;
         if (action == GLFW_PRESS) {
+            if (!get().mouseButtonPressed[button]) get().pressSequence[button]++;
             if (!get().mouseButtonPressed[button]) get().mouseButtonDown++;
 
             if (button < get().mouseButtonPressed.length) {
@@ -83,6 +85,7 @@ public class MouseListener {
         get().lastWorldX = get().worldX;
         get().lastWorldY = get().worldY;
     }
+    public static long pressSequence(int button) { return get().pressSequence[button]; }
 
     public static float getX() {
         return (float)get().xPos;

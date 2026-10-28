@@ -307,6 +307,11 @@ public class Physics2D {
                 new Vec2(point2.x, point2.y));
         return callback;
     }
+    public RaycastInfo raycastSolid(GameObject requestingObject, Vector2f point1, Vector2f point2) {
+        RaycastInfo callback=new RaycastInfo(requestingObject,true);
+        world.raycast(callback,new Vec2(point1.x,point1.y),new Vec2(point2.x,point2.y));
+        return callback;
+    }
 
     private int fixtureListSize(Body body) {
         int size = 0;

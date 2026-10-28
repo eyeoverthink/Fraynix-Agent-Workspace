@@ -117,6 +117,12 @@ public class LevelEditorSceneInitializer extends SceneInitializer {
         ImGui.end();
 
         ImGui.begin("Assets");
+        MouseControls placement=levelEditorStuff.getComponent(MouseControls.class);
+        if(ImGui.button("Select tool")) placement.selectTool();
+        ImGui.sameLine(); ImGui.beginDisabled(!placement.hasAsset());
+        if(ImGui.button("Place selected")) placement.enablePlacement();
+        ImGui.endDisabled();
+        ImGui.textWrapped((placement.placing()?"PLACE: click the viewport to stamp. Esc selects objects.":"SELECT: click objects to inspect. Choose an asset, then Place selected.")+" Selected: "+placement.selectedLabel());
 
         if (ImGui.beginTabBar("WindowTabBar")) {
             if (ImGui.beginTabItem("Solid Blocks")) {

@@ -1,0 +1,81 @@
+{
+  "date": "2026-10-28",
+  "modules": [
+    {
+      "id": "pilot",
+      "name": "Obstacle recovery and landing",
+      "status": "verified",
+      "source": "src/main/java/agent/MotorRecovery.java",
+      "note": "docs/obsidian/10-reliable-play-and-level-files.md",
+      "summary": "Detect stalled position, back away on safe floor, jump with room, align an enemy landing and stop after bounded failures. Native route reaches x=12.158443 without injected jumps."
+    },
+    {
+      "id": "selection",
+      "name": "Selection and placement",
+      "status": "verified",
+      "source": "src/main/java/components/MouseControls.java",
+      "note": "docs/obsidian/10-reliable-play-and-level-files.md",
+      "summary": "Palette selection stays detached. Place selected explicitly arms stamping. Fresh press sequences prevent held clicks and existing-object selection from inserting tiles."
+    },
+    {
+      "id": "levels",
+      "name": "Save import and export",
+      "status": "verified",
+      "source": "src/main/java/editor/LevelActions.java",
+      "note": "docs/obsidian/10-reliable-play-and-level-files.md",
+      "summary": "Save authoring during Edit or Play, export JSON, validate imports before replacement, and back up the previous level. Native file-path operations pass; desktop file-dialog clicks remain unverified."
+    },
+    {
+      "id": "models",
+      "name": "Chat capabilities and drives",
+      "status": "verified",
+      "source": "fraynix-modules/factory-models/src/main/java/fraymus/factory/models/FactoryModelService.java",
+      "note": "docs/obsidian/10-reliable-play-and-level-files.md",
+      "summary": "Check live /api/show capabilities and exact service routing. Decision and embedding models stay out of Chat. Discover complete and incomplete model stores across conventional paths on mounted drives."
+    },
+    {
+      "id": "context",
+      "name": "Bounded model observations",
+      "status": "verified",
+      "source": "src/main/java/factory/SceneKnowledge.java",
+      "note": "docs/obsidian/10-reliable-play-and-level-files.md",
+      "summary": "Keep the complete frozen world locally. Send a valid bounded summary, then query entities, components and properties. Reserve context for the model SYSTEM, template, history and reply."
+    },
+    {
+      "id": "future",
+      "name": "Learning and broader navigation",
+      "status": "planned",
+      "source": "docs/IMPLEMENTATION_PLAN.md",
+      "note": "docs/obsidian/10-reliable-play-and-level-files.md",
+      "summary": "Broader unseen-level evaluation, visual-model input, episodic learning and measured evolution remain acceptance gates. Existing neural plasticity is experimental."
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "docs/readmes/003/images/corrections-ui.png",
+      "description": "Native editor with explicit placement and level controls"
+    },
+    {
+      "path": "docs/readmes/003/images/corrections-route.png",
+      "description": "Native autonomous obstacle regression"
+    },
+    {
+      "path": "docs/readmes/003/images/corrections-editor.png",
+      "description": "Restored editor and model controls"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/readmes/003/verification.json"
+    },
+    {
+      "path": "docs/readmes/003/live-model.json"
+    },
+    {
+      "path": "docs/readmes/003/native-route.log"
+    },
+    {
+      "path": "docs/readmes/003/source-isolation.json"
+    }
+  ]
+}

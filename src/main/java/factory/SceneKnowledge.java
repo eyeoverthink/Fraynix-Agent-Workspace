@@ -86,11 +86,68 @@ public record SceneKnowledge(WorldSnapshot world, String fingerprint, String jso
         double extentY = circle ? height / 2 : (Math.abs(sin) * width + Math.abs(cos) * height) / 2;
         return new SpatialIndex2D.Bounds(cx - extentX, cy - extentY, cx + extentX, cy + extentY);
     }
+    /** Small, valid JSON view for a model; the complete frozen world remains queryable. */
+    public String forModel(int maxCharacters) {
+        int budget=Math.max(2048,maxCharacters);JsonObject full=SceneJson.parse(json),summary=new JsonObject();
+        for(String key:List.of("observationId","sceneHash","mode","selectedEntityId","coordinateConvention","grid","camera"))
+            if(full.has(key)) summary.add(key,full.get(key));
+        var authored=world.entities().stream().filter(SceneKnowledge::authored).toList();
+        summary.addProperty("totalEntities",authored.size());
+        summary.addProperty("detailPolicy","Bounded summaries. Use nearest (limit <= 8) or inspect with optional componentType/property to read frozen details.");
+        String selected=full.has("selectedEntityId")?full.get("selectedEntityId").getAsString():"";
+        double centerX=0,centerY=0;
+        if(full.has("camera")) {var camera=full.getAsJsonObject("camera");centerX=camera.get("x").getAsDouble()+camera.get("width").getAsDouble()/2;centerY=camera.get("y").getAsDouble()+camera.get("height").getAsDouble()/2;}
+        final double cx=centerX,cy=centerY;
+        var ordered=authored.stream().sorted(Comparator.<EntityRecord>comparingInt(e->e.id().toString().equals(selected)?0:1)
+            .thenComparingDouble(e->{var b=bounds(e);return Math.hypot((b.minX()+b.maxX())/2-cx,(b.minY()+b.maxY())/2-cy);})).toList();
+        JsonArray entities=new JsonArray();summary.add("entities",entities);
+        for(var entity:ordered) {
+            JsonObject item=compact(entity);entities.add(item);
+            if(summary.toString().length()>budget-160) {entities.remove(entities.size()-1);break;}
+        }
+        summary.addProperty("returnedEntities",entities.size());summary.addProperty("partial",entities.size()!=authored.size());return summary.toString();
+    }
+    private static JsonObject compact(EntityRecord entity) {
+        var item=new JsonObject();item.addProperty("entityId",entity.id().toString());item.addProperty("name",entity.name());
+        item.add("transform",SceneJson.GSON.toJsonTree(component(entity,"jade.Transform").values().entrySet().stream().filter(e->!e.getKey().equals("json")).collect(java.util.stream.Collectors.toMap(Map.Entry::getKey,Map.Entry::getValue))));
+        item.add("componentTypes",SceneJson.GSON.toJsonTree(entity.components().stream().filter(c->!c.type().equals("editor.object")).map(c->c.type().substring(7)).toList()));return item;
+    }
+    public String queryForModel(String source,int maxCharacters) {
+        String result=query(source);if(result.length()<=maxCharacters) return result;
+        JsonObject data=SceneJson.parse(result);JsonObject limited=new JsonObject();limited.addProperty("op",data.get("op").getAsString());
+        limited.addProperty("observationId",fingerprint.substring(0,16));limited.addProperty("partial",true);
+        limited.addProperty("hint","Result exceeds model budget. Query a specific entity, componentType and property, or a smaller nearest limit.");
+        for(String key:List.of("entities","hits")) if(data.has(key)) {
+            var sourceArray=data.getAsJsonArray(key);var returned=new JsonArray();limited.addProperty("totalMatches",sourceArray.size());limited.add(key,returned);
+            for(var item:sourceArray) {
+                JsonElement candidate=item;
+                if(item.isJsonObject()&&item.getAsJsonObject().has("entityId")) candidate=compact(require(item.getAsJsonObject().get("entityId").getAsString()));
+                returned.add(candidate);if(limited.toString().length()>maxCharacters-100) {returned.remove(returned.size()-1);break;}
+            }
+        }
+        if(data.has("entity")) limited.add("entity",compact(require(data.getAsJsonObject("entity").get("entityId").getAsString())));
+        return limited.toString();
+    }
     public String query(String source) {
         var request = SceneJson.parse(source); String op = SceneJson.text(request, "op"); var result = new JsonObject(); result.addProperty("op", op);
         switch (op) {
             case "inspect" -> {
-                SceneJson.keys(request, "op", "entityId"); result.add("entity", describe(require(SceneJson.text(request, "entityId"))));
+                SceneJson.keys(request, "op", "entityId","componentType","property");
+                JsonObject entity=describe(require(SceneJson.text(request,"entityId")));
+                if(request.has("componentType")) {
+                    JsonArray matching=new JsonArray();
+                    for(var item:entity.getAsJsonArray("components")) if(item.getAsJsonObject().get("type").getAsString().equals(SceneJson.text(request,"componentType"))) {
+                        var component=item.getAsJsonObject();
+                        if(request.has("property")) {
+                            String field=SceneJson.text(request,"property");var properties=component.getAsJsonObject("properties");
+                            if(!properties.has(field)) throw new IllegalArgumentException("Unknown component property: "+field);
+                            var chosen=new JsonObject();chosen.add(field,properties.get(field));component.add("properties",chosen);
+                        }
+                        matching.add(component);
+                    }
+                    if(matching.size()==0) throw new IllegalArgumentException("Component is not present on this entity");entity.add("components",matching);
+                } else if(request.has("property")) throw new IllegalArgumentException("Select componentType before property");
+                result.add("entity",entity);
             }
             case "components" -> {
                 SceneJson.keys(request, "op", "type"); String type = SceneJson.text(request, "type"); var array = new JsonArray();

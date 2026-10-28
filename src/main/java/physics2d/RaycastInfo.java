@@ -14,6 +14,7 @@ public class RaycastInfo implements RayCastCallback {
     public boolean hit;
     public GameObject hitObject;
     private GameObject requestingObject;
+    private boolean solidsOnly;
 
     public RaycastInfo(GameObject obj) {
         fixture = null;
@@ -24,17 +25,18 @@ public class RaycastInfo implements RayCastCallback {
         hitObject = null;
         this.requestingObject = obj;
     }
+    public RaycastInfo(GameObject obj, boolean solidsOnly) { this(obj); this.solidsOnly=solidsOnly; }
 
     @Override
     public float reportFixture(Fixture fixture, Vec2 point, Vec2 normal, float fraction) {
-        if (fixture.m_userData == requestingObject) {
-            return 1;
+        if (fixture.m_userData == requestingObject || solidsOnly && fixture.isSensor()) {
+            return -1;
         }
         this.fixture = fixture;
         this.point = new Vector2f(point.x, point.y);
         this.normal = new Vector2f(normal.x, normal.y);
         this.fraction = fraction;
-        this.hit = fraction != 0;
+        this.hit = true;
         this.hitObject = (GameObject)fixture.m_userData;
 
         return fraction;

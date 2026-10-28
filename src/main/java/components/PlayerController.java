@@ -329,7 +329,7 @@ public class PlayerController extends Component {
     }
 
     public boolean hasWon() {
-        return false;
+        return playWinAnimation;
     }
 
     public boolean isSmall() {

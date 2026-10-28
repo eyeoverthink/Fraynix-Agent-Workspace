@@ -34,10 +34,18 @@ public final class FraynixWorkspace implements AutoCloseable {
     private boolean chatChanged,historyReady;
     private Operation lastOperation;
     private ConversationStore.Exchange newlyCompleted;
+    private CompletableFuture<List<ModelStorageDiscovery.Store>> scanning;
+    private List<ModelStorageDiscovery.Store> storage=List.of();
+    private String selectionNotice="";
+    public List<ModelStorageDiscovery.Store> storage() {return storage;}
+    public String selectionNotice() {return selectionNotice;}
+    public boolean scanning() {return scanning!=null;}
+    public void scanStorage() {if(scanning==null) scanning=CompletableFuture.supplyAsync(ModelStorageDiscovery::discover,health);}
 
     public FraynixWorkspace(Path workspace) { this(workspace,new FactoryModelService()); }
     FraynixWorkspace(Path workspace,FactoryModelService service) {
         this.service=service;
+        scanStorage();
         journal=new ConversationStore(workspace);operationPath=workspace.resolve("models/operations.jsonl");
         restoring=CompletableFuture.supplyAsync(()->{
             try{return new Restored(journal.load(),new ModelProfileStore(workspace));}
@@ -53,6 +61,7 @@ public final class FraynixWorkspace implements AutoCloseable {
     public void select(String selected){
         if(busy())throw new IllegalStateException("Finish or cancel the current model operation first");
         model=selected;
+        selectionNotice="";
         conversation=exchanges.stream().filter(x->x.model().equals(model)).reduce((a,b)->b)
             .map(x->x.evidence().getOrDefault("conversationId","legacy")).orElse("legacy");
         chatChanged=true;
@@ -80,6 +89,7 @@ public final class FraynixWorkspace implements AutoCloseable {
     public ModelRunSettings settings(){var selected=selected();return profiles==null?ModelRunSettings.defaults(selected.bytes()):profiles.get(selected.endpoint(),selected.name(),selected.bytes());}
     public void refresh(){if(refreshing!=null)return;lastRefresh=System.nanoTime();refreshing=CompletableFuture.supplyAsync(service::observe,health);}
     public void tick(){
+        if(scanning!=null && scanning.isDone()) {try {storage=scanning.join();} catch(CompletionException failure) {healthError=message(failure);} scanning=null;}
         if(restoring!=null&&restoring.isDone()){
             try{var restored=restoring.join();exchanges=restored.exchanges();profiles=restored.profiles();historyReady=true;chatChanged=true;
                 if(!exchanges.isEmpty()){var last=exchanges.get(exchanges.size()-1);model=last.model();
@@ -89,8 +99,7 @@ public final class FraynixWorkspace implements AutoCloseable {
         }
         if(refreshing!=null&&refreshing.isDone()){
             try{snapshot=refreshing.join();healthError="";
-                if(model.isEmpty())model=snapshot.models().stream().filter(FactoryModelService.Model::available)
-                    .sorted(Comparator.comparing(m->!m.name().equalsIgnoreCase("fraynix-3b:latest"))).findFirst().map(FactoryModelService.Model::name).orElse("");
+                reconcileModel();
             }catch(CompletionException failure){healthError=message(failure);}
             refreshing=null;
         }
@@ -105,6 +114,17 @@ public final class FraynixWorkspace implements AutoCloseable {
             operation=null;finished();
         }
         if(refreshing==null&&System.nanoTime()-lastRefresh>5_000_000_000L)refresh();
+        if(!snapshot.observedAt().equals(Instant.EPOCH)) reconcileModel();
+    }
+    private void reconcileModel() {
+        if(busy() || snapshot.models().stream().anyMatch(m->m.available() && m.name().equals(model))) return;
+        String previous=model;
+        model=snapshot.models().stream().filter(FactoryModelService.Model::available)
+            .sorted(Comparator.<FactoryModelService.Model>comparingInt(m->m.name().equalsIgnoreCase("eyeoverthink/FRAYNIX-PROTOCOL:3b")?0:m.name().equalsIgnoreCase("fraynix-3b:latest")?1:2)
+                .thenComparingLong(m->m.bytes()>0?m.bytes():Long.MAX_VALUE)).findFirst().map(FactoryModelService.Model::name).orElse("");
+        if(!previous.isBlank()&&!previous.equals(model)) selectionNotice=previous+" is not chat-ready. "+(model.isBlank()?"No compatible local chat model is currently available.":"Selected "+model+" for future requests.");
+        else if(previous.isBlank()&&!model.isBlank()) selectionNotice="";
+        conversation=exchanges.stream().filter(x->x.model().equals(model)).reduce((a,b)->b).map(x->x.evidence().getOrDefault("conversationId","legacy")).orElse("legacy");
     }
     private static String message(Throwable failure){while(failure.getCause()!=null)failure=failure.getCause();return String.valueOf(failure.getMessage());}
     private void finished(){control=null;pendingPrompt="";activeAction="";lastRefresh=0;}
@@ -119,7 +139,9 @@ public final class FraynixWorkspace implements AutoCloseable {
         if(prompt.isBlank())throw new IllegalArgumentException("Enter a message");
         var selected=selected();var settings=settings();String input=ChatContext.input(prompt,sceneContext);
         // Estimate only: tokenizer and model SYSTEM sizes vary. Keep whole recent exchanges, never cut JSON attachments.
-        int historyBudget=Math.max(0,(settings.context()-settings.outputTokens()-1024)*3-input.length());
+        int inputBudget=Math.max(0,(settings.context()-settings.outputTokens()-selected.systemContextEstimate()-512)*3);
+        if(input.length()>inputBudget) throw new IllegalArgumentException("Message and scene summary exceed this model's context budget. Shorten the message or increase context in Models; its own SYSTEM/template also uses context.");
+        int historyBudget=Math.max(0,inputBudget-input.length());
         var history=ChatContext.history(exchanges,model,selected.endpoint(),conversation,historyBudget);
         String thread=conversation;begin("Chat / "+selected.name());pendingPrompt=prompt;
         var request=control;long start=sentAt;

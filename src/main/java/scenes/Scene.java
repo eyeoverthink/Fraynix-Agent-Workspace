@@ -194,7 +194,8 @@ public class Scene {
             }
             Files.writeString(temporary, gson.toJson(objsToSerialize), StandardCharsets.UTF_8);
             try (java.nio.channels.FileChannel file = java.nio.channels.FileChannel.open(temporary, java.nio.file.StandardOpenOption.WRITE)) { file.force(true); }
-            Files.move(temporary, target, StandardCopyOption.ATOMIC_MOVE, StandardCopyOption.REPLACE_EXISTING);
+            try { Files.move(temporary, target, StandardCopyOption.ATOMIC_MOVE, StandardCopyOption.REPLACE_EXISTING); }
+            catch(java.nio.file.AtomicMoveNotSupportedException error) { Files.move(temporary,target,StandardCopyOption.REPLACE_EXISTING); }
         } finally { Files.deleteIfExists(temporary); }
     }
 

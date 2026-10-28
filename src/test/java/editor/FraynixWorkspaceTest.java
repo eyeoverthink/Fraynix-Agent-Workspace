@@ -26,6 +26,10 @@ public class FraynixWorkspaceTest {
             byte[] bytes="{\"models\":[{\"name\":\"fixture:latest\",\"size\":1024}]}".getBytes(StandardCharsets.UTF_8);
             exchange.sendResponseHeaders(200,bytes.length);exchange.getResponseBody().write(bytes);exchange.close();
         });
+        server.createContext("/api/show", exchange -> {
+            byte[] bytes="{\"capabilities\":[\"completion\",\"tools\"]}".getBytes(StandardCharsets.UTF_8);
+            exchange.sendResponseHeaders(200,bytes.length);exchange.getResponseBody().write(bytes);exchange.close();
+        });
         server.createContext("/api/chat",exchange->{
             body.set(new String(exchange.getRequestBody().readAllBytes(),StandardCharsets.UTF_8));
             byte[] bytes=("{\"model\":\"fixture:latest\",\"message\":{\"content\":\"actual \"},\"done\":false}\n"

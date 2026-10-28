@@ -63,14 +63,16 @@ public final class SceneAgent implements AutoCloseable {
         }, worker);
     }
     private Plan plan(String goal, SceneKnowledge observation, FactoryModelService.Model model, int context, int turns, Path log, IntFunction<Sprite> frozenSprites) throws java.io.IOException {
-        var messages = new ArrayList<ModelAdapter.Message>(); messages.add(ModelAdapter.Message.system(SceneProposal.instructions()));
-        String input = "Goal: " + goal + "\nCurrent complete scene observation:\n" + observation.json();
+        var messages = new ArrayList<ModelAdapter.Message>(); messages.add(ModelAdapter.Message.system(SceneProposal.instructions()
+            +"\nThe initial observation is a bounded summary. Full frozen data is queryable. inspect accepts optional componentType and property; use those to keep results small."));
+        String input = "Goal: " + goal + "\nCurrent bounded scene observation:\n" + observation.forModel(5000);
         var service = new FactoryModelService();
         String lastValidation = "";
         for (int turn = 1; turn <= turns; turn++) {
             if (stop.get()) throw new CancellationException("Scene request stopped");
             progress = "Local model turn " + turn + " / " + turns + " using " + model.name();
-            var reply = service.chat(model, input, messages, Map.of("response_format", "json", "num_ctx", context, "num_predict", 4096, "temperature", .1));
+            while(messages.size()>3) {messages.remove(1);messages.remove(1);}
+            var reply = service.chat(model, "Task goal: "+goal+"\n"+input, messages, Map.of("response_format", "json", "num_ctx", context, "num_predict", 2048, "temperature", .1));
             var entry = Map.of("turn", turn, "at", Instant.now().toString(), "input", input, "model", reply.model(), "endpoint", reply.endpoint(),
                 "reply", String.valueOf(reply.text()), "success", reply.success(), "millis", reply.millis());
             Files.writeString(log.resolve("turns.jsonl"), SceneJson.GSON.toJson(entry) + "\n", StandardOpenOption.CREATE, StandardOpenOption.APPEND);
@@ -92,7 +94,7 @@ public final class SceneAgent implements AutoCloseable {
                 SceneJson.keys(object, "kind", "queries"); var results = new JsonArray();
                 if (!object.has("queries") || !object.get("queries").isJsonArray() || object.getAsJsonArray("queries").size() == 0) throw new IllegalArgumentException("Query list is empty");
                 for (var query : object.getAsJsonArray("queries")) {
-                    try { results.add(JsonParser.parseString(observation.query(query.toString()))); }
+                    try { results.add(JsonParser.parseString(observation.queryForModel(query.toString(),4000))); }
                     catch (IllegalArgumentException failure) { var problem = new JsonObject(); problem.addProperty("error", failure.getMessage()); results.add(problem); }
                 }
                 input = "Engine query results for the same observation: " + results + ". Continue toward the goal. Return a proposal or grounded answer when ready.";

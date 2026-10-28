@@ -212,3 +212,8 @@ The newer [Dreamer 120B review](DREAMER_120B_REVIEW.md) confirms the F: base-mod
 Edition 002 restores the original Mario game in Studio and adds fixed simulation ticks, actor input leases, a local geometry controller, and a headless Hrm cortex with actual sensory channels and JSON checkpoints. Full-level round trips and a native walk, jump, enemy-motion and authoring-restoration diagnostic pass. Scene proposals can apply automatically after the existing preview and transaction checks; Chat JSON and reasoning no longer execute edits.
 
 The next gates are synchronized viewport images for visual models, complete episode recording and replay, human demonstrations, measured motor-policy improvement on held-out tasks, and outcome-based evolution with rollback. The optional neural jump output and synaptic plasticity remain experimental. The original browser BinaryNervousSystem and BaremetalLLM need their own parity and training evaluation. General self-modifying code execution remains a later isolated-worker milestone.
+
+
+## Review corrections in edition 003
+
+Implemented and tested: position-based motor recovery with safe backoff and bounded retries; enemy landing alignment; explicit asset selection versus placement; Save, Import, Export and Reload controls; model completion-capability validation and mounted-drive store discovery; bounded scene summaries, component queries and context budgeting. The packaged original-level route reaches x=12.158443 with no forced jumps. Complete-level solving and learned policy improvement remain separate gates. Desktop file-dialog clicks were not verified because Windows capture timed out; native file event paths and persistence tests pass.

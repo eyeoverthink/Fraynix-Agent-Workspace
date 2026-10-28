@@ -23,7 +23,7 @@ public final class SceneAgentPanel implements AutoCloseable {
     private final ImString goal = new ImString("Create a static platform and a dynamic tile\nabove it in the current view.", 16384);
     private final ImString query = new ImString("{\"op\":\"nearest\",\"x\":0,\"y\":0,\"radius\":10,\"limit\":8}", 4096);
     private final ImString proposalJson = new ImString(131072);
-    private final ImInt turns = new ImInt(4), context = new ImInt(8192);
+    private final ImInt turns = new ImInt(4), context = new ImInt(16384);
     private final float[] seconds = {2};
     private String error = "", queryResult = "", lastSource = "";
     private boolean overlay = true;

@@ -73,6 +73,7 @@ public final class FraynixPanel implements AutoCloseable {
             + workspace.snapshot().models().stream().filter(FactoryModelService.Model::available).count() + " local models | checked "
             + Duration.between(workspace.snapshot().observedAt(), Instant.now()).getSeconds() + "s ago");
         if (!workspace.healthError().isEmpty()) ImGui.textWrapped(workspace.healthError());
+        if (!workspace.selectionNotice().isEmpty()) ImGui.textWrapped(workspace.selectionNotice());
         ImGui.separator();
         if (ImGui.beginTabBar("FraynixWorkspaceTabs")) {
             if (tab("Chat")) { chat(scene); ImGui.endTabItem(); }
@@ -174,7 +175,7 @@ public final class FraynixPanel implements AutoCloseable {
         if (changed) ImGui.setScrollHereY(1);
         ImGui.endChild();
         if (ImGui.checkbox("Attach current scene", attachScene)) attachScene = !attachScene;
-        ImGui.textDisabled("Scene data appears in a collapsed attachment");
+        ImGui.textWrapped("Attaches a bounded view summary and selection. Detailed component queries are available in Create.");
         if (!lastChatSceneEdit.isBlank()) ImGui.textWrapped(lastChatSceneEdit);
         ImGui.inputTextMultiline("##Message", prompt, -1, 90);
         ImGui.beginDisabled(workspace.busy() || sceneAgent.busy() || !workspace.historyReady() || prompt.get().isBlank() || workspace.selectedModel().isEmpty());
@@ -222,7 +223,7 @@ public final class FraynixPanel implements AutoCloseable {
         ImGui.beginChild("InstalledModels", 0, Math.max(100, ImGui.getContentRegionAvailY() * .55f), true);
         for (var model : workspace.snapshot().models()) {
             if (!model.name().toLowerCase(Locale.ROOT).contains(filter.get().toLowerCase(Locale.ROOT))) continue;
-            String state = !model.available() ? "offline" : model.loaded() ? "resident" : "available";
+            String state = !model.available() ? "not chat-ready" : model.loaded() ? "resident" : "chat-ready";
             if (ImGui.selectable(model.name() + "  [" + state + "]", selectedDetails.equals(model.name()))&&!workspace.busy()&&!sceneAgent.busy()) {
                 selectedDetails = model.name();
                 if (model.available()) workspace.select(model.name());
@@ -235,10 +236,17 @@ public final class FraynixPanel implements AutoCloseable {
             ImGui.text(String.format(Locale.ROOT, "Disk %.2f GiB | Resident VRAM %.2f GiB", model.bytes() / 1073741824.0, model.vramBytes() / 1073741824.0));
             ImGui.text("Context " + model.context() + (model.loaded() ? " (resident)" : " (catalog)"));
             ImGui.textWrapped(model.endpoint()); ImGui.textWrapped(model.source());
+            ImGui.textWrapped(model.availabilityReason());
+            ImGui.textWrapped("Capabilities: "+String.join(", ",model.capabilities()));
         });
         }
-        ImGui.textWrapped("Available means advertised by a live local server. Resident means loaded according to /api/ps. Quality and speed are measured only by actual requests.");
+        ImGui.textWrapped("Chat-ready requires a live service and verified completion capability. Resident means loaded according to /api/ps.");
         ImGui.endChild();
+        ImGui.beginDisabled(workspace.scanning());
+        if(ImGui.button(workspace.scanning()?"Scanning drives...":"Scan local drives")) workspace.scanStorage();
+        ImGui.endDisabled();
+        for(var store:workspace.storage()) ImGui.textWrapped(store.path()+" | "+store.complete()+" complete manifests / "+store.manifests()+" | missing blobs: "+store.missingBlobs());
+        ImGui.textWrapped("Disk files are listed separately from models served by configured Ollama endpoints. Scanning does not move weights or start services.");
     }
     private void runtimeSettings(){
         try{
@@ -361,7 +369,7 @@ public final class FraynixPanel implements AutoCloseable {
     public static String sceneContext(Scene scene) {
         var selected = Window.getImguiLayer().getPropertiesWindow().getActiveGameObject();
         return Window.getFactorySession().observe(scene, selected == null ? null : selected.getPersistentId(), Window.isPlaying(),
-            util.AssetPool.getSpritesheet("assets/images/spritesheets/decorationsAndBlocks.png").size()).json();
+            util.AssetPool.getSpritesheet("assets/images/spritesheets/decorationsAndBlocks.png").size()).forModel(6000);
     }
     @Override public void close() { sceneAgent.close(); workspace.close(); }
 }

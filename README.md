@@ -1,6 +1,6 @@
 # Fraynix Studio
 
-> **Latest system edition: [README 002](README-002.md)** · [Sequential editions](docs/readmes/INDEX.md) · [Interactive explorer](docs/readmes/002/index.html) · [Obsidian maps](docs/obsidian/00-home.md)
+> **Latest system edition: [README 003](README-003.md)** · [Sequential editions](docs/readmes/INDEX.md) · [Interactive explorer](docs/readmes/003/index.html) · [Obsidian maps](docs/obsidian/00-home.md)
 
 **A local creator system combining a Java entity/component engine, a visual physics playground, persistent memory, and local AI.**
 

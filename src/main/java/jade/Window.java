@@ -25,6 +25,13 @@ public class Window implements Observer {
     private Event deferredEvent;
     private boolean updatingScene;
     private editor.MarioNativeSmoke marioSmoke;
+    private editor.CorrectionsNativeSmoke correctionsSmoke;
+    private final editor.LevelActions levelActions=new editor.LevelActions();
+    public static editor.LevelActions levels() { return get().levelActions; }
+    public static Scene authoringForSave() {
+        if(!isPlaying()) return currentScene;
+        Scene authored=new Scene(null); authored.loadJson(get().authoringSnapshot); return authored;
+    }
     private final long startedAt = System.nanoTime();
     private int width, height;
     private String title;
@@ -52,7 +59,7 @@ public class Window implements Observer {
         nervous.BrainRuntime.project(factorySession.workspace());
         this.width = 1920;
         this.height = 1080;
-        this.title = "Fraynix Studio | Live chat";
+        this.title = System.getProperty("fraynix.windowTitle","Fraynix Studio | Full game editor");
         EventSystem.addObserver(this);
     }
 
@@ -123,6 +130,7 @@ public class Window implements Observer {
             catch (java.io.IOException | RuntimeException error) { System.err.println("Factory checkpoint failed on exit: " + error); }
         }
         factorySession.close();
+        levelActions.close();
         nervous.BrainRuntime.close();
         imguiLayer.destroyImGui();
         AssetPool.closeSounds();
@@ -184,6 +192,8 @@ public class Window implements Observer {
         AudioSystem.open();
         String marioCapture = System.getProperty("fraynix.marioSmoke", "");
         if (!marioCapture.isBlank()) marioSmoke = new editor.MarioNativeSmoke(java.nio.file.Path.of(marioCapture));
+        String correctionCapture=System.getProperty("fraynix.correctionsSmoke","");
+        if(!correctionCapture.isBlank()) correctionsSmoke=new editor.CorrectionsNativeSmoke(java.nio.file.Path.of(correctionCapture));
 
         glEnable(GL_BLEND);
         glBlendFunc(GL_ONE, GL_ONE_MINUS_SRC_ALPHA);
@@ -217,6 +227,7 @@ public class Window implements Observer {
         Shader pickingShader = AssetPool.getShader("assets/shaders/pickingShader.glsl");
 
         while (!glfwWindowShouldClose(glfwWindow)) {
+            levelActions.tick();
             // Poll events
             glfwPollEvents();
 
@@ -263,6 +274,12 @@ public class Window implements Observer {
             this.framebuffer.unbind();
 
             this.imguiLayer.update(dt, currentScene);
+            if(correctionsSmoke!=null) {
+                try {
+                    if(System.nanoTime()-startedAt>150_000_000_000L) throw new IllegalStateException("Correction smoke timed out");
+                    if(correctionsSmoke.tick()) glfwSetWindowShouldClose(glfwWindow,true);
+                } catch(Exception failure) {throw new IllegalStateException("Corrections native smoke failed",failure);}
+            }
             if (marioSmoke != null) {
                 try {
                     if (System.nanoTime()-startedAt>90_000_000_000L) throw new IllegalStateException("Mario smoke timed out");
@@ -391,11 +408,7 @@ public class Window implements Observer {
                 } catch (java.io.IOException error) { factorySession.reportFailure(error); }
                 break;
             case SaveLevel:
-                if (runtimePlaying) break;
-                try {
-                    currentScene.save();
-                    factorySession.save(currentScene);
-                } catch (java.io.IOException | RuntimeException error) { factorySession.reportFailure(error); }
+                levelActions.save();
                 break;
         }
     }
