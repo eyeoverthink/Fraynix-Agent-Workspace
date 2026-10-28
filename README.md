@@ -1,6 +1,6 @@
 # Fraynix Studio
 
-> **Latest system edition: [README 001](README-001.md)** · [Sequential editions](docs/readmes/INDEX.md) · [Interactive explorer](docs/readmes/001/index.html) · [Obsidian maps](docs/obsidian/00-home.md)
+> **Latest system edition: [README 002](README-002.md)** · [Sequential editions](docs/readmes/INDEX.md) · [Interactive explorer](docs/readmes/002/index.html) · [Obsidian maps](docs/obsidian/00-home.md)
 
 **A local creator system combining a Java entity/component engine, a visual physics playground, persistent memory, and local AI.**
 
@@ -11,7 +11,7 @@ The working loop is:
 ```text
 Observe the world -> ask a local model -> query components and space
 -> propose a structured change -> validate and simulate
--> review -> apply and save -> observe the changed world
+-> apply validated edits and save -> observe the changed world
 ```
 
 The model receives the actual authored component data and spatial relationships. The engine owns identities, validates changes, runs physics, and persists the result. This makes Fraynix Studio a foundation for local scene, entity, component and agent creation. General software generation and autonomous factories are development goals beyond the current scene-editing protocol.

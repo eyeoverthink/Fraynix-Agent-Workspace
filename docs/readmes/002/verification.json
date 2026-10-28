@@ -1,0 +1,28 @@
+{
+  "date": "2026-10-28",
+  "rootJUnit": {
+    "tests": 69,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "gradleCheck": true,
+  "nativeChecks": [
+    "MARIO_NATIVE_PLAY_PASSED moved=1.7608502 highestY=1.8988806 initialY=0.625 ticks=90 bodies=1156",
+    "MARIO_NATIVE_BRAIN_PASSED neurons=32768 synapses=1048576 ticks=64 enemyMoved=true cortexMs=0.1791",
+    "MARIO_NATIVE_STOP_PASSED authoringUnchanged=true"
+  ],
+  "scope": "Native walk, jump, enemy motion, full cortex sensory input, render, authoring restoration. No claim of learned full-level completion.",
+  "browserChecks": {
+    "desktopLayout": true,
+    "narrowViewport": {
+      "width": 390,
+      "height": 844
+    },
+    "moduleStatusFilter": true,
+    "moduleSelection": true,
+    "fileSearch": "NeuromorphicCore returned source and test",
+    "navigation": true,
+    "sourceLinkWrapping": true
+  }
+}

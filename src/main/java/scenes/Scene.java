@@ -31,6 +31,11 @@ public class Scene {
     private boolean isRunning;
     private List<GameObject> gameObjects;
     private Physics2D physics2D;
+    private final List<GameObject> pendingObjects = new ArrayList<>();
+    private double elapsed;
+    private long tick;
+    public static final float FIXED_STEP = 1f / 60f;
+    public long tick() { return tick; }
 
     private SceneInitializer sceneInitializer;
 
@@ -43,7 +48,7 @@ public class Scene {
     }
 
     public void init() {
-        this.camera = new Camera(new Vector2f(-250, 0));
+        this.camera = new Camera(new Vector2f(0, 0));
         this.sceneInitializer.loadResources(this);
         this.sceneInitializer.init(this);
     }
@@ -62,16 +67,14 @@ public class Scene {
         if (!isRunning) {
             gameObjects.add(go);
         } else {
-            gameObjects.add(go);
-            go.start();
-            this.renderer.add(go);
-            this.physics2D.add(go);
+            pendingObjects.add(go);
         }
     }
 
     public void destroy() {
         for (GameObject go : gameObjects) {
             go.destroy();
+            physics2D.destroyGameObject(go);
         }
         renderer.dispose();
     }
@@ -88,6 +91,7 @@ public class Scene {
     }
 
     public void editorUpdate(float dt) {
+        flushPending();
         this.camera.adjustProjection();
 
         for (int i=0; i < gameObjects.size(); i++) {
@@ -105,16 +109,36 @@ public class Scene {
     }
 
     public void update(float dt) {
+        if (!Float.isFinite(dt) || dt < 0) throw new IllegalArgumentException("Invalid elapsed time");
+        elapsed += Math.min(dt, .25f);
+        while (elapsed + 1e-7 >= FIXED_STEP) {
+            elapsed -= FIXED_STEP;
+            fixedUpdate();
+        }
+    }
+
+    private void flushPending() {
+        if (pendingObjects.isEmpty()) return;
+        var pending = new ArrayList<>(pendingObjects); pendingObjects.clear();
+        for (GameObject object : pending) {
+            gameObjects.add(object); object.start(); renderer.add(object); physics2D.add(object);
+        }
+    }
+
+    private void fixedUpdate() {
+        flushPending();
+        tick++;
+        agent.GameInput.tick(this);
         this.camera.adjustProjection();
         for (GameObject object : gameObjects) {
             physics2d.components.Rigidbody2D body = object.getComponent(physics2d.components.Rigidbody2D.class);
             if (body != null && body.getRawBody() == null) this.physics2D.add(object);
         }
-        this.physics2D.update(dt);
+        this.physics2D.update(FIXED_STEP);
 
         for (int i=0; i < gameObjects.size(); i++) {
             GameObject go = gameObjects.get(i);
-            go.update(dt);
+            go.update(FIXED_STEP);
 
             if (go.isDead()) {
                 gameObjects.remove(i);
@@ -147,12 +171,12 @@ public class Scene {
     }
 
     public void save() {
-        try { save(Paths.get("level.txt")); }
+        try { save(WindowSavePath.path()); }
         catch (IOException error) { throw new java.io.UncheckedIOException("Scene save failed", error); }
     }
 
     public void save(Path path) throws IOException {
-        Gson gson = new GsonBuilder()
+        Gson gson = new GsonBuilder().enableComplexMapKeySerialization()
                 .setPrettyPrinting()
                 .registerTypeAdapter(Component.class, new ComponentDeserializer())
                 .registerTypeAdapter(GameObject.class, new GameObjectDeserializer())
@@ -175,7 +199,9 @@ public class Scene {
     }
 
     public void load() {
-        Path path = Paths.get("level.txt");
+        Path path = Paths.get(System.getProperty("fraynix.level", "level.txt"));
+        Path authored=WindowSavePath.path();
+        if (Files.isRegularFile(authored)) path=authored;
         if (!Files.exists(path)) return;
         try { load(path); }
         catch (IOException error) { throw new java.io.UncheckedIOException("Scene load failed", error); }
@@ -183,7 +209,7 @@ public class Scene {
 
     public void load(Path path) throws IOException {
         if (!gameObjects.isEmpty() || isRunning) throw new IllegalStateException("Load requires a new empty scene");
-        Gson gson = new GsonBuilder()
+        Gson gson = new GsonBuilder().enableComplexMapKeySerialization()
                 .setPrettyPrinting()
                 .registerTypeAdapter(Component.class, new ComponentDeserializer())
                 .registerTypeAdapter(GameObject.class, new GameObjectDeserializer())
@@ -220,4 +246,34 @@ public class Scene {
             Component.init(maxCompId);
         }
     }
+
+    public <T extends Component> GameObject getGameObjectWith(Class<T> type) {
+        return gameObjects.stream().filter(o -> !o.isDead() && o.getComponent(type) != null).findFirst().orElse(null);
+    }
+    public GameObject getGameObject(String name) {
+        return gameObjects.stream().filter(o -> o.getName().equals(name)).findFirst().orElse(null);
+    }
+    public String serializeAuthoring() {
+        return sceneGson().toJson(gameObjects.stream().filter(GameObject::doSerialization).filter(o -> !o.isDead()).toList());
+    }
+    private static Gson sceneGson() {
+        return new GsonBuilder().enableComplexMapKeySerialization()
+            .registerTypeAdapter(Component.class, new ComponentDeserializer())
+            .registerTypeAdapter(GameObject.class, new GameObjectDeserializer()).create();
+    }
+    public void loadJson(String json) {
+        if (!gameObjects.isEmpty() || isRunning) throw new IllegalStateException("Load requires an empty scene");
+        var ids = new java.util.HashSet<Integer>();
+        for (GameObject object : sceneGson().fromJson(json, GameObject[].class)) {
+            for (Component component : object.getAllComponents())
+                while (!ids.add(component.getUid())) component.regenerateEditorId();
+            addGameObjectToScene(object);
+        }
+    }
+
+
+    private static final class WindowSavePath {
+        static Path path() { return jade.Window.getFactorySession().workspace().resolve("authored-scene.json"); }
+    }
+
 }

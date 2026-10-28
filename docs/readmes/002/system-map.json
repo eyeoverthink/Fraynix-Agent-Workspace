@@ -1,0 +1,74 @@
+{
+  "date": "2026-10-28",
+  "modules": [
+    {
+      "id": "engine",
+      "name": "Full engine and game",
+      "status": "verified",
+      "source": "src/main/java/jade/Window.java",
+      "note": "docs/obsidian/09-full-game-and-cortex.md",
+      "summary": "Original Mario gameplay, assets, audio and editor hosted in Studio. Runtime and authoring scenes have separate lifecycles."
+    },
+    {
+      "id": "world",
+      "name": "World identity and persistence",
+      "status": "verified",
+      "source": "src/main/java/factory/FactorySceneAdapter.java",
+      "note": "docs/obsidian/09-full-game-and-cortex.md",
+      "summary": "All 1248 objects and 6085 components round-trip. UUIDs and animation graphs are preserved, including compound pillbox physics."
+    },
+    {
+      "id": "controls",
+      "name": "Live actor controls",
+      "status": "verified",
+      "source": "src/main/java/agent/GameInput.java",
+      "note": "docs/obsidian/09-full-game-and-cortex.md",
+      "summary": "Local geometry controller uses real movement and jumping. Inputs have bounded tick leases; Escape and Take over release the agent."
+    },
+    {
+      "id": "creator",
+      "name": "Autonomous editing",
+      "status": "implemented",
+      "source": "src/main/java/editor/SceneAgentPanel.java",
+      "note": "docs/obsidian/09-full-game-and-cortex.md",
+      "summary": "Model proposals go through registered operations, physics preview, revision checks, checkpointing and undo. Automatic application can be toggled."
+    },
+    {
+      "id": "cortex",
+      "name": "Sensory nervous system",
+      "status": "experimental",
+      "source": "src/main/java/nervous/NeuromorphicCore.java",
+      "note": "docs/obsidian/09-full-game-and-cortex.md",
+      "summary": "Headless Hrm adaptation receives actual game features. LIF, sparse synapses, calcium, seeded noise, two-direction timing plasticity and JSON state are available."
+    },
+    {
+      "id": "learning",
+      "name": "Measured policy improvement",
+      "status": "planned",
+      "source": "docs/IMPLEMENTATION_PLAN.md",
+      "note": "docs/obsidian/09-full-game-and-cortex.md",
+      "summary": "Demonstration learning, held-out episodes, reward attribution, candidate comparison and evolution promotion remain future acceptance gates."
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "docs/readmes/002/images/mario-live-play.png",
+      "description": "Native original level with player jumping and live cortex telemetry"
+    },
+    {
+      "path": "docs/readmes/002/images/mario-edit-restored.png",
+      "description": "Original authoring state restored after play"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/readmes/002/verification.json"
+    },
+    {
+      "path": "docs/readmes/002/source-isolation.json"
+    },
+    {
+      "path": "docs/mario-import-provenance.json"
+    }
+  ]
+}

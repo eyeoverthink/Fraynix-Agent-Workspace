@@ -14,6 +14,7 @@ public class GameViewWindow {
 
     private float leftX, rightX, topY, bottomY;
     private boolean isPlaying = false;
+    private final imgui.type.ImFloat targetX = new imgui.type.ImFloat(20);
 
     public void imgui() {
         isPlaying = Window.isPlaying();
@@ -21,6 +22,13 @@ public class GameViewWindow {
                         | ImGuiWindowFlags.MenuBar);
 
         ImGui.beginMenuBar();
+        if (ImGui.menuItem("AI Play")) {
+            if (!Window.isPlaying()) EventSystem.notify(null,new Event(EventType.GameEngineStartPlay));
+            try { agent.GameInput.start(Window.getScene(),targetX.get()); }
+            catch (IllegalArgumentException error) { agent.GameInput.stop(error.getMessage()); }
+        }
+        if (ImGui.menuItem("Take over", "Esc", false, agent.GameInput.automatic())) agent.GameInput.stop("Human takeover");
+        ImGui.setNextItemWidth(75); ImGui.inputFloat("Target X",targetX);
         if (ImGui.menuItem("Play", "", isPlaying, !isPlaying)) {
             isPlaying = true;
             EventSystem.notify(null, new Event(EventType.GameEngineStartPlay));
@@ -32,6 +40,7 @@ public class GameViewWindow {
         if (ImGui.menuItem("Grid", "", util.Settings.SHOW_GRID)) util.Settings.SHOW_GRID = !util.Settings.SHOW_GRID;
         if (ImGui.menuItem("Snap to grid", "", util.Settings.SNAP_TO_GRID)) util.Settings.SNAP_TO_GRID = !util.Settings.SNAP_TO_GRID;
         ImGui.endMenuBar();
+        ImGui.textWrapped(agent.GameInput.status());
 
         ImVec2 windowSize = getLargestSizeForViewport();
         ImVec2 windowPos = getCenteredPositionForViewport(windowSize);

@@ -1,0 +1,21 @@
+{
+    "isolated": true,
+    "projects": [
+        {
+            "project": ":",
+            "directory": ""
+        },
+        {
+            "project": ":factory-kernel",
+            "directory": "fraynix-modules\\factory-kernel"
+        },
+        {
+            "project": ":factory-models",
+            "directory": "fraynix-modules\\factory-models"
+        },
+        {
+            "project": ":factory-runtime",
+            "directory": "fraynix-modules\\factory-runtime"
+        }
+    ]
+}

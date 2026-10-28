@@ -7,6 +7,7 @@ import org.joml.Vector3f;
 public class Camera {
     private Matrix4f projectionMatrix, viewMatrix, inverseProjection, inverseView;
     public Vector2f position;
+    public org.joml.Vector4f clearColor = new org.joml.Vector4f(1,1,1,1);
 
     private float projectionWidth = 6;
     private float projectionHeight = 3;

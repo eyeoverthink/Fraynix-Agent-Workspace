@@ -99,7 +99,7 @@ public class GameObject {
 
     public GameObject copy() {
         // TODO: come up with cleaner solution
-        Gson gson = new GsonBuilder()
+        Gson gson = new GsonBuilder().enableComplexMapKeySerialization()
                 .registerTypeAdapter(Component.class, new ComponentDeserializer())
                 .registerTypeAdapter(GameObject.class, new GameObjectDeserializer())
                 .create();

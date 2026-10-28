@@ -39,7 +39,11 @@ public final class SceneAgent implements AutoCloseable {
     public SceneEditHistory.Prepared prepared() { return prepared; }
     public boolean canUndo(String hash) { return history.canUndo(hash); }
     public void reconcile(String hash) { try { history.reconcile(hash); } catch (java.io.IOException failure) { error = failure.getMessage(); } }
-    public void stop() { stop.set(true); progress = "Stopping after the current local response..."; }
+    public void stop() {
+        stop.set(true); prepared=null;
+        if (validating!=null) { validating.cancel(true); validating=null; }
+        progress = "Stopped; pending edits will not apply. An active model response may finish in the background.";
+    }
     public void request(String goal, SceneKnowledge observation, FactoryModelService.Model model, int context, int turns, double simulationSeconds) {
         if (busy()) throw new IllegalStateException("Wait for the current scene request");
         if (goal.isBlank() || !model.available()) throw new IllegalArgumentException("Enter a goal and select an online local model");

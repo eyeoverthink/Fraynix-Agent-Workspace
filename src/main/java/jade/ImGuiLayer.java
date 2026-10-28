@@ -185,7 +185,7 @@ public class ImGuiLayer {
             fontPath = java.nio.file.Paths.get(windowsDirectory, "Fonts", "segoeui.ttf");
         }
         if (java.nio.file.Files.isRegularFile(fontPath)) {
-            fontAtlas.addFontFromFileTTF(fontPath.toString(), 32, fontConfig);
+            fontAtlas.addFontFromFileTTF(fontPath.toString(), 20, fontConfig);
         } else {
             fontConfig.setSizePixels(24);
             fontAtlas.addFontDefault(fontConfig);
@@ -213,7 +213,7 @@ public class ImGuiLayer {
         Window.getFactorySession().tick(currentScene);
         scenePanel.imgui(currentScene, dt);
         gameViewWindow.imgui();
-        propertiesWindow.update(dt, currentScene);
+        propertiesWindow.update(dt, Window.getScene());
         propertiesWindow.imgui();
         menuBar.imgui();
         // Menu actions can replace the scene during this frame. Observe the active replacement.

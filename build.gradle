@@ -20,7 +20,7 @@ dependencies {
     implementation 'com.google.code.gson:gson:2.8.6'
     implementation 'org.joml:joml:1.9.23'
     implementation platform("org.lwjgl:lwjgl-bom:${lwjglVersion}")
-    ['lwjgl', 'lwjgl-glfw', 'lwjgl-opengl', 'lwjgl-stb'].each { module ->
+    ['lwjgl', 'lwjgl-glfw', 'lwjgl-opengl', 'lwjgl-stb', 'lwjgl-openal'].each { module ->
         implementation "org.lwjgl:${module}"
         runtimeOnly "org.lwjgl:${module}::natives-windows"
     }
@@ -31,8 +31,8 @@ dependencies {
 }
 
 java {
-    sourceCompatibility = JavaVersion.VERSION_17
-    targetCompatibility = JavaVersion.VERSION_17
+    sourceCompatibility = JavaVersion.VERSION_21
+    targetCompatibility = JavaVersion.VERSION_21
 }
 
 tasks.withType(JavaCompile).configureEach {
@@ -103,6 +103,9 @@ distributions {
     main {
         contents {
             from('assets') { into 'assets' }
+            from('levels') { into 'levels' }
+            from('licenses') { into 'licenses' }
+            from('Launch-Mario-Studio.bat')
             from('level.txt')
             from('Launch-Fraynix-Studio.bat')
             from('scripts/Configure-Models.ps1') { into 'scripts' }

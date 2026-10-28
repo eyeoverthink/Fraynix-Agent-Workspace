@@ -1,0 +1,57 @@
+{
+  "nodes": [
+    {
+      "id": "edition",
+      "type": "file",
+      "file": "README-002.md",
+      "x": 0,
+      "y": 0,
+      "width": 360,
+      "height": 220
+    },
+    {
+      "id": "input",
+      "type": "file",
+      "file": "src/main/java/agent/GameInput.java",
+      "x": 420,
+      "y": 0,
+      "width": 360,
+      "height": 220
+    },
+    {
+      "id": "brain",
+      "type": "file",
+      "file": "src/main/java/nervous/NeuromorphicCore.java",
+      "x": 420,
+      "y": 280,
+      "width": 360,
+      "height": 220
+    },
+    {
+      "id": "proof",
+      "type": "file",
+      "file": "docs/readmes/002/verification.json",
+      "x": 0,
+      "y": 280,
+      "width": 360,
+      "height": 220
+    }
+  ],
+  "edges": [
+    {
+      "id": "e1",
+      "fromNode": "edition",
+      "toNode": "input"
+    },
+    {
+      "id": "e2",
+      "fromNode": "input",
+      "toNode": "brain"
+    },
+    {
+      "id": "e3",
+      "fromNode": "edition",
+      "toNode": "proof"
+    }
+  ]
+}

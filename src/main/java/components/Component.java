@@ -36,7 +36,7 @@ public abstract class Component {
             Field[] fields = this.getClass().getDeclaredFields();
             for (Field field : fields) {
                 boolean isTransient = Modifier.isTransient(field.getModifiers());
-                if (isTransient) {
+                if (isTransient || Modifier.isStatic(field.getModifiers()) || Modifier.isFinal(field.getModifiers())) {
                     continue;
                 }
 
@@ -100,6 +100,7 @@ public abstract class Component {
     }
 
     public UUID getPersistentId() { generateId(); return persistentId; }
+    public void restorePersistentIdentity(UUID id) { persistentId=java.util.Objects.requireNonNull(id); }
 
     public void regenerateIdentity() {
         uid = ID_COUNTER.getAndIncrement();
@@ -139,4 +140,10 @@ public abstract class Component {
     public static void init(int maxId) {
         ID_COUNTER.accumulateAndGet(maxId, Math::max);
     }
+
+    public void beginCollision(GameObject other, org.jbox2d.dynamics.contacts.Contact contact, Vector2f normal) {}
+    public void endCollision(GameObject other, org.jbox2d.dynamics.contacts.Contact contact, Vector2f normal) {}
+    public void preSolve(GameObject other, org.jbox2d.dynamics.contacts.Contact contact, Vector2f normal) {}
+    public void postSolve(GameObject other, org.jbox2d.dynamics.contacts.Contact contact, Vector2f normal) {}
+
 }

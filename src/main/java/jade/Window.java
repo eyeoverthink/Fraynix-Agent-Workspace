@@ -19,6 +19,13 @@ import static org.lwjgl.opengl.GL11.*;
 import static org.lwjgl.system.MemoryUtil.NULL;
 
 public class Window implements Observer {
+    public static final boolean RELEASE_BUILD = false;
+    private String authoringSnapshot;
+    private SceneInitializer deferredScene;
+    private Event deferredEvent;
+    private boolean updatingScene;
+    private editor.MarioNativeSmoke marioSmoke;
+    private final long startedAt = System.nanoTime();
     private int width, height;
     private String title;
     private long glfwWindow;
@@ -42,6 +49,7 @@ public class Window implements Observer {
     private static Scene currentScene;
 
     private Window() {
+        nervous.BrainRuntime.project(factorySession.workspace());
         this.width = 1920;
         this.height = 1080;
         this.title = "Fraynix Studio | Live chat";
@@ -49,13 +57,17 @@ public class Window implements Observer {
     }
 
     public static void changeScene(SceneInitializer sceneInitializer) {
+        if (get().updatingScene) { get().deferredScene = sceneInitializer; return; }
+        agent.GameInput.stop("Scene changed; input released");
+        AssetPool.stopSounds();
         if (currentScene != null) {
             currentScene.destroy();
         }
 
         getImguiLayer().getPropertiesWindow().setActiveGameObject(null);
         currentScene = new Scene(sceneInitializer);
-        currentScene.load();
+        if (get().authoringSnapshot != null) currentScene.loadJson(get().authoringSnapshot);
+        else currentScene.load();
         currentScene.init();
         currentScene.start();
     }
@@ -74,10 +86,13 @@ public class Window implements Observer {
 
     public static factory.FactorySession getFactorySession() { return get().factorySession; }
     public static boolean isPlaying() { return get().runtimePlaying; }
+    public static physics2d.Physics2D getPhysics() { return getScene().physics(); }
 
     public void configureFactorySmoke(boolean closeAfter) { factorySmoke = true; factorySmokeExit = closeAfter; }
 
     public static void installFactoryScene(Scene replacement) {
+        if (get().runtimePlaying) throw new IllegalStateException("Stop Play before replacing the authoring scene");
+        agent.GameInput.stop("Authoring scene replaced; input released");
         Scene before = currentScene;
         GameObject selected = getImguiLayer().getPropertiesWindow().getActiveGameObject();
         org.joml.Vector2f camera = before != null && before.camera() != null ? new org.joml.Vector2f(before.camera().position) : null;
@@ -101,12 +116,17 @@ public class Window implements Observer {
         init();
         loop();
 
+        if (runtimePlaying) onNotify(null,new Event(EventType.GameEngineStopPlay));
+
         if (currentScene != null && !runtimePlaying) {
             try { factorySession.save(currentScene); }
             catch (java.io.IOException | RuntimeException error) { System.err.println("Factory checkpoint failed on exit: " + error); }
         }
         factorySession.close();
+        nervous.BrainRuntime.close();
         imguiLayer.destroyImGui();
+        AssetPool.closeSounds();
+        AudioSystem.close();
 
         // Free the memory
         glfwFreeCallbacks(glfwWindow);
@@ -161,6 +181,9 @@ public class Window implements Observer {
         // creates the GLCapabilities instance and makes the OpenGL
         // bindings available for use.
         GL.createCapabilities();
+        AudioSystem.open();
+        String marioCapture = System.getProperty("fraynix.marioSmoke", "");
+        if (!marioCapture.isBlank()) marioSmoke = new editor.MarioNativeSmoke(java.nio.file.Path.of(marioCapture));
 
         glEnable(GL_BLEND);
         glBlendFunc(GL_ONE, GL_ONE_MINUS_SRC_ALPHA);
@@ -216,14 +239,22 @@ public class Window implements Observer {
             imguiLayer.getFraynixPanel().sceneAgent().drawPreview();
 
             this.framebuffer.bind();
-            glClearColor(1, 1, 1, 1);
+            var clear = currentScene.camera().clearColor;
+            glClearColor(clear.x, clear.y, clear.z, clear.w);
             glClear(GL_COLOR_BUFFER_BIT);
 
             if (dt >= 0) {
                 DebugDraw.draw();
                 Renderer.bindShader(defaultShader);
                 if (runtimePlaying) {
+                    updatingScene = true;
                     currentScene.update(dt);
+                    updatingScene = false;
+                    if (deferredEvent != null) {
+                        Event next=deferredEvent; deferredEvent=null; deferredScene=null; onNotify(null,next);
+                    } else if (deferredScene != null) {
+                        SceneInitializer next = deferredScene; deferredScene = null; changeScene(next);
+                    }
                 } else {
                     currentScene.editorUpdate(dt);
                 }
@@ -232,6 +263,12 @@ public class Window implements Observer {
             this.framebuffer.unbind();
 
             this.imguiLayer.update(dt, currentScene);
+            if (marioSmoke != null) {
+                try {
+                    if (System.nanoTime()-startedAt>90_000_000_000L) throw new IllegalStateException("Mario smoke timed out");
+                    if (marioSmoke.tick()) glfwSetWindowShouldClose(glfwWindow,true);
+                } catch (Exception error) { throw new IllegalStateException("Mario native smoke failed",error); }
+            }
             runFactorySmoke();
             String startupCapture=System.getProperty("fraynix.captureOnStartup","");
             var workspace=imguiLayer.getFraynixPanel().workspace();
@@ -284,7 +321,7 @@ public class Window implements Observer {
                 for (jade.GameObject object : currentScene.getGameObjects()) if (object.doSerialization()) restored.add(object.getPersistentId());
                 if (!ids.equals(restored)) throw new IllegalStateException("Native scene restore changed persistent identities");
                 long expectedBodies = currentScene.getGameObjects().stream().filter(o -> o.getComponent(physics2d.components.Rigidbody2D.class) != null
-                    && (o.getComponent(physics2d.components.Box2DCollider.class) != null || o.getComponent(physics2d.components.CircleCollider.class) != null)).count();
+                    && (o.getComponent(physics2d.components.Box2DCollider.class) != null || o.getComponent(physics2d.components.CircleCollider.class) != null || o.getComponent(physics2d.components.PillboxCollider.class) != null)).count();
                 if (currentScene.physics().bodyCount() != expectedBodies) throw new IllegalStateException("Restored physics bodies were not registered");
                 System.out.println("FACTORY_UI_SMOKE_PASSED restoredEntities=" + restored.size()
                     + " physicsBodies=" + currentScene.physics().bodyCount()
@@ -329,20 +366,32 @@ public class Window implements Observer {
 
     @Override
     public void onNotify(GameObject object, Event event) {
+        if (updatingScene) { deferredEvent=event; return; }
         switch (event.type) {
             case GameEngineStartPlay:
+                if (runtimePlaying) break;
+                if (imguiLayer.getFraynixPanel().sceneAgent().agent()!=null) imguiLayer.getFraynixPanel().sceneAgent().agent().stop();
+                authoringSnapshot = currentScene.serializeAuthoring();
                 this.runtimePlaying = true;
-                currentScene.save();
-                Window.changeScene(new LevelEditorSceneInitializer());
+                Window.changeScene(new scenes.LevelSceneInitializer());
                 break;
             case GameEngineStopPlay:
+                agent.GameInput.stop("Stopped; authoring scene restored");
+                nervous.BrainRuntime.saveLearning();
                 this.runtimePlaying = false;
                 Window.changeScene(new LevelEditorSceneInitializer());
+                authoringSnapshot = null;
                 break;
             case LoadLevel:
-                Window.changeScene(new LevelEditorSceneInitializer());
+                if (runtimePlaying) onNotify(null,new Event(EventType.GameEngineStopPlay));
+                authoringSnapshot=null;
+                try {
+                    if (factorySession.hasCheckpoint()) installFactoryScene(factorySession.restore());
+                    else Window.changeScene(new LevelEditorSceneInitializer());
+                } catch (java.io.IOException error) { factorySession.reportFailure(error); }
                 break;
             case SaveLevel:
+                if (runtimePlaying) break;
                 try {
                     currentScene.save();
                     factorySession.save(currentScene);

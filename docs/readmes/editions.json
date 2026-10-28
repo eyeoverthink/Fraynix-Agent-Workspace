@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "latest": 1,
+  "latest": 2,
   "canonicalization": "UTF-8 without BOM; CRLF normalized to LF for text",
   "editions": [
     {
@@ -119,6 +119,59 @@
           "path": "docs/readmes/001/verification.json",
           "kind": "text",
           "sha256": "4721212d74470ea49f368adebe089e7cd6db4d711e729e514d890801f821fb24"
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "date": "2026-10-28",
+      "title": "Full Mario gameplay and the live sensory cortex",
+      "status": "verified-local",
+      "markdown": "README-002.md",
+      "markdownSha256": "2da14701166e56d0dbfc1b40ca69404a03ab17cdbafb714193d2ba86694ec1f0",
+      "snapshotDirectory": "docs/readmes/002",
+      "companion": "docs/readmes/002/index.html",
+      "sourceBaseline": "cbcbcbe703f7c50e054a8379a51e586addb2d397",
+      "snapshotFiles": [
+        {
+          "path": "docs/readmes/002/file-inventory.json",
+          "kind": "text",
+          "sha256": "c3d7dc4c13c22f7c9dd6897728e924ef8d5e03b08fc8038c790ea4b36d0c4020"
+        },
+        {
+          "path": "docs/readmes/002/FILE_TREE.md",
+          "kind": "text",
+          "sha256": "7f29c34c4ebeddfa6e8d0b24ab27cc791c61944d63a00669e463d5af1ab2e917"
+        },
+        {
+          "path": "docs/readmes/002/images/mario-edit-restored.png",
+          "kind": "binary",
+          "sha256": "a1895a031c0885b4f5f5b0fccd0c3e6362cb23f3e550fa064b34a9d2ca2e2b77"
+        },
+        {
+          "path": "docs/readmes/002/images/mario-live-play.png",
+          "kind": "binary",
+          "sha256": "8808e45cee17ab57ff55e2b0de9ef28630391acf2c971f234a3533dcda4d69fd"
+        },
+        {
+          "path": "docs/readmes/002/index.html",
+          "kind": "text",
+          "sha256": "79f127154e642dc58df74299bc9fd353e24c4ac0fe7e8e195517ab74bc6bfb77"
+        },
+        {
+          "path": "docs/readmes/002/source-isolation.json",
+          "kind": "text",
+          "sha256": "ce7d143728ec7e7826a6c98de875869b92057459191a05ef751acf596845e3a5"
+        },
+        {
+          "path": "docs/readmes/002/system-map.json",
+          "kind": "text",
+          "sha256": "e0debc9e86e984f1977534d5a3e4373bd6bbb5a0569b5e507d1f5ca4dd3765f8"
+        },
+        {
+          "path": "docs/readmes/002/verification.json",
+          "kind": "text",
+          "sha256": "0a8adee16df140bdab843a292f6a662c50838a24cc12af13a7a500d11deb1cbe"
         }
       ]
     }

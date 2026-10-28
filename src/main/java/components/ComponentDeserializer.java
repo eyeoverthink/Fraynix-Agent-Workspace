@@ -13,7 +13,8 @@ public class ComponentDeserializer implements JsonSerializer<Component>,
         "jade.Transform", "components.SpriteRenderer", "components.NonPickable", "components.FontRenderer",
         "components.GridLines", "components.MouseControls", "components.EditorCamera", "components.Gizmo",
         "components.GizmoSystem", "components.ScaleGizmo", "components.TranslateGizmo",
-        "physics2d.components.Rigidbody2D", "physics2d.components.Box2DCollider", "physics2d.components.CircleCollider"
+        "physics2d.components.Rigidbody2D", "physics2d.components.Box2DCollider", "physics2d.components.CircleCollider", "physics2d.components.PillboxCollider",
+        "components.Block", "components.BlockCoin", "components.BreakableBrick", "components.Coin", "components.Fireball", "components.Flagpole", "components.Flower", "components.GameCamera", "components.GoombaAI", "components.Ground", "components.KeyControls", "components.MushroomAI", "components.Pipe", "components.PlayerController", "components.QuestionBlock", "components.StateMachine", "components.TurtleAI"
     );
 
     public static java.util.Set<String> allowedTypes() { return ALLOWED; }

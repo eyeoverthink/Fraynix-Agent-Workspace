@@ -12,6 +12,8 @@ import java.util.Locale;
 
 public final class FraynixPanel implements AutoCloseable {
     private final FraynixWorkspace workspace;
+    private final BrainPanel brainPanel=new BrainPanel();
+    private boolean focusBrain=Boolean.getBoolean("fraynix.openBrain");
     private final ImString prompt = new ImString(16384), filter = new ImString(256), search = new ImString(1024);
     private boolean attachScene = true;
     private String lastChatSceneEdit = "";
@@ -37,13 +39,15 @@ public final class FraynixPanel implements AutoCloseable {
     public SceneAgentPanel sceneAgent() { return sceneAgent; }
     public FraynixWorkspace workspace() { return workspace; }
     public void imgui(Scene scene) {
+        nervous.BrainRuntime.poll();
         workspace.tick();
         var completed = workspace.consumeCompletedExchange();
         if (completed != null && completed.success() && !completed.sceneContext().isBlank()) {
-            String applied = ChatSceneBridge.applyIfPresent(scene, completed.reply(), completed.thinking());
+            String applied = "Scene changes use the Create tools and validated scene transactions.";
             if (!applied.isBlank()) lastChatSceneEdit = applied;
         }
         sceneAgent.tick(scene);
+        scene=Window.getScene();
         var session = Window.getFactorySession();
         if(startupProbe&&workspace.historyReady()&&!workspace.busy()&&workspace.snapshot().models().stream().anyMatch(m->m.available()&&m.name().equals(workspace.selectedModel()))){
             workspace.modelOperation("Test connection");startupProbe=false;
@@ -73,6 +77,7 @@ public final class FraynixPanel implements AutoCloseable {
         if (ImGui.beginTabBar("FraynixWorkspaceTabs")) {
             if (tab("Chat")) { chat(scene); ImGui.endTabItem(); }
             if (tab("Create")) { sceneAgent.imgui(scene); ImGui.endTabItem(); }
+            if (tab("Brain")) { brainPanel.imgui(); ImGui.endTabItem(); }
             if (tab("Models")) { models(); ImGui.endTabItem(); }
             if (tab("Kernel")) { kernel(); ImGui.endTabItem(); }
             if (tab("Tools")) { tools(scene); ImGui.endTabItem(); }
@@ -83,10 +88,10 @@ public final class FraynixPanel implements AutoCloseable {
         ImGui.end();
     }
     private boolean tab(String name) {
-        String next = java.util.stream.Stream.of("Chat", "Create", "Models", "Kernel", "Tools", "Jobs").filter(n -> !renderedTabs.contains(n)).findFirst().orElse(System.getProperty("fraynix.captureTab","Tools"));
-        boolean select = smoke && next.equals(name) || focusModels&&name.equals("Models") || (focusCreate || !System.getProperty("fraymus.sceneAgentSmoke", "").isBlank()) && name.equals("Create");
+        String next = java.util.stream.Stream.of("Chat", "Create", "Brain", "Models", "Kernel", "Tools", "Jobs").filter(n -> !renderedTabs.contains(n)).findFirst().orElse(System.getProperty("fraynix.captureTab","Tools"));
+        boolean select = smoke && next.equals(name) || focusBrain&&name.equals("Brain") || focusModels&&name.equals("Models") || (focusCreate || !System.getProperty("fraymus.sceneAgentSmoke", "").isBlank()) && name.equals("Create");
         boolean open = ImGui.beginTabItem(name, select ? imgui.flag.ImGuiTabItemFlags.SetSelected : 0);
-        if (open) { renderedTabs.add(name);lastRenderedTab=name;if(name.equals("Models"))focusModels=false; }
+        if (open) { renderedTabs.add(name);lastRenderedTab=name;if(name.equals("Models"))focusModels=false;if(name.equals("Brain"))focusBrain=false; }
         return open;
     }
     public boolean smokeReady() {
@@ -143,8 +148,8 @@ public final class FraynixPanel implements AutoCloseable {
             ImGui.textWrapped(exchange.reply());
             if(!exchange.thinking().isBlank()&&ImGui.collapsingHeader("Model reasoning"))ImGui.textWrapped(exchange.thinking());
             if(exchange.success() && (!ChatSceneBridge.extractJsonCandidates(exchange.reply()).isEmpty() || !ChatSceneBridge.extractJsonCandidates(exchange.thinking()).isEmpty())){
-                if(ImGui.button("Apply scene JSON to live scene")){
-                    String applied = ChatSceneBridge.applyIfPresent(scene, exchange.reply(), exchange.thinking());
+                if(ImGui.button("Open validated scene tools")){
+                    focusCreate = true; String applied = "Open Create to validate and apply scene commands.";
                     lastChatSceneEdit = applied.isBlank() ? "No valid scene modifications found in JSON block." : applied;
                 }
             }
@@ -182,7 +187,7 @@ public final class FraynixPanel implements AutoCloseable {
         showOperation();
         if (!workspace.error().isBlank()) ImGui.textWrapped(workspace.error());
         if (!uiError.isBlank()) ImGui.textWrapped(uiError);
-        ImGui.textDisabled("Scene JSON in Chat responses is automatically deserialized (Gson) and applied to the live scene");
+        ImGui.textWrapped("Use Create for validated scene edits. AI Play controls the live player through the game's physics.");
     }
     private void models() {
         ImGui.beginChild("ModelControls",0,0,false);

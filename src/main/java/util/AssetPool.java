@@ -51,4 +51,16 @@ public class AssetPool {
         }
         return AssetPool.spritesheets.getOrDefault(file.getAbsolutePath(), null);
     }
+
+    private static final Map<String, jade.Sound> sounds = new HashMap<>();
+    public static void addSound(String path, boolean loops) { sounds.computeIfAbsent(path, key -> new jade.Sound(key, loops)); }
+    public static jade.Sound getSound(String path) {
+        jade.Sound sound = sounds.get(path);
+        if (sound == null) throw new IllegalArgumentException("Unregistered sound: " + path);
+        return sound;
+    }
+    public static void stopSounds() { sounds.values().forEach(jade.Sound::stop); }
+    public static java.util.Collection<jade.Sound> getAllSounds() { return java.util.List.copyOf(sounds.values()); }
+    public static void closeSounds() { sounds.values().forEach(jade.Sound::delete); sounds.clear(); }
+
 }
