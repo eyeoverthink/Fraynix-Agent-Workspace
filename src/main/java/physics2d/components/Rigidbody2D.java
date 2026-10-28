@@ -1,6 +1,8 @@
 package physics2d.components;
 
 import components.Component;
+import jade.Window;
+import org.jbox2d.common.Vec2;
 import org.jbox2d.dynamics.Body;
 import org.joml.Vector2f;
 import physics2d.enums.BodyType;
@@ -11,19 +13,46 @@ public class Rigidbody2D extends Component {
     private float linearDamping = 0.9f;
     private float mass = 0;
     private BodyType bodyType = BodyType.Dynamic;
+    private float friction = 0.1f;
+    public float angularVelocity = 0.0f;
+    public float gravityScale = 1.0f;
+    private boolean isSensor = false;
 
     private boolean fixedRotation = false;
     private boolean continuousCollision = true;
 
     private transient Body rawBody = null;
+    private transient boolean pendingBodyType;
 
     @Override
     public void update(float dt) {
         if (rawBody != null) {
-            this.gameObject.transform.position.set(
-                    rawBody.getPosition().x, rawBody.getPosition().y
-            );
-            this.gameObject.transform.rotation = (float)Math.toDegrees(rawBody.getAngle());
+            if (pendingBodyType && !rawBody.getWorld().isLocked()) { pendingBodyType=false; setBodyType(bodyType); }
+            if (this.bodyType == BodyType.Dynamic || this.bodyType == BodyType.Kinematic) {
+                this.gameObject.transform.position.set(
+                        rawBody.getPosition().x, rawBody.getPosition().y
+                );
+                this.gameObject.transform.rotation = (float) Math.toDegrees(rawBody.getAngle());
+                Vec2 vel = rawBody.getLinearVelocity();
+                this.velocity.set(vel.x, vel.y);
+            } else if (this.bodyType == BodyType.Static) {
+                this.rawBody.setTransform(
+                        new Vec2(this.gameObject.transform.position.x, this.gameObject.transform.position.y),
+                        (float)Math.toRadians(this.gameObject.transform.rotation)
+                );
+            }
+        }
+    }
+
+    public void addVelocity(Vector2f forceToAdd) {
+        if (rawBody != null) {
+            rawBody.applyForceToCenter(new Vec2(forceToAdd.x, forceToAdd.y));
+        }
+    }
+
+    public void addImpulse(Vector2f impulse) {
+        if (rawBody != null) {
+            rawBody.applyLinearImpulse(new Vec2(impulse.x, impulse.y), rawBody.getWorldCenter());
         }
     }
 
@@ -32,7 +61,52 @@ public class Rigidbody2D extends Component {
     }
 
     public void setVelocity(Vector2f velocity) {
-        this.velocity = velocity;
+        this.velocity.set(velocity);
+        if (rawBody != null) {
+            this.rawBody.setLinearVelocity(new Vec2(velocity.x, velocity.y));
+        }
+    }
+
+    public void setPosition(Vector2f newPos) {
+        if (rawBody != null) {
+            rawBody.setTransform(new Vec2(newPos.x, newPos.y), (float)Math.toRadians(gameObject.transform.rotation));
+        }
+    }
+
+    public void setAngularVelocity(float angularVelocity) {
+        this.angularVelocity = angularVelocity;
+        if (rawBody != null) {
+            this.rawBody.setAngularVelocity(angularVelocity);
+        }
+    }
+
+    public void setGravityScale(float gravityScale) {
+        this.gravityScale = gravityScale;
+        if (rawBody != null) {
+            this.rawBody.setGravityScale(gravityScale);
+        }
+    }
+
+    public void setIsSensor() {
+        isSensor = true;
+        if (rawBody != null) {
+            Window.getPhysics().setIsSensor(this);
+        }
+    }
+
+    public void setNotSensor() {
+        isSensor = false;
+        if (rawBody != null) {
+            Window.getPhysics().setNotSensor(this);
+        }
+    }
+
+    public float getFriction() {
+        return this.friction;
+    }
+
+    public boolean isSensor() {
+        return this.isSensor;
     }
 
     public float getAngularDamping() {
@@ -65,6 +139,12 @@ public class Rigidbody2D extends Component {
 
     public void setBodyType(BodyType bodyType) {
         this.bodyType = bodyType;
+        if (rawBody!=null && rawBody.getWorld().isLocked()) { pendingBodyType=true; return; }
+        if (rawBody != null) rawBody.setType(switch (bodyType) {
+            case Static -> org.jbox2d.dynamics.BodyType.STATIC;
+            case Dynamic -> org.jbox2d.dynamics.BodyType.DYNAMIC;
+            case Kinematic -> org.jbox2d.dynamics.BodyType.KINEMATIC;
+        });
     }
 
     public boolean isFixedRotation() {

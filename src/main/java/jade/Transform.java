@@ -30,7 +30,8 @@ public class Transform extends Component {
     }
 
     public Transform copy() {
-        return new Transform(new Vector2f(this.position), new Vector2f(this.scale));
+        Transform result = new Transform(new Vector2f(this.position), new Vector2f(this.scale));
+        result.rotation = rotation; result.zIndex = zIndex; return result;
     }
 
     @Override
@@ -44,6 +45,8 @@ public class Transform extends Component {
     public void copy(Transform to) {
         to.position.set(this.position);
         to.scale.set(this.scale);
+        to.rotation = rotation;
+        to.zIndex = zIndex;
     }
 
     @Override

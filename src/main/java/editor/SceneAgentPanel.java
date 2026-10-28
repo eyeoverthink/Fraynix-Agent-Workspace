@@ -23,10 +23,12 @@ public final class SceneAgentPanel implements AutoCloseable {
     private final ImString goal = new ImString("Create a static platform and a dynamic tile\nabove it in the current view.", 16384);
     private final ImString query = new ImString("{\"op\":\"nearest\",\"x\":0,\"y\":0,\"radius\":10,\"limit\":8}", 4096);
     private final ImString proposalJson = new ImString(131072);
-    private final ImInt turns = new ImInt(4), context = new ImInt(8192);
+    private final ImInt turns = new ImInt(4), context = new ImInt(16384);
     private final float[] seconds = {2};
     private String error = "", queryResult = "", lastSource = "";
     private boolean overlay = true;
+    private boolean observeEnabled;
+    private boolean automaticApply=true;
     public SceneAgentPanel(FactorySession session, FraynixWorkspace workspace) {
         this.session = session; this.workspace = workspace;
         try { agent = new SceneAgent(session, index -> AssetPool.getSpritesheet("assets/images/spritesheets/decorationsAndBlocks.png").getSprite(index)); }
@@ -42,6 +44,13 @@ public final class SceneAgentPanel implements AutoCloseable {
     }
     public void tick(Scene scene) {
         if (agent != null) agent.tick();
+        if (!Window.isPlaying() && automaticApply && agent!=null && !agent.busy() && agent.prepared()!=null) {
+            try { agent.apply(Window.getScene(),Window::installFactoryScene); observedScene=null; }
+            catch (java.io.IOException | RuntimeException failure) { error=failure.getMessage(); automaticApply=false; }
+            return;
+        }
+        if (Window.isPlaying() || !observeEnabled) { observeEnabled=false; return; }
+        observeEnabled=false;
         if (observation == null || observedScene != scene || System.nanoTime() - observedAt > 500_000_000L) {
             try { capture(scene); if (agent != null) agent.reconcile(observation.fingerprint()); }
             catch (RuntimeException failure) { observation = null; error = failure.getMessage(); }
@@ -49,6 +58,8 @@ public final class SceneAgentPanel implements AutoCloseable {
         if (agent != null && !agent.source().equals(lastSource)) { lastSource = agent.source(); proposalJson.set(lastSource); }
     }
     public void imgui(Scene scene) {
+        observeEnabled=true;
+        if (Window.isPlaying()) { ImGui.textWrapped("Stop Play to edit the authoring scene. Live AI controls are in the viewport."); return; }
         ImGui.textWrapped("Fraynix can inspect components, query space and propose scene changes. Preview runs real physics on a detached copy.");
         ImGui.beginDisabled(workspace.busy() || agent != null && agent.busy());
         ImGui.setNextItemWidth(-1);
@@ -63,6 +74,7 @@ public final class SceneAgentPanel implements AutoCloseable {
             ImGui.textDisabled("Snapshot " + observation.fingerprint().substring(0, 16));
         }
         if (agent == null) { ImGui.textWrapped(error); return; }
+        if (ImGui.checkbox("Apply validated edits automatically",automaticApply)) automaticApply=!automaticApply;
         ImGui.inputTextMultiline("##SceneGoal", goal, -1, 85);
         ImGui.beginDisabled(agent.busy() || workspace.busy() || Window.isPlaying());
         if (ImGui.button("Ask Fraynix for a proposal")) run(() -> {

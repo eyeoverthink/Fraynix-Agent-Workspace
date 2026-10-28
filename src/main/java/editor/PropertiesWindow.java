@@ -24,6 +24,8 @@ public class PropertiesWindow {
 
     public void update(float dt, Scene currentScene) {
         debounce -= dt;
+        var tools=currentScene.getGameObjectWith(components.MouseControls.class);
+        if(tools!=null && tools.getComponent(components.MouseControls.class).placing()) return;
         if (!MouseListener.isInGameViewport()) return;
 
         if (MouseListener.mouseButtonDown(GLFW_MOUSE_BUTTON_LEFT) && debounce < 0) {

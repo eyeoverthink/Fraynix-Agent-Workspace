@@ -15,12 +15,13 @@ public final class ScenePanel {
         ImGui.text(String.format(java.util.Locale.ROOT, "%.0f FPS | %.2f ms", ImGui.getIO().getFramerate(), dt * 1000));
         ImGui.separator();
         var properties = Window.getImguiLayer().getPropertiesWindow();
-        for (var object : objects) {
+        imgui.ImGuiListClipper.forEach(objects.size(), new imgui.callback.ImListClipperCallback() { public void accept(int index) {
+            var object = objects.get(index);
             boolean rigid = object.getComponent(Rigidbody2D.class) != null;
-            String collider = object.getComponent(Box2DCollider.class) != null ? "Box" : object.getComponent(CircleCollider.class) != null ? "Circle" : "";
+            String collider = object.getComponent(Box2DCollider.class) != null ? "Box" : object.getComponent(CircleCollider.class) != null ? "Circle" : object.getComponent(PillboxCollider.class) != null ? "Pill" : "";
             String tag = rigid ? " [Rigid" + (collider.isEmpty() ? "" : " / " + collider) + "]" : collider.isEmpty() ? "" : " [" + collider + "]";
             if (ImGui.selectable(object.getName() + tag + "##" + object.getPersistentId(), properties.getActiveGameObject() == object)) properties.setActiveGameObject(object);
-        }
+        }});
         ImGui.end();
     }
 }

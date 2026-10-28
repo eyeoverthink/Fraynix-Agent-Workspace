@@ -12,7 +12,7 @@ import java.util.*;
 /** Two-way compatibility adapter. Persistent entity/component UUIDs belong to the shared runtime. */
 public final class FactorySceneAdapter {
     private static final String OBJECT = "editor.object";
-    private final Gson gson = new GsonBuilder().registerTypeAdapter(Component.class, new ComponentDeserializer())
+    private final Gson gson = new GsonBuilder().enableComplexMapKeySerialization().registerTypeAdapter(Component.class, new ComponentDeserializer())
         .registerTypeAdapter(GameObject.class, new GameObjectDeserializer()).create();
 
     public static void registerSchemas(SchemaRegistry registry) {

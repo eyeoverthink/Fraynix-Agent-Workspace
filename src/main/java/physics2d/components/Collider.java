@@ -9,6 +9,7 @@ public abstract class Collider extends Component {
     public Vector2f getOffset() {
         return this.offset;
     }
+    public void setOffset(Vector2f offset) { this.offset.set(offset); }
 
     @Override public void imgui() {
         super.imgui();

@@ -30,6 +30,10 @@ public final class FactoryModelsTest {
             byte[] bytes = "{\"models\":[{\"name\":\"fraynix-test:3b\",\"size_vram\":2048,\"context_length\":4096}]}".getBytes(StandardCharsets.UTF_8);
             exchange.sendResponseHeaders(200, bytes.length); exchange.getResponseBody().write(bytes); exchange.close();
         });
+        server.createContext("/api/show", exchange -> {
+            byte[] bytes="{\"capabilities\":[\"completion\",\"tools\"]}".getBytes(StandardCharsets.UTF_8);
+            exchange.sendResponseHeaders(200,bytes.length);exchange.getResponseBody().write(bytes);exchange.close();
+        });
         server.createContext("/api/chat", exchange -> {
             request.set(new String(exchange.getRequestBody().readAllBytes(), StandardCharsets.UTF_8));
             if(!mode.get().equals("legacy")){

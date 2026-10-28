@@ -1,0 +1,85 @@
+{
+  "nodes": [
+    {
+      "id": "pilot",
+      "type": "file",
+      "file": "src/main/java/agent/MotorRecovery.java",
+      "x": 0,
+      "y": 0,
+      "width": 360,
+      "height": 220
+    },
+    {
+      "id": "selection",
+      "type": "file",
+      "file": "src/main/java/components/MouseControls.java",
+      "x": 420,
+      "y": 0,
+      "width": 360,
+      "height": 220
+    },
+    {
+      "id": "levels",
+      "type": "file",
+      "file": "src/main/java/editor/LevelActions.java",
+      "x": 840,
+      "y": 0,
+      "width": 360,
+      "height": 220
+    },
+    {
+      "id": "models",
+      "type": "file",
+      "file": "fraynix-modules/factory-models/src/main/java/fraymus/factory/models/FactoryModelService.java",
+      "x": 0,
+      "y": 280,
+      "width": 360,
+      "height": 220
+    },
+    {
+      "id": "context",
+      "type": "file",
+      "file": "src/main/java/factory/SceneKnowledge.java",
+      "x": 420,
+      "y": 280,
+      "width": 360,
+      "height": 220
+    },
+    {
+      "id": "future",
+      "type": "file",
+      "file": "docs/IMPLEMENTATION_PLAN.md",
+      "x": 840,
+      "y": 280,
+      "width": 360,
+      "height": 220
+    }
+  ],
+  "edges": [
+    {
+      "id": "e0",
+      "fromNode": "pilot",
+      "toNode": "selection"
+    },
+    {
+      "id": "e1",
+      "fromNode": "selection",
+      "toNode": "levels"
+    },
+    {
+      "id": "e2",
+      "fromNode": "levels",
+      "toNode": "models"
+    },
+    {
+      "id": "e3",
+      "fromNode": "models",
+      "toNode": "context"
+    },
+    {
+      "id": "e4",
+      "fromNode": "context",
+      "toNode": "future"
+    }
+  ]
+}

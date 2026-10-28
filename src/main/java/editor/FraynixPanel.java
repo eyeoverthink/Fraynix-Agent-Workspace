@@ -12,8 +12,11 @@ import java.util.Locale;
 
 public final class FraynixPanel implements AutoCloseable {
     private final FraynixWorkspace workspace;
+    private final BrainPanel brainPanel=new BrainPanel();
+    private boolean focusBrain=Boolean.getBoolean("fraynix.openBrain");
     private final ImString prompt = new ImString(16384), filter = new ImString(256), search = new ImString(1024);
-    private boolean attachScene;
+    private boolean attachScene = true;
+    private String lastChatSceneEdit = "";
     private final ImInt contextSetting=new ImInt(),outputSetting=new ImInt(),threadSetting=new ImInt(),gpuSetting=new ImInt(),timeoutSetting=new ImInt(),keepAliveSetting=new ImInt();
     private final float[] temperatureSetting={.4f};
     private final float[] repeatSetting={1.1f};
@@ -36,8 +39,15 @@ public final class FraynixPanel implements AutoCloseable {
     public SceneAgentPanel sceneAgent() { return sceneAgent; }
     public FraynixWorkspace workspace() { return workspace; }
     public void imgui(Scene scene) {
+        nervous.BrainRuntime.poll();
         workspace.tick();
+        var completed = workspace.consumeCompletedExchange();
+        if (completed != null && completed.success() && !completed.sceneContext().isBlank()) {
+            String applied = "Scene changes use the Create tools and validated scene transactions.";
+            if (!applied.isBlank()) lastChatSceneEdit = applied;
+        }
         sceneAgent.tick(scene);
+        scene=Window.getScene();
         var session = Window.getFactorySession();
         if(startupProbe&&workspace.historyReady()&&!workspace.busy()&&workspace.snapshot().models().stream().anyMatch(m->m.available()&&m.name().equals(workspace.selectedModel()))){
             workspace.modelOperation("Test connection");startupProbe=false;
@@ -63,10 +73,12 @@ public final class FraynixPanel implements AutoCloseable {
             + workspace.snapshot().models().stream().filter(FactoryModelService.Model::available).count() + " local models | checked "
             + Duration.between(workspace.snapshot().observedAt(), Instant.now()).getSeconds() + "s ago");
         if (!workspace.healthError().isEmpty()) ImGui.textWrapped(workspace.healthError());
+        if (!workspace.selectionNotice().isEmpty()) ImGui.textWrapped(workspace.selectionNotice());
         ImGui.separator();
         if (ImGui.beginTabBar("FraynixWorkspaceTabs")) {
             if (tab("Chat")) { chat(scene); ImGui.endTabItem(); }
             if (tab("Create")) { sceneAgent.imgui(scene); ImGui.endTabItem(); }
+            if (tab("Brain")) { brainPanel.imgui(); ImGui.endTabItem(); }
             if (tab("Models")) { models(); ImGui.endTabItem(); }
             if (tab("Kernel")) { kernel(); ImGui.endTabItem(); }
             if (tab("Tools")) { tools(scene); ImGui.endTabItem(); }
@@ -77,10 +89,10 @@ public final class FraynixPanel implements AutoCloseable {
         ImGui.end();
     }
     private boolean tab(String name) {
-        String next = java.util.stream.Stream.of("Chat", "Create", "Models", "Kernel", "Tools", "Jobs").filter(n -> !renderedTabs.contains(n)).findFirst().orElse(System.getProperty("fraynix.captureTab","Tools"));
-        boolean select = smoke && next.equals(name) || focusModels&&name.equals("Models") || (focusCreate || !System.getProperty("fraymus.sceneAgentSmoke", "").isBlank()) && name.equals("Create");
+        String next = java.util.stream.Stream.of("Chat", "Create", "Brain", "Models", "Kernel", "Tools", "Jobs").filter(n -> !renderedTabs.contains(n)).findFirst().orElse(System.getProperty("fraynix.captureTab","Tools"));
+        boolean select = smoke && next.equals(name) || focusBrain&&name.equals("Brain") || focusModels&&name.equals("Models") || (focusCreate || !System.getProperty("fraymus.sceneAgentSmoke", "").isBlank()) && name.equals("Create");
         boolean open = ImGui.beginTabItem(name, select ? imgui.flag.ImGuiTabItemFlags.SetSelected : 0);
-        if (open) { renderedTabs.add(name);lastRenderedTab=name;if(name.equals("Models"))focusModels=false; }
+        if (open) { renderedTabs.add(name);lastRenderedTab=name;if(name.equals("Models"))focusModels=false;if(name.equals("Brain"))focusBrain=false; }
         return open;
     }
     public boolean smokeReady() {
@@ -136,6 +148,12 @@ public final class FraynixPanel implements AutoCloseable {
             ImGui.spacing(); ImGui.textDisabled((exchange.success() ? "MODEL RESPONSE" : "REQUEST FAILED") + "  /  " + exchange.millis() + " ms");
             ImGui.textWrapped(exchange.reply());
             if(!exchange.thinking().isBlank()&&ImGui.collapsingHeader("Model reasoning"))ImGui.textWrapped(exchange.thinking());
+            if(exchange.success() && (!ChatSceneBridge.extractJsonCandidates(exchange.reply()).isEmpty() || !ChatSceneBridge.extractJsonCandidates(exchange.thinking()).isEmpty())){
+                if(ImGui.button("Open validated scene tools")){
+                    focusCreate = true; String applied = "Open Create to validate and apply scene commands.";
+                    lastChatSceneEdit = applied.isBlank() ? "No valid scene modifications found in JSON block." : applied;
+                }
+            }
             if(ImGui.collapsingHeader("Request evidence")){
                 ImGui.textWrapped(exchange.model()+" | "+exchange.endpoint());
                 if(exchange.evidence().isEmpty())ImGui.textWrapped("Historical reply; detailed stream evidence was not recorded by the earlier build.");
@@ -157,7 +175,8 @@ public final class FraynixPanel implements AutoCloseable {
         if (changed) ImGui.setScrollHereY(1);
         ImGui.endChild();
         if (ImGui.checkbox("Attach current scene", attachScene)) attachScene = !attachScene;
-        ImGui.textDisabled("Scene data appears in a collapsed attachment");
+        ImGui.textWrapped("Attaches a bounded view summary and selection. Detailed component queries are available in Create.");
+        if (!lastChatSceneEdit.isBlank()) ImGui.textWrapped(lastChatSceneEdit);
         ImGui.inputTextMultiline("##Message", prompt, -1, 90);
         ImGui.beginDisabled(workspace.busy() || sceneAgent.busy() || !workspace.historyReady() || prompt.get().isBlank() || workspace.selectedModel().isEmpty());
         if (ImGui.button("Send to Fraynix")) {
@@ -169,7 +188,7 @@ public final class FraynixPanel implements AutoCloseable {
         showOperation();
         if (!workspace.error().isBlank()) ImGui.textWrapped(workspace.error());
         if (!uiError.isBlank()) ImGui.textWrapped(uiError);
-        ImGui.textDisabled("Scene editing: use Create for validated proposals");
+        ImGui.textWrapped("Use Create for validated scene edits. AI Play controls the live player through the game's physics.");
     }
     private void models() {
         ImGui.beginChild("ModelControls",0,0,false);
@@ -204,7 +223,7 @@ public final class FraynixPanel implements AutoCloseable {
         ImGui.beginChild("InstalledModels", 0, Math.max(100, ImGui.getContentRegionAvailY() * .55f), true);
         for (var model : workspace.snapshot().models()) {
             if (!model.name().toLowerCase(Locale.ROOT).contains(filter.get().toLowerCase(Locale.ROOT))) continue;
-            String state = !model.available() ? "offline" : model.loaded() ? "resident" : "available";
+            String state = !model.available() ? "not chat-ready" : model.loaded() ? "resident" : "chat-ready";
             if (ImGui.selectable(model.name() + "  [" + state + "]", selectedDetails.equals(model.name()))&&!workspace.busy()&&!sceneAgent.busy()) {
                 selectedDetails = model.name();
                 if (model.available()) workspace.select(model.name());
@@ -217,10 +236,17 @@ public final class FraynixPanel implements AutoCloseable {
             ImGui.text(String.format(Locale.ROOT, "Disk %.2f GiB | Resident VRAM %.2f GiB", model.bytes() / 1073741824.0, model.vramBytes() / 1073741824.0));
             ImGui.text("Context " + model.context() + (model.loaded() ? " (resident)" : " (catalog)"));
             ImGui.textWrapped(model.endpoint()); ImGui.textWrapped(model.source());
+            ImGui.textWrapped(model.availabilityReason());
+            ImGui.textWrapped("Capabilities: "+String.join(", ",model.capabilities()));
         });
         }
-        ImGui.textWrapped("Available means advertised by a live local server. Resident means loaded according to /api/ps. Quality and speed are measured only by actual requests.");
+        ImGui.textWrapped("Chat-ready requires a live service and verified completion capability. Resident means loaded according to /api/ps.");
         ImGui.endChild();
+        ImGui.beginDisabled(workspace.scanning());
+        if(ImGui.button(workspace.scanning()?"Scanning drives...":"Scan local drives")) workspace.scanStorage();
+        ImGui.endDisabled();
+        for(var store:workspace.storage()) ImGui.textWrapped(store.path()+" | "+store.complete()+" complete manifests / "+store.manifests()+" | missing blobs: "+store.missingBlobs());
+        ImGui.textWrapped("Disk files are listed separately from models served by configured Ollama endpoints. Scanning does not move weights or start services.");
     }
     private void runtimeSettings(){
         try{
@@ -343,7 +369,7 @@ public final class FraynixPanel implements AutoCloseable {
     public static String sceneContext(Scene scene) {
         var selected = Window.getImguiLayer().getPropertiesWindow().getActiveGameObject();
         return Window.getFactorySession().observe(scene, selected == null ? null : selected.getPersistentId(), Window.isPlaying(),
-            util.AssetPool.getSpritesheet("assets/images/spritesheets/decorationsAndBlocks.png").size()).json();
+            util.AssetPool.getSpritesheet("assets/images/spritesheets/decorationsAndBlocks.png").size()).forModel(6000);
     }
     @Override public void close() { sceneAgent.close(); workspace.close(); }
 }

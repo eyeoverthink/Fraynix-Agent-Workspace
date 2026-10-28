@@ -44,3 +44,10 @@ No Microsoft font is included. The application may load Segoe UI from the user's
 ## Application license
 
 No project-wide redistribution license was chosen during this private import. Original and third-party rights remain with their respective holders. A future license choice should account for inherited source, graphics, the vendored library, imported Fraynix modules and separately installed model weights. Ollama and model weights are not included in this repository or application distribution.
+
+
+## Imported Mario engine
+
+The full gameplay and associated assets were imported from the user-supplied MarioYoutube-master source. Its original MIT notice, copyright 2022 codingminecraft, is preserved in licenses/MarioYoutube-LICENSE.txt. Imported-file hashes and provenance are recorded in docs/mario-import-provenance.json. Studio shader fixes and existing host services are retained.
+
+The sensory cortex adapts the user-supplied fraymus.neural.HrmNeuromorphic implementation; the original source is preserved in docs/neural/HrmNeuromorphic-original.java.txt.

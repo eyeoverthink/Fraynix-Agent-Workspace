@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "latest": 1,
+  "latest": 3,
   "canonicalization": "UTF-8 without BOM; CRLF normalized to LF for text",
   "editions": [
     {
@@ -119,6 +119,127 @@
           "path": "docs/readmes/001/verification.json",
           "kind": "text",
           "sha256": "4721212d74470ea49f368adebe089e7cd6db4d711e729e514d890801f821fb24"
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "date": "2026-10-28",
+      "title": "Full Mario gameplay and the live sensory cortex",
+      "status": "verified-local",
+      "markdown": "README-002.md",
+      "markdownSha256": "2da14701166e56d0dbfc1b40ca69404a03ab17cdbafb714193d2ba86694ec1f0",
+      "snapshotDirectory": "docs/readmes/002",
+      "companion": "docs/readmes/002/index.html",
+      "sourceBaseline": "cbcbcbe703f7c50e054a8379a51e586addb2d397",
+      "snapshotFiles": [
+        {
+          "path": "docs/readmes/002/file-inventory.json",
+          "kind": "text",
+          "sha256": "c3d7dc4c13c22f7c9dd6897728e924ef8d5e03b08fc8038c790ea4b36d0c4020"
+        },
+        {
+          "path": "docs/readmes/002/FILE_TREE.md",
+          "kind": "text",
+          "sha256": "7f29c34c4ebeddfa6e8d0b24ab27cc791c61944d63a00669e463d5af1ab2e917"
+        },
+        {
+          "path": "docs/readmes/002/images/mario-edit-restored.png",
+          "kind": "binary",
+          "sha256": "a1895a031c0885b4f5f5b0fccd0c3e6362cb23f3e550fa064b34a9d2ca2e2b77"
+        },
+        {
+          "path": "docs/readmes/002/images/mario-live-play.png",
+          "kind": "binary",
+          "sha256": "8808e45cee17ab57ff55e2b0de9ef28630391acf2c971f234a3533dcda4d69fd"
+        },
+        {
+          "path": "docs/readmes/002/index.html",
+          "kind": "text",
+          "sha256": "79f127154e642dc58df74299bc9fd353e24c4ac0fe7e8e195517ab74bc6bfb77"
+        },
+        {
+          "path": "docs/readmes/002/source-isolation.json",
+          "kind": "text",
+          "sha256": "ce7d143728ec7e7826a6c98de875869b92057459191a05ef751acf596845e3a5"
+        },
+        {
+          "path": "docs/readmes/002/system-map.json",
+          "kind": "text",
+          "sha256": "e0debc9e86e984f1977534d5a3e4373bd6bbb5a0569b5e507d1f5ca4dd3765f8"
+        },
+        {
+          "path": "docs/readmes/002/verification.json",
+          "kind": "text",
+          "sha256": "0a8adee16df140bdab843a292f6a662c50838a24cc12af13a7a500d11deb1cbe"
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "date": "2026-10-28",
+      "title": "Reliable AI play selection and level files",
+      "status": "published",
+      "markdown": "README-003.md",
+      "markdownSha256": "177d31a6915db8fa7d99ca4cda99147970307a4e66687aee96d1c89a584bdc84",
+      "snapshotDirectory": "docs/readmes/003",
+      "companion": "docs/readmes/003/index.html",
+      "sourceBaseline": "ab5224980aee8433806c3b074cfe6eb404de2049",
+      "snapshotFiles": [
+        {
+          "path": "docs/readmes/003/file-inventory.json",
+          "kind": "text",
+          "sha256": "807486aa2664102f5c11e0ed1743b04ab125af7eae5013e2369adfdca44eca1d"
+        },
+        {
+          "path": "docs/readmes/003/FILE_TREE.md",
+          "kind": "text",
+          "sha256": "b1758238745a9a484c4e6c14a807a8061c1df0441abe79836e5341ec8b3d0b28"
+        },
+        {
+          "path": "docs/readmes/003/images/corrections-editor.png",
+          "kind": "binary",
+          "sha256": "9dca97b24da00f014ad076abef7bf9f654eb64fb40303c2b35bef1755613efcb"
+        },
+        {
+          "path": "docs/readmes/003/images/corrections-route.png",
+          "kind": "binary",
+          "sha256": "991637ea2669e344b841d7daeff3fd8c983c633aacde5643bcc5b281d67d8e59"
+        },
+        {
+          "path": "docs/readmes/003/images/corrections-ui.png",
+          "kind": "binary",
+          "sha256": "a8268e19790c0cfca2370a1cb0f24cf69af522f009feb143ecca59e88712b875"
+        },
+        {
+          "path": "docs/readmes/003/index.html",
+          "kind": "text",
+          "sha256": "e0f403284d21a07f98d995f657d25eb8114e506c85cfb2de34123057aab2050b"
+        },
+        {
+          "path": "docs/readmes/003/live-model.json",
+          "kind": "text",
+          "sha256": "78216cbb1bf4e3d6e4593121b5f468b5582f4973eda50c2c5549ccc93c2a0568"
+        },
+        {
+          "path": "docs/readmes/003/native-route.log",
+          "kind": "text",
+          "sha256": "d7fc8f3b4e8e537a51a6df7d04ab920cf3008166629771d88ba5718ea490f6b8"
+        },
+        {
+          "path": "docs/readmes/003/source-isolation.json",
+          "kind": "text",
+          "sha256": "ce7d143728ec7e7826a6c98de875869b92057459191a05ef751acf596845e3a5"
+        },
+        {
+          "path": "docs/readmes/003/system-map.json",
+          "kind": "text",
+          "sha256": "6481a151e7d99889f2c17b7bca23d1ff01afbefd726f2c37508613bcefa2c1ef"
+        },
+        {
+          "path": "docs/readmes/003/verification.json",
+          "kind": "text",
+          "sha256": "d904a7189992d029f9f3f4867f867672b29f2f6f59f2532e2908dcf3320320b1"
         }
       ]
     }

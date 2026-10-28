@@ -15,6 +15,8 @@ import java.util.*;
 /** Observes live local services; inference uses the existing Fraynix model adapter. */
 public final class FactoryModelService {
     private final String primary;
+    private record CapabilityCheck(Set<String> capabilities,String source,String reason,long checkedAt,int systemContextEstimate) {}
+    private final Map<String,CapabilityCheck> checks=new java.util.concurrent.ConcurrentHashMap<>();
     public FactoryModelService() { this("http://127.0.0.1:11434"); }
     public FactoryModelService(String primary) {
         if (!loopback(primary)) throw new IllegalArgumentException("Only local endpoints are supported");
@@ -22,7 +24,15 @@ public final class FactoryModelService {
     }
     public record Store(String endpoint, boolean online, String status, int advertised, int loaded) {}
     public record Model(String name, String endpoint, String family, String parameters, String quantization,
-                        long bytes, long vramBytes, int context, boolean available, boolean loaded, String source) {}
+                        long bytes, long vramBytes, int context, boolean available, boolean loaded, String source,
+                        Set<String> capabilities,String availabilityReason,int systemContextEstimate) {
+        public Model { capabilities=Set.copyOf(capabilities); }
+        public Model(String name,String endpoint,String family,String parameters,String quantization,long bytes,long vramBytes,int context,
+                     boolean available,boolean loaded,String source) {
+            this(name,endpoint,family,parameters,quantization,bytes,vramBytes,context,available,loaded,source,
+                available?Set.of("completion"):Set.of(),available?"Chat capable":"Unavailable",0);
+        }
+    }
     public record Snapshot(Instant observedAt, List<Store> stores, List<Model> models, String warning) {
         public Snapshot { stores = List.copyOf(stores); models = List.copyOf(models); }
     }
@@ -80,12 +90,16 @@ public final class FactoryModelService {
             JSONObject tag = live.get(key), ps = loaded.get(key);
             JSONObject details = tag == null ? new JSONObject() : tag.optJSONObject("details");
             if (details == null) details = new JSONObject();
+            CapabilityCheck check=tag==null?new CapabilityCheck(Set.of(),row.optString("sourcePath",""),"Not advertised by the configured local service",0,0)
+                : capabilities(endpoint,name,tag.optString("digest",""));
+            boolean chatReady=tag!=null && check.capabilities().contains("completion") && check.reason().isEmpty();
             models.add(new Model(name, endpoint, row.optString("family", details.optString("family", "unknown")),
                 row.optString("parameterSize", details.optString("parameter_size", "unmeasured")),
                 row.optString("quantization", details.optString("quantization_level", "unknown")),
                 tag == null ? row.optLong("sizeBytes") : tag.optLong("size"), ps == null ? 0 : ps.optLong("size_vram"),
                 ps == null ? row.optInt("configuredContext", row.optInt("contextLength")) : ps.optInt("context_length"),
-                tag != null, ps != null, row.optString("sourcePath", "Advertised by " + endpoint)));
+                chatReady, ps != null, check.source().isEmpty()?row.optString("sourcePath","Advertised by "+endpoint):check.source(),
+                check.capabilities(),chatReady?"Chat completion verified":check.reason(),check.systemContextEstimate()));
         }
         models.sort(Comparator.comparing(Model::name, String.CASE_INSENSITIVE_ORDER));
         return new Snapshot(Instant.now(), stores, models, warning);
@@ -119,6 +133,30 @@ public final class FactoryModelService {
     private void checkRoute(Model model) {
         if(!model.available()||!loopback(model.endpoint()))throw new IllegalArgumentException("Select an available local model");
         if(!LocalModelCatalog.endpointForModel(model.name(),primary).equals(model.endpoint()))throw new IllegalStateException("Model routing changed; refresh services");
+    }
+    private CapabilityCheck capabilities(String endpoint,String name,String digest) {
+        String key=endpoint+"\n"+name+"\n"+digest; long now=System.nanoTime();
+        CapabilityCheck cached=checks.get(key);
+        if(cached!=null && now-cached.checkedAt()<60_000_000_000L) return cached;
+        CapabilityCheck result;
+        try {
+            HttpURLConnection connection=(HttpURLConnection)URI.create(endpoint+"/api/show").toURL().openConnection();
+            connection.setConnectTimeout(1500);connection.setReadTimeout(2500);connection.setRequestMethod("POST");
+            connection.setDoOutput(true);connection.setRequestProperty("Content-Type","application/json");
+            JSONObject show;
+            try {
+                try(var output=connection.getOutputStream()) {output.write(new JSONObject().put("model",name).toString().getBytes(StandardCharsets.UTF_8));}
+                if(connection.getResponseCode()!=200) throw new IOException("Model metadata HTTP "+connection.getResponseCode());
+                try(var input=connection.getInputStream()) {show=new JSONObject(new String(input.readAllBytes(),StandardCharsets.UTF_8));}
+            } finally {connection.disconnect();}
+            Set<String> capabilities=new LinkedHashSet<>();JSONArray advertised=show.optJSONArray("capabilities");
+            if(advertised!=null) for(int i=0;i<advertised.length();i++) capabilities.add(advertised.getString(i));
+            String source=show.optString("modelfile","").lines().filter(line->line.startsWith("FROM ")).map(line->line.substring(5).trim()).findFirst().orElse("");
+            String reason=capabilities.contains("completion")?"":"Not a chat model; capabilities: "+String.join(", ",capabilities);
+            int estimate=(show.optString("system","").length()+show.optString("template","").length()+2)/3;
+            result=new CapabilityCheck(Set.copyOf(capabilities),source,reason,now,estimate);
+        } catch(Exception failure) {result=new CapabilityCheck(Set.of(),"","Chat capability could not be verified: "+failure.getMessage(),now,0);}
+        checks.put(key,result);return result;
     }
 
     private static JSONObject get(String endpoint, String path) throws IOException {

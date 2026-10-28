@@ -21,7 +21,7 @@ public final class SceneSimulation {
         int expected = 0;
         for (var object : scene.getGameObjects()) {
             if (object.getComponent(Rigidbody2D.class) != null && (object.getComponent(physics2d.components.Box2DCollider.class) != null
-                || object.getComponent(physics2d.components.CircleCollider.class) != null)) expected++;
+                || object.getComponent(physics2d.components.CircleCollider.class) != null || object.getComponent(physics2d.components.PillboxCollider.class) != null)) expected++;
             physics.synchronize(object);
             if (draft.affected().contains(object.getPersistentId())) trajectories.put(object.getPersistentId(), new ArrayList<>());
         }

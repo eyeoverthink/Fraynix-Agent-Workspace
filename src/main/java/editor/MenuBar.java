@@ -18,6 +18,8 @@ public class MenuBar {
             if (ImGui.menuItem("Load", "Ctrl+O")) {
                 EventSystem.notify(null, new Event(EventType.LoadLevel));
             }
+            if(ImGui.menuItem("Import level...")) jade.Window.levels().choose("Import");
+            if(ImGui.menuItem("Export level...")) jade.Window.levels().choose("Export");
 
             ImGui.endMenu();
         }

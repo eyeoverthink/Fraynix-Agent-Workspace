@@ -200,8 +200,20 @@ Acceptance: offline workflows work with connectors absent; a failed remote provi
 | GUI parity | Every exposed operation uses the shared registry and shows real state rather than static demo telemetry |
 | Companion interoperability | Offline import/export fixtures first; live read-only checks next; authorized effectful integration only after concrete review |
 
-Near-term forecast: phases 0–2 resolve the visible build/model confusion and make large-model use dependable. Phases 3–4 establish the actual local agent factory. Phases 5–7 broaden verified capability and continuity; phase 8 adds optional network reach without making it a core dependency. These are ordered engineering gates, not guaranteed dates or claims of AGI/market superiority.
+Near-term forecast: phases 0â€“2 resolve the visible build/model confusion and make large-model use dependable. Phases 3â€“4 establish the actual local agent factory. Phases 5â€“7 broaden verified capability and continuity; phase 8 adds optional network reach without making it a core dependency. These are ordered engineering gates, not guaranteed dates or claims of AGI/market superiority.
 
 Streaming Chat, per-model runtime profiles, explicit failures, lifecycle controls, conversation continuity and clean scene attachments are implemented; server-side cold-load supervision still needs fresh 120B validation. See [live model controls](LIVE_MODEL_CONTROLS.md) for the current tested surface.
 
 The newer [Dreamer 120B review](DREAMER_120B_REVIEW.md) confirms the F: base-model manifest and documents why the supplied daemon, portal and B200 scripts cannot be imported as completed capabilities. At the user's follow-up request, the reviewed inference recipe was [installed, tested through Studio and published to their Ollama account](DREAMER_120B_SETUP.md); those separate scripts remain inactive. The next implementation slice is the **shared typed model/tool loop**, using the existing dispatcher, host grants, world snapshots, conversation evidence and Jobs surface. Artifact recovery and optional receipt-backed training follow its verification gates.
+
+
+## Full game integration on October 28 2026
+
+Edition 002 restores the original Mario game in Studio and adds fixed simulation ticks, actor input leases, a local geometry controller, and a headless Hrm cortex with actual sensory channels and JSON checkpoints. Full-level round trips and a native walk, jump, enemy-motion and authoring-restoration diagnostic pass. Scene proposals can apply automatically after the existing preview and transaction checks; Chat JSON and reasoning no longer execute edits.
+
+The next gates are synchronized viewport images for visual models, complete episode recording and replay, human demonstrations, measured motor-policy improvement on held-out tasks, and outcome-based evolution with rollback. The optional neural jump output and synaptic plasticity remain experimental. The original browser BinaryNervousSystem and BaremetalLLM need their own parity and training evaluation. General self-modifying code execution remains a later isolated-worker milestone.
+
+
+## Review corrections in edition 003
+
+Implemented and tested: position-based motor recovery with safe backoff and bounded retries; enemy landing alignment; explicit asset selection versus placement; Save, Import, Export and Reload controls; model completion-capability validation and mounted-drive store discovery; bounded scene summaries, component queries and context budgeting. The packaged original-level route reaches x=12.158443 with no forced jumps. Complete-level solving and learned policy improvement remain separate gates. Desktop file-dialog clicks were not verified because Windows capture timed out; native file event paths and persistence tests pass.

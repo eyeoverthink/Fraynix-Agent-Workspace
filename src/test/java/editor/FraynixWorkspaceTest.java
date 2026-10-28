@@ -26,6 +26,10 @@ public class FraynixWorkspaceTest {
             byte[] bytes="{\"models\":[{\"name\":\"fixture:latest\",\"size\":1024}]}".getBytes(StandardCharsets.UTF_8);
             exchange.sendResponseHeaders(200,bytes.length);exchange.getResponseBody().write(bytes);exchange.close();
         });
+        server.createContext("/api/show", exchange -> {
+            byte[] bytes="{\"capabilities\":[\"completion\",\"tools\"]}".getBytes(StandardCharsets.UTF_8);
+            exchange.sendResponseHeaders(200,bytes.length);exchange.getResponseBody().write(bytes);exchange.close();
+        });
         server.createContext("/api/chat",exchange->{
             body.set(new String(exchange.getRequestBody().readAllBytes(),StandardCharsets.UTF_8));
             byte[] bytes=("{\"model\":\"fixture:latest\",\"message\":{\"content\":\"actual \"},\"done\":false}\n"
@@ -62,5 +66,29 @@ public class FraynixWorkspaceTest {
                 assertEquals(4096,reopened.settings().context());assertEquals(2,new ConversationStore(root).load().size());
             }
         } finally {server.stop(0);if(previous==null)System.clearProperty("fraynix.localModelCatalog");else System.setProperty("fraynix.localModelCatalog",previous);}
+    }
+
+    @Test public void chatSceneBridgeDeserializesGsonGameObjectAndMovesSquare() {
+        var scene = new scenes.Scene(null);
+        var bottom = scene.createGameObject("BottomSquare");
+        bottom.transform.position.set(0f, 0f);
+        bottom.transform.scale.set(0.25f, 0.25f);
+        scene.addGameObjectToScene(bottom);
+
+        var top = scene.createGameObject("TopSquare");
+        top.transform.position.set(0f, 2.0f);
+        top.transform.scale.set(0.25f, 0.25f);
+        scene.addGameObjectToScene(top);
+
+        String chatReply = "I analyzed the scene. TopSquare is at y=2.0. Moving it to (1.5, 3.5):\n```json\n"
+            + "[{\"entityId\":\"" + top.getPersistentId() + "\",\"name\":\"TopSquare\",\"components\":[{"
+            + "\"type\":\"jade.Transform\",\"properties\":{\"position\":{\"x\":1.5,\"y\":3.5},\"scale\":{\"x\":0.25,\"y\":0.25},\"rotation\":0.0,\"zIndex\":0}}]}]\n```";
+
+        String result = ChatSceneBridge.applyIfPresent(scene, chatReply, "");
+        assertTrue(result.contains("TopSquare moved"));
+        assertEquals(1.5f, top.transform.position.x, 1e-4f);
+        assertEquals(3.5f, top.transform.position.y, 1e-4f);
+        assertEquals(0f, bottom.transform.position.x, 1e-4f);
+        assertEquals(0f, bottom.transform.position.y, 1e-4f);
     }
 }

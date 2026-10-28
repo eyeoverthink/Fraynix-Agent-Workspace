@@ -9,31 +9,36 @@ import util.GridPlacement;
 import static org.lwjgl.glfw.GLFW.GLFW_MOUSE_BUTTON_LEFT;
 
 public class MouseControls extends Component {
-    GameObject holdingObject = null;
+    private GameObject selectedAsset;
+    private boolean placement;
+    private long lastPress;
 
     public void pickupObject(GameObject go) {
-        this.holdingObject = go;
-        Window.getScene().addGameObjectToScene(go);
+        selectedAsset=go;
+        selectTool();
     }
 
     public void place() {
-        this.holdingObject = null;
+        enablePlacement();
+    }
+    public void enablePlacement() { if(selectedAsset!=null) { placement=true; lastPress=MouseListener.pressSequence(GLFW_MOUSE_BUTTON_LEFT); } }
+    public void selectTool() { placement=false; }
+    public boolean placing() { return placement; }
+    public boolean hasAsset() { return selectedAsset!=null; }
+    public String selectedLabel() { return selectedAsset==null?"No asset selected":selectedAsset.getName(); }
+    public GameObject placeAt(scenes.Scene scene,float x,float y) {
+        if(!placement || selectedAsset==null) throw new IllegalStateException("Choose an asset and enable Place selected");
+        GameObject object=selectedAsset.copy(); object.transform.position.set(x,y);
+        if(Settings.SNAP_TO_GRID) object.transform.position.set(GridPlacement.cellCenter(x,Settings.GRID_WIDTH),GridPlacement.cellCenter(y,Settings.GRID_HEIGHT));
+        scene.addGameObjectToScene(object); return object;
     }
 
     @Override
     public void editorUpdate(float dt) {
-        if (holdingObject != null) {
-            if (!MouseListener.isInGameViewport()) return;
-            holdingObject.transform.position.x = MouseListener.getOrthoX();
-            holdingObject.transform.position.y = MouseListener.getOrthoY();
-            if (Settings.SNAP_TO_GRID) {
-                holdingObject.transform.position.x = GridPlacement.cellCenter(holdingObject.transform.position.x, Settings.GRID_WIDTH);
-                holdingObject.transform.position.y = GridPlacement.cellCenter(holdingObject.transform.position.y, Settings.GRID_HEIGHT);
-            }
-
-            if (MouseListener.mouseButtonDown(GLFW_MOUSE_BUTTON_LEFT)) {
-                place();
-            }
-        }
+        if(jade.KeyListener.isKeyPressed(org.lwjgl.glfw.GLFW.GLFW_KEY_ESCAPE)
+            || MouseListener.mouseButtonDown(org.lwjgl.glfw.GLFW.GLFW_MOUSE_BUTTON_RIGHT)) selectTool();
+        long press=MouseListener.pressSequence(GLFW_MOUSE_BUTTON_LEFT);
+        if(placement && press!=lastPress && MouseListener.isInGameViewport()) placeAt(Window.getScene(),MouseListener.getOrthoX(),MouseListener.getOrthoY());
+        lastPress=press;
     }
 }

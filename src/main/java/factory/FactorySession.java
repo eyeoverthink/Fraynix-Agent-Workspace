@@ -201,7 +201,7 @@ public final class FactorySession implements AutoCloseable {
     }
     public void tick(Scene scene) {
         poll();
-        if (System.nanoTime() - lastCaptureNanos > 250_000_000L) {
+        if (!Window.isPlaying() && System.nanoTime() - lastCaptureNanos > 2_000_000_000L) {
             execute(() -> capture(scene));
             lastCaptureNanos = System.nanoTime();
         }
