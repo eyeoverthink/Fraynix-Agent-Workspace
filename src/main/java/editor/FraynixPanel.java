@@ -13,7 +13,8 @@ import java.util.Locale;
 public final class FraynixPanel implements AutoCloseable {
     private final FraynixWorkspace workspace;
     private final ImString prompt = new ImString(16384), filter = new ImString(256), search = new ImString(1024);
-    private boolean attachScene;
+    private boolean attachScene = true;
+    private String lastChatSceneEdit = "";
     private final ImInt contextSetting=new ImInt(),outputSetting=new ImInt(),threadSetting=new ImInt(),gpuSetting=new ImInt(),timeoutSetting=new ImInt(),keepAliveSetting=new ImInt();
     private final float[] temperatureSetting={.4f};
     private final float[] repeatSetting={1.1f};
@@ -37,6 +38,11 @@ public final class FraynixPanel implements AutoCloseable {
     public FraynixWorkspace workspace() { return workspace; }
     public void imgui(Scene scene) {
         workspace.tick();
+        var completed = workspace.consumeCompletedExchange();
+        if (completed != null && completed.success() && !completed.sceneContext().isBlank()) {
+            String applied = ChatSceneBridge.applyIfPresent(scene, completed.reply(), completed.thinking());
+            if (!applied.isBlank()) lastChatSceneEdit = applied;
+        }
         sceneAgent.tick(scene);
         var session = Window.getFactorySession();
         if(startupProbe&&workspace.historyReady()&&!workspace.busy()&&workspace.snapshot().models().stream().anyMatch(m->m.available()&&m.name().equals(workspace.selectedModel()))){
@@ -136,6 +142,12 @@ public final class FraynixPanel implements AutoCloseable {
             ImGui.spacing(); ImGui.textDisabled((exchange.success() ? "MODEL RESPONSE" : "REQUEST FAILED") + "  /  " + exchange.millis() + " ms");
             ImGui.textWrapped(exchange.reply());
             if(!exchange.thinking().isBlank()&&ImGui.collapsingHeader("Model reasoning"))ImGui.textWrapped(exchange.thinking());
+            if(exchange.success() && (!ChatSceneBridge.extractJsonCandidates(exchange.reply()).isEmpty() || !ChatSceneBridge.extractJsonCandidates(exchange.thinking()).isEmpty())){
+                if(ImGui.button("Apply scene JSON to live scene")){
+                    String applied = ChatSceneBridge.applyIfPresent(scene, exchange.reply(), exchange.thinking());
+                    lastChatSceneEdit = applied.isBlank() ? "No valid scene modifications found in JSON block." : applied;
+                }
+            }
             if(ImGui.collapsingHeader("Request evidence")){
                 ImGui.textWrapped(exchange.model()+" | "+exchange.endpoint());
                 if(exchange.evidence().isEmpty())ImGui.textWrapped("Historical reply; detailed stream evidence was not recorded by the earlier build.");
@@ -158,6 +170,7 @@ public final class FraynixPanel implements AutoCloseable {
         ImGui.endChild();
         if (ImGui.checkbox("Attach current scene", attachScene)) attachScene = !attachScene;
         ImGui.textDisabled("Scene data appears in a collapsed attachment");
+        if (!lastChatSceneEdit.isBlank()) ImGui.textWrapped(lastChatSceneEdit);
         ImGui.inputTextMultiline("##Message", prompt, -1, 90);
         ImGui.beginDisabled(workspace.busy() || sceneAgent.busy() || !workspace.historyReady() || prompt.get().isBlank() || workspace.selectedModel().isEmpty());
         if (ImGui.button("Send to Fraynix")) {
@@ -169,7 +182,7 @@ public final class FraynixPanel implements AutoCloseable {
         showOperation();
         if (!workspace.error().isBlank()) ImGui.textWrapped(workspace.error());
         if (!uiError.isBlank()) ImGui.textWrapped(uiError);
-        ImGui.textDisabled("Scene editing: use Create for validated proposals");
+        ImGui.textDisabled("Scene JSON in Chat responses is automatically deserialized (Gson) and applied to the live scene");
     }
     private void models() {
         ImGui.beginChild("ModelControls",0,0,false);

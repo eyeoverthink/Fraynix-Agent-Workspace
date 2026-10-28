@@ -33,6 +33,7 @@ public final class FraynixWorkspace implements AutoCloseable {
     private long lastRefresh,sentAt;
     private boolean chatChanged,historyReady;
     private Operation lastOperation;
+    private ConversationStore.Exchange newlyCompleted;
 
     public FraynixWorkspace(Path workspace) { this(workspace,new FactoryModelService()); }
     FraynixWorkspace(Path workspace,FactoryModelService service) {
@@ -72,6 +73,7 @@ public final class FraynixWorkspace implements AutoCloseable {
     public Path profilesPath(){return profiles==null?null:profiles.path();}
     public Path operationPath(){return operationPath;}
     public boolean consumeChatChanged(){boolean changed=chatChanged;chatChanged=false;return changed;}
+    public ConversationStore.Exchange consumeCompletedExchange(){var result=newlyCompleted;newlyCompleted=null;return result;}
     public boolean refreshing(){return refreshing!=null;}
     public FactoryModelService.Model selected(){return snapshot.models().stream().filter(m->m.name().equals(model)&&m.available()).findFirst()
         .orElseThrow(()->new IllegalStateException("Select an online local model"));}
@@ -93,7 +95,7 @@ public final class FraynixWorkspace implements AutoCloseable {
             refreshing=null;
         }
         if(sending!=null&&sending.isDone()){
-            try{var result=sending.join();var copy=new ArrayList<>(exchanges);copy.add(result.exchange());exchanges=List.copyOf(copy);error=result.saveError();chatChanged=true;}
+            try{var result=sending.join();var copy=new ArrayList<>(exchanges);copy.add(result.exchange());exchanges=List.copyOf(copy);newlyCompleted=result.exchange();error=result.saveError();chatChanged=true;}
             catch(CompletionException failure){error=message(failure);}
             sending=null;finished();
         }

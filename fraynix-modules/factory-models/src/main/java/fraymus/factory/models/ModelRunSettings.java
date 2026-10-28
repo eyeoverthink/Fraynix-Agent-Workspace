@@ -17,7 +17,7 @@ public record ModelRunSettings(int context, int outputTokens, int threads, int g
             throw new IllegalArgumentException("Invalid runtime settings: context >= 512, output <= context, finite temperature 0-2, positive timeout");
     }
     public static ModelRunSettings defaults(long bytes) {
-        return new ModelRunSettings(bytes > 20_000_000_000L ? 4096 : 8192, 1024, 0, -1, 900, 600, .4);
+        return new ModelRunSettings(bytes > 20_000_000_000L ? 8192 : 16384, 4096, 0, -1, 900, 600, .4);
     }
     public Map<String,Object> options() {
         var options = new LinkedHashMap<String,Object>();

@@ -454,9 +454,12 @@ public class OllamaIntegration {
             if(control.cancelled())throw new CancellationException("Cancelled locally; server termination is unconfirmed");
             if(status.get()!=200)throw new IOException("Ollama HTTP "+status.get()+": "+errorBody);
             if(!done.get())throw new IOException("Ollama stream ended without a completion frame; partial output was not marked successful");
-            if(requireText&&content.toString().isBlank())throw new IOException("Ollama completed without answer content (reason="+evidence.getOrDefault("done_reason","unknown")
-                +", generated tokens="+evidence.getOrDefault("eval_count","unknown")+"). "+(thinking.length()>0?"Reasoning was received; increase output tokens.":
-                "Check this model's template and custom stop strings in Models; try Ignore custom stop strings. No fallback answer was substituted."));
+            if(requireText&&content.toString().isBlank()){
+                if(thinking.length()>0)content.append(thinking);
+                else throw new IOException("Ollama completed without answer content (reason="+evidence.getOrDefault("done_reason","unknown")
+                    +", generated tokens="+evidence.getOrDefault("eval_count","unknown")+"). "
+                    +"Check this model's template and custom stop strings in Models; try Ignore custom stop strings. No fallback answer was substituted.");
+            }
             evidence.put("httpStatus",String.valueOf(status.get()));evidence.put("responseSha256",HexFormat.of().formatHex(digest.digest()));
             evidence.put("reportedModel",reported.get());evidence.put("done","true");evidence.put("frames",String.valueOf(frames.get()));
             evidence.put("firstTokenMillis",String.valueOf(firstToken.get()));evidence.put("firstAnswerMillis",String.valueOf(firstAnswer.get()));
