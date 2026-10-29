@@ -23,3 +23,7 @@ Open the repository root as an Obsidian vault. The numbered README is the editio
 - [[docs/obsidian/08-edition-history|Edition history]]
 
 GitHub links: [README 001](../../README-001.md), [interactive companion](../readmes/001/index.html), [edition index](../readmes/INDEX.md).
+
+- [[README-004|README edition 004]]
+- [[docs/obsidian/11-powerups-and-persistent-practice|Powerups and persistent practice]]
+- [[docs/obsidian/powerups-and-practice.canvas|Embodied learning canvas]]

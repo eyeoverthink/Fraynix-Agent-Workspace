@@ -13,7 +13,16 @@ public final class BrainPanel {
         if(ImGui.button("Start nervous system")) BrainRuntime.start();
         if(ImGui.checkbox("Experimental plasticity",BrainRuntime.learning())) BrainRuntime.learning(!BrainRuntime.learning());
         if(ImGui.checkbox("Experimental neural jump output",agent.GameInput.neuralJump())) agent.GameInput.neuralJump(!agent.GameInput.neuralJump());
-        ImGui.textWrapped("AI Play uses a working geometry controller. This optional neural output can add jumps; game skill improvement has not yet been evaluated.");
+        ImGui.textWrapped(agent.GameInput.learningStatus());
+        if(ImGui.collapsingHeader("Recent AI Play outcomes")) {
+            var results=agent.GameInput.experience().recent;
+            for(int i=results.size()-1;i>=Math.max(0,results.size()-5);i--) {
+                var run=results.get(i);
+                ImGui.textWrapped(String.format(java.util.Locale.ROOT,"Run %d: %s | %.2f units | %d pickups | %d damage | %d ticks",
+                    run.episode,run.outcome,run.progress,run.pickups,run.damage,run.ticks));
+            }
+        }
+        ImGui.textWrapped("AI Play learns local motor strategy from progress, power-ups, damage and failures. Its per-level experience is saved between runs. Neural plasticity below is a separate experiment; improved neural gameplay has not been evaluated.");
         var core=BrainRuntime.core();
         if(core!=null) {
             ImGui.text(core.neurons()+" neurons | "+core.synapses()+" synapses");

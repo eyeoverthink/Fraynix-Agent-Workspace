@@ -14,6 +14,8 @@ public class SceneModelBudgetTest {
         var observation=SceneKnowledge.capture(scene,world.snapshot(),selected,false);
         String summary=observation.forModel(6000);assertTrue(summary.length()<=6000);
         var json=SceneJson.parse(summary);assertEquals(1248,json.get("totalEntities").getAsInt());assertTrue(json.get("partial").getAsBoolean());
+        assertEquals("Mario",json.getAsJsonObject("player").get("character").getAsString());
+        assertEquals("small",json.getAsJsonObject("player").get("form").getAsString());
         assertEquals(selected.toString(),json.getAsJsonArray("entities").get(0).getAsJsonObject().get("entityId").getAsString());
         String result=observation.queryForModel("{\"op\":\"components\",\"type\":\"components.Ground\"}",4000);
         assertTrue(result.length()<=4000);assertTrue(SceneJson.parse(result).get("partial").getAsBoolean());

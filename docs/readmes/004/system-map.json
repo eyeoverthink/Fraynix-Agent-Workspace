@@ -1,0 +1,82 @@
+{
+  "date": "2026-10-29",
+  "modules": [
+    {
+      "id": "rendering",
+      "name": "Character textures and growth",
+      "status": "verified",
+      "source": "src/main/java/renderer/RenderBatch.java",
+      "note": "docs/obsidian/11-powerups-and-persistent-practice.md",
+      "summary": "Reconcile sprite-sheet changes before drawing. Register the new texture or move the sprite when all seven usable sampler slots are occupied. Native grown Mario renders with his actual sprite."
+    },
+    {
+      "id": "goals",
+      "name": "Power-up goals and interception",
+      "status": "verified",
+      "source": "src/main/java/agent/PowerupPlanner.java",
+      "note": "docs/obsidian/11-powerups-and-persistent-practice.md",
+      "summary": "Identify active power-up blocks, release a mushroom, intercept a moving item and abandon blocked optional detours. Persist failed block goals for the same authored level."
+    },
+    {
+      "id": "experience",
+      "name": "Persistent motor experience",
+      "status": "verified",
+      "source": "src/main/java/agent/PlayMemory.java",
+      "note": "docs/obsidian/11-powerups-and-persistent-practice.md",
+      "summary": "Score local strategies by progress, pickups, damage and failure. Retain useful strategies, explore poor contexts and save per-level experience. Original-level target prefix improves from 1117 to 839 ticks in the recorded comparison."
+    },
+    {
+      "id": "practice",
+      "name": "Finite autonomous practice",
+      "status": "verified",
+      "source": "src/main/java/agent/PlayTraining.java",
+      "note": "docs/obsidian/11-powerups-and-persistent-practice.md",
+      "summary": "Learn 5 runs restarts from the authored scene after every measured episode. The native two-run batch and takeover cancellation pass. Human Stop, Take over and Escape remain authoritative."
+    },
+    {
+      "id": "perception",
+      "name": "Mario identity in model observations",
+      "status": "verified",
+      "source": "src/main/java/factory/SceneKnowledge.java",
+      "note": "docs/obsidian/11-powerups-and-persistent-practice.md",
+      "summary": "Bounded scene observations identify Mario, his small, big or fire form, current sprite sheet, position, grounded state and death state from real engine components."
+    },
+    {
+      "id": "neural",
+      "name": "Hrm sensory cortex",
+      "status": "experimental",
+      "source": "src/main/java/nervous/NeuromorphicCore.java",
+      "note": "docs/obsidian/11-powerups-and-persistent-practice.md",
+      "summary": "The existing neural core receives live sensory input and supports separately controlled plasticity. The measured route improvement in this edition comes from explicit goal memory and motor scores."
+    },
+    {
+      "id": "vision",
+      "name": "Broader embodied self improvement",
+      "status": "planned",
+      "source": "docs/EMBODIED_AI_VISION.md",
+      "note": "docs/obsidian/11-powerups-and-persistent-practice.md",
+      "summary": "Synchronize visual-model frames, collect replayable episodes and demonstrations, train reward-linked policies, and evaluate isolated candidates on held out levels before promotion or rollback."
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "docs/readmes/004/images/mario-grown.png",
+      "description": "Actual mushroom collection and rendered Big Mario"
+    },
+    {
+      "path": "docs/readmes/004/images/bounded-practice.png",
+      "description": "Finite practice with five recorded completed runs and five pickups"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/readmes/004/verification.json"
+    },
+    {
+      "path": "docs/readmes/004/native-route.log"
+    },
+    {
+      "path": "docs/readmes/004/source-isolation.json"
+    }
+  ]
+}

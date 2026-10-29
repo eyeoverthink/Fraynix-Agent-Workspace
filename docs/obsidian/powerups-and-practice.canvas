@@ -1,0 +1,99 @@
+{
+  "nodes": [
+    {
+      "id": "rendering",
+      "type": "file",
+      "file": "src/main/java/renderer/RenderBatch.java",
+      "x": 0,
+      "y": 0,
+      "width": 360,
+      "height": 220
+    },
+    {
+      "id": "goals",
+      "type": "file",
+      "file": "src/main/java/agent/PowerupPlanner.java",
+      "x": 420,
+      "y": 0,
+      "width": 360,
+      "height": 220
+    },
+    {
+      "id": "experience",
+      "type": "file",
+      "file": "src/main/java/agent/PlayMemory.java",
+      "x": 840,
+      "y": 0,
+      "width": 360,
+      "height": 220
+    },
+    {
+      "id": "practice",
+      "type": "file",
+      "file": "src/main/java/agent/PlayTraining.java",
+      "x": 0,
+      "y": 280,
+      "width": 360,
+      "height": 220
+    },
+    {
+      "id": "perception",
+      "type": "file",
+      "file": "src/main/java/factory/SceneKnowledge.java",
+      "x": 420,
+      "y": 280,
+      "width": 360,
+      "height": 220
+    },
+    {
+      "id": "neural",
+      "type": "file",
+      "file": "src/main/java/nervous/NeuromorphicCore.java",
+      "x": 840,
+      "y": 280,
+      "width": 360,
+      "height": 220
+    },
+    {
+      "id": "vision",
+      "type": "file",
+      "file": "docs/EMBODIED_AI_VISION.md",
+      "x": 0,
+      "y": 560,
+      "width": 360,
+      "height": 220
+    }
+  ],
+  "edges": [
+    {
+      "id": "e0",
+      "fromNode": "rendering",
+      "toNode": "goals"
+    },
+    {
+      "id": "e1",
+      "fromNode": "goals",
+      "toNode": "experience"
+    },
+    {
+      "id": "e2",
+      "fromNode": "experience",
+      "toNode": "practice"
+    },
+    {
+      "id": "e3",
+      "fromNode": "practice",
+      "toNode": "perception"
+    },
+    {
+      "id": "e4",
+      "fromNode": "perception",
+      "toNode": "neural"
+    },
+    {
+      "id": "e5",
+      "fromNode": "neural",
+      "toNode": "vision"
+    }
+  ]
+}

@@ -18,6 +18,26 @@ public final class GameInput {
     private static String status="Human control";
     private static long stalledTicks;
     private static MotorRecovery recovery=new MotorRecovery();
+    private static PowerupPlanner planner=new PowerupPlanner();
+    private static PowerupPlanner.Goal goal;
+    private static PlayMemory memory=new PlayMemory(null);
+    private static String levelKey="unspecified",context="",outcome="interrupted";
+    private static long startedTick;
+    private static int pickups,damage;
+    private static final java.util.Map<String,PlayMemory.Strategy> choices=new java.util.LinkedHashMap<>();
+    private static final java.util.Map<String,Double> rewards=new java.util.LinkedHashMap<>();
+    public static void project(java.nio.file.Path project) {memory=new PlayMemory(project.resolve("brain/play-memory-v1.json"));}
+    public static void prepareLevel(String authored) {levelKey=PlayMemory.fingerprint(authored);}
+    public static PlayMemory.Level experience() {return memory.level(levelKey);}
+    public static String lastOutcome(){return outcome;}
+    public static String learningStatus() {
+        var learned=experience();
+        return "Experience: "+learned.episodes+" runs | best "+String.format(java.util.Locale.ROOT,"%.2f",learned.bestProgress)
+            +" units | "+learned.pickups+" pickups | "+learned.deaths+" deaths | "+memory.ioStatus();
+    }
+    private static void reward(double value) {if(automatic && !context.isEmpty()) rewards.merge(context,value,Double::sum);}
+    public static void powerup(GameObject player) {if(automatic && player.getPersistentId().equals(actor)) {pickups++;reward(6);}}
+    public static void damage(GameObject player) {if(automatic && player.getPersistentId().equals(actor)) {damage++;reward(-5);}}
     private static boolean neuralJump;
     private static float[] lastSensory=new float[0];
     private static ActorControls.Input current=ActorControls.Input.NONE, previous=ActorControls.Input.NONE;
@@ -32,14 +52,25 @@ public final class GameInput {
     public static void start(Scene scene, float targetX) {
         GameObject player=scene.getGameObjectWith(PlayerController.class);
         if (player==null || !Float.isFinite(targetX)) throw new IllegalArgumentException("A live player and finite target are required");
+        if(automatic) stop("Previous AI segment ended for a new target");
         episode=UUID.randomUUID(); actor=player.getPersistentId(); sequence=0;
         controls.reset(episode,actor); automatic=true; startX=maxX=player.transform.position.x; goalX=targetX;
         current=previous=ActorControls.Input.NONE; jumpUntil=0; lastJump=-100; stalledTicks=0;
         recovery=new MotorRecovery();
+        planner=new PowerupPlanner(id->experience().failedGoals.getOrDefault(id.toString(),0)>0,
+            id->experience().failedGoals.merge(id.toString(),1,Integer::sum));
+        goal=null;choices.clear();rewards.clear();context="";outcome="interrupted";
+        pickups=damage=0;startedTick=scene.tick();
         status="Playing toward x="+goalX+" using local geometry and normal controls";
         nervous.BrainRuntime.start();
     }
     public static void stop(String reason) {
+        if(automatic) {
+            for(var entry:choices.entrySet()) memory.credit(levelKey,entry.getKey(),entry.getValue(),rewards.getOrDefault(entry.getKey(),0d));
+            var names=new java.util.LinkedHashMap<String,String>();choices.forEach((key,value)->names.put(key,value.name()));
+            memory.record(levelKey,new PlayMemory.Result(experience().episodes+1,outcome,progress(),pickups,damage,
+                Math.max(0,tick-startedTick),names));
+        }
         automatic=false; controls.release(); current=previous=ActorControls.Input.NONE; status=reason;
     }
     public static void tick(Scene scene) {
@@ -48,21 +79,30 @@ public final class GameInput {
         GameObject player=scene.getGameObjectWith(PlayerController.class);
         if (player==null || !player.getPersistentId().equals(actor)) { stop("Player changed; control released"); return; }
         PlayerController controller=player.getComponent(PlayerController.class);
-        if (controller.isDead()) { stop("Player died; episode recorded by the game"); return; }
-        if (controller.hasWon()) { stop("Flag reached; game reports a win"); return; }
+        if (controller.isDead()) { outcome="death";reward(-8);stop("Player died; outcome saved for the next run"); return; }
+        if (controller.hasWon()) { outcome="win";reward(8);stop("Flag reached; winning outcome saved"); return; }
         float x=player.transform.position.x, y=player.transform.position.y;
-        if (Math.abs(x-goalX)<.15f) { stop("Target reached at x="+x); return; }
-        if (Math.abs(goalX-x)<Math.abs(goalX-maxX)-.002f) { maxX=x; stalledTicks=0; } else stalledTicks++;
-        if (stalledTicks>1500) { stop("No forward progress for 25 simulated seconds; take over or choose another target"); return; }
-        float direction=goalX>=x?1:-1;
+        if (Math.abs(x-goalX)<.15f) { outcome="target";reward(4);stop("Target reached at x="+x+"; experience saved"); return; }
+        if (Math.abs(goalX-x)<Math.abs(goalX-maxX)-.002f) {
+            reward((Math.abs(goalX-maxX)-Math.abs(goalX-x))*2);maxX=x; stalledTicks=0;
+        } else stalledTicks++;
+        if (stalledTicks>1500) { outcome="stalled";reward(-5);stop("No progress for 25s; failure saved for next run"); return; }
+        var nextGoal=planner.step(scene,player,goalX,tick);
+        if(goal==null || goal.kind()!=nextGoal.kind() || goal.object()!=nextGoal.object()) recovery=new MotorRecovery();
+        goal=nextGoal;
+        context=((int)Math.floor(x/2))+":"+(controller.isSmall()?"small":controller.isFire()?"fire":"big")+":"+goal.kind();
+        var strategy=choices.computeIfAbsent(context,key->memory.choose(levelKey,key));
+        reward(-.001);recovery.jumpTicks(strategy.jumpTicks);
+        float localTarget=goal.x();
+        float direction=localTarget>=x?1:-1;
         var floor=scene.physics().raycastSolid(player,new Vector2f(x+direction*.32f,y+.04f),new Vector2f(x+direction*.32f,y-.5f));
-        var wall=scene.physics().raycastSolid(player,new Vector2f(x,y-.04f),new Vector2f(x+direction*.42f,y-.04f));
+        var wall=scene.physics().raycastSolid(player,new Vector2f(x,y-.04f),new Vector2f(x+direction*strategy.wallLookahead,y-.04f));
         var behind=scene.physics().raycastSolid(player,new Vector2f(x-direction*.3f,y),new Vector2f(x-direction*.3f,y-.55f));
         var head=scene.physics().raycastSolid(player,new Vector2f(x,y+.13f),new Vector2f(x,y+1.1f));
         var enemy=scene.getGameObjects().stream().filter(o -> !o.isDead()
             &&(o.getComponent(GoombaAI.class)!=null || o.getComponent(TurtleAI.class)!=null)
             &&o.getComponent(physics2d.components.Rigidbody2D.class)!=null && !o.getComponent(physics2d.components.Rigidbody2D.class).isSensor()
-            &&Math.abs(o.transform.position.x-x)<2.4f && y-o.transform.position.y>-.5f && y-o.transform.position.y<2)
+            &&Math.abs(o.transform.position.x-x)<strategy.enemyLookahead && y-o.transform.position.y>-.5f && y-o.transform.position.y<2)
             .min(java.util.Comparator.comparingDouble(o->Math.abs(o.transform.position.x-x))).orElse(null);
         boolean hazard=enemy!=null && (enemy.transform.position.x-x)*direction>-.1f && Math.abs(enemy.transform.position.y-y)<.6f;
         boolean obstacle=wall.hit && Math.abs(wall.normal.x)>.5f;
@@ -70,13 +110,31 @@ public final class GameInput {
         lastSensory=new float[]{Math.max(-1,Math.min(1,(goalX-x)/5)),body.getVelocity().x/3,body.getVelocity().y/3,
             controller.onGround?1:-1,floor.hit?1:-1,obstacle?1:-1,hazard?1:-1};
         nervous.BrainRuntime.observe(lastSensory);
-        var decision=recovery.step(tick,Math.abs(goalX-x),direction,controller.onGround,obstacle,!floor.hit,hazard,head.hit,behind.hit);
-        status="AI "+decision.phase()+" | target x="+goalX+" | recovery "+decision.attempts()+"/3";
-        if(decision.phase()==MotorRecovery.Phase.BLOCKED) {stop("Blocked: no safe route after bounded recovery. Human control released.");return;}
+        boolean wedged=stalledTicks>45 && Math.abs(body.getVelocity().y)<.05f;
+        var decision=recovery.step(tick-startedTick,Math.abs(localTarget-x),direction,controller.onGround,obstacle,!floor.hit,hazard,head.hit,behind.hit,wedged);
+        status="AI "+decision.phase()+" | "+goal.reason()+" | "+strategy+" | recovery "+decision.attempts()+"/3";
+        if(decision.phase()==MotorRecovery.Phase.BLOCKED) {
+            reward(-5);
+            if(goal.kind()!=PowerupPlanner.Kind.TRAVEL) {
+                planner.abandon(goal);goal=null;recovery=new MotorRecovery();jumpUntil=0;
+                current=ActorControls.Input.NONE;status="Optional power-up route blocked; replanning toward destination";return;
+            }
+            outcome="blocked";stop("Blocked; failed strategy saved. Human control released.");return;
+        }
         if(neuralJump && controller.onGround && tick-lastJump>35 && nervous.BrainRuntime.core()!=null
             && nervous.BrainRuntime.core().output(0)>.1f) { jumpUntil=tick+12; lastJump=tick; }
         float horizontal=decision.horizontal();
-        if(enemy!=null && !controller.onGround && body.getVelocity().y<-.1f && y>enemy.transform.position.y+.25f
+        boolean objectiveJump=false;
+        if(goal.kind()!=PowerupPlanner.Kind.TRAVEL && !hazard && !obstacle) {
+            float error=localTarget-x-body.getVelocity().x*.18f;
+            horizontal=Math.abs(error)<.04f?0:Math.signum(error);
+            if(goal.kind()==PowerupPlanner.Kind.BUMP_BLOCK && Math.abs(localTarget-x)<.19f && controller.onGround
+                && tick-lastJump>40) {jumpUntil=tick+22;lastJump=tick;}
+            if(goal.kind()==PowerupPlanner.Kind.COLLECT && goal.y()>y+.25f && Math.abs(localTarget-x)<1.2f
+                && controller.onGround && tick-lastJump>40 && !head.hit) {jumpUntil=tick+strategy.jumpTicks;lastJump=tick;}
+            objectiveJump=tick<jumpUntil;
+        }
+        if(goal.kind()==PowerupPlanner.Kind.TRAVEL && enemy!=null && !controller.onGround && body.getVelocity().y<-.1f && y>enemy.transform.position.y+.25f
             && Math.abs(enemy.transform.position.x-x)<1.5f) {
             float height=y-.13f-(enemy.transform.position.y+.12f),fallSpeed=-body.getVelocity().y;
             float landingTime=Math.min(.5f,Math.max(.02f,((float)Math.sqrt(fallSpeed*fallSpeed+14*Math.max(0,height))-fallSpeed)/7));
@@ -84,7 +142,7 @@ public final class GameInput {
             float error=target-(x+body.getVelocity().x*landingTime);
             horizontal=Math.abs(error)<.04f?0:Math.signum(error);status+=" | lining up landing";
         }
-        ActorControls.Input input=new ActorControls.Input(horizontal,0,decision.jump()||tick<jumpUntil,tick%30==0);
+        ActorControls.Input input=new ActorControls.Input(horizontal,0,decision.jump()||objectiveJump||tick<jumpUntil,tick%30==0);
         controls.accept(new ActorControls.Lease(episode,actor,sequence++,tick,tick+1,input),tick);
         current=controls.at(tick);
     }

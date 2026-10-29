@@ -217,3 +217,8 @@ The next gates are synchronized viewport images for visual models, complete epis
 ## Review corrections in edition 003
 
 Implemented and tested: position-based motor recovery with safe backoff and bounded retries; enemy landing alignment; explicit asset selection versus placement; Save, Import, Export and Reload controls; model completion-capability validation and mounted-drive store discovery; bounded scene summaries, component queries and context budgeting. The packaged original-level route reaches x=12.158443 with no forced jumps. Complete-level solving and learned policy improvement remain separate gates. Desktop file-dialog clicks were not verified because Windows capture timed out; native file event paths and persistence tests pass.
+
+
+## October 29 embodied learning progress
+
+[Edition 004](../README-004.md) fixes sprite-sheet changes during growth and adds power-up goals, per-level motor rewards, persistent failed-goal memory and bounded repeated practice. A native original-level prefix comparison reaches the same target with one mushroom and zero damage in 1117, 839 and 839 ticks. Memory reload, a two-run batch and human takeover pass. This is scoped improvement from explicit experience. The [embodied AI vision](EMBODIED_AI_VISION.md) records the user's full requested loop and separates working engine perception from planned visual recognition, replay, reward-linked neural policy learning and evaluated system evolution.

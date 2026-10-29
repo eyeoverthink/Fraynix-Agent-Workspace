@@ -23,6 +23,7 @@ public class GameViewWindow {
 
         ImGui.beginMenuBar();
         if (ImGui.menuItem("AI Play")) {
+            agent.PlayTraining.cancel();
             if (!Window.isPlaying()) EventSystem.notify(null,new Event(EventType.GameEngineStartPlay));
             try { agent.GameInput.start(Window.getScene(),targetX.get()); }
             catch (IllegalArgumentException error) { agent.GameInput.stop(error.getMessage()); }
@@ -48,8 +49,15 @@ public class GameViewWindow {
         ImGui.endDisabled();ImGui.sameLine();ImGui.beginDisabled(Window.isPlaying());
         if(ImGui.button("Reload saved")) EventSystem.notify(null,new Event(EventType.LoadLevel));
         ImGui.endDisabled();
+        ImGui.sameLine();
+        if(ImGui.button("Learn 5 runs")) {
+            try {agent.PlayTraining.start(5,targetX.get());}
+            catch(IllegalArgumentException error) {agent.GameInput.stop(error.getMessage());}
+        }
         ImGui.textWrapped(Window.levels().status());
         ImGui.textWrapped(agent.GameInput.status());
+        ImGui.textWrapped(agent.GameInput.learningStatus());
+        if(agent.PlayTraining.active())ImGui.textWrapped(agent.PlayTraining.status());
 
         ImVec2 windowSize = getLargestSizeForViewport();
         ImVec2 windowPos = getCenteredPositionForViewport(windowSize);
