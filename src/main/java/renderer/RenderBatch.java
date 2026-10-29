@@ -128,12 +128,6 @@ public class RenderBatch implements Comparable<RenderBatch> {
                 rebufferData = true;
             }
 
-            // TODO: get better solution for this
-            if (spr.gameObject.transform.zIndex != this.zIndex) {
-                destroyIfExists(spr.gameObject);
-                renderer.add(spr.gameObject);
-                i--;
-            }
         }
         if (rebufferData) {
             glBindBuffer(GL_ARRAY_BUFFER, vboID);
@@ -142,6 +136,7 @@ public class RenderBatch implements Comparable<RenderBatch> {
 
         // Use shader
         Shader shader = Renderer.getBoundShader();
+        shader.use();
         shader.uploadMat4f("uProjection", Window.getScene().camera().getProjectionMatrix());
         shader.uploadMat4f("uView", Window.getScene().camera().getViewMatrix());
         for (int i=0; i < textures.size(); i++) {
@@ -175,6 +170,8 @@ public class RenderBatch implements Comparable<RenderBatch> {
                     sprites[j].setDirty();
                 }
                 numSprites--;
+                sprites[numSprites] = null;
+                hasRoom = true;
                 return true;
             }
         }
@@ -286,7 +283,22 @@ public class RenderBatch implements Comparable<RenderBatch> {
     }
 
     public boolean hasTextureRoom() {
-        return this.textures.size() < 8;
+        // Sampler zero represents an untextured quad; valid texture IDs are 1..7.
+        return this.textures.size() < texSlots.length - 1;
+    }
+
+    /** Reconcile animation texture changes before any batch is drawn or the batch list is sorted. */
+    public void prepareSprites(List<SpriteRenderer> displaced) {
+        for (int i=0; i<numSprites; i++) {
+            SpriteRenderer sprite=sprites[i];
+            Texture texture=sprite.getTexture();
+            boolean missing=texture!=null && !hasTexture(texture);
+            if (sprite.gameObject.transform.zIndex!=zIndex || missing && !hasTextureRoom()) {
+                destroyIfExists(sprite.gameObject); displaced.add(sprite); i--;
+            } else if (missing) {
+                textures.add(texture); sprite.setDirty();
+            }
+        }
     }
 
     public boolean hasTexture(Texture tex) {

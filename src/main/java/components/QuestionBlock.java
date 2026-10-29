@@ -13,6 +13,8 @@ public class QuestionBlock extends Block {
 
     public BlockType blockType = BlockType.Coin;
 
+    public boolean hasPowerup() { return isActive() && blockType == BlockType.Powerup; }
+
     @Override
     void playerHit(PlayerController playerController) {
         switch(blockType) {

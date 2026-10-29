@@ -26,6 +26,7 @@ public class Window implements Observer {
     private boolean updatingScene;
     private editor.MarioNativeSmoke marioSmoke;
     private editor.CorrectionsNativeSmoke correctionsSmoke;
+    private editor.LearningNativeSmoke learningSmoke;
     private final editor.LevelActions levelActions=new editor.LevelActions();
     public static editor.LevelActions levels() { return get().levelActions; }
     public static Scene authoringForSave() {
@@ -57,6 +58,7 @@ public class Window implements Observer {
 
     private Window() {
         nervous.BrainRuntime.project(factorySession.workspace());
+        agent.GameInput.project(factorySession.workspace());
         this.width = 1920;
         this.height = 1080;
         this.title = System.getProperty("fraynix.windowTitle","Fraynix Studio | Full game editor");
@@ -274,6 +276,15 @@ public class Window implements Observer {
             this.framebuffer.unbind();
 
             this.imguiLayer.update(dt, currentScene);
+            agent.PlayTraining.tick();
+            String learningCapture=System.getProperty("fraynix.learningSmoke","");
+            if(!learningCapture.isBlank()) {
+                if(learningSmoke==null) learningSmoke=new editor.LearningNativeSmoke(java.nio.file.Path.of(learningCapture));
+                try {
+                    if(System.nanoTime()-startedAt>210_000_000_000L) throw new IllegalStateException("Learning evaluation timed out");
+                    if(learningSmoke.tick()) glfwSetWindowShouldClose(glfwWindow,true);
+                } catch(Exception failure) {throw new IllegalStateException("Learning native smoke failed",failure);}
+            }
             if(correctionsSmoke!=null) {
                 try {
                     if(System.nanoTime()-startedAt>150_000_000_000L) throw new IllegalStateException("Correction smoke timed out");
@@ -389,6 +400,7 @@ public class Window implements Observer {
                 if (runtimePlaying) break;
                 if (imguiLayer.getFraynixPanel().sceneAgent().agent()!=null) imguiLayer.getFraynixPanel().sceneAgent().agent().stop();
                 authoringSnapshot = currentScene.serializeAuthoring();
+                agent.GameInput.prepareLevel(authoringSnapshot);
                 this.runtimePlaying = true;
                 Window.changeScene(new scenes.LevelSceneInitializer());
                 break;

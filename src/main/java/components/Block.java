@@ -53,5 +53,7 @@ public abstract class Block extends Component {
 
     public void setInactive() { this.active = false; }
 
+    public boolean isActive() { return active; }
+
     abstract void playerHit(PlayerController playerController);
 }

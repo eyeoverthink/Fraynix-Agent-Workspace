@@ -24,6 +24,17 @@ public record SceneKnowledge(WorldSnapshot world, String fingerprint, String jso
         document.addProperty("selectedEntityId", selected == null ? "" : selected.toString());
         document.addProperty("coordinateConvention", "World units; +x right, +y up; rotations in degrees; transform scale is sprite size. Box2DCollider.halfSize is the full box size in this legacy editor.");
         document.addProperty("componentVisibility", "All serialized authored components are included. Runtime physics values are separate. Editor helpers and renderer internals are not authored entities.");
+        var player=scene.getGameObjectWith(components.PlayerController.class);
+        if(player!=null) {
+            var controller=player.getComponent(components.PlayerController.class);var actor=new JsonObject();
+            actor.addProperty("entityId",player.getPersistentId().toString());actor.addProperty("role","player");
+            actor.addProperty("character","Mario");actor.addProperty("form",controller.isSmall()?"small":controller.isFire()?"fire":"big");
+            actor.addProperty("x",player.transform.position.x);actor.addProperty("y",player.transform.position.y);
+            actor.addProperty("grounded",controller.onGround);actor.addProperty("dead",controller.isDead());
+            var sprite=player.getComponent(components.SpriteRenderer.class);
+            if(sprite!=null && sprite.getTexture()!=null)actor.addProperty("spriteSheet",sprite.getTexture().getFilepath());
+            actor.addProperty("source","Engine component identity and state; no image-model inference");document.add("player",actor);
+        }
         var grid = new JsonObject(); grid.addProperty("width", util.Settings.GRID_WIDTH); grid.addProperty("height", util.Settings.GRID_HEIGHT);
         grid.addProperty("snapEnabled", util.Settings.SNAP_TO_GRID); grid.addProperty("visible", util.Settings.SHOW_GRID); document.add("grid", grid);
         if (scene.camera() != null) {
@@ -89,7 +100,7 @@ public record SceneKnowledge(WorldSnapshot world, String fingerprint, String jso
     /** Small, valid JSON view for a model; the complete frozen world remains queryable. */
     public String forModel(int maxCharacters) {
         int budget=Math.max(2048,maxCharacters);JsonObject full=SceneJson.parse(json),summary=new JsonObject();
-        for(String key:List.of("observationId","sceneHash","mode","selectedEntityId","coordinateConvention","grid","camera"))
+        for(String key:List.of("observationId","sceneHash","mode","selectedEntityId","coordinateConvention","grid","camera","player"))
             if(full.has(key)) summary.add(key,full.get(key));
         var authored=world.entities().stream().filter(SceneKnowledge::authored).toList();
         summary.addProperty("totalEntities",authored.size());

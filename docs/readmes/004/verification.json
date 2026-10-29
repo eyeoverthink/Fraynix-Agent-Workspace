@@ -1,0 +1,105 @@
+{
+  "date": "2026-10-29",
+  "rootJUnit": {
+    "tests": 87,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "gradleCheck": "passed",
+  "episodes": [
+    {
+      "episode": 1,
+      "pickups": 1,
+      "damage": 0,
+      "outcome": "target",
+      "progress": 18.974646,
+      "ticks": 1117,
+      "strategies": {
+        "0:small:TRAVEL": "BALANCED",
+        "0:small:BUMP_BLOCK": "BALANCED",
+        "1:small:BUMP_BLOCK": "BALANCED",
+        "1:small:TRAVEL": "BALANCED",
+        "2:small:BUMP_BLOCK": "BALANCED",
+        "2:small:COLLECT": "BALANCED",
+        "2:big:TRAVEL": "BALANCED",
+        "3:big:TRAVEL": "BALANCED",
+        "4:big:TRAVEL": "BALANCED",
+        "5:big:TRAVEL": "BALANCED",
+        "6:big:TRAVEL": "BALANCED",
+        "7:big:TRAVEL": "BALANCED",
+        "7:big:BUMP_BLOCK": "BALANCED",
+        "8:big:BUMP_BLOCK": "BALANCED",
+        "8:big:TRAVEL": "BALANCED",
+        "9:big:BUMP_BLOCK": "BALANCED",
+        "9:big:COLLECT": "BALANCED",
+        "9:big:TRAVEL": "BALANCED"
+      }
+    },
+    {
+      "episode": 2,
+      "pickups": 1,
+      "damage": 0,
+      "outcome": "target",
+      "progress": 18.96513,
+      "ticks": 839,
+      "strategies": {
+        "0:small:TRAVEL": "BALANCED",
+        "0:small:BUMP_BLOCK": "BALANCED",
+        "1:small:BUMP_BLOCK": "BALANCED",
+        "1:small:TRAVEL": "BALANCED",
+        "2:small:BUMP_BLOCK": "BALANCED",
+        "2:small:COLLECT": "BALANCED",
+        "2:big:TRAVEL": "BALANCED",
+        "3:big:TRAVEL": "BALANCED",
+        "4:big:TRAVEL": "BALANCED",
+        "5:big:TRAVEL": "BALANCED",
+        "6:big:TRAVEL": "BALANCED",
+        "7:big:TRAVEL": "BALANCED",
+        "8:big:TRAVEL": "BALANCED",
+        "9:big:TRAVEL": "BALANCED"
+      }
+    },
+    {
+      "episode": 3,
+      "pickups": 1,
+      "damage": 0,
+      "outcome": "target",
+      "progress": 18.96513,
+      "ticks": 839,
+      "strategies": {
+        "0:small:TRAVEL": "BALANCED",
+        "0:small:BUMP_BLOCK": "BALANCED",
+        "1:small:BUMP_BLOCK": "BALANCED",
+        "1:small:TRAVEL": "BALANCED",
+        "2:small:BUMP_BLOCK": "BALANCED",
+        "2:small:COLLECT": "BALANCED",
+        "2:big:TRAVEL": "BALANCED",
+        "3:big:TRAVEL": "BALANCED",
+        "4:big:TRAVEL": "BALANCED",
+        "5:big:TRAVEL": "BALANCED",
+        "6:big:TRAVEL": "BALANCED",
+        "7:big:TRAVEL": "BALANCED",
+        "8:big:TRAVEL": "BALANCED",
+        "9:big:TRAVEL": "BALANCED"
+      }
+    }
+  ],
+  "comparison": {
+    "sameAuthoredLevel": true,
+    "targetX": 20,
+    "firstTicks": 1117,
+    "nextTicks": 839,
+    "thirdTicks": 839,
+    "reductionPercent": 24.89,
+    "interpretation": "Saved failed optional goals are skipped; useful motor policy is retained. Scoped original-level prefix, not a full-level benchmark."
+  },
+  "nativeChecks": [
+    "LEARNING_GROWTH_PASSED texture=assets/images/bigSpritesheet.png x=5.1426973",
+    "LEARNING_NATIVE_PASSED episodes=3 pickups=3 bestProgress=18.974646 persisted=true policiesChanged=true teleport=false",
+    "LEARNING_PRACTICE_PASSED completed=2 takeoverCancels=true authoringRestored=true"
+  ],
+  "perception": "Ground truth game component identity and state; image-model recognition remains planned",
+  "neuralLearning": "Separate experimental plasticity; gameplay improvement from neural weights is not established",
+  "desktopInput": "Graceful review restart via observed title-bar accessibility and Alt+F4; gameplay evidence uses engine-owned native harness"
+}
