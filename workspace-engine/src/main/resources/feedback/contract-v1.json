@@ -1,0 +1,62 @@
+{
+  "protocol": "native-feedback-v1",
+  "ticks": 360,
+  "controlTicks": 12,
+  "trajectoryTicks": 240,
+  "maxDeltaVelocityMps": 0.6,
+  "targetRangeM": [
+    0.4,
+    1.8
+  ],
+  "trainingGains": [
+    {
+      "kp": 9,
+      "kd": 6
+    },
+    {
+      "kp": 9,
+      "kd": 10
+    },
+    {
+      "kp": 9,
+      "kd": 14
+    },
+    {
+      "kp": 25,
+      "kd": 6
+    },
+    {
+      "kp": 25,
+      "kd": 10
+    },
+    {
+      "kp": 25,
+      "kd": 14
+    },
+    {
+      "kp": 49,
+      "kd": 6
+    },
+    {
+      "kp": 49,
+      "kd": 10
+    },
+    {
+      "kp": 49,
+      "kd": 14
+    }
+  ],
+  "baselineGains": {
+    "kp": 25,
+    "kd": 10
+  },
+  "selection": "training only: mean endpoint error + 0.15*terminal tangent speed + 0.5*maximum last-0.25-second position error",
+  "acceptance": {
+    "maxEndpointErrorM": 0.06,
+    "maxTerminalSpeedMps": 0.2,
+    "maxSettlingErrorM": 0.12,
+    "strongBaselineScoreMargin": 0.005,
+    "minFeedforwardRelativeGain": 0.5
+  },
+  "scope": "Predeclared local development evaluation, not an external scientific holdout; no outcomes influence candidate selection"
+}
