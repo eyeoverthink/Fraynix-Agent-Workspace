@@ -5,6 +5,7 @@ export async function exportSceneVideo(lab,run){
  const mime='video/webm;codecs=vp8';if(!MediaRecorder.isTypeSupported(mime))throw Error('This runtime cannot encode VP8 WebM');
  const duration=run.final.timeS;if(duration<=0||duration>30)throw Error('Video export supports recorded runs up to 30 seconds');
  const savedObjects=JSON.parse(JSON.stringify(lab.objects)),savedPacket=lab.observerPacket;
+ const forecastVisible=lab.forecastGroup?.visible;if(lab.forecastGroup)lab.forecastGroup.visible=false;
  lab.exporting=true;const width=960,height=540,fps=30,renderer=new THREE.WebGLRenderer({antialias:true,preserveDrawingBuffer:true});renderer.setSize(width,height);renderer.setPixelRatio(1);
  renderer.setClearColor(0x101f2a,1);const camera=new THREE.PerspectiveCamera(45,width/height,.1,200),radius=Math.max(14,run.definition.parameters.lengthM*1.5);
  camera.position.set(radius*Math.cos(.52)*Math.sin(.85),2+radius*Math.sin(.52),radius*Math.cos(.52)*Math.cos(.85));camera.lookAt(0,2,0);
@@ -28,6 +29,6 @@ export async function exportSceneVideo(lab,run){
   return {runId:run.id,mime,base64,width,height,frames:frames.length,firstTick:frames[0].tick,lastTick:frames.at(-1).tick,nativeDurationS:duration};
  }finally{
   if(recorder.state!=='inactive'){recorder.stop();await stopped.catch(()=>{});}for(const t of stream.getTracks())t.stop();renderer.dispose();renderer.forceContextLoss();
-  lab.paint(savedObjects);lab.observerPacket=savedPacket;lab.paintGrip(savedPacket?.world.grip||lab.snapshot?.current.grip||{held:false});lab.exporting=false;lab.resize();
+  lab.paint(savedObjects);lab.observerPacket=savedPacket;lab.paintGrip(savedPacket?.world.grip||lab.snapshot?.current.grip||{held:false});lab.exporting=false;if(lab.forecastGroup)lab.forecastGroup.visible=forecastVisible;lab.resize();
  }
 }

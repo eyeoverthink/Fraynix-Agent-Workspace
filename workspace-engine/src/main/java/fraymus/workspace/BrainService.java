@@ -17,7 +17,7 @@ public final class BrainService implements AutoCloseable {
     static final String PROTOCOL="native-push-readout-v1";
     public BrainService(Path project) throws Exception {
         root=project.resolve("brain");Files.createDirectories(root);
-        for(String type:List.of("job","policy","feedback"))schemas.register(new ComponentSchema("workspace.brain."+type,1,Map.of("payload",ComponentSchema.Kind.TEXT),Set.of("payload")));
+        for(String type:List.of("job","policy","feedback","worldmodel"))schemas.register(new ComponentSchema("workspace.brain."+type,1,Map.of("payload",ComponentSchema.Kind.TEXT),Set.of("payload")));
         world=new FactoryWorld(schemas);checkpoint=new WorldCheckpointStore(root.resolve("tasks.fworld"));if(Files.exists(checkpoint.path()))world.restore(checkpoint.load(schemas).snapshot());
         journal=new MerkleAppendOnlyJournal(root.resolve("journal"));
         var recover=new ArrayList<JSONObject>();for(var e:world.snapshot().entities())if(e.components().get(0).type().endsWith(".job")){var job=value(e);if(Set.of("queued","running").contains(job.getString("status"))){job.put("status","interrupted").put("reason","Coordinator process ended; native trials are not silently resumed");recover.add(job);}}
@@ -47,19 +47,20 @@ public final class BrainService implements AutoCloseable {
     public synchronized JSONObject state() throws Exception {
         var jobs=new JSONArray();for(var j:values("job"))jobs.put(new JSONObject().put("id",j.getString("id")).put("kind",j.getString("kind")).put("status",j.getString("status")).put("phase",j.optString("phase")).put("progress",j.optInt("progress")).put("total",j.optInt("total")).put("accepted",j.optBoolean("accepted")).put("reason",j.optString("reason")));
         var core=new JSONObject().put("module","shared brain-core").put("ready",cortex!=null).put("neurons",cortex==null?0:cortex.neurons()).put("synapses",cortex==null?0:cortex.synapses()).put("ticks",cortex==null?0:cortex.ticks()).put("spikingBackend","Java CPU");
-        return new JSONObject().put("jobs",jobs).put("busy",busyId!=null).put("activePolicy",activePolicy()).put("activeFeedback",activeFeedback()).put("cortex",core).put("journalEntries",journal.verify().entries()).put("protocol",PROTOCOL);
+        return new JSONObject().put("jobs",jobs).put("busy",busyId!=null).put("activePolicy",activePolicy()).put("activeFeedback",activeFeedback()).put("activeWorldModel",activeWorldModel()).put("cortex",core).put("journalEntries",journal.verify().entries()).put("protocol",PROTOCOL);
     }
     public synchronized JSONObject start(JSONObject input) throws Exception {
         if(closed)throw new IllegalStateException("Java coordinator is closed");if(!Set.of("kind","autoPromote").containsAll(input.keySet()))throw new IllegalArgumentException("Unsupported brain job field");
         if(busyId!=null)throw new IllegalStateException("One Java brain job is active; cancel or wait");if(values("job").size()>=16)throw new IllegalStateException("Brain job history budget reached (16)");
-        String kind=input.getString("kind");if(!Set.of("train","gpu-check","pulse","feedback-train").contains(kind))throw new IllegalArgumentException("Unknown brain job kind");
-        var job=new JSONObject().put("id",UUID.randomUUID().toString()).put("kind",kind).put("status","queued").put("phase","queued").put("createdAt",Instant.now()).put("activeVersionAtStart",activePolicy().getInt("version")).put("autoPromote",input.optBoolean("autoPromote",true)).put("protocol",PROTOCOL).put("feedbackVersionAtStart",activeFeedback().getInt("version"));
-        if(kind.equals("feedback-train"))job.put("feedbackProtocol",FeedbackExperiment.manifest());
+        String kind=input.getString("kind");if(!Set.of("train","gpu-check","pulse","feedback-train","world-model-train").contains(kind))throw new IllegalArgumentException("Unknown brain job kind");
+        var job=new JSONObject().put("id",UUID.randomUUID().toString()).put("kind",kind).put("status","queued").put("phase","queued").put("createdAt",Instant.now()).put("activeVersionAtStart",activePolicy().getInt("version")).put("autoPromote",input.optBoolean("autoPromote",true)).put("protocol",PROTOCOL).put("feedbackVersionAtStart",activeFeedback().getInt("version")).put("worldVersionAtStart",activeWorldModel().getInt("version"));
+        if(kind.equals("feedback-train"))job.put("protocol",FeedbackExperiment.PROTOCOL).put("feedbackProtocol",FeedbackExperiment.manifest());
+        if(kind.equals("world-model-train"))job.put("protocol",WorldModelExperiment.PROTOCOL).put("worldProtocol",WorldModelExperiment.manifest());
         save("job",job);busyId=job.getString("id");cancel=false;
         var receipt=new JSONObject(job.toString());
         worker.submit(()->{
-            try{job.put("status","running");update(job,"started");switch(kind){case "train"->train(job);case "feedback-train"->trainFeedback(job);case "gpu-check"->gpuCheck(job);case "pulse"->pulse(job);}synchronized(this){if(!job.getString("status").equals("completed")){checkCancel();job.put("status","completed").put("endedAt",Instant.now());update(job,"completed");}}}
-            catch(Throwable error){job.remove("promotion");job.remove("feedbackPromotion");job.put("status",cancel?"cancelled":"failed").put("reason",String.valueOf(error.getMessage())).put("endedAt",Instant.now());try{update(job,"settled");}catch(Exception ignored){}}
+            try{job.put("status","running");update(job,"started");switch(kind){case "train"->train(job);case "feedback-train"->trainFeedback(job);case "world-model-train"->trainWorldModel(job);case "gpu-check"->gpuCheck(job);case "pulse"->pulse(job);}synchronized(this){if(!job.getString("status").equals("completed")){checkCancel();job.put("status","completed").put("endedAt",Instant.now());update(job,"completed");}}}
+            catch(Throwable error){job.remove("promotion");job.remove("feedbackPromotion");job.remove("worldPromotion");job.put("status",cancel?"cancelled":"failed").put("reason",String.valueOf(error.getMessage())).put("endedAt",Instant.now());try{update(job,"settled");}catch(Exception ignored){}}
             finally{synchronized(this){busyId=null;}}
         });
         return receipt;
@@ -132,6 +133,22 @@ public final class BrainService implements AutoCloseable {
         if(busyId!=null||activeFeedback().getInt("version")!=expectedVersion||expectedVersion<2)throw new IllegalStateException("Feedback parent changed or no rollback exists");
         var prior=values("feedback").stream().filter(p->p.getInt("version")==expectedVersion-1).findFirst().orElseGet(()->new JSONObject().put("kp",25).put("kd",10));
         var next=new JSONObject().put("id",UUID.randomUUID().toString()).put("version",expectedVersion+1).put("kind","feedback rollback").put("kp",prior.getDouble("kp")).put("kd",prior.getDouble("kd")).put("protocol",FeedbackExperiment.PROTOCOL);save("feedback",next);return next;
+    }
+    public synchronized JSONObject activeWorldModel(){return values("worldmodel").stream().max(Comparator.comparingInt(p->p.getInt("version"))).orElseGet(()->new JSONObject().put("version",0).put("available",false).put("kind","No accepted learned world model"));}
+    public synchronized JSONObject worldForRun(){if(busyId!=null)throw new IllegalStateException("Wait for the active brain job");var p=activeWorldModel();if(!p.optBoolean("available"))throw new IllegalStateException("Train and validate a world model first");return p;}
+    private void trainWorldModel(JSONObject job) throws Exception {
+        Path repo=Path.of(System.getProperty("user.dir")).toAbsolutePath();if(!Files.isDirectory(repo.resolve("docs/datasets/delfys75-013")))repo=repo.getParent();
+        WorldModelExperiment.train(job,root.resolve("native"),repo,this::checkCancel,phase->update(job,phase));
+        synchronized(this){checkCancel();if(job.getBoolean("accepted")&&job.getBoolean("autoPromote")){
+            int version=activeWorldModel().getInt("version");if(version!=job.getInt("worldVersionAtStart")){job.put("reason","World-model parent changed; candidate not activated");return;}
+            var p=new JSONObject(job.getJSONObject("worldCandidate").toString()).put("id",UUID.randomUUID().toString()).put("version",version+1).put("available",true).put("kind","learned numeric transition ensemble").put("jobId",job.getString("id")).put("source",job.getJSONObject("worldProtocol")).put("realityAccepted",job.getJSONObject("realityEvaluation").getBoolean("accepted"));
+            job.put("worldPromotion",new JSONObject().put("version",version+1));commitPromotion(job,p,"worldmodel");
+        }else job.put("reason",job.getBoolean("accepted")?"Accepted native model retained without activation":"Native model/planning gate rejected; previous world model preserved");}
+    }
+    public synchronized JSONObject rollbackWorld(int expectedVersion) throws Exception {
+        if(busyId!=null||activeWorldModel().getInt("version")!=expectedVersion||expectedVersion<1)throw new IllegalStateException("World-model parent changed or no rollback exists");
+        var prior=values("worldmodel").stream().filter(p->p.getInt("version")==expectedVersion-1).findFirst().orElseGet(()->new JSONObject().put("available",false).put("kind","No active world model"));
+        var next=new JSONObject(prior.toString()).put("id",UUID.randomUUID().toString()).put("version",expectedVersion+1).put("kind","world-model rollback");save("worldmodel",next);return next;
     }
     private static float[] floats(JSONArray a){float[] out=new float[a.length()];for(int i=0;i<out.length;i++)out[i]=(float)a.getDouble(i);return out;}
     private void gpuCheck(JSONObject job) throws Exception {

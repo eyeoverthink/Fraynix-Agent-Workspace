@@ -49,6 +49,11 @@ public final class WorkspaceServer {
                 JSONObject input=new JSONObject(new String(body,StandardCharsets.UTF_8));String route=exchange.getRequestURI().getPath();JSONObject result;
                 switch(route) {
                     case "/api/brain/state" -> result=brain.state();
+                    case "/api/brain/world-prepare" -> result=scenes.worldPrepare(input,brain);
+                    case "/api/brain/world-preview" -> result=scenes.worldPreview(input);
+                    case "/api/brain/world-kick" -> result=scenes.worldKick(input);
+                    case "/api/brain/world-cancel" -> result=scenes.worldCancel(input.getString("runId"));
+                    case "/api/brain/world-rollback" -> result=brain.rollbackWorld(input.getInt("expectedVersion"));
                     case "/api/brain/start" -> result=brain.start(input);
                     case "/api/brain/read" -> result=brain.read(input.getString("id"));
                     case "/api/brain/cancel" -> result=brain.cancel(input.getString("id"));

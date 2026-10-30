@@ -1,6 +1,7 @@
 package fraymus.workspace;
 
 import fraymus.factory.*;
+import fraymus.neural.*;
 import org.json.*;
 import java.nio.file.*;
 import java.time.Instant;
@@ -16,6 +17,7 @@ public final class SceneStore implements AutoCloseable {
     private final ScheduledExecutorService clock=Executors.newSingleThreadScheduledExecutor(r->{var t=new Thread(r,"scene-physics-clock");t.setDaemon(true);return t;});
     private BulletRamp physics;
     private JSONObject active;
+    private LearnedDynamics worldDynamics;
     private boolean playing;
     private JSONObject bodyPlan;
     private String error="";
@@ -137,6 +139,7 @@ public final class SceneStore implements AutoCloseable {
                 FeedbackExperiment.act(physics,RampDefinition.from(active.getJSONObject("definition").getJSONObject("parameters")),active.getJSONObject("controller").getDouble("targetM"),active.getJSONObject("controller"),true,active.getJSONArray("feedbackEvents"));
                 active.remove("pendingFeedback");commit(List.of(record("workspace.experiment",active,active.getString("sceneId"))));
             }
+            if(active.optString("scope").equals("world-model")&&physics.tick()%12==0)advanceWorldControl();
             physics.step();if(physics.tick()%4==0)sample();
         }
         if(physics.tick()>=active.getInt("targetTicks"))finish("completed");
@@ -145,7 +148,7 @@ public final class SceneStore implements AutoCloseable {
         playing=false;if(physics==null||active==null)return;
         JSONObject last=physics.snapshot();active.put("status",status).put("endedAt",Instant.now()).put("final",last);
         var params=RampDefinition.from(active.getJSONObject("definition").getJSONObject("parameters"));double t=last.getDouble("timeS"),expected=.5*params.gravityMps2()*Math.sin(params.radians())*t*t;
-        boolean applicable=!Set.of("manipulation","brain-policy","feedback-policy").contains(active.optString("scope"))&&params.friction()==0&&t>=.1&&t<=1&&expected<params.lengthM()*.7-.7;
+        boolean applicable=!Set.of("manipulation","brain-policy","feedback-policy","world-model").contains(active.optString("scope"))&&params.friction()==0&&t>=.1&&t<=1&&expected<params.lengthM()*.7-.7;
         double measured=last.getDouble("distanceM"),tolerance=Math.max(.015,expected*.04),error=Math.abs(measured-expected);
         active.put("evaluation",new JSONObject().put("reference","frictionless incline: distance = 0.5*g*sin(angle)*t^2").put("applicable",applicable).put("expectedDistanceM",expected).put("measuredDistanceM",measured).put("absoluteErrorM",error).put("toleranceM",tolerance).put("passed",status.equals("completed")&&applicable&&error<=tolerance));
         if(active.has("controller")){double target=active.getJSONObject("controller").getDouble("targetM");active.put("goalEvaluation",new JSONObject().put("targetM",target).put("measuredDistanceM",measured).put("absoluteErrorM",Math.abs(measured-target)).put("toleranceM",.25).put("passed",status.equals("completed")&&Math.abs(measured-target)<=.25));}
@@ -155,12 +158,21 @@ public final class SceneStore implements AutoCloseable {
             boolean passed=status.equals("completed")&&m.getDouble("endpointErrorM")<=.06&&m.getDouble("terminalSpeedMps")<=.2&&m.getDouble("settlingMaxErrorM")<=.12;
             active.put("feedbackEvaluation",m.put("passed",passed));active.getJSONObject("goalEvaluation").put("toleranceM",.06).put("passed",passed);
         }
+        if(active.optString("scope").equals("world-model")){
+            var c=new JSONObject(active.getJSONObject("definition").getJSONObject("parameters").toString()).put("targetM",active.getJSONObject("controller").getDouble("targetM"));
+            var m=FeedbackExperiment.metrics(c,active.getJSONArray("samples"),last,active.getJSONArray("worldEvents"));int modelCount=0;for(Object raw:active.getJSONArray("worldPlans"))if(((JSONObject)raw).getString("mode").equals("learned-plan"))modelCount++;
+            double fraction=active.getJSONArray("worldPlans").isEmpty()?0:modelCount/(double)active.getJSONArray("worldPlans").length();boolean passed=status.equals("completed")&&m.getDouble("endpointErrorM")<=.08&&m.getDouble("terminalSpeedMps")<=.25&&m.getDouble("settlingMaxErrorM")<=.15&&fraction>=.8;
+            active.put("worldEvaluation",m.put("modelActionFraction",fraction).put("passed",passed));active.getJSONObject("goalEvaluation").put("toleranceM",.08).put("passed",passed);
+        }
         commit(List.of(record("workspace.experiment",active,active.getString("sceneId"))));
     }
     public synchronized JSONObject snapshot(){
         if(active==null)return new JSONObject().put("status","idle").put("error",error);
         var value=new JSONObject(active.toString()).put("playing",playing).put("current",physics.snapshot());value.remove("samples");value.remove("actuatorEvents");
         if(value.has("feedbackEvents")){var events=value.getJSONArray("feedbackEvents");value.put("feedbackProgress",new JSONObject().put("actions",events.length()).put("ticks",physics.tick()).put("totalTicks",360).put("lastEvent",events.isEmpty()?JSONObject.NULL:events.getJSONObject(events.length()-1)));value.remove("feedbackEvents");}
+        if(value.has("worldEvents")){var plans=active.getJSONArray("worldPlans");var innovations=active.getJSONArray("worldInnovations");int fallback=0;for(Object raw:plans)if(((JSONObject)raw).getString("mode").equals("feedback-fallback"))fallback++;
+            value.put("worldProgress",new JSONObject().put("actions",active.getJSONArray("worldEvents").length()).put("plans",plans.length()).put("fallbacks",fallback).put("observationSha256",MeasurementStore.hash(value.getJSONObject("current").toString())).put("lastPlan",active.optJSONObject("worldLastPlan")==null?JSONObject.NULL:active.getJSONObject("worldLastPlan")).put("lastInnovation",innovations.isEmpty()?JSONObject.NULL:innovations.getJSONObject(innovations.length()-1)));value.remove("worldEvents");value.remove("worldPlans");value.remove("worldInnovations");
+        }
         if(bodyPlan!=null)value.put("bodyProgress",new JSONObject().put("operationId",bodyPlan.getString("id")).put("action",bodyPlan.getString("action")).put("completedTicks",physics.tick()-bodyPlan.getInt("startTick")).put("totalTicks",bodyPlan.getInt("totalTicks")));
         var samples=active.getJSONArray("samples");var tail=new JSONArray();for(int i=Math.max(0,samples.length()-180);i<samples.length();i++)tail.put(samples.get(i));return value.put("trace",tail).put("error",error);
     }
@@ -212,9 +224,41 @@ public final class SceneStore implements AutoCloseable {
         var previous=require(id,"workspace.experiment");if(physics!=null)throw new IllegalStateException("Reset the current experiment before replay");
         if(previous.optString("scope").equals("manipulation"))return replayBody(previous);
         if(previous.optString("scope").equals("feedback-policy"))return replayFeedback(previous);
+        if(previous.optString("scope").equals("world-model"))return replayWorld(previous);
         beginDefinition(previous.getJSONObject("definition"),previous.getInt("targetTicks")*BulletRamp.DT);active.put("replayOf",id);
         if(previous.optString("scope").equals("brain-policy")){active.put("scope","brain-policy").put("controller",new JSONObject(previous.getJSONObject("controller").toString()));physics.push(active.getJSONObject("controller").getDouble("deltaVelocityMps"));}
         advance(active.getInt("targetTicks"));return new JSONObject(active.toString());
+    }
+    private JSONObject worldCase(){return new JSONObject(active.getJSONObject("definition").getJSONObject("parameters").toString()).put("targetM",active.getJSONObject("controller").getDouble("targetM"));}
+    public synchronized JSONObject worldPrepare(JSONObject input,BrainService brain) throws Exception {
+        if(!input.keySet().equals(Set.of("id","expectedVersion","targetM")))throw new IllegalArgumentException("Unsupported world-model preparation field");var scene=read(input.getString("id"));FeedbackExperiment.validate(scene.getJSONObject("parameters"),input.getDouble("targetM"));var policy=brain.worldForRun().put("targetM",input.getDouble("targetM"));var model=WorldModelExperiment.unpack(policy);
+        begin(input.getString("id"),input.getInt("expectedVersion"),1.5);worldDynamics=model;active.put("scope","world-model").put("controller",policy).put("worldEvents",new JSONArray()).put("worldPlans",new JSONArray()).put("worldInnovations",new JSONArray());commit(List.of(record("workspace.experiment",active,active.getString("sceneId"))));return snapshot();
+    }
+    private void requireWorld(String id){if(active==null||physics==null||!active.getString("id").equals(id)||!active.optString("scope").equals("world-model")||!Set.of("running","paused").contains(active.getString("status")))throw new IllegalStateException("No matching active world-model run");}
+    public synchronized JSONObject worldPreview(JSONObject input) throws Exception {
+        if(!input.keySet().equals(Set.of("runId","expectedTick","observationSha256")))throw new IllegalArgumentException("Unsupported preview field");requireWorld(input.getString("runId"));if(playing||input.getInt("expectedTick")!=physics.tick()||!input.getString("observationSha256").equals(MeasurementStore.hash(physics.snapshot().toString())))throw new IllegalStateException("Pause and use the actual current tick and state digest before imagining");
+        var c=worldCase();var plan=WorldModelExperiment.planReceipt(physics,c,worldDynamics,physics.tick()).put("previewOnly",true).put("observationSha256",input.getString("observationSha256")).put("runId",active.getString("id")).put("modelVersion",active.getJSONObject("controller").getInt("version"));var alternatives=new JSONArray();var observed=physics.sample();
+        for(double u:new double[]{-.6,-.4,-.2,0,.2,.4,.6}){var row=new JSONObject().put("action",u);try{var s=WorldModelExperiment.state(observed,c);for(int h=0;h<8;h++)s=worldDynamics.predict(s,u,WorldModelExperiment.context(c)).mean();row.put("supported",true).put("afterEightSteps",WorldModelExperiment.stateJson(s));}catch(IllegalArgumentException unsupported){row.put("supported",false).put("reason",unsupported.getMessage());}alternatives.put(row);}
+        plan.put("constantActionAlternatives",alternatives);active.put("worldPreview",plan);commit(List.of(record("workspace.experiment",active,active.getString("sceneId"))));return plan;
+    }
+    private void advanceWorldControl() throws Exception {
+        var c=worldCase();var observed=physics.sample();var previous=active.optJSONObject("worldLastPlan");
+        if(previous!=null&&!previous.getJSONArray("future").isEmpty()){
+            var p=previous.getJSONArray("future").getJSONObject(0);if(p.getInt("tick")==physics.tick()){var actual=WorldModelExperiment.state(observed,c);double ex=actual.x()-p.getJSONObject("state").getDouble("x"),ev=actual.v()-p.getJSONObject("state").getDouble("v");active.getJSONArray("worldInnovations").put(new JSONObject().put("tick",physics.tick()).put("sourceTick",previous.getInt("sourceTick")).put("predicted",p).put("actual",observed).put("positionResidualM",ex).put("velocityResidualMps",ev).put("surprise",Math.abs(ex)>p.getDouble("radiusX")||Math.abs(ev)>p.getDouble("radiusV")));}
+        }
+        var plan=WorldModelExperiment.planReceipt(physics,c,worldDynamics,physics.tick());active.put("pendingWorld",plan);commit(List.of(record("workspace.experiment",active,active.getString("sceneId"))));
+        var receipt=FeedbackExperiment.impulse(physics,RampDefinition.from(active.getJSONObject("definition").getJSONObject("parameters")),plan.getDouble("action"),"control");active.getJSONArray("worldEvents").put(receipt);active.getJSONArray("worldPlans").put(plan);active.put("worldLastPlan",plan);active.remove("pendingWorld");commit(List.of(record("workspace.experiment",active,active.getString("sceneId"))));
+    }
+    public synchronized JSONObject worldKick(JSONObject input) throws Exception {
+        if(!input.keySet().equals(Set.of("runId","operationId","deltaVelocityMps")))throw new IllegalArgumentException("Unsupported world disturbance field");requireWorld(input.getString("runId"));UUID.fromString(input.getString("operationId"));double dv=input.getDouble("deltaVelocityMps");RampDefinition.range(dv,-.5,.5,"world disturbance");
+        for(Object raw:active.getJSONArray("worldEvents")){var e=(JSONObject)raw;if(e.optString("operationId").equals(input.getString("operationId"))){if(e.getDouble("deltaVelocityMps")!=dv)throw new IllegalArgumentException("Disturbance operation reused with changed input");return e;}}
+        active.put("pendingWorld",new JSONObject(input.toString()).put("tick",physics.tick()));commit(List.of(record("workspace.experiment",active,active.getString("sceneId"))));var receipt=FeedbackExperiment.impulse(physics,RampDefinition.from(active.getJSONObject("definition").getJSONObject("parameters")),dv,"disturbance").put("operationId",input.getString("operationId"));active.getJSONArray("worldEvents").put(receipt);active.remove("pendingWorld");commit(List.of(record("workspace.experiment",active,active.getString("sceneId"))));return receipt;
+    }
+    public synchronized JSONObject worldCancel(String id) throws Exception {requireWorld(id);finish("cancelled");return snapshot();}
+    private JSONObject replayWorld(JSONObject previous) throws Exception {
+        if(!previous.getString("status").equals("completed"))throw new IllegalStateException("Only completed world runs replay");beginDefinition(previous.getJSONObject("definition"),1.5);active.put("scope","world-model").put("controller",previous.getJSONObject("controller")).put("worldEvents",new JSONArray()).put("worldPlans",previous.getJSONArray("worldPlans")).put("worldInnovations",previous.getJSONArray("worldInnovations")).put("replayOf",previous.getString("id"));
+        var config=RampDefinition.from(active.getJSONObject("definition").getJSONObject("parameters"));for(int tick=0;tick<360;tick++){for(Object raw:previous.getJSONArray("worldEvents")){var e=(JSONObject)raw;if(e.getInt("tick")==tick){double limit=e.getString("kind").equals("control")?.6:.5;RampDefinition.range(e.getDouble("deltaVelocityMps"),-limit,limit,"saved world impulse");active.getJSONArray("worldEvents").put(FeedbackExperiment.impulse(physics,config,e.getDouble("deltaVelocityMps"),e.getString("kind")));}}physics.step();if(physics.tick()%4==0)sample();}
+        double error=Math.abs(physics.snapshot().getDouble("distanceM")-previous.getJSONObject("final").getDouble("distanceM"));active.put("replayEvaluation",new JSONObject().put("positionErrorM",error).put("toleranceM",.0001).put("passed",error<=.0001));finish("completed");return new JSONObject(active.toString());
     }
     public synchronized JSONObject runRecord(String id){return require(id,"workspace.experiment");}
     public synchronized JSONObject bodyOperation(String id){return require(id,"workspace.body.operation");}

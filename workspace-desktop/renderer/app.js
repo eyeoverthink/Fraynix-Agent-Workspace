@@ -1,3 +1,4 @@
+import {WorldPanel} from './world-panel.js';
 import {BrainGame} from './brain-game.js';
 import {SceneLab} from './scene-lab.js';
 import {MeasurementPanel} from './measurement-panel.js';
@@ -15,6 +16,7 @@ const calibrations=new CalibrationPanel({call:(command,args)=>request('calibrati
 const observers=new ObserverPanel({call:(command,args)=>request('observer',{command,args}),lab,requireSaved,notice});
 const bodies=new BodyPanel({call:(command,args)=>request('body',{command,args}),lab,requireSaved,notice});
 const files=new SceneFiles({call:(command,args)=>request('transfer',{command,args}),lab,requireSaved,notice});
+const worldPanel=new WorldPanel({call:(command,args={})=>request('brain',{command,args}),sceneCall:(command,args={})=>request('scene',{command,args}),lab,notice,layout:updateLayout,activate:setCanvasMode,requireSaved});
 window.nativeObserver={video:run=>exportSceneVideo(lab,run),openScene:scene=>lab.open(scene),viewport:()=>lab.observerViewport(),show:packet=>{setCanvasMode('scene');observers.show(packet);bodies.observe(packet);return {id:packet.id};},capture:packet=>{setCanvasMode('scene');observers.show(packet);return lab.captureObserver(packet);}};
 lab.afterOpen=async()=>{observers.sceneChanged();bodies.packet=null;bodies.controls();files.controls();if($('measurement-panel').open)await measurements.refresh();if($('calibration-panel').open)await calibrations.refresh();};
 function notice(text){$('notice').textContent=text;}
