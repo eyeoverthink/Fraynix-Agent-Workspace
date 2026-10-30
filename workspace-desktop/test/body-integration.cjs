@@ -23,6 +23,7 @@ async function main(){
   checks.push('Lift visibly advances intermediate native solver ticks; the actual body reaches +0.5 m within 0.08 m and stays dynamic/held');
   await page.locator('#scene-stage').scrollIntoViewIfNeeded();await screenshot('body-lift.png');
   await page.getByRole('button',{name:'Release body',exact:true}).click();await page.waitForFunction(()=>document.querySelector('#body-status').textContent.includes('Native release · released')&&!document.querySelector('#body-status').textContent.includes('solver ticks'));
+  await page.waitForTimeout(700);assert((await page.locator('#body-status').innerText()).includes('Native release · released'));
   const run=await api('/api/experiment/read',{id:runId});assert.equal(run.status,'completed');assert.equal(run.actuatorEvents.length,3);assert(!run.final.grip.held);assert(run.manipulationEvaluation.allMovesReached);assert.equal(run.evaluation.applicable,false);
   const release=run.actuatorEvents.at(-1);assert.deepEqual(release.velocityAtConstraintRemoval,release.before.velocity);assert(release.after.position[1]<release.before.position[1]-.2);assert.equal(release.endTick-release.startTick,120);
   checks.push('Release removes the constraint, preserves velocity, advances 120 real gravity/contact ticks and records an intervention rather than a frictionless-reference pass');
