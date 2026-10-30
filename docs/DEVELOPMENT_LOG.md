@@ -1,5 +1,11 @@
 # Agent Workspace development log
 
+## 2026-10-30 Edition 016 publication confirmed
+
+Published 589cb42746f48f5e71f78a0af07e2a7c104ab8ac to private eyeoverthink/Fraynix-Agent-Workspace main and annotated readme-016 in an atomic push. Remote main and peeled tag matched. The independent qa016-release checkout fetched that exact release directly from GitHub, passed 16-edition documentation verification (21 canvases, 1,938 references, 263 frozen hashes) and matched all 441 canonical source/asset hashes. The clean build previously passed offline 151 Java / 19 units / 20 body+Game/Brain UI groups without copied runtime/model state.
+
+Shared Java brain-core, original-renderer integrated Game view, real optional GPU primitive, Java durable neural jobs, bounded automatic memory and retained physical readout learning are delivered. Mean validation endpoint error improves 89.6% for the bounded engineered-feature task; general game learning and a full GPU cortex are not claimed. README 016 and docs/readmes/016 remain frozen. Next unused edition: 017. This follow-up updates continuity only; no executable changes or new model training are claimed.
+
 ## 2026-10-30 Edition 016 publication gate
 
 Final source a531c493f20ce6166b545a4dad2bf87f2a62b87d passes the offline clean-checkout build, 151 Java tests, 19 desktop units and 20 combined body/Game/Brain UI groups. All 441 canonical source/asset hashes match the independent checkout. Working-checkout regressions cover 137 workflow groups plus four real gpt-oss:20b memory assertions. Six offline-viewer checks and visual wide/narrow review pass. Documentation verifies 16 editions, 21 canvases, 1,938 references and 263 frozen hashes.
