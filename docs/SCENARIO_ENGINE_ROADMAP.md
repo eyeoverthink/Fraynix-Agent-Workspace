@@ -1,5 +1,9 @@
 # Shared-world and 3D experiment engineering plan
 
+Edition 015 update: native grab/move/release is implemented through a bounded dynamic-body constraint with collision/target checks, owned native worker threads, intent/receipt persistence, interruption/cancellation and command replay. Portable supported scene JSON import/clone and scene/run JSON, trajectory CSV and actual WebM exports work. See [README 015](../README-015.md), [body contract](NATIVE_BODY_CONTROL.md) and [formats/replication](SCENE_INTERCHANGE.md).
+
+Next gates are general scene/component storage plus bounded mesh import; portable run-package remapping/replay; colliding navigation/stuck recovery; then tick/entity-aligned physical policy development with separate evaluation and rollback. A virtual constraint actuator is not an articulated hand or robot, and recorded history alone is not policy training.
+
 Edition 014 update, October 30: the native first-person observer now implements Java camera pose/actions, sampled actual-box visibility/inspection, source/run/tick-linked actual PNG capture, durable history and read-only replay. No transformer is required for world logic or rendering. See [README 014](../README-014.md) and the [implemented contract](NATIVE_OBSERVER.md). Preserve the original application and its current layout.
 
 The next native milestone is a bounded physical actuator and independently checked select/reach/grab/move/release behavior, followed by colliding navigation and tick-aligned policy evaluation. A free camera is not a physical avatar. A learned audiovisual renderer remains an optional later adapter rather than a prerequisite or authoritative physics source. The edition 013 real-data fit remains rejected by its declared validation gate.

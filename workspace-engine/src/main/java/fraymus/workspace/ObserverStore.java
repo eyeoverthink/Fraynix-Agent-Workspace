@@ -69,6 +69,21 @@ public final class ObserverStore {
         commit(record("",observer));return copy(observer);
     }
     public synchronized JSONObject read(String id){return require(id,"");}
+    public synchronized JSONObject body(JSONObject input) throws Exception {
+        var observer=read(input.getString("id"));
+        synchronized(scenes){
+            var prior=scenes.bodyPrior(input);if(prior!=null)return prior;
+            if(input.getString("action").equals("cancel"))return scenes.bodyAction(input,null);
+            var packet=lease(input.getString("observationId"),true);
+            if(!packet.getJSONObject("observer").getString("id").equals(observer.getString("id")))throw new IllegalArgumentException("Body observation belongs to another observer");
+            if(input.getString("action").equals("grab")){
+                JSONObject target=null;for(Object value:packet.getJSONArray("visibleEntities"))if(((JSONObject)value).getString("id").equals(input.getString("entityId")))target=(JSONObject)value;
+                if(target==null)throw new IllegalArgumentException("Grab requires a visible native entity");
+                if(ObserverGeometry.norm(ObserverGeometry.sub(ObserverGeometry.v(target.getJSONArray("position")),ObserverGeometry.v(observer.getJSONObject("pose").getJSONArray("position"))))>6)throw new IllegalArgumentException("Entity exceeds the 6 m virtual actuator reach");
+            }
+            return scenes.bodyAction(input,packet);
+        }
+    }
     public synchronized JSONArray list(){var out=new ArrayList<JSONObject>();for(var entity:world.snapshot().entities())if(type(entity).equals("workspace.observer"))out.add(payload(entity));out.sort(Comparator.comparing(o->Instant.parse(o.getString("createdAt"))));return new JSONArray(out);}
     private JSONObject lease(String id,boolean requireCurrentWorld){
         var packet=leases.get(id);if(packet==null||clock.millis()>packet.getLong("expiresAtEpochMs"))throw new IllegalStateException("Observer observation expired; observe again");

@@ -1,5 +1,7 @@
 # Native observer contract
 
+Edition 015 now adds [real native body control](NATIVE_BODY_CONTROL.md) and [scene/media interchange](SCENE_INTERCHANGE.md) on top of this observer. The observer itself remains a free camera; body actuation uses a separate owned native constraint.
+
 Implemented in edition 014. The native world, camera and visibility do not require a transformer. Java owns the authoritative state; the existing renderer supplies pixels. This contract is deliberately a free observer over the existing box-based ramp lab, not a physical avatar.
 
 ## Source and identity
@@ -37,4 +39,4 @@ The first-party renderer freezes the packet, uses pixel ratio one and exact dime
 
 See [README 014](../README-014.md), [Java tests](../workspace-engine/src/test/java/fraymus/workspace/ObserverStoreTest.java), [actual UI tests](../workspace-desktop/test/observer-integration.cjs) and [local-model fixture](../workspace-desktop/test/live-observer.cjs). New source files implement the workflow; no inert page or placeholder handler is exposed.
 
-The next native slice needs real body actuators with force/contact limits and independent postconditions. Navigation needs an actual body, collision/reachability checks and stuck recovery. Physical experience learning needs tick/entity-aligned outcomes, separate evaluation and rollback. Capturing history alone does not train weights or establish improvement.
+The bounded native actuator is delivered in edition 015. Articulated grasping/navigation still needs body/collision/reachability checks and stuck recovery. Physical experience learning needs tick/entity-aligned outcomes, separate evaluation and rollback. Capturing history alone does not train weights or establish improvement.

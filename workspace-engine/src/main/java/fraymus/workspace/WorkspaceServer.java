@@ -46,6 +46,17 @@ public final class WorkspaceServer {
                 byte[] body=exchange.getRequestBody().readNBytes(2_100_001);if(body.length>2_100_000)throw new IllegalArgumentException("Request too large");
                 JSONObject input=new JSONObject(new String(body,StandardCharsets.UTF_8));String route=exchange.getRequestURI().getPath();JSONObject result;
                 switch(route) {
+                    case "/api/body/action" -> result=observers.body(input);
+                    case "/api/body/operation" -> result=scenes.bodyOperation(input.getString("operationId"));
+                    case "/api/body/cancel" -> result=scenes.cancelOwnedBody(input.getString("id"),input.getString("runId"));
+                    case "/api/scene/export" -> result=scenes.exportScene(input.getString("id"));
+                    case "/api/scene/import" -> result=scenes.importScene(input);
+                    case "/api/experiment/export" -> {
+                        var run=scenes.runRecord(input.getString("id"));
+                        if(Set.of("running","paused").contains(run.getString("status")))throw new IllegalStateException("Finish or stop the run before exporting");
+                        result=new JSONObject().put("format","fraynix.run").put("version",1).put("runSha256",MeasurementStore.hash(run.toString())).put("run",run);
+                        result.put("serialized",result.toString());
+                    }
                     case "/api/observer/open" -> result=observers.open(input);
                     case "/api/observer/read" -> result=observers.read(input.getString("id"));
                     case "/api/observer/observe" -> result=observers.observe(input);

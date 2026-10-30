@@ -2,6 +2,9 @@ import {SceneLab} from './scene-lab.js';
 import {MeasurementPanel} from './measurement-panel.js';
 import {CalibrationPanel} from './calibration-panel.js';
 import {ObserverPanel} from './observer-panel.js';
+import {BodyPanel} from './body-panel.js';
+import {SceneFiles} from './scene-files.js';
+import {exportSceneVideo} from './scene-video.js';
 const $=id=>document.getElementById(id),host=window.workspace;
 let state,artifact,editingFile='',libraryTab='artifacts',sourceMode=false,dirty=false,running=false,events=[];
 let sceneMode=false;
@@ -9,8 +12,10 @@ const lab=new SceneLab({call:(command,args)=>request('scene',{command,args}),not
 const measurements=new MeasurementPanel({call:(command,args)=>request('measurement',{command,args}),scene:()=>lab.scene,requireSaved,notice,preview:()=>setCanvasMode('preview')});
 const calibrations=new CalibrationPanel({call:(command,args)=>request('calibration',{command,args}),scene:()=>lab.scene,requireSaved,notice,reopen:id=>lab.select(id),preview:()=>setCanvasMode('preview')});
 const observers=new ObserverPanel({call:(command,args)=>request('observer',{command,args}),lab,requireSaved,notice});
-window.nativeObserver={openScene:scene=>lab.open(scene),viewport:()=>lab.observerViewport(),show:packet=>{setCanvasMode('scene');observers.show(packet);return {id:packet.id};},capture:packet=>{setCanvasMode('scene');observers.show(packet);return lab.captureObserver(packet);}};
-lab.afterOpen=async()=>{observers.sceneChanged();if($('measurement-panel').open)await measurements.refresh();if($('calibration-panel').open)await calibrations.refresh();};
+const bodies=new BodyPanel({call:(command,args)=>request('body',{command,args}),lab,requireSaved,notice});
+const files=new SceneFiles({call:(command,args)=>request('transfer',{command,args}),lab,requireSaved,notice});
+window.nativeObserver={video:run=>exportSceneVideo(lab,run),openScene:scene=>lab.open(scene),viewport:()=>lab.observerViewport(),show:packet=>{setCanvasMode('scene');observers.show(packet);bodies.observe(packet);return {id:packet.id};},capture:packet=>{setCanvasMode('scene');observers.show(packet);return lab.captureObserver(packet);}};
+lab.afterOpen=async()=>{observers.sceneChanged();bodies.packet=null;bodies.controls();files.controls();if($('measurement-panel').open)await measurements.refresh();if($('calibration-panel').open)await calibrations.refresh();};
 function notice(text){$('notice').textContent=text;}
 async function request(operation,data={}){try{return await host.request({operation,...data});}catch(error){notice(error.message);throw error;}}
 function requireSaved(){if(dirty||lab.dirty)throw Error('Save or revert your source or scene changes first');}
@@ -75,8 +80,10 @@ host.onEvent(({type,value})=>{
   else if(type==='error')notice(value);
   else if(type==='surface'){if(value.kind==='browser'){if(document.activeElement!==$('address'))$('address').value=value.url;$('browser-title').textContent=value.title||value.url;}}
   else if(type==='run'){running=value.active;$('stop').disabled=!running;$('run').disabled=running||dirty||lab.dirty||!state?.models.length;$('goal').disabled=running;$('run-state').textContent=running?(value.phase||(value.turn?'Planning step '+value.turn+' / 16':'Starting task')):'Ready when you are';for(const id of ['new-artifact','navigate','back','forward','proof','test-canvas','save-source','source-file','revert-source','observe-browser','learning-proof','learning-evaluate','learning-rollback'])$(id).disabled=running;$('learning-rollback').disabled=running||(state?.learning?.activePolicy.version||1)===1;$('source').readOnly=running;$('test-canvas').disabled=running||!artifact?.test?.steps?.length;$('save-skill').disabled=running||!artifact?.test?.passed;renderLibrary();}
+  if(type==='nativeVideo')files.video(value);
+  if(type==='nativeExport')files.exported(value);
   if(type==='observerCapture')observers.captured(value);
-  if(type==='run'){observers.controls();calibrations.controls();if(!value.active&&$('calibration-panel').open)safe(()=>calibrations.refresh());}
+  if(type==='run'){bodies.controls();files.controls();observers.controls();calibrations.controls();if(!value.active&&$('calibration-panel').open)safe(()=>calibrations.refresh());}
 });
 safe(async()=>{const initial=await request('state');renderState(initial);if(initial.currentArtifact)showArtifact(initial.currentArtifact);for(const entry of initial.log||[])timeline(entry);if(initial.origin)$('address').value=initial.origin+'/welcome';notice('Connected. Your Studio baseline and personal state are separate.');updateLayout();});
 setInterval(()=>{if(!running)host.request({operation:'state'}).then(renderState).catch(e=>notice(e.message));},12000);

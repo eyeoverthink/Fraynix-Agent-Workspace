@@ -20,7 +20,9 @@
     "test:live": "node test/live-agent.cjs",
     "test:real-data": "node test/real-data-delfys.cjs",
     "test:observer": "node test/observer-integration.cjs",
-    "test:live-observer": "node test/live-observer.cjs"
+    "test:live-observer": "node test/live-observer.cjs",
+    "test:body": "node test/body-integration.cjs",
+    "test:live-body": "node test/live-body.cjs"
   },
   "devDependencies": {
     "electron": "45.1.0",

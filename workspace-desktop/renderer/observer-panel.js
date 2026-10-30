@@ -21,7 +21,7 @@ export class ObserverPanel {
       this.act(moves[key]?'move':'look',moves[key]||turns[key]);
     });
     lab.observerDrag=(yaw,pitch)=>this.act('look',{yawDeg:Math.max(-90,Math.min(90,yaw)),pitchDeg:Math.max(-45,Math.min(45,pitch))});
-    setInterval(()=>{if(lab.visible&&lab.observerPacket&&!this.busy&&!this.replaying&&document.getElementById('stop').disabled)this.action(()=>this.refresh());},500);
+    setInterval(()=>{if(!lab.exporting&&lab.visible&&lab.observerPacket&&!this.busy&&!this.replaying&&document.getElementById('stop').disabled)this.action(()=>this.refresh());},500);
   }
   async action(fn){if(this.busy)return;this.busy=true;this.controls();try{await fn();}catch(error){this.notice(error.message);}finally{this.busy=false;this.controls();}}
   act(action,args){return this.action(async()=>{this.requireSaved();if(!this.packet||this.replaying)throw Error('Return to the live observer first');await this.call('action',{id:this.packet.observer.id,observationId:this.packet.id,action,...args});});}
@@ -35,12 +35,12 @@ export class ObserverPanel {
     this.controls();
   }
   show(packet){
-    const changed=this.packet?.observer.id!==packet.observer.id;this.packet=packet;this.replaying=packet.readOnly;this.lab.observerPacket=packet;this.lab.paint(packet.world.objects);
+    const changed=this.packet?.observer.id!==packet.observer.id;this.packet=packet;this.replaying=packet.readOnly;this.lab.observerPacket=packet;this.lab.paint(packet.world.objects);this.lab.paintGrip(packet.world.grip);
     document.getElementById('scene-settings').open=false;el('body').hidden=false;
     const pose=packet.observer.pose,w=packet.world;el('status').textContent=(this.replaying?'Recorded view · read only':'Live free camera')+' · pose v'+packet.observer.version+' · x/y/z '+pose.position.map(n=>n.toFixed(3)).join(' / ')+' m · yaw '+pose.yawDeg.toFixed(1)+'° · pitch '+pose.pitchDeg.toFixed(1)+'° · '+w.source+' · scene v'+w.sceneVersion+' · tick '+w.tick;
     el('fov').value=String(pose.fovDeg);const previous=el('entities').value;el('entities').replaceChildren();
     for(const entity of packet.visibleEntities){const option=document.createElement('option');option.value=entity.id;option.textContent=entity.label+' · '+entity.distanceM.toFixed(2)+' m';el('entities').append(option);}
-    if(packet.visibleEntities.some(e=>e.id===previous))el('entities').value=previous;
+    if(packet.visibleEntities.some(e=>e.id===previous))el('entities').value=previous;else {const block=packet.visibleEntities.find(e=>e.bodyType==='dynamic');if(block)el('entities').value=block.id;}
     if(!packet.visibleEntities.length){const option=document.createElement('option');option.value='';option.textContent='No sampled visible entities';el('entities').append(option);}
     const selected=packet.visibleEntities.find(e=>e.id===packet.observer.selectedEntityId);
     el('detail').textContent=selected?JSON.stringify({id:selected.id,label:selected.label,position:selected.position,size:selected.size,bodyType:selected.bodyType},null,2):'Visible entities are computed from the actual box geometry. W/A/S/D move; R/F change height; I/J/K/L look. Click the viewport to focus keyboard controls.';

@@ -61,8 +61,8 @@ test('CSV web creation stays in artifact mode while native measurement compariso
 const {NetworkPolicy,localURL}=require('../network-policy.cjs');
 test('a corrupted theme or invalid UTF-8 stops startup before code is loaded',()=>{
   const fs=require('node:fs'),path=require('node:path'),os=require('node:os');const {verifyRendererSources}=require('../source-integrity.cjs');const folder=fs.mkdtempSync(path.join(os.tmpdir(),'fraynix-source-guard-'));
-  for(const name of ['index.html','style.css','measurement.css','app.js','scene-lab.js','measurement-panel.js','calibration-panel.js','calibration.css','observer-panel.js','observer.css'])fs.writeFileSync(path.join(folder,name),'/* valid UTF-8 fixture */');
-  assert.equal(verifyRendererSources(folder).checked,10);fs.writeFileSync(path.join(folder,'style.css'),Buffer.alloc(128));assert.throws(()=>verifyRendererSources(folder),/style.css.*NUL/);
+  for(const name of ['index.html','style.css','measurement.css','app.js','scene-lab.js','measurement-panel.js','calibration-panel.js','calibration.css','observer-panel.js','observer.css','body-panel.js','scene-files.js','scene-video.js'])fs.writeFileSync(path.join(folder,name),'/* valid UTF-8 fixture */');
+  assert.equal(verifyRendererSources(folder).checked,13);fs.writeFileSync(path.join(folder,'style.css'),Buffer.alloc(128));assert.throws(()=>verifyRendererSources(folder),/style.css.*NUL/);
   fs.writeFileSync(path.join(folder,'style.css'),'body{}');fs.writeFileSync(path.join(folder,'app.js'),Buffer.from([255]));assert.throws(()=>verifyRendererSources(folder),/app.js.*UTF-8/);
 });
 test('offline application policy permits loopback and rejects external navigation without dispatch',()=>{
@@ -82,4 +82,19 @@ test('model cannot invent tool handlers or smuggle extra executable fields',()=>
 test('an old observation expires after navigation or action',()=>{
   const lease=new ObservationLease(),first=lease.create();lease.require(first);lease.invalidate();assert.throws(()=>lease.require(first));
   const second=lease.create();assert.notEqual(first,second);lease.require(second);
+});
+
+test('native body stages retain physical progress and never repeat a completed movement',()=>{
+ const {bodyStage,planTools}=require('../policy.cjs');const job={};assert(bodyStage(job).allowed.includes('observer.open'));
+ job.observerEvidence={id:'obs',observer:{id:'camera'}};assert(bodyStage(job).allowed.includes('body.grab'));
+ job.bodyGrab={id:'grip',runId:'run',after:{position:[1,2,3]}};assert(bodyStage(job).allowed.includes('body.move'));assert(!bodyStage(job).allowed.includes('body.grab'));
+ job.bodyMove={outcome:'reached'};assert.deepEqual(bodyStage(job).allowed,['body.release','body.cancel']);
+ job.bodyRelease={runId:'run'};assert.deepEqual(bodyStage(job).allowed,['body.capture']);
+ job.observerCapture={packet:{world:{runId:'run'}}};assert.deepEqual(bodyStage(job).allowed,['finish']);
+ const move=planTools(['body.move'])[0].function.parameters;assert.equal(move.additionalProperties,false);assert.equal(move.properties.target.minItems,3);assert.deepEqual(move.required,['target']);assert.equal(move.properties.gripId,undefined);
+});
+test('body and file task modes stay separate from ordinary web artifact requests',()=>{
+ assert.deepEqual(taskMode('Grab the Block in the native scene, lift it and release'),{needsBody:true,needsScene:true,needsComparison:false});
+ assert.deepEqual(taskMode('Export a physics scene video'),{needsTransfer:true,needsScene:true,needsComparison:false});
+ assert.equal(taskMode('Build an import/export CSV web app').needsScene,false);
 });

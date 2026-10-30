@@ -17,6 +17,7 @@ public final class SceneStore implements AutoCloseable {
     private BulletRamp physics;
     private JSONObject active;
     private boolean playing;
+    private JSONObject bodyPlan;
     private String error="";
     public SceneStore(Path project) throws Exception {
         root=project.resolve("experiments");Files.createDirectories(root);
@@ -24,12 +25,15 @@ public final class SceneStore implements AutoCloseable {
         schemas.register(new ComponentSchema("workspace.scene.object3d",1,Map.of("scene",ComponentSchema.Kind.ENTITY_REFERENCE,"payload",ComponentSchema.Kind.TEXT),Set.of("scene","payload")));
         schemas.register(new ComponentSchema("workspace.experiment",1,Map.of("scene",ComponentSchema.Kind.ENTITY_REFERENCE,"payload",ComponentSchema.Kind.TEXT),Set.of("scene","payload")));
         schemas.register(new ComponentSchema("workspace.scene.calibration",1,Map.of("scene",ComponentSchema.Kind.ENTITY_REFERENCE,"payload",ComponentSchema.Kind.TEXT),Set.of("scene","payload")));
+        schemas.register(new ComponentSchema("workspace.body.operation",1,Map.of("scene",ComponentSchema.Kind.ENTITY_REFERENCE,"payload",ComponentSchema.Kind.TEXT),Set.of("scene","payload")));
+        schemas.register(new ComponentSchema("workspace.scene.import",1,Map.of("scene",ComponentSchema.Kind.ENTITY_REFERENCE,"payload",ComponentSchema.Kind.TEXT),Set.of("scene","payload")));
         world=new FactoryWorld(schemas);checkpoint=new WorldCheckpointStore(root.resolve("scenes.fworld"));
         if(Files.exists(checkpoint.path()))world.restore(checkpoint.load(schemas).snapshot());
         var interrupted=new ArrayList<EntityRecord>();
         for(var entity:world.snapshot().entities())if(type(entity).equals("workspace.experiment")){var run=payload(entity);if(Set.of("running","paused").contains(run.getString("status"))){run.put("status","interrupted").put("endedAt",Instant.now());interrupted.add(record("workspace.experiment",run,run.getString("sceneId")));}}
+        for(var entity:world.snapshot().entities())if(type(entity).equals("workspace.body.operation")){var op=payload(entity);if(op.getString("status").equals("pending")){op.put("status","interrupted").put("error","Process ended before the action receipt; no action was retried");interrupted.add(record("workspace.body.operation",op,op.getString("sceneId")));}}
         if(!interrupted.isEmpty())commit(interrupted);
-        clock.scheduleAtFixedRate(()->{synchronized(this){if(playing)try{advance(4);}catch(Exception e){playing=false;error=e.getMessage();if(active!=null)try{finish("failed");}catch(Exception ignored){}}}},0,16_666_667,TimeUnit.NANOSECONDS);
+        clock.scheduleAtFixedRate(()->{synchronized(this){try{if(bodyPlan!=null)advanceBody(4);else if(playing)advance(4);}catch(Exception|AssertionError|LinkageError e){playing=false;error=e.toString();e.printStackTrace();if(physics!=null)physics.release();if(bodyPlan!=null){bodyPlan.put("status","failed").put("error",error);try{commit(List.of(record("workspace.body.operation",bodyPlan,bodyPlan.getString("sceneId"))));}catch(Exception ignored){}bodyPlan=null;}if(active!=null)try{finish("failed");}catch(Exception ignored){}}}},0,16_666_667,TimeUnit.NANOSECONDS);
     }
     private static String type(EntityRecord e){return e.components().get(0).type();}
     private static JSONObject payload(EntityRecord e){return new JSONObject(e.components().get(0).values().get("payload"));}
@@ -53,12 +57,16 @@ public final class SceneStore implements AutoCloseable {
         return new JSONObject().put("sceneId",id).put("sceneVersion",definition.getInt("version")).put("authoredVersion",authored.getInt("version"))
             .put("runId",live?active.get("id"):JSONObject.NULL).put("tick",live?current.getInt("tick"):0).put("timeS",live?current.getDouble("timeS"):0)
             .put("source",live?"native-physics":"authored-geometry").put("status",live?active.getString("status"):"authored")
+            .put("grip",live?physics.grip():new JSONObject().put("held",false)).put("actuatorRevision",live?active.optInt("actuatorRevision"):0)
             .put("scope",live?active.optString("scope","experiment"):"authored").put("units","metre, second, degree; +Y up").put("objects",sorted);
     }
     public synchronized JSONObject save(JSONObject input) throws Exception {
         return save(input,null);
     }
     private JSONObject save(JSONObject input,JSONObject application) throws Exception {
+        return save(input,application,"workspace.scene.calibration");
+    }
+    private JSONObject save(JSONObject input,JSONObject application,String receiptType) throws Exception {
         if(!Set.of("id","expectedVersion","title","parameters").containsAll(input.keySet()))throw new IllegalArgumentException("Unsupported scene field");
         if(input.has("parameters")&&!(input.get("parameters") instanceof JSONObject))throw new IllegalArgumentException("Scene parameters must be an object");
         if(physics!=null)throw new IllegalStateException("Reset the current experiment before editing its authored scene");
@@ -70,7 +78,7 @@ public final class SceneStore implements AutoCloseable {
         var scene=new JSONObject().put("id",id).put("schemaVersion",1).put("title",title).put("version",existing?previous.getInt("version")+1:1).put("units","SI: metre, second, kilogram").put("frame","right-handed, +Y up, downhill +X, depth Z")
             .put("parameters",definition.json()).put("entityIds",ids).put("updatedAt",Instant.now());
         var records=new ArrayList<EntityRecord>();records.add(record("workspace.scene",scene,null));for(Object o:definition.objects(ids)){var object=(JSONObject)o;object.put("schemaVersion",1);records.add(record("workspace.scene.object3d",object,id));}
-        if(application!=null)records.add(record("workspace.scene.calibration",application,id));commit(records);return read(id);
+        if(application!=null){application.put("sceneId",id);if(receiptType.equals("workspace.scene.import")){application.put("entityIds",ids);scene.put("importReceiptId",application.getString("id"));records.set(0,record("workspace.scene",scene,null));}records.add(record(receiptType,application,id));}commit(records);return read(id);
     }
     public synchronized JSONObject calibrationReceipt(String operationId){var e=find(operationId);return e!=null&&type(e).equals("workspace.scene.calibration")?payload(e):null;}
     public synchronized JSONObject applyCalibration(String jobId,String operationId,String sceneId,int expectedVersion,String validationSceneId,int validationVersion,String parameter,double value) throws Exception {
@@ -130,19 +138,21 @@ public final class SceneStore implements AutoCloseable {
         playing=false;if(physics==null||active==null)return;
         JSONObject last=physics.snapshot();active.put("status",status).put("endedAt",Instant.now()).put("final",last);
         var params=RampDefinition.from(active.getJSONObject("definition").getJSONObject("parameters"));double t=last.getDouble("timeS"),expected=.5*params.gravityMps2()*Math.sin(params.radians())*t*t;
-        boolean applicable=params.friction()==0&&t>=.1&&t<=1&&expected<params.lengthM()*.7-.7;
+        boolean applicable=!active.optString("scope").equals("manipulation")&&params.friction()==0&&t>=.1&&t<=1&&expected<params.lengthM()*.7-.7;
         double measured=last.getDouble("distanceM"),tolerance=Math.max(.015,expected*.04),error=Math.abs(measured-expected);
         active.put("evaluation",new JSONObject().put("reference","frictionless incline: distance = 0.5*g*sin(angle)*t^2").put("applicable",applicable).put("expectedDistanceM",expected).put("measuredDistanceM",measured).put("absoluteErrorM",error).put("toleranceM",tolerance).put("passed",status.equals("completed")&&applicable&&error<=tolerance));
         commit(List.of(record("workspace.experiment",active,active.getString("sceneId"))));
     }
     public synchronized JSONObject snapshot(){
         if(active==null)return new JSONObject().put("status","idle").put("error",error);
-        var value=new JSONObject(active.toString()).put("playing",playing).put("current",physics.snapshot());value.remove("samples");
+        var value=new JSONObject(active.toString()).put("playing",playing).put("current",physics.snapshot());value.remove("samples");value.remove("actuatorEvents");
+        if(bodyPlan!=null)value.put("bodyProgress",new JSONObject().put("operationId",bodyPlan.getString("id")).put("action",bodyPlan.getString("action")).put("completedTicks",physics.tick()-bodyPlan.getInt("startTick")).put("totalTicks",bodyPlan.getInt("totalTicks")));
         var samples=active.getJSONArray("samples");var tail=new JSONArray();for(int i=Math.max(0,samples.length()-180);i<samples.length();i++)tail.put(samples.get(i));return value.put("trace",tail).put("error",error);
     }
     public synchronized JSONObject control(JSONObject input) throws Exception {
         String action=input.getString("action");
-        if(action.equals("reset")){if(active!=null&&Set.of("running","paused").contains(active.getString("status")))finish("stopped");if(physics!=null)physics.close();physics=null;active=null;playing=false;return snapshot();}
+        if(action.equals("reset")){if(bodyPlan!=null)cancelBody("Reset requested");if(active!=null&&Set.of("running","paused").contains(active.getString("status")))finish("stopped");if(physics!=null)physics.close();physics=null;active=null;playing=false;return snapshot();}
+        if(active!=null&&active.optString("scope").equals("manipulation"))throw new IllegalStateException("Use the body controls for this manipulation run, or Reset before another experiment");
         if(action.equals("start")){begin(input.getString("id"),input.getInt("expectedVersion"),input.optDouble("seconds",6));playing=true;active.put("status","running");return snapshot();}
         if(physics==null)throw new IllegalStateException("Start an experiment first");
         if(action.equals("pause")){playing=false;if(active.getString("status").equals("running")){active.put("status","paused");commit(List.of(record("workspace.experiment",active,active.getString("sceneId"))));}}
@@ -155,9 +165,127 @@ public final class SceneStore implements AutoCloseable {
     }
     public synchronized JSONObject replay(String id) throws Exception {
         var previous=require(id,"workspace.experiment");if(physics!=null)throw new IllegalStateException("Reset the current experiment before replay");
+        if(previous.optString("scope").equals("manipulation"))return replayBody(previous);
         beginDefinition(previous.getJSONObject("definition"),previous.getInt("targetTicks")*BulletRamp.DT);active.put("replayOf",id);advance(active.getInt("targetTicks"));return new JSONObject(active.toString());
     }
     public synchronized JSONObject runRecord(String id){return require(id,"workspace.experiment");}
+    public synchronized JSONObject bodyOperation(String id){return require(id,"workspace.body.operation");}
+    synchronized JSONObject bodyPrior(JSONObject input){
+        var old=find(input.getString("operationId"));if(old==null)return null;
+        var op=require(input.getString("operationId"),"workspace.body.operation");
+        if(!op.getString("requestSha256").equals(MeasurementStore.hash(input.toString())))throw new IllegalArgumentException("Body operation id reused with different input");
+        if(!op.getString("status").equals("completed"))throw new IllegalStateException("Previous body operation is "+op.getString("status")+"; it will not be applied twice");
+        return op;
+    }
+    private static double[] position(JSONObject state){return ObserverGeometry.v(state.getJSONArray("position"));}
+    private static double distance(double[] a,double[] b){return ObserverGeometry.norm(ObserverGeometry.sub(a,b));}
+    private void requireBodyOwner(JSONObject input){
+        if(active==null||physics==null||!active.optString("scope").equals("manipulation")||!active.getString("bodyOwner").equals(input.getString("id"))||!active.getString("id").equals(input.getString("runId")))
+            throw new IllegalStateException("This observer does not own the active manipulation run");
+        if(!active.getString("status").equals("paused"))throw new IllegalStateException("The manipulation run is already settled; Reset before another grab");
+    }
+    synchronized JSONObject bodyAction(JSONObject input,JSONObject packet) throws Exception {
+        var previous=bodyPrior(input);if(previous!=null)return previous;
+        String action=input.getString("action"),operation=input.getString("operationId");UUID.fromString(operation);
+        var common=new HashSet<>(Set.of("id","operationId","action","observationId"));
+        switch(action){case "grab"->common.add("entityId");case "move"->{common.addAll(Set.of("runId","gripId","target"));}case "release"->common.addAll(Set.of("runId","gripId"));case "cancel"->common.add("runId");default->throw new IllegalArgumentException("Unknown body action");}
+        if(!common.containsAll(input.keySet()))throw new IllegalArgumentException("Unexpected body action field");
+        if(action.equals("grab")){
+            if(physics!=null)throw new IllegalStateException("Reset the current experiment before starting a new body manipulation");
+            String entity=input.getString("entityId");var source=packet.getJSONObject("world");var scene=read(source.getString("sceneId"));
+            if(!scene.getJSONObject("entityIds").getString("block").equals(entity))throw new IllegalArgumentException("Only the dynamic Block can be grabbed");
+            if(scene.getJSONObject("parameters").getDouble("massKg")>10)throw new IllegalArgumentException("Actuator load limit is 10 kg");
+            beginDefinition(scene,10);active.put("scope","manipulation").put("targetTicks",14_400).put("bodyOwner",input.getString("id")).put("actuatorRevision",0).put("actuatorEvents",new JSONArray());
+        }else requireBodyOwner(input);
+        if(action.equals("cancel")){
+            var before=physics.snapshot();cancelBody("Owner requested cancellation");
+            var op=operation(input,before).put("status","completed").put("outcome","cancelled").put("after",physics.snapshot()).put("endTick",physics.tick());
+            commit(List.of(record("workspace.body.operation",op,active.getString("sceneId"))));return op;
+        }
+        if(bodyPlan!=null)throw new IllegalStateException("A body motion is in progress; wait or cancel it");
+        if(!action.equals("grab")){
+            var grip=physics.grip();if(!grip.getBoolean("held")||!grip.getString("id").equals(input.getString("gripId")))throw new IllegalStateException("Grip changed or was released");
+        }
+        if(action.equals("move")&&active.getJSONArray("actuatorEvents").length()>=23)throw new IllegalStateException("Manipulation move budget reached; release remains available");
+        var op=operation(input,physics.snapshot());
+        if(action.equals("move")){
+            Object raw=input.get("target");if(!(raw instanceof JSONArray target)||target.length()!=3)throw new IllegalArgumentException("Target needs three finite metre coordinates");
+            for(Object value:target)if(!(value instanceof Number n)||!Double.isFinite(n.doubleValue()))throw new IllegalArgumentException("Target must contain finite numbers");
+            var p=ObserverGeometry.v(target);RampDefinition.range(p[0],-20,20,"body target x");RampDefinition.range(p[1],.26,20,"body target y");RampDefinition.range(p[2],-20,20,"body target z");
+            var anchor=ObserverGeometry.v(physics.grip().getJSONArray("target"));double length=distance(anchor,p);
+            if(length<.01||length>2||distance(position(physics.snapshot()),p)>2)throw new IllegalArgumentException("Body move must be 0.01..2 m from the body and current anchor");
+            if(distance(p,position(packet.getJSONObject("observer").getJSONObject("pose")))>6)throw new IllegalArgumentException("Body target exceeds the 6 m virtual actuator reach");
+            int travel=(int)Math.ceil(length/1.5/BulletRamp.DT);
+            op.put("startAnchor",new JSONArray(anchor)).put("target",target).put("travelTicks",travel).put("totalTicks",travel+48).put("toleranceM",.08);
+        }else op.put("totalTicks",action.equals("release")?120:0);
+        if(physics.tick()+op.getInt("totalTicks")+(action.equals("release")?0:120)>14_400)throw new IllegalStateException("Manipulation tick budget reached");
+        // Journal intent before touching the native constraint. Interrupted intent is never retried.
+        commit(List.of(record("workspace.body.operation",op,active.getString("sceneId")),record("workspace.experiment",active,active.getString("sceneId"))));
+        try{
+            if(action.equals("grab")){physics.grab(input.getString("entityId"),input.getString("id"),operation);completeBody(op);}
+            else {if(action.equals("release")){physics.release();op.put("velocityAtConstraintRemoval",physics.sample().getJSONArray("velocity"));}bodyPlan=op;}
+        }catch(Exception e){physics.release();op.put("status","failed").put("error",String.valueOf(e.getMessage()));commit(List.of(record("workspace.body.operation",op,active.getString("sceneId"))));finish("failed");throw e;}
+        return new JSONObject(op.toString());
+    }
+    private JSONObject operation(JSONObject input,JSONObject before){
+        return new JSONObject().put("id",input.getString("operationId")).put("observerId",input.getString("id")).put("sceneId",active.getString("sceneId")).put("sceneVersion",active.getInt("sceneVersion")).put("runId",active.getString("id"))
+            .put("action",input.getString("action")).put("request",new JSONObject(input.toString())).put("requestSha256",MeasurementStore.hash(input.toString())).put("status","pending").put("before",before).put("startTick",physics.tick()).put("createdAt",Instant.now());
+    }
+    private void stepBody(){physics.step();if(physics.tick()%4==0)sample();}
+    private void advanceBody(int count) throws Exception {
+        for(int i=0;i<count&&bodyPlan!=null;i++){
+            var op=bodyPlan;int next=physics.tick()-op.getInt("startTick")+1;
+            if(op.getString("action").equals("move")){
+                var from=ObserverGeometry.v(op.getJSONArray("startAnchor"));var target=ObserverGeometry.v(op.getJSONArray("target"));double alpha=Math.min(1,next/(double)op.getInt("travelTicks"));
+                physics.target(ObserverGeometry.add(from,ObserverGeometry.mul(ObserverGeometry.sub(target,from),alpha)));
+            }
+            stepBody();if(next>=op.getInt("totalTicks")){bodyPlan=null;completeBody(op);}
+        }
+    }
+    private void completeBody(JSONObject op) throws Exception {
+        var after=physics.snapshot();String action=op.getString("action");op.put("after",after).put("endTick",physics.tick()).put("endedAt",Instant.now()).put("status","completed");
+        if(action.equals("move")){double error=distance(position(after),ObserverGeometry.v(op.getJSONArray("target")));op.put("targetErrorM",error).put("reached",error<=op.getDouble("toleranceM")).put("outcome",error<=op.getDouble("toleranceM")?"reached":"blocked-or-force-limited");}
+        else op.put("outcome",action.equals("grab")?"held":"released");
+        active.getJSONArray("actuatorEvents").put(new JSONObject(op.toString()));active.put("actuatorRevision",active.getInt("actuatorRevision")+1);
+        if(action.equals("release")){
+            boolean reached=true;for(Object value:active.getJSONArray("actuatorEvents")){var e=(JSONObject)value;if(e.getString("action").equals("move")&&!e.getBoolean("reached"))reached=false;}
+            active.put("manipulationEvaluation",new JSONObject().put("released",!physics.held()).put("allMovesReached",reached).put("forceContract","300 N equivalent per-axis impulse clamp; other contact/gravity forces remain active").put("gripKind","native point-to-point constraint"));
+            finish("completed");
+        }
+        commit(List.of(record("workspace.body.operation",op,active.getString("sceneId")),record("workspace.experiment",active,active.getString("sceneId"))));
+    }
+    private void cancelBody(String reason) throws Exception {
+        physics.release();playing=false;
+        if(bodyPlan!=null){var op=bodyPlan;bodyPlan=null;op.put("status","cancelled").put("error",reason).put("after",physics.snapshot()).put("endTick",physics.tick());commit(List.of(record("workspace.body.operation",op,active.getString("sceneId"))));}
+        active.put("actuatorRevision",active.optInt("actuatorRevision")+1);finish("cancelled");
+    }
+    public synchronized JSONObject cancelOwnedBody(String observerId,String runId) throws Exception {
+        if(active==null||!active.getString("id").equals(runId)||!active.optString("bodyOwner").equals(observerId))throw new IllegalStateException("No matching owned manipulation");
+        if(active.getString("status").equals("paused"))cancelBody("Task cancelled");return snapshot();
+    }
+    private JSONObject replayBody(JSONObject previous) throws Exception {
+        if(!previous.getString("status").equals("completed")||previous.optJSONObject("manipulationEvaluation")==null)throw new IllegalStateException("Only completed manipulation runs can be replayed");
+        beginDefinition(previous.getJSONObject("definition"),.05);active.put("scope","manipulation").put("replayOf",previous.getString("id")).put("targetTicks",previous.getJSONObject("final").getInt("tick")).put("actuatorEvents",new JSONArray(previous.getJSONArray("actuatorEvents").toString()));
+        for(Object value:previous.getJSONArray("actuatorEvents")){
+            var op=(JSONObject)value;switch(op.getString("action")){
+                case "grab"->physics.grab(op.getJSONObject("request").getString("entityId"),"replay",op.getString("id"));
+                case "move"->{var from=ObserverGeometry.v(op.getJSONArray("startAnchor"));var to=ObserverGeometry.v(op.getJSONArray("target"));for(int i=1;i<=op.getInt("totalTicks");i++){physics.target(ObserverGeometry.add(from,ObserverGeometry.mul(ObserverGeometry.sub(to,from),Math.min(1,i/(double)op.getInt("travelTicks")))));stepBody();}}
+                case "release"->{physics.release();for(int i=0;i<op.getInt("totalTicks");i++)stepBody();}
+                default->throw new IllegalArgumentException("Unsupported recorded actuator event");
+            }
+        }
+        double error=distance(position(physics.snapshot()),position(previous.getJSONObject("final")));
+        active.put("manipulationEvaluation",new JSONObject(previous.getJSONObject("manipulationEvaluation").toString())).put("replayEvaluation",new JSONObject().put("sourceRunId",previous.getString("id")).put("positionErrorM",error).put("toleranceM",.0001).put("passed",error<=.0001&&physics.tick()==previous.getJSONObject("final").getInt("tick")));
+        finish("completed");return new JSONObject(active.toString());
+    }
+    public synchronized JSONObject exportScene(String id){return SceneExchange.exportScene(read(id));}
+    public synchronized JSONObject importScene(JSONObject input) throws Exception {
+        if(!Set.of("package","title").containsAll(input.keySet()))throw new IllegalArgumentException("Unexpected scene import field");
+        var file=input.getJSONObject("package");var verified=SceneExchange.validate(file);
+        var receipt=new JSONObject().put("id",UUID.randomUUID().toString()).put("sourceSha256",MeasurementStore.hash(file.toString())).put("geometrySha256",file.getString("geometrySha256")).put("source",file.getJSONObject("source")).put("createdAt",Instant.now());
+        var scene=save(new JSONObject().put("title",input.optString("title",file.getString("title"))).put("parameters",verified.json()),receipt,"workspace.scene.import");
+        return new JSONObject().put("scene",scene).put("receipt",receipt);
+    }
     public synchronized JSONArray runs(String scene){var result=new JSONArray();for(var e:world.snapshot().entities())if(type(e).equals("workspace.experiment")){var run=payload(e);if(scene.isBlank()||scene.equals(run.getString("sceneId")))result.put(new JSONObject().put("id",run.getString("id")).put("title",run.getString("title")).put("sceneId",run.getString("sceneId")).put("sceneVersion",run.getInt("sceneVersion")).put("status",run.getString("status")).put("scope",run.optString("scope")).put("evaluation",run.optJSONObject("evaluation")));}return result;}
     @Override public synchronized void close(){clock.shutdownNow();if(physics!=null)physics.close();physics=null;}
 }

@@ -1,6 +1,17 @@
 'use strict';
 const { randomUUID } = require('node:crypto');
 const catalog = [
+  ['body.grab','Attach a real native constraint to a visible dynamic Block within 6 m. Requires fresh observation; no current experiment. The host binds actual task ownership and a fresh source.','{entityId}'],
+  ['body.move','Move the held body toward a world-space target through native solver ticks, collisions and a bounded constraint. Read measured reached/blocked outcome.','{target:[x,y,z]}'],
+  ['body.release','Remove the native constraint, preserve velocity and simulate 0.5 s of actual gravity/contact response; settles this manipulation run.','{}'],
+  ['body.cancel','Cancel an owned manipulation, stop pending motion and remove its native constraint.','{}'],
+  ['body.capture','Capture the actual final view of this task’s owned native body run. The host binds the observer and source.','{}'],
+  ['scene.export','Save a portable native scene JSON file and return its validated data and file receipt.','{id}'],
+  ['scene.clone','Create a new native scene with equivalent supported geometry/parameters, fresh entity IDs and import provenance. Reset active physics first.','{id}'],
+  ['scene.import','Validate and recreate a supported fraynix.scene package as a new scene. Data only, no code execution.','{package}'],
+  ['run.export','Save a settled native run as JSON with actual samples, commands, source definition and results.','{id}'],
+  ['run.csv','Save actual recorded native position/velocity/contact samples as CSV.','{id}'],
+  ['run.video','Render recorded native poses to a real silent WebM video, up to 30 s at nominal 30 fps.','{id}'],
   ['observer.open','Open or restore the latest Java-owned first-person free camera for sceneId. Send only the saved sceneId; the host returns observer.id. No avatar body.','{sceneId}'],
   ['observer.observe','Observe actual native entities with camera pose, source scene/run/tick and a fresh observation id. Visibility uses geometric rays.','{id}'],
   ['observer.move','Move the free camera by declared metres in yaw-relative forward/right and world up. Requires a fresh observationId. Does not move objects.','{id,observationId,forward?,right?,up?}'],
@@ -56,6 +67,11 @@ class ObservationLease {
 const text={type:'string'},empty={type:'object',properties:{},additionalProperties:false};
 function object(properties,required=Object.keys(properties)){return {type:'object',properties,required,additionalProperties:false};}
 const argumentSchemas={
+ 'body.grab':object({entityId:text}),
+ 'body.move':object({target:{type:'array',items:{type:'number'},minItems:3,maxItems:3}}),
+ 'body.release':empty,'body.cancel':empty,'body.capture':empty,
+ 'scene.export':object({id:text}),'scene.clone':object({id:text}),'scene.import':object({package:{type:'object'}}),
+ 'run.export':object({id:text}),'run.csv':object({id:text}),'run.video':object({id:text}),
  'observer.open':object({sceneId:{type:'string',description:'The saved scene id, not an observer id'}}),
  'observer.observe':object({id:text}),'observer.capture':object({id:text}),'observer.history':object({id:text}),'observer.replay':object({id:text}),
  'observer.move':object({id:text,observationId:text,forward:{type:'number',minimum:-5,maximum:5},right:{type:'number',minimum:-5,maximum:5},up:{type:'number',minimum:-5,maximum:5}},['id','observationId']),
@@ -105,5 +121,22 @@ function observerStage(context,goal){
  if(context.observerMoved&&/\bonce\b/i.test(goal))allowed.splice(allowed.indexOf('observer.move'),1);
  return {allowed,stage:'Use observer '+context.observerEvidence.observer.id+' and the current observation id '+context.observerEvidence.id+'. Distances are metres, look changes are degree deltas. Focus may use known entity IDs; inspection requires visible ones. Capture after the final pose/selection action. '+(context.observerMoved?'Movement already executed; do not restart the task. ':'Movement requested but not executed yet. ')+(context.observerInspected?'Inspection already executed; save the final frame. ':'Inspect the requested visible entity. ')+' Current pose: '+JSON.stringify(context.observerEvidence.observer.pose)};
 }
+function bodyStage(context){
+ if(!context.observerEvidence)return {allowed:['scene.read','observer.open'],stage:'Open the observer for the saved scene. The observer returns real visible entity IDs.'};
+ const id=context.observerEvidence.observer.id,observation=context.observerEvidence.id;
+ if(!context.bodyGrab)return {allowed:['observer.observe','observer.focus','body.grab'],stage:'Grab the visible dynamic Block once using only entityId; the host supplies all ownership/source handles.'};
+ const fence='Use observer '+id+', latest observationId '+observation+', runId '+context.bodyGrab.runId+' and gripId '+context.bodyGrab.id+'. ';
+ if(!context.bodyMove)return {allowed:['observer.observe','body.move','body.cancel'],stage:'The host binds observer/run/grip and a fresh observation. Send only target. Move the actual body to the requested WORLD coordinates once. Derive target from the actual Block position; do not move the camera. Current position '+JSON.stringify(context.bodyGrab.after.position)};
+ if(!context.bodyRelease)return {allowed:['body.release','body.cancel'],stage:'Motion already executed. Measured outcome '+context.bodyMove.outcome+'. Call body.release with empty arguments; the host supplies its actual ownership fence.'};
+ if(!context.observerCapture||context.observerCapture.packet.world.runId!==context.bodyRelease.runId)return {allowed:['body.capture'],stage:'Release completed. Call body.capture with empty arguments to save the actual final view.'};
+ return {allowed:['finish'],stage:'The native grab/move/release and final capture are complete. Finish with actual target error, release position, run id and image hash. Do not restart the actions.'};
+}
+const originalTaskMode=taskMode;
+function expandedTaskMode(goal){
+ const base=originalTaskMode(goal),native=/\b(native|3d|physics|scene|block)\b/i.test(goal);
+ const needsBody=native&&/\b(grab|grabbing|release|pick up|held body|held object)\b/i.test(goal);
+ const needsTransfer=!needsBody&&native&&/\b(export|import|duplicate|clone|replicate)\b/i.test(goal);
+ return needsBody?{needsBody:true,needsScene:true,needsComparison:false}:needsTransfer?{needsTransfer:true,needsScene:true,needsComparison:false}:base;
+}
 function taskMode(goal){const needsObserver=/\b(observer|viewpoint|camera)\b/i.test(goal)&&/\b(native|3d|ramp|scene)\b/i.test(goal)||/\bfirst[ -]person\b/i.test(goal)&&/\b(native|3d|ramp|scene)\b/i.test(goal);const needsScene=needsObserver||/\b(3d|physics|ramp|trajectory|incline|downhill)\b/i.test(goal)||(/\b(compare|comparison)\b/i.test(goal)&&/\b(measurements?|observed|simulated)\b/i.test(goal));const needsCalibration=!needsObserver&&needsScene&&/\b(calibrat\w*|fit|fitting)\b/i.test(goal);return {...(needsObserver?{needsObserver:true}:{}),...(needsCalibration?{needsCalibration:true}:{}),needsScene,needsComparison:!needsObserver&&!needsCalibration&&needsScene&&/\b(measurements?|observations?|dataset|csv|residual|comparison)\b/i.test(goal)};}
-module.exports={catalog,webURL,command,ObservationLease,planTools,taskMode,calibrationApplyRequested,calibrationStage,observerStage};
+module.exports={catalog,webURL,command,ObservationLease,planTools,taskMode:expandedTaskMode,calibrationApplyRequested,calibrationStage,observerStage,bodyStage};

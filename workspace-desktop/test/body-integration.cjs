@@ -1,0 +1,62 @@
+'use strict';
+const {launch}=require('./calibration-integration.cjs'),fs=require('node:fs/promises'),path=require('node:path'),os=require('node:os'),assert=require('node:assert/strict'),crypto=require('node:crypto');
+async function main(){
+ const project=await fs.mkdtemp(path.join(os.tmpdir(),'fraynix-body-')),output=path.resolve(__dirname,'../test-output');await fs.mkdir(output,{recursive:true});let {app,page}=await launch(project);const checks=[],errors=[];
+ const api=(route,args)=>app.evaluate((_,x)=>global.workspaceTest.api(x.route,x.args),{route,args}),execute=(tool,args)=>app.evaluate((_,x)=>global.workspaceTest.execute(x.tool,x.args),{tool,args});
+ const screenshot=async name=>{await page.evaluate(()=>new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r))));await fs.writeFile(path.join(output,name),Buffer.from(await app.evaluate(()=>global.workspaceTest.capture()),'base64'));};
+ const fileCheck=async receipt=>{const bytes=await fs.readFile(receipt.path);assert.equal(crypto.createHash('sha256').update(bytes).digest('hex'),receipt.sha256);assert.equal(bytes.length,receipt.bytes);assert.equal(path.dirname(receipt.path),path.join(project,'exports'));return bytes;};
+ try{
+  page.on('pageerror',e=>errors.push(e.message));await page.getByRole('button',{name:'3D Lab',exact:true}).click();
+  let state=await api('/api/state'),scene=state.scenes[0];await api('/api/scene/save',{id:scene.id,expectedVersion:1,parameters:{angleDeg:0}});scene=await execute('scene.read',{id:scene.id});
+  await page.getByRole('button',{name:'First-person view',exact:true}).click();await page.waitForFunction(()=>!document.querySelector('#body-grab').disabled);
+  const observer=(await api('/api/observer/list',{})).observers[0],authored=await api('/api/scene/read',{id:scene.id});
+  await page.getByRole('button',{name:'Grab selected',exact:true}).click();await page.waitForFunction(()=>!document.querySelector('#body-lift').disabled);
+  let snapshot=await api('/api/scene/snapshot',{});const runId=snapshot.id,grip=snapshot.current.grip,initial=snapshot.current.position;
+  assert(grip.held);assert.equal(grip.ownerId,observer.id);assert.equal(snapshot.current.tick,0);assert.equal(snapshot.current.objects.find(o=>o.label==='Block').bodyType,'dynamic');
+  checks.push('Visible Grab attaches a real native constraint to the dynamic Block at tick zero without moving the authored scene');
+  await page.locator('#scene-stage').scrollIntoViewIfNeeded();await screenshot('body-grab.png');
+  await page.getByRole('button',{name:'Lift 0.5 m',exact:true}).click();
+  await page.waitForFunction(()=>document.querySelector('#body-status').textContent.includes('solver ticks'));
+  const mid=await api('/api/scene/snapshot',{});assert(mid.current.tick>0);assert(mid.current.tick<130);assert(mid.current.position[1]>initial[1]);
+  await page.waitForFunction(()=>document.querySelector('#body-status').textContent.includes('actual target error')&&!document.querySelector('#body-release').disabled);
+  snapshot=await api('/api/scene/snapshot',{});assert(Math.abs(snapshot.current.position[1]-initial[1]-.5)<.08);assert(snapshot.current.grip.held);
+  checks.push('Lift visibly advances intermediate native solver ticks; the actual body reaches +0.5 m within 0.08 m and stays dynamic/held');
+  await page.locator('#scene-stage').scrollIntoViewIfNeeded();await screenshot('body-lift.png');
+  await page.getByRole('button',{name:'Release body',exact:true}).click();await page.waitForFunction(()=>document.querySelector('#body-status').textContent.includes('Native release · released')&&!document.querySelector('#body-status').textContent.includes('solver ticks'));
+  const run=await api('/api/experiment/read',{id:runId});assert.equal(run.status,'completed');assert.equal(run.actuatorEvents.length,3);assert(!run.final.grip.held);assert(run.manipulationEvaluation.allMovesReached);assert.equal(run.evaluation.applicable,false);
+  const release=run.actuatorEvents.at(-1);assert.deepEqual(release.velocityAtConstraintRemoval,release.before.velocity);assert(release.after.position[1]<release.before.position[1]-.2);assert.equal(release.endTick-release.startTick,120);
+  checks.push('Release removes the constraint, preserves velocity, advances 120 real gravity/contact ticks and records an intervention rather than a frictionless-reference pass');
+  assert.deepEqual((await api('/api/scene/read',{id:scene.id})).objects,authored.objects);assert.equal((await api('/api/scene/read',{id:scene.id})).version,2);
+  checks.push('Manipulation changes live physics while authored geometry and scene version remain unchanged');
+  const runFile=await execute('run.export',{id:runId}),csvFile=await execute('run.csv',{id:runId});const runJson=JSON.parse((await fileCheck(runFile)).toString('utf8')),csv=(await fileCheck(csvFile)).toString('utf8');
+  assert.deepEqual(runJson.run,run);const rows=csv.trim().split('\n');assert.equal(rows.length-1,run.samples.length);assert.equal(Number(rows.at(-1).split(',')[0]),run.samples.at(-1).tick);assert.equal(Number(rows.at(-1).split(',')[3]),run.samples.at(-1).position[1]);
+  checks.push('Run JSON retains exact native samples/commands and CSV retains actual coordinates/ticks; both saved files match independent SHA-256');
+  await page.locator('#native-file-panel').evaluate(e=>e.open=true);await page.locator('#scene-history').selectOption(runId);
+  await page.getByRole('button',{name:'Export WebM video',exact:true}).click();await page.waitForFunction(()=>document.querySelector('#native-file-status').textContent.startsWith('native-video ·'),{timeout:20000});
+  const manifest=(await fs.readFile(path.join(project,'exports/manifest.jsonl'),'utf8')).trim().split('\n').map(JSON.parse),video=manifest.at(-1),videoBytes=await fileCheck(video);
+  assert.equal(video.kind,'native-video');assert.equal(video.source.runId,runId);assert.equal(video.source.lastTick,run.final.tick);assert(videoBytes.length>1000);await fs.copyFile(video.path,path.join(output,'body-motion.webm'));
+  const decoded=await page.locator('#native-file-video-preview').evaluate(async video=>{
+   await new Promise((resolve,reject)=>{if(video.readyState>=2)resolve();else{video.onloadeddata=resolve;video.onerror=()=>reject(Error('Exported video failed to decode'));}});
+   await video.play();await new Promise(r=>setTimeout(r,200));const canvas=document.createElement('canvas');canvas.width=video.videoWidth;canvas.height=video.videoHeight;const ctx=canvas.getContext('2d');ctx.drawImage(video,0,0);const p=ctx.getImageData(0,0,canvas.width,canvas.height).data;let orange=0;for(let i=0;i<p.length;i+=4)if(p[i]>90&&p[i]>p[i+1]*1.08&&p[i+1]>p[i+2]*1.15)orange++;
+   await new Promise(resolve=>{if(video.ended)resolve();else video.onended=resolve;});return {width:video.videoWidth,height:video.videoHeight,ended:video.ended,playbackEndS:video.currentTime,orangePixels:orange};
+  });assert.equal(decoded.width,960);assert.equal(decoded.height,540);assert(decoded.ended);assert(decoded.orangePixels>5);assert(Math.abs(decoded.playbackEndS-run.final.timeS)<.4);
+  checks.push('Actual exported VP8 WebM decodes at 960×540, contains visible native block pixels, plays to completion and matches the source tick range/duration');
+  await page.locator('#native-file-panel').scrollIntoViewIfNeeded();await screenshot('body-video-export.png');
+  await api('/api/experiment/control',{action:'reset'});const replay=await api('/api/experiment/replay',{id:runId});assert(replay.replayEvaluation.passed);assert.equal(replay.final.tick,run.final.tick);
+  checks.push('Native replay re-executes recorded grab/move/release commands and reproduces final position within 0.0001 m');
+  await api('/api/experiment/control',{action:'reset'});const exported=await execute('scene.export',{id:scene.id});const sceneBytes=await fileCheck(exported.file);assert.equal(JSON.parse(sceneBytes).geometrySha256,exported.package.geometrySha256);
+  await page.locator('#native-file-panel').evaluate(e=>e.open=true);
+  const scenePath=path.join(project,'portable-scene.json');await fs.writeFile(scenePath,sceneBytes);await page.locator('#native-file-input').setInputFiles(scenePath);
+  assert.equal((await api('/api/state')).scenes.length,1);await page.getByRole('button',{name:'Import selected scene',exact:true}).click();await page.waitForFunction(()=>document.querySelector('#native-file-preview').textContent.startsWith('Imported with new scene'));
+  state=await api('/api/state');assert.equal(state.scenes.length,2);const imported=state.scenes.find(s=>s.id!==scene.id),copy=await api('/api/scene/read',{id:imported.id});assert.deepEqual(copy.parameters,authored.parameters);assert.notEqual(copy.entityIds.block,authored.entityIds.block);
+  assert.equal((await api('/api/scene/export',{id:copy.id})).geometrySha256,exported.package.geometrySha256);
+  checks.push('Choosing a scene file only previews it; explicit import creates fresh identities with equivalent native geometry and provenance');
+  const cloned=await execute('scene.clone',{id:copy.id});assert.notEqual(cloned.scene.id,copy.id);assert.deepEqual(cloned.scene.parameters,copy.parameters);
+  const bad=JSON.parse(sceneBytes);bad.script='untrusted instructions';await assert.rejects(execute('scene.import',{package:bad}),/Unexpected scene package/);assert.equal((await api('/api/state')).scenes.length,3);
+  checks.push('The same typed agent tools duplicate supported scenes and reject executable/unknown import fields before any new scene is created');
+  assert.deepEqual(errors,[]);checks.push('No renderer errors; all operations use isolated private test data and leave authored/user projects intact');
+  const result={date:new Date().toISOString(),passed:true,checks,modelInferenceRequired:false,scene:{id:scene.id,version:2,geometrySha256:exported.package.geometrySha256},observerId:observer.id,midMotion:mid.current,run,exports:{run:runFile,csv:csvFile,video,scene:exported.file},decodedVideo:decoded,import:{sceneId:copy.id,entityIds:copy.entityIds,receiptId:copy.importReceiptId},scope:'Real native point-to-point constraint over the supported dynamic Block; virtual reach, not a physical avatar/robot. Scene import supports the native ramp/block schema; arbitrary meshes, documents, videos and executable code are not imported as physics.'};
+  await fs.writeFile(path.join(output,'body-integration.json'),JSON.stringify(result,null,2));console.log(JSON.stringify({passed:true,checks,decodedVideo:decoded},null,2));
+ }catch(e){await fs.writeFile(path.join(output,'body-failure.txt'),await page.locator('body').innerText());await screenshot('body-failure.png');throw e;}finally{await app.close();}
+}
+main().catch(e=>{console.error(e);process.exitCode=1;});
