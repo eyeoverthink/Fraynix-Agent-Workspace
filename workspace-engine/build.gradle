@@ -14,4 +14,4 @@ dependencies {
 java { sourceCompatibility = JavaVersion.VERSION_21; targetCompatibility = JavaVersion.VERSION_21 }
 application { mainClass = 'fraymus.workspace.WorkspaceServer'; applicationName = 'workspace-engine' }
 tasks.withType(JavaCompile).configureEach { options.encoding = 'UTF-8' }
-tasks.named('test') { useJUnit() }
+tasks.named('test') { useJUnit(); dependsOn rootProject.tasks.named('installDist') }
