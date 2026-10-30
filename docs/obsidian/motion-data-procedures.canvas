@@ -1,0 +1,151 @@
+{
+  "nodes": [
+    {
+      "id": "overview",
+      "type": "file",
+      "file": "docs/obsidian/28-motion-data.md",
+      "x": 0,
+      "y": 0,
+      "width": 520,
+      "height": 330
+    },
+    {
+      "id": "chat",
+      "type": "file",
+      "file": "workspace-desktop/goals.cjs",
+      "x": -600,
+      "y": 420,
+      "width": 520,
+      "height": 260
+    },
+    {
+      "id": "runner",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/GoalRunner.java",
+      "x": 0,
+      "y": 420,
+      "width": 520,
+      "height": 260
+    },
+    {
+      "id": "compute",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/MotionData.java",
+      "x": 600,
+      "y": 420,
+      "width": 520,
+      "height": 260
+    },
+    {
+      "id": "report",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/MotionData.java",
+      "x": -600,
+      "y": 760,
+      "width": 520,
+      "height": 260
+    },
+    {
+      "id": "view",
+      "type": "file",
+      "file": "workspace-desktop/renderer/data-panel.js",
+      "x": 0,
+      "y": 760,
+      "width": 520,
+      "height": 260
+    },
+    {
+      "id": "skills",
+      "type": "file",
+      "file": "workspace-desktop/renderer/goals-panel.js",
+      "x": 600,
+      "y": 760,
+      "width": 520,
+      "height": 260
+    },
+    {
+      "id": "checks",
+      "type": "file",
+      "file": "workspace-desktop/test/data-goals-integration.cjs",
+      "x": -600,
+      "y": 1100,
+      "width": 520,
+      "height": 260
+    },
+    {
+      "id": "next",
+      "type": "file",
+      "file": "docs/SCENARIO_ENGINE_ROADMAP.md",
+      "x": 0,
+      "y": 1100,
+      "width": 520,
+      "height": 260
+    }
+  ],
+  "edges": [
+    {
+      "id": "edge-chat",
+      "fromNode": "overview",
+      "fromSide": "bottom",
+      "toNode": "chat",
+      "toSide": "top",
+      "label": "verified"
+    },
+    {
+      "id": "edge-runner",
+      "fromNode": "overview",
+      "fromSide": "bottom",
+      "toNode": "runner",
+      "toSide": "top",
+      "label": "verified"
+    },
+    {
+      "id": "edge-compute",
+      "fromNode": "overview",
+      "fromSide": "bottom",
+      "toNode": "compute",
+      "toSide": "top",
+      "label": "verified"
+    },
+    {
+      "id": "edge-report",
+      "fromNode": "overview",
+      "fromSide": "bottom",
+      "toNode": "report",
+      "toSide": "top",
+      "label": "verified"
+    },
+    {
+      "id": "edge-view",
+      "fromNode": "overview",
+      "fromSide": "bottom",
+      "toNode": "view",
+      "toSide": "top",
+      "label": "verified"
+    },
+    {
+      "id": "edge-skills",
+      "fromNode": "overview",
+      "fromSide": "bottom",
+      "toNode": "skills",
+      "toSide": "top",
+      "label": "verified"
+    },
+    {
+      "id": "edge-checks",
+      "fromNode": "overview",
+      "fromSide": "bottom",
+      "toNode": "checks",
+      "toSide": "top",
+      "label": "verified"
+    },
+    {
+      "id": "edge-next",
+      "fromNode": "overview",
+      "fromSide": "bottom",
+      "toNode": "next",
+      "toSide": "top",
+      "label": "planned"
+    }
+  ]
+}

@@ -1,5 +1,7 @@
 # Shared-world and 3D experiment engineering plan
 
+New research input, October30: the user's world-model references add a source-qualified spatial ingestion/prediction track alongside the creation-procedure roadmap. See the [verified frontier assessment](WORLD_MODEL_FRONTIERS.md) for primary sources, current capability distinctions and a proposed bounded scene→identity→native manipulation→prediction/outcome proof. This is planned research/engineering; no external model was installed or new real-world authority added.
+
 Edition020 delivers the next complete offline data procedure: file import and explicit units, original-source reconstruction, segment motion/quality checks, audited charts, retained/rebound procedural versions, interruption recovery and actual local-model create/reuse. See the [data contract](MOTION_DATA_PROCEDURES.md). Next are registered browser/source research and creation/build/test procedures, followed by independently evaluated experience-derived changes. Physical-model expansion and real-actuator calibration remain separate work.
 
 Edition 019 implements the first durable Java task/skill layer: chat selects an owned world-model goal; Java freezes the source, predicts/acts/checks, verifies a real report and retains a procedural version. Restart recovery, changed-condition reuse and finite budgets are implemented. See [goal/skill contract](GOALS_AND_SKILLS.md). Additional registered task families and experience-derived training with independent evaluation are next; broader physics and real-actuator validation remain separate gates.

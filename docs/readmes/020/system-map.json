@@ -1,0 +1,139 @@
+{
+  "date": "2026-10-30",
+  "modules": [
+    {
+      "id": "chat",
+      "name": "Task-specific local chat and named reuse",
+      "status": "verified",
+      "source": "workspace-desktop/goals.cjs",
+      "summary": "Actual registry identity binding and family-only semantic options; thresholds and selected source remain explicit.",
+      "note": "docs/obsidian/28-motion-data.md"
+    },
+    {
+      "id": "runner",
+      "name": "Shared durable Java goal runner",
+      "status": "verified",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/GoalRunner.java",
+      "summary": "Frozen data version/criteria, deterministic analysis, stable report, exact canvas receipt and finite recovery.",
+      "note": "docs/obsidian/28-motion-data.md"
+    },
+    {
+      "id": "compute",
+      "name": "Audited offline motion computation",
+      "status": "verified",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/MotionData.java",
+      "summary": "Original-source reconstruction, unequal-interval velocity, midpoint acceleration, integration checks and honest quality flags.",
+      "note": "docs/obsidian/28-motion-data.md"
+    },
+    {
+      "id": "report",
+      "name": "Actual data charts and audit exports",
+      "status": "verified",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/MotionData.java",
+      "summary": "Eight real files and eight Chromium assertions; original CSV, normalized data, derivations and provenance.",
+      "note": "docs/obsidian/28-motion-data.md"
+    },
+    {
+      "id": "view",
+      "name": "Local data import and source selection",
+      "status": "verified",
+      "source": "workspace-desktop/renderer/data-panel.js",
+      "summary": "Explicit columns/units/source notes, immutable dataset versions and direct or chat task entry.",
+      "note": "docs/obsidian/28-motion-data.md"
+    },
+    {
+      "id": "skills",
+      "name": "Versioned new-source procedural reuse",
+      "status": "verified",
+      "source": "workspace-desktop/renderer/goals-panel.js",
+      "summary": "Source-specific inspector, changed criteria and immutable procedure evidence; physics fields stay separate.",
+      "note": "docs/obsidian/28-motion-data.md"
+    },
+    {
+      "id": "checks",
+      "name": "Native, recorded, restart and live evidence",
+      "status": "verified",
+      "source": "workspace-desktop/test/data-goals-integration.cjs",
+      "summary": "Actual import, changed units/reversals/flags,49-row source preservation, v2/idempotency, recovery, ownership and real local model.",
+      "note": "docs/obsidian/28-motion-data.md"
+    },
+    {
+      "id": "next",
+      "name": "Research/creation procedures and evaluated experience",
+      "status": "planned",
+      "source": "docs/SCENARIO_ENGINE_ROADMAP.md",
+      "summary": "Registered browser/source→artifact/build/test tasks and independent evaluation before experience-derived promotion.",
+      "note": "docs/obsidian/28-motion-data.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "docs/readmes/020/images/data-chat-020.png",
+      "caption": "Actual gpt-oss:20b data goal, numeric result and retained procedural skill."
+    },
+    {
+      "path": "docs/readmes/020/images/data-import-020.png",
+      "caption": "Actual CSV importer with explicit units, source declaration and thresholds."
+    },
+    {
+      "path": "docs/readmes/020/images/data-report-020.png",
+      "caption": "Actual normalized-source chart/report and passing canvas checks."
+    },
+    {
+      "path": "docs/readmes/020/images/data-skill-020.png",
+      "caption": "Actual saved data-procedure inspector and explicit changed-source binding."
+    },
+    {
+      "path": "docs/readmes/020/images/data-flags-020.png",
+      "caption": "Actual report honestly flags changed-data gaps and speed exceedance."
+    },
+    {
+      "path": "docs/readmes/020/images/data-recorded-020.png",
+      "caption": "Actual descriptive analysis of the unchanged49-row recorded-motion source."
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/readmes/020/verification.json"
+    },
+    {
+      "path": "docs/readmes/020/data-goals-integration.json"
+    },
+    {
+      "path": "docs/readmes/020/live-data-goals.json"
+    },
+    {
+      "path": "docs/readmes/020/live-goals.json"
+    },
+    {
+      "path": "docs/readmes/020/live-memory.json"
+    },
+    {
+      "path": "docs/readmes/020/regressions.json"
+    },
+    {
+      "path": "docs/readmes/020/examples/verified-data-report.html"
+    },
+    {
+      "path": "docs/readmes/020/examples/original.csv"
+    },
+    {
+      "path": "docs/readmes/020/examples/changed-source.csv"
+    },
+    {
+      "path": "docs/readmes/020/examples/normalized.csv"
+    },
+    {
+      "path": "docs/readmes/020/examples/intervals.json"
+    },
+    {
+      "path": "docs/readmes/020/examples/accelerations.json"
+    },
+    {
+      "path": "docs/readmes/020/examples/summary.json"
+    },
+    {
+      "path": "docs/readmes/020/file-inventory.json"
+    }
+  ]
+}

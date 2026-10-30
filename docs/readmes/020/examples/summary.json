@@ -1,0 +1,46 @@
+{
+  "summary": {
+    "peakAbsAccelerationMps2": 3.333333333333334,
+    "meanSpeedMps": 0.8,
+    "meanVelocityMps": 0.8,
+    "qualityPassed": true,
+    "maxGapS": 0.25,
+    "speedFlags": 0,
+    "gapFlags": 0,
+    "netDisplacementM": 0.4,
+    "totalTravelM": 0.4,
+    "intervalCount": 3,
+    "peakAbsVelocityMps": 1.2000000000000002,
+    "skippedSourceRows": 0,
+    "durationS": 0.5,
+    "rowCount": 4,
+    "passed": true
+  },
+  "mapping": {
+    "timeColumn": "time_ms",
+    "distanceUnit": "cm",
+    "distanceOrigin": 0,
+    "timeOffsetS": 0,
+    "distanceColumn": "distance_cm",
+    "timeUnit": "ms",
+    "direction": 1
+  },
+  "filename": "units-forward.csv",
+  "sourceNote": "Declared local numerical fixture; not instrument observations",
+  "method": "motion-data-v1: explicit SI mapping, adjacent-segment velocities, acceleration between segment midpoints; no smoothing or model fit",
+  "criteria": {
+    "speedLimitMps": 2,
+    "maxGapS": 0.3
+  },
+  "sourceLabelUserSupplied": true,
+  "source": {
+    "sourceSha256": "f70552b59b123f38bffd6d68f1f7fd60a43c138133bed7f86e443cba2af515b3",
+    "datasetVersion": 1,
+    "mappingSha256": "5aa3b73a9d00d85dae57e4800999e48d977a6b162202b588aabf031a9d549682",
+    "sourceKind": "synthetic",
+    "versionSha256": "4c2b1b38cc84e7341ae5332695dc6bec881a61bc652605e9a0acd38398ffdf4d",
+    "datasetId": "f9dd4900-f864-4684-ac1e-32aba379f34a",
+    "title": "units-forward"
+  },
+  "skippedSourceRowNumbers": []
+}

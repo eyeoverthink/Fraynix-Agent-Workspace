@@ -1,0 +1,57 @@
+{
+  "edition": "020",
+  "procedure": "motion-data-report-v1",
+  "declaration": "Written before first execution; local development cases, not an external hidden benchmark",
+  "cases": [
+    {
+      "id": "units-forward",
+      "csv": "time_ms,distance_cm\n0,0\n100,2\n250,10\n500,40\n",
+      "timeUnit": "ms",
+      "distanceUnit": "cm",
+      "maxGapS": 0.3,
+      "speedLimitMps": 2,
+      "expected": {
+        "rowCount": 4,
+        "durationS": 0.5,
+        "netDisplacementM": 0.4,
+        "totalTravelM": 0.4,
+        "meanSpeedMps": 0.8,
+        "qualityPassed": true
+      }
+    },
+    {
+      "id": "new-source-reversals-and-gap",
+      "csv": "time_ms,distance_mm\n0,0\n100,50\n200,20\n800,100\n1000,80\n",
+      "timeUnit": "ms",
+      "distanceUnit": "mm",
+      "maxGapS": 0.25,
+      "speedLimitMps": 0.4,
+      "expected": {
+        "rowCount": 5,
+        "durationS": 1,
+        "netDisplacementM": 0.08,
+        "totalTravelM": 0.18,
+        "meanSpeedMps": 0.18,
+        "gapFlags": 1,
+        "speedFlags": 1,
+        "qualityPassed": false
+      }
+    }
+  ],
+  "requiredChecks": [
+    "Actual file import with explicit units/source labels",
+    "Original CSV and source hashes unchanged",
+    "Normalization reconstructed from original CSV and frozen mapping",
+    "Segment velocities and midpoint acceleration, no invented sensor data",
+    "Quality flags remain distinct from verified task completion",
+    "Real canvas chart assertions",
+    "Retained skill rebinds a new source after restart",
+    "Versioned source remains frozen when a later dataset version is imported",
+    "Interrupted host verification reuses analysis and report identity",
+    "Cancellation and stale host acknowledgment reject promotion",
+    "Data task does not acquire physics/model ownership",
+    "Cross-family skill names reject",
+    "Actual local model uses typed data task",
+    "Frozen recorded dataset remains unchanged and real-world action authority unchanged"
+  ]
+}

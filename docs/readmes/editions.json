@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "latest": 19,
+  "latest": 20,
   "canonicalization": "UTF-8 without BOM; CRLF normalized to LF for text",
   "editions": [
     {
@@ -1727,6 +1727,150 @@
           "path": "docs/readmes/019/verification.json",
           "kind": "text",
           "sha256": "45f0f231d9a1dcf3fabc1371829638b4096dfe970b21b82db4ab0ffeba161fbc"
+        }
+      ]
+    },
+    {
+      "number": 20,
+      "date": "2026-10-30",
+      "title": "Verified offline motion-data procedures",
+      "status": "published",
+      "markdown": "README-020.md",
+      "markdownSha256": "2aec79af75864b8455b0e151c4db394d65bc00cd50c45ae80729b595d3be9544",
+      "snapshotDirectory": "docs/readmes/020",
+      "companion": "docs/readmes/020/index.html",
+      "tag": "readme-020",
+      "sourceBaseline": "3ae0871d0d188c3fa56720007d499c5ddfe38f3c",
+      "snapshotFiles": [
+        {
+          "path": "docs/readmes/020/contract-v1.json",
+          "kind": "text",
+          "sha256": "0c92c25db8a382936a78e32de300458fa409eb30988f149004172047ac7cc130"
+        },
+        {
+          "path": "docs/readmes/020/data-goals-integration.json",
+          "kind": "text",
+          "sha256": "b2609cd57e195f3bf1ab352eed2c44a3b5c83d5c6c0027bdd868ec23da5a49c4"
+        },
+        {
+          "path": "docs/readmes/020/examples/accelerations.json",
+          "kind": "text",
+          "sha256": "a39430c55184c8c453bee29172f72e822c6856298863ed82ad9c4b6a11a9c4c1"
+        },
+        {
+          "path": "docs/readmes/020/examples/changed-source.csv",
+          "kind": "text",
+          "sha256": "3bf55a27858d38079e44c92768c2fbd7373b71861cbbbc3236010001b2ee2403"
+        },
+        {
+          "path": "docs/readmes/020/examples/intervals.json",
+          "kind": "text",
+          "sha256": "871a0cdea8c1902d28555d650031901f931208d75bdb69b969283b377f9038a4"
+        },
+        {
+          "path": "docs/readmes/020/examples/normalized.csv",
+          "kind": "text",
+          "sha256": "d6703ebd6e433df071b812c8f283f5f7bb38fea457d161501a83ebeb28007ba4"
+        },
+        {
+          "path": "docs/readmes/020/examples/normalized.json",
+          "kind": "text",
+          "sha256": "a8658a9f4a30305a2a213847bd941db1ffadfb61c11498af7726bbb416152bb4"
+        },
+        {
+          "path": "docs/readmes/020/examples/original.csv",
+          "kind": "text",
+          "sha256": "f70552b59b123f38bffd6d68f1f7fd60a43c138133bed7f86e443cba2af515b3"
+        },
+        {
+          "path": "docs/readmes/020/examples/quality.json",
+          "kind": "text",
+          "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+        },
+        {
+          "path": "docs/readmes/020/examples/summary.json",
+          "kind": "text",
+          "sha256": "ddcd29522cdb0ab472364b0a70ff63e07158fa9e2d5922f663845e08a25e4bdc"
+        },
+        {
+          "path": "docs/readmes/020/examples/verified-data-report.html",
+          "kind": "text",
+          "sha256": "791b737a6a6224752b24f4a1d0240065983c7055aad9482837489d27c60427fc"
+        },
+        {
+          "path": "docs/readmes/020/file-inventory.json",
+          "kind": "text",
+          "sha256": "b07d5c2f238a69cf0e0a5f24755cafbc615fc3b1938534a30e47492f20036973"
+        },
+        {
+          "path": "docs/readmes/020/FILE_TREE.md",
+          "kind": "text",
+          "sha256": "2e93d36f8380274c72c24c1b97afcf4862703075308555e194dccec0a5432d91"
+        },
+        {
+          "path": "docs/readmes/020/images/data-chat-020.png",
+          "kind": "binary",
+          "sha256": "1517e38f5dabd7936d3aef51feab765155aba9e310e0f54367d0d992a643e54e"
+        },
+        {
+          "path": "docs/readmes/020/images/data-flags-020.png",
+          "kind": "binary",
+          "sha256": "49f8990036c3ba9d2b8925e6409bfe97bc1343563b9c300bbe8564cd93a930a8"
+        },
+        {
+          "path": "docs/readmes/020/images/data-import-020.png",
+          "kind": "binary",
+          "sha256": "569036a60ee45b234cb80e7e7476c5ac73b1afa20cce0de5849b51274ff1d057"
+        },
+        {
+          "path": "docs/readmes/020/images/data-recorded-020.png",
+          "kind": "binary",
+          "sha256": "115e0b8f709c05f4abd5d4c727a10e9b0392b3bd9309597c3046c3fe8c5959a0"
+        },
+        {
+          "path": "docs/readmes/020/images/data-report-020.png",
+          "kind": "binary",
+          "sha256": "6b9c34923842df0a26bd9ab68761f30146509cdc6842146865e05d8a73f13e9e"
+        },
+        {
+          "path": "docs/readmes/020/images/data-skill-020.png",
+          "kind": "binary",
+          "sha256": "9366a44c1bc86d52ca79c0888b19b2c2bf9e2e924e03027f6fa0646aab6f6a17"
+        },
+        {
+          "path": "docs/readmes/020/index.html",
+          "kind": "text",
+          "sha256": "0dd43d4501d8afd1049bc457211255eeaff405b8aeac9b7363d00c475045d7b7"
+        },
+        {
+          "path": "docs/readmes/020/live-data-goals.json",
+          "kind": "text",
+          "sha256": "84d2698e1b28e2e7aca9b43e679d95c49c38f76438e6758f9cc61a286c07a0fb"
+        },
+        {
+          "path": "docs/readmes/020/live-goals.json",
+          "kind": "text",
+          "sha256": "c28c33e89d60998568fb356a9eb863054f6b8a5f0c604f0efd829345d18c49ca"
+        },
+        {
+          "path": "docs/readmes/020/live-memory.json",
+          "kind": "text",
+          "sha256": "4ae7db39dc48e3a19b6d4cba5967cc53423a4c74b642f16fefb05d775905d119"
+        },
+        {
+          "path": "docs/readmes/020/regressions.json",
+          "kind": "text",
+          "sha256": "8323e1cbc2041ff1f9f2c4f57c5f7f8cc1cbfbe3f70efcfd94f1c57dd24e0c29"
+        },
+        {
+          "path": "docs/readmes/020/system-map.json",
+          "kind": "text",
+          "sha256": "f45fa23587b8ff9c9c809bb0abf40beea4d94d84c072af426ff82d7ca48aa3f1"
+        },
+        {
+          "path": "docs/readmes/020/verification.json",
+          "kind": "text",
+          "sha256": "23f9a21d77d58187c6fe1ff710c073295330646777226f2eb130310fb9644787"
         }
       ]
     }

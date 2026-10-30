@@ -1,0 +1,209 @@
+{
+  "date": "2026-10-30",
+  "sourceBaseline": "3ae0871d0d188c3fa56720007d499c5ddfe38f3c",
+  "releaseKind": "verified-offline-motion-data-procedures",
+  "sourceInventory": 476,
+  "contractSha256": "011be84fde73dd1ddb7c2880d672fe32b0553185cffc8593b17917efec8cef9c",
+  "declaration": "Cases written in working tree before first execution; local development cases, not hidden benchmark",
+  "initial": {
+    "peakAbsAccelerationMps2": 3.333333333333334,
+    "meanSpeedMps": 0.8,
+    "meanVelocityMps": 0.8,
+    "qualityPassed": true,
+    "maxGapS": 0.25,
+    "speedFlags": 0,
+    "gapFlags": 0,
+    "netDisplacementM": 0.4,
+    "totalTravelM": 0.4,
+    "intervalCount": 3,
+    "peakAbsVelocityMps": 1.2000000000000002,
+    "skippedSourceRows": 0,
+    "durationS": 0.5,
+    "rowCount": 4,
+    "passed": true
+  },
+  "changed": {
+    "peakAbsAccelerationMps2": 7.999999999999999,
+    "meanSpeedMps": 0.18,
+    "meanVelocityMps": 0.08,
+    "qualityPassed": false,
+    "maxGapS": 0.6000000000000001,
+    "speedFlags": 1,
+    "gapFlags": 1,
+    "netDisplacementM": 0.08,
+    "totalTravelM": 0.18,
+    "intervalCount": 4,
+    "peakAbsVelocityMps": 0.5,
+    "skippedSourceRows": 0,
+    "durationS": 1,
+    "rowCount": 5,
+    "passed": true
+  },
+  "recorded": {
+    "peakAbsAccelerationMps2": 135.30891307729846,
+    "meanSpeedMps": 0.9698065952819892,
+    "meanVelocityMps": 0.9694481787882638,
+    "qualityPassed": true,
+    "maxGapS": 0.01666666666666672,
+    "speedFlags": 0,
+    "gapFlags": 0,
+    "netDisplacementM": 0.7755585430306111,
+    "totalTravelM": 0.7758452762255914,
+    "intervalCount": 48,
+    "peakAbsVelocityMps": 3.866609224437713,
+    "skippedSourceRows": 0,
+    "durationS": 0.8,
+    "rowCount": 49,
+    "passed": true
+  },
+  "recordedSourceSha256": "591c0cb5e7b1755dce0e9e415ed0766840a9e74021effca78a45c1ae9e59b4c8",
+  "newUiGroups": 12,
+  "liveData": {
+    "model": "gpt-oss:20b",
+    "checks": 4,
+    "firstCalls": [
+      "data.start",
+      "goal.read"
+    ],
+    "reuseCalls": [
+      "procedure.run",
+      "goal.read"
+    ]
+  },
+  "existingLiveGoals": {
+    "model": "gpt-oss:20b",
+    "checks": 5
+  },
+  "memoryRegression": {
+    "model": "gpt-oss:20b",
+    "checks": 4,
+    "digest": "f38aa0c53da5f8c49d08c43a99df24ff53167fe68e24664a7777288e7656fdfe"
+  },
+  "currentRegression": {
+    "passed": true,
+    "javaTests": 175,
+    "javaClasses": 35,
+    "observerJavaTests": 8,
+    "bodyJavaTests": 9,
+    "interchangeJavaTests": 3,
+    "desktopUnitTests": 22,
+    "suites": {
+      "data-goals-integration": {
+        "passed": true,
+        "checks": 12,
+        "output": "workspace-desktop/test-output/data-goals-integration.json"
+      },
+      "goals-integration": {
+        "passed": true,
+        "checks": 14,
+        "output": "workspace-desktop/test-output/goals-integration.json"
+      },
+      "world-model-integration": {
+        "passed": true,
+        "checks": 15,
+        "output": "workspace-desktop/test-output/world-model-integration.json"
+      },
+      "feedback-integration": {
+        "passed": true,
+        "checks": 12,
+        "output": "workspace-desktop/test-output/feedback-integration.json"
+      },
+      "brain-game-integration": {
+        "passed": true,
+        "checks": 10,
+        "output": "workspace-desktop/test-output/brain-game-integration.json"
+      },
+      "body-integration": {
+        "passed": true,
+        "checks": 10,
+        "output": "workspace-desktop/test-output/body-integration.json"
+      },
+      "observer-integration": {
+        "passed": true,
+        "checks": 12,
+        "output": "workspace-desktop/test-output/observer-integration.json"
+      },
+      "scene-integration": {
+        "passed": true,
+        "checks": 12,
+        "output": "workspace-desktop/test-output/scene-integration.json"
+      },
+      "measurement-integration": {
+        "passed": true,
+        "checks": 10,
+        "output": "workspace-desktop/test-output/measurement-integration.json"
+      },
+      "calibration-integration": {
+        "passed": true,
+        "checks": 8,
+        "output": "workspace-desktop/test-output/calibration-integration.json"
+      },
+      "real-data-delfys": {
+        "passed": true,
+        "checks": 9,
+        "output": "workspace-desktop/test-output/real-data-delfys.json"
+      },
+      "integration": {
+        "passed": true,
+        "checks": 12,
+        "output": "workspace-desktop/test-output/integration.json"
+      },
+      "learning-integration": {
+        "passed": true,
+        "checks": 9,
+        "output": "workspace-desktop/test-output/learning-integration.json"
+      },
+      "broader-validation": {
+        "passed": true,
+        "checks": 45,
+        "output": "workspace-desktop/test-output/broader-validation.json"
+      }
+    }
+  },
+  "freshClone": {
+    "status": "passed",
+    "checkout": "fraynix-workspace-qa020-verified",
+    "sourceCommit": "3ae0871d0d188c3fa56720007d499c5ddfe38f3c",
+    "javaTests": 175,
+    "desktopUnitTests": 22,
+    "bodyUiChecks": 10,
+    "brainGameUiChecks": 10,
+    "feedbackUiChecks": 12,
+    "worldModelUiChecks": 15,
+    "goalUiChecks": 14,
+    "dataGoalUiChecks": 12,
+    "offlineBuild": true,
+    "modelWeightsOrPrivateRuntimeCopied": false,
+    "electronBinary": "Pinned 45.1.0 executable reused from existing dependency cache after npm ci --offline --ignore-scripts",
+    "canonicalSourceHashesMatched": 476
+  },
+  "documentationQa": {
+    "status": "passed",
+    "checks": [
+      "Offline companion loads eight source-linked modules with no runtime service",
+      "Architecture selection and all/verified/planned filters work",
+      "Canonical source inventory search resolves actual Java motion-data implementation",
+      "All six dated actual application screenshots decode and have captions",
+      "Navigation, inventory search and map selection work at390px without horizontal overflow",
+      "Standalone actual report opens offline with actual mapped source and interval-velocity charts",
+      "No script errors, external requests or CDN dependencies"
+    ]
+  },
+  "scope": [
+    "Second registered family; no arbitrary procedure code or executable imported cells",
+    "Descriptive finite differences and threshold checks, not physical model training or sensor authentication",
+    "Verified task completion remains separate from source quality acceptance",
+    "Recorded source unchanged; previous physical forecast/calibration rejection and lack of action authority preserved",
+    "Data goals do not own native physics/model state",
+    "Explicit source version and source-qualified reused skill; immutable version history",
+    "No online LLM weight training or claim of general recursive self-improvement",
+    "019 review runs separately; original user data and installed models remain private"
+  ],
+  "developmentCorrections": [
+    "Task-family-specific semantic schemas and registry binding resolve live-model procedure-name/field copying failures",
+    "New file loading hides prior mapping until validation finishes and resets mapping defaults",
+    "UI tests wait for actual new goal identity and completed file validation rather than racing earlier results",
+    "Audit files retain filename, source note, user-label qualification and skipped source-row numbers",
+    "Verified body completion survives observer refresh and stale progress; native outcome gates remain unchanged"
+  ]
+}

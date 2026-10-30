@@ -2,9 +2,11 @@
 
 **A local visual environment for agents to browse, create runnable artifacts, test behavior and reuse verified skills.**
 
-> **Latest implementation: [README 019 — durable Java goals and procedural skills](README-019.md)** · [Offline explorer](docs/readmes/019/index.html) · [Runtime contract](docs/GOALS_AND_SKILLS.md) · [Edition history](docs/readmes/INDEX.md)
+> **Latest implementation: [README 020 — verified offline data procedures](README-020.md)** · [Offline explorer](docs/readmes/020/index.html) · [Runtime contract](docs/MOTION_DATA_PROCEDURES.md) · [Edition history](docs/readmes/INDEX.md)
 
-Chat now connects to a durable Java goal: predict native motion, reach a target despite a disturbance, verify a real chart and retain a versioned procedural skill. Interrupted tasks recover from verified state; saved skills replan and check outcomes under changed conditions. Recorded real-world action use remains unauthorized. [Actual functions, uncertainty, evidence and next steps](README-019.md).
+Java now completes both physical and local-data procedures. Import motion CSV with explicit units, preserve source/version hashes, derive motion and quality flags, verify real charts and retain a procedure that recomputes on another selected source. Existing world-model goals and interrupted-task recovery remain available. [Functions, verification, limits and next steps](README-020.md).
+
+The next spatial research direction is documented in the [world-model frontier assessment](docs/WORLD_MODEL_FRONTIERS.md), including Genie, persistent3D capture, physics-aware prediction and a proposed local scene/manipulation milestone.
 
 Independent successor to [Fraynix Studio](https://github.com/eyeoverthink/Fraynix-Studio), starting from verified commit `6341404`. The original application and personal project state remain separate. Full game sources, assets, licenses and earlier editions are preserved here.
 
@@ -16,7 +18,7 @@ The app includes a real browser, live creation canvas, editable source, versione
 
 Local `gpt-oss:20b` is the verified default for the first agent fixture. The custom FRAYNIX 3B trial returned an Ollama native-format error; advertised tool capability alone does not establish task reliability. You can select other eligible installed models explicitly.
 
-![Actual chat-driven Java goal and verified report](docs/readmes/019/images/goal-chat-019.png)
+![Actual chat-driven offline data procedure](docs/readmes/020/images/data-chat-020.png)
 
 October 30 actual body/scene/file workflows. Native actuation, decoded video, import/replication, Java/desktop regressions and local-agent evidence are recorded in [edition 015 verification](docs/readmes/015/verification.json). The previous [real-data fit](README-013.md) remains rejected.
 
