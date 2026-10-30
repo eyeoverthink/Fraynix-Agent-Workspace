@@ -1,5 +1,11 @@
 # Agent Workspace development log
 
+## 2026-10-30 Edition 014 publication confirmed
+
+Published 3905c5ba03e44e1d6beaedf974801c50e4ab08c8 to private eyeoverthink/Fraynix-Agent-Workspace main and annotated readme-014 in an atomic push. Remote main and the peeled tag matched. The independent checkout fetched the release directly from GitHub, checked out that exact tag, passed fourteen-edition documentation verification (nineteen canvases, 1,758 references, 219 frozen hashes) and matched all 411 canonical source/asset hashes.
+
+README 014 (2,450 words), its actual screenshots/frame, failed local-model trials, successful model-free/local-model evidence, current regression records, offline viewer and map are now frozen. Current runtime source remains fe55acd. This follow-up only records publication/continuity; no additional runtime test run or training is claimed. Next unused edition: 015. Preserve the Java-first native direction and existing app; physical actuation/navigation is next, with a learned renderer optional.
+
 ## 2026-10-30 Native Java observer · edition 014
 
 The user corrected the direction after JING review: the engine should own world logic rather than depending on a video transformer. Implemented the actual native observer workflow in source fe55acd while preserving the existing layout, original Studio and private runtime. Java now owns observer identities, poses, sampled oriented-box visibility, bounded camera actions, actual entity inspection, expiring source leases, idempotent receipts and durable source/run/tick-linked capture metadata. The existing Three renderer captures actual PNG pixels. Content-addressed images and checkpointed metadata reopen as read-only historical observations without changing the current scene/pose.
