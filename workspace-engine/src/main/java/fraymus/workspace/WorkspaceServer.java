@@ -20,6 +20,7 @@ public final class WorkspaceServer {
     private final CalibrationStore calibrations;
     private final ObserverStore observers;
     private final BrainService brain;
+    private final GoalRunner goals;
     private final EmbeddedGameClient game;
     private final String token;
     private final FactoryModelService models=new FactoryModelService();
@@ -29,14 +30,14 @@ public final class WorkspaceServer {
     public WorkspaceServer(Path project,String token) throws IOException {
         if(token==null||token.length()<32)throw new IllegalArgumentException("A private session capability is required");
         this.token=token;store=new WorkspaceStore(project);learning=new LearningStore(project);
-        try{scenes=new SceneStore(project);measurements=new MeasurementStore(project);calibrations=new CalibrationStore(project,scenes,measurements);observers=new ObserverStore(project,scenes);brain=new BrainService(project);game=new EmbeddedGameClient(Path.of(System.getProperty("user.dir")),project);}catch(Exception e){throw new IOException("Experiment stores could not start",e);}
+        try{scenes=new SceneStore(project);measurements=new MeasurementStore(project);calibrations=new CalibrationStore(project,scenes,measurements);observers=new ObserverStore(project,scenes);brain=new BrainService(project);goals=new GoalRunner(project,scenes,brain,store);game=new EmbeddedGameClient(Path.of(System.getProperty("user.dir")),project);}catch(Exception e){throw new IOException("Experiment stores could not start",e);}
         scanner.scheduleWithFixedDelay(()->{try{catalog=models.observe();}catch(Exception e){System.err.println("Model discovery: "+e.getMessage());}},0,45,TimeUnit.SECONDS);
     }
     private JSONObject state() throws IOException {
         var available=new JSONArray();var snapshot=catalog;
         if(snapshot!=null)for(var model:snapshot.models())if(model.available()&&model.capabilities().contains("tools"))available.put(new JSONObject().put("name",model.name()).put("endpoint",model.endpoint()).put("bytes",model.bytes()).put("capabilities",model.capabilities()));
         return new JSONObject().put("name","Fraynix Agent Workspace").put("project",store.root().toString()).put("models",available)
-            .put("discovering",snapshot==null).put("artifacts",store.artifacts()).put("skills",store.skills()).put("learning",learning.state()).put("scenes",scenes.scenes()).put("datasets",measurements.datasets()).put("comparisons",measurements.comparisons("")).put("calibrations",calibrations.list()).put("baseline","6341404");
+            .put("discovering",snapshot==null).put("artifacts",store.artifacts()).put("skills",store.skills()).put("learning",learning.state()).put("scenes",scenes.scenes()).put("datasets",measurements.datasets()).put("comparisons",measurements.comparisons("")).put("calibrations",calibrations.list()).put("goals",goals.list()).put("procedures",goals.procedures()).put("baseline","6341404");
     }
     public HttpServer start() throws IOException {
         HttpServer server=HttpServer.create(new InetSocketAddress("127.0.0.1",0),0);server.setExecutor(Executors.newVirtualThreadPerTaskExecutor());
@@ -47,7 +48,19 @@ public final class WorkspaceServer {
                 if(!exchange.getRequestMethod().equals("POST")){send(exchange,405,new JSONObject().put("error","POST required"));return;}
                 byte[] body=exchange.getRequestBody().readNBytes(2_100_001);if(body.length>2_100_000)throw new IllegalArgumentException("Request too large");
                 JSONObject input=new JSONObject(new String(body,StandardCharsets.UTF_8));String route=exchange.getRequestURI().getPath();JSONObject result;
+                if(route.equals("/api/plan")){send(exchange,200,plan(input));return;}
+                synchronized(goals){
+                if(goals.busy()&&Set.of("/api/brain/start","/api/brain/cancel","/api/brain/rollback","/api/brain/run","/api/brain/feedback-start","/api/brain/feedback-kick","/api/brain/feedback-cancel","/api/brain/feedback-rollback","/api/brain/world-prepare","/api/brain/world-preview","/api/brain/world-kick","/api/brain/world-cancel","/api/brain/world-rollback","/api/body/action","/api/body/cancel","/api/scene/save","/api/scene/import","/api/experiment/control","/api/experiment/run","/api/experiment/replay","/api/observer/action","/api/observer/replay","/api/calibration/start","/api/calibration/resume","/api/calibration/apply","/api/calibration/rollback").contains(route))throw new IllegalStateException("The Java goal owns this task's physics and model state. Cancel it before manual changes.");
                 switch(route) {
+                    case "/api/goals/start" -> result=goals.start(input);
+                    case "/api/goals/read" -> result=GoalRunner.view(goals.read(input.getString("id")));
+                    case "/api/goals/list" -> result=new JSONObject().put("goals",goals.list()).put("procedures",goals.procedures());
+                    case "/api/goals/cancel" -> result=goals.cancel(input.getString("id"));
+                    case "/api/goals/resume" -> result=goals.resume(input.getString("id"));
+                    case "/api/goals/claim" -> result=goals.claim();
+                    case "/api/goals/ack" -> result=goals.acknowledge(input);
+                    case "/api/procedures/save" -> result=goals.saveProcedure(input.getString("goalId"),input.getString("name"));
+                    case "/api/procedures/run" -> result=goals.runProcedure(input);
                     case "/api/brain/state" -> result=brain.state();
                     case "/api/brain/world-prepare" -> result=scenes.worldPrepare(input,brain);
                     case "/api/brain/world-preview" -> result=scenes.worldPreview(input);
@@ -132,6 +145,7 @@ public final class WorkspaceServer {
                     case "/api/plan" -> result=plan(input);
                     default -> throw new IllegalArgumentException("Unknown operation");
                 }
+                }
                 send(exchange,200,result);
             } catch(Exception error) {try{send(exchange,400,new JSONObject().put("error",String.valueOf(error.getMessage())));}catch(Exception ignored){exchange.close();}}
         });
@@ -147,7 +161,7 @@ public final class WorkspaceServer {
             }catch(Exception error){send(exchange,404,new JSONObject().put("error","Artifact file not found"));}
         });
         server.createContext("/welcome",exchange->{byte[] bytes=WELCOME.getBytes(StandardCharsets.UTF_8);exchange.getResponseHeaders().set("Content-Type","text/html; charset=utf-8");exchange.sendResponseHeaders(200,bytes.length);try(var out=exchange.getResponseBody()){out.write(bytes);}});
-        server.start();Runtime.getRuntime().addShutdownHook(new Thread(()->{requests.values().forEach(OllamaIntegration.RequestControl::cancel);scanner.shutdownNow();game.close();brain.close();calibrations.close();scenes.close();server.stop(0);try{store.close();}catch(IOException ignored){}}));return server;
+        server.start();Runtime.getRuntime().addShutdownHook(new Thread(()->{requests.values().forEach(OllamaIntegration.RequestControl::cancel);scanner.shutdownNow();game.close();goals.close();brain.close();calibrations.close();scenes.close();server.stop(0);try{store.close();}catch(IOException ignored){}}));return server;
     }
     private JSONObject plan(JSONObject input) throws Exception {
         if(catalog==null)throw new IllegalStateException("Local models are still being discovered");

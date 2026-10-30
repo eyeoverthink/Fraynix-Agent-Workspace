@@ -1,5 +1,7 @@
 # Shared-world and 3D experiment engineering plan
 
+Edition 019 implements the first durable Java task/skill layer: chat selects an owned world-model goal; Java freezes the source, predicts/acts/checks, verifies a real report and retains a procedural version. Restart recovery, changed-condition reuse and finite budgets are implemented. See [goal/skill contract](GOALS_AND_SKILLS.md). Additional registered task families and experience-derived training with independent evaluation are next; broader physics and real-actuator validation remain separate gates.
+
 Edition018 adds a learned numerical world model, separate uncertainty calibration/native evaluation, paused counterfactual previews, receding-horizon action/observation checks and recorded-motion forecasting. Native limits pass; the previous feedback controller still scores better on tracking, and the recorded-reality gate remains rejected. See [current world/reality contract](WORLD_MODEL_REALITY.md) and [README018](../README-018.md). Broader real calibration and multi-object/contact models remain next.
 
 Edition 017 adds live bounded native feedback, gain selection from actual training outcomes, predeclared stronger-baseline evaluation, real disturbances, intent/receipt history, stop/replay/restart and separate feedback rollback. Job completion and activation now commit atomically. See [current feedback contract](CLOSED_LOOP_CONTROL.md) and [README 017](../README-017.md). Broader geometry/sensing, closed-loop manipulation/navigation and Java task graphs remain next.

@@ -20,6 +20,7 @@ public final class SceneStore implements AutoCloseable {
     private LearnedDynamics worldDynamics;
     private boolean playing;
     private JSONObject bodyPlan;
+    private JSONObject goalBinding;
     private String error="";
     public SceneStore(Path project) throws Exception {
         root=project.resolve("experiments");Files.createDirectories(root);
@@ -127,6 +128,7 @@ public final class SceneStore implements AutoCloseable {
         RampDefinition.range(seconds,.05,10,"seconds");if(physics!=null)throw new IllegalStateException("Reset the current experiment before starting another");String id=scene.getString("id");
         active=new JSONObject().put("id",UUID.randomUUID().toString()).put("title",scene.getString("title")+" experiment").put("sceneId",id).put("sceneVersion",scene.getInt("version")).put("definition",scene).put("backend",BulletRamp.BACKEND)
             .put("dt",BulletRamp.DT).put("targetTicks",(int)Math.round(seconds/BulletRamp.DT)).put("status","paused").put("startedAt",Instant.now()).put("samples",new JSONArray());
+        if(goalBinding!=null)active.put("goalId",goalBinding.getString("goalId")).put("goalAttempt",goalBinding.getInt("attempt"));
         if(scene.has("calibrationOverride"))active.put("scope","calibration");
         try{physics=new BulletRamp(RampDefinition.from(scene.getJSONObject("parameters")),scene.getJSONObject("entityIds"),root.resolve("native"));active.put("solverConfiguration",physics.configuration());sample();commit(List.of(record("workspace.experiment",active,id)));error="";}catch(Exception e){if(physics!=null)physics.close();physics=null;active=null;throw e;}
     }
@@ -134,6 +136,8 @@ public final class SceneStore implements AutoCloseable {
     private void advance(int ticks) throws Exception {
         if(physics==null)return;
         for(int i=0;i<ticks&&physics.tick()<active.getInt("targetTicks");i++){
+            var disturbance=active.optJSONObject("goalDisturbance");
+            if(disturbance!=null&&physics.tick()==disturbance.getInt("tick"))worldKick(new JSONObject().put("runId",active.getString("id")).put("operationId",disturbance.getString("operationId")).put("deltaVelocityMps",disturbance.getDouble("deltaVelocityMps")));
             if(active.optString("scope").equals("feedback-policy")&&physics.tick()%12==0){
                 active.put("pendingFeedback",new JSONObject().put("tick",physics.tick()).put("kind","control"));commit(List.of(record("workspace.experiment",active,active.getString("sceneId"))));
                 FeedbackExperiment.act(physics,RampDefinition.from(active.getJSONObject("definition").getJSONObject("parameters")),active.getJSONObject("controller").getDouble("targetM"),active.getJSONObject("controller"),true,active.getJSONArray("feedbackEvents"));
@@ -233,6 +237,30 @@ public final class SceneStore implements AutoCloseable {
     public synchronized JSONObject worldPrepare(JSONObject input,BrainService brain) throws Exception {
         if(!input.keySet().equals(Set.of("id","expectedVersion","targetM")))throw new IllegalArgumentException("Unsupported world-model preparation field");var scene=read(input.getString("id"));FeedbackExperiment.validate(scene.getJSONObject("parameters"),input.getDouble("targetM"));var policy=brain.worldForRun().put("targetM",input.getDouble("targetM"));var model=WorldModelExperiment.unpack(policy);
         begin(input.getString("id"),input.getInt("expectedVersion"),1.5);worldDynamics=model;active.put("scope","world-model").put("controller",policy).put("worldEvents",new JSONArray()).put("worldPlans",new JSONArray()).put("worldInnovations",new JSONArray());commit(List.of(record("workspace.experiment",active,active.getString("sceneId"))));return snapshot();
+    }
+    /** Frozen, separately identified scene: a task never edits its user's authored source. */
+    synchronized JSONObject goalScene(String goalId,JSONObject parameters,JSONObject source) throws Exception {
+        String id=UUID.nameUUIDFromBytes(("goal-scene:"+goalId).getBytes(java.nio.charset.StandardCharsets.UTF_8)).toString();
+        var prior=find(id);if(prior!=null){var saved=read(id);if(!saved.getJSONObject("parameters").similar(parameters))throw new IllegalStateException("Frozen goal scene changed");return saved;}
+        var ids=new JSONObject();for(String name:List.of("ramp","block","ground"))ids.put(name,UUID.nameUUIDFromBytes((goalId+":"+name).getBytes(java.nio.charset.StandardCharsets.UTF_8)).toString());
+        var scene=new JSONObject().put("id",id).put("schemaVersion",1).put("title","Goal "+goalId.substring(0,8)).put("version",1).put("parameters",parameters).put("entityIds",ids).put("goalId",goalId).put("source",source).put("units","SI: metre, second, kilogram").put("frame","right-handed, +Y up, downhill +X, depth Z");
+        var records=new ArrayList<EntityRecord>();records.add(record("workspace.scene",scene,null));for(Object raw:RampDefinition.from(parameters).objects(ids)){var object=(JSONObject)raw;object.put("schemaVersion",1);records.add(record("workspace.scene.object3d",object,id));}commit(records);return read(id);
+    }
+    synchronized JSONObject goalRun(String goalId,int attempt){
+        for(var e:world.snapshot().entities())if(type(e).equals("workspace.experiment")){var run=payload(e);if(goalId.equals(run.optString("goalId"))&&attempt==run.optInt("goalAttempt"))return run;}return null;
+    }
+    synchronized void goalAvailable() {
+        if(active!=null&&(!active.has("goalId")||Set.of("running","paused").contains(active.getString("status"))))throw new IllegalStateException("Reset the current experiment before starting a goal; its scene and run will be preserved");
+    }
+    synchronized JSONObject goalPrepare(String goalId,int attempt,JSONObject scene,double target,double disturbance,BrainService brain) throws Exception {
+        var prior=goalRun(goalId,attempt);if(prior!=null)return prior;
+        goalAvailable();if(physics!=null)control(new JSONObject().put("action","reset"));
+        goalBinding=new JSONObject().put("goalId",goalId).put("attempt",attempt);
+        try{
+            worldPrepare(new JSONObject().put("id",scene.getString("id")).put("expectedVersion",1).put("targetM",target),brain);
+            active.put("goalDisturbance",new JSONObject().put("tick",108).put("deltaVelocityMps",disturbance).put("operationId",UUID.nameUUIDFromBytes((goalId+":"+attempt+":disturbance").getBytes(java.nio.charset.StandardCharsets.UTF_8)).toString()));
+            commit(List.of(record("workspace.experiment",active,scene.getString("id"))));return new JSONObject(active.toString());
+        }finally{goalBinding=null;}
     }
     private void requireWorld(String id){if(active==null||physics==null||!active.getString("id").equals(id)||!active.optString("scope").equals("world-model")||!Set.of("running","paused").contains(active.getString("status")))throw new IllegalStateException("No matching active world-model run");}
     public synchronized JSONObject worldPreview(JSONObject input) throws Exception {

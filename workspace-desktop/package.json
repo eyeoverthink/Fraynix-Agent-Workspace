@@ -26,7 +26,9 @@
     "test:brain-game": "node test/brain-game-integration.cjs",
     "test:live-memory": "node test/live-memory.cjs",
     "test:feedback": "node test/feedback-integration.cjs",
-    "test:world-model": "node test/world-model-integration.cjs"
+    "test:world-model": "node test/world-model-integration.cjs",
+    "test:goals": "node test/goals-integration.cjs",
+    "test:live-goals": "node test/live-goals.cjs"
   },
   "devDependencies": {
     "electron": "45.1.0",

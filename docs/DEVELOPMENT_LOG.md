@@ -1,5 +1,11 @@
 # Agent Workspace development log
 
+## Edition 019 — durable Java goals and procedural skills (2026-10-30)
+
+Connected local chat to the learned native world model through typed goal tools. Implemented Java-owned persisted steps, bounded prerequisites, a separate frozen task scene, preview,20Hz replanning, one actual tick108 disturbance, physical gates, stable HTML/raw-JSON report, private desktop effect claims and actual Chromium verification. Added saved-task resume/cancel/report UI and versioned procedural inspectors/runs. No dynamic handler installation, new dependencies or personal runtime copied.
+
+The first new native integration passes14 groups: initial and changed physics, original-source preservation, seven actual canvas assertions, persistent skill reuse, immutablev2/idempotent saves, cancellation, stale/forged/expired claims, restart during native motion and during report verification. Five Java goal tests pass within165 total;21 desktop units pass. Actual gpt-oss:20b completes one goal with five live assertions. Its initial omitted settings/context now reject before any goal starts. Native float serialization reconciliation uses2e-6 numeric tolerance; physical gates remain unchanged. A prior Game/Brain UI test now awaits actual dialog completion before reading the run, avoiding a premature asynchronous snapshot. Source changes are entering clean-checkout and broader validation before release documentation/publication.
+
 ## 2026-10-30 Edition 018 publication confirmed
 
 Published a9434f1be17fee189751d29cd2113adffbbf03cc to private eyeoverthink/Fraynix-Agent-Workspace main and annotated readme-018 in an atomic push. Remote main and peeled tag matched. Independent qa018-release fetched that exact tag directly from GitHub, passed 18-edition documentation verification (23 canvases, 2,110 references, 293 frozen hashes) and matched all 460 canonical source/asset hashes. Clean source f8d9f84 passed offline 160 Java / 19 desktop units / 47 combined UI checks with no copied private project/model data.

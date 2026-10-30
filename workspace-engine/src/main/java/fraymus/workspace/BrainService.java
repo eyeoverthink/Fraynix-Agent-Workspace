@@ -49,11 +49,16 @@ public final class BrainService implements AutoCloseable {
         var core=new JSONObject().put("module","shared brain-core").put("ready",cortex!=null).put("neurons",cortex==null?0:cortex.neurons()).put("synapses",cortex==null?0:cortex.synapses()).put("ticks",cortex==null?0:cortex.ticks()).put("spikingBackend","Java CPU");
         return new JSONObject().put("jobs",jobs).put("busy",busyId!=null).put("activePolicy",activePolicy()).put("activeFeedback",activeFeedback()).put("activeWorldModel",activeWorldModel()).put("cortex",core).put("journalEntries",journal.verify().entries()).put("protocol",PROTOCOL);
     }
-    public synchronized JSONObject start(JSONObject input) throws Exception {
+    public synchronized JSONObject start(JSONObject input) throws Exception { return start(input,UUID.randomUUID().toString()); }
+    synchronized JSONObject startOwned(String id) throws Exception {
+        UUID.fromString(id);for(var j:values("job"))if(j.getString("id").equals(id))return j;
+        return start(new JSONObject().put("kind","world-model-train").put("autoPromote",true),id);
+    }
+    private JSONObject start(JSONObject input,String id) throws Exception {
         if(closed)throw new IllegalStateException("Java coordinator is closed");if(!Set.of("kind","autoPromote").containsAll(input.keySet()))throw new IllegalArgumentException("Unsupported brain job field");
         if(busyId!=null)throw new IllegalStateException("One Java brain job is active; cancel or wait");if(values("job").size()>=16)throw new IllegalStateException("Brain job history budget reached (16)");
         String kind=input.getString("kind");if(!Set.of("train","gpu-check","pulse","feedback-train","world-model-train").contains(kind))throw new IllegalArgumentException("Unknown brain job kind");
-        var job=new JSONObject().put("id",UUID.randomUUID().toString()).put("kind",kind).put("status","queued").put("phase","queued").put("createdAt",Instant.now()).put("activeVersionAtStart",activePolicy().getInt("version")).put("autoPromote",input.optBoolean("autoPromote",true)).put("protocol",PROTOCOL).put("feedbackVersionAtStart",activeFeedback().getInt("version")).put("worldVersionAtStart",activeWorldModel().getInt("version"));
+        var job=new JSONObject().put("id",id).put("kind",kind).put("status","queued").put("phase","queued").put("createdAt",Instant.now()).put("activeVersionAtStart",activePolicy().getInt("version")).put("autoPromote",input.optBoolean("autoPromote",true)).put("protocol",PROTOCOL).put("feedbackVersionAtStart",activeFeedback().getInt("version")).put("worldVersionAtStart",activeWorldModel().getInt("version"));
         if(kind.equals("feedback-train"))job.put("protocol",FeedbackExperiment.PROTOCOL).put("feedbackProtocol",FeedbackExperiment.manifest());
         if(kind.equals("world-model-train"))job.put("protocol",WorldModelExperiment.PROTOCOL).put("worldProtocol",WorldModelExperiment.manifest());
         save("job",job);busyId=job.getString("id");cancel=false;

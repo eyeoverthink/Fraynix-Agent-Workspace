@@ -1,5 +1,7 @@
 # Fraynix Studio system architecture
 
+Edition 019 adds a Java-owned durable goal/procedure layer above the existing world model and native controller. The desktop performs registered browser/canvas effects and real canvas assertions; it does not decide physical success. See the [current goal/skill contract](GOALS_AND_SKILLS.md), including ownership, atomic checkpoints, nonce-bound effects, explicit restart recovery and current limits. The diagrams below retain the inherited Studio architecture for continuity.
+
 ```mermaid
 flowchart LR
     UI[Studio panels] --> Scene[Live entity/component scene]

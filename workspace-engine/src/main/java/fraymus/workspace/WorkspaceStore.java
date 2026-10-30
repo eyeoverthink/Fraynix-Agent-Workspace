@@ -74,9 +74,18 @@ public final class WorkspaceStore implements AutoCloseable {
         for(Path current=file;current!=null&&!current.equals(root);current=current.getParent())if(Files.isSymbolicLink(current))throw new IOException("Artifact paths cannot contain symbolic links");
         return file;
     }
-    public synchronized JSONObject write(JSONObject args) throws IOException {
+    public synchronized JSONObject write(JSONObject args) throws IOException { return write(args,null); }
+    /** Internal durable effect key; public writes cannot choose a fresh entity ID. */
+    synchronized JSONObject writeOnce(String key,JSONObject args) throws IOException {
+        String id=UUID.nameUUIDFromBytes(key.getBytes(StandardCharsets.UTF_8)).toString();
+        if(world.snapshot().entities().stream().anyMatch(e->e.id().toString().equals(id))){
+            var prior=read(id);if(!prior.getJSONObject("contents").similar(args.getJSONObject("files"))||!prior.getJSONArray("sources").similar(args.getJSONArray("sources")))throw new IllegalStateException("Durable report effect changed");return prior;
+        }
+        return write(args,id);
+    }
+    private JSONObject write(JSONObject args,String newId) throws IOException {
         String title=args.getString("title").strip();if(title.isEmpty()||title.length()>140)throw new IllegalArgumentException("Title must contain 1..140 characters");
-        boolean existing=args.has("id")&&!args.optString("id").isBlank();String id=existing?args.getString("id"):UUID.randomUUID().toString();
+        boolean existing=args.has("id")&&!args.optString("id").isBlank();String id=existing?args.getString("id"):newId==null?UUID.randomUUID().toString():newId;
         JSONObject previous=existing?read(id):null;
         int prior=previous==null?0:previous.getInt("version");
         if(existing && args.optInt("expectedVersion",-1)!=prior)throw new ConcurrentModificationException("Artifact changed; read the current version before editing");

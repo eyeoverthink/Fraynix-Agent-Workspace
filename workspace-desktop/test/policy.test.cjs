@@ -61,8 +61,8 @@ test('CSV web creation stays in artifact mode while native measurement compariso
 const {NetworkPolicy,localURL}=require('../network-policy.cjs');
 test('a corrupted theme or invalid UTF-8 stops startup before code is loaded',()=>{
   const fs=require('node:fs'),path=require('node:path'),os=require('node:os');const {verifyRendererSources}=require('../source-integrity.cjs');const folder=fs.mkdtempSync(path.join(os.tmpdir(),'fraynix-source-guard-'));
-  for(const name of ['index.html','style.css','measurement.css','app.js','scene-lab.js','measurement-panel.js','calibration-panel.js','calibration.css','observer-panel.js','observer.css','body-panel.js','scene-files.js','scene-video.js','brain-game.js','brain-game.css','world-panel.js','world-panel.css'])fs.writeFileSync(path.join(folder,name),'/* valid UTF-8 fixture */');
-  assert.equal(verifyRendererSources(folder).checked,17);fs.writeFileSync(path.join(folder,'style.css'),Buffer.alloc(128));assert.throws(()=>verifyRendererSources(folder),/style.css.*NUL/);
+  for(const name of ['index.html','style.css','measurement.css','app.js','scene-lab.js','measurement-panel.js','calibration-panel.js','calibration.css','observer-panel.js','observer.css','body-panel.js','scene-files.js','scene-video.js','brain-game.js','brain-game.css','world-panel.js','world-panel.css','goals-panel.js','goals-panel.css'])fs.writeFileSync(path.join(folder,name),'/* valid UTF-8 fixture */');
+  assert.equal(verifyRendererSources(folder).checked,19);fs.writeFileSync(path.join(folder,'style.css'),Buffer.alloc(128));assert.throws(()=>verifyRendererSources(folder),/style.css.*NUL/);
   fs.writeFileSync(path.join(folder,'style.css'),'body{}');fs.writeFileSync(path.join(folder,'app.js'),Buffer.from([255]));assert.throws(()=>verifyRendererSources(folder),/app.js.*UTF-8/);
 });
 test('offline application policy permits loopback and rejects external navigation without dispatch',()=>{
@@ -107,4 +107,24 @@ test('physical result reporting uses native target error rather than model trave
 test('physical result reporting refuses stale final frames or a remaining native grip',()=>{
  const {bodyReport}=require('../body-result.cjs'),move={status:'completed',runId:'r',outcome:'reached',targetErrorM:0,toleranceM:.08},release={status:'completed',runId:'r',endTick:295,after:{position:[0,1,0],grip:{held:false}}},capture={packet:{world:{runId:'r',tick:294}},pngSha256:'abc'};
  assert.throws(()=>bodyReport(move,release,capture),/matching completed/);capture.packet.world.tick=295;release.after.grip.held=true;assert.throws(()=>bodyReport(move,release,capture),/matching completed/);
+});
+
+
+test('world-goal routing keeps ordinary creation and direct body actions independent',()=>{
+ const {planTools,catalog}=require('../policy.cjs');
+ assert.equal(taskMode('Predict how this block moves, reach the target despite a disturbance, chart predicted versus actual motion, and save the successful procedure.').needsGoal,true);
+ assert.equal(taskMode('Use the world model to reach 1.2 m').needsGoal,true);
+ assert.equal(taskMode('Reuse the reach-target procedure').needsGoal,true);
+ assert.equal(taskMode('Build a canvas chart web app').needsGoal,undefined);
+ assert.equal(taskMode('Grab the native Block then release it').needsBody,true);
+ const tools=planTools(['goal.start','goal.read','procedure.run','world.model']);assert.equal(tools.length,4);
+ const start=tools.find(t=>t.function.name==='goal_start').function.parameters;assert.equal(start.additionalProperties,false);assert.equal(start.properties.targetM.maximum,1.8);assert.equal(start.properties.angleDeg.maximum,40);assert.equal(start.properties.friction.maximum,.3);
+ assert(!catalog.some(t=>/^(?:goal\.)?(?:ack|claim)$/.test(t.name)));assert.throws(()=>command({tool:'goal.ack',args:{passed:true}}),/Unknown tool/);
+});
+
+
+test('explicit physical and retention requirements cannot disappear into model defaults',()=>{
+ const {requestedPhysics}=require('../goals.cjs');
+ assert.deepEqual(requestedPhysics('On a 24 degree slope with friction 0.18 reach target 1.2 metres despite a +0.35 m/s disturbance. Save the procedure as live-world-reach. Include current browser observation as context.'),{angleDeg:24,friction:.18,targetM:1.2,disturbanceMps:.35,browserContext:true,saveSkillName:'live-world-reach'});
+ assert.deepEqual(requestedPhysics('Create a counter web app'),{});
 });
