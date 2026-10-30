@@ -1,0 +1,69 @@
+{
+  "date": "2026-10-29",
+  "applicationCodeChanged": false,
+  "osOne": {
+    "repository": "eyeoverthink/Fraymus-OS-One",
+    "commit": "2861859ad41dc51475159361946f70c585f8f686",
+    "trackedSourceUnchanged": true,
+    "productionBuild": {
+      "passed": true,
+      "modules": 71
+    },
+    "existingOpegTests": {
+      "passed": 4,
+      "failed": 0
+    },
+    "independentProbes": "fraymus-os-one-probes.json",
+    "inventory": "fraymus-os-one-inventory.json"
+  },
+  "relatedKernel": {
+    "repository": "eyeoverthink/fraymus-brain",
+    "commit": "bf7c513e97480376d2583688f9e5b43c6c44657f",
+    "trackedSourceUnchanged": true,
+    "tests": {
+      "passed": 16,
+      "failed": 0
+    },
+    "scalarExample": {
+      "rerun": true,
+      "trainingMseBefore": 0.375,
+      "trainingMseAfterRounded": 0.004793,
+      "laterNonImprovingStepsHeld": true
+    },
+    "publishedLayerCheckpoint": {
+      "path": "checkpoints/qwen2.5-0.5b-blk0-attn-v.json",
+      "sha256": "134895533775aeeed8079aadc36b6fd79b211de6333e14222ea25cb103ebae7c",
+      "rerunAgainstRealGguf": false,
+      "metadata": {
+        "tensor": "blk.0.attn_v.weight",
+        "model": "Qwen2.5 0.5B Instruct",
+        "rows": 128,
+        "cols": 896,
+        "block": 32,
+        "budget": 0.05,
+        "outliers": 27,
+        "train": {
+          "mseBefore": 0.008519991939945772,
+          "mseAfter": 0.00793579510978675,
+          "relativeBefore": 0.46399522869708654,
+          "relativeAfter": 0.447805214003465,
+          "heldOutRelativeBefore": 0.48984109875464693,
+          "heldOutRelativeAfter": 0.4889907208221468,
+          "kept": 5,
+          "steps": 8,
+          "maxInlierError": 0.047303007915616035,
+          "rowGainRelativeBefore": 0.5353512353226132,
+          "rowGainRelativeAfter": 0.48984109875464693
+        }
+      }
+    }
+  },
+  "notRun": [
+    "Full OS One browser UI acceptance",
+    "Mail and external media providers",
+    "Generated project runtime",
+    "Whole-model training",
+    "Real GGUF tensor experiment"
+  ],
+  "recommendation": "Preserve present product design. Implement durable episodes, extracted bounded controller, independent replay and reversible candidate promotion first."
+}

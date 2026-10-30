@@ -1,0 +1,1338 @@
+{
+  "date": "2026-10-29",
+  "repository": "https://github.com/eyeoverthink/Fraymus-OS-One",
+  "commit": "2861859ad41dc51475159361946f70c585f8f686",
+  "trackedFiles": 172,
+  "sourceFiles": 55,
+  "sourceLines": 31901,
+  "extensions": {
+    ".mdc": 1,
+    "(none)": 1,
+    ".md": 33,
+    ".html": 1,
+    ".jsx": 22,
+    ".json": 5,
+    ".js": 28,
+    ".css": 2,
+    ".yaml": 2,
+    ".png": 70,
+    ".jpg": 1,
+    ".svg": 1,
+    ".mjs": 5
+  },
+  "hashKind": "sha256 exact tracked working-file bytes from isolated clone",
+  "files": [
+    {
+      "path": ".cursor/rules/fraymus-studio.mdc",
+      "bytes": 2355,
+      "sha256": "b8187028cfd24edc93eece518dfee54d6c518a4f253265c14e7b500d07c21ca9"
+    },
+    {
+      "path": ".gitignore",
+      "bytes": 147,
+      "sha256": "6119a122754cef5bfab6f18681d246bc8cd222320a23bcb33c735fb673e9a623"
+    },
+    {
+      "path": "README.md",
+      "bytes": 27953,
+      "sha256": "db26de7dd1e7ac004badd57ff5212d48b152a7c2dbedb5f70c13d453b282b73e"
+    },
+    {
+      "path": "client/index.html",
+      "bytes": 540,
+      "sha256": "4d38035bf262a2cf1a50e768e2a46b8cff33be60dde1a911e0f3cab03f1a2fed"
+    },
+    {
+      "path": "client/src/App.jsx",
+      "bytes": 57537,
+      "sha256": "1495bb84cd0d33727a1021561877df63efb3e6a8848ba231403d41d696ce28c6",
+      "sourceLines": 1029,
+      "exports": []
+    },
+    {
+      "path": "client/src/library.json",
+      "bytes": 118593,
+      "sha256": "fb1624960c593fb8bcc39739f9eac990da18e997d93f527f0d02bad12fbc5e3f"
+    },
+    {
+      "path": "client/src/main.jsx",
+      "bytes": 247,
+      "sha256": "7783822f02d2f85cc8c643c5a33d8c259d7d859b9e6e52c62b31d4c93edcf506",
+      "sourceLines": 10,
+      "exports": []
+    },
+    {
+      "path": "client/src/model.js",
+      "bytes": 24184,
+      "sha256": "e1e9a56e53cd0ad7302fbba3c8049699dc59119454f5fd0da425c34677960fcf",
+      "sourceLines": 625,
+      "exports": [
+        "uid",
+        "demoWasmB64",
+        "wasmInfo",
+        "defaultPackage",
+        "blankProject",
+        "buildAppSource",
+        "pageSource",
+        "mernFiles",
+        "mernProject",
+        "ensureMern",
+        "fileValue",
+        "withFile",
+        "addPage",
+        "updatePage",
+        "removePage",
+        "applyLibraryItem",
+        "projectFiles",
+        "languageFor",
+        "pairTarget",
+        "buildPreview",
+        "singleFileHtml",
+        "deployFiles",
+        "tidy",
+        "lineCount",
+        "byteSize",
+        "formatBytes",
+        "splitHtml",
+        "searchScore",
+        "staticServerSource"
+      ]
+    },
+    {
+      "path": "client/src/scaffold/model-item.js",
+      "bytes": 311,
+      "sha256": "3a3a091b7fbb4ca03f60b0fa376af441a73653052fec1115c166b1f9603e56f7",
+      "sourceLines": 11,
+      "exports": []
+    },
+    {
+      "path": "client/src/scaffold/page-dashboard.jsx",
+      "bytes": 1975,
+      "sha256": "7328fbe0afd54f62011f7619ffdaac67a9216093c7e4f795b08514d52412b007",
+      "sourceLines": 68,
+      "exports": []
+    },
+    {
+      "path": "client/src/scaffold/page-home.jsx",
+      "bytes": 1309,
+      "sha256": "b27de6cda6bb7e55c156c1a4dbda64d26b828b06817e41eb1e880f5f66ecb728",
+      "sourceLines": 36,
+      "exports": []
+    },
+    {
+      "path": "client/src/scaffold/page-login.jsx",
+      "bytes": 1406,
+      "sha256": "353c1d224a147c11564ac873147f9ebb58cfaf613489ea846311178f91bc919e",
+      "sourceLines": 39,
+      "exports": []
+    },
+    {
+      "path": "client/src/scaffold/page-settings.jsx",
+      "bytes": 1216,
+      "sha256": "ff3bbcd4493dc46c35598d9899ea8bfc75cc4324804dee74ec06558c939014bd",
+      "sourceLines": 34,
+      "exports": []
+    },
+    {
+      "path": "client/src/scaffold/routes-api.js",
+      "bytes": 3616,
+      "sha256": "62ae1377e705b28336c25044778c3dacdd59d261054b8b33d6cb159eda8927cb",
+      "sourceLines": 116,
+      "exports": []
+    },
+    {
+      "path": "client/src/scaffold/routes-resources.js",
+      "bytes": 2790,
+      "sha256": "baf79945cb51a85702334e614dae1a5c678e7e5e5389faf347fbfbbf1e9e2f71",
+      "sourceLines": 87,
+      "exports": []
+    },
+    {
+      "path": "client/src/scaffold/server-index.js",
+      "bytes": 1806,
+      "sha256": "4f2437bf2c94b8305f015b191fd561ea166731495de30a808cb1e0dc051a0c6e",
+      "sourceLines": 52,
+      "exports": []
+    },
+    {
+      "path": "client/src/scaffold/site.css",
+      "bytes": 3596,
+      "sha256": "35749fe53f2c359886b36fbbfb533752ba14b58c9284357ccab677f972b35328"
+    },
+    {
+      "path": "client/src/styles.css",
+      "bytes": 33935,
+      "sha256": "39825d7b5a6bfcd97901648d891597021150631b67a9cca2a2e1e56f6aa0a8b9"
+    },
+    {
+      "path": "client/src/tools/BrainPage.jsx",
+      "bytes": 295835,
+      "sha256": "3c4bb3f6cb6c3f44c6afb941cbf96d8ffb3334e3298e47aa52fd035b259156c6",
+      "sourceLines": 5567,
+      "exports": [
+        "WolframRule30",
+        "calculateStructuralEntropy",
+        "computeRadius",
+        "computeContinuity",
+        "evaluateInArena",
+        "applyBrain",
+        "verifyCopilotCode",
+        "applyBrainCopilot"
+      ]
+    },
+    {
+      "path": "client/src/tools/CanvasPage.jsx",
+      "bytes": 12476,
+      "sha256": "067f4aac7e72f5f56c1760cc0c57cdfd0e6de1a7d87c4f4569e0d6f6d702a31f",
+      "sourceLines": 266,
+      "exports": [
+        "renderCanvas",
+        "applyCanvas"
+      ]
+    },
+    {
+      "path": "client/src/tools/CrudPage.jsx",
+      "bytes": 12217,
+      "sha256": "4e584b06cac39349257ec1e594a720de063120db6fc7a58879abdc66d2434d91",
+      "sourceLines": 248,
+      "exports": [
+        "applyCrud"
+      ]
+    },
+    {
+      "path": "client/src/tools/DispatchPage.jsx",
+      "bytes": 23949,
+      "sha256": "d4fbeb8d50bb6ff6dd131a65a8b64e9bad6b5bfa6723bf919e0d63a4e0119dfd",
+      "sourceLines": 414,
+      "exports": [
+        "applyDispatch"
+      ]
+    },
+    {
+      "path": "client/src/tools/EmojiCoderPage.jsx",
+      "bytes": 32856,
+      "sha256": "e8a14042c761b6d5de102bdb7f4b6157e3ed940954a07a20af9952f4f8c4997d",
+      "sourceLines": 596,
+      "exports": [
+        "applyEmojiCode"
+      ]
+    },
+    {
+      "path": "client/src/tools/EmojiPage.jsx",
+      "bytes": 20920,
+      "sha256": "0d7119c3525e0451f9663f1ab475b51435e395d47c1995cf8df173f4798fc8f3",
+      "sourceLines": 409,
+      "exports": [
+        "applyGlyph"
+      ]
+    },
+    {
+      "path": "client/src/tools/EmojiSelect.jsx",
+      "bytes": 2643,
+      "sha256": "9ba36abf623e490f9bfb025f33080b9cca568a01d48a28c98d5b3b2dab53adb3",
+      "sourceLines": 53,
+      "exports": []
+    },
+    {
+      "path": "client/src/tools/LooseScrewPage.jsx",
+      "bytes": 26916,
+      "sha256": "b6ba538665e76a580056365aa8aa2ebdc0364df02094e5fb046e44f459057f44",
+      "sourceLines": 665,
+      "exports": []
+    },
+    {
+      "path": "client/src/tools/MailPage.jsx",
+      "bytes": 17840,
+      "sha256": "bb25c2d315d5154155ba926bbd565eb596fb2a89a01c095184a3fc98da1622a6",
+      "sourceLines": 358,
+      "exports": [
+        "applyMail"
+      ]
+    },
+    {
+      "path": "client/src/tools/OpegPage.jsx",
+      "bytes": 5745,
+      "sha256": "0b72abd4583ce391ddfbf65b3ba9f0dc1a16e46e86bff2a0e78d84621ffd635b",
+      "sourceLines": 134,
+      "exports": []
+    },
+    {
+      "path": "client/src/tools/PixelPage.jsx",
+      "bytes": 64599,
+      "sha256": "4286faab28f1524f2931692cf1bd35fa79a5f1e212ba48542da6a77abc1c7967",
+      "sourceLines": 1602,
+      "exports": [
+        "applySprite"
+      ]
+    },
+    {
+      "path": "client/src/tools/ReplPage.jsx",
+      "bytes": 13501,
+      "sha256": "e04afc821d4eca882e564f77a69edd8a63241bf62e9d683a22f1236fe24d5286",
+      "sourceLines": 272,
+      "exports": []
+    },
+    {
+      "path": "client/src/tools/SealPage.jsx",
+      "bytes": 37809,
+      "sha256": "35a750aa43ad1b06b2701d59a3e6a7344f591dad2c766cb819a2b893c7a671d5",
+      "sourceLines": 928,
+      "exports": [
+        "forgeAutonomousBrainSeal",
+        "renderAndPlaySealStage",
+        "applySeal"
+      ]
+    },
+    {
+      "path": "client/src/tools/StudioPage.jsx",
+      "bytes": 31923,
+      "sha256": "ae020d93ef0660f8d7f97507ea339a52b145c42baf73f228c905476f18b438da",
+      "sourceLines": 792,
+      "exports": [
+        "applyCast"
+      ]
+    },
+    {
+      "path": "client/src/tools/WasmPage.jsx",
+      "bytes": 25119,
+      "sha256": "061327c8c36ac6c11018b6e9c7e0b8e1fea753e54bf75dcee35be86a64e4afb4",
+      "sourceLines": 408,
+      "exports": [
+        "applyWasm"
+      ]
+    },
+    {
+      "path": "client/src/tools/WebJsPage.jsx",
+      "bytes": 12867,
+      "sha256": "51eb07bc554c9ba5da853c683fe407a3c32d20cc451950443e372a9911fadec1",
+      "sourceLines": 282,
+      "exports": [
+        "buildDocument",
+        "applyWebJs"
+      ]
+    },
+    {
+      "path": "client/src/tools/autopoieticAgent.js",
+      "bytes": 62526,
+      "sha256": "463c40ea2c2c1b7bb88a9a085a49d5141814e8eff122d19bce3784a25082d25f",
+      "sourceLines": 1301,
+      "exports": [
+        "fnv1a32",
+        "hex32",
+        "signature64",
+        "computeByteTag16",
+        "computeGenomeParity",
+        "recoverByteByLocusTag",
+        "verifyGenomeParity",
+        "healGenomeBytes",
+        "createDefaultOperatorTensor",
+        "computeOperatorEntropy",
+        "evaluateOmegaIntelligence",
+        "createInitialOmegaAgent",
+        "createGoldenCheckpoint",
+        "compileAndVerifySkillInVm",
+        "executeThinkingCubedCycle",
+        "injectChaosSabotage",
+        "runAutonomicSelfHeal",
+        "spawnSelfReplicatingOffspring",
+        "generateKleeneQuineSporeCode",
+        "createAutopoieticSporeNode",
+        "executeLiveQuineSporeVerification",
+        "replicateOmegaAgentIntoProject",
+        "runOmegaHardGauntletBenchmark"
+      ]
+    },
+    {
+      "path": "client/src/tools/brainMind.js",
+      "bytes": 15983,
+      "sha256": "5041facc9f3223211e53c95154ba2c08a3346b73b945ea1e5e2cfb77e4d969b4",
+      "sourceLines": 463,
+      "exports": [
+        "createMind",
+        "normalizeMind",
+        "think"
+      ]
+    },
+    {
+      "path": "client/src/tools/consciousnessProof.js",
+      "bytes": 9433,
+      "sha256": "972b2ef7a15665a1879857c8a5157afe0444657d5040905299f466e09ddedbdd",
+      "sourceLines": 248,
+      "exports": [
+        "klDivergenceBits",
+        "auditArchitecture",
+        "runConsciousnessAudit"
+      ]
+    },
+    {
+      "path": "client/src/tools/dispatchCore.js",
+      "bytes": 13425,
+      "sha256": "dea125eb1122133fdae5652ac4208c54c373b3a488b1a040fdd5a2dba3ce64b3",
+      "sourceLines": 276,
+      "exports": [
+        "bytesFromBase64",
+        "toEmoji64",
+        "fromEmoji64",
+        "generateKeys",
+        "verifySignature",
+        "merkle",
+        "buildEnvelope",
+        "packEnvelope",
+        "encodeWire",
+        "decodeWire",
+        "unpackWire",
+        "fingerprint",
+        "mailtoLink",
+        "gmailLink",
+        "buildMovieWasm",
+        "stageDoc"
+      ]
+    },
+    {
+      "path": "client/src/tools/emojiCatalog.js",
+      "bytes": 6396,
+      "sha256": "e623d0311afd37bab70a48be8e2aa12be0f4275d1b481789f90541ada7ac693f",
+      "sourceLines": 26,
+      "exports": [
+        "weigh"
+      ]
+    },
+    {
+      "path": "client/src/tools/emojiCodec.js",
+      "bytes": 13543,
+      "sha256": "b66483f5df1679a75c3875ddb5ad971ea4d64f793213eac9dd53fa193fb7fe4d",
+      "sourceLines": 338,
+      "exports": [
+        "textBytes",
+        "bytesText",
+        "isUtf8",
+        "toVS",
+        "fromVS",
+        "cleanCarrier",
+        "encodeGlyph",
+        "encodeMeaning",
+        "decodeGlyph",
+        "bytesToDna",
+        "dnaToBytes",
+        "bytesToZeroWidth",
+        "zeroWidthToBytes",
+        "hideZeroWidth",
+        "detect",
+        "readBack",
+        "fnv1a64",
+        "sha256",
+        "hex",
+        "hexToBytes",
+        "base64",
+        "views",
+        "javaSource",
+        "x86Subset",
+        "codepoints"
+      ]
+    },
+    {
+      "path": "client/src/tools/emojiMarkup.js",
+      "bytes": 22942,
+      "sha256": "a0bceba1abf7e6b1fbe4ce633ef858408e868ebd6dde72f49c324048164b0fe8",
+      "sourceLines": 500,
+      "exports": [
+        "describeEntry",
+        "parseStyleDeclarations",
+        "parseStylesheet",
+        "classifyKey",
+        "createCompiler",
+        "genHTML",
+        "genCSS",
+        "buildWasm",
+        "readWasmLedger",
+        "emit",
+        "compileParts"
+      ]
+    },
+    {
+      "path": "client/src/tools/emotionCore.js",
+      "bytes": 31224,
+      "sha256": "3a6528c89ff86719264138daeb787158be83c82aa7e53f7d0f7c6f2e2b1785cb",
+      "sourceLines": 677,
+      "exports": [
+        "computeInteroceptionAndAffect",
+        "appraiseSituation",
+        "computeBehavioralDials",
+        "appraisePartnerState",
+        "runBabelSomaticTrial",
+        "buildTransmissionBridgeWasmBytes",
+        "executeOpegBridgeWasm",
+        "packBytesToDna",
+        "unpackDnaToBytes",
+        "encodeTextToDnaPlasmid",
+        "emojiPrecedenceSimilarity",
+        "runLocalNeedleReflex"
+      ]
+    },
+    {
+      "path": "client/src/tools/flyGnnConnectome.js",
+      "bytes": 210393,
+      "sha256": "69701f8f96e76f0fc0b6ae35a20f68c8b7ec859f67b8ebc9d5e4df71b5190607",
+      "sourceLines": 4648,
+      "exports": [
+        "mulberry32",
+        "fnv1a32",
+        "hex32",
+        "wordToHex",
+        "hexToIdNum",
+        "computeHdc8D",
+        "lexBabelProgram",
+        "FlyGNNv10",
+        "runFlyGnnMeasureTrainMeasure",
+        "createInitialProcedureRegistry",
+        "derivePiHiddenFrequency",
+        "composeRainbowBeatChord",
+        "triggerBoobyTrapInstruction",
+        "runNodularFrequencyMesh",
+        "runGauntletThinkingProcess",
+        "runAfkPonderBatch",
+        "runThinkAndCreateGauntlet",
+        "parseAndInstrumentStackTrace",
+        "createUniversalInstrumentationProxy",
+        "runUniversalDaemonAndInstrumentation",
+        "spawnCorticalMacrocolumn",
+        "runCorticalNeurogenesisLoop",
+        "powModPrime",
+        "runCoEvolutionaryEpistemology",
+        "runActiveInferenceWorldModel",
+        "metaCompileFrayVmSource",
+        "runRecursiveMetaCompiler",
+        "runHomeostaticDriveEngine",
+        "runCrossModalAndSwarmLoop",
+        "runEnvelopePushingCrucible",
+        "runSovereignAgiContinuum",
+        "provokeSovereignAgiPrompt",
+        "gradeLlmReplyAgainstOracle",
+        "runAdversarialProvocationGauntlet",
+        "mutateSocraticFollowUp",
+        "runSocraticFalsificationDebate"
+      ]
+    },
+    {
+      "path": "client/src/tools/frayvm.js",
+      "bytes": 42777,
+      "sha256": "aef8d7ca3e2e693d0bedb5b6434ef1162860ef616f91df749f0984d4de7833d5",
+      "sourceLines": 952,
+      "exports": [
+        "FrayVM",
+        "runProgram",
+        "assemble",
+        "disassemble",
+        "toBytecode",
+        "fromBytecode",
+        "isDirectStackCompilable",
+        "getCompilationTier",
+        "canCompile",
+        "readWasmOutput",
+        "compileToWasm",
+        "forge",
+        "readCustomSections",
+        "recoverProgram",
+        "runGolden",
+        "trueMerkle",
+        "frayHeader",
+        "buildExecutionTraceMerkle",
+        "signPccCertificate",
+        "compileWithPccCertificate",
+        "verifyPccWasmCertificate"
+      ]
+    },
+    {
+      "path": "client/src/tools/looseScrewEngine.js",
+      "bytes": 20937,
+      "sha256": "79007fd4ec472f55be7c45abe9c730e0611e1e9c009048e4568b3de38e8952ce",
+      "sourceLines": 491,
+      "exports": [
+        "formatClock",
+        "audible",
+        "cardFromStem",
+        "buildStudioCards",
+        "buildFlyCard",
+        "buildPccCard",
+        "mergeCards",
+        "applyLooseScrew",
+        "standaloneIndexHtml"
+      ]
+    },
+    {
+      "path": "client/src/tools/opeg.js",
+      "bytes": 9407,
+      "sha256": "d395ae9f192e1512f737ea5ea3a1fc7bcf14bd7b160ee2837522aa404ee677fc",
+      "sourceLines": 308,
+      "exports": [
+        "residualDet",
+        "det3",
+        "rank3",
+        "isPtChallenge",
+        "buildCommand",
+        "executeCommand",
+        "sanitizeReceipt",
+        "runOpeg"
+      ]
+    },
+    {
+      "path": "client/src/tools/pixelEngine.js",
+      "bytes": 38549,
+      "sha256": "56913542b84612a9c3d3b876d6fa18304d1ccc9b287d3d0837fca46d9f912e5f",
+      "sourceLines": 1115,
+      "exports": [
+        "buildSubjectMask",
+        "brushMask",
+        "traceCut",
+        "liftMask",
+        "portraitPhoto",
+        "trimCeiling",
+        "trimSides",
+        "offsetMask",
+        "renderPixel",
+        "presentBlocks",
+        "drawCrisp",
+        "fitSource"
+      ]
+    },
+    {
+      "path": "client/src/tools/pixelMotion.js",
+      "bytes": 9336,
+      "sha256": "72e87ea231ea5bce579d1feb71ebe062e79bea6b0ad2915e42a49e2f4676e71b",
+      "sourceLines": 277,
+      "exports": [
+        "motionView",
+        "portraitJpeg",
+        "styleImage",
+        "buildMosaic",
+        "paintMosaic",
+        "packFrame",
+        "knownDuration",
+        "measureDuration",
+        "seekVideo",
+        "isVideoFile",
+        "stampWebmDuration",
+        "webmMime"
+      ]
+    },
+    {
+      "path": "client/src/tools/pixelMouth.js",
+      "bytes": 17431,
+      "sha256": "e000e5681b45b0303107c010029b94102fa74bd1258a02aa2630bc4db35e8ea3",
+      "sourceLines": 520,
+      "exports": [
+        "inspectTalk",
+        "composeTalkCells"
+      ]
+    },
+    {
+      "path": "client/src/tools/pixelTalk.js",
+      "bytes": 5562,
+      "sha256": "a08225cbcf6fe21305db5a54bf89864f411bad7fb4198839466cc490b5e1f0ba",
+      "sourceLines": 132,
+      "exports": [
+        "voiceEnvelope",
+        "mouthAt",
+        "lineSchedule",
+        "frameAt",
+        "talkMime"
+      ]
+    },
+    {
+      "path": "client/src/tools/sovereignEcosystem.js",
+      "bytes": 58954,
+      "sha256": "81b51f36811e58560cb6c5c2c2bab7e78e6626659f5c05b33a4bf24fb2073407",
+      "sourceLines": 1459,
+      "exports": [
+        "buildMernAppSource",
+        "ensureMernProject",
+        "embedVector64",
+        "createInitialTernaryCortex",
+        "packNeedle3TernaryCrumbs",
+        "unpackNeedle3TernaryCrumbs",
+        "quantizeAndEvaluateTernaryCortex",
+        "growHyperSynapseTriad",
+        "createInitialNcmState",
+        "classifyAndUpdateNcm",
+        "runReaForensicAudit",
+        "synthesizeVocalStudioOffline",
+        "composeArtCraftStage",
+        "runHypitAnalysisAndSvml",
+        "compileHyperFramesComposition",
+        "runHindsightMemoryCycle",
+        "runNeedle3LadderDispatch",
+        "runTelecomBrainDiagnostics",
+        "runJedBeadStateMachine",
+        "recommendAndForgePackages",
+        "ternaryDot",
+        "NcmMemoryBank",
+        "applySynthesizedPackageToProject",
+        "applyContentSuiteToProject",
+        "buildBijectiveIsaPermutation",
+        "runAsymmetricMoatEngine"
+      ]
+    },
+    {
+      "path": "client/src/tools/webjsStarters.js",
+      "bytes": 16403,
+      "sha256": "ef224e2d6683b06a89af341ca38d06e511753d20c5fed5b8b2f90d2a6f5b19db",
+      "sourceLines": 396,
+      "exports": []
+    },
+    {
+      "path": "client/vite.config.js",
+      "bytes": 538,
+      "sha256": "1c82faa66b4f1c635672a4a98127d8ffa0f4e0e5810adcad6292f26935c49368",
+      "sourceLines": 22,
+      "exports": []
+    },
+    {
+      "path": "config/system_protocol.yaml",
+      "bytes": 586,
+      "sha256": "4a30492742ca91be33d3d0f7b1d63ca80b81f5a0e87adf1406eaa6d81b2fb71a"
+    },
+    {
+      "path": "docs/8BIT_MOTION.md",
+      "bytes": 6531,
+      "sha256": "20ffad1671be81f5d22e796d5949c2b30a5fa965a5a4941416fead51e4f58eaa"
+    },
+    {
+      "path": "docs/8BIT_STATUS.md",
+      "bytes": 6209,
+      "sha256": "1e74c35297d1a6b6d111943e897685904c3c2a8d96f36f035c7ac8c99186bdc5"
+    },
+    {
+      "path": "docs/ADVERSARIAL_PROVOCATION_OUTLINE.md",
+      "bytes": 17506,
+      "sha256": "aeb3165120b35237fc0e79513a02f0d5e723489a0b2bd364e82fddcbd1e2eeb4"
+    },
+    {
+      "path": "docs/APP_OUTLINE.md",
+      "bytes": 23021,
+      "sha256": "03988e63a475aab67a08e2c7b6c1cd4419c2bfc1bb61b63e0e5fc29af76bfb79"
+    },
+    {
+      "path": "docs/AVATAR_STUDIO.md",
+      "bytes": 6838,
+      "sha256": "94da646dd4d1a928a7243ed99c683d8544f957f91a2229947de5cf5b31fa5c68"
+    },
+    {
+      "path": "docs/CONTINUITY.md",
+      "bytes": 211700,
+      "sha256": "c8982becd9d6be21b29fd5965a244bb26a39416885a7eda4358e5bc61b998e5a"
+    },
+    {
+      "path": "docs/EMOJI_TRANSMUTATION_OUTLINE.md",
+      "bytes": 15184,
+      "sha256": "650cf326cf308470458486367c2a03fecca40027a08c6422fae2500803d77abc"
+    },
+    {
+      "path": "docs/FLYGNN_NODULAR_SUPERPOWERS_OUTLINE.md",
+      "bytes": 9025,
+      "sha256": "7a26de4cff0f1766ffd64e4fc417907ca72eeff47164899db241c8e34a0c5069"
+    },
+    {
+      "path": "docs/ISA_SPECIFICATION.md",
+      "bytes": 30259,
+      "sha256": "fcf6667212f7f5aa4d729b2d363358cbf250bc98f7ea5afb8ccedaa5bc343394"
+    },
+    {
+      "path": "docs/SOVEREIGN_AGENT_ECOSYSTEM_OUTLINE.md",
+      "bytes": 15967,
+      "sha256": "7ef194f8e55f87381b05d0aa1b27c48630457c2417ade6f734a5ba0437cc8aaa"
+    },
+    {
+      "path": "docs/SOVEREIGN_AGI_CONTINUUM_PLAN.md",
+      "bytes": 27143,
+      "sha256": "c921cd3eae59ce2f19e6374133afcf5aa46de76ba347b79e925c3f3fba3daa73"
+    },
+    {
+      "path": "docs/SOVEREIGN_AGI_V17_README.md",
+      "bytes": 25845,
+      "sha256": "d0b04d6ed81b04a4676e796cae88d01e38c0c9ca5314faac4220d6cecd4f512c"
+    },
+    {
+      "path": "docs/SOVEREIGN_BRAIN_README.md",
+      "bytes": 25431,
+      "sha256": "1b76ec71f759e84defa54312abc6ddc33f124d76114cf4075f701d290b572bfd"
+    },
+    {
+      "path": "docs/STUDIO_HANDBOOK.md",
+      "bytes": 19018,
+      "sha256": "188ca6fbdd80b970b6aa72a92999dc4eedbf32f66f3099326bf72c5dd22bdefd"
+    },
+    {
+      "path": "docs/V16-INTEGRATION-SPEC.md",
+      "bytes": 20372,
+      "sha256": "5bc06d3c9eb01159c436c856914bafe2af7db5ae5b298d94fc4f9eebc6039faf"
+    },
+    {
+      "path": "docs/os/brain-think.png",
+      "bytes": 577603,
+      "sha256": "86b5784f3e19345f90507419823bb61ec59a1f9e5b56a2ab89296f473c37d34c"
+    },
+    {
+      "path": "docs/os/canvas.png",
+      "bytes": 465240,
+      "sha256": "27af0744197ad39d1abd54a56e83cee514c2356b84a2edc5b3a319f54604e7a7"
+    },
+    {
+      "path": "docs/os/code.png",
+      "bytes": 578675,
+      "sha256": "d77e5befd27687244b788d7275943d061f77dc5cbf38a0966032ed613b76a508"
+    },
+    {
+      "path": "docs/os/crud.png",
+      "bytes": 447741,
+      "sha256": "fa7b7fa5ab6d2272355d2dda102fd6c64676c47bba2520d64deaf79e1bfa19b2"
+    },
+    {
+      "path": "docs/os/dispatch.png",
+      "bytes": 511655,
+      "sha256": "75e4459d1af2cacc7ac673cf118de548f471d7fc505bd11236fc0e00356491cf"
+    },
+    {
+      "path": "docs/os/emoji-coder.png",
+      "bytes": 678107,
+      "sha256": "70f19b38270265f2751902be4b2aebba83ca33da6526403d9f42d8000b5fcdf0"
+    },
+    {
+      "path": "docs/os/emoji.png",
+      "bytes": 497682,
+      "sha256": "14236a599fbcb98f1f1c8040462a4c4651ecf4bb55f2bd7ce006ccf27060d600"
+    },
+    {
+      "path": "docs/os/htmljs.png",
+      "bytes": 781791,
+      "sha256": "350395f1a6decd588e3f81b3eabf8e1b045e5781bdad3cf6d17fd9b509d4e9fe"
+    },
+    {
+      "path": "docs/os/mail.png",
+      "bytes": 526552,
+      "sha256": "10c4575053e8722e6c5e2c59bf7e0cc714c4daed571c7064c9027c64915c7c7d"
+    },
+    {
+      "path": "docs/os/opeg.png",
+      "bytes": 545293,
+      "sha256": "045785a3af32bf1576a049fc07b1cd2912af28066cf324a2656c0316e4501d86"
+    },
+    {
+      "path": "docs/os/pixel.png",
+      "bytes": 366864,
+      "sha256": "85b408be230f8237c9d331b8cacf57a0f3a05e20541aeefb3d7a8cbb409a1a37"
+    },
+    {
+      "path": "docs/os/production.png",
+      "bytes": 540287,
+      "sha256": "7b3d2c30db799f15002083b4b7fb1d9f938632c28c92f2bf73f262a3ad36ca28"
+    },
+    {
+      "path": "docs/os/repl.png",
+      "bytes": 421082,
+      "sha256": "e51c8dfcd781094b3e953bcca10cdcd1f6b57064094a6c6efe2663a128f5950f"
+    },
+    {
+      "path": "docs/os/screw.png",
+      "bytes": 456020,
+      "sha256": "fa981ee0c771dab0a2dabfab50a63d7f8cefb2b3a0937b2c0f8a586bf4e8640a"
+    },
+    {
+      "path": "docs/os/seal-forged.png",
+      "bytes": 544821,
+      "sha256": "fd1dd221c0a1967b9b832de5d85b2064ccbd18c13612e4bc09b3cd5535e1e2e6"
+    },
+    {
+      "path": "docs/os/seal-verified.png",
+      "bytes": 606416,
+      "sha256": "f84974860aafb54df215ffe4064b954eba4c983d3dc059c270ad492b8a4eb546"
+    },
+    {
+      "path": "docs/os/seal.png",
+      "bytes": 540949,
+      "sha256": "b59b78cb24844aec63826af63ee40643f1ce3877205b0ba501cb5b5252162001"
+    },
+    {
+      "path": "docs/os/wasm.png",
+      "bytes": 553638,
+      "sha256": "c90e75efe0070cae2c2a5692caa5d802bc6e1574de93382566f9b61ace1435a9"
+    },
+    {
+      "path": "docs/showcase/8bit-abstract.png",
+      "bytes": 18900,
+      "sha256": "3dce6cc900acfec4aa6fa72b35474d9f0084bd8ad6b649f53230e88d884536f4"
+    },
+    {
+      "path": "docs/showcase/8bit-avatar.png",
+      "bytes": 274869,
+      "sha256": "29993cf5edb309e3c7f5713b8d37265d873ecb35bb23b4ecfd53a2d0f760cf3a"
+    },
+    {
+      "path": "docs/showcase/8bit-capture.png",
+      "bytes": 87202,
+      "sha256": "a0ffa23fd72c1e8f2f8a1dcb0f377cefa0d4b5601464012f36da766e6ef1aafa"
+    },
+    {
+      "path": "docs/showcase/8bit-character.png",
+      "bytes": 29275,
+      "sha256": "07fb2ed86dfd53fa6c58aca0106b315e5bd1d4e96bff02ba3b765f97e5a8b4b8"
+    },
+    {
+      "path": "docs/showcase/8bit-motion.png",
+      "bytes": 7757,
+      "sha256": "7436e2e5e24c925f764c305b405dbcd428da3fb40de20492b87b3af075c91e4c"
+    },
+    {
+      "path": "docs/showcase/8bit-photo.jpg",
+      "bytes": 84145,
+      "sha256": "43c09008a01c05b78a93ac5dee52a8e22133429bd70af25045bbf8df54441f1e"
+    },
+    {
+      "path": "docs/showcase/8bit-render.png",
+      "bytes": 357410,
+      "sha256": "a518ef40bc1cc0a2741b6cf7f780d71a286f2fe2b868d496382d6c6e75e72a62"
+    },
+    {
+      "path": "docs/showcase/8bit-studio.png",
+      "bytes": 377102,
+      "sha256": "5ef1ab28b479d9c522ae93af61476b28edde054738e50df2209f5ca87c5e86e4"
+    },
+    {
+      "path": "docs/showcase/8bit-talk.png",
+      "bytes": 552666,
+      "sha256": "6e486497725e367ca9b9a13ad15dfa2de0054aa731421ee6e73734619aa8e497"
+    },
+    {
+      "path": "docs/showcase/8bit-trace.png",
+      "bytes": 29626,
+      "sha256": "5397fd0f34db078c95718a96151f9e04c5e46de00e58e2fc5bb8b0e98bbed67a"
+    },
+    {
+      "path": "docs/showcase/8bit-video-actions.png",
+      "bytes": 71585,
+      "sha256": "c0eb6ca998edc5c1a58a94d5ea2edd515a6a157e23399f86685296fd77c5aefd"
+    },
+    {
+      "path": "docs/showcase/banner.svg",
+      "bytes": 2519,
+      "sha256": "89a81782f67fc596fa6491fb11295d55d9a7a4ad3b8d03e526c7d9074ac6b0b4"
+    },
+    {
+      "path": "docs/showcase/brain-agi-envelope-frontiers.png",
+      "bytes": 892150,
+      "sha256": "a5ff3baa8c486f30133e238cdc94da97549c0624e3238ed20896eb061ed95876"
+    },
+    {
+      "path": "docs/showcase/brain-agi-v18-frontiers.png",
+      "bytes": 759628,
+      "sha256": "edf919b7a583fa3f4a40164071272fda40772da63feda893e04f56ffaee752c6"
+    },
+    {
+      "path": "docs/showcase/brain-agi-v19-adversarial-duel.png",
+      "bytes": 660703,
+      "sha256": "8ced680bf9241ea8876a17410cf889a24fe474f1d94cf36e6e16e322e9da948d"
+    },
+    {
+      "path": "docs/showcase/brain-agi-v20-pell-duel.png",
+      "bytes": 855633,
+      "sha256": "907de48c5ac4089a2b0d57b1729ff01660fb6d52a740bd61ea3e6f34f93957ac"
+    },
+    {
+      "path": "docs/showcase/brain-agi-v21-pcc-socratic.png",
+      "bytes": 954289,
+      "sha256": "0a4691ec0ec20df0e16641aa75487358b2d32203a227bb89d56134d2790c86e0"
+    },
+    {
+      "path": "docs/showcase/brain-consciousness-audit.png",
+      "bytes": 609987,
+      "sha256": "755431bca5d878a4b5a49fbb7e23f3bc71d77d2104f8f389b9e4fc42efba31d3"
+    },
+    {
+      "path": "docs/showcase/brain-constructed-feeling.png",
+      "bytes": 697863,
+      "sha256": "debc9b2bc07ca72aa3e4e6c7eb10e630d9feb38a28dfc5e7fe4c60e6e3329242"
+    },
+    {
+      "path": "docs/showcase/brain-copilot-cortexops.png",
+      "bytes": 560205,
+      "sha256": "e84ed98d7a8ae1a283becf107983ff033afba9a993644c7a355d1c5a117d7064"
+    },
+    {
+      "path": "docs/showcase/brain-copilot-seal-wasm.png",
+      "bytes": 670893,
+      "sha256": "8b131a4e4ecfe9e6068fc772b55c2a4206c634ee83f2adad874187ab4c7ea37d"
+    },
+    {
+      "path": "docs/showcase/brain-flygnn-nodular-afk.png",
+      "bytes": 573038,
+      "sha256": "972e9ac5662af7597bc578008dbe23a30f353917653aad275d610845ae35abf8"
+    },
+    {
+      "path": "docs/showcase/brain-flygnn-v10-connectome.png",
+      "bytes": 684569,
+      "sha256": "a1cb0eaf0c6582ef71e321a73c3e85ba6735983a35a72792c766313c6204aad0"
+    },
+    {
+      "path": "docs/showcase/brain-intelligence-gauntlet.png",
+      "bytes": 665322,
+      "sha256": "6df7c7429aa57f02928ea7fb0a62ebe24d76e6a29940ffd71860aab6fada4239"
+    },
+    {
+      "path": "docs/showcase/brain-nodular-dt-bus.png",
+      "bytes": 750306,
+      "sha256": "68dc83777c7a1593db1758a59596fb615781fc243165aa3487dc1092703a9360"
+    },
+    {
+      "path": "docs/showcase/brain-offline-content-suite.png",
+      "bytes": 631968,
+      "sha256": "45457d6de481668dbbf01c30e20597f8b383c948708fceef18d68e8f5c5703bf"
+    },
+    {
+      "path": "docs/showcase/brain-omega3-autopoietic-agent.png",
+      "bytes": 557945,
+      "sha256": "4d7ff4c254e16566c705653dd6e17523b9a73e56cf779fb6eb4c5cd9bd87a15d"
+    },
+    {
+      "path": "docs/showcase/brain-omega3-hard-gauntlet.png",
+      "bytes": 587431,
+      "sha256": "9ca590e532f40c7cfec6e00021a2baeeac16441873392886ad6bc200ded54bf4"
+    },
+    {
+      "path": "docs/showcase/brain-openclaw-jed-rea-skills.png",
+      "bytes": 639588,
+      "sha256": "dc68e133bb7e5f269f111ebbd6c496e04c1b71b85e5027b26f80153dd90f7c49"
+    },
+    {
+      "path": "docs/showcase/brain-quantum-rsi.png",
+      "bytes": 740999,
+      "sha256": "7bece67d0a7ed929c1c93784b25d943d371fd993906b2c821f66339b5b3c031c"
+    },
+    {
+      "path": "docs/showcase/brain-sovereign-agi-continuum.png",
+      "bytes": 707253,
+      "sha256": "6a414de2b461278374187157716a4f8d74141aef9253432f3f958b7dbd5cd8e3"
+    },
+    {
+      "path": "docs/showcase/brain-ternary-nexus-agent.png",
+      "bytes": 601541,
+      "sha256": "1c023b70f9946a10ecf23362cbc2081d3756d1bb420aab88cb53e40ba1d32624"
+    },
+    {
+      "path": "docs/showcase/brain-think-create-proof.png",
+      "bytes": 719925,
+      "sha256": "9d85c820bf51abc9302c4c712043da8abe257ad71105ad1b50e27194b9f1088f"
+    },
+    {
+      "path": "docs/showcase/brain-think-loop.png",
+      "bytes": 617779,
+      "sha256": "764904ba653258079d4ff9c2ab5200d258f2f4019473ac35cc945eeaef9e08d4"
+    },
+    {
+      "path": "docs/showcase/brain-to-emojicoder.png",
+      "bytes": 552305,
+      "sha256": "34326268b07930b18cea43fb4f8d05e61423ffb19eb29fff2195a5714880c3d1"
+    },
+    {
+      "path": "docs/showcase/brain-to-wasm-nodes.png",
+      "bytes": 592362,
+      "sha256": "caf746233a8b812fad9595204358f6ae4eb49637a8f85d3165ee5f4fd3b78e00"
+    },
+    {
+      "path": "docs/showcase/brain-universal-daemon-instrumentation.png",
+      "bytes": 767637,
+      "sha256": "1f30e09deecfc085f96ab18fdf98f7944a399056cfc8c5a89b41e39ce6759489"
+    },
+    {
+      "path": "docs/showcase/canvas.png",
+      "bytes": 248315,
+      "sha256": "df3dcb83632a6279402a0f3d7a0b4feed4fa9333b12993ff9fb82137e039f7a8"
+    },
+    {
+      "path": "docs/showcase/code.png",
+      "bytes": 515282,
+      "sha256": "f857b4a6cb257e41933878c9c73f98d7b2d964be52f88a59fe989477a43926f9"
+    },
+    {
+      "path": "docs/showcase/crud.png",
+      "bytes": 263404,
+      "sha256": "4dedee24ada632e61a465615e74aa9e20c9556173eb137bfeb8f395d3ffcc0e1"
+    },
+    {
+      "path": "docs/showcase/dispatch-agi-v17-staged.png",
+      "bytes": 560978,
+      "sha256": "6ece9635cb6ed6b418ec436f0eae138627485456948863659807af0b9c949618"
+    },
+    {
+      "path": "docs/showcase/dispatch.png",
+      "bytes": 370078,
+      "sha256": "89b5002b999326ab19965c313fb118f70582dcb570573a7daa0e222bc882130a"
+    },
+    {
+      "path": "docs/showcase/emoji-coder.png",
+      "bytes": 492618,
+      "sha256": "5a91583aec5187edd17ba9bc596dfa4b0cea9c85fb5eb05e9592c805785d5d8f"
+    },
+    {
+      "path": "docs/showcase/emoji.png",
+      "bytes": 359447,
+      "sha256": "c847243814bad9f39a6fa47b741b7b98f1940c03fdb11b106a029696278d70a6"
+    },
+    {
+      "path": "docs/showcase/export.png",
+      "bytes": 289223,
+      "sha256": "0415f6a24856829021ec7fb4da272a5febd20dd7a1a3703c6cce14228ea0fe58"
+    },
+    {
+      "path": "docs/showcase/html.png",
+      "bytes": 436170,
+      "sha256": "76c77ec848e8320519e8684612f9eaddef6ae38bc21109e0d76b8eb0b494ea46"
+    },
+    {
+      "path": "docs/showcase/htmljs.png",
+      "bytes": 495328,
+      "sha256": "17e09b4d60eed86beb52d529cdd102c675f71bc945d9ed6c88d95863ac2fd5d5"
+    },
+    {
+      "path": "docs/showcase/mail.png",
+      "bytes": 341135,
+      "sha256": "c79136a84a0c573036a9dc0aa03be207dcb27e57ab8aedd5d6da99b56948f680"
+    },
+    {
+      "path": "docs/showcase/pair.png",
+      "bytes": 491374,
+      "sha256": "ccc34a08c05c33e01b71d70139dbd0f85a0c1955de04ae05ac7589171797627e"
+    },
+    {
+      "path": "docs/showcase/repl.png",
+      "bytes": 336684,
+      "sha256": "90516be11d88721b14d80f8b6eb49ad31415de5e62b6a62b04c97d053ca7e3a8"
+    },
+    {
+      "path": "docs/showcase/seal-agi-v18-living.png",
+      "bytes": 564082,
+      "sha256": "406b1149e44a2138fcce658c40f2b08e4243a5fdf028f3b9aabcfe9196b75354"
+    },
+    {
+      "path": "docs/showcase/wasm-golden-turing-parity.png",
+      "bytes": 463820,
+      "sha256": "b80a6d1f24dcd65cffc81edcedcf29526e0c632aaa1d0f24d8c41dc24eb7eeb2"
+    },
+    {
+      "path": "docs/showcase/wasm-turing-cfg-compiler.png",
+      "bytes": 511937,
+      "sha256": "c0915ac12dc17fa4ecc6ecace32d6708a11054fb4831f4ad2967556efb72295d"
+    },
+    {
+      "path": "docs/showcase/wasm.png",
+      "bytes": 388636,
+      "sha256": "055329847eb3ea12d6b150861510e34a5d141723e00dd1cdd0a52598a79e3843"
+    },
+    {
+      "path": "docs/tabs/README.md",
+      "bytes": 2883,
+      "sha256": "706a260f1030075382a4954174d2dc38ab51933239b7ed737d954e9804acc8bf"
+    },
+    {
+      "path": "docs/tabs/brain.md",
+      "bytes": 4289,
+      "sha256": "ebed7f76be7f543dfe03d71867b5a8866c5f51e1b5bfdf1f99cafb1e5060ee8a"
+    },
+    {
+      "path": "docs/tabs/canvas.md",
+      "bytes": 933,
+      "sha256": "cf810f0f7ad78e261c7f271feac26dc12022f93ea79d8675b6a10a64d546cfa5"
+    },
+    {
+      "path": "docs/tabs/code.md",
+      "bytes": 2359,
+      "sha256": "ea47fd8c8b11dbb6ccf790f0769c52007e3c72655d1af845d243485419b65523"
+    },
+    {
+      "path": "docs/tabs/crud.md",
+      "bytes": 1171,
+      "sha256": "3c2f066f8d5f1d8d0be21537fef71966a2e8bfd0cc7853a7c9429089f00f4799"
+    },
+    {
+      "path": "docs/tabs/dispatch.md",
+      "bytes": 2270,
+      "sha256": "04f58b7fa8af7a7883f4733bcd48372be97bfe69589a899b0f2748d3c619cf39"
+    },
+    {
+      "path": "docs/tabs/emoji-coder.md",
+      "bytes": 1584,
+      "sha256": "10f7dc1254fe2fa9e5df6cd9452e5121cc6f398c45d6643d7d82b8a20ab85720"
+    },
+    {
+      "path": "docs/tabs/emoji.md",
+      "bytes": 1432,
+      "sha256": "3b9240b5e0b88b0b9b42f36c59548d978ee6b9ba357b36ca0cf1f5a0baad1182"
+    },
+    {
+      "path": "docs/tabs/htmljs.md",
+      "bytes": 1332,
+      "sha256": "7fcd4838eb83ae8b6d1ce0b24dcad16d59824d612fa5d54da394b328924e38c2"
+    },
+    {
+      "path": "docs/tabs/mail.md",
+      "bytes": 1562,
+      "sha256": "8d45aa5316072c46cae2766bb3ffcdc99b7e5308c9f4ed11c2075313aedf1f51"
+    },
+    {
+      "path": "docs/tabs/opeg.md",
+      "bytes": 3820,
+      "sha256": "3c7d2f8dd9bfece2cbb7469e0e8a89ad536b9483299780e1598515f060bb3be5"
+    },
+    {
+      "path": "docs/tabs/pixel.md",
+      "bytes": 2546,
+      "sha256": "8c38ed5b62aa160375d46ff43fdf4c0677e55dd5a1ee1bb9b2b7283a234ce1ab"
+    },
+    {
+      "path": "docs/tabs/production.md",
+      "bytes": 1152,
+      "sha256": "56e10e0d81251359288c279667e5eecad626503a980f37d717c882adf0b10be4"
+    },
+    {
+      "path": "docs/tabs/repl.md",
+      "bytes": 2421,
+      "sha256": "8459a4f1b6f1b9cb3d8b203313d2e2e374849981ceada1374114b7133767f2b4"
+    },
+    {
+      "path": "docs/tabs/screw.md",
+      "bytes": 1610,
+      "sha256": "32450f7493c675b44ae253fcabc2d5443538651401d4d5be6a432644f0d013e4"
+    },
+    {
+      "path": "docs/tabs/seal.md",
+      "bytes": 2003,
+      "sha256": "64daa661293735937a33711fd65a05683b46c1c2f3c984e41069a696c10d2e81"
+    },
+    {
+      "path": "docs/tabs/wasm.md",
+      "bytes": 2618,
+      "sha256": "e251c7fb270e3b30c76e235cfda4edb786cab3577f4a9cde5c46ad9b1a2f0228"
+    },
+    {
+      "path": "modelfiles/fraynix_core.yaml",
+      "bytes": 513,
+      "sha256": "5f41bd8d2e49194ac64e2f349422edc63ca6e160b2c694bbed8233481b106c94"
+    },
+    {
+      "path": "package-lock.json",
+      "bytes": 164156,
+      "sha256": "6e51477650fe42471260317dce6148307e97972ade2b727db7c4377ba18bdb7d"
+    },
+    {
+      "path": "package.json",
+      "bytes": 981,
+      "sha256": "dcda01a35081b645f28d31e7633a0e3cd14d6552045e18dfbbdbd519ff774909"
+    },
+    {
+      "path": "scripts/email-watcher/decode.mjs",
+      "bytes": 5665,
+      "sha256": "12e43e14b3360940c8f7839e33cf04479dbc017fdc1b55ff054383ee68e97fe4",
+      "sourceLines": 151,
+      "exports": [
+        "emojiToBase64",
+        "decodePayload",
+        "sha256hex",
+        "verifyMerkle",
+        "verifySignature",
+        "hasFrayHeader",
+        "decodePipeline"
+      ]
+    },
+    {
+      "path": "scripts/email-watcher/hub.mjs",
+      "bytes": 1764,
+      "sha256": "be464e14237a5917f123a841a36961c1cbaba9bdee933cdabf879a7a13d67b52",
+      "sourceLines": 41,
+      "exports": []
+    },
+    {
+      "path": "scripts/email-watcher/package-lock.json",
+      "bytes": 10440,
+      "sha256": "c3888bd399a047be315f7341e25fd5f560ff4200d10c759eca99cbb01448281c"
+    },
+    {
+      "path": "scripts/email-watcher/package.json",
+      "bytes": 525,
+      "sha256": "fab57f9050b278947603b0ffeb41251eec27d48e58c4db7e3b83a8daa6642fa2"
+    },
+    {
+      "path": "scripts/email-watcher/watcher.mjs",
+      "bytes": 10699,
+      "sha256": "507c7d98b3692d16e248b19e8af8ae693970eb77166bb1b60a40a553d0a896f3",
+      "sourceLines": 208,
+      "exports": [
+        "extractEmojiPayload",
+        "dispatchToAgent"
+      ]
+    },
+    {
+      "path": "scripts/mail-e2e.mjs",
+      "bytes": 3282,
+      "sha256": "3d1a99c97e8bed4b22087baa8fc52e060860f764dec8fb4c28a8ad6d84cd6b76",
+      "sourceLines": 67,
+      "exports": []
+    },
+    {
+      "path": "server/gmailBox.js",
+      "bytes": 13312,
+      "sha256": "e02458b4d95e51fba118f9225a439f45cadcc97f12fbd7ccb73bb9dd27ffd25a",
+      "sourceLines": 284,
+      "exports": [
+        "createGmail"
+      ]
+    },
+    {
+      "path": "server/index.js",
+      "bytes": 57601,
+      "sha256": "fa23536052c8cbf858159d41e385150affdbc70ad3436c1231a9ecbc48507f45",
+      "sourceLines": 1400,
+      "exports": []
+    },
+    {
+      "path": "server/mailbox.js",
+      "bytes": 9530,
+      "sha256": "1cb1094a9d061813b9a48ffea52dab79163e5ba0f45a3a1b46825fefb740f46f",
+      "sourceLines": 228,
+      "exports": [
+        "parseHeaders",
+        "parseEml",
+        "parseMbox",
+        "toEml",
+        "toMbox",
+        "createStore"
+      ]
+    },
+    {
+      "path": "server/opeg.test.mjs",
+      "bytes": 2643,
+      "sha256": "f92fc81aecc4ee7402caf038d9623884fbca57760d38b963d56020901752eaff",
+      "sourceLines": 61,
+      "exports": []
+    },
+    {
+      "path": "server/runtime.js",
+      "bytes": 7656,
+      "sha256": "b02f047502a467a8a0970bd386ed24f76449c99020b841b7d59015b0fc168f26",
+      "sourceLines": 211,
+      "exports": [
+        "ensureDirs",
+        "safeJoin",
+        "writeTree",
+        "vendorSources",
+        "copyVendor",
+        "logsFor",
+        "isRunning",
+        "runtimeStatus",
+        "stopRuntime",
+        "portFree",
+        "startNode",
+        "startTask",
+        "startDocker",
+        "commandVersion"
+      ]
+    }
+  ]
+}

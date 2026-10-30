@@ -62,3 +62,11 @@ These recipes are the first skill type. New compiled executors, operating-system
 | Evaluated improvement | Replayable episodes, held-out task suites, candidate promotion and rollback |
 
 The first delivery targets the first five gates. The remaining gates extend the same environment without claiming that every installed model or arbitrary website is already reliable. Initial operation needs Windows, JDK 21, Node.js 22.12 or newer, installed local Ollama models and the pinned Electron package. Docker and WSL are not prerequisites.
+
+## Existing learning engines and the next implementation
+
+The [October 29 Fraymus-OS-One assessment](FRAYMUS_OS_ONE_ASSESSMENT.md) identifies reusable Think rule revision/replay, synaptic adaptation, continuity, project generators and the separate fraymus-brain numerical training kernel. The review built OS One, ran four OPEG tests and sixteen standalone kernel tests, and independently checked persistent operator learning, bind collision repair and actual weight changes. No reviewed code is imported into the running app by this documentation update.
+
+The next coding milestone is durable LearningEpisode, LearningCandidate, EvaluationReport and PromotionRecord components, a bounded worker for the extracted controller, independent regression/validation/final-test suites and reversible promotion. Java owns state and evidence; existing typed tools still execute actions. The visible library, browser, canvas, agent panel and timeline keep their current design. Do not copy the original generated-function or unrestricted Node runtime paths into the privileged shell.
+
+Weight-training workers follow when the episode data and evaluation path are ready. The existing small ternary trainer can support a measured routing/controller experiment; the saved single-tensor reconstruction experiment does not by itself establish new full-model task knowledge or a loadable Ollama checkpoint. Whole-model training needs its own dataset, runtime adapter, quality gate and rollback.

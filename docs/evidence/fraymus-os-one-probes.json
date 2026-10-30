@@ -1,0 +1,90 @@
+{
+  "date": "2026-10-29",
+  "repository": "eyeoverthink/Fraymus-OS-One",
+  "commit": "2861859ad41dc51475159361946f70c585f8f686",
+  "scope": "Isolated pure-engine probes; no UI, mail, project worker, provider or shared service started",
+  "passed": true,
+  "checks": [
+    "Seed errors repaired; later goals reuse learned operators; past cases replay",
+    "Serialized learned mind passes 24 fresh arithmetic goals without another rewrite",
+    "Division by zero and missing facts fail; unsupported prose remains unverified",
+    "Fact read-back works; bind collision revises placement while preserving two concepts",
+    "FlyGNN trainHebbian changes actual stored synaptic weights",
+    "Reported held-out word percentage is unchanged for zero vs ten training iterations; it is a fixed demonstration value"
+  ],
+  "examples": [
+    {
+      "goal": "14 - 9",
+      "got": 5,
+      "phases": [
+        "check",
+        "run",
+        "miss",
+        "rewrite",
+        "compress",
+        "commit"
+      ]
+    },
+    {
+      "goal": "100 - 37",
+      "got": 63,
+      "phases": [
+        "check",
+        "run",
+        "replay",
+        "compress",
+        "commit"
+      ]
+    },
+    {
+      "goal": "6 * 7",
+      "got": 42,
+      "phases": [
+        "check",
+        "run",
+        "miss",
+        "rewrite",
+        "replay",
+        "compress",
+        "commit"
+      ]
+    },
+    {
+      "goal": "8 / 2",
+      "got": 4,
+      "phases": [
+        "check",
+        "run",
+        "miss",
+        "rewrite",
+        "replay",
+        "commit"
+      ]
+    },
+    {
+      "goal": "(14 - 9) * 2",
+      "got": 10,
+      "phases": [
+        "check",
+        "run",
+        "replay",
+        "compress",
+        "commit"
+      ]
+    }
+  ],
+  "freshArithmeticCases": 24,
+  "weights": {
+    "before": 1,
+    "after": 1.05
+  },
+  "fixedBenchmark": {
+    "zeroIterations": 78,
+    "tenIterations": 78
+  },
+  "limitations": [
+    "No full-model Ollama training performed",
+    "No real GGUF experiment rerun",
+    "No full browser UI acceptance run for the reviewed app"
+  ]
+}
