@@ -20,6 +20,8 @@ Manual controls use these full fences. The language-model body tools are task sc
 
 An action intent is checkpointed before native effect. The completed receipt records request hash, source scene/run, before/after physics, ticks, target error/outcome and release velocity. Identical successful operation retries return the saved receipt. Pending/interrupted operation IDs are not retried. On restart, unfinished run/operation records become interrupted; no constraint or claim of completion is restored.
 
+The displayed physical result is constructed by the host from matching native motion/release/final-frame receipts. The language model's own numerical finish prose is kept only as unverified audit data. A development screenshot exposed travel distance being mislabeled as target error; the numerical-report regression and actual local-model fixture now check the native result.
+
 Native state cannot be rolled back by a file transaction. A failure after an intent is treated as failed/uncertain, releases the joint where possible and does not certify success. Image/export files can remain orphaned after a failed receipt write; they are not successful receipts.
 
 ## Replay and evidence

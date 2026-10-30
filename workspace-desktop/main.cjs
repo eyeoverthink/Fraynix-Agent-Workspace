@@ -8,6 +8,7 @@ const {replay,rehearse}=require('./controller-replay.cjs');
 const {NetworkPolicy}=require('./network-policy.cjs');
 const {verifyRendererSources}=require('./source-integrity.cjs');
 const {NativeExports}=require('./exports.cjs');
+const {bodyReport}=require('./body-result.cjs');
 const networkPolicy=new NetworkPolicy(process.env.FRAYNIX_WORKSPACE_OFFLINE==='1');
 if(networkPolicy.enabled){app.commandLine.appendSwitch('disable-background-networking');app.commandLine.appendSwitch('disable-quic');}
 const repo=path.resolve(__dirname,'..');
@@ -286,7 +287,7 @@ A run's evaluation is independently computed by the host; report measured distan
           if(needsComparison&&(!job.comparisonEvidence||job.comparisonEvidence.runId!==job.sceneEvidence.id||job.reportComparisonId!==job.comparisonEvidence.id||!job.created))throw Error('Compare the actual current run with the dataset and open its tested report before finishing');
           if(job.needsArtifact&&!job.created)throw Error('Create the requested artifact before reporting completion.');
           if(job.created&&!currentArtifact?.test?.passed)throw Error('Created artifact has no passing test receipt. Test or repair it before finishing.');
-          const summary=(needsBody?'Native move '+job.bodyMove.outcome+'; target error '+job.bodyMove.targetErrorM+' m; native constraint released. ':'')+String(next.args.summary||'Task completed');outcome=!needsScene&&job.created&&currentArtifact?.test?.passed?'verified':'completed-unverified';activity('complete',summary);emit('answer',summary);await api('/api/event',{kind:'agent_completed',data:{goal,model,summary,episodeId:job.id,policyVersion:job.policy.version,...(needsScene?{experiment:job.sceneEvidence,comparison:job.comparisonEvidence,...(job.observerCapture?{observer:job.observerCapture}:{}),...(job.bodyRelease?{body:{grab:job.bodyGrab,move:job.bodyMove,release:job.bodyRelease}}:{}),...(job.calibrationEvidence?{calibration:calibrationView(job.calibrationEvidence)}:{})}: {})}});return;
+          const modelSummary=String(next.args.summary||'Task completed');const summary=needsBody?bodyReport(job.bodyMove,job.bodyRelease,job.observerCapture):modelSummary;outcome=!needsScene&&job.created&&currentArtifact?.test?.passed?'verified':'completed-unverified';activity('complete',summary);emit('answer',summary);await api('/api/event',{kind:'agent_completed',data:{goal,model,summary,...(needsBody?{unverifiedModelSummary:modelSummary}:{}),episodeId:job.id,policyVersion:job.policy.version,...(needsScene?{experiment:job.sceneEvidence,comparison:job.comparisonEvidence,...(job.observerCapture?{observer:job.observerCapture}:{}),...(job.bodyRelease?{body:{grab:job.bodyGrab,move:job.bodyMove,release:job.bodyRelease}}:{}),...(job.calibrationEvidence?{calibration:calibrationView(job.calibrationEvidence)}:{})}: {})}});return;
         }
         const executed=await controlledExecute(next,job.policy);next=executed.decision;const result=executed.result;if(next.tool==='canvas.write'||next.tool==='skill.run')job.created=true;
         if(next.tool==='canvas.read'&&result.id===currentArtifact?.id)job.lastReadVersion=result.version;

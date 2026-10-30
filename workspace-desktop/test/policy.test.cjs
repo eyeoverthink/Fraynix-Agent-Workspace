@@ -98,3 +98,13 @@ test('body and file task modes stay separate from ordinary web artifact requests
  assert.deepEqual(taskMode('Export a physics scene video'),{needsTransfer:true,needsScene:true,needsComparison:false});
  assert.equal(taskMode('Build an import/export CSV web app').needsScene,false);
 });
+
+test('physical result reporting uses native target error rather than model travel-distance prose',()=>{
+ const {bodyReport}=require('../body-result.cjs'),move={status:'completed',runId:'r',outcome:'reached',targetErrorM:0.0000006263956,toleranceM:.08},release={status:'completed',runId:'r',endTick:295,after:{position:[-3.6,.55,.25],grip:{held:false}}},capture={packet:{world:{runId:'r',tick:295}},pngSha256:'abc'};
+ const report=bodyReport(move,release,capture);assert(report.includes('Measured target error 6.26396e-7 m'));assert(!report.includes('0.790569'));assert(report.includes('Native constraint removed'));
+ move.outcome='blocked-or-force-limited';move.targetErrorM=.29;assert(bodyReport(move,release,capture).includes('blocked-or-force-limited'));
+});
+test('physical result reporting refuses stale final frames or a remaining native grip',()=>{
+ const {bodyReport}=require('../body-result.cjs'),move={status:'completed',runId:'r',outcome:'reached',targetErrorM:0,toleranceM:.08},release={status:'completed',runId:'r',endTick:295,after:{position:[0,1,0],grip:{held:false}}},capture={packet:{world:{runId:'r',tick:294}},pngSha256:'abc'};
+ assert.throws(()=>bodyReport(move,release,capture),/matching completed/);capture.packet.world.tick=295;release.after.grip.held=true;assert.throws(()=>bodyReport(move,release,capture),/matching completed/);
+});
