@@ -1,5 +1,9 @@
 # Fraynix Studio collaboration and documentation
 
+Read `docs/PROJECT_MEMORY.md` and `docs/DEVELOPMENT_LOG.md` for current engineering
+continuity. Update them with verified outcomes and remaining work; keep personal
+runtime state and credentials outside Git.
+
 ## Successor repository
 
 This checkout is Fraynix-Agent-Workspace, independently derived from Studio

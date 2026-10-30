@@ -14,6 +14,7 @@ import java.util.concurrent.*;
 /** Loopback control plane. Browser/preview renderers never receive its bearer capability. */
 public final class WorkspaceServer {
     private final WorkspaceStore store;
+    private final LearningStore learning;
     private final String token;
     private final FactoryModelService models=new FactoryModelService();
     private volatile FactoryModelService.Snapshot catalog;
@@ -21,14 +22,14 @@ public final class WorkspaceServer {
     private final ScheduledExecutorService scanner=Executors.newSingleThreadScheduledExecutor();
     public WorkspaceServer(Path project,String token) throws IOException {
         if(token==null||token.length()<32)throw new IllegalArgumentException("A private session capability is required");
-        this.token=token;store=new WorkspaceStore(project);
+        this.token=token;store=new WorkspaceStore(project);learning=new LearningStore(project);
         scanner.scheduleWithFixedDelay(()->{try{catalog=models.observe();}catch(Exception e){System.err.println("Model discovery: "+e.getMessage());}},0,45,TimeUnit.SECONDS);
     }
     private JSONObject state() throws IOException {
         var available=new JSONArray();var snapshot=catalog;
         if(snapshot!=null)for(var model:snapshot.models())if(model.available()&&model.capabilities().contains("tools"))available.put(new JSONObject().put("name",model.name()).put("endpoint",model.endpoint()).put("bytes",model.bytes()).put("capabilities",model.capabilities()));
         return new JSONObject().put("name","Fraynix Agent Workspace").put("project",store.root().toString()).put("models",available)
-            .put("discovering",snapshot==null).put("artifacts",store.artifacts()).put("skills",store.skills()).put("baseline","6341404");
+            .put("discovering",snapshot==null).put("artifacts",store.artifacts()).put("skills",store.skills()).put("learning",learning.state()).put("baseline","6341404");
     }
     public HttpServer start() throws IOException {
         HttpServer server=HttpServer.create(new InetSocketAddress("127.0.0.1",0),0);server.setExecutor(Executors.newVirtualThreadPerTaskExecutor());
@@ -45,6 +46,14 @@ public final class WorkspaceServer {
                     case "/api/artifact/test" -> result=store.recordTest(input);
                     case "/api/skill/save" -> result=store.saveSkill(input);
                     case "/api/skill/read" -> result=store.skill(input.getString("name"));
+                    case "/api/learning/begin" -> result=learning.begin(input);
+                    case "/api/learning/step" -> result=learning.step(input);
+                    case "/api/learning/end" -> result=learning.end(input);
+                    case "/api/learning/propose" -> result=learning.propose(input);
+                    case "/api/learning/evaluate" -> {result=learning.evaluate(input);store.event("learning_evaluated",result);}
+                    case "/api/learning/cancel" -> result=learning.cancelCandidate(input.getString("id"),input.optString("status","cancelled"));
+                    case "/api/learning/read" -> result=learning.read(input.getString("type"),input.getString("id"));
+                    case "/api/learning/rollback" -> {result=learning.rollback();store.event("learning_rollback",result);}
                     case "/api/host/skill" -> result=store.hostSkill(input.getString("name"),input.optJSONObject("args")==null?new JSONObject():input.getJSONObject("args"));
                     case "/api/event" -> {store.event(input.getString("kind"),input.getJSONObject("data"));result=new JSONObject().put("saved",true);}
                     case "/api/cancel" -> {var active=requests.get(input.getString("requestId"));if(active!=null)active.cancel();result=new JSONObject().put("cancelled",active!=null);}

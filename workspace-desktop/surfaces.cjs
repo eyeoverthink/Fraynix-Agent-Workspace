@@ -3,9 +3,9 @@ const {WebContentsView,session}=require('electron');
 const {ObservationLease,webURL}=require('./policy.cjs');
 
 class Surface {
-  constructor(kind,window,notify){
+  constructor(kind,window,notify,options={}){
     this.kind=kind;this.notify=notify;this.lease=new ObservationLease();this.errors=[];this.allowedPrefix='';
-    const profile=kind==='browser'?'persist:workspace-browser':'workspace-canvas';
+    const profile=options.partition||(kind==='browser'?'persist:workspace-browser':'workspace-canvas');
     const partition=session.fromPartition(profile);
     partition.setPermissionRequestHandler((_wc,_permission,callback)=>callback(false));
     partition.setPermissionCheckHandler(()=>false);
@@ -42,6 +42,7 @@ class Surface {
   async act(args,type){
     this.lease.require(args.observation);
     if(!/^\d{1,2}$/.test(String(args.ref)))throw Error('Invalid control reference');
+    if(this.latest?.controls?.some(c=>c.ref===String(args.ref)&&c.role==='password'))throw Error('Password fields require manual interaction');
     const ref=Number(args.ref);
     const rect=await this.isolated(`(()=>{const e=globalThis.fraynixElements?.[${ref}];if(!e||!e.isConnected||e.disabled)throw Error('Control changed; observe again');if(e.type==='password')throw Error('Password fields require manual interaction');e.scrollIntoView({block:'center',inline:'center'});e.focus();const r=e.getBoundingClientRect();return {x:Math.round(r.x+r.width/2),y:Math.round(r.y+r.height/2),tag:e.tagName,type:e.type||''};})()`);
     if(type==='type'){
