@@ -1,0 +1,37 @@
+{
+  "dataset": "jaswar/physical-parameter-prediction",
+  "version": 11,
+  "paper": "https://arxiv.org/html/2410.01376v2#A6",
+  "training": "output_selected/sliding_block/low/01",
+  "validation": "output_selected/sliding_block/low/02",
+  "method": "Largest mask component >127; centroid projected onto training first-to-last line",
+  "metresPerPixel": 0.0005238493038500922,
+  "downhillUnitPixels": [
+    0.9336535890080548,
+    0.3581772965060434
+  ],
+  "physicalTravelM": 0.726,
+  "trainingOriginPixels": [
+    410.5161403508772,
+    349.6377192982456
+  ],
+  "angleDeg": 20,
+  "reportedAngleErrorDeg": 1,
+  "gravityMps2": 9.81,
+  "parameter": "friction",
+  "minimum": 0,
+  "maximum": 1,
+  "seconds": 1,
+  "toleranceM": 0.015,
+  "minImprovementM": 0.001,
+  "timeOrigin": "First source frame; each run uses its own first-frame spatial origin",
+  "rows": "All source frames, no smoothing, no fitted time shift or velocity correction",
+  "apply": "Research only; no automatic application, even if numerical gates pass",
+  "assumptions": [
+    "Shared camera/projection and constant image-plane scale across these two recordings",
+    "Training endpoint uses a reported 0.726 m travel constraint; not independent endpoint validation",
+    "Mask centroids are estimated from real recordings, not raw position-sensor measurements",
+    "Nominal 20 degrees; image perspective and release timing have unresolved uncertainty",
+    "Native 12 m ramp, 0.5 m cube and 1 kg are surrogate assumptions, not measured apparatus"
+  ]
+}

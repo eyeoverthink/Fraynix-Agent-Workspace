@@ -1,0 +1,50 @@
+{
+  "dataset": "jaswar/physical-parameter-prediction",
+  "version": 11,
+  "sourcePage": "https://www.kaggle.com/datasets/jaswar/physical-parameter-prediction",
+  "datasetListingLicense": "MIT",
+  "sources": [
+    {
+      "path": "output_selected/parameters.json",
+      "url": "https://www.kaggle.com/api/v1/datasets/download/jaswar/physical-parameter-prediction/output_selected%2Fparameters.json?datasetVersionNumber=11",
+      "bytes": 5302,
+      "sha256": "45d231de37366f5ffd8d7153c51917692c6e5b88b4019418ee0aa444f0aa7724"
+    },
+    {
+      "path": "output_selected/sliding_block/low/01/video.mp4",
+      "url": "https://www.kaggle.com/api/v1/datasets/download/jaswar/physical-parameter-prediction/output_selected%2Fsliding_block%2Flow%2F01%2Fvideo.mp4?datasetVersionNumber=11",
+      "bytes": 1736684,
+      "sha256": "2898b48dce48c220d4ecce6a6a319ee2319e8588dfb781285ad1717ecec6b013"
+    },
+    {
+      "path": "output_selected/sliding_block/low/01/masks.mp4",
+      "url": "https://www.kaggle.com/api/v1/datasets/download/jaswar/physical-parameter-prediction/output_selected%2Fsliding_block%2Flow%2F01%2Fmasks.mp4?datasetVersionNumber=11",
+      "bytes": 318734,
+      "sha256": "0dd678c2c5cf9f587ae7e9acedceebc4ec302d6701edf28609c4458ce138c72e"
+    },
+    {
+      "path": "output_selected/sliding_block/low/02/video.mp4",
+      "url": "https://www.kaggle.com/api/v1/datasets/download/jaswar/physical-parameter-prediction/output_selected%2Fsliding_block%2Flow%2F02%2Fvideo.mp4?datasetVersionNumber=11",
+      "bytes": 1633666,
+      "sha256": "0a3785298a38e2a7ed69d5ede04c1596595960741eef0eb313a7a369a1ca8b5d"
+    },
+    {
+      "path": "output_selected/sliding_block/low/02/masks.mp4",
+      "url": "https://www.kaggle.com/api/v1/datasets/download/jaswar/physical-parameter-prediction/output_selected%2Fsliding_block%2Flow%2F02%2Fmasks.mp4?datasetVersionNumber=11",
+      "bytes": 301067,
+      "sha256": "5b87be77598e5ba470b4dafecd02513a77b551fd42cd6ef487165d7487e77419"
+    }
+  ],
+  "software": {
+    "python": "3.12",
+    "opencv": "4.10.0",
+    "numpy": "2.5.2"
+  },
+  "processorSha256Utf8Lf": "206882db2ea8860f407730153bddae517a39dc3404abbd7664b828cfb8f54e3b",
+  "outputs": {
+    "training.csv": "c3d95c6a8ee4e002ec490cb6e2239dbd53ba5e194ea6b89ccba418b0e5ac59da",
+    "validation.csv": "591c0cb5e7b1755dce0e9e415ed0766840a9e74021effca78a45c1ae9e59b4c8",
+    "spatial-calibration-frozen.json": "7628005497391654d0f419a7443853d74b80d048e3d5fa57011202d983b4cad0"
+  },
+  "scientificStatus": "Exploratory surrogate-model comparison; not certified friction metrology"
+}

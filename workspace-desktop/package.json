@@ -17,7 +17,8 @@
     "test:live-scene": "node test/live-scene.cjs",
     "test:broader": "node test/broader-validation.cjs",
     "test:live-broader": "node test/live-broader.cjs",
-    "test:live": "node test/live-agent.cjs"
+    "test:live": "node test/live-agent.cjs",
+    "test:real-data": "node test/real-data-delfys.cjs"
   },
   "devDependencies": {
     "electron": "45.1.0",

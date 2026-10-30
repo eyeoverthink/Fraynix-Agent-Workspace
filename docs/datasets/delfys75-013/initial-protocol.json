@@ -1,0 +1,17 @@
+{
+  "dataset": "jaswar/physical-parameter-prediction",
+  "version": 11,
+  "training": "output_selected/sliding_block/low/01",
+  "validation": "output_selected/sliding_block/low/02",
+  "parameter": "friction",
+  "minimum": 0,
+  "maximum": 1,
+  "gravityMps2": 9.81,
+  "angleDeg": 20,
+  "toleranceM": 0.015,
+  "minImprovementM": 0.001,
+  "origin": "First source frame; no fitted time shift or velocity correction",
+  "timeWindow": "Use all source frames before any end-of-ramp impact, document any exclusion before validation scoring",
+  "apply": "No automatic authored-scene application during research; report acceptance and model applicability separately",
+  "scope": "Mask-derived measurements from real video; pixel-to-metre calibration required before SI comparison. No use of published friction summary to select fit."
+}
