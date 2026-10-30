@@ -1,0 +1,116 @@
+{
+  "date": "2026-10-30",
+  "modules": [
+    {
+      "id": "inputs",
+      "name": "Frozen observations and scenes",
+      "status": "verified",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/CalibrationStore.java",
+      "note": "docs/obsidian/20-native-calibration.md",
+      "summary": "Current versions, hashes, units, distinct observations and source labels are frozen before search."
+    },
+    {
+      "id": "native",
+      "name": "Native worlds and operation receipts",
+      "status": "verified",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/SceneStore.java",
+      "note": "docs/obsidian/20-native-calibration.md",
+      "summary": "Actual fixed-tick Bullet trials preserve tested parameter overrides and logical operation IDs."
+    },
+    {
+      "id": "selection",
+      "name": "Training-only selection",
+      "status": "verified",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/CalibrationStore.java",
+      "note": "docs/obsidian/20-native-calibration.md",
+      "summary": "Nine coarse candidates plus bounded refinement, every score executed; winner checkpointed before validation."
+    },
+    {
+      "id": "validation",
+      "name": "Residual evaluation and holdout gates",
+      "status": "verified",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/MeasurementEvaluation.java",
+      "note": "docs/obsidian/20-native-calibration.md",
+      "summary": "All-point tolerance, training improvement and validation nonregression. No extrapolation or retuning."
+    },
+    {
+      "id": "changes",
+      "name": "Atomic apply and guarded rollback",
+      "status": "verified",
+      "source": "workspace-engine/src/test/java/fraymus/workspace/CalibrationStoreTest.java",
+      "note": "docs/obsidian/20-native-calibration.md",
+      "summary": "Version checks, durable application intent, atomic scene receipt, idempotent recovery and rollback."
+    },
+    {
+      "id": "desktop",
+      "name": "Visible controls and tested report",
+      "status": "verified",
+      "source": "workspace-desktop/renderer/calibration-panel.js",
+      "note": "docs/obsidian/20-native-calibration.md",
+      "summary": "The existing lab gains progress, trials, history and real actions. Reports use exact CSVs and actual native JSON."
+    },
+    {
+      "id": "agent",
+      "name": "Agent lifecycle and independent acceptance",
+      "status": "verified",
+      "source": "workspace-desktop/policy.cjs",
+      "note": "docs/obsidian/20-native-calibration.md",
+      "summary": "Typed tools follow actual job state, prevent duplicate starts, preserve explicit no-apply intent and require execution receipts."
+    },
+    {
+      "id": "next",
+      "name": "Real collection and physical experience",
+      "status": "planned",
+      "source": "docs/SCENARIO_ENGINE_ROADMAP.md",
+      "note": "docs/obsidian/20-native-calibration.md",
+      "summary": "Next gates: instrument provenance, document/OCR spans, withheld physical tasks and evaluated policies; then separately scoped compiler targets."
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "docs/readmes/012/images/calibration-lab.png",
+      "description": "Actual accepted native fit in the existing controls. Synthetic sources, isolated project."
+    },
+    {
+      "path": "docs/readmes/012/images/calibration-report.png",
+      "description": "Actual tested local report, original CSVs and native evidence."
+    },
+    {
+      "path": "docs/readmes/012/images/calibration-rejected.png",
+      "description": "Actual failed validation. The training winner stays unchanged and Apply is unavailable."
+    },
+    {
+      "path": "docs/readmes/012/images/live-calibration.png",
+      "description": "Actual local gpt-oss:20b calibration, accepted application and independently tested report."
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/readmes/012/verification.json"
+    },
+    {
+      "path": "docs/readmes/012/calibration-integration.json"
+    },
+    {
+      "path": "docs/readmes/012/live-calibration.json"
+    },
+    {
+      "path": "docs/readmes/012/live-calibration-first-trial.json"
+    },
+    {
+      "path": "docs/readmes/012/measurement-integration.json"
+    },
+    {
+      "path": "docs/readmes/012/scene-integration.json"
+    },
+    {
+      "path": "docs/readmes/012/integration.json"
+    },
+    {
+      "path": "docs/readmes/012/learning-integration.json"
+    },
+    {
+      "path": "docs/readmes/012/broader-validation.json"
+    }
+  ]
+}

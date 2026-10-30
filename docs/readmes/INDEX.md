@@ -15,5 +15,6 @@ Numbered editions preserve dated system behavior and evidence. The root [README]
 | [009](../../README-009.md) | 2026-10-29 | Design edition: shared world, 3D experiment sequence, real-data binding and target-language pipeline | [Viewer](009/index.html) · [plan](../SCENARIO_ENGINE_ROADMAP.md) · [tree](009/FILE_TREE.md) |
 | [010](../../README-010.md) | 2026-10-29 | First native 3D mechanics lab, persistent scenes, replay and local-model experiment tools | [Viewer](010/index.html) · [evidence](010/verification.json) · [backend](../3D_BACKEND_DECISION.md) |
 | [011](../../README-011.md) | 2026-10-30 | Versioned CSV measurements, native residual comparisons, repeatable experiments and guarded offline reports | [Viewer](011/index.html) · [evidence](011/verification.json) · [tree](011/FILE_TREE.md) |
+| [012](../../README-012.md) | 2026-10-30 | Native parameter calibration, separate validation, durable apply/rollback and actual local-model evidence | [Viewer](012/index.html) · [evidence](012/verification.json) · [tree](012/FILE_TREE.md) |
 
-Latest implementation/documentation edition: **011**. Earlier snapshots remain intact. See [sequence policy](README_SEQUENCE.md) and [manifest](editions.json).
+Latest implementation/documentation edition: **012**. Earlier snapshots remain intact. See [sequence policy](README_SEQUENCE.md) and [manifest](editions.json).

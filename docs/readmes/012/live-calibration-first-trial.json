@@ -1,0 +1,370 @@
+{
+  "date": "2026-10-30T09:12:19.992595+00:00",
+  "passed": false,
+  "model": "gpt-oss:20b",
+  "failure": "Eight-minute task budget exceeded. Model repeatedly started jobs and reread completed fits instead of advancing to apply/report. No task completion accepted.",
+  "records": [
+    {
+      "tool": "calibration.start",
+      "at": "2026-10-30T09:03:39.806208200Z",
+      "args": {
+        "trainingSceneVersion": 1,
+        "trainingSceneId": "b0d3cd60-ebea-4640-a1d6-8ce328b2b150",
+        "trainingDatasetId": "38a0f754-1e58-4108-ad74-c99df1ee8b43",
+        "validationDatasetId": "9e28cc25-3fbf-49d8-aef7-67947f73e61e",
+        "seconds": 0.75,
+        "validationSceneId": "c5c38d93-a748-4fd1-96a8-013d9ec66dd1",
+        "minImprovementM": 0.001,
+        "parameter": "friction",
+        "maximum": 0.8,
+        "trainingDatasetVersion": 1,
+        "toleranceM": 0.015,
+        "minimum": 0,
+        "validationSceneVersion": 1,
+        "validationDatasetVersion": 1
+      },
+      "result": {
+        "id": "f997552c-026e-4f1b-9d4a-e8948c29432e",
+        "status": "queued",
+        "phase": "baseline"
+      }
+    },
+    {
+      "tool": "calibration.start",
+      "at": "2026-10-30T09:04:06.023223400Z",
+      "args": {
+        "trainingSceneVersion": 1,
+        "trainingSceneId": "b0d3cd60-ebea-4640-a1d6-8ce328b2b150",
+        "trainingDatasetId": "38a0f754-1e58-4108-ad74-c99df1ee8b43",
+        "validationDatasetId": "9e28cc25-3fbf-49d8-aef7-67947f73e61e",
+        "seconds": 0.75,
+        "validationSceneId": "c5c38d93-a748-4fd1-96a8-013d9ec66dd1",
+        "parameter": "friction",
+        "minImprovementM": 0.001,
+        "trainingDatasetVersion": 1,
+        "maximum": 0.8,
+        "toleranceM": 0.015,
+        "validationSceneVersion": 1,
+        "minimum": 0,
+        "validationDatasetVersion": 1
+      },
+      "result": {
+        "id": "c5b83758-064e-407b-a705-6bd4faa89117",
+        "status": "queued",
+        "phase": "baseline"
+      }
+    },
+    {
+      "tool": "calibration.start",
+      "at": "2026-10-30T09:04:34.490798900Z",
+      "args": {
+        "trainingSceneVersion": 1,
+        "trainingSceneId": "b0d3cd60-ebea-4640-a1d6-8ce328b2b150",
+        "trainingDatasetId": "38a0f754-1e58-4108-ad74-c99df1ee8b43",
+        "validationDatasetId": "9e28cc25-3fbf-49d8-aef7-67947f73e61e",
+        "seconds": 0.75,
+        "validationSceneId": "c5c38d93-a748-4fd1-96a8-013d9ec66dd1",
+        "parameter": "friction",
+        "minImprovementM": 0.001,
+        "trainingDatasetVersion": 1,
+        "maximum": 0.8,
+        "toleranceM": 0.015,
+        "minimum": 0,
+        "validationSceneVersion": 1,
+        "validationDatasetVersion": 1
+      },
+      "result": {
+        "id": "ed70eb9f-f8eb-4824-af95-4599c20abd82",
+        "status": "queued",
+        "phase": "baseline"
+      }
+    },
+    {
+      "tool": "calibration.read",
+      "at": "2026-10-30T09:04:48.180606900Z",
+      "args": {
+        "id": "f997552c-026e-4f1b-9d4a-e8948c29432e"
+      },
+      "result": {
+        "id": "f997552c-026e-4f1b-9d4a-e8948c29432e",
+        "status": "completed",
+        "phase": "complete",
+        "selection": {
+          "criterion": "minimum executed training RMSE; ties prefer the existing parameter",
+          "trainingRmseM": 0.0013513577627662396,
+          "runId": "3f0cf93d-ebe5-421d-943d-da8332a33c58",
+          "value": 0.28125,
+          "frozenAt": "2026-10-30T09:03:40.968219400Z"
+        },
+        "evaluation": {
+          "trainingImproved": true,
+          "trainingImprovementM": 0.3014758322322386,
+          "criteria": "training RMSE gain >= declared minimum; every validation residual <= tolerance; validation RMSE does not increase beyond 1e-9 m numerical slack",
+          "validationNoRegression": true,
+          "scope": "Parameter calibration in the recorded native model; source labels are user supplied, prior validation uses recorded, and collection independence not proven",
+          "accepted": true,
+          "validationWithinTolerance": true
+        }
+      }
+    },
+    {
+      "tool": "calibration.read",
+      "at": "2026-10-30T09:04:54.216290600Z",
+      "args": {
+        "id": "f997552c-026e-4f1b-9d4a-e8948c29432e"
+      },
+      "result": {
+        "id": "f997552c-026e-4f1b-9d4a-e8948c29432e",
+        "status": "completed",
+        "phase": "complete",
+        "selection": {
+          "criterion": "minimum executed training RMSE; ties prefer the existing parameter",
+          "trainingRmseM": 0.0013513577627662396,
+          "runId": "3f0cf93d-ebe5-421d-943d-da8332a33c58",
+          "value": 0.28125,
+          "frozenAt": "2026-10-30T09:03:40.968219400Z"
+        },
+        "evaluation": {
+          "trainingImproved": true,
+          "trainingImprovementM": 0.3014758322322386,
+          "criteria": "training RMSE gain >= declared minimum; every validation residual <= tolerance; validation RMSE does not increase beyond 1e-9 m numerical slack",
+          "validationNoRegression": true,
+          "scope": "Parameter calibration in the recorded native model; source labels are user supplied, prior validation uses recorded, and collection independence not proven",
+          "accepted": true,
+          "validationWithinTolerance": true
+        }
+      }
+    },
+    {
+      "tool": "calibration.read",
+      "at": "2026-10-30T09:05:28.589084900Z",
+      "args": {
+        "id": "f997552c-026e-4f1b-9d4a-e8948c29432e"
+      },
+      "result": {
+        "id": "f997552c-026e-4f1b-9d4a-e8948c29432e",
+        "status": "completed",
+        "phase": "complete",
+        "selection": {
+          "criterion": "minimum executed training RMSE; ties prefer the existing parameter",
+          "trainingRmseM": 0.0013513577627662396,
+          "runId": "3f0cf93d-ebe5-421d-943d-da8332a33c58",
+          "value": 0.28125,
+          "frozenAt": "2026-10-30T09:03:40.968219400Z"
+        },
+        "evaluation": {
+          "trainingImproved": true,
+          "trainingImprovementM": 0.3014758322322386,
+          "criteria": "training RMSE gain >= declared minimum; every validation residual <= tolerance; validation RMSE does not increase beyond 1e-9 m numerical slack",
+          "validationNoRegression": true,
+          "scope": "Parameter calibration in the recorded native model; source labels are user supplied, prior validation uses recorded, and collection independence not proven",
+          "accepted": true,
+          "validationWithinTolerance": true
+        }
+      }
+    },
+    {
+      "tool": "calibration.start",
+      "at": "2026-10-30T09:06:11.761345100Z",
+      "args": {
+        "trainingSceneVersion": 1,
+        "trainingSceneId": "b0d3cd60-ebea-4640-a1d6-8ce328b2b150",
+        "trainingDatasetId": "38a0f754-1e58-4108-ad74-c99df1ee8b43",
+        "validationDatasetId": "9e28cc25-3fbf-49d8-aef7-67947f73e61e",
+        "seconds": 0.75,
+        "validationSceneId": "c5c38d93-a748-4fd1-96a8-013d9ec66dd1",
+        "minImprovementM": 0.001,
+        "parameter": "friction",
+        "maximum": 0.8,
+        "trainingDatasetVersion": 1,
+        "toleranceM": 0.015,
+        "minimum": 0,
+        "validationSceneVersion": 1,
+        "validationDatasetVersion": 1
+      },
+      "result": {
+        "id": "dbeb2d29-f440-41eb-9fdc-48feefabc7b9",
+        "status": "queued",
+        "phase": "baseline"
+      }
+    },
+    {
+      "tool": "calibration.start",
+      "at": "2026-10-30T09:06:52.214351300Z",
+      "args": {
+        "trainingSceneVersion": 1,
+        "trainingSceneId": "b0d3cd60-ebea-4640-a1d6-8ce328b2b150",
+        "trainingDatasetId": "38a0f754-1e58-4108-ad74-c99df1ee8b43",
+        "validationDatasetId": "9e28cc25-3fbf-49d8-aef7-67947f73e61e",
+        "seconds": 0.75,
+        "validationSceneId": "c5c38d93-a748-4fd1-96a8-013d9ec66dd1",
+        "minImprovementM": 0.001,
+        "parameter": "friction",
+        "maximum": 0.8,
+        "trainingDatasetVersion": 1,
+        "toleranceM": 0.015,
+        "minimum": 0,
+        "validationSceneVersion": 1,
+        "validationDatasetVersion": 1
+      },
+      "result": {
+        "id": "a30bce22-251c-4306-a84f-46c23a5eb873",
+        "status": "queued",
+        "phase": "baseline"
+      }
+    },
+    {
+      "tool": "calibration.start",
+      "at": "2026-10-30T09:07:07.438410500Z",
+      "args": {
+        "trainingSceneVersion": 1,
+        "trainingSceneId": "b0d3cd60-ebea-4640-a1d6-8ce328b2b150",
+        "trainingDatasetId": "38a0f754-1e58-4108-ad74-c99df1ee8b43",
+        "validationDatasetId": "9e28cc25-3fbf-49d8-aef7-67947f73e61e",
+        "seconds": 0.75,
+        "validationSceneId": "c5c38d93-a748-4fd1-96a8-013d9ec66dd1",
+        "minImprovementM": 0.001,
+        "parameter": "friction",
+        "maximum": 0.8,
+        "trainingDatasetVersion": 1,
+        "toleranceM": 0.015,
+        "minimum": 0,
+        "validationSceneVersion": 1,
+        "validationDatasetVersion": 1
+      },
+      "result": {
+        "id": "bc261bcd-b5d0-4b84-8662-9bec509a27be",
+        "status": "queued",
+        "phase": "baseline"
+      }
+    },
+    {
+      "tool": "calibration.read",
+      "at": "2026-10-30T09:07:42.256411500Z",
+      "args": {
+        "id": "a30bce22-251c-4306-a84f-46c23a5eb873"
+      },
+      "result": {
+        "id": "a30bce22-251c-4306-a84f-46c23a5eb873",
+        "status": "completed",
+        "phase": "complete",
+        "selection": {
+          "criterion": "minimum executed training RMSE; ties prefer the existing parameter",
+          "trainingRmseM": 0.0013513577627662396,
+          "runId": "73c7a503-4c80-4c2c-ad32-6e8e231c2b1e",
+          "value": 0.28125,
+          "frozenAt": "2026-10-30T09:06:54.037358500Z"
+        },
+        "evaluation": {
+          "trainingImproved": true,
+          "trainingImprovementM": 0.3014758322322386,
+          "criteria": "training RMSE gain >= declared minimum; every validation residual <= tolerance; validation RMSE does not increase beyond 1e-9 m numerical slack",
+          "validationNoRegression": true,
+          "scope": "Parameter calibration in the recorded native model; source labels are user supplied, prior validation uses recorded, and collection independence not proven",
+          "accepted": true,
+          "validationWithinTolerance": true
+        }
+      }
+    },
+    {
+      "tool": "calibration.start",
+      "at": "2026-10-30T09:08:26.335562700Z",
+      "args": {
+        "trainingSceneVersion": 1,
+        "trainingSceneId": "b0d3cd60-ebea-4640-a1d6-8ce328b2b150",
+        "trainingDatasetId": "38a0f754-1e58-4108-ad74-c99df1ee8b43",
+        "validationDatasetId": "9e28cc25-3fbf-49d8-aef7-67947f73e61e",
+        "seconds": 0.75,
+        "validationSceneId": "c5c38d93-a748-4fd1-96a8-013d9ec66dd1",
+        "minImprovementM": 0.001,
+        "parameter": "friction",
+        "maximum": 0.8,
+        "trainingDatasetVersion": 1,
+        "toleranceM": 0.015,
+        "minimum": 0,
+        "validationSceneVersion": 1,
+        "validationDatasetVersion": 1
+      },
+      "result": {
+        "id": "99dc3c83-016b-433e-ac02-1971a257ac8a",
+        "status": "queued",
+        "phase": "baseline"
+      }
+    },
+    {
+      "tool": "calibration.apply",
+      "at": "2026-10-30T09:08:59.661571800Z",
+      "args": {
+        "id": "a30bce22-251c-4306-a84f-46c23a5eb873"
+      },
+      "result": {
+        "id": "a30bce22-251c-4306-a84f-46c23a5eb873",
+        "status": "completed",
+        "phase": "complete",
+        "selection": {
+          "criterion": "minimum executed training RMSE; ties prefer the existing parameter",
+          "trainingRmseM": 0.0013513577627662396,
+          "runId": "73c7a503-4c80-4c2c-ad32-6e8e231c2b1e",
+          "value": 0.28125,
+          "frozenAt": "2026-10-30T09:06:54.037358500Z"
+        },
+        "evaluation": {
+          "trainingImproved": true,
+          "trainingImprovementM": 0.3014758322322386,
+          "criteria": "training RMSE gain >= declared minimum; every validation residual <= tolerance; validation RMSE does not increase beyond 1e-9 m numerical slack",
+          "validationNoRegression": true,
+          "scope": "Parameter calibration in the recorded native model; source labels are user supplied, prior validation uses recorded, and collection independence not proven",
+          "accepted": true,
+          "validationWithinTolerance": true
+        },
+        "application": {
+          "applyOperationId": "396e25bd-097c-47b0-abca-1af8b533000a",
+          "applyReceipt": {
+            "jobId": "a30bce22-251c-4306-a84f-46c23a5eb873",
+            "createdAt": "2026-10-30T09:08:59.600477900Z",
+            "fromVersion": 1,
+            "kind": "apply",
+            "parameter": "friction",
+            "sceneId": "b0d3cd60-ebea-4640-a1d6-8ce328b2b150",
+            "id": "396e25bd-097c-47b0-abca-1af8b533000a",
+            "previousValue": 0,
+            "value": 0.28125,
+            "toVersion": 2
+          },
+          "status": "applied"
+        }
+      }
+    },
+    {
+      "tool": "calibration.read",
+      "at": "2026-10-30T09:10:06.744234600Z",
+      "args": {
+        "id": "99dc3c83-016b-433e-ac02-1971a257ac8a"
+      },
+      "result": {
+        "id": "99dc3c83-016b-433e-ac02-1971a257ac8a",
+        "status": "completed",
+        "phase": "complete",
+        "selection": {
+          "criterion": "minimum executed training RMSE; ties prefer the existing parameter",
+          "trainingRmseM": 0.0013513577627662396,
+          "runId": "577e4140-d751-43cc-ab37-9fc9d06b6474",
+          "value": 0.28125,
+          "frozenAt": "2026-10-30T09:08:28.479520200Z"
+        },
+        "evaluation": {
+          "trainingImproved": true,
+          "trainingImprovementM": 0.3014758322322386,
+          "criteria": "training RMSE gain >= declared minimum; every validation residual <= tolerance; validation RMSE does not increase beyond 1e-9 m numerical slack",
+          "validationNoRegression": true,
+          "scope": "Parameter calibration in the recorded native model; source labels are user supplied, prior validation uses recorded, and collection independence not proven",
+          "accepted": true,
+          "validationWithinTolerance": true
+        }
+      }
+    }
+  ],
+  "correction": "Host lifecycle gates and owned-job checks restrict offered/accepted tools to actual next transitions. Corrected task must pass independent assertions.",
+  "jobsStarted": 7,
+  "completedReads": 5
+}

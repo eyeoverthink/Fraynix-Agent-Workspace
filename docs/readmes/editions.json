@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "latest": 11,
+  "latest": 12,
   "canonicalization": "UTF-8 without BOM; CRLF normalized to LF for text",
   "editions": [
     {
@@ -835,6 +835,105 @@
           "path": "docs/readmes/011/verification.json",
           "kind": "text",
           "sha256": "34cd2264735f7916386c1a16690ac76ec2278c80dc4281bcdde3ee86f06e7965"
+        }
+      ]
+    },
+    {
+      "number": 12,
+      "date": "2026-10-30",
+      "title": "Native calibration, separate validation and reversible scene application",
+      "status": "published",
+      "markdown": "README-012.md",
+      "markdownSha256": "57f9db609b32b384bd169b5ac283eb7d4ba24d020e2caeaa53e6b6d893bf37bc",
+      "snapshotDirectory": "docs/readmes/012",
+      "companion": "docs/readmes/012/index.html",
+      "tag": "readme-012",
+      "sourceBaseline": "5fb652ba2c879f5ad1a381d42404bd4abfafc58d",
+      "snapshotFiles": [
+        {
+          "path": "docs/readmes/012/broader-validation.json",
+          "kind": "text",
+          "sha256": "a6c163bdd99caf8a6e8b2c7c2f2e385956b76d317144f44cc74ae415b65d2b2e"
+        },
+        {
+          "path": "docs/readmes/012/calibration-integration.json",
+          "kind": "text",
+          "sha256": "1115e811276cb71389e345e7c022b17a8808b4300ec7ecf48408338b58810578"
+        },
+        {
+          "path": "docs/readmes/012/file-inventory.json",
+          "kind": "text",
+          "sha256": "4ae8f768bf086f5bece491940c58a593e62c549d6cfc4a2baf61996d424a1e94"
+        },
+        {
+          "path": "docs/readmes/012/FILE_TREE.md",
+          "kind": "text",
+          "sha256": "15f57fcf94352b67c1e151c60a6068ed7caaef7cb19e4aa00365e5ff025ab9ec"
+        },
+        {
+          "path": "docs/readmes/012/images/calibration-lab.png",
+          "kind": "binary",
+          "sha256": "b3026485251bbe962b9a9ba12c5d713bda5806758d8ade50bc0922de697abd96"
+        },
+        {
+          "path": "docs/readmes/012/images/calibration-rejected.png",
+          "kind": "binary",
+          "sha256": "9aca0606895454d98f4aef14847939a488aa211b60ae871701830f3a5ec17955"
+        },
+        {
+          "path": "docs/readmes/012/images/calibration-report.png",
+          "kind": "binary",
+          "sha256": "b335224c7b26f8921b3c5122c2273bdb177337aaa11b883c53df98c87b9e3574"
+        },
+        {
+          "path": "docs/readmes/012/images/live-calibration.png",
+          "kind": "binary",
+          "sha256": "4fca6297c2f79e16c3ff51fa556a4025c253e9bc3f14d2162bbb3ef43230e63e"
+        },
+        {
+          "path": "docs/readmes/012/index.html",
+          "kind": "text",
+          "sha256": "610a6d19403fce58822ffafc23fdca0fa57e2d79f63189adc233641e19f49b62"
+        },
+        {
+          "path": "docs/readmes/012/integration.json",
+          "kind": "text",
+          "sha256": "51e58c88b5abadf5132030422d30fed48895fcaa850cbb3fcbc1d0e4b78fb7aa"
+        },
+        {
+          "path": "docs/readmes/012/learning-integration.json",
+          "kind": "text",
+          "sha256": "36a8a5a03f265aab71680404351482b80fb7c21281068f8a973649fbd557b290"
+        },
+        {
+          "path": "docs/readmes/012/live-calibration-first-trial.json",
+          "kind": "text",
+          "sha256": "61739965a6ea14820d8d6b12971699a78a93ee810a09dffac47743ecc9719d02"
+        },
+        {
+          "path": "docs/readmes/012/live-calibration.json",
+          "kind": "text",
+          "sha256": "ef8e30e533bad40aa35c1d174878c9c21e58c2f1320d8cb52739f82cdd25b6c2"
+        },
+        {
+          "path": "docs/readmes/012/measurement-integration.json",
+          "kind": "text",
+          "sha256": "4d3db14d8e79293d541a9c5a40f1d332326d9de16e50678fc58b0d2706ec4c91"
+        },
+        {
+          "path": "docs/readmes/012/scene-integration.json",
+          "kind": "text",
+          "sha256": "6ab0d2d689f8d625a7e05f27528cd8b2dd8c7328a5c6ca6cff2ea9afa0d7e997"
+        },
+        {
+          "path": "docs/readmes/012/system-map.json",
+          "kind": "text",
+          "sha256": "573cb03efe0e4e0fd09431e481247cdcc12939122faaa3ce438ac291b52d1646"
+        },
+        {
+          "path": "docs/readmes/012/verification.json",
+          "kind": "text",
+          "sha256": "63b0cc12affaa1d1fe5fd0b1a08a40edd52db01b359c6ced6e97384bd6269587"
         }
       ]
     }

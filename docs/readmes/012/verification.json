@@ -1,0 +1,85 @@
+{
+  "date": "2026-10-30",
+  "implementationCommit": "5fb652ba2c879f5ad1a381d42404bd4abfafc58d",
+  "releaseKind": "native-training-only-calibration-and-separate-validation",
+  "platformVerified": "Windows x64, JDK 21, Node 24.14.1, Electron 45.1.0",
+  "javaTests": 123,
+  "javaFailures": 0,
+  "newCalibrationJavaTests": 9,
+  "desktopTests": 13,
+  "calibrationIntegrationChecks": 8,
+  "measurementChecks": 10,
+  "sceneChecks": 12,
+  "integrationChecks": 12,
+  "learningChecks": 9,
+  "broaderChecks": 45,
+  "broaderPassed": 45,
+  "localModel": "gpt-oss:20b",
+  "localModelDigest": "f38aa0c53da5f8c49d08c43a99df24ff53167fe68e24664a7777288e7656fdfe",
+  "modelIndependentChecks": [
+    "One actual local-model calibration with all requested IDs, versions, bounds, duration and criteria preserved",
+    "All 17 candidate metrics independently recomputed from 180-tick native runs",
+    "Training-only selection and separate validation pass; selected friction within 0.004 of synthetic truth",
+    "Accepted application changes only training scene to v2; validation and source digests preserved",
+    "Host-rendered report contains exact job/CSV evidence and three passing DOM assertions",
+    "Fresh local model digest recorded; physical episode remains completed-unverified"
+  ],
+  "firstModelTrialPassed": false,
+  "firstModelFailure": "Repeated Start/Read after completed native jobs; failed task retained. Host lifecycle gates prevent duplicate starts and require actual apply/report receipts.",
+  "calibration": {
+    "parameter": "friction",
+    "selected": 0.28125,
+    "trainingBaselineRmseM": 0.30282718999500485,
+    "trainingFittedRmseM": 0.0013513577627662396,
+    "validationBaselineRmseM": 0.2736767637233059,
+    "validationFittedRmseM": 0.0012354955023515493,
+    "validationMaxAbsErrorM": 0.002528772473289864,
+    "accepted": true,
+    "nativeOperations": 20,
+    "syntheticTruth": 0.28,
+    "toleranceM": 0.015
+  },
+  "sourceInventory": 402,
+  "captures": {
+    "date": "2026-10-30",
+    "kind": "Actual composed Electron shell and child Chromium surfaces",
+    "context": "Isolated fixtures, explicitly synthetic source observations"
+  },
+  "freshClone": {
+    "status": "passed",
+    "sourceCommit": "5fb652ba2c879f5ad1a381d42404bd4abfafc58d",
+    "javaTests": 123,
+    "javaFailures": 0,
+    "desktopTests": 13,
+    "calibrationChecks": 8,
+    "measurementChecks": 10,
+    "sceneChecks": 12,
+    "broaderChecks": 45,
+    "canonicalSourceHashesVerified": 402,
+    "build": "Clean local clone; offline Gradle check/install; npm packages from offline cache and pinned Electron distribution; cached offline launcher preparation; no runtime/model data copied"
+  },
+  "documentationQa": {
+    "status": "passed",
+    "checks": [
+      "Offline file viewer loads all eight module cards and embedded evidence",
+      "Module search, selection and source details resolve",
+      "Status filter and canonical source inventory search work",
+      "All four actual images load, cycle and retain explicit current/synthetic captions",
+      "390px layout has no horizontal overflow and module/navigation controls remain usable",
+      "No documentation renderer errors"
+    ],
+    "visualInspection": {
+      "wide": "passed: readable module cards, workflow, details and navigation",
+      "narrow": "passed: 390px single-column cards and usable filters with no horizontal overflow"
+    }
+  },
+  "scope": [
+    "One-parameter friction or gravity search in bounded native ramp model; finite grid, not global optimization",
+    "Synthetic observations only in recorded acceptance cases; instrument accuracy and collection independence not established",
+    "Training-only selection precedes separate validation, with prior known uses recorded",
+    "Narrow durable calibration lifecycle and atomic scene receipts, not a general job graph",
+    "Application-level offline guards, not OS-wide isolation or shared Ollama policy",
+    "Physical episodes remain completed-unverified; no physical-policy or language-model weights trained"
+  ],
+  "documentationChecker": "PowerShell 7"
+}

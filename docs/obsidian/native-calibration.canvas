@@ -1,0 +1,113 @@
+{
+  "nodes": [
+    {
+      "id": "inputs",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/CalibrationStore.java",
+      "x": 0,
+      "y": 0,
+      "width": 390,
+      "height": 200
+    },
+    {
+      "id": "native",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/SceneStore.java",
+      "x": 450,
+      "y": 0,
+      "width": 390,
+      "height": 200
+    },
+    {
+      "id": "selection",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/CalibrationStore.java",
+      "x": 900,
+      "y": 0,
+      "width": 390,
+      "height": 200
+    },
+    {
+      "id": "validation",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/MeasurementEvaluation.java",
+      "x": 0,
+      "y": 260,
+      "width": 390,
+      "height": 200
+    },
+    {
+      "id": "changes",
+      "type": "file",
+      "file": "workspace-engine/src/test/java/fraymus/workspace/CalibrationStoreTest.java",
+      "x": 450,
+      "y": 260,
+      "width": 390,
+      "height": 200
+    },
+    {
+      "id": "desktop",
+      "type": "file",
+      "file": "workspace-desktop/renderer/calibration-panel.js",
+      "x": 900,
+      "y": 260,
+      "width": 390,
+      "height": 200
+    },
+    {
+      "id": "agent",
+      "type": "file",
+      "file": "workspace-desktop/policy.cjs",
+      "x": 0,
+      "y": 520,
+      "width": 390,
+      "height": 200
+    },
+    {
+      "id": "next",
+      "type": "file",
+      "file": "docs/SCENARIO_ENGINE_ROADMAP.md",
+      "x": 450,
+      "y": 520,
+      "width": 390,
+      "height": 200
+    }
+  ],
+  "edges": [
+    {
+      "id": "edge0",
+      "fromNode": "inputs",
+      "toNode": "native"
+    },
+    {
+      "id": "edge1",
+      "fromNode": "native",
+      "toNode": "selection"
+    },
+    {
+      "id": "edge2",
+      "fromNode": "selection",
+      "toNode": "validation"
+    },
+    {
+      "id": "edge3",
+      "fromNode": "validation",
+      "toNode": "changes"
+    },
+    {
+      "id": "edge4",
+      "fromNode": "validation",
+      "toNode": "desktop"
+    },
+    {
+      "id": "edge5",
+      "fromNode": "agent",
+      "toNode": "selection"
+    },
+    {
+      "id": "edge6",
+      "fromNode": "validation",
+      "toNode": "next"
+    }
+  ]
+}

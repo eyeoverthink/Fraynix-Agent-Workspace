@@ -2,9 +2,9 @@
 
 **A local visual environment for agents to browse, create runnable artifacts, test behavior and reuse verified skills.**
 
-> **Latest implementation: [README 011 — measurements and local reports](README-011.md)** · [Interactive explorer](docs/readmes/011/index.html) · [Native lab](README-010.md) · [Operating guide](README-006.md) · [Edition history](docs/readmes/INDEX.md)
+> **Latest implementation: [README 012 — native calibration and separate validation](README-012.md)** · [Interactive explorer](docs/readmes/012/index.html) · [Measurement pipeline](README-011.md) · [Operating guide](README-006.md) · [Edition history](docs/readmes/INDEX.md)
 
-Import CSV with explicit units and provenance, compare a saved native run, open a tested local report, and repeat the experiment after restart. Original sources, dataset versions and historical receipts stay intact. Offline mode guards application browser requests and checks fresh local-model metadata; it is not an OS-wide network sandbox. See [the full walkthrough and evidence](README-011.md).
+Fit friction or gravity against versioned observations using actual native Bullet trials. Freeze the training winner, evaluate separate validation data, inspect a tested report, and apply or roll back a current accepted fit. Existing browser, canvas, game and measurement workflows remain available. This is physical parameter calibration; language-model weight training remains separate. See [the full walkthrough and evidence](README-012.md).
 
 Independent successor to [Fraynix Studio](https://github.com/eyeoverthink/Fraynix-Studio), starting from verified commit `6341404`. The original application and personal project state remain separate. Full game sources, assets, licenses and earlier editions are preserved here.
 
@@ -16,9 +16,9 @@ The app includes a real browser, live creation canvas, editable source, versione
 
 Local `gpt-oss:20b` is the verified default for the first agent fixture. The custom FRAYNIX 3B trial returned an Ollama native-format error; advertised tool capability alone does not establish task reliability. You can select other eligible installed models explicitly.
 
-![Actual measurement report in the existing workspace](docs/readmes/011/images/measurement-report.png)
+![Actual calibration report in the existing workspace](docs/readmes/012/images/calibration-report.png)
 
-October 30 actual isolated measurement workflow. Current evidence: **114 Java tests**, **12 desktop tests**, **10 measurement integration checks**, an independently checked local-model comparison and preserved regressions. [Verification and limits](docs/readmes/011/verification.json).
+October 30 actual isolated calibration workflow. **123 Java tests**, **13 desktop unit tests**, **8 calibration integration checks**, an independently checked local-model fit and preserved regressions. [Verification and limits](docs/readmes/012/verification.json).
 
 ## Verify
 
@@ -28,6 +28,7 @@ cd workspace-desktop
 npm.cmd ci --no-audit --no-fund
 npm.cmd test
 npm.cmd run test:scene
+npm.cmd run test:calibration
 npm.cmd run test:measurement
 npm.cmd run test:integration
 npm.cmd run test:learning
@@ -37,6 +38,7 @@ $env:FRAYNIX_LIVE_MODEL='gpt-oss:20b'
 npm.cmd run test:live
 npm.cmd run test:live-scene
 npm.cmd run test:live-measurement
+npm.cmd run test:live-calibration
 npm.cmd run test:live-broader
 ```
 

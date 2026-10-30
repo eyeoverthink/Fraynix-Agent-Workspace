@@ -1,6 +1,6 @@
 # Shared-world and 3D experiment engineering plan
 
-Recorded October 29, 2026; updated October 30 for implementation edition 011. Status: **bounded 3D lab plus versioned CSV measurement comparison implemented**. Edition 009 remains the frozen design. [README 011](../README-011.md), [the native milestone](../README-010.md) and the [backend decision](3D_BACKEND_DECISION.md) identify the delivered slices, actual tests and remaining scope.
+Recorded October 29, 2026; updated October 30 for implementation edition 012. Status: **native lab, versioned observations, one-parameter fitting, separate validation and guarded application implemented**. Edition 009 remains the frozen design. [README 012](../README-012.md), [measurements](../README-011.md), [the native milestone](../README-010.md) and the [backend decision](3D_BACKEND_DECISION.md) identify the delivered slices, actual tests and remaining scope.
 
 Delivered: initial P1 scene/experiment contracts and stable 3D entities, selected P2 Bullet/Minie plus Three.js adapters, P3 fixed ramp/block lab with save/replay and reference evaluation, early P4 registered tools and a bounded P5 CSV measurement binding/comparison/report/repeat workflow with explicit units, source and time/frame mappings. Verification uses synthetic fixtures and actual local-model/native execution. General dataset quantities/sensor calibration, cross-domain unification, arbitrary scene authoring, broader physical task coverage, P6 learning and P7 compiler targets remain open. The existing 2D runtime/units, app layout and repository remain preserved.
 
@@ -14,7 +14,9 @@ The first complete deliverable is a 3D ramp/block experiment with live measureme
 
 - Current: JBox2D 2D bodies, fixed 1/60-second stepping, 2D transforms/camera, entities, schemas, checkpoints, local-model routing, browser/artifact tools, receipts, recipes and bounded controller learning.
 - Added in 010: stable object3d entities with position/quaternion/size, authored scene revisions, copied experiment definitions, native Bullet fixed-step motion and contacts, real perspective rendering, recorded measurements/results, replay and typed scene/experiment tools.
-- Remaining: arbitrary scene/mesh authoring, cross-domain atomic world transactions, measurement datasets/binding, trained physical policies and additional compiler targets.
+- Added in 011: versioned CSV provenance/mapping, independent residual comparisons, reports and actual repeat after restart.
+- Added in 012: one-parameter native friction/gravity search; training-only selection before separate validation; durable cancellation/resume, completed-operation reuse, version-checked application and rollback with atomic scene receipts.
+- Remaining: independent real instrument validation, arbitrary scene/mesh authoring, general cross-domain atomic transactions, trained physical policies and additional compiler targets.
 - Current zIndex remains draw order. Existing 2D saved units must not silently become meters.
 - Current browser-controller-v2 and its eight-case promotion gate remain separate from future physical-task evaluation. No whole-model training is implemented.
 
@@ -65,8 +67,14 @@ User request → reviewed typed specification → intermediate representation �
 
 Backend compatibility/redistribution; renderer-to-Java synchronization; numeric tolerances and timestep stability; unit/frame migration; unsupported physical domains; observation/context size; job cancellation; untrusted native execution; overfitting learned strategies to known cases. Each becomes a measured gate, not an invented capability badge.
 
+## Edition 012 acceptance and next gate
+
+The bounded fitting/evaluation extension executes every candidate in a separate actual native Bullet world. Training alone chooses a durable winner before validation scoring. Acceptance requires declared training improvement, all validation residuals within tolerance and no validation RMSE regression. Job recovery, source/scene version guards, atomic scene/application receipts and rollback are tested. A finite grid is not global optimization; source labels and collection independence remain user supplied. Recorded acceptance sources are synthetic. Physical policies and language-model weights are not trained.
+
+Next collect independent instrument data with apparatus, timing, frame and uncertainty provenance; predeclare fitting bounds and validation criteria. Follow with document/OCR page/span evidence, local retrieval and durable creation contracts. Tick/entity/action-linked physical experience needs new withheld task families and evaluated policies. General scene authoring, Game Lab bridges and compiler targets remain separate. Preserve the present app/layout, original Studio and private projects.
+
 ## Documentation and next action
 
-[README 009](../README-009.md) explains the vision and original sequence; its [frozen roadmap](readmes/009/roadmap.json) remains intact. [README 010](../README-010.md) documents the native slice and [README 011](../README-011.md) the working CSV comparison/report/repeat loop. [Current design](AGENT_WORKSPACE_DESIGN.md), [memory](PROJECT_MEMORY.md) and [log](DEVELOPMENT_LOG.md) carry ongoing decisions. Next broaden measured-data provenance and separate fitting/evaluation, then document/OCR evidence, retrieval, durable workflows, physical task families and evaluated learning targets. Expand scene authoring and Game Lab bridges through tested contracts. Compiler targets remain a separate workstream.
+[README 009](../README-009.md) explains the vision and original sequence; its [frozen roadmap](readmes/009/roadmap.json) remains intact. [README 010](../README-010.md) documents the native slice and [README 011](../README-011.md) the working CSV comparison/report/repeat loop. [Current design](AGENT_WORKSPACE_DESIGN.md), [memory](PROJECT_MEMORY.md) and [log](DEVELOPMENT_LOG.md) carry ongoing decisions. The bounded separate fitting/evaluation loop is delivered in edition 012. Next broaden independent measured-data provenance, then document/OCR evidence, retrieval, durable workflows, physical task families and evaluated learning targets. Expand scene authoring and Game Lab bridges through tested contracts. Compiler targets remain a separate workstream.
 
 The [Chandra review](CHANDRA_ASSESSMENT.md) supplies complementary document/OCR, retrieval and durable pipeline patterns. Begin measurement import with CSV/JSON before PDF extraction. Preserve page/span/digest provenance when document input follows. Verify one complete cached, network-disabled import → simulate → compare → local report → reopen/reuse loop. Pipeline lifecycle and compiler/isolation work extend this sequence; they do not replace P5 with a wholesale runtime/UI merge. Chandra's random candidate fitness and simulated code-output paths are excluded from success and promotion criteria.
