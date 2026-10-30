@@ -393,6 +393,12 @@ public class OllamaIntegration {
         if(load)body.put("options",settings.options());
         return streamingRequest(model,"/api/generate",body,settings,control,ignored->{},false);
     }
+    public StreamReply toolChat(String model,List<Map<String,String>> messages,ModelRunSettings settings,RequestControl control,JSONArray tools) throws IOException {
+        var body=new JSONObject().put("model",model).put("messages",messages).put("stream",true).put("tools",tools)
+            .put("options",settings.options()).put("keep_alive",settings.keepAliveSeconds()+"s");
+        if(model.toLowerCase(Locale.ROOT).contains("gpt-oss"))body.put("think","low");
+        return streamingRequest(model,"/api/chat",body,settings,control,ignored->{},true);
+    }
     private static final java.net.http.HttpClient STREAM_CLIENT=java.net.http.HttpClient.newBuilder()
         .connectTimeout(java.time.Duration.ofSeconds(10)).followRedirects(java.net.http.HttpClient.Redirect.NEVER).build();
     private StreamReply streamingRequest(String model,String path,JSONObject body,ModelRunSettings settings,
@@ -403,6 +409,7 @@ public class OllamaIntegration {
         var done=new java.util.concurrent.atomic.AtomicBoolean();var reported=new java.util.concurrent.atomic.AtomicReference<>("");
         var evidence=new java.util.concurrent.ConcurrentHashMap<String,String>();
         var content=new StringBuilder();var thinking=new StringBuilder();var errorBody=new StringBuilder();
+        var toolPlan=new java.util.concurrent.atomic.AtomicReference<JSONObject>();
         java.util.concurrent.CompletableFuture<java.net.http.HttpResponse<Void>> pending=null;
         try {
             if(useCloud)throw new IOException("Studio streaming requires a local Ollama service");
@@ -426,6 +433,14 @@ public class OllamaIntegration {
                     if(frame.has("error"))throw new IllegalStateException("Ollama: "+frame.optString("error"));
                     reported.set(frame.optString("model",reported.get()));
                     var message=frame.optJSONObject("message");
+                    if(body.has("tools")&&message!=null&&message.optJSONArray("tool_calls")!=null) {
+                        JSONArray calls=message.getJSONArray("tool_calls");
+                        if(!calls.isEmpty()&&toolPlan.get()==null) {
+                            JSONObject function=calls.getJSONObject(0).getJSONObject("function");Object arguments=function.get("arguments");
+                            if(arguments instanceof String string)arguments=new JSONObject(string);
+                            toolPlan.set(new JSONObject().put("tool",function.getString("name").replace('_','.')).put("args",arguments));
+                        }
+                    }
                     String delta=message==null?frame.optString("response",""):message.optString("content","");
                     String thought=message==null?"":message.optString("thinking","");
                     long elapsed=(System.nanoTime()-start)/1_000_000;
@@ -454,6 +469,10 @@ public class OllamaIntegration {
             if(control.cancelled())throw new CancellationException("Cancelled locally; server termination is unconfirmed");
             if(status.get()!=200)throw new IOException("Ollama HTTP "+status.get()+": "+errorBody);
             if(!done.get())throw new IOException("Ollama stream ended without a completion frame; partial output was not marked successful");
+            if(body.has("tools")) {
+                if(toolPlan.get()==null)throw new IOException("The model returned no native tool call. No answer or reasoning text was executed.");
+                content.setLength(0);content.append(toolPlan.get().toString());
+            }
             if(requireText&&content.toString().isBlank()){
                 if(thinking.length()>0)content.append(thinking);
                 else throw new IOException("Ollama completed without answer content (reason="+evidence.getOrDefault("done_reason","unknown")

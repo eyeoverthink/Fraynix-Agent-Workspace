@@ -1,4 +1,5 @@
-rootProject.name = 'Fraynix-Studio'
+rootProject.name = 'Fraynix-Agent-Workspace'
+include 'workspace-engine'
 
 // This repository owns its source. Never select a sibling checkout by drive or property.
 def configuredRoot = providers.gradleProperty('fraynixRoot').orNull

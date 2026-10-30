@@ -43,7 +43,7 @@ public class Window implements Observer {
     private boolean runtimePlaying = false;
     private final factory.FactorySession factorySession = new factory.FactorySession(java.nio.file.Paths.get(
         System.getProperty("fraynix.studio.workspace", System.getenv().getOrDefault("FRAYNIX_STUDIO_WORKSPACE",
-            System.getProperty("fraymus.factoryWorkspace", java.nio.file.Paths.get(System.getProperty("user.home"), ".fraynix-studio", "projects", "default").toString())))));
+            System.getProperty("fraymus.factoryWorkspace", java.nio.file.Paths.get(System.getProperty("user.home"), ".fraynix-agent-workspace", "projects", "default", "game-lab").toString())))));
     private boolean factorySmoke, factorySmokeExit, smokeStarted;
     private long smokeDeadline;
     private boolean smokeRestored;
@@ -61,7 +61,7 @@ public class Window implements Observer {
         agent.GameInput.project(factorySession.workspace());
         this.width = 1920;
         this.height = 1080;
-        this.title = System.getProperty("fraynix.windowTitle","Fraynix Studio | Full game editor");
+        this.title = System.getProperty("fraynix.windowTitle","Fraynix Workspace | Game Lab");
         EventSystem.addObserver(this);
     }
 

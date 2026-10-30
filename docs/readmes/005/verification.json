@@ -1,0 +1,213 @@
+{
+  "date": "2026-10-29",
+  "baseline": "6341404bf4178ff7df959ad7807776fae7d75a93",
+  "gradleCheck": "passed",
+  "studioJUnit": {
+    "tests": 87,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "workspaceEngineJUnit": {
+    "tests": 4,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "desktopUnitTests": 3,
+  "integration": {
+    "date": "2026-10-29",
+    "passed": true,
+    "checks": [
+      "Visible guided proof: real browser fill/click, runnable artifact, exact assertions, verified recipe",
+      "Source view, browser expansion and 1100px desktop layout work",
+      "Real external HTTPS browsing works",
+      "Stale browser observations are rejected",
+      "Browser and artifact renderers have no Node or privileged workspace bridge",
+      "Unprivileged HTTP cannot call the Java control plane",
+      "Failed behavior is caught; revision 2 repairs it; only passing evidence can become a skill",
+      "Project restart restores saved artifacts and skills; verified recipe reruns and passes",
+      "Immediate takeover prevents any subsequent agent mutation",
+      "Preserved Game Lab renders using the successor project directory",
+      "An infinite-loop artifact times out; the host survives and a corrected version runs"
+    ],
+    "artifact": "138e8c69-698c-4a7f-a834-f53212ba0cdd"
+  },
+  "liveModel": {
+    "date": "2026-10-29",
+    "passed": true,
+    "model": "gpt-oss:20b",
+    "goal": "Use browser.observe to read the practice page. Then create a NEW working counter web app titled Agent-built counter. Use output id=\"count\" initially showing 0, button id=\"add\" adding one, and button id=\"reset\" restoring zero. Make it attractive with inline CSS. Run canvas.test to check 0, click Add, check 1, click Reset, check 0. If it fails, repair the source and retest. Save the verified recipe as agent-counter. Finish only after actual passing tests and skill.save.",
+    "artifact": "51304514-37d1-4310-b248-1e41a63e46fb",
+    "version": 1,
+    "modelChecks": [
+      {
+        "actual": {
+          "count": 1,
+          "text": "0",
+          "value": "0"
+        },
+        "expected": {
+          "expectText": "0",
+          "selector": "output#count"
+        },
+        "index": 0,
+        "selector": "output#count",
+        "passed": true
+      },
+      {
+        "actual": {
+          "count": 1,
+          "text": "Add one",
+          "value": ""
+        },
+        "expected": {
+          "action": "click",
+          "selector": "button#add"
+        },
+        "index": 1,
+        "selector": "button#add",
+        "passed": true
+      },
+      {
+        "actual": {
+          "count": 1,
+          "text": "1",
+          "value": "1"
+        },
+        "expected": {
+          "expectText": "1",
+          "selector": "output#count"
+        },
+        "index": 2,
+        "selector": "output#count",
+        "passed": true
+      },
+      {
+        "actual": {
+          "count": 1,
+          "text": "Reset",
+          "value": ""
+        },
+        "expected": {
+          "action": "click",
+          "selector": "button#reset"
+        },
+        "index": 3,
+        "selector": "button#reset",
+        "passed": true
+      },
+      {
+        "actual": {
+          "count": 1,
+          "text": "0",
+          "value": "0"
+        },
+        "expected": {
+          "expectText": "0",
+          "selector": "output#count"
+        },
+        "index": 4,
+        "selector": "output#count",
+        "passed": true
+      }
+    ],
+    "acceptanceChecks": [
+      {
+        "actual": {
+          "count": 1,
+          "text": "0",
+          "value": "0"
+        },
+        "expected": {
+          "expectText": "0",
+          "selector": "#count"
+        },
+        "index": 0,
+        "selector": "#count",
+        "passed": true
+      },
+      {
+        "actual": {
+          "count": 1,
+          "text": "Add one",
+          "value": ""
+        },
+        "expected": {
+          "expectCount": 1,
+          "action": "click",
+          "selector": "#add"
+        },
+        "index": 1,
+        "selector": "#add",
+        "passed": true
+      },
+      {
+        "actual": {
+          "count": 1,
+          "text": "1",
+          "value": "1"
+        },
+        "expected": {
+          "expectText": "1",
+          "selector": "#count"
+        },
+        "index": 2,
+        "selector": "#count",
+        "passed": true
+      },
+      {
+        "actual": {
+          "count": 1,
+          "text": "Reset",
+          "value": ""
+        },
+        "expected": {
+          "expectCount": 1,
+          "action": "click",
+          "selector": "#reset"
+        },
+        "index": 3,
+        "selector": "#reset",
+        "passed": true
+      },
+      {
+        "actual": {
+          "count": 1,
+          "text": "0",
+          "value": "0"
+        },
+        "expected": {
+          "expectText": "0",
+          "selector": "#count"
+        },
+        "index": 4,
+        "selector": "#count",
+        "passed": true
+      }
+    ],
+    "tools": [
+      "browser.observe",
+      "canvas.write",
+      "canvas.write",
+      "canvas.test",
+      "skill.save"
+    ],
+    "summary": "Created and tested Agent-built counter web app, verified tests passed, skill saved as agent-counter."
+  },
+  "otherModelTrial": {
+    "model": "eyeoverthink/FRAYNIX-PROTOCOL:3b",
+    "outcome": "Did not complete native tool fixture",
+    "reason": "Ollama returned HTTP 500: output did not match the expected peg-native format."
+  },
+  "captures": {
+    "kind": "Application frame exports composed from the actual shell and child Chromium renderer captures",
+    "windowsCapture": "FrameArrived timed out; no screenshot-based desktop clicks were used."
+  },
+  "limits": [
+    "Web artifact recipes, not arbitrary executable plugins",
+    "Game Lab is a separate native window",
+    "Main-document browser automation; broader frames and vision remain future gates",
+    "Tests verify supplied assertions; live fixture also has independent fixed acceptance checks"
+  ]
+}

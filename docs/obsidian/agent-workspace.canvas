@@ -1,0 +1,99 @@
+{
+  "nodes": [
+    {
+      "id": "shell",
+      "type": "file",
+      "file": "workspace-desktop/renderer/app.js",
+      "x": 0,
+      "y": 0,
+      "width": 380,
+      "height": 220
+    },
+    {
+      "id": "browser",
+      "type": "file",
+      "file": "workspace-desktop/surfaces.cjs",
+      "x": 440,
+      "y": 0,
+      "width": 380,
+      "height": 220
+    },
+    {
+      "id": "artifacts",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/WorkspaceStore.java",
+      "x": 880,
+      "y": 0,
+      "width": 380,
+      "height": 220
+    },
+    {
+      "id": "agent",
+      "type": "file",
+      "file": "workspace-desktop/main.cjs",
+      "x": 0,
+      "y": 280,
+      "width": 380,
+      "height": 220
+    },
+    {
+      "id": "skills",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/WorkspaceStore.java",
+      "x": 440,
+      "y": 280,
+      "width": 380,
+      "height": 220
+    },
+    {
+      "id": "game",
+      "type": "file",
+      "file": "src/main/java/Main.java",
+      "x": 880,
+      "y": 280,
+      "width": 380,
+      "height": 220
+    },
+    {
+      "id": "future",
+      "type": "file",
+      "file": "docs/AGENT_WORKSPACE_DESIGN.md",
+      "x": 0,
+      "y": 560,
+      "width": 380,
+      "height": 220
+    }
+  ],
+  "edges": [
+    {
+      "id": "edge0",
+      "fromNode": "shell",
+      "toNode": "browser"
+    },
+    {
+      "id": "edge1",
+      "fromNode": "browser",
+      "toNode": "artifacts"
+    },
+    {
+      "id": "edge2",
+      "fromNode": "artifacts",
+      "toNode": "agent"
+    },
+    {
+      "id": "edge3",
+      "fromNode": "agent",
+      "toNode": "skills"
+    },
+    {
+      "id": "edge4",
+      "fromNode": "skills",
+      "toNode": "game"
+    },
+    {
+      "id": "edge5",
+      "fromNode": "game",
+      "toNode": "future"
+    }
+  ]
+}

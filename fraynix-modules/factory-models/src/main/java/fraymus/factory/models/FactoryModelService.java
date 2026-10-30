@@ -130,6 +130,10 @@ public final class FactoryModelService {
     public OllamaIntegration.StreamReply manageModel(Model model,boolean load,ModelRunSettings settings,OllamaIntegration.RequestControl control) throws IOException {
         checkRoute(model);return OllamaIntegration.localService(model.endpoint()).manageModel(model.name(),load,settings,control);
     }
+    public OllamaIntegration.StreamReply toolChat(Model model,List<Map<String,String>> messages,ModelRunSettings settings,OllamaIntegration.RequestControl control,JSONArray tools) throws IOException {
+        checkRoute(model);if(!model.capabilities().contains("tools"))throw new IllegalArgumentException("This model does not advertise native tool calling");
+        return OllamaIntegration.localService(model.endpoint()).toolChat(model.name(),messages,settings,control,tools);
+    }
     private void checkRoute(Model model) {
         if(!model.available()||!loopback(model.endpoint()))throw new IllegalArgumentException("Select an available local model");
         if(!LocalModelCatalog.endpointForModel(model.name(),primary).equals(model.endpoint()))throw new IllegalStateException("Model routing changed; refresh services");

@@ -27,3 +27,7 @@ GitHub links: [README 001](../../README-001.md), [interactive companion](../read
 - [[README-004|README edition 004]]
 - [[docs/obsidian/11-powerups-and-persistent-practice|Powerups and persistent practice]]
 - [[docs/obsidian/powerups-and-practice.canvas|Embodied learning canvas]]
+
+- [[README-005|Agent Workspace edition 005]]
+- [[docs/obsidian/12-agent-workspace|Browser canvas and verified recipes]]
+- [[docs/obsidian/agent-workspace.canvas|Agent workspace architecture]]

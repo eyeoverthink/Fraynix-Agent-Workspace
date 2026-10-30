@@ -5,7 +5,7 @@ public class Main {
         if (java.util.Arrays.asList(args).contains("--mario")) {
             System.setProperty("fraynix.level", "levels/mario-original.json");
             if (System.getProperty("fraynix.studio.workspace") == null)
-                System.setProperty("fraynix.studio.workspace", java.nio.file.Path.of(System.getProperty("user.home"), ".fraynix-studio", "projects", "mario").toString());
+                System.setProperty("fraynix.studio.workspace", java.nio.file.Path.of(System.getProperty("user.home"), ".fraynix-agent-workspace", "projects", "default", "game-lab").toString());
         }
         Window window = Window.get();
         if (java.util.Arrays.asList(args).contains("--factory-smoke")) window.configureFactorySmoke(false);

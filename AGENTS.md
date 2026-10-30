@@ -1,5 +1,16 @@
 # Fraynix Studio collaboration and documentation
 
+## Successor repository
+
+This checkout is Fraynix-Agent-Workspace, independently derived from Studio
+commit 6341404. Preserve inherited README editions 001 through 004. The first
+successor edition is 005. Do not edit or run against the original Studio's
+project directory. Successor data defaults to ~/.fraynix-agent-workspace.
+Java owns model routing, entities, transactions and persistent artifacts; the
+Electron shell owns browser/canvas surfaces. Keep untrusted content out of the
+privileged preload and tool dispatcher. Test actual visible behavior and record
+which local model was verified. Keep recipes distinct from new executable tools.
+
 Work in this independent repository. Java/runtime sources must resolve inside
 this checkout; model weights and personal project state stay outside Git.
 Preserve the user's live scene, model services and existing uncommitted work.

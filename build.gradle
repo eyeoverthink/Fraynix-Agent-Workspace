@@ -90,7 +90,7 @@ tasks.register('verifySourceIsolation') {
     }
 }
 
-tasks.named('check') { dependsOn 'verifySourceIsolation', ':factory-runtime:verifyRuntime', ':factory-kernel:verifyIntegration', ':factory-models:verifyModels' }
+tasks.named('check') { dependsOn 'verifySourceIsolation', ':factory-runtime:verifyRuntime', ':factory-kernel:verifyIntegration', ':factory-models:verifyModels', ':workspace-engine:check' }
 
 tasks.named('startScripts', CreateStartScripts) {
     doLast {

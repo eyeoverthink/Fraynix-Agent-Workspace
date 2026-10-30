@@ -1,0 +1,86 @@
+{
+  "date": "2026-10-29",
+  "modules": [
+    {
+      "id": "shell",
+      "name": "Independent visual workspace",
+      "status": "verified",
+      "source": "workspace-desktop/renderer/app.js",
+      "note": "docs/obsidian/12-agent-workspace.md",
+      "summary": "Project objects, real browser, runnable canvas, source editor, agent panel and execution timeline. Source view, browser expansion and 1100px layout pass."
+    },
+    {
+      "id": "browser",
+      "name": "Real browser and observations",
+      "status": "verified",
+      "source": "workspace-desktop/surfaces.cjs",
+      "note": "docs/obsidian/12-agent-workspace.md",
+      "summary": "The visible Chromium page is the page the agent reads and operates. External HTTPS, actual form input and stale-observation rejection pass. Main-document controls are the current automation scope."
+    },
+    {
+      "id": "artifacts",
+      "name": "Versioned artifact components",
+      "status": "verified",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/WorkspaceStore.java",
+      "note": "docs/obsidian/12-agent-workspace.md",
+      "summary": "FactoryWorld entities, transactions and checkpoints back actual runnable files. Old versions and interrupted writes are preserved. Stale edits cannot overwrite current files."
+    },
+    {
+      "id": "agent",
+      "name": "Native local-model tool loop",
+      "status": "verified",
+      "source": "workspace-desktop/main.cjs",
+      "note": "docs/obsidian/12-agent-workspace.md",
+      "summary": "Local gpt-oss:20b completes the browser-to-counter-to-test-to-recipe fixture in four planning steps. Native tool calls are validated independently of answer and reasoning text. Other model quality is not assumed."
+    },
+    {
+      "id": "skills",
+      "name": "Test receipts and reusable recipes",
+      "status": "verified",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/WorkspaceStore.java",
+      "note": "docs/obsidian/12-agent-workspace.md",
+      "summary": "Only a current passing artifact becomes a recipe. Restart restores its files, test evidence and skill library. Reuse creates a new artifact and reruns the tests."
+    },
+    {
+      "id": "game",
+      "name": "Preserved Game Lab",
+      "status": "verified",
+      "source": "src/main/java/Main.java",
+      "note": "docs/obsidian/12-agent-workspace.md",
+      "summary": "The full inherited Java game editor renders in a separate native window with successor-only project storage. The original Studio application and repository remain separate."
+    },
+    {
+      "id": "future",
+      "name": "Broader artifacts and evaluated learning",
+      "status": "planned",
+      "source": "docs/AGENT_WORKSPACE_DESIGN.md",
+      "note": "docs/obsidian/12-agent-workspace.md",
+      "summary": "Add document/data renderers, broader browser adapters, native viewport integration, isolated general code workers, synchronized vision, replay and measured candidate promotion with rollback."
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "docs/readmes/005/images/workspace.png",
+      "description": "Guided browser and artifact workflow"
+    },
+    {
+      "path": "docs/readmes/005/images/live-agent.png",
+      "description": "Actual local-model creation with passing tests"
+    },
+    {
+      "path": "docs/readmes/005/images/game-lab.png",
+      "description": "Separate preserved native Game Lab"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/readmes/005/verification.json"
+    },
+    {
+      "path": "docs/readmes/005/live-model.json"
+    },
+    {
+      "path": "docs/readmes/005/source-isolation.json"
+    }
+  ]
+}
