@@ -1,5 +1,17 @@
 # Agent Workspace development log
 
+## 2026-10-29 Broader validation and recovery · edition 008
+
+Starting from fully pushed `3d77635`, the user authorized broader validation, continued documentation and publication. Added 45 generated checks across three fixed seeds. The unmodified release passed 28/45. Recorded baseline evidence identifies forced creation before research, blocked navigation after repeated reads, changed-control recovery failures and intermittent numeric fill appending rather than replacing existing values.
+
+Implemented and pushed `0e80086`: count only unchanged page observations, preserve meaningful navigation/actions when suppressing duplicate reads, refuse finishing an uncreated requested artifact, recover replaced/hidden/disabled controls with fresh observation rather than a blind click, and deterministically clear/focus supported inputs before actual text insertion. New runtime/replay contract is browser-controller-v2; older episode data stays readable and earlier edition evidence remains intact.
+
+Verified same generated checks 45/45 after corrections, nine desktop tests, 97 Java tests, eleven original integration checks and nine learning checks. Candidate replay remains eight cases; first candidate 5/8 to 8/8 and read-cost candidate 8/8 with extra reads two to one under the corrected semantics. Actual local gpt-oss:20b completes counter, calculator and two-page catalog research with 24 independent acceptance assertions. Catalog version 2 follows the model's own test/repair loop. Varied model outputs are rechecked after reopening. The acceptance harness was corrected to use standard CSS and explicit DOM visibility checks, keeping evaluator mistakes separate from application failures.
+
+README 008 adds actual frame exports, before/after evidence, model acceptance records, searchable offline explorer, canonical 372-file inventory and Obsidian map. No personal runtime state or credentials are published. Broader generated release checks are separate from automatic candidate promotion; new withheld task families, repeated trials and embodied episode alignment remain next gates. Publication QA and final remote verification follow below.
+
+Publication QA: an independent clean clone builds all distributions and passes 97 Java tests, nine desktop tests and 45 broader checks. All 372 implementation source/asset hashes match. Documentation verifies eight editions, thirteen canvases, 1,243 references and 104 frozen hashes. Browser inspection passes module/status filters, selected details/source, inventory search, navigation, five actual gallery images, normal width 1280 and narrow 390×844 with no horizontal overflow. Original native Studio remains running and its source checkout is clean. The idle review workspace is reopened on the corrected code with its existing project preserved.
+
 ## 2026-10-29 Learning milestone in progress
 
 The user authorized continuing the assessed learning integration and documenting development, images, README editions, memory and logs. Preserve the original Studio, Fraymus-OS-One and current workspace design. Work starts from workspace commit `35720e9`.

@@ -1,0 +1,86 @@
+{
+  "date": "2026-10-29",
+  "implementationCommit": "0e80086c45b9be205400fadc9c10fdbfd77aa838",
+  "startingRelease": "3d776353fdcf162ea0c5d20b67cc17d742a00796",
+  "releaseKind": "broader-validation-and-recovery",
+  "runtimeContract": "browser-controller-v2",
+  "javaTests": 97,
+  "javaFailures": 0,
+  "desktopPolicyAndControllerTests": 9,
+  "originalIntegrationChecks": 11,
+  "learningIntegrationChecks": 9,
+  "broaderRelease": {
+    "before": 28,
+    "after": 45,
+    "checks": 45,
+    "families": 15,
+    "seeds": [
+      92417,
+      57283,
+      81839
+    ]
+  },
+  "automaticPromotionSuite": {
+    "cases": 8,
+    "firstReplay": {
+      "baseline": 5,
+      "candidate": 8
+    },
+    "costReplay": {
+      "baselinePassed": 8,
+      "candidatePassed": 8,
+      "extraReadsBefore": 2,
+      "extraReadsAfter": 1
+    }
+  },
+  "liveModel": "gpt-oss:20b",
+  "liveTaskInstances": 3,
+  "independentModelChecks": 24,
+  "liveModelPassed": true,
+  "sourceInventory": 372,
+  "documentationQa": {
+    "status": "passed",
+    "normalWidth": 1280,
+    "narrowWidth": 390,
+    "narrowHeight": 844,
+    "horizontalOverflow": false,
+    "checks": [
+      "Module search",
+      "Status filter",
+      "Selected module details and source",
+      "Source inventory search",
+      "Section navigation",
+      "Five loaded gallery images",
+      "Normal and narrow visual layout"
+    ],
+    "staticChecker": {
+      "editions": 8,
+      "canvases": 13,
+      "references": 1243,
+      "frozenHashes": 104
+    }
+  },
+  "freshClone": {
+    "status": "passed",
+    "sourceHashes": 372,
+    "javaTests": 97,
+    "javaFailures": 0,
+    "desktopTests": 9,
+    "broaderChecks": 45,
+    "build": "offline check installDist :workspace-engine:installDist",
+    "dependencies": "npm ci from lockfile",
+    "context": "Independent clean clone of implementation commit; final documentation fetched and checked after publication"
+  },
+  "captures": {
+    "kind": "Actual composed shell and child Chromium renderer frames",
+    "date": "2026-10-29",
+    "context": "Isolated fixture and actual local-model projects; no personal state published"
+  },
+  "scope": [
+    "45 release checks are separate from the eight-case automatic promotion gate",
+    "Generated same-seed comparison after correction; no untouched benchmark or aggregate intelligence score",
+    "Two varied model tasks and a counter regression, not general model reliability",
+    "Bounded Fraymus controller adaptation; no Ollama weight update",
+    "Fixed worker process limits do not provide an OS sandbox for arbitrary code"
+  ]
+}

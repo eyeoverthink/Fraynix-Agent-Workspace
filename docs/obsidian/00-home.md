@@ -39,3 +39,7 @@ GitHub links: [README 001](../../README-001.md), [interactive companion](../read
 - [[README-007|Persistent learning edition 007]]
 - [[docs/obsidian/14-persistent-learning|Episodes adaptive control and replay]]
 - [[docs/obsidian/persistent-learning.canvas|Learning architecture canvas]]
+
+- [[README-008|Broader validation edition 008]]
+- [[docs/obsidian/15-broader-validation|Research and recovery evidence]]
+- [[docs/obsidian/broader-validation.canvas|Validation architecture canvas]]

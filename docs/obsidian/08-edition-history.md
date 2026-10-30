@@ -18,3 +18,5 @@ Related: [[docs/obsidian/07-evidence|Evidence]], [[docs/obsidian/06-agent-factor
 Edition [[README-006|006]] expands the successor operating guide, walkthrough, screenshots, implementation evidence, design preservation and staged development gates. It is a documentation release for implementation e370eea.
 
 Edition [[README-007|007]] delivers durable episodes, pinned prototype adaptation, bounded strategies, independent browser/canvas replay, promotion and rollback. The actual local-model workflow retains verified evidence.
+
+Edition [[README-008|008]] expands release validation from 28/45 to 45/45 on the same generated cases, preserves research navigation, recovers changed controls and replaces field values reliably. Three actual local-model task instances pass independent acceptance. The promotion gate remains distinct.

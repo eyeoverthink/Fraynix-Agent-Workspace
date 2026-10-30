@@ -1,0 +1,125 @@
+{
+  "date": "2026-10-29",
+  "modules": [
+    {
+      "id": "controller",
+      "name": "Research-preserving controller",
+      "status": "verified",
+      "source": "workspace-desktop/controller.cjs",
+      "note": "docs/obsidian/15-broader-validation.md",
+      "summary": "Only unchanged reads count toward the learned limit; navigation and actions stay available. A requested artifact must be created before finish."
+    },
+    {
+      "id": "surface",
+      "name": "Live control recovery and text replacement",
+      "status": "verified",
+      "source": "workspace-desktop/surfaces.cjs",
+      "note": "docs/obsidian/15-broader-validation.md",
+      "summary": "Replaced, hidden and disabled controls return a fresh observation without blind retries. Supported fields replace existing text before insertion."
+    },
+    {
+      "id": "broad",
+      "name": "45 generated release checks",
+      "status": "verified",
+      "source": "workspace-desktop/test/broader-validation.cjs",
+      "note": "docs/obsidian/15-broader-validation.md",
+      "summary": "Fifteen families across three seeds: 28/45 before correction and 45/45 afterward. Controlled host fixtures, separate from model task quality."
+    },
+    {
+      "id": "model",
+      "name": "Varied actual local-model tasks",
+      "status": "verified",
+      "source": "workspace-desktop/test/live-broader.cjs",
+      "note": "docs/obsidian/15-broader-validation.md",
+      "summary": "gpt-oss:20b builds a calculator and researches two catalog pages. Independent inputs and observed fixture data verify its actual saved outputs."
+    },
+    {
+      "id": "replay",
+      "name": "Eight-case promotion gate v2",
+      "status": "verified",
+      "source": "workspace-desktop/controller-replay.cjs",
+      "note": "docs/obsidian/15-broader-validation.md",
+      "summary": "The automatic candidate suite retains eight actual cases, now with research-preserving read semantics. Broader release checks do not become the promotion gate."
+    },
+    {
+      "id": "java",
+      "name": "Versioned evidence and contract",
+      "status": "verified",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/LearningStore.java",
+      "note": "docs/obsidian/15-broader-validation.md",
+      "summary": "Java checkpoints bounded episodes and candidates with runtime contract identity, validates evaluation digests, and restores policy and prototypes together."
+    },
+    {
+      "id": "shell",
+      "name": "Preserved visual workspace",
+      "status": "verified",
+      "source": "workspace-desktop/renderer/app.js",
+      "note": "docs/obsidian/15-broader-validation.md",
+      "summary": "Library/browser left, canvas/source center, agent right, timeline below. No new stub pages or replacement design."
+    },
+    {
+      "id": "game",
+      "name": "Preserved full Game Lab",
+      "status": "verified",
+      "source": "src/main/java/Main.java",
+      "note": "docs/obsidian/15-broader-validation.md",
+      "summary": "Original native Studio remains separate. The successor retains complete game sources and its separately launched editor."
+    },
+    {
+      "id": "next",
+      "name": "Withheld tasks and embodied learning",
+      "status": "planned",
+      "source": "docs/AGENT_WORKSPACE_DESIGN.md",
+      "note": "docs/obsidian/15-broader-validation.md",
+      "summary": "More withheld families, navigation races, tick/entity-aligned episodes and small-model target evaluation come before broad self-training claims."
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "docs/readmes/008/images/broader-validation.png",
+      "description": "Generated host fixtures: three-file calculator and actual browser details"
+    },
+    {
+      "path": "docs/readmes/008/images/live-quantity-calculator.png",
+      "description": "Actual gpt-oss:20b calculator; independent quantity assertions"
+    },
+    {
+      "path": "docs/readmes/008/images/live-catalog-research.png",
+      "description": "Actual two-page browser research and filterable generated catalog"
+    },
+    {
+      "path": "docs/readmes/008/images/learning-report.png",
+      "description": "Actual controller v2 replay and reversible promotion"
+    },
+    {
+      "path": "docs/readmes/008/images/live-agent.png",
+      "description": "Actual counter regression through local-model tools"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/readmes/008/verification.json"
+    },
+    {
+      "path": "docs/readmes/008/broader-before.json"
+    },
+    {
+      "path": "docs/readmes/008/broader-validation.json"
+    },
+    {
+      "path": "docs/readmes/008/live-broader.json"
+    },
+    {
+      "path": "docs/readmes/008/live-agent.json"
+    },
+    {
+      "path": "docs/readmes/008/integration.json"
+    },
+    {
+      "path": "docs/readmes/008/learning-integration.json"
+    },
+    {
+      "path": "docs/readmes/008/source-isolation.json"
+    }
+  ]
+}

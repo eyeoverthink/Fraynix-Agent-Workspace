@@ -2,7 +2,7 @@
 
 **A local visual environment for agents to browse, create runnable artifacts, test behavior and reuse verified skills.**
 
-> **Latest system edition: [README 007 — persistent learning and evaluated control](README-007.md)** · [Interactive explorer](docs/readmes/007/index.html) · [Complete operating guide](README-006.md) · [Edition history](docs/readmes/INDEX.md)
+> **Latest system edition: [README 008 — broader validation and useful recovery](README-008.md)** · [Interactive explorer](docs/readmes/008/index.html) · [Complete operating guide](README-006.md) · [Edition history](docs/readmes/INDEX.md)
 
 Independent successor to [Fraynix Studio](https://github.com/eyeoverthink/Fraynix-Studio), starting from verified commit `6341404`. The original application and personal project state remain separate. Full game sources, assets, licenses and earlier editions are preserved here.
 
@@ -14,9 +14,9 @@ The app includes a real browser, live creation canvas, editable source, versione
 
 Local `gpt-oss:20b` is the verified default for the first agent fixture. The custom FRAYNIX 3B trial returned an Ollama native-format error; advertised tool capability alone does not establish task reliability. You can select other eligible installed models explicitly.
 
-![The existing workspace now shows a learned controller, episode and replay evidence](docs/readmes/007/images/learning-workspace.png)
+![A local-model calculator in the existing visual workspace](docs/readmes/008/images/live-quantity-calculator.png)
 
-October 29 learning fixture. Application frame export composed from actual shell and child Chromium renderers. The controller's passing replay is separate from the welcome artifact's untested badge. See [current verification](docs/readmes/007/verification.json).
+October 29 actual local-model artifact reopened for independent acceptance. Frame export composes actual shell and child Chromium renderers. Same generated release checks improved from **28/45 to 45/45**. Counter, calculator and two-page catalog research pass **24 independent assertions**. See [current verification](docs/readmes/008/verification.json).
 
 ## Verify
 
@@ -27,9 +27,11 @@ npm.cmd ci --no-audit --no-fund
 npm.cmd test
 npm.cmd run test:integration
 npm.cmd run test:learning
+npm.cmd run test:broader
 # Optional actual local-model fixture:
 $env:FRAYNIX_LIVE_MODEL='gpt-oss:20b'
 npm.cmd run test:live
+npm.cmd run test:live-broader
 ```
 
 Project files, test receipts, learned recipes, browser cookies and event history live under `%USERPROFILE%/.fraynix-agent-workspace/projects/default`, outside Git. `FRAYNIX_WORKSPACE_PROJECT` selects another independent project.
@@ -44,7 +46,7 @@ Expand **Learning controls** and choose **Run learning proof**. Its separate fix
 
 Use the new **Learning** tab inside Project objects to inspect episodes, candidates and replay evidence. The left browser, center canvas, right agent and bottom timeline keep their existing design. The actual local `gpt-oss:20b` workflow also passes with the learned policy and a retained verified episode.
 
-[README 007](README-007.md) explains the mechanism and limits. [Project memory](docs/PROJECT_MEMORY.md) and the [development log](docs/DEVELOPMENT_LOG.md) provide engineering continuity. These changes adapt a small controller; they do not update Ollama language-model weights.
+[README 007](README-007.md) records the first learning mechanism. [README 008](README-008.md) adds broader checks, research-preserving read limits, changed-control recovery and reliable field replacement. The 45 release checks remain separate from the eight-case automatic promotion gate. [Project memory](docs/PROJECT_MEMORY.md) and the [development log](docs/DEVELOPMENT_LOG.md) provide engineering continuity. These changes adapt a small controller; they do not update Ollama language-model weights.
 
 ## First session step by step
 
@@ -66,7 +68,7 @@ Example first request:
 
 The left side contains saved project objects and a real browser. The center runs generated HTML/CSS/JavaScript and exposes its saved source. The right side holds model selection, the goal, result and takeover. The bottom records actual actions and measured outcomes. The same visible page is available to both human browsing and supported agent actions.
 
-Java reuses the existing model catalog, entity/component runtime, transactions, checkpoints and kernel memory. Electron hosts isolated browser and artifact renderers. Source versions and test receipts stay bound together, so a passing old version cannot certify a later edit. [Edition 007 inventories 369 implementation source/assets](docs/readmes/007/file-inventory.json); the earlier 338-file baseline was also verified against a fresh clone.
+Java reuses the existing model catalog, entity/component runtime, transactions, checkpoints and kernel memory. Electron hosts isolated browser and artifact renderers. Source versions and test receipts stay bound together, so a passing old version cannot certify a later edit. [Edition 008 inventories 372 implementation source/assets](docs/readmes/008/file-inventory.json); earlier inventories remain in their published editions.
 
 ![Actual local model created and tested this application](docs/readmes/006/images/live-agent.png)
 

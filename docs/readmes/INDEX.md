@@ -12,4 +12,6 @@ Numbered editions preserve dated system behavior and evidence. The root [README]
 | [006](../../README-006.md) | 2026-10-29 | Complete guide, step-by-step workflow, evidence and next development gates | [Viewer](006/index.html) · [tree](006/FILE_TREE.md) · [design](../AGENT_WORKSPACE_DESIGN.md) |
 | [007](../../README-007.md) | 2026-10-29 | Persistent episodes, prototype adaptation, independent replay, promotion and rollback | [Viewer](007/index.html) · [tree](007/FILE_TREE.md) · [memory](../PROJECT_MEMORY.md) |
 
-Latest edition: **007**. Earlier snapshots remain intact. See [sequence policy](README_SEQUENCE.md) and [manifest](editions.json).
+| [008](../../README-008.md) | 2026-10-29 | Broader validation, research-preserving control, changed-target recovery and independent model acceptance | [Viewer](008/index.html) · [tree](008/FILE_TREE.md) · [evidence](008/verification.json) |
+
+Latest edition: **008**. Earlier snapshots remain intact. See [sequence policy](README_SEQUENCE.md) and [manifest](editions.json).

@@ -1,0 +1,256 @@
+{
+  "date": "2026-10-29",
+  "passed": false,
+  "seeds": [
+    92417,
+    57283,
+    81839
+  ],
+  "checks": 45,
+  "passedChecks": 28,
+  "results": [
+    {
+      "seed": 92417,
+      "name": "initial-observation-must-allow-research",
+      "passed": false,
+      "error": "Initial welcome observation forced creation before research"
+    },
+    {
+      "seed": 92417,
+      "name": "duplicate-read-guard-must-preserve-navigation",
+      "passed": false,
+      "error": "Read guard blocked meaningful navigation"
+    },
+    {
+      "seed": 92417,
+      "name": "changed-control-replace",
+      "passed": false,
+      "error": "electronApplication.evaluate: Error: Script failed to execute, this normally means an error was thrown. Check the renderer console for the error."
+    },
+    {
+      "seed": 92417,
+      "name": "changed-control-hide",
+      "passed": false,
+      "error": "Changed control was not converted to a fresh observation\n+ actual - expected\n\n+ 'browser.click'\n- 'browser.observe'\n           ^\n"
+    },
+    {
+      "seed": 92417,
+      "name": "changed-control-disable",
+      "passed": false,
+      "error": "electronApplication.evaluate: Error: Script failed to execute, this normally means an error was thrown. Check the renderer console for the error."
+    },
+    {
+      "seed": 92417,
+      "name": "special-character-form-round-trip",
+      "passed": true
+    },
+    {
+      "seed": 92417,
+      "name": "duplicate-label-uses-exact-reference",
+      "passed": true
+    },
+    {
+      "seed": 92417,
+      "name": "multi-page-catalog-details",
+      "passed": true
+    },
+    {
+      "seed": 92417,
+      "name": "multi-file-calculation",
+      "passed": true
+    },
+    {
+      "seed": 92417,
+      "name": "wrong-calculation-detected-and-repaired",
+      "passed": true
+    },
+    {
+      "seed": 92417,
+      "name": "stale-version-cannot-overwrite",
+      "passed": true
+    },
+    {
+      "seed": 92417,
+      "name": "new-version-needs-new-receipt",
+      "passed": true
+    },
+    {
+      "seed": 92417,
+      "name": "source-path-and-empty-test-rejected",
+      "passed": true
+    },
+    {
+      "seed": 92417,
+      "name": "generated-page-has-no-host-bridge",
+      "passed": true
+    },
+    {
+      "seed": 92417,
+      "name": "untrusted-instructions-cannot-register-tools",
+      "passed": true
+    },
+    {
+      "seed": 57283,
+      "name": "initial-observation-must-allow-research",
+      "passed": false,
+      "error": "Initial welcome observation forced creation before research"
+    },
+    {
+      "seed": 57283,
+      "name": "duplicate-read-guard-must-preserve-navigation",
+      "passed": false,
+      "error": "Read guard blocked meaningful navigation"
+    },
+    {
+      "seed": 57283,
+      "name": "changed-control-replace",
+      "passed": false,
+      "error": "electronApplication.evaluate: Error: Script failed to execute, this normally means an error was thrown. Check the renderer console for the error."
+    },
+    {
+      "seed": 57283,
+      "name": "changed-control-hide",
+      "passed": false,
+      "error": "Changed control was not converted to a fresh observation\n+ actual - expected\n\n+ 'browser.click'\n- 'browser.observe'\n           ^\n"
+    },
+    {
+      "seed": 57283,
+      "name": "changed-control-disable",
+      "passed": false,
+      "error": "electronApplication.evaluate: Error: Script failed to execute, this normally means an error was thrown. Check the renderer console for the error."
+    },
+    {
+      "seed": 57283,
+      "name": "special-character-form-round-trip",
+      "passed": true
+    },
+    {
+      "seed": 57283,
+      "name": "duplicate-label-uses-exact-reference",
+      "passed": true
+    },
+    {
+      "seed": 57283,
+      "name": "multi-page-catalog-details",
+      "passed": true
+    },
+    {
+      "seed": 57283,
+      "name": "multi-file-calculation",
+      "passed": true
+    },
+    {
+      "seed": 57283,
+      "name": "wrong-calculation-detected-and-repaired",
+      "passed": true
+    },
+    {
+      "seed": 57283,
+      "name": "stale-version-cannot-overwrite",
+      "passed": true
+    },
+    {
+      "seed": 57283,
+      "name": "new-version-needs-new-receipt",
+      "passed": false,
+      "error": "The expression evaluated to a falsy value:\n\n  assert((await call('skill.run',{name:'field-recipe-'+seed})).passed)\n"
+    },
+    {
+      "seed": 57283,
+      "name": "source-path-and-empty-test-rejected",
+      "passed": true
+    },
+    {
+      "seed": 57283,
+      "name": "generated-page-has-no-host-bridge",
+      "passed": true
+    },
+    {
+      "seed": 57283,
+      "name": "untrusted-instructions-cannot-register-tools",
+      "passed": true
+    },
+    {
+      "seed": 81839,
+      "name": "initial-observation-must-allow-research",
+      "passed": false,
+      "error": "Initial welcome observation forced creation before research"
+    },
+    {
+      "seed": 81839,
+      "name": "duplicate-read-guard-must-preserve-navigation",
+      "passed": false,
+      "error": "Read guard blocked meaningful navigation"
+    },
+    {
+      "seed": 81839,
+      "name": "changed-control-replace",
+      "passed": false,
+      "error": "electronApplication.evaluate: Error: Script failed to execute, this normally means an error was thrown. Check the renderer console for the error."
+    },
+    {
+      "seed": 81839,
+      "name": "changed-control-hide",
+      "passed": false,
+      "error": "Changed control was not converted to a fresh observation\n+ actual - expected\n\n+ 'browser.click'\n- 'browser.observe'\n           ^\n"
+    },
+    {
+      "seed": 81839,
+      "name": "changed-control-disable",
+      "passed": false,
+      "error": "electronApplication.evaluate: Error: Script failed to execute, this normally means an error was thrown. Check the renderer console for the error."
+    },
+    {
+      "seed": 81839,
+      "name": "special-character-form-round-trip",
+      "passed": true
+    },
+    {
+      "seed": 81839,
+      "name": "duplicate-label-uses-exact-reference",
+      "passed": true
+    },
+    {
+      "seed": 81839,
+      "name": "multi-page-catalog-details",
+      "passed": true
+    },
+    {
+      "seed": 81839,
+      "name": "multi-file-calculation",
+      "passed": true
+    },
+    {
+      "seed": 81839,
+      "name": "wrong-calculation-detected-and-repaired",
+      "passed": false,
+      "error": "The expression evaluated to a falsy value:\n\n  assert((await call('canvas.test',{steps:tests})).passed)\n"
+    },
+    {
+      "seed": 81839,
+      "name": "stale-version-cannot-overwrite",
+      "passed": true
+    },
+    {
+      "seed": 81839,
+      "name": "new-version-needs-new-receipt",
+      "passed": true
+    },
+    {
+      "seed": 81839,
+      "name": "source-path-and-empty-test-rejected",
+      "passed": true
+    },
+    {
+      "seed": 81839,
+      "name": "generated-page-has-no-host-bridge",
+      "passed": true
+    },
+    {
+      "seed": 81839,
+      "name": "untrusted-instructions-cannot-register-tools",
+      "passed": true
+    }
+  ],
+  "scope": "Owned generated fixtures through actual host tools; model task quality evaluated separately"
+}

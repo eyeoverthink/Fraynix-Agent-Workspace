@@ -1,0 +1,291 @@
+{
+  "date": "2026-10-29",
+  "model": "gpt-oss:20b",
+  "passed": true,
+  "results": [
+    {
+      "name": "quantity-calculator",
+      "goal": "Create a NEW attractive app titled Varied quantity calculator. Unit price is 2.37. Use number input #qty initially 1, button #calculate, output #total initially 0.00. Clicking Calculate must multiply quantity by the price with exactly two decimal places. Test quantity 2 and then 5. Save verified recipe varied-calculator and finish.",
+      "passed": true,
+      "artifactId": "9ef7572e-0a54-42c7-bc3d-859ff508e6af",
+      "version": 1,
+      "episodeId": "30886b1b-b991-4dfa-b6d7-947e84b4f602",
+      "policy": {
+        "refreshStale": true,
+        "version": 2,
+        "observationLimit": 2
+      },
+      "acceptanceChecks": [
+        {
+          "actual": {
+            "count": 1,
+            "text": "",
+            "value": "4"
+          },
+          "expected": {
+            "action": "fill",
+            "selector": "#qty",
+            "expectValue": "4",
+            "value": "4"
+          },
+          "index": 0,
+          "selector": "#qty",
+          "passed": true
+        },
+        {
+          "actual": {
+            "count": 1,
+            "text": "Calculate",
+            "value": ""
+          },
+          "expected": {
+            "expectCount": 1,
+            "action": "click",
+            "selector": "#calculate"
+          },
+          "index": 1,
+          "selector": "#calculate",
+          "passed": true
+        },
+        {
+          "actual": {
+            "count": 1,
+            "text": "9.48",
+            "value": "9.48"
+          },
+          "expected": {
+            "expectText": "9.48",
+            "selector": "#total"
+          },
+          "index": 2,
+          "selector": "#total",
+          "passed": true
+        },
+        {
+          "actual": {
+            "count": 1,
+            "text": "",
+            "value": "0"
+          },
+          "expected": {
+            "action": "fill",
+            "selector": "#qty",
+            "expectValue": "0",
+            "value": "0"
+          },
+          "index": 3,
+          "selector": "#qty",
+          "passed": true
+        },
+        {
+          "actual": {
+            "count": 1,
+            "text": "Calculate",
+            "value": ""
+          },
+          "expected": {
+            "expectCount": 1,
+            "action": "click",
+            "selector": "#calculate"
+          },
+          "index": 4,
+          "selector": "#calculate",
+          "passed": true
+        },
+        {
+          "actual": {
+            "count": 1,
+            "text": "0.00",
+            "value": "0.00"
+          },
+          "expected": {
+            "expectText": "0.00",
+            "selector": "#total"
+          },
+          "index": 5,
+          "selector": "#total",
+          "passed": true
+        },
+        {
+          "actual": {
+            "count": 1,
+            "text": "",
+            "value": "3"
+          },
+          "expected": {
+            "action": "fill",
+            "selector": "#qty",
+            "expectValue": "3",
+            "value": "3"
+          },
+          "index": 6,
+          "selector": "#qty",
+          "passed": true
+        },
+        {
+          "actual": {
+            "count": 1,
+            "text": "Calculate",
+            "value": ""
+          },
+          "expected": {
+            "expectCount": 1,
+            "action": "click",
+            "selector": "#calculate"
+          },
+          "index": 7,
+          "selector": "#calculate",
+          "passed": true
+        },
+        {
+          "actual": {
+            "count": 1,
+            "text": "7.11",
+            "value": "7.11"
+          },
+          "expected": {
+            "expectText": "7.11",
+            "selector": "#total"
+          },
+          "index": 8,
+          "selector": "#total",
+          "passed": true
+        }
+      ],
+      "tools": [
+        "browser.observe",
+        "canvas.write",
+        "canvas.test",
+        "skill.save"
+      ],
+      "acceptanceOnReopenedOutput": true,
+      "elapsedMs": 1159
+    },
+    {
+      "name": "catalog-research",
+      "goal": "Navigate the browser to http://127.0.0.1:51878/catalog and read the actual catalog. Follow Read field details and read the reference code and quantity. Create a NEW attractive app titled Researched field catalog using those observed values. Show all three actual product names in #products, actual reference code in #reference, actual quantity in #quantity. Add a text input #filter that filters .product rows as you type (empty shows all). Test all three product rows, the reference, and filtering. Save verified recipe researched-catalog and finish. Do not guess the page values.",
+      "passed": true,
+      "artifactId": "f01c7019-c226-4f64-b157-e95405a0556f",
+      "version": 2,
+      "episodeId": "17d4b7ec-37ab-486f-8786-46e9478bf42f",
+      "policy": {
+        "refreshStale": true,
+        "version": 2,
+        "observationLimit": 2
+      },
+      "acceptanceChecks": [
+        {
+          "actual": {
+            "count": 1,
+            "text": "field-lzgh",
+            "value": null
+          },
+          "expected": {
+            "expectText": "field-lzgh",
+            "selector": "#reference"
+          },
+          "index": 0,
+          "selector": "#reference",
+          "passed": true
+        },
+        {
+          "actual": {
+            "count": 1,
+            "text": "3",
+            "value": null
+          },
+          "expected": {
+            "expectText": "3",
+            "selector": "#quantity"
+          },
+          "index": 1,
+          "selector": "#quantity",
+          "passed": true
+        },
+        {
+          "actual": {
+            "count": 3,
+            "text": "Aster-517",
+            "value": null
+          },
+          "expected": {
+            "expectCount": 3,
+            "selector": ".product"
+          },
+          "index": 2,
+          "selector": ".product",
+          "passed": true
+        },
+        {
+          "actual": {
+            "count": 1,
+            "text": "",
+            "value": "Birch"
+          },
+          "expected": {
+            "action": "fill",
+            "selector": "#filter",
+            "expectValue": "Birch",
+            "value": "Birch"
+          },
+          "index": 3,
+          "selector": "#filter",
+          "passed": true
+        },
+        {
+          "actual": {
+            "count": 1,
+            "text": "",
+            "value": ""
+          },
+          "expected": {
+            "action": "fill",
+            "selector": "#filter",
+            "expectValue": "",
+            "value": ""
+          },
+          "index": 4,
+          "selector": "#filter",
+          "passed": true
+        },
+        {
+          "name": "Observed product Aster-517",
+          "passed": true
+        },
+        {
+          "name": "Observed product Birch-877",
+          "passed": true
+        },
+        {
+          "name": "Observed product Cobalt-374",
+          "passed": true
+        },
+        {
+          "name": "Actual visible filter result",
+          "passed": true,
+          "actual": [
+            "Birch-877"
+          ]
+        },
+        {
+          "name": "Clearing filter restores all products",
+          "passed": true,
+          "actual": 3
+        }
+      ],
+      "tools": [
+        "browser.observe",
+        "browser.navigate",
+        "browser.click",
+        "canvas.write",
+        "canvas.test",
+        "canvas.write",
+        "canvas.test",
+        "skill.save"
+      ],
+      "acceptanceOnReopenedOutput": true,
+      "elapsedMs": 882
+    }
+  ],
+  "scope": "Actual local-model workflows; independent acceptance values differ from requested self-tests. Two task instances, not a general capability benchmark."
+}

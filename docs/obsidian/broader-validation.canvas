@@ -1,0 +1,122 @@
+{
+  "nodes": [
+    {
+      "id": "controller",
+      "type": "file",
+      "file": "workspace-desktop/controller.cjs",
+      "x": 0,
+      "y": 0,
+      "width": 380,
+      "height": 200
+    },
+    {
+      "id": "surface",
+      "type": "file",
+      "file": "workspace-desktop/surfaces.cjs",
+      "x": 440,
+      "y": 0,
+      "width": 380,
+      "height": 200
+    },
+    {
+      "id": "broad",
+      "type": "file",
+      "file": "workspace-desktop/test/broader-validation.cjs",
+      "x": 880,
+      "y": 0,
+      "width": 380,
+      "height": 200
+    },
+    {
+      "id": "model",
+      "type": "file",
+      "file": "workspace-desktop/test/live-broader.cjs",
+      "x": 0,
+      "y": 250,
+      "width": 380,
+      "height": 200
+    },
+    {
+      "id": "replay",
+      "type": "file",
+      "file": "workspace-desktop/controller-replay.cjs",
+      "x": 440,
+      "y": 250,
+      "width": 380,
+      "height": 200
+    },
+    {
+      "id": "java",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/LearningStore.java",
+      "x": 880,
+      "y": 250,
+      "width": 380,
+      "height": 200
+    },
+    {
+      "id": "shell",
+      "type": "file",
+      "file": "workspace-desktop/renderer/app.js",
+      "x": 0,
+      "y": 500,
+      "width": 380,
+      "height": 200
+    },
+    {
+      "id": "game",
+      "type": "file",
+      "file": "src/main/java/Main.java",
+      "x": 440,
+      "y": 500,
+      "width": 380,
+      "height": 200
+    },
+    {
+      "id": "next",
+      "type": "file",
+      "file": "docs/AGENT_WORKSPACE_DESIGN.md",
+      "x": 880,
+      "y": 500,
+      "width": 380,
+      "height": 200
+    }
+  ],
+  "edges": [
+    {
+      "id": "edge0",
+      "fromNode": "model",
+      "toNode": "controller"
+    },
+    {
+      "id": "edge1",
+      "fromNode": "controller",
+      "toNode": "surface"
+    },
+    {
+      "id": "edge2",
+      "fromNode": "surface",
+      "toNode": "java"
+    },
+    {
+      "id": "edge3",
+      "fromNode": "java",
+      "toNode": "replay"
+    },
+    {
+      "id": "edge4",
+      "fromNode": "replay",
+      "toNode": "controller"
+    },
+    {
+      "id": "edge5",
+      "fromNode": "broad",
+      "toNode": "controller"
+    },
+    {
+      "id": "edge6",
+      "fromNode": "game",
+      "toNode": "next"
+    }
+  ]
+}
