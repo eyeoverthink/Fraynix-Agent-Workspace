@@ -1,0 +1,113 @@
+{
+  "nodes": [
+    {
+      "id": "sources",
+      "type": "file",
+      "file": "scripts/Prepare-Delfys75.py",
+      "x": 0,
+      "y": 0,
+      "width": 390,
+      "height": 200
+    },
+    {
+      "id": "mapping",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/MeasurementStore.java",
+      "x": 450,
+      "y": 0,
+      "width": 390,
+      "height": 200
+    },
+    {
+      "id": "native",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/CalibrationStore.java",
+      "x": 900,
+      "y": 0,
+      "width": 390,
+      "height": 200
+    },
+    {
+      "id": "rejection",
+      "type": "file",
+      "file": "workspace-desktop/test/real-data-delfys.cjs",
+      "x": 0,
+      "y": 260,
+      "width": 390,
+      "height": 200
+    },
+    {
+      "id": "report",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/CalibrationReport.java",
+      "x": 450,
+      "y": 260,
+      "width": 390,
+      "height": 200
+    },
+    {
+      "id": "jing",
+      "type": "file",
+      "file": "docs/XGEN_JING_ASSESSMENT.md",
+      "x": 900,
+      "y": 260,
+      "width": 390,
+      "height": 200
+    },
+    {
+      "id": "observer",
+      "type": "file",
+      "file": "docs/SCENARIO_ENGINE_ROADMAP.md",
+      "x": 0,
+      "y": 520,
+      "width": 390,
+      "height": 200
+    },
+    {
+      "id": "replay",
+      "type": "file",
+      "file": "docs/datasets/delfys75-013/README.md",
+      "x": 450,
+      "y": 520,
+      "width": 390,
+      "height": 200
+    }
+  ],
+  "edges": [
+    {
+      "id": "edge0",
+      "fromNode": "sources",
+      "toNode": "mapping"
+    },
+    {
+      "id": "edge1",
+      "fromNode": "mapping",
+      "toNode": "native"
+    },
+    {
+      "id": "edge2",
+      "fromNode": "native",
+      "toNode": "rejection"
+    },
+    {
+      "id": "edge3",
+      "fromNode": "rejection",
+      "toNode": "report"
+    },
+    {
+      "id": "edge4",
+      "fromNode": "report",
+      "toNode": "replay"
+    },
+    {
+      "id": "edge5",
+      "fromNode": "jing",
+      "toNode": "observer"
+    },
+    {
+      "id": "edge6",
+      "fromNode": "native",
+      "toNode": "observer"
+    }
+  ]
+}

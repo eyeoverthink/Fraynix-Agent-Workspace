@@ -1,0 +1,133 @@
+{
+  "date": "2026-10-30",
+  "caseSourceCommit": "177e4a0dcba2bc2a42061dfd0e6b68acab7700ea",
+  "nativeRuntimeCommit": "5fb652ba2c879f5ad1a381d42404bd4abfafc58d",
+  "runtimeChanged": true,
+  "runtimeChangeScope": "Calibration report paragraph/hash wrapping; native solver and fitting logic unchanged",
+  "calibrationJavaMethodsRerun": 9,
+  "releaseKind": "real-observation-evidence-and-JING-source-assessment",
+  "platformVerified": "Windows x64, JDK 21, Node 24.14.1, Electron 45.1.0",
+  "desktopUnitTests": 13,
+  "realDataWorkflowChecks": 9,
+  "workflowPassed": true,
+  "fitAccepted": false,
+  "realObservations": {
+    "training": 52,
+    "validation": 49,
+    "source": "Delfys75 low/01 and low/02, version 11; real recorded video with estimated segmentation masks",
+    "preparedSourceKinds": {
+      "training": "measured",
+      "validation": "measured"
+    }
+  },
+  "metrics": {
+    "baselineTraining": {
+      "count": 52,
+      "rmseM": 0.23249746374191563,
+      "maxAbsErrorM": 0.49201343474828696
+    },
+    "fittedTraining": {
+      "count": 52,
+      "rmseM": 0.009632104462760503,
+      "maxAbsErrorM": 0.03071930764196973
+    },
+    "validationBaseline": {
+      "count": 49,
+      "rmseM": 0.15691995665683947,
+      "maxAbsErrorM": 0.34071757494822696
+    },
+    "validationFitted": {
+      "count": 49,
+      "rmseM": 0.05943494957077425,
+      "maxAbsErrorM": 0.15946336788271886
+    }
+  },
+  "selection": {
+    "criterion": "minimum executed training RMSE; ties prefer the existing parameter",
+    "trainingRmseM": 0.009632104462760503,
+    "runId": "34c58bb7-dc91-4c0e-ac99-e93949a4e843",
+    "value": 0.15625,
+    "frozenAt": "2026-10-30T10:04:15.040831700Z"
+  },
+  "criteria": {
+    "trainingImproved": true,
+    "trainingImprovementM": 0.22286535927915513,
+    "criteria": "training RMSE gain >= declared minimum; every validation residual <= tolerance; validation RMSE does not increase beyond 1e-9 m numerical slack",
+    "validationNoRegression": true,
+    "scope": "Parameter calibration in the recorded native model; source labels are user supplied, prior validation uses recorded, and collection independence not proven",
+    "accepted": false,
+    "validationWithinTolerance": false
+  },
+  "nativeOperations": 20,
+  "sourceInventory": 404,
+  "preparationChecks": [
+    "Pinned raw source digests validated",
+    "Offline extraction from actual source cache",
+    "Both CSVs exactly match first real-data run",
+    "Independent centroid summation check",
+    "Corrupted source rejected before creating observations",
+    "No smoothing, row deletion, synthetic fallback or validation-specific scale"
+  ],
+  "scientificStatus": "Exploratory surrogate-model comparison, not an independently calibrated apparatus or a certified material friction measurement. Masks are estimated from real recordings; image-plane scale and release assumptions are disclosed.",
+  "jingReview": {
+    "commit": "41c41ae9a1dbe5213e8733bbebeaebe297afa7a7",
+    "zipSha256": "5217b146c5ab801bbfeebd58ecc9e37e936754b6eb57c43a1b8c3bdab2b2ed78",
+    "crcPassed": true,
+    "criticalFileMatches": 7,
+    "weightBytes": 66885622272,
+    "tensorWeightsDownloaded": false,
+    "inferenceExecuted": false,
+    "hardware": {
+      "gpu": "NVIDIA GeForce GTX 1660 Ti",
+      "vramMiB": 6144,
+      "driver": "560.94",
+      "upstreamPublishedValidation": "Six H100 GPUs; text on cuda:0, VAEs on cuda:1, four DiT ranks",
+      "inferenceExecuted": false
+    },
+    "scope": "Targeted static review; native observer, general conditioning packet and executable audiovisual backend remain planned"
+  },
+  "historicalRuntimeVerification": {
+    "edition": 12,
+    "javaTests": 123,
+    "source": "docs/readmes/012/verification.json",
+    "note": "Prior frozen evidence for the unchanged runtime; not a new JING generation or new model training run"
+  },
+  "freshClone": {
+    "status": "passed",
+    "sourceCommit": "177e4a0dcba2bc2a42061dfd0e6b68acab7700ea",
+    "build": "Separate clean checkout; offline Java distributions; cached Node/Electron; no user state or model weights copied",
+    "calibrationJavaMethodsRerun": 9,
+    "desktopUnits": 13,
+    "realDataChecks": 9,
+    "fitAccepted": false,
+    "offlineRawSourcePreparation": "passed with five pinned public files",
+    "csvByteIdentity": "both files match committed and first-run observations",
+    "canonicalSourceHashesVerified": 404
+  },
+  "documentationQa": {
+    "status": "passed",
+    "checks": [
+      "Offline viewer loads eight modules and the explicit workflow-pass / fit-rejected / JING-static-review distinctions",
+      "Module selection/search and reviewed/planned/verified filters preserve capability status",
+      "Canonical source inventory search resolves the actual preparation script",
+      "All four source/app/scientific images load with truthful captions and working gallery controls",
+      "390px explorer layout has usable controls, single-column cards and no horizontal overflow",
+      "Actual exported report opens offline with the rejected verdict, both curves, 17 executed trials and all original evidence files",
+      "Actual offline report remains readable at 390px without viewport overflow",
+      "No documentation or exported-report JavaScript errors"
+    ],
+    "visualInspection": {
+      "wide": "passed: readable workflow, modules, selected source and gallery",
+      "narrow": "passed: 390px explorer and actual exported report without overflow; long provenance is wrapped"
+    }
+  },
+  "scope": [
+    "Real data are estimated segmentation centroids from real video; not raw instrument position measurements",
+    "Training endpoint fixes scale; validation uses the same transform and is not rescaled after its result",
+    "Surrogate geometry/mass, image perspective, angle and release conditions have unresolved uncertainty",
+    "Rejected physical fit is retained; no authored-scene application or weight training",
+    "JING ZIP contains no model weights; only small public weight metadata fetched",
+    "No JING inference, training, CUDA install, cloud instance or paid endpoint created"
+  ],
+  "documentationChecker": "PowerShell 7"
+}

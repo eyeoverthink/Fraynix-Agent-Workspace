@@ -32,7 +32,7 @@ Search one parameter, friction, over 0..1. Run each candidate for one simulated 
 
 Training selects friction **0.15625** using 17 executed candidates and 20 total native operations. Training improvement and validation nonregression pass. The all-point validation gate fails: maximum residual 0.159463 m exceeds 0.015 m. The fit is **rejected**, Apply is unavailable and both scenes remain v1.
 
-The workflow passes eight independent import/provenance/arithmetic/UI checks. This is distinct from a passing fit. The held-apart recording is now an observed regression case; it must not be relabeled an untouched scientific holdout in future development.
+The workflow passes nine independent import/provenance/arithmetic/UI checks. This is distinct from a passing fit. The held-apart recording is now an observed regression case; it must not be relabeled an untouched scientific holdout in future development.
 
 Likely questions for subsequent experiments are camera-plane calibration, perspective, source clipping/release timing and surrogate geometry. The current data do not isolate which explanation causes the mismatch. Do not raise tolerance, fit a validation-specific delay or change its scale to produce acceptance. Use newly collected calibration references and fresh evaluation recordings for later scientific claims.
 

@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "latest": 12,
+  "latest": 13,
   "canonicalization": "UTF-8 without BOM; CRLF normalized to LF for text",
   "editions": [
     {
@@ -934,6 +934,165 @@
           "path": "docs/readmes/012/verification.json",
           "kind": "text",
           "sha256": "63b0cc12affaa1d1fe5fd0b1a08a40edd52db01b359c6ced6e97384bd6269587"
+        }
+      ]
+    },
+    {
+      "number": 13,
+      "date": "2026-10-30",
+      "title": "Real observations, rejected validation and JING observer assessment",
+      "status": "published",
+      "markdown": "README-013.md",
+      "markdownSha256": "67a954be79b737711ae58a6ea96a54d4f5c88102c4c60d22a51f726c03abf5c1",
+      "snapshotDirectory": "docs/readmes/013",
+      "companion": "docs/readmes/013/index.html",
+      "tag": "readme-013",
+      "sourceBaseline": "177e4a0dcba2bc2a42061dfd0e6b68acab7700ea",
+      "snapshotFiles": [
+        {
+          "path": "docs/datasets/delfys75-013/initial-protocol.json",
+          "kind": "text",
+          "sha256": "89a6bd1cd194d169e7a4f88f01221c368750254b679d920f64827f2152200d52"
+        },
+        {
+          "path": "docs/datasets/delfys75-013/provenance.json",
+          "kind": "text",
+          "sha256": "d9bdabeb7fcb072a3c469386e6dd01fa114e1dee129ca2eb5c9187828d9ab318"
+        },
+        {
+          "path": "docs/datasets/delfys75-013/README.md",
+          "kind": "text",
+          "sha256": "e02e03885daf94b26eed70786eb67d2dbe58d5d4b9605cc2ce975924a4136114"
+        },
+        {
+          "path": "docs/datasets/delfys75-013/spatial-calibration-frozen.json",
+          "kind": "text",
+          "sha256": "7628005497391654d0f419a7443853d74b80d048e3d5fa57011202d983b4cad0"
+        },
+        {
+          "path": "docs/datasets/delfys75-013/training-tracking.json",
+          "kind": "text",
+          "sha256": "dbdaaa7b83dcfa097336752785eac94233ef3db5eb0bff10cad4531555133bc8"
+        },
+        {
+          "path": "docs/datasets/delfys75-013/training.csv",
+          "kind": "text",
+          "sha256": "c3d95c6a8ee4e002ec490cb6e2239dbd53ba5e194ea6b89ccba418b0e5ac59da"
+        },
+        {
+          "path": "docs/datasets/delfys75-013/validation-tracking.json",
+          "kind": "text",
+          "sha256": "681c88632d7bcac5f5054502220869f2c4af2986a29bf2e74a02fabe1fc2f295"
+        },
+        {
+          "path": "docs/datasets/delfys75-013/validation.csv",
+          "kind": "text",
+          "sha256": "591c0cb5e7b1755dce0e9e415ed0766840a9e74021effca78a45c1ae9e59b4c8"
+        },
+        {
+          "path": "docs/readmes/013/file-inventory.json",
+          "kind": "text",
+          "sha256": "f084a25461a2b7f093eb8f866a26f3dcd0f40d067d519a796fff5a0f75c8be89"
+        },
+        {
+          "path": "docs/readmes/013/FILE_TREE.md",
+          "kind": "text",
+          "sha256": "818d2da2ffbaa479c3b89f40eb9bc478919da950b2b41a679e2a31230afc16de"
+        },
+        {
+          "path": "docs/readmes/013/images/real-data-curves.png",
+          "kind": "binary",
+          "sha256": "cfc5200897cb08df5fc57bdd479d71a9c882e2b8e81185c5d241a4f97a1521c1"
+        },
+        {
+          "path": "docs/readmes/013/images/real-data-lab.png",
+          "kind": "binary",
+          "sha256": "9df7bad8e9e8bd3b583767980fb6d9fdf63be7ad644d729836b5e67292486dd7"
+        },
+        {
+          "path": "docs/readmes/013/images/real-data-report.png",
+          "kind": "binary",
+          "sha256": "a3f758d5766abec4653a8d9a25e5da7bf67c0ce15883c84f3a9418f4ac6a9ddb"
+        },
+        {
+          "path": "docs/readmes/013/images/source-frame.png",
+          "kind": "binary",
+          "sha256": "59389e2cd5135930661a2c0816130dbc2135f1b85d16a0dee533e81c1a482e55"
+        },
+        {
+          "path": "docs/readmes/013/index.html",
+          "kind": "text",
+          "sha256": "dcc5b81c6058f2b8854f17e720fbebd5c22a4b07b883b7994f4f95551fa81ae8"
+        },
+        {
+          "path": "docs/readmes/013/jing-assessment-evidence.json",
+          "kind": "text",
+          "sha256": "bcd80fa7e4fe78e5ad7685efc2b4311a2322fca4e026a81d5ddb94c57d812367"
+        },
+        {
+          "path": "docs/readmes/013/preparation-checks.json",
+          "kind": "text",
+          "sha256": "109c1e2cea0ee6146455c9b80a4e34513888468bae69a68218a569472a6fcb2c"
+        },
+        {
+          "path": "docs/readmes/013/real-data-curves.pdf",
+          "kind": "binary",
+          "sha256": "264098511b9b8fcf0b1fb281752c3611089e8dafe96642e2cc339193253fdfa8"
+        },
+        {
+          "path": "docs/readmes/013/real-data-delfys.json",
+          "kind": "text",
+          "sha256": "47b0e6d2dfe19191453e46286ea3defd06fd0a7ceb9461c96204bfaf4b2650c3"
+        },
+        {
+          "path": "docs/readmes/013/report/baselineTraining.json",
+          "kind": "text",
+          "sha256": "f4880cc0d058201d5a52a1e8aa543197d092c62e92cbf91b8a5db7933b583f6c"
+        },
+        {
+          "path": "docs/readmes/013/report/calibration.json",
+          "kind": "text",
+          "sha256": "dd48dced254d27e03cc72e67aee85c50a29d746354a736a17a779643236269fa"
+        },
+        {
+          "path": "docs/readmes/013/report/fittedTraining.json",
+          "kind": "text",
+          "sha256": "96ee4864cdf9696ab482f8013ccc4ef98c88806896a3c6b85f7f718cd7a8b889"
+        },
+        {
+          "path": "docs/readmes/013/report/index.html",
+          "kind": "text",
+          "sha256": "037110ae29ff0d3406bbc09f4d43ff4c7bcef0ceb4d1c026cf1bad2629d4596c"
+        },
+        {
+          "path": "docs/readmes/013/report/training.csv",
+          "kind": "text",
+          "sha256": "c3d95c6a8ee4e002ec490cb6e2239dbd53ba5e194ea6b89ccba418b0e5ac59da"
+        },
+        {
+          "path": "docs/readmes/013/report/validation.csv",
+          "kind": "text",
+          "sha256": "591c0cb5e7b1755dce0e9e415ed0766840a9e74021effca78a45c1ae9e59b4c8"
+        },
+        {
+          "path": "docs/readmes/013/report/validationBaseline.json",
+          "kind": "text",
+          "sha256": "7716c2f853f40c24ff8176da0428dc041e74525d3a7b33c6def225bf416b2e22"
+        },
+        {
+          "path": "docs/readmes/013/report/validationFitted.json",
+          "kind": "text",
+          "sha256": "9297197b561ccc52bb1b192cdc686fd464dfc75f142380d1314bd20a24c5d1e0"
+        },
+        {
+          "path": "docs/readmes/013/system-map.json",
+          "kind": "text",
+          "sha256": "b9bed6a542955b3b2a2a2dd6366d80c85812c64c600abdd7010f6cd6114178c1"
+        },
+        {
+          "path": "docs/readmes/013/verification.json",
+          "kind": "text",
+          "sha256": "2a0e81a5a913eaa2be826fe2e755d26d54162f78ac02d251483bc128928e14a6"
         }
       ]
     }

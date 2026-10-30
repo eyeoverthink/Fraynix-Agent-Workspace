@@ -1,0 +1,381 @@
+{
+  "zip": "XGEN-JING-main.zip",
+  "zipBytes": 9597188,
+  "zipSha256": "5217b146c5ab801bbfeebd58ecc9e37e936754b6eb57c43a1b8c3bdab2b2ed78",
+  "members": 66,
+  "crcFailure": null,
+  "reviewCommit": "41c41ae9a1dbe5213e8733bbebeaebe297afa7a7",
+  "checked": [
+    {
+      "path": "README.md",
+      "sha256": "6bbd77d10843e50edfbacb6ca250acca9773c46ce20d67d23898e2eaf87b6453",
+      "matchesReviewedCommit": true
+    },
+    {
+      "path": "configs/base.yaml",
+      "sha256": "c570d0a9eec15b512d35607d39b679c2bc17f2201053a9de3a9aa7b475a0c231",
+      "matchesReviewedCommit": true
+    },
+    {
+      "path": "models/control.py",
+      "sha256": "e5ce676c6c5491356ae69206a9e545f8272357b1cbdfae520b3b6b20173cd73c",
+      "matchesReviewedCommit": true
+    },
+    {
+      "path": "pipelines/bidirection.py",
+      "sha256": "d1288872671b3514e8178d8abcfadc6ab8b03b8747c56b60b32a682e62ce939f",
+      "matchesReviewedCommit": true
+    },
+    {
+      "path": "demo_bidirection.py",
+      "sha256": "d63deb3544f1200f44b9b7fc441af66458a80a8ea6377a692e631bec552e9550",
+      "matchesReviewedCommit": true
+    },
+    {
+      "path": "LICENSE",
+      "sha256": "59b99642b95ea21630e311198ddbfffbfe05aadba0c2f5d884cbdf4efcc90f44",
+      "matchesReviewedCommit": true
+    },
+    {
+      "path": "NOTICE",
+      "sha256": "706338aea9acf3464fda4886dcc74652c2757af647f5ffd23e650ba1c07b782a",
+      "matchesReviewedCommit": true
+    }
+  ],
+  "bundledWeightFiles": [],
+  "sourceInventory": [
+    {
+      "path": "README.md",
+      "bytes": 6720,
+      "lines": 163,
+      "sha256": "6bbd77d10843e50edfbacb6ca250acca9773c46ce20d67d23898e2eaf87b6453"
+    },
+    {
+      "path": "configs/__init__.py",
+      "bytes": 31,
+      "lines": 1,
+      "sha256": "a08ddf3d2bc93388bcda5278d69d526b42b69742db5513c794281f0b1fcf0c12"
+    },
+    {
+      "path": "configs/base.yaml",
+      "bytes": 503,
+      "lines": 28,
+      "sha256": "c570d0a9eec15b512d35607d39b679c2bc17f2201053a9de3a9aa7b475a0c231"
+    },
+    {
+      "path": "configs/bidirection.yaml",
+      "bytes": 57,
+      "lines": 2,
+      "sha256": "fac933d46276a9e5b3ac48d5c85ac37327b8984147f7ce8368a5c9e7151b46cf"
+    },
+    {
+      "path": "configs/loader.py",
+      "bytes": 3567,
+      "lines": 83,
+      "sha256": "75a9e49e7525fda5240fb2ca430df71c0ca5e36e03faabba7a492bd9de32f0f3"
+    },
+    {
+      "path": "demo.sh",
+      "bytes": 622,
+      "lines": 11,
+      "sha256": "4e913fe37b3ad6c67b656d788936a57a645d6abfed3251a2a39dd809b2ebfca7"
+    },
+    {
+      "path": "demo_bidirection.py",
+      "bytes": 377,
+      "lines": 19,
+      "sha256": "d63deb3544f1200f44b9b7fc441af66458a80a8ea6377a692e631bec552e9550"
+    },
+    {
+      "path": "examples/bakery_greeting.json",
+      "bytes": 5074,
+      "lines": 40,
+      "sha256": "30bfa04e7fa7ca673e7df2011c6667a86da5606a7ebca13e0ac151b7a4059641"
+    },
+    {
+      "path": "examples/train_carriage_gaze.json",
+      "bytes": 10884,
+      "lines": 49,
+      "sha256": "ce79f042e3240d157ce92fabea0de94572ee14a9a886136653c278e78a6bc690"
+    },
+    {
+      "path": "models/__init__.py",
+      "bytes": 37,
+      "lines": 1,
+      "sha256": "3d7c9abe8a3fa0ec107d7b9bb735b168df3eea4347ae317fc46e23ee61e27680"
+    },
+    {
+      "path": "models/attention.py",
+      "bytes": 2304,
+      "lines": 60,
+      "sha256": "849a73142234a5608c180a5319e9d16d3d6051137c20ee0d3b12a0b56c717861"
+    },
+    {
+      "path": "models/control.py",
+      "bytes": 3782,
+      "lines": 100,
+      "sha256": "e5ce676c6c5491356ae69206a9e545f8272357b1cbdfae520b3b6b20173cd73c"
+    },
+    {
+      "path": "models/packing.py",
+      "bytes": 10723,
+      "lines": 293,
+      "sha256": "a97362e9963b7ae67a8c5545de6a6e58c450e11650db3415d213483200b89449"
+    },
+    {
+      "path": "models/transformer.py",
+      "bytes": 6943,
+      "lines": 174,
+      "sha256": "31ce8d8da7471beccdbfd1c5e64a26cf2a5b705b623d2ae0030328d13d248a68"
+    },
+    {
+      "path": "pipelines/__init__.py",
+      "bytes": 39,
+      "lines": 1,
+      "sha256": "e5f23646b71588c2d3ec7d4804576659fd1a223e5d29ab00bca3dea96ed6a56c"
+    },
+    {
+      "path": "pipelines/bidirection.py",
+      "bytes": 17729,
+      "lines": 469,
+      "sha256": "d1288872671b3514e8178d8abcfadc6ab8b03b8747c56b60b32a682e62ce939f"
+    },
+    {
+      "path": "prompt_skills/README.md",
+      "bytes": 6646,
+      "lines": 155,
+      "sha256": "a69d8fc391c874cbe389d7201e1567a85aceccc3155a8869137297f178979057"
+    },
+    {
+      "path": "prompt_skills/SKILL.md",
+      "bytes": 2092,
+      "lines": 41,
+      "sha256": "7ad4707574f14ab7bc5f267ae11bf615e0b6d3e6b8bf97227be540011e7c0dd9"
+    },
+    {
+      "path": "prompt_skills/examples/room/prompt.txt",
+      "bytes": 426,
+      "lines": 1,
+      "sha256": "f379fee2bcf320672217f240ed9afe00859a5ac76db58b3f6923e64e8d077bdb"
+    },
+    {
+      "path": "prompt_skills/prompts/actions.md",
+      "bytes": 93180,
+      "lines": 1509,
+      "sha256": "267e9a5ef6a6236ef4a7c185f2556e1f8b1d75c22221c9784d390985581ca8eb"
+    },
+    {
+      "path": "prompt_skills/prompts/english.md",
+      "bytes": 8236,
+      "lines": 128,
+      "sha256": "c29ac72e6d328815fe130caf0ea3d2672b30b09592fb20c1c79b67f9429355a4"
+    },
+    {
+      "path": "prompt_skills/prompts/story.md",
+      "bytes": 48055,
+      "lines": 879,
+      "sha256": "ffd4320319009c1eb9517622114e479c7aa6f3122b3e8171b810745b4ef3dde7"
+    },
+    {
+      "path": "prompt_skills/requirements.txt",
+      "bytes": 12,
+      "lines": 1,
+      "sha256": "8be10848dc9737d2dcfd24a34f5034ddeb02e918b078ce09a3c2d090fbc44ed8"
+    },
+    {
+      "path": "prompt_skills/workflow/__init__.py",
+      "bytes": 41,
+      "lines": 1,
+      "sha256": "4accef2e59b9ec3489b01a28e275daa0a0eb1f0a89d7990946d1727cbc503df7"
+    },
+    {
+      "path": "prompt_skills/workflow/audit.py",
+      "bytes": 1632,
+      "lines": 38,
+      "sha256": "3d346e2e5da1de5271f18fcf1a3d07be7b8b52fd026503fff5642d71cdacea7a"
+    },
+    {
+      "path": "prompt_skills/workflow/common.py",
+      "bytes": 6676,
+      "lines": 195,
+      "sha256": "b09ede8069de9566086bf77ce49cdf749b0b0aa5b6ccc8d433a6e5b2a3dd840e"
+    },
+    {
+      "path": "prompt_skills/workflow/compiler.py",
+      "bytes": 6082,
+      "lines": 158,
+      "sha256": "a8cd467b417cd15f8d52793b8f45e5030f0f979a281603b059eaa4bfd2999269"
+    },
+    {
+      "path": "prompt_skills/workflow/generation.py",
+      "bytes": 6244,
+      "lines": 171,
+      "sha256": "2f364f649c48fe4745f7e27fb7c5b8d7efd7a741091a28383cefa509aeaabf66"
+    },
+    {
+      "path": "prompt_skills/workflow/localization.py",
+      "bytes": 5221,
+      "lines": 141,
+      "sha256": "bb7e53c9c5c9d5105c9d39b97fcba1e10bc7dfb16fffde5bc09daa7bb1879d92"
+    },
+    {
+      "path": "prompt_skills/workflow/normalize.py",
+      "bytes": 19910,
+      "lines": 530,
+      "sha256": "b17b5b5bc3e990d602f14ebd80038f08aacac2151e7863a8b5626aecf95b6002"
+    },
+    {
+      "path": "prompt_skills/workflow/references.py",
+      "bytes": 2358,
+      "lines": 52,
+      "sha256": "a6fb162347d205f48d37dbfafccf03ce7a28c9385a495e82f3602d2c9fcec3f7"
+    },
+    {
+      "path": "prompt_skills/workflow/run.py",
+      "bytes": 6307,
+      "lines": 209,
+      "sha256": "bf2a52fb959d0d975ec666e36dd8b08bff67b8e43761911a8a457c16ac41d59d"
+    },
+    {
+      "path": "prompt_skills/workflow/validation/__init__.py",
+      "bytes": 320,
+      "lines": 10,
+      "sha256": "bd2958909258ab8bb022f30aa42eb691c2a7f1feb5120c8cd84885aa9a39cdf5"
+    },
+    {
+      "path": "prompt_skills/workflow/validation/actions.py",
+      "bytes": 21358,
+      "lines": 496,
+      "sha256": "2d0c11dfc4bcb67a233d5a4a7f8cddbdd03307e3b99f7cef5f7b54318b9538c7"
+    },
+    {
+      "path": "prompt_skills/workflow/validation/cases.py",
+      "bytes": 12293,
+      "lines": 322,
+      "sha256": "a05e002c14cec83b4c750ed87ed391bc5402e1dbbddc0d3bed8ffa11ccc8738b"
+    },
+    {
+      "path": "prompt_skills/workflow/validation/complexity.py",
+      "bytes": 2108,
+      "lines": 53,
+      "sha256": "ce66ca6406cd20e897b2e41b52ba8e36ddc900188c224dd6704c218b72ebc34c"
+    },
+    {
+      "path": "prompt_skills/workflow/validation/controls.py",
+      "bytes": 1323,
+      "lines": 38,
+      "sha256": "228061941446adf5425f35173ed7d6685addaea3cb6af8ac7f96dd0dbe43a3ea"
+    },
+    {
+      "path": "prompt_skills/workflow/validation/english.py",
+      "bytes": 6145,
+      "lines": 158,
+      "sha256": "a50e951d435a8e76f30949d330edd722661f42d7afc57731aeeee1a7d38b07d1"
+    },
+    {
+      "path": "prompt_skills/workflow/validation/entities.py",
+      "bytes": 1937,
+      "lines": 45,
+      "sha256": "ce7f867640c976f193af99e1487b19fd198e1999ceeff2e1000d7679b1dd1eb3"
+    },
+    {
+      "path": "prompt_skills/workflow/validation/story.py",
+      "bytes": 13473,
+      "lines": 309,
+      "sha256": "ea6524304ed54e9eecef41ecfb390f35eb251220359f8a7a3768f9f0654a28a7"
+    },
+    {
+      "path": "requirements.txt",
+      "bytes": 424,
+      "lines": 14,
+      "sha256": "e095a8ca2e7d67dbd4ad5335372b06e3020b51442a2506c7d9c76c3937d6f897"
+    },
+    {
+      "path": "runtime/__init__.py",
+      "bytes": 34,
+      "lines": 1,
+      "sha256": "32b49f654c8d6500ac8fef32a0e9034fbde306719910d119ed2fe0e56234ab85"
+    },
+    {
+      "path": "runtime/sequence_parallel.py",
+      "bytes": 808,
+      "lines": 25,
+      "sha256": "06e89b94345f35bc85e89e35de0deeced06047cf2a0c7bd3444bc102f93ca3cd"
+    },
+    {
+      "path": "runtime/sglang_loader.py",
+      "bytes": 4512,
+      "lines": 120,
+      "sha256": "66dc76af893ff073390c31f2682a9d9948ac68cd2a79481f1fb8a12d1567f052"
+    }
+  ],
+  "weightMetadata": {
+    "config": {
+      "_class_name": "H3Transformer",
+      "_diffusers_version": "0.36.0.dev0",
+      "num_attention_heads": 56,
+      "attention_head_dim": 128,
+      "hidden_size": 5376,
+      "num_layers": 50,
+      "num_refiner_layers": 2,
+      "ffn_dim": 14336,
+      "in_channels": 24,
+      "audio_in_channels": 32,
+      "patch_size": [
+        1,
+        2,
+        2
+      ],
+      "text_dim": 5120,
+      "freq_dim": 256,
+      "time_embed_hidden_dim": 5376,
+      "time_embed_dim": 2688,
+      "rope_freq_dim": 16,
+      "rope_theta": 10000.0,
+      "norm_eps": 1e-05,
+      "qk_norm_eps": 1e-05,
+      "final_norm_eps": 1e-05,
+      "control_config": {
+        "enable": true,
+        "dim_in": 6,
+        "dim_out": 512
+      },
+      "attention_backend": "fa4"
+    },
+    "totalTensorBytes": 66885622272,
+    "shards": 15,
+    "tensorNames": 1046,
+    "controlTensorNames": 408,
+    "controlKeyExamples": [
+      "control.block_injectors.0.mlp1.bias",
+      "control.block_injectors.0.mlp1.weight",
+      "control.block_injectors.0.mlp2.bias",
+      "control.block_injectors.0.mlp2.weight",
+      "control.block_injectors.0.scale.bias",
+      "control.block_injectors.0.scale.weight",
+      "control.block_injectors.0.shift.bias",
+      "control.block_injectors.0.shift.weight",
+      "control.block_injectors.1.mlp1.bias"
+    ],
+    "filesFetched": {
+      "config.json": {
+        "bytes": 646,
+        "sha256": "d3d08876c17d8f0f98932670f5697f82ff7923519cf6b3f1064309764ac356bb",
+        "url": "https://huggingface.co/XGENlabs/XGEN-JING/resolve/main/jing_flash_v1/config.json"
+      },
+      "diffusion_pytorch_model.safetensors.index.json": {
+        "bytes": 104949,
+        "sha256": "d446e18544be49a0eb991b4607f92093e0bdee215f52c213c064dd42f8e1e7de",
+        "url": "https://huggingface.co/XGENlabs/XGEN-JING/resolve/main/jing_flash_v1/diffusion_pytorch_model.safetensors.index.json"
+      }
+    },
+    "tensorWeightsDownloaded": false
+  },
+  "hardware": {
+    "gpu": "NVIDIA GeForce GTX 1660 Ti",
+    "vramMiB": 6144,
+    "driver": "560.94",
+    "upstreamPublishedValidation": "Six H100 GPUs; text on cuda:0, VAEs on cuda:1, four DiT ranks",
+    "inferenceExecuted": false
+  }
+}

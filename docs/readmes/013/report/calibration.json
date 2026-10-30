@@ -1,0 +1,641 @@
+{
+  "phase": "complete",
+  "schemaVersion": 1,
+  "fittedTraining": {
+    "maxAbsErrorM": 0.03071930764196973,
+    "withinTolerance": 44,
+    "count": 52,
+    "rmseM": 0.009632104462760503,
+    "uncertaintyM": null,
+    "meanResidualM": -0.003442827738907805,
+    "toleranceM": 0.015,
+    "passed": false,
+    "runId": "34c58bb7-dc91-4c0e-ac99-e93949a4e843",
+    "value": 0.15625,
+    "maeM": 0.006663878008204808
+  },
+  "startedAt": "2026-10-30T10:04:13.640947200Z",
+  "candidateValues": [
+    0,
+    0.125,
+    0.25,
+    0.375,
+    0.5,
+    0.625,
+    0.75,
+    0.875,
+    1,
+    0.0625,
+    0.09375,
+    0.15625,
+    0.1875,
+    0.140625,
+    0.1484375,
+    0.1640625,
+    0.171875
+  ],
+  "validationFitted": {
+    "maxAbsErrorM": 0.15946336788271886,
+    "withinTolerance": 8,
+    "count": 49,
+    "rmseM": 0.05943494957077425,
+    "uncertaintyM": null,
+    "meanResidualM": -0.05115710113033908,
+    "toleranceM": 0.015,
+    "passed": false,
+    "runId": "eee4c586-7409-4717-b26b-a36dd39e75fd",
+    "value": 0.15625,
+    "maeM": 0.051169100667312034
+  },
+  "evaluation": {
+    "trainingImproved": true,
+    "trainingImprovementM": 0.22286535927915513,
+    "criteria": "training RMSE gain >= declared minimum; every validation residual <= tolerance; validation RMSE does not increase beyond 1e-9 m numerical slack",
+    "validationNoRegression": true,
+    "scope": "Parameter calibration in the recorded native model; source labels are user supplied, prior validation uses recorded, and collection independence not proven",
+    "accepted": false,
+    "validationWithinTolerance": false
+  },
+  "canApply": false,
+  "createdAt": "2026-10-30T10:04:13.640947200Z",
+  "trials": [
+    {
+      "index": 0,
+      "runId": "71b1f2b0-b64e-498c-a250-92cef3cb3e26",
+      "metrics": {
+        "maxAbsErrorM": 0.49201343474828696,
+        "withinTolerance": 10,
+        "count": 52,
+        "rmseM": 0.23249746374191563,
+        "uncertaintyM": null,
+        "meanResidualM": 0.17282014668107287,
+        "toleranceM": 0.015,
+        "passed": false,
+        "runId": "71b1f2b0-b64e-498c-a250-92cef3cb3e26",
+        "value": 0,
+        "maeM": 0.17282014668107287
+      },
+      "value": 0
+    },
+    {
+      "index": 1,
+      "runId": "52fe319c-c641-48d9-be3f-839f9fe0350a",
+      "metrics": {
+        "maxAbsErrorM": 0.0816239429336808,
+        "withinTolerance": 20,
+        "count": 52,
+        "rmseM": 0.043202291203688334,
+        "uncertaintyM": null,
+        "meanResidualM": 0.03181213090148121,
+        "toleranceM": 0.015,
+        "passed": false,
+        "runId": "52fe319c-c641-48d9-be3f-839f9fe0350a",
+        "value": 0.125,
+        "maeM": 0.03236167836624925
+      },
+      "value": 0.125
+    },
+    {
+      "index": 2,
+      "runId": "6473ad53-c691-4985-b568-73de2ee9b305",
+      "metrics": {
+        "maxAbsErrorM": 0.344352510462565,
+        "withinTolerance": 11,
+        "count": 52,
+        "rmseM": 0.1477474663522376,
+        "uncertaintyM": null,
+        "meanResidualM": -0.1092003149461623,
+        "toleranceM": 0.015,
+        "passed": false,
+        "runId": "6473ad53-c691-4985-b568-73de2ee9b305",
+        "value": 0.25,
+        "maeM": 0.10922614552299387
+      },
+      "value": 0.25
+    },
+    {
+      "index": 3,
+      "runId": "1acbc245-7d28-488e-a98b-6c2fc4a10641",
+      "metrics": {
+        "maxAbsErrorM": 0.7250449369026974,
+        "withinTolerance": 7,
+        "count": 52,
+        "rmseM": 0.32036681028920716,
+        "uncertaintyM": null,
+        "meanResidualM": -0.23722220989838666,
+        "toleranceM": 0.015,
+        "passed": false,
+        "runId": "1acbc245-7d28-488e-a98b-6c2fc4a10641",
+        "value": 0.375,
+        "maeM": 0.23724804047521825
+      },
+      "value": 0.375
+    },
+    {
+      "index": 4,
+      "runId": "66de913c-8843-4950-9c7e-7873f2c05d1b",
+      "metrics": {
+        "maxAbsErrorM": 0.7254174539028941,
+        "withinTolerance": 7,
+        "count": 52,
+        "rmseM": 0.32064256605666247,
+        "uncertaintyM": null,
+        "meanResidualM": -0.23756385538821703,
+        "toleranceM": 0.015,
+        "passed": false,
+        "runId": "66de913c-8843-4950-9c7e-7873f2c05d1b",
+        "value": 0.5,
+        "maeM": 0.2375896859650486
+      },
+      "value": 0.5
+    },
+    {
+      "index": 5,
+      "runId": "218836c5-07f5-47f1-b6ea-c46bc70e4037",
+      "metrics": {
+        "maxAbsErrorM": 0.7254176779430735,
+        "withinTolerance": 7,
+        "count": 52,
+        "rmseM": 0.3206427319214898,
+        "uncertaintyM": null,
+        "meanResidualM": -0.23756405514575954,
+        "toleranceM": 0.015,
+        "passed": false,
+        "runId": "218836c5-07f5-47f1-b6ea-c46bc70e4037",
+        "value": 0.625,
+        "maeM": 0.2375898857225911
+      },
+      "value": 0.625
+    },
+    {
+      "index": 6,
+      "runId": "ecbd6fd1-2bea-4eef-b089-71bc8df336f8",
+      "metrics": {
+        "maxAbsErrorM": 0.7254174539028941,
+        "withinTolerance": 7,
+        "count": 52,
+        "rmseM": 0.32064256648037737,
+        "uncertaintyM": null,
+        "meanResidualM": -0.237563864005147,
+        "toleranceM": 0.015,
+        "passed": false,
+        "runId": "ecbd6fd1-2bea-4eef-b089-71bc8df336f8",
+        "value": 0.75,
+        "maeM": 0.2375896945819786
+      },
+      "value": 0.75
+    },
+    {
+      "index": 7,
+      "runId": "0efb4465-514a-4ca6-a687-bac1ff443fd2",
+      "metrics": {
+        "maxAbsErrorM": 0.7254176779430735,
+        "withinTolerance": 7,
+        "count": 52,
+        "rmseM": 0.32064273190679254,
+        "uncertaintyM": null,
+        "meanResidualM": -0.23756404652882954,
+        "toleranceM": 0.015,
+        "passed": false,
+        "runId": "0efb4465-514a-4ca6-a687-bac1ff443fd2",
+        "value": 0.875,
+        "maeM": 0.23758987710566112
+      },
+      "value": 0.875
+    },
+    {
+      "index": 8,
+      "runId": "a2c22ee5-9dec-4395-b9c7-1a6c2362df5b",
+      "metrics": {
+        "maxAbsErrorM": 0.7254184316075685,
+        "withinTolerance": 7,
+        "count": 52,
+        "rmseM": 0.3206432890080581,
+        "uncertaintyM": null,
+        "meanResidualM": -0.23756470735541863,
+        "toleranceM": 0.015,
+        "passed": false,
+        "runId": "a2c22ee5-9dec-4395-b9c7-1a6c2362df5b",
+        "value": 1,
+        "maeM": 0.2375905379322502
+      },
+      "value": 1
+    },
+    {
+      "index": 9,
+      "runId": "4fec97fb-5534-4ce0-aaae-b43a299a1ad3",
+      "metrics": {
+        "maxAbsErrorM": 0.28289791910243034,
+        "withinTolerance": 11,
+        "count": 52,
+        "rmseM": 0.1376271741582318,
+        "uncertaintyM": null,
+        "meanResidualM": 0.10231473133480615,
+        "toleranceM": 0.015,
+        "passed": false,
+        "runId": "4fec97fb-5534-4ce0-aaae-b43a299a1ad3",
+        "value": 0.0625,
+        "maeM": 0.10235552480683416
+      },
+      "value": 0.0625
+    },
+    {
+      "index": 10,
+      "runId": "ee9eea8b-fa76-41a6-8f11-a73d2e90b3a2",
+      "metrics": {
+        "maxAbsErrorM": 0.17834568610983315,
+        "withinTolerance": 13,
+        "count": 52,
+        "rmseM": 0.0902672917809169,
+        "uncertaintyM": null,
+        "meanResidualM": 0.06705985316281304,
+        "toleranceM": 0.015,
+        "passed": false,
+        "runId": "ee9eea8b-fa76-41a6-8f11-a73d2e90b3a2",
+        "value": 0.09375,
+        "maeM": 0.0673116670712358
+      },
+      "value": 0.09375
+    },
+    {
+      "index": 11,
+      "runId": "34c58bb7-dc91-4c0e-ac99-e93949a4e843",
+      "metrics": {
+        "maxAbsErrorM": 0.03071930764196973,
+        "withinTolerance": 44,
+        "count": 52,
+        "rmseM": 0.009632104462760503,
+        "uncertaintyM": null,
+        "meanResidualM": -0.003442827738907805,
+        "toleranceM": 0.015,
+        "passed": false,
+        "runId": "34c58bb7-dc91-4c0e-ac99-e93949a4e843",
+        "value": 0.15625,
+        "maeM": 0.006663878008204808
+      },
+      "value": 0.15625
+    },
+    {
+      "index": 12,
+      "runId": "3a08abe1-0869-4fbc-a075-3b8d37c0b84d",
+      "metrics": {
+        "maxAbsErrorM": 0.13526133858913958,
+        "withinTolerance": 20,
+        "count": 52,
+        "rmseM": 0.05318370472754582,
+        "uncertaintyM": null,
+        "meanResidualM": -0.0386931375797087,
+        "toleranceM": 0.015,
+        "passed": false,
+        "runId": "3a08abe1-0869-4fbc-a075-3b8d37c0b84d",
+        "value": 0.1875,
+        "maeM": 0.03872361796248953
+      },
+      "value": 0.1875
+    },
+    {
+      "index": 13,
+      "runId": "e03bf56c-5c50-4ba4-a662-95f176b81b3d",
+      "metrics": {
+        "maxAbsErrorM": 0.04556674880618444,
+        "withinTolerance": 32,
+        "count": 52,
+        "rmseM": 0.02032266331389048,
+        "uncertaintyM": null,
+        "meanResidualM": 0.014140613095435609,
+        "toleranceM": 0.015,
+        "passed": false,
+        "runId": "e03bf56c-5c50-4ba4-a662-95f176b81b3d",
+        "value": 0.140625,
+        "maeM": 0.01493162712035149
+      },
+      "value": 0.140625
+    },
+    {
+      "index": 14,
+      "runId": "f2c7c012-ad47-411c-9962-a728c8d29a63",
+      "metrics": {
+        "maxAbsErrorM": 0.02876658717084507,
+        "withinTolerance": 41,
+        "count": 52,
+        "rmseM": 0.010647602551341088,
+        "uncertaintyM": null,
+        "meanResidualM": 0.0053693095813193295,
+        "toleranceM": 0.015,
+        "passed": false,
+        "runId": "f2c7c012-ad47-411c-9962-a728c8d29a63",
+        "value": 0.1484375,
+        "maeM": 0.007666058412449368
+      },
+      "value": 0.1484375
+    },
+    {
+      "index": 15,
+      "runId": "a5bfa254-60c4-43bd-b6bb-6e73f758b9e5",
+      "metrics": {
+        "maxAbsErrorM": 0.05685124412264686,
+        "withinTolerance": 34,
+        "count": 52,
+        "rmseM": 0.018814171628130472,
+        "uncertaintyM": null,
+        "meanResidualM": -0.012255628386614334,
+        "toleranceM": 0.015,
+        "passed": false,
+        "runId": "a5bfa254-60c4-43bd-b6bb-6e73f758b9e5",
+        "value": 0.1640625,
+        "maeM": 0.012534953615178384
+      },
+      "value": 0.1640625
+    },
+    {
+      "index": 16,
+      "runId": "5af0dfda-a499-446e-80db-a0a21dc0db97",
+      "metrics": {
+        "maxAbsErrorM": 0.08298656262051085,
+        "withinTolerance": 29,
+        "count": 52,
+        "rmseM": 0.029949718726513638,
+        "uncertaintyM": null,
+        "meanResidualM": -0.021066955035856857,
+        "toleranceM": 0.015,
+        "passed": false,
+        "runId": "5af0dfda-a499-446e-80db-a0a21dc0db97",
+        "value": 0.171875,
+        "maeM": 0.02110555049443883
+      },
+      "value": 0.171875
+    }
+  ],
+  "refinementRound": 2,
+  "selection": {
+    "criterion": "minimum executed training RMSE; ties prefer the existing parameter",
+    "trainingRmseM": 0.009632104462760503,
+    "runId": "34c58bb7-dc91-4c0e-ac99-e93949a4e843",
+    "value": 0.15625,
+    "frozenAt": "2026-10-30T10:04:15.040831700Z"
+  },
+  "validationStartedAt": "2026-10-30T10:04:15.066580Z",
+  "endedAt": "2026-10-30T10:04:15.248681500Z",
+  "completedNativeOperations": 20,
+  "canRollback": false,
+  "definition": {
+    "actualDurationS": 1,
+    "method": "native-grid-v1: 9 coarse values, two four-point refinements; training RMSE only",
+    "validationPriorUseCount": 0,
+    "trainingScene": {
+      "schemaVersion": 1,
+      "objects": [
+        {
+          "bodyType": "static",
+          "schemaVersion": 1,
+          "size": [
+            12,
+            0.2,
+            3
+          ],
+          "rotation": [
+            0,
+            0,
+            -0.17364817766693033,
+            0.984807753012208
+          ],
+          "id": "4ead5f59-0df7-4dc0-8d63-7ab5f5d9fdda",
+          "label": "Ramp",
+          "position": [
+            0,
+            2.2521208599540126,
+            0
+          ],
+          "massKg": 0
+        },
+        {
+          "bodyType": "static",
+          "schemaVersion": 1,
+          "size": [
+            40,
+            0.4,
+            24
+          ],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "id": "b4763e5d-d705-412d-8e7c-69f30702c708",
+          "label": "Ground",
+          "position": [
+            0,
+            -0.2,
+            0
+          ],
+          "massKg": 0
+        },
+        {
+          "bodyType": "dynamic",
+          "schemaVersion": 1,
+          "size": [
+            0.5,
+            0.5,
+            0.5
+          ],
+          "rotation": [
+            0,
+            0,
+            -0.17364817766693033,
+            0.984807753012208
+          ],
+          "id": "72de2ac7-b388-46ca-ac81-9711c38c738d",
+          "label": "Block",
+          "position": [
+            -3.2628443645219605,
+            3.8132254858222736,
+            0
+          ],
+          "massKg": 1
+        }
+      ],
+      "id": "705ac6e9-20d9-40ad-8478-66ebf6d44e10",
+      "units": "SI: metre, second, kilogram",
+      "title": "Delfys75 · 20° training surrogate",
+      "version": 1,
+      "parameters": {
+        "angleDeg": 20,
+        "widthM": 3,
+        "offsetZ": 0,
+        "massKg": 1,
+        "lengthM": 12,
+        "friction": 0,
+        "gravityMps2": 9.81
+      },
+      "entityIds": {
+        "ramp": "4ead5f59-0df7-4dc0-8d63-7ab5f5d9fdda",
+        "block": "72de2ac7-b388-46ca-ac81-9711c38c738d",
+        "ground": "b4763e5d-d705-412d-8e7c-69f30702c708"
+      },
+      "frame": "right-handed, +Y up, downhill +X, depth Z",
+      "updatedAt": "2026-10-30T10:04:13.322928Z"
+    },
+    "training": {
+      "sourceSha256": "c3d95c6a8ee4e002ec490cb6e2239dbd53ba5e194ea6b89ccba418b0e5ac59da",
+      "versionId": "df9e8791-1513-4540-8bc6-12f60dfc8524",
+      "mappingSha256": "3f623a2a9ab80889303ea111fb3f6b349dcf4ea84962543b847cc8eaa2b11a66",
+      "sourceKind": "measured",
+      "sourceNote": "Real 60 fps video and author-provided SAM2 masks from jaswar/physical-parameter-prediction version 11. Centroid-derived displacement; training-only 0.726 m endpoint scale; shared projection. Nominal 20° (paper ±1°). No fitted time/velocity offset. Image scale/perspective and release conditions uncertain. Native 12 m ramp / 0.5 m cube / 1 kg are surrogate assumptions, not measured apparatus. video.mp4 SHA256 2898b48dce48c220d4ecce6a6a319ee2319e8588dfb781285ad1717ecec6b013; masks.mp4 SHA256 0dd678c2c5cf9f587ae7e9acedceebc4ec302d6701edf28609c4458ce138c72e. Spatial protocol SHA256 7628005497391654d0f419a7443853d74b80d048e3d5fa57011202d983b4cad0",
+      "observationsSha256": "9c13e1f411bfdd2c132702520ad55bcdb6e79827093a8dbbebdf12805490e3ca",
+      "count": 52,
+      "datasetId": "f843c119-3144-4aa0-ba6a-654534ba4153",
+      "title": "Delfys75 low/01 · real video-derived",
+      "version": 1
+    },
+    "seconds": 1,
+    "validationScene": {
+      "schemaVersion": 1,
+      "objects": [
+        {
+          "bodyType": "static",
+          "schemaVersion": 1,
+          "size": [
+            12,
+            0.2,
+            3
+          ],
+          "rotation": [
+            0,
+            0,
+            -0.17364817766693033,
+            0.984807753012208
+          ],
+          "id": "b5c4b38d-b864-4783-9d56-ac45c84696ff",
+          "label": "Ramp",
+          "position": [
+            0,
+            2.2521208599540126,
+            0
+          ],
+          "massKg": 0
+        },
+        {
+          "bodyType": "static",
+          "schemaVersion": 1,
+          "size": [
+            40,
+            0.4,
+            24
+          ],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "id": "af0725ba-7adc-4c50-81f8-8e04271ebe18",
+          "label": "Ground",
+          "position": [
+            0,
+            -0.2,
+            0
+          ],
+          "massKg": 0
+        },
+        {
+          "bodyType": "dynamic",
+          "schemaVersion": 1,
+          "size": [
+            0.5,
+            0.5,
+            0.5
+          ],
+          "rotation": [
+            0,
+            0,
+            -0.17364817766693033,
+            0.984807753012208
+          ],
+          "id": "86c6910a-b61d-48b5-87d2-7c6418d34d8a",
+          "label": "Block",
+          "position": [
+            -3.2628443645219605,
+            3.8132254858222736,
+            0
+          ],
+          "massKg": 1
+        }
+      ],
+      "id": "65da09f4-f8f1-452c-a8ff-0b7170ecbbca",
+      "units": "SI: metre, second, kilogram",
+      "title": "Delfys75 · 20° validation surrogate",
+      "version": 1,
+      "parameters": {
+        "angleDeg": 20,
+        "widthM": 3,
+        "offsetZ": 0,
+        "massKg": 1,
+        "lengthM": 12,
+        "friction": 0,
+        "gravityMps2": 9.81
+      },
+      "entityIds": {
+        "ramp": "b5c4b38d-b864-4783-9d56-ac45c84696ff",
+        "block": "86c6910a-b61d-48b5-87d2-7c6418d34d8a",
+        "ground": "af0725ba-7adc-4c50-81f8-8e04271ebe18"
+      },
+      "frame": "right-handed, +Y up, downhill +X, depth Z",
+      "updatedAt": "2026-10-30T10:04:13.328722500Z"
+    },
+    "parameter": "friction",
+    "minImprovementM": 0.001,
+    "maximum": 1,
+    "toleranceM": 0.015,
+    "backend": "Minie 9.0.3 / Libbulletjme 22.0.3 / single precision",
+    "minimum": 0,
+    "validation": {
+      "sourceSha256": "591c0cb5e7b1755dce0e9e415ed0766840a9e74021effca78a45c1ae9e59b4c8",
+      "versionId": "638e27a9-67e1-400c-bb7e-3785cf2eed55",
+      "mappingSha256": "af25dab9ecb6bcc1ee9b2662d8accf23ce4199c1ae5e3dc406c20d2bed8c7697",
+      "sourceKind": "measured",
+      "sourceNote": "Real 60 fps video and author-provided SAM2 masks from jaswar/physical-parameter-prediction version 11. Centroid-derived displacement; training-only 0.726 m endpoint scale; shared projection. Nominal 20° (paper ±1°). No fitted time/velocity offset. Image scale/perspective and release conditions uncertain. Native 12 m ramp / 0.5 m cube / 1 kg are surrogate assumptions, not measured apparatus. video.mp4 SHA256 0a3785298a38e2a7ed69d5ede04c1596595960741eef0eb313a7a369a1ca8b5d; masks.mp4 SHA256 5b87be77598e5ba470b4dafecd02513a77b551fd42cd6ef487165d7487e77419. Spatial protocol SHA256 7628005497391654d0f419a7443853d74b80d048e3d5fa57011202d983b4cad0",
+      "observationsSha256": "fb06131603b100d746da3dd1b14ec55cffac0541973a09b95468170cfa414a04",
+      "count": 49,
+      "datasetId": "f6382bc9-bacf-45d6-81be-6eae4eab02cc",
+      "title": "Delfys75 low/02 · real video-derived",
+      "version": 1
+    },
+    "limits": {
+      "nativeRuns": 20,
+      "wallTimePerAttemptMs": 60000,
+      "rowsPerDataset": 512
+    }
+  },
+  "baselineTraining": {
+    "maxAbsErrorM": 0.49201343474828696,
+    "withinTolerance": 10,
+    "count": 52,
+    "rmseM": 0.23249746374191563,
+    "uncertaintyM": null,
+    "meanResidualM": 0.17282014668107287,
+    "toleranceM": 0.015,
+    "passed": false,
+    "runId": "5129ab5a-243f-4911-823a-f39598f50edf",
+    "value": 0,
+    "maeM": 0.17282014668107287
+  },
+  "id": "f92c6f27-9b0f-4c1f-8dab-1247a83b543a",
+  "bindingsCurrent": true,
+  "currentValue": 0.171875,
+  "status": "completed",
+  "attempts": 1,
+  "validationBaseline": {
+    "maxAbsErrorM": 0.34071757494822696,
+    "withinTolerance": 16,
+    "count": 49,
+    "rmseM": 0.15691995665683947,
+    "uncertaintyM": null,
+    "meanResidualM": 0.10512541587418549,
+    "toleranceM": 0.015,
+    "passed": false,
+    "runId": "e4f6cfd8-25a7-454b-8768-5c698d61602f",
+    "value": 0,
+    "maeM": 0.1087459353869657
+  }
+}

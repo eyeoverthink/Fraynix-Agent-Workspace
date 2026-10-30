@@ -16,5 +16,6 @@ Numbered editions preserve dated system behavior and evidence. The root [README]
 | [010](../../README-010.md) | 2026-10-29 | First native 3D mechanics lab, persistent scenes, replay and local-model experiment tools | [Viewer](010/index.html) · [evidence](010/verification.json) · [backend](../3D_BACKEND_DECISION.md) |
 | [011](../../README-011.md) | 2026-10-30 | Versioned CSV measurements, native residual comparisons, repeatable experiments and guarded offline reports | [Viewer](011/index.html) · [evidence](011/verification.json) · [tree](011/FILE_TREE.md) |
 | [012](../../README-012.md) | 2026-10-30 | Native parameter calibration, separate validation, durable apply/rollback and actual local-model evidence | [Viewer](012/index.html) · [evidence](012/verification.json) · [tree](012/FILE_TREE.md) |
+| [013](../../README-013.md) | 2026-10-30 | Real recorded observations, rejected validation, reproducible evidence and JING observer assessment | [Viewer](013/index.html) · [evidence](013/verification.json) · [report](013/report/index.html) |
 
-Latest implementation/documentation edition: **012**. Earlier snapshots remain intact. See [sequence policy](README_SEQUENCE.md) and [manifest](editions.json).
+Latest implementation/documentation edition: **013**. Earlier snapshots remain intact. See [sequence policy](README_SEQUENCE.md) and [manifest](editions.json).
