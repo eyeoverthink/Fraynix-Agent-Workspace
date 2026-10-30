@@ -16,6 +16,7 @@ public final class WorkspaceServer {
     private final WorkspaceStore store;
     private final LearningStore learning;
     private final SceneStore scenes;
+    private final SpatialStore spatial;
     private final MeasurementStore measurements;
     private final CalibrationStore calibrations;
     private final ObserverStore observers;
@@ -30,14 +31,14 @@ public final class WorkspaceServer {
     public WorkspaceServer(Path project,String token) throws IOException {
         if(token==null||token.length()<32)throw new IllegalArgumentException("A private session capability is required");
         this.token=token;store=new WorkspaceStore(project);learning=new LearningStore(project);
-        try{scenes=new SceneStore(project);measurements=new MeasurementStore(project);calibrations=new CalibrationStore(project,scenes,measurements);observers=new ObserverStore(project,scenes);brain=new BrainService(project);goals=new GoalRunner(project,scenes,brain,store,measurements);game=new EmbeddedGameClient(Path.of(System.getProperty("user.dir")),project);}catch(Exception e){throw new IOException("Experiment stores could not start",e);}
+        try{scenes=new SceneStore(project);spatial=new SpatialStore(project);measurements=new MeasurementStore(project);calibrations=new CalibrationStore(project,scenes,measurements);observers=new ObserverStore(project,scenes);brain=new BrainService(project);goals=new GoalRunner(project,scenes,brain,store,measurements,spatial);game=new EmbeddedGameClient(Path.of(System.getProperty("user.dir")),project);}catch(Exception e){throw new IOException("Experiment stores could not start",e);}
         scanner.scheduleWithFixedDelay(()->{try{catalog=models.observe();}catch(Exception e){System.err.println("Model discovery: "+e.getMessage());}},0,45,TimeUnit.SECONDS);
     }
     private JSONObject state() throws IOException {
         var available=new JSONArray();var snapshot=catalog;
         if(snapshot!=null)for(var model:snapshot.models())if(model.available()&&model.capabilities().contains("tools"))available.put(new JSONObject().put("name",model.name()).put("endpoint",model.endpoint()).put("bytes",model.bytes()).put("capabilities",model.capabilities()));
         return new JSONObject().put("name","Fraynix Agent Workspace").put("project",store.root().toString()).put("models",available)
-            .put("discovering",snapshot==null).put("artifacts",store.artifacts()).put("skills",store.skills()).put("learning",learning.state()).put("scenes",scenes.scenes()).put("datasets",measurements.datasets()).put("comparisons",measurements.comparisons("")).put("calibrations",calibrations.list()).put("goals",goals.list()).put("procedures",goals.procedures()).put("baseline","6341404");
+            .put("discovering",snapshot==null).put("artifacts",store.artifacts()).put("skills",store.skills()).put("learning",learning.state()).put("spatialScenes",spatial.list()).put("scenes",scenes.scenes()).put("datasets",measurements.datasets()).put("comparisons",measurements.comparisons("")).put("calibrations",calibrations.list()).put("goals",goals.list()).put("procedures",goals.procedures()).put("baseline","6341404");
     }
     public HttpServer start() throws IOException {
         HttpServer server=HttpServer.create(new InetSocketAddress("127.0.0.1",0),0);server.setExecutor(Executors.newVirtualThreadPerTaskExecutor());
@@ -50,8 +51,18 @@ public final class WorkspaceServer {
                 JSONObject input=new JSONObject(new String(body,StandardCharsets.UTF_8));String route=exchange.getRequestURI().getPath();JSONObject result;
                 if(route.equals("/api/plan")){send(exchange,200,plan(input));return;}
                 synchronized(goals){
+                if(goals.ownsSpatial()&&Set.of("/api/spatial/import","/api/spatial/preview").contains(route))throw new IllegalStateException("The Java goal owns this spatial workflow; cancel it before manual changes.");
                 if(goals.ownsPhysics()&&Set.of("/api/brain/start","/api/brain/cancel","/api/brain/rollback","/api/brain/run","/api/brain/feedback-start","/api/brain/feedback-kick","/api/brain/feedback-cancel","/api/brain/feedback-rollback","/api/brain/world-prepare","/api/brain/world-preview","/api/brain/world-kick","/api/brain/world-cancel","/api/brain/world-rollback","/api/body/action","/api/body/cancel","/api/scene/save","/api/scene/import","/api/experiment/control","/api/experiment/run","/api/experiment/replay","/api/observer/action","/api/observer/replay","/api/calibration/start","/api/calibration/resume","/api/calibration/apply","/api/calibration/rollback").contains(route))throw new IllegalStateException("The Java goal owns this task's physics and model state. Cancel it before manual changes.");
                 switch(route) {
+                    case "/api/spatial/example" -> {try(var stream=WorkspaceServer.class.getResourceAsStream("/spatial/declared-test-scene-v1.json")){result=new JSONObject().put("text",new String(stream.readAllBytes(),StandardCharsets.UTF_8));}}
+                    case "/api/spatial/import" -> {SpatialScene.keys(input,"text");result=spatial.importScene(input.getString("text"));}
+                    case "/api/spatial/read" -> result=spatial.read(input.getString("id"));
+                    case "/api/spatial/snapshot" -> result=spatial.snapshot();
+                    case "/api/spatial/list" -> result=new JSONObject().put("scenes",spatial.list()).put("runs",spatial.runs());
+                    case "/api/spatial/run" -> result=spatial.run(input.getString("id"));
+                    case "/api/spatial/preview" -> {SpatialScene.keys(input,"sceneId","objectId","displacementM");spatial.available();result=spatial.preview(spatial.read(input.getString("sceneId")),input.getString("objectId"),input.getJSONArray("displacementM"));}
+                    case "/api/spatial/observe" -> {SpatialScene.keys(input,"sceneId","pose","viewport");var s=spatial.read(input.getString("sceneId"));var snap=spatial.stateForScene(s.getString("id"));var objects=snap.getJSONObject("current").getJSONArray("objects");var pose=input.getJSONObject("pose");SpatialScene.keys(pose,"position","yawDeg","pitchDeg","fovDeg");SpatialScene.vector(pose.getJSONArray("position"),30);SpatialScene.number(pose,"yawDeg",-360,360);SpatialScene.number(pose,"pitchDeg",-89,89);SpatialScene.number(pose,"fovDeg",20,100);var viewport=input.getJSONObject("viewport");SpatialScene.number(viewport,"width",100,4096);SpatialScene.number(viewport,"height",100,4096);result=new JSONObject().put("knownObjects",objects).put("visibleObjects",ObserverGeometry.visible(pose,viewport,objects)).put("method","Native-state oriented-box ray visibility; not image recognition").put("source",SpatialStore.binding(s));}
+                    case "/api/goals/spatial-start" -> result=goals.startSpatial(input);
                     case "/api/goals/data-start" -> result=goals.startData(input);
                     case "/api/goals/start" -> result=goals.start(input);
                     case "/api/goals/read" -> result=GoalRunner.view(goals.read(input.getString("id")));

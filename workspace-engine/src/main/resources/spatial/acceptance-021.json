@@ -1,0 +1,7 @@
+{
+  "edition": "021", "sourceKind": "synthetic", "declaredBeforeExecution": true,
+  "scope": "Box-only, explicit units and right-handed Y-up, declared rigid-body parameters. Native forward forecasts are not a learned universal dynamics model or captured-room validation.",
+  "source": "declared-test-scene-v1.json", "displacementM": [4,0,0],
+  "gates": {"horizontalErrorM": 0.1, "verticalErrorM": 0.15, "terminalSpeedMps": 0.25, "maxGripEndpointErrorM": 0.08, "forecastMaxErrorM": 0.02, "grabs": 1, "releases": 1, "canvasAssertions": 8},
+  "requiredChecks": ["cm/mm/m normalization and rejected bad reference", "stable imported IDs across restart", "direct route blocked and native-checked alternate route", "preview does not actuate displayed state", "actual constrained move and velocity-preserving release", "independent forecast/sample reconstruction", "source-qualified canvas report and exports", "saved procedure requires new explicit scene/object binding", "changed obstacle independently replanned", "occluded objects retained as known, not claimed visible", "cancel/restart recovery with no failed skill promotion", "unknown/executable/mesh input rejected"]
+}

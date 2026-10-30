@@ -1,0 +1,12 @@
+{
+  "format": "fraynix.spatial-scene", "version": 1,
+  "title": "Synthetic metre reference — crate and obstacle", "units": "cm", "frame": "right-handed-y-up",
+  "source": {"kind": "synthetic", "note": "Authored test fixture, not a captured room or measured apparatus. Positions are centimetres; physical properties are declared.", "physicalProperties": "declared"},
+  "scaleReference": {"a": [0,0,0], "b": [100,0,0], "knownLengthM": 1, "toleranceM": 0.001, "basis": "declared-test"},
+  "gravityMps2": 9.81,
+  "objects": [
+    {"sourceId": "floor", "label": "Floor", "shape": "box", "position": [0,-20,0], "rotation": [0,0,0,1], "size": [800,40,600], "massKg": 0, "friction": 0.6, "restitution": 0},
+    {"sourceId": "obstacle", "label": "Blocking obstacle", "shape": "box", "position": [0,50,0], "rotation": [0,0,0,1], "size": [60,100,150], "massKg": 0, "friction": 0.6, "restitution": 0},
+    {"sourceId": "crate", "label": "Movable crate", "shape": "box", "position": [-200,25,0], "rotation": [0,0,0,1], "size": [50,50,50], "massKg": 1, "friction": 0.4, "restitution": 0}
+  ]
+}

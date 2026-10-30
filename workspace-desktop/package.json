@@ -30,7 +30,9 @@
     "test:goals": "node test/goals-integration.cjs",
     "test:live-goals": "node test/live-goals.cjs",
     "test:data-goals": "node test/data-goals-integration.cjs",
-    "test:live-data-goals": "node test/live-data-goals.cjs"
+    "test:live-data-goals": "node test/live-data-goals.cjs",
+    "test:spatial": "node test/spatial-integration.cjs",
+    "test:live-spatial": "node test/live-spatial.cjs"
   },
   "devDependencies": {
     "electron": "45.1.0",
