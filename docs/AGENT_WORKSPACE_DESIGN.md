@@ -1,5 +1,7 @@
 # Fraynix Agent Workspace design and delivery plan
 
+Edition 014: the native 3D lab now includes a Java-owned first-person observer, sampled box visibility/inspection, actual source/tick-bound PNG capture and durable read-only replay. Core observer logic needs no transformer or language-model inference. The local model is an optional request adapter. See [the observer contract](NATIVE_OBSERVER.md) and [README 014](../README-014.md). Physical body actuators and evaluated navigation remain subsequent native milestones.
+
 This successor starts from Fraynix Studio commit `6341404`. The working Studio repository and its personal project state remain separate. The goal is a visible local environment in which agents can inspect real state, operate supported tools, create runnable artifacts, test their behavior, and reuse verified work.
 
 ## Product surfaces

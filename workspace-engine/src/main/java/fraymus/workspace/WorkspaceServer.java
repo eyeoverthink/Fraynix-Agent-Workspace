@@ -18,6 +18,7 @@ public final class WorkspaceServer {
     private final SceneStore scenes;
     private final MeasurementStore measurements;
     private final CalibrationStore calibrations;
+    private final ObserverStore observers;
     private final String token;
     private final FactoryModelService models=new FactoryModelService();
     private volatile FactoryModelService.Snapshot catalog;
@@ -26,7 +27,7 @@ public final class WorkspaceServer {
     public WorkspaceServer(Path project,String token) throws IOException {
         if(token==null||token.length()<32)throw new IllegalArgumentException("A private session capability is required");
         this.token=token;store=new WorkspaceStore(project);learning=new LearningStore(project);
-        try{scenes=new SceneStore(project);measurements=new MeasurementStore(project);calibrations=new CalibrationStore(project,scenes,measurements);}catch(Exception e){throw new IOException("Experiment stores could not start",e);}
+        try{scenes=new SceneStore(project);measurements=new MeasurementStore(project);calibrations=new CalibrationStore(project,scenes,measurements);observers=new ObserverStore(project,scenes);}catch(Exception e){throw new IOException("Experiment stores could not start",e);}
         scanner.scheduleWithFixedDelay(()->{try{catalog=models.observe();}catch(Exception e){System.err.println("Model discovery: "+e.getMessage());}},0,45,TimeUnit.SECONDS);
     }
     private JSONObject state() throws IOException {
@@ -45,6 +46,14 @@ public final class WorkspaceServer {
                 byte[] body=exchange.getRequestBody().readNBytes(2_100_001);if(body.length>2_100_000)throw new IllegalArgumentException("Request too large");
                 JSONObject input=new JSONObject(new String(body,StandardCharsets.UTF_8));String route=exchange.getRequestURI().getPath();JSONObject result;
                 switch(route) {
+                    case "/api/observer/open" -> result=observers.open(input);
+                    case "/api/observer/read" -> result=observers.read(input.getString("id"));
+                    case "/api/observer/observe" -> result=observers.observe(input);
+                    case "/api/observer/action" -> result=observers.action(input);
+                    case "/api/observer/capture" -> result=observers.capture(input);
+                    case "/api/observer/replay" -> result=observers.replay(input.getString("id"));
+                    case "/api/observer/history" -> result=observers.history(input.getString("id"));
+                    case "/api/observer/list" -> result=new JSONObject().put("observers",observers.list());
                     case "/api/calibration/start" -> result=calibrations.start(input);
                     case "/api/calibration/read" -> result=calibrations.read(input.getString("id"));
                     case "/api/calibration/list" -> result=new JSONObject().put("jobs",calibrations.list()).put("scenes",scenes.scenes()).put("datasets",measurements.datasets());

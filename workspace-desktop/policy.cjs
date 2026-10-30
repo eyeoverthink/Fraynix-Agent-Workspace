@@ -1,6 +1,16 @@
 'use strict';
 const { randomUUID } = require('node:crypto');
 const catalog = [
+  ['observer.open','Open or restore the latest Java-owned first-person free camera for sceneId. Send only the saved sceneId; the host returns observer.id. No avatar body.','{sceneId}'],
+  ['observer.observe','Observe actual native entities with camera pose, source scene/run/tick and a fresh observation id. Visibility uses geometric rays.','{id}'],
+  ['observer.move','Move the free camera by declared metres in yaw-relative forward/right and world up. Requires a fresh observationId. Does not move objects.','{id,observationId,forward?,right?,up?}'],
+  ['observer.look','Turn the camera by declared yaw/pitch degree deltas, using a fresh observationId.','{id,observationId,yawDeg?,pitchDeg?}'],
+  ['observer.focus','Look at a known native entity id; uses actual current engine geometry, with stale-source protection.','{id,observationId,entityId}'],
+  ['observer.inspect','Inspect an actual visible native entity id and retain its identity/position/body data in an action receipt.','{id,observationId,entityId}'],
+  ['observer.fov','Set the camera vertical field of view, 30..110 degrees, with a fresh observationId.','{id,observationId,fovDeg}'],
+  ['observer.capture','Render and save an actual PNG from the current Java observer/world snapshot. Returns frame hash, source binding and receipt.','{id}'],
+  ['observer.history','Read persisted camera actions and saved frame receipts.','{id}'],
+  ['observer.replay','Show a saved native view and its verified original PNG as a read-only historical observation. Does not change world/pose.','{id}'],
   ...['start','read','cancel','resume','apply','rollback','report'].map(action=>['calibration.'+action,({start:'Start a durable one-parameter native Bullet search. Training-only selection then separate validation. Does not edit authored scenes.',read:'Read real job progress, selection and validation metrics. Use this to wait for settlement.',cancel:'Cancel an active native calibration.',resume:'Explicitly resume a cancelled or interrupted calibration using frozen inputs.',apply:'Apply only a completed accepted current fit; returns durable scene receipt.',rollback:'Restore the prior parameter only without intervening authored changes.',report:'Open and test a real host-rendered calibration report with original CSV and exact native evidence.'})[action],action==='start'?'{trainingSceneId,trainingSceneVersion,validationSceneId,validationSceneVersion,trainingDatasetId,trainingDatasetVersion,validationDatasetId,validationDatasetVersion,parameter:friction|gravityMps2,minimum,maximum,seconds,toleranceM,minImprovementM}':'{id}']),
   ['dataset.import','Import actual UTF-8 CSV with explicit column mapping, units, source classification and notes. Does not infer units or execute cells.','{title,filename,csv,sourceKind:"measured"|"synthetic"|"unverified",sourceNote,missingPolicy:"reject"|"skip",mapping:{timeColumn,distanceColumn,timeUnit:"s"|"ms",distanceUnit:"m"|"cm"|"mm"}}'],
   ['dataset.read','Read exact measurement version, source digest, mapping and up to 12 sample rows.','{id,version}'],
@@ -46,6 +56,12 @@ class ObservationLease {
 const text={type:'string'},empty={type:'object',properties:{},additionalProperties:false};
 function object(properties,required=Object.keys(properties)){return {type:'object',properties,required,additionalProperties:false};}
 const argumentSchemas={
+ 'observer.open':object({sceneId:{type:'string',description:'The saved scene id, not an observer id'}}),
+ 'observer.observe':object({id:text}),'observer.capture':object({id:text}),'observer.history':object({id:text}),'observer.replay':object({id:text}),
+ 'observer.move':object({id:text,observationId:text,forward:{type:'number',minimum:-5,maximum:5},right:{type:'number',minimum:-5,maximum:5},up:{type:'number',minimum:-5,maximum:5}},['id','observationId']),
+ 'observer.look':object({id:text,observationId:text,yawDeg:{type:'number',minimum:-90,maximum:90},pitchDeg:{type:'number',minimum:-45,maximum:45}},['id','observationId']),
+ 'observer.focus':object({id:text,observationId:text,entityId:text}),'observer.inspect':object({id:text,observationId:text,entityId:text}),
+ 'observer.fov':object({id:text,observationId:text,fovDeg:{type:'number',minimum:30,maximum:110}}),
  'calibration.start':object({trainingSceneId:text,trainingSceneVersion:{type:'integer',minimum:1},validationSceneId:text,validationSceneVersion:{type:'integer',minimum:1},trainingDatasetId:text,trainingDatasetVersion:{type:'integer',minimum:1},validationDatasetId:text,validationDatasetVersion:{type:'integer',minimum:1},parameter:{type:'string',enum:['friction','gravityMps2']},minimum:{type:'number'},maximum:{type:'number'},seconds:{type:'number',minimum:.05,maximum:10},toleranceM:{type:'number',minimum:0,maximum:10},minImprovementM:{type:'number',exclusiveMinimum:0,maximum:10}}),
  'calibration.read':object({id:text}),'calibration.cancel':object({id:text}),'calibration.resume':object({id:text}),'calibration.apply':object({id:text}),'calibration.rollback':object({id:text}),'calibration.report':object({id:text}),
  'dataset.import':object({title:text,filename:text,csv:{type:'string',maxLength:262144},sourceKind:{type:'string',enum:['measured','synthetic','unverified']},sourceNote:text,missingPolicy:{type:'string',enum:['reject','skip']},mapping:object({timeColumn:text,distanceColumn:text,timeUnit:{type:'string',enum:['s','ms']},distanceUnit:{type:'string',enum:['m','cm','mm']}})}),
@@ -79,5 +95,15 @@ function calibrationStage(context,goal){
  return {allowed:['finish'],stage:prefix+'A tested report and any required application receipt exist. Finish with actual selection, acceptance, training and validation metrics.'};
 }
 function planTools(allowed){return catalog.filter(t=>allowed.includes(t.name)).map(t=>({type:'function',function:{name:t.name.replace('.','_'),description:t.description,parameters:argumentSchemas[t.name]}}));}
-function taskMode(goal){const needsScene=/\b(3d|physics|ramp|trajectory|incline|downhill)\b/i.test(goal)||(/\b(compare|comparison)\b/i.test(goal)&&/\b(measurements?|observed|simulated)\b/i.test(goal));const needsCalibration=needsScene&&/\b(calibrat\w*|fit|fitting)\b/i.test(goal);return {...(needsCalibration?{needsCalibration:true}:{}),needsScene,needsComparison:!needsCalibration&&needsScene&&/\b(measurements?|observations?|dataset|csv|residual|comparison)\b/i.test(goal)};}
-module.exports={catalog,webURL,command,ObservationLease,planTools,taskMode,calibrationApplyRequested,calibrationStage};
+function observerStage(context,goal){
+ if(!context.observerEvidence)return {allowed:['scene.create','scene.read','observer.open'],stage:'Open the native observer for the requested saved scene. Camera and visibility are computed by Java; the renderer supplies actual pixels.'};
+ const ready=context.observerCapture?.observerVersion===context.observerEvidence.observer.version;
+ const needsMove=/\bmove\b/i.test(goal),needsInspect=/\binspect\b/i.test(goal);
+ if(ready&&(!needsMove||context.observerMoved)&&(!needsInspect||context.observerInspected))
+  return {allowed:['finish'],stage:'The requested native workflow is complete. Do not repeat movement or inspection. Finish from actual observer '+JSON.stringify(context.observerEvidence.observer)+' and saved frame '+context.observerCapture.pngSha256+'.'};
+ const allowed=['observer.observe','observer.move','observer.look','observer.focus','observer.inspect','observer.fov','observer.capture'];
+ if(context.observerMoved&&/\bonce\b/i.test(goal))allowed.splice(allowed.indexOf('observer.move'),1);
+ return {allowed,stage:'Use observer '+context.observerEvidence.observer.id+' and the current observation id '+context.observerEvidence.id+'. Distances are metres, look changes are degree deltas. Focus may use known entity IDs; inspection requires visible ones. Capture after the final pose/selection action. '+(context.observerMoved?'Movement already executed; do not restart the task. ':'Movement requested but not executed yet. ')+(context.observerInspected?'Inspection already executed; save the final frame. ':'Inspect the requested visible entity. ')+' Current pose: '+JSON.stringify(context.observerEvidence.observer.pose)};
+}
+function taskMode(goal){const needsObserver=/\b(observer|viewpoint|camera)\b/i.test(goal)&&/\b(native|3d|ramp|scene)\b/i.test(goal)||/\bfirst[ -]person\b/i.test(goal)&&/\b(native|3d|ramp|scene)\b/i.test(goal);const needsScene=needsObserver||/\b(3d|physics|ramp|trajectory|incline|downhill)\b/i.test(goal)||(/\b(compare|comparison)\b/i.test(goal)&&/\b(measurements?|observed|simulated)\b/i.test(goal));const needsCalibration=!needsObserver&&needsScene&&/\b(calibrat\w*|fit|fitting)\b/i.test(goal);return {...(needsObserver?{needsObserver:true}:{}),...(needsCalibration?{needsCalibration:true}:{}),needsScene,needsComparison:!needsObserver&&!needsCalibration&&needsScene&&/\b(measurements?|observations?|dataset|csv|residual|comparison)\b/i.test(goal)};}
+module.exports={catalog,webURL,command,ObservationLease,planTools,taskMode,calibrationApplyRequested,calibrationStage,observerStage};

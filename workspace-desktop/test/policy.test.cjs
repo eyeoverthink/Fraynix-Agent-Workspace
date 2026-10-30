@@ -1,6 +1,38 @@
 'use strict';
 const {test}=require('node:test'),assert=require('node:assert/strict');
 const {webURL,command,ObservationLease,taskMode}=require('../policy.cjs');
+test('native observer tools preserve ordinary web routing and expose bounded actions',()=>{
+ const {planTools}=require('../policy.cjs');
+ assert.equal(taskMode('Move the first-person observer in the native ramp scene').needsObserver,true);
+ assert.equal(taskMode('Build a camera inventory app').needsScene,false);
+ assert.equal(taskMode('Use the native 3D camera and inspect a block').needsCalibration,undefined);
+ const tools=planTools(['observer.move','observer.look','observer.inspect','observer.capture']);
+ assert.equal(tools.length,4);
+ const move=tools.find(t=>t.function.name==='observer_move').function.parameters;
+ assert.equal(move.additionalProperties,false);
+ assert(move.required.includes('observationId'));
+ assert.equal(move.properties.right.maximum,5);
+ assert.equal(tools.find(t=>t.function.name==='observer_capture').function.parameters.properties.pngBase64,undefined);
+ const open=planTools(['observer.open'])[0].function.parameters;
+ assert.deepEqual(Object.keys(open.properties),['sceneId']);
+});
+test('observer completion requires a capture of the current pose version',()=>{
+ const {observerStage}=require('../policy.cjs'),context={};
+ assert.deepEqual(observerStage(context,'move and inspect').allowed,['scene.create','scene.read','observer.open']);
+ context.observerEvidence={id:'observation-1',observer:{id:'observer-1',version:2}};
+ assert(!observerStage(context,'move and inspect').allowed.includes('finish'));
+ context.observerCapture={observerVersion:1};
+ assert(!observerStage(context,'move and inspect').allowed.includes('finish'));
+ context.observerCapture.observerVersion=2;
+ assert(!observerStage(context,'move and inspect').allowed.includes('finish'));
+ assert.match(observerStage(context,'move and inspect').stage,/Movement requested/);
+ assert(!observerStage(context,'move and inspect').allowed.includes('observer.open'));
+ context.observerMoved=true;assert(!observerStage(context,'move once and inspect').allowed.includes('observer.move'));
+ context.observerInspected=true;
+ assert.deepEqual(observerStage(context,'move once and inspect').allowed,['finish']);
+ context.observerEvidence.observer.version=3;
+ assert(!observerStage(context,'move once and inspect').allowed.includes('finish'));
+});
 test('calibration uses typed native tools without changing CSV application routing',()=>{
   const {planTools}=require('../policy.cjs');const mode=taskMode('Fit friction in the 3D ramp using training and validation datasets');
   assert.equal(mode.needsCalibration,true);assert.equal(mode.needsComparison,false);
@@ -29,8 +61,8 @@ test('CSV web creation stays in artifact mode while native measurement compariso
 const {NetworkPolicy,localURL}=require('../network-policy.cjs');
 test('a corrupted theme or invalid UTF-8 stops startup before code is loaded',()=>{
   const fs=require('node:fs'),path=require('node:path'),os=require('node:os');const {verifyRendererSources}=require('../source-integrity.cjs');const folder=fs.mkdtempSync(path.join(os.tmpdir(),'fraynix-source-guard-'));
-  for(const name of ['index.html','style.css','measurement.css','app.js','scene-lab.js','measurement-panel.js','calibration-panel.js','calibration.css'])fs.writeFileSync(path.join(folder,name),'/* valid UTF-8 fixture */');
-  assert.equal(verifyRendererSources(folder).checked,8);fs.writeFileSync(path.join(folder,'style.css'),Buffer.alloc(128));assert.throws(()=>verifyRendererSources(folder),/style.css.*NUL/);
+  for(const name of ['index.html','style.css','measurement.css','app.js','scene-lab.js','measurement-panel.js','calibration-panel.js','calibration.css','observer-panel.js','observer.css'])fs.writeFileSync(path.join(folder,name),'/* valid UTF-8 fixture */');
+  assert.equal(verifyRendererSources(folder).checked,10);fs.writeFileSync(path.join(folder,'style.css'),Buffer.alloc(128));assert.throws(()=>verifyRendererSources(folder),/style.css.*NUL/);
   fs.writeFileSync(path.join(folder,'style.css'),'body{}');fs.writeFileSync(path.join(folder,'app.js'),Buffer.from([255]));assert.throws(()=>verifyRendererSources(folder),/app.js.*UTF-8/);
 });
 test('offline application policy permits loopback and rejects external navigation without dispatch',()=>{

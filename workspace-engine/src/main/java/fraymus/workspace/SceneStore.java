@@ -43,6 +43,18 @@ public final class SceneStore implements AutoCloseable {
     }
     public synchronized JSONArray scenes(){var out=new JSONArray();for(var e:world.snapshot().entities())if(type(e).equals("workspace.scene")){var s=payload(e);out.put(new JSONObject().put("id",s.getString("id")).put("title",s.getString("title")).put("version",s.getInt("version")));}return out;}
     public synchronized JSONObject read(String id){var scene=require(id,"workspace.scene");var objects=new JSONArray();for(var e:world.snapshot().entities())if(type(e).equals("workspace.scene.object3d")&&e.components().get(0).values().get("scene").equals(id))objects.put(payload(e));return scene.put("objects",objects);}
+    /** One atomic source for an observer; a replay retains its actual old definition. */
+    public synchronized JSONObject observerWorld(String id){
+        var authored=read(id);boolean live=active!=null&&physics!=null&&active.getString("sceneId").equals(id);
+        var definition=live?active.getJSONObject("definition"):authored;
+        var current=live?physics.snapshot():null;
+        var objects=current==null?authored.getJSONArray("objects"):current.getJSONArray("objects");
+        var values=new ArrayList<JSONObject>();for(Object value:objects)values.add(new JSONObject(value.toString()));values.sort(Comparator.comparing(o->o.getString("id")));var sorted=new JSONArray(values);
+        return new JSONObject().put("sceneId",id).put("sceneVersion",definition.getInt("version")).put("authoredVersion",authored.getInt("version"))
+            .put("runId",live?active.get("id"):JSONObject.NULL).put("tick",live?current.getInt("tick"):0).put("timeS",live?current.getDouble("timeS"):0)
+            .put("source",live?"native-physics":"authored-geometry").put("status",live?active.getString("status"):"authored")
+            .put("scope",live?active.optString("scope","experiment"):"authored").put("units","metre, second, degree; +Y up").put("objects",sorted);
+    }
     public synchronized JSONObject save(JSONObject input) throws Exception {
         return save(input,null);
     }

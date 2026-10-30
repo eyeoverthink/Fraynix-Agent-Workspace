@@ -1,0 +1,60 @@
+'use strict';
+const {launch}=require('./calibration-integration.cjs'),fs=require('node:fs/promises'),path=require('node:path'),os=require('node:os'),assert=require('node:assert/strict');
+async function main(){
+ const project=await fs.mkdtemp(path.join(os.tmpdir(),'fraynix-observer-'));let {app,page}=await launch(project);const checks=[],errors=[],output=path.resolve(__dirname,'../test-output');await fs.mkdir(output,{recursive:true});
+ const api=(route,args)=>app.evaluate((_,x)=>global.workspaceTest.api(x.route,x.args),{route,args});
+ const execute=(tool,args)=>app.evaluate((_,x)=>global.workspaceTest.execute(x.tool,x.args),{tool,args});
+ const capture=async name=>{await page.evaluate(()=>new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r))));await fs.writeFile(path.join(output,name),Buffer.from(await app.evaluate(()=>global.workspaceTest.capture()),'base64'));};
+ const pixels=encoded=>app.evaluate(({nativeImage},data)=>{const image=nativeImage.createFromBuffer(Buffer.from(data,'base64')),size=image.getSize(),b=image.toBitmap();let count=0,sum=0;for(let y=0;y<size.height;y++)for(let x=0;x<size.width;x++){const i=(y*size.width+x)*4,B=b[i],G=b[i+1],R=b[i+2];if(R>80&&R>G*1.08&&G>B*1.15){count++;sum+=x;}}return {...size,orangePixels:count,orangeCenterX:sum/Math.max(1,count)};},encoded);
+ try{
+  page.on('pageerror',e=>errors.push(e.message));await page.getByRole('button',{name:'3D Lab',exact:true}).click();await page.getByRole('button',{name:'First-person view',exact:true}).click();
+  await page.waitForFunction(()=>document.querySelector('#observer-status').textContent.startsWith('Live free camera'));
+  const scene=(await api('/api/state')).scenes[0];let observer=(await api('/api/observer/list',{})).observers[0];const initial=observer.pose;
+  const observation=await api('/api/observer/observe',{id:observer.id});assert(observation.visibleEntities.some(e=>e.id===scene.id||e.label==='Block'));assert.equal(observation.world.source,'authored-geometry');
+  checks.push('Visible first-person control opens a Java-owned pose and samples the actual native box identities without a model');
+  await page.getByRole('button',{name:'Capture view',exact:true}).click();await page.waitForFunction(()=>document.querySelector('#observer-frame-hash').textContent.includes('SHA-256'));
+  let history=await api('/api/observer/history',{id:observer.id});assert.equal(history.captures.length,1);const first=await api('/api/observer/replay',{id:history.captures[0].id}),firstPixels=await pixels(first.pngBase64);
+  assert.equal(firstPixels.width,first.packet.viewport.width);assert.equal(firstPixels.height,first.packet.viewport.height);assert(firstPixels.orangePixels>20);
+  checks.push('Actual rendered PNG has the frozen viewport dimensions and visible orange block pixels; stored source/pose/geometry and image hash are bound together');
+  const firstId=first.capture.id;await page.getByRole('button',{name:'Right',exact:true}).click();await page.waitForFunction(()=>document.querySelector('#observer-status').textContent.includes('pose v2'));
+  observer=await api('/api/observer/read',{id:observer.id});assert(Math.abs(observer.pose.position[0]-initial.position[0]-.25)<1e-12);assert.equal(observer.pose.position[1],initial.position[1]);
+  const secondSummary=await execute('observer.capture',{id:observer.id}),second=await api('/api/observer/replay',{id:secondSummary.id}),secondPixels=await pixels(second.pngBase64);
+  assert(secondPixels.orangePixels>20);assert(secondPixels.orangeCenterX<firstPixels.orangeCenterX-2);assert.notEqual(second.capture.pngSha256,first.capture.pngSha256);
+  checks.push('Moving right changes Java x by exactly 0.25 m and shifts the actual rendered block left; capture hashes and pixels change');
+  await page.locator('#scene-stage').focus();await page.locator('#scene-stage').press('w');await page.waitForFunction(()=>document.querySelector('#observer-status').textContent.includes('pose v3'));
+  observer=await api('/api/observer/read',{id:observer.id});assert(Math.abs(observer.pose.position[2]-initial.position[2]+.25)<1e-12);
+  checks.push('Focused keyboard input uses the same Java action path; W moves exactly 0.25 m forward without moving authored objects');
+  await assert.rejects(api('/api/observer/action',{id:observer.id,observationId:observation.id,operationId:require('node:crypto').randomUUID(),action:'move',right:1}),/pose changed/);
+  assert.equal((await api('/api/observer/read',{id:observer.id})).version,3);checks.push('An old observation cannot apply a second camera action after the pose version changes');
+  const current=await execute('observer.observe',{id:observer.id}),block=current.visibleEntities.find(e=>e.label==='Block');assert(block);
+  const inspected=await execute('observer.inspect',{id:observer.id,observationId:current.id,entityId:block.id});assert.equal(inspected.receipt.inspected.id,block.id);assert.deepEqual(inspected.receipt.inspected.position,block.position);
+  checks.push('The agent/tool inspection path returns the actual visible entity identity and coordinates in a durable receipt');
+  await page.locator('#scene-stage').scrollIntoViewIfNeeded();await capture('observer-native.png');
+  await api('/api/experiment/control',{action:'start',id:scene.id,expectedVersion:1,seconds:1});await api('/api/experiment/control',{action:'pause'});
+  const before=await api('/api/observer/observe',{id:observer.id});await api('/api/experiment/control',{action:'step'});const live=await execute('observer.capture',{id:observer.id});
+  assert.equal(live.packet.world.source,'native-physics');assert.equal(live.packet.world.tick,before.world.tick+1);assert.equal(live.packet.world.runId,before.world.runId);
+  checks.push('Captured observation is aligned to an actual native experiment run and its advanced physics tick');
+  await api('/api/experiment/control',{action:'reset'});await api('/api/scene/save',{id:scene.id,expectedVersion:1,parameters:{massKg:2}});
+  const poseBefore=await api('/api/observer/read',{id:observer.id});await execute('observer.replay',{id:firstId});await page.waitForTimeout(650);
+  assert((await page.locator('#observer-status').innerText()).includes('Recorded view · read only'));assert((await page.locator('#observer-status').innerText()).includes('scene v1'));assert.equal(await page.locator('#observer-capture').isDisabled(),true);
+  assert.deepEqual((await api('/api/observer/read',{id:observer.id})).pose,poseBefore.pose);assert.equal((await api('/api/scene/read',{id:scene.id})).version,2);
+  checks.push('Historical replay stays frozen through polling, preserves scene v1 evidence and does not overwrite the current v2 scene or observer pose');
+  await capture('observer-history.png');await app.close();({app,page}=await launch(project));page.on('pageerror',e=>errors.push(e.message));
+  await execute('scene.read',{id:scene.id});await page.getByRole('button',{name:'First-person view',exact:true}).click();await page.waitForFunction(()=>document.querySelector('#observer-status').textContent.startsWith('Live free camera'));
+  const restored=(await api('/api/observer/list',{})).observers[0];assert.equal(restored.id,observer.id);assert.deepEqual(restored.pose,poseBefore.pose);
+  const oldFrame=await api('/api/observer/replay',{id:firstId});assert.equal(oldFrame.capture.pngSha256,first.capture.pngSha256);assert.equal(oldFrame.pngBase64,first.pngBase64);
+  checks.push('Restart restores observer identity/pose, action history and the exact original PNG bytes');
+  const framePath=path.join(project,'observers/frames',first.capture.pngSha256+'.png'),original=await fs.readFile(framePath);
+  try{await fs.writeFile(framePath,'corrupted fixture');await assert.rejects(api('/api/observer/replay',{id:firstId}),/integrity/);}finally{await fs.writeFile(framePath,original);}
+  checks.push('Corrupted saved frame bytes are rejected rather than replayed as valid evidence');
+  await execute('scene.create',{title:'Separate observer scene'});
+  await page.waitForFunction(()=>document.querySelector('#observer-capture').disabled&&document.querySelector('#observer-status').textContent==='Open a first-person observer for this scene');
+  assert.equal(await page.locator('#observer-body').isHidden(),true);
+  checks.push('Opening another scene clears the previous observer controls and prevents acting on an unseen old scene');
+  assert.deepEqual(errors,[]);checks.push('No renderer JavaScript errors; browser/canvas surfaces remain present');
+  const events=(await fs.readFile(path.join(project,'events.jsonl'),'utf8')).trim().split('\n').map(JSON.parse);assert(!events.some(e=>e.kind==='agent_completed'));
+  const result={date:new Date().toISOString(),passed:true,checks,observer:restored,firstCapture:{id:firstId,pngSha256:first.capture.pngSha256,packet:first.packet,pixels:firstPixels},secondCapture:{id:second.capture.id,pngSha256:second.capture.pngSha256,pixels:secondPixels},liveCapture:live,modelInferenceRequired:false,scope:'Actual Java pose/geometry/receipts plus actual Three.js PNG rendering. Free camera, not a physical avatar; sampled box visibility, not learned recognition or generated video.'};
+  await fs.writeFile(path.join(output,'observer-integration.json'),JSON.stringify(result,null,2));console.log(JSON.stringify({passed:true,checks},null,2));
+ }catch(e){await fs.writeFile(path.join(output,'observer-failure.txt'),await page.locator('body').innerText());throw e;}finally{await app.close();}
+}
+main().catch(e=>{console.error(e);process.exitCode=1;});
