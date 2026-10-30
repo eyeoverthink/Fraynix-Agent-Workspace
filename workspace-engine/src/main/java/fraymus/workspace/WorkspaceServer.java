@@ -16,6 +16,7 @@ public final class WorkspaceServer {
     private final WorkspaceStore store;
     private final LearningStore learning;
     private final SceneStore scenes;
+    private final MeasurementStore measurements;
     private final String token;
     private final FactoryModelService models=new FactoryModelService();
     private volatile FactoryModelService.Snapshot catalog;
@@ -24,14 +25,14 @@ public final class WorkspaceServer {
     public WorkspaceServer(Path project,String token) throws IOException {
         if(token==null||token.length()<32)throw new IllegalArgumentException("A private session capability is required");
         this.token=token;store=new WorkspaceStore(project);learning=new LearningStore(project);
-        try{scenes=new SceneStore(project);}catch(Exception e){throw new IOException("Scene store could not start",e);}
+        try{scenes=new SceneStore(project);measurements=new MeasurementStore(project);}catch(Exception e){throw new IOException("Experiment stores could not start",e);}
         scanner.scheduleWithFixedDelay(()->{try{catalog=models.observe();}catch(Exception e){System.err.println("Model discovery: "+e.getMessage());}},0,45,TimeUnit.SECONDS);
     }
     private JSONObject state() throws IOException {
         var available=new JSONArray();var snapshot=catalog;
         if(snapshot!=null)for(var model:snapshot.models())if(model.available()&&model.capabilities().contains("tools"))available.put(new JSONObject().put("name",model.name()).put("endpoint",model.endpoint()).put("bytes",model.bytes()).put("capabilities",model.capabilities()));
         return new JSONObject().put("name","Fraynix Agent Workspace").put("project",store.root().toString()).put("models",available)
-            .put("discovering",snapshot==null).put("artifacts",store.artifacts()).put("skills",store.skills()).put("learning",learning.state()).put("scenes",scenes.scenes()).put("baseline","6341404");
+            .put("discovering",snapshot==null).put("artifacts",store.artifacts()).put("skills",store.skills()).put("learning",learning.state()).put("scenes",scenes.scenes()).put("datasets",measurements.datasets()).put("comparisons",measurements.comparisons("")).put("baseline","6341404");
     }
     public HttpServer start() throws IOException {
         HttpServer server=HttpServer.create(new InetSocketAddress("127.0.0.1",0),0);server.setExecutor(Executors.newVirtualThreadPerTaskExecutor());
@@ -43,6 +44,14 @@ public final class WorkspaceServer {
                 byte[] body=exchange.getRequestBody().readNBytes(2_100_001);if(body.length>2_100_000)throw new IllegalArgumentException("Request too large");
                 JSONObject input=new JSONObject(new String(body,StandardCharsets.UTF_8));String route=exchange.getRequestURI().getPath();JSONObject result;
                 switch(route) {
+                    case "/api/measurement/inspect" -> result=MeasurementStore.inspect(input);
+                    case "/api/measurement/import" -> result=measurements.importCsv(input);
+                    case "/api/measurement/read" -> result=measurements.read(input.getString("id"),input.optInt("version",0));
+                    case "/api/measurement/compare" -> result=measurements.compare(input,scenes);
+                    case "/api/measurement/comparison" -> result=measurements.comparison(input.getString("id"));
+                    case "/api/measurement/repeat" -> result=measurements.repeat(input.getString("id"),scenes);
+                    case "/api/measurement/list" -> result=new JSONObject().put("datasets",measurements.datasets()).put("comparisons",measurements.comparisons(input.optString("sceneId","")));
+                    case "/api/measurement/report" -> result=store.write(measurements.report(input.getString("id")));
                     case "/api/scene/save" -> result=scenes.save(input);
                     case "/api/scene/read" -> result=scenes.read(input.getString("id"));
                     case "/api/scene/snapshot" -> result=scenes.snapshot();
@@ -93,12 +102,14 @@ public final class WorkspaceServer {
         String prompt=input.getString("prompt");if(prompt.length()>32_000)throw new IllegalArgumentException("Model observation budget exceeded");
         String id=input.getString("requestId");var control=new OllamaIntegration.RequestControl();if(requests.putIfAbsent(id,control)!=null)throw new IllegalArgumentException("Request already active");
         try {
+            var admission=LocalModelAdmission.verify(model.endpoint(),model.name());
+            if(input.has("expectedDigest")&&!input.getString("expectedDigest").equals(admission.getString("digest")))throw new IOException("Model digest changed during this task; start a new task after reviewing model selection");
             var settings=new ModelRunSettings(model.systemContextEstimate()>6000?24576:16384,4096,0,-1,180,600,.15,1.1,true);
             List<String> tools=new ArrayList<>();for(Object item:input.getJSONArray("allowedTools"))tools.add(item.toString());
             if(tools.isEmpty()||tools.size()>20||tools.stream().anyMatch(t->!t.matches("[a-z]+(?:\\.[a-z]+)?")))throw new IllegalArgumentException("Invalid tool grammar");
             JSONArray definitions=input.getJSONArray("tools");if(definitions.toString().length()>18000)throw new IllegalArgumentException("Tool definitions exceed budget");
             var reply=models.toolChat(model,List.of(Map.of("role","user","content",prompt)),settings,control,definitions);
-            return new JSONObject().put("text",reply.text()).put("evidence",reply.evidence());
+            return new JSONObject().put("text",reply.text()).put("evidence",reply.evidence()).put("localModel",admission);
         }finally{requests.remove(id);}
     }
     private static void send(HttpExchange exchange,int status,JSONObject body) throws IOException {

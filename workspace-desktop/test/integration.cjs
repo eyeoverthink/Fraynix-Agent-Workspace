@@ -6,6 +6,7 @@ async function main(){
   const project=await fs.mkdtemp(path.join(os.tmpdir(),'fraynix-workspace-proof-'));let {app,page}=await launch(project);const checks=[];
   try{
     page.on('pageerror',error=>console.error('SHELL_PAGE_ERROR',error.message));
+    assert.equal(await page.locator('.layout').evaluate(e=>getComputedStyle(e).display),'grid');checks.push('Committed theme loads and the main application retains its grid layout');
     await page.getByRole('button',{name:'Run guided proof'}).click();
     await page.getByRole('status').filter({hasText:'Guided proof passed'}).waitFor({timeout:60000});
     checks.push('Visible guided proof: real browser fill/click, runnable artifact, exact assertions, verified recipe');
@@ -13,7 +14,7 @@ async function main(){
     await page.getByRole('button',{name:'Source',exact:true}).click();assert((await page.getByLabel('Artifact source code').inputValue()).includes('querySelector'));
     await page.getByRole('button',{name:'Live preview',exact:true}).click();
     const beforeWidth=await page.locator('#browser-surface').evaluate(e=>e.getBoundingClientRect().width);
-    await page.locator('#expand-browser').click();const expandedWidth=await page.locator('#browser-surface').evaluate(e=>e.getBoundingClientRect().width);assert(expandedWidth>beforeWidth*1.5);
+    await page.locator('#expand-browser').click();try{await page.waitForFunction(w=>document.querySelector('#browser-surface').getBoundingClientRect().width>w*1.5,beforeWidth,{timeout:4000});}catch(error){console.log('EXPANSION_DIAGNOSTIC',beforeWidth,await page.evaluate(()=>({body:document.body.className,width:innerWidth,browser:document.querySelector('#browser-surface').getBoundingClientRect().toJSON(),button:document.querySelector('#expand-browser').textContent})));await fs.writeFile(path.join(output,'expansion-failure.png'),Buffer.from(await app.evaluate(()=>global.workspaceTest.capture()),'base64'));throw error;}const expandedWidth=await page.locator('#browser-surface').evaluate(e=>e.getBoundingClientRect().width);assert(expandedWidth>beforeWidth*1.5);
     await page.locator('#expand-browser').click();
     await app.evaluate(({BrowserWindow})=>BrowserWindow.getAllWindows()[0].setSize(1100,800));
     const narrow=await page.evaluate(()=>({width:innerWidth,documentWidth:document.documentElement.scrollWidth}));assert(narrow.documentWidth<=narrow.width);

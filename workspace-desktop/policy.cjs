@@ -1,6 +1,10 @@
 'use strict';
 const { randomUUID } = require('node:crypto');
 const catalog = [
+  ['dataset.import','Import actual UTF-8 CSV with explicit column mapping, units, source classification and notes. Does not infer units or execute cells.','{title,filename,csv,sourceKind:"measured"|"synthetic"|"unverified",sourceNote,missingPolicy:"reject"|"skip",mapping:{timeColumn,distanceColumn,timeUnit:"s"|"ms",distanceUnit:"m"|"cm"|"mm"}}'],
+  ['dataset.read','Read exact measurement version, source digest, mapping and up to 12 sample rows.','{id,version}'],
+  ['experiment.compare','Compare every dataset row to a completed native run using interpolation, no extrapolation. Both bindings must match current saved versions. Receipt includes actual residuals and declared tolerance.','{datasetId,datasetVersion,runId,expectedSceneVersion,toleranceM}'],
+  ['comparison.report','Create and open a standalone local report, preserving original CSV and comparison JSON. Host verifies actual report DOM; numerical agreement is separate.','{id:comparisonId}'],
   ['scene.create','Create a persistent actual 3D ramp scene with SI parameters, stable entity IDs and version.','{title,parameters?:{angleDeg,lengthM,widthM,gravityMps2,massKg,friction,offsetZ}}'],
   ['scene.read','Read the authored scene and its real 3D entities.','{id}'],
   ['scene.update','Revise bounded authored parameters after reset, with version conflict protection.','{id,expectedVersion,title,parameters}'],
@@ -41,6 +45,10 @@ class ObservationLease {
 const text={type:'string'},empty={type:'object',properties:{},additionalProperties:false};
 function object(properties,required=Object.keys(properties)){return {type:'object',properties,required,additionalProperties:false};}
 const argumentSchemas={
+ 'dataset.import':object({title:text,filename:text,csv:{type:'string',maxLength:262144},sourceKind:{type:'string',enum:['measured','synthetic','unverified']},sourceNote:text,missingPolicy:{type:'string',enum:['reject','skip']},mapping:object({timeColumn:text,distanceColumn:text,timeUnit:{type:'string',enum:['s','ms']},distanceUnit:{type:'string',enum:['m','cm','mm']}})}),
+ 'dataset.read':object({id:text,version:{type:'integer',minimum:1}}),
+ 'experiment.compare':object({datasetId:text,datasetVersion:{type:'integer',minimum:1},runId:text,expectedSceneVersion:{type:'integer',minimum:1},toleranceM:{type:'number',minimum:0,maximum:10}}),
+ 'comparison.report':object({id:text}),
  'scene.create':object({title:text,parameters:{type:'object',properties:Object.fromEntries(['angleDeg','lengthM','widthM','gravityMps2','massKg','friction','offsetZ'].map(k=>[k,{type:'number'}])),additionalProperties:false}},['title']),
  'scene.read':object({id:text}),
  'scene.update':object({id:text,expectedVersion:{type:'integer',minimum:1},title:text,parameters:{type:'object',properties:Object.fromEntries(['angleDeg','lengthM','widthM','gravityMps2','massKg','friction','offsetZ'].map(k=>[k,{type:'number'}])),additionalProperties:false}}),
@@ -56,4 +64,5 @@ const argumentSchemas={
  'skill.run':object({name:text}),'memory.search':object({query:text}),'finish':object({summary:text})
 };
 function planTools(allowed){return catalog.filter(t=>allowed.includes(t.name)).map(t=>({type:'function',function:{name:t.name.replace('.','_'),description:t.description,parameters:argumentSchemas[t.name]}}));}
-module.exports={catalog,webURL,command,ObservationLease,planTools};
+function taskMode(goal){const needsScene=/\b(3d|physics|ramp|trajectory|incline|downhill)\b/i.test(goal)||(/\b(compare|comparison)\b/i.test(goal)&&/\b(measurements?|observed|simulated)\b/i.test(goal));return {needsScene,needsComparison:needsScene&&/\b(measurements?|observations?|dataset|csv|residual|comparison)\b/i.test(goal)};}
+module.exports={catalog,webURL,command,ObservationLease,planTools,taskMode};

@@ -145,6 +145,7 @@ public final class FactoryModelService {
         CapabilityCheck result;
         try {
             HttpURLConnection connection=(HttpURLConnection)URI.create(endpoint+"/api/show").toURL().openConnection();
+            connection.setInstanceFollowRedirects(false);
             connection.setConnectTimeout(1500);connection.setReadTimeout(2500);connection.setRequestMethod("POST");
             connection.setDoOutput(true);connection.setRequestProperty("Content-Type","application/json");
             JSONObject show;
@@ -166,6 +167,7 @@ public final class FactoryModelService {
     private static JSONObject get(String endpoint, String path) throws IOException {
         if (!loopback(endpoint)) throw new IOException("Only local endpoints are supported");
         HttpURLConnection connection = (HttpURLConnection) URI.create(endpoint + path).toURL().openConnection();
+        connection.setInstanceFollowRedirects(false);
         connection.setConnectTimeout(1500); connection.setReadTimeout(2500);
         try {
             if (connection.getResponseCode() != 200) throw new IOException("HTTP " + connection.getResponseCode());
@@ -181,6 +183,7 @@ public final class FactoryModelService {
     }
     private static boolean proxy(JSONObject model) {
         return !model.optString("remote_host", model.optString("remoteHost", "")).isBlank()
+            || !model.optString("remote_model", model.optString("remoteModel", "")).isBlank()
             || "REMOTE_PROXY".equals(model.optString("status")) || model.optString("name").toLowerCase(Locale.ROOT).contains("cloud");
     }
 }

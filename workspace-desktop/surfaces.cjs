@@ -7,9 +7,13 @@ class Surface {
     this.kind=kind;this.notify=notify;this.lease=new ObservationLease();this.errors=[];this.allowedPrefix='';
     const profile=options.partition||(kind==='browser'?'persist:workspace-browser':'workspace-canvas');
     const partition=session.fromPartition(profile);
+    this.networkPolicy=options.networkPolicy;
     partition.setPermissionRequestHandler((_wc,_permission,callback)=>callback(false));
     partition.setPermissionCheckHandler(()=>false);
-    if(kind==='canvas')partition.webRequest.onBeforeRequest((details,callback)=>callback({cancel:!this.allowedPrefix || !details.url.startsWith(this.allowedPrefix)}));
+    if(kind==='canvas'||this.networkPolicy?.enabled)partition.webRequest.onBeforeRequest((details,callback)=>{
+      const blocked=this.networkPolicy&&!this.networkPolicy.allow(details.url);if(blocked)this.networkPolicy.blocked++;
+      callback({cancel:!!blocked||(kind==='canvas'&&(!this.allowedPrefix||!details.url.startsWith(this.allowedPrefix)))});
+    });
     this.view=new WebContentsView({webPreferences:{session:partition,nodeIntegration:false,contextIsolation:true,sandbox:true,webSecurity:true,backgroundThrottling:false}});
     window.contentView.addChildView(this.view);
     this.view.setBounds({x:0,y:0,width:1,height:1});
@@ -28,7 +32,7 @@ class Surface {
     finally{clearTimeout(timer);this.pending=false;}
   }
   cancelPending(){if(this.pending)this.view.webContents.forcefullyCrashRenderer();else this.view.webContents.stop();this.lease.invalidate();}
-  async navigate(url){url=webURL(url);if(this.kind==='canvas')this.allowedPrefix=url.slice(0,url.lastIndexOf('/')+1);this.errors=[];this.lease.invalidate();await this.bounded(this.view.webContents.loadURL(url),'navigation',15000);return this.observe();}
+  async navigate(url){url=webURL(url);this.networkPolicy?.require(url);if(this.kind==='canvas')this.allowedPrefix=url.slice(0,url.lastIndexOf('/')+1);this.errors=[];this.lease.invalidate();await this.bounded(this.view.webContents.loadURL(url),'navigation',15000);return this.observe();}
   async isolated(code){return this.bounded(this.view.webContents.executeJavaScriptInIsolatedWorld(1001,[{code}],true),'script operation');}
   async observe(){
     const observation=this.lease.create();
