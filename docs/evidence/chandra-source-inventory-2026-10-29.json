@@ -1,0 +1,1760 @@
+{
+  "repository": "https://github.com/eyeoverthink/chandra-fraymus",
+  "revision": "f96eae62343308b4faf8c1d34c490c07d232f69b",
+  "count": 292,
+  "identity": "Git blob IDs and repository byte lengths; independent of checkout line endings",
+  "files": [
+    {
+      "path": ".claude/commands/chandra-audit.md",
+      "mode": "100644",
+      "gitBlob": "e3701a4597331d1541cb6fb2c9e5699b13f94f9d",
+      "repositoryBytes": 3791
+    },
+    {
+      "path": ".claude/commands/chandra-commerce.md",
+      "mode": "100644",
+      "gitBlob": "895f73ebf058afc7ba65ff8b8774e90b887c21b5",
+      "repositoryBytes": 3707
+    },
+    {
+      "path": ".claude/commands/chandra-dev.md",
+      "mode": "100644",
+      "gitBlob": "9c4ccc2eec9e88e8966a1522eee9ee989b5fb554",
+      "repositoryBytes": 5714
+    },
+    {
+      "path": ".claude/commands/chandra-extend.md",
+      "mode": "100644",
+      "gitBlob": "564e628d727e70e59917c38dabe6189472787851",
+      "repositoryBytes": 5325
+    },
+    {
+      "path": ".claude/commands/chandra-intelligence.md",
+      "mode": "100644",
+      "gitBlob": "4d3f11da42e40484ba9a0a5a57f38dba073bcf6f",
+      "repositoryBytes": 6247
+    },
+    {
+      "path": ".env.example",
+      "mode": "100644",
+      "gitBlob": "a2c28688b546ec03a7d40540179472e4958b73d2",
+      "repositoryBytes": 1298
+    },
+    {
+      "path": ".gitignore",
+      "mode": "100644",
+      "gitBlob": "d069821ddbd84165f453adc3ecc72e03d5633b4c",
+      "repositoryBytes": 87
+    },
+    {
+      "path": "CLAUDE.md",
+      "mode": "100644",
+      "gitBlob": "c52434cb52ea996af1e2c588d13cb68f886761bc",
+      "repositoryBytes": 8032
+    },
+    {
+      "path": "INTEGRATION.md",
+      "mode": "100644",
+      "gitBlob": "d85c6ece2efc81f387e2b4d889dd9a42ae76cae6",
+      "repositoryBytes": 16332
+    },
+    {
+      "path": "README.md",
+      "mode": "100644",
+      "gitBlob": "9ac76bbe53e290699271c8e42b7aa7921251af22",
+      "repositoryBytes": 46087
+    },
+    {
+      "path": "agents/ariadne.md",
+      "mode": "100644",
+      "gitBlob": "9569603b5005c6f809f8c93b61afd70e5135da4f",
+      "repositoryBytes": 349
+    },
+    {
+      "path": "agents/cantor.md",
+      "mode": "100644",
+      "gitBlob": "b3c687eca4d9e19cf60f19a6c06c8fefe86f9f87",
+      "repositoryBytes": 315
+    },
+    {
+      "path": "agents/concierge.md",
+      "mode": "100644",
+      "gitBlob": "e51c7951880937b817042c1a1acba7cde8325ddd",
+      "repositoryBytes": 516
+    },
+    {
+      "path": "agents/dev_archivist.md",
+      "mode": "100644",
+      "gitBlob": "c64027e3399244743862a114237a98476f3a96c8",
+      "repositoryBytes": 384
+    },
+    {
+      "path": "agents/director.md",
+      "mode": "100644",
+      "gitBlob": "2635e9c8c25d90bbf62abd05021348501ff3f207",
+      "repositoryBytes": 495
+    },
+    {
+      "path": "agents/eye_sovereign.md",
+      "mode": "100644",
+      "gitBlob": "ac2e87a0cd78cb535f1980970ae581f706e20c98",
+      "repositoryBytes": 527
+    },
+    {
+      "path": "agents/forge_keeper.md",
+      "mode": "100644",
+      "gitBlob": "d9868b3129fe654da83d13171a571fdbd75e7f19",
+      "repositoryBytes": 351
+    },
+    {
+      "path": "agents/fraymus_java_baremetal.md",
+      "mode": "100644",
+      "gitBlob": "b06d5f842edca50b57dc8a79d1d7caec47b46b2d",
+      "repositoryBytes": 412
+    },
+    {
+      "path": "agents/fraymus_prime.md",
+      "mode": "100644",
+      "gitBlob": "da38257bab1e9d40fc4af963c9f1108ec26b6ac7",
+      "repositoryBytes": 336
+    },
+    {
+      "path": "agents/genesis.md",
+      "mode": "100644",
+      "gitBlob": "c81137622bd1ce202b8158e0809446519e10ab9a",
+      "repositoryBytes": 336
+    },
+    {
+      "path": "agents/helix.md",
+      "mode": "100644",
+      "gitBlob": "d3b37e15346366df418ff37b00e946dc5efcd520",
+      "repositoryBytes": 260
+    },
+    {
+      "path": "agents/lumen.md",
+      "mode": "100644",
+      "gitBlob": "fd4b6e07da6d5dc27db4b2251e32e06fb821e851",
+      "repositoryBytes": 458
+    },
+    {
+      "path": "agents/rea_analyst.md",
+      "mode": "100644",
+      "gitBlob": "8bcd5062aefb1e326a4ba7969deb3b3d951726ff",
+      "repositoryBytes": 503
+    },
+    {
+      "path": "agents/solon.md",
+      "mode": "100644",
+      "gitBlob": "45881e70c515b222e1efbf23ea01f514bb5cab3e",
+      "repositoryBytes": 375
+    },
+    {
+      "path": "agents/spearhead.md",
+      "mode": "100644",
+      "gitBlob": "90ef64860e528ae97d6339c9c5429ac5a0238102",
+      "repositoryBytes": 331
+    },
+    {
+      "path": "agents/video_director.md",
+      "mode": "100644",
+      "gitBlob": "6c433f2dc80dd2cb03eed242e39545283806c6d4",
+      "repositoryBytes": 964
+    },
+    {
+      "path": "agents/youtube_researcher.md",
+      "mode": "100644",
+      "gitBlob": "5f1da9409c132ebb660d081a1b6be9fc108adbff",
+      "repositoryBytes": 1667
+    },
+    {
+      "path": "assets/screenshots/fraymus-v3-suite.png",
+      "mode": "100644",
+      "gitBlob": "42adaa1abadbfb884fc1a4c153bbe75977d52217",
+      "repositoryBytes": 460602
+    },
+    {
+      "path": "assets/screenshots/mesh-crimson.png",
+      "mode": "100644",
+      "gitBlob": "7b7f03d17b1447a2f6113a601ba43a7e05d8f0aa",
+      "repositoryBytes": 183904
+    },
+    {
+      "path": "assets/screenshots/mesh-yellow.png",
+      "mode": "100644",
+      "gitBlob": "6dfe0e5cc449ee8ca3a9c1cbb927b6fbac9f32a6",
+      "repositoryBytes": 167923
+    },
+    {
+      "path": "client/index.html",
+      "mode": "100644",
+      "gitBlob": "13c06839ad4c52eb6b6fa385b0a67a496e6f05df",
+      "repositoryBytes": 577
+    },
+    {
+      "path": "client/package-lock.json",
+      "mode": "100644",
+      "gitBlob": "fead31c2909f6801e929f5b2ad44b04be4f8f875",
+      "repositoryBytes": 69176
+    },
+    {
+      "path": "client/package.json",
+      "mode": "100644",
+      "gitBlob": "ee2c8fefce42a976685ad2a25fc81ebb15674e39",
+      "repositoryBytes": 468
+    },
+    {
+      "path": "client/src/App.jsx",
+      "mode": "100644",
+      "gitBlob": "8cdc55463bfd3fad6bc5c5455d6aaf5daf05a717",
+      "repositoryBytes": 3384
+    },
+    {
+      "path": "client/src/main.jsx",
+      "mode": "100644",
+      "gitBlob": "57eed31152b345da5d5aca9d58873fb90af5ee3c",
+      "repositoryBytes": 165
+    },
+    {
+      "path": "client/src/panels/AutomationsPanel.jsx",
+      "mode": "100644",
+      "gitBlob": "67d344c246a1f1d8226d3846c516fc1823e13111",
+      "repositoryBytes": 5031
+    },
+    {
+      "path": "client/src/panels/BrowserPanel.jsx",
+      "mode": "100644",
+      "gitBlob": "eefd67b36a09c8576abd7da95baaa78e9ee3ef48",
+      "repositoryBytes": 8731
+    },
+    {
+      "path": "client/src/panels/DashboardPanel.jsx",
+      "mode": "100644",
+      "gitBlob": "b6b07fe5cc78b6ac76815300180266d5422582f8",
+      "repositoryBytes": 4598
+    },
+    {
+      "path": "client/src/panels/FleetPanel.jsx",
+      "mode": "100644",
+      "gitBlob": "e8a999166c90670269b5686f9f9394d1098ec3ef",
+      "repositoryBytes": 4417
+    },
+    {
+      "path": "client/src/panels/McpPanel.jsx",
+      "mode": "100644",
+      "gitBlob": "ab7100a585fadceab881ae2b3888779f0c45a1e1",
+      "repositoryBytes": 5570
+    },
+    {
+      "path": "client/src/panels/OutlierPanel.jsx",
+      "mode": "100644",
+      "gitBlob": "09b5cd70c736b14b9a6a50c3076ea7ebe490fb15",
+      "repositoryBytes": 14081
+    },
+    {
+      "path": "client/src/panels/VertisoPanel.jsx",
+      "mode": "100644",
+      "gitBlob": "b2c97d89121971bbe5a03304927c7634effc1704",
+      "repositoryBytes": 9312
+    },
+    {
+      "path": "client/src/panels/WorkflowCanvas.jsx",
+      "mode": "100644",
+      "gitBlob": "6bb25d108bb38188f02537b3d1b0067edf7e1069",
+      "repositoryBytes": 11236
+    },
+    {
+      "path": "client/src/useWebSocket.js",
+      "mode": "100644",
+      "gitBlob": "c512d1968e9a8e989a13eb3ced317aa723488f7a",
+      "repositoryBytes": 1072
+    },
+    {
+      "path": "client/vite.config.js",
+      "mode": "100644",
+      "gitBlob": "2a6b5a09006fdddf5807f00a54ed54a2094e610d",
+      "repositoryBytes": 458
+    },
+    {
+      "path": "docs/FRAYMUS-OS-ONE-ABSTRACTION.md",
+      "mode": "100644",
+      "gitBlob": "b2134227d5c1b667f939d4d110ebd26310446ef3",
+      "repositoryBytes": 14637
+    },
+    {
+      "path": "docs/audio.md",
+      "mode": "100644",
+      "gitBlob": "e9310b120948eedd42cdbac3c78088b88a5d2f8f",
+      "repositoryBytes": 4365
+    },
+    {
+      "path": "docs/coding.md",
+      "mode": "100644",
+      "gitBlob": "1827ceac52b04dc345ef97a10629cfc8760de3b4",
+      "repositoryBytes": 10140
+    },
+    {
+      "path": "docs/desktop.md",
+      "mode": "100644",
+      "gitBlob": "7f640dbf46b5758d0601c46f60110de8dd27228c",
+      "repositoryBytes": 10470
+    },
+    {
+      "path": "docs/documents.md",
+      "mode": "100644",
+      "gitBlob": "aad4af4b51291cbc75820ee09f3318d01762d4f1",
+      "repositoryBytes": 5337
+    },
+    {
+      "path": "docs/execution-audit.md",
+      "mode": "100644",
+      "gitBlob": "896465d801e046471c400b8dd65885dd4b428579",
+      "repositoryBytes": 13954
+    },
+    {
+      "path": "docs/local-ocr.md",
+      "mode": "100644",
+      "gitBlob": "5bbe91e1434f7c87ef66f1d0dbcdc58bd2ee6f98",
+      "repositoryBytes": 6337
+    },
+    {
+      "path": "docs/local-vision.md",
+      "mode": "100644",
+      "gitBlob": "205e70d5396f854f6c1abfd1f67733bdc71d65bf",
+      "repositoryBytes": 4443
+    },
+    {
+      "path": "docs/outlier-board-abstraction.md",
+      "mode": "100644",
+      "gitBlob": "5bac4fb84011ca50f2d2af81c424df2e73b3d497",
+      "repositoryBytes": 16096
+    },
+    {
+      "path": "docs/reasoning-and-budgets.md",
+      "mode": "100644",
+      "gitBlob": "1067331bf2e47dc3dc78de1df9de1fd5205f5842",
+      "repositoryBytes": 5786
+    },
+    {
+      "path": "docs/sandbox.md",
+      "mode": "100644",
+      "gitBlob": "72103f1df14b5a7ebdf332e5b40ce2eecacbb2f5",
+      "repositoryBytes": 9194
+    },
+    {
+      "path": "docs/screenshots/agent-fleet.jpg",
+      "mode": "100644",
+      "gitBlob": "404340f8c56e1a1f939cc5b000dc227cecc969c0",
+      "repositoryBytes": 23508
+    },
+    {
+      "path": "docs/screenshots/agent-fleet.png",
+      "mode": "100644",
+      "gitBlob": "68919989d3cb13c3fc367bbe04cbb3fdcb43a3a7",
+      "repositoryBytes": 24498
+    },
+    {
+      "path": "docs/screenshots/automations.jpg",
+      "mode": "100644",
+      "gitBlob": "59d68f2482796f85a87b81ef60d729b53c8c2faa",
+      "repositoryBytes": 12042
+    },
+    {
+      "path": "docs/screenshots/browser.jpg",
+      "mode": "100644",
+      "gitBlob": "c035104c66bf8509cc79a46cf1c01c5ede49157a",
+      "repositoryBytes": 11900
+    },
+    {
+      "path": "docs/screenshots/dashboard.jpg",
+      "mode": "100644",
+      "gitBlob": "baa8e7a06e69f0e9236b2a453a5e86d0d4e2b131",
+      "repositoryBytes": 30761
+    },
+    {
+      "path": "docs/screenshots/dashboard.png",
+      "mode": "100644",
+      "gitBlob": "76c88fffb2b5b03af633ba29639b716203ec07be",
+      "repositoryBytes": 47579
+    },
+    {
+      "path": "docs/screenshots/mcp-gateway.jpg",
+      "mode": "100644",
+      "gitBlob": "578d8c4459caa19b07c595fc61b67e55fe8d24e1",
+      "repositoryBytes": 14635
+    },
+    {
+      "path": "docs/screenshots/outlier-board.jpg",
+      "mode": "100644",
+      "gitBlob": "86b67ba83c314074a15cec80f2bacfd0caa4684f",
+      "repositoryBytes": 12013
+    },
+    {
+      "path": "docs/screenshots/outlier-board.png",
+      "mode": "100644",
+      "gitBlob": "f2c4215b67dde75daa2308a5152f1ce1b5f26802",
+      "repositoryBytes": 17524
+    },
+    {
+      "path": "docs/screenshots/vertiso-rsi.jpg",
+      "mode": "100644",
+      "gitBlob": "f2dadc21336b53f11eb9e99f405fb1e84cab6505",
+      "repositoryBytes": 16954
+    },
+    {
+      "path": "docs/screenshots/vertiso.png",
+      "mode": "100644",
+      "gitBlob": "7a76961f424a87fc1e8355e50c40ec5ac68b69c1",
+      "repositoryBytes": 24904
+    },
+    {
+      "path": "docs/screenshots/workflow-canvas.jpg",
+      "mode": "100644",
+      "gitBlob": "d9791d36af80421f103312136ff3d6e0ea9bcd39",
+      "repositoryBytes": 17675
+    },
+    {
+      "path": "docs/screenshots/workflow-canvas.png",
+      "mode": "100644",
+      "gitBlob": "1bef80df8cbccb319bc8b10b87a0d7f8d4b2a21c",
+      "repositoryBytes": 25143
+    },
+    {
+      "path": "docs/semantic-retrieval.md",
+      "mode": "100644",
+      "gitBlob": "4d22c5495a65b468aaf1e264b4d7f0e033e2c132",
+      "repositoryBytes": 4783
+    },
+    {
+      "path": "docs/tasks.md",
+      "mode": "100644",
+      "gitBlob": "f0cbae54ac8d329aca80d2a13ff7494837922f31",
+      "repositoryBytes": 7549
+    },
+    {
+      "path": "docs/validation.md",
+      "mode": "100644",
+      "gitBlob": "bec40f30ce4ae82fb46b6df7bec6ca7fd3e7945a",
+      "repositoryBytes": 2353
+    },
+    {
+      "path": "docs/web-research.md",
+      "mode": "100644",
+      "gitBlob": "19dd389f7b46a4f5bc4f08866a184d85dfe47033",
+      "repositoryBytes": 4889
+    },
+    {
+      "path": "docs/web-search.md",
+      "mode": "100644",
+      "gitBlob": "49d3db53f49bbb36e23732e9350cc790015ebfff",
+      "repositoryBytes": 3531
+    },
+    {
+      "path": "extension/background.js",
+      "mode": "100644",
+      "gitBlob": "d1956ad2a28daed87d8e3d4051c6c1e6001eb4f3",
+      "repositoryBytes": 5432
+    },
+    {
+      "path": "extension/content.js",
+      "mode": "100644",
+      "gitBlob": "47047d6698d9ef7dacd13d2da98fac1fe1cd67d1",
+      "repositoryBytes": 1440
+    },
+    {
+      "path": "extension/icons/generate.html",
+      "mode": "100644",
+      "gitBlob": "920520d0b08e6d924275bef8aeaeab463591989c",
+      "repositoryBytes": 1161
+    },
+    {
+      "path": "extension/manifest.json",
+      "mode": "100644",
+      "gitBlob": "f38f2b58b5d4b485b102d10b555bfad87b3021c6",
+      "repositoryBytes": 825
+    },
+    {
+      "path": "extension/popup.html",
+      "mode": "100644",
+      "gitBlob": "f10df5e3c6b7ec244443e3efba3fa69cbd3889c1",
+      "repositoryBytes": 2052
+    },
+    {
+      "path": "extension/popup.js",
+      "mode": "100644",
+      "gitBlob": "ffd74dfed06890acd753143d1751090df7f1df58",
+      "repositoryBytes": 1450
+    },
+    {
+      "path": "package-lock.json",
+      "mode": "100644",
+      "gitBlob": "9394f8fd194bcdd75020646513ef8c4bdda950dc",
+      "repositoryBytes": 105021
+    },
+    {
+      "path": "package.json",
+      "mode": "100644",
+      "gitBlob": "7e225bc16298ce5a7b563ad3471cff39a1523b1f",
+      "repositoryBytes": 1344
+    },
+    {
+      "path": "scripts/start-local.ps1",
+      "mode": "100644",
+      "gitBlob": "6f6fc988b3ad931003800e8422e3cb7ccb1ab539",
+      "repositoryBytes": 3832
+    },
+    {
+      "path": "scripts/stop-local.ps1",
+      "mode": "100644",
+      "gitBlob": "603f94582904c8d73cfdbd0d74e4947564f407c3",
+      "repositoryBytes": 842
+    },
+    {
+      "path": "server/agent/README.md",
+      "mode": "100644",
+      "gitBlob": "ec6df24f0a36c9850f7b59923b87e5771ca590c6",
+      "repositoryBytes": 24437
+    },
+    {
+      "path": "server/agent/auxiliary-budget.js",
+      "mode": "100644",
+      "gitBlob": "9f7ae2b40ab7b5cc0026d12df539718ffc6d94c6",
+      "repositoryBytes": 17475
+    },
+    {
+      "path": "server/agent/budget.js",
+      "mode": "100644",
+      "gitBlob": "3c0f2e27b81010458b5c570b0237b9d1d42552cb",
+      "repositoryBytes": 1565
+    },
+    {
+      "path": "server/agent/code-effects.js",
+      "mode": "100644",
+      "gitBlob": "3eeb39ad32ac5c5252d4001d7be9dab194bae16c",
+      "repositoryBytes": 24367
+    },
+    {
+      "path": "server/agent/code-navigation.js",
+      "mode": "100644",
+      "gitBlob": "5044867a10d65f083ab8332e6f49582d824386dc",
+      "repositoryBytes": 14975
+    },
+    {
+      "path": "server/agent/effect-durability.js",
+      "mode": "100644",
+      "gitBlob": "6dddc57f143cbdee9ea7306736a044b4f9da8b5c",
+      "repositoryBytes": 465
+    },
+    {
+      "path": "server/agent/openai-provider.js",
+      "mode": "100644",
+      "gitBlob": "4724e13084df4ccd45c77f25d43a36a9c5c987c7",
+      "repositoryBytes": 9759
+    },
+    {
+      "path": "server/agent/provider.js",
+      "mode": "100644",
+      "gitBlob": "7aa29b09cf46fb170d2ac0fdb6a6a31329ba31d7",
+      "repositoryBytes": 7756
+    },
+    {
+      "path": "server/agent/schema.js",
+      "mode": "100644",
+      "gitBlob": "de1039c19f4f8b876f0eed60a4597aeec6dae3b7",
+      "repositoryBytes": 4804
+    },
+    {
+      "path": "server/agent/service.js",
+      "mode": "100644",
+      "gitBlob": "7a0f7251d3ab929f90cda32ab0fa975358045c16",
+      "repositoryBytes": 69960
+    },
+    {
+      "path": "server/agent/thinking.js",
+      "mode": "100644",
+      "gitBlob": "52623030b65d10080b494469a9f0bbd2f1d33488",
+      "repositoryBytes": 2342
+    },
+    {
+      "path": "server/agent/tool-observation.js",
+      "mode": "100644",
+      "gitBlob": "dc9058b8480de4629ac08405ec222f166911bc36",
+      "repositoryBytes": 2183
+    },
+    {
+      "path": "server/agent/tools.js",
+      "mode": "100644",
+      "gitBlob": "10fb56ee458fe0cfecf5f03e36d084eeecde965e",
+      "repositoryBytes": 16432
+    },
+    {
+      "path": "server/agent/workspace-edit.js",
+      "mode": "100644",
+      "gitBlob": "f4ed8a80726ab946cc6be06b37d0c2e3210f6460",
+      "repositoryBytes": 12351
+    },
+    {
+      "path": "server/agent/workspace-patch.js",
+      "mode": "100644",
+      "gitBlob": "5868fd0a2166cf0cf9f105dc35bec494789fe524",
+      "repositoryBytes": 19766
+    },
+    {
+      "path": "server/agent/workspace.js",
+      "mode": "100644",
+      "gitBlob": "4e862f528d6b779eb9f5ab27aec09110777de41b",
+      "repositoryBytes": 14099
+    },
+    {
+      "path": "server/app.js",
+      "mode": "100644",
+      "gitBlob": "c36fdad271e0043cb0d886fc38a018f6f7aa770f",
+      "repositoryBytes": 18147
+    },
+    {
+      "path": "server/artifacts.js",
+      "mode": "100644",
+      "gitBlob": "850a1eb85d37e91c3333751552aa09a4faea4242",
+      "repositoryBytes": 19429
+    },
+    {
+      "path": "server/audio.js",
+      "mode": "100644",
+      "gitBlob": "a530e14695f2ea792a9e0b89ca3ba9bbdeb9b7cb",
+      "repositoryBytes": 15928
+    },
+    {
+      "path": "server/automations/scheduler.js",
+      "mode": "100644",
+      "gitBlob": "9a2b65ff03750bf5badd109509664ecc3a11fda6",
+      "repositoryBytes": 6435
+    },
+    {
+      "path": "server/autonomy.js",
+      "mode": "100644",
+      "gitBlob": "a121b6a9479a396dd06272800429dcc0bef2b82c",
+      "repositoryBytes": 5984
+    },
+    {
+      "path": "server/brain.js",
+      "mode": "100644",
+      "gitBlob": "b342b1c154167a246259942ea83a9168b1e5bf53",
+      "repositoryBytes": 3523
+    },
+    {
+      "path": "server/browser/extension-bridge.js",
+      "mode": "100644",
+      "gitBlob": "844e33e4b67e437317a2b5c8edff0555d62f4245",
+      "repositoryBytes": 3624
+    },
+    {
+      "path": "server/browser/routes.js",
+      "mode": "100644",
+      "gitBlob": "8f2119770b3f607a22e5aa6d70e48500dbe506fb",
+      "repositoryBytes": 2402
+    },
+    {
+      "path": "server/browser/service.js",
+      "mode": "100644",
+      "gitBlob": "d222754b37fc387565cd2300dd88320b0761ca01",
+      "repositoryBytes": 5574
+    },
+    {
+      "path": "server/browser/tools.js",
+      "mode": "100644",
+      "gitBlob": "26cdb74a3d6d8a123ba9920a264616972cece310",
+      "repositoryBytes": 6210
+    },
+    {
+      "path": "server/commerce/apparel-pipeline.js",
+      "mode": "100644",
+      "gitBlob": "4a72d787aa341ca83e7560a15d652c3b7b2c1e47",
+      "repositoryBytes": 20542
+    },
+    {
+      "path": "server/commerce/mystery-shopper.js",
+      "mode": "100644",
+      "gitBlob": "9f5b5281d1895db75095e01e3c52ac4ad619661c",
+      "repositoryBytes": 14954
+    },
+    {
+      "path": "server/commerce/pipeline.js",
+      "mode": "100644",
+      "gitBlob": "e77db3ae36f8ca3c08bb0dbcca92493ee62bc4b2",
+      "repositoryBytes": 13055
+    },
+    {
+      "path": "server/commerce/routes.js",
+      "mode": "100644",
+      "gitBlob": "a62dacde637bdb492681ff14b770eef61713aa53",
+      "repositoryBytes": 6400
+    },
+    {
+      "path": "server/commerce/shared.js",
+      "mode": "100644",
+      "gitBlob": "b850602ceef038c8723da7d6f4cb32e90bfb7ead",
+      "repositoryBytes": 1460
+    },
+    {
+      "path": "server/commerce/store-fixer.js",
+      "mode": "100644",
+      "gitBlob": "78531fe3d66dac7546afba58a4bf255bcd73dc7e",
+      "repositoryBytes": 14331
+    },
+    {
+      "path": "server/commerce/tools.js",
+      "mode": "100644",
+      "gitBlob": "333cf9c8ec41422e23566b5e4e1c04b7feddbc18",
+      "repositoryBytes": 9361
+    },
+    {
+      "path": "server/config.js",
+      "mode": "100644",
+      "gitBlob": "977022f80332651953b516a3b6a15a6d42655e0f",
+      "repositoryBytes": 1473
+    },
+    {
+      "path": "server/data-lock.js",
+      "mode": "100644",
+      "gitBlob": "675c593ed8a6574ea6a7733070320b1551e41acf",
+      "repositoryBytes": 2111
+    },
+    {
+      "path": "server/db-migrate.js",
+      "mode": "100644",
+      "gitBlob": "917d4234eb69439b2c3e5f982231e4c81663516b",
+      "repositoryBytes": 5581
+    },
+    {
+      "path": "server/db.js",
+      "mode": "100644",
+      "gitBlob": "8ec22b62ccd4a2693f8cc6f47411ed50eecbf08f",
+      "repositoryBytes": 4393
+    },
+    {
+      "path": "server/desktop/broker.js",
+      "mode": "100644",
+      "gitBlob": "d022a4992d568490bdbff1fdd59d3165486b8c3b",
+      "repositoryBytes": 31121
+    },
+    {
+      "path": "server/desktop/config.js",
+      "mode": "100644",
+      "gitBlob": "658efa5d2e81a178eccfef9b85778b29147fd414",
+      "repositoryBytes": 1457
+    },
+    {
+      "path": "server/desktop/windows-driver.js",
+      "mode": "100644",
+      "gitBlob": "55d234b82fde61f5fedd76e0b1d9a41f935be82a",
+      "repositoryBytes": 37763
+    },
+    {
+      "path": "server/desktop/windows-job.py",
+      "mode": "100644",
+      "gitBlob": "36e25f8874d356a652b488789732ed9268fa7743",
+      "repositoryBytes": 15540
+    },
+    {
+      "path": "server/desktop/windows-uia-legacy.cs",
+      "mode": "100644",
+      "gitBlob": "552e562802c5880a9bf9bf5f3bd22ac15145a37a",
+      "repositoryBytes": 12155
+    },
+    {
+      "path": "server/desktop/windows-uia.cs",
+      "mode": "100644",
+      "gitBlob": "3a40d109711f5b78f21696342527fcb45e70603c",
+      "repositoryBytes": 45223
+    },
+    {
+      "path": "server/documents/bounded-process.py",
+      "mode": "100644",
+      "gitBlob": "c1272068412227250f3b644dd0b0f092bd69cfe5",
+      "repositoryBytes": 17712
+    },
+    {
+      "path": "server/documents/parse.js",
+      "mode": "100644",
+      "gitBlob": "fd939453c453d774d25652fe30c78d00905a9279",
+      "repositoryBytes": 5415
+    },
+    {
+      "path": "server/documents/parser-child.js",
+      "mode": "100644",
+      "gitBlob": "9e8ea09b5f8dd0da865d0b33be60f9be94d7abc1",
+      "repositoryBytes": 1679
+    },
+    {
+      "path": "server/documents/worker.js",
+      "mode": "100644",
+      "gitBlob": "6c9ec8e8e1b80fc220089b0b0fc8c98c5dc1f55b",
+      "repositoryBytes": 9190
+    },
+    {
+      "path": "server/documents/zip-framing.js",
+      "mode": "100644",
+      "gitBlob": "55f26b90213cb506fd5a6d9996bb6105b164b1c1",
+      "repositoryBytes": 4660
+    },
+    {
+      "path": "server/extension-tools.js",
+      "mode": "100644",
+      "gitBlob": "4b43d53a88888e0ea6e36969544dbdf1a07e8111",
+      "repositoryBytes": 6515
+    },
+    {
+      "path": "server/fleet-snapshot.json",
+      "mode": "100644",
+      "gitBlob": "777be2435b66f0fdc5785cf95a52a28e5320e64b",
+      "repositoryBytes": 2838
+    },
+    {
+      "path": "server/fleet.js",
+      "mode": "100644",
+      "gitBlob": "7cc3f16c218905d15a83fb4a6817d56d7e738188",
+      "repositoryBytes": 2597
+    },
+    {
+      "path": "server/fleet/manifest.js",
+      "mode": "100644",
+      "gitBlob": "fb4c6b640011d0069c5731518b87b2854c7fe452",
+      "repositoryBytes": 2784
+    },
+    {
+      "path": "server/fleet/routes.js",
+      "mode": "100644",
+      "gitBlob": "d3463ef76834054f97f55377eca03fb3e11f7cbb",
+      "repositoryBytes": 1936
+    },
+    {
+      "path": "server/fleet/runtime.js",
+      "mode": "100644",
+      "gitBlob": "e761930eb06a5aa8b60b6c205c8cdb45b40b567a",
+      "repositoryBytes": 13852
+    },
+    {
+      "path": "server/fleet/tools.js",
+      "mode": "100644",
+      "gitBlob": "7bba2edd4201684f33dd65bf78510cff273bb449",
+      "repositoryBytes": 6057
+    },
+    {
+      "path": "server/fraymus-routes.js",
+      "mode": "100644",
+      "gitBlob": "39348bef90604f52c1d28bbc7d1dc1ea26356c30",
+      "repositoryBytes": 3743
+    },
+    {
+      "path": "server/fraymus-tools.js",
+      "mode": "100644",
+      "gitBlob": "baa703bbda99f00ce62e342382ff22f65e404243",
+      "repositoryBytes": 29820
+    },
+    {
+      "path": "server/fraymus/bridge/cross-tab.js",
+      "mode": "100644",
+      "gitBlob": "982cb234aad0213c2d1bbc1c7dca227fa838bec9",
+      "repositoryBytes": 1121
+    },
+    {
+      "path": "server/fraymus/bridge/orifice.js",
+      "mode": "100644",
+      "gitBlob": "ff5325d9ca21479f34fe522f9bcf5e81f5d746a8",
+      "repositoryBytes": 1546
+    },
+    {
+      "path": "server/fraymus/core/constants.js",
+      "mode": "100644",
+      "gitBlob": "5ddf9f703c5c051c7c750fe89bff21c08aaf5c66",
+      "repositoryBytes": 2410
+    },
+    {
+      "path": "server/fraymus/core/crypto.js",
+      "mode": "100644",
+      "gitBlob": "b5d4bc9b4f35176fe28d9854f5f98c20e88db9af",
+      "repositoryBytes": 5305
+    },
+    {
+      "path": "server/fraymus/core/identity.js",
+      "mode": "100644",
+      "gitBlob": "ffcc41f12e3effa7d92ab93241cc1b37ed4d1bdd",
+      "repositoryBytes": 6628
+    },
+    {
+      "path": "server/fraymus/core/signing.js",
+      "mode": "100644",
+      "gitBlob": "9fd7b259233fa5f6d6505bedef07fb478a6e9074",
+      "repositoryBytes": 1480
+    },
+    {
+      "path": "server/fraymus/encoding/dna.js",
+      "mode": "100644",
+      "gitBlob": "d3fe636b8d1d8659db13e8c69c60b8927dc2afcf",
+      "repositoryBytes": 2196
+    },
+    {
+      "path": "server/fraymus/encoding/emoji.js",
+      "mode": "100644",
+      "gitBlob": "5b77b222936121ecdf3729315b089c96a6f7e8fe",
+      "repositoryBytes": 1572
+    },
+    {
+      "path": "server/fraymus/encoding/forms.js",
+      "mode": "100644",
+      "gitBlob": "1089791db436a72094da21c2fc6799f33559f214",
+      "repositoryBytes": 1789
+    },
+    {
+      "path": "server/fraymus/encoding/fray.js",
+      "mode": "100644",
+      "gitBlob": "bab618cff727a6de89b5ffd898db80bf2f8a1753",
+      "repositoryBytes": 1134
+    },
+    {
+      "path": "server/fraymus/encoding/merkle.js",
+      "mode": "100644",
+      "gitBlob": "4b2a5ff43dee728c7502cbfa61ca9753e28be46e",
+      "repositoryBytes": 1929
+    },
+    {
+      "path": "server/fraymus/encoding/wasm.js",
+      "mode": "100644",
+      "gitBlob": "154e2ded4a18b7324facf941d02abcf9103342b2",
+      "repositoryBytes": 7484
+    },
+    {
+      "path": "server/fraymus/encoding/zip.js",
+      "mode": "100644",
+      "gitBlob": "374f0a95ff6cc456551f7f74525e3add36d1d34b",
+      "repositoryBytes": 1862
+    },
+    {
+      "path": "server/fraymus/entities/schemas.js",
+      "mode": "100644",
+      "gitBlob": "d679018b12267e2d92b94eea12b7089e17fff5fb",
+      "repositoryBytes": 6610
+    },
+    {
+      "path": "server/fraymus/entity-store.js",
+      "mode": "100644",
+      "gitBlob": "4970bb971b63ff4d2ee623e90fee743c2683c3f8",
+      "repositoryBytes": 3172
+    },
+    {
+      "path": "server/fraymus/index.js",
+      "mode": "100644",
+      "gitBlob": "ef53cfc008dc699f9acc539ba0aec1eb044c83fd",
+      "repositoryBytes": 4094
+    },
+    {
+      "path": "server/fraymus/intelligence/cognition.js",
+      "mode": "100644",
+      "gitBlob": "5f05bdba3b62042013bd3341561e516cd585b862",
+      "repositoryBytes": 4472
+    },
+    {
+      "path": "server/fraymus/intelligence/control-plane.js",
+      "mode": "100644",
+      "gitBlob": "a6f8ef8bf60f5e6b9f4bb31ec7d3e82f5d8d0771",
+      "repositoryBytes": 1552
+    },
+    {
+      "path": "server/fraymus/intelligence/dreamer.js",
+      "mode": "100644",
+      "gitBlob": "e4f4ecb6e5d26512e8e2ffd487035a99da7a8267",
+      "repositoryBytes": 7134
+    },
+    {
+      "path": "server/fraymus/intelligence/heart.js",
+      "mode": "100644",
+      "gitBlob": "f3ccea8384bf5a796c27522fa1b41c50360b50d1",
+      "repositoryBytes": 18015
+    },
+    {
+      "path": "server/fraymus/intelligence/hermes.js",
+      "mode": "100644",
+      "gitBlob": "cf5134ee2843ce0b601bfffce25319c196fc726c",
+      "repositoryBytes": 2429
+    },
+    {
+      "path": "server/fraymus/intelligence/ledger.js",
+      "mode": "100644",
+      "gitBlob": "c58248bac49bb9bd2b179bc1cb6eb5b95ec9fadb",
+      "repositoryBytes": 4154
+    },
+    {
+      "path": "server/fraymus/intelligence/motor.js",
+      "mode": "100644",
+      "gitBlob": "996ab308bcad9c8bb0ddfde5ed5a2886b5609e7c",
+      "repositoryBytes": 2094
+    },
+    {
+      "path": "server/fraymus/intelligence/needle.js",
+      "mode": "100644",
+      "gitBlob": "9a9ccbbd6c9ac899cd13c9ccbbaee06531447d75",
+      "repositoryBytes": 1860
+    },
+    {
+      "path": "server/fraymus/intelligence/niles.js",
+      "mode": "100644",
+      "gitBlob": "cb3273d60fea95040cbb0398d4c3be7fbc8267ae",
+      "repositoryBytes": 1630
+    },
+    {
+      "path": "server/fraymus/intelligence/openclaw.js",
+      "mode": "100644",
+      "gitBlob": "b7eaf6db872abad430c73335db7a32a3a5c9c348",
+      "repositoryBytes": 9113
+    },
+    {
+      "path": "server/fraymus/intelligence/ouroboros.js",
+      "mode": "100644",
+      "gitBlob": "e78d6f19d62973b3546be56a4ab8c81e3b65de4d",
+      "repositoryBytes": 13886
+    },
+    {
+      "path": "server/fraymus/mcp/tools.js",
+      "mode": "100644",
+      "gitBlob": "d39fb8e8cd91d311abb81f8140c14d33d0a63fde",
+      "repositoryBytes": 2054
+    },
+    {
+      "path": "server/fraymus/package.json",
+      "mode": "100644",
+      "gitBlob": "e10274fe9679d23341d0eb12d9ad670958ca5c89",
+      "repositoryBytes": 910
+    },
+    {
+      "path": "server/fraymus/protocol/hive.js",
+      "mode": "100644",
+      "gitBlob": "01abe5b3a1b2007604e7115c496925e350a3b8b2",
+      "repositoryBytes": 1004
+    },
+    {
+      "path": "server/fraymus/protocol/hub.js",
+      "mode": "100644",
+      "gitBlob": "14e02bb56061a4aa089a953548f200f24385daa0",
+      "repositoryBytes": 2552
+    },
+    {
+      "path": "server/fraymus/protocol/mesh.js",
+      "mode": "100644",
+      "gitBlob": "f5f4a049eaaa697a7e3390f6e6cdb784dc9815ef",
+      "repositoryBytes": 1165
+    },
+    {
+      "path": "server/fraymus/protocol/presence.js",
+      "mode": "100644",
+      "gitBlob": "22ffe47d227e5c1f0781868d9fe5748e8d27729e",
+      "repositoryBytes": 637
+    },
+    {
+      "path": "server/fraymus/protocol/v13.js",
+      "mode": "100644",
+      "gitBlob": "b3dbede6700d38f9af85f7b147e17c3da7efe235",
+      "repositoryBytes": 1722
+    },
+    {
+      "path": "server/fraymus/workflows/definitions.js",
+      "mode": "100644",
+      "gitBlob": "af7d74ab8b22d14046914c4044e6945bd83f8ce3",
+      "repositoryBytes": 7993
+    },
+    {
+      "path": "server/image-validation.js",
+      "mode": "100644",
+      "gitBlob": "a63efae6a099be14fa059abb58dbd6e657d74e6b",
+      "repositoryBytes": 12508
+    },
+    {
+      "path": "server/index.js",
+      "mode": "100644",
+      "gitBlob": "de1c391ef6a3d514da4f3dcd05257c8b73a12dbc",
+      "repositoryBytes": 542
+    },
+    {
+      "path": "server/lifecycle.js",
+      "mode": "100644",
+      "gitBlob": "2352c1b4cedec72e112e781acdb8830387d92f92",
+      "repositoryBytes": 731
+    },
+    {
+      "path": "server/local-http.js",
+      "mode": "100644",
+      "gitBlob": "8011dc89c95fc72b4adeeb462ceeb33e4a863071",
+      "repositoryBytes": 1230
+    },
+    {
+      "path": "server/mcp/auth.js",
+      "mode": "100644",
+      "gitBlob": "a0251c6dc6bd90a4fc325425f557ab0273205932",
+      "repositoryBytes": 6398
+    },
+    {
+      "path": "server/mcp/client.js",
+      "mode": "100644",
+      "gitBlob": "12f9b0d4495a5e5dc6419091c869166f127ea32f",
+      "repositoryBytes": 6764
+    },
+    {
+      "path": "server/mcp/server.js",
+      "mode": "100644",
+      "gitBlob": "c8d315784b511f6f74899e3b133b1581506310af",
+      "repositoryBytes": 6481
+    },
+    {
+      "path": "server/ocr/bounded-ocr.py",
+      "mode": "100644",
+      "gitBlob": "bfb2b3ec8aa1f6cd6041599cf748a097ef7ae60f",
+      "repositoryBytes": 12207
+    },
+    {
+      "path": "server/ocr/limits.mjs",
+      "mode": "100644",
+      "gitBlob": "3baf714779dd905446edcc3cae3621edd91d3203",
+      "repositoryBytes": 5590
+    },
+    {
+      "path": "server/ocr/local.js",
+      "mode": "100644",
+      "gitBlob": "0064398f4e635872861d03460c38ece4e47cc391",
+      "repositoryBytes": 5038
+    },
+    {
+      "path": "server/ocr/native.js",
+      "mode": "100644",
+      "gitBlob": "f7250213f2ebf6683eba8d1d83006d34159d737f",
+      "repositoryBytes": 15182
+    },
+    {
+      "path": "server/ocr/pdf-child.mjs",
+      "mode": "100644",
+      "gitBlob": "fea781df9b68f06307e73e051bfc0f7b5274f964",
+      "repositoryBytes": 4604
+    },
+    {
+      "path": "server/ocr/pdf.js",
+      "mode": "100644",
+      "gitBlob": "4bc4c3053e976bc17dd9e924bc70604a220fd83c",
+      "repositoryBytes": 10175
+    },
+    {
+      "path": "server/ocr/tools.js",
+      "mode": "100644",
+      "gitBlob": "e2b867c4bd89e3586fbaafa9e0c400738e65be52",
+      "repositoryBytes": 8965
+    },
+    {
+      "path": "server/ocr/windows-ocr.ps1",
+      "mode": "100644",
+      "gitBlob": "2066f80a4c98688f0d0068281fc8110349558e1b",
+      "repositoryBytes": 7191
+    },
+    {
+      "path": "server/retrieval/embedding.js",
+      "mode": "100644",
+      "gitBlob": "15a98adf64535d4dddbfa7716248be04c45ce067",
+      "repositoryBytes": 12848
+    },
+    {
+      "path": "server/retrieval/index-store.js",
+      "mode": "100644",
+      "gitBlob": "3b67d97e25e53ebbff3f1c259a6f1486cd526bb8",
+      "repositoryBytes": 16592
+    },
+    {
+      "path": "server/retrieval/tools.js",
+      "mode": "100644",
+      "gitBlob": "028c1c72c4a62476cf73ac1e5d9024bcd5094bd0",
+      "repositoryBytes": 9951
+    },
+    {
+      "path": "server/retrieval/vector-codec.js",
+      "mode": "100644",
+      "gitBlob": "a554611fed5f7f6564d15c69bc3fb57d42ab0035",
+      "repositoryBytes": 6455
+    },
+    {
+      "path": "server/runtime.js",
+      "mode": "100644",
+      "gitBlob": "15af398d4e0e289c1f32321f7f45fd149cc1cee9",
+      "repositoryBytes": 17613
+    },
+    {
+      "path": "server/sandbox/config.js",
+      "mode": "100644",
+      "gitBlob": "f8e0d3f7096f7ab2e2357c227f1152c501452df8",
+      "repositoryBytes": 3457
+    },
+    {
+      "path": "server/sandbox/docker.js",
+      "mode": "100644",
+      "gitBlob": "55f4ef54a95b3473781264f196c85a8e43d90458",
+      "repositoryBytes": 22106
+    },
+    {
+      "path": "server/sandbox/observe-cleanup.js",
+      "mode": "100644",
+      "gitBlob": "c2639d0016419701beb403e372cbf387b4917bf3",
+      "repositoryBytes": 3725
+    },
+    {
+      "path": "server/sandbox/reconcile.js",
+      "mode": "100644",
+      "gitBlob": "9161a928795b131f43022f85735e116a94787d99",
+      "repositoryBytes": 3325
+    },
+    {
+      "path": "server/sandbox/resource-identity.js",
+      "mode": "100644",
+      "gitBlob": "8a8066e3505e48bd0a3c1409999a77d5c28d164c",
+      "repositoryBytes": 1985
+    },
+    {
+      "path": "server/sandbox/setup.js",
+      "mode": "100644",
+      "gitBlob": "c75b6eda0c686bac9e1979912d6753f5a67f2e78",
+      "repositoryBytes": 7325
+    },
+    {
+      "path": "server/sandbox/verify.js",
+      "mode": "100644",
+      "gitBlob": "180d4d6f557f255543d336fa252098fe31373a9f",
+      "repositoryBytes": 13652
+    },
+    {
+      "path": "server/start.js",
+      "mode": "100644",
+      "gitBlob": "515bc8bbb8c00f5d44d98d33d99118ac605128ae",
+      "repositoryBytes": 67
+    },
+    {
+      "path": "server/static.js",
+      "mode": "100644",
+      "gitBlob": "3efaa70c1228bd70339c6243de8a869dbd4f970d",
+      "repositoryBytes": 1376
+    },
+    {
+      "path": "server/sync.js",
+      "mode": "100644",
+      "gitBlob": "7b0f611f9c1e19e64b724111528241d8af0251d0",
+      "repositoryBytes": 5201
+    },
+    {
+      "path": "server/tasks/schedule.js",
+      "mode": "100644",
+      "gitBlob": "3633ef79c67810b20fa2e85fffbe89539843bbdf",
+      "repositoryBytes": 5932
+    },
+    {
+      "path": "server/tasks/scheduler.js",
+      "mode": "100644",
+      "gitBlob": "8fefad162cefdf00fe3df933addbb020143015b0",
+      "repositoryBytes": 35729
+    },
+    {
+      "path": "server/tasks/tools.js",
+      "mode": "100644",
+      "gitBlob": "933420eb8063e712a7a65106a50ac42a17733ea8",
+      "repositoryBytes": 9197
+    },
+    {
+      "path": "server/transport/benchmark.js",
+      "mode": "100644",
+      "gitBlob": "d02e23ab93c463618879af64aa3ef7d9b3db30c5",
+      "repositoryBytes": 203
+    },
+    {
+      "path": "server/transport/rgba.js",
+      "mode": "100644",
+      "gitBlob": "82bcffd67e2bb1dec42168b8bf81d9eba2b2a88f",
+      "repositoryBytes": 10325
+    },
+    {
+      "path": "server/transport/vectors.js",
+      "mode": "100644",
+      "gitBlob": "ab3f3c64b6fb59c82f7da13a93a02d6b23ce061f",
+      "repositoryBytes": 11158
+    },
+    {
+      "path": "server/v3.js",
+      "mode": "100644",
+      "gitBlob": "43267eb5834becb8a1f47a9c15caaa58e8f6a10b",
+      "repositoryBytes": 30198
+    },
+    {
+      "path": "server/vertiso/memory.js",
+      "mode": "100644",
+      "gitBlob": "abd1f8bb3af1dd467296b966fece3b6dc5139410",
+      "repositoryBytes": 12218
+    },
+    {
+      "path": "server/vertiso/routes.js",
+      "mode": "100644",
+      "gitBlob": "94d89aaf85a0be15eca6d7bda3404d03ac9bb0cc",
+      "repositoryBytes": 4044
+    },
+    {
+      "path": "server/vertiso/rsi-tools.js",
+      "mode": "100644",
+      "gitBlob": "27eb0a86650bcf6ae74a4d0af92d3e6d8c6de170",
+      "repositoryBytes": 5725
+    },
+    {
+      "path": "server/vertiso/rsi.js",
+      "mode": "100644",
+      "gitBlob": "69a9f81acfb910b6e4f2a107a20bd6d57844a8b6",
+      "repositoryBytes": 16396
+    },
+    {
+      "path": "server/vertiso/tools.js",
+      "mode": "100644",
+      "gitBlob": "88c42c3b17816fa7a05f7a0e64799fc1c12073b2",
+      "repositoryBytes": 4300
+    },
+    {
+      "path": "server/vision/local.js",
+      "mode": "100644",
+      "gitBlob": "12104a65e5edbcf8aedb72062baf8702e37afa6d",
+      "repositoryBytes": 13248
+    },
+    {
+      "path": "server/vision/tools.js",
+      "mode": "100644",
+      "gitBlob": "0077fbc0db3bfceb073e830ad40934b5b8cba2b9",
+      "repositoryBytes": 3816
+    },
+    {
+      "path": "server/web/extract-worker.js",
+      "mode": "100644",
+      "gitBlob": "5142b21af9d42eb4ea57efd275cedfc7b530856c",
+      "repositoryBytes": 444
+    },
+    {
+      "path": "server/web/extract.js",
+      "mode": "100644",
+      "gitBlob": "fa67da63c6775b6b98d23150597b787bdb1b62ef",
+      "repositoryBytes": 13491
+    },
+    {
+      "path": "server/web/parser.js",
+      "mode": "100644",
+      "gitBlob": "b5e4e2a8a8bd0efb1ff6cafc254f43cd7e2f3f1b",
+      "repositoryBytes": 1932
+    },
+    {
+      "path": "server/web/request.js",
+      "mode": "100644",
+      "gitBlob": "8df3f0313ccea87df685095d40bfb28cfda3ef1c",
+      "repositoryBytes": 7409
+    },
+    {
+      "path": "server/web/research.js",
+      "mode": "100644",
+      "gitBlob": "d9b4262524063f54e72ce62b9f293ebecd1ab5fb",
+      "repositoryBytes": 16649
+    },
+    {
+      "path": "server/web/search.js",
+      "mode": "100644",
+      "gitBlob": "baa782a01008485ae7a5f26462790696b6ca31ce",
+      "repositoryBytes": 11907
+    },
+    {
+      "path": "server/workflow/engine.js",
+      "mode": "100644",
+      "gitBlob": "5adf0f524a1cc053c35ff464bd90bc17f8d4e1ab",
+      "repositoryBytes": 18878
+    },
+    {
+      "path": "server/workflow/routes.js",
+      "mode": "100644",
+      "gitBlob": "c39ea15b6cf8451a77e1704bc2787359d7e1fcb2",
+      "repositoryBytes": 6068
+    },
+    {
+      "path": "server/youtube/routes.js",
+      "mode": "100644",
+      "gitBlob": "09728f9931d62077ea5b5ba6219b44c58b383b8d",
+      "repositoryBytes": 2041
+    },
+    {
+      "path": "server/youtube/service.js",
+      "mode": "100644",
+      "gitBlob": "de1cd8e96c83351da6c8304dec8ba9fdc9cd33bd",
+      "repositoryBytes": 8726
+    },
+    {
+      "path": "server/youtube/tools.js",
+      "mode": "100644",
+      "gitBlob": "d2021faf0c55015246808a0f648611f796cfb751",
+      "repositoryBytes": 3728
+    },
+    {
+      "path": "test/agent.test.js",
+      "mode": "100644",
+      "gitBlob": "a87172fdbf729d220e5c59e2ffa886e6ae4f24a2",
+      "repositoryBytes": 77904
+    },
+    {
+      "path": "test/artifacts.test.js",
+      "mode": "100644",
+      "gitBlob": "3ce6b2133627393737522714b42ba891063a825a",
+      "repositoryBytes": 1158
+    },
+    {
+      "path": "test/audio-assets.test.js",
+      "mode": "100644",
+      "gitBlob": "3f288100ea2be42198301e7a7feed7a380bf617e",
+      "repositoryBytes": 4078
+    },
+    {
+      "path": "test/audio-fixtures.js",
+      "mode": "100644",
+      "gitBlob": "262d7cbd307504c48eb6bb856b40cf3e6eca094e",
+      "repositoryBytes": 615
+    },
+    {
+      "path": "test/audio.test.js",
+      "mode": "100644",
+      "gitBlob": "8d36cde2589d1df3089761261b38f861f107de07",
+      "repositoryBytes": 16171
+    },
+    {
+      "path": "test/auxiliary-budget.test.js",
+      "mode": "100644",
+      "gitBlob": "fd05cb3c481c15a19b03b47ffecfe4a1f3a61876",
+      "repositoryBytes": 13207
+    },
+    {
+      "path": "test/auxiliary-generation-budget.test.js",
+      "mode": "100644",
+      "gitBlob": "54bb966264148c9882ea133e327cd14d0d44e831",
+      "repositoryBytes": 23171
+    },
+    {
+      "path": "test/auxiliary-integration.test.js",
+      "mode": "100644",
+      "gitBlob": "9188521e511f35a3272eb5e00569b0405b0f17c2",
+      "repositoryBytes": 19023
+    },
+    {
+      "path": "test/code-effect-integration.test.js",
+      "mode": "100644",
+      "gitBlob": "57b2854b2cf77b4333fe0fae184c4c83b1be5ad6",
+      "repositoryBytes": 10462
+    },
+    {
+      "path": "test/code-effects-reconciliation.test.js",
+      "mode": "100644",
+      "gitBlob": "6d8b2adf848d537ba5d1e15c9686e5a1f815bcbd",
+      "repositoryBytes": 19046
+    },
+    {
+      "path": "test/code-effects.test.js",
+      "mode": "100644",
+      "gitBlob": "78a1ab28f1bba727a935006cca4cfc97aadde635",
+      "repositoryBytes": 23760
+    },
+    {
+      "path": "test/code-navigation.test.js",
+      "mode": "100644",
+      "gitBlob": "f6f5e8860e7fe6cbf80fd91f8eb38da0acac254a",
+      "repositoryBytes": 14514
+    },
+    {
+      "path": "test/data-lock.test.js",
+      "mode": "100644",
+      "gitBlob": "0388e9a33ab99edd6306633a2507e257c884c043",
+      "repositoryBytes": 4203
+    },
+    {
+      "path": "test/desktop-broker.test.js",
+      "mode": "100644",
+      "gitBlob": "ba1a24d0a4fa0db63279c2b83019e3184807fc81",
+      "repositoryBytes": 37775
+    },
+    {
+      "path": "test/desktop-windows-driver.test.js",
+      "mode": "100644",
+      "gitBlob": "d2d0da9eebc8c0c105f76a98389b765cd9c5bf25",
+      "repositoryBytes": 43498
+    },
+    {
+      "path": "test/document-fixtures.js",
+      "mode": "100644",
+      "gitBlob": "defca476ba3dddbbd1129e24342c5fd4a773ae89",
+      "repositoryBytes": 3072
+    },
+    {
+      "path": "test/document-launcher.test.js",
+      "mode": "100644",
+      "gitBlob": "8fc2d3e2d03363122810372e204b556349b758ad",
+      "repositoryBytes": 7425
+    },
+    {
+      "path": "test/documents.test.js",
+      "mode": "100644",
+      "gitBlob": "8c31613beaa05ade726cc4184dd676d514ad7d45",
+      "repositoryBytes": 9212
+    },
+    {
+      "path": "test/embedding.test.js",
+      "mode": "100644",
+      "gitBlob": "b500503545a8f50e9351ed0a22c76f80fe999654",
+      "repositoryBytes": 14619
+    },
+    {
+      "path": "test/extensions.test.js",
+      "mode": "100644",
+      "gitBlob": "4cf961c79e7104dd208b8a8ad183d452c3067294",
+      "repositoryBytes": 1735
+    },
+    {
+      "path": "test/fixtures/desktop-window.cs",
+      "mode": "100644",
+      "gitBlob": "89dcb381fac0c5b67bc3d2e16221c7b422357a9c",
+      "repositoryBytes": 9384
+    },
+    {
+      "path": "test/fixtures/desktop-window.ps1",
+      "mode": "100644",
+      "gitBlob": "9c1f06f8db5a33ab22d5798747b55e4f628e8782",
+      "repositoryBytes": 2685
+    },
+    {
+      "path": "test/http.test.js",
+      "mode": "100644",
+      "gitBlob": "16b3db2018adbbb9188e6930a586b283a0629a04",
+      "repositoryBytes": 29810
+    },
+    {
+      "path": "test/image-validation.test.js",
+      "mode": "100644",
+      "gitBlob": "ec772cdd5e7349f52ac97bf66f11a6b56ec87a46",
+      "repositoryBytes": 12301
+    },
+    {
+      "path": "test/lifecycle.test.js",
+      "mode": "100644",
+      "gitBlob": "028422324dc7714d605cda127ba6cea0843b5702",
+      "repositoryBytes": 7570
+    },
+    {
+      "path": "test/local-vision.test.js",
+      "mode": "100644",
+      "gitBlob": "ab6ccddc1793cdbff7167f785aa81fb0f462b582",
+      "repositoryBytes": 24714
+    },
+    {
+      "path": "test/ocr-artifacts.test.js",
+      "mode": "100644",
+      "gitBlob": "c1f1a2bcaf7e646808edcfc60be2049ef19c4585",
+      "repositoryBytes": 5251
+    },
+    {
+      "path": "test/ocr-integration.test.js",
+      "mode": "100644",
+      "gitBlob": "4c0ccf29af38ba580de7aa333cbee8c86dff1ddc",
+      "repositoryBytes": 7915
+    },
+    {
+      "path": "test/ocr-local.test.js",
+      "mode": "100644",
+      "gitBlob": "78b7494f44ce3220de23cfb3d0c9fccbd3f0a61e",
+      "repositoryBytes": 5642
+    },
+    {
+      "path": "test/ocr-native.test.js",
+      "mode": "100644",
+      "gitBlob": "f17fe135ef292821020d17e0c7999dc973c74361",
+      "repositoryBytes": 12882
+    },
+    {
+      "path": "test/ocr-pdf.test.js",
+      "mode": "100644",
+      "gitBlob": "bae1925d863b0a8c135a777ee784e66de0b8a069",
+      "repositoryBytes": 13548
+    },
+    {
+      "path": "test/ocr-tools.test.js",
+      "mode": "100644",
+      "gitBlob": "9c9c430b45c64ca058033caaf123d8530b8d2f88",
+      "repositoryBytes": 10568
+    },
+    {
+      "path": "test/sandbox-config.test.js",
+      "mode": "100644",
+      "gitBlob": "3990dcbb97c7f32aff54068c409c86467702e4fd",
+      "repositoryBytes": 10162
+    },
+    {
+      "path": "test/sandbox-docker.test.js",
+      "mode": "100644",
+      "gitBlob": "a689ee50b63f6543ade959a423b803e280f4ef6d",
+      "repositoryBytes": 31565
+    },
+    {
+      "path": "test/sandbox-reconcile.test.js",
+      "mode": "100644",
+      "gitBlob": "0db0d5617a05a556572cf03d37e015c7c8d79423",
+      "repositoryBytes": 8580
+    },
+    {
+      "path": "test/sandbox-verification.test.js",
+      "mode": "100644",
+      "gitBlob": "ac61d1e0e2ad85e825f9fb3898c13dc14b7f20fb",
+      "repositoryBytes": 9880
+    },
+    {
+      "path": "test/semantic-index-store.test.js",
+      "mode": "100644",
+      "gitBlob": "10680f05999088dce1e6367eeb7f69b36d9e492b",
+      "repositoryBytes": 16006
+    },
+    {
+      "path": "test/semantic-tools.test.js",
+      "mode": "100644",
+      "gitBlob": "17d0752efb19fd3dc5ac46e2871319582a174eec",
+      "repositoryBytes": 30236
+    },
+    {
+      "path": "test/static.test.js",
+      "mode": "100644",
+      "gitBlob": "5ff9732b73adae448640593b29a3e85a7f687d92",
+      "repositoryBytes": 5493
+    },
+    {
+      "path": "test/tasks-agent-policy.test.js",
+      "mode": "100644",
+      "gitBlob": "840563ed3a3f2206272bb7f2ff7a38cb7cd644cb",
+      "repositoryBytes": 13729
+    },
+    {
+      "path": "test/tasks-runtime.test.js",
+      "mode": "100644",
+      "gitBlob": "59620b400711dedb0c08bf95660bebad84e75d15",
+      "repositoryBytes": 17992
+    },
+    {
+      "path": "test/tasks-schedule.test.js",
+      "mode": "100644",
+      "gitBlob": "7b24178d1c49cbe755893b6a7167119c41a93f54",
+      "repositoryBytes": 3973
+    },
+    {
+      "path": "test/tasks-scheduler.test.js",
+      "mode": "100644",
+      "gitBlob": "43a8b85b113a7ceb01f45c3ea3dae458c8c13869",
+      "repositoryBytes": 29760
+    },
+    {
+      "path": "test/tasks-tools.test.js",
+      "mode": "100644",
+      "gitBlob": "0c97e07d4a67b4df268533019fd10d006c9e695f",
+      "repositoryBytes": 7695
+    },
+    {
+      "path": "test/thinking-policy.test.js",
+      "mode": "100644",
+      "gitBlob": "6a773029bc67f853b336730265a2602a7e8f4746",
+      "repositoryBytes": 14477
+    },
+    {
+      "path": "test/thinking.test.js",
+      "mode": "100644",
+      "gitBlob": "b8b4d6ca9aff92e73a20c942beb7293f61ad2b53",
+      "repositoryBytes": 7185
+    },
+    {
+      "path": "test/transport-adversarial.test.js",
+      "mode": "100644",
+      "gitBlob": "3a9ed8e944e99710856bc50dc4beea9051d2d7d7",
+      "repositoryBytes": 12202
+    },
+    {
+      "path": "test/transport.test.js",
+      "mode": "100644",
+      "gitBlob": "3eac0b5911e2cfa02cf1c9bd539ca85672feaa1a",
+      "repositoryBytes": 2428
+    },
+    {
+      "path": "test/vector-codec.test.js",
+      "mode": "100644",
+      "gitBlob": "3f3569d70fa13a9a4aa96277749f11512c59daf0",
+      "repositoryBytes": 7393
+    },
+    {
+      "path": "test/vectors.test.js",
+      "mode": "100644",
+      "gitBlob": "4e8a4f4e15640de66231d06502a32b9bc09ddc49",
+      "repositoryBytes": 5213
+    },
+    {
+      "path": "test/vision-integration.test.js",
+      "mode": "100644",
+      "gitBlob": "f8433e368b2a69f96cd4e90c41e7ea7511ccc08e",
+      "repositoryBytes": 12602
+    },
+    {
+      "path": "test/web-extract.test.js",
+      "mode": "100644",
+      "gitBlob": "2dc23cf12a46d8753e629a94731c62b9153129a8",
+      "repositoryBytes": 11480
+    },
+    {
+      "path": "test/web-request.test.js",
+      "mode": "100644",
+      "gitBlob": "0a21afd47581dc93739a2caf87a2ff6865c84a9e",
+      "repositoryBytes": 6682
+    },
+    {
+      "path": "test/web-research.test.js",
+      "mode": "100644",
+      "gitBlob": "1a795430311e844426140363ec4e60dbb9e35048",
+      "repositoryBytes": 8066
+    },
+    {
+      "path": "test/web-search-research.test.js",
+      "mode": "100644",
+      "gitBlob": "7c3cbb29bb536b4c0dd264cab179dc03e5064bc2",
+      "repositoryBytes": 6683
+    },
+    {
+      "path": "test/web-search.test.js",
+      "mode": "100644",
+      "gitBlob": "5fccaf5fd1a472211fde95ed41c0a9ce7d875cb4",
+      "repositoryBytes": 9598
+    },
+    {
+      "path": "test/workspace-edit-policy.test.js",
+      "mode": "100644",
+      "gitBlob": "a7fd962fdc831591697c8867ea960de9a7b1c510",
+      "repositoryBytes": 13849
+    },
+    {
+      "path": "test/workspace-edit.test.js",
+      "mode": "100644",
+      "gitBlob": "0f6668ec4ed17c021eee59c547f4a66761e6482a",
+      "repositoryBytes": 17738
+    },
+    {
+      "path": "test/workspace-locks.test.js",
+      "mode": "100644",
+      "gitBlob": "5c30140bda429979b78380e9450ea2eb4960e8e9",
+      "repositoryBytes": 12340
+    },
+    {
+      "path": "test/workspace-patch-integration.test.js",
+      "mode": "100644",
+      "gitBlob": "0a51581d8311284ca09237e1ea188d9c57db271e",
+      "repositoryBytes": 18152
+    },
+    {
+      "path": "test/workspace-patch.test.js",
+      "mode": "100644",
+      "gitBlob": "da248594a5273d81c02645b227bd99e6b91f1917",
+      "repositoryBytes": 32034
+    }
+  ]
+}

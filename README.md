@@ -66,7 +66,7 @@ Example first request:
 
 > Create a counter with count initially 0, an Add button and a Reset button. Test that Add changes 0 to 1 and Reset restores 0. Correct failures, retest and save a verified recipe.
 
-[Full setup, walkthrough and troubleshooting](README-006.md) explains each control, project persistence and the local-model requirements. After Java source changes, rebuild the installed distributions; the launcher only builds when they are missing.
+[Full setup, walkthrough and troubleshooting](README-006.md) explains each control, project persistence and the local-model requirements. The current launcher incrementally refreshes the Java distributions and checks locked desktop dependencies before opening the app.
 
 ## What the app brings together
 
@@ -79,6 +79,8 @@ Java reuses the existing model catalog, entity/component runtime, transactions, 
 October 29, 2026 live-model fixture, reused from edition 005. Actual application frame export; the source, tests and independent acceptance results are in the [verification record](docs/readmes/005/live-model.json).
 
 ## Development and next direction
+
+The [Chandra assessment and offline creation plan](docs/CHANDRA_ASSESSMENT.md) reviews pinned source `f96eae6`, records **652 passing / 24 failing** fixture tests and independent behavioral probes, and maps document/OCR evidence, local retrieval and durable jobs into the present Java-owned design. Its six-stage plan starts with verified offline operation and real measurement binding. This is an assessment, with no imported Chandra runtime or new executable release; edition 010 and its historical assets remain intact.
 
 The project grew from the full Mario game editor and sensory/nervous-system integration, through reliable placement, level persistence, power-up rendering and gameplay practice, into this independent browser/canvas workspace. [README 006](README-006.md) traces those steps and the [earlier editions](docs/readmes/INDEX.md) retain their original evidence.
 

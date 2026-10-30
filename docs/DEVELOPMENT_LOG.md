@@ -1,5 +1,15 @@
 # Agent Workspace development log
 
+## 2026-10-29 Chandra source assessment and offline creation plan
+
+The user asked for a candid assessment of the current application, its local/Java foundation and additions from chandra-fraymus. Reviewed public revision f96eae62343308b4faf8c1d34c490c07d232f69b in an independent checkout and recorded all 292 tracked file identities. Installed locked dependencies with scripts/browser downloads disabled, then rebuilt better-sqlite3 explicitly. Fixture tests use temporary data/workspace roots: 676 tests, 652 pass, 24 fail, none skipped. Runtime registration reaches its 128-extra-tool guard; a separate history-pruning mock assertion fails. A focused two-test repeat reproduces both failure families. No live provider, desktop action, Docker container or application autonomy service was started.
+
+Independent local probes show RSI can report fitness 0.549 versus 0.500 with no mutations and an unchanged genome when Math.random is controlled at 0.99. The signer/verifier rejects a fresh message on its signature while hash/chain/time pass. Hermes without supplied handlers honestly reports no_executor. The reproducible probe and sanitized test/source evidence are committed with the assessment. Chandra remains unchanged; no reviewed runtime code is imported.
+
+Documented selective adoption of bounded document/OCR provenance, digest-scoped local retrieval, durable tasks/effect journals and staged workspace editing. Keep Java authority and the current layout. First verify the cached offline profile and implement the already-planned measurement dataset/residual slice, then add document retrieval, durable pipelines, toolchain/isolation adapters and task-evaluated learning. Distinguish local from proven air-gapped operation, owned local tools from literal bare metal, and policy adaptation from model-weight training. Updated the entry README, mutable design/roadmap and continuity; frozen editions remain intact and 011 remains unused. Runtime release tests are historical evidence, not rerun for this assessment-only change.
+
+Assessment documentation verification passes ten frozen editions, fifteen canvases, 1,433 references and 131 frozen hashes. The probe's syntax and executed counterexamples pass. No new HTML viewer or runtime UI was created, so the published viewer/screenshots retain their existing evidence scope.
+
 ## 2026-10-29 Publication confirmed and successes retained
 
 The user reaffirmed pushing to main, keeping the README/images/detail current, and saving successes in project memory, notes and logs. GitHub main and the peeled `readme-010` tag resolve to release `5eeed1ec8e1e265f8268bb155a67a368aee59987`. An independent checkout fetched that publication from GitHub and passed the documentation checker. This follow-up updates continuity notes without changing executable code or revising the frozen edition 010 snapshot.

@@ -1,0 +1,52 @@
+{
+  "recordedDate": "2026-10-29",
+  "repository": "https://github.com/eyeoverthink/chandra-fraymus",
+  "revision": "f96eae62343308b4faf8c1d34c490c07d232f69b",
+  "trackedFiles": 292,
+  "sourceUnmodified": true,
+  "workspaceBaseline": "f9b73418816ec105bc8a4617b9d004ccc02cb4d7",
+  "environment": {
+    "platform": "Windows x64",
+    "node": "24.14.1",
+    "dependencyInstall": "npm ci --ignore-scripts --no-audit --no-fund; PUPPETEER_SKIP_DOWNLOAD=true; npm rebuild better-sqlite3"
+  },
+  "fullTest": {
+    "command": "npm.cmd test",
+    "exitCode": 1,
+    "summary": {
+      "tests": 676,
+      "pass": 652,
+      "fail": 24,
+      "cancelled": 0,
+      "skipped": 0,
+      "todo": 0,
+      "duration_ms": 27412.8931
+    },
+    "rawLogSha256": "de1a2bf2829f764b34fd5d642a2cde2673ad900407e68546c612bfeff800ee6e",
+    "scope": "Fixtures/mocks and temporary data/workspace roots. Application server, provider integrations and Docker not started."
+  },
+  "failureFamilies": [
+    {
+      "family": "Runtime registration",
+      "observedErrorInstancesInFailureDetails": 22,
+      "finding": "Combined extraTools registration encounters the 128-extra-tool bound during runtime construction."
+    },
+    {
+      "family": "Context history fixture",
+      "finding": "Mock provider asserts an expected retained prior question; failure wrapped as provider_unavailable, not a real Ollama availability test."
+    }
+  ],
+  "targetedRepeat": {
+    "tests": 2,
+    "passed": 0,
+    "failed": 2,
+    "command": "node --test --test-name-pattern='prior completed history is pruned again|runtime construction is inert' test/agent.test.js test/tasks-runtime.test.js"
+  },
+  "probes": "chandra-probes-2026-10-29.json",
+  "limits": [
+    "No Chandra runtime integration performed.",
+    "No live provider, desktop action, Docker container or OS egress acceptance test.",
+    "No current Workspace runtime tests rerun for this assessment.",
+    "Passing fixture tests do not prove all application workflows."
+  ]
+}
