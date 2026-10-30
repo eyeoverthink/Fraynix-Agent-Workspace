@@ -1,5 +1,6 @@
 'use strict';
 const {spawn}=require('node:child_process');
+const {createHash}=require('node:crypto');
 const path=require('node:path');
 
 function validPolicy(value){
@@ -19,9 +20,27 @@ function selectAction(next,policy,latest){
     return {tool:'browser.observe',args:{},transition:'refresh-before-action',requestedTool:next.tool};
   return {...next,transition:'none'};
 }
+async function performControlled(next,policy,latest,execute){
+  let decision=selectAction(next,policy,latest);
+  try{return {decision,result:await execute(decision.tool,decision.args,decision.transition)};}
+  catch(error){
+    if(policy.refreshStale&&['browser.click','browser.type'].includes(next.tool)&&failureClass(error)==='stale-observation'){
+      decision={tool:'browser.observe',args:{},transition:'refresh-after-change',requestedTool:next.tool};
+      return {decision,result:await execute(decision.tool,decision.args,decision.transition)};
+    }
+    throw error;
+  }
+}
+function observeProgress(job,tool,result){
+  if(!job||!result?.observation)return false;
+  const fingerprint=createHash('sha256').update(JSON.stringify({url:result.url,text:result.text,controls:result.controls})).digest('hex');
+  const repeated=tool==='browser.observe'&&job.observationFingerprint===fingerprint;
+  job.repeatedReads=repeated?(job.repeatedReads||0)+1:0;job.observationFingerprint=fingerprint;return repeated;
+}
 function stageControl(job,artifact,policy,names){
   validPolicy(policy);let allowed=[...names],stage='Choose an action that advances the request';
-  if(job.needsArtifact&&job.observed>=policy.observationLimit&&!job.created){allowed=['canvas.write'];stage='The page has been observed. Create the requested working artifact now.';}
+  if(job.needsArtifact&&!job.created)allowed=allowed.filter(name=>name!=='finish');
+  if(job.needsArtifact&&(job.repeatedReads||0)>=policy.observationLimit&&!job.created){allowed=allowed.filter(name=>name!=='browser.observe');stage='The latest page observation is unchanged. Use its controls, navigate to needed information, or create the artifact. Do not repeat the same read.';}
   if(job.created){
     if(!artifact?.test){allowed=['canvas.test'];stage=`Artifact ${artifact?.id} version ${artifact?.version} exists. Test its requested behavior now.`;}
     else if(!artifact.test.passed){allowed=job.lastReadVersion===artifact.version?['canvas.write']:['canvas.read','canvas.write'];stage=`Tests failed for ${artifact.id} version ${artifact.version}. Repair the actual behavior using canvas.write with id and expectedVersion=${artifact.version}. After reading source, change it rather than read it again.`;}
@@ -47,4 +66,4 @@ function trainController(input,{signal}={}){
     const data=JSON.stringify(input);if(data.length>128_000)return finish(Error('Controller input exceeded its data budget'));child.stdin.end(data);
   });
 }
-module.exports={validPolicy,failureClass,selectAction,stageControl,trainController};
+module.exports={validPolicy,failureClass,selectAction,performControlled,observeProgress,stageControl,trainController};

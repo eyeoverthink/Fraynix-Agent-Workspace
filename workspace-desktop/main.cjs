@@ -3,7 +3,7 @@ const {app,BrowserWindow,ipcMain,Menu}=require('electron');
 const {spawn}=require('node:child_process');
 const fs=require('node:fs');const fsp=require('node:fs/promises');const path=require('node:path');const {randomBytes,randomUUID}=require('node:crypto');const readline=require('node:readline');
 const {Surface}=require('./surfaces.cjs');const {catalog,command,planTools}=require('./policy.cjs');
-const {failureClass,selectAction,stageControl,trainController}=require('./controller.cjs');
+const {failureClass,performControlled,observeProgress,stageControl,trainController}=require('./controller.cjs');
 const {replay,rehearse}=require('./controller-replay.cjs');
 const repo=path.resolve(__dirname,'..');
 const project=path.resolve(process.env.FRAYNIX_WORKSPACE_PROJECT||path.join(app.getPath('home'),'.fraynix-agent-workspace','projects','default'));
@@ -72,7 +72,8 @@ async function execute(tool,args={}){
   const context=captureContext,started=Date.now();let result;
   try{result=await executeRaw(tool,args);}
   catch(error){await episodeStep(context,{tool,ok:false,failure:failureClass(error),elapsedMs:Date.now()-started});throw error;}
-  const step={tool,ok:true,failure:tool==='canvas.test'&&!result.passed?'test-failed':tool==='browser.observe'&&context?.needsArtifact&&context.observed>=1&&!context.created?'repeated-observation':'none',elapsedMs:Date.now()-started};
+  const repeated=observeProgress(context,tool,result);
+  const step={tool,ok:true,failure:tool==='canvas.test'&&!result.passed?'test-failed':repeated&&context?.needsArtifact&&!context.created?'repeated-observation':'none',elapsedMs:Date.now()-started};
   if(result?.observation){step.observationId=result.observation;step.controlCount=result.controls?.length||0;}
   if(tool==='canvas.write'||tool==='canvas.read'){step.artifactId=result.id;step.artifactVersion=result.version;}
   if(tool==='canvas.test'){step.artifactId=currentArtifact.id;step.artifactVersion=currentArtifact.version;step.testPassed=result.passed;}
@@ -80,9 +81,9 @@ async function execute(tool,args={}){
   await episodeStep(context,step);return result;
 }
 async function controlledExecute(next,policy){
-  const decision=selectAction(next,policy,browser.latest);if(captureContext)captureContext.transition=decision.transition;
-  if(decision.transition!=='none')activity('learning','Learned controller refreshed the page before a stale action; the requested click/type was not executed',{policyVersion:policy.version});
-  return {decision,result:await execute(decision.tool,decision.args)};
+  const result=await performControlled(next,policy,browser.latest,async(tool,args,transition)=>{if(captureContext)captureContext.transition=transition;return execute(tool,args);});
+  if(result.decision.transition!=='none')activity('learning','Learned controller returned a fresh observation; no stale or changed control was clicked',{policyVersion:policy.version,transition:result.decision.transition});
+  return result;
 }
 async function learnFromEpisodes({proof=false,automatic=false}={}){
   if(run||learningJob)throw Error('Finish the current task before evaluating learning');
@@ -147,6 +148,7 @@ async function startAgent(goal,model){
         let next=command(JSON.parse(reply.text));activity('decision',next.reason||next.tool,{tool:next.tool,args:next.tool==='canvas.write'?{title:next.args.title,files:Object.keys(next.args.files||{})}:next.args});
         if(!allowed.includes(next.tool))throw Error('This action does not advance the current task stage');
         if(next.tool==='finish'){
+          if(job.needsArtifact&&!job.created)throw Error('Create the requested artifact before reporting completion.');
           if(job.created&&!currentArtifact?.test?.passed)throw Error('Created artifact has no passing test receipt. Test or repair it before finishing.');
           const summary=String(next.args.summary||'Task completed');outcome=job.created&&currentArtifact?.test?.passed?'verified':'completed-unverified';activity('complete',summary);emit('answer',summary);await api('/api/event',{kind:'agent_completed',data:{goal,model,summary,episodeId:job.id,policyVersion:job.policy.version}});return;
         }

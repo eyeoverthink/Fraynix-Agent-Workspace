@@ -12,7 +12,7 @@ import java.util.*;
 /** Authoritative, project-scoped learning evidence. Proposals cannot install executable tools. */
 public final class LearningStore {
     private static final UUID STATE_ID=UUID.fromString("8d495fc3-2921-45e5-ade1-b16e5c9f8661");
-    public static final String SUITE="browser-controller-v1";
+    public static final String SUITE="browser-controller-v2";
     public static final List<String> CASES=List.of("train-stale-click","validation-stale-form","final-stale-link","regression-fresh-click","regression-password","regression-counter","regression-broken-counter","validation-observation-budget");
     private static final Set<String> FAILURES=Set.of("none","stale-observation","repeated-observation","test-failed","version-conflict","model-error","tool-error","cancelled");
     private final Path root;
@@ -71,7 +71,7 @@ public final class LearningStore {
         for(int i=values.size()-1;i>=Math.max(0,values.size()-maximum);i--)out.put(values.get(i));return out;
     }
     public synchronized JSONObject state(){
-        var head=header();return new JSONObject().put("generation",head.getInt("generation")).put("activePolicy",head.getJSONObject("activePolicy")).put("controllerMemory",head.opt("controllerMemory"))
+        var head=header();return new JSONObject().put("generation",head.getInt("generation")).put("runtimeContract",SUITE).put("activePolicy",head.getJSONObject("activePolicy")).put("controllerMemory",head.opt("controllerMemory"))
             .put("episodes",list("episode",50)).put("candidates",list("candidate",30)).put("evaluations",list("evaluation",30)).put("promotions",list("promotion",30))
             .put("episodeCount",world.snapshot().entities().stream().filter(e->kind(e).equals("episode")).count());
     }
@@ -81,7 +81,7 @@ public final class LearningStore {
         String taskKind=input.getString("taskKind");if(!Set.of("artifact-task","browser-task","controller-rehearsal").contains(taskKind))throw new IllegalArgumentException("Invalid episode task kind");
         String model=input.optString("model","deterministic-controller");if(model.length()>140)throw new IllegalArgumentException("Model name too long");
         var episode=new JSONObject().put("id",id).put("label",taskKind).put("taskKind",taskKind).put("model",model).put("goalDigest",digest(input.optString("goal","")))
-            .put("policy",header().getJSONObject("activePolicy")).put("status","running").put("startedAt",now()).put("steps",new JSONArray()).put("privacy","No page text, typed values, source or raw goals in episodes");
+            .put("policy",header().getJSONObject("activePolicy")).put("runtimeContract",SUITE).put("status","running").put("startedAt",now()).put("steps",new JSONArray()).put("privacy","No page text, typed values, source or raw goals in episodes");
         commit(List.of(record("episode",episode)));return episode;
     }
     public synchronized JSONObject step(JSONObject input) throws IOException {
@@ -103,7 +103,7 @@ public final class LearningStore {
             }
             item.put("testPassed",passed);
         }
-        if(raw.has("transition")){String transition=raw.getString("transition");if(!Set.of("refresh-before-action","read-budget","repair","none").contains(transition))throw new IllegalArgumentException("Invalid transition");item.put("transition",transition);}
+        if(raw.has("transition")){String transition=raw.getString("transition");if(!Set.of("refresh-before-action","refresh-after-change","read-budget","repair","none").contains(transition))throw new IllegalArgumentException("Invalid transition");item.put("transition",transition);}
         steps.put(item);commit(List.of(record("episode",episode)));return new JSONObject().put("saved",true).put("steps",steps.length());
     }
     public synchronized JSONObject end(JSONObject input) throws IOException {
@@ -122,7 +122,7 @@ public final class LearningStore {
         if(!supported)throw new IllegalStateException("No recorded controller failure supports a candidate");
         int version=2;for(Object raw:list("candidate",Integer.MAX_VALUE))version=Math.max(version,((JSONObject)raw).getJSONObject("policy").getInt("version")+1);
         proposal.put("version",version);var candidate=new JSONObject().put("id",UUID.randomUUID().toString()).put("label","Controller v"+version).put("status","proposed").put("policy",proposal)
-            .put("parentVersion",parent).put("parentGeneration",head.getInt("generation")).put("episodes",ids).put("createdAt",now()).put("mechanism","bounded-rule-adaptation")
+            .put("parentVersion",parent).put("parentGeneration",head.getInt("generation")).put("episodes",ids).put("runtimeContract",SUITE).put("createdAt",now()).put("mechanism","bounded-rule-adaptation")
             .put("kernelCommit","bf7c513e97480376d2583688f9e5b43c6c44657f");
         if(input.has("controllerMemory"))candidate.put("controllerMemory",controllerMemory(input.getJSONObject("controllerMemory")));
         commit(List.of(record("candidate",candidate)));return candidate;

@@ -1,6 +1,6 @@
 'use strict';
 const test=require('node:test'),assert=require('node:assert/strict');
-const {validPolicy,stageControl,selectAction,trainController}=require('../controller.cjs');
+const {validPolicy,stageControl,selectAction,performControlled,observeProgress,trainController}=require('../controller.cjs');
 test('controller refreshes stale observations without guessing or retrying the action',()=>{
   const next={tool:'browser.click',args:{observation:'old',ref:'7'}};
   assert.equal(selectAction(next,{observationLimit:1,refreshStale:true},{observation:'new'}).tool,'browser.observe');
@@ -9,9 +9,21 @@ test('controller refreshes stale observations without guessing or retrying the a
 });
 test('adapted read budget preserves mandatory testing and repair stages',()=>{
   const policy={observationLimit:1,refreshStale:true};
-  assert.deepEqual(stageControl({needsArtifact:true,observed:1},null,policy,['browser.observe','canvas.write']).allowed,['canvas.write']);
+  assert.deepEqual(stageControl({needsArtifact:true,observed:1,repeatedReads:0},null,policy,['browser.observe','browser.navigate','canvas.write','finish']).allowed,['browser.observe','browser.navigate','canvas.write']);
+  assert.deepEqual(stageControl({needsArtifact:true,observed:3,repeatedReads:1},null,policy,['browser.observe','browser.navigate','canvas.write']).allowed,['browser.navigate','canvas.write']);
   assert.deepEqual(stageControl({created:true}, {id:'a',version:1},policy,['finish']).allowed,['canvas.test']);
   assert.deepEqual(stageControl({created:true,lastReadVersion:2},{id:'a',version:2,test:{passed:false}},policy,['finish']).allowed,['canvas.write']);
+});
+test('only unchanged page reads count as repeated observations',()=>{
+  const job={};const page={observation:'first',url:'https://example.test/one',text:'Page one',controls:[]};assert.equal(observeProgress(job,'browser.observe',page),false);
+  assert.equal(observeProgress(job,'browser.observe',{...page,observation:'second'}),true);assert.equal(job.repeatedReads,1);
+  assert.equal(observeProgress(job,'browser.observe',{...page,text:'Page updated'}),false);assert.equal(job.repeatedReads,0);
+  assert.equal(observeProgress(job,'browser.navigate',page),false);
+});
+test('changed DOM controls recover by observing instead of retrying the action',async()=>{
+  const calls=[];const policy={observationLimit:1,refreshStale:true};
+  const result=await performControlled({tool:'browser.click',args:{observation:'current',ref:'1'}},policy,{observation:'current'},async(tool)=>{calls.push(tool);if(tool==='browser.click')throw Error('Control changed; observe again');return {observation:'new'};});
+  assert.deepEqual(calls,['browser.click','browser.observe']);assert.equal(result.decision.transition,'refresh-after-change');
 });
 test('bounded worker updates actual Fraymus prototypes from recorded failure classes',async()=>{
   const input={activePolicy:{version:1,observationLimit:2,refreshStale:false},episodes:[{id:'episode',status:'failed',steps:[{tool:'browser.click',failure:'stale-observation'}]}]};

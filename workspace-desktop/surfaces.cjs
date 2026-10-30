@@ -44,11 +44,13 @@ class Surface {
     if(!/^\d{1,2}$/.test(String(args.ref)))throw Error('Invalid control reference');
     if(this.latest?.controls?.some(c=>c.ref===String(args.ref)&&c.role==='password'))throw Error('Password fields require manual interaction');
     const ref=Number(args.ref);
-    const rect=await this.isolated(`(()=>{const e=globalThis.fraynixElements?.[${ref}];if(!e||!e.isConnected||e.disabled)throw Error('Control changed; observe again');if(e.type==='password')throw Error('Password fields require manual interaction');e.scrollIntoView({block:'center',inline:'center'});e.focus();const r=e.getBoundingClientRect();return {x:Math.round(r.x+r.width/2),y:Math.round(r.y+r.height/2),tag:e.tagName,type:e.type||''};})()`);
+    const rect=await this.isolated(`(()=>{const e=globalThis.fraynixElements?.[${ref}];if(!e||!e.isConnected||e.disabled)return {error:'Control changed; observe again'};if(e.type==='password')return {error:'Password fields require manual interaction'};e.scrollIntoView({block:'center',inline:'center'});e.focus();const r=e.getBoundingClientRect();if(!r.width||!r.height||getComputedStyle(e).visibility==='hidden')return {error:'Control changed; observe again'};return {x:Math.round(r.x+r.width/2),y:Math.round(r.y+r.height/2),tag:e.tagName,type:e.type||''};})()`);
+    if(rect.error)throw Error(rect.error);
     if(type==='type'){
       if(!['INPUT','TEXTAREA'].includes(rect.tag)||['file','checkbox','radio','submit'].includes(rect.type))throw Error('This control is not a text field');
       if(typeof args.text!=='string'||args.text.length>12000)throw Error('Text is too large');
-      this.view.webContents.sendInputEvent({type:'keyDown',keyCode:'A',modifiers:['control']});this.view.webContents.sendInputEvent({type:'keyUp',keyCode:'A',modifiers:['control']});
+      this.view.webContents.focus();
+      await this.isolated(`(()=>{const e=globalThis.fraynixElements[${ref}];const prototype=e.tagName==='TEXTAREA'?HTMLTextAreaElement.prototype:HTMLInputElement.prototype;Object.getOwnPropertyDescriptor(prototype,'value').set.call(e,'');})()`);
       await this.view.webContents.insertText(args.text);
     }else{
       this.view.webContents.sendInputEvent({type:'mouseDown',x:rect.x,y:rect.y,button:'left',clickCount:1});this.view.webContents.sendInputEvent({type:'mouseUp',x:rect.x,y:rect.y,button:'left',clickCount:1});

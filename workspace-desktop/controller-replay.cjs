@@ -4,7 +4,7 @@ const http=require('node:http');
 const {randomUUID,createHash}=require('node:crypto');
 const {Surface}=require('./surfaces.cjs');
 const {selectAction,stageControl,validPolicy}=require('./controller.cjs');
-const SUITE='browser-controller-v1';
+const SUITE='browser-controller-v2';
 const CASES=['train-stale-click','validation-stale-form','final-stale-link','regression-fresh-click','regression-password','regression-counter','regression-broken-counter','validation-observation-budget'];
 const suiteDigest=createHash('sha256').update(SUITE+':'+CASES.join(',')).digest('hex');
 const page=kind=>`<!doctype html><html><head><meta charset="utf-8"><title>Independent controller fixture</title></head><body><h1>Controller acceptance fixture</h1><label>Experiment <input id="experiment" aria-label="Experiment"></label><button id="record" onclick="document.querySelector('#receipt').textContent='Recorded'">Record</button><a href="#done" onclick="document.querySelector('#receipt').textContent='Link opened'">Open result</a><label>Password <input type="password" aria-label="Password"></label><p id="receipt">Waiting</p><output id="count">0</output><button id="add">Add</button><button id="reset">Reset</button><script>let count=0;document.querySelector('#add').onclick=()=>document.querySelector('#count').textContent=String(count+=${kind.includes('broken')?2:1});document.querySelector('#reset').onclick=()=>{count=0;document.querySelector('#count').textContent='0'};</script></body></html>`;
@@ -21,8 +21,8 @@ async function fixture(surface,canvas,origin,id,policy,signal){
   }
   await surface.navigate(origin+'/'+id);let first=await surface.observe();checkStop();
   if(id==='validation-observation-budget'){
-    let observed=1;while(observed<3){const stage=stageControl({needsArtifact:true,created:false,observed},null,policy,['browser.observe','canvas.write']);if(stage.allowed.join()==='canvas.write')break;await surface.observe();observed++;checkStop();}
-    return {passed:observed<=2,failures:observed-1,observations:observed};
+    let observed=1,stage;while(observed<4){stage=stageControl({needsArtifact:true,created:false,observed,repeatedReads:observed-1},null,policy,['browser.observe','browser.navigate','canvas.write']);if(!stage.allowed.includes('browser.observe'))break;await surface.observe();observed++;checkStop();}
+    return {passed:observed<=policy.observationLimit+1&&stage.allowed.includes('browser.navigate'),failures:observed-1,observations:observed,researchAllowed:stage.allowed.includes('browser.navigate')};
   }
   const form=id.includes('form'),password=id.includes('password'),link=id.includes('link');
   const desired=password?'Password':form?'Experiment':link?'Open result':'Record';

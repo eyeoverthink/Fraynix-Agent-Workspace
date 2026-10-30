@@ -9,6 +9,8 @@
     "test": "node --test test/policy.test.cjs test/controller.test.cjs",
     "test:integration": "node test/integration.cjs",
     "test:learning": "node test/learning-integration.cjs",
+    "test:broader": "node test/broader-validation.cjs",
+    "test:live-broader": "node test/live-broader.cjs",
     "test:live": "node test/live-agent.cjs"
   },
   "devDependencies": {
