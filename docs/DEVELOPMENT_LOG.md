@@ -1,5 +1,11 @@
 # Agent Workspace development log
 
+## 2026-10-30 Edition 011 publication confirmed
+
+The user requested saved memories/logs, a new explanatory README with screenshots, current expectations/functions and next steps, and a complete push. Published release df00e20fb772c559339d7f1012accae3d73ac2bb to private eyeoverthink/Fraynix-Agent-Workspace main with annotated tag readme-011 in one atomic push. GitHub main and the peeled tag resolved to that exact release. A separate checkout fetched the release directly from GitHub, passed the eleven-edition documentation verifier and matched all 394 canonical source/asset hashes.
+
+README 011 contains 2,230 words, three current isolated application images and a clearly labeled historical recovery diagnostic, real functions/limits, step-by-step review, architecture, data contracts, test evidence and next gates. The offline viewer passes module/status/source search, map selection, all four images, navigation, no renderer errors and a 390px layout without horizontal overflow. All 148 frozen hashes pass. No runtime tests are newly claimed for this notes-only publication follow-up; executable evidence remains bound to the recorded implementation and test runs. Project memory and the Obsidian note retain publication and successes. The next unused edition is 012.
+
 ## 2026-10-30 Measurement pipeline and source recovery · edition 011
 
 Continued the existing Java Fraynix-Agent-Workspace, preserving its layout and original Studio. Added Java FactoryWorld measurement dataset heads, immutable source versions and comparisons; UTF-8 CSV parsing with explicit units/time/frame mapping, source SHA-256, declared source classification, missing-row handling and optional uncertainty. Comparisons bind exact current dataset/scene versions and completed native runs, interpolate retained samples without extrapolation and retain independent residual metrics and an all-point tolerance criterion. Local reports include real HTML/SVG, original CSV and full comparison JSON, with three separate DOM assertions. Reopening and repeating a current comparison reruns native physics and creates fresh run/receipt identities.
@@ -10,7 +16,7 @@ Offline cached preparation passes. Application browser guards reject external na
 
 The mistaken Chandra import after resumption was reverted locally and never pushed. Recovery files were preserved outside tracked sources. The user clarified the existing Java app and GitHub through pasted notes. Current work and publication stay in Fraynix-Agent-Workspace; Chandra remains reference material and its published tree is unchanged.
 
-Implementation commits 67550cd/cbf37f1 are validated with 114 Java tests, 12 desktop tests, 10 measurement checks, 12 native UI checks, 12 browser/artifact checks, nine learning checks and 45 broader checks. A clean checkout builds offline and passes 114 Java, 12 desktop, 10 measurement, 12 native and 45 broader checks, matching all 394 canonical source/asset hashes. README 011 has 2,230 words, real current captures and a labeled historical recovery diagnostic, exact scope/evidence, walkthrough, maps, offline explorer and next gates. Final publication follows viewer and frozen documentation checks.
+Implementation commits 67550cd/cbf37f1 are validated with 114 Java tests, 12 desktop tests, 10 measurement checks, 12 native UI checks, 12 browser/artifact checks, nine learning checks and 45 broader checks. A clean checkout builds offline and passes 114 Java, 12 desktop, 10 measurement, 12 native and 45 broader checks, matching all 394 canonical source/asset hashes. README 011 has 2,230 words, real current captures and a labeled historical recovery diagnostic, exact scope/evidence, walkthrough, maps, offline explorer and next gates. Viewer, frozen documentation and remote publication gates passed; see the publication entry above.
 
 ## 2026-10-29 Chandra source assessment and offline creation plan
 

@@ -10,6 +10,10 @@ This checkout is Fraynix-Agent-Workspace, independently derived from Studio
 commit 6341404. Preserve inherited README editions 001 through 004. The first
 successor edition is 005. Do not edit or run against the original Studio's
 project directory. Successor data defaults to ~/.fraynix-agent-workspace.
+This Java application's publication target is eyeoverthink/Fraynix-Agent-Workspace.
+The Chandra review and its three-component publication note refer to a separate
+application; do not relocate or import this Java app into it. See the user's
+correction and current project memory before changing repository identity.
 Java owns model routing, entities, transactions and persistent artifacts; the
 Electron shell owns browser/canvas surfaces. Keep untrusted content out of the
 privileged preload and tool dispatcher. Test actual visible behavior and record
