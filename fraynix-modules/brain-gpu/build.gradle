@@ -1,0 +1,12 @@
+plugins { id 'java-library' }
+repositories { mavenCentral() }
+java { sourceCompatibility = JavaVersion.VERSION_21; targetCompatibility = JavaVersion.VERSION_21 }
+dependencies {
+    api project(':brain-core')
+    implementation platform('org.lwjgl:lwjgl-bom:3.3.3')
+    ['lwjgl','lwjgl-glfw','lwjgl-opengl'].each { module ->
+        implementation 'org.lwjgl:'+module
+        runtimeOnly 'org.lwjgl:'+module+'::natives-windows'
+    }
+}
+tasks.withType(JavaCompile).configureEach { options.encoding='UTF-8' }

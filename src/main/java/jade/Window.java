@@ -20,6 +20,10 @@ import static org.lwjgl.system.MemoryUtil.NULL;
 
 public class Window implements Observer {
     public static final boolean RELEASE_BUILD = false;
+    private final boolean embedded=Boolean.getBoolean("fraynix.embedded");
+    private runtime.EmbeddedGameRuntime embeddedRuntime;
+    public long nativeWindow(){return glfwWindow;}
+    public void stepEmbedded(){updatingScene=true;try{currentScene.update(1f/60);}finally{updatingScene=false;}if(deferredEvent!=null){var next=deferredEvent;deferredEvent=null;onNotify(null,next);}else if(deferredScene!=null){var next=deferredScene;deferredScene=null;changeScene(next);}}
     private String authoringSnapshot;
     private SceneInitializer deferredScene;
     private Event deferredEvent;
@@ -73,7 +77,7 @@ public class Window implements Observer {
             currentScene.destroy();
         }
 
-        getImguiLayer().getPropertiesWindow().setActiveGameObject(null);
+        if(getImguiLayer()!=null)getImguiLayer().getPropertiesWindow().setActiveGameObject(null);
         currentScene = new Scene(sceneInitializer);
         if (get().authoringSnapshot != null) currentScene.loadJson(get().authoringSnapshot);
         else currentScene.load();
@@ -103,7 +107,7 @@ public class Window implements Observer {
         if (get().runtimePlaying) throw new IllegalStateException("Stop Play before replacing the authoring scene");
         agent.GameInput.stop("Authoring scene replaced; input released");
         Scene before = currentScene;
-        GameObject selected = getImguiLayer().getPropertiesWindow().getActiveGameObject();
+        GameObject selected = getImguiLayer()==null?null:getImguiLayer().getPropertiesWindow().getActiveGameObject();
         org.joml.Vector2f camera = before != null && before.camera() != null ? new org.joml.Vector2f(before.camera().position) : null;
         float zoom = camera == null ? 1 : before.camera().getZoom();
         currentScene = replacement;
@@ -114,7 +118,7 @@ public class Window implements Observer {
             currentScene = before; replacement.destroy(); throw failure;
         }
         if (before != null) before.destroy();
-        getImguiLayer().getPropertiesWindow().setActiveGameObject(selected == null ? null : replacement.getGameObjects().stream()
+        if(getImguiLayer()!=null)getImguiLayer().getPropertiesWindow().setActiveGameObject(selected == null ? null : replacement.getGameObjects().stream()
             .filter(object -> object.getPersistentId().equals(selected.getPersistentId())).findFirst().orElse(null));
         get().runtimePlaying = false;
     }
@@ -125,16 +129,17 @@ public class Window implements Observer {
         init();
         loop();
 
-        if (runtimePlaying) onNotify(null,new Event(EventType.GameEngineStopPlay));
+        if (runtimePlaying&&!embedded) onNotify(null,new Event(EventType.GameEngineStopPlay));
 
-        if (currentScene != null && !runtimePlaying) {
+        if (currentScene != null && !runtimePlaying&&!embedded) {
             try { factorySession.save(currentScene); }
             catch (java.io.IOException | RuntimeException error) { System.err.println("Factory checkpoint failed on exit: " + error); }
         }
         factorySession.close();
         levelActions.close();
         nervous.BrainRuntime.close();
-        imguiLayer.destroyImGui();
+        if(imguiLayer!=null)imguiLayer.destroyImGui();
+        if(embeddedRuntime!=null)embeddedRuntime.close();
         AssetPool.closeSounds();
         AudioSystem.close();
 
@@ -160,7 +165,8 @@ public class Window implements Observer {
         glfwDefaultWindowHints();
         glfwWindowHint(GLFW_VISIBLE, GLFW_FALSE);
         glfwWindowHint(GLFW_RESIZABLE, GLFW_TRUE);
-        glfwWindowHint(GLFW_MAXIMIZED, GLFW_TRUE);
+        glfwWindowHint(GLFW_MAXIMIZED, embedded?GLFW_FALSE:GLFW_TRUE);
+        if(embedded){width=960;height=540;}
 
         // Create the window
         glfwWindow = glfwCreateWindow(this.width, this.height, this.title, NULL, NULL);
@@ -183,7 +189,7 @@ public class Window implements Observer {
         glfwSwapInterval(1);
 
         // Make the window visible
-        glfwShowWindow(glfwWindow);
+        if(!embedded)glfwShowWindow(glfwWindow);
 
         // This line is critical for LWJGL's interoperation with GLFW's
         // OpenGL context, or any context that is managed externally.
@@ -191,7 +197,7 @@ public class Window implements Observer {
         // creates the GLCapabilities instance and makes the OpenGL
         // bindings available for use.
         GL.createCapabilities();
-        AudioSystem.open();
+        if(!embedded)AudioSystem.open();
         String marioCapture = System.getProperty("fraynix.marioSmoke", "");
         if (!marioCapture.isBlank()) marioSmoke = new editor.MarioNativeSmoke(java.nio.file.Path.of(marioCapture));
         String correctionCapture=System.getProperty("fraynix.correctionsSmoke","");
@@ -200,12 +206,12 @@ public class Window implements Observer {
         glEnable(GL_BLEND);
         glBlendFunc(GL_ONE, GL_ONE_MINUS_SRC_ALPHA);
 
-        this.framebuffer = new Framebuffer(3840, 2160);
+        this.framebuffer = new Framebuffer(embedded?960:3840, embedded?540:2160);
         this.pickingTexture = new PickingTexture(3840, 2160);
         glViewport(0, 0, 3840, 2160);
 
-        this.imguiLayer = new ImGuiLayer(glfwWindow, pickingTexture);
-        this.imguiLayer.initImGui();
+        if(!embedded){this.imguiLayer = new ImGuiLayer(glfwWindow, pickingTexture);this.imguiLayer.initImGui();}
+        if(embedded){runtimePlaying=true;Window.changeScene(new scenes.LevelSceneInitializer());try{embeddedRuntime=new runtime.EmbeddedGameRuntime();}catch(java.io.IOException error){throw new IllegalStateException(error);}return;}
 
         if (factorySession.hasCheckpoint()) {
             try {
@@ -221,6 +227,8 @@ public class Window implements Observer {
     }
 
     public void loop() {
+        if(embedded){while(!glfwWindowShouldClose(glfwWindow)){glfwPollEvents();embeddedRuntime.frame();try{Thread.sleep(16);}catch(InterruptedException error){Thread.currentThread().interrupt();break;}}return;}
+
         double beginTime = glfwGetTime();
         double endTime;
         float dt = 1.0f / 60.0f;
@@ -398,7 +406,7 @@ public class Window implements Observer {
         switch (event.type) {
             case GameEngineStartPlay:
                 if (runtimePlaying) break;
-                if (imguiLayer.getFraynixPanel().sceneAgent().agent()!=null) imguiLayer.getFraynixPanel().sceneAgent().agent().stop();
+                if (imguiLayer!=null&&imguiLayer.getFraynixPanel().sceneAgent().agent()!=null) imguiLayer.getFraynixPanel().sceneAgent().agent().stop();
                 authoringSnapshot = currentScene.serializeAuthoring();
                 agent.GameInput.prepareLevel(authoringSnapshot);
                 this.runtimePlaying = true;

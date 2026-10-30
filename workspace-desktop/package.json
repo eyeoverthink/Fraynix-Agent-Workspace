@@ -22,7 +22,9 @@
     "test:observer": "node test/observer-integration.cjs",
     "test:live-observer": "node test/live-observer.cjs",
     "test:body": "node test/body-integration.cjs",
-    "test:live-body": "node test/live-body.cjs"
+    "test:live-body": "node test/live-body.cjs",
+    "test:brain-game": "node test/brain-game-integration.cjs",
+    "test:live-memory": "node test/live-memory.cjs"
   },
   "devDependencies": {
     "electron": "45.1.0",

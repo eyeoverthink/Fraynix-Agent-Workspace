@@ -41,6 +41,9 @@ public final class GameInput {
     private static boolean neuralJump;
     private static float[] lastSensory=new float[0];
     private static ActorControls.Input current=ActorControls.Input.NONE, previous=ActorControls.Input.NONE;
+    private static ActorControls.Input externalInput;
+    public static void external(float horizontal,boolean jump){externalInput=new ActorControls.Input(horizontal,0,jump,false);}
+    public static void externalOff(){externalInput=null;}
     private GameInput() {}
     public static boolean automatic() { return automatic; }
     public static String status() { return status; }
@@ -147,18 +150,20 @@ public final class GameInput {
         current=controls.at(tick);
     }
     public static boolean isKeyPressed(int key) {
-        if (!automatic) return KeyListener.isKeyPressed(key);
+        if (!automatic&&externalInput==null) return KeyListener.isKeyPressed(key);
+        var selected=externalInput==null?current:externalInput;
         return switch(key) {
-            case GLFW_KEY_RIGHT,GLFW_KEY_D -> current.horizontal()>0;
-            case GLFW_KEY_LEFT,GLFW_KEY_A -> current.horizontal()<0;
-            case GLFW_KEY_UP,GLFW_KEY_W -> current.vertical()>0;
-            case GLFW_KEY_DOWN,GLFW_KEY_S -> current.vertical()<0;
-            case GLFW_KEY_SPACE -> current.jump();
-            case GLFW_KEY_E -> current.fire();
+            case GLFW_KEY_RIGHT,GLFW_KEY_D -> selected.horizontal()>0;
+            case GLFW_KEY_LEFT,GLFW_KEY_A -> selected.horizontal()<0;
+            case GLFW_KEY_UP,GLFW_KEY_W -> selected.vertical()>0;
+            case GLFW_KEY_DOWN,GLFW_KEY_S -> selected.vertical()<0;
+            case GLFW_KEY_SPACE -> selected.jump();
+            case GLFW_KEY_E -> selected.fire();
             default -> false;
         };
     }
     public static boolean keyBeginPress(int key) {
+        if(externalInput!=null)return false;
         if (!automatic) return KeyListener.keyBeginPress(key);
         return key==GLFW_KEY_E && current.fire() && !previous.fire();
     }

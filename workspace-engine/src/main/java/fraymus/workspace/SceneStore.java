@@ -138,9 +138,10 @@ public final class SceneStore implements AutoCloseable {
         playing=false;if(physics==null||active==null)return;
         JSONObject last=physics.snapshot();active.put("status",status).put("endedAt",Instant.now()).put("final",last);
         var params=RampDefinition.from(active.getJSONObject("definition").getJSONObject("parameters"));double t=last.getDouble("timeS"),expected=.5*params.gravityMps2()*Math.sin(params.radians())*t*t;
-        boolean applicable=!active.optString("scope").equals("manipulation")&&params.friction()==0&&t>=.1&&t<=1&&expected<params.lengthM()*.7-.7;
+        boolean applicable=!Set.of("manipulation","brain-policy").contains(active.optString("scope"))&&params.friction()==0&&t>=.1&&t<=1&&expected<params.lengthM()*.7-.7;
         double measured=last.getDouble("distanceM"),tolerance=Math.max(.015,expected*.04),error=Math.abs(measured-expected);
         active.put("evaluation",new JSONObject().put("reference","frictionless incline: distance = 0.5*g*sin(angle)*t^2").put("applicable",applicable).put("expectedDistanceM",expected).put("measuredDistanceM",measured).put("absoluteErrorM",error).put("toleranceM",tolerance).put("passed",status.equals("completed")&&applicable&&error<=tolerance));
+        if(active.has("controller")){double target=active.getJSONObject("controller").getDouble("targetM");active.put("goalEvaluation",new JSONObject().put("targetM",target).put("measuredDistanceM",measured).put("absoluteErrorM",Math.abs(measured-target)).put("toleranceM",.25).put("passed",status.equals("completed")&&Math.abs(measured-target)<=.25));}
         commit(List.of(record("workspace.experiment",active,active.getString("sceneId"))));
     }
     public synchronized JSONObject snapshot(){
@@ -163,10 +164,17 @@ public final class SceneStore implements AutoCloseable {
     public synchronized JSONObject run(JSONObject input) throws Exception {
         begin(input.getString("id"),input.getInt("expectedVersion"),input.optDouble("seconds",.75));advance(active.getInt("targetTicks"));return new JSONObject(active.toString());
     }
+    public synchronized JSONObject controlledRun(JSONObject input,BrainService brain) throws Exception {
+        var scene=read(input.getString("id"));var decision=brain.prediction(scene,input.getDouble("targetM"),input.optBoolean("gpu",false));decision.put("targetM",input.getDouble("targetM"));
+        begin(input.getString("id"),input.getInt("expectedVersion"),.75);active.put("scope","brain-policy").put("controller",decision);
+        physics.push(decision.getDouble("deltaVelocityMps"));advance(active.getInt("targetTicks"));return new JSONObject(active.toString());
+    }
     public synchronized JSONObject replay(String id) throws Exception {
         var previous=require(id,"workspace.experiment");if(physics!=null)throw new IllegalStateException("Reset the current experiment before replay");
         if(previous.optString("scope").equals("manipulation"))return replayBody(previous);
-        beginDefinition(previous.getJSONObject("definition"),previous.getInt("targetTicks")*BulletRamp.DT);active.put("replayOf",id);advance(active.getInt("targetTicks"));return new JSONObject(active.toString());
+        beginDefinition(previous.getJSONObject("definition"),previous.getInt("targetTicks")*BulletRamp.DT);active.put("replayOf",id);
+        if(previous.optString("scope").equals("brain-policy")){active.put("scope","brain-policy").put("controller",new JSONObject(previous.getJSONObject("controller").toString()));physics.push(active.getJSONObject("controller").getDouble("deltaVelocityMps"));}
+        advance(active.getInt("targetTicks"));return new JSONObject(active.toString());
     }
     public synchronized JSONObject runRecord(String id){return require(id,"workspace.experiment");}
     public synchronized JSONObject bodyOperation(String id){return require(id,"workspace.body.operation");}

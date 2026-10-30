@@ -1,0 +1,127 @@
+package fraymus.workspace;
+import fraymus.factory.*;
+import fraymus.neural.*;
+import fraymus.neural.gpu.GlNeuralCompute;
+import brain_architecture.kernel.MerkleAppendOnlyJournal;
+import org.json.*;
+import java.nio.file.*;
+import java.time.Instant;
+import java.util.*;
+import java.util.concurrent.*;
+
+/** Java-owned durable neural jobs, real native experience and gated policy promotion. */
+public final class BrainService implements AutoCloseable {
+    private final Path root;private final SchemaRegistry schemas=new SchemaRegistry();private final FactoryWorld world;private final WorldCheckpointStore checkpoint;
+    private final MerkleAppendOnlyJournal journal;private final ExecutorService worker=Executors.newSingleThreadExecutor(r->{var t=new Thread(r,"java-brain-coordinator");t.setDaemon(true);return t;});
+    private volatile boolean cancel,closed;private String busyId;private NeuromorphicCore cortex;
+    static final String PROTOCOL="native-push-readout-v1";
+    public BrainService(Path project) throws Exception {
+        root=project.resolve("brain");Files.createDirectories(root);
+        for(String type:List.of("job","policy"))schemas.register(new ComponentSchema("workspace.brain."+type,1,Map.of("payload",ComponentSchema.Kind.TEXT),Set.of("payload")));
+        world=new FactoryWorld(schemas);checkpoint=new WorldCheckpointStore(root.resolve("tasks.fworld"));if(Files.exists(checkpoint.path()))world.restore(checkpoint.load(schemas).snapshot());
+        journal=new MerkleAppendOnlyJournal(root.resolve("journal"));
+        var recover=new ArrayList<JSONObject>();for(var e:world.snapshot().entities())if(e.components().get(0).type().endsWith(".job")){var job=value(e);if(Set.of("queued","running").contains(job.getString("status"))){job.put("status","interrupted").put("reason","Coordinator process ended; native trials are not silently resumed");recover.add(job);}}
+        for(var job:recover)save("job",job);
+    }
+    private static JSONObject value(EntityRecord e){return new JSONObject(e.components().get(0).values().get("payload"));}
+    private synchronized List<JSONObject> values(String type){var out=new ArrayList<JSONObject>();for(var e:world.snapshot().entities())if(e.components().get(0).type().equals("workspace.brain."+type))out.add(value(e));return out;}
+    private synchronized void save(String type,JSONObject value) throws Exception {
+        var before=world.snapshot();UUID id=UUID.fromString(value.getString("id"));var existing=before.entities().stream().filter(e->e.id().equals(id)).findFirst();
+        var component=new ComponentRecord(existing.map(e->e.components().get(0).id()).orElse(UUID.randomUUID()),"workspace.brain."+type,1,Map.of("payload",value.toString()));
+        var tx=new WorldTransaction(before);if(existing.isEmpty())tx.add(new WorldTransaction.Create(new EntityRecord(id,type,List.of(component))));else tx.add(new WorldTransaction.Put(id,component));
+        try{tx.commit(world,schemas);checkpoint.save(world.snapshot(),schemas);}catch(Exception error){world.restore(before);throw error;}
+    }
+    public synchronized JSONObject read(String id){return values("job").stream().filter(j->j.getString("id").equals(id)).findFirst().orElseThrow(()->new IllegalArgumentException("Unknown brain job"));}
+    public synchronized JSONObject activePolicy(){
+        var policies=values("policy");return policies.stream().max(Comparator.comparingInt(p->p.getInt("version"))).orElseGet(()->new JSONObject().put("version",1).put("weights",new JSONArray(new float[4])).put("kind","zero-push baseline"));
+    }
+    public synchronized JSONObject state() throws Exception {
+        var jobs=new JSONArray();for(var j:values("job"))jobs.put(new JSONObject().put("id",j.getString("id")).put("kind",j.getString("kind")).put("status",j.getString("status")).put("phase",j.optString("phase")).put("progress",j.optInt("progress")).put("total",j.optInt("total")).put("accepted",j.optBoolean("accepted")).put("reason",j.optString("reason")));
+        var core=new JSONObject().put("module","shared brain-core").put("ready",cortex!=null).put("neurons",cortex==null?0:cortex.neurons()).put("synapses",cortex==null?0:cortex.synapses()).put("ticks",cortex==null?0:cortex.ticks()).put("spikingBackend","Java CPU");
+        return new JSONObject().put("jobs",jobs).put("busy",busyId!=null).put("activePolicy",activePolicy()).put("cortex",core).put("journalEntries",journal.verify().entries()).put("protocol",PROTOCOL);
+    }
+    public synchronized JSONObject start(JSONObject input) throws Exception {
+        if(closed)throw new IllegalStateException("Java coordinator is closed");if(!Set.of("kind","autoPromote").containsAll(input.keySet()))throw new IllegalArgumentException("Unsupported brain job field");
+        if(busyId!=null)throw new IllegalStateException("One Java brain job is active; cancel or wait");if(values("job").size()>=16)throw new IllegalStateException("Brain job history budget reached (16)");
+        String kind=input.getString("kind");if(!Set.of("train","gpu-check","pulse").contains(kind))throw new IllegalArgumentException("Unknown brain job kind");
+        var job=new JSONObject().put("id",UUID.randomUUID().toString()).put("kind",kind).put("status","queued").put("phase","queued").put("createdAt",Instant.now()).put("activeVersionAtStart",activePolicy().getInt("version")).put("autoPromote",input.optBoolean("autoPromote",true)).put("protocol",PROTOCOL);
+        save("job",job);busyId=job.getString("id");cancel=false;
+        var receipt=new JSONObject(job.toString());
+        worker.submit(()->{
+            try{job.put("status","running");update(job,"started");switch(kind){case "train"->train(job);case "gpu-check"->gpuCheck(job);case "pulse"->pulse(job);}checkCancel();job.put("status","completed").put("endedAt",Instant.now());update(job,"completed");}
+            catch(Throwable error){job.put("status",cancel?"cancelled":"failed").put("reason",String.valueOf(error.getMessage())).put("endedAt",Instant.now());try{update(job,"settled");}catch(Exception ignored){}}
+            finally{synchronized(this){busyId=null;}}
+        });
+        return receipt;
+    }
+    private void checkCancel(){if(cancel||closed||Thread.currentThread().isInterrupted())throw new CancellationException("Java brain job cancelled");}
+    private synchronized void update(JSONObject job,String phase) throws Exception {job.put("phase",phase);save("job",job);journal.append("brain-job",phase,Map.of("id",job.getString("id"),"status",job.getString("status"),"payloadSha256",MeasurementStore.hash(job.toString())));}
+    public synchronized JSONObject cancel(String id) throws Exception {if(!Objects.equals(busyId,id))throw new IllegalStateException("This job is not active");cancel=true;return read(id);}
+    static float[] features(JSONObject c){double angle=Math.toRadians(c.getDouble("angleDeg")),g=c.getDouble("gravityMps2");return new float[]{1,(float)(c.getDouble("targetM")/2),(float)(g*Math.sin(angle)/10),(float)(g*c.getDouble("friction")*Math.cos(angle)/10)};}
+    private static List<JSONObject> cases(boolean training){
+        var out=new ArrayList<JSONObject>();int i=0;for(double angle:training?new double[]{10,20,30,40}:new double[]{15,25,35})for(double friction:training?new double[]{0,.15,.3}:new double[]{.05,.25}){
+            double g=training?new double[]{8,9.81,12}[i%3]:new double[]{9.2,10.5}[i%2],target=training?.4+.3*(i%5):new double[]{.6,1.6}[i%2];
+            out.add(new JSONObject().put("angleDeg",angle).put("friction",friction).put("gravityMps2",g).put("massKg",training?new double[]{.5,1,2}[i%3]:new double[]{.75,1.5}[i%2]).put("targetM",target).put("seconds",.75));i++;
+        }return out;
+    }
+    private JSONObject trial(JSONObject c,double dv) throws Exception {
+        checkCancel();var config=RampDefinition.from(new JSONObject().put("angleDeg",c.getDouble("angleDeg")).put("friction",c.getDouble("friction")).put("massKg",c.getDouble("massKg")).put("gravityMps2",c.getDouble("gravityMps2")));
+        var ids=new JSONObject().put("ramp",UUID.randomUUID().toString()).put("block",UUID.randomUUID().toString()).put("ground",UUID.randomUUID().toString());
+        try(var physics=new BulletRamp(config,ids,root.resolve("native"))){physics.push(dv);var samples=new JSONArray().put(physics.sample());for(int t=0;t<180;t++){checkCancel();physics.step();if(physics.tick()%4==0)samples.put(physics.sample());}
+            var state=physics.snapshot();return new JSONObject().put("id",UUID.randomUUID().toString()).put("definition",new JSONObject(c.toString())).put("deltaVelocityMps",dv).put("impulseNs",c.getDouble("massKg")*dv).put("backend",BulletRamp.BACKEND).put("dt",BulletRamp.DT).put("final",state).put("samples",samples).put("errorM",Math.abs(state.getDouble("distanceM")-c.getDouble("targetM")));
+        }
+    }
+    private void train(JSONObject job) throws Exception {
+        var training=cases(true);var validation=cases(false);job.put("trainingDefinitions",new JSONArray(training)).put("validationDefinitions",new JSONArray(validation)).put("selectionRule","Training only: minimum absolute native endpoint error over -2..4 m/s, step 0.5").put("acceptanceRule",new JSONObject().put("minRelativeMeanGain",.3).put("maxValidationErrorM",.25)).put("featureContract","[1, target/2, gravity*sin(angle)/10, gravity*friction*cos(angle)/10]; engineered physical features").put("total",180).put("progress",0).put("training",new JSONArray()).put("validation",new JSONArray());
+        update(job,"collecting native training outcomes");float[][] x=new float[training.size()][];float[] y=new float[training.size()];int index=0;
+        for(var c:training){var trials=new JSONArray();JSONObject best=null;for(int k=0;k<=12;k++){var sample=trial(c,-2+k*.5);trials.put(sample);job.put("progress",job.getInt("progress")+1);if(best==null||sample.getDouble("errorM")<best.getDouble("errorM"))best=sample;}
+            x[index]=features(c);y[index]=(float)(best.getDouble("deltaVelocityMps")/4);job.getJSONArray("training").put(new JSONObject().put("case",c).put("trials",trials).put("selectedTrialId",best.getString("id")));index++;update(job,"collecting native training outcomes");
+        }
+        checkCancel();float[] weights=LinearReadout.train(x,y,12_000,.06f);job.put("weights",new JSONArray(weights));update(job,"training readout complete; selection frozen");
+        double base=0,fit=0,max=0;var cpu=new CpuNeuralCompute();
+        for(var c:training){double dv=Math.max(-4,Math.min(4,cpu.matvec(weights,features(c),1,4)[0]*4));job.getJSONArray("training").getJSONObject(training.indexOf(c)).put("fittedTrial",trial(c,dv));job.put("progress",job.getInt("progress")+1);}
+        for(var c:validation){var baseline=trial(c,0);double dv=Math.max(-4,Math.min(4,cpu.matvec(weights,features(c),1,4)[0]*4));var selected=trial(c,dv);base+=baseline.getDouble("errorM");fit+=selected.getDouble("errorM");max=Math.max(max,selected.getDouble("errorM"));job.getJSONArray("validation").put(new JSONObject().put("case",c).put("baseline",baseline).put("selected",selected));job.put("progress",job.getInt("progress")+2);update(job,"evaluating separate native cases");}
+        base/=validation.size();fit/=validation.size();boolean accepted=fit<=base*.7&&max<=.25;
+        job.put("evaluation",new JSONObject().put("baselineMeanErrorM",base).put("trainedMeanErrorM",fit).put("maxTrainedErrorM",max).put("relativeMeanGain",1-fit/base).put("accepted",accepted)).put("accepted",accepted);
+        if(accepted&&job.getBoolean("autoPromote"))promote(job);else job.put("reason",accepted?"Accepted candidate retained without promotion":"Validation gate rejected; active policy unchanged");
+    }
+    private synchronized void promote(JSONObject job) throws Exception {
+        int current=activePolicy().getInt("version");if(current!=job.getInt("activeVersionAtStart")){job.put("reason","Active policy changed; candidate not promoted");return;}
+        var p=new JSONObject().put("id",UUID.randomUUID().toString()).put("version",current+1).put("kind","native-push-readout").put("weights",job.getJSONArray("weights")).put("jobId",job.getString("id")).put("protocol",PROTOCOL).put("evaluation",job.getJSONObject("evaluation")).put("createdAt",Instant.now());
+        save("policy",p);job.put("promotion",new JSONObject().put("policyId",p.getString("id")).put("version",p.getInt("version")));journal.append("brain-promotion","Validated physical readout activated",Map.of("jobId",job.getString("id"),"version",String.valueOf(p.getInt("version"))));
+    }
+    public synchronized JSONObject rollback(int expectedVersion) throws Exception {
+        if(busyId!=null)throw new IllegalStateException("Wait for the active brain job");var current=activePolicy();if(current.getInt("version")!=expectedVersion||expectedVersion<2)throw new IllegalStateException("Policy changed or no rollback exists");
+        var all=values("policy");var prior=all.stream().filter(p->p.getInt("version")==expectedVersion-1).findFirst().orElseGet(()->new JSONObject().put("weights",new JSONArray(new float[4])));
+        var next=new JSONObject().put("id",UUID.randomUUID().toString()).put("version",expectedVersion+1).put("kind","rollback").put("weights",prior.getJSONArray("weights")).put("rollbackOf",current.getString("id")).put("createdAt",Instant.now());save("policy",next);return next;
+    }
+    public synchronized JSONObject prediction(JSONObject scene,double target,boolean gpu) throws Exception {
+        RampDefinition.range(target,.4,1.8,"target distance");var params=scene.getJSONObject("parameters");
+        RampDefinition.range(params.getDouble("angleDeg"),10,40,"policy angle");RampDefinition.range(params.getDouble("friction"),0,.3,"policy friction");RampDefinition.range(params.getDouble("gravityMps2"),8,12,"policy gravity");RampDefinition.range(params.getDouble("massKg"),.5,2,"policy mass");
+        if(params.getDouble("lengthM")!=12||params.getDouble("widthM")!=3||params.getDouble("offsetZ")!=0)throw new IllegalArgumentException("This policy was evaluated on the default 12 m × 3 m ramp at Z=0; use that geometry");
+        if(busyId!=null)throw new IllegalStateException("Wait for the active brain job");var p=activePolicy();var weights=floats(p.getJSONArray("weights"));var c=new JSONObject(params.toString()).put("targetM",target);
+        try(NeuralCompute compute=gpu?new GlNeuralCompute():new CpuNeuralCompute()){
+            float raw=compute.matvec(weights,features(c),1,4)[0]*4;return new JSONObject().put("policyVersion",p.getInt("version")).put("deltaVelocityMps",Math.max(-4,Math.min(4,raw))).put("backend",compute.device()).put("features",new JSONArray(features(c)));
+        }
+    }
+    private static float[] floats(JSONArray a){float[] out=new float[a.length()];for(int i=0;i<out.length;i++)out[i]=(float)a.getDouble(i);return out;}
+    private void gpuCheck(JSONObject job) throws Exception {
+        update(job,"dispatching actual GPU kernel");var random=new Random(16016);var rows=new JSONArray();
+        try(var gpu=new GlNeuralCompute();var cpu=new CpuNeuralCompute()){
+            job.put("device",gpu.device());
+            for(int[] size:new int[][]{{5,7},{65,33},{1024,128}}){int r=size[0],c=size[1];float[] w=new float[r*c],x=new float[c];for(int i=0;i<w.length;i++)w[i]=random.nextFloat()-.5f;for(int i=0;i<c;i++)x[i]=random.nextFloat()-.5f;
+                var expected=cpu.matvec(w,x,r,c);gpu.matvec(w,x,r,c);double max=0;long cpuNs=0,gpuNs=0;for(int n=0;n<10;n++){checkCancel();long t=System.nanoTime();cpu.matvec(w,x,r,c);cpuNs+=System.nanoTime()-t;t=System.nanoTime();var result=gpu.matvec(w,x,r,c);gpuNs+=System.nanoTime()-t;for(int i=0;i<r;i++)max=Math.max(max,Math.abs(result[i]-expected[i]));}
+                if(max>.0002)throw new IllegalStateException("GPU numerical parity failed");rows.put(new JSONObject().put("rows",r).put("columns",c).put("maxDifference",max).put("tolerance",.0002).put("cpuMeanMs",cpuNs/10e6).put("gpuMeanIncludingTransfersMs",gpuNs/10e6));
+            }
+        }
+        job.put("cases",rows).put("accepted",true).put("scope","Real dense readout kernel; full spiking cortex remains CPU. Transfer overhead included; no automatic speedup claim.");
+    }
+    private void pulse(JSONObject job) throws Exception {
+        update(job,"running shared Java cortex");Path file=root.resolve("cortex.bin");
+        synchronized(this){if(cortex==null)cortex=Files.exists(file)?NeuralCheckpoint.load(file):new NeuromorphicCore(32768,32,618033988L);
+            float[] features={.5f,-.25f,.75f,0};cortex.inject(features);cortex.tick(false);String hash=NeuralCheckpoint.save(cortex,file);
+            job.put("neurons",cortex.neurons()).put("synapses",cortex.synapses()).put("ticks",cortex.ticks()).put("spikes",cortex.spikeCount()).put("checkpointSha256",hash).put("accepted",true).put("scope","Synthetic diagnostic sensory pulse; no gameplay improvement claim and no physical-policy training");
+        }
+    }
+    public void close(){closed=true;cancel=true;worker.shutdown();try{if(!worker.awaitTermination(5,TimeUnit.SECONDS))worker.shutdownNow();}catch(InterruptedException e){Thread.currentThread().interrupt();worker.shutdownNow();}}
+}

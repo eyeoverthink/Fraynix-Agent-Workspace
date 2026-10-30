@@ -13,6 +13,7 @@ def lwjglVersion = '3.3.3'
 def imguiVersion = '1.86.11'
 
 dependencies {
+    implementation project(':brain-core')
     implementation project(':factory-runtime')
     implementation project(':factory-kernel')
     implementation project(':factory-models')

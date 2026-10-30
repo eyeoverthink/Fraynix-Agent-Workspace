@@ -79,6 +79,10 @@ final class BulletRamp implements AutoCloseable {
         catch(RuntimeException e){throw e;}catch(Exception e){throw new IllegalStateException(e);}
     }
     void step(){nativeCall(()->{stepNative();return null;});}
+    void push(double deltaVelocity){
+        RampDefinition.range(deltaVelocity,-4,4,"tangent push velocity");
+        nativeCall(()->{block.applyCentralImpulse(new Vector3f((float)(config.massKg()*deltaVelocity*Math.cos(config.radians())),(float)(-config.massKg()*deltaVelocity*Math.sin(config.radians())),0));return null;});
+    }
     boolean held(){return nativeCall(this::heldNative);}
     void grab(String entityId,String owner,String operation){nativeCall(()->{grabNative(entityId,owner,operation);return null;});}
     void target(double[] position){nativeCall(()->{targetNative(position);return null;});}
