@@ -1,5 +1,13 @@
 # Agent Workspace development log
 
+## 2026-10-30 Edition 018 publication confirmed
+
+Published a9434f1be17fee189751d29cd2113adffbbf03cc to private eyeoverthink/Fraynix-Agent-Workspace main and annotated readme-018 in an atomic push. Remote main and peeled tag matched. Independent qa018-release fetched that exact tag directly from GitHub, passed 18-edition documentation verification (23 canvases, 2,110 references, 293 frozen hashes) and matched all 460 canonical source/asset hashes. Clean source f8d9f84 passed offline 160 Java / 19 desktop units / 47 combined UI checks with no copied private project/model data.
+
+The working release passes 164 workflow groups and four actual gpt-oss:20b memory assertions. The learned numerical world model supports source-fenced no-effect preview, model planning, innovation checks and durable native commands. Native prediction/planning gates pass, while the prior feedback controller still has better mean tracking score. Recorded reality remains rejected at the original1.5cm all-point tolerance; no data, mapping or gates were changed to hide the gap.
+
+README018 (2,560 words), four actual app screenshots, actual native WebM without projected overlay, complete numerical evidence, native run example and working offline viewer/map are frozen. Next unused edition:019. Next gates are independent real calibration/evaluation, broader objects/geometry/contact prediction, sensing uncertainty and provenance-backed live retraining. This follow-up updates continuity only and claims no new executable changes or model training.
+
 ## 2026-10-30 Learned world model and recorded reality · edition 018
 
 The user asked to continue toward world models/reality and selected the existing recorded motion dataset. Protocol commit a1729a97e81ad12f6e43b93e054d416b2af136a3 fixes native fitting/calibration/evaluation, planning and recorded-data gates before the first model experiment; files remain unchanged. Runtime source f8d9f84e9331e2187d52959e8657a57bcdf5d8bc fits five engineered-feature ridge dynamics models (105 coefficients) from512 native transitions, calibrates on128 separate transitions and tests256 further transitions plus32 eight-step rollouts. Native one-step position RMSE0.000566289m, velocity0.024407791m/s; 0.4s rollout position RMSE0.027429568m; empirical joint band coverage82.421875%.
