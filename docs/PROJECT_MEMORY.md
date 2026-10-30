@@ -1,5 +1,8 @@
 # Agent Workspace project memory
 
+Edition021 ready for publication: source a752c99e5a43e72aa56f6c56d11db3add5c2f9f9 independently builds offline and passes183 Java/23 desktop units/87 critical UI groups. All487 canonical source/asset hashes match. Working regression204 workflow groups and actual gpt-oss4 spatial/4 data/5 native-goal groups pass. README021,8 actual screenshots,7 real audit files/standalone report,7-check offline guide and Obsidian map are verified; freeze/tag/main push and direct GitHub fetch are being completed. Source-qualified synthetic results only; no independent real-room calibration, universal learned dynamics or online model training.019 review remains open and untouched.
+
+
 Edition021 release candidate:183 Java tests/36 classes,23 desktop units and204 workflow assertion groups pass. Actual gpt-oss:20b passes4 spatial create/reuse,4 data and5 native-goal groups. Final spatial UI retest passes14 groups after automatic forecast/trace and report scaling corrections. Initial lateral route endpoint error0.000050192m; changed low/wide obstacle with1.5kg crate selects over, error0.000000119m. Both native forecast residual maxima0 under shared-solver conditions; not independent real-world validation. Cancellation/restart/explicit new-attempt recovery, stable IDs and original-text export pass. Independent clean checkout, README021/images/offline guide/source hashes and main publication are next.019 review remains open and separate.
 
 

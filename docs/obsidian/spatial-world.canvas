@@ -1,0 +1,168 @@
+{
+  "nodes": [
+    {
+      "id": "overview",
+      "type": "file",
+      "file": "docs/obsidian/29-spatial-world.md",
+      "x": 0,
+      "y": 0,
+      "width": 540,
+      "height": 300
+    },
+    {
+      "id": "import",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/SpatialScene.java",
+      "x": -620,
+      "y": 400,
+      "width": 540,
+      "height": 300
+    },
+    {
+      "id": "native",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/SpatialPhysics.java",
+      "x": 0,
+      "y": 400,
+      "width": 540,
+      "height": 300
+    },
+    {
+      "id": "forecast",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/SpatialStore.java",
+      "x": 620,
+      "y": 400,
+      "width": 540,
+      "height": 300
+    },
+    {
+      "id": "runner",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/GoalRunner.java",
+      "x": -620,
+      "y": 800,
+      "width": 540,
+      "height": 300
+    },
+    {
+      "id": "view",
+      "type": "file",
+      "file": "workspace-desktop/renderer/spatial-panel.js",
+      "x": 0,
+      "y": 800,
+      "width": 540,
+      "height": 300
+    },
+    {
+      "id": "chat",
+      "type": "file",
+      "file": "workspace-desktop/goals.cjs",
+      "x": 620,
+      "y": 800,
+      "width": 540,
+      "height": 300
+    },
+    {
+      "id": "report",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/SpatialReport.java",
+      "x": -620,
+      "y": 1200,
+      "width": 540,
+      "height": 300
+    },
+    {
+      "id": "skills",
+      "type": "file",
+      "file": "workspace-desktop/renderer/goals-panel.js",
+      "x": 0,
+      "y": 1200,
+      "width": 540,
+      "height": 300
+    },
+    {
+      "id": "next",
+      "type": "file",
+      "file": "docs/SPATIAL_WORLD.md",
+      "x": 620,
+      "y": 1200,
+      "width": 540,
+      "height": 300
+    }
+  ],
+  "edges": [
+    {
+      "id": "edge-import",
+      "fromNode": "overview",
+      "fromSide": "bottom",
+      "toNode": "import",
+      "toSide": "top",
+      "label": "verified"
+    },
+    {
+      "id": "edge-native",
+      "fromNode": "overview",
+      "fromSide": "bottom",
+      "toNode": "native",
+      "toSide": "top",
+      "label": "verified"
+    },
+    {
+      "id": "edge-forecast",
+      "fromNode": "overview",
+      "fromSide": "bottom",
+      "toNode": "forecast",
+      "toSide": "top",
+      "label": "verified"
+    },
+    {
+      "id": "edge-runner",
+      "fromNode": "overview",
+      "fromSide": "bottom",
+      "toNode": "runner",
+      "toSide": "top",
+      "label": "verified"
+    },
+    {
+      "id": "edge-view",
+      "fromNode": "overview",
+      "fromSide": "bottom",
+      "toNode": "view",
+      "toSide": "top",
+      "label": "verified"
+    },
+    {
+      "id": "edge-chat",
+      "fromNode": "overview",
+      "fromSide": "bottom",
+      "toNode": "chat",
+      "toSide": "top",
+      "label": "verified"
+    },
+    {
+      "id": "edge-report",
+      "fromNode": "overview",
+      "fromSide": "bottom",
+      "toNode": "report",
+      "toSide": "top",
+      "label": "verified"
+    },
+    {
+      "id": "edge-skills",
+      "fromNode": "overview",
+      "fromSide": "bottom",
+      "toNode": "skills",
+      "toSide": "top",
+      "label": "verified"
+    },
+    {
+      "id": "edge-next",
+      "fromNode": "overview",
+      "fromSide": "bottom",
+      "toNode": "next",
+      "toSide": "top",
+      "label": "planned"
+    }
+  ]
+}

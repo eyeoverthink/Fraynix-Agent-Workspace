@@ -1,0 +1,161 @@
+{
+  "date": "2026-10-30",
+  "modules": [
+    {
+      "id": "import",
+      "name": "Declared-scale scene import",
+      "status": "verified",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/SpatialScene.java",
+      "summary": "Strict units/frame/reference, qualified source/material labels and stable imported identities.",
+      "note": "docs/obsidian/29-spatial-world.md"
+    },
+    {
+      "id": "native",
+      "name": "Actual native manipulation",
+      "status": "verified",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/SpatialPhysics.java",
+      "summary": "240 Hz Bullet, force-limited constraint, actual collision response and velocity-preserving release.",
+      "note": "docs/obsidian/29-spatial-world.md"
+    },
+    {
+      "id": "forecast",
+      "name": "Isolated candidate forecasts",
+      "status": "verified",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/SpatialStore.java",
+      "summary": "Direct/over/lateral native forks; shortest passing route, bounded search and reconstructed residuals.",
+      "note": "docs/obsidian/29-spatial-world.md"
+    },
+    {
+      "id": "runner",
+      "name": "Shared durable Java goals",
+      "status": "verified",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/GoalRunner.java",
+      "summary": "Third family; frozen source/object, native effect identity, explicit recovery and exact report receipt.",
+      "note": "docs/obsidian/29-spatial-world.md"
+    },
+    {
+      "id": "view",
+      "name": "Integrated spatial view",
+      "status": "verified",
+      "source": "workspace-desktop/renderer/spatial-panel.js",
+      "summary": "Real native transforms, selection, source labels, predicted/actual traces and ray-based visibility.",
+      "note": "docs/obsidian/29-spatial-world.md"
+    },
+    {
+      "id": "chat",
+      "name": "Local chat task selection",
+      "status": "verified",
+      "source": "workspace-desktop/goals.cjs",
+      "summary": "Semantic options and actual host binding; exact explicit displacement and named registry reuse.",
+      "note": "docs/obsidian/29-spatial-world.md"
+    },
+    {
+      "id": "report",
+      "name": "Chart and seven audit files",
+      "status": "verified",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/SpatialReport.java",
+      "summary": "Original/normalized scene, full native run, forecasts, CSV and eight actual canvas checks.",
+      "note": "docs/obsidian/29-spatial-world.md"
+    },
+    {
+      "id": "skills",
+      "name": "Source-qualified procedural reuse",
+      "status": "verified",
+      "source": "workspace-desktop/renderer/goals-panel.js",
+      "summary": "Explicit new scene/object, changed obstacle/mass and newly selected route; no arbitrary executable recipe.",
+      "note": "docs/obsidian/29-spatial-world.md"
+    },
+    {
+      "id": "next",
+      "name": "Independent capture and richer colliders",
+      "status": "planned",
+      "source": "docs/SPATIAL_WORLD.md",
+      "summary": "Measured geometry/uncertainty, complete mesh workflow and independently evaluated learning remain next gates.",
+      "note": "docs/obsidian/29-spatial-world.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "docs/readmes/021/images/spatial-import-021.png",
+      "caption": "Actual synthetic scene import: explicit centimetres, declared metre reference, qualified source and persistent objects."
+    },
+    {
+      "path": "docs/readmes/021/images/spatial-forecast-021.png",
+      "caption": "Actual isolated native forecasts: blocked direct route and feasible alternatives, with displayed state unchanged."
+    },
+    {
+      "path": "docs/readmes/021/images/spatial-moving-021.png",
+      "caption": "Actual native constraint holding and moving the crate; no viewport teleport."
+    },
+    {
+      "path": "docs/readmes/021/images/spatial-completed-021.png",
+      "caption": "Actual released crate and native motion trace after verified completion."
+    },
+    {
+      "path": "docs/readmes/021/images/spatial-report-021.png",
+      "caption": "Actual predicted-versus-actual chart and passing eight-assertion report."
+    },
+    {
+      "path": "docs/readmes/021/images/spatial-skill-021.png",
+      "caption": "Actual saved procedure inspector with explicit changed-scene/object binding."
+    },
+    {
+      "path": "docs/readmes/021/images/spatial-chat-021.png",
+      "caption": "Actual gpt-oss:20b chat completes and retains the spatial procedure."
+    },
+    {
+      "path": "docs/readmes/021/images/spatial-chat-reuse-021.png",
+      "caption": "Actual named chat reuse binds a different source and verifies a newly selected over route."
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/readmes/021/verification.json"
+    },
+    {
+      "path": "docs/readmes/021/spatial-integration.json"
+    },
+    {
+      "path": "docs/readmes/021/live-spatial.json"
+    },
+    {
+      "path": "docs/readmes/021/live-data-goals.json"
+    },
+    {
+      "path": "docs/readmes/021/live-goals.json"
+    },
+    {
+      "path": "docs/readmes/021/regressions.json"
+    },
+    {
+      "path": "docs/readmes/021/examples/verified-spatial-report.html"
+    },
+    {
+      "path": "docs/readmes/021/examples/original-scene.json"
+    },
+    {
+      "path": "docs/readmes/021/examples/normalized-scene.json"
+    },
+    {
+      "path": "docs/readmes/021/examples/native-run.json"
+    },
+    {
+      "path": "docs/readmes/021/examples/prediction.json"
+    },
+    {
+      "path": "docs/readmes/021/examples/motion.csv"
+    },
+    {
+      "path": "docs/readmes/021/examples/verification.json"
+    },
+    {
+      "path": "docs/readmes/021/examples/changed-scene.json"
+    },
+    {
+      "path": "docs/readmes/021/file-inventory.json"
+    },
+    {
+      "path": "docs/readmes/021/FILE_TREE.md"
+    }
+  ]
+}

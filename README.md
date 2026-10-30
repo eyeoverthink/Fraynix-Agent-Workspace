@@ -2,11 +2,11 @@
 
 **A local visual environment for agents to browse, create runnable artifacts, test behavior and reuse verified skills.**
 
-> **Latest implementation: [README 020 — verified offline data procedures](README-020.md)** · [Offline explorer](docs/readmes/020/index.html) · [Runtime contract](docs/MOTION_DATA_PROCEDURES.md) · [Edition history](docs/readmes/INDEX.md)
+> **Latest implementation: [README 021 — source-qualified spatial worlds](README-021.md)** · [Offline explorer](docs/readmes/021/index.html) · [Runtime contract](docs/SPATIAL_WORLD.md) · [Edition history](docs/readmes/INDEX.md)
 
-Java now completes both physical and local-data procedures. Import motion CSV with explicit units, preserve source/version hashes, derive motion and quality flags, verify real charts and retain a procedure that recomputes on another selected source. Existing world-model goals and interrupted-task recovery remain available. [Functions, verification, limits and next steps](README-020.md).
+Import a labelled, declared-scale box scene; forecast native routes; actually grab, move and release an object; compare predicted/actual motion and retain a skill that replans on a newly selected scene. The game, learned ramp predictor, data procedures, browser and creation canvas remain available. [Functions, verification, limits and next steps](README-021.md).
 
-The next spatial research direction is documented in the [world-model frontier assessment](docs/WORLD_MODEL_FRONTIERS.md), including Genie, persistent3D capture, physics-aware prediction and a proposed local scene/manipulation milestone.
+The spatial proof and next independent-capture gates are documented in the [spatial contract](docs/SPATIAL_WORLD.md) and the [world-model frontier assessment](docs/WORLD_MODEL_FRONTIERS.md), including Genie, persistent3D capture, physics-aware prediction and the source-qualified local scene/manipulation milestone.
 
 Independent successor to [Fraynix Studio](https://github.com/eyeoverthink/Fraynix-Studio), starting from verified commit `6341404`. The original application and personal project state remain separate. Full game sources, assets, licenses and earlier editions are preserved here.
 
@@ -18,7 +18,7 @@ The app includes a real browser, live creation canvas, editable source, versione
 
 Local `gpt-oss:20b` is the verified default for the first agent fixture. The custom FRAYNIX 3B trial returned an Ollama native-format error; advertised tool capability alone does not establish task reliability. You can select other eligible installed models explicitly.
 
-![Actual chat-driven offline data procedure](docs/readmes/020/images/data-chat-020.png)
+![Actual chat-driven spatial manipulation and reuse](docs/readmes/021/images/spatial-chat-021.png)
 
 October 30 actual body/scene/file workflows. Native actuation, decoded video, import/replication, Java/desktop regressions and local-agent evidence are recorded in [edition 015 verification](docs/readmes/015/verification.json). The previous [real-data fit](README-013.md) remains rejected.
 

@@ -1,0 +1,194 @@
+{
+  "date": "2026-10-30",
+  "sourceBaseline": "a752c99e5a43e72aa56f6c56d11db3add5c2f9f9",
+  "releaseKind": "source-qualified-native-spatial-manipulation",
+  "sourceInventory": 487,
+  "contractSha256": "6ad349746f339a6a7b19e6b3628395265064772a3c729b9b691e23b68af45ef5",
+  "declaration": "Synthetic cases and physical gates declared before first execution; local development fixtures, not untouched benchmark",
+  "initial": {
+    "forecastMaxErrorM": 0,
+    "grabs": 1,
+    "maxGripEndpointErrorM": 3.2641218307618527e-07,
+    "forecastRmseM": 0,
+    "samples": 266,
+    "releases": 1,
+    "route": "left",
+    "sourceKind": "synthetic",
+    "verticalErrorM": 2.9802322387695312e-08,
+    "passed": true,
+    "terminalSpeedMps": 4.893745787276532e-05,
+    "horizontalErrorM": 5.019225104818921e-05,
+    "scaleIndependentlyCalibrated": false
+  },
+  "changed": {
+    "forecastMaxErrorM": 0,
+    "grabs": 1,
+    "maxGripEndpointErrorM": 4.6399404102711486e-07,
+    "forecastRmseM": 0,
+    "samples": 315,
+    "releases": 1,
+    "route": "over",
+    "sourceKind": "synthetic",
+    "verticalErrorM": 2.9802322387695312e-08,
+    "passed": true,
+    "terminalSpeedMps": 4.346469810174415e-07,
+    "horizontalErrorM": 1.1920928955078125e-07,
+    "scaleIndependentlyCalibrated": false
+  },
+  "recovery": {
+    "attempt": 2,
+    "resumes": 1
+  },
+  "spatialUiGroups": 14,
+  "liveSpatial": {
+    "model": "gpt-oss:20b",
+    "checks": 4,
+    "firstCalls": [
+      "spatial.start",
+      "goal.read"
+    ],
+    "reuseCalls": [
+      "procedure.run",
+      "goal.read"
+    ]
+  },
+  "regressions": {
+    "passed": true,
+    "javaTests": 183,
+    "javaClasses": 36,
+    "desktopUnitTests": 23,
+    "spatialUiChecks": 14,
+    "liveSpatialChecks": 4,
+    "suites": {
+      "data-goals-integration": {
+        "passed": true,
+        "checks": 12,
+        "seconds": 16.19
+      },
+      "goals-integration": {
+        "passed": true,
+        "checks": 14,
+        "seconds": 54.95
+      },
+      "world-model-integration": {
+        "passed": true,
+        "checks": 15,
+        "seconds": 13.71
+      },
+      "feedback-integration": {
+        "passed": true,
+        "checks": 12,
+        "seconds": 14.29
+      },
+      "brain-game-integration": {
+        "passed": true,
+        "checks": 10,
+        "seconds": 16.07
+      },
+      "body-integration": {
+        "passed": true,
+        "checks": 10,
+        "seconds": 7.54
+      },
+      "observer-integration": {
+        "passed": true,
+        "checks": 12,
+        "seconds": 5.15
+      },
+      "scene-integration": {
+        "passed": true,
+        "checks": 12,
+        "seconds": 6.01
+      },
+      "measurement-integration": {
+        "passed": true,
+        "checks": 10,
+        "seconds": 5.12
+      },
+      "calibration-integration": {
+        "passed": true,
+        "checks": 8,
+        "seconds": 9.03
+      },
+      "real-data-delfys": {
+        "passed": true,
+        "checks": 9,
+        "seconds": 4.53
+      },
+      "integration": {
+        "passed": true,
+        "checks": 12,
+        "seconds": 25.4
+      },
+      "learning-integration": {
+        "passed": true,
+        "checks": 9,
+        "seconds": 26.05
+      },
+      "broader-validation": {
+        "passed": true,
+        "checks": 45,
+        "seconds": 15.29
+      },
+      "live-data-goals": {
+        "passed": true,
+        "checks": 4,
+        "seconds": 84.19
+      },
+      "live-goals": {
+        "passed": true,
+        "checks": 5,
+        "seconds": 54.38
+      }
+    }
+  },
+  "freshClone": {
+    "status": "passed",
+    "checkout": "fraynix-workspace-qa021-release",
+    "sourceCommit": "a752c99e5a43e72aa56f6c56d11db3add5c2f9f9",
+    "javaTests": 183,
+    "desktopUnitTests": 23,
+    "bodyUiChecks": 10,
+    "brainGameUiChecks": 10,
+    "feedbackUiChecks": 12,
+    "worldModelUiChecks": 15,
+    "goalUiChecks": 14,
+    "dataGoalUiChecks": 12,
+    "offlineBuild": true,
+    "modelWeightsOrPrivateRuntimeCopied": false,
+    "electronBinary": "Pinned 45.1.0 executable reused from existing dependency cache after npm ci --offline --ignore-scripts",
+    "spatialUiChecks": 14,
+    "uiChecks": 87,
+    "canonicalSourceHashesMatched": 487
+  },
+  "documentationQa": {
+    "status": "passed",
+    "checks": [
+      "Offline companion loads nine source-linked modules with no runtime service",
+      "Architecture selection and all/verified/planned filters work",
+      "Canonical source inventory search resolves actual Java spatial implementation",
+      "All eight dated actual application screenshots decode and have captions",
+      "Navigation, inventory search and map selection work at390px without horizontal overflow",
+      "Standalone actual report opens offline with predicted and actual native motion charts",
+      "No script errors, external requests or CDN dependencies"
+    ]
+  },
+  "scope": [
+    "Clearly labelled synthetic box scene; reference verifies declared unit conversion only",
+    "Native forward prediction shares execution solver/parameters; zero residual is consistency, not independent physical validity",
+    "Third registered Java procedural family; every reuse explicitly binds a fresh scene/object and replans",
+    "Actual native constraint, gravity/contact and velocity-preserving release; no viewport teleport",
+    "Structured ray visibility distinguishes known and visible; no arbitrary image recognition claim",
+    "No external weights, cloud world-model service, robot actuation or online LLM training installed",
+    "Existing learned ramp model and rejected recorded-reality action forecast unchanged",
+    "Original Studio, default project, model services and isolated019 review preserved"
+  ],
+  "developmentCorrections": [
+    "Static bodies use zero velocity instead of calling a dynamic-only native getter",
+    "Original source text survives export without JSON reformatting",
+    "In-memory native timestamps are stored as strings for immediate history reads",
+    "Test file import waits for the real panel ready/enable state instead of racing asynchronous reopening",
+    "New native run clears prior trace, automatically reads its forecast and keeps agent-owned inputs disabled",
+    "Report chart scales to actual/predicted X range instead of assuming the fixture coordinates"
+  ]
+}

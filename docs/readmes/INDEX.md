@@ -25,4 +25,6 @@ Numbered editions preserve dated system behavior and evidence. The root [README]
 | [019](../../README-019.md) | 2026-10-30 | Chat-connected durable Java goals, verified motion reports and reusable procedural skills | [Viewer](019/index.html) · [evidence](019/verification.json) · [contract](../GOALS_AND_SKILLS.md) |
 | [020](../../README-020.md) | 2026-10-30 | Verified offline CSV/motion procedures, honest quality flags and named new-source reuse | [Viewer](020/index.html) · [evidence](020/verification.json) · [contract](../MOTION_DATA_PROCEDURES.md) |
 
-Latest implementation/documentation edition: **020**. Earlier snapshots remain intact. See [sequence policy](README_SEQUENCE.md) and [manifest](editions.json).
+| [021](../../README-021.md) | 2026-10-30 | Declared-scale spatial imports, actual native manipulation, isolated forecasts and new-scene procedural reuse | [Viewer](021/index.html) · [evidence](021/verification.json) · [contract](../SPATIAL_WORLD.md) |
+
+Latest implementation/documentation edition: **021**. Earlier snapshots remain intact. See [sequence policy](README_SEQUENCE.md) and [manifest](editions.json).

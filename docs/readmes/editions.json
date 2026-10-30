@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "latest": 20,
+  "latest": 21,
   "canonicalization": "UTF-8 without BOM; CRLF normalized to LF for text",
   "editions": [
     {
@@ -1871,6 +1871,155 @@
           "path": "docs/readmes/020/verification.json",
           "kind": "text",
           "sha256": "23f9a21d77d58187c6fe1ff710c073295330646777226f2eb130310fb9644787"
+        }
+      ]
+    },
+    {
+      "number": 21,
+      "date": "2026-10-30",
+      "title": "Source-qualified spatial worlds and verified manipulation",
+      "status": "published",
+      "markdown": "README-021.md",
+      "markdownSha256": "76fd4ab1492699d97082dc4933bff7aa6c4d0793d828cc09329cc327b9201718",
+      "snapshotDirectory": "docs/readmes/021",
+      "companion": "docs/readmes/021/index.html",
+      "tag": "readme-021",
+      "sourceBaseline": "a752c99e5a43e72aa56f6c56d11db3add5c2f9f9",
+      "snapshotFiles": [
+        {
+          "path": "docs/readmes/021/acceptance-021.json",
+          "kind": "text",
+          "sha256": "a90569c44f4860697ec8ae657fbc3bda5aec9e896a45ce0e2a16a83b3c8c5378"
+        },
+        {
+          "path": "docs/readmes/021/examples/changed-scene.json",
+          "kind": "text",
+          "sha256": "9c342b4e81cc34bd81e723e95acc98f2f7f818c5d9a426eb7bafbe70677023a8"
+        },
+        {
+          "path": "docs/readmes/021/examples/motion.csv",
+          "kind": "text",
+          "sha256": "468a042c469fb13da81d6e9c6d63000369cc8368573ecc280879fdd7f04b8646"
+        },
+        {
+          "path": "docs/readmes/021/examples/native-run.json",
+          "kind": "text",
+          "sha256": "34e7b370fb2fcdda0934e0ef800da02ae4ef97a85cdd351c1c85a407117515af"
+        },
+        {
+          "path": "docs/readmes/021/examples/normalized-scene.json",
+          "kind": "text",
+          "sha256": "8e09fb2a72b9dfd742e5ba194305bd270a4907ef22ca042752a049ac80abcd7c"
+        },
+        {
+          "path": "docs/readmes/021/examples/original-scene.json",
+          "kind": "text",
+          "sha256": "45ca8eab81b6635de8b94bac89617347a58b102df1bf1c7e8a0ad1114068ae9a"
+        },
+        {
+          "path": "docs/readmes/021/examples/prediction.json",
+          "kind": "text",
+          "sha256": "66a9bf9746c0475c2f5e94806ac8c680590f24e27e031839921fb8eeebad8134"
+        },
+        {
+          "path": "docs/readmes/021/examples/verification.json",
+          "kind": "text",
+          "sha256": "ffda2c7340d0ecc97980909bbe447a50cc87c45735793ce147a4e4eb097139d9"
+        },
+        {
+          "path": "docs/readmes/021/examples/verified-spatial-report.html",
+          "kind": "text",
+          "sha256": "b3831db3e5e620525f359e6c595f6aecacf20974de9fb1b149093e5ac86bf337"
+        },
+        {
+          "path": "docs/readmes/021/file-inventory.json",
+          "kind": "text",
+          "sha256": "1a55725ffa34fee58b3f27554dc506cf9afa56496909503751d7887058f97540"
+        },
+        {
+          "path": "docs/readmes/021/FILE_TREE.md",
+          "kind": "text",
+          "sha256": "e38570962c2cea2276ffb231877994270a1998278b1b3105d215a1554f1d654d"
+        },
+        {
+          "path": "docs/readmes/021/images/spatial-chat-021.png",
+          "kind": "binary",
+          "sha256": "c39e2c142f9ee8492b1b3846d66c1419d4dc3da17078f45b355c0892e8426598"
+        },
+        {
+          "path": "docs/readmes/021/images/spatial-chat-reuse-021.png",
+          "kind": "binary",
+          "sha256": "d1b03f94f1f653c709a6e69782be848da83ac2c2a57b362ead2ffee8d262ee74"
+        },
+        {
+          "path": "docs/readmes/021/images/spatial-completed-021.png",
+          "kind": "binary",
+          "sha256": "f4dbd66e6ad55ad2f5956043c228ecfb5fd6c5686dba8f1ecec39d7f00691e9d"
+        },
+        {
+          "path": "docs/readmes/021/images/spatial-forecast-021.png",
+          "kind": "binary",
+          "sha256": "ec5bb1c5a6593d799227fb1fded18c4c7d74ed9bb2be8a66589cf81560900ddc"
+        },
+        {
+          "path": "docs/readmes/021/images/spatial-import-021.png",
+          "kind": "binary",
+          "sha256": "b6036b90c94af844241ecdeff4ec65d2b82b3a8e7ba12f62cfb4930da974b590"
+        },
+        {
+          "path": "docs/readmes/021/images/spatial-moving-021.png",
+          "kind": "binary",
+          "sha256": "e6079701a425e8fef972224e3e24852247a9429982931047e04db77b5864b024"
+        },
+        {
+          "path": "docs/readmes/021/images/spatial-report-021.png",
+          "kind": "binary",
+          "sha256": "aaf209871b97eff018950e306ccec9001cf42b803fa0470ecd66f040e80123b8"
+        },
+        {
+          "path": "docs/readmes/021/images/spatial-skill-021.png",
+          "kind": "binary",
+          "sha256": "bfefe321537d7a42285103be8504ddb4b5734bc9ec523459bdda4f0e8e5ef4e6"
+        },
+        {
+          "path": "docs/readmes/021/index.html",
+          "kind": "text",
+          "sha256": "73bba24c0b024bd0fd3523b16e5812345e7194aba92c94261c6ea5c4308eb50b"
+        },
+        {
+          "path": "docs/readmes/021/live-data-goals.json",
+          "kind": "text",
+          "sha256": "93f001a9d1e99b964d3b6a73ca7f1b91909b86478b05fb9be171c5112df50e7a"
+        },
+        {
+          "path": "docs/readmes/021/live-goals.json",
+          "kind": "text",
+          "sha256": "5d324ed3458830844125498661a0b9d9fb87f8fda109b0ef62b5607c98b5220d"
+        },
+        {
+          "path": "docs/readmes/021/live-spatial.json",
+          "kind": "text",
+          "sha256": "b7c2379a6a440e7e107b0aefb90e7e6670451f28414e0ecc403c8c76514855bc"
+        },
+        {
+          "path": "docs/readmes/021/regressions.json",
+          "kind": "text",
+          "sha256": "b4c9178eadc00cad4943845e4700fa10e2368afd45468ce5bbf8648db463bca2"
+        },
+        {
+          "path": "docs/readmes/021/spatial-integration.json",
+          "kind": "text",
+          "sha256": "ceb04f6f38960c75c8089da06d2837a03f232feac49ad289791ff470dc6a4645"
+        },
+        {
+          "path": "docs/readmes/021/system-map.json",
+          "kind": "text",
+          "sha256": "741cbe7088b5f82459812aa7d78bb1ae6b61952e08b7cc5ba7586c6e0451d7d3"
+        },
+        {
+          "path": "docs/readmes/021/verification.json",
+          "kind": "text",
+          "sha256": "7c4c24a7e2b4742055dc793812b982ba783d93bebdbe687c3832f2761bc0bf95"
         }
       ]
     }

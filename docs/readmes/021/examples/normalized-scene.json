@@ -1,0 +1,103 @@
+{
+  "importedAt": "2026-10-30T21:20:32.997511700Z",
+  "objects": [
+    {
+      "sourceId": "floor",
+      "bodyType": "static",
+      "size": [
+        8,
+        0.4,
+        6
+      ],
+      "restitution": 0,
+      "rotation": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "id": "19798adc-c34b-3785-a380-a5e2201ee0c2",
+      "label": "Floor",
+      "position": [
+        0,
+        -0.2,
+        0
+      ],
+      "massKg": 0,
+      "friction": 0.6
+    },
+    {
+      "sourceId": "obstacle",
+      "bodyType": "static",
+      "size": [
+        0.6,
+        1,
+        1.5
+      ],
+      "restitution": 0,
+      "rotation": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "id": "971d46f5-6b3f-36c9-9e97-7f52fbb8bf51",
+      "label": "Blocking obstacle",
+      "position": [
+        0,
+        0.5,
+        0
+      ],
+      "massKg": 0,
+      "friction": 0.6
+    },
+    {
+      "sourceId": "crate",
+      "bodyType": "dynamic",
+      "size": [
+        0.5,
+        0.5,
+        0.5
+      ],
+      "restitution": 0,
+      "rotation": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "id": "c723407d-545a-3da7-bd0f-bce1da506543",
+      "label": "Movable crate",
+      "position": [
+        -2,
+        0.25,
+        0
+      ],
+      "massKg": 1,
+      "friction": 0.4
+    }
+  ],
+  "format": "fraynix.spatial-scene",
+  "sourceText": "{\n  \"format\": \"fraynix.spatial-scene\", \"version\": 1,\n  \"title\": \"Synthetic metre reference \u2014 crate and obstacle\", \"units\": \"cm\", \"frame\": \"right-handed-y-up\",\n  \"source\": {\"kind\": \"synthetic\", \"note\": \"Authored test fixture, not a captured room or measured apparatus. Positions are centimetres; physical properties are declared.\", \"physicalProperties\": \"declared\"},\n  \"scaleReference\": {\"a\": [0,0,0], \"b\": [100,0,0], \"knownLengthM\": 1, \"toleranceM\": 0.001, \"basis\": \"declared-test\"},\n  \"gravityMps2\": 9.81,\n  \"objects\": [\n    {\"sourceId\": \"floor\", \"label\": \"Floor\", \"shape\": \"box\", \"position\": [0,-20,0], \"rotation\": [0,0,0,1], \"size\": [800,40,600], \"massKg\": 0, \"friction\": 0.6, \"restitution\": 0},\n    {\"sourceId\": \"obstacle\", \"label\": \"Blocking obstacle\", \"shape\": \"box\", \"position\": [0,50,0], \"rotation\": [0,0,0,1], \"size\": [60,100,150], \"massKg\": 0, \"friction\": 0.6, \"restitution\": 0},\n    {\"sourceId\": \"crate\", \"label\": \"Movable crate\", \"shape\": \"box\", \"position\": [-200,25,0], \"rotation\": [0,0,0,1], \"size\": [50,50,50], \"massKg\": 1, \"friction\": 0.4, \"restitution\": 0}\n  ]\n}\n",
+  "units": "m",
+  "source": {
+    "note": "Authored test fixture, not a captured room or measured apparatus. Positions are centimetres; physical properties are declared.",
+    "kind": "synthetic",
+    "physicalProperties": "declared"
+  },
+  "title": "Synthetic metre reference \u2014 crate and obstacle",
+  "version": 1,
+  "gravityMps2": 9.81,
+  "sourceUnits": "cm",
+  "sourceSha256": "45ca8eab81b6635de8b94bac89617347a58b102df1bf1c7e8a0ad1114068ae9a",
+  "id": "6ba96155-40ed-491a-9fcb-6cba766e5025",
+  "scaleCheck": {
+    "independentlyCalibrated": false,
+    "toleranceM": 0.001,
+    "knownLengthM": 1,
+    "passed": true,
+    "basis": "declared-test",
+    "convertedLengthM": 1
+  },
+  "frame": "right-handed-y-up"
+}
