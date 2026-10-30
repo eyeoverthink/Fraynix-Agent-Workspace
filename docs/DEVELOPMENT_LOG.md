@@ -1,5 +1,12 @@
 # Agent Workspace development log
 
+## 2026-10-30 Edition 013 publication confirmed
+
+Published c825a9b7d318ddddab13053dfc0d53f3fe68ebac to private eyeoverthink/Fraynix-Agent-Workspace main and annotated readme-013 in an atomic push. Remote main and the peeled tag matched. A separate checkout fetched that exact release directly from GitHub, passed thirteen-edition documentation verification (eighteen canvases, 1,671 references, 196 frozen hashes) and matched all 404 canonical source/asset hashes.
+
+The release preserves the actual failed physical validation, reproducible real observations, source hashes/assumptions, actual offline report and targeted JING source/weight-metadata assessment. No JING inference or model-weight training is claimed. README 013, its snapshot assets and the versioned dataset case are frozen. Next unused edition is 014. This publication/continuity follow-up changes no executable source or frozen evidence and claims no additional runtime test run.
+
+
 ## 2026-10-30 Real recorded data and JING assessment · edition 013
 
 The user requested real data/results, then supplied the downloaded XGEN-JING release for functionality/weight/concept assessment. Preserved the native app and previous objectives. Located the Downloads ZIP, verified CRC and seven key file hashes against upstream 41c41ae9a1dbe5213e8733bbebeaebe297afa7a7. The archive has code/examples/assets and no weights. Reviewed control/packing/attention/configuration/inference/loader interfaces, license/notice and small weight config/index metadata. This is a targeted static assessment, not an inference/training claim. The published transformer tensor size is 66,885,622,272 bytes across fifteen shards. Current hardware is a 6 GB GTX 1660 Ti versus the published six-H100 validation stack. Documented material community-license terms and the distinction between released bidirectional demo and described DAO/causal/memory/training capabilities. No weights, CUDA stack, cloud resources or paid provider were installed.
@@ -10,7 +17,7 @@ The actual visible workflow executes seventeen native candidates/twenty operatio
 
 The final narrow-report check exposed long provenance-hash overflow. Commit 177e4a0 corrects paragraph wrapping; the report was regenerated through the actual app and verified wide/390px. Source/replay commits are 9d815e4 and 7959850. A separate clean checkout builds offline, reproduces raw-source extraction/CSV identity, passes focused native/desktop/real-data checks and matches 404 canonical source/asset hashes. Earlier solver/broader regression evidence stays historical; no new full-model or physical-policy training occurred.
 
-README 013 (2,150 words), four actual source/app/computed images, scientific PDF, standalone actual report, source/data/provenance evidence, offline explorer and Obsidian map are prepared. Next: a functioning native first-person observer and immutable state/tick-linked conditions/references/history, then an executable eligible media renderer. Apparatus/camera/release calibration and fresh recordings are needed for stronger physical validation. Publication confirmation follows.
+README 013 (2,150 words), four actual source/app/computed images, scientific PDF, standalone actual report, source/data/provenance evidence, offline explorer and Obsidian map are prepared. Next: a functioning native first-person observer and immutable state/tick-linked conditions/references/history, then an executable eligible media renderer. Apparatus/camera/release calibration and fresh recordings are needed for stronger physical validation. Publication is confirmed in the entry above.
 
 
 ## 2026-10-30 Edition 012 publication confirmed
