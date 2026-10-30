@@ -56,3 +56,10 @@ GitHub links: [README 001](../../README-001.md), [interactive companion](../read
 - [[README-011|Measurement imports and native comparison reports]]
 - [[docs/obsidian/19-measurement-pipeline|Evidence current functions and next gates]]
 - [[docs/obsidian/measurement-pipeline.canvas|Measurement pipeline map]]
+
+## Current Java workspace · edition 016
+
+- [README 016](../../README-016.md)
+- [Shared Java brain and integrated runtime](24-java-brain-runtime.md)
+- [Java brain/runtime map](java-brain-runtime.canvas)
+- [Measured evidence and source inventory](../readmes/016/verification.json)

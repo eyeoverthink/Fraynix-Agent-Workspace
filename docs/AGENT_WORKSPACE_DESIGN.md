@@ -1,6 +1,8 @@
 # Fraynix Agent Workspace design and delivery plan
 
-Edition 015 adds native dynamic-body grab/move/release, actual progress/collision outcomes, owned physics workers and command replay. Supported scene JSON import/clone and run JSON/CSV/WebM exports now function inside the existing design. See [README 015](../README-015.md), [actuator contract](NATIVE_BODY_CONTROL.md) and [formats](SCENE_INTERCHANGE.md). General mesh/component import, colliding navigation and evaluated physical policies are next.
+Edition 016 delivers a shared Java nervous system, original-renderer Game tab, Java-owned durable neural jobs, real optional GPU readout, bounded automatic local memory and a retained physical controller with separate native validation. See [current contracts](JAVA_BRAIN_RUNTIME.md) and [README 016](../README-016.md). Closed-loop navigation/manipulation, stronger external evaluation, broader Java task ownership and full spiking GPU execution remain next gates.
+
+Edition 015 adds native dynamic-body grab/move/release, actual progress/collision outcomes, owned physics workers and command replay. Supported scene JSON import/clone and run JSON/CSV/WebM exports now function inside the existing design. See [README 015](../README-015.md), [actuator contract](NATIVE_BODY_CONTROL.md) and [formats](SCENE_INTERCHANGE.md). General mesh/component import and colliding navigation remain next. Edition 016 delivers the first separately evaluated bounded physical readout.
 
 Edition 014: the native 3D lab now includes a Java-owned first-person observer, sampled box visibility/inspection, actual source/tick-bound PNG capture and durable read-only replay. Core observer logic needs no transformer or language-model inference. The local model is an optional request adapter. See [the observer contract](NATIVE_OBSERVER.md) and [README 014](../README-014.md). Physical body actuators and evaluated navigation remain subsequent native milestones.
 

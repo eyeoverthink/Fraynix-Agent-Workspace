@@ -1,0 +1,33 @@
+{
+  "gpuKernelLanguage": "GLSL 430",
+  "cases": [
+    {
+      "maxAbsDifference": 0,
+      "columns": 7,
+      "cpuMeanMs": 0.00238,
+      "gpuMeanIncludingTransfersMs": 0.14977,
+      "rows": 5,
+      "tolerance": 2.0E-4
+    },
+    {
+      "maxAbsDifference": 0,
+      "columns": 33,
+      "cpuMeanMs": 0.0767,
+      "gpuMeanIncludingTransfersMs": 0.20029,
+      "rows": 65,
+      "tolerance": 2.0E-4
+    },
+    {
+      "maxAbsDifference": 0,
+      "columns": 128,
+      "cpuMeanMs": 0.41894,
+      "gpuMeanIncludingTransfersMs": 0.95676,
+      "rows": 1024,
+      "tolerance": 2.0E-4
+    }
+  ],
+  "contract": "matvec-v1",
+  "scope": "Dense neural readout primitive; not the whole spiking cortex, LLM training or guaranteed speedup",
+  "passed": true,
+  "device": "NVIDIA GeForce GTX 1660 Ti/PCIe/SSE2 / 4.3.0 NVIDIA 560.94"
+}

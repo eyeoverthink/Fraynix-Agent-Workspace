@@ -1,0 +1,171 @@
+{
+  "date": "2026-10-30",
+  "sourceBaseline": "a531c493f20ce6166b545a4dad2bf87f2a62b87d",
+  "runtimeChanged": true,
+  "releaseKind": "shared-java-brain-integrated-game-measured-physical-learning",
+  "sourceInventory": 441,
+  "currentRegression": {
+    "passed": true,
+    "javaTests": 151,
+    "javaClasses": 31,
+    "observerJavaTests": 8,
+    "bodyJavaTests": 9,
+    "interchangeJavaTests": 3,
+    "desktopUnitTests": 19,
+    "suites": {
+      "brain-game-integration": {
+        "passed": true,
+        "checks": 10,
+        "output": "workspace-desktop/test-output/brain-game-integration.json"
+      },
+      "body-integration": {
+        "passed": true,
+        "checks": 10,
+        "output": "workspace-desktop/test-output/body-integration.json"
+      },
+      "observer-integration": {
+        "passed": true,
+        "checks": 12,
+        "output": "workspace-desktop/test-output/observer-integration.json"
+      },
+      "scene-integration": {
+        "passed": true,
+        "checks": 12,
+        "output": "workspace-desktop/test-output/scene-integration.json"
+      },
+      "measurement-integration": {
+        "passed": true,
+        "checks": 10,
+        "output": "workspace-desktop/test-output/measurement-integration.json"
+      },
+      "calibration-integration": {
+        "passed": true,
+        "checks": 8,
+        "output": "workspace-desktop/test-output/calibration-integration.json"
+      },
+      "real-data-delfys": {
+        "passed": true,
+        "checks": 9,
+        "output": "workspace-desktop/test-output/real-data-delfys.json"
+      },
+      "integration": {
+        "passed": true,
+        "checks": 12,
+        "output": "workspace-desktop/test-output/integration.json"
+      },
+      "learning-integration": {
+        "passed": true,
+        "checks": 9,
+        "output": "workspace-desktop/test-output/learning-integration.json"
+      },
+      "broader-validation": {
+        "passed": true,
+        "checks": 45,
+        "output": "workspace-desktop/test-output/broader-validation.json"
+      }
+    }
+  },
+  "ui": {
+    "passed": true,
+    "checks": 10,
+    "scope": "Actual original-renderer game, native physical training, cortex, real GPU, memory, policy persistence/rollback and owned child cleanup"
+  },
+  "localModel": {
+    "model": "gpt-oss:20b",
+    "passed": true,
+    "checks": 4,
+    "digest": "f38aa0c53da5f8c49d08c43a99df24ff53167fe68e24664a7777288e7656fdfe",
+    "memory": {
+      "journal": {
+        "head": "a7457965c911031b2e63ea46ca504a48a4f455277ab6e83d68494995681baa1e",
+        "entries": 5,
+        "merkleRoot": "06aca093bcb0083874d2a54b40b4d504ac72eb675b76d54dd35745287acfa555"
+      },
+      "sources": 1,
+      "usedChars": 105
+    },
+    "scope": "Actual bounded Java memory context after restart; not full embodied policy generation"
+  },
+  "physicalLearning": {
+    "trainedMeanErrorM": 0.07436792929196029,
+    "baselineMeanErrorM": 0.7150511310663955,
+    "maxTrainedErrorM": 0.14779747981716884,
+    "relativeMeanGain": 0.8959963475883868,
+    "accepted": true
+  },
+  "gpu": {
+    "gpuKernelLanguage": "GLSL 430",
+    "cases": [
+      {
+        "maxAbsDifference": 0,
+        "columns": 7,
+        "cpuMeanMs": 0.00238,
+        "gpuMeanIncludingTransfersMs": 0.14977,
+        "rows": 5,
+        "tolerance": 0.0002
+      },
+      {
+        "maxAbsDifference": 0,
+        "columns": 33,
+        "cpuMeanMs": 0.0767,
+        "gpuMeanIncludingTransfersMs": 0.20029,
+        "rows": 65,
+        "tolerance": 0.0002
+      },
+      {
+        "maxAbsDifference": 0,
+        "columns": 128,
+        "cpuMeanMs": 0.41894,
+        "gpuMeanIncludingTransfersMs": 0.95676,
+        "rows": 1024,
+        "tolerance": 0.0002
+      }
+    ],
+    "contract": "matvec-v1",
+    "scope": "Dense neural readout primitive; not the whole spiking cortex, LLM training or guaranteed speedup",
+    "passed": true,
+    "device": "NVIDIA GeForce GTX 1660 Ti/PCIe/SSE2 / 4.3.0 NVIDIA 560.94"
+  },
+  "freshClone": {
+    "status": "passed",
+    "checkout": "fraynix-workspace-qa016-release",
+    "sourceCommit": "a531c493f20ce6166b545a4dad2bf87f2a62b87d",
+    "javaTests": 151,
+    "desktopUnitTests": 19,
+    "bodyUiChecks": 10,
+    "brainGameUiChecks": 10,
+    "offlineBuild": true,
+    "modelWeightsOrPrivateRuntimeCopied": false,
+    "electronBinary": "Pinned 45.1.0 executable reused from existing dependency cache after npm ci --offline --ignore-scripts",
+    "canonicalSourceHashesMatched": 441
+  },
+  "documentationQa": {
+    "status": "passed",
+    "checks": [
+      "Offline viewer loads seven working modules and one planned gate",
+      "Module search, selected source and verified/planned filters work",
+      "Canonical inventory search resolves actual Java coordinator source",
+      "Three current app screenshots load with working gallery navigation and captions",
+      "390px layout, navigation and module selection have no horizontal overflow",
+      "No viewer script errors or external assets"
+    ]
+  },
+  "limits": [
+    "Four-weight engineered-feature physical readout; not general navigation or LLM training",
+    "Legacy game uses a hidden OpenGL context/child JVM; no editor UI; not graphics-free",
+    "Java brain jobs added; language-model/browser/canvas loop still Electron-owned",
+    "GPU primitive is real but small end-to-end workloads are slower than CPU",
+    "Finite local context and bounded retrieval remain; no new vector DB or embedding download",
+    "No unrestricted shell, automatic source mutation or simulated multi-agent workers",
+    "Queued/running job recovery is tested with an unsettled-checkpoint fixture; actual desktop restart and owned child shutdown are separate tests",
+    "Earlier real-data calibration remains rejected"
+  ],
+  "developmentFailures": [
+    {
+      "case": "Initial clean source checkout",
+      "result": "EmbeddedGameTest rejected missing original-game distribution; no false success",
+      "correction": "a531c493 adds a Gradle dependency so installDist precedes workspace-engine tests",
+      "repeat": "Fresh qa016-release checkout passes offline 151 Java / 19 units / 20 body+Game/Brain UI groups"
+    }
+  ]
+}

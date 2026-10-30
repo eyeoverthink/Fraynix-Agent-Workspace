@@ -1,0 +1,100 @@
+{
+  "date": "2026-10-30",
+  "modules": [
+    {
+      "id": "core",
+      "name": "Shared Java nervous system",
+      "status": "verified",
+      "source": "fraynix-modules/brain-core/src/main/java/fraymus/neural/NeuromorphicCore.java",
+      "summary": "One CPU spiking implementation, compatibility facade and exact-state checkpoint; diagnostic activity is distinct from task learning.",
+      "note": "docs/obsidian/24-java-brain-runtime.md"
+    },
+    {
+      "id": "game",
+      "name": "Original game runtime and view",
+      "status": "verified",
+      "source": "src/main/java/runtime/EmbeddedGameRuntime.java",
+      "summary": "Original renderer in a hidden context, real observations and bounded inputs; owned subprocess, no legacy editor.",
+      "note": "docs/obsidian/24-java-brain-runtime.md"
+    },
+    {
+      "id": "jobs",
+      "name": "Durable Java coordination",
+      "status": "verified",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/BrainService.java",
+      "summary": "Real job intents/progress/cancellation/recovery, native physical trials and gated policy activation/rollback.",
+      "note": "docs/obsidian/24-java-brain-runtime.md"
+    },
+    {
+      "id": "gpu",
+      "name": "Actual GPU compute primitive",
+      "status": "verified",
+      "source": "fraynix-modules/brain-gpu/src/main/java/fraymus/neural/gpu/GlNeuralCompute.java",
+      "summary": "GLSL 430 dispatch and readback compared with Java CPU; transfers included and small workloads slower.",
+      "note": "docs/obsidian/24-java-brain-runtime.md"
+    },
+    {
+      "id": "memory",
+      "name": "Bounded persistent local memory",
+      "status": "verified",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/WorkspaceStore.java",
+      "summary": "Existing HDC/lexical/graph retrieval and Merkle journal; immutable notes, restart and automatic source-labelled model context.",
+      "note": "docs/obsidian/24-java-brain-runtime.md"
+    },
+    {
+      "id": "physical",
+      "name": "Retained physical learning",
+      "status": "verified",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/SceneStore.java",
+      "summary": "Trained readout applies real native impulse and retains independent endpoint error and original-command replay.",
+      "note": "docs/obsidian/24-java-brain-runtime.md"
+    },
+    {
+      "id": "ui",
+      "name": "Integrated controls in current design",
+      "status": "verified",
+      "source": "workspace-desktop/renderer/brain-game.js",
+      "summary": "Game tab, real brain progress/evidence, local memory and rollback keep browser/canvas/chat/timeline intact.",
+      "note": "docs/obsidian/24-java-brain-runtime.md"
+    },
+    {
+      "id": "next",
+      "name": "Closed-loop tasks and broader Java ownership",
+      "status": "planned",
+      "source": "docs/SCENARIO_ENGINE_ROADMAP.md",
+      "summary": "Stronger baselines and locked evaluations, navigation/manipulation learning, Java task graphs and measured GPU batches.",
+      "note": "docs/obsidian/24-java-brain-runtime.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "docs/readmes/016/images/embedded-game-016.png",
+      "caption": "Original Java game rendered inside the existing workspace; no separate editor is initialized."
+    },
+    {
+      "path": "docs/readmes/016/images/java-brain-016.png",
+      "caption": "Actual Java job controls, accepted physical validation and retained cortex/policy."
+    },
+    {
+      "path": "docs/readmes/016/images/physical-learning-016.png",
+      "caption": "Actual trained impulse applied in the native 3D Lab with measured endpoint evidence."
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/readmes/016/verification.json"
+    },
+    {
+      "path": "docs/readmes/016/brain-learning-evidence.json"
+    },
+    {
+      "path": "docs/readmes/016/gpu-compute-evidence.json"
+    },
+    {
+      "path": "docs/readmes/016/live-memory.json"
+    },
+    {
+      "path": "docs/readmes/016/regressions.json"
+    }
+  ]
+}

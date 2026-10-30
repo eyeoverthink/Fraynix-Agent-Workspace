@@ -1,5 +1,23 @@
 # Agent Workspace development log
 
+## 2026-10-30 Edition 016 publication gate
+
+Final source a531c493f20ce6166b545a4dad2bf87f2a62b87d passes the offline clean-checkout build, 151 Java tests, 19 desktop units and 20 combined body/Game/Brain UI groups. All 441 canonical source/asset hashes match the independent checkout. Working-checkout regressions cover 137 workflow groups plus four real gpt-oss:20b memory assertions. Six offline-viewer checks and visual wide/narrow review pass. Documentation verifies 16 editions, 21 canvases, 1,938 references and 263 frozen hashes.
+
+README 016 and its snapshot are release-candidate frozen: 2,659 words, three current screenshots, actual GPU/CPU timing and full native training/validation evidence. The initial missing-distribution clean-build failure and corrected repeat are retained in verification. The remaining authorized action is atomic main/readme-016 publication and an independent direct GitHub fetch/check. Published 001–015 remain unchanged. Next unused edition after this candidate: 017.
+
+## 2026-10-30 Shared Java brain, integrated game and retained physical learning · edition 016
+
+Source a26982dbec1b946f00fc676d0535fc5b18c27d0d extracts dependency-free neural CPU computation into brain-core with a legacy facade, exact-state checkpoint and CPU reference. brain-gpu performs actual GLSL compute through the existing driver. Three workload shapes pass parity, including transfers; small GPU workloads are slower. The full spiking cortex remains CPU.
+
+An owned hidden original-game JVM renders actual 960×540 frames in the existing workspace Game tab without initializing the editor. Real input changes player state/pixels, frame-fetch timing is measured, and closing the desktop leaves no owned game child. Original Studio and the optional editor/private projects are untouched.
+
+Java BrainService persists jobs/progress, cancellation/interruption, gated versioned activation and rollback. A four-weight engineered-feature readout trains from 180 actual native operations; separate six-case validation reduces zero-impulse mean endpoint error 0.7150511311 → 0.0743679293 m, worst 0.1477974798 m. Actual native scene policy execution/replay and restart/rollback pass. Unsettled checkpoint recovery uses a labelled fixture. This is not general gameplay, LLM training or a whole-cortex GPU implementation.
+
+Existing Java hybrid retrieval/Merkle memory now supports immutable bounded notes and automatically supplies a 2,400-character source-data context before every model step. A real gpt-oss:20b retrieves the exact retained marker after desktop restart, with source/journal/digest receipts. No vector DB/model download, unrestricted shell or pretend multi-agent worker is introduced. Electron still owns the model/browser/canvas loop.
+
+Full checks: 151 Java tests, 19 desktop unit tests, 137 workflow groups; four additional actual-model memory assertions. Current screenshots reviewed. The first clean checkout caught a missing Gradle build dependency: workspace-engine tests ran before the original game distribution existed. Source fix a531c493 adds that dependency. A second clean checkout builds fully offline, passes 151 Java / 19 units / 10 body + 10 Game/Brain UI groups and copies no runtime/model state. README 016 is 2,659 words with three current screenshots, CPU/GPU cost table, full native trial evidence, linked source inventory, offline viewer and map. Wide/narrow viewer navigation/search/filter/gallery QA passes. Documentation freeze and remote publication follow.
+
 ## 2026-10-30 Edition 015 publication confirmed
 
 Published 235d4786449ded26b615b939a0323fd81ad1ca79 to private eyeoverthink/Fraynix-Agent-Workspace main and annotated readme-015 in an atomic push. Remote main and peeled tag matched. The independent final checkout fetched that exact release directly from GitHub, passed fifteen-edition documentation verification (twenty canvases, 1,857 references, 248 frozen hashes) and matched all 421 canonical source/asset hashes.

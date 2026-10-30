@@ -19,5 +19,6 @@ Numbered editions preserve dated system behavior and evidence. The root [README]
 | [013](../../README-013.md) | 2026-10-30 | Real recorded observations, rejected validation, reproducible evidence and JING observer assessment | [Viewer](013/index.html) · [evidence](013/verification.json) · [report](013/report/index.html) |
 | [014](../../README-014.md) | 2026-10-30 | Native Java first-person observer, actual frame capture, source-linked history and optional local request adapter | [Viewer](014/index.html) · [evidence](014/verification.json) · [contract](../NATIVE_OBSERVER.md) |
 | [015](../../README-015.md) | 2026-10-30 | Native body grab/move/release, command replay, portable scene import and actual JSON/CSV/WebM exports | [Viewer/video](015/index.html) · [evidence](015/verification.json) · [formats](../SCENE_INTERCHANGE.md) |
+| [016](../../README-016.md) | 2026-10-30 | Shared Java brain, integrated original game, retained physical learning and bounded memory | [Viewer](016/index.html) · [evidence](016/verification.json) · [contracts](../JAVA_BRAIN_RUNTIME.md) |
 
-Latest implementation/documentation edition: **015**. Earlier snapshots remain intact. See [sequence policy](README_SEQUENCE.md) and [manifest](editions.json).
+Latest implementation/documentation edition: **016**. Earlier snapshots remain intact. See [sequence policy](README_SEQUENCE.md) and [manifest](editions.json).
