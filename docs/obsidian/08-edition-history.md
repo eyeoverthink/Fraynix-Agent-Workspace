@@ -22,3 +22,5 @@ Edition [[README-007|007]] delivers durable episodes, pinned prototype adaptatio
 Edition [[README-008|008]] expands release validation from 28/45 to 45/45 on the same generated cases, preserves research navigation, recovers changed controls and replaces field values reliably. Three actual local-model task instances pass independent acceptance. The promotion gate remains distinct.
 
 Edition [[README-009|009]] records the approved shared-world and 3D experiment roadmap, with ordered steps, dependencies and acceptance gates. It is a design/documentation edition; executable behavior remains at edition 008.
+
+Edition [[README-010|010]] delivers a bounded Java/Bullet 3D ramp lab, real Three.js perspective view, stable scene entities, revisions, reference evaluation and recorded-definition replay. Actual local-model tools operate the same native experiment. Real-data binding and physical-policy learning remain subsequent gates.

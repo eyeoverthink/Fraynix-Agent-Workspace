@@ -2,9 +2,9 @@
 
 **A local visual environment for agents to browse, create runnable artifacts, test behavior and reuse verified skills.**
 
-> **Latest documentation: [README 009 — shared world and 3D experiment roadmap](README-009.md)** · [Interactive roadmap](docs/readmes/009/index.html) · [Verified runtime: edition 008](README-008.md) · [Complete operating guide](README-006.md) · [Edition history](docs/readmes/INDEX.md)
+> **Latest implementation: [README 010 — native 3D mechanics lab](README-010.md)** · [Interactive explorer](docs/readmes/010/index.html) · [Design roadmap](README-009.md) · [Complete operating guide](README-006.md) · [Edition history](docs/readmes/INDEX.md)
 
-Edition 009 documents the next implementation steps and acceptance gates. The working runtime remains edition 008. The roadmap covers a shared Java-owned world, a first complete 3D mechanics lab, agent experiments, real measurement binding, evaluated physical learning and language-generation backends. See [the engineering plan](docs/SCENARIO_ENGINE_ROADMAP.md).
+Open **3D Lab** in the creation canvas for a real Java/Bullet ramp-and-block experiment: saved scene revisions, physical parameter edits, live play/pause/step/reset, reference checks and replay. Three.js renders actual native poses. A local gpt-oss:20b task creates and runs the same scene through registered tools. Real measurement ingestion and physical-policy training remain next gates in [the engineering plan](docs/SCENARIO_ENGINE_ROADMAP.md).
 
 Independent successor to [Fraynix Studio](https://github.com/eyeoverthink/Fraynix-Studio), starting from verified commit `6341404`. The original application and personal project state remain separate. Full game sources, assets, licenses and earlier editions are preserved here.
 
@@ -16,9 +16,9 @@ The app includes a real browser, live creation canvas, editable source, versione
 
 Local `gpt-oss:20b` is the verified default for the first agent fixture. The custom FRAYNIX 3B trial returned an Ollama native-format error; advertised tool capability alone does not establish task reliability. You can select other eligible installed models explicitly.
 
-![A local-model calculator in the existing visual workspace](docs/readmes/008/images/live-quantity-calculator.png)
+![Actual native 3D mechanics inside the existing workspace](docs/readmes/010/images/scene-lab.png)
 
-October 29 actual local-model artifact reopened for independent acceptance. Frame export composes actual shell and child Chromium renderers. Same generated release checks improved from **28/45 to 45/45**. Counter, calculator and two-page catalog research pass **24 independent assertions**. See [current verification](docs/readmes/008/verification.json).
+October 29 actual isolated 3D lab frame, composed from shell and child Chromium captures. Current verification includes **105 Java tests**, **12 new 3D integration checks** and the existing browser/artifact/learning regressions. [Evidence and scope](docs/readmes/010/verification.json). The earlier [28/45 → 45/45 browser corrections](README-008.md) remain preserved.
 
 ## Verify
 
@@ -27,12 +27,14 @@ October 29 actual local-model artifact reopened for independent acceptance. Fram
 cd workspace-desktop
 npm.cmd ci --no-audit --no-fund
 npm.cmd test
+npm.cmd run test:scene
 npm.cmd run test:integration
 npm.cmd run test:learning
 npm.cmd run test:broader
 # Optional actual local-model fixture:
 $env:FRAYNIX_LIVE_MODEL='gpt-oss:20b'
 npm.cmd run test:live
+npm.cmd run test:live-scene
 npm.cmd run test:live-broader
 ```
 

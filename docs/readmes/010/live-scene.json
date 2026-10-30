@@ -1,0 +1,132 @@
+{
+  "date": "2026-10-29",
+  "passed": true,
+  "model": "gpt-oss:20b",
+  "goal": "Create a NEW actual 3D physics ramp scene titled Agent ramp experiment. Set angleDeg 30, friction 0, massKg 2 and offsetZ 0.5. Run its actual native experiment for 0.75 seconds with the current scene version. Report the measured downhill distance and whether the analytical reference passed. Use the native scene/experiment tools.",
+  "tools": [
+    "scene.create",
+    "experiment.run"
+  ],
+  "sceneId": "a31d7558-160b-46ab-ae2a-185671e3722f",
+  "sceneVersion": 1,
+  "experiment": {
+    "dt": 0.004166666666666667,
+    "evaluation": {
+      "reference": "frictionless incline: distance = 0.5*g*sin(angle)*t^2",
+      "applicable": true,
+      "expectedDistanceM": 1.3795312499999999,
+      "toleranceM": 0.055181249999999994,
+      "passed": true,
+      "measuredDistanceM": 1.3871979044256784,
+      "absoluteErrorM": 0.007666654425678487
+    },
+    "sceneId": "a31d7558-160b-46ab-ae2a-185671e3722f",
+    "sceneVersion": 1,
+    "final": {
+      "speedMps": 3.6787524,
+      "timeS": 0.75,
+      "rotation": [
+        -1.6402519e-05,
+        4.7645635e-06,
+        -0.2587257,
+        0.96595085
+      ],
+      "distanceM": 1.3871979044256784,
+      "objects": [
+        {
+          "bodyType": "static",
+          "size": [
+            12,
+            0.2,
+            3
+          ],
+          "rotation": [
+            0,
+            0,
+            -0.25881904510252074,
+            0.9659258262890683
+          ],
+          "id": "528b039d-a67a-49c7-b756-0cddaac5b282",
+          "label": "Ramp",
+          "position": [
+            0,
+            3.1999999999999997,
+            0
+          ],
+          "massKg": 0
+        },
+        {
+          "bodyType": "static",
+          "size": [
+            40,
+            0.4,
+            24
+          ],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "id": "5a068ff4-c546-492e-9206-e60d9fd6fcc8",
+          "label": "Ground",
+          "position": [
+            0,
+            -0.2,
+            0
+          ],
+          "massKg": 0
+        },
+        {
+          "bodyType": "dynamic",
+          "size": [
+            0.5,
+            0.5,
+            0.5
+          ],
+          "rotation": [
+            -1.6402519e-05,
+            4.7645635e-06,
+            -0.2587257,
+            0.96595085
+          ],
+          "id": "68403ca4-7767-4576-9445-ee87ce085ea9",
+          "label": "Block",
+          "position": [
+            -1.7413852,
+            4.6094365,
+            0.5
+          ],
+          "massKg": 2
+        }
+      ],
+      "tick": 180,
+      "position": [
+        -1.7413852,
+        4.6094365,
+        0.5
+      ],
+      "velocity": [
+        3.1884413,
+        -1.8349553,
+        0
+      ],
+      "contacts": 1
+    },
+    "backend": "Minie 9.0.3 / Libbulletjme 22.0.3 / single precision",
+    "id": "a475bd2d-78ec-481d-88bd-92ebc2a4d506",
+    "status": "completed"
+  },
+  "summary": "Measured downhill distance: 1.387 m (error 0.0077 m). Analytical reference applicable and passed.",
+  "independentChecks": [
+    "Requested scene title and four parameters",
+    "Actual 180 native ticks",
+    "Distance compared independently with incline equation",
+    "Depth remains at requested 0.5 metres"
+  ],
+  "learning": {
+    "episodeId": "40ecf547-352e-4bf7-8a84-2f422700a7b6",
+    "status": "completed-unverified"
+  },
+  "scope": "One actual local-model physical task; recorded outcome is not a new physical learning/training policy"
+}

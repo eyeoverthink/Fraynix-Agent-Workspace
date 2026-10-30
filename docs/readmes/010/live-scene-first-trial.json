@@ -1,0 +1,121 @@
+{
+  "date": "2026-10-29",
+  "passed": false,
+  "model": "gpt-oss:20b",
+  "tools": [
+    "canvas.write",
+    "browser.observe",
+    "scene.create",
+    "experiment.run"
+  ],
+  "nativeResult": {
+    "dt": 0.004166666666666667,
+    "evaluation": {
+      "reference": "frictionless incline: distance = 0.5*g*sin(angle)*t^2",
+      "applicable": true,
+      "expectedDistanceM": 1.3795312499999999,
+      "toleranceM": 0.055181249999999994,
+      "passed": true,
+      "measuredDistanceM": 1.3871979044256784,
+      "absoluteErrorM": 0.007666654425678487
+    },
+    "sceneId": "ef0e05a4-12df-4011-bfcc-5b44b1221f02",
+    "sceneVersion": 1,
+    "final": {
+      "speedMps": 3.6787524,
+      "timeS": 0.75,
+      "rotation": [
+        -1.6402519e-05,
+        4.7645635e-06,
+        -0.2587257,
+        0.96595085
+      ],
+      "distanceM": 1.3871979044256784,
+      "objects": [
+        {
+          "bodyType": "static",
+          "size": [
+            12,
+            0.2,
+            3
+          ],
+          "rotation": [
+            0,
+            0,
+            -0.25881904510252074,
+            0.9659258262890683
+          ],
+          "id": "387301fb-23b7-4fda-941d-9a4a2bb11601",
+          "label": "Ramp",
+          "position": [
+            0,
+            3.1999999999999997,
+            0
+          ],
+          "massKg": 0
+        },
+        {
+          "bodyType": "static",
+          "size": [
+            40,
+            0.4,
+            24
+          ],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "id": "71a61a4a-b392-40aa-b845-3910274e1e98",
+          "label": "Ground",
+          "position": [
+            0,
+            -0.2,
+            0
+          ],
+          "massKg": 0
+        },
+        {
+          "bodyType": "dynamic",
+          "size": [
+            0.5,
+            0.5,
+            0.5
+          ],
+          "rotation": [
+            -1.6402519e-05,
+            4.7645635e-06,
+            -0.2587257,
+            0.96595085
+          ],
+          "id": "172dce24-de58-4ae0-b461-22d91c7f4390",
+          "label": "Block",
+          "position": [
+            -1.7413852,
+            4.6094365,
+            0.5
+          ],
+          "massKg": 2
+        }
+      ],
+      "tick": 180,
+      "position": [
+        -1.7413852,
+        4.6094365,
+        0.5
+      ],
+      "velocity": [
+        3.1884413,
+        -1.8349553,
+        0
+      ],
+      "contacts": 1
+    },
+    "backend": "Minie 9.0.3 / Libbulletjme 22.0.3 / single precision",
+    "id": "adacc193-564d-4094-9552-10658a1c97e2",
+    "status": "completed"
+  },
+  "completionEventPresent": false,
+  "outcome": "Created the requested scene and completed native physics; task reporting did not complete. Physical task prompt separated from web-artifact stages before rerun."
+}

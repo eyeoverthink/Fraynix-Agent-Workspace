@@ -1,0 +1,112 @@
+{
+  "date": "2026-10-29",
+  "modules": [
+    {
+      "id": "store",
+      "name": "Authored scenes and stable identities",
+      "status": "verified",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/SceneStore.java",
+      "note": "docs/obsidian/17-native-mechanics.md",
+      "summary": "Versioned FactoryWorld scene/object3d entities, separate live state and retained experiment definitions/results."
+    },
+    {
+      "id": "bullet",
+      "name": "Actual native 3D physics",
+      "status": "verified",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/BulletRamp.java",
+      "note": "docs/obsidian/17-native-mechanics.md",
+      "summary": "Bullet bodies, gravity, contacts, rotation, depth and fixed 1/240-second ticks. Backend and actual solver configuration are recorded."
+    },
+    {
+      "id": "schema",
+      "name": "Bounded SI ramp definition",
+      "status": "verified",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/RampDefinition.java",
+      "note": "docs/obsidian/17-native-mechanics.md",
+      "summary": "Validated units, slope, dimensions, mass, gravity, friction and depth; new 3D transforms do not reinterpret old 2D units."
+    },
+    {
+      "id": "view",
+      "name": "Perspective viewport and controls",
+      "status": "verified",
+      "source": "workspace-desktop/renderer/scene-lab.js",
+      "note": "docs/obsidian/17-native-mechanics.md",
+      "summary": "Three.js consumes Java poses. Camera, controls, measurements, save/revert, recorded history and replay stay in the existing workspace."
+    },
+    {
+      "id": "agent",
+      "name": "Typed local-model experiment actions",
+      "status": "verified",
+      "source": "workspace-desktop/main.cjs",
+      "note": "docs/obsidian/17-native-mechanics.md",
+      "summary": "gpt-oss:20b creates and runs the requested native scene. Separate physical stages and version-bound completion retain actual result evidence."
+    },
+    {
+      "id": "evaluation",
+      "name": "Reference and recovery tests",
+      "status": "verified",
+      "source": "workspace-engine/src/test/java/fraymus/workspace/SceneStoreTest.java",
+      "note": "docs/obsidian/17-native-mechanics.md",
+      "summary": "Eight Java methods exercise physical reference cases, persistence, version guards, replay, stepping and interruption recovery."
+    },
+    {
+      "id": "integration",
+      "name": "Actual visible integration",
+      "status": "verified",
+      "source": "workspace-desktop/test/scene-integration.cjs",
+      "note": "docs/obsidian/17-native-mechanics.md",
+      "summary": "Twelve checks exercise real Electron/Java/Bullet/WebGL behavior and return to the original browser/artifact workflow."
+    },
+    {
+      "id": "next",
+      "name": "Measurement data and physical learning",
+      "status": "planned",
+      "source": "docs/SCENARIO_ENGINE_ROADMAP.md",
+      "note": "docs/obsidian/17-native-mechanics.md",
+      "summary": "Next: provenance/units/time-aware measurement import and residual checks, broader physical task families and evaluated learning targets. Full scene authoring/compiler targets remain separate."
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "docs/readmes/010/images/scene-lab.png",
+      "description": "Actual native lab with saved revised scene, measured displacement and reference evaluation."
+    },
+    {
+      "path": "docs/readmes/010/images/live-scene.png",
+      "description": "Actual local gpt-oss:20b scene creation and native experiment task."
+    },
+    {
+      "path": "docs/readmes/010/images/live-agent.png",
+      "description": "Actual existing local-model counter workflow preserved after the 3D addition."
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/readmes/010/verification.json"
+    },
+    {
+      "path": "docs/readmes/010/scene-integration.json"
+    },
+    {
+      "path": "docs/readmes/010/live-scene.json"
+    },
+    {
+      "path": "docs/readmes/010/live-scene-first-trial.json"
+    },
+    {
+      "path": "docs/readmes/010/live-agent.json"
+    },
+    {
+      "path": "docs/readmes/010/integration.json"
+    },
+    {
+      "path": "docs/readmes/010/learning-integration.json"
+    },
+    {
+      "path": "docs/readmes/010/broader-validation.json"
+    },
+    {
+      "path": "docs/readmes/010/source-isolation.json"
+    }
+  ]
+}

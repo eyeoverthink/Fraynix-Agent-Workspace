@@ -1,6 +1,8 @@
 # Shared-world and 3D experiment engineering plan
 
-Recorded October 29, 2026, following the user's approval to document the vision and implementation steps in Git. Status: **planned**. Current executable baseline is edition 008; edition 009 publishes this design. No runtime implementation is claimed by this document.
+Recorded October 29, 2026; updated for implementation edition 010. Status: **first bounded 3D lab implemented**. Edition 009 remains the frozen design. [README 010](../README-010.md) and the [backend decision](3D_BACKEND_DECISION.md) identify the delivered slice, actual tests and remaining scope.
+
+Delivered: initial P1 scene/experiment contracts and stable 3D entities, selected P2 Bullet/Minie plus Three.js adapters, P3 fixed ramp/block lab with save/replay and reference evaluation, and an early P4 registered-tool path verified with one local-model physical task. P1's full dataset contract and cross-domain unification, general P2/P3 scene authoring, broader P4 task coverage, P5 real measurement binding, P6 physical-policy learning and P7 compiler targets remain open. The existing 2D runtime/units and application layout remain preserved.
 
 ## Product contract
 
@@ -11,7 +13,8 @@ The first complete deliverable is a 3D ramp/block experiment with live measureme
 ## Current versus proposed
 
 - Current: JBox2D 2D bodies, fixed 1/60-second stepping, 2D transforms/camera, entities, schemas, checkpoints, local-model routing, browser/artifact tools, receipts, recipes and bounded controller learning.
-- Proposed: Transform3D, selected rendering/physics adapters, shared scene/experiment objects, measurement datasets, scenario tools, physical learning episodes and additional compiler targets.
+- Added in 010: stable object3d entities with position/quaternion/size, authored scene revisions, copied experiment definitions, native Bullet fixed-step motion and contacts, real perspective rendering, recorded measurements/results, replay and typed scene/experiment tools.
+- Remaining: arbitrary scene/mesh authoring, cross-domain atomic world transactions, measurement datasets/binding, trained physical policies and additional compiler targets.
 - Current zIndex remains draw order. Existing 2D saved units must not silently become meters.
 - Current browser-controller-v2 and its eight-case promotion gate remain separate from future physical-task evaluation. No whole-model training is implemented.
 
@@ -31,7 +34,7 @@ P5 may proceed after P3 without waiting for P4. P7 is a separate workstream and 
 
 ## Candidate schemas and ownership
 
-These names are design proposals, not registered components yet:
+These names describe the broader design. Edition 010 currently registers `workspace.scene`, `workspace.scene.object3d` and `workspace.experiment` in a dedicated FactoryWorld checkpoint. Transform and body fields are contained in validated authored object payloads generated from the bounded ramp definition. General standalone Transform3D/body/material authoring and MeasurementDataset remain proposed:
 
 - `Scene`: ID, schema version, authored revision, entity membership and coordinate convention.
 - `Transform3D`: position in explicit units, quaternion orientation, scale and parent relationship; validate finite values and normalized orientation.
@@ -44,7 +47,7 @@ Keep authored, running and recorded state distinct. Save the authored scene; che
 
 ## Proposed tool boundary
 
-Potential registered tool contracts: `scene.query`, `scene.apply`, `experiment.run`, `experiment.status`, `experiment.stop`, `experiment.compare`. They are not available in the running catalog. Define their argument schemas, validation, version checks, result bounds and receipts before implementing handlers. Imported data and generated source cannot install them.
+Edition 010 registers `scene.create`, `scene.read`, `scene.update`, `experiment.run` and `experiment.reset`. Manual control additionally exposes play/pause/step/reset, snapshots, history and replay through the trusted shell. The broader proposed `scene.query`, `scene.apply`, `experiment.status`, `experiment.stop` and `experiment.compare` contracts remain future work; their exact names can change. Imported data and generated source cannot install handlers.
 
 The model plans experiments and chooses bounded actions outside the physics tick. A solver/controller executes physical integration on its fixed schedule. Associate action completion with the relevant state revision and tick. Preserve human takeover and distinguish request acceptance, job completion and independently passing evaluation.
 
@@ -64,4 +67,4 @@ Backend compatibility/redistribution; renderer-to-Java synchronization; numeric 
 
 ## Documentation and next action
 
-[README 009](../README-009.md) explains the vision and ordered work. [The frozen roadmap](readmes/009/roadmap.json) records this edition's phase definitions. [Current design](AGENT_WORKSPACE_DESIGN.md), [memory](PROJECT_MEMORY.md) and [log](DEVELOPMENT_LOG.md) carry ongoing decisions. After this documentation publication, start P1 and a small P2/P3 adapter spike, retain an explicit backend decision record, and publish actual 3D evidence in a later edition when it exists.
+[README 009](../README-009.md) explains the vision and original sequence; its [frozen roadmap](readmes/009/roadmap.json) remains intact. [README 010](../README-010.md) documents the working slice. [Current design](AGENT_WORKSPACE_DESIGN.md), [memory](PROJECT_MEMORY.md) and [log](DEVELOPMENT_LOG.md) carry ongoing decisions. Next add a small versioned measurement dataset with explicit provenance/units/time mapping and independent residual evaluation, then broader physical task families and evaluated learning targets. Expand scene authoring and Game Lab bridges through tested contracts. Compiler targets remain a separate workstream.

@@ -1,0 +1,118 @@
+{
+  "nodes": [
+    {
+      "id": "store",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/SceneStore.java",
+      "x": 0,
+      "y": 0,
+      "width": 390,
+      "height": 200
+    },
+    {
+      "id": "bullet",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/BulletRamp.java",
+      "x": 450,
+      "y": 0,
+      "width": 390,
+      "height": 200
+    },
+    {
+      "id": "schema",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/RampDefinition.java",
+      "x": 900,
+      "y": 0,
+      "width": 390,
+      "height": 200
+    },
+    {
+      "id": "view",
+      "type": "file",
+      "file": "workspace-desktop/renderer/scene-lab.js",
+      "x": 0,
+      "y": 260,
+      "width": 390,
+      "height": 200
+    },
+    {
+      "id": "agent",
+      "type": "file",
+      "file": "workspace-desktop/main.cjs",
+      "x": 450,
+      "y": 260,
+      "width": 390,
+      "height": 200
+    },
+    {
+      "id": "evaluation",
+      "type": "file",
+      "file": "workspace-engine/src/test/java/fraymus/workspace/SceneStoreTest.java",
+      "x": 900,
+      "y": 260,
+      "width": 390,
+      "height": 200
+    },
+    {
+      "id": "integration",
+      "type": "file",
+      "file": "workspace-desktop/test/scene-integration.cjs",
+      "x": 0,
+      "y": 520,
+      "width": 390,
+      "height": 200
+    },
+    {
+      "id": "next",
+      "type": "file",
+      "file": "docs/SCENARIO_ENGINE_ROADMAP.md",
+      "x": 450,
+      "y": 520,
+      "width": 390,
+      "height": 200
+    }
+  ],
+  "edges": [
+    {
+      "id": "edge0",
+      "fromNode": "agent",
+      "toNode": "store"
+    },
+    {
+      "id": "edge1",
+      "fromNode": "schema",
+      "toNode": "store"
+    },
+    {
+      "id": "edge2",
+      "fromNode": "store",
+      "toNode": "bullet"
+    },
+    {
+      "id": "edge3",
+      "fromNode": "bullet",
+      "toNode": "view"
+    },
+    {
+      "id": "edge4",
+      "fromNode": "bullet",
+      "toNode": "evaluation"
+    },
+    {
+      "id": "edge5",
+      "fromNode": "evaluation",
+      "toNode": "store"
+    },
+    {
+      "id": "edge6",
+      "fromNode": "integration",
+      "toNode": "view"
+    },
+    {
+      "id": "edge7",
+      "fromNode": "store",
+      "toNode": "next"
+    }
+  ]
+}

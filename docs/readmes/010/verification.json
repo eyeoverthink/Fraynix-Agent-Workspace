@@ -1,0 +1,80 @@
+{
+  "date": "2026-10-29",
+  "implementationCommit": "792e6756a412d6b42968eacdd21592143a81a36e",
+  "releaseKind": "first-native-3d-mechanics-slice",
+  "platformVerified": "Windows x64, JDK 21, Electron WebGL2",
+  "backend": "Minie 9.0.3 / Libbulletjme 22.0.3",
+  "rendering": "Three.js 0.186.1",
+  "fixedTimeStep": 0.004166666666666667,
+  "javaTests": 105,
+  "javaFailures": 0,
+  "newSceneJavaTests": 8,
+  "desktopTests": 9,
+  "sceneIntegrationChecks": 12,
+  "originalIntegrationChecks": 11,
+  "learningIntegrationChecks": 9,
+  "broaderChecks": 45,
+  "broaderPassed": 45,
+  "localModel": "gpt-oss:20b",
+  "physicalModelTaskPassed": true,
+  "physicalModelIndependentCheckGroups": 4,
+  "physicalEpisodeStatus": "completed-unverified",
+  "firstPhysicalTrialCompleted": false,
+  "physicalReference": {
+    "reference": "frictionless incline: distance = 0.5*g*sin(angle)*t^2",
+    "applicable": true,
+    "expectedDistanceM": 1.3795312499999999,
+    "toleranceM": 0.055181249999999994,
+    "passed": true,
+    "measuredDistanceM": 1.3871979044256784,
+    "absoluteErrorM": 0.007666654425678487
+  },
+  "existingCounterPassed": true,
+  "sourceInventory": 382,
+  "documentationQa": {
+    "status": "passed",
+    "normalWidth": 1280,
+    "narrowWidth": 390,
+    "narrowHeight": 844,
+    "horizontalOverflow": false,
+    "checks": [
+      "Module/status filters",
+      "Selected source and acceptance details",
+      "Source inventory search",
+      "Section navigation",
+      "Three actual loaded gallery images",
+      "Normal and narrow visual layout"
+    ],
+    "staticChecker": {
+      "editions": 10,
+      "canvases": 15,
+      "references": 1426,
+      "frozenHashes": 131
+    }
+  },
+  "freshClone": {
+    "status": "passed",
+    "sourceHashes": 382,
+    "javaTests": 105,
+    "javaFailures": 0,
+    "desktopTests": 9,
+    "sceneIntegrationChecks": 12,
+    "broaderChecks": 45,
+    "build": "offline check installDist :workspace-engine:installDist",
+    "dependencies": "npm ci from lockfile; initialize Electron once before parallel launches",
+    "context": "Independent clean clone of implementation; final documentation fetched from GitHub and checked after publication"
+  },
+  "captures": {
+    "date": "2026-10-29",
+    "kind": "Actual composed shell and child Chromium renderer frames",
+    "context": "Isolated native/manual and actual local-model projects; no personal state published"
+  },
+  "scope": [
+    "Bounded ramp/block lab, not arbitrary 3D scene authoring or a calibrated scientific model",
+    "Java authoritative scene state; cross-domain atomic world unification remains future work",
+    "Solver-generated measurements, not imported real instrument data",
+    "Completed-unverified physical learning episode and separate reference receipt; no physical policy training or Ollama weight update",
+    "Existing browser-controller promotion gate remains eight fixed cases",
+    "Native-code generation and arbitrary-program OS isolation remain separate gates"
+  ]
+}

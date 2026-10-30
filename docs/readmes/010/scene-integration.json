@@ -1,0 +1,36 @@
+{
+  "date": "2026-10-29",
+  "passed": true,
+  "checks": [
+    "Actual WebGL2 perspective viewport opens inside the existing workspace",
+    "Java-owned scene exposes three stable 3D entity identities and SI parameters",
+    "Real native Bullet run passes the independent 0.75-second incline reference",
+    "Live play advances Java ticks; pause holds state and Step advances exactly one physics tick",
+    "Reset restores authored transforms without overwriting the saved scene",
+    "Visible parameter edits persist a new revision while preserving object IDs",
+    "Revised 3D state and depth are reflected in actual physics and its passing receipt",
+    "Dragging the viewport changes the rendered perspective camera",
+    "Replay reruns the retained older definition without replacing the current authored revision",
+    "Returning to web artifacts retains the real browser/canvas/test/recipe workflow",
+    "Restart restores the authored scene, entity identities and recorded experiment history",
+    "No renderer JavaScript errors during the 3D and original-workflow checks"
+  ],
+  "backend": "Minie 9.0.3 / Libbulletjme 22.0.3 / single precision",
+  "renderer": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+  "sceneId": "003851c3-4a75-45ba-83b3-8618629ef074",
+  "entityIds": {
+    "ramp": "81514079-6094-4377-b9d1-06691847f99b",
+    "block": "253f7f40-6a19-4921-a4b4-a7e9f8a766fd",
+    "ground": "359737b5-56a4-46a2-9268-8ba8070de960"
+  },
+  "reference": {
+    "reference": "frictionless incline: distance = 0.5*g*sin(angle)*t^2",
+    "applicable": true,
+    "expectedDistanceM": 1.1660301977839487,
+    "toleranceM": 0.046641207911357944,
+    "passed": true,
+    "measuredDistanceM": 1.17251021510928,
+    "absoluteErrorM": 0.006480017325331433
+  },
+  "scope": "Actual Electron/Java/Bullet/WebGL workflow in an isolated project; fixed ramp laboratory, not a general 3D editor or scientific simulator"
+}

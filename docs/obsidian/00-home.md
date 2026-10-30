@@ -48,3 +48,7 @@ GitHub links: [README 001](../../README-001.md), [interactive companion](../read
 - [[docs/SCENARIO_ENGINE_ROADMAP|Working 3D experiment plan]]
 - [[docs/obsidian/16-shared-world-roadmap|Vision and ordered gates]]
 - [[docs/obsidian/shared-world-roadmap.canvas|Shared-world architecture canvas]]
+
+- [[README-010|Native 3D mechanics implementation]]
+- [[docs/obsidian/17-native-mechanics|Scenes experiments and measured evidence]]
+- [[docs/obsidian/native-mechanics.canvas|Native mechanics architecture]]
