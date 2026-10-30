@@ -29,3 +29,7 @@ README 007 contains three new actual application frame exports, current evidence
 ### Publication gate complete
 
 A clean Git clone of release candidate b9e8033 passed the complete Gradle check/install, 97 Java tests, seven desktop tests and nine learning integration checks. All 369 inventoried source/assets match canonical hashes. Documentation verification passes seven editions, twelve canvases, 1,156 references and 86 frozen hashes. The remaining publication action is the authorized main/tag push followed by remote-head verification.
+
+### Published
+
+The complete learning release was pushed to eyeoverthink/Fraynix-Agent-Workspace main at 7321f4a, with annotated tag readme-007. This follow-up records publication and the handoff; it does not change the frozen edition or executable behavior. The updated normal review app is open, its previous artifact is preserved, and the original Studio remains running. Next implementation gates are broader end-to-end task replay and hidden evaluation, additional failure strategies, Game Lab episode alignment and evaluated small-model training.
