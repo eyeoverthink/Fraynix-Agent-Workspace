@@ -1,5 +1,7 @@
 # Java goals and procedural skills
 
+Edition020 adds a second implemented family, motion-data-report-v1: local immutable CSV → audited motion/quality computation → actual report checks → reusable procedure. See the [motion-data contract](MOTION_DATA_PROCEDURES.md). The native workflow described below remains supported. Data tasks use the shared durable/verification layer while leaving native/model ownership separate.
+
 Edition 019 connects natural-language chat to the existing learned numerical world model and native physics. A tool performs one action. A procedural skill completes a registered task through actions, checks and recovery. The first registered procedure is `world-reach-report-v1`.
 
 ## Complete task

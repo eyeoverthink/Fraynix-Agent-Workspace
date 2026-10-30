@@ -61,8 +61,8 @@ test('CSV web creation stays in artifact mode while native measurement compariso
 const {NetworkPolicy,localURL}=require('../network-policy.cjs');
 test('a corrupted theme or invalid UTF-8 stops startup before code is loaded',()=>{
   const fs=require('node:fs'),path=require('node:path'),os=require('node:os');const {verifyRendererSources}=require('../source-integrity.cjs');const folder=fs.mkdtempSync(path.join(os.tmpdir(),'fraynix-source-guard-'));
-  for(const name of ['index.html','style.css','measurement.css','app.js','scene-lab.js','measurement-panel.js','calibration-panel.js','calibration.css','observer-panel.js','observer.css','body-panel.js','scene-files.js','scene-video.js','brain-game.js','brain-game.css','world-panel.js','world-panel.css','goals-panel.js','goals-panel.css'])fs.writeFileSync(path.join(folder,name),'/* valid UTF-8 fixture */');
-  assert.equal(verifyRendererSources(folder).checked,19);fs.writeFileSync(path.join(folder,'style.css'),Buffer.alloc(128));assert.throws(()=>verifyRendererSources(folder),/style.css.*NUL/);
+  for(const name of ['index.html','style.css','measurement.css','app.js','scene-lab.js','measurement-panel.js','calibration-panel.js','calibration.css','observer-panel.js','observer.css','body-panel.js','scene-files.js','scene-video.js','brain-game.js','brain-game.css','world-panel.js','world-panel.css','goals-panel.js','goals-panel.css','data-panel.js','data-panel.css'])fs.writeFileSync(path.join(folder,name),'/* valid UTF-8 fixture */');
+  assert.equal(verifyRendererSources(folder).checked,21);fs.writeFileSync(path.join(folder,'style.css'),Buffer.alloc(128));assert.throws(()=>verifyRendererSources(folder),/style.css.*NUL/);
   fs.writeFileSync(path.join(folder,'style.css'),'body{}');fs.writeFileSync(path.join(folder,'app.js'),Buffer.from([255]));assert.throws(()=>verifyRendererSources(folder),/app.js.*UTF-8/);
 });
 test('offline application policy permits loopback and rejects external navigation without dispatch',()=>{
@@ -127,4 +127,18 @@ test('explicit physical and retention requirements cannot disappear into model d
  const {requestedPhysics}=require('../goals.cjs');
  assert.deepEqual(requestedPhysics('On a 24 degree slope with friction 0.18 reach target 1.2 metres despite a +0.35 m/s disturbance. Save the procedure as live-world-reach. Include current browser observation as context.'),{angleDeg:24,friction:.18,targetM:1.2,disturbanceMps:.35,browserContext:true,saveSkillName:'live-world-reach'});
  assert.deepEqual(requestedPhysics('Create a counter web app'),{});
+});
+
+
+test('motion data tasks use their registered family while CSV web creation and physics stay separate',()=>{
+ const {planTools}=require('../policy.cjs'),{requestedData,goalSummary}=require('../goals.cjs');
+ assert.equal(taskMode('Analyze my imported motion CSV and save the successful data procedure').needsData,true);
+ assert.equal(taskMode('Summarize the selected motion dataset').needsData,true);
+ assert.equal(taskMode('Reuse the live-motion-data procedure on the selected motion dataset').needsData,true);
+ assert.equal(taskMode('Build an interactive CSV analysis web app').needsData,undefined);
+ assert.equal(taskMode('Use the physics world model to predict block motion').needsData,undefined);
+ const bound=planTools(['procedure.run'],{family:'data',procedureBound:true})[0].function.parameters;assert.equal(bound.properties.name,undefined);assert.equal(bound.properties.angleDeg,undefined);assert(bound.properties.maxGapS);
+ const schema=planTools(['data.start'])[0].function.parameters;assert.equal(schema.additionalProperties,false);assert.equal(schema.properties.maxGapS.minimum,.000001);
+ assert.deepEqual(requestedData('Analyze motion data with gap limit 0.25 and speed limit 0.4. Save the procedure as source-analysis.'),{maxGapS:.25,speedLimitMps:.4,saveSkillName:'source-analysis'});
+ const summary=goalSummary({procedure:'motion-data-report-v1',status:'completed',reason:'Verified',metrics:{rowCount:5,totalTravelM:.18,meanSpeedMps:.18,gapFlags:1,speedFlags:1,skippedSourceRows:0,qualityPassed:false}});assert(summary.includes('Quality flags'));assert(!summary.includes('endpoint'));
 });

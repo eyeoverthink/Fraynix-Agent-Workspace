@@ -100,7 +100,7 @@ public final class MeasurementStore {
         if (rows.size() < 3 || rows.size() > 2049 || rows.stream().anyMatch(r -> r.size() > 32)) throw new IllegalArgumentException("CSV needs a header and 2..2048 data rows, at most 32 columns");
         return rows;
     }
-    private static double cellNumber(String raw, int row) {
+    static double cellNumber(String raw, int row) {
         String s = raw.strip();
         if (!s.matches("[+-]?(?:[0-9]+(?:\\.[0-9]*)?|\\.[0-9]+)(?:[eE][+-]?[0-9]+)?")) throw new IllegalArgumentException("Non-numeric value at CSV row " + row);
         double value = Double.parseDouble(s);

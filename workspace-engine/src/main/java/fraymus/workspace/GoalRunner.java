@@ -12,18 +12,19 @@ import java.util.concurrent.*;
 public final class GoalRunner implements AutoCloseable {
     public static final String PROCEDURE="world-reach-report-v1";
     private static final Set<String> LIVE=Set.of("running","waiting-host");
-    private final SceneStore scenes; private final BrainService brain; private final WorkspaceStore artifacts;
+    private final SceneStore scenes; private final BrainService brain; private final WorkspaceStore artifacts; private final MeasurementStore measurements;
     private final SchemaRegistry schemas=new SchemaRegistry(); private final FactoryWorld world;
     private final WorldCheckpointStore checkpoint;
     private final ScheduledExecutorService worker=Executors.newSingleThreadScheduledExecutor(r->{var t=new Thread(r,"java-goal-runner");t.setDaemon(true);return t;});
     private boolean closed;
 
-    public GoalRunner(Path project,SceneStore scenes,BrainService brain,WorkspaceStore artifacts) throws Exception {
-        this.scenes=scenes;this.brain=brain;this.artifacts=artifacts;
+    public GoalRunner(Path project,SceneStore scenes,BrainService brain,WorkspaceStore artifacts) throws Exception {this(project,scenes,brain,artifacts,new MeasurementStore(project));}
+    public GoalRunner(Path project,SceneStore scenes,BrainService brain,WorkspaceStore artifacts,MeasurementStore measurements) throws Exception {
+        this.measurements=measurements;this.scenes=scenes;this.brain=brain;this.artifacts=artifacts;
         for(String type:List.of("goal","procedure"))schemas.register(new ComponentSchema("workspace."+type,1,Map.of("payload",ComponentSchema.Kind.TEXT),Set.of("payload")));
         world=new FactoryWorld(schemas);checkpoint=new WorldCheckpointStore(project.resolve("goals/tasks.fworld"));
         if(Files.exists(checkpoint.path()))world.restore(checkpoint.load(schemas).snapshot());
-        for(var g:values("goal"))if(LIVE.contains(g.getString("status"))){g.put("status","interrupted").put("reason","Process ended. Resume explicitly; incomplete native trials restart from frozen conditions.");g.remove("hostClaim");save("goal",g);}
+        for(var g:values("goal"))if(LIVE.contains(g.getString("status"))){g.put("status","interrupted").put("reason",dataGoal(g)?"Process ended. Resume explicitly from the frozen dataset version.":"Process ended. Resume explicitly; incomplete native trials restart from frozen conditions.");g.remove("hostClaim");save("goal",g);}
         worker.scheduleWithFixedDelay(this::tick,50,100,TimeUnit.MILLISECONDS);
     }
     private List<JSONObject> values(String type){var out=new ArrayList<JSONObject>();for(var e:world.snapshot().entities())if(e.components().get(0).type().equals("workspace."+type))out.add(new JSONObject(e.components().get(0).values().get("payload")));return out;}
@@ -35,11 +36,13 @@ public final class GoalRunner implements AutoCloseable {
     }
     private JSONObject active(){return values("goal").stream().filter(g->LIVE.contains(g.getString("status"))).findFirst().orElse(null);}
     public synchronized boolean busy(){return active()!=null;}
+    private static boolean dataGoal(JSONObject g){return g.optString("procedure").equals(MotionData.PROCEDURE);}
+    public synchronized boolean ownsPhysics(){var g=active();return g!=null&&!dataGoal(g);}
     public synchronized JSONObject read(String id){UUID.fromString(id);return values("goal").stream().filter(g->id.equals(g.getString("id"))).findFirst().orElseThrow(()->new IllegalArgumentException("Unknown Java goal"));}
     public synchronized JSONArray list(){var out=new JSONArray();var all=values("goal");all.sort(Comparator.comparing(g->g.getString("createdAt")));for(var g:all)out.put(view(g));return out;}
     public synchronized JSONArray procedures(){var out=new JSONArray();for(var p:values("procedure"))out.put(p);return out;}
     static JSONObject view(JSONObject g){
-        var out=new JSONObject();for(String k:List.of("id","request","status","step","attempt","resumes","createdAt","updatedAt","reason","sceneId","runId","report","metrics","savedSkill","skill","history","targetM","disturbanceMps","parameters","source","browserContext"))if(g.has(k))out.put(k,g.get(k));return out;
+        var out=new JSONObject();for(String k:List.of("procedure","dataBinding","maxGapS","speedLimitMps","id","request","status","step","attempt","resumes","createdAt","updatedAt","reason","sceneId","runId","report","metrics","savedSkill","skill","history","targetM","disturbanceMps","parameters","source","browserContext"))if(g.has(k))out.put(k,g.get(k));return out;
     }
     private static void keys(JSONObject input,Set<String> allowed){if(!allowed.containsAll(input.keySet()))throw new IllegalArgumentException("Unsupported goal/procedure field");}
     public synchronized JSONObject start(JSONObject input) throws Exception {return start(input,null);}
@@ -67,6 +70,7 @@ public final class GoalRunner implements AutoCloseable {
         try{
             if(System.currentTimeMillis()>g.getLong("deadline"))throw new IllegalStateException("Goal exceeded its 180 second attempt budget");
             if(g.getString("status").equals("waiting-host"))return;
+            if(dataGoal(g)){tickData(g);return;}
             switch(g.getString("step")){
                 case "model" -> {
                     if(!brain.activeWorldModel().optBoolean("available")){
@@ -116,9 +120,11 @@ public final class GoalRunner implements AutoCloseable {
         int disturbances=0;for(Object raw:r.getJSONArray("worldEvents")){var e=(JSONObject)raw;if(e.getString("kind").equals("disturbance")){disturbances++;if(e.getInt("tick")!=108||e.getDouble("deltaVelocityMps")!=g.getDouble("disturbanceMps"))throw new IllegalStateException("Actual disturbance differs from frozen intent");}}
         if(disturbances!=1||r.getJSONArray("worldPlans").length()!=30||r.getJSONArray("worldInnovations").length()!=29)throw new IllegalStateException("Incomplete native observation/action evidence");return r;
     }
+    private JSONArray reportChecks(JSONObject g){return dataGoal(g)?MotionData.checks(g):GoalReport.checks(g);}
+    private void verifyOutcome(JSONObject g) throws Exception {if(dataGoal(g))verifiedData(g);else verifiedRun(g);}
     private void verifiedReport(JSONObject g) throws Exception {
         var ref=g.getJSONObject("report");var a=artifacts.read(ref.getString("id"));var proof=a.optJSONObject("test");
-        if(a.getInt("version")!=ref.getInt("version")||!MeasurementStore.hash(a.getJSONObject("contents").toString()).equals(ref.getString("sha256"))||proof==null||!proof.optBoolean("passed")||!proof.getJSONArray("steps").similar(GoalReport.checks(g))||proof.getJSONArray("checks").length()!=GoalReport.checks(g).length())throw new IllegalStateException("Current report lacks its exact passing canvas receipt");
+        if(a.getInt("version")!=ref.getInt("version")||!MeasurementStore.hash(a.getJSONObject("contents").toString()).equals(ref.getString("sha256"))||proof==null||!proof.optBoolean("passed")||!proof.getJSONArray("steps").similar(reportChecks(g))||proof.getJSONArray("checks").length()!=reportChecks(g).length())throw new IllegalStateException("Current report lacks its exact passing canvas receipt");
     }
     private void host(JSONObject g,String kind) throws Exception {g.put("status","waiting-host").put("hostEffect",new JSONObject().put("id",effectId(g,kind)).put("kind",kind));g.remove("hostClaim");change(g,g.getString("step"),"Waiting for registered desktop action: "+kind);}
     /** Private host route, deliberately absent from the model's tool catalog. */
@@ -127,7 +133,7 @@ public final class GoalRunner implements AutoCloseable {
         var claim=g.optJSONObject("hostClaim");if(claim!=null&&System.currentTimeMillis()<claim.getLong("expires"))return new JSONObject();
         claim=new JSONObject().put("nonce",UUID.randomUUID().toString()).put("expires",System.currentTimeMillis()+30_000);g.put("hostClaim",claim);save("goal",g);
         var out=new JSONObject(g.getJSONObject("hostEffect").toString()).put("goalId",g.getString("id")).put("nonce",claim.getString("nonce"));
-        if(out.getString("kind").equals("canvas.verify-report"))out.put("report",g.getJSONObject("report")).put("steps",GoalReport.checks(g));return out;
+        if(out.getString("kind").equals("canvas.verify-report"))out.put("report",g.getJSONObject("report")).put("steps",reportChecks(g));return out;
     }
     public synchronized JSONObject acknowledge(JSONObject input) throws Exception {
         keys(input,Set.of("goalId","id","nonce","result","error"));var g=read(input.getString("goalId"));var c=g.optJSONObject("hostClaim");
@@ -143,9 +149,10 @@ public final class GoalRunner implements AutoCloseable {
         if(g.has("runId")){var s=scenes.snapshot();if(g.getString("runId").equals(s.optString("id"))&&Set.of("running","paused").contains(s.getString("status")))scenes.worldCancel(g.getString("runId"));}
         if(g.has("brainJobId")){try{var job=brain.read(g.getString("brainJobId"));if(Set.of("queued","running").contains(job.getString("status")))brain.cancel(job.getString("id"));}catch(IllegalArgumentException absent){/* Persisted intent may precede creation of its owned job. */}}
     }
-    public synchronized JSONObject cancel(String id) throws Exception {var g=read(id);if(!LIVE.contains(g.getString("status"))&&!g.getString("status").equals("interrupted"))throw new IllegalStateException("Goal is already settled");stopOwned(g);g.put("status","cancelled");g.remove("hostClaim");change(g,g.getString("step"),"Cancelled; physical evolution stopped and no new skill promoted");return view(g);}
+    public synchronized JSONObject cancel(String id) throws Exception {var g=read(id);if(!LIVE.contains(g.getString("status"))&&!g.getString("status").equals("interrupted"))throw new IllegalStateException("Goal is already settled");stopOwned(g);g.put("status","cancelled");g.remove("hostClaim");change(g,g.getString("step"),"Cancelled; owned effects stopped and no new skill promoted");return view(g);}
     public synchronized JSONObject resume(String id) throws Exception {
         var g=read(id);if(!g.getString("status").equals("interrupted")||busy())throw new IllegalStateException("Resume only an interrupted goal while the runner is idle");if(g.getInt("resumes")>=3)throw new IllegalStateException("Recovery budget reached (3 explicit resumes)");
+        if(dataGoal(g)){g.put("resumes",g.getInt("resumes")+1).put("deadline",System.currentTimeMillis()+180_000).put("status","running");g.remove("hostClaim");change(g,g.has("analysis")?"data-report":"data-analyze","Explicit data-task resume reuses its frozen dataset version and stable report identity");return view(g);}
         scenes.goalAvailable();g.put("resumes",g.getInt("resumes")+1).put("deadline",System.currentTimeMillis()+180_000).put("status","running");g.remove("hostClaim");
         var r=scenes.goalRun(id,g.getInt("attempt"));
         if(r!=null&&r.getString("status").equals("completed")){g.put("runId",r.getString("id"));if(g.has("report"))change(g,"report","Resuming report verification; completed physical actions will not repeat");else change(g,"verify","Recovering completed physical evidence without replay");}
@@ -155,8 +162,8 @@ public final class GoalRunner implements AutoCloseable {
     private static void validName(String name){if(!name.matches("[a-z][a-z0-9-]{2,55}"))throw new IllegalArgumentException("Skill name needs 3..56 lowercase letters, digits or hyphens");}
     public synchronized JSONObject saveProcedure(String goalId,String name) throws Exception {var g=read(goalId);if(!g.getString("status").equals("completed"))throw new IllegalStateException("Only a completed verified goal can become a procedure");return saveProcedure(g,name);}
     private JSONObject saveProcedure(JSONObject g,String name) throws Exception {
-        validName(name);verifiedRun(g);verifiedReport(g);var all=values("procedure");int version=1;
-        for(var p:all)if(p.getString("name").equals(name)){if(p.getString("sourceGoalId").equals(g.getString("id")))return new JSONObject().put("name",name).put("version",p.getInt("version")).put("id",p.getString("id"));version=Math.max(version,p.getInt("version")+1);}
+        validName(name);if(dataGoal(g))return saveDataProcedure(g,name);verifiedRun(g);verifiedReport(g);var all=values("procedure");int version=1;
+        for(var p:all)if(p.getString("name").equals(name)){if(!p.getString("kind").equals(g.getString("procedure")))throw new IllegalArgumentException("Choose a distinct skill name for a different registered task family");if(p.getString("sourceGoalId").equals(g.getString("id")))return new JSONObject().put("name",name).put("version",p.getInt("version")).put("id",p.getString("id"));version=Math.max(version,p.getInt("version")+1);}
         if(all.size()>=32||version>8)throw new IllegalStateException("Procedural skill version/history budget reached");
         var p=new JSONObject().put("id",UUID.nameUUIDFromBytes(("procedure:"+name+":"+version).getBytes(StandardCharsets.UTF_8)).toString()).put("name",name).put("version",version).put("kind",PROCEDURE).put("sourceGoalId",g.getString("id")).put("sourceRunId",g.getString("runId")).put("report",g.getJSONObject("report")).put("verifiedAt",Instant.now())
             .put("defaults",new JSONObject().put("parameters",g.getJSONObject("parameters")).put("targetM",g.getDouble("targetM")).put("disturbanceMps",g.getDouble("disturbanceMps")))
@@ -167,9 +174,50 @@ public final class GoalRunner implements AutoCloseable {
         save("procedure",p);return new JSONObject().put("name",name).put("version",version).put("id",p.getString("id"));
     }
     public synchronized JSONObject runProcedure(JSONObject input) throws Exception {
-        keys(input,Set.of("name","version","parameters","targetM","disturbanceMps","sceneId","expectedVersion","browserContext"));validName(input.getString("name"));
+        validName(input.getString("name"));if(!(input.get("version") instanceof Number version)||version.doubleValue()<1||version.doubleValue()>8||version.doubleValue()!=Math.rint(version.doubleValue()))throw new IllegalArgumentException("Choose an exact procedural skill version from1 to8");
         var p=values("procedure").stream().filter(v->v.getString("name").equals(input.getString("name"))&&v.getInt("version")==input.getInt("version")).findFirst().orElseThrow(()->new IllegalArgumentException("Unknown procedural skill version"));
-        if(!p.getString("kind").equals(PROCEDURE))throw new IllegalArgumentException("Unregistered procedure kind");var args=new JSONObject(p.getJSONObject("defaults").toString());for(String k:input.keySet())if(!Set.of("name","version").contains(k)){if(k.equals("parameters")){var merged=args.getJSONObject("parameters");for(String key:input.getJSONObject(k).keySet())merged.put(key,input.getJSONObject(k).get(key));}else args.put(k,input.get(k));}if(input.has("sceneId"))args.put("parameters",input.optJSONObject("parameters")==null?new JSONObject():input.getJSONObject("parameters"));args.put("request","Reuse "+p.getString("name")+" v"+p.getInt("version")+" with freshly verified physical outcomes");return start(args,p);
+        if(p.getString("kind").equals(MotionData.PROCEDURE)){
+            keys(input,Set.of("name","version","datasetId","datasetVersion","maxGapS","speedLimitMps","saveSkillName"));var args=new JSONObject(p.getJSONObject("defaults").toString());for(String k:input.keySet())if(!Set.of("name","version").contains(k))args.put(k,input.get(k));args.put("request","Reuse "+p.getString("name")+" v"+p.getInt("version")+" with a newly bound source and verified analysis");return startData(args,p);
+        }
+        keys(input,Set.of("name","version","parameters","targetM","disturbanceMps","sceneId","expectedVersion","browserContext","saveSkillName"));if(!p.getString("kind").equals(PROCEDURE))throw new IllegalArgumentException("Unregistered procedure kind");var args=new JSONObject(p.getJSONObject("defaults").toString());for(String k:input.keySet())if(!Set.of("name","version").contains(k)){if(k.equals("parameters")){var merged=args.getJSONObject("parameters");for(String key:input.getJSONObject(k).keySet())merged.put(key,input.getJSONObject(k).get(key));}else args.put(k,input.get(k));}if(input.has("sceneId"))args.put("parameters",input.optJSONObject("parameters")==null?new JSONObject():input.getJSONObject("parameters"));args.put("request","Reuse "+p.getString("name")+" v"+p.getInt("version")+" with freshly verified physical outcomes");return start(args,p);
+    }
+    public synchronized JSONObject startData(JSONObject input) throws Exception {return startData(input,null);}
+    private JSONObject startData(JSONObject input,JSONObject skill) throws Exception {
+        keys(input,Set.of("request","datasetId","datasetVersion","maxGapS","speedLimitMps","saveSkillName"));
+        if(closed||busy())throw new IllegalStateException("One Java goal is already active, or the runner is closed");if(values("goal").size()>=64)throw new IllegalStateException("Goal history budget reached (64)");
+        if(!(input.get("datasetVersion") instanceof Number n)||n.doubleValue()<1||n.doubleValue()>Integer.MAX_VALUE||n.doubleValue()!=Math.rint(n.doubleValue()))throw new IllegalArgumentException("Choose an explicit positive dataset version");
+        for(String k:List.of("maxGapS","speedLimitMps"))if(input.has(k)&&!(input.get(k) instanceof Number))throw new IllegalArgumentException("Use numeric data criteria");
+        var data=measurements.read(input.getString("datasetId"),input.getInt("datasetVersion"));MotionData.originalRows(data);double gap=input.optDouble("maxGapS",.25),speed=input.optDouble("speedLimitMps",5);MotionData.criteria(gap,speed);
+        String name=input.optString("saveSkillName","");if(!name.isEmpty())validName(name);String request=input.optString("request","Analyze the selected motion data, verify the report and retain a procedure");if(request.isBlank()||request.length()>8000)throw new IllegalArgumentException("Goal request needs 1..8000 characters");
+        var g=new JSONObject().put("id",UUID.randomUUID().toString()).put("procedure",MotionData.PROCEDURE).put("request",request).put("dataBinding",MotionData.binding(data)).put("maxGapS",gap).put("speedLimitMps",speed).put("saveSkillName",name).put("status","running").put("step","data-analyze").put("attempt",1).put("resumes",0).put("createdAt",Instant.now()).put("updatedAt",Instant.now()).put("deadline",System.currentTimeMillis()+180_000).put("history",new JSONArray());
+        if(skill!=null)g.put("skill",new JSONObject().put("name",skill.getString("name")).put("version",skill.getInt("version")).put("id",skill.getString("id")));
+        change(g,"data-analyze","Data task accepted; exact dataset version, original CSV hash, mapping and quality thresholds frozen");return view(g);
+    }
+    private JSONObject dataSource(JSONObject g){
+        var b=g.getJSONObject("dataBinding");var d=measurements.read(b.getString("datasetId"),b.getInt("datasetVersion"));if(!MotionData.binding(d).similar(b))throw new IllegalStateException("Frozen data version or source changed");return d;
+    }
+    private void verifiedData(JSONObject g){
+        var a=MotionData.analyze(dataSource(g),g.getDouble("maxGapS"),g.getDouble("speedLimitMps"));if(!MeasurementStore.hash(a.toString()).equals(g.getString("analysisSha256"))||!a.similar(g.getJSONObject("analysis")))throw new IllegalStateException("Retained data analysis differs from the original source and frozen criteria");
+    }
+    private void tickData(JSONObject g) throws Exception {
+        switch(g.getString("step")){
+            case "data-analyze" -> {var a=MotionData.analyze(dataSource(g),g.getDouble("maxGapS"),g.getDouble("speedLimitMps"));g.put("analysis",a).put("analysisSha256",MeasurementStore.hash(a.toString())).put("metrics",a.getJSONObject("summary"));change(g,"data-report","Original CSV normalization, segment motion and integration invariants verified; data quality is reported separately");}
+            case "data-report" -> {verifiedData(g);var a=artifacts.writeOnce("goal-report:"+g.getString("id")+":"+g.getInt("attempt"),MotionData.report(g,dataSource(g)));g.put("report",new JSONObject().put("id",a.getString("id")).put("version",a.getInt("version")).put("sha256",MeasurementStore.hash(a.getJSONObject("contents").toString())));save("goal",g);host(g,"canvas.verify-report");}
+            case "complete" -> {verifiedData(g);verifiedReport(g);if(!g.getString("saveSkillName").isEmpty())g.put("savedSkill",saveDataProcedure(g,g.getString("saveSkillName")));g.put("status","completed");change(g,"completed","Data analysis and actual canvas report verified; quality flags retained without changing the source");artifacts.event("java_goal_completed",view(g));}
+            default -> throw new IllegalStateException("Unknown registered data step");
+        }
+    }
+    private JSONObject saveDataProcedure(JSONObject g,String name) throws Exception {
+        validName(name);verifiedData(g);verifiedReport(g);var all=values("procedure");int version=1;
+        for(var p:all)if(p.getString("name").equals(name)){if(!p.getString("kind").equals(MotionData.PROCEDURE))throw new IllegalArgumentException("Choose a distinct skill name for a different registered task family");if(p.getString("sourceGoalId").equals(g.getString("id")))return new JSONObject().put("name",name).put("version",p.getInt("version")).put("id",p.getString("id"));version=Math.max(version,p.getInt("version")+1);}
+        if(all.size()>=32||version>8)throw new IllegalStateException("Procedural skill version/history budget reached");
+        var p=new JSONObject().put("id",UUID.nameUUIDFromBytes(("procedure:"+name+":"+version).getBytes(StandardCharsets.UTF_8)).toString()).put("name",name).put("version",version).put("kind",MotionData.PROCEDURE).put("sourceGoalId",g.getString("id")).put("sourceData",g.getJSONObject("dataBinding")).put("report",g.getJSONObject("report")).put("verifiedAt",Instant.now()).put("defaults",new JSONObject().put("maxGapS",g.getDouble("maxGapS")).put("speedLimitMps",g.getDouble("speedLimitMps")))
+            .put("prerequisites",new JSONArray(List.of("Explicitly selected imported dataset version","Original CSV and mapping hashes intact","At least two finite strictly increasing mapped samples","Declared source labels, units and quality thresholds")))
+            .put("actions",new JSONArray(List.of("Bind a dataset version without editing it","Reconstruct SI values from original CSV and mapping","Derive segment velocity and midpoint acceleration","Check integrated displacement and travel","Retain gap, speed and skipped-source flags","Create and verify actual charts and audit files")))
+            .put("successChecks",new JSONObject().put("sourceIntegrity",true).put("finiteDerivedValues",true).put("integrationInvariants",true).put("passingCanvasReceipt",true).put("qualityAcceptanceSeparate",true))
+            .put("recovery",new JSONArray(List.of("Explicit resume after process loss","Recompute only from the frozen immutable source","Reuse stable report identity after interrupted verification","Reject changed/corrupt source instead of replacing it","Never promote cancelled or unverified goals"))).put("maxExplicitResumes",3)
+            .put("scope","Registered offline motion-data analysis. Reuse requires an explicit source binding. A correctly verified report may flag source quality; no physical model, sensor authenticity or hardware authority is established.");
+        save("procedure",p);return new JSONObject().put("name",name).put("version",version).put("id",p.getString("id"));
     }
     @Override public synchronized void close(){closed=true;worker.shutdownNow();}
 }

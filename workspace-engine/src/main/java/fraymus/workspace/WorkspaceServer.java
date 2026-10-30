@@ -30,7 +30,7 @@ public final class WorkspaceServer {
     public WorkspaceServer(Path project,String token) throws IOException {
         if(token==null||token.length()<32)throw new IllegalArgumentException("A private session capability is required");
         this.token=token;store=new WorkspaceStore(project);learning=new LearningStore(project);
-        try{scenes=new SceneStore(project);measurements=new MeasurementStore(project);calibrations=new CalibrationStore(project,scenes,measurements);observers=new ObserverStore(project,scenes);brain=new BrainService(project);goals=new GoalRunner(project,scenes,brain,store);game=new EmbeddedGameClient(Path.of(System.getProperty("user.dir")),project);}catch(Exception e){throw new IOException("Experiment stores could not start",e);}
+        try{scenes=new SceneStore(project);measurements=new MeasurementStore(project);calibrations=new CalibrationStore(project,scenes,measurements);observers=new ObserverStore(project,scenes);brain=new BrainService(project);goals=new GoalRunner(project,scenes,brain,store,measurements);game=new EmbeddedGameClient(Path.of(System.getProperty("user.dir")),project);}catch(Exception e){throw new IOException("Experiment stores could not start",e);}
         scanner.scheduleWithFixedDelay(()->{try{catalog=models.observe();}catch(Exception e){System.err.println("Model discovery: "+e.getMessage());}},0,45,TimeUnit.SECONDS);
     }
     private JSONObject state() throws IOException {
@@ -50,8 +50,9 @@ public final class WorkspaceServer {
                 JSONObject input=new JSONObject(new String(body,StandardCharsets.UTF_8));String route=exchange.getRequestURI().getPath();JSONObject result;
                 if(route.equals("/api/plan")){send(exchange,200,plan(input));return;}
                 synchronized(goals){
-                if(goals.busy()&&Set.of("/api/brain/start","/api/brain/cancel","/api/brain/rollback","/api/brain/run","/api/brain/feedback-start","/api/brain/feedback-kick","/api/brain/feedback-cancel","/api/brain/feedback-rollback","/api/brain/world-prepare","/api/brain/world-preview","/api/brain/world-kick","/api/brain/world-cancel","/api/brain/world-rollback","/api/body/action","/api/body/cancel","/api/scene/save","/api/scene/import","/api/experiment/control","/api/experiment/run","/api/experiment/replay","/api/observer/action","/api/observer/replay","/api/calibration/start","/api/calibration/resume","/api/calibration/apply","/api/calibration/rollback").contains(route))throw new IllegalStateException("The Java goal owns this task's physics and model state. Cancel it before manual changes.");
+                if(goals.ownsPhysics()&&Set.of("/api/brain/start","/api/brain/cancel","/api/brain/rollback","/api/brain/run","/api/brain/feedback-start","/api/brain/feedback-kick","/api/brain/feedback-cancel","/api/brain/feedback-rollback","/api/brain/world-prepare","/api/brain/world-preview","/api/brain/world-kick","/api/brain/world-cancel","/api/brain/world-rollback","/api/body/action","/api/body/cancel","/api/scene/save","/api/scene/import","/api/experiment/control","/api/experiment/run","/api/experiment/replay","/api/observer/action","/api/observer/replay","/api/calibration/start","/api/calibration/resume","/api/calibration/apply","/api/calibration/rollback").contains(route))throw new IllegalStateException("The Java goal owns this task's physics and model state. Cancel it before manual changes.");
                 switch(route) {
+                    case "/api/goals/data-start" -> result=goals.startData(input);
                     case "/api/goals/start" -> result=goals.start(input);
                     case "/api/goals/read" -> result=GoalRunner.view(goals.read(input.getString("id")));
                     case "/api/goals/list" -> result=new JSONObject().put("goals",goals.list()).put("procedures",goals.procedures());

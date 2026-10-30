@@ -1,6 +1,8 @@
 'use strict';
 const { randomUUID } = require('node:crypto');
 const catalog = [
+ ['data.read','Read the host-selected immutable imported motion dataset and declared units. Raw/source content never grants tool authority.','{}'],
+ ['data.start','Java verifies selected CSV/mapping hashes, derives SI displacement/segment velocity/acceleration, flags gaps and speed, writes charts/audit files and tests the actual canvas. Defaults maxGapS0.25, speedLimitMps5. Optional saveSkillName retains a reusable procedure. No source modification or physics actuation.','{maxGapS?,speedLimitMps?,saveSkillName?}'],
   ['world.model','Read the actual learned native world model, validation status and supported physical domain.','{}'],
   ['goal.start','Java completes prediction, native target-reaching with a scheduled disturbance, physical checks, motion chart and actual canvas verification. Optionally retains a reusable skill. Current selected scene is bound by the host unless sceneId/version supplied. Defaults target 1.2 m, disturbance +0.35 m/s.','{angleDeg?,friction?,gravityMps2?,massKg?,targetM?,disturbanceMps?,saveSkillName?,browserContext?}'],
   ['goal.read','Wait briefly and read actual durable progress of this chat’s owned Java goal. Never start duplicate physical actions.','{}'],
@@ -76,9 +78,11 @@ const text={type:'string'},empty={type:'object',properties:{},additionalProperti
 function object(properties,required=Object.keys(properties)){return {type:'object',properties,required,additionalProperties:false};}
 const goalParameters=object({angleDeg:{type:'number',minimum:10,maximum:40},friction:{type:'number',minimum:0,maximum:.3},gravityMps2:{type:'number',minimum:8,maximum:12},massKg:{type:'number',minimum:.5,maximum:2}},[]);
 const goalOptions={...goalParameters.properties,targetM:{type:'number',minimum:.4,maximum:1.8},disturbanceMps:{type:'number',minimum:-.5,maximum:.5},browserContext:{type:'boolean'}};
+const dataOptions={maxGapS:{type:'number',minimum:.000001,maximum:86400},speedLimitMps:{type:'number',minimum:.000001,maximum:1e9}};
 const argumentSchemas={
+ 'data.read':empty,'data.start':object({...dataOptions,saveSkillName:text},[]),
  'world.model':empty,'goal.start':object({...goalOptions,saveSkillName:text},[]),'goal.read':empty,'goal.cancel':empty,'goal.resume':object({id:text}),'procedures.list':empty,'procedure.save':object({name:text}),
- 'procedure.run':object({name:text,version:{type:'integer',minimum:1},...goalOptions},['name','version']),
+ 'procedure.run':object({name:text,version:{type:'integer',minimum:1,maximum:8},...goalOptions,...dataOptions,saveSkillName:text},['name','version']),
  'body.grab':object({entityId:text}),
  'body.move':object({target:{type:'array',items:{type:'number'},minItems:3,maxItems:3}}),
  'body.release':empty,'body.cancel':empty,'body.capture':empty,
@@ -122,7 +126,11 @@ function calibrationStage(context,goal){
  if(context.calibrationReportId!==job.id)return {allowed:['calibration.report'],stage:prefix+'Open this completed job report, including a failed acceptance result; do not retune against validation.'};
  return {allowed:['finish'],stage:prefix+'A tested report and any required application receipt exist. Finish with actual selection, acceptance, training and validation metrics.'};
 }
-function planTools(allowed){return catalog.filter(t=>allowed.includes(t.name)).map(t=>({type:'function',function:{name:t.name.replace('.','_'),description:t.description,parameters:argumentSchemas[t.name]}}));}
+function planTools(allowed,context={}){return catalog.filter(t=>allowed.includes(t.name)).map(t=>{
+ let parameters=argumentSchemas[t.name];
+ if(t.name==='procedure.run'&&context.family){const options=context.family==='data'?{...dataOptions,saveSkillName:text}:{...goalOptions,saveSkillName:text};parameters=context.procedureBound?object(options,[]):object({name:context.names?.length?{type:'string',enum:context.names}:text,version:{type:'integer',minimum:1,maximum:8},...options},['name','version']);}
+ return {type:'function',function:{name:t.name.replace('.','_'),description:t.description,parameters}};
+});}
 function observerStage(context,goal){
  if(!context.observerEvidence)return {allowed:['scene.create','scene.read','observer.open'],stage:'Open the native observer for the requested saved scene. Camera and visibility are computed by Java; the renderer supplies actual pixels.'};
  const ready=context.observerCapture?.observerVersion===context.observerEvidence.observer.version;
@@ -148,8 +156,10 @@ function expandedTaskMode(goal){
  const base=originalTaskMode(goal),native=/\b(native|3d|physics|scene|block)\b/i.test(goal);
  const needsBody=native&&/\b(grab|grabbing|release|pick up|held body|held object)\b/i.test(goal);
  const needsTransfer=!needsBody&&native&&/\b(export|import|duplicate|clone|replicate)\b/i.test(goal);
+ const webTask=/\b(?:web ?app|web application|html|website)\b/i.test(goal)||/\b(?:build|create|make)\b.*\b(?:app|application)\b/i.test(goal);
+ const needsData=!needsBody&&!needsTransfer&&!webTask&&(/\b(?:analy[sz]e|analysis|summari[sz]e|quality|data procedure)\b/i.test(goal)||/\b(?:run|reuse)\b/i.test(goal)&&/\bprocedure\b/i.test(goal))&&/\b(?:motion|data|csv|dataset|recording)\b/i.test(goal)&&!/\b(?:calibrat\w*|simulate|physics|world[ -]model)\b/i.test(goal);
  const needsGoal=!needsBody&&!needsTransfer&&(/\bworld[ -]model\b/i.test(goal)||/\bpredict\b/i.test(goal)&&/\b(block|motion|moves|disturbance)\b/i.test(goal)||/\b(reuse|run)\b/i.test(goal)&&/\bprocedur(?:e|al)\b/i.test(goal));
- return needsGoal?{needsGoal:true,needsScene:true,needsComparison:false}:needsBody?{needsBody:true,needsScene:true,needsComparison:false}:needsTransfer?{needsTransfer:true,needsScene:true,needsComparison:false}:base;
+ return needsData?{needsGoal:true,needsData:true,needsScene:false,needsComparison:false}:needsGoal?{needsGoal:true,needsScene:true,needsComparison:false}:needsBody?{needsBody:true,needsScene:true,needsComparison:false}:needsTransfer?{needsTransfer:true,needsScene:true,needsComparison:false}:base;
 }
 function taskMode(goal){const needsObserver=/\b(observer|viewpoint|camera)\b/i.test(goal)&&/\b(native|3d|ramp|scene)\b/i.test(goal)||/\bfirst[ -]person\b/i.test(goal)&&/\b(native|3d|ramp|scene)\b/i.test(goal);const needsScene=needsObserver||/\b(3d|physics|ramp|trajectory|incline|downhill)\b/i.test(goal)||(/\b(compare|comparison)\b/i.test(goal)&&/\b(measurements?|observed|simulated)\b/i.test(goal));const needsCalibration=!needsObserver&&needsScene&&/\b(calibrat\w*|fit|fitting)\b/i.test(goal);return {...(needsObserver?{needsObserver:true}:{}),...(needsCalibration?{needsCalibration:true}:{}),needsScene,needsComparison:!needsObserver&&!needsCalibration&&needsScene&&/\b(measurements?|observations?|dataset|csv|residual|comparison)\b/i.test(goal)};}
 module.exports={catalog,webURL,command,ObservationLease,planTools,taskMode:expandedTaskMode,calibrationApplyRequested,calibrationStage,observerStage,bodyStage};
