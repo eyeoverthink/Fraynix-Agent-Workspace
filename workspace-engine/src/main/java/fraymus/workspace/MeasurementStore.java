@@ -184,38 +184,22 @@ public final class MeasurementStore {
         var dataset = read(input.getString("datasetId"), integer(input, "datasetVersion"));
         var run = scenes.runRecord(input.getString("runId")); int expected = integer(input, "expectedSceneVersion");
         if (!run.getString("status").equals("completed")) throw new IllegalArgumentException("Select a completed native experiment");
+        if(run.getJSONObject("definition").has("calibrationOverride"))throw new IllegalArgumentException("Calibration trials use an explicit parameter override; use their calibration report or apply the fit and run the authored scene");
         if (run.getInt("sceneVersion") != expected || scenes.read(run.getString("sceneId")).getInt("version") != expected)
             throw new ConcurrentModificationException("Run and current authored scene must match expectedSceneVersion; record the saved scene again");
         if (require(dataset.getString("datasetId"), "workspace.measurement.dataset").getInt("version") != dataset.getInt("version"))
             throw new ConcurrentModificationException("Dataset binding is stale; explicitly select its current version");
         double tolerance = number(input, "toleranceM", -1);
         if (tolerance < 0 || tolerance > 10) throw new IllegalArgumentException("Declare toleranceM from 0 to 10 metres");
-        var samples = new JSONArray(run.getJSONArray("samples").toString()); var last = run.getJSONObject("final");
-        if (samples.getJSONObject(samples.length() - 1).getDouble("timeS") < last.getDouble("timeS")) samples.put(last);
-        var points = new JSONArray(); double squares = 0, total = 0, absolute = 0, maximum = 0; int within = 0, cursor = 0;
-        double start = samples.getJSONObject(0).getDouble("timeS"), end = last.getDouble("timeS");
-        for (Object item : dataset.getJSONArray("rows")) {
-            var row = (JSONObject)item; double time = row.getDouble("timeS"), observed = row.getDouble("distanceM");
-            if (time < start || time > end) throw new IllegalArgumentException("Measurement time " + time + " s is outside recorded run coverage; no extrapolation or silent trimming");
-            while (cursor + 1 < samples.length() && samples.getJSONObject(cursor + 1).getDouble("timeS") < time) cursor++;
-            var a = samples.getJSONObject(cursor); var b = samples.getJSONObject(Math.min(cursor + 1, samples.length() - 1));
-            double ta = a.getDouble("timeS"), tb = b.getDouble("timeS");
-            double value = a.getDouble("distanceM") + (tb == ta ? 0 : (time - ta) / (tb - ta) * (b.getDouble("distanceM") - a.getDouble("distanceM")));
-            double residual = value - observed;
-            if (!Double.isFinite(residual)) throw new IllegalArgumentException("Comparison produced non-finite values");
-            squares += residual * residual; total += residual; absolute += Math.abs(residual); maximum = Math.max(maximum, Math.abs(residual)); if (Math.abs(residual) <= tolerance) within++;
-            points.put(new JSONObject().put("sourceRow", row.getInt("sourceRow")).put("timeS", time).put("observedM", observed).put("simulatedM", value).put("residualM", residual));
-        }
-        int count = points.length();
+        var evaluation=MeasurementEvaluation.evaluate(dataset,run,tolerance);
         var result = new JSONObject().put("id", UUID.randomUUID().toString()).put("schemaVersion", 1).put("title", dataset.getString("title") + " comparison").put("createdAt", Instant.now())
             .put("datasetId", dataset.getString("datasetId")).put("datasetVersion", dataset.getInt("version")).put("datasetVersionId", dataset.getString("id"))
             .put("sourceSha256", dataset.getString("sourceSha256")).put("mappingSha256", dataset.getString("mappingSha256")).put("sourceKind", dataset.getString("sourceKind"))
             .put("runId", run.getString("id")).put("sceneId", run.getString("sceneId")).put("sceneVersion", run.getInt("sceneVersion"))
             .put("backend", run.getString("backend")).put("definition", run.getJSONObject("definition")).put("dt", run.getDouble("dt"))
             .put("method", "measurement-comparison-v1: linear interpolation of retained native distance samples; residual = simulated - observed")
-            .put("criteria", "all absolute residuals <= declared toleranceM; agreement only, not causal validation")
-            .put("count", count).put("rmseM", Math.sqrt(squares / count)).put("meanResidualM", total / count).put("maeM", absolute / count).put("maxAbsErrorM", maximum)
-            .put("toleranceM", tolerance).put("withinTolerance", within).put("passed", within == count).put("uncertaintyM", dataset.get("uncertaintyM")).put("points", points);
+            .put("criteria", "all absolute residuals <= declared toleranceM; agreement only, not causal validation");
+        for(String key:evaluation.keySet())result.put(key,evaluation.get(key));
         if (repeatedFrom != null) result.put("repeatedFrom", repeatedFrom);
         commit(record("workspace.measurement.comparison", result)); return result;
     }
@@ -232,6 +216,10 @@ public final class MeasurementStore {
             .put("runId", run.getString("id")).put("expectedSceneVersion", prior.getInt("sceneVersion")).put("toleranceM", prior.getDouble("toleranceM")), scenes, id);
     }
     public synchronized JSONObject comparison(String id) { return require(id, "workspace.measurement.comparison"); }
+    public synchronized <T> T withCurrentVersions(JSONObject training,JSONObject validation,java.util.concurrent.Callable<T> action) throws Exception {
+        for(var ref:List.of(training,validation))if(read(ref.getString("datasetId"),0).getInt("version")!=ref.getInt("version"))throw new ConcurrentModificationException("Dataset version changed; start a new calibration");
+        return action.call();
+    }
     public synchronized JSONArray comparisons(String scene) {
         var result = new JSONArray();
         for (var e : world.snapshot().entities()) if (type(e).equals("workspace.measurement.comparison")) {

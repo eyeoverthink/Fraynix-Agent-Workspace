@@ -23,6 +23,7 @@ public final class SceneStore implements AutoCloseable {
         schemas.register(new ComponentSchema("workspace.scene",1,Map.of("payload",ComponentSchema.Kind.TEXT),Set.of("payload")));
         schemas.register(new ComponentSchema("workspace.scene.object3d",1,Map.of("scene",ComponentSchema.Kind.ENTITY_REFERENCE,"payload",ComponentSchema.Kind.TEXT),Set.of("scene","payload")));
         schemas.register(new ComponentSchema("workspace.experiment",1,Map.of("scene",ComponentSchema.Kind.ENTITY_REFERENCE,"payload",ComponentSchema.Kind.TEXT),Set.of("scene","payload")));
+        schemas.register(new ComponentSchema("workspace.scene.calibration",1,Map.of("scene",ComponentSchema.Kind.ENTITY_REFERENCE,"payload",ComponentSchema.Kind.TEXT),Set.of("scene","payload")));
         world=new FactoryWorld(schemas);checkpoint=new WorldCheckpointStore(root.resolve("scenes.fworld"));
         if(Files.exists(checkpoint.path()))world.restore(checkpoint.load(schemas).snapshot());
         var interrupted=new ArrayList<EntityRecord>();
@@ -43,6 +44,9 @@ public final class SceneStore implements AutoCloseable {
     public synchronized JSONArray scenes(){var out=new JSONArray();for(var e:world.snapshot().entities())if(type(e).equals("workspace.scene")){var s=payload(e);out.put(new JSONObject().put("id",s.getString("id")).put("title",s.getString("title")).put("version",s.getInt("version")));}return out;}
     public synchronized JSONObject read(String id){var scene=require(id,"workspace.scene");var objects=new JSONArray();for(var e:world.snapshot().entities())if(type(e).equals("workspace.scene.object3d")&&e.components().get(0).values().get("scene").equals(id))objects.put(payload(e));return scene.put("objects",objects);}
     public synchronized JSONObject save(JSONObject input) throws Exception {
+        return save(input,null);
+    }
+    private JSONObject save(JSONObject input,JSONObject application) throws Exception {
         if(!Set.of("id","expectedVersion","title","parameters").containsAll(input.keySet()))throw new IllegalArgumentException("Unsupported scene field");
         if(input.has("parameters")&&!(input.get("parameters") instanceof JSONObject))throw new IllegalArgumentException("Scene parameters must be an object");
         if(physics!=null)throw new IllegalStateException("Reset the current experiment before editing its authored scene");
@@ -53,7 +57,45 @@ public final class SceneStore implements AutoCloseable {
         String id=existing?previous.getString("id"):UUID.randomUUID().toString();JSONObject ids=existing?previous.getJSONObject("entityIds"):new JSONObject().put("ramp",UUID.randomUUID().toString()).put("block",UUID.randomUUID().toString()).put("ground",UUID.randomUUID().toString());
         var scene=new JSONObject().put("id",id).put("schemaVersion",1).put("title",title).put("version",existing?previous.getInt("version")+1:1).put("units","SI: metre, second, kilogram").put("frame","right-handed, +Y up, downhill +X, depth Z")
             .put("parameters",definition.json()).put("entityIds",ids).put("updatedAt",Instant.now());
-        var records=new ArrayList<EntityRecord>();records.add(record("workspace.scene",scene,null));for(Object o:definition.objects(ids)){var object=(JSONObject)o;object.put("schemaVersion",1);records.add(record("workspace.scene.object3d",object,id));}commit(records);return read(id);
+        var records=new ArrayList<EntityRecord>();records.add(record("workspace.scene",scene,null));for(Object o:definition.objects(ids)){var object=(JSONObject)o;object.put("schemaVersion",1);records.add(record("workspace.scene.object3d",object,id));}
+        if(application!=null)records.add(record("workspace.scene.calibration",application,id));commit(records);return read(id);
+    }
+    public synchronized JSONObject calibrationReceipt(String operationId){var e=find(operationId);return e!=null&&type(e).equals("workspace.scene.calibration")?payload(e):null;}
+    public synchronized JSONObject applyCalibration(String jobId,String operationId,String sceneId,int expectedVersion,String validationSceneId,int validationVersion,String parameter,double value) throws Exception {
+        var prior=calibrationReceipt(operationId);if(prior!=null)return prior;
+        if(read(validationSceneId).getInt("version")!=validationVersion)throw new ConcurrentModificationException("Validation scene changed; start a new calibration");
+        return parameterOperation(jobId,operationId,sceneId,expectedVersion,parameter,value,"apply",null);
+    }
+    public synchronized JSONObject rollbackCalibration(String jobId,String operationId,String originalOperationId) throws Exception {
+        var prior=calibrationReceipt(operationId);if(prior!=null)return prior;
+        var applied=calibrationReceipt(originalOperationId);
+        if(applied==null||!applied.getString("kind").equals("apply")||!applied.getString("jobId").equals(jobId))throw new IllegalArgumentException("No matching calibration application");
+        return parameterOperation(jobId,operationId,applied.getString("sceneId"),applied.getInt("toVersion"),applied.getString("parameter"),applied.getDouble("previousValue"),"rollback",originalOperationId);
+    }
+    private JSONObject parameterOperation(String jobId,String operationId,String sceneId,int expectedVersion,String parameter,double value,String kind,String original) throws Exception {
+        if(!Set.of("friction","gravityMps2").contains(parameter))throw new IllegalArgumentException("Only friction or gravity calibration is supported");
+        var scene=read(sceneId);if(scene.getInt("version")!=expectedVersion)throw new ConcurrentModificationException("Scene changed; calibration cannot overwrite subsequent edits");
+        if(physics!=null){if(playing||Set.of("running","paused").contains(active.getString("status")))throw new IllegalStateException("Reset the active experiment before applying a calibration");control(new JSONObject().put("action","reset"));}
+        var receipt=new JSONObject().put("id",operationId).put("jobId",jobId).put("sceneId",sceneId).put("kind",kind).put("parameter",parameter).put("previousValue",scene.getJSONObject("parameters").getDouble(parameter)).put("value",value).put("fromVersion",expectedVersion).put("toVersion",expectedVersion+1).put("createdAt",Instant.now());
+        if(original!=null)receipt.put("originalOperationId",original);
+        save(new JSONObject().put("id",sceneId).put("expectedVersion",expectedVersion).put("title",scene.getString("title")).put("parameters",new JSONObject().put(parameter,value)),receipt);return receipt;
+    }
+    /** Isolated native trial; records intent/result without moving the interactive viewport. */
+    public JSONObject calibrationRun(JSONObject definition,double seconds,String operationId,String jobId,String phase,java.util.function.BooleanSupplier abort) throws Exception {
+        RampDefinition.range(seconds,.05,10,"seconds");int target=(int)Math.round(seconds/BulletRamp.DT);
+        synchronized(this){for(var e:world.snapshot().entities())if(type(e).equals("workspace.experiment")){var previous=payload(e);if(operationId.equals(previous.optString("operationId"))&&previous.getString("status").equals("completed")){
+            if(!previous.getJSONObject("definition").similar(definition)||previous.getInt("targetTicks")!=target||!previous.getString("backend").equals(BulletRamp.BACKEND))throw new IllegalStateException("Saved calibration trial definition or backend differs");return previous;}}}
+        var run=new JSONObject().put("id",UUID.randomUUID().toString()).put("title","Calibration "+phase).put("sceneId",definition.getString("id")).put("sceneVersion",definition.getInt("version")).put("definition",new JSONObject(definition.toString()))
+            .put("scope","calibration").put("calibrationId",jobId).put("operationId",operationId).put("phase",phase).put("backend",BulletRamp.BACKEND).put("dt",BulletRamp.DT).put("targetTicks",target).put("status","running").put("startedAt",Instant.now()).put("samples",new JSONArray());
+        synchronized(this){commit(List.of(record("workspace.experiment",run,run.getString("sceneId"))));}
+        try(var trial=new BulletRamp(RampDefinition.from(definition.getJSONObject("parameters")),definition.getJSONObject("entityIds"),root.resolve("native"))){
+            run.put("solverConfiguration",trial.configuration());run.getJSONArray("samples").put(trial.sample());
+            for(int i=0;i<target;i++){if(abort.getAsBoolean()||Thread.currentThread().isInterrupted())throw new CancellationException("Calibration trial interrupted");trial.step();if(trial.tick()%4==0)run.getJSONArray("samples").put(trial.sample());}
+            run.put("final",trial.snapshot()).put("status","completed");
+        }catch(Exception error){run.put("status",error instanceof CancellationException?"interrupted":"failed").put("error",String.valueOf(error.getMessage()));throw error;}
+        catch(LinkageError error){run.put("status","failed").put("error",String.valueOf(error.getMessage()));throw new IllegalStateException("Native calibration backend failed",error);}
+        finally{run.put("endedAt",Instant.now());synchronized(this){commit(List.of(record("workspace.experiment",run,run.getString("sceneId"))));}}
+        return run;
     }
     private void begin(String id,int expectedVersion,double seconds) throws Exception {
         var scene=read(id);if(scene.getInt("version")!=expectedVersion)throw new ConcurrentModificationException("Experiment scene version changed");
@@ -63,6 +105,7 @@ public final class SceneStore implements AutoCloseable {
         RampDefinition.range(seconds,.05,10,"seconds");if(physics!=null)throw new IllegalStateException("Reset the current experiment before starting another");String id=scene.getString("id");
         active=new JSONObject().put("id",UUID.randomUUID().toString()).put("title",scene.getString("title")+" experiment").put("sceneId",id).put("sceneVersion",scene.getInt("version")).put("definition",scene).put("backend",BulletRamp.BACKEND)
             .put("dt",BulletRamp.DT).put("targetTicks",(int)Math.round(seconds/BulletRamp.DT)).put("status","paused").put("startedAt",Instant.now()).put("samples",new JSONArray());
+        if(scene.has("calibrationOverride"))active.put("scope","calibration");
         try{physics=new BulletRamp(RampDefinition.from(scene.getJSONObject("parameters")),scene.getJSONObject("entityIds"),root.resolve("native"));active.put("solverConfiguration",physics.configuration());sample();commit(List.of(record("workspace.experiment",active,id)));error="";}catch(Exception e){if(physics!=null)physics.close();physics=null;active=null;throw e;}
     }
     private void sample(){active.getJSONArray("samples").put(physics.sample());}
@@ -103,6 +146,6 @@ public final class SceneStore implements AutoCloseable {
         beginDefinition(previous.getJSONObject("definition"),previous.getInt("targetTicks")*BulletRamp.DT);active.put("replayOf",id);advance(active.getInt("targetTicks"));return new JSONObject(active.toString());
     }
     public synchronized JSONObject runRecord(String id){return require(id,"workspace.experiment");}
-    public synchronized JSONArray runs(String scene){var result=new JSONArray();for(var e:world.snapshot().entities())if(type(e).equals("workspace.experiment")){var run=payload(e);if(scene.isBlank()||scene.equals(run.getString("sceneId")))result.put(new JSONObject().put("id",run.getString("id")).put("title",run.getString("title")).put("sceneId",run.getString("sceneId")).put("sceneVersion",run.getInt("sceneVersion")).put("status",run.getString("status")).put("evaluation",run.optJSONObject("evaluation")));}return result;}
+    public synchronized JSONArray runs(String scene){var result=new JSONArray();for(var e:world.snapshot().entities())if(type(e).equals("workspace.experiment")){var run=payload(e);if(scene.isBlank()||scene.equals(run.getString("sceneId")))result.put(new JSONObject().put("id",run.getString("id")).put("title",run.getString("title")).put("sceneId",run.getString("sceneId")).put("sceneVersion",run.getInt("sceneVersion")).put("status",run.getString("status")).put("scope",run.optString("scope")).put("evaluation",run.optJSONObject("evaluation")));}return result;}
     @Override public synchronized void close(){clock.shutdownNow();if(physics!=null)physics.close();physics=null;}
 }

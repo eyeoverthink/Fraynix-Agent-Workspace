@@ -1,0 +1,42 @@
+package fraymus.workspace;
+
+import org.json.*;
+import java.util.*;
+
+/** Portable, script-free evidence, rendered by the host from executed native trials. */
+final class CalibrationReport {
+    private static String esc(Object value){return String.valueOf(value).replace("&","&amp;").replace("<","&lt;").replace(">","&gt;").replace("\"","&quot;").replace("'","&#39;");}
+    private static String n(double value){return String.format(Locale.ROOT,"%.6f",value);}
+    private static String chart(JSONObject baseline,JSONObject fitted){
+        var a=baseline.getJSONArray("points");var b=fitted.getJSONArray("points");
+        double maxT=.001,lo=0,hi=.001;
+        for(int i=0;i<a.length();i++){var x=a.getJSONObject(i);var y=b.getJSONObject(i);maxT=Math.max(maxT,x.getDouble("timeS"));lo=Math.min(lo,Math.min(x.getDouble("observedM"),Math.min(x.getDouble("simulatedM"),y.getDouble("simulatedM"))));hi=Math.max(hi,Math.max(x.getDouble("observedM"),Math.max(x.getDouble("simulatedM"),y.getDouble("simulatedM"))));}
+        var svg=new StringBuilder("<svg role=\"img\" aria-label=\"Observed, baseline and fitted downhill displacement\" viewBox=\"0 0 720 260\"><rect width=\"720\" height=\"260\" fill=\"#111c25\"/>");
+        for(String kind:List.of("observedM","baseline","fitted")){
+            var path=new StringBuilder();int stride=Math.max(1,(int)Math.ceil(a.length()/256.0));
+            for(int i=0;i<a.length();i++){if(i%stride!=0&&i!=a.length()-1)continue;var row=(kind.equals("fitted")?b:a).getJSONObject(i);double value=row.getDouble(kind.equals("observedM")?"observedM":"simulatedM");path.append(path.isEmpty()?"M":"L").append(n(40+650*row.getDouble("timeS")/maxT)).append(" ").append(n(220-180*(value-lo)/(hi-lo)));}
+            svg.append("<path fill=\"none\" stroke-width=\"2.5\" stroke=\"").append(kind.equals("observedM")?"#ffc57b":kind.equals("baseline")?"#a9a7e5":"#80e4bd").append("\" d=\"").append(path).append("\"/>");
+        }
+        return svg.append("<text x=\"40\" y=\"20\" fill=\"#dde7ed\">orange: observed · violet: baseline · green: fitted</text><text x=\"40\" y=\"250\" fill=\"#dde7ed\">time 0–").append(n(maxT)).append(" s · displacement ").append(n(lo)).append("–").append(n(hi)).append(" m</text></svg>").toString();
+    }
+    static JSONObject build(JSONObject job,JSONObject training,JSONObject validation){
+        var d=job.getJSONObject("definition");var e=job.getJSONObject("evaluation");var selected=job.getJSONObject("selection");
+        var html=new StringBuilder("""
+            <!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+            <title>Native calibration evidence</title><style>body{margin:0;background:#0c141b;color:#e6edf1;font:16px/1.6 system-ui}main{max-width:1000px;margin:auto;padding:32px}h1,h2{line-height:1.2}section{background:#15222d;padding:20px;margin:20px 0;border-radius:12px}table{border-collapse:collapse;width:100%}td,th{padding:8px;text-align:left;border-bottom:1px solid #40515e}code{overflow-wrap:anywhere}svg{width:100%;height:auto}a{color:#80e4bd}.scroll{overflow:auto}.verdict{font-size:1.4rem}pre{white-space:pre-wrap;overflow-wrap:anywhere}@media(max-width:600px){main{padding:12px}section{padding:12px}td,th{padding:4px;font-size:13px}}</style>
+            <main><h1>Native parameter calibration</h1>
+            """);
+        html.append("<p class=\"verdict\" id=\"verdict\">").append(e.getBoolean("accepted")?"Accepted by declared gates":"Rejected by declared gates").append("</p><p id=\"selection\">").append(esc(d.getString("parameter"))).append(" = ").append(n(selected.getDouble("value"))).append("</p><p>Job <code>").append(esc(job.getString("id"))).append("</code> · ").append(esc(d.getString("backend"))).append("</p><p>").append(esc(d.getString("method"))).append(". Selection frozen ").append(esc(selected.get("frozenAt"))).append("; validation began ").append(esc(job.get("validationStartedAt"))).append(".</p><section><h2>Declared acceptance</h2><p>").append(esc(e.getString("criteria"))).append("</p><p id=\"gates\">Training improvement ").append(n(e.getDouble("trainingImprovementM"))).append(" m (required ").append(n(d.getDouble("minImprovementM"))).append("); validation tolerance ").append(n(d.getDouble("toleranceM"))).append(" m. Training gate: ").append(e.getBoolean("trainingImproved")).append("; validation all-point gate: ").append(e.getBoolean("validationWithinTolerance")).append("; no-regression gate: ").append(e.getBoolean("validationNoRegression")).append(".</p></section>");
+        for(String role:List.of("training","validation")){
+            var ref=d.getJSONObject(role);var base=job.getJSONObject(role.equals("training")?"baselineTraining":"validationBaseline");var fit=job.getJSONObject(role.equals("training")?"fittedTraining":"validationFitted");
+            html.append("<section><h2>").append(role.equals("training")?"Training":"Validation after selection").append("</h2><p>").append(esc(ref.get("title"))).append(" · data v").append(ref.getInt("version")).append(" · ").append(esc(ref.get("sourceKind"))).append(" (user supplied)</p><p>").append(esc(ref.get("sourceNote"))).append("</p><p>Original SHA-256 <code>").append(esc(ref.get("sourceSha256"))).append("</code></p><p>Scene <code>").append(esc(d.getJSONObject(role+"Scene").get("id"))).append("</code> v").append(d.getJSONObject(role+"Scene").getInt("version")).append("</p><p>RMSE baseline ").append(n(base.getDouble("rmseM"))).append(" → fitted ").append(n(fit.getDouble("rmseM"))).append(" m; fitted maximum residual ").append(n(fit.getDouble("maxAbsErrorM"))).append(" m; ").append(fit.getInt("count")).append(" observations.</p>").append(chart(base,fit)).append("<p>Native baseline run <code>").append(esc(base.get("runId"))).append("</code>; fitted run <code>").append(esc(fit.get("runId"))).append("</code>.</p></section>");
+        }
+        html.append("<section><h2>Executed training search</h2><p>Bounds ").append(n(d.getDouble("minimum"))).append("–").append(n(d.getDouble("maximum"))).append(". ").append(job.getInt("completedNativeOperations")).append(" native operations; ").append(job.getInt("attempts")).append(" attempt(s). Only training RMSE selected the candidate.</p><div class=\"scroll\"><table><thead><tr><th>Parameter</th><th>Training RMSE m</th><th>Native run</th></tr></thead><tbody>");
+        for(Object item:job.getJSONArray("trials")){var trial=(JSONObject)item;html.append("<tr><td>").append(n(trial.getDouble("value"))).append("</td><td>").append(n(trial.getJSONObject("metrics").getDouble("rmseM"))).append("</td><td><code>").append(esc(trial.get("runId"))).append("</code></td></tr>");}
+        html.append("</tbody></table></div></section><section><h2>Scope and provenance</h2><p>").append(esc(e.getString("scope"))).append(". Prior recorded uses of the validation observations: ").append(d.getInt("validationPriorUseCount")).append(". A distinct dataset does not prove independent collection. This fits one parameter of a bounded ramp model; it does not train language-model weights or a game policy. SVG paths may be downsampled; evidence JSON retains every evaluated point.</p><h2>Application receipt</h2><pre>").append(esc(job.has("application")?job.getJSONObject("application").toString(2):"Not applied; authored scenes preserved.")).append("</pre><p><a href=\"calibration.json\">Job and provenance</a> · <a href=\"training.csv\">Original training CSV</a> · <a href=\"validation.csv\">Original validation CSV</a></p><p>Point evidence: <a href=\"baselineTraining.json\">training baseline</a> · <a href=\"fittedTraining.json\">training fitted</a> · <a href=\"validationBaseline.json\">validation baseline</a> · <a href=\"validationFitted.json\">validation fitted</a></p></section></main></html>");
+        var summary=new JSONObject(job.toString());var files=new JSONObject().put("index.html",html.toString()).put("training.csv",training.getString("csv")).put("validation.csv",validation.getString("csv"));
+        for(String key:List.of("baselineTraining","fittedTraining","validationBaseline","validationFitted")){files.put(key+".json",job.getJSONObject(key).toString());summary.put(key,MeasurementEvaluation.summary(job.getJSONObject(key)));}
+        files.put("calibration.json",summary.toString(2));
+        return new JSONObject().put("title","Calibration · "+d.getString("parameter")+" · "+(e.getBoolean("accepted")?"accepted":"rejected")).put("files",files);
+    }
+}

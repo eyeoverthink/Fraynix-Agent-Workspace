@@ -17,6 +17,7 @@ public final class WorkspaceServer {
     private final LearningStore learning;
     private final SceneStore scenes;
     private final MeasurementStore measurements;
+    private final CalibrationStore calibrations;
     private final String token;
     private final FactoryModelService models=new FactoryModelService();
     private volatile FactoryModelService.Snapshot catalog;
@@ -25,14 +26,14 @@ public final class WorkspaceServer {
     public WorkspaceServer(Path project,String token) throws IOException {
         if(token==null||token.length()<32)throw new IllegalArgumentException("A private session capability is required");
         this.token=token;store=new WorkspaceStore(project);learning=new LearningStore(project);
-        try{scenes=new SceneStore(project);measurements=new MeasurementStore(project);}catch(Exception e){throw new IOException("Experiment stores could not start",e);}
+        try{scenes=new SceneStore(project);measurements=new MeasurementStore(project);calibrations=new CalibrationStore(project,scenes,measurements);}catch(Exception e){throw new IOException("Experiment stores could not start",e);}
         scanner.scheduleWithFixedDelay(()->{try{catalog=models.observe();}catch(Exception e){System.err.println("Model discovery: "+e.getMessage());}},0,45,TimeUnit.SECONDS);
     }
     private JSONObject state() throws IOException {
         var available=new JSONArray();var snapshot=catalog;
         if(snapshot!=null)for(var model:snapshot.models())if(model.available()&&model.capabilities().contains("tools"))available.put(new JSONObject().put("name",model.name()).put("endpoint",model.endpoint()).put("bytes",model.bytes()).put("capabilities",model.capabilities()));
         return new JSONObject().put("name","Fraynix Agent Workspace").put("project",store.root().toString()).put("models",available)
-            .put("discovering",snapshot==null).put("artifacts",store.artifacts()).put("skills",store.skills()).put("learning",learning.state()).put("scenes",scenes.scenes()).put("datasets",measurements.datasets()).put("comparisons",measurements.comparisons("")).put("baseline","6341404");
+            .put("discovering",snapshot==null).put("artifacts",store.artifacts()).put("skills",store.skills()).put("learning",learning.state()).put("scenes",scenes.scenes()).put("datasets",measurements.datasets()).put("comparisons",measurements.comparisons("")).put("calibrations",calibrations.list()).put("baseline","6341404");
     }
     public HttpServer start() throws IOException {
         HttpServer server=HttpServer.create(new InetSocketAddress("127.0.0.1",0),0);server.setExecutor(Executors.newVirtualThreadPerTaskExecutor());
@@ -44,6 +45,14 @@ public final class WorkspaceServer {
                 byte[] body=exchange.getRequestBody().readNBytes(2_100_001);if(body.length>2_100_000)throw new IllegalArgumentException("Request too large");
                 JSONObject input=new JSONObject(new String(body,StandardCharsets.UTF_8));String route=exchange.getRequestURI().getPath();JSONObject result;
                 switch(route) {
+                    case "/api/calibration/start" -> result=calibrations.start(input);
+                    case "/api/calibration/read" -> result=calibrations.read(input.getString("id"));
+                    case "/api/calibration/list" -> result=new JSONObject().put("jobs",calibrations.list()).put("scenes",scenes.scenes()).put("datasets",measurements.datasets());
+                    case "/api/calibration/cancel" -> result=calibrations.cancel(input.getString("id"));
+                    case "/api/calibration/resume" -> result=calibrations.resume(input.getString("id"));
+                    case "/api/calibration/apply" -> result=calibrations.apply(input.getString("id"));
+                    case "/api/calibration/rollback" -> result=calibrations.rollback(input.getString("id"));
+                    case "/api/calibration/report" -> result=store.write(calibrations.report(input.getString("id")));
                     case "/api/measurement/inspect" -> result=MeasurementStore.inspect(input);
                     case "/api/measurement/import" -> result=measurements.importCsv(input);
                     case "/api/measurement/read" -> result=measurements.read(input.getString("id"),input.optInt("version",0));
@@ -94,7 +103,7 @@ public final class WorkspaceServer {
             }catch(Exception error){send(exchange,404,new JSONObject().put("error","Artifact file not found"));}
         });
         server.createContext("/welcome",exchange->{byte[] bytes=WELCOME.getBytes(StandardCharsets.UTF_8);exchange.getResponseHeaders().set("Content-Type","text/html; charset=utf-8");exchange.sendResponseHeaders(200,bytes.length);try(var out=exchange.getResponseBody()){out.write(bytes);}});
-        server.start();Runtime.getRuntime().addShutdownHook(new Thread(()->{requests.values().forEach(OllamaIntegration.RequestControl::cancel);scanner.shutdownNow();scenes.close();server.stop(0);try{store.close();}catch(IOException ignored){}}));return server;
+        server.start();Runtime.getRuntime().addShutdownHook(new Thread(()->{requests.values().forEach(OllamaIntegration.RequestControl::cancel);scanner.shutdownNow();calibrations.close();scenes.close();server.stop(0);try{store.close();}catch(IOException ignored){}}));return server;
     }
     private JSONObject plan(JSONObject input) throws IOException {
         if(catalog==null)throw new IllegalStateException("Local models are still being discovered");

@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; connect-src 'none'; img-src 'self' data:"><title>Fraynix Agent Workspace</title><link rel="stylesheet" href="style.css"><link rel="stylesheet" href="measurement.css"></head>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; connect-src 'none'; img-src 'self' data:"><title>Fraynix Agent Workspace</title><link rel="stylesheet" href="style.css"><link rel="stylesheet" href="measurement.css"><link rel="stylesheet" href="calibration.css"></head>
 <body>
 <header><div class="brand"><span class="mark">F</span><div><strong>FRAYNIX</strong><small>AGENT WORKSPACE</small></div><span class="edition">LOCAL / 01</span></div><div class="header-actions"><span id="engine-state" class="status">Connecting engine</span><button id="proof">Run guided proof</button><button id="game">Open Game Lab ↗</button></div></header>
 <main class="layout">
@@ -25,6 +25,22 @@
 <canvas id="scene-chart" aria-label="Measured distance over simulation time"></canvas>
 <div id="scene-selection" class="muted">Click an object to inspect its identity and 3D position. Drag to orbit · wheel to zoom.</div>
 <div class="scene-history"><select id="scene-history" aria-label="Recorded experiment"><option value="">No recorded runs</option></select><button id="scene-replay">Replay run</button><span id="scene-evaluation" role="status">Frictionless reference: μ = 0, duration 0.1–1 s before ramp edge.</span></div>
+<details id="calibration-panel"><summary>Fit &amp; validate <span>Native trials · separate observations · reversible application</span></summary><div class="calibration-body">
+<p class="muted">Fit one physical parameter to training observations, freeze the winner, then evaluate separate validation data. Every candidate runs native Bullet. Import source CSVs in Compare measurements first.</p>
+<p id="calibration-training-scene" class="muted">Open the training scene in 3D Lab</p><div class="calibration-grid">
+<label>Training observations<select id="calibration-training" aria-label="Calibration training observations"></select></label>
+<label>Validation observations<select id="calibration-validation" aria-label="Calibration validation observations"></select></label>
+<label>Validation conditions<select id="calibration-validation-scene" aria-label="Calibration validation scene"></select></label>
+<label>Parameter<select id="calibration-parameter" aria-label="Calibration parameter"><option value="friction">Friction μ</option><option value="gravityMps2">Gravity m/s²</option></select></label>
+<label>Search minimum<input id="calibration-minimum" type="number" step="any" value="0"></label><label>Search maximum<input id="calibration-maximum" type="number" step="any" value="1"></label>
+<label>Run seconds<input id="calibration-seconds" type="number" min="0.05" max="10" step="any" value="0.75"></label>
+<label>Validation tolerance m<input id="calibration-toleranceM" type="number" min="0" max="10" step="any" value="0.015"></label>
+<label>Minimum training RMSE gain m<input id="calibration-minImprovementM" type="number" min="0.000001" max="10" step="any" value="0.0005"></label>
+<label>Retained calibration<select id="calibration-history" aria-label="Retained calibration"></select></label></div>
+<div class="calibration-actions"><button id="calibration-start" class="primary">Fit &amp; validate</button><button id="calibration-cancel" disabled>Cancel fit</button><button id="calibration-resume" disabled>Resume fit</button><button id="calibration-apply" disabled>Apply accepted fit</button><button id="calibration-rollback" disabled>Roll back fit</button><button id="calibration-report" disabled>Open calibration report</button></div>
+<progress id="calibration-progress" value="0" max="20" aria-label="Completed native calibration operations"></progress><p id="calibration-status" role="status">No job selected. Authored scenes stay unchanged during fitting.</p><p id="calibration-result" hidden></p>
+<details><summary>Executed candidate evidence</summary><div class="calibration-trials"><table><thead><tr><th>Value</th><th>Training RMSE m</th><th>Native run ID</th></tr></thead><tbody id="calibration-trials"></tbody></table></div></details>
+<p class="muted">Acceptance requires training improvement, every validation residual within tolerance, and no validation RMSE regression. Separate records do not prove independent collection. This calibrates the ramp model; it does not train language-model weights. At most 512 usable rows / 128 KiB per source and 20 native operations.</p></div></details>
 <details id="measurement-panel"><summary>Compare measurements <span>CSV · explicit units · retained evidence</span></summary><div class="measurement-body">
 <p class="muted">Compare signed downhill displacement from release with a completed run. Source classifications are user supplied. Synthetic examples are labeled.</p>
 <div class="measurement-row"><label class="file-choice">Choose CSV<input id="measurement-file" type="file" accept=".csv,text/csv" aria-label="Measurement CSV file"></label><button id="measurement-example">Load synthetic example</button><span id="measurement-file-label">UTF-8 CSV · at most 256 KiB / 2048 rows</span></div>
