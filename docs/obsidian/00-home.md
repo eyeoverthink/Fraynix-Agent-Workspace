@@ -63,3 +63,10 @@ GitHub links: [README 001](../../README-001.md), [interactive companion](../read
 - [Shared Java brain and integrated runtime](24-java-brain-runtime.md)
 - [Java brain/runtime map](java-brain-runtime.canvas)
 - [Measured evidence and source inventory](../readmes/016/verification.json)
+
+## Current physical feedback · edition 017
+
+- [README 017](../../README-017.md)
+- [Closed-loop physical control](25-closed-loop-control.md)
+- [Feedback map](closed-loop-control.canvas)
+- [Verified outcomes](../readmes/017/verification.json)

@@ -2,9 +2,9 @@
 
 **A local visual environment for agents to browse, create runnable artifacts, test behavior and reuse verified skills.**
 
-> **Latest implementation: [README 016 — shared Java brain and integrated game](README-016.md)** · [Offline explorer](docs/readmes/016/index.html) · [Runtime contracts](docs/JAVA_BRAIN_RUNTIME.md) · [Edition history](docs/readmes/INDEX.md)
+> **Latest implementation: [README 017 — live native feedback and retained control learning](README-017.md)** · [Offline explorer](docs/readmes/017/index.html) · [Runtime contract](docs/CLOSED_LOOP_CONTROL.md) · [Edition history](docs/readmes/INDEX.md)
 
-The original Java game now runs inside the workspace without its editor. Shared neural computation, real GPU/CPU checks, Java-owned durable jobs and automatic local memory support a physical controller whose validated weights survive restart. Six separate native validation cases reduce mean endpoint error by 89.6%. [Current functions, actual limits, measured costs and next steps](README-016.md).
+Java now learns bounded feedback gains from native trials, observes actual state throughout a live run and recovers from real disturbances. Separate fixed evaluation reduces the declared score by 40.9% against a hand-designed feedback controller. Native command replay, stop, restart, rollback and existing exports retain actual evidence. [Current functions, scope and next steps](README-017.md).
 
 Independent successor to [Fraynix Studio](https://github.com/eyeoverthink/Fraynix-Studio), starting from verified commit `6341404`. The original application and personal project state remain separate. Full game sources, assets, licenses and earlier editions are preserved here.
 
@@ -16,7 +16,7 @@ The app includes a real browser, live creation canvas, editable source, versione
 
 Local `gpt-oss:20b` is the verified default for the first agent fixture. The custom FRAYNIX 3B trial returned an Ollama native-format error; advertised tool capability alone does not establish task reliability. You can select other eligible installed models explicitly.
 
-![Original Java game inside the existing workspace](docs/readmes/016/images/embedded-game-016.png)
+![Actual live native feedback in the existing workspace](docs/readmes/017/images/feedback-live-017.png)
 
 October 30 actual body/scene/file workflows. Native actuation, decoded video, import/replication, Java/desktop regressions and local-agent evidence are recorded in [edition 015 verification](docs/readmes/015/verification.json). The previous [real-data fit](README-013.md) remains rejected.
 

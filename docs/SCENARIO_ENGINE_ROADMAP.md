@@ -1,5 +1,7 @@
 # Shared-world and 3D experiment engineering plan
 
+Edition 017 adds live bounded native feedback, gain selection from actual training outcomes, predeclared stronger-baseline evaluation, real disturbances, intent/receipt history, stop/replay/restart and separate feedback rollback. Job completion and activation now commit atomically. See [current feedback contract](CLOSED_LOOP_CONTROL.md) and [README 017](../README-017.md). Broader geometry/sensing, closed-loop manipulation/navigation and Java task graphs remain next.
+
 Edition 016 delivers a shared Java nervous system, original-renderer Game tab, Java-owned durable neural jobs, real optional GPU readout, bounded automatic local memory and a retained physical controller with separate native validation. See [current contracts](JAVA_BRAIN_RUNTIME.md) and [README 016](../README-016.md). Closed-loop navigation/manipulation, stronger external evaluation, broader Java task ownership and full spiking GPU execution remain next gates.
 
 Edition 015 update: native grab/move/release is implemented through a bounded dynamic-body constraint with collision/target checks, owned native worker threads, intent/receipt persistence, interruption/cancellation and command replay. Portable supported scene JSON import/clone and scene/run JSON, trajectory CSV and actual WebM exports work. See [README 015](../README-015.md), [body contract](NATIVE_BODY_CONTROL.md) and [formats/replication](SCENE_INTERCHANGE.md).

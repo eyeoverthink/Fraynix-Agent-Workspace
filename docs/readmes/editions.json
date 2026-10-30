@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "latest": 16,
+  "latest": 17,
   "canonicalization": "UTF-8 without BOM; CRLF normalized to LF for text",
   "editions": [
     {
@@ -1455,6 +1455,80 @@
           "path": "docs/readmes/016/verification.json",
           "kind": "text",
           "sha256": "65c801fee94dc1a38f8a0b9a496172c06cf620eafc42047ea2f87f49100b693b"
+        }
+      ]
+    },
+    {
+      "number": 17,
+      "date": "2026-10-30",
+      "title": "Live native feedback and retained control learning",
+      "status": "published",
+      "markdown": "README-017.md",
+      "markdownSha256": "bcfe86154f2f8a7e9f6e67cb8ec502f930a9ebec4d0b2ba014285bb6fd410ae3",
+      "snapshotDirectory": "docs/readmes/017",
+      "companion": "docs/readmes/017/index.html",
+      "tag": "readme-017",
+      "sourceBaseline": "da24743841b857dfe99be3aabaa7ff6bfda3d414",
+      "snapshotFiles": [
+        {
+          "path": "docs/readmes/017/feedback-evidence.json",
+          "kind": "text",
+          "sha256": "a5c9aee1efabd1c5f65b18daf749e31ed4421e0d28d5b16d14b61be46aca16a6"
+        },
+        {
+          "path": "docs/readmes/017/feedback-integration.json",
+          "kind": "text",
+          "sha256": "396cd5bb5878baf83fc9d1a20b11e9af2c063e30eb1dc5c8fdd9d8f563cdeb79"
+        },
+        {
+          "path": "docs/readmes/017/file-inventory.json",
+          "kind": "text",
+          "sha256": "d5168ddbfd58b85a1e8c14c6932f3432cd2cdd4a4d6ee01ed0bd7e63fc3ba1b7"
+        },
+        {
+          "path": "docs/readmes/017/FILE_TREE.md",
+          "kind": "text",
+          "sha256": "dcc5c12bd0c0579558dfdafd4f9cf52d5ea37497d335e5b4b7adecde06bca39d"
+        },
+        {
+          "path": "docs/readmes/017/images/feedback-learning-017.png",
+          "kind": "binary",
+          "sha256": "09274035bb05b9bd4750a1eda26aabbac9ab648ec15fc758e0e85153b473fdc2"
+        },
+        {
+          "path": "docs/readmes/017/images/feedback-live-017.png",
+          "kind": "binary",
+          "sha256": "330049a81dd68f16bfa2a939a3826f272f34d1bc651f024babd834892c635507"
+        },
+        {
+          "path": "docs/readmes/017/images/feedback-result-017.png",
+          "kind": "binary",
+          "sha256": "0e2e4e82f7660b8a197b1c0baf0c2267aeecfd39f6d9ba333028bb51caa9a0b0"
+        },
+        {
+          "path": "docs/readmes/017/index.html",
+          "kind": "text",
+          "sha256": "6e73a490347b75f238549975e859ff9bf9e488920c63ad493535ac3c522911c6"
+        },
+        {
+          "path": "docs/readmes/017/live-memory.json",
+          "kind": "text",
+          "sha256": "5c25ca9b0adff522c8b3e6ac8be96410c98680a26f793c68074cb47de93d6ba5"
+        },
+        {
+          "path": "docs/readmes/017/regressions.json",
+          "kind": "text",
+          "sha256": "d714ff7db08a44883a50ec063ad7bc782504b9cef17a80f795cf4bb737fc07a2"
+        },
+        {
+          "path": "docs/readmes/017/system-map.json",
+          "kind": "text",
+          "sha256": "81b3ed453e40e371773025e3fae69527fe8e071f0b90511e2e9585a03b46bc1a"
+        },
+        {
+          "path": "docs/readmes/017/verification.json",
+          "kind": "text",
+          "sha256": "bfcda6e3594b5883543be9645f31fb38242954f3cbf1970ace4c04d067adf871"
         }
       ]
     }

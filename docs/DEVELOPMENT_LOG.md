@@ -1,5 +1,15 @@
 # Agent Workspace development log
 
+## 2026-10-30 Closed-loop native feedback and stronger predeclared evaluation · edition 017
+
+Predeclaration commit58ef53a fixes training/evaluation cases, nine gain pairs and acceptance gates before the first native experiment. Runtime source da24743841b857dfe99be3aabaa7ff6bfda3d414 implements a pure Java bounded feedback controller, 54 native training trials, training-only selection and 32 separate evaluation trials. Selected kp49/kd10 scores0.0311624794 versus hand-designed feedback0.0527483046 and feedforward0.3273596477:40.9%/90.5% improvements. Worst endpoint0.0136235806m, maximum tangent speed0.171151155m/s, settling maximum0.0300539634m. Original gates pass unchanged. This is local predeclared development evaluation and two-gain search, not neural weight training, a hidden external benchmark or general navigation/manipulation.
+
+Live 3D runs use actual native pose/velocity every50ms of simulation time, bounded native tangent impulses, real unknown disturbances, pending intent/receipt persistence, pause/step/stop, saved-command replay and native JSON export. Restart retains gains/history and separate monotonic feedback rollback; unfinished runs mark interrupted. Earlier one-shot policy, cortex and Game remain separate. The existing design/private user projects remain intact.
+
+Review found a cancellation/promotion race; completed job and activated policy now commit together under the coordinator lock, also covering one-shot training. UI rollback now starts disabled until its current parent version loads. Independent score checks use1e-7m tolerance for serialized native float rounding; gates/cases are unchanged. Unchanged job detail polling is cached.
+
+Working source passes155 Java tests,19 desktop units,149 workflow groups and4 real gpt-oss:20b memory assertions. Three actual feedback screenshots captured/reviewed. Independent qa017-release checkout passes the offline build,155 Java/19 units/32 combined body+Game/Brain+feedback UI checks and matches all448 canonical source hashes; no project/model state copied. README017 is2,162words with3 actual screenshots, full native trial archive, baseline metric table and source map. Six offline viewer checks and visual wide/narrow review pass. Documentation freeze and publication follow.
+
 ## 2026-10-30 Edition 016 publication confirmed
 
 Published 589cb42746f48f5e71f78a0af07e2a7c104ab8ac to private eyeoverthink/Fraynix-Agent-Workspace main and annotated readme-016 in an atomic push. Remote main and peeled tag matched. The independent qa016-release checkout fetched that exact release directly from GitHub, passed 16-edition documentation verification (21 canvases, 1,938 references, 263 frozen hashes) and matched all 441 canonical source/asset hashes. The clean build previously passed offline 151 Java / 19 units / 20 body+Game/Brain UI groups without copied runtime/model state.

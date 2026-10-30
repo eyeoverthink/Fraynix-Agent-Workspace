@@ -1,0 +1,167 @@
+{
+  "date": "2026-10-30",
+  "sourceBaseline": "da24743841b857dfe99be3aabaa7ff6bfda3d414",
+  "runtimeChanged": true,
+  "releaseKind": "native-closed-loop-feedback-gain-search-and-fixed-evaluation",
+  "sourceInventory": 448,
+  "predeclarationCommit": "58ef53a51e0d706b4709e7a889958afe23fd1481",
+  "protocolFiles": [
+    {
+      "path": "workspace-engine/src/main/resources/feedback/training-v1.json",
+      "sha256": "4735dd7cb3e17d5250fbe0d85cd745abe560bb30b224bdb7f6024ca3fae7f2c4",
+      "unchangedSincePredeclaration": true
+    },
+    {
+      "path": "workspace-engine/src/main/resources/feedback/evaluation-v1.json",
+      "sha256": "97cfe0848ab105138861a54b889d3de85abf84fffb8dcee0e47d83d33fe08595",
+      "unchangedSincePredeclaration": true
+    },
+    {
+      "path": "workspace-engine/src/main/resources/feedback/contract-v1.json",
+      "sha256": "03c6e4d5a874be4930bc789dce0f239c92e5f029491b3e977c1d68d91b53e805",
+      "unchangedSincePredeclaration": true
+    }
+  ],
+  "feedbackEvaluation": {
+    "maxSettlingErrorM": 0.03005396344616018,
+    "relativeFeedforwardScoreGain": 0.904806595351324,
+    "accepted": true,
+    "meanScores": {
+      "zero": 4.438543574419839,
+      "analytical-feedback": 0.05274830458624686,
+      "candidate": 0.03116247941157444,
+      "feedforward": 0.32735964772542536
+    },
+    "maxTerminalSpeedMps": 0.17115115474645065,
+    "maxEndpointErrorM": 0.013623580627082132
+  },
+  "selectedGains": {
+    "kp": 49,
+    "kd": 10
+  },
+  "nativeOperations": 86,
+  "localModelRegression": {
+    "model": "gpt-oss:20b",
+    "passed": true,
+    "checks": 4,
+    "evidence": "live-memory.json"
+  },
+  "visibleWorkflow": {
+    "passed": true,
+    "checks": 12,
+    "actualLiveMetrics": {
+      "score": 0.030616410997855007,
+      "endpointErrorM": 0.006076797438472559,
+      "controlAbsoluteImpulseNs": 6.476554633884379,
+      "settlingMaxErrorM": 0.015910161179994775,
+      "terminalSpeedMps": 0.11056355312923374,
+      "passed": true
+    }
+  },
+  "currentRegression": {
+    "passed": true,
+    "javaTests": 155,
+    "javaClasses": 32,
+    "observerJavaTests": 8,
+    "bodyJavaTests": 9,
+    "interchangeJavaTests": 3,
+    "desktopUnitTests": 19,
+    "suites": {
+      "feedback-integration": {
+        "passed": true,
+        "checks": 12,
+        "output": "workspace-desktop/test-output/feedback-integration.json"
+      },
+      "brain-game-integration": {
+        "passed": true,
+        "checks": 10,
+        "output": "workspace-desktop/test-output/brain-game-integration.json"
+      },
+      "body-integration": {
+        "passed": true,
+        "checks": 10,
+        "output": "workspace-desktop/test-output/body-integration.json"
+      },
+      "observer-integration": {
+        "passed": true,
+        "checks": 12,
+        "output": "workspace-desktop/test-output/observer-integration.json"
+      },
+      "scene-integration": {
+        "passed": true,
+        "checks": 12,
+        "output": "workspace-desktop/test-output/scene-integration.json"
+      },
+      "measurement-integration": {
+        "passed": true,
+        "checks": 10,
+        "output": "workspace-desktop/test-output/measurement-integration.json"
+      },
+      "calibration-integration": {
+        "passed": true,
+        "checks": 8,
+        "output": "workspace-desktop/test-output/calibration-integration.json"
+      },
+      "real-data-delfys": {
+        "passed": true,
+        "checks": 9,
+        "output": "workspace-desktop/test-output/real-data-delfys.json"
+      },
+      "integration": {
+        "passed": true,
+        "checks": 12,
+        "output": "workspace-desktop/test-output/integration.json"
+      },
+      "learning-integration": {
+        "passed": true,
+        "checks": 9,
+        "output": "workspace-desktop/test-output/learning-integration.json"
+      },
+      "broader-validation": {
+        "passed": true,
+        "checks": 45,
+        "output": "workspace-desktop/test-output/broader-validation.json"
+      }
+    }
+  },
+  "freshClone": {
+    "status": "passed",
+    "checkout": "fraynix-workspace-qa017-release",
+    "sourceCommit": "da24743841b857dfe99be3aabaa7ff6bfda3d414",
+    "javaTests": 155,
+    "desktopUnitTests": 19,
+    "bodyUiChecks": 10,
+    "brainGameUiChecks": 10,
+    "feedbackUiChecks": 12,
+    "offlineBuild": true,
+    "modelWeightsOrPrivateRuntimeCopied": false,
+    "electronBinary": "Pinned 45.1.0 executable reused from existing dependency cache after npm ci --offline --ignore-scripts",
+    "canonicalSourceHashesMatched": 448
+  },
+  "documentationQa": {
+    "status": "passed",
+    "checks": [
+      "Offline viewer loads seven working modules and one planned gate",
+      "Module search, selected source and verified/planned filters work",
+      "Canonical inventory search resolves actual Java coordinator source",
+      "Three current app screenshots load with working gallery navigation and captions",
+      "390px layout, navigation and module selection have no horizontal overflow",
+      "No viewer script errors or external assets"
+    ]
+  },
+  "scope": [
+    "Two gains selected through finite actual native search; not new neural/LLM weights",
+    "Predeclared local development evaluation, not an external hidden benchmark",
+    "One-second trajectory plus half-second hold; no indefinite stability claim",
+    "Controller uses position/tangent velocity and declared parameters; contacts are observed/logged",
+    "Virtual ramp-tangent actuator; no teleport, hardware robot or new Mario policy",
+    "No new language-model chat tools or agent task-graph migration in this slice",
+    "Native solver time and UI/persistence scheduling do not guarantee hard real-time wall-clock latency",
+    "Earlier recorded-data calibration remains rejected"
+  ],
+  "developmentCorrections": [
+    "Rollback control now starts disabled until Java provides the current policy version",
+    "Independent score verification uses 1e-7 m tolerance for serialized native float rounding; promotion/goal gates unchanged",
+    "Completed job and activated policy now share one transaction/checkpoint; late cancellation cannot relabel activation"
+  ]
+}

@@ -1,0 +1,97 @@
+{
+  "date": "2026-10-30",
+  "modules": [
+    {
+      "id": "controller",
+      "name": "Native feedback controller",
+      "status": "verified",
+      "source": "fraynix-modules/brain-core/src/main/java/fraymus/neural/FeedbackController.java",
+      "summary": "Pure Java bounded smooth-trajectory feedback; actual position and tangent velocity drive corrections.",
+      "note": "docs/obsidian/25-closed-loop-control.md"
+    },
+    {
+      "id": "protocol",
+      "name": "Predeclared protocol and strong baselines",
+      "status": "verified",
+      "source": "workspace-engine/src/main/resources/feedback/contract-v1.json",
+      "summary": "Training/evaluation cases and gates committed before results; local development suite, not external benchmark.",
+      "note": "docs/obsidian/25-closed-loop-control.md"
+    },
+    {
+      "id": "experiment",
+      "name": "Actual native gain search and evaluation",
+      "status": "verified",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/FeedbackExperiment.java",
+      "summary": "54 native training trials, training-only winner, then 32 evaluation trials across four modes.",
+      "note": "docs/obsidian/25-closed-loop-control.md"
+    },
+    {
+      "id": "promotion",
+      "name": "Atomic durable policy activation",
+      "status": "verified",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/BrainService.java",
+      "summary": "One completed-job/policy checkpoint, cancellation fence, separate feedback versions and rollback.",
+      "note": "docs/obsidian/25-closed-loop-control.md"
+    },
+    {
+      "id": "runtime",
+      "name": "Live native actuation and saved-command replay",
+      "status": "verified",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/SceneStore.java",
+      "summary": "50 ms simulation-time observation/correction, real disturbances, intent/receipt persistence and deterministic replay.",
+      "note": "docs/obsidian/25-closed-loop-control.md"
+    },
+    {
+      "id": "ui",
+      "name": "Working recovery and stop controls",
+      "status": "verified",
+      "source": "workspace-desktop/renderer/brain-game.js",
+      "summary": "Actual learning, live disturbance, native progress, stop and rollback inside the existing design.",
+      "note": "docs/obsidian/25-closed-loop-control.md"
+    },
+    {
+      "id": "tests",
+      "name": "Independent physical outcome checks",
+      "status": "verified",
+      "source": "workspace-engine/src/test/java/fraymus/workspace/FeedbackTest.java",
+      "summary": "Independent native impulse/velocity, score, training selection, restart, cancellation and replay assertions.",
+      "note": "docs/obsidian/25-closed-loop-control.md"
+    },
+    {
+      "id": "next",
+      "name": "Broader tasks and independent evaluation",
+      "status": "planned",
+      "source": "docs/SCENARIO_ENGINE_ROADMAP.md",
+      "summary": "Stronger external evaluation, geometry/sensing changes, closed-loop manipulation/navigation and Java task graphs.",
+      "note": "docs/obsidian/25-closed-loop-control.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "docs/readmes/017/images/feedback-learning-017.png",
+      "caption": "Actual Java feedback gain search, fixed baseline comparison and accepted native results."
+    },
+    {
+      "path": "docs/readmes/017/images/feedback-live-017.png",
+      "caption": "Actual live 3D feedback and a native disturbance, with authoritative tick/state and bounded controls."
+    },
+    {
+      "path": "docs/readmes/017/images/feedback-result-017.png",
+      "caption": "Completed physical recovery, actual endpoint/speed and persisted goal acceptance."
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/readmes/017/verification.json"
+    },
+    {
+      "path": "docs/readmes/017/feedback-evidence.json"
+    },
+    {
+      "path": "docs/readmes/017/feedback-integration.json"
+    },
+    {
+      "path": "docs/readmes/017/regressions.json"
+    }
+  ]
+}

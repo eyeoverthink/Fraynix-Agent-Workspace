@@ -1,0 +1,151 @@
+{
+  "nodes": [
+    {
+      "id": "overview",
+      "type": "file",
+      "file": "docs/obsidian/25-closed-loop-control.md",
+      "x": 0,
+      "y": 0,
+      "width": 520,
+      "height": 330
+    },
+    {
+      "id": "controller",
+      "type": "file",
+      "file": "fraynix-modules/brain-core/src/main/java/fraymus/neural/FeedbackController.java",
+      "x": -600,
+      "y": 420,
+      "width": 520,
+      "height": 260
+    },
+    {
+      "id": "protocol",
+      "type": "file",
+      "file": "workspace-engine/src/main/resources/feedback/contract-v1.json",
+      "x": 0,
+      "y": 420,
+      "width": 520,
+      "height": 260
+    },
+    {
+      "id": "experiment",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/FeedbackExperiment.java",
+      "x": 600,
+      "y": 420,
+      "width": 520,
+      "height": 260
+    },
+    {
+      "id": "promotion",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/BrainService.java",
+      "x": -600,
+      "y": 760,
+      "width": 520,
+      "height": 260
+    },
+    {
+      "id": "runtime",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/SceneStore.java",
+      "x": 0,
+      "y": 760,
+      "width": 520,
+      "height": 260
+    },
+    {
+      "id": "ui",
+      "type": "file",
+      "file": "workspace-desktop/renderer/brain-game.js",
+      "x": 600,
+      "y": 760,
+      "width": 520,
+      "height": 260
+    },
+    {
+      "id": "tests",
+      "type": "file",
+      "file": "workspace-engine/src/test/java/fraymus/workspace/FeedbackTest.java",
+      "x": -600,
+      "y": 1100,
+      "width": 520,
+      "height": 260
+    },
+    {
+      "id": "next",
+      "type": "file",
+      "file": "docs/SCENARIO_ENGINE_ROADMAP.md",
+      "x": 0,
+      "y": 1100,
+      "width": 520,
+      "height": 260
+    }
+  ],
+  "edges": [
+    {
+      "id": "edge-controller",
+      "fromNode": "overview",
+      "fromSide": "bottom",
+      "toNode": "controller",
+      "toSide": "top",
+      "label": "verified"
+    },
+    {
+      "id": "edge-protocol",
+      "fromNode": "overview",
+      "fromSide": "bottom",
+      "toNode": "protocol",
+      "toSide": "top",
+      "label": "verified"
+    },
+    {
+      "id": "edge-experiment",
+      "fromNode": "overview",
+      "fromSide": "bottom",
+      "toNode": "experiment",
+      "toSide": "top",
+      "label": "verified"
+    },
+    {
+      "id": "edge-promotion",
+      "fromNode": "overview",
+      "fromSide": "bottom",
+      "toNode": "promotion",
+      "toSide": "top",
+      "label": "verified"
+    },
+    {
+      "id": "edge-runtime",
+      "fromNode": "overview",
+      "fromSide": "bottom",
+      "toNode": "runtime",
+      "toSide": "top",
+      "label": "verified"
+    },
+    {
+      "id": "edge-ui",
+      "fromNode": "overview",
+      "fromSide": "bottom",
+      "toNode": "ui",
+      "toSide": "top",
+      "label": "verified"
+    },
+    {
+      "id": "edge-tests",
+      "fromNode": "overview",
+      "fromSide": "bottom",
+      "toNode": "tests",
+      "toSide": "top",
+      "label": "verified"
+    },
+    {
+      "id": "edge-next",
+      "fromNode": "overview",
+      "fromSide": "bottom",
+      "toNode": "next",
+      "toSide": "top",
+      "label": "planned"
+    }
+  ]
+}
