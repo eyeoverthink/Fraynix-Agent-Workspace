@@ -1,0 +1,54 @@
+{
+  "protocol": "structured-world-v1",
+  "ensemble": 5,
+  "fitEpisodesPerCase": 4,
+  "calibrationEpisodesPerCase": 2,
+  "evaluationEpisodesPerCase": 2,
+  "stepsPerEpisode": 16,
+  "stepTicks": 12,
+  "ridge": 1e-05,
+  "bootstrapSeed": 18018,
+  "planningActions": [
+    -0.6,
+    -0.4,
+    -0.2,
+    0,
+    0.2,
+    0.4,
+    0.6
+  ],
+  "horizon": 8,
+  "planBlock": 4,
+  "baselineGains": {
+    "kp": 49,
+    "kd": 10
+  },
+  "nativeAcceptance": {
+    "maxPositionRmseM": 0.008,
+    "maxVelocityRmseMps": 0.08,
+    "maxRolloutPositionRmseM": 0.08,
+    "maxRolloutVelocityRmseMps": 0.25,
+    "maxKinematicRmseRatio": 0.7,
+    "minOneStepBandCoverage": 0.8,
+    "maxPlanningEndpointErrorM": 0.08,
+    "maxPlanningSpeedMps": 0.25,
+    "maxPlanningSettlingErrorM": 0.15,
+    "planningStrongMeanScoreMargin": 0.04,
+    "minModelActionFraction": 0.8
+  },
+  "uncertainty": {
+    "calibrationQuantile": 0.9,
+    "spreadMultiplier": 2,
+    "maxPositionRadiusM": 0.02,
+    "maxVelocityRadiusMps": 0.15
+  },
+  "reality": {
+    "dataset": "delfys75-013",
+    "training": "low/01",
+    "evaluation": "low/02",
+    "forecast": "constant acceleration fitted on training second differences; first two evaluation positions initialize velocity; no future corrections in free rollout",
+    "allPointToleranceM": 0.015,
+    "alterMapping": false,
+    "claim": "Previously observed recorded regression case; passive forecast does not identify action effects"
+  }
+}
