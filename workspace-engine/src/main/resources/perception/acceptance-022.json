@@ -1,0 +1,54 @@
+{
+  "edition": "022",
+  "scope": "Visible browser media and DOM regions. Model categories/boxes are estimates; page labels are untrusted claims. Pixel tracking uses Java appearance matching, not personal identification.",
+  "declaration": "Local development fixtures. Pilot local-model outputs inspected before this declaration; do not present these as untouched benchmark results.",
+  "recognitionIou": 0.5,
+  "trackingMinFraction": 0.65,
+  "trackingMinFrames": 4,
+  "appearanceMatch": 0.78,
+  "anchorMinimum": 0.65,
+  "ambiguityMargin": 0.035,
+  "references": [
+    {
+      "file": "astronaut.png",
+      "sha256": "88431cd9653ccd539741b555fb0a46b61558b301d4110412b5bc28b5e3ea6cb5",
+      "label": "person",
+      "pixels": [
+        12,
+        14,
+        376,
+        512
+      ],
+      "source": "https://raw.githubusercontent.com/scikit-image/scikit-image/v0.25.2/skimage/data/astronaut.png",
+      "license": "NASA image; public domain per scikit-image source documentation"
+    },
+    {
+      "file": "coffee.png",
+      "sha256": "cc02f8ca188b167c775a7101b5d767d1e71792cf762c33d6fa15a4599b5a8de7",
+      "label": "cup",
+      "pixels": [
+        172,
+        18,
+        410,
+        314
+      ],
+      "source": "https://raw.githubusercontent.com/scikit-image/scikit-image/v0.25.2/skimage/data/coffee.png",
+      "license": "CC0 photographer Rachel Michetti per scikit-image source documentation"
+    }
+  ],
+  "required": [
+    "Actual local vision on real image pixels; no DOM labels in inference",
+    "DOM and pixel estimates distinct",
+    "Outlines and discontinuous trails follow actual observations",
+    "Full occlusion produces lost, then reacquired, never invented visible boxes",
+    "Explicit user-drawn appearance persists and recognizes translated/scaled sample after restart",
+    "No recognition claim before taught example exists",
+    "Duplicate/foreign/stale frame receipts reject",
+    "Source navigation interrupts and requires explicit rebinding",
+    "Named skill reuses a fresh selected source and verifies a real report"
+  ],
+  "modelReferenceAcceptance": "IoU0.5 reported separately from workflow completion; failed model grounding is retained, not claimed accurate",
+  "taughtTransferIou": 0.7,
+  "automaticTaughtMemoryMatch": 0.9,
+  "learningScope": "Explicit user-drawn appearance templates take priority when a strong distinct match exists. Model weights and generic category recognition are not trained."
+}

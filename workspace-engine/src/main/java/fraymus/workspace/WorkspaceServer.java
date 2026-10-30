@@ -17,6 +17,7 @@ public final class WorkspaceServer {
     private final LearningStore learning;
     private final SceneStore scenes;
     private final SpatialStore spatial;
+    private final PerceptionStore perception;
     private final MeasurementStore measurements;
     private final CalibrationStore calibrations;
     private final ObserverStore observers;
@@ -31,9 +32,10 @@ public final class WorkspaceServer {
     public WorkspaceServer(Path project,String token) throws IOException {
         if(token==null||token.length()<32)throw new IllegalArgumentException("A private session capability is required");
         this.token=token;store=new WorkspaceStore(project);learning=new LearningStore(project);
-        try{scenes=new SceneStore(project);spatial=new SpatialStore(project);measurements=new MeasurementStore(project);calibrations=new CalibrationStore(project,scenes,measurements);observers=new ObserverStore(project,scenes);brain=new BrainService(project);goals=new GoalRunner(project,scenes,brain,store,measurements,spatial);game=new EmbeddedGameClient(Path.of(System.getProperty("user.dir")),project);}catch(Exception e){throw new IOException("Experiment stores could not start",e);}
+        try{scenes=new SceneStore(project);spatial=new SpatialStore(project);perception=new PerceptionStore(project);measurements=new MeasurementStore(project);calibrations=new CalibrationStore(project,scenes,measurements);observers=new ObserverStore(project,scenes);brain=new BrainService(project);goals=new GoalRunner(project,scenes,brain,store,measurements,spatial,perception);game=new EmbeddedGameClient(Path.of(System.getProperty("user.dir")),project);}catch(Exception e){throw new IOException("Experiment stores could not start",e);}
         scanner.scheduleWithFixedDelay(()->{try{catalog=models.observe();}catch(Exception e){System.err.println("Model discovery: "+e.getMessage());}},0,45,TimeUnit.SECONDS);
     }
+    private JSONObject visionModels(){var out=new JSONArray();try{var tags=LocalModelAdmission.request("http://127.0.0.1:11434/api/tags",null);for(Object raw:tags.getJSONArray("models")){var tag=(JSONObject)raw;try{var show=LocalModelAdmission.request("http://127.0.0.1:11434/api/show",new JSONObject().put("model",tag.getString("name")));if(show.getJSONArray("capabilities").toList().contains("vision"))out.put(new JSONObject().put("name",tag.getString("name")).put("bytes",tag.getLong("size")));}catch(Exception unavailable){/* Unavailable metadata is not an eligible detector. */}}return new JSONObject().put("models",out).put("available",!out.isEmpty());}catch(Exception unavailable){return new JSONObject().put("models",out).put("available",false).put("reason","Local vision metadata unavailable; DOM and taught appearance remain usable offline");}}
     private JSONObject state() throws IOException {
         var available=new JSONArray();var snapshot=catalog;
         if(snapshot!=null)for(var model:snapshot.models())if(model.available()&&model.capabilities().contains("tools"))available.put(new JSONObject().put("name",model.name()).put("endpoint",model.endpoint()).put("bytes",model.bytes()).put("capabilities",model.capabilities()));
@@ -54,6 +56,15 @@ public final class WorkspaceServer {
                 if(goals.ownsSpatial()&&Set.of("/api/spatial/import","/api/spatial/preview").contains(route))throw new IllegalStateException("The Java goal owns this spatial workflow; cancel it before manual changes.");
                 if(goals.ownsPhysics()&&Set.of("/api/brain/start","/api/brain/cancel","/api/brain/rollback","/api/brain/run","/api/brain/feedback-start","/api/brain/feedback-kick","/api/brain/feedback-cancel","/api/brain/feedback-rollback","/api/brain/world-prepare","/api/brain/world-preview","/api/brain/world-kick","/api/brain/world-cancel","/api/brain/world-rollback","/api/body/action","/api/body/cancel","/api/scene/save","/api/scene/import","/api/experiment/control","/api/experiment/run","/api/experiment/replay","/api/observer/action","/api/observer/replay","/api/calibration/start","/api/calibration/resume","/api/calibration/apply","/api/calibration/rollback").contains(route))throw new IllegalStateException("The Java goal owns this task's physics and model state. Cancel it before manual changes.");
                 switch(route) {
+                    case "/api/perception/frame" -> result=perception.frame(input);
+                    case "/api/perception/teach" -> result=perception.teach(input);
+                    case "/api/perception/frame-preview" -> result=new JSONObject().put("frame",perception.frame(input.getString("id"))).put("png",perception.png(input.getString("id")));
+                    case "/api/perception/state" -> result=perception.state();
+                    case "/api/perception/read" -> result=perception.run(input.getString("id"));
+                    case "/api/perception/sample" -> {SpatialScene.keys(input,"id","sequence","frameId");result=perception.sample(input.getString("id"),input.getInt("sequence"),input.getString("frameId"));}
+                    case "/api/perception/models" -> result=visionModels();
+                    case "/api/goals/perception-start" -> result=goals.startPerception(input);
+                    case "/api/goals/perception-resume" -> result=goals.resumePerception(input.getString("id"),input.getString("frameId"));
                     case "/api/spatial/example" -> {try(var stream=WorkspaceServer.class.getResourceAsStream("/spatial/declared-test-scene-v1.json")){result=new JSONObject().put("text",new String(stream.readAllBytes(),StandardCharsets.UTF_8));}}
                     case "/api/spatial/import" -> {SpatialScene.keys(input,"text");result=spatial.importScene(input.getString("text"));}
                     case "/api/spatial/read" -> result=spatial.read(input.getString("id"));
@@ -172,6 +183,7 @@ public final class WorkspaceServer {
                 byte[] bytes=Files.readAllBytes(file);exchange.sendResponseHeaders(200,bytes.length);try(var out=exchange.getResponseBody()){out.write(bytes);}
             }catch(Exception error){send(exchange,404,new JSONObject().put("error","Artifact file not found"));}
         });
+        server.createContext("/perception-assets/",exchange->{String name=exchange.getRequestURI().getPath().substring("/perception-assets/".length());if(!Set.of("astronaut.png","coffee.png","demo.html").contains(name)){send(exchange,404,new JSONObject());return;}try(var in=WorkspaceServer.class.getResourceAsStream("/perception/"+name)){byte[] bytes=in.readAllBytes();exchange.getResponseHeaders().set("Content-Type",name.endsWith(".png")?"image/png":"text/html; charset=utf-8");exchange.getResponseHeaders().set("X-Content-Type-Options","nosniff");exchange.sendResponseHeaders(200,bytes.length);try(var out=exchange.getResponseBody()){out.write(bytes);}}});
         server.createContext("/welcome",exchange->{byte[] bytes=WELCOME.getBytes(StandardCharsets.UTF_8);exchange.getResponseHeaders().set("Content-Type","text/html; charset=utf-8");exchange.sendResponseHeaders(200,bytes.length);try(var out=exchange.getResponseBody()){out.write(bytes);}});
         server.start();Runtime.getRuntime().addShutdownHook(new Thread(()->{requests.values().forEach(OllamaIntegration.RequestControl::cancel);scanner.shutdownNow();game.close();goals.close();brain.close();calibrations.close();scenes.close();server.stop(0);try{store.close();}catch(IOException ignored){}}));return server;
     }

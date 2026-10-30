@@ -38,7 +38,7 @@ final class LocalModelAdmission {
         }
         else if (item instanceof JSONArray a) for (Object value : a) rejectRemote(value, depth + 1);
     }
-    private static JSONObject request(String url, JSONObject body) throws IOException {
+    static JSONObject request(String url, JSONObject body) throws IOException {
         var connection = (HttpURLConnection)URI.create(url).toURL().openConnection();
         connection.setInstanceFollowRedirects(false); connection.setConnectTimeout(1500); connection.setReadTimeout(2500);
         if (body != null) { connection.setRequestMethod("POST"); connection.setDoOutput(true); connection.setRequestProperty("Content-Type", "application/json"); }
