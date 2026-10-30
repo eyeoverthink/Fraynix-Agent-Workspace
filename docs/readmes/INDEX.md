@@ -24,7 +24,7 @@ Numbered editions preserve dated system behavior and evidence. The root [README]
 | [018](../../README-018.md) | 2026-10-30 | Learned numerical world model, counterfactual native planning and separate rejected recorded-reality forecast | [Viewer/video](018/index.html) · [evidence](018/verification.json) · [contract](../WORLD_MODEL_REALITY.md) |
 | [019](../../README-019.md) | 2026-10-30 | Chat-connected durable Java goals, verified motion reports and reusable procedural skills | [Viewer](019/index.html) · [evidence](019/verification.json) · [contract](../GOALS_AND_SKILLS.md) |
 | [020](../../README-020.md) | 2026-10-30 | Verified offline CSV/motion procedures, honest quality flags and named new-source reuse | [Viewer](020/index.html) · [evidence](020/verification.json) · [contract](../MOTION_DATA_PROCEDURES.md) |
-
 | [021](../../README-021.md) | 2026-10-30 | Declared-scale spatial imports, actual native manipulation, isolated forecasts and new-scene procedural reuse | [Viewer](021/index.html) · [evidence](021/verification.json) · [contract](../SPATIAL_WORLD.md) |
+| [022](../../README-022.md) | 2026-10-30 | Actual browser perception, persistent drawn corrections, lost/reacquired traces and fresh-source procedural reuse | [Viewer](022/index.html) · [evidence](022/verification.json) · [contract](../BROWSER_PERCEPTION.md) |
 
-Latest implementation/documentation edition: **021**. Earlier snapshots remain intact. See [sequence policy](README_SEQUENCE.md) and [manifest](editions.json).
+Latest implementation/documentation edition: **022**. Earlier snapshots remain intact. See [sequence policy](README_SEQUENCE.md) and [manifest](editions.json).

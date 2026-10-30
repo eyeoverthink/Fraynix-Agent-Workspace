@@ -1,0 +1,951 @@
+{
+  "reason": "Source-qualified detection recorded; waiting for fresh browser frames",
+  "detection": {
+    "matchScore": 0.9887305919074159,
+    "lessonVersion": 1,
+    "objects": [{
+      "box": [
+        0.35700000000000004,
+        0.16100000000000003,
+        0.7102470703125,
+        0.7785198974609375
+      ],
+      "label": "person"
+    }],
+    "authority": "learned local appearance match; not general category training or personal identity",
+    "lessonId": "1aaa19dd-7d60-4ab8-9595-2d3a56e5d918"
+  },
+  "completedAt": "2026-10-30T22:49:53.227588600Z",
+  "goalId": "ca37edfe-2c96-4399-9d67-f554ff4f065a",
+  "seeds": [{
+    "box": [
+      0.35700000000000004,
+      0.16100000000000003,
+      0.7102470703125,
+      0.7785198974609375
+    ],
+    "label": "person",
+    "id": "97aec5e4-ac21-339b-ab86-420f8a0a9d0f"
+  }],
+  "lessonId": "1aaa19dd-7d60-4ab8-9595-2d3a56e5d918",
+  "binding": {
+    "ref": "2",
+    "signature": "483772d302588366231360460580608365397765d4fc451a5a7e9263d8aa4732",
+    "kind": "canvas",
+    "pageId": "41a73730-824f-434c-9d5f-9e189cba48e1",
+    "url": "http://127.0.0.1:55229/perception-assets/demo.html"
+  },
+  "label": "person",
+  "trackingStartedAt": 1793400588184,
+  "attempt": 1,
+  "samples": [
+    {
+      "sequence": 1,
+      "frameId": "e096a822-e76f-458a-961e-138b94afe084",
+      "objects": [{
+        "matchScore": 0.9661232653905772,
+        "scoreMeaning": "normalized appearance correlation, not calibrated semantic confidence",
+        "lastKnownBox": [
+          0.34500000000000003,
+          0.14500000000000002,
+          0.6982470703125,
+          0.7625198974609375
+        ],
+        "appearanceUpdates": 1,
+        "authority": "user-taught appearance",
+        "box": [
+          0.34500000000000003,
+          0.14500000000000002,
+          0.6982470703125,
+          0.7625198974609375
+        ],
+        "id": "97aec5e4-ac21-339b-ab86-420f8a0a9d0f",
+        "label": "person",
+        "anchorScore": 0.9661232653905772,
+        "status": "tracked"
+      }],
+      "capturedAt": 1793400588463,
+      "frameSha256": "dbeba40fa86f1217693334b865b1cdb4d7fd87189624ca1b87ee24badf61017d",
+      "source": {
+        "ref": "2",
+        "signature": "483772d302588366231360460580608365397765d4fc451a5a7e9263d8aa4732",
+        "kind": "canvas",
+        "width": 320,
+        "capturedAt": 1793400588463,
+        "scrollY": 105,
+        "label": "Media canvas \u2014 inspect pixels independently",
+        "pageId": "41a73730-824f-434c-9d5f-9e189cba48e1",
+        "scrollX": 0,
+        "url": "http://127.0.0.1:55229/perception-assets/demo.html",
+        "crop": {
+          "x": 14,
+          "width": 320,
+          "y": 91,
+          "height": 250
+        },
+        "height": 250
+      }
+    },
+    {
+      "sequence": 2,
+      "frameId": "2b3e125a-df64-4269-955e-24bbd37f50b5",
+      "objects": [{
+        "matchScore": 0.9907979139839702,
+        "scoreMeaning": "normalized appearance correlation, not calibrated semantic confidence",
+        "lastKnownBox": [
+          0.3250000000000001,
+          0.13200000000000003,
+          0.6782470703125001,
+          0.7495198974609375
+        ],
+        "appearanceUpdates": 2,
+        "authority": "user-taught appearance",
+        "box": [
+          0.3250000000000001,
+          0.13200000000000003,
+          0.6782470703125001,
+          0.7495198974609375
+        ],
+        "id": "97aec5e4-ac21-339b-ab86-420f8a0a9d0f",
+        "label": "person",
+        "anchorScore": 0.9907261202407596,
+        "status": "tracked"
+      }],
+      "capturedAt": 1793400588677,
+      "frameSha256": "3a9a6fffc0e88f67aec621a9afc766b8097afe89c279571856d46cfeff5bf512",
+      "source": {
+        "ref": "2",
+        "signature": "483772d302588366231360460580608365397765d4fc451a5a7e9263d8aa4732",
+        "kind": "canvas",
+        "width": 320,
+        "capturedAt": 1793400588677,
+        "scrollY": 105,
+        "label": "Media canvas \u2014 inspect pixels independently",
+        "pageId": "41a73730-824f-434c-9d5f-9e189cba48e1",
+        "scrollX": 0,
+        "url": "http://127.0.0.1:55229/perception-assets/demo.html",
+        "crop": {
+          "x": 14,
+          "width": 320,
+          "y": 91,
+          "height": 250
+        },
+        "height": 250
+      }
+    },
+    {
+      "sequence": 3,
+      "frameId": "9650235f-3453-4d42-ba48-282d13bbde63",
+      "objects": [{
+        "matchScore": 0,
+        "scoreMeaning": "normalized appearance correlation, not calibrated semantic confidence",
+        "lastKnownBox": [
+          0.3250000000000001,
+          0.13200000000000003,
+          0.6782470703125001,
+          0.7495198974609375
+        ],
+        "appearanceUpdates": 2,
+        "authority": "user-taught appearance",
+        "box": null,
+        "id": "97aec5e4-ac21-339b-ab86-420f8a0a9d0f",
+        "label": "person",
+        "anchorScore": -0.29512067918026813,
+        "status": "lost"
+      }],
+      "capturedAt": 1793400588946,
+      "frameSha256": "aafef363183abb2bf6b7c752ab7a0ea0a45bc34d4f5ee05cdb712b4ecdccd709",
+      "source": {
+        "ref": "2",
+        "signature": "483772d302588366231360460580608365397765d4fc451a5a7e9263d8aa4732",
+        "kind": "canvas",
+        "width": 320,
+        "capturedAt": 1793400588946,
+        "scrollY": 105,
+        "label": "Media canvas \u2014 inspect pixels independently",
+        "pageId": "41a73730-824f-434c-9d5f-9e189cba48e1",
+        "scrollX": 0,
+        "url": "http://127.0.0.1:55229/perception-assets/demo.html",
+        "crop": {
+          "x": 14,
+          "width": 320,
+          "y": 91,
+          "height": 250
+        },
+        "height": 250
+      }
+    },
+    {
+      "sequence": 4,
+      "frameId": "618b7b8c-9174-4b52-ac0f-b9c4a127a3fe",
+      "objects": [{
+        "matchScore": 0.9870573865473787,
+        "scoreMeaning": "normalized appearance correlation, not calibrated semantic confidence",
+        "lastKnownBox": [
+          0.253,
+          0.10700000000000004,
+          0.6062470703125,
+          0.7245198974609375
+        ],
+        "appearanceUpdates": 3,
+        "authority": "user-taught appearance",
+        "box": [
+          0.253,
+          0.10700000000000004,
+          0.6062470703125,
+          0.7245198974609375
+        ],
+        "id": "97aec5e4-ac21-339b-ab86-420f8a0a9d0f",
+        "label": "person",
+        "anchorScore": 0.9862133430077249,
+        "status": "reacquired"
+      }],
+      "capturedAt": 1793400589194,
+      "frameSha256": "a935a68a601ae8c232016d42a235e076840a183ee1cc4278941f79599a7cc251",
+      "source": {
+        "ref": "2",
+        "signature": "483772d302588366231360460580608365397765d4fc451a5a7e9263d8aa4732",
+        "kind": "canvas",
+        "width": 320,
+        "capturedAt": 1793400589194,
+        "scrollY": 105,
+        "label": "Media canvas \u2014 inspect pixels independently",
+        "pageId": "41a73730-824f-434c-9d5f-9e189cba48e1",
+        "scrollX": 0,
+        "url": "http://127.0.0.1:55229/perception-assets/demo.html",
+        "crop": {
+          "x": 14,
+          "width": 320,
+          "y": 91,
+          "height": 250
+        },
+        "height": 250
+      }
+    },
+    {
+      "sequence": 5,
+      "frameId": "4cd2ca45-f95a-4f9b-b599-f50acdbe4e5f",
+      "objects": [{
+        "matchScore": 0.9676284217389022,
+        "scoreMeaning": "normalized appearance correlation, not calibrated semantic confidence",
+        "lastKnownBox": [
+          0.208,
+          0.09900000000000003,
+          0.5612470703125,
+          0.7165198974609375
+        ],
+        "appearanceUpdates": 4,
+        "authority": "user-taught appearance",
+        "box": [
+          0.208,
+          0.09900000000000003,
+          0.5612470703125,
+          0.7165198974609375
+        ],
+        "id": "97aec5e4-ac21-339b-ab86-420f8a0a9d0f",
+        "label": "person",
+        "anchorScore": 0.967193414086684,
+        "status": "tracked"
+      }],
+      "capturedAt": 1793400589494,
+      "frameSha256": "7afd49c345c3717ea2b354177d8765dac30661044ec16ad69f896780c25796b5",
+      "source": {
+        "ref": "2",
+        "signature": "483772d302588366231360460580608365397765d4fc451a5a7e9263d8aa4732",
+        "kind": "canvas",
+        "width": 320,
+        "capturedAt": 1793400589494,
+        "scrollY": 105,
+        "label": "Media canvas \u2014 inspect pixels independently",
+        "pageId": "41a73730-824f-434c-9d5f-9e189cba48e1",
+        "scrollX": 0,
+        "url": "http://127.0.0.1:55229/perception-assets/demo.html",
+        "crop": {
+          "x": 14,
+          "width": 320,
+          "y": 91,
+          "height": 250
+        },
+        "height": 250
+      }
+    },
+    {
+      "sequence": 6,
+      "frameId": "18064642-bf7f-4c07-8607-9bb675ce1670",
+      "objects": [{
+        "matchScore": 0.9941299552165928,
+        "scoreMeaning": "normalized appearance correlation, not calibrated semantic confidence",
+        "lastKnownBox": [
+          0.17,
+          0.09000000000000004,
+          0.5232470703125,
+          0.7075198974609376
+        ],
+        "appearanceUpdates": 5,
+        "authority": "user-taught appearance",
+        "box": [
+          0.17,
+          0.09000000000000004,
+          0.5232470703125,
+          0.7075198974609376
+        ],
+        "id": "97aec5e4-ac21-339b-ab86-420f8a0a9d0f",
+        "label": "person",
+        "anchorScore": 0.9940269927906402,
+        "status": "tracked"
+      }],
+      "capturedAt": 1793400589711,
+      "frameSha256": "13b24e4d6ae70fa5e1ebc001991a436bc287f61565419113a6817b73983d1f84",
+      "source": {
+        "ref": "2",
+        "signature": "483772d302588366231360460580608365397765d4fc451a5a7e9263d8aa4732",
+        "kind": "canvas",
+        "width": 320,
+        "capturedAt": 1793400589711,
+        "scrollY": 105,
+        "label": "Media canvas \u2014 inspect pixels independently",
+        "pageId": "41a73730-824f-434c-9d5f-9e189cba48e1",
+        "scrollX": 0,
+        "url": "http://127.0.0.1:55229/perception-assets/demo.html",
+        "crop": {
+          "x": 14,
+          "width": 320,
+          "y": 91,
+          "height": 250
+        },
+        "height": 250
+      }
+    },
+    {
+      "sequence": 7,
+      "frameId": "28e65a60-a0e2-4f0f-b768-ca942d5bdf5a",
+      "objects": [{
+        "matchScore": 0.9774386705795155,
+        "scoreMeaning": "normalized appearance correlation, not calibrated semantic confidence",
+        "lastKnownBox": [
+          0.13200000000000003,
+          0.08600000000000003,
+          0.48524707031250003,
+          0.7035198974609376
+        ],
+        "appearanceUpdates": 6,
+        "authority": "user-taught appearance",
+        "box": [
+          0.13200000000000003,
+          0.08600000000000003,
+          0.48524707031250003,
+          0.7035198974609376
+        ],
+        "id": "97aec5e4-ac21-339b-ab86-420f8a0a9d0f",
+        "label": "person",
+        "anchorScore": 0.975486601370536,
+        "status": "tracked"
+      }],
+      "capturedAt": 1793400589977,
+      "frameSha256": "6f0b5f77defc6f9ee249535e45c5a1cdd6a46d494bd262dafcdd4a938f9a8015",
+      "source": {
+        "ref": "2",
+        "signature": "483772d302588366231360460580608365397765d4fc451a5a7e9263d8aa4732",
+        "kind": "canvas",
+        "width": 320,
+        "capturedAt": 1793400589977,
+        "scrollY": 105,
+        "label": "Media canvas \u2014 inspect pixels independently",
+        "pageId": "41a73730-824f-434c-9d5f-9e189cba48e1",
+        "scrollX": 0,
+        "url": "http://127.0.0.1:55229/perception-assets/demo.html",
+        "crop": {
+          "x": 14,
+          "width": 320,
+          "y": 91,
+          "height": 250
+        },
+        "height": 250
+      }
+    },
+    {
+      "sequence": 8,
+      "frameId": "f1a49442-493d-44b6-aa0f-1ae873f2fb63",
+      "objects": [{
+        "matchScore": 0.99124223010644,
+        "scoreMeaning": "normalized appearance correlation, not calibrated semantic confidence",
+        "lastKnownBox": [
+          0.10300000000000004,
+          0.08200000000000003,
+          0.4562470703125,
+          0.6995198974609376
+        ],
+        "appearanceUpdates": 7,
+        "authority": "user-taught appearance",
+        "box": [
+          0.10300000000000004,
+          0.08200000000000003,
+          0.4562470703125,
+          0.6995198974609376
+        ],
+        "id": "97aec5e4-ac21-339b-ab86-420f8a0a9d0f",
+        "label": "person",
+        "anchorScore": 0.9905200259921919,
+        "status": "tracked"
+      }],
+      "capturedAt": 1793400590228,
+      "frameSha256": "e72df75d0d0320001bc47305dbff0ef8c24309c8c4aafb84b1df082662d1076d",
+      "source": {
+        "ref": "2",
+        "signature": "483772d302588366231360460580608365397765d4fc451a5a7e9263d8aa4732",
+        "kind": "canvas",
+        "width": 320,
+        "capturedAt": 1793400590228,
+        "scrollY": 105,
+        "label": "Media canvas \u2014 inspect pixels independently",
+        "pageId": "41a73730-824f-434c-9d5f-9e189cba48e1",
+        "scrollX": 0,
+        "url": "http://127.0.0.1:55229/perception-assets/demo.html",
+        "crop": {
+          "x": 14,
+          "width": 320,
+          "y": 91,
+          "height": 250
+        },
+        "height": 250
+      }
+    },
+    {
+      "sequence": 9,
+      "frameId": "b67d8438-771e-4493-b79a-6de7de7cc379",
+      "objects": [{
+        "matchScore": 0.984398907504849,
+        "scoreMeaning": "normalized appearance correlation, not calibrated semantic confidence",
+        "lastKnownBox": [
+          0.08600000000000003,
+          0.08200000000000003,
+          0.4392470703125,
+          0.6995198974609376
+        ],
+        "appearanceUpdates": 8,
+        "authority": "user-taught appearance",
+        "box": [
+          0.08600000000000003,
+          0.08200000000000003,
+          0.4392470703125,
+          0.6995198974609376
+        ],
+        "id": "97aec5e4-ac21-339b-ab86-420f8a0a9d0f",
+        "label": "person",
+        "anchorScore": 0.9831782445281918,
+        "status": "tracked"
+      }],
+      "capturedAt": 1793400590477,
+      "frameSha256": "e42350b656604cc8203fa4319de6fc7d54ab1453f4d5df77e558e5ab8048acd6",
+      "source": {
+        "ref": "2",
+        "signature": "483772d302588366231360460580608365397765d4fc451a5a7e9263d8aa4732",
+        "kind": "canvas",
+        "width": 320,
+        "capturedAt": 1793400590477,
+        "scrollY": 105,
+        "label": "Media canvas \u2014 inspect pixels independently",
+        "pageId": "41a73730-824f-434c-9d5f-9e189cba48e1",
+        "scrollX": 0,
+        "url": "http://127.0.0.1:55229/perception-assets/demo.html",
+        "crop": {
+          "x": 14,
+          "width": 320,
+          "y": 91,
+          "height": 250
+        },
+        "height": 250
+      }
+    },
+    {
+      "sequence": 10,
+      "frameId": "b7e90078-0c6b-4ea7-ad76-9d7544815738",
+      "objects": [{
+        "matchScore": 0.9876817689154899,
+        "scoreMeaning": "normalized appearance correlation, not calibrated semantic confidence",
+        "lastKnownBox": [
+          0.07800000000000003,
+          0.08600000000000003,
+          0.4312470703125,
+          0.7035198974609376
+        ],
+        "appearanceUpdates": 9,
+        "authority": "user-taught appearance",
+        "box": [
+          0.07800000000000003,
+          0.08600000000000003,
+          0.4312470703125,
+          0.7035198974609376
+        ],
+        "id": "97aec5e4-ac21-339b-ab86-420f8a0a9d0f",
+        "label": "person",
+        "anchorScore": 0.9850476008980157,
+        "status": "tracked"
+      }],
+      "capturedAt": 1793400590727,
+      "frameSha256": "fb6867a896f27de77626ba1311ad84d98872d0aafc6abda300b484ac4c8efc5f",
+      "source": {
+        "ref": "2",
+        "signature": "483772d302588366231360460580608365397765d4fc451a5a7e9263d8aa4732",
+        "kind": "canvas",
+        "width": 320,
+        "capturedAt": 1793400590727,
+        "scrollY": 105,
+        "label": "Media canvas \u2014 inspect pixels independently",
+        "pageId": "41a73730-824f-434c-9d5f-9e189cba48e1",
+        "scrollX": 0,
+        "url": "http://127.0.0.1:55229/perception-assets/demo.html",
+        "crop": {
+          "x": 14,
+          "width": 320,
+          "y": 91,
+          "height": 250
+        },
+        "height": 250
+      }
+    },
+    {
+      "sequence": 11,
+      "frameId": "2bbdbb65-9c4c-4ed1-b77e-1bc87cbd2f16",
+      "objects": [{
+        "matchScore": 0.9898848944961993,
+        "scoreMeaning": "normalized appearance correlation, not calibrated semantic confidence",
+        "lastKnownBox": [
+          0.08600000000000003,
+          0.09500000000000003,
+          0.4392470703125,
+          0.7125198974609375
+        ],
+        "appearanceUpdates": 10,
+        "authority": "user-taught appearance",
+        "box": [
+          0.08600000000000003,
+          0.09500000000000003,
+          0.4392470703125,
+          0.7125198974609375
+        ],
+        "id": "97aec5e4-ac21-339b-ab86-420f8a0a9d0f",
+        "label": "person",
+        "anchorScore": 0.9885921935928029,
+        "status": "tracked"
+      }],
+      "capturedAt": 1793400590994,
+      "frameSha256": "e26d5160fdbc3b54c4dfd4016c5652bc7a2b10a84b3ca49e9e208f5d34c0436a",
+      "source": {
+        "ref": "2",
+        "signature": "483772d302588366231360460580608365397765d4fc451a5a7e9263d8aa4732",
+        "kind": "canvas",
+        "width": 320,
+        "capturedAt": 1793400590994,
+        "scrollY": 105,
+        "label": "Media canvas \u2014 inspect pixels independently",
+        "pageId": "41a73730-824f-434c-9d5f-9e189cba48e1",
+        "scrollX": 0,
+        "url": "http://127.0.0.1:55229/perception-assets/demo.html",
+        "crop": {
+          "x": 14,
+          "width": 320,
+          "y": 91,
+          "height": 250
+        },
+        "height": 250
+      }
+    },
+    {
+      "sequence": 12,
+      "frameId": "bf876bee-1f90-464b-b4a9-002d2db5146a",
+      "objects": [{
+        "matchScore": 0.9927692589249761,
+        "scoreMeaning": "normalized appearance correlation, not calibrated semantic confidence",
+        "lastKnownBox": [
+          0.10700000000000004,
+          0.10300000000000004,
+          0.4602470703125,
+          0.7205198974609375
+        ],
+        "appearanceUpdates": 11,
+        "authority": "user-taught appearance",
+        "box": [
+          0.10700000000000004,
+          0.10300000000000004,
+          0.4602470703125,
+          0.7205198974609375
+        ],
+        "id": "97aec5e4-ac21-339b-ab86-420f8a0a9d0f",
+        "label": "person",
+        "anchorScore": 0.9912702933353058,
+        "status": "tracked"
+      }],
+      "capturedAt": 1793400591261,
+      "frameSha256": "4cc09f7c32443c5b9f90adb61338f21dd90f418d6276ca7bd8339bf18252238a",
+      "source": {
+        "ref": "2",
+        "signature": "483772d302588366231360460580608365397765d4fc451a5a7e9263d8aa4732",
+        "kind": "canvas",
+        "width": 320,
+        "capturedAt": 1793400591261,
+        "scrollY": 105,
+        "label": "Media canvas \u2014 inspect pixels independently",
+        "pageId": "41a73730-824f-434c-9d5f-9e189cba48e1",
+        "scrollX": 0,
+        "url": "http://127.0.0.1:55229/perception-assets/demo.html",
+        "crop": {
+          "x": 14,
+          "width": 320,
+          "y": 91,
+          "height": 250
+        },
+        "height": 250
+      }
+    },
+    {
+      "sequence": 13,
+      "frameId": "51af9d61-0981-4718-a376-af59ed0743db",
+      "objects": [{
+        "matchScore": 0.9817245025838136,
+        "scoreMeaning": "normalized appearance correlation, not calibrated semantic confidence",
+        "lastKnownBox": [
+          0.13600000000000004,
+          0.11500000000000005,
+          0.48924707031250003,
+          0.7325198974609375
+        ],
+        "appearanceUpdates": 12,
+        "authority": "user-taught appearance",
+        "box": [
+          0.13600000000000004,
+          0.11500000000000005,
+          0.48924707031250003,
+          0.7325198974609375
+        ],
+        "id": "97aec5e4-ac21-339b-ab86-420f8a0a9d0f",
+        "label": "person",
+        "anchorScore": 0.97822987979465,
+        "status": "tracked"
+      }],
+      "capturedAt": 1793400591511,
+      "frameSha256": "c802fea91d3cd9f5ff8c683644531ed018a0fd35b87484c1e8edcdac4d3c93d4",
+      "source": {
+        "ref": "2",
+        "signature": "483772d302588366231360460580608365397765d4fc451a5a7e9263d8aa4732",
+        "kind": "canvas",
+        "width": 320,
+        "capturedAt": 1793400591511,
+        "scrollY": 105,
+        "label": "Media canvas \u2014 inspect pixels independently",
+        "pageId": "41a73730-824f-434c-9d5f-9e189cba48e1",
+        "scrollX": 0,
+        "url": "http://127.0.0.1:55229/perception-assets/demo.html",
+        "crop": {
+          "x": 14,
+          "width": 320,
+          "y": 91,
+          "height": 250
+        },
+        "height": 250
+      }
+    },
+    {
+      "sequence": 14,
+      "frameId": "69f443cf-0feb-421f-93ad-4c99a91aeb4f",
+      "objects": [{
+        "matchScore": 0.9880231108829195,
+        "scoreMeaning": "normalized appearance correlation, not calibrated semantic confidence",
+        "lastKnownBox": [
+          0.175,
+          0.125,
+          0.5282470703125,
+          0.7425198974609375
+        ],
+        "appearanceUpdates": 13,
+        "authority": "user-taught appearance",
+        "box": [
+          0.175,
+          0.125,
+          0.5282470703125,
+          0.7425198974609375
+        ],
+        "id": "97aec5e4-ac21-339b-ab86-420f8a0a9d0f",
+        "label": "person",
+        "anchorScore": 0.9858143677849869,
+        "status": "tracked"
+      }],
+      "capturedAt": 1793400591761,
+      "frameSha256": "e151b8645fe3044b33f4075232806694654f489bd4b4135b7004585f58536f5a",
+      "source": {
+        "ref": "2",
+        "signature": "483772d302588366231360460580608365397765d4fc451a5a7e9263d8aa4732",
+        "kind": "canvas",
+        "width": 320,
+        "capturedAt": 1793400591761,
+        "scrollY": 105,
+        "label": "Media canvas \u2014 inspect pixels independently",
+        "pageId": "41a73730-824f-434c-9d5f-9e189cba48e1",
+        "scrollX": 0,
+        "url": "http://127.0.0.1:55229/perception-assets/demo.html",
+        "crop": {
+          "x": 14,
+          "width": 320,
+          "y": 91,
+          "height": 250
+        },
+        "height": 250
+      }
+    },
+    {
+      "sequence": 15,
+      "frameId": "3acc3d3b-b90d-418e-ab8c-1aeaa665d60b",
+      "objects": [{
+        "matchScore": 0.9948273335130394,
+        "scoreMeaning": "normalized appearance correlation, not calibrated semantic confidence",
+        "lastKnownBox": [
+          0.216,
+          0.14000000000000004,
+          0.5692470703125,
+          0.7575198974609375
+        ],
+        "appearanceUpdates": 14,
+        "authority": "user-taught appearance",
+        "box": [
+          0.216,
+          0.14000000000000004,
+          0.5692470703125,
+          0.7575198974609375
+        ],
+        "id": "97aec5e4-ac21-339b-ab86-420f8a0a9d0f",
+        "label": "person",
+        "anchorScore": 0.9931309012095745,
+        "status": "tracked"
+      }],
+      "capturedAt": 1793400592028,
+      "frameSha256": "16ecf7637ae5d13573b4a12627acd1b35043630d8d51003409f190ebfbbd91b5",
+      "source": {
+        "ref": "2",
+        "signature": "483772d302588366231360460580608365397765d4fc451a5a7e9263d8aa4732",
+        "kind": "canvas",
+        "width": 320,
+        "capturedAt": 1793400592028,
+        "scrollY": 105,
+        "label": "Media canvas \u2014 inspect pixels independently",
+        "pageId": "41a73730-824f-434c-9d5f-9e189cba48e1",
+        "scrollX": 0,
+        "url": "http://127.0.0.1:55229/perception-assets/demo.html",
+        "crop": {
+          "x": 14,
+          "width": 320,
+          "y": 91,
+          "height": 250
+        },
+        "height": 250
+      }
+    },
+    {
+      "sequence": 16,
+      "frameId": "7b3ff087-7b77-4944-b040-94ae13d5b4d6",
+      "objects": [{
+        "matchScore": 0.9803396992037191,
+        "scoreMeaning": "normalized appearance correlation, not calibrated semantic confidence",
+        "lastKnownBox": [
+          0.261,
+          0.14900000000000002,
+          0.6142470703125,
+          0.7665198974609375
+        ],
+        "appearanceUpdates": 15,
+        "authority": "user-taught appearance",
+        "box": [
+          0.261,
+          0.14900000000000002,
+          0.6142470703125,
+          0.7665198974609375
+        ],
+        "id": "97aec5e4-ac21-339b-ab86-420f8a0a9d0f",
+        "label": "person",
+        "anchorScore": 0.9770662892154344,
+        "status": "tracked"
+      }],
+      "capturedAt": 1793400592278,
+      "frameSha256": "df3e2242ea7689eb02da6ebf3f1055fe2ccf6389ca22d24add21b1d6d299ee3c",
+      "source": {
+        "ref": "2",
+        "signature": "483772d302588366231360460580608365397765d4fc451a5a7e9263d8aa4732",
+        "kind": "canvas",
+        "width": 320,
+        "capturedAt": 1793400592278,
+        "scrollY": 105,
+        "label": "Media canvas \u2014 inspect pixels independently",
+        "pageId": "41a73730-824f-434c-9d5f-9e189cba48e1",
+        "scrollX": 0,
+        "url": "http://127.0.0.1:55229/perception-assets/demo.html",
+        "crop": {
+          "x": 14,
+          "width": 320,
+          "y": 91,
+          "height": 250
+        },
+        "height": 250
+      }
+    },
+    {
+      "sequence": 17,
+      "frameId": "11263802-e48f-428d-a925-5e8afd1265ae",
+      "objects": [{
+        "matchScore": 0.9822634469102436,
+        "scoreMeaning": "normalized appearance correlation, not calibrated semantic confidence",
+        "lastKnownBox": [
+          0.307,
+          0.16500000000000004,
+          0.6602470703125,
+          0.7825198974609375
+        ],
+        "appearanceUpdates": 16,
+        "authority": "user-taught appearance",
+        "box": [
+          0.307,
+          0.16500000000000004,
+          0.6602470703125,
+          0.7825198974609375
+        ],
+        "id": "97aec5e4-ac21-339b-ab86-420f8a0a9d0f",
+        "label": "person",
+        "anchorScore": 0.9769392196899368,
+        "status": "tracked"
+      }],
+      "capturedAt": 1793400592594,
+      "frameSha256": "b0401534191089e87dade776b8742ec78db3990e566a23664196591ae8a4c4a3",
+      "source": {
+        "ref": "2",
+        "signature": "483772d302588366231360460580608365397765d4fc451a5a7e9263d8aa4732",
+        "kind": "canvas",
+        "width": 320,
+        "capturedAt": 1793400592594,
+        "scrollY": 105,
+        "label": "Media canvas \u2014 inspect pixels independently",
+        "pageId": "41a73730-824f-434c-9d5f-9e189cba48e1",
+        "scrollX": 0,
+        "url": "http://127.0.0.1:55229/perception-assets/demo.html",
+        "crop": {
+          "x": 14,
+          "width": 320,
+          "y": 91,
+          "height": 250
+        },
+        "height": 250
+      }
+    },
+    {
+      "sequence": 18,
+      "frameId": "fc4166e3-4215-4714-997c-26bfa127f849",
+      "objects": [{
+        "matchScore": 0.9859351390095318,
+        "scoreMeaning": "normalized appearance correlation, not calibrated semantic confidence",
+        "lastKnownBox": [
+          0.3490000000000001,
+          0.18200000000000002,
+          0.7022470703125001,
+          0.7995198974609375
+        ],
+        "appearanceUpdates": 17,
+        "authority": "user-taught appearance",
+        "box": [
+          0.3490000000000001,
+          0.18200000000000002,
+          0.7022470703125001,
+          0.7995198974609375
+        ],
+        "id": "97aec5e4-ac21-339b-ab86-420f8a0a9d0f",
+        "label": "person",
+        "anchorScore": 0.9815196869948396,
+        "status": "tracked"
+      }],
+      "capturedAt": 1793400593044,
+      "frameSha256": "ed67a40648a9d02d2ee799ab0560861376e99ff8d79334137ad870b1f23d6537",
+      "source": {
+        "ref": "2",
+        "signature": "483772d302588366231360460580608365397765d4fc451a5a7e9263d8aa4732",
+        "kind": "canvas",
+        "width": 320,
+        "capturedAt": 1793400593044,
+        "scrollY": 105,
+        "label": "Media canvas \u2014 inspect pixels independently",
+        "pageId": "41a73730-824f-434c-9d5f-9e189cba48e1",
+        "scrollX": 0,
+        "url": "http://127.0.0.1:55229/perception-assets/demo.html",
+        "crop": {
+          "x": 14,
+          "width": 320,
+          "y": 91,
+          "height": 250
+        },
+        "height": 250
+      }
+    }
+  ],
+  "mode": "appearance",
+  "initialFrameId": "99042885-116e-4a44-8486-607ba4d08c73",
+  "createdAt": "2026-10-30T22:49:48.159554800Z",
+  "seconds": 5,
+  "lastSequence": 18,
+  "model": "gemma3:latest",
+  "id": "693329e0-23c1-3602-bf8c-932a6e5f26cf",
+  "metrics": {
+    "trackedFraction": 0.9444444444444444,
+    "mode": "appearance",
+    "trackedObservations": 17,
+    "meanMatchScore": 0.9848391709122448,
+    "lostObservations": 1,
+    "frames": 18,
+    "appearanceUpdates": 17,
+    "reacquisitions": 1,
+    "passed": true,
+    "semanticGroundTruthVerified": false
+  },
+  "status": "completed",
+  "latest": {
+    "sequence": 18,
+    "frameId": "fc4166e3-4215-4714-997c-26bfa127f849",
+    "objects": [{
+      "matchScore": 0.9859351390095318,
+      "scoreMeaning": "normalized appearance correlation, not calibrated semantic confidence",
+      "lastKnownBox": [
+        0.3490000000000001,
+        0.18200000000000002,
+        0.7022470703125001,
+        0.7995198974609375
+      ],
+      "appearanceUpdates": 17,
+      "authority": "user-taught appearance",
+      "box": [
+        0.3490000000000001,
+        0.18200000000000002,
+        0.7022470703125001,
+        0.7995198974609375
+      ],
+      "id": "97aec5e4-ac21-339b-ab86-420f8a0a9d0f",
+      "label": "person",
+      "anchorScore": 0.9815196869948396,
+      "status": "tracked"
+    }],
+    "capturedAt": 1793400593044,
+    "frameSha256": "ed67a40648a9d02d2ee799ab0560861376e99ff8d79334137ad870b1f23d6537",
+    "source": {
+      "ref": "2",
+      "signature": "483772d302588366231360460580608365397765d4fc451a5a7e9263d8aa4732",
+      "kind": "canvas",
+      "width": 320,
+      "capturedAt": 1793400593044,
+      "scrollY": 105,
+      "label": "Media canvas \u2014 inspect pixels independently",
+      "pageId": "41a73730-824f-434c-9d5f-9e189cba48e1",
+      "scrollX": 0,
+      "url": "http://127.0.0.1:55229/perception-assets/demo.html",
+      "crop": {
+        "x": 14,
+        "width": 320,
+        "y": 91,
+        "height": 250
+      },
+      "height": 250
+    }
+  }
+}

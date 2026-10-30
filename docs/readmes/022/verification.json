@@ -1,0 +1,225 @@
+{
+  "date": "2026-10-30",
+  "sourceBaseline": "1af00ff13a6372e4305c2c114e0b4c141ec79b29",
+  "releaseKind": "source-qualified-browser-perception-and-taught-appearance",
+  "sourceInventory": 503,
+  "contractSha256": "cab67babcc95798ccffc7e5a151e6725fd0947ae232b72475d9e9d7a199518f8",
+  "declaration": "Reference boxes declared after pilot inspection; local development cases, not untouched generalization benchmark",
+  "rawModelGrounding": [
+    {
+      "category": "person",
+      "source": "https://raw.githubusercontent.com/scikit-image/scikit-image/v0.25.2/skimage/data/astronaut.png",
+      "frameSha256": "8ad1fa1750a681a9ea0d7d75b2ce4c3aa9694628cdd8bed79151dda34b60b736",
+      "referenceIou": 0.8545216823853989,
+      "referenceAccepted": true,
+      "runId": "7ff4efce-52ad-314f-ac13-b6b8752201b9"
+    },
+    {
+      "category": "cup",
+      "source": "https://raw.githubusercontent.com/scikit-image/scikit-image/v0.25.2/skimage/data/coffee.png",
+      "frameSha256": "a6c4b1b66778a67cd819256d6dfafbd50b1e5cab263b935cdc71706dd4e93c09",
+      "referenceIou": 0.3390195919907295,
+      "referenceAccepted": false,
+      "runId": "7ae4af03-b7a0-39c3-a377-aba82b3d62db"
+    }
+  ],
+  "taughtTransfer": {
+    "localScaledAfterRestartIou": 0.9883095262882955,
+    "httpsPersonIou": 0.9970721675068716,
+    "httpsCupIou": 0.9966443692740209,
+    "gate": 0.7
+  },
+  "firstTracking": {
+    "trackedFraction": 0.9444444444444444,
+    "mode": "appearance",
+    "trackedObservations": 17,
+    "meanMatchScore": 0.9848391709122448,
+    "lostObservations": 1,
+    "frames": 18,
+    "appearanceUpdates": 17,
+    "reacquisitions": 1,
+    "passed": true,
+    "semanticGroundTruthVerified": false
+  },
+  "recovery": {
+    "attempt": 2,
+    "resumes": 1
+  },
+  "perceptionUiGroups": 15,
+  "livePerception": {
+    "models": {
+      "chat": "gpt-oss:20b",
+      "vision": "gemma3:latest"
+    },
+    "checks": 7,
+    "firstCalls": [
+      "perception.read",
+      "perception.start",
+      "goal.read"
+    ],
+    "reuseCalls": [
+      "perception.read",
+      "procedure.run",
+      "goal.read"
+    ]
+  },
+  "workflowGroups": 219,
+  "regressions": {
+    "perceptionUiChecks": 15,
+    "livePerceptionChecks": 7,
+    "passed": true,
+    "javaTests": 194,
+    "javaClasses": 37,
+    "desktopUnitTests": 25,
+    "spatialUiChecks": 14,
+    "liveSpatialChecks": 4,
+    "suites": {
+      "perception-integration": {
+        "passed": true,
+        "checks": 15,
+        "seconds": 32.23
+      },
+      "spatial-integration": {
+        "passed": true,
+        "checks": 14,
+        "seconds": 38.84
+      },
+      "data-goals-integration": {
+        "passed": true,
+        "checks": 12,
+        "seconds": 16.04
+      },
+      "goals-integration": {
+        "passed": true,
+        "checks": 14,
+        "seconds": 55.1
+      },
+      "world-model-integration": {
+        "passed": true,
+        "checks": 15,
+        "seconds": 13.75
+      },
+      "feedback-integration": {
+        "passed": true,
+        "checks": 12,
+        "seconds": 15.66
+      },
+      "brain-game-integration": {
+        "passed": true,
+        "checks": 10,
+        "seconds": 16.56
+      },
+      "body-integration": {
+        "passed": true,
+        "checks": 10,
+        "seconds": 7.53
+      },
+      "observer-integration": {
+        "passed": true,
+        "checks": 12,
+        "seconds": 5.61
+      },
+      "scene-integration": {
+        "passed": true,
+        "checks": 12,
+        "seconds": 6.51
+      },
+      "measurement-integration": {
+        "passed": true,
+        "checks": 10,
+        "seconds": 5.51
+      },
+      "calibration-integration": {
+        "passed": true,
+        "checks": 8,
+        "seconds": 11.37
+      },
+      "real-data-delfys": {
+        "passed": true,
+        "checks": 9,
+        "seconds": 5.15
+      },
+      "integration": {
+        "passed": true,
+        "checks": 12,
+        "seconds": 25.72
+      },
+      "learning-integration": {
+        "passed": true,
+        "checks": 9,
+        "seconds": 27.18
+      },
+      "broader-validation": {
+        "passed": true,
+        "checks": 45,
+        "seconds": 16.0
+      },
+      "live-data-goals": {
+        "passed": true,
+        "checks": 4,
+        "seconds": 86.79
+      },
+      "live-goals": {
+        "passed": true,
+        "checks": 5,
+        "seconds": 54.45
+      },
+      "live-spatial": {
+        "passed": true,
+        "checks": 4,
+        "seconds": 91.6
+      }
+    }
+  },
+  "freshClone": {
+    "status": "passed",
+    "checkout": "fraynix-workspace-qa022-release",
+    "sourceCommit": "1af00ff13a6372e4305c2c114e0b4c141ec79b29",
+    "javaTests": 194,
+    "desktopUnitTests": 25,
+    "bodyUiChecks": 10,
+    "brainGameUiChecks": 10,
+    "feedbackUiChecks": 12,
+    "worldModelUiChecks": 15,
+    "goalUiChecks": 14,
+    "dataGoalUiChecks": 12,
+    "offlineBuild": true,
+    "modelWeightsOrPrivateRuntimeCopied": false,
+    "electronBinary": "Pinned 45.1.0 executable reused from existing dependency cache after npm ci --offline --ignore-scripts",
+    "perceptionUiChecks": 15,
+    "spatialUiChecks": 14,
+    "uiChecks": 102
+  },
+  "documentationQa": {
+    "status": "passed",
+    "checks": [
+      "Offline companion loads nine source-linked modules with no runtime service",
+      "Architecture selection and all/verified/planned filters work",
+      "Canonical source inventory search resolves actual Java perception implementation",
+      "All nine dated actual application screenshots decode and have captions",
+      "Navigation, inventory search and map selection work at390px without horizontal overflow",
+      "Standalone actual report opens offline with original-source thumbnails, broken observed traces and qualified authority",
+      "No script errors, external requests or CDN dependencies"
+    ]
+  },
+  "scope": [
+    "Actual Chromium captures and local vision inference; page labels are not pixel proof",
+    "Person is a generic category and temporary within-run track ID; no face-based personal identification",
+    "Java192-value RGB appearance learning persists corrections, not LLM weight training",
+    "Model cup box fails0.5 overlap gate even though its tracking workflow completes; retained failure is not relabelled success",
+    "Local fixture movement is synthetic; HTTPS tests use still photographs, not unseen moving-camera footage",
+    "Lost current boxes are absent and traces broken; source reload interrupts and explicit recovery starts a fresh attempt",
+    "Fourth typed procedural family; skills reuse registered code and fresh sources, not arbitrary executable imports",
+    "No new runtime libraries or model weights; original user projects, model services and019/021 review apps preserved"
+  ],
+  "developmentCorrections": [
+    "Copy source metadata defensively",
+    "Release owned tracker on failed host effect",
+    "Close skill inspector before capturing browser",
+    "Replace stale offscreen region selection",
+    "Retry the stored expected sample sequence and exact existing receipt",
+    "Normalize an empty optional lessonName before the strict Java handoff",
+    "Keep saved procedural name separate from taught visual example name",
+    "Disallow detector-policy overrides in model procedure reuse and retain taught category"
+  ]
+}

@@ -1,7 +1,7 @@
 ---
 title: Fraynix Studio map of content
-edition_context: 001
-updated: 2026-10-23
+edition_context: 022
+updated: 2026-10-30
 tags: [fraynix, system-map]
 ---
 
@@ -77,3 +77,11 @@ GitHub links: [README 001](../../README-001.md), [interactive companion](../read
 - [World model and recorded reality](26-world-model-reality.md)
 - [World/reality map](world-model-reality.canvas)
 - [Native and recorded verification](../readmes/018/verification.json)
+
+## Current browser perception and teaching · edition 022
+
+- [README 022](../../README-022.md)
+- [Browser perception and persistent teaching](30-browser-perception.md)
+- [Perception map](browser-perception.canvas)
+- [Actual evidence and accuracy limits](../readmes/022/verification.json)
+- [All editions](../readmes/INDEX.md)

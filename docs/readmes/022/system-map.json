@@ -1,0 +1,171 @@
+{
+  "date": "2026-10-30",
+  "modules": [
+    {
+      "id": "capture",
+      "name": "Actual browser source",
+      "status": "verified",
+      "source": "workspace-desktop/browser-perception.cjs",
+      "summary": "Document/element binding, unannotated capture, stable source hashes and transparent overlays.",
+      "note": "docs/obsidian/30-browser-perception.md"
+    },
+    {
+      "id": "vision",
+      "name": "Qualified local vision estimates",
+      "status": "verified",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/VisionDetector.java",
+      "summary": "Local metadata admission, structured response and full request hash; coarse cup grounding failure retained.",
+      "note": "docs/obsidian/30-browser-perception.md"
+    },
+    {
+      "id": "tracking",
+      "name": "Pure Java appearance tracking",
+      "status": "verified",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/PixelTracker.java",
+      "summary": "192-value RGB descriptor, anchor, ambiguity rejection, bounded updates and honest lost/reacquired states.",
+      "note": "docs/obsidian/30-browser-perception.md"
+    },
+    {
+      "id": "memory",
+      "name": "Persistent explicit teaching",
+      "status": "verified",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/PerceptionStore.java",
+      "summary": "User-drawn frozen-source examples, immutable versions and automatic matching before later model guesses.",
+      "note": "docs/obsidian/30-browser-perception.md"
+    },
+    {
+      "id": "runner",
+      "name": "Durable Java observation goals",
+      "status": "verified",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/GoalRunner.java",
+      "summary": "Fourth family, exact sequenced sample receipts, source ownership and explicit fresh-attempt recovery.",
+      "note": "docs/obsidian/30-browser-perception.md"
+    },
+    {
+      "id": "view",
+      "name": "Integrated perception interface",
+      "status": "verified",
+      "source": "workspace-desktop/renderer/perception-panel.js",
+      "summary": "Real drawing, method/category/model selection, source preview, export and qualified evidence.",
+      "note": "docs/obsidian/30-browser-perception.md"
+    },
+    {
+      "id": "chat",
+      "name": "Local chat and saved skills",
+      "status": "verified",
+      "source": "workspace-desktop/goals.cjs",
+      "summary": "Typed semantic choices, distinct recipe/example names and newly checked source on each reuse.",
+      "note": "docs/obsidian/30-browser-perception.md"
+    },
+    {
+      "id": "report",
+      "name": "Source-linked trace report",
+      "status": "verified",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/PerceptionReport.java",
+      "summary": "Actual thumbnails, broken observed path, JSON/CSV provenance and eight real Chromium checks.",
+      "note": "docs/obsidian/30-browser-perception.md"
+    },
+    {
+      "id": "next",
+      "name": "Broader independent sequences",
+      "status": "planned",
+      "source": "docs/BROWSER_PERCEPTION.md",
+      "summary": "Held-out lighting/viewpoint/distractor sequences, measured identity switches, latency and calibrated spatial association.",
+      "note": "docs/obsidian/30-browser-perception.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "docs/readmes/022/images/perception-teach-022.png",
+      "caption": "Actual drawing on a frozen browser capture teaches an explicitly user-labelled appearance."
+    },
+    {
+      "path": "docs/readmes/022/images/perception-follow-022.png",
+      "caption": "Actual browser canvas with real photo pixels and labelled synthetic movement: outlines follow Java observations."
+    },
+    {
+      "path": "docs/readmes/022/images/perception-lost-022.png",
+      "caption": "Actual hiding test: the outline disappears and the trace breaks instead of inventing hidden motion."
+    },
+    {
+      "path": "docs/readmes/022/images/perception-memory-022.png",
+      "caption": "After process restart, ordinary vision mode uses retained taught memory on the resized fixture."
+    },
+    {
+      "path": "docs/readmes/022/images/perception-cup-estimate-022.png",
+      "caption": "Actual HTTPS cup image: the raw local-model estimate is coarse and fails the independent reference-box gate."
+    },
+    {
+      "path": "docs/readmes/022/images/perception-cup-corrected-022.png",
+      "caption": "Actual HTTPS cup after explicit correction: Java memory transfers the user-drawn appearance."
+    },
+    {
+      "path": "docs/readmes/022/images/perception-chat-022.png",
+      "caption": "Actual gpt-oss:20b chat completes a fresh-source perception goal and retains the named procedure."
+    },
+    {
+      "path": "docs/readmes/022/images/perception-chat-reuse-022.png",
+      "caption": "Actual named chat reuse after browser resize: new capture/run and newly verified report."
+    },
+    {
+      "path": "docs/readmes/022/images/perception-report-022.png",
+      "caption": "Actual standalone perception report with retained source frames, observed/lost trace and qualified authority."
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/readmes/022/verification.json"
+    },
+    {
+      "path": "docs/readmes/022/perception-integration.json"
+    },
+    {
+      "path": "docs/readmes/022/live-perception.json"
+    },
+    {
+      "path": "docs/readmes/022/perception-cup-review.json"
+    },
+    {
+      "path": "docs/readmes/022/acceptance-022.json"
+    },
+    {
+      "path": "docs/readmes/022/regressions.json"
+    },
+    {
+      "path": "docs/readmes/022/live-spatial.json"
+    },
+    {
+      "path": "docs/readmes/022/live-data-goals.json"
+    },
+    {
+      "path": "docs/readmes/022/live-goals.json"
+    },
+    {
+      "path": "docs/readmes/022/examples/verified-perception-report.html"
+    },
+    {
+      "path": "docs/readmes/022/examples/perception-run.json"
+    },
+    {
+      "path": "docs/readmes/022/examples/source-frames.json"
+    },
+    {
+      "path": "docs/readmes/022/examples/detection.json"
+    },
+    {
+      "path": "docs/readmes/022/examples/motion.csv"
+    },
+    {
+      "path": "docs/readmes/022/examples/verification.json"
+    },
+    {
+      "path": "docs/readmes/022/examples/taught-appearance.json"
+    },
+    {
+      "path": "docs/readmes/022/file-inventory.json"
+    },
+    {
+      "path": "docs/readmes/022/FILE_TREE.md"
+    }
+  ]
+}

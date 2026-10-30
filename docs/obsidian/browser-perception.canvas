@@ -1,0 +1,168 @@
+{
+  "nodes": [
+    {
+      "id": "overview",
+      "type": "file",
+      "file": "docs/obsidian/30-browser-perception.md",
+      "x": 0,
+      "y": 0,
+      "width": 540,
+      "height": 300
+    },
+    {
+      "id": "capture",
+      "type": "file",
+      "file": "workspace-desktop/browser-perception.cjs",
+      "x": -620,
+      "y": 400,
+      "width": 540,
+      "height": 300
+    },
+    {
+      "id": "vision",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/VisionDetector.java",
+      "x": 0,
+      "y": 400,
+      "width": 540,
+      "height": 300
+    },
+    {
+      "id": "tracking",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/PixelTracker.java",
+      "x": 620,
+      "y": 400,
+      "width": 540,
+      "height": 300
+    },
+    {
+      "id": "memory",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/PerceptionStore.java",
+      "x": -620,
+      "y": 800,
+      "width": 540,
+      "height": 300
+    },
+    {
+      "id": "runner",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/GoalRunner.java",
+      "x": 0,
+      "y": 800,
+      "width": 540,
+      "height": 300
+    },
+    {
+      "id": "view",
+      "type": "file",
+      "file": "workspace-desktop/renderer/perception-panel.js",
+      "x": 620,
+      "y": 800,
+      "width": 540,
+      "height": 300
+    },
+    {
+      "id": "chat",
+      "type": "file",
+      "file": "workspace-desktop/goals.cjs",
+      "x": -620,
+      "y": 1200,
+      "width": 540,
+      "height": 300
+    },
+    {
+      "id": "report",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/PerceptionReport.java",
+      "x": 0,
+      "y": 1200,
+      "width": 540,
+      "height": 300
+    },
+    {
+      "id": "next",
+      "type": "file",
+      "file": "docs/BROWSER_PERCEPTION.md",
+      "x": 620,
+      "y": 1200,
+      "width": 540,
+      "height": 300
+    }
+  ],
+  "edges": [
+    {
+      "id": "edge-capture",
+      "fromNode": "overview",
+      "fromSide": "bottom",
+      "toNode": "capture",
+      "toSide": "top",
+      "label": "verified"
+    },
+    {
+      "id": "edge-vision",
+      "fromNode": "overview",
+      "fromSide": "bottom",
+      "toNode": "vision",
+      "toSide": "top",
+      "label": "verified"
+    },
+    {
+      "id": "edge-tracking",
+      "fromNode": "overview",
+      "fromSide": "bottom",
+      "toNode": "tracking",
+      "toSide": "top",
+      "label": "verified"
+    },
+    {
+      "id": "edge-memory",
+      "fromNode": "overview",
+      "fromSide": "bottom",
+      "toNode": "memory",
+      "toSide": "top",
+      "label": "verified"
+    },
+    {
+      "id": "edge-runner",
+      "fromNode": "overview",
+      "fromSide": "bottom",
+      "toNode": "runner",
+      "toSide": "top",
+      "label": "verified"
+    },
+    {
+      "id": "edge-view",
+      "fromNode": "overview",
+      "fromSide": "bottom",
+      "toNode": "view",
+      "toSide": "top",
+      "label": "verified"
+    },
+    {
+      "id": "edge-chat",
+      "fromNode": "overview",
+      "fromSide": "bottom",
+      "toNode": "chat",
+      "toSide": "top",
+      "label": "verified"
+    },
+    {
+      "id": "edge-report",
+      "fromNode": "overview",
+      "fromSide": "bottom",
+      "toNode": "report",
+      "toSide": "top",
+      "label": "verified"
+    },
+    {
+      "id": "edge-next",
+      "fromNode": "overview",
+      "fromSide": "bottom",
+      "toNode": "next",
+      "toSide": "top",
+      "label": "planned"
+    }
+  ]
+}

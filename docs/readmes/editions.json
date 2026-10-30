@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "latest": 21,
+  "latest": 22,
   "canonicalization": "UTF-8 without BOM; CRLF normalized to LF for text",
   "editions": [
     {
@@ -2020,6 +2020,165 @@
           "path": "docs/readmes/021/verification.json",
           "kind": "text",
           "sha256": "7c4c24a7e2b4742055dc793812b982ba783d93bebdbe687c3832f2761bc0bf95"
+        }
+      ]
+    },
+    {
+      "number": 22,
+      "date": "2026-10-30",
+      "title": "Browser perception and persistent teaching",
+      "status": "published",
+      "markdown": "README-022.md",
+      "markdownSha256": "5458551ff7d6f13d125a8b4464a928e7beae0cd08d27df7108a3418b2388b3ad",
+      "snapshotDirectory": "docs/readmes/022",
+      "companion": "docs/readmes/022/index.html",
+      "tag": "readme-022",
+      "sourceBaseline": "1af00ff13a6372e4305c2c114e0b4c141ec79b29",
+      "snapshotFiles": [
+        {
+          "path": "docs/readmes/022/acceptance-022.json",
+          "kind": "text",
+          "sha256": "cab67babcc95798ccffc7e5a151e6725fd0947ae232b72475d9e9d7a199518f8"
+        },
+        {
+          "path": "docs/readmes/022/examples/detection.json",
+          "kind": "text",
+          "sha256": "cec144aa5cc9ce9811db19deb79276d3e7dfc03d613a7a301136ee20968edb26"
+        },
+        {
+          "path": "docs/readmes/022/examples/motion.csv",
+          "kind": "text",
+          "sha256": "48392e3d5b41e1efe243c72e95b2ba63a4f71f4129052c16bdc50297c9cef606"
+        },
+        {
+          "path": "docs/readmes/022/examples/perception-run.json",
+          "kind": "text",
+          "sha256": "214f2aa796f665bcbc325d9de3b732283bf159c02fc4b3de0cf99c35f5f10286"
+        },
+        {
+          "path": "docs/readmes/022/examples/source-frames.json",
+          "kind": "text",
+          "sha256": "688696b70b2d483e4d7d824490589ad28f5b2202fb545f97c206a6749d6ae59d"
+        },
+        {
+          "path": "docs/readmes/022/examples/taught-appearance.json",
+          "kind": "text",
+          "sha256": "87e968374179d71cdc835a3c819a1589eac93962d7439fd93a078e2628fe7b5f"
+        },
+        {
+          "path": "docs/readmes/022/examples/verification.json",
+          "kind": "text",
+          "sha256": "9734a2e1e45a36a70ea66e008284719eb86dc38e73be9d2c3d670191909a73c4"
+        },
+        {
+          "path": "docs/readmes/022/examples/verified-perception-report.html",
+          "kind": "text",
+          "sha256": "c9c01af7a41044b3e99aa3c141a1df14780349f62ca9e9bc623ef8e90423873e"
+        },
+        {
+          "path": "docs/readmes/022/file-inventory.json",
+          "kind": "text",
+          "sha256": "42eabb2a0f8ac26a089809e9ff4610592c56595093345dfb57c553eb82e7d456"
+        },
+        {
+          "path": "docs/readmes/022/FILE_TREE.md",
+          "kind": "text",
+          "sha256": "3384263a1e30f884d480b74fc87180f1b14f781b14ba70cda443dfcf0e6bf857"
+        },
+        {
+          "path": "docs/readmes/022/images/perception-chat-022.png",
+          "kind": "binary",
+          "sha256": "f81cbe8c97ecfac992ea0e808c6c311b23928f2e8943f78887c8e18673e8283a"
+        },
+        {
+          "path": "docs/readmes/022/images/perception-chat-reuse-022.png",
+          "kind": "binary",
+          "sha256": "184e480cd7c3dec2958df1807e3b6fd40484632088b2c2b72c9a189e419dc55c"
+        },
+        {
+          "path": "docs/readmes/022/images/perception-cup-corrected-022.png",
+          "kind": "binary",
+          "sha256": "77c2be6ffd6c10635235612b8f57208d9047933fd9c2a674e5165843c566c6fb"
+        },
+        {
+          "path": "docs/readmes/022/images/perception-cup-estimate-022.png",
+          "kind": "binary",
+          "sha256": "739ba60dd86774b6dd69dba2582720da206afa7db8a0383441d08831bec73386"
+        },
+        {
+          "path": "docs/readmes/022/images/perception-follow-022.png",
+          "kind": "binary",
+          "sha256": "0dd8b7326e848b314e5468e3bd0e7453fcf3e45b914fc0e542fdfab9614e75e6"
+        },
+        {
+          "path": "docs/readmes/022/images/perception-lost-022.png",
+          "kind": "binary",
+          "sha256": "1fcd7072045e7bd820d70a7870eaaab457da5341d2280e877fc9657bfb448e81"
+        },
+        {
+          "path": "docs/readmes/022/images/perception-memory-022.png",
+          "kind": "binary",
+          "sha256": "4724724c99b2fd29042266dd1e63273e86fc94f1a5e3762b2ed36bef7a160224"
+        },
+        {
+          "path": "docs/readmes/022/images/perception-report-022.png",
+          "kind": "binary",
+          "sha256": "7dcfcf6b6bc669e50f4c224a0b862af64172a54bdc42d31b530ae8204b94be53"
+        },
+        {
+          "path": "docs/readmes/022/images/perception-teach-022.png",
+          "kind": "binary",
+          "sha256": "a5c7b60992f6912329633c0e38cd732f925e64823703080ce93c2d1c0a1766fe"
+        },
+        {
+          "path": "docs/readmes/022/index.html",
+          "kind": "text",
+          "sha256": "9e55dfa6af05f83a1f948475e94bb547189ecc99d599b0a1dff4e37c52b2f764"
+        },
+        {
+          "path": "docs/readmes/022/live-data-goals.json",
+          "kind": "text",
+          "sha256": "94ed7185b39a6048a78f1ad17e3b5d4a23310f3865d8def7fe35718bd6cde961"
+        },
+        {
+          "path": "docs/readmes/022/live-goals.json",
+          "kind": "text",
+          "sha256": "4704f6864e3995ae80ea31cd5025f76a62ca86b8e53b6126e10023305b25e33d"
+        },
+        {
+          "path": "docs/readmes/022/live-perception.json",
+          "kind": "text",
+          "sha256": "b0614b64f01b2462c9357ae142d35e307316e8db7936bedab186dec2101bf557"
+        },
+        {
+          "path": "docs/readmes/022/live-spatial.json",
+          "kind": "text",
+          "sha256": "162918eae4d82b1c969a32d77ecba57db89f7a9351ae2137facaa284b145b1c5"
+        },
+        {
+          "path": "docs/readmes/022/perception-cup-review.json",
+          "kind": "text",
+          "sha256": "da76825f671f2a2b4c527ad829fc84a4372179cd3b8e1f7ba9db1c7added3bdd"
+        },
+        {
+          "path": "docs/readmes/022/perception-integration.json",
+          "kind": "text",
+          "sha256": "657a073e5cb158c6a8afdd38c207dfdadf6aec16d685daab142b492bb7a63205"
+        },
+        {
+          "path": "docs/readmes/022/regressions.json",
+          "kind": "text",
+          "sha256": "cd77b0850e4c66afa28d271cba9d0f48c8086cd154baebd867b747f966b205b2"
+        },
+        {
+          "path": "docs/readmes/022/system-map.json",
+          "kind": "text",
+          "sha256": "518fbaab48a7da13a1a4933b09c101a94b72057ffd73ec610d7896ae7576b126"
+        },
+        {
+          "path": "docs/readmes/022/verification.json",
+          "kind": "text",
+          "sha256": "ca9e3bf68ccded948f1336f281f88407257ff869077d9baa35edeb32937427f9"
         }
       ]
     }

@@ -1,0 +1,748 @@
+{
+  "passed": true,
+  "date": "2026-10-30T23:04:11.803Z",
+  "goal": {
+    "request": "Observe, detect, outline, follow, trace and verify the selected browser region",
+    "reason": "Actual browser tracking workflow and canvas report verified; semantic authority remains qualified",
+    "targetLabel": "cup",
+    "lessonId": "",
+    "procedure": "browser-perception-v1",
+    "history": [
+      {
+        "reason": "Actual browser source frame bound; page labels, model estimates and taught appearance keep distinct authority",
+        "at": "2026-10-30T23:04:08.516259100Z",
+        "step": "perception-prepare",
+        "attempt": 1,
+        "status": "running"
+      },
+      {
+        "reason": "Local detection or taught-appearance matching started on actual unannotated source pixels",
+        "at": "2026-10-30T23:04:08.636411500Z",
+        "step": "perception-wait",
+        "attempt": 1,
+        "status": "running"
+      },
+      {
+        "reason": "Detection retained; sample fresh browser frames without promoting uncertain labels to ground truth",
+        "at": "2026-10-30T23:04:08.755770300Z",
+        "step": "perception-sample",
+        "attempt": 1,
+        "status": "running"
+      },
+      {
+        "reason": "Waiting for registered desktop action: browser.perception.sample",
+        "at": "2026-10-30T23:04:08.883072300Z",
+        "step": "perception-sample",
+        "attempt": 1,
+        "status": "waiting-host"
+      },
+      {
+        "reason": "Actual source frame 1 retained; tracking uncertainty preserved",
+        "at": "2026-10-30T23:04:09.093760800Z",
+        "step": "perception-sample",
+        "attempt": 1,
+        "status": "running"
+      },
+      {
+        "reason": "Waiting for registered desktop action: browser.perception.sample",
+        "at": "2026-10-30T23:04:09.123455100Z",
+        "step": "perception-sample",
+        "attempt": 1,
+        "status": "waiting-host"
+      },
+      {
+        "reason": "Actual source frame 2 retained; tracking uncertainty preserved",
+        "at": "2026-10-30T23:04:09.364503600Z",
+        "step": "perception-sample",
+        "attempt": 1,
+        "status": "running"
+      },
+      {
+        "reason": "Waiting for registered desktop action: browser.perception.sample",
+        "at": "2026-10-30T23:04:09.472285700Z",
+        "step": "perception-sample",
+        "attempt": 1,
+        "status": "waiting-host"
+      },
+      {
+        "reason": "Actual source frame 3 retained; tracking uncertainty preserved",
+        "at": "2026-10-30T23:04:09.614033600Z",
+        "step": "perception-sample",
+        "attempt": 1,
+        "status": "running"
+      },
+      {
+        "reason": "Waiting for registered desktop action: browser.perception.sample",
+        "at": "2026-10-30T23:04:09.729272900Z",
+        "step": "perception-sample",
+        "attempt": 1,
+        "status": "waiting-host"
+      },
+      {
+        "reason": "Actual source frame 4 retained; tracking uncertainty preserved",
+        "at": "2026-10-30T23:04:09.864694400Z",
+        "step": "perception-sample",
+        "attempt": 1,
+        "status": "running"
+      },
+      {
+        "reason": "Waiting for registered desktop action: browser.perception.sample",
+        "at": "2026-10-30T23:04:09.980175100Z",
+        "step": "perception-sample",
+        "attempt": 1,
+        "status": "waiting-host"
+      },
+      {
+        "reason": "Actual source frame 5 retained; tracking uncertainty preserved",
+        "at": "2026-10-30T23:04:10.107615900Z",
+        "step": "perception-sample",
+        "attempt": 1,
+        "status": "running"
+      },
+      {
+        "reason": "Waiting for registered desktop action: browser.perception.sample",
+        "at": "2026-10-30T23:04:10.205576600Z",
+        "step": "perception-sample",
+        "attempt": 1,
+        "status": "waiting-host"
+      },
+      {
+        "reason": "Actual source frame 6 retained; tracking uncertainty preserved",
+        "at": "2026-10-30T23:04:10.362957900Z",
+        "step": "perception-sample",
+        "attempt": 1,
+        "status": "running"
+      },
+      {
+        "reason": "Waiting for registered desktop action: browser.perception.sample",
+        "at": "2026-10-30T23:04:10.460118500Z",
+        "step": "perception-sample",
+        "attempt": 1,
+        "status": "waiting-host"
+      },
+      {
+        "reason": "Actual source frame 7 retained; tracking uncertainty preserved",
+        "at": "2026-10-30T23:04:10.629191100Z",
+        "step": "perception-sample",
+        "attempt": 1,
+        "status": "running"
+      },
+      {
+        "reason": "Waiting for registered desktop action: browser.perception.sample",
+        "at": "2026-10-30T23:04:10.683144600Z",
+        "step": "perception-sample",
+        "attempt": 1,
+        "status": "waiting-host"
+      },
+      {
+        "reason": "Actual source frame 8 retained; tracking uncertainty preserved",
+        "at": "2026-10-30T23:04:10.890277800Z",
+        "step": "perception-sample",
+        "attempt": 1,
+        "status": "running"
+      },
+      {
+        "reason": "Source/image hashes, sequence, observed/lost states and tracking gates reconstructed",
+        "at": "2026-10-30T23:04:10.917582100Z",
+        "step": "perception-report",
+        "attempt": 1,
+        "status": "running"
+      },
+      {
+        "reason": "Waiting for registered desktop action: canvas.verify-report",
+        "at": "2026-10-30T23:04:11.120187100Z",
+        "step": "perception-report",
+        "attempt": 1,
+        "status": "waiting-host"
+      },
+      {
+        "reason": "Actual Chromium canvas assertions passed for the pinned report version",
+        "at": "2026-10-30T23:04:11.407672700Z",
+        "step": "complete",
+        "attempt": 1,
+        "status": "running"
+      },
+      {
+        "reason": "Actual browser tracking workflow and canvas report verified; semantic authority remains qualified",
+        "at": "2026-10-30T23:04:11.482704900Z",
+        "step": "completed",
+        "attempt": 1,
+        "status": "completed"
+      }
+    ],
+    "attempt": 1,
+    "resumes": 0,
+    "mode": "vision",
+    "createdAt": "2026-10-30T23:04:08.516259100Z",
+    "seconds": 2,
+    "perceptionBinding": {
+      "sha256": "a6c4b1b66778a67cd819256d6dfafbd50b1e5cab263b935cdc71706dd4e93c09",
+      "bytes": 183550,
+      "recordedAt": "2026-10-30T23:04:08.504264200Z",
+      "id": "5621ea8d-f79d-45fb-b395-2cd5c1d7e2fa",
+      "source": {
+        "ref": "1",
+        "signature": "af229806cf6ec5756be2a6840aeaaeaf41adf64d89882fd36302e05224ce48f8",
+        "kind": "img",
+        "width": 385,
+        "capturedAt": 1793401448405,
+        "scrollY": 0,
+        "label": "IMG",
+        "pageId": "8605f0dd-c97a-4044-9be3-69222031996b",
+        "scrollX": 0,
+        "url": "https://raw.githubusercontent.com/scikit-image/scikit-image/v0.25.2/skimage/data/coffee.png",
+        "crop": {
+          "x": 0,
+          "width": 385,
+          "y": 43,
+          "height": 255
+        },
+        "height": 255
+      }
+    },
+    "skill": {
+      "name": "corrected-cup-follow",
+      "id": "0532481d-50fb-3264-9199-df4695936475",
+      "version": 1
+    },
+    "report": {
+      "sha256": "a2f4bb396f4f7c34de3884e49dd537147258afaa394f30732839960f48563528",
+      "id": "0c9b2769-3d08-3c16-a386-37dd03659976",
+      "version": 1
+    },
+    "step": "completed",
+    "id": "7feb3ac9-caa3-4f7d-9e72-f14b991aea7a",
+    "runId": "9448a89c-81e4-3a55-a68b-620f4cc05894",
+    "metrics": {
+      "trackedFraction": 1,
+      "mode": "vision",
+      "trackedObservations": 8,
+      "meanMatchScore": 0.9971728466503825,
+      "lostObservations": 0,
+      "frames": 8,
+      "appearanceUpdates": 8,
+      "reacquisitions": 0,
+      "passed": true,
+      "semanticGroundTruthVerified": false
+    },
+    "visionModel": "gemma3:latest",
+    "status": "completed",
+    "updatedAt": "2026-10-30T23:04:11.482704900Z"
+  },
+  "run": {
+    "reason": "Source-qualified detection recorded; waiting for fresh browser frames",
+    "detection": {
+      "objects": [
+        {
+          "box": [
+            0.286,
+            0.04400000000000001,
+            0.6826667054191469,
+            0.7840000175220544
+          ],
+          "label": "cup"
+        }
+      ],
+      "authority": "explicit user-taught appearance transferred to current pixels; no model weight training, general category guarantee or personal identity",
+      "memoryUsed": true,
+      "taughtExamples": [
+        {
+          "matchScore": 0.9932725911733085,
+          "name": "https-cup-correction",
+          "id": "7c760b9a-f292-4c07-8961-0daa4d1af87a",
+          "frameSha256": "1eaf97084910f231fb8a17e8c0ff0b7d399a8aa7eb49525be273f3b9b5872ebc",
+          "version": 1
+        }
+      ]
+    },
+    "completedAt": "2026-10-30T23:04:10.906611600Z",
+    "goalId": "7feb3ac9-caa3-4f7d-9e72-f14b991aea7a",
+    "seeds": [
+      {
+        "box": [
+          0.286,
+          0.04400000000000001,
+          0.6826667054191469,
+          0.7840000175220544
+        ],
+        "label": "cup",
+        "id": "bd230c09-0766-3b19-b7a1-b63f5eb67bab"
+      }
+    ],
+    "lessonId": "",
+    "binding": {
+      "ref": "1",
+      "signature": "af229806cf6ec5756be2a6840aeaaeaf41adf64d89882fd36302e05224ce48f8",
+      "kind": "img",
+      "pageId": "8605f0dd-c97a-4044-9be3-69222031996b",
+      "url": "https://raw.githubusercontent.com/scikit-image/scikit-image/v0.25.2/skimage/data/coffee.png"
+    },
+    "label": "cup",
+    "trackingStartedAt": 1793401448683,
+    "attempt": 1,
+    "samples": [
+      {
+        "sequence": 1,
+        "frameId": "1a19aef9-ee59-408a-b2d2-3ffc255c254f",
+        "objects": [
+          {
+            "matchScore": 1,
+            "scoreMeaning": "normalized appearance correlation, not calibrated semantic confidence",
+            "lastKnownBox": [
+              0.286,
+              0.04400000000000001,
+              0.6826667054191469,
+              0.7840000175220544
+            ],
+            "appearanceUpdates": 1,
+            "authority": "user-taught appearance",
+            "box": [
+              0.286,
+              0.04400000000000001,
+              0.6826667054191469,
+              0.7840000175220544
+            ],
+            "id": "bd230c09-0766-3b19-b7a1-b63f5eb67bab",
+            "label": "cup",
+            "anchorScore": 1,
+            "status": "tracked"
+          }
+        ],
+        "capturedAt": 1793401449005,
+        "frameSha256": "a6c4b1b66778a67cd819256d6dfafbd50b1e5cab263b935cdc71706dd4e93c09",
+        "source": {
+          "ref": "1",
+          "signature": "af229806cf6ec5756be2a6840aeaaeaf41adf64d89882fd36302e05224ce48f8",
+          "kind": "img",
+          "width": 385,
+          "capturedAt": 1793401449005,
+          "scrollY": 0,
+          "label": "IMG",
+          "pageId": "8605f0dd-c97a-4044-9be3-69222031996b",
+          "scrollX": 0,
+          "url": "https://raw.githubusercontent.com/scikit-image/scikit-image/v0.25.2/skimage/data/coffee.png",
+          "crop": {
+            "x": 0,
+            "width": 385,
+            "y": 43,
+            "height": 255
+          },
+          "height": 255
+        }
+      },
+      {
+        "sequence": 2,
+        "frameId": "df009c82-33b3-4598-91c0-d016a08ba1ee",
+        "objects": [
+          {
+            "matchScore": 0.9982173329782864,
+            "scoreMeaning": "normalized appearance correlation, not calibrated semantic confidence",
+            "lastKnownBox": [
+              0.287,
+              0.04500000000000001,
+              0.6836667054191469,
+              0.7850000175220544
+            ],
+            "appearanceUpdates": 2,
+            "authority": "user-taught appearance",
+            "box": [
+              0.287,
+              0.04500000000000001,
+              0.6836667054191469,
+              0.7850000175220544
+            ],
+            "id": "bd230c09-0766-3b19-b7a1-b63f5eb67bab",
+            "label": "cup",
+            "anchorScore": 0.9982173329782865,
+            "status": "tracked"
+          }
+        ],
+        "capturedAt": 1793401449289,
+        "frameSha256": "a6c4b1b66778a67cd819256d6dfafbd50b1e5cab263b935cdc71706dd4e93c09",
+        "source": {
+          "ref": "1",
+          "signature": "af229806cf6ec5756be2a6840aeaaeaf41adf64d89882fd36302e05224ce48f8",
+          "kind": "img",
+          "width": 385,
+          "capturedAt": 1793401449289,
+          "scrollY": 0,
+          "label": "IMG",
+          "pageId": "8605f0dd-c97a-4044-9be3-69222031996b",
+          "scrollX": 0,
+          "url": "https://raw.githubusercontent.com/scikit-image/scikit-image/v0.25.2/skimage/data/coffee.png",
+          "crop": {
+            "x": 0,
+            "width": 385,
+            "y": 43,
+            "height": 255
+          },
+          "height": 255
+        }
+      },
+      {
+        "sequence": 3,
+        "frameId": "53ccf2bf-eda0-4459-8e44-ba53d0ab8cfd",
+        "objects": [
+          {
+            "matchScore": 0.9907112079003959,
+            "scoreMeaning": "normalized appearance correlation, not calibrated semantic confidence",
+            "lastKnownBox": [
+              0.288,
+              0.04500000000000001,
+              0.6846667054191469,
+              0.7850000175220544
+            ],
+            "appearanceUpdates": 3,
+            "authority": "user-taught appearance",
+            "box": [
+              0.288,
+              0.04500000000000001,
+              0.6846667054191469,
+              0.7850000175220544
+            ],
+            "id": "bd230c09-0766-3b19-b7a1-b63f5eb67bab",
+            "label": "cup",
+            "anchorScore": 0.9905427837826846,
+            "status": "tracked"
+          }
+        ],
+        "capturedAt": 1793401449522,
+        "frameSha256": "a6c4b1b66778a67cd819256d6dfafbd50b1e5cab263b935cdc71706dd4e93c09",
+        "source": {
+          "ref": "1",
+          "signature": "af229806cf6ec5756be2a6840aeaaeaf41adf64d89882fd36302e05224ce48f8",
+          "kind": "img",
+          "width": 385,
+          "capturedAt": 1793401449522,
+          "scrollY": 0,
+          "label": "IMG",
+          "pageId": "8605f0dd-c97a-4044-9be3-69222031996b",
+          "scrollX": 0,
+          "url": "https://raw.githubusercontent.com/scikit-image/scikit-image/v0.25.2/skimage/data/coffee.png",
+          "crop": {
+            "x": 0,
+            "width": 385,
+            "y": 43,
+            "height": 255
+          },
+          "height": 255
+        }
+      },
+      {
+        "sequence": 4,
+        "frameId": "d1a8db14-1daf-48ff-a424-7ec6e9cd3c9e",
+        "objects": [
+          {
+            "matchScore": 0.9999850343859435,
+            "scoreMeaning": "normalized appearance correlation, not calibrated semantic confidence",
+            "lastKnownBox": [
+              0.285,
+              0.04400000000000001,
+              0.6816667054191469,
+              0.7840000175220544
+            ],
+            "appearanceUpdates": 4,
+            "authority": "user-taught appearance",
+            "box": [
+              0.285,
+              0.04400000000000001,
+              0.6816667054191469,
+              0.7840000175220544
+            ],
+            "id": "bd230c09-0766-3b19-b7a1-b63f5eb67bab",
+            "label": "cup",
+            "anchorScore": 1,
+            "status": "tracked"
+          }
+        ],
+        "capturedAt": 1793401449789,
+        "frameSha256": "a6c4b1b66778a67cd819256d6dfafbd50b1e5cab263b935cdc71706dd4e93c09",
+        "source": {
+          "ref": "1",
+          "signature": "af229806cf6ec5756be2a6840aeaaeaf41adf64d89882fd36302e05224ce48f8",
+          "kind": "img",
+          "width": 385,
+          "capturedAt": 1793401449789,
+          "scrollY": 0,
+          "label": "IMG",
+          "pageId": "8605f0dd-c97a-4044-9be3-69222031996b",
+          "scrollX": 0,
+          "url": "https://raw.githubusercontent.com/scikit-image/scikit-image/v0.25.2/skimage/data/coffee.png",
+          "crop": {
+            "x": 0,
+            "width": 385,
+            "y": 43,
+            "height": 255
+          },
+          "height": 255
+        }
+      },
+      {
+        "sequence": 5,
+        "frameId": "c289229e-1800-4432-92ed-c1633eb03ac1",
+        "objects": [
+          {
+            "matchScore": 0.9984684290644158,
+            "scoreMeaning": "normalized appearance correlation, not calibrated semantic confidence",
+            "lastKnownBox": [
+              0.286,
+              0.04500000000000001,
+              0.6826667054191469,
+              0.7850000175220544
+            ],
+            "appearanceUpdates": 5,
+            "authority": "user-taught appearance",
+            "box": [
+              0.286,
+              0.04500000000000001,
+              0.6826667054191469,
+              0.7850000175220544
+            ],
+            "id": "bd230c09-0766-3b19-b7a1-b63f5eb67bab",
+            "label": "cup",
+            "anchorScore": 0.9982173329782865,
+            "status": "tracked"
+          }
+        ],
+        "capturedAt": 1793401450022,
+        "frameSha256": "a6c4b1b66778a67cd819256d6dfafbd50b1e5cab263b935cdc71706dd4e93c09",
+        "source": {
+          "ref": "1",
+          "signature": "af229806cf6ec5756be2a6840aeaaeaf41adf64d89882fd36302e05224ce48f8",
+          "kind": "img",
+          "width": 385,
+          "capturedAt": 1793401450022,
+          "scrollY": 0,
+          "label": "IMG",
+          "pageId": "8605f0dd-c97a-4044-9be3-69222031996b",
+          "scrollX": 0,
+          "url": "https://raw.githubusercontent.com/scikit-image/scikit-image/v0.25.2/skimage/data/coffee.png",
+          "crop": {
+            "x": 0,
+            "width": 385,
+            "y": 43,
+            "height": 255
+          },
+          "height": 255
+        }
+      },
+      {
+        "sequence": 6,
+        "frameId": "47a296e4-5b88-46db-9a48-e93c57b570da",
+        "objects": [
+          {
+            "matchScore": 0.9985595333341519,
+            "scoreMeaning": "normalized appearance correlation, not calibrated semantic confidence",
+            "lastKnownBox": [
+              0.287,
+              0.04500000000000001,
+              0.6836667054191469,
+              0.7850000175220544
+            ],
+            "appearanceUpdates": 6,
+            "authority": "user-taught appearance",
+            "box": [
+              0.287,
+              0.04500000000000001,
+              0.6836667054191469,
+              0.7850000175220544
+            ],
+            "id": "bd230c09-0766-3b19-b7a1-b63f5eb67bab",
+            "label": "cup",
+            "anchorScore": 0.9982173329782865,
+            "status": "tracked"
+          }
+        ],
+        "capturedAt": 1793401450289,
+        "frameSha256": "a6c4b1b66778a67cd819256d6dfafbd50b1e5cab263b935cdc71706dd4e93c09",
+        "source": {
+          "ref": "1",
+          "signature": "af229806cf6ec5756be2a6840aeaaeaf41adf64d89882fd36302e05224ce48f8",
+          "kind": "img",
+          "width": 385,
+          "capturedAt": 1793401450289,
+          "scrollY": 0,
+          "label": "IMG",
+          "pageId": "8605f0dd-c97a-4044-9be3-69222031996b",
+          "scrollX": 0,
+          "url": "https://raw.githubusercontent.com/scikit-image/scikit-image/v0.25.2/skimage/data/coffee.png",
+          "crop": {
+            "x": 0,
+            "width": 385,
+            "y": 43,
+            "height": 255
+          },
+          "height": 255
+        }
+      },
+      {
+        "sequence": 7,
+        "frameId": "87da089d-5ecc-44c5-bdd1-181dc5eb73fc",
+        "objects": [
+          {
+            "matchScore": 0.9915105103728091,
+            "scoreMeaning": "normalized appearance correlation, not calibrated semantic confidence",
+            "lastKnownBox": [
+              0.288,
+              0.04500000000000001,
+              0.6846667054191469,
+              0.7850000175220544
+            ],
+            "appearanceUpdates": 7,
+            "authority": "user-taught appearance",
+            "box": [
+              0.288,
+              0.04500000000000001,
+              0.6846667054191469,
+              0.7850000175220544
+            ],
+            "id": "bd230c09-0766-3b19-b7a1-b63f5eb67bab",
+            "label": "cup",
+            "anchorScore": 0.9905427837826846,
+            "status": "tracked"
+          }
+        ],
+        "capturedAt": 1793401450555,
+        "frameSha256": "a6c4b1b66778a67cd819256d6dfafbd50b1e5cab263b935cdc71706dd4e93c09",
+        "source": {
+          "ref": "1",
+          "signature": "af229806cf6ec5756be2a6840aeaaeaf41adf64d89882fd36302e05224ce48f8",
+          "kind": "img",
+          "width": 385,
+          "capturedAt": 1793401450555,
+          "scrollY": 0,
+          "label": "IMG",
+          "pageId": "8605f0dd-c97a-4044-9be3-69222031996b",
+          "scrollX": 0,
+          "url": "https://raw.githubusercontent.com/scikit-image/scikit-image/v0.25.2/skimage/data/coffee.png",
+          "crop": {
+            "x": 0,
+            "width": 385,
+            "y": 43,
+            "height": 255
+          },
+          "height": 255
+        }
+      },
+      {
+        "sequence": 8,
+        "frameId": "4bd13cba-dca2-446b-a7f6-6d5d65b6ef6f",
+        "objects": [
+          {
+            "matchScore": 0.9999307251670579,
+            "scoreMeaning": "normalized appearance correlation, not calibrated semantic confidence",
+            "lastKnownBox": [
+              0.285,
+              0.04400000000000001,
+              0.6816667054191469,
+              0.7840000175220544
+            ],
+            "appearanceUpdates": 8,
+            "authority": "user-taught appearance",
+            "box": [
+              0.285,
+              0.04400000000000001,
+              0.6816667054191469,
+              0.7840000175220544
+            ],
+            "id": "bd230c09-0766-3b19-b7a1-b63f5eb67bab",
+            "label": "cup",
+            "anchorScore": 1,
+            "status": "tracked"
+          }
+        ],
+        "capturedAt": 1793401450822,
+        "frameSha256": "a6c4b1b66778a67cd819256d6dfafbd50b1e5cab263b935cdc71706dd4e93c09",
+        "source": {
+          "ref": "1",
+          "signature": "af229806cf6ec5756be2a6840aeaaeaf41adf64d89882fd36302e05224ce48f8",
+          "kind": "img",
+          "width": 385,
+          "capturedAt": 1793401450822,
+          "scrollY": 0,
+          "label": "IMG",
+          "pageId": "8605f0dd-c97a-4044-9be3-69222031996b",
+          "scrollX": 0,
+          "url": "https://raw.githubusercontent.com/scikit-image/scikit-image/v0.25.2/skimage/data/coffee.png",
+          "crop": {
+            "x": 0,
+            "width": 385,
+            "y": 43,
+            "height": 255
+          },
+          "height": 255
+        }
+      }
+    ],
+    "mode": "vision",
+    "initialFrameId": "5621ea8d-f79d-45fb-b395-2cd5c1d7e2fa",
+    "createdAt": "2026-10-30T23:04:08.620790400Z",
+    "seconds": 2,
+    "lastSequence": 8,
+    "model": "gemma3:latest",
+    "id": "9448a89c-81e4-3a55-a68b-620f4cc05894",
+    "metrics": {
+      "trackedFraction": 1,
+      "mode": "vision",
+      "trackedObservations": 8,
+      "meanMatchScore": 0.9971728466503825,
+      "lostObservations": 0,
+      "frames": 8,
+      "appearanceUpdates": 8,
+      "reacquisitions": 0,
+      "passed": true,
+      "semanticGroundTruthVerified": false
+    },
+    "status": "completed",
+    "latest": {
+      "sequence": 8,
+      "frameId": "4bd13cba-dca2-446b-a7f6-6d5d65b6ef6f",
+      "objects": [
+        {
+          "matchScore": 0.9999307251670579,
+          "scoreMeaning": "normalized appearance correlation, not calibrated semantic confidence",
+          "lastKnownBox": [
+            0.285,
+            0.04400000000000001,
+            0.6816667054191469,
+            0.7840000175220544
+          ],
+          "appearanceUpdates": 8,
+          "authority": "user-taught appearance",
+          "box": [
+            0.285,
+            0.04400000000000001,
+            0.6816667054191469,
+            0.7840000175220544
+          ],
+          "id": "bd230c09-0766-3b19-b7a1-b63f5eb67bab",
+          "label": "cup",
+          "anchorScore": 1,
+          "status": "tracked"
+        }
+      ],
+      "capturedAt": 1793401450822,
+      "frameSha256": "a6c4b1b66778a67cd819256d6dfafbd50b1e5cab263b935cdc71706dd4e93c09",
+      "source": {
+        "ref": "1",
+        "signature": "af229806cf6ec5756be2a6840aeaaeaf41adf64d89882fd36302e05224ce48f8",
+        "kind": "img",
+        "width": 385,
+        "capturedAt": 1793401450822,
+        "scrollY": 0,
+        "label": "IMG",
+        "pageId": "8605f0dd-c97a-4044-9be3-69222031996b",
+        "scrollX": 0,
+        "url": "https://raw.githubusercontent.com/scikit-image/scikit-image/v0.25.2/skimage/data/coffee.png",
+        "crop": {
+          "x": 0,
+          "width": 385,
+          "y": 43,
+          "height": 255
+        },
+        "height": 255
+      }
+    }
+  },
+  "screenshot": "perception-cup-corrected-022.png"
+}
