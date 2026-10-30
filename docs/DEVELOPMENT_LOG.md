@@ -1,5 +1,11 @@
 # Agent Workspace development log
 
+## 2026-10-30 Edition 015 publication confirmed
+
+Published 235d4786449ded26b615b939a0323fd81ad1ca79 to private eyeoverthink/Fraynix-Agent-Workspace main and annotated readme-015 in an atomic push. Remote main and peeled tag matched. The independent final checkout fetched that exact release directly from GitHub, passed fifteen-edition documentation verification (twenty canvases, 1,857 references, 248 frozen hashes) and matched all 421 canonical source/asset hashes.
+
+README 015 (2,339 words), four actual app images, real WebM, scene/run/CSV examples, execution/regression records, failed model-ID trial and numerical-report correction evidence, offline viewer and map are frozen. Source core is 3c3be0; the native-report fix is 683b7af. This continuity follow-up records publication only; it claims no new runtime test run or training. Next unused edition: 016. Preserve the Java-first native direction, current app/layout and separate original Studio/private runtime.
+
 ## 2026-10-30 Native body actuation and portable files · edition 015
 
 User requested real grab/move/release, testing, screenshots/new README/notes/publication, and a concrete import/export/replication path. Implemented source 3c3be0 and native-report correction 683b7af. Java creates a native point-to-point constraint over the dynamic Block; moves its anchor at bounded speed through actual native steps; retains collisions; measures reached/blocked endpoints; removes the joint without resetting velocity; and simulates 120 release ticks. Authored scene geometry/revision stays unchanged. Static/wrong-owner/stale/grip/invalid/bounded-input checks, exact completed retries, cancellation, interruption recovery, action/tick budget reservation for release and native command replay are tested.
