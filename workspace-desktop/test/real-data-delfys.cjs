@@ -45,6 +45,17 @@ async function main(){
    assert(Math.abs(trial.metrics.rmseM-Math.sqrt(sum/datasets.training.rows.length))<1e-12);
   }
   checks.push('Every training candidate is a retained 240-tick native run; RMSE is independently recomputed from native samples and the real observation timestamps');
+  const evaluationRuns={};
+  for(const key of ['baselineTraining','fittedTraining','validationBaseline','validationFitted']){
+   const evaluation=job[key],data=key.startsWith('validation')?datasets.validation:datasets.training;
+   const native=await api('/api/experiment/read',{id:evaluation.runId});evaluationRuns[key]=native;let squares=0,maximum=0;
+   for(const [frame,row]of data.rows.entries()){
+    const sample=native.samples.find(s=>s.tick===frame*4);assert(sample);assert(Math.abs(sample.timeS-row.timeS)<1e-12);
+    const residual=sample.distanceM-row.distanceM;squares+=residual**2;maximum=Math.max(maximum,Math.abs(residual));
+   }
+   assert(Math.abs(evaluation.rmseM-Math.sqrt(squares/data.rows.length))<1e-12);assert(Math.abs(evaluation.maxAbsErrorM-maximum)<1e-12);
+  }
+  checks.push('All four baseline/fitted training/validation RMSE and maximum residuals independently match exact source-frame-aligned native samples');
   assert(job.selection.frozenAt<=job.validationStartedAt);
   const e=job.evaluation;assert.equal(e.accepted,e.trainingImproved&&e.validationWithinTolerance&&e.validationNoRegression);
   if(!e.accepted){assert.equal(await page.locator('#calibration-apply').isDisabled(),true);await assert.rejects(api('/api/calibration/apply',{id:job.id}),/accepted/);}
@@ -54,9 +65,13 @@ async function main(){
   await page.locator('#calibration-result').scrollIntoViewIfNeeded();await capture('real-data-lab.png');
   await page.locator('#calibration-report').click();await page.waitForFunction(()=>document.querySelector('#test-badge').textContent==='TESTS PASSED'&&document.querySelector('#scene-lab').hidden);
   state=await api('/api/state');const report=await api('/api/artifact/read',{id:state.artifacts.at(-1).id});assert(report.test.passed);assert.equal(report.contents['training.csv'],datasets.training.csv);assert.equal(report.contents['validation.csv'],datasets.validation.csv);
+  const reportDirectory=path.join(output,'delfys-report');await fs.mkdir(reportDirectory,{recursive:true});const exportedFiles={};
+  for(const name of ['index.html','training.csv','validation.csv','baselineTraining.json','fittedTraining.json','validationBaseline.json','validationFitted.json','calibration.json']){
+   assert.equal(typeof report.contents[name],'string');await fs.writeFile(path.join(reportDirectory,name),report.contents[name]);exportedFiles[name]=createHash('sha256').update(report.contents[name]).digest('hex');
+  }
   checks.push('Actual HTML/SVG/CSV/JSON report opens in the existing canvas and passes three DOM assertions with the original observation CSVs');await capture('real-data-report.png');
   assert.deepEqual(errors,[]);checks.push('No renderer JavaScript errors during real-data import, native fit or report');
-  const result={date:new Date().toISOString(),passed:true,meaningOfPassed:'The import/execution/report workflow and independent arithmetic checks passed; the numerical fit verdict is recorded separately below.',checks,protocol,job,report:{id:report.id,test:report.test},sourceKinds:{training:datasets.training.sourceKind,validation:datasets.validation.sourceKind},nativeRuns,scientificStatus:'Exploratory surrogate-model comparison, not an independently calibrated apparatus or a certified material friction measurement. Masks are estimated from real recordings; image-plane scale and release assumptions are disclosed.',modelWeightsTrained:false};
+  const result={date:new Date().toISOString(),passed:true,meaningOfPassed:'The import/execution/report workflow and independent arithmetic checks passed; the numerical fit verdict is recorded separately below.',checks,protocol,job,report:{id:report.id,test:report.test,exportedFiles},sourceKinds:{training:datasets.training.sourceKind,validation:datasets.validation.sourceKind},nativeRuns,evaluationRuns,scientificStatus:'Exploratory surrogate-model comparison, not an independently calibrated apparatus or a certified material friction measurement. Masks are estimated from real recordings; image-plane scale and release assumptions are disclosed.',modelWeightsTrained:false};
   await fs.writeFile(path.join(output,'real-data-delfys.json'),JSON.stringify(result,null,2));console.log(JSON.stringify({workflowPassed:true,fitAccepted:e.accepted,selection:job.selection.value,trainingRmseM:job.fittedTraining.rmseM,validationRmseM:job.validationFitted.rmseM,validationMaxAbsErrorM:job.validationFitted.maxAbsErrorM,checks},null,2));
  }catch(error){await fs.writeFile(path.join(output,'real-data-failure.txt'),await page.locator('body').innerText());throw error;}finally{await app.close();}
 }
