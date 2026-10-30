@@ -19,3 +19,9 @@ Connected the active policy to the real agent loop, automatic post-task candidat
 Verification so far: 97 Java tests with no failures; seven desktop tests; eleven original desktop integration checks; eight learning integration checks; actual gpt-oss:20b creation/test/recipe workflow with controller v2 and a verified episode. First replay improved 5/8 to 8/8. A harmful candidate was rejected. Restart, rollback, cancellation and retry were checked.
 
 The first replay exposed a missing content policy in the new fixtures and an unclear password error crossing the renderer boundary; both were corrected. A subsequent cancellation stress run exposed a renderer abort surfacing as a navigation error; cancellation now reports a consistent cancelled outcome and checkpoints the unfinished candidate. Screenshot capture now waits for the dialog close to paint before exporting the workspace frame. Final documentation and publication checks remain in progress.
+
+### Release verification
+
+The extended learning integration now contains nine passing checks, including a second policy that retains 8/8 while reducing the extra-read count from 1 to 0. The seven desktop tests also verify that the same episode is not trained twice. All 97 Java tests and the eleven original integration checks pass. Actual gpt-oss:20b completed the artifact workflow with controller v2 and retained its verified episode.
+
+README 007 contains three new actual application frame exports, current evidence, a 369-file source/asset inventory, architecture and next gates. The offline viewer's search, status filter, selected module details, image gallery, navigation and 390px layout were checked; the temporary viewport/tab were restored/closed. The normal review app was reopened on the updated code with the same saved welcome artifact; the original Studio remains running. Preparing the clean-checkout verification and final publication.

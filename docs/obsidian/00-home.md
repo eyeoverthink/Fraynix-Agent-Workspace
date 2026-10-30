@@ -35,3 +35,7 @@ GitHub links: [README 001](../../README-001.md), [interactive companion](../read
 - [[README-006|Complete workspace guide edition 006]]
 - [[docs/obsidian/13-workspace-guide|Operation and next development]]
 - [[docs/obsidian/workspace-next-steps.canvas|Next development gates]]
+
+- [[README-007|Persistent learning edition 007]]
+- [[docs/obsidian/14-persistent-learning|Episodes adaptive control and replay]]
+- [[docs/obsidian/persistent-learning.canvas|Learning architecture canvas]]

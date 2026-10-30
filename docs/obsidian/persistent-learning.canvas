@@ -1,0 +1,141 @@
+{
+  "nodes": [
+    {
+      "id": "episodes",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/LearningStore.java",
+      "x": 0,
+      "y": 0,
+      "width": 380,
+      "height": 200
+    },
+    {
+      "id": "worker",
+      "type": "file",
+      "file": "workspace-desktop/controller-worker.mjs",
+      "x": 440,
+      "y": 0,
+      "width": 380,
+      "height": 200
+    },
+    {
+      "id": "controller",
+      "type": "file",
+      "file": "workspace-desktop/controller.cjs",
+      "x": 880,
+      "y": 0,
+      "width": 380,
+      "height": 200
+    },
+    {
+      "id": "replay",
+      "type": "file",
+      "file": "workspace-desktop/controller-replay.cjs",
+      "x": 0,
+      "y": 250,
+      "width": 380,
+      "height": 200
+    },
+    {
+      "id": "promotion",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/LearningStore.java",
+      "x": 440,
+      "y": 250,
+      "width": 380,
+      "height": 200
+    },
+    {
+      "id": "shell",
+      "type": "file",
+      "file": "workspace-desktop/renderer/app.js",
+      "x": 880,
+      "y": 250,
+      "width": 380,
+      "height": 200
+    },
+    {
+      "id": "model",
+      "type": "file",
+      "file": "workspace-desktop/main.cjs",
+      "x": 0,
+      "y": 500,
+      "width": 380,
+      "height": 200
+    },
+    {
+      "id": "artifacts",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/WorkspaceStore.java",
+      "x": 440,
+      "y": 500,
+      "width": 380,
+      "height": 200
+    },
+    {
+      "id": "game",
+      "type": "file",
+      "file": "src/main/java/Main.java",
+      "x": 880,
+      "y": 500,
+      "width": 380,
+      "height": 200
+    },
+    {
+      "id": "next",
+      "type": "file",
+      "file": "docs/AGENT_WORKSPACE_DESIGN.md",
+      "x": 0,
+      "y": 750,
+      "width": 380,
+      "height": 200
+    }
+  ],
+  "edges": [
+    {
+      "id": "edge0",
+      "fromNode": "model",
+      "toNode": "episodes"
+    },
+    {
+      "id": "edge1",
+      "fromNode": "episodes",
+      "toNode": "worker"
+    },
+    {
+      "id": "edge2",
+      "fromNode": "worker",
+      "toNode": "controller"
+    },
+    {
+      "id": "edge3",
+      "fromNode": "controller",
+      "toNode": "replay"
+    },
+    {
+      "id": "edge4",
+      "fromNode": "replay",
+      "toNode": "promotion"
+    },
+    {
+      "id": "edge5",
+      "fromNode": "promotion",
+      "toNode": "controller"
+    },
+    {
+      "id": "edge6",
+      "fromNode": "promotion",
+      "toNode": "shell"
+    },
+    {
+      "id": "edge7",
+      "fromNode": "artifacts",
+      "toNode": "episodes"
+    },
+    {
+      "id": "edge8",
+      "fromNode": "game",
+      "toNode": "next"
+    }
+  ]
+}

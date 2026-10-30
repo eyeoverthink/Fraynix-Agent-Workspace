@@ -10,5 +10,6 @@ Numbered editions preserve dated system behavior and evidence. The root [README]
 | [004](../../README-004.md) | 2026-10-29 | Character rendering, power-up goals and persistent practice | [Viewer](004/index.html) · [tree](004/FILE_TREE.md) · [vision](../EMBODIED_AI_VISION.md) |
 | [005](../../README-005.md) | 2026-10-29 | Independent agent workspace, real browser, runnable canvas and verified recipes | [Viewer](005/index.html) · [tree](005/FILE_TREE.md) |
 | [006](../../README-006.md) | 2026-10-29 | Complete guide, step-by-step workflow, evidence and next development gates | [Viewer](006/index.html) · [tree](006/FILE_TREE.md) · [design](../AGENT_WORKSPACE_DESIGN.md) |
+| [007](../../README-007.md) | 2026-10-29 | Persistent episodes, prototype adaptation, independent replay, promotion and rollback | [Viewer](007/index.html) · [tree](007/FILE_TREE.md) · [memory](../PROJECT_MEMORY.md) |
 
-Latest edition: **006**. Earlier snapshots remain intact. See [sequence policy](README_SEQUENCE.md) and [manifest](editions.json).
+Latest edition: **007**. Earlier snapshots remain intact. See [sequence policy](README_SEQUENCE.md) and [manifest](editions.json).

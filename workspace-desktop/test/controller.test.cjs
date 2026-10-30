@@ -19,6 +19,7 @@ test('bounded worker updates actual Fraymus prototypes from recorded failure cla
   assert(result.proposal.controllerMemory.classes.every(c=>c.centroid.length===64));
   const repeated=await trainController({...input,controllerMemory:result.proposal.controllerMemory});assert.equal(repeated.prototypeUpdates,1,'A recorded episode must not be trained twice');
   const quiet=await trainController({...input,activePolicy:{version:2,observationLimit:2,refreshStale:true}});assert.equal(quiet.proposal,null);
+  const repeatedRead=await trainController({...input,activePolicy:{version:2,observationLimit:2,refreshStale:true},episodes:[{id:'another-episode',status:'completed-unverified',steps:[{tool:'browser.observe',failure:'repeated-observation'}]}]});assert.equal(repeatedRead.proposal.policy.observationLimit,1);assert.equal(repeatedRead.routes['repeated-observation'],'repeated-observation');
   const abort=new AbortController();abort.abort();await assert.rejects(trainController(input,{signal:abort.signal}),/cancelled/);
 });
 test('pinned Think fixture retains a learned rule after serialization',async()=>{

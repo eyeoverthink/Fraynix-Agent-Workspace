@@ -1,0 +1,176 @@
+{
+  "date": "2026-10-29",
+  "passed": true,
+  "model": "gpt-oss:20b",
+  "goal": "Use browser.observe to read the practice page. Then create a NEW working counter web app titled Agent-built counter. Use output id=\"count\" initially showing 0, button id=\"add\" adding one, and button id=\"reset\" restoring zero. Make it attractive with inline CSS. Run canvas.test to check 0, click Add, check 1, click Reset, check 0. If it fails, repair the source and retest. Save the verified recipe as agent-counter. Finish only after actual passing tests and skill.save.",
+  "artifact": "9763f5a4-a099-437c-b1e5-b2849b6cb9b7",
+  "version": 1,
+  "modelChecks": [
+    {
+      "actual": {
+        "count": 1,
+        "text": "0",
+        "value": "0"
+      },
+      "expected": {
+        "expectText": "0",
+        "selector": "#count"
+      },
+      "index": 0,
+      "selector": "#count",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 1,
+        "text": "Add one",
+        "value": ""
+      },
+      "expected": {
+        "action": "click",
+        "selector": "#add"
+      },
+      "index": 1,
+      "selector": "#add",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 1,
+        "text": "1",
+        "value": "1"
+      },
+      "expected": {
+        "expectText": "1",
+        "selector": "#count"
+      },
+      "index": 2,
+      "selector": "#count",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 1,
+        "text": "Reset",
+        "value": ""
+      },
+      "expected": {
+        "action": "click",
+        "selector": "#reset"
+      },
+      "index": 3,
+      "selector": "#reset",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 1,
+        "text": "0",
+        "value": "0"
+      },
+      "expected": {
+        "expectText": "0",
+        "selector": "#count"
+      },
+      "index": 4,
+      "selector": "#count",
+      "passed": true
+    }
+  ],
+  "acceptanceChecks": [
+    {
+      "actual": {
+        "count": 1,
+        "text": "0",
+        "value": "0"
+      },
+      "expected": {
+        "expectText": "0",
+        "selector": "#count"
+      },
+      "index": 0,
+      "selector": "#count",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 1,
+        "text": "Add one",
+        "value": ""
+      },
+      "expected": {
+        "expectCount": 1,
+        "action": "click",
+        "selector": "#add"
+      },
+      "index": 1,
+      "selector": "#add",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 1,
+        "text": "1",
+        "value": "1"
+      },
+      "expected": {
+        "expectText": "1",
+        "selector": "#count"
+      },
+      "index": 2,
+      "selector": "#count",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 1,
+        "text": "Reset",
+        "value": ""
+      },
+      "expected": {
+        "expectCount": 1,
+        "action": "click",
+        "selector": "#reset"
+      },
+      "index": 3,
+      "selector": "#reset",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 1,
+        "text": "0",
+        "value": "0"
+      },
+      "expected": {
+        "expectText": "0",
+        "selector": "#count"
+      },
+      "index": 4,
+      "selector": "#count",
+      "passed": true
+    }
+  ],
+  "tools": [
+    "canvas.write",
+    "browser.observe",
+    "canvas.write",
+    "canvas.test",
+    "skill.save"
+  ],
+  "summary": "Created and verified Agent-built counter web app with Add and Reset buttons, styled inline. All tests passed and skill saved as agent-counter.",
+  "learning": {
+    "episodeId": "3ff58d58-4411-4289-b9bf-b63527c197a5",
+    "policyUsed": {
+      "refreshStale": true,
+      "version": 2,
+      "observationLimit": 2
+    },
+    "steps": 4,
+    "finalPolicy": {
+      "refreshStale": true,
+      "version": 2,
+      "observationLimit": 2
+    }
+  }
+}

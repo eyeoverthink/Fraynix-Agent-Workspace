@@ -21,22 +21,30 @@ async function main(){
       const policy=(await global.workspaceTest.api('/api/state')).learning.activePolicy;
       return global.workspaceTest.controlledExecute({tool:'browser.click',args:{observation:old.observation,ref:old.controls.find(c=>c.label==='Record experiment').ref}},policy);
     });assert.equal(recovered.decision.tool,'browser.observe');assert.equal(recovered.decision.transition,'refresh-before-action');assert(!recovered.result.text.includes('Recorded:'));checks.push('Promoted policy changes the actual host action path: stale click becomes a fresh observation without an unintended click');
+    const cost=await app.evaluate(async(_,id)=>{
+      await global.workspaceTest.api('/api/learning/begin',{id,taskKind:'artifact-task',goal:'Repeated observation acceptance fixture'});
+      const first=await global.workspaceTest.execute('browser.observe'),second=await global.workspaceTest.execute('browser.observe');
+      if(first.text!==second.text||first.url!==second.url)throw Error('The actual page changed; this is not a repeated-read fixture');
+      await global.workspaceTest.api('/api/learning/step',{id,step:{tool:'browser.observe',ok:true,failure:'repeated-observation',observationId:second.observation,controlCount:second.controls.length}});
+      await global.workspaceTest.api('/api/learning/end',{id,status:'completed-unverified'});return global.workspaceTest.learnFromEpisodes();
+    },require('node:crypto').randomUUID());assert(cost.accepted);assert.equal(cost.baselinePassed,8);assert.equal(cost.candidatePassed,8);assert(cost.candidateFailures<cost.baselineFailures);checks.push('Actual unchanged repeated observations produce a second candidate; replay retains 8/8 while reducing extra reads');
+    const costPolicy=(await app.evaluate(()=>global.workspaceTest.api('/api/state'))).learning.activePolicy;assert.equal(costPolicy.observationLimit,1);
     const rejected=await app.evaluate(async()=>{
       const state=(await global.workspaceTest.api('/api/state')).learning;
       const candidate=await global.workspaceTest.api('/api/learning/propose',{parentVersion:state.activePolicy.version,parentGeneration:state.generation,episodes:[state.episodes[0].id],policy:{observationLimit:2,refreshStale:false}});
       const result=await global.workspaceTest.replay(state.activePolicy,candidate.policy);
       return global.workspaceTest.api('/api/learning/evaluate',{candidateId:candidate.id,...result});
     });assert.equal(rejected.accepted,false);assert.equal(rejected.regression,true);assert((await app.evaluate(()=>global.workspaceTest.api('/api/state'))).learning.activePolicy.refreshStale);checks.push('A valid-schema harmful candidate regresses real fixtures, is rejected and cannot replace the active controller');
-    await app.close();({app,page}=await launch(project));const restored=(await app.evaluate(()=>global.workspaceTest.api('/api/state'))).learning;assert.equal(restored.activePolicy.version,2);assert.equal(restored.controllerMemory.totalUpdates,1);assert.equal(restored.evaluations.length,2);checks.push('Restart restores policy, learned prototype memory, episode and evaluation records');
-    const rolled=await app.evaluate(()=>global.workspaceTest.api('/api/learning/rollback',{}));assert.equal(rolled.activePolicy.version,1);
+    await app.close();({app,page}=await launch(project));const restored=(await app.evaluate(()=>global.workspaceTest.api('/api/state'))).learning;assert.equal(restored.activePolicy.version,costPolicy.version);assert.equal(restored.controllerMemory.totalUpdates,2);assert.equal(restored.evaluations.length,3);checks.push('Restart restores policy, learned prototype memory, episode and evaluation records');
+    const rolled=await app.evaluate(()=>global.workspaceTest.api('/api/learning/rollback',{}));assert.equal(rolled.activePolicy.version,2);
     const counts=(await app.evaluate(()=>global.workspaceTest.api('/api/state'))).learning;
     const pending=app.evaluate(()=>global.workspaceTest.learnFromEpisodes({proof:true}));
     await page.locator('#run-state').filter({hasText:'Independent replay:'}).waitFor({timeout:30000});await app.evaluate(()=>global.workspaceTest.stopAgent());await assert.rejects(pending,/cancelled|stopped/i);
-    const cancelled=(await app.evaluate(()=>global.workspaceTest.api('/api/state'))).learning;assert.equal(cancelled.activePolicy.version,1);assert.equal(cancelled.evaluations.length,counts.evaluations.length);assert(cancelled.candidates.some(c=>c.status==='cancelled'));checks.push('Rollback restores the parent; takeover during independent replay cancels the candidate without promotion');
+    const cancelled=(await app.evaluate(()=>global.workspaceTest.api('/api/state'))).learning;assert.equal(cancelled.activePolicy.version,2);assert.equal(cancelled.evaluations.length,counts.evaluations.length);assert(cancelled.candidates.some(c=>c.status==='cancelled'));checks.push('Rollback restores the parent; takeover during independent replay cancels the candidate without promotion');
     const second=await app.evaluate(()=>global.workspaceTest.learnFromEpisodes({proof:true}));assert(second.accepted);assert((await app.evaluate(()=>global.workspaceTest.api('/api/state'))).learning.activePolicy.refreshStale);checks.push('A cancelled evaluation can be retried; recorded failures yield a new verified controller version');
     await app.evaluate(()=>global.workspaceTest.guidedProof());const final=(await app.evaluate(()=>global.workspaceTest.api('/api/state'))).learning;assert(final.episodes.some(e=>e.status==='verified'&&e.steps.some(s=>s.testPassed)));
     const raw=JSON.stringify(final);assert(!raw.includes('Independent fixture value'));assert(!raw.includes('<script>'));assert(!raw.includes('rawPage'));checks.push('Existing browser/canvas guided workflow records a version-bound verified episode while omitting typed/page/source content');
-    const result={date:'2026-10-29',passed:true,checks,firstReplay:report,harmfulReplay:rejected,finalPolicy:final.activePolicy,episodeCount:final.episodeCount,project};await fs.writeFile(path.join(output,'learning-integration.json'),JSON.stringify(result,null,2));console.log(JSON.stringify(result,null,2));
+    const result={date:'2026-10-29',passed:true,checks,firstReplay:report,costReplay:cost,harmfulReplay:rejected,finalPolicy:final.activePolicy,episodeCount:final.episodeCount,project};await fs.writeFile(path.join(output,'learning-integration.json'),JSON.stringify(result,null,2));console.log(JSON.stringify(result,null,2));
   }finally{await app.close();}
 }
 main().catch(error=>{console.error(error);process.exitCode=1;});

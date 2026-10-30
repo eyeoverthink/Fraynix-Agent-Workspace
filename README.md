@@ -2,7 +2,7 @@
 
 **A local visual environment for agents to browse, create runnable artifacts, test behavior and reuse verified skills.**
 
-> **Latest system edition: [README 006 — complete guide and roadmap](README-006.md)** · [Interactive explorer](docs/readmes/006/index.html) · [Design and scope](docs/AGENT_WORKSPACE_DESIGN.md) · [Edition history](docs/readmes/INDEX.md)
+> **Latest system edition: [README 007 — persistent learning and evaluated control](README-007.md)** · [Interactive explorer](docs/readmes/007/index.html) · [Complete operating guide](README-006.md) · [Edition history](docs/readmes/INDEX.md)
 
 Independent successor to [Fraynix Studio](https://github.com/eyeoverthink/Fraynix-Studio), starting from verified commit `6341404`. The original application and personal project state remain separate. Full game sources, assets, licenses and earlier editions are preserved here.
 
@@ -14,9 +14,9 @@ The app includes a real browser, live creation canvas, editable source, versione
 
 Local `gpt-oss:20b` is the verified default for the first agent fixture. The custom FRAYNIX 3B trial returned an Ollama native-format error; advertised tool capability alone does not establish task reliability. You can select other eligible installed models explicitly.
 
-![The real browser and runnable canvas in the successor workspace](docs/readmes/005/images/workspace.png)
+![The existing workspace now shows a learned controller, episode and replay evidence](docs/readmes/007/images/learning-workspace.png)
 
-Application frame export composed from the actual shell and child Chromium renderers. See [verification](docs/readmes/005/verification.json) for integration checks, the live-model fixture and independent acceptance assertions.
+October 29 learning fixture. Application frame export composed from actual shell and child Chromium renderers. The controller's passing replay is separate from the welcome artifact's untested badge. See [current verification](docs/readmes/007/verification.json).
 
 ## Verify
 
@@ -26,6 +26,7 @@ cd workspace-desktop
 npm.cmd ci --no-audit --no-fund
 npm.cmd test
 npm.cmd run test:integration
+npm.cmd run test:learning
 # Optional actual local-model fixture:
 $env:FRAYNIX_LIVE_MODEL='gpt-oss:20b'
 npm.cmd run test:live
@@ -33,7 +34,17 @@ npm.cmd run test:live
 
 Project files, test receipts, learned recipes, browser cookies and event history live under `%USERPROFILE%/.fraynix-agent-workspace/projects/default`, outside Git. `FRAYNIX_WORKSPACE_PROJECT` selects another independent project.
 
-The current skill type is a tested web-artifact recipe. General code workers, broader computer control, visual-model perception and evaluated neural/system improvement are subsequent milestones in the [design plan](docs/AGENT_WORKSPACE_DESIGN.md).
+The current skill type is a tested web-artifact recipe. A bounded adaptive controller now learns from recorded outcomes and activates only after independent replay. Whole-model training, general code workers and broader computer control remain separate milestones in the [design plan](docs/AGENT_WORKSPACE_DESIGN.md).
+
+## Persistent learning in the working app
+
+Task episodes now retain the actual policy version, typed actions, failures, artifact revisions and test outcomes. A separate worker uses pinned Fraymus prototype-learning code to propose two bounded strategy changes: refresh stale observations and reduce repeated reads. Candidate policies cannot add tools or bypass tests.
+
+Expand **Learning controls** and choose **Run learning proof**. Its separate fixtures leave your browser untouched. The first verified candidate improved **5/8 → 8/8** cases. A later candidate retained **8/8** while reducing repeated reads. A harmful candidate was rejected. Restart, rollback, cancellation and retry pass.
+
+Use the new **Learning** tab inside Project objects to inspect episodes, candidates and replay evidence. The left browser, center canvas, right agent and bottom timeline keep their existing design. The actual local `gpt-oss:20b` workflow also passes with the learned policy and a retained verified episode.
+
+[README 007](README-007.md) explains the mechanism and limits. [Project memory](docs/PROJECT_MEMORY.md) and the [development log](docs/DEVELOPMENT_LOG.md) provide engineering continuity. These changes adapt a small controller; they do not update Ollama language-model weights.
 
 ## First session step by step
 
@@ -55,7 +66,7 @@ Example first request:
 
 The left side contains saved project objects and a real browser. The center runs generated HTML/CSS/JavaScript and exposes its saved source. The right side holds model selection, the goal, result and takeover. The bottom records actual actions and measured outcomes. The same visible page is available to both human browsing and supported agent actions.
 
-Java reuses the existing model catalog, entity/component runtime, transactions, checkpoints and kernel memory. Electron hosts isolated browser and artifact renderers. Source versions and test receipts stay bound together, so a passing old version cannot certify a later edit. A frozen implementation inventory contains **338 source/assets**, all verified against a fresh GitHub clone.
+Java reuses the existing model catalog, entity/component runtime, transactions, checkpoints and kernel memory. Electron hosts isolated browser and artifact renderers. Source versions and test receipts stay bound together, so a passing old version cannot certify a later edit. [Edition 007 inventories 369 implementation source/assets](docs/readmes/007/file-inventory.json); the earlier 338-file baseline was also verified against a fresh clone.
 
 ![Actual local model created and tested this application](docs/readmes/006/images/live-agent.png)
 
@@ -65,6 +76,6 @@ October 29, 2026 live-model fixture, reused from edition 005. Actual application
 
 The project grew from the full Mario game editor and sensory/nervous-system integration, through reliable placement, level persistence, power-up rendering and gameplay practice, into this independent browser/canvas workspace. [README 006](README-006.md) traces those steps and the [earlier editions](docs/readmes/INDEX.md) retain their original evidence.
 
-The [Fraymus-OS-One assessment](docs/FRAYMUS_OS_ONE_ASSESSMENT.md) now maps its actual Think rule revisions, synaptic adaptation, continuity, creator tools and related **fraymus-brain** weight-training kernel to this workspace. Its build, four OPEG tests, sixteen kernel tests and independent learning probes passed. The next coding milestone is durable episodes, a bounded adaptive controller and regression replay with candidate promotion/rollback. Broader browser adapters, artifact types, isolated general-code workers and aligned game/vision observations follow their own gates. The current app design remains the foundation.
+The [Fraymus-OS-One assessment](docs/FRAYMUS_OS_ONE_ASSESSMENT.md) maps its actual Think rule revisions, synaptic adaptation, continuity, creator tools and related **fraymus-brain** weight-training kernel to this workspace. Durable episodes, a bounded adaptive controller and evaluated promotion/rollback are now implemented. Next: broader end-to-end task replay, more failure classes, Game Lab episode alignment and evaluated small-model training. Browser adapters, artifact types and isolated general-code workers follow their own gates. The current app design remains the foundation.
 
 Recipe reuse, retrieval memory, nervous-system adaptation and actual model-weight training are tracked separately. The related kernel's small neuron example measurably lowers training loss; its saved Qwen layer experiment is a representation-training checkpoint, not a newly deployed Ollama model. A training integration should record data provenance, checkpoint identity, independent task results and rollback. [Read the complete findings and implementation order](docs/FRAYMUS_OS_ONE_ASSESSMENT.md).

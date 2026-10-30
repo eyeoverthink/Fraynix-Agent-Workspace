@@ -1,0 +1,116 @@
+{
+  "date": "2026-10-29",
+  "modules": [
+    {
+      "id": "episodes",
+      "name": "Durable task episodes",
+      "status": "verified",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/LearningStore.java",
+      "note": "docs/obsidian/14-persistent-learning.md",
+      "summary": "Versioned FactoryWorld records retain actual action outcomes and policy identity; interruption recovery and receipt-bound verification pass."
+    },
+    {
+      "id": "worker",
+      "name": "Pinned Fraymus prototype learning",
+      "status": "verified",
+      "source": "workspace-desktop/controller-worker.mjs",
+      "note": "docs/obsidian/14-persistent-learning.md",
+      "summary": "A bounded Node worker updates supervised 64-dimensional prototypes, reads back routing, deduplicates episode IDs and proposes two defined strategies."
+    },
+    {
+      "id": "controller",
+      "name": "Adaptive live controller",
+      "status": "verified",
+      "source": "workspace-desktop/controller.cjs",
+      "note": "docs/obsidian/14-persistent-learning.md",
+      "summary": "The active policy governs the actual agent loop. A stale click becomes a fresh observation, and the learned read budget prevents a repeated read."
+    },
+    {
+      "id": "replay",
+      "name": "Independent browser and canvas replay",
+      "status": "verified",
+      "source": "workspace-desktop/controller-replay.cjs",
+      "note": "docs/obsidian/14-persistent-learning.md",
+      "summary": "Eight actual fixture cases compare baseline and candidate. Separate browser partitions leave the user page untouched."
+    },
+    {
+      "id": "promotion",
+      "name": "Atomic promotion and rollback",
+      "status": "verified",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/LearningStore.java",
+      "note": "docs/obsidian/14-persistent-learning.md",
+      "summary": "First policy 5/8 to 8/8; lower read budget retains 8/8; harmful candidate is rejected; parent and prototype memory restore together."
+    },
+    {
+      "id": "shell",
+      "name": "Learning in the existing workspace",
+      "status": "verified",
+      "source": "workspace-desktop/renderer/app.js",
+      "note": "docs/obsidian/14-persistent-learning.md",
+      "summary": "Project objects, contextual evidence dialog, compact controller controls and the existing bottom timeline expose real records without new placeholder pages."
+    },
+    {
+      "id": "model",
+      "name": "Actual local-model workflow",
+      "status": "verified",
+      "source": "workspace-desktop/main.cjs",
+      "note": "docs/obsidian/14-persistent-learning.md",
+      "summary": "gpt-oss:20b creates, tests and saves the counter with controller v2 and a persisted verified episode. Independent Add/Reset assertions pass."
+    },
+    {
+      "id": "artifacts",
+      "name": "Preserved artifact and recipe workflow",
+      "status": "verified",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/WorkspaceStore.java",
+      "note": "docs/obsidian/14-persistent-learning.md",
+      "summary": "Versioned files, actual test receipts, reusable recipes, isolation and renderer recovery still pass the original integration checks."
+    },
+    {
+      "id": "game",
+      "name": "Preserved Game Lab",
+      "status": "verified",
+      "source": "src/main/java/Main.java",
+      "note": "docs/obsidian/14-persistent-learning.md",
+      "summary": "The full native game editor remains separate and its integration check still passes; learning episodes are not yet wired into its live tick stream."
+    },
+    {
+      "id": "next",
+      "name": "Broader tasks and model training",
+      "status": "planned",
+      "source": "docs/AGENT_WORKSPACE_DESIGN.md",
+      "note": "docs/obsidian/14-persistent-learning.md",
+      "summary": "Expand independent task families, dynamic browser failures, embodied episode alignment and training workers. Full-model Ollama training is not delivered here."
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "docs/readmes/007/images/learning-workspace.png",
+      "description": "Actual learned controller in the existing workspace"
+    },
+    {
+      "path": "docs/readmes/007/images/learning-report.png",
+      "description": "Actual independent baseline and candidate fixture results"
+    },
+    {
+      "path": "docs/readmes/007/images/live-agent.png",
+      "description": "Real local-model creation with a verified episode"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/readmes/007/verification.json"
+    },
+    {
+      "path": "docs/readmes/007/learning-integration.json"
+    },
+    {
+      "path": "docs/readmes/007/integration.json"
+    },
+    {
+      "path": "docs/readmes/007/live-model.json"
+    },
+    {
+      "path": "docs/readmes/007/source-isolation.json"
+    }
+  ]
+}

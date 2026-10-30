@@ -180,3 +180,7 @@ The **next coding milestone should be stages 1–3**, because they make learning
 The current workspace supplies the visible environment, actual actions, versioned creations and behavioral evidence. OS One supplies existing adaptive rule machinery, associative and numerical kernels, continuity patterns and a broader creation toolbox. Together they support a product in which an agent can reuse a proven solution, change a strategy after a measured failure and show why a later version is better.
 
 The strongest near-term result is an observable improvement across repeated tasks with a retained explanation and rollback. That is the practical bridge from the current working creation loop to the larger self-improving system the creator intends. No claim of unrestricted computer control, full-model self-training or broad intelligence improvement is needed to deliver and measure that next step.
+
+## Implementation follow up
+
+The first three stages are delivered in [README 007](../README-007.md): durable episode components, an extracted prototype/controller worker and independent replay with promotion/rollback. The initial policy improves 5/8 to 8/8 cases; a second improvement reduces repeated reads while retaining 8/8. A harmful candidate is rejected, cancellation/retry and restart work, and an actual local-model task retains verified evidence. The original OS One and brain review repositories remain unchanged. Broader task evaluation and model-weight training remain the next distinct gates.

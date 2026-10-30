@@ -70,3 +70,13 @@ The [October 29 Fraymus-OS-One assessment](FRAYMUS_OS_ONE_ASSESSMENT.md) identif
 The next coding milestone is durable LearningEpisode, LearningCandidate, EvaluationReport and PromotionRecord components, a bounded worker for the extracted controller, independent regression/validation/final-test suites and reversible promotion. Java owns state and evidence; existing typed tools still execute actions. The visible library, browser, canvas, agent panel and timeline keep their current design. Do not copy the original generated-function or unrestricted Node runtime paths into the privileged shell.
 
 Weight-training workers follow when the episode data and evaluation path are ready. The existing small ternary trainer can support a measured routing/controller experiment; the saved single-tensor reconstruction experiment does not by itself establish new full-model task knowledge or a loadable Ollama checkpoint. Whole-model training needs its own dataset, runtime adapter, quality gate and rollback.
+
+## Delivered persistent controller learning
+
+Edition [007](../README-007.md) implements the first three assessed stages. `LearningStore` registers separate FactoryWorld episode/candidate/evaluation/promotion/state schemas and checkpoints them under the successor project's `learning/` directory. Agent runs record bounded evidence and a frozen policy version; artifact verification requires an actual stored receipt. Restart recovers unfinished records as interrupted.
+
+The pinned Fraymus nearest-class-mean classifier runs in a bounded child process. It updates prototypes from canonical failure summaries, reads back routing and proposes only `refreshStale` and `observationLimit`. Its memory is activated atomically with an accepted policy. Indexed episode IDs prevent duplicate prototype training. This is controller learning, not an Ollama weight update or a sandbox for arbitrary code.
+
+Eight independent actual browser/canvas fixtures require no regression and measurable improvement before promotion. The first policy improves 5/8 to 8/8; a second retains 8/8 while reducing repeated reads. Harmful policies, stale parents and incomplete suites are rejected. Cancelled candidates are not promoted; previous policy and prototype memory can be restored together. The live local-model creation workflow passes using controller v2 and retains a verified episode.
+
+The existing layout gains contextual learning records and controls. Next gates expand task families and hidden evaluation, browser failure handling, embodied episode alignment and numerical training on meaningful task targets. The fixed suite is a regression check, not a permanent untouched benchmark.

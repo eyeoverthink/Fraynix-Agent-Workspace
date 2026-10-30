@@ -16,3 +16,5 @@ Next: inspect the existing Fraymus-OS-One implementation, identify actual learni
 Sources: [operating guide](../../README-006.md), [interactive companion](../readmes/006/index.html), [Fraymus-OS-One](https://github.com/eyeoverthink/Fraymus-OS-One).
 
 The [completed source assessment](../FRAYMUS_OS_ONE_ASSESSMENT.md) identifies actual Think adaptation and the separate numerical kernel. Next coding work: durable episodes, extracted controller, independent replay and reversible promotion. The numbered edition remains the earlier publication snapshot; this working note tracks the newer findings.
+
+The first assessed learning stages are now delivered in [[README-007|edition 007]]. See [[docs/obsidian/14-persistent-learning|the current learning note]] for implementation and evidence.

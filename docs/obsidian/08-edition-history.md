@@ -16,3 +16,5 @@ Sources: [edition directory](../readmes/INDEX.md), [sequence policy](../readmes/
 Related: [[docs/obsidian/07-evidence|Evidence]], [[docs/obsidian/06-agent-factory-plan|Future direction]], [[docs/obsidian/00-home|Home]].
 
 Edition [[README-006|006]] expands the successor operating guide, walkthrough, screenshots, implementation evidence, design preservation and staged development gates. It is a documentation release for implementation e370eea.
+
+Edition [[README-007|007]] delivers durable episodes, pinned prototype adaptation, bounded strategies, independent browser/canvas replay, promotion and rollback. The actual local-model workflow retains verified evidence.

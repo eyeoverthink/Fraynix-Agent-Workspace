@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "latest": 6,
+  "latest": 7,
   "canonicalization": "UTF-8 without BOM; CRLF normalized to LF for text",
   "editions": [
     {
@@ -415,6 +415,80 @@
           "path": "docs/readmes/006/verification.json",
           "kind": "text",
           "sha256": "292030f0367b968911fbd914213d46f1ffbdf926e2ff4be67868e700b042e384"
+        }
+      ]
+    },
+    {
+      "number": 7,
+      "date": "2026-10-29",
+      "title": "Persistent learning and evaluated control",
+      "status": "published",
+      "markdown": "README-007.md",
+      "markdownSha256": "c788dd8b803ce0be3df1e071fafec0dc28b1c1f066ac9a00d7a0c9f74966b757",
+      "snapshotDirectory": "docs/readmes/007",
+      "companion": "docs/readmes/007/index.html",
+      "tag": "readme-007",
+      "sourceBaseline": "f2f17ff1719d4980a6c906f016b15ff29b78f783",
+      "snapshotFiles": [
+        {
+          "path": "docs/readmes/007/file-inventory.json",
+          "kind": "text",
+          "sha256": "1cd552c412f58b2461897393c97995518698716ffb0e53c42897d8d58e5fecaf"
+        },
+        {
+          "path": "docs/readmes/007/FILE_TREE.md",
+          "kind": "text",
+          "sha256": "5231dcbbe0658de7ac7f4ea799b1e89e8c66f2706913a7992b6a6ec063924227"
+        },
+        {
+          "path": "docs/readmes/007/images/learning-report.png",
+          "kind": "binary",
+          "sha256": "05cebe300f8ada1ff80ab99b30cde8149eebc30353acad0f09b093cea3dc53d2"
+        },
+        {
+          "path": "docs/readmes/007/images/learning-workspace.png",
+          "kind": "binary",
+          "sha256": "f120d4977f4260d670212dad2a5e4bc32470bb456f1d04b6877e629f6a8a1e6f"
+        },
+        {
+          "path": "docs/readmes/007/images/live-agent.png",
+          "kind": "binary",
+          "sha256": "f42b95230a0b9bafaa142b7034bed43b4c6765909aa382a896e8254fcf25b9e3"
+        },
+        {
+          "path": "docs/readmes/007/index.html",
+          "kind": "text",
+          "sha256": "83e5328fa3a8014fd555c7017c7a6ba069484d2c401a35eed0d0ad9c0a7c9191"
+        },
+        {
+          "path": "docs/readmes/007/integration.json",
+          "kind": "text",
+          "sha256": "424f5af6b8b43b9a1f136423f1256d181ff9cc8f4a48fe81cc8baf123156df16"
+        },
+        {
+          "path": "docs/readmes/007/learning-integration.json",
+          "kind": "text",
+          "sha256": "addef02e636ee491ddd31414d1244a54242494c902a8be4a8bcd3444888eb8e7"
+        },
+        {
+          "path": "docs/readmes/007/live-model.json",
+          "kind": "text",
+          "sha256": "0b1cd664ef277a858bb0610573b3c3e6018400a5fa1bb95f707daaf41ed2bc03"
+        },
+        {
+          "path": "docs/readmes/007/source-isolation.json",
+          "kind": "text",
+          "sha256": "940db76b77a7963bab3d0545bde2a92038149d61b08b6eece0fcab3f841742f9"
+        },
+        {
+          "path": "docs/readmes/007/system-map.json",
+          "kind": "text",
+          "sha256": "cf00190eb8e12701dc6aa8f46d73c7505c3c3ca7095b606fbdb549ca22e281be"
+        },
+        {
+          "path": "docs/readmes/007/verification.json",
+          "kind": "text",
+          "sha256": "55c4653256142d08a6506a20252bd06532f4a4634b42638fccb53a1cb7edf9d4"
         }
       ]
     }

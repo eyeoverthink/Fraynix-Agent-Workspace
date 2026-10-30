@@ -1,0 +1,62 @@
+{
+  "date": "2026-10-29",
+  "implementationCommit": "f2f17ff1719d4980a6c906f016b15ff29b78f783",
+  "releaseKind": "persistent-controller-learning",
+  "javaTests": 97,
+  "javaFailures": 0,
+  "desktopPolicyAndControllerTests": 7,
+  "originalIntegrationChecks": 11,
+  "learningIntegrationChecks": 9,
+  "liveModel": "gpt-oss:20b",
+  "liveModelPassed": true,
+  "livePolicyUsed": {
+    "refreshStale": true,
+    "version": 2,
+    "observationLimit": 2
+  },
+  "firstReplay": {
+    "baseline": 5,
+    "candidate": 8,
+    "accepted": true
+  },
+  "readBudgetReplay": {
+    "baselinePassed": 8,
+    "candidatePassed": 8,
+    "extraReadsBefore": 1,
+    "extraReadsAfter": 0
+  },
+  "harmfulCandidate": {
+    "baseline": 8,
+    "candidate": 5,
+    "accepted": false
+  },
+  "sourceInventory": 369,
+  "documentationQa": {
+    "status": "passed",
+    "date": "2026-10-29",
+    "checks": [
+      "Module search and selected source details",
+      "Verified/planned status filter",
+      "Source inventory search",
+      "All three actual screenshot images loaded",
+      "Walkthrough and roadmap navigation",
+      "390px layout without horizontal overflow",
+      "Viewport restored and temporary tab closed",
+      "Updated normal review app opened with existing artifact preserved"
+    ]
+  },
+  "freshClone": {
+    "status": "pending"
+  },
+  "captures": {
+    "date": "2026-10-29",
+    "kind": "Actual application frames composed from the shell and child Chromium renderer captures",
+    "context": "Isolated verification projects; no personal state published"
+  },
+  "scope": [
+    "Two bounded controller strategies and supervised Fraymus prototype memory; no Ollama weight update",
+    "Fixed regression/acceptance fixtures, not a permanent untouched benchmark",
+    "Worker process and data limits, not an OS sandbox for arbitrary code",
+    "Episode records omit raw goals, typed text, page text and source; older tool journal behavior is separate"
+  ]
+}
