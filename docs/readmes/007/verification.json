@@ -46,7 +46,15 @@
     ]
   },
   "freshClone": {
-    "status": "pending"
+    "status": "passed",
+    "kind": "Clean Git clone of the release candidate; final publication changes are documentation metadata only",
+    "candidateCommit": "b9e8033532511115314defe4bff69fbdf2fff00f",
+    "gradleCheckAndInstall": "passed",
+    "javaTests": 97,
+    "desktopTests": 7,
+    "learningIntegrationChecks": 9,
+    "sourceAssetsChecked": 369,
+    "inventoryMismatches": 0
   },
   "captures": {
     "date": "2026-10-29",

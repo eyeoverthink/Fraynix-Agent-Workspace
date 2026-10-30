@@ -150,7 +150,7 @@ The UI/API expose the most recent 50 episodes and 30 candidates/evaluations/prom
 - **9 learning integration checks:** real failure capture, promoted host behavior, reduced repeated reads, rejected harmful candidate, persistence, rollback, cancellation/retry and receipt-bound episode capture.
 - **Actual local model:** `gpt-oss:20b` completed create/test/save/finish with controller v2; independent counter assertions and its verified episode passed.
 
-The [verification snapshot](docs/readmes/007/verification.json) identifies the separate records. Images and results name their actual fixture scope; no synthetic intelligence score is used as a promotion metric.
+A clean Git clone of the release candidate also builds, passes its 97 Java tests, seven desktop tests and nine learning checks, and matches all 369 inventoried source/assets. The [verification snapshot](docs/readmes/007/verification.json) identifies the separate records. Images and results name their actual fixture scope; no synthetic intelligence score is used as a promotion metric.
 
 ```powershell
 .\gradlew.bat check installDist :workspace-engine:installDist

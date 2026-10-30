@@ -25,3 +25,7 @@ The first replay exposed a missing content policy in the new fixtures and an unc
 The extended learning integration now contains nine passing checks, including a second policy that retains 8/8 while reducing the extra-read count from 1 to 0. The seven desktop tests also verify that the same episode is not trained twice. All 97 Java tests and the eleven original integration checks pass. Actual gpt-oss:20b completed the artifact workflow with controller v2 and retained its verified episode.
 
 README 007 contains three new actual application frame exports, current evidence, a 369-file source/asset inventory, architecture and next gates. The offline viewer's search, status filter, selected module details, image gallery, navigation and 390px layout were checked; the temporary viewport/tab were restored/closed. The normal review app was reopened on the updated code with the same saved welcome artifact; the original Studio remains running. Preparing the clean-checkout verification and final publication.
+
+### Publication gate complete
+
+A clean Git clone of release candidate b9e8033 passed the complete Gradle check/install, 97 Java tests, seven desktop tests and nine learning integration checks. All 369 inventoried source/assets match canonical hashes. Documentation verification passes seven editions, twelve canvases, 1,156 references and 86 frozen hashes. The remaining publication action is the authorized main/tag push followed by remote-head verification.
