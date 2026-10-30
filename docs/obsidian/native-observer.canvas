@@ -1,0 +1,121 @@
+{
+  "nodes": [
+    {
+      "id": "source",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/SceneStore.java",
+      "x": 0,
+      "y": 0,
+      "width": 350,
+      "height": 180,
+      "color": "4"
+    },
+    {
+      "id": "geometry",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/ObserverGeometry.java",
+      "x": 390,
+      "y": 0,
+      "width": 350,
+      "height": 180,
+      "color": "4"
+    },
+    {
+      "id": "store",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/ObserverStore.java",
+      "x": 780,
+      "y": 0,
+      "width": 350,
+      "height": 180,
+      "color": "4"
+    },
+    {
+      "id": "renderer",
+      "type": "file",
+      "file": "workspace-desktop/renderer/scene-lab.js",
+      "x": 0,
+      "y": 230,
+      "width": 350,
+      "height": 180,
+      "color": "4"
+    },
+    {
+      "id": "manual",
+      "type": "file",
+      "file": "workspace-desktop/renderer/observer-panel.js",
+      "x": 390,
+      "y": 230,
+      "width": 350,
+      "height": 180,
+      "color": "4"
+    },
+    {
+      "id": "agent",
+      "type": "file",
+      "file": "workspace-desktop/main.cjs",
+      "x": 780,
+      "y": 230,
+      "width": 350,
+      "height": 180,
+      "color": "4"
+    },
+    {
+      "id": "tests",
+      "type": "file",
+      "file": "workspace-desktop/test/observer-integration.cjs",
+      "x": 0,
+      "y": 460,
+      "width": 350,
+      "height": 180,
+      "color": "4"
+    },
+    {
+      "id": "next",
+      "type": "file",
+      "file": "docs/SCENARIO_ENGINE_ROADMAP.md",
+      "x": 390,
+      "y": 460,
+      "width": 350,
+      "height": 180,
+      "color": "2"
+    }
+  ],
+  "edges": [
+    {
+      "id": "edge0",
+      "fromNode": "source",
+      "toNode": "geometry"
+    },
+    {
+      "id": "edge1",
+      "fromNode": "geometry",
+      "toNode": "store"
+    },
+    {
+      "id": "edge2",
+      "fromNode": "store",
+      "toNode": "renderer"
+    },
+    {
+      "id": "edge3",
+      "fromNode": "renderer",
+      "toNode": "manual"
+    },
+    {
+      "id": "edge4",
+      "fromNode": "manual",
+      "toNode": "agent"
+    },
+    {
+      "id": "edge5",
+      "fromNode": "agent",
+      "toNode": "tests"
+    },
+    {
+      "id": "edge6",
+      "fromNode": "tests",
+      "toNode": "next"
+    }
+  ]
+}

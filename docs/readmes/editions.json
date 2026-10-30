@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "latest": 13,
+  "latest": 14,
   "canonicalization": "UTF-8 without BOM; CRLF normalized to LF for text",
   "editions": [
     {
@@ -1093,6 +1093,130 @@
           "path": "docs/readmes/013/verification.json",
           "kind": "text",
           "sha256": "2a0e81a5a913eaa2be826fe2e755d26d54162f78ac02d251483bc128928e14a6"
+        }
+      ]
+    },
+    {
+      "number": 14,
+      "date": "2026-10-30",
+      "title": "Native Java observer and source-linked experience",
+      "status": "published",
+      "markdown": "README-014.md",
+      "markdownSha256": "b46d69642258382965590bc390ed92b11d44b72d7b9a984188301b537a5380bb",
+      "snapshotDirectory": "docs/readmes/014",
+      "companion": "docs/readmes/014/index.html",
+      "tag": "readme-014",
+      "sourceBaseline": "fe55acdf335458cb0bcbcf8b732a3563e03be6c1",
+      "snapshotFiles": [
+        {
+          "path": "docs/readmes/014/file-inventory.json",
+          "kind": "text",
+          "sha256": "53705dd1223f70ad8dd65d22d746034f7cb3de7cdcb778ef5e55a631ed7143cc"
+        },
+        {
+          "path": "docs/readmes/014/FILE_TREE.md",
+          "kind": "text",
+          "sha256": "24bc2b904b959e2adef0c74ce89a5b0e289c934aab2722818b627f39040bbf15"
+        },
+        {
+          "path": "docs/readmes/014/images/live-observer-frame.png",
+          "kind": "binary",
+          "sha256": "8996dc84dbb85da04d98e5493e65b4426efecc0e288e08e9e6f19aad75fdfdff"
+        },
+        {
+          "path": "docs/readmes/014/images/live-observer.png",
+          "kind": "binary",
+          "sha256": "54d2443798a2f6a6f057a9ce9b09ea41cd36b48b6e7c8bfba94b50c8de0331c2"
+        },
+        {
+          "path": "docs/readmes/014/images/observer-history.png",
+          "kind": "binary",
+          "sha256": "17963938a38577ed6d58f712bb09ac9aa76b52e7c1af56966b746653f77ad88c"
+        },
+        {
+          "path": "docs/readmes/014/images/observer-native.png",
+          "kind": "binary",
+          "sha256": "4ba352b1180185104fadd1f54401d62b27af7f5dfec9e65cf4be5ff79841ce1c"
+        },
+        {
+          "path": "docs/readmes/014/index.html",
+          "kind": "text",
+          "sha256": "58150c67f3780c6badbb7b6e3f4ef257437e3fc1f665f62e03179150ac5bc075"
+        },
+        {
+          "path": "docs/readmes/014/live-observer.json",
+          "kind": "text",
+          "sha256": "bbdb9b317264d1bf7c4b9d3360e220125fecfe0d3006d7ca78a898d3b9fa558d"
+        },
+        {
+          "path": "docs/readmes/014/local-model-initial-failure.txt",
+          "kind": "text",
+          "sha256": "8befcd2990c5ad34d160e36a90ab2324a2c41227b4622742cbfe17d1afd35655"
+        },
+        {
+          "path": "docs/readmes/014/local-model-repeat-failure.txt",
+          "kind": "text",
+          "sha256": "5406ccbaf1d051035c6a990e04193921e5377b2acb1a4c9b19ef0d2abba98d03"
+        },
+        {
+          "path": "docs/readmes/014/observer-integration.json",
+          "kind": "text",
+          "sha256": "68c96a7c524062636b5abaee8e0c1c1cdc889f97b42e4f6709e95f0c366581fb"
+        },
+        {
+          "path": "docs/readmes/014/regressions/broader-validation.json",
+          "kind": "text",
+          "sha256": "a6c163bdd99caf8a6e8b2c7c2f2e385956b76d317144f44cc74ae415b65d2b2e"
+        },
+        {
+          "path": "docs/readmes/014/regressions/calibration-integration.json",
+          "kind": "text",
+          "sha256": "16da1155ef88b0faf343d0e6876b58bc1c32d913102db0bff945d19d195f5335"
+        },
+        {
+          "path": "docs/readmes/014/regressions/INDEX.md",
+          "kind": "text",
+          "sha256": "3ab287cfc1379dc23b3769d83880bb5a3ab9f884f264d1254a1cbdb93cf1171e"
+        },
+        {
+          "path": "docs/readmes/014/regressions/integration.json",
+          "kind": "text",
+          "sha256": "107de87c5582de181907230d93e3bb642ad7f3141dc1cb8d485161fc60fd14e8"
+        },
+        {
+          "path": "docs/readmes/014/regressions/learning-integration.json",
+          "kind": "text",
+          "sha256": "4685a9318260b04ef3913f915e4a9b223351fc0633152c8ae021a42867ab90c6"
+        },
+        {
+          "path": "docs/readmes/014/regressions/measurement-integration.json",
+          "kind": "text",
+          "sha256": "f65c633134f98a2939b8b0b6d3840d0c631ad2ec84bb185655fd6d0e7f4fbc68"
+        },
+        {
+          "path": "docs/readmes/014/regressions/observer-integration.json",
+          "kind": "text",
+          "sha256": "68c96a7c524062636b5abaee8e0c1c1cdc889f97b42e4f6709e95f0c366581fb"
+        },
+        {
+          "path": "docs/readmes/014/regressions/real-data-delfys.json",
+          "kind": "text",
+          "sha256": "6fb05f4280bc704f6a7b8c1fb83c88c6f22c9d2ad704966a84e0b44aa85f8fd1"
+        },
+        {
+          "path": "docs/readmes/014/regressions/scene-integration.json",
+          "kind": "text",
+          "sha256": "5be0de87cbceff83896e85189e492263fda870c23d1bc634b7a10fe119392a73"
+        },
+        {
+          "path": "docs/readmes/014/system-map.json",
+          "kind": "text",
+          "sha256": "75188f41ef08d7fe8f36384761e24300da7aa76cdc252d9c8b76f2c5322021b8"
+        },
+        {
+          "path": "docs/readmes/014/verification.json",
+          "kind": "text",
+          "sha256": "ce9d9397a52d2f65d155c924fcd08ca629c6efbcce8f0a825e4dbf0d91ec684e"
         }
       ]
     }

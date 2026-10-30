@@ -1,0 +1,661 @@
+{
+  "date": "2026-10-30T11:30:25.742Z",
+  "passed": true,
+  "model": "gpt-oss:20b",
+  "admittedModel": {
+    "endpoint": "http://127.0.0.1:11434",
+    "checkedAt": "2026-10-30T11:25:47.268191500Z",
+    "bytes": 13793441566,
+    "scope": "Fresh local service metadata; not an independent inspection of model weights or the daemon's network behavior",
+    "digest": "f38aa0c53da5f8c49d08c43a99df24ff53167fe68e24664a7777288e7656fdfe",
+    "model": "gpt-oss:20b"
+  },
+  "goal": "Use the native first-person observer for saved 3D scene 76e10687-1145-4794-adbc-2d29bd1266d4. Move the observer exactly 1 metre to its right, once. Focus the real Block entity, inspect it, capture the final actual native view, then finish with the actual coordinates, inspected entity id and PNG hash. Do not move any objects or create another scene.",
+  "observer": {
+    "actionCount": 3,
+    "createdAt": "2026-10-30T11:25:47.093470900Z",
+    "schemaVersion": 1,
+    "motion": "free camera; no avatar body or collisions",
+    "pose": {
+      "pitchDeg": -13.242976219823515,
+      "fovDeg": 60,
+      "position": [
+        -2.114369023460954,
+        5.775249345960578,
+        5
+      ],
+      "yawDeg": -11.309932474020215
+    },
+    "captureCount": 1,
+    "sceneId": "76e10687-1145-4794-adbc-2d29bd1266d4",
+    "id": "7369beb0-746e-4d4f-9eee-b635fd67d265",
+    "selectedEntityId": "0140f3fc-f409-42a4-a9ca-22bd70acca20",
+    "title": "Observer · Ramp laboratory",
+    "version": 4
+  },
+  "history": {
+    "captures": [
+      {
+        "createdAt": "2026-10-30T11:29:34.259370700Z",
+        "observationId": "363459db-2cfb-439a-881c-3878ac175512",
+        "observerVersion": 4,
+        "requestSha256": "0461f1d70940561a861e03a67afa039b23bdff4aab4c2446e16dc0ec73e83b3d",
+        "bytes": 54825,
+        "id": "f7503656-d508-4afd-a286-a51cc2d55c2e",
+        "observerId": "7369beb0-746e-4d4f-9eee-b635fd67d265",
+        "pngSha256": "8996dc84dbb85da04d98e5493e65b4426efecc0e288e08e9e6f19aad75fdfdff"
+      }
+    ],
+    "events": [
+      {
+        "createdAt": "2026-10-30T11:26:29.235085600Z",
+        "observationId": "0c70d23e-81b1-4113-8859-7b6c866ca8b0",
+        "requestSha256": "717a5d2eb952c15dcc53719e2edf2a8bef8d3e3e8bb7babddf99ea76b60c4d14",
+        "fromVersion": 1,
+        "before": {
+          "pitchDeg": -13.495733280795811,
+          "fovDeg": 60,
+          "position": [
+            -3.114369023460954,
+            5.775249345960578,
+            5
+          ],
+          "yawDeg": 0
+        },
+        "action": "move",
+        "id": "d0c18aeb-6f9b-4e54-9b00-b3eb2c74582b",
+        "after": {
+          "pitchDeg": -13.495733280795811,
+          "fovDeg": 60,
+          "position": [
+            -2.114369023460954,
+            5.775249345960578,
+            5
+          ],
+          "yawDeg": 0
+        },
+        "source": {
+          "timeS": 0,
+          "authoredVersion": 1,
+          "scope": "authored",
+          "objects": [
+            {
+              "bodyType": "dynamic",
+              "schemaVersion": 1,
+              "size": [
+                0.5,
+                0.5,
+                0.5
+              ],
+              "rotation": [
+                0,
+                0,
+                -0.21643961393810288,
+                0.9762960071199334
+              ],
+              "id": "0140f3fc-f409-42a4-a9ca-22bd70acca20",
+              "label": "Block",
+              "position": [
+                -3.114369023460954,
+                4.575249345960578,
+                0
+              ],
+              "massKg": 1
+            },
+            {
+              "bodyType": "static",
+              "schemaVersion": 1,
+              "size": [
+                40,
+                0.4,
+                24
+              ],
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "id": "12d444d5-41ae-4e38-9976-55bb16781875",
+              "label": "Ground",
+              "position": [
+                0,
+                -0.2,
+                0
+              ],
+              "massKg": 0
+            },
+            {
+              "bodyType": "static",
+              "schemaVersion": 1,
+              "size": [
+                12,
+                0.2,
+                3
+              ],
+              "rotation": [
+                0,
+                0,
+                -0.21643961393810288,
+                0.9762960071199334
+              ],
+              "id": "2fd123b3-71f6-4282-a9d1-9be4a5df486d",
+              "label": "Ramp",
+              "position": [
+                0,
+                2.7357095704441967,
+                0
+              ],
+              "massKg": 0
+            }
+          ],
+          "sceneId": "76e10687-1145-4794-adbc-2d29bd1266d4",
+          "sceneVersion": 1,
+          "runId": null,
+          "tick": 0,
+          "source": "authored-geometry",
+          "units": "metre, second, degree; +Y up",
+          "status": "authored"
+        },
+        "observerId": "7369beb0-746e-4d4f-9eee-b635fd67d265",
+        "worldSha256": "c9e9960d46876f2957b93b028f389e993f41762d9a33bbc6ef64ec7525865bc3",
+        "toVersion": 2
+      },
+      {
+        "createdAt": "2026-10-30T11:27:10.999681900Z",
+        "observationId": "22275d96-63eb-4538-b5eb-55be723e933a",
+        "requestSha256": "cdf86eb865d4a7b180df1e37b846e8f14138b772ce0069eaa9aa90dd6069c91e",
+        "fromVersion": 2,
+        "before": {
+          "pitchDeg": -13.495733280795811,
+          "fovDeg": 60,
+          "position": [
+            -2.114369023460954,
+            5.775249345960578,
+            5
+          ],
+          "yawDeg": 0
+        },
+        "action": "focus",
+        "id": "4d55625e-5878-4417-b672-bebe4b14f2be",
+        "after": {
+          "pitchDeg": -13.242976219823515,
+          "fovDeg": 60,
+          "position": [
+            -2.114369023460954,
+            5.775249345960578,
+            5
+          ],
+          "yawDeg": -11.309932474020215
+        },
+        "source": {
+          "timeS": 0,
+          "authoredVersion": 1,
+          "scope": "authored",
+          "objects": [
+            {
+              "bodyType": "dynamic",
+              "schemaVersion": 1,
+              "size": [
+                0.5,
+                0.5,
+                0.5
+              ],
+              "rotation": [
+                0,
+                0,
+                -0.21643961393810288,
+                0.9762960071199334
+              ],
+              "id": "0140f3fc-f409-42a4-a9ca-22bd70acca20",
+              "label": "Block",
+              "position": [
+                -3.114369023460954,
+                4.575249345960578,
+                0
+              ],
+              "massKg": 1
+            },
+            {
+              "bodyType": "static",
+              "schemaVersion": 1,
+              "size": [
+                40,
+                0.4,
+                24
+              ],
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "id": "12d444d5-41ae-4e38-9976-55bb16781875",
+              "label": "Ground",
+              "position": [
+                0,
+                -0.2,
+                0
+              ],
+              "massKg": 0
+            },
+            {
+              "bodyType": "static",
+              "schemaVersion": 1,
+              "size": [
+                12,
+                0.2,
+                3
+              ],
+              "rotation": [
+                0,
+                0,
+                -0.21643961393810288,
+                0.9762960071199334
+              ],
+              "id": "2fd123b3-71f6-4282-a9d1-9be4a5df486d",
+              "label": "Ramp",
+              "position": [
+                0,
+                2.7357095704441967,
+                0
+              ],
+              "massKg": 0
+            }
+          ],
+          "sceneId": "76e10687-1145-4794-adbc-2d29bd1266d4",
+          "sceneVersion": 1,
+          "runId": null,
+          "tick": 0,
+          "source": "authored-geometry",
+          "units": "metre, second, degree; +Y up",
+          "status": "authored"
+        },
+        "observerId": "7369beb0-746e-4d4f-9eee-b635fd67d265",
+        "worldSha256": "c9e9960d46876f2957b93b028f389e993f41762d9a33bbc6ef64ec7525865bc3",
+        "toVersion": 3
+      },
+      {
+        "requestSha256": "b3f5ca9d89ef287f34e2060969071307ff4f497b3a2e18971d8f977beee04d91",
+        "fromVersion": 3,
+        "before": {
+          "pitchDeg": -13.242976219823515,
+          "fovDeg": 60,
+          "position": [
+            -2.114369023460954,
+            5.775249345960578,
+            5
+          ],
+          "yawDeg": -11.309932474020215
+        },
+        "source": {
+          "timeS": 0,
+          "authoredVersion": 1,
+          "scope": "authored",
+          "objects": [
+            {
+              "bodyType": "dynamic",
+              "schemaVersion": 1,
+              "size": [
+                0.5,
+                0.5,
+                0.5
+              ],
+              "rotation": [
+                0,
+                0,
+                -0.21643961393810288,
+                0.9762960071199334
+              ],
+              "id": "0140f3fc-f409-42a4-a9ca-22bd70acca20",
+              "label": "Block",
+              "position": [
+                -3.114369023460954,
+                4.575249345960578,
+                0
+              ],
+              "massKg": 1
+            },
+            {
+              "bodyType": "static",
+              "schemaVersion": 1,
+              "size": [
+                40,
+                0.4,
+                24
+              ],
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "id": "12d444d5-41ae-4e38-9976-55bb16781875",
+              "label": "Ground",
+              "position": [
+                0,
+                -0.2,
+                0
+              ],
+              "massKg": 0
+            },
+            {
+              "bodyType": "static",
+              "schemaVersion": 1,
+              "size": [
+                12,
+                0.2,
+                3
+              ],
+              "rotation": [
+                0,
+                0,
+                -0.21643961393810288,
+                0.9762960071199334
+              ],
+              "id": "2fd123b3-71f6-4282-a9d1-9be4a5df486d",
+              "label": "Ramp",
+              "position": [
+                0,
+                2.7357095704441967,
+                0
+              ],
+              "massKg": 0
+            }
+          ],
+          "sceneId": "76e10687-1145-4794-adbc-2d29bd1266d4",
+          "sceneVersion": 1,
+          "runId": null,
+          "tick": 0,
+          "source": "authored-geometry",
+          "units": "metre, second, degree; +Y up",
+          "status": "authored"
+        },
+        "observerId": "7369beb0-746e-4d4f-9eee-b635fd67d265",
+        "worldSha256": "c9e9960d46876f2957b93b028f389e993f41762d9a33bbc6ef64ec7525865bc3",
+        "toVersion": 4,
+        "inspected": {
+          "bodyType": "dynamic",
+          "visibleSamples": 5,
+          "schemaVersion": 1,
+          "size": [
+            0.5,
+            0.5,
+            0.5
+          ],
+          "rotation": [
+            0,
+            0,
+            -0.21643961393810288,
+            0.9762960071199334
+          ],
+          "distanceM": 5.238320341483518,
+          "centerNdc": [
+            1.2142382426212801e-17,
+            7.341905653058903e-17
+          ],
+          "id": "0140f3fc-f409-42a4-a9ca-22bd70acca20",
+          "label": "Block",
+          "position": [
+            -3.114369023460954,
+            4.575249345960578,
+            0
+          ],
+          "massKg": 1
+        },
+        "createdAt": "2026-10-30T11:28:00.115664600Z",
+        "observationId": "ed34a1f3-ba51-42be-a109-368b46a522b8",
+        "action": "inspect",
+        "id": "8e564b47-d4ef-4720-8e48-5a0318f8575d",
+        "after": {
+          "pitchDeg": -13.242976219823515,
+          "fovDeg": 60,
+          "position": [
+            -2.114369023460954,
+            5.775249345960578,
+            5
+          ],
+          "yawDeg": -11.309932474020215
+        }
+      }
+    ]
+  },
+  "capture": {
+    "createdAt": "2026-10-30T11:29:34.259370700Z",
+    "observationId": "363459db-2cfb-439a-881c-3878ac175512",
+    "observerVersion": 4,
+    "requestSha256": "0461f1d70940561a861e03a67afa039b23bdff4aab4c2446e16dc0ec73e83b3d",
+    "bytes": 54825,
+    "id": "f7503656-d508-4afd-a286-a51cc2d55c2e",
+    "observerId": "7369beb0-746e-4d4f-9eee-b635fd67d265",
+    "pngSha256": "8996dc84dbb85da04d98e5493e65b4426efecc0e288e08e9e6f19aad75fdfdff"
+  },
+  "packet": {
+    "observer": {
+      "actionCount": 3,
+      "createdAt": "2026-10-30T11:25:47.093470900Z",
+      "schemaVersion": 1,
+      "motion": "free camera; no avatar body or collisions",
+      "pose": {
+        "pitchDeg": -13.242976219823515,
+        "fovDeg": 60,
+        "position": [
+          -2.114369023460954,
+          5.775249345960578,
+          5
+        ],
+        "yawDeg": -11.309932474020215
+      },
+      "captureCount": 0,
+      "sceneId": "76e10687-1145-4794-adbc-2d29bd1266d4",
+      "id": "7369beb0-746e-4d4f-9eee-b635fd67d265",
+      "selectedEntityId": "0140f3fc-f409-42a4-a9ca-22bd70acca20",
+      "title": "Observer · Ramp laboratory",
+      "version": 4
+    },
+    "createdAt": "2026-10-30T11:29:34.200760700Z",
+    "world": {
+      "timeS": 0,
+      "authoredVersion": 1,
+      "scope": "authored",
+      "objects": [
+        {
+          "bodyType": "dynamic",
+          "schemaVersion": 1,
+          "size": [
+            0.5,
+            0.5,
+            0.5
+          ],
+          "rotation": [
+            0,
+            0,
+            -0.21643961393810288,
+            0.9762960071199334
+          ],
+          "id": "0140f3fc-f409-42a4-a9ca-22bd70acca20",
+          "label": "Block",
+          "position": [
+            -3.114369023460954,
+            4.575249345960578,
+            0
+          ],
+          "massKg": 1
+        },
+        {
+          "bodyType": "static",
+          "schemaVersion": 1,
+          "size": [
+            40,
+            0.4,
+            24
+          ],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "id": "12d444d5-41ae-4e38-9976-55bb16781875",
+          "label": "Ground",
+          "position": [
+            0,
+            -0.2,
+            0
+          ],
+          "massKg": 0
+        },
+        {
+          "bodyType": "static",
+          "schemaVersion": 1,
+          "size": [
+            12,
+            0.2,
+            3
+          ],
+          "rotation": [
+            0,
+            0,
+            -0.21643961393810288,
+            0.9762960071199334
+          ],
+          "id": "2fd123b3-71f6-4282-a9d1-9be4a5df486d",
+          "label": "Ramp",
+          "position": [
+            0,
+            2.7357095704441967,
+            0
+          ],
+          "massKg": 0
+        }
+      ],
+      "sceneId": "76e10687-1145-4794-adbc-2d29bd1266d4",
+      "sceneVersion": 1,
+      "runId": null,
+      "tick": 0,
+      "source": "authored-geometry",
+      "units": "metre, second, degree; +Y up",
+      "status": "authored"
+    },
+    "viewport": {
+      "width": 780,
+      "height": 258
+    },
+    "contract": "native-box-observer-v1",
+    "origin": "native-simulation",
+    "visibilityMethod": "Sampled oriented-box frustum/ray occlusion, not image recognition; thin geometry can be missed",
+    "visibleEntities": [
+      {
+        "bodyType": "dynamic",
+        "visibleSamples": 5,
+        "schemaVersion": 1,
+        "size": [
+          0.5,
+          0.5,
+          0.5
+        ],
+        "rotation": [
+          0,
+          0,
+          -0.21643961393810288,
+          0.9762960071199334
+        ],
+        "distanceM": 5.238320341483518,
+        "centerNdc": [
+          1.2142382426212801e-17,
+          7.341905653058903e-17
+        ],
+        "id": "0140f3fc-f409-42a4-a9ca-22bd70acca20",
+        "label": "Block",
+        "position": [
+          -3.114369023460954,
+          4.575249345960578,
+          0
+        ],
+        "massKg": 1
+      },
+      {
+        "bodyType": "static",
+        "visibleSamples": 17,
+        "schemaVersion": 1,
+        "size": [
+          40,
+          0.4,
+          24
+        ],
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "distanceM": 8.073051536672706,
+        "centerNdc": [
+          0.304930602758886,
+          -1.4454165381387194
+        ],
+        "id": "12d444d5-41ae-4e38-9976-55bb16781875",
+        "label": "Ground",
+        "position": [
+          0,
+          -0.2,
+          0
+        ],
+        "massKg": 0
+      },
+      {
+        "bodyType": "static",
+        "visibleSamples": 7,
+        "schemaVersion": 1,
+        "size": [
+          12,
+          0.2,
+          3
+        ],
+        "rotation": [
+          0,
+          0,
+          -0.21643961393810288,
+          0.9762960071199334
+        ],
+        "distanceM": 6.221684531886634,
+        "centerNdc": [
+          0.3454168666585542,
+          -0.6601515739044287
+        ],
+        "id": "2fd123b3-71f6-4282-a9d1-9be4a5df486d",
+        "label": "Ramp",
+        "position": [
+          0,
+          2.7357095704441967,
+          0
+        ],
+        "massKg": 0
+      }
+    ],
+    "readOnly": true,
+    "id": "363459db-2cfb-439a-881c-3878ac175512",
+    "worldSha256": "c9e9960d46876f2957b93b028f389e993f41762d9a33bbc6ef64ec7525865bc3"
+  },
+  "tools": [
+    "observer.open",
+    "observer.move",
+    "observer.focus",
+    "observer.inspect",
+    "observer.inspect",
+    "observer.capture"
+  ],
+  "summary": "Observer pose: position [-2.114369023460954,5.775249345960578,5], yaw -11.309932474020215°, pitch -13.242976219823515°. Inspected entity id: 0140f3fc-f409-42a4-a9ca-22bd70acca20 (Block). Captured PNG hash: 8996dc84dbb85da04d98e5493e65b4426efecc0e288e08e9e6f19aad75fdfdff.",
+  "checks": [
+    "Actual local model used native tools and completed",
+    "Exactly one observer and one 1 m right movement; other position axes preserved",
+    "Focus and inspection identify the real Block entity",
+    "Final saved PNG matches independent SHA-256 and current observer pose version",
+    "Authored scene and objects remain unchanged",
+    "Model digest recorded; observer evidence remains separate from artifact-policy training"
+  ],
+  "learning": {
+    "status": "completed-unverified"
+  },
+  "scope": "One actual local-language-model adapter task. Java performs observer logic; renderer provides actual pixels. No video transformer or model-weight training."
+}

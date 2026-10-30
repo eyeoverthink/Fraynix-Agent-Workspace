@@ -2,9 +2,9 @@
 
 **A local visual environment for agents to browse, create runnable artifacts, test behavior and reuse verified skills.**
 
-> **Latest evidence: [README 013 — real observations and JING assessment](README-013.md)** · [Interactive explorer](docs/readmes/013/index.html) · [Actual offline report](docs/readmes/013/report/index.html) · [Calibration implementation](README-012.md) · [Edition history](docs/readmes/INDEX.md)
+> **Latest implementation: [README 014 — native Java observer](README-014.md)** · [Offline explorer](docs/readmes/014/index.html) · [Contract](docs/NATIVE_OBSERVER.md) · [Edition history](docs/readmes/INDEX.md)
 
-Real recorded sliding-block observations now have a reproducible preparation/replay case. The workflow passes while the fitted parameter fails its declared validation gate; the report preserves both outcomes. JING code/weight metadata was reviewed for the next observer layer, with no JING inference or weight installation. The existing app, native calibration, browser and canvas remain intact. [Results, limits and next gates](README-013.md).
+Java now owns a first-person observer: move, look, inspect actual native entities, capture real rendered frames and replay source-linked history. The manual workflow needs no model inference or video transformer; a local language model can request the same actions. The existing design, browser/canvas and original Studio are preserved. [Current results, limitations and next native gates](README-014.md).
 
 Independent successor to [Fraynix Studio](https://github.com/eyeoverthink/Fraynix-Studio), starting from verified commit `6341404`. The original application and personal project state remain separate. Full game sources, assets, licenses and earlier editions are preserved here.
 
@@ -16,9 +16,9 @@ The app includes a real browser, live creation canvas, editable source, versione
 
 Local `gpt-oss:20b` is the verified default for the first agent fixture. The custom FRAYNIX 3B trial returned an Ollama native-format error; advertised tool capability alone does not establish task reliability. You can select other eligible installed models explicitly.
 
-![Actual real-data report in the existing workspace](docs/readmes/013/images/real-data-report.png)
+![Actual native observer in the existing workspace](docs/readmes/014/images/observer-native.png)
 
-October 30 actual real-data workflow. **101 real-video-derived observations**, **9 real-data workflow checks** and **13 desktop units** pass; the physical fit is **rejected**. Prior runtime regressions are preserved as historical edition 012 evidence. [Verification](docs/readmes/013/verification.json).
+October 30 actual native observer workflow. Java and desktop regressions, actual pixel/state checks and a local-model observer task are recorded in [edition 014 verification](docs/readmes/014/verification.json). The previous [real-data fit](README-013.md) remains rejected.
 
 ## Verify
 
@@ -30,6 +30,7 @@ npm.cmd test
 npm.cmd run test:scene
 npm.cmd run test:calibration
 npm.cmd run test:real-data
+npm.cmd run test:observer
 npm.cmd run test:measurement
 npm.cmd run test:integration
 npm.cmd run test:learning

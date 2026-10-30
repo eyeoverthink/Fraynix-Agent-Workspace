@@ -1,0 +1,120 @@
+{
+  "date": "2026-10-30",
+  "sourceBaseline": "fe55acdf335458cb0bcbcf8b732a3563e03be6c1",
+  "runtimeChanged": true,
+  "releaseKind": "native-Java-observer-without-video-transformer",
+  "modelFreeWorkflow": {
+    "passed": true,
+    "checks": 12,
+    "modelInferenceRequired": false,
+    "evidence": "observer-integration.json"
+  },
+  "localModel": {
+    "passed": true,
+    "model": "gpt-oss:20b",
+    "digest": "f38aa0c53da5f8c49d08c43a99df24ff53167fe68e24664a7777288e7656fdfe",
+    "checks": 6,
+    "tools": [
+      "observer.open",
+      "observer.move",
+      "observer.focus",
+      "observer.inspect",
+      "observer.inspect",
+      "observer.capture"
+    ],
+    "evidence": "live-observer.json",
+    "initialFailure": "Optional observer-selection input repeatedly produced Unknown observer record until the 16-step budget; agent open was narrowed to sceneId only. Failed trial retained.",
+    "failedTrialEvidence": [
+      "local-model-initial-failure.txt",
+      "local-model-repeat-failure.txt"
+    ],
+    "secondFailure": "After capture the adapter restarted movement from limited recent context; trial cancelled after an unwanted second move. Host now retains progress, removes one-shot movement after execution and exposes only finish once current capture/requested actions exist."
+  },
+  "sourceInventory": 411,
+  "platform": "Windows x64 / JDK 21 / Node 24.14.1 / Electron 45.1.0",
+  "freshClone": {
+    "status": "passed",
+    "checkout": "fraynix-workspace-qa014",
+    "sourceCommit": "fe55acdf335458cb0bcbcf8b732a3563e03be6c1",
+    "javaTests": 131,
+    "desktopUnitTests": 15,
+    "observerUiChecks": 12,
+    "offlineBuild": true,
+    "modelWeightsOrPrivateRuntimeCopied": false,
+    "electronBinary": "Pinned 45.1.0 executable reused from existing dependency cache after npm ci --offline --ignore-scripts",
+    "canonicalSourceHashesMatched": 411
+  },
+  "documentationQa": {
+    "status": "passed",
+    "checks": [
+      "Offline viewer loads eight actual/planned native modules",
+      "Search, module selection and verified/planned filters work",
+      "Inventory search resolves actual Java source",
+      "Four actual app/frame images load with captions and working navigation",
+      "390px layout and selected source have no horizontal overflow",
+      "No viewer JavaScript errors"
+    ],
+    "visualInspection": {
+      "wide": "passed: native modules, selected source, actual gallery and evidence readable",
+      "narrow": "passed: 390px layout, controls and source wrapping without horizontal overflow"
+    }
+  },
+  "scope": [
+    "Java owns scene/observer/action/receipt logic; existing Three renders actual PNGs",
+    "Free camera, not a colliding avatar or physical gripper",
+    "Sampled known-box geometry visibility, not arbitrary image recognition",
+    "Actual source/run/tick binding and history, not whole-model training",
+    "No JING weights, video transformer or inference service installed",
+    "Native observer episodes remain completed-unverified in the artifact-oriented learning ledger",
+    "Previously rejected real-data physical fit remains rejected"
+  ],
+  "currentRegression": {
+    "passed": true,
+    "javaTests": 131,
+    "javaClasses": 25,
+    "observerJavaTests": 8,
+    "desktopUnitTests": 15,
+    "suites": {
+      "observer-integration": {
+        "passed": true,
+        "checks": 12,
+        "output": "workspace-desktop/test-output/observer-integration.json"
+      },
+      "scene-integration": {
+        "passed": true,
+        "checks": 12,
+        "output": "workspace-desktop/test-output/scene-integration.json"
+      },
+      "measurement-integration": {
+        "passed": true,
+        "checks": 10,
+        "output": "workspace-desktop/test-output/measurement-integration.json"
+      },
+      "calibration-integration": {
+        "passed": true,
+        "checks": 8,
+        "output": "workspace-desktop/test-output/calibration-integration.json"
+      },
+      "real-data-delfys": {
+        "passed": true,
+        "checks": 9,
+        "output": "workspace-desktop/test-output/real-data-delfys.json"
+      },
+      "integration": {
+        "passed": true,
+        "checks": 12,
+        "output": "workspace-desktop/test-output/integration.json"
+      },
+      "learning-integration": {
+        "passed": true,
+        "checks": 9,
+        "output": "workspace-desktop/test-output/learning-integration.json"
+      },
+      "broader-validation": {
+        "passed": true,
+        "checks": 45,
+        "output": "workspace-desktop/test-output/broader-validation.json"
+      }
+    }
+  }
+}

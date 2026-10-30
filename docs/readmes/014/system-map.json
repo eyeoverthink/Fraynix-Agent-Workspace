@@ -1,0 +1,101 @@
+{
+  "date": "2026-10-30",
+  "modules": [
+    {
+      "id": "source",
+      "name": "Authoritative Java source",
+      "status": "verified",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/SceneStore.java",
+      "summary": "Copied native entities, actual definition/current authored versions, run, tick and units.",
+      "note": "docs/obsidian/22-native-observer.md"
+    },
+    {
+      "id": "geometry",
+      "name": "Native geometry visibility",
+      "status": "verified",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/ObserverGeometry.java",
+      "summary": "Java camera basis, frustum and sampled oriented-box ray occlusion; known entities, no learned recognition.",
+      "note": "docs/obsidian/22-native-observer.md"
+    },
+    {
+      "id": "store",
+      "name": "Observer actions and receipts",
+      "status": "verified",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/ObserverStore.java",
+      "summary": "Durable identities/poses, bounded moves, source leases, idempotent actions and content-addressed PNG captures.",
+      "note": "docs/obsidian/22-native-observer.md"
+    },
+    {
+      "id": "renderer",
+      "name": "Actual first-person rendering",
+      "status": "verified",
+      "source": "workspace-desktop/renderer/scene-lab.js",
+      "summary": "Existing Three renderer draws frozen native state and captures actual viewport pixels.",
+      "note": "docs/obsidian/22-native-observer.md"
+    },
+    {
+      "id": "manual",
+      "name": "Manual observer workflow",
+      "status": "verified",
+      "source": "workspace-desktop/renderer/observer-panel.js",
+      "summary": "Buttons, keyboard, drag, inspect, capture and read-only historical replay inside the existing layout.",
+      "note": "docs/obsidian/22-native-observer.md"
+    },
+    {
+      "id": "agent",
+      "name": "Optional local request adapter",
+      "status": "verified",
+      "source": "workspace-desktop/main.cjs",
+      "summary": "Typed native actions, one owned observer and completion gated on final-pose capture plus requested actions.",
+      "note": "docs/obsidian/22-native-observer.md"
+    },
+    {
+      "id": "tests",
+      "name": "Independent state and pixel checks",
+      "status": "verified",
+      "source": "workspace-desktop/test/observer-integration.cjs",
+      "summary": "Actual coordinate/pixel shift, keyboard, source ticks, restart, stale input, corrupted PNG and scene switching.",
+      "note": "docs/obsidian/22-native-observer.md"
+    },
+    {
+      "id": "next",
+      "name": "Physical actuator and evaluated policy",
+      "status": "planned",
+      "source": "docs/SCENARIO_ENGINE_ROADMAP.md",
+      "summary": "Next: body ownership, reach/grab/move/release, force/contact limits, navigation and held-out physical evaluation.",
+      "note": "docs/obsidian/22-native-observer.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "docs/readmes/014/images/observer-native.png",
+      "caption": "Actual model-free first-person native observer and unchanged workspace layout."
+    },
+    {
+      "path": "docs/readmes/014/images/observer-history.png",
+      "caption": "Actual read-only historical frame retaining its original scene version."
+    },
+    {
+      "path": "docs/readmes/014/images/live-observer.png",
+      "caption": "Actual local gpt-oss:20b task using the Java observer tools."
+    },
+    {
+      "path": "docs/readmes/014/images/live-observer-frame.png",
+      "caption": "Actual final PNG saved by the local-model observer task; native rendering, not generative video."
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/readmes/014/verification.json"
+    },
+    {
+      "path": "docs/readmes/014/observer-integration.json"
+    },
+    {
+      "path": "docs/readmes/014/live-observer.json"
+    },
+    {
+      "path": "docs/NATIVE_OBSERVER.md"
+    }
+  ]
+}

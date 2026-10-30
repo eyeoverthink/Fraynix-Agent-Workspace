@@ -1,0 +1,1844 @@
+{
+  "date": "2026-10-30T11:31:00.747Z",
+  "passed": true,
+  "checks": [
+    "Synthetic sources come from separate actual native worlds at 25 and 35 degrees; no analytic or random fitness substitutes",
+    "Visible Fit & validate control executes native search, training-only selection and separate validation while both authored scenes remain v1",
+    "Every candidate retains 180 actual native ticks and independently recomputed training RMSE",
+    "Visible Apply changes only the training parameter in scene v2, preserves object IDs and records an atomic receipt",
+    "Visible report opens the real canvas with two host-rendered curves, exact CSVs and native JSON evidence; three DOM assertions pass",
+    "Restart restores accepted fit and application receipt; visible rollback restores the prior parameter as scene v3 without erasing history",
+    "Changing only validation conditions preserves the training winner, produces a genuine failed gate and disables/rejects apply",
+    "No renderer JavaScript errors across fit, report, apply, restart, rollback and rejected validation"
+  ],
+  "accepted": {
+    "phase": "complete",
+    "schemaVersion": 1,
+    "fittedTraining": {
+      "maxAbsErrorM": 0.0027338412655361632,
+      "withinTolerance": 8,
+      "count": 8,
+      "rmseM": 0.0013513577627662396,
+      "uncertaintyM": null,
+      "meanResidualM": -0.0009805110707172277,
+      "toleranceM": 0.015,
+      "passed": true,
+      "runId": "495438d7-0bcf-47fb-bcb6-5cfe8a691082",
+      "value": 0.28125,
+      "maeM": 0.0009805110707172277,
+      "points": [
+        {
+          "timeS": 0,
+          "observedM": 1.6155032294565553e-07,
+          "residualM": 0,
+          "sourceRow": 2,
+          "simulatedM": 1.6155032294565553e-07
+        },
+        {
+          "timeS": 0.1,
+          "observedM": 0.008909617128501465,
+          "residualM": -5.739765919091609e-05,
+          "sourceRow": 3,
+          "simulatedM": 0.008852219469310548
+        },
+        {
+          "timeS": 0.2,
+          "observedM": 0.034099930196563835,
+          "residualM": -0.00022698310886201667,
+          "sourceRow": 4,
+          "simulatedM": 0.03387294708770182
+        },
+        {
+          "timeS": 0.3,
+          "observedM": 0.07585646323132968,
+          "residualM": -0.0005075035468960487,
+          "sourceRow": 5,
+          "simulatedM": 0.07534895968443363
+        },
+        {
+          "timeS": 0.4,
+          "observedM": 0.13417894191008867,
+          "residualM": -0.0009000952912192328,
+          "sourceRow": 6,
+          "simulatedM": 0.13327884661886943
+        },
+        {
+          "timeS": 0.5,
+          "observedM": 0.2090775686276156,
+          "residualM": -0.0014170464128916704,
+          "sourceRow": 7,
+          "simulatedM": 0.20766052221472392
+        },
+        {
+          "timeS": 0.6,
+          "observedM": 0.3005103147782286,
+          "residualM": -0.002001221281141774,
+          "sourceRow": 8,
+          "simulatedM": 0.2985090934970868
+        },
+        {
+          "timeS": 0.7,
+          "observedM": 0.40852618704092936,
+          "residualM": -0.0027338412655361632,
+          "sourceRow": 9,
+          "simulatedM": 0.4057923457753932
+        }
+      ]
+    },
+    "startedAt": "2026-10-30T11:30:56.357591200Z",
+    "candidateValues": [
+      0,
+      0.1,
+      0.2,
+      0.30000000000000004,
+      0.4,
+      0.5,
+      0.6000000000000001,
+      0.7000000000000001,
+      0.8,
+      0.25000000000000006,
+      0.275,
+      0.32500000000000007,
+      0.35000000000000003,
+      0.2625,
+      0.26875000000000004,
+      0.28125,
+      0.28750000000000003
+    ],
+    "validationFitted": {
+      "maxAbsErrorM": 0.002528772473289864,
+      "withinTolerance": 8,
+      "count": 8,
+      "rmseM": 0.0012354955023515493,
+      "uncertaintyM": null,
+      "meanResidualM": -0.0008922230243425702,
+      "toleranceM": 0.015,
+      "passed": true,
+      "runId": "6b459704-9a51-47af-91e3-881cb745077c",
+      "value": 0.28125,
+      "maeM": 0.0008922230243425702,
+      "points": [
+        {
+          "timeS": 0,
+          "observedM": 1.306879695844928e-07,
+          "residualM": 0,
+          "sourceRow": 2,
+          "simulatedM": 1.306879695844928e-07
+        },
+        {
+          "timeS": 0.1,
+          "observedM": 0.017868466975280464,
+          "residualM": -5.066604159858698e-05,
+          "sourceRow": 3,
+          "simulatedM": 0.017817800933681877
+        },
+        {
+          "timeS": 0.2,
+          "observedM": 0.06922203034245486,
+          "residualM": -0.00020313297001872677,
+          "sourceRow": 4,
+          "simulatedM": 0.06901889737243613
+        },
+        {
+          "timeS": 0.3,
+          "observedM": 0.1543495305236756,
+          "residualM": -0.00046130964386012496,
+          "sourceRow": 5,
+          "simulatedM": 0.15388822087981546
+        },
+        {
+          "timeS": 0.4,
+          "observedM": 0.2732400630721147,
+          "residualM": -0.0008133536037217004,
+          "sourceRow": 6,
+          "simulatedM": 0.272426709468393
+        },
+        {
+          "timeS": 0.5,
+          "observedM": 0.4258903451464283,
+          "residualM": -0.001262939509053096,
+          "sourceRow": 7,
+          "simulatedM": 0.4246274056373752
+        },
+        {
+          "timeS": 0.6,
+          "observedM": 0.6123145251367048,
+          "residualM": -0.0018176099531984624,
+          "sourceRow": 8,
+          "simulatedM": 0.6104969151835064
+        },
+        {
+          "timeS": 0.7,
+          "observedM": 0.8325462142819445,
+          "residualM": -0.002528772473289864,
+          "sourceRow": 9,
+          "simulatedM": 0.8300174418086547
+        }
+      ]
+    },
+    "evaluation": {
+      "trainingImproved": true,
+      "trainingImprovementM": 0.3014758322322386,
+      "criteria": "training RMSE gain >= declared minimum; every validation residual <= tolerance; validation RMSE does not increase beyond 1e-9 m numerical slack",
+      "validationNoRegression": true,
+      "scope": "Parameter calibration in the recorded native model; source labels are user supplied, prior validation uses recorded, and collection independence not proven",
+      "accepted": true,
+      "validationWithinTolerance": true
+    },
+    "canApply": true,
+    "createdAt": "2026-10-30T11:30:56.341972500Z",
+    "trials": [
+      {
+        "index": 0,
+        "runId": "af44f454-6c3e-4e7e-adeb-b8f2c3881bbb",
+        "metrics": {
+          "maxAbsErrorM": 0.6132639495842045,
+          "withinTolerance": 2,
+          "count": 8,
+          "rmseM": 0.30282718999500485,
+          "uncertaintyM": null,
+          "meanResidualM": 0.21939412042609674,
+          "toleranceM": 0.015,
+          "passed": false,
+          "runId": "af44f454-6c3e-4e7e-adeb-b8f2c3881bbb",
+          "value": 0,
+          "maeM": 0.21939412042609674
+        },
+        "value": 0
+      },
+      {
+        "index": 1,
+        "runId": "dfcb524f-6a85-4798-a94a-3afbf6631502",
+        "metrics": {
+          "maxAbsErrorM": 0.3942275570768622,
+          "withinTolerance": 2,
+          "count": 8,
+          "rmseM": 0.19467010242964936,
+          "uncertaintyM": null,
+          "meanResidualM": 0.1410362369587822,
+          "toleranceM": 0.015,
+          "passed": false,
+          "runId": "dfcb524f-6a85-4798-a94a-3afbf6631502",
+          "value": 0.1,
+          "maeM": 0.1410362369587822
+        },
+        "value": 0.1
+      },
+      {
+        "index": 2,
+        "runId": "eaca17d9-bfd3-42a2-b521-6895a5c93bf7",
+        "metrics": {
+          "maxAbsErrorM": 0.17521453618457083,
+          "withinTolerance": 3,
+          "count": 8,
+          "rmseM": 0.08652419292515444,
+          "uncertaintyM": null,
+          "meanResidualM": 0.06268704397075628,
+          "toleranceM": 0.015,
+          "passed": false,
+          "runId": "eaca17d9-bfd3-42a2-b521-6895a5c93bf7",
+          "value": 0.2,
+          "maeM": 0.06268704397075628
+        },
+        "value": 0.2
+      },
+      {
+        "index": 3,
+        "runId": "6fb64a6d-8039-492d-be05-06b47be5eddf",
+        "metrics": {
+          "maxAbsErrorM": 0.04427336527231951,
+          "withinTolerance": 5,
+          "count": 8,
+          "rmseM": 0.021827548628936558,
+          "uncertaintyM": null,
+          "meanResidualM": -0.015789950534494914,
+          "toleranceM": 0.015,
+          "passed": false,
+          "runId": "6fb64a6d-8039-492d-be05-06b47be5eddf",
+          "value": 0.30000000000000004,
+          "maeM": 0.015789950534494914
+        },
+        "value": 0.30000000000000004
+      },
+      {
+        "index": 4,
+        "runId": "ededffbf-d55c-4dd3-ba58-1d9c4bf61a81",
+        "metrics": {
+          "maxAbsErrorM": 0.2628305194389781,
+          "withinTolerance": 2,
+          "count": 8,
+          "rmseM": 0.12978742765215773,
+          "uncertaintyM": null,
+          "meanResidualM": -0.09403040712913627,
+          "toleranceM": 0.015,
+          "passed": false,
+          "runId": "ededffbf-d55c-4dd3-ba58-1d9c4bf61a81",
+          "value": 0.4,
+          "maeM": 0.09403040712913627
+        },
+        "value": 0.4
+      },
+      {
+        "index": 5,
+        "runId": "1efc361a-73ec-40f2-9013-2d0c3d773a13",
+        "metrics": {
+          "maxAbsErrorM": 0.4077395207466573,
+          "withinTolerance": 2,
+          "count": 8,
+          "rmseM": 0.20126959860389113,
+          "uncertaintyM": null,
+          "meanResidualM": -0.1457065360472471,
+          "toleranceM": 0.015,
+          "passed": false,
+          "runId": "1efc361a-73ec-40f2-9013-2d0c3d773a13",
+          "value": 0.5,
+          "maeM": 0.1457065360472471
+        },
+        "value": 0.5
+      },
+      {
+        "index": 6,
+        "runId": "d0e7f2da-499d-4097-8ce4-652166d797d7",
+        "metrics": {
+          "maxAbsErrorM": 0.4078050129850201,
+          "withinTolerance": 2,
+          "count": 8,
+          "rmseM": 0.20131705139067177,
+          "uncertaintyM": null,
+          "meanResidualM": -0.14576402900628702,
+          "toleranceM": 0.015,
+          "passed": false,
+          "runId": "d0e7f2da-499d-4097-8ce4-652166d797d7",
+          "value": 0.6000000000000001,
+          "maeM": 0.14576402900628702
+        },
+        "value": 0.6000000000000001
+      },
+      {
+        "index": 7,
+        "runId": "40b10ee1-044f-4223-bad7-da82e29ebb51",
+        "metrics": {
+          "maxAbsErrorM": 0.4078050129850201,
+          "withinTolerance": 2,
+          "count": 8,
+          "rmseM": 0.2013171195669806,
+          "uncertaintyM": null,
+          "meanResidualM": -0.14576408302644073,
+          "toleranceM": 0.015,
+          "passed": false,
+          "runId": "40b10ee1-044f-4223-bad7-da82e29ebb51",
+          "value": 0.7000000000000001,
+          "maeM": 0.14576408302644073
+        },
+        "value": 0.7000000000000001
+      },
+      {
+        "index": 8,
+        "runId": "4ea28aef-aa55-42a7-adbd-70ca4896677f",
+        "metrics": {
+          "maxAbsErrorM": 0.4078050129850201,
+          "withinTolerance": 2,
+          "count": 8,
+          "rmseM": 0.2013171195669806,
+          "uncertaintyM": null,
+          "meanResidualM": -0.14576408302644073,
+          "toleranceM": 0.015,
+          "passed": false,
+          "runId": "4ea28aef-aa55-42a7-adbd-70ca4896677f",
+          "value": 0.8,
+          "maeM": 0.14576408302644073
+        },
+        "value": 0.8
+      },
+      {
+        "index": 9,
+        "runId": "0b076148-93ca-4050-b7d7-33e7c7ede6ec",
+        "metrics": {
+          "maxAbsErrorM": 0.0651732532480861,
+          "withinTolerance": 4,
+          "count": 8,
+          "rmseM": 0.03224488133008171,
+          "uncertaintyM": null,
+          "meanResidualM": 0.023392015816778668,
+          "toleranceM": 0.015,
+          "passed": false,
+          "runId": "0b076148-93ca-4050-b7d7-33e7c7ede6ec",
+          "value": 0.25000000000000006,
+          "maeM": 0.023392015816778668
+        },
+        "value": 0.25000000000000006
+      },
+      {
+        "index": 10,
+        "runId": "25f6d037-37d6-4a2d-8f40-27e1e0a9dfee",
+        "metrics": {
+          "maxAbsErrorM": 0.010100539544006915,
+          "withinTolerance": 8,
+          "count": 8,
+          "rmseM": 0.005054708503064599,
+          "uncertaintyM": null,
+          "meanResidualM": 0.003702915280635968,
+          "toleranceM": 0.015,
+          "passed": true,
+          "runId": "25f6d037-37d6-4a2d-8f40-27e1e0a9dfee",
+          "value": 0.275,
+          "maeM": 0.003702915280635968
+        },
+        "value": 0.275
+      },
+      {
+        "index": 11,
+        "runId": "c6e66270-747d-4e1f-bf19-d6415baaac44",
+        "metrics": {
+          "maxAbsErrorM": 0.09853157022659292,
+          "withinTolerance": 3,
+          "count": 8,
+          "rmseM": 0.04866335392480917,
+          "uncertaintyM": null,
+          "meanResidualM": -0.03525784549244672,
+          "toleranceM": 0.015,
+          "passed": false,
+          "runId": "c6e66270-747d-4e1f-bf19-d6415baaac44",
+          "value": 0.32500000000000007,
+          "maeM": 0.03525784549244672
+        },
+        "value": 0.32500000000000007
+      },
+      {
+        "index": 12,
+        "runId": "02ab8a6d-a888-49ff-9de1-202041afe294",
+        "metrics": {
+          "maxAbsErrorM": 0.15329844595792685,
+          "withinTolerance": 3,
+          "count": 8,
+          "rmseM": 0.07570400469802598,
+          "uncertaintyM": null,
+          "meanResidualM": -0.054847437250083966,
+          "toleranceM": 0.015,
+          "passed": false,
+          "runId": "02ab8a6d-a888-49ff-9de1-202041afe294",
+          "value": 0.35000000000000003,
+          "maeM": 0.054847437250083966
+        },
+        "value": 0.35000000000000003
+      },
+      {
+        "index": 13,
+        "runId": "a86734b9-b070-4c9b-8f71-c859da1189f2",
+        "metrics": {
+          "maxAbsErrorM": 0.03832751955208724,
+          "withinTolerance": 5,
+          "count": 8,
+          "rmseM": 0.018929378367076952,
+          "uncertaintyM": null,
+          "meanResidualM": 0.013713976839952326,
+          "toleranceM": 0.015,
+          "passed": false,
+          "runId": "a86734b9-b070-4c9b-8f71-c859da1189f2",
+          "value": 0.2625,
+          "maeM": 0.013713976839952326
+        },
+        "value": 0.2625
+      },
+      {
+        "index": 14,
+        "runId": "f359783b-4838-4eef-aaf4-798f6ccc2022",
+        "metrics": {
+          "maxAbsErrorM": 0.02464119565289391,
+          "withinTolerance": 6,
+          "count": 8,
+          "rmseM": 0.012166406475847718,
+          "uncertaintyM": null,
+          "meanResidualM": 0.008814822570445628,
+          "toleranceM": 0.015,
+          "passed": false,
+          "runId": "f359783b-4838-4eef-aaf4-798f6ccc2022",
+          "value": 0.26875000000000004,
+          "maeM": 0.008814822570445628
+        },
+        "value": 0.26875000000000004
+      },
+      {
+        "index": 15,
+        "runId": "495438d7-0bcf-47fb-bcb6-5cfe8a691082",
+        "metrics": {
+          "maxAbsErrorM": 0.0027338412655361632,
+          "withinTolerance": 8,
+          "count": 8,
+          "rmseM": 0.0013513577627662396,
+          "uncertaintyM": null,
+          "meanResidualM": -0.0009805110707172277,
+          "toleranceM": 0.015,
+          "passed": true,
+          "runId": "495438d7-0bcf-47fb-bcb6-5cfe8a691082",
+          "value": 0.28125,
+          "maeM": 0.0009805110707172277
+        },
+        "value": 0.28125
+      },
+      {
+        "index": 16,
+        "runId": "b44e8606-c7c6-40db-ada9-33d432082a4d",
+        "metrics": {
+          "maxAbsErrorM": 0.016419041080083796,
+          "withinTolerance": 7,
+          "count": 8,
+          "rmseM": 0.008110968736092523,
+          "uncertaintyM": null,
+          "meanResidualM": -0.0058746154702084795,
+          "toleranceM": 0.015,
+          "passed": false,
+          "runId": "b44e8606-c7c6-40db-ada9-33d432082a4d",
+          "value": 0.28750000000000003,
+          "maeM": 0.0058746154702084795
+        },
+        "value": 0.28750000000000003
+      }
+    ],
+    "refinementRound": 2,
+    "selection": {
+      "criterion": "minimum executed training RMSE; ties prefer the existing parameter",
+      "trainingRmseM": 0.0013513577627662396,
+      "runId": "495438d7-0bcf-47fb-bcb6-5cfe8a691082",
+      "value": 0.28125,
+      "frozenAt": "2026-10-30T11:30:57.045909Z"
+    },
+    "validationStartedAt": "2026-10-30T11:30:57.065288300Z",
+    "endedAt": "2026-10-30T11:30:57.141305300Z",
+    "completedNativeOperations": 20,
+    "canRollback": false,
+    "definition": {
+      "actualDurationS": 0.75,
+      "method": "native-grid-v1: 9 coarse values, two four-point refinements; training RMSE only",
+      "validationPriorUseCount": 0,
+      "trainingScene": {
+        "schemaVersion": 1,
+        "objects": [
+          {
+            "bodyType": "static",
+            "schemaVersion": 1,
+            "size": [
+              12,
+              0.2,
+              3
+            ],
+            "rotation": [
+              0,
+              0,
+              -0.21643961393810288,
+              0.9762960071199334
+            ],
+            "id": "82888239-e11d-467b-ad16-3eaa1713634d",
+            "label": "Ramp",
+            "position": [
+              0,
+              2.7357095704441967,
+              0
+            ],
+            "massKg": 0
+          },
+          {
+            "bodyType": "static",
+            "schemaVersion": 1,
+            "size": [
+              40,
+              0.4,
+              24
+            ],
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "id": "5a2961fa-f6c4-4a82-bf19-7619809f2063",
+            "label": "Ground",
+            "position": [
+              0,
+              -0.2,
+              0
+            ],
+            "massKg": 0
+          },
+          {
+            "bodyType": "dynamic",
+            "schemaVersion": 1,
+            "size": [
+              0.5,
+              0.5,
+              0.5
+            ],
+            "rotation": [
+              0,
+              0,
+              -0.21643961393810288,
+              0.9762960071199334
+            ],
+            "id": "62a91804-6225-4884-bdfa-2e522c2e810d",
+            "label": "Block",
+            "position": [
+              -3.114369023460954,
+              4.575249345960578,
+              0
+            ],
+            "massKg": 1
+          }
+        ],
+        "id": "321d4027-a5dc-408f-9096-65f3cef99d82",
+        "units": "SI: metre, second, kilogram",
+        "title": "Training · 25 degrees",
+        "version": 1,
+        "parameters": {
+          "angleDeg": 25,
+          "widthM": 3,
+          "offsetZ": 0,
+          "massKg": 1,
+          "lengthM": 12,
+          "friction": 0,
+          "gravityMps2": 9.81
+        },
+        "entityIds": {
+          "ramp": "82888239-e11d-467b-ad16-3eaa1713634d",
+          "block": "62a91804-6225-4884-bdfa-2e522c2e810d",
+          "ground": "5a2961fa-f6c4-4a82-bf19-7619809f2063"
+        },
+        "frame": "right-handed, +Y up, downhill +X, depth Z",
+        "updatedAt": "2026-10-30T11:30:55.841899600Z"
+      },
+      "training": {
+        "sourceSha256": "e2360a836943bca654e2ccc0bfc889d5632136ef69d0f2964be8d0b791703494",
+        "versionId": "a1561bb2-e837-48cd-b801-721e41268b22",
+        "mappingSha256": "cdce2a3bbe9a4ff155bf704f5d4778a581524a74a056657b03b643adc053db1b",
+        "sourceKind": "synthetic",
+        "sourceNote": "Separate native Bullet source run 2b9bedcd-b2b3-4c20-a538-316039cfcb16 at 25 degrees, friction 0.28. Not instrument data.",
+        "observationsSha256": "e81c0a3a666204aea03c74541653e03d8e846226917938f4ee326ca803b72773",
+        "count": 8,
+        "datasetId": "14d1655b-0102-4719-b3ec-f9937a57ae2a",
+        "title": "Training observations",
+        "version": 1
+      },
+      "seconds": 0.75,
+      "validationScene": {
+        "schemaVersion": 1,
+        "objects": [
+          {
+            "bodyType": "static",
+            "schemaVersion": 1,
+            "size": [
+              12,
+              0.2,
+              3
+            ],
+            "rotation": [
+              0,
+              0,
+              -0.3007057995042731,
+              0.9537169507482269
+            ],
+            "id": "6e48888c-4cce-47d1-8c1b-1012890fb2d0",
+            "label": "Ramp",
+            "position": [
+              0,
+              3.6414586181062765,
+              0
+            ],
+            "massKg": 0
+          },
+          {
+            "bodyType": "static",
+            "schemaVersion": 1,
+            "size": [
+              40,
+              0.4,
+              24
+            ],
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "id": "fbd33fdb-f714-4ffa-95cb-11ef87048faf",
+            "label": "Ground",
+            "position": [
+              0,
+              -0.2,
+              0
+            ],
+            "massKg": 0
+          },
+          {
+            "bodyType": "dynamic",
+            "schemaVersion": 1,
+            "size": [
+              0.5,
+              0.5,
+              0.5
+            ],
+            "rotation": [
+              0,
+              0,
+              -0.3007057995042731,
+              0.9537169507482269
+            ],
+            "id": "a6e60898-d21c-4b64-a648-886e8093fbc0",
+            "label": "Block",
+            "position": [
+              -2.7476220302811534,
+              5.993856156515478,
+              0
+            ],
+            "massKg": 1
+          }
+        ],
+        "id": "72079dd9-8b4e-4ff5-bcb7-ae1dee3936cb",
+        "units": "SI: metre, second, kilogram",
+        "title": "Validation · 35 degrees",
+        "version": 1,
+        "parameters": {
+          "angleDeg": 35,
+          "widthM": 3,
+          "offsetZ": 0,
+          "massKg": 1,
+          "lengthM": 12,
+          "friction": 0,
+          "gravityMps2": 9.81
+        },
+        "entityIds": {
+          "ramp": "6e48888c-4cce-47d1-8c1b-1012890fb2d0",
+          "block": "a6e60898-d21c-4b64-a648-886e8093fbc0",
+          "ground": "fbd33fdb-f714-4ffa-95cb-11ef87048faf"
+        },
+        "frame": "right-handed, +Y up, downhill +X, depth Z",
+        "updatedAt": "2026-10-30T11:30:55.858659Z"
+      },
+      "parameter": "friction",
+      "minImprovementM": 0.001,
+      "maximum": 0.8,
+      "toleranceM": 0.015,
+      "backend": "Minie 9.0.3 / Libbulletjme 22.0.3 / single precision",
+      "minimum": 0,
+      "validation": {
+        "sourceSha256": "41c478cc1a619b87af050f5a3a5e125cd9e7f9dc8861b4a4a338914982e9dd3a",
+        "versionId": "af3956a9-057a-4cb3-837f-50c8308606f8",
+        "mappingSha256": "c4bad471d3912f185f63da766c2c98ed86e0c5945b0ad2ce7581c9dbecd2f7be",
+        "sourceKind": "synthetic",
+        "sourceNote": "Separate native Bullet source run fdc5458e-ba40-4617-86e2-126105148250 at 35 degrees, friction 0.28. Not instrument data.",
+        "observationsSha256": "0946f656a27d694467deceb98af58b2d46e9f4ab18b0c947360fff535f39f0c9",
+        "count": 8,
+        "datasetId": "1370a25a-56a8-4280-8d1a-2f76944f6402",
+        "title": "Validation observations",
+        "version": 1
+      },
+      "limits": {
+        "nativeRuns": 20,
+        "wallTimePerAttemptMs": 60000,
+        "rowsPerDataset": 512
+      }
+    },
+    "baselineTraining": {
+      "maxAbsErrorM": 0.6132639495842045,
+      "withinTolerance": 2,
+      "count": 8,
+      "rmseM": 0.30282718999500485,
+      "uncertaintyM": null,
+      "meanResidualM": 0.21939412042609674,
+      "toleranceM": 0.015,
+      "passed": false,
+      "runId": "3e156e89-86ad-4e1b-af6a-52565d139551",
+      "value": 0,
+      "maeM": 0.21939412042609674,
+      "points": [
+        {
+          "timeS": 0,
+          "observedM": 1.6155032294565553e-07,
+          "residualM": 0,
+          "sourceRow": 2,
+          "simulatedM": 1.6155032294565553e-07
+        },
+        {
+          "timeS": 0.1,
+          "observedM": 0.008909617128501465,
+          "residualM": 0.012684017225616802,
+          "sourceRow": 3,
+          "simulatedM": 0.021593634354118266
+        },
+        {
+          "timeS": 0.2,
+          "observedM": 0.034099930196563835,
+          "residualM": 0.050545858525208404,
+          "sourceRow": 4,
+          "simulatedM": 0.08464578872177224
+        },
+        {
+          "timeS": 0.3,
+          "observedM": 0.07585646323132968,
+          "residualM": 0.11330042208625805,
+          "sourceRow": 5,
+          "simulatedM": 0.18915688531758773
+        },
+        {
+          "timeS": 0.4,
+          "observedM": 0.13417894191008867,
+          "residualM": 0.20094778303862854,
+          "sourceRow": 6,
+          "simulatedM": 0.3351267249487172
+        },
+        {
+          "timeS": 0.5,
+          "observedM": 0.2090775686276156,
+          "residualM": 0.3134778094629209,
+          "sourceRow": 7,
+          "simulatedM": 0.5225553780905365
+        },
+        {
+          "timeS": 0.6,
+          "observedM": 0.3005103147782286,
+          "residualM": 0.45093312348593667,
+          "sourceRow": 8,
+          "simulatedM": 0.7514434382641653
+        },
+        {
+          "timeS": 0.7,
+          "observedM": 0.40852618704092936,
+          "residualM": 0.6132639495842045,
+          "sourceRow": 9,
+          "simulatedM": 1.0217901366251338
+        }
+      ]
+    },
+    "id": "d147665a-0df2-4cfd-8b15-de88bc7e8493",
+    "bindingsCurrent": true,
+    "currentValue": 0.28750000000000003,
+    "status": "completed",
+    "attempts": 1,
+    "validationBaseline": {
+      "maxAbsErrorM": 0.5542214740001609,
+      "withinTolerance": 2,
+      "count": 8,
+      "rmseM": 0.2736767637233059,
+      "uncertaintyM": null,
+      "meanResidualM": 0.19826776389675954,
+      "toleranceM": 0.015,
+      "passed": false,
+      "runId": "bb32b780-cc04-4d9d-8179-5b7868731fb1",
+      "value": 0,
+      "maeM": 0.19826776389675954,
+      "points": [
+        {
+          "timeS": 0,
+          "observedM": 1.306879695844928e-07,
+          "residualM": 0,
+          "sourceRow": 2,
+          "simulatedM": 1.306879695844928e-07
+        },
+        {
+          "timeS": 0.1,
+          "observedM": 0.017868466975280464,
+          "residualM": 0.011438258305554668,
+          "sourceRow": 3,
+          "simulatedM": 0.02930672528083513
+        },
+        {
+          "timeS": 0.2,
+          "observedM": 0.06922203034245486,
+          "residualM": 0.04565849939956165,
+          "sourceRow": 4,
+          "simulatedM": 0.11488052974201651
+        },
+        {
+          "timeS": 0.3,
+          "observedM": 0.1543495305236756,
+          "residualM": 0.10237239163712777,
+          "sourceRow": 5,
+          "simulatedM": 0.25672192216080336
+        },
+        {
+          "timeS": 0.4,
+          "observedM": 0.2732400630721147,
+          "residualM": 0.18159148291128346,
+          "sourceRow": 6,
+          "simulatedM": 0.45483154598339814
+        },
+        {
+          "timeS": 0.5,
+          "observedM": 0.4258903451464283,
+          "residualM": 0.28331942760220885,
+          "sourceRow": 7,
+          "simulatedM": 0.7092097727486372
+        },
+        {
+          "timeS": 0.6,
+          "observedM": 0.6123145251367048,
+          "residualM": 0.40754057731817883,
+          "sourceRow": 8,
+          "simulatedM": 1.0198551024548836
+        },
+        {
+          "timeS": 0.7,
+          "observedM": 0.8325462142819445,
+          "residualM": 0.5542214740001609,
+          "sourceRow": 9,
+          "simulatedM": 1.3867676882821054
+        }
+      ]
+    }
+  },
+  "application": {
+    "applyOperationId": "5afb78c6-5373-45e3-9d54-ae301ad154b6",
+    "applyReceipt": {
+      "jobId": "d147665a-0df2-4cfd-8b15-de88bc7e8493",
+      "createdAt": "2026-10-30T11:30:57.657889400Z",
+      "fromVersion": 1,
+      "kind": "apply",
+      "parameter": "friction",
+      "sceneId": "321d4027-a5dc-408f-9096-65f3cef99d82",
+      "id": "5afb78c6-5373-45e3-9d54-ae301ad154b6",
+      "previousValue": 0,
+      "value": 0.28125,
+      "toVersion": 2
+    },
+    "status": "applied"
+  },
+  "rejected": {
+    "phase": "complete",
+    "schemaVersion": 1,
+    "fittedTraining": {
+      "maxAbsErrorM": 0.0027338412655361632,
+      "withinTolerance": 8,
+      "count": 8,
+      "rmseM": 0.0013513577627662396,
+      "uncertaintyM": null,
+      "meanResidualM": -0.0009805110707172277,
+      "toleranceM": 0.015,
+      "passed": true,
+      "runId": "099eddf9-d1a2-48e8-9004-e787d678c37e",
+      "value": 0.28125,
+      "maeM": 0.0009805110707172277,
+      "points": [
+        {
+          "timeS": 0,
+          "observedM": 1.6155032294565553e-07,
+          "residualM": 0,
+          "sourceRow": 2,
+          "simulatedM": 1.6155032294565553e-07
+        },
+        {
+          "timeS": 0.1,
+          "observedM": 0.008909617128501465,
+          "residualM": -5.739765919091609e-05,
+          "sourceRow": 3,
+          "simulatedM": 0.008852219469310548
+        },
+        {
+          "timeS": 0.2,
+          "observedM": 0.034099930196563835,
+          "residualM": -0.00022698310886201667,
+          "sourceRow": 4,
+          "simulatedM": 0.03387294708770182
+        },
+        {
+          "timeS": 0.3,
+          "observedM": 0.07585646323132968,
+          "residualM": -0.0005075035468960487,
+          "sourceRow": 5,
+          "simulatedM": 0.07534895968443363
+        },
+        {
+          "timeS": 0.4,
+          "observedM": 0.13417894191008867,
+          "residualM": -0.0009000952912192328,
+          "sourceRow": 6,
+          "simulatedM": 0.13327884661886943
+        },
+        {
+          "timeS": 0.5,
+          "observedM": 0.2090775686276156,
+          "residualM": -0.0014170464128916704,
+          "sourceRow": 7,
+          "simulatedM": 0.20766052221472392
+        },
+        {
+          "timeS": 0.6,
+          "observedM": 0.3005103147782286,
+          "residualM": -0.002001221281141774,
+          "sourceRow": 8,
+          "simulatedM": 0.2985090934970868
+        },
+        {
+          "timeS": 0.7,
+          "observedM": 0.40852618704092936,
+          "residualM": -0.0027338412655361632,
+          "sourceRow": 9,
+          "simulatedM": 0.4057923457753932
+        }
+      ]
+    },
+    "startedAt": "2026-10-30T11:30:59.291213400Z",
+    "candidateValues": [
+      0,
+      0.125,
+      0.25,
+      0.375,
+      0.5,
+      0.625,
+      0.75,
+      0.875,
+      1,
+      0.1875,
+      0.21875,
+      0.28125,
+      0.3125,
+      0.265625,
+      0.2734375,
+      0.2890625,
+      0.296875
+    ],
+    "validationFitted": {
+      "maxAbsErrorM": 0.7302346473195639,
+      "withinTolerance": 2,
+      "count": 8,
+      "rmseM": 0.35990407576042033,
+      "uncertaintyM": null,
+      "meanResidualM": 0.26036946015360424,
+      "toleranceM": 0.015,
+      "passed": false,
+      "runId": "dea30c56-74cd-417f-bd87-1d03105d8086",
+      "value": 0.28125,
+      "maeM": 0.26036946015360424,
+      "points": [
+        {
+          "timeS": 0,
+          "observedM": 1.306879695844928e-07,
+          "residualM": 0,
+          "sourceRow": 2,
+          "simulatedM": 1.306879695844928e-07
+        },
+        {
+          "timeS": 0.1,
+          "observedM": 0.0030810156935081076,
+          "residualM": 0.014736785240173769,
+          "sourceRow": 3,
+          "simulatedM": 0.017817800933681877
+        },
+        {
+          "timeS": 0.2,
+          "observedM": 0.009605683367415912,
+          "residualM": 0.05941321400502022,
+          "sourceRow": 4,
+          "simulatedM": 0.06901889737243613
+        },
+        {
+          "timeS": 0.3,
+          "observedM": 0.020169141976235365,
+          "residualM": 0.1337190789035801,
+          "sourceRow": 5,
+          "simulatedM": 0.15388822087981546
+        },
+        {
+          "timeS": 0.4,
+          "observedM": 0.034766829095108656,
+          "residualM": 0.23765988037328434,
+          "sourceRow": 6,
+          "simulatedM": 0.272426709468393
+        },
+        {
+          "timeS": 0.5,
+          "observedM": 0.05287287753274898,
+          "residualM": 0.3717545281046262,
+          "sourceRow": 7,
+          "simulatedM": 0.4246274056373752
+        },
+        {
+          "timeS": 0.6,
+          "observedM": 0.07505936790092088,
+          "residualM": 0.5354375472825854,
+          "sourceRow": 8,
+          "simulatedM": 0.6104969151835064
+        },
+        {
+          "timeS": 0.7,
+          "observedM": 0.0997827944890908,
+          "residualM": 0.7302346473195639,
+          "sourceRow": 9,
+          "simulatedM": 0.8300174418086547
+        }
+      ]
+    },
+    "evaluation": {
+      "trainingImproved": true,
+      "trainingImprovementM": 0.3014758322322386,
+      "criteria": "training RMSE gain >= declared minimum; every validation residual <= tolerance; validation RMSE does not increase beyond 1e-9 m numerical slack",
+      "validationNoRegression": true,
+      "scope": "Parameter calibration in the recorded native model; source labels are user supplied, prior validation uses recorded, and collection independence not proven",
+      "accepted": false,
+      "validationWithinTolerance": false
+    },
+    "canApply": false,
+    "createdAt": "2026-10-30T11:30:59.275563500Z",
+    "trials": [
+      {
+        "index": 0,
+        "runId": "e3b88c17-1197-4ce9-93c6-bddccf1f0bc6",
+        "metrics": {
+          "maxAbsErrorM": 0.6132639495842045,
+          "withinTolerance": 2,
+          "count": 8,
+          "rmseM": 0.30282718999500485,
+          "uncertaintyM": null,
+          "meanResidualM": 0.21939412042609674,
+          "toleranceM": 0.015,
+          "passed": false,
+          "runId": "e3b88c17-1197-4ce9-93c6-bddccf1f0bc6",
+          "value": 0,
+          "maeM": 0.21939412042609674
+        },
+        "value": 0
+      },
+      {
+        "index": 1,
+        "runId": "b4ad0c26-2a5a-4872-ad01-2cf7449305ff",
+        "metrics": {
+          "maxAbsErrorM": 0.3394169870525209,
+          "withinTolerance": 2,
+          "count": 8,
+          "rmseM": 0.16761473482014833,
+          "uncertaintyM": null,
+          "meanResidualM": 0.12143813760874754,
+          "toleranceM": 0.015,
+          "passed": false,
+          "runId": "b4ad0c26-2a5a-4872-ad01-2cf7449305ff",
+          "value": 0.125,
+          "maeM": 0.12143813760874754
+        },
+        "value": 0.125
+      },
+      {
+        "index": 2,
+        "runId": "1b84e0f7-d2ef-479f-b817-0f1a37c8737c",
+        "metrics": {
+          "maxAbsErrorM": 0.0651732532480861,
+          "withinTolerance": 4,
+          "count": 8,
+          "rmseM": 0.03224488133008171,
+          "uncertaintyM": null,
+          "meanResidualM": 0.023392015816778668,
+          "toleranceM": 0.015,
+          "passed": false,
+          "runId": "1b84e0f7-d2ef-479f-b817-0f1a37c8737c",
+          "value": 0.25,
+          "maeM": 0.023392015816778668
+        },
+        "value": 0.25
+      },
+      {
+        "index": 3,
+        "runId": "771b7353-21a9-4000-9414-98aed4bfe5af",
+        "metrics": {
+          "maxAbsErrorM": 0.20807098113957426,
+          "withinTolerance": 2,
+          "count": 8,
+          "rmseM": 0.10274705995779256,
+          "uncertaintyM": null,
+          "meanResidualM": -0.07444000019080785,
+          "toleranceM": 0.015,
+          "passed": false,
+          "runId": "771b7353-21a9-4000-9414-98aed4bfe5af",
+          "value": 0.375,
+          "maeM": 0.07444000019080785
+        },
+        "value": 0.375
+      },
+      {
+        "index": 4,
+        "runId": "d98ecade-4879-4f8b-9e73-efed4ed3aeda",
+        "metrics": {
+          "maxAbsErrorM": 0.4077395207466573,
+          "withinTolerance": 2,
+          "count": 8,
+          "rmseM": 0.20126959860389113,
+          "uncertaintyM": null,
+          "meanResidualM": -0.1457065360472471,
+          "toleranceM": 0.015,
+          "passed": false,
+          "runId": "d98ecade-4879-4f8b-9e73-efed4ed3aeda",
+          "value": 0.5,
+          "maeM": 0.1457065360472471
+        },
+        "value": 0.5
+      },
+      {
+        "index": 5,
+        "runId": "928ae923-f4a9-413b-9449-226999e29694",
+        "metrics": {
+          "maxAbsErrorM": 0.4078050129850201,
+          "withinTolerance": 2,
+          "count": 8,
+          "rmseM": 0.20131707934520773,
+          "uncertaintyM": null,
+          "meanResidualM": -0.14576405601636389,
+          "toleranceM": 0.015,
+          "passed": false,
+          "runId": "928ae923-f4a9-413b-9449-226999e29694",
+          "value": 0.625,
+          "maeM": 0.14576405601636389
+        },
+        "value": 0.625
+      },
+      {
+        "index": 6,
+        "runId": "d95245b5-0a6a-4851-8975-422a87743a4e",
+        "metrics": {
+          "maxAbsErrorM": 0.40780522906563493,
+          "withinTolerance": 2,
+          "count": 8,
+          "rmseM": 0.20131717428088763,
+          "uncertaintyM": null,
+          "meanResidualM": -0.14576411003651757,
+          "toleranceM": 0.015,
+          "passed": false,
+          "runId": "d95245b5-0a6a-4851-8975-422a87743a4e",
+          "value": 0.75,
+          "maeM": 0.14576411003651757
+        },
+        "value": 0.75
+      },
+      {
+        "index": 7,
+        "runId": "085511cc-b9c5-42c7-b548-3c8be552871b",
+        "metrics": {
+          "maxAbsErrorM": 0.4078050129850201,
+          "withinTolerance": 2,
+          "count": 8,
+          "rmseM": 0.2013171195669806,
+          "uncertaintyM": null,
+          "meanResidualM": -0.14576408302644073,
+          "toleranceM": 0.015,
+          "passed": false,
+          "runId": "085511cc-b9c5-42c7-b548-3c8be552871b",
+          "value": 0.875,
+          "maeM": 0.14576408302644073
+        },
+        "value": 0.875
+      },
+      {
+        "index": 8,
+        "runId": "ea334984-32a9-4243-9f78-4bb435f0ae82",
+        "metrics": {
+          "maxAbsErrorM": 0.40780522906563493,
+          "withinTolerance": 2,
+          "count": 8,
+          "rmseM": 0.20131717428088763,
+          "uncertaintyM": null,
+          "meanResidualM": -0.14576411003651757,
+          "toleranceM": 0.015,
+          "passed": false,
+          "runId": "ea334984-32a9-4243-9f78-4bb435f0ae82",
+          "value": 1,
+          "maeM": 0.14576411003651757
+        },
+        "value": 1
+      },
+      {
+        "index": 9,
+        "runId": "5e06a4fc-dcfe-4427-ac91-b0a7d4bc6d6d",
+        "metrics": {
+          "maxAbsErrorM": 0.2025954148583946,
+          "withinTolerance": 2,
+          "count": 8,
+          "rmseM": 0.10004094056132345,
+          "uncertaintyM": null,
+          "meanResidualM": 0.07247837771104242,
+          "toleranceM": 0.015,
+          "passed": false,
+          "runId": "5e06a4fc-dcfe-4427-ac91-b0a7d4bc6d6d",
+          "value": 0.1875,
+          "maeM": 0.07247837771104242
+        },
+        "value": 0.1875
+      },
+      {
+        "index": 10,
+        "runId": "01ec342d-0dd3-4690-89eb-2d7348f2b7f8",
+        "metrics": {
+          "maxAbsErrorM": 0.13415166978437387,
+          "withinTolerance": 3,
+          "count": 8,
+          "rmseM": 0.06624529868767003,
+          "uncertaintyM": null,
+          "meanResidualM": 0.04799408645950692,
+          "toleranceM": 0.015,
+          "passed": false,
+          "runId": "01ec342d-0dd3-4690-89eb-2d7348f2b7f8",
+          "value": 0.21875,
+          "maeM": 0.04799408645950692
+        },
+        "value": 0.21875
+      },
+      {
+        "index": 11,
+        "runId": "099eddf9-d1a2-48e8-9004-e787d678c37e",
+        "metrics": {
+          "maxAbsErrorM": 0.0027338412655361632,
+          "withinTolerance": 8,
+          "count": 8,
+          "rmseM": 0.0013513577627662396,
+          "uncertaintyM": null,
+          "meanResidualM": -0.0009805110707172277,
+          "toleranceM": 0.015,
+          "passed": true,
+          "runId": "099eddf9-d1a2-48e8-9004-e787d678c37e",
+          "value": 0.28125,
+          "maeM": 0.0009805110707172277
+        },
+        "value": 0.28125
+      },
+      {
+        "index": 12,
+        "runId": "2ab99470-7dc1-4dd4-88cb-aaa7a1a2ed9f",
+        "metrics": {
+          "maxAbsErrorM": 0.07130752711304988,
+          "withinTolerance": 4,
+          "count": 8,
+          "rmseM": 0.03518386640554463,
+          "uncertaintyM": null,
+          "meanResidualM": -0.025484017705818988,
+          "toleranceM": 0.015,
+          "passed": false,
+          "runId": "2ab99470-7dc1-4dd4-88cb-aaa7a1a2ed9f",
+          "value": 0.3125,
+          "maeM": 0.025484017705818988
+        },
+        "value": 0.3125
+      },
+      {
+        "index": 13,
+        "runId": "9e1e562a-30c8-4425-bf14-8953a561af35",
+        "metrics": {
+          "maxAbsErrorM": 0.03145822261922515,
+          "withinTolerance": 5,
+          "count": 8,
+          "rmseM": 0.01553866739910464,
+          "uncertaintyM": null,
+          "meanResidualM": 0.011259241433150921,
+          "toleranceM": 0.015,
+          "passed": false,
+          "runId": "9e1e562a-30c8-4425-bf14-8953a561af35",
+          "value": 0.265625,
+          "maeM": 0.011259241433150921
+        },
+        "value": 0.265625
+      },
+      {
+        "index": 14,
+        "runId": "7ca8473c-89b9-44ee-9acd-c0459d4ada43",
+        "metrics": {
+          "maxAbsErrorM": 0.014371434672313055,
+          "withinTolerance": 8,
+          "count": 8,
+          "rmseM": 0.007094800019746076,
+          "uncertaintyM": null,
+          "meanResidualM": 0.005139326083312227,
+          "toleranceM": 0.015,
+          "passed": true,
+          "runId": "7ca8473c-89b9-44ee-9acd-c0459d4ada43",
+          "value": 0.2734375,
+          "maeM": 0.005139326083312227
+        },
+        "value": 0.2734375
+      },
+      {
+        "index": 15,
+        "runId": "330905fe-b8cb-4319-9e8d-eae191ab6029",
+        "metrics": {
+          "maxAbsErrorM": 0.01985290095098191,
+          "withinTolerance": 7,
+          "count": 8,
+          "rmseM": 0.00980377096790127,
+          "uncertaintyM": null,
+          "meanResidualM": -0.0071030236098755155,
+          "toleranceM": 0.015,
+          "passed": false,
+          "runId": "330905fe-b8cb-4319-9e8d-eae191ab6029",
+          "value": 0.2890625,
+          "maeM": 0.0071030236098755155
+        },
+        "value": 0.2890625
+      },
+      {
+        "index": 16,
+        "runId": "03d623f0-8b12-4742-85fc-3ed820c93789",
+        "metrics": {
+          "maxAbsErrorM": 0.03696289455957902,
+          "withinTolerance": 5,
+          "count": 8,
+          "rmseM": 0.018253711257629028,
+          "uncertaintyM": null,
+          "meanResidualM": -0.013224902758618665,
+          "toleranceM": 0.015,
+          "passed": false,
+          "runId": "03d623f0-8b12-4742-85fc-3ed820c93789",
+          "value": 0.296875,
+          "maeM": 0.013224902758618665
+        },
+        "value": 0.296875
+      }
+    ],
+    "refinementRound": 2,
+    "selection": {
+      "criterion": "minimum executed training RMSE; ties prefer the existing parameter",
+      "trainingRmseM": 0.0013513577627662396,
+      "runId": "099eddf9-d1a2-48e8-9004-e787d678c37e",
+      "value": 0.28125,
+      "frozenAt": "2026-10-30T11:31:00.367768100Z"
+    },
+    "validationStartedAt": "2026-10-30T11:31:00.383389800Z",
+    "endedAt": "2026-10-30T11:31:00.508671500Z",
+    "completedNativeOperations": 20,
+    "canRollback": false,
+    "definition": {
+      "actualDurationS": 0.75,
+      "method": "native-grid-v1: 9 coarse values, two four-point refinements; training RMSE only",
+      "validationPriorUseCount": 0,
+      "trainingScene": {
+        "schemaVersion": 1,
+        "objects": [
+          {
+            "bodyType": "static",
+            "schemaVersion": 1,
+            "size": [
+              12,
+              0.2,
+              3
+            ],
+            "rotation": [
+              0,
+              0,
+              -0.21643961393810288,
+              0.9762960071199334
+            ],
+            "id": "82888239-e11d-467b-ad16-3eaa1713634d",
+            "label": "Ramp",
+            "position": [
+              0,
+              2.7357095704441967,
+              0
+            ],
+            "massKg": 0
+          },
+          {
+            "bodyType": "static",
+            "schemaVersion": 1,
+            "size": [
+              40,
+              0.4,
+              24
+            ],
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "id": "5a2961fa-f6c4-4a82-bf19-7619809f2063",
+            "label": "Ground",
+            "position": [
+              0,
+              -0.2,
+              0
+            ],
+            "massKg": 0
+          },
+          {
+            "bodyType": "dynamic",
+            "schemaVersion": 1,
+            "size": [
+              0.5,
+              0.5,
+              0.5
+            ],
+            "rotation": [
+              0,
+              0,
+              -0.21643961393810288,
+              0.9762960071199334
+            ],
+            "id": "62a91804-6225-4884-bdfa-2e522c2e810d",
+            "label": "Block",
+            "position": [
+              -3.114369023460954,
+              4.575249345960578,
+              0
+            ],
+            "massKg": 1
+          }
+        ],
+        "id": "321d4027-a5dc-408f-9096-65f3cef99d82",
+        "units": "SI: metre, second, kilogram",
+        "title": "Training · 25 degrees",
+        "version": 3,
+        "parameters": {
+          "angleDeg": 25,
+          "widthM": 3,
+          "offsetZ": 0,
+          "massKg": 1,
+          "lengthM": 12,
+          "friction": 0,
+          "gravityMps2": 9.81
+        },
+        "entityIds": {
+          "ramp": "82888239-e11d-467b-ad16-3eaa1713634d",
+          "block": "62a91804-6225-4884-bdfa-2e522c2e810d",
+          "ground": "5a2961fa-f6c4-4a82-bf19-7619809f2063"
+        },
+        "frame": "right-handed, +Y up, downhill +X, depth Z",
+        "updatedAt": "2026-10-30T11:30:59.142080600Z"
+      },
+      "training": {
+        "sourceSha256": "e2360a836943bca654e2ccc0bfc889d5632136ef69d0f2964be8d0b791703494",
+        "versionId": "a1561bb2-e837-48cd-b801-721e41268b22",
+        "mappingSha256": "cdce2a3bbe9a4ff155bf704f5d4778a581524a74a056657b03b643adc053db1b",
+        "sourceKind": "synthetic",
+        "sourceNote": "Separate native Bullet source run 2b9bedcd-b2b3-4c20-a538-316039cfcb16 at 25 degrees, friction 0.28. Not instrument data.",
+        "observationsSha256": "e81c0a3a666204aea03c74541653e03d8e846226917938f4ee326ca803b72773",
+        "count": 8,
+        "datasetId": "14d1655b-0102-4719-b3ec-f9937a57ae2a",
+        "title": "Training observations",
+        "version": 1
+      },
+      "seconds": 0.75,
+      "validationScene": {
+        "schemaVersion": 1,
+        "objects": [
+          {
+            "bodyType": "static",
+            "schemaVersion": 1,
+            "size": [
+              12,
+              0.2,
+              3
+            ],
+            "rotation": [
+              0,
+              0,
+              -0.3007057995042731,
+              0.9537169507482269
+            ],
+            "id": "6e48888c-4cce-47d1-8c1b-1012890fb2d0",
+            "label": "Ramp",
+            "position": [
+              0,
+              3.6414586181062765,
+              0
+            ],
+            "massKg": 0
+          },
+          {
+            "bodyType": "static",
+            "schemaVersion": 1,
+            "size": [
+              40,
+              0.4,
+              24
+            ],
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "id": "fbd33fdb-f714-4ffa-95cb-11ef87048faf",
+            "label": "Ground",
+            "position": [
+              0,
+              -0.2,
+              0
+            ],
+            "massKg": 0
+          },
+          {
+            "bodyType": "dynamic",
+            "schemaVersion": 1,
+            "size": [
+              0.5,
+              0.5,
+              0.5
+            ],
+            "rotation": [
+              0,
+              0,
+              -0.3007057995042731,
+              0.9537169507482269
+            ],
+            "id": "a6e60898-d21c-4b64-a648-886e8093fbc0",
+            "label": "Block",
+            "position": [
+              -2.7476220302811534,
+              5.993856156515478,
+              0
+            ],
+            "massKg": 1
+          }
+        ],
+        "id": "72079dd9-8b4e-4ff5-bcb7-ae1dee3936cb",
+        "units": "SI: metre, second, kilogram",
+        "title": "Validation · 35 degrees",
+        "version": 1,
+        "parameters": {
+          "angleDeg": 35,
+          "widthM": 3,
+          "offsetZ": 0,
+          "massKg": 1,
+          "lengthM": 12,
+          "friction": 0,
+          "gravityMps2": 9.81
+        },
+        "entityIds": {
+          "ramp": "6e48888c-4cce-47d1-8c1b-1012890fb2d0",
+          "block": "a6e60898-d21c-4b64-a648-886e8093fbc0",
+          "ground": "fbd33fdb-f714-4ffa-95cb-11ef87048faf"
+        },
+        "frame": "right-handed, +Y up, downhill +X, depth Z",
+        "updatedAt": "2026-10-30T11:30:55.858659Z"
+      },
+      "parameter": "friction",
+      "minImprovementM": 0.0005,
+      "maximum": 1,
+      "toleranceM": 0.015,
+      "backend": "Minie 9.0.3 / Libbulletjme 22.0.3 / single precision",
+      "minimum": 0,
+      "validation": {
+        "sourceSha256": "380e09bdbab3f1ee5f45ebd69941908895363bef88ddce8464f4c54e1da63129",
+        "versionId": "918755e5-2a7b-43ca-bb4b-73d3b80a1809",
+        "mappingSha256": "8e5b1661213819ceb87b70d54bc7981f4e10945942c7a7737b5827b09fc2ee7e",
+        "sourceKind": "synthetic",
+        "sourceNote": "Separate native Bullet source run e82fc413-d786-4965-b261-c3b9f68d968a at 35 degrees, friction 0.65. Not instrument data.",
+        "observationsSha256": "09df3510046bdcabf72362172a6b2fed58bd08dc5df5a6011dfbb18dae0df267",
+        "count": 8,
+        "datasetId": "1642f622-63e0-4dbd-9d84-b778e593a258",
+        "title": "Different validation conditions",
+        "version": 1
+      },
+      "limits": {
+        "nativeRuns": 20,
+        "wallTimePerAttemptMs": 60000,
+        "rowsPerDataset": 512
+      }
+    },
+    "baselineTraining": {
+      "maxAbsErrorM": 0.6132639495842045,
+      "withinTolerance": 2,
+      "count": 8,
+      "rmseM": 0.30282718999500485,
+      "uncertaintyM": null,
+      "meanResidualM": 0.21939412042609674,
+      "toleranceM": 0.015,
+      "passed": false,
+      "runId": "3c7186a2-2503-4d45-9361-0062f3d6fbed",
+      "value": 0,
+      "maeM": 0.21939412042609674,
+      "points": [
+        {
+          "timeS": 0,
+          "observedM": 1.6155032294565553e-07,
+          "residualM": 0,
+          "sourceRow": 2,
+          "simulatedM": 1.6155032294565553e-07
+        },
+        {
+          "timeS": 0.1,
+          "observedM": 0.008909617128501465,
+          "residualM": 0.012684017225616802,
+          "sourceRow": 3,
+          "simulatedM": 0.021593634354118266
+        },
+        {
+          "timeS": 0.2,
+          "observedM": 0.034099930196563835,
+          "residualM": 0.050545858525208404,
+          "sourceRow": 4,
+          "simulatedM": 0.08464578872177224
+        },
+        {
+          "timeS": 0.3,
+          "observedM": 0.07585646323132968,
+          "residualM": 0.11330042208625805,
+          "sourceRow": 5,
+          "simulatedM": 0.18915688531758773
+        },
+        {
+          "timeS": 0.4,
+          "observedM": 0.13417894191008867,
+          "residualM": 0.20094778303862854,
+          "sourceRow": 6,
+          "simulatedM": 0.3351267249487172
+        },
+        {
+          "timeS": 0.5,
+          "observedM": 0.2090775686276156,
+          "residualM": 0.3134778094629209,
+          "sourceRow": 7,
+          "simulatedM": 0.5225553780905365
+        },
+        {
+          "timeS": 0.6,
+          "observedM": 0.3005103147782286,
+          "residualM": 0.45093312348593667,
+          "sourceRow": 8,
+          "simulatedM": 0.7514434382641653
+        },
+        {
+          "timeS": 0.7,
+          "observedM": 0.40852618704092936,
+          "residualM": 0.6132639495842045,
+          "sourceRow": 9,
+          "simulatedM": 1.0217901366251338
+        }
+      ]
+    },
+    "id": "47d6bd49-4700-4910-a761-a3715a65d1cd",
+    "bindingsCurrent": true,
+    "currentValue": 0.296875,
+    "status": "completed",
+    "attempts": 1,
+    "validationBaseline": {
+      "maxAbsErrorM": 1.2869848937930146,
+      "withinTolerance": 1,
+      "count": 8,
+      "rmseM": 0.6348158573766148,
+      "uncertaintyM": null,
+      "meanResidualM": 0.4595294470747064,
+      "toleranceM": 0.015,
+      "passed": false,
+      "runId": "60acd52d-5d55-4c74-b07b-2013bb375bd8",
+      "value": 0,
+      "maeM": 0.4595294470747064,
+      "points": [
+        {
+          "timeS": 0,
+          "observedM": 1.306879695844928e-07,
+          "residualM": 0,
+          "sourceRow": 2,
+          "simulatedM": 1.306879695844928e-07
+        },
+        {
+          "timeS": 0.1,
+          "observedM": 0.0030810156935081076,
+          "residualM": 0.026225709587327024,
+          "sourceRow": 3,
+          "simulatedM": 0.02930672528083513
+        },
+        {
+          "timeS": 0.2,
+          "observedM": 0.009605683367415912,
+          "residualM": 0.1052748463746006,
+          "sourceRow": 4,
+          "simulatedM": 0.11488052974201651
+        },
+        {
+          "timeS": 0.3,
+          "observedM": 0.020169141976235365,
+          "residualM": 0.236552780184568,
+          "sourceRow": 5,
+          "simulatedM": 0.25672192216080336
+        },
+        {
+          "timeS": 0.4,
+          "observedM": 0.034766829095108656,
+          "residualM": 0.4200647168882895,
+          "sourceRow": 6,
+          "simulatedM": 0.45483154598339814
+        },
+        {
+          "timeS": 0.5,
+          "observedM": 0.05287287753274898,
+          "residualM": 0.6563368952158882,
+          "sourceRow": 7,
+          "simulatedM": 0.7092097727486372
+        },
+        {
+          "timeS": 0.6,
+          "observedM": 0.07505936790092088,
+          "residualM": 0.9447957345539628,
+          "sourceRow": 8,
+          "simulatedM": 1.0198551024548836
+        },
+        {
+          "timeS": 0.7,
+          "observedM": 0.0997827944890908,
+          "residualM": 1.2869848937930146,
+          "sourceRow": 9,
+          "simulatedM": 1.3867676882821054
+        }
+      ]
+    }
+  },
+  "report": {
+    "id": "8ce90c4a-3134-4a3c-b2e8-5b3d27776077",
+    "test": {
+      "checks": [
+        {
+          "actual": {
+            "count": 1,
+            "text": "Accepted by declared gates",
+            "value": null
+          },
+          "expected": {
+            "expectText": "Accepted by declared gates",
+            "selector": "#verdict"
+          },
+          "index": 0,
+          "selector": "#verdict",
+          "passed": true
+        },
+        {
+          "actual": {
+            "count": 2,
+            "text": "orange: observed · violet: baseline · green: fittedtime 0–0.700000 s · displacement 0.000000–1.021790 m",
+            "value": null
+          },
+          "expected": {
+            "expectCount": 2,
+            "selector": "svg"
+          },
+          "index": 1,
+          "selector": "svg",
+          "passed": true
+        },
+        {
+          "actual": {
+            "count": 17,
+            "text": "0.000000\t0.302827\taf44f454-6c3e-4e7e-adeb-b8f2c3881bbb",
+            "value": null
+          },
+          "expected": {
+            "expectCount": 17,
+            "selector": "tbody tr"
+          },
+          "index": 2,
+          "selector": "tbody tr",
+          "passed": true
+        }
+      ],
+      "at": "2026-10-30T11:30:57.825229500Z",
+      "id": "8ce90c4a-3134-4a3c-b2e8-5b3d27776077",
+      "passed": true,
+      "version": 1,
+      "steps": [
+        {
+          "expectText": "Accepted by declared gates",
+          "selector": "#verdict"
+        },
+        {
+          "expectCount": 2,
+          "selector": "svg"
+        },
+        {
+          "expectCount": 17,
+          "selector": "tbody tr"
+        }
+      ]
+    }
+  },
+  "scope": "Actual isolated Electron/Java/Bullet workflow using explicitly synthetic sources. This is physical parameter calibration, not language-model training."
+}

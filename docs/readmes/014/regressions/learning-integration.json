@@ -1,0 +1,1309 @@
+{
+  "date": "2026-10-29",
+  "passed": true,
+  "checks": [
+    "Real stale-action episode generates a prototype/rule candidate; independent 8-case replay promotes it without changing the user browser",
+    "Existing library and timeline expose actual episodes, controller version and independent replay evidence",
+    "Promoted policy changes the actual host action path: stale click becomes a fresh observation without an unintended click",
+    "Actual unchanged repeated observations produce a second candidate; replay retains 8/8 while reducing extra reads",
+    "A valid-schema harmful candidate regresses real fixtures, is rejected and cannot replace the active controller",
+    "Restart restores policy, learned prototype memory, episode and evaluation records",
+    "Rollback restores the parent; takeover during independent replay cancels the candidate without promotion",
+    "A cancelled evaluation can be retried; recorded failures yield a new verified controller version",
+    "Existing browser/canvas guided workflow records a version-bound verified episode while omitting typed/page/source content"
+  ],
+  "firstReplay": {
+    "suiteDigest": "0791026b46558d239b149e6d9b52f4a30344ea14b02b7df8599ddef074c41ca2",
+    "accepted": true,
+    "label": "Replay · controller v2",
+    "baselineFailures": 5,
+    "suite": "browser-controller-v2",
+    "at": "2026-10-30T11:31:36.668968300Z",
+    "regression": false,
+    "scope": "Deterministic browser/controller and canvas acceptance fixtures; not a general intelligence score",
+    "candidateFailures": 2,
+    "id": "29ab06d6-ca0d-4ae7-9f44-0a48a2904563",
+    "candidateId": "1d5fe31e-34e0-4957-b313-a85cd57ae132",
+    "results": [
+      {
+        "candidate": {
+          "failures": 0,
+          "refreshed": true,
+          "passed": true
+        },
+        "split": "training",
+        "id": "train-stale-click",
+        "baseline": {
+          "failures": 1,
+          "refreshed": false,
+          "passed": false,
+          "error": "Stale observation. Observe this surface again before acting."
+        }
+      },
+      {
+        "candidate": {
+          "failures": 0,
+          "refreshed": true,
+          "passed": true
+        },
+        "split": "validation",
+        "id": "validation-stale-form",
+        "baseline": {
+          "failures": 1,
+          "refreshed": false,
+          "passed": false,
+          "error": "Stale observation. Observe this surface again before acting."
+        }
+      },
+      {
+        "candidate": {
+          "failures": 0,
+          "refreshed": true,
+          "passed": true
+        },
+        "split": "final-test",
+        "id": "final-stale-link",
+        "baseline": {
+          "failures": 1,
+          "refreshed": false,
+          "passed": false,
+          "error": "Stale observation. Observe this surface again before acting."
+        }
+      },
+      {
+        "candidate": {
+          "failures": 0,
+          "refreshed": false,
+          "passed": true
+        },
+        "split": "regression",
+        "id": "regression-fresh-click",
+        "baseline": {
+          "failures": 0,
+          "refreshed": false,
+          "passed": true
+        }
+      },
+      {
+        "candidate": {
+          "failures": 0,
+          "passed": true,
+          "protectedBehavior": "Password entry refused"
+        },
+        "split": "regression",
+        "id": "regression-password",
+        "baseline": {
+          "failures": 0,
+          "passed": true,
+          "protectedBehavior": "Password entry refused"
+        }
+      },
+      {
+        "candidate": {
+          "failures": 0,
+          "checks": [
+            {
+              "actual": {
+                "count": 1,
+                "text": "0",
+                "value": "0"
+              },
+              "expected": {
+                "expectText": "0",
+                "selector": "#count"
+              },
+              "index": 0,
+              "selector": "#count",
+              "passed": true
+            },
+            {
+              "actual": {
+                "count": 1,
+                "text": "Add",
+                "value": ""
+              },
+              "expected": {
+                "expectCount": 1,
+                "action": "click",
+                "selector": "#add"
+              },
+              "index": 1,
+              "selector": "#add",
+              "passed": true
+            },
+            {
+              "actual": {
+                "count": 1,
+                "text": "1",
+                "value": "1"
+              },
+              "expected": {
+                "expectText": "1",
+                "selector": "#count"
+              },
+              "index": 2,
+              "selector": "#count",
+              "passed": true
+            },
+            {
+              "actual": {
+                "count": 1,
+                "text": "Reset",
+                "value": ""
+              },
+              "expected": {
+                "expectCount": 1,
+                "action": "click",
+                "selector": "#reset"
+              },
+              "index": 3,
+              "selector": "#reset",
+              "passed": true
+            },
+            {
+              "actual": {
+                "count": 1,
+                "text": "0",
+                "value": "0"
+              },
+              "expected": {
+                "expectText": "0",
+                "selector": "#count"
+              },
+              "index": 4,
+              "selector": "#count",
+              "passed": true
+            }
+          ],
+          "passed": true,
+          "protectedBehavior": "Actual Add and Reset passed"
+        },
+        "split": "regression",
+        "id": "regression-counter",
+        "baseline": {
+          "failures": 0,
+          "checks": [
+            {
+              "actual": {
+                "count": 1,
+                "text": "0",
+                "value": "0"
+              },
+              "expected": {
+                "expectText": "0",
+                "selector": "#count"
+              },
+              "index": 0,
+              "selector": "#count",
+              "passed": true
+            },
+            {
+              "actual": {
+                "count": 1,
+                "text": "Add",
+                "value": ""
+              },
+              "expected": {
+                "expectCount": 1,
+                "action": "click",
+                "selector": "#add"
+              },
+              "index": 1,
+              "selector": "#add",
+              "passed": true
+            },
+            {
+              "actual": {
+                "count": 1,
+                "text": "1",
+                "value": "1"
+              },
+              "expected": {
+                "expectText": "1",
+                "selector": "#count"
+              },
+              "index": 2,
+              "selector": "#count",
+              "passed": true
+            },
+            {
+              "actual": {
+                "count": 1,
+                "text": "Reset",
+                "value": ""
+              },
+              "expected": {
+                "expectCount": 1,
+                "action": "click",
+                "selector": "#reset"
+              },
+              "index": 3,
+              "selector": "#reset",
+              "passed": true
+            },
+            {
+              "actual": {
+                "count": 1,
+                "text": "0",
+                "value": "0"
+              },
+              "expected": {
+                "expectText": "0",
+                "selector": "#count"
+              },
+              "index": 4,
+              "selector": "#count",
+              "passed": true
+            }
+          ],
+          "passed": true,
+          "protectedBehavior": "Actual Add and Reset passed"
+        }
+      },
+      {
+        "candidate": {
+          "failures": 0,
+          "checks": [
+            {
+              "actual": {
+                "count": 1,
+                "text": "0",
+                "value": "0"
+              },
+              "expected": {
+                "expectText": "0",
+                "selector": "#count"
+              },
+              "index": 0,
+              "selector": "#count",
+              "passed": true
+            },
+            {
+              "actual": {
+                "count": 1,
+                "text": "Add",
+                "value": ""
+              },
+              "expected": {
+                "expectCount": 1,
+                "action": "click",
+                "selector": "#add"
+              },
+              "index": 1,
+              "selector": "#add",
+              "passed": true
+            },
+            {
+              "actual": {
+                "count": 1,
+                "text": "2",
+                "value": "2"
+              },
+              "expected": {
+                "expectText": "1",
+                "selector": "#count"
+              },
+              "index": 2,
+              "selector": "#count",
+              "passed": false
+            },
+            {
+              "actual": {
+                "count": 1,
+                "text": "Reset",
+                "value": ""
+              },
+              "expected": {
+                "expectCount": 1,
+                "action": "click",
+                "selector": "#reset"
+              },
+              "index": 3,
+              "selector": "#reset",
+              "passed": true
+            },
+            {
+              "actual": {
+                "count": 1,
+                "text": "0",
+                "value": "0"
+              },
+              "expected": {
+                "expectText": "0",
+                "selector": "#count"
+              },
+              "index": 4,
+              "selector": "#count",
+              "passed": true
+            }
+          ],
+          "passed": true,
+          "protectedBehavior": "Incorrect Add was detected"
+        },
+        "split": "regression",
+        "id": "regression-broken-counter",
+        "baseline": {
+          "failures": 0,
+          "checks": [
+            {
+              "actual": {
+                "count": 1,
+                "text": "0",
+                "value": "0"
+              },
+              "expected": {
+                "expectText": "0",
+                "selector": "#count"
+              },
+              "index": 0,
+              "selector": "#count",
+              "passed": true
+            },
+            {
+              "actual": {
+                "count": 1,
+                "text": "Add",
+                "value": ""
+              },
+              "expected": {
+                "expectCount": 1,
+                "action": "click",
+                "selector": "#add"
+              },
+              "index": 1,
+              "selector": "#add",
+              "passed": true
+            },
+            {
+              "actual": {
+                "count": 1,
+                "text": "2",
+                "value": "2"
+              },
+              "expected": {
+                "expectText": "1",
+                "selector": "#count"
+              },
+              "index": 2,
+              "selector": "#count",
+              "passed": false
+            },
+            {
+              "actual": {
+                "count": 1,
+                "text": "Reset",
+                "value": ""
+              },
+              "expected": {
+                "expectCount": 1,
+                "action": "click",
+                "selector": "#reset"
+              },
+              "index": 3,
+              "selector": "#reset",
+              "passed": true
+            },
+            {
+              "actual": {
+                "count": 1,
+                "text": "0",
+                "value": "0"
+              },
+              "expected": {
+                "expectText": "0",
+                "selector": "#count"
+              },
+              "index": 4,
+              "selector": "#count",
+              "passed": true
+            }
+          ],
+          "passed": true,
+          "protectedBehavior": "Incorrect Add was detected"
+        }
+      },
+      {
+        "candidate": {
+          "failures": 2,
+          "researchAllowed": true,
+          "observations": 3,
+          "passed": true
+        },
+        "split": "validation",
+        "id": "validation-observation-budget",
+        "baseline": {
+          "failures": 2,
+          "researchAllowed": true,
+          "observations": 3,
+          "passed": true
+        }
+      }
+    ],
+    "baselinePassed": 5,
+    "candidatePassed": 8
+  },
+  "costReplay": {
+    "suiteDigest": "0791026b46558d239b149e6d9b52f4a30344ea14b02b7df8599ddef074c41ca2",
+    "accepted": true,
+    "label": "Replay · controller v3",
+    "baselineFailures": 2,
+    "suite": "browser-controller-v2",
+    "at": "2026-10-30T11:31:42.578439Z",
+    "regression": false,
+    "scope": "Deterministic browser/controller and canvas acceptance fixtures; not a general intelligence score",
+    "candidateFailures": 1,
+    "id": "e615d2bb-b45d-4325-bb67-8b49aa9a3880",
+    "candidateId": "054aea95-7591-42bb-9031-a6fbf3066fdf",
+    "results": [
+      {
+        "candidate": {
+          "failures": 0,
+          "refreshed": true,
+          "passed": true
+        },
+        "split": "training",
+        "id": "train-stale-click",
+        "baseline": {
+          "failures": 0,
+          "refreshed": true,
+          "passed": true
+        }
+      },
+      {
+        "candidate": {
+          "failures": 0,
+          "refreshed": true,
+          "passed": true
+        },
+        "split": "validation",
+        "id": "validation-stale-form",
+        "baseline": {
+          "failures": 0,
+          "refreshed": true,
+          "passed": true
+        }
+      },
+      {
+        "candidate": {
+          "failures": 0,
+          "refreshed": true,
+          "passed": true
+        },
+        "split": "final-test",
+        "id": "final-stale-link",
+        "baseline": {
+          "failures": 0,
+          "refreshed": true,
+          "passed": true
+        }
+      },
+      {
+        "candidate": {
+          "failures": 0,
+          "refreshed": false,
+          "passed": true
+        },
+        "split": "regression",
+        "id": "regression-fresh-click",
+        "baseline": {
+          "failures": 0,
+          "refreshed": false,
+          "passed": true
+        }
+      },
+      {
+        "candidate": {
+          "failures": 0,
+          "passed": true,
+          "protectedBehavior": "Password entry refused"
+        },
+        "split": "regression",
+        "id": "regression-password",
+        "baseline": {
+          "failures": 0,
+          "passed": true,
+          "protectedBehavior": "Password entry refused"
+        }
+      },
+      {
+        "candidate": {
+          "failures": 0,
+          "checks": [
+            {
+              "actual": {
+                "count": 1,
+                "text": "0",
+                "value": "0"
+              },
+              "expected": {
+                "expectText": "0",
+                "selector": "#count"
+              },
+              "index": 0,
+              "selector": "#count",
+              "passed": true
+            },
+            {
+              "actual": {
+                "count": 1,
+                "text": "Add",
+                "value": ""
+              },
+              "expected": {
+                "expectCount": 1,
+                "action": "click",
+                "selector": "#add"
+              },
+              "index": 1,
+              "selector": "#add",
+              "passed": true
+            },
+            {
+              "actual": {
+                "count": 1,
+                "text": "1",
+                "value": "1"
+              },
+              "expected": {
+                "expectText": "1",
+                "selector": "#count"
+              },
+              "index": 2,
+              "selector": "#count",
+              "passed": true
+            },
+            {
+              "actual": {
+                "count": 1,
+                "text": "Reset",
+                "value": ""
+              },
+              "expected": {
+                "expectCount": 1,
+                "action": "click",
+                "selector": "#reset"
+              },
+              "index": 3,
+              "selector": "#reset",
+              "passed": true
+            },
+            {
+              "actual": {
+                "count": 1,
+                "text": "0",
+                "value": "0"
+              },
+              "expected": {
+                "expectText": "0",
+                "selector": "#count"
+              },
+              "index": 4,
+              "selector": "#count",
+              "passed": true
+            }
+          ],
+          "passed": true,
+          "protectedBehavior": "Actual Add and Reset passed"
+        },
+        "split": "regression",
+        "id": "regression-counter",
+        "baseline": {
+          "failures": 0,
+          "checks": [
+            {
+              "actual": {
+                "count": 1,
+                "text": "0",
+                "value": "0"
+              },
+              "expected": {
+                "expectText": "0",
+                "selector": "#count"
+              },
+              "index": 0,
+              "selector": "#count",
+              "passed": true
+            },
+            {
+              "actual": {
+                "count": 1,
+                "text": "Add",
+                "value": ""
+              },
+              "expected": {
+                "expectCount": 1,
+                "action": "click",
+                "selector": "#add"
+              },
+              "index": 1,
+              "selector": "#add",
+              "passed": true
+            },
+            {
+              "actual": {
+                "count": 1,
+                "text": "1",
+                "value": "1"
+              },
+              "expected": {
+                "expectText": "1",
+                "selector": "#count"
+              },
+              "index": 2,
+              "selector": "#count",
+              "passed": true
+            },
+            {
+              "actual": {
+                "count": 1,
+                "text": "Reset",
+                "value": ""
+              },
+              "expected": {
+                "expectCount": 1,
+                "action": "click",
+                "selector": "#reset"
+              },
+              "index": 3,
+              "selector": "#reset",
+              "passed": true
+            },
+            {
+              "actual": {
+                "count": 1,
+                "text": "0",
+                "value": "0"
+              },
+              "expected": {
+                "expectText": "0",
+                "selector": "#count"
+              },
+              "index": 4,
+              "selector": "#count",
+              "passed": true
+            }
+          ],
+          "passed": true,
+          "protectedBehavior": "Actual Add and Reset passed"
+        }
+      },
+      {
+        "candidate": {
+          "failures": 0,
+          "checks": [
+            {
+              "actual": {
+                "count": 1,
+                "text": "0",
+                "value": "0"
+              },
+              "expected": {
+                "expectText": "0",
+                "selector": "#count"
+              },
+              "index": 0,
+              "selector": "#count",
+              "passed": true
+            },
+            {
+              "actual": {
+                "count": 1,
+                "text": "Add",
+                "value": ""
+              },
+              "expected": {
+                "expectCount": 1,
+                "action": "click",
+                "selector": "#add"
+              },
+              "index": 1,
+              "selector": "#add",
+              "passed": true
+            },
+            {
+              "actual": {
+                "count": 1,
+                "text": "2",
+                "value": "2"
+              },
+              "expected": {
+                "expectText": "1",
+                "selector": "#count"
+              },
+              "index": 2,
+              "selector": "#count",
+              "passed": false
+            },
+            {
+              "actual": {
+                "count": 1,
+                "text": "Reset",
+                "value": ""
+              },
+              "expected": {
+                "expectCount": 1,
+                "action": "click",
+                "selector": "#reset"
+              },
+              "index": 3,
+              "selector": "#reset",
+              "passed": true
+            },
+            {
+              "actual": {
+                "count": 1,
+                "text": "0",
+                "value": "0"
+              },
+              "expected": {
+                "expectText": "0",
+                "selector": "#count"
+              },
+              "index": 4,
+              "selector": "#count",
+              "passed": true
+            }
+          ],
+          "passed": true,
+          "protectedBehavior": "Incorrect Add was detected"
+        },
+        "split": "regression",
+        "id": "regression-broken-counter",
+        "baseline": {
+          "failures": 0,
+          "checks": [
+            {
+              "actual": {
+                "count": 1,
+                "text": "0",
+                "value": "0"
+              },
+              "expected": {
+                "expectText": "0",
+                "selector": "#count"
+              },
+              "index": 0,
+              "selector": "#count",
+              "passed": true
+            },
+            {
+              "actual": {
+                "count": 1,
+                "text": "Add",
+                "value": ""
+              },
+              "expected": {
+                "expectCount": 1,
+                "action": "click",
+                "selector": "#add"
+              },
+              "index": 1,
+              "selector": "#add",
+              "passed": true
+            },
+            {
+              "actual": {
+                "count": 1,
+                "text": "2",
+                "value": "2"
+              },
+              "expected": {
+                "expectText": "1",
+                "selector": "#count"
+              },
+              "index": 2,
+              "selector": "#count",
+              "passed": false
+            },
+            {
+              "actual": {
+                "count": 1,
+                "text": "Reset",
+                "value": ""
+              },
+              "expected": {
+                "expectCount": 1,
+                "action": "click",
+                "selector": "#reset"
+              },
+              "index": 3,
+              "selector": "#reset",
+              "passed": true
+            },
+            {
+              "actual": {
+                "count": 1,
+                "text": "0",
+                "value": "0"
+              },
+              "expected": {
+                "expectText": "0",
+                "selector": "#count"
+              },
+              "index": 4,
+              "selector": "#count",
+              "passed": true
+            }
+          ],
+          "passed": true,
+          "protectedBehavior": "Incorrect Add was detected"
+        }
+      },
+      {
+        "candidate": {
+          "failures": 1,
+          "researchAllowed": true,
+          "observations": 2,
+          "passed": true
+        },
+        "split": "validation",
+        "id": "validation-observation-budget",
+        "baseline": {
+          "failures": 2,
+          "researchAllowed": true,
+          "observations": 3,
+          "passed": true
+        }
+      }
+    ],
+    "baselinePassed": 8,
+    "candidatePassed": 8
+  },
+  "harmfulReplay": {
+    "suiteDigest": "0791026b46558d239b149e6d9b52f4a30344ea14b02b7df8599ddef074c41ca2",
+    "accepted": false,
+    "label": "Replay · controller v4",
+    "baselineFailures": 1,
+    "suite": "browser-controller-v2",
+    "at": "2026-10-30T11:31:47.409851800Z",
+    "regression": true,
+    "scope": "Deterministic browser/controller and canvas acceptance fixtures; not a general intelligence score",
+    "candidateFailures": 5,
+    "id": "795a5a63-aa99-4eec-b2ae-6a2d27a9f1ce",
+    "candidateId": "a83f14f4-8e38-4fb7-9721-62724c4ccfc9",
+    "results": [
+      {
+        "candidate": {
+          "failures": 1,
+          "refreshed": false,
+          "passed": false,
+          "error": "Stale observation. Observe this surface again before acting."
+        },
+        "split": "training",
+        "id": "train-stale-click",
+        "baseline": {
+          "failures": 0,
+          "refreshed": true,
+          "passed": true
+        }
+      },
+      {
+        "candidate": {
+          "failures": 1,
+          "refreshed": false,
+          "passed": false,
+          "error": "Stale observation. Observe this surface again before acting."
+        },
+        "split": "validation",
+        "id": "validation-stale-form",
+        "baseline": {
+          "failures": 0,
+          "refreshed": true,
+          "passed": true
+        }
+      },
+      {
+        "candidate": {
+          "failures": 1,
+          "refreshed": false,
+          "passed": false,
+          "error": "Stale observation. Observe this surface again before acting."
+        },
+        "split": "final-test",
+        "id": "final-stale-link",
+        "baseline": {
+          "failures": 0,
+          "refreshed": true,
+          "passed": true
+        }
+      },
+      {
+        "candidate": {
+          "failures": 0,
+          "refreshed": false,
+          "passed": true
+        },
+        "split": "regression",
+        "id": "regression-fresh-click",
+        "baseline": {
+          "failures": 0,
+          "refreshed": false,
+          "passed": true
+        }
+      },
+      {
+        "candidate": {
+          "failures": 0,
+          "passed": true,
+          "protectedBehavior": "Password entry refused"
+        },
+        "split": "regression",
+        "id": "regression-password",
+        "baseline": {
+          "failures": 0,
+          "passed": true,
+          "protectedBehavior": "Password entry refused"
+        }
+      },
+      {
+        "candidate": {
+          "failures": 0,
+          "checks": [
+            {
+              "actual": {
+                "count": 1,
+                "text": "0",
+                "value": "0"
+              },
+              "expected": {
+                "expectText": "0",
+                "selector": "#count"
+              },
+              "index": 0,
+              "selector": "#count",
+              "passed": true
+            },
+            {
+              "actual": {
+                "count": 1,
+                "text": "Add",
+                "value": ""
+              },
+              "expected": {
+                "expectCount": 1,
+                "action": "click",
+                "selector": "#add"
+              },
+              "index": 1,
+              "selector": "#add",
+              "passed": true
+            },
+            {
+              "actual": {
+                "count": 1,
+                "text": "1",
+                "value": "1"
+              },
+              "expected": {
+                "expectText": "1",
+                "selector": "#count"
+              },
+              "index": 2,
+              "selector": "#count",
+              "passed": true
+            },
+            {
+              "actual": {
+                "count": 1,
+                "text": "Reset",
+                "value": ""
+              },
+              "expected": {
+                "expectCount": 1,
+                "action": "click",
+                "selector": "#reset"
+              },
+              "index": 3,
+              "selector": "#reset",
+              "passed": true
+            },
+            {
+              "actual": {
+                "count": 1,
+                "text": "0",
+                "value": "0"
+              },
+              "expected": {
+                "expectText": "0",
+                "selector": "#count"
+              },
+              "index": 4,
+              "selector": "#count",
+              "passed": true
+            }
+          ],
+          "passed": true,
+          "protectedBehavior": "Actual Add and Reset passed"
+        },
+        "split": "regression",
+        "id": "regression-counter",
+        "baseline": {
+          "failures": 0,
+          "checks": [
+            {
+              "actual": {
+                "count": 1,
+                "text": "0",
+                "value": "0"
+              },
+              "expected": {
+                "expectText": "0",
+                "selector": "#count"
+              },
+              "index": 0,
+              "selector": "#count",
+              "passed": true
+            },
+            {
+              "actual": {
+                "count": 1,
+                "text": "Add",
+                "value": ""
+              },
+              "expected": {
+                "expectCount": 1,
+                "action": "click",
+                "selector": "#add"
+              },
+              "index": 1,
+              "selector": "#add",
+              "passed": true
+            },
+            {
+              "actual": {
+                "count": 1,
+                "text": "1",
+                "value": "1"
+              },
+              "expected": {
+                "expectText": "1",
+                "selector": "#count"
+              },
+              "index": 2,
+              "selector": "#count",
+              "passed": true
+            },
+            {
+              "actual": {
+                "count": 1,
+                "text": "Reset",
+                "value": ""
+              },
+              "expected": {
+                "expectCount": 1,
+                "action": "click",
+                "selector": "#reset"
+              },
+              "index": 3,
+              "selector": "#reset",
+              "passed": true
+            },
+            {
+              "actual": {
+                "count": 1,
+                "text": "0",
+                "value": "0"
+              },
+              "expected": {
+                "expectText": "0",
+                "selector": "#count"
+              },
+              "index": 4,
+              "selector": "#count",
+              "passed": true
+            }
+          ],
+          "passed": true,
+          "protectedBehavior": "Actual Add and Reset passed"
+        }
+      },
+      {
+        "candidate": {
+          "failures": 0,
+          "checks": [
+            {
+              "actual": {
+                "count": 1,
+                "text": "0",
+                "value": "0"
+              },
+              "expected": {
+                "expectText": "0",
+                "selector": "#count"
+              },
+              "index": 0,
+              "selector": "#count",
+              "passed": true
+            },
+            {
+              "actual": {
+                "count": 1,
+                "text": "Add",
+                "value": ""
+              },
+              "expected": {
+                "expectCount": 1,
+                "action": "click",
+                "selector": "#add"
+              },
+              "index": 1,
+              "selector": "#add",
+              "passed": true
+            },
+            {
+              "actual": {
+                "count": 1,
+                "text": "2",
+                "value": "2"
+              },
+              "expected": {
+                "expectText": "1",
+                "selector": "#count"
+              },
+              "index": 2,
+              "selector": "#count",
+              "passed": false
+            },
+            {
+              "actual": {
+                "count": 1,
+                "text": "Reset",
+                "value": ""
+              },
+              "expected": {
+                "expectCount": 1,
+                "action": "click",
+                "selector": "#reset"
+              },
+              "index": 3,
+              "selector": "#reset",
+              "passed": true
+            },
+            {
+              "actual": {
+                "count": 1,
+                "text": "0",
+                "value": "0"
+              },
+              "expected": {
+                "expectText": "0",
+                "selector": "#count"
+              },
+              "index": 4,
+              "selector": "#count",
+              "passed": true
+            }
+          ],
+          "passed": true,
+          "protectedBehavior": "Incorrect Add was detected"
+        },
+        "split": "regression",
+        "id": "regression-broken-counter",
+        "baseline": {
+          "failures": 0,
+          "checks": [
+            {
+              "actual": {
+                "count": 1,
+                "text": "0",
+                "value": "0"
+              },
+              "expected": {
+                "expectText": "0",
+                "selector": "#count"
+              },
+              "index": 0,
+              "selector": "#count",
+              "passed": true
+            },
+            {
+              "actual": {
+                "count": 1,
+                "text": "Add",
+                "value": ""
+              },
+              "expected": {
+                "expectCount": 1,
+                "action": "click",
+                "selector": "#add"
+              },
+              "index": 1,
+              "selector": "#add",
+              "passed": true
+            },
+            {
+              "actual": {
+                "count": 1,
+                "text": "2",
+                "value": "2"
+              },
+              "expected": {
+                "expectText": "1",
+                "selector": "#count"
+              },
+              "index": 2,
+              "selector": "#count",
+              "passed": false
+            },
+            {
+              "actual": {
+                "count": 1,
+                "text": "Reset",
+                "value": ""
+              },
+              "expected": {
+                "expectCount": 1,
+                "action": "click",
+                "selector": "#reset"
+              },
+              "index": 3,
+              "selector": "#reset",
+              "passed": true
+            },
+            {
+              "actual": {
+                "count": 1,
+                "text": "0",
+                "value": "0"
+              },
+              "expected": {
+                "expectText": "0",
+                "selector": "#count"
+              },
+              "index": 4,
+              "selector": "#count",
+              "passed": true
+            }
+          ],
+          "passed": true,
+          "protectedBehavior": "Incorrect Add was detected"
+        }
+      },
+      {
+        "candidate": {
+          "failures": 2,
+          "researchAllowed": true,
+          "observations": 3,
+          "passed": true
+        },
+        "split": "validation",
+        "id": "validation-observation-budget",
+        "baseline": {
+          "failures": 1,
+          "researchAllowed": true,
+          "observations": 2,
+          "passed": true
+        }
+      }
+    ],
+    "baselinePassed": 8,
+    "candidatePassed": 5
+  },
+  "finalPolicy": {
+    "refreshStale": true,
+    "version": 6,
+    "observationLimit": 1
+  },
+  "episodeCount": 5,
+  "project": "C:\\Users\\eyeka\\AppData\\Local\\Temp\\fraynix-learning-proof-rb8sRO"
+}
