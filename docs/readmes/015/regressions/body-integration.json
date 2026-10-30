@@ -1,0 +1,2594 @@
+{
+  "date": "2026-10-30T12:45:18.901Z",
+  "passed": true,
+  "checks": [
+    "Visible Grab attaches a real native constraint to the dynamic Block at tick zero without moving the authored scene",
+    "Lift visibly advances intermediate native solver ticks; the actual body reaches +0.5 m within 0.08 m and stays dynamic/held",
+    "Release removes the constraint, preserves velocity, advances 120 real gravity/contact ticks and records an intervention rather than a frictionless-reference pass",
+    "Manipulation changes live physics while authored geometry and scene version remain unchanged",
+    "Run JSON retains exact native samples/commands and CSV retains actual coordinates/ticks; both saved files match independent SHA-256",
+    "Actual exported VP8 WebM decodes at 960×540, contains visible native block pixels, plays to completion and matches the source tick range/duration",
+    "Native replay re-executes recorded grab/move/release commands and reproduces final position within 0.0001 m",
+    "Choosing a scene file only previews it; explicit import creates fresh identities with equivalent native geometry and provenance",
+    "The same typed agent tools duplicate supported scenes and reject executable/unknown import fields before any new scene is created",
+    "No renderer errors; all operations use isolated private test data and leave authored/user projects intact"
+  ],
+  "modelInferenceRequired": false,
+  "scene": {
+    "id": "4d6b154e-4f58-40a8-aee1-1c5db6d3e68d",
+    "version": 2,
+    "geometrySha256": "8c69887fd73fb35c987f26acaa732541db47576c90f321ba4530dc807c014d08"
+  },
+  "observerId": "f5f5dd4c-70f6-4f4a-a8a3-c1a9c812ad0c",
+  "midMotion": {
+    "speedMps": 1.4397839,
+    "timeS": 0.06666666666666667,
+    "grip": {
+      "held": true,
+      "impulseClampPerAxisNs": 1.25,
+      "kind": "native point-to-point constraint",
+      "entityId": "eca8cac2-0196-4bf5-a825-6cddfaa58f07",
+      "id": "6fe6665d-9c16-4483-bdff-b195f98450b2",
+      "ownerId": "f5f5dd4c-70f6-4f4a-a8a3-c1a9c812ad0c",
+      "equivalentForcePerAxisN": 300,
+      "target": [
+        -3.6,
+        0.64976543,
+        0
+      ]
+    },
+    "rotation": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "distanceM": 9.536743128535363e-08,
+    "objects": [
+      {
+        "bodyType": "static",
+        "size": [
+          12,
+          0.2,
+          3
+        ],
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "id": "c9a58a64-b746-48fe-9ece-2e382fa5aad0",
+        "label": "Ramp",
+        "position": [
+          0,
+          0.2,
+          0
+        ],
+        "massKg": 0
+      },
+      {
+        "bodyType": "static",
+        "size": [
+          40,
+          0.4,
+          24
+        ],
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "id": "2e5cec9a-ded0-4c55-958a-46ac2f538058",
+        "label": "Ground",
+        "position": [
+          0,
+          -0.2,
+          0
+        ],
+        "massKg": 0
+      },
+      {
+        "bodyType": "dynamic",
+        "size": [
+          0.5,
+          0.5,
+          0.5
+        ],
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "id": "eca8cac2-0196-4bf5-a825-6cddfaa58f07",
+        "label": "Block",
+        "position": [
+          -3.6,
+          0.625769,
+          0
+        ],
+        "massKg": 1
+      }
+    ],
+    "tick": 16,
+    "position": [
+      -3.6,
+      0.625769,
+      0
+    ],
+    "velocity": [
+      0,
+      1.4397839,
+      0
+    ],
+    "contacts": 0
+  },
+  "run": {
+    "manipulationEvaluation": {
+      "allMovesReached": true,
+      "forceContract": "300 N equivalent per-axis impulse clamp; other contact/gravity forces remain active",
+      "gripKind": "native point-to-point constraint",
+      "released": true
+    },
+    "actuatorRevision": 3,
+    "sceneVersion": 2,
+    "startedAt": "2026-10-30T12:45:14.041461700Z",
+    "title": "Ramp laboratory experiment",
+    "samples": [
+      {
+        "speedMps": 0,
+        "timeS": 0,
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "distanceM": 9.536743128535363e-08,
+        "tick": 0,
+        "position": [
+          -3.6,
+          0.551,
+          0
+        ],
+        "velocity": [
+          0,
+          0,
+          0
+        ],
+        "contacts": 0
+      },
+      {
+        "speedMps": 0.8746633,
+        "timeS": 0.016666666666666666,
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "distanceM": 9.536743128535363e-08,
+        "tick": 4,
+        "position": [
+          -3.6,
+          0.5611136,
+          0
+        ],
+        "velocity": [
+          0,
+          0.8746633,
+          0
+        ],
+        "contacts": 0
+      },
+      {
+        "speedMps": 1.2329291,
+        "timeS": 0.03333333333333333,
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "distanceM": 9.536743128535363e-08,
+        "tick": 8,
+        "position": [
+          -3.6,
+          0.57983387,
+          0
+        ],
+        "velocity": [
+          0,
+          1.2329291,
+          0
+        ],
+        "contacts": 0
+      },
+      {
+        "speedMps": 1.3796767,
+        "timeS": 0.05,
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "distanceM": 9.536743128535363e-08,
+        "tick": 12,
+        "position": [
+          -3.6,
+          0.60207945,
+          0
+        ],
+        "velocity": [
+          0,
+          1.3796767,
+          0
+        ],
+        "contacts": 0
+      },
+      {
+        "speedMps": 1.4397839,
+        "timeS": 0.06666666666666667,
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "distanceM": 9.536743128535363e-08,
+        "tick": 16,
+        "position": [
+          -3.6,
+          0.625769,
+          0
+        ],
+        "velocity": [
+          0,
+          1.4397839,
+          0
+        ],
+        "contacts": 0
+      },
+      {
+        "speedMps": 1.4644002,
+        "timeS": 0.08333333333333333,
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "distanceM": 9.536743128535363e-08,
+        "tick": 20,
+        "position": [
+          -3.6,
+          0.6500501,
+          0
+        ],
+        "velocity": [
+          0,
+          1.4644002,
+          0
+        ],
+        "contacts": 0
+      },
+      {
+        "speedMps": 1.4744824,
+        "timeS": 0.1,
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "distanceM": 9.536743128535363e-08,
+        "tick": 24,
+        "position": [
+          -3.6,
+          0.6745734,
+          0
+        ],
+        "velocity": [
+          0,
+          1.4744824,
+          0
+        ],
+        "contacts": 0
+      },
+      {
+        "speedMps": 1.4786137,
+        "timeS": 0.11666666666666667,
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "distanceM": 9.536743128535363e-08,
+        "tick": 28,
+        "position": [
+          -3.6,
+          0.699196,
+          0
+        ],
+        "velocity": [
+          0,
+          1.4786137,
+          0
+        ],
+        "contacts": 0
+      },
+      {
+        "speedMps": 1.4803046,
+        "timeS": 0.13333333333333333,
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "distanceM": 9.536743128535363e-08,
+        "tick": 32,
+        "position": [
+          -3.6,
+          0.72385913,
+          0
+        ],
+        "velocity": [
+          0,
+          1.4803046,
+          0
+        ],
+        "contacts": 0
+      },
+      {
+        "speedMps": 1.4809998,
+        "timeS": 0.15,
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "distanceM": 9.536743128535363e-08,
+        "tick": 36,
+        "position": [
+          -3.6,
+          0.74853885,
+          0
+        ],
+        "velocity": [
+          0,
+          1.4809998,
+          0
+        ],
+        "contacts": 0
+      },
+      {
+        "speedMps": 1.4812831,
+        "timeS": 0.16666666666666666,
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "distanceM": 9.536743128535363e-08,
+        "tick": 40,
+        "position": [
+          -3.6,
+          0.7732255,
+          0
+        ],
+        "velocity": [
+          0,
+          1.4812831,
+          0
+        ],
+        "contacts": 0
+      },
+      {
+        "speedMps": 1.4814032,
+        "timeS": 0.18333333333333332,
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "distanceM": 9.536743128535363e-08,
+        "tick": 44,
+        "position": [
+          -3.6,
+          0.7979149,
+          0
+        ],
+        "velocity": [
+          0,
+          1.4814032,
+          0
+        ],
+        "contacts": 0
+      },
+      {
+        "speedMps": 1.481449,
+        "timeS": 0.2,
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "distanceM": 9.536743128535363e-08,
+        "tick": 48,
+        "position": [
+          -3.6,
+          0.8226055,
+          0
+        ],
+        "velocity": [
+          0,
+          1.481449,
+          0
+        ],
+        "contacts": 0
+      },
+      {
+        "speedMps": 1.4814662,
+        "timeS": 0.21666666666666667,
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "distanceM": 9.536743128535363e-08,
+        "tick": 52,
+        "position": [
+          -3.6,
+          0.84729654,
+          0
+        ],
+        "velocity": [
+          0,
+          1.4814662,
+          0
+        ],
+        "contacts": 0
+      },
+      {
+        "speedMps": 1.4814748,
+        "timeS": 0.23333333333333334,
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "distanceM": 9.536743128535363e-08,
+        "tick": 56,
+        "position": [
+          -3.6,
+          0.87198776,
+          0
+        ],
+        "velocity": [
+          0,
+          1.4814748,
+          0
+        ],
+        "contacts": 0
+      },
+      {
+        "speedMps": 1.4814776,
+        "timeS": 0.25,
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "distanceM": 9.536743128535363e-08,
+        "tick": 60,
+        "position": [
+          -3.6,
+          0.8966791,
+          0
+        ],
+        "velocity": [
+          0,
+          1.4814776,
+          0
+        ],
+        "contacts": 0
+      },
+      {
+        "speedMps": 1.4814776,
+        "timeS": 0.26666666666666666,
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "distanceM": 9.536743128535363e-08,
+        "tick": 64,
+        "position": [
+          -3.6,
+          0.92137045,
+          0
+        ],
+        "velocity": [
+          0,
+          1.4814776,
+          0
+        ],
+        "contacts": 0
+      },
+      {
+        "speedMps": 1.4814776,
+        "timeS": 0.2833333333333333,
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "distanceM": 9.536743128535363e-08,
+        "tick": 68,
+        "position": [
+          -3.6,
+          0.9460618,
+          0
+        ],
+        "velocity": [
+          0,
+          1.4814776,
+          0
+        ],
+        "contacts": 0
+      },
+      {
+        "speedMps": 1.4814776,
+        "timeS": 0.3,
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "distanceM": 9.536743128535363e-08,
+        "tick": 72,
+        "position": [
+          -3.6,
+          0.97075313,
+          0
+        ],
+        "velocity": [
+          0,
+          1.4814776,
+          0
+        ],
+        "contacts": 0
+      },
+      {
+        "speedMps": 1.4814776,
+        "timeS": 0.31666666666666665,
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "distanceM": 9.536743128535363e-08,
+        "tick": 76,
+        "position": [
+          -3.6,
+          0.9954445,
+          0
+        ],
+        "velocity": [
+          0,
+          1.4814776,
+          0
+        ],
+        "contacts": 0
+      },
+      {
+        "speedMps": 1.4814776,
+        "timeS": 0.3333333333333333,
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "distanceM": 9.536743128535363e-08,
+        "tick": 80,
+        "position": [
+          -3.6,
+          1.0201358,
+          0
+        ],
+        "velocity": [
+          0,
+          1.4814776,
+          0
+        ],
+        "contacts": 0
+      },
+      {
+        "speedMps": 0.75852007,
+        "timeS": 0.35,
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "distanceM": 9.536743128535363e-08,
+        "tick": 84,
+        "position": [
+          -3.6,
+          1.038358,
+          0
+        ],
+        "velocity": [
+          0,
+          0.75852007,
+          0
+        ],
+        "contacts": 0
+      },
+      {
+        "speedMps": 0.31068993,
+        "timeS": 0.36666666666666664,
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "distanceM": 9.536743128535363e-08,
+        "tick": 88,
+        "position": [
+          -3.6,
+          1.0458218,
+          0
+        ],
+        "velocity": [
+          0,
+          0.31068993,
+          0
+        ],
+        "contacts": 0
+      },
+      {
+        "speedMps": 0.12725829,
+        "timeS": 0.3833333333333333,
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "distanceM": 9.536743128535363e-08,
+        "tick": 92,
+        "position": [
+          -3.6,
+          1.048879,
+          0
+        ],
+        "velocity": [
+          0,
+          0.12725829,
+          0
+        ],
+        "contacts": 0
+      },
+      {
+        "speedMps": 0.052127838,
+        "timeS": 0.4,
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "distanceM": 9.536743128535363e-08,
+        "tick": 96,
+        "position": [
+          -3.6,
+          1.0501312,
+          0
+        ],
+        "velocity": [
+          0,
+          0.052127838,
+          0
+        ],
+        "contacts": 0
+      },
+      {
+        "speedMps": 0.021348953,
+        "timeS": 0.4166666666666667,
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "distanceM": 9.536743128535363e-08,
+        "tick": 100,
+        "position": [
+          -3.6,
+          1.0506442,
+          0
+        ],
+        "velocity": [
+          0,
+          0.021348953,
+          0
+        ],
+        "contacts": 0
+      },
+      {
+        "speedMps": 0.008743286,
+        "timeS": 0.43333333333333335,
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "distanceM": 9.536743128535363e-08,
+        "tick": 104,
+        "position": [
+          -3.6,
+          1.0508543,
+          0
+        ],
+        "velocity": [
+          0,
+          0.008743286,
+          0
+        ],
+        "contacts": 0
+      },
+      {
+        "speedMps": 0.0035820007,
+        "timeS": 0.45,
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "distanceM": 9.536743128535363e-08,
+        "tick": 108,
+        "position": [
+          -3.6,
+          1.0509403,
+          0
+        ],
+        "velocity": [
+          0,
+          0.0035820007,
+          0
+        ],
+        "contacts": 0
+      },
+      {
+        "speedMps": 0.0014705658,
+        "timeS": 0.4666666666666667,
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "distanceM": 9.536743128535363e-08,
+        "tick": 112,
+        "position": [
+          -3.6,
+          1.0509754,
+          0
+        ],
+        "velocity": [
+          0,
+          0.0014705658,
+          0
+        ],
+        "contacts": 0
+      },
+      {
+        "speedMps": 0.00060653687,
+        "timeS": 0.48333333333333334,
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "distanceM": 9.536743128535363e-08,
+        "tick": 116,
+        "position": [
+          -3.6,
+          1.0509899,
+          0
+        ],
+        "velocity": [
+          0,
+          0.00060653687,
+          0
+        ],
+        "contacts": 0
+      },
+      {
+        "speedMps": 0.00024604797,
+        "timeS": 0.5,
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "distanceM": 9.536743128535363e-08,
+        "tick": 120,
+        "position": [
+          -3.6,
+          1.050996,
+          0
+        ],
+        "velocity": [
+          0,
+          0.00024604797,
+          0
+        ],
+        "contacts": 0
+      },
+      {
+        "speedMps": 0.000102996826,
+        "timeS": 0.5166666666666666,
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "distanceM": 9.536743128535363e-08,
+        "tick": 124,
+        "position": [
+          -3.6,
+          1.0509983,
+          0
+        ],
+        "velocity": [
+          0,
+          0.000102996826,
+          0
+        ],
+        "contacts": 0
+      },
+      {
+        "speedMps": 4.005432e-05,
+        "timeS": 0.5333333333333333,
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "distanceM": 9.536743128535363e-08,
+        "tick": 128,
+        "position": [
+          -3.6,
+          1.0509993,
+          0
+        ],
+        "velocity": [
+          0,
+          4.005432e-05,
+          0
+        ],
+        "contacts": 0
+      },
+      {
+        "speedMps": 0.122590676,
+        "timeS": 0.55,
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "distanceM": 9.536743128535363e-08,
+        "tick": 132,
+        "position": [
+          -3.6,
+          1.049978,
+          0
+        ],
+        "velocity": [
+          0,
+          -0.122590676,
+          0
+        ],
+        "contacts": 0
+      },
+      {
+        "speedMps": 0.28609067,
+        "timeS": 0.5666666666666667,
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "distanceM": 9.536743128535363e-08,
+        "tick": 136,
+        "position": [
+          -3.6,
+          1.0462316,
+          0
+        ],
+        "velocity": [
+          0,
+          -0.28609067,
+          0
+        ],
+        "contacts": 0
+      },
+      {
+        "speedMps": 0.44959074,
+        "timeS": 0.5833333333333334,
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "distanceM": 9.536743128535363e-08,
+        "tick": 140,
+        "position": [
+          -3.6,
+          1.0397604,
+          0
+        ],
+        "velocity": [
+          0,
+          -0.44959074,
+          0
+        ],
+        "contacts": 0
+      },
+      {
+        "speedMps": 0.6130908,
+        "timeS": 0.6,
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "distanceM": 9.536743128535363e-08,
+        "tick": 144,
+        "position": [
+          -3.6,
+          1.0305641,
+          0
+        ],
+        "velocity": [
+          0,
+          -0.6130908,
+          0
+        ],
+        "contacts": 0
+      },
+      {
+        "speedMps": 0.7765909,
+        "timeS": 0.6166666666666667,
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "distanceM": 9.536743128535363e-08,
+        "tick": 148,
+        "position": [
+          -3.6,
+          1.0186428,
+          0
+        ],
+        "velocity": [
+          0,
+          -0.7765909,
+          0
+        ],
+        "contacts": 0
+      },
+      {
+        "speedMps": 0.94009095,
+        "timeS": 0.6333333333333333,
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "distanceM": 9.536743128535363e-08,
+        "tick": 152,
+        "position": [
+          -3.6,
+          1.0039964,
+          0
+        ],
+        "velocity": [
+          0,
+          -0.94009095,
+          0
+        ],
+        "contacts": 0
+      },
+      {
+        "speedMps": 1.1035908,
+        "timeS": 0.65,
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "distanceM": 9.536743128535363e-08,
+        "tick": 156,
+        "position": [
+          -3.6,
+          0.9866251,
+          0
+        ],
+        "velocity": [
+          0,
+          -1.1035908,
+          0
+        ],
+        "contacts": 0
+      },
+      {
+        "speedMps": 1.2670907,
+        "timeS": 0.6666666666666666,
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "distanceM": 9.536743128535363e-08,
+        "tick": 160,
+        "position": [
+          -3.6,
+          0.9665288,
+          0
+        ],
+        "velocity": [
+          0,
+          -1.2670907,
+          0
+        ],
+        "contacts": 0
+      },
+      {
+        "speedMps": 1.4305905,
+        "timeS": 0.6833333333333333,
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "distanceM": 9.536743128535363e-08,
+        "tick": 164,
+        "position": [
+          -3.6,
+          0.94370747,
+          0
+        ],
+        "velocity": [
+          0,
+          -1.4305905,
+          0
+        ],
+        "contacts": 0
+      },
+      {
+        "speedMps": 1.5940903,
+        "timeS": 0.7,
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "distanceM": 9.536743128535363e-08,
+        "tick": 168,
+        "position": [
+          -3.6,
+          0.91816115,
+          0
+        ],
+        "velocity": [
+          0,
+          -1.5940903,
+          0
+        ],
+        "contacts": 0
+      },
+      {
+        "speedMps": 1.7575902,
+        "timeS": 0.7166666666666667,
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "distanceM": 9.536743128535363e-08,
+        "tick": 172,
+        "position": [
+          -3.6,
+          0.8898899,
+          0
+        ],
+        "velocity": [
+          0,
+          -1.7575902,
+          0
+        ],
+        "contacts": 0
+      },
+      {
+        "speedMps": 1.92109,
+        "timeS": 0.7333333333333333,
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "distanceM": 9.536743128535363e-08,
+        "tick": 176,
+        "position": [
+          -3.6,
+          0.8588936,
+          0
+        ],
+        "velocity": [
+          0,
+          -1.92109,
+          0
+        ],
+        "contacts": 0
+      },
+      {
+        "speedMps": 2.08459,
+        "timeS": 0.75,
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "distanceM": 9.536743128535363e-08,
+        "tick": 180,
+        "position": [
+          -3.6,
+          0.8251723,
+          0
+        ],
+        "velocity": [
+          0,
+          -2.08459,
+          0
+        ],
+        "contacts": 0
+      },
+      {
+        "speedMps": 2.2480898,
+        "timeS": 0.7666666666666666,
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "distanceM": 9.536743128535363e-08,
+        "tick": 184,
+        "position": [
+          -3.6,
+          0.788726,
+          0
+        ],
+        "velocity": [
+          0,
+          -2.2480898,
+          0
+        ],
+        "contacts": 0
+      },
+      {
+        "speedMps": 2.4115896,
+        "timeS": 0.7833333333333333,
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "distanceM": 9.536743128535363e-08,
+        "tick": 188,
+        "position": [
+          -3.6,
+          0.7495547,
+          0
+        ],
+        "velocity": [
+          0,
+          -2.4115896,
+          0
+        ],
+        "contacts": 0
+      },
+      {
+        "speedMps": 2.5750895,
+        "timeS": 0.8,
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "distanceM": 9.536743128535363e-08,
+        "tick": 192,
+        "position": [
+          -3.6,
+          0.7076584,
+          0
+        ],
+        "velocity": [
+          0,
+          -2.5750895,
+          0
+        ],
+        "contacts": 0
+      },
+      {
+        "speedMps": 2.7385893,
+        "timeS": 0.8166666666666667,
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "distanceM": 9.536743128535363e-08,
+        "tick": 196,
+        "position": [
+          -3.6,
+          0.6630371,
+          0
+        ],
+        "velocity": [
+          0,
+          -2.7385893,
+          0
+        ],
+        "contacts": 0
+      },
+      {
+        "speedMps": 2.902089,
+        "timeS": 0.8333333333333334,
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "distanceM": 9.536743128535363e-08,
+        "tick": 200,
+        "position": [
+          -3.6,
+          0.6156908,
+          0
+        ],
+        "velocity": [
+          0,
+          -2.902089,
+          0
+        ],
+        "contacts": 0
+      },
+      {
+        "speedMps": 3.065589,
+        "timeS": 0.85,
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "distanceM": 9.536743128535363e-08,
+        "tick": 204,
+        "position": [
+          -3.6,
+          0.5656196,
+          0
+        ],
+        "velocity": [
+          0,
+          -3.065589,
+          0
+        ],
+        "contacts": 0
+      },
+      {
+        "speedMps": 0.46014595,
+        "timeS": 0.8666666666666667,
+        "rotation": [
+          0,
+          -2.4671626e-19,
+          4.967054e-10,
+          1
+        ],
+        "distanceM": 9.536743128535363e-08,
+        "tick": 208,
+        "position": [
+          -3.6,
+          0.54356694,
+          0
+        ],
+        "velocity": [
+          0,
+          0.46014595,
+          0
+        ],
+        "contacts": 1
+      },
+      {
+        "speedMps": 0.29664588,
+        "timeS": 0.8833333333333333,
+        "rotation": [
+          1.9868216e-09,
+          -1.2335813e-18,
+          4.967054e-10,
+          1
+        ],
+        "distanceM": 9.536743128535363e-08,
+        "tick": 212,
+        "position": [
+          -3.6,
+          0.5495329,
+          0
+        ],
+        "velocity": [
+          0,
+          0.29664588,
+          0
+        ],
+        "contacts": 1
+      },
+      {
+        "speedMps": 0.13314585,
+        "timeS": 0.9,
+        "rotation": [
+          3.973643e-09,
+          -2.2204462e-18,
+          4.967054e-10,
+          1
+        ],
+        "distanceM": 9.536743128535363e-08,
+        "tick": 216,
+        "position": [
+          -3.6,
+          0.5527739,
+          0
+        ],
+        "velocity": [
+          0,
+          0.13314585,
+          0
+        ],
+        "contacts": 0
+      },
+      {
+        "speedMps": 0.030354157,
+        "timeS": 0.9166666666666666,
+        "rotation": [
+          5.9604646e-09,
+          -3.2073116e-18,
+          4.967054e-10,
+          1
+        ],
+        "distanceM": 9.536743128535363e-08,
+        "tick": 220,
+        "position": [
+          -3.6,
+          0.55328983,
+          0
+        ],
+        "velocity": [
+          0,
+          -0.030354157,
+          0
+        ],
+        "contacts": 0
+      },
+      {
+        "speedMps": 0.19385417,
+        "timeS": 0.9333333333333333,
+        "rotation": [
+          7.947286e-09,
+          -4.1941763e-18,
+          4.967054e-10,
+          1
+        ],
+        "distanceM": 9.536743128535363e-08,
+        "tick": 224,
+        "position": [
+          -3.6,
+          0.5510808,
+          0
+        ],
+        "velocity": [
+          0,
+          -0.19385417,
+          0
+        ],
+        "contacts": 0
+      },
+      {
+        "speedMps": 2.1457672e-06,
+        "timeS": 0.95,
+        "rotation": [
+          2.483528e-09,
+          -4.159271e-19,
+          5.704351e-10,
+          1
+        ],
+        "distanceM": 9.536743128535363e-08,
+        "tick": 228,
+        "position": [
+          -3.6,
+          0.54999995,
+          0
+        ],
+        "velocity": [
+          0,
+          2.1457672e-06,
+          0
+        ],
+        "contacts": 1
+      },
+      {
+        "speedMps": 1.4305115e-06,
+        "timeS": 0.9666666666666667,
+        "rotation": [
+          2.5106919e-09,
+          -3.8337102e-19,
+          5.898376e-10,
+          1
+        ],
+        "distanceM": 9.536743128535363e-08,
+        "tick": 232,
+        "position": [
+          -3.6,
+          0.54999995,
+          0
+        ],
+        "velocity": [
+          0,
+          1.4305115e-06,
+          0
+        ],
+        "contacts": 1
+      },
+      {
+        "speedMps": 1.4305115e-06,
+        "timeS": 0.9833333333333333,
+        "rotation": [
+          2.5262141e-09,
+          -3.924061e-19,
+          5.898376e-10,
+          1
+        ],
+        "distanceM": 9.536743128535363e-08,
+        "tick": 236,
+        "position": [
+          -3.6,
+          0.54999995,
+          0
+        ],
+        "velocity": [
+          0,
+          1.4305115e-06,
+          0
+        ],
+        "contacts": 1
+      },
+      {
+        "speedMps": 1.4305115e-06,
+        "timeS": 1,
+        "rotation": [
+          2.549497e-09,
+          -4.264981e-19,
+          5.820766e-10,
+          1
+        ],
+        "distanceM": 9.536743128535363e-08,
+        "tick": 240,
+        "position": [
+          -3.6,
+          0.54999995,
+          0
+        ],
+        "velocity": [
+          0,
+          1.4305115e-06,
+          0
+        ],
+        "contacts": 1
+      },
+      {
+        "speedMps": 1.4305115e-06,
+        "timeS": 1.0166666666666666,
+        "rotation": [
+          2.5727802e-09,
+          -4.599277e-19,
+          5.743156e-10,
+          1
+        ],
+        "distanceM": 9.536743128535363e-08,
+        "tick": 244,
+        "position": [
+          -3.6,
+          0.54999995,
+          0
+        ],
+        "velocity": [
+          0,
+          1.4305115e-06,
+          0
+        ],
+        "contacts": 1
+      },
+      {
+        "speedMps": 1.4305115e-06,
+        "timeS": 1.0333333333333332,
+        "rotation": [
+          2.5572582e-09,
+          -5.3181634e-19,
+          5.4327154e-10,
+          1
+        ],
+        "distanceM": 9.536743128535363e-08,
+        "tick": 248,
+        "position": [
+          -3.6,
+          0.54999995,
+          0
+        ],
+        "velocity": [
+          0,
+          1.4305115e-06,
+          0
+        ],
+        "contacts": 1
+      }
+    ],
+    "dt": 0.004166666666666667,
+    "evaluation": {
+      "reference": "frictionless incline: distance = 0.5*g*sin(angle)*t^2",
+      "applicable": false,
+      "expectedDistanceM": 0,
+      "toleranceM": 0.015,
+      "passed": false,
+      "measuredDistanceM": 9.536743128535363e-08,
+      "absoluteErrorM": 9.536743128535363e-08
+    },
+    "endedAt": "2026-10-30T12:45:15.924754600Z",
+    "scope": "manipulation",
+    "actuatorEvents": [
+      {
+        "request": {
+          "observationId": "fbfde434-a24c-4e63-bc51-0bbe8e63c266",
+          "action": "grab",
+          "operationId": "6fe6665d-9c16-4483-bdff-b195f98450b2",
+          "entityId": "eca8cac2-0196-4bf5-a825-6cddfaa58f07",
+          "id": "f5f5dd4c-70f6-4f4a-a8a3-c1a9c812ad0c"
+        },
+        "requestSha256": "4fbb54aeb36f9a84669374610d4b4a3763a81cfda56a8442dcff825b3ed36bbf",
+        "before": {
+          "speedMps": 0,
+          "timeS": 0,
+          "grip": {
+            "held": false
+          },
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "distanceM": 9.536743128535363e-08,
+          "objects": [
+            {
+              "bodyType": "static",
+              "size": [
+                12,
+                0.2,
+                3
+              ],
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "id": "c9a58a64-b746-48fe-9ece-2e382fa5aad0",
+              "label": "Ramp",
+              "position": [
+                0,
+                0.2,
+                0
+              ],
+              "massKg": 0
+            },
+            {
+              "bodyType": "static",
+              "size": [
+                40,
+                0.4,
+                24
+              ],
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "id": "2e5cec9a-ded0-4c55-958a-46ac2f538058",
+              "label": "Ground",
+              "position": [
+                0,
+                -0.2,
+                0
+              ],
+              "massKg": 0
+            },
+            {
+              "bodyType": "dynamic",
+              "size": [
+                0.5,
+                0.5,
+                0.5
+              ],
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "id": "eca8cac2-0196-4bf5-a825-6cddfaa58f07",
+              "label": "Block",
+              "position": [
+                -3.6,
+                0.551,
+                0
+              ],
+              "massKg": 1
+            }
+          ],
+          "tick": 0,
+          "position": [
+            -3.6,
+            0.551,
+            0
+          ],
+          "velocity": [
+            0,
+            0,
+            0
+          ],
+          "contacts": 0
+        },
+        "totalTicks": 0,
+        "sceneVersion": 2,
+        "startTick": 0,
+        "endTick": 0,
+        "observerId": "f5f5dd4c-70f6-4f4a-a8a3-c1a9c812ad0c",
+        "createdAt": "2026-10-30T12:45:14.145844900Z",
+        "endedAt": "2026-10-30T12:45:14.155812500Z",
+        "sceneId": "4d6b154e-4f58-40a8-aee1-1c5db6d3e68d",
+        "action": "grab",
+        "id": "6fe6665d-9c16-4483-bdff-b195f98450b2",
+        "runId": "d815175e-02c7-4985-9094-1a0e8cba5dba",
+        "after": {
+          "speedMps": 0,
+          "timeS": 0,
+          "grip": {
+            "held": true,
+            "impulseClampPerAxisNs": 1.25,
+            "kind": "native point-to-point constraint",
+            "entityId": "eca8cac2-0196-4bf5-a825-6cddfaa58f07",
+            "id": "6fe6665d-9c16-4483-bdff-b195f98450b2",
+            "ownerId": "f5f5dd4c-70f6-4f4a-a8a3-c1a9c812ad0c",
+            "equivalentForcePerAxisN": 300,
+            "target": [
+              -3.6,
+              0.551,
+              0
+            ]
+          },
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "distanceM": 9.536743128535363e-08,
+          "objects": [
+            {
+              "bodyType": "static",
+              "size": [
+                12,
+                0.2,
+                3
+              ],
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "id": "c9a58a64-b746-48fe-9ece-2e382fa5aad0",
+              "label": "Ramp",
+              "position": [
+                0,
+                0.2,
+                0
+              ],
+              "massKg": 0
+            },
+            {
+              "bodyType": "static",
+              "size": [
+                40,
+                0.4,
+                24
+              ],
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "id": "2e5cec9a-ded0-4c55-958a-46ac2f538058",
+              "label": "Ground",
+              "position": [
+                0,
+                -0.2,
+                0
+              ],
+              "massKg": 0
+            },
+            {
+              "bodyType": "dynamic",
+              "size": [
+                0.5,
+                0.5,
+                0.5
+              ],
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "id": "eca8cac2-0196-4bf5-a825-6cddfaa58f07",
+              "label": "Block",
+              "position": [
+                -3.6,
+                0.551,
+                0
+              ],
+              "massKg": 1
+            }
+          ],
+          "tick": 0,
+          "position": [
+            -3.6,
+            0.551,
+            0
+          ],
+          "velocity": [
+            0,
+            0,
+            0
+          ],
+          "contacts": 0
+        },
+        "outcome": "held",
+        "status": "completed"
+      },
+      {
+        "request": {
+          "observationId": "4941ca88-cf1e-46a6-9699-ec0b9d974dda",
+          "gripId": "6fe6665d-9c16-4483-bdff-b195f98450b2",
+          "action": "move",
+          "operationId": "18f84ee1-41d9-4400-bc56-9454700f303d",
+          "id": "f5f5dd4c-70f6-4f4a-a8a3-c1a9c812ad0c",
+          "runId": "d815175e-02c7-4985-9094-1a0e8cba5dba",
+          "target": [
+            -3.6,
+            1.0510000000000002,
+            0
+          ]
+        },
+        "requestSha256": "821d1d19b71f53bb1c7c1ebb9d1b2ff474331608f12d7cc149546c9db34a1800",
+        "travelTicks": 81,
+        "before": {
+          "speedMps": 0,
+          "timeS": 0,
+          "grip": {
+            "held": true,
+            "impulseClampPerAxisNs": 1.25,
+            "kind": "native point-to-point constraint",
+            "entityId": "eca8cac2-0196-4bf5-a825-6cddfaa58f07",
+            "id": "6fe6665d-9c16-4483-bdff-b195f98450b2",
+            "ownerId": "f5f5dd4c-70f6-4f4a-a8a3-c1a9c812ad0c",
+            "equivalentForcePerAxisN": 300,
+            "target": [
+              -3.6,
+              0.551,
+              0
+            ]
+          },
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "distanceM": 9.536743128535363e-08,
+          "objects": [
+            {
+              "bodyType": "static",
+              "size": [
+                12,
+                0.2,
+                3
+              ],
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "id": "c9a58a64-b746-48fe-9ece-2e382fa5aad0",
+              "label": "Ramp",
+              "position": [
+                0,
+                0.2,
+                0
+              ],
+              "massKg": 0
+            },
+            {
+              "bodyType": "static",
+              "size": [
+                40,
+                0.4,
+                24
+              ],
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "id": "2e5cec9a-ded0-4c55-958a-46ac2f538058",
+              "label": "Ground",
+              "position": [
+                0,
+                -0.2,
+                0
+              ],
+              "massKg": 0
+            },
+            {
+              "bodyType": "dynamic",
+              "size": [
+                0.5,
+                0.5,
+                0.5
+              ],
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "id": "eca8cac2-0196-4bf5-a825-6cddfaa58f07",
+              "label": "Block",
+              "position": [
+                -3.6,
+                0.551,
+                0
+              ],
+              "massKg": 1
+            }
+          ],
+          "tick": 0,
+          "position": [
+            -3.6,
+            0.551,
+            0
+          ],
+          "velocity": [
+            0,
+            0,
+            0
+          ],
+          "contacts": 0
+        },
+        "startAnchor": [
+          -3.5999999046325684,
+          0.5509999990463257,
+          0
+        ],
+        "totalTicks": 129,
+        "sceneVersion": 2,
+        "startTick": 0,
+        "endTick": 129,
+        "observerId": "f5f5dd4c-70f6-4f4a-a8a3-c1a9c812ad0c",
+        "target": [
+          -3.6,
+          1.0510000000000002,
+          0
+        ],
+        "createdAt": "2026-10-30T12:45:14.541204300Z",
+        "targetErrorM": 6.045693450492536e-07,
+        "endedAt": "2026-10-30T12:45:15.091585100Z",
+        "reached": true,
+        "sceneId": "4d6b154e-4f58-40a8-aee1-1c5db6d3e68d",
+        "action": "move",
+        "toleranceM": 0.08,
+        "id": "18f84ee1-41d9-4400-bc56-9454700f303d",
+        "runId": "d815175e-02c7-4985-9094-1a0e8cba5dba",
+        "after": {
+          "speedMps": 3.4332275e-05,
+          "timeS": 0.5375,
+          "grip": {
+            "held": true,
+            "impulseClampPerAxisNs": 1.25,
+            "kind": "native point-to-point constraint",
+            "entityId": "eca8cac2-0196-4bf5-a825-6cddfaa58f07",
+            "id": "6fe6665d-9c16-4483-bdff-b195f98450b2",
+            "ownerId": "f5f5dd4c-70f6-4f4a-a8a3-c1a9c812ad0c",
+            "equivalentForcePerAxisN": 300,
+            "target": [
+              -3.6,
+              1.051,
+              0
+            ]
+          },
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "distanceM": 9.536743128535363e-08,
+          "objects": [
+            {
+              "bodyType": "static",
+              "size": [
+                12,
+                0.2,
+                3
+              ],
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "id": "c9a58a64-b746-48fe-9ece-2e382fa5aad0",
+              "label": "Ramp",
+              "position": [
+                0,
+                0.2,
+                0
+              ],
+              "massKg": 0
+            },
+            {
+              "bodyType": "static",
+              "size": [
+                40,
+                0.4,
+                24
+              ],
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "id": "2e5cec9a-ded0-4c55-958a-46ac2f538058",
+              "label": "Ground",
+              "position": [
+                0,
+                -0.2,
+                0
+              ],
+              "massKg": 0
+            },
+            {
+              "bodyType": "dynamic",
+              "size": [
+                0.5,
+                0.5,
+                0.5
+              ],
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "id": "eca8cac2-0196-4bf5-a825-6cddfaa58f07",
+              "label": "Block",
+              "position": [
+                -3.6,
+                1.0509994,
+                0
+              ],
+              "massKg": 1
+            }
+          ],
+          "tick": 129,
+          "position": [
+            -3.6,
+            1.0509994,
+            0
+          ],
+          "velocity": [
+            0,
+            3.4332275e-05,
+            0
+          ],
+          "contacts": 0
+        },
+        "outcome": "reached",
+        "status": "completed"
+      },
+      {
+        "request": {
+          "observationId": "49bcf8c8-cd21-4a58-b5ce-3348ab4d8339",
+          "gripId": "6fe6665d-9c16-4483-bdff-b195f98450b2",
+          "action": "release",
+          "operationId": "64169b4d-1d6e-4dfa-8d1a-d5710f9324b7",
+          "id": "f5f5dd4c-70f6-4f4a-a8a3-c1a9c812ad0c",
+          "runId": "d815175e-02c7-4985-9094-1a0e8cba5dba"
+        },
+        "requestSha256": "bc08b9cc819bbd45290c3dfe5f0f9655705b92e0af34f6e0f79b2a65c382af07",
+        "before": {
+          "speedMps": 3.4332275e-05,
+          "timeS": 0.5375,
+          "grip": {
+            "held": true,
+            "impulseClampPerAxisNs": 1.25,
+            "kind": "native point-to-point constraint",
+            "entityId": "eca8cac2-0196-4bf5-a825-6cddfaa58f07",
+            "id": "6fe6665d-9c16-4483-bdff-b195f98450b2",
+            "ownerId": "f5f5dd4c-70f6-4f4a-a8a3-c1a9c812ad0c",
+            "equivalentForcePerAxisN": 300,
+            "target": [
+              -3.6,
+              1.051,
+              0
+            ]
+          },
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "distanceM": 9.536743128535363e-08,
+          "objects": [
+            {
+              "bodyType": "static",
+              "size": [
+                12,
+                0.2,
+                3
+              ],
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "id": "c9a58a64-b746-48fe-9ece-2e382fa5aad0",
+              "label": "Ramp",
+              "position": [
+                0,
+                0.2,
+                0
+              ],
+              "massKg": 0
+            },
+            {
+              "bodyType": "static",
+              "size": [
+                40,
+                0.4,
+                24
+              ],
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "id": "2e5cec9a-ded0-4c55-958a-46ac2f538058",
+              "label": "Ground",
+              "position": [
+                0,
+                -0.2,
+                0
+              ],
+              "massKg": 0
+            },
+            {
+              "bodyType": "dynamic",
+              "size": [
+                0.5,
+                0.5,
+                0.5
+              ],
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "id": "eca8cac2-0196-4bf5-a825-6cddfaa58f07",
+              "label": "Block",
+              "position": [
+                -3.6,
+                1.0509994,
+                0
+              ],
+              "massKg": 1
+            }
+          ],
+          "tick": 129,
+          "position": [
+            -3.6,
+            1.0509994,
+            0
+          ],
+          "velocity": [
+            0,
+            3.4332275e-05,
+            0
+          ],
+          "contacts": 0
+        },
+        "totalTicks": 120,
+        "sceneVersion": 2,
+        "velocityAtConstraintRemoval": [
+          0,
+          3.4332275e-05,
+          0
+        ],
+        "startTick": 129,
+        "endTick": 249,
+        "observerId": "f5f5dd4c-70f6-4f4a-a8a3-c1a9c812ad0c",
+        "createdAt": "2026-10-30T12:45:15.424785900Z",
+        "endedAt": "2026-10-30T12:45:15.924754600Z",
+        "sceneId": "4d6b154e-4f58-40a8-aee1-1c5db6d3e68d",
+        "action": "release",
+        "id": "64169b4d-1d6e-4dfa-8d1a-d5710f9324b7",
+        "runId": "d815175e-02c7-4985-9094-1a0e8cba5dba",
+        "after": {
+          "speedMps": 1.4305115e-06,
+          "timeS": 1.0375,
+          "grip": {
+            "held": false
+          },
+          "rotation": [
+            2.5533777e-09,
+            -5.495551e-19,
+            5.355105e-10,
+            1
+          ],
+          "distanceM": 9.536743128535363e-08,
+          "objects": [
+            {
+              "bodyType": "static",
+              "size": [
+                12,
+                0.2,
+                3
+              ],
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "id": "c9a58a64-b746-48fe-9ece-2e382fa5aad0",
+              "label": "Ramp",
+              "position": [
+                0,
+                0.2,
+                0
+              ],
+              "massKg": 0
+            },
+            {
+              "bodyType": "static",
+              "size": [
+                40,
+                0.4,
+                24
+              ],
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "id": "2e5cec9a-ded0-4c55-958a-46ac2f538058",
+              "label": "Ground",
+              "position": [
+                0,
+                -0.2,
+                0
+              ],
+              "massKg": 0
+            },
+            {
+              "bodyType": "dynamic",
+              "size": [
+                0.5,
+                0.5,
+                0.5
+              ],
+              "rotation": [
+                2.5533777e-09,
+                -5.495551e-19,
+                5.355105e-10,
+                1
+              ],
+              "id": "eca8cac2-0196-4bf5-a825-6cddfaa58f07",
+              "label": "Block",
+              "position": [
+                -3.6,
+                0.54999995,
+                0
+              ],
+              "massKg": 1
+            }
+          ],
+          "tick": 249,
+          "position": [
+            -3.6,
+            0.54999995,
+            0
+          ],
+          "velocity": [
+            0,
+            1.4305115e-06,
+            0
+          ],
+          "contacts": 1
+        },
+        "outcome": "released",
+        "status": "completed"
+      }
+    ],
+    "sceneId": "4d6b154e-4f58-40a8-aee1-1c5db6d3e68d",
+    "final": {
+      "speedMps": 1.4305115e-06,
+      "timeS": 1.0375,
+      "grip": {
+        "held": false
+      },
+      "rotation": [
+        2.5533777e-09,
+        -5.495551e-19,
+        5.355105e-10,
+        1
+      ],
+      "distanceM": 9.536743128535363e-08,
+      "objects": [
+        {
+          "bodyType": "static",
+          "size": [
+            12,
+            0.2,
+            3
+          ],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "id": "c9a58a64-b746-48fe-9ece-2e382fa5aad0",
+          "label": "Ramp",
+          "position": [
+            0,
+            0.2,
+            0
+          ],
+          "massKg": 0
+        },
+        {
+          "bodyType": "static",
+          "size": [
+            40,
+            0.4,
+            24
+          ],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "id": "2e5cec9a-ded0-4c55-958a-46ac2f538058",
+          "label": "Ground",
+          "position": [
+            0,
+            -0.2,
+            0
+          ],
+          "massKg": 0
+        },
+        {
+          "bodyType": "dynamic",
+          "size": [
+            0.5,
+            0.5,
+            0.5
+          ],
+          "rotation": [
+            2.5533777e-09,
+            -5.495551e-19,
+            5.355105e-10,
+            1
+          ],
+          "id": "eca8cac2-0196-4bf5-a825-6cddfaa58f07",
+          "label": "Block",
+          "position": [
+            -3.6,
+            0.54999995,
+            0
+          ],
+          "massKg": 1
+        }
+      ],
+      "tick": 249,
+      "position": [
+        -3.6,
+        0.54999995,
+        0
+      ],
+      "velocity": [
+        0,
+        1.4305115e-06,
+        0
+      ],
+      "contacts": 1
+    },
+    "definition": {
+      "schemaVersion": 1,
+      "objects": [
+        {
+          "bodyType": "static",
+          "schemaVersion": 1,
+          "size": [
+            12,
+            0.2,
+            3
+          ],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "id": "c9a58a64-b746-48fe-9ece-2e382fa5aad0",
+          "label": "Ramp",
+          "position": [
+            0,
+            0.2,
+            0
+          ],
+          "massKg": 0
+        },
+        {
+          "bodyType": "static",
+          "schemaVersion": 1,
+          "size": [
+            40,
+            0.4,
+            24
+          ],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "id": "2e5cec9a-ded0-4c55-958a-46ac2f538058",
+          "label": "Ground",
+          "position": [
+            0,
+            -0.2,
+            0
+          ],
+          "massKg": 0
+        },
+        {
+          "bodyType": "dynamic",
+          "schemaVersion": 1,
+          "size": [
+            0.5,
+            0.5,
+            0.5
+          ],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "id": "eca8cac2-0196-4bf5-a825-6cddfaa58f07",
+          "label": "Block",
+          "position": [
+            -3.5999999999999996,
+            0.5509999999999999,
+            0
+          ],
+          "massKg": 1
+        }
+      ],
+      "id": "4d6b154e-4f58-40a8-aee1-1c5db6d3e68d",
+      "units": "SI: metre, second, kilogram",
+      "title": "Ramp laboratory",
+      "version": 2,
+      "parameters": {
+        "angleDeg": 0,
+        "widthM": 3,
+        "offsetZ": 0,
+        "massKg": 1,
+        "lengthM": 12,
+        "friction": 0,
+        "gravityMps2": 9.81
+      },
+      "entityIds": {
+        "ramp": "c9a58a64-b746-48fe-9ece-2e382fa5aad0",
+        "block": "eca8cac2-0196-4bf5-a825-6cddfaa58f07",
+        "ground": "2e5cec9a-ded0-4c55-958a-46ac2f538058"
+      },
+      "frame": "right-handed, +Y up, downhill +X, depth Z",
+      "updatedAt": "2026-10-30T12:45:13.818213300Z"
+    },
+    "backend": "Minie 9.0.3 / Libbulletjme 22.0.3 / single precision",
+    "targetTicks": 14400,
+    "id": "d815175e-02c7-4985-9094-1a0e8cba5dba",
+    "solverConfiguration": {
+      "restitution": 0,
+      "precision": "single",
+      "damping": 0,
+      "broadphase": "DBVT",
+      "stepMode": "external fixed dt; update(dt, 0)",
+      "iterations": 10,
+      "friction": "block coefficient multiplied by static-surface coefficient 1",
+      "solver": "SI"
+    },
+    "bodyOwner": "f5f5dd4c-70f6-4f4a-a8a3-c1a9c812ad0c",
+    "status": "completed"
+  },
+  "exports": {
+    "run": {
+      "id": "5635c9e6-34c7-45cc-bc27-d64b9499f0fd",
+      "kind": "native-run",
+      "path": "C:\\Users\\eyeka\\AppData\\Local\\Temp\\fraynix-body-lBrcN9\\exports\\5635c9e6-34c7-45cc-bc27-d64b9499f0fd.fraynix-run.json",
+      "bytes": 22740,
+      "sha256": "8738b3d59c9239777eb61fddb7547aac65d2454146459b8a02f6b14f06e93070",
+      "source": {
+        "runId": "d815175e-02c7-4985-9094-1a0e8cba5dba",
+        "sceneId": "4d6b154e-4f58-40a8-aee1-1c5db6d3e68d",
+        "sceneVersion": 2,
+        "nativeRecordSha256": "639b22bc6426920412fb1b35ae2f1eb99350a1fc42862f288b3839ec87a2c0b4"
+      },
+      "createdAt": "2026-10-30T12:45:16.029Z"
+    },
+    "csv": {
+      "id": "fb2b5467-93e4-447a-b337-9a9bc1f8441c",
+      "kind": "native-trajectory",
+      "path": "C:\\Users\\eyeka\\AppData\\Local\\Temp\\fraynix-body-lBrcN9\\exports\\fb2b5467-93e4-447a-b337-9a9bc1f8441c.csv",
+      "bytes": 5570,
+      "sha256": "cb65c0691883fa93a959903d695a38b9b2f322bc64bebbce29b457b260a859bc",
+      "source": {
+        "runId": "d815175e-02c7-4985-9094-1a0e8cba5dba",
+        "sceneId": "4d6b154e-4f58-40a8-aee1-1c5db6d3e68d",
+        "sceneVersion": 2,
+        "nativeRecordSha256": "639b22bc6426920412fb1b35ae2f1eb99350a1fc42862f288b3839ec87a2c0b4",
+        "samples": 63
+      },
+      "createdAt": "2026-10-30T12:45:16.045Z"
+    },
+    "video": {
+      "id": "9232a3a1-8108-44c4-83e3-7d322e4c7359",
+      "kind": "native-video",
+      "path": "C:\\Users\\eyeka\\AppData\\Local\\Temp\\fraynix-body-lBrcN9\\exports\\9232a3a1-8108-44c4-83e3-7d322e4c7359.webm",
+      "bytes": 115951,
+      "sha256": "2d36133b50ae126ff9087c4527fedd5b64238910711851e86fc32b696a949d3d",
+      "source": {
+        "runId": "d815175e-02c7-4985-9094-1a0e8cba5dba",
+        "sceneId": "4d6b154e-4f58-40a8-aee1-1c5db6d3e68d",
+        "sceneVersion": 2,
+        "nativeRecordSha256": "639b22bc6426920412fb1b35ae2f1eb99350a1fc42862f288b3839ec87a2c0b4",
+        "width": 960,
+        "height": 540,
+        "nominalFps": 30,
+        "frames": 33,
+        "firstTick": 0,
+        "lastTick": 249,
+        "nativeDurationS": 1.0375,
+        "silent": true
+      },
+      "createdAt": "2026-10-30T12:45:17.234Z"
+    },
+    "scene": {
+      "id": "a5db2b08-20d7-408b-9a9a-d9853fb6090a",
+      "kind": "native-scene",
+      "path": "C:\\Users\\eyeka\\AppData\\Local\\Temp\\fraynix-body-lBrcN9\\exports\\a5db2b08-20d7-408b-9a9a-d9853fb6090a.fraynix-scene.json",
+      "bytes": 1609,
+      "sha256": "7bc65ab69b7ba167e8afca2d8d96c75268402c9976da24e1ce14db35017c4f4c",
+      "source": {
+        "sceneId": "4d6b154e-4f58-40a8-aee1-1c5db6d3e68d",
+        "sceneVersion": 2
+      },
+      "createdAt": "2026-10-30T12:45:18.692Z"
+    }
+  },
+  "decodedVideo": {
+    "width": 960,
+    "height": 540,
+    "ended": true,
+    "playbackEndS": 1.047,
+    "orangePixels": 402
+  },
+  "import": {
+    "sceneId": "a50173ef-7495-4895-b3b3-5a933c551fd1",
+    "entityIds": {
+      "ramp": "0f26868c-355c-4a36-9d8f-f5675bc4b0e8",
+      "block": "a4b0c8ea-1f6b-4ea6-9b8a-9c94a0a54d4d",
+      "ground": "23dc8cfd-3d50-45a7-a796-0efa1f4d9697"
+    },
+    "receiptId": "2fa68888-ae94-4881-914a-c2459706d14a"
+  },
+  "scope": "Real native point-to-point constraint over the supported dynamic Block; virtual reach, not a physical avatar/robot. Scene import supports the native ramp/block schema; arbitrary meshes, documents, videos and executable code are not imported as physics."
+}

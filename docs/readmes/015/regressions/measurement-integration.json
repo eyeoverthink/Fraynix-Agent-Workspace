@@ -1,0 +1,169 @@
+{
+  "date": "2026-10-30T12:40:15.953Z",
+  "passed": true,
+  "checks": [
+    "Offline profile rejects external navigation and intercepts an external image while loopback browsing works",
+    "Real file input preserves UTF-8 BOM/CRLF bytes and quoted columns, rejects unspecified units, then converts explicit ms/cm",
+    "Visible synthetic import retains exact UTF-8 CSV, source hash, explicit ms/mm mapping and four normalized rows",
+    "Visible comparison binds the native saved run and agrees with an independently recomputed interpolated RMSE",
+    "The same report tool used by the agent reveals the actual canvas, passes three DOM assertions and includes original CSV plus exact comparison JSON",
+    "Restart restores dataset versions, immutable comparison and version-bound report test receipt",
+    "Retained comparison can generate and test a fresh local report after reopening",
+    "Reopened comparison repeats actual native physics with a new run and receipt while retaining original bindings",
+    "Changed scene cannot borrow an old run for a new comparison; historical receipt remains readable",
+    "No renderer JavaScript errors during import, comparison, report and restart"
+  ],
+  "comparison": {
+    "withinTolerance": 4,
+    "criteria": "all absolute residuals <= declared toleranceM; agreement only, not causal validation",
+    "sceneVersion": 1,
+    "meanResidualM": 0.0032399891683982922,
+    "title": "Synthetic ideal incline comparison",
+    "points": [
+      {
+        "timeS": 0,
+        "observedM": 0,
+        "residualM": 1.6155032294565553e-07,
+        "sourceRow": 2,
+        "simulatedM": 1.6155032294565553e-07
+      },
+      {
+        "timeS": 0.25,
+        "observedM": 0.1295589108648832,
+        "residualM": 0.002160043166935244,
+        "sourceRow": 3,
+        "simulatedM": 0.13171895403181844
+      },
+      {
+        "timeS": 0.5,
+        "observedM": 0.5182356434595328,
+        "residualM": 0.004319734631003769,
+        "sourceRow": 4,
+        "simulatedM": 0.5225553780905365
+      },
+      {
+        "timeS": 0.75,
+        "observedM": 1.166030197783949,
+        "residualM": 0.006480017325331211,
+        "sourceRow": 5,
+        "simulatedM": 1.17251021510928
+      }
+    ],
+    "dt": 0.004166666666666667,
+    "createdAt": "2026-10-30T12:40:13.660118500Z",
+    "sourceSha256": "91fa26a1198e2df637793a13158506ed03d7a6725b833f82e3032d965a7d1605",
+    "mappingSha256": "10404c583494422c154bfed034333b87df39095af81225c099a78e65b9d7e5b1",
+    "sceneId": "34892c26-1712-4370-bd62-e52a4338e350",
+    "datasetId": "e9c941e0-ccb4-46aa-9afa-7a3bb381f767",
+    "rmseM": 0.00404093177151038,
+    "backend": "Minie 9.0.3 / Libbulletjme 22.0.3 / single precision",
+    "definition": {
+      "schemaVersion": 1,
+      "objects": [
+        {
+          "bodyType": "static",
+          "schemaVersion": 1,
+          "size": [
+            12,
+            0.2,
+            3
+          ],
+          "rotation": [
+            0,
+            0,
+            -0.21643961393810288,
+            0.9762960071199334
+          ],
+          "id": "563100dd-3aad-4b29-acdb-9afe12b9e03f",
+          "label": "Ramp",
+          "position": [
+            0,
+            2.7357095704441967,
+            0
+          ],
+          "massKg": 0
+        },
+        {
+          "bodyType": "static",
+          "schemaVersion": 1,
+          "size": [
+            40,
+            0.4,
+            24
+          ],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "id": "58d27871-250a-4f08-aaeb-433e07d006b9",
+          "label": "Ground",
+          "position": [
+            0,
+            -0.2,
+            0
+          ],
+          "massKg": 0
+        },
+        {
+          "bodyType": "dynamic",
+          "schemaVersion": 1,
+          "size": [
+            0.5,
+            0.5,
+            0.5
+          ],
+          "rotation": [
+            0,
+            0,
+            -0.21643961393810288,
+            0.9762960071199334
+          ],
+          "id": "f7f376dd-feb3-4250-85aa-1bcb86ee30f6",
+          "label": "Block",
+          "position": [
+            -3.114369023460954,
+            4.575249345960578,
+            0
+          ],
+          "massKg": 1
+        }
+      ],
+      "id": "34892c26-1712-4370-bd62-e52a4338e350",
+      "units": "SI: metre, second, kilogram",
+      "title": "Ramp laboratory",
+      "version": 1,
+      "parameters": {
+        "angleDeg": 25,
+        "widthM": 3,
+        "offsetZ": 0,
+        "massKg": 1,
+        "lengthM": 12,
+        "friction": 0,
+        "gravityMps2": 9.81
+      },
+      "entityIds": {
+        "ramp": "563100dd-3aad-4b29-acdb-9afe12b9e03f",
+        "block": "f7f376dd-feb3-4250-85aa-1bcb86ee30f6",
+        "ground": "58d27871-250a-4f08-aaeb-433e07d006b9"
+      },
+      "frame": "right-handed, +Y up, downhill +X, depth Z",
+      "updatedAt": "2026-10-30T12:40:12.869577600Z"
+    },
+    "id": "b0bd0228-b16f-4897-911a-9c5b59175a61",
+    "passed": true,
+    "datasetVersionId": "83832527-d7d5-4939-9100-dc5858ff6d36",
+    "maxAbsErrorM": 0.006480017325331211,
+    "datasetVersion": 1,
+    "schemaVersion": 1,
+    "method": "measurement-comparison-v1: linear interpolation of retained native distance samples; residual = simulated - observed",
+    "count": 4,
+    "uncertaintyM": null,
+    "maeM": 0.0032399891683982922,
+    "sourceKind": "synthetic",
+    "toleranceM": 0.03,
+    "runId": "ad28b508-e150-4829-8233-a93af2a31594"
+  },
+  "scope": "Actual Electron/Java/native Bullet workflow in an isolated project; synthetic data, no instrument accuracy or OS-wide egress claim"
+}

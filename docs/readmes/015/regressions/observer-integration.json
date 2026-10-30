@@ -1,0 +1,442 @@
+{
+  "date": "2026-10-30T12:40:05.543Z",
+  "passed": true,
+  "checks": [
+    "Visible first-person control opens a Java-owned pose and samples the actual native box identities without a model",
+    "Actual rendered PNG has the frozen viewport dimensions and visible orange block pixels; stored source/pose/geometry and image hash are bound together",
+    "Moving right changes Java x by exactly 0.25 m and shifts the actual rendered block left; capture hashes and pixels change",
+    "Focused keyboard input uses the same Java action path; W moves exactly 0.25 m forward without moving authored objects",
+    "An old observation cannot apply a second camera action after the pose version changes",
+    "The agent/tool inspection path returns the actual visible entity identity and coordinates in a durable receipt",
+    "Captured observation is aligned to an actual native experiment run and its advanced physics tick",
+    "Historical replay stays frozen through polling, preserves scene v1 evidence and does not overwrite the current v2 scene or observer pose",
+    "Restart restores observer identity/pose, action history and the exact original PNG bytes",
+    "Corrupted saved frame bytes are rejected rather than replayed as valid evidence",
+    "Opening another scene clears the previous observer controls and prevents acting on an unseen old scene",
+    "No renderer JavaScript errors; browser/canvas surfaces remain present"
+  ],
+  "observer": {
+    "actionCount": 3,
+    "createdAt": "2026-10-30T12:40:02.593670900Z",
+    "schemaVersion": 1,
+    "motion": "free camera; no avatar body or collisions",
+    "pose": {
+      "pitchDeg": -13.495733280795811,
+      "fovDeg": 60,
+      "position": [
+        -2.864369023460954,
+        5.775249345960578,
+        4.75
+      ],
+      "yawDeg": 0
+    },
+    "captureCount": 3,
+    "sceneId": "10fd6dc6-93df-4096-8290-43445ff2282e",
+    "id": "12ef1f91-227e-4336-8766-8a5c51b65b59",
+    "selectedEntityId": "ab61a6e9-33ec-44a5-a678-f63e4f659de7",
+    "title": "Observer · Ramp laboratory",
+    "version": 4
+  },
+  "firstCapture": {
+    "id": "72e66b77-9f0f-46a6-a607-e4faf636ceca",
+    "pngSha256": "eb2b61f32d395e58404d38fba14c19ac7110c222d650184ed51e9bd2f0e17cfe",
+    "packet": {
+      "observer": {
+        "actionCount": 0,
+        "createdAt": "2026-10-30T12:40:02.593670900Z",
+        "schemaVersion": 1,
+        "motion": "free camera; no avatar body or collisions",
+        "pose": {
+          "pitchDeg": -13.495733280795811,
+          "fovDeg": 60,
+          "position": [
+            -3.114369023460954,
+            5.775249345960578,
+            5
+          ],
+          "yawDeg": 0
+        },
+        "captureCount": 0,
+        "sceneId": "10fd6dc6-93df-4096-8290-43445ff2282e",
+        "id": "12ef1f91-227e-4336-8766-8a5c51b65b59",
+        "selectedEntityId": null,
+        "title": "Observer · Ramp laboratory",
+        "version": 1
+      },
+      "createdAt": "2026-10-30T12:40:02.693591400Z",
+      "world": {
+        "grip": {
+          "held": false
+        },
+        "authoredVersion": 1,
+        "actuatorRevision": 0,
+        "objects": [
+          {
+            "bodyType": "static",
+            "schemaVersion": 1,
+            "size": [
+              12,
+              0.2,
+              3
+            ],
+            "rotation": [
+              0,
+              0,
+              -0.21643961393810288,
+              0.9762960071199334
+            ],
+            "id": "70872457-002b-4d63-aee1-df5f7601b4ca",
+            "label": "Ramp",
+            "position": [
+              0,
+              2.7357095704441967,
+              0
+            ],
+            "massKg": 0
+          },
+          {
+            "bodyType": "dynamic",
+            "schemaVersion": 1,
+            "size": [
+              0.5,
+              0.5,
+              0.5
+            ],
+            "rotation": [
+              0,
+              0,
+              -0.21643961393810288,
+              0.9762960071199334
+            ],
+            "id": "ab61a6e9-33ec-44a5-a678-f63e4f659de7",
+            "label": "Block",
+            "position": [
+              -3.114369023460954,
+              4.575249345960578,
+              0
+            ],
+            "massKg": 1
+          },
+          {
+            "bodyType": "static",
+            "schemaVersion": 1,
+            "size": [
+              40,
+              0.4,
+              24
+            ],
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "id": "ec27eb66-ff68-4688-a71b-1002e874f5ae",
+            "label": "Ground",
+            "position": [
+              0,
+              -0.2,
+              0
+            ],
+            "massKg": 0
+          }
+        ],
+        "sceneVersion": 1,
+        "tick": 0,
+        "source": "authored-geometry",
+        "units": "metre, second, degree; +Y up",
+        "timeS": 0,
+        "scope": "authored",
+        "sceneId": "10fd6dc6-93df-4096-8290-43445ff2282e",
+        "runId": null,
+        "status": "authored"
+      },
+      "viewport": {
+        "width": 780,
+        "height": 258
+      },
+      "contract": "native-box-observer-v1",
+      "origin": "native-simulation",
+      "visibilityMethod": "Sampled oriented-box frustum/ray occlusion, not image recognition; thin geometry can be missed",
+      "visibleEntities": [
+        {
+          "bodyType": "static",
+          "visibleSamples": 7,
+          "schemaVersion": 1,
+          "size": [
+            12,
+            0.2,
+            3
+          ],
+          "rotation": [
+            0,
+            0,
+            -0.21643961393810288,
+            0.9762960071199334
+          ],
+          "distanceM": 6.628581783552143,
+          "centerNdc": [
+            0.32025844560255473,
+            -0.556101259647765
+          ],
+          "id": "70872457-002b-4d63-aee1-df5f7601b4ca",
+          "label": "Ramp",
+          "position": [
+            0,
+            2.7357095704441967,
+            0
+          ],
+          "massKg": 0
+        },
+        {
+          "bodyType": "dynamic",
+          "visibleSamples": 6,
+          "schemaVersion": 1,
+          "size": [
+            0.5,
+            0.5,
+            0.5
+          ],
+          "rotation": [
+            0,
+            0,
+            -0.21643961393810288,
+            0.9762960071199334
+          ],
+          "distanceM": 5.141984052872976,
+          "centerNdc": [
+            0,
+            -7.479457993686887e-17
+          ],
+          "id": "ab61a6e9-33ec-44a5-a678-f63e4f659de7",
+          "label": "Block",
+          "position": [
+            -3.114369023460954,
+            4.575249345960578,
+            0
+          ],
+          "massKg": 1
+        },
+        {
+          "bodyType": "static",
+          "visibleSamples": 19,
+          "schemaVersion": 1,
+          "size": [
+            40,
+            0.4,
+            24
+          ],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "distanceM": 8.390643548661536,
+          "centerNdc": [
+            0.2851881177520201,
+            -1.2854985324659367
+          ],
+          "id": "ec27eb66-ff68-4688-a71b-1002e874f5ae",
+          "label": "Ground",
+          "position": [
+            0,
+            -0.2,
+            0
+          ],
+          "massKg": 0
+        }
+      ],
+      "readOnly": true,
+      "id": "345a8dd2-2c1a-48b7-a60e-a6f2d82909fe",
+      "worldSha256": "3e899ba764465ccdd173e042fd9d696cece87ea4eb3f70eacd9c7efb7dac117e"
+    },
+    "pixels": {
+      "width": 780,
+      "height": 258,
+      "orangePixels": 609,
+      "orangeCenterX": 389.7881773399015
+    }
+  },
+  "secondCapture": {
+    "id": "d53680a3-30f2-43c7-bf61-235c791ec634",
+    "pngSha256": "c9d74a0b9f967781ffebcb93d4e30f272d233cb072b04ab967446fbe716acf87",
+    "pixels": {
+      "width": 780,
+      "height": 258,
+      "orangePixels": 596,
+      "orangeCenterX": 378.8540268456376
+    }
+  },
+  "liveCapture": {
+    "id": "7ea34410-73a3-4a8f-bd5c-aeb046c0074c",
+    "observerId": "12ef1f91-227e-4336-8766-8a5c51b65b59",
+    "observerVersion": 4,
+    "pngSha256": "bcde6cb772af1abc317a0d02395f8235e3d607ba0da583fa1cba5e260cf64024",
+    "bytes": 41473,
+    "packet": {
+      "id": "960b80fd-91af-4f8f-98c2-1b613689f7c2",
+      "observer": {
+        "actionCount": 3,
+        "createdAt": "2026-10-30T12:40:02.593670900Z",
+        "schemaVersion": 1,
+        "motion": "free camera; no avatar body or collisions",
+        "pose": {
+          "pitchDeg": -13.495733280795811,
+          "fovDeg": 60,
+          "position": [
+            -2.864369023460954,
+            5.775249345960578,
+            4.75
+          ],
+          "yawDeg": 0
+        },
+        "captureCount": 2,
+        "sceneId": "10fd6dc6-93df-4096-8290-43445ff2282e",
+        "id": "12ef1f91-227e-4336-8766-8a5c51b65b59",
+        "selectedEntityId": "ab61a6e9-33ec-44a5-a678-f63e4f659de7",
+        "title": "Observer · Ramp laboratory",
+        "version": 4
+      },
+      "viewport": {
+        "width": 780,
+        "height": 258
+      },
+      "visibleEntities": [
+        {
+          "bodyType": "static",
+          "visibleSamples": 10,
+          "size": [
+            12,
+            0.2,
+            3
+          ],
+          "rotation": [
+            0,
+            0,
+            -0.21643961393810288,
+            0.9762960071199334
+          ],
+          "distanceM": 6.325022683714963,
+          "centerNdc": [
+            0.3079890792239601,
+            -0.6004390325955992
+          ],
+          "id": "70872457-002b-4d63-aee1-df5f7601b4ca",
+          "label": "Ramp",
+          "position": [
+            0,
+            2.7357095704441967,
+            0
+          ],
+          "massKg": 0
+        },
+        {
+          "bodyType": "dynamic",
+          "visibleSamples": 4,
+          "size": [
+            0.5,
+            0.5,
+            0.5
+          ],
+          "rotation": [
+            -4.0227384e-11,
+            2.3396962e-10,
+            -0.21643952,
+            0.97629607
+          ],
+          "distanceM": 4.908327519924354,
+          "centerNdc": [
+            -0.024984904098886984,
+            -0.026783853511772652
+          ],
+          "id": "ab61a6e9-33ec-44a5-a678-f63e4f659de7",
+          "label": "Block",
+          "position": [
+            -3.0781953,
+            4.5572767,
+            0
+          ],
+          "massKg": 1
+        },
+        {
+          "bodyType": "static",
+          "visibleSamples": 17,
+          "size": [
+            40,
+            0.4,
+            24
+          ],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "distanceM": 8.152957417340348,
+          "centerNdc": [
+            0.27289886947487796,
+            -1.3542717481795477
+          ],
+          "id": "ec27eb66-ff68-4688-a71b-1002e874f5ae",
+          "label": "Ground",
+          "position": [
+            0,
+            -0.2,
+            0
+          ],
+          "massKg": 0
+        }
+      ],
+      "worldSha256": "1541a20cee94c0299fcece3c6a504d8fbf2332adc0e6e5a4ee4f2ebcd62187ee",
+      "origin": "native-simulation",
+      "readOnly": false,
+      "visibilityMethod": "Sampled oriented-box frustum/ray occlusion, not image recognition; thin geometry can be missed",
+      "world": {
+        "sceneId": "10fd6dc6-93df-4096-8290-43445ff2282e",
+        "sceneVersion": 1,
+        "authoredVersion": 1,
+        "runId": "b5d56f82-59d9-481d-860d-fa9cc973c676",
+        "tick": 33,
+        "timeS": 0.1375,
+        "source": "native-physics",
+        "status": "paused",
+        "grip": {
+          "held": false
+        },
+        "actuatorRevision": 0,
+        "knownEntities": [
+          {
+            "id": "70872457-002b-4d63-aee1-df5f7601b4ca",
+            "label": "Ramp",
+            "position": [
+              0,
+              2.7357095704441967,
+              0
+            ]
+          },
+          {
+            "id": "ab61a6e9-33ec-44a5-a678-f63e4f659de7",
+            "label": "Block",
+            "position": [
+              -3.0781953,
+              4.5572767,
+              0
+            ]
+          },
+          {
+            "id": "ec27eb66-ff68-4688-a71b-1002e874f5ae",
+            "label": "Ground",
+            "position": [
+              0,
+              -0.2,
+              0
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "modelInferenceRequired": false,
+  "scope": "Actual Java pose/geometry/receipts plus actual Three.js PNG rendering. Free camera, not a physical avatar; sampled box visibility, not learned recognition or generated video."
+}

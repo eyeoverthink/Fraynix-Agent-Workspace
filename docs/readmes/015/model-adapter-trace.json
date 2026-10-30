@@ -1,0 +1,675 @@
+{
+  "log": [
+    {
+      "at": "2026-10-30T12:29:42.794Z",
+      "kind": "tool",
+      "text": "canvas.write",
+      "data": {
+        "args": {
+          "title": "Welcome canvas",
+          "files": [
+            "index.html"
+          ]
+        },
+        "result": "{\"id\":\"d7d6a2ad-9eb3-4b93-bec6-dbc3c71345e3\",\"title\":\"Welcome canvas\",\"version\":1,\"files\":[\"index.html\"],\"url\":\"http://127.0.0.1:57835/artifact/d7d6a2ad-9eb3-4b93-bec6-dbc3c71345e3/1/index.html\"}"
+      }
+    },
+    {
+      "at": "2026-10-30T12:29:43.020Z",
+      "kind": "agent",
+      "text": "Task started",
+      "data": {
+        "goal": "In saved native 3D scene 58d1b3a6-433f-48d7-8605-a7525dc9e59d, use the physical body tools: grab the visible dynamic Block, move the BODY once by +0.75 metres in world Y and +0.25 metres in world Z, preserving world X. Use its actual grabbed position as the starting point. Release it, capture the actual final native view, then finish with measured target error and release result. Do not move the observer or create another scene.",
+        "model": "gpt-oss:20b"
+      }
+    },
+    {
+      "at": "2026-10-30T12:29:43.033Z",
+      "kind": "learning",
+      "text": "Episode started with controller v1",
+      "data": {
+        "episodeId": "a22d6b29-fc59-4b33-95c5-91547e013140",
+        "policy": {
+          "refreshStale": false,
+          "version": 1,
+          "observationLimit": 2
+        }
+      }
+    },
+    {
+      "at": "2026-10-30T12:29:43.033Z",
+      "kind": "thinking",
+      "text": "Planning step 1 with gpt-oss:20b",
+      "data": {}
+    },
+    {
+      "at": "2026-10-30T12:30:00.769Z",
+      "kind": "model",
+      "text": "Fresh local model metadata admitted",
+      "data": {
+        "endpoint": "http://127.0.0.1:11434",
+        "checkedAt": "2026-10-30T12:29:43.111470800Z",
+        "bytes": 13793441566,
+        "scope": "Fresh local service metadata; not an independent inspection of model weights or the daemon's network behavior",
+        "digest": "f38aa0c53da5f8c49d08c43a99df24ff53167fe68e24664a7777288e7656fdfe",
+        "model": "gpt-oss:20b"
+      }
+    },
+    {
+      "at": "2026-10-30T12:30:00.769Z",
+      "kind": "decision",
+      "text": "observer.open",
+      "data": {
+        "tool": "observer.open",
+        "args": {
+          "sceneId": "58d1b3a6-433f-48d7-8605-a7525dc9e59d"
+        }
+      }
+    },
+    {
+      "at": "2026-10-30T12:30:00.897Z",
+      "kind": "tool",
+      "text": "observer.open",
+      "data": {
+        "args": {
+          "sceneId": "58d1b3a6-433f-48d7-8605-a7525dc9e59d"
+        },
+        "result": "{\"id\":\"81b7ce01-a695-4b1c-b02e-18ff4559fe63\",\"observer\":{\"actionCount\":0,\"createdAt\":\"2026-10-30T12:30:00.773818900Z\",\"schemaVersion\":1,\"motion\":\"free camera; no avatar body or collisions\",\"pose\":{\"pitchDeg\":-13.495733280795811,\"fovDeg\":60,\"position\":[-3.5999999999999996,1.751,5],\"yawDeg\":0},\"captureCount\":0,\"sceneId\":\"58d1b3a6-433f-48d7-8605-a7525dc9e59d\",\"id\":\"8918a4ed-d34e-4df3-bee8-b5120d26caf4\",\"selectedEntityId\":null,\"title\":\"Observer · Local agent physical manipulation\",\"version\":1},\"viewport\":{\"width\":780,\"height\":258},\"visibleEntities\":[{\"bodyType\":\"static\",\"visibleSamples\":10,\"schemaVersion\":1,\"size\":[12,0.2,3],\"rotation\":[0,0,0,1],\"distanceM\":6.353392873103315,\"centerNdc\":[0.394814910990547,-0.11316505469909686],\"id\":\"0b9a0682-d63d-46cd-a803-be71e7c2d6c2\",\"label\":\"Ramp\",\"position\":[0,0.2,0],\"massKg\":0},{\"bodyType\":\"dynamic\",\"visibleSamples\":8,\"schemaVersion\":1,\"size\":[0.5,0.5,0.5],\"rotation\":[0,0,0,1],\"distanceM\":5.141984052872976,\"centerNdc\":[0,0],\"id\":\"27f9b12a-fd3b-4665-be5b-a45bc09d8e94\",\"label\":\"Block\",\"position\":[-3.5999999999999996,0.5509999999999999,0],\"massKg\":1},{\"bodyType\":\"static\",\"visibleSamples\":27,\"schemaVersion\":1,\"size\":[40,0.4,24],\"rotation\":[0,0,0,1],\"distanceM\":6.4626930145257555,\"centerNdc\":[0.3878835708417802,-0.2378772980857144],\"id\":\"d4959175-90b1-4c23-a699-df9f2b2eeff0\",\"label\":\"Ground\",\"position\":[0,-0.2,0],\"massKg\":0}],\"worldSha256\":\"e883d9"
+      }
+    },
+    {
+      "at": "2026-10-30T12:30:00.912Z",
+      "kind": "thinking",
+      "text": "Planning step 2 with gpt-oss:20b",
+      "data": {}
+    },
+    {
+      "at": "2026-10-30T12:30:31.942Z",
+      "kind": "decision",
+      "text": "body.grab",
+      "data": {
+        "tool": "body.grab",
+        "args": {
+          "observationId": "81b7ce01-a695-4b1c-b02e-18ff4559fe63",
+          "entityId": "27f9b12a-fd3b-4665-be5b-a45bc09d8e94",
+          "id": "8918a4ed-d34e-4df3-bee8-b5120d26caf4"
+        }
+      }
+    },
+    {
+      "at": "2026-10-30T12:30:32.098Z",
+      "kind": "tool",
+      "text": "body.grab",
+      "data": {
+        "args": {
+          "observationId": "81b7ce01-a695-4b1c-b02e-18ff4559fe63",
+          "entityId": "27f9b12a-fd3b-4665-be5b-a45bc09d8e94",
+          "id": "8918a4ed-d34e-4df3-bee8-b5120d26caf4"
+        },
+        "result": "{\"id\":\"57ed7fa4-6ed3-41bb-b29e-faa63baae71f\",\"observer\":{\"actionCount\":0,\"createdAt\":\"2026-10-30T12:30:00.773818900Z\",\"schemaVersion\":1,\"motion\":\"free camera; no avatar body or collisions\",\"pose\":{\"pitchDeg\":-13.495733280795811,\"fovDeg\":60,\"position\":[-3.5999999999999996,1.751,5],\"yawDeg\":0},\"captureCount\":0,\"sceneId\":\"58d1b3a6-433f-48d7-8605-a7525dc9e59d\",\"id\":\"8918a4ed-d34e-4df3-bee8-b5120d26caf4\",\"selectedEntityId\":null,\"title\":\"Observer · Local agent physical manipulation\",\"version\":1},\"viewport\":{\"width\":780,\"height\":258},\"visibleEntities\":[{\"bodyType\":\"static\",\"visibleSamples\":10,\"size\":[12,0.2,3],\"rotation\":[0,0,0,1],\"distanceM\":6.353392873103315,\"centerNdc\":[0.394814910990547,-0.11316505469909686],\"id\":\"0b9a0682-d63d-46cd-a803-be71e7c2d6c2\",\"label\":\"Ramp\",\"position\":[0,0.2,0],\"massKg\":0},{\"bodyType\":\"dynamic\",\"visibleSamples\":10,\"size\":[0.5,0.5,0.5],\"rotation\":[0,0,0,1],\"distanceM\":5.141984052872976,\"centerNdc\":[-4.947949134285171e-17,7.479457993686887e-17],\"id\":\"27f9b12a-fd3b-4665-be5b-a45bc09d8e94\",\"label\":\"Block\",\"position\":[-3.6,0.551,0],\"massKg\":1},{\"bodyType\":\"static\",\"visibleSamples\":27,\"size\":[40,0.4,24],\"rotation\":[0,0,0,1],\"distanceM\":6.4626930145257555,\"centerNdc\":[0.3878835708417802,-0.2378772980857144],\"id\":\"d4959175-90b1-4c23-a699-df9f2b2eeff0\",\"label\":\"Ground\",\"position\":[0,-0.2,0],\"massKg\":0}],\"worldSha256\":\"fb4e0817bc29f518cf9aaa035ca05cedfc28c4951a8591"
+      }
+    },
+    {
+      "at": "2026-10-30T12:30:32.111Z",
+      "kind": "thinking",
+      "text": "Planning step 3 with gpt-oss:20b",
+      "data": {}
+    },
+    {
+      "at": "2026-10-30T12:31:10.871Z",
+      "kind": "decision",
+      "text": "body.move",
+      "data": {
+        "tool": "body.move",
+        "args": {
+          "observationId": "57ed7fa4-6ed3-41bb-b29e-faa63baae71f",
+          "gripId": "bea9e70f-f7fd-4017-8fba-ac5f4d40cb5b",
+          "id": "27f9b12a-fd3b-4665-be5b-a45bc09d8e94",
+          "runId": "41f94364-dfc7-42ad-8fe9-564c1271e0f8",
+          "target": [
+            -3.6,
+            1.301,
+            0.25
+          ]
+        }
+      }
+    },
+    {
+      "at": "2026-10-30T12:31:10.882Z",
+      "kind": "repair",
+      "text": "Use the observer owned by this task",
+      "data": {}
+    },
+    {
+      "at": "2026-10-30T12:31:10.882Z",
+      "kind": "thinking",
+      "text": "Planning step 4 with gpt-oss:20b",
+      "data": {}
+    },
+    {
+      "at": "2026-10-30T12:31:25.441Z",
+      "kind": "decision",
+      "text": "body.move",
+      "data": {
+        "tool": "body.move",
+        "args": {
+          "observationId": "57ed7fa4-6ed3-41bb-b29e-faa63baae71f",
+          "gripId": "bea9e70f-f7fd-4017-8fba-ac5f4d40cb5b",
+          "id": "27f9b12a-fd3b-4665-be5b-a45bc09d8e94",
+          "runId": "41f94364-dfc7-42ad-8fe9-564c1271e0f8",
+          "target": [
+            -3.6,
+            1.301,
+            0.25
+          ]
+        }
+      }
+    },
+    {
+      "at": "2026-10-30T12:31:25.450Z",
+      "kind": "repair",
+      "text": "Use the observer owned by this task",
+      "data": {}
+    },
+    {
+      "at": "2026-10-30T12:31:25.450Z",
+      "kind": "thinking",
+      "text": "Planning step 5 with gpt-oss:20b",
+      "data": {}
+    },
+    {
+      "at": "2026-10-30T12:31:46.014Z",
+      "kind": "decision",
+      "text": "body.move",
+      "data": {
+        "tool": "body.move",
+        "args": {
+          "observationId": "57ed7fa4-6ed3-41bb-b29e-faa63baae71f",
+          "gripId": "bea9e70f-f7fd-4017-8fba-ac5f4d40cb5b",
+          "id": "27f9b12a-fd3b-4665-be5b-a45bc09d8e94",
+          "runId": "41f94364-dfc7-42ad-8fe9-564c1271e0f8",
+          "target": [
+            -3.6,
+            1.301,
+            0.25
+          ]
+        }
+      }
+    },
+    {
+      "at": "2026-10-30T12:31:46.025Z",
+      "kind": "repair",
+      "text": "Use the observer owned by this task",
+      "data": {}
+    },
+    {
+      "at": "2026-10-30T12:31:46.025Z",
+      "kind": "thinking",
+      "text": "Planning step 6 with gpt-oss:20b",
+      "data": {}
+    },
+    {
+      "at": "2026-10-30T12:32:26.502Z",
+      "kind": "decision",
+      "text": "body.move",
+      "data": {
+        "tool": "body.move",
+        "args": {
+          "observationId": "57ed7fa4-6ed3-41bb-b29e-faa63baae71f",
+          "gripId": "bea9e70f-f7fd-4017-8fba-ac5f4d40cb5b",
+          "id": "27f9b12a-fd3b-4665-be5b-a45bc09d8e94",
+          "runId": "41f94364-dfc7-42ad-8fe9-564c1271e0f8",
+          "target": [
+            -3.6,
+            1.301,
+            0.25
+          ]
+        }
+      }
+    },
+    {
+      "at": "2026-10-30T12:32:26.510Z",
+      "kind": "repair",
+      "text": "Use the observer owned by this task",
+      "data": {}
+    },
+    {
+      "at": "2026-10-30T12:32:26.510Z",
+      "kind": "thinking",
+      "text": "Planning step 7 with gpt-oss:20b",
+      "data": {}
+    },
+    {
+      "at": "2026-10-30T12:32:49.590Z",
+      "kind": "decision",
+      "text": "body.move",
+      "data": {
+        "tool": "body.move",
+        "args": {
+          "observationId": "57ed7fa4-6ed3-41bb-b29e-faa63baae71f",
+          "gripId": "bea9e70f-f7fd-4017-8fba-ac5f4d40cb5b",
+          "id": "27f9b12a-fd3b-4665-be5b-a45bc09d8e94",
+          "runId": "41f94364-dfc7-42ad-8fe9-564c1271e0f8",
+          "target": [
+            -3.6,
+            1.301,
+            0.25
+          ]
+        }
+      }
+    },
+    {
+      "at": "2026-10-30T12:32:49.600Z",
+      "kind": "repair",
+      "text": "Use the observer owned by this task",
+      "data": {}
+    },
+    {
+      "at": "2026-10-30T12:32:49.600Z",
+      "kind": "thinking",
+      "text": "Planning step 8 with gpt-oss:20b",
+      "data": {}
+    },
+    {
+      "at": "2026-10-30T12:33:05.199Z",
+      "kind": "decision",
+      "text": "body.move",
+      "data": {
+        "tool": "body.move",
+        "args": {
+          "observationId": "57ed7fa4-6ed3-41bb-b29e-faa63baae71f",
+          "gripId": "bea9e70f-f7fd-4017-8fba-ac5f4d40cb5b",
+          "id": "27f9b12a-fd3b-4665-be5b-a45bc09d8e94",
+          "runId": "41f94364-dfc7-42ad-8fe9-564c1271e0f8",
+          "target": [
+            -3.6,
+            1.301,
+            0.25
+          ]
+        }
+      }
+    },
+    {
+      "at": "2026-10-30T12:33:05.206Z",
+      "kind": "repair",
+      "text": "Use the observer owned by this task",
+      "data": {}
+    },
+    {
+      "at": "2026-10-30T12:33:05.206Z",
+      "kind": "thinking",
+      "text": "Planning step 9 with gpt-oss:20b",
+      "data": {}
+    },
+    {
+      "at": "2026-10-30T12:33:18.744Z",
+      "kind": "decision",
+      "text": "body.move",
+      "data": {
+        "tool": "body.move",
+        "args": {
+          "observationId": "57ed7fa4-6ed3-41bb-b29e-faa63baae71f",
+          "gripId": "bea9e70f-f7fd-4017-8fba-ac5f4d40cb5b",
+          "id": "27f9b12a-fd3b-4665-be5b-a45bc09d8e94",
+          "runId": "41f94364-dfc7-42ad-8fe9-564c1271e0f8",
+          "target": [
+            -3.6,
+            1.301,
+            0.25
+          ]
+        }
+      }
+    },
+    {
+      "at": "2026-10-30T12:33:18.751Z",
+      "kind": "repair",
+      "text": "Use the observer owned by this task",
+      "data": {}
+    },
+    {
+      "at": "2026-10-30T12:33:18.751Z",
+      "kind": "thinking",
+      "text": "Planning step 10 with gpt-oss:20b",
+      "data": {}
+    },
+    {
+      "at": "2026-10-30T12:33:30.824Z",
+      "kind": "decision",
+      "text": "body.move",
+      "data": {
+        "tool": "body.move",
+        "args": {
+          "observationId": "57ed7fa4-6ed3-41bb-b29e-faa63baae71f",
+          "gripId": "bea9e70f-f7fd-4017-8fba-ac5f4d40cb5b",
+          "id": "27f9b12a-fd3b-4665-be5b-a45bc09d8e94",
+          "runId": "41f94364-dfc7-42ad-8fe9-564c1271e0f8",
+          "target": [
+            -3.6,
+            1.301,
+            0.25
+          ]
+        }
+      }
+    },
+    {
+      "at": "2026-10-30T12:33:30.831Z",
+      "kind": "repair",
+      "text": "Use the observer owned by this task",
+      "data": {}
+    },
+    {
+      "at": "2026-10-30T12:33:30.831Z",
+      "kind": "thinking",
+      "text": "Planning step 11 with gpt-oss:20b",
+      "data": {}
+    },
+    {
+      "at": "2026-10-30T12:33:44.294Z",
+      "kind": "decision",
+      "text": "body.move",
+      "data": {
+        "tool": "body.move",
+        "args": {
+          "observationId": "57ed7fa4-6ed3-41bb-b29e-faa63baae71f",
+          "gripId": "bea9e70f-f7fd-4017-8fba-ac5f4d40cb5b",
+          "id": "27f9b12a-fd3b-4665-be5b-a45bc09d8e94",
+          "runId": "41f94364-dfc7-42ad-8fe9-564c1271e0f8",
+          "target": [
+            -3.6,
+            1.301,
+            0.25
+          ]
+        }
+      }
+    },
+    {
+      "at": "2026-10-30T12:33:44.302Z",
+      "kind": "repair",
+      "text": "Use the observer owned by this task",
+      "data": {}
+    },
+    {
+      "at": "2026-10-30T12:33:44.302Z",
+      "kind": "thinking",
+      "text": "Planning step 12 with gpt-oss:20b",
+      "data": {}
+    },
+    {
+      "at": "2026-10-30T12:33:58.877Z",
+      "kind": "decision",
+      "text": "body.move",
+      "data": {
+        "tool": "body.move",
+        "args": {
+          "observationId": "57ed7fa4-6ed3-41bb-b29e-faa63baae71f",
+          "gripId": "bea9e70f-f7fd-4017-8fba-ac5f4d40cb5b",
+          "id": "27f9b12a-fd3b-4665-be5b-a45bc09d8e94",
+          "runId": "41f94364-dfc7-42ad-8fe9-564c1271e0f8",
+          "target": [
+            -3.6,
+            1.301,
+            0.25
+          ]
+        }
+      }
+    },
+    {
+      "at": "2026-10-30T12:33:58.886Z",
+      "kind": "repair",
+      "text": "Use the observer owned by this task",
+      "data": {}
+    },
+    {
+      "at": "2026-10-30T12:33:58.886Z",
+      "kind": "thinking",
+      "text": "Planning step 13 with gpt-oss:20b",
+      "data": {}
+    },
+    {
+      "at": "2026-10-30T12:34:10.856Z",
+      "kind": "decision",
+      "text": "body.move",
+      "data": {
+        "tool": "body.move",
+        "args": {
+          "observationId": "57ed7fa4-6ed3-41bb-b29e-faa63baae71f",
+          "gripId": "bea9e70f-f7fd-4017-8fba-ac5f4d40cb5b",
+          "id": "27f9b12a-fd3b-4665-be5b-a45bc09d8e94",
+          "runId": "41f94364-dfc7-42ad-8fe9-564c1271e0f8",
+          "target": [
+            -3.6,
+            1.301,
+            0.25
+          ]
+        }
+      }
+    },
+    {
+      "at": "2026-10-30T12:34:10.866Z",
+      "kind": "repair",
+      "text": "Use the observer owned by this task",
+      "data": {}
+    },
+    {
+      "at": "2026-10-30T12:34:10.866Z",
+      "kind": "thinking",
+      "text": "Planning step 14 with gpt-oss:20b",
+      "data": {}
+    },
+    {
+      "at": "2026-10-30T12:34:22.879Z",
+      "kind": "decision",
+      "text": "body.move",
+      "data": {
+        "tool": "body.move",
+        "args": {
+          "observationId": "57ed7fa4-6ed3-41bb-b29e-faa63baae71f",
+          "gripId": "bea9e70f-f7fd-4017-8fba-ac5f4d40cb5b",
+          "id": "27f9b12a-fd3b-4665-be5b-a45bc09d8e94",
+          "runId": "41f94364-dfc7-42ad-8fe9-564c1271e0f8",
+          "target": [
+            -3.6,
+            1.301,
+            0.25
+          ]
+        }
+      }
+    },
+    {
+      "at": "2026-10-30T12:34:22.889Z",
+      "kind": "repair",
+      "text": "Use the observer owned by this task",
+      "data": {}
+    },
+    {
+      "at": "2026-10-30T12:34:22.889Z",
+      "kind": "thinking",
+      "text": "Planning step 15 with gpt-oss:20b",
+      "data": {}
+    },
+    {
+      "at": "2026-10-30T12:34:34.886Z",
+      "kind": "decision",
+      "text": "body.move",
+      "data": {
+        "tool": "body.move",
+        "args": {
+          "observationId": "57ed7fa4-6ed3-41bb-b29e-faa63baae71f",
+          "gripId": "bea9e70f-f7fd-4017-8fba-ac5f4d40cb5b",
+          "id": "27f9b12a-fd3b-4665-be5b-a45bc09d8e94",
+          "runId": "41f94364-dfc7-42ad-8fe9-564c1271e0f8",
+          "target": [
+            -3.6,
+            1.301,
+            0.25
+          ]
+        }
+      }
+    },
+    {
+      "at": "2026-10-30T12:34:34.900Z",
+      "kind": "repair",
+      "text": "Use the observer owned by this task",
+      "data": {}
+    },
+    {
+      "at": "2026-10-30T12:34:34.900Z",
+      "kind": "thinking",
+      "text": "Planning step 16 with gpt-oss:20b",
+      "data": {}
+    }
+  ],
+  "learning": {
+    "generation": 0,
+    "candidates": [],
+    "promotions": [],
+    "evaluations": [],
+    "activePolicy": {
+      "refreshStale": false,
+      "version": 1,
+      "observationLimit": 2
+    },
+    "runtimeContract": "browser-controller-v2",
+    "episodeCount": 1,
+    "episodes": [
+      {
+        "taskKind": "experiment-task",
+        "runtimeContract": "browser-controller-v2",
+        "startedAt": "2026-10-30T12:29:43.023705400Z",
+        "privacy": "No page text, typed values, source or raw goals in episodes",
+        "model": "gpt-oss:20b",
+        "goalDigest": "c171033ecf1d39d909c3dd93bafb7974a75e3d3d1e38b817bde81bad9f44ec11",
+        "id": "a22d6b29-fc59-4b33-95c5-91547e013140",
+        "label": "experiment-task",
+        "steps": [
+          {
+            "at": "2026-10-30T12:30:00.897009800Z",
+            "failure": "none",
+            "index": 0,
+            "ok": true,
+            "tool": "observer.open",
+            "elapsedMs": 135
+          },
+          {
+            "at": "2026-10-30T12:30:32.097484400Z",
+            "failure": "none",
+            "index": 1,
+            "ok": true,
+            "tool": "body.grab",
+            "elapsedMs": 163
+          },
+          {
+            "at": "2026-10-30T12:31:10.873395400Z",
+            "failure": "tool-error",
+            "index": 2,
+            "ok": false,
+            "tool": "body.move",
+            "elapsedMs": 1
+          },
+          {
+            "at": "2026-10-30T12:31:25.442201700Z",
+            "failure": "tool-error",
+            "index": 3,
+            "ok": false,
+            "tool": "body.move",
+            "elapsedMs": 0
+          },
+          {
+            "at": "2026-10-30T12:31:46.016212300Z",
+            "failure": "tool-error",
+            "index": 4,
+            "ok": false,
+            "tool": "body.move",
+            "elapsedMs": 0
+          },
+          {
+            "at": "2026-10-30T12:32:26.503873900Z",
+            "failure": "tool-error",
+            "index": 5,
+            "ok": false,
+            "tool": "body.move",
+            "elapsedMs": 0
+          },
+          {
+            "at": "2026-10-30T12:32:49.591926500Z",
+            "failure": "tool-error",
+            "index": 6,
+            "ok": false,
+            "tool": "body.move",
+            "elapsedMs": 0
+          },
+          {
+            "at": "2026-10-30T12:33:05.201185400Z",
+            "failure": "tool-error",
+            "index": 7,
+            "ok": false,
+            "tool": "body.move",
+            "elapsedMs": 0
+          },
+          {
+            "at": "2026-10-30T12:33:18.746747200Z",
+            "failure": "tool-error",
+            "index": 8,
+            "ok": false,
+            "tool": "body.move",
+            "elapsedMs": 0
+          },
+          {
+            "at": "2026-10-30T12:33:30.826766700Z",
+            "failure": "tool-error",
+            "index": 9,
+            "ok": false,
+            "tool": "body.move",
+            "elapsedMs": 0
+          },
+          {
+            "at": "2026-10-30T12:33:44.295465300Z",
+            "failure": "tool-error",
+            "index": 10,
+            "ok": false,
+            "tool": "body.move",
+            "elapsedMs": 0
+          },
+          {
+            "at": "2026-10-30T12:33:58.878275700Z",
+            "failure": "tool-error",
+            "index": 11,
+            "ok": false,
+            "tool": "body.move",
+            "elapsedMs": 0
+          },
+          {
+            "at": "2026-10-30T12:34:10.857202900Z",
+            "failure": "tool-error",
+            "index": 12,
+            "ok": false,
+            "tool": "body.move",
+            "elapsedMs": 0
+          },
+          {
+            "at": "2026-10-30T12:34:22.880418200Z",
+            "failure": "tool-error",
+            "index": 13,
+            "ok": false,
+            "tool": "body.move",
+            "elapsedMs": 0
+          },
+          {
+            "at": "2026-10-30T12:34:34.887362600Z",
+            "failure": "tool-error",
+            "index": 14,
+            "ok": false,
+            "tool": "body.move",
+            "elapsedMs": 0
+          }
+        ],
+        "policy": {
+          "refreshStale": false,
+          "version": 1,
+          "observationLimit": 2
+        },
+        "status": "running"
+      }
+    ]
+  }
+}

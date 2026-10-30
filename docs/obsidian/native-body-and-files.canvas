@@ -1,0 +1,121 @@
+{
+  "nodes": [
+    {
+      "id": "native",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/BulletRamp.java",
+      "x": 0,
+      "y": 0,
+      "width": 350,
+      "height": 180,
+      "color": "4"
+    },
+    {
+      "id": "owner",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/SceneStore.java",
+      "x": 390,
+      "y": 0,
+      "width": 350,
+      "height": 180,
+      "color": "4"
+    },
+    {
+      "id": "manual",
+      "type": "file",
+      "file": "workspace-desktop/renderer/body-panel.js",
+      "x": 780,
+      "y": 0,
+      "width": 350,
+      "height": 180,
+      "color": "4"
+    },
+    {
+      "id": "scene",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/SceneExchange.java",
+      "x": 0,
+      "y": 230,
+      "width": 350,
+      "height": 180,
+      "color": "4"
+    },
+    {
+      "id": "video",
+      "type": "file",
+      "file": "workspace-desktop/renderer/scene-video.js",
+      "x": 390,
+      "y": 230,
+      "width": 350,
+      "height": 180,
+      "color": "4"
+    },
+    {
+      "id": "files",
+      "type": "file",
+      "file": "workspace-desktop/renderer/scene-files.js",
+      "x": 780,
+      "y": 230,
+      "width": 350,
+      "height": 180,
+      "color": "4"
+    },
+    {
+      "id": "agent",
+      "type": "file",
+      "file": "workspace-desktop/main.cjs",
+      "x": 0,
+      "y": 460,
+      "width": 350,
+      "height": 180,
+      "color": "4"
+    },
+    {
+      "id": "next",
+      "type": "file",
+      "file": "docs/SCENARIO_ENGINE_ROADMAP.md",
+      "x": 390,
+      "y": 460,
+      "width": 350,
+      "height": 180,
+      "color": "2"
+    }
+  ],
+  "edges": [
+    {
+      "id": "e0",
+      "fromNode": "native",
+      "toNode": "owner"
+    },
+    {
+      "id": "e1",
+      "fromNode": "owner",
+      "toNode": "manual"
+    },
+    {
+      "id": "e2",
+      "fromNode": "owner",
+      "toNode": "agent"
+    },
+    {
+      "id": "e3",
+      "fromNode": "owner",
+      "toNode": "scene"
+    },
+    {
+      "id": "e4",
+      "fromNode": "scene",
+      "toNode": "files"
+    },
+    {
+      "id": "e5",
+      "fromNode": "owner",
+      "toNode": "video"
+    },
+    {
+      "id": "e6",
+      "fromNode": "files",
+      "toNode": "next"
+    }
+  ]
+}

@@ -1,0 +1,171 @@
+{
+  "date": "2026-10-30",
+  "sourceBaseline": "683b7af4c50ffdb7fc19af5dcd10f9e2f611fb45",
+  "runtimeChanged": true,
+  "releaseKind": "native-body-constraint-and-file-media-interchange",
+  "sourceInventory": 421,
+  "modelFreeWorkflow": {
+    "passed": true,
+    "checks": 10,
+    "evidence": "body-integration.json",
+    "targetErrorM": 6.045693450492536e-07,
+    "decodedVideo": {
+      "width": 960,
+      "height": 540,
+      "ended": true,
+      "playbackEndS": 1.047,
+      "orangePixels": 402
+    }
+  },
+  "localModel": {
+    "passed": true,
+    "model": "gpt-oss:20b",
+    "digest": "f38aa0c53da5f8c49d08c43a99df24ff53167fe68e24664a7777288e7656fdfe",
+    "checks": 6,
+    "targetErrorM": 6.263956336885586e-07,
+    "steps": [
+      {
+        "at": "2026-10-30T12:49:44.097143300Z",
+        "failure": "none",
+        "index": 0,
+        "ok": true,
+        "tool": "observer.open",
+        "elapsedMs": 126
+      },
+      {
+        "at": "2026-10-30T12:50:05.922538300Z",
+        "failure": "none",
+        "index": 1,
+        "ok": true,
+        "tool": "body.grab",
+        "elapsedMs": 135
+      },
+      {
+        "at": "2026-10-30T12:50:37.205878600Z",
+        "failure": "none",
+        "index": 2,
+        "ok": true,
+        "tool": "body.move",
+        "elapsedMs": 770
+      },
+      {
+        "at": "2026-10-30T12:51:41.072343600Z",
+        "failure": "none",
+        "index": 3,
+        "ok": true,
+        "tool": "body.release",
+        "elapsedMs": 567
+      },
+      {
+        "at": "2026-10-30T12:52:08.205247700Z",
+        "failure": "none",
+        "index": 4,
+        "ok": true,
+        "tool": "body.capture",
+        "elapsedMs": 98
+      }
+    ],
+    "evidence": "live-body.json",
+    "initialFailure": "Model repeatedly mixed observer/run/grip IDs; ownership rejected calls and the trial was cancelled. Task-scoped semantic tools now bind actual IDs and fresh observations in the host.",
+    "failedTrialEvidence": "initial-model-failure.txt",
+    "nativeDisplayedSummary": "Body move reached. Measured target error 6.26396e-7 m (tolerance 0.08 m). Release position [-3.600000, 0.550000, 0.250003] m. Native constraint removed. Run c1da9668-3e73-450b-ae62-e043f8f7909c. Frame SHA-256 e3a74e8bfb958e3f4a681b7377709ea0a0c88b0c6f195b83114e3c0cb4f20b72.",
+    "numericalReportingRegression": "reporting-regression.json"
+  },
+  "freshClone": {
+    "status": "passed",
+    "checkout": "fraynix-workspace-qa015-final",
+    "sourceCommit": "683b7af4c50ffdb7fc19af5dcd10f9e2f611fb45",
+    "javaTests": 143,
+    "desktopUnitTests": 19,
+    "bodyUiChecks": 10,
+    "offlineBuild": true,
+    "modelWeightsOrPrivateRuntimeCopied": false,
+    "electronBinary": "Pinned 45.1.0 executable reused from existing dependency cache after npm ci --offline --ignore-scripts",
+    "canonicalSourceHashesMatched": 421
+  },
+  "documentationQa": {
+    "status": "passed",
+    "checks": [
+      "Offline viewer loads eight actual/planned native modules",
+      "Search, module selection and verified/planned filters work",
+      "Inventory search resolves actual Java source",
+      "Four actual app/frame images load with captions and working navigation",
+      "390px layout and selected source have no horizontal overflow",
+      "Actual local WebM decodes and plays to completion offline",
+      "Portable scene and actual run/trajectory examples exist",
+      "No viewer JavaScript errors"
+    ],
+    "visualInspection": {
+      "wide": "passed: readable native body/file modules, selected source and actual screenshot/video sections",
+      "narrow": "passed: 390px modules/controls/source wrap without horizontal overflow",
+      "app": "passed: actual lifted dynamic body, inline WebM, and final native numerical report inspected"
+    }
+  },
+  "platform": "Windows x64 / JDK 21 / Node 24.14.1 / Electron 45.1.0",
+  "scope": [
+    "Actual native dynamic-body constraint; not an articulated hand, avatar or hardware robot",
+    "Endpoint reached/blocked is measured independently of operation completion",
+    "Constraint per-axis impulse clamp is not a global force guarantee",
+    "Portable scene import supports only the native ramp/block schema",
+    "Native run replay differs from video rendering of recorded poses",
+    "Foreign run JSON/mesh/document/code import is not implemented",
+    "No new embodied policy or model weights trained; physical learning status stays completed-unverified",
+    "Earlier real-data physical fit remains rejected"
+  ],
+  "currentRegression": {
+    "passed": true,
+    "javaTests": 143,
+    "javaClasses": 27,
+    "observerJavaTests": 8,
+    "bodyJavaTests": 9,
+    "interchangeJavaTests": 3,
+    "desktopUnitTests": 19,
+    "suites": {
+      "body-integration": {
+        "passed": true,
+        "checks": 10,
+        "output": "workspace-desktop/test-output/body-integration.json"
+      },
+      "observer-integration": {
+        "passed": true,
+        "checks": 12,
+        "output": "workspace-desktop/test-output/observer-integration.json"
+      },
+      "scene-integration": {
+        "passed": true,
+        "checks": 12,
+        "output": "workspace-desktop/test-output/scene-integration.json"
+      },
+      "measurement-integration": {
+        "passed": true,
+        "checks": 10,
+        "output": "workspace-desktop/test-output/measurement-integration.json"
+      },
+      "calibration-integration": {
+        "passed": true,
+        "checks": 8,
+        "output": "workspace-desktop/test-output/calibration-integration.json"
+      },
+      "real-data-delfys": {
+        "passed": true,
+        "checks": 9,
+        "output": "workspace-desktop/test-output/real-data-delfys.json"
+      },
+      "integration": {
+        "passed": true,
+        "checks": 12,
+        "output": "workspace-desktop/test-output/integration.json"
+      },
+      "learning-integration": {
+        "passed": true,
+        "checks": 9,
+        "output": "workspace-desktop/test-output/learning-integration.json"
+      },
+      "broader-validation": {
+        "passed": true,
+        "checks": 45,
+        "output": "workspace-desktop/test-output/broader-validation.json"
+      }
+    }
+  }
+}

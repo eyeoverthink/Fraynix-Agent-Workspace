@@ -2,9 +2,9 @@
 
 **A local visual environment for agents to browse, create runnable artifacts, test behavior and reuse verified skills.**
 
-> **Latest implementation: [README 014 — native Java observer](README-014.md)** · [Offline explorer](docs/readmes/014/index.html) · [Contract](docs/NATIVE_OBSERVER.md) · [Edition history](docs/readmes/INDEX.md)
+> **Latest implementation: [README 015 — real body control and portable files](README-015.md)** · [Offline explorer/video](docs/readmes/015/index.html) · [Formats](docs/SCENE_INTERCHANGE.md) · [Edition history](docs/readmes/INDEX.md)
 
-Java now owns a first-person observer: move, look, inspect actual native entities, capture real rendered frames and replay source-linked history. The manual workflow needs no model inference or video transformer; a local language model can request the same actions. The existing design, browser/canvas and original Studio are preserved. [Current results, limitations and next native gates](README-014.md).
+Java now applies real native grab/move/release with collision checks, bounded constraints, actual progress and replay receipts. Export supported scenes/runs as JSON, native trajectories as CSV and recorded motion as real WebM; import/duplicate validated native scenes with fresh identities. The current design, browser/canvas, observer and original Studio are preserved. [Current functions, limits, replication and next steps](README-015.md).
 
 Independent successor to [Fraynix Studio](https://github.com/eyeoverthink/Fraynix-Studio), starting from verified commit `6341404`. The original application and personal project state remain separate. Full game sources, assets, licenses and earlier editions are preserved here.
 
@@ -16,9 +16,9 @@ The app includes a real browser, live creation canvas, editable source, versione
 
 Local `gpt-oss:20b` is the verified default for the first agent fixture. The custom FRAYNIX 3B trial returned an Ollama native-format error; advertised tool capability alone does not establish task reliability. You can select other eligible installed models explicitly.
 
-![Actual native observer in the existing workspace](docs/readmes/014/images/observer-native.png)
+![Actual native body lifted in the existing workspace](docs/readmes/015/images/body-lift.png)
 
-October 30 actual native observer workflow. Java and desktop regressions, actual pixel/state checks and a local-model observer task are recorded in [edition 014 verification](docs/readmes/014/verification.json). The previous [real-data fit](README-013.md) remains rejected.
+October 30 actual body/scene/file workflows. Native actuation, decoded video, import/replication, Java/desktop regressions and local-agent evidence are recorded in [edition 015 verification](docs/readmes/015/verification.json). The previous [real-data fit](README-013.md) remains rejected.
 
 ## Verify
 
@@ -31,6 +31,7 @@ npm.cmd run test:scene
 npm.cmd run test:calibration
 npm.cmd run test:real-data
 npm.cmd run test:observer
+npm.cmd run test:body
 npm.cmd run test:measurement
 npm.cmd run test:integration
 npm.cmd run test:learning

@@ -1,0 +1,101 @@
+{
+  "date": "2026-10-30",
+  "modules": [
+    {
+      "id": "native",
+      "name": "Native dynamic constraint",
+      "status": "verified",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/BulletRamp.java",
+      "summary": "An owned native worker applies a bounded point constraint; body pose comes from physics.",
+      "note": "docs/obsidian/23-native-body-and-files.md"
+    },
+    {
+      "id": "owner",
+      "name": "Ownership, intents and actual results",
+      "status": "verified",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/SceneStore.java",
+      "summary": "Fresh source/grip fences, durable intent/results, real clock progress, cancellation and native command replay.",
+      "note": "docs/obsidian/23-native-body-and-files.md"
+    },
+    {
+      "id": "manual",
+      "name": "Visible physical body controls",
+      "status": "verified",
+      "source": "workspace-desktop/renderer/body-panel.js",
+      "summary": "Grab, lift, world target, release and stop act on the actual dynamic Block inside the existing layout.",
+      "note": "docs/obsidian/23-native-body-and-files.md"
+    },
+    {
+      "id": "scene",
+      "name": "Portable scene interchange",
+      "status": "verified",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/SceneExchange.java",
+      "summary": "Strict native schema/units/geometry validation and fresh identity/provenance import.",
+      "note": "docs/obsidian/23-native-body-and-files.md"
+    },
+    {
+      "id": "video",
+      "name": "Actual native video",
+      "status": "verified",
+      "source": "workspace-desktop/renderer/scene-video.js",
+      "summary": "Recorded native poses render to silent 960×540 VP8 WebM; decoded pixels/playback are tested.",
+      "note": "docs/obsidian/23-native-body-and-files.md"
+    },
+    {
+      "id": "files",
+      "name": "Files, data and inline playback",
+      "status": "verified",
+      "source": "workspace-desktop/renderer/scene-files.js",
+      "summary": "Scene/run JSON, native CSV, explicit import, duplicates and actual exported files with hash receipts.",
+      "note": "docs/obsidian/23-native-body-and-files.md"
+    },
+    {
+      "id": "agent",
+      "name": "Task-scoped agent actuation",
+      "status": "verified",
+      "source": "workspace-desktop/main.cjs",
+      "summary": "Semantic model tools bind actual owned handles in the host; stage gates prevent repeated physical movement.",
+      "note": "docs/obsidian/23-native-body-and-files.md"
+    },
+    {
+      "id": "next",
+      "name": "General assets and physical policy",
+      "status": "planned",
+      "source": "docs/SCENARIO_ENGINE_ROADMAP.md",
+      "summary": "Next: bounded mesh/components, portable run import, colliding navigation, separate physical learning/evaluation and rollback.",
+      "note": "docs/obsidian/23-native-body-and-files.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "docs/readmes/015/images/body-grab.png",
+      "caption": "Actual native grab at tick zero; dynamic body identity and authored scene are preserved."
+    },
+    {
+      "path": "docs/readmes/015/images/body-lift.png",
+      "caption": "Actual body lifted through native solver ticks and held above the flat ramp."
+    },
+    {
+      "path": "docs/readmes/015/images/body-video-export.png",
+      "caption": "Actual WebM export and inline playback inside the existing app."
+    },
+    {
+      "path": "docs/readmes/015/images/live-body.png",
+      "caption": "Actual gpt-oss:20b native body task, final capture and measured result."
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/readmes/015/verification.json"
+    },
+    {
+      "path": "docs/readmes/015/body-integration.json"
+    },
+    {
+      "path": "docs/readmes/015/live-body.json"
+    },
+    {
+      "path": "docs/SCENE_INTERCHANGE.md"
+    }
+  ]
+}

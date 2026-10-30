@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "latest": 14,
+  "latest": 15,
   "canonicalization": "UTF-8 without BOM; CRLF normalized to LF for text",
   "editions": [
     {
@@ -1217,6 +1217,160 @@
           "path": "docs/readmes/014/verification.json",
           "kind": "text",
           "sha256": "ce9d9397a52d2f65d155c924fcd08ca629c6efbcce8f0a825e4dbf0d91ec684e"
+        }
+      ]
+    },
+    {
+      "number": 15,
+      "date": "2026-10-30",
+      "title": "Native body control and portable scene/media files",
+      "status": "published",
+      "markdown": "README-015.md",
+      "markdownSha256": "6b0932f7a445356b5cb5ab648a9273cd2f4dec38b04f001a8e14f072d17a27e7",
+      "snapshotDirectory": "docs/readmes/015",
+      "companion": "docs/readmes/015/index.html",
+      "tag": "readme-015",
+      "sourceBaseline": "683b7af4c50ffdb7fc19af5dcd10f9e2f611fb45",
+      "snapshotFiles": [
+        {
+          "path": "docs/readmes/015/body-integration.json",
+          "kind": "text",
+          "sha256": "80b4959dca38eeb706598510e6f4fce7e18a8646dbcee68c52596174a5e0ed07"
+        },
+        {
+          "path": "docs/readmes/015/examples/native-run.json",
+          "kind": "text",
+          "sha256": "8738b3d59c9239777eb61fddb7547aac65d2454146459b8a02f6b14f06e93070"
+        },
+        {
+          "path": "docs/readmes/015/examples/native-scene.json",
+          "kind": "text",
+          "sha256": "7bc65ab69b7ba167e8afca2d8d96c75268402c9976da24e1ce14db35017c4f4c"
+        },
+        {
+          "path": "docs/readmes/015/examples/native-trajectory.csv",
+          "kind": "text",
+          "sha256": "cb65c0691883fa93a959903d695a38b9b2f322bc64bebbce29b457b260a859bc"
+        },
+        {
+          "path": "docs/readmes/015/file-inventory.json",
+          "kind": "text",
+          "sha256": "c2982a16753fc57df57a5b067bce5faaf7a5e92e2ea9024e1b41f657795b1aa5"
+        },
+        {
+          "path": "docs/readmes/015/FILE_TREE.md",
+          "kind": "text",
+          "sha256": "8070a0252a8ec9a07b8b1e3d2a043d5afe8065b40b62843778880fd50388c4c4"
+        },
+        {
+          "path": "docs/readmes/015/images/body-grab.png",
+          "kind": "binary",
+          "sha256": "b3123c68385579f67d69ee6cc801e78d7a517c85c5a6dd94409f71f9122bb866"
+        },
+        {
+          "path": "docs/readmes/015/images/body-lift.png",
+          "kind": "binary",
+          "sha256": "c90d75c1fe8bdb38d0c4aaf651cde84a13fdde20306c09551225ff25fdee7f0a"
+        },
+        {
+          "path": "docs/readmes/015/images/body-video-export.png",
+          "kind": "binary",
+          "sha256": "2c229c7b4ea621df050401b52974d1256ed4310571cf75b1f72f3f69be43312e"
+        },
+        {
+          "path": "docs/readmes/015/images/live-body.png",
+          "kind": "binary",
+          "sha256": "65665ee0614f22d19fcab53e8fdfae6ebdbec98a3ca8979b633e87b871114a33"
+        },
+        {
+          "path": "docs/readmes/015/index.html",
+          "kind": "text",
+          "sha256": "d1cbb773fddac40b39a47887d58e04d80e66fde3265ea12089aebc778d963e04"
+        },
+        {
+          "path": "docs/readmes/015/initial-model-failure.txt",
+          "kind": "text",
+          "sha256": "4f6252f1cec45c834d2d600d80673ced8094af30ad66a0b9ed15ef92e87dba37"
+        },
+        {
+          "path": "docs/readmes/015/live-body.json",
+          "kind": "text",
+          "sha256": "25f0df578329ab7b59e7030a96d97c26d32dedf2f02689673f9024476645fda5"
+        },
+        {
+          "path": "docs/readmes/015/media/body-motion.webm",
+          "kind": "binary",
+          "sha256": "2d36133b50ae126ff9087c4527fedd5b64238910711851e86fc32b696a949d3d"
+        },
+        {
+          "path": "docs/readmes/015/model-adapter-trace.json",
+          "kind": "text",
+          "sha256": "844ecfc35348d97fde670b6386c5ab2de227b4ffecef018ba4b6f5645e2f63bc"
+        },
+        {
+          "path": "docs/readmes/015/regressions/body-integration.json",
+          "kind": "text",
+          "sha256": "80b4959dca38eeb706598510e6f4fce7e18a8646dbcee68c52596174a5e0ed07"
+        },
+        {
+          "path": "docs/readmes/015/regressions/broader-validation.json",
+          "kind": "text",
+          "sha256": "a6c163bdd99caf8a6e8b2c7c2f2e385956b76d317144f44cc74ae415b65d2b2e"
+        },
+        {
+          "path": "docs/readmes/015/regressions/calibration-integration.json",
+          "kind": "text",
+          "sha256": "e25a86534840f8dfe272e622b5204d2bbdf82b98773592965cfdebf263b96469"
+        },
+        {
+          "path": "docs/readmes/015/regressions/INDEX.md",
+          "kind": "text",
+          "sha256": "d4bfd4c7beee764529e95ee0a94ffe7bc354bfd92d6d383be2cbde20e16ee541"
+        },
+        {
+          "path": "docs/readmes/015/regressions/integration.json",
+          "kind": "text",
+          "sha256": "3dccee85af4ff586884eadc96833f38cc4281023d745cb29e698ac73da851067"
+        },
+        {
+          "path": "docs/readmes/015/regressions/learning-integration.json",
+          "kind": "text",
+          "sha256": "c1b2e3aab8e471cc07bac982e91186e8f7f7784e44e62de8a4f3e4c7255a999d"
+        },
+        {
+          "path": "docs/readmes/015/regressions/measurement-integration.json",
+          "kind": "text",
+          "sha256": "1d4b40ae62c5ec4ecd49ed0b7a979f64ae61c7362b4933fcba09e1412ba3da8e"
+        },
+        {
+          "path": "docs/readmes/015/regressions/observer-integration.json",
+          "kind": "text",
+          "sha256": "9d50524de6c7f37f49d48bf67e1ebd7bb469fb5417725f72c55007ddc9137b7f"
+        },
+        {
+          "path": "docs/readmes/015/regressions/real-data-delfys.json",
+          "kind": "text",
+          "sha256": "b24406a46072489a6cbab2870d3d25ca4c28d6aed80273fd790083f72fc88fb5"
+        },
+        {
+          "path": "docs/readmes/015/regressions/scene-integration.json",
+          "kind": "text",
+          "sha256": "4afe9658be33c5d037ee830418d311393b194d41810162f734fa061c81c919fe"
+        },
+        {
+          "path": "docs/readmes/015/reporting-regression.json",
+          "kind": "text",
+          "sha256": "aa7c5e472a97f1bd5592b479fa0da4a31ff3096df7709b888c0da795d9771b23"
+        },
+        {
+          "path": "docs/readmes/015/system-map.json",
+          "kind": "text",
+          "sha256": "c96010c0d3542bb57a945688ae913056c0c5caaa509c26c24a2c1b2dbd8576fb"
+        },
+        {
+          "path": "docs/readmes/015/verification.json",
+          "kind": "text",
+          "sha256": "06dd37308fa8a9194d9bcee944efbb3882263a0a00fd66a90d72b81cc93c8ce5"
         }
       ]
     }

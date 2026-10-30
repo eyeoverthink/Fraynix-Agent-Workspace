@@ -1,0 +1,297 @@
+F
+FRAYNIX
+AGENT WORKSPACE
+OFFLINE / GUARDED
+Java engine online · 12 local models
+Run guided proof
+Open Game Lab ↗
+Project objects
++ New
+Artifacts
+Verified skills
+Learning
+Scenes
+Local agent physical manipulation
+v1
+58d1b3a6-433f-48d7-8605-a7525dc9e59d
+ Live browser
+Expand
+←
+→
+Go
+127.0.0.1:57835/welcome
+Inspect page
+Creation canvas
+
+Local agent physical manipulation
+
+Expand
+Live preview
+Source
+3D Lab
+Mechanics lab
+Real Bullet 3D · Java state · metres / seconds / kilograms
+New scene
+Scene parameters
+0° · g 9.81 · μ 0
+Save scene
+Revert edits
+Play
+Pause
+Step
+Reset
+Test reference
+Frame scene
+Native observer
+First-person view
+New observer
+Orbit view
+Live observer
+Capture view
+
+Live free camera · pose v1 · x/y/z -3.600 / 1.751 / 5.000 m · yaw 0.0° · pitch -13.5° · native-physics · scene v1 · tick 0
+
+Forward
+Back
+Left
+Right
+Up
+Down
+Visible entities
+Ramp · 6.35 m
+Block · 5.14 m
+Ground · 6.46 m
+Look at entity
+Inspect entity
+FOV °
+Physical body
+Grab selected
+Lift 0.5 m
+Release body
+Stop body motion
+
+No body held · grab a visible dynamic Block; Reset after a settled run
+
+Move to world coordinates
+Inspection and saved views
+t 0.000 s
+0.000 m/s
+0.000 m downhill
+0 contacts · cancelled
+Block · 27f9b12a-fd3b-4665-be5b-a45bc09d8e94 · x/y/z -3.600 / 0.551 / 0.000 m · dynamic · drag to orbit / wheel to zoom
+Scene files and video
+v1 · cancelled · recorded
+Replay run
+Run recorded · reference not applicable · run scene v1 · analytical check requires μ = 0 and 0.1–1 s before the ramp edge
+Fit & validate Native trials · separate observations · reversible application
+Compare measurements
+CSV · explicit units · retained evidence
+Scene v1 · SI units · 240 Hz physics
+3D · native physics
+Your agent
+LOCAL
+MODEL
+deepseek-r1:latest
+eyeoverthink/FRAYNIX-PROTOCOL:3b
+fraymus-genesis:latest
+fraymus-nexus:latest
+gemma4:latest
+genesis:latest
+gpt-oss:120b
+gpt-oss:20b
+llama3.2:latest
+mistral:latest
+nemotron-3-nano:30b
+nemotron-3-super:latest
+Controller v1
+1 remembered episode
+Learning controls
+The browser and canvas are real, separate Chromium surfaces. Ask me to create a small web app, inspect a page, or reuse a verified recipe.
+In saved native 3D scene 58d1b3a6-433f-48d7-8605-a7525dc9e59d, use the physical body tools: grab the visible dynamic Block, move the BODY once by +0.75 metres in world Y and +0.25 metres in world Z, preserving world X. Use its actual grabbed position as the starting point. Release it, capture the actual final native view, then finish with measured target error and release result. Do not move the observer or create another scene.
+Cancelled locally; server termination is unconfirmed
+Ready when you are
+Start task ↗
+Take over
+
+16-step task budget · local models · visible tool results
+
+Execution timeline
+52 events
+Connected. Your Studio baseline and personal state are separate.
+05:29:42
+tool
+canvas.write
+Details
+05:29:43
+agent
+Task started
+Details
+05:29:43
+learning
+Episode started with controller v1
+Details
+05:29:43
+thinking
+Planning step 1 with gpt-oss:20b
+05:30:00
+model
+Fresh local model metadata admitted
+Details
+05:30:00
+decision
+observer.open
+Details
+05:30:00
+tool
+observer.open
+Details
+05:30:00
+thinking
+Planning step 2 with gpt-oss:20b
+05:30:31
+decision
+body.grab
+Details
+05:30:32
+tool
+body.grab
+Details
+05:30:32
+thinking
+Planning step 3 with gpt-oss:20b
+05:31:10
+decision
+body.move
+Details
+05:31:10
+repair
+Use the observer owned by this task
+05:31:10
+thinking
+Planning step 4 with gpt-oss:20b
+05:31:25
+decision
+body.move
+Details
+05:31:25
+repair
+Use the observer owned by this task
+05:31:25
+thinking
+Planning step 5 with gpt-oss:20b
+05:31:46
+decision
+body.move
+Details
+05:31:46
+repair
+Use the observer owned by this task
+05:31:46
+thinking
+Planning step 6 with gpt-oss:20b
+05:32:26
+decision
+body.move
+Details
+05:32:26
+repair
+Use the observer owned by this task
+05:32:26
+thinking
+Planning step 7 with gpt-oss:20b
+05:32:49
+decision
+body.move
+Details
+05:32:49
+repair
+Use the observer owned by this task
+05:32:49
+thinking
+Planning step 8 with gpt-oss:20b
+05:33:05
+decision
+body.move
+Details
+05:33:05
+repair
+Use the observer owned by this task
+05:33:05
+thinking
+Planning step 9 with gpt-oss:20b
+05:33:18
+decision
+body.move
+Details
+05:33:18
+repair
+Use the observer owned by this task
+05:33:18
+thinking
+Planning step 10 with gpt-oss:20b
+05:33:30
+decision
+body.move
+Details
+05:33:30
+repair
+Use the observer owned by this task
+05:33:30
+thinking
+Planning step 11 with gpt-oss:20b
+05:33:44
+decision
+body.move
+Details
+05:33:44
+repair
+Use the observer owned by this task
+05:33:44
+thinking
+Planning step 12 with gpt-oss:20b
+05:33:58
+decision
+body.move
+Details
+05:33:58
+repair
+Use the observer owned by this task
+05:33:58
+thinking
+Planning step 13 with gpt-oss:20b
+05:34:10
+decision
+body.move
+Details
+05:34:10
+repair
+Use the observer owned by this task
+05:34:10
+thinking
+Planning step 14 with gpt-oss:20b
+05:34:22
+decision
+body.move
+Details
+05:34:22
+repair
+Use the observer owned by this task
+05:34:22
+thinking
+Planning step 15 with gpt-oss:20b
+05:34:34
+decision
+body.move
+Details
+05:34:34
+repair
+Use the observer owned by this task
+05:34:34
+thinking
+Planning step 16 with gpt-oss:20b
+05:34:43
+stopped
+Cancelled locally; server termination is unconfirmed
+05:34:44
+stopped
+Takeover requested; no further agent actions will run
