@@ -24,7 +24,8 @@
     "test:body": "node test/body-integration.cjs",
     "test:live-body": "node test/live-body.cjs",
     "test:brain-game": "node test/brain-game-integration.cjs",
-    "test:live-memory": "node test/live-memory.cjs"
+    "test:live-memory": "node test/live-memory.cjs",
+    "test:feedback": "node test/feedback-integration.cjs"
   },
   "devDependencies": {
     "electron": "45.1.0",

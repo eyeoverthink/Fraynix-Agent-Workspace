@@ -131,22 +131,36 @@ public final class SceneStore implements AutoCloseable {
     private void sample(){active.getJSONArray("samples").put(physics.sample());}
     private void advance(int ticks) throws Exception {
         if(physics==null)return;
-        for(int i=0;i<ticks&&physics.tick()<active.getInt("targetTicks");i++){physics.step();if(physics.tick()%4==0)sample();}
+        for(int i=0;i<ticks&&physics.tick()<active.getInt("targetTicks");i++){
+            if(active.optString("scope").equals("feedback-policy")&&physics.tick()%12==0){
+                active.put("pendingFeedback",new JSONObject().put("tick",physics.tick()).put("kind","control"));commit(List.of(record("workspace.experiment",active,active.getString("sceneId"))));
+                FeedbackExperiment.act(physics,RampDefinition.from(active.getJSONObject("definition").getJSONObject("parameters")),active.getJSONObject("controller").getDouble("targetM"),active.getJSONObject("controller"),true,active.getJSONArray("feedbackEvents"));
+                active.remove("pendingFeedback");commit(List.of(record("workspace.experiment",active,active.getString("sceneId"))));
+            }
+            physics.step();if(physics.tick()%4==0)sample();
+        }
         if(physics.tick()>=active.getInt("targetTicks"))finish("completed");
     }
     private void finish(String status) throws Exception {
         playing=false;if(physics==null||active==null)return;
         JSONObject last=physics.snapshot();active.put("status",status).put("endedAt",Instant.now()).put("final",last);
         var params=RampDefinition.from(active.getJSONObject("definition").getJSONObject("parameters"));double t=last.getDouble("timeS"),expected=.5*params.gravityMps2()*Math.sin(params.radians())*t*t;
-        boolean applicable=!Set.of("manipulation","brain-policy").contains(active.optString("scope"))&&params.friction()==0&&t>=.1&&t<=1&&expected<params.lengthM()*.7-.7;
+        boolean applicable=!Set.of("manipulation","brain-policy","feedback-policy").contains(active.optString("scope"))&&params.friction()==0&&t>=.1&&t<=1&&expected<params.lengthM()*.7-.7;
         double measured=last.getDouble("distanceM"),tolerance=Math.max(.015,expected*.04),error=Math.abs(measured-expected);
         active.put("evaluation",new JSONObject().put("reference","frictionless incline: distance = 0.5*g*sin(angle)*t^2").put("applicable",applicable).put("expectedDistanceM",expected).put("measuredDistanceM",measured).put("absoluteErrorM",error).put("toleranceM",tolerance).put("passed",status.equals("completed")&&applicable&&error<=tolerance));
         if(active.has("controller")){double target=active.getJSONObject("controller").getDouble("targetM");active.put("goalEvaluation",new JSONObject().put("targetM",target).put("measuredDistanceM",measured).put("absoluteErrorM",Math.abs(measured-target)).put("toleranceM",.25).put("passed",status.equals("completed")&&Math.abs(measured-target)<=.25));}
+        if(active.optString("scope").equals("feedback-policy")){
+            var c=new JSONObject(active.getJSONObject("definition").getJSONObject("parameters").toString()).put("targetM",active.getJSONObject("controller").getDouble("targetM"));
+            var m=FeedbackExperiment.metrics(c,active.getJSONArray("samples"),last,active.getJSONArray("feedbackEvents"));
+            boolean passed=status.equals("completed")&&m.getDouble("endpointErrorM")<=.06&&m.getDouble("terminalSpeedMps")<=.2&&m.getDouble("settlingMaxErrorM")<=.12;
+            active.put("feedbackEvaluation",m.put("passed",passed));active.getJSONObject("goalEvaluation").put("toleranceM",.06).put("passed",passed);
+        }
         commit(List.of(record("workspace.experiment",active,active.getString("sceneId"))));
     }
     public synchronized JSONObject snapshot(){
         if(active==null)return new JSONObject().put("status","idle").put("error",error);
         var value=new JSONObject(active.toString()).put("playing",playing).put("current",physics.snapshot());value.remove("samples");value.remove("actuatorEvents");
+        if(value.has("feedbackEvents")){var events=value.getJSONArray("feedbackEvents");value.put("feedbackProgress",new JSONObject().put("actions",events.length()).put("ticks",physics.tick()).put("totalTicks",360).put("lastEvent",events.isEmpty()?JSONObject.NULL:events.getJSONObject(events.length()-1)));value.remove("feedbackEvents");}
         if(bodyPlan!=null)value.put("bodyProgress",new JSONObject().put("operationId",bodyPlan.getString("id")).put("action",bodyPlan.getString("action")).put("completedTicks",physics.tick()-bodyPlan.getInt("startTick")).put("totalTicks",bodyPlan.getInt("totalTicks")));
         var samples=active.getJSONArray("samples");var tail=new JSONArray();for(int i=Math.max(0,samples.length()-180);i<samples.length();i++)tail.put(samples.get(i));return value.put("trace",tail).put("error",error);
     }
@@ -169,9 +183,35 @@ public final class SceneStore implements AutoCloseable {
         begin(input.getString("id"),input.getInt("expectedVersion"),.75);active.put("scope","brain-policy").put("controller",decision);
         physics.push(decision.getDouble("deltaVelocityMps"));advance(active.getInt("targetTicks"));return new JSONObject(active.toString());
     }
+    public synchronized JSONObject feedbackStart(JSONObject input,BrainService brain) throws Exception {
+        if(!input.keySet().equals(Set.of("id","expectedVersion","targetM")))throw new IllegalArgumentException("Unsupported feedback start field");
+        var scene=read(input.getString("id"));FeedbackExperiment.validate(scene.getJSONObject("parameters"),input.getDouble("targetM"));var policy=brain.feedbackForRun();policy.put("targetM",input.getDouble("targetM"));
+        begin(input.getString("id"),input.getInt("expectedVersion"),1.5);active.put("scope","feedback-policy").put("controller",policy).put("feedbackEvents",new JSONArray()).put("status","running").put("feedbackProtocol",FeedbackExperiment.manifest());
+        commit(List.of(record("workspace.experiment",active,active.getString("sceneId"))));playing=true;return snapshot();
+    }
+    public synchronized JSONObject feedbackKick(JSONObject input) throws Exception {
+        if(!input.keySet().equals(Set.of("runId","operationId","deltaVelocityMps")))throw new IllegalArgumentException("Unsupported feedback disturbance field");
+        requireFeedback(input.getString("runId"));UUID.fromString(input.getString("operationId"));double dv=input.getDouble("deltaVelocityMps");RampDefinition.range(dv,-.5,.5,"disturbance");
+        for(Object raw:active.getJSONArray("feedbackEvents")){var prior=(JSONObject)raw;if(prior.optString("operationId").equals(input.getString("operationId"))){if(prior.getDouble("deltaVelocityMps")!=dv)throw new IllegalArgumentException("Operation id reused with different disturbance");return prior;}}
+        active.put("pendingFeedback",new JSONObject(input.toString()).put("tick",physics.tick()));commit(List.of(record("workspace.experiment",active,active.getString("sceneId"))));
+        var receipt=FeedbackExperiment.impulse(physics,RampDefinition.from(active.getJSONObject("definition").getJSONObject("parameters")),dv,"disturbance").put("operationId",input.getString("operationId"));active.getJSONArray("feedbackEvents").put(receipt);active.remove("pendingFeedback");commit(List.of(record("workspace.experiment",active,active.getString("sceneId"))));return receipt;
+    }
+    private void requireFeedback(String id){if(active==null||physics==null||!active.getString("id").equals(id)||!active.optString("scope").equals("feedback-policy")||!Set.of("running","paused").contains(active.getString("status")))throw new IllegalStateException("No matching active feedback run");}
+    public synchronized JSONObject feedbackCancel(String id) throws Exception {requireFeedback(id);finish("cancelled");return snapshot();}
+    private JSONObject replayFeedback(JSONObject previous) throws Exception {
+        if(!previous.getString("status").equals("completed"))throw new IllegalStateException("Only completed feedback runs can replay");
+        beginDefinition(previous.getJSONObject("definition"),1.5);active.put("scope","feedback-policy").put("controller",new JSONObject(previous.getJSONObject("controller").toString())).put("feedbackEvents",new JSONArray()).put("replayOf",previous.getString("id")).put("feedbackProtocol",previous.getJSONObject("feedbackProtocol"));
+        var config=RampDefinition.from(active.getJSONObject("definition").getJSONObject("parameters"));
+        for(int tick=0;tick<360;tick++){
+            for(Object raw:previous.getJSONArray("feedbackEvents")){var e=(JSONObject)raw;if(e.getInt("tick")==tick){double limit=e.getString("kind").equals("control")?.6:.5;RampDefinition.range(e.getDouble("deltaVelocityMps"),-limit,limit,"saved feedback impulse");var applied=FeedbackExperiment.impulse(physics,config,e.getDouble("deltaVelocityMps"),e.getString("kind"));active.getJSONArray("feedbackEvents").put(applied);}}
+            physics.step();if(physics.tick()%4==0)sample();
+        }
+        double error=Math.abs(physics.snapshot().getDouble("distanceM")-previous.getJSONObject("final").getDouble("distanceM"));active.put("replayEvaluation",new JSONObject().put("sourceRunId",previous.getString("id")).put("positionErrorM",error).put("toleranceM",.0001).put("passed",error<=.0001));finish("completed");return new JSONObject(active.toString());
+    }
     public synchronized JSONObject replay(String id) throws Exception {
         var previous=require(id,"workspace.experiment");if(physics!=null)throw new IllegalStateException("Reset the current experiment before replay");
         if(previous.optString("scope").equals("manipulation"))return replayBody(previous);
+        if(previous.optString("scope").equals("feedback-policy"))return replayFeedback(previous);
         beginDefinition(previous.getJSONObject("definition"),previous.getInt("targetTicks")*BulletRamp.DT);active.put("replayOf",id);
         if(previous.optString("scope").equals("brain-policy")){active.put("scope","brain-policy").put("controller",new JSONObject(previous.getJSONObject("controller").toString()));physics.push(active.getJSONObject("controller").getDouble("deltaVelocityMps"));}
         advance(active.getInt("targetTicks"));return new JSONObject(active.toString());

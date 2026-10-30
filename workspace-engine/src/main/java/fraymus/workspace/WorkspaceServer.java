@@ -54,6 +54,10 @@ public final class WorkspaceServer {
                     case "/api/brain/cancel" -> result=brain.cancel(input.getString("id"));
                     case "/api/brain/rollback" -> result=brain.rollback(input.getInt("expectedVersion"));
                     case "/api/brain/run" -> result=scenes.controlledRun(input,brain);
+                    case "/api/brain/feedback-start" -> result=scenes.feedbackStart(input,brain);
+                    case "/api/brain/feedback-kick" -> result=scenes.feedbackKick(input);
+                    case "/api/brain/feedback-cancel" -> result=scenes.feedbackCancel(input.getString("runId"));
+                    case "/api/brain/feedback-rollback" -> result=brain.rollbackFeedback(input.getInt("expectedVersion"));
                     case "/api/game/open" -> result=game.open();
                     case "/api/game/frame" -> result=game.frame();
                     case "/api/game/command" -> result=game.command(input);
