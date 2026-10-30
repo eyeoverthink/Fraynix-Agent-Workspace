@@ -1,0 +1,151 @@
+{
+  "nodes": [
+    {
+      "id": "overview",
+      "type": "file",
+      "file": "docs/obsidian/27-goals-skills.md",
+      "x": 0,
+      "y": 0,
+      "width": 520,
+      "height": 330
+    },
+    {
+      "id": "chat",
+      "type": "file",
+      "file": "workspace-desktop/goals.cjs",
+      "x": -600,
+      "y": 420,
+      "width": 520,
+      "height": 260
+    },
+    {
+      "id": "runner",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/GoalRunner.java",
+      "x": 0,
+      "y": 420,
+      "width": 520,
+      "height": 260
+    },
+    {
+      "id": "physics",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/SceneStore.java",
+      "x": 600,
+      "y": 420,
+      "width": 520,
+      "height": 260
+    },
+    {
+      "id": "report",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/GoalReport.java",
+      "x": -600,
+      "y": 760,
+      "width": 520,
+      "height": 260
+    },
+    {
+      "id": "view",
+      "type": "file",
+      "file": "workspace-desktop/renderer/goals-panel.js",
+      "x": 0,
+      "y": 760,
+      "width": 520,
+      "height": 260
+    },
+    {
+      "id": "claims",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/WorkspaceServer.java",
+      "x": 600,
+      "y": 760,
+      "width": 520,
+      "height": 260
+    },
+    {
+      "id": "checks",
+      "type": "file",
+      "file": "workspace-desktop/test/goals-integration.cjs",
+      "x": -600,
+      "y": 1100,
+      "width": 520,
+      "height": 260
+    },
+    {
+      "id": "next",
+      "type": "file",
+      "file": "docs/SCENARIO_ENGINE_ROADMAP.md",
+      "x": 0,
+      "y": 1100,
+      "width": 520,
+      "height": 260
+    }
+  ],
+  "edges": [
+    {
+      "id": "edge-chat",
+      "fromNode": "overview",
+      "fromSide": "bottom",
+      "toNode": "chat",
+      "toSide": "top",
+      "label": "verified"
+    },
+    {
+      "id": "edge-runner",
+      "fromNode": "overview",
+      "fromSide": "bottom",
+      "toNode": "runner",
+      "toSide": "top",
+      "label": "verified"
+    },
+    {
+      "id": "edge-physics",
+      "fromNode": "overview",
+      "fromSide": "bottom",
+      "toNode": "physics",
+      "toSide": "top",
+      "label": "verified"
+    },
+    {
+      "id": "edge-report",
+      "fromNode": "overview",
+      "fromSide": "bottom",
+      "toNode": "report",
+      "toSide": "top",
+      "label": "verified"
+    },
+    {
+      "id": "edge-view",
+      "fromNode": "overview",
+      "fromSide": "bottom",
+      "toNode": "view",
+      "toSide": "top",
+      "label": "verified"
+    },
+    {
+      "id": "edge-claims",
+      "fromNode": "overview",
+      "fromSide": "bottom",
+      "toNode": "claims",
+      "toSide": "top",
+      "label": "verified"
+    },
+    {
+      "id": "edge-checks",
+      "fromNode": "overview",
+      "fromSide": "bottom",
+      "toNode": "checks",
+      "toSide": "top",
+      "label": "verified"
+    },
+    {
+      "id": "edge-next",
+      "fromNode": "overview",
+      "fromSide": "bottom",
+      "toNode": "next",
+      "toSide": "top",
+      "label": "planned"
+    }
+  ]
+}

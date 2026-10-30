@@ -1,0 +1,120 @@
+{
+  "date": "2026-10-30",
+  "modules": [
+    {
+      "id": "chat",
+      "name": "Typed chat and explicit request requirements",
+      "status": "verified",
+      "source": "workspace-desktop/goals.cjs",
+      "summary": "Semantic model inputs are checked before Java goal creation; actual local model completes the workflow.",
+      "note": "docs/obsidian/27-goals-skills.md"
+    },
+    {
+      "id": "runner",
+      "name": "Durable Java goal runner",
+      "status": "verified",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/GoalRunner.java",
+      "summary": "Frozen scene, model prerequisite, preview, native control, physical gates, report and retained procedural versions.",
+      "note": "docs/obsidian/27-goals-skills.md"
+    },
+    {
+      "id": "physics",
+      "name": "Owned actual native world",
+      "status": "verified",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/SceneStore.java",
+      "summary": "Tick108 disturbance,20Hz replanning, saved observations, isolated task scenes and distinct interrupted attempts.",
+      "note": "docs/obsidian/27-goals-skills.md"
+    },
+    {
+      "id": "report",
+      "name": "Actual prediction/measurement report",
+      "status": "verified",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/GoalReport.java",
+      "summary": "Native displacement and aligned one-step forecasts, source binding, raw JSON and exact Chromium checks.",
+      "note": "docs/obsidian/27-goals-skills.md"
+    },
+    {
+      "id": "view",
+      "name": "Progress, recovery and procedural library",
+      "status": "verified",
+      "source": "workspace-desktop/renderer/goals-panel.js",
+      "summary": "Meaningful durable status/history, explicit Resume/Stop, retained procedure inspector and changed-condition controls.",
+      "note": "docs/obsidian/27-goals-skills.md"
+    },
+    {
+      "id": "claims",
+      "name": "Private effect ownership and verification",
+      "status": "verified",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/WorkspaceServer.java",
+      "summary": "Serialized native mutations and private nonce-bound host effects; no handler authority in imported text.",
+      "note": "docs/obsidian/27-goals-skills.md"
+    },
+    {
+      "id": "checks",
+      "name": "Native, desktop, restart and live-model evidence",
+      "status": "verified",
+      "source": "workspace-desktop/test/goals-integration.cjs",
+      "summary": "Independent physical residuals, immutablev2, actual canvas receipts, expiry, interrupted physics/report and preserved source.",
+      "note": "docs/obsidian/27-goals-skills.md"
+    },
+    {
+      "id": "next",
+      "name": "Further procedures and evaluated experience",
+      "status": "planned",
+      "source": "docs/SCENARIO_ENGINE_ROADMAP.md",
+      "summary": "Data/browser creation tasks, broader physics and experience-derived training require independent task-specific gates.",
+      "note": "docs/obsidian/27-goals-skills.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "docs/readmes/019/images/goal-chat-019.png",
+      "caption": "Actual gpt-oss:20b request, Java measured answer, retained skill and motion chart."
+    },
+    {
+      "path": "docs/readmes/019/images/goal-live-019.png",
+      "caption": "Actual owned native trial, progress and frozen scene under the declared fixture."
+    },
+    {
+      "path": "docs/readmes/019/images/goal-report-019.png",
+      "caption": "Actual displacement chart, native result and passing canvas receipt."
+    },
+    {
+      "path": "docs/readmes/019/images/goal-skill-019.png",
+      "caption": "Actual procedural inspector with prerequisites, actions/recovery and changed-condition inputs."
+    },
+    {
+      "path": "docs/readmes/019/images/goal-changed-019.png",
+      "caption": "Actual changed-condition goal and separately verified report."
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/readmes/019/verification.json"
+    },
+    {
+      "path": "docs/readmes/019/goals-integration.json"
+    },
+    {
+      "path": "docs/readmes/019/live-goals.json"
+    },
+    {
+      "path": "docs/readmes/019/live-memory.json"
+    },
+    {
+      "path": "docs/readmes/019/regressions.json"
+    },
+    {
+      "path": "docs/readmes/019/examples/verified-motion-report.html"
+    },
+    {
+      "path": "docs/readmes/019/examples/native-goal-run.json"
+    },
+    {
+      "path": "docs/readmes/019/examples/procedure-parameters.json"
+    },
+    {
+      "path": "docs/readmes/019/file-inventory.json"
+    }
+  ]
+}

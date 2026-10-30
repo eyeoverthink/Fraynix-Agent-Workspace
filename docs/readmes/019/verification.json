@@ -1,0 +1,162 @@
+{
+  "date": "2026-10-30",
+  "sourceBaseline": "7bb9d6a84fb09fdd4247dbc512208208a02576d5",
+  "releaseKind": "durable-java-goals-and-versioned-procedural-skills",
+  "sourceInventory": 469,
+  "contractSha256": "687fde9cba4db08e74feb8448329a596eb9a28f045f93c88f2befab5a2c8e8da",
+  "declaration": "Contract written in the working tree before first execution; not an independently committed hidden benchmark",
+  "firstCase": {
+    "rmseM": 0.0008112361237400156,
+    "score": 0.06851365961912681,
+    "endpointErrorM": 0.03969413484655537,
+    "modelActionFraction": 1,
+    "controlAbsoluteImpulseNs": 5.600000000000001,
+    "settlingMaxErrorM": 0.04040400273394584,
+    "terminalSpeedMps": 0.05745015603732344,
+    "passed": true
+  },
+  "changedCase": {
+    "rmseM": 0.0016888764724868816,
+    "score": 0.08006916297052545,
+    "endpointErrorM": 0.041604587587808606,
+    "modelActionFraction": 1,
+    "controlAbsoluteImpulseNs": 5.600000000000001,
+    "settlingMaxErrorM": 0.049101015643838286,
+    "terminalSpeedMps": 0.09276045040531802,
+    "passed": true
+  },
+  "newWorkflowChecks": 14,
+  "liveModel": {
+    "name": "gpt-oss:20b",
+    "checks": 5,
+    "calls": [
+      "goal.start",
+      "goal.read"
+    ]
+  },
+  "currentRegression": {
+    "passed": true,
+    "javaTests": 165,
+    "javaClasses": 34,
+    "observerJavaTests": 8,
+    "bodyJavaTests": 9,
+    "interchangeJavaTests": 3,
+    "desktopUnitTests": 21,
+    "suites": {
+      "goals-integration": {
+        "passed": true,
+        "checks": 14,
+        "output": "workspace-desktop/test-output/goals-integration.json"
+      },
+      "world-model-integration": {
+        "passed": true,
+        "checks": 15,
+        "output": "workspace-desktop/test-output/world-model-integration.json"
+      },
+      "feedback-integration": {
+        "passed": true,
+        "checks": 12,
+        "output": "workspace-desktop/test-output/feedback-integration.json"
+      },
+      "brain-game-integration": {
+        "passed": true,
+        "checks": 10,
+        "output": "workspace-desktop/test-output/brain-game-integration.json"
+      },
+      "body-integration": {
+        "passed": true,
+        "checks": 10,
+        "output": "workspace-desktop/test-output/body-integration.json"
+      },
+      "observer-integration": {
+        "passed": true,
+        "checks": 12,
+        "output": "workspace-desktop/test-output/observer-integration.json"
+      },
+      "scene-integration": {
+        "passed": true,
+        "checks": 12,
+        "output": "workspace-desktop/test-output/scene-integration.json"
+      },
+      "measurement-integration": {
+        "passed": true,
+        "checks": 10,
+        "output": "workspace-desktop/test-output/measurement-integration.json"
+      },
+      "calibration-integration": {
+        "passed": true,
+        "checks": 8,
+        "output": "workspace-desktop/test-output/calibration-integration.json"
+      },
+      "real-data-delfys": {
+        "passed": true,
+        "checks": 9,
+        "output": "workspace-desktop/test-output/real-data-delfys.json"
+      },
+      "integration": {
+        "passed": true,
+        "checks": 12,
+        "output": "workspace-desktop/test-output/integration.json"
+      },
+      "learning-integration": {
+        "passed": true,
+        "checks": 9,
+        "output": "workspace-desktop/test-output/learning-integration.json"
+      },
+      "broader-validation": {
+        "passed": true,
+        "checks": 45,
+        "output": "workspace-desktop/test-output/broader-validation.json"
+      }
+    }
+  },
+  "memoryRegression": {
+    "model": "gpt-oss:20b",
+    "checks": 4,
+    "digest": "f38aa0c53da5f8c49d08c43a99df24ff53167fe68e24664a7777288e7656fdfe"
+  },
+  "freshClone": {
+    "status": "passed",
+    "checkout": "fraynix-workspace-qa019-release",
+    "sourceCommit": "7bb9d6a84fb09fdd4247dbc512208208a02576d5",
+    "javaTests": 165,
+    "desktopUnitTests": 21,
+    "bodyUiChecks": 10,
+    "brainGameUiChecks": 10,
+    "feedbackUiChecks": 12,
+    "worldModelUiChecks": 15,
+    "goalUiChecks": 14,
+    "offlineBuild": true,
+    "modelWeightsOrPrivateRuntimeCopied": false,
+    "electronBinary": "Pinned 45.1.0 executable reused from existing dependency cache after npm ci --offline --ignore-scripts",
+    "canonicalSourceHashesMatched": 469
+  },
+  "documentationQa": {
+    "status": "passed",
+    "checks": [
+      "Offline companion loads eight source-linked modules with no runtime service",
+      "Architecture selection and all/verified/planned filters work",
+      "Canonical source inventory search resolves actual Java goal implementation",
+      "All five dated actual application screenshots decode and have captions",
+      "Navigation, inventory search and map selection work at390px without horizontal overflow",
+      "Standalone actual report opens offline with29 forecasts and measured residual rows",
+      "No script errors, external requests or CDN dependencies"
+    ]
+  },
+  "limitations": [
+    "One registered native ramp procedure, not an arbitrary workflow interpreter",
+    "Browser supplies requested context only; canvas supplies verified output",
+    "Adaptive replanning and retained procedure data do not establish online LLM weight training",
+    "Native-world acceptance does not change rejected recorded reality or authorize real hardware",
+    "Explicit restart recovery creates new native attempts for unfinished physics; completed effects/report identities are reused",
+    "No global distributed transaction or exactly-once guarantee for arbitrary external writes",
+    "Existing feedback controller retains its stronger edition018 mean tracking score",
+    "Only isolated fixture data and generated numeric evidence are published; live user projects/weights remain private"
+  ],
+  "developmentCorrections": [
+    "Model omitted settings/context now reject before goal start",
+    "Native float serialization reconciliation uses2e-6 tolerance; physical gates unchanged",
+    "Legacy Brain/Game UI check waits for completed asynchronous operation instead of reading a premature snapshot",
+    "Idle host polling reduced and private effect claims requested only for waiting-host goals"
+  ]
+}

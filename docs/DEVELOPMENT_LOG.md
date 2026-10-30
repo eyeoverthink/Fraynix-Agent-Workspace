@@ -1,5 +1,7 @@
 # Agent Workspace development log
 
+- Edition 019 release candidate verified: source7bb9d6a84fb09fdd4247dbc512208208a02576d5. Current suite165 Java/21 desktop units/178 workflow groups, plus5 actual gpt-oss:20b goal assertions and4 existing live-memory assertions. Independent clean checkout passes offline165/21/61 critical UI groups; all469 canonical source/asset hashes match. README019 is2,486 words with5 actual screenshots, standalone native motion report/raw JSON, seven-check offline wide/390px explorer, full source tree and Obsidian map. Documentation passes19 editions/24 canvases/2,203 references/312 frozen hashes. Runtime and historical001–018/frozen013 data unchanged by documentation. Main/readme-019 publication and independent direct remote fetch are the remaining steps. Next implementation edition020: additional registered creation/data/browser procedures and separately evaluated experience-derived changes, not unmeasured claims of general reality control or LLM self-training.
+
 ## Edition 019 — durable Java goals and procedural skills (2026-10-30)
 
 Connected local chat to the learned native world model through typed goal tools. Implemented Java-owned persisted steps, bounded prerequisites, a separate frozen task scene, preview,20Hz replanning, one actual tick108 disturbance, physical gates, stable HTML/raw-JSON report, private desktop effect claims and actual Chromium verification. Added saved-task resume/cancel/report UI and versioned procedural inspectors/runs. No dynamic handler installation, new dependencies or personal runtime copied.

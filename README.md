@@ -2,9 +2,9 @@
 
 **A local visual environment for agents to browse, create runnable artifacts, test behavior and reuse verified skills.**
 
-> **Latest implementation: [README 018 — learned world model and recorded reality](README-018.md)** · [Offline explorer/video](docs/readmes/018/index.html) · [Runtime contract](docs/WORLD_MODEL_REALITY.md) · [Edition history](docs/readmes/INDEX.md)
+> **Latest implementation: [README 019 — durable Java goals and procedural skills](README-019.md)** · [Offline explorer](docs/readmes/019/index.html) · [Runtime contract](docs/GOALS_AND_SKILLS.md) · [Edition history](docs/readmes/INDEX.md)
 
-Java now learns action-conditioned numerical dynamics, imagines candidate futures without moving a paused body, executes one native action and compares prediction with observation. Native prediction/planning passes its declared limits; the prior feedback controller still tracks better on mean score and recorded reality remains rejected at unchanged tolerance. [Actual functions, uncertainty, evidence and next steps](README-018.md).
+Chat now connects to a durable Java goal: predict native motion, reach a target despite a disturbance, verify a real chart and retain a versioned procedural skill. Interrupted tasks recover from verified state; saved skills replan and check outcomes under changed conditions. Recorded real-world action use remains unauthorized. [Actual functions, uncertainty, evidence and next steps](README-019.md).
 
 Independent successor to [Fraynix Studio](https://github.com/eyeoverthink/Fraynix-Studio), starting from verified commit `6341404`. The original application and personal project state remain separate. Full game sources, assets, licenses and earlier editions are preserved here.
 
@@ -16,7 +16,7 @@ The app includes a real browser, live creation canvas, editable source, versione
 
 Local `gpt-oss:20b` is the verified default for the first agent fixture. The custom FRAYNIX 3B trial returned an Ollama native-format error; advertised tool capability alone does not establish task reliability. You can select other eligible installed models explicitly.
 
-![Actual imagined future beside native state](docs/readmes/018/images/world-imagination-018.png)
+![Actual chat-driven Java goal and verified report](docs/readmes/019/images/goal-chat-019.png)
 
 October 30 actual body/scene/file workflows. Native actuation, decoded video, import/replication, Java/desktop regressions and local-agent evidence are recorded in [edition 015 verification](docs/readmes/015/verification.json). The previous [real-data fit](README-013.md) remains rejected.
 

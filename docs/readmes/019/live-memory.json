@@ -1,0 +1,60 @@
+{
+  "passed": true,
+  "date": "2026-10-30T17:44:32.790Z",
+  "model": "gpt-oss:20b",
+  "checks": [
+    "Source note persisted before the desktop process restarted",
+    "A real local model received automatic Java-retrieved bounded context after restart",
+    "Returned marker exactly matches retained source data, absent from the current prompt",
+    "Local model digest, memory source count and journal receipt retained"
+  ],
+  "note": {
+    "sha256": "81dc7414b4dc13147dfc2b4b66e70ade7fee15062dd4cd8e19e9630df39c715e",
+    "chunks": 1,
+    "entryHash": "fd57c069a4b174a45bd310ee8cf6efda98faa04aabbd2f11c9cd669a1ff83a69",
+    "authority": "untrusted source data, not instructions or verified facts",
+    "merkleRoot": "4b21b57205896ad96239946705e54cd18212970821c826f2bb91d8aa58e367e5"
+  },
+  "reply": {
+    "memory": {
+      "journal": {
+        "head": "93ba0bc0c8c3093df47e49a968007ea1d8a4846b7cf7930c3c64450f4415e2a2",
+        "entries": 5,
+        "merkleRoot": "cbbd92079c53c2c6b051838e205b7640a798dff480ab5102f75fdbc6147c578d"
+      },
+      "sources": 1,
+      "usedChars": 105
+    },
+    "evidence": {
+      "done_reason": "stop",
+      "requestSha256": "f384a891fd30884d05f068b9f5dd70626fb5b5cb7f945d45b79c2e630e88c413",
+      "load_duration": "6217000",
+      "frames": "24",
+      "prompt_eval_count": "315",
+      "transport": "ollama-http-ndjson",
+      "elapsedMillis": "6975",
+      "done": "true",
+      "prompt_eval_duration": "3784920000",
+      "endpoint": "http://127.0.0.1:11434",
+      "firstTokenMillis": "4052",
+      "total_duration": "6934505400",
+      "requestedModel": "gpt-oss:20b",
+      "reportedModel": "gpt-oss:20b",
+      "requestId": "d81332d2-805a-4c02-a7d1-a503ee1bd44f",
+      "firstAnswerMillis": "-1",
+      "eval_duration": "3110290000",
+      "eval_count": "53",
+      "httpStatus": "200",
+      "responseSha256": "b12e47f1cd939d1014b509a240cfcc4919ae8d010f2419b66f68cbf9be877d42"
+    },
+    "text": "{\"args\":{\"summary\":\"COBALT-MAPLE-416\"},\"tool\":\"finish\"}",
+    "localModel": {
+      "endpoint": "http://127.0.0.1:11434",
+      "checkedAt": "2026-10-30T17:44:25.576350800Z",
+      "bytes": 13793441566,
+      "scope": "Fresh local service metadata; not an independent inspection of model weights or the daemon's network behavior",
+      "digest": "f38aa0c53da5f8c49d08c43a99df24ff53167fe68e24664a7777288e7656fdfe",
+      "model": "gpt-oss:20b"
+    }
+  }
+}

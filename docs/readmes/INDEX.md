@@ -22,5 +22,6 @@ Numbered editions preserve dated system behavior and evidence. The root [README]
 | [016](../../README-016.md) | 2026-10-30 | Shared Java brain, integrated original game, retained physical learning and bounded memory | [Viewer](016/index.html) · [evidence](016/verification.json) · [contracts](../JAVA_BRAIN_RUNTIME.md) |
 | [017](../../README-017.md) | 2026-10-30 | Live native feedback, stronger fixed baselines, recovery and atomic policy/job activation | [Viewer](017/index.html) · [evidence](017/verification.json) · [contract](../CLOSED_LOOP_CONTROL.md) |
 | [018](../../README-018.md) | 2026-10-30 | Learned numerical world model, counterfactual native planning and separate rejected recorded-reality forecast | [Viewer/video](018/index.html) · [evidence](018/verification.json) · [contract](../WORLD_MODEL_REALITY.md) |
+| [019](../../README-019.md) | 2026-10-30 | Chat-connected durable Java goals, verified motion reports and reusable procedural skills | [Viewer](019/index.html) · [evidence](019/verification.json) · [contract](../GOALS_AND_SKILLS.md) |
 
-Latest implementation/documentation edition: **018**. Earlier snapshots remain intact. See [sequence policy](README_SEQUENCE.md) and [manifest](editions.json).
+Latest implementation/documentation edition: **019**. Earlier snapshots remain intact. See [sequence policy](README_SEQUENCE.md) and [manifest](editions.json).

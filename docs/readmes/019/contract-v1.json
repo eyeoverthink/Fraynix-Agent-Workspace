@@ -1,0 +1,55 @@
+{
+  "edition": "019",
+  "procedure": "world-reach-report-v1",
+  "declaredBeforeExecution": "2026-10-30",
+  "nativeBackend": "Existing Bullet native ramp and edition 018 learned model",
+  "fixedGates": {
+    "endpointM": 0.08,
+    "terminalSpeedMps": 0.25,
+    "settlingM": 0.15,
+    "minModelFraction": 0.8,
+    "actualDisturbances": 1,
+    "disturbanceTick": 108,
+    "controllerPlans": 30,
+    "forecastChecks": 29,
+    "passingActualCanvasChecks": 7
+  },
+  "cases": [
+    {
+      "id": "initial",
+      "parameters": {
+        "angleDeg": 24,
+        "friction": 0.18
+      },
+      "targetM": 1.2,
+      "disturbanceMps": 0.35
+    },
+    {
+      "id": "changed-condition",
+      "parameters": {
+        "angleDeg": 31,
+        "friction": 0.27
+      },
+      "targetM": 1.45,
+      "disturbanceMps": -0.35
+    }
+  ],
+  "requiredChecks": [
+    "Real local model tool calling selects a Java goal",
+    "Browser context is observed only when requested and never grants authority",
+    "Source scene unchanged",
+    "Preview leaves the body unchanged",
+    "Exactly one scheduled actual native disturbance",
+    "Independent reconstruction of outcome and forecast residuals",
+    "Actual canvas chart checks pass",
+    "Only completed verified goals become versioned skills",
+    "Skill survives desktop restart and runs under changed conditions",
+    "Process loss before physics completion requires explicit resume and a new recorded attempt",
+    "Completed physical effects and stable report identity are reused after host interruption",
+    "Cancellation halts native evolution",
+    "Foreign, stale and expired effect receipts reject",
+    "Concurrent native mutations reject",
+    "Finite recovery budget",
+    "Existing real-data rejection unchanged"
+  ]
+}
