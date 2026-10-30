@@ -1,5 +1,13 @@
 # Agent Workspace development log
 
+## 2026-10-30 Edition 017 publication confirmed
+
+Published 4cdc264e4ebe4c491dfebb181aaa33e399261e38 to private eyeoverthink/Fraynix-Agent-Workspace main and annotated readme-017 in an atomic push. Remote main and peeled tag matched. Independent qa017-release fetched the exact tag directly from GitHub, passed 17-edition documentation checks (22 canvases, 2,020 references, 276 frozen hashes) and matched all 448 canonical source/asset hashes. Clean source da247438 passed offline 155 Java / 19 desktop units / 32 combined body+Game/Brain+feedback UI groups with no copied runtime/model state.
+
+The working checkout passes 149 workflow groups plus four real gpt-oss:20b memory assertions. The new fixed native task improves the declared score by 40.9% against hand-designed feedback and 90.5% against feedforward, with worst endpoint 1.36 cm. This is two-gain physical search on a predeclared local development suite, not neural/LLM training or a hidden external benchmark. Live recovery, stop, command replay, native JSON export, restart and rollback are verified.
+
+README 017 (2,162 words), three current screenshots, complete native trial evidence, linked inventory and working offline viewer/map are frozen. Next unused edition: 018. Next gates: independent evaluation/geometry/sensing changes, broader closed-loop manipulation/navigation, original-game learning and Java task graphs. This follow-up changes continuity only, with no new executable changes or training claims.
+
 ## 2026-10-30 Closed-loop native feedback and stronger predeclared evaluation · edition 017
 
 Predeclaration commit58ef53a fixes training/evaluation cases, nine gain pairs and acceptance gates before the first native experiment. Runtime source da24743841b857dfe99be3aabaa7ff6bfda3d414 implements a pure Java bounded feedback controller, 54 native training trials, training-only selection and 32 separate evaluation trials. Selected kp49/kd10 scores0.0311624794 versus hand-designed feedback0.0527483046 and feedforward0.3273596477:40.9%/90.5% improvements. Worst endpoint0.0136235806m, maximum tangent speed0.171151155m/s, settling maximum0.0300539634m. Original gates pass unchanged. This is local predeclared development evaluation and two-gain search, not neural weight training, a hidden external benchmark or general navigation/manipulation.
