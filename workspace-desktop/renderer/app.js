@@ -64,6 +64,7 @@ host.onEvent(({type,value})=>{
   else if(type==='scene')safe(()=>lab.open(value));
   else if(type==='experiment')lab.accept(value);
   else if(type==='artifact')showArtifact(value);
+  else if(type==='view'&&value==='preview')setCanvasMode('preview');
   else if(type==='activity')timeline(value);
   else if(type==='answer')message(value);
   else if(type==='error')notice(value);

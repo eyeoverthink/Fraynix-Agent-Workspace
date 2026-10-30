@@ -46,7 +46,7 @@ async function executeRaw(tool,args={}){
     case 'dataset.read':{const d=await api('/api/measurement/read',args);result={...d,rowCount:d.rows.length,rows:d.rows.slice(0,12)};delete result.csv;break;}
     case 'experiment.compare':{result=await api('/api/measurement/compare',args);if(run)run.comparisonEvidence={id:result.id,runId:result.runId,sceneId:result.sceneId,sceneVersion:result.sceneVersion,passed:result.passed};delete result.points;delete result.definition;await refresh();break;}
     case 'comparison.report':{
-      const comparison=await api('/api/measurement/comparison',args);await openArtifact(await api('/api/measurement/report',args));
+      const comparison=await api('/api/measurement/comparison',args);await openArtifact(await api('/api/measurement/report',args));emit('view','preview');
       const receipt=await execute('canvas.test',{steps:[{selector:'#comparison-result',expectText:comparison.passed?'Within declared tolerance':'Outside declared tolerance'},{selector:'#comparison-rows tr',expectCount:comparison.count},{selector:'#source-kind',expectText:comparison.sourceKind}]});
       if(run)run.reportComparisonId=comparison.id;result={id:currentArtifact.id,version:currentArtifact.version,comparisonId:comparison.id,reportTest:receipt};break;
     }
