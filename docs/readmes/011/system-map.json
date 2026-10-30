@@ -1,0 +1,113 @@
+{
+  "date": "2026-10-30",
+  "modules": [
+    {
+      "id": "import",
+      "name": "Explicit CSV and provenance",
+      "status": "verified",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/MeasurementStore.java",
+      "note": "docs/obsidian/19-measurement-pipeline.md",
+      "summary": "Original UTF-8 bytes, source/mapping SHA-256, declared units/time frame, validated rows and immutable versions."
+    },
+    {
+      "id": "native",
+      "name": "Actual native experiment samples",
+      "status": "verified",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/SceneStore.java",
+      "note": "docs/obsidian/19-measurement-pipeline.md",
+      "summary": "Completed saved definitions and Bullet samples are the comparison source, never a changing screenshot."
+    },
+    {
+      "id": "compare",
+      "name": "Residuals and repeated native runs",
+      "status": "verified",
+      "source": "workspace-engine/src/test/java/fraymus/workspace/MeasurementStoreTest.java",
+      "note": "docs/obsidian/19-measurement-pipeline.md",
+      "summary": "Independent arithmetic and interpolation checks, strict coverage/version guards and actual repeat after reopening."
+    },
+    {
+      "id": "view",
+      "name": "Existing canvas and measurement controls",
+      "status": "verified",
+      "source": "workspace-desktop/renderer/measurement-panel.js",
+      "note": "docs/obsidian/19-measurement-pipeline.md",
+      "summary": "File chooser, explicit mappings, source notes, chart, history, repeat and reports stay in the present layout."
+    },
+    {
+      "id": "tools",
+      "name": "Typed local-model comparison tools",
+      "status": "verified",
+      "source": "workspace-desktop/main.cjs",
+      "note": "docs/obsidian/19-measurement-pipeline.md",
+      "summary": "gpt-oss:20b creates and runs the requested scene, compares a retained dataset and generates a real tested report."
+    },
+    {
+      "id": "offline",
+      "name": "Application offline and model admission",
+      "status": "verified",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/LocalModelAdmission.java",
+      "note": "docs/obsidian/19-measurement-pipeline.md",
+      "summary": "Fresh digest/remote metadata checks and no redirects. External browser navigation and subresources are blocked in offline mode; not an OS-wide sandbox."
+    },
+    {
+      "id": "recovery",
+      "name": "Cached startup and source recovery",
+      "status": "verified",
+      "source": "workspace-desktop/source-integrity.cjs",
+      "note": "docs/obsidian/19-measurement-pipeline.md",
+      "summary": "A validated cache is not replaced just for a missing stamp. Corrupted renderer sources stop startup; the committed theme is preserved."
+    },
+    {
+      "id": "next",
+      "name": "Document evidence and durable pipelines",
+      "status": "planned",
+      "source": "docs/SCENARIO_ENGINE_ROADMAP.md",
+      "note": "docs/obsidian/19-measurement-pipeline.md",
+      "summary": "Next: document/OCR page provenance, local retrieval, durable job graphs, separate calibration/evaluation and physically grounded learning."
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "docs/readmes/011/images/measurement-lab.png",
+      "description": "Actual CSV mapping and native comparison in an isolated project. Explicitly synthetic data."
+    },
+    {
+      "path": "docs/readmes/011/images/measurement-report.png",
+      "description": "Actual local report with original CSV, hashes, numerical evidence and a passing canvas receipt."
+    },
+    {
+      "path": "docs/readmes/011/images/live-measurement.png",
+      "description": "Actual gpt-oss:20b measurement task and independently checked report."
+    },
+    {
+      "path": "docs/readmes/011/images/recovery-before.png",
+      "description": "Historical isolated diagnostic before restoring the NUL-corrupted stylesheet; this is not the current layout."
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/readmes/011/verification.json"
+    },
+    {
+      "path": "docs/readmes/011/measurement-integration.json"
+    },
+    {
+      "path": "docs/readmes/011/live-measurement.json"
+    },
+    {
+      "path": "docs/readmes/011/live-measurement-first-trial.json"
+    },
+    {
+      "path": "docs/readmes/011/scene-integration.json"
+    },
+    {
+      "path": "docs/readmes/011/integration.json"
+    },
+    {
+      "path": "docs/readmes/011/learning-integration.json"
+    },
+    {
+      "path": "docs/readmes/011/broader-validation.json"
+    }
+  ]
+}

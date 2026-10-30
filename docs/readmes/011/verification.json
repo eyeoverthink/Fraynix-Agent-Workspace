@@ -1,0 +1,101 @@
+{
+  "date": "2026-10-30",
+  "implementationCommit": "cbf37f1352b7735dd07ba906111e3e9874701364",
+  "modelTestedImplementationCommit": "67550cd1e16a86ad6e3852f134ace84e7237c7a6",
+  "releaseKind": "versioned-measurements-native-comparisons-and-local-reports",
+  "platformVerified": "Windows x64, JDK 21, Node 24.14.1, Electron 45.1.0",
+  "javaTests": 114,
+  "javaFailures": 0,
+  "newMeasurementJavaTests": 7,
+  "newModelAdmissionJavaTests": 2,
+  "desktopTests": 12,
+  "measurementIntegrationChecks": 10,
+  "sceneIntegrationChecks": 12,
+  "originalIntegrationChecks": 12,
+  "learningIntegrationChecks": 9,
+  "broaderChecks": 45,
+  "broaderPassed": 45,
+  "localModel": "gpt-oss:20b",
+  "localModelDigest": "f38aa0c53da5f8c49d08c43a99df24ff53167fe68e24664a7777288e7656fdfe",
+  "modelIndependentChecks": [
+    "Requested scene parameters and 180 actual native ticks",
+    "Exact dataset/run/version binding and synthetic classification",
+    "All four observations match an independent ideal-incline calculation",
+    "RMSE and interpolated positions recomputed independently from retained native samples",
+    "Actual report artifact and three passing DOM assertions",
+    "Application offline profile enabled and model digest recorded; physical episode remains completed-unverified"
+  ],
+  "firstModelTrialPassed": false,
+  "physicalEpisodeStatus": "completed-unverified",
+  "modelComparison": {
+    "count": 4,
+    "rmseM": 0.004781307261907529,
+    "maxAbsErrorM": 0.007666654425678265,
+    "toleranceM": 0.03,
+    "passed": true,
+    "sourceKind": "synthetic",
+    "sceneVersion": 1,
+    "datasetVersion": 1
+  },
+  "sourceInventory": 394,
+  "offlineScope": "Application browser requests and fresh local-model metadata admission; not an OS-wide network sandbox or a policy on the shared Ollama process",
+  "cachedOfflinePreparation": "passed in working checkout",
+  "sourceRecovery": {
+    "affectedFile": "workspace-desktop/renderer/style.css",
+    "observedNulBytes": 11473,
+    "otherAffectedSourceFiles": 0,
+    "restoredFromCommittedTheme": true,
+    "startupGuard": "empty/NUL/invalid UTF-8 renderer sources rejected"
+  },
+  "captures": {
+    "date": "2026-10-30",
+    "kind": "Actual composed shell and child Chromium renderer captures",
+    "context": "Isolated fixtures; synthetic data; historical recovery image explicitly labeled"
+  },
+  "freshClone": {
+    "status": "passed",
+    "sourceCommit": "cbf37f1",
+    "javaTests": 114,
+    "javaFailures": 0,
+    "desktopTests": 12,
+    "measurementChecks": 10,
+    "sceneChecks": 12,
+    "broaderChecks": 45,
+    "canonicalSourceHashesVerified": 394,
+    "build": "Gradle check/install with --offline; Node packages from offline cache and existing pinned Electron distribution; no personal runtime or model files copied"
+  },
+  "documentationQa": {
+    "status": "passed",
+    "checks": [
+      "Offline file viewer loads all eight module cards and embedded evidence",
+      "Module search, selection and source details resolve",
+      "Status filter and canonical source inventory search work",
+      "All four actual images load, cycle and retain explicit historical/synthetic captions",
+      "390px layout has no horizontal overflow and module/navigation controls remain usable",
+      "No documentation renderer errors"
+    ],
+    "visualInspection": {
+      "wide": "passed: readable four-column cards, steps, source detail and navigation",
+      "narrow": "passed: 390px single-column cards and usable filters, no horizontal overflow"
+    }
+  },
+  "scope": [
+    "Bounded downhill displacement mapping and ramp experiment, not arbitrary sensor calibration or scientific validation",
+    "All demonstrated observation data are synthetic; measured classification is user supplied",
+    "Separate checkpoints, not cross-domain atomic transactions or a general durable job graph",
+    "Application browser/model admission guards, not an OS-wide egress sandbox",
+    "Repeated comparison reruns native physics; artifact recipes still copy tested web artifacts",
+    "Physical episodes remain completed-unverified; no physical policy or Ollama weights trained"
+  ],
+  "additionalEvidenceInspection": {
+    "requestedParameters": {
+      "angleDeg": 30,
+      "gravityMps2": 9.81,
+      "friction": 0,
+      "massKg": 2,
+      "offsetZ": 0.5
+    },
+    "actualNativeDepthM": 0.5,
+    "passed": true
+  }
+}

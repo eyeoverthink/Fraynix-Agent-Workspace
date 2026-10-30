@@ -52,3 +52,7 @@ GitHub links: [README 001](../../README-001.md), [interactive companion](../read
 - [[README-010|Native 3D mechanics implementation]]
 - [[docs/obsidian/17-native-mechanics|Scenes experiments and measured evidence]]
 - [[docs/obsidian/native-mechanics.canvas|Native mechanics architecture]]
+
+- [[README-011|Measurement imports and native comparison reports]]
+- [[docs/obsidian/19-measurement-pipeline|Evidence current functions and next gates]]
+- [[docs/obsidian/measurement-pipeline.canvas|Measurement pipeline map]]

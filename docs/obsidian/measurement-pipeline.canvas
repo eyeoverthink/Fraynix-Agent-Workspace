@@ -1,0 +1,113 @@
+{
+  "nodes": [
+    {
+      "id": "import",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/MeasurementStore.java",
+      "x": 0,
+      "y": 0,
+      "width": 390,
+      "height": 200
+    },
+    {
+      "id": "native",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/SceneStore.java",
+      "x": 450,
+      "y": 0,
+      "width": 390,
+      "height": 200
+    },
+    {
+      "id": "compare",
+      "type": "file",
+      "file": "workspace-engine/src/test/java/fraymus/workspace/MeasurementStoreTest.java",
+      "x": 900,
+      "y": 0,
+      "width": 390,
+      "height": 200
+    },
+    {
+      "id": "view",
+      "type": "file",
+      "file": "workspace-desktop/renderer/measurement-panel.js",
+      "x": 0,
+      "y": 260,
+      "width": 390,
+      "height": 200
+    },
+    {
+      "id": "tools",
+      "type": "file",
+      "file": "workspace-desktop/main.cjs",
+      "x": 450,
+      "y": 260,
+      "width": 390,
+      "height": 200
+    },
+    {
+      "id": "offline",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/LocalModelAdmission.java",
+      "x": 900,
+      "y": 260,
+      "width": 390,
+      "height": 200
+    },
+    {
+      "id": "recovery",
+      "type": "file",
+      "file": "workspace-desktop/source-integrity.cjs",
+      "x": 0,
+      "y": 520,
+      "width": 390,
+      "height": 200
+    },
+    {
+      "id": "next",
+      "type": "file",
+      "file": "docs/SCENARIO_ENGINE_ROADMAP.md",
+      "x": 450,
+      "y": 520,
+      "width": 390,
+      "height": 200
+    }
+  ],
+  "edges": [
+    {
+      "id": "edge0",
+      "fromNode": "import",
+      "toNode": "compare"
+    },
+    {
+      "id": "edge1",
+      "fromNode": "native",
+      "toNode": "compare"
+    },
+    {
+      "id": "edge2",
+      "fromNode": "compare",
+      "toNode": "view"
+    },
+    {
+      "id": "edge3",
+      "fromNode": "tools",
+      "toNode": "compare"
+    },
+    {
+      "id": "edge4",
+      "fromNode": "offline",
+      "toNode": "tools"
+    },
+    {
+      "id": "edge5",
+      "fromNode": "recovery",
+      "toNode": "view"
+    },
+    {
+      "id": "edge6",
+      "fromNode": "compare",
+      "toNode": "next"
+    }
+  ]
+}

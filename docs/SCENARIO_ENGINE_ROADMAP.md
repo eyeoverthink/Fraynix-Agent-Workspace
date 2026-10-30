@@ -1,8 +1,8 @@
 # Shared-world and 3D experiment engineering plan
 
-Recorded October 29, 2026; updated for implementation edition 010. Status: **first bounded 3D lab implemented**. Edition 009 remains the frozen design. [README 010](../README-010.md) and the [backend decision](3D_BACKEND_DECISION.md) identify the delivered slice, actual tests and remaining scope.
+Recorded October 29, 2026; updated October 30 for implementation edition 011. Status: **bounded 3D lab plus versioned CSV measurement comparison implemented**. Edition 009 remains the frozen design. [README 011](../README-011.md), [the native milestone](../README-010.md) and the [backend decision](3D_BACKEND_DECISION.md) identify the delivered slices, actual tests and remaining scope.
 
-Delivered: initial P1 scene/experiment contracts and stable 3D entities, selected P2 Bullet/Minie plus Three.js adapters, P3 fixed ramp/block lab with save/replay and reference evaluation, and an early P4 registered-tool path verified with one local-model physical task. P1's full dataset contract and cross-domain unification, general P2/P3 scene authoring, broader P4 task coverage, P5 real measurement binding, P6 physical-policy learning and P7 compiler targets remain open. The existing 2D runtime/units and application layout remain preserved.
+Delivered: initial P1 scene/experiment contracts and stable 3D entities, selected P2 Bullet/Minie plus Three.js adapters, P3 fixed ramp/block lab with save/replay and reference evaluation, early P4 registered tools and a bounded P5 CSV measurement binding/comparison/report/repeat workflow with explicit units, source and time/frame mappings. Verification uses synthetic fixtures and actual local-model/native execution. General dataset quantities/sensor calibration, cross-domain unification, arbitrary scene authoring, broader physical task coverage, P6 learning and P7 compiler targets remain open. The existing 2D runtime/units, app layout and repository remain preserved.
 
 ## Product contract
 
@@ -34,20 +34,20 @@ P5 may proceed after P3 without waiting for P4. P7 is a separate workstream and 
 
 ## Candidate schemas and ownership
 
-These names describe the broader design. Edition 010 currently registers `workspace.scene`, `workspace.scene.object3d` and `workspace.experiment` in a dedicated FactoryWorld checkpoint. Transform and body fields are contained in validated authored object payloads generated from the bounded ramp definition. General standalone Transform3D/body/material authoring and MeasurementDataset remain proposed:
+These names describe the broader design. Edition 010 registers `workspace.scene`, `workspace.scene.object3d` and `workspace.experiment` in a dedicated FactoryWorld checkpoint. Edition 011 adds `workspace.measurement.dataset`, `.version` and `.comparison` in a separate measurement checkpoint. Transform and body fields are contained in validated authored object payloads generated from the bounded ramp definition. General standalone Transform3D/body/material authoring and measurement quantities beyond downhill displacement remain proposed:
 
 - `Scene`: ID, schema version, authored revision, entity membership and coordinate convention.
 - `Transform3D`: position in explicit units, quaternion orientation, scale and parent relationship; validate finite values and normalized orientation.
 - `RigidBody3D` / `Collider3D` / `Material`: solver body type, mass/inertia contract, shape, friction/restitution and permitted ranges.
 - `ExperimentDefinition`: scene revision, initial conditions, timestep, solver/version/configuration, seed where relevant, limits, dataset binding and evaluator identity/tolerance.
 - `ExperimentRun`: definition/version, job status, start/stop reason, timestamp/tick-aligned actions, observations, output references and evaluation receipt.
-- `MeasurementDataset`: source/import version, columns, units, timestamps, frame, missing-value policy, uncertainty, provenance and immutable content reference.
+- `MeasurementDataset`: edition 011 retains source/import version, original CSV/hash, declared columns/units/time/origin/direction, missing-row policy, optional uncertainty, notes and immutable normalized rows. General sensor/frame adapters remain future work.
 
 Keep authored, running and recorded state distinct. Save the authored scene; checkpoint results without silently overwriting the starting conditions. A failed run cannot certify a changed scene. Large telemetry streams belong in bounded referenced storage, with summaries and selected samples in model context.
 
 ## Proposed tool boundary
 
-Edition 010 registers `scene.create`, `scene.read`, `scene.update`, `experiment.run` and `experiment.reset`. Manual control additionally exposes play/pause/step/reset, snapshots, history and replay through the trusted shell. The broader proposed `scene.query`, `scene.apply`, `experiment.status`, `experiment.stop` and `experiment.compare` contracts remain future work; their exact names can change. Imported data and generated source cannot install handlers.
+Edition 010 registers `scene.create`, `scene.read`, `scene.update`, `experiment.run` and `experiment.reset`. Edition 011 adds `dataset.import`, `dataset.read`, `experiment.compare` and `comparison.report`. Manual control additionally exposes play/pause/step/reset, snapshots, history, replay and saved comparison repeat through the trusted shell. Broader `scene.query`, `scene.apply`, `experiment.status` and `experiment.stop` contracts remain future work; exact names can change. Imported data and generated source cannot install handlers.
 
 The model plans experiments and chooses bounded actions outside the physics tick. A solver/controller executes physical integration on its fixed schedule. Associate action completion with the relevant state revision and tick. Preserve human takeover and distinguish request acceptance, job completion and independently passing evaluation.
 
@@ -67,6 +67,6 @@ Backend compatibility/redistribution; renderer-to-Java synchronization; numeric 
 
 ## Documentation and next action
 
-[README 009](../README-009.md) explains the vision and original sequence; its [frozen roadmap](readmes/009/roadmap.json) remains intact. [README 010](../README-010.md) documents the working slice. [Current design](AGENT_WORKSPACE_DESIGN.md), [memory](PROJECT_MEMORY.md) and [log](DEVELOPMENT_LOG.md) carry ongoing decisions. Next add a small versioned measurement dataset with explicit provenance/units/time mapping and independent residual evaluation, then broader physical task families and evaluated learning targets. Expand scene authoring and Game Lab bridges through tested contracts. Compiler targets remain a separate workstream.
+[README 009](../README-009.md) explains the vision and original sequence; its [frozen roadmap](readmes/009/roadmap.json) remains intact. [README 010](../README-010.md) documents the native slice and [README 011](../README-011.md) the working CSV comparison/report/repeat loop. [Current design](AGENT_WORKSPACE_DESIGN.md), [memory](PROJECT_MEMORY.md) and [log](DEVELOPMENT_LOG.md) carry ongoing decisions. Next broaden measured-data provenance and separate fitting/evaluation, then document/OCR evidence, retrieval, durable workflows, physical task families and evaluated learning targets. Expand scene authoring and Game Lab bridges through tested contracts. Compiler targets remain a separate workstream.
 
 The [Chandra review](CHANDRA_ASSESSMENT.md) supplies complementary document/OCR, retrieval and durable pipeline patterns. Begin measurement import with CSV/JSON before PDF extraction. Preserve page/span/digest provenance when document input follows. Verify one complete cached, network-disabled import → simulate → compare → local report → reopen/reuse loop. Pipeline lifecycle and compiler/isolation work extend this sequence; they do not replace P5 with a wholesale runtime/UI merge. Chandra's random candidate fitness and simulated code-output paths are excluded from success and promotion criteria.
