@@ -14,3 +14,5 @@ Published numbered narratives and snapshot assets are retained. Later changes be
 Sources: [edition directory](../readmes/INDEX.md), [sequence policy](../readmes/README_SEQUENCE.md), [manifest](../readmes/editions.json), [repository conventions](../../AGENTS.md).
 
 Related: [[docs/obsidian/07-evidence|Evidence]], [[docs/obsidian/06-agent-factory-plan|Future direction]], [[docs/obsidian/00-home|Home]].
+
+Edition [[README-006|006]] expands the successor operating guide, walkthrough, screenshots, implementation evidence, design preservation and staged development gates. It is a documentation release for implementation e370eea.

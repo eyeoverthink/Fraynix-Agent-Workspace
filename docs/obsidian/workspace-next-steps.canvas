@@ -1,0 +1,127 @@
+{
+  "nodes": [
+    {
+      "id": "guide",
+      "type": "file",
+      "file": "README-006.md",
+      "x": 0,
+      "y": 0,
+      "width": 400,
+      "height": 230
+    },
+    {
+      "id": "working",
+      "type": "file",
+      "file": "workspace-desktop/renderer/index.html",
+      "x": 460,
+      "y": 0,
+      "width": 400,
+      "height": 230
+    },
+    {
+      "id": "evidence",
+      "type": "file",
+      "file": "docs/readmes/005/verification.json",
+      "x": 920,
+      "y": 0,
+      "width": 400,
+      "height": 230
+    },
+    {
+      "id": "review",
+      "type": "text",
+      "text": "1. Review Fraymus-OS-One actual learning code and interfaces. Preserve both apps.",
+      "x": 0,
+      "y": 310,
+      "width": 400,
+      "height": 190
+    },
+    {
+      "id": "episodes",
+      "type": "text",
+      "text": "2. Replayable episodes: observation, action, version, independent outcome and failure cause.",
+      "x": 460,
+      "y": 310,
+      "width": 400,
+      "height": 190
+    },
+    {
+      "id": "promotion",
+      "type": "text",
+      "text": "3. Evaluate candidate changes on held-out tasks. Promote only measured improvements with rollback.",
+      "x": 920,
+      "y": 310,
+      "width": 400,
+      "height": 190
+    },
+    {
+      "id": "adapters",
+      "type": "text",
+      "text": "4. Broader browser adapters and artifact types. Keep the current visible workspace.",
+      "x": 0,
+      "y": 550,
+      "width": 400,
+      "height": 190
+    },
+    {
+      "id": "workers",
+      "type": "text",
+      "text": "5. Isolated general code workers and generated tools with declared capabilities.",
+      "x": 460,
+      "y": 550,
+      "width": 400,
+      "height": 190
+    },
+    {
+      "id": "embodied",
+      "type": "text",
+      "text": "6. Align live game state, object identity and visual frames; resume sustained projects.",
+      "x": 920,
+      "y": 550,
+      "width": 400,
+      "height": 190
+    }
+  ],
+  "edges": [
+    {
+      "id": "e0",
+      "fromNode": "guide",
+      "toNode": "working"
+    },
+    {
+      "id": "e1",
+      "fromNode": "working",
+      "toNode": "evidence"
+    },
+    {
+      "id": "e2",
+      "fromNode": "evidence",
+      "toNode": "review"
+    },
+    {
+      "id": "e3",
+      "fromNode": "review",
+      "toNode": "episodes"
+    },
+    {
+      "id": "e4",
+      "fromNode": "episodes",
+      "toNode": "promotion"
+    },
+    {
+      "id": "e5",
+      "fromNode": "promotion",
+      "toNode": "adapters"
+    },
+    {
+      "id": "e6",
+      "fromNode": "adapters",
+      "toNode": "workers"
+    },
+    {
+      "id": "e7",
+      "fromNode": "workers",
+      "toNode": "embodied"
+    }
+  ]
+}

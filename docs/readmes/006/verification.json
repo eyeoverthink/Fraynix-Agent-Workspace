@@ -1,0 +1,40 @@
+{
+  "date": "2026-10-29",
+  "releaseKind": "documentation-only",
+  "implementationCommit": "e370eeacc7e90da2b281360c9774622823cff456",
+  "implementationEvidence": "docs/readmes/005/verification.json",
+  "liveModelEvidence": "docs/readmes/005/live-model.json",
+  "javaTests": 91,
+  "desktopPolicyTests": 3,
+  "desktopIntegrationChecks": 11,
+  "verifiedLiveModel": "gpt-oss:20b",
+  "freshClone": {
+    "commit": "e370eeacc7e90da2b281360c9774622823cff456",
+    "build": "passed",
+    "junitTests": 91,
+    "junitFailures": 0,
+    "desktopPolicyTests": 3,
+    "inventoryFiles": 338,
+    "inventoryMismatches": 0
+  },
+  "screenshots": {
+    "date": "2026-10-29",
+    "sourceEdition": "005",
+    "kind": "Actual fixture images, reused with captions; workspace frames compose real shell and child renderer pixels; Game Lab is a native game frame"
+  },
+  "documentationQa": {
+    "status": "passed",
+    "date": "2026-10-29",
+    "checks": [
+      "Local links and frozen editions verified",
+      "Module search and status filter",
+      "Selected module source details",
+      "Source inventory search",
+      "All three screenshot gallery images loaded",
+      "Roadmap and walkthrough anchor navigation",
+      "390px layout without horizontal overflow",
+      "Temporary viewport reset"
+    ]
+  },
+  "scope": "Expanded guide and next development gates; app executable behavior and design unchanged; Fraymus-OS-One assessment follows publication."
+}

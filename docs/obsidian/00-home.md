@@ -31,3 +31,7 @@ GitHub links: [README 001](../../README-001.md), [interactive companion](../read
 - [[README-005|Agent Workspace edition 005]]
 - [[docs/obsidian/12-agent-workspace|Browser canvas and verified recipes]]
 - [[docs/obsidian/agent-workspace.canvas|Agent workspace architecture]]
+
+- [[README-006|Complete workspace guide edition 006]]
+- [[docs/obsidian/13-workspace-guide|Operation and next development]]
+- [[docs/obsidian/workspace-next-steps.canvas|Next development gates]]
