@@ -1,0 +1,74 @@
+{
+  "date": "2026-10-29",
+  "status": "planned",
+  "runtimeEdition": 8,
+  "firstCompleteDeliverable": "3D ramp/block mechanics experiment in the existing workspace",
+  "phases": [
+    {
+      "id": "P1",
+      "title": "Shared experiment contracts",
+      "status": "planned",
+      "dependsOn": [],
+      "acceptance": "Stable IDs/revisions, units/frames/clock, persistence, stale-edit and invalid-value rejection; original regressions retained"
+    },
+    {
+      "id": "P2",
+      "title": "3D adapter selection and actual viewport",
+      "status": "planned",
+      "dependsOn": [
+        "P1"
+      ],
+      "acceptance": "Recorded backend decision, compatible packaging/licenses, perspective selection, physical depth/collision support and shared Java state"
+    },
+    {
+      "id": "P3",
+      "title": "Complete ramp/block mechanics lab",
+      "status": "planned",
+      "dependsOn": [
+        "P2"
+      ],
+      "acceptance": "Play/pause/step/reset/save/replay; analytical reference tolerances; stable contacts; actual measurements"
+    },
+    {
+      "id": "P4",
+      "title": "Agent-controlled experiments",
+      "status": "planned",
+      "dependsOn": [
+        "P3"
+      ],
+      "acceptance": "Validated parameter changes, actual runs/results, independent objective checking and bounded cancellation"
+    },
+    {
+      "id": "P5",
+      "title": "Real measurement binding",
+      "status": "planned",
+      "dependsOn": [
+        "P3"
+      ],
+      "acceptance": "Versioned provenance/units/mappings, measured/assumed/predicted labels and independently checked residual calculation"
+    },
+    {
+      "id": "P6",
+      "title": "Evaluated physical experience",
+      "status": "planned",
+      "dependsOn": [
+        "P4",
+        "P5"
+      ],
+      "acceptance": "Tick/entity/action-linked episodes, withheld conditions, measured improvement, rejected regression and rollback"
+    },
+    {
+      "id": "P7",
+      "title": "Target-language generation",
+      "status": "planned",
+      "dependsOn": [
+        "P1"
+      ],
+      "acceptance": "Separate execution boundary; typed specification/IR; two toolchains and independent equivalent-behavior checks"
+    }
+  ],
+  "parallelism": "P5 may follow P3 independently of P4. P7 is separate and must not delay the first 3D lab.",
+  "backendSelected": false,
+  "runtimeImplementationAdded": false,
+  "workPlan": "docs/SCENARIO_ENGINE_ROADMAP.md"
+}

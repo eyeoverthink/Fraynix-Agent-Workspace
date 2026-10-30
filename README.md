@@ -2,7 +2,9 @@
 
 **A local visual environment for agents to browse, create runnable artifacts, test behavior and reuse verified skills.**
 
-> **Latest system edition: [README 008 — broader validation and useful recovery](README-008.md)** · [Interactive explorer](docs/readmes/008/index.html) · [Complete operating guide](README-006.md) · [Edition history](docs/readmes/INDEX.md)
+> **Latest documentation: [README 009 — shared world and 3D experiment roadmap](README-009.md)** · [Interactive roadmap](docs/readmes/009/index.html) · [Verified runtime: edition 008](README-008.md) · [Complete operating guide](README-006.md) · [Edition history](docs/readmes/INDEX.md)
+
+Edition 009 documents the next implementation steps and acceptance gates. The working runtime remains edition 008. The roadmap covers a shared Java-owned world, a first complete 3D mechanics lab, agent experiments, real measurement binding, evaluated physical learning and language-generation backends. See [the engineering plan](docs/SCENARIO_ENGINE_ROADMAP.md).
 
 Independent successor to [Fraynix Studio](https://github.com/eyeoverthink/Fraynix-Studio), starting from verified commit `6341404`. The original application and personal project state remain separate. Full game sources, assets, licenses and earlier editions are preserved here.
 

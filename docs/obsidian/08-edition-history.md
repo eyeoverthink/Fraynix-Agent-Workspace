@@ -20,3 +20,5 @@ Edition [[README-006|006]] expands the successor operating guide, walkthrough, s
 Edition [[README-007|007]] delivers durable episodes, pinned prototype adaptation, bounded strategies, independent browser/canvas replay, promotion and rollback. The actual local-model workflow retains verified evidence.
 
 Edition [[README-008|008]] expands release validation from 28/45 to 45/45 on the same generated cases, preserves research navigation, recovers changed controls and replaces field values reliably. Three actual local-model task instances pass independent acceptance. The promotion gate remains distinct.
+
+Edition [[README-009|009]] records the approved shared-world and 3D experiment roadmap, with ordered steps, dependencies and acceptance gates. It is a design/documentation edition; executable behavior remains at edition 008.

@@ -43,3 +43,8 @@ GitHub links: [README 001](../../README-001.md), [interactive companion](../read
 - [[README-008|Broader validation edition 008]]
 - [[docs/obsidian/15-broader-validation|Research and recovery evidence]]
 - [[docs/obsidian/broader-validation.canvas|Validation architecture canvas]]
+
+- [[README-009|Shared-world and 3D design edition 009]]
+- [[docs/SCENARIO_ENGINE_ROADMAP|Working 3D experiment plan]]
+- [[docs/obsidian/16-shared-world-roadmap|Vision and ordered gates]]
+- [[docs/obsidian/shared-world-roadmap.canvas|Shared-world architecture canvas]]

@@ -1,0 +1,132 @@
+{
+  "nodes": [
+    {
+      "id": "runtime",
+      "type": "file",
+      "file": "workspace-desktop/main.cjs",
+      "x": 0,
+      "y": 0,
+      "width": 400,
+      "height": 210
+    },
+    {
+      "id": "game",
+      "type": "file",
+      "file": "src/main/java/physics2d/Physics2D.java",
+      "x": 460,
+      "y": 0,
+      "width": 400,
+      "height": 210
+    },
+    {
+      "id": "P1",
+      "type": "file",
+      "file": "docs/SCENARIO_ENGINE_ROADMAP.md",
+      "x": 920,
+      "y": 0,
+      "width": 400,
+      "height": 210
+    },
+    {
+      "id": "P2",
+      "type": "file",
+      "file": "docs/SCENARIO_ENGINE_ROADMAP.md",
+      "x": 0,
+      "y": 270,
+      "width": 400,
+      "height": 210
+    },
+    {
+      "id": "P3",
+      "type": "file",
+      "file": "docs/SCENARIO_ENGINE_ROADMAP.md",
+      "x": 460,
+      "y": 270,
+      "width": 400,
+      "height": 210
+    },
+    {
+      "id": "P4",
+      "type": "file",
+      "file": "docs/SCENARIO_ENGINE_ROADMAP.md",
+      "x": 920,
+      "y": 270,
+      "width": 400,
+      "height": 210
+    },
+    {
+      "id": "P5",
+      "type": "file",
+      "file": "docs/SCENARIO_ENGINE_ROADMAP.md",
+      "x": 0,
+      "y": 540,
+      "width": 400,
+      "height": 210
+    },
+    {
+      "id": "P6",
+      "type": "file",
+      "file": "docs/SCENARIO_ENGINE_ROADMAP.md",
+      "x": 460,
+      "y": 540,
+      "width": 400,
+      "height": 210
+    },
+    {
+      "id": "P7",
+      "type": "file",
+      "file": "docs/SCENARIO_ENGINE_ROADMAP.md",
+      "x": 920,
+      "y": 540,
+      "width": 400,
+      "height": 210
+    }
+  ],
+  "edges": [
+    {
+      "id": "edge0",
+      "fromNode": "runtime",
+      "toNode": "P1"
+    },
+    {
+      "id": "edge1",
+      "fromNode": "game",
+      "toNode": "P1"
+    },
+    {
+      "id": "edge2",
+      "fromNode": "P1",
+      "toNode": "P2"
+    },
+    {
+      "id": "edge3",
+      "fromNode": "P2",
+      "toNode": "P3"
+    },
+    {
+      "id": "edge4",
+      "fromNode": "P3",
+      "toNode": "P4"
+    },
+    {
+      "id": "edge5",
+      "fromNode": "P3",
+      "toNode": "P5"
+    },
+    {
+      "id": "edge6",
+      "fromNode": "P4",
+      "toNode": "P6"
+    },
+    {
+      "id": "edge7",
+      "fromNode": "P5",
+      "toNode": "P6"
+    },
+    {
+      "id": "edge8",
+      "fromNode": "P1",
+      "toNode": "P7"
+    }
+  ]
+}

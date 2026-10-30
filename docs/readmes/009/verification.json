@@ -1,0 +1,42 @@
+{
+  "date": "2026-10-29",
+  "editionKind": "design-and-implementation-roadmap",
+  "sourceBaseline": "3a1922d794d4aaa3717203eaf59073c297e046ed",
+  "runtimeEdition": 8,
+  "runtimeChanged": false,
+  "sourceHashes": {
+    "matched": 372,
+    "baselineEdition": 8,
+    "passed": true
+  },
+  "historicalRuntimeEvidence": "docs/readmes/008/verification.json",
+  "runtimeTestsRerun": false,
+  "documentationQa": {
+    "status": "passed",
+    "normalWidth": 1280,
+    "narrowWidth": 390,
+    "narrowHeight": 844,
+    "horizontalOverflow": false,
+    "checks": [
+      "Seven planned and two verified module filters",
+      "Phase search and selected acceptance details",
+      "Source inventory search",
+      "Section navigation",
+      "Two loaded and labeled historical images",
+      "Normal and narrow visual layout"
+    ],
+    "staticChecker": {
+      "editions": 9,
+      "canvases": 14,
+      "references": 1332,
+      "frozenHashes": 114
+    }
+  },
+  "scope": [
+    "Approved implementation direction, not delivered 3D",
+    "Existing runtime and personal projects unchanged",
+    "Real images are labeled earlier edition 008/004 captures",
+    "Backend selection, data binding, experiment tools and language targets are planned",
+    "Whole-model training and arbitrary native-code execution remain separate gates"
+  ]
+}

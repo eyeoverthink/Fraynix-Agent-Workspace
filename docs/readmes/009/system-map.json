@@ -1,0 +1,99 @@
+{
+  "date": "2026-10-29",
+  "editionKind": "design-roadmap",
+  "modules": [
+    {
+      "id": "runtime",
+      "name": "Verified workspace foundation",
+      "status": "verified",
+      "source": "workspace-desktop/main.cjs",
+      "note": "docs/obsidian/16-shared-world-roadmap.md",
+      "summary": "Existing local-model tools, browser, runnable artifacts, recipes and evaluated controller adaptation. Historical evidence in edition 008."
+    },
+    {
+      "id": "game",
+      "name": "Existing 2D mechanics foundation",
+      "status": "verified",
+      "source": "src/main/java/physics2d/Physics2D.java",
+      "note": "docs/obsidian/16-shared-world-roadmap.md",
+      "summary": "JBox2D gravity/collisions and fixed stepping; transforms/camera are 2D and zIndex is draw order."
+    },
+    {
+      "id": "P1",
+      "name": "Shared experiment contracts",
+      "status": "planned",
+      "source": "docs/SCENARIO_ENGINE_ROADMAP.md",
+      "note": "docs/obsidian/16-shared-world-roadmap.md",
+      "summary": "Dependencies: current foundation. Acceptance: Stable IDs/revisions, units/frames/clock, persistence, stale-edit and invalid-value rejection; original regressions retained."
+    },
+    {
+      "id": "P2",
+      "name": "3D adapter selection and actual viewport",
+      "status": "planned",
+      "source": "docs/SCENARIO_ENGINE_ROADMAP.md",
+      "note": "docs/obsidian/16-shared-world-roadmap.md",
+      "summary": "Dependencies: P1. Acceptance: Recorded backend decision, compatible packaging/licenses, perspective selection, physical depth/collision support and shared Java state."
+    },
+    {
+      "id": "P3",
+      "name": "Complete ramp/block mechanics lab",
+      "status": "planned",
+      "source": "docs/SCENARIO_ENGINE_ROADMAP.md",
+      "note": "docs/obsidian/16-shared-world-roadmap.md",
+      "summary": "Dependencies: P2. Acceptance: Play/pause/step/reset/save/replay; analytical reference tolerances; stable contacts; actual measurements."
+    },
+    {
+      "id": "P4",
+      "name": "Agent-controlled experiments",
+      "status": "planned",
+      "source": "docs/SCENARIO_ENGINE_ROADMAP.md",
+      "note": "docs/obsidian/16-shared-world-roadmap.md",
+      "summary": "Dependencies: P3. Acceptance: Validated parameter changes, actual runs/results, independent objective checking and bounded cancellation."
+    },
+    {
+      "id": "P5",
+      "name": "Real measurement binding",
+      "status": "planned",
+      "source": "docs/SCENARIO_ENGINE_ROADMAP.md",
+      "note": "docs/obsidian/16-shared-world-roadmap.md",
+      "summary": "Dependencies: P3. Acceptance: Versioned provenance/units/mappings, measured/assumed/predicted labels and independently checked residual calculation."
+    },
+    {
+      "id": "P6",
+      "name": "Evaluated physical experience",
+      "status": "planned",
+      "source": "docs/SCENARIO_ENGINE_ROADMAP.md",
+      "note": "docs/obsidian/16-shared-world-roadmap.md",
+      "summary": "Dependencies: P4, P5. Acceptance: Tick/entity/action-linked episodes, withheld conditions, measured improvement, rejected regression and rollback."
+    },
+    {
+      "id": "P7",
+      "name": "Target-language generation",
+      "status": "planned",
+      "source": "docs/SCENARIO_ENGINE_ROADMAP.md",
+      "note": "docs/obsidian/16-shared-world-roadmap.md",
+      "summary": "Dependencies: P1. Acceptance: Separate execution boundary; typed specification/IR; two toolchains and independent equivalent-behavior checks."
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "docs/readmes/009/images/workspace-baseline.png",
+      "description": "Earlier edition 008 actual workspace frame, October 29. Existing browser/canvas; proposed 3D is not shown."
+    },
+    {
+      "path": "docs/readmes/009/images/game-baseline.png",
+      "description": "Earlier edition 004 native Game Lab image, October 29. Existing 2D game; proposed 3D is not shown."
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/readmes/009/verification.json"
+    },
+    {
+      "path": "docs/readmes/009/implementation-baseline.json"
+    },
+    {
+      "path": "docs/readmes/009/roadmap.json"
+    }
+  ]
+}

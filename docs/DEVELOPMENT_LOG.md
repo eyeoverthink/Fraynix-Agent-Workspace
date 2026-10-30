@@ -1,5 +1,15 @@
 # Agent Workspace development log
 
+## 2026-10-29 Shared-world and 3D roadmap · edition 009
+
+The user approved documenting the next vision and steps in a new README and updating GitHub in full. Added README 009 and a working engineering roadmap. This is a documentation/design publication against `3a1922d`; the executable runtime, user project state and original Studio are unchanged.
+
+Recorded P1 shared scene/experiment/data contracts, P2 3D adapter selection, P3 complete ramp/block mechanics lab, P4 typed agent experiment actions, P5 real measurement binding, P6 evaluated physical experience and P7 separate target-language generation through typed specifications/IR/compiler adapters. Each phase has dependencies and acceptance criteria. 3D backends, real-data solvers, arbitrary native-code execution and whole-model learning remain planned. Preserve existing application layout and implement a functioning vertical slice before expanding scope.
+
+Documentation includes a linked offline module/roadmap explorer, Mermaid and Obsidian maps, canonical implementation inventory and clearly labeled earlier actual images from editions 008 and 004. Prior runtime test evidence is linked as historical evidence, not a new test run or proof of 3D. Publication checks cover references, frozen snapshots, unchanged source hashes and normal/narrow browser behavior.
+
+Verified 372 unchanged implementation hashes and nine documentation editions, fourteen canvases, 1,332 references and 114 frozen hashes. Browser checks pass seven planned/two verified module filters, phase search and selection, source search, section navigation, two loaded historical images and 1280 / 390×844 layouts without horizontal overflow. Runtime tests were not rerun for these documentation-only changes.
+
 ## 2026-10-29 Broader validation and recovery · edition 008
 
 Starting from fully pushed `3d77635`, the user authorized broader validation, continued documentation and publication. Added 45 generated checks across three fixed seeds. The unmodified release passed 28/45. Recorded baseline evidence identifies forced creation before research, blocked navigation after repeated reads, changed-control recovery failures and intermittent numeric fill appending rather than replacing existing values.
