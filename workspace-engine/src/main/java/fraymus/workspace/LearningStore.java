@@ -78,7 +78,7 @@ public final class LearningStore {
     public synchronized JSONObject read(String type,String id){if(!Set.of("episode","candidate","evaluation","promotion").contains(type))throw new IllegalArgumentException("Unsupported learning record");return require(id,type);}
     public synchronized JSONObject begin(JSONObject input) throws IOException {
         String id=input.getString("id");if(find(UUID.fromString(id))!=null)throw new IllegalArgumentException("Episode already exists");
-        String taskKind=input.getString("taskKind");if(!Set.of("artifact-task","browser-task","controller-rehearsal").contains(taskKind))throw new IllegalArgumentException("Invalid episode task kind");
+        String taskKind=input.getString("taskKind");if(!Set.of("artifact-task","browser-task","controller-rehearsal","experiment-task").contains(taskKind))throw new IllegalArgumentException("Invalid episode task kind");
         String model=input.optString("model","deterministic-controller");if(model.length()>140)throw new IllegalArgumentException("Model name too long");
         var episode=new JSONObject().put("id",id).put("label",taskKind).put("taskKind",taskKind).put("model",model).put("goalDigest",digest(input.optString("goal","")))
             .put("policy",header().getJSONObject("activePolicy")).put("runtimeContract",SUITE).put("status","running").put("startedAt",now()).put("steps",new JSONArray()).put("privacy","No page text, typed values, source or raw goals in episodes");

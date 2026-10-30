@@ -15,6 +15,7 @@ import java.util.concurrent.*;
 public final class WorkspaceServer {
     private final WorkspaceStore store;
     private final LearningStore learning;
+    private final SceneStore scenes;
     private final String token;
     private final FactoryModelService models=new FactoryModelService();
     private volatile FactoryModelService.Snapshot catalog;
@@ -23,13 +24,14 @@ public final class WorkspaceServer {
     public WorkspaceServer(Path project,String token) throws IOException {
         if(token==null||token.length()<32)throw new IllegalArgumentException("A private session capability is required");
         this.token=token;store=new WorkspaceStore(project);learning=new LearningStore(project);
+        try{scenes=new SceneStore(project);}catch(Exception e){throw new IOException("Scene store could not start",e);}
         scanner.scheduleWithFixedDelay(()->{try{catalog=models.observe();}catch(Exception e){System.err.println("Model discovery: "+e.getMessage());}},0,45,TimeUnit.SECONDS);
     }
     private JSONObject state() throws IOException {
         var available=new JSONArray();var snapshot=catalog;
         if(snapshot!=null)for(var model:snapshot.models())if(model.available()&&model.capabilities().contains("tools"))available.put(new JSONObject().put("name",model.name()).put("endpoint",model.endpoint()).put("bytes",model.bytes()).put("capabilities",model.capabilities()));
         return new JSONObject().put("name","Fraynix Agent Workspace").put("project",store.root().toString()).put("models",available)
-            .put("discovering",snapshot==null).put("artifacts",store.artifacts()).put("skills",store.skills()).put("learning",learning.state()).put("baseline","6341404");
+            .put("discovering",snapshot==null).put("artifacts",store.artifacts()).put("skills",store.skills()).put("learning",learning.state()).put("scenes",scenes.scenes()).put("baseline","6341404");
     }
     public HttpServer start() throws IOException {
         HttpServer server=HttpServer.create(new InetSocketAddress("127.0.0.1",0),0);server.setExecutor(Executors.newVirtualThreadPerTaskExecutor());
@@ -41,6 +43,14 @@ public final class WorkspaceServer {
                 byte[] body=exchange.getRequestBody().readNBytes(2_100_001);if(body.length>2_100_000)throw new IllegalArgumentException("Request too large");
                 JSONObject input=new JSONObject(new String(body,StandardCharsets.UTF_8));String route=exchange.getRequestURI().getPath();JSONObject result;
                 switch(route) {
+                    case "/api/scene/save" -> result=scenes.save(input);
+                    case "/api/scene/read" -> result=scenes.read(input.getString("id"));
+                    case "/api/scene/snapshot" -> result=scenes.snapshot();
+                    case "/api/experiment/control" -> result=scenes.control(input);
+                    case "/api/experiment/run" -> result=scenes.run(input);
+                    case "/api/experiment/replay" -> result=scenes.replay(input.getString("id"));
+                    case "/api/experiment/read" -> result=scenes.runRecord(input.getString("id"));
+                    case "/api/experiment/list" -> result=new JSONObject().put("runs",scenes.runs(input.optString("sceneId","")));
                     case "/api/artifact/write" -> result=store.write(input);
                     case "/api/artifact/read" -> result=store.read(input.getString("id"));
                     case "/api/artifact/test" -> result=store.recordTest(input);
@@ -75,7 +85,7 @@ public final class WorkspaceServer {
             }catch(Exception error){send(exchange,404,new JSONObject().put("error","Artifact file not found"));}
         });
         server.createContext("/welcome",exchange->{byte[] bytes=WELCOME.getBytes(StandardCharsets.UTF_8);exchange.getResponseHeaders().set("Content-Type","text/html; charset=utf-8");exchange.sendResponseHeaders(200,bytes.length);try(var out=exchange.getResponseBody()){out.write(bytes);}});
-        server.start();Runtime.getRuntime().addShutdownHook(new Thread(()->{requests.values().forEach(OllamaIntegration.RequestControl::cancel);scanner.shutdownNow();server.stop(0);try{store.close();}catch(IOException ignored){}}));return server;
+        server.start();Runtime.getRuntime().addShutdownHook(new Thread(()->{requests.values().forEach(OllamaIntegration.RequestControl::cancel);scanner.shutdownNow();scenes.close();server.stop(0);try{store.close();}catch(IOException ignored){}}));return server;
     }
     private JSONObject plan(JSONObject input) throws IOException {
         if(catalog==null)throw new IllegalStateException("Local models are still being discovered");

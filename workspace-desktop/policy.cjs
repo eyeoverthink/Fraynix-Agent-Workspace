@@ -1,6 +1,11 @@
 'use strict';
 const { randomUUID } = require('node:crypto');
 const catalog = [
+  ['scene.create','Create a persistent actual 3D ramp scene with SI parameters, stable entity IDs and version.','{title,parameters?:{angleDeg,lengthM,widthM,gravityMps2,massKg,friction,offsetZ}}'],
+  ['scene.read','Read the authored scene and its real 3D entities.','{id}'],
+  ['scene.update','Revise bounded authored parameters after reset, with version conflict protection.','{id,expectedVersion,title,parameters}'],
+  ['experiment.run','Run actual native Bullet physics (0.05 to 10 simulated seconds), store results and independent frictionless-incline reference evaluation. Use experiment.reset before another run.','{id,expectedVersion,seconds}'],
+  ['experiment.reset','Stop/reset the current physical experiment, preserving recorded runs and authored scene. Required before edits or another run.','{}'],
   ['browser.navigate','Navigate the visible real browser to an http/https URL.','{url}'],
   ['browser.observe','Read bounded page text and interactive controls, with observation ID.','{}'],
   ['browser.click','Click a control from a fresh observation.','{observation,ref}'],
@@ -36,6 +41,11 @@ class ObservationLease {
 const text={type:'string'},empty={type:'object',properties:{},additionalProperties:false};
 function object(properties,required=Object.keys(properties)){return {type:'object',properties,required,additionalProperties:false};}
 const argumentSchemas={
+ 'scene.create':object({title:text,parameters:{type:'object',properties:Object.fromEntries(['angleDeg','lengthM','widthM','gravityMps2','massKg','friction','offsetZ'].map(k=>[k,{type:'number'}])),additionalProperties:false}},['title']),
+ 'scene.read':object({id:text}),
+ 'scene.update':object({id:text,expectedVersion:{type:'integer',minimum:1},title:text,parameters:{type:'object',properties:Object.fromEntries(['angleDeg','lengthM','widthM','gravityMps2','massKg','friction','offsetZ'].map(k=>[k,{type:'number'}])),additionalProperties:false}}),
+ 'experiment.run':object({id:text,expectedVersion:{type:'integer',minimum:1},seconds:{type:'number',minimum:.05,maximum:10}}),
+ 'experiment.reset':empty,
  'browser.navigate':object({url:text}), 'browser.observe':empty,
  'browser.click':object({observation:text,ref:text}), 'browser.type':object({observation:text,ref:text,text}),
  'canvas.write':object({title:{type:'string',minLength:1},files:{type:'object',properties:{'index.html':{type:'string',minLength:30}},required:['index.html'],additionalProperties:text},sources:{type:'array',items:text},id:text,expectedVersion:{type:'integer',minimum:1}},['title','files']),

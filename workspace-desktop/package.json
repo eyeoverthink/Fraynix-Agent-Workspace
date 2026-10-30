@@ -9,6 +9,8 @@
     "test": "node --test test/policy.test.cjs test/controller.test.cjs",
     "test:integration": "node test/integration.cjs",
     "test:learning": "node test/learning-integration.cjs",
+    "test:scene": "node test/scene-integration.cjs",
+    "test:live-scene": "node test/live-scene.cjs",
     "test:broader": "node test/broader-validation.cjs",
     "test:live-broader": "node test/live-broader.cjs",
     "test:live": "node test/live-agent.cjs"
@@ -16,5 +18,8 @@
   "devDependencies": {
     "electron": "45.1.0",
     "playwright": "1.64.1"
+  },
+  "dependencies": {
+    "three": "0.186.1"
   }
 }

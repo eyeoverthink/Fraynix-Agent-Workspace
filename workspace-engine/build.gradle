@@ -5,6 +5,8 @@ dependencies {
     implementation project(':factory-kernel')
     implementation project(':factory-models')
     implementation 'org.json:json:20231013'
+    implementation 'com.github.stephengold:Minie:9.0.3'
+    implementation 'org.jmonkeyengine:jme3-desktop:3.8.1-stable'
     testImplementation 'junit:junit:4.13.2'
 }
 java { sourceCompatibility = JavaVersion.VERSION_21; targetCompatibility = JavaVersion.VERSION_21 }
