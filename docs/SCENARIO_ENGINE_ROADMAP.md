@@ -1,5 +1,7 @@
 # Shared-world and 3D experiment engineering plan
 
+Edition018 adds a learned numerical world model, separate uncertainty calibration/native evaluation, paused counterfactual previews, receding-horizon action/observation checks and recorded-motion forecasting. Native limits pass; the previous feedback controller still scores better on tracking, and the recorded-reality gate remains rejected. See [current world/reality contract](WORLD_MODEL_REALITY.md) and [README018](../README-018.md). Broader real calibration and multi-object/contact models remain next.
+
 Edition 017 adds live bounded native feedback, gain selection from actual training outcomes, predeclared stronger-baseline evaluation, real disturbances, intent/receipt history, stop/replay/restart and separate feedback rollback. Job completion and activation now commit atomically. See [current feedback contract](CLOSED_LOOP_CONTROL.md) and [README 017](../README-017.md). Broader geometry/sensing, closed-loop manipulation/navigation and Java task graphs remain next.
 
 Edition 016 delivers a shared Java nervous system, original-renderer Game tab, Java-owned durable neural jobs, real optional GPU readout, bounded automatic local memory and a retained physical controller with separate native validation. See [current contracts](JAVA_BRAIN_RUNTIME.md) and [README 016](../README-016.md). Closed-loop navigation/manipulation, stronger external evaluation, broader Java task ownership and full spiking GPU execution remain next gates.

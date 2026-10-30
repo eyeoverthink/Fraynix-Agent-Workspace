@@ -1,5 +1,7 @@
 # Shared Java brain and integrated runtime contracts
 
+Edition018 adds a learned numerical world model, separate uncertainty calibration/native evaluation, paused counterfactual previews, receding-horizon action/observation checks and recorded-motion forecasting. Native limits pass; the previous feedback controller still scores better on tracking, and the recorded-reality gate remains rejected. See [current world/reality contract](WORLD_MODEL_REALITY.md) and [README018](../README-018.md). Broader real calibration and multi-object/contact models remain next.
+
 Edition 017 adds live bounded native feedback, gain selection from actual training outcomes, predeclared stronger-baseline evaluation, real disturbances, intent/receipt history, stop/replay/restart and separate feedback rollback. Job completion and activation now commit atomically. See [current feedback contract](CLOSED_LOOP_CONTROL.md) and [README 017](../README-017.md). Broader geometry/sensing, closed-loop manipulation/navigation and Java task graphs remain next.
 
 Edition 016 adds a working Java-first slice while preserving the existing desktop layout and the separate original Studio. [README 016](../README-016.md) contains actual images, measured learning/GPU/latency results and the next implementation gates. [Offline explorer](readmes/016/index.html), [source inventory](readmes/016/file-inventory.json) and [Obsidian map](obsidian/java-brain-runtime.canvas) expose the concrete modules.

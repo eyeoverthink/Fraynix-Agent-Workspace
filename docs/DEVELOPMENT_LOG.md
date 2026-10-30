@@ -1,5 +1,17 @@
 # Agent Workspace development log
 
+## 2026-10-30 Learned world model and recorded reality · edition 018
+
+The user asked to continue toward world models/reality and selected the existing recorded motion dataset. Protocol commit a1729a97e81ad12f6e43b93e054d416b2af136a3 fixes native fitting/calibration/evaluation, planning and recorded-data gates before the first model experiment; files remain unchanged. Runtime source f8d9f84e9331e2187d52959e8657a57bcdf5d8bc fits five engineered-feature ridge dynamics models (105 coefficients) from512 native transitions, calibrates on128 separate transitions and tests256 further transitions plus32 eight-step rollouts. Native one-step position RMSE0.000566289m, velocity0.024407791m/s; 0.4s rollout position RMSE0.027429568m; empirical joint band coverage82.421875%.
+
+Sixteen additional planning trials compare49-sequence receding-horizon model planning with fixed49/10 feedback. Native gates pass with100% model actions and maximum endpoint0.062101949m; mean score0.056473216 is worse than feedback0.028483741. The prior feedback remains available, and this is a separately selectable predictive model rather than a superior default controller.
+
+Recorded data retain all source CSVs, mapping and timestamps. Passive acceleration is learned from training only. Two evaluation points condition47 scored forecasts. Free RMSE0.029708335m/max0.062152316m fails unchanged0.015m all-point tolerance. One-step teacher forcing and native transfer are separate tests. The reality gate remains rejected, with no causal action authority or physical actuator interface. The older edition013 fit remains rejected and unchanged.
+
+Working UI adds World model learning, actual plots, paused digest-bound no-effect preview, seven constant-action alternatives, labelled violet projected geometry, native action/prediction-error loop, real disturbances, cancellation, restart/rollback, JSON export and command replay. Native observer/video exports omit the forecast overlay. Initial media verification confused cyan coordinate axes with forecast pixels; distinct violet prediction geometry and decoded pixel checks now separate those outputs. No gates or observations were altered.
+
+Current source passes160 Java tests,19 desktop units,164 workflow groups and4 real gpt-oss:20b memory assertions. An independent clean checkout passes offline160 Java/19 units/47 combined UI checks with no copied project/model state and matches all460 canonical source hashes. README018 is2,560words with four actual images, actual silent native WebM, full numerical evidence, source inventory and map. Seven offline-viewer checks plus visual wide/narrow review pass. Publication freeze and remote verification follow.
+
 ## 2026-10-30 Edition 017 publication confirmed
 
 Published 4cdc264e4ebe4c491dfebb181aaa33e399261e38 to private eyeoverthink/Fraynix-Agent-Workspace main and annotated readme-017 in an atomic push. Remote main and peeled tag matched. Independent qa017-release fetched the exact tag directly from GitHub, passed 17-edition documentation checks (22 canvases, 2,020 references, 276 frozen hashes) and matched all 448 canonical source/asset hashes. Clean source da247438 passed offline 155 Java / 19 desktop units / 32 combined body+Game/Brain+feedback UI groups with no copied runtime/model state.

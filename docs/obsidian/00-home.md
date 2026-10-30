@@ -70,3 +70,10 @@ GitHub links: [README 001](../../README-001.md), [interactive companion](../read
 - [Closed-loop physical control](25-closed-loop-control.md)
 - [Feedback map](closed-loop-control.canvas)
 - [Verified outcomes](../readmes/017/verification.json)
+
+## Learned world model and reality · edition 018
+
+- [README 018](../../README-018.md)
+- [World model and recorded reality](26-world-model-reality.md)
+- [World/reality map](world-model-reality.canvas)
+- [Native and recorded verification](../readmes/018/verification.json)

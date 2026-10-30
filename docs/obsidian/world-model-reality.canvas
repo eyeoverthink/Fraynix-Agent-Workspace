@@ -1,0 +1,151 @@
+{
+  "nodes": [
+    {
+      "id": "overview",
+      "type": "file",
+      "file": "docs/obsidian/26-world-model-reality.md",
+      "x": 0,
+      "y": 0,
+      "width": 520,
+      "height": 330
+    },
+    {
+      "id": "model",
+      "type": "file",
+      "file": "fraynix-modules/brain-core/src/main/java/fraymus/neural/LearnedDynamics.java",
+      "x": -600,
+      "y": 420,
+      "width": 520,
+      "height": 260
+    },
+    {
+      "id": "planner",
+      "type": "file",
+      "file": "fraynix-modules/brain-core/src/main/java/fraymus/neural/WorldPlanner.java",
+      "x": 0,
+      "y": 420,
+      "width": 520,
+      "height": 260
+    },
+    {
+      "id": "native",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/WorldModelExperiment.java",
+      "x": 600,
+      "y": 420,
+      "width": 520,
+      "height": 260
+    },
+    {
+      "id": "reality",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/RealityForecast.java",
+      "x": -600,
+      "y": 760,
+      "width": 520,
+      "height": 260
+    },
+    {
+      "id": "runtime",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/SceneStore.java",
+      "x": 0,
+      "y": 760,
+      "width": 520,
+      "height": 260
+    },
+    {
+      "id": "view",
+      "type": "file",
+      "file": "workspace-desktop/renderer/world-panel.js",
+      "x": 600,
+      "y": 760,
+      "width": 520,
+      "height": 260
+    },
+    {
+      "id": "tests",
+      "type": "file",
+      "file": "workspace-engine/src/test/java/fraymus/workspace/WorldModelTest.java",
+      "x": -600,
+      "y": 1100,
+      "width": 520,
+      "height": 260
+    },
+    {
+      "id": "next",
+      "type": "file",
+      "file": "docs/SCENARIO_ENGINE_ROADMAP.md",
+      "x": 0,
+      "y": 1100,
+      "width": 520,
+      "height": 260
+    }
+  ],
+  "edges": [
+    {
+      "id": "edge-model",
+      "fromNode": "overview",
+      "fromSide": "bottom",
+      "toNode": "model",
+      "toSide": "top",
+      "label": "verified"
+    },
+    {
+      "id": "edge-planner",
+      "fromNode": "overview",
+      "fromSide": "bottom",
+      "toNode": "planner",
+      "toSide": "top",
+      "label": "verified"
+    },
+    {
+      "id": "edge-native",
+      "fromNode": "overview",
+      "fromSide": "bottom",
+      "toNode": "native",
+      "toSide": "top",
+      "label": "verified"
+    },
+    {
+      "id": "edge-reality",
+      "fromNode": "overview",
+      "fromSide": "bottom",
+      "toNode": "reality",
+      "toSide": "top",
+      "label": "verified"
+    },
+    {
+      "id": "edge-runtime",
+      "fromNode": "overview",
+      "fromSide": "bottom",
+      "toNode": "runtime",
+      "toSide": "top",
+      "label": "verified"
+    },
+    {
+      "id": "edge-view",
+      "fromNode": "overview",
+      "fromSide": "bottom",
+      "toNode": "view",
+      "toSide": "top",
+      "label": "verified"
+    },
+    {
+      "id": "edge-tests",
+      "fromNode": "overview",
+      "fromSide": "bottom",
+      "toNode": "tests",
+      "toSide": "top",
+      "label": "verified"
+    },
+    {
+      "id": "edge-next",
+      "fromNode": "overview",
+      "fromSide": "bottom",
+      "toNode": "next",
+      "toSide": "top",
+      "label": "planned"
+    }
+  ]
+}

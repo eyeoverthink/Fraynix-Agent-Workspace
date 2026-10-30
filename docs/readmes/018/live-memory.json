@@ -1,0 +1,60 @@
+{
+  "passed": true,
+  "date": "2026-10-30T16:11:14.357Z",
+  "model": "gpt-oss:20b",
+  "checks": [
+    "Source note persisted before the desktop process restarted",
+    "A real local model received automatic Java-retrieved bounded context after restart",
+    "Returned marker exactly matches retained source data, absent from the current prompt",
+    "Local model digest, memory source count and journal receipt retained"
+  ],
+  "note": {
+    "sha256": "81dc7414b4dc13147dfc2b4b66e70ade7fee15062dd4cd8e19e9630df39c715e",
+    "chunks": 1,
+    "entryHash": "6d362758d8ccb266326cf03caf9786ac032413164c61aa8d41df32f4f17f8fc4",
+    "authority": "untrusted source data, not instructions or verified facts",
+    "merkleRoot": "1f434e26d877b1aba9cd370ce159572e5238eea3e908eb5218ea39b772b6d131"
+  },
+  "reply": {
+    "memory": {
+      "journal": {
+        "head": "4151bdb6cc09194d72d829c12411aa582a5a44f47a5d7f46e5a788c291e893cb",
+        "entries": 5,
+        "merkleRoot": "91bf4b2291ec1fe5d404a85be8a80901489ef68e618f46d7eb7b1b0333acd174"
+      },
+      "sources": 1,
+      "usedChars": 105
+    },
+    "evidence": {
+      "done_reason": "stop",
+      "requestSha256": "5fa997f841c64a53666e47c493af0540efdd608176a2cda831d84ec2887463f8",
+      "load_duration": "9553634300",
+      "prompt_eval_count": "315",
+      "frames": "26",
+      "transport": "ollama-http-ndjson",
+      "elapsedMillis": "16649",
+      "done": "true",
+      "prompt_eval_duration": "3854182000",
+      "endpoint": "http://127.0.0.1:11434",
+      "firstTokenMillis": "13636",
+      "total_duration": "16620607200",
+      "reportedModel": "gpt-oss:20b",
+      "requestedModel": "gpt-oss:20b",
+      "firstAnswerMillis": "-1",
+      "requestId": "9ab2dc06-6282-4546-ad58-44f84f0f67dc",
+      "eval_count": "55",
+      "eval_duration": "3204867000",
+      "httpStatus": "200",
+      "responseSha256": "c5334b70792a9e0130b56f10bcf2c993d86b0964c1f081ccd722f07150e9f62b"
+    },
+    "text": "{\"args\":{\"summary\":\"COBALT-MAPLE-416\"},\"tool\":\"finish\"}",
+    "localModel": {
+      "endpoint": "http://127.0.0.1:11434",
+      "checkedAt": "2026-10-30T16:10:57.655908300Z",
+      "bytes": 13793441566,
+      "scope": "Fresh local service metadata; not an independent inspection of model weights or the daemon's network behavior",
+      "digest": "f38aa0c53da5f8c49d08c43a99df24ff53167fe68e24664a7777288e7656fdfe",
+      "model": "gpt-oss:20b"
+    }
+  }
+}

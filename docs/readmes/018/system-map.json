@@ -1,0 +1,101 @@
+{
+  "date": "2026-10-30",
+  "modules": [
+    {
+      "id": "model",
+      "name": "Learned numerical world dynamics",
+      "status": "verified",
+      "source": "fraynix-modules/brain-core/src/main/java/fraymus/neural/LearnedDynamics.java",
+      "summary": "105 learned coefficients across five action-conditioned members; independent empirical calibration and declared state domain.",
+      "note": "docs/obsidian/26-world-model-reality.md"
+    },
+    {
+      "id": "planner",
+      "name": "Counterfactual model planning",
+      "status": "verified",
+      "source": "fraynix-modules/brain-core/src/main/java/fraymus/neural/WorldPlanner.java",
+      "summary": "49 two-block candidate sequences, 0.4s horizon, one executed action and labelled feedback fallback.",
+      "note": "docs/obsidian/26-world-model-reality.md"
+    },
+    {
+      "id": "native",
+      "name": "Native experience and independent evaluation",
+      "status": "verified",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/WorldModelExperiment.java",
+      "summary": "512 fitting/128 calibration/256 test transitions plus16 planning comparisons under predeclared conditions.",
+      "note": "docs/obsidian/26-world-model-reality.md"
+    },
+    {
+      "id": "reality",
+      "name": "Recorded reality forecast and rejection",
+      "status": "verified",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/RealityForecast.java",
+      "summary": "Unchanged recorded tracks/mapping, training-only passive forecast, conditioning-vs-scoring split and separate failed reality gate.",
+      "note": "docs/obsidian/26-world-model-reality.md"
+    },
+    {
+      "id": "runtime",
+      "name": "Durable imagine–act–compare loop",
+      "status": "verified",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/SceneStore.java",
+      "summary": "Paused state-digest preview, bounded native effects, prediction innovations, interruption/cancellation and saved-command replay.",
+      "note": "docs/obsidian/26-world-model-reality.md"
+    },
+    {
+      "id": "view",
+      "name": "Actual body and labelled projected future",
+      "status": "verified",
+      "source": "workspace-desktop/renderer/world-panel.js",
+      "summary": "Native-only model state, real-data chart, counterfactual table, violet forecast, stop and rollback in current layout.",
+      "note": "docs/obsidian/26-world-model-reality.md"
+    },
+    {
+      "id": "tests",
+      "name": "Measured native and recorded postconditions",
+      "status": "verified",
+      "source": "workspace-engine/src/test/java/fraymus/workspace/WorldModelTest.java",
+      "summary": "Independent residual/baseline/coverage/source checks, persistence, domain guards, state digest and real-data corruption rejection.",
+      "note": "docs/obsidian/26-world-model-reality.md"
+    },
+    {
+      "id": "next",
+      "name": "Broader world state and real calibration",
+      "status": "planned",
+      "source": "docs/SCENARIO_ENGINE_ROADMAP.md",
+      "summary": "Independent calibrated recordings, more objects/contact states, sensing uncertainty and provenance-backed live retraining.",
+      "note": "docs/obsidian/26-world-model-reality.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "docs/readmes/018/images/world-reality-018.png",
+      "caption": "Actual World model dialog: accepted native prediction and a separately rejected recorded-reality forecast."
+    },
+    {
+      "path": "docs/readmes/018/images/world-imagination-018.png",
+      "caption": "Paused native state with a labelled violet projected future; no physical action has occurred."
+    },
+    {
+      "path": "docs/readmes/018/images/world-live-018.png",
+      "caption": "Actual native world planning after an unknown physical impulse, with measured prediction error."
+    },
+    {
+      "path": "docs/readmes/018/images/world-result-018.png",
+      "caption": "Completed native model-planning goal and recorded source/action history."
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/readmes/018/verification.json"
+    },
+    {
+      "path": "docs/readmes/018/world-model-evidence.json"
+    },
+    {
+      "path": "docs/readmes/018/world-model-integration.json"
+    },
+    {
+      "path": "docs/readmes/018/regressions.json"
+    }
+  ]
+}

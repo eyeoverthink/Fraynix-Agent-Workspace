@@ -2,9 +2,9 @@
 
 **A local visual environment for agents to browse, create runnable artifacts, test behavior and reuse verified skills.**
 
-> **Latest implementation: [README 017 — live native feedback and retained control learning](README-017.md)** · [Offline explorer](docs/readmes/017/index.html) · [Runtime contract](docs/CLOSED_LOOP_CONTROL.md) · [Edition history](docs/readmes/INDEX.md)
+> **Latest implementation: [README 018 — learned world model and recorded reality](README-018.md)** · [Offline explorer/video](docs/readmes/018/index.html) · [Runtime contract](docs/WORLD_MODEL_REALITY.md) · [Edition history](docs/readmes/INDEX.md)
 
-Java now learns bounded feedback gains from native trials, observes actual state throughout a live run and recovers from real disturbances. Separate fixed evaluation reduces the declared score by 40.9% against a hand-designed feedback controller. Native command replay, stop, restart, rollback and existing exports retain actual evidence. [Current functions, scope and next steps](README-017.md).
+Java now learns action-conditioned numerical dynamics, imagines candidate futures without moving a paused body, executes one native action and compares prediction with observation. Native prediction/planning passes its declared limits; the prior feedback controller still tracks better on mean score and recorded reality remains rejected at unchanged tolerance. [Actual functions, uncertainty, evidence and next steps](README-018.md).
 
 Independent successor to [Fraynix Studio](https://github.com/eyeoverthink/Fraynix-Studio), starting from verified commit `6341404`. The original application and personal project state remain separate. Full game sources, assets, licenses and earlier editions are preserved here.
 
@@ -16,7 +16,7 @@ The app includes a real browser, live creation canvas, editable source, versione
 
 Local `gpt-oss:20b` is the verified default for the first agent fixture. The custom FRAYNIX 3B trial returned an Ollama native-format error; advertised tool capability alone does not establish task reliability. You can select other eligible installed models explicitly.
 
-![Actual live native feedback in the existing workspace](docs/readmes/017/images/feedback-live-017.png)
+![Actual imagined future beside native state](docs/readmes/018/images/world-imagination-018.png)
 
 October 30 actual body/scene/file workflows. Native actuation, decoded video, import/replication, Java/desktop regressions and local-agent evidence are recorded in [edition 015 verification](docs/readmes/015/verification.json). The previous [real-data fit](README-013.md) remains rejected.
 

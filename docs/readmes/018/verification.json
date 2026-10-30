@@ -1,0 +1,217 @@
+{
+  "date": "2026-10-30",
+  "sourceBaseline": "f8d9f84e9331e2187d52959e8657a57bcdf5d8bc",
+  "runtimeChanged": true,
+  "releaseKind": "learned-numeric-world-model-counterfactuals-and-recorded-reality",
+  "sourceInventory": 460,
+  "predeclarationCommit": "a1729a97e81ad12f6e43b93e054d416b2af136a3",
+  "protocolFiles": [
+    {
+      "path": "workspace-engine/src/main/resources/world-model/training-v1.json",
+      "sha256": "ee8395865e900c408b04fc2df29ae9ed7a731d3ee1cfc68de0306b79bac2b08f",
+      "unchangedSincePredeclaration": true
+    },
+    {
+      "path": "workspace-engine/src/main/resources/world-model/calibration-v1.json",
+      "sha256": "88c7180f87b0f25ad28322d9501a0402fc0ac84656175e70429fe8367c4ff2f4",
+      "unchangedSincePredeclaration": true
+    },
+    {
+      "path": "workspace-engine/src/main/resources/world-model/evaluation-v1.json",
+      "sha256": "3777ae98d6cc0bf36bfbf4a6bb75fc4cbae7afee653ea8b328ceb389cbac9e7d",
+      "unchangedSincePredeclaration": true
+    },
+    {
+      "path": "workspace-engine/src/main/resources/world-model/contract-v1.json",
+      "sha256": "7d9b7667c755191e07f50c478f821c2d84cd7fac22aacca30b7289dd4b5490d9",
+      "unchangedSincePredeclaration": true
+    }
+  ],
+  "nativePrediction": {
+    "oneStepBandCoverage": 0.82421875,
+    "velocityRmseMps": 0.024407791196429107,
+    "positionRmseM": 0.0005662888957009049,
+    "rolloutPositionRmseM": 0.02742956762888434,
+    "rollouts": 32,
+    "kinematicVelocityRmseMps": 0.17874505203086138,
+    "transitions": 256,
+    "kinematicPositionRmseM": 0.004878736748076842,
+    "rolloutVelocityRmseMps": 0.10433044374451514
+  },
+  "nativePlanning": {
+    "minModelActionFraction": 1,
+    "meanScore": 0.05647321605759449,
+    "feedback017MeanScore": 0.02848374114296594,
+    "maxSpeedMps": 0.17517544984255584,
+    "maxSettlingErrorM": 0.07022428550081461,
+    "maxEndpointErrorM": 0.06210194923439816
+  },
+  "recordedReality": {
+    "trainingRows": 52,
+    "oneStepEmpiricalCoverage": 0.8297872340425532,
+    "sourceHashes": {
+      "training.csv": "c3d95c6a8ee4e002ec490cb6e2239dbd53ba5e194ea6b89ccba418b0e5ac59da",
+      "validation.csv": "591c0cb5e7b1755dce0e9e415ed0766840a9e74021effca78a45c1ae9e59b4c8",
+      "spatialProtocol": "7628005497391654d0f419a7443853d74b80d048e3d5fa57011202d983b4cad0"
+    },
+    "accelerationEstimateMps2": 2.4874002511015503,
+    "oneStepRmseM": 0.011556515071710101,
+    "conditioningRows": 2,
+    "forecastRows": 47,
+    "accepted": false,
+    "initialVelocityFromFirstTwoMps": 0.017312446926783503,
+    "freeMaxErrorM": 0.06215231621852524,
+    "actionUseAuthorized": false,
+    "previouslyObservedRegressionCase": true,
+    "sourceKind": "real video-derived mask centroids; approximate frozen image-plane mapping",
+    "sourceValidationRows": 49,
+    "scope": "Passive free forecast and teacher-forced one-step are different tests. No validation-specific fit, rescaling, time offset or altered observations. No real hardware control or causal action identification.",
+    "nativeTransferRmseM": 0.09833409146081484,
+    "constantVelocityFreeRmseM": 0.33517754194669774,
+    "toleranceM": 0.015,
+    "nativeTransferAssumptions": "Nominal slope20°, gravity9.81, friction0, mass1kg and contact score1; missing physical calibration is not inferred from validation",
+    "freeRmseM": 0.02970833495711241,
+    "dataset": "Delfys75 low/01 → low/02"
+  },
+  "nativeAccepted": true,
+  "recordedAccepted": false,
+  "nativeWorlds": 72,
+  "ui": {
+    "passed": true,
+    "checks": 15,
+    "actualLiveMetrics": {
+      "score": 0.06517810040571914,
+      "endpointErrorM": 0.03747029039741623,
+      "modelActionFraction": 1,
+      "controlAbsoluteImpulseNs": 5.600000000000001,
+      "settlingMaxErrorM": 0.038180158284806476,
+      "terminalSpeedMps": 0.05745153910599789,
+      "passed": true
+    },
+    "decodedNativeVideo": {
+      "width": 960,
+      "height": 540,
+      "cyan": 0
+    }
+  },
+  "localModelRegression": {
+    "model": "gpt-oss:20b",
+    "passed": true,
+    "checks": 4,
+    "digest": "f38aa0c53da5f8c49d08c43a99df24ff53167fe68e24664a7777288e7656fdfe"
+  },
+  "currentRegression": {
+    "passed": true,
+    "javaTests": 160,
+    "javaClasses": 33,
+    "observerJavaTests": 8,
+    "bodyJavaTests": 9,
+    "interchangeJavaTests": 3,
+    "desktopUnitTests": 19,
+    "suites": {
+      "world-model-integration": {
+        "passed": true,
+        "checks": 15,
+        "output": "workspace-desktop/test-output/world-model-integration.json"
+      },
+      "feedback-integration": {
+        "passed": true,
+        "checks": 12,
+        "output": "workspace-desktop/test-output/feedback-integration.json"
+      },
+      "brain-game-integration": {
+        "passed": true,
+        "checks": 10,
+        "output": "workspace-desktop/test-output/brain-game-integration.json"
+      },
+      "body-integration": {
+        "passed": true,
+        "checks": 10,
+        "output": "workspace-desktop/test-output/body-integration.json"
+      },
+      "observer-integration": {
+        "passed": true,
+        "checks": 12,
+        "output": "workspace-desktop/test-output/observer-integration.json"
+      },
+      "scene-integration": {
+        "passed": true,
+        "checks": 12,
+        "output": "workspace-desktop/test-output/scene-integration.json"
+      },
+      "measurement-integration": {
+        "passed": true,
+        "checks": 10,
+        "output": "workspace-desktop/test-output/measurement-integration.json"
+      },
+      "calibration-integration": {
+        "passed": true,
+        "checks": 8,
+        "output": "workspace-desktop/test-output/calibration-integration.json"
+      },
+      "real-data-delfys": {
+        "passed": true,
+        "checks": 9,
+        "output": "workspace-desktop/test-output/real-data-delfys.json"
+      },
+      "integration": {
+        "passed": true,
+        "checks": 12,
+        "output": "workspace-desktop/test-output/integration.json"
+      },
+      "learning-integration": {
+        "passed": true,
+        "checks": 9,
+        "output": "workspace-desktop/test-output/learning-integration.json"
+      },
+      "broader-validation": {
+        "passed": true,
+        "checks": 45,
+        "output": "workspace-desktop/test-output/broader-validation.json"
+      }
+    }
+  },
+  "freshClone": {
+    "status": "passed",
+    "checkout": "fraynix-workspace-qa018-release",
+    "sourceCommit": "f8d9f84e9331e2187d52959e8657a57bcdf5d8bc",
+    "javaTests": 160,
+    "desktopUnitTests": 19,
+    "bodyUiChecks": 10,
+    "brainGameUiChecks": 10,
+    "feedbackUiChecks": 12,
+    "worldModelUiChecks": 15,
+    "offlineBuild": true,
+    "modelWeightsOrPrivateRuntimeCopied": false,
+    "electronBinary": "Pinned 45.1.0 executable reused from existing dependency cache after npm ci --offline --ignore-scripts",
+    "canonicalSourceHashesMatched": 460
+  },
+  "documentationQa": {
+    "status": "passed",
+    "checks": [
+      "Offline viewer loads seven working modules and one planned gate",
+      "Module search, selected source and verified/planned filters work",
+      "Canonical inventory search resolves actual Java coordinator source",
+      "Four current app screenshots load with working gallery navigation and captions",
+      "390px layout, navigation and module selection have no horizontal overflow",
+      "Actual local native WebM decodes and plays to completion offline",
+      "No viewer script errors or external assets"
+    ]
+  },
+  "scope": [
+    "Five ridge dynamics members with engineered physical features; not a universal visual/generative model",
+    "Native one-step accuracy and 0.4s rollout accuracy are different tests",
+    "Planner passes its predeclared limits but the existing feedback controller has a better mean score",
+    "Empirical joint band coverage is reported; not a 90% confidence or safety guarantee",
+    "Recorded passive free prediction remains rejected at unchanged0.015m all-point tolerance",
+    "First two recording points condition predictions; subsequent47 are scored; teacher-forced one-step differs from free rollout",
+    "Native transfer uses explicit surrogate physical assumptions, not measured apparatus calibration",
+    "Real recording supplies no causal action authority or hardware control interface",
+    "Only generated numeric fixture coefficients are evidence; personal model weights/runtime remain outside Git"
+  ],
+  "developmentCorrections": [
+    "Preview source digest detects state changes even within the same paused tick",
+    "Forecast coloring changed from cyan to violet so coordinate axes are distinguishable; exported native video excludes that overlay",
+    "Native/source statistics independently recomputed; recorded observations and all predeclared gates stay unchanged"
+  ]
+}
