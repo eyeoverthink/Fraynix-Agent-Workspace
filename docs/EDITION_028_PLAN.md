@@ -1,0 +1,11 @@
+# Edition028 acceptance plan
+
+2026-10-31. Preserve the published001–027 snapshots, frozen013 data and024 tracking decision, private state and existing review apps. Continue private Fraynix-Agent-Workspace, not Chandra.
+
+Implement original Java reference-image mapping: bounded PNG decoding, explicit tile palette/passability, adjacency and frequency extraction, deterministic bounded conflict repair, hard pins, independently checked adjacency and spawn/goal connectivity. Preserve original image bytes and hashes, learned rules, attempts, unresolved conflicts and generated cells. Contradictory inputs must remain failures; never silently carve a route or rewrite pins to claim success. Palette/tile images are the scope, not photographic scene recognition.
+
+Compile generated maps and explicit layers of0272D–4D dungeons into declared-unit3D native physics. Preserve original N-D data and layer choice; higher data dimensions are not additional physical axes. Actual colliders, a dynamic avatar, force-based manual controls and a feedback navigation controller must work without teleportation. Record fixed-step native positions, velocity, contacts, control effort, disturbances, route progress and terminal errors. Failed traversals must not retain a successful skill.
+
+Use the existing shared Java goal runner, chat, local model admission, canvas and Skills registry. Freeze source/definition identities, support explicit recovery/cancel/restart, real exports/imports and fresh-source procedure reuse. The model selects semantic actions; Java owns timing and verification. Add a functional live map view within the existing workspace, with manual play, agent play, source/reference inspection and charts. Do not replace the app design.
+
+Before publication: core and native tests; actual UI import/generation/play/collision/stop/restart/export checks; actual local-model creation/reuse; changed references/seeds and disturbances; applicable prior regressions and independent checkout verification. Record initial failures. Add extensive linked README028, real screenshots, original outputs, source inventory, offline guide and Obsidian map. Update notes/memories/logs, push main/readme-028 and verify directly from GitHub. Open a separate review028 project after publication.
