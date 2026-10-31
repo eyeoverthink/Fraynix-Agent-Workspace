@@ -1,0 +1,3929 @@
+{
+  "passed": true,
+  "date": "2026-10-31T01:10:10.325Z",
+  "model": "gpt-oss:20b",
+  "project": "C:\\Users\\eyeka\\AppData\\Local\\Temp\\fraynix-tracking023-ECrPij",
+  "checks": [
+    "Actual gpt-oss:20b chooses one frozen-profile comparison on host-bound sources, waits and verifies the real report",
+    "The rejected reserved-sequence result remains rejected in chat, report and active-profile state; no model narration promotes it",
+    "An unchanged-code/source reproducibility run exactly matches first evaluation accuracy; latency is measured independently",
+    "The complete computation/report episode is recorded without claiming recognition accuracy, physics actuation or LLM weight training"
+  ],
+  "calls": [
+    "tracking.read",
+    "tracking.start",
+    "tracking.wait",
+    "canvas.test",
+    "tracking.report"
+  ],
+  "completion": {
+    "summary": "Tracking comparison completed: Candidate rejected; active tracker remains unchanged Evaluation mean IoU 0.0942 → 0.0498; 38 prediction frames; candidate rejected under the fixed gates. These are human-guided box measurements on declared sequences, not general recognition accuracy.",
+    "goal": "Compare tracker profiles on the selected tracking sequences. Activate a candidate only if the fixed gates pass. Report failures honestly and open the verified report.",
+    "trackingComparison": {
+      "reason": "Candidate rejected; active tracker remains unchanged",
+      "completedAt": "2026-10-31T01:09:07.145374900Z",
+      "profiles": {
+        "adaptive-v2": "b553c15bcc930b6e78b6dec58870119a536d2f2ec3459fd868b0cd16cf38847b",
+        "rgb-v1": "89e15acf52b828948cdc0476f690bd016c0b4daf676c743a54b00a9b4df62f2f"
+      },
+      "datasets": [
+        {
+          "split": "development",
+          "contentSha256": "32eec1a536bc042f08141ceb41ace95a4d5d9fec77ecb08031ca7cabbaf03097",
+          "id": "5b2963b8-483d-4b68-b3cc-7f67a4e21c96"
+        },
+        {
+          "split": "evaluation",
+          "contentSha256": "b6775dfba6a16fb686d38326a716d3d4194d45ba0b93ece78e7705c334aaf71a",
+          "id": "04b52d13-a538-4a29-a08b-53fe72862b1b"
+        },
+        {
+          "split": "evaluation",
+          "contentSha256": "0fa5a239a4e89b66a75da645b27fea17d165374bc06ae39613bce0be7efdea2c",
+          "id": "9cb16ea2-3fd9-435c-8dfe-bc9e45af77ac"
+        }
+      ],
+      "implementationComponents": {
+        "adaptive-v2": {
+          "AdaptiveTracker": "b553c15bcc930b6e78b6dec58870119a536d2f2ec3459fd868b0cd16cf38847b",
+          "AdaptiveTracker$Plane": "b5c620f14917425699884a3546788ddbb8e81a144174c48a27a56c189d417409",
+          "PixelTracker$Box": "760e22a2594a4fd770b563b78d51516628219ffd771b7e26a94ac6a1ef3dddbe",
+          "PixelTracker": "89e15acf52b828948cdc0476f690bd016c0b4daf676c743a54b00a9b4df62f2f",
+          "ImageTracker": "6773073bcf1a88333f8ece695942f9e020b50d9e94f5b5f7b3bd592fac04e0d4",
+          "TrackingEvaluation": "bf1da6592022c96bfce036025cdc6637389addbfc82a1b14ddbc7831086a9150",
+          "AdaptiveTracker$Match": "4a794317a8e4608819883df20c25e14f651fbd23dddb2712dc674cfaa539d54c",
+          "PixelTracker$Match": "9867de9633affab33ec7fc7625716bee63c5e92cba078573622c13a0398d6571"
+        },
+        "rgb-v1": {
+          "PixelTracker$Box": "760e22a2594a4fd770b563b78d51516628219ffd771b7e26a94ac6a1ef3dddbe",
+          "PixelTracker": "89e15acf52b828948cdc0476f690bd016c0b4daf676c743a54b00a9b4df62f2f",
+          "ImageTracker": "6773073bcf1a88333f8ece695942f9e020b50d9e94f5b5f7b3bd592fac04e0d4",
+          "TrackingEvaluation": "bf1da6592022c96bfce036025cdc6637389addbfc82a1b14ddbc7831086a9150",
+          "PixelTracker$Match": "9867de9633affab33ec7fc7625716bee63c5e92cba078573622c13a0398d6571"
+        }
+      },
+      "guards": {
+        "duplicateAmbiguous": true,
+        "duplicateObservation": {
+          "matchScore": 0,
+          "scoreMeaning": "RGB/edge appearance similarity, not calibrated semantic confidence",
+          "lastKnownBox": [
+            0.046875,
+            0.12,
+            0.296875,
+            0.76
+          ],
+          "appearanceUpdates": 0,
+          "box": null,
+          "id": "guard",
+          "label": "person",
+          "anchorScore": 0.7330510837994422,
+          "status": "lost"
+        },
+        "hiddenObservation": {
+          "matchScore": 0,
+          "scoreMeaning": "RGB/edge appearance similarity, not calibrated semantic confidence",
+          "lastKnownBox": [
+            0.046875,
+            0.12,
+            0.296875,
+            0.76
+          ],
+          "appearanceUpdates": 0,
+          "box": null,
+          "id": "loss",
+          "label": "person",
+          "anchorScore": -0.20331222731671894,
+          "status": "lost"
+        },
+        "hiddenHasNoCurrentBox": true
+      },
+      "createdAt": "2026-10-31T01:09:01.303953Z",
+      "autoPromote": true,
+      "completedFrames": 106,
+      "id": "9b74adf0-f394-45ee-a19b-871e0e814c11",
+      "gate": {
+        "baselineMeanIou": 0.0942388688675513,
+        "lowOverlapVisibleCandidate": 0,
+        "cases": [
+          {
+            "candidate": {
+              "meanIou": 0.09969713616608479,
+              "referenceAbsentFrames": 0,
+              "p95ProcessingMillis": 112.9937,
+              "latencyScope": "JPEG/PNG decode plus CPU tracking; excludes browser capture, network and LLM. Initialization excluded from scored frames.",
+              "scoredFrames": 19,
+              "iouHalfFraction": 0.10526315789473684,
+              "reacquired": 0,
+              "lost": 17,
+              "lowOverlapVisiblePredictions": 0,
+              "medianProcessingMillis": 80.3151
+            },
+            "datasetId": "04b52d13-a538-4a29-a08b-53fe72862b1b",
+            "baseline": {
+              "meanIou": 0.14141230972307395,
+              "referenceAbsentFrames": 0,
+              "p95ProcessingMillis": 13.6767,
+              "latencyScope": "JPEG/PNG decode plus CPU tracking; excludes browser capture, network and LLM. Initialization excluded from scored frames.",
+              "scoredFrames": 19,
+              "iouHalfFraction": 0.15789473684210525,
+              "reacquired": 3,
+              "lost": 16,
+              "lowOverlapVisiblePredictions": 0,
+              "medianProcessingMillis": 11.6412
+            },
+            "gain": -0.04171517355698916
+          },
+          {
+            "candidate": {
+              "meanIou": 0,
+              "referenceAbsentFrames": 0,
+              "p95ProcessingMillis": 111.8643,
+              "latencyScope": "JPEG/PNG decode plus CPU tracking; excludes browser capture, network and LLM. Initialization excluded from scored frames.",
+              "scoredFrames": 19,
+              "iouHalfFraction": 0,
+              "reacquired": 0,
+              "lost": 19,
+              "lowOverlapVisiblePredictions": 0,
+              "medianProcessingMillis": 74.4454
+            },
+            "datasetId": "9cb16ea2-3fd9-435c-8dfe-bc9e45af77ac",
+            "baseline": {
+              "meanIou": 0.047065428012028634,
+              "referenceAbsentFrames": 0,
+              "p95ProcessingMillis": 15.402901,
+              "latencyScope": "JPEG/PNG decode plus CPU tracking; excludes browser capture, network and LLM. Initialization excluded from scored frames.",
+              "scoredFrames": 19,
+              "iouHalfFraction": 0.05263157894736842,
+              "reacquired": 1,
+              "lost": 18,
+              "lowOverlapVisiblePredictions": 0,
+              "medianProcessingMillis": 11.9674
+            },
+            "gain": -0.047065428012028634
+          }
+        ],
+        "negativeControlsPassed": true,
+        "scope": "Small declared human-guided box-tracking evaluation; not general category accuracy or official DAVIS mask metrics",
+        "passed": false,
+        "candidateIouHalfFraction": 0.05263157894736842,
+        "perSequenceRegression": false,
+        "candidateMeanIou": 0.049848568083042395,
+        "scoredEvaluationFrames": 38,
+        "pooledMeanIouGain": -0.0443903007845089,
+        "lowOverlapVisibleBaseline": 0
+      },
+      "results": [
+        {
+          "sourceContentSha256": "32eec1a536bc042f08141ceb41ace95a4d5d9fec77ecb08031ca7cabbaf03097",
+          "split": "development",
+          "adaptive-v2": {
+            "sequence": "blackswan",
+            "codeSha256": "b553c15bcc930b6e78b6dec58870119a536d2f2ec3459fd868b0cd16cf38847b",
+            "split": "development",
+            "frames": [
+              {
+                "reference": [
+                  0.15807962529274006,
+                  0.13958333333333334,
+                  0.6065573770491803,
+                  0.7916666666666667
+                ],
+                "sourceFrame": 3,
+                "imageSha256": "0977844f5af8b00b60baa55e2ac814b517105f3870b39727fb0125fe2ba98dd9",
+                "prediction": {
+                  "matchScore": 0.8365814366597331,
+                  "scoreMeaning": "RGB/edge appearance similarity, not calibrated semantic confidence",
+                  "lastKnownBox": [
+                    0.14,
+                    0.16400000000000006,
+                    0.6109016393442623,
+                    0.7815
+                  ],
+                  "appearanceUpdates": 0,
+                  "box": [
+                    0.14,
+                    0.16400000000000006,
+                    0.6109016393442623,
+                    0.7815
+                  ],
+                  "id": "research-object",
+                  "label": "blackswan",
+                  "anchorScore": 0.8365814366597332,
+                  "status": "tracked"
+                },
+                "processingMillis": 84.0262,
+                "maskSha256": "6ea98a7b2ae9c0de1a6f6fd5376c42980ab803c6dd06f4d45865984ff4c29d4e",
+                "iou": 0.9041547190531387,
+                "ordinal": 1
+              },
+              {
+                "reference": [
+                  0.17447306791569087,
+                  0.13541666666666666,
+                  0.6217798594847775,
+                  0.7875
+                ],
+                "sourceFrame": 7,
+                "imageSha256": "674fc72e09dd205ed295a19616c08f4c73f67aeaabd8b34f95114e014a4b99c1",
+                "prediction": {
+                  "matchScore": 0.8127670446875266,
+                  "scoreMeaning": "RGB/edge appearance similarity, not calibrated semantic confidence",
+                  "lastKnownBox": [
+                    0.17600000000000005,
+                    0.14,
+                    0.6233565573770492,
+                    0.7883749999999999
+                  ],
+                  "appearanceUpdates": 0,
+                  "box": [
+                    0.17600000000000005,
+                    0.14,
+                    0.6233565573770492,
+                    0.7883749999999999
+                  ],
+                  "id": "research-object",
+                  "label": "blackswan",
+                  "anchorScore": 0.8127670446875266,
+                  "status": "tracked"
+                },
+                "processingMillis": 70.745601,
+                "maskSha256": "d59d52290b23f0c333820d7f2069446ceeb85ab551cb064ec0274ef940ca4bd6",
+                "iou": 0.9848130674719107,
+                "ordinal": 2
+              },
+              {
+                "reference": [
+                  0.18032786885245902,
+                  0.13958333333333334,
+                  0.6276346604215457,
+                  0.7895833333333333
+                ],
+                "sourceFrame": 10,
+                "imageSha256": "f9191bf19b1c803caf755387852cc3883f32495dab8f232a871019de2d9dfaa3",
+                "prediction": {
+                  "matchScore": 0.77898291281083,
+                  "scoreMeaning": "RGB/edge appearance similarity, not calibrated semantic confidence",
+                  "lastKnownBox": [
+                    0.17600000000000002,
+                    0.11200000000000002,
+                    0.6233565573770492,
+                    0.79279375
+                  ],
+                  "appearanceUpdates": 0,
+                  "box": [
+                    0.17600000000000002,
+                    0.11200000000000002,
+                    0.6233565573770492,
+                    0.79279375
+                  ],
+                  "id": "research-object",
+                  "label": "blackswan",
+                  "anchorScore": 0.7789829128108301,
+                  "status": "tracked"
+                },
+                "processingMillis": 68.414,
+                "maskSha256": "3c5d9fdd7d106f8e9429e6f44cafdef55843b9b3c3a459031956f560a1a02afd",
+                "iou": 0.9369760724262708,
+                "ordinal": 3
+              },
+              {
+                "reference": [
+                  0.18618266978922718,
+                  0.15416666666666667,
+                  0.6334894613583139,
+                  0.80625
+                ],
+                "sourceFrame": 13,
+                "imageSha256": "1c53d1452643de431652ba46c2b9bafe0e474fa7307875d9ff50f0f4bad4896f",
+                "prediction": {
+                  "matchScore": 0.7608542329683282,
+                  "scoreMeaning": "RGB/edge appearance similarity, not calibrated semantic confidence",
+                  "lastKnownBox": [
+                    0.23999999999999996,
+                    0.14,
+                    0.6247266393442623,
+                    0.82079375
+                  ],
+                  "appearanceUpdates": 0,
+                  "box": [
+                    0.23999999999999996,
+                    0.14,
+                    0.6247266393442623,
+                    0.82079375
+                  ],
+                  "id": "research-object",
+                  "label": "blackswan",
+                  "anchorScore": 0.7608542329683282,
+                  "status": "tracked"
+                },
+                "processingMillis": 61.526999,
+                "maskSha256": "a353c73f8454af863c296fcad99c42d008411276721fb7a5fbb90edb11217eb2",
+                "iou": 0.8287131896336073,
+                "ordinal": 4
+              },
+              {
+                "reference": [
+                  0.18618266978922718,
+                  0.1875,
+                  0.6358313817330211,
+                  0.8395833333333333
+                ],
+                "sourceFrame": 16,
+                "imageSha256": "4e8f22604d3fceb251f07ad5a7c43249eee3daeba4ecb1429fd9a2a07a2637ce",
+                "prediction": {
+                  "matchScore": 0.8124323337020636,
+                  "scoreMeaning": "RGB/edge appearance similarity, not calibrated semantic confidence",
+                  "lastKnownBox": [
+                    0.192,
+                    0.19200000000000006,
+                    0.6382829016393443,
+                    0.8387540625
+                  ],
+                  "appearanceUpdates": 0,
+                  "box": [
+                    0.192,
+                    0.19200000000000006,
+                    0.6382829016393443,
+                    0.8387540625
+                  ],
+                  "id": "research-object",
+                  "label": "blackswan",
+                  "anchorScore": 0.8124323337020636,
+                  "status": "tracked"
+                },
+                "processingMillis": 65.8835,
+                "maskSha256": "a7823d048764b6dec3520532c185c2ee75bc54e71578356d1ed9628d59229fa2",
+                "iou": 0.9737300854630826,
+                "ordinal": 5
+              },
+              {
+                "reference": [
+                  0.1791569086651054,
+                  0.21458333333333332,
+                  0.6264637002341921,
+                  0.8625
+                ],
+                "sourceFrame": 20,
+                "imageSha256": "58227d78be7958d8f41bbddf83cbe05efcc6287a7a07201916544c987bd49176",
+                "prediction": {
+                  "matchScore": 0.7903968662355071,
+                  "scoreMeaning": "RGB/edge appearance similarity, not calibrated semantic confidence",
+                  "lastKnownBox": [
+                    0.18400000000000002,
+                    0.18799999999999997,
+                    0.6302829016393443,
+                    0.8670917656249999
+                  ],
+                  "appearanceUpdates": 0,
+                  "box": [
+                    0.18400000000000002,
+                    0.18799999999999997,
+                    0.6302829016393443,
+                    0.8670917656249999
+                  ],
+                  "id": "research-object",
+                  "label": "blackswan",
+                  "anchorScore": 0.7903968662355072,
+                  "status": "tracked"
+                },
+                "processingMillis": 66.0558,
+                "maskSha256": "f45944284d981daf571d58d5e8690347fadcb70fabaa64f1fdd52f4a922bf164",
+                "iou": 0.9362343534426801,
+                "ordinal": 6
+              },
+              {
+                "reference": [
+                  0.1721311475409836,
+                  0.21666666666666667,
+                  0.617096018735363,
+                  0.8645833333333334
+                ],
+                "sourceFrame": 23,
+                "imageSha256": "dc4c6dd389852985cdbca956ce36bd7d987ada18eb9bd2ed0551a875b852f7e8",
+                "prediction": {
+                  "matchScore": 0.8282672128304345,
+                  "scoreMeaning": "RGB/edge appearance similarity, not calibrated semantic confidence",
+                  "lastKnownBox": [
+                    0.18000000000000002,
+                    0.20400000000000001,
+                    0.6262829016393443,
+                    0.8830917656249999
+                  ],
+                  "appearanceUpdates": 0,
+                  "box": [
+                    0.18000000000000002,
+                    0.20400000000000001,
+                    0.6262829016393443,
+                    0.8830917656249999
+                  ],
+                  "id": "research-object",
+                  "label": "blackswan",
+                  "anchorScore": 0.8282672128304345,
+                  "status": "tracked"
+                },
+                "processingMillis": 63.789201,
+                "maskSha256": "a3cd1c733c9b95007e7490059d75e69a9b420629012921c051beeeedbbefa0b1",
+                "iou": 0.9189928250291175,
+                "ordinal": 7
+              },
+              {
+                "reference": [
+                  0.16627634660421545,
+                  0.21458333333333332,
+                  0.6088992974238876,
+                  0.8666666666666667
+                ],
+                "sourceFrame": 26,
+                "imageSha256": "e36f55efac7c1bc3de0c92de00f76004c19d81f2b5ef4963db1741aa155f68fc",
+                "prediction": {
+                  "matchScore": 0.7467427107085614,
+                  "scoreMeaning": "RGB/edge appearance similarity, not calibrated semantic confidence",
+                  "lastKnownBox": [
+                    0.22,
+                    0.23753642359374993,
+                    0.603803295409836,
+                    0.8215553420312499
+                  ],
+                  "appearanceUpdates": 0,
+                  "box": [
+                    0.22,
+                    0.23753642359374993,
+                    0.603803295409836,
+                    0.8215553420312499
+                  ],
+                  "id": "research-object",
+                  "label": "blackswan",
+                  "anchorScore": 0.7467427107085615,
+                  "status": "tracked"
+                },
+                "processingMillis": 54.1263,
+                "maskSha256": "c1d9209580072f040e7c408486ccb0b4078f30f559a7a2d97160878fd1a1717b",
+                "iou": 0.7766021449291044,
+                "ordinal": 8
+              },
+              {
+                "reference": [
+                  0.16276346604215455,
+                  0.20833333333333334,
+                  0.6042154566744731,
+                  0.8645833333333334
+                ],
+                "sourceFrame": 29,
+                "imageSha256": "1f1b1d6bb4547c78c2c4d372e150239e8f3f50488da8fe0a1392c52acec82e58",
+                "prediction": {
+                  "matchScore": 0.7945560193397688,
+                  "scoreMeaning": "RGB/edge appearance similarity, not calibrated semantic confidence",
+                  "lastKnownBox": [
+                    0.16400000000000003,
+                    0.19600000000000004,
+                    0.6092118226754097,
+                    0.8734619453875
+                  ],
+                  "appearanceUpdates": 0,
+                  "box": [
+                    0.16400000000000003,
+                    0.19600000000000004,
+                    0.6092118226754097,
+                    0.8734619453875
+                  ],
+                  "id": "research-object",
+                  "label": "blackswan",
+                  "anchorScore": 0.7945560193397689,
+                  "status": "tracked"
+                },
+                "processingMillis": 61.529899,
+                "maskSha256": "5190569c884f655e6c3cbd63efc47001c6e33cd2748b14c2831cb2f513e7aab6",
+                "iou": 0.9552479948081576,
+                "ordinal": 9
+              },
+              {
+                "reference": [
+                  0.16393442622950818,
+                  0.20625,
+                  0.6018735362997658,
+                  0.8625
+                ],
+                "sourceFrame": 33,
+                "imageSha256": "856a351109d16fbb38eec6b6ef9dfd37cd7c42d7bc5c818b3953d69be3cda41d",
+                "prediction": {
+                  "matchScore": 0.8021810124989244,
+                  "scoreMeaning": "RGB/edge appearance similarity, not calibrated semantic confidence",
+                  "lastKnownBox": [
+                    0.16400000000000003,
+                    0.22000000000000006,
+                    0.6092118226754097,
+                    0.863588848118125
+                  ],
+                  "appearanceUpdates": 0,
+                  "box": [
+                    0.16400000000000003,
+                    0.22000000000000006,
+                    0.6092118226754097,
+                    0.863588848118125
+                  ],
+                  "id": "research-object",
+                  "label": "blackswan",
+                  "anchorScore": 0.8021810124989244,
+                  "status": "tracked"
+                },
+                "processingMillis": 53.2541,
+                "maskSha256": "d53a849c90e857f0f89cb060dd1d68f9b0ef5b449500a0e416428e336b8d3c72",
+                "iou": 0.9615053986228789,
+                "ordinal": 10
+              },
+              {
+                "reference": [
+                  0.16510538641686182,
+                  0.20833333333333334,
+                  0.6007025761124122,
+                  0.8625
+                ],
+                "sourceFrame": 36,
+                "imageSha256": "e415e05f5d9af62346d766a36ddefe53a138495803d0628a71aef0810a8df8ee",
+                "prediction": {
+                  "matchScore": 0.8005742967100711,
+                  "scoreMeaning": "RGB/edge appearance similarity, not calibrated semantic confidence",
+                  "lastKnownBox": [
+                    0.16000000000000003,
+                    0.20400000000000001,
+                    0.6052118226754097,
+                    0.8475888481181248
+                  ],
+                  "appearanceUpdates": 0,
+                  "box": [
+                    0.16000000000000003,
+                    0.20400000000000001,
+                    0.6052118226754097,
+                    0.8475888481181248
+                  ],
+                  "id": "research-object",
+                  "label": "blackswan",
+                  "anchorScore": 0.8005742967100711,
+                  "status": "tracked"
+                },
+                "processingMillis": 54.144999,
+                "maskSha256": "d3a2d39e9e4f236598b24cefdaca2371c3d67203bacb0f518b85675985de2ee1",
+                "iou": 0.9502754569075623,
+                "ordinal": 11
+              },
+              {
+                "reference": [
+                  0.16744730679156908,
+                  0.20833333333333334,
+                  0.6018735362997658,
+                  0.8604166666666667
+                ],
+                "sourceFrame": 39,
+                "imageSha256": "a06477c166a66d887161e13216403ad78f122851bc9e240d4d193d708abb4e60",
+                "prediction": {
+                  "matchScore": 0.8175007467818034,
+                  "scoreMeaning": "RGB/edge appearance similarity, not calibrated semantic confidence",
+                  "lastKnownBox": [
+                    0.16800000000000004,
+                    0.21600000000000003,
+                    0.6132118226754097,
+                    0.8595888481181249
+                  ],
+                  "appearanceUpdates": 0,
+                  "box": [
+                    0.16800000000000004,
+                    0.21600000000000003,
+                    0.6132118226754097,
+                    0.8595888481181249
+                  ],
+                  "id": "research-object",
+                  "label": "blackswan",
+                  "anchorScore": 0.8175007467818034,
+                  "status": "tracked"
+                },
+                "processingMillis": 56.215299,
+                "maskSha256": "894275b85429435f6b42b8e245574abd10aa3bb2fa6cb0b6c9f15734cfd80fec",
+                "iou": 0.9609637400324658,
+                "ordinal": 12
+              },
+              {
+                "reference": [
+                  0.17096018735362997,
+                  0.20416666666666666,
+                  0.6042154566744731,
+                  0.85625
+                ],
+                "sourceFrame": 42,
+                "imageSha256": "32ea488909a8e7c3b305a046c15a60d40f471ddf8ed87fbcb004fdfbf34879bc",
+                "prediction": {
+                  "matchScore": 0.7799722322092392,
+                  "scoreMeaning": "RGB/edge appearance similarity, not calibrated semantic confidence",
+                  "lastKnownBox": [
+                    0.22,
+                    0.20800000000000002,
+                    0.6028821675008524,
+                    0.8194094057122185
+                  ],
+                  "appearanceUpdates": 0,
+                  "box": [
+                    0.22,
+                    0.20800000000000002,
+                    0.6028821675008524,
+                    0.8194094057122185
+                  ],
+                  "id": "research-object",
+                  "label": "blackswan",
+                  "anchorScore": 0.7799722322092392,
+                  "status": "tracked"
+                },
+                "processingMillis": 47.8546,
+                "maskSha256": "3ce1b1945a13fe5060b8d144173d555da901cdf1434c33953ba87c104a45524e",
+                "iou": 0.8286102509283897,
+                "ordinal": 13
+              },
+              {
+                "reference": [
+                  0.17447306791569087,
+                  0.18958333333333333,
+                  0.6053864168618267,
+                  0.8416666666666667
+                ],
+                "sourceFrame": 46,
+                "imageSha256": "35dbd0249b01d37fb2590eee6e143ce5c8b96402b776903989fe462fe49a00e1",
+                "prediction": {
+                  "matchScore": 0.7754015699432935,
+                  "scoreMeaning": "RGB/edge appearance similarity, not calibrated semantic confidence",
+                  "lastKnownBox": [
+                    0.208,
+                    0.20400000000000001,
+                    0.6100262758758951,
+                    0.8154094057122185
+                  ],
+                  "appearanceUpdates": 0,
+                  "box": [
+                    0.208,
+                    0.20400000000000001,
+                    0.6100262758758951,
+                    0.8154094057122185
+                  ],
+                  "id": "research-object",
+                  "label": "blackswan",
+                  "anchorScore": 0.7754015699432935,
+                  "status": "tracked"
+                },
+                "processingMillis": 58.950499,
+                "maskSha256": "4944f57866dc850ae8f8be92deb930d6e48b8f25d9b949a70341106216a27dec",
+                "iou": 0.8560309938557138,
+                "ordinal": 14
+              },
+              {
+                "reference": [
+                  0.1721311475409836,
+                  0.18125,
+                  0.6007025761124122,
+                  0.8333333333333334
+                ],
+                "sourceFrame": 49,
+                "imageSha256": "8b4242587d32afa96a41cea04fe9d9682d584fb1bc1f912b9898551a0a459829",
+                "prediction": {
+                  "matchScore": 0.793538720704619,
+                  "scoreMeaning": "RGB/edge appearance similarity, not calibrated semantic confidence",
+                  "lastKnownBox": [
+                    0.17600000000000005,
+                    0.19199999999999998,
+                    0.6190329560152363,
+                    0.8339798759978295
+                  ],
+                  "appearanceUpdates": 0,
+                  "box": [
+                    0.17600000000000005,
+                    0.19199999999999998,
+                    0.6190329560152363,
+                    0.8339798759978295
+                  ],
+                  "id": "research-object",
+                  "label": "blackswan",
+                  "anchorScore": 0.793538720704619,
+                  "status": "tracked"
+                },
+                "processingMillis": 58.4764,
+                "maskSha256": "d13b2fafd468b94340635f75e17f36cd1eb49f6f02fb64ce128b104d6a0e5d1b",
+                "iou": 0.9343730479582967,
+                "ordinal": 15
+              }
+            ],
+            "profile": "adaptive-v2",
+            "initialization": {
+              "reference": [
+                0.148711943793911,
+                0.15208333333333332,
+                0.5971896955503513,
+                0.8020833333333334
+              ],
+              "sourceFrame": 0,
+              "scored": false
+            },
+            "metrics": {
+              "meanIou": 0.913814889370825,
+              "referenceAbsentFrames": 0,
+              "p95ProcessingMillis": 84.0262,
+              "latencyScope": "JPEG/PNG decode plus CPU tracking; excludes browser capture, network and LLM. Initialization excluded from scored frames.",
+              "scoredFrames": 15,
+              "iouHalfFraction": 1,
+              "reacquired": 0,
+              "lost": 0,
+              "lowOverlapVisiblePredictions": 0,
+              "medianProcessingMillis": 61.526999
+            }
+          },
+          "datasetId": "5b2963b8-483d-4b68-b3cc-7f67a4e21c96",
+          "rgb-v1": {
+            "sequence": "blackswan",
+            "codeSha256": "89e15acf52b828948cdc0476f690bd016c0b4daf676c743a54b00a9b4df62f2f",
+            "split": "development",
+            "frames": [
+              {
+                "reference": [
+                  0.15807962529274006,
+                  0.13958333333333334,
+                  0.6065573770491803,
+                  0.7916666666666667
+                ],
+                "sourceFrame": 3,
+                "imageSha256": "0977844f5af8b00b60baa55e2ac814b517105f3870b39727fb0125fe2ba98dd9",
+                "prediction": {
+                  "matchScore": 0.9289310229742697,
+                  "scoreMeaning": "normalized appearance correlation, not calibrated semantic confidence",
+                  "lastKnownBox": [
+                    0.15700000000000003,
+                    0.14500000000000002,
+                    0.6054777517564403,
+                    0.795
+                  ],
+                  "appearanceUpdates": 1,
+                  "box": [
+                    0.15700000000000003,
+                    0.14500000000000002,
+                    0.6054777517564403,
+                    0.795
+                  ],
+                  "id": "research-object",
+                  "label": "blackswan",
+                  "anchorScore": 0.9289310229742697,
+                  "status": "tracked"
+                },
+                "processingMillis": 20.413999,
+                "maskSha256": "6ea98a7b2ae9c0de1a6f6fd5376c42980ab803c6dd06f4d45865984ff4c29d4e",
+                "iou": 0.9819422593332673,
+                "ordinal": 1
+              },
+              {
+                "reference": [
+                  0.17447306791569087,
+                  0.13541666666666666,
+                  0.6217798594847775,
+                  0.7875
+                ],
+                "sourceFrame": 7,
+                "imageSha256": "674fc72e09dd205ed295a19616c08f4c73f67aeaabd8b34f95114e014a4b99c1",
+                "prediction": {
+                  "matchScore": 0.8945842962372429,
+                  "scoreMeaning": "normalized appearance correlation, not calibrated semantic confidence",
+                  "lastKnownBox": [
+                    0.17400000000000002,
+                    0.14000000000000004,
+                    0.6224777517564403,
+                    0.79
+                  ],
+                  "appearanceUpdates": 1,
+                  "box": [
+                    0.17400000000000002,
+                    0.14000000000000004,
+                    0.6224777517564403,
+                    0.79
+                  ],
+                  "id": "research-object",
+                  "label": "blackswan",
+                  "anchorScore": 0.8924120008233075,
+                  "status": "tracked"
+                },
+                "processingMillis": 9.8893,
+                "maskSha256": "d59d52290b23f0c333820d7f2069446ceeb85ab551cb064ec0274ef940ca4bd6",
+                "iou": 0.9866141915496892,
+                "ordinal": 2
+              },
+              {
+                "reference": [
+                  0.18032786885245902,
+                  0.13958333333333334,
+                  0.6276346604215457,
+                  0.7895833333333333
+                ],
+                "sourceFrame": 10,
+                "imageSha256": "f9191bf19b1c803caf755387852cc3883f32495dab8f232a871019de2d9dfaa3",
+                "prediction": {
+                  "matchScore": 0.8526479994414604,
+                  "scoreMeaning": "normalized appearance correlation, not calibrated semantic confidence",
+                  "lastKnownBox": [
+                    0.18600000000000003,
+                    0.13200000000000003,
+                    0.6344777517564403,
+                    0.782
+                  ],
+                  "appearanceUpdates": 1,
+                  "box": [
+                    0.18600000000000003,
+                    0.13200000000000003,
+                    0.6344777517564403,
+                    0.782
+                  ],
+                  "id": "research-object",
+                  "label": "blackswan",
+                  "anchorScore": 0.8510361707818387,
+                  "status": "tracked"
+                },
+                "processingMillis": 9.2781,
+                "maskSha256": "3c5d9fdd7d106f8e9429e6f44cafdef55843b9b3c3a459031956f560a1a02afd",
+                "iou": 0.9503158772385696,
+                "ordinal": 3
+              },
+              {
+                "reference": [
+                  0.18618266978922718,
+                  0.15416666666666667,
+                  0.6334894613583139,
+                  0.80625
+                ],
+                "sourceFrame": 13,
+                "imageSha256": "1c53d1452643de431652ba46c2b9bafe0e474fa7307875d9ff50f0f4bad4896f",
+                "prediction": {
+                  "matchScore": 0.7600828635468366,
+                  "scoreMeaning": "normalized appearance correlation, not calibrated semantic confidence",
+                  "lastKnownBox": [
+                    0.18600000000000003,
+                    0.13200000000000003,
+                    0.6344777517564403,
+                    0.782
+                  ],
+                  "appearanceUpdates": 1,
+                  "box": null,
+                  "id": "research-object",
+                  "label": "blackswan",
+                  "anchorScore": 0.7589394292030547,
+                  "status": "lost"
+                },
+                "processingMillis": 8.973599,
+                "maskSha256": "a353c73f8454af863c296fcad99c42d008411276721fb7a5fbb90edb11217eb2",
+                "iou": 0,
+                "ordinal": 4
+              },
+              {
+                "reference": [
+                  0.18618266978922718,
+                  0.1875,
+                  0.6358313817330211,
+                  0.8395833333333333
+                ],
+                "sourceFrame": 16,
+                "imageSha256": "4e8f22604d3fceb251f07ad5a7c43249eee3daeba4ecb1429fd9a2a07a2637ce",
+                "prediction": {
+                  "matchScore": 0.8148267309046245,
+                  "scoreMeaning": "normalized appearance correlation, not calibrated semantic confidence",
+                  "lastKnownBox": [
+                    0.191,
+                    0.19000000000000003,
+                    0.6394777517564403,
+                    0.8400000000000001
+                  ],
+                  "appearanceUpdates": 1,
+                  "box": [
+                    0.191,
+                    0.19000000000000003,
+                    0.6394777517564403,
+                    0.8400000000000001
+                  ],
+                  "id": "research-object",
+                  "label": "blackswan",
+                  "anchorScore": 0.8113984288362804,
+                  "status": "reacquired"
+                },
+                "processingMillis": 9.806601,
+                "maskSha256": "a7823d048764b6dec3520532c185c2ee75bc54e71578356d1ed9628d59229fa2",
+                "iou": 0.9769787127179025,
+                "ordinal": 5
+              },
+              {
+                "reference": [
+                  0.1791569086651054,
+                  0.21458333333333332,
+                  0.6264637002341921,
+                  0.8625
+                ],
+                "sourceFrame": 20,
+                "imageSha256": "58227d78be7958d8f41bbddf83cbe05efcc6287a7a07201916544c987bd49176",
+                "prediction": {
+                  "matchScore": 0.8514780201195984,
+                  "scoreMeaning": "normalized appearance correlation, not calibrated semantic confidence",
+                  "lastKnownBox": [
+                    0.18600000000000003,
+                    0.21900000000000003,
+                    0.6344777517564403,
+                    0.869
+                  ],
+                  "appearanceUpdates": 1,
+                  "box": [
+                    0.18600000000000003,
+                    0.21900000000000003,
+                    0.6344777517564403,
+                    0.869
+                  ],
+                  "id": "research-object",
+                  "label": "blackswan",
+                  "anchorScore": 0.8499239490186836,
+                  "status": "tracked"
+                },
+                "processingMillis": 9.1467,
+                "maskSha256": "f45944284d981daf571d58d5e8690347fadcb70fabaa64f1fdd52f4a922bf164",
+                "iou": 0.951487805301111,
+                "ordinal": 6
+              },
+              {
+                "reference": [
+                  0.1721311475409836,
+                  0.21666666666666667,
+                  0.617096018735363,
+                  0.8645833333333334
+                ],
+                "sourceFrame": 23,
+                "imageSha256": "dc4c6dd389852985cdbca956ce36bd7d987ada18eb9bd2ed0551a875b852f7e8",
+                "prediction": {
+                  "matchScore": 0.8428743323216865,
+                  "scoreMeaning": "normalized appearance correlation, not calibrated semantic confidence",
+                  "lastKnownBox": [
+                    0.17400000000000002,
+                    0.22,
+                    0.6224777517564403,
+                    0.87
+                  ],
+                  "appearanceUpdates": 1,
+                  "box": [
+                    0.17400000000000002,
+                    0.22,
+                    0.6224777517564403,
+                    0.87
+                  ],
+                  "id": "research-object",
+                  "label": "blackswan",
+                  "anchorScore": 0.8406928096326743,
+                  "status": "tracked"
+                },
+                "processingMillis": 9.0301,
+                "maskSha256": "a3cd1c733c9b95007e7490059d75e69a9b420629012921c051beeeedbbefa0b1",
+                "iou": 0.9708153487878151,
+                "ordinal": 7
+              },
+              {
+                "reference": [
+                  0.16627634660421545,
+                  0.21458333333333332,
+                  0.6088992974238876,
+                  0.8666666666666667
+                ],
+                "sourceFrame": 26,
+                "imageSha256": "e36f55efac7c1bc3de0c92de00f76004c19d81f2b5ef4963db1741aa155f68fc",
+                "prediction": {
+                  "matchScore": 0.8833400504559343,
+                  "scoreMeaning": "normalized appearance correlation, not calibrated semantic confidence",
+                  "lastKnownBox": [
+                    0.17,
+                    0.224,
+                    0.6184777517564403,
+                    0.874
+                  ],
+                  "appearanceUpdates": 1,
+                  "box": [
+                    0.17,
+                    0.224,
+                    0.6184777517564403,
+                    0.874
+                  ],
+                  "id": "research-object",
+                  "label": "blackswan",
+                  "anchorScore": 0.8815206813876767,
+                  "status": "tracked"
+                },
+                "processingMillis": 8.8523,
+                "maskSha256": "c1d9209580072f040e7c408486ccb0b4078f30f559a7a2d97160878fd1a1717b",
+                "iou": 0.9463025368608632,
+                "ordinal": 8
+              },
+              {
+                "reference": [
+                  0.16276346604215455,
+                  0.20833333333333334,
+                  0.6042154566744731,
+                  0.8645833333333334
+                ],
+                "sourceFrame": 29,
+                "imageSha256": "1f1b1d6bb4547c78c2c4d372e150239e8f3f50488da8fe0a1392c52acec82e58",
+                "prediction": {
+                  "matchScore": 0.878253162516707,
+                  "scoreMeaning": "normalized appearance correlation, not calibrated semantic confidence",
+                  "lastKnownBox": [
+                    0.16500000000000004,
+                    0.224,
+                    0.6134777517564403,
+                    0.874
+                  ],
+                  "appearanceUpdates": 1,
+                  "box": [
+                    0.16500000000000004,
+                    0.224,
+                    0.6134777517564403,
+                    0.874
+                  ],
+                  "id": "research-object",
+                  "label": "blackswan",
+                  "anchorScore": 0.8775931741223676,
+                  "status": "tracked"
+                },
+                "processingMillis": 8.688501,
+                "maskSha256": "5190569c884f655e6c3cbd63efc47001c6e33cd2748b14c2831cb2f513e7aab6",
+                "iou": 0.9382870415056777,
+                "ordinal": 9
+              },
+              {
+                "reference": [
+                  0.16393442622950818,
+                  0.20625,
+                  0.6018735362997658,
+                  0.8625
+                ],
+                "sourceFrame": 33,
+                "imageSha256": "856a351109d16fbb38eec6b6ef9dfd37cd7c42d7bc5c818b3953d69be3cda41d",
+                "prediction": {
+                  "matchScore": 0.8178923521777542,
+                  "scoreMeaning": "normalized appearance correlation, not calibrated semantic confidence",
+                  "lastKnownBox": [
+                    0.24400000000000002,
+                    0.256,
+                    0.6027822014051523,
+                    0.776
+                  ],
+                  "appearanceUpdates": 1,
+                  "box": [
+                    0.24400000000000002,
+                    0.256,
+                    0.6027822014051523,
+                    0.776
+                  ],
+                  "id": "research-object",
+                  "label": "blackswan",
+                  "anchorScore": 0.8162192231309464,
+                  "status": "tracked"
+                },
+                "processingMillis": 8.8576,
+                "maskSha256": "d53a849c90e857f0f89cb060dd1d68f9b0ef5b449500a0e416428e336b8d3c72",
+                "iou": 0.6464522478795443,
+                "ordinal": 10
+              },
+              {
+                "reference": [
+                  0.16510538641686182,
+                  0.20833333333333334,
+                  0.6007025761124122,
+                  0.8625
+                ],
+                "sourceFrame": 36,
+                "imageSha256": "e415e05f5d9af62346d766a36ddefe53a138495803d0628a71aef0810a8df8ee",
+                "prediction": {
+                  "matchScore": 0.8584785738237795,
+                  "scoreMeaning": "normalized appearance correlation, not calibrated semantic confidence",
+                  "lastKnownBox": [
+                    0.17800000000000002,
+                    0.19999999999999998,
+                    0.6085386416861828,
+                    0.824
+                  ],
+                  "appearanceUpdates": 1,
+                  "box": [
+                    0.17800000000000002,
+                    0.19999999999999998,
+                    0.6085386416861828,
+                    0.824
+                  ],
+                  "id": "research-object",
+                  "label": "blackswan",
+                  "anchorScore": 0.8576230855811767,
+                  "status": "tracked"
+                },
+                "processingMillis": 9.6606,
+                "maskSha256": "d3a2d39e9e4f236598b24cefdaca2371c3d67203bacb0f518b85675985de2ee1",
+                "iou": 0.8870981264017818,
+                "ordinal": 11
+              },
+              {
+                "reference": [
+                  0.16744730679156908,
+                  0.20833333333333334,
+                  0.6018735362997658,
+                  0.8604166666666667
+                ],
+                "sourceFrame": 39,
+                "imageSha256": "a06477c166a66d887161e13216403ad78f122851bc9e240d4d193d708abb4e60",
+                "prediction": {
+                  "matchScore": 0.8779410632164035,
+                  "scoreMeaning": "normalized appearance correlation, not calibrated semantic confidence",
+                  "lastKnownBox": [
+                    0.17400000000000002,
+                    0.212,
+                    0.6045386416861828,
+                    0.836
+                  ],
+                  "appearanceUpdates": 1,
+                  "box": [
+                    0.17400000000000002,
+                    0.212,
+                    0.6045386416861828,
+                    0.836
+                  ],
+                  "id": "research-object",
+                  "label": "blackswan",
+                  "anchorScore": 0.8763918705235328,
+                  "status": "tracked"
+                },
+                "processingMillis": 9.091901,
+                "maskSha256": "894275b85429435f6b42b8e245574abd10aa3bb2fa6cb0b6c9f15734cfd80fec",
+                "iou": 0.9369982460789089,
+                "ordinal": 12
+              },
+              {
+                "reference": [
+                  0.17096018735362997,
+                  0.20416666666666666,
+                  0.6042154566744731,
+                  0.85625
+                ],
+                "sourceFrame": 42,
+                "imageSha256": "32ea488909a8e7c3b305a046c15a60d40f471ddf8ed87fbcb004fdfbf34879bc",
+                "prediction": {
+                  "matchScore": 0.8317135378799914,
+                  "scoreMeaning": "normalized appearance correlation, not calibrated semantic confidence",
+                  "lastKnownBox": [
+                    0.11100000000000004,
+                    0.17,
+                    0.6276463700234194,
+                    0.9188000000000001
+                  ],
+                  "appearanceUpdates": 1,
+                  "box": [
+                    0.11100000000000004,
+                    0.17,
+                    0.6276463700234194,
+                    0.9188000000000001
+                  ],
+                  "id": "research-object",
+                  "label": "blackswan",
+                  "anchorScore": 0.8300372848548513,
+                  "status": "tracked"
+                },
+                "processingMillis": 9.029799,
+                "maskSha256": "3ce1b1945a13fe5060b8d144173d555da901cdf1434c33953ba87c104a45524e",
+                "iou": 0.7302771894335323,
+                "ordinal": 13
+              },
+              {
+                "reference": [
+                  0.17447306791569087,
+                  0.18958333333333333,
+                  0.6053864168618267,
+                  0.8416666666666667
+                ],
+                "sourceFrame": 46,
+                "imageSha256": "35dbd0249b01d37fb2590eee6e143ce5c8b96402b776903989fe462fe49a00e1",
+                "prediction": {
+                  "matchScore": 0.7859951697523884,
+                  "scoreMeaning": "normalized appearance correlation, not calibrated semantic confidence",
+                  "lastKnownBox": [
+                    0.10400000000000001,
+                    0.13600000000000004,
+                    0.6206463700234193,
+                    0.8848
+                  ],
+                  "appearanceUpdates": 1,
+                  "box": [
+                    0.10400000000000001,
+                    0.13600000000000004,
+                    0.6206463700234193,
+                    0.8848
+                  ],
+                  "id": "research-object",
+                  "label": "blackswan",
+                  "anchorScore": 0.7839557721696637,
+                  "status": "tracked"
+                },
+                "processingMillis": 8.4676,
+                "maskSha256": "4944f57866dc850ae8f8be92deb930d6e48b8f25d9b949a70341106216a27dec",
+                "iou": 0.726329745166324,
+                "ordinal": 14
+              },
+              {
+                "reference": [
+                  0.1721311475409836,
+                  0.18125,
+                  0.6007025761124122,
+                  0.8333333333333334
+                ],
+                "sourceFrame": 49,
+                "imageSha256": "8b4242587d32afa96a41cea04fe9d9682d584fb1bc1f912b9898551a0a459829",
+                "prediction": {
+                  "matchScore": 0.7924798818565055,
+                  "scoreMeaning": "normalized appearance correlation, not calibrated semantic confidence",
+                  "lastKnownBox": [
+                    0.125,
+                    0.125,
+                    0.6416463700234193,
+                    0.8738
+                  ],
+                  "appearanceUpdates": 1,
+                  "box": [
+                    0.125,
+                    0.125,
+                    0.6416463700234193,
+                    0.8738
+                  ],
+                  "id": "research-object",
+                  "label": "blackswan",
+                  "anchorScore": 0.7915065857738544,
+                  "status": "tracked"
+                },
+                "processingMillis": 8.5585,
+                "maskSha256": "d13b2fafd468b94340635f75e17f36cd1eb49f6f02fb64ce128b104d6a0e5d1b",
+                "iou": 0.7223823008991157,
+                "ordinal": 15
+              }
+            ],
+            "profile": "rgb-v1",
+            "initialization": {
+              "reference": [
+                0.148711943793911,
+                0.15208333333333332,
+                0.5971896955503513,
+                0.8020833333333334
+              ],
+              "sourceFrame": 0,
+              "scored": false
+            },
+            "metrics": {
+              "meanIou": 0.8234854419436067,
+              "referenceAbsentFrames": 0,
+              "p95ProcessingMillis": 20.413999,
+              "latencyScope": "JPEG/PNG decode plus CPU tracking; excludes browser capture, network and LLM. Initialization excluded from scored frames.",
+              "scoredFrames": 15,
+              "iouHalfFraction": 0.9333333333333333,
+              "reacquired": 1,
+              "lost": 1,
+              "lowOverlapVisiblePredictions": 0,
+              "medianProcessingMillis": 9.0301
+            }
+          }
+        },
+        {
+          "sourceContentSha256": "b6775dfba6a16fb686d38326a716d3d4194d45ba0b93ece78e7705c334aaf71a",
+          "split": "evaluation",
+          "adaptive-v2": {
+            "sequence": "car-shadow",
+            "codeSha256": "b553c15bcc930b6e78b6dec58870119a536d2f2ec3459fd868b0cd16cf38847b",
+            "split": "evaluation",
+            "frames": [
+              {
+                "reference": [
+                  0.3477751756440281,
+                  0.19166666666666668,
+                  0.7365339578454333,
+                  0.5875
+                ],
+                "sourceFrame": 2,
+                "imageSha256": "846e9dc46de90b3f330338d54014f8ace253fad15f713d121f4ec97ae584904c",
+                "prediction": {
+                  "matchScore": 0.7995122558840079,
+                  "scoreMeaning": "RGB/edge appearance similarity, not calibrated semantic confidence",
+                  "lastKnownBox": [
+                    0.3480000000000001,
+                    0.19600000000000004,
+                    0.7284449648711944,
+                    0.5799583333333334
+                  ],
+                  "appearanceUpdates": 0,
+                  "box": [
+                    0.3480000000000001,
+                    0.19600000000000004,
+                    0.7284449648711944,
+                    0.5799583333333334
+                  ],
+                  "id": "research-object",
+                  "label": "car-shadow",
+                  "anchorScore": 0.7995122558840079,
+                  "status": "tracked"
+                },
+                "processingMillis": 65.408001,
+                "maskSha256": "df8564a967780f92bb32b991ee3774842bc0b035ecfff2a5bf990880cb30ec04",
+                "iou": 0.9492560240963853,
+                "ordinal": 1
+              },
+              {
+                "reference": [
+                  0.33138173302107726,
+                  0.20416666666666666,
+                  0.7084309133489461,
+                  0.5854166666666667
+                ],
+                "sourceFrame": 4,
+                "imageSha256": "db2ab260b7fb651fe8b57f3d4753d271cf4f75c37b045f977b39c1e115cca0fb",
+                "prediction": {
+                  "matchScore": 0.7582824031151205,
+                  "scoreMeaning": "RGB/edge appearance similarity, not calibrated semantic confidence",
+                  "lastKnownBox": [
+                    0.33400000000000013,
+                    0.2,
+                    0.6954227166276348,
+                    0.5839583333333334
+                  ],
+                  "appearanceUpdates": 0,
+                  "box": [
+                    0.33400000000000013,
+                    0.2,
+                    0.6954227166276348,
+                    0.5839583333333334
+                  ],
+                  "id": "research-object",
+                  "label": "car-shadow",
+                  "anchorScore": 0.7582824031151206,
+                  "status": "tracked"
+                },
+                "processingMillis": 66.2383,
+                "maskSha256": "daa32e476a4152fa3e05ff30aadc72db2ec4cb7d5b08f094f051bce28762f0aa",
+                "iou": 0.9449895630592255,
+                "ordinal": 2
+              },
+              {
+                "reference": [
+                  0.319672131147541,
+                  0.2125,
+                  0.6850117096018735,
+                  0.5854166666666667
+                ],
+                "sourceFrame": 6,
+                "imageSha256": "abf7b88ae9c90f2d4df89cebbdad7c4f44a0bd7517d984e1c0f9407aaa14244b",
+                "prediction": {
+                  "matchScore": 0.6946805038058648,
+                  "scoreMeaning": "RGB/edge appearance similarity, not calibrated semantic confidence",
+                  "lastKnownBox": [
+                    0.33400000000000013,
+                    0.2,
+                    0.6954227166276348,
+                    0.5839583333333334
+                  ],
+                  "appearanceUpdates": 0,
+                  "box": null,
+                  "id": "research-object",
+                  "label": "car-shadow",
+                  "anchorScore": 0.6946805038058648,
+                  "status": "lost"
+                },
+                "processingMillis": 63.903699,
+                "maskSha256": "86e015d061bd589e30e475624d71063260f480f29a200ebe5d4ed8d4b85da264",
+                "iou": 0,
+                "ordinal": 3
+              },
+              {
+                "reference": [
+                  0.31030444964871196,
+                  0.22708333333333333,
+                  0.6651053864168619,
+                  0.5875
+                ],
+                "sourceFrame": 8,
+                "imageSha256": "224ddf67c110d4d49319cc4cefef163ccd48ee82c2165bfec85cdf648349b663",
+                "prediction": {
+                  "matchScore": 0.7109836698724148,
+                  "scoreMeaning": "RGB/edge appearance similarity, not calibrated semantic confidence",
+                  "lastKnownBox": [
+                    0.33400000000000013,
+                    0.2,
+                    0.6954227166276348,
+                    0.5839583333333334
+                  ],
+                  "appearanceUpdates": 0,
+                  "box": null,
+                  "id": "research-object",
+                  "label": "car-shadow",
+                  "anchorScore": 0.7109836698724148,
+                  "status": "lost"
+                },
+                "processingMillis": 80.583701,
+                "maskSha256": "538c51fffe2d7c21e07c2d1ee942d777f2c41a1bd1a13d1ac694d0d832f13859",
+                "iou": 0,
+                "ordinal": 4
+              },
+              {
+                "reference": [
+                  0.3044496487119438,
+                  0.2375,
+                  0.6475409836065573,
+                  0.5874999999999999
+                ],
+                "sourceFrame": 10,
+                "imageSha256": "d6aa1bfeb791b32b552a28c2f8359d91c6f1f5773fec2e62f7d6d89a093c4765",
+                "prediction": {
+                  "matchScore": 0.7002727540115024,
+                  "scoreMeaning": "RGB/edge appearance similarity, not calibrated semantic confidence",
+                  "lastKnownBox": [
+                    0.33400000000000013,
+                    0.2,
+                    0.6954227166276348,
+                    0.5839583333333334
+                  ],
+                  "appearanceUpdates": 0,
+                  "box": null,
+                  "id": "research-object",
+                  "label": "car-shadow",
+                  "anchorScore": 0.7002727540115024,
+                  "status": "lost"
+                },
+                "processingMillis": 78.6876,
+                "maskSha256": "73fbd53f46bb07f5f7bac681da75f0fa4c989933e72e2fc5d03b7c49ce5d680c",
+                "iou": 0,
+                "ordinal": 5
+              },
+              {
+                "reference": [
+                  0.30327868852459017,
+                  0.24375,
+                  0.6346604215456675,
+                  0.5833333333333334
+                ],
+                "sourceFrame": 12,
+                "imageSha256": "dfb314e8307cc6d6fce784a19dfe3fd72becf1a3e22c6e8accc6c9a52a15d258",
+                "prediction": {
+                  "matchScore": 0.7143457147523629,
+                  "scoreMeaning": "RGB/edge appearance similarity, not calibrated semantic confidence",
+                  "lastKnownBox": [
+                    0.33400000000000013,
+                    0.2,
+                    0.6954227166276348,
+                    0.5839583333333334
+                  ],
+                  "appearanceUpdates": 0,
+                  "box": null,
+                  "id": "research-object",
+                  "label": "car-shadow",
+                  "anchorScore": 0.7143457147523629,
+                  "status": "lost"
+                },
+                "processingMillis": 86.007799,
+                "maskSha256": "0f83dec460c6382d26f6947e9f4465f8a3a07aba03d8c22dff115ed0521219e0",
+                "iou": 0,
+                "ordinal": 6
+              },
+              {
+                "reference": [
+                  0.30210772833723654,
+                  0.25,
+                  0.6229508196721312,
+                  0.5791666666666666
+                ],
+                "sourceFrame": 14,
+                "imageSha256": "244c6993d6574dfa7a945b6d57651f08d1cf8878e9cdd384ec46d109c83a0b17",
+                "prediction": {
+                  "matchScore": 0.6551462272434843,
+                  "scoreMeaning": "RGB/edge appearance similarity, not calibrated semantic confidence",
+                  "lastKnownBox": [
+                    0.33400000000000013,
+                    0.2,
+                    0.6954227166276348,
+                    0.5839583333333334
+                  ],
+                  "appearanceUpdates": 0,
+                  "box": null,
+                  "id": "research-object",
+                  "label": "car-shadow",
+                  "anchorScore": 0.6551462272434843,
+                  "status": "lost"
+                },
+                "processingMillis": 76.0765,
+                "maskSha256": "c5fde15d22c60aca6723429ac9f006451e4ebc2773fb9285e39fdc7f40152be4",
+                "iou": 0,
+                "ordinal": 7
+              },
+              {
+                "reference": [
+                  0.3044496487119438,
+                  0.25833333333333336,
+                  0.6124121779859485,
+                  0.5770833333333334
+                ],
+                "sourceFrame": 16,
+                "imageSha256": "4abbc4524ace95b106864bef59c1080e0cd47347fde80430bba6b4d8c3f03a7b",
+                "prediction": {
+                  "matchScore": 0,
+                  "scoreMeaning": "RGB/edge appearance similarity, not calibrated semantic confidence",
+                  "lastKnownBox": [
+                    0.33400000000000013,
+                    0.2,
+                    0.6954227166276348,
+                    0.5839583333333334
+                  ],
+                  "appearanceUpdates": 0,
+                  "box": null,
+                  "id": "research-object",
+                  "label": "car-shadow",
+                  "anchorScore": 0.5821576567746872,
+                  "status": "lost"
+                },
+                "processingMillis": 79.2454,
+                "maskSha256": "d97a28a408446a83a7d2b8bbbbdd3033dcaf763b4776b2584bb3298bc19a4df1",
+                "iou": 0,
+                "ordinal": 8
+              },
+              {
+                "reference": [
+                  0.30679156908665106,
+                  0.26875,
+                  0.6042154566744731,
+                  0.575
+                ],
+                "sourceFrame": 18,
+                "imageSha256": "d86f24637a991e84bb13c57a6935ce856ca3f78bda632315f89f9c64fa43fec7",
+                "prediction": {
+                  "matchScore": 0,
+                  "scoreMeaning": "RGB/edge appearance similarity, not calibrated semantic confidence",
+                  "lastKnownBox": [
+                    0.33400000000000013,
+                    0.2,
+                    0.6954227166276348,
+                    0.5839583333333334
+                  ],
+                  "appearanceUpdates": 0,
+                  "box": null,
+                  "id": "research-object",
+                  "label": "car-shadow",
+                  "anchorScore": 0.6005426454016402,
+                  "status": "lost"
+                },
+                "processingMillis": 79.394801,
+                "maskSha256": "96a88fbc8cb576c8b9da222a19ff263a6fbcb4e786a200eb05f2e942aaefb9b6",
+                "iou": 0,
+                "ordinal": 9
+              },
+              {
+                "reference": [
+                  0.3114754098360656,
+                  0.28125,
+                  0.5936768149882904,
+                  0.5729166666666667
+                ],
+                "sourceFrame": 21,
+                "imageSha256": "03532964b92725ecff84ad17842079a366565b123a2efa0380227f2faf399dc0",
+                "prediction": {
+                  "matchScore": 0.6000312188924193,
+                  "scoreMeaning": "RGB/edge appearance similarity, not calibrated semantic confidence",
+                  "lastKnownBox": [
+                    0.33400000000000013,
+                    0.2,
+                    0.6954227166276348,
+                    0.5839583333333334
+                  ],
+                  "appearanceUpdates": 0,
+                  "box": null,
+                  "id": "research-object",
+                  "label": "car-shadow",
+                  "anchorScore": 0.6000312188924193,
+                  "status": "lost"
+                },
+                "processingMillis": 112.9937,
+                "maskSha256": "1165feb2c50ca54bce21dec4edf8610b099b507c18ca3d8aa56f18b63b4296ff",
+                "iou": 0,
+                "ordinal": 10
+              },
+              {
+                "reference": [
+                  0.31733021077283374,
+                  0.2916666666666667,
+                  0.588992974238876,
+                  0.5708333333333333
+                ],
+                "sourceFrame": 23,
+                "imageSha256": "10e3d5c38422f246f55e5b3fe1d398b15b37ed58519e6392d3e8f78ded32abb5",
+                "prediction": {
+                  "matchScore": 0,
+                  "scoreMeaning": "RGB/edge appearance similarity, not calibrated semantic confidence",
+                  "lastKnownBox": [
+                    0.33400000000000013,
+                    0.2,
+                    0.6954227166276348,
+                    0.5839583333333334
+                  ],
+                  "appearanceUpdates": 0,
+                  "box": null,
+                  "id": "research-object",
+                  "label": "car-shadow",
+                  "anchorScore": 0.5977327486593784,
+                  "status": "lost"
+                },
+                "processingMillis": 82.3027,
+                "maskSha256": "d7686c4ca68de838de868a238156f08900be121a91bf714d4fb61f5b805781c8",
+                "iou": 0,
+                "ordinal": 11
+              },
+              {
+                "reference": [
+                  0.3231850117096019,
+                  0.3,
+                  0.5843091334894615,
+                  0.5708333333333333
+                ],
+                "sourceFrame": 25,
+                "imageSha256": "f0a7893f325f4046e3fffc732ad95a95893c28e8742d08b17c5a03dd6e1264c6",
+                "prediction": {
+                  "matchScore": 0,
+                  "scoreMeaning": "RGB/edge appearance similarity, not calibrated semantic confidence",
+                  "lastKnownBox": [
+                    0.33400000000000013,
+                    0.2,
+                    0.6954227166276348,
+                    0.5839583333333334
+                  ],
+                  "appearanceUpdates": 0,
+                  "box": null,
+                  "id": "research-object",
+                  "label": "car-shadow",
+                  "anchorScore": 0.5788165081135465,
+                  "status": "lost"
+                },
+                "processingMillis": 76.1172,
+                "maskSha256": "b827bcd0662d46a2619b577438d497549220eff4e5af05ba57583aa6fe57d152",
+                "iou": 0,
+                "ordinal": 12
+              },
+              {
+                "reference": [
+                  0.32903981264637,
+                  0.31875,
+                  0.5796252927400468,
+                  0.5708333333333333
+                ],
+                "sourceFrame": 27,
+                "imageSha256": "5db005ae4d1689970adf4b8e18590ddc2ab584bd01bfebd8a60aa61f7ee2ddfb",
+                "prediction": {
+                  "matchScore": 0.6038124055344805,
+                  "scoreMeaning": "RGB/edge appearance similarity, not calibrated semantic confidence",
+                  "lastKnownBox": [
+                    0.33400000000000013,
+                    0.2,
+                    0.6954227166276348,
+                    0.5839583333333334
+                  ],
+                  "appearanceUpdates": 0,
+                  "box": null,
+                  "id": "research-object",
+                  "label": "car-shadow",
+                  "anchorScore": 0.6038124055344805,
+                  "status": "lost"
+                },
+                "processingMillis": 77.020599,
+                "maskSha256": "cbf607f03c418005e9f51ae218e56b4790ea7ffdadcd22afd2946b200afea097",
+                "iou": 0,
+                "ordinal": 13
+              },
+              {
+                "reference": [
+                  0.3372365339578454,
+                  0.325,
+                  0.5784543325526932,
+                  0.56875
+                ],
+                "sourceFrame": 29,
+                "imageSha256": "93cdd8d81f233685cdc7738ff93044848b259796798c9375e355d64d2b4e7b10",
+                "prediction": {
+                  "matchScore": 0.591381120233846,
+                  "scoreMeaning": "RGB/edge appearance similarity, not calibrated semantic confidence",
+                  "lastKnownBox": [
+                    0.33400000000000013,
+                    0.2,
+                    0.6954227166276348,
+                    0.5839583333333334
+                  ],
+                  "appearanceUpdates": 0,
+                  "box": null,
+                  "id": "research-object",
+                  "label": "car-shadow",
+                  "anchorScore": 0.591381120233846,
+                  "status": "lost"
+                },
+                "processingMillis": 85.291399,
+                "maskSha256": "44ca44d5dbe732e630301b5d61b985f9b82d7ae7f5de90651942dae17b0e2dc2",
+                "iou": 0,
+                "ordinal": 14
+              },
+              {
+                "reference": [
+                  0.3442622950819672,
+                  0.3333333333333333,
+                  0.5761124121779859,
+                  0.56875
+                ],
+                "sourceFrame": 31,
+                "imageSha256": "56ca9628df0d5cef361a18504b8e307ef77fbcb172ca04b402d59e376879682f",
+                "prediction": {
+                  "matchScore": 0.5890286678165626,
+                  "scoreMeaning": "RGB/edge appearance similarity, not calibrated semantic confidence",
+                  "lastKnownBox": [
+                    0.33400000000000013,
+                    0.2,
+                    0.6954227166276348,
+                    0.5839583333333334
+                  ],
+                  "appearanceUpdates": 0,
+                  "box": null,
+                  "id": "research-object",
+                  "label": "car-shadow",
+                  "anchorScore": 0.5890286678165627,
+                  "status": "lost"
+                },
+                "processingMillis": 82.388201,
+                "maskSha256": "725c7b69d9923c005a324c08a17d897f0f034fe18129d46fc57fd96d91249aa8",
+                "iou": 0,
+                "ordinal": 15
+              },
+              {
+                "reference": [
+                  0.351288056206089,
+                  0.33958333333333335,
+                  0.5749414519906323,
+                  0.5645833333333333
+                ],
+                "sourceFrame": 33,
+                "imageSha256": "93f051daf9523cd2a595b33da6a6fdf0e267b61ce35d1a9ba2a9828731449d61",
+                "prediction": {
+                  "matchScore": 0.6149018734552574,
+                  "scoreMeaning": "RGB/edge appearance similarity, not calibrated semantic confidence",
+                  "lastKnownBox": [
+                    0.33400000000000013,
+                    0.2,
+                    0.6954227166276348,
+                    0.5839583333333334
+                  ],
+                  "appearanceUpdates": 0,
+                  "box": null,
+                  "id": "research-object",
+                  "label": "car-shadow",
+                  "anchorScore": 0.6149018734552574,
+                  "status": "lost"
+                },
+                "processingMillis": 81.334799,
+                "maskSha256": "86af98f7c94f359395cf5167d857bbde4269632e2ef553d5bc582fc637249b97",
+                "iou": 0,
+                "ordinal": 16
+              },
+              {
+                "reference": [
+                  0.3594847775175644,
+                  0.34375,
+                  0.5737704918032787,
+                  0.5625
+                ],
+                "sourceFrame": 35,
+                "imageSha256": "1dc6a8366f7b4ee12d2175de821e98f2b738d00d66ec903fea061e5ef11b7585",
+                "prediction": {
+                  "matchScore": 0.6129826133178633,
+                  "scoreMeaning": "RGB/edge appearance similarity, not calibrated semantic confidence",
+                  "lastKnownBox": [
+                    0.33400000000000013,
+                    0.2,
+                    0.6954227166276348,
+                    0.5839583333333334
+                  ],
+                  "appearanceUpdates": 0,
+                  "box": null,
+                  "id": "research-object",
+                  "label": "car-shadow",
+                  "anchorScore": 0.6129826133178633,
+                  "status": "lost"
+                },
+                "processingMillis": 80.3151,
+                "maskSha256": "2066a682e87a47e1928b07c4449ace54136fea7fbe4ea03bd279396ed5cceed9",
+                "iou": 0,
+                "ordinal": 17
+              },
+              {
+                "reference": [
+                  0.36768149882903983,
+                  0.3458333333333333,
+                  0.5737704918032787,
+                  0.5583333333333333
+                ],
+                "sourceFrame": 37,
+                "imageSha256": "b76e25b4084f9e0becfbb1c56935ac428299bed4b7e5417c2e07bdbf95e198e4",
+                "prediction": {
+                  "matchScore": 0.6065682815485278,
+                  "scoreMeaning": "RGB/edge appearance similarity, not calibrated semantic confidence",
+                  "lastKnownBox": [
+                    0.33400000000000013,
+                    0.2,
+                    0.6954227166276348,
+                    0.5839583333333334
+                  ],
+                  "appearanceUpdates": 0,
+                  "box": null,
+                  "id": "research-object",
+                  "label": "car-shadow",
+                  "anchorScore": 0.6065682815485278,
+                  "status": "lost"
+                },
+                "processingMillis": 80.8442,
+                "maskSha256": "c42ff1180e515d006c26893dac7e9e876824542b62840e4a755b45bdc2df2a38",
+                "iou": 0,
+                "ordinal": 18
+              },
+              {
+                "reference": [
+                  0.373536299765808,
+                  0.35,
+                  0.5714285714285714,
+                  0.5562499999999999
+                ],
+                "sourceFrame": 39,
+                "imageSha256": "eebcbb6a3bd6ec7f6abc7ea095c932549794deda70b8b54060f5042858306836",
+                "prediction": {
+                  "matchScore": 0,
+                  "scoreMeaning": "RGB/edge appearance similarity, not calibrated semantic confidence",
+                  "lastKnownBox": [
+                    0.33400000000000013,
+                    0.2,
+                    0.6954227166276348,
+                    0.5839583333333334
+                  ],
+                  "appearanceUpdates": 0,
+                  "box": null,
+                  "id": "research-object",
+                  "label": "car-shadow",
+                  "anchorScore": 0.6087729074780419,
+                  "status": "lost"
+                },
+                "processingMillis": 80.8048,
+                "maskSha256": "31f066035802eb15ddd831a670fcae9c641d78d428d78f3522595ec3afe84b24",
+                "iou": 0,
+                "ordinal": 19
+              }
+            ],
+            "profile": "adaptive-v2",
+            "initialization": {
+              "reference": [
+                0.3665105386416862,
+                0.18333333333333332,
+                0.7669789227166277,
+                0.5875
+              ],
+              "sourceFrame": 0,
+              "scored": false
+            },
+            "metrics": {
+              "meanIou": 0.09969713616608479,
+              "referenceAbsentFrames": 0,
+              "p95ProcessingMillis": 112.9937,
+              "latencyScope": "JPEG/PNG decode plus CPU tracking; excludes browser capture, network and LLM. Initialization excluded from scored frames.",
+              "scoredFrames": 19,
+              "iouHalfFraction": 0.10526315789473684,
+              "reacquired": 0,
+              "lost": 17,
+              "lowOverlapVisiblePredictions": 0,
+              "medianProcessingMillis": 80.3151
+            }
+          },
+          "datasetId": "04b52d13-a538-4a29-a08b-53fe72862b1b",
+          "rgb-v1": {
+            "sequence": "car-shadow",
+            "codeSha256": "89e15acf52b828948cdc0476f690bd016c0b4daf676c743a54b00a9b4df62f2f",
+            "split": "evaluation",
+            "frames": [
+              {
+                "reference": [
+                  0.3477751756440281,
+                  0.19166666666666668,
+                  0.7365339578454333,
+                  0.5875
+                ],
+                "sourceFrame": 2,
+                "imageSha256": "846e9dc46de90b3f330338d54014f8ace253fad15f713d121f4ec97ae584904c",
+                "prediction": {
+                  "matchScore": 0.7754455940905527,
+                  "scoreMeaning": "normalized appearance correlation, not calibrated semantic confidence",
+                  "lastKnownBox": [
+                    0.3665105386416862,
+                    0.18333333333333332,
+                    0.7669789227166277,
+                    0.5875
+                  ],
+                  "appearanceUpdates": 0,
+                  "box": null,
+                  "id": "research-object",
+                  "label": "car-shadow",
+                  "anchorScore": 0.7754455940905527,
+                  "status": "lost"
+                },
+                "processingMillis": 10.588701,
+                "maskSha256": "df8564a967780f92bb32b991ee3774842bc0b035ecfff2a5bf990880cb30ec04",
+                "iou": 0,
+                "ordinal": 1
+              },
+              {
+                "reference": [
+                  0.33138173302107726,
+                  0.20416666666666666,
+                  0.7084309133489461,
+                  0.5854166666666667
+                ],
+                "sourceFrame": 4,
+                "imageSha256": "db2ab260b7fb651fe8b57f3d4753d271cf4f75c37b045f977b39c1e115cca0fb",
+                "prediction": {
+                  "matchScore": 0.7842949255285983,
+                  "scoreMeaning": "normalized appearance correlation, not calibrated semantic confidence",
+                  "lastKnownBox": [
+                    0.316,
+                    0.183,
+                    0.7164683840749415,
+                    0.5871666666666666
+                  ],
+                  "appearanceUpdates": 0,
+                  "box": [
+                    0.316,
+                    0.183,
+                    0.7164683840749415,
+                    0.5871666666666666
+                  ],
+                  "id": "research-object",
+                  "label": "car-shadow",
+                  "anchorScore": 0.7842949255285983,
+                  "status": "reacquired"
+                },
+                "processingMillis": 10.7904,
+                "maskSha256": "daa32e476a4152fa3e05ff30aadc72db2ec4cb7d5b08f094f051bce28762f0aa",
+                "iou": 0.8881352866702843,
+                "ordinal": 2
+              },
+              {
+                "reference": [
+                  0.319672131147541,
+                  0.2125,
+                  0.6850117096018735,
+                  0.5854166666666667
+                ],
+                "sourceFrame": 6,
+                "imageSha256": "abf7b88ae9c90f2d4df89cebbdad7c4f44a0bd7517d984e1c0f9407aaa14244b",
+                "prediction": {
+                  "matchScore": 0.7363222944875484,
+                  "scoreMeaning": "normalized appearance correlation, not calibrated semantic confidence",
+                  "lastKnownBox": [
+                    0.316,
+                    0.183,
+                    0.7164683840749415,
+                    0.5871666666666666
+                  ],
+                  "appearanceUpdates": 0,
+                  "box": null,
+                  "id": "research-object",
+                  "label": "car-shadow",
+                  "anchorScore": 0.7363222944875484,
+                  "status": "lost"
+                },
+                "processingMillis": 10.7152,
+                "maskSha256": "86e015d061bd589e30e475624d71063260f480f29a200ebe5d4ed8d4b85da264",
+                "iou": 0,
+                "ordinal": 3
+              },
+              {
+                "reference": [
+                  0.31030444964871196,
+                  0.22708333333333333,
+                  0.6651053864168619,
+                  0.5875
+                ],
+                "sourceFrame": 8,
+                "imageSha256": "224ddf67c110d4d49319cc4cefef163ccd48ee82c2165bfec85cdf648349b663",
+                "prediction": {
+                  "matchScore": 0.6770838321193305,
+                  "scoreMeaning": "normalized appearance correlation, not calibrated semantic confidence",
+                  "lastKnownBox": [
+                    0.316,
+                    0.183,
+                    0.7164683840749415,
+                    0.5871666666666666
+                  ],
+                  "appearanceUpdates": 0,
+                  "box": null,
+                  "id": "research-object",
+                  "label": "car-shadow",
+                  "anchorScore": 0.6770838321193305,
+                  "status": "lost"
+                },
+                "processingMillis": 10.780501,
+                "maskSha256": "538c51fffe2d7c21e07c2d1ee942d777f2c41a1bd1a13d1ac694d0d832f13859",
+                "iou": 0,
+                "ordinal": 4
+              },
+              {
+                "reference": [
+                  0.3044496487119438,
+                  0.2375,
+                  0.6475409836065573,
+                  0.5874999999999999
+                ],
+                "sourceFrame": 10,
+                "imageSha256": "d6aa1bfeb791b32b552a28c2f8359d91c6f1f5773fec2e62f7d6d89a093c4765",
+                "prediction": {
+                  "matchScore": 0.8575668668833595,
+                  "scoreMeaning": "normalized appearance correlation, not calibrated semantic confidence",
+                  "lastKnownBox": [
+                    0.303,
+                    0.249,
+                    0.6233747072599531,
+                    0.5723333333333334
+                  ],
+                  "appearanceUpdates": 0,
+                  "box": [
+                    0.303,
+                    0.249,
+                    0.6233747072599531,
+                    0.5723333333333334
+                  ],
+                  "id": "research-object",
+                  "label": "car-shadow",
+                  "anchorScore": 0.8575668668833595,
+                  "status": "reacquired"
+                },
+                "processingMillis": 10.8945,
+                "maskSha256": "73fbd53f46bb07f5f7bac681da75f0fa4c989933e72e2fc5d03b7c49ce5d680c",
+                "iou": 0.855400370262851,
+                "ordinal": 5
+              },
+              {
+                "reference": [
+                  0.30327868852459017,
+                  0.24375,
+                  0.6346604215456675,
+                  0.5833333333333334
+                ],
+                "sourceFrame": 12,
+                "imageSha256": "dfb314e8307cc6d6fce784a19dfe3fd72becf1a3e22c6e8accc6c9a52a15d258",
+                "prediction": {
+                  "matchScore": 0.7123010148667613,
+                  "scoreMeaning": "normalized appearance correlation, not calibrated semantic confidence",
+                  "lastKnownBox": [
+                    0.303,
+                    0.249,
+                    0.6233747072599531,
+                    0.5723333333333334
+                  ],
+                  "appearanceUpdates": 0,
+                  "box": null,
+                  "id": "research-object",
+                  "label": "car-shadow",
+                  "anchorScore": 0.7123010148667613,
+                  "status": "lost"
+                },
+                "processingMillis": 12.019401,
+                "maskSha256": "0f83dec460c6382d26f6947e9f4465f8a3a07aba03d8c22dff115ed0521219e0",
+                "iou": 0,
+                "ordinal": 6
+              },
+              {
+                "reference": [
+                  0.30210772833723654,
+                  0.25,
+                  0.6229508196721312,
+                  0.5791666666666666
+                ],
+                "sourceFrame": 14,
+                "imageSha256": "244c6993d6574dfa7a945b6d57651f08d1cf8878e9cdd384ec46d109c83a0b17",
+                "prediction": {
+                  "matchScore": 0.7683330769229046,
+                  "scoreMeaning": "normalized appearance correlation, not calibrated semantic confidence",
+                  "lastKnownBox": [
+                    0.303,
+                    0.249,
+                    0.6233747072599531,
+                    0.5723333333333334
+                  ],
+                  "appearanceUpdates": 0,
+                  "box": null,
+                  "id": "research-object",
+                  "label": "car-shadow",
+                  "anchorScore": 0.7683330769229046,
+                  "status": "lost"
+                },
+                "processingMillis": 12.021401,
+                "maskSha256": "c5fde15d22c60aca6723429ac9f006451e4ebc2773fb9285e39fdc7f40152be4",
+                "iou": 0,
+                "ordinal": 7
+              },
+              {
+                "reference": [
+                  0.3044496487119438,
+                  0.25833333333333336,
+                  0.6124121779859485,
+                  0.5770833333333334
+                ],
+                "sourceFrame": 16,
+                "imageSha256": "4abbc4524ace95b106864bef59c1080e0cd47347fde80430bba6b4d8c3f03a7b",
+                "prediction": {
+                  "matchScore": 0.7931171774282583,
+                  "scoreMeaning": "normalized appearance correlation, not calibrated semantic confidence",
+                  "lastKnownBox": [
+                    0.299,
+                    0.253,
+                    0.6193747072599531,
+                    0.5763333333333334
+                  ],
+                  "appearanceUpdates": 0,
+                  "box": [
+                    0.299,
+                    0.253,
+                    0.6193747072599531,
+                    0.5763333333333334
+                  ],
+                  "id": "research-object",
+                  "label": "car-shadow",
+                  "anchorScore": 0.7931171774282583,
+                  "status": "reacquired"
+                },
+                "processingMillis": 11.9158,
+                "maskSha256": "d97a28a408446a83a7d2b8bbbbdd3033dcaf763b4776b2584bb3298bc19a4df1",
+                "iou": 0.9432982278052701,
+                "ordinal": 8
+              },
+              {
+                "reference": [
+                  0.30679156908665106,
+                  0.26875,
+                  0.6042154566744731,
+                  0.575
+                ],
+                "sourceFrame": 18,
+                "imageSha256": "d86f24637a991e84bb13c57a6935ce856ca3f78bda632315f89f9c64fa43fec7",
+                "prediction": {
+                  "matchScore": 0.692747176727008,
+                  "scoreMeaning": "normalized appearance correlation, not calibrated semantic confidence",
+                  "lastKnownBox": [
+                    0.299,
+                    0.253,
+                    0.6193747072599531,
+                    0.5763333333333334
+                  ],
+                  "appearanceUpdates": 0,
+                  "box": null,
+                  "id": "research-object",
+                  "label": "car-shadow",
+                  "anchorScore": 0.692747176727008,
+                  "status": "lost"
+                },
+                "processingMillis": 12.0967,
+                "maskSha256": "96a88fbc8cb576c8b9da222a19ff263a6fbcb4e786a200eb05f2e942aaefb9b6",
+                "iou": 0,
+                "ordinal": 9
+              },
+              {
+                "reference": [
+                  0.3114754098360656,
+                  0.28125,
+                  0.5936768149882904,
+                  0.5729166666666667
+                ],
+                "sourceFrame": 21,
+                "imageSha256": "03532964b92725ecff84ad17842079a366565b123a2efa0380227f2faf399dc0",
+                "prediction": {
+                  "matchScore": 0.7113832853648087,
+                  "scoreMeaning": "normalized appearance correlation, not calibrated semantic confidence",
+                  "lastKnownBox": [
+                    0.299,
+                    0.253,
+                    0.6193747072599531,
+                    0.5763333333333334
+                  ],
+                  "appearanceUpdates": 0,
+                  "box": null,
+                  "id": "research-object",
+                  "label": "car-shadow",
+                  "anchorScore": 0.7113832853648087,
+                  "status": "lost"
+                },
+                "processingMillis": 11.772901,
+                "maskSha256": "1165feb2c50ca54bce21dec4edf8610b099b507c18ca3d8aa56f18b63b4296ff",
+                "iou": 0,
+                "ordinal": 10
+              },
+              {
+                "reference": [
+                  0.31733021077283374,
+                  0.2916666666666667,
+                  0.588992974238876,
+                  0.5708333333333333
+                ],
+                "sourceFrame": 23,
+                "imageSha256": "10e3d5c38422f246f55e5b3fe1d398b15b37ed58519e6392d3e8f78ded32abb5",
+                "prediction": {
+                  "matchScore": 0,
+                  "scoreMeaning": "normalized appearance correlation, not calibrated semantic confidence",
+                  "lastKnownBox": [
+                    0.299,
+                    0.253,
+                    0.6193747072599531,
+                    0.5763333333333334
+                  ],
+                  "appearanceUpdates": 0,
+                  "box": null,
+                  "id": "research-object",
+                  "label": "car-shadow",
+                  "anchorScore": 0.6383998437822436,
+                  "status": "lost"
+                },
+                "processingMillis": 11.7431,
+                "maskSha256": "d7686c4ca68de838de868a238156f08900be121a91bf714d4fb61f5b805781c8",
+                "iou": 0,
+                "ordinal": 11
+              },
+              {
+                "reference": [
+                  0.3231850117096019,
+                  0.3,
+                  0.5843091334894615,
+                  0.5708333333333333
+                ],
+                "sourceFrame": 25,
+                "imageSha256": "f0a7893f325f4046e3fffc732ad95a95893c28e8742d08b17c5a03dd6e1264c6",
+                "prediction": {
+                  "matchScore": 0,
+                  "scoreMeaning": "normalized appearance correlation, not calibrated semantic confidence",
+                  "lastKnownBox": [
+                    0.299,
+                    0.253,
+                    0.6193747072599531,
+                    0.5763333333333334
+                  ],
+                  "appearanceUpdates": 0,
+                  "box": null,
+                  "id": "research-object",
+                  "label": "car-shadow",
+                  "anchorScore": 0.6654438358528185,
+                  "status": "lost"
+                },
+                "processingMillis": 11.6412,
+                "maskSha256": "b827bcd0662d46a2619b577438d497549220eff4e5af05ba57583aa6fe57d152",
+                "iou": 0,
+                "ordinal": 12
+              },
+              {
+                "reference": [
+                  0.32903981264637,
+                  0.31875,
+                  0.5796252927400468,
+                  0.5708333333333333
+                ],
+                "sourceFrame": 27,
+                "imageSha256": "5db005ae4d1689970adf4b8e18590ddc2ab584bd01bfebd8a60aa61f7ee2ddfb",
+                "prediction": {
+                  "matchScore": 0.6774308539877716,
+                  "scoreMeaning": "normalized appearance correlation, not calibrated semantic confidence",
+                  "lastKnownBox": [
+                    0.299,
+                    0.253,
+                    0.6193747072599531,
+                    0.5763333333333334
+                  ],
+                  "appearanceUpdates": 0,
+                  "box": null,
+                  "id": "research-object",
+                  "label": "car-shadow",
+                  "anchorScore": 0.6774308539877716,
+                  "status": "lost"
+                },
+                "processingMillis": 11.5752,
+                "maskSha256": "cbf607f03c418005e9f51ae218e56b4790ea7ffdadcd22afd2946b200afea097",
+                "iou": 0,
+                "ordinal": 13
+              },
+              {
+                "reference": [
+                  0.3372365339578454,
+                  0.325,
+                  0.5784543325526932,
+                  0.56875
+                ],
+                "sourceFrame": 29,
+                "imageSha256": "93cdd8d81f233685cdc7738ff93044848b259796798c9375e355d64d2b4e7b10",
+                "prediction": {
+                  "matchScore": 0,
+                  "scoreMeaning": "normalized appearance correlation, not calibrated semantic confidence",
+                  "lastKnownBox": [
+                    0.299,
+                    0.253,
+                    0.6193747072599531,
+                    0.5763333333333334
+                  ],
+                  "appearanceUpdates": 0,
+                  "box": null,
+                  "id": "research-object",
+                  "label": "car-shadow",
+                  "anchorScore": 0.6672519822685941,
+                  "status": "lost"
+                },
+                "processingMillis": 11.3882,
+                "maskSha256": "44ca44d5dbe732e630301b5d61b985f9b82d7ae7f5de90651942dae17b0e2dc2",
+                "iou": 0,
+                "ordinal": 14
+              },
+              {
+                "reference": [
+                  0.3442622950819672,
+                  0.3333333333333333,
+                  0.5761124121779859,
+                  0.56875
+                ],
+                "sourceFrame": 31,
+                "imageSha256": "56ca9628df0d5cef361a18504b8e307ef77fbcb172ca04b402d59e376879682f",
+                "prediction": {
+                  "matchScore": 0,
+                  "scoreMeaning": "normalized appearance correlation, not calibrated semantic confidence",
+                  "lastKnownBox": [
+                    0.299,
+                    0.253,
+                    0.6193747072599531,
+                    0.5763333333333334
+                  ],
+                  "appearanceUpdates": 0,
+                  "box": null,
+                  "id": "research-object",
+                  "label": "car-shadow",
+                  "anchorScore": 0.6767531012951331,
+                  "status": "lost"
+                },
+                "processingMillis": 11.490399,
+                "maskSha256": "725c7b69d9923c005a324c08a17d897f0f034fe18129d46fc57fd96d91249aa8",
+                "iou": 0,
+                "ordinal": 15
+              },
+              {
+                "reference": [
+                  0.351288056206089,
+                  0.33958333333333335,
+                  0.5749414519906323,
+                  0.5645833333333333
+                ],
+                "sourceFrame": 33,
+                "imageSha256": "93f051daf9523cd2a595b33da6a6fdf0e267b61ce35d1a9ba2a9828731449d61",
+                "prediction": {
+                  "matchScore": 0.7026195168405662,
+                  "scoreMeaning": "normalized appearance correlation, not calibrated semantic confidence",
+                  "lastKnownBox": [
+                    0.299,
+                    0.253,
+                    0.6193747072599531,
+                    0.5763333333333334
+                  ],
+                  "appearanceUpdates": 0,
+                  "box": null,
+                  "id": "research-object",
+                  "label": "car-shadow",
+                  "anchorScore": 0.7026195168405662,
+                  "status": "lost"
+                },
+                "processingMillis": 11.614899,
+                "maskSha256": "86af98f7c94f359395cf5167d857bbde4269632e2ef553d5bc582fc637249b97",
+                "iou": 0,
+                "ordinal": 16
+              },
+              {
+                "reference": [
+                  0.3594847775175644,
+                  0.34375,
+                  0.5737704918032787,
+                  0.5625
+                ],
+                "sourceFrame": 35,
+                "imageSha256": "1dc6a8366f7b4ee12d2175de821e98f2b738d00d66ec903fea061e5ef11b7585",
+                "prediction": {
+                  "matchScore": 0.7159710695671669,
+                  "scoreMeaning": "normalized appearance correlation, not calibrated semantic confidence",
+                  "lastKnownBox": [
+                    0.299,
+                    0.253,
+                    0.6193747072599531,
+                    0.5763333333333334
+                  ],
+                  "appearanceUpdates": 0,
+                  "box": null,
+                  "id": "research-object",
+                  "label": "car-shadow",
+                  "anchorScore": 0.7159710695671669,
+                  "status": "lost"
+                },
+                "processingMillis": 11.7158,
+                "maskSha256": "2066a682e87a47e1928b07c4449ace54136fea7fbe4ea03bd279396ed5cceed9",
+                "iou": 0,
+                "ordinal": 17
+              },
+              {
+                "reference": [
+                  0.36768149882903983,
+                  0.3458333333333333,
+                  0.5737704918032787,
+                  0.5583333333333333
+                ],
+                "sourceFrame": 37,
+                "imageSha256": "b76e25b4084f9e0becfbb1c56935ac428299bed4b7e5417c2e07bdbf95e198e4",
+                "prediction": {
+                  "matchScore": 0,
+                  "scoreMeaning": "normalized appearance correlation, not calibrated semantic confidence",
+                  "lastKnownBox": [
+                    0.299,
+                    0.253,
+                    0.6193747072599531,
+                    0.5763333333333334
+                  ],
+                  "appearanceUpdates": 0,
+                  "box": null,
+                  "id": "research-object",
+                  "label": "car-shadow",
+                  "anchorScore": 0.7083700560311135,
+                  "status": "lost"
+                },
+                "processingMillis": 13.6767,
+                "maskSha256": "c42ff1180e515d006c26893dac7e9e876824542b62840e4a755b45bdc2df2a38",
+                "iou": 0,
+                "ordinal": 18
+              },
+              {
+                "reference": [
+                  0.373536299765808,
+                  0.35,
+                  0.5714285714285714,
+                  0.5562499999999999
+                ],
+                "sourceFrame": 39,
+                "imageSha256": "eebcbb6a3bd6ec7f6abc7ea095c932549794deda70b8b54060f5042858306836",
+                "prediction": {
+                  "matchScore": 0.6958022401483765,
+                  "scoreMeaning": "normalized appearance correlation, not calibrated semantic confidence",
+                  "lastKnownBox": [
+                    0.299,
+                    0.253,
+                    0.6193747072599531,
+                    0.5763333333333334
+                  ],
+                  "appearanceUpdates": 0,
+                  "box": null,
+                  "id": "research-object",
+                  "label": "car-shadow",
+                  "anchorScore": 0.6958022401483765,
+                  "status": "lost"
+                },
+                "processingMillis": 11.6788,
+                "maskSha256": "31f066035802eb15ddd831a670fcae9c641d78d428d78f3522595ec3afe84b24",
+                "iou": 0,
+                "ordinal": 19
+              }
+            ],
+            "profile": "rgb-v1",
+            "initialization": {
+              "reference": [
+                0.3665105386416862,
+                0.18333333333333332,
+                0.7669789227166277,
+                0.5875
+              ],
+              "sourceFrame": 0,
+              "scored": false
+            },
+            "metrics": {
+              "meanIou": 0.14141230972307395,
+              "referenceAbsentFrames": 0,
+              "p95ProcessingMillis": 13.6767,
+              "latencyScope": "JPEG/PNG decode plus CPU tracking; excludes browser capture, network and LLM. Initialization excluded from scored frames.",
+              "scoredFrames": 19,
+              "iouHalfFraction": 0.15789473684210525,
+              "reacquired": 3,
+              "lost": 16,
+              "lowOverlapVisiblePredictions": 0,
+              "medianProcessingMillis": 11.6412
+            }
+          }
+        },
+        {
+          "sourceContentSha256": "0fa5a239a4e89b66a75da645b27fea17d165374bc06ae39613bce0be7efdea2c",
+          "split": "evaluation",
+          "adaptive-v2": {
+            "sequence": "hike",
+            "codeSha256": "b553c15bcc930b6e78b6dec58870119a536d2f2ec3459fd868b0cd16cf38847b",
+            "split": "evaluation",
+            "frames": [
+              {
+                "reference": [
+                  0.5023419203747073,
+                  0.29583333333333334,
+                  0.6756440281030445,
+                  0.89375
+                ],
+                "sourceFrame": 4,
+                "imageSha256": "d85900b977d8473ce1da2743a9bad48af4079161c7bc2b1d840413b8b11093e5",
+                "prediction": {
+                  "matchScore": 0.7000097819780365,
+                  "scoreMeaning": "RGB/edge appearance similarity, not calibrated semantic confidence",
+                  "lastKnownBox": [
+                    0.48360655737704916,
+                    0.2916666666666667,
+                    0.6768149882903981,
+                    0.89375
+                  ],
+                  "appearanceUpdates": 0,
+                  "box": null,
+                  "id": "research-object",
+                  "label": "hike",
+                  "anchorScore": 0.7000097819780365,
+                  "status": "lost"
+                },
+                "processingMillis": 74.931899,
+                "maskSha256": "b9e6f69a436068578062bc4d1e504ff29ea1e27996b2ab26076f64c3238fce30",
+                "iou": 0,
+                "ordinal": 1
+              },
+              {
+                "reference": [
+                  0.5140515222482436,
+                  0.2791666666666667,
+                  0.6651053864168619,
+                  0.8895833333333334
+                ],
+                "sourceFrame": 8,
+                "imageSha256": "db05c9a0ecfc0605a1711935dde6a931706d037d27760a8e21a9cf4e57e31441",
+                "prediction": {
+                  "matchScore": 0.6131212100103436,
+                  "scoreMeaning": "RGB/edge appearance similarity, not calibrated semantic confidence",
+                  "lastKnownBox": [
+                    0.48360655737704916,
+                    0.2916666666666667,
+                    0.6768149882903981,
+                    0.89375
+                  ],
+                  "appearanceUpdates": 0,
+                  "box": null,
+                  "id": "research-object",
+                  "label": "hike",
+                  "anchorScore": 0.6131212100103436,
+                  "status": "lost"
+                },
+                "processingMillis": 64.099201,
+                "maskSha256": "c5bfed28a0630d12e4ae6c5cb0131dc621f35a63047d062bd6ed08f6d5f64009",
+                "iou": 0,
+                "ordinal": 2
+              },
+              {
+                "reference": [
+                  0.5163934426229508,
+                  0.2708333333333333,
+                  0.6615925058548009,
+                  0.8875
+                ],
+                "sourceFrame": 12,
+                "imageSha256": "891b65c689b9b735d3866dd245b6339334cf67fd0dd518df8819b34cf7fdbc75",
+                "prediction": {
+                  "matchScore": 0.4943992226749265,
+                  "scoreMeaning": "RGB/edge appearance similarity, not calibrated semantic confidence",
+                  "lastKnownBox": [
+                    0.48360655737704916,
+                    0.2916666666666667,
+                    0.6768149882903981,
+                    0.89375
+                  ],
+                  "appearanceUpdates": 0,
+                  "box": null,
+                  "id": "research-object",
+                  "label": "hike",
+                  "anchorScore": 0.4943992226749265,
+                  "status": "lost"
+                },
+                "processingMillis": 75.0165,
+                "maskSha256": "8d5e03db48af5ec321281eaf29f4ba07c850426cf4441b683ebe6d62c9760975",
+                "iou": 0,
+                "ordinal": 3
+              },
+              {
+                "reference": [
+                  0.5128805620608899,
+                  0.2708333333333333,
+                  0.702576112412178,
+                  0.8833333333333333
+                ],
+                "sourceFrame": 17,
+                "imageSha256": "1480f3b151a216e58db5607172d1bf0a18cd51e05212eaada0d2012758235c60",
+                "prediction": {
+                  "matchScore": 0.630281402578994,
+                  "scoreMeaning": "RGB/edge appearance similarity, not calibrated semantic confidence",
+                  "lastKnownBox": [
+                    0.48360655737704916,
+                    0.2916666666666667,
+                    0.6768149882903981,
+                    0.89375
+                  ],
+                  "appearanceUpdates": 0,
+                  "box": null,
+                  "id": "research-object",
+                  "label": "hike",
+                  "anchorScore": 0.6302814025789941,
+                  "status": "lost"
+                },
+                "processingMillis": 75.7001,
+                "maskSha256": "019924987ffc1ec32b2f876a8956323cf8fb45c3de29f4e2b5424f5a483a58bb",
+                "iou": 0,
+                "ordinal": 4
+              },
+              {
+                "reference": [
+                  0.5152224824355972,
+                  0.275,
+                  0.7236533957845434,
+                  0.8833333333333333
+                ],
+                "sourceFrame": 21,
+                "imageSha256": "e41d5acb82aa960c67b931c5e9328880dc0e1c015a604fece0bd31e2ee12741e",
+                "prediction": {
+                  "matchScore": 0.6455144034926776,
+                  "scoreMeaning": "RGB/edge appearance similarity, not calibrated semantic confidence",
+                  "lastKnownBox": [
+                    0.48360655737704916,
+                    0.2916666666666667,
+                    0.6768149882903981,
+                    0.89375
+                  ],
+                  "appearanceUpdates": 0,
+                  "box": null,
+                  "id": "research-object",
+                  "label": "hike",
+                  "anchorScore": 0.6455144034926776,
+                  "status": "lost"
+                },
+                "processingMillis": 68.1351,
+                "maskSha256": "a20dab1219b2d61e41a8d4a9152b9501ab2bf16c457b255f7b8b721cfd1ef91a",
+                "iou": 0,
+                "ordinal": 5
+              },
+              {
+                "reference": [
+                  0.5210772833723654,
+                  0.28541666666666665,
+                  0.7154566744730679,
+                  0.8854166666666666
+                ],
+                "sourceFrame": 25,
+                "imageSha256": "f097459dcad50fcfea97224cce401aa50eb05bf25a80051edac0b858632b2478",
+                "prediction": {
+                  "matchScore": 0.6690219943828528,
+                  "scoreMeaning": "RGB/edge appearance similarity, not calibrated semantic confidence",
+                  "lastKnownBox": [
+                    0.48360655737704916,
+                    0.2916666666666667,
+                    0.6768149882903981,
+                    0.89375
+                  ],
+                  "appearanceUpdates": 0,
+                  "box": null,
+                  "id": "research-object",
+                  "label": "hike",
+                  "anchorScore": 0.6690219943828528,
+                  "status": "lost"
+                },
+                "processingMillis": 74.939901,
+                "maskSha256": "6d0ae8de5838525326c7c6c52c1cabd4db50778eb5deaa5b308e17c453014522",
+                "iou": 0,
+                "ordinal": 6
+              },
+              {
+                "reference": [
+                  0.5269320843091335,
+                  0.2875,
+                  0.702576112412178,
+                  0.88125
+                ],
+                "sourceFrame": 29,
+                "imageSha256": "3871bfb4c71bc9877ef4cbb0f7b392c93bf23d4155c840750717f1ed3d3b8e35",
+                "prediction": {
+                  "matchScore": 0.6493158843298492,
+                  "scoreMeaning": "RGB/edge appearance similarity, not calibrated semantic confidence",
+                  "lastKnownBox": [
+                    0.48360655737704916,
+                    0.2916666666666667,
+                    0.6768149882903981,
+                    0.89375
+                  ],
+                  "appearanceUpdates": 0,
+                  "box": null,
+                  "id": "research-object",
+                  "label": "hike",
+                  "anchorScore": 0.6493158843298492,
+                  "status": "lost"
+                },
+                "processingMillis": 78.135,
+                "maskSha256": "8ff51ff905632144d05077f1ad0c7fb9234c9c901911e5da9fe34d455e3e5bfb",
+                "iou": 0,
+                "ordinal": 7
+              },
+              {
+                "reference": [
+                  0.5245901639344263,
+                  0.2791666666666667,
+                  0.6756440281030445,
+                  0.875
+                ],
+                "sourceFrame": 33,
+                "imageSha256": "dbaadd3b5e36ada74b91448081bef155735a2d18f1783a35280da673f636b352",
+                "prediction": {
+                  "matchScore": 0.5482546398509968,
+                  "scoreMeaning": "RGB/edge appearance similarity, not calibrated semantic confidence",
+                  "lastKnownBox": [
+                    0.48360655737704916,
+                    0.2916666666666667,
+                    0.6768149882903981,
+                    0.89375
+                  ],
+                  "appearanceUpdates": 0,
+                  "box": null,
+                  "id": "research-object",
+                  "label": "hike",
+                  "anchorScore": 0.5482546398509968,
+                  "status": "lost"
+                },
+                "processingMillis": 111.8643,
+                "maskSha256": "242d151f4947e19115a567e800c0ae10f1535ffe163ebe2fe524f7f3eb52fa13",
+                "iou": 0,
+                "ordinal": 8
+              },
+              {
+                "reference": [
+                  0.5187353629976581,
+                  0.2708333333333333,
+                  0.652224824355972,
+                  0.85625
+                ],
+                "sourceFrame": 37,
+                "imageSha256": "7ddabe3796ad5d90ef81cd3c0e9257031519005a4a4bf014bcd75741a41c1796",
+                "prediction": {
+                  "matchScore": 0.5139249850465377,
+                  "scoreMeaning": "RGB/edge appearance similarity, not calibrated semantic confidence",
+                  "lastKnownBox": [
+                    0.48360655737704916,
+                    0.2916666666666667,
+                    0.6768149882903981,
+                    0.89375
+                  ],
+                  "appearanceUpdates": 0,
+                  "box": null,
+                  "id": "research-object",
+                  "label": "hike",
+                  "anchorScore": 0.5139249850465377,
+                  "status": "lost"
+                },
+                "processingMillis": 77.4314,
+                "maskSha256": "baa3b829253be1cc372a183ee0a459dd2b54f2926fb1fd81710520114ce8a38d",
+                "iou": 0,
+                "ordinal": 9
+              },
+              {
+                "reference": [
+                  0.5035128805620609,
+                  0.2708333333333333,
+                  0.6604215456674474,
+                  0.8583333333333334
+                ],
+                "sourceFrame": 42,
+                "imageSha256": "aa81bd61c3d1ba57bee528316a338a578eab2bc31299e500e0b0d2875f603e93",
+                "prediction": {
+                  "matchScore": 0.5576121764512293,
+                  "scoreMeaning": "RGB/edge appearance similarity, not calibrated semantic confidence",
+                  "lastKnownBox": [
+                    0.48360655737704916,
+                    0.2916666666666667,
+                    0.6768149882903981,
+                    0.89375
+                  ],
+                  "appearanceUpdates": 0,
+                  "box": null,
+                  "id": "research-object",
+                  "label": "hike",
+                  "anchorScore": 0.5576121764512293,
+                  "status": "lost"
+                },
+                "processingMillis": 74.4454,
+                "maskSha256": "956825ee4537ef6ee53a599445a96ffedfd8f6ce472a8b9051f02192d1b48156",
+                "iou": 0,
+                "ordinal": 10
+              },
+              {
+                "reference": [
+                  0.4929742388758782,
+                  0.27708333333333335,
+                  0.689695550351288,
+                  0.8583333333333334
+                ],
+                "sourceFrame": 46,
+                "imageSha256": "660c31a9d9e24bf2dcb257ee75b22556834b02e8d884f08e40b0e751564ce790",
+                "prediction": {
+                  "matchScore": 0.6353586127100487,
+                  "scoreMeaning": "RGB/edge appearance similarity, not calibrated semantic confidence",
+                  "lastKnownBox": [
+                    0.48360655737704916,
+                    0.2916666666666667,
+                    0.6768149882903981,
+                    0.89375
+                  ],
+                  "appearanceUpdates": 0,
+                  "box": null,
+                  "id": "research-object",
+                  "label": "hike",
+                  "anchorScore": 0.6353586127100487,
+                  "status": "lost"
+                },
+                "processingMillis": 74.0494,
+                "maskSha256": "56114a5358b4074cdfb864730ea2859df7112e02f8d265d041863cc79420811b",
+                "iou": 0,
+                "ordinal": 11
+              },
+              {
+                "reference": [
+                  0.4953161592505855,
+                  0.28541666666666665,
+                  0.6814988290398126,
+                  0.85625
+                ],
+                "sourceFrame": 50,
+                "imageSha256": "3f6205ef1c1887c9c8212e1fd36c78b82029cc589e17d05b79282d53f19fd1bb",
+                "prediction": {
+                  "matchScore": 0.6621746299787425,
+                  "scoreMeaning": "RGB/edge appearance similarity, not calibrated semantic confidence",
+                  "lastKnownBox": [
+                    0.48360655737704916,
+                    0.2916666666666667,
+                    0.6768149882903981,
+                    0.89375
+                  ],
+                  "appearanceUpdates": 0,
+                  "box": null,
+                  "id": "research-object",
+                  "label": "hike",
+                  "anchorScore": 0.6621746299787427,
+                  "status": "lost"
+                },
+                "processingMillis": 69.368899,
+                "maskSha256": "ad1faf594b9d38ba897aeee71682a840247f96aea1646ace2cd1b459042def49",
+                "iou": 0,
+                "ordinal": 12
+              },
+              {
+                "reference": [
+                  0.5023419203747073,
+                  0.27708333333333335,
+                  0.6662763466042154,
+                  0.8458333333333333
+                ],
+                "sourceFrame": 54,
+                "imageSha256": "2a482d6a43f0a39283b8aac425e716619b3de5fad093464daae0c58630faf57d",
+                "prediction": {
+                  "matchScore": 0.5958791444143561,
+                  "scoreMeaning": "RGB/edge appearance similarity, not calibrated semantic confidence",
+                  "lastKnownBox": [
+                    0.48360655737704916,
+                    0.2916666666666667,
+                    0.6768149882903981,
+                    0.89375
+                  ],
+                  "appearanceUpdates": 0,
+                  "box": null,
+                  "id": "research-object",
+                  "label": "hike",
+                  "anchorScore": 0.5958791444143561,
+                  "status": "lost"
+                },
+                "processingMillis": 72.1852,
+                "maskSha256": "cc450f920cdfac2d6665717cb341ef2f1cafe626d86ef2621ddf44d94db1c602",
+                "iou": 0,
+                "ordinal": 13
+              },
+              {
+                "reference": [
+                  0.5070257611241218,
+                  0.26666666666666666,
+                  0.6498829039812646,
+                  0.8374999999999999
+                ],
+                "sourceFrame": 58,
+                "imageSha256": "73e68fb2d8b12623a287a7d05c87a1d0b95333d6ea3fe1c5063d37984ba887ed",
+                "prediction": {
+                  "matchScore": 0.5163052596324158,
+                  "scoreMeaning": "RGB/edge appearance similarity, not calibrated semantic confidence",
+                  "lastKnownBox": [
+                    0.48360655737704916,
+                    0.2916666666666667,
+                    0.6768149882903981,
+                    0.89375
+                  ],
+                  "appearanceUpdates": 0,
+                  "box": null,
+                  "id": "research-object",
+                  "label": "hike",
+                  "anchorScore": 0.5163052596324158,
+                  "status": "lost"
+                },
+                "processingMillis": 77.8699,
+                "maskSha256": "e2411df55f888e752097f2d3fae5279698a492db35b102e21882ff6309b9e649",
+                "iou": 0,
+                "ordinal": 14
+              },
+              {
+                "reference": [
+                  0.5011709601873536,
+                  0.26666666666666666,
+                  0.6334894613583139,
+                  0.8374999999999999
+                ],
+                "sourceFrame": 62,
+                "imageSha256": "89e3b538e97e0c054bbe91b789da0e2b79b0be8efd38d1211961a16951a311c6",
+                "prediction": {
+                  "matchScore": 0,
+                  "scoreMeaning": "RGB/edge appearance similarity, not calibrated semantic confidence",
+                  "lastKnownBox": [
+                    0.48360655737704916,
+                    0.2916666666666667,
+                    0.6768149882903981,
+                    0.89375
+                  ],
+                  "appearanceUpdates": 0,
+                  "box": null,
+                  "id": "research-object",
+                  "label": "hike",
+                  "anchorScore": 0.4729851912274311,
+                  "status": "lost"
+                },
+                "processingMillis": 83.107699,
+                "maskSha256": "75a31121156c936156b1b389bdd9b7a017d43b506dfee2f5d5a1805f3fa8b7b7",
+                "iou": 0,
+                "ordinal": 15
+              },
+              {
+                "reference": [
+                  0.4894613583138173,
+                  0.26875,
+                  0.6217798594847775,
+                  0.8416666666666666
+                ],
+                "sourceFrame": 67,
+                "imageSha256": "d08cc6a7810ce02d1e38a9d7477e79057870c1bb92c6f8e36594e961f27f9b37",
+                "prediction": {
+                  "matchScore": 0.48256520515434775,
+                  "scoreMeaning": "RGB/edge appearance similarity, not calibrated semantic confidence",
+                  "lastKnownBox": [
+                    0.48360655737704916,
+                    0.2916666666666667,
+                    0.6768149882903981,
+                    0.89375
+                  ],
+                  "appearanceUpdates": 0,
+                  "box": null,
+                  "id": "research-object",
+                  "label": "hike",
+                  "anchorScore": 0.48256520515434775,
+                  "status": "lost"
+                },
+                "processingMillis": 69.127099,
+                "maskSha256": "16714eddb03a88aab1f0bb2ac7ea6b804599b409a56eaddbfdb5f092dede1bde",
+                "iou": 0,
+                "ordinal": 16
+              },
+              {
+                "reference": [
+                  0.4812646370023419,
+                  0.2791666666666667,
+                  0.635831381733021,
+                  0.85
+                ],
+                "sourceFrame": 71,
+                "imageSha256": "c6c546e1dbee91a50615b1211ab4ec15fd1232b45d5ae3e999ad8db3ad2c529a",
+                "prediction": {
+                  "matchScore": 0.5179136180247053,
+                  "scoreMeaning": "RGB/edge appearance similarity, not calibrated semantic confidence",
+                  "lastKnownBox": [
+                    0.48360655737704916,
+                    0.2916666666666667,
+                    0.6768149882903981,
+                    0.89375
+                  ],
+                  "appearanceUpdates": 0,
+                  "box": null,
+                  "id": "research-object",
+                  "label": "hike",
+                  "anchorScore": 0.5179136180247053,
+                  "status": "lost"
+                },
+                "processingMillis": 72.2379,
+                "maskSha256": "98332dddb2c6b5cadf8de5d8b17ec6a72bbe27989bdc4964a9dec58853755498",
+                "iou": 0,
+                "ordinal": 17
+              },
+              {
+                "reference": [
+                  0.47892271662763464,
+                  0.29791666666666666,
+                  0.635831381733021,
+                  0.8625
+                ],
+                "sourceFrame": 75,
+                "imageSha256": "7e69522c5ce528b1cabbdf673cfa41d7c812b3b55f00bbf4aa4d75c49c2965d9",
+                "prediction": {
+                  "matchScore": 0.5773628598065631,
+                  "scoreMeaning": "RGB/edge appearance similarity, not calibrated semantic confidence",
+                  "lastKnownBox": [
+                    0.48360655737704916,
+                    0.2916666666666667,
+                    0.6768149882903981,
+                    0.89375
+                  ],
+                  "appearanceUpdates": 0,
+                  "box": null,
+                  "id": "research-object",
+                  "label": "hike",
+                  "anchorScore": 0.5773628598065631,
+                  "status": "lost"
+                },
+                "processingMillis": 72.7191,
+                "maskSha256": "a764a308da5adca9873eb4e98e11c3d75e94113e688439ad9498a8e851a88af6",
+                "iou": 0,
+                "ordinal": 18
+              },
+              {
+                "reference": [
+                  0.4812646370023419,
+                  0.3145833333333333,
+                  0.6334894613583137,
+                  0.86875
+                ],
+                "sourceFrame": 79,
+                "imageSha256": "d7fb4066fbbe17c9b63aa2995a3c183a6eded34d22a9b8602b901f67bfdf275d",
+                "prediction": {
+                  "matchScore": 0.6239133789372366,
+                  "scoreMeaning": "RGB/edge appearance similarity, not calibrated semantic confidence",
+                  "lastKnownBox": [
+                    0.48360655737704916,
+                    0.2916666666666667,
+                    0.6768149882903981,
+                    0.89375
+                  ],
+                  "appearanceUpdates": 0,
+                  "box": null,
+                  "id": "research-object",
+                  "label": "hike",
+                  "anchorScore": 0.6239133789372366,
+                  "status": "lost"
+                },
+                "processingMillis": 64.865799,
+                "maskSha256": "a9117a5d2c8eeca95e8df29faf031ac4554bca42b0807a8d7309ffb53768f5ef",
+                "iou": 0,
+                "ordinal": 19
+              }
+            ],
+            "profile": "adaptive-v2",
+            "initialization": {
+              "reference": [
+                0.48360655737704916,
+                0.2916666666666667,
+                0.6768149882903981,
+                0.89375
+              ],
+              "sourceFrame": 0,
+              "scored": false
+            },
+            "metrics": {
+              "meanIou": 0,
+              "referenceAbsentFrames": 0,
+              "p95ProcessingMillis": 111.8643,
+              "latencyScope": "JPEG/PNG decode plus CPU tracking; excludes browser capture, network and LLM. Initialization excluded from scored frames.",
+              "scoredFrames": 19,
+              "iouHalfFraction": 0,
+              "reacquired": 0,
+              "lost": 19,
+              "lowOverlapVisiblePredictions": 0,
+              "medianProcessingMillis": 74.4454
+            }
+          },
+          "datasetId": "9cb16ea2-3fd9-435c-8dfe-bc9e45af77ac",
+          "rgb-v1": {
+            "sequence": "hike",
+            "codeSha256": "89e15acf52b828948cdc0476f690bd016c0b4daf676c743a54b00a9b4df62f2f",
+            "split": "evaluation",
+            "frames": [
+              {
+                "reference": [
+                  0.5023419203747073,
+                  0.29583333333333334,
+                  0.6756440281030445,
+                  0.89375
+                ],
+                "sourceFrame": 4,
+                "imageSha256": "d85900b977d8473ce1da2743a9bad48af4079161c7bc2b1d840413b8b11093e5",
+                "prediction": {
+                  "matchScore": 0.7542687133389633,
+                  "scoreMeaning": "normalized appearance correlation, not calibrated semantic confidence",
+                  "lastKnownBox": [
+                    0.48360655737704916,
+                    0.2916666666666667,
+                    0.6768149882903981,
+                    0.89375
+                  ],
+                  "appearanceUpdates": 0,
+                  "box": null,
+                  "id": "research-object",
+                  "label": "hike",
+                  "anchorScore": 0.7542687133389633,
+                  "status": "lost"
+                },
+                "processingMillis": 13.953901,
+                "maskSha256": "b9e6f69a436068578062bc4d1e504ff29ea1e27996b2ab26076f64c3238fce30",
+                "iou": 0,
+                "ordinal": 1
+              },
+              {
+                "reference": [
+                  0.5140515222482436,
+                  0.2791666666666667,
+                  0.6651053864168619,
+                  0.8895833333333334
+                ],
+                "sourceFrame": 8,
+                "imageSha256": "db05c9a0ecfc0605a1711935dde6a931706d037d27760a8e21a9cf4e57e31441",
+                "prediction": {
+                  "matchScore": 0.6461459876427228,
+                  "scoreMeaning": "normalized appearance correlation, not calibrated semantic confidence",
+                  "lastKnownBox": [
+                    0.48360655737704916,
+                    0.2916666666666667,
+                    0.6768149882903981,
+                    0.89375
+                  ],
+                  "appearanceUpdates": 0,
+                  "box": null,
+                  "id": "research-object",
+                  "label": "hike",
+                  "anchorScore": 0.6461459876427228,
+                  "status": "lost"
+                },
+                "processingMillis": 15.402901,
+                "maskSha256": "c5bfed28a0630d12e4ae6c5cb0131dc621f35a63047d062bd6ed08f6d5f64009",
+                "iou": 0,
+                "ordinal": 2
+              },
+              {
+                "reference": [
+                  0.5163934426229508,
+                  0.2708333333333333,
+                  0.6615925058548009,
+                  0.8875
+                ],
+                "sourceFrame": 12,
+                "imageSha256": "891b65c689b9b735d3866dd245b6339334cf67fd0dd518df8819b34cf7fdbc75",
+                "prediction": {
+                  "matchScore": 0.5953338120509242,
+                  "scoreMeaning": "normalized appearance correlation, not calibrated semantic confidence",
+                  "lastKnownBox": [
+                    0.48360655737704916,
+                    0.2916666666666667,
+                    0.6768149882903981,
+                    0.89375
+                  ],
+                  "appearanceUpdates": 0,
+                  "box": null,
+                  "id": "research-object",
+                  "label": "hike",
+                  "anchorScore": 0.5953338120509242,
+                  "status": "lost"
+                },
+                "processingMillis": 12.175799,
+                "maskSha256": "8d5e03db48af5ec321281eaf29f4ba07c850426cf4441b683ebe6d62c9760975",
+                "iou": 0,
+                "ordinal": 3
+              },
+              {
+                "reference": [
+                  0.5128805620608899,
+                  0.2708333333333333,
+                  0.702576112412178,
+                  0.8833333333333333
+                ],
+                "sourceFrame": 17,
+                "imageSha256": "1480f3b151a216e58db5607172d1bf0a18cd51e05212eaada0d2012758235c60",
+                "prediction": {
+                  "matchScore": 0.6196147967724337,
+                  "scoreMeaning": "normalized appearance correlation, not calibrated semantic confidence",
+                  "lastKnownBox": [
+                    0.48360655737704916,
+                    0.2916666666666667,
+                    0.6768149882903981,
+                    0.89375
+                  ],
+                  "appearanceUpdates": 0,
+                  "box": null,
+                  "id": "research-object",
+                  "label": "hike",
+                  "anchorScore": 0.6196147967724337,
+                  "status": "lost"
+                },
+                "processingMillis": 12.0819,
+                "maskSha256": "019924987ffc1ec32b2f876a8956323cf8fb45c3de29f4e2b5424f5a483a58bb",
+                "iou": 0,
+                "ordinal": 4
+              },
+              {
+                "reference": [
+                  0.5152224824355972,
+                  0.275,
+                  0.7236533957845434,
+                  0.8833333333333333
+                ],
+                "sourceFrame": 21,
+                "imageSha256": "e41d5acb82aa960c67b931c5e9328880dc0e1c015a604fece0bd31e2ee12741e",
+                "prediction": {
+                  "matchScore": 0.7576370523985678,
+                  "scoreMeaning": "normalized appearance correlation, not calibrated semantic confidence",
+                  "lastKnownBox": [
+                    0.48360655737704916,
+                    0.2916666666666667,
+                    0.6768149882903981,
+                    0.89375
+                  ],
+                  "appearanceUpdates": 0,
+                  "box": null,
+                  "id": "research-object",
+                  "label": "hike",
+                  "anchorScore": 0.7576370523985678,
+                  "status": "lost"
+                },
+                "processingMillis": 11.9674,
+                "maskSha256": "a20dab1219b2d61e41a8d4a9152b9501ab2bf16c457b255f7b8b721cfd1ef91a",
+                "iou": 0,
+                "ordinal": 5
+              },
+              {
+                "reference": [
+                  0.5210772833723654,
+                  0.28541666666666665,
+                  0.7154566744730679,
+                  0.8854166666666666
+                ],
+                "sourceFrame": 25,
+                "imageSha256": "f097459dcad50fcfea97224cce401aa50eb05bf25a80051edac0b858632b2478",
+                "prediction": {
+                  "matchScore": 0.802299355758865,
+                  "scoreMeaning": "normalized appearance correlation, not calibrated semantic confidence",
+                  "lastKnownBox": [
+                    0.5280000000000001,
+                    0.26999999999999996,
+                    0.7212084309133491,
+                    0.8720833333333333
+                  ],
+                  "appearanceUpdates": 0,
+                  "box": [
+                    0.5280000000000001,
+                    0.26999999999999996,
+                    0.7212084309133491,
+                    0.8720833333333333
+                  ],
+                  "id": "research-object",
+                  "label": "hike",
+                  "anchorScore": 0.802299355758865,
+                  "status": "reacquired"
+                },
+                "processingMillis": 12.293,
+                "maskSha256": "6d0ae8de5838525326c7c6c52c1cabd4db50778eb5deaa5b308e17c453014522",
+                "iou": 0.894243132228544,
+                "ordinal": 6
+              },
+              {
+                "reference": [
+                  0.5269320843091335,
+                  0.2875,
+                  0.702576112412178,
+                  0.88125
+                ],
+                "sourceFrame": 29,
+                "imageSha256": "3871bfb4c71bc9877ef4cbb0f7b392c93bf23d4155c840750717f1ed3d3b8e35",
+                "prediction": {
+                  "matchScore": 0.6949140728448544,
+                  "scoreMeaning": "normalized appearance correlation, not calibrated semantic confidence",
+                  "lastKnownBox": [
+                    0.5280000000000001,
+                    0.26999999999999996,
+                    0.7212084309133491,
+                    0.8720833333333333
+                  ],
+                  "appearanceUpdates": 0,
+                  "box": null,
+                  "id": "research-object",
+                  "label": "hike",
+                  "anchorScore": 0.6949140728448544,
+                  "status": "lost"
+                },
+                "processingMillis": 12.4103,
+                "maskSha256": "8ff51ff905632144d05077f1ad0c7fb9234c9c901911e5da9fe34d455e3e5bfb",
+                "iou": 0,
+                "ordinal": 7
+              },
+              {
+                "reference": [
+                  0.5245901639344263,
+                  0.2791666666666667,
+                  0.6756440281030445,
+                  0.875
+                ],
+                "sourceFrame": 33,
+                "imageSha256": "dbaadd3b5e36ada74b91448081bef155735a2d18f1783a35280da673f636b352",
+                "prediction": {
+                  "matchScore": 0.6556141386716611,
+                  "scoreMeaning": "normalized appearance correlation, not calibrated semantic confidence",
+                  "lastKnownBox": [
+                    0.5280000000000001,
+                    0.26999999999999996,
+                    0.7212084309133491,
+                    0.8720833333333333
+                  ],
+                  "appearanceUpdates": 0,
+                  "box": null,
+                  "id": "research-object",
+                  "label": "hike",
+                  "anchorScore": 0.6556141386716611,
+                  "status": "lost"
+                },
+                "processingMillis": 11.800199,
+                "maskSha256": "242d151f4947e19115a567e800c0ae10f1535ffe163ebe2fe524f7f3eb52fa13",
+                "iou": 0,
+                "ordinal": 8
+              },
+              {
+                "reference": [
+                  0.5187353629976581,
+                  0.2708333333333333,
+                  0.652224824355972,
+                  0.85625
+                ],
+                "sourceFrame": 37,
+                "imageSha256": "7ddabe3796ad5d90ef81cd3c0e9257031519005a4a4bf014bcd75741a41c1796",
+                "prediction": {
+                  "matchScore": 0.6304371563692991,
+                  "scoreMeaning": "normalized appearance correlation, not calibrated semantic confidence",
+                  "lastKnownBox": [
+                    0.5280000000000001,
+                    0.26999999999999996,
+                    0.7212084309133491,
+                    0.8720833333333333
+                  ],
+                  "appearanceUpdates": 0,
+                  "box": null,
+                  "id": "research-object",
+                  "label": "hike",
+                  "anchorScore": 0.6304371563692991,
+                  "status": "lost"
+                },
+                "processingMillis": 12.4296,
+                "maskSha256": "baa3b829253be1cc372a183ee0a459dd2b54f2926fb1fd81710520114ce8a38d",
+                "iou": 0,
+                "ordinal": 9
+              },
+              {
+                "reference": [
+                  0.5035128805620609,
+                  0.2708333333333333,
+                  0.6604215456674474,
+                  0.8583333333333334
+                ],
+                "sourceFrame": 42,
+                "imageSha256": "aa81bd61c3d1ba57bee528316a338a578eab2bc31299e500e0b0d2875f603e93",
+                "prediction": {
+                  "matchScore": 0.6459681587297187,
+                  "scoreMeaning": "normalized appearance correlation, not calibrated semantic confidence",
+                  "lastKnownBox": [
+                    0.5280000000000001,
+                    0.26999999999999996,
+                    0.7212084309133491,
+                    0.8720833333333333
+                  ],
+                  "appearanceUpdates": 0,
+                  "box": null,
+                  "id": "research-object",
+                  "label": "hike",
+                  "anchorScore": 0.6459681587297187,
+                  "status": "lost"
+                },
+                "processingMillis": 12.2322,
+                "maskSha256": "956825ee4537ef6ee53a599445a96ffedfd8f6ce472a8b9051f02192d1b48156",
+                "iou": 0,
+                "ordinal": 10
+              },
+              {
+                "reference": [
+                  0.4929742388758782,
+                  0.27708333333333335,
+                  0.689695550351288,
+                  0.8583333333333334
+                ],
+                "sourceFrame": 46,
+                "imageSha256": "660c31a9d9e24bf2dcb257ee75b22556834b02e8d884f08e40b0e751564ce790",
+                "prediction": {
+                  "matchScore": 0.7387488244009605,
+                  "scoreMeaning": "normalized appearance correlation, not calibrated semantic confidence",
+                  "lastKnownBox": [
+                    0.5280000000000001,
+                    0.26999999999999996,
+                    0.7212084309133491,
+                    0.8720833333333333
+                  ],
+                  "appearanceUpdates": 0,
+                  "box": null,
+                  "id": "research-object",
+                  "label": "hike",
+                  "anchorScore": 0.7387488244009605,
+                  "status": "lost"
+                },
+                "processingMillis": 11.7672,
+                "maskSha256": "56114a5358b4074cdfb864730ea2859df7112e02f8d265d041863cc79420811b",
+                "iou": 0,
+                "ordinal": 11
+              },
+              {
+                "reference": [
+                  0.4953161592505855,
+                  0.28541666666666665,
+                  0.6814988290398126,
+                  0.85625
+                ],
+                "sourceFrame": 50,
+                "imageSha256": "3f6205ef1c1887c9c8212e1fd36c78b82029cc589e17d05b79282d53f19fd1bb",
+                "prediction": {
+                  "matchScore": 0.7244816672532586,
+                  "scoreMeaning": "normalized appearance correlation, not calibrated semantic confidence",
+                  "lastKnownBox": [
+                    0.5280000000000001,
+                    0.26999999999999996,
+                    0.7212084309133491,
+                    0.8720833333333333
+                  ],
+                  "appearanceUpdates": 0,
+                  "box": null,
+                  "id": "research-object",
+                  "label": "hike",
+                  "anchorScore": 0.7244816672532586,
+                  "status": "lost"
+                },
+                "processingMillis": 11.409601,
+                "maskSha256": "ad1faf594b9d38ba897aeee71682a840247f96aea1646ace2cd1b459042def49",
+                "iou": 0,
+                "ordinal": 12
+              },
+              {
+                "reference": [
+                  0.5023419203747073,
+                  0.27708333333333335,
+                  0.6662763466042154,
+                  0.8458333333333333
+                ],
+                "sourceFrame": 54,
+                "imageSha256": "2a482d6a43f0a39283b8aac425e716619b3de5fad093464daae0c58630faf57d",
+                "prediction": {
+                  "matchScore": 0.6435566858728592,
+                  "scoreMeaning": "normalized appearance correlation, not calibrated semantic confidence",
+                  "lastKnownBox": [
+                    0.5280000000000001,
+                    0.26999999999999996,
+                    0.7212084309133491,
+                    0.8720833333333333
+                  ],
+                  "appearanceUpdates": 0,
+                  "box": null,
+                  "id": "research-object",
+                  "label": "hike",
+                  "anchorScore": 0.6435566858728592,
+                  "status": "lost"
+                },
+                "processingMillis": 11.3412,
+                "maskSha256": "cc450f920cdfac2d6665717cb341ef2f1cafe626d86ef2621ddf44d94db1c602",
+                "iou": 0,
+                "ordinal": 13
+              },
+              {
+                "reference": [
+                  0.5070257611241218,
+                  0.26666666666666666,
+                  0.6498829039812646,
+                  0.8374999999999999
+                ],
+                "sourceFrame": 58,
+                "imageSha256": "73e68fb2d8b12623a287a7d05c87a1d0b95333d6ea3fe1c5063d37984ba887ed",
+                "prediction": {
+                  "matchScore": 0.5095407380983511,
+                  "scoreMeaning": "normalized appearance correlation, not calibrated semantic confidence",
+                  "lastKnownBox": [
+                    0.5280000000000001,
+                    0.26999999999999996,
+                    0.7212084309133491,
+                    0.8720833333333333
+                  ],
+                  "appearanceUpdates": 0,
+                  "box": null,
+                  "id": "research-object",
+                  "label": "hike",
+                  "anchorScore": 0.5095407380983511,
+                  "status": "lost"
+                },
+                "processingMillis": 11.2086,
+                "maskSha256": "e2411df55f888e752097f2d3fae5279698a492db35b102e21882ff6309b9e649",
+                "iou": 0,
+                "ordinal": 14
+              },
+              {
+                "reference": [
+                  0.5011709601873536,
+                  0.26666666666666666,
+                  0.6334894613583139,
+                  0.8374999999999999
+                ],
+                "sourceFrame": 62,
+                "imageSha256": "89e3b538e97e0c054bbe91b789da0e2b79b0be8efd38d1211961a16951a311c6",
+                "prediction": {
+                  "matchScore": 0.5854936423789338,
+                  "scoreMeaning": "normalized appearance correlation, not calibrated semantic confidence",
+                  "lastKnownBox": [
+                    0.5280000000000001,
+                    0.26999999999999996,
+                    0.7212084309133491,
+                    0.8720833333333333
+                  ],
+                  "appearanceUpdates": 0,
+                  "box": null,
+                  "id": "research-object",
+                  "label": "hike",
+                  "anchorScore": 0.5854936423789338,
+                  "status": "lost"
+                },
+                "processingMillis": 13.3186,
+                "maskSha256": "75a31121156c936156b1b389bdd9b7a017d43b506dfee2f5d5a1805f3fa8b7b7",
+                "iou": 0,
+                "ordinal": 15
+              },
+              {
+                "reference": [
+                  0.4894613583138173,
+                  0.26875,
+                  0.6217798594847775,
+                  0.8416666666666666
+                ],
+                "sourceFrame": 67,
+                "imageSha256": "d08cc6a7810ce02d1e38a9d7477e79057870c1bb92c6f8e36594e961f27f9b37",
+                "prediction": {
+                  "matchScore": 0.578845225349703,
+                  "scoreMeaning": "normalized appearance correlation, not calibrated semantic confidence",
+                  "lastKnownBox": [
+                    0.5280000000000001,
+                    0.26999999999999996,
+                    0.7212084309133491,
+                    0.8720833333333333
+                  ],
+                  "appearanceUpdates": 0,
+                  "box": null,
+                  "id": "research-object",
+                  "label": "hike",
+                  "anchorScore": 0.578845225349703,
+                  "status": "lost"
+                },
+                "processingMillis": 11.2601,
+                "maskSha256": "16714eddb03a88aab1f0bb2ac7ea6b804599b409a56eaddbfdb5f092dede1bde",
+                "iou": 0,
+                "ordinal": 16
+              },
+              {
+                "reference": [
+                  0.4812646370023419,
+                  0.2791666666666667,
+                  0.635831381733021,
+                  0.85
+                ],
+                "sourceFrame": 71,
+                "imageSha256": "c6c546e1dbee91a50615b1211ab4ec15fd1232b45d5ae3e999ad8db3ad2c529a",
+                "prediction": {
+                  "matchScore": 0.5859869910508633,
+                  "scoreMeaning": "normalized appearance correlation, not calibrated semantic confidence",
+                  "lastKnownBox": [
+                    0.5280000000000001,
+                    0.26999999999999996,
+                    0.7212084309133491,
+                    0.8720833333333333
+                  ],
+                  "appearanceUpdates": 0,
+                  "box": null,
+                  "id": "research-object",
+                  "label": "hike",
+                  "anchorScore": 0.5859869910508633,
+                  "status": "lost"
+                },
+                "processingMillis": 11.2797,
+                "maskSha256": "98332dddb2c6b5cadf8de5d8b17ec6a72bbe27989bdc4964a9dec58853755498",
+                "iou": 0,
+                "ordinal": 17
+              },
+              {
+                "reference": [
+                  0.47892271662763464,
+                  0.29791666666666666,
+                  0.635831381733021,
+                  0.8625
+                ],
+                "sourceFrame": 75,
+                "imageSha256": "7e69522c5ce528b1cabbdf673cfa41d7c812b3b55f00bbf4aa4d75c49c2965d9",
+                "prediction": {
+                  "matchScore": 0.6298251779434092,
+                  "scoreMeaning": "normalized appearance correlation, not calibrated semantic confidence",
+                  "lastKnownBox": [
+                    0.5280000000000001,
+                    0.26999999999999996,
+                    0.7212084309133491,
+                    0.8720833333333333
+                  ],
+                  "appearanceUpdates": 0,
+                  "box": null,
+                  "id": "research-object",
+                  "label": "hike",
+                  "anchorScore": 0.6298251779434092,
+                  "status": "lost"
+                },
+                "processingMillis": 11.0311,
+                "maskSha256": "a764a308da5adca9873eb4e98e11c3d75e94113e688439ad9498a8e851a88af6",
+                "iou": 0,
+                "ordinal": 18
+              },
+              {
+                "reference": [
+                  0.4812646370023419,
+                  0.3145833333333333,
+                  0.6334894613583137,
+                  0.86875
+                ],
+                "sourceFrame": 79,
+                "imageSha256": "d7fb4066fbbe17c9b63aa2995a3c183a6eded34d22a9b8602b901f67bfdf275d",
+                "prediction": {
+                  "matchScore": 0.6412042631266428,
+                  "scoreMeaning": "normalized appearance correlation, not calibrated semantic confidence",
+                  "lastKnownBox": [
+                    0.5280000000000001,
+                    0.26999999999999996,
+                    0.7212084309133491,
+                    0.8720833333333333
+                  ],
+                  "appearanceUpdates": 0,
+                  "box": null,
+                  "id": "research-object",
+                  "label": "hike",
+                  "anchorScore": 0.6412042631266428,
+                  "status": "lost"
+                },
+                "processingMillis": 11.2088,
+                "maskSha256": "a9117a5d2c8eeca95e8df29faf031ac4554bca42b0807a8d7309ffb53768f5ef",
+                "iou": 0,
+                "ordinal": 19
+              }
+            ],
+            "profile": "rgb-v1",
+            "initialization": {
+              "reference": [
+                0.48360655737704916,
+                0.2916666666666667,
+                0.6768149882903981,
+                0.89375
+              ],
+              "sourceFrame": 0,
+              "scored": false
+            },
+            "metrics": {
+              "meanIou": 0.047065428012028634,
+              "referenceAbsentFrames": 0,
+              "p95ProcessingMillis": 15.402901,
+              "latencyScope": "JPEG/PNG decode plus CPU tracking; excludes browser capture, network and LLM. Initialization excluded from scored frames.",
+              "scoredFrames": 19,
+              "iouHalfFraction": 0.05263157894736842,
+              "reacquired": 1,
+              "lost": 18,
+              "lowOverlapVisiblePredictions": 0,
+              "medianProcessingMillis": 11.9674
+            }
+          }
+        }
+      ],
+      "implementations": {
+        "adaptive-v2": "d5620fcdc8fb1b05c41a3b8cdabc696b18d86a8710aa875ca0b230e2687429c0",
+        "rgb-v1": "1accb2e79f90897bfc3f85bf3a8736331dab8d9ee2953cd4f5b1537467cbeeca"
+      },
+      "status": "completed",
+      "totalFrames": 106
+    },
+    "report": {
+      "checks": [
+        {
+          "actual": {
+            "count": 1,
+            "text": "Candidate rejected; active profile unchanged",
+            "value": null
+          },
+          "expected": {
+            "expectText": "Candidate rejected; active profile unchanged",
+            "selector": "#verdict"
+          },
+          "index": 0,
+          "selector": "#verdict",
+          "passed": true
+        },
+        {
+          "actual": {
+            "count": 1,
+            "text": "9b74adf0-f394-45ee-a19b-871e0e814c11",
+            "value": null
+          },
+          "expected": {
+            "expectText": "9b74adf0-f394-45ee-a19b-871e0e814c11",
+            "selector": "#comparison-id"
+          },
+          "index": 1,
+          "selector": "#comparison-id",
+          "passed": true
+        },
+        {
+          "actual": {
+            "count": 3,
+            "text": "DAVIS blackswan · development\n\nSource content SHA-256 32eec1a536bc042f08141ceb41ace95a4d5d9fec77ecb08031ca7cabbaf03097\n\nOriginal source frame 0. Thumbnail, before annotation overlays.\nOriginal source frame 49. Thumbnail, before annotation overlays.\nOverlap on every selected prediction frame\n\nHorizontal axis: selected frame order, not seconds. Dashed line: IoU0.5. Lost predictions count as zero; no frame resets.\n\nProfile\tMean IoU\tIoU≥0.5\tLost\tMedian / p95 ms\nrgb-v1\t0.8235\t0.9333\t1\t9.0301 / 20.4140\nadaptive-v2\t0.9138\t1.0000\t0\t61.5270 / 84.0262\n\nLatency includes CPU image decode and tracking; browser capture, network, LLM and scoring are excluded.\n\nCC BY-NC4.0; DAVIS authors; research use · Original frames and masks. Box evaluation, not official mask benchmark. Original capture FPS unknown.",
+            "value": null
+          },
+          "expected": {
+            "expectCount": 3,
+            "selector": ".sequence"
+          },
+          "index": 2,
+          "selector": ".sequence",
+          "passed": true
+        },
+        {
+          "actual": {
+            "count": 2,
+            "text": "Amber: rgb-v1",
+            "value": null
+          },
+          "expected": {
+            "expectCount": 2,
+            "selector": ".profile"
+          },
+          "index": 3,
+          "selector": ".profile",
+          "passed": true
+        },
+        {
+          "actual": {
+            "count": 3,
+            "text": "",
+            "value": null
+          },
+          "expected": {
+            "expectCount": 3,
+            "selector": ".overlap-chart"
+          },
+          "index": 4,
+          "selector": ".overlap-chart",
+          "passed": true
+        },
+        {
+          "actual": {
+            "count": 1,
+            "text": "38",
+            "value": null
+          },
+          "expected": {
+            "expectText": "38",
+            "selector": "#evaluation-frames"
+          },
+          "index": 5,
+          "selector": "#evaluation-frames",
+          "passed": true
+        },
+        {
+          "actual": {
+            "count": 1,
+            "text": "-0.0444",
+            "value": null
+          },
+          "expected": {
+            "expectText": "-0.0444",
+            "selector": "#gain"
+          },
+          "index": 6,
+          "selector": "#gain",
+          "passed": true
+        },
+        {
+          "actual": {
+            "count": 1,
+            "text": "Human-guided box tracking on declared sequences. Initialization excluded. No later reference enters the tracker. This is not general recognition or an official DAVIS segmentation score.",
+            "value": null
+          },
+          "expected": {
+            "expectText": "Human-guided box tracking on declared sequences. Initialization excluded. No later reference enters the tracker. This is not general recognition or an official DAVIS segmentation score.",
+            "selector": "#scope"
+          },
+          "index": 7,
+          "selector": "#scope",
+          "passed": true
+        }
+      ],
+      "comparisonId": "9b74adf0-f394-45ee-a19b-871e0e814c11",
+      "id": "9215ac70-799a-31f7-bf51-ceae77635353",
+      "passed": true,
+      "gate": {
+        "baselineMeanIou": 0.0942388688675513,
+        "lowOverlapVisibleCandidate": 0,
+        "cases": [
+          {
+            "candidate": {
+              "meanIou": 0.09969713616608479,
+              "referenceAbsentFrames": 0,
+              "p95ProcessingMillis": 112.9937,
+              "latencyScope": "JPEG/PNG decode plus CPU tracking; excludes browser capture, network and LLM. Initialization excluded from scored frames.",
+              "scoredFrames": 19,
+              "iouHalfFraction": 0.10526315789473684,
+              "reacquired": 0,
+              "lost": 17,
+              "lowOverlapVisiblePredictions": 0,
+              "medianProcessingMillis": 80.3151
+            },
+            "datasetId": "04b52d13-a538-4a29-a08b-53fe72862b1b",
+            "baseline": {
+              "meanIou": 0.14141230972307395,
+              "referenceAbsentFrames": 0,
+              "p95ProcessingMillis": 13.6767,
+              "latencyScope": "JPEG/PNG decode plus CPU tracking; excludes browser capture, network and LLM. Initialization excluded from scored frames.",
+              "scoredFrames": 19,
+              "iouHalfFraction": 0.15789473684210525,
+              "reacquired": 3,
+              "lost": 16,
+              "lowOverlapVisiblePredictions": 0,
+              "medianProcessingMillis": 11.6412
+            },
+            "gain": -0.04171517355698916
+          },
+          {
+            "candidate": {
+              "meanIou": 0,
+              "referenceAbsentFrames": 0,
+              "p95ProcessingMillis": 111.8643,
+              "latencyScope": "JPEG/PNG decode plus CPU tracking; excludes browser capture, network and LLM. Initialization excluded from scored frames.",
+              "scoredFrames": 19,
+              "iouHalfFraction": 0,
+              "reacquired": 0,
+              "lost": 19,
+              "lowOverlapVisiblePredictions": 0,
+              "medianProcessingMillis": 74.4454
+            },
+            "datasetId": "9cb16ea2-3fd9-435c-8dfe-bc9e45af77ac",
+            "baseline": {
+              "meanIou": 0.047065428012028634,
+              "referenceAbsentFrames": 0,
+              "p95ProcessingMillis": 15.402901,
+              "latencyScope": "JPEG/PNG decode plus CPU tracking; excludes browser capture, network and LLM. Initialization excluded from scored frames.",
+              "scoredFrames": 19,
+              "iouHalfFraction": 0.05263157894736842,
+              "reacquired": 1,
+              "lost": 18,
+              "lowOverlapVisiblePredictions": 0,
+              "medianProcessingMillis": 11.9674
+            },
+            "gain": -0.047065428012028634
+          }
+        ],
+        "negativeControlsPassed": true,
+        "scope": "Small declared human-guided box-tracking evaluation; not general category accuracy or official DAVIS mask metrics",
+        "passed": false,
+        "candidateIouHalfFraction": 0.05263157894736842,
+        "perSequenceRegression": false,
+        "candidateMeanIou": 0.049848568083042395,
+        "scoredEvaluationFrames": 38,
+        "pooledMeanIouGain": -0.0443903007845089,
+        "lowOverlapVisibleBaseline": 0
+      },
+      "version": 1
+    },
+    "model": "gpt-oss:20b",
+    "episodeId": "338c70a8-6736-491c-94ef-c7057c57dea5"
+  }
+}

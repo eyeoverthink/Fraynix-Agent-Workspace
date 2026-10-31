@@ -1,0 +1,181 @@
+{
+  "reason": "Candidate rejected; active tracker remains unchanged",
+  "completedAt": "2026-10-31T00:47:33.798618100Z",
+  "profiles": {
+    "adaptive-v2": "b553c15bcc930b6e78b6dec58870119a536d2f2ec3459fd868b0cd16cf38847b",
+    "rgb-v1": "89e15acf52b828948cdc0476f690bd016c0b4daf676c743a54b00a9b4df62f2f"
+  },
+  "datasets": [
+    {
+      "split": "development",
+      "contentSha256": "32eec1a536bc042f08141ceb41ace95a4d5d9fec77ecb08031ca7cabbaf03097",
+      "id": "5b2963b8-483d-4b68-b3cc-7f67a4e21c96"
+    },
+    {
+      "split": "evaluation",
+      "contentSha256": "b6775dfba6a16fb686d38326a716d3d4194d45ba0b93ece78e7705c334aaf71a",
+      "id": "04b52d13-a538-4a29-a08b-53fe72862b1b"
+    },
+    {
+      "split": "evaluation",
+      "contentSha256": "0fa5a239a4e89b66a75da645b27fea17d165374bc06ae39613bce0be7efdea2c",
+      "id": "9cb16ea2-3fd9-435c-8dfe-bc9e45af77ac"
+    }
+  ],
+  "resultFiles": [
+    {
+      "adaptive-v2": "trace-0-adaptive-v2.json",
+      "datasetId": "5b2963b8-483d-4b68-b3cc-7f67a4e21c96",
+      "rgb-v1": "trace-0-rgb-v1.json",
+      "sourceFile": "dataset-0.json"
+    },
+    {
+      "adaptive-v2": "trace-1-adaptive-v2.json",
+      "datasetId": "04b52d13-a538-4a29-a08b-53fe72862b1b",
+      "rgb-v1": "trace-1-rgb-v1.json",
+      "sourceFile": "dataset-1.json"
+    },
+    {
+      "adaptive-v2": "trace-2-adaptive-v2.json",
+      "datasetId": "9cb16ea2-3fd9-435c-8dfe-bc9e45af77ac",
+      "rgb-v1": "trace-2-rgb-v1.json",
+      "sourceFile": "dataset-2.json"
+    }
+  ],
+  "implementationComponents": {
+    "adaptive-v2": {
+      "AdaptiveTracker": "b553c15bcc930b6e78b6dec58870119a536d2f2ec3459fd868b0cd16cf38847b",
+      "AdaptiveTracker$Plane": "b5c620f14917425699884a3546788ddbb8e81a144174c48a27a56c189d417409",
+      "PixelTracker$Box": "760e22a2594a4fd770b563b78d51516628219ffd771b7e26a94ac6a1ef3dddbe",
+      "PixelTracker": "89e15acf52b828948cdc0476f690bd016c0b4daf676c743a54b00a9b4df62f2f",
+      "ImageTracker": "6773073bcf1a88333f8ece695942f9e020b50d9e94f5b5f7b3bd592fac04e0d4",
+      "TrackingEvaluation": "bf1da6592022c96bfce036025cdc6637389addbfc82a1b14ddbc7831086a9150",
+      "AdaptiveTracker$Match": "4a794317a8e4608819883df20c25e14f651fbd23dddb2712dc674cfaa539d54c",
+      "PixelTracker$Match": "9867de9633affab33ec7fc7625716bee63c5e92cba078573622c13a0398d6571"
+    },
+    "rgb-v1": {
+      "PixelTracker$Box": "760e22a2594a4fd770b563b78d51516628219ffd771b7e26a94ac6a1ef3dddbe",
+      "PixelTracker": "89e15acf52b828948cdc0476f690bd016c0b4daf676c743a54b00a9b4df62f2f",
+      "ImageTracker": "6773073bcf1a88333f8ece695942f9e020b50d9e94f5b5f7b3bd592fac04e0d4",
+      "TrackingEvaluation": "bf1da6592022c96bfce036025cdc6637389addbfc82a1b14ddbc7831086a9150",
+      "PixelTracker$Match": "9867de9633affab33ec7fc7625716bee63c5e92cba078573622c13a0398d6571"
+    }
+  },
+  "guards": {
+    "duplicateAmbiguous": true,
+    "duplicateObservation": {
+      "matchScore": 0,
+      "scoreMeaning": "RGB/edge appearance similarity, not calibrated semantic confidence",
+      "lastKnownBox": [
+        0.046875,
+        0.12,
+        0.296875,
+        0.76
+      ],
+      "appearanceUpdates": 0,
+      "box": null,
+      "id": "guard",
+      "label": "person",
+      "anchorScore": 0.7330510837994422,
+      "status": "lost"
+    },
+    "hiddenObservation": {
+      "matchScore": 0,
+      "scoreMeaning": "RGB/edge appearance similarity, not calibrated semantic confidence",
+      "lastKnownBox": [
+        0.046875,
+        0.12,
+        0.296875,
+        0.76
+      ],
+      "appearanceUpdates": 0,
+      "box": null,
+      "id": "loss",
+      "label": "person",
+      "anchorScore": -0.20331222731671894,
+      "status": "lost"
+    },
+    "hiddenHasNoCurrentBox": true
+  },
+  "createdAt": "2026-10-31T00:47:28.008854100Z",
+  "autoPromote": true,
+  "completedFrames": 106,
+  "id": "f6bed50f-d79a-4e68-a615-8fd28e3f673e",
+  "gate": {
+    "baselineMeanIou": 0.0942388688675513,
+    "lowOverlapVisibleCandidate": 0,
+    "cases": [
+      {
+        "candidate": {
+          "meanIou": 0.09969713616608479,
+          "referenceAbsentFrames": 0,
+          "p95ProcessingMillis": 80.930799,
+          "latencyScope": "JPEG/PNG decode plus CPU tracking; excludes browser capture, network and LLM. Initialization excluded from scored frames.",
+          "scoredFrames": 19,
+          "iouHalfFraction": 0.10526315789473684,
+          "reacquired": 0,
+          "lost": 17,
+          "lowOverlapVisiblePredictions": 0,
+          "medianProcessingMillis": 76.656399
+        },
+        "datasetId": "04b52d13-a538-4a29-a08b-53fe72862b1b",
+        "baseline": {
+          "meanIou": 0.14141230972307395,
+          "referenceAbsentFrames": 0,
+          "p95ProcessingMillis": 12.3131,
+          "latencyScope": "JPEG/PNG decode plus CPU tracking; excludes browser capture, network and LLM. Initialization excluded from scored frames.",
+          "scoredFrames": 19,
+          "iouHalfFraction": 0.15789473684210525,
+          "reacquired": 3,
+          "lost": 16,
+          "lowOverlapVisiblePredictions": 0,
+          "medianProcessingMillis": 11.7292
+        },
+        "gain": -0.04171517355698916
+      },
+      {
+        "candidate": {
+          "meanIou": 0,
+          "referenceAbsentFrames": 0,
+          "p95ProcessingMillis": 265.234101,
+          "latencyScope": "JPEG/PNG decode plus CPU tracking; excludes browser capture, network and LLM. Initialization excluded from scored frames.",
+          "scoredFrames": 19,
+          "iouHalfFraction": 0,
+          "reacquired": 0,
+          "lost": 19,
+          "lowOverlapVisiblePredictions": 0,
+          "medianProcessingMillis": 71.8958
+        },
+        "datasetId": "9cb16ea2-3fd9-435c-8dfe-bc9e45af77ac",
+        "baseline": {
+          "meanIou": 0.047065428012028634,
+          "referenceAbsentFrames": 0,
+          "p95ProcessingMillis": 11.7922,
+          "latencyScope": "JPEG/PNG decode plus CPU tracking; excludes browser capture, network and LLM. Initialization excluded from scored frames.",
+          "scoredFrames": 19,
+          "iouHalfFraction": 0.05263157894736842,
+          "reacquired": 1,
+          "lost": 18,
+          "lowOverlapVisiblePredictions": 0,
+          "medianProcessingMillis": 11.276
+        },
+        "gain": -0.047065428012028634
+      }
+    ],
+    "negativeControlsPassed": true,
+    "scope": "Small declared human-guided box-tracking evaluation; not general category accuracy or official DAVIS mask metrics",
+    "passed": false,
+    "candidateIouHalfFraction": 0.05263157894736842,
+    "perSequenceRegression": false,
+    "candidateMeanIou": 0.049848568083042395,
+    "scoredEvaluationFrames": 38,
+    "pooledMeanIouGain": -0.0443903007845089,
+    "lowOverlapVisibleBaseline": 0
+  },
+  "implementations": {
+    "adaptive-v2": "d5620fcdc8fb1b05c41a3b8cdabc696b18d86a8710aa875ca0b230e2687429c0",
+    "rgb-v1": "1accb2e79f90897bfc3f85bf3a8736331dab8d9ee2953cd4f5b1537467cbeeca"
+  },
+  "status": "completed",
+  "totalFrames": 106
+}

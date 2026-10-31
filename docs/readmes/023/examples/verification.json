@@ -1,0 +1,71 @@
+{
+  "baselineMeanIou": 0.0942388688675513,
+  "lowOverlapVisibleCandidate": 0,
+  "cases": [
+    {
+      "candidate": {
+        "meanIou": 0.09969713616608479,
+        "referenceAbsentFrames": 0,
+        "p95ProcessingMillis": 80.930799,
+        "latencyScope": "JPEG/PNG decode plus CPU tracking; excludes browser capture, network and LLM. Initialization excluded from scored frames.",
+        "scoredFrames": 19,
+        "iouHalfFraction": 0.10526315789473684,
+        "reacquired": 0,
+        "lost": 17,
+        "lowOverlapVisiblePredictions": 0,
+        "medianProcessingMillis": 76.656399
+      },
+      "datasetId": "04b52d13-a538-4a29-a08b-53fe72862b1b",
+      "baseline": {
+        "meanIou": 0.14141230972307395,
+        "referenceAbsentFrames": 0,
+        "p95ProcessingMillis": 12.3131,
+        "latencyScope": "JPEG/PNG decode plus CPU tracking; excludes browser capture, network and LLM. Initialization excluded from scored frames.",
+        "scoredFrames": 19,
+        "iouHalfFraction": 0.15789473684210525,
+        "reacquired": 3,
+        "lost": 16,
+        "lowOverlapVisiblePredictions": 0,
+        "medianProcessingMillis": 11.7292
+      },
+      "gain": -0.04171517355698916
+    },
+    {
+      "candidate": {
+        "meanIou": 0,
+        "referenceAbsentFrames": 0,
+        "p95ProcessingMillis": 265.234101,
+        "latencyScope": "JPEG/PNG decode plus CPU tracking; excludes browser capture, network and LLM. Initialization excluded from scored frames.",
+        "scoredFrames": 19,
+        "iouHalfFraction": 0,
+        "reacquired": 0,
+        "lost": 19,
+        "lowOverlapVisiblePredictions": 0,
+        "medianProcessingMillis": 71.8958
+      },
+      "datasetId": "9cb16ea2-3fd9-435c-8dfe-bc9e45af77ac",
+      "baseline": {
+        "meanIou": 0.047065428012028634,
+        "referenceAbsentFrames": 0,
+        "p95ProcessingMillis": 11.7922,
+        "latencyScope": "JPEG/PNG decode plus CPU tracking; excludes browser capture, network and LLM. Initialization excluded from scored frames.",
+        "scoredFrames": 19,
+        "iouHalfFraction": 0.05263157894736842,
+        "reacquired": 1,
+        "lost": 18,
+        "lowOverlapVisiblePredictions": 0,
+        "medianProcessingMillis": 11.276
+      },
+      "gain": -0.047065428012028634
+    }
+  ],
+  "negativeControlsPassed": true,
+  "scope": "Small declared human-guided box-tracking evaluation; not general category accuracy or official DAVIS mask metrics",
+  "passed": false,
+  "candidateIouHalfFraction": 0.05263157894736842,
+  "perSequenceRegression": false,
+  "candidateMeanIou": 0.049848568083042395,
+  "scoredEvaluationFrames": 38,
+  "pooledMeanIouGain": -0.0443903007845089,
+  "lowOverlapVisibleBaseline": 0
+}

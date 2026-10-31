@@ -1,0 +1,201 @@
+{
+  "passed": true,
+  "date": "2026-10-31T00:55:30.936Z",
+  "model": "gpt-oss:20b",
+  "checks": [
+    "Actual gpt-oss:20b native tool calls select the requested Java goal, preserve exact physical parameters and request real browser context",
+    "One model-owned Java goal completes the registered procedure without replacement demo code or repeated starts",
+    "Live model task produces actual native forecasts, 30 control plans, one measured disturbance and a tested report bound to that run",
+    "Retained episode includes the actual canvas receipt and final chat numbers are generated from Java evidence",
+    "Existing model admission and native-only reality qualification remain enforced"
+  ],
+  "goal": {
+    "request": "Predict how this native block moves using the world model. On a 24 degree slope with friction 0.18, reach target 1.2 metres despite a +0.35 m/s disturbance, chart predicted versus actual motion, and save the successful reusable procedure as live-world-reach. Include the current browser observation as context.",
+    "reason": "Physical goal and actual canvas report verified; versioned procedural skill retained",
+    "procedure": "world-reach-report-v1",
+    "history": [
+      {
+        "reason": "Goal accepted; frozen physical conditions and finite recovery budget saved",
+        "at": "2026-10-31T00:54:55.357305100Z",
+        "step": "model",
+        "attempt": 1,
+        "status": "running"
+      },
+      {
+        "reason": "Waiting for registered desktop action: browser.observe",
+        "at": "2026-10-31T00:54:59.539745Z",
+        "step": "model",
+        "attempt": 1,
+        "status": "waiting-host"
+      },
+      {
+        "reason": "Browser context retained as data; it grants no executable authority",
+        "at": "2026-10-31T00:54:59.557699200Z",
+        "step": "prepare",
+        "attempt": 1,
+        "status": "running"
+      },
+      {
+        "reason": "Owned native trial prepared; preview must leave the body unchanged",
+        "at": "2026-10-31T00:54:59.685329100Z",
+        "step": "preview",
+        "attempt": 1,
+        "status": "running"
+      },
+      {
+        "reason": "49 candidate plans previewed from the actual paused state; no preview actuation",
+        "at": "2026-10-31T00:54:59.800021900Z",
+        "step": "execute",
+        "attempt": 1,
+        "status": "running"
+      },
+      {
+        "reason": "20 Hz controller is executing through native physics; disturbance scheduled at tick 108",
+        "at": "2026-10-31T00:54:59.918705Z",
+        "step": "wait",
+        "attempt": 1,
+        "status": "running"
+      },
+      {
+        "reason": "Native trial settled; checking actual outcomes",
+        "at": "2026-10-31T00:55:01.460076100Z",
+        "step": "verify",
+        "attempt": 1,
+        "status": "running"
+      },
+      {
+        "reason": "Physical endpoint, speed, settling, model use and exactly one actual disturbance verified",
+        "at": "2026-10-31T00:55:01.587707100Z",
+        "step": "report",
+        "attempt": 1,
+        "status": "running"
+      },
+      {
+        "reason": "Waiting for registered desktop action: canvas.verify-report",
+        "at": "2026-10-31T00:55:01.774209500Z",
+        "step": "report",
+        "attempt": 1,
+        "status": "waiting-host"
+      },
+      {
+        "reason": "Actual Chromium canvas assertions passed for the pinned report version",
+        "at": "2026-10-31T00:55:02.006585600Z",
+        "step": "complete",
+        "attempt": 1,
+        "status": "running"
+      },
+      {
+        "reason": "Physical goal and actual canvas report verified; versioned procedural skill retained",
+        "at": "2026-10-31T00:55:02.083380300Z",
+        "step": "completed",
+        "attempt": 1,
+        "status": "completed"
+      }
+    ],
+    "source": {},
+    "attempt": 1,
+    "resumes": 0,
+    "browserContext": {
+      "sha256": "042e42ff4eb939b02102023fd49cc17862f3a2915ebaf86300d181a629258597",
+      "authority": "untrusted context only; not physical evidence",
+      "url": "http://127.0.0.1:59286/welcome"
+    },
+    "createdAt": "2026-10-31T00:54:55.357305100Z",
+    "targetM": 1.2,
+    "sceneId": "c2a31a21-6f0d-3937-9688-4eec6eac856d",
+    "report": {
+      "sha256": "ca7d02070f518c540500d41d43786009b35112a9541622121ab270c25ccab9e9",
+      "id": "160b64f0-17bc-38d9-9bcf-cbee96348a32",
+      "version": 1
+    },
+    "step": "completed",
+    "id": "50a19f05-8f73-4da9-8585-de2b8ac6b795",
+    "runId": "99b0dc1b-98dd-4803-96c2-3d2278107ee1",
+    "metrics": {
+      "score": 0.06851365961912681,
+      "endpointErrorM": 0.03969413484655537,
+      "modelActionFraction": 1,
+      "controlAbsoluteImpulseNs": 5.600000000000001,
+      "settlingMaxErrorM": 0.04040400273394584,
+      "terminalSpeedMps": 0.05745015603732344,
+      "passed": true
+    },
+    "disturbanceMps": 0.35,
+    "parameters": {
+      "angleDeg": 24,
+      "widthM": 3,
+      "offsetZ": 0,
+      "massKg": 1,
+      "lengthM": 12,
+      "friction": 0.18,
+      "gravityMps2": 9.81
+    },
+    "savedSkill": {
+      "name": "live-world-reach",
+      "id": "e4418abf-ce64-343d-9aaa-87360da32108",
+      "version": 1
+    },
+    "status": "completed",
+    "updatedAt": "2026-10-31T00:55:02.083380300Z"
+  },
+  "calls": [
+    "goal.start",
+    "goal.read"
+  ],
+  "episode": {
+    "taskKind": "experiment-task",
+    "runtimeContract": "browser-controller-v2",
+    "endedAt": "2026-10-31T00:55:30.581631200Z",
+    "startedAt": "2026-10-31T00:54:33.421353300Z",
+    "privacy": "No page text, typed values, source or raw goals in episodes",
+    "model": "gpt-oss:20b",
+    "goalDigest": "fe594ebf568a5163000dc348311075a1539359194939e4cc8a1985422852a1f1",
+    "id": "c3c5eccf-0f57-4ad5-910e-51bfe76af3cd",
+    "label": "experiment-task",
+    "steps": [
+      {
+        "at": "2026-10-31T00:54:55.388790Z",
+        "failure": "none",
+        "index": 0,
+        "ok": true,
+        "tool": "goal.start",
+        "elapsedMs": 35
+      },
+      {
+        "at": "2026-10-31T00:55:01.960708900Z",
+        "testPassed": true,
+        "artifactVersion": 1,
+        "failure": "none",
+        "index": 1,
+        "artifactId": "160b64f0-17bc-38d9-9bcf-cbee96348a32",
+        "ok": true,
+        "tool": "canvas.test",
+        "elapsedMs": 0
+      },
+      {
+        "at": "2026-10-31T00:55:05.136348700Z",
+        "failure": "none",
+        "index": 2,
+        "ok": true,
+        "tool": "goal.read",
+        "elapsedMs": 6
+      }
+    ],
+    "policy": {
+      "refreshStale": false,
+      "version": 1,
+      "observationLimit": 2
+    },
+    "status": "verified"
+  },
+  "summary": "Java goal completed: Physical goal and actual canvas report verified; versioned procedural skill retained Endpoint error 0.039694 m; terminal speed 0.057450 m/s; settling error 0.040404 m; model actions 100.0%. Saved live-world-reach v1. Report 160b64f0-17bc-38d9-9bcf-cbee96348a32 v1.",
+  "modelAdmission": [
+    "{\n  \"args\": {\n    \"title\": \"Welcome canvas\",\n    \"files\": [\n      \"index.html\"\n    ]\n  },\n  \"result\": \"{\\\"id\\\":\\\"947ea89d-4585-4af4-b593-c2a9d2f5b2b1\\\",\\\"title\\\":\\\"Welcome canvas\\\",\\\"version\\\":1,\\\"files\\\":[\\\"index.html\\\"],\\\"url\\\":\\\"http://127.0.0.1:59286/artifact/947ea89d-4585-4af4-b593-c2a9d2f5b2b1/1/index.html\\\"}\"\n}",
+    "{\n  \"endpoint\": \"http://127.0.0.1:11434\",\n  \"checkedAt\": \"2026-10-31T00:54:33.522082400Z\",\n  \"bytes\": 13793441566,\n  \"scope\": \"Fresh local service metadata; not an independent inspection of model weights or the daemon's network behavior\",\n  \"digest\": \"f38aa0c53da5f8c49d08c43a99df24ff53167fe68e24664a7777288e7656fdfe\",\n  \"model\": \"gpt-oss:20b\"\n}",
+    "{\n  \"args\": {\n    \"angleDeg\": 24,\n    \"saveSkillName\": \"live-world-reach\",\n    \"targetM\": 1.2,\n    \"disturbanceMps\": 0.35,\n    \"massKg\": 1,\n    \"browserContext\": true,\n    \"friction\": 0.18,\n    \"gravityMps2\": 9.81\n  }\n}",
+    "{\n  \"args\": {\n    \"angleDeg\": 24,\n    \"saveSkillName\": \"live-world-reach\",\n    \"targetM\": 1.2,\n    \"disturbanceMps\": 0.35,\n    \"massKg\": 1,\n    \"browserContext\": true,\n    \"friction\": 0.18,\n    \"gravityMps2\": 9.81\n  },\n  \"result\": \"{\\\"request\\\":\\\"Predict how this native block moves using the world model. On a 24 degree slope with friction 0.18, reach target 1.2 metres despite a +0.35 m/s disturbance, chart predicted versus actual motion, and save the successful reusable procedure as live-world-reach. Include the current browser observation as context.\\\",\\\"reason\\\":\\\"Goal accepted; frozen physical conditions and finite recovery budget saved\\\",\\\"procedure\\\":\\\"world-reach-report-v1\\\",\\\"history\\\":[{\\\"reason\\\":\\\"Goal accepted; frozen physical conditions and finite recovery budget saved\\\",\\\"at\\\":\\\"2026-10-31T00:54:55.357305100Z\\\",\\\"step\\\":\\\"model\\\",\\\"attempt\\\":1,\\\"status\\\":\\\"running\\\"}],\\\"source\\\":{},\\\"attempt\\\":1,\\\"resumes\\\":0,\\\"createdAt\\\":\\\"2026-10-31T00:54:55.357305100Z\\\",\\\"targetM\\\":1.2,\\\"step\\\":\\\"model\\\",\\\"id\\\":\\\"50a19f05-8f73-4da9-8585-de2b8ac6b795\\\",\\\"disturbanceMps\\\":0.35,\\\"parameters\\\":{\\\"angleDeg\\\":24,\\\"widthM\\\":3,\\\"offsetZ\\\":0,\\\"massKg\\\":1,\\\"lengthM\\\":12,\\\"friction\\\":0.18,\\\"gravityMps2\\\":9.81},\\\"status\\\":\\\"running\\\",\\\"updatedAt\\\":\\\"2026-10-31T00:54:55.357305100Z\\\"}\"\n}",
+    "{\n  \"args\": {}\n}",
+    "{\n  \"args\": {},\n  \"result\": \"{\\\"request\\\":\\\"Predict how this native block moves using the world model. On a 24 degree slope with friction 0.18, reach target 1.2 metres despite a +0.35 m/s disturbance, chart predicted versus actual motion, and save the successful reusable procedure as live-world-reach. Include the current browser observation as context.\\\",\\\"reason\\\":\\\"Physical goal and actual canvas report verified; versioned procedural skill retained\\\",\\\"procedure\\\":\\\"world-reach-report-v1\\\",\\\"history\\\":[{\\\"reason\\\":\\\"Goal accepted; frozen physical conditions and finite recovery budget saved\\\",\\\"at\\\":\\\"2026-10-31T00:54:55.357305100Z\\\",\\\"step\\\":\\\"model\\\",\\\"attempt\\\":1,\\\"status\\\":\\\"running\\\"},{\\\"reason\\\":\\\"Waiting for registered desktop action: browser.observe\\\",\\\"at\\\":\\\"2026-10-31T00:54:59.539745Z\\\",\\\"step\\\":\\\"model\\\",\\\"attempt\\\":1,\\\"status\\\":\\\"waiting-host\\\"},{\\\"reason\\\":\\\"Browser context retained as data; it grants no executable authority\\\",\\\"at\\\":\\\"2026-10-31T00:54:59.557699200Z\\\",\\\"step\\\":\\\"prepare\\\",\\\"attempt\\\":1,\\\"status\\\":\\\"running\\\"},{\\\"reason\\\":\\\"Owned native trial prepared; preview must leave the body unchanged\\\",\\\"at\\\":\\\"2026-10-31T00:54:59.685329100Z\\\",\\\"step\\\":\\\"preview\\\",\\\"attempt\\\":1,\\\"status\\\":\\\"running\\\"},{\\\"reason\\\":\\\"49 candidate plans previewed from the actual paused state; no preview actuation\\\",\\\"at\\\":\\\"2026-10-31T00:54:59.800021900Z\\\",\\\"step\\\":\\\"execute\\\",\\\"attempt\\\":1,\\\"status\\\":\\\"running\\\"},{\\\"reason\\\":\\\"20 Hz controller is executing through native physics; disturbance scheduled at tick \"\n}",
+    "{\n  \"args\": {\n    \"summary\": \"The block successfully reached the target of 1.2 m on the 24° slope despite a +0.35 m/s disturbance, with predicted and actual motion matching within tolerance. The reusable procedure \\\"live-world-reach\\\" has been saved.\"\n  }\n}"
+  ]
+}

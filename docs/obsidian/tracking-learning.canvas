@@ -1,0 +1,168 @@
+{
+  "nodes": [
+    {
+      "id": "overview",
+      "type": "file",
+      "file": "docs/obsidian/31-tracking-learning.md",
+      "x": 0,
+      "y": 0,
+      "width": 540,
+      "height": 300
+    },
+    {
+      "id": "import",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/TrackingLab.java",
+      "x": -620,
+      "y": 400,
+      "width": 540,
+      "height": 300
+    },
+    {
+      "id": "profiles",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/AdaptiveTracker.java",
+      "x": 0,
+      "y": 400,
+      "width": 540,
+      "height": 300
+    },
+    {
+      "id": "scoring",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/TrackingEvaluation.java",
+      "x": 620,
+      "y": 400,
+      "width": 540,
+      "height": 300
+    },
+    {
+      "id": "gate",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/TrackingLab.java",
+      "x": -620,
+      "y": 800,
+      "width": 540,
+      "height": 300
+    },
+    {
+      "id": "pins",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/TrackerIdentity.java",
+      "x": 0,
+      "y": 800,
+      "width": 540,
+      "height": 300
+    },
+    {
+      "id": "chat",
+      "type": "file",
+      "file": "workspace-desktop/tracking.cjs",
+      "x": 620,
+      "y": 800,
+      "width": 540,
+      "height": 300
+    },
+    {
+      "id": "view",
+      "type": "file",
+      "file": "workspace-desktop/renderer/tracking-panel.js",
+      "x": -620,
+      "y": 1200,
+      "width": 540,
+      "height": 300
+    },
+    {
+      "id": "report",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/TrackingPresentation.java",
+      "x": 0,
+      "y": 1200,
+      "width": 540,
+      "height": 300
+    },
+    {
+      "id": "next",
+      "type": "file",
+      "file": "docs/TRACKING_EVALUATION.md",
+      "x": 620,
+      "y": 1200,
+      "width": 540,
+      "height": 300
+    }
+  ],
+  "edges": [
+    {
+      "id": "edge-import",
+      "fromNode": "overview",
+      "fromSide": "bottom",
+      "toNode": "import",
+      "toSide": "top",
+      "label": "verified"
+    },
+    {
+      "id": "edge-profiles",
+      "fromNode": "overview",
+      "fromSide": "bottom",
+      "toNode": "profiles",
+      "toSide": "top",
+      "label": "verified"
+    },
+    {
+      "id": "edge-scoring",
+      "fromNode": "overview",
+      "fromSide": "bottom",
+      "toNode": "scoring",
+      "toSide": "top",
+      "label": "verified"
+    },
+    {
+      "id": "edge-gate",
+      "fromNode": "overview",
+      "fromSide": "bottom",
+      "toNode": "gate",
+      "toSide": "top",
+      "label": "verified"
+    },
+    {
+      "id": "edge-pins",
+      "fromNode": "overview",
+      "fromSide": "bottom",
+      "toNode": "pins",
+      "toSide": "top",
+      "label": "verified"
+    },
+    {
+      "id": "edge-chat",
+      "fromNode": "overview",
+      "fromSide": "bottom",
+      "toNode": "chat",
+      "toSide": "top",
+      "label": "verified"
+    },
+    {
+      "id": "edge-view",
+      "fromNode": "overview",
+      "fromSide": "bottom",
+      "toNode": "view",
+      "toSide": "top",
+      "label": "verified"
+    },
+    {
+      "id": "edge-report",
+      "fromNode": "overview",
+      "fromSide": "bottom",
+      "toNode": "report",
+      "toSide": "top",
+      "label": "verified"
+    },
+    {
+      "id": "edge-next",
+      "fromNode": "overview",
+      "fromSide": "bottom",
+      "toNode": "next",
+      "toSide": "top",
+      "label": "planned"
+    }
+  ]
+}

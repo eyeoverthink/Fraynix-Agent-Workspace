@@ -2,9 +2,9 @@
 
 **A local visual environment for agents to browse, create runnable artifacts, test behavior and reuse verified skills.**
 
-> **Latest implementation: [README 022 — browser perception and persistent teaching](README-022.md)** · [Offline explorer](docs/readmes/022/index.html) · [Runtime contract](docs/BROWSER_PERCEPTION.md) · [Edition history](docs/readmes/INDEX.md)
+> **Latest implementation: [README 023 — recorded tracking and evidence gates](README-023.md)** · [Offline explorer](docs/readmes/023/index.html) · [Runtime contract](docs/TRACKING_EVALUATION.md) · [Edition history](docs/readmes/INDEX.md)
 
-Observe real browser pixels, outline and follow objects, trace actual observations, teach a correction and retain it across restart. Java now runs a fourth procedural family with fresh-source skill reuse, explicit uncertainty and actual report checks. Existing game, native physics, spatial worlds, data tasks and creation canvas remain available. [Functions, measured results, limits and next steps](README-022.md).
+Compare frozen Java tracker profiles on original recorded frames; measure every prediction, retain decisions, roll back profiles and pin saved skills to their implementation. The first real-data candidate is rejected and baseline remains active. Existing game, native physics, spatial worlds, data tasks, perception and creation canvas remain available. [Functions, measurements, limits and next steps](README-023.md).
 
 The spatial proof and next independent-capture gates are documented in the [spatial contract](docs/SPATIAL_WORLD.md) and the [world-model frontier assessment](docs/WORLD_MODEL_FRONTIERS.md), including Genie, persistent3D capture, physics-aware prediction and the source-qualified local scene/manipulation milestone.
 
@@ -18,7 +18,7 @@ The app includes a real browser, live creation canvas, editable source, versione
 
 Local `gpt-oss:20b` is the verified default for the first agent fixture. The custom FRAYNIX 3B trial returned an Ollama native-format error; advertised tool capability alone does not establish task reliability. You can select other eligible installed models explicitly.
 
-![Actual chat-driven browser perception and reuse](docs/readmes/022/images/perception-chat-reuse-022.png)
+![Actual recorded-sequence comparison with rejected candidate](docs/readmes/023/images/tracking-decision-023.png)
 
 October 30 actual body/scene/file workflows. Native actuation, decoded video, import/replication, Java/desktop regressions and local-agent evidence are recorded in [edition 015 verification](docs/readmes/015/verification.json). The previous [real-data fit](README-013.md) remains rejected.
 

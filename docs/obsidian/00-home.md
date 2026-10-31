@@ -1,6 +1,6 @@
 ---
 title: Fraynix Studio map of content
-edition_context: 022
+edition_context: 023
 updated: 2026-10-30
 tags: [fraynix, system-map]
 ---
@@ -78,10 +78,20 @@ GitHub links: [README 001](../../README-001.md), [interactive companion](../read
 - [World/reality map](world-model-reality.canvas)
 - [Native and recorded verification](../readmes/018/verification.json)
 
-## Current browser perception and teaching · edition 022
+## Browser perception and teaching · edition 022
 
 - [README 022](../../README-022.md)
 - [Browser perception and persistent teaching](30-browser-perception.md)
 - [Perception map](browser-perception.canvas)
 - [Actual evidence and accuracy limits](../readmes/022/verification.json)
 - [All editions](../readmes/INDEX.md)
+
+## Current recorded tracking and profile lifecycle · edition 023
+
+- [README 023](../../README-023.md)
+- [Tracking learning and retained profiles](31-tracking-learning.md)
+- [Tracking learning map](tracking-learning.canvas)
+- [Actual decisions and verified scope](../readmes/023/verification.json)
+- [Runtime and evaluation contract](../TRACKING_EVALUATION.md)
+
+The reserved real sequences reject the candidate. Baseline remains active; synthetic activation and saved-skill checks establish software behavior, not general visual accuracy.

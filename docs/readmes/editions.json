@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "latest": 22,
+  "latest": 23,
   "canonicalization": "UTF-8 without BOM; CRLF normalized to LF for text",
   "editions": [
     {
@@ -2179,6 +2179,220 @@
           "path": "docs/readmes/022/verification.json",
           "kind": "text",
           "sha256": "ca9e3bf68ccded948f1336f281f88407257ff869077d9baa35edeb32937427f9"
+        }
+      ]
+    },
+    {
+      "number": 23,
+      "date": "2026-10-30",
+      "title": "Recorded tracking evaluation and retained profile lifecycle",
+      "status": "published",
+      "markdown": "README-023.md",
+      "markdownSha256": "f6e9b6457d0872f4115a37a36b7332eed4e66325ec176b2a36d2ec0e12dc540f",
+      "snapshotDirectory": "docs/readmes/023",
+      "companion": "docs/readmes/023/index.html",
+      "tag": "readme-023",
+      "sourceBaseline": "687575efe15369c66f3ff6b7d8b4258f1a388ef5",
+      "snapshotFiles": [
+        {
+          "path": "docs/readmes/023/acceptance-023.json",
+          "kind": "text",
+          "sha256": "1719c6d1dc025715499484d053197f2157792b6454d9458be44f8f91cf8b0d5b"
+        },
+        {
+          "path": "docs/readmes/023/development.json",
+          "kind": "text",
+          "sha256": "8e9ab872239228f456e28dc6aa7d369b6dd5233b0ba3a00cc2037f8db449e6e0"
+        },
+        {
+          "path": "docs/readmes/023/examples/accuracy.csv",
+          "kind": "text",
+          "sha256": "5a0f2c2f1bf74c1230f5769155e3b58266235a4d3cc7fc33870cf2f27a98fe71"
+        },
+        {
+          "path": "docs/readmes/023/examples/comparison.json",
+          "kind": "text",
+          "sha256": "3421c3b4371a98f134f19e37274e1536ad631a2fc5b39ea6a4a95bd01d7f4b38"
+        },
+        {
+          "path": "docs/readmes/023/examples/dataset-0.json",
+          "kind": "text",
+          "sha256": "4a16ef1ef8b77d538f76312f47ad965929fce38a6d3f7c05fcf302867a2ba5aa"
+        },
+        {
+          "path": "docs/readmes/023/examples/dataset-1.json",
+          "kind": "text",
+          "sha256": "e9c37ea1e38ffe576f540a139c2afb6951fe8e73268e17703000a336a5f2b00f"
+        },
+        {
+          "path": "docs/readmes/023/examples/dataset-2.json",
+          "kind": "text",
+          "sha256": "0d31c58838bc4e0be58f5b2bc9635b6e54bddc841f1e351f498c52e9282507a3"
+        },
+        {
+          "path": "docs/readmes/023/examples/datasets.json",
+          "kind": "text",
+          "sha256": "435505135bb94162d2683deb2dd594cfbb93539280050eb629c858b936a2261e"
+        },
+        {
+          "path": "docs/readmes/023/examples/protocol.json",
+          "kind": "text",
+          "sha256": "4acdd1e2347756529726167ca33bcd50bf8d2f77bbfd19ada6f86fe63fe4540c"
+        },
+        {
+          "path": "docs/readmes/023/examples/trace-0-adaptive-v2.json",
+          "kind": "text",
+          "sha256": "cb10f362299b97f6c2cac20aaa6897171d773dcffea4a2949a905f080c93e39c"
+        },
+        {
+          "path": "docs/readmes/023/examples/trace-0-rgb-v1.json",
+          "kind": "text",
+          "sha256": "2e5bdce6bda3c201e98408884356d0fc6ffe6befd4e5544156fbfa4a2b3520d6"
+        },
+        {
+          "path": "docs/readmes/023/examples/trace-1-adaptive-v2.json",
+          "kind": "text",
+          "sha256": "dd9166c9656025e88397893df279ecfd4d4f6a0f924308625f24480af98de492"
+        },
+        {
+          "path": "docs/readmes/023/examples/trace-1-rgb-v1.json",
+          "kind": "text",
+          "sha256": "348eeff0676a7c9b181a0d079a237fc06c2ff7de16c52c6ac6cf8a7e0de9dd86"
+        },
+        {
+          "path": "docs/readmes/023/examples/trace-2-adaptive-v2.json",
+          "kind": "text",
+          "sha256": "f903cec6911f83f52e738b06bfdbc48634031346a1e8d1d3b3e3db025558620d"
+        },
+        {
+          "path": "docs/readmes/023/examples/trace-2-rgb-v1.json",
+          "kind": "text",
+          "sha256": "99ed8e68d26140c50443f4a2f1b7c2a0b6befeacee9516a760c945af15780fcc"
+        },
+        {
+          "path": "docs/readmes/023/examples/verification.json",
+          "kind": "text",
+          "sha256": "67f3c57c87ae47ab708b6ed539c67c2b8173fdc30c1cc977e885e6e99699bb6e"
+        },
+        {
+          "path": "docs/readmes/023/examples/verified-tracking-report.html",
+          "kind": "text",
+          "sha256": "1742fe281603dd21ed43312c7ec683899b06db3de317279062b3ea95b196b16e"
+        },
+        {
+          "path": "docs/readmes/023/file-inventory.json",
+          "kind": "text",
+          "sha256": "08ce0e4acf00d868a1bc70e7be1191e4a3b2b56f98d81225d1d7b60b67001b99"
+        },
+        {
+          "path": "docs/readmes/023/FILE_TREE.md",
+          "kind": "text",
+          "sha256": "5a6b78f5fe189aa8237b1a2253b6f32664189cfe9eeef84fced256fe604e376d"
+        },
+        {
+          "path": "docs/readmes/023/first-reserved-result.json",
+          "kind": "text",
+          "sha256": "4d6043be8c8e3a5a0f71b74b91037547af5c6b358d1ea3c773bbfc3d86b79708"
+        },
+        {
+          "path": "docs/readmes/023/images/tracking-browser-023.png",
+          "kind": "binary",
+          "sha256": "ba3f8e735348a1cf9a5bbc19348c43a075ccbe58457edecbdb3cc656c92506f9"
+        },
+        {
+          "path": "docs/readmes/023/images/tracking-chat-023.png",
+          "kind": "binary",
+          "sha256": "59720b3fdca95a20fa0fe1b4a1dac8100915a63c31371adc23d41f1e5db103c6"
+        },
+        {
+          "path": "docs/readmes/023/images/tracking-decision-023.png",
+          "kind": "binary",
+          "sha256": "0f1640c7eed647cfab327c49c1e8485f1d3987a789045bd8fbd3b6b9f4074c2c"
+        },
+        {
+          "path": "docs/readmes/023/images/tracking-import-023.png",
+          "kind": "binary",
+          "sha256": "8c7535d07342ec739c024ceafbfb29de7387485ec62474a9c1b45b1d3d8dc625"
+        },
+        {
+          "path": "docs/readmes/023/images/tracking-pinned-skill-023.png",
+          "kind": "binary",
+          "sha256": "b94bde4a81befb77af9b9f057cec717430298014879f5bb8b475439e6441b386"
+        },
+        {
+          "path": "docs/readmes/023/images/tracking-promotion-023.png",
+          "kind": "binary",
+          "sha256": "7fdc1ebb6e653032fae71d08830675838229d8bca863915803f53ddc062c16fc"
+        },
+        {
+          "path": "docs/readmes/023/images/tracking-reference-023.png",
+          "kind": "binary",
+          "sha256": "d2a6978c20651c461950197531ccee412bba275dce4e5877d4e604701d460389"
+        },
+        {
+          "path": "docs/readmes/023/images/tracking-rollback-023.png",
+          "kind": "binary",
+          "sha256": "94a8558d4eac9933158698cea876a604f1a255a37d28ffc54b050670d810c715"
+        },
+        {
+          "path": "docs/readmes/023/index.html",
+          "kind": "text",
+          "sha256": "df0207adf6a5b328eed655e05b5274083323b9cdb306c0c6a55f324817633dc2"
+        },
+        {
+          "path": "docs/readmes/023/live-data-goals.json",
+          "kind": "text",
+          "sha256": "6fe5b51899f5606ca170f69af74cb9f3929ca6fb3cde12dd0a1a9ea91b65a5aa"
+        },
+        {
+          "path": "docs/readmes/023/live-goals.json",
+          "kind": "text",
+          "sha256": "e014c189c51b12e847c289225659f594605ad8097e3b0e9e421e2e202bd861f9"
+        },
+        {
+          "path": "docs/readmes/023/live-perception.json",
+          "kind": "text",
+          "sha256": "d5021f7dca333da8eaf533384ab8e6a0e42fc8bf6d4afbf398eef95f07fe8b40"
+        },
+        {
+          "path": "docs/readmes/023/live-spatial.json",
+          "kind": "text",
+          "sha256": "82a9e6cf5f361dc705f2b7f84d72a81c055f6edd9ddfd91d4b65b59d012de823"
+        },
+        {
+          "path": "docs/readmes/023/live-tracking.json",
+          "kind": "text",
+          "sha256": "02df4145ecccc89332d15431dabaa8e95d7382b1ddf867078717fcedf5279785"
+        },
+        {
+          "path": "docs/readmes/023/profile-023.json",
+          "kind": "text",
+          "sha256": "89a3c0c7a9e72d47e12601da81b46c4ea0c1e3bb7c0f7024457078a7d866aba1"
+        },
+        {
+          "path": "docs/readmes/023/regressions.json",
+          "kind": "text",
+          "sha256": "d45af549b282e4a7545f39c8ed6039a9e08519b6799ffb2ff6275ebc2fdea92a"
+        },
+        {
+          "path": "docs/readmes/023/system-map.json",
+          "kind": "text",
+          "sha256": "4bfa87ae7b701480ec2e481dd1a83da0deea06aa0cede152333064188b564bff"
+        },
+        {
+          "path": "docs/readmes/023/tracking-controls-integration.json",
+          "kind": "text",
+          "sha256": "feaa1f61790da3d5c33a9d9a6f05a685104a760b163e8a97fe28ea146f5c5cc8"
+        },
+        {
+          "path": "docs/readmes/023/tracking-integration.json",
+          "kind": "text",
+          "sha256": "296934b56ab23047978ebd02503e1de924452c8a20b520f6f2a370258b77a93e"
+        },
+        {
+          "path": "docs/readmes/023/verification.json",
+          "kind": "text",
+          "sha256": "523273ac8e2b149fbdae689479201a5e989335c31c2161457b5840f55f170bbf"
         }
       ]
     }

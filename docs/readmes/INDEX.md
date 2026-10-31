@@ -26,5 +26,6 @@ Numbered editions preserve dated system behavior and evidence. The root [README]
 | [020](../../README-020.md) | 2026-10-30 | Verified offline CSV/motion procedures, honest quality flags and named new-source reuse | [Viewer](020/index.html) · [evidence](020/verification.json) · [contract](../MOTION_DATA_PROCEDURES.md) |
 | [021](../../README-021.md) | 2026-10-30 | Declared-scale spatial imports, actual native manipulation, isolated forecasts and new-scene procedural reuse | [Viewer](021/index.html) · [evidence](021/verification.json) · [contract](../SPATIAL_WORLD.md) |
 | [022](../../README-022.md) | 2026-10-30 | Actual browser perception, persistent drawn corrections, lost/reacquired traces and fresh-source procedural reuse | [Viewer](022/index.html) · [evidence](022/verification.json) · [contract](../BROWSER_PERCEPTION.md) |
+| [023](../../README-023.md) | 2026-10-30 | Recorded-sequence evaluation, rejected candidate, guarded profile lifecycle and retained implementation pins | [Viewer](023/index.html) · [evidence](023/verification.json) · [contract](../TRACKING_EVALUATION.md) |
 
-Latest implementation/documentation edition: **022**. Earlier snapshots remain intact. See [sequence policy](README_SEQUENCE.md) and [manifest](editions.json).
+Latest implementation/documentation edition: **023**. Earlier snapshots remain intact. See [sequence policy](README_SEQUENCE.md) and [manifest](editions.json).

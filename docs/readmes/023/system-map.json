@@ -1,0 +1,200 @@
+{
+  "date": "2026-10-30",
+  "modules": [
+    {
+      "id": "import",
+      "name": "Immutable recorded sequences",
+      "status": "verified",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/TrackingLab.java",
+      "summary": "Bounded original JPEG/indexed-mask import, source hashes, declared split isolation and persistent jobs.",
+      "note": "docs/obsidian/31-tracking-learning.md"
+    },
+    {
+      "id": "profiles",
+      "name": "Frozen CPU appearance profiles",
+      "status": "verified",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/AdaptiveTracker.java",
+      "summary": "Candidate improves development but fails reserved footage; default stays rgb-v1.",
+      "note": "docs/obsidian/31-tracking-learning.md"
+    },
+    {
+      "id": "scoring",
+      "name": "Separate reference scoring",
+      "status": "verified",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/TrackingEvaluation.java",
+      "summary": "Only initial reference enters tracking. Every later selected prediction scores; losses remain zero.",
+      "note": "docs/obsidian/31-tracking-learning.md"
+    },
+    {
+      "id": "gate",
+      "name": "Measured activation and rollback",
+      "status": "verified",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/TrackingLab.java",
+      "summary": "Fixed numeric/negative controls reject the real candidate; separate synthetic controls prove passing lifecycle.",
+      "note": "docs/obsidian/31-tracking-learning.md"
+    },
+    {
+      "id": "pins",
+      "name": "Retained implementation identities",
+      "status": "verified",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/TrackerIdentity.java",
+      "summary": "Predictor and helper-class fingerprints pin goals and skills across global profile changes.",
+      "note": "docs/obsidian/31-tracking-learning.md"
+    },
+    {
+      "id": "chat",
+      "name": "Typed local chat workflow",
+      "status": "verified",
+      "source": "workspace-desktop/tracking.cjs",
+      "summary": "Host-bound sources, one comparison, actual wait/report checks and an honest rejected-result answer.",
+      "note": "docs/obsidian/31-tracking-learning.md"
+    },
+    {
+      "id": "view",
+      "name": "Actual frame inspection and replay",
+      "status": "verified",
+      "source": "workspace-desktop/renderer/tracking-panel.js",
+      "summary": "Focused integrated lab; original frames, separate references and unannotated real browser replay.",
+      "note": "docs/obsidian/31-tracking-learning.md"
+    },
+    {
+      "id": "report",
+      "name": "Actual charts and trace exports",
+      "status": "verified",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/TrackingPresentation.java",
+      "summary": "15 files, every prediction trace, original thumbnails and eight actual canvas assertions.",
+      "note": "docs/obsidian/31-tracking-learning.md"
+    },
+    {
+      "id": "next",
+      "name": "Stronger temporal observations",
+      "status": "planned",
+      "source": "docs/TRACKING_EVALUATION.md",
+      "summary": "Use failures as development, then freeze a new candidate before new independent evaluation footage.",
+      "note": "docs/obsidian/31-tracking-learning.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "docs/readmes/023/images/tracking-import-023.png",
+      "caption": "Actual original-frame/mask import with distinct declared roles. DAVIS research data, CC BY-NC4.0."
+    },
+    {
+      "path": "docs/readmes/023/images/tracking-decision-023.png",
+      "caption": "Actual report: the real-data candidate is rejected and the active profile remains unchanged. Report assertions are separate from accuracy acceptance."
+    },
+    {
+      "path": "docs/readmes/023/images/tracking-reference-023.png",
+      "caption": "Actual recorded-frame inspection separates the published reference and saved prediction. DAVIS research data, CC BY-NC4.0."
+    },
+    {
+      "path": "docs/readmes/023/images/tracking-browser-023.png",
+      "caption": "Original recorded frames replay in the actual browser; the source canvas excludes evaluation references. DAVIS, CC BY-NC4.0."
+    },
+    {
+      "path": "docs/readmes/023/images/tracking-promotion-023.png",
+      "caption": "Separate explicitly synthetic aspect control: actual manual activation after fixed gates pass. Not the real-data performance result."
+    },
+    {
+      "path": "docs/readmes/023/images/tracking-pinned-skill-023.png",
+      "caption": "Actual retained-skill inspector shows the pinned candidate implementation from a synthetic software control."
+    },
+    {
+      "path": "docs/readmes/023/images/tracking-rollback-023.png",
+      "caption": "Actual rollback in the synthetic control project restores baseline and retains comparison/history."
+    },
+    {
+      "path": "docs/readmes/023/images/tracking-chat-023.png",
+      "caption": "Actual gpt-oss:20b completes the recorded-sequence workflow and reports its rejection honestly. DAVIS report thumbnails, CC BY-NC4.0."
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/readmes/023/verification.json"
+    },
+    {
+      "path": "docs/readmes/023/first-reserved-result.json"
+    },
+    {
+      "path": "docs/readmes/023/profile-023.json"
+    },
+    {
+      "path": "docs/readmes/023/acceptance-023.json"
+    },
+    {
+      "path": "docs/readmes/023/development.json"
+    },
+    {
+      "path": "docs/readmes/023/tracking-integration.json"
+    },
+    {
+      "path": "docs/readmes/023/tracking-controls-integration.json"
+    },
+    {
+      "path": "docs/readmes/023/live-tracking.json"
+    },
+    {
+      "path": "docs/readmes/023/regressions.json"
+    },
+    {
+      "path": "docs/readmes/023/live-perception.json"
+    },
+    {
+      "path": "docs/readmes/023/live-spatial.json"
+    },
+    {
+      "path": "docs/readmes/023/live-data-goals.json"
+    },
+    {
+      "path": "docs/readmes/023/live-goals.json"
+    },
+    {
+      "path": "docs/readmes/023/examples/verified-tracking-report.html"
+    },
+    {
+      "path": "docs/readmes/023/examples/comparison.json"
+    },
+    {
+      "path": "docs/readmes/023/examples/datasets.json"
+    },
+    {
+      "path": "docs/readmes/023/examples/accuracy.csv"
+    },
+    {
+      "path": "docs/readmes/023/examples/verification.json"
+    },
+    {
+      "path": "docs/readmes/023/file-inventory.json"
+    },
+    {
+      "path": "docs/readmes/023/FILE_TREE.md"
+    },
+    {
+      "path": "docs/readmes/023/examples/dataset-0.json"
+    },
+    {
+      "path": "docs/readmes/023/examples/dataset-1.json"
+    },
+    {
+      "path": "docs/readmes/023/examples/dataset-2.json"
+    },
+    {
+      "path": "docs/readmes/023/examples/trace-0-adaptive-v2.json"
+    },
+    {
+      "path": "docs/readmes/023/examples/trace-0-rgb-v1.json"
+    },
+    {
+      "path": "docs/readmes/023/examples/trace-1-adaptive-v2.json"
+    },
+    {
+      "path": "docs/readmes/023/examples/trace-1-rgb-v1.json"
+    },
+    {
+      "path": "docs/readmes/023/examples/trace-2-adaptive-v2.json"
+    },
+    {
+      "path": "docs/readmes/023/examples/trace-2-rgb-v1.json"
+    }
+  ]
+}

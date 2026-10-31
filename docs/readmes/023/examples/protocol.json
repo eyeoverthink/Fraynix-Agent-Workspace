@@ -1,0 +1,54 @@
+{
+  "protocol": [
+    "Only first-frame reference rectangle initializes each tracker. Subsequent reference masks/boxes are scored after prediction and never passed to the tracker.",
+    "Candidate may be developed on blackswan only. Freeze its implementation commit before fetching/evaluating the other two sequences. No retuning after evaluation results.",
+    "The first frame is disclosed initialization and excluded from scored predictions. All remaining selected frames count, including lost observations as IoU zero. No reset on failure or selective frame removal.",
+    "The rectangle is derived from the nonzero extent of objectId in the published mask; this is box tracking, not official DAVIS mask J/F scoring.",
+    "Report mean IoU, fraction of frames with IoU>=0.5, low-overlap visible predictions (IoU<0.1), losses, and per-frame wall-clock latency. Original capture FPS is not asserted; source frame ordinals are retained.",
+    "Identity scores refer to the dataset's annotated object, not face/name identity. Initial human-guided annotation is disclosed.",
+    "Evaluation is a small public development/validation subset, not an official benchmark score or proof of general real-world accuracy."
+  ],
+  "cases": [
+    {
+      "sequence": "blackswan",
+      "split": "development",
+      "frames": 16,
+      "selection": "round(i*(length-1)/15), i=0..15",
+      "objectId": 1
+    },
+    {
+      "sequence": "car-shadow",
+      "split": "evaluation",
+      "frames": 20,
+      "selection": "round(i*(length-1)/19), i=0..19",
+      "objectId": 1
+    },
+    {
+      "sequence": "hike",
+      "split": "evaluation",
+      "frames": 20,
+      "selection": "round(i*(length-1)/19), i=0..19",
+      "objectId": 1
+    }
+  ],
+  "declaredBeforeFirstTrackingEvaluation": true,
+  "edition": "023",
+  "baseline": "Edition022 PixelTracker RGB8x8, anchor and ambiguity rejection; no tuning against evaluation sequences",
+  "source": {
+    "archiveEtag": "\"31a3032d-54c6d0af8b4dc\"",
+    "license": "CC BY-NC 4.0 per archive Terms of Use; research evaluation data, not a new unrestricted production asset license",
+    "archiveBytes": 832766765,
+    "selection": "These three sequences are not listed as external-source exceptions in archive SOURCES.md. Original JPEGs and indexed PNG masks, exact bytes and hashes retained in private evaluation data.",
+    "archive": "https://data.vision.ee.ethz.ch/csergi/share/davis/DAVIS-2017-trainval-480p.zip"
+  },
+  "promotion": {
+    "noIncreaseInLowOverlapVisiblePredictions": true,
+    "explicitRollbackAndRestartPersistenceRequired": true,
+    "minimumPooledIouHalfFraction": 0.65,
+    "duplicateAppearanceMustRemainAmbiguous": true,
+    "sourceAndLossGuardsMustPass": true,
+    "minimumPooledMeanIouGain": 0.03,
+    "failedCandidateRemainsRejected": true,
+    "maximumPerSequenceMeanIouRegression": 0.05
+  }
+}

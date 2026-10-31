@@ -1,0 +1,399 @@
+{
+  "date": "2026-10-30",
+  "sourceBaseline": "687575efe15369c66f3ff6b7d8b4258f1a388ef5",
+  "releaseKind": "recorded-sequence-evaluation-and-pinned-profile-lifecycle",
+  "sourceInventory": 524,
+  "candidateSourceFreeze": {
+    "candidate": "adaptive-v2",
+    "algorithmSourceCommit": "69efdf6f5f1f11b5d5fbe58b109c35f8b9f2e9ad",
+    "baselineOrigin": "1af00ff13a6372e4305c2c114e0b4c141ec79b29",
+    "declaration": "Frozen before reserved sequence download/evaluation. Later source changes must not retune this candidate against the reserved results.",
+    "sourceSha256": {
+      "workspace-engine/src/main/java/fraymus/workspace/AdaptiveTracker.java": "ba0b5029629ef3298953a1aa23ae457cc9cd17e268822b1798b1f672f8dbe136",
+      "workspace-engine/src/main/java/fraymus/workspace/PixelTracker.java": "85d569217814a39618796bfbe43dc0b7db1ca61378a60f0198099d248674425c",
+      "workspace-engine/src/main/java/fraymus/workspace/TrackingGuards.java": "8cb4da526097e8e840b430485b47dfd9f251cc855e31f9fe7b89560d2dae0273",
+      "workspace-engine/src/main/java/fraymus/workspace/TrackingEvaluation.java": "6a006dc12a87fbb7799f14699e003c50788d34408517bac04e5e4883e0aa1477"
+    }
+  },
+  "firstReservedGate": {
+    "baselineMeanIou": 0.0942388688675513,
+    "lowOverlapVisibleCandidate": 0,
+    "cases": [
+      {
+        "candidate": {
+          "meanIou": 0.09969713616608479,
+          "referenceAbsentFrames": 0,
+          "p95ProcessingMillis": 83.9989,
+          "latencyScope": "JPEG/PNG decode plus CPU tracking; excludes browser capture, network and LLM. Initialization excluded from scored frames.",
+          "scoredFrames": 19,
+          "iouHalfFraction": 0.10526315789473684,
+          "reacquired": 0,
+          "lost": 17,
+          "lowOverlapVisiblePredictions": 0,
+          "medianProcessingMillis": 79.9831
+        },
+        "datasetId": "33f4308b-4006-4653-a37c-dda553f6ad2b",
+        "baseline": {
+          "meanIou": 0.14141230972307395,
+          "referenceAbsentFrames": 0,
+          "p95ProcessingMillis": 13.9824,
+          "latencyScope": "JPEG/PNG decode plus CPU tracking; excludes browser capture, network and LLM. Initialization excluded from scored frames.",
+          "scoredFrames": 19,
+          "iouHalfFraction": 0.15789473684210525,
+          "reacquired": 3,
+          "lost": 16,
+          "lowOverlapVisiblePredictions": 0,
+          "medianProcessingMillis": 11.8527
+        },
+        "gain": -0.04171517355698916
+      },
+      {
+        "candidate": {
+          "meanIou": 0,
+          "referenceAbsentFrames": 0,
+          "p95ProcessingMillis": 77.0046,
+          "latencyScope": "JPEG/PNG decode plus CPU tracking; excludes browser capture, network and LLM. Initialization excluded from scored frames.",
+          "scoredFrames": 19,
+          "iouHalfFraction": 0,
+          "reacquired": 0,
+          "lost": 19,
+          "lowOverlapVisiblePredictions": 0,
+          "medianProcessingMillis": 74.1611
+        },
+        "datasetId": "dabc0bb8-5704-46a6-8320-2f103c987006",
+        "baseline": {
+          "meanIou": 0.047065428012028634,
+          "referenceAbsentFrames": 0,
+          "p95ProcessingMillis": 13.7154,
+          "latencyScope": "JPEG/PNG decode plus CPU tracking; excludes browser capture, network and LLM. Initialization excluded from scored frames.",
+          "scoredFrames": 19,
+          "iouHalfFraction": 0.05263157894736842,
+          "reacquired": 1,
+          "lost": 18,
+          "lowOverlapVisiblePredictions": 0,
+          "medianProcessingMillis": 11.5327
+        },
+        "gain": -0.047065428012028634
+      }
+    ],
+    "negativeControlsPassed": true,
+    "scope": "Small declared human-guided box-tracking evaluation; not general category accuracy or official DAVIS mask metrics",
+    "passed": false,
+    "candidateIouHalfFraction": 0.05263157894736842,
+    "perSequenceRegression": false,
+    "candidateMeanIou": 0.049848568083042395,
+    "scoredEvaluationFrames": 38,
+    "pooledMeanIouGain": -0.0443903007845089,
+    "lowOverlapVisibleBaseline": 0
+  },
+  "reproducedGate": {
+    "baselineMeanIou": 0.0942388688675513,
+    "lowOverlapVisibleCandidate": 0,
+    "cases": [
+      {
+        "candidate": {
+          "meanIou": 0.09969713616608479,
+          "referenceAbsentFrames": 0,
+          "p95ProcessingMillis": 80.930799,
+          "latencyScope": "JPEG/PNG decode plus CPU tracking; excludes browser capture, network and LLM. Initialization excluded from scored frames.",
+          "scoredFrames": 19,
+          "iouHalfFraction": 0.10526315789473684,
+          "reacquired": 0,
+          "lost": 17,
+          "lowOverlapVisiblePredictions": 0,
+          "medianProcessingMillis": 76.656399
+        },
+        "datasetId": "04b52d13-a538-4a29-a08b-53fe72862b1b",
+        "baseline": {
+          "meanIou": 0.14141230972307395,
+          "referenceAbsentFrames": 0,
+          "p95ProcessingMillis": 12.3131,
+          "latencyScope": "JPEG/PNG decode plus CPU tracking; excludes browser capture, network and LLM. Initialization excluded from scored frames.",
+          "scoredFrames": 19,
+          "iouHalfFraction": 0.15789473684210525,
+          "reacquired": 3,
+          "lost": 16,
+          "lowOverlapVisiblePredictions": 0,
+          "medianProcessingMillis": 11.7292
+        },
+        "gain": -0.04171517355698916
+      },
+      {
+        "candidate": {
+          "meanIou": 0,
+          "referenceAbsentFrames": 0,
+          "p95ProcessingMillis": 265.234101,
+          "latencyScope": "JPEG/PNG decode plus CPU tracking; excludes browser capture, network and LLM. Initialization excluded from scored frames.",
+          "scoredFrames": 19,
+          "iouHalfFraction": 0,
+          "reacquired": 0,
+          "lost": 19,
+          "lowOverlapVisiblePredictions": 0,
+          "medianProcessingMillis": 71.8958
+        },
+        "datasetId": "9cb16ea2-3fd9-435c-8dfe-bc9e45af77ac",
+        "baseline": {
+          "meanIou": 0.047065428012028634,
+          "referenceAbsentFrames": 0,
+          "p95ProcessingMillis": 11.7922,
+          "latencyScope": "JPEG/PNG decode plus CPU tracking; excludes browser capture, network and LLM. Initialization excluded from scored frames.",
+          "scoredFrames": 19,
+          "iouHalfFraction": 0.05263157894736842,
+          "reacquired": 1,
+          "lost": 18,
+          "lowOverlapVisiblePredictions": 0,
+          "medianProcessingMillis": 11.276
+        },
+        "gain": -0.047065428012028634
+      }
+    ],
+    "negativeControlsPassed": true,
+    "scope": "Small declared human-guided box-tracking evaluation; not general category accuracy or official DAVIS mask metrics",
+    "passed": false,
+    "candidateIouHalfFraction": 0.05263157894736842,
+    "perSequenceRegression": false,
+    "candidateMeanIou": 0.049848568083042395,
+    "scoredEvaluationFrames": 38,
+    "pooledMeanIouGain": -0.0443903007845089,
+    "lowOverlapVisibleBaseline": 0
+  },
+  "accuracyReproducedExactly": true,
+  "candidatePromotedOnRealData": false,
+  "realSequenceUiGroups": 8,
+  "syntheticLifecycleGroups": 6,
+  "syntheticLifecycleScope": "Synthetic aspect/motion acceptance controls only. This is not the reserved real-video accuracy result.",
+  "syntheticLifecycle": {
+    "gate": {
+      "baselineMeanIou": 0.13039626764306392,
+      "lowOverlapVisibleCandidate": 0,
+      "cases": [
+        {
+          "candidate": {
+            "meanIou": 0.9635616914309552,
+            "referenceAbsentFrames": 0,
+            "p95ProcessingMillis": 92.770001,
+            "latencyScope": "JPEG/PNG decode plus CPU tracking; excludes browser capture, network and LLM. Initialization excluded from scored frames.",
+            "scoredFrames": 7,
+            "iouHalfFraction": 1,
+            "reacquired": 0,
+            "lost": 0,
+            "lowOverlapVisiblePredictions": 0,
+            "medianProcessingMillis": 54.434099
+          },
+          "datasetId": "9ebb3e5a-9406-4054-8de9-c4c3d2e98266",
+          "baseline": {
+            "meanIou": 0.13039626764306392,
+            "referenceAbsentFrames": 0,
+            "p95ProcessingMillis": 8.324001,
+            "latencyScope": "JPEG/PNG decode plus CPU tracking; excludes browser capture, network and LLM. Initialization excluded from scored frames.",
+            "scoredFrames": 7,
+            "iouHalfFraction": 0.14285714285714285,
+            "reacquired": 0,
+            "lost": 6,
+            "lowOverlapVisiblePredictions": 0,
+            "medianProcessingMillis": 8.1545
+          },
+          "gain": 0.8331654237878913
+        }
+      ],
+      "negativeControlsPassed": true,
+      "scope": "Small declared human-guided box-tracking evaluation; not general category accuracy or official DAVIS mask metrics",
+      "passed": true,
+      "candidateIouHalfFraction": 1,
+      "perSequenceRegression": false,
+      "candidateMeanIou": 0.9635616914309552,
+      "scoredEvaluationFrames": 7,
+      "pooledMeanIouGain": 0.8331654237878912,
+      "lowOverlapVisibleBaseline": 0
+    },
+    "pinnedProfile": "adaptive-v2",
+    "reusedAfterRollback": "adaptive-v2",
+    "activeAfterRollback": "rgb-v1"
+  },
+  "liveTracking": {
+    "model": "gpt-oss:20b",
+    "checks": 4,
+    "calls": [
+      "tracking.read",
+      "tracking.start",
+      "tracking.wait",
+      "canvas.test",
+      "tracking.report"
+    ]
+  },
+  "workflowGroups": 233,
+  "regressions": {
+    "trackingUiChecks": 8,
+    "trackingControlsChecks": 6,
+    "liveTrackingChecks": 4,
+    "perceptionUiChecks": 15,
+    "livePerceptionChecks": 7,
+    "passed": true,
+    "javaTests": 206,
+    "javaClasses": 39,
+    "desktopUnitTests": 29,
+    "spatialUiChecks": 14,
+    "liveSpatialChecks": 4,
+    "suites": {
+      "tracking-integration": {
+        "passed": true,
+        "checks": 8,
+        "seconds": 13.38
+      },
+      "tracking-controls-integration": {
+        "passed": true,
+        "checks": 6,
+        "seconds": 14.04
+      },
+      "perception-integration": {
+        "passed": true,
+        "checks": 15,
+        "seconds": 32.51
+      },
+      "spatial-integration": {
+        "passed": true,
+        "checks": 14,
+        "seconds": 38.63
+      },
+      "data-goals-integration": {
+        "passed": true,
+        "checks": 12,
+        "seconds": 15.77
+      },
+      "goals-integration": {
+        "passed": true,
+        "checks": 14,
+        "seconds": 56.84
+      },
+      "world-model-integration": {
+        "passed": true,
+        "checks": 15,
+        "seconds": 13.58
+      },
+      "feedback-integration": {
+        "passed": true,
+        "checks": 12,
+        "seconds": 14.39
+      },
+      "brain-game-integration": {
+        "passed": true,
+        "checks": 10,
+        "seconds": 15.84
+      },
+      "body-integration": {
+        "passed": true,
+        "checks": 10,
+        "seconds": 7.35
+      },
+      "observer-integration": {
+        "passed": true,
+        "checks": 12,
+        "seconds": 5.25
+      },
+      "scene-integration": {
+        "passed": true,
+        "checks": 12,
+        "seconds": 6.01
+      },
+      "measurement-integration": {
+        "passed": true,
+        "checks": 10,
+        "seconds": 5.2
+      },
+      "calibration-integration": {
+        "passed": true,
+        "checks": 8,
+        "seconds": 9.67
+      },
+      "real-data-delfys": {
+        "passed": true,
+        "checks": 9,
+        "seconds": 4.79
+      },
+      "integration": {
+        "passed": true,
+        "checks": 12,
+        "seconds": 25.19
+      },
+      "learning-integration": {
+        "passed": true,
+        "checks": 9,
+        "seconds": 27.12
+      },
+      "broader-validation": {
+        "passed": true,
+        "checks": 45,
+        "seconds": 15.4
+      },
+      "live-data-goals": {
+        "passed": true,
+        "checks": 4,
+        "seconds": 107.88
+      },
+      "live-goals": {
+        "passed": true,
+        "checks": 5,
+        "seconds": 59.19
+      },
+      "live-spatial": {
+        "passed": true,
+        "checks": 4,
+        "seconds": 91.41
+      },
+      "live-perception": {
+        "passed": true,
+        "checks": 7,
+        "seconds": 171.83
+      },
+      "live-tracking": {
+        "passed": true,
+        "checks": 4,
+        "seconds": 101.74
+      }
+    }
+  },
+  "freshClone": {
+    "status": "passed",
+    "checkout": "fraynix-workspace-qa023-release",
+    "sourceCommit": "687575efe15369c66f3ff6b7d8b4258f1a388ef5",
+    "javaTests": 206,
+    "desktopUnitTests": 29,
+    "bodyUiChecks": 10,
+    "brainGameUiChecks": 10,
+    "feedbackUiChecks": 12,
+    "worldModelUiChecks": 15,
+    "goalUiChecks": 14,
+    "dataGoalUiChecks": 12,
+    "offlineBuild": true,
+    "modelWeightsOrPrivateRuntimeCopied": false,
+    "electronBinary": "Pinned 45.1.0 executable reused from existing dependency cache after npm ci --offline --ignore-scripts",
+    "trackingUiChecks": 8,
+    "trackingControlsChecks": 6,
+    "perceptionUiChecks": 15,
+    "spatialUiChecks": 14,
+    "uiChecks": 116
+  },
+  "documentationQa": {
+    "status": "passed",
+    "checks": [
+      "Offline companion loads nine source-linked modules with no runtime service",
+      "Architecture selection and all/verified/planned filters work",
+      "Canonical source inventory search resolves actual Java tracking implementation",
+      "All eight dated actual application screenshots decode and have captions",
+      "Navigation, inventory search and map selection work at390px without horizontal overflow",
+      "Standalone actual report opens offline with original recorded thumbnails, every-prediction charts and the retained failed accuracy decision",
+      "No script errors, external requests or CDN dependencies"
+    ]
+  },
+  "scope": [
+    "First-frame reference is given initialization; all subsequent selected predictions score, including losses",
+    "Public DAVIS subset, declared split; small human-guided box evaluation, not official mask benchmark score",
+    "Candidate gains on development but fails real reserved cases; fixed gates and active baseline unchanged",
+    "Repeated runs verify unchanged-code/source reproducibility, not retuning or repeated candidate selection",
+    "Positive profile activation and rollback use separately labelled synthetic aspect controls",
+    "Aggregate implementation identity includes feature extraction/geometry helpers; metadata extension does not change frozen prediction/scoring",
+    "Actual browser replay source excludes reference overlays; evaluation inspection displays reference separately",
+    "No new runtime libraries, model weights, GPU tracker, general category training or LLM weight updates",
+    "Original Studio/default project, prior review apps and frozen001–022/013 data preserved"
+  ]
+}
