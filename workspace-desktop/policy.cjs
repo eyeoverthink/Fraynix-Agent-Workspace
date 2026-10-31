@@ -151,6 +151,7 @@ function calibrationStage(context,goal){
 }
 function planTools(allowed,context={}){return catalog.filter(t=>allowed.includes(t.name)).map(t=>{
  let parameters=argumentSchemas[t.name];
+  if(t.name==='map.start'&&context.mapCompiled)parameters=object({disturbanceNs:mapOptions.disturbanceNs,saveSkillName:text},[]);
  if(t.name==='procedure.run'&&context.family){const options=context.family==='map'?mapOptions:context.family==='procedural'?{seed:proceduralOptions.seed,definition:object(proceduralOptions,[]),saveSkillName:text}:context.family==='perception'?{targetLabel:text,seconds:perceptionOptions.seconds,saveSkillName:text}:context.family==='spatial'?spatialOptions:context.family==='data'?{...dataOptions,saveSkillName:text}:{...goalOptions,saveSkillName:text};parameters=context.procedureBound?object(options,[]):object({name:context.names?.length?{type:'string',enum:context.names}:text,version:{type:'integer',minimum:1,maximum:8},...options},['name','version']);}
  return {type:'function',function:{name:t.name.replace('.','_'),description:t.description,parameters}};
 });}
