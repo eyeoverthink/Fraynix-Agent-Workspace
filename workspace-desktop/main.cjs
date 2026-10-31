@@ -508,7 +508,7 @@ ipcMain.handle('workspace:request',async(event,input)=>{
     }
     case 'state':return {...await refresh(),currentArtifact,origin,log,run:run?{active:true,goal:run.goal}:null};
     case 'tool':if(run)throw Error('Take over before using manual tools');return execute(input.tool,input.args);
-    case 'agent':startAgent(input.goal,input.model);return {started:true};
+    case 'agent':startAgent(input.goal,input.model).catch(error=>{activity('error',error.message);emit('answer',error.message);});return {started:true};
     case 'stop':await stopAgent();return {stopped:true};
     case 'proof':return guidedProof();
     case 'learningProof':return learnFromEpisodes({proof:true});
