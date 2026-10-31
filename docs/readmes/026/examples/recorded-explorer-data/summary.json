@@ -1,0 +1,46 @@
+{
+  "summary": {
+    "peakAbsAccelerationMps2": 90.27631315145989,
+    "meanSpeedMps": 0.8546782133843404,
+    "meanVelocityMps": 0.8541176470588235,
+    "qualityPassed": true,
+    "maxGapS": 0.01666666666666672,
+    "speedFlags": 0,
+    "gapFlags": 0,
+    "netDisplacementM": 0.726,
+    "totalTravelM": 0.7264764813766893,
+    "intervalCount": 51,
+    "peakAbsVelocityMps": 2.0674896090043724,
+    "skippedSourceRows": 0,
+    "durationS": 0.85,
+    "rowCount": 52,
+    "passed": true
+  },
+  "mapping": {
+    "timeColumn": "time_s",
+    "distanceUnit": "m",
+    "distanceOrigin": 0,
+    "timeOffsetS": 0,
+    "distanceColumn": "displacement_m",
+    "timeUnit": "s",
+    "direction": 1
+  },
+  "filename": "training.csv",
+  "sourceNote": "Unchanged published edition013 jaswar/physical-parameter-prediction v11 video/SAM2-centroid observations and frozen scale assumptions. This workflow does not calibrate native simulation to these recordings. See the original provenance and spatial-calibration-frozen.json.",
+  "method": "motion-data-v1: explicit SI mapping, adjacent-segment velocities, acceleration between segment midpoints; no smoothing or model fit",
+  "criteria": {
+    "speedLimitMps": 5,
+    "maxGapS": 0.25
+  },
+  "sourceLabelUserSupplied": true,
+  "source": {
+    "sourceSha256": "c3d95c6a8ee4e002ec490cb6e2239dbd53ba5e194ea6b89ccba418b0e5ac59da",
+    "datasetVersion": 1,
+    "mappingSha256": "3f623a2a9ab80889303ea111fb3f6b349dcf4ea84962543b847cc8eaa2b11a66",
+    "sourceKind": "measured",
+    "versionSha256": "95f8850bfd641ccd9e201e65eba514f747b5e516a6a0c49540f9125cbab353cc",
+    "datasetId": "0def7a0e-6e4f-4979-a54f-e0c6889ea6da",
+    "title": "Recorded video-derived observations · training"
+  },
+  "skippedSourceRowNumbers": []
+}

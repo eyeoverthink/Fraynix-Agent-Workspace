@@ -1,0 +1,1244 @@
+{
+  "passed": false,
+  "project": "C:\\Users\\eyeka\\AppData\\Local\\Temp\\fraynix-live-workflow026-O1IjDG",
+  "sourceBaseline": "d8548db",
+  "workflow": {
+    "request": "Analyze these observations, predict and reach a target despite a disturbance, then create an interactive explorer of the actual results. Keep data quality and source limitations visible.",
+    "reason": "No remaining owned creation repair budget. Review and explicitly Resume or Stop the workflow.",
+    "history": [
+      {
+        "reason": "Request, source, simulation conditions and registered stages frozen before execution",
+        "at": "2026-10-31T06:13:18.283653300Z",
+        "step": "data",
+        "status": "running"
+      },
+      {
+        "reason": "Saved data intent before starting its stable owned child",
+        "at": "2026-10-31T06:13:18.365672300Z",
+        "step": "data",
+        "status": "running"
+      },
+      {
+        "reason": "Verified data stage; retained outcome will not be repeated",
+        "at": "2026-10-31T06:13:19.242114500Z",
+        "step": "physics",
+        "status": "running"
+      },
+      {
+        "reason": "Saved physics intent before starting its stable owned child",
+        "at": "2026-10-31T06:13:19.359601200Z",
+        "step": "physics",
+        "status": "running"
+      },
+      {
+        "reason": "Verified physics stage; retained outcome will not be repeated",
+        "at": "2026-10-31T06:13:25.944728700Z",
+        "step": "creation",
+        "status": "running"
+      },
+      {
+        "reason": "Saved creation intent before starting its stable owned child",
+        "at": "2026-10-31T06:13:26.124560200Z",
+        "step": "creation",
+        "status": "running"
+      },
+      {
+        "reason": "Generated behavior passed; independent source-cell and native SVG geometry audit is next",
+        "at": "2026-10-31T06:15:16.291708300Z",
+        "step": "audit",
+        "status": "running"
+      },
+      {
+        "reason": "Independent audit rejected this draft; repair receives actual failures without weakening the contract",
+        "at": "2026-10-31T06:15:16.675361500Z",
+        "step": "creation",
+        "status": "running"
+      },
+      {
+        "reason": "Generated behavior passed; independent source-cell and native SVG geometry audit is next",
+        "at": "2026-10-31T06:17:25.461483100Z",
+        "step": "audit",
+        "status": "running"
+      },
+      {
+        "reason": "Independent audit rejected this draft; repair receives actual failures without weakening the contract",
+        "at": "2026-10-31T06:17:25.714279600Z",
+        "step": "creation",
+        "status": "running"
+      },
+      {
+        "reason": "Generated behavior passed; independent source-cell and native SVG geometry audit is next",
+        "at": "2026-10-31T06:19:34.845878200Z",
+        "step": "audit",
+        "status": "running"
+      },
+      {
+        "reason": "No remaining owned creation repair budget. Review and explicitly Resume or Stop the workflow.",
+        "at": "2026-10-31T06:19:35.105335200Z",
+        "step": "audit",
+        "status": "interrupted"
+      }
+    ],
+    "title": "Recorded observations & native forecasts",
+    "resumes": 0,
+    "auditHistory": [
+      {
+        "artifact": {
+          "sha256": "8538138800a8d855750de59b7f990844e4bcd20f5c7e98670f26d255059978ec",
+          "id": "8fb1b40a-fda4-3d10-98c2-f98445bf6ad1",
+          "version": 1
+        },
+        "tableSha256": "3147850134a9c20e02bb62a58e976c8b16a5f1528cd9a1723b16df868c2b041d",
+        "maxPlotError": 0,
+        "plotTolerance": 0.02,
+        "passed": false,
+        "rowCount": 110,
+        "errors": [
+          "Plot native_actual is hidden or uses a different coordinate frame",
+          "Plot native_actual has a different point count",
+          "Plot native_prediction is hidden or uses a different coordinate frame",
+          "Plot native_prediction has a different point count"
+        ]
+      },
+      {
+        "artifact": {
+          "sha256": "3fbc9e325fa1ce4b4ac2435d1b83237a3b046d776b354f2a003fec926f4b4306",
+          "id": "8fb1b40a-fda4-3d10-98c2-f98445bf6ad1",
+          "version": 2
+        },
+        "tableSha256": "3147850134a9c20e02bb62a58e976c8b16a5f1528cd9a1723b16df868c2b041d",
+        "maxPlotError": 0,
+        "plotTolerance": 0.02,
+        "passed": false,
+        "rowCount": 110,
+        "errors": [
+          "Plot native_actual is hidden or uses a different coordinate frame",
+          "Plot native_actual has a different point count",
+          "Plot native_prediction is hidden or uses a different coordinate frame",
+          "Plot native_prediction has a different point count"
+        ]
+      },
+      {
+        "artifact": {
+          "sha256": "3fbc9e325fa1ce4b4ac2435d1b83237a3b046d776b354f2a003fec926f4b4306",
+          "id": "8fb1b40a-fda4-3d10-98c2-f98445bf6ad1",
+          "version": 3
+        },
+        "tableSha256": "3147850134a9c20e02bb62a58e976c8b16a5f1528cd9a1723b16df868c2b041d",
+        "maxPlotError": 0,
+        "plotTolerance": 0.02,
+        "passed": false,
+        "rowCount": 110,
+        "errors": [
+          "Plot native_actual is hidden or uses a different coordinate frame",
+          "Plot native_actual has a different point count",
+          "Plot native_prediction is hidden or uses a different coordinate frame",
+          "Plot native_prediction has a different point count"
+        ]
+      }
+    ],
+    "modelName": "gpt-oss:20b",
+    "stageIndex": 2,
+    "createdAt": "2026-10-31T06:13:18.283653300Z",
+    "dataBinding": {
+      "sourceSha256": "c3d95c6a8ee4e002ec490cb6e2239dbd53ba5e194ea6b89ccba418b0e5ac59da",
+      "datasetVersion": 1,
+      "mappingSha256": "3f623a2a9ab80889303ea111fb3f6b349dcf4ea84962543b847cc8eaa2b11a66",
+      "sourceKind": "measured",
+      "versionSha256": "2b3eeef855812adfc71931080f57273ec2f949079fb0ff1a1f939c44e30ac4fd",
+      "datasetId": "43a92d30-792b-4b10-8914-68b554ce3a04",
+      "title": "Recorded video-derived observations · training"
+    },
+    "stages": [
+      {
+        "artifact": {
+          "sha256": "7e8dcb435d9a9e9fac8f2abf521f5b3fe5f8d1a9baee5c072cb5a87100031173",
+          "id": "eed6a4a6-aab4-32f2-92d7-13672e58ba92",
+          "version": 1
+        },
+        "input": {
+          "request": "Analyze these observations, predict and reach a target despite a disturbance, then create an interactive explorer of the actual results. Keep data quality and source limitations visible.",
+          "datasetVersion": 1,
+          "speedLimitMps": 5,
+          "datasetId": "43a92d30-792b-4b10-8914-68b554ce3a04",
+          "maxGapS": 0.25
+        },
+        "goalId": "7d565288-4c38-3cb4-bb29-dfd44a25a0cd",
+        "name": "data",
+        "childUpdatedAt": "2026-10-31T06:13:18.769349Z",
+        "metrics": {
+          "peakAbsAccelerationMps2": 90.27631315145989,
+          "meanSpeedMps": 0.8546782133843404,
+          "meanVelocityMps": 0.8541176470588235,
+          "qualityPassed": true,
+          "maxGapS": 0.01666666666666672,
+          "speedFlags": 0,
+          "gapFlags": 0,
+          "netDisplacementM": 0.726,
+          "totalTravelM": 0.7264764813766893,
+          "intervalCount": 51,
+          "peakAbsVelocityMps": 2.0674896090043724,
+          "skippedSourceRows": 0,
+          "durationS": 0.85,
+          "rowCount": 52,
+          "passed": true
+        },
+        "status": "completed"
+      },
+      {
+        "artifact": {
+          "sha256": "528f4f52de8e953625b7572b8c611592a6ec2abc6bc3a5f4d4ccac2dba0bb48e",
+          "id": "3163f076-8d5f-3884-8815-b63eae19e4c5",
+          "version": 1
+        },
+        "input": {
+          "request": "Analyze these observations, predict and reach a target despite a disturbance, then create an interactive explorer of the actual results. Keep data quality and source limitations visible.",
+          "targetM": 1.2,
+          "parameters": {
+            "angleDeg": 25,
+            "widthM": 3,
+            "offsetZ": 0,
+            "massKg": 1,
+            "lengthM": 12,
+            "friction": 0,
+            "gravityMps2": 9.81
+          },
+          "disturbanceMps": 0.35
+        },
+        "goalId": "c72652c9-8275-375f-b5c0-d78cf831be9d",
+        "name": "physics",
+        "childUpdatedAt": "2026-10-31T06:13:25.585364200Z",
+        "metrics": {
+          "score": 0.06218603375510297,
+          "endpointErrorM": 0.024574400092262083,
+          "modelActionFraction": 1,
+          "controlAbsoluteImpulseNs": 6.800000000000002,
+          "settlingMaxErrorM": 0.024574400092262083,
+          "terminalSpeedMps": 0.16882955744473233,
+          "passed": true
+        },
+        "runId": "b4185e7f-fe28-4f0d-90b0-385cfba8a256",
+        "status": "completed"
+      },
+      {
+        "artifact": {
+          "sha256": "3fbc9e325fa1ce4b4ac2435d1b83237a3b046d776b354f2a003fec926f4b4306",
+          "id": "8fb1b40a-fda4-3d10-98c2-f98445bf6ad1",
+          "version": 3
+        },
+        "input": {
+          "request": "Create a responsive evidence explorer for the real source FILE inputs/source.json written by Java. Load it with await (await fetch('inputs/source.json')).json(); no source globals exist. Use text heading #title, digit-only text #row-count, input #filter and button #reset. #filter matches exact case-sensitive series values; empty shows every row. Reset clears it. Table #data-table tbody must render EVERY original row in original order, one td per source.headers entry in that exact order, using unchanged source string cells via textContent; no rounding, extra columns, pagination or invented values. Render two visible SVG polylines in the SAME svg with viewBox='0 0 800 300': data-series='native_actual' and data-series='native_prediction'. Use only those source rows for their respective line, in original order. For each point t=Number(row.time_s),p=Number(row.position_m): x=40+720*t/1.5,y=260-220*p/1.8. Keep at least3 decimals. Do not chart observation rows in that native graph. Add meaningful labelled axes and a legend. Native SVG only, no libraries/CDNs. Show this exact visible text in #scope: Observation data and a separate native simulation. No physical calibration or causal equivalence is claimed. Show exact text #data-quality: Within declared thresholds. Text #endpoint-error must be 0.024574 (m); text #prediction-error must be 0.000523 (m). These are text elements, not inputs. The source and simulation have separate authority. Quality flags are not discarded and the native simulation is not a fitted physical experiment. USER INTENT (the explicit source/contract above remains authoritative): Analyze these observations, predict and reach a target despite a disturbance, then create an interactive explorer of the actual results. Keep data quality and source limitations visible.",
+          "modelName": "gpt-oss:20b",
+          "checks": [
+            {
+              "selector": "#row-count",
+              "sourceRows": true
+            },
+            {
+              "action": "fill",
+              "selector": "#filter",
+              "value": "observations"
+            },
+            {
+              "sourceCount": {
+                "equals": "observations",
+                "column": "series"
+              },
+              "selector": "#row-count"
+            },
+            {
+              "action": "fill",
+              "selector": "#filter",
+              "value": "native_prediction"
+            },
+            {
+              "sourceCount": {
+                "equals": "native_prediction",
+                "column": "series"
+              },
+              "selector": "#row-count"
+            },
+            {
+              "action": "click",
+              "selector": "#reset"
+            },
+            {
+              "selector": "#row-count",
+              "sourceRows": true
+            },
+            {
+              "selector": "#filter",
+              "expectValue": ""
+            },
+            {
+              "expectText": "Observation data and a separate native simulation. No physical calibration or causal equivalence is claimed.",
+              "selector": "#scope"
+            },
+            {
+              "expectText": "Within declared thresholds",
+              "selector": "#data-quality"
+            },
+            {
+              "expectText": "0.024574",
+              "selector": "#endpoint-error"
+            },
+            {
+              "expectText": "0.000523",
+              "selector": "#prediction-error"
+            },
+            {
+              "expectCount": 1,
+              "selector": "svg polyline[data-series='native_actual']"
+            },
+            {
+              "expectCount": 1,
+              "selector": "svg polyline[data-series='native_prediction']"
+            }
+          ],
+          "sourceVersion": 1,
+          "title": "Recorded observations & native forecasts",
+          "sourceFile": "evidence.csv",
+          "sourceArtifactId": "1e38ca25-a4fd-3b00-affa-219ba05c9ccd"
+        },
+        "goalId": "c81fe94d-7589-35e1-a016-e1074f964b58",
+        "name": "creation",
+        "childUpdatedAt": "2026-10-31T06:19:33.874351Z",
+        "metrics": {
+          "repairs": 2,
+          "checks": 14,
+          "artifactVersion": 3,
+          "drafts": 3,
+          "sourceRows": 110,
+          "declaredBehaviorPassed": true
+        },
+        "status": "completed"
+      }
+    ],
+    "report": {
+      "sha256": "3fbc9e325fa1ce4b4ac2435d1b83237a3b046d776b354f2a003fec926f4b4306",
+      "id": "8fb1b40a-fda4-3d10-98c2-f98445bf6ad1",
+      "version": 3
+    },
+    "definition": {
+      "request": "Analyze these observations, predict and reach a target despite a disturbance, then create an interactive explorer of the actual results. Keep data quality and source limitations visible.",
+      "modelName": "gpt-oss:20b",
+      "datasetVersion": 1,
+      "saveSkillName": "observed-evidence",
+      "speedLimitMps": 5,
+      "physics": {
+        "targetM": 1.2,
+        "parameters": {
+          "angleDeg": 25,
+          "widthM": 3,
+          "offsetZ": 0,
+          "massKg": 1,
+          "lengthM": 12,
+          "friction": 0,
+          "gravityMps2": 9.81
+        },
+        "disturbanceMps": 0.35
+      },
+      "datasetId": "43a92d30-792b-4b10-8914-68b554ce3a04",
+      "maxGapS": 0.25,
+      "title": "Recorded observations & native forecasts"
+    },
+    "step": "audit",
+    "id": "a259acfa-ebb2-4646-9447-60b23de6b5b0",
+    "deadline": 1793428398283,
+    "bundle": {
+      "sha256": "19dee7d57d139095e872927fa7bc8a154333eb9ea06fdb3643ab44d7263bf7ff",
+      "id": "1e38ca25-a4fd-3b00-affa-219ba05c9ccd",
+      "version": 1
+    },
+    "currentChild": {
+      "modelDigest": "f38aa0c53da5f8c49d08c43a99df24ff53167fe68e24664a7777288e7656fdfe",
+      "request": "Create a responsive evidence explorer for the real source FILE inputs/source.json written by Java. Load it with await (await fetch('inputs/source.json')).json(); no source globals exist. Use text heading #title, digit-only text #row-count, input #filter and button #reset. #filter matches exact case-sensitive series values; empty shows every row. Reset clears it. Table #data-table tbody must render EVERY original row in original order, one td per source.headers entry in that exact order, using unchanged source string cells via textContent; no rounding, extra columns, pagination or invented values. Render two visible SVG polylines in the SAME svg with viewBox='0 0 800 300': data-series='native_actual' and data-series='native_prediction'. Use only those source rows for their respective line, in original order. For each point t=Number(row.time_s),p=Number(row.position_m): x=40+720*t/1.5,y=260-220*p/1.8. Keep at least3 decimals. Do not chart observation rows in that native graph. Add meaningful labelled axes and a legend. Native SVG only, no libraries/CDNs. Show this exact visible text in #scope: Observation data and a separate native simulation. No physical calibration or causal equivalence is claimed. Show exact text #data-quality: Within declared thresholds. Text #endpoint-error must be 0.024574 (m); text #prediction-error must be 0.000523 (m). These are text elements, not inputs. The source and simulation have separate authority. Quality flags are not discarded and the native simulation is not a fitted physical experiment. USER INTENT (the explicit source/contract above remains authoritative): Analyze these observations, predict and reach a target despite a disturbance, then create an interactive explorer of the actual results. Keep data quality and source limitations visible.",
+      "reason": "Created app and declared interactive behavior verified in the actual canvas",
+      "sourceBinding": {
+        "headers": [
+          "series",
+          "time_s",
+          "position_m",
+          "source_kind"
+        ],
+        "fileSha256": "1f9264050d9892127884721df61fba60100697f6ed962741c4cb18e0a6ba75f4",
+        "file": "evidence.csv",
+        "sha256": "19dee7d57d139095e872927fa7bc8a154333eb9ea06fdb3643ab44d7263bf7ff",
+        "id": "1e38ca25-a4fd-3b00-affa-219ba05c9ccd",
+        "rowCount": 110,
+        "title": "Evidence bundle · a259acfa",
+        "version": 1
+      },
+      "draftHistory": [
+        {
+          "artifact": {
+            "sha256": "8538138800a8d855750de59b7f990844e4bcd20f5c7e98670f26d255059978ec",
+            "id": "8fb1b40a-fda4-3d10-98c2-f98445bf6ad1",
+            "version": 1
+          },
+          "modelDigest": "f38aa0c53da5f8c49d08c43a99df24ff53167fe68e24664a7777288e7656fdfe",
+          "checks": [
+            {
+              "actual": {
+                "count": 1,
+                "text": "110",
+                "value": null
+              },
+              "expected": {
+                "expectText": "110",
+                "selector": "#row-count"
+              },
+              "index": 0,
+              "selector": "#row-count",
+              "passed": true
+            },
+            {
+              "actual": {
+                "count": 1,
+                "text": "",
+                "value": "observations"
+              },
+              "expected": {
+                "action": "fill",
+                "selector": "#filter",
+                "value": "observations"
+              },
+              "index": 1,
+              "selector": "#filter",
+              "passed": true
+            },
+            {
+              "actual": {
+                "count": 1,
+                "text": "52",
+                "value": null
+              },
+              "expected": {
+                "expectText": "52",
+                "selector": "#row-count"
+              },
+              "index": 2,
+              "selector": "#row-count",
+              "passed": true
+            },
+            {
+              "actual": {
+                "count": 1,
+                "text": "",
+                "value": "native_prediction"
+              },
+              "expected": {
+                "action": "fill",
+                "selector": "#filter",
+                "value": "native_prediction"
+              },
+              "index": 3,
+              "selector": "#filter",
+              "passed": true
+            },
+            {
+              "actual": {
+                "count": 1,
+                "text": "29",
+                "value": null
+              },
+              "expected": {
+                "expectText": "29",
+                "selector": "#row-count"
+              },
+              "index": 4,
+              "selector": "#row-count",
+              "passed": true
+            },
+            {
+              "actual": {
+                "count": 1,
+                "text": "Reset",
+                "value": ""
+              },
+              "expected": {
+                "action": "click",
+                "selector": "#reset"
+              },
+              "index": 5,
+              "selector": "#reset",
+              "passed": true
+            },
+            {
+              "actual": {
+                "count": 1,
+                "text": "110",
+                "value": null
+              },
+              "expected": {
+                "expectText": "110",
+                "selector": "#row-count"
+              },
+              "index": 6,
+              "selector": "#row-count",
+              "passed": true
+            },
+            {
+              "actual": {
+                "count": 1,
+                "text": "",
+                "value": ""
+              },
+              "expected": {
+                "selector": "#filter",
+                "expectValue": ""
+              },
+              "index": 7,
+              "selector": "#filter",
+              "passed": true
+            },
+            {
+              "actual": {
+                "count": 1,
+                "text": "Observation data and a separate native simulation. No physical calibration or causal equivalence is claimed.",
+                "value": null
+              },
+              "expected": {
+                "expectText": "Observation data and a separate native simulation. No physical calibration or causal equivalence is claimed.",
+                "selector": "#scope"
+              },
+              "index": 8,
+              "selector": "#scope",
+              "passed": true
+            },
+            {
+              "actual": {
+                "count": 1,
+                "text": "Within declared thresholds",
+                "value": null
+              },
+              "expected": {
+                "expectText": "Within declared thresholds",
+                "selector": "#data-quality"
+              },
+              "index": 9,
+              "selector": "#data-quality",
+              "passed": true
+            },
+            {
+              "actual": {
+                "count": 1,
+                "text": "0.024574",
+                "value": null
+              },
+              "expected": {
+                "expectText": "0.024574",
+                "selector": "#endpoint-error"
+              },
+              "index": 10,
+              "selector": "#endpoint-error",
+              "passed": true
+            },
+            {
+              "actual": {
+                "count": 1,
+                "text": "0.000523",
+                "value": null
+              },
+              "expected": {
+                "expectText": "0.000523",
+                "selector": "#prediction-error"
+              },
+              "index": 11,
+              "selector": "#prediction-error",
+              "passed": true
+            },
+            {
+              "actual": {
+                "count": 1,
+                "text": "",
+                "value": null
+              },
+              "expected": {
+                "expectCount": 1,
+                "selector": "svg polyline[data-series='native_actual']"
+              },
+              "index": 12,
+              "selector": "svg polyline[data-series='native_actual']",
+              "passed": true
+            },
+            {
+              "actual": {
+                "count": 1,
+                "text": "",
+                "value": null
+              },
+              "expected": {
+                "expectCount": 1,
+                "selector": "svg polyline[data-series='native_prediction']"
+              },
+              "index": 13,
+              "selector": "svg polyline[data-series='native_prediction']",
+              "passed": true
+            }
+          ],
+          "draft": 1,
+          "passed": true
+        },
+        {
+          "artifact": {
+            "sha256": "3fbc9e325fa1ce4b4ac2435d1b83237a3b046d776b354f2a003fec926f4b4306",
+            "id": "8fb1b40a-fda4-3d10-98c2-f98445bf6ad1",
+            "version": 2
+          },
+          "modelDigest": "f38aa0c53da5f8c49d08c43a99df24ff53167fe68e24664a7777288e7656fdfe",
+          "checks": [
+            {
+              "actual": {
+                "count": 1,
+                "text": "110",
+                "value": null
+              },
+              "expected": {
+                "expectText": "110",
+                "selector": "#row-count"
+              },
+              "index": 0,
+              "selector": "#row-count",
+              "passed": true
+            },
+            {
+              "actual": {
+                "count": 1,
+                "text": "",
+                "value": "observations"
+              },
+              "expected": {
+                "action": "fill",
+                "selector": "#filter",
+                "value": "observations"
+              },
+              "index": 1,
+              "selector": "#filter",
+              "passed": true
+            },
+            {
+              "actual": {
+                "count": 1,
+                "text": "52",
+                "value": null
+              },
+              "expected": {
+                "expectText": "52",
+                "selector": "#row-count"
+              },
+              "index": 2,
+              "selector": "#row-count",
+              "passed": true
+            },
+            {
+              "actual": {
+                "count": 1,
+                "text": "",
+                "value": "native_prediction"
+              },
+              "expected": {
+                "action": "fill",
+                "selector": "#filter",
+                "value": "native_prediction"
+              },
+              "index": 3,
+              "selector": "#filter",
+              "passed": true
+            },
+            {
+              "actual": {
+                "count": 1,
+                "text": "29",
+                "value": null
+              },
+              "expected": {
+                "expectText": "29",
+                "selector": "#row-count"
+              },
+              "index": 4,
+              "selector": "#row-count",
+              "passed": true
+            },
+            {
+              "actual": {
+                "count": 1,
+                "text": "Reset",
+                "value": ""
+              },
+              "expected": {
+                "action": "click",
+                "selector": "#reset"
+              },
+              "index": 5,
+              "selector": "#reset",
+              "passed": true
+            },
+            {
+              "actual": {
+                "count": 1,
+                "text": "110",
+                "value": null
+              },
+              "expected": {
+                "expectText": "110",
+                "selector": "#row-count"
+              },
+              "index": 6,
+              "selector": "#row-count",
+              "passed": true
+            },
+            {
+              "actual": {
+                "count": 1,
+                "text": "",
+                "value": ""
+              },
+              "expected": {
+                "selector": "#filter",
+                "expectValue": ""
+              },
+              "index": 7,
+              "selector": "#filter",
+              "passed": true
+            },
+            {
+              "actual": {
+                "count": 1,
+                "text": "Observation data and a separate native simulation. No physical calibration or causal equivalence is claimed.",
+                "value": null
+              },
+              "expected": {
+                "expectText": "Observation data and a separate native simulation. No physical calibration or causal equivalence is claimed.",
+                "selector": "#scope"
+              },
+              "index": 8,
+              "selector": "#scope",
+              "passed": true
+            },
+            {
+              "actual": {
+                "count": 1,
+                "text": "Within declared thresholds",
+                "value": null
+              },
+              "expected": {
+                "expectText": "Within declared thresholds",
+                "selector": "#data-quality"
+              },
+              "index": 9,
+              "selector": "#data-quality",
+              "passed": true
+            },
+            {
+              "actual": {
+                "count": 1,
+                "text": "0.024574",
+                "value": null
+              },
+              "expected": {
+                "expectText": "0.024574",
+                "selector": "#endpoint-error"
+              },
+              "index": 10,
+              "selector": "#endpoint-error",
+              "passed": true
+            },
+            {
+              "actual": {
+                "count": 1,
+                "text": "0.000523",
+                "value": null
+              },
+              "expected": {
+                "expectText": "0.000523",
+                "selector": "#prediction-error"
+              },
+              "index": 11,
+              "selector": "#prediction-error",
+              "passed": true
+            },
+            {
+              "actual": {
+                "count": 1,
+                "text": "",
+                "value": null
+              },
+              "expected": {
+                "expectCount": 1,
+                "selector": "svg polyline[data-series='native_actual']"
+              },
+              "index": 12,
+              "selector": "svg polyline[data-series='native_actual']",
+              "passed": true
+            },
+            {
+              "actual": {
+                "count": 1,
+                "text": "",
+                "value": null
+              },
+              "expected": {
+                "expectCount": 1,
+                "selector": "svg polyline[data-series='native_prediction']"
+              },
+              "index": 13,
+              "selector": "svg polyline[data-series='native_prediction']",
+              "passed": true
+            }
+          ],
+          "draft": 2,
+          "passed": true
+        },
+        {
+          "artifact": {
+            "sha256": "3fbc9e325fa1ce4b4ac2435d1b83237a3b046d776b354f2a003fec926f4b4306",
+            "id": "8fb1b40a-fda4-3d10-98c2-f98445bf6ad1",
+            "version": 3
+          },
+          "modelDigest": "f38aa0c53da5f8c49d08c43a99df24ff53167fe68e24664a7777288e7656fdfe",
+          "checks": [
+            {
+              "actual": {
+                "count": 1,
+                "text": "110",
+                "value": null
+              },
+              "expected": {
+                "expectText": "110",
+                "selector": "#row-count"
+              },
+              "index": 0,
+              "selector": "#row-count",
+              "passed": true
+            },
+            {
+              "actual": {
+                "count": 1,
+                "text": "",
+                "value": "observations"
+              },
+              "expected": {
+                "action": "fill",
+                "selector": "#filter",
+                "value": "observations"
+              },
+              "index": 1,
+              "selector": "#filter",
+              "passed": true
+            },
+            {
+              "actual": {
+                "count": 1,
+                "text": "52",
+                "value": null
+              },
+              "expected": {
+                "expectText": "52",
+                "selector": "#row-count"
+              },
+              "index": 2,
+              "selector": "#row-count",
+              "passed": true
+            },
+            {
+              "actual": {
+                "count": 1,
+                "text": "",
+                "value": "native_prediction"
+              },
+              "expected": {
+                "action": "fill",
+                "selector": "#filter",
+                "value": "native_prediction"
+              },
+              "index": 3,
+              "selector": "#filter",
+              "passed": true
+            },
+            {
+              "actual": {
+                "count": 1,
+                "text": "29",
+                "value": null
+              },
+              "expected": {
+                "expectText": "29",
+                "selector": "#row-count"
+              },
+              "index": 4,
+              "selector": "#row-count",
+              "passed": true
+            },
+            {
+              "actual": {
+                "count": 1,
+                "text": "Reset",
+                "value": ""
+              },
+              "expected": {
+                "action": "click",
+                "selector": "#reset"
+              },
+              "index": 5,
+              "selector": "#reset",
+              "passed": true
+            },
+            {
+              "actual": {
+                "count": 1,
+                "text": "110",
+                "value": null
+              },
+              "expected": {
+                "expectText": "110",
+                "selector": "#row-count"
+              },
+              "index": 6,
+              "selector": "#row-count",
+              "passed": true
+            },
+            {
+              "actual": {
+                "count": 1,
+                "text": "",
+                "value": ""
+              },
+              "expected": {
+                "selector": "#filter",
+                "expectValue": ""
+              },
+              "index": 7,
+              "selector": "#filter",
+              "passed": true
+            },
+            {
+              "actual": {
+                "count": 1,
+                "text": "Observation data and a separate native simulation. No physical calibration or causal equivalence is claimed.",
+                "value": null
+              },
+              "expected": {
+                "expectText": "Observation data and a separate native simulation. No physical calibration or causal equivalence is claimed.",
+                "selector": "#scope"
+              },
+              "index": 8,
+              "selector": "#scope",
+              "passed": true
+            },
+            {
+              "actual": {
+                "count": 1,
+                "text": "Within declared thresholds",
+                "value": null
+              },
+              "expected": {
+                "expectText": "Within declared thresholds",
+                "selector": "#data-quality"
+              },
+              "index": 9,
+              "selector": "#data-quality",
+              "passed": true
+            },
+            {
+              "actual": {
+                "count": 1,
+                "text": "0.024574",
+                "value": null
+              },
+              "expected": {
+                "expectText": "0.024574",
+                "selector": "#endpoint-error"
+              },
+              "index": 10,
+              "selector": "#endpoint-error",
+              "passed": true
+            },
+            {
+              "actual": {
+                "count": 1,
+                "text": "0.000523",
+                "value": null
+              },
+              "expected": {
+                "expectText": "0.000523",
+                "selector": "#prediction-error"
+              },
+              "index": 11,
+              "selector": "#prediction-error",
+              "passed": true
+            },
+            {
+              "actual": {
+                "count": 1,
+                "text": "",
+                "value": null
+              },
+              "expected": {
+                "expectCount": 1,
+                "selector": "svg polyline[data-series='native_actual']"
+              },
+              "index": 12,
+              "selector": "svg polyline[data-series='native_actual']",
+              "passed": true
+            },
+            {
+              "actual": {
+                "count": 1,
+                "text": "",
+                "value": null
+              },
+              "expected": {
+                "expectCount": 1,
+                "selector": "svg polyline[data-series='native_prediction']"
+              },
+              "index": 13,
+              "selector": "svg polyline[data-series='native_prediction']",
+              "passed": true
+            }
+          ],
+          "draft": 3,
+          "passed": true
+        }
+      ],
+      "draftNumber": 3,
+      "testSteps": [
+        {
+          "expectText": "110",
+          "selector": "#row-count"
+        },
+        {
+          "action": "fill",
+          "selector": "#filter",
+          "value": "observations"
+        },
+        {
+          "expectText": "52",
+          "selector": "#row-count"
+        },
+        {
+          "action": "fill",
+          "selector": "#filter",
+          "value": "native_prediction"
+        },
+        {
+          "expectText": "29",
+          "selector": "#row-count"
+        },
+        {
+          "action": "click",
+          "selector": "#reset"
+        },
+        {
+          "expectText": "110",
+          "selector": "#row-count"
+        },
+        {
+          "selector": "#filter",
+          "expectValue": ""
+        },
+        {
+          "expectText": "Observation data and a separate native simulation. No physical calibration or causal equivalence is claimed.",
+          "selector": "#scope"
+        },
+        {
+          "expectText": "Within declared thresholds",
+          "selector": "#data-quality"
+        },
+        {
+          "expectText": "0.024574",
+          "selector": "#endpoint-error"
+        },
+        {
+          "expectText": "0.000523",
+          "selector": "#prediction-error"
+        },
+        {
+          "expectCount": 1,
+          "selector": "svg polyline[data-series='native_actual']"
+        },
+        {
+          "expectCount": 1,
+          "selector": "svg polyline[data-series='native_prediction']"
+        }
+      ],
+      "procedure": "creation-web-v1",
+      "history": [
+        {
+          "reason": "Creation request and source saved; behavior contract precedes code",
+          "at": "2026-10-31T06:13:26.246479800Z",
+          "step": "creation-generate",
+          "attempt": 1,
+          "status": "running"
+        },
+        {
+          "reason": "Waiting for registered desktop action: creation.generate",
+          "at": "2026-10-31T06:13:26.258079100Z",
+          "step": "creation-generate",
+          "attempt": 1,
+          "status": "waiting-host"
+        },
+        {
+          "reason": "Admitted local model draft retained; Java will commit and independently test it",
+          "at": "2026-10-31T06:15:15.154003300Z",
+          "step": "creation-write",
+          "attempt": 1,
+          "status": "running"
+        },
+        {
+          "reason": "Draft 1 saved as artifact v1; behavior checks remain frozen",
+          "at": "2026-10-31T06:15:15.258724Z",
+          "step": "creation-test",
+          "attempt": 1,
+          "status": "running"
+        },
+        {
+          "reason": "Waiting for registered desktop action: creation.test",
+          "at": "2026-10-31T06:15:15.380385800Z",
+          "step": "creation-test",
+          "attempt": 1,
+          "status": "waiting-host"
+        },
+        {
+          "reason": "Actual frozen behavior checks passed for this exact artifact version",
+          "at": "2026-10-31T06:15:16.151906200Z",
+          "step": "creation-complete",
+          "attempt": 1,
+          "status": "running"
+        },
+        {
+          "reason": "Created app and declared interactive behavior verified in the actual canvas",
+          "at": "2026-10-31T06:15:16.165870600Z",
+          "step": "completed",
+          "attempt": 1,
+          "status": "completed"
+        },
+        {
+          "reason": "Independent workflow audit failed; repair within the same total draft budget",
+          "at": "2026-10-31T06:15:16.669377500Z",
+          "step": "creation-generate",
+          "attempt": 1,
+          "status": "running"
+        },
+        {
+          "reason": "Waiting for registered desktop action: creation.generate",
+          "at": "2026-10-31T06:15:16.719244100Z",
+          "step": "creation-generate",
+          "attempt": 1,
+          "status": "waiting-host"
+        },
+        {
+          "reason": "Admitted local model draft retained; Java will commit and independently test it",
+          "at": "2026-10-31T06:17:24.240529200Z",
+          "step": "creation-write",
+          "attempt": 1,
+          "status": "running"
+        },
+        {
+          "reason": "Draft 2 saved as artifact v2; behavior checks remain frozen",
+          "at": "2026-10-31T06:17:24.301366600Z",
+          "step": "creation-test",
+          "attempt": 1,
+          "status": "running"
+        },
+        {
+          "reason": "Waiting for registered desktop action: creation.test",
+          "at": "2026-10-31T06:17:24.415062300Z",
+          "step": "creation-test",
+          "attempt": 1,
+          "status": "waiting-host"
+        },
+        {
+          "reason": "Actual frozen behavior checks passed for this exact artifact version",
+          "at": "2026-10-31T06:17:25.311240600Z",
+          "step": "creation-complete",
+          "attempt": 1,
+          "status": "running"
+        },
+        {
+          "reason": "Created app and declared interactive behavior verified in the actual canvas",
+          "at": "2026-10-31T06:17:25.414746900Z",
+          "step": "completed",
+          "attempt": 1,
+          "status": "completed"
+        },
+        {
+          "reason": "Independent workflow audit failed; repair within the same total draft budget",
+          "at": "2026-10-31T06:17:25.708303900Z",
+          "step": "creation-generate",
+          "attempt": 1,
+          "status": "running"
+        },
+        {
+          "reason": "Waiting for registered desktop action: creation.generate",
+          "at": "2026-10-31T06:17:25.752869400Z",
+          "step": "creation-generate",
+          "attempt": 1,
+          "status": "waiting-host"
+        },
+        {
+          "reason": "Admitted local model draft retained; Java will commit and independently test it",
+          "at": "2026-10-31T06:19:33.660921500Z",
+          "step": "creation-write",
+          "attempt": 1,
+          "status": "running"
+        },
+        {
+          "reason": "Draft 3 saved as artifact v3; behavior checks remain frozen",
+          "at": "2026-10-31T06:19:33.760655300Z",
+          "step": "creation-test",
+          "attempt": 1,
+          "status": "running"
+        },
+        {
+          "reason": "Waiting for registered desktop action: creation.test",
+          "at": "2026-10-31T06:19:33.874351Z",
+          "step": "creation-test",
+          "attempt": 1,
+          "status": "waiting-host"
+        },
+        {
+          "reason": "Actual frozen behavior checks passed for this exact artifact version",
+          "at": "2026-10-31T06:19:34.747098200Z",
+          "step": "creation-complete",
+          "attempt": 1,
+          "status": "running"
+        },
+        {
+          "reason": "Created app and declared interactive behavior verified in the actual canvas",
+          "at": "2026-10-31T06:19:34.765433400Z",
+          "step": "completed",
+          "attempt": 1,
+          "status": "completed"
+        }
+      ],
+      "title": "Recorded observations & native forecasts",
+      "attempt": 1,
+      "resumes": 0,
+      "modelName": "gpt-oss:20b",
+      "createdAt": "2026-10-31T06:13:26.246479800Z",
+      "workflowStage": "creation",
+      "report": {
+        "sha256": "3fbc9e325fa1ce4b4ac2435d1b83237a3b046d776b354f2a003fec926f4b4306",
+        "id": "8fb1b40a-fda4-3d10-98c2-f98445bf6ad1",
+        "version": 3
+      },
+      "step": "completed",
+      "id": "c81fe94d-7589-35e1-a016-e1074f964b58",
+      "metrics": {
+        "repairs": 2,
+        "checks": 14,
+        "artifactVersion": 3,
+        "drafts": 3,
+        "sourceRows": 110,
+        "declaredBehaviorPassed": true
+      },
+      "workflowId": "a259acfa-ebb2-4646-9447-60b23de6b5b0",
+      "status": "completed",
+      "updatedAt": "2026-10-31T06:19:34.765433400Z"
+    },
+    "status": "interrupted",
+    "updatedAt": "2026-10-31T06:19:35.105335200Z"
+  },
+  "scope": "Actual local model used path d on polyline in all three drafts. Real independent audits rejected all; no saved skill. Original mathematical gates remained unchanged. Development failure preserved before explicit SVG syntax guidance."
+}

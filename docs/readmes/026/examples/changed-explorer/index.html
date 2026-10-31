@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<title>Observation & prediction explorer</title>
+<style>
+body{font-family:sans-serif;margin:0;padding:1rem;background:#f9f9f9;}
+#controls{display:flex;gap:.5rem;margin-bottom:1rem;align-items:center;}
+#filter{flex:1;padding:.3rem;border:1px solid #ccc;border-radius:4px;}
+button{padding:.3rem 1rem;background:#007bff;color:white;border:none;border-radius:4px;cursor:pointer;}
+button:hover{background:#0069d9;}
+#row-count{font-weight:bold;margin-left:.5rem;}
+#data-table{width:100%;border-collapse:collapse;margin-top:1rem;overflow:auto;height:200px;display:block;background:white;border:1px solid #ddd;}
+#data-table thead{position:absolute;width:100%;top:0;left:0;background:#eee;}
+#data-table tbody{display:block;overflow-y:auto;height:calc(200px - 2rem);}
+#data-table th,#data-table td{padding:.4rem;border-bottom:1px solid #ddd;text-align:left;white-space:nowrap;}
+#info{margin-top:1rem;display:flex;gap:1rem;flex-wrap:wrap;}
+#info div{background:white;padding:.5rem 1rem;border-radius:4px;border:1px solid #ccc;}
+svg{border:1px solid #ccc;background:#fff;margin-top:1rem;width:100%;height:auto;max-width:800px;}
+</style>
+</head>
+<body>
+<h1 id="title"></h1>
+<div id="controls">
+<input type="text" id="filter" placeholder="Filter by series"/>
+<button id="reset">Reset</button>
+<span>#row-count: <span id="row-count"></span></span>
+</div>
+<table id="data-table"><thead><tr id="header-row"></tr></thead><tbody id="table-body"></tbody></table>
+<div id="info">
+<div id="scope">Observation data and a separate native simulation. No physical calibration or causal equivalence is claimed.</div>
+<div id="data-quality">Quality flags retained</div>
+<div id="endpoint-error">0.022500</div>
+<div id="prediction-error">0.000443</div>
+</div>
+<svg viewBox="0 0 800 300" aria-label="Native plot">
+<g transform="translate(40,260)">
+<line x1="0" y1="0" x2="720" y2="0" stroke="#000"/>
+<line x1="0" y1="-220" x2="0" y2="0" stroke="#000"/>
+</g>
+<polyline data-series="native_actual" fill="none" stroke="steelblue" stroke-width="2"></polyline>
+<polyline data-series="native_prediction" fill="none" stroke="tomato" stroke-width="2"></polyline>
+<text x="400" y="-10" text-anchor="middle">Time (s)</text>
+<text transform="rotate(-90) translate(-150,20)" text-anchor="middle">Position (m)</text>
+<rect x="650" y="10" width="30" height="15" fill="steelblue"></rect><text x="685" y="22" font-size="12">native_actual</text>
+<rect x="650" y="35" width="30" height="15" fill="tomato"></rect><text x="685" y="47" font-size="12">native_prediction</text>
+</svg>
+<script>
+(async()=>{
+const sourceData=await (await fetch('inputs/source.json')).json();
+document.getElementById('title').textContent=sourceData.title;
+const headers=sourceData.headers; const rows=sourceData.rows;
+const headerRow=document.getElementById('header-row');headers.forEach(h=>{let th=document.createElement('th');th.textContent=h;headerRow.appendChild(th);});
+function renderTable(filter){const tbody=document.getElementById('table-body');tbody.innerHTML='';let count=0;rows.forEach(r=>{if(!filter||r.series===filter){const tr=document.createElement('tr');headers.forEach(h=>{let td=document.createElement('td');td.textContent=r[h];tr.appendChild(td);});tbody.appendChild(tr);count++;}});document.getElementById('row-count').textContent=count;}
+renderTable();
+document.getElementById('filter').addEventListener('input',e=>{renderTable(e.target.value.trim());});
+document.getElementById('reset').addEventListener('click',()=>{document.getElementById('filter').value='';renderTable();});
+const polyActual=document.querySelector("polyline[data-series='native_actual']");const polyPred=document.querySelector("polyline[data-series='native_prediction']");function pointsFor(series){return rows.filter(r=>r.series===series).map(r=>{let t=Number(r.time_s),p=Number(r.position_m);let x=40+720*t/1.5,y=260-220*p/2.0;return `${x.toFixed(3)},${y.toFixed(3)}`;}).join(' ');}polyActual.setAttribute('points',pointsFor('native_actual'));polyPred.setAttribute('points',pointsFor('native_prediction'));
+})();
+</script>
+</body>
+</html>

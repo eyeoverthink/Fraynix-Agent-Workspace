@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "latest": 25,
+  "latest": 26,
   "canonicalization": "UTF-8 without BOM; CRLF normalized to LF for text",
   "editions": [
     {
@@ -2851,6 +2851,420 @@
           "path": "docs/readmes/025/verification.json",
           "kind": "text",
           "sha256": "e4e8db6f97908facee97563de386d130a9dee300f4937498299c075b11eb13f7"
+        }
+      ]
+    },
+    {
+      "number": 26,
+      "date": "2026-10-30",
+      "title": "One request, verified stages and whole-workflow skills",
+      "status": "published",
+      "markdown": "README-026.md",
+      "markdownSha256": "6224643363e6d18cafe7b76323b3a7f2d115fa2d16d067d8cb6ccacd83d6ab17",
+      "snapshotDirectory": "docs/readmes/026",
+      "companion": "docs/readmes/026/index.html",
+      "tag": "readme-026",
+      "sourceBaseline": "b641c0070febb7d6cc2fe56174e1f2f573720c97",
+      "snapshotFiles": [
+        {
+          "path": "docs/readmes/026/development-attempts.json",
+          "kind": "text",
+          "sha256": "9ca333003554586728d9ad750a47bbcf0f75d64553b9d9d510f5ce9f3ef5b90b"
+        },
+        {
+          "path": "docs/readmes/026/development-live-before-receipt-fix.json",
+          "kind": "text",
+          "sha256": "2db677292f91c9f82fe53a737ebe78c35c3cc83088c327c3e92d0e072f2e971a"
+        },
+        {
+          "path": "docs/readmes/026/examples/changed-explorer/actual-receipt.json",
+          "kind": "text",
+          "sha256": "f4e9b2c40dd4747bf3c2d1e9226fd5a9a9437917117ffb5054fe4986d082d644"
+        },
+        {
+          "path": "docs/readmes/026/examples/changed-explorer/index.html",
+          "kind": "text",
+          "sha256": "d7fbb4f045524ee783001d27d7271301b5dab6463f92e42a2f50727178ae78e6"
+        },
+        {
+          "path": "docs/readmes/026/examples/changed-explorer/inputs/source.csv",
+          "kind": "text",
+          "sha256": "413149b644984b2f8e4f6543459245a03bcb8721fd59aa9e69a8fafb86ef97a2"
+        },
+        {
+          "path": "docs/readmes/026/examples/changed-explorer/inputs/source.json",
+          "kind": "text",
+          "sha256": "0b1be093fc99f5c6f28525e74c5c49c5be8e55a9a48ad5554730ea343dfc8a92"
+        },
+        {
+          "path": "docs/readmes/026/examples/changed-explorer-bundle/evidence.csv",
+          "kind": "text",
+          "sha256": "413149b644984b2f8e4f6543459245a03bcb8721fd59aa9e69a8fafb86ef97a2"
+        },
+        {
+          "path": "docs/readmes/026/examples/changed-explorer-bundle/evidence.json",
+          "kind": "text",
+          "sha256": "4e2d808635b2c82f488ae230261ee560a6b8b5fd407cc35897308b33a80eed4b"
+        },
+        {
+          "path": "docs/readmes/026/examples/changed-explorer-bundle/index.html",
+          "kind": "text",
+          "sha256": "ed7d15e66cc183a9ff19bd55b9cd8e7047b06186b05de8efda4bad785a31d13b"
+        },
+        {
+          "path": "docs/readmes/026/examples/changed-explorer-bundle/original-observations.csv",
+          "kind": "text",
+          "sha256": "591c0cb5e7b1755dce0e9e415ed0766840a9e74021effca78a45c1ae9e59b4c8"
+        },
+        {
+          "path": "docs/readmes/026/examples/changed-explorer-data/accelerations.json",
+          "kind": "text",
+          "sha256": "348ebb7eb73d13803363d0a0ed0c002cff0d0aa9d907231fa7e8903e77250679"
+        },
+        {
+          "path": "docs/readmes/026/examples/changed-explorer-data/index.html",
+          "kind": "text",
+          "sha256": "745e3834573d8954c98b8f35ddfe690922625bc969c9a3e9402d349b1a4744cd"
+        },
+        {
+          "path": "docs/readmes/026/examples/changed-explorer-data/intervals.json",
+          "kind": "text",
+          "sha256": "12f23427163ab2834870188552420dc1adc75f57ff24aa17720d4f2b273f65fa"
+        },
+        {
+          "path": "docs/readmes/026/examples/changed-explorer-data/normalized.csv",
+          "kind": "text",
+          "sha256": "7dac1360ae77b2060fa294a1ec571b2d8522855dbe1061b7a3464aaaa3b3ab7c"
+        },
+        {
+          "path": "docs/readmes/026/examples/changed-explorer-data/normalized.json",
+          "kind": "text",
+          "sha256": "366141257a21dfafa1554c05b8176a5ea0ca2413a14317dc62c6d30a96612a62"
+        },
+        {
+          "path": "docs/readmes/026/examples/changed-explorer-data/original.csv",
+          "kind": "text",
+          "sha256": "591c0cb5e7b1755dce0e9e415ed0766840a9e74021effca78a45c1ae9e59b4c8"
+        },
+        {
+          "path": "docs/readmes/026/examples/changed-explorer-data/quality.json",
+          "kind": "text",
+          "sha256": "abd343411bdd6d02bd89e4dbe6aa8224626d1d9d85f51cf937ff6d4c4d355592"
+        },
+        {
+          "path": "docs/readmes/026/examples/changed-explorer-data/summary.json",
+          "kind": "text",
+          "sha256": "f11a0dcfa7767b723cdb343cc8b758e264e348304e1e37b3a5c32c75c9ead45f"
+        },
+        {
+          "path": "docs/readmes/026/examples/changed-explorer-drafts/1/actual-draft-receipt.json",
+          "kind": "text",
+          "sha256": "933af4a5ec2552dc7410462ccc67621db9a80e0db0cadc4793043be1d5cd0a53"
+        },
+        {
+          "path": "docs/readmes/026/examples/changed-explorer-drafts/1/index.html",
+          "kind": "text",
+          "sha256": "d7fbb4f045524ee783001d27d7271301b5dab6463f92e42a2f50727178ae78e6"
+        },
+        {
+          "path": "docs/readmes/026/examples/changed-explorer-drafts/1/inputs/source.csv",
+          "kind": "text",
+          "sha256": "413149b644984b2f8e4f6543459245a03bcb8721fd59aa9e69a8fafb86ef97a2"
+        },
+        {
+          "path": "docs/readmes/026/examples/changed-explorer-drafts/1/inputs/source.json",
+          "kind": "text",
+          "sha256": "0b1be093fc99f5c6f28525e74c5c49c5be8e55a9a48ad5554730ea343dfc8a92"
+        },
+        {
+          "path": "docs/readmes/026/examples/changed-explorer-physics/index.html",
+          "kind": "text",
+          "sha256": "0c2f2138b9e0f5e08c683fbf89386d1bb70a73a0e77814209d4f922de854e84a"
+        },
+        {
+          "path": "docs/readmes/026/examples/changed-explorer-physics/procedure.json",
+          "kind": "text",
+          "sha256": "4679dab7bec1185ef4c7bbbc9041343bf01883535b8732aef24ab83464e455b2"
+        },
+        {
+          "path": "docs/readmes/026/examples/changed-explorer-physics/run.json",
+          "kind": "text",
+          "sha256": "053300339d5e36e3493d3fd402b964b19fe5924229accc608f915482ca0974ac"
+        },
+        {
+          "path": "docs/readmes/026/examples/export-provenance.json",
+          "kind": "text",
+          "sha256": "da38a21a384102ffca6e5e1464d52f0386deaeb6e3f0439d92377d2abc5e5544"
+        },
+        {
+          "path": "docs/readmes/026/examples/recorded-explorer/actual-receipt.json",
+          "kind": "text",
+          "sha256": "02a7a77a5e1c7ef2bcabbec72ef0850755929dae03867133875cd55a570169d7"
+        },
+        {
+          "path": "docs/readmes/026/examples/recorded-explorer/index.html",
+          "kind": "text",
+          "sha256": "bbbdd0bc6bc596c02f1fb5364bed236e29ef2574494f0d104d18f9a3107886eb"
+        },
+        {
+          "path": "docs/readmes/026/examples/recorded-explorer/inputs/source.csv",
+          "kind": "text",
+          "sha256": "1f9264050d9892127884721df61fba60100697f6ed962741c4cb18e0a6ba75f4"
+        },
+        {
+          "path": "docs/readmes/026/examples/recorded-explorer/inputs/source.json",
+          "kind": "text",
+          "sha256": "2710a2a73c45ac265b25a45fdcbcb828327478f0b113b4bb8177b7941bcfe428"
+        },
+        {
+          "path": "docs/readmes/026/examples/recorded-explorer-bundle/evidence.csv",
+          "kind": "text",
+          "sha256": "1f9264050d9892127884721df61fba60100697f6ed962741c4cb18e0a6ba75f4"
+        },
+        {
+          "path": "docs/readmes/026/examples/recorded-explorer-bundle/evidence.json",
+          "kind": "text",
+          "sha256": "128535d88a026d2004f27c2ce4d15e558d74216ab5d6c55760e7d0e7ab29847f"
+        },
+        {
+          "path": "docs/readmes/026/examples/recorded-explorer-bundle/index.html",
+          "kind": "text",
+          "sha256": "cc6a69cac524f1fdeda6949e9906fbeb78b1b030098dcfc19b2ec48ecdaa2c4f"
+        },
+        {
+          "path": "docs/readmes/026/examples/recorded-explorer-bundle/original-observations.csv",
+          "kind": "text",
+          "sha256": "c3d95c6a8ee4e002ec490cb6e2239dbd53ba5e194ea6b89ccba418b0e5ac59da"
+        },
+        {
+          "path": "docs/readmes/026/examples/recorded-explorer-data/accelerations.json",
+          "kind": "text",
+          "sha256": "93f51f215abb5d75377fc9995d42d793243a0be4aa83c9114cbc607de736c79c"
+        },
+        {
+          "path": "docs/readmes/026/examples/recorded-explorer-data/index.html",
+          "kind": "text",
+          "sha256": "5f511db92c8179b979efdf47631806c9e6654e2ac30427c28a64637a9d903cdf"
+        },
+        {
+          "path": "docs/readmes/026/examples/recorded-explorer-data/intervals.json",
+          "kind": "text",
+          "sha256": "aa382345ed81d7f3bf8c47a4416d8d1be87ea562057897cb6586207b3fbd2d93"
+        },
+        {
+          "path": "docs/readmes/026/examples/recorded-explorer-data/normalized.csv",
+          "kind": "text",
+          "sha256": "b96712b333e5fe7347f7727325bd6191004b5f1ea255f3df58c2bc4a5a0768ab"
+        },
+        {
+          "path": "docs/readmes/026/examples/recorded-explorer-data/normalized.json",
+          "kind": "text",
+          "sha256": "f93540a34d95afc05ceea63a28aad0b3ff2880714d70b3f8f0f3ff6220cbe600"
+        },
+        {
+          "path": "docs/readmes/026/examples/recorded-explorer-data/original.csv",
+          "kind": "text",
+          "sha256": "c3d95c6a8ee4e002ec490cb6e2239dbd53ba5e194ea6b89ccba418b0e5ac59da"
+        },
+        {
+          "path": "docs/readmes/026/examples/recorded-explorer-data/quality.json",
+          "kind": "text",
+          "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+        },
+        {
+          "path": "docs/readmes/026/examples/recorded-explorer-data/summary.json",
+          "kind": "text",
+          "sha256": "07d711e7312aeac69efb9a22f5d6ef022bee3745f4e12580b77b27f82a138964"
+        },
+        {
+          "path": "docs/readmes/026/examples/recorded-explorer-drafts/1/actual-draft-receipt.json",
+          "kind": "text",
+          "sha256": "251d1b747c02c998b70663fc049649fb197dbacc33b7f40378f2766ca5743869"
+        },
+        {
+          "path": "docs/readmes/026/examples/recorded-explorer-drafts/1/index.html",
+          "kind": "text",
+          "sha256": "bbbdd0bc6bc596c02f1fb5364bed236e29ef2574494f0d104d18f9a3107886eb"
+        },
+        {
+          "path": "docs/readmes/026/examples/recorded-explorer-drafts/1/inputs/source.csv",
+          "kind": "text",
+          "sha256": "1f9264050d9892127884721df61fba60100697f6ed962741c4cb18e0a6ba75f4"
+        },
+        {
+          "path": "docs/readmes/026/examples/recorded-explorer-drafts/1/inputs/source.json",
+          "kind": "text",
+          "sha256": "2710a2a73c45ac265b25a45fdcbcb828327478f0b113b4bb8177b7941bcfe428"
+        },
+        {
+          "path": "docs/readmes/026/examples/recorded-explorer-physics/index.html",
+          "kind": "text",
+          "sha256": "e44d0bf9495eaee1a44c9f83f83afbdae95a2d5f672ebf2a9e4e3aaeda200f2f"
+        },
+        {
+          "path": "docs/readmes/026/examples/recorded-explorer-physics/procedure.json",
+          "kind": "text",
+          "sha256": "66778f893016eba8b84a2c6f8b0ee59fd3f0077a516001ba6d0e028554417d77"
+        },
+        {
+          "path": "docs/readmes/026/examples/recorded-explorer-physics/run.json",
+          "kind": "text",
+          "sha256": "7844dc1fd395991c17cc4e28e95b2e29f6941c5b84b6c854232d5c6457a18d79"
+        },
+        {
+          "path": "docs/readmes/026/examples/rejected-svg-drafts/1/index.html",
+          "kind": "text",
+          "sha256": "a78db004714f2bb464dbbcbbe41f956eca637ca8bd828385833e642f396e3744"
+        },
+        {
+          "path": "docs/readmes/026/examples/rejected-svg-drafts/1/inputs/source.csv",
+          "kind": "text",
+          "sha256": "1f9264050d9892127884721df61fba60100697f6ed962741c4cb18e0a6ba75f4"
+        },
+        {
+          "path": "docs/readmes/026/examples/rejected-svg-drafts/1/inputs/source.json",
+          "kind": "text",
+          "sha256": "5edf1fb291f343bba23c742506a43abf1326e4af70e7edd32ef453eafdc28acc"
+        },
+        {
+          "path": "docs/readmes/026/examples/rejected-svg-drafts/2/index.html",
+          "kind": "text",
+          "sha256": "b3b829cdc39dba92aab46bea785cd7668b69814fb45340b755503ad6c661c2ac"
+        },
+        {
+          "path": "docs/readmes/026/examples/rejected-svg-drafts/2/inputs/source.csv",
+          "kind": "text",
+          "sha256": "1f9264050d9892127884721df61fba60100697f6ed962741c4cb18e0a6ba75f4"
+        },
+        {
+          "path": "docs/readmes/026/examples/rejected-svg-drafts/2/inputs/source.json",
+          "kind": "text",
+          "sha256": "5edf1fb291f343bba23c742506a43abf1326e4af70e7edd32ef453eafdc28acc"
+        },
+        {
+          "path": "docs/readmes/026/examples/rejected-svg-drafts/3/index.html",
+          "kind": "text",
+          "sha256": "b3b829cdc39dba92aab46bea785cd7668b69814fb45340b755503ad6c661c2ac"
+        },
+        {
+          "path": "docs/readmes/026/examples/rejected-svg-drafts/3/inputs/source.csv",
+          "kind": "text",
+          "sha256": "1f9264050d9892127884721df61fba60100697f6ed962741c4cb18e0a6ba75f4"
+        },
+        {
+          "path": "docs/readmes/026/examples/rejected-svg-drafts/3/inputs/source.json",
+          "kind": "text",
+          "sha256": "5edf1fb291f343bba23c742506a43abf1326e4af70e7edd32ef453eafdc28acc"
+        },
+        {
+          "path": "docs/readmes/026/examples/verified-explorer.html",
+          "kind": "text",
+          "sha256": "2f30d9af5047f6a06cc9563de0236671f3fe3d0fc625cc8eadb5821e565c41ac"
+        },
+        {
+          "path": "docs/readmes/026/file-inventory.json",
+          "kind": "text",
+          "sha256": "c3482ce4dced847a67c993df3600f9abffae6a4f4e96dd562d79fdd169163975"
+        },
+        {
+          "path": "docs/readmes/026/FILE_TREE.md",
+          "kind": "text",
+          "sha256": "6339a26d1c4f2fc30f1ab2f32e06c70cd7770b406efc6968615c070615116f2a"
+        },
+        {
+          "path": "docs/readmes/026/images/workflow-audit-rejected-control-026.png",
+          "kind": "binary",
+          "sha256": "e1cdb5f0ad442ab64571b8a9aa92fddcb36d81d844a4e15b067a2a1db285cb36"
+        },
+        {
+          "path": "docs/readmes/026/images/workflow-completed-control-026.png",
+          "kind": "binary",
+          "sha256": "3885ed522071be68be50e8a639eb30c3120e18000231431ab13fa74c0a66cd7f"
+        },
+        {
+          "path": "docs/readmes/026/images/workflow-completed-live-026.png",
+          "kind": "binary",
+          "sha256": "1d59910117e181b7d95150f6b2281a9dc83b6d610cb4cdb6ed35d38c6443cf9d"
+        },
+        {
+          "path": "docs/readmes/026/images/workflow-contract-control-026.png",
+          "kind": "binary",
+          "sha256": "f7d7154eb96a77ccd0670427892d0d07ae865d9ca51f34b8877d18972f4f910c"
+        },
+        {
+          "path": "docs/readmes/026/images/workflow-contract-live-026.png",
+          "kind": "binary",
+          "sha256": "dc972a04605c86495d1c51818ed8c62732e02a32b19f7a33ae068f3459724125"
+        },
+        {
+          "path": "docs/readmes/026/images/workflow-native-control-026.png",
+          "kind": "binary",
+          "sha256": "e61c00da34e17d422b9281a96739244e1a91f71d9e8f3b0c815c23c71e742758"
+        },
+        {
+          "path": "docs/readmes/026/images/workflow-recovered-control-026.png",
+          "kind": "binary",
+          "sha256": "883cbe0a2bc82611e296fe61a3a657519c840ffc16251b33d5bc5d68e666b409"
+        },
+        {
+          "path": "docs/readmes/026/images/workflow-reused-live-026.png",
+          "kind": "binary",
+          "sha256": "294870d127d3bb13e66c8f99fe931f63e696ff671f512e75944ddb0d9b4fbf41"
+        },
+        {
+          "path": "docs/readmes/026/images/workflow-skill-live-026.png",
+          "kind": "binary",
+          "sha256": "26251f89af81eefa5456ee9fce3a80ed687c2af98bf5eb55e7b12ac00646e988"
+        },
+        {
+          "path": "docs/readmes/026/images/workflow-svg-failure-live-026.png",
+          "kind": "binary",
+          "sha256": "43886d97bad6e766166ab73965f519473fdf2e88da64c2ad1534b5e3efb4a447"
+        },
+        {
+          "path": "docs/readmes/026/index.html",
+          "kind": "text",
+          "sha256": "00dcbce6b222204b834fdd21ca5fb9fd1577f4af7bfd9147fad6eab4740a1040"
+        },
+        {
+          "path": "docs/readmes/026/live-data-goals.json",
+          "kind": "text",
+          "sha256": "15b94bac6df203a75ad433501c3c7c0659d74a7ba6695db1c891645e611687ac"
+        },
+        {
+          "path": "docs/readmes/026/live-goals.json",
+          "kind": "text",
+          "sha256": "b98ced9f8a4670d13993a6d0da99b36f7076b65e5266e738f438eaad7344f4e2"
+        },
+        {
+          "path": "docs/readmes/026/live-svg-failure.json",
+          "kind": "text",
+          "sha256": "b4f85ccd06100dc7476191472e37a82e83cc6553bc1e4e796f5c3046fd009a3b"
+        },
+        {
+          "path": "docs/readmes/026/live-workflow.json",
+          "kind": "text",
+          "sha256": "484719b3428d5a6a9946e4c376590b38a8c870fff6e322bdfbf9f983d149eae4"
+        },
+        {
+          "path": "docs/readmes/026/regressions.json",
+          "kind": "text",
+          "sha256": "f1131c6b7313b66b585f6c260ab404250ec5bbff1719c8bc58804547304b40aa"
+        },
+        {
+          "path": "docs/readmes/026/system-map.json",
+          "kind": "text",
+          "sha256": "15e162ed00d84ad7c79e0c170385ae6c630a43e8e0fe0878f0b79b99900121da"
+        },
+        {
+          "path": "docs/readmes/026/verification.json",
+          "kind": "text",
+          "sha256": "6a0b0dc792dd8d03f19f8deaa4db3d9b797f40c79eaf8b8e3db48d825fcfa53c"
+        },
+        {
+          "path": "docs/readmes/026/workflow-integration.json",
+          "kind": "text",
+          "sha256": "e510b679f037b635d88209a6ccf30d8043a4f6f38e17832a7b785dbae148899e"
         }
       ]
     }

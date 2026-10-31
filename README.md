@@ -2,9 +2,9 @@
 
 **A local visual environment for agents to browse, create runnable artifacts, test behavior and reuse verified skills.**
 
-> **Latest implementation: [README025 — durable creation and workflow content](README-025.md)** · [Offline explorer](docs/readmes/025/index.html) · [Runtime contract](docs/DURABLE_CREATION.md) · [Edition history](docs/readmes/INDEX.md)
+> **Latest implementation: [README026 — one request, verified stages](README-026.md)** · [Offline explorer](docs/readmes/026/index.html) · [Runtime contract](docs/EVIDENCE_WORKFLOWS.md) · [Edition history](docs/readmes/INDEX.md)
 
-Create inside the existing app: a shared Java goal saves the request/source/checks, the local model generates real code, actual canvas interactions verify behavior and a successful workflow can become a reusable procedure. Failed drafts and restart recovery remain recorded. Existing game, physics, world-model, spatial, data, browser and tracking functions remain available. [Functions, results, limits and next steps](README-025.md).
+Create inside the existing app: one Java-owned workflow verifies observations, runs native prediction/control, asks the local model to build an explorer, independently audits all table cells and native chart points, and retains the successful complete procedure. Actual failures drive bounded recovery. Existing game, physics, browser, perception and creation remain available. [Results, functions, limits and next gates](README-026.md).
 
 The spatial proof and next independent-capture gates are documented in the [spatial contract](docs/SPATIAL_WORLD.md) and the [world-model frontier assessment](docs/WORLD_MODEL_FRONTIERS.md), including Genie, persistent3D capture, physics-aware prediction and the source-qualified local scene/manipulation milestone.
 
@@ -18,7 +18,7 @@ The app includes a real browser, live creation canvas, editable source, versione
 
 Local `gpt-oss:20b` is the verified default for the first agent fixture. The custom FRAYNIX 3B trial returned an Ollama native-format error; advertised tool capability alone does not establish task reliability. You can select other eligible installed models explicitly.
 
-![Actual locally generated interactive explorer](docs/readmes/025/images/creation-live-app-025.png)
+![Actual complete locally generated evidence explorer](docs/readmes/026/images/workflow-completed-live-026.png)
 
 October 30 actual body/scene/file workflows. Native actuation, decoded video, import/replication, Java/desktop regressions and local-agent evidence are recorded in [edition 015 verification](docs/readmes/015/verification.json). The previous [real-data fit](README-013.md) remains rejected.
 

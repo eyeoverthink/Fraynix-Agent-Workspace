@@ -1,0 +1,131 @@
+{
+  "passed": true,
+  "javaTests": 225,
+  "javaClasses": 42,
+  "desktopUnitTests": 37,
+  "suites": {
+    "live-workflow": {
+      "passed": true,
+      "checks": 4,
+      "justCompletedOnFinalRuntime": true
+    },
+    "workflow-integration": {
+      "passed": true,
+      "checks": 8,
+      "seconds": 33.21
+    },
+    "creation-integration": {
+      "passed": true,
+      "checks": 8,
+      "seconds": 11.23
+    },
+    "tracking024-integration": {
+      "passed": true,
+      "checks": 9,
+      "seconds": 35.62
+    },
+    "tracking-controls-integration": {
+      "passed": true,
+      "checks": 6,
+      "seconds": 13.32
+    },
+    "tracking-migration": {
+      "passed": true,
+      "checks": 3,
+      "seconds": 7.27
+    },
+    "perception-integration": {
+      "passed": true,
+      "checks": 15,
+      "seconds": 32.58
+    },
+    "spatial-integration": {
+      "passed": true,
+      "checks": 14,
+      "seconds": 38.76
+    },
+    "data-goals-integration": {
+      "passed": true,
+      "checks": 12,
+      "seconds": 15.9
+    },
+    "goals-integration": {
+      "passed": true,
+      "checks": 14,
+      "seconds": 55.67
+    },
+    "world-model-integration": {
+      "passed": true,
+      "checks": 15,
+      "seconds": 14.25
+    },
+    "feedback-integration": {
+      "passed": true,
+      "checks": 12,
+      "seconds": 14.98
+    },
+    "brain-game-integration": {
+      "passed": true,
+      "checks": 10,
+      "seconds": 16.2
+    },
+    "body-integration": {
+      "passed": true,
+      "checks": 10,
+      "seconds": 7.31
+    },
+    "observer-integration": {
+      "passed": true,
+      "checks": 12,
+      "seconds": 5.14
+    },
+    "scene-integration": {
+      "passed": true,
+      "checks": 12,
+      "seconds": 6.01
+    },
+    "measurement-integration": {
+      "passed": true,
+      "checks": 10,
+      "seconds": 5.5
+    },
+    "calibration-integration": {
+      "passed": true,
+      "checks": 8,
+      "seconds": 9.98
+    },
+    "real-data-delfys": {
+      "passed": true,
+      "checks": 9,
+      "seconds": 4.89
+    },
+    "integration": {
+      "passed": true,
+      "checks": 12,
+      "seconds": 26.91
+    },
+    "learning-integration": {
+      "passed": true,
+      "checks": 9,
+      "seconds": 25.87
+    },
+    "broader-validation": {
+      "passed": true,
+      "checks": 45,
+      "seconds": 15.68
+    },
+    "live-data-goals": {
+      "passed": true,
+      "checks": 4,
+      "seconds": 92.07
+    },
+    "live-goals": {
+      "passed": true,
+      "checks": 5,
+      "seconds": 74.16
+    }
+  },
+  "workflowGroups": 253,
+  "liveGroups": 13,
+  "scope": "All existing software workflow suites plus026; actual model rechecks cover shared native/data goals and new complete workflow. Unchanged old perception/tracking/creation live-model tests are not counted again."
+}

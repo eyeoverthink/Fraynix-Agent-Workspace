@@ -1,0 +1,221 @@
+{
+  "date": "2026-10-30",
+  "sourceBaseline": "b641c0070febb7d6cc2fe56174e1f2f573720c97",
+  "releaseKind": "registered-data-native-creation-workflow-and-independent-rendered-evidence-audit",
+  "sourceInventory": 551,
+  "regressions": {
+    "passed": true,
+    "javaTests": 225,
+    "javaClasses": 42,
+    "desktopUnitTests": 37,
+    "suites": {
+      "live-workflow": {
+        "passed": true,
+        "checks": 4,
+        "justCompletedOnFinalRuntime": true
+      },
+      "workflow-integration": {
+        "passed": true,
+        "checks": 8,
+        "seconds": 33.21
+      },
+      "creation-integration": {
+        "passed": true,
+        "checks": 8,
+        "seconds": 11.23
+      },
+      "tracking024-integration": {
+        "passed": true,
+        "checks": 9,
+        "seconds": 35.62
+      },
+      "tracking-controls-integration": {
+        "passed": true,
+        "checks": 6,
+        "seconds": 13.32
+      },
+      "tracking-migration": {
+        "passed": true,
+        "checks": 3,
+        "seconds": 7.27
+      },
+      "perception-integration": {
+        "passed": true,
+        "checks": 15,
+        "seconds": 32.58
+      },
+      "spatial-integration": {
+        "passed": true,
+        "checks": 14,
+        "seconds": 38.76
+      },
+      "data-goals-integration": {
+        "passed": true,
+        "checks": 12,
+        "seconds": 15.9
+      },
+      "goals-integration": {
+        "passed": true,
+        "checks": 14,
+        "seconds": 55.67
+      },
+      "world-model-integration": {
+        "passed": true,
+        "checks": 15,
+        "seconds": 14.25
+      },
+      "feedback-integration": {
+        "passed": true,
+        "checks": 12,
+        "seconds": 14.98
+      },
+      "brain-game-integration": {
+        "passed": true,
+        "checks": 10,
+        "seconds": 16.2
+      },
+      "body-integration": {
+        "passed": true,
+        "checks": 10,
+        "seconds": 7.31
+      },
+      "observer-integration": {
+        "passed": true,
+        "checks": 12,
+        "seconds": 5.14
+      },
+      "scene-integration": {
+        "passed": true,
+        "checks": 12,
+        "seconds": 6.01
+      },
+      "measurement-integration": {
+        "passed": true,
+        "checks": 10,
+        "seconds": 5.5
+      },
+      "calibration-integration": {
+        "passed": true,
+        "checks": 8,
+        "seconds": 9.98
+      },
+      "real-data-delfys": {
+        "passed": true,
+        "checks": 9,
+        "seconds": 4.89
+      },
+      "integration": {
+        "passed": true,
+        "checks": 12,
+        "seconds": 26.91
+      },
+      "learning-integration": {
+        "passed": true,
+        "checks": 9,
+        "seconds": 25.87
+      },
+      "broader-validation": {
+        "passed": true,
+        "checks": 45,
+        "seconds": 15.68
+      },
+      "live-data-goals": {
+        "passed": true,
+        "checks": 4,
+        "seconds": 92.07
+      },
+      "live-goals": {
+        "passed": true,
+        "checks": 5,
+        "seconds": 74.16
+      }
+    },
+    "workflowGroups": 253,
+    "liveGroups": 13,
+    "scope": "All existing software workflow suites plus026; actual model rechecks cover shared native/data goals and new complete workflow. Unchanged old perception/tracking/creation live-model tests are not counted again."
+  },
+  "softwareControl": {
+    "checks": 8,
+    "scope": "Actual Java/native physics and Chromium software controls. HTML is deliberately supplied by the test host to isolate independent-audit failure/repair/recovery. This is not the separate live local-model proof or physical calibration."
+  },
+  "actualLocalGeneration": {
+    "model": "gpt-oss:20b",
+    "checks": 4,
+    "drafts": [
+      1,
+      1
+    ],
+    "evidenceRows": [
+      110,
+      107
+    ],
+    "plotErrors": [
+      0.0004946373642269464,
+      0.0004915472152902112
+    ],
+    "qualityPassed": [
+      true,
+      false
+    ],
+    "modelDigests": [
+      "f38aa0c53da5f8c49d08c43a99df24ff53167fe68e24664a7777288e7656fdfe"
+    ],
+    "scope": "Actual recorded edition013 observations reused as content and an explicitly separate native simulation. Actual local model generated the explorers. Java independently checks every displayed cell and native chart point. This is not new physical calibration, held-out tracking evaluation or LLM-weight training."
+  },
+  "freshClone": {
+    "status": "passed",
+    "checkout": "fraynix-workspace-qa026-release",
+    "sourceCommit": "b641c0070febb7d6cc2fe56174e1f2f573720c97",
+    "javaTests": 225,
+    "desktopUnitTests": 37,
+    "bodyUiChecks": 10,
+    "brainGameUiChecks": 10,
+    "feedbackUiChecks": 12,
+    "worldModelUiChecks": 15,
+    "goalUiChecks": 14,
+    "dataGoalUiChecks": 12,
+    "offlineBuild": true,
+    "modelWeightsOrPrivateRuntimeCopied": false,
+    "electronBinary": "Pinned 45.1.0 executable reused from existing dependency cache after npm ci --offline --ignore-scripts",
+    "trackingUiChecks": 9,
+    "trackingControlsChecks": 6,
+    "perceptionUiChecks": 15,
+    "spatialUiChecks": 14,
+    "migrationUiChecks": 3,
+    "creationUiChecks": 8,
+    "workflowUiChecks": 8,
+    "uiChecks": 136
+  },
+  "documentationQa": {
+    "status": "passed",
+    "checks": [
+      "Offline companion loads nine source-linked modules with no runtime service",
+      "Architecture selection and all/verified/planned filters work",
+      "Canonical source inventory search resolves actual Java workflow implementation",
+      "All ten dated actual application screenshots decode and have captions",
+      "Navigation, inventory search and map selection work at390px without horizontal overflow",
+      "Standalone source-preserving generated explorer works offline:110 rows,52 exact observation matches, reset and actual table rows",
+      "No script errors, external requests or CDN dependencies"
+    ]
+  },
+  "preservedTrackingIdentities": {
+    "workspace-engine/src/main/java/fraymus/workspace/FlowTracker.java": "2b6e4552a38c503a4c6e0309d2db730f701d08038117a2f15663c55d1c08762f",
+    "workspace-engine/src/main/java/fraymus/workspace/Tracking024Evaluation.java": "8ea6727bb86ed61c0c8e6d0a20cd7e6a9f95b3167442e2023b1bcd3b0b68227b",
+    "workspace-engine/src/main/java/fraymus/workspace/Tracking024Guards.java": "63f728600faeb19e8da945b76bb26dc1cdf138e550ed0a7baf0cd62a7d1bc2ce",
+    "workspace-engine/src/main/java/fraymus/workspace/TrackingLab.java": "eafe1db53b5fbbd1a6ea97a0810e8f36f53610f4b19ea6a7a2d439087e8ddeb3",
+    "workspace-engine/src/main/java/fraymus/workspace/TrackerIdentity.java": "8ca356ddf0686013199da8ec2c7476d9705b517cb1d6fa28345a2fec629f0830",
+    "workspace-engine/src/main/resources/perception/acceptance-024.json": "857b6e9719701a066e11c2db2f3563718aa6c43077a4ce5519c11d0c01354e05",
+    "workspace-engine/src/main/java/fraymus/workspace/AdaptiveTracker.java": "ba0b5029629ef3298953a1aa23ae457cc9cd17e268822b1798b1f672f8dbe136",
+    "workspace-engine/src/main/java/fraymus/workspace/PixelTracker.java": "85d569217814a39618796bfbe43dc0b7db1ca61378a60f0198099d248674425c",
+    "workspace-engine/src/main/java/fraymus/workspace/TrackingGuards.java": "8cb4da526097e8e840b430485b47dfd9f251cc855e31f9fe7b89560d2dae0273",
+    "workspace-engine/src/main/java/fraymus/workspace/TrackingEvaluation.java": "6a006dc12a87fbb7799f14699e003c50788d34408517bac04e5e4883e0aa1477"
+  },
+  "scope": [
+    "Fixed three-stage registered workflow, not a general planner",
+    "Original013 observations reused as content; no new physical calibration or independent held-out prediction claim",
+    "All original source cells and native SVG coordinates independently verified; not general visual recognition",
+    "Actual local model output separately preserved from supplied software controls",
+    "No LLM-weight training, new model weights, runtime dependencies or cloud generation",
+    "Original private data/models and existing review apps preserved"
+  ]
+}

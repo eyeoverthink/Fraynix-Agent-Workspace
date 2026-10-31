@@ -1,0 +1,266 @@
+{
+  "checks": [
+    {
+      "actual": {
+        "count": 1,
+        "text": "107",
+        "value": null
+      },
+      "expected": {
+        "expectText": "107",
+        "selector": "#row-count"
+      },
+      "index": 0,
+      "selector": "#row-count",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 1,
+        "text": "",
+        "value": "observations"
+      },
+      "expected": {
+        "action": "fill",
+        "selector": "#filter",
+        "value": "observations"
+      },
+      "index": 1,
+      "selector": "#filter",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 1,
+        "text": "49",
+        "value": null
+      },
+      "expected": {
+        "expectText": "49",
+        "selector": "#row-count"
+      },
+      "index": 2,
+      "selector": "#row-count",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 1,
+        "text": "",
+        "value": "native_prediction"
+      },
+      "expected": {
+        "action": "fill",
+        "selector": "#filter",
+        "value": "native_prediction"
+      },
+      "index": 3,
+      "selector": "#filter",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 1,
+        "text": "29",
+        "value": null
+      },
+      "expected": {
+        "expectText": "29",
+        "selector": "#row-count"
+      },
+      "index": 4,
+      "selector": "#row-count",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 1,
+        "text": "Reset",
+        "value": ""
+      },
+      "expected": {
+        "action": "click",
+        "selector": "#reset"
+      },
+      "index": 5,
+      "selector": "#reset",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 1,
+        "text": "107",
+        "value": null
+      },
+      "expected": {
+        "expectText": "107",
+        "selector": "#row-count"
+      },
+      "index": 6,
+      "selector": "#row-count",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 1,
+        "text": "",
+        "value": ""
+      },
+      "expected": {
+        "selector": "#filter",
+        "expectValue": ""
+      },
+      "index": 7,
+      "selector": "#filter",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 1,
+        "text": "Observation data and a separate native simulation. No physical calibration or causal equivalence is claimed.",
+        "value": null
+      },
+      "expected": {
+        "expectText": "Observation data and a separate native simulation. No physical calibration or causal equivalence is claimed.",
+        "selector": "#scope"
+      },
+      "index": 8,
+      "selector": "#scope",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 1,
+        "text": "Quality flags retained",
+        "value": null
+      },
+      "expected": {
+        "expectText": "Quality flags retained",
+        "selector": "#data-quality"
+      },
+      "index": 9,
+      "selector": "#data-quality",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 1,
+        "text": "0.022500",
+        "value": null
+      },
+      "expected": {
+        "expectText": "0.022500",
+        "selector": "#endpoint-error"
+      },
+      "index": 10,
+      "selector": "#endpoint-error",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 1,
+        "text": "0.000443",
+        "value": null
+      },
+      "expected": {
+        "expectText": "0.000443",
+        "selector": "#prediction-error"
+      },
+      "index": 11,
+      "selector": "#prediction-error",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 1,
+        "text": "",
+        "value": null
+      },
+      "expected": {
+        "expectCount": 1,
+        "selector": "svg polyline[data-series='native_actual']"
+      },
+      "index": 12,
+      "selector": "svg polyline[data-series='native_actual']",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 1,
+        "text": "",
+        "value": null
+      },
+      "expected": {
+        "expectCount": 1,
+        "selector": "svg polyline[data-series='native_prediction']"
+      },
+      "index": 13,
+      "selector": "svg polyline[data-series='native_prediction']",
+      "passed": true
+    }
+  ],
+  "at": "2026-10-31T06:26:05.618507Z",
+  "id": "7b0449b6-d55f-3a58-a985-d4d8d008a49d",
+  "passed": true,
+  "version": 1,
+  "steps": [
+    {
+      "expectText": "107",
+      "selector": "#row-count"
+    },
+    {
+      "action": "fill",
+      "selector": "#filter",
+      "value": "observations"
+    },
+    {
+      "expectText": "49",
+      "selector": "#row-count"
+    },
+    {
+      "action": "fill",
+      "selector": "#filter",
+      "value": "native_prediction"
+    },
+    {
+      "expectText": "29",
+      "selector": "#row-count"
+    },
+    {
+      "action": "click",
+      "selector": "#reset"
+    },
+    {
+      "expectText": "107",
+      "selector": "#row-count"
+    },
+    {
+      "selector": "#filter",
+      "expectValue": ""
+    },
+    {
+      "expectText": "Observation data and a separate native simulation. No physical calibration or causal equivalence is claimed.",
+      "selector": "#scope"
+    },
+    {
+      "expectText": "Quality flags retained",
+      "selector": "#data-quality"
+    },
+    {
+      "expectText": "0.022500",
+      "selector": "#endpoint-error"
+    },
+    {
+      "expectText": "0.000443",
+      "selector": "#prediction-error"
+    },
+    {
+      "expectCount": 1,
+      "selector": "svg polyline[data-series='native_actual']"
+    },
+    {
+      "expectCount": 1,
+      "selector": "svg polyline[data-series='native_prediction']"
+    }
+  ]
+}

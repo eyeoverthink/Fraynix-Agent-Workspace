@@ -1,0 +1,57 @@
+{
+  "nativeRunId": "0b6eda97-6f3c-4791-a8ef-d11fc9a1f4cd",
+  "nativeRunSha256": "46f0fed33f7072089c9ed359b45b38d53cf4baa459a1cf2a73f4099437f2f7c1",
+  "source": {
+    "sourceSha256": "591c0cb5e7b1755dce0e9e415ed0766840a9e74021effca78a45c1ae9e59b4c8",
+    "datasetVersion": 1,
+    "mappingSha256": "af25dab9ecb6bcc1ee9b2662d8accf23ce4199c1ae5e3dc406c20d2bed8c7697",
+    "sourceKind": "measured",
+    "versionSha256": "b4119fe9fc01e229d745c6311884da6f7ee18be5dbacc3585c8114c5205fe6ae",
+    "datasetId": "d995c08d-bc3e-4de4-8e9b-1e04cb87199f",
+    "title": "Recorded video-derived observations · validation"
+  },
+  "calibratedToObservations": false,
+  "dataGoalId": "88c7777b-3ecb-3a73-89f6-021d3330bc94",
+  "physicsGoalId": "681e38e3-c33f-3b5a-af5b-c40455b186ec",
+  "forecastRmseM": 4.4329504830277374E-4,
+  "nativeSummary": {
+    "score": 0.059097233855649633,
+    "endpointErrorM": 0.02249976486601568,
+    "modelActionFraction": 1,
+    "controlAbsoluteImpulseNs": 8.4,
+    "settlingMaxErrorM": 0.02249976486601568,
+    "terminalSpeedMps": 0.16898391037750743,
+    "passed": true
+  },
+  "nativeParameters": {
+    "angleDeg": 30,
+    "widthM": 3,
+    "offsetZ": 0,
+    "massKg": 1,
+    "lengthM": 12,
+    "friction": 0.1,
+    "gravityMps2": 9.81
+  },
+  "scope": "Observation data and a separate native simulation. No physical calibration or causal equivalence is claimed.",
+  "forecastPairs": 29,
+  "originalSourcePreserved": true,
+  "workflowId": "89d3c0b4-9215-4e01-ab0d-8f335135afde",
+  "plotYMaxM": 2,
+  "observationSummary": {
+    "peakAbsAccelerationMps2": 135.30891307729846,
+    "meanSpeedMps": 0.9698065952819892,
+    "meanVelocityMps": 0.9694481787882638,
+    "qualityPassed": false,
+    "maxGapS": 0.01666666666666672,
+    "speedFlags": 37,
+    "gapFlags": 0,
+    "netDisplacementM": 0.7755585430306111,
+    "totalTravelM": 0.7758452762255914,
+    "intervalCount": 48,
+    "peakAbsVelocityMps": 3.866609224437713,
+    "skippedSourceRows": 0,
+    "durationS": 0.8,
+    "rowCount": 49,
+    "passed": true
+  }
+}

@@ -1,5 +1,21 @@
 # Fraynix Studio system architecture
 
+Edition026 adds a durable `evidence-workflow-v1` parent over the existing data, native world and creation goals. Stable owned stage intents reconcile restart; completed evidence is revalidated and reused. Java reconstructs an original-source bundle and independently checks every rendered table cell and both native SVG traces before whole-workflow retention. The existing canvas, goal card and Skills library provide entry/reuse; observation data and native simulation remain explicitly separate. See [evidence workflows](EVIDENCE_WORKFLOWS.md).
+
+```mermaid
+flowchart LR
+    Request[Existing chat or creation dialog] --> Parent[Java durable workflow]
+    Parent --> Data[Verified original observations]
+    Data --> Physics[Separate native prediction and control]
+    Physics --> Bundle[Java source evidence bundle]
+    Bundle --> Create[Local model creates interactive explorer]
+    Create --> Checks[Actual browser interactions]
+    Checks --> Audit[Java compares every DOM cell and SVG point]
+    Audit -->|failure, bounded repair| Create
+    Audit -->|verified| Skill[Retained whole-workflow procedure]
+    Skill -->|fresh source and declared conditions| Parent
+```
+
 Edition025 adds `creation-web-v1` to the same Java goal/procedure registry. The desktop supplies admitted local generation and actual canvas interactions through private leased effects; Java pins source/model/checks, owns artifact versions, validates observed receipts, bounds repairs and reconciles restart. Passing procedures can regenerate and verify on a fresh selected CSV. See [durable creation](DURABLE_CREATION.md). This extends the current layout and creation canvas; it does not install generated host handlers or train LLM weights.
 
 Edition024 adds pure Java temporal feature tracking, visible motion diagnostics and new reserved-footage evaluation. The candidate improves all three clips but fails the unchanged coverage/false-visible gates, so baseline remains active. Old profiles and pinned goals/skills remain installed; the new adapter retains the unchanged earlier scorer. See [temporal tracking](TEMPORAL_TRACKING.md) for actual computations, source freeze, results and limits.

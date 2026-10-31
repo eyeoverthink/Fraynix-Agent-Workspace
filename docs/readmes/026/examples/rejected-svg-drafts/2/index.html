@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<title>Recorded observations & native forecasts</title>
+<style>
+body{font-family:Arial,sans-serif;margin:0;padding:1rem;background:#f9f9f9;}
+#controls{display:flex;gap:1rem;margin-bottom:1rem;align-items:center;flex-wrap:wrap;}
+#filter{padding:.5rem;font-size:1rem;}
+#reset{padding:.5rem 1rem;font-size:1rem;cursor:pointer;}
+#row-count{font-weight:bold;}
+#scope,#data-quality,#endpoint-error,#prediction-error{margin-top:.5rem;color:#333;}
+#data-table{width:100%;border-collapse:collapse;margin-top:1rem;height:200px;display:block;overflow:auto;}
+#data-table thead{position:absolute;top:0;background:#fff;}
+#data-table tbody{display:block;width:100%;height:180px;overflow-y:auto;}
+#data-table th,#data-table td{border:1px solid #ddd;padding:.5rem;text-align:left;min-width:120px;}
+svg{width:100%;max-width:800px;height:300px;border:1px solid #ccc;margin-top:1rem;background:#fff;}
+.legend{display:flex;gap:1rem;margin-top:.5rem;font-size:.9rem;flex-wrap:wrap;}
+.legend span{display:inline-flex;align-items:center;gap:.3rem;}
+.legend .dot{width:12px;height:12px;border-radius:50%;background:#000;}
+</style>
+</head>
+<body>
+<h1 id="title"></h1>
+<div id="controls">
+<label for="filter">Filter series:</label>
+<input type="text" id="filter" placeholder="series name"/>
+<button id="reset">Reset</button>
+<span>Rows: <span id="row-count"></span></span>
+</div>
+<p id="scope"></p>
+<p id="data-quality"></p>
+<p id="endpoint-error"></p>
+<p id="prediction-error"></p>
+<table id="data-table">
+<thead><tr id="table-headers"></tr></thead>
+<tbody id="table-body"></tbody>
+</table>
+<svg viewBox="0 0 800 300" aria-label="Native simulation chart">
+<g transform="translate(40,260)">
+<path d="M0,0" fill="none" stroke="#000" stroke-width="1" id="axes-x" />
+</g>
+<text x="400" y="290" text-anchor="middle">Time (s)</text>
+<text transform="rotate(-90)" x="-150" y="20" text-anchor="middle">Position (m)</text>
+<polyline data-series="native_actual" fill="none" stroke="#0077ff" stroke-width="2"></polyline>
+<polyline data-series="native_prediction" fill="none" stroke="#ff7700" stroke-width="2"></polyline>
+</svg>
+<div class="legend">
+<span><div class="dot" style="background:#0077ff;"></div>Native Actual</span>
+<span><div class="dot" style="background:#ff7700;"></div>Native Prediction</span>
+</div>
+<script>
+(async () => {
+  const sourceData = await (await fetch('inputs/source.json')).json();
+  document.getElementById('title').textContent = sourceData.title || '';
+  const headers = sourceData.headers || [];
+  const rows = sourceData.rows || [];
+  const tableHeaders = document.getElementById('table-headers');
+  headers.forEach(h => {
+    const th = document.createElement('th');
+    th.textContent = h;
+    tableHeaders.appendChild(th);
+  });
+  const tbody = document.getElementById('table-body');
+  function renderTable(filter) {
+    tbody.innerHTML = '';
+    const filtered = rows.filter(r => filter === '' || r.series === filter);
+    filtered.forEach(r => {
+      const tr = document.createElement('tr');
+      headers.forEach(h => {
+        const td = document.createElement('td');
+        td.textContent = r[h];
+        tr.appendChild(td);
+      });
+      tbody.appendChild(tr);
+    });
+    document.getElementById('row-count').textContent = filtered.length;
+  }
+  renderTable('');
+  const filterInput = document.getElementById('filter');
+  filterInput.addEventListener('input', e => renderTable(e.target.value));
+  document.getElementById('reset').addEventListener('click', () => {
+    filterInput.value = '';
+    renderTable('');
+  });
+  document.getElementById('scope').textContent = 'Observation data and a separate native simulation. No physical calibration or causal equivalence is claimed.';
+  document.getElementById('data-quality').textContent = 'Within declared thresholds';
+  document.getElementById('endpoint-error').textContent = '0.024574';
+  document.getElementById('prediction-error').textContent = '0.000523';
+  const actualPoints = [];
+  const predPoints = [];
+  rows.forEach(r => {
+    if (r.series === 'native_actual') {
+      actualPoints.push([r.time_s, r.position_m]);
+    } else if (r.series === 'native_prediction') {
+      predPoints.push([r.time_s, r.position_m]);
+    }
+  });
+  function toPath(points) {
+    return points.map((p, i) => {
+      const t = Number(p[0]);
+      const pval = Number(p[1]);
+      const x = 40 + 720 * t / 1.5;
+      const y = 260 - 220 * pval / 1.8;
+      return (i === 0 ? 'M' : 'L') + x.toFixed(3) + ',' + y.toFixed(3);
+    }).join(' ');
+  }
+  document.querySelector("polyline[data-series='native_actual']").setAttribute('d', toPath(actualPoints));
+  document.querySelector("polyline[data-series='native_prediction']").setAttribute('d', toPath(predPoints));
+})();
+</script>
+</body>
+</html>

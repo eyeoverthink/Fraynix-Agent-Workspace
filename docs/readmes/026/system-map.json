@@ -1,0 +1,175 @@
+{
+  "date": "2026-10-30",
+  "modules": [
+    {
+      "id": "request",
+      "name": "One complete task",
+      "status": "verified",
+      "source": "workspace-desktop/renderer/workflow-panel.js",
+      "summary": "Existing creation dialog and explicit chat routing.",
+      "note": "docs/obsidian/34-evidence-workflows.md"
+    },
+    {
+      "id": "source",
+      "name": "Original source and bundle",
+      "status": "verified",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/WorkflowEvidence.java",
+      "summary": "All observations, actual native forecasts and qualified metrics.",
+      "note": "docs/obsidian/34-evidence-workflows.md"
+    },
+    {
+      "id": "goal",
+      "name": "Java parent and recovery",
+      "status": "verified",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/WorkflowRunner.java",
+      "summary": "Stable stage intents, ownership and verified completion.",
+      "note": "docs/obsidian/34-evidence-workflows.md"
+    },
+    {
+      "id": "children",
+      "name": "Registered child goals",
+      "status": "verified",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/GoalRunner.java",
+      "summary": "Actual data/native/creation families with existing verifiers.",
+      "note": "docs/obsidian/34-evidence-workflows.md"
+    },
+    {
+      "id": "audit",
+      "name": "Independent rendered audit",
+      "status": "verified",
+      "source": "workspace-desktop/workflows.cjs",
+      "summary": "Read all DOM cells and native SVG coordinates; Java decides outcome.",
+      "note": "docs/obsidian/34-evidence-workflows.md"
+    },
+    {
+      "id": "skills",
+      "name": "Whole-workflow skills",
+      "status": "verified",
+      "source": "workspace-desktop/renderer/goals-panel.js",
+      "summary": "Fresh observation binding and changed declared conditions.",
+      "note": "docs/obsidian/34-evidence-workflows.md"
+    },
+    {
+      "id": "controls",
+      "name": "Repair and restart controls",
+      "status": "verified",
+      "source": "workspace-desktop/test/workflow-integration.cjs",
+      "summary": "Real browser and process lifecycle, explicitly supplied code.",
+      "note": "docs/obsidian/34-evidence-workflows.md"
+    },
+    {
+      "id": "live",
+      "name": "Actual local-model workflow",
+      "status": "verified",
+      "source": "workspace-desktop/test/live-workflow.cjs",
+      "summary": "Recorded observations, local generation, independent source audit and chat reuse.",
+      "note": "docs/obsidian/34-evidence-workflows.md"
+    },
+    {
+      "id": "next",
+      "name": "Additional complete tasks",
+      "status": "planned",
+      "source": "docs/EVIDENCE_WORKFLOWS.md",
+      "summary": "Broaden registered workflows only with source/ownership/check/recovery gates.",
+      "note": "docs/obsidian/34-evidence-workflows.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "docs/readmes/026/images/workflow-contract-live-026.png",
+      "caption": "Actual complete-task dialog, recorded observations and separate simulation contract before local generation."
+    },
+    {
+      "path": "docs/readmes/026/images/workflow-completed-live-026.png",
+      "caption": "Actual gpt-oss:20b explorer: all110 source/native rows and both native traces independently checked."
+    },
+    {
+      "path": "docs/readmes/026/images/workflow-skill-live-026.png",
+      "caption": "Actual retained whole-workflow skill inspector with fresh recorded observations selected."
+    },
+    {
+      "path": "docs/readmes/026/images/workflow-reused-live-026.png",
+      "caption": "Actual chat reuse: another recorded trial,107 rows, changed native conditions and stricter quality flags retained."
+    },
+    {
+      "path": "docs/readmes/026/images/workflow-svg-failure-live-026.png",
+      "caption": "Actual rejected local-model attempt: all three drafts used path d on a polyline, leaving no actual trace points. No workflow skill was retained. Preserved before clearer syntax guidance; no gate was lowered."
+    },
+    {
+      "path": "docs/readmes/026/images/workflow-contract-control-026.png",
+      "caption": "SOFTWARE CONTROL: actual dialog with an explicitly synthetic small source; supplied test code is not model output."
+    },
+    {
+      "path": "docs/readmes/026/images/workflow-native-control-026.png",
+      "caption": "SOFTWARE CONTROL: actual existing native-stage report, backed by real native execution."
+    },
+    {
+      "path": "docs/readmes/026/images/workflow-audit-rejected-control-026.png",
+      "caption": "SOFTWARE CONTROL: superficial behavior passes, but a deliberately altered displayed value fails independent verification; no skill retained."
+    },
+    {
+      "path": "docs/readmes/026/images/workflow-completed-control-026.png",
+      "caption": "SOFTWARE CONTROL: same created artifact reaches its second version after actual audit failure, without replaying completed physics."
+    },
+    {
+      "path": "docs/readmes/026/images/workflow-recovered-control-026.png",
+      "caption": "SOFTWARE CONTROL: real restart reuses completed data/native outcomes and stable child identities before completing creation."
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/readmes/026/verification.json"
+    },
+    {
+      "path": "docs/readmes/026/workflow-integration.json"
+    },
+    {
+      "path": "docs/readmes/026/live-workflow.json"
+    },
+    {
+      "path": "docs/readmes/026/development-attempts.json"
+    },
+    {
+      "path": "docs/readmes/026/live-svg-failure.json"
+    },
+    {
+      "path": "docs/readmes/026/regressions.json"
+    },
+    {
+      "path": "docs/readmes/026/live-data-goals.json"
+    },
+    {
+      "path": "docs/readmes/026/live-goals.json"
+    },
+    {
+      "path": "docs/readmes/026/examples/verified-explorer.html"
+    },
+    {
+      "path": "docs/readmes/026/examples/export-provenance.json"
+    },
+    {
+      "path": "docs/readmes/026/examples/recorded-explorer/index.html"
+    },
+    {
+      "path": "docs/readmes/026/examples/recorded-explorer/inputs/source.csv"
+    },
+    {
+      "path": "docs/readmes/026/examples/recorded-explorer-bundle/original-observations.csv"
+    },
+    {
+      "path": "docs/readmes/026/examples/recorded-explorer-bundle/evidence.json"
+    },
+    {
+      "path": "docs/readmes/026/examples/recorded-explorer/actual-receipt.json"
+    },
+    {
+      "path": "docs/readmes/026/examples/changed-explorer/index.html"
+    },
+    {
+      "path": "docs/readmes/026/file-inventory.json"
+    },
+    {
+      "path": "docs/readmes/026/FILE_TREE.md"
+    }
+  ]
+}
