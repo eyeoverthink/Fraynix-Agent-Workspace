@@ -1,0 +1,107 @@
+> Task :brain-core:compileJava UP-TO-DATE
+> Task :factory-runtime:compileJava UP-TO-DATE
+> Task :factory-kernel:compileJava UP-TO-DATE
+> Task :factory-models:compileJava UP-TO-DATE
+> Task :compileJava UP-TO-DATE
+> Task :processResources UP-TO-DATE
+> Task :classes UP-TO-DATE
+> Task :jar UP-TO-DATE
+> Task :compileTestJava UP-TO-DATE
+> Task :processTestResources NO-SOURCE
+> Task :testClasses UP-TO-DATE
+> Task :brain-core:processResources NO-SOURCE
+> Task :brain-core:classes UP-TO-DATE
+> Task :brain-core:jar UP-TO-DATE
+> Task :factory-kernel:processResources NO-SOURCE
+> Task :factory-kernel:classes UP-TO-DATE
+> Task :factory-kernel:jar UP-TO-DATE
+> Task :factory-models:processResources NO-SOURCE
+> Task :factory-models:classes UP-TO-DATE
+> Task :factory-models:jar UP-TO-DATE
+> Task :factory-runtime:processResources NO-SOURCE
+> Task :factory-runtime:classes UP-TO-DATE
+> Task :factory-runtime:jar UP-TO-DATE
+> Task :test UP-TO-DATE
+
+> Task :verifySourceIsolation
+Verified every project/source root belongs to Fraynix-Studio.
+
+> Task :factory-kernel:compileTestJava UP-TO-DATE
+> Task :factory-kernel:processTestResources NO-SOURCE
+> Task :factory-kernel:testClasses UP-TO-DATE
+
+> Task :factory-kernel:verifyJournal
+JournalContinuityTest passed: legacy/J2, every field tamper, Merkle prefixes, anchored tail recovery, staged crash, failed write, threads and JVM writers
+
+> Task :factory-kernel:verifySkills
+Symlink creation unavailable; traversal and absolute-path checks still exercised
+LocalSkillsTest passed: all five tools, real AST/errors, hash mismatch, reference-data isolation, capabilities, path boundaries and persisted receipts
+
+> Task :factory-kernel:verifyIntegration
+FactoryKernelIntegrationTest passed: real gateway, subprocess validator, trace persistence and restart
+
+> Task :factory-models:compileTestJava UP-TO-DATE
+> Task :factory-models:processTestResources NO-SOURCE
+> Task :factory-models:testClasses UP-TO-DATE
+
+> Task :factory-models:verifyModels
+FactoryModelsTest passed: health, exact routing, Unicode NDJSON streaming, partial rejection, live/pre-connect cancellation, model load/unload, profile restart, legacy attachment migration, evidence and thread/history budgets
+
+> Task :factory-runtime:compileTestJava UP-TO-DATE
+> Task :factory-runtime:processTestResources NO-SOURCE
+> Task :factory-runtime:testClasses UP-TO-DATE
+
+> Task :factory-runtime:verifyRuntime
+FactoryRuntimeTest passed: clone/remap, identity, revision guards, schema, atomic edit, save/restore, corruption recovery
+
+> Task :factory-runtime:verifyTransactions
+WorldTransactionTest passed: isolated staging, atomic rejection, revision guards and deterministic spatial queries
+
+> Task :brain-gpu:compileJava UP-TO-DATE
+> Task :geometry-core:compileJava UP-TO-DATE
+> Task :workspace-engine:compileJava UP-TO-DATE
+> Task :workspace-engine:processResources UP-TO-DATE
+> Task :workspace-engine:classes UP-TO-DATE
+> Task :workspace-engine:jar
+> Task :startScripts UP-TO-DATE
+> Task :installDist UP-TO-DATE
+> Task :brain-gpu:processResources NO-SOURCE
+> Task :brain-gpu:classes UP-TO-DATE
+> Task :brain-gpu:jar UP-TO-DATE
+> Task :geometry-core:processResources NO-SOURCE
+> Task :geometry-core:classes UP-TO-DATE
+> Task :geometry-core:jar UP-TO-DATE
+> Task :workspace-engine:compileTestJava
+> Task :workspace-engine:processTestResources NO-SOURCE
+> Task :workspace-engine:testClasses
+Libbulletjme version 22.0.3 initializing
+> Task :workspace-engine:test
+> Task :workspace-engine:check
+> Task :check
+> Task :brain-core:compileTestJava NO-SOURCE
+> Task :brain-core:processTestResources NO-SOURCE
+> Task :brain-core:testClasses UP-TO-DATE
+> Task :brain-core:test NO-SOURCE
+> Task :brain-core:check UP-TO-DATE
+> Task :brain-gpu:compileTestJava NO-SOURCE
+> Task :brain-gpu:processTestResources NO-SOURCE
+> Task :brain-gpu:testClasses UP-TO-DATE
+> Task :brain-gpu:test NO-SOURCE
+> Task :brain-gpu:check UP-TO-DATE
+> Task :factory-kernel:test SKIPPED
+> Task :factory-kernel:check
+> Task :factory-models:test SKIPPED
+> Task :factory-models:check
+> Task :factory-runtime:test SKIPPED
+> Task :factory-runtime:check
+> Task :geometry-core:compileTestJava UP-TO-DATE
+> Task :geometry-core:processTestResources NO-SOURCE
+> Task :geometry-core:testClasses UP-TO-DATE
+> Task :geometry-core:test UP-TO-DATE
+> Task :geometry-core:check UP-TO-DATE
+> Task :workspace-engine:startScripts
+> Task :workspace-engine:installDist
+
+BUILD SUCCESSFUL in 2m 53s
+38 actionable tasks: 12 executed, 26 up-to-date
+Consider enabling configuration cache to speed up this build: https://docs.gradle.org/9.3.1/userguide/configuration_cache_enabling.html

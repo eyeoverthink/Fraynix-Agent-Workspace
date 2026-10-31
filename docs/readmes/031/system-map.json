@@ -1,0 +1,77 @@
+{
+  "edition": 31,
+  "modules": [
+    {
+      "id": "request",
+      "name": "Local chat",
+      "status": "verified",
+      "summary": "Typed request, exact semantics and host-controlled role/default binding.",
+      "source": "workspace-desktop/goals.cjs",
+      "note": "docs/NATIVE_PUSHING.md"
+    },
+    {
+      "id": "goal",
+      "name": "Shared Java goal",
+      "status": "verified",
+      "summary": "Durable preparation, native execution, original report and procedural retention.",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/GoalRunner.java",
+      "note": "docs/NATIVE_PUSHING.md"
+    },
+    {
+      "id": "plan",
+      "name": "Reachable approach",
+      "status": "verified",
+      "summary": "Bounded joint crate/pusher search and independent standing/swept-path checks.",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/PushPlan.java",
+      "note": "docs/NATIVE_PUSHING.md"
+    },
+    {
+      "id": "native",
+      "name": "Contact-driven action",
+      "status": "verified",
+      "summary": "Forces only on pusher; crate contacts, actual progress and bounded recovery.",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/PushPhysics.java",
+      "note": "docs/NATIVE_PUSHING.md"
+    },
+    {
+      "id": "owner",
+      "name": "One native owner",
+      "status": "verified",
+      "summary": "Atomic committed observations, two-body trace and explicit pause/resume.",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/PushStore.java",
+      "note": "docs/NATIVE_PUSHING.md"
+    },
+    {
+      "id": "checkpoint",
+      "name": "Both-body checkpoint",
+      "status": "verified",
+      "summary": "Original source/code/backend, complete controller and actual initialized-body checks.",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/PushCheckpoint.java",
+      "note": "docs/NATIVE_PUSHING.md"
+    },
+    {
+      "id": "audit",
+      "name": "Independent measurements",
+      "status": "verified",
+      "summary": "Reconstruct force, displacement, contacts, work/effort and final state.",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/PushVerify.java",
+      "note": "docs/NATIVE_PUSHING.md"
+    },
+    {
+      "id": "report",
+      "name": "Real report and Skills",
+      "status": "verified",
+      "summary": "Six working charts and exact original data before retained skill reuse.",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/PushReport.java",
+      "note": "docs/NATIVE_PUSHING.md"
+    },
+    {
+      "id": "next",
+      "name": "Reserved task evaluation",
+      "status": "planned",
+      "summary": "Freeze varied cases, compare baseline/candidate, evaluate improvement and retain rollback.",
+      "source": "docs/EDITION_031_PLAN.md",
+      "note": "docs/NATIVE_PUSHING.md"
+    }
+  ]
+}

@@ -1,0 +1,136 @@
+{
+  "checks": [
+    {
+      "actual": {
+        "count": 1,
+        "text": "Native contact task verified",
+        "value": null
+      },
+      "expected": {
+        "expectText": "Native contact task verified",
+        "selector": "#push-result"
+      },
+      "index": 0,
+      "selector": "#push-result",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 1,
+        "text": "608",
+        "value": null
+      },
+      "expected": {
+        "expectText": "608",
+        "selector": "#push-samples"
+      },
+      "index": 1,
+      "selector": "#push-samples",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 1,
+        "text": "Crate distance to target · m",
+        "value": null
+      },
+      "expected": {
+        "expectText": "Crate distance to target · m",
+        "selector": "#chart-label"
+      },
+      "index": 2,
+      "selector": "#chart-label",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 1,
+        "text": "Next metric",
+        "value": ""
+      },
+      "expected": {
+        "action": "click",
+        "selector": "#chart-mode"
+      },
+      "index": 3,
+      "selector": "#chart-mode",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 1,
+        "text": "Crate speed · m/s",
+        "value": null
+      },
+      "expected": {
+        "expectText": "Crate speed · m/s",
+        "selector": "#chart-label"
+      },
+      "index": 4,
+      "selector": "#chart-label",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 1,
+        "text": "Reset chart",
+        "value": ""
+      },
+      "expected": {
+        "action": "click",
+        "selector": "#chart-reset"
+      },
+      "index": 5,
+      "selector": "#chart-reset",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 1,
+        "text": "Declared-scale native contact pushing of two boxes on a flat floor. Conservative integer-metre planning, finite force/recovery budgets; not universal robotic manipulation or measured material inference.",
+        "value": null
+      },
+      "expected": {
+        "expectText": "Declared-scale native contact pushing of two boxes on a flat floor. Conservative integer-metre planning, finite force/recovery budgets; not universal robotic manipulation or measured material inference.",
+        "selector": "#push-scope"
+      },
+      "index": 6,
+      "selector": "#push-scope",
+      "passed": true
+    }
+  ],
+  "at": "2026-10-31T15:56:30.516059900Z",
+  "id": "34aa1b99-4531-34d1-ba7f-84cd3015d783",
+  "passed": true,
+  "version": 1,
+  "steps": [
+    {
+      "expectText": "Native contact task verified",
+      "selector": "#push-result"
+    },
+    {
+      "expectText": "608",
+      "selector": "#push-samples"
+    },
+    {
+      "expectText": "Crate distance to target · m",
+      "selector": "#chart-label"
+    },
+    {
+      "action": "click",
+      "selector": "#chart-mode"
+    },
+    {
+      "expectText": "Crate speed · m/s",
+      "selector": "#chart-label"
+    },
+    {
+      "action": "click",
+      "selector": "#chart-reset"
+    },
+    {
+      "expectText": "Declared-scale native contact pushing of two boxes on a flat floor. Conservative integer-metre planning, finite force/recovery budgets; not universal robotic manipulation or measured material inference.",
+      "selector": "#push-scope"
+    }
+  ]
+}

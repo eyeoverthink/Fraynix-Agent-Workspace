@@ -1,0 +1,136 @@
+{
+  "nodes": [
+    {
+      "id": "request",
+      "type": "file",
+      "file": "workspace-desktop/goals.cjs",
+      "x": 0,
+      "y": 0,
+      "width": 340,
+      "height": 170
+    },
+    {
+      "id": "goal",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/GoalRunner.java",
+      "x": 390,
+      "y": 0,
+      "width": 340,
+      "height": 170
+    },
+    {
+      "id": "plan",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/PushPlan.java",
+      "x": 780,
+      "y": 0,
+      "width": 340,
+      "height": 170
+    },
+    {
+      "id": "native",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/PushPhysics.java",
+      "x": 0,
+      "y": 250,
+      "width": 340,
+      "height": 170
+    },
+    {
+      "id": "owner",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/PushStore.java",
+      "x": 390,
+      "y": 250,
+      "width": 340,
+      "height": 170
+    },
+    {
+      "id": "checkpoint",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/PushCheckpoint.java",
+      "x": 780,
+      "y": 250,
+      "width": 340,
+      "height": 170
+    },
+    {
+      "id": "audit",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/PushVerify.java",
+      "x": 0,
+      "y": 500,
+      "width": 340,
+      "height": 170
+    },
+    {
+      "id": "report",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/PushReport.java",
+      "x": 390,
+      "y": 500,
+      "width": 340,
+      "height": 170
+    },
+    {
+      "id": "next",
+      "type": "file",
+      "file": "docs/EDITION_031_PLAN.md",
+      "x": 780,
+      "y": 500,
+      "width": 340,
+      "height": 170
+    },
+    {
+      "id": "readme",
+      "type": "file",
+      "file": "README-031.md",
+      "x": 0,
+      "y": 800,
+      "width": 1100,
+      "height": 200
+    }
+  ],
+  "edges": [
+    {
+      "id": "e0",
+      "fromNode": "request",
+      "toNode": "goal"
+    },
+    {
+      "id": "e1",
+      "fromNode": "goal",
+      "toNode": "plan"
+    },
+    {
+      "id": "e2",
+      "fromNode": "plan",
+      "toNode": "native"
+    },
+    {
+      "id": "e3",
+      "fromNode": "native",
+      "toNode": "owner"
+    },
+    {
+      "id": "e4",
+      "fromNode": "owner",
+      "toNode": "checkpoint"
+    },
+    {
+      "id": "e5",
+      "fromNode": "checkpoint",
+      "toNode": "audit"
+    },
+    {
+      "id": "e6",
+      "fromNode": "audit",
+      "toNode": "report"
+    },
+    {
+      "id": "e7",
+      "fromNode": "report",
+      "toNode": "next"
+    }
+  ]
+}

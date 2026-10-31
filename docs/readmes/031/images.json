@@ -1,0 +1,72 @@
+[
+  {
+    "file": "images/push-approach-plan-031.png",
+    "caption": "SOFTWARE CONTROL: joint configuration search plans reachable standing approaches without native actuation.",
+    "capturedAt": "2026-10-31T15:55:54.335190+00:00"
+  },
+  {
+    "file": "images/push-native-contact-031.png",
+    "caption": "SOFTWARE CONTROL: separate actual pusher and crate moving through native contact around an obstacle.",
+    "capturedAt": "2026-10-31T15:55:55.736351+00:00"
+  },
+  {
+    "file": "images/push-verified-report-031.png",
+    "caption": "SOFTWARE CONTROL: original planned and actual two-body paths plus a passing physical report.",
+    "capturedAt": "2026-10-31T15:56:07.544114+00:00"
+  },
+  {
+    "file": "images/push-work-chart-031.png",
+    "caption": "SOFTWARE CONTROL: signed actuator work chart from original native tick measurements.",
+    "capturedAt": "2026-10-31T15:56:08.539898+00:00"
+  },
+  {
+    "file": "images/push-native-observation-031.png",
+    "caption": "SOFTWARE CONTROL: actual committed body transforms and qualified geometry-based visibility.",
+    "capturedAt": "2026-10-31T15:56:08.926670+00:00"
+  },
+  {
+    "file": "images/push-reused-recovery-031.png",
+    "caption": "SOFTWARE CONTROL: saved-skill reuse completes a fresh high-friction task after a measured jam and bounded recovery.",
+    "capturedAt": "2026-10-31T15:56:17.069337+00:00"
+  },
+  {
+    "file": "images/push-two-bodies-moving-031.png",
+    "caption": "SOFTWARE CONTROL: both actual native bodies moving before this test Java child is deliberately terminated.",
+    "capturedAt": "2026-10-31T15:56:18.747516+00:00"
+  },
+  {
+    "file": "images/push-interrupted-031.png",
+    "caption": "SOFTWARE CONTROL: a new process loads the committed native state and requires explicit Resume.",
+    "capturedAt": "2026-10-31T15:56:21.414598+00:00"
+  },
+  {
+    "file": "images/push-resumed-report-031.png",
+    "caption": "SOFTWARE CONTROL: the same goal/run resumes, verifies both initialized bodies and completes with its original trace prefix.",
+    "capturedAt": "2026-10-31T15:56:33.403552+00:00"
+  },
+  {
+    "file": "images/push-unreachable-standing-031.png",
+    "caption": "NEGATIVE CONTROL: a naive crate path is insufficient when the pusher cannot reach a standing pose.",
+    "capturedAt": "2026-10-31T15:56:34.010450+00:00"
+  },
+  {
+    "file": "images/push-insufficient-force-031.png",
+    "caption": "NEGATIVE CONTROL: an insufficient 8 N maximum remains bounded, fails after two recoveries and retains no skill.",
+    "capturedAt": "2026-10-31T15:56:39.012499+00:00"
+  },
+  {
+    "file": "images/push-edited-checkpoint-refused-031.png",
+    "caption": "NEGATIVE CONTROL: the actual Resume control refuses an edited checkpoint without replacing its bytes or spawning fresh bodies.",
+    "capturedAt": "2026-10-31T15:56:41.016495+00:00"
+  },
+  {
+    "file": "images/push-chat-created-031.png",
+    "caption": "ACTUAL LOCAL MODEL: installed gpt-oss:20b chooses the registered pushing task and retains its verified procedure.",
+    "capturedAt": "2026-10-31T15:45:10.408250+00:00"
+  },
+  {
+    "file": "images/push-chat-reused-031.png",
+    "caption": "ACTUAL LOCAL MODEL: chat reuses saved defaults with fresh roles and verifies new contact/recovery evidence.",
+    "capturedAt": "2026-10-31T15:46:04.021746+00:00"
+  }
+]

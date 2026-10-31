@@ -1,0 +1,46 @@
+{
+  "taskKind": "experiment-task",
+  "runtimeContract": "browser-controller-v2",
+  "endedAt": "2026-10-31T15:45:09.491339700Z",
+  "startedAt": "2026-10-31T15:44:10.374526200Z",
+  "privacy": "No page text, typed values, source or raw goals in episodes",
+  "model": "gpt-oss:20b",
+  "goalDigest": "13f9d0f2da0645e4c220daebc328ead70f0611d5b6a3e30785c2ede08848a6ee",
+  "id": "81407a40-f5de-4fda-9d57-96012aafab4a",
+  "label": "experiment-task",
+  "steps": [
+    {
+      "at": "2026-10-31T15:44:31.957299200Z",
+      "failure": "none",
+      "index": 0,
+      "ok": true,
+      "tool": "push.start",
+      "elapsedMs": 58
+    },
+    {
+      "at": "2026-10-31T15:44:44.032542300Z",
+      "testPassed": true,
+      "artifactVersion": 1,
+      "failure": "none",
+      "index": 1,
+      "artifactId": "bbf8964f-d84c-33e1-9857-6952893c48f7",
+      "ok": true,
+      "tool": "canvas.test",
+      "elapsedMs": 0
+    },
+    {
+      "at": "2026-10-31T15:44:44.992139500Z",
+      "failure": "none",
+      "index": 2,
+      "ok": true,
+      "tool": "goal.read",
+      "elapsedMs": 2762
+    }
+  ],
+  "policy": {
+    "refreshStale": false,
+    "version": 1,
+    "observationLimit": 2
+  },
+  "status": "verified"
+}

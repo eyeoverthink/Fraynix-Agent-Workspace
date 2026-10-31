@@ -1,6 +1,6 @@
 # Edition 031 — native pushing with approach planning and recovery
 
-Status: implementation starting, 2026-10-31. User approved “nice work, next step”.
+Status: verified release candidate, 2026-10-31. Independent offline281 Java /53classes,56 desktop units and189 UI groups pass; actual gpt-oss:20b completes2chat episodes /4groups. Publication/direct remote verification remain. User approved “nice work, next step”.
 Edition030 is actually published and independently verified; preserve its source
 and frozen evidence. Its normal review remains isolated in qa030-release.
 

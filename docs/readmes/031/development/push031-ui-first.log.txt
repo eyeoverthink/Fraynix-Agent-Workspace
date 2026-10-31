@@ -1,0 +1,11 @@
+CHECK Actual Plan only computes a joint crate/pusher standing route around the obstacle without changing native state
+CHECK Visible Push & verify applies bounded forces only to the actual pusher; the crate turns around an obstacle through native contacts, passes endpoint/speed/ledger checks and all six original-data charts before skill retention
+CHECK The actual report switches between six measured charts, including signed actuator work separate from force effort; complete gzip reconstructs the original native run and SHA-256
+PROJECT C:\Users\eyeka\AppData\Local\Temp\fraynix-pushing031-ZBmGAn
+NOTICE Imported source and declared scale verified. No independent room calibration.
+SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at main (C:\Users\eyeka\Documents\Codex\2026-10-26\is\work\fraynix-agent-workspace\workspace-desktop\test\pushing-integration.cjs:19:226)
+SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at main (C:\Users\eyeka\Documents\Codex\2026-10-26\is\work\fraynix-agent-workspace\workspace-desktop\test\pushing-integration.cjs:19:226)

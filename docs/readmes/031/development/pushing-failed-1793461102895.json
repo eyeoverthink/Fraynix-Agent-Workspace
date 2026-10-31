@@ -1,0 +1,213 @@
+{
+  "passed": false,
+  "date": "2026-10-31T15:38:22.895Z",
+  "project": "C:\\Users\\eyeka\\AppData\\Local\\Temp\\fraynix-pushing031-zy4vfZ",
+  "error": "Unexpected end of JSON input",
+  "checks": [
+    "Actual Plan only computes a joint crate/pusher standing route around the obstacle without changing native state",
+    "Visible Push & verify applies bounded forces only to the actual pusher; the crate turns around an obstacle through native contacts, passes endpoint/speed/ledger checks and all six original-data charts before skill retention",
+    "The actual report switches between six measured charts, including signed actuator work separate from force effort; complete gzip reconstructs the original native run and SHA-256"
+  ],
+  "goals": {
+    "procedures": [
+      {
+        "kind": "spatial-push-v1",
+        "verifiedAt": "2026-10-31T15:38:20.606128800Z",
+        "recovery": [
+          "Atomically commit both bodies, original trace and full controller",
+          "Explicit compatible resume preserves the same native run and committed prefix",
+          "Refuse edited/incompatible source or checkpoints without respawning",
+          "Keep failed attempts and require new conditions; never promote a failed result"
+        ],
+        "version": 1,
+        "prerequisites": [
+          "Fresh qualified flat-floor spatial scene with two selected dynamic box roles",
+          "Supported metre-grid target and conservative clearance",
+          "Idle shared native task owner and matching implementation"
+        ],
+        "defaults": {
+          "maxForceN": 32,
+          "initialForceN": 8,
+          "displacementM": [
+            3,
+            0,
+            0
+          ]
+        },
+        "sourceGoalId": "1fa2e023-ebdf-40f3-bda6-94151a945ab3",
+        "pushCodeSha256": "572df0ec5aef2e0ba39518ed7540fd9271541b5439e73942388b062d2b8954d4",
+        "scope": "Declared-scale native contact pushing of two boxes on a flat floor. Conservative integer-metre planning, finite force/recovery budgets; not universal robotic manipulation or measured material inference. Procedural retention, not policy promotion or Ollama-weight training.",
+        "name": "contact-crate-route",
+        "report": {
+          "sha256": "7e9ac227c8e1a6d78d791e8edad1cee24c022befadfccaabd497102c5c7f1f0d",
+          "id": "56d93a6e-76fc-349d-9fc3-824e044adf75",
+          "version": 1
+        },
+        "id": "012b3ee4-ae8e-3414-9107-b779cc63b4f0",
+        "actions": [
+          "Freeze original source, roles, target and force limits",
+          "Search crate and pusher configurations; verify each standing approach",
+          "Apply bounded forces only to the pusher; observe actual crate contacts",
+          "Detect measured stalls, back away/reapproach within original force cap",
+          "Verify both native bodies, complete actuation ledger and actual canvas charts"
+        ]
+      }
+    ],
+    "goals": [
+      {
+        "pusherId": "1af6c866-96bf-35c5-9fdc-90691e764f08",
+        "request": "Plan a standing approach, push through native contacts, recover and verify the crate",
+        "reason": "Native contact task, original plan/recovery data and every chart verified; procedure retained when requested",
+        "maxForceN": 32,
+        "pushView": {
+          "frames": 6,
+          "maxError": 2.8542968721012585e-05,
+          "observedPoints": 3648,
+          "passed": true,
+          "originalDataVerified": true
+        },
+        "pushPlanSummary": {
+          "reason": "Every push has a reachable standing pose and conservatively clear swept crate path",
+          "expanded": 77,
+          "passed": true,
+          "pushes": 5
+        },
+        "procedure": "spatial-push-v1",
+        "history": [
+          {
+            "reason": "Original scene, two actual body roles, target and force budgets frozen; standing-pose search required",
+            "at": "2026-10-31T15:38:07.875655200Z",
+            "step": "push-plan",
+            "attempt": 1,
+            "status": "running"
+          },
+          {
+            "reason": "Every push has a reachable standing cell and conservatively clear swept path; actual native execution next",
+            "at": "2026-10-31T15:38:08.068498800Z",
+            "step": "push-start",
+            "attempt": 1,
+            "status": "running"
+          },
+          {
+            "reason": "Native pusher forces executing; measured crate contact/progress and bounded recovery active",
+            "at": "2026-10-31T15:38:08.207296700Z",
+            "step": "push-wait",
+            "attempt": 1,
+            "status": "running"
+          },
+          {
+            "reason": "Original force ledger, both native bodies, action endpoints, jam evidence and final crate state independently verified",
+            "at": "2026-10-31T15:38:17.329133Z",
+            "step": "push-report",
+            "attempt": 1,
+            "status": "running"
+          },
+          {
+            "reason": "Waiting for registered desktop action: canvas.verify-report",
+            "at": "2026-10-31T15:38:17.984984300Z",
+            "step": "push-report",
+            "attempt": 1,
+            "status": "waiting-host"
+          },
+          {
+            "reason": "Actual Chromium canvas assertions passed for the pinned report version",
+            "at": "2026-10-31T15:38:20.050773500Z",
+            "step": "complete",
+            "attempt": 1,
+            "status": "running"
+          },
+          {
+            "reason": "Native contact task, original plan/recovery data and every chart verified; procedure retained when requested",
+            "at": "2026-10-31T15:38:20.612606500Z",
+            "step": "completed",
+            "attempt": 1,
+            "status": "completed"
+          }
+        ],
+        "attempt": 1,
+        "resumes": 0,
+        "createdAt": "2026-10-31T15:38:07.875655200Z",
+        "pushBinding": {
+          "sourceSha256": "8de264a2b94ce14a66e65870aeac22d237a24a15ff2134fc0794a08a23de282d",
+          "definitionSha256": "8c9364223056f6a5e4140b56be63bae6c4fddc010a1b48dbdfd7e92fbab7773a",
+          "sceneId": "ed2030d4-1c5d-4b6a-96d2-1d35fe139c48",
+          "version": 1
+        },
+        "initialForceN": 8,
+        "report": {
+          "sha256": "7e9ac227c8e1a6d78d791e8edad1cee24c022befadfccaabd497102c5c7f1f0d",
+          "id": "56d93a6e-76fc-349d-9fc3-824e044adf75",
+          "version": 1
+        },
+        "step": "completed",
+        "id": "1fa2e023-ebdf-40f3-bda6-94151a945ab3",
+        "runId": "a3cbf5d2-f54c-3b7e-b0c2-a3fe7ce05ab0",
+        "metrics": {
+          "pusherWorkJ": 23.195214916594804,
+          "endpointErrorM": 0.03068602591862923,
+          "maxForceN": 25.956393100063824,
+          "effortNs": 64.82485224766488,
+          "crateTravelM": 4.916981548137889,
+          "jams": 0,
+          "physicalAxes": 3,
+          "resumes": 0,
+          "recoveries": 0,
+          "maxRestoreVelocityError": 0,
+          "timeS": 30.4,
+          "maxRestorePositionErrorM": 0,
+          "expandedStates": 77,
+          "scope": "Declared-scale native contact pushing of two boxes on a flat floor. Conservative integer-metre planning, finite force/recovery budgets; not universal robotic manipulation or measured material inference.",
+          "nativePhysics": true,
+          "plannedActions": 17,
+          "passed": true,
+          "terminalSpeedMps": 2.8409661403942587e-06,
+          "maxRestoreQuaternionError": 0,
+          "contactTicks": 1575,
+          "completedActions": 17,
+          "plannedPushes": 5,
+          "nativeTicks": 7296
+        },
+        "pushTargetM": [
+          2,
+          0.3,
+          0
+        ],
+        "displacementM": [
+          3,
+          0,
+          0
+        ],
+        "objectId": "6587dd47-fe3f-3c63-adbd-f3b6e6d8f43a",
+        "savedSkill": {
+          "name": "contact-crate-route",
+          "id": "012b3ee4-ae8e-3414-9107-b779cc63b4f0",
+          "version": 1
+        },
+        "status": "completed",
+        "updatedAt": "2026-10-31T15:38:20.612606500Z"
+      }
+    ]
+  },
+  "activityTrace": [
+    {
+      "at": "2026-10-31T15:38:06.941Z",
+      "kind": "tool",
+      "text": "canvas.write",
+      "data": {
+        "args": {
+          "title": "Welcome canvas",
+          "files": [
+            "index.html"
+          ]
+        },
+        "result": "{\"id\":\"7209440d-e9ae-48d7-8643-51dd605e899c\",\"title\":\"Welcome canvas\",\"version\":1,\"files\":[\"index.html\"],\"url\":\"http://127.0.0.1:59707/artifact/7209440d-e9ae-48d7-8643-51dd605e899c/1/index.html\"}"
+      }
+    },
+    {
+      "at": "2026-10-31T15:38:20.624Z",
+      "kind": "goal",
+      "text": "Java contact pushing completed: Native contact task, original plan/recovery data and every chart verified; procedure retained when requested Crate error 0.030686m; speed 0.000003m/s; 5 planned pushes; 0 measured jams, 0 recoveries; maximum force 25.956N. Saved contact-crate-route v1. Declared native two-body contact task and procedural retention; no universal robot or LLM-weight-training claim.",
+      "data": {}
+    }
+  ]
+}

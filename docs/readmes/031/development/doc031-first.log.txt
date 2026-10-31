@@ -1,0 +1,38 @@
+AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
++ actual - expected
+... Skipped lines
+
+  {
+    completedActions: 17,
+    contactTicks: 1575,
+    crateTravelM: 4.916981548137889,
++   effortNs: 64.82485224766488,
+-   effortNs: 64.82485228046774,
+    endpointErrorM: 0.03068602591862923,
+    expandedStates: 77,
+    jams: 0,
++   maxForceN: 25.956393100063824,
+-   maxForceN: 25.95639338827182,
+    maxRestorePositionErrorM: 0,
+    maxRestoreQuaternionError: 0,
+    maxRestoreVelocityError: 0,
+    nativePhysics: true,
+    nativeTicks: 7296,
+...
+    plannedPushes: 5,
++   pusherWorkJ: 23.195214916594804,
+-   pusherWorkJ: 23.195214940643197,
+    recoveries: 0,
+    resumes: 0,
+    scope: 'Declared-scale native contact pushing of two boxes on a flat floor. Conservative integer-metre planning, finite force/recovery budgets; not universal robotic manipulation or measured material inference.',
+    terminalSpeedMps: 0.0000028409661403942587,
+    timeS: 30.4
+
+    at main (C:\Users\eyeka\Documents\Codex\2026-10-26\is\work\fraynix-agent-workspace\build\qa031.cjs:12:202) {
+  generatedMessage: true,
+  code: 'ERR_ASSERTION',
+  actual: [Object],
+  expected: [Object],
+  operator: 'deepStrictEqual',
+  diff: 'simple'
+}

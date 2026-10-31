@@ -1,0 +1,54 @@
+{
+  "pusherId": "82a17c7d-160c-375a-ba07-edd3966d6fae",
+  "request": "Plan a standing approach, push through native contacts, recover and verify the crate",
+  "reason": "Execution stopped: No valid standing/pushing plan: No reachable standing/pushing sequence. Review and Resume; no failed result is a saved skill.",
+  "maxForceN": 32,
+  "pushPlanSummary": {
+    "reason": "No reachable standing/pushing sequence",
+    "expanded": 1,
+    "passed": false,
+    "pushes": 0
+  },
+  "procedure": "spatial-push-v1",
+  "history": [
+    {
+      "reason": "Original scene, two actual body roles, target and force budgets frozen; standing-pose search required",
+      "at": "2026-10-31T15:56:34.052851600Z",
+      "step": "push-plan",
+      "attempt": 1,
+      "status": "running"
+    },
+    {
+      "reason": "Execution stopped: No valid standing/pushing plan: No reachable standing/pushing sequence. Review and Resume; no failed result is a saved skill.",
+      "at": "2026-10-31T15:56:34.211790900Z",
+      "step": "push-plan",
+      "attempt": 1,
+      "status": "interrupted"
+    }
+  ],
+  "attempt": 1,
+  "resumes": 0,
+  "createdAt": "2026-10-31T15:56:34.052851600Z",
+  "pushBinding": {
+    "sourceSha256": "7b925be6b75f6e13d7ab234167827a966e15d0ee8b8c5dd35cda33f7a381ee8b",
+    "definitionSha256": "c6d70e3ad210641e21f27ab0ae2f7a180cd7f965d701a0db70cab7b7f0aa9ae4",
+    "sceneId": "51e0d1e5-43c3-413f-a0f8-f7028e09aeb8",
+    "version": 1
+  },
+  "initialForceN": 8,
+  "step": "push-plan",
+  "id": "70db5339-74a8-4a8e-a5aa-d5f1d7e19729",
+  "pushTargetM": [
+    2,
+    0.3,
+    0
+  ],
+  "displacementM": [
+    3,
+    0,
+    0
+  ],
+  "objectId": "4c978a09-16b6-3448-8cc1-f7cf4d59f918",
+  "status": "interrupted",
+  "updatedAt": "2026-10-31T15:56:34.211790900Z"
+}
