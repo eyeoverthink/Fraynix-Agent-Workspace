@@ -112,6 +112,15 @@ public final class WorkspaceStore implements AutoCloseable {
         catch(IOException|RuntimeException error){world.restore(before);throw error;}
         event("artifact_saved",new JSONObject().put("id",id).put("version",version).put("title",title));return read(id);
     }
+    /** Reconcile an already-written owned revision after process loss; never overwrite a foreign edit. */
+    synchronized JSONObject reviseOnce(String effect,JSONObject args) throws IOException {
+        var before=read(args.getString("id"));String marker="creation-effect:"+MeasurementStore.hash(effect);var refs=args.getJSONArray("sources");if(!refs.toList().contains(marker))refs.put(marker);
+        int expected=args.getInt("expectedVersion");
+        if(before.getInt("version")==expected+1&&before.getJSONArray("sources").toList().contains(marker)){
+            for(String name:args.getJSONObject("files").keySet())if(!before.getJSONObject("contents").optString(name).equals(args.getJSONObject("files").getString(name)))throw new IllegalStateException("Owned revision content changed");return before;
+        }
+        if(before.getInt("version")!=expected)throw new ConcurrentModificationException("Creation revision source was changed");return write(args);
+    }
     public synchronized JSONObject recordTest(JSONObject args) throws IOException {
         JSONObject artifact=read(args.getString("id"));if(artifact.getInt("version")!=args.getInt("version"))throw new IllegalArgumentException("Test refers to an older artifact version");
         JSONObject proof=new JSONObject(args.toString()).put("at",Instant.now().toString());

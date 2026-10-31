@@ -30,7 +30,7 @@ public final class GoalRunner implements AutoCloseable {
         for(String type:List.of("goal","procedure"))schemas.register(new ComponentSchema("workspace."+type,1,Map.of("payload",ComponentSchema.Kind.TEXT),Set.of("payload")));
         world=new FactoryWorld(schemas);checkpoint=new WorldCheckpointStore(project.resolve("goals/tasks.fworld"));
         if(Files.exists(checkpoint.path()))world.restore(checkpoint.load(schemas).snapshot());
-        for(var g:values("goal"))if(LIVE.contains(g.getString("status"))){g.put("status","interrupted").put("reason",dataGoal(g)?"Process ended. Resume explicitly from the frozen dataset version.":"Process ended. Resume explicitly; incomplete native trials restart from frozen conditions.");g.remove("hostClaim");save("goal",g);}
+        for(var g:values("goal"))if(LIVE.contains(g.getString("status"))){g.put("status","interrupted").put("reason",creationGoal(g)?"Process ended. Resume explicitly; saved creation source, drafts and checks remain.":dataGoal(g)?"Process ended. Resume explicitly from the frozen dataset version.":"Process ended. Resume explicitly; incomplete native trials restart from frozen conditions.");g.remove("hostClaim");save("goal",g);}
         worker.scheduleWithFixedDelay(this::tick,50,100,TimeUnit.MILLISECONDS);
     }
     private List<JSONObject> values(String type){var out=new ArrayList<JSONObject>();for(var e:world.snapshot().entities())if(e.components().get(0).type().equals("workspace."+type))out.add(new JSONObject(e.components().get(0).values().get("payload")));return out;}
@@ -43,12 +43,12 @@ public final class GoalRunner implements AutoCloseable {
     private JSONObject active(){return values("goal").stream().filter(g->LIVE.contains(g.getString("status"))).findFirst().orElse(null);}
     public synchronized boolean busy(){return active()!=null;}
     private static boolean dataGoal(JSONObject g){return g.optString("procedure").equals(MotionData.PROCEDURE);}
-    public synchronized boolean ownsPhysics(){var g=active();return g!=null&&!dataGoal(g)&&!spatialGoal(g)&&!perceptionGoal(g);}
+    public synchronized boolean ownsPhysics(){var g=active();return g!=null&&!dataGoal(g)&&!spatialGoal(g)&&!perceptionGoal(g)&&!creationGoal(g);}
     public synchronized JSONObject read(String id){UUID.fromString(id);return values("goal").stream().filter(g->id.equals(g.getString("id"))).findFirst().orElseThrow(()->new IllegalArgumentException("Unknown Java goal"));}
     public synchronized JSONArray list(){var out=new JSONArray();var all=values("goal");all.sort(Comparator.comparing(g->g.getString("createdAt")));for(var g:all)out.put(view(g));return out;}
     public synchronized JSONArray procedures(){var out=new JSONArray();for(var p:values("procedure"))out.put(p);return out;}
     static JSONObject view(JSONObject g){
-        var out=new JSONObject();for(String k:List.of("procedure","trackerCodeSha256","trackerProfile","perceptionBinding","mode","targetLabel","visionModel","lessonId","seconds","spatialBinding","objectId","displacementM","dataBinding","maxGapS","speedLimitMps","id","request","status","step","attempt","resumes","createdAt","updatedAt","reason","sceneId","runId","report","metrics","savedSkill","skill","history","targetM","disturbanceMps","parameters","source","browserContext"))if(g.has(k))out.put(k,g.get(k));return out;
+        var out=new JSONObject();for(String k:List.of("title","modelName","modelDigest","draftNumber","draftHistory","testSteps","sourceBinding","procedure","trackerCodeSha256","trackerProfile","perceptionBinding","mode","targetLabel","visionModel","lessonId","seconds","spatialBinding","objectId","displacementM","dataBinding","maxGapS","speedLimitMps","id","request","status","step","attempt","resumes","createdAt","updatedAt","reason","sceneId","runId","report","metrics","savedSkill","skill","history","targetM","disturbanceMps","parameters","source","browserContext"))if(g.has(k))out.put(k,g.get(k));return out;
     }
     private static void keys(JSONObject input,Set<String> allowed){if(!allowed.containsAll(input.keySet()))throw new IllegalArgumentException("Unsupported goal/procedure field");}
     public synchronized JSONObject start(JSONObject input) throws Exception {return start(input,null);}
@@ -74,8 +74,9 @@ public final class GoalRunner implements AutoCloseable {
     private synchronized void tick(){
         if(closed)return;var g=active();if(g==null)return;
         try{
-            if(System.currentTimeMillis()>g.getLong("deadline"))throw new IllegalStateException("Goal exceeded its 180 second attempt budget");
+            if(System.currentTimeMillis()>g.getLong("deadline"))throw new IllegalStateException("Goal exceeded its saved attempt time budget");
             if(g.getString("status").equals("waiting-host"))return;
+            if(creationGoal(g)){tickCreation(g);return;}
             if(dataGoal(g)){tickData(g);return;}
             if(spatialGoal(g)){tickSpatial(g);return;}
             if(perceptionGoal(g)){tickPerception(g);return;}
@@ -129,7 +130,7 @@ public final class GoalRunner implements AutoCloseable {
         if(disturbances!=1||r.getJSONArray("worldPlans").length()!=30||r.getJSONArray("worldInnovations").length()!=29)throw new IllegalStateException("Incomplete native observation/action evidence");return r;
     }
     private JSONArray reportChecks(JSONObject g){return perceptionGoal(g)?PerceptionReport.checks(g):spatialGoal(g)?SpatialReport.checks(g):dataGoal(g)?MotionData.checks(g):GoalReport.checks(g);}
-    private void verifyOutcome(JSONObject g) throws Exception {if(perceptionGoal(g))verifiedPerception(g);else if(spatialGoal(g))verifiedSpatial(g);else if(dataGoal(g))verifiedData(g);else verifiedRun(g);}
+    private void verifyOutcome(JSONObject g) throws Exception {if(creationGoal(g))verifiedCreation(g);else if(perceptionGoal(g))verifiedPerception(g);else if(spatialGoal(g))verifiedSpatial(g);else if(dataGoal(g))verifiedData(g);else verifiedRun(g);}
     private void verifiedReport(JSONObject g) throws Exception {
         var ref=g.getJSONObject("report");var a=artifacts.read(ref.getString("id"));var proof=a.optJSONObject("test");
         if(a.getInt("version")!=ref.getInt("version")||!MeasurementStore.hash(a.getJSONObject("contents").toString()).equals(ref.getString("sha256"))||proof==null||!proof.optBoolean("passed")||!proof.getJSONArray("steps").similar(reportChecks(g))||proof.getJSONArray("checks").length()!=reportChecks(g).length())throw new IllegalStateException("Current report lacks its exact passing canvas receipt");
@@ -139,9 +140,11 @@ public final class GoalRunner implements AutoCloseable {
     public synchronized JSONObject claim() throws Exception {
         var g=active();if(g==null||!g.getString("status").equals("waiting-host"))return new JSONObject();
         var claim=g.optJSONObject("hostClaim");if(claim!=null&&System.currentTimeMillis()<claim.getLong("expires"))return new JSONObject();
-        claim=new JSONObject().put("nonce",UUID.randomUUID().toString()).put("expires",System.currentTimeMillis()+30_000);g.put("hostClaim",claim);save("goal",g);
+        claim=new JSONObject().put("nonce",UUID.randomUUID().toString()).put("expires",Math.min(g.getLong("deadline"),System.currentTimeMillis()+((g.getJSONObject("hostEffect").getString("kind").equals("creation.generate")||g.getJSONObject("hostEffect").getString("kind").equals("creation.plan"))?600_000:30_000)));g.put("hostClaim",claim);save("goal",g);
         var out=new JSONObject(g.getJSONObject("hostEffect").toString()).put("goalId",g.getString("id")).put("nonce",claim.getString("nonce"));
         if(out.getString("kind").equals("browser.perception.sample")){var r=perception.run(g.getString("runId"));out.put("runId",r.getString("id")).put("binding",r.getJSONObject("binding")).put("sequence",g.getInt("expectedSequence"));}
+        if(out.getString("kind").equals("creation.generate")||out.getString("kind").equals("creation.plan"))out.put("generation",Creation.generation(g));
+        if(out.getString("kind").equals("creation.test"))out.put("report",g.getJSONObject("report")).put("steps",g.getJSONArray("testSteps"));
         if(out.getString("kind").equals("canvas.verify-report"))out.put("report",g.getJSONObject("report")).put("steps",reportChecks(g));return out;
     }
     public synchronized JSONObject acknowledge(JSONObject input) throws Exception {
@@ -150,12 +153,14 @@ public final class GoalRunner implements AutoCloseable {
         g.remove("hostClaim");
         if(input.has("error")){stopOwned(g);g.put("status","interrupted");change(g,g.getString("step"),"Desktop action failed: "+input.getString("error"));return view(g);}
         String kind=g.getJSONObject("hostEffect").getString("kind");
-        if(kind.equals("browser.perception.sample")){var result=input.getJSONObject("result");var r=perception.run(g.getString("runId"));int seq=result.getInt("sequence");if(!result.getString("runId").equals(r.getString("id"))||seq!=g.getInt("expectedSequence")||seq>r.getInt("lastSequence"))throw new IllegalStateException("Foreign perception frame receipt");var sample=r.getJSONArray("samples").getJSONObject(seq-1);if(!sample.getString("frameId").equals(result.getString("frameId"))||!sample.getString("frameSha256").equals(result.getString("frameSha256")))throw new IllegalStateException("Perception receipt differs from actual stored pixels");g.put("status","running");change(g,"perception-sample","Actual source frame "+seq+" retained; tracking uncertainty preserved");}
+        if(kind.equals("creation.plan")||kind.equals("creation.generate")||kind.equals("creation.test")){try{if(kind.equals("creation.plan"))acceptCreationPlan(g,input.getJSONObject("result"));else if(kind.equals("creation.generate"))acceptCreationDraft(g,input.getJSONObject("result"));else acceptCreationTest(g,input.getJSONObject("result"));}catch(Exception failure){g.put("status","interrupted");change(g,g.getString("step"),"Creation stopped: "+failure.getMessage());}}
+        else if(kind.equals("browser.perception.sample")){var result=input.getJSONObject("result");var r=perception.run(g.getString("runId"));int seq=result.getInt("sequence");if(!result.getString("runId").equals(r.getString("id"))||seq!=g.getInt("expectedSequence")||seq>r.getInt("lastSequence"))throw new IllegalStateException("Foreign perception frame receipt");var sample=r.getJSONArray("samples").getJSONObject(seq-1);if(!sample.getString("frameId").equals(result.getString("frameId"))||!sample.getString("frameSha256").equals(result.getString("frameSha256")))throw new IllegalStateException("Perception receipt differs from actual stored pixels");g.put("status","running");change(g,"perception-sample","Actual source frame "+seq+" retained; tracking uncertainty preserved");}
         else if(kind.equals("canvas.verify-report")){verifiedReport(g);g.put("status","running");change(g,"complete","Actual Chromium canvas assertions passed for the pinned report version");}
         else {var result=input.getJSONObject("result");if(!result.has("url")||!result.has("observation"))throw new IllegalArgumentException("Browser observation receipt missing source");g.put("browserContext",new JSONObject().put("url",result.getString("url")).put("sha256",MeasurementStore.hash(result.toString())).put("authority","untrusted context only; not physical evidence"));g.put("status","running");change(g,"prepare","Browser context retained as data; it grants no executable authority");}
         return view(g);
     }
     private void stopOwned(JSONObject g) throws Exception {
+        if(creationGoal(g))return;
         if(perceptionGoal(g)){if(g.has("runId"))perception.cancel(g.getString("runId"));return;}
         if(spatialGoal(g)){if(g.has("runId"))spatial.cancel(g.getString("runId"));return;}
         if(g.has("runId")){var s=scenes.snapshot();if(g.getString("runId").equals(s.optString("id"))&&Set.of("running","paused").contains(s.getString("status")))scenes.worldCancel(g.getString("runId"));}
@@ -164,6 +169,7 @@ public final class GoalRunner implements AutoCloseable {
     public synchronized JSONObject cancel(String id) throws Exception {var g=read(id);if(!LIVE.contains(g.getString("status"))&&!g.getString("status").equals("interrupted"))throw new IllegalStateException("Goal is already settled");stopOwned(g);g.put("status","cancelled");g.remove("hostClaim");change(g,g.getString("step"),"Cancelled; owned effects stopped and no new skill promoted");return view(g);}
     public synchronized JSONObject resume(String id) throws Exception {
         var g=read(id);if(!g.getString("status").equals("interrupted")||busy())throw new IllegalStateException("Resume only an interrupted goal while the runner is idle");if(g.getInt("resumes")>=3)throw new IllegalStateException("Recovery budget reached (3 explicit resumes)");
+        if(creationGoal(g))return resumeCreation(g);
         if(perceptionGoal(g)){if(g.has("runId")&&perception.hasRun(g.getString("runId"))&&perception.run(g.getString("runId")).getString("status").equals("completed"))return resumePerception(id,"");throw new IllegalStateException("Rebind a browser target and provide a fresh frame for perception recovery");}
         if(spatialGoal(g)){spatial.available();g.put("resumes",g.getInt("resumes")+1).put("deadline",System.currentTimeMillis()+180_000).put("status","running");g.remove("hostClaim");if(g.has("runId")&&spatial.hasRun(g.getString("runId"))&&spatial.run(g.getString("runId")).getString("status").equals("completed")){change(g,"spatial-report","Reusing completed native evidence without repeating physical effects");}else{g.put("attempt",g.getInt("attempt")+1);for(String key:List.of("runId","report","metrics","spatialPlan"))g.remove(key);change(g,"spatial-plan","Explicit new attempt from immutable import; previous native effects are not resumed in place");}return view(g);}
         if(dataGoal(g)){g.put("resumes",g.getInt("resumes")+1).put("deadline",System.currentTimeMillis()+180_000).put("status","running");g.remove("hostClaim");change(g,g.has("analysis")?"data-report":"data-analyze","Explicit data-task resume reuses its frozen dataset version and stable report identity");return view(g);}
@@ -176,7 +182,7 @@ public final class GoalRunner implements AutoCloseable {
     private static void validName(String name){if(!name.matches("[a-z][a-z0-9-]{2,55}"))throw new IllegalArgumentException("Skill name needs 3..56 lowercase letters, digits or hyphens");}
     public synchronized JSONObject saveProcedure(String goalId,String name) throws Exception {var g=read(goalId);if(!g.getString("status").equals("completed"))throw new IllegalStateException("Only a completed verified goal can become a procedure");return saveProcedure(g,name);}
     private JSONObject saveProcedure(JSONObject g,String name) throws Exception {
-        validName(name);if(perceptionGoal(g))return savePerceptionProcedure(g,name);if(spatialGoal(g))return saveSpatialProcedure(g,name);if(dataGoal(g))return saveDataProcedure(g,name);verifiedRun(g);verifiedReport(g);var all=values("procedure");int version=1;
+        validName(name);if(creationGoal(g))return saveCreationProcedure(g,name);if(perceptionGoal(g))return savePerceptionProcedure(g,name);if(spatialGoal(g))return saveSpatialProcedure(g,name);if(dataGoal(g))return saveDataProcedure(g,name);verifiedRun(g);verifiedReport(g);var all=values("procedure");int version=1;
         for(var p:all)if(p.getString("name").equals(name)){if(!p.getString("kind").equals(g.getString("procedure")))throw new IllegalArgumentException("Choose a distinct skill name for a different registered task family");if(p.getString("sourceGoalId").equals(g.getString("id")))return new JSONObject().put("name",name).put("version",p.getInt("version")).put("id",p.getString("id"));version=Math.max(version,p.getInt("version")+1);}
         if(all.size()>=32||version>8)throw new IllegalStateException("Procedural skill version/history budget reached");
         var p=new JSONObject().put("id",UUID.nameUUIDFromBytes(("procedure:"+name+":"+version).getBytes(StandardCharsets.UTF_8)).toString()).put("name",name).put("version",version).put("kind",PROCEDURE).put("sourceGoalId",g.getString("id")).put("sourceRunId",g.getString("runId")).put("report",g.getJSONObject("report")).put("verifiedAt",Instant.now())
@@ -190,6 +196,7 @@ public final class GoalRunner implements AutoCloseable {
     public synchronized JSONObject runProcedure(JSONObject input) throws Exception {
         validName(input.getString("name"));if(!(input.get("version") instanceof Number version)||version.doubleValue()<1||version.doubleValue()>8||version.doubleValue()!=Math.rint(version.doubleValue()))throw new IllegalArgumentException("Choose an exact procedural skill version from1 to8");
         var p=values("procedure").stream().filter(v->v.getString("name").equals(input.getString("name"))&&v.getInt("version")==input.getInt("version")).findFirst().orElseThrow(()->new IllegalArgumentException("Unknown procedural skill version"));
+        if(p.getString("kind").equals(Creation.PROCEDURE)){keys(input,Set.of("name","version","sourceArtifactId","sourceVersion","sourceFile","modelName","saveSkillName"));var args=new JSONObject(p.getJSONObject("defaults").toString());for(String key:input.keySet())if(!Set.of("name","version").contains(key))args.put(key,input.get(key));return startCreation(args,p);}
         if(p.getString("kind").equals(PerceptionStore.PROCEDURE)){keys(input,Set.of("name","version","frameId","mode","targetLabel","visionModel","lessonId","seconds","saveSkillName"));var args=new JSONObject(p.getJSONObject("defaults").toString());for(String k:input.keySet())if(!Set.of("name","version").contains(k))args.put(k,input.get(k));return startPerception(args,p);}
         if(p.getString("kind").equals(SpatialScene.PROCEDURE)){keys(input,Set.of("name","version","sceneId","objectId","displacementM","saveSkillName"));var args=new JSONObject(p.getJSONObject("defaults").toString());for(String k:input.keySet())if(!Set.of("name","version").contains(k))args.put(k,input.get(k));return startSpatial(args,p);}
         if(p.getString("kind").equals(MotionData.PROCEDURE)){
@@ -300,5 +307,70 @@ public final class GoalRunner implements AutoCloseable {
             .put("successChecks",new JSONObject().put("minimumFrames",4).put("minimumTrackedFraction",.65).put("sourceIntegrity",true).put("passingCanvasReceipt",true).put("semanticGroundTruthVerified",false))
             .put("recovery",new JSONArray(List.of("Stop on source navigation/removal","Mark lost instead of inventing invisible motion","Reacquire only a sufficiently distinct appearance match","Explicit resume rebinds a current target as a separately recorded attempt","Reuse completed evidence for report recovery; never promote failed tracking"))).put("maxExplicitResumes",3).put("scope","Registered browser observation workflow. DOM names are page claims; local-model labels are estimates; taught templates recognize bounded visual appearance. No named-person identification, online LLM training or guarantee of general recognition.");save("procedure",p);return new JSONObject().put("name",name).put("version",version).put("id",p.getString("id"));
     }
+    private static boolean creationGoal(JSONObject g){return g.optString("procedure").equals(Creation.PROCEDURE);}
+    public synchronized boolean ownsCanvas(){var g=active();return g!=null&&creationGoal(g);}
+    public synchronized void requireArtifactWrite(String id){var g=active();if(g!=null&&creationGoal(g)&&g.has("report")&&g.getJSONObject("report").getString("id").equals(id))throw new IllegalStateException("Creation goal owns this artifact; stop or finish it before manual editing");}
+    public synchronized JSONObject startCreation(JSONObject input) throws Exception {return startCreation(input,null);}
+    private JSONObject startCreation(JSONObject input,JSONObject skill) throws Exception {
+        if(closed||busy())throw new IllegalStateException("One shared Java goal at a time");if(values("goal").size()>=64)throw new IllegalStateException("Goal history limit reached");var definition=Creation.definition(artifacts,input);String name=input.optString("saveSkillName","");if(!name.isEmpty())validName(name);
+        var g=new JSONObject(definition.toString()).put("id",UUID.randomUUID().toString()).put("procedure",Creation.PROCEDURE).put("saveSkillName",name).put("status","running").put("step","creation-generate").put("attempt",1).put("resumes",0).put("draftNumber",0).put("draftHistory",new JSONArray()).put("createdAt",Instant.now()).put("updatedAt",Instant.now()).put("deadline",System.currentTimeMillis()+600_000).put("history",new JSONArray());
+        if(skill!=null){if(skill.getJSONObject("sourceRequirements").getBoolean("required")&&!g.has("sourceBinding"))throw new IllegalArgumentException("This creation procedure requires a freshly selected CSV source");g.put("skill",new JSONObject().put("id",skill.getString("id")).put("name",skill.getString("name")).put("version",skill.getInt("version")));}
+        change(g,g.has("testSteps")?"creation-generate":"creation-plan","Creation request and source saved; behavior contract precedes code");return view(g);
+    }
+    private JSONObject verifiedCreation(JSONObject g) throws Exception {Creation.sourceIntact(artifacts,g);var a=Creation.artifact(artifacts,g);Creation.receipt(g,a,true);return a;}
+    private void tickCreation(JSONObject g) throws Exception {
+        Creation.sourceIntact(artifacts,g);
+        switch(g.getString("step")){
+            case "creation-plan" -> host(g,"creation.plan");
+            case "creation-generate" -> {if(g.getInt("draftNumber")>=3)throw new IllegalStateException("Creation exhausted its3-draft repair budget; keep the failed evidence and start a revised task");host(g,"creation.generate");}
+            case "creation-write" -> {
+                var files=g.getJSONObject("pendingFiles");int draft=g.getInt("draftNumber");var refs=new JSONArray().put("creation-goal:"+g.getString("id"));if(g.has("sourceBinding"))refs.put("artifact-source:"+g.getJSONObject("sourceBinding").getString("id")+":"+g.getJSONObject("sourceBinding").getInt("version")+":"+g.getJSONObject("sourceBinding").getString("fileSha256"));
+                var args=new JSONObject().put("title",g.getString("title")).put("files",files).put("sources",refs);JSONObject a;
+                if(draft==1){a=artifacts.writeOnce("creation:"+g.getString("id"),args);if(a.getInt("version")!=1||!a.getString("title").equals(g.getString("title")))throw new IllegalStateException("Created artifact was externally revised before write recovery");}
+                else{var ref=g.getJSONObject("report");args.put("id",ref.getString("id")).put("expectedVersion",ref.getInt("version"));a=artifacts.reviseOnce(g.getString("id")+":"+draft+":"+Creation.digest(files),args);}
+                g.put("report",Creation.reference(a));g.remove("pendingFiles");change(g,"creation-test","Draft "+draft+" saved as artifact v"+a.getInt("version")+"; behavior checks remain frozen");
+            }
+            case "creation-test" -> {Creation.artifact(artifacts,g);host(g,"creation.test");}
+            case "creation-complete" -> {var a=verifiedCreation(g);g.put("metrics",new JSONObject().put("drafts",g.getInt("draftNumber")).put("repairs",g.getInt("draftNumber")-1).put("checks",g.getJSONArray("testSteps").length()).put("sourceRows",g.has("sourceBinding")?g.getJSONObject("sourceBinding").getInt("rowCount"):0).put("artifactVersion",a.getInt("version")).put("declaredBehaviorPassed",true));if(!g.getString("saveSkillName").isEmpty())g.put("savedSkill",saveCreationProcedure(g,g.getString("saveSkillName")));g.put("status","completed");change(g,"completed","Created app and declared interactive behavior verified in the actual canvas");artifacts.event("java_goal_completed",view(g));}
+            default -> throw new IllegalStateException("Unknown registered creation step");
+        }
+    }
+    private void acceptCreationPlan(JSONObject g,JSONObject result) throws Exception {
+        SpatialScene.keys(result,"checks","modelName","modelDigest");if(g.has("testSteps"))throw new IllegalStateException("Behavior contract is already frozen");
+        if(!result.getString("modelName").equals(g.getString("modelName"))||!result.getString("modelDigest").matches("(?:sha256:)?[a-fA-F0-9]{64}"))throw new IllegalArgumentException("Contract needs admitted saved model metadata");
+        if(g.has("modelDigest")&&!g.getString("modelDigest").equals(result.getString("modelDigest")))throw new IllegalStateException("Creation model changed");Creation.sourceIntact(artifacts,g);
+        var templates=new JSONArray(result.getJSONArray("checks").toString());g.put("testSteps",Creation.resolveChecks(g,templates)).put("checkTemplates",templates).put("modelDigest",result.getString("modelDigest")).put("status","running");change(g,"creation-generate","Observable behavior contract frozen before first code generation");
+    }
+    private void acceptCreationDraft(JSONObject g,JSONObject result) throws Exception {
+        SpatialScene.keys(result,"files","modelDigest","modelName");if(!result.getString("modelName").equals(g.getString("modelName")))throw new IllegalStateException("Generation used a different model");String digest=result.getString("modelDigest");if(!digest.matches("(?:sha256:)?[a-fA-F0-9]{64}"))throw new IllegalArgumentException("Generation needs admitted local model metadata");if(g.has("modelDigest")&&!g.getString("modelDigest").equals(digest))throw new IllegalStateException("Creation model digest changed; start a separately reviewed task");
+        Creation.sourceIntact(artifacts,g);if(g.getInt("draftNumber")>=3)throw new IllegalStateException("Creation draft budget reached");var files=Creation.files(g,result.getJSONObject("files"));
+        g.put("modelDigest",digest).put("draftNumber",g.getInt("draftNumber")+1).put("pendingFiles",files).put("lastGeneratedFiles",result.getJSONObject("files")).put("status","running");change(g,"creation-write","Admitted local model draft retained; Java will commit and independently test it");
+    }
+    private void acceptCreationTest(JSONObject g,JSONObject result) throws Exception {
+        SpatialScene.keys(result,"id","version");var a=Creation.artifact(artifacts,g);if(!result.getString("id").equals(a.getString("id"))||result.getInt("version")!=a.getInt("version"))throw new IllegalStateException("Foreign creation test receipt");Creation.sourceIntact(artifacts,g);boolean passed=Creation.receipt(g,a,false);
+        recordCreationAttempt(g,a,passed);g.put("status","running");
+        if(passed)change(g,"creation-complete","Actual frozen behavior checks passed for this exact artifact version");
+        else{g.put("lastFailedChecks",a.getJSONObject("test").getJSONArray("checks"));if(g.getInt("draftNumber")>=3){g.put("status","interrupted");change(g,"creation-generate","Three drafts failed declared behavior; no procedure promoted");}else change(g,"creation-generate","Actual behavior failed; next draft receives the unchanged checks and observed failures");}
+    }
+    private void recordCreationAttempt(JSONObject g,JSONObject a,boolean passed) throws Exception {
+        var history=g.getJSONArray("draftHistory");for(int i=0;i<history.length();i++)if(history.getJSONObject(i).getInt("draft")==g.getInt("draftNumber"))return;
+        history.put(new JSONObject().put("draft",g.getInt("draftNumber")).put("artifact",Creation.reference(a)).put("passed",passed).put("checks",a.getJSONObject("test").getJSONArray("checks")).put("modelDigest",g.getString("modelDigest")));
+    }
+    private JSONObject resumeCreation(JSONObject g) throws Exception {
+        Creation.sourceIntact(artifacts,g);g.put("resumes",g.getInt("resumes")+1).put("attempt",g.getInt("attempt")+1).put("deadline",System.currentTimeMillis()+600_000).put("status","running");g.remove("hostClaim");
+        if(!g.has("testSteps")){change(g,"creation-plan","Resume the saved creation request before freezing behavior checks");return view(g);}
+        if(g.has("pendingFiles")){change(g,"creation-write","Reconcile saved write intent without a duplicate artifact or generation");return view(g);}
+        if(g.has("report")){var a=Creation.artifact(artifacts,g);if(a.has("test")){boolean passed=Creation.receipt(g,a,false);recordCreationAttempt(g,a,passed);if(passed){change(g,"creation-complete","Reuse actual passing behavior receipt; do not repeat completed interactions");return view(g);}g.put("lastFailedChecks",a.getJSONObject("test").getJSONArray("checks"));}else{change(g,"creation-test","Retest the saved artifact version without generating it again");return view(g);}}
+        if(g.getInt("draftNumber")>=3)throw new IllegalStateException("The3-draft budget remains exhausted across resumes");change(g,"creation-generate","Resume from saved request, model and source; prior failed drafts remain recorded");return view(g);
+    }
+    private JSONObject saveCreationProcedure(JSONObject g,String name) throws Exception {
+        validName(name);verifiedCreation(g);var all=values("procedure");int version=1;for(var p:all)if(p.getString("name").equals(name)){if(!p.getString("kind").equals(Creation.PROCEDURE))throw new IllegalArgumentException("Use a distinct name for this procedure family");if(p.getString("sourceGoalId").equals(g.getString("id")))return new JSONObject().put("name",name).put("version",p.getInt("version")).put("id",p.getString("id"));version=Math.max(version,p.getInt("version")+1);}if(all.size()>=32||version>8)throw new IllegalStateException("Procedure history budget reached");
+        var p=new JSONObject().put("id",UUID.nameUUIDFromBytes(("procedure:"+name+":"+version).getBytes(StandardCharsets.UTF_8)).toString()).put("name",name).put("version",version).put("kind",Creation.PROCEDURE).put("sourceGoalId",g.getString("id")).put("report",g.getJSONObject("report")).put("verifiedAt",Instant.now()).put("defaults",new JSONObject().put("request",g.getString("request")).put("title",g.getString("title")).put("modelName",g.getString("modelName")).put("checks",g.getJSONArray("checkTemplates"))).put("sourceRequirements",new JSONObject().put("required",g.has("sourceBinding"))).put("sourceEvidence",g.optJSONObject("sourceBinding"))
+            .put("prerequisites",new JSONArray(List.of("Admitted installed local model","Explicit fresh CSV binding when the original workflow used data","Frozen observable behavior checks","No other shared Java goal")))
+            .put("actions",new JSONArray(List.of("Freeze request, source and checks","Generate actual app files inside the current canvas","Commit a versioned artifact","Run real browser interactions","Repair only from actual failed checks, at most3 drafts","Retain only passing verified outcomes")))
+            .put("recovery",new JSONArray(List.of("Explicit resume after interruption","Reconcile saved draft/write intent","Reuse a completed passing receipt","Reject changed sources or edited artifact versions","Do not reset the total draft budget on resume"))).put("scope","Registered local creation workflow; verifies declared behavior, not every possible interpretation of the request. Reuse regenerates and verifies on the newly selected source; no model weights or tool handlers are installed.");
+        save("procedure",p);return new JSONObject().put("id",p.getString("id")).put("name",name).put("version",version);
+    }
+
     @Override public synchronized void close(){closed=true;worker.shutdownNow();spatial.close();perception.close();}
 }

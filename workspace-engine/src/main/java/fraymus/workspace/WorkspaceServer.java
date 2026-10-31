@@ -77,6 +77,8 @@ public final class WorkspaceServer {
                     case "/api/tracking/frame" -> {var d=perception.lab().readDataset(input.getString("id"));int ordinal=input.getInt("ordinal");byte[] pixels=perception.lab().image(d.getString("id"),ordinal);result=new JSONObject().put("source",d.getJSONArray("frames").getJSONObject(ordinal)).put("width",d.getInt("width")).put("height",d.getInt("height")).put("image",Base64.getEncoder().encodeToString(pixels)).put("mime",pixels[0]==(byte)0xff?"image/jpeg":"image/png");}
                     case "/api/tracking/report" -> {var j=perception.lab().read(input.getString("id"));j.remove("activation");var artifact=store.writeOnce("tracking-report:"+j.getString("id"),TrackingPresentation.report(j,perception.lab()));result=new JSONObject().put("artifact",artifact).put("checks",TrackingPresentation.checks(j));}
 
+                    case "/api/creation/source" -> result=Creation.preview(store,input);
+                    case "/api/goals/creation-start" -> result=goals.startCreation(input);
                     case "/api/goals/perception-start" -> result=goals.startPerception(input);
                     case "/api/goals/perception-resume" -> result=goals.resumePerception(input.getString("id"),input.getString("frameId"));
                     case "/api/spatial/example" -> {try(var stream=WorkspaceServer.class.getResourceAsStream("/spatial/declared-test-scene-v1.json")){result=new JSONObject().put("text",new String(stream.readAllBytes(),StandardCharsets.UTF_8));}}
@@ -163,7 +165,7 @@ public final class WorkspaceServer {
                     case "/api/experiment/replay" -> result=scenes.replay(input.getString("id"));
                     case "/api/experiment/read" -> result=scenes.runRecord(input.getString("id"));
                     case "/api/experiment/list" -> result=new JSONObject().put("runs",scenes.runs(input.optString("sceneId","")));
-                    case "/api/artifact/write" -> result=store.write(input);
+                    case "/api/artifact/write" -> {goals.requireArtifactWrite(input.optString("id",""));result=store.write(input);}
                     case "/api/artifact/read" -> result=store.read(input.getString("id"));
                     case "/api/artifact/test" -> result=store.recordTest(input);
                     case "/api/skill/save" -> result=store.saveSkill(input);
@@ -193,7 +195,7 @@ public final class WorkspaceServer {
                 String contentType=file.toString().endsWith(".js")?"text/javascript":file.toString().endsWith(".css")?"text/css":file.toString().endsWith(".svg")?"image/svg+xml":file.toString().endsWith(".json")?"application/json":file.toString().endsWith(".html")?"text/html":"text/plain";
                 exchange.getResponseHeaders().set("Content-Type",contentType+"; charset=utf-8");exchange.getResponseHeaders().set("X-Content-Type-Options","nosniff");
                 exchange.getResponseHeaders().set("Cache-Control","no-store");
-                exchange.getResponseHeaders().set("Content-Security-Policy","default-src 'none'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'");
+                exchange.getResponseHeaders().set("Content-Security-Policy","default-src 'none'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src http://127.0.0.1:"+server.getAddress().getPort()+"/artifact/"+parts[2]+"/"+parts[3]+"/; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'");
                 byte[] bytes=Files.readAllBytes(file);exchange.sendResponseHeaders(200,bytes.length);try(var out=exchange.getResponseBody()){out.write(bytes);}
             }catch(Exception error){send(exchange,404,new JSONObject().put("error","Artifact file not found"));}
         });
@@ -211,7 +213,8 @@ public final class WorkspaceServer {
         try {
             var admission=LocalModelAdmission.verify(model.endpoint(),model.name());
             if(input.has("expectedDigest")&&!input.getString("expectedDigest").equals(admission.getString("digest")))throw new IOException("Model digest changed during this task; start a new task after reviewing model selection");
-            var settings=new ModelRunSettings(model.systemContextEstimate()>6000?24576:16384,4096,0,-1,180,600,.15,1.1,true);
+            boolean creationOutput=input.getJSONArray("allowedTools").length()==1&&input.getJSONArray("allowedTools").getString(0).equals("creation.submit");
+            var settings=new ModelRunSettings(model.systemContextEstimate()>6000?24576:16384,creationOutput?8192:4096,0,-1,180,600,.15,1.1,true);
             List<String> tools=new ArrayList<>();for(Object item:input.getJSONArray("allowedTools"))tools.add(item.toString());
             if(tools.isEmpty()||tools.size()>20||tools.stream().anyMatch(t->!t.matches("[a-z]+(?:\\.[a-z]+)?")))throw new IllegalArgumentException("Invalid tool grammar");
             JSONArray definitions=input.getJSONArray("tools");if(definitions.toString().length()>18000)throw new IllegalArgumentException("Tool definitions exceed budget");

@@ -168,6 +168,7 @@ function bodyStage(context){
 }
 const originalTaskMode=taskMode;
 function expandedTaskMode(goal){
+ if(/\b(?:create|build)\s+and\s+verify\b|\bdurable\s+(?:creation|build|app)\b/i.test(goal))return {needsCreation:true,needsScene:false,needsComparison:false};
  if(!/\b(?:build|create|make)\b[\s\S]{0,80}\b(?:web ?app|website)\b/i.test(goal)&&(/\b(?:tracker profiles?|tracking (?:lab|evaluation|benchmark|sequences)|perception evaluation)\b/i.test(goal)&&/\b(?:compare|evaluate|benchmark|run|promote)\b/i.test(goal)||/\b(?:rollback|roll back|restore)\b/i.test(goal)&&/\btracker\b/i.test(goal)))return {needsTracking:true,needsScene:false,needsComparison:false};
 
  if(!/\b(?:build|create|make)\b[\s\S]{0,80}\b(?:web ?app|web application|website)\b/i.test(goal)&&(/\bperception\b/i.test(goal)&&/\b(observe|detect|outline|track|follow|trace|recogniz\w*|identify|scan|run|reuse)\b/i.test(goal)||/\b(browser|webpage|web page)\b/i.test(goal)&&/\b(detect|outline|recogniz\w*|identify|trace)\b/i.test(goal)||/\b(browser|webpage|web page)\b/i.test(goal)&&/\b(track|follow)\b/i.test(goal)&&/\b(person|people|object|region|image|video|element|cup)\b/i.test(goal)))return {needsPerception:true,needsGoal:true,needsScene:false,needsComparison:false};

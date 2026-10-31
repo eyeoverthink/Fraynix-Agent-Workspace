@@ -1,5 +1,7 @@
 # Fraynix Studio system architecture
 
+Edition025 adds `creation-web-v1` to the same Java goal/procedure registry. The desktop supplies admitted local generation and actual canvas interactions through private leased effects; Java pins source/model/checks, owns artifact versions, validates observed receipts, bounds repairs and reconciles restart. Passing procedures can regenerate and verify on a fresh selected CSV. See [durable creation](DURABLE_CREATION.md). This extends the current layout and creation canvas; it does not install generated host handlers or train LLM weights.
+
 Edition024 adds pure Java temporal feature tracking, visible motion diagnostics and new reserved-footage evaluation. The candidate improves all three clips but fails the unchanged coverage/false-visible gates, so baseline remains active. Old profiles and pinned goals/skills remain installed; the new adapter retains the unchanged earlier scorer. See [temporal tracking](TEMPORAL_TRACKING.md) for actual computations, source freeze, results and limits.
 
 Edition023 adds a Java-owned tracking research loop: immutable original-frame/mask import, frozen profile comparisons, separate reference scoring, fixed promotion gates, persistent rollback and implementation pins on browser goals/skills. The real recorded-sequence candidate fails and remains rejected; synthetic controls verify lifecycle without being presented as real-world improvement. Chat selects the registered workflow; it cannot write predictions or thresholds. See [tracking evaluation](TRACKING_EVALUATION.md).
