@@ -1,0 +1,186 @@
+{
+  "date": "2026-10-30",
+  "modules": [
+    {
+      "id": "request",
+      "name": "Request inside the app",
+      "status": "verified",
+      "source": "workspace-desktop/renderer/creation-panel.js",
+      "summary": "Existing canvas and chat; optional source, advanced checks and retained name.",
+      "note": "docs/obsidian/33-durable-creation.md"
+    },
+    {
+      "id": "contract",
+      "name": "Java source and contract",
+      "status": "verified",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/Creation.java",
+      "summary": "Pin original source; derive counts; freeze checks before code.",
+      "note": "docs/obsidian/33-durable-creation.md"
+    },
+    {
+      "id": "model",
+      "name": "Actual local generation",
+      "status": "verified",
+      "source": "workspace-desktop/creation.cjs",
+      "summary": "Admitted model/digest, bounded context and private output contract.",
+      "note": "docs/obsidian/33-durable-creation.md"
+    },
+    {
+      "id": "goal",
+      "name": "Durable goals and recovery",
+      "status": "verified",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/GoalRunner.java",
+      "summary": "Stable writes,3 drafts, actual receipt validation and restart reconciliation.",
+      "note": "docs/obsidian/33-durable-creation.md"
+    },
+    {
+      "id": "effects",
+      "name": "Real browser interactions",
+      "status": "verified",
+      "source": "workspace-desktop/goals.cjs",
+      "summary": "Host leases execute actual canvas tests; failures remain evidence.",
+      "note": "docs/obsidian/33-durable-creation.md"
+    },
+    {
+      "id": "skills",
+      "name": "Fresh-source procedural reuse",
+      "status": "verified",
+      "source": "workspace-desktop/renderer/goals-panel.js",
+      "summary": "Select new source, recompute expectations, regenerate and verify.",
+      "note": "docs/obsidian/33-durable-creation.md"
+    },
+    {
+      "id": "controls",
+      "name": "Failure and restart controls",
+      "status": "verified",
+      "source": "workspace-desktop/test/creation-integration.cjs",
+      "summary": "Deliberately broken/fixed HTML clearly separated from model output.",
+      "note": "docs/obsidian/33-durable-creation.md"
+    },
+    {
+      "id": "live",
+      "name": "Actual model and chat proof",
+      "status": "verified",
+      "source": "workspace-desktop/test/live-creation.cjs",
+      "summary": "450/118 rows, independently checked cells, standalone planning and real output.",
+      "note": "docs/obsidian/33-durable-creation.md"
+    },
+    {
+      "id": "next",
+      "name": "Compose complete tasks",
+      "status": "planned",
+      "source": "docs/EDITION_025_PLAN.md",
+      "summary": "Connect registered data/physics/creation tasks with per-stage verifiers and recovery.",
+      "note": "docs/obsidian/33-durable-creation.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "docs/readmes/025/images/creation-live-contract-025.png",
+      "caption": "Actual Create & verify dialog: published450-row source, requested behavior and source-derived checks before generation. Local gpt-oss:20b proof."
+    },
+    {
+      "path": "docs/readmes/025/images/creation-live-app-025.png",
+      "caption": "Actual locally generated data explorer in the existing canvas. Independent checks compare displayed cell values with original source rows."
+    },
+    {
+      "path": "docs/readmes/025/images/creation-live-reuse-contract-025.png",
+      "caption": "Actual saved-procedure inspector binds a fresh118-row recorded subset. Source-derived expectations are recomputed by Java."
+    },
+    {
+      "path": "docs/readmes/025/images/creation-live-reused-025.png",
+      "caption": "Actual local-model generation on the fresh source, with new artifact identity and real passing behavior checks."
+    },
+    {
+      "path": "docs/readmes/025/images/creation-live-taskboard-025.png",
+      "caption": "Actual standalone task board: local model declares a contract before code, then creates and verifies it."
+    },
+    {
+      "path": "docs/readmes/025/images/creation-live-chat-025.png",
+      "caption": "Reopened actual chat-created counter and retained goal/skill. Independent checks read its actual display value through two increments and reset; no conversation text is replayed."
+    },
+    {
+      "path": "docs/readmes/025/images/creation-failed-control-025.png",
+      "caption": "SOFTWARE CONTROL: deliberately supplied broken reset fails in actual Chromium. This code is a test fixture, not local-model output."
+    },
+    {
+      "path": "docs/readmes/025/images/creation-repaired-control-025.png",
+      "caption": "SOFTWARE CONTROL: the same artifact reaches v2 after a genuine failed receipt, with all frozen checks passing."
+    },
+    {
+      "path": "docs/readmes/025/images/creation-recovered-025.png",
+      "caption": "SOFTWARE CONTROL: a real process restart reuses the passing artifact/receipt without repeating generation or completed interactions."
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/readmes/025/verification.json"
+    },
+    {
+      "path": "docs/readmes/025/creation-integration.json"
+    },
+    {
+      "path": "docs/readmes/025/first-live-failure.json"
+    },
+    {
+      "path": "docs/readmes/025/development-attempts.json"
+    },
+    {
+      "path": "docs/readmes/025/live-creation.json"
+    },
+    {
+      "path": "docs/readmes/025/regression-deviations.json"
+    },
+    {
+      "path": "docs/readmes/025/live-creation-chat.json"
+    },
+    {
+      "path": "docs/readmes/025/regressions.json"
+    },
+    {
+      "path": "docs/readmes/025/live-tracking024.json"
+    },
+    {
+      "path": "docs/readmes/025/live-perception.json"
+    },
+    {
+      "path": "docs/readmes/025/live-spatial.json"
+    },
+    {
+      "path": "docs/readmes/025/live-data-goals.json"
+    },
+    {
+      "path": "docs/readmes/025/live-goals.json"
+    },
+    {
+      "path": "docs/readmes/025/examples/verified-explorer.html"
+    },
+    {
+      "path": "docs/readmes/025/examples/export-provenance.json"
+    },
+    {
+      "path": "docs/readmes/025/examples/generated-explorer/index.html"
+    },
+    {
+      "path": "docs/readmes/025/examples/generated-explorer/inputs/source.csv"
+    },
+    {
+      "path": "docs/readmes/025/examples/generated-explorer/actual-receipt.json"
+    },
+    {
+      "path": "docs/readmes/025/examples/fresh-source-explorer/index.html"
+    },
+    {
+      "path": "docs/readmes/025/examples/task-board/index.html"
+    },
+    {
+      "path": "docs/readmes/025/examples/chat-counter/index.html"
+    },
+    {
+      "path": "docs/readmes/025/file-inventory.json"
+    },
+    {
+      "path": "docs/readmes/025/FILE_TREE.md"
+    }
+  ]
+}

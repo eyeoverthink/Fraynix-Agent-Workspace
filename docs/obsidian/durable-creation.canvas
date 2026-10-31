@@ -1,0 +1,168 @@
+{
+  "nodes": [
+    {
+      "id": "overview",
+      "type": "file",
+      "file": "docs/obsidian/33-durable-creation.md",
+      "x": 0,
+      "y": 0,
+      "width": 540,
+      "height": 300
+    },
+    {
+      "id": "request",
+      "type": "file",
+      "file": "workspace-desktop/renderer/creation-panel.js",
+      "x": -620,
+      "y": 400,
+      "width": 540,
+      "height": 300
+    },
+    {
+      "id": "contract",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/Creation.java",
+      "x": 0,
+      "y": 400,
+      "width": 540,
+      "height": 300
+    },
+    {
+      "id": "model",
+      "type": "file",
+      "file": "workspace-desktop/creation.cjs",
+      "x": 620,
+      "y": 400,
+      "width": 540,
+      "height": 300
+    },
+    {
+      "id": "goal",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/GoalRunner.java",
+      "x": -620,
+      "y": 800,
+      "width": 540,
+      "height": 300
+    },
+    {
+      "id": "effects",
+      "type": "file",
+      "file": "workspace-desktop/goals.cjs",
+      "x": 0,
+      "y": 800,
+      "width": 540,
+      "height": 300
+    },
+    {
+      "id": "skills",
+      "type": "file",
+      "file": "workspace-desktop/renderer/goals-panel.js",
+      "x": 620,
+      "y": 800,
+      "width": 540,
+      "height": 300
+    },
+    {
+      "id": "controls",
+      "type": "file",
+      "file": "workspace-desktop/test/creation-integration.cjs",
+      "x": -620,
+      "y": 1200,
+      "width": 540,
+      "height": 300
+    },
+    {
+      "id": "live",
+      "type": "file",
+      "file": "workspace-desktop/test/live-creation.cjs",
+      "x": 0,
+      "y": 1200,
+      "width": 540,
+      "height": 300
+    },
+    {
+      "id": "next",
+      "type": "file",
+      "file": "docs/EDITION_025_PLAN.md",
+      "x": 620,
+      "y": 1200,
+      "width": 540,
+      "height": 300
+    }
+  ],
+  "edges": [
+    {
+      "id": "edge-request",
+      "fromNode": "overview",
+      "fromSide": "bottom",
+      "toNode": "request",
+      "toSide": "top",
+      "label": "verified"
+    },
+    {
+      "id": "edge-contract",
+      "fromNode": "overview",
+      "fromSide": "bottom",
+      "toNode": "contract",
+      "toSide": "top",
+      "label": "verified"
+    },
+    {
+      "id": "edge-model",
+      "fromNode": "overview",
+      "fromSide": "bottom",
+      "toNode": "model",
+      "toSide": "top",
+      "label": "verified"
+    },
+    {
+      "id": "edge-goal",
+      "fromNode": "overview",
+      "fromSide": "bottom",
+      "toNode": "goal",
+      "toSide": "top",
+      "label": "verified"
+    },
+    {
+      "id": "edge-effects",
+      "fromNode": "overview",
+      "fromSide": "bottom",
+      "toNode": "effects",
+      "toSide": "top",
+      "label": "verified"
+    },
+    {
+      "id": "edge-skills",
+      "fromNode": "overview",
+      "fromSide": "bottom",
+      "toNode": "skills",
+      "toSide": "top",
+      "label": "verified"
+    },
+    {
+      "id": "edge-controls",
+      "fromNode": "overview",
+      "fromSide": "bottom",
+      "toNode": "controls",
+      "toSide": "top",
+      "label": "verified"
+    },
+    {
+      "id": "edge-live",
+      "fromNode": "overview",
+      "fromSide": "bottom",
+      "toNode": "live",
+      "toSide": "top",
+      "label": "verified"
+    },
+    {
+      "id": "edge-next",
+      "fromNode": "overview",
+      "fromSide": "bottom",
+      "toNode": "next",
+      "toSide": "top",
+      "label": "planned"
+    }
+  ]
+}

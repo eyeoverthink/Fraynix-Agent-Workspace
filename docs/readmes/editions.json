@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "latest": 24,
+  "latest": 25,
   "canonicalization": "UTF-8 without BOM; CRLF normalized to LF for text",
   "editions": [
     {
@@ -2637,6 +2637,220 @@
           "path": "docs/readmes/024/verification.json",
           "kind": "text",
           "sha256": "4f07fffbac2daaeefa06abde38c18a801db97bba36d0f1edd65e0fb1abbc614a"
+        }
+      ]
+    },
+    {
+      "number": 25,
+      "date": "2026-10-30",
+      "title": "Durable local creation and workflow content",
+      "status": "published",
+      "markdown": "README-025.md",
+      "markdownSha256": "f43d41bb7de8bde98e9164e4de2977c46aea3e31c19bedc3adc026fa3479d394",
+      "snapshotDirectory": "docs/readmes/025",
+      "companion": "docs/readmes/025/index.html",
+      "tag": "readme-025",
+      "sourceBaseline": "558df563ad12f1479f5f7a094bd09832d3121cb9",
+      "snapshotFiles": [
+        {
+          "path": "docs/readmes/025/creation-integration.json",
+          "kind": "text",
+          "sha256": "76c80f6f284670d5cb0e4e0a7c9c2cf6161aae45faa340941e094a5e0acf2b08"
+        },
+        {
+          "path": "docs/readmes/025/development-attempts.json",
+          "kind": "text",
+          "sha256": "04143d652f7fa0696014de403c950edae1d3f5b5d6d01db66ac13a9dd4a569b8"
+        },
+        {
+          "path": "docs/readmes/025/examples/chat-counter/actual-receipt.json",
+          "kind": "text",
+          "sha256": "9063298aec8c76e7458627b690bb9aa32db187e775c533abd0cd8059464c4afd"
+        },
+        {
+          "path": "docs/readmes/025/examples/chat-counter/index.html",
+          "kind": "text",
+          "sha256": "b5142716e25ccfcbad5ffc2eb8089e00b9d21252a59f8e81355e84336e497b69"
+        },
+        {
+          "path": "docs/readmes/025/examples/export-provenance.json",
+          "kind": "text",
+          "sha256": "0c58522adc26642688997f48ff8f33c982d910c56ecb5bb9931f43d592837ec3"
+        },
+        {
+          "path": "docs/readmes/025/examples/fresh-source-explorer/actual-receipt.json",
+          "kind": "text",
+          "sha256": "5b19565aa1449417324ae410a197259873a87c93d49a82d152bf4e7eb6941185"
+        },
+        {
+          "path": "docs/readmes/025/examples/fresh-source-explorer/index.html",
+          "kind": "text",
+          "sha256": "d5635c7fad64572b94863bac0b58dff36283f107e69417eb77980df7c46829c7"
+        },
+        {
+          "path": "docs/readmes/025/examples/fresh-source-explorer/inputs/source.csv",
+          "kind": "text",
+          "sha256": "b40c3d5a897fa8f69c892221462a52fe9dd49eeeaf691d105751d49b032d2880"
+        },
+        {
+          "path": "docs/readmes/025/examples/fresh-source-explorer/inputs/source.json",
+          "kind": "text",
+          "sha256": "63898f35c28e36671adda45c8c75c1eb900ff19f743d623bbcf79b75eb10ccf1"
+        },
+        {
+          "path": "docs/readmes/025/examples/generated-explorer/actual-receipt.json",
+          "kind": "text",
+          "sha256": "326d620ecf25993220bb781eed490ba791c313e6d78577e04b786c6972e155a4"
+        },
+        {
+          "path": "docs/readmes/025/examples/generated-explorer/index.html",
+          "kind": "text",
+          "sha256": "ceb59198c83513d4e79c0a5b2d46d1c77ce633ea0ee1a5ef8233a60c810c073d"
+        },
+        {
+          "path": "docs/readmes/025/examples/generated-explorer/inputs/source.csv",
+          "kind": "text",
+          "sha256": "3afa26501d3fb987b8f35c374d731dac5fa07e46f749423bcac6ea798d2f3440"
+        },
+        {
+          "path": "docs/readmes/025/examples/generated-explorer/inputs/source.json",
+          "kind": "text",
+          "sha256": "6d225e8d59b90e5217d5108a0e892918154679841fd084e209a1edf0076c9f14"
+        },
+        {
+          "path": "docs/readmes/025/examples/task-board/actual-receipt.json",
+          "kind": "text",
+          "sha256": "a291e16da90c88c3831c6538388a5bf523c923d2239a84496d57af4f6b614b11"
+        },
+        {
+          "path": "docs/readmes/025/examples/task-board/index.html",
+          "kind": "text",
+          "sha256": "46003df660ed84cf5d3249d60ea757853278bde04c45f8f98fd53571f6e0ef3a"
+        },
+        {
+          "path": "docs/readmes/025/examples/verified-explorer.html",
+          "kind": "text",
+          "sha256": "3551cc802f586626bac4356945fa9e6b8292b4b48abd2e5a1d8d393f392f4768"
+        },
+        {
+          "path": "docs/readmes/025/file-inventory.json",
+          "kind": "text",
+          "sha256": "9d1015f42c97d9f97a98206d791c8536db7dbd7e2a06207d61ff7905cc50ecd3"
+        },
+        {
+          "path": "docs/readmes/025/FILE_TREE.md",
+          "kind": "text",
+          "sha256": "46140a7accda58d080aa301f852737474e54653a7d388e97d777d0e83ac84466"
+        },
+        {
+          "path": "docs/readmes/025/first-live-failure.json",
+          "kind": "text",
+          "sha256": "7ccc50ea8663c3b3f9c778276aaf70d309c4c71458e18b415d2db5d0d050ea85"
+        },
+        {
+          "path": "docs/readmes/025/images/creation-failed-control-025.png",
+          "kind": "binary",
+          "sha256": "538114673060b9960ed588645e87b7d68a9c6ac36fa05855800f14f7634e928f"
+        },
+        {
+          "path": "docs/readmes/025/images/creation-live-app-025.png",
+          "kind": "binary",
+          "sha256": "73daa76e69c0e85b314b414124e0e9d6208413bba86786f8496caf18eb6638e2"
+        },
+        {
+          "path": "docs/readmes/025/images/creation-live-chat-025.png",
+          "kind": "binary",
+          "sha256": "7d85e756492da5f11a4de6b2a871b46979d79676de6632d9f189144e8b10efc9"
+        },
+        {
+          "path": "docs/readmes/025/images/creation-live-contract-025.png",
+          "kind": "binary",
+          "sha256": "c9003bdc4bd9d7c340f1d78d53aa1ef096d263c31d9c822e573d3ab3683ede54"
+        },
+        {
+          "path": "docs/readmes/025/images/creation-live-reuse-contract-025.png",
+          "kind": "binary",
+          "sha256": "65363753a62aad1ba5e252d1ce043f7bd34a15cd0d579b3f4a23da3dbc3aee04"
+        },
+        {
+          "path": "docs/readmes/025/images/creation-live-reused-025.png",
+          "kind": "binary",
+          "sha256": "c855309c3d51894371c05b28b1565ea2736f1f95518a1163519c85843f5e559c"
+        },
+        {
+          "path": "docs/readmes/025/images/creation-live-taskboard-025.png",
+          "kind": "binary",
+          "sha256": "30bf5f04dc796e889d359b683538922413eea2ce9b305d5ef11d2c989ef64220"
+        },
+        {
+          "path": "docs/readmes/025/images/creation-recovered-025.png",
+          "kind": "binary",
+          "sha256": "8075ce2591bcea7b662e6aabbc3ef2c49a2b2f37511d61a4f7d9bbe5102b5e83"
+        },
+        {
+          "path": "docs/readmes/025/images/creation-repaired-control-025.png",
+          "kind": "binary",
+          "sha256": "93458804b0e18896f16f43a636d98d20be3ef56b18e20f0d1258b1177edfc95f"
+        },
+        {
+          "path": "docs/readmes/025/index.html",
+          "kind": "text",
+          "sha256": "b6cc20701de3831485be46a52667abcf4cc049c07aa5ba3f3602573f350b6bd7"
+        },
+        {
+          "path": "docs/readmes/025/live-creation-chat.json",
+          "kind": "text",
+          "sha256": "328269323c0a26a457518e77cbfdfa9e2b0b95797ffbecd188ff6086af3026f0"
+        },
+        {
+          "path": "docs/readmes/025/live-creation.json",
+          "kind": "text",
+          "sha256": "fda8c8fd55fe07806c0104a106caae19e0d289c3b733ca3c925d48b09ce8890b"
+        },
+        {
+          "path": "docs/readmes/025/live-data-goals.json",
+          "kind": "text",
+          "sha256": "ea9acec28882ea86cf9edfefeb9cc514fd0ee10d2d996923432b2244e50c3aea"
+        },
+        {
+          "path": "docs/readmes/025/live-goals.json",
+          "kind": "text",
+          "sha256": "f8fa95679ca15b658cd847a70375bf8d57baf476c6038d241dacd9a35417db3d"
+        },
+        {
+          "path": "docs/readmes/025/live-perception.json",
+          "kind": "text",
+          "sha256": "2c401d5eaa5838ece3c881f4921ae694a027386ee270fe2bd3dba8c6aaf084bd"
+        },
+        {
+          "path": "docs/readmes/025/live-spatial.json",
+          "kind": "text",
+          "sha256": "8700ff19a74730a6781e430ab03d6df5d8014aabc52398318a37827d6e3f18f0"
+        },
+        {
+          "path": "docs/readmes/025/live-tracking024.json",
+          "kind": "text",
+          "sha256": "1ac25bb44dbbb1b79060216832f777a85246903f2eb4b96d9a4a4568a0cc4531"
+        },
+        {
+          "path": "docs/readmes/025/regression-deviations.json",
+          "kind": "text",
+          "sha256": "0b95cddb0324f463622839554b63852c9e99c09a4e68ed9068b34a8604c8ee5f"
+        },
+        {
+          "path": "docs/readmes/025/regressions.json",
+          "kind": "text",
+          "sha256": "b75b29965da695b9ad4f1f2bac3b7bb68c5a4e6b3e4ea87c9c0e1d69217ab51a"
+        },
+        {
+          "path": "docs/readmes/025/system-map.json",
+          "kind": "text",
+          "sha256": "1aec9ee8fa0e684435546a4278a2b1d7ea5c1318d66e328902b8d880c6d6b2bf"
+        },
+        {
+          "path": "docs/readmes/025/verification.json",
+          "kind": "text",
+          "sha256": "e4e8db6f97908facee97563de386d130a9dee300f4937498299c075b11eb13f7"
         }
       ]
     }

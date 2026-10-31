@@ -1,0 +1,100 @@
+{
+  "checks": [
+    {
+      "actual": {
+        "count": 1,
+        "text": "",
+        "value": "0"
+      },
+      "expected": {
+        "selector": "#value",
+        "expectValue": "0"
+      },
+      "index": 0,
+      "selector": "#value",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 1,
+        "text": "Up",
+        "value": ""
+      },
+      "expected": {
+        "action": "click",
+        "selector": "#up"
+      },
+      "index": 1,
+      "selector": "#up",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 1,
+        "text": "",
+        "value": "1"
+      },
+      "expected": {
+        "selector": "#value",
+        "expectValue": "1"
+      },
+      "index": 2,
+      "selector": "#value",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 1,
+        "text": "Reset",
+        "value": ""
+      },
+      "expected": {
+        "action": "click",
+        "selector": "#reset"
+      },
+      "index": 3,
+      "selector": "#reset",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 1,
+        "text": "",
+        "value": "0"
+      },
+      "expected": {
+        "selector": "#value",
+        "expectValue": "0"
+      },
+      "index": 4,
+      "selector": "#value",
+      "passed": true
+    }
+  ],
+  "at": "2026-10-31T04:22:08.501582900Z",
+  "id": "2e9d530d-db72-3497-b6a2-fddc9788b504",
+  "passed": true,
+  "version": 1,
+  "steps": [
+    {
+      "selector": "#value",
+      "expectValue": "0"
+    },
+    {
+      "action": "click",
+      "selector": "#up"
+    },
+    {
+      "selector": "#value",
+      "expectValue": "1"
+    },
+    {
+      "action": "click",
+      "selector": "#reset"
+    },
+    {
+      "selector": "#value",
+      "expectValue": "0"
+    }
+  ]
+}

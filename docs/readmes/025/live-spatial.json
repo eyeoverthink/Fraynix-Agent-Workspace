@@ -1,0 +1,245 @@
+{
+  "passed": true,
+  "date": "2026-10-31T04:35:35.125Z",
+  "project": "C:\\Users\\eyeka\\AppData\\Local\\Temp\\fraynix-live-spatial021-zwURJG",
+  "model": "gpt-oss:20b",
+  "checks": [
+    "Actual gpt-oss:20b chooses exactly one selected-object spatial goal, preserves explicit displacement and retains a verified procedure",
+    "Chat completion derives from actual native physics, eight real canvas checks, original source and retained verified episode",
+    "Actual model reuses the named saved skill with a newly bound scene/object; Java selects a different route and verifies again",
+    "Both live chats preserve the separate ramp and learned-model stores without model training or renderer errors"
+  ],
+  "first": {
+    "completion": {
+      "summary": "Java spatial goal completed: Native spatial outcome and actual canvas verified; source-qualified procedure retained when requested Route left; horizontal error 0.000050 m; forecast RMSE 0.000000 m; one actual grab/release. Declared-parameter native simulation. Saved live-spatial-route v1. Report 41bf0459-a8ec-331c-8590-b88c8f76eb14 v1.",
+      "unverifiedModelSummary": "Spatial manipulation completed successfully. The crate was grabbed, moved around the obstacle along the left route, and released at the target location with a displacement of [4,0,0] meters. Predicted motion matched actual motion within sub-millimeter error. Procedure saved as live-spatial-route.",
+      "goal": "In the imported spatial scene, predict and move the selected crate with displacement [4,0,0] metres. Grab, move around the obstacle and release it. Chart predicted versus actual motion and save the successful procedure as live-spatial-route.",
+      "javaGoal": {
+        "request": "In the imported spatial scene, predict and move the selected crate with displacement [4,0,0] metres. Grab, move around the obstacle and release it. Chart predicted versus actual motion and save the successful procedure as live-spatial-route.",
+        "reason": "Native spatial outcome and actual canvas verified; source-qualified procedure retained when requested",
+        "procedure": "spatial-manipulation-v1",
+        "history": [
+          {
+            "reason": "Immutable declared-scale scene and explicit dynamic object bound; native forecasts precede actual actions",
+            "at": "2026-10-31T04:34:19.198756700Z",
+            "step": "spatial-plan",
+            "attempt": 1,
+            "status": "running"
+          },
+          {
+            "reason": "Finite native forks checked; selected left route without actuating the displayed world",
+            "at": "2026-10-31T04:34:19.446167600Z",
+            "step": "spatial-execute",
+            "attempt": 1,
+            "status": "running"
+          },
+          {
+            "reason": "Actual force-limited grab and waypoint motion executing at 240 Hz; release preserves velocity",
+            "at": "2026-10-31T04:34:19.577814Z",
+            "step": "spatial-wait",
+            "attempt": 1,
+            "status": "running"
+          },
+          {
+            "reason": "Source identity, native motion, release and forecast residuals independently reconstructed",
+            "at": "2026-10-31T04:34:28.474830600Z",
+            "step": "spatial-report",
+            "attempt": 1,
+            "status": "running"
+          },
+          {
+            "reason": "Waiting for registered desktop action: canvas.verify-report",
+            "at": "2026-10-31T04:34:28.727173500Z",
+            "step": "spatial-report",
+            "attempt": 1,
+            "status": "waiting-host"
+          },
+          {
+            "reason": "Actual Chromium canvas assertions passed for the pinned report version",
+            "at": "2026-10-31T04:34:28.964592400Z",
+            "step": "complete",
+            "attempt": 1,
+            "status": "running"
+          },
+          {
+            "reason": "Native spatial outcome and actual canvas verified; source-qualified procedure retained when requested",
+            "at": "2026-10-31T04:34:29.034280900Z",
+            "step": "completed",
+            "attempt": 1,
+            "status": "completed"
+          }
+        ],
+        "attempt": 1,
+        "resumes": 0,
+        "createdAt": "2026-10-31T04:34:19.198756700Z",
+        "spatialBinding": {
+          "sourceSha256": "45ca8eab81b6635de8b94bac89617347a58b102df1bf1c7e8a0ad1114068ae9a",
+          "definitionSha256": "2d58b9e1170a23cbf70a96a5a3b78af3e329f379ec9baa6835b3316c209a95c9",
+          "sceneId": "1f84e9e9-e048-4f60-90c0-e832c57fd0e6",
+          "version": 1
+        },
+        "report": {
+          "sha256": "7b29db82972fa18a2e1ce5065d562c8188c92a95f51d0a4aecefc86376e74c3a",
+          "id": "41bf0459-a8ec-331c-8590-b88c8f76eb14",
+          "version": 1
+        },
+        "step": "completed",
+        "id": "fcc3bbd8-854a-44e6-8734-93effc6466d3",
+        "runId": "2c9b2aeb-74f6-3b09-be6b-9767eb9cb8e8",
+        "metrics": {
+          "forecastMaxErrorM": 0,
+          "grabs": 1,
+          "maxGripEndpointErrorM": 3.2641218307618527e-07,
+          "forecastRmseM": 0,
+          "samples": 266,
+          "releases": 1,
+          "route": "left",
+          "sourceKind": "synthetic",
+          "verticalErrorM": 2.9802322387695312e-08,
+          "passed": true,
+          "terminalSpeedMps": 4.893745787276532e-05,
+          "horizontalErrorM": 5.019225104818921e-05,
+          "scaleIndependentlyCalibrated": false
+        },
+        "displacementM": [
+          4,
+          0,
+          0
+        ],
+        "objectId": "4d168a41-cd94-3150-a890-cace58ae870b",
+        "savedSkill": {
+          "name": "live-spatial-route",
+          "id": "75810e99-8ebf-3ad9-9808-f467aa1ff7e4",
+          "version": 1
+        },
+        "status": "completed",
+        "updatedAt": "2026-10-31T04:34:29.034280900Z"
+      },
+      "model": "gpt-oss:20b",
+      "episodeId": "a66c844e-13df-459c-a89c-89607e72816f"
+    },
+    "calls": [
+      "spatial.start",
+      "goal.read"
+    ]
+  },
+  "second": {
+    "completion": {
+      "summary": "Java spatial goal completed: Native spatial outcome and actual canvas verified; source-qualified procedure retained when requested Route over; horizontal error 0.000000 m; forecast RMSE 0.000000 m; one actual grab/release. Declared-parameter native simulation. Saved live-spatial-route v2. Report fe4cde56-0aef-3654-b764-33142a093844 v1.",
+      "unverifiedModelSummary": "Procedure live-spatial-route executed successfully, moving object 4m forward and releasing it. All checks passed.",
+      "goal": "Reuse the live-spatial-route procedure in the selected imported spatial scene with displacement [4,0,0] metres. Replan for the changed obstacle, then grab, move, release and report actual checks.",
+      "javaGoal": {
+        "request": "Predict, grab, move, release, verify and retain a spatial procedure",
+        "reason": "Native spatial outcome and actual canvas verified; source-qualified procedure retained when requested",
+        "procedure": "spatial-manipulation-v1",
+        "history": [
+          {
+            "reason": "Immutable declared-scale scene and explicit dynamic object bound; native forecasts precede actual actions",
+            "at": "2026-10-31T04:35:04.575457300Z",
+            "step": "spatial-plan",
+            "attempt": 1,
+            "status": "running"
+          },
+          {
+            "reason": "Finite native forks checked; selected over route without actuating the displayed world",
+            "at": "2026-10-31T04:35:04.672198400Z",
+            "step": "spatial-execute",
+            "attempt": 1,
+            "status": "running"
+          },
+          {
+            "reason": "Actual force-limited grab and waypoint motion executing at 240 Hz; release preserves velocity",
+            "at": "2026-10-31T04:35:04.806778Z",
+            "step": "spatial-wait",
+            "attempt": 1,
+            "status": "running"
+          },
+          {
+            "reason": "Source identity, native motion, release and forecast residuals independently reconstructed",
+            "at": "2026-10-31T04:35:15.377576100Z",
+            "step": "spatial-report",
+            "attempt": 1,
+            "status": "running"
+          },
+          {
+            "reason": "Waiting for registered desktop action: canvas.verify-report",
+            "at": "2026-10-31T04:35:15.545184900Z",
+            "step": "spatial-report",
+            "attempt": 1,
+            "status": "waiting-host"
+          },
+          {
+            "reason": "Actual Chromium canvas assertions passed for the pinned report version",
+            "at": "2026-10-31T04:35:15.705991700Z",
+            "step": "complete",
+            "attempt": 1,
+            "status": "running"
+          },
+          {
+            "reason": "Native spatial outcome and actual canvas verified; source-qualified procedure retained when requested",
+            "at": "2026-10-31T04:35:15.811241600Z",
+            "step": "completed",
+            "attempt": 1,
+            "status": "completed"
+          }
+        ],
+        "attempt": 1,
+        "resumes": 0,
+        "createdAt": "2026-10-31T04:35:04.575457300Z",
+        "spatialBinding": {
+          "sourceSha256": "e40559e3458b39bf08e0dedfbe285435ae70b526903629970c97ceebe43b813a",
+          "definitionSha256": "1cd818a3c05f3d26fbbb9d6f312088ba3f9e02b18d103b9ee2c94e2ad323aba7",
+          "sceneId": "956be1b4-bcec-4342-aa4e-93a3c6addb1f",
+          "version": 1
+        },
+        "skill": {
+          "name": "live-spatial-route",
+          "id": "75810e99-8ebf-3ad9-9808-f467aa1ff7e4",
+          "version": 1
+        },
+        "report": {
+          "sha256": "a631cee73fafcf9a3811567970b61c062c54c3e0771014e2f2ebd30845c58638",
+          "id": "fe4cde56-0aef-3654-b764-33142a093844",
+          "version": 1
+        },
+        "step": "completed",
+        "id": "a336b7f5-ad04-48b6-9aa4-4c60c5d4c96e",
+        "runId": "e6731eb5-24fe-3203-9086-bd1789e34fbc",
+        "metrics": {
+          "forecastMaxErrorM": 0,
+          "grabs": 1,
+          "maxGripEndpointErrorM": 4.6399404102711486e-07,
+          "forecastRmseM": 0,
+          "samples": 315,
+          "releases": 1,
+          "route": "over",
+          "sourceKind": "synthetic",
+          "verticalErrorM": 2.9802322387695312e-08,
+          "passed": true,
+          "terminalSpeedMps": 4.346469810174415e-07,
+          "horizontalErrorM": 1.1920928955078125e-07,
+          "scaleIndependentlyCalibrated": false
+        },
+        "displacementM": [
+          4,
+          0,
+          0
+        ],
+        "objectId": "0d83b02a-601d-3ff4-99e3-fa9ffffeed5f",
+        "savedSkill": {
+          "name": "live-spatial-route",
+          "id": "a210b333-bf77-3c53-8d81-67f968136e5a",
+          "version": 2
+        },
+        "status": "completed",
+        "updatedAt": "2026-10-31T04:35:15.811241600Z"
+      },
+      "model": "gpt-oss:20b",
+      "episodeId": "7ca68a64-2cd3-4a73-b435-f3c18769ef39"
+    },
+    "calls": [
+      "procedure.run",
+      "goal.read"
+    ]
+  }
+}

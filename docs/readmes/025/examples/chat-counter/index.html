@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<title>Created workspace app</title>
+<style>
+body{font-family:sans-serif;background:#f0f2f5;margin:0;padding:20px;display:flex;justify-content:center;align-items:center;height:100vh}
+#app{background:white;border-radius:8px;padding:30px 40px;box-shadow:0 4px 12px rgba(0,0,0,.1);text-align:center;width:280px}
+#value{font-size:2rem;margin:20px 0;padding:10px;width:100%;border:2px solid #ddd;border-radius:6px;text-align:center;background:#fafafa;pointer-events:none}
+button{font-size:1rem;padding:10px 20px;margin:5px;border:none;border-radius:4px;background:#007bff;color:white;cursor:pointer;transition:.3s}
+button:hover{background:#0056b3}
+</style>
+</head>
+<body>
+<div id="app">
+<h2>Experiment Counter</h2>
+<input type="text" id="value" value="0" readonly/>
+<button id="up">Up</button>
+<button id="reset">Reset</button>
+</div>
+<script>
+const valueEl=document.getElementById('value');
+const upBtn=document.getElementById('up');
+const resetBtn=document.getElementById('reset');
+function updateDisplay(num){valueEl.value=num.toString();}
+let counter=0;
+updateDisplay(counter);
+upBtn.addEventListener('click',()=>{counter++;updateDisplay(counter);});
+resetBtn.addEventListener('click',()=>{counter=0;updateDisplay(counter);});
+</script>
+</body>
+</html>

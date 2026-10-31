@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<title>Local experiment task board</title>
+<style>
+  body{font-family:Arial,sans-serif;background:#f4f4f9;margin:0;padding:20px;display:flex;flex-direction:column;align-items:center}
+  h1{text-align:center;color:#333}
+  .controls{margin-bottom:15px;width:100%;max-width:600px;display:flex;gap:10px}
+  #task-title{flex:1;padding:8px;font-size:16px;border:1px solid #ccc;border-radius:4px}
+  button{padding:8px 12px;font-size:16px;border:none;background:#007bff;color:white;border-radius:4px;cursor:pointer}
+  button:hover{background:#0056b3}
+  #task-count{font-weight:bold;margin-left:auto;padding:0 10px;align-self:center}
+  .board{width:100%;max-width:600px;display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px}
+  .card{background:white;border-radius:4px;padding:10px;box-shadow:0 2px 5px rgba(0,0,0,.1)}
+</style>
+</head>
+<body>
+<h1>Task Board</h1>
+<div class="controls">
+  <input type="text" id="task-title" placeholder="Enter task title"/>
+  <button id="add-task">Add Task</button>
+  <button id="clear">Clear All</button>
+  <span id="task-count">0</span>
+</div>
+<div class="board" id="board"></div>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const titleInput = document.getElementById('task-title');
+    const addBtn = document.getElementById('add-task');
+    const clearBtn = document.getElementById('clear');
+    const countSpan = document.getElementById('task-count');
+    const board = document.getElementById('board');
+
+    let taskCount = 0;
+
+    function updateCount() {
+      countSpan.textContent = String(taskCount);
+    }
+
+    addBtn.addEventListener('click', () => {
+      const title = titleInput.value.trim();
+      if (!title) return;
+      const card = document.createElement('div');
+      card.className = 'card';
+      card.textContent = title;
+      board.appendChild(card);
+      taskCount++;
+      updateCount();
+      titleInput.value = '';
+    });
+
+    clearBtn.addEventListener('click', () => {
+      while (board.firstChild) board.removeChild(board.firstChild);
+      taskCount = 0;
+      updateCount();
+    });
+  });
+</script>
+</body>
+</html>

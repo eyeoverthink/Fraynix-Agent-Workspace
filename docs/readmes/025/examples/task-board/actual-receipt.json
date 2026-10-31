@@ -1,0 +1,102 @@
+{
+  "checks": [
+    {
+      "actual": {
+        "count": 1,
+        "text": "",
+        "value": "Test Task"
+      },
+      "expected": {
+        "action": "fill",
+        "selector": "#task-title",
+        "value": "Test Task"
+      },
+      "index": 0,
+      "selector": "#task-title",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 1,
+        "text": "Add Task",
+        "value": ""
+      },
+      "expected": {
+        "action": "click",
+        "selector": "#add-task"
+      },
+      "index": 1,
+      "selector": "#add-task",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 1,
+        "text": "1",
+        "value": null
+      },
+      "expected": {
+        "expectText": "1",
+        "selector": "#task-count"
+      },
+      "index": 2,
+      "selector": "#task-count",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 1,
+        "text": "Clear All",
+        "value": ""
+      },
+      "expected": {
+        "action": "click",
+        "selector": "#clear"
+      },
+      "index": 3,
+      "selector": "#clear",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 1,
+        "text": "0",
+        "value": null
+      },
+      "expected": {
+        "expectText": "0",
+        "selector": "#task-count"
+      },
+      "index": 4,
+      "selector": "#task-count",
+      "passed": true
+    }
+  ],
+  "at": "2026-10-31T04:18:58.855808500Z",
+  "id": "05993252-ea3e-3108-9a02-a804ba521cad",
+  "passed": true,
+  "version": 1,
+  "steps": [
+    {
+      "action": "fill",
+      "selector": "#task-title",
+      "value": "Test Task"
+    },
+    {
+      "action": "click",
+      "selector": "#add-task"
+    },
+    {
+      "expectText": "1",
+      "selector": "#task-count"
+    },
+    {
+      "action": "click",
+      "selector": "#clear"
+    },
+    {
+      "expectText": "0",
+      "selector": "#task-count"
+    }
+  ]
+}

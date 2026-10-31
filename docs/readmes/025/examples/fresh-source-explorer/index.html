@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<title>Motion evidence · local data explorer</title>
+<style>
+body{font-family:Arial,sans-serif;margin:0;padding:20px;background:#f5f5f5}
+#header{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
+#title{font-size:1.5rem;font-weight:bold}
+#controls{display:flex;gap:10px;align-items:center}
+#filter{padding:5px 8px;border:1px solid #ccc;border-radius:4px}
+#reset{padding:5px 10px;background:#007bff;color:white;border:none;border-radius:4px;cursor:pointer}
+#reset:hover{background:#0056b3}
+#row-count{font-weight:bold;margin-left:10px}
+#data-table{width:100%;border-collapse:collapse;background:white}
+#data-table th, #data-table td{padding:8px 12px;border-bottom:1px solid #ddd;text-align:left;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+#chart{margin-top:20px;height:200px;width:100%;background:white;padding:10px;border-radius:4px;box-shadow:0 2px 5px rgba(0,0,0,.1)}
+@media(max-width:600px){#data-table th, #data-table td{font-size:12px}}
+</style>
+</head>
+<body>
+<div id="header">
+ <div id="title">Motion evidence · local data explorer</div>
+ <div id="controls">
+  <input type="text" id="filter" placeholder="Filter profile"/>
+  <button id="reset">Reset</button>
+  <span># rows: <span id="row-count"></span></span>
+ </div>
+</div>
+<table id="data-table"><thead><tr id="table-headers"></tr></thead><tbody id="table-body"></tbody></table>
+<div id="chart"></div>
+<script>
+(async()=>{
+ const sourceData=await (await fetch('inputs/source.json')).json();
+ let filteredRows=sourceData.rows;
+ function render(){
+  document.getElementById('row-count').textContent=filteredRows.length.toString();
+  const tbody=document.getElementById('table-body');
+  tbody.innerHTML='';
+  for(const r of filteredRows){
+   const tr=document.createElement('tr');
+   for(const h of sourceData.headers){
+    const td=document.createElement('td');
+    td.textContent=r[h];
+    tr.appendChild(td);
+   }
+   tbody.appendChild(tr);
+  }
+  renderChart();
+ }
+ function filter(){
+  const val=document.getElementById('filter').value;
+  if(val==='') filteredRows=sourceData.rows; else filteredRows=sourceData.rows.filter(r=>r.profile===val);
+  render();
+ }
+ document.getElementById('filter').addEventListener('input',filter);
+ document.getElementById('reset').addEventListener('click',()=>{document.getElementById('filter').value='';filter();});
+ const headerRow=document.getElementById('table-headers');
+ for(const h of sourceData.headers){const th=document.createElement('th');th.textContent=h;headerRow.appendChild(th);} 
+ function renderChart(){
+  const chartDiv=document.getElementById('chart');
+  chartDiv.innerHTML='';
+  const svg=document.createElementNS('http://www.w3.org/2000/svg','svg');
+  svg.setAttribute('width','100%');svg.setAttribute('height','100%');
+  const maxIou=Math.max(...filteredRows.map(r=>parseFloat(r.iou))||[1]);
+  const barWidth=20;const gap=5;
+  filteredRows.forEach((r,i)=>{const val=parseFloat(r.iou)||0;const rect=document.createElementNS('http://www.w3.org/2000/svg','rect');rect.setAttribute('x',(i*(barWidth+gap))+10);rect.setAttribute('y',100-val*100);rect.setAttribute('width',barWidth);rect.setAttribute('height',val*100);rect.setAttribute('fill','#4caf50');svg.appendChild(rect);});
+  chartDiv.appendChild(svg);
+ }
+ render();
+})();
+</script>
+</body>
+</html>

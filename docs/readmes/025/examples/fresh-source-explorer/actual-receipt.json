@@ -1,0 +1,120 @@
+{
+  "checks": [
+    {
+      "actual": {
+        "count": 1,
+        "text": "118",
+        "value": null
+      },
+      "expected": {
+        "expectText": "118",
+        "selector": "#row-count"
+      },
+      "index": 0,
+      "selector": "#row-count",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 1,
+        "text": "",
+        "value": "rgb-v1"
+      },
+      "expected": {
+        "action": "fill",
+        "selector": "#filter",
+        "value": "rgb-v1"
+      },
+      "index": 1,
+      "selector": "#filter",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 1,
+        "text": "59",
+        "value": null
+      },
+      "expected": {
+        "expectText": "59",
+        "selector": "#row-count"
+      },
+      "index": 2,
+      "selector": "#row-count",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 1,
+        "text": "Reset",
+        "value": ""
+      },
+      "expected": {
+        "action": "click",
+        "selector": "#reset"
+      },
+      "index": 3,
+      "selector": "#reset",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 1,
+        "text": "118",
+        "value": null
+      },
+      "expected": {
+        "expectText": "118",
+        "selector": "#row-count"
+      },
+      "index": 4,
+      "selector": "#row-count",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 1,
+        "text": "",
+        "value": ""
+      },
+      "expected": {
+        "selector": "#filter",
+        "expectValue": ""
+      },
+      "index": 5,
+      "selector": "#filter",
+      "passed": true
+    }
+  ],
+  "at": "2026-10-31T04:17:38.339925600Z",
+  "id": "2073942d-042e-389c-a2b8-185ca49585fa",
+  "passed": true,
+  "version": 1,
+  "steps": [
+    {
+      "expectText": "118",
+      "selector": "#row-count"
+    },
+    {
+      "action": "fill",
+      "selector": "#filter",
+      "value": "rgb-v1"
+    },
+    {
+      "expectText": "59",
+      "selector": "#row-count"
+    },
+    {
+      "action": "click",
+      "selector": "#reset"
+    },
+    {
+      "expectText": "118",
+      "selector": "#row-count"
+    },
+    {
+      "selector": "#filter",
+      "expectValue": ""
+    }
+  ]
+}

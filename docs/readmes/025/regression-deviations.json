@@ -1,0 +1,12 @@
+{
+  "scope": "Observed regression failure retained, followed by successful repeat; no source behavior was changed for this test. Independent checkout still must pass the original body workflow.",
+  "bodyReleaseTimeout": {
+    "firstLog": "body-integration.log",
+    "condition": "Native release · released status after visible Release body click",
+    "observed": "UI stayed at completed move tick129; no body.release tool event was recorded. The test timed out.",
+    "repeatPassed": true,
+    "repeatChecks": 10,
+    "cause": "Not reproduced on the unmodified diagnostic repeat; do not assert a confirmed root cause."
+  },
+  "independentCleanBodyUiChecks": 10
+}

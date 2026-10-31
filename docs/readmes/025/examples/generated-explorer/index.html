@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<title>Motion evidence · local data explorer</title>
+<style>
+body{font-family:Arial,Helvetica,sans-serif;margin:0;padding:20px;background:#f5f5f5;}
+#header{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;}
+#title{font-size:1.5rem;font-weight:bold;}
+#row-count{font-size:1.2rem;color:#555;}
+#controls{margin-top:10px;margin-bottom:20px;display:flex;gap:10px;align-items:center;}
+#filter{padding:5px 8px;border:1px solid #ccc;border-radius:4px;font-size:1rem;}
+#reset{padding:5px 12px;background:#007bff;color:white;border:none;border-radius:4px;cursor:pointer;}
+#reset:hover{background:#0056b3;}
+#data-table{width:100%;border-collapse:collapse;background:white;box-shadow:0 2px 5px rgba(0,0,0,.1);}
+#data-table th,#data-table td{padding:8px 12px;border-bottom:1px solid #e0e0e0;text-align:left;font-size:0.9rem;}
+#data-table th{background:#f0f0f0;position:sticky;top:0;z-index:2;}
+@media(max-width:600px){#controls{flex-direction:column;align-items:flex-start;}#filter{width:100%;}#reset{width:100%;}}
+#chart{margin-top:20px;height:200px;background:white;box-shadow:0 2px 5px rgba(0,0,0,.1);}
+</style>
+</head>
+<body>
+<div id="header">
+ <div id="title">Loading...</div>
+ <div id="row-count"></div>
+</div>
+<div id="controls">
+ <input type="text" id="filter" placeholder="Filter profile (exact, case‑sensitive)">
+ <button id="reset">Reset filter</button>
+</div>
+<table id="data-table"><thead><tr></tr></thead><tbody></tbody></table>
+<svg id="chart"></svg>
+<script>
+(async () => {
+ const sourceData = await (await fetch('inputs/source.json')).json();
+ const headers = sourceData.headers;
+ const rows = sourceData.rows;
+ let filteredRows = rows;
+ const titleEl=document.getElementById('title');
+ const countEl=document.getElementById('row-count');
+ const filterInput=document.getElementById('filter');
+ const resetBtn=document.getElementById('reset');
+ const tbody=document.querySelector('#data-table tbody');
+ const theadRow=document.querySelector('#data-table thead tr');
+ const chartSvg=document.getElementById('chart');
+ titleEl.textContent=sourceData.title;
+ function renderTable(){
+  tbody.innerHTML='';
+  filteredRows.forEach(r=>{
+   const tr=document.createElement('tr');
+   headers.forEach(h=>{const td=document.createElement('td');td.textContent=r[h];tr.appendChild(td);});
+   tbody.appendChild(tr);
+  });
+  countEl.textContent=filteredRows.length.toString();
+ }
+ function renderHeader(){
+  theadRow.innerHTML='';headers.forEach(h=>{const th=document.createElement('th');th.textContent=h;theadRow.appendChild(th);});
+ }
+ function filterByProfile(val){
+  if(!val) filteredRows=rows;
+  else filteredRows=rows.filter(r=>r.profile===val);
+  renderTable();
+ }
+ resetBtn.addEventListener('click',()=>{filterInput.value='';filterByProfile('');});
+ filterInput.addEventListener('input',e=>filterByProfile(e.target.value));
+ function renderChart(){
+  const iouValues=rows.map(r=>parseFloat(r.iou)).filter(v=>!isNaN(v));
+  if(iouValues.length===0)return;
+  const width=chartSvg.clientWidth||400;const height=200;chartSvg.setAttribute('width',width);chartSvg.setAttribute('height',height);
+  const max=Math.max(...iouValues);const min=Math.min(...iouValues);
+  const binCount=20;const binSize=(max-min)/binCount;
+  const bins=new Array(binCount).fill(0);
+  iouValues.forEach(v=>{let idx=Math.floor((v-min)/binSize);if(idx===binCount)idx--;bins[idx]++;});
+  const maxBin=Math.max(...bins);
+  const barWidth=width/binCount;
+  chartSvg.innerHTML='';
+  bins.forEach((cnt,i)=>{
+   const rect=document.createElementNS('http://www.w3.org/2000/svg','rect');
+   rect.setAttribute('x',i*barWidth);
+   rect.setAttribute('y',height- (cnt/maxBin)*height);
+   rect.setAttribute('width',barWidth-2);
+   rect.setAttribute('height',(cnt/maxBin)*height);
+   rect.setAttribute('fill','#007bff');
+   chartSvg.appendChild(rect);
+  });
+ }
+ renderHeader();renderTable();renderChart();
+})();
+</script>
+</body>
+</html>

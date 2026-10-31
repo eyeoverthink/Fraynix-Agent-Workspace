@@ -1,0 +1,370 @@
+{
+  "scope": "Original live local-model attempt before generation prompt/output-budget correction. This result is retained, not called a passing trial.",
+  "model": "gpt-oss:20b",
+  "goal": {
+    "modelDigest": "f38aa0c53da5f8c49d08c43a99df24ff53167fe68e24664a7777288e7656fdfe",
+    "request": "Create a polished responsive interactive data explorer using inputs/source.json supplied by Java. Show the title in #title. Show the number of currently displayed data rows as digits only in #row-count. Render the actual rows in a table #data-table with a tbody. Add text input #filter: when nonempty it filters exact, case-sensitive values in the \"profile\" column; empty input shows all rows. Button #reset clears the filter and restores all rows. Add a useful chart from the real numeric data when available. Keep the source labels and values honest; render cell text safely. Use no external assets or libraries.",
+    "reason": "Desktop action failed: The model returned no native tool call. No answer or reasoning text was executed.",
+    "sourceBinding": {
+      "headers": [
+        "sequence",
+        "split",
+        "profile",
+        "source_frame",
+        "iou",
+        "state",
+        "processing_ms"
+      ],
+      "fileSha256": "3afa26501d3fb987b8f35c374d731dac5fa07e46f749423bcac6ea798d2f3440",
+      "file": "accuracy.csv",
+      "sha256": "b79afc418fe3ade13e9dae45c2f80621ae9a232ae983193a2e7951ddc13e027a",
+      "id": "71d623e3-4bdc-410b-9df7-426153142eb1",
+      "rowCount": 450,
+      "title": "Recorded024 predictions ·450 actual rows",
+      "version": 1
+    },
+    "draftHistory": [
+      {
+        "artifact": {
+          "sha256": "47f1545e0dbb12495d3b3f1fc1193f96c0e510ff32c7ca490b488c436eeb2ec3",
+          "id": "dc732944-d0e6-3b59-ae23-378c3869a42e",
+          "version": 1
+        },
+        "modelDigest": "f38aa0c53da5f8c49d08c43a99df24ff53167fe68e24664a7777288e7656fdfe",
+        "checks": [
+          {
+            "actual": {
+              "count": 1,
+              "text": "450",
+              "value": null
+            },
+            "expected": {
+              "expectText": "450",
+              "selector": "#row-count"
+            },
+            "index": 0,
+            "selector": "#row-count",
+            "passed": true
+          },
+          {
+            "actual": {
+              "count": 1,
+              "text": "",
+              "value": "rgb-v1"
+            },
+            "expected": {
+              "action": "fill",
+              "selector": "#filter",
+              "value": "rgb-v1"
+            },
+            "index": 1,
+            "selector": "#filter",
+            "passed": true
+          },
+          {
+            "actual": {
+              "count": 1,
+              "text": "450",
+              "value": null
+            },
+            "expected": {
+              "expectText": "225",
+              "selector": "#row-count"
+            },
+            "index": 2,
+            "selector": "#row-count",
+            "passed": false
+          },
+          {
+            "actual": {
+              "count": 1,
+              "text": "Reset",
+              "value": ""
+            },
+            "expected": {
+              "action": "click",
+              "selector": "#reset"
+            },
+            "index": 3,
+            "selector": "#reset",
+            "passed": true
+          },
+          {
+            "actual": {
+              "count": 1,
+              "text": "450",
+              "value": null
+            },
+            "expected": {
+              "expectText": "450",
+              "selector": "#row-count"
+            },
+            "index": 4,
+            "selector": "#row-count",
+            "passed": true
+          },
+          {
+            "actual": {
+              "count": 1,
+              "text": "",
+              "value": ""
+            },
+            "expected": {
+              "selector": "#filter",
+              "expectValue": ""
+            },
+            "index": 5,
+            "selector": "#filter",
+            "passed": true
+          }
+        ],
+        "draft": 1,
+        "passed": false
+      },
+      {
+        "artifact": {
+          "sha256": "c51dcd1e82ce67427e33017cf339ae344d1ae4c30d3301cc6f328766ab3846ae",
+          "id": "dc732944-d0e6-3b59-ae23-378c3869a42e",
+          "version": 2
+        },
+        "modelDigest": "f38aa0c53da5f8c49d08c43a99df24ff53167fe68e24664a7777288e7656fdfe",
+        "checks": [
+          {
+            "actual": {
+              "count": 1,
+              "text": "450",
+              "value": null
+            },
+            "expected": {
+              "expectText": "450",
+              "selector": "#row-count"
+            },
+            "index": 0,
+            "selector": "#row-count",
+            "passed": true
+          },
+          {
+            "actual": {
+              "count": 1,
+              "text": "",
+              "value": "rgb-v1"
+            },
+            "expected": {
+              "action": "fill",
+              "selector": "#filter",
+              "value": "rgb-v1"
+            },
+            "index": 1,
+            "selector": "#filter",
+            "passed": true
+          },
+          {
+            "actual": {
+              "count": 1,
+              "text": "450",
+              "value": null
+            },
+            "expected": {
+              "expectText": "225",
+              "selector": "#row-count"
+            },
+            "index": 2,
+            "selector": "#row-count",
+            "passed": false
+          },
+          {
+            "actual": {
+              "count": 1,
+              "text": "Reset",
+              "value": ""
+            },
+            "expected": {
+              "action": "click",
+              "selector": "#reset"
+            },
+            "index": 3,
+            "selector": "#reset",
+            "passed": true
+          },
+          {
+            "actual": {
+              "count": 1,
+              "text": "450",
+              "value": null
+            },
+            "expected": {
+              "expectText": "450",
+              "selector": "#row-count"
+            },
+            "index": 4,
+            "selector": "#row-count",
+            "passed": true
+          },
+          {
+            "actual": {
+              "count": 1,
+              "text": "",
+              "value": ""
+            },
+            "expected": {
+              "selector": "#filter",
+              "expectValue": ""
+            },
+            "index": 5,
+            "selector": "#filter",
+            "passed": true
+          },
+          {
+            "index": 6,
+            "passed": false,
+            "error": "Browser JavaScript errors",
+            "errors": [
+              "Uncaught ReferenceError: renderedRows is not defined",
+              "Uncaught ReferenceError: renderedRows is not defined"
+            ]
+          }
+        ],
+        "draft": 2,
+        "passed": false
+      }
+    ],
+    "draftNumber": 2,
+    "testSteps": [
+      {
+        "expectText": "450",
+        "selector": "#row-count"
+      },
+      {
+        "action": "fill",
+        "selector": "#filter",
+        "value": "rgb-v1"
+      },
+      {
+        "expectText": "225",
+        "selector": "#row-count"
+      },
+      {
+        "action": "click",
+        "selector": "#reset"
+      },
+      {
+        "expectText": "450",
+        "selector": "#row-count"
+      },
+      {
+        "selector": "#filter",
+        "expectValue": ""
+      }
+    ],
+    "procedure": "creation-web-v1",
+    "history": [
+      {
+        "reason": "Creation request and source saved; behavior contract precedes code",
+        "at": "2026-10-31T03:48:51.242237200Z",
+        "step": "creation-generate",
+        "attempt": 1,
+        "status": "running"
+      },
+      {
+        "reason": "Waiting for registered desktop action: creation.generate",
+        "at": "2026-10-31T03:48:51.297091500Z",
+        "step": "creation-generate",
+        "attempt": 1,
+        "status": "waiting-host"
+      },
+      {
+        "reason": "Admitted local model draft retained; Java will commit and independently test it",
+        "at": "2026-10-31T03:50:42.705598Z",
+        "step": "creation-write",
+        "attempt": 1,
+        "status": "running"
+      },
+      {
+        "reason": "Draft 1 saved as artifact v1; behavior checks remain frozen",
+        "at": "2026-10-31T03:50:42.827664800Z",
+        "step": "creation-test",
+        "attempt": 1,
+        "status": "running"
+      },
+      {
+        "reason": "Waiting for registered desktop action: creation.test",
+        "at": "2026-10-31T03:50:42.949075400Z",
+        "step": "creation-test",
+        "attempt": 1,
+        "status": "waiting-host"
+      },
+      {
+        "reason": "Actual behavior failed; next draft receives the unchanged checks and observed failures",
+        "at": "2026-10-31T03:50:45.352195900Z",
+        "step": "creation-generate",
+        "attempt": 1,
+        "status": "running"
+      },
+      {
+        "reason": "Waiting for registered desktop action: creation.generate",
+        "at": "2026-10-31T03:50:45.367155600Z",
+        "step": "creation-generate",
+        "attempt": 1,
+        "status": "waiting-host"
+      },
+      {
+        "reason": "Admitted local model draft retained; Java will commit and independently test it",
+        "at": "2026-10-31T03:52:25.248971400Z",
+        "step": "creation-write",
+        "attempt": 1,
+        "status": "running"
+      },
+      {
+        "reason": "Draft 2 saved as artifact v2; behavior checks remain frozen",
+        "at": "2026-10-31T03:52:25.290859600Z",
+        "step": "creation-test",
+        "attempt": 1,
+        "status": "running"
+      },
+      {
+        "reason": "Waiting for registered desktop action: creation.test",
+        "at": "2026-10-31T03:52:25.415625700Z",
+        "step": "creation-test",
+        "attempt": 1,
+        "status": "waiting-host"
+      },
+      {
+        "reason": "Actual behavior failed; next draft receives the unchanged checks and observed failures",
+        "at": "2026-10-31T03:52:27.765245200Z",
+        "step": "creation-generate",
+        "attempt": 1,
+        "status": "running"
+      },
+      {
+        "reason": "Waiting for registered desktop action: creation.generate",
+        "at": "2026-10-31T03:52:27.863406400Z",
+        "step": "creation-generate",
+        "attempt": 1,
+        "status": "waiting-host"
+      },
+      {
+        "reason": "Desktop action failed: The model returned no native tool call. No answer or reasoning text was executed.",
+        "at": "2026-10-31T03:54:05.449034300Z",
+        "step": "creation-generate",
+        "attempt": 1,
+        "status": "interrupted"
+      }
+    ],
+    "title": "Motion evidence · local data explorer",
+    "attempt": 1,
+    "resumes": 0,
+    "modelName": "gpt-oss:20b",
+    "createdAt": "2026-10-31T03:48:51.242237200Z",
+    "report": {
+      "sha256": "c51dcd1e82ce67427e33017cf339ae344d1ae4c30d3301cc6f328766ab3846ae",
+      "id": "dc732944-d0e6-3b59-ae23-378c3869a42e",
+      "version": 2
+    },
+    "step": "creation-generate",
+    "id": "b6e187f7-1557-46db-957d-3aff74be1262",
+    "status": "interrupted",
+    "updatedAt": "2026-10-31T03:54:05.449034300Z"
+  },
+  "skillPromoted": false,
+  "correction": "Keep failing checks/JavaScript errors prominent; require native output call explicitly and budget8192 output tokens only for creation.submit."
+}

@@ -1,0 +1,473 @@
+{
+  "passed": true,
+  "date": "2026-10-31T04:22:08.701Z",
+  "project": "C:/Users/eyeka/AppData/Local/Temp/fraynix-creation-chat025-TpFDlw",
+  "model": "gpt-oss:20b",
+  "checks": [
+    "Actual chat starts a durable Java creation goal; the admitted local model declares its contract before code and retains the explicitly requested skill name",
+    "Seven independent actual canvas steps verify two increments and reset through the real display property; the saved conversation episode is verified from actual completion, with no weight training"
+  ],
+  "completion": {
+    "summary": "Creation completed: Created app and declared interactive behavior verified in the actual canvas 1 draft(s), 5 declared behavior steps, artifact v1. Verification covers the recorded checks; no model weights were trained.",
+    "goal": "Create and verify a polished local experiment counter. Use digit-only #value initially0, #up button increments by1, #reset restores0. All controls must work. Use no external assets. Save the skill as experiment-counter.",
+    "javaGoal": {
+      "modelDigest": "f38aa0c53da5f8c49d08c43a99df24ff53167fe68e24664a7777288e7656fdfe",
+      "request": "Create and verify a polished local experiment counter. Use digit-only #value initially0, #up button increments by1, #reset restores0. All controls must work. Use no external assets. Save the skill as experiment-counter.",
+      "reason": "Created app and declared interactive behavior verified in the actual canvas",
+      "draftHistory": [
+        {
+          "artifact": {
+            "sha256": "088e22e8cce6acfe326bfcb35a80661c4936ac6da5ae3c2f17d854e6fba3ac53",
+            "id": "2e9d530d-db72-3497-b6a2-fddc9788b504",
+            "version": 1
+          },
+          "modelDigest": "f38aa0c53da5f8c49d08c43a99df24ff53167fe68e24664a7777288e7656fdfe",
+          "checks": [
+            {
+              "actual": {
+                "count": 1,
+                "text": "",
+                "value": "0"
+              },
+              "expected": {
+                "selector": "#value",
+                "expectValue": "0"
+              },
+              "index": 0,
+              "selector": "#value",
+              "passed": true
+            },
+            {
+              "actual": {
+                "count": 1,
+                "text": "Up",
+                "value": ""
+              },
+              "expected": {
+                "action": "click",
+                "selector": "#up"
+              },
+              "index": 1,
+              "selector": "#up",
+              "passed": true
+            },
+            {
+              "actual": {
+                "count": 1,
+                "text": "",
+                "value": "1"
+              },
+              "expected": {
+                "selector": "#value",
+                "expectValue": "1"
+              },
+              "index": 2,
+              "selector": "#value",
+              "passed": true
+            },
+            {
+              "actual": {
+                "count": 1,
+                "text": "Reset",
+                "value": ""
+              },
+              "expected": {
+                "action": "click",
+                "selector": "#reset"
+              },
+              "index": 3,
+              "selector": "#reset",
+              "passed": true
+            },
+            {
+              "actual": {
+                "count": 1,
+                "text": "",
+                "value": "0"
+              },
+              "expected": {
+                "selector": "#value",
+                "expectValue": "0"
+              },
+              "index": 4,
+              "selector": "#value",
+              "passed": true
+            }
+          ],
+          "draft": 1,
+          "passed": true
+        }
+      ],
+      "draftNumber": 1,
+      "testSteps": [
+        {
+          "selector": "#value",
+          "expectValue": "0"
+        },
+        {
+          "action": "click",
+          "selector": "#up"
+        },
+        {
+          "selector": "#value",
+          "expectValue": "1"
+        },
+        {
+          "action": "click",
+          "selector": "#reset"
+        },
+        {
+          "selector": "#value",
+          "expectValue": "0"
+        }
+      ],
+      "procedure": "creation-web-v1",
+      "history": [
+        {
+          "reason": "Creation request and source saved; behavior contract precedes code",
+          "at": "2026-10-31T04:19:01.291687400Z",
+          "step": "creation-plan",
+          "attempt": 1,
+          "status": "running"
+        },
+        {
+          "reason": "Waiting for registered desktop action: creation.plan",
+          "at": "2026-10-31T04:19:01.352740Z",
+          "step": "creation-plan",
+          "attempt": 1,
+          "status": "waiting-host"
+        },
+        {
+          "reason": "Observable behavior contract frozen before first code generation",
+          "at": "2026-10-31T04:19:14.207729600Z",
+          "step": "creation-generate",
+          "attempt": 1,
+          "status": "running"
+        },
+        {
+          "reason": "Waiting for registered desktop action: creation.generate",
+          "at": "2026-10-31T04:19:14.300131400Z",
+          "step": "creation-generate",
+          "attempt": 1,
+          "status": "waiting-host"
+        },
+        {
+          "reason": "Admitted local model draft retained; Java will commit and independently test it",
+          "at": "2026-10-31T04:19:53.553428900Z",
+          "step": "creation-write",
+          "attempt": 1,
+          "status": "running"
+        },
+        {
+          "reason": "Draft 1 saved as artifact v1; behavior checks remain frozen",
+          "at": "2026-10-31T04:19:53.669736500Z",
+          "step": "creation-test",
+          "attempt": 1,
+          "status": "running"
+        },
+        {
+          "reason": "Waiting for registered desktop action: creation.test",
+          "at": "2026-10-31T04:19:53.778789400Z",
+          "step": "creation-test",
+          "attempt": 1,
+          "status": "waiting-host"
+        },
+        {
+          "reason": "Actual frozen behavior checks passed for this exact artifact version",
+          "at": "2026-10-31T04:19:54.303793400Z",
+          "step": "creation-complete",
+          "attempt": 1,
+          "status": "running"
+        },
+        {
+          "reason": "Created app and declared interactive behavior verified in the actual canvas",
+          "at": "2026-10-31T04:19:54.330492200Z",
+          "step": "completed",
+          "attempt": 1,
+          "status": "completed"
+        }
+      ],
+      "title": "Created workspace app",
+      "attempt": 1,
+      "resumes": 0,
+      "modelName": "gpt-oss:20b",
+      "createdAt": "2026-10-31T04:19:01.291687400Z",
+      "report": {
+        "sha256": "088e22e8cce6acfe326bfcb35a80661c4936ac6da5ae3c2f17d854e6fba3ac53",
+        "id": "2e9d530d-db72-3497-b6a2-fddc9788b504",
+        "version": 1
+      },
+      "step": "completed",
+      "id": "af83b430-1c74-4bf7-ba12-5e141d4e6dc9",
+      "metrics": {
+        "repairs": 0,
+        "checks": 5,
+        "artifactVersion": 1,
+        "drafts": 1,
+        "sourceRows": 0,
+        "declaredBehaviorPassed": true
+      },
+      "savedSkill": {
+        "name": "experiment-counter",
+        "id": "e16e2506-328e-356b-ba11-265eac595772",
+        "version": 1
+      },
+      "status": "completed",
+      "updatedAt": "2026-10-31T04:19:54.330492200Z"
+    },
+    "model": "gpt-oss:20b",
+    "episodeId": "94b7bbb0-923b-4b69-9ed5-ca28b892c2c1"
+  },
+  "proof": {
+    "checks": [
+      {
+        "actual": {
+          "count": 1,
+          "text": "",
+          "value": "0"
+        },
+        "expected": {
+          "selector": "#value",
+          "expectValue": "0"
+        },
+        "index": 0,
+        "selector": "#value",
+        "passed": true
+      },
+      {
+        "actual": {
+          "count": 1,
+          "text": "Up",
+          "value": ""
+        },
+        "expected": {
+          "action": "click",
+          "selector": "#up"
+        },
+        "index": 1,
+        "selector": "#up",
+        "passed": true
+      },
+      {
+        "actual": {
+          "count": 1,
+          "text": "",
+          "value": "1"
+        },
+        "expected": {
+          "selector": "#value",
+          "expectValue": "1"
+        },
+        "index": 2,
+        "selector": "#value",
+        "passed": true
+      },
+      {
+        "actual": {
+          "count": 1,
+          "text": "Up",
+          "value": ""
+        },
+        "expected": {
+          "action": "click",
+          "selector": "#up"
+        },
+        "index": 3,
+        "selector": "#up",
+        "passed": true
+      },
+      {
+        "actual": {
+          "count": 1,
+          "text": "",
+          "value": "2"
+        },
+        "expected": {
+          "selector": "#value",
+          "expectValue": "2"
+        },
+        "index": 4,
+        "selector": "#value",
+        "passed": true
+      },
+      {
+        "actual": {
+          "count": 1,
+          "text": "Reset",
+          "value": ""
+        },
+        "expected": {
+          "action": "click",
+          "selector": "#reset"
+        },
+        "index": 5,
+        "selector": "#reset",
+        "passed": true
+      },
+      {
+        "actual": {
+          "count": 1,
+          "text": "",
+          "value": "0"
+        },
+        "expected": {
+          "selector": "#value",
+          "expectValue": "0"
+        },
+        "index": 6,
+        "selector": "#value",
+        "passed": true
+      }
+    ],
+    "at": "2026-10-31T04:22:08.130424700Z",
+    "id": "2e9d530d-db72-3497-b6a2-fddc9788b504",
+    "passed": true,
+    "version": 1,
+    "steps": [
+      {
+        "selector": "#value",
+        "expectValue": "0"
+      },
+      {
+        "action": "click",
+        "selector": "#up"
+      },
+      {
+        "selector": "#value",
+        "expectValue": "1"
+      },
+      {
+        "action": "click",
+        "selector": "#up"
+      },
+      {
+        "selector": "#value",
+        "expectValue": "2"
+      },
+      {
+        "action": "click",
+        "selector": "#reset"
+      },
+      {
+        "selector": "#value",
+        "expectValue": "0"
+      }
+    ]
+  },
+  "artifact": {
+    "sources": [
+      "creation-goal:af83b430-1c74-4bf7-ba12-5e141d4e6dc9"
+    ],
+    "test": {
+      "checks": [
+        {
+          "actual": {
+            "count": 1,
+            "text": "",
+            "value": "0"
+          },
+          "expected": {
+            "selector": "#value",
+            "expectValue": "0"
+          },
+          "index": 0,
+          "selector": "#value",
+          "passed": true
+        },
+        {
+          "actual": {
+            "count": 1,
+            "text": "Up",
+            "value": ""
+          },
+          "expected": {
+            "action": "click",
+            "selector": "#up"
+          },
+          "index": 1,
+          "selector": "#up",
+          "passed": true
+        },
+        {
+          "actual": {
+            "count": 1,
+            "text": "",
+            "value": "1"
+          },
+          "expected": {
+            "selector": "#value",
+            "expectValue": "1"
+          },
+          "index": 2,
+          "selector": "#value",
+          "passed": true
+        },
+        {
+          "actual": {
+            "count": 1,
+            "text": "Reset",
+            "value": ""
+          },
+          "expected": {
+            "action": "click",
+            "selector": "#reset"
+          },
+          "index": 3,
+          "selector": "#reset",
+          "passed": true
+        },
+        {
+          "actual": {
+            "count": 1,
+            "text": "",
+            "value": "0"
+          },
+          "expected": {
+            "selector": "#value",
+            "expectValue": "0"
+          },
+          "index": 4,
+          "selector": "#value",
+          "passed": true
+        }
+      ],
+      "at": "2026-10-31T04:22:08.501582900Z",
+      "id": "2e9d530d-db72-3497-b6a2-fddc9788b504",
+      "passed": true,
+      "version": 1,
+      "steps": [
+        {
+          "selector": "#value",
+          "expectValue": "0"
+        },
+        {
+          "action": "click",
+          "selector": "#up"
+        },
+        {
+          "selector": "#value",
+          "expectValue": "1"
+        },
+        {
+          "action": "click",
+          "selector": "#reset"
+        },
+        {
+          "selector": "#value",
+          "expectValue": "0"
+        }
+      ]
+    },
+    "contents": {
+      "index.html": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n<meta charset=\"UTF-8\"/>\n<title>Created workspace app</title>\n<style>\nbody{font-family:sans-serif;background:#f0f2f5;margin:0;padding:20px;display:flex;justify-content:center;align-items:center;height:100vh}\n#app{background:white;border-radius:8px;padding:30px 40px;box-shadow:0 4px 12px rgba(0,0,0,.1);text-align:center;width:280px}\n#value{font-size:2rem;margin:20px 0;padding:10px;width:100%;border:2px solid #ddd;border-radius:6px;text-align:center;background:#fafafa;pointer-events:none}\nbutton{font-size:1rem;padding:10px 20px;margin:5px;border:none;border-radius:4px;background:#007bff;color:white;cursor:pointer;transition:.3s}\nbutton:hover{background:#0056b3}\n</style>\n</head>\n<body>\n<div id=\"app\">\n<h2>Experiment Counter</h2>\n<input type=\"text\" id=\"value\" value=\"0\" readonly/>\n<button id=\"up\">Up</button>\n<button id=\"reset\">Reset</button>\n</div>\n<script>\nconst valueEl=document.getElementById('value');\nconst upBtn=document.getElementById('up');\nconst resetBtn=document.getElementById('reset');\nfunction updateDisplay(num){valueEl.value=num.toString();}\nlet counter=0;\nupdateDisplay(counter);\nupBtn.addEventListener('click',()=>{counter++;updateDisplay(counter);});\nresetBtn.addEventListener('click',()=>{counter=0;updateDisplay(counter);});\n</script>\n</body>\n</html>"
+    },
+    "created": "2026-10-31T04:19:53.656770800Z",
+    "files": [
+      "index.html"
+    ],
+    "id": "2e9d530d-db72-3497-b6a2-fddc9788b504",
+    "title": "Created workspace app",
+    "version": 1
+  },
+  "scope": "Original live chat completed successfully. Its independent test initially assumed a text element; the generated display is a readonly input with correct0/1/2/0 values. Reopened unchanged generated code and real goal, selected the actual DOM display property and reran seven independent checks; no generation was repeated. Screenshot is the reopened chat-created app, not replayed conversation text."
+}

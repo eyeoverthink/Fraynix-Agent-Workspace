@@ -28,5 +28,6 @@ Numbered editions preserve dated system behavior and evidence. The root [README]
 | [022](../../README-022.md) | 2026-10-30 | Actual browser perception, persistent drawn corrections, lost/reacquired traces and fresh-source procedural reuse | [Viewer](022/index.html) · [evidence](022/verification.json) · [contract](../BROWSER_PERCEPTION.md) |
 | [023](../../README-023.md) | 2026-10-30 | Recorded-sequence evaluation, rejected candidate, guarded profile lifecycle and retained implementation pins | [Viewer](023/index.html) · [evidence](023/verification.json) · [contract](../TRACKING_EVALUATION.md) |
 | [024](../../README-024.md) | 2026-10-30 | Java temporal motion, new recorded clips, improved overlap and retained quality rejection | [Viewer](024/index.html) · [evidence](024/verification.json) · [contract](../TEMPORAL_TRACKING.md) |
+| [025](../../README-025.md) | 2026-10-30 | Durable local creation, actual tests, bounded repair and fresh-source procedural reuse | [Viewer](025/index.html) · [evidence](025/verification.json) · [contract](../DURABLE_CREATION.md) |
 
-Latest implementation/documentation edition: **024**. Earlier snapshots remain intact. See [sequence policy](README_SEQUENCE.md) and [manifest](editions.json).
+Latest implementation/documentation edition: **025**. Earlier snapshots remain intact. See [sequence policy](README_SEQUENCE.md) and [manifest](editions.json).
