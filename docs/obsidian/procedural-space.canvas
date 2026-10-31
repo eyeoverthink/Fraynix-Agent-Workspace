@@ -1,0 +1,168 @@
+{
+  "nodes": [
+    {
+      "id": "overview",
+      "type": "file",
+      "file": "docs/obsidian/35-procedural-space.md",
+      "x": 0,
+      "y": 0,
+      "width": 540,
+      "height": 300
+    },
+    {
+      "id": "request",
+      "type": "file",
+      "file": "workspace-desktop/renderer/procedural-panel.js",
+      "x": -620,
+      "y": 400,
+      "width": 540,
+      "height": 300
+    },
+    {
+      "id": "kernel",
+      "type": "file",
+      "file": "fraynix-modules/geometry-core/src/main/java/fraymus/geometry/Colonization.java",
+      "x": 0,
+      "y": 400,
+      "width": 540,
+      "height": 300
+    },
+    {
+      "id": "map",
+      "type": "file",
+      "file": "fraynix-modules/geometry-core/src/main/java/fraymus/geometry/Dungeon.java",
+      "x": 620,
+      "y": 400,
+      "width": 540,
+      "height": 300
+    },
+    {
+      "id": "goal",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/GoalRunner.java",
+      "x": -620,
+      "y": 800,
+      "width": 540,
+      "height": 300
+    },
+    {
+      "id": "view",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/ProceduralReport.java",
+      "x": 0,
+      "y": 800,
+      "width": 540,
+      "height": 300
+    },
+    {
+      "id": "skills",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/Procedural.java",
+      "x": 620,
+      "y": 800,
+      "width": 540,
+      "height": 300
+    },
+    {
+      "id": "layout",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/ResponsiveLayout.java",
+      "x": -620,
+      "y": 1200,
+      "width": 540,
+      "height": 300
+    },
+    {
+      "id": "tests",
+      "type": "file",
+      "file": "workspace-desktop/test/live-procedural.cjs",
+      "x": 0,
+      "y": 1200,
+      "width": 540,
+      "height": 300
+    },
+    {
+      "id": "next",
+      "type": "file",
+      "file": "docs/PROCESSING_ALGORITHM_REFERENCE.md",
+      "x": 620,
+      "y": 1200,
+      "width": 540,
+      "height": 300
+    }
+  ],
+  "edges": [
+    {
+      "id": "edge-request",
+      "fromNode": "overview",
+      "fromSide": "bottom",
+      "toNode": "request",
+      "toSide": "top",
+      "label": "verified"
+    },
+    {
+      "id": "edge-kernel",
+      "fromNode": "overview",
+      "fromSide": "bottom",
+      "toNode": "kernel",
+      "toSide": "top",
+      "label": "verified"
+    },
+    {
+      "id": "edge-map",
+      "fromNode": "overview",
+      "fromSide": "bottom",
+      "toNode": "map",
+      "toSide": "top",
+      "label": "verified"
+    },
+    {
+      "id": "edge-goal",
+      "fromNode": "overview",
+      "fromSide": "bottom",
+      "toNode": "goal",
+      "toSide": "top",
+      "label": "verified"
+    },
+    {
+      "id": "edge-view",
+      "fromNode": "overview",
+      "fromSide": "bottom",
+      "toNode": "view",
+      "toSide": "top",
+      "label": "verified"
+    },
+    {
+      "id": "edge-skills",
+      "fromNode": "overview",
+      "fromSide": "bottom",
+      "toNode": "skills",
+      "toSide": "top",
+      "label": "verified"
+    },
+    {
+      "id": "edge-layout",
+      "fromNode": "overview",
+      "fromSide": "bottom",
+      "toNode": "layout",
+      "toSide": "top",
+      "label": "verified"
+    },
+    {
+      "id": "edge-tests",
+      "fromNode": "overview",
+      "fromSide": "bottom",
+      "toNode": "tests",
+      "toSide": "top",
+      "label": "verified"
+    },
+    {
+      "id": "edge-next",
+      "fromNode": "overview",
+      "fromSide": "bottom",
+      "toNode": "next",
+      "toSide": "top",
+      "label": "planned"
+    }
+  ]
+}

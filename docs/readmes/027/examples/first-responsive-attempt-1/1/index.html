@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<title>Recorded observations & native forecasts</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:sans-serif;background:#f5f5f5;color:#333;padding:1rem;display:flex;flex-direction:column;gap:1rem;max-width:100%;overflow-x:hidden;}
+#controls{display:flex;gap:.5rem;align-items:center;flex-wrap:wrap;}
+#filter{min-width:0;flex:1 1 auto;padding:.4rem;border:1px solid #ccc;border-radius:3px;}
+#reset{padding:.4rem .8rem;background:#007bff;color:white;border:none;border-radius:3px;cursor:pointer;}
+#row-count{font-weight:bold;margin-left:.5rem;}
+#scope,#data-quality,#endpoint-error,#prediction-error{margin-top:.5rem;font-size:1rem;}
+#table-wrapper{overflow:auto;max-height:400px;}
+.table{width:100%;border-collapse:collapse;border-spacing:0;table-layout:fixed;}
+th,td{font-size:14px;padding:.4rem  .6rem;border-bottom:1px solid #ddd;text-align:left;overflow-wrap:anywhere;}
+th{background:#e9ecef;position:-webkit-sticky;position:sticky;top:0;z-index:2;}
+svg{width:100%;height:auto;background:white;border:1px solid #ccc;margin-top:.5rem;}
+.legend{display:flex;gap:.5rem;font-size:.9rem;margin-top:.3rem;align-items:center;}
+.legend span{display:inline-block;width:12px;height:12px;background:#007bff;margin-right:.2rem;border-radius:50%;}
+</style>
+</head>
+<body>
+<h1 id="title"></h1>
+<div id="controls">
+<input type="text" id="filter" placeholder="Filter series (case‑sensitive)">
+<button id="reset">Reset</button>
+<span>#row-count: <span id="row-count"></span></span>
+</div>
+<p id="scope"></p>
+<p id="data-quality"></p>
+<p>Endpoint error: <span id="endpoint-error"></span></p>
+<p>Prediction error: <span id="prediction-error"></span></p>
+<div id="table-wrapper"><table class="table" id="data-table"><thead><tr></tr></thead><tbody></tbody></table></div>
+<svg viewBox="0 0 800 300" aria-label="Native simulation graph">
+<title>Native simulation</title>
+<polyline data-series="native_actual"></polyline>
+<polyline data-series="native_prediction"></polyline>
+<g id="axes"><line x1="40" y1="260" x2="760" y2="260" stroke="#000"/><line x1="40" y1="260" x2="40" y2="40" stroke="#000"/></g>
+<text x="400" y="290" text-anchor="middle">Time (s)</text>
+<text x="20" y="150" transform="rotate(-90 20,150)" text-anchor="middle">Position (m)</text>
+</svg>
+<div class="legend"><span style="background:#007bff;"></span>native_actual <span style="background:#28a745;"></span>native_prediction</div>
+<script>
+(async()=>{
+const sourceData=await (await fetch('inputs/source.json')).json();
+document.getElementById('title').textContent=sourceData.title||'';
+const headers=sourceData.headers||[];
+const rows=sourceData.rows||[];
+const tbody=document.querySelector('#data-table tbody');
+const theadRow=document.querySelector('#data-table thead tr');
+headers.forEach(h=>{let th=document.createElement('th');th.textContent=h;theadRow.appendChild(th);});
+function renderTable(filter){tbody.innerHTML='';let count=0;
+rows.forEach(r=>{if(!filter||r.series===filter){const tr=document.createElement('tr');headers.forEach(h=>{let td=document.createElement('td');td.textContent=r[h];tr.appendChild(td);});tbody.appendChild(tr);count++;}});
+return {renderTable,rows,headers};})();
+</script>
+<script>
+(async()=>{
+const {renderTable,rows,headers}=await (async()=>{const sourceData=await (await fetch('inputs/source.json')).json();const headers=sourceData.headers||[];const rows=sourceData.rows||[];return {headers,rows};})();
+function updateCounts(filter){let cnt=0;rows.forEach(r=>{if(!filter||r.series===filter)cnt++;});document.getElementById('row-count').textContent=cnt;}
+function applyFilter(){const val=document.getElementById('filter').value.trim();updateCounts(val);renderTable(val);} 
+applyFilter();
+document.getElementById('filter').addEventListener('input',applyFilter);
+document.getElementById('reset').addEventListener('click',()=>{document.getElementById('filter').value='';applyFilter();});
+})();
+</script>
+<script>
+(async()=>{
+const sourceData=await (await fetch('inputs/source.json')).json();
+const rows=sourceData.rows||[];
+function pointsFor(series){return rows.filter(r=>r.series===series).map(r=>{let t=parseFloat(r.time_s);let p=parseFloat(r.position_m);let x=40+720*t/1.5;let y=260-220*p/1.8;return [x,y];});}
+const actualPoints=pointsFor('native_actual');
+const predPoints=pointsFor('native_prediction');
+function setPolyline(series,pts){const poly=document.querySelector(`svg polyline[data-series='${series}']`);poly.setAttribute('points',pts.map(([x,y])=>x.toFixed(3)+','+y.toFixed(3)).join(' '));}
+setPolyline('native_actual',actualPoints);
+setPolyline('native_prediction',predPoints);
+})();
+</script>
+<script>
+document.getElementById('scope').textContent='Observation data and a separate native simulation. No physical calibration or causal equivalence is claimed.';
+document.getElementById('data-quality').textContent='Within declared thresholds';
+document.getElementById('endpoint-error').textContent='0.024574';
+document.getElementById('prediction-error').textContent='0.000523';
+</script>
+</body>
+</html>

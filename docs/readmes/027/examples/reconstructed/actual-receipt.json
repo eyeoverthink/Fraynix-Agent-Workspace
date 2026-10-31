@@ -1,0 +1,262 @@
+{
+  "checks": [
+    {
+      "actual": {
+        "count": 1,
+        "text": "548",
+        "value": null
+      },
+      "expected": {
+        "expectText": "548",
+        "selector": "#source-count"
+      },
+      "index": 0,
+      "selector": "#source-count",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 1,
+        "text": "4D",
+        "value": null
+      },
+      "expected": {
+        "expectText": "4D",
+        "selector": "#dimensions"
+      },
+      "index": 1,
+      "selector": "#dimensions",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 1,
+        "text": "Java invariants passed",
+        "value": null
+      },
+      "expected": {
+        "expectText": "Java invariants passed",
+        "selector": "#verification"
+      },
+      "index": 2,
+      "selector": "#verification",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 1,
+        "text": "0°",
+        "value": null
+      },
+      "expected": {
+        "expectText": "0°",
+        "selector": "#angle"
+      },
+      "index": 3,
+      "selector": "#angle",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 1,
+        "text": "Rotate plane",
+        "value": ""
+      },
+      "expected": {
+        "action": "click",
+        "selector": "#rotate"
+      },
+      "index": 4,
+      "selector": "#rotate",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 1,
+        "text": "30°",
+        "value": null
+      },
+      "expected": {
+        "expectText": "30°",
+        "selector": "#angle"
+      },
+      "index": 5,
+      "selector": "#angle",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 1,
+        "text": "Reset view",
+        "value": ""
+      },
+      "expected": {
+        "action": "click",
+        "selector": "#reset"
+      },
+      "index": 6,
+      "selector": "#reset",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 1,
+        "text": "548",
+        "value": null
+      },
+      "expected": {
+        "expectText": "548",
+        "selector": "#visible-count"
+      },
+      "index": 7,
+      "selector": "#visible-count",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 1,
+        "text": "Next slice",
+        "value": ""
+      },
+      "expected": {
+        "action": "click",
+        "selector": "#slice"
+      },
+      "index": 8,
+      "selector": "#slice",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 1,
+        "text": "Axis 3 · bin 6",
+        "value": null
+      },
+      "expected": {
+        "expectText": "Axis 3 · bin 6",
+        "selector": "#slice-state"
+      },
+      "index": 9,
+      "selector": "#slice-state",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 1,
+        "text": "Reset view",
+        "value": ""
+      },
+      "expected": {
+        "action": "click",
+        "selector": "#reset"
+      },
+      "index": 10,
+      "selector": "#reset",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 1,
+        "text": "0°",
+        "value": null
+      },
+      "expected": {
+        "expectText": "0°",
+        "selector": "#angle"
+      },
+      "index": 11,
+      "selector": "#angle",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 1,
+        "text": "548",
+        "value": null
+      },
+      "expected": {
+        "expectText": "548",
+        "selector": "#visible-count"
+      },
+      "index": 12,
+      "selector": "#visible-count",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 1,
+        "text": "Seeded procedural geometry in abstract units. Projections and slices are views of mathematical data, not higher-dimensional physical measurements.",
+        "value": null
+      },
+      "expected": {
+        "expectText": "Seeded procedural geometry in abstract units. Projections and slices are views of mathematical data, not higher-dimensional physical measurements.",
+        "selector": "#scope"
+      },
+      "index": 13,
+      "selector": "#scope",
+      "passed": true
+    }
+  ],
+  "at": "2026-10-31T08:14:50.393646700Z",
+  "id": "5d256644-e4d5-3635-8974-6995c3ba4649",
+  "passed": true,
+  "version": 1,
+  "steps": [
+    {
+      "expectText": "548",
+      "selector": "#source-count"
+    },
+    {
+      "expectText": "4D",
+      "selector": "#dimensions"
+    },
+    {
+      "expectText": "Java invariants passed",
+      "selector": "#verification"
+    },
+    {
+      "expectText": "0°",
+      "selector": "#angle"
+    },
+    {
+      "action": "click",
+      "selector": "#rotate"
+    },
+    {
+      "expectText": "30°",
+      "selector": "#angle"
+    },
+    {
+      "action": "click",
+      "selector": "#reset"
+    },
+    {
+      "expectText": "548",
+      "selector": "#visible-count"
+    },
+    {
+      "action": "click",
+      "selector": "#slice"
+    },
+    {
+      "expectText": "Axis 3 · bin 6",
+      "selector": "#slice-state"
+    },
+    {
+      "action": "click",
+      "selector": "#reset"
+    },
+    {
+      "expectText": "0°",
+      "selector": "#angle"
+    },
+    {
+      "expectText": "548",
+      "selector": "#visible-count"
+    },
+    {
+      "expectText": "Seeded procedural geometry in abstract units. Projections and slices are views of mathematical data, not higher-dimensional physical measurements.",
+      "selector": "#scope"
+    }
+  ]
+}

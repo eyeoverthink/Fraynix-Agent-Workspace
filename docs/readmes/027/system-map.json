@@ -1,0 +1,176 @@
+{
+  "date": "2026-10-31",
+  "modules": [
+    {
+      "id": "request",
+      "name": "Existing UI and typed chat",
+      "status": "verified",
+      "source": "workspace-desktop/renderer/procedural-panel.js",
+      "summary": "Bounded dimensions/seed and actual file import in the existing Create flow.",
+      "note": "docs/obsidian/35-procedural-space.md"
+    },
+    {
+      "id": "kernel",
+      "name": "JDK geometry kernel",
+      "status": "verified",
+      "source": "fraynix-modules/geometry-core/src/main/java/fraymus/geometry/Colonization.java",
+      "summary": "Seeded original coordinates, branch topology and attraction accounting.",
+      "note": "docs/obsidian/35-procedural-space.md"
+    },
+    {
+      "id": "map",
+      "name": "BSP and grid navigation",
+      "status": "verified",
+      "source": "fraynix-modules/geometry-core/src/main/java/fraymus/geometry/Dungeon.java",
+      "summary": "Disjoint rooms, MST corridors and independent full-cell/shortest-path checks.",
+      "note": "docs/obsidian/35-procedural-space.md"
+    },
+    {
+      "id": "goal",
+      "name": "Shared Java task lifecycle",
+      "status": "verified",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/GoalRunner.java",
+      "summary": "Pinned source, interruptible computation, stable reports, explicit recovery and cancellation.",
+      "note": "docs/obsidian/35-procedural-space.md"
+    },
+    {
+      "id": "view",
+      "name": "Original interactive view",
+      "status": "verified",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/ProceduralReport.java",
+      "summary": "Actual projections, slices, growth replay and grid route stepping.",
+      "note": "docs/obsidian/35-procedural-space.md"
+    },
+    {
+      "id": "skills",
+      "name": "Retained procedures and packages",
+      "status": "verified",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/Procedural.java",
+      "summary": "Fresh-seed verification and original-data reconstruction import.",
+      "note": "docs/obsidian/35-procedural-space.md"
+    },
+    {
+      "id": "layout",
+      "name": "Independent responsive gate",
+      "status": "verified",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/ResponsiveLayout.java",
+      "summary": "Actual780/390 observations; no stylesheet rewriting or numerical gate reduction.",
+      "note": "docs/obsidian/35-procedural-space.md"
+    },
+    {
+      "id": "tests",
+      "name": "Real local-model dispatch",
+      "status": "verified",
+      "source": "workspace-desktop/test/live-procedural.cjs",
+      "summary": "Actual typed goal, skill reuse and real JSON export.",
+      "note": "docs/obsidian/35-procedural-space.md"
+    },
+    {
+      "id": "next",
+      "name": "Reference-image mapping",
+      "status": "planned",
+      "source": "docs/PROCESSING_ALGORITHM_REFERENCE.md",
+      "summary": "Adjacency extraction and bounded conflict repair remain unimplemented.",
+      "note": "docs/obsidian/35-procedural-space.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "docs/readmes/027/images/procedural-contract-027.png",
+      "caption": "Actual existing Create flow with explicit algorithm, seed, dimension and bounded conditions."
+    },
+    {
+      "path": "docs/readmes/027/images/procedural-colony3d-027.png",
+      "caption": "Actual Java3D colonization, all original branch coordinates and passing browser view checks."
+    },
+    {
+      "path": "docs/readmes/027/images/procedural-growth-027.png",
+      "caption": "Actual replay of recorded growth generations; view filtering preserves original data."
+    },
+    {
+      "path": "docs/readmes/027/images/procedural-skill-027.png",
+      "caption": "Actual shared Skills inspector reuses the retained algorithm on a fresh seed."
+    },
+    {
+      "path": "docs/readmes/027/images/procedural-dungeon4d-027.png",
+      "caption": "Actual4D BSP floor and independently checked grid route projected in the canvas."
+    },
+    {
+      "path": "docs/readmes/027/images/procedural-slice4d-027.png",
+      "caption": "Actual fourth-axis slice; hidden-layer route connections are omitted."
+    },
+    {
+      "path": "docs/readmes/027/images/procedural-colony16d-027.png",
+      "caption": "Actual16-component colonization data projected on a2D display, not16D physical reality."
+    },
+    {
+      "path": "docs/readmes/027/images/procedural-chat-reuse-027.png",
+      "caption": "Actual gpt-oss:20b chat reuses a retained procedure with another seed."
+    },
+    {
+      "path": "docs/readmes/027/images/procedural-chat-dungeon-027.png",
+      "caption": "Actual local-model request completes a4D dungeon and exports its verified JSON package."
+    },
+    {
+      "path": "docs/readmes/027/images/responsive-completed-control-027.png",
+      "caption": "SOFTWARE CONTROL: real browser second-version repair passes source, plot and780/390 layout gates."
+    },
+    {
+      "path": "docs/readmes/027/images/workflow-reused-live-027.png",
+      "caption": "Actual gpt-oss:20b evidence workflow reuse passes new780/390 layout checks with stricter source-quality flags preserved."
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/readmes/027/verification.json"
+    },
+    {
+      "path": "docs/readmes/027/procedural-integration.json"
+    },
+    {
+      "path": "docs/readmes/027/live-procedural.json"
+    },
+    {
+      "path": "docs/readmes/027/responsive-integration.json"
+    },
+    {
+      "path": "docs/readmes/027/live-responsive.json"
+    },
+    {
+      "path": "docs/readmes/027/regressions.json"
+    },
+    {
+      "path": "docs/readmes/027/development-attempts.json"
+    },
+    {
+      "path": "docs/readmes/027/development-live-first.json"
+    },
+    {
+      "path": "docs/readmes/027/failed-responsive-first-run.json"
+    },
+    {
+      "path": "docs/readmes/027/failed-responsive-second-run.json"
+    },
+    {
+      "path": "docs/readmes/027/examples/verified-space.html"
+    },
+    {
+      "path": "docs/readmes/027/examples/colony3d/index.html"
+    },
+    {
+      "path": "docs/readmes/027/examples/colony3d/coordinates.csv"
+    },
+    {
+      "path": "docs/readmes/027/examples/dungeon4d/extra.json"
+    },
+    {
+      "path": "docs/readmes/027/examples/export-provenance.json"
+    },
+    {
+      "path": "docs/readmes/027/file-inventory.json"
+    },
+    {
+      "path": "docs/readmes/027/FILE_TREE.md"
+    }
+  ]
+}

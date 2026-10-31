@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<title>Recorded observations & native forecasts</title>
+<style>
+*{box-sizing:border-box;}
+body{margin:0;font-family:sans-serif;padding:1rem;display:flex;flex-direction:column;gap:1rem;max-width:100%;}
+#controls{display:flex;gap:0.5rem;flex-wrap:wrap;align-items:center;}
+#filter,input,button{font:inherit;padding:8px;min-height:32px;}
+#scope,#data-quality,#endpoint-error,#prediction-error{margin:0;font-size:1rem;}
+#table-wrapper{overflow:auto;max-width:100%;}
+#data-table{width:100%;border-collapse:collapse;table-layout:fixed;}
+#data-table th, #data-table td{font-size:14px;padding:4px;border:1px solid #ccc;text-align:left;overflow-wrap:anywhere;}
+#data-table th{background:#f0f0f0;position:-webkit-sticky;position:sticky;top:0;z-index:2;}
+svg{width:100%;height:auto;display:block;margin-top:1rem;}
+.legend{font-size:14px;display:flex;gap:1rem;align-items:center;}
+.legend span{display:inline-block;width:12px;height:12px;background:#000;margin-right:4px;}
+</style>
+</head>
+<body>
+<h1 id="title"></h1>
+<div id="controls">
+<label for="filter">Filter series:</label>
+<input type="text" id="filter" placeholder="series name"/>
+<button id="reset">Reset</button>
+</div>
+<p id="row-count"></p>
+<p id="scope">Observation data and a separate native simulation. No physical calibration or causal equivalence is claimed.</p>
+<p id="data-quality">Within declared thresholds</p>
+<p>Endpoint error: <span id="endpoint-error">0.024574</span></p>
+<p>Prediction error: <span id="prediction-error">0.000523</span></p>
+<div id="table-wrapper">
+<table id="data-table"><thead><tr><th>series</th><th>time_s</th><th>position_m</th><th>source_kind</th></tr></thead><tbody></tbody></table>
+</div>
+<svg viewBox="0 0 800 300" aria-label="native simulation">
+<rect width="100%" height="100%" fill="#fff"/>
+<g id="axes"><line x1="40" y1="260" x2="760" y2="260" stroke="#000"/><line x1="40" y1="260" x2="40" y2="40" stroke="#000"/></g>
+<text x="400" y="290" text-anchor="middle">time (s)</text><text transform="rotate(-90) translate(-140,20)" text-anchor="middle">position (m)</text>
+<g class="legend"><rect x="650" y="50" width="12" height="12" fill="#f00"/><text x="670" y="62">native_actual</text><rect x="650" y="70" width="12" height="12" fill="#0f0"/><text x="670" y="82">native_prediction</text></g>
+<polyline data-series="native_actual" stroke="#f00" fill="none"/></svg>
+<script>
+(async()=>{
+ const sourceData=await (await fetch('inputs/source.json')).json();
+ document.getElementById('title').textContent=sourceData.title;
+ const tbody=document.querySelector('#data-table tbody');
+ function renderTable(filter=''){
+  tbody.innerHTML='';
+  let count=0;
+  for(const row of sourceData.rows){
+   if(filter && row.series!==filter) continue;
+   const tr=document.createElement('tr');
+   for(const h of sourceData.headers){
+    const td=document.createElement('td');
+    td.textContent=row[h];
+    tr.appendChild(td);
+   }
+   tbody.appendChild(tr);count++;
+  }
+  document.getElementById('row-count').textContent=count.toString();
+ }
+ renderTable();
+ const filterInput=document.getElementById('filter');
+ filterInput.addEventListener('input',()=>renderTable(filterInput.value));
+ document.getElementById('reset').addEventListener('click',()=>{filterInput.value='';renderTable();});
+ // SVG polylines
+ const actualRows=sourceData.rows.filter(r=>r.series==='native_actual');
+ const predRows=sourceData.rows.filter(r=>r.series==='native_prediction');
+ function pointsFrom(rows){return rows.map(r=>{
+  const t=parseFloat(r.time_s),p=parseFloat(r.position_m);
+  const x=40+720*t/1.5,y=260-220*p/1.8;return `${x.toFixed(3)},${y.toFixed(3)}`;
+ }).join(' ');} 
+ document.querySelector("polyline[data-series='native_actual']").setAttribute('points',pointsFrom(actualRows));
+ document.querySelector("polyline[data-series='native_prediction']").setAttribute('points',pointsFrom(predRows));
+})();
+</script>
+</body>
+</html>

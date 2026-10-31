@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<title>Recorded observations & native forecasts</title>
+<style>
+*{box-sizing:border-box;}
+body{margin:0;font-family:sans-serif;padding:1rem;display:flex;flex-direction:column;gap:1rem;max-width:100%;}
+#controls{display:flex;flex-wrap:wrap;gap:0.5rem;align-items:center;}
+#filter{font:inherit;padding:8px;min-height:32px;min-width:0;}
+#reset{font:inherit;padding:8px;min-height:32px;}
+#row-count{font-weight:bold;margin-left:auto;}
+#scope,#data-quality,#endpoint-error,#prediction-error{margin-top:0.5rem;font-size:1rem;}
+.table-wrapper{overflow:auto;max-width:100%;}
+#data-table{width:100%;table-layout:fixed;border-collapse:collapse;}
+#data-table th, #data-table td{font-size:14px;padding:4px 8px;border:1px solid #ddd;overflow-wrap:anywhere;text-align:left;}
+#data-table th{background:#f9f9f9;position:-webkit-sticky;position:sticky;top:0;z-index:2;}
+svg{width:100%;height:auto;background:#fff;border:1px solid #ccc;}
+.legend{display:flex;gap:1rem;margin-top:0.5rem;font-size:0.9rem;}
+.legend span{display:inline-flex;align-items:center;gap:4px;}
+.legend .dot{width:10px;height:10px;border-radius:50%;background:#000;}
+</style>
+</head>
+<body>
+<h1 id="title"></h1>
+<div id="controls">
+<input type="text" id="filter" placeholder="Filter series"/>
+<button id="reset">Reset</button>
+<span id="row-count"></span>
+</div>
+<p id="scope">Observation data and a separate native simulation. No physical calibration or causal equivalence is claimed.</p>
+<p id="data-quality">Within declared thresholds</p>
+<p>Endpoint error: <span id="endpoint-error"></span></p>
+<p>Prediction error: <span id="prediction-error"></span></p>
+<div class="table-wrapper">
+<table id="data-table"><thead><tr></tr></thead><tbody></tbody></table>
+</div>
+<svg viewBox="0 0 800 300" aria-label="Native simulation graph"><g transform="translate(40,260)"><line x1="0" y1="0" x2="720" y2="0" stroke="#ccc"/></g><g transform="translate(40,260)"><polyline data-series="native_actual" fill="none" stroke="steelblue" stroke-width="2"></polyline></g><g transform="translate(40,260)"><polyline data-series="native_prediction" fill="none" stroke="tomato" stroke-width="2"></polyline></g></svg>
+<div class="legend"><span class="dot" style="background:steelblue;"></span>Native Actual<br/><span class="dot" style="background:tomato;"></span>Native Prediction</div>
+<script>
+(async()=>{
+ const sourceData = await (await fetch('inputs/source.json')).json();
+ document.getElementById('title').textContent=sourceData.title||'';
+ const headers=sourceData.headers||[];
+ const rows=sourceData.rows||[];
+ const tbody=document.querySelector('#data-table tbody');
+ const theadRow=document.querySelector('#data-table thead tr');
+ headers.forEach(h=>{const th=document.createElement('th');th.textContent=h;theadRow.appendChild(th);});
+ function renderTable(filter=''){
+  tbody.innerHTML='';
+  let count=0;
+  rows.forEach(r=>{if(!filter||r.series===filter){count++;const tr=document.createElement('tr');headers.forEach(h=>{const td=document.createElement('td');td.textContent=r[h];tr.appendChild(td);});tbody.appendChild(tr);} });
+  document.getElementById('row-count').textContent=count;
+ }
+ renderTable();
+ const filterInput=document.getElementById('filter');
+ filterInput.addEventListener('input',e=>renderTable(e.target.value));
+ document.getElementById('reset').addEventListener('click',()=>{filterInput.value='';renderTable();});
+ // SVG points
+ function computePoints(series){const pts=[];rows.forEach(r=>{if(r.series===series){const t=Number(r.time_s);const p=Number(r.position_m);const x=40+720*t/1.5;const y=260-220*p/1.8;pts.push([x,y]);}});return pts.map(([x,y])=>`${x.toFixed(3)},${y.toFixed(3)}`).join(' ');} 
+ document.querySelector("polyline[data-series='native_actual']").setAttribute('points',computePoints('native_actual'));
+ document.querySelector("polyline[data-series='native_prediction']").setAttribute('points',computePoints('native_prediction'));
+ // errors
+ document.getElementById('endpoint-error').textContent='0.024574';
+ document.getElementById('prediction-error').textContent='0.000523';
+})();
+</script>
+</body>
+</html>

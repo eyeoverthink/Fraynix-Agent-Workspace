@@ -30,5 +30,6 @@ Numbered editions preserve dated system behavior and evidence. The root [README]
 | [024](../../README-024.md) | 2026-10-30 | Java temporal motion, new recorded clips, improved overlap and retained quality rejection | [Viewer](024/index.html) · [evidence](024/verification.json) · [contract](../TEMPORAL_TRACKING.md) |
 | [025](../../README-025.md) | 2026-10-30 | Durable local creation, actual tests, bounded repair and fresh-source procedural reuse | [Viewer](025/index.html) · [evidence](025/verification.json) · [contract](../DURABLE_CREATION.md) |
 | [026](../../README-026.md) | 2026-10-30 | Complete data/native/creation workflows, independent evidence audit and retained whole-workflow skills | [Viewer](026/index.html) · [evidence](026/verification.json) · [contract](../EVIDENCE_WORKFLOWS.md) |
+| [027](../../README-027.md) | 2026-10-31 | JDK procedural space, verified original-coordinate views, retained skills and responsive evidence | [Viewer](027/index.html) · [evidence](027/verification.json) · [contract](../PROCEDURAL_SPACE.md) |
 
-Latest implementation/documentation edition: **026**. Earlier snapshots remain intact. See [sequence policy](README_SEQUENCE.md) and [manifest](editions.json).
+Latest implementation/documentation edition: **027**. Earlier snapshots remain intact. See [sequence policy](README_SEQUENCE.md) and [manifest](editions.json).

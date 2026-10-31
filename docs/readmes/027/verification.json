@@ -1,0 +1,839 @@
+{
+  "date": "2026-10-31",
+  "sourceBaseline": "e302d47d3cb4e9a760a62fac63c1937a94caac62",
+  "sourceInventory": 568,
+  "regressions": {
+    "passed": true,
+    "javaTests": 243,
+    "javaClasses": 45,
+    "desktopUnitTests": 41,
+    "suites": {
+      "procedural-integration": {
+        "passed": true,
+        "checks": 9,
+        "seconds": 28.42
+      },
+      "live-procedural": {
+        "passed": true,
+        "checks": 4,
+        "seconds": 126.46
+      },
+      "responsive-integration": {
+        "passed": true,
+        "checks": 4,
+        "seconds": 14.08
+      },
+      "live-responsive": {
+        "passed": true,
+        "checks": 5,
+        "seconds": 367.77
+      },
+      "workflow-integration": {
+        "passed": true,
+        "checks": 8,
+        "seconds": 33.34
+      },
+      "creation-integration": {
+        "passed": true,
+        "checks": 8,
+        "seconds": 11.38
+      },
+      "tracking024-integration": {
+        "passed": true,
+        "checks": 9,
+        "seconds": 35.41
+      },
+      "tracking-controls-integration": {
+        "passed": true,
+        "checks": 6,
+        "seconds": 13.41
+      },
+      "tracking-migration": {
+        "passed": true,
+        "checks": 3,
+        "seconds": 7.12
+      },
+      "perception-integration": {
+        "passed": true,
+        "checks": 15,
+        "seconds": 33.44
+      },
+      "spatial-integration": {
+        "passed": true,
+        "checks": 14,
+        "seconds": 38.41
+      },
+      "data-goals-integration": {
+        "passed": true,
+        "checks": 12,
+        "seconds": 16.39
+      },
+      "goals-integration": {
+        "passed": true,
+        "checks": 14,
+        "seconds": 55.03
+      },
+      "world-model-integration": {
+        "passed": true,
+        "checks": 15,
+        "seconds": 14.15
+      },
+      "feedback-integration": {
+        "passed": true,
+        "checks": 12,
+        "seconds": 14.76
+      },
+      "brain-game-integration": {
+        "passed": true,
+        "checks": 10,
+        "seconds": 16.2
+      },
+      "body-integration": {
+        "passed": true,
+        "checks": 10,
+        "seconds": 7.4
+      },
+      "observer-integration": {
+        "passed": true,
+        "checks": 12,
+        "seconds": 5.17
+      },
+      "scene-integration": {
+        "passed": true,
+        "checks": 12,
+        "seconds": 6.12
+      },
+      "measurement-integration": {
+        "passed": true,
+        "checks": 10,
+        "seconds": 5.21
+      },
+      "calibration-integration": {
+        "passed": true,
+        "checks": 8,
+        "seconds": 9.32
+      },
+      "real-data-delfys": {
+        "passed": true,
+        "checks": 9,
+        "seconds": 4.6
+      },
+      "integration": {
+        "passed": true,
+        "checks": 12,
+        "seconds": 26.78
+      },
+      "learning-integration": {
+        "passed": true,
+        "checks": 9,
+        "seconds": 26.2
+      },
+      "broader-validation": {
+        "passed": true,
+        "checks": 45,
+        "seconds": 15.51
+      },
+      "live-data-goals": {
+        "passed": true,
+        "checks": 4,
+        "seconds": 86.69
+      },
+      "live-goals": {
+        "passed": true,
+        "checks": 5,
+        "seconds": 54.35
+      }
+    },
+    "workflowGroups": 266,
+    "liveGroups": 18,
+    "scope": "All existing software workflow suites plus027; actual model rechecks cover shared native/data goals, procedural chat and responsive evidence generation. Unchanged old perception/tracking/creation live-model tests are not counted again."
+  },
+  "freshClone": {
+    "status": "passed",
+    "checkout": "fraynix-workspace-qa027-release",
+    "sourceCommit": "e302d47d3cb4e9a760a62fac63c1937a94caac62",
+    "javaTests": 243,
+    "desktopUnitTests": 41,
+    "bodyUiChecks": 10,
+    "brainGameUiChecks": 10,
+    "feedbackUiChecks": 12,
+    "worldModelUiChecks": 15,
+    "goalUiChecks": 14,
+    "dataGoalUiChecks": 12,
+    "offlineBuild": true,
+    "modelWeightsOrPrivateRuntimeCopied": false,
+    "electronBinary": "Pinned 45.1.0 executable reused from existing dependency cache after npm ci --offline --ignore-scripts",
+    "trackingUiChecks": 9,
+    "trackingControlsChecks": 6,
+    "perceptionUiChecks": 15,
+    "spatialUiChecks": 14,
+    "migrationUiChecks": 3,
+    "creationUiChecks": 8,
+    "workflowUiChecks": 8,
+    "proceduralUiChecks": 9,
+    "responsiveUiChecks": 4,
+    "uiChecks": 149
+  },
+  "documentationQa": {
+    "status": "passed",
+    "checks": [
+      "Offline companion loads nine source-linked modules with no runtime service",
+      "Architecture selection and all/verified/planned filters work",
+      "Canonical source inventory search resolves actual Java dungeon implementation",
+      "All eleven dated actual application screenshots decode and have captions",
+      "Navigation, inventory search and map selection work at390px without horizontal overflow",
+      "Standalone original-data geometry viewer works offline: all226 vertices, actual rotation, recorded growth replay and reset",
+      "No script errors, external requests or CDN dependencies"
+    ]
+  },
+  "actualGeometryUi": {
+    "checks": 9,
+    "cases": [
+      [
+        "colonization",
+        3,
+        226
+      ],
+      [
+        "colonization",
+        3,
+        210
+      ],
+      [
+        "dungeon",
+        4,
+        548
+      ],
+      [
+        "dungeon",
+        4,
+        548
+      ],
+      [
+        "dungeon",
+        2,
+        143
+      ],
+      [
+        "dungeon",
+        3,
+        318
+      ],
+      [
+        "colonization",
+        16,
+        648
+      ]
+    ]
+  },
+  "actualLocalModel": {
+    "model": "gpt-oss:20b",
+    "checks": 4,
+    "goals": [
+      {
+        "consumed": 128,
+        "stopReason": "all attractors reached",
+        "connected": true,
+        "stepLength": 0.035,
+        "seed": 2711,
+        "vertices": 210,
+        "edges": 209,
+        "verified": true,
+        "passed": true,
+        "remaining": 0,
+        "dimensions": 3
+      },
+      {
+        "consumed": 128,
+        "stopReason": "all attractors reached",
+        "connected": true,
+        "stepLength": 0.035,
+        "seed": 2712,
+        "vertices": 217,
+        "edges": 216,
+        "verified": true,
+        "passed": true,
+        "remaining": 0,
+        "dimensions": 3
+      },
+      {
+        "connected": true,
+        "rooms": 12,
+        "seed": 2811,
+        "vertices": 391,
+        "corridors": 11,
+        "pathSteps": 34,
+        "verified": true,
+        "passed": true,
+        "reachable": 391,
+        "dimensions": 4
+      }
+    ]
+  },
+  "actualResponsiveGeneration": {
+    "checks": 5,
+    "drafts": [
+      2,
+      1
+    ],
+    "layouts": [
+      {
+        "profile": "responsive-v1",
+        "passed": true,
+        "errors": [],
+        "views": [
+          {
+            "headers": [
+              {
+                "visible": true,
+                "top": 450.375,
+                "left": 16.5,
+                "bottom": 475.375,
+                "width": 183,
+                "text": "series",
+                "right": 199.5,
+                "height": 25
+              },
+              {
+                "visible": true,
+                "top": 450.375,
+                "left": 199.5,
+                "bottom": 475.375,
+                "width": 183,
+                "text": "time_s",
+                "right": 382.5,
+                "height": 25
+              },
+              {
+                "visible": true,
+                "top": 450.375,
+                "left": 382.5,
+                "bottom": 475.375,
+                "width": 183,
+                "text": "position_m",
+                "right": 565.5,
+                "height": 25
+              },
+              {
+                "visible": true,
+                "top": 450.375,
+                "left": 565.5,
+                "bottom": 475.375,
+                "width": 183,
+                "text": "source_kind",
+                "right": 748.5,
+                "height": 25
+              }
+            ],
+            "controls": [
+              {
+                "visible": true,
+                "top": 111.875,
+                "left": 111.125,
+                "bottom": 149.875,
+                "width": 215,
+                "text": "",
+                "right": 326.125,
+                "height": 38
+              },
+              {
+                "visible": true,
+                "top": 111.875,
+                "left": 334.125,
+                "bottom": 149.875,
+                "width": 61.796875,
+                "text": "Reset",
+                "right": 395.921875,
+                "height": 38
+              }
+            ],
+            "fonts": [
+              14,
+              14,
+              14,
+              14,
+              14,
+              14,
+              14,
+              14
+            ],
+            "width": 780,
+            "row": [
+              {
+                "visible": true,
+                "top": 475.375,
+                "left": 16.5,
+                "bottom": 500.375,
+                "width": 183,
+                "text": "observations",
+                "right": 199.5,
+                "height": 25
+              },
+              {
+                "visible": true,
+                "top": 475.375,
+                "left": 199.5,
+                "bottom": 500.375,
+                "width": 183,
+                "text": "0.0",
+                "right": 382.5,
+                "height": 25
+              },
+              {
+                "visible": true,
+                "top": 475.375,
+                "left": 382.5,
+                "bottom": 500.375,
+                "width": 183,
+                "text": "0.0",
+                "right": 565.5,
+                "height": 25
+              },
+              {
+                "visible": true,
+                "top": 475.375,
+                "left": 565.5,
+                "bottom": 500.375,
+                "width": 183,
+                "text": "measured",
+                "right": 748.5,
+                "height": 25
+              }
+            ],
+            "table": {
+              "visible": true,
+              "top": 449.875,
+              "left": 16,
+              "bottom": 3225.875,
+              "width": 733,
+              "text": "seriestime_sposition_msource_kindobservations0.00.0measuredobservations0.016666666666666666-8.906555967101999E-5measuredobservations0.033333333333333330.0011295164119522316measuredobservations0.050.0024867640549855706measuredobservations0.066666666666666670.007017968162558543measuredobservations0.083333333333333330.010698431996622775measuredobservations0.10.014703216819915044measuredobservations0.116666666666666670.017995859493289478measuredobservations0.133333333333333330.024935306893101916measuredobservations0.150.025097812135787212measuredobservations0.166666666666666660.030703888100138365measuredobservations0.183333333333333320.030621388053724045measuredobservations0.20.036285576877344065measuredobservations0.216666666666666670.044044788911099794measuredobservations0.233333333333333340.051213228894783636measuredobservations0.250.06028074587281047measuredobservations0.266666666666666660.06829978115960207measuredobservations0.28333333333333330.07807873195629088measuredobservations0.30.0874793264465071measuredobservations0.316666666666666650.09727044620970338measuredobservations0.33333333333333330.10814429783397252measuredobservations0.350.11982889590033291measuredobservations0.366666666666666640.13225322526903682measuredobservations0.383333333333333360.1452421730868717measuredobservations0.40.15878196018100085measuredobservations0.41666666666666670.17295793712944085measuredobservations0.433333333333333350.17302742874036328measuredobservations0.450.1876040295767997measuredobservations0.46666666666666670.20209397149427433measuredobservations0.483333333333333340.2181235917282139measuredobservations0.50.23528363457656626measuredobservations0.51666666666666670.2694390602275196measuredobservations0.53333333333333330.28834888586385937measuredobservations0.550.30718423388833316measuredobservations0.56666666666666670.32703368630862495measuredobservations0.58333333333333340.34794184989717597measuredobservations0.60.36854071368884356measuredobservations0.61666666666666670.36847403860658423measuredobservations0.63333333333333330.3902795446522395measuredobservations0.650.4129944707313323measuredobservations0.66666666666666660.43808202325536055measuredobservations0.68333333333333330.43809282212620554measuredobservations0.70.46193103569350163measuredobservations0.71666666666666670.48807320727306147measuredobservations0.73333333333333330.5146179206920702measuredobservations0.750.5417475814277108measuredobservations0.76666666666666670.5694339271658345measuredobservations0.78333333333333330.5988525571993838measuredobservations0.80.6311976815439138measuredobservations0.81666666666666670.6616296385493226measuredobservations0.83333333333333340.6915418398499272measuredobservations0.850.726measurednative_actual0.050.015614731821189819native simulationnative_actual0.10.04159353886836978native simulationnative_actual0.150.07793704786157407native simulationnative_actual0.20.12464469499779465native simulationnative_actual0.250.18171769053069353native simulationnative_actual0.30.24915573453788298native simulationnative_actual0.350.32695781709166494native simulationnative_actual0.40.40512464026289313native simulationnative_actual0.450.4836565081533996native simulationnative_actual0.50.5800532930211443native simulationnative_actual0.550.6768142868096925native simulationnative_actual0.60.7639401094783045native simulationnative_actual0.650.841431018400913native simulationnative_actual0.70.9092858814390363native simulationnative_actual0.750.9675064136881641native simulationnative_actual0.81.0160912098812316native simulationnative_actual0.851.0550409968503056native simulationnative_actual0.91.0843554175640193native simulationnative_actual0.951.1140344169992364native simulationnative_actual1.01.1340782516991843native simulationnative_actual1.051.15448667968116native simulationnative_actual1.11.1752597545327714native simulationnative_actual1.151.1863972685906619native simulationnative_actual1.21.19789990536099native simulationnative_actual1.251.2097673223729126native simulationnative_actual1.31.211999373129475native simulationnative_actual1.351.2145962041276315native simulationnative_actual1.41.2175576284078158native simulationnative_actual1.451.2208838329295943native simulationnative_prediction0.050.014282755324684886native model forecastnative_prediction0.10.04112933725014018native model forecastnative_prediction0.150.07749586065140522native model forecastnative_prediction0.20.12423043037772877native model forecastnative_prediction0.250.18132934811103613native model forecastnative_prediction0.30.2487936241469995native model forecastnative_prediction0.350.326622950231613native model forecastnative_prediction0.40.40481699851667324native model forecastnative_prediction0.450.4833494689373843native model forecastnative_prediction0.50.5797918476276552native model forecastnative_prediction0.550.6765542839068714native model forecastnative_prediction0.60.7636816286801464native model forecastnative_prediction0.650.8411474755559177native model forecastnative_prediction0.70.908978405171875native model forecastnative_prediction0.750.967173290393109native model forecastnative_prediction0.81.01573384464803native model forecastnative_prediction0.851.054658771125793native model forecastnative_prediction0.91.083950027295246native model forecastnative_prediction0.951.1136036359086967native model forecastnative_prediction1.01.1327984420862216native model forecastnative_prediction1.051.154047282269437native model forecastnative_prediction1.11.1739525216010602native model forecastnative_prediction1.151.1861070120487505native model forecastnative_prediction1.21.1975713668291441native model forecastnative_prediction1.251.209427932273673native model forecastnative_prediction1.31.2121441359670417native model forecastnative_prediction1.351.2146977327733566native model forecastnative_prediction1.41.217641752082935native model forecastnative_prediction1.451.2209497445660895native model forecast",
+              "right": 749,
+              "height": 2776
+            },
+            "height": 900,
+            "scrollWidth": 765
+          },
+          {
+            "headers": [
+              {
+                "visible": true,
+                "top": 551.375,
+                "left": 16.5,
+                "bottom": 592.375,
+                "width": 85.5,
+                "text": "series",
+                "right": 102,
+                "height": 41
+              },
+              {
+                "visible": true,
+                "top": 551.375,
+                "left": 102,
+                "bottom": 592.375,
+                "width": 85.5,
+                "text": "time_s",
+                "right": 187.5,
+                "height": 41
+              },
+              {
+                "visible": true,
+                "top": 551.375,
+                "left": 187.5,
+                "bottom": 592.375,
+                "width": 85.5,
+                "text": "position_m",
+                "right": 273,
+                "height": 41
+              },
+              {
+                "visible": true,
+                "top": 551.375,
+                "left": 273,
+                "bottom": 592.375,
+                "width": 85.5,
+                "text": "source_kind",
+                "right": 358.5,
+                "height": 41
+              }
+            ],
+            "controls": [
+              {
+                "visible": true,
+                "top": 148.875,
+                "left": 111.125,
+                "bottom": 186.875,
+                "width": 215,
+                "text": "",
+                "right": 326.125,
+                "height": 38
+              },
+              {
+                "visible": true,
+                "top": 194.875,
+                "left": 16,
+                "bottom": 232.875,
+                "width": 61.796875,
+                "text": "Reset",
+                "right": 77.796875,
+                "height": 38
+              }
+            ],
+            "fonts": [
+              14,
+              14,
+              14,
+              14,
+              14,
+              14,
+              14,
+              14
+            ],
+            "width": 390,
+            "row": [
+              {
+                "visible": true,
+                "top": 592.375,
+                "left": 16.5,
+                "bottom": 633.375,
+                "width": 85.5,
+                "text": "observations",
+                "right": 102,
+                "height": 41
+              },
+              {
+                "visible": true,
+                "top": 592.375,
+                "left": 102,
+                "bottom": 633.375,
+                "width": 85.5,
+                "text": "0.0",
+                "right": 187.5,
+                "height": 41
+              },
+              {
+                "visible": true,
+                "top": 592.375,
+                "left": 187.5,
+                "bottom": 633.375,
+                "width": 85.5,
+                "text": "0.0",
+                "right": 273,
+                "height": 41
+              },
+              {
+                "visible": true,
+                "top": 592.375,
+                "left": 273,
+                "bottom": 633.375,
+                "width": 85.5,
+                "text": "measured",
+                "right": 358.5,
+                "height": 41
+              }
+            ],
+            "table": {
+              "visible": true,
+              "top": 550.875,
+              "left": 16,
+              "bottom": 5806.875,
+              "width": 343,
+              "text": "seriestime_sposition_msource_kindobservations0.00.0measuredobservations0.016666666666666666-8.906555967101999E-5measuredobservations0.033333333333333330.0011295164119522316measuredobservations0.050.0024867640549855706measuredobservations0.066666666666666670.007017968162558543measuredobservations0.083333333333333330.010698431996622775measuredobservations0.10.014703216819915044measuredobservations0.116666666666666670.017995859493289478measuredobservations0.133333333333333330.024935306893101916measuredobservations0.150.025097812135787212measuredobservations0.166666666666666660.030703888100138365measuredobservations0.183333333333333320.030621388053724045measuredobservations0.20.036285576877344065measuredobservations0.216666666666666670.044044788911099794measuredobservations0.233333333333333340.051213228894783636measuredobservations0.250.06028074587281047measuredobservations0.266666666666666660.06829978115960207measuredobservations0.28333333333333330.07807873195629088measuredobservations0.30.0874793264465071measuredobservations0.316666666666666650.09727044620970338measuredobservations0.33333333333333330.10814429783397252measuredobservations0.350.11982889590033291measuredobservations0.366666666666666640.13225322526903682measuredobservations0.383333333333333360.1452421730868717measuredobservations0.40.15878196018100085measuredobservations0.41666666666666670.17295793712944085measuredobservations0.433333333333333350.17302742874036328measuredobservations0.450.1876040295767997measuredobservations0.46666666666666670.20209397149427433measuredobservations0.483333333333333340.2181235917282139measuredobservations0.50.23528363457656626measuredobservations0.51666666666666670.2694390602275196measuredobservations0.53333333333333330.28834888586385937measuredobservations0.550.30718423388833316measuredobservations0.56666666666666670.32703368630862495measuredobservations0.58333333333333340.34794184989717597measuredobservations0.60.36854071368884356measuredobservations0.61666666666666670.36847403860658423measuredobservations0.63333333333333330.3902795446522395measuredobservations0.650.4129944707313323measuredobservations0.66666666666666660.43808202325536055measuredobservations0.68333333333333330.43809282212620554measuredobservations0.70.46193103569350163measuredobservations0.71666666666666670.48807320727306147measuredobservations0.73333333333333330.5146179206920702measuredobservations0.750.5417475814277108measuredobservations0.76666666666666670.5694339271658345measuredobservations0.78333333333333330.5988525571993838measuredobservations0.80.6311976815439138measuredobservations0.81666666666666670.6616296385493226measuredobservations0.83333333333333340.6915418398499272measuredobservations0.850.726measurednative_actual0.050.015614731821189819native simulationnative_actual0.10.04159353886836978native simulationnative_actual0.150.07793704786157407native simulationnative_actual0.20.12464469499779465native simulationnative_actual0.250.18171769053069353native simulationnative_actual0.30.24915573453788298native simulationnative_actual0.350.32695781709166494native simulationnative_actual0.40.40512464026289313native simulationnative_actual0.450.4836565081533996native simulationnative_actual0.50.5800532930211443native simulationnative_actual0.550.6768142868096925native simulationnative_actual0.60.7639401094783045native simulationnative_actual0.650.841431018400913native simulationnative_actual0.70.9092858814390363native simulationnative_actual0.750.9675064136881641native simulationnative_actual0.81.0160912098812316native simulationnative_actual0.851.0550409968503056native simulationnative_actual0.91.0843554175640193native simulationnative_actual0.951.1140344169992364native simulationnative_actual1.01.1340782516991843native simulationnative_actual1.051.15448667968116native simulationnative_actual1.11.1752597545327714native simulationnative_actual1.151.1863972685906619native simulationnative_actual1.21.19789990536099native simulationnative_actual1.251.2097673223729126native simulationnative_actual1.31.211999373129475native simulationnative_actual1.351.2145962041276315native simulationnative_actual1.41.2175576284078158native simulationnative_actual1.451.2208838329295943native simulationnative_prediction0.050.014282755324684886native model forecastnative_prediction0.10.04112933725014018native model forecastnative_prediction0.150.07749586065140522native model forecastnative_prediction0.20.12423043037772877native model forecastnative_prediction0.250.18132934811103613native model forecastnative_prediction0.30.2487936241469995native model forecastnative_prediction0.350.326622950231613native model forecastnative_prediction0.40.40481699851667324native model forecastnative_prediction0.450.4833494689373843native model forecastnative_prediction0.50.5797918476276552native model forecastnative_prediction0.550.6765542839068714native model forecastnative_prediction0.60.7636816286801464native model forecastnative_prediction0.650.8411474755559177native model forecastnative_prediction0.70.908978405171875native model forecastnative_prediction0.750.967173290393109native model forecastnative_prediction0.81.01573384464803native model forecastnative_prediction0.851.054658771125793native model forecastnative_prediction0.91.083950027295246native model forecastnative_prediction0.951.1136036359086967native model forecastnative_prediction1.01.1327984420862216native model forecastnative_prediction1.051.154047282269437native model forecastnative_prediction1.11.1739525216010602native model forecastnative_prediction1.151.1861070120487505native model forecastnative_prediction1.21.1975713668291441native model forecastnative_prediction1.251.209427932273673native model forecastnative_prediction1.31.2121441359670417native model forecastnative_prediction1.351.2146977327733566native model forecastnative_prediction1.41.217641752082935native model forecastnative_prediction1.451.2209497445660895native model forecast",
+              "right": 359,
+              "height": 5256
+            },
+            "height": 900,
+            "scrollWidth": 375
+          }
+        ]
+      },
+      {
+        "profile": "responsive-v1",
+        "passed": true,
+        "errors": [],
+        "views": [
+          {
+            "headers": [
+              {
+                "visible": true,
+                "top": 166.375,
+                "left": 16.5,
+                "bottom": 196.15625,
+                "width": 183,
+                "text": "series",
+                "right": 199.5,
+                "height": 29.78125
+              },
+              {
+                "visible": true,
+                "top": 166.375,
+                "left": 199.5,
+                "bottom": 196.15625,
+                "width": 183,
+                "text": "time_s",
+                "right": 382.5,
+                "height": 29.78125
+              },
+              {
+                "visible": true,
+                "top": 166.375,
+                "left": 382.5,
+                "bottom": 196.15625,
+                "width": 183,
+                "text": "position_m",
+                "right": 565.5,
+                "height": 29.78125
+              },
+              {
+                "visible": true,
+                "top": 166.375,
+                "left": 565.5,
+                "bottom": 196.15625,
+                "width": 183,
+                "text": "source_kind",
+                "right": 748.5,
+                "height": 29.78125
+              }
+            ],
+            "controls": [
+              {
+                "visible": true,
+                "top": 111.875,
+                "left": 111.125,
+                "bottom": 149.875,
+                "width": 215,
+                "text": "",
+                "right": 326.125,
+                "height": 38
+              },
+              {
+                "visible": true,
+                "top": 111.875,
+                "left": 334.125,
+                "bottom": 149.875,
+                "width": 61.796875,
+                "text": "Reset",
+                "right": 395.921875,
+                "height": 38
+              }
+            ],
+            "fonts": [
+              14,
+              14,
+              14,
+              14,
+              14,
+              14,
+              14,
+              14
+            ],
+            "width": 780,
+            "row": [
+              {
+                "visible": true,
+                "top": 196.15625,
+                "left": 16.5,
+                "bottom": 225.9375,
+                "width": 183,
+                "text": "observations",
+                "right": 199.5,
+                "height": 29.78125
+              },
+              {
+                "visible": true,
+                "top": 196.15625,
+                "left": 199.5,
+                "bottom": 225.9375,
+                "width": 183,
+                "text": "0.0",
+                "right": 382.5,
+                "height": 29.78125
+              },
+              {
+                "visible": true,
+                "top": 196.15625,
+                "left": 382.5,
+                "bottom": 225.9375,
+                "width": 183,
+                "text": "0.0",
+                "right": 565.5,
+                "height": 29.78125
+              },
+              {
+                "visible": true,
+                "top": 196.15625,
+                "left": 565.5,
+                "bottom": 225.9375,
+                "width": 183,
+                "text": "measured",
+                "right": 748.5,
+                "height": 29.78125
+              }
+            ],
+            "table": {
+              "visible": true,
+              "top": 165.875,
+              "left": 16,
+              "bottom": 3383.25,
+              "width": 733,
+              "text": "seriestime_sposition_msource_kind\nobservations0.00.0measuredobservations0.0166666666666666662.885407821130584E-4measuredobservations0.033333333333333330.0016906343706534085measuredobservations0.050.0035047497333806853measuredobservations0.066666666666666670.009270467236933236measuredobservations0.083333333333333330.01267120625613467measuredobservations0.10.022068265380239607measuredobservations0.116666666666666670.02748961984899487measuredobservations0.133333333333333330.04004685703155389measuredobservations0.150.05394719777450184measuredobservations0.166666666666666660.061582387932065184measuredobservations0.183333333333333320.06982248831817187measuredobservations0.20.07898323267913354measuredobservations0.216666666666666670.08874046972727129measuredobservations0.233333333333333340.09866252527241547measuredobservations0.250.1100181635474265measuredobservations0.266666666666666660.10997851846842079measuredobservations0.28333333333333330.12138961362075727measuredobservations0.30.1342824822098404measuredobservations0.316666666666666650.13433524015053586measuredobservations0.33333333333333330.14727171938325323measuredobservations0.350.16133681431010158measuredobservations0.366666666666666640.17586722659895826measuredobservations0.383333333333333360.19058142155926358measuredobservations0.40.20528780085607284measuredobservations0.41666666666666670.22102901723543766measuredobservations0.433333333333333350.2371413809051456measuredobservations0.450.25373844568443654measuredobservations0.46666666666666670.2706393646257609measuredobservations0.483333333333333340.28876515972224626measuredobservations0.50.30676317535942055measuredobservations0.51666666666666670.3450477745167909measuredobservations0.53333333333333330.3457465644860226measuredobservations0.550.3654985040483757measuredobservations0.56666666666666670.3874666396505373measuredobservations0.58333333333333340.3873629181320528measuredobservations0.60.4092210426724454measuredobservations0.61666666666666670.4319189599154592measuredobservations0.63333333333333330.4566770447880289measuredobservations0.650.4813936185274243measuredobservations0.66666666666666660.5066970155831854measuredobservations0.68333333333333330.5067490077668731measuredobservations0.70.5333989124770575measuredobservations0.71666666666666670.5618002003181014measuredobservations0.73333333333333330.5895498427423392measuredobservations0.750.6220121984432841measuredobservations0.76666666666666670.6507018803809865measuredobservations0.78333333333333330.711115055956649measuredobservations0.80.7755585430306111measurednative_actual0.050.015599247434236185native simulationnative_actual0.10.05122219157125578native simulationnative_actual0.150.10699044880174335native simulationnative_actual0.20.18290471955708718native simulationnative_actual0.250.2789451452308381native simulationnative_actual0.30.3851198045577913native simulationnative_actual0.350.5013697725198927native simulationnative_actual0.40.6277063652761536native simulationnative_actual0.450.7541767812900526native simulationnative_actual0.50.8982784016699156native simulationnative_actual0.551.0325048405409845native simulationnative_actual0.61.1568574114164525native simulationnative_actual0.651.2713613283944403native simulationnative_actual0.71.375932091290902native simulationnative_actual0.751.4706493449362341native simulationnative_actual0.81.5555133693965577native simulationnative_actual0.851.6205108358968139native simulationnative_actual0.91.6756445125626813native simulationnative_actual0.951.7209053993177204native simulationnative_actual1.01.7563061489321372native simulationnative_actual1.051.7818462725699293native simulationnative_actual1.11.7975248165567803native simulationnative_actual1.151.8033425355026353native simulationnative_actual1.21.8092992309786151native simulationnative_actual1.251.8153945932699005native simulationnative_actual1.31.8134953882443932native simulationnative_actual1.351.813841578445499native simulationnative_actual1.41.8157979324690963native simulationnative_actual1.451.8187267166626504native simulationnative_prediction0.050.015298914562784385native model forecastnative_prediction0.10.05088863387123291native model forecastnative_prediction0.150.10672368371632629native model forecastnative_prediction0.20.18268378377129674native model forecastnative_prediction0.250.27876809654394036native model forecastnative_prediction0.30.3850181332167346native model forecastnative_prediction0.350.5012614789685863native model forecastnative_prediction0.40.6276100316924245native model forecastnative_prediction0.450.7541146606544658native model forecastnative_prediction0.50.8982710011016524native model forecastnative_prediction0.551.0326066345039504native model forecastnative_prediction0.61.1568143313666783native model forecastnative_prediction0.651.2712971147691863native model forecastnative_prediction0.71.3759595875255393native model forecastnative_prediction0.751.4705426050919799native model forecastnative_prediction0.81.555399614737826native model forecastnative_prediction0.851.6203795322462415native model forecastnative_prediction0.91.6754553943319537native model forecastnative_prediction0.951.7206879890005102native model forecastnative_prediction1.01.7560674630245996native model forecastnative_prediction1.051.7817050557321314native model forecastnative_prediction1.11.797289210424304native model forecastnative_prediction1.151.8034446412929461native model forecastnative_prediction1.21.8094872715261194native model forecastnative_prediction1.251.8155750365527126native model forecastnative_prediction1.31.8140676046178903native model forecastnative_prediction1.351.812872800572126native model forecastnative_prediction1.41.8169207728442276native model forecastnative_prediction1.451.8202860619953147native model forecast",
+              "right": 749,
+              "height": 3217.375
+            },
+            "height": 900,
+            "scrollWidth": 765
+          },
+          {
+            "headers": [
+              {
+                "visible": true,
+                "top": 249.375,
+                "left": 16.5,
+                "bottom": 295.15625,
+                "width": 85.5,
+                "text": "series",
+                "right": 102,
+                "height": 45.78125
+              },
+              {
+                "visible": true,
+                "top": 249.375,
+                "left": 102,
+                "bottom": 295.15625,
+                "width": 85.5,
+                "text": "time_s",
+                "right": 187.5,
+                "height": 45.78125
+              },
+              {
+                "visible": true,
+                "top": 249.375,
+                "left": 187.5,
+                "bottom": 295.15625,
+                "width": 85.5,
+                "text": "position_m",
+                "right": 273,
+                "height": 45.78125
+              },
+              {
+                "visible": true,
+                "top": 249.375,
+                "left": 273,
+                "bottom": 295.15625,
+                "width": 85.5,
+                "text": "source_kind",
+                "right": 358.5,
+                "height": 45.78125
+              }
+            ],
+            "controls": [
+              {
+                "visible": true,
+                "top": 148.875,
+                "left": 111.125,
+                "bottom": 186.875,
+                "width": 215,
+                "text": "",
+                "right": 326.125,
+                "height": 38
+              },
+              {
+                "visible": true,
+                "top": 194.875,
+                "left": 16,
+                "bottom": 232.875,
+                "width": 61.796875,
+                "text": "Reset",
+                "right": 77.796875,
+                "height": 38
+              }
+            ],
+            "fonts": [
+              14,
+              14,
+              14,
+              14,
+              14,
+              14,
+              14,
+              14
+            ],
+            "width": 390,
+            "row": [
+              {
+                "visible": true,
+                "top": 295.15625,
+                "left": 16.5,
+                "bottom": 340.9375,
+                "width": 85.5,
+                "text": "observations",
+                "right": 102,
+                "height": 45.78125
+              },
+              {
+                "visible": true,
+                "top": 295.15625,
+                "left": 102,
+                "bottom": 340.9375,
+                "width": 85.5,
+                "text": "0.0",
+                "right": 187.5,
+                "height": 45.78125
+              },
+              {
+                "visible": true,
+                "top": 295.15625,
+                "left": 187.5,
+                "bottom": 340.9375,
+                "width": 85.5,
+                "text": "0.0",
+                "right": 273,
+                "height": 45.78125
+              },
+              {
+                "visible": true,
+                "top": 295.15625,
+                "left": 273,
+                "bottom": 340.9375,
+                "width": 85.5,
+                "text": "measured",
+                "right": 358.5,
+                "height": 45.78125
+              }
+            ],
+            "table": {
+              "visible": true,
+              "top": 248.875,
+              "left": 16,
+              "bottom": 6154.25,
+              "width": 343,
+              "text": "seriestime_sposition_msource_kind\nobservations0.00.0measuredobservations0.0166666666666666662.885407821130584E-4measuredobservations0.033333333333333330.0016906343706534085measuredobservations0.050.0035047497333806853measuredobservations0.066666666666666670.009270467236933236measuredobservations0.083333333333333330.01267120625613467measuredobservations0.10.022068265380239607measuredobservations0.116666666666666670.02748961984899487measuredobservations0.133333333333333330.04004685703155389measuredobservations0.150.05394719777450184measuredobservations0.166666666666666660.061582387932065184measuredobservations0.183333333333333320.06982248831817187measuredobservations0.20.07898323267913354measuredobservations0.216666666666666670.08874046972727129measuredobservations0.233333333333333340.09866252527241547measuredobservations0.250.1100181635474265measuredobservations0.266666666666666660.10997851846842079measuredobservations0.28333333333333330.12138961362075727measuredobservations0.30.1342824822098404measuredobservations0.316666666666666650.13433524015053586measuredobservations0.33333333333333330.14727171938325323measuredobservations0.350.16133681431010158measuredobservations0.366666666666666640.17586722659895826measuredobservations0.383333333333333360.19058142155926358measuredobservations0.40.20528780085607284measuredobservations0.41666666666666670.22102901723543766measuredobservations0.433333333333333350.2371413809051456measuredobservations0.450.25373844568443654measuredobservations0.46666666666666670.2706393646257609measuredobservations0.483333333333333340.28876515972224626measuredobservations0.50.30676317535942055measuredobservations0.51666666666666670.3450477745167909measuredobservations0.53333333333333330.3457465644860226measuredobservations0.550.3654985040483757measuredobservations0.56666666666666670.3874666396505373measuredobservations0.58333333333333340.3873629181320528measuredobservations0.60.4092210426724454measuredobservations0.61666666666666670.4319189599154592measuredobservations0.63333333333333330.4566770447880289measuredobservations0.650.4813936185274243measuredobservations0.66666666666666660.5066970155831854measuredobservations0.68333333333333330.5067490077668731measuredobservations0.70.5333989124770575measuredobservations0.71666666666666670.5618002003181014measuredobservations0.73333333333333330.5895498427423392measuredobservations0.750.6220121984432841measuredobservations0.76666666666666670.6507018803809865measuredobservations0.78333333333333330.711115055956649measuredobservations0.80.7755585430306111measurednative_actual0.050.015599247434236185native simulationnative_actual0.10.05122219157125578native simulationnative_actual0.150.10699044880174335native simulationnative_actual0.20.18290471955708718native simulationnative_actual0.250.2789451452308381native simulationnative_actual0.30.3851198045577913native simulationnative_actual0.350.5013697725198927native simulationnative_actual0.40.6277063652761536native simulationnative_actual0.450.7541767812900526native simulationnative_actual0.50.8982784016699156native simulationnative_actual0.551.0325048405409845native simulationnative_actual0.61.1568574114164525native simulationnative_actual0.651.2713613283944403native simulationnative_actual0.71.375932091290902native simulationnative_actual0.751.4706493449362341native simulationnative_actual0.81.5555133693965577native simulationnative_actual0.851.6205108358968139native simulationnative_actual0.91.6756445125626813native simulationnative_actual0.951.7209053993177204native simulationnative_actual1.01.7563061489321372native simulationnative_actual1.051.7818462725699293native simulationnative_actual1.11.7975248165567803native simulationnative_actual1.151.8033425355026353native simulationnative_actual1.21.8092992309786151native simulationnative_actual1.251.8153945932699005native simulationnative_actual1.31.8134953882443932native simulationnative_actual1.351.813841578445499native simulationnative_actual1.41.8157979324690963native simulationnative_actual1.451.8187267166626504native simulationnative_prediction0.050.015298914562784385native model forecastnative_prediction0.10.05088863387123291native model forecastnative_prediction0.150.10672368371632629native model forecastnative_prediction0.20.18268378377129674native model forecastnative_prediction0.250.27876809654394036native model forecastnative_prediction0.30.3850181332167346native model forecastnative_prediction0.350.5012614789685863native model forecastnative_prediction0.40.6276100316924245native model forecastnative_prediction0.450.7541146606544658native model forecastnative_prediction0.50.8982710011016524native model forecastnative_prediction0.551.0326066345039504native model forecastnative_prediction0.61.1568143313666783native model forecastnative_prediction0.651.2712971147691863native model forecastnative_prediction0.71.3759595875255393native model forecastnative_prediction0.751.4705426050919799native model forecastnative_prediction0.81.555399614737826native model forecastnative_prediction0.851.6203795322462415native model forecastnative_prediction0.91.6754553943319537native model forecastnative_prediction0.951.7206879890005102native model forecastnative_prediction1.01.7560674630245996native model forecastnative_prediction1.051.7817050557321314native model forecastnative_prediction1.11.797289210424304native model forecastnative_prediction1.151.8034446412929461native model forecastnative_prediction1.21.8094872715261194native model forecastnative_prediction1.251.8155750365527126native model forecastnative_prediction1.31.8140676046178903native model forecastnative_prediction1.351.812872800572126native model forecastnative_prediction1.41.8169207728442276native model forecastnative_prediction1.451.8202860619953147native model forecast",
+              "right": 359,
+              "height": 5905.375
+            },
+            "height": 900,
+            "scrollWidth": 375
+          }
+        ]
+      }
+    ]
+  },
+  "preservedTrackingIdentities": {
+    "workspace-engine/src/main/java/fraymus/workspace/FlowTracker.java": "2b6e4552a38c503a4c6e0309d2db730f701d08038117a2f15663c55d1c08762f",
+    "workspace-engine/src/main/java/fraymus/workspace/Tracking024Evaluation.java": "8ea6727bb86ed61c0c8e6d0a20cd7e6a9f95b3167442e2023b1bcd3b0b68227b",
+    "workspace-engine/src/main/java/fraymus/workspace/Tracking024Guards.java": "63f728600faeb19e8da945b76bb26dc1cdf138e550ed0a7baf0cd62a7d1bc2ce",
+    "workspace-engine/src/main/java/fraymus/workspace/TrackingLab.java": "eafe1db53b5fbbd1a6ea97a0810e8f36f53610f4b19ea6a7a2d439087e8ddeb3",
+    "workspace-engine/src/main/java/fraymus/workspace/TrackerIdentity.java": "8ca356ddf0686013199da8ec2c7476d9705b517cb1d6fa28345a2fec629f0830",
+    "workspace-engine/src/main/resources/perception/acceptance-024.json": "857b6e9719701a066e11c2db2f3563718aa6c43077a4ce5519c11d0c01354e05",
+    "workspace-engine/src/main/java/fraymus/workspace/AdaptiveTracker.java": "ba0b5029629ef3298953a1aa23ae457cc9cd17e268822b1798b1f672f8dbe136",
+    "workspace-engine/src/main/java/fraymus/workspace/PixelTracker.java": "85d569217814a39618796bfbe43dc0b7db1ca61378a60f0198099d248674425c",
+    "workspace-engine/src/main/java/fraymus/workspace/TrackingGuards.java": "8cb4da526097e8e840b430485b47dfd9f251cc855e31f9fe7b89560d2dae0273",
+    "workspace-engine/src/main/java/fraymus/workspace/TrackingEvaluation.java": "6a006dc12a87fbb7799f14699e003c50788d34408517bac04e5e4883e0aa1477"
+  },
+  "scope": [
+    "Original JDK-only mathematical kernels; no Processing code or runtime dependency",
+    "2–16D vectors/colonization; bounded2–4D dungeon grids, not16D physics",
+    "Actual typed local-model orchestration; no LLM-weight training",
+    "Actual source/plot/layout gates; old workflows retain their prior contract",
+    "Original private data/models/reviews and frozen001–026/013/024 evidence preserved"
+  ]
+}
