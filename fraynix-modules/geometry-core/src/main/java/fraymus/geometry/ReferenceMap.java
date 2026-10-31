@@ -17,6 +17,10 @@ public final class ReferenceMap {
         return new Rules(width,height,source.clone(),walkable.clone(),frequencies,allowed);
     }
     public static Result generate(Rules rules,int width,int height,long seed,List<Pin> declared){
+        return candidate(rules,width,height,seed,declared,8,20_000);
+    }
+    public static Result candidate(Rules rules,int width,int height,long seed,List<Pin> declared,int restarts,int iterations){
+        if(restarts<1||restarts>8||iterations<1||iterations>20_000)throw new IllegalArgumentException("Bounded local repair budget required");
         if(width<8||height<8||width>24||height>24||seed<0||seed>1_000_000_000L||declared.size()>64)throw new IllegalArgumentException("Output needs8..24 cells/axis, bounded seed and at most64 user pins");
         int blocked=0;while(rules.walkable[blocked])blocked++;int[] pinned=new int[width*height];Arrays.fill(pinned,-1);
         for(int y=0;y<height;y++)for(int x=0;x<width;x++)if(x==0||y==0||x==width-1||y==height-1)pinned[y*width+x]=blocked;
@@ -25,9 +29,9 @@ public final class ReferenceMap {
         for(int id:new int[]{start,end}){if(pinned[id]>=0&&!rules.walkable[pinned[id]])throw new IllegalArgumentException("Spawn and goal must be walkable");if(pinned[id]<0)pinned[id]=floor;}
         var pins=new ArrayList<Pin>();for(int i=0;i<pinned.length;i++)if(pinned[i]>=0)pins.add(new Pin(i%width,i/width,pinned[i]));
         var rng=new Random(seed);Result best=null;int repairs=0;
-        for(int attempt=1;attempt<=8;attempt++){
+        for(int attempt=1;attempt<=restarts;attempt++){
             int[] grid=new int[pinned.length];for(int i=0;i<grid.length;i++)grid[i]=pinned[i]>=0?pinned[i]:weighted(rng,rules.frequency,null);
-            for(int iteration=0;iteration<20_000;iteration++){
+            for(int iteration=0;iteration<iterations;iteration++){
                 if((iteration&63)==0)NDSpace.interrupted();var bad=new ArrayList<Integer>();int count=0;
                 for(int i=0;i<grid.length;i++){int c=local(rules,grid,width,height,i,grid[i]);count+=c;if(c>0&&pinned[i]<0)bad.add(i);}
                 if(count==0){var path=path(grid,width,height,rules.walkable,start,end);var result=new Result(width,height,seed,grid.clone(),List.copyOf(pins),path,0,attempt,repairs,!path.isEmpty(),path.isEmpty()?"Adjacency satisfied but spawn and goal disconnected":"Adjacency, hard pins and route verified");if(!path.isEmpty()){verify(rules,result);return result;}if(best==null||best.conflicts>0)best=result;break;}
@@ -37,7 +41,7 @@ public final class ReferenceMap {
                 grid[cell]=weighted(rng,rules.frequency,choices);repairs++;
             }
         }
-        return new Result(width,height,seed,best.cells,best.pins,best.path,best.conflicts,8,repairs,false,best.reason+"; finite8×20000 repair budget exhausted");
+        return new Result(width,height,seed,best.cells,best.pins,best.path,best.conflicts,restarts,repairs,false,best.reason+"; finite"+restarts+"×"+iterations+" repair budget exhausted");
     }
     private static int weighted(Random r,int[] frequency,boolean[] eligible){int total=0;for(int i=0;i<frequency.length;i++)if(eligible==null||eligible[i])total+=frequency[i];int pick=r.nextInt(total);for(int i=0;i<frequency.length;i++)if(eligible==null||eligible[i]){pick-=frequency[i];if(pick<0)return i;}throw new AssertionError();}
     private static int local(Rules r,int[] grid,int w,int h,int id,int tile){int x=id%w,y=id/w,errors=0;for(int d=0;d<4;d++){int nx=x+DX[d],ny=y+DY[d];if(nx>=0&&ny>=0&&nx<w&&ny<h&&!r.allowed[d][tile][grid[ny*w+nx]])errors++;}return errors;}

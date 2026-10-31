@@ -1,0 +1,35 @@
+{
+  "edition": "029",
+  "date": "2026-10-31",
+  "profile": "connected-grid-v1",
+  "status": "frozen before first reserved evaluation",
+  "budget": {
+    "maxCandidates": 32,
+    "localRestarts": 2,
+    "repairsPerRestart": 4000,
+    "maxRepairs": 256000
+  },
+  "sourceSha256": {
+    "fraynix-modules/geometry-core/src/main/java/fraymus/geometry/ReferenceMap.java": "5b2f2f989ad4e587767b35b5f1d504a75a3bbca5ccdc1a15ce1d06998c3b639f",
+    "fraynix-modules/geometry-core/src/main/java/fraymus/geometry/TopologyMap.java": "9882e7a926360540b77c807919ed303c85c0d4a0bb042a93e345f92ce445ba48",
+    "workspace-engine/src/main/java/fraymus/workspace/MapTopology.java": "9e96208f0bfc5fe1944071b1cebc0efb84b1629b726af60f4f35e16f8c53c5ee",
+    "workspace-engine/src/main/java/fraymus/workspace/MapDefinition.java": "54b58d4ecdea0d2b52a84ac2f4b2a7e9dc1d344626583d213d823461a4eee85e",
+    "workspace-engine/src/main/java/fraymus/workspace/MapStore.java": "afe8ea23cfca222f8621b3f521d12bec9a75b1859be9a404c12b06c1987afbc6",
+    "workspace-engine/src/main/java/fraymus/workspace/MapPhysics.java": "6af3eb18f80e0648dcb7591816b0ac640055dca3d3f18ebe782623ae977c470a"
+  },
+  "reservedManifestSha256": "289cedc8ab664dfe4990adddf12492c5d74d22e7aa5b3239076e9f26d458ea92",
+  "perCaseConstraints": {
+    "connected": true,
+    "minFloorFraction": 0.3,
+    "maxFloorFraction": 0.75,
+    "minRouteSteps": 18,
+    "maxRouteSteps": 64
+  },
+  "gates": [
+    "All12 fixed reference/seed cases retained",
+    "No accepted grid violates original adjacency, hard pins, connected floor, coverage or route bounds",
+    "Every accepted029 grid executes actual native physics and passes its original trace gates",
+    "Rejected cases start no native run and retain their source, candidate history and reasons",
+    "Completion rates and compute budgets are descriptive with full denominators; no automatic policy promotion, model training or scientific generalisation claim"
+  ]
+}
