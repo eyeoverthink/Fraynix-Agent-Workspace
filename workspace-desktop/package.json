@@ -52,7 +52,9 @@
     "test:maps": "node test/maps-integration.cjs",
     "test:live-maps": "node test/live-maps.cjs",
     "test:topology": "node test/topology-integration.cjs",
-    "test:live-topology": "node test/live-topology.cjs"
+    "test:live-topology": "node test/live-topology.cjs",
+    "test:recovery-materials": "node test/recovery-materials-integration.cjs",
+    "test:live-materials": "node test/live-materials.cjs"
   },
   "devDependencies": {
     "electron": "45.1.0",

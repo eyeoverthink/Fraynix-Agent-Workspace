@@ -11,7 +11,17 @@ import java.util.*;
 public class MapTopologyEvaluationTest {
     @Test public void reservedReferencesKeepAllDenominatorsAndRunActualAcceptedWorlds() throws Exception {
         Path repo=Path.of("").toAbsolutePath();while(repo!=null&&!Files.exists(repo.resolve("docs/TOPOLOGY_PROFILE_029.json")))repo=repo.getParent();assertNotNull(repo);var frozen=new JSONObject(Files.readString(repo.resolve("docs/TOPOLOGY_PROFILE_029.json")));
-        for(String name:frozen.getJSONObject("sourceSha256").keySet()){String text=Files.readString(repo.resolve(name)).replace("\r\n","\n");assertEquals("Frozen kernel changed: "+name,frozen.getJSONObject("sourceSha256").getString(name),MapDefinition.sha(text.getBytes(java.nio.charset.StandardCharsets.UTF_8)));}
+        // The published 029 runtime is historical. 030 deliberately changes native recovery and materials.
+        // Protect every frozen source identity, and require the unchanged topology kernels byte-for-byte.
+        var inventory=new JSONArray(Files.readString(repo.resolve("docs/readmes/029/file-inventory.json")));
+        for(String name:frozen.getJSONObject("sourceSha256").keySet()){
+            JSONObject historical=null;for(Object raw:inventory)if(((JSONObject)raw).getString("path").equals(name))historical=(JSONObject)raw;
+            assertNotNull("Missing frozen source identity: "+name,historical);
+            assertEquals(frozen.getJSONObject("sourceSha256").getString(name),historical.getString("sha256"));
+            if(name.endsWith("/ReferenceMap.java")||name.endsWith("/TopologyMap.java")||name.endsWith("/MapTopology.java")){
+                String text=Files.readString(repo.resolve(name)).replace("\r\n","\n");assertEquals("Frozen topology kernel changed: "+name,historical.getString("sha256"),MapDefinition.sha(text.getBytes(java.nio.charset.StandardCharsets.UTF_8)));
+            }
+        }
         var manifest=MapReferences.cases();assertEquals(frozen.getString("reservedManifestSha256"),MapDefinition.sha(Files.readString(repo.resolve("workspace-engine/src/main/resources/maps029/reserved-cases.json")).replace("\r\n","\n").getBytes(java.nio.charset.StandardCharsets.UTF_8)));
         var cases=new JSONArray();int baselineAccepted=0,selectedAccepted=0,nativePassed=0;Path project=Files.createTempDirectory("reserved-topology029-");
         try(var store=new MapStore(project)){
@@ -30,7 +40,7 @@ public class MapTopologyEvaluationTest {
                 }
             }
         }
-        var report=new JSONObject().put("date",java.time.Instant.now()).put("profile",frozen).put("project",project.toString()).put("cases",cases).put("caseCount",cases.length()).put("baselineGlobalAccepted",baselineAccepted).put("selectedGlobalAccepted",selectedAccepted).put("nativePassed",nativePassed).put("kernelSha256",MapTopology.identity()).put("passed",cases.length()==12&&selectedAccepted>0&&nativePassed==selectedAccepted).put("scope","Four reserved labelled synthetic PNGs × three precommitted seeds. Original028 baseline and finite029 selection are judged against the same frozen global criteria. All counts and failures remain visible; accepted029 worlds execute actual native forces/collisions. Completion rates are descriptive, not model training, scientific generalisation or automatic policy promotion.");
-        Path output=Path.of("build/reports/topology029-evaluation.json");Files.createDirectories(output.getParent());Files.writeString(output,report.toString(2));System.out.println("TOPOLOGY_RESERVED_RESULT "+new JSONObject().put("cases",cases.length()).put("baselineGlobalAccepted",baselineAccepted).put("selectedGlobalAccepted",selectedAccepted).put("nativePassed",nativePassed));assertTrue(report.getString("scope"),report.getBoolean("passed"));
+        var report=new JSONObject().put("date",java.time.Instant.now()).put("profile",frozen).put("project",project.toString()).put("cases",cases).put("caseCount",cases.length()).put("baselineGlobalAccepted",baselineAccepted).put("selectedGlobalAccepted",selectedAccepted).put("nativePassed",nativePassed).put("kernelSha256",MapTopology.identity()).put("passed",cases.length()==12&&selectedAccepted>0&&nativePassed==selectedAccepted).put("scope","Regression of the published029 reference set, now seen development data, under the030 native runtime. Four labelled synthetic PNGs × three published seeds. Original028 baseline and finite029 selection are judged against the same frozen global criteria. All counts and failures remain visible; accepted029 worlds execute actual native forces/collisions. Completion rates are descriptive, not model training, scientific generalisation or automatic policy promotion.");
+        Path output=Path.of("build/reports/topology030-regression.json");Files.createDirectories(output.getParent());Files.writeString(output,report.toString(2));System.out.println("TOPOLOGY_RESERVED_RESULT "+new JSONObject().put("cases",cases.length()).put("baselineGlobalAccepted",baselineAccepted).put("selectedGlobalAccepted",selectedAccepted).put("nativePassed",nativePassed));assertTrue(report.getString("scope"),report.getBoolean("passed"));
     }
 }
