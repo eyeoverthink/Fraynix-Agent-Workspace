@@ -1,0 +1,62 @@
+Starting a Gradle Daemon (subsequent builds will be faster)
+> Task :brain-core:compileJava UP-TO-DATE
+> Task :factory-runtime:compileJava UP-TO-DATE
+> Task :factory-kernel:compileJava UP-TO-DATE
+> Task :factory-models:compileJava UP-TO-DATE
+> Task :compileJava UP-TO-DATE
+> Task :processResources UP-TO-DATE
+> Task :classes UP-TO-DATE
+> Task :jar UP-TO-DATE
+> Task :brain-core:processResources NO-SOURCE
+> Task :brain-core:classes UP-TO-DATE
+> Task :brain-core:jar UP-TO-DATE
+> Task :factory-kernel:processResources NO-SOURCE
+> Task :factory-kernel:classes UP-TO-DATE
+> Task :factory-kernel:jar UP-TO-DATE
+> Task :factory-models:processResources NO-SOURCE
+> Task :factory-models:classes UP-TO-DATE
+> Task :factory-models:jar UP-TO-DATE
+> Task :factory-runtime:processResources NO-SOURCE
+> Task :factory-runtime:classes UP-TO-DATE
+> Task :factory-runtime:jar UP-TO-DATE
+> Task :startScripts UP-TO-DATE
+> Task :installDist
+> Task :brain-gpu:compileJava UP-TO-DATE
+> Task :brain-gpu:processResources NO-SOURCE
+> Task :brain-gpu:classes UP-TO-DATE
+> Task :brain-gpu:jar UP-TO-DATE
+> Task :geometry-core:compileJava UP-TO-DATE
+> Task :geometry-core:processResources NO-SOURCE
+> Task :geometry-core:classes UP-TO-DATE
+> Task :geometry-core:jar UP-TO-DATE
+
+> Task :workspace-engine:compileJava FAILED
+C:\Users\eyeka\Documents\Codex\2026-10-26\is\work\fraynix-agent-workspace\workspace-engine\src\main\java\fraymus\workspace\PushLearningReport.java:12: error: 'var' is not allowed in a compound declaration
+    static JSONObject verifyView(JSONObject j,JSONObject view){if(!view.optBoolean("visible")||!view.getJSONArray("rows").similar(table(j))||!view.getJSONObject("data").similar(data(j)))throw new IllegalStateException("Actual learning table/original decision differs");var expected=charts(j),frames=view.getJSONArray("frames");if(frames.length()!=3)throw new IllegalStateException("Observe all paired chart modes");double maximum=0;int count=0;for(int m=0;m<3;m++){var f=frames.getJSONObject(m);var e=expected.getJSONObject(m);if(!f.getString("mode").equals(e.getString("mode")))throw new IllegalStateException("Wrong learning chart mode");var lines=f.getJSONArray("lines");if(lines.length()!=2)throw new IllegalStateException("Both arms required");for(int arm=0;arm<2;arm++){var points=lines.getJSONArray(arm),original=e.getJSONArray("lines").getJSONArray(arm);if(points.length()!=original.length())throw new IllegalStateException("Missing paired case");for(int i=0;i<points.length();i++)for(int k=0;k<2;k++){double error=Math.abs(points.getJSONArray(i).getDouble(k)-original.getJSONArray(i).getDouble(k));if(!Double.isFinite(error))throw new IllegalStateException("Nonfinite learning chart");maximum=Math.max(maximum,error);count++;}}}if(maximum>.002)throw new IllegalStateException("Learning chart differs from original native observations");return new JSONObject().put("passed",true).put("frames",3).put("cells",table(j).length()*9).put("coordinates",count).put("maxError",maximum).put("dataSha256",PushLearning.hash(data(j)));}
+                                                                                                                                                                                                                                                                             ^
+C:\Users\eyeka\Documents\Codex\2026-10-26\is\work\fraynix-agent-workspace\workspace-engine\src\main\java\fraymus\workspace\PushLearningReport.java:12: error: 'var' is not allowed in a compound declaration
+    static JSONObject verifyView(JSONObject j,JSONObject view){if(!view.optBoolean("visible")||!view.getJSONArray("rows").similar(table(j))||!view.getJSONObject("data").similar(data(j)))throw new IllegalStateException("Actual learning table/original decision differs");var expected=charts(j),frames=view.getJSONArray("frames");if(frames.length()!=3)throw new IllegalStateException("Observe all paired chart modes");double maximum=0;int count=0;for(int m=0;m<3;m++){var f=frames.getJSONObject(m);var e=expected.getJSONObject(m);if(!f.getString("mode").equals(e.getString("mode")))throw new IllegalStateException("Wrong learning chart mode");var lines=f.getJSONArray("lines");if(lines.length()!=2)throw new IllegalStateException("Both arms required");for(int arm=0;arm<2;arm++){var points=lines.getJSONArray(arm),original=e.getJSONArray("lines").getJSONArray(arm);if(points.length()!=original.length())throw new IllegalStateException("Missing paired case");for(int i=0;i<points.length();i++)for(int k=0;k<2;k++){double error=Math.abs(points.getJSONArray(i).getDouble(k)-original.getJSONArray(i).getDouble(k));if(!Double.isFinite(error))throw new IllegalStateException("Nonfinite learning chart");maximum=Math.max(maximum,error);count++;}}}if(maximum>.002)throw new IllegalStateException("Learning chart differs from original native observations");return new JSONObject().put("passed",true).put("frames",3).put("cells",table(j).length()*9).put("coordinates",count).put("maxError",maximum).put("dataSha256",PushLearning.hash(data(j)));}
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        ^
+2 errors
+
+[Incubating] Problems report is available at: file:///C:/Users/eyeka/Documents/Codex/2026-10-26/is/work/fraynix-agent-workspace/build/reports/problems/problems-report.html
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':workspace-engine:compileJava'.
+> Compilation failed; see the compiler output below.
+  C:\Users\eyeka\Documents\Codex\2026-10-26\is\work\fraynix-agent-workspace\workspace-engine\src\main\java\fraymus\workspace\PushLearningReport.java:12: error: 'var' is not allowed in a compound declaration
+      static JSONObject verifyView(JSONObject j,JSONObject view){if(!view.optBoolean("visible")||!view.getJSONArray("rows").similar(table(j))||!view.getJSONObject("data").similar(data(j)))throw new IllegalStateException("Actual learning table/original decision differs");var expected=charts(j),frames=view.getJSONArray("frames");if(frames.length()!=3)throw new IllegalStateException("Observe all paired chart modes");double maximum=0;int count=0;for(int m=0;m<3;m++){var f=frames.getJSONObject(m);var e=expected.getJSONObject(m);if(!f.getString("mode").equals(e.getString("mode")))throw new IllegalStateException("Wrong learning chart mode");var lines=f.getJSONArray("lines");if(lines.length()!=2)throw new IllegalStateException("Both arms required");for(int arm=0;arm<2;arm++){var points=lines.getJSONArray(arm),original=e.getJSONArray("lines").getJSONArray(arm);if(points.length()!=original.length())throw new IllegalStateException("Missing paired case");for(int i=0;i<points.length();i++)for(int k=0;k<2;k++){double error=Math.abs(points.getJSONArray(i).getDouble(k)-original.getJSONArray(i).getDouble(k));if(!Double.isFinite(error))throw new IllegalStateException("Nonfinite learning chart");maximum=Math.max(maximum,error);count++;}}}if(maximum>.002)throw new IllegalStateException("Learning chart differs from original native observations");return new JSONObject().put("passed",true).put("frames",3).put("cells",table(j).length()*9).put("coordinates",count).put("maxError",maximum).put("dataSha256",PushLearning.hash(data(j)));}
+                                                                                                                                                                                                                                                                               ^
+  C:\Users\eyeka\Documents\Codex\2026-10-26\is\work\fraynix-agent-workspace\workspace-engine\src\main\java\fraymus\workspace\PushLearningReport.java:12: error: 'var' is not allowed in a compound declaration
+      static JSONObject verifyView(JSONObject j,JSONObject view){if(!view.optBoolean("visible")||!view.getJSONArray("rows").similar(table(j))||!view.getJSONObject("data").similar(data(j)))throw new IllegalStateException("Actual learning table/original decision differs");var expected=charts(j),frames=view.getJSONArray("frames");if(frames.length()!=3)throw new IllegalStateException("Observe all paired chart modes");double maximum=0;int count=0;for(int m=0;m<3;m++){var f=frames.getJSONObject(m);var e=expected.getJSONObject(m);if(!f.getString("mode").equals(e.getString("mode")))throw new IllegalStateException("Wrong learning chart mode");var lines=f.getJSONArray("lines");if(lines.length()!=2)throw new IllegalStateException("Both arms required");for(int arm=0;arm<2;arm++){var points=lines.getJSONArray(arm),original=e.getJSONArray("lines").getJSONArray(arm);if(points.length()!=original.length())throw new IllegalStateException("Missing paired case");for(int i=0;i<points.length();i++)for(int k=0;k<2;k++){double error=Math.abs(points.getJSONArray(i).getDouble(k)-original.getJSONArray(i).getDouble(k));if(!Double.isFinite(error))throw new IllegalStateException("Nonfinite learning chart");maximum=Math.max(maximum,error);count++;}}}if(maximum>.002)throw new IllegalStateException("Learning chart differs from original native observations");return new JSONObject().put("passed",true).put("frames",3).put("cells",table(j).length()*9).put("coordinates",count).put("maxError",maximum).put("dataSha256",PushLearning.hash(data(j)));}
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          ^
+  2 errors
+
+* Try:
+> Check your code and dependencies to fix the compilation error(s)
+> Run with --scan to get full insights from a Build Scan (powered by Develocity).
+
+BUILD FAILED in 8s
+18 actionable tasks: 2 executed, 16 up-to-date

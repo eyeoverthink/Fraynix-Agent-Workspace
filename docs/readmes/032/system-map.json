@@ -1,0 +1,77 @@
+{
+  "edition": 32,
+  "modules": [
+    {
+      "id": "freeze",
+      "name": "Frozen design",
+      "status": "verified",
+      "summary": "Case split, selection objective and gates committed before any native trial.",
+      "source": "workspace-engine/src/main/resources/push-evaluation032.json",
+      "note": "docs/NATIVE_EXPERIENCE.md"
+    },
+    {
+      "id": "native",
+      "name": "Preserved native engine",
+      "status": "verified",
+      "summary": "Original031 native controller, physical gates and maximum force stay fixed.",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/PushPhysics.java",
+      "note": "docs/NATIVE_EXPERIENCE.md"
+    },
+    {
+      "id": "owner",
+      "name": "Native experience owner",
+      "status": "verified",
+      "summary": "Actual raw native attempts, atomic progress, stable IDs and same-job recovery.",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/PushLearningStore.java",
+      "note": "docs/NATIVE_EXPERIENCE.md"
+    },
+    {
+      "id": "selection",
+      "name": "Training-only selection",
+      "status": "verified",
+      "summary": "Select one cap using16 training outcomes before any reserved evaluation.",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/PushLearning.java",
+      "note": "docs/NATIVE_EXPERIENCE.md"
+    },
+    {
+      "id": "audit",
+      "name": "Original evidence audit",
+      "status": "verified",
+      "summary": "Reload every raw native run, verify source/force/ledger and recompute the paired decision.",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/PushVerify.java",
+      "note": "docs/NATIVE_EXPERIENCE.md"
+    },
+    {
+      "id": "goal",
+      "name": "Shared Java goal",
+      "status": "verified",
+      "summary": "Durable task and original report receipts; rejected policy stays distinct from a completed experiment.",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/GoalRunner.java",
+      "note": "docs/NATIVE_EXPERIENCE.md"
+    },
+    {
+      "id": "view",
+      "name": "Actual paired report",
+      "status": "verified",
+      "summary": "Every one of72 cells, both arms and all three chart modes checked independently.",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/PushLearningReport.java",
+      "note": "docs/NATIVE_EXPERIENCE.md"
+    },
+    {
+      "id": "profile",
+      "name": "Explicit profile use",
+      "status": "verified",
+      "summary": "Original gates refuse this candidate; real opt-in baseline use and separately labelled rollback control.",
+      "source": "workspace-desktop/renderer/force-learning-panel.js",
+      "note": "docs/NATIVE_EXPERIENCE.md"
+    },
+    {
+      "id": "next",
+      "name": "Geometric controller improvement",
+      "status": "planned",
+      "summary": "Use now-seen failures for development, then freeze different cases before evaluating a new controller.",
+      "source": "docs/EDITION_032_PLAN.md",
+      "note": "docs/NATIVE_EXPERIENCE.md"
+    }
+  ]
+}

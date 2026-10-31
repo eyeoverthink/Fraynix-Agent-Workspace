@@ -1,0 +1,98 @@
+{
+  "status": "passed",
+  "checkout": "fraynix-workspace-qa032-release",
+  "sourceCommit": "8b1d214d34f2620e2dc9227d6cccca2888353ea5",
+  "offlineBuild": true,
+  "javaTests": 284,
+  "javaClasses": 54,
+  "desktopUnitTests": 61,
+  "uiChecks": 199,
+  "groups": {
+    "body": {
+      "checks": 10,
+      "passed": true
+    },
+    "brain-game": {
+      "checks": 10,
+      "passed": true
+    },
+    "feedback": {
+      "checks": 12,
+      "passed": true
+    },
+    "world-model": {
+      "checks": 15,
+      "passed": true
+    },
+    "goals": {
+      "checks": 14,
+      "passed": true
+    },
+    "data-goals": {
+      "checks": 12,
+      "passed": true
+    },
+    "spatial": {
+      "checks": 14,
+      "passed": true
+    },
+    "perception": {
+      "checks": 15,
+      "passed": true
+    },
+    "tracking024": {
+      "checks": 9,
+      "passed": true
+    },
+    "tracking-controls": {
+      "checks": 6,
+      "passed": true
+    },
+    "creation": {
+      "checks": 8,
+      "passed": true
+    },
+    "workflow": {
+      "checks": 8,
+      "passed": true
+    },
+    "procedural": {
+      "checks": 9,
+      "passed": true
+    },
+    "responsive": {
+      "checks": 4,
+      "passed": true
+    },
+    "maps": {
+      "checks": 9,
+      "passed": true
+    },
+    "topology": {
+      "checks": 10,
+      "passed": true
+    },
+    "recovery-materials": {
+      "checks": 9,
+      "passed": true
+    },
+    "pushing": {
+      "checks": 12,
+      "passed": true
+    },
+    "force-learning": {
+      "checks": 8,
+      "passed": true
+    },
+    "tracking-migration": {
+      "checks": 3,
+      "passed": true
+    },
+    "force-learning-library": {
+      "checks": 2,
+      "passed": true
+    }
+  },
+  "modelWeightsOrPrivateRuntimeCopied": false,
+  "electronBinary": "Existing pinned 45.1.0 cache after npm ci --offline --ignore-scripts"
+}

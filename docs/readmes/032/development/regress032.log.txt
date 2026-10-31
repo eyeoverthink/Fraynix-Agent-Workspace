@@ -1,0 +1,7 @@
+Traceback (most recent call last):
+  File "C:\Users\eyeka\Documents\Codex\2026-10-26\is\work\fraynix-agent-workspace\build\clean032.py", line 25, in <module>
+    run(['node','workspace-desktop/test/'+name+'-integration.cjs'])
+  File "C:\Users\eyeka\Documents\Codex\2026-10-26\is\work\fraynix-agent-workspace\build\clean032.py", line 7, in run
+    if p.returncode:raise RuntimeError(str(args)+' failed: '+str(p.returncode))
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: ['node', 'workspace-desktop/test/topology-integration.cjs'] failed: 1

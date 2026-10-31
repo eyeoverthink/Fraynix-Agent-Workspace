@@ -35,5 +35,6 @@ Numbered editions preserve dated system behavior and evidence. The root [README]
 | [029](../../README-029.md) | 2026-10-31 | Global map contracts, full reserved comparison, actual native outcomes and preserved earlier worlds | [Viewer](029/index.html) · [evidence](029/verification.json) · [contract](../GLOBAL_MAP_TOPOLOGY.md) |
 | [030](../../README-030.md) | 2026-10-31 | Native moving-state recovery, declared materials, measured work and actual local-chat skill reuse | [Viewer](030/index.html) · [evidence](030/verification.json) · [contract](../NATIVE_MAP_RECOVERY.md) |
 | [031](../../README-031.md) | 2026-10-31 | Reachable approaches, native contact pushing, measured jam recovery and durable two-body skills | [Viewer](031/index.html) · [evidence](031/verification.json) · [contract](../NATIVE_PUSHING.md) |
+| [032](../../README-032.md) | 2026-10-31 | Frozen native experience, training-only force selection, honest reserved rejection and recoverable profile workflow | [Viewer](032/index.html) · [evidence](032/verification.json) · [contract](../NATIVE_EXPERIENCE.md) |
 
-Latest implementation/documentation edition: **031**. Earlier snapshots remain intact. See [sequence policy](README_SEQUENCE.md) and [manifest](editions.json).
+Latest implementation/documentation edition: **032**. Earlier snapshots remain intact. See [sequence policy](README_SEQUENCE.md) and [manifest](editions.json).

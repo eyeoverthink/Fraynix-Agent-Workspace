@@ -1,6 +1,6 @@
 ---
 title: Fraynix Studio map of content
-edition_context: 031
+edition_context: 032
 updated: 2026-10-31
 tags: [fraynix, system-map]
 ---
@@ -9,7 +9,13 @@ tags: [fraynix, system-map]
 
 Open the repository root as an Obsidian vault. The numbered README is the edition snapshot; these notes are the working map.
 
-Current: [[README-031|Edition031 — native contact tasks]] ·
+Current: [[README-032|Edition032 — measured native experience]] ·
+[[docs/obsidian/40-native-experience|Frozen protocol and actual rejection]] ·
+[[docs/obsidian/native-experience.canvas|Training/evaluation/recovery map]].
+The24N candidate is rejected under the original gates; baseline8/32N remains.
+Successful candidate activation is not claimed. Earlier evidence stays preserved.
+
+Previous: [[README-031|Edition031 — native contact tasks]] ·
 [[docs/obsidian/39-native-pushing|Pushing contract and measured limits]] ·
 [[docs/obsidian/native-pushing.canvas|Approach/action/recovery map]].
 The actual tests include two-body restart, high-friction skill reuse and failures

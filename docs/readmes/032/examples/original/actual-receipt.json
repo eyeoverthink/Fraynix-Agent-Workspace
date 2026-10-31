@@ -1,0 +1,118 @@
+{
+  "checks": [
+    {
+      "actual": {
+        "count": 1,
+        "text": "Candidate rejected by reserved gates",
+        "value": null
+      },
+      "expected": {
+        "expectText": "Candidate rejected by reserved gates",
+        "selector": "#learning-result"
+      },
+      "index": 0,
+      "selector": "#learning-result",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 8,
+        "text": "eval-light\tpass\tpass\t12.591667\t12.412500\t44.709894\t44.348281\t0\t0",
+        "value": null
+      },
+      "expected": {
+        "expectCount": 8,
+        "selector": "#learning-table tbody tr"
+      },
+      "index": 1,
+      "selector": "#learning-table tbody tr",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 1,
+        "text": "Next metric",
+        "value": ""
+      },
+      "expected": {
+        "action": "click",
+        "selector": "#learning-mode"
+      },
+      "index": 2,
+      "selector": "#learning-mode",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 1,
+        "text": "Actual pusher effort · N·s",
+        "value": null
+      },
+      "expected": {
+        "expectText": "Actual pusher effort · N·s",
+        "selector": "#learning-label"
+      },
+      "index": 3,
+      "selector": "#learning-label",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 1,
+        "text": "Reset chart",
+        "value": ""
+      },
+      "expected": {
+        "action": "click",
+        "selector": "#learning-reset"
+      },
+      "index": 4,
+      "selector": "#learning-reset",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 1,
+        "text": "Penalized native time · s",
+        "value": null
+      },
+      "expected": {
+        "expectText": "Penalized native time · s",
+        "selector": "#learning-label"
+      },
+      "index": 5,
+      "selector": "#learning-label",
+      "passed": true
+    }
+  ],
+  "at": "2026-10-31T22:19:21.419244700Z",
+  "id": "8f7a40a7-f999-3afd-950e-421aa38c1990",
+  "passed": true,
+  "version": 1,
+  "steps": [
+    {
+      "expectText": "Candidate rejected by reserved gates",
+      "selector": "#learning-result"
+    },
+    {
+      "expectCount": 8,
+      "selector": "#learning-table tbody tr"
+    },
+    {
+      "action": "click",
+      "selector": "#learning-mode"
+    },
+    {
+      "expectText": "Actual pusher effort · N·s",
+      "selector": "#learning-label"
+    },
+    {
+      "action": "click",
+      "selector": "#learning-reset"
+    },
+    {
+      "expectText": "Penalized native time · s",
+      "selector": "#learning-label"
+    }
+  ]
+}

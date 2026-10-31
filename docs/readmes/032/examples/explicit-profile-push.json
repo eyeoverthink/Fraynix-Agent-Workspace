@@ -1,0 +1,138 @@
+{
+  "request": "Plan a standing approach, push through native contacts, recover and verify the crate",
+  "reason": "Native contact task, original plan/recovery data and every chart verified; procedure retained when requested",
+  "pushView": {
+    "frames": 6,
+    "maxError": 2.765234376056469e-05,
+    "observedPoints": 1764,
+    "passed": true,
+    "originalDataVerified": true
+  },
+  "pushPolicy": {
+    "maxForceN": 32,
+    "initialForceN": 8,
+    "id": "baseline-031",
+    "baseline": true
+  },
+  "pushPlanSummary": {
+    "reason": "Every push has a reachable standing pose and conservatively clear swept crate path",
+    "expanded": 22,
+    "passed": true,
+    "pushes": 3
+  },
+  "attempt": 1,
+  "resumes": 0,
+  "createdAt": "2026-10-31T22:21:48.385193900Z",
+  "pushBinding": {
+    "sourceSha256": "56d778e066e07c7a6effc95a50bb0437cb5e759e929ba84088baed85a0560bf0",
+    "definitionSha256": "3740e64163ec721e16a55e425d974811c2f73a3c6a012cd7749242bb43910a59",
+    "sceneId": "e77c28e2-98f8-4065-9c28-ba8dda2dd9cd",
+    "version": 1
+  },
+  "initialForceN": 8,
+  "id": "e0554ca8-63f3-4556-9bf1-2837b898ee18",
+  "objectId": "9043156c-6dd4-3107-9eb0-bbf30bd23b27",
+  "updatedAt": "2026-10-31T22:21:55.232034400Z",
+  "pusherId": "7fb860e6-f41f-3817-bfc9-bdaf4a667c24",
+  "maxForceN": 32,
+  "procedure": "spatial-push-v1",
+  "history": [
+    {
+      "reason": "Original scene, two actual body roles, target and force budgets frozen; standing-pose search required",
+      "at": "2026-10-31T22:21:48.385193900Z",
+      "step": "push-plan",
+      "attempt": 1,
+      "status": "running"
+    },
+    {
+      "reason": "Every push has a reachable standing cell and conservatively clear swept path; actual native execution next",
+      "at": "2026-10-31T22:21:48.611410500Z",
+      "step": "push-start",
+      "attempt": 1,
+      "status": "running"
+    },
+    {
+      "reason": "Native pusher forces executing; measured crate contact/progress and bounded recovery active",
+      "at": "2026-10-31T22:21:48.746585900Z",
+      "step": "push-wait",
+      "attempt": 1,
+      "status": "running"
+    },
+    {
+      "reason": "Original force ledger, both native bodies, action endpoints, jam evidence and final crate state independently verified",
+      "at": "2026-10-31T22:21:52.745486Z",
+      "step": "push-report",
+      "attempt": 1,
+      "status": "running"
+    },
+    {
+      "reason": "Waiting for registered desktop action: canvas.verify-report",
+      "at": "2026-10-31T22:21:53.057841800Z",
+      "step": "push-report",
+      "attempt": 1,
+      "status": "waiting-host"
+    },
+    {
+      "reason": "Actual Chromium canvas assertions passed for the pinned report version",
+      "at": "2026-10-31T22:21:54.879263100Z",
+      "step": "complete",
+      "attempt": 1,
+      "status": "running"
+    },
+    {
+      "reason": "Native contact task, original plan/recovery data and every chart verified; procedure retained when requested",
+      "at": "2026-10-31T22:21:55.232034400Z",
+      "step": "completed",
+      "attempt": 1,
+      "status": "completed"
+    }
+  ],
+  "report": {
+    "sha256": "2a52ab2f41ce13cb34cf2e81295cf613686cbe6566da9dc8d0789b44fc10fe1f",
+    "id": "a1f68a1c-1793-3dd5-adbc-b07b957480ef",
+    "version": 1
+  },
+  "step": "completed",
+  "runId": "25143245-14eb-3c96-a1d5-f04a766869ca",
+  "metrics": {
+    "pusherWorkJ": 49.51281160452492,
+    "endpointErrorM": 0.028127377507068452,
+    "maxForceN": 29.61952269346519,
+    "effortNs": 104.75647598707238,
+    "crateTravelM": 2.9761282759954377,
+    "jams": 1,
+    "physicalAxes": 3,
+    "resumes": 0,
+    "recoveries": 1,
+    "maxRestoreVelocityError": 0,
+    "timeS": 14.666666666666666,
+    "maxRestorePositionErrorM": 0,
+    "expandedStates": 22,
+    "scope": "Declared-scale native contact pushing of two boxes on a flat floor. Conservative integer-metre planning, finite force/recovery budgets; not universal robotic manipulation or measured material inference.",
+    "nativePhysics": true,
+    "plannedActions": 7,
+    "passed": true,
+    "terminalSpeedMps": 0.00023315720048417888,
+    "maxRestoreQuaternionError": 0,
+    "contactTicks": 1211,
+    "completedActions": 7,
+    "plannedPushes": 3,
+    "nativeTicks": 3520
+  },
+  "pushTargetM": [
+    2,
+    0.3,
+    0
+  ],
+  "displacementM": [
+    3,
+    0,
+    0
+  ],
+  "savedSkill": {
+    "name": "baseline-profile-route",
+    "id": "bd1e28dc-56b4-3e0e-a51c-43a16fcbf59c",
+    "version": 1
+  },
+  "status": "completed"
+}

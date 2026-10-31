@@ -1,0 +1,34 @@
+{
+  "date": "2026-10-31",
+  "attempts": [
+    {
+      "kind": "saved experiment selection",
+      "detail": "Review after a later pushing/cancelled goal exposed that the panel knew only the latest goal. A readonly goal lookup and saved-experiment selector now restore older completed reports without changing the active task or replaying native trials; a separate actual restart/history test covers it."
+    },
+    {
+      "kind": "legacy Maps navigation race",
+      "detail": "Broader topology testing exposed a late interrupted-map notification reopening its map and closing the source chooser after explicit navigation. Auto-follow now applies only while a map task is active. Original failed test log is retained; affected Maps/topology/recovery workflows are rerun. Native algorithms, source data and gates unchanged."
+    },
+    {
+      "kind": "offline SVG precision control",
+      "detail": "The first offline helper compared SVGPoint float32 coordinates at1e-5, tighter than the original0.002 SVG-unit audit contract. It now independently checks exact serialized coordinate attributes at1e-5 and actual float32 geometry at the unchanged0.002 contract. Original failure retained; no physical/promotion gate or report data changed."
+    },
+    {
+      "kind": "initial compilation",
+      "detail": "Java rejects var in compound declarations. Two declarations were split; original compiler output retained."
+    },
+    {
+      "kind": "first native result",
+      "detail": "Training selected24N; reserved success5/8→5/8, effort ratio1.262196165 and mean penalized-time improvement1.367708333s. Original gates reject. No source case, cap, objective, physical budget or promotion threshold changed."
+    },
+    {
+      "kind": "reporting and presentation",
+      "detail": "Added verified-experiment passed flag separately from candidate accepted, original native failure reasons, current committed body display and explicit profile request preservation. Native031 controller unchanged."
+    },
+    {
+      "kind": "activation scope",
+      "detail": "Actual native promotion refusal and baseline opt-in are tested. Successful candidate activation is not claimed. Persisted registry rollback uses an explicitly labelled software fixture and tests exact history/stale-version refusal."
+    }
+  ],
+  "scope": "Original development record. No discarded result is presented as a successful first attempt or reserved improvement."
+}

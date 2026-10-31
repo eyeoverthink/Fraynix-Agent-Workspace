@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "latest": 31,
+  "latest": 32,
   "canonicalization": "UTF-8 without BOM; CRLF normalized to LF for text",
   "editions": [
     {
@@ -5651,6 +5651,290 @@
           "path": "docs/readmes/031/verification.json",
           "kind": "text",
           "sha256": "7bba9867086cb294727a86dcffab04c1b55c0453184f048b71f07b1376def886"
+        }
+      ]
+    },
+    {
+      "number": 32,
+      "date": "2026-10-31",
+      "title": "Measured native experience and an honest reserved decision",
+      "status": "published",
+      "markdown": "README-032.md",
+      "markdownSha256": "587797e431eb6a640a1988b1d62fb11fe2543741a4f886cf96aa2f2bc55fcf6e",
+      "snapshotDirectory": "docs/readmes/032",
+      "companion": "docs/readmes/032/index.html",
+      "tag": "readme-032",
+      "sourceBaseline": "8b1d214d34f2620e2dc9227d6cccca2888353ea5",
+      "snapshotFiles": [
+        {
+          "path": "docs/readmes/032/development/032-clean.log.txt",
+          "kind": "text",
+          "sha256": "889553817fcbf0b49d77dcf25c56381b8c4a5175f8915ab83ebbbbe35b0e5ac9"
+        },
+        {
+          "path": "docs/readmes/032/development/compile032-wire.log.txt",
+          "kind": "text",
+          "sha256": "ca345bd4d7b85b453cf5972ea9c56609935f7e3ab46b70c6aec309d05c7c2a15"
+        },
+        {
+          "path": "docs/readmes/032/development/docs032-first.log.txt",
+          "kind": "text",
+          "sha256": "9ede8c6c57f657b49da9c82669124441d0a068cb205ef7afc37d34e23edea01a"
+        },
+        {
+          "path": "docs/readmes/032/development/docs032-second.log.txt",
+          "kind": "text",
+          "sha256": "ab673df4fde74545f1bf5c5934e9ee60659b636dd12c93145882d6b205ff3fe7"
+        },
+        {
+          "path": "docs/readmes/032/development/edition032-narrow.png",
+          "kind": "binary",
+          "sha256": "f544925723cff81a4a2794f67bc3eccbaff28f52d06abed4a023d5855bfe0e6c"
+        },
+        {
+          "path": "docs/readmes/032/development/edition032-wide.png",
+          "kind": "binary",
+          "sha256": "82b62048b74003697206ec05ecdd6689846e7ceac995b90f1c419e4dccb96640"
+        },
+        {
+          "path": "docs/readmes/032/development/experience032-narrow.png",
+          "kind": "binary",
+          "sha256": "b013b4e3065a51e5b0c2cc4f0cbceea7bd664f109e67e9ec37250756ede1a905"
+        },
+        {
+          "path": "docs/readmes/032/development/experience032-offline.png",
+          "kind": "binary",
+          "sha256": "2e0f0a73f1a8cac48279ca9416ceb3d15cbcf3af9a434277336e89de7c1674bd"
+        },
+        {
+          "path": "docs/readmes/032/development/install032-first.log.txt",
+          "kind": "text",
+          "sha256": "0bb41f22348a3cab7b83046835457b232d3e9654c51a7ea49c17706d6d7bbcbe"
+        },
+        {
+          "path": "docs/readmes/032/development/install032-live.log.txt",
+          "kind": "text",
+          "sha256": "6393ca51e8bb57bcc3e12d010f9435a9443827f9bf33f8da9ac4a8bc39dcb2ed"
+        },
+        {
+          "path": "docs/readmes/032/development/legacy-map-navigation-failure.png",
+          "kind": "binary",
+          "sha256": "c64ee72080f6523739617679d781d045aec78a734d6e34a6ddee74de9f73387a"
+        },
+        {
+          "path": "docs/readmes/032/development/live032-first.log.txt",
+          "kind": "text",
+          "sha256": "b8247f9b2ebe5ca4e82317266ff4bc8bec439fd601f7b2ebfaaab9060aa36af2"
+        },
+        {
+          "path": "docs/readmes/032/development/native032-first.log.txt",
+          "kind": "text",
+          "sha256": "6ac85968d70f8746ea4c97621e8afaefa9e7f2fc5a17087072dfa0f3b1c2c5fa"
+        },
+        {
+          "path": "docs/readmes/032/development/native032-second.log.txt",
+          "kind": "text",
+          "sha256": "9b79978a8f9797d28ba4366bf90924a29862b9dd93f10b54f953b0e714266a80"
+        },
+        {
+          "path": "docs/readmes/032/development/regress032.log.txt",
+          "kind": "text",
+          "sha256": "ccf31c4c53479ed6b92f91cdf03129f9befb455774495411c6cb36fbc72dbf5e"
+        },
+        {
+          "path": "docs/readmes/032/development/ui032-first.log.txt",
+          "kind": "text",
+          "sha256": "1b53229a517e824caa31ddaf6080338dd5aac53bbdaed122f806671ac808fca3"
+        },
+        {
+          "path": "docs/readmes/032/development/units032-final.log.txt",
+          "kind": "text",
+          "sha256": "33223245cc6c37b967e60e1ecedcf92d7ecf3a6b4e5eec1d7255d1dc4cd5ee71"
+        },
+        {
+          "path": "docs/readmes/032/development-attempts.json",
+          "kind": "text",
+          "sha256": "f7febae995711d98120fa8ae097f4fb71d511a3926c5ec0b1a706e1ef3d2ac6e"
+        },
+        {
+          "path": "docs/readmes/032/examples/cancelled-goal.json",
+          "kind": "text",
+          "sha256": "e2525ee217112879bac91cd96c1873b0ab07a3480ba1e07f80dd319c16b4d58c"
+        },
+        {
+          "path": "docs/readmes/032/examples/explicit-profile-push.json",
+          "kind": "text",
+          "sha256": "dddba32e35864a7def226fa16fd14355e5198f02d59b7583c319cb391b9e0909"
+        },
+        {
+          "path": "docs/readmes/032/examples/native-experience.json",
+          "kind": "text",
+          "sha256": "a89aba3eac81ac075951c43b8ef06e8613378cbd15bc3e3a69b773947f9b18e0"
+        },
+        {
+          "path": "docs/readmes/032/examples/original/actual-receipt.json",
+          "kind": "text",
+          "sha256": "38b844dd6c56bad4e1294ff316a1ec2116f271dc8a483b58b1e670b3761847c4"
+        },
+        {
+          "path": "docs/readmes/032/examples/original/charts.json",
+          "kind": "text",
+          "sha256": "96ea36f52fdeed6854c8197a9fde61c8007ef208a5a612525c5370229fecf54c"
+        },
+        {
+          "path": "docs/readmes/032/examples/original/data.json",
+          "kind": "text",
+          "sha256": "764d8b79dcb938574ce50054233526d438904bda4b9cb7c4322eb042e373c1d3"
+        },
+        {
+          "path": "docs/readmes/032/examples/original/index.html",
+          "kind": "text",
+          "sha256": "b9d7cabf9381a3e1c093ac8b55f01e88b943a0f77ffb69422501d2b55db05461"
+        },
+        {
+          "path": "docs/readmes/032/examples/original/job.json",
+          "kind": "text",
+          "sha256": "b18bb3c3b0e63712f06e185c230909b14420c0cfa8396027ab8f371ae824b4d5"
+        },
+        {
+          "path": "docs/readmes/032/examples/original/table.json",
+          "kind": "text",
+          "sha256": "066904d30616831e5bd8ebd5df7e977bb93e9a4fea16c7acef378abeebc174d8"
+        },
+        {
+          "path": "docs/readmes/032/examples/recovery/committed-job.json",
+          "kind": "text",
+          "sha256": "19b1251b19a90828938d7a18c0b86de1227ff3038eb7492cd5822acf33c9a1ec"
+        },
+        {
+          "path": "docs/readmes/032/examples/recovery/continued-job.json",
+          "kind": "text",
+          "sha256": "e366d07093e17e46f367a1f56f24ad4a117032efcbca0b3fc8e77a7e6162e013"
+        },
+        {
+          "path": "docs/readmes/032/file-inventory.json",
+          "kind": "text",
+          "sha256": "5063788eafff1279e12268cd8cf6cb8052597f0843501612b4e4f6daa68d310d"
+        },
+        {
+          "path": "docs/readmes/032/FILE_TREE.md",
+          "kind": "text",
+          "sha256": "82733950e9e0b0f43651b0db3c3f6db0d0681478004b1dbbf67a553b71e50e2b"
+        },
+        {
+          "path": "docs/readmes/032/force-learning-integration.json",
+          "kind": "text",
+          "sha256": "d777b668f65d8ac82b2144538594a7c15c0ce6a51b6d13c32ae349775370c63d"
+        },
+        {
+          "path": "docs/readmes/032/force-learning-library-integration.json",
+          "kind": "text",
+          "sha256": "b21ade25440ba82a0642f8d289c5f03cb3a927c57bbcaf3cd7634734435e1a56"
+        },
+        {
+          "path": "docs/readmes/032/frozen-contract.json",
+          "kind": "text",
+          "sha256": "e362f3fa5aa9319138bac7ad044df3bdb70ea397965ca7a9d706c815d4c53ec6"
+        },
+        {
+          "path": "docs/readmes/032/frozen-suite.json",
+          "kind": "text",
+          "sha256": "6f210d5e3cd6580dffe0a6339f9333784c921c7a7b7cbd2be003dc56b2745200"
+        },
+        {
+          "path": "docs/readmes/032/images/force-actual-training-032.png",
+          "kind": "binary",
+          "sha256": "463e3beb0efed81ea36493a27345385445ad5553eaff558b79d5b0aa99431424"
+        },
+        {
+          "path": "docs/readmes/032/images/force-baseline-opt-in-032.png",
+          "kind": "binary",
+          "sha256": "27fd352b49b89aa54a78c6491bd89573dc56091cf9c6b243f76f1fa9ec5cc54f"
+        },
+        {
+          "path": "docs/readmes/032/images/force-before-crash-032.png",
+          "kind": "binary",
+          "sha256": "30c97db59440c01bf017e4cc8cda161d761eea3e704b8d5c3701fe3a589158c9"
+        },
+        {
+          "path": "docs/readmes/032/images/force-chat-baseline-use-032.png",
+          "kind": "binary",
+          "sha256": "6568a5b7f7ebf6518053f7ac2faf3d53741f5e1383b7c7e9a904a862dfd5dd71"
+        },
+        {
+          "path": "docs/readmes/032/images/force-chat-rejected-032.png",
+          "kind": "binary",
+          "sha256": "293f19a9b4d8539c5034dffa2149f20169be35dd380fcfb5cc6cc45ddf034806"
+        },
+        {
+          "path": "docs/readmes/032/images/force-effort-chart-032.png",
+          "kind": "binary",
+          "sha256": "3464bc46a4814f2ca4312f1eb9828066bbc74b94f4d9858077ad08f74aee24f8"
+        },
+        {
+          "path": "docs/readmes/032/images/force-frozen-controls-032.png",
+          "kind": "binary",
+          "sha256": "ec48498c10eff0986f48cc7f2a13b6cd6b1145db5b6ea82bd5bcbe768be231f1"
+        },
+        {
+          "path": "docs/readmes/032/images/force-interrupted-032.png",
+          "kind": "binary",
+          "sha256": "7755c687381fcdbfc39243cac9a2f74acaf6650f38bd268c647f165daf7d9386"
+        },
+        {
+          "path": "docs/readmes/032/images/force-library-restored-032.png",
+          "kind": "binary",
+          "sha256": "5114356fef89a26142628a3835752b7eecab5f8c5ad31d2884bfec8ec607a030"
+        },
+        {
+          "path": "docs/readmes/032/images/force-promotion-refused-032.png",
+          "kind": "binary",
+          "sha256": "e85ba5d92669b549e31ec463f0e25a5d3ae48ef863aaf660cd8048d2effdb271"
+        },
+        {
+          "path": "docs/readmes/032/images/force-rejected-report-032.png",
+          "kind": "binary",
+          "sha256": "eb83dae40426f470de3cc1e59d47f4903fd7827e8d4b5531673679ead0b6e560"
+        },
+        {
+          "path": "docs/readmes/032/images/force-resumed-report-032.png",
+          "kind": "binary",
+          "sha256": "acf3fe9fa5036c1774851bded1433d0fee71610d0760c3336f5cb4759798ed60"
+        },
+        {
+          "path": "docs/readmes/032/images.json",
+          "kind": "text",
+          "sha256": "bb0869f7b1beeaaa5c24a465bf0799dee7ae3fd67f8613d705be6113d095e89d"
+        },
+        {
+          "path": "docs/readmes/032/index.html",
+          "kind": "text",
+          "sha256": "ac0f3dd9d7d75983f9059e9fe90eddde4c81bad281ea6d8f74dc32e92a6a3e1a"
+        },
+        {
+          "path": "docs/readmes/032/live-force-learning.json",
+          "kind": "text",
+          "sha256": "332dfa9d5e0dc19b69598b1146c5df947fd6fcc56478d4e53082b0610e7060be"
+        },
+        {
+          "path": "docs/readmes/032/native-outcomes.json",
+          "kind": "text",
+          "sha256": "e9ce2e529e5c3be18243f8e96983325069f912b539949843d3fee9e8108e3f45"
+        },
+        {
+          "path": "docs/readmes/032/regressions.json",
+          "kind": "text",
+          "sha256": "5bc7774afcee9f7ca7e4d5920605137afbdb87a7ebc04f544965104bc4520e4c"
+        },
+        {
+          "path": "docs/readmes/032/system-map.json",
+          "kind": "text",
+          "sha256": "59e72b256b9fe1a94e3ec70d595b9d61e29144cb8210ca60f6b6d55134a247d7"
+        },
+        {
+          "path": "docs/readmes/032/verification.json",
+          "kind": "text",
+          "sha256": "cc5bb3a22a10e849d25610c0b901a3755470f4ef24848d2d7dc1f0c5324016ef"
         }
       ]
     }

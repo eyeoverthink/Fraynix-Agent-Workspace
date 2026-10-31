@@ -1,5 +1,20 @@
 # Fraynix Studio system architecture
 
+## Edition032: native experience with a reserved decision
+
+The existing shared Java runner now owns a frozen force-learning experiment.
+Four training scenes and four candidate caps produce16 actual native trials;
+the training-only choice commits before eight paired reserved comparisons.
+The031 controller and all original physical limits remain unchanged. Every raw
+native run is hash-bound and re-audited;72 actual table cells and three paired
+chart modes precede task completion. Explicit same-job recovery preserves settled
+trials and the original selection. Conditional activation requires original
+gates and report evidence; new pushes opt in visibly. Current24N candidate is
+rejected (success5/8→5/8, effort ratio1.262196165); baseline8/32N stays active.
+Rollback persistence has a separately labelled software control; successful
+native candidate activation is not claimed. See [native experience](NATIVE_EXPERIENCE.md).
+
+
 ## Edition031: approach planning and contact-driven tasks
 
 The existing Spatial interface now binds an actual crate and upright pusher.

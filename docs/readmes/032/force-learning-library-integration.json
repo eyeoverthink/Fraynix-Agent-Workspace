@@ -1,0 +1,167 @@
+{
+  "passed": true,
+  "date": "2026-10-31T22:22:35.088Z",
+  "project": "C:\\Users\\eyeka\\AppData\\Local\\Temp\\fraynix-force-library032-3szePi",
+  "sourceProject": "C:\\Users\\eyeka\\AppData\\Local\\Temp\\fraynix-force032-vkUqRp",
+  "checks": [
+    "A fresh process with later push/cancelled goals restores all saved experiments; selecting an older completed comparison enables its real report/export and keeps promotion rejected",
+    "Opening the restored original report shows actual paired data without changing task ownership, adding native trials or producing renderer errors"
+  ],
+  "jobId": "9797991e-697c-30a3-b732-1ed15ebd8725",
+  "originalDecision": {
+    "evaluationCases": 8,
+    "accepted": false,
+    "newSuccessfulCaseJams": 0,
+    "meanPenalizedTimeImprovementS": 1.36770833333334,
+    "pairs": [
+      {
+        "baselineTimeS": 12.591666666666667,
+        "baselineEffortNs": 44.70989412686491,
+        "caseId": "eval-light",
+        "baselineRunId": "8be35279-15a8-3f39-9173-08ee9ad6b657",
+        "candidateJams": 0,
+        "baselineJams": 0,
+        "candidateEffortNs": 44.34828107617772,
+        "candidateRunId": "9e753000-b5d8-3201-99ad-eedeac5c0e3c",
+        "candidateTimeS": 12.4125,
+        "baselinePassed": true,
+        "candidatePassed": true
+      },
+      {
+        "baselineTimeS": 30.275,
+        "baselineEffortNs": 131.98909163600808,
+        "caseId": "eval-corner",
+        "baselineRunId": "b1aca85c-b51e-36f6-9e97-3db672938084",
+        "candidateJams": 0,
+        "baselineJams": 0,
+        "candidateEffortNs": 125.87987048046693,
+        "candidateRunId": "3c13191b-3db8-368d-92cf-4194f5d14992",
+        "candidateTimeS": 29.208333333333332,
+        "baselinePassed": true,
+        "candidatePassed": true
+      },
+      {
+        "baselineTimeS": 15.591666666666667,
+        "baselineEffortNs": 129.46532410045316,
+        "caseId": "eval-heavy-friction",
+        "baselineRunId": "87db5bcf-329b-3e9a-bb29-d2a788fd7582",
+        "candidateJams": 0,
+        "baselineJams": 1,
+        "candidateEffortNs": 105.0658368959071,
+        "candidateRunId": "7e70432f-37fb-33c0-8ee6-db7564f51b77",
+        "candidateTimeS": 11.475,
+        "baselinePassed": true,
+        "candidatePassed": true
+      },
+      {
+        "baselineTimeS": 33.37083333333333,
+        "baselineEffortNs": 168.18355829073482,
+        "caseId": "eval-rough-corner",
+        "baselineRunId": "946fce73-5f29-3deb-9b94-c8a168bc03d6",
+        "candidateJams": 0,
+        "baselineJams": 1,
+        "candidateEffortNs": 143.17434136964437,
+        "candidateRunId": "d7b2d90b-545a-316e-86e3-f32fa4fa1f26",
+        "candidateTimeS": 29.2,
+        "baselinePassed": true,
+        "candidatePassed": true
+      },
+      {
+        "baselineTimeS": 13.95,
+        "baselineEffortNs": 67.82542725817495,
+        "caseId": "eval-mass",
+        "baselineRunId": "ca3273dc-eb3b-3f12-9ea3-c1a6f45febac",
+        "candidateJams": 0,
+        "baselineJams": 0,
+        "candidateEffortNs": 59.128293612027186,
+        "candidateRunId": "d3f7765a-51d1-37e4-8e04-1f133ef6f353",
+        "candidateTimeS": 12.541666666666666,
+        "baselinePassed": true,
+        "candidatePassed": true
+      },
+      {
+        "baselineTimeS": 60,
+        "baselineEffortNs": 80.34127352911239,
+        "caseId": "eval-obstacle",
+        "baselineRunId": "867affe3-61a9-3066-9b36-934d2bfff95b",
+        "candidateJams": 0,
+        "baselineJams": 0,
+        "candidateEffortNs": 79.92221079452577,
+        "candidateRunId": "9f6dc1da-f94c-341f-bb64-184d6d5b41c5",
+        "candidateTimeS": 60,
+        "baselinePassed": false,
+        "candidatePassed": false
+      },
+      {
+        "baselineTimeS": 60,
+        "baselineEffortNs": 132.42872369963177,
+        "caseId": "eval-z-axis",
+        "baselineRunId": "f0e0dfb3-5e35-3b8d-a404-4762e18c74f5",
+        "candidateJams": 0,
+        "baselineJams": 0,
+        "candidateEffortNs": 100.06250693391316,
+        "candidateRunId": "5047e7f4-1502-3b5e-ad48-3ed066ca4a30",
+        "candidateTimeS": 60,
+        "baselinePassed": false,
+        "candidatePassed": false
+      },
+      {
+        "baselineTimeS": 60,
+        "baselineEffortNs": 146.56425985113378,
+        "caseId": "eval-force-negative",
+        "baselineRunId": "77350452-cb38-365c-a595-c90a216f9da1",
+        "candidateJams": 2,
+        "baselineJams": 2,
+        "candidateEffortNs": 480.29803440776004,
+        "candidateRunId": "0fcc46c7-5c02-3592-95b1-1619e00cf66e",
+        "candidateTimeS": 60,
+        "baselinePassed": false,
+        "candidatePassed": false
+      }
+    ],
+    "effortRatio": 1.2621961651068654,
+    "gates": {
+      "noNewSuccessfulCaseJam": true,
+      "maxPerCaseTimeRegressionS": 0.25,
+      "minMeanTimeImprovementS": 0.5,
+      "minSuccessFraction": 0.75,
+      "maxEffortRatio": 1.25,
+      "noSuccessRegression": true
+    },
+    "maxPerCaseTimeRegressionS": 0,
+    "selection": {
+      "initialForceN": 24,
+      "trainingOnly": true,
+      "trainingScores": [
+        {
+          "meanPenalizedTimeS": 17.928125,
+          "initialForceN": 8
+        },
+        {
+          "meanPenalizedTimeS": 16.346875,
+          "initialForceN": 16
+        },
+        {
+          "meanPenalizedTimeS": 16.309375,
+          "initialForceN": 24
+        },
+        {
+          "meanPenalizedTimeS": 16.313541666666666,
+          "initialForceN": 32
+        }
+      ],
+      "objective": {
+        "tieBreak": "lower initial force",
+        "failedSeconds": 60,
+        "objective": "mean penalized native completion time"
+      }
+    },
+    "successRegressions": 0,
+    "scope": "One initial-force parameter selected from actual training physics and checked on separately reserved synthetic cases; unchanged031 controller and32N maximum. Not real-world calibration, universal learning or Ollama-weight training.",
+    "baselineSuccesses": 5,
+    "passed": true,
+    "candidateSuccesses": 5
+  },
+  "activeGoalId": "293ccdf5-8026-4482-80b9-184c790e9ede",
+  "scope": "Copy of only this phase closed synthetic acceptance project; actual readonly restart/history behavior, no candidate activation or new performance claim."
+}

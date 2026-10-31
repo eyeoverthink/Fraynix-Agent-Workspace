@@ -2,9 +2,9 @@
 
 **A local visual environment for agents to browse, create runnable artifacts, test behavior and reuse verified skills.**
 
-> **Latest implementation: [README031 — contact-driven native tasks](README-031.md)** · [Offline guide](docs/readmes/031/index.html) · [Runtime contract](docs/NATIVE_PUSHING.md) · [Edition history](docs/readmes/INDEX.md)
+> **Latest implementation: [README032 — measured native experience](README-032.md)** · [Offline guide](docs/readmes/032/index.html) · [Runtime contract](docs/NATIVE_EXPERIENCE.md) · [Edition history](docs/readmes/INDEX.md)
 
-Approach and push a separate crate through actual native contacts, recover from measured stalls inside the original force budget, resume both bodies after interruption and retain a verified skill. [Functions, actual screenshots, original evidence and next gates](README-031.md).
+Learn one force setting from actual native training, compare on separate reserved scenes, verify the original data and retain the baseline when a candidate fails. [Functions, actual screenshots, original evidence and next gates](README-032.md).
 
 The spatial proof and next independent-capture gates are documented in the [spatial contract](docs/SPATIAL_WORLD.md) and the [world-model frontier assessment](docs/WORLD_MODEL_FRONTIERS.md), including Genie, persistent3D capture, physics-aware prediction and the source-qualified local scene/manipulation milestone.
 
@@ -18,9 +18,9 @@ The app includes a real browser, live creation canvas, editable source, versione
 
 Local `gpt-oss:20b` is the verified default for the first agent fixture. The custom FRAYNIX 3B trial returned an Ollama native-format error; advertised tool capability alone does not establish task reliability. You can select other eligible installed models explicitly.
 
-![Actual native pusher and crate in the existing app](docs/readmes/031/images/push-native-contact-031.png)
+![Actual native training and evaluation inside the existing app](docs/readmes/032/images/force-actual-training-032.png)
 
-Actual edition031 contact-driven world shown above. Earlier October30 body/scene/file workflows remain preserved. Native actuation, decoded video, import/replication, Java/desktop regressions and local-agent evidence are recorded in [edition 015 verification](docs/readmes/015/verification.json). The previous [real-data fit](README-013.md) remains rejected.
+Actual edition032 native experience shown above. Earlier October30 body/scene/file workflows remain preserved. Native actuation, decoded video, import/replication, Java/desktop regressions and local-agent evidence are recorded in [edition 015 verification](docs/readmes/015/verification.json). The previous [real-data fit](README-013.md) remains rejected.
 
 ## Verify
 

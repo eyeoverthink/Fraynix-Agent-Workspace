@@ -1,0 +1,136 @@
+{
+  "nodes": [
+    {
+      "id": "freeze",
+      "type": "file",
+      "file": "workspace-engine/src/main/resources/push-evaluation032.json",
+      "x": 0,
+      "y": 0,
+      "width": 340,
+      "height": 170
+    },
+    {
+      "id": "native",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/PushPhysics.java",
+      "x": 390,
+      "y": 0,
+      "width": 340,
+      "height": 170
+    },
+    {
+      "id": "owner",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/PushLearningStore.java",
+      "x": 780,
+      "y": 0,
+      "width": 340,
+      "height": 170
+    },
+    {
+      "id": "selection",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/PushLearning.java",
+      "x": 0,
+      "y": 250,
+      "width": 340,
+      "height": 170
+    },
+    {
+      "id": "audit",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/PushVerify.java",
+      "x": 390,
+      "y": 250,
+      "width": 340,
+      "height": 170
+    },
+    {
+      "id": "goal",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/GoalRunner.java",
+      "x": 780,
+      "y": 250,
+      "width": 340,
+      "height": 170
+    },
+    {
+      "id": "view",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/PushLearningReport.java",
+      "x": 0,
+      "y": 500,
+      "width": 340,
+      "height": 170
+    },
+    {
+      "id": "profile",
+      "type": "file",
+      "file": "workspace-desktop/renderer/force-learning-panel.js",
+      "x": 390,
+      "y": 500,
+      "width": 340,
+      "height": 170
+    },
+    {
+      "id": "next",
+      "type": "file",
+      "file": "docs/EDITION_032_PLAN.md",
+      "x": 780,
+      "y": 500,
+      "width": 340,
+      "height": 170
+    },
+    {
+      "id": "readme",
+      "type": "file",
+      "file": "README-032.md",
+      "x": 0,
+      "y": 800,
+      "width": 1100,
+      "height": 200
+    }
+  ],
+  "edges": [
+    {
+      "id": "e0",
+      "fromNode": "freeze",
+      "toNode": "native"
+    },
+    {
+      "id": "e1",
+      "fromNode": "native",
+      "toNode": "owner"
+    },
+    {
+      "id": "e2",
+      "fromNode": "owner",
+      "toNode": "selection"
+    },
+    {
+      "id": "e3",
+      "fromNode": "selection",
+      "toNode": "audit"
+    },
+    {
+      "id": "e4",
+      "fromNode": "audit",
+      "toNode": "goal"
+    },
+    {
+      "id": "e5",
+      "fromNode": "goal",
+      "toNode": "view"
+    },
+    {
+      "id": "e6",
+      "fromNode": "view",
+      "toNode": "profile"
+    },
+    {
+      "id": "e7",
+      "fromNode": "profile",
+      "toNode": "next"
+    }
+  ]
+}
