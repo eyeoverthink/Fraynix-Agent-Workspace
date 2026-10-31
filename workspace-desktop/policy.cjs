@@ -2,6 +2,8 @@
 const { randomUUID } = require('node:crypto');
 const catalog = [
  ['map.read','Inspect the selected original palette-map reference or compiled native world. User-declared passability, actual source hash and learned frequencies; host binds selection.','{}'],
+ ['push.read','Observe the actual selected crate/pusher roles, source geometry, masses, friction and committed native state. Labels are qualified scene data.','{}'],
+ ['push.start','Plan reachable standing poses and push the selected crate by bounded native pusher forces. Java owns collision timing, measured jam recovery, both-body checkpoints and exact report verification. No direct crate force or grip.','{displacementM:[integerX,0,integerZ],initialForceN?,maxForceN?,saveSkillName?}'],
  ['map.start','Java learns image adjacency, preserves hard pins, compiles real colliders, navigates a force-driven avatar with feedback and verifies actual trace/charts; optionally retain a skill. For selected existing maps omit generation fields.','{seed?,width?,height?,cellSizeM?,friction?,materials?:[{tile,name,friction,restitution?,dragNsPerM?}],disturbanceNs?,pins?,saveSkillName?}'],
  ['space.start','Generate and verify actual Java procedural coordinates: colonization in2..16 dimensions or connected BSP dungeons in2..4 dimensions. Seeded, bounded, full source, actual projections and reusable procedure. No Processing dependency or physical-reality claim.','{type,dimensions,seed,samples?,iterations?,step?,influence?,kill?,side?,rooms?,saveSkillName?}'],
  ['space.export','Save the completed owned procedural space as a real verified portable JSON package. Host binds goal identity.','{}'],
@@ -95,6 +97,7 @@ const goalParameters=object({angleDeg:{type:'number',minimum:10,maximum:40},fric
 const goalOptions={...goalParameters.properties,targetM:{type:'number',minimum:.4,maximum:1.8},disturbanceMps:{type:'number',minimum:-.5,maximum:.5},browserContext:{type:'boolean'}};
 const dataOptions={maxGapS:{type:'number',minimum:.000001,maximum:86400},speedLimitMps:{type:'number',minimum:.000001,maximum:1e9}};
 const proceduralOptions={type:{type:'string',enum:['colonization','dungeon']},dimensions:{type:'integer',minimum:2,maximum:16},seed:{type:'integer',minimum:0,maximum:1e9},samples:{type:'integer',minimum:16,maximum:512},iterations:{type:'integer',minimum:1,maximum:128},step:{type:'number',minimum:.015,maximum:.08},influence:{type:'number',minimum:.12,maximum:.6},kill:{type:'number',minimum:.015,maximum:.6},side:{type:'integer',minimum:12,maximum:40},rooms:{type:'integer',minimum:4,maximum:24}};
+const pushOptions={displacementM:{type:'array',items:{type:'integer',minimum:-4,maximum:4},minItems:3,maxItems:3},initialForceN:{type:'number',minimum:2,maximum:60},maxForceN:{type:'number',minimum:2,maximum:60},saveSkillName:text};
 const spatialOptions={displacementM:{type:'array',items:{type:'number',minimum:-6,maximum:6},minItems:3,maxItems:3},saveSkillName:text};
 const perceptionOptions={mode:{type:'string',enum:['vision','appearance','dom']},targetLabel:text,visionModel:text,lessonName:text,seconds:{type:'number',minimum:2,maximum:30},saveSkillName:text};
 const mapConstraints=object({connected:{type:'boolean'},minFloorFraction:{type:'number',minimum:.05,maximum:.95},maxFloorFraction:{type:'number',minimum:.05,maximum:.95},minRouteSteps:{type:'integer',minimum:0,maximum:128},maxRouteSteps:{type:'integer',minimum:0,maximum:128}},[]);
@@ -103,6 +106,7 @@ const argumentSchemas={
  'map.read':empty,'map.start':object(mapOptions,[]),
  'space.start':object({...proceduralOptions,saveSkillName:text},['type','dimensions','seed']),'space.export':empty,
  'tracking.read':empty,'tracking.start':object({autoPromote:{type:'boolean'}},[]),'tracking.wait':empty,'tracking.report':empty,'tracking.rollback':empty,'perception.read':empty,'perception.select':object({ref:text}),'perception.start':object(perceptionOptions,[]),
+ 'push.read':empty,'push.start':object(pushOptions,['displacementM']),
  'spatial.read':empty,'spatial.start':object(spatialOptions,['displacementM']),
  'data.read':empty,'data.start':object({...dataOptions,saveSkillName:text},[]),
  'world.model':empty,'goal.start':object({...goalOptions,saveSkillName:text},[]),'goal.read':empty,'goal.cancel':empty,'goal.resume':object({id:text}),'procedures.list':empty,'procedure.save':object({name:text}),
@@ -153,7 +157,7 @@ function calibrationStage(context,goal){
 function planTools(allowed,context={}){return catalog.filter(t=>allowed.includes(t.name)).map(t=>{
  let parameters=argumentSchemas[t.name];
   if(t.name==='map.start'&&context.mapCompiled)parameters=object({disturbanceNs:mapOptions.disturbanceNs,saveSkillName:text},[]);
- if(t.name==='procedure.run'&&context.family){const options=context.family==='map'?(context.procedureBound&&context.allowMaterialOverride===false?Object.fromEntries(Object.entries(mapOptions).filter(([key])=>key!=='materials')):mapOptions):context.family==='procedural'?{seed:proceduralOptions.seed,definition:object(proceduralOptions,[]),saveSkillName:text}:context.family==='perception'?{targetLabel:text,seconds:perceptionOptions.seconds,saveSkillName:text}:context.family==='spatial'?spatialOptions:context.family==='data'?{...dataOptions,saveSkillName:text}:{...goalOptions,saveSkillName:text};parameters=context.procedureBound?object(options,[]):object({name:context.names?.length?{type:'string',enum:context.names}:text,version:{type:'integer',minimum:1,maximum:8},...options},['name','version']);}
+ if(t.name==='procedure.run'&&context.family){const options=context.family==='push'?pushOptions:context.family==='map'?(context.procedureBound&&context.allowMaterialOverride===false?Object.fromEntries(Object.entries(mapOptions).filter(([key])=>key!=='materials')):mapOptions):context.family==='procedural'?{seed:proceduralOptions.seed,definition:object(proceduralOptions,[]),saveSkillName:text}:context.family==='perception'?{targetLabel:text,seconds:perceptionOptions.seconds,saveSkillName:text}:context.family==='spatial'?spatialOptions:context.family==='data'?{...dataOptions,saveSkillName:text}:{...goalOptions,saveSkillName:text};parameters=context.procedureBound?object(options,[]):object({name:context.names?.length?{type:'string',enum:context.names}:text,version:{type:'integer',minimum:1,maximum:8},...options},['name','version']);}
  return {type:'function',function:{name:t.name.replace('.','_'),description:t.description,parameters}};
 });}
 function observerStage(context,goal){
@@ -178,6 +182,7 @@ function bodyStage(context){
 }
 const originalTaskMode=taskMode;
 function expandedTaskMode(goal){
+ if(/\bpush(?:ing)?\b/i.test(goal)&&/\b(?:crate|pusher|box|selected object|imported object)\b/i.test(goal)&&!/\b(?:website|web app|html|git)\b/i.test(goal))return {needsPush:true,needsGoal:true,needsScene:false,needsComparison:false};
  if(/\b(?:reference[- ]image map|reference[- ]map|playable (?:map|world)|map world|native map|tile map)\b/i.test(goal)||/\b(?:play|compile)\b.*\bdungeon\b/i.test(goal))return {needsMap:true,needsGoal:true,needsScene:false,needsComparison:false};
  if(/\b(?:space[- ]coloni[sz]ation|procedural (?:space|map|geometry)|dungeon|coloni[sz]ation)\b/i.test(goal))return {needsProcedural:true,needsGoal:true,needsScene:false,needsComparison:false};
  if(/\bevidence workflow\b|\bend[- ]to[- ]end\b/i.test(goal))return {needsWorkflow:true,needsScene:false,needsComparison:false};

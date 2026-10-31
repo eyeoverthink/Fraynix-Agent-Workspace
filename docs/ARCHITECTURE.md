@@ -1,5 +1,19 @@
 # Fraynix Studio system architecture
 
+## Edition031: approach planning and contact-driven tasks
+
+The existing Spatial interface now binds an actual crate and upright pusher.
+The shared Java runner freezes original source/roles/force budgets, searches joint
+configurations, verifies standing approaches and executes bounded forces only on
+the pusher. Real native contacts move the crate. Measured stalls trigger finite
+retreat/reapproach inside the original cap. Both dynamic bodies, full plan,
+controller and original evidence checkpoint atomically for explicit same-run
+recovery. Independent native ledger/outcome checks and all six real chart modes
+plus exact visible original data precede skill retention. Chat supplies semantic
+conditions and host-controlled default preservation. Existing030 Map checkpoint
+classes remain byte-identical. See [native pushing](NATIVE_PUSHING.md).
+
+
 ## Edition030: recoverable native map state and declared materials
 
 The existing Java map owner commits body pose/orientation/linear/angular velocity, controller progress, settling, disturbance and full trace before corresponding live observations. Explicit compatible recovery continues the same run and independently compares actual initialized native state. Contact caches rebuild. Declared palette floor properties drive native friction/restitution and Java drag; separate per-tick audits reconstruct position, work/effort, kinetic energy and impulse. Nine actual report charts and visible material/work data precede skill retention. Completed reports retain original contents. Chat reuse preserves saved material defaults unless explicitly replaced. See [native recovery/material contract](NATIVE_MAP_RECOVERY.md) and [edition030 evidence](../README-030.md). Next: native pushable-object planning and complete dynamic-body recovery, then layer transitions and independently evaluated policy promotion.

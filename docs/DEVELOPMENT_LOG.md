@@ -1,5 +1,10 @@
 # Agent Workspace development log
 
+
+## 2026-10-31 — Edition031 actual native and UI implementation
+
+Contact-driven pushing now has a bounded joint crate/pusher planner, reachable standing poses, native pusher-only force control, measured jam retreat/reapproach, original force caps and independent per-tick/endpoint/contact/restore verification. Both dynamic bodies and full controller/trace commit atomically and resume in the same run. Six actual canvas charts and exact original visible data precede versioned skill retention. Complete JSON/CSV/lossless package and source-preserving import/export work. Nine native tests,56 desktop units and12 real Electron workflow groups pass. Initial corner drift was corrected with pre-contact alignment, tighter intermediate targets and declared-friction feedforward; final.1m/.2mps gates unchanged. UI tests exposed old interrupted-goal selection takeover and wrong Resume route; both corrected, original failures retained. Local-model and independent release validation/publication are still pending.
+
 ## 2026-10-31 — Edition030 actually pushed and directly verified
 
 Atomic main/readme-030 push accepted. Direct independent fetch verifies release42b7bb66fab50005aef8242e6028d52ee7c8012b and annotated object4ae251cfb42b173803f88979caeb5d8efea51eff, all600 source hashes and all992 frozen documentation hashes. Source baseline033a254; native runtime fingerprintd87b14f970dabb18624be9a458c5fd3266dd15cb51fe01f570f86fab50360c33. Normal separate review030 PID25056 runs from the verified independent checkout using only a copy of this phase's closed synthetic acceptance project; no private user DB/model weights copied. Prior review apps remain preserved. Next031 user-authorized implementation: real pushable-object planning and native jam recovery. This continuity-only commit does not alter frozen030 evidence or executable source.

@@ -6,7 +6,7 @@
   "main": "main.cjs",
   "scripts": {
     "start": "electron .",
-    "test": "node --test test/policy.test.cjs test/controller.test.cjs test/tracking.test.cjs test/creation.test.cjs test/workflows.test.cjs test/procedural.test.cjs test/maps.test.cjs",
+    "test": "node --test test/policy.test.cjs test/controller.test.cjs test/tracking.test.cjs test/creation.test.cjs test/workflows.test.cjs test/procedural.test.cjs test/maps.test.cjs test/pushing.test.cjs",
     "test:integration": "node test/integration.cjs",
     "test:learning": "node test/learning-integration.cjs",
     "test:scene": "node test/scene-integration.cjs",
@@ -54,7 +54,9 @@
     "test:topology": "node test/topology-integration.cjs",
     "test:live-topology": "node test/live-topology.cjs",
     "test:recovery-materials": "node test/recovery-materials-integration.cjs",
-    "test:live-materials": "node test/live-materials.cjs"
+    "test:live-materials": "node test/live-materials.cjs",
+    "test:pushing": "node test/pushing-integration.cjs",
+    "test:live-pushing": "node test/live-pushing.cjs"
   },
   "devDependencies": {
     "electron": "45.1.0",
