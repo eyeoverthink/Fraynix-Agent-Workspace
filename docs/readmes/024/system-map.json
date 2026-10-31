@@ -1,0 +1,219 @@
+{
+  "date": "2026-10-30",
+  "modules": [
+    {
+      "id": "pixels",
+      "name": "Original consecutive observations",
+      "status": "verified",
+      "source": "scripts/Prepare-Tracking024.py",
+      "summary": "229 original frames; known hiking development and three reserved cases fetched after source freeze.",
+      "note": "docs/obsidian/32-temporal-tracking.md"
+    },
+    {
+      "id": "flow",
+      "name": "Pure Java temporal motion",
+      "status": "verified",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/FlowTracker.java",
+      "summary": "Four-level patch motion, forward/backward checks, robust translation/scale and bounded appearance recovery.",
+      "note": "docs/obsidian/32-temporal-tracking.md"
+    },
+    {
+      "id": "vectors",
+      "name": "Actual motion diagnostics",
+      "status": "verified",
+      "source": "workspace-desktop/renderer/tracking-panel.js",
+      "summary": "Toggle measured feature vectors and inspect inliers; reference overlays remain separate from source input.",
+      "note": "docs/obsidian/32-temporal-tracking.md"
+    },
+    {
+      "id": "score",
+      "name": "Every prediction scored",
+      "status": "verified",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/Tracking024Evaluation.java",
+      "summary": "Initial rectangle is given. Later annotations enter the scorer only after prediction; losses remain zero.",
+      "note": "docs/obsidian/32-temporal-tracking.md"
+    },
+    {
+      "id": "gate",
+      "name": "Improvement and retained rejection",
+      "status": "verified",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/TrackingLab.java",
+      "summary": "All three clips improve, but coverage33.73% and four very-low-overlap boxes fail unchanged admission gates.",
+      "note": "docs/obsidian/32-temporal-tracking.md"
+    },
+    {
+      "id": "pins",
+      "name": "Goals retain their implementation",
+      "status": "verified",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/TrackerIdentity.java",
+      "summary": "Legacy profiles remain installed; saved flow-v3 skills keep their code after rollback and restart.",
+      "note": "docs/obsidian/32-temporal-tracking.md"
+    },
+    {
+      "id": "chat",
+      "name": "Local chat completes actual workflow",
+      "status": "verified",
+      "source": "workspace-desktop/tracking.cjs",
+      "summary": "Host-bound sources and one typed comparison; Java decides, the actual report is tested and rejection remains visible.",
+      "note": "docs/obsidian/32-temporal-tracking.md"
+    },
+    {
+      "id": "report",
+      "name": "Replay, charts and source traces",
+      "status": "verified",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/TrackingPresentation.java",
+      "summary": "18 actual files, every prediction, original source thumbnails, CPU latency and eight canvas checks.",
+      "note": "docs/obsidian/32-temporal-tracking.md"
+    },
+    {
+      "id": "next",
+      "name": "Foreground, shape and recovery",
+      "status": "planned",
+      "source": "docs/TEMPORAL_TRACKING.md",
+      "summary": "Develop on known failures, freeze a changed candidate and evaluate different declared clips without retuning.",
+      "note": "docs/obsidian/32-temporal-tracking.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "docs/readmes/024/images/tracking-import-024.png",
+      "caption": "Actual four-case import:229 original consecutive frames with development/evaluation roles. DAVIS research derivatives, CC BY-NC4.0."
+    },
+    {
+      "path": "docs/readmes/024/images/tracking-reference-024.png",
+      "caption": "Actual car-turn prediction with measured cyan feature motion and separate blue reference. An illustrative frame, not a substitute for full-sequence scores. DAVIS, CC BY-NC4.0."
+    },
+    {
+      "path": "docs/readmes/024/images/tracking-loss-024.png",
+      "caption": "Actual later dog frame: candidate lost, with no invented current prediction. Reference is evaluation-only. DAVIS, CC BY-NC4.0."
+    },
+    {
+      "path": "docs/readmes/024/images/tracking-decision-024.png",
+      "caption": "Actual report retains the improved mean overlap and failed unchanged reliability gates. Working report assertions do not imply accepted accuracy."
+    },
+    {
+      "path": "docs/readmes/024/images/tracking-browser-024.png",
+      "caption": "Actual original-frame browser replay and independent source capture; no reference overlay enters the source canvas. DAVIS, CC BY-NC4.0."
+    },
+    {
+      "path": "docs/readmes/024/images/tracking-promotion-024.png",
+      "caption": "Separate explicitly synthetic aspect control passes fixed gates and manually activates flow-v3. This is software lifecycle evidence."
+    },
+    {
+      "path": "docs/readmes/024/images/tracking-pinned-skill-024.png",
+      "caption": "Actual saved-skill inspector retains flow-v3 and its implementation identity from the synthetic software control."
+    },
+    {
+      "path": "docs/readmes/024/images/tracking-rollback-024.png",
+      "caption": "Actual synthetic-control rollback restores baseline without rewriting the comparison or saved skill."
+    },
+    {
+      "path": "docs/readmes/024/images/tracking-chat-024.png",
+      "caption": "Actual gpt-oss:20b workflow opens/tests the real report and states the rejected new-footage decision. DAVIS report thumbnails, CC BY-NC4.0."
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/readmes/024/verification.json"
+    },
+    {
+      "path": "docs/readmes/024/tracking-migration.json"
+    },
+    {
+      "path": "docs/readmes/024/failure-analysis.json"
+    },
+    {
+      "path": "docs/readmes/024/first-evaluation.json"
+    },
+    {
+      "path": "docs/readmes/024/profile-024.json"
+    },
+    {
+      "path": "docs/readmes/024/acceptance-024.json"
+    },
+    {
+      "path": "docs/readmes/024/development.json"
+    },
+    {
+      "path": "docs/readmes/024/tracking024-integration.json"
+    },
+    {
+      "path": "docs/readmes/024/tracking-controls-integration.json"
+    },
+    {
+      "path": "docs/readmes/024/live-tracking024.json"
+    },
+    {
+      "path": "docs/readmes/024/regressions.json"
+    },
+    {
+      "path": "docs/readmes/024/live-perception.json"
+    },
+    {
+      "path": "docs/readmes/024/live-spatial.json"
+    },
+    {
+      "path": "docs/readmes/024/live-data-goals.json"
+    },
+    {
+      "path": "docs/readmes/024/live-goals.json"
+    },
+    {
+      "path": "docs/readmes/024/examples/verified-tracking-report.html"
+    },
+    {
+      "path": "docs/readmes/024/examples/comparison.json"
+    },
+    {
+      "path": "docs/readmes/024/examples/datasets.json"
+    },
+    {
+      "path": "docs/readmes/024/examples/accuracy.csv"
+    },
+    {
+      "path": "docs/readmes/024/examples/verification.json"
+    },
+    {
+      "path": "docs/readmes/024/file-inventory.json"
+    },
+    {
+      "path": "docs/readmes/024/FILE_TREE.md"
+    },
+    {
+      "path": "docs/readmes/024/examples/dataset-0.json"
+    },
+    {
+      "path": "docs/readmes/024/examples/dataset-1.json"
+    },
+    {
+      "path": "docs/readmes/024/examples/dataset-2.json"
+    },
+    {
+      "path": "docs/readmes/024/examples/dataset-3.json"
+    },
+    {
+      "path": "docs/readmes/024/examples/trace-0-flow-v3.json"
+    },
+    {
+      "path": "docs/readmes/024/examples/trace-0-rgb-v1.json"
+    },
+    {
+      "path": "docs/readmes/024/examples/trace-1-flow-v3.json"
+    },
+    {
+      "path": "docs/readmes/024/examples/trace-1-rgb-v1.json"
+    },
+    {
+      "path": "docs/readmes/024/examples/trace-2-flow-v3.json"
+    },
+    {
+      "path": "docs/readmes/024/examples/trace-2-rgb-v1.json"
+    },
+    {
+      "path": "docs/readmes/024/examples/trace-3-flow-v3.json"
+    },
+    {
+      "path": "docs/readmes/024/examples/trace-3-rgb-v1.json"
+    }
+  ]
+}

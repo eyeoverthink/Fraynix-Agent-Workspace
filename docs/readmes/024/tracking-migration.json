@@ -1,0 +1,56 @@
+{
+  "passed": true,
+  "date": "2026-10-31T02:16:31.575Z",
+  "project": "C:\\Users\\eyeka\\AppData\\Local\\Temp\\fraynix-tracking-migration024-9SM3AD",
+  "legacyRoot": "C:\\Users\\eyeka\\Documents\\Codex\\2026-10-26\\is\\work\\fraynix-workspace-qa023-release",
+  "checks": [
+    "A genuine edition023 process creates an old-schema comparison; edition024 preserves the complete record and defaults its inspector to the original adaptive-v2 profile",
+    "Reopened legacy report retains its original protocol and traces while passing actual canvas assertions under the new app",
+    "A passing legacy job still activates its original installed profile and rolls back through the actual buttons, without adopting flow-v3 or changing its scores"
+  ],
+  "legacyJobId": "28d3e4af-ee5a-4815-bf0e-00080e021f41",
+  "originalGate": {
+    "baselineMeanIou": 0.13039626764306392,
+    "lowOverlapVisibleCandidate": 0,
+    "cases": [
+      {
+        "candidate": {
+          "meanIou": 0.9635616914309552,
+          "referenceAbsentFrames": 0,
+          "p95ProcessingMillis": 91.7158,
+          "latencyScope": "JPEG/PNG decode plus CPU tracking; excludes browser capture, network and LLM. Initialization excluded from scored frames.",
+          "scoredFrames": 7,
+          "iouHalfFraction": 1,
+          "reacquired": 0,
+          "lost": 0,
+          "lowOverlapVisiblePredictions": 0,
+          "medianProcessingMillis": 55.1939
+        },
+        "datasetId": "aa653402-d218-4e0f-9b34-a07cfbd95be5",
+        "baseline": {
+          "meanIou": 0.13039626764306392,
+          "referenceAbsentFrames": 0,
+          "p95ProcessingMillis": 8.4248,
+          "latencyScope": "JPEG/PNG decode plus CPU tracking; excludes browser capture, network and LLM. Initialization excluded from scored frames.",
+          "scoredFrames": 7,
+          "iouHalfFraction": 0.14285714285714285,
+          "reacquired": 0,
+          "lost": 6,
+          "lowOverlapVisiblePredictions": 0,
+          "medianProcessingMillis": 8.1327
+        },
+        "gain": 0.8331654237878913
+      }
+    ],
+    "negativeControlsPassed": true,
+    "scope": "Small declared human-guided box-tracking evaluation; not general category accuracy or official DAVIS mask metrics",
+    "passed": true,
+    "candidateIouHalfFraction": 1,
+    "perSequenceRegression": false,
+    "candidateMeanIou": 0.9635616914309552,
+    "scoredEvaluationFrames": 7,
+    "pooledMeanIouGain": 0.8331654237878912,
+    "lowOverlapVisibleBaseline": 0
+  },
+  "scope": "Fresh explicitly synthetic migration project, created by the installed published023 runtime. Only the two generated source packages are reused; no personal app database or model weights are copied."
+}

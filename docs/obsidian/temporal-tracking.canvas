@@ -1,0 +1,168 @@
+{
+  "nodes": [
+    {
+      "id": "overview",
+      "type": "file",
+      "file": "docs/obsidian/32-temporal-tracking.md",
+      "x": 0,
+      "y": 0,
+      "width": 540,
+      "height": 300
+    },
+    {
+      "id": "pixels",
+      "type": "file",
+      "file": "scripts/Prepare-Tracking024.py",
+      "x": -620,
+      "y": 400,
+      "width": 540,
+      "height": 300
+    },
+    {
+      "id": "flow",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/FlowTracker.java",
+      "x": 0,
+      "y": 400,
+      "width": 540,
+      "height": 300
+    },
+    {
+      "id": "vectors",
+      "type": "file",
+      "file": "workspace-desktop/renderer/tracking-panel.js",
+      "x": 620,
+      "y": 400,
+      "width": 540,
+      "height": 300
+    },
+    {
+      "id": "score",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/Tracking024Evaluation.java",
+      "x": -620,
+      "y": 800,
+      "width": 540,
+      "height": 300
+    },
+    {
+      "id": "gate",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/TrackingLab.java",
+      "x": 0,
+      "y": 800,
+      "width": 540,
+      "height": 300
+    },
+    {
+      "id": "pins",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/TrackerIdentity.java",
+      "x": 620,
+      "y": 800,
+      "width": 540,
+      "height": 300
+    },
+    {
+      "id": "chat",
+      "type": "file",
+      "file": "workspace-desktop/tracking.cjs",
+      "x": -620,
+      "y": 1200,
+      "width": 540,
+      "height": 300
+    },
+    {
+      "id": "report",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/TrackingPresentation.java",
+      "x": 0,
+      "y": 1200,
+      "width": 540,
+      "height": 300
+    },
+    {
+      "id": "next",
+      "type": "file",
+      "file": "docs/TEMPORAL_TRACKING.md",
+      "x": 620,
+      "y": 1200,
+      "width": 540,
+      "height": 300
+    }
+  ],
+  "edges": [
+    {
+      "id": "edge-pixels",
+      "fromNode": "overview",
+      "fromSide": "bottom",
+      "toNode": "pixels",
+      "toSide": "top",
+      "label": "verified"
+    },
+    {
+      "id": "edge-flow",
+      "fromNode": "overview",
+      "fromSide": "bottom",
+      "toNode": "flow",
+      "toSide": "top",
+      "label": "verified"
+    },
+    {
+      "id": "edge-vectors",
+      "fromNode": "overview",
+      "fromSide": "bottom",
+      "toNode": "vectors",
+      "toSide": "top",
+      "label": "verified"
+    },
+    {
+      "id": "edge-score",
+      "fromNode": "overview",
+      "fromSide": "bottom",
+      "toNode": "score",
+      "toSide": "top",
+      "label": "verified"
+    },
+    {
+      "id": "edge-gate",
+      "fromNode": "overview",
+      "fromSide": "bottom",
+      "toNode": "gate",
+      "toSide": "top",
+      "label": "verified"
+    },
+    {
+      "id": "edge-pins",
+      "fromNode": "overview",
+      "fromSide": "bottom",
+      "toNode": "pins",
+      "toSide": "top",
+      "label": "verified"
+    },
+    {
+      "id": "edge-chat",
+      "fromNode": "overview",
+      "fromSide": "bottom",
+      "toNode": "chat",
+      "toSide": "top",
+      "label": "verified"
+    },
+    {
+      "id": "edge-report",
+      "fromNode": "overview",
+      "fromSide": "bottom",
+      "toNode": "report",
+      "toSide": "top",
+      "label": "verified"
+    },
+    {
+      "id": "edge-next",
+      "fromNode": "overview",
+      "fromSide": "bottom",
+      "toNode": "next",
+      "toSide": "top",
+      "label": "planned"
+    }
+  ]
+}

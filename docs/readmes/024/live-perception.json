@@ -1,0 +1,1889 @@
+{
+  "passed": true,
+  "date": "2026-10-31T02:14:54.043Z",
+  "project": "C:\\Users\\eyeka\\AppData\\Local\\Temp\\fraynix-live-perception022-htlySU",
+  "checks": [
+    "Actual HTTPS person photo runs local Gemma3 inference on captured pixels; independent0.5 box gate is accepted (0.855)",
+    "Actual HTTPS cup photo runs local Gemma3 inference on captured pixels; independent0.5 box gate is rejected and retained honestly (0.339)",
+    "Actual UI correction uses a frozen real HTTPS source and is retained with explicit user-labelled authority",
+    "Actual gpt-oss:20b chooses one Java perception goal; after restart the taught correction transfers automatically to the real HTTPS page and passes0.7 overlap",
+    "Actual chat reuses the named procedure after a browser resize with a new capture/run, retained lesson and freshly checked pixel result",
+    "A user correction of the coarse cup estimate transfers automatically through Java taught memory and passes0.7 reference overlap without another vision-model call",
+    "Real webpage perception and both local-agent chats preserve physics/model stores and have no renderer errors; no model weights were trained"
+  ],
+  "grounding": [
+    {
+      "source": "https://raw.githubusercontent.com/scikit-image/scikit-image/v0.25.2/skimage/data/astronaut.png",
+      "frameSha256": "8ad1fa1750a681a9ea0d7d75b2ce4c3aa9694628cdd8bed79151dda34b60b736",
+      "category": "person",
+      "status": "completed",
+      "reference": [
+        0.0234375,
+        0.02734375,
+        0.734375,
+        1
+      ],
+      "objects": [
+        {
+          "box": [
+            0,
+            0,
+            0.667,
+            1
+          ],
+          "label": "person",
+          "id": "259d5a98-d51f-3b74-af53-6a2be3c54fd1"
+        }
+      ],
+      "referenceIou": 0.8545216823853989,
+      "referenceAccepted": true,
+      "runId": "ae87dd46-1236-3ee3-bed8-e0f739083081",
+      "detection": {
+        "regions": [
+          {
+            "proposal": [
+              0,
+              0,
+              1,
+              1
+            ],
+            "cropSha256": "97697efb08d136f6036c4aa9944271d4a2760aafbca57df316f20d7288e3bed5",
+            "inferenceWidth": 512,
+            "inference": {
+              "requestSha256": "0752bf382776f710688ef73d48b9c928985ef8005cae3a18e217b56b6f85a39e",
+              "rawResponse": "{\n  \"objects\": [\n    {\n      \"box\": [0, 0, 667, 1000],\n      \"label\": \"person\"\n    },\n    {\n      \"box\": [668, 100, 992, 800],\n      \"label\": \"other\"\n    },\n    {\n      \"box\": [668, 800, 992, 1000],\n      \"label\": \"other\"\n    },\n    {\n      \"box\": [0, 800, 667, 1000],\n      \"label\": \"other\"\n    }\n  ]\n}",
+              "objects": [
+                {
+                  "box": [
+                    0,
+                    0,
+                    0.667,
+                    1
+                  ],
+                  "label": "person"
+                }
+              ],
+              "authority": "model-estimated categories and boxes, not ground truth or personal identity",
+              "classifiedObjects": [
+                {
+                  "box": [
+                    0,
+                    0,
+                    0.667,
+                    1
+                  ],
+                  "label": "person"
+                },
+                {
+                  "box": [
+                    0.668,
+                    0.1,
+                    0.992,
+                    0.8
+                  ],
+                  "label": "other"
+                },
+                {
+                  "box": [
+                    0.668,
+                    0.8,
+                    0.992,
+                    1
+                  ],
+                  "label": "other"
+                },
+                {
+                  "box": [
+                    0,
+                    0.8,
+                    0.667,
+                    1
+                  ],
+                  "label": "other"
+                }
+              ],
+              "localModel": {
+                "endpoint": "http://127.0.0.1:11434",
+                "checkedAt": "2026-10-31T02:12:01.425991Z",
+                "bytes": 3338801804,
+                "scope": "Fresh local service metadata; not an independent inspection of model weights or the daemon's network behavior",
+                "digest": "a2af6cc3eb7fa8be8504abaf9b04e88f17a119ec3f04a3addf55f92841195f5a",
+                "model": "gemma3:latest"
+              },
+              "durationMs": 14960.7764
+            },
+            "inferenceHeight": 512
+          }
+        ],
+        "objects": [
+          {
+            "box": [
+              0,
+              0,
+              0.667,
+              1
+            ],
+            "label": "person"
+          }
+        ],
+        "authority": "model-estimated categories and boxes from actual proposed pixel regions, not semantic ground truth or personal identity",
+        "proposalMethod": "Generic flat-border foreground components; full-image fallback when the border is not stable",
+        "memoryUsed": false
+      },
+      "workflowMetrics": {
+        "trackedFraction": 1,
+        "mode": "vision",
+        "trackedObservations": 7,
+        "meanMatchScore": 1,
+        "lostObservations": 0,
+        "frames": 7,
+        "appearanceUpdates": 7,
+        "reacquisitions": 0,
+        "passed": true,
+        "semanticGroundTruthVerified": false
+      }
+    },
+    {
+      "source": "https://raw.githubusercontent.com/scikit-image/scikit-image/v0.25.2/skimage/data/coffee.png",
+      "frameSha256": "a6c4b1b66778a67cd819256d6dfafbd50b1e5cab263b935cdc71706dd4e93c09",
+      "category": "cup",
+      "status": "completed",
+      "reference": [
+        0.2866666666666667,
+        0.045,
+        0.6833333333333333,
+        0.785
+      ],
+      "objects": [
+        {
+          "box": [
+            0.034,
+            0.033,
+            0.964,
+            0.964
+          ],
+          "label": "cup",
+          "id": "7c722a8d-a174-3272-9a6e-8a3f25d10770"
+        }
+      ],
+      "referenceIou": 0.3390195919907295,
+      "referenceAccepted": false,
+      "runId": "ee01f948-939a-3386-b11b-6beef9e8e699",
+      "detection": {
+        "regions": [
+          {
+            "proposal": [
+              0,
+              0,
+              1,
+              1
+            ],
+            "cropSha256": "f388ac9aa045e0cae7f5df4c73a8fd158e351636b8bc01b22ccb70f767bb6194",
+            "inferenceWidth": 512,
+            "inference": {
+              "requestSha256": "bcb0599d2ed6b40ca02cab8c560ac171b8a2666eb4b5c0013036f88a3899ff2c",
+              "rawResponse": "{\n  \"objects\": [\n    {\n      \"box\": [34, 33, 964, 964],\n      \"label\": \"cup\"\n    },\n    {\n      \"box\": [456, 33, 948, 964],\n      \"label\": \"other\"\n    }\n  ]\n}",
+              "objects": [
+                {
+                  "box": [
+                    0.034,
+                    0.033,
+                    0.964,
+                    0.964
+                  ],
+                  "label": "cup"
+                }
+              ],
+              "authority": "model-estimated categories and boxes, not ground truth or personal identity",
+              "classifiedObjects": [
+                {
+                  "box": [
+                    0.034,
+                    0.033,
+                    0.964,
+                    0.964
+                  ],
+                  "label": "cup"
+                },
+                {
+                  "box": [
+                    0.456,
+                    0.033,
+                    0.948,
+                    0.964
+                  ],
+                  "label": "other"
+                }
+              ],
+              "localModel": {
+                "endpoint": "http://127.0.0.1:11434",
+                "checkedAt": "2026-10-31T02:12:20.073704300Z",
+                "bytes": 3338801804,
+                "scope": "Fresh local service metadata; not an independent inspection of model weights or the daemon's network behavior",
+                "digest": "a2af6cc3eb7fa8be8504abaf9b04e88f17a119ec3f04a3addf55f92841195f5a",
+                "model": "gemma3:latest"
+              },
+              "durationMs": 8888.1035
+            },
+            "inferenceHeight": 339
+          }
+        ],
+        "objects": [
+          {
+            "box": [
+              0.034,
+              0.033,
+              0.964,
+              0.964
+            ],
+            "label": "cup"
+          }
+        ],
+        "authority": "model-estimated categories and boxes from actual proposed pixel regions, not semantic ground truth or personal identity",
+        "proposalMethod": "Generic flat-border foreground components; full-image fallback when the border is not stable",
+        "memoryUsed": false
+      },
+      "workflowMetrics": {
+        "trackedFraction": 1,
+        "mode": "vision",
+        "trackedObservations": 8,
+        "meanMatchScore": 0.9882270597788438,
+        "lostObservations": 0,
+        "frames": 8,
+        "appearanceUpdates": 8,
+        "reacquisitions": 0,
+        "passed": true,
+        "semanticGroundTruthVerified": false
+      }
+    }
+  ],
+  "taught": {
+    "createdAt": "2026-10-31T02:12:32.571965300Z",
+    "method": "8x8 RGB appearance; normalized correlation; no named-person identification",
+    "frameId": "7de4c1de-8a7a-432f-8e59-f1e37135354f",
+    "authority": "user-drawn appearance example, not independently verified semantics",
+    "name": "https-person-correction",
+    "box": [
+      0.0234375,
+      0.02734375,
+      0.734375,
+      0.9989999899766312
+    ],
+    "descriptor": [
+      0.09803921568627451,
+      0.043137254901960784,
+      0.2196078431372549,
+      0.7254901960784313,
+      0.6862745098039216,
+      0.6549019607843137,
+      0.7647058823529411,
+      0.7294117647058823,
+      0.6980392156862745,
+      0.6666666666666666,
+      0.6196078431372549,
+      0.5647058823529412,
+      0.6313725490196078,
+      0.5372549019607843,
+      0.37254901960784315,
+      0.4745098039215686,
+      0.396078431372549,
+      0.21568627450980393,
+      0.8,
+      0.7647058823529411,
+      0.7568627450980392,
+      0.788235294117647,
+      0.7490196078431373,
+      0.7176470588235294,
+      0.023529411764705882,
+      0.00784313725490196,
+      0.07058823529411765,
+      0.7215686274509804,
+      0.6823529411764706,
+      0.6509803921568628,
+      0.7529411764705882,
+      0.7058823529411765,
+      0.6980392156862745,
+      0.19607843137254902,
+      0.10196078431372549,
+      0.011764705882352941,
+      0.8392156862745098,
+      0.7176470588235294,
+      0.592156862745098,
+      0.6392156862745098,
+      0.5333333333333333,
+      0.4117647058823529,
+      0.7803921568627451,
+      0.7215686274509804,
+      0.6941176470588235,
+      0.796078431372549,
+      0.7529411764705882,
+      0.7176470588235294,
+      0.403921568627451,
+      0.0392156862745098,
+      0.09803921568627451,
+      0.6235294117647059,
+      0.5254901960784314,
+      0.4980392156862745,
+      0.796078431372549,
+      0.7803921568627451,
+      0.796078431372549,
+      0.10588235294117647,
+      0.09019607843137255,
+      0.058823529411764705,
+      0.9568627450980393,
+      0.8313725490196079,
+      0.7843137254901961,
+      0.8823529411764706,
+      0.8352941176470589,
+      0.8352941176470589,
+      0.8784313725490196,
+      0.8235294117647058,
+      0.807843137254902,
+      0.8352941176470589,
+      0.7843137254901961,
+      0.7647058823529411,
+      0.6901960784313725,
+      0.6196078431372549,
+      0.6039215686274509,
+      0.5647058823529412,
+      0.10588235294117647,
+      0.07450980392156863,
+      0.45098039215686275,
+      0.13725490196078433,
+      0.0784313725490196,
+      0.3686274509803922,
+      0.36470588235294116,
+      0.3607843137254902,
+      0.03529411764705882,
+      0.0196078431372549,
+      0.01568627450980392,
+      0,
+      0,
+      0.00392156862745098,
+      0.8745098039215686,
+      0.8235294117647058,
+      0.8196078431372549,
+      0.8313725490196079,
+      0.8313725490196079,
+      0.8470588235294118,
+      0.4588235294117647,
+      0.050980392156862744,
+      0.11764705882352941,
+      0.8784313725490196,
+      0.3764705882352941,
+      0.2549019607843137,
+      0.8941176470588236,
+      0.4196078431372549,
+      0.27058823529411763,
+      0.9098039215686274,
+      0.49019607843137253,
+      0.35294117647058826,
+      0.2,
+      0.01568627450980392,
+      0.0196078431372549,
+      0.3568627450980392,
+      0.047058823529411764,
+      0.027450980392156862,
+      0.8235294117647058,
+      0.37254901960784315,
+      0.21568627450980393,
+      0.7647058823529411,
+      0.6627450980392157,
+      0.32941176470588235,
+      0.8627450980392157,
+      0.4980392156862745,
+      0.4588235294117647,
+      0.8941176470588236,
+      0.4470588235294118,
+      0.30196078431372547,
+      0.7686274509803922,
+      0.27058823529411763,
+      0.14901960784313725,
+      0.5843137254901961,
+      0.47058823529411764,
+      0.7137254901960784,
+      0.8588235294117647,
+      0.41568627450980394,
+      0.28627450980392155,
+      0.9921568627450981,
+      0.9764705882352941,
+      0.9568627450980393,
+      0.7137254901960784,
+      0.6862745098039216,
+      0.7254901960784313,
+      0.3686274509803922,
+      0.3137254901960784,
+      0.24313725490196078,
+      0.3411764705882353,
+      0.03137254901960784,
+      0.07058823529411765,
+      0.8431372549019608,
+      0.3411764705882353,
+      0.1843137254901961,
+      0.7098039215686275,
+      0.23529411764705882,
+      0.10196078431372549,
+      0.6705882352941176,
+      0.5686274509803921,
+      0.7529411764705882,
+      0.8,
+      0.33725490196078434,
+      0.19215686274509805,
+      0.8196078431372549,
+      0.7764705882352941,
+      0.7490196078431373,
+      0.16470588235294117,
+      0.023529411764705882,
+      0.01568627450980392,
+      0,
+      0,
+      0,
+      0.4117647058823529,
+      0.043137254901960784,
+      0.11372549019607843,
+      0.7764705882352941,
+      0.2901960784313726,
+      0.1411764705882353,
+      0.9098039215686274,
+      0.5019607843137255,
+      0.3411764705882353,
+      0.5686274509803921,
+      0.5058823529411764,
+      0.4745098039215686,
+      0.8431372549019608,
+      0.38823529411764707,
+      0.25098039215686274,
+      0.38823529411764707,
+      0.3137254901960784,
+      0.2549019607843137,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "id": "de33dcbb-37be-449a-b916-a69881b433eb",
+    "label": "person",
+    "frameSha256": "8ad1fa1750a681a9ea0d7d75b2ce4c3aa9694628cdd8bed79151dda34b60b736",
+    "source": {
+      "ref": "1",
+      "signature": "c0a2c193a8662fbb00660d299c91ecac991da4d04cad83b85f0af0d2802d4f8c",
+      "kind": "img",
+      "pageId": "8b4abd97-b9f2-4573-8d81-86c1b87983e2",
+      "url": "https://raw.githubusercontent.com/scikit-image/scikit-image/v0.25.2/skimage/data/astronaut.png"
+    },
+    "version": 1
+  },
+  "cupTaught": {
+    "createdAt": "2026-10-31T02:14:51.080029500Z",
+    "method": "8x8 RGB appearance; normalized correlation; no named-person identification",
+    "frameId": "d4a5c362-6656-41c0-ad6c-2a80170478fe",
+    "authority": "user-drawn appearance example, not independently verified semantics",
+    "name": "https-cup-correction",
+    "box": [
+      0.2866666279141865,
+      0.044999994159315194,
+      0.6833333333333333,
+      0.7008193896718002
+    ],
+    "descriptor": [
+      0.6784313725490196,
+      0.30980392156862746,
+      0.12941176470588237,
+      0.7137254901960784,
+      0.4117647058823529,
+      0.2549019607843137,
+      0.9647058823529412,
+      0.9019607843137255,
+      0.8235294117647058,
+      0.8784313725490196,
+      0.7450980392156863,
+      0.6,
+      0.9137254901960784,
+      0.792156862745098,
+      0.6666666666666666,
+      0.9725490196078431,
+      0.984313725490196,
+      0.984313725490196,
+      0.6784313725490196,
+      0.30980392156862746,
+      0.12549019607843137,
+      0.7725490196078432,
+      0.403921568627451,
+      0.1843137254901961,
+      0.8980392156862745,
+      0.7568627450980392,
+      0.6745098039215687,
+      0.7843137254901961,
+      0.5725490196078431,
+      0.3803921568627451,
+      0.796078431372549,
+      0.5686274509803921,
+      0.3568627450980392,
+      0.803921568627451,
+      0.5882352941176471,
+      0.396078431372549,
+      0.8588235294117647,
+      0.6823529411764706,
+      0.5254901960784314,
+      0.8862745098039215,
+      0.7411764705882353,
+      0.615686274509804,
+      0.8901960784313725,
+      0.7568627450980392,
+      0.6313725490196078,
+      0.7607843137254902,
+      0.39215686274509803,
+      0.18823529411764706,
+      0.9647058823529412,
+      0.9176470588235294,
+      0.8549019607843137,
+      0.788235294117647,
+      0.5450980392156862,
+      0.32941176470588235,
+      0.7411764705882353,
+      0.4235294117647059,
+      0.1568627450980392,
+      0.6549019607843137,
+      0.26666666666666666,
+      0.07058823529411765,
+      0.6901960784313725,
+      0.3058823529411765,
+      0.08627450980392157,
+      0.788235294117647,
+      0.5529411764705883,
+      0.33725490196078434,
+      0.8862745098039215,
+      0.7333333333333333,
+      0.5882352941176471,
+      0.9686274509803922,
+      0.9254901960784314,
+      0.8745098039215686,
+      0.9686274509803922,
+      0.9215686274509803,
+      0.8705882352941177,
+      0.6431372549019608,
+      0.24313725490196078,
+      0.06666666666666667,
+      0.803921568627451,
+      0.4196078431372549,
+      0.12549019607843137,
+      0.8549019607843137,
+      0.5019607843137255,
+      0.16470588235294117,
+      0.8549019607843137,
+      0.4980392156862745,
+      0.16862745098039217,
+      0.7372549019607844,
+      0.34509803921568627,
+      0.10196078431372549,
+      0.792156862745098,
+      0.5372549019607843,
+      0.29411764705882354,
+      0.9725490196078431,
+      0.9254901960784314,
+      0.8705882352941177,
+      0.6509803921568628,
+      0.3176470588235294,
+      0.16470588235294117,
+      0.9607843137254902,
+      0.8745098039215686,
+      0.7529411764705882,
+      0.9254901960784314,
+      0.5843137254901961,
+      0.2196078431372549,
+      0.9176470588235294,
+      0.5647058823529412,
+      0.20392156862745098,
+      0.9215686274509803,
+      0.615686274509804,
+      0.27450980392156865,
+      0.9176470588235294,
+      0.592156862745098,
+      0.23921568627450981,
+      0.8862745098039215,
+      0.5411764705882353,
+      0.21568627450980393,
+      0.3803921568627451,
+      0.08235294117647059,
+      0.027450980392156862,
+      0.6823529411764706,
+      0.2549019607843137,
+      0.12156862745098039,
+      0.43137254901960786,
+      0.08235294117647059,
+      0.03529411764705882,
+      0.6823529411764706,
+      0.396078431372549,
+      0.2901960784313726,
+      0.9725490196078431,
+      0.9725490196078431,
+      0.9764705882352941,
+      0.9725490196078431,
+      0.9490196078431372,
+      0.9254901960784314,
+      0.9450980392156862,
+      0.8666666666666667,
+      0.7725490196078432,
+      0.2549019607843137,
+      0.043137254901960784,
+      0.00784313725490196,
+      0.5215686274509804,
+      0.09019607843137255,
+      0.027450980392156862,
+      0.3411764705882353,
+      0.047058823529411764,
+      0.023529411764705882,
+      0.38823529411764707,
+      0.06666666666666667,
+      0.01568627450980392,
+      0.4117647058823529,
+      0.15294117647058825,
+      0.09411764705882353,
+      0.3764705882352941,
+      0.0784313725490196,
+      0.027450980392156862,
+      0.33725490196078434,
+      0.047058823529411764,
+      0.023529411764705882,
+      0.611764705882353,
+      0.33725490196078434,
+      0.1843137254901961,
+      0.23921568627450981,
+      0.07058823529411765,
+      0.03529411764705882,
+      0.6,
+      0.12941176470588237,
+      0.0392156862745098,
+      0.2196078431372549,
+      0.027450980392156862,
+      0.011764705882352941,
+      0.6431372549019608,
+      0.15294117647058825,
+      0.058823529411764705,
+      0.12941176470588237,
+      0.01568627450980392,
+      0.00392156862745098,
+      0.1450980392156863,
+      0.011764705882352941,
+      0.00784313725490196,
+      0.1607843137254902,
+      0.01568627450980392,
+      0.00784313725490196,
+      0.3137254901960784,
+      0.18823529411764706,
+      0.10980392156862745,
+      0.36470588235294116,
+      0.2,
+      0.12156862745098039,
+      0.12549019607843137,
+      0.050980392156862744,
+      0.0196078431372549
+    ],
+    "id": "2daf987e-a1e5-4c44-94ce-4a22aba96811",
+    "label": "cup",
+    "frameSha256": "1eaf97084910f231fb8a17e8c0ff0b7d399a8aa7eb49525be273f3b9b5872ebc",
+    "source": {
+      "ref": "1",
+      "signature": "e2f4a1c616a7c03e45a6a57b953b51ed42039e5a60b81fd1aa2e24a09f39135c",
+      "kind": "img",
+      "pageId": "7b23c54d-4243-40e6-9739-0f9e5cc3e07f",
+      "url": "https://raw.githubusercontent.com/scikit-image/scikit-image/v0.25.2/skimage/data/coffee.png"
+    },
+    "version": 1
+  },
+  "cupCorrected": {
+    "request": "Observe, detect, outline, follow, trace and verify the selected browser region",
+    "reason": "Actual browser tracking workflow and canvas report verified; semantic authority remains qualified",
+    "targetLabel": "cup",
+    "trackerProfile": "rgb-v1",
+    "lessonId": "",
+    "procedure": "browser-perception-v1",
+    "history": [
+      {
+        "reason": "Actual browser source frame bound; page labels, model estimates and taught appearance keep distinct authority",
+        "at": "2026-10-31T02:14:51.150222200Z",
+        "step": "perception-prepare",
+        "attempt": 1,
+        "status": "running"
+      },
+      {
+        "reason": "Local detection or taught-appearance matching started on actual unannotated source pixels",
+        "at": "2026-10-31T02:14:51.272724400Z",
+        "step": "perception-wait",
+        "attempt": 1,
+        "status": "running"
+      },
+      {
+        "reason": "Detection retained; sample fresh browser frames without promoting uncertain labels to ground truth",
+        "at": "2026-10-31T02:14:51.384547600Z",
+        "step": "perception-sample",
+        "attempt": 1,
+        "status": "running"
+      },
+      {
+        "reason": "Waiting for registered desktop action: browser.perception.sample",
+        "at": "2026-10-31T02:14:51.518699500Z",
+        "step": "perception-sample",
+        "attempt": 1,
+        "status": "waiting-host"
+      },
+      {
+        "reason": "Actual source frame 1 retained; tracking uncertainty preserved",
+        "at": "2026-10-31T02:14:51.675724600Z",
+        "step": "perception-sample",
+        "attempt": 1,
+        "status": "running"
+      },
+      {
+        "reason": "Waiting for registered desktop action: browser.perception.sample",
+        "at": "2026-10-31T02:14:51.751296400Z",
+        "step": "perception-sample",
+        "attempt": 1,
+        "status": "waiting-host"
+      },
+      {
+        "reason": "Actual source frame 2 retained; tracking uncertainty preserved",
+        "at": "2026-10-31T02:14:51.911918100Z",
+        "step": "perception-sample",
+        "attempt": 1,
+        "status": "running"
+      },
+      {
+        "reason": "Waiting for registered desktop action: browser.perception.sample",
+        "at": "2026-10-31T02:14:51.987554700Z",
+        "step": "perception-sample",
+        "attempt": 1,
+        "status": "waiting-host"
+      },
+      {
+        "reason": "Actual source frame 3 retained; tracking uncertainty preserved",
+        "at": "2026-10-31T02:14:52.160774600Z",
+        "step": "perception-sample",
+        "attempt": 1,
+        "status": "running"
+      },
+      {
+        "reason": "Waiting for registered desktop action: browser.perception.sample",
+        "at": "2026-10-31T02:14:52.225873Z",
+        "step": "perception-sample",
+        "attempt": 1,
+        "status": "waiting-host"
+      },
+      {
+        "reason": "Actual source frame 4 retained; tracking uncertainty preserved",
+        "at": "2026-10-31T02:14:52.454773600Z",
+        "step": "perception-sample",
+        "attempt": 1,
+        "status": "running"
+      },
+      {
+        "reason": "Waiting for registered desktop action: browser.perception.sample",
+        "at": "2026-10-31T02:14:52.564015100Z",
+        "step": "perception-sample",
+        "attempt": 1,
+        "status": "waiting-host"
+      },
+      {
+        "reason": "Actual source frame 5 retained; tracking uncertainty preserved",
+        "at": "2026-10-31T02:14:52.753961500Z",
+        "step": "perception-sample",
+        "attempt": 1,
+        "status": "running"
+      },
+      {
+        "reason": "Waiting for registered desktop action: browser.perception.sample",
+        "at": "2026-10-31T02:14:52.814312Z",
+        "step": "perception-sample",
+        "attempt": 1,
+        "status": "waiting-host"
+      },
+      {
+        "reason": "Actual source frame 6 retained; tracking uncertainty preserved",
+        "at": "2026-10-31T02:14:52.961271800Z",
+        "step": "perception-sample",
+        "attempt": 1,
+        "status": "running"
+      },
+      {
+        "reason": "Waiting for registered desktop action: browser.perception.sample",
+        "at": "2026-10-31T02:14:53.050576Z",
+        "step": "perception-sample",
+        "attempt": 1,
+        "status": "waiting-host"
+      },
+      {
+        "reason": "Actual source frame 7 retained; tracking uncertainty preserved",
+        "at": "2026-10-31T02:14:53.205996900Z",
+        "step": "perception-sample",
+        "attempt": 1,
+        "status": "running"
+      },
+      {
+        "reason": "Source/image hashes, sequence, observed/lost states and tracking gates reconstructed",
+        "at": "2026-10-31T02:14:53.297441800Z",
+        "step": "perception-report",
+        "attempt": 1,
+        "status": "running"
+      },
+      {
+        "reason": "Waiting for registered desktop action: canvas.verify-report",
+        "at": "2026-10-31T02:14:53.471763600Z",
+        "step": "perception-report",
+        "attempt": 1,
+        "status": "waiting-host"
+      },
+      {
+        "reason": "Actual Chromium canvas assertions passed for the pinned report version",
+        "at": "2026-10-31T02:14:53.761243100Z",
+        "step": "complete",
+        "attempt": 1,
+        "status": "running"
+      },
+      {
+        "reason": "Actual browser tracking workflow and canvas report verified; semantic authority remains qualified",
+        "at": "2026-10-31T02:14:53.827830200Z",
+        "step": "completed",
+        "attempt": 1,
+        "status": "completed"
+      }
+    ],
+    "attempt": 1,
+    "resumes": 0,
+    "mode": "vision",
+    "createdAt": "2026-10-31T02:14:51.150222200Z",
+    "seconds": 2,
+    "trackerCodeSha256": "1accb2e79f90897bfc3f85bf3a8736331dab8d9ee2953cd4f5b1537467cbeeca",
+    "perceptionBinding": {
+      "sha256": "1eaf97084910f231fb8a17e8c0ff0b7d399a8aa7eb49525be273f3b9b5872ebc",
+      "bytes": 123030,
+      "recordedAt": "2026-10-31T02:14:51.144238400Z",
+      "id": "dc4ca9fe-425a-4649-8675-7c29cf22153d",
+      "source": {
+        "ref": "1",
+        "signature": "e2f4a1c616a7c03e45a6a57b953b51ed42039e5a60b81fd1aa2e24a09f39135c",
+        "kind": "img",
+        "width": 315,
+        "capturedAt": 1793412891117,
+        "scrollY": 0,
+        "label": "IMG",
+        "pageId": "7b23c54d-4243-40e6-9739-0f9e5cc3e07f",
+        "scrollX": 0,
+        "url": "https://raw.githubusercontent.com/scikit-image/scikit-image/v0.25.2/skimage/data/coffee.png",
+        "crop": {
+          "x": 0,
+          "width": 315,
+          "y": 16,
+          "height": 209
+        },
+        "height": 209
+      }
+    },
+    "report": {
+      "sha256": "e8e6d3b453b3120ecadb09b7b794309c9f559fe7a45c09a1a20a06068b88ee4b",
+      "id": "7159e24a-af9a-3be5-b9e3-57c2f8962b46",
+      "version": 1
+    },
+    "step": "completed",
+    "id": "a7717e12-3979-45de-bfdc-164cc6e60512",
+    "runId": "de75ea12-e84b-32b7-8fd9-ba2d0e0e74ed",
+    "metrics": {
+      "trackedFraction": 1,
+      "mode": "vision",
+      "trackedObservations": 7,
+      "meanMatchScore": 0.9975667139530512,
+      "lostObservations": 0,
+      "frames": 7,
+      "appearanceUpdates": 7,
+      "reacquisitions": 0,
+      "passed": true,
+      "semanticGroundTruthVerified": false
+    },
+    "visionModel": "gemma3:latest",
+    "savedSkill": {
+      "name": "corrected-cup-follow",
+      "id": "0532481d-50fb-3264-9199-df4695936475",
+      "version": 1
+    },
+    "status": "completed",
+    "updatedAt": "2026-10-31T02:14:53.827830200Z"
+  },
+  "cupTransferIou": 0.8848386321416685,
+  "transferIou": 0.9970721675068716,
+  "person": {
+    "request": "Observe, detect, outline, follow, trace and verify the selected browser region",
+    "reason": "Actual browser tracking workflow and canvas report verified; semantic authority remains qualified",
+    "targetLabel": "person",
+    "trackerProfile": "rgb-v1",
+    "lessonId": "",
+    "procedure": "browser-perception-v1",
+    "history": [
+      {
+        "reason": "Actual browser source frame bound; page labels, model estimates and taught appearance keep distinct authority",
+        "at": "2026-10-31T02:12:01.176136600Z",
+        "step": "perception-prepare",
+        "attempt": 1,
+        "status": "running"
+      },
+      {
+        "reason": "Local detection or taught-appearance matching started on actual unannotated source pixels",
+        "at": "2026-10-31T02:12:01.260110700Z",
+        "step": "perception-wait",
+        "attempt": 1,
+        "status": "running"
+      },
+      {
+        "reason": "Detection retained; sample fresh browser frames without promoting uncertain labels to ground truth",
+        "at": "2026-10-31T02:12:16.476849500Z",
+        "step": "perception-sample",
+        "attempt": 1,
+        "status": "running"
+      },
+      {
+        "reason": "Waiting for registered desktop action: browser.perception.sample",
+        "at": "2026-10-31T02:12:16.612363800Z",
+        "step": "perception-sample",
+        "attempt": 1,
+        "status": "waiting-host"
+      },
+      {
+        "reason": "Actual source frame 1 retained; tracking uncertainty preserved",
+        "at": "2026-10-31T02:12:16.837324700Z",
+        "step": "perception-sample",
+        "attempt": 1,
+        "status": "running"
+      },
+      {
+        "reason": "Waiting for registered desktop action: browser.perception.sample",
+        "at": "2026-10-31T02:12:16.869400600Z",
+        "step": "perception-sample",
+        "attempt": 1,
+        "status": "waiting-host"
+      },
+      {
+        "reason": "Actual source frame 2 retained; tracking uncertainty preserved",
+        "at": "2026-10-31T02:12:17.079130500Z",
+        "step": "perception-sample",
+        "attempt": 1,
+        "status": "running"
+      },
+      {
+        "reason": "Waiting for registered desktop action: browser.perception.sample",
+        "at": "2026-10-31T02:12:17.093375600Z",
+        "step": "perception-sample",
+        "attempt": 1,
+        "status": "waiting-host"
+      },
+      {
+        "reason": "Actual source frame 3 retained; tracking uncertainty preserved",
+        "at": "2026-10-31T02:12:17.362287600Z",
+        "step": "perception-sample",
+        "attempt": 1,
+        "status": "running"
+      },
+      {
+        "reason": "Waiting for registered desktop action: browser.perception.sample",
+        "at": "2026-10-31T02:12:17.439694500Z",
+        "step": "perception-sample",
+        "attempt": 1,
+        "status": "waiting-host"
+      },
+      {
+        "reason": "Actual source frame 4 retained; tracking uncertainty preserved",
+        "at": "2026-10-31T02:12:17.689948700Z",
+        "step": "perception-sample",
+        "attempt": 1,
+        "status": "running"
+      },
+      {
+        "reason": "Waiting for registered desktop action: browser.perception.sample",
+        "at": "2026-10-31T02:12:17.794821400Z",
+        "step": "perception-sample",
+        "attempt": 1,
+        "status": "waiting-host"
+      },
+      {
+        "reason": "Actual source frame 5 retained; tracking uncertainty preserved",
+        "at": "2026-10-31T02:12:17.907484Z",
+        "step": "perception-sample",
+        "attempt": 1,
+        "status": "running"
+      },
+      {
+        "reason": "Waiting for registered desktop action: browser.perception.sample",
+        "at": "2026-10-31T02:12:17.934190400Z",
+        "step": "perception-sample",
+        "attempt": 1,
+        "status": "waiting-host"
+      },
+      {
+        "reason": "Actual source frame 6 retained; tracking uncertainty preserved",
+        "at": "2026-10-31T02:12:18.159917300Z",
+        "step": "perception-sample",
+        "attempt": 1,
+        "status": "running"
+      },
+      {
+        "reason": "Waiting for registered desktop action: browser.perception.sample",
+        "at": "2026-10-31T02:12:18.173400800Z",
+        "step": "perception-sample",
+        "attempt": 1,
+        "status": "waiting-host"
+      },
+      {
+        "reason": "Actual source frame 7 retained; tracking uncertainty preserved",
+        "at": "2026-10-31T02:12:18.417873300Z",
+        "step": "perception-sample",
+        "attempt": 1,
+        "status": "running"
+      },
+      {
+        "reason": "Source/image hashes, sequence, observed/lost states and tracking gates reconstructed",
+        "at": "2026-10-31T02:12:18.515730800Z",
+        "step": "perception-report",
+        "attempt": 1,
+        "status": "running"
+      },
+      {
+        "reason": "Waiting for registered desktop action: canvas.verify-report",
+        "at": "2026-10-31T02:12:18.730511200Z",
+        "step": "perception-report",
+        "attempt": 1,
+        "status": "waiting-host"
+      },
+      {
+        "reason": "Actual Chromium canvas assertions passed for the pinned report version",
+        "at": "2026-10-31T02:12:18.943535600Z",
+        "step": "complete",
+        "attempt": 1,
+        "status": "running"
+      },
+      {
+        "reason": "Actual browser tracking workflow and canvas report verified; semantic authority remains qualified",
+        "at": "2026-10-31T02:12:18.984877200Z",
+        "step": "completed",
+        "attempt": 1,
+        "status": "completed"
+      }
+    ],
+    "attempt": 1,
+    "resumes": 0,
+    "mode": "vision",
+    "createdAt": "2026-10-31T02:12:01.176136600Z",
+    "seconds": 2,
+    "trackerCodeSha256": "1accb2e79f90897bfc3f85bf3a8736331dab8d9ee2953cd4f5b1537467cbeeca",
+    "perceptionBinding": {
+      "sha256": "8ad1fa1750a681a9ea0d7d75b2ce4c3aa9694628cdd8bed79151dda34b60b736",
+      "bytes": 195935,
+      "recordedAt": "2026-10-31T02:12:01.170095500Z",
+      "id": "05f16d40-19aa-48c8-8a3f-bce6fe3dac3e",
+      "source": {
+        "ref": "1",
+        "signature": "b553230c86d4bf8420340d982aba9240d4e6a92b94579a338876ba1e9b277f25",
+        "kind": "img",
+        "width": 341,
+        "capturedAt": 1793412721118,
+        "scrollY": 0,
+        "label": "IMG",
+        "pageId": "91ba743f-379a-4222-85db-8ab2a3e880f2",
+        "scrollX": 0,
+        "url": "https://raw.githubusercontent.com/scikit-image/scikit-image/v0.25.2/skimage/data/astronaut.png",
+        "crop": {
+          "x": 22,
+          "width": 341,
+          "y": 0,
+          "height": 341
+        },
+        "height": 341
+      }
+    },
+    "report": {
+      "sha256": "870370f3621e7592528d56744b2440cbf8028bcbbda315a5c1cdb45e9a937c2f",
+      "id": "05284c51-a5b2-3d4e-ac37-bf8a5e211768",
+      "version": 1
+    },
+    "step": "completed",
+    "id": "85d04619-4048-4420-9943-982d5fabe66c",
+    "runId": "ae87dd46-1236-3ee3-bed8-e0f739083081",
+    "metrics": {
+      "trackedFraction": 1,
+      "mode": "vision",
+      "trackedObservations": 7,
+      "meanMatchScore": 1,
+      "lostObservations": 0,
+      "frames": 7,
+      "appearanceUpdates": 7,
+      "reacquisitions": 0,
+      "passed": true,
+      "semanticGroundTruthVerified": false
+    },
+    "visionModel": "gemma3:latest",
+    "status": "completed",
+    "updatedAt": "2026-10-31T02:12:18.984877200Z"
+  },
+  "cup": {
+    "request": "Observe, detect, outline, follow, trace and verify the selected browser region",
+    "reason": "Actual browser tracking workflow and canvas report verified; semantic authority remains qualified",
+    "targetLabel": "cup",
+    "trackerProfile": "rgb-v1",
+    "lessonId": "",
+    "procedure": "browser-perception-v1",
+    "history": [
+      {
+        "reason": "Actual browser source frame bound; page labels, model estimates and taught appearance keep distinct authority",
+        "at": "2026-10-31T02:12:19.894235100Z",
+        "step": "perception-prepare",
+        "attempt": 1,
+        "status": "running"
+      },
+      {
+        "reason": "Local detection or taught-appearance matching started on actual unannotated source pixels",
+        "at": "2026-10-31T02:12:19.962033300Z",
+        "step": "perception-wait",
+        "attempt": 1,
+        "status": "running"
+      },
+      {
+        "reason": "Detection retained; sample fresh browser frames without promoting uncertain labels to ground truth",
+        "at": "2026-10-31T02:12:29.060064900Z",
+        "step": "perception-sample",
+        "attempt": 1,
+        "status": "running"
+      },
+      {
+        "reason": "Waiting for registered desktop action: browser.perception.sample",
+        "at": "2026-10-31T02:12:29.201977300Z",
+        "step": "perception-sample",
+        "attempt": 1,
+        "status": "waiting-host"
+      },
+      {
+        "reason": "Actual source frame 1 retained; tracking uncertainty preserved",
+        "at": "2026-10-31T02:12:29.369382900Z",
+        "step": "perception-sample",
+        "attempt": 1,
+        "status": "running"
+      },
+      {
+        "reason": "Waiting for registered desktop action: browser.perception.sample",
+        "at": "2026-10-31T02:12:29.437090800Z",
+        "step": "perception-sample",
+        "attempt": 1,
+        "status": "waiting-host"
+      },
+      {
+        "reason": "Actual source frame 2 retained; tracking uncertainty preserved",
+        "at": "2026-10-31T02:12:29.667331600Z",
+        "step": "perception-sample",
+        "attempt": 1,
+        "status": "running"
+      },
+      {
+        "reason": "Waiting for registered desktop action: browser.perception.sample",
+        "at": "2026-10-31T02:12:29.782431500Z",
+        "step": "perception-sample",
+        "attempt": 1,
+        "status": "waiting-host"
+      },
+      {
+        "reason": "Actual source frame 3 retained; tracking uncertainty preserved",
+        "at": "2026-10-31T02:12:29.905650900Z",
+        "step": "perception-sample",
+        "attempt": 1,
+        "status": "running"
+      },
+      {
+        "reason": "Waiting for registered desktop action: browser.perception.sample",
+        "at": "2026-10-31T02:12:30.015341400Z",
+        "step": "perception-sample",
+        "attempt": 1,
+        "status": "waiting-host"
+      },
+      {
+        "reason": "Actual source frame 4 retained; tracking uncertainty preserved",
+        "at": "2026-10-31T02:12:30.172265600Z",
+        "step": "perception-sample",
+        "attempt": 1,
+        "status": "running"
+      },
+      {
+        "reason": "Waiting for registered desktop action: browser.perception.sample",
+        "at": "2026-10-31T02:12:30.251595200Z",
+        "step": "perception-sample",
+        "attempt": 1,
+        "status": "waiting-host"
+      },
+      {
+        "reason": "Actual source frame 5 retained; tracking uncertainty preserved",
+        "at": "2026-10-31T02:12:30.435583Z",
+        "step": "perception-sample",
+        "attempt": 1,
+        "status": "running"
+      },
+      {
+        "reason": "Waiting for registered desktop action: browser.perception.sample",
+        "at": "2026-10-31T02:12:30.481442600Z",
+        "step": "perception-sample",
+        "attempt": 1,
+        "status": "waiting-host"
+      },
+      {
+        "reason": "Actual source frame 6 retained; tracking uncertainty preserved",
+        "at": "2026-10-31T02:12:30.680428Z",
+        "step": "perception-sample",
+        "attempt": 1,
+        "status": "running"
+      },
+      {
+        "reason": "Waiting for registered desktop action: browser.perception.sample",
+        "at": "2026-10-31T02:12:30.718738200Z",
+        "step": "perception-sample",
+        "attempt": 1,
+        "status": "waiting-host"
+      },
+      {
+        "reason": "Actual source frame 7 retained; tracking uncertainty preserved",
+        "at": "2026-10-31T02:12:30.937329100Z",
+        "step": "perception-sample",
+        "attempt": 1,
+        "status": "running"
+      },
+      {
+        "reason": "Waiting for registered desktop action: browser.perception.sample",
+        "at": "2026-10-31T02:12:30.986714700Z",
+        "step": "perception-sample",
+        "attempt": 1,
+        "status": "waiting-host"
+      },
+      {
+        "reason": "Actual source frame 8 retained; tracking uncertainty preserved",
+        "at": "2026-10-31T02:12:31.178440Z",
+        "step": "perception-sample",
+        "attempt": 1,
+        "status": "running"
+      },
+      {
+        "reason": "Source/image hashes, sequence, observed/lost states and tracking gates reconstructed",
+        "at": "2026-10-31T02:12:31.248053Z",
+        "step": "perception-report",
+        "attempt": 1,
+        "status": "running"
+      },
+      {
+        "reason": "Waiting for registered desktop action: canvas.verify-report",
+        "at": "2026-10-31T02:12:31.422880Z",
+        "step": "perception-report",
+        "attempt": 1,
+        "status": "waiting-host"
+      },
+      {
+        "reason": "Actual Chromium canvas assertions passed for the pinned report version",
+        "at": "2026-10-31T02:12:31.532142600Z",
+        "step": "complete",
+        "attempt": 1,
+        "status": "running"
+      },
+      {
+        "reason": "Actual browser tracking workflow and canvas report verified; semantic authority remains qualified",
+        "at": "2026-10-31T02:12:31.548100800Z",
+        "step": "completed",
+        "attempt": 1,
+        "status": "completed"
+      }
+    ],
+    "attempt": 1,
+    "resumes": 0,
+    "mode": "vision",
+    "createdAt": "2026-10-31T02:12:19.894235100Z",
+    "seconds": 2,
+    "trackerCodeSha256": "1accb2e79f90897bfc3f85bf3a8736331dab8d9ee2953cd4f5b1537467cbeeca",
+    "perceptionBinding": {
+      "sha256": "a6c4b1b66778a67cd819256d6dfafbd50b1e5cab263b935cdc71706dd4e93c09",
+      "bytes": 183550,
+      "recordedAt": "2026-10-31T02:12:19.889550200Z",
+      "id": "9372ab29-71d3-42b6-9b18-db16907957e9",
+      "source": {
+        "ref": "1",
+        "signature": "ad9cc4db68750d1a7da794d58cc9f5ea9fdd1952ed3a03894f75f182ed45288c",
+        "kind": "img",
+        "width": 385,
+        "capturedAt": 1793412739851,
+        "scrollY": 0,
+        "label": "IMG",
+        "pageId": "650efc88-b382-444c-8762-f9866be5d221",
+        "scrollX": 0,
+        "url": "https://raw.githubusercontent.com/scikit-image/scikit-image/v0.25.2/skimage/data/coffee.png",
+        "crop": {
+          "x": 0,
+          "width": 385,
+          "y": 43,
+          "height": 255
+        },
+        "height": 255
+      }
+    },
+    "report": {
+      "sha256": "e4473a4a676a9e597391ed14f016f1c8c2e834a178f153342f8ec26626c2df41",
+      "id": "35c6ed77-d0c1-3916-ae51-fba23cf0118b",
+      "version": 1
+    },
+    "step": "completed",
+    "id": "a72aec50-9783-4ea3-b219-afa6a0476eca",
+    "runId": "ee01f948-939a-3386-b11b-6beef9e8e699",
+    "metrics": {
+      "trackedFraction": 1,
+      "mode": "vision",
+      "trackedObservations": 8,
+      "meanMatchScore": 0.9882270597788438,
+      "lostObservations": 0,
+      "frames": 8,
+      "appearanceUpdates": 8,
+      "reacquisitions": 0,
+      "passed": true,
+      "semanticGroundTruthVerified": false
+    },
+    "visionModel": "gemma3:latest",
+    "status": "completed",
+    "updatedAt": "2026-10-31T02:12:31.548100800Z"
+  },
+  "first": {
+    "completion": {
+      "summary": "Java browser perception completed: Actual browser tracking workflow and canvas report verified; semantic authority remains qualified 11 actual frames; 100.0% tracked; 0 lost, 0 reacquired; 11 gated appearance updates. Labels retain their source authority. Saved web-person-follow v1. Report 9a1ece6e-fb35-3b7d-acc1-c954578e0a17 v1.",
+      "unverifiedModelSummary": "Completed perception task: detected and outlined the person in the astronaut image, followed for 3 seconds, traced observations, and saved procedure as web-person-follow.",
+      "goal": "On this webpage, detect and outline the person, follow for 3 seconds, trace the observations, and save the successful procedure as web-person-follow. Use vision mode with the taught memory.",
+      "javaGoal": {
+        "request": "On this webpage, detect and outline the person, follow for 3 seconds, trace the observations, and save the successful procedure as web-person-follow. Use vision mode with the taught memory.",
+        "reason": "Actual browser tracking workflow and canvas report verified; semantic authority remains qualified",
+        "targetLabel": "person",
+        "trackerProfile": "rgb-v1",
+        "lessonId": "",
+        "procedure": "browser-perception-v1",
+        "history": [
+          {
+            "reason": "Actual browser source frame bound; page labels, model estimates and taught appearance keep distinct authority",
+            "at": "2026-10-31T02:13:09.412200900Z",
+            "step": "perception-prepare",
+            "attempt": 1,
+            "status": "running"
+          },
+          {
+            "reason": "Local detection or taught-appearance matching started on actual unannotated source pixels",
+            "at": "2026-10-31T02:13:09.534674400Z",
+            "step": "perception-wait",
+            "attempt": 1,
+            "status": "running"
+          },
+          {
+            "reason": "Detection retained; sample fresh browser frames without promoting uncertain labels to ground truth",
+            "at": "2026-10-31T02:13:09.655077Z",
+            "step": "perception-sample",
+            "attempt": 1,
+            "status": "running"
+          },
+          {
+            "reason": "Waiting for registered desktop action: browser.perception.sample",
+            "at": "2026-10-31T02:13:09.788548900Z",
+            "step": "perception-sample",
+            "attempt": 1,
+            "status": "waiting-host"
+          },
+          {
+            "reason": "Actual source frame 1 retained; tracking uncertainty preserved",
+            "at": "2026-10-31T02:13:10.019931100Z",
+            "step": "perception-sample",
+            "attempt": 1,
+            "status": "running"
+          },
+          {
+            "reason": "Waiting for registered desktop action: browser.perception.sample",
+            "at": "2026-10-31T02:13:10.137615800Z",
+            "step": "perception-sample",
+            "attempt": 1,
+            "status": "waiting-host"
+          },
+          {
+            "reason": "Actual source frame 2 retained; tracking uncertainty preserved",
+            "at": "2026-10-31T02:13:10.300181800Z",
+            "step": "perception-sample",
+            "attempt": 1,
+            "status": "running"
+          },
+          {
+            "reason": "Waiting for registered desktop action: browser.perception.sample",
+            "at": "2026-10-31T02:13:10.373983100Z",
+            "step": "perception-sample",
+            "attempt": 1,
+            "status": "waiting-host"
+          },
+          {
+            "reason": "Actual source frame 3 retained; tracking uncertainty preserved",
+            "at": "2026-10-31T02:13:10.537547800Z",
+            "step": "perception-sample",
+            "attempt": 1,
+            "status": "running"
+          },
+          {
+            "reason": "Waiting for registered desktop action: browser.perception.sample",
+            "at": "2026-10-31T02:13:10.639273500Z",
+            "step": "perception-sample",
+            "attempt": 1,
+            "status": "waiting-host"
+          },
+          {
+            "reason": "Actual source frame 4 retained; tracking uncertainty preserved",
+            "at": "2026-10-31T02:13:10.764937600Z",
+            "step": "perception-sample",
+            "attempt": 1,
+            "status": "running"
+          },
+          {
+            "reason": "Waiting for registered desktop action: browser.perception.sample",
+            "at": "2026-10-31T02:13:10.874957200Z",
+            "step": "perception-sample",
+            "attempt": 1,
+            "status": "waiting-host"
+          },
+          {
+            "reason": "Actual source frame 5 retained; tracking uncertainty preserved",
+            "at": "2026-10-31T02:13:11.060434900Z",
+            "step": "perception-sample",
+            "attempt": 1,
+            "status": "running"
+          },
+          {
+            "reason": "Waiting for registered desktop action: browser.perception.sample",
+            "at": "2026-10-31T02:13:11.144209500Z",
+            "step": "perception-sample",
+            "attempt": 1,
+            "status": "waiting-host"
+          },
+          {
+            "reason": "Actual source frame 6 retained; tracking uncertainty preserved",
+            "at": "2026-10-31T02:13:11.300791300Z",
+            "step": "perception-sample",
+            "attempt": 1,
+            "status": "running"
+          },
+          {
+            "reason": "Waiting for registered desktop action: browser.perception.sample",
+            "at": "2026-10-31T02:13:11.379580600Z",
+            "step": "perception-sample",
+            "attempt": 1,
+            "status": "waiting-host"
+          },
+          {
+            "reason": "Actual source frame 7 retained; tracking uncertainty preserved",
+            "at": "2026-10-31T02:13:11.570071300Z",
+            "step": "perception-sample",
+            "attempt": 1,
+            "status": "running"
+          },
+          {
+            "reason": "Waiting for registered desktop action: browser.perception.sample",
+            "at": "2026-10-31T02:13:11.615948200Z",
+            "step": "perception-sample",
+            "attempt": 1,
+            "status": "waiting-host"
+          },
+          {
+            "reason": "Actual source frame 8 retained; tracking uncertainty preserved",
+            "at": "2026-10-31T02:13:11.811927600Z",
+            "step": "perception-sample",
+            "attempt": 1,
+            "status": "running"
+          },
+          {
+            "reason": "Waiting for registered desktop action: browser.perception.sample",
+            "at": "2026-10-31T02:13:11.851793600Z",
+            "step": "perception-sample",
+            "attempt": 1,
+            "status": "waiting-host"
+          },
+          {
+            "reason": "Actual source frame 9 retained; tracking uncertainty preserved",
+            "at": "2026-10-31T02:13:12.070316800Z",
+            "step": "perception-sample",
+            "attempt": 1,
+            "status": "running"
+          },
+          {
+            "reason": "Waiting for registered desktop action: browser.perception.sample",
+            "at": "2026-10-31T02:13:12.088267800Z",
+            "step": "perception-sample",
+            "attempt": 1,
+            "status": "waiting-host"
+          },
+          {
+            "reason": "Actual source frame 10 retained; tracking uncertainty preserved",
+            "at": "2026-10-31T02:13:12.329622600Z",
+            "step": "perception-sample",
+            "attempt": 1,
+            "status": "running"
+          },
+          {
+            "reason": "Waiting for registered desktop action: browser.perception.sample",
+            "at": "2026-10-31T02:13:12.345612900Z",
+            "step": "perception-sample",
+            "attempt": 1,
+            "status": "waiting-host"
+          },
+          {
+            "reason": "Actual source frame 11 retained; tracking uncertainty preserved",
+            "at": "2026-10-31T02:13:12.596536800Z",
+            "step": "perception-sample",
+            "attempt": 1,
+            "status": "running"
+          },
+          {
+            "reason": "Source/image hashes, sequence, observed/lost states and tracking gates reconstructed",
+            "at": "2026-10-31T02:13:12.696297200Z",
+            "step": "perception-report",
+            "attempt": 1,
+            "status": "running"
+          },
+          {
+            "reason": "Waiting for registered desktop action: canvas.verify-report",
+            "at": "2026-10-31T02:13:12.922355700Z",
+            "step": "perception-report",
+            "attempt": 1,
+            "status": "waiting-host"
+          },
+          {
+            "reason": "Actual Chromium canvas assertions passed for the pinned report version",
+            "at": "2026-10-31T02:13:13.151715100Z",
+            "step": "complete",
+            "attempt": 1,
+            "status": "running"
+          },
+          {
+            "reason": "Actual browser tracking workflow and canvas report verified; semantic authority remains qualified",
+            "at": "2026-10-31T02:13:13.193602600Z",
+            "step": "completed",
+            "attempt": 1,
+            "status": "completed"
+          }
+        ],
+        "attempt": 1,
+        "resumes": 0,
+        "mode": "vision",
+        "createdAt": "2026-10-31T02:13:09.412200900Z",
+        "seconds": 3,
+        "trackerCodeSha256": "1accb2e79f90897bfc3f85bf3a8736331dab8d9ee2953cd4f5b1537467cbeeca",
+        "perceptionBinding": {
+          "sha256": "8ad1fa1750a681a9ea0d7d75b2ce4c3aa9694628cdd8bed79151dda34b60b736",
+          "bytes": 195935,
+          "recordedAt": "2026-10-31T02:13:09.403225100Z",
+          "id": "e2f01771-0078-44ce-b323-0e8e9cbfb5ae",
+          "source": {
+            "ref": "1",
+            "signature": "42e083e69e108960ea8ad8037431506b07b110e472747d9e38a9dda04d42588a",
+            "kind": "img",
+            "width": 341,
+            "capturedAt": 1793412789351,
+            "scrollY": 0,
+            "label": "IMG",
+            "pageId": "bb12fd3e-64d6-4273-8951-b3926cbc74ac",
+            "scrollX": 0,
+            "url": "https://raw.githubusercontent.com/scikit-image/scikit-image/v0.25.2/skimage/data/astronaut.png",
+            "crop": {
+              "x": 22,
+              "width": 341,
+              "y": 0,
+              "height": 341
+            },
+            "height": 341
+          }
+        },
+        "report": {
+          "sha256": "dbaf060ed1f2e806813884805253c83c24f21443e2cb704b577332374d3b168e",
+          "id": "9a1ece6e-fb35-3b7d-acc1-c954578e0a17",
+          "version": 1
+        },
+        "step": "completed",
+        "id": "ae85e9b1-5649-4f0c-97d5-8f17828999d0",
+        "runId": "56958896-7848-3f2f-a49e-7bdf6d2283ee",
+        "metrics": {
+          "trackedFraction": 1,
+          "mode": "vision",
+          "trackedObservations": 11,
+          "meanMatchScore": 1,
+          "lostObservations": 0,
+          "frames": 11,
+          "appearanceUpdates": 11,
+          "reacquisitions": 0,
+          "passed": true,
+          "semanticGroundTruthVerified": false
+        },
+        "visionModel": "gemma3:latest",
+        "savedSkill": {
+          "name": "web-person-follow",
+          "id": "6a2fa03e-ddab-3ceb-81f9-2828eba78958",
+          "version": 1
+        },
+        "status": "completed",
+        "updatedAt": "2026-10-31T02:13:13.193602600Z"
+      },
+      "model": "gpt-oss:20b",
+      "episodeId": "92b969de-9aa8-4e6a-b142-7d6656a26d84"
+    },
+    "calls": [
+      "perception.read",
+      "perception.start",
+      "goal.read"
+    ]
+  },
+  "second": {
+    "completion": {
+      "summary": "Java browser perception completed: Actual browser tracking workflow and canvas report verified; semantic authority remains qualified 8 actual frames; 100.0% tracked; 0 lost, 0 reacquired; 8 gated appearance updates. Labels retain their source authority. Saved web-person-follow v2. Report 9c0b8268-5c8f-3f82-bff0-93cf0b6abbbf v1.",
+      "unverifiedModelSummary": "Completed web-person-follow procedure for 2 seconds on the astronaut image, tracking and verifying observations.",
+      "goal": "Reuse the web-person-follow procedure on this webpage for 2 seconds. Follow the person and trace actual observations using the retained taught memory.",
+      "javaGoal": {
+        "request": "Observe, detect, outline, follow, trace and verify the selected browser region",
+        "reason": "Actual browser tracking workflow and canvas report verified; semantic authority remains qualified",
+        "targetLabel": "person",
+        "trackerProfile": "rgb-v1",
+        "lessonId": "",
+        "procedure": "browser-perception-v1",
+        "history": [
+          {
+            "reason": "Actual browser source frame bound; page labels, model estimates and taught appearance keep distinct authority",
+            "at": "2026-10-31T02:14:09.896569300Z",
+            "step": "perception-prepare",
+            "attempt": 1,
+            "status": "running"
+          },
+          {
+            "reason": "Local detection or taught-appearance matching started on actual unannotated source pixels",
+            "at": "2026-10-31T02:14:09.990499700Z",
+            "step": "perception-wait",
+            "attempt": 1,
+            "status": "running"
+          },
+          {
+            "reason": "Detection retained; sample fresh browser frames without promoting uncertain labels to ground truth",
+            "at": "2026-10-31T02:14:10.111204600Z",
+            "step": "perception-sample",
+            "attempt": 1,
+            "status": "running"
+          },
+          {
+            "reason": "Waiting for registered desktop action: browser.perception.sample",
+            "at": "2026-10-31T02:14:10.228889400Z",
+            "step": "perception-sample",
+            "attempt": 1,
+            "status": "waiting-host"
+          },
+          {
+            "reason": "Actual source frame 1 retained; tracking uncertainty preserved",
+            "at": "2026-10-31T02:14:10.334607900Z",
+            "step": "perception-sample",
+            "attempt": 1,
+            "status": "running"
+          },
+          {
+            "reason": "Waiting for registered desktop action: browser.perception.sample",
+            "at": "2026-10-31T02:14:10.391454300Z",
+            "step": "perception-sample",
+            "attempt": 1,
+            "status": "waiting-host"
+          },
+          {
+            "reason": "Actual source frame 2 retained; tracking uncertainty preserved",
+            "at": "2026-10-31T02:14:10.568980600Z",
+            "step": "perception-sample",
+            "attempt": 1,
+            "status": "running"
+          },
+          {
+            "reason": "Waiting for registered desktop action: browser.perception.sample",
+            "at": "2026-10-31T02:14:10.663725800Z",
+            "step": "perception-sample",
+            "attempt": 1,
+            "status": "waiting-host"
+          },
+          {
+            "reason": "Actual source frame 3 retained; tracking uncertainty preserved",
+            "at": "2026-10-31T02:14:10.846018900Z",
+            "step": "perception-sample",
+            "attempt": 1,
+            "status": "running"
+          },
+          {
+            "reason": "Waiting for registered desktop action: browser.perception.sample",
+            "at": "2026-10-31T02:14:10.896482800Z",
+            "step": "perception-sample",
+            "attempt": 1,
+            "status": "waiting-host"
+          },
+          {
+            "reason": "Actual source frame 4 retained; tracking uncertainty preserved",
+            "at": "2026-10-31T02:14:11.117889800Z",
+            "step": "perception-sample",
+            "attempt": 1,
+            "status": "running"
+          },
+          {
+            "reason": "Waiting for registered desktop action: browser.perception.sample",
+            "at": "2026-10-31T02:14:11.133847200Z",
+            "step": "perception-sample",
+            "attempt": 1,
+            "status": "waiting-host"
+          },
+          {
+            "reason": "Actual source frame 5 retained; tracking uncertainty preserved",
+            "at": "2026-10-31T02:14:11.380188Z",
+            "step": "perception-sample",
+            "attempt": 1,
+            "status": "running"
+          },
+          {
+            "reason": "Waiting for registered desktop action: browser.perception.sample",
+            "at": "2026-10-31T02:14:11.474935300Z",
+            "step": "perception-sample",
+            "attempt": 1,
+            "status": "waiting-host"
+          },
+          {
+            "reason": "Actual source frame 6 retained; tracking uncertainty preserved",
+            "at": "2026-10-31T02:14:11.614561800Z",
+            "step": "perception-sample",
+            "attempt": 1,
+            "status": "running"
+          },
+          {
+            "reason": "Waiting for registered desktop action: browser.perception.sample",
+            "at": "2026-10-31T02:14:11.712299500Z",
+            "step": "perception-sample",
+            "attempt": 1,
+            "status": "waiting-host"
+          },
+          {
+            "reason": "Actual source frame 7 retained; tracking uncertainty preserved",
+            "at": "2026-10-31T02:14:11.884838600Z",
+            "step": "perception-sample",
+            "attempt": 1,
+            "status": "running"
+          },
+          {
+            "reason": "Waiting for registered desktop action: browser.perception.sample",
+            "at": "2026-10-31T02:14:11.941686900Z",
+            "step": "perception-sample",
+            "attempt": 1,
+            "status": "waiting-host"
+          },
+          {
+            "reason": "Actual source frame 8 retained; tracking uncertainty preserved",
+            "at": "2026-10-31T02:14:12.147136500Z",
+            "step": "perception-sample",
+            "attempt": 1,
+            "status": "running"
+          },
+          {
+            "reason": "Source/image hashes, sequence, observed/lost states and tracking gates reconstructed",
+            "at": "2026-10-31T02:14:12.177057100Z",
+            "step": "perception-report",
+            "attempt": 1,
+            "status": "running"
+          },
+          {
+            "reason": "Waiting for registered desktop action: canvas.verify-report",
+            "at": "2026-10-31T02:14:12.381510400Z",
+            "step": "perception-report",
+            "attempt": 1,
+            "status": "waiting-host"
+          },
+          {
+            "reason": "Actual Chromium canvas assertions passed for the pinned report version",
+            "at": "2026-10-31T02:14:12.677718300Z",
+            "step": "complete",
+            "attempt": 1,
+            "status": "running"
+          },
+          {
+            "reason": "Actual browser tracking workflow and canvas report verified; semantic authority remains qualified",
+            "at": "2026-10-31T02:14:12.743541Z",
+            "step": "completed",
+            "attempt": 1,
+            "status": "completed"
+          }
+        ],
+        "attempt": 1,
+        "resumes": 0,
+        "mode": "vision",
+        "createdAt": "2026-10-31T02:14:09.896569300Z",
+        "seconds": 2,
+        "trackerCodeSha256": "1accb2e79f90897bfc3f85bf3a8736331dab8d9ee2953cd4f5b1537467cbeeca",
+        "perceptionBinding": {
+          "sha256": "24a9276768d980fff8651baf3122f23b013d6a546cbb0090db5cb55530d50338",
+          "bytes": 96110,
+          "recordedAt": "2026-10-31T02:14:09.889586400Z",
+          "id": "afd0c93b-28ac-4863-9a5b-2221852795de",
+          "source": {
+            "ref": "1",
+            "signature": "42e083e69e108960ea8ad8037431506b07b110e472747d9e38a9dda04d42588a",
+            "kind": "img",
+            "width": 241,
+            "capturedAt": 1793412849850,
+            "scrollY": 0,
+            "label": "IMG",
+            "pageId": "bb12fd3e-64d6-4273-8951-b3926cbc74ac",
+            "scrollX": 0,
+            "url": "https://raw.githubusercontent.com/scikit-image/scikit-image/v0.25.2/skimage/data/astronaut.png",
+            "crop": {
+              "x": 37,
+              "width": 241,
+              "y": 0,
+              "height": 241
+            },
+            "height": 241
+          }
+        },
+        "skill": {
+          "name": "web-person-follow",
+          "id": "6a2fa03e-ddab-3ceb-81f9-2828eba78958",
+          "version": 1
+        },
+        "report": {
+          "sha256": "827c145c6fb3b858f26490656f354458915c3ad39182463ac02f19835bf4781f",
+          "id": "9c0b8268-5c8f-3f82-bff0-93cf0b6abbbf",
+          "version": 1
+        },
+        "step": "completed",
+        "id": "1a364cee-2cc6-4758-96b2-b251f703a7ca",
+        "runId": "e4dcd02c-6d9d-30b7-8d0e-92a1355c6767",
+        "metrics": {
+          "trackedFraction": 1,
+          "mode": "vision",
+          "trackedObservations": 8,
+          "meanMatchScore": 1,
+          "lostObservations": 0,
+          "frames": 8,
+          "appearanceUpdates": 8,
+          "reacquisitions": 0,
+          "passed": true,
+          "semanticGroundTruthVerified": false
+        },
+        "visionModel": "gemma3:latest",
+        "savedSkill": {
+          "name": "web-person-follow",
+          "id": "4e41695f-4d1d-37f3-b60f-eceacea11923",
+          "version": 2
+        },
+        "status": "completed",
+        "updatedAt": "2026-10-31T02:14:12.743541Z"
+      },
+      "model": "gpt-oss:20b",
+      "episodeId": "44014c8f-1297-4210-990f-bc9cdb7ef711"
+    },
+    "calls": [
+      "perception.read",
+      "procedure.run",
+      "goal.read"
+    ]
+  },
+  "models": {
+    "chat": "gpt-oss:20b",
+    "vision": "gemma3:latest"
+  }
+}

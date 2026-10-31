@@ -1,0 +1,649 @@
+{
+  "passed": true,
+  "date": "2026-10-31T01:52:55.624Z",
+  "project": "C:\\Users\\eyeka\\AppData\\Local\\Temp\\fraynix-tracking-controls024-6SYQp7",
+  "checks": [
+    "Explicitly synthetic aspect-change control passes the fixed gates, while disabled automatic activation preserves baseline",
+    "Actual Activate passing candidate button rechecks sources/gates, persists flow-v3 and records generation1",
+    "A real browser capture and drawn example run the promoted CPU profile; the verified saved skill pins its exact code identity",
+    "Actual Restore baseline button records rollback without rewriting the accepted comparison or saved skill",
+    "Saved-skill inspector reuses its original candidate code on a fresh source after global rollback; it does not silently switch trackers",
+    "Comparison, promotion/rollback history and retained skill code pins survive a real process restart without renderer errors"
+  ],
+  "comparison": {
+    "reason": "Candidate passed fixed evaluation and negative controls",
+    "completedAt": "2026-10-31T01:52:45.920958200Z",
+    "profiles": {
+      "flow-v3": "c4b911a0a596fd10cb6f879b797c62ef71e1d862baab4318df051e4595db40a7",
+      "rgb-v1": "89e15acf52b828948cdc0476f690bd016c0b4daf676c743a54b00a9b4df62f2f"
+    },
+    "datasets": [
+      {
+        "split": "development",
+        "contentSha256": "85ea41b1ea9e9d8a7c7776d7bcd02c0038f2f63428e1c5cafb432f0886bec1d6",
+        "id": "4f85e9cd-fb46-4ee2-b916-84d9338b03ce"
+      },
+      {
+        "split": "evaluation",
+        "contentSha256": "446e7f5e19f083711cb6b7a1a0dfad6cabaf8e93f0057b6ff94eba45b89439fe",
+        "id": "fd99b08b-105c-4053-b205-f3df75695699"
+      }
+    ],
+    "candidateProfile": "flow-v3",
+    "createdAt": "2026-10-31T01:52:45.167376300Z",
+    "autoPromote": false,
+    "completedFrames": 28,
+    "protocolEdition": "024",
+    "id": "2cf4571d-95be-4fba-99b0-23ef78f758ce",
+    "gate": {
+      "baselineMeanIou": 0.13039626764306392,
+      "lowOverlapVisibleCandidate": 0,
+      "cases": [
+        {
+          "candidate": {
+            "meanIou": 0.7222050553029512,
+            "referenceAbsentFrames": 0,
+            "p95ProcessingMillis": 9.9308,
+            "latencyScope": "JPEG/PNG decode plus CPU tracking; excludes browser capture, network and LLM. Initialization excluded from scored frames.",
+            "scoredFrames": 7,
+            "iouHalfFraction": 1,
+            "reacquired": 0,
+            "lost": 0,
+            "lowOverlapVisiblePredictions": 0,
+            "medianProcessingMillis": 8.0209
+          },
+          "datasetId": "fd99b08b-105c-4053-b205-f3df75695699",
+          "baseline": {
+            "meanIou": 0.13039626764306392,
+            "referenceAbsentFrames": 0,
+            "p95ProcessingMillis": 8.4878,
+            "latencyScope": "JPEG/PNG decode plus CPU tracking; excludes browser capture, network and LLM. Initialization excluded from scored frames.",
+            "scoredFrames": 7,
+            "iouHalfFraction": 0.14285714285714285,
+            "reacquired": 0,
+            "lost": 6,
+            "lowOverlapVisiblePredictions": 0,
+            "medianProcessingMillis": 8.196
+          },
+          "gain": 0.5918087876598873
+        }
+      ],
+      "negativeControlsPassed": true,
+      "scope": "Small declared human-guided box-tracking evaluation; not general category accuracy or official DAVIS mask metrics",
+      "passed": true,
+      "candidateIouHalfFraction": 1,
+      "perSequenceRegression": false,
+      "candidateMeanIou": 0.7222050553029512,
+      "scoredEvaluationFrames": 7,
+      "pooledMeanIouGain": 0.5918087876598872,
+      "lowOverlapVisibleBaseline": 0
+    },
+    "implementations": {
+      "flow-v3": "8078a8c156ff301c51c833a7295b624ee767a27e5822976039b976fc658cdf47",
+      "rgb-v1": "1accb2e79f90897bfc3f85bf3a8736331dab8d9ee2953cd4f5b1537467cbeeca"
+    },
+    "status": "completed",
+    "totalFrames": 28
+  },
+  "pinned": {
+    "request": "Observe, detect, outline, follow, trace and verify the selected browser region",
+    "reason": "Actual browser tracking workflow and canvas report verified; semantic authority remains qualified",
+    "targetLabel": "object",
+    "trackerProfile": "flow-v3",
+    "lessonId": "16281bcb-5062-41f2-a4ff-5b0ad6ed40e1",
+    "procedure": "browser-perception-v1",
+    "history": [
+      {
+        "reason": "Actual browser source frame bound; page labels, model estimates and taught appearance keep distinct authority",
+        "at": "2026-10-31T01:52:47.953188800Z",
+        "step": "perception-prepare",
+        "attempt": 1,
+        "status": "running"
+      },
+      {
+        "reason": "Local detection or taught-appearance matching started on actual unannotated source pixels",
+        "at": "2026-10-31T01:52:47.970872100Z",
+        "step": "perception-wait",
+        "attempt": 1,
+        "status": "running"
+      },
+      {
+        "reason": "Detection retained; sample fresh browser frames without promoting uncertain labels to ground truth",
+        "at": "2026-10-31T01:52:48.083570100Z",
+        "step": "perception-sample",
+        "attempt": 1,
+        "status": "running"
+      },
+      {
+        "reason": "Waiting for registered desktop action: browser.perception.sample",
+        "at": "2026-10-31T01:52:48.216961400Z",
+        "step": "perception-sample",
+        "attempt": 1,
+        "status": "waiting-host"
+      },
+      {
+        "reason": "Actual source frame 1 retained; tracking uncertainty preserved",
+        "at": "2026-10-31T01:52:48.513974400Z",
+        "step": "perception-sample",
+        "attempt": 1,
+        "status": "running"
+      },
+      {
+        "reason": "Waiting for registered desktop action: browser.perception.sample",
+        "at": "2026-10-31T01:52:48.555863100Z",
+        "step": "perception-sample",
+        "attempt": 1,
+        "status": "waiting-host"
+      },
+      {
+        "reason": "Actual source frame 2 retained; tracking uncertainty preserved",
+        "at": "2026-10-31T01:52:49.323566400Z",
+        "step": "perception-sample",
+        "attempt": 1,
+        "status": "running"
+      },
+      {
+        "reason": "Waiting for registered desktop action: browser.perception.sample",
+        "at": "2026-10-31T01:52:49.380636700Z",
+        "step": "perception-sample",
+        "attempt": 1,
+        "status": "waiting-host"
+      },
+      {
+        "reason": "Actual source frame 3 retained; tracking uncertainty preserved",
+        "at": "2026-10-31T01:52:49.554297400Z",
+        "step": "perception-sample",
+        "attempt": 1,
+        "status": "running"
+      },
+      {
+        "reason": "Waiting for registered desktop action: browser.perception.sample",
+        "at": "2026-10-31T01:52:49.617254800Z",
+        "step": "perception-sample",
+        "attempt": 1,
+        "status": "waiting-host"
+      },
+      {
+        "reason": "Actual source frame 4 retained; tracking uncertainty preserved",
+        "at": "2026-10-31T01:52:49.903637100Z",
+        "step": "perception-sample",
+        "attempt": 1,
+        "status": "running"
+      },
+      {
+        "reason": "Waiting for registered desktop action: browser.perception.sample",
+        "at": "2026-10-31T01:52:49.958890900Z",
+        "step": "perception-sample",
+        "attempt": 1,
+        "status": "waiting-host"
+      },
+      {
+        "reason": "Actual source frame 5 retained; tracking uncertainty preserved",
+        "at": "2026-10-31T01:52:50.075126200Z",
+        "step": "perception-sample",
+        "attempt": 1,
+        "status": "running"
+      },
+      {
+        "reason": "Source/image hashes, sequence, observed/lost states and tracking gates reconstructed",
+        "at": "2026-10-31T01:52:50.179061900Z",
+        "step": "perception-report",
+        "attempt": 1,
+        "status": "running"
+      },
+      {
+        "reason": "Waiting for registered desktop action: canvas.verify-report",
+        "at": "2026-10-31T01:52:50.353676800Z",
+        "step": "perception-report",
+        "attempt": 1,
+        "status": "waiting-host"
+      },
+      {
+        "reason": "Actual Chromium canvas assertions passed for the pinned report version",
+        "at": "2026-10-31T01:52:50.637925700Z",
+        "step": "complete",
+        "attempt": 1,
+        "status": "running"
+      },
+      {
+        "reason": "Actual browser tracking workflow and canvas report verified; semantic authority remains qualified",
+        "at": "2026-10-31T01:52:50.708166300Z",
+        "step": "completed",
+        "attempt": 1,
+        "status": "completed"
+      }
+    ],
+    "attempt": 1,
+    "resumes": 0,
+    "mode": "appearance",
+    "createdAt": "2026-10-31T01:52:47.953188800Z",
+    "seconds": 2,
+    "trackerCodeSha256": "8078a8c156ff301c51c833a7295b624ee767a27e5822976039b976fc658cdf47",
+    "perceptionBinding": {
+      "sha256": "376898ac5d0133f56cc267e5d5fe8ef1686ee5d3efe51ed3396585f428e8d771",
+      "bytes": 22812,
+      "recordedAt": "2026-10-31T01:52:47.949173100Z",
+      "id": "f6c9c402-7ed7-4cb6-aa7b-3f75b8f4d4dc",
+      "source": {
+        "ref": "5",
+        "signature": "764a04f6f5eeab992a2548c62e77642bc09b2c1ea70f7e1c477c4a861f120039",
+        "kind": "canvas",
+        "width": 330,
+        "capturedAt": 1793411567925,
+        "scrollY": 192,
+        "label": "Recorded image pixels; inspect independently",
+        "pageId": "45b10c05-3cd3-4b5d-91fb-48b2e63f9fe1",
+        "scrollX": 0,
+        "url": "http://127.0.0.1:61213/tracking-page/4f85e9cd-fb46-4ee2-b916-84d9338b03ce",
+        "crop": {
+          "x": 20,
+          "width": 330,
+          "y": 94,
+          "height": 247
+        },
+        "height": 247
+      }
+    },
+    "report": {
+      "sha256": "1e8a1064ffe54689013e637499cfcd781c68fd4a79037456dbfbdd5eb3ffd9bb",
+      "id": "49b73c01-23f5-3623-84c9-37c193e82c9d",
+      "version": 1
+    },
+    "step": "completed",
+    "id": "4ef06b6a-e9d0-4323-a292-42a10df6f2ab",
+    "runId": "004edca5-b3ae-3c19-9efe-ca9c795633cd",
+    "metrics": {
+      "trackedFraction": 1,
+      "mode": "appearance",
+      "trackedObservations": 5,
+      "meanMatchScore": 1,
+      "lostObservations": 0,
+      "frames": 5,
+      "appearanceUpdates": 5,
+      "reacquisitions": 0,
+      "passed": true,
+      "semanticGroundTruthVerified": false
+    },
+    "visionModel": "gemma3:latest",
+    "savedSkill": {
+      "name": "pinned-tracker-follow",
+      "id": "0686af37-3b20-313f-9ae3-71359e7cc3e8",
+      "version": 1
+    },
+    "status": "completed",
+    "updatedAt": "2026-10-31T01:52:50.708166300Z"
+  },
+  "reused": {
+    "request": "Observe, detect, outline, follow, trace and verify the selected browser region",
+    "reason": "Actual browser tracking workflow and canvas report verified; semantic authority remains qualified",
+    "targetLabel": "object",
+    "trackerProfile": "flow-v3",
+    "lessonId": "16281bcb-5062-41f2-a4ff-5b0ad6ed40e1",
+    "procedure": "browser-perception-v1",
+    "history": [
+      {
+        "reason": "Actual browser source frame bound; page labels, model estimates and taught appearance keep distinct authority",
+        "at": "2026-10-31T01:52:51.570598Z",
+        "step": "perception-prepare",
+        "attempt": 1,
+        "status": "running"
+      },
+      {
+        "reason": "Local detection or taught-appearance matching started on actual unannotated source pixels",
+        "at": "2026-10-31T01:52:51.645397300Z",
+        "step": "perception-wait",
+        "attempt": 1,
+        "status": "running"
+      },
+      {
+        "reason": "Detection retained; sample fresh browser frames without promoting uncertain labels to ground truth",
+        "at": "2026-10-31T01:52:51.775010300Z",
+        "step": "perception-sample",
+        "attempt": 1,
+        "status": "running"
+      },
+      {
+        "reason": "Waiting for registered desktop action: browser.perception.sample",
+        "at": "2026-10-31T01:52:51.892719300Z",
+        "step": "perception-sample",
+        "attempt": 1,
+        "status": "waiting-host"
+      },
+      {
+        "reason": "Actual source frame 1 retained; tracking uncertainty preserved",
+        "at": "2026-10-31T01:52:52.116488400Z",
+        "step": "perception-sample",
+        "attempt": 1,
+        "status": "running"
+      },
+      {
+        "reason": "Waiting for registered desktop action: browser.perception.sample",
+        "at": "2026-10-31T01:52:52.130917400Z",
+        "step": "perception-sample",
+        "attempt": 1,
+        "status": "waiting-host"
+      },
+      {
+        "reason": "Actual source frame 2 retained; tracking uncertainty preserved",
+        "at": "2026-10-31T01:52:52.363136200Z",
+        "step": "perception-sample",
+        "attempt": 1,
+        "status": "running"
+      },
+      {
+        "reason": "Waiting for registered desktop action: browser.perception.sample",
+        "at": "2026-10-31T01:52:52.474567200Z",
+        "step": "perception-sample",
+        "attempt": 1,
+        "status": "waiting-host"
+      },
+      {
+        "reason": "Actual source frame 3 retained; tracking uncertainty preserved",
+        "at": "2026-10-31T01:52:52.633721Z",
+        "step": "perception-sample",
+        "attempt": 1,
+        "status": "running"
+      },
+      {
+        "reason": "Waiting for registered desktop action: browser.perception.sample",
+        "at": "2026-10-31T01:52:52.703534200Z",
+        "step": "perception-sample",
+        "attempt": 1,
+        "status": "waiting-host"
+      },
+      {
+        "reason": "Actual source frame 4 retained; tracking uncertainty preserved",
+        "at": "2026-10-31T01:52:52.863719600Z",
+        "step": "perception-sample",
+        "attempt": 1,
+        "status": "running"
+      },
+      {
+        "reason": "Waiting for registered desktop action: browser.perception.sample",
+        "at": "2026-10-31T01:52:52.948601800Z",
+        "step": "perception-sample",
+        "attempt": 1,
+        "status": "waiting-host"
+      },
+      {
+        "reason": "Actual source frame 5 retained; tracking uncertainty preserved",
+        "at": "2026-10-31T01:52:53.141063300Z",
+        "step": "perception-sample",
+        "attempt": 1,
+        "status": "running"
+      },
+      {
+        "reason": "Waiting for registered desktop action: browser.perception.sample",
+        "at": "2026-10-31T01:52:53.174971300Z",
+        "step": "perception-sample",
+        "attempt": 1,
+        "status": "waiting-host"
+      },
+      {
+        "reason": "Actual source frame 6 retained; tracking uncertainty preserved",
+        "at": "2026-10-31T01:52:53.400754200Z",
+        "step": "perception-sample",
+        "attempt": 1,
+        "status": "running"
+      },
+      {
+        "reason": "Waiting for registered desktop action: browser.perception.sample",
+        "at": "2026-10-31T01:52:53.412745Z",
+        "step": "perception-sample",
+        "attempt": 1,
+        "status": "waiting-host"
+      },
+      {
+        "reason": "Actual source frame 7 retained; tracking uncertainty preserved",
+        "at": "2026-10-31T01:52:53.766297800Z",
+        "step": "perception-sample",
+        "attempt": 1,
+        "status": "running"
+      },
+      {
+        "reason": "Source/image hashes, sequence, observed/lost states and tracking gates reconstructed",
+        "at": "2026-10-31T01:52:53.861735600Z",
+        "step": "perception-report",
+        "attempt": 1,
+        "status": "running"
+      },
+      {
+        "reason": "Waiting for registered desktop action: canvas.verify-report",
+        "at": "2026-10-31T01:52:54.015221500Z",
+        "step": "perception-report",
+        "attempt": 1,
+        "status": "waiting-host"
+      },
+      {
+        "reason": "Actual Chromium canvas assertions passed for the pinned report version",
+        "at": "2026-10-31T01:52:54.184452600Z",
+        "step": "complete",
+        "attempt": 1,
+        "status": "running"
+      },
+      {
+        "reason": "Actual browser tracking workflow and canvas report verified; semantic authority remains qualified",
+        "at": "2026-10-31T01:52:54.231689900Z",
+        "step": "completed",
+        "attempt": 1,
+        "status": "completed"
+      }
+    ],
+    "attempt": 1,
+    "resumes": 0,
+    "mode": "appearance",
+    "createdAt": "2026-10-31T01:52:51.570598Z",
+    "seconds": 2,
+    "trackerCodeSha256": "8078a8c156ff301c51c833a7295b624ee767a27e5822976039b976fc658cdf47",
+    "perceptionBinding": {
+      "sha256": "376898ac5d0133f56cc267e5d5fe8ef1686ee5d3efe51ed3396585f428e8d771",
+      "bytes": 22812,
+      "recordedAt": "2026-10-31T01:52:51.565611200Z",
+      "id": "d675ab4a-8212-4343-b873-9e576be378f5",
+      "source": {
+        "ref": "5",
+        "signature": "764a04f6f5eeab992a2548c62e77642bc09b2c1ea70f7e1c477c4a861f120039",
+        "kind": "canvas",
+        "width": 330,
+        "capturedAt": 1793411571542,
+        "scrollY": 192,
+        "label": "Recorded image pixels; inspect independently",
+        "pageId": "45b10c05-3cd3-4b5d-91fb-48b2e63f9fe1",
+        "scrollX": 0,
+        "url": "http://127.0.0.1:61213/tracking-page/4f85e9cd-fb46-4ee2-b916-84d9338b03ce",
+        "crop": {
+          "x": 20,
+          "width": 330,
+          "y": 94,
+          "height": 247
+        },
+        "height": 247
+      }
+    },
+    "skill": {
+      "name": "pinned-tracker-follow",
+      "id": "0686af37-3b20-313f-9ae3-71359e7cc3e8",
+      "version": 1
+    },
+    "report": {
+      "sha256": "87238e0bd44547b41b6d1507f3dbc2274566095d6b9706a66b42aa10ed2bb8d5",
+      "id": "087835c9-0322-3172-b1df-fa822e7cbd39",
+      "version": 1
+    },
+    "step": "completed",
+    "id": "d7cea494-4681-4ec1-935c-fb7f1ab5d4c2",
+    "runId": "df82a63c-91f2-30d5-b1c9-ac08a5a53076",
+    "metrics": {
+      "trackedFraction": 1,
+      "mode": "appearance",
+      "trackedObservations": 7,
+      "meanMatchScore": 1,
+      "lostObservations": 0,
+      "frames": 7,
+      "appearanceUpdates": 7,
+      "reacquisitions": 0,
+      "passed": true,
+      "semanticGroundTruthVerified": false
+    },
+    "visionModel": "gemma3:latest",
+    "status": "completed",
+    "updatedAt": "2026-10-31T01:52:54.231689900Z"
+  },
+  "afterRollback": {
+    "generation": 2,
+    "activeProfile": "rgb-v1",
+    "jobs": [
+      {
+        "reason": "Candidate passed fixed evaluation and negative controls",
+        "completedAt": "2026-10-31T01:52:45.920958200Z",
+        "profiles": {
+          "flow-v3": "c4b911a0a596fd10cb6f879b797c62ef71e1d862baab4318df051e4595db40a7",
+          "rgb-v1": "89e15acf52b828948cdc0476f690bd016c0b4daf676c743a54b00a9b4df62f2f"
+        },
+        "datasets": [
+          {
+            "split": "development",
+            "contentSha256": "85ea41b1ea9e9d8a7c7776d7bcd02c0038f2f63428e1c5cafb432f0886bec1d6",
+            "id": "4f85e9cd-fb46-4ee2-b916-84d9338b03ce"
+          },
+          {
+            "split": "evaluation",
+            "contentSha256": "446e7f5e19f083711cb6b7a1a0dfad6cabaf8e93f0057b6ff94eba45b89439fe",
+            "id": "fd99b08b-105c-4053-b205-f3df75695699"
+          }
+        ],
+        "candidateProfile": "flow-v3",
+        "createdAt": "2026-10-31T01:52:45.167376300Z",
+        "autoPromote": false,
+        "completedFrames": 28,
+        "protocolEdition": "024",
+        "id": "2cf4571d-95be-4fba-99b0-23ef78f758ce",
+        "gate": {
+          "baselineMeanIou": 0.13039626764306392,
+          "lowOverlapVisibleCandidate": 0,
+          "cases": [
+            {
+              "candidate": {
+                "meanIou": 0.7222050553029512,
+                "referenceAbsentFrames": 0,
+                "p95ProcessingMillis": 9.9308,
+                "latencyScope": "JPEG/PNG decode plus CPU tracking; excludes browser capture, network and LLM. Initialization excluded from scored frames.",
+                "scoredFrames": 7,
+                "iouHalfFraction": 1,
+                "reacquired": 0,
+                "lost": 0,
+                "lowOverlapVisiblePredictions": 0,
+                "medianProcessingMillis": 8.0209
+              },
+              "datasetId": "fd99b08b-105c-4053-b205-f3df75695699",
+              "baseline": {
+                "meanIou": 0.13039626764306392,
+                "referenceAbsentFrames": 0,
+                "p95ProcessingMillis": 8.4878,
+                "latencyScope": "JPEG/PNG decode plus CPU tracking; excludes browser capture, network and LLM. Initialization excluded from scored frames.",
+                "scoredFrames": 7,
+                "iouHalfFraction": 0.14285714285714285,
+                "reacquired": 0,
+                "lost": 6,
+                "lowOverlapVisiblePredictions": 0,
+                "medianProcessingMillis": 8.196
+              },
+              "gain": 0.5918087876598873
+            }
+          ],
+          "negativeControlsPassed": true,
+          "scope": "Small declared human-guided box-tracking evaluation; not general category accuracy or official DAVIS mask metrics",
+          "passed": true,
+          "candidateIouHalfFraction": 1,
+          "perSequenceRegression": false,
+          "candidateMeanIou": 0.7222050553029512,
+          "scoredEvaluationFrames": 7,
+          "pooledMeanIouGain": 0.5918087876598872,
+          "lowOverlapVisibleBaseline": 0
+        },
+        "activation": {
+          "generation": 1,
+          "profile": "flow-v3"
+        },
+        "implementations": {
+          "flow-v3": "8078a8c156ff301c51c833a7295b624ee767a27e5822976039b976fc658cdf47",
+          "rgb-v1": "1accb2e79f90897bfc3f85bf3a8736331dab8d9ee2953cd4f5b1537467cbeeca"
+        },
+        "status": "completed",
+        "totalFrames": 28
+      }
+    ],
+    "busy": false,
+    "activeJob": "",
+    "profiles": [
+      {
+        "codeSha256": "89e15acf52b828948cdc0476f690bd016c0b4daf676c743a54b00a9b4df62f2f",
+        "id": "rgb-v1",
+        "implementationSha256": "1accb2e79f90897bfc3f85bf3a8736331dab8d9ee2953cd4f5b1537467cbeeca"
+      },
+      {
+        "codeSha256": "c4b911a0a596fd10cb6f879b797c62ef71e1d862baab4318df051e4595db40a7",
+        "id": "flow-v3",
+        "implementationSha256": "8078a8c156ff301c51c833a7295b624ee767a27e5822976039b976fc658cdf47"
+      }
+    ],
+    "installedProfiles": [
+      "rgb-v1",
+      "adaptive-v2",
+      "flow-v3"
+    ],
+    "activeCodeSha256": "1accb2e79f90897bfc3f85bf3a8736331dab8d9ee2953cd4f5b1537467cbeeca",
+    "history": [
+      {
+        "jobId": "2cf4571d-95be-4fba-99b0-23ef78f758ce",
+        "at": "2026-10-31T01:52:47.038107300Z",
+        "from": "rgb-v1",
+        "to": "flow-v3",
+        "event": "promoted"
+      },
+      {
+        "jobId": "2cf4571d-95be-4fba-99b0-23ef78f758ce",
+        "at": "2026-10-31T01:52:51.246861400Z",
+        "from": "flow-v3",
+        "to": "rgb-v1",
+        "event": "rollback"
+      }
+    ],
+    "datasets": [
+      {
+        "schema": "fraynix-tracking-sequence-v1",
+        "notes": "Synthetic regression only; not real recorded movement",
+        "importedAt": "2026-10-31T01:52:44.923351500Z",
+        "source": "Local explicitly synthetic motion/aspect fixture with public-domain NASA photograph",
+        "title": "Synthetic development",
+        "sequence": "Synthetic development",
+        "license": "NASA public-domain photograph; generated test composition",
+        "frameCount": 8,
+        "split": "development",
+        "width": 320,
+        "contentSha256": "85ea41b1ea9e9d8a7c7776d7bcd02c0038f2f63428e1c5cafb432f0886bec1d6",
+        "id": "4f85e9cd-fb46-4ee2-b916-84d9338b03ce",
+        "objectId": 1,
+        "height": 240
+      },
+      {
+        "schema": "fraynix-tracking-sequence-v1",
+        "notes": "Synthetic regression only; not real recorded movement",
+        "importedAt": "2026-10-31T01:52:45.050890600Z",
+        "source": "Local explicitly synthetic motion/aspect fixture with public-domain NASA photograph",
+        "title": "Synthetic aspect control",
+        "sequence": "Synthetic aspect control",
+        "license": "NASA public-domain photograph; generated test composition",
+        "frameCount": 8,
+        "split": "evaluation",
+        "width": 320,
+        "contentSha256": "446e7f5e19f083711cb6b7a1a0dfad6cabaf8e93f0057b6ff94eba45b89439fe",
+        "id": "fd99b08b-105c-4053-b205-f3df75695699",
+        "objectId": 1,
+        "height": 240
+      }
+    ],
+    "comparisonCandidate": "flow-v3"
+  },
+  "scope": "Synthetic aspect/motion acceptance controls only. This is not the reserved real-video accuracy result."
+}

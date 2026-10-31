@@ -1,6 +1,6 @@
 ---
 title: Fraynix Studio map of content
-edition_context: 023
+edition_context: 024
 updated: 2026-10-30
 tags: [fraynix, system-map]
 ---
@@ -86,7 +86,7 @@ GitHub links: [README 001](../../README-001.md), [interactive companion](../read
 - [Actual evidence and accuracy limits](../readmes/022/verification.json)
 - [All editions](../readmes/INDEX.md)
 
-## Current recorded tracking and profile lifecycle · edition 023
+## Recorded tracking and profile lifecycle · edition 023
 
 - [README 023](../../README-023.md)
 - [Tracking learning and retained profiles](31-tracking-learning.md)
@@ -95,3 +95,13 @@ GitHub links: [README 001](../../README-001.md), [interactive companion](../read
 - [Runtime and evaluation contract](../TRACKING_EVALUATION.md)
 
 The reserved real sequences reject the candidate. Baseline remains active; synthetic activation and saved-skill checks establish software behavior, not general visual accuracy.
+
+## Current temporal tracking on new footage · edition 024
+
+- [README 024](../../README-024.md)
+- [Temporal motion, agency and measured limits](32-temporal-tracking.md)
+- [Temporal tracking map](temporal-tracking.canvas)
+- [New-footage verification and first decision](../readmes/024/verification.json)
+- [Runtime and evaluation contract](../TEMPORAL_TRACKING.md)
+
+All three new clips improve, but coverage and false-visible checks still reject the candidate. The first result, old profiles and saved implementation pins remain intact.

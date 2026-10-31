@@ -1,0 +1,61 @@
+[
+  {
+    "sequence": "car-turn",
+    "firstLostSourceFrame": null,
+    "firstVeryLowOverlapSourceFrame": 58,
+    "lastIou": 0.0861606394808323,
+    "lastPrediction": [
+      0.3060248296956971,
+      0.44100344940462843,
+      0.4463574553942008,
+      0.670902331381249
+    ],
+    "lastReference": [
+      0.3583138173302108,
+      0.3770833333333333,
+      0.8629976580796253,
+      0.81875
+    ],
+    "lastMotion": {
+      "method": "pyramidal-flow",
+      "inliers": 27,
+      "medianForwardBackwardPixels": 0.024094921689664914
+    }
+  },
+  {
+    "sequence": "dog",
+    "firstLostSourceFrame": 28,
+    "firstVeryLowOverlapSourceFrame": null,
+    "lastIou": 0,
+    "lastPrediction": null,
+    "lastReference": [
+      0.22365339578454332,
+      0.20208333333333334,
+      0.819672131147541,
+      0.90625
+    ],
+    "lastMotion": {
+      "method": "motion-recovery",
+      "inliers": 1,
+      "medianForwardBackwardPixels": 0
+    }
+  },
+  {
+    "sequence": "libby",
+    "firstLostSourceFrame": 21,
+    "firstVeryLowOverlapSourceFrame": 19,
+    "lastIou": 0,
+    "lastPrediction": null,
+    "lastReference": [
+      0.3747072599531616,
+      0.4083333333333333,
+      0.5234192037470726,
+      0.7020833333333334
+    ],
+    "lastMotion": {
+      "method": "motion-recovery",
+      "inliers": 3,
+      "medianForwardBackwardPixels": 0
+    }
+  }
+]

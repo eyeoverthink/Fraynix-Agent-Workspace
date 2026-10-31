@@ -1,0 +1,429 @@
+{
+  "reason": "Candidate rejected; active tracker remains unchanged",
+  "completedAt": "2026-10-31T02:17:28.053072200Z",
+  "profiles": {
+    "flow-v3": "c4b911a0a596fd10cb6f879b797c62ef71e1d862baab4318df051e4595db40a7",
+    "rgb-v1": "89e15acf52b828948cdc0476f690bd016c0b4daf676c743a54b00a9b4df62f2f"
+  },
+  "datasets": [
+    {
+      "split": "development",
+      "contentSha256": "96e24bf0346e6090fa8e0201e268e75fe20bee38b61d7fa7b8dff96af0b03c2d",
+      "id": "e1b5c729-b76d-4e2d-94d4-fafc3f39c0fa"
+    },
+    {
+      "split": "evaluation",
+      "contentSha256": "e62fee62f50c5c5ac8b3aab76267597de33df75a5fc8af6cb91837e9f4c260bb",
+      "id": "105806ee-500a-4492-b5f8-5e7fea982b26"
+    },
+    {
+      "split": "evaluation",
+      "contentSha256": "c4305bd75f08ab3f12d4b9309925b999f4273decad4551aec5f4b7d8bd31921a",
+      "id": "8e695aec-dbd3-4264-81a6-444720e1c6c8"
+    },
+    {
+      "split": "evaluation",
+      "contentSha256": "22126f402f6b99287016b9fbeb2f72b856b59f4188b1e9ccc42816a5debe7c17",
+      "id": "ff2858f5-8e5c-46cb-a9c8-7138afc74d3a"
+    }
+  ],
+  "candidateProfile": "flow-v3",
+  "resultFiles": [
+    {
+      "flow-v3": "trace-0-flow-v3.json",
+      "datasetId": "e1b5c729-b76d-4e2d-94d4-fafc3f39c0fa",
+      "rgb-v1": "trace-0-rgb-v1.json",
+      "sourceFile": "dataset-0.json"
+    },
+    {
+      "flow-v3": "trace-1-flow-v3.json",
+      "datasetId": "105806ee-500a-4492-b5f8-5e7fea982b26",
+      "rgb-v1": "trace-1-rgb-v1.json",
+      "sourceFile": "dataset-1.json"
+    },
+    {
+      "flow-v3": "trace-2-flow-v3.json",
+      "datasetId": "8e695aec-dbd3-4264-81a6-444720e1c6c8",
+      "rgb-v1": "trace-2-rgb-v1.json",
+      "sourceFile": "dataset-2.json"
+    },
+    {
+      "flow-v3": "trace-3-flow-v3.json",
+      "datasetId": "ff2858f5-8e5c-46cb-a9c8-7138afc74d3a",
+      "rgb-v1": "trace-3-rgb-v1.json",
+      "sourceFile": "dataset-3.json"
+    }
+  ],
+  "implementationComponents": {
+    "flow-v3": {
+      "FlowTracker$Plane": "22501bbb4d81b02299d230afabf8e5b2cc4082380ac63098c69fc3d284a31992",
+      "PixelTracker$Box": "760e22a2594a4fd770b563b78d51516628219ffd771b7e26a94ac6a1ef3dddbe",
+      "PixelTracker": "89e15acf52b828948cdc0476f690bd016c0b4daf676c743a54b00a9b4df62f2f",
+      "ImageTracker": "6773073bcf1a88333f8ece695942f9e020b50d9e94f5b5f7b3bd592fac04e0d4",
+      "PixelTracker$Match": "9867de9633affab33ec7fc7625716bee63c5e92cba078573622c13a0398d6571",
+      "AdaptiveTracker": "b553c15bcc930b6e78b6dec58870119a536d2f2ec3459fd868b0cd16cf38847b",
+      "FlowTracker$Pyramid": "98b05610c272f76186d6a84e1ff3c01efa3b78d6921fb45dddc1334c90321bf6",
+      "AdaptiveTracker$Plane": "b5c620f14917425699884a3546788ddbb8e81a144174c48a27a56c189d417409",
+      "FlowTracker$Point": "9f56f52e23b29238717fff82348c511f12e00d02a87534f5a0f92152a0aeb745",
+      "TrackingEvaluation": "bf1da6592022c96bfce036025cdc6637389addbfc82a1b14ddbc7831086a9150",
+      "AdaptiveTracker$Match": "4a794317a8e4608819883df20c25e14f651fbd23dddb2712dc674cfaa539d54c",
+      "FlowTracker": "c4b911a0a596fd10cb6f879b797c62ef71e1d862baab4318df051e4595db40a7",
+      "FlowTracker$Vector": "e2218d8f220c86f06683ed48bf5352873e29b152f7c4f2648a0e58e2e69af577",
+      "Tracking024Evaluation": "ede2f97fdb04819e4e03307bed7e77e102c1e02fb663754df688d5a467a28c9b"
+    },
+    "rgb-v1": {
+      "PixelTracker$Box": "760e22a2594a4fd770b563b78d51516628219ffd771b7e26a94ac6a1ef3dddbe",
+      "PixelTracker": "89e15acf52b828948cdc0476f690bd016c0b4daf676c743a54b00a9b4df62f2f",
+      "ImageTracker": "6773073bcf1a88333f8ece695942f9e020b50d9e94f5b5f7b3bd592fac04e0d4",
+      "TrackingEvaluation": "bf1da6592022c96bfce036025cdc6637389addbfc82a1b14ddbc7831086a9150",
+      "PixelTracker$Match": "9867de9633affab33ec7fc7625716bee63c5e92cba078573622c13a0398d6571"
+    }
+  },
+  "guards": {
+    "returnedObservation": {
+      "matchScore": 1,
+      "scoreMeaning": "Local patch correlation and motion consistency, not calibrated semantic confidence",
+      "motion": {
+        "seedPoints": 73,
+        "inliers": 73,
+        "vectors": [
+          [
+            0.075,
+            0.2234,
+            0.075,
+            0.2234
+          ],
+          [
+            0.1042,
+            0.1702,
+            0.1042,
+            0.1702
+          ],
+          [
+            0.1312,
+            0.2128,
+            0.1312,
+            0.2128
+          ],
+          [
+            0.1417,
+            0.2234,
+            0.1417,
+            0.2234
+          ],
+          [
+            0.1688,
+            0.2021,
+            0.1688,
+            0.2021
+          ],
+          [
+            0.1896,
+            0.2021,
+            0.1896,
+            0.2021
+          ],
+          [
+            0.2208,
+            0.2128,
+            0.2208,
+            0.2128
+          ],
+          [
+            0.2396,
+            0.2234,
+            0.2396,
+            0.2234
+          ],
+          [
+            0.2458,
+            0.1702,
+            0.2458,
+            0.1702
+          ],
+          [
+            0.0958,
+            0.234,
+            0.0958,
+            0.234
+          ],
+          [
+            0.1312,
+            0.2553,
+            0.1312,
+            0.2553
+          ],
+          [
+            0.1562,
+            0.234,
+            0.1562,
+            0.234
+          ]
+        ],
+        "method": "motion-recovery",
+        "dxPixels": 0,
+        "dyPixels": 0,
+        "medianForwardBackwardPixels": 0,
+        "scale": 1,
+        "ambiguous": false,
+        "reliablePoints": 73
+      },
+      "lastKnownBox": [
+        0.046875,
+        0.12,
+        0.296875,
+        0.76
+      ],
+      "appearanceUpdates": 1,
+      "box": [
+        0.046875,
+        0.12,
+        0.296875,
+        0.76
+      ],
+      "id": "loss",
+      "label": "person",
+      "status": "reacquired"
+    },
+    "duplicateAmbiguous": true,
+    "duplicateObservation": {
+      "matchScore": 0,
+      "scoreMeaning": "Local patch correlation and motion consistency, not calibrated semantic confidence",
+      "motion": {
+        "seedPoints": 73,
+        "inliers": 73,
+        "vectors": [
+          [
+            0.075,
+            0.2234,
+            0.075,
+            0.2234
+          ],
+          [
+            0.1042,
+            0.1702,
+            0.1042,
+            0.1702
+          ],
+          [
+            0.1312,
+            0.2128,
+            0.1312,
+            0.2128
+          ],
+          [
+            0.1417,
+            0.2234,
+            0.1417,
+            0.2234
+          ],
+          [
+            0.1688,
+            0.2021,
+            0.1688,
+            0.2021
+          ],
+          [
+            0.1896,
+            0.2021,
+            0.1896,
+            0.2021
+          ],
+          [
+            0.2208,
+            0.2128,
+            0.2208,
+            0.2128
+          ],
+          [
+            0.2396,
+            0.2234,
+            0.2396,
+            0.2234
+          ],
+          [
+            0.2458,
+            0.1702,
+            0.2458,
+            0.1702
+          ],
+          [
+            0.0958,
+            0.234,
+            0.0958,
+            0.234
+          ],
+          [
+            0.1312,
+            0.2553,
+            0.1312,
+            0.2553
+          ],
+          [
+            0.1562,
+            0.234,
+            0.1562,
+            0.234
+          ]
+        ],
+        "method": "pyramidal-flow",
+        "dxPixels": 0,
+        "dyPixels": 0,
+        "medianForwardBackwardPixels": 0,
+        "scale": 1,
+        "ambiguous": true,
+        "reliablePoints": 73
+      },
+      "lastKnownBox": [
+        0.046875,
+        0.12,
+        0.296875,
+        0.76
+      ],
+      "appearanceUpdates": 0,
+      "box": null,
+      "id": "guard",
+      "label": "person",
+      "status": "lost"
+    },
+    "reappearanceRecovered": true,
+    "hiddenObservation": {
+      "matchScore": 0,
+      "scoreMeaning": "Local patch correlation and motion consistency, not calibrated semantic confidence",
+      "motion": {
+        "seedPoints": 73,
+        "inliers": 0,
+        "vectors": [],
+        "method": "motion-recovery",
+        "dxPixels": 0,
+        "dyPixels": 0,
+        "medianForwardBackwardPixels": 0,
+        "scale": 1,
+        "ambiguous": false,
+        "reliablePoints": 0
+      },
+      "lastKnownBox": [
+        0.046875,
+        0.12,
+        0.296875,
+        0.76
+      ],
+      "appearanceUpdates": 0,
+      "box": null,
+      "id": "loss",
+      "label": "person",
+      "status": "lost"
+    },
+    "hiddenHasNoCurrentBox": true
+  },
+  "createdAt": "2026-10-31T02:17:11.322957900Z",
+  "autoPromote": true,
+  "completedFrames": 450,
+  "protocolEdition": "024",
+  "id": "2d3d97c4-ac10-465d-b7e3-b924fb38884f",
+  "gate": {
+    "baselineMeanIou": 0.08018287319796724,
+    "lowOverlapVisibleCandidate": 4,
+    "cases": [
+      {
+        "candidate": {
+          "meanIou": 0.5375745072784427,
+          "referenceAbsentFrames": 0,
+          "p95ProcessingMillis": 25.1928,
+          "latencyScope": "JPEG/PNG decode plus CPU tracking; excludes browser capture, network and LLM. Initialization excluded from scored frames.",
+          "scoredFrames": 59,
+          "iouHalfFraction": 0.5423728813559322,
+          "reacquired": 0,
+          "lost": 0,
+          "lowOverlapVisiblePredictions": 2,
+          "medianProcessingMillis": 13.8634
+        },
+        "datasetId": "105806ee-500a-4492-b5f8-5e7fea982b26",
+        "baseline": {
+          "meanIou": 0.10154912193644795,
+          "referenceAbsentFrames": 0,
+          "p95ProcessingMillis": 15.9674,
+          "latencyScope": "JPEG/PNG decode plus CPU tracking; excludes browser capture, network and LLM. Initialization excluded from scored frames.",
+          "scoredFrames": 59,
+          "iouHalfFraction": 0.11864406779661017,
+          "reacquired": 5,
+          "lost": 50,
+          "lowOverlapVisiblePredictions": 0,
+          "medianProcessingMillis": 13.529
+        },
+        "gain": 0.43602538534199475
+      },
+      {
+        "candidate": {
+          "meanIou": 0.22036301471962963,
+          "referenceAbsentFrames": 0,
+          "p95ProcessingMillis": 101.6093,
+          "latencyScope": "JPEG/PNG decode plus CPU tracking; excludes browser capture, network and LLM. Initialization excluded from scored frames.",
+          "scoredFrames": 59,
+          "iouHalfFraction": 0.2033898305084746,
+          "reacquired": 0,
+          "lost": 32,
+          "lowOverlapVisiblePredictions": 0,
+          "medianProcessingMillis": 91.4376
+        },
+        "datasetId": "8e695aec-dbd3-4264-81a6-444720e1c6c8",
+        "baseline": {
+          "meanIou": 0.12405014841715481,
+          "referenceAbsentFrames": 0,
+          "p95ProcessingMillis": 8.8292,
+          "latencyScope": "JPEG/PNG decode plus CPU tracking; excludes browser capture, network and LLM. Initialization excluded from scored frames.",
+          "scoredFrames": 59,
+          "iouHalfFraction": 0.13559322033898305,
+          "reacquired": 1,
+          "lost": 46,
+          "lowOverlapVisiblePredictions": 0,
+          "medianProcessingMillis": 8.098
+        },
+        "gain": 0.09631286630247482
+      },
+      {
+        "candidate": {
+          "meanIou": 0.2045259686103885,
+          "referenceAbsentFrames": 0,
+          "p95ProcessingMillis": 103.827,
+          "latencyScope": "JPEG/PNG decode plus CPU tracking; excludes browser capture, network and LLM. Initialization excluded from scored frames.",
+          "scoredFrames": 48,
+          "iouHalfFraction": 0.25,
+          "reacquired": 0,
+          "lost": 28,
+          "lowOverlapVisiblePredictions": 2,
+          "medianProcessingMillis": 88.4755
+        },
+        "datasetId": "ff2858f5-8e5c-46cb-a9c8-7138afc74d3a",
+        "baseline": {
+          "meanIou": 0,
+          "referenceAbsentFrames": 0,
+          "p95ProcessingMillis": 11.1186,
+          "latencyScope": "JPEG/PNG decode plus CPU tracking; excludes browser capture, network and LLM. Initialization excluded from scored frames.",
+          "scoredFrames": 48,
+          "iouHalfFraction": 0,
+          "reacquired": 0,
+          "lost": 48,
+          "lowOverlapVisiblePredictions": 0,
+          "medianProcessingMillis": 10.6189
+        },
+        "gain": 0.2045259686103885
+      }
+    ],
+    "negativeControlsPassed": true,
+    "scope": "Small declared human-guided box-tracking evaluation; not general category accuracy or official DAVIS mask metrics",
+    "passed": false,
+    "candidateIouHalfFraction": 0.3373493975903614,
+    "perSequenceRegression": false,
+    "candidateMeanIou": 0.32852747163364404,
+    "scoredEvaluationFrames": 166,
+    "pooledMeanIouGain": 0.24834459843567683,
+    "lowOverlapVisibleBaseline": 0
+  },
+  "implementations": {
+    "flow-v3": "8078a8c156ff301c51c833a7295b624ee767a27e5822976039b976fc658cdf47",
+    "rgb-v1": "1accb2e79f90897bfc3f85bf3a8736331dab8d9ee2953cd4f5b1537467cbeeca"
+  },
+  "status": "completed",
+  "totalFrames": 450
+}

@@ -1,0 +1,216 @@
+{
+  "passed": true,
+  "date": "2026-10-31T02:09:37.340Z",
+  "model": "gpt-oss:20b",
+  "checks": [
+    "Actual gpt-oss:20b chooses one typed data goal, preserves explicit criteria/source and retains a verified procedural skill",
+    "Real charts, source audit files and eight actual canvas checks supply the saved episode and numeric chat answer",
+    "Actual model reuses the named skill on a different selected source, honors changed thresholds and reports failed quality honestly",
+    "Both live data conversations complete without native physics, new model jobs, source edits or renderer errors"
+  ],
+  "first": {
+    "completion": {
+      "summary": "Java data goal completed: Data analysis and actual canvas report verified; quality flags retained without changing the source 4 mapped rows; total travel 0.400000 m; mean speed 0.800000 m/s. Quality within declared thresholds. Saved live-motion-data v1. Report ea1ba553-7e4a-320a-ae29-0832bc2b4d98 v1.",
+      "unverifiedModelSummary": "Data analysis task completed successfully. Report SHA256 cad636ae10dc5f097ef7d95b0e14476247de6f5fbf84aad9f67043708b751047, procedure motion-data-report-v1, saved skill live-motion-data.",
+      "goal": "Analyze the selected motion dataset with gap limit 0.3 seconds and speed limit 2 m/s. Chart displacement and derived velocity, preserve the original CSV, and save the successful procedure as live-motion-data.",
+      "javaGoal": {
+        "request": "Analyze the selected motion dataset with gap limit 0.3 seconds and speed limit 2 m/s. Chart displacement and derived velocity, preserve the original CSV, and save the successful procedure as live-motion-data.",
+        "reason": "Data analysis and actual canvas report verified; quality flags retained without changing the source",
+        "procedure": "motion-data-report-v1",
+        "maxGapS": 0.3,
+        "history": [
+          {
+            "reason": "Data task accepted; exact dataset version, original CSV hash, mapping and quality thresholds frozen",
+            "at": "2026-10-31T02:08:19.164284100Z",
+            "step": "data-analyze",
+            "attempt": 1,
+            "status": "running"
+          },
+          {
+            "reason": "Original CSV normalization, segment motion and integration invariants verified; data quality is reported separately",
+            "at": "2026-10-31T02:08:19.179912600Z",
+            "step": "data-report",
+            "attempt": 1,
+            "status": "running"
+          },
+          {
+            "reason": "Waiting for registered desktop action: canvas.verify-report",
+            "at": "2026-10-31T02:08:19.346136700Z",
+            "step": "data-report",
+            "attempt": 1,
+            "status": "waiting-host"
+          },
+          {
+            "reason": "Actual Chromium canvas assertions passed for the pinned report version",
+            "at": "2026-10-31T02:08:19.473404Z",
+            "step": "complete",
+            "attempt": 1,
+            "status": "running"
+          },
+          {
+            "reason": "Data analysis and actual canvas report verified; quality flags retained without changing the source",
+            "at": "2026-10-31T02:08:19.573137600Z",
+            "step": "completed",
+            "attempt": 1,
+            "status": "completed"
+          }
+        ],
+        "attempt": 1,
+        "resumes": 0,
+        "createdAt": "2026-10-31T02:08:19.164284100Z",
+        "speedLimitMps": 2,
+        "dataBinding": {
+          "sourceSha256": "f70552b59b123f38bffd6d68f1f7fd60a43c138133bed7f86e443cba2af515b3",
+          "datasetVersion": 1,
+          "mappingSha256": "5aa3b73a9d00d85dae57e4800999e48d977a6b162202b588aabf031a9d549682",
+          "sourceKind": "synthetic",
+          "versionSha256": "74ffcb9f6deb30f10414319ee1af578fee6237fc69d5cfdfb0a4ed6559e05d73",
+          "datasetId": "1691377a-ca0c-4cab-bbd0-9caea831be28",
+          "title": "units-forward"
+        },
+        "report": {
+          "sha256": "cad636ae10dc5f097ef7d95b0e14476247de6f5fbf84aad9f67043708b751047",
+          "id": "ea1ba553-7e4a-320a-ae29-0832bc2b4d98",
+          "version": 1
+        },
+        "step": "completed",
+        "id": "749c5bb4-f022-435c-a5c5-7ca042c53a2a",
+        "metrics": {
+          "peakAbsAccelerationMps2": 3.333333333333334,
+          "meanSpeedMps": 0.8,
+          "meanVelocityMps": 0.8,
+          "qualityPassed": true,
+          "maxGapS": 0.25,
+          "speedFlags": 0,
+          "gapFlags": 0,
+          "netDisplacementM": 0.4,
+          "totalTravelM": 0.4,
+          "intervalCount": 3,
+          "peakAbsVelocityMps": 1.2000000000000002,
+          "skippedSourceRows": 0,
+          "durationS": 0.5,
+          "rowCount": 4,
+          "passed": true
+        },
+        "savedSkill": {
+          "name": "live-motion-data",
+          "id": "d48b5996-954e-337e-a09c-1ad2ab7894f9",
+          "version": 1
+        },
+        "status": "completed",
+        "updatedAt": "2026-10-31T02:08:19.573137600Z"
+      },
+      "model": "gpt-oss:20b",
+      "episodeId": "cc8c7e6f-372e-401b-a661-5afe826c339d"
+    },
+    "calls": [
+      "data.start",
+      "goal.read"
+    ]
+  },
+  "second": {
+    "completion": {
+      "summary": "Java data goal completed: Data analysis and actual canvas report verified; quality flags retained without changing the source 5 mapped rows; total travel 0.180000 m; mean speed 0.180000 m/s. Quality flags: 1 gaps, 1 speeds, 0 skipped source rows. Saved live-motion-data v2. Report 84753fe5-5060-3a2c-8719-924c04c9611b v1.",
+      "unverifiedModelSummary": "The live-motion-data procedure was executed on dataset ad6bd373-d9a9-47a9-a1e8-18ae5f2ed238 with gap limit 0.25s and speed limit 0.4 m/s. The analysis produced a report (id 84753fe5-5060-3a2c-8719-924c04c9611b) showing quality flags: speedFlags=1, gapFlags=1, but overall passed=true. The original CSV was preserved and verified in Chromium.",
+      "goal": "Reuse the live-motion-data procedure on the selected motion dataset with gap limit 0.25 seconds and speed limit 0.4 m/s. Report the quality flags and preserve the new original CSV.",
+      "javaGoal": {
+        "request": "Reuse live-motion-data v1 with a newly bound source and verified analysis",
+        "reason": "Data analysis and actual canvas report verified; quality flags retained without changing the source",
+        "procedure": "motion-data-report-v1",
+        "maxGapS": 0.25,
+        "history": [
+          {
+            "reason": "Data task accepted; exact dataset version, original CSV hash, mapping and quality thresholds frozen",
+            "at": "2026-10-31T02:09:02.216897800Z",
+            "step": "data-analyze",
+            "attempt": 1,
+            "status": "running"
+          },
+          {
+            "reason": "Original CSV normalization, segment motion and integration invariants verified; data quality is reported separately",
+            "at": "2026-10-31T02:09:02.232113300Z",
+            "step": "data-report",
+            "attempt": 1,
+            "status": "running"
+          },
+          {
+            "reason": "Waiting for registered desktop action: canvas.verify-report",
+            "at": "2026-10-31T02:09:02.403045800Z",
+            "step": "data-report",
+            "attempt": 1,
+            "status": "waiting-host"
+          },
+          {
+            "reason": "Actual Chromium canvas assertions passed for the pinned report version",
+            "at": "2026-10-31T02:09:02.590545300Z",
+            "step": "complete",
+            "attempt": 1,
+            "status": "running"
+          },
+          {
+            "reason": "Data analysis and actual canvas report verified; quality flags retained without changing the source",
+            "at": "2026-10-31T02:09:02.631435700Z",
+            "step": "completed",
+            "attempt": 1,
+            "status": "completed"
+          }
+        ],
+        "attempt": 1,
+        "resumes": 0,
+        "createdAt": "2026-10-31T02:09:02.216897800Z",
+        "speedLimitMps": 0.4,
+        "skill": {
+          "name": "live-motion-data",
+          "id": "d48b5996-954e-337e-a09c-1ad2ab7894f9",
+          "version": 1
+        },
+        "dataBinding": {
+          "sourceSha256": "3bf55a27858d38079e44c92768c2fbd7373b71861cbbbc3236010001b2ee2403",
+          "datasetVersion": 1,
+          "mappingSha256": "6ce1a9eb59dfb9e95b5a183993e520e273ab693ef8fbb519c9b232e43b62efe2",
+          "sourceKind": "synthetic",
+          "versionSha256": "1bac2dd5c4228123d72cfdd9519a5021db65a38b7f0c0766adc3208fd3737785",
+          "datasetId": "ad6bd373-d9a9-47a9-a1e8-18ae5f2ed238",
+          "title": "new-source-reversals-and-gap"
+        },
+        "report": {
+          "sha256": "5d66a4ab74d7e722d79ac725c73f5d0278194a0966585171306c9fab677f9bb6",
+          "id": "84753fe5-5060-3a2c-8719-924c04c9611b",
+          "version": 1
+        },
+        "step": "completed",
+        "id": "b3cc63f0-eb3f-4fc8-98f7-818a1c7cbbad",
+        "metrics": {
+          "peakAbsAccelerationMps2": 7.999999999999999,
+          "meanSpeedMps": 0.18,
+          "meanVelocityMps": 0.08,
+          "qualityPassed": false,
+          "maxGapS": 0.6000000000000001,
+          "speedFlags": 1,
+          "gapFlags": 1,
+          "netDisplacementM": 0.08,
+          "totalTravelM": 0.18,
+          "intervalCount": 4,
+          "peakAbsVelocityMps": 0.5,
+          "skippedSourceRows": 0,
+          "durationS": 1,
+          "rowCount": 5,
+          "passed": true
+        },
+        "savedSkill": {
+          "name": "live-motion-data",
+          "id": "c817f50e-3c7a-3a52-81fa-2dec20087afc",
+          "version": 2
+        },
+        "status": "completed",
+        "updatedAt": "2026-10-31T02:09:02.631435700Z"
+      },
+      "model": "gpt-oss:20b",
+      "episodeId": "1c72e625-cd4b-4963-bf7b-27e0adbe937a"
+    },
+    "calls": [
+      "procedure.run",
+      "goal.read"
+    ]
+  }
+}
