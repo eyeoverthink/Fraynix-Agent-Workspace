@@ -50,7 +50,9 @@
     "test:responsive": "node test/responsive-integration.cjs",
     "test:live-responsive": "node test/live-responsive.cjs",
     "test:maps": "node test/maps-integration.cjs",
-    "test:live-maps": "node test/live-maps.cjs"
+    "test:live-maps": "node test/live-maps.cjs",
+    "test:topology": "node test/topology-integration.cjs",
+    "test:live-topology": "node test/live-topology.cjs"
   },
   "devDependencies": {
     "electron": "45.1.0",

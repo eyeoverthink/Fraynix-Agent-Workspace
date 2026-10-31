@@ -86,6 +86,8 @@ public final class WorkspaceServer {
                     case "/api/creation/source" -> result=Creation.preview(store,input);
                     case "/api/maps/inspect-image" -> result=MapDefinition.inspect(input);
                     case "/api/maps/example" -> result=MapDefinition.example(Procedural.integer(input,"variant",0,0,1));
+                    case "/api/maps/reference-cases" -> result=MapReferences.catalog();
+                    case "/api/maps/reference-example" -> result=MapReferences.example(input.getString("id"));
                     case "/api/maps/dungeons" -> {var all=goals.list();var out=new JSONArray();for(Object raw:all){var g=(JSONObject)raw;if(g.optString("procedure").equals(Procedural.PROCEDURE)&&g.optString("status").equals("completed")&&g.getJSONObject("proceduralDefinition").getString("type").equals("dungeon"))out.put(g);}result=new JSONObject().put("goals",out);}
                     case "/api/maps/import-image" -> {if(goals.busy())throw new IllegalStateException("The active goal owns its map source");result=maps.importImage(input);}
                     case "/api/maps/reference" -> result=maps.reference(input.getString("id"));
