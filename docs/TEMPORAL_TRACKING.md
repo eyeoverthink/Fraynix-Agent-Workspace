@@ -36,6 +36,8 @@ Each prediction retains its actual method, feature/inlier counts, median
 forward/backward error, displacement in work pixels, scale, ambiguity state and
 up to12 normalized motion vectors. These are diagnostic measurements, not
 calibrated object-category probabilities or physical world velocities.
+When motion is not accepted, the inspector says so rather than treating a stored
+default-zero diagnostic as a measured perfect round trip.
 
 ## Experiment and retained first result
 
@@ -110,6 +112,13 @@ selection, shape/aspect adaptation and stronger recovery with explicit uncertain
 A future changed candidate must be frozen before another newly declared set of
 clips is fetched/evaluated. Keep the current failure trace; do not relabel these
 three clips as unseen after tuning on them.
+
+The retained trace makes the distinction concrete: car-turn source frame59 still
+has27 motion inliers and a0.0241-work-pixel round trip, but boxIoU is0.0862. Local
+feature consistency therefore does not establish correct whole-object extent.
+The dog first loses tracking at source frame28; libby first loses at21 and already
+has a very-low-overlap visible prediction at19. These are post-evaluation failure
+observations, not inputs used to tune this frozen candidate.
 
 Research media retains the source terms and author credit in
 [TRACKING_RESEARCH.md](../licenses/TRACKING_RESEARCH.md). Full original image/mask
