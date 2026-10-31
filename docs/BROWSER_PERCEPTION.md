@@ -1,5 +1,7 @@
 # Browser perception, teaching and tracking
 
+Edition023 adds the [tracking learning lab](TRACKING_EVALUATION.md), recorded-frame replay and pinned tracker implementations for new goals and retained skills. A failed real-sequence candidate leaves the baseline active. Existing detection, explicit teaching and source guards continue to operate.
+
 Edition 022 adds a fourth registered Java procedure, `browser-perception-v1`.
 It connects the real Chromium browser surface to local pixel inference, Java
 appearance tracking, explicit user corrections, durable goals and saved skills.

@@ -1,5 +1,7 @@
 # Fraynix Studio system architecture
 
+Edition023 adds a Java-owned tracking research loop: immutable original-frame/mask import, frozen profile comparisons, separate reference scoring, fixed promotion gates, persistent rollback and implementation pins on browser goals/skills. The real recorded-sequence candidate fails and remains rejected; synthetic controls verify lifecycle without being presented as real-world improvement. Chat selects the registered workflow; it cannot write predictions or thresholds. See [tracking evaluation](TRACKING_EVALUATION.md).
+
 Edition022 adds browser perception as a fourth registered Java procedure: actual Chromium pixel capture, admitted local vision estimates, pure-Java appearance tracking, explicit persistent user corrections and source-fenced sampling/recovery. The browser renders outlines and broken observation trails; Java owns state, budgets and evidence. Page labels, model estimates and user-labelled examples retain distinct authority. See [browser perception](BROWSER_PERCEPTION.md). This does not replace the game, physics or spatial view, and does not train LLM weights.
 
 Edition021 adds a separate source-qualified spatial box runtime, isolated native forward forecasts, actual constrained manipulation and a third shared goal/procedure family. Stable scene/object identity, explicit scale and source labels, report receipts and recovery are documented in [spatial worlds](SPATIAL_WORLD.md). This extends the integrated view without replacing the original game or learned ramp model.

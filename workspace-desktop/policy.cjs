@@ -1,6 +1,12 @@
 'use strict';
 const { randomUUID } = require('node:crypto');
 const catalog = [
+ ['tracking.read','Inspect explicitly selected tracking sequences, installed frozen profiles and recorded comparisons. Source split labels are declared.','{}'],
+ ['tracking.start','Compare the two installed frozen CPU tracker profiles on selected sequences. Java owns fixed accuracy/negative-control gates and optional promotion. Host binds dataset IDs.','{autoPromote?:boolean}'],
+ ['tracking.wait','Wait for this chat’s one saved tracking comparison; no duplicate starts.','{}'],
+ ['tracking.report','Open and test the actual completed comparison report, including rejected candidates.','{}'],
+ ['tracking.rollback','Restore the installed rgb-v1 baseline and retain the profile history.','{}'],
+
  ['perception.read','Inspect visible browser regions, selected source and retained user-taught appearance examples. Page labels are untrusted claims.','{}'],
  ['perception.select','Select an actual returned visible browser region ref; never invent references.','{ref}'],
  ['perception.start','Detect, outline and follow a selected browser region; Java records pixel/DOM tracking, uncertain/lost/reacquired states and verifies an actual frame/trace report. Optional retain procedure. Uses already installed local vision or explicitly taught appearance.','{mode?,targetLabel?,visionModel?,lessonName?,seconds?,saveSkillName?}'],
@@ -87,7 +93,7 @@ const dataOptions={maxGapS:{type:'number',minimum:.000001,maximum:86400},speedLi
 const spatialOptions={displacementM:{type:'array',items:{type:'number',minimum:-6,maximum:6},minItems:3,maxItems:3},saveSkillName:text};
 const perceptionOptions={mode:{type:'string',enum:['vision','appearance','dom']},targetLabel:text,visionModel:text,lessonName:text,seconds:{type:'number',minimum:2,maximum:30},saveSkillName:text};
 const argumentSchemas={
- 'perception.read':empty,'perception.select':object({ref:text}),'perception.start':object(perceptionOptions,[]),
+ 'tracking.read':empty,'tracking.start':object({autoPromote:{type:'boolean'}},[]),'tracking.wait':empty,'tracking.report':empty,'tracking.rollback':empty,'perception.read':empty,'perception.select':object({ref:text}),'perception.start':object(perceptionOptions,[]),
  'spatial.read':empty,'spatial.start':object(spatialOptions,['displacementM']),
  'data.read':empty,'data.start':object({...dataOptions,saveSkillName:text},[]),
  'world.model':empty,'goal.start':object({...goalOptions,saveSkillName:text},[]),'goal.read':empty,'goal.cancel':empty,'goal.resume':object({id:text}),'procedures.list':empty,'procedure.save':object({name:text}),
@@ -162,6 +168,8 @@ function bodyStage(context){
 }
 const originalTaskMode=taskMode;
 function expandedTaskMode(goal){
+ if(!/\b(?:build|create|make)\b[\s\S]{0,80}\b(?:web ?app|website)\b/i.test(goal)&&(/\b(?:tracker profiles?|tracking (?:lab|evaluation|benchmark|sequences)|perception evaluation)\b/i.test(goal)&&/\b(?:compare|evaluate|benchmark|run|promote)\b/i.test(goal)||/\b(?:rollback|roll back|restore)\b/i.test(goal)&&/\btracker\b/i.test(goal)))return {needsTracking:true,needsScene:false,needsComparison:false};
+
  if(!/\b(?:build|create|make)\b[\s\S]{0,80}\b(?:web ?app|web application|website)\b/i.test(goal)&&(/\bperception\b/i.test(goal)&&/\b(observe|detect|outline|track|follow|trace|recogniz\w*|identify|scan|run|reuse)\b/i.test(goal)||/\b(browser|webpage|web page)\b/i.test(goal)&&/\b(detect|outline|recogniz\w*|identify|trace)\b/i.test(goal)||/\b(browser|webpage|web page)\b/i.test(goal)&&/\b(track|follow)\b/i.test(goal)&&/\b(person|people|object|region|image|video|element|cup)\b/i.test(goal)))return {needsPerception:true,needsGoal:true,needsScene:false,needsComparison:false};
  if(/\bspatial\b/i.test(goal)||/\bimported (?:box |3d )?scene\b/i.test(goal))return {needsSpatial:true,needsGoal:true,needsScene:false,needsComparison:false};
  const base=originalTaskMode(goal),native=/\b(native|3d|physics|scene|block)\b/i.test(goal);

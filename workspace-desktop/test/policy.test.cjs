@@ -61,8 +61,8 @@ test('CSV web creation stays in artifact mode while native measurement compariso
 const {NetworkPolicy,localURL}=require('../network-policy.cjs');
 test('a corrupted theme or invalid UTF-8 stops startup before code is loaded',()=>{
   const fs=require('node:fs'),path=require('node:path'),os=require('node:os');const {verifyRendererSources}=require('../source-integrity.cjs');const folder=fs.mkdtempSync(path.join(os.tmpdir(),'fraynix-source-guard-'));
-  for(const name of ['perception-panel.js','perception.css','spatial-panel.js','spatial.css','index.html','style.css','measurement.css','app.js','scene-lab.js','measurement-panel.js','calibration-panel.js','calibration.css','observer-panel.js','observer.css','body-panel.js','scene-files.js','scene-video.js','brain-game.js','brain-game.css','world-panel.js','world-panel.css','goals-panel.js','goals-panel.css','data-panel.js','data-panel.css'])fs.writeFileSync(path.join(folder,name),'/* valid UTF-8 fixture */');
-  assert.equal(verifyRendererSources(folder).checked,25);fs.writeFileSync(path.join(folder,'style.css'),Buffer.alloc(128));assert.throws(()=>verifyRendererSources(folder),/style.css.*NUL/);
+  for(const name of ['tracking-panel.js','tracking.css','perception-panel.js','perception.css','spatial-panel.js','spatial.css','index.html','style.css','measurement.css','app.js','scene-lab.js','measurement-panel.js','calibration-panel.js','calibration.css','observer-panel.js','observer.css','body-panel.js','scene-files.js','scene-video.js','brain-game.js','brain-game.css','world-panel.js','world-panel.css','goals-panel.js','goals-panel.css','data-panel.js','data-panel.css'])fs.writeFileSync(path.join(folder,name),'/* valid UTF-8 fixture */');
+  assert.equal(verifyRendererSources(folder).checked,27);fs.writeFileSync(path.join(folder,'style.css'),Buffer.alloc(128));assert.throws(()=>verifyRendererSources(folder),/style.css.*NUL/);
   fs.writeFileSync(path.join(folder,'style.css'),'body{}');fs.writeFileSync(path.join(folder,'app.js'),Buffer.from([255]));assert.throws(()=>verifyRendererSources(folder),/app.js.*UTF-8/);
 });
 test('offline application policy permits loopback and rejects external navigation without dispatch',()=>{
@@ -147,3 +147,13 @@ test('spatial chat selects its own typed task family and retains exact vector in
 
 test('browser perception has a separate typed task family',()=>{assert.equal(taskMode('Outline people on the webpage').needsPerception,true);assert.equal(taskMode('Track the cup in the browser').needsPerception,true);assert(!taskMode('Build a browser game web app').needsPerception);assert(!taskMode('Explain browser perception').needsPerception);assert(!taskMode('Create a perception web app').needsPerception);assert(!taskMode('Follow the link in the browser').needsPerception);});
 test('perception procedural schema keeps native and dataset fields out',()=>{const {planTools}=require('../policy.cjs');for(const t of planTools(['perception.start','procedure.run'],{family:'perception',procedureBound:true})){assert(t.function.parameters.properties.targetLabel);assert(!t.function.parameters.properties.targetM);assert(!t.function.parameters.properties.datasetId);assert(!t.function.parameters.properties.displacementM);if(t.function.name==='procedure_run'){assert(!t.function.parameters.properties.lessonName);assert(!t.function.parameters.properties.mode);}}});
+
+
+test('tracking evaluation is a distinct task with fixed host-bound options',()=>{
+ const {planTools}=require('../policy.cjs');
+ assert.equal(taskMode('Compare tracker profiles on the selected tracking sequences and promote only if fixed gates pass').needsTracking,true);
+ assert.equal(taskMode('Roll back the tracker to the baseline').needsTracking,true);
+ assert(!taskMode('On this webpage detect and follow the person').needsTracking);
+ assert(!taskMode('Build a web app for tracking packages').needsTracking);
+ const tool=planTools(['tracking.start'])[0];assert.deepEqual(Object.keys(tool.function.parameters.properties),['autoPromote']);assert.equal(tool.function.parameters.additionalProperties,false);
+});

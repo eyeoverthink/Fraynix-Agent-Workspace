@@ -11,7 +11,8 @@ const {NativeExports}=require('./exports.cjs');
 const {bodyReport}=require('./body-result.cjs');
 const {createGoals,goalSummary}=require('./goals.cjs');
 const {BrowserPerception}=require('./browser-perception.cjs');
-let goalBridge,perceptionBridge;
+const {createTracking}=require('./tracking.cjs');
+let goalBridge,perceptionBridge,trackingBridge;
 const networkPolicy=new NetworkPolicy(process.env.FRAYNIX_WORKSPACE_OFFLINE==='1');
 if(networkPolicy.enabled){app.commandLine.appendSwitch('disable-background-networking');app.commandLine.appendSwitch('disable-quic');}
 const repo=path.resolve(__dirname,'..');
@@ -77,6 +78,7 @@ async function executeRaw(tool,args={}){
   }
   let result;
   switch(tool){
+    case 'tracking.read':case 'tracking.start':case 'tracking.wait':case 'tracking.report':case 'tracking.rollback':result=await trackingBridge.action(tool,args,captureContext);break;
     case 'perception.read':case 'perception.select':case 'perception.start':case 'spatial.read':case 'spatial.start':case 'data.read':case 'data.start':case 'world.model':case 'goal.start':case 'goal.read':case 'goal.cancel':case 'goal.resume':case 'procedures.list':case 'procedure.save':case 'procedure.run':result=await goalBridge.execute(tool,args,captureContext);break;
     case 'body.capture':{if(!run?.needsBody||!run.ownedObserverId)throw Error('Body capture requires an owned native body task');result=await executeRaw('observer.capture',{id:run.ownedObserverId});break;}
     case 'body.grab':case 'body.move':case 'body.release':case 'body.cancel':{
@@ -293,7 +295,12 @@ async function startGoalAgent(goal,model){
     if(captureContext===job)captureContext=null;if(run===job)run=null;emit('run',{active:false});await refresh();
   }
 }
+async function startTrackingAgent(goal,model){
+ if(run||learningJob||manualBusy)throw Error('Wait for the current task or take over first');if(typeof goal!=='string'||!goal.trim()||goal.length>8000)throw Error('Enter a request up to8000 characters');const job={id:randomUUID(),goal,model,cancelled:false,needsScene:false};run=job;captureContext=job;let outcome='failed';emit('run',{active:true,goal,model,phase:'Connecting chat to the tracking evaluation lab'});
+ try{await api('/api/learning/begin',{id:job.id,taskKind:'experiment-task',goal,model});job.episodeStarted=true;const result=await trackingBridge.runAgent({goal,model,job,planTools,command,onTurn:(turn,phase)=>emit('run',{active:true,turn,phase,goal,model})});outcome='verified';activity('complete',result.summary);emit('answer',result.summary);await api('/api/event',{kind:'agent_completed',data:{goal,model,...result,episodeId:job.id}});}catch(e){activity(job.cancelled?'stopped':'error',e.message);emit('answer',e.message);}finally{if(job.episodeStarted)await api('/api/learning/end',{id:job.id,status:job.cancelled?'cancelled':outcome}).catch(()=>{});if(captureContext===job)captureContext=null;if(run===job)run=null;emit('run',{active:false});await refresh();}
+}
 async function startAgent(goal,model){
+  if(taskMode(goal).needsTracking)return startTrackingAgent(goal,model);
   if(taskMode(goal).needsGoal)return startGoalAgent(goal,model);
   if(run||learningJob)throw Error('A task is running. Stop it before starting another.');
   if(typeof goal!=='string'||!goal.trim()||goal.length>8000)throw Error('Enter a request up to 8000 characters');
@@ -352,7 +359,7 @@ A run's evaluation is independently computed by the host; report measured distan
     if(!job.cancelled&&!closing)await learnFromEpisodes({automatic:true}).catch(error=>activity('learning','Candidate was not promoted: '+error.message));
   }
 }
-async function stopAgent(){if(learningJob){learningJob.abort();activity('stopped','Learning evaluation cancelled; unfinished candidates remain unpromoted');}if(!run)return;run.cancelled=true;browser.cancelPending();canvas.cancelPending();const active=run.requestId;if(active)await api('/api/cancel',{requestId:active});if(run.ownedBodyRunId)await api('/api/body/cancel',{id:run.ownedObserverId,runId:run.ownedBodyRunId});if(run.ownedCalibrationId)await api('/api/calibration/cancel',{id:run.ownedCalibrationId});if(run.ownedGoalId)await api('/api/goals/cancel',{id:run.ownedGoalId});activity('stopped','Takeover requested; no further agent actions will run');}
+async function stopAgent(){if(learningJob){learningJob.abort();activity('stopped','Learning evaluation cancelled; unfinished candidates remain unpromoted');}if(!run)return;run.cancelled=true;browser.cancelPending();canvas.cancelPending();const active=run.requestId;if(active)await api('/api/cancel',{requestId:active});if(run.ownedBodyRunId)await api('/api/body/cancel',{id:run.ownedObserverId,runId:run.ownedBodyRunId});if(run.ownedCalibrationId)await api('/api/calibration/cancel',{id:run.ownedCalibrationId});if(run.ownedGoalId)await api('/api/goals/cancel',{id:run.ownedGoalId});if(run.trackingJobId)await api('/api/tracking/cancel',{id:run.trackingJobId});activity('stopped','Takeover requested; no further agent actions will run');}
 const starter=`<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><style>body{background:#edf6f2;color:#173a35;font:18px system-ui;display:grid;place-items:center;min-height:90vh}main{background:white;padding:36px;border:1px solid #b9d1c7;border-radius:20px;max-width:540px}h1{font-size:36px}output{font-size:64px;display:block;margin:20px 0}button{font:inherit;padding:12px 18px;border:0;border-radius:10px;background:#165e4d;color:white;margin-right:8px}p{line-height:1.5}</style></head><body><main><p>FRAYNIX / LIVE CREATION CANVAS</p><h1>Your first working artifact</h1><p>This is an actual interactive application. Change its source, ask the agent to improve it, or test its behavior.</p><output id="count">0</output><button id="add">Add one</button><button id="reset">Reset</button><script>let count=0;document.querySelector('#add').onclick=()=>document.querySelector('#count').textContent=String(++count);document.querySelector('#reset').onclick=()=>{count=0;document.querySelector('#count').textContent='0'};</script></main></body></html>`;
 async function guidedProofRaw(){
   if(run)throw Error('Stop the agent before running the guided proof');
@@ -399,12 +406,21 @@ async function captureComposite(){
 ipcMain.handle('workspace:request',async(event,input)=>{
   validSender(event);
   if((['brain','gameRuntime','memory'].includes(input.operation))&&!['state','read','frame','context','cancel'].includes(input.command)&&(run||learningJob||manualBusy))throw Error('Wait for the current operation, or take over from the agent first');
-  const manual=(input.operation==='perception'&&!['catalog','state','models','read','frame-preview'].includes(input.command))||(input.operation==='spatial'&&!['snapshot','read','list','example','observe','run'].includes(input.command))||(input.operation==='data'&&!['list','inspect'].includes(input.command))||(input.operation==='javaGoal'&&!['goal.read','procedures.list'].includes(input.command))||(input.operation==='body'&&input.command!=='cancel')||input.operation==='transfer'||['tool','new','sourceSave','proof','back','forward','learningProof','learningEvaluate','learningRollback'].includes(input.operation)||(input.operation==='scene'&&!['snapshot','read','runs'].includes(input.command))||(input.operation==='measurement'&&!['read','list','comparison'].includes(input.command))||(input.operation==='calibration'&&!['read','list'].includes(input.command))||(input.operation==='observer'&&!['observe','history'].includes(input.command));
+  const manual=(input.operation==='tracking'&&!['state','read','dataset','frame'].includes(input.command))||(input.operation==='perception'&&!['catalog','state','models','read','frame-preview'].includes(input.command))||(input.operation==='spatial'&&!['snapshot','read','list','example','observe','run'].includes(input.command))||(input.operation==='data'&&!['list','inspect'].includes(input.command))||(input.operation==='javaGoal'&&!['goal.read','procedures.list'].includes(input.command))||(input.operation==='body'&&input.command!=='cancel')||input.operation==='transfer'||['tool','new','sourceSave','proof','back','forward','learningProof','learningEvaluate','learningRollback'].includes(input.operation)||(input.operation==='scene'&&!['snapshot','read','runs'].includes(input.command))||(input.operation==='measurement'&&!['read','list','comparison'].includes(input.command))||(input.operation==='calibration'&&!['read','list'].includes(input.command))||(input.operation==='observer'&&!['observe','history'].includes(input.command));
   if(manual&&(run||learningJob||manualBusy))throw Error('Wait for the current operation, or take over from the agent first');
   if(input.operation==='agent'&&(manualBusy||learningJob))throw Error('Wait for the current manual operation');
   if(manual)manualBusy=true;
   try {
   switch(input.operation){
+    case 'tracking':{
+      if(input.command==='select')return trackingBridge.select(input.args.datasetIds);
+      if(input.command==='import')return trackingBridge.importPack(input.args.pack);
+      if(input.command==='open'){await api('/api/tracking/dataset',{id:input.args.id});await execute('browser.navigate',{url:origin+'/tracking-page/'+input.args.id});return perceptionBridge.catalog();}
+      if(input.command==='report')return trackingBridge.action('tracking.report',input.args||{});
+      if(input.command==='export'){const r=await api('/api/tracking/read',{id:input.args.id});return nativeExports.save('tracking-comparison','json',JSON.stringify(r,null,2)+'\n',{id:r.id});}
+      if(input.command==='start')return trackingBridge.action('tracking.start',input.args||{});
+      if(!['state','read','dataset','frame','promote','rollback','cancel'].includes(input.command))throw Error('Unknown tracking lab operation');return api('/api/tracking/'+input.command,input.args||{});
+    }
     case 'perception':{
       if(input.command==='catalog')return perceptionBridge.catalog();
       if(input.command==='select')return perceptionBridge.select(input.args.ref);
@@ -491,7 +507,7 @@ else app.whenReady().then(async()=>{
   try{
     verifyRendererSources(path.join(__dirname,'renderer'));await engineStart();Menu.setApplicationMenu(null);
     window=new BrowserWindow({width:1600,height:1040,minWidth:1100,minHeight:760,title:'Fraynix Agent Workspace',backgroundColor:'#10191c',webPreferences:{preload:path.join(__dirname,'preload.cjs'),nodeIntegration:false,contextIsolation:true,sandbox:true}});
-    browser=new Surface('browser',window,(type,value)=>emit(type,value),{networkPolicy});canvas=new Surface('canvas',window,(type,value)=>emit(type,value),{networkPolicy});perceptionBridge=new BrowserPerception({browser,api,emit});
+    browser=new Surface('browser',window,(type,value)=>emit(type,value),{networkPolicy});canvas=new Surface('canvas',window,(type,value)=>emit(type,value),{networkPolicy});perceptionBridge=new BrowserPerception({browser,api,emit});trackingBridge=createTracking({api,openArtifact,execute,origin,activity,emit});
     window.webContents.setWindowOpenHandler(()=>({action:'deny'}));window.webContents.on('will-navigate',e=>e.preventDefault());
     await window.loadFile(path.join(__dirname,'renderer','index.html'));
     await browser.navigate(origin+'/welcome');await refresh();

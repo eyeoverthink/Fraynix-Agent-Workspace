@@ -63,6 +63,20 @@ public final class WorkspaceServer {
                     case "/api/perception/read" -> result=perception.run(input.getString("id"));
                     case "/api/perception/sample" -> {SpatialScene.keys(input,"id","sequence","frameId");result=perception.sample(input.getString("id"),input.getInt("sequence"),input.getString("frameId"));}
                     case "/api/perception/models" -> result=visionModels();
+                    case "/api/tracking/state" -> result=perception.lab().state();
+                    case "/api/tracking/read" -> result=perception.lab().read(input.getString("id"));
+                    case "/api/tracking/dataset" -> result=perception.lab().readDataset(input.getString("id"));
+                    case "/api/tracking/import-begin" -> result=perception.lab().begin(input);
+                    case "/api/tracking/import-frame" -> {SpatialScene.keys(input,"id","ordinal","frame");result=perception.lab().upload(input.getString("id"),input.getInt("ordinal"),input.getJSONObject("frame"));}
+                    case "/api/tracking/import-commit" -> result=perception.lab().commit(input.getString("id"));
+                    case "/api/tracking/import-cancel" -> result=perception.lab().cancelImport(input.getString("id"));
+                    case "/api/tracking/start" -> {SpatialScene.keys(input,"datasetIds","autoPromote");result=perception.lab().start(input.getJSONArray("datasetIds"),input.optBoolean("autoPromote",true));}
+                    case "/api/tracking/cancel" -> result=perception.lab().cancel(input.getString("id"));
+                    case "/api/tracking/promote" -> result=perception.lab().promote(input.getString("id"));
+                    case "/api/tracking/rollback" -> result=perception.lab().rollback();
+                    case "/api/tracking/frame" -> {var d=perception.lab().readDataset(input.getString("id"));int ordinal=input.getInt("ordinal");byte[] pixels=perception.lab().image(d.getString("id"),ordinal);result=new JSONObject().put("source",d.getJSONArray("frames").getJSONObject(ordinal)).put("width",d.getInt("width")).put("height",d.getInt("height")).put("image",Base64.getEncoder().encodeToString(pixels)).put("mime",pixels[0]==(byte)0xff?"image/jpeg":"image/png");}
+                    case "/api/tracking/report" -> {var j=perception.lab().read(input.getString("id"));j.remove("activation");var artifact=store.writeOnce("tracking-report:"+j.getString("id"),TrackingPresentation.report(j,perception.lab()));result=new JSONObject().put("artifact",artifact).put("checks",TrackingPresentation.checks(j));}
+
                     case "/api/goals/perception-start" -> result=goals.startPerception(input);
                     case "/api/goals/perception-resume" -> result=goals.resumePerception(input.getString("id"),input.getString("frameId"));
                     case "/api/spatial/example" -> {try(var stream=WorkspaceServer.class.getResourceAsStream("/spatial/declared-test-scene-v1.json")){result=new JSONObject().put("text",new String(stream.readAllBytes(),StandardCharsets.UTF_8));}}
@@ -184,8 +198,10 @@ public final class WorkspaceServer {
             }catch(Exception error){send(exchange,404,new JSONObject().put("error","Artifact file not found"));}
         });
         server.createContext("/perception-assets/",exchange->{String name=exchange.getRequestURI().getPath().substring("/perception-assets/".length());if(!Set.of("astronaut.png","coffee.png","demo.html").contains(name)){send(exchange,404,new JSONObject());return;}try(var in=WorkspaceServer.class.getResourceAsStream("/perception/"+name)){byte[] bytes=in.readAllBytes();exchange.getResponseHeaders().set("Content-Type",name.endsWith(".png")?"image/png":"text/html; charset=utf-8");exchange.getResponseHeaders().set("X-Content-Type-Options","nosniff");exchange.sendResponseHeaders(200,bytes.length);try(var out=exchange.getResponseBody()){out.write(bytes);}}});
+        server.createContext("/tracking-assets/",exchange->{try{String[] parts=exchange.getRequestURI().getPath().split("/");if(parts.length!=4)throw new IllegalArgumentException("Frame route required");byte[] pixels=perception.lab().image(parts[2],Integer.parseInt(parts[3]));exchange.getResponseHeaders().set("Content-Type",pixels[0]==(byte)0xff?"image/jpeg":"image/png");exchange.getResponseHeaders().set("Cache-Control","no-store");exchange.getResponseHeaders().set("X-Content-Type-Options","nosniff");exchange.sendResponseHeaders(200,pixels.length);try(var out=exchange.getResponseBody()){out.write(pixels);}}catch(Exception e){send(exchange,404,new JSONObject().put("error","Unknown recorded frame"));}});
+        server.createContext("/tracking-page/",exchange->{try{String id=exchange.getRequestURI().getPath().substring("/tracking-page/".length());var d=perception.lab().readDataset(id);byte[] html=TrackingPresentation.replay(d).getBytes(StandardCharsets.UTF_8);exchange.getResponseHeaders().set("Content-Type","text/html; charset=utf-8");exchange.getResponseHeaders().set("Cache-Control","no-store");exchange.getResponseHeaders().set("X-Content-Type-Options","nosniff");exchange.sendResponseHeaders(200,html.length);try(var out=exchange.getResponseBody()){out.write(html);}}catch(Exception e){send(exchange,404,new JSONObject().put("error","Unknown recorded sequence"));}});
         server.createContext("/welcome",exchange->{byte[] bytes=WELCOME.getBytes(StandardCharsets.UTF_8);exchange.getResponseHeaders().set("Content-Type","text/html; charset=utf-8");exchange.sendResponseHeaders(200,bytes.length);try(var out=exchange.getResponseBody()){out.write(bytes);}});
-        server.start();Runtime.getRuntime().addShutdownHook(new Thread(()->{requests.values().forEach(OllamaIntegration.RequestControl::cancel);scanner.shutdownNow();game.close();goals.close();brain.close();calibrations.close();scenes.close();server.stop(0);try{store.close();}catch(IOException ignored){}}));return server;
+        server.start();Runtime.getRuntime().addShutdownHook(new Thread(()->{requests.values().forEach(OllamaIntegration.RequestControl::cancel);scanner.shutdownNow();game.close();goals.close();perception.close();brain.close();calibrations.close();scenes.close();server.stop(0);try{store.close();}catch(IOException ignored){}}));return server;
     }
     private JSONObject plan(JSONObject input) throws Exception {
         if(catalog==null)throw new IllegalStateException("Local models are still being discovered");

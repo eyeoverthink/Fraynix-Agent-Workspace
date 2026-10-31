@@ -6,7 +6,7 @@
   "main": "main.cjs",
   "scripts": {
     "start": "electron .",
-    "test": "node --test test/policy.test.cjs test/controller.test.cjs",
+    "test": "node --test test/policy.test.cjs test/controller.test.cjs test/tracking.test.cjs",
     "test:integration": "node test/integration.cjs",
     "test:learning": "node test/learning-integration.cjs",
     "test:scene": "node test/scene-integration.cjs",
@@ -34,7 +34,9 @@
     "test:spatial": "node test/spatial-integration.cjs",
     "test:live-spatial": "node test/live-spatial.cjs",
     "test:perception": "node test/perception-integration.cjs",
-    "test:live-perception": "node test/live-perception.cjs"
+    "test:live-perception": "node test/live-perception.cjs",
+    "test:tracking": "node test/tracking-integration.cjs",
+    "test:live-tracking": "node test/live-tracking.cjs"
   },
   "devDependencies": {
     "electron": "45.1.0",
