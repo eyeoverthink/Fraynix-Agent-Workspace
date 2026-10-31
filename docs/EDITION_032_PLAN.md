@@ -1,6 +1,6 @@
 # Edition032 — measured experience and reversible force profiles
 
-Status: verified release candidate, 2026-10-31. Candidate rejected under original gates; baseline preserved.284 Java/54classes,61 units,199 UI groups and2actual local-model chats pass. Publication/direct verification remain. User requested resume.
+Status: PUBLISHED and directly verified, 2026-10-31. Release31a70a01d6813147a21a339d419b61af350f9cfa. Original gates reject24N candidate; baseline8/32N preserved.284 Java/54classes,61 units,199 UI groups and2actual local-model chats pass. Separate review032 is open. User requested resume.
 
 Keep the existing app and031 native controller unchanged. Freeze four training
 and eight reserved evaluation scenes and all selection/promotion gates before
