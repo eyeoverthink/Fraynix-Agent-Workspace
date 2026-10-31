@@ -21,7 +21,7 @@ async function main(){
   const secondSummary=await execute('observer.capture',{id:observer.id}),second=await api('/api/observer/replay',{id:secondSummary.id}),secondPixels=await pixels(second.pngBase64);
   assert(secondPixels.orangePixels>20);assert(secondPixels.orangeCenterX<firstPixels.orangeCenterX-2);assert.notEqual(second.capture.pngSha256,first.capture.pngSha256);
   checks.push('Moving right changes Java x by exactly 0.25 m and shifts the actual rendered block left; capture hashes and pixels change');
-  await page.locator('#scene-stage').focus();await page.locator('#scene-stage').press('w');await page.waitForFunction(()=>document.querySelector('#observer-status').textContent.includes('pose v3'));
+  await page.locator('#scene-stage').focus();await page.waitForFunction(()=>!document.querySelector('#observer-open').disabled);await page.locator('#scene-stage').press('w');await page.waitForFunction(()=>document.querySelector('#observer-status').textContent.includes('pose v3'));
   observer=await api('/api/observer/read',{id:observer.id});assert(Math.abs(observer.pose.position[2]-initial.position[2]+.25)<1e-12);
   checks.push('Focused keyboard input uses the same Java action path; W moves exactly 0.25 m forward without moving authored objects');
   await assert.rejects(api('/api/observer/action',{id:observer.id,observationId:observation.id,operationId:require('node:crypto').randomUUID(),action:'move',right:1}),/pose changed/);
