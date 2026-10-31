@@ -38,7 +38,8 @@
     "test:tracking": "node test/tracking024-integration.cjs",
     "test:live-tracking": "node test/live-tracking024.cjs",
     "test:tracking-legacy": "node test/tracking-integration.cjs",
-    "test:tracking-controls": "node test/tracking-controls-integration.cjs"
+    "test:tracking-controls": "node test/tracking-controls-integration.cjs",
+    "test:tracking-migration": "node test/tracking-migration.cjs"
   },
   "devDependencies": {
     "electron": "45.1.0",
