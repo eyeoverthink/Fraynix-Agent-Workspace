@@ -1,0 +1,53 @@
+{
+  "request": "Generate and physically verify a playable map",
+  "reason": "Execution stopped: Map generation rejected: {\"reason\":\"No candidate met the original global contract; All floor must connect: components=5, reachable=59/70; Shortest route 18 outside [0,3]; finite selection budget exhausted\",\"repairs\":0,\"conflicts\":0,\"passed\":false,\"attempts\":1}. Review and Resume; no failed result is a saved skill.",
+  "procedure": "map-world-v1",
+  "history": [
+    {
+      "reason": "Frozen source and map conditions accepted; actual native motion and report required",
+      "at": "2026-10-31T12:40:44.655427800Z",
+      "step": "map-build",
+      "attempt": 1,
+      "status": "running"
+    },
+    {
+      "reason": "Execution stopped: Map generation rejected: {\"reason\":\"No candidate met the original global contract; All floor must connect: components=5, reachable=59/70; Shortest route 18 outside [0,3]; finite selection budget exhausted\",\"repairs\":0,\"conflicts\":0,\"passed\":false,\"attempts\":1}. Review and Resume; no failed result is a saved skill.",
+      "at": "2026-10-31T12:40:44.772693Z",
+      "step": "map-build",
+      "attempt": 1,
+      "status": "interrupted"
+    }
+  ],
+  "attempt": 1,
+  "resumes": 0,
+  "createdAt": "2026-10-31T12:40:44.653305100Z",
+  "disturbanceNs": 0.35,
+  "mapBinding": {
+    "sha256": "b4fb279045207b6e873bdfa5bd295ee6f05453d17231691d0080fe8e0a8709e9",
+    "id": "6683db97-fed8-4d6e-9991-2083a093f655"
+  },
+  "referenceBinding": {
+    "sha256": "dceff655d812aa391c93aa781e8fa7989d11be560f40d68d6b3dd6754e42ab56",
+    "id": "bf9fbc55-4799-4fdb-889f-30fbd3caadbf"
+  },
+  "mapOptions": {
+    "seed": 2901,
+    "cellSizeM": 1,
+    "width": 12,
+    "pins": [],
+    "constraints": {
+      "connected": true,
+      "minFloorFraction": 0.3,
+      "maxFloorFraction": 0.75,
+      "minRouteSteps": 0,
+      "maxRouteSteps": 3
+    },
+    "friction": 0.6,
+    "height": 12
+  },
+  "mapId": "6683db97-fed8-4d6e-9991-2083a093f655",
+  "step": "map-build",
+  "id": "48955880-fa57-41de-bcae-fa9c8b56a2c7",
+  "status": "interrupted",
+  "updatedAt": "2026-10-31T12:40:44.772693Z"
+}

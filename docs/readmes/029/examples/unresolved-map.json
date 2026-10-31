@@ -1,0 +1,1701 @@
+{
+  "createdAt": "2026-10-31T12:40:45.399331900Z",
+  "sha256": "c9248fc1a66d36915763c49d7d0a69aae0c4a558ebefe287d71db781d97f2404",
+  "definition": {
+    "generation": {
+      "reason": "No candidate met the original global contract; Original spawn-to-goal shortest route is not valid; All floor must connect: components=10, reachable=21/48; Shortest route -1 outside [18,64]; finite selection budget exhausted",
+      "repairs": 0,
+      "conflicts": 0,
+      "passed": false,
+      "attempts": 32
+    },
+    "seed": 2901,
+    "walkable": [
+      false,
+      true
+    ],
+    "topology": {
+      "kernelSha256": "a7de40ddcbbbec2c8085a5e920a937e856827fd371bf501063cf298187829cc1",
+      "trials": [
+        {
+          "localAttempts": 2,
+          "localRepairs": 0,
+          "localPassed": false,
+          "audit": {
+            "failures": [
+              "Original spawn-to-goal shortest route is not valid",
+              "All floor must connect: components=14, reachable=4/42",
+              "Floor fraction 0.2916666666666667 outside [0.3,0.75]",
+              "Shortest route -1 outside [18,64]"
+            ],
+            "passed": false,
+            "metrics": {
+              "components": 14,
+              "adjacencyViolations": 0,
+              "reachableCells": 4,
+              "floorCells": 42,
+              "floorFraction": 0.2916666666666667,
+              "edges": 28,
+              "shortestSteps": -1,
+              "pinViolations": 0,
+              "routeValid": false,
+              "cycleRank": 0,
+              "deadEnds": 19
+            }
+          },
+          "candidateSeed": 2901,
+          "index": 1
+        },
+        {
+          "localAttempts": 2,
+          "localRepairs": 0,
+          "localPassed": false,
+          "audit": {
+            "failures": [
+              "Original spawn-to-goal shortest route is not valid",
+              "All floor must connect: components=11, reachable=8/45",
+              "Shortest route -1 outside [18,64]"
+            ],
+            "passed": false,
+            "metrics": {
+              "components": 11,
+              "adjacencyViolations": 0,
+              "reachableCells": 8,
+              "floorCells": 45,
+              "floorFraction": 0.3125,
+              "edges": 35,
+              "shortestSteps": -1,
+              "pinViolations": 0,
+              "routeValid": false,
+              "cycleRank": 1,
+              "deadEnds": 14
+            }
+          },
+          "candidateSeed": 107630,
+          "index": 2
+        },
+        {
+          "localAttempts": 2,
+          "localRepairs": 0,
+          "localPassed": false,
+          "audit": {
+            "failures": [
+              "Original spawn-to-goal shortest route is not valid",
+              "All floor must connect: components=11, reachable=1/44",
+              "Shortest route -1 outside [18,64]"
+            ],
+            "passed": false,
+            "metrics": {
+              "components": 11,
+              "adjacencyViolations": 0,
+              "reachableCells": 1,
+              "floorCells": 44,
+              "floorFraction": 0.3055555555555556,
+              "edges": 38,
+              "shortestSteps": -1,
+              "pinViolations": 0,
+              "routeValid": false,
+              "cycleRank": 5,
+              "deadEnds": 10
+            }
+          },
+          "candidateSeed": 212359,
+          "index": 3
+        },
+        {
+          "localAttempts": 2,
+          "localRepairs": 0,
+          "localPassed": false,
+          "audit": {
+            "failures": [
+              "Original spawn-to-goal shortest route is not valid",
+              "All floor must connect: components=11, reachable=5/43",
+              "Floor fraction 0.2986111111111111 outside [0.3,0.75]",
+              "Shortest route -1 outside [18,64]"
+            ],
+            "passed": false,
+            "metrics": {
+              "components": 11,
+              "adjacencyViolations": 0,
+              "reachableCells": 5,
+              "floorCells": 43,
+              "floorFraction": 0.2986111111111111,
+              "edges": 35,
+              "shortestSteps": -1,
+              "pinViolations": 0,
+              "routeValid": false,
+              "cycleRank": 3,
+              "deadEnds": 16
+            }
+          },
+          "candidateSeed": 317088,
+          "index": 4
+        },
+        {
+          "localAttempts": 2,
+          "localRepairs": 0,
+          "localPassed": false,
+          "audit": {
+            "failures": [
+              "Original spawn-to-goal shortest route is not valid",
+              "All floor must connect: components=12, reachable=18/51",
+              "Shortest route -1 outside [18,64]"
+            ],
+            "passed": false,
+            "metrics": {
+              "components": 12,
+              "adjacencyViolations": 0,
+              "reachableCells": 18,
+              "floorCells": 51,
+              "floorFraction": 0.3541666666666667,
+              "edges": 43,
+              "shortestSteps": -1,
+              "pinViolations": 0,
+              "routeValid": false,
+              "cycleRank": 4,
+              "deadEnds": 11
+            }
+          },
+          "candidateSeed": 421817,
+          "index": 5
+        },
+        {
+          "localAttempts": 2,
+          "localRepairs": 0,
+          "localPassed": false,
+          "audit": {
+            "failures": [
+              "Original spawn-to-goal shortest route is not valid",
+              "All floor must connect: components=11, reachable=19/51",
+              "Shortest route -1 outside [18,64]"
+            ],
+            "passed": false,
+            "metrics": {
+              "components": 11,
+              "adjacencyViolations": 0,
+              "reachableCells": 19,
+              "floorCells": 51,
+              "floorFraction": 0.3541666666666667,
+              "edges": 47,
+              "shortestSteps": -1,
+              "pinViolations": 0,
+              "routeValid": false,
+              "cycleRank": 7,
+              "deadEnds": 15
+            }
+          },
+          "candidateSeed": 526546,
+          "index": 6
+        },
+        {
+          "localAttempts": 2,
+          "localRepairs": 0,
+          "localPassed": false,
+          "audit": {
+            "failures": [
+              "Original spawn-to-goal shortest route is not valid",
+              "All floor must connect: components=14, reachable=18/42",
+              "Floor fraction 0.2916666666666667 outside [0.3,0.75]",
+              "Shortest route -1 outside [18,64]"
+            ],
+            "passed": false,
+            "metrics": {
+              "components": 14,
+              "adjacencyViolations": 0,
+              "reachableCells": 18,
+              "floorCells": 42,
+              "floorFraction": 0.2916666666666667,
+              "edges": 30,
+              "shortestSteps": -1,
+              "pinViolations": 0,
+              "routeValid": false,
+              "cycleRank": 2,
+              "deadEnds": 14
+            }
+          },
+          "candidateSeed": 631275,
+          "index": 7
+        },
+        {
+          "localAttempts": 2,
+          "localRepairs": 0,
+          "localPassed": false,
+          "audit": {
+            "failures": [
+              "Original spawn-to-goal shortest route is not valid",
+              "All floor must connect: components=8, reachable=1/59",
+              "Shortest route -1 outside [18,64]"
+            ],
+            "passed": false,
+            "metrics": {
+              "components": 8,
+              "adjacencyViolations": 0,
+              "reachableCells": 1,
+              "floorCells": 59,
+              "floorFraction": 0.4097222222222222,
+              "edges": 61,
+              "shortestSteps": -1,
+              "pinViolations": 0,
+              "routeValid": false,
+              "cycleRank": 10,
+              "deadEnds": 10
+            }
+          },
+          "candidateSeed": 736004,
+          "index": 8
+        },
+        {
+          "localAttempts": 2,
+          "localRepairs": 0,
+          "localPassed": false,
+          "audit": {
+            "failures": [
+              "Original spawn-to-goal shortest route is not valid",
+              "All floor must connect: components=12, reachable=1/41",
+              "Floor fraction 0.2847222222222222 outside [0.3,0.75]",
+              "Shortest route -1 outside [18,64]"
+            ],
+            "passed": false,
+            "metrics": {
+              "components": 12,
+              "adjacencyViolations": 0,
+              "reachableCells": 1,
+              "floorCells": 41,
+              "floorFraction": 0.2847222222222222,
+              "edges": 33,
+              "shortestSteps": -1,
+              "pinViolations": 0,
+              "routeValid": false,
+              "cycleRank": 4,
+              "deadEnds": 10
+            }
+          },
+          "candidateSeed": 840733,
+          "index": 9
+        },
+        {
+          "localAttempts": 2,
+          "localRepairs": 0,
+          "localPassed": false,
+          "audit": {
+            "failures": [
+              "Original spawn-to-goal shortest route is not valid",
+              "All floor must connect: components=8, reachable=2/49",
+              "Shortest route -1 outside [18,64]"
+            ],
+            "passed": false,
+            "metrics": {
+              "components": 8,
+              "adjacencyViolations": 0,
+              "reachableCells": 2,
+              "floorCells": 49,
+              "floorFraction": 0.3402777777777778,
+              "edges": 46,
+              "shortestSteps": -1,
+              "pinViolations": 0,
+              "routeValid": false,
+              "cycleRank": 5,
+              "deadEnds": 15
+            }
+          },
+          "candidateSeed": 945462,
+          "index": 10
+        },
+        {
+          "localAttempts": 2,
+          "localRepairs": 0,
+          "localPassed": false,
+          "audit": {
+            "failures": [
+              "Original spawn-to-goal shortest route is not valid",
+              "All floor must connect: components=12, reachable=19/42",
+              "Floor fraction 0.2916666666666667 outside [0.3,0.75]",
+              "Shortest route -1 outside [18,64]"
+            ],
+            "passed": false,
+            "metrics": {
+              "components": 12,
+              "adjacencyViolations": 0,
+              "reachableCells": 19,
+              "floorCells": 42,
+              "floorFraction": 0.2916666666666667,
+              "edges": 30,
+              "shortestSteps": -1,
+              "pinViolations": 0,
+              "routeValid": false,
+              "cycleRank": 0,
+              "deadEnds": 16
+            }
+          },
+          "candidateSeed": 1050191,
+          "index": 11
+        },
+        {
+          "localAttempts": 2,
+          "localRepairs": 0,
+          "localPassed": false,
+          "audit": {
+            "failures": [
+              "Original spawn-to-goal shortest route is not valid",
+              "All floor must connect: components=13, reachable=1/50",
+              "Shortest route -1 outside [18,64]"
+            ],
+            "passed": false,
+            "metrics": {
+              "components": 13,
+              "adjacencyViolations": 0,
+              "reachableCells": 1,
+              "floorCells": 50,
+              "floorFraction": 0.3472222222222222,
+              "edges": 43,
+              "shortestSteps": -1,
+              "pinViolations": 0,
+              "routeValid": false,
+              "cycleRank": 6,
+              "deadEnds": 13
+            }
+          },
+          "candidateSeed": 1154920,
+          "index": 12
+        },
+        {
+          "localAttempts": 2,
+          "localRepairs": 0,
+          "localPassed": false,
+          "audit": {
+            "failures": [
+              "Original spawn-to-goal shortest route is not valid",
+              "All floor must connect: components=16, reachable=3/38",
+              "Floor fraction 0.2638888888888889 outside [0.3,0.75]",
+              "Shortest route -1 outside [18,64]"
+            ],
+            "passed": false,
+            "metrics": {
+              "components": 16,
+              "adjacencyViolations": 0,
+              "reachableCells": 3,
+              "floorCells": 38,
+              "floorFraction": 0.2638888888888889,
+              "edges": 23,
+              "shortestSteps": -1,
+              "pinViolations": 0,
+              "routeValid": false,
+              "cycleRank": 1,
+              "deadEnds": 16
+            }
+          },
+          "candidateSeed": 1259649,
+          "index": 13
+        },
+        {
+          "localAttempts": 2,
+          "localRepairs": 0,
+          "localPassed": false,
+          "audit": {
+            "failures": [
+              "Original spawn-to-goal shortest route is not valid",
+              "All floor must connect: components=14, reachable=1/46",
+              "Shortest route -1 outside [18,64]"
+            ],
+            "passed": false,
+            "metrics": {
+              "components": 14,
+              "adjacencyViolations": 0,
+              "reachableCells": 1,
+              "floorCells": 46,
+              "floorFraction": 0.3194444444444444,
+              "edges": 36,
+              "shortestSteps": -1,
+              "pinViolations": 0,
+              "routeValid": false,
+              "cycleRank": 4,
+              "deadEnds": 13
+            }
+          },
+          "candidateSeed": 1364378,
+          "index": 14
+        },
+        {
+          "localAttempts": 2,
+          "localRepairs": 0,
+          "localPassed": false,
+          "audit": {
+            "failures": [
+              "Original spawn-to-goal shortest route is not valid",
+              "All floor must connect: components=10, reachable=21/48",
+              "Shortest route -1 outside [18,64]"
+            ],
+            "passed": false,
+            "metrics": {
+              "components": 10,
+              "adjacencyViolations": 0,
+              "reachableCells": 21,
+              "floorCells": 48,
+              "floorFraction": 0.3333333333333333,
+              "edges": 39,
+              "shortestSteps": -1,
+              "pinViolations": 0,
+              "routeValid": false,
+              "cycleRank": 1,
+              "deadEnds": 17
+            }
+          },
+          "candidateSeed": 1469107,
+          "index": 15
+        },
+        {
+          "localAttempts": 2,
+          "localRepairs": 0,
+          "localPassed": false,
+          "audit": {
+            "failures": [
+              "Original spawn-to-goal shortest route is not valid",
+              "All floor must connect: components=13, reachable=9/40",
+              "Floor fraction 0.2777777777777778 outside [0.3,0.75]",
+              "Shortest route -1 outside [18,64]"
+            ],
+            "passed": false,
+            "metrics": {
+              "components": 13,
+              "adjacencyViolations": 0,
+              "reachableCells": 9,
+              "floorCells": 40,
+              "floorFraction": 0.2777777777777778,
+              "edges": 29,
+              "shortestSteps": -1,
+              "pinViolations": 0,
+              "routeValid": false,
+              "cycleRank": 2,
+              "deadEnds": 19
+            }
+          },
+          "candidateSeed": 1573836,
+          "index": 16
+        },
+        {
+          "localAttempts": 2,
+          "localRepairs": 0,
+          "localPassed": false,
+          "audit": {
+            "failures": [
+              "Original spawn-to-goal shortest route is not valid",
+              "All floor must connect: components=14, reachable=7/47",
+              "Shortest route -1 outside [18,64]"
+            ],
+            "passed": false,
+            "metrics": {
+              "components": 14,
+              "adjacencyViolations": 0,
+              "reachableCells": 7,
+              "floorCells": 47,
+              "floorFraction": 0.3263888888888889,
+              "edges": 39,
+              "shortestSteps": -1,
+              "pinViolations": 0,
+              "routeValid": false,
+              "cycleRank": 6,
+              "deadEnds": 11
+            }
+          },
+          "candidateSeed": 1678565,
+          "index": 17
+        },
+        {
+          "localAttempts": 2,
+          "localRepairs": 0,
+          "localPassed": false,
+          "audit": {
+            "failures": [
+              "Original spawn-to-goal shortest route is not valid",
+              "All floor must connect: components=10, reachable=19/55",
+              "Shortest route -1 outside [18,64]"
+            ],
+            "passed": false,
+            "metrics": {
+              "components": 10,
+              "adjacencyViolations": 0,
+              "reachableCells": 19,
+              "floorCells": 55,
+              "floorFraction": 0.3819444444444444,
+              "edges": 54,
+              "shortestSteps": -1,
+              "pinViolations": 0,
+              "routeValid": false,
+              "cycleRank": 9,
+              "deadEnds": 11
+            }
+          },
+          "candidateSeed": 1783294,
+          "index": 18
+        },
+        {
+          "localAttempts": 2,
+          "localRepairs": 0,
+          "localPassed": false,
+          "audit": {
+            "failures": [
+              "Original spawn-to-goal shortest route is not valid",
+              "All floor must connect: components=13, reachable=8/50",
+              "Shortest route -1 outside [18,64]"
+            ],
+            "passed": false,
+            "metrics": {
+              "components": 13,
+              "adjacencyViolations": 0,
+              "reachableCells": 8,
+              "floorCells": 50,
+              "floorFraction": 0.3472222222222222,
+              "edges": 39,
+              "shortestSteps": -1,
+              "pinViolations": 0,
+              "routeValid": false,
+              "cycleRank": 2,
+              "deadEnds": 24
+            }
+          },
+          "candidateSeed": 1888023,
+          "index": 19
+        },
+        {
+          "localAttempts": 2,
+          "localRepairs": 0,
+          "localPassed": false,
+          "audit": {
+            "failures": [
+              "Original spawn-to-goal shortest route is not valid",
+              "All floor must connect: components=15, reachable=4/41",
+              "Floor fraction 0.2847222222222222 outside [0.3,0.75]",
+              "Shortest route -1 outside [18,64]"
+            ],
+            "passed": false,
+            "metrics": {
+              "components": 15,
+              "adjacencyViolations": 0,
+              "reachableCells": 4,
+              "floorCells": 41,
+              "floorFraction": 0.2847222222222222,
+              "edges": 28,
+              "shortestSteps": -1,
+              "pinViolations": 0,
+              "routeValid": false,
+              "cycleRank": 2,
+              "deadEnds": 13
+            }
+          },
+          "candidateSeed": 1992752,
+          "index": 20
+        },
+        {
+          "localAttempts": 2,
+          "localRepairs": 0,
+          "localPassed": false,
+          "audit": {
+            "failures": [
+              "Original spawn-to-goal shortest route is not valid",
+              "All floor must connect: components=14, reachable=3/39",
+              "Floor fraction 0.2708333333333333 outside [0.3,0.75]",
+              "Shortest route -1 outside [18,64]"
+            ],
+            "passed": false,
+            "metrics": {
+              "components": 14,
+              "adjacencyViolations": 0,
+              "reachableCells": 3,
+              "floorCells": 39,
+              "floorFraction": 0.2708333333333333,
+              "edges": 26,
+              "shortestSteps": -1,
+              "pinViolations": 0,
+              "routeValid": false,
+              "cycleRank": 1,
+              "deadEnds": 18
+            }
+          },
+          "candidateSeed": 2097481,
+          "index": 21
+        },
+        {
+          "localAttempts": 2,
+          "localRepairs": 0,
+          "localPassed": false,
+          "audit": {
+            "failures": [
+              "Original spawn-to-goal shortest route is not valid",
+              "All floor must connect: components=10, reachable=3/50",
+              "Shortest route -1 outside [18,64]"
+            ],
+            "passed": false,
+            "metrics": {
+              "components": 10,
+              "adjacencyViolations": 0,
+              "reachableCells": 3,
+              "floorCells": 50,
+              "floorFraction": 0.3472222222222222,
+              "edges": 43,
+              "shortestSteps": -1,
+              "pinViolations": 0,
+              "routeValid": false,
+              "cycleRank": 3,
+              "deadEnds": 18
+            }
+          },
+          "candidateSeed": 2202210,
+          "index": 22
+        },
+        {
+          "localAttempts": 2,
+          "localRepairs": 0,
+          "localPassed": false,
+          "audit": {
+            "failures": [
+              "Original spawn-to-goal shortest route is not valid",
+              "All floor must connect: components=15, reachable=1/40",
+              "Floor fraction 0.2777777777777778 outside [0.3,0.75]",
+              "Shortest route -1 outside [18,64]"
+            ],
+            "passed": false,
+            "metrics": {
+              "components": 15,
+              "adjacencyViolations": 0,
+              "reachableCells": 1,
+              "floorCells": 40,
+              "floorFraction": 0.2777777777777778,
+              "edges": 27,
+              "shortestSteps": -1,
+              "pinViolations": 0,
+              "routeValid": false,
+              "cycleRank": 2,
+              "deadEnds": 16
+            }
+          },
+          "candidateSeed": 2306939,
+          "index": 23
+        },
+        {
+          "localAttempts": 2,
+          "localRepairs": 0,
+          "localPassed": false,
+          "audit": {
+            "failures": [
+              "Original spawn-to-goal shortest route is not valid",
+              "All floor must connect: components=18, reachable=1/41",
+              "Floor fraction 0.2847222222222222 outside [0.3,0.75]",
+              "Shortest route -1 outside [18,64]"
+            ],
+            "passed": false,
+            "metrics": {
+              "components": 18,
+              "adjacencyViolations": 0,
+              "reachableCells": 1,
+              "floorCells": 41,
+              "floorFraction": 0.2847222222222222,
+              "edges": 25,
+              "shortestSteps": -1,
+              "pinViolations": 0,
+              "routeValid": false,
+              "cycleRank": 2,
+              "deadEnds": 14
+            }
+          },
+          "candidateSeed": 2411668,
+          "index": 24
+        },
+        {
+          "localAttempts": 2,
+          "localRepairs": 0,
+          "localPassed": false,
+          "audit": {
+            "failures": [
+              "Original spawn-to-goal shortest route is not valid",
+              "All floor must connect: components=9, reachable=7/51",
+              "Shortest route -1 outside [18,64]"
+            ],
+            "passed": false,
+            "metrics": {
+              "components": 9,
+              "adjacencyViolations": 0,
+              "reachableCells": 7,
+              "floorCells": 51,
+              "floorFraction": 0.3541666666666667,
+              "edges": 48,
+              "shortestSteps": -1,
+              "pinViolations": 0,
+              "routeValid": false,
+              "cycleRank": 6,
+              "deadEnds": 13
+            }
+          },
+          "candidateSeed": 2516397,
+          "index": 25
+        },
+        {
+          "localAttempts": 2,
+          "localRepairs": 0,
+          "localPassed": false,
+          "audit": {
+            "failures": [
+              "Original spawn-to-goal shortest route is not valid",
+              "All floor must connect: components=10, reachable=1/42",
+              "Floor fraction 0.2916666666666667 outside [0.3,0.75]",
+              "Shortest route -1 outside [18,64]"
+            ],
+            "passed": false,
+            "metrics": {
+              "components": 10,
+              "adjacencyViolations": 0,
+              "reachableCells": 1,
+              "floorCells": 42,
+              "floorFraction": 0.2916666666666667,
+              "edges": 35,
+              "shortestSteps": -1,
+              "pinViolations": 0,
+              "routeValid": false,
+              "cycleRank": 3,
+              "deadEnds": 15
+            }
+          },
+          "candidateSeed": 2621126,
+          "index": 26
+        },
+        {
+          "localAttempts": 2,
+          "localRepairs": 0,
+          "localPassed": false,
+          "audit": {
+            "failures": [
+              "Original spawn-to-goal shortest route is not valid",
+              "All floor must connect: components=11, reachable=3/42",
+              "Floor fraction 0.2916666666666667 outside [0.3,0.75]",
+              "Shortest route -1 outside [18,64]"
+            ],
+            "passed": false,
+            "metrics": {
+              "components": 11,
+              "adjacencyViolations": 0,
+              "reachableCells": 3,
+              "floorCells": 42,
+              "floorFraction": 0.2916666666666667,
+              "edges": 33,
+              "shortestSteps": -1,
+              "pinViolations": 0,
+              "routeValid": false,
+              "cycleRank": 2,
+              "deadEnds": 15
+            }
+          },
+          "candidateSeed": 2725855,
+          "index": 27
+        },
+        {
+          "localAttempts": 2,
+          "localRepairs": 0,
+          "localPassed": false,
+          "audit": {
+            "failures": [
+              "Original spawn-to-goal shortest route is not valid",
+              "All floor must connect: components=16, reachable=6/41",
+              "Floor fraction 0.2847222222222222 outside [0.3,0.75]",
+              "Shortest route -1 outside [18,64]"
+            ],
+            "passed": false,
+            "metrics": {
+              "components": 16,
+              "adjacencyViolations": 0,
+              "reachableCells": 6,
+              "floorCells": 41,
+              "floorFraction": 0.2847222222222222,
+              "edges": 25,
+              "shortestSteps": -1,
+              "pinViolations": 0,
+              "routeValid": false,
+              "cycleRank": 0,
+              "deadEnds": 20
+            }
+          },
+          "candidateSeed": 2830584,
+          "index": 28
+        },
+        {
+          "localAttempts": 2,
+          "localRepairs": 0,
+          "localPassed": false,
+          "audit": {
+            "failures": [
+              "Original spawn-to-goal shortest route is not valid",
+              "All floor must connect: components=12, reachable=1/47",
+              "Shortest route -1 outside [18,64]"
+            ],
+            "passed": false,
+            "metrics": {
+              "components": 12,
+              "adjacencyViolations": 0,
+              "reachableCells": 1,
+              "floorCells": 47,
+              "floorFraction": 0.3263888888888889,
+              "edges": 37,
+              "shortestSteps": -1,
+              "pinViolations": 0,
+              "routeValid": false,
+              "cycleRank": 2,
+              "deadEnds": 14
+            }
+          },
+          "candidateSeed": 2935313,
+          "index": 29
+        },
+        {
+          "localAttempts": 2,
+          "localRepairs": 0,
+          "localPassed": false,
+          "audit": {
+            "failures": [
+              "Original spawn-to-goal shortest route is not valid",
+              "All floor must connect: components=13, reachable=2/41",
+              "Floor fraction 0.2847222222222222 outside [0.3,0.75]",
+              "Shortest route -1 outside [18,64]"
+            ],
+            "passed": false,
+            "metrics": {
+              "components": 13,
+              "adjacencyViolations": 0,
+              "reachableCells": 2,
+              "floorCells": 41,
+              "floorFraction": 0.2847222222222222,
+              "edges": 32,
+              "shortestSteps": -1,
+              "pinViolations": 0,
+              "routeValid": false,
+              "cycleRank": 4,
+              "deadEnds": 14
+            }
+          },
+          "candidateSeed": 3040042,
+          "index": 30
+        },
+        {
+          "localAttempts": 2,
+          "localRepairs": 0,
+          "localPassed": false,
+          "audit": {
+            "failures": [
+              "Original spawn-to-goal shortest route is not valid",
+              "All floor must connect: components=13, reachable=5/49",
+              "Shortest route -1 outside [18,64]"
+            ],
+            "passed": false,
+            "metrics": {
+              "components": 13,
+              "adjacencyViolations": 0,
+              "reachableCells": 5,
+              "floorCells": 49,
+              "floorFraction": 0.3402777777777778,
+              "edges": 39,
+              "shortestSteps": -1,
+              "pinViolations": 0,
+              "routeValid": false,
+              "cycleRank": 3,
+              "deadEnds": 17
+            }
+          },
+          "candidateSeed": 3144771,
+          "index": 31
+        },
+        {
+          "localAttempts": 2,
+          "localRepairs": 0,
+          "localPassed": false,
+          "audit": {
+            "failures": [
+              "Original spawn-to-goal shortest route is not valid",
+              "All floor must connect: components=6, reachable=1/52",
+              "Shortest route -1 outside [18,64]"
+            ],
+            "passed": false,
+            "metrics": {
+              "components": 6,
+              "adjacencyViolations": 0,
+              "reachableCells": 1,
+              "floorCells": 52,
+              "floorFraction": 0.3611111111111111,
+              "edges": 50,
+              "shortestSteps": -1,
+              "pinViolations": 0,
+              "routeValid": false,
+              "cycleRank": 4,
+              "deadEnds": 12
+            }
+          },
+          "candidateSeed": 3249500,
+          "index": 32
+        }
+      ],
+      "audit": {
+        "failures": [
+          "Original spawn-to-goal shortest route is not valid",
+          "All floor must connect: components=10, reachable=21/48",
+          "Shortest route -1 outside [18,64]"
+        ],
+        "passed": false,
+        "metrics": {
+          "components": 10,
+          "adjacencyViolations": 0,
+          "reachableCells": 21,
+          "floorCells": 48,
+          "floorFraction": 0.3333333333333333,
+          "edges": 39,
+          "shortestSteps": -1,
+          "pinViolations": 0,
+          "routeValid": false,
+          "cycleRank": 1,
+          "deadEnds": 17
+        }
+      },
+      "profile": "connected-grid-v1",
+      "candidateSeed": 1469107,
+      "constraints": {
+        "connected": true,
+        "minFloorFraction": 0.3,
+        "maxFloorFraction": 0.75,
+        "minRouteSteps": 18,
+        "maxRouteSteps": 64
+      },
+      "selectedCandidate": 15,
+      "candidateCount": 32,
+      "totalRepairs": 0,
+      "budget": {
+        "repairsPerRestart": 4000,
+        "maxCandidates": 32,
+        "localRestarts": 2
+      }
+    },
+    "pins": [
+      {
+        "x": 0,
+        "tile": 0,
+        "y": 0
+      },
+      {
+        "x": 1,
+        "tile": 0,
+        "y": 0
+      },
+      {
+        "x": 2,
+        "tile": 0,
+        "y": 0
+      },
+      {
+        "x": 3,
+        "tile": 0,
+        "y": 0
+      },
+      {
+        "x": 4,
+        "tile": 0,
+        "y": 0
+      },
+      {
+        "x": 5,
+        "tile": 0,
+        "y": 0
+      },
+      {
+        "x": 6,
+        "tile": 0,
+        "y": 0
+      },
+      {
+        "x": 7,
+        "tile": 0,
+        "y": 0
+      },
+      {
+        "x": 8,
+        "tile": 0,
+        "y": 0
+      },
+      {
+        "x": 9,
+        "tile": 0,
+        "y": 0
+      },
+      {
+        "x": 10,
+        "tile": 0,
+        "y": 0
+      },
+      {
+        "x": 11,
+        "tile": 0,
+        "y": 0
+      },
+      {
+        "x": 0,
+        "tile": 0,
+        "y": 1
+      },
+      {
+        "x": 1,
+        "tile": 1,
+        "y": 1
+      },
+      {
+        "x": 11,
+        "tile": 0,
+        "y": 1
+      },
+      {
+        "x": 0,
+        "tile": 0,
+        "y": 2
+      },
+      {
+        "x": 11,
+        "tile": 0,
+        "y": 2
+      },
+      {
+        "x": 0,
+        "tile": 0,
+        "y": 3
+      },
+      {
+        "x": 11,
+        "tile": 0,
+        "y": 3
+      },
+      {
+        "x": 0,
+        "tile": 0,
+        "y": 4
+      },
+      {
+        "x": 11,
+        "tile": 0,
+        "y": 4
+      },
+      {
+        "x": 0,
+        "tile": 0,
+        "y": 5
+      },
+      {
+        "x": 11,
+        "tile": 0,
+        "y": 5
+      },
+      {
+        "x": 0,
+        "tile": 0,
+        "y": 6
+      },
+      {
+        "x": 11,
+        "tile": 0,
+        "y": 6
+      },
+      {
+        "x": 0,
+        "tile": 0,
+        "y": 7
+      },
+      {
+        "x": 11,
+        "tile": 0,
+        "y": 7
+      },
+      {
+        "x": 0,
+        "tile": 0,
+        "y": 8
+      },
+      {
+        "x": 11,
+        "tile": 0,
+        "y": 8
+      },
+      {
+        "x": 0,
+        "tile": 0,
+        "y": 9
+      },
+      {
+        "x": 11,
+        "tile": 0,
+        "y": 9
+      },
+      {
+        "x": 0,
+        "tile": 0,
+        "y": 10
+      },
+      {
+        "x": 10,
+        "tile": 1,
+        "y": 10
+      },
+      {
+        "x": 11,
+        "tile": 0,
+        "y": 10
+      },
+      {
+        "x": 0,
+        "tile": 0,
+        "y": 11
+      },
+      {
+        "x": 1,
+        "tile": 0,
+        "y": 11
+      },
+      {
+        "x": 2,
+        "tile": 0,
+        "y": 11
+      },
+      {
+        "x": 3,
+        "tile": 0,
+        "y": 11
+      },
+      {
+        "x": 4,
+        "tile": 0,
+        "y": 11
+      },
+      {
+        "x": 5,
+        "tile": 0,
+        "y": 11
+      },
+      {
+        "x": 6,
+        "tile": 0,
+        "y": 11
+      },
+      {
+        "x": 7,
+        "tile": 0,
+        "y": 11
+      },
+      {
+        "x": 8,
+        "tile": 0,
+        "y": 11
+      },
+      {
+        "x": 9,
+        "tile": 0,
+        "y": 11
+      },
+      {
+        "x": 10,
+        "tile": 0,
+        "y": 11
+      },
+      {
+        "x": 11,
+        "tile": 0,
+        "y": 11
+      }
+    ],
+    "source": {
+      "reference": {
+        "walkable": [
+          false,
+          true
+        ],
+        "rules": [
+          [
+            [
+              true,
+              true
+            ],
+            [
+              true,
+              true
+            ]
+          ],
+          [
+            [
+              true,
+              true
+            ],
+            [
+              true,
+              true
+            ]
+          ],
+          [
+            [
+              true,
+              true
+            ],
+            [
+              true,
+              true
+            ]
+          ],
+          [
+            [
+              true,
+              true
+            ],
+            [
+              true,
+              true
+            ]
+          ]
+        ],
+        "tilePixels": 1,
+        "title": "Crossing narrow halls · labelled test reference",
+        "version": 1,
+        "cells": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          1,
+          0,
+          0,
+          0,
+          1,
+          1,
+          0,
+          0,
+          0,
+          1,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          1,
+          0,
+          0,
+          0,
+          1,
+          1,
+          0,
+          0,
+          0,
+          1,
+          1,
+          0,
+          0,
+          0,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          0,
+          0,
+          0,
+          1,
+          1,
+          0,
+          0,
+          0,
+          1,
+          1,
+          0,
+          0,
+          0,
+          1,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          1,
+          0,
+          0,
+          0,
+          1,
+          1,
+          0,
+          0,
+          0,
+          1,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          1,
+          0,
+          0,
+          0,
+          1,
+          1,
+          0,
+          0,
+          0,
+          1,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          1,
+          0,
+          0,
+          0,
+          1,
+          1,
+          0,
+          0,
+          0,
+          1,
+          1,
+          0,
+          0,
+          0,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          0,
+          0,
+          0,
+          1,
+          1,
+          0,
+          0,
+          0,
+          1,
+          1,
+          0,
+          0,
+          0,
+          1,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          1,
+          0,
+          0,
+          0,
+          1,
+          1,
+          0,
+          0,
+          0,
+          1,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          1,
+          0,
+          0,
+          0,
+          1,
+          1,
+          0,
+          0,
+          0,
+          1,
+          1,
+          0,
+          0,
+          0,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          0,
+          0,
+          0,
+          1,
+          1,
+          0,
+          0,
+          0,
+          1,
+          1,
+          0,
+          0,
+          0,
+          1,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          1,
+          0,
+          0,
+          0,
+          1,
+          1,
+          0,
+          0,
+          0,
+          1,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "imageSha256": "69444040dbdf0309053cac554ed7f3ad474b5ca760d09bdf21117900e9a4e84a",
+        "scope": "Dominant tile colours and observed directional adjacency. Passability is user-declared; not photographic object recognition or measured physical material inference.",
+        "pngBase64": "iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAAKUlEQVR4nGNQsw4gCTFAqDvvbwARXBQPlywNED4xiG5OGvX00PUD8QgATpGDKCVAhsUAAAAASUVORK5CYII=",
+        "width": 16,
+        "palette": [
+          "#263b50",
+          "#dcefd8"
+        ],
+        "id": "20ca0927-972a-4f62-adee-de4bc586e7cd",
+        "frequencies": [
+          148,
+          108
+        ],
+        "height": 16
+      },
+      "kind": "reference-image"
+    },
+    "version": "reference-grid-topology-v1",
+    "path": [],
+    "cells": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      0,
+      1,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      0,
+      1,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      1,
+      1,
+      0,
+      1,
+      0,
+      1,
+      1,
+      1,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      1,
+      1,
+      0,
+      0,
+      1,
+      1,
+      0,
+      1,
+      0,
+      0,
+      1,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      1,
+      1,
+      0,
+      1,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      0,
+      0,
+      1,
+      0,
+      1,
+      0,
+      0,
+      1,
+      1,
+      0,
+      0,
+      1,
+      0,
+      0,
+      1,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "width": 12,
+    "options": {
+      "seed": 2901,
+      "cellSizeM": 1,
+      "width": 12,
+      "pins": [],
+      "constraints": {
+        "connected": true,
+        "minFloorFraction": 0.3,
+        "maxFloorFraction": 0.75,
+        "minRouteSteps": 18,
+        "maxRouteSteps": 64
+      },
+      "friction": 0.6,
+      "height": 12
+    },
+    "palette": [
+      "#263b50",
+      "#dcefd8"
+    ],
+    "height": 12
+  },
+  "id": "e46dd3a4-1c48-4abc-8c2a-94429b0e715b",
+  "title": "Reference map · seed 2901"
+}

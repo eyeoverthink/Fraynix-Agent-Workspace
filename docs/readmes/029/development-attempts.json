@@ -1,0 +1,37 @@
+{
+  "date": "2026-10-31",
+  "attempts": [
+    {
+      "kind": "setup correction",
+      "detail": "First new UI run started before installDist completed and used the old installed API. Build/test order corrected; no missing route is presented as a successful feature."
+    },
+    {
+      "kind": "real report/control correction",
+      "detail": "Initial report used a summary element outside the actual input catalogue and an exact-text assertion against full JSON. Replaced with a supported real button, explicit profile assertion and independent exact original-data/visibility audit."
+    },
+    {
+      "kind": "readiness and capture correction",
+      "detail": "A source panel closed during asynchronous map selection; the helper now waits for the new reference record and visible controls. A redundant report reload caused UnknownVizError during capture; capture uses the already verified document."
+    },
+    {
+      "kind": "legacy compatibility correction",
+      "detail": "Legacy reports have no topology data. The private host now returns null for an empty topology block instead of attempting JSON.parse on empty text; published028 package is actually imported and physically played."
+    },
+    {
+      "kind": "retained global-default correction",
+      "detail": "Partial nested reuse options now preserve every saved global default. Chat cannot relax an unrequested retained bound. Unit tests and actual changed-source reuse cover this behaviour."
+    },
+    {
+      "kind": "frozen reserved outcome",
+      "detail": "1/12 baseline global acceptances versus5/12 finite-selector acceptances; all five accepted029 worlds pass native physics. Seven requests remain rejected. No frozen source, budget or threshold was tuned after inspection."
+    },
+    {
+      "kind": "independent legacy restart-test correction",
+      "detail": "The old restart test gracefully closed Electron, which could allow a short native run to finish before shutdown. It now identifies only its own unique WorkspaceServer child and actually terminates it with SIGKILL before restarting. The unchanged interrupted-run/new-attempt assertions pass. Original independent failure and explicit-crash recheck are retained; no production physics or gates changed."
+    },
+    {
+      "kind": "original evidence-label clarification",
+      "detail": "The copied live-test log describes a different uploaded PNG/palette. Actual029 sources are loaded through the real labelled-reference library and share the same two-colour palette. The verified differences are original PNG bytes, layout, seed and impulse direction. No palette-novelty assertion or photographic claim is made; original records remain intact."
+    }
+  ]
+}

@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "latest": 28,
+  "latest": 29,
   "canonicalization": "UTF-8 without BOM; CRLF normalized to LF for text",
   "editions": [
     {
@@ -4353,6 +4353,485 @@
           "path": "docs/readmes/028/verification.json",
           "kind": "text",
           "sha256": "17f27b52ea0ffcc939d0ba29f3763ef5e8d049196c6b81731ec0149692910758"
+        }
+      ]
+    },
+    {
+      "number": 29,
+      "date": "2026-10-31",
+      "title": "Global map contracts and measured physical outcomes",
+      "status": "published",
+      "markdown": "README-029.md",
+      "markdownSha256": "cb018e6ef69995f10433d43d4ddce5d40bdd65e3893b5b44ed55369d6d9f93b6",
+      "snapshotDirectory": "docs/readmes/029",
+      "companion": "docs/readmes/029/index.html",
+      "tag": "readme-029",
+      "sourceBaseline": "cb13a611395087b5ff949298a1cdd41f934c2eb0",
+      "snapshotFiles": [
+        {
+          "path": "docs/readmes/029/development/independent-first-failure.log",
+          "kind": "text",
+          "sha256": "5fcffbdd4c606a532cb83650352d662d2267837dce80696c1eb16b668aa44728"
+        },
+        {
+          "path": "docs/readmes/029/development/topology029-goal-crash-control.log",
+          "kind": "text",
+          "sha256": "6232693489bd5e791cbc12e6f5bee36ea666045673222fd4c07ae9c84313be4c"
+        },
+        {
+          "path": "docs/readmes/029/development/topology029-ui-fifth.log",
+          "kind": "text",
+          "sha256": "bb69eb9b1ac5f733358e599dd1b1829f76a35bb9f77b35863a651b7df993d922"
+        },
+        {
+          "path": "docs/readmes/029/development/topology029-ui-first.log",
+          "kind": "text",
+          "sha256": "28ed457a8f4cee389da03684c0cfd9f39a20d9da32d7577fbb8a37833938d730"
+        },
+        {
+          "path": "docs/readmes/029/development/topology029-ui-fourth.log",
+          "kind": "text",
+          "sha256": "1e081092db4fdde1d4ed5de014fc5a602d9f6a66c4b8c1eec4c3358845d9ad3a"
+        },
+        {
+          "path": "docs/readmes/029/development/topology029-ui-second.log",
+          "kind": "text",
+          "sha256": "c6816a3a4a06d792e8be657941d557424863e1076abc59944c100a1d6a2a4e1d"
+        },
+        {
+          "path": "docs/readmes/029/development/topology029-ui-third.log",
+          "kind": "text",
+          "sha256": "e38f5f68b99bc4dd28973d0df4ca2dec13fc8a51163ed7d90e025b2fc3bb1f6c"
+        },
+        {
+          "path": "docs/readmes/029/development-attempts.json",
+          "kind": "text",
+          "sha256": "2a7cd74ec5604f4105c8cac0d4fda3357de0156139e04a08553976982c7e3171"
+        },
+        {
+          "path": "docs/readmes/029/evaluation-provenance.json",
+          "kind": "text",
+          "sha256": "8eed4f37c26354e8bde4ce41830962821cfe0ad0f34c8821eb21e9bcd2219462"
+        },
+        {
+          "path": "docs/readmes/029/evaluation.json",
+          "kind": "text",
+          "sha256": "9eb8f81742969c914469bcfd1935fd19eb1c0268cc8b44b4390de1647aa114d7"
+        },
+        {
+          "path": "docs/readmes/029/examples/charts.json",
+          "kind": "text",
+          "sha256": "fcb988cba11f0c56a014529e4dc41c2ca9c6e5d432746cef23d488ef01746ca3"
+        },
+        {
+          "path": "docs/readmes/029/examples/chat-1/actual-receipt.json",
+          "kind": "text",
+          "sha256": "29d724351fbed5ce8503715b95cf36e88308940612817e74a28d8579566d33f4"
+        },
+        {
+          "path": "docs/readmes/029/examples/chat-1/charts.json",
+          "kind": "text",
+          "sha256": "fcb988cba11f0c56a014529e4dc41c2ca9c6e5d432746cef23d488ef01746ca3"
+        },
+        {
+          "path": "docs/readmes/029/examples/chat-1/index.html",
+          "kind": "text",
+          "sha256": "b473fb477f1713c76f23de4e8099a11c1a41f9bfce69610a4b6ebd1b672b11a7"
+        },
+        {
+          "path": "docs/readmes/029/examples/chat-1/map.json",
+          "kind": "text",
+          "sha256": "10c3e2a0de068f7281f2644d8bf41a3ac3b2a8fd455bdec56a7b367d0d0fc1d2"
+        },
+        {
+          "path": "docs/readmes/029/examples/chat-1/run.json",
+          "kind": "text",
+          "sha256": "edb501831f59e09ebe3e89c0d4c43b061d53652832b3f3eff9a6768b16dfdadf"
+        },
+        {
+          "path": "docs/readmes/029/examples/chat-1/trace.csv",
+          "kind": "text",
+          "sha256": "d598ba3caf14879413e4855108f549e9e9832e8e044d569c6f56653f30349436"
+        },
+        {
+          "path": "docs/readmes/029/examples/chat-2/actual-receipt.json",
+          "kind": "text",
+          "sha256": "64e7b27ab55003cdc1f0e0e3a75039f8eecab9efdb89b09ad2b71beb0543700c"
+        },
+        {
+          "path": "docs/readmes/029/examples/chat-2/charts.json",
+          "kind": "text",
+          "sha256": "c9110a11a9e346e5524912d118912b3589ce91ea88895fc4667d99c0a8a62273"
+        },
+        {
+          "path": "docs/readmes/029/examples/chat-2/index.html",
+          "kind": "text",
+          "sha256": "b473fb477f1713c76f23de4e8099a11c1a41f9bfce69610a4b6ebd1b672b11a7"
+        },
+        {
+          "path": "docs/readmes/029/examples/chat-2/map.json",
+          "kind": "text",
+          "sha256": "3d8114f99c8f7fca758b065d71ad66241f242b1c4fd76e75b68343bf6bf44dab"
+        },
+        {
+          "path": "docs/readmes/029/examples/chat-2/run.json",
+          "kind": "text",
+          "sha256": "7f547f9620d20864529622c9a9543669d0b422410bc6f9c1985e6f3f95b8e272"
+        },
+        {
+          "path": "docs/readmes/029/examples/chat-2/trace.csv",
+          "kind": "text",
+          "sha256": "47bce1e4c41c827cede73ef974c417a2ee72fe27a0344c57b10a250452e1043a"
+        },
+        {
+          "path": "docs/readmes/029/examples/chat-3/actual-receipt.json",
+          "kind": "text",
+          "sha256": "39f9fa54ee6cdde9bdc8e9e9b52bfb8bfc9522ad5e2bf3830024e5fe6323a552"
+        },
+        {
+          "path": "docs/readmes/029/examples/chat-3/charts.json",
+          "kind": "text",
+          "sha256": "d302cb6b6b5a4de191c69e39c7357bd3427eb84102b7f81c6c32592574892c98"
+        },
+        {
+          "path": "docs/readmes/029/examples/chat-3/index.html",
+          "kind": "text",
+          "sha256": "b473fb477f1713c76f23de4e8099a11c1a41f9bfce69610a4b6ebd1b672b11a7"
+        },
+        {
+          "path": "docs/readmes/029/examples/chat-3/map.json",
+          "kind": "text",
+          "sha256": "3d8114f99c8f7fca758b065d71ad66241f242b1c4fd76e75b68343bf6bf44dab"
+        },
+        {
+          "path": "docs/readmes/029/examples/chat-3/run.json",
+          "kind": "text",
+          "sha256": "29ee1369929189bd1f9b630fb7aece577914d9a71a15db303cd610b3633d02db"
+        },
+        {
+          "path": "docs/readmes/029/examples/chat-3/trace.csv",
+          "kind": "text",
+          "sha256": "8ee2de57331f60c0aaaa72c8e0c5a11ed09a48b516f78d4faf07b8b59cb90fdc"
+        },
+        {
+          "path": "docs/readmes/029/examples/evaluation.html",
+          "kind": "text",
+          "sha256": "5c49df09e2e7efc5d5737dd109894535457d36b41846a18756504e3bcf56d128"
+        },
+        {
+          "path": "docs/readmes/029/examples/evaluation.json",
+          "kind": "text",
+          "sha256": "9eb8f81742969c914469bcfd1935fd19eb1c0268cc8b44b4390de1647aa114d7"
+        },
+        {
+          "path": "docs/readmes/029/examples/export-provenance.json",
+          "kind": "text",
+          "sha256": "d6ca83aefa69a3aac1a268ca0587bea37beae586c500a588b424ffceab86955d"
+        },
+        {
+          "path": "docs/readmes/029/examples/fresh-reference/actual-receipt.json",
+          "kind": "text",
+          "sha256": "65007db6862b86bfc12c3776fd4756579b02b751abddc37c3b5a221454e137df"
+        },
+        {
+          "path": "docs/readmes/029/examples/fresh-reference/charts.json",
+          "kind": "text",
+          "sha256": "59a6fe5a2ed2bc23f132368ca6265465526e2d5bc6ab2ec350dd94df17f1e1fe"
+        },
+        {
+          "path": "docs/readmes/029/examples/fresh-reference/index.html",
+          "kind": "text",
+          "sha256": "b473fb477f1713c76f23de4e8099a11c1a41f9bfce69610a4b6ebd1b672b11a7"
+        },
+        {
+          "path": "docs/readmes/029/examples/fresh-reference/map.json",
+          "kind": "text",
+          "sha256": "b7812e37febeeb3474a64d9cd59268896c2170c5d017cbae7908cc2cf5c616d8"
+        },
+        {
+          "path": "docs/readmes/029/examples/fresh-reference/run.json",
+          "kind": "text",
+          "sha256": "be800d69dd5daf27a184237baa93e29446e99496170b38cc40552aab17df45ce"
+        },
+        {
+          "path": "docs/readmes/029/examples/fresh-reference/trace.csv",
+          "kind": "text",
+          "sha256": "d324c0688dded44d11605d1becbcb7dea466bd4b50d57988fa7183e08a6c69de"
+        },
+        {
+          "path": "docs/readmes/029/examples/impossible-goal.json",
+          "kind": "text",
+          "sha256": "610271c8e50dd0a251e6942f0c04b278f793282a3df32567ce8a12af8d2da857"
+        },
+        {
+          "path": "docs/readmes/029/examples/impossible-map.json",
+          "kind": "text",
+          "sha256": "a77ec11a720b17d543b978f7a3f205d4dbaf6954fa97e25d5c0f26221a0abdec"
+        },
+        {
+          "path": "docs/readmes/029/examples/legacy028/actual-receipt.json",
+          "kind": "text",
+          "sha256": "ba0e59ac1c5b1d8b8c9f57b6dac240f3b2518c413e0810305fa372b53d234958"
+        },
+        {
+          "path": "docs/readmes/029/examples/legacy028/charts.json",
+          "kind": "text",
+          "sha256": "1677ba097b8e9c8a7e229e428cb6cc75529d1898fba0e5e0b3647fea55d185db"
+        },
+        {
+          "path": "docs/readmes/029/examples/legacy028/index.html",
+          "kind": "text",
+          "sha256": "b473fb477f1713c76f23de4e8099a11c1a41f9bfce69610a4b6ebd1b672b11a7"
+        },
+        {
+          "path": "docs/readmes/029/examples/legacy028/map.json",
+          "kind": "text",
+          "sha256": "77525a01f1f08334597b1ff1212857db30dec2db37263db1ade65e6763726417"
+        },
+        {
+          "path": "docs/readmes/029/examples/legacy028/run.json",
+          "kind": "text",
+          "sha256": "1e3a09c3855a47110f7298d20e23391112c41a1ba02a7a02ceeecf56292c3fc9"
+        },
+        {
+          "path": "docs/readmes/029/examples/legacy028/trace.csv",
+          "kind": "text",
+          "sha256": "f66d3183ccd6eb95b7504024c11adb95ab502964f439eba66ba58b1d600de433"
+        },
+        {
+          "path": "docs/readmes/029/examples/map.json",
+          "kind": "text",
+          "sha256": "82d3368ada877410503d82ef3a5e022c1a0480e6f9312cbcbff140e163a3642b"
+        },
+        {
+          "path": "docs/readmes/029/examples/original/actual-receipt.json",
+          "kind": "text",
+          "sha256": "dd47906c5e7195d27e88fc40f968dd859c5331bad38c7b4ee29f2c630c38d13c"
+        },
+        {
+          "path": "docs/readmes/029/examples/original/charts.json",
+          "kind": "text",
+          "sha256": "fcb988cba11f0c56a014529e4dc41c2ca9c6e5d432746cef23d488ef01746ca3"
+        },
+        {
+          "path": "docs/readmes/029/examples/original/index.html",
+          "kind": "text",
+          "sha256": "b473fb477f1713c76f23de4e8099a11c1a41f9bfce69610a4b6ebd1b672b11a7"
+        },
+        {
+          "path": "docs/readmes/029/examples/original/map.json",
+          "kind": "text",
+          "sha256": "82d3368ada877410503d82ef3a5e022c1a0480e6f9312cbcbff140e163a3642b"
+        },
+        {
+          "path": "docs/readmes/029/examples/original/run.json",
+          "kind": "text",
+          "sha256": "7c05929207709c845722c8a578ae6168b4a4b8b0f09ef58becbdf641a51fada0"
+        },
+        {
+          "path": "docs/readmes/029/examples/original/trace.csv",
+          "kind": "text",
+          "sha256": "d598ba3caf14879413e4855108f549e9e9832e8e044d569c6f56653f30349436"
+        },
+        {
+          "path": "docs/readmes/029/examples/portable-9e770c52-6a0e-445d-a935-4b0a59017de7.json",
+          "kind": "text",
+          "sha256": "26e097d9324dfbbe81accefe1cb91ca1faca89b216121e4218052cd290a9f3e0"
+        },
+        {
+          "path": "docs/readmes/029/examples/portable-9e770c52-6a0e-445d-a935-4b0a59017de7.json.receipt.json",
+          "kind": "text",
+          "sha256": "dbabf0a714275b205a2069a49e3be708f8c714fca356fb66d8b1945b6dfc5b2e"
+        },
+        {
+          "path": "docs/readmes/029/examples/recovered/actual-receipt.json",
+          "kind": "text",
+          "sha256": "5c756fd1988923a0c54b4730d84a27d934370df5c88c5ee32351a5f60a4010b9"
+        },
+        {
+          "path": "docs/readmes/029/examples/recovered/charts.json",
+          "kind": "text",
+          "sha256": "13f4ab9c7d9563fa876f6d01677959c6f33323e18b7fc7f749f408a24f7edc8b"
+        },
+        {
+          "path": "docs/readmes/029/examples/recovered/index.html",
+          "kind": "text",
+          "sha256": "b473fb477f1713c76f23de4e8099a11c1a41f9bfce69610a4b6ebd1b672b11a7"
+        },
+        {
+          "path": "docs/readmes/029/examples/recovered/map.json",
+          "kind": "text",
+          "sha256": "5cf8d1a0b8244f7fac077d84653ceef36c59a28f85a08bc2ed38bfe3136a1000"
+        },
+        {
+          "path": "docs/readmes/029/examples/recovered/run.json",
+          "kind": "text",
+          "sha256": "7207d52aae5e66ceaa2f16d0d8f3c61dfea07f1a99f288bd259877e40e4cfaec"
+        },
+        {
+          "path": "docs/readmes/029/examples/recovered/trace.csv",
+          "kind": "text",
+          "sha256": "73d41e15b3946d668b515c4ec376327f8d6b155f9ccfee64d84006918906c25b"
+        },
+        {
+          "path": "docs/readmes/029/examples/references/courtyard.png",
+          "kind": "binary",
+          "sha256": "c06bf0f0f8ce3ff4f88dc4cb774137c2303f0e485e121178b83971ac75f6afa9"
+        },
+        {
+          "path": "docs/readmes/029/examples/references/halls.png",
+          "kind": "binary",
+          "sha256": "69444040dbdf0309053cac554ed7f3ad474b5ca760d09bdf21117900e9a4e84a"
+        },
+        {
+          "path": "docs/readmes/029/examples/references/islands.png",
+          "kind": "binary",
+          "sha256": "66d38ca45e3e287525cfb3b837296526a3a0bd68ffd19e1d2e7ed757399bf5df"
+        },
+        {
+          "path": "docs/readmes/029/examples/references/reserved-cases.json",
+          "kind": "text",
+          "sha256": "289cedc8ab664dfe4990adddf12492c5d74d22e7aa5b3239076e9f26d458ea92"
+        },
+        {
+          "path": "docs/readmes/029/examples/references/staggered.png",
+          "kind": "binary",
+          "sha256": "14c39fef6b6c98593d61d2b4478a7b3a857951dad99c690535252a6e326a8611"
+        },
+        {
+          "path": "docs/readmes/029/examples/run.json",
+          "kind": "text",
+          "sha256": "7c05929207709c845722c8a578ae6168b4a4b8b0f09ef58becbdf641a51fada0"
+        },
+        {
+          "path": "docs/readmes/029/examples/trace.csv",
+          "kind": "text",
+          "sha256": "d598ba3caf14879413e4855108f549e9e9832e8e044d569c6f56653f30349436"
+        },
+        {
+          "path": "docs/readmes/029/examples/unresolved-goal.json",
+          "kind": "text",
+          "sha256": "dc56e9e691798444d9fcf810428b64ff80781d03906d77b25ed009439d638ef3"
+        },
+        {
+          "path": "docs/readmes/029/examples/unresolved-map.json",
+          "kind": "text",
+          "sha256": "22e70ba6a7ae5f85f03829506366d4d9b3ca556b922d31241501a609fcf109d7"
+        },
+        {
+          "path": "docs/readmes/029/examples/verified-map.html",
+          "kind": "text",
+          "sha256": "60dd952bc9c65b23a7f55024863212535957a101879388cae219785d8068d936"
+        },
+        {
+          "path": "docs/readmes/029/file-inventory.json",
+          "kind": "text",
+          "sha256": "393b4e67b3ec29f7ef9d64575765ce9c98e10bb6e4e7d1386a1597bdb7139234"
+        },
+        {
+          "path": "docs/readmes/029/FILE_TREE.md",
+          "kind": "text",
+          "sha256": "c4cfbeb73c23245b71483e5d2a25dc3cbed3549afbc50ee4d188c6a7fa2d0c87"
+        },
+        {
+          "path": "docs/readmes/029/first-evaluation-state.json",
+          "kind": "text",
+          "sha256": "539a6f00bb899cff6266364125a66d2b947d7c9104a8ef59ebe59b7592a23362"
+        },
+        {
+          "path": "docs/readmes/029/images/topology-budget-rejected-029.png",
+          "kind": "binary",
+          "sha256": "b7a5f9a54455bea60592c8941ad2a594aacb477fafe0bae5ff4b6f6328a2974d"
+        },
+        {
+          "path": "docs/readmes/029/images/topology-candidates-029.png",
+          "kind": "binary",
+          "sha256": "bacff58971c19f77914238a04f748b473b3ed8297e1b4463be487e3c3aeb57dd"
+        },
+        {
+          "path": "docs/readmes/029/images/topology-chat-created-029.png",
+          "kind": "binary",
+          "sha256": "d65bd738d55f01bd9cfbbc9c1460628acf1ea8d825c8192547139fbe8f905d54"
+        },
+        {
+          "path": "docs/readmes/029/images/topology-chat-existing-029.png",
+          "kind": "binary",
+          "sha256": "7cd82236e84bc1a4e0f38beba39b2cdce03a6f5fd863400187a382c86970e969"
+        },
+        {
+          "path": "docs/readmes/029/images/topology-chat-reused-029.png",
+          "kind": "binary",
+          "sha256": "251d98a95d40ac49ec3f0e5dc6fc153450b6f6743731484a1ddccb4323a90844"
+        },
+        {
+          "path": "docs/readmes/029/images/topology-completed-029.png",
+          "kind": "binary",
+          "sha256": "cddca40243e40416abcec812ee7ad107768e0b68fcda644eba2c893ac3754dbc"
+        },
+        {
+          "path": "docs/readmes/029/images/topology-contract-029.png",
+          "kind": "binary",
+          "sha256": "78f645c6d36113c3c56ef394a43fa4a6b017eb4a15a7c768502c01eca649cf57"
+        },
+        {
+          "path": "docs/readmes/029/images/topology-impossible-029.png",
+          "kind": "binary",
+          "sha256": "551e594b5695ab7b79f9751206b0207ba238248dd80b25123f4d6ff0321edaa8"
+        },
+        {
+          "path": "docs/readmes/029/images/topology-legacy-preserved-029.png",
+          "kind": "binary",
+          "sha256": "1753a97fcc345b920f51f4706edf65c139632863ad27353de87926fe33972305"
+        },
+        {
+          "path": "docs/readmes/029/images/topology-native-moving-029.png",
+          "kind": "binary",
+          "sha256": "d923d0d4ff2a90d0844550068c4d774130a800efb0cbe5b6c1dac484b2a67622"
+        },
+        {
+          "path": "docs/readmes/029/images/topology-recovered-029.png",
+          "kind": "binary",
+          "sha256": "2c064ecf0671ffd267d6f6f6e522c4c13648d2e612bf6134cb408477b79a3e23"
+        },
+        {
+          "path": "docs/readmes/029/images/topology-reused-029.png",
+          "kind": "binary",
+          "sha256": "cab2ecbdb059b71ac1e3e5eae63affc2152de33f19b79045caf66392b52e12fa"
+        },
+        {
+          "path": "docs/readmes/029/index.html",
+          "kind": "text",
+          "sha256": "46f1e3dd983319b7db2cdd99248c3897a0f3a522a3f52e3697d8b0336944fae6"
+        },
+        {
+          "path": "docs/readmes/029/live-topology.json",
+          "kind": "text",
+          "sha256": "71e0af8b14e506a6af61acb0c766e20ac80f7198fc3ac252a85c2ed244beede7"
+        },
+        {
+          "path": "docs/readmes/029/profile.json",
+          "kind": "text",
+          "sha256": "b21c493caef0f65b8aa028b3fa9779b63fc22c949b4f50c0f5c744844f036861"
+        },
+        {
+          "path": "docs/readmes/029/regressions.json",
+          "kind": "text",
+          "sha256": "b8b90e2a4cb84eb54ac470a0adb3dae9b14d9a242f32cb83b54bddbe1dde3843"
+        },
+        {
+          "path": "docs/readmes/029/system-map.json",
+          "kind": "text",
+          "sha256": "fd9ae11cd5405e1621b13fc245f3da85a30bb1a59a80acc30a2fb8e396121935"
+        },
+        {
+          "path": "docs/readmes/029/topology-integration.json",
+          "kind": "text",
+          "sha256": "335fac584c601b845704a5a648e3678827489bc1357a06358c909ebbd05e8d8e"
+        },
+        {
+          "path": "docs/readmes/029/verification.json",
+          "kind": "text",
+          "sha256": "5ab8ab2279c3462a66ea1421ac97c1e072224d4f097b38d9a4aa2e5552053bc1"
         }
       ]
     }

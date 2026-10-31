@@ -1,5 +1,11 @@
 # Fraynix Studio system architecture
 
+## Edition029 runtime additions
+
+The existing map pipeline now accepts an explicit global graph contract. A JDK-only selector retains original adjacency candidates and performs a complete independent floor-graph audit before native play. Coverage, original-endpoint shortest routes, components, graph edges/cycle rank and rejection reasons remain source-bound. The shared goal/Skills path verifies native traces, all six interactive charts and visible original topology data. Partial reuse preserves saved global defaults. Original028 generation and published package reconstruction remain intact. See [global map topology](GLOBAL_MAP_TOPOLOGY.md).
+
+The first frozen reserved comparison is1/12→5/12 globally accepted, with native passes for all five accepted new worlds and seven retained rejections. Budgets differ and no threshold was changed after inspection. This is explicit constraint enforcement and conditional physical verification, not automatic model training or universal map completion. Native checkpointing remains a separate next gate.
+
 ## Edition028 runtime additions
 
 The existing workspace now connects original reference PNGs to a Java adjacency model, bounded seeded grid repair, actual native colliders and a force-controlled avatar. `map-world-v1` uses the shared durable goal runner and existing procedure registry. The model selects typed semantic options; Java owns source identity, physical timing, trace verification and six interactive chart-frame checks. The Maps view provides actual manual and agent play, source confirmation, reconstruction-checked JSON import/export and original dungeon-layer selection. See the [reference-map world contract](REFERENCE_MAP_WORLDS.md).

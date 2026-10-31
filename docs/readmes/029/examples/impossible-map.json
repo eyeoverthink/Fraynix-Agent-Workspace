@@ -1,0 +1,836 @@
+{
+  "createdAt": "2026-10-31T12:40:44.670555200Z",
+  "sha256": "b4fb279045207b6e873bdfa5bd295ee6f05453d17231691d0080fe8e0a8709e9",
+  "definition": {
+    "generation": {
+      "reason": "No candidate met the original global contract; All floor must connect: components=5, reachable=59/70; Shortest route 18 outside [0,3]; finite selection budget exhausted",
+      "repairs": 0,
+      "conflicts": 0,
+      "passed": false,
+      "attempts": 1
+    },
+    "seed": 2901,
+    "walkable": [
+      false,
+      true
+    ],
+    "topology": {
+      "kernelSha256": "a7de40ddcbbbec2c8085a5e920a937e856827fd371bf501063cf298187829cc1",
+      "trials": [
+        {
+          "localAttempts": 1,
+          "localRepairs": 0,
+          "localPassed": true,
+          "audit": {
+            "failures": [
+              "All floor must connect: components=5, reachable=59/70",
+              "Shortest route 18 outside [0,3]"
+            ],
+            "passed": false,
+            "metrics": {
+              "components": 5,
+              "adjacencyViolations": 0,
+              "reachableCells": 59,
+              "floorCells": 70,
+              "floorFraction": 0.4861111111111111,
+              "edges": 85,
+              "shortestSteps": 18,
+              "pinViolations": 0,
+              "routeValid": true,
+              "cycleRank": 20,
+              "deadEnds": 14
+            }
+          },
+          "candidateSeed": 2901,
+          "index": 1
+        }
+      ],
+      "audit": {
+        "failures": [
+          "All floor must connect: components=5, reachable=59/70",
+          "Shortest route 18 outside [0,3]"
+        ],
+        "passed": false,
+        "metrics": {
+          "components": 5,
+          "adjacencyViolations": 0,
+          "reachableCells": 59,
+          "floorCells": 70,
+          "floorFraction": 0.4861111111111111,
+          "edges": 85,
+          "shortestSteps": 18,
+          "pinViolations": 0,
+          "routeValid": true,
+          "cycleRank": 20,
+          "deadEnds": 14
+        }
+      },
+      "profile": "connected-grid-v1",
+      "candidateSeed": 2901,
+      "constraints": {
+        "connected": true,
+        "minFloorFraction": 0.3,
+        "maxFloorFraction": 0.75,
+        "minRouteSteps": 0,
+        "maxRouteSteps": 3
+      },
+      "selectedCandidate": 1,
+      "candidateCount": 1,
+      "totalRepairs": 0,
+      "budget": {
+        "repairsPerRestart": 4000,
+        "maxCandidates": 32,
+        "localRestarts": 2
+      }
+    },
+    "pins": [
+      {
+        "x": 0,
+        "tile": 0,
+        "y": 0
+      },
+      {
+        "x": 1,
+        "tile": 0,
+        "y": 0
+      },
+      {
+        "x": 2,
+        "tile": 0,
+        "y": 0
+      },
+      {
+        "x": 3,
+        "tile": 0,
+        "y": 0
+      },
+      {
+        "x": 4,
+        "tile": 0,
+        "y": 0
+      },
+      {
+        "x": 5,
+        "tile": 0,
+        "y": 0
+      },
+      {
+        "x": 6,
+        "tile": 0,
+        "y": 0
+      },
+      {
+        "x": 7,
+        "tile": 0,
+        "y": 0
+      },
+      {
+        "x": 8,
+        "tile": 0,
+        "y": 0
+      },
+      {
+        "x": 9,
+        "tile": 0,
+        "y": 0
+      },
+      {
+        "x": 10,
+        "tile": 0,
+        "y": 0
+      },
+      {
+        "x": 11,
+        "tile": 0,
+        "y": 0
+      },
+      {
+        "x": 0,
+        "tile": 0,
+        "y": 1
+      },
+      {
+        "x": 1,
+        "tile": 1,
+        "y": 1
+      },
+      {
+        "x": 11,
+        "tile": 0,
+        "y": 1
+      },
+      {
+        "x": 0,
+        "tile": 0,
+        "y": 2
+      },
+      {
+        "x": 11,
+        "tile": 0,
+        "y": 2
+      },
+      {
+        "x": 0,
+        "tile": 0,
+        "y": 3
+      },
+      {
+        "x": 11,
+        "tile": 0,
+        "y": 3
+      },
+      {
+        "x": 0,
+        "tile": 0,
+        "y": 4
+      },
+      {
+        "x": 11,
+        "tile": 0,
+        "y": 4
+      },
+      {
+        "x": 0,
+        "tile": 0,
+        "y": 5
+      },
+      {
+        "x": 11,
+        "tile": 0,
+        "y": 5
+      },
+      {
+        "x": 0,
+        "tile": 0,
+        "y": 6
+      },
+      {
+        "x": 11,
+        "tile": 0,
+        "y": 6
+      },
+      {
+        "x": 0,
+        "tile": 0,
+        "y": 7
+      },
+      {
+        "x": 11,
+        "tile": 0,
+        "y": 7
+      },
+      {
+        "x": 0,
+        "tile": 0,
+        "y": 8
+      },
+      {
+        "x": 11,
+        "tile": 0,
+        "y": 8
+      },
+      {
+        "x": 0,
+        "tile": 0,
+        "y": 9
+      },
+      {
+        "x": 11,
+        "tile": 0,
+        "y": 9
+      },
+      {
+        "x": 0,
+        "tile": 0,
+        "y": 10
+      },
+      {
+        "x": 10,
+        "tile": 1,
+        "y": 10
+      },
+      {
+        "x": 11,
+        "tile": 0,
+        "y": 10
+      },
+      {
+        "x": 0,
+        "tile": 0,
+        "y": 11
+      },
+      {
+        "x": 1,
+        "tile": 0,
+        "y": 11
+      },
+      {
+        "x": 2,
+        "tile": 0,
+        "y": 11
+      },
+      {
+        "x": 3,
+        "tile": 0,
+        "y": 11
+      },
+      {
+        "x": 4,
+        "tile": 0,
+        "y": 11
+      },
+      {
+        "x": 5,
+        "tile": 0,
+        "y": 11
+      },
+      {
+        "x": 6,
+        "tile": 0,
+        "y": 11
+      },
+      {
+        "x": 7,
+        "tile": 0,
+        "y": 11
+      },
+      {
+        "x": 8,
+        "tile": 0,
+        "y": 11
+      },
+      {
+        "x": 9,
+        "tile": 0,
+        "y": 11
+      },
+      {
+        "x": 10,
+        "tile": 0,
+        "y": 11
+      },
+      {
+        "x": 11,
+        "tile": 0,
+        "y": 11
+      }
+    ],
+    "source": {
+      "reference": {
+        "walkable": [
+          false,
+          true
+        ],
+        "rules": [
+          [
+            [
+              true,
+              true
+            ],
+            [
+              true,
+              true
+            ]
+          ],
+          [
+            [
+              true,
+              true
+            ],
+            [
+              true,
+              true
+            ]
+          ],
+          [
+            [
+              true,
+              true
+            ],
+            [
+              true,
+              true
+            ]
+          ],
+          [
+            [
+              true,
+              true
+            ],
+            [
+              true,
+              true
+            ]
+          ]
+        ],
+        "tilePixels": 1,
+        "title": "Courtyard and central barrier · labelled test reference",
+        "version": 1,
+        "cells": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          0,
+          0,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          0,
+          0,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          0,
+          0,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          0,
+          0,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          0,
+          0,
+          1,
+          1,
+          1,
+          1,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          1,
+          1,
+          1,
+          1,
+          0,
+          0,
+          1,
+          1,
+          1,
+          1,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          1,
+          1,
+          1,
+          1,
+          0,
+          0,
+          1,
+          1,
+          1,
+          1,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          1,
+          1,
+          1,
+          1,
+          0,
+          0,
+          1,
+          1,
+          1,
+          1,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          1,
+          1,
+          1,
+          1,
+          0,
+          0,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          0,
+          0,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          0,
+          0,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          0,
+          0,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          0,
+          0,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "imageSha256": "c06bf0f0f8ce3ff4f88dc4cb774137c2303f0e485e121178b83971ac75f6afa9",
+        "scope": "Dominant tile colours and observed directional adjacency. Passability is user-declared; not photographic object recognition or measured physical material inference.",
+        "pngBase64": "iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAAJUlEQVR4nGNQsw4gCTEA8Z33N4hEw1cDcpgMVQ2DMFhpoIEkBABd8Q9HxSiGdwAAAABJRU5ErkJggg==",
+        "width": 16,
+        "palette": [
+          "#263b50",
+          "#dcefd8"
+        ],
+        "id": "bf9fbc55-4799-4fdb-889f-30fbd3caadbf",
+        "frequencies": [
+          76,
+          180
+        ],
+        "height": 16
+      },
+      "kind": "reference-image"
+    },
+    "version": "reference-grid-topology-v1",
+    "path": [
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      31,
+      43,
+      55,
+      67,
+      68,
+      80,
+      81,
+      93,
+      94,
+      106,
+      118,
+      130
+    ],
+    "cells": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      0,
+      1,
+      1,
+      0,
+      0,
+      1,
+      0,
+      0,
+      1,
+      0,
+      0,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      1,
+      0,
+      1,
+      1,
+      1,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      1,
+      0,
+      1,
+      1,
+      0,
+      0,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      0,
+      1,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      1,
+      1,
+      1,
+      0,
+      0,
+      1,
+      1,
+      0,
+      0,
+      1,
+      0,
+      0,
+      1,
+      1,
+      1,
+      0,
+      1,
+      1,
+      1,
+      0,
+      0,
+      1,
+      0,
+      1,
+      1,
+      0,
+      1,
+      1,
+      1,
+      1,
+      1,
+      0,
+      0,
+      1,
+      1,
+      0,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "width": 12,
+    "options": {
+      "seed": 2901,
+      "cellSizeM": 1,
+      "width": 12,
+      "pins": [],
+      "constraints": {
+        "connected": true,
+        "minFloorFraction": 0.3,
+        "maxFloorFraction": 0.75,
+        "minRouteSteps": 0,
+        "maxRouteSteps": 3
+      },
+      "friction": 0.6,
+      "height": 12
+    },
+    "palette": [
+      "#263b50",
+      "#dcefd8"
+    ],
+    "height": 12
+  },
+  "id": "6683db97-fed8-4d6e-9991-2083a093f655",
+  "title": "Reference map · seed 2901"
+}

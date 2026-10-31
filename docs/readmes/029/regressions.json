@@ -1,0 +1,166 @@
+{
+  "passed": true,
+  "javaTests": 262,
+  "javaClasses": 50,
+  "desktopUnitTests": 48,
+  "suites": {
+    "live-topology": {
+      "passed": true,
+      "checks": 4,
+      "justCompletedOnFinalRuntime": true
+    },
+    "topology-integration": {
+      "passed": true,
+      "checks": 10,
+      "seconds": 29.0
+    },
+    "maps-integration": {
+      "passed": true,
+      "checks": 9,
+      "seconds": 29.8
+    },
+    "procedural-integration": {
+      "passed": true,
+      "checks": 9,
+      "seconds": 27.79
+    },
+    "responsive-integration": {
+      "passed": true,
+      "checks": 4,
+      "seconds": 14.01
+    },
+    "workflow-integration": {
+      "passed": true,
+      "checks": 8,
+      "seconds": 32.8
+    },
+    "creation-integration": {
+      "passed": true,
+      "checks": 8,
+      "seconds": 9.45
+    },
+    "tracking024-integration": {
+      "passed": true,
+      "checks": 9,
+      "seconds": 35.99
+    },
+    "tracking-controls-integration": {
+      "passed": true,
+      "checks": 6,
+      "seconds": 13.08
+    },
+    "tracking-migration": {
+      "passed": true,
+      "checks": 3,
+      "seconds": 5.95
+    },
+    "perception-integration": {
+      "passed": true,
+      "checks": 15,
+      "seconds": 33.0
+    },
+    "spatial-integration": {
+      "passed": true,
+      "checks": 14,
+      "seconds": 38.31
+    },
+    "data-goals-integration": {
+      "passed": true,
+      "checks": 12,
+      "seconds": 16.78
+    },
+    "goals-integration": {
+      "passed": true,
+      "checks": 14,
+      "seconds": 56.51,
+      "explicitJavaWorkerCrashRecheck": {
+        "passed": true,
+        "checks": 14,
+        "method": "Own test Java child handle, verified unique WorkspaceServer spawn, actual SIGKILL before desktop restart; same frozen-condition and new-attempt assertions. Production code unchanged."
+      }
+    },
+    "world-model-integration": {
+      "passed": true,
+      "checks": 15,
+      "seconds": 13.98
+    },
+    "feedback-integration": {
+      "passed": true,
+      "checks": 12,
+      "seconds": 14.62
+    },
+    "brain-game-integration": {
+      "passed": true,
+      "checks": 10,
+      "seconds": 16.01
+    },
+    "body-integration": {
+      "passed": true,
+      "checks": 10,
+      "seconds": 7.43
+    },
+    "observer-integration": {
+      "passed": true,
+      "checks": 12,
+      "seconds": 4.9
+    },
+    "scene-integration": {
+      "passed": true,
+      "checks": 12,
+      "seconds": 6.09
+    },
+    "measurement-integration": {
+      "passed": true,
+      "checks": 10,
+      "seconds": 5.07
+    },
+    "calibration-integration": {
+      "passed": true,
+      "checks": 8,
+      "seconds": 9.55
+    },
+    "real-data-delfys": {
+      "passed": true,
+      "checks": 9,
+      "seconds": 4.44
+    },
+    "integration": {
+      "passed": true,
+      "checks": 12,
+      "seconds": 25.52
+    },
+    "learning-integration": {
+      "passed": true,
+      "checks": 9,
+      "seconds": 29.29
+    },
+    "broader-validation": {
+      "passed": true,
+      "checks": 45,
+      "seconds": 15.11
+    },
+    "live-data-goals": {
+      "passed": true,
+      "checks": 4,
+      "seconds": 88.34
+    },
+    "live-goals": {
+      "passed": true,
+      "checks": 5,
+      "seconds": 54.82
+    },
+    "live-procedural": {
+      "passed": true,
+      "checks": 4,
+      "seconds": 131.31
+    },
+    "live-maps": {
+      "passed": true,
+      "checks": 4,
+      "seconds": 129.64
+    }
+  },
+  "workflowGroups": 285,
+  "liveGroups": 21,
+  "scope": "All existing software workflow suites plus029 global topology; actual model rechecks cover shared native/data/procedural goals and new reference-map generation/reuse/layer play. Unchanged responsive app generation is not counted again. Unchanged old perception/tracking/creation live-model tests are not counted again."
+}

@@ -1,0 +1,53 @@
+{
+  "request": "Generate and physically verify a playable map",
+  "reason": "Execution stopped: Map generation rejected: {\"reason\":\"No candidate met the original global contract; Original spawn-to-goal shortest route is not valid; All floor must connect: components=10, reachable=21/48; Shortest route -1 outside [18,64]; finite selection budget exhausted\",\"repairs\":0,\"conflicts\":0,\"passed\":false,\"attempts\":32}. Review and Resume; no failed result is a saved skill.",
+  "procedure": "map-world-v1",
+  "history": [
+    {
+      "reason": "Frozen source and map conditions accepted; actual native motion and report required",
+      "at": "2026-10-31T12:40:45.355725600Z",
+      "step": "map-build",
+      "attempt": 1,
+      "status": "running"
+    },
+    {
+      "reason": "Execution stopped: Map generation rejected: {\"reason\":\"No candidate met the original global contract; Original spawn-to-goal shortest route is not valid; All floor must connect: components=10, reachable=21/48; Shortest route -1 outside [18,64]; finite selection budget exhausted\",\"repairs\":0,\"conflicts\":0,\"passed\":false,\"attempts\":32}. Review and Resume; no failed result is a saved skill.",
+      "at": "2026-10-31T12:40:45.495235200Z",
+      "step": "map-build",
+      "attempt": 1,
+      "status": "interrupted"
+    }
+  ],
+  "attempt": 1,
+  "resumes": 0,
+  "createdAt": "2026-10-31T12:40:45.353730900Z",
+  "disturbanceNs": 0.35,
+  "mapBinding": {
+    "sha256": "c9248fc1a66d36915763c49d7d0a69aae0c4a558ebefe287d71db781d97f2404",
+    "id": "e46dd3a4-1c48-4abc-8c2a-94429b0e715b"
+  },
+  "referenceBinding": {
+    "sha256": "7c9ab5a3593143528c698646403ee1d1d5724b488baae822d6e600168fbbab8a",
+    "id": "20ca0927-972a-4f62-adee-de4bc586e7cd"
+  },
+  "mapOptions": {
+    "seed": 2901,
+    "cellSizeM": 1,
+    "width": 12,
+    "pins": [],
+    "constraints": {
+      "connected": true,
+      "minFloorFraction": 0.3,
+      "maxFloorFraction": 0.75,
+      "minRouteSteps": 18,
+      "maxRouteSteps": 64
+    },
+    "friction": 0.6,
+    "height": 12
+  },
+  "mapId": "e46dd3a4-1c48-4abc-8c2a-94429b0e715b",
+  "step": "map-build",
+  "id": "e392b058-a51f-482a-8a3b-8dedd02619ee",
+  "status": "interrupted",
+  "updatedAt": "2026-10-31T12:40:45.495235200Z"
+}
