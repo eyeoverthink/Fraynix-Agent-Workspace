@@ -1,5 +1,9 @@
 # Agent Workspace development log
 
+## 2026-10-31 — Independent broader UI compatibility check
+
+Independent offline checkout passes the first15 critical UI suites, including native body/brain/feedback/world-model/goals/data/spatial/perception/tracking/creation/workflow/procedural/responsive behavior. The old028 map test then found its formerly unique nested-summary selector matched both the physics panel and the new actual materials panel. The test now selects the visible “Hard pins and declared physics” label explicitly. Production behavior and numeric gates are unchanged. Preserve the original failure; rerun map, topology and new recovery/material suites on the final checkout. Earlier passed suites need no repetition for this test-only selector change. Both actual local-model material episodes already pass on unchanged runtime904ad2e.
+
 ## 2026-10-31 — Actual material chat and saved-skill reuse verified
 
 Actual installed gpt-oss:20b completes both requests, retaining exact declared ice values and executing a new seed with opposite impulse through the saved procedure. Both episodes have native/work outcomes and all9 actual chart receipts. First reuse attempt hit the unchanged12turn limit: the model repeatedly invented material overrides and the semantic guard correctly refused them. The final bound-skill schema omits unrequested material replacement, the prompt preserves host defaults, feedback includes retained values and repair reasons are durable. Unit test added;51 desktop units and four actual local-model groups pass. Full first independent checkout passes272 Java/51classes and its then50units. Update that checkout with host-only changes before broader UI validation. Native implementation fingerprint matches root and independent material trials exactly. Logs retain the rejected attempt; no evidence is relabelled as immediate success.
