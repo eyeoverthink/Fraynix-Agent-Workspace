@@ -22,3 +22,5 @@ official segmentation benchmark metrics. Original capture FPS is not assumed.
 
 Implementation, measured results, interface screenshots and the final edition 023
 README are pending. No candidate improvement or promotion is claimed yet.
+
+Development-only result: the RGB/edge candidate passed the stronger identical-copy ambiguity and full-hide controls after denser search and separately refining a competing peak. The frozen RGB baseline accepts this stronger duplicate counterexample; that failure is retained. Candidate changes have used development pixels and independent synthetic negative controls only. Reserved sequences have not been fetched or evaluated.

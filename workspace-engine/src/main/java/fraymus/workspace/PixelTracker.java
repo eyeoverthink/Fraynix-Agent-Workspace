@@ -6,7 +6,7 @@ import java.awt.image.BufferedImage;
 import java.util.*;
 
 /** Small CPU appearance learner/tracker. Correlation is a match score, never class probability. */
-final class PixelTracker {
+final class PixelTracker implements ImageTracker {
     static final int GRID=8,WORK=192;
     record Box(double x,double y,double w,double h){
         JSONArray json(){return new JSONArray(new double[]{x,y,x+w,y+h});}
@@ -29,7 +29,7 @@ final class PixelTracker {
         for(double y=Math.max(0,coarse.box.y-.025);y<=Math.min(1-coarse.box.h,coarse.box.y+.025)+1e-8;y+=.004)for(double x=Math.max(0,coarse.box.x-.025);x<=Math.min(1-coarse.box.w,coarse.box.x+.025)+1e-8;x+=.004){var b=new Box(x,y,coarse.box.w,coarse.box.h);var d=descriptor(image,b);var m=new Match(b,correlation(appearance,d),correlation(anchor,d));if(m.score>best.score)best=m;}
         double other=0;for(var m:candidates)if(iou(m.box,best.box)<.25)other=Math.max(other,m.score);if(other>best.score-.035)return new Match(best.box,0,best.anchorScore);return best;
     }
-    JSONObject update(BufferedImage image){var small=working(image);var m=match(small,lost>0||updates==0);boolean accepted=m.score>=.78&&m.anchorScore>=.65;String status=accepted?(lost>0?"reacquired":"tracked"):"lost";
+    public JSONObject update(BufferedImage image){var small=working(image);var m=match(small,lost>0||updates==0);boolean accepted=m.score>=.78&&m.anchorScore>=.65;String status=accepted?(lost>0?"reacquired":"tracked"):"lost";
         if(accepted){box=m.box;if(adapt&&m.score>=.9&&m.anchorScore>=.8){var d=descriptor(small,box);for(int i=0;i<d.length;i++)appearance[i]=.97*appearance[i]+.03*d[i];updates++;}lost=0;}else lost++;
         return new JSONObject().put("id",id).put("label",label).put("status",status).put("box",accepted?m.box.json():JSONObject.NULL).put("lastKnownBox",box.json()).put("matchScore",m.score).put("anchorScore",m.anchorScore).put("appearanceUpdates",updates).put("scoreMeaning","normalized appearance correlation, not calibrated semantic confidence");
     }
