@@ -8,14 +8,14 @@ function requestedPhysics(request){
  const patterns={angleDeg:/\b([+\-]?\d+(?:\.\d+)?)\s*(?:degrees?|°)/i,friction:/\bfriction\s*(?:of|=|:)?\s*([+\-]?\d+(?:\.\d+)?)/i,targetM:/\btarget\s*(?:of|=|:)?\s*([+\-]?\d+(?:\.\d+)?)/i,disturbanceMps:/([+\-]?\d+(?:\.\d+)?)\s*m\/s\s+disturbance/i};
  const result=Object.fromEntries(Object.entries(patterns).flatMap(([key,pattern])=>{const m=String(request).match(pattern);return m?[[key,Number(m[1])]]:[];}));
  if(/\b(?:include|attach)\b[^.!?\n]{0,120}\bbrowser\b/i.test(request))result.browserContext=true;
- const name=String(request).match(/\b(?:procedure|skill)\s+(?:as|named)\s+([a-z][a-z0-9-]{2,55})\b/i);if(name)result.saveSkillName=name[1];return result;
+ const name=String(request).match(/\b(?:procedure|skill|workflow)\s+(?:as|named)\s+([a-z][a-z0-9-]{2,55})\b/i);if(name)result.saveSkillName=name[1];return result;
 }
 function requestedData(request){const expected={},patterns={maxGapS:/\bgap(?:\s+(?:threshold|limit))?\s*(?:of|=|:)?\s*([+\-]?\d+(?:\.\d+)?)/i,speedLimitMps:/\bspeed(?:\s+(?:threshold|limit))?\s*(?:of|=|:)?\s*([+\-]?\d+(?:\.\d+)?)/i};for(const [key,re] of Object.entries(patterns)){const m=String(request).match(re);if(m)expected[key]=Number(m[1]);}const p=requestedPhysics(request);if(p.saveSkillName)expected.saveSkillName=p.saveSkillName;return expected;}
 function requestedSpatial(request){const out={};const explicit=String(request).match(/\bdisplacement(?:M)?\s*(?:of|=|:)?\s*\[\s*([+\-]?\d+(?:\.\d+)?)\s*,\s*([+\-]?\d+(?:\.\d+)?)\s*,\s*([+\-]?\d+(?:\.\d+)?)\s*\]/i);if(explicit)out.displacementM=explicit.slice(1).map(Number);const name=requestedPhysics(request).saveSkillName;if(name)out.saveSkillName=name;return out;}
 function preserveSpatial(request,args,defaults={}){for(const [key,value] of Object.entries(requestedSpatial(request)))if(JSON.stringify(args[key]??defaults[key])!==JSON.stringify(value))throw Error('Preserve the explicitly requested spatial '+key+'; no goal started');}
-function createGoals({api,browser,canvas,openArtifact,emit,refresh,activity,getScene,getDataset,getSpatial,perception,creation,getCreationSource,onScene,onTest}){
+function createGoals({api,browser,canvas,openArtifact,emit,refresh,activity,getScene,getDataset,getSpatial,perception,creation,workflow,getCreationSource,onScene,onTest}){
  let timer,busy=false,latest=null,shownScene='',stopped=false,lastPoll=0;
- async function update(g){latest=g;emit('javaGoal',g);if(g.sceneId&&g.sceneId!==shownScene){shownScene=g.sceneId;await onScene(await api('/api/scene/read',{id:g.sceneId}));}return g;}
+ async function update(g){latest=g;emit(g.workflowId?'workflowChild':'javaGoal',g);if(g.sceneId&&g.sceneId!==shownScene){shownScene=g.sceneId;await onScene(await api('/api/scene/read',{id:g.sceneId}));}return g;}
  async function poll(){
   if(busy||stopped||((!latest||terminal(latest))&&Date.now()-lastPoll<1200))return;lastPoll=Date.now();busy=true;
   try{
@@ -57,6 +57,7 @@ function createGoals({api,browser,canvas,openArtifact,emit,refresh,activity,getS
   }else if(tool==='procedure.run'){
    if(context?.procedureBinding){for(const key of ['name','version'])if(args[key]!==undefined&&args[key]!==context.procedureBinding[key])throw Error('The selected procedure binding changed');args={name:context.procedureBinding.name,version:context.procedureBinding.version,...args};}
    const skills=(await api('/api/goals/list',{})).procedures,skill=skills.find(p=>p.name===args.name&&p.version===args.version);
+   if(skill?.kind==='evidence-workflow-v1')return workflow.execute('workflow.reuse',args,context);
    if(context?.goal&&skill){
     const expected=skill.kind==='motion-data-report-v1'?requestedData(context.goal):requestedPhysics(context.goal);
     const chosen={...(skill.defaults||{}),...(skill.defaults?.parameters||{}),...(args.parameters||{}),...args,browserContext:args.browserContext??false,saveSkillName:args.saveSkillName??''};

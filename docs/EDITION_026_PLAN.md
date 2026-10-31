@@ -17,7 +17,10 @@ composition has a fixed, documented sequence; it is not a general task planner.
    and actual recorded native forecasts/outcomes. No LLM invents evidence rows.
 5. Start an owned creation goal with a frozen registered behavior contract.
    The local model creates the interactive explorer in the existing canvas.
-6. Independently compare every displayed table cell to Java's original bundle.
+6. Independently compare every displayed table cell to Java's original bundle
+   and both29-point native SVG traces to reconstructed coordinates. Freeze
+   viewBox0/0/800/300, x=40+720*t/1.5, y=260-220*x/max(1.8,target+0.2), and
+   maximum coordinate error0.02 SVG units before live-model evaluation.
    Incorrect content drives bounded repair using actual observations. Only a
    completely verified workflow can retain a reusable workflow procedure.
 
