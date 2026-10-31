@@ -1,0 +1,36 @@
+{
+  "edition":"024",
+  "declaredBeforeFirstTrackingEvaluation":true,
+  "baseline":"Unchanged rgb-v1 from edition022; adaptive-v2 remains installed for existing goals/skills. New comparisons test flow-v3 against rgb-v1.",
+  "source":{
+    "archive":"https://data.vision.ee.ethz.ch/csergi/share/davis/DAVIS-2017-trainval-480p.zip",
+    "archiveBytes":832766765,
+    "archiveEtag":"\"31a3032d-54c6d0af8b4dc\"",
+    "license":"CC BY-NC4.0 per archive README Terms of Use. car-turn, dog, libby and hike are not external-source exceptions in archive SOURCES.md."
+  },
+  "cases":[
+    {"sequence":"hike","split":"development","frames":60,"selection":"first min(60,length) consecutive source frames","objectId":1},
+    {"sequence":"car-turn","split":"evaluation","frames":60,"selection":"first min(60,length) consecutive source frames","objectId":1},
+    {"sequence":"dog","split":"evaluation","frames":60,"selection":"first min(60,length) consecutive source frames","objectId":1},
+    {"sequence":"libby","split":"evaluation","frames":60,"selection":"first min(60,length) consecutive source frames","objectId":1}
+  ],
+  "protocol":[
+    "Edition023 blackswan, car-shadow and hike results are now known development cases. They are never described as unseen again.",
+    "Development may additionally use the declared consecutive hike frames and independent synthetic controls. New evaluation images/masks are fetched only after candidate, evaluator and negative controls are committed and source hashes recorded.",
+    "One first-frame reference rectangle initializes each tracker. No later mask or annotation enters the tracker. All subsequent selected frames count, including losses as IoU zero; no reset or omitted failures.",
+    "Consecutive frames are required for temporal tracking. Edition023 used uniformly spaced frames, so numerical gains across those protocols are not comparable. Both profiles get the same new pixels/initialization here.",
+    "After the first new evaluation, record it unchanged and do not retune this candidate on those clips. Later runs prove reproducibility/software behavior only.",
+    "Report per-sequence and pooled mean IoU, IoU>=0.5 coverage, IoU<0.1 visible errors, lost/reacquired observations and decode+tracking latency. Include failures and negative controls. No official DAVIS mask score or general semantic/face recognition claim.",
+    "No new model weights, OpenCV runtime or neural/LLM training is required. Pure Java CPU image processing; GPU acceleration is not claimed."
+  ],
+  "promotion":{
+    "minimumPooledMeanIouGain":0.03,
+    "maximumPerSequenceMeanIouRegression":0.05,
+    "minimumPooledIouHalfFraction":0.65,
+    "noIncreaseInLowOverlapVisiblePredictions":true,
+    "duplicateAppearanceMustRemainAmbiguous":true,
+    "sourceAndLossGuardsMustPass":true,
+    "failedCandidateRemainsRejected":true,
+    "explicitRollbackAndRestartPersistenceRequired":true
+  }
+}
