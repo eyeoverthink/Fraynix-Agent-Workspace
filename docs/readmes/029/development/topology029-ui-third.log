@@ -1,0 +1,59 @@
+PROJECT C:\Users\eyeka\AppData\Local\Temp\fraynix-topology029-B5egm3
+NOTICE Playable map package saved: C:\Users\eyeka\AppData\Local\Temp\fraynix-topology029-B5egm3\exports\6e2180cc-d17c-4a78-a5b3-bcd5bb9a219a.json
+GOALS [
+  {
+    id: 'fa388077-a50e-4b5c-a026-2c132cf82b47',
+    status: 'completed',
+    reason: 'Original image/grid, actual physical traversal and every native chart point verified'
+  },
+  {
+    id: '7dff8178-6d2e-4531-9bba-a00d25fec8d8',
+    status: 'completed',
+    reason: 'Original image/grid, actual physical traversal and every native chart point verified'
+  },
+  {
+    id: '429bd231-ac0f-4eab-93b3-6f5e869d4ef5',
+    status: 'interrupted',
+    reason: 'Execution stopped: Map generation rejected: {"reason":"No candidate met the original global contract; All floor must connect: components=5, reachable=59/70; Shortest route 18 outside [0,3]; finite selection budget exhausted","repairs":0,"conflicts":0,"passed":false,"attempts":1}. Review and Resume; no failed result is a saved skill.'
+  }
+]
+locator.fill: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator('#map-seed')
+    - locator resolved to <input min="0" value="2801" id="map-seed" type="number" max="1000000000"/>
+    - fill("2901")
+  - attempting fill action
+    2 × waiting for element to be visible, enabled and editable
+      - element is not visible
+    - retrying fill action
+    - waiting 20ms
+    2 × waiting for element to be visible, enabled and editable
+      - element is not visible
+    - retrying fill action
+      - waiting 100ms
+    59 × waiting for element to be visible, enabled and editable
+       - element is not visible
+     - retrying fill action
+       - waiting 500ms
+
+    at main (C:\Users\eyeka\Documents\Codex\2026-10-26\is\work\fraynix-agent-workspace\workspace-desktop\test\topology-integration.cjs:20:57) {
+  log: [
+    "  - waiting for locator('#map-seed')",
+    '    - locator resolved to <input min="0" value="2801" id="map-seed" type="number" max="1000000000"/>',
+    '    - fill("2901")',
+    '  - attempting fill action',
+    '    2 × waiting for element to be visible, enabled and editable',
+    '      - element is not visible',
+    '    - retrying fill action',
+    '    - waiting 20ms',
+    '    2 × waiting for element to be visible, enabled and editable',
+    '      - element is not visible',
+    '    - retrying fill action',
+    '      - waiting 100ms',
+    '    59 × waiting for element to be visible, enabled and editable',
+    '       - element is not visible',
+    '     - retrying fill action',
+    '       - waiting 500ms'
+  ],
+  name: 'TimeoutError'
+}

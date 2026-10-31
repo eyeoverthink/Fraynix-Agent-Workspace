@@ -1,0 +1,49 @@
+PROJECT C:\Users\eyeka\AppData\Local\Temp\fraynix-topology029-w13Gkf
+NOTICE Connected. Your Studio baseline and personal state are separate.
+GOALS [
+  {
+    id: '8db3aa23-6fdd-404f-9611-ecd9c82a6848',
+    status: 'completed',
+    reason: 'Original image/grid, actual physical traversal and every native chart point verified'
+  },
+  {
+    id: '97e8c518-4592-45d5-8537-ec7213d37132',
+    status: 'completed',
+    reason: 'Original image/grid, actual physical traversal and every native chart point verified'
+  },
+  {
+    id: 'bcfcebee-d7a8-4f2b-9270-636f69780bdd',
+    status: 'interrupted',
+    reason: 'Execution stopped: Map generation rejected: {"reason":"No candidate met the original global contract; All floor must connect: components=5, reachable=59/70; Shortest route 18 outside [0,3]; finite selection budget exhausted","repairs":0,"conflicts":0,"passed":false,"attempts":1}. Review and Resume; no failed result is a saved skill.'
+  },
+  {
+    id: 'c5069d39-221e-40b3-a8ef-1797af52f60b',
+    status: 'interrupted',
+    reason: 'Execution stopped: Map generation rejected: {"reason":"No candidate met the original global contract; Original spawn-to-goal shortest route is not valid; All floor must connect: components=10, reachable=21/48; Shortest route -1 outside [18,64]; finite selection budget exhausted","repairs":0,"conflicts":0,"passed":false,"attempts":32}. Review and Resume; no failed result is a saved skill.'
+  },
+  {
+    id: '5bead950-3588-4350-bee1-7851d6323cbc',
+    status: 'completed',
+    reason: 'Original image/grid, actual physical traversal and every native chart point verified'
+  },
+  {
+    id: 'f6d0db60-f445-46ce-9db6-123978c1e893',
+    status: 'interrupted',
+    reason: 'Desktop action failed: Script failed to execute, this normally means an error was thrown. Check the renderer console for the error.'
+  }
+]
+AssertionError [ERR_ASSERTION]: Desktop action failed: Script failed to execute, this normally means an error was thrown. Check the renderer console for the error.
++ actual - expected
+
++ 'interrupted'
+- 'completed'
+
+    at proof (C:\Users\eyeka\Documents\Codex\2026-10-26\is\work\fraynix-agent-workspace\workspace-desktop\test\topology-integration.cjs:9:45)
+    at main (C:\Users\eyeka\Documents\Codex\2026-10-26\is\work\fraynix-agent-workspace\workspace-desktop\test\topology-integration.cjs:23:405) {
+  generatedMessage: false,
+  code: 'ERR_ASSERTION',
+  actual: 'interrupted',
+  expected: 'completed',
+  operator: 'strictEqual',
+  diff: 'simple'
+}

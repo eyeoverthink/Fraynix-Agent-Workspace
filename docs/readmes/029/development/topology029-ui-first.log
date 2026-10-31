@@ -1,0 +1,42 @@
+PROJECT C:\Users\eyeka\AppData\Local\Temp\fraynix-topology029-vm4AIE
+NOTICE Error invoking remote method 'workspace:request': Error: Unknown operation
+GOALS []
+locator.selectOption: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator('#map-reference-cases')
+    - locator resolved to <select id="map-reference-cases"></select>
+  - attempting select option action
+    2 × waiting for element to be visible and enabled
+      - did not find some options
+    - retrying select option action
+    - waiting 20ms
+    2 × waiting for element to be visible and enabled
+      - did not find some options
+    - retrying select option action
+      - waiting 100ms
+    59 × waiting for element to be visible and enabled
+       - did not find some options
+     - retrying select option action
+       - waiting 500ms
+
+    at source (C:\Users\eyeka\Documents\Codex\2026-10-26\is\work\fraynix-agent-workspace\workspace-desktop\test\topology-integration.cjs:10:176)
+    at async main (C:\Users\eyeka\Documents\Codex\2026-10-26\is\work\fraynix-agent-workspace\workspace-desktop\test\topology-integration.cjs:13:50) {
+  log: [
+    "  - waiting for locator('#map-reference-cases')",
+    '    - locator resolved to <select id="map-reference-cases"></select>',
+    '  - attempting select option action',
+    '    2 × waiting for element to be visible and enabled',
+    '      - did not find some options',
+    '    - retrying select option action',
+    '    - waiting 20ms',
+    '    2 × waiting for element to be visible and enabled',
+    '      - did not find some options',
+    '    - retrying select option action',
+    '      - waiting 100ms',
+    '    59 × waiting for element to be visible and enabled',
+    '       - did not find some options',
+    '     - retrying select option action',
+    '       - waiting 500ms'
+  ],
+  name: 'TimeoutError'
+}

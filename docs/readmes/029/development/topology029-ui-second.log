@@ -1,0 +1,24 @@
+PROJECT C:\Users\eyeka\AppData\Local\Temp\fraynix-topology029-qv2EF9
+NOTICE Connected. Your Studio baseline and personal state are separate.
+GOALS [
+  {
+    id: '2eb1bf49-c1ef-4247-afca-611c064f1881',
+    status: 'interrupted',
+    reason: 'Desktop action failed: Actual report assertions failed'
+  }
+]
+AssertionError [ERR_ASSERTION]: Desktop action failed: Actual report assertions failed
++ actual - expected
+
++ 'interrupted'
+- 'completed'
+
+    at proof (C:\Users\eyeka\Documents\Codex\2026-10-26\is\work\fraynix-agent-workspace\workspace-desktop\test\topology-integration.cjs:9:45)
+    at main (C:\Users\eyeka\Documents\Codex\2026-10-26\is\work\fraynix-agent-workspace\workspace-desktop\test\topology-integration.cjs:15:220) {
+  generatedMessage: false,
+  code: 'ERR_ASSERTION',
+  actual: 'interrupted',
+  expected: 'completed',
+  operator: 'strictEqual',
+  diff: 'simple'
+}
