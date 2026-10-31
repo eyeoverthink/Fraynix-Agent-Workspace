@@ -1,5 +1,9 @@
 # Agent Workspace development log
 
+## 2026-10-31 — Edition030 actually pushed and directly verified
+
+Atomic main/readme-030 push accepted. Direct independent fetch verifies release42b7bb66fab50005aef8242e6028d52ee7c8012b and annotated object4ae251cfb42b173803f88979caeb5d8efea51eff, all600 source hashes and all992 frozen documentation hashes. Source baseline033a254; native runtime fingerprintd87b14f970dabb18624be9a458c5fd3266dd15cb51fe01f570f86fab50360c33. Normal separate review030 PID25056 runs from the verified independent checkout using only a copy of this phase's closed synthetic acceptance project; no private user DB/model weights copied. Prior review apps remain preserved. Next031 user-authorized implementation: real pushable-object planning and native jam recovery. This continuity-only commit does not alter frozen030 evidence or executable source.
+
 ## 2026-10-31 — Edition030 verified release candidate
 
 Final source033a2543f51d56b247e33c1e9cc1d2f206562135: independent offline272Java/51classes,51desktop units and177critical UI groups pass; all600 canonical source hashes match. Actual gpt-oss:20b passes both material creation/reuse episodes and all9 native charts/visible work data (four groups). Native process-kill recovery passes at committed tick840 with same run/attempt and exact committed prefix, one actual impulse, manual recovery, byte-preserved corruption refusal and cancellation. Fixed development material/rebound/continuation comparisons and original failures retained. Release README0302617words/12actualcaptures, complete original numeric data, offline guide and Obsidian map; actual wide/390px guide/report QA passes every chart point and raw gzip/hash reconstruction. Documentation checks30editions/35canvases/4018references/992frozenhashes. Publication and isolated normal review030 handoff remain pending. Next authorized implementation is pushable-object planning; no stub UI is added for that future feature.
