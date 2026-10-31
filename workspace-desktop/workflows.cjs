@@ -1,4 +1,5 @@
 'use strict';
+const {measureResponsive}=require('./responsive.cjs');
 const sleep=ms=>new Promise(r=>setTimeout(r,ms));
 const unsettled=w=>w&&!['completed','cancelled'].includes(w.status);
 function requestedWorkflow(goal,procedures){
@@ -11,7 +12,7 @@ function createWorkflows({api,canvas,openArtifact,emit,refresh,activity,getDatas
  async function audit(effect){
   const a=await api('/api/artifact/read',{id:effect.report.id});if(a.version!==effect.report.version)throw Error('Workflow app version changed');emit('view','preview');await openArtifact(a);const ready=await canvas.test([{selector:'#row-count',expectText:String(effect.rowCount)}]);if(ready.some(c=>!c.passed))throw Error('Evidence app did not initialize its source before independent audit');
   const observed=await canvas.isolated(`(()=>{const rows=[...document.querySelectorAll('#data-table tbody tr')];if(rows.length>1200)throw Error('Audit row budget exceeded');return {rows:rows.map(r=>{const cells=[...r.querySelectorAll('td')];if(cells.length>8)throw Error('Audit column budget exceeded');return cells.map(c=>String(c.textContent).slice(0,500))}),plots:[...document.querySelectorAll('svg polyline[data-series]')].slice(0,8).map(e=>{const s=e.closest('svg'),v=s.viewBox.baseVal,r=e.getBoundingClientRect(),css=getComputedStyle(e);return {series:e.getAttribute('data-series'),visible:r.width>0&&r.height>0&&css.display!=='none'&&css.visibility!=='hidden'&&Number(css.opacity)>0&&css.stroke!=='none'&&Number(css.strokeOpacity)>0&&parseFloat(css.strokeWidth)>0,viewBox:[v.x,v.y,v.width,v.height],points:Array.from({length:Math.min(e.points.numberOfItems,1200)},(_,i)=>{const p=e.points.getItem(i);return [p.x,p.y]})}})}})()`);
-  return {id:a.id,version:a.version,...observed};
+  return {id:a.id,version:a.version,...observed,...(effect.responsive?{layout:await measureResponsive(canvas,canvas.view.webContents.getURL(),effect.rowCount)}:{})};
  }
  async function poll(){if(stopped||busy)return;busy=true;try{
   const all=(await api('/api/workflows/list',{})).workflows,w=all.find(unsettled)||all.at(-1);if(w&&(w.id!==latest?.id||w.updatedAt!==latest?.updatedAt||JSON.stringify(w.currentChild)!==JSON.stringify(latest?.currentChild))){await update(w);if(w.status==='completed'){activity('workflow',workflowSummary(w));await refresh();}}

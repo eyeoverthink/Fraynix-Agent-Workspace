@@ -1,6 +1,7 @@
 plugins { id 'application' }
 repositories { mavenCentral() }
 dependencies {
+    implementation project(':geometry-core')
     implementation project(':brain-core')
     implementation project(':brain-gpu')
     implementation project(':factory-runtime')

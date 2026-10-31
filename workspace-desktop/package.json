@@ -6,7 +6,7 @@
   "main": "main.cjs",
   "scripts": {
     "start": "electron .",
-    "test": "node --test test/policy.test.cjs test/controller.test.cjs test/tracking.test.cjs test/creation.test.cjs test/workflows.test.cjs",
+    "test": "node --test test/policy.test.cjs test/controller.test.cjs test/tracking.test.cjs test/creation.test.cjs test/workflows.test.cjs test/procedural.test.cjs",
     "test:integration": "node test/integration.cjs",
     "test:learning": "node test/learning-integration.cjs",
     "test:scene": "node test/scene-integration.cjs",
@@ -44,7 +44,11 @@
     "test:live-workflow": "node test/live-workflow.cjs",
     "test:creation": "node test/creation-integration.cjs",
     "test:live-creation": "node test/live-creation.cjs",
-    "test:live-creation-chat": "node test/live-creation-chat.cjs"
+    "test:live-creation-chat": "node test/live-creation-chat.cjs",
+    "test:procedural": "node test/procedural-integration.cjs",
+    "test:live-procedural": "node test/live-procedural.cjs",
+    "test:responsive": "node test/responsive-integration.cjs",
+    "test:live-responsive": "node test/live-responsive.cjs"
   },
   "devDependencies": {
     "electron": "45.1.0",

@@ -1,5 +1,13 @@
 # Fraynix Studio system architecture
 
+## Edition027 runtime additions
+
+The current workspace retains Java-owned durable goals and the existing desktop browser/canvas. The new checked-in `geometry-core` module computes seeded mathematical geometry without a rendering/runtime dependency beyond the JDK. `procedural-space-v1` adds frozen inputs, cooperative computation, independent topology/navigation checks, actual original-coordinate view auditing, retained procedures and reconstruction import to the shared goal runner. See the [runtime contract](PROCEDURAL_SPACE.md) and [tutorial analysis](PROCESSING_ALGORITHM_REFERENCE.md).
+
+Chat selects bounded semantic options; it cannot supply result coordinates or completion flags. Original N-D data, four recorded projections, slices and growth/path state remain distinct. The supported2–16D vector/colony calculations and2–4D grids do not add physical dimensions to Bullet or establish calibrated real-world fidelity.
+
+New evidence workflows opt into `responsive-v1`: the private desktop host observes the exact artifact in unprivileged780/390px Chromium views, and Java verifies geometry/legibility alongside the unchanged source-cell and native-plot checks. Layout failures use the existing bounded repair budget. The probe does not replace CSS. Historical workflows keep their frozen profile. These additions preserve the separate game, physics, browser, perception and creation interfaces documented below.
+
 Edition026 adds a durable `evidence-workflow-v1` parent over the existing data, native world and creation goals. Stable owned stage intents reconcile restart; completed evidence is revalidated and reused. Java reconstructs an original-source bundle and independently checks every rendered table cell and both native SVG traces before whole-workflow retention. The existing canvas, goal card and Skills library provide entry/reuse; observation data and native simulation remain explicitly separate. See [evidence workflows](EVIDENCE_WORKFLOWS.md).
 
 ```mermaid
