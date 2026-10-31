@@ -1,5 +1,13 @@
 # Tracking learning lab
 
+**Current: edition024.** Pure Java motion tracking improves pooled mean overlap
+on three newly reserved clips from0.080183 to0.328527. It remains rejected: only
+33.73% of predictions reachIoU0.5 and four very-low-overlap visible boxes exceed
+baseline's zero. Existing profiles and pins remain installed. See the current
+[temporal tracking contract](TEMPORAL_TRACKING.md) for all results, code/source
+freeze, real motion overlays and the next independent evaluation gate. The
+edition023 implementation and first result below remain historical evidence.
+
 Edition 023 adds original recorded-frame import, frozen Java tracker comparisons,
 measured promotion gates, retained profile history, rollback, browser replay and
 an actual tested report. The first real-data candidate is **rejected**: pooled

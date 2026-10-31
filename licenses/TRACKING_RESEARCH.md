@@ -5,6 +5,13 @@ evaluation. Original JPEGs, indexed PNG masks and base64 import packages remain
 outside Git in the chosen research folder. They are not new unrestricted app
 assets or model weights.
 
+Edition024 adds consecutive `hike` development frames and new `car-turn`, `dog`
+and `libby` evaluation frames from the same pinned archive. None of those sequence
+names appears in its external-source exception list. The same source terms,
+credit and research-data boundaries apply. New documentation derivatives also
+include measured motion-vector overlays. `scripts/Prepare-Tracking024.py` uses
+the existing verified ZIP reader and preserves original member checksums/hashes.
+
 - [Official downloads](https://davischallenge.org/davis2017/code.html).
 - Archive: `https://data.vision.ee.ethz.ch/csergi/share/davis/DAVIS-2017-trainval-480p.zip`.
 - Archive size: 832,766,765 bytes; pinned ETag: `"31a3032d-54c6d0af8b4dc"`.

@@ -35,8 +35,10 @@
     "test:live-spatial": "node test/live-spatial.cjs",
     "test:perception": "node test/perception-integration.cjs",
     "test:live-perception": "node test/live-perception.cjs",
-    "test:tracking": "node test/tracking-integration.cjs",
-    "test:live-tracking": "node test/live-tracking.cjs"
+    "test:tracking": "node test/tracking024-integration.cjs",
+    "test:live-tracking": "node test/live-tracking024.cjs",
+    "test:tracking-legacy": "node test/tracking-integration.cjs",
+    "test:tracking-controls": "node test/tracking-controls-integration.cjs"
   },
   "devDependencies": {
     "electron": "45.1.0",
