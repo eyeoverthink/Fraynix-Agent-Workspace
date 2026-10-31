@@ -1,6 +1,8 @@
 'use strict';
 const { randomUUID } = require('node:crypto');
 const catalog = [
+ ['force.start','Run the frozen native force-learning experiment: training-only cap selection, paired reserved evaluation and exact report verification. No user supplied gates, data, force settings or success values.','{}'],
+ ['force.read','Read the frozen suite scope and current active evaluated force profile.','{}'],
  ['map.read','Inspect the selected original palette-map reference or compiled native world. User-declared passability, actual source hash and learned frequencies; host binds selection.','{}'],
  ['push.read','Observe the actual selected crate/pusher roles, source geometry, masses, friction and committed native state. Labels are qualified scene data.','{}'],
  ['push.start','Plan reachable standing poses and push the selected crate by bounded native pusher forces. Java owns collision timing, measured jam recovery, both-body checkpoints and exact report verification. No direct crate force or grip.','{displacementM:[integerX,0,integerZ],initialForceN?,maxForceN?,saveSkillName?}'],
@@ -97,7 +99,7 @@ const goalParameters=object({angleDeg:{type:'number',minimum:10,maximum:40},fric
 const goalOptions={...goalParameters.properties,targetM:{type:'number',minimum:.4,maximum:1.8},disturbanceMps:{type:'number',minimum:-.5,maximum:.5},browserContext:{type:'boolean'}};
 const dataOptions={maxGapS:{type:'number',minimum:.000001,maximum:86400},speedLimitMps:{type:'number',minimum:.000001,maximum:1e9}};
 const proceduralOptions={type:{type:'string',enum:['colonization','dungeon']},dimensions:{type:'integer',minimum:2,maximum:16},seed:{type:'integer',minimum:0,maximum:1e9},samples:{type:'integer',minimum:16,maximum:512},iterations:{type:'integer',minimum:1,maximum:128},step:{type:'number',minimum:.015,maximum:.08},influence:{type:'number',minimum:.12,maximum:.6},kill:{type:'number',minimum:.015,maximum:.6},side:{type:'integer',minimum:12,maximum:40},rooms:{type:'integer',minimum:4,maximum:24}};
-const pushOptions={displacementM:{type:'array',items:{type:'integer',minimum:-4,maximum:4},minItems:3,maxItems:3},initialForceN:{type:'number',minimum:2,maximum:60},maxForceN:{type:'number',minimum:2,maximum:60},saveSkillName:text};
+const pushOptions={useActiveProfile:{type:'boolean'},displacementM:{type:'array',items:{type:'integer',minimum:-4,maximum:4},minItems:3,maxItems:3},initialForceN:{type:'number',minimum:2,maximum:60},maxForceN:{type:'number',minimum:2,maximum:60},saveSkillName:text};
 const spatialOptions={displacementM:{type:'array',items:{type:'number',minimum:-6,maximum:6},minItems:3,maxItems:3},saveSkillName:text};
 const perceptionOptions={mode:{type:'string',enum:['vision','appearance','dom']},targetLabel:text,visionModel:text,lessonName:text,seconds:{type:'number',minimum:2,maximum:30},saveSkillName:text};
 const mapConstraints=object({connected:{type:'boolean'},minFloorFraction:{type:'number',minimum:.05,maximum:.95},maxFloorFraction:{type:'number',minimum:.05,maximum:.95},minRouteSteps:{type:'integer',minimum:0,maximum:128},maxRouteSteps:{type:'integer',minimum:0,maximum:128}},[]);
@@ -106,7 +108,7 @@ const argumentSchemas={
  'map.read':empty,'map.start':object(mapOptions,[]),
  'space.start':object({...proceduralOptions,saveSkillName:text},['type','dimensions','seed']),'space.export':empty,
  'tracking.read':empty,'tracking.start':object({autoPromote:{type:'boolean'}},[]),'tracking.wait':empty,'tracking.report':empty,'tracking.rollback':empty,'perception.read':empty,'perception.select':object({ref:text}),'perception.start':object(perceptionOptions,[]),
- 'push.read':empty,'push.start':object(pushOptions,['displacementM']),
+ 'force.start':empty,'force.read':empty,'push.read':empty,'push.start':object(pushOptions,['displacementM']),
  'spatial.read':empty,'spatial.start':object(spatialOptions,['displacementM']),
  'data.read':empty,'data.start':object({...dataOptions,saveSkillName:text},[]),
  'world.model':empty,'goal.start':object({...goalOptions,saveSkillName:text},[]),'goal.read':empty,'goal.cancel':empty,'goal.resume':object({id:text}),'procedures.list':empty,'procedure.save':object({name:text}),
@@ -157,7 +159,7 @@ function calibrationStage(context,goal){
 function planTools(allowed,context={}){return catalog.filter(t=>allowed.includes(t.name)).map(t=>{
  let parameters=argumentSchemas[t.name];
   if(t.name==='map.start'&&context.mapCompiled)parameters=object({disturbanceNs:mapOptions.disturbanceNs,saveSkillName:text},[]);
- if(t.name==='procedure.run'&&context.family){const options=context.family==='push'?pushOptions:context.family==='map'?(context.procedureBound&&context.allowMaterialOverride===false?Object.fromEntries(Object.entries(mapOptions).filter(([key])=>key!=='materials')):mapOptions):context.family==='procedural'?{seed:proceduralOptions.seed,definition:object(proceduralOptions,[]),saveSkillName:text}:context.family==='perception'?{targetLabel:text,seconds:perceptionOptions.seconds,saveSkillName:text}:context.family==='spatial'?spatialOptions:context.family==='data'?{...dataOptions,saveSkillName:text}:{...goalOptions,saveSkillName:text};parameters=context.procedureBound?object(options,[]):object({name:context.names?.length?{type:'string',enum:context.names}:text,version:{type:'integer',minimum:1,maximum:8},...options},['name','version']);}
+ if(t.name==='procedure.run'&&context.family){const options=context.family==='push'?Object.fromEntries(Object.entries(pushOptions).filter(([key])=>key!=='useActiveProfile')):context.family==='map'?(context.procedureBound&&context.allowMaterialOverride===false?Object.fromEntries(Object.entries(mapOptions).filter(([key])=>key!=='materials')):mapOptions):context.family==='procedural'?{seed:proceduralOptions.seed,definition:object(proceduralOptions,[]),saveSkillName:text}:context.family==='perception'?{targetLabel:text,seconds:perceptionOptions.seconds,saveSkillName:text}:context.family==='spatial'?spatialOptions:context.family==='data'?{...dataOptions,saveSkillName:text}:{...goalOptions,saveSkillName:text};parameters=context.procedureBound?object(options,[]):object({name:context.names?.length?{type:'string',enum:context.names}:text,version:{type:'integer',minimum:1,maximum:8},...options},['name','version']);}
  return {type:'function',function:{name:t.name.replace('.','_'),description:t.description,parameters}};
 });}
 function observerStage(context,goal){
@@ -182,6 +184,7 @@ function bodyStage(context){
 }
 const originalTaskMode=taskMode;
 function expandedTaskMode(goal){
+ if(/\b(?:learn|train|evaluate|compare)\b/i.test(goal)&&/\b(?:pushing|force)\b/i.test(goal)&&/\b(?:profile|reserved|experience|evaluation|training)\b/i.test(goal)&&!/\b(?:website|html|git)\b/i.test(goal))return {needsForceLearning:true,needsGoal:true,needsScene:false,needsComparison:false};
  if(/\bpush(?:ing)?\b/i.test(goal)&&/\b(?:crate|pusher|box|selected object|imported object)\b/i.test(goal)&&!/\b(?:website|web app|html|git)\b/i.test(goal))return {needsPush:true,needsGoal:true,needsScene:false,needsComparison:false};
  if(/\b(?:reference[- ]image map|reference[- ]map|playable (?:map|world)|map world|native map|tile map)\b/i.test(goal)||/\b(?:play|compile)\b.*\bdungeon\b/i.test(goal))return {needsMap:true,needsGoal:true,needsScene:false,needsComparison:false};
  if(/\b(?:space[- ]coloni[sz]ation|procedural (?:space|map|geometry)|dungeon|coloni[sz]ation)\b/i.test(goal))return {needsProcedural:true,needsGoal:true,needsScene:false,needsComparison:false};
