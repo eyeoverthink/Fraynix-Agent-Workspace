@@ -1,0 +1,203 @@
+{
+  "date": "2026-10-31",
+  "modules": [
+    {
+      "id": "request",
+      "name": "Existing UI and typed chat",
+      "status": "verified",
+      "source": "workspace-desktop/renderer/map-panel.js",
+      "summary": "Confirmed image, real native world, held manual input and actual file import in the existing app.",
+      "note": "docs/obsidian/36-reference-map-worlds.md"
+    },
+    {
+      "id": "kernel",
+      "name": "Image adjacency and bounded repair",
+      "status": "verified",
+      "source": "fraynix-modules/geometry-core/src/main/java/fraymus/geometry/ReferenceMap.java",
+      "summary": "Seeded original rules, hard pins, honest conflict rejection and independently checked route.",
+      "note": "docs/obsidian/36-reference-map-worlds.md"
+    },
+    {
+      "id": "map",
+      "name": "Declared-scale physical compilation",
+      "status": "verified",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/MapDefinition.java",
+      "summary": "Original PNG/SHA and original higher-dimensional layers retained; real collider geometry.",
+      "note": "docs/obsidian/36-reference-map-worlds.md"
+    },
+    {
+      "id": "goal",
+      "name": "Shared Java task lifecycle",
+      "status": "verified",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/GoalRunner.java",
+      "summary": "Pinned source, native ownership, stable report, explicit recovery and cancellation.",
+      "note": "docs/obsidian/36-reference-map-worlds.md"
+    },
+    {
+      "id": "view",
+      "name": "Six native charts and original grid",
+      "status": "verified",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/MapReport.java",
+      "summary": "Actual native histories and every rendered chart point independently checked.",
+      "note": "docs/obsidian/36-reference-map-worlds.md"
+    },
+    {
+      "id": "skills",
+      "name": "Persistent worlds and retained skills",
+      "status": "verified",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/MapStore.java",
+      "summary": "Fresh-source re-verification and reconstruction import, interrupted attempt retention.",
+      "note": "docs/obsidian/36-reference-map-worlds.md"
+    },
+    {
+      "id": "physics",
+      "name": "Native forces and measured contact",
+      "status": "verified",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/MapPhysics.java",
+      "summary": "Dynamic sphere,240Hz simulation, bounded24N control and actual wall-contact test.",
+      "note": "docs/obsidian/36-reference-map-worlds.md"
+    },
+    {
+      "id": "tests",
+      "name": "Real local-model dispatch",
+      "status": "verified",
+      "source": "workspace-desktop/test/live-maps.cjs",
+      "summary": "Actual typed creation, different-image skill reuse and selected4D layer play.",
+      "note": "docs/obsidian/36-reference-map-worlds.md"
+    },
+    {
+      "id": "next",
+      "name": "Evaluated global map intelligence",
+      "status": "planned",
+      "source": "docs/REFERENCE_MAP_WORLDS.md",
+      "summary": "Global topology constraints, checkpoints and separately evaluated navigation improvement remain future gates.",
+      "note": "docs/obsidian/36-reference-map-worlds.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "docs/readmes/028/images/map-reference-028.png",
+      "caption": "SOFTWARE CONTROL: original uploaded labelled PNG, actual Java palette/rules and confirmed walkability."
+    },
+    {
+      "path": "docs/readmes/028/images/map-native-moving-028.png",
+      "caption": "SOFTWARE CONTROL: dynamic native avatar moving under measured force in the generated physical world."
+    },
+    {
+      "path": "docs/readmes/028/images/map-native-completed-028.png",
+      "caption": "SOFTWARE CONTROL: actual rendered3D avatar at its measured native endpoint; setup controls collapse for a larger world view."
+    },
+    {
+      "path": "docs/readmes/028/images/map-native-report-028.png",
+      "caption": "SOFTWARE CONTROL: original grid and actual native path, metrics and interactive chart in the existing canvas."
+    },
+    {
+      "path": "docs/readmes/028/images/map-manual-collision-028.png",
+      "caption": "SOFTWARE CONTROL: held real input drives the dynamic body against a wall; native contacts, forces and braking are recorded."
+    },
+    {
+      "path": "docs/readmes/028/images/map-reuse-skill-028.png",
+      "caption": "SOFTWARE CONTROL: retained procedure inspector in the existing Skills library, with fresh reference and seed."
+    },
+    {
+      "path": "docs/readmes/028/images/map-reused-028.png",
+      "caption": "SOFTWARE CONTROL: different uploaded palette/reference, changed seed and a new verified native traversal."
+    },
+    {
+      "path": "docs/readmes/028/images/map-conflicts-rejected-028.png",
+      "caption": "NEGATIVE CONTROL: incompatible hard pins remain rejected; no native success or saved skill is manufactured."
+    },
+    {
+      "path": "docs/readmes/028/images/map-four-dimensional-layer-028.png",
+      "caption": "SOFTWARE CONTROL: real physical world compiled from one original4D dungeon layer; all higher-dimensional source data are retained."
+    },
+    {
+      "path": "docs/readmes/028/images/map-layer-report-028.png",
+      "caption": "SOFTWARE CONTROL: native traversal report for the selected4D layer, with original source and explicit layer provenance."
+    },
+    {
+      "path": "docs/readmes/028/images/map-recovered-028.png",
+      "caption": "SOFTWARE CONTROL: actual process restart reuses completed native evidence and stable report without repeating physical effects."
+    },
+    {
+      "path": "docs/readmes/028/images/map-chat-created-028.png",
+      "caption": "ACTUAL LOCAL MODEL: gpt-oss:20b creates a map, runs native physics and retains a skill only after verified outcomes."
+    },
+    {
+      "path": "docs/readmes/028/images/map-chat-reused-028.png",
+      "caption": "ACTUAL LOCAL MODEL: chat reuses the saved procedure on another uploaded image, seed and impulse direction."
+    },
+    {
+      "path": "docs/readmes/028/images/map-chat-four-dimensional-028.png",
+      "caption": "ACTUAL LOCAL MODEL: chat plays the selected original4D layer and saves a newly verified procedure."
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/readmes/028/verification.json"
+    },
+    {
+      "path": "docs/readmes/028/maps-integration.json"
+    },
+    {
+      "path": "docs/readmes/028/live-maps.json"
+    },
+    {
+      "path": "docs/readmes/028/regressions.json"
+    },
+    {
+      "path": "docs/readmes/028/development-attempts.json"
+    },
+    {
+      "path": "docs/readmes/028/development-observer-readiness.txt"
+    },
+    {
+      "path": "docs/readmes/028/development-live-first.json"
+    },
+    {
+      "path": "docs/readmes/028/development-live-timeouts.json"
+    },
+    {
+      "path": "docs/readmes/028/examples/compiled-map-chat-failed.png"
+    },
+    {
+      "path": "docs/readmes/028/host-restart-interruption.json"
+    },
+    {
+      "path": "docs/readmes/028/development-timeout-native-state.json"
+    },
+    {
+      "path": "docs/readmes/028/examples/reference-original.png"
+    },
+    {
+      "path": "docs/readmes/028/examples/reference-fresh.png"
+    },
+    {
+      "path": "docs/readmes/028/examples/verified-map.html"
+    },
+    {
+      "path": "docs/readmes/028/examples/original/index.html"
+    },
+    {
+      "path": "docs/readmes/028/examples/original/trace.csv"
+    },
+    {
+      "path": "docs/readmes/028/examples/four-dimensional-layer/map.json"
+    },
+    {
+      "path": "docs/readmes/028/examples/rejected-map.json"
+    },
+    {
+      "path": "docs/readmes/028/examples/manual-run.json"
+    },
+    {
+      "path": "docs/readmes/028/examples/export-provenance.json"
+    },
+    {
+      "path": "docs/readmes/028/file-inventory.json"
+    },
+    {
+      "path": "docs/readmes/028/FILE_TREE.md"
+    }
+  ]
+}

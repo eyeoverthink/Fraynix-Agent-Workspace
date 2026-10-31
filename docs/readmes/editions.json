@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "latest": 27,
+  "latest": 28,
   "canonicalization": "UTF-8 without BOM; CRLF normalized to LF for text",
   "editions": [
     {
@@ -3904,6 +3904,455 @@
           "path": "docs/readmes/027/verification.json",
           "kind": "text",
           "sha256": "b70305c2ff294bdf9948bb0a1937b8b04a14ddbb5af085db8a6ca623de30f4b3"
+        }
+      ]
+    },
+    {
+      "number": 28,
+      "date": "2026-10-31",
+      "title": "Reference images and playable measured physics worlds",
+      "status": "published",
+      "markdown": "README-028.md",
+      "markdownSha256": "124c8765c9f91676a78bb37208dc3e2ab71fe4b4e35fcb815bb2a84e6766d52b",
+      "snapshotDirectory": "docs/readmes/028",
+      "companion": "docs/readmes/028/index.html",
+      "tag": "readme-028",
+      "sourceBaseline": "899e0c6fede1dd0c7ab7035a5e5b943009f3ac43",
+      "snapshotFiles": [
+        {
+          "path": "docs/readmes/028/development-attempts.json",
+          "kind": "text",
+          "sha256": "a68b6be139a8c82f78064587ebedcf78c02783b54a52030b8d86b5e495de464f"
+        },
+        {
+          "path": "docs/readmes/028/development-live-first.json",
+          "kind": "text",
+          "sha256": "e593f41aead9bb20dfd318d6ed319b5269026bd6398be746a4c051bfc174329c"
+        },
+        {
+          "path": "docs/readmes/028/development-live-timeouts.json",
+          "kind": "text",
+          "sha256": "62f5a71441e5930856f7ac756de8b473c41e304d82616b4a2ad7ec914ed0725a"
+        },
+        {
+          "path": "docs/readmes/028/development-observer-readiness.txt",
+          "kind": "text",
+          "sha256": "59560ff28e1dbe8209fcf3cefea329648efc0158953c1dc46bf804de0b2903d5"
+        },
+        {
+          "path": "docs/readmes/028/development-timeout-events.jsonl",
+          "kind": "text",
+          "sha256": "9efb842570df5633324563d874535d59aac841d54d43e6f7997ea3e1ee5f73cb"
+        },
+        {
+          "path": "docs/readmes/028/development-timeout-native-state.json",
+          "kind": "text",
+          "sha256": "c49a770c899ac542d47f672f9f93c49b7dcd863a9348470e39f2306202ec4934"
+        },
+        {
+          "path": "docs/readmes/028/examples/charts.json",
+          "kind": "text",
+          "sha256": "593a428af6ddbc663def32f3c626e9220fe32fd9f9ae27ad44822a65efb5dcdc"
+        },
+        {
+          "path": "docs/readmes/028/examples/chat-1/actual-receipt.json",
+          "kind": "text",
+          "sha256": "a19924e28eda4536bef40e113aa747f3f67c81f8d0830f329929970d01880046"
+        },
+        {
+          "path": "docs/readmes/028/examples/chat-1/charts.json",
+          "kind": "text",
+          "sha256": "283909d02c2927daf3664dc572a5770d7f9ca650d054a0987f70585d36bfd765"
+        },
+        {
+          "path": "docs/readmes/028/examples/chat-1/index.html",
+          "kind": "text",
+          "sha256": "2c686b9737a4c86a9aebbfa94157fae9c4950e127bd66163c533836bfb3063f5"
+        },
+        {
+          "path": "docs/readmes/028/examples/chat-1/map.json",
+          "kind": "text",
+          "sha256": "2138c913f299358777952cc746b44e5188cbffb831a0bd8cace0763a0328dd8d"
+        },
+        {
+          "path": "docs/readmes/028/examples/chat-1/run.json",
+          "kind": "text",
+          "sha256": "1f6d9a708b1d7685ac258a08f923d2f5694c88bd903da8cbedc22a2f88e9cbfb"
+        },
+        {
+          "path": "docs/readmes/028/examples/chat-1/trace.csv",
+          "kind": "text",
+          "sha256": "fefa4ba133510b54638cf09b3e47f96ac84cef964a77ece1d3fa2e39e74df103"
+        },
+        {
+          "path": "docs/readmes/028/examples/chat-2/actual-receipt.json",
+          "kind": "text",
+          "sha256": "6b9fb24969913a15f181dcb7370f5b36987d3ba33af4641f6776ec782d8d5788"
+        },
+        {
+          "path": "docs/readmes/028/examples/chat-2/charts.json",
+          "kind": "text",
+          "sha256": "c61c4b0bdb52d803f629dcc060dae17d3524c0f017fff4bf74dd752b5940405e"
+        },
+        {
+          "path": "docs/readmes/028/examples/chat-2/index.html",
+          "kind": "text",
+          "sha256": "2c686b9737a4c86a9aebbfa94157fae9c4950e127bd66163c533836bfb3063f5"
+        },
+        {
+          "path": "docs/readmes/028/examples/chat-2/map.json",
+          "kind": "text",
+          "sha256": "84b121fe4d6c1ec4858466e95e3fc8aa0031c47f8e2b58e536435bf5a4d42d4c"
+        },
+        {
+          "path": "docs/readmes/028/examples/chat-2/run.json",
+          "kind": "text",
+          "sha256": "2b017d4105041f7e0e644eaf05ce619277787dc798db6913e7a5dc5d8a496d3d"
+        },
+        {
+          "path": "docs/readmes/028/examples/chat-2/trace.csv",
+          "kind": "text",
+          "sha256": "ca3ba231d5549834ae21f5935eccd16bf36adbd574e8ac7abe7f28b36d1f54bb"
+        },
+        {
+          "path": "docs/readmes/028/examples/chat-3/actual-receipt.json",
+          "kind": "text",
+          "sha256": "3ebf97fa6f96654281727a7f11a3104af9032afc341dfed5fe7044b8529c0036"
+        },
+        {
+          "path": "docs/readmes/028/examples/chat-3/charts.json",
+          "kind": "text",
+          "sha256": "0a6890833d4d51c1b7e1277515f9bfeb529cb33a317f84f9a3611d133fd5be5b"
+        },
+        {
+          "path": "docs/readmes/028/examples/chat-3/index.html",
+          "kind": "text",
+          "sha256": "2c686b9737a4c86a9aebbfa94157fae9c4950e127bd66163c533836bfb3063f5"
+        },
+        {
+          "path": "docs/readmes/028/examples/chat-3/map.json",
+          "kind": "text",
+          "sha256": "f74824f6f4344de6106072b5268ce6f32ae2ce7270664e0558a84d6c1210cf99"
+        },
+        {
+          "path": "docs/readmes/028/examples/chat-3/run.json",
+          "kind": "text",
+          "sha256": "dc987862e4ff80c7c453820c1ea52d1bac9db1d64cd8e664e837f76e48f4b84c"
+        },
+        {
+          "path": "docs/readmes/028/examples/chat-3/trace.csv",
+          "kind": "text",
+          "sha256": "ea0cb7078f76c73ce442246b1e55a7eb8fc90d765f85db4ce712fd49e75961a1"
+        },
+        {
+          "path": "docs/readmes/028/examples/compiled-map-chat-failed.png",
+          "kind": "binary",
+          "sha256": "f6e211e33118fc96adc4a010ed8e515ab438fd82edb26ecc50e278eeda10c3c6"
+        },
+        {
+          "path": "docs/readmes/028/examples/export-provenance.json",
+          "kind": "text",
+          "sha256": "4c86b506eaf80df62a81907af61951f95cd1e63d40926c15d50bb917d8f15605"
+        },
+        {
+          "path": "docs/readmes/028/examples/four-dimensional-layer/actual-receipt.json",
+          "kind": "text",
+          "sha256": "3e93124bffefedce8178ee7e012fb48b27d961f656a5329c4aaa09db8719d3f3"
+        },
+        {
+          "path": "docs/readmes/028/examples/four-dimensional-layer/charts.json",
+          "kind": "text",
+          "sha256": "bc99ce57388b14f8680afde0fef9a7cfd8c8c3b810c2351ea148d451e4c1f63b"
+        },
+        {
+          "path": "docs/readmes/028/examples/four-dimensional-layer/index.html",
+          "kind": "text",
+          "sha256": "2c686b9737a4c86a9aebbfa94157fae9c4950e127bd66163c533836bfb3063f5"
+        },
+        {
+          "path": "docs/readmes/028/examples/four-dimensional-layer/map.json",
+          "kind": "text",
+          "sha256": "1143bf52b86be97f7b15d994c9e0f05bef62bef3f6aadcbc7576a7ac21bcb47c"
+        },
+        {
+          "path": "docs/readmes/028/examples/four-dimensional-layer/run.json",
+          "kind": "text",
+          "sha256": "c102ae3405f8f9dd551f3d3e7303a5ee57b5adb7d69f2c5a5c0af40c294767e9"
+        },
+        {
+          "path": "docs/readmes/028/examples/four-dimensional-layer/trace.csv",
+          "kind": "text",
+          "sha256": "e996491c68f16b5908c62a8b5745a52cad18f07d8924866e5b3c3e364dcc26dd"
+        },
+        {
+          "path": "docs/readmes/028/examples/fresh-reference/actual-receipt.json",
+          "kind": "text",
+          "sha256": "32326b93bb52dca0dd93fc56970285699c6b8175a8ab0094f2932be59f7ab08d"
+        },
+        {
+          "path": "docs/readmes/028/examples/fresh-reference/charts.json",
+          "kind": "text",
+          "sha256": "1d508077a45f6cf5181599d55d701b824a6a60658df06781f9acb71d9c7f10d8"
+        },
+        {
+          "path": "docs/readmes/028/examples/fresh-reference/index.html",
+          "kind": "text",
+          "sha256": "2c686b9737a4c86a9aebbfa94157fae9c4950e127bd66163c533836bfb3063f5"
+        },
+        {
+          "path": "docs/readmes/028/examples/fresh-reference/map.json",
+          "kind": "text",
+          "sha256": "1db5afc029a5f387153dcc85717a4e39c664f4ed6b70ba91ab0cfcc2aa013861"
+        },
+        {
+          "path": "docs/readmes/028/examples/fresh-reference/run.json",
+          "kind": "text",
+          "sha256": "0f9c061ce068f2ab8fbcde670d3e71d8a8b7b048d2dfa1f47558de0892f45b82"
+        },
+        {
+          "path": "docs/readmes/028/examples/fresh-reference/trace.csv",
+          "kind": "text",
+          "sha256": "f69eb87a1378e90c0cf5f1ceef958a12e62c1a1b91b3d9d62f38266d71cc2637"
+        },
+        {
+          "path": "docs/readmes/028/examples/manual-run.json",
+          "kind": "text",
+          "sha256": "179213a65b8c9c25b5417276bdd3a3baf462f972223d74e787420f4640d4cf43"
+        },
+        {
+          "path": "docs/readmes/028/examples/map.json",
+          "kind": "text",
+          "sha256": "0cae7f1d52031416049628192623af7abff90f7b2a8fbcc30623f62b0281fd26"
+        },
+        {
+          "path": "docs/readmes/028/examples/original/actual-receipt.json",
+          "kind": "text",
+          "sha256": "a1172359b5e509616c4beaff040bca1fb1518e66fcba075f943c6478a5d6668c"
+        },
+        {
+          "path": "docs/readmes/028/examples/original/charts.json",
+          "kind": "text",
+          "sha256": "593a428af6ddbc663def32f3c626e9220fe32fd9f9ae27ad44822a65efb5dcdc"
+        },
+        {
+          "path": "docs/readmes/028/examples/original/index.html",
+          "kind": "text",
+          "sha256": "2c686b9737a4c86a9aebbfa94157fae9c4950e127bd66163c533836bfb3063f5"
+        },
+        {
+          "path": "docs/readmes/028/examples/original/map.json",
+          "kind": "text",
+          "sha256": "0cae7f1d52031416049628192623af7abff90f7b2a8fbcc30623f62b0281fd26"
+        },
+        {
+          "path": "docs/readmes/028/examples/original/run.json",
+          "kind": "text",
+          "sha256": "f5cda0dacd379e59c3eea6cec7f77a51d7fbe5882bdf740d61cbd60b37d03c22"
+        },
+        {
+          "path": "docs/readmes/028/examples/original/trace.csv",
+          "kind": "text",
+          "sha256": "46fe1e4d9e5cddabda6751895cfb7b9d2a0c99bec362e04df796d58be75c76a6"
+        },
+        {
+          "path": "docs/readmes/028/examples/portable-d8eab385-4c74-4c16-aca1-5edf94ada4ac.json",
+          "kind": "text",
+          "sha256": "be283c3032b7ca6bf33dbf550c05d1b220ca6d7db743861c970401d04f050ca3"
+        },
+        {
+          "path": "docs/readmes/028/examples/portable-d8eab385-4c74-4c16-aca1-5edf94ada4ac.json.receipt.json",
+          "kind": "text",
+          "sha256": "6c32c5a37ec4c875ec201e45ac1ce8c21f81ae920137b6659596ea0250be8f80"
+        },
+        {
+          "path": "docs/readmes/028/examples/recovered/actual-receipt.json",
+          "kind": "text",
+          "sha256": "048417c97af92689f60a61be3c33dc64f05c9cdf000d5a216254eb02612f5b10"
+        },
+        {
+          "path": "docs/readmes/028/examples/recovered/charts.json",
+          "kind": "text",
+          "sha256": "8242183302bbccad164ef69eb5693dcc5f91dbce19ec1b2b0a9ed6168c80e135"
+        },
+        {
+          "path": "docs/readmes/028/examples/recovered/index.html",
+          "kind": "text",
+          "sha256": "2c686b9737a4c86a9aebbfa94157fae9c4950e127bd66163c533836bfb3063f5"
+        },
+        {
+          "path": "docs/readmes/028/examples/recovered/map.json",
+          "kind": "text",
+          "sha256": "3cab4a2d1b46072dca8c82acdc9623746a0566a7a06ab4ee915bfe0e63e9608e"
+        },
+        {
+          "path": "docs/readmes/028/examples/recovered/run.json",
+          "kind": "text",
+          "sha256": "1f40d45a4a409652eb64ad35412c7cb16d7b5d3a58be1ab603ae638d25aae0cc"
+        },
+        {
+          "path": "docs/readmes/028/examples/recovered/trace.csv",
+          "kind": "text",
+          "sha256": "38edfabe5d114f858645ed072fa506e9c0d3d7fd836652eb2001737361ad0c69"
+        },
+        {
+          "path": "docs/readmes/028/examples/reference-fresh.json",
+          "kind": "text",
+          "sha256": "4f830352aa6b15004f7526e54f589efe60d00705bd3e0db58c3ee1e84f5c4e12"
+        },
+        {
+          "path": "docs/readmes/028/examples/reference-fresh.png",
+          "kind": "binary",
+          "sha256": "3d3cdc0fe976e3c88abde4f0175a68901136e94eec2335f5dd9c3ca6c1da5ed5"
+        },
+        {
+          "path": "docs/readmes/028/examples/reference-original.json",
+          "kind": "text",
+          "sha256": "69c975a3b6f5bd71e812157a9bfd472f7a68f1243d2b14b59d9ae5caa2806bbd"
+        },
+        {
+          "path": "docs/readmes/028/examples/reference-original.png",
+          "kind": "binary",
+          "sha256": "a897f70f21a664080fd3cb615294305ed2b3010c4936677f904a6e124df1e4ff"
+        },
+        {
+          "path": "docs/readmes/028/examples/rejected-goal.json",
+          "kind": "text",
+          "sha256": "1f7fc76693e6f2d7c92a70499663420d6e0314bdde1d6cbe96efa4bd2ae0487e"
+        },
+        {
+          "path": "docs/readmes/028/examples/rejected-map.json",
+          "kind": "text",
+          "sha256": "fd226c36d446d312d9cf460b5d57d69648624017e70feae455c5f9736a8531c0"
+        },
+        {
+          "path": "docs/readmes/028/examples/run.json",
+          "kind": "text",
+          "sha256": "f5cda0dacd379e59c3eea6cec7f77a51d7fbe5882bdf740d61cbd60b37d03c22"
+        },
+        {
+          "path": "docs/readmes/028/examples/trace.csv",
+          "kind": "text",
+          "sha256": "46fe1e4d9e5cddabda6751895cfb7b9d2a0c99bec362e04df796d58be75c76a6"
+        },
+        {
+          "path": "docs/readmes/028/examples/verified-map.html",
+          "kind": "text",
+          "sha256": "e24d04672d74fc793baac3b21994cc3ad73055eba10f682043ccaccb7015f98f"
+        },
+        {
+          "path": "docs/readmes/028/file-inventory.json",
+          "kind": "text",
+          "sha256": "e93dd07b3a45315ea78f3a3494fa502de5f28ed11ece1c4d02b692b4b16e5bc3"
+        },
+        {
+          "path": "docs/readmes/028/FILE_TREE.md",
+          "kind": "text",
+          "sha256": "d957730bf6d2373d6ac075c7ecc535947b71f8ebaa1db6109ab20aac47e76a6a"
+        },
+        {
+          "path": "docs/readmes/028/host-restart-interruption.json",
+          "kind": "text",
+          "sha256": "e05d536c061a27229d261810c36d4b8325984aefd7fed91af704965b356a3605"
+        },
+        {
+          "path": "docs/readmes/028/images/map-chat-created-028.png",
+          "kind": "binary",
+          "sha256": "a800bea625153ef5edde8f994777d84e2000c03e8bb48947b24066258f6ff973"
+        },
+        {
+          "path": "docs/readmes/028/images/map-chat-four-dimensional-028.png",
+          "kind": "binary",
+          "sha256": "65ea17a8da5b25f901a0ac93ee4e97a03e129ae8a1a2af457c7b052b869b9d08"
+        },
+        {
+          "path": "docs/readmes/028/images/map-chat-reused-028.png",
+          "kind": "binary",
+          "sha256": "89dd6135ba7346a3af596f8ae8a113a216dcf3b3f0ffb2d5557a0696475c8a7d"
+        },
+        {
+          "path": "docs/readmes/028/images/map-conflicts-rejected-028.png",
+          "kind": "binary",
+          "sha256": "32c66533c60996640fad5ebf0a8308bc61164466ae44b3e8c71f809606e80002"
+        },
+        {
+          "path": "docs/readmes/028/images/map-four-dimensional-layer-028.png",
+          "kind": "binary",
+          "sha256": "8ed7d336abfd7528659c79111084de0fdc4780ef84e669f482061e32fd086b73"
+        },
+        {
+          "path": "docs/readmes/028/images/map-layer-report-028.png",
+          "kind": "binary",
+          "sha256": "0bbf18029c6445bca912d21e5c3f7b4d4784f97bd21facd3249700877d60e980"
+        },
+        {
+          "path": "docs/readmes/028/images/map-manual-collision-028.png",
+          "kind": "binary",
+          "sha256": "de3765303050d52ab9f1bb899afa249313f2d5814b9ee631a066731d1c752d1c"
+        },
+        {
+          "path": "docs/readmes/028/images/map-native-completed-028.png",
+          "kind": "binary",
+          "sha256": "3d0707b60aef4c51389d1bca066abc3de780e3c67c1cee74898a8ad0ac380d8b"
+        },
+        {
+          "path": "docs/readmes/028/images/map-native-moving-028.png",
+          "kind": "binary",
+          "sha256": "4262044105cc896c851810b1cc2a5ed2d0d7ae6f97d61e4c24736acddc6f41ac"
+        },
+        {
+          "path": "docs/readmes/028/images/map-native-report-028.png",
+          "kind": "binary",
+          "sha256": "3a147cbcf142aef419c28cf7f6d2d71cdc6e08d45192040dade567594aa6dcac"
+        },
+        {
+          "path": "docs/readmes/028/images/map-recovered-028.png",
+          "kind": "binary",
+          "sha256": "3117e749e34585567de478c4e0523698559b79cde28857bc9bcd7f7567a25921"
+        },
+        {
+          "path": "docs/readmes/028/images/map-reference-028.png",
+          "kind": "binary",
+          "sha256": "c2bc24989564cac3275bf0b7bbdf5f9a2ae7094f900191961dde044f92e189dd"
+        },
+        {
+          "path": "docs/readmes/028/images/map-reuse-skill-028.png",
+          "kind": "binary",
+          "sha256": "8e6cb331100a1ad41a737b8dbfe9c3e025947eb02de9c018423e559801fb2eee"
+        },
+        {
+          "path": "docs/readmes/028/images/map-reused-028.png",
+          "kind": "binary",
+          "sha256": "aa4b4a4ec519c62da7df48d2c04dc40763981415d2849be9914a314d11352d55"
+        },
+        {
+          "path": "docs/readmes/028/index.html",
+          "kind": "text",
+          "sha256": "699a58dea226d0d15598ce17e2a0949398902ea0dcd60f11511fdfce9e39a93c"
+        },
+        {
+          "path": "docs/readmes/028/live-maps.json",
+          "kind": "text",
+          "sha256": "0b64ae5afe90a88d0546d7d4ea87b535020d5d7e6315bf8c83cb985b501c2512"
+        },
+        {
+          "path": "docs/readmes/028/maps-integration.json",
+          "kind": "text",
+          "sha256": "43a26834dff69344dd67a79d3f9870379e962565a0914b2afbd8d080a87d6b00"
+        },
+        {
+          "path": "docs/readmes/028/regressions.json",
+          "kind": "text",
+          "sha256": "d7eaf748ab64913fddd1994ed20811b7b1d5aea15edc4a147cb54736c2885bab"
+        },
+        {
+          "path": "docs/readmes/028/system-map.json",
+          "kind": "text",
+          "sha256": "3ca5a02afcb86f69c6d7755599e22765ed0cabef7e923ea754f44bd791b9772e"
+        },
+        {
+          "path": "docs/readmes/028/verification.json",
+          "kind": "text",
+          "sha256": "17f27b52ea0ffcc939d0ba29f3763ef5e8d049196c6b81731ec0149692910758"
         }
       ]
     }

@@ -1,5 +1,11 @@
 # Fraynix Studio system architecture
 
+## Edition028 runtime additions
+
+The existing workspace now connects original reference PNGs to a Java adjacency model, bounded seeded grid repair, actual native colliders and a force-controlled avatar. `map-world-v1` uses the shared durable goal runner and existing procedure registry. The model selects typed semantic options; Java owns source identity, physical timing, trace verification and six interactive chart-frame checks. The Maps view provides actual manual and agent play, source confirmation, reconstruction-checked JSON import/export and original dungeon-layer selection. See the [reference-map world contract](REFERENCE_MAP_WORLDS.md).
+
+Original2D–4D dungeon coordinates remain complete. An explicit layer compiles into a separately declared three-axis physical world; hidden source axes are never unioned. Time, material parameters and relationships remain named state variables. Manual input is run-bound and expires; incomplete native motion becomes a separately recorded attempt after interruption. Completed evidence and stable report identities can be reused without repeating physical effects. Palette semantics and scale are declared, not inferred real-world measurements. Learned adjacency, reactive control and retained procedures have distinct roles; this edition does not train Ollama weights.
+
 ## Edition027 runtime additions
 
 The current workspace retains Java-owned durable goals and the existing desktop browser/canvas. The new checked-in `geometry-core` module computes seeded mathematical geometry without a rendering/runtime dependency beyond the JDK. `procedural-space-v1` adds frozen inputs, cooperative computation, independent topology/navigation checks, actual original-coordinate view auditing, retained procedures and reconstruction import to the shared goal runner. See the [runtime contract](PROCEDURAL_SPACE.md) and [tutorial analysis](PROCESSING_ALGORITHM_REFERENCE.md).

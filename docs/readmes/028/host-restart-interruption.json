@@ -1,0 +1,127 @@
+{
+  "passed": false,
+  "interruptedByHostRestart": true,
+  "date": "2026-10-31T10:48:44Z",
+  "project": "C:\\Users\\eyeka\\AppData\\Local\\Temp\\fraynix-live-maps028-vGjnB6",
+  "completedNativeGoals": [
+    {
+      "mapView": {
+        "frames": 6,
+        "maxError": 3.0257812454692612e-05,
+        "observedPoints": 1302,
+        "passed": true
+      },
+      "request": "Build a reference-image map with seed 2805, width 12, height 12, impulse 0.35. Play and verify it and save skill as live-map-world.",
+      "reason": "Original image/grid, actual physical traversal and every native chart point verified",
+      "procedure": "map-world-v1",
+      "history": [
+        {
+          "reason": "Frozen source and map conditions accepted; actual native motion and report required",
+          "at": "2026-10-31T10:45:26.206908300Z",
+          "step": "map-build",
+          "attempt": 1,
+          "status": "running"
+        },
+        {
+          "reason": "Learned adjacency and hard pins passed; original cells compiled to actual colliders",
+          "at": "2026-10-31T10:45:26.329090500Z",
+          "step": "map-start",
+          "attempt": 1,
+          "status": "running"
+        },
+        {
+          "reason": "Force-driven native avatar navigating; measured feedback and a scheduled impulse",
+          "at": "2026-10-31T10:45:26.463880800Z",
+          "step": "map-wait",
+          "attempt": 1,
+          "status": "running"
+        },
+        {
+          "reason": "Native positions, contacts, route, effort and endpoint independently verified",
+          "at": "2026-10-31T10:45:29.293912100Z",
+          "step": "map-report",
+          "attempt": 1,
+          "status": "running"
+        },
+        {
+          "reason": "Waiting for registered desktop action: canvas.verify-report",
+          "at": "2026-10-31T10:45:29.465452Z",
+          "step": "map-report",
+          "attempt": 1,
+          "status": "waiting-host"
+        },
+        {
+          "reason": "Actual Chromium canvas assertions passed for the pinned report version",
+          "at": "2026-10-31T10:45:31.053163Z",
+          "step": "complete",
+          "attempt": 1,
+          "status": "running"
+        },
+        {
+          "reason": "Original image/grid, actual physical traversal and every native chart point verified",
+          "at": "2026-10-31T10:45:31.135941100Z",
+          "step": "completed",
+          "attempt": 1,
+          "status": "completed"
+        }
+      ],
+      "attempt": 1,
+      "resumes": 0,
+      "createdAt": "2026-10-31T10:45:26.204366500Z",
+      "disturbanceNs": 0.35,
+      "mapBinding": {
+        "sha256": "85d854ec6787706d5b3de29f243ea8afcdd73dd4321e0cae18f63c9d19c84a24",
+        "id": "8d0a0782-af84-4cfc-b187-db37c82428bf"
+      },
+      "referenceBinding": {
+        "sha256": "e397ddc782555dd472c56ee619945e36eda4580336d101d03fc3b4f2fcefaf80",
+        "id": "245ba8b7-f594-4a25-ac6d-b7304d84be74"
+      },
+      "mapOptions": {
+        "seed": 2805,
+        "cellSizeM": 1,
+        "width": 12,
+        "pins": [],
+        "friction": 0.6,
+        "height": 12
+      },
+      "report": {
+        "sha256": "017beb278e3e65934fec56f22cec406551356c83753094ab2aad0a411d07b3cd",
+        "id": "8320c2cf-76f0-3e70-87a0-3015e79c6d55",
+        "version": 1
+      },
+      "mapId": "8d0a0782-af84-4cfc-b187-db37c82428bf",
+      "step": "completed",
+      "id": "6350a95e-327c-48c6-b5ab-e552045f6097",
+      "runId": "9ea3fb77-eaaf-360a-b2de-4a895aaa6941",
+      "metrics": {
+        "wallContacts": 0,
+        "endpointErrorM": 0.013404115107101827,
+        "maxForceN": 23.999999677023315,
+        "waypointsReached": 19,
+        "effortNs": 66.43465148971883,
+        "physicalAxes": 3,
+        "samples": 217,
+        "blockedSamples": 0,
+        "timeS": 10.816666666666666,
+        "maxSpeedMps": 2.024433374406683,
+        "nativePhysics": true,
+        "routeWaypoints": 19,
+        "teleports": 0,
+        "travelM": 16.995851978142586,
+        "passed": true,
+        "terminalSpeedMps": 0.027252391643844943,
+        "contacts": 201
+      },
+      "savedSkill": {
+        "name": "live-map-world",
+        "id": "2dceaa8a-4679-3b0b-bf7e-0c60472af9ca",
+        "version": 1
+      },
+      "status": "completed",
+      "updatedAt": "2026-10-31T10:45:31.135941100Z"
+    }
+  ],
+  "actualAgentCompletion": false,
+  "detail": "Host restarted after actual Java physical traversal/report completed while waiting for final model response. No completed chat claimed."
+}

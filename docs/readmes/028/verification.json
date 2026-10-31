@@ -1,0 +1,360 @@
+{
+  "date": "2026-10-31",
+  "sourceBaseline": "899e0c6fede1dd0c7ab7035a5e5b943009f3ac43",
+  "sourceInventory": 580,
+  "regressions": {
+    "passed": true,
+    "javaTests": 253,
+    "javaClasses": 47,
+    "desktopUnitTests": 46,
+    "suites": {
+      "live-maps": {
+        "passed": true,
+        "checks": 4,
+        "justCompletedOnFinalRuntime": true
+      },
+      "maps-integration": {
+        "passed": true,
+        "checks": 9,
+        "seconds": 29.63
+      },
+      "procedural-integration": {
+        "passed": true,
+        "checks": 9,
+        "seconds": 27.83
+      },
+      "responsive-integration": {
+        "passed": true,
+        "checks": 4,
+        "seconds": 14.41
+      },
+      "workflow-integration": {
+        "passed": true,
+        "checks": 8,
+        "seconds": 34.2
+      },
+      "creation-integration": {
+        "passed": true,
+        "checks": 8,
+        "seconds": 9.7
+      },
+      "tracking024-integration": {
+        "passed": true,
+        "checks": 9,
+        "seconds": 37.52
+      },
+      "tracking-controls-integration": {
+        "passed": true,
+        "checks": 6,
+        "seconds": 12.8
+      },
+      "tracking-migration": {
+        "passed": true,
+        "checks": 3,
+        "seconds": 8.22
+      },
+      "perception-integration": {
+        "passed": true,
+        "checks": 15,
+        "seconds": 32.67
+      },
+      "spatial-integration": {
+        "passed": true,
+        "checks": 14,
+        "seconds": 38.41
+      },
+      "data-goals-integration": {
+        "passed": true,
+        "checks": 12,
+        "seconds": 15.51
+      },
+      "goals-integration": {
+        "passed": true,
+        "checks": 14,
+        "seconds": 56.15
+      },
+      "world-model-integration": {
+        "passed": true,
+        "checks": 15,
+        "seconds": 13.61
+      },
+      "feedback-integration": {
+        "passed": true,
+        "checks": 12,
+        "seconds": 14.41
+      },
+      "brain-game-integration": {
+        "passed": true,
+        "checks": 10,
+        "seconds": 15.88
+      },
+      "body-integration": {
+        "passed": true,
+        "checks": 10,
+        "seconds": 7.27
+      },
+      "observer-integration": {
+        "passed": true,
+        "checks": 12,
+        "seconds": 5.07
+      },
+      "scene-integration": {
+        "passed": true,
+        "checks": 12,
+        "seconds": 6.3
+      },
+      "measurement-integration": {
+        "passed": true,
+        "checks": 10,
+        "seconds": 5.41
+      },
+      "calibration-integration": {
+        "passed": true,
+        "checks": 8,
+        "seconds": 9.51
+      },
+      "real-data-delfys": {
+        "passed": true,
+        "checks": 9,
+        "seconds": 4.97
+      },
+      "integration": {
+        "passed": true,
+        "checks": 12,
+        "seconds": 25.72
+      },
+      "learning-integration": {
+        "passed": true,
+        "checks": 9,
+        "seconds": 25.52
+      },
+      "broader-validation": {
+        "passed": true,
+        "checks": 45,
+        "seconds": 15.09
+      },
+      "live-data-goals": {
+        "passed": true,
+        "checks": 4,
+        "seconds": 87.69
+      },
+      "live-goals": {
+        "passed": true,
+        "checks": 5,
+        "seconds": 58.3
+      },
+      "live-procedural": {
+        "passed": true,
+        "checks": 4,
+        "seconds": 132.19
+      }
+    },
+    "workflowGroups": 275,
+    "liveGroups": 17,
+    "scope": "All existing software workflow suites plus028; actual model rechecks cover shared native/data/procedural goals and new reference-map generation/reuse/layer play. Unchanged responsive app generation is not counted again. Unchanged old perception/tracking/creation live-model tests are not counted again."
+  },
+  "freshClone": {
+    "status": "passed",
+    "checkout": "fraynix-workspace-qa028-release",
+    "sourceCommit": "899e0c6fede1dd0c7ab7035a5e5b943009f3ac43",
+    "javaTests": 253,
+    "desktopUnitTests": 46,
+    "bodyUiChecks": 10,
+    "brainGameUiChecks": 10,
+    "feedbackUiChecks": 12,
+    "worldModelUiChecks": 15,
+    "goalUiChecks": 14,
+    "dataGoalUiChecks": 12,
+    "offlineBuild": true,
+    "modelWeightsOrPrivateRuntimeCopied": false,
+    "electronBinary": "Pinned 45.1.0 executable reused from existing dependency cache after npm ci --offline --ignore-scripts",
+    "trackingUiChecks": 9,
+    "trackingControlsChecks": 6,
+    "perceptionUiChecks": 15,
+    "spatialUiChecks": 14,
+    "migrationUiChecks": 3,
+    "creationUiChecks": 8,
+    "workflowUiChecks": 8,
+    "proceduralUiChecks": 9,
+    "responsiveUiChecks": 4,
+    "mapsUiChecks": 9,
+    "uiChecks": 158
+  },
+  "documentationQa": {
+    "status": "passed",
+    "checks": [
+      "Offline companion loads nine source-linked modules with no runtime service",
+      "Architecture selection and all/verified/planned filters work",
+      "Canonical source inventory search resolves actual Java reference-map implementation",
+      "All fourteen dated actual application screenshots decode and have captions",
+      "Navigation, inventory search and map selection work at390px without horizontal overflow",
+      "Standalone original-image/grid report works offline: all cells, original PNG, all six real chart series and every point, actual input/reset and adjacent original download files",
+      "No script errors, external requests or CDN dependencies"
+    ]
+  },
+  "actualMapUi": {
+    "checks": 9,
+    "metrics": [
+      {
+        "wallContacts": 0,
+        "endpointErrorM": 0.013365750044020006,
+        "maxForceN": 22.846372993334423,
+        "waypointsReached": 19,
+        "effortNs": 62.216899968699266,
+        "physicalAxes": 3,
+        "samples": 218,
+        "blockedSamples": 0,
+        "timeS": 10.875,
+        "maxSpeedMps": 2.024433374406683,
+        "nativePhysics": true,
+        "routeWaypoints": 19,
+        "teleports": 0,
+        "travelM": 17.34635767037984,
+        "passed": true,
+        "terminalSpeedMps": 0.027539434510513543,
+        "contacts": 206
+      },
+      {
+        "wallContacts": 0,
+        "endpointErrorM": 0.01340363827786231,
+        "maxForceN": 23.9999992403503,
+        "waypointsReached": 19,
+        "effortNs": 64.66590681505245,
+        "physicalAxes": 3,
+        "samples": 217,
+        "blockedSamples": 0,
+        "timeS": 10.816666666666666,
+        "maxSpeedMps": 2.074002264550531,
+        "nativePhysics": true,
+        "routeWaypoints": 19,
+        "teleports": 0,
+        "travelM": 17.118566768303236,
+        "passed": true,
+        "terminalSpeedMps": 0.02724209521852776,
+        "contacts": 205
+      },
+      {
+        "wallContacts": 0,
+        "endpointErrorM": 0.012886584923148559,
+        "maxForceN": 23.81785616796664,
+        "waypointsReached": 10,
+        "effortNs": 30.89249803745185,
+        "physicalAxes": 3,
+        "samples": 115,
+        "blockedSamples": 0,
+        "timeS": 5.716666666666667,
+        "maxSpeedMps": 2.0260109901656276,
+        "nativePhysics": true,
+        "routeWaypoints": 10,
+        "teleports": 0,
+        "travelM": 8.771540616560383,
+        "passed": true,
+        "terminalSpeedMps": 0.02564701745327786,
+        "contacts": 104
+      }
+    ],
+    "chartViews": [
+      {
+        "frames": 6,
+        "maxError": 2.9085937512718374e-05,
+        "observedPoints": 1308,
+        "passed": true
+      },
+      {
+        "frames": 6,
+        "maxError": 3.0257812454692612e-05,
+        "observedPoints": 1302,
+        "passed": true
+      },
+      {
+        "frames": 6,
+        "maxError": 3.0343750040628947e-05,
+        "observedPoints": 690,
+        "passed": true
+      }
+    ]
+  },
+  "actualLocalModel": {
+    "model": "gpt-oss:20b",
+    "checks": 4,
+    "goals": [
+      {
+        "wallContacts": 0,
+        "endpointErrorM": 0.013404115107101827,
+        "maxForceN": 23.999999677023315,
+        "waypointsReached": 19,
+        "effortNs": 66.43465148971883,
+        "physicalAxes": 3,
+        "samples": 217,
+        "blockedSamples": 0,
+        "timeS": 10.816666666666666,
+        "maxSpeedMps": 2.024433374406683,
+        "nativePhysics": true,
+        "routeWaypoints": 19,
+        "teleports": 0,
+        "travelM": 16.995851978142586,
+        "passed": true,
+        "terminalSpeedMps": 0.027252391643844943,
+        "contacts": 201
+      },
+      {
+        "wallContacts": 0,
+        "endpointErrorM": 0.012887252007186628,
+        "maxForceN": 24.000000823555947,
+        "waypointsReached": 19,
+        "effortNs": 63.11386897071876,
+        "physicalAxes": 3,
+        "samples": 217,
+        "blockedSamples": 0,
+        "timeS": 10.845833333333333,
+        "maxSpeedMps": 2.0260949134933535,
+        "nativePhysics": true,
+        "routeWaypoints": 19,
+        "teleports": 0,
+        "travelM": 17.232888747052172,
+        "passed": true,
+        "terminalSpeedMps": 0.02564525276209204,
+        "contacts": 194
+      },
+      {
+        "wallContacts": 0,
+        "endpointErrorM": 0.012886584923148559,
+        "maxForceN": 21.925876430509646,
+        "waypointsReached": 10,
+        "effortNs": 30.802936958738904,
+        "physicalAxes": 3,
+        "samples": 115,
+        "blockedSamples": 0,
+        "timeS": 5.708333333333333,
+        "maxSpeedMps": 2.0255639557501857,
+        "nativePhysics": true,
+        "routeWaypoints": 10,
+        "teleports": 0,
+        "travelM": 8.771230446253107,
+        "passed": true,
+        "terminalSpeedMps": 0.025647028381158093,
+        "contacts": 101
+      }
+    ]
+  },
+  "preservedTrackingIdentities": {
+    "workspace-engine/src/main/java/fraymus/workspace/FlowTracker.java": "2b6e4552a38c503a4c6e0309d2db730f701d08038117a2f15663c55d1c08762f",
+    "workspace-engine/src/main/java/fraymus/workspace/Tracking024Evaluation.java": "8ea6727bb86ed61c0c8e6d0a20cd7e6a9f95b3167442e2023b1bcd3b0b68227b",
+    "workspace-engine/src/main/java/fraymus/workspace/Tracking024Guards.java": "63f728600faeb19e8da945b76bb26dc1cdf138e550ed0a7baf0cd62a7d1bc2ce",
+    "workspace-engine/src/main/java/fraymus/workspace/TrackingLab.java": "eafe1db53b5fbbd1a6ea97a0810e8f36f53610f4b19ea6a7a2d439087e8ddeb3",
+    "workspace-engine/src/main/java/fraymus/workspace/TrackerIdentity.java": "8ca356ddf0686013199da8ec2c7476d9705b517cb1d6fa28345a2fec629f0830",
+    "workspace-engine/src/main/resources/perception/acceptance-024.json": "857b6e9719701a066e11c2db2f3563718aa6c43077a4ce5519c11d0c01354e05",
+    "workspace-engine/src/main/java/fraymus/workspace/AdaptiveTracker.java": "ba0b5029629ef3298953a1aa23ae457cc9cd17e268822b1798b1f672f8dbe136",
+    "workspace-engine/src/main/java/fraymus/workspace/PixelTracker.java": "85d569217814a39618796bfbe43dc0b7db1ca61378a60f0198099d248674425c",
+    "workspace-engine/src/main/java/fraymus/workspace/TrackingGuards.java": "8cb4da526097e8e840b430485b47dfd9f251cc855e31f9fe7b89560d2dae0273",
+    "workspace-engine/src/main/java/fraymus/workspace/TrackingEvaluation.java": "6a006dc12a87fbb7799f14699e003c50788d34408517bac04e5e4883e0aa1477"
+  },
+  "scope": [
+    "Original JDK-only PNG adjacency/minimum-conflicts mapping; no Processing runtime or algorithm code copied",
+    "Actual declared-scale3D colliders and force-driven avatar, manual play and independently verified trace/charts",
+    "Original2D–4D dungeon data preserved; explicit layer only, not extra physical dimensions",
+    "Synthetic labelled map references; no photographic reconstruction or measured-material claim",
+    "Actual typed local-model orchestration and retained procedures; no LLM-weight training",
+    "Original private projects/models/reviews and frozen001–027/013/024 evidence preserved"
+  ]
+}

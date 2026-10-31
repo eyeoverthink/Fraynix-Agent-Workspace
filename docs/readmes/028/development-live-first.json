@@ -1,0 +1,125 @@
+{
+  "passed": false,
+  "project": "C:\\Users\\eyeka\\AppData\\Local\\Temp\\fraynix-live-maps028-H5oadY",
+  "reason": "Initial180s chat wait expired before the final model response, after actual Java/native/chart goal completion. Test wait increased to600s for local inference only; no production turn, generation, physics or verification budget changed.",
+  "completedJavaGoals": [
+    {
+      "mapView": {
+        "frames": 6,
+        "maxError": 3.0257812454692612e-05,
+        "observedPoints": 1302,
+        "passed": true
+      },
+      "request": "Build a reference-image map with seed 2805, width 12, height 12, impulse 0.35. Play and verify it and save skill as live-map-world.",
+      "reason": "Original image/grid, actual physical traversal and every native chart point verified",
+      "procedure": "map-world-v1",
+      "history": [
+        {
+          "reason": "Frozen source and map conditions accepted; actual native motion and report required",
+          "at": "2026-10-31T10:25:27.495827200Z",
+          "step": "map-build",
+          "attempt": 1,
+          "status": "running"
+        },
+        {
+          "reason": "Learned adjacency and hard pins passed; original cells compiled to actual colliders",
+          "at": "2026-10-31T10:25:27.705829700Z",
+          "step": "map-start",
+          "attempt": 1,
+          "status": "running"
+        },
+        {
+          "reason": "Force-driven native avatar navigating; measured feedback and a scheduled impulse",
+          "at": "2026-10-31T10:25:27.882034400Z",
+          "step": "map-wait",
+          "attempt": 1,
+          "status": "running"
+        },
+        {
+          "reason": "Native positions, contacts, route, effort and endpoint independently verified",
+          "at": "2026-10-31T10:25:30.800613700Z",
+          "step": "map-report",
+          "attempt": 1,
+          "status": "running"
+        },
+        {
+          "reason": "Waiting for registered desktop action: canvas.verify-report",
+          "at": "2026-10-31T10:25:30.982347700Z",
+          "step": "map-report",
+          "attempt": 1,
+          "status": "waiting-host"
+        },
+        {
+          "reason": "Actual Chromium canvas assertions passed for the pinned report version",
+          "at": "2026-10-31T10:25:32.627945500Z",
+          "step": "complete",
+          "attempt": 1,
+          "status": "running"
+        },
+        {
+          "reason": "Original image/grid, actual physical traversal and every native chart point verified",
+          "at": "2026-10-31T10:25:32.693769300Z",
+          "step": "completed",
+          "attempt": 1,
+          "status": "completed"
+        }
+      ],
+      "attempt": 1,
+      "resumes": 0,
+      "createdAt": "2026-10-31T10:25:27.492206300Z",
+      "disturbanceNs": 0.35,
+      "mapBinding": {
+        "sha256": "8ff11ed35b897e1b10a0ada50b69481e53e688b01bce22161fde8fe26121c8a2",
+        "id": "0adaa6f3-76c6-4864-9979-775ad91f293f"
+      },
+      "referenceBinding": {
+        "sha256": "5b50a3078ab014b2a894957ba6b8a6f99eefc6de683a2de9e98e60aa2537fc5c",
+        "id": "63c023cf-89b6-4d0e-9c17-9a40ec3feec4"
+      },
+      "mapOptions": {
+        "seed": 2805,
+        "cellSizeM": 1,
+        "width": 12,
+        "pins": [],
+        "friction": 0.6,
+        "height": 12
+      },
+      "report": {
+        "sha256": "bed3dfee8993491df5ffc5e47bd061e861f9e4876fad70be4b9fb66f4bc6fb91",
+        "id": "1004b86b-23c1-366e-8d7a-13a3943d8aa8",
+        "version": 1
+      },
+      "mapId": "0adaa6f3-76c6-4864-9979-775ad91f293f",
+      "step": "completed",
+      "id": "11c97b7f-4bd9-4014-bd24-3a1e4571c576",
+      "runId": "c4892bfb-2355-3488-adaf-d4d49ac7cdc8",
+      "metrics": {
+        "wallContacts": 0,
+        "endpointErrorM": 0.013404115107101827,
+        "maxForceN": 23.999999677023315,
+        "waypointsReached": 19,
+        "effortNs": 66.43465148971883,
+        "physicalAxes": 3,
+        "samples": 217,
+        "blockedSamples": 0,
+        "timeS": 10.816666666666666,
+        "maxSpeedMps": 2.024433374406683,
+        "nativePhysics": true,
+        "routeWaypoints": 19,
+        "teleports": 0,
+        "travelM": 16.995851978142586,
+        "passed": true,
+        "terminalSpeedMps": 0.027252391643844943,
+        "contacts": 201
+      },
+      "savedSkill": {
+        "name": "live-map-world",
+        "id": "2dceaa8a-4679-3b0b-bf7e-0c60472af9ca",
+        "version": 1
+      },
+      "status": "completed",
+      "updatedAt": "2026-10-31T10:25:32.693769300Z"
+    }
+  ],
+  "completedAgentEvents": []
+}

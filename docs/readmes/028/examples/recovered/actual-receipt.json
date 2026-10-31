@@ -1,0 +1,154 @@
+{
+  "checks": [
+    {
+      "actual": {
+        "count": 1,
+        "text": "Native traversal verified",
+        "value": null
+      },
+      "expected": {
+        "expectText": "Native traversal verified",
+        "selector": "#map-result"
+      },
+      "index": 0,
+      "selector": "#map-result",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 1,
+        "text": "218",
+        "value": null
+      },
+      "expected": {
+        "expectText": "218",
+        "selector": "#map-samples"
+      },
+      "index": 1,
+      "selector": "#map-samples",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 1,
+        "text": "Distance to goal · m",
+        "value": null
+      },
+      "expected": {
+        "expectText": "Distance to goal · m",
+        "selector": "#chart-label"
+      },
+      "index": 2,
+      "selector": "#chart-label",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 1,
+        "text": "Next metric",
+        "value": ""
+      },
+      "expected": {
+        "action": "click",
+        "selector": "#chart-mode"
+      },
+      "index": 3,
+      "selector": "#chart-mode",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 1,
+        "text": "Speed · m/s",
+        "value": null
+      },
+      "expected": {
+        "expectText": "Speed · m/s",
+        "selector": "#chart-label"
+      },
+      "index": 4,
+      "selector": "#chart-label",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 1,
+        "text": "Reset chart",
+        "value": ""
+      },
+      "expected": {
+        "action": "click",
+        "selector": "#chart-reset"
+      },
+      "index": 5,
+      "selector": "#chart-reset",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 1,
+        "text": "Distance to goal · m",
+        "value": null
+      },
+      "expected": {
+        "expectText": "Distance to goal · m",
+        "selector": "#chart-label"
+      },
+      "index": 6,
+      "selector": "#chart-label",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 1,
+        "text": "Declared-scale3D rigid-body scene from an explicit2D grid/layer. Blocked tiles are solid barriers, not inferred materials or fluid simulation. Original higher-dimensional data remain separate.",
+        "value": null
+      },
+      "expected": {
+        "expectText": "Declared-scale3D rigid-body scene from an explicit2D grid/layer. Blocked tiles are solid barriers, not inferred materials or fluid simulation. Original higher-dimensional data remain separate.",
+        "selector": "#map-scope"
+      },
+      "index": 7,
+      "selector": "#map-scope",
+      "passed": true
+    }
+  ],
+  "at": "2026-10-31T11:03:29.978381900Z",
+  "id": "4b54d0bb-2c6d-32ab-aeb7-4f21d7d5373f",
+  "passed": true,
+  "version": 1,
+  "steps": [
+    {
+      "expectText": "Native traversal verified",
+      "selector": "#map-result"
+    },
+    {
+      "expectText": "218",
+      "selector": "#map-samples"
+    },
+    {
+      "expectText": "Distance to goal · m",
+      "selector": "#chart-label"
+    },
+    {
+      "action": "click",
+      "selector": "#chart-mode"
+    },
+    {
+      "expectText": "Speed · m/s",
+      "selector": "#chart-label"
+    },
+    {
+      "action": "click",
+      "selector": "#chart-reset"
+    },
+    {
+      "expectText": "Distance to goal · m",
+      "selector": "#chart-label"
+    },
+    {
+      "expectText": "Declared-scale3D rigid-body scene from an explicit2D grid/layer. Blocked tiles are solid barriers, not inferred materials or fluid simulation. Original higher-dimensional data remain separate.",
+      "selector": "#map-scope"
+    }
+  ]
+}

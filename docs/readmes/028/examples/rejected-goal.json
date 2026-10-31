@@ -1,0 +1,57 @@
+{
+  "request": "Generate and physically verify a playable map",
+  "reason": "Execution stopped: Map generation rejected: {\"reason\":\"Unresolved adjacency conflicts; finite8×20000 repair budget exhausted\",\"repairs\":21,\"conflicts\":2,\"passed\":false,\"attempts\":8}. Review and Resume; no failed result is a saved skill.",
+  "procedure": "map-world-v1",
+  "history": [
+    {
+      "reason": "Frozen source and map conditions accepted; actual native motion and report required",
+      "at": "2026-10-31T11:03:17.729783300Z",
+      "step": "map-build",
+      "attempt": 1,
+      "status": "running"
+    },
+    {
+      "reason": "Execution stopped: Map generation rejected: {\"reason\":\"Unresolved adjacency conflicts; finite8×20000 repair budget exhausted\",\"repairs\":21,\"conflicts\":2,\"passed\":false,\"attempts\":8}. Review and Resume; no failed result is a saved skill.",
+      "at": "2026-10-31T11:03:17.859629700Z",
+      "step": "map-build",
+      "attempt": 1,
+      "status": "interrupted"
+    }
+  ],
+  "attempt": 1,
+  "resumes": 0,
+  "createdAt": "2026-10-31T11:03:17.727823100Z",
+  "disturbanceNs": 0.35,
+  "mapBinding": {
+    "sha256": "4a1ba3d26ba1cd4a8b461a7962d713f8925e659f54278f4075ef03ba09ff05c6",
+    "id": "7bc2869d-4e1a-4f97-a389-538891dfedb5"
+  },
+  "referenceBinding": {
+    "sha256": "e72bb0045bbf21b11f4da04374881ef4f0b92d20258f361f16963d6046d4564c",
+    "id": "24e16e42-185e-4d2f-aaef-87ffe215cc60"
+  },
+  "mapOptions": {
+    "seed": 2801,
+    "cellSizeM": 1,
+    "width": 12,
+    "pins": [
+      {
+        "x": 3,
+        "tile": 0,
+        "y": 3
+      },
+      {
+        "x": 4,
+        "tile": 2,
+        "y": 3
+      }
+    ],
+    "friction": 0.6,
+    "height": 12
+  },
+  "mapId": "7bc2869d-4e1a-4f97-a389-538891dfedb5",
+  "step": "map-build",
+  "id": "42629e1a-239b-45ac-b30b-b4867623c4f4",
+  "status": "interrupted",
+  "updatedAt": "2026-10-31T11:03:17.859629700Z"
+}

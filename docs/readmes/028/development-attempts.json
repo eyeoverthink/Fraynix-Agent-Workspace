@@ -1,0 +1,33 @@
+{
+  "date": "2026-10-31",
+  "attempts": [
+    {
+      "result": "production bug corrected",
+      "detail": "A generated UUID object was read as a JSON string. Stored identity now uses its explicit string representation; the initial failed build is retained."
+    },
+    {
+      "result": "production scope/view correction",
+      "detail": "The report scope test used a prefix instead of the full declared contract. Source and report now share the exact scope string; numerical and physical gates unchanged."
+    },
+    {
+      "result": "real-input helper corrections and ownership improvement",
+      "detail": "Hidden advanced controls and offscreen manual buttons cannot receive actual input. Tests now open and scroll the real controls before interaction. Manual commands are run-bound, expire after400ms, and stop marks the old run locally before release."
+    },
+    {
+      "result": "routing correction",
+      "detail": "Ambiguous map-skill wording initially caught an older procedural-map request. Routing now preserves the old027 procedural family and recognises explicit reference/native/playable-map requests."
+    },
+    {
+      "result": "actual model latency, original attempts retained",
+      "detail": "First180s test timeout occurred after successful Java physics and six-chart verification. A600s repeat completed the first chat and physical reuse but timed out before the second final model reply. The external acceptance wait is now1200s; production12-turn budget, two strict native-response retries, physics bounds and verification gates are unchanged."
+    },
+    {
+      "result": "actual compiled-world chat failed, corrected without weakening gates",
+      "detail": "After restart, creation and changed-image reuse passed, but existing-map chat repeatedly omitted the explicitly requested0.2N*s impulse. Host rejected all12 attempts and started no map goal. The existing-map tool schema now exposes only impulse/retention fields, the prompt supplies parsed required semantic options and corrective feedback reports expected versus received. Added a meaningful schema/strict-feedback unit test; all46 units pass. Production turn/physics/verification limits unchanged."
+    },
+    {
+      "result": "legacy observer acceptance-readiness correction",
+      "detail": "The existing camera test sent one keyboard command during the observer polling/refresh busy period and timed out at pose v2. The test now waits for the actual enabled observer controls before sending W, just as pointer controls wait for readiness. Production observer code and exact0.25m movement assertions are unchanged. Original failure retained in development records."
+    }
+  ]
+}
