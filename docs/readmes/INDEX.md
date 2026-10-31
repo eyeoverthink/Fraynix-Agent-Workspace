@@ -33,5 +33,6 @@ Numbered editions preserve dated system behavior and evidence. The root [README]
 | [027](../../README-027.md) | 2026-10-31 | JDK procedural space, verified original-coordinate views, retained skills and responsive evidence | [Viewer](027/index.html) · [evidence](027/verification.json) · [contract](../PROCEDURAL_SPACE.md) |
 | [028](../../README-028.md) | 2026-10-31 | Reference-image rules, actual native playable worlds, original dimensional layers and verified retained skills | [Viewer](028/index.html) · [evidence](028/verification.json) · [contract](../REFERENCE_MAP_WORLDS.md) |
 | [029](../../README-029.md) | 2026-10-31 | Global map contracts, full reserved comparison, actual native outcomes and preserved earlier worlds | [Viewer](029/index.html) · [evidence](029/verification.json) · [contract](../GLOBAL_MAP_TOPOLOGY.md) |
+| [030](../../README-030.md) | 2026-10-31 | Native moving-state recovery, declared materials, measured work and actual local-chat skill reuse | [Viewer](030/index.html) · [evidence](030/verification.json) · [contract](../NATIVE_MAP_RECOVERY.md) |
 
-Latest implementation/documentation edition: **029**. Earlier snapshots remain intact. See [sequence policy](README_SEQUENCE.md) and [manifest](editions.json).
+Latest implementation/documentation edition: **030**. Earlier snapshots remain intact. See [sequence policy](README_SEQUENCE.md) and [manifest](editions.json).

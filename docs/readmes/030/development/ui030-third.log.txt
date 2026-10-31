@@ -1,0 +1,221 @@
+CHECK Actual material controls compile declared Ice into native floor patches; force-limited traversal passes physical gates and all nine measured charts plus visible work/material data are independently verified
+CHECK Signed actuator work, signed drag work and kinetic-energy charts use original per-tick physics measurements; force effort remains a separate N·s quantity
+CHECK Real export produces complete plain JSON run evidence; report gzip package reconstructs the exact original run/hash; real file import independently reconstructs material patches and original source
+CHECK The test terminates only its own actual Java child while the native body is moving; a new process loads the last atomically committed body/controller/trace and requires explicit Resume
+CHECK Visible Resume continues the same goal/run without a new attempt, preserves every committed sample and all velocities, records actual native initialization and retains the skill only after complete resumed verification; the disturbance occurs exactly once
+CHECK The existing Skills interface reuses saved surface declarations on a new generated scene, re-runs native physics and verifies new work/energy charts before retaining success
+CHECK Actual keyboard movement, Pause & save and Resume saved preserve manual native state while clearing held input; no key lease is replayed after recovery
+PROJECT C:\Users\eyeka\AppData\Local\Temp\fraynix-recovery030-aQstGR
+NOTICE Error invoking remote method 'workspace:request': Error: Checkpoint checksum/version mismatch; preserved without respawning
+GOALS [
+  {
+    id: '2f52cd1a-36c0-4eb7-9e82-88f039532f50',
+    status: 'completed',
+    step: 'completed',
+    reason: 'Original image/grid, actual physical traversal and every native chart point verified'
+  },
+  {
+    id: '559a5707-6d84-4485-a265-c255e5fe980a',
+    status: 'completed',
+    step: 'completed',
+    reason: 'Original image/grid, actual physical traversal and every native chart point verified'
+  },
+  {
+    id: '66522504-c12a-4f70-a99b-0e0077a87df9',
+    status: 'completed',
+    step: 'completed',
+    reason: 'Original image/grid, actual physical traversal and every native chart point verified'
+  }
+]
+AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
++ actual - expected
+... Skipped lines
+
+  {
+    payload: {
+      codeSha256: '48fcf6cee408e5daf13ea9714667e54b8a98f34dcb98c67ad4d817817bffe0c3',
+      mapSha256: '097e39aff11f132222d6651f932b803eb4e4dc51debfff1eb8ab6f8f9cafc124',
+      physics: {
+...
+                0,
++               0,
++               0,
+-               -0,
+-               -0,
+                -0.00017030537128448486
+              ],
+              [
+                2,
+                0,
+...
+                0,
++               0,
++               0,
+-               -0,
+-               -0,
+                -0.0003405362367630005
+              ],
+              [
+                3,
+                0,
+...
+                0,
++               0,
++               0,
+-               -0,
+-               -0,
+                -0.0005106627941131592
+              ],
+              [
+                4,
+                0,
+...
+                0,
++               0,
++               0,
+-               -0,
+-               -0,
+                -0.0006806999444961548
+              ],
+              [
+                5,
+                0,
+...
+                0,
++               0,
++               0,
+-               -0,
+-               -0,
+                -0.0008506625890731812
+              ],
+              [
+                6,
+                0,
+...
+                0,
++               0,
++               0,
+-               -0,
+-               -0,
+                -0.0010205209255218506
+              ],
+              [
+                7,
+                0,
+...
+                0,
++               0,
++               0,
+-               -0,
+-               -0,
+                -0.001190289855003357
+              ],
+              [
+                8,
+                0,
+...
+                0,
++               0,
++               0,
+-               -0,
+-               -0,
+                -0.0013599693775177002
+              ],
+              [
+                9,
+                0,
+...
+                0,
++               0,
++               0,
+-               -0,
+-               -0,
+                -0.0015295445919036865
+              ],
+              [
+                10,
+                0,
+...
+                0,
++               0,
++               0,
+-               -0,
+-               -0,
+                -0.0016990453004837036
+              ],
+              [
+                11,
+                0,
+...
+                0,
++               0,
++               0,
+-               -0,
+-               -0,
+                -0.0018684566020965576
+              ],
+              [
+                12,
+                0,
+...
+                0,
++               0,
++               0,
+-               -0,
+-               -0,
+                -0.0020377784967422485
+              ]
+            ],
+            kineticEnergyJ: 0.11959277838468552,
+            material: {
+...
+                0,
++               0,
++               0,
+-               -0,
+-               -0,
+                -0.0022069960832595825
+              ],
+              [
+                14,
+                0,
+...
+                0,
++               0,
++               0,
+-               -0,
+-               -0,
+                -0.0023761391639709473
+              ],
+              [
+                15,
+                0,
+...
+                0,
++               0,
++               0,
+-               -0,
+-               -0,
+                -0.0021583884954452515
+              ],
+              [
+                16,
+                24,
+...
+                0,
++               0,
+-               -0,
+                -6.226637261352863e-11,
+                0
+              ],
+              [
+                17,
+
+    at main (C:\Users\eyeka\Documents\Codex\2026-10-26\is\work\fraynix-agent-workspace\workspace-desktop\test\recovery-materials-integration.cjs:25:454) {
+  generatedMessage: true,
+  code: 'ERR_ASSERTION',
+  actual: [Object],
+  expected: [Object],
+  operator: 'deepStrictEqual',
+  diff: 'simple'
+}

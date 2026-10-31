@@ -1,0 +1,31 @@
+PROJECT C:\Users\eyeka\AppData\Local\Temp\fraynix-recovery030-ivUhUw
+NOTICE Connected. Your Studio baseline and personal state are separate.
+GOALS [
+  {
+    id: '6422be3a-b307-4fda-b390-bb9bbfcb94cc',
+    status: 'completed',
+    step: 'completed',
+    reason: 'Original image/grid, actual physical traversal and every native chart point verified'
+  },
+  {
+    id: '2019b4d0-fb72-4691-8903-0e70309f3bc8',
+    status: 'running',
+    step: 'map-wait',
+    reason: 'Verified native checkpoint restored: same run, velocities, controller and trace; stale manual input cleared'
+  }
+]
+AssertionError [ERR_ASSERTION]: Process ended. Resume explicitly; incomplete native trials restart from frozen conditions.
++ actual - expected
+
++ 'interrupted'
+- 'completed'
+
+    at proof (C:\Users\eyeka\Documents\Codex\2026-10-26\is\work\fraynix-agent-workspace\workspace-desktop\test\recovery-materials-integration.cjs:10:33)
+    at main (C:\Users\eyeka\Documents\Codex\2026-10-26\is\work\fraynix-agent-workspace\workspace-desktop\test\recovery-materials-integration.cjs:21:65) {
+  generatedMessage: false,
+  code: 'ERR_ASSERTION',
+  actual: 'interrupted',
+  expected: 'completed',
+  operator: 'strictEqual',
+  diff: 'simple'
+}

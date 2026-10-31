@@ -2,9 +2,9 @@
 
 **A local visual environment for agents to browse, create runnable artifacts, test behavior and reuse verified skills.**
 
-> **Latest implementation: [README029 — global map contracts and physical outcomes](README-029.md)** · [Offline guide](docs/readmes/029/index.html) · [Runtime contract](docs/GLOBAL_MAP_TOPOLOGY.md) · [Edition history](docs/readmes/INDEX.md)
+> **Latest implementation: [README030 — recoverable native worlds and measured materials](README-030.md)** · [Offline guide](docs/readmes/030/index.html) · [Runtime contract](docs/NATIVE_MAP_RECOVERY.md) · [Edition history](docs/readmes/INDEX.md)
 
-Create inside the existing app: request connected floor space, coverage and route bounds from an original labelled reference. Java retains every candidate/rejection, physically plays accepted worlds and verifies original topology and six native charts before skill retention. The reserved comparison improves observed global acceptance from1/12 to5/12; all five native runs pass and seven requests remain rejected. Original028 maps keep their contracts. [Functions, limits, screenshots and next gates](README-029.md).
+Continue the same moving native map task after process termination, with committed body/controller/trace state. Declare floor materials, inspect actual work and force effort, and reuse a verified procedure through local chat. [Functions, actual screenshots, original evidence and next gates](README-030.md).
 
 The spatial proof and next independent-capture gates are documented in the [spatial contract](docs/SPATIAL_WORLD.md) and the [world-model frontier assessment](docs/WORLD_MODEL_FRONTIERS.md), including Genie, persistent3D capture, physics-aware prediction and the source-qualified local scene/manipulation milestone.
 
@@ -18,9 +18,9 @@ The app includes a real browser, live creation canvas, editable source, versione
 
 Local `gpt-oss:20b` is the verified default for the first agent fixture. The custom FRAYNIX 3B trial returned an Ollama native-format error; advertised tool capability alone does not establish task reliability. You can select other eligible installed models explicitly.
 
-![Actual globally checked physical map in the existing app](docs/readmes/029/images/topology-native-moving-029.png)
+![Actual native checkpoint and material world in the existing app](docs/readmes/030/images/materials-native-moving-030.png)
 
-October 30 actual body/scene/file workflows. Native actuation, decoded video, import/replication, Java/desktop regressions and local-agent evidence are recorded in [edition 015 verification](docs/readmes/015/verification.json). The previous [real-data fit](README-013.md) remains rejected.
+Actual edition030 material world shown above. Earlier October30 body/scene/file workflows remain preserved. Native actuation, decoded video, import/replication, Java/desktop regressions and local-agent evidence are recorded in [edition 015 verification](docs/readmes/015/verification.json). The previous [real-data fit](README-013.md) remains rejected.
 
 ## Verify
 

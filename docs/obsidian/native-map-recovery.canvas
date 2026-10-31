@@ -1,0 +1,167 @@
+{
+  "nodes": [
+    {
+      "id": "request",
+      "type": "text",
+      "text": "Chat / retained skill\nTyped semantic inputs",
+      "x": 0,
+      "y": 0,
+      "width": 270,
+      "height": 130
+    },
+    {
+      "id": "goal",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/GoalRunner.java",
+      "x": 350,
+      "y": 0,
+      "width": 320,
+      "height": 180
+    },
+    {
+      "id": "owner",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/MapStore.java",
+      "x": 750,
+      "y": 0,
+      "width": 320,
+      "height": 180
+    },
+    {
+      "id": "physics",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/MapPhysics.java",
+      "x": 1150,
+      "y": 0,
+      "width": 320,
+      "height": 180
+    },
+    {
+      "id": "materials",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/MapMaterials.java",
+      "x": 1150,
+      "y": 260,
+      "width": 320,
+      "height": 160
+    },
+    {
+      "id": "checkpoint",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/MapCheckpoint.java",
+      "x": 750,
+      "y": 260,
+      "width": 320,
+      "height": 160
+    },
+    {
+      "id": "work",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/MapWork.java",
+      "x": 350,
+      "y": 260,
+      "width": 320,
+      "height": 160
+    },
+    {
+      "id": "view",
+      "type": "file",
+      "file": "README-030.md",
+      "x": 0,
+      "y": 260,
+      "width": 270,
+      "height": 160
+    },
+    {
+      "id": "next",
+      "type": "text",
+      "text": "PLANNED\nNative pushable props\nApproach, push, detect jam, recover\nIndependent final-object checks",
+      "x": 350,
+      "y": 500,
+      "width": 350,
+      "height": 180
+    }
+  ],
+  "edges": [
+    {
+      "id": "edge0",
+      "fromNode": "request",
+      "fromSide": "right",
+      "toNode": "goal",
+      "toSide": "left",
+      "label": "request"
+    },
+    {
+      "id": "edge1",
+      "fromNode": "goal",
+      "fromSide": "right",
+      "toNode": "owner",
+      "toSide": "left",
+      "label": "durable execution"
+    },
+    {
+      "id": "edge2",
+      "fromNode": "owner",
+      "fromSide": "right",
+      "toNode": "physics",
+      "toSide": "left",
+      "label": "single native owner"
+    },
+    {
+      "id": "edge3",
+      "fromNode": "materials",
+      "fromSide": "right",
+      "toNode": "physics",
+      "toSide": "left",
+      "label": "declared properties"
+    },
+    {
+      "id": "edge4",
+      "fromNode": "physics",
+      "fromSide": "right",
+      "toNode": "checkpoint",
+      "toSide": "left",
+      "label": "commit body + trace"
+    },
+    {
+      "id": "edge5",
+      "fromNode": "checkpoint",
+      "fromSide": "right",
+      "toNode": "owner",
+      "toSide": "left",
+      "label": "explicit compatible resume"
+    },
+    {
+      "id": "edge6",
+      "fromNode": "physics",
+      "fromSide": "right",
+      "toNode": "work",
+      "toSide": "left",
+      "label": "actual tick measurements"
+    },
+    {
+      "id": "edge7",
+      "fromNode": "work",
+      "fromSide": "right",
+      "toNode": "view",
+      "toSide": "left",
+      "label": "verified report / skill"
+    },
+    {
+      "id": "edge8",
+      "fromNode": "view",
+      "fromSide": "right",
+      "toNode": "request",
+      "toSide": "left",
+      "label": "reuse"
+    },
+    {
+      "id": "edge9",
+      "fromNode": "view",
+      "fromSide": "right",
+      "toNode": "next",
+      "toSide": "left",
+      "label": "next acceptance"
+    }
+  ]
+}

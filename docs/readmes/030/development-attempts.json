@@ -1,0 +1,63 @@
+{
+  "date": "2026-10-31",
+  "attempts": [
+    {
+      "kind": "canonical checkpoint encoding",
+      "detail": "Initial payload checksum changed after numeric/key serialization. Canonical sorted keys/numbers now survive JSON round trip; tampering remains refused."
+    },
+    {
+      "kind": "native transform precision",
+      "detail": "Native quaternion conversion rounds at single precision. Initialization uses declared1e-6 tolerance; actual continued trajectory errors retained."
+    },
+    {
+      "kind": "invalid fixture admission",
+      "detail": "JSON correctly refuses NaN at construction; fixture now asserts admission failure at that boundary."
+    },
+    {
+      "kind": "historical source contract",
+      "detail": "030 deliberately changes native runtime. Frozen029 source identities and unchanged topology algorithms remain protected; published references are now explicitly seen regressions."
+    },
+    {
+      "kind": "asynchronous Resume assertion",
+      "detail": "First UI test sampled stale interrupted status before Resume completed. Helper now waits for actual recovery count, then the unchanged completion gate."
+    },
+    {
+      "kind": "queued map actions",
+      "detail": "Rapid selection then manual Play exposed a dropped click while async selection was busy. App now queues actions in order."
+    },
+    {
+      "kind": "negative-zero fixture",
+      "detail": "JSON.stringify normalizes negative zero. Corruption test now checks exact edited bytes are unchanged, rather than comparing pre-serialization signed-zero values."
+    },
+    {
+      "kind": "measured restitution",
+      "detail": "Fixed impact timestamp missed the rebound. Probe now observes actual contact before measuring rebound peak; native amplitude gate remains."
+    },
+    {
+      "kind": "legacy UI selector",
+      "detail": "Added material panel made a legacy nested-summary locator ambiguous. Test now selects the actual Hard pins and declared physics label; app behavior and numeric/native gates unchanged."
+    },
+    {
+      "kind": "actual local-model reuse failure",
+      "detail": "First second-chat request exhausted unchanged12turn budget because the model invented retained material overrides. Guard refused all. Bound-skill schema/prompt/default feedback fixed; actual two-chat repeat and new unit pass without larger budgets or weaker physics."
+    }
+  ],
+  "logs": [
+    "native030-first.log.txt",
+    "native030-second.log.txt",
+    "check030-first.log.txt",
+    "ui030-first.log.txt",
+    "ui030-second.log.txt",
+    "ui030-third.log.txt",
+    "ui030-fourth.log.txt",
+    "ui030-final.log.txt",
+    "native030-final-targeted.log.txt",
+    "native030-bounce-corrected.log.txt",
+    "native030-source-final.log.txt",
+    "live030-first.log.txt",
+    "live030-second.log.txt",
+    "independent030-first-failure.log.txt"
+  ],
+  "firstChatFailure": "development/first-chat-reuse-failure.png",
+  "scope": "Development failures retained, not counted as successful first attempts."
+}

@@ -1,0 +1,311 @@
+{
+  "date": "2026-10-31",
+  "sourceBaseline": "033a2543f51d56b247e33c1e9cc1d2f206562135",
+  "sourceInventory": 600,
+  "sourceMatch": {
+    "passed": true,
+    "canonicalSourceHashesMatched": 600,
+    "sourceBaseline": "033a2543f51d56b247e33c1e9cc1d2f206562135",
+    "independentHead": "033a2543f51d56b247e33c1e9cc1d2f206562135"
+  },
+  "nativeImplementationSha256": "d87b14f970dabb18624be9a458c5fd3266dd15cb51fe01f570f86fab50360c33",
+  "freshClone": {
+    "status": "passed",
+    "checkout": "fraynix-workspace-qa030-release",
+    "sourceCommit": "033a2543f51d56b247e33c1e9cc1d2f206562135",
+    "javaTests": 272,
+    "desktopUnitTests": 51,
+    "bodyUiChecks": 10,
+    "brainGameUiChecks": 10,
+    "feedbackUiChecks": 12,
+    "worldModelUiChecks": 15,
+    "goalUiChecks": 14,
+    "dataGoalUiChecks": 12,
+    "offlineBuild": true,
+    "modelWeightsOrPrivateRuntimeCopied": false,
+    "electronBinary": "Pinned 45.1.0 executable reused from existing dependency cache after npm ci --offline --ignore-scripts",
+    "recoveryMaterialsChecks": 9,
+    "trackingUiChecks": 9,
+    "trackingControlsChecks": 6,
+    "perceptionUiChecks": 15,
+    "spatialUiChecks": 14,
+    "migrationUiChecks": 3,
+    "creationUiChecks": 8,
+    "workflowUiChecks": 8,
+    "proceduralUiChecks": 9,
+    "responsiveUiChecks": 4,
+    "mapsUiChecks": 9,
+    "topologyUiChecks": 10,
+    "uiChecks": 177,
+    "javaClasses": 51
+  },
+  "documentationQa": {
+    "status": "passed",
+    "checks": [
+      "Offline guide loads nine actual-source modules and source-linked checkpoint details",
+      "All/verified/planned filters preserve the eight implemented modules and one planned extension",
+      "Canonical source search finds the actual Java file; all twelve dated real captures decode with captions and original-file links",
+      "Navigation, source search and architecture selection work at390px without body overflow",
+      "Standalone report renders original PNG/cells and every point in all nine native chart series, including signed work and kinetic energy, with real reset behavior",
+      "Visible work/material/checkpoint data exactly match original Java evidence",
+      "Adjacent world, CSV, chart-summary and complete lossless native packages exist; decompression reproduces exact original Java bytes and hash",
+      "Original-data native report remains readable at390px without page overflow",
+      "Guide and report have no script errors, external requests, CDN or running engine dependency"
+    ]
+  },
+  "actualUi": {
+    "checks": 9,
+    "checkpointTick": 840,
+    "recovery": {
+      "maxVelocityError": 0,
+      "maxQuaternionError": 1.0447617446735907e-08,
+      "contactCache": "Rebuilt by Bullet; subsequent trajectory is not promised bitwise identical",
+      "passed": true,
+      "maxPositionErrorM": 0,
+      "resumes": 1
+    },
+    "chartViews": [
+      {
+        "frames": 9,
+        "maxError": 3.029296874501597e-05,
+        "observedPoints": 1953,
+        "passed": true,
+        "workVerified": true
+      },
+      {
+        "frames": 9,
+        "maxError": 3.029296874501597e-05,
+        "observedPoints": 1953,
+        "passed": true,
+        "workVerified": true
+      },
+      {
+        "frames": 9,
+        "maxError": 3.039062505649781e-05,
+        "observedPoints": 1926,
+        "passed": true,
+        "workVerified": true
+      }
+    ]
+  },
+  "actualLocalModel": {
+    "model": "gpt-oss:20b",
+    "checks": 4,
+    "episodes": 2,
+    "goals": [
+      {
+        "wallContacts": 0,
+        "endpointErrorM": 0.00720986928831354,
+        "maxForceN": 24.00000050913498,
+        "waypointsReached": 19,
+        "effortNs": 49.04026784897821,
+        "work": {
+          "brakingWorkJ": 24.572616620626746,
+          "convention": "Discrete force dot measured step displacement, J; effort is force magnitude times dt, N·s. Contact/damping residual is unresolved work, not proof of energy conservation.",
+          "effortNs": 49.04026784897821,
+          "positiveWorkJ": 42.17537427052609,
+          "actuatorWorkJ": 17.602757649899388,
+          "dragWorkJ": -0.6179113217814658,
+          "passed": true,
+          "integrationTicks": 2593,
+          "impulseWorkJ": 0.06042051315307617,
+          "kineticEnergyJ": 0.00011848457103595138,
+          "gravityWorkJ": 0.19620025143026995,
+          "unresolvedContactDampingWorkJ": -17.24134860813023
+        },
+        "topology": {
+          "requested": true,
+          "failures": [],
+          "profile": "connected-grid-v1",
+          "passed": true,
+          "metrics": {
+            "components": 1,
+            "adjacencyViolations": 0,
+            "reachableCells": 76,
+            "floorCells": 76,
+            "floorFraction": 0.5277777777777778,
+            "edges": 101,
+            "shortestSteps": 18,
+            "pinViolations": 0,
+            "routeValid": true,
+            "cycleRank": 26,
+            "deadEnds": 6
+          }
+        },
+        "recovery": {
+          "maxVelocityError": 0,
+          "maxQuaternionError": 0,
+          "contactCache": "Rebuilt by Bullet; subsequent trajectory is not promised bitwise identical",
+          "passed": true,
+          "maxPositionErrorM": 0,
+          "resumes": 0
+        },
+        "physicalAxes": 3,
+        "samples": 217,
+        "blockedSamples": 0,
+        "timeS": 10.804166666666667,
+        "maxSpeedMps": 2.0986991788531575,
+        "nativePhysics": true,
+        "routeWaypoints": 19,
+        "teleports": 0,
+        "travelM": 17.493084032600887,
+        "passed": true,
+        "terminalSpeedMps": 0.013007573733302025,
+        "contacts": 199
+      },
+      {
+        "wallContacts": 0,
+        "endpointErrorM": 0.010391713282735141,
+        "maxForceN": 23.704285227746954,
+        "waypointsReached": 19,
+        "effortNs": 53.604821153640515,
+        "work": {
+          "brakingWorkJ": 24.866164170116654,
+          "convention": "Discrete force dot measured step displacement, J; effort is force magnitude times dt, N·s. Contact/damping residual is unresolved work, not proof of energy conservation.",
+          "effortNs": 53.604821153640515,
+          "positiveWorkJ": 41.490255187713935,
+          "actuatorWorkJ": 16.62409101759727,
+          "dragWorkJ": -0.5917290026202963,
+          "passed": true,
+          "integrationTicks": 2546,
+          "impulseWorkJ": -0.0059545040130615234,
+          "kineticEnergyJ": 2.9045974513865075e-05,
+          "gravityWorkJ": 0.19620054379105278,
+          "unresolvedContactDampingWorkJ": -16.22257900878045
+        },
+        "topology": {
+          "requested": true,
+          "failures": [],
+          "profile": "connected-grid-v1",
+          "passed": true,
+          "metrics": {
+            "components": 1,
+            "adjacencyViolations": 0,
+            "reachableCells": 74,
+            "floorCells": 74,
+            "floorFraction": 0.5138888888888888,
+            "edges": 102,
+            "shortestSteps": 18,
+            "pinViolations": 0,
+            "routeValid": true,
+            "cycleRank": 29,
+            "deadEnds": 4
+          }
+        },
+        "recovery": {
+          "maxVelocityError": 0,
+          "maxQuaternionError": 0,
+          "contactCache": "Rebuilt by Bullet; subsequent trajectory is not promised bitwise identical",
+          "passed": true,
+          "maxPositionErrorM": 0,
+          "resumes": 0
+        },
+        "physicalAxes": 3,
+        "samples": 213,
+        "blockedSamples": 0,
+        "timeS": 10.608333333333333,
+        "maxSpeedMps": 2.0991712186869895,
+        "nativePhysics": true,
+        "routeWaypoints": 19,
+        "teleports": 0,
+        "travelM": 16.9371548331528,
+        "passed": true,
+        "terminalSpeedMps": 0.006441598079411122,
+        "contacts": 193
+      }
+    ]
+  },
+  "nativeDevelopmentComparisons": [
+    {
+      "case": 1,
+      "material": {
+        "restitution": 0,
+        "tile": 1,
+        "name": "Declared test surface",
+        "dragNsPerM": 0.02,
+        "friction": 0.06
+      },
+      "nativePassed": true,
+      "timeS": 10.783333333333333,
+      "endpointErrorM": 0.010166168391816386,
+      "work": {
+        "brakingWorkJ": 25.22846864148352,
+        "convention": "Discrete force dot measured step displacement, J; effort is force magnitude times dt, N·s. Contact/damping residual is unresolved work, not proof of energy conservation.",
+        "effortNs": 49.230681173138976,
+        "positiveWorkJ": 42.16620224829609,
+        "actuatorWorkJ": 16.937733606812554,
+        "dragWorkJ": -0.6198525570878737,
+        "passed": true,
+        "integrationTicks": 2588,
+        "impulseWorkJ": 0.792893648147583,
+        "kineticEnergyJ": 2.586727744957898e-05,
+        "gravityWorkJ": 0.19620039761066202,
+        "unresolvedContactDampingWorkJ": -17.306949228205475
+      },
+      "run": "examples/surface-1/full-run.json"
+    },
+    {
+      "case": 2,
+      "material": {
+        "restitution": 0,
+        "tile": 1,
+        "name": "Declared test surface",
+        "dragNsPerM": 0.25,
+        "friction": 0.85
+      },
+      "nativePassed": true,
+      "timeS": 11.129166666666666,
+      "endpointErrorM": 0.010813715439202487,
+      "work": {
+        "brakingWorkJ": 24.344991333122454,
+        "convention": "Discrete force dot measured step displacement, J; effort is force magnitude times dt, N·s. Contact/damping residual is unresolved work, not proof of energy conservation.",
+        "effortNs": 59.92443268252736,
+        "positiveWorkJ": 56.13420518214678,
+        "actuatorWorkJ": 31.789213849024392,
+        "dragWorkJ": -7.436862596986308,
+        "passed": true,
+        "integrationTicks": 2671,
+        "impulseWorkJ": 0.7366430759429932,
+        "kineticEnergyJ": 0.00018602319958154113,
+        "gravityWorkJ": 0.19620010524987921,
+        "unresolvedContactDampingWorkJ": -25.285008410031374
+      },
+      "run": "examples/surface-2/full-run.json"
+    },
+    {
+      "case": 3,
+      "material": {
+        "restitution": 0,
+        "tile": 1,
+        "name": "Declared test surface",
+        "dragNsPerM": 6,
+        "friction": 1.1
+      },
+      "nativePassed": true,
+      "timeS": 16.1875,
+      "endpointErrorM": 0.022712235187352995,
+      "work": {
+        "brakingWorkJ": 0,
+        "convention": "Discrete force dot measured step displacement, J; effort is force magnitude times dt, N·s. Contact/damping residual is unresolved work, not proof of energy conservation.",
+        "effortNs": 121.13998505615348,
+        "positiveWorkJ": 141.08006790495713,
+        "actuatorWorkJ": 141.08006790495713,
+        "dragWorkJ": -123.91233038565007,
+        "passed": true,
+        "integrationTicks": 3885,
+        "impulseWorkJ": 0.5487759709358215,
+        "kineticEnergyJ": 0.004208826516568661,
+        "gravityWorkJ": 0.19620025143026892,
+        "unresolvedContactDampingWorkJ": -17.9085049151566
+      },
+      "run": "examples/surface-3/full-run.json"
+    }
+  ],
+  "scope": [
+    "Actual synthetic/declared-scale native map physics and process-kill recovery",
+    "Same run and committed prefix, actual initialization and one disturbance",
+    "Three seen surface development cases and published029 regression set",
+    "No bitwise contact cache serialization, measured material inference, extra physical dimensions, automatic policy promotion or Ollama-weight training",
+    "Existing private projects/model services and frozen001–029/013/024 evidence preserved"
+  ]
+}

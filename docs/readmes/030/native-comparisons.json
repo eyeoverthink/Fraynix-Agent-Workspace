@@ -1,0 +1,28 @@
+{
+  "sourceTest": "workspace-engine/src/test/java/fraymus/workspace/MapRecoveryMaterialsTest.java",
+  "codeSha256": "d87b14f970dabb18624be9a458c5fd3266dd15cb51fe01f570f86fab50360c33",
+  "parameters": {
+    "seed": 2801,
+    "friction": 0.85,
+    "dragNsPerM": 0.25,
+    "checkpointTick": 600,
+    "continuedTicks": 600,
+    "dtS": 0.004166666666666667
+  },
+  "restoration": {
+    "workDifferenceJ": -2.1442880978383982e-05,
+    "velocityErrorMps": 5.364432793330597e-06,
+    "positionErrorM": 2.3324006561187697e-07
+  },
+  "reboundPeakM": {
+    "restitution0": 0.1799999624490738,
+    "restitution085": 0.5736170411109924
+  },
+  "gates": {
+    "positionErrorM": 0.005,
+    "velocityErrorMps": 0.01,
+    "workRelativePositive": 0.01,
+    "quaternionInitializationError": 1e-06
+  },
+  "scope": "Fixed development tests, actual native body and contacts. Contact cache rebuilt. No held-out policy claim."
+}

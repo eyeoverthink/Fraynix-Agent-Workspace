@@ -1,0 +1,2935 @@
+{
+  "createdAt": "2026-10-31T14:05:19.564714700Z",
+  "sha256": "7871ac06fea544ad74c580a5ac6ba105a3559f3cb46896c2fe3b158be1dcb7cc",
+  "definition": {
+    "generation": {
+      "reason": "Adjacency, hard pins and route verified",
+      "repairs": 3,
+      "conflicts": 0,
+      "passed": true,
+      "attempts": 1
+    },
+    "seed": 2801,
+    "walkable": [
+      false,
+      true,
+      false
+    ],
+    "objects": [
+      {
+        "sourceId": "floor-0",
+        "size": [
+          12,
+          0.3,
+          1
+        ],
+        "restitution": 0,
+        "material": {
+          "restitution": 0,
+          "tile": 0,
+          "name": "Default surface",
+          "dragNsPerM": 0,
+          "friction": 0.6
+        },
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "tile": 0,
+        "id": "floor-0",
+        "label": "floor-0",
+        "position": [
+          0,
+          -0.15,
+          -5.5
+        ],
+        "massKg": 0,
+        "friction": 0.6
+      },
+      {
+        "sourceId": "floor-12",
+        "size": [
+          1,
+          0.3,
+          11
+        ],
+        "restitution": 0,
+        "material": {
+          "restitution": 0,
+          "tile": 0,
+          "name": "Default surface",
+          "dragNsPerM": 0,
+          "friction": 0.6
+        },
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "tile": 0,
+        "id": "floor-12",
+        "label": "floor-12",
+        "position": [
+          -5.5,
+          -0.15,
+          0.5
+        ],
+        "massKg": 0,
+        "friction": 0.6
+      },
+      {
+        "sourceId": "floor-13",
+        "size": [
+          6,
+          0.3,
+          1
+        ],
+        "restitution": 0,
+        "material": {
+          "restitution": 0,
+          "tile": 1,
+          "name": "Declared test surface",
+          "dragNsPerM": 0.25,
+          "friction": 0.85
+        },
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "tile": 1,
+        "id": "floor-13",
+        "label": "floor-13",
+        "position": [
+          -2,
+          -0.15,
+          -4.5
+        ],
+        "massKg": 0,
+        "friction": 0.85
+      },
+      {
+        "sourceId": "floor-19",
+        "size": [
+          2,
+          0.3,
+          1
+        ],
+        "restitution": 0,
+        "material": {
+          "restitution": 0,
+          "tile": 0,
+          "name": "Default surface",
+          "dragNsPerM": 0,
+          "friction": 0.6
+        },
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "tile": 0,
+        "id": "floor-19",
+        "label": "floor-19",
+        "position": [
+          2,
+          -0.15,
+          -4.5
+        ],
+        "massKg": 0,
+        "friction": 0.6
+      },
+      {
+        "sourceId": "floor-21",
+        "size": [
+          2,
+          0.3,
+          5
+        ],
+        "restitution": 0,
+        "material": {
+          "restitution": 0,
+          "tile": 1,
+          "name": "Declared test surface",
+          "dragNsPerM": 0.25,
+          "friction": 0.85
+        },
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "tile": 1,
+        "id": "floor-21",
+        "label": "floor-21",
+        "position": [
+          4,
+          -0.15,
+          -2.5
+        ],
+        "massKg": 0,
+        "friction": 0.85
+      },
+      {
+        "sourceId": "floor-23",
+        "size": [
+          1,
+          0.3,
+          11
+        ],
+        "restitution": 0,
+        "material": {
+          "restitution": 0,
+          "tile": 0,
+          "name": "Default surface",
+          "dragNsPerM": 0,
+          "friction": 0.6
+        },
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "tile": 0,
+        "id": "floor-23",
+        "label": "floor-23",
+        "position": [
+          5.5,
+          -0.15,
+          0.5
+        ],
+        "massKg": 0,
+        "friction": 0.6
+      },
+      {
+        "sourceId": "floor-25",
+        "size": [
+          1,
+          0.3,
+          3
+        ],
+        "restitution": 0,
+        "material": {
+          "restitution": 0,
+          "tile": 1,
+          "name": "Declared test surface",
+          "dragNsPerM": 0.25,
+          "friction": 0.85
+        },
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "tile": 1,
+        "id": "floor-25",
+        "label": "floor-25",
+        "position": [
+          -4.5,
+          -0.15,
+          -2.5
+        ],
+        "massKg": 0,
+        "friction": 0.85
+      },
+      {
+        "sourceId": "floor-26",
+        "size": [
+          1,
+          0.3,
+          1
+        ],
+        "restitution": 0,
+        "material": {
+          "restitution": 0,
+          "tile": 0,
+          "name": "Default surface",
+          "dragNsPerM": 0,
+          "friction": 0.6
+        },
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "tile": 0,
+        "id": "floor-26",
+        "label": "floor-26",
+        "position": [
+          -3.5,
+          -0.15,
+          -3.5
+        ],
+        "massKg": 0,
+        "friction": 0.6
+      },
+      {
+        "sourceId": "floor-27",
+        "size": [
+          3,
+          0.3,
+          1
+        ],
+        "restitution": 0,
+        "material": {
+          "restitution": 0,
+          "tile": 1,
+          "name": "Declared test surface",
+          "dragNsPerM": 0.25,
+          "friction": 0.85
+        },
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "tile": 1,
+        "id": "floor-27",
+        "label": "floor-27",
+        "position": [
+          -1.5,
+          -0.15,
+          -3.5
+        ],
+        "massKg": 0,
+        "friction": 0.85
+      },
+      {
+        "sourceId": "floor-30",
+        "size": [
+          1,
+          0.3,
+          1
+        ],
+        "restitution": 0,
+        "material": {
+          "restitution": 0,
+          "tile": 0,
+          "name": "Default surface",
+          "dragNsPerM": 0,
+          "friction": 0.6
+        },
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "tile": 0,
+        "id": "floor-30",
+        "label": "floor-30",
+        "position": [
+          0.5,
+          -0.15,
+          -3.5
+        ],
+        "massKg": 0,
+        "friction": 0.6
+      },
+      {
+        "sourceId": "floor-31",
+        "size": [
+          1,
+          0.3,
+          2
+        ],
+        "restitution": 0,
+        "material": {
+          "restitution": 0,
+          "tile": 1,
+          "name": "Declared test surface",
+          "dragNsPerM": 0.25,
+          "friction": 0.85
+        },
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "tile": 1,
+        "id": "floor-31",
+        "label": "floor-31",
+        "position": [
+          1.5,
+          -0.15,
+          -3
+        ],
+        "massKg": 0,
+        "friction": 0.85
+      },
+      {
+        "sourceId": "floor-32",
+        "size": [
+          1,
+          0.3,
+          4
+        ],
+        "restitution": 0,
+        "material": {
+          "restitution": 0,
+          "tile": 0,
+          "name": "Default surface",
+          "dragNsPerM": 0,
+          "friction": 0.6
+        },
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "tile": 0,
+        "id": "floor-32",
+        "label": "floor-32",
+        "position": [
+          2.5,
+          -0.15,
+          -2
+        ],
+        "massKg": 0,
+        "friction": 0.6
+      },
+      {
+        "sourceId": "floor-38",
+        "size": [
+          2,
+          0.3,
+          1
+        ],
+        "restitution": 0,
+        "material": {
+          "restitution": 0,
+          "tile": 1,
+          "name": "Declared test surface",
+          "dragNsPerM": 0.25,
+          "friction": 0.85
+        },
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "tile": 1,
+        "id": "floor-38",
+        "label": "floor-38",
+        "position": [
+          -3,
+          -0.15,
+          -2.5
+        ],
+        "massKg": 0,
+        "friction": 0.85
+      },
+      {
+        "sourceId": "floor-40",
+        "size": [
+          1,
+          0.3,
+          1
+        ],
+        "restitution": 0,
+        "material": {
+          "restitution": 0,
+          "tile": 0,
+          "name": "Default surface",
+          "dragNsPerM": 0,
+          "friction": 0.6
+        },
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "tile": 0,
+        "id": "floor-40",
+        "label": "floor-40",
+        "position": [
+          -1.5,
+          -0.15,
+          -2.5
+        ],
+        "massKg": 0,
+        "friction": 0.6
+      },
+      {
+        "sourceId": "floor-41",
+        "size": [
+          2,
+          0.3,
+          1
+        ],
+        "restitution": 0,
+        "material": {
+          "restitution": 0,
+          "tile": 1,
+          "name": "Declared test surface",
+          "dragNsPerM": 0.25,
+          "friction": 0.85
+        },
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "tile": 1,
+        "id": "floor-41",
+        "label": "floor-41",
+        "position": [
+          0,
+          -0.15,
+          -2.5
+        ],
+        "massKg": 0,
+        "friction": 0.85
+      },
+      {
+        "sourceId": "floor-50",
+        "size": [
+          1,
+          0.3,
+          1
+        ],
+        "restitution": 0,
+        "material": {
+          "restitution": 0,
+          "tile": 2,
+          "name": "Default surface",
+          "dragNsPerM": 0,
+          "friction": 0.6
+        },
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "tile": 2,
+        "id": "floor-50",
+        "label": "floor-50",
+        "position": [
+          -3.5,
+          -0.15,
+          -1.5
+        ],
+        "massKg": 0,
+        "friction": 0.6
+      },
+      {
+        "sourceId": "floor-51",
+        "size": [
+          3,
+          0.3,
+          1
+        ],
+        "restitution": 0,
+        "material": {
+          "restitution": 0,
+          "tile": 1,
+          "name": "Declared test surface",
+          "dragNsPerM": 0.25,
+          "friction": 0.85
+        },
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "tile": 1,
+        "id": "floor-51",
+        "label": "floor-51",
+        "position": [
+          -1.5,
+          -0.15,
+          -1.5
+        ],
+        "massKg": 0,
+        "friction": 0.85
+      },
+      {
+        "sourceId": "floor-54",
+        "size": [
+          2,
+          0.3,
+          1
+        ],
+        "restitution": 0,
+        "material": {
+          "restitution": 0,
+          "tile": 0,
+          "name": "Default surface",
+          "dragNsPerM": 0,
+          "friction": 0.6
+        },
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "tile": 0,
+        "id": "floor-54",
+        "label": "floor-54",
+        "position": [
+          1,
+          -0.15,
+          -1.5
+        ],
+        "massKg": 0,
+        "friction": 0.6
+      },
+      {
+        "sourceId": "floor-61",
+        "size": [
+          1,
+          0.3,
+          1
+        ],
+        "restitution": 0,
+        "material": {
+          "restitution": 0,
+          "tile": 0,
+          "name": "Default surface",
+          "dragNsPerM": 0,
+          "friction": 0.6
+        },
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "tile": 0,
+        "id": "floor-61",
+        "label": "floor-61",
+        "position": [
+          -4.5,
+          -0.15,
+          -0.5
+        ],
+        "massKg": 0,
+        "friction": 0.6
+      },
+      {
+        "sourceId": "floor-62",
+        "size": [
+          2,
+          0.3,
+          2
+        ],
+        "restitution": 0,
+        "material": {
+          "restitution": 0,
+          "tile": 1,
+          "name": "Declared test surface",
+          "dragNsPerM": 0.25,
+          "friction": 0.85
+        },
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "tile": 1,
+        "id": "floor-62",
+        "label": "floor-62",
+        "position": [
+          -3,
+          -0.15,
+          0
+        ],
+        "massKg": 0,
+        "friction": 0.85
+      },
+      {
+        "sourceId": "floor-64",
+        "size": [
+          1,
+          0.3,
+          1
+        ],
+        "restitution": 0,
+        "material": {
+          "restitution": 0,
+          "tile": 0,
+          "name": "Default surface",
+          "dragNsPerM": 0,
+          "friction": 0.6
+        },
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "tile": 0,
+        "id": "floor-64",
+        "label": "floor-64",
+        "position": [
+          -1.5,
+          -0.15,
+          -0.5
+        ],
+        "massKg": 0,
+        "friction": 0.6
+      },
+      {
+        "sourceId": "floor-65",
+        "size": [
+          1,
+          0.3,
+          3
+        ],
+        "restitution": 0,
+        "material": {
+          "restitution": 0,
+          "tile": 1,
+          "name": "Declared test surface",
+          "dragNsPerM": 0.25,
+          "friction": 0.85
+        },
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "tile": 1,
+        "id": "floor-65",
+        "label": "floor-65",
+        "position": [
+          -0.5,
+          -0.15,
+          0.5
+        ],
+        "massKg": 0,
+        "friction": 0.85
+      },
+      {
+        "sourceId": "floor-66",
+        "size": [
+          1,
+          0.3,
+          1
+        ],
+        "restitution": 0,
+        "material": {
+          "restitution": 0,
+          "tile": 0,
+          "name": "Default surface",
+          "dragNsPerM": 0,
+          "friction": 0.6
+        },
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "tile": 0,
+        "id": "floor-66",
+        "label": "floor-66",
+        "position": [
+          0.5,
+          -0.15,
+          -0.5
+        ],
+        "massKg": 0,
+        "friction": 0.6
+      },
+      {
+        "sourceId": "floor-67",
+        "size": [
+          1,
+          0.3,
+          1
+        ],
+        "restitution": 0,
+        "material": {
+          "restitution": 0,
+          "tile": 1,
+          "name": "Declared test surface",
+          "dragNsPerM": 0.25,
+          "friction": 0.85
+        },
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "tile": 1,
+        "id": "floor-67",
+        "label": "floor-67",
+        "position": [
+          1.5,
+          -0.15,
+          -0.5
+        ],
+        "massKg": 0,
+        "friction": 0.85
+      },
+      {
+        "sourceId": "floor-73",
+        "size": [
+          1,
+          0.3,
+          5
+        ],
+        "restitution": 0,
+        "material": {
+          "restitution": 0,
+          "tile": 1,
+          "name": "Declared test surface",
+          "dragNsPerM": 0.25,
+          "friction": 0.85
+        },
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "tile": 1,
+        "id": "floor-73",
+        "label": "floor-73",
+        "position": [
+          -4.5,
+          -0.15,
+          2.5
+        ],
+        "massKg": 0,
+        "friction": 0.85
+      },
+      {
+        "sourceId": "floor-76",
+        "size": [
+          1,
+          0.3,
+          3
+        ],
+        "restitution": 0,
+        "material": {
+          "restitution": 0,
+          "tile": 1,
+          "name": "Declared test surface",
+          "dragNsPerM": 0.25,
+          "friction": 0.85
+        },
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "tile": 1,
+        "id": "floor-76",
+        "label": "floor-76",
+        "position": [
+          -1.5,
+          -0.15,
+          1.5
+        ],
+        "massKg": 0,
+        "friction": 0.85
+      },
+      {
+        "sourceId": "floor-78",
+        "size": [
+          1,
+          0.3,
+          5
+        ],
+        "restitution": 0,
+        "material": {
+          "restitution": 0,
+          "tile": 1,
+          "name": "Declared test surface",
+          "dragNsPerM": 0.25,
+          "friction": 0.85
+        },
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "tile": 1,
+        "id": "floor-78",
+        "label": "floor-78",
+        "position": [
+          0.5,
+          -0.15,
+          2.5
+        ],
+        "massKg": 0,
+        "friction": 0.85
+      },
+      {
+        "sourceId": "floor-79",
+        "size": [
+          1,
+          0.3,
+          1
+        ],
+        "restitution": 0,
+        "material": {
+          "restitution": 0,
+          "tile": 0,
+          "name": "Default surface",
+          "dragNsPerM": 0,
+          "friction": 0.6
+        },
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "tile": 0,
+        "id": "floor-79",
+        "label": "floor-79",
+        "position": [
+          1.5,
+          -0.15,
+          0.5
+        ],
+        "massKg": 0,
+        "friction": 0.6
+      },
+      {
+        "sourceId": "floor-80",
+        "size": [
+          2,
+          0.3,
+          1
+        ],
+        "restitution": 0,
+        "material": {
+          "restitution": 0,
+          "tile": 1,
+          "name": "Declared test surface",
+          "dragNsPerM": 0.25,
+          "friction": 0.85
+        },
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "tile": 1,
+        "id": "floor-80",
+        "label": "floor-80",
+        "position": [
+          3,
+          -0.15,
+          0.5
+        ],
+        "massKg": 0,
+        "friction": 0.85
+      },
+      {
+        "sourceId": "floor-82",
+        "size": [
+          1,
+          0.3,
+          1
+        ],
+        "restitution": 0,
+        "material": {
+          "restitution": 0,
+          "tile": 0,
+          "name": "Default surface",
+          "dragNsPerM": 0,
+          "friction": 0.6
+        },
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "tile": 0,
+        "id": "floor-82",
+        "label": "floor-82",
+        "position": [
+          4.5,
+          -0.15,
+          0.5
+        ],
+        "massKg": 0,
+        "friction": 0.6
+      },
+      {
+        "sourceId": "floor-86",
+        "size": [
+          1,
+          0.3,
+          2
+        ],
+        "restitution": 0,
+        "material": {
+          "restitution": 0,
+          "tile": 1,
+          "name": "Declared test surface",
+          "dragNsPerM": 0.25,
+          "friction": 0.85
+        },
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "tile": 1,
+        "id": "floor-86",
+        "label": "floor-86",
+        "position": [
+          -3.5,
+          -0.15,
+          2
+        ],
+        "massKg": 0,
+        "friction": 0.85
+      },
+      {
+        "sourceId": "floor-87",
+        "size": [
+          1,
+          0.3,
+          1
+        ],
+        "restitution": 0,
+        "material": {
+          "restitution": 0,
+          "tile": 2,
+          "name": "Default surface",
+          "dragNsPerM": 0,
+          "friction": 0.6
+        },
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "tile": 2,
+        "id": "floor-87",
+        "label": "floor-87",
+        "position": [
+          -2.5,
+          -0.15,
+          1.5
+        ],
+        "massKg": 0,
+        "friction": 0.6
+      },
+      {
+        "sourceId": "floor-91",
+        "size": [
+          2,
+          0.3,
+          1
+        ],
+        "restitution": 0,
+        "material": {
+          "restitution": 0,
+          "tile": 1,
+          "name": "Declared test surface",
+          "dragNsPerM": 0.25,
+          "friction": 0.85
+        },
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "tile": 1,
+        "id": "floor-91",
+        "label": "floor-91",
+        "position": [
+          2,
+          -0.15,
+          1.5
+        ],
+        "massKg": 0,
+        "friction": 0.85
+      },
+      {
+        "sourceId": "floor-93",
+        "size": [
+          1,
+          0.3,
+          1
+        ],
+        "restitution": 0,
+        "material": {
+          "restitution": 0,
+          "tile": 0,
+          "name": "Default surface",
+          "dragNsPerM": 0,
+          "friction": 0.6
+        },
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "tile": 0,
+        "id": "floor-93",
+        "label": "floor-93",
+        "position": [
+          3.5,
+          -0.15,
+          1.5
+        ],
+        "massKg": 0,
+        "friction": 0.6
+      },
+      {
+        "sourceId": "floor-94",
+        "size": [
+          1,
+          0.3,
+          4
+        ],
+        "restitution": 0,
+        "material": {
+          "restitution": 0,
+          "tile": 1,
+          "name": "Declared test surface",
+          "dragNsPerM": 0.25,
+          "friction": 0.85
+        },
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "tile": 1,
+        "id": "floor-94",
+        "label": "floor-94",
+        "position": [
+          4.5,
+          -0.15,
+          3
+        ],
+        "massKg": 0,
+        "friction": 0.85
+      },
+      {
+        "sourceId": "floor-99",
+        "size": [
+          1,
+          0.3,
+          3
+        ],
+        "restitution": 0,
+        "material": {
+          "restitution": 0,
+          "tile": 1,
+          "name": "Declared test surface",
+          "dragNsPerM": 0.25,
+          "friction": 0.85
+        },
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "tile": 1,
+        "id": "floor-99",
+        "label": "floor-99",
+        "position": [
+          -2.5,
+          -0.15,
+          3.5
+        ],
+        "massKg": 0,
+        "friction": 0.85
+      },
+      {
+        "sourceId": "floor-101",
+        "size": [
+          1,
+          0.3,
+          2
+        ],
+        "restitution": 0,
+        "material": {
+          "restitution": 0,
+          "tile": 0,
+          "name": "Default surface",
+          "dragNsPerM": 0,
+          "friction": 0.6
+        },
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "tile": 0,
+        "id": "floor-101",
+        "label": "floor-101",
+        "position": [
+          -0.5,
+          -0.15,
+          3
+        ],
+        "massKg": 0,
+        "friction": 0.6
+      },
+      {
+        "sourceId": "floor-103",
+        "size": [
+          1,
+          0.3,
+          1
+        ],
+        "restitution": 0,
+        "material": {
+          "restitution": 0,
+          "tile": 1,
+          "name": "Declared test surface",
+          "dragNsPerM": 0.25,
+          "friction": 0.85
+        },
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "tile": 1,
+        "id": "floor-103",
+        "label": "floor-103",
+        "position": [
+          1.5,
+          -0.15,
+          2.5
+        ],
+        "massKg": 0,
+        "friction": 0.85
+      },
+      {
+        "sourceId": "floor-104",
+        "size": [
+          1,
+          0.3,
+          1
+        ],
+        "restitution": 0,
+        "material": {
+          "restitution": 0,
+          "tile": 0,
+          "name": "Default surface",
+          "dragNsPerM": 0,
+          "friction": 0.6
+        },
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "tile": 0,
+        "id": "floor-104",
+        "label": "floor-104",
+        "position": [
+          2.5,
+          -0.15,
+          2.5
+        ],
+        "massKg": 0,
+        "friction": 0.6
+      },
+      {
+        "sourceId": "floor-105",
+        "size": [
+          1,
+          0.3,
+          3
+        ],
+        "restitution": 0,
+        "material": {
+          "restitution": 0,
+          "tile": 1,
+          "name": "Declared test surface",
+          "dragNsPerM": 0.25,
+          "friction": 0.85
+        },
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "tile": 1,
+        "id": "floor-105",
+        "label": "floor-105",
+        "position": [
+          3.5,
+          -0.15,
+          3.5
+        ],
+        "massKg": 0,
+        "friction": 0.85
+      },
+      {
+        "sourceId": "floor-110",
+        "size": [
+          1,
+          0.3,
+          1
+        ],
+        "restitution": 0,
+        "material": {
+          "restitution": 0,
+          "tile": 0,
+          "name": "Default surface",
+          "dragNsPerM": 0,
+          "friction": 0.6
+        },
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "tile": 0,
+        "id": "floor-110",
+        "label": "floor-110",
+        "position": [
+          -3.5,
+          -0.15,
+          3.5
+        ],
+        "massKg": 0,
+        "friction": 0.6
+      },
+      {
+        "sourceId": "floor-112",
+        "size": [
+          1,
+          0.3,
+          1
+        ],
+        "restitution": 0,
+        "material": {
+          "restitution": 0,
+          "tile": 0,
+          "name": "Default surface",
+          "dragNsPerM": 0,
+          "friction": 0.6
+        },
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "tile": 0,
+        "id": "floor-112",
+        "label": "floor-112",
+        "position": [
+          -1.5,
+          -0.15,
+          3.5
+        ],
+        "massKg": 0,
+        "friction": 0.6
+      },
+      {
+        "sourceId": "floor-115",
+        "size": [
+          1,
+          0.3,
+          1
+        ],
+        "restitution": 0,
+        "material": {
+          "restitution": 0,
+          "tile": 0,
+          "name": "Default surface",
+          "dragNsPerM": 0,
+          "friction": 0.6
+        },
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "tile": 0,
+        "id": "floor-115",
+        "label": "floor-115",
+        "position": [
+          1.5,
+          -0.15,
+          3.5
+        ],
+        "massKg": 0,
+        "friction": 0.6
+      },
+      {
+        "sourceId": "floor-116",
+        "size": [
+          1,
+          0.3,
+          2
+        ],
+        "restitution": 0,
+        "material": {
+          "restitution": 0,
+          "tile": 1,
+          "name": "Declared test surface",
+          "dragNsPerM": 0.25,
+          "friction": 0.85
+        },
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "tile": 1,
+        "id": "floor-116",
+        "label": "floor-116",
+        "position": [
+          2.5,
+          -0.15,
+          4
+        ],
+        "massKg": 0,
+        "friction": 0.85
+      },
+      {
+        "sourceId": "floor-122",
+        "size": [
+          1,
+          0.3,
+          1
+        ],
+        "restitution": 0,
+        "material": {
+          "restitution": 0,
+          "tile": 1,
+          "name": "Declared test surface",
+          "dragNsPerM": 0.25,
+          "friction": 0.85
+        },
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "tile": 1,
+        "id": "floor-122",
+        "label": "floor-122",
+        "position": [
+          -3.5,
+          -0.15,
+          4.5
+        ],
+        "massKg": 0,
+        "friction": 0.85
+      },
+      {
+        "sourceId": "floor-124",
+        "size": [
+          2,
+          0.3,
+          1
+        ],
+        "restitution": 0,
+        "material": {
+          "restitution": 0,
+          "tile": 1,
+          "name": "Declared test surface",
+          "dragNsPerM": 0.25,
+          "friction": 0.85
+        },
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "tile": 1,
+        "id": "floor-124",
+        "label": "floor-124",
+        "position": [
+          -1,
+          -0.15,
+          4.5
+        ],
+        "massKg": 0,
+        "friction": 0.85
+      },
+      {
+        "sourceId": "floor-127",
+        "size": [
+          1,
+          0.3,
+          1
+        ],
+        "restitution": 0,
+        "material": {
+          "restitution": 0,
+          "tile": 1,
+          "name": "Declared test surface",
+          "dragNsPerM": 0.25,
+          "friction": 0.85
+        },
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "tile": 1,
+        "id": "floor-127",
+        "label": "floor-127",
+        "position": [
+          1.5,
+          -0.15,
+          4.5
+        ],
+        "massKg": 0,
+        "friction": 0.85
+      },
+      {
+        "sourceId": "floor-133",
+        "size": [
+          10,
+          0.3,
+          1
+        ],
+        "restitution": 0,
+        "material": {
+          "restitution": 0,
+          "tile": 0,
+          "name": "Default surface",
+          "dragNsPerM": 0,
+          "friction": 0.6
+        },
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "tile": 0,
+        "id": "floor-133",
+        "label": "floor-133",
+        "position": [
+          0,
+          -0.15,
+          5.5
+        ],
+        "massKg": 0,
+        "friction": 0.6
+      },
+      {
+        "sourceId": "wall-0",
+        "size": [
+          12,
+          1.1,
+          1
+        ],
+        "restitution": 0,
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "id": "wall-0",
+        "label": "wall-0",
+        "position": [
+          0,
+          0.55,
+          -5.5
+        ],
+        "massKg": 0,
+        "friction": 0.6
+      },
+      {
+        "sourceId": "wall-12",
+        "size": [
+          1,
+          1.1,
+          11
+        ],
+        "restitution": 0,
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "id": "wall-12",
+        "label": "wall-12",
+        "position": [
+          -5.5,
+          0.55,
+          0.5
+        ],
+        "massKg": 0,
+        "friction": 0.6
+      },
+      {
+        "sourceId": "wall-19",
+        "size": [
+          2,
+          1.1,
+          1
+        ],
+        "restitution": 0,
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "id": "wall-19",
+        "label": "wall-19",
+        "position": [
+          2,
+          0.55,
+          -4.5
+        ],
+        "massKg": 0,
+        "friction": 0.6
+      },
+      {
+        "sourceId": "wall-23",
+        "size": [
+          1,
+          1.1,
+          11
+        ],
+        "restitution": 0,
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "id": "wall-23",
+        "label": "wall-23",
+        "position": [
+          5.5,
+          0.55,
+          0.5
+        ],
+        "massKg": 0,
+        "friction": 0.6
+      },
+      {
+        "sourceId": "wall-26",
+        "size": [
+          1,
+          1.1,
+          1
+        ],
+        "restitution": 0,
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "id": "wall-26",
+        "label": "wall-26",
+        "position": [
+          -3.5,
+          0.55,
+          -3.5
+        ],
+        "massKg": 0,
+        "friction": 0.6
+      },
+      {
+        "sourceId": "wall-30",
+        "size": [
+          1,
+          1.1,
+          1
+        ],
+        "restitution": 0,
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "id": "wall-30",
+        "label": "wall-30",
+        "position": [
+          0.5,
+          0.55,
+          -3.5
+        ],
+        "massKg": 0,
+        "friction": 0.6
+      },
+      {
+        "sourceId": "wall-32",
+        "size": [
+          1,
+          1.1,
+          4
+        ],
+        "restitution": 0,
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "id": "wall-32",
+        "label": "wall-32",
+        "position": [
+          2.5,
+          0.55,
+          -2
+        ],
+        "massKg": 0,
+        "friction": 0.6
+      },
+      {
+        "sourceId": "wall-40",
+        "size": [
+          1,
+          1.1,
+          1
+        ],
+        "restitution": 0,
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "id": "wall-40",
+        "label": "wall-40",
+        "position": [
+          -1.5,
+          0.55,
+          -2.5
+        ],
+        "massKg": 0,
+        "friction": 0.6
+      },
+      {
+        "sourceId": "wall-50",
+        "size": [
+          1,
+          1.1,
+          1
+        ],
+        "restitution": 0,
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "id": "wall-50",
+        "label": "wall-50",
+        "position": [
+          -3.5,
+          0.55,
+          -1.5
+        ],
+        "massKg": 0,
+        "friction": 0.6
+      },
+      {
+        "sourceId": "wall-54",
+        "size": [
+          2,
+          1.1,
+          1
+        ],
+        "restitution": 0,
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "id": "wall-54",
+        "label": "wall-54",
+        "position": [
+          1,
+          0.55,
+          -1.5
+        ],
+        "massKg": 0,
+        "friction": 0.6
+      },
+      {
+        "sourceId": "wall-61",
+        "size": [
+          1,
+          1.1,
+          1
+        ],
+        "restitution": 0,
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "id": "wall-61",
+        "label": "wall-61",
+        "position": [
+          -4.5,
+          0.55,
+          -0.5
+        ],
+        "massKg": 0,
+        "friction": 0.6
+      },
+      {
+        "sourceId": "wall-64",
+        "size": [
+          1,
+          1.1,
+          1
+        ],
+        "restitution": 0,
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "id": "wall-64",
+        "label": "wall-64",
+        "position": [
+          -1.5,
+          0.55,
+          -0.5
+        ],
+        "massKg": 0,
+        "friction": 0.6
+      },
+      {
+        "sourceId": "wall-66",
+        "size": [
+          1,
+          1.1,
+          1
+        ],
+        "restitution": 0,
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "id": "wall-66",
+        "label": "wall-66",
+        "position": [
+          0.5,
+          0.55,
+          -0.5
+        ],
+        "massKg": 0,
+        "friction": 0.6
+      },
+      {
+        "sourceId": "wall-79",
+        "size": [
+          1,
+          1.1,
+          1
+        ],
+        "restitution": 0,
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "id": "wall-79",
+        "label": "wall-79",
+        "position": [
+          1.5,
+          0.55,
+          0.5
+        ],
+        "massKg": 0,
+        "friction": 0.6
+      },
+      {
+        "sourceId": "wall-82",
+        "size": [
+          1,
+          1.1,
+          1
+        ],
+        "restitution": 0,
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "id": "wall-82",
+        "label": "wall-82",
+        "position": [
+          4.5,
+          0.55,
+          0.5
+        ],
+        "massKg": 0,
+        "friction": 0.6
+      },
+      {
+        "sourceId": "wall-87",
+        "size": [
+          1,
+          1.1,
+          1
+        ],
+        "restitution": 0,
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "id": "wall-87",
+        "label": "wall-87",
+        "position": [
+          -2.5,
+          0.55,
+          1.5
+        ],
+        "massKg": 0,
+        "friction": 0.6
+      },
+      {
+        "sourceId": "wall-93",
+        "size": [
+          1,
+          1.1,
+          1
+        ],
+        "restitution": 0,
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "id": "wall-93",
+        "label": "wall-93",
+        "position": [
+          3.5,
+          0.55,
+          1.5
+        ],
+        "massKg": 0,
+        "friction": 0.6
+      },
+      {
+        "sourceId": "wall-101",
+        "size": [
+          1,
+          1.1,
+          2
+        ],
+        "restitution": 0,
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "id": "wall-101",
+        "label": "wall-101",
+        "position": [
+          -0.5,
+          0.55,
+          3
+        ],
+        "massKg": 0,
+        "friction": 0.6
+      },
+      {
+        "sourceId": "wall-104",
+        "size": [
+          1,
+          1.1,
+          1
+        ],
+        "restitution": 0,
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "id": "wall-104",
+        "label": "wall-104",
+        "position": [
+          2.5,
+          0.55,
+          2.5
+        ],
+        "massKg": 0,
+        "friction": 0.6
+      },
+      {
+        "sourceId": "wall-110",
+        "size": [
+          1,
+          1.1,
+          1
+        ],
+        "restitution": 0,
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "id": "wall-110",
+        "label": "wall-110",
+        "position": [
+          -3.5,
+          0.55,
+          3.5
+        ],
+        "massKg": 0,
+        "friction": 0.6
+      },
+      {
+        "sourceId": "wall-112",
+        "size": [
+          1,
+          1.1,
+          1
+        ],
+        "restitution": 0,
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "id": "wall-112",
+        "label": "wall-112",
+        "position": [
+          -1.5,
+          0.55,
+          3.5
+        ],
+        "massKg": 0,
+        "friction": 0.6
+      },
+      {
+        "sourceId": "wall-115",
+        "size": [
+          1,
+          1.1,
+          1
+        ],
+        "restitution": 0,
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "id": "wall-115",
+        "label": "wall-115",
+        "position": [
+          1.5,
+          0.55,
+          3.5
+        ],
+        "massKg": 0,
+        "friction": 0.6
+      },
+      {
+        "sourceId": "wall-133",
+        "size": [
+          10,
+          1.1,
+          1
+        ],
+        "restitution": 0,
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "id": "wall-133",
+        "label": "wall-133",
+        "position": [
+          0,
+          0.55,
+          5.5
+        ],
+        "massKg": 0,
+        "friction": 0.6
+      },
+      {
+        "sourceId": "avatar",
+        "size": [
+          0.36,
+          0.36,
+          0.36
+        ],
+        "restitution": 1,
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "id": "avatar",
+        "label": "avatar",
+        "position": [
+          -4.5,
+          0.2,
+          -4.5
+        ],
+        "massKg": 1,
+        "friction": 1
+      }
+    ],
+    "pins": [
+      {
+        "x": 0,
+        "tile": 0,
+        "y": 0
+      },
+      {
+        "x": 1,
+        "tile": 0,
+        "y": 0
+      },
+      {
+        "x": 2,
+        "tile": 0,
+        "y": 0
+      },
+      {
+        "x": 3,
+        "tile": 0,
+        "y": 0
+      },
+      {
+        "x": 4,
+        "tile": 0,
+        "y": 0
+      },
+      {
+        "x": 5,
+        "tile": 0,
+        "y": 0
+      },
+      {
+        "x": 6,
+        "tile": 0,
+        "y": 0
+      },
+      {
+        "x": 7,
+        "tile": 0,
+        "y": 0
+      },
+      {
+        "x": 8,
+        "tile": 0,
+        "y": 0
+      },
+      {
+        "x": 9,
+        "tile": 0,
+        "y": 0
+      },
+      {
+        "x": 10,
+        "tile": 0,
+        "y": 0
+      },
+      {
+        "x": 11,
+        "tile": 0,
+        "y": 0
+      },
+      {
+        "x": 0,
+        "tile": 0,
+        "y": 1
+      },
+      {
+        "x": 1,
+        "tile": 1,
+        "y": 1
+      },
+      {
+        "x": 11,
+        "tile": 0,
+        "y": 1
+      },
+      {
+        "x": 0,
+        "tile": 0,
+        "y": 2
+      },
+      {
+        "x": 11,
+        "tile": 0,
+        "y": 2
+      },
+      {
+        "x": 0,
+        "tile": 0,
+        "y": 3
+      },
+      {
+        "x": 11,
+        "tile": 0,
+        "y": 3
+      },
+      {
+        "x": 0,
+        "tile": 0,
+        "y": 4
+      },
+      {
+        "x": 11,
+        "tile": 0,
+        "y": 4
+      },
+      {
+        "x": 0,
+        "tile": 0,
+        "y": 5
+      },
+      {
+        "x": 11,
+        "tile": 0,
+        "y": 5
+      },
+      {
+        "x": 0,
+        "tile": 0,
+        "y": 6
+      },
+      {
+        "x": 11,
+        "tile": 0,
+        "y": 6
+      },
+      {
+        "x": 0,
+        "tile": 0,
+        "y": 7
+      },
+      {
+        "x": 11,
+        "tile": 0,
+        "y": 7
+      },
+      {
+        "x": 0,
+        "tile": 0,
+        "y": 8
+      },
+      {
+        "x": 11,
+        "tile": 0,
+        "y": 8
+      },
+      {
+        "x": 0,
+        "tile": 0,
+        "y": 9
+      },
+      {
+        "x": 11,
+        "tile": 0,
+        "y": 9
+      },
+      {
+        "x": 0,
+        "tile": 0,
+        "y": 10
+      },
+      {
+        "x": 10,
+        "tile": 1,
+        "y": 10
+      },
+      {
+        "x": 11,
+        "tile": 0,
+        "y": 10
+      },
+      {
+        "x": 0,
+        "tile": 0,
+        "y": 11
+      },
+      {
+        "x": 1,
+        "tile": 0,
+        "y": 11
+      },
+      {
+        "x": 2,
+        "tile": 0,
+        "y": 11
+      },
+      {
+        "x": 3,
+        "tile": 0,
+        "y": 11
+      },
+      {
+        "x": 4,
+        "tile": 0,
+        "y": 11
+      },
+      {
+        "x": 5,
+        "tile": 0,
+        "y": 11
+      },
+      {
+        "x": 6,
+        "tile": 0,
+        "y": 11
+      },
+      {
+        "x": 7,
+        "tile": 0,
+        "y": 11
+      },
+      {
+        "x": 8,
+        "tile": 0,
+        "y": 11
+      },
+      {
+        "x": 9,
+        "tile": 0,
+        "y": 11
+      },
+      {
+        "x": 10,
+        "tile": 0,
+        "y": 11
+      },
+      {
+        "x": 11,
+        "tile": 0,
+        "y": 11
+      }
+    ],
+    "source": {
+      "reference": {
+        "walkable": [
+          false,
+          true,
+          false
+        ],
+        "rules": [
+          [
+            [
+              true,
+              true,
+              false
+            ],
+            [
+              true,
+              true,
+              true
+            ],
+            [
+              false,
+              true,
+              true
+            ]
+          ],
+          [
+            [
+              true,
+              true,
+              false
+            ],
+            [
+              true,
+              true,
+              true
+            ],
+            [
+              false,
+              true,
+              true
+            ]
+          ],
+          [
+            [
+              true,
+              true,
+              false
+            ],
+            [
+              true,
+              true,
+              true
+            ],
+            [
+              false,
+              true,
+              true
+            ]
+          ],
+          [
+            [
+              true,
+              true,
+              false
+            ],
+            [
+              true,
+              true,
+              true
+            ],
+            [
+              false,
+              true,
+              true
+            ]
+          ]
+        ],
+        "tilePixels": 1,
+        "title": "Labelled synthetic tile reference",
+        "version": 1,
+        "cells": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          0,
+          0,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          0,
+          0,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          0,
+          0,
+          1,
+          1,
+          1,
+          1,
+          0,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          0,
+          0,
+          1,
+          1,
+          1,
+          1,
+          0,
+          1,
+          1,
+          1,
+          1,
+          2,
+          2,
+          2,
+          1,
+          1,
+          0,
+          0,
+          1,
+          1,
+          1,
+          1,
+          0,
+          1,
+          1,
+          1,
+          1,
+          2,
+          2,
+          2,
+          1,
+          1,
+          0,
+          0,
+          1,
+          1,
+          1,
+          1,
+          0,
+          1,
+          1,
+          1,
+          1,
+          2,
+          2,
+          2,
+          1,
+          1,
+          0,
+          0,
+          1,
+          1,
+          1,
+          1,
+          0,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          0,
+          0,
+          1,
+          1,
+          1,
+          1,
+          0,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          0,
+          0,
+          1,
+          1,
+          1,
+          1,
+          0,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          0,
+          0,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          0,
+          0,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          0,
+          0,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          0,
+          0,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "imageSha256": "a897f70f21a664080fd3cb615294305ed2b3010c4936677f904a6e124df1e4ff",
+        "scope": "Dominant tile colours and observed directional adjacency. Passability is user-declared; not photographic object recognition or measured physical material inference.",
+        "pngBase64": "iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAAL0lEQVR4XmNQMPEkCTEA8c33T4lEA6IBv37CGp4sToGgwaMBDQ2IBvxo8GogCQEAheAcHVC6bzcAAAAASUVORK5CYII=",
+        "width": 16,
+        "palette": [
+          "#203449",
+          "#d9efe5",
+          "#e4a364"
+        ],
+        "id": "0e0c9fb2-49e8-4919-a112-0a7abbfd0f98",
+        "frequencies": [
+          67,
+          180,
+          9
+        ],
+        "height": 16
+      },
+      "kind": "reference-image"
+    },
+    "version": "reference-grid-v1",
+    "materialVersion": "declared-palette-materials-v1",
+    "friction": 0.6,
+    "gravityMps2": 9.81,
+    "path": [
+      13,
+      14,
+      15,
+      16,
+      17,
+      29,
+      41,
+      53,
+      65,
+      77,
+      78,
+      90,
+      102,
+      114,
+      126,
+      127,
+      128,
+      129,
+      130
+    ],
+    "cells": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      0,
+      0,
+      1,
+      1,
+      0,
+      0,
+      1,
+      0,
+      1,
+      1,
+      1,
+      0,
+      1,
+      0,
+      1,
+      1,
+      0,
+      0,
+      1,
+      1,
+      1,
+      0,
+      1,
+      1,
+      1,
+      0,
+      1,
+      1,
+      0,
+      0,
+      1,
+      2,
+      1,
+      1,
+      1,
+      0,
+      0,
+      0,
+      1,
+      1,
+      0,
+      0,
+      0,
+      1,
+      1,
+      0,
+      1,
+      0,
+      1,
+      0,
+      1,
+      1,
+      0,
+      0,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      0,
+      1,
+      1,
+      0,
+      0,
+      0,
+      1,
+      1,
+      2,
+      1,
+      1,
+      1,
+      1,
+      1,
+      0,
+      1,
+      0,
+      0,
+      1,
+      1,
+      1,
+      1,
+      0,
+      1,
+      1,
+      0,
+      1,
+      1,
+      0,
+      0,
+      1,
+      0,
+      1,
+      0,
+      0,
+      1,
+      0,
+      1,
+      1,
+      1,
+      0,
+      0,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "materials": [
+      {
+        "restitution": 0,
+        "tile": 1,
+        "name": "Declared test surface",
+        "dragNsPerM": 0.25,
+        "friction": 0.85
+      }
+    ],
+    "cellSizeM": 1,
+    "scope": "Declared-scale3D rigid-body scene from an explicit2D grid/layer. Blocked tiles are solid barriers, not inferred materials or fluid simulation. Original higher-dimensional data remain separate.",
+    "width": 12,
+    "options": {
+      "seed": 2801,
+      "materials": [
+        {
+          "tile": 1,
+          "name": "Declared test surface",
+          "dragNsPerM": 0.25,
+          "friction": 0.85
+        }
+      ],
+      "width": 12,
+      "height": 12
+    },
+    "palette": [
+      "#203449",
+      "#d9efe5",
+      "#e4a364"
+    ],
+    "metrics": {
+      "reachableCells": 74,
+      "colliders": 72,
+      "floorCells": 75,
+      "pathSteps": 18,
+      "cellSizeM": 1,
+      "physicalAxes": 3,
+      "compiledCells": 144
+    },
+    "height": 12
+  },
+  "id": "363c51ad-d2bd-4455-94be-ee440c50dbc1",
+  "title": "Reference map · seed 2801"
+}

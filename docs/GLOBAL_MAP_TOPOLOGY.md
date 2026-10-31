@@ -24,7 +24,7 @@ A kernel identity pins the implementation. Saved global skills retain it. Future
 
 The028 native force-control, contact, fixed-step and trace gates remain unchanged. Global acceptance does not prove physical traversal. Every successful goal must pass both, then pass the actual six-chart browser audit. A real button exposes the complete topology record; its visible DOM data must match the original record exactly before retention. The report keeps original map/source JSON, every candidate's measurements/reasons, native run JSON and trace CSV.
 
-Completed native evidence and stable report identities survive the existing explicit restart/recovery path. Incomplete native motion still becomes a separate new attempt; this edition does not add native checkpoints. Cancellation stops owned motion and prevents late successful retention.
+Completed native evidence and stable report identities survive the existing explicit restart/recovery path. Legacy incomplete native motion without a checkpoint becomes a separate attempt. Edition030 adds compatible same-run native map recovery, declared materials and independent work measurements; see [the current contract](NATIVE_MAP_RECOVERY.md). The frozen029 comparison is unchanged. Cancellation stops owned motion and prevents late successful retention.
 
 ## Frozen reserved comparison
 
@@ -34,4 +34,4 @@ The old and new generator budgets differ and are disclosed. These small syntheti
 
 ## Next gates
 
-Verified in-progress native checkpoints; a separately versioned topology-aware proposal method for unresolved cases; calibrated perception/material correspondence; independent navigation-policy evaluation with promotion gates and rollback. Mathematical source dimensions remain distinct from three physical spatial axes.
+Native checkpoints are implemented in030. Next: actual pushable-object planning; a separately versioned topology-aware proposal method for unresolved cases; calibrated perception/material correspondence; independent navigation-policy evaluation with promotion gates and rollback. Mathematical source dimensions remain distinct from three physical spatial axes.

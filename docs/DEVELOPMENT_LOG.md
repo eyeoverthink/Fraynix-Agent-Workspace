@@ -1,5 +1,9 @@
 # Agent Workspace development log
 
+## 2026-10-31 — Edition030 verified release candidate
+
+Final source033a2543f51d56b247e33c1e9cc1d2f206562135: independent offline272Java/51classes,51desktop units and177critical UI groups pass; all600 canonical source hashes match. Actual gpt-oss:20b passes both material creation/reuse episodes and all9 native charts/visible work data (four groups). Native process-kill recovery passes at committed tick840 with same run/attempt and exact committed prefix, one actual impulse, manual recovery, byte-preserved corruption refusal and cancellation. Fixed development material/rebound/continuation comparisons and original failures retained. Release README0302617words/12actualcaptures, complete original numeric data, offline guide and Obsidian map; actual wide/390px guide/report QA passes every chart point and raw gzip/hash reconstruction. Documentation checks30editions/35canvases/4018references/992frozenhashes. Publication and isolated normal review030 handoff remain pending. Next authorized implementation is pushable-object planning; no stub UI is added for that future feature.
+
 ## 2026-10-31 — Independent broader UI compatibility check
 
 Independent offline checkout passes the first15 critical UI suites, including native body/brain/feedback/world-model/goals/data/spatial/perception/tracking/creation/workflow/procedural/responsive behavior. The old028 map test then found its formerly unique nested-summary selector matched both the physics panel and the new actual materials panel. The test now selects the visible “Hard pins and declared physics” label explicitly. Production behavior and numeric gates are unchanged. Preserve the original failure; rerun map, topology and new recovery/material suites on the final checkout. Earlier passed suites need no repetition for this test-only selector change. Both actual local-model material episodes already pass on unchanged runtime904ad2e.

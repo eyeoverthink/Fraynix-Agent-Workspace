@@ -1,0 +1,2683 @@
+{
+  "source": "Actual test control export and real file import, assertions retained in integration JSON",
+  "worldPackage": {
+    "format": "fraynix.playable-map",
+    "version": 1,
+    "map": {
+      "createdAt": "2026-10-31T14:22:36.724709500Z",
+      "sha256": "332c722ea6d635ad7c798016b22d153cbd1af9b861035b6f4678011dab959319",
+      "definition": {
+        "generation": {
+          "reason": "Adjacency, hard pins and route verified",
+          "repairs": 0,
+          "conflicts": 0,
+          "passed": true,
+          "attempts": 2
+        },
+        "seed": 2801,
+        "walkable": [
+          false,
+          true
+        ],
+        "objects": [
+          {
+            "sourceId": "floor-0",
+            "size": [
+              12,
+              0.3,
+              1
+            ],
+            "restitution": 0,
+            "material": {
+              "restitution": 0,
+              "tile": 0,
+              "name": "Default surface",
+              "dragNsPerM": 0,
+              "friction": 0.6
+            },
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "tile": 0,
+            "id": "floor-0",
+            "label": "floor-0",
+            "position": [
+              0,
+              -0.15,
+              -5.5
+            ],
+            "massKg": 0,
+            "friction": 0.6
+          },
+          {
+            "sourceId": "floor-12",
+            "size": [
+              1,
+              0.3,
+              11
+            ],
+            "restitution": 0,
+            "material": {
+              "restitution": 0,
+              "tile": 0,
+              "name": "Default surface",
+              "dragNsPerM": 0,
+              "friction": 0.6
+            },
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "tile": 0,
+            "id": "floor-12",
+            "label": "floor-12",
+            "position": [
+              -5.5,
+              -0.15,
+              0.5
+            ],
+            "massKg": 0,
+            "friction": 0.6
+          },
+          {
+            "sourceId": "floor-13",
+            "size": [
+              2,
+              0.3,
+              1
+            ],
+            "restitution": 0,
+            "material": {
+              "restitution": 0,
+              "tile": 1,
+              "name": "Ice",
+              "dragNsPerM": 0.02,
+              "friction": 0.06
+            },
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "tile": 1,
+            "id": "floor-13",
+            "label": "floor-13",
+            "position": [
+              -4,
+              -0.15,
+              -4.5
+            ],
+            "massKg": 0,
+            "friction": 0.06
+          },
+          {
+            "sourceId": "floor-15",
+            "size": [
+              1,
+              0.3,
+              1
+            ],
+            "restitution": 0,
+            "material": {
+              "restitution": 0,
+              "tile": 0,
+              "name": "Default surface",
+              "dragNsPerM": 0,
+              "friction": 0.6
+            },
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "tile": 0,
+            "id": "floor-15",
+            "label": "floor-15",
+            "position": [
+              -2.5,
+              -0.15,
+              -4.5
+            ],
+            "massKg": 0,
+            "friction": 0.6
+          },
+          {
+            "sourceId": "floor-16",
+            "size": [
+              7,
+              0.3,
+              1
+            ],
+            "restitution": 0,
+            "material": {
+              "restitution": 0,
+              "tile": 1,
+              "name": "Ice",
+              "dragNsPerM": 0.02,
+              "friction": 0.06
+            },
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "tile": 1,
+            "id": "floor-16",
+            "label": "floor-16",
+            "position": [
+              1.5,
+              -0.15,
+              -4.5
+            ],
+            "massKg": 0,
+            "friction": 0.06
+          },
+          {
+            "sourceId": "floor-23",
+            "size": [
+              1,
+              0.3,
+              11
+            ],
+            "restitution": 0,
+            "material": {
+              "restitution": 0,
+              "tile": 0,
+              "name": "Default surface",
+              "dragNsPerM": 0,
+              "friction": 0.6
+            },
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "tile": 0,
+            "id": "floor-23",
+            "label": "floor-23",
+            "position": [
+              5.5,
+              -0.15,
+              0.5
+            ],
+            "massKg": 0,
+            "friction": 0.6
+          },
+          {
+            "sourceId": "floor-25",
+            "size": [
+              1,
+              0.3,
+              1
+            ],
+            "restitution": 0,
+            "material": {
+              "restitution": 0,
+              "tile": 0,
+              "name": "Default surface",
+              "dragNsPerM": 0,
+              "friction": 0.6
+            },
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "tile": 0,
+            "id": "floor-25",
+            "label": "floor-25",
+            "position": [
+              -4.5,
+              -0.15,
+              -3.5
+            ],
+            "massKg": 0,
+            "friction": 0.6
+          },
+          {
+            "sourceId": "floor-26",
+            "size": [
+              2,
+              0.3,
+              1
+            ],
+            "restitution": 0,
+            "material": {
+              "restitution": 0,
+              "tile": 1,
+              "name": "Ice",
+              "dragNsPerM": 0.02,
+              "friction": 0.06
+            },
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "tile": 1,
+            "id": "floor-26",
+            "label": "floor-26",
+            "position": [
+              -3,
+              -0.15,
+              -3.5
+            ],
+            "massKg": 0,
+            "friction": 0.06
+          },
+          {
+            "sourceId": "floor-28",
+            "size": [
+              1,
+              0.3,
+              2
+            ],
+            "restitution": 0,
+            "material": {
+              "restitution": 0,
+              "tile": 0,
+              "name": "Default surface",
+              "dragNsPerM": 0,
+              "friction": 0.6
+            },
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "tile": 0,
+            "id": "floor-28",
+            "label": "floor-28",
+            "position": [
+              -1.5,
+              -0.15,
+              -3
+            ],
+            "massKg": 0,
+            "friction": 0.6
+          },
+          {
+            "sourceId": "floor-29",
+            "size": [
+              1,
+              0.3,
+              5
+            ],
+            "restitution": 0,
+            "material": {
+              "restitution": 0,
+              "tile": 1,
+              "name": "Ice",
+              "dragNsPerM": 0.02,
+              "friction": 0.06
+            },
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "tile": 1,
+            "id": "floor-29",
+            "label": "floor-29",
+            "position": [
+              -0.5,
+              -0.15,
+              -1.5
+            ],
+            "massKg": 0,
+            "friction": 0.06
+          },
+          {
+            "sourceId": "floor-30",
+            "size": [
+              2,
+              0.3,
+              1
+            ],
+            "restitution": 0,
+            "material": {
+              "restitution": 0,
+              "tile": 0,
+              "name": "Default surface",
+              "dragNsPerM": 0,
+              "friction": 0.6
+            },
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "tile": 0,
+            "id": "floor-30",
+            "label": "floor-30",
+            "position": [
+              1,
+              -0.15,
+              -3.5
+            ],
+            "massKg": 0,
+            "friction": 0.6
+          },
+          {
+            "sourceId": "floor-32",
+            "size": [
+              2,
+              0.3,
+              5
+            ],
+            "restitution": 0,
+            "material": {
+              "restitution": 0,
+              "tile": 1,
+              "name": "Ice",
+              "dragNsPerM": 0.02,
+              "friction": 0.06
+            },
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "tile": 1,
+            "id": "floor-32",
+            "label": "floor-32",
+            "position": [
+              3,
+              -0.15,
+              -1.5
+            ],
+            "massKg": 0,
+            "friction": 0.06
+          },
+          {
+            "sourceId": "floor-34",
+            "size": [
+              1,
+              0.3,
+              1
+            ],
+            "restitution": 0,
+            "material": {
+              "restitution": 0,
+              "tile": 0,
+              "name": "Default surface",
+              "dragNsPerM": 0,
+              "friction": 0.6
+            },
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "tile": 0,
+            "id": "floor-34",
+            "label": "floor-34",
+            "position": [
+              4.5,
+              -0.15,
+              -3.5
+            ],
+            "massKg": 0,
+            "friction": 0.6
+          },
+          {
+            "sourceId": "floor-37",
+            "size": [
+              2,
+              0.3,
+              2
+            ],
+            "restitution": 0,
+            "material": {
+              "restitution": 0,
+              "tile": 1,
+              "name": "Ice",
+              "dragNsPerM": 0.02,
+              "friction": 0.06
+            },
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "tile": 1,
+            "id": "floor-37",
+            "label": "floor-37",
+            "position": [
+              -4,
+              -0.15,
+              -2
+            ],
+            "massKg": 0,
+            "friction": 0.06
+          },
+          {
+            "sourceId": "floor-39",
+            "size": [
+              1,
+              0.3,
+              1
+            ],
+            "restitution": 0,
+            "material": {
+              "restitution": 0,
+              "tile": 0,
+              "name": "Default surface",
+              "dragNsPerM": 0,
+              "friction": 0.6
+            },
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "tile": 0,
+            "id": "floor-39",
+            "label": "floor-39",
+            "position": [
+              -2.5,
+              -0.15,
+              -2.5
+            ],
+            "massKg": 0,
+            "friction": 0.6
+          },
+          {
+            "sourceId": "floor-42",
+            "size": [
+              2,
+              0.3,
+              2
+            ],
+            "restitution": 0,
+            "material": {
+              "restitution": 0,
+              "tile": 1,
+              "name": "Ice",
+              "dragNsPerM": 0.02,
+              "friction": 0.06
+            },
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "tile": 1,
+            "id": "floor-42",
+            "label": "floor-42",
+            "position": [
+              1,
+              -0.15,
+              -2
+            ],
+            "massKg": 0,
+            "friction": 0.06
+          },
+          {
+            "sourceId": "floor-46",
+            "size": [
+              1,
+              0.3,
+              3
+            ],
+            "restitution": 0,
+            "material": {
+              "restitution": 0,
+              "tile": 1,
+              "name": "Ice",
+              "dragNsPerM": 0.02,
+              "friction": 0.06
+            },
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "tile": 1,
+            "id": "floor-46",
+            "label": "floor-46",
+            "position": [
+              4.5,
+              -0.15,
+              -1.5
+            ],
+            "massKg": 0,
+            "friction": 0.06
+          },
+          {
+            "sourceId": "floor-51",
+            "size": [
+              2,
+              0.3,
+              2
+            ],
+            "restitution": 0,
+            "material": {
+              "restitution": 0,
+              "tile": 1,
+              "name": "Ice",
+              "dragNsPerM": 0.02,
+              "friction": 0.06
+            },
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "tile": 1,
+            "id": "floor-51",
+            "label": "floor-51",
+            "position": [
+              -2,
+              -0.15,
+              -1
+            ],
+            "massKg": 0,
+            "friction": 0.06
+          },
+          {
+            "sourceId": "floor-61",
+            "size": [
+              1,
+              0.3,
+              6
+            ],
+            "restitution": 0,
+            "material": {
+              "restitution": 0,
+              "tile": 1,
+              "name": "Ice",
+              "dragNsPerM": 0.02,
+              "friction": 0.06
+            },
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "tile": 1,
+            "id": "floor-61",
+            "label": "floor-61",
+            "position": [
+              -4.5,
+              -0.15,
+              2
+            ],
+            "massKg": 0,
+            "friction": 0.06
+          },
+          {
+            "sourceId": "floor-62",
+            "size": [
+              1,
+              0.3,
+              1
+            ],
+            "restitution": 0,
+            "material": {
+              "restitution": 0,
+              "tile": 0,
+              "name": "Default surface",
+              "dragNsPerM": 0,
+              "friction": 0.6
+            },
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "tile": 0,
+            "id": "floor-62",
+            "label": "floor-62",
+            "position": [
+              -3.5,
+              -0.15,
+              -0.5
+            ],
+            "massKg": 0,
+            "friction": 0.6
+          },
+          {
+            "sourceId": "floor-66",
+            "size": [
+              1,
+              0.3,
+              6
+            ],
+            "restitution": 0,
+            "material": {
+              "restitution": 0,
+              "tile": 1,
+              "name": "Ice",
+              "dragNsPerM": 0.02,
+              "friction": 0.06
+            },
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "tile": 1,
+            "id": "floor-66",
+            "label": "floor-66",
+            "position": [
+              0.5,
+              -0.15,
+              2
+            ],
+            "massKg": 0,
+            "friction": 0.06
+          },
+          {
+            "sourceId": "floor-67",
+            "size": [
+              1,
+              0.3,
+              1
+            ],
+            "restitution": 0,
+            "material": {
+              "restitution": 0,
+              "tile": 0,
+              "name": "Default surface",
+              "dragNsPerM": 0,
+              "friction": 0.6
+            },
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "tile": 0,
+            "id": "floor-67",
+            "label": "floor-67",
+            "position": [
+              1.5,
+              -0.15,
+              -0.5
+            ],
+            "massKg": 0,
+            "friction": 0.6
+          },
+          {
+            "sourceId": "floor-74",
+            "size": [
+              1,
+              0.3,
+              2
+            ],
+            "restitution": 0,
+            "material": {
+              "restitution": 0,
+              "tile": 1,
+              "name": "Ice",
+              "dragNsPerM": 0.02,
+              "friction": 0.06
+            },
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "tile": 1,
+            "id": "floor-74",
+            "label": "floor-74",
+            "position": [
+              -3.5,
+              -0.15,
+              1
+            ],
+            "massKg": 0,
+            "friction": 0.06
+          },
+          {
+            "sourceId": "floor-75",
+            "size": [
+              1,
+              0.3,
+              1
+            ],
+            "restitution": 0,
+            "material": {
+              "restitution": 0,
+              "tile": 0,
+              "name": "Default surface",
+              "dragNsPerM": 0,
+              "friction": 0.6
+            },
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "tile": 0,
+            "id": "floor-75",
+            "label": "floor-75",
+            "position": [
+              -2.5,
+              -0.15,
+              0.5
+            ],
+            "massKg": 0,
+            "friction": 0.6
+          },
+          {
+            "sourceId": "floor-76",
+            "size": [
+              1,
+              0.3,
+              2
+            ],
+            "restitution": 0,
+            "material": {
+              "restitution": 0,
+              "tile": 1,
+              "name": "Ice",
+              "dragNsPerM": 0.02,
+              "friction": 0.06
+            },
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "tile": 1,
+            "id": "floor-76",
+            "label": "floor-76",
+            "position": [
+              -1.5,
+              -0.15,
+              1
+            ],
+            "massKg": 0,
+            "friction": 0.06
+          },
+          {
+            "sourceId": "floor-79",
+            "size": [
+              1,
+              0.3,
+              2
+            ],
+            "restitution": 0,
+            "material": {
+              "restitution": 0,
+              "tile": 1,
+              "name": "Ice",
+              "dragNsPerM": 0.02,
+              "friction": 0.06
+            },
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "tile": 1,
+            "id": "floor-79",
+            "label": "floor-79",
+            "position": [
+              1.5,
+              -0.15,
+              1
+            ],
+            "massKg": 0,
+            "friction": 0.06
+          },
+          {
+            "sourceId": "floor-82",
+            "size": [
+              1,
+              0.3,
+              1
+            ],
+            "restitution": 0,
+            "material": {
+              "restitution": 0,
+              "tile": 0,
+              "name": "Default surface",
+              "dragNsPerM": 0,
+              "friction": 0.6
+            },
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "tile": 0,
+            "id": "floor-82",
+            "label": "floor-82",
+            "position": [
+              4.5,
+              -0.15,
+              0.5
+            ],
+            "massKg": 0,
+            "friction": 0.6
+          },
+          {
+            "sourceId": "floor-87",
+            "size": [
+              1,
+              0.3,
+              4
+            ],
+            "restitution": 0,
+            "material": {
+              "restitution": 0,
+              "tile": 1,
+              "name": "Ice",
+              "dragNsPerM": 0.02,
+              "friction": 0.06
+            },
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "tile": 1,
+            "id": "floor-87",
+            "label": "floor-87",
+            "position": [
+              -2.5,
+              -0.15,
+              3
+            ],
+            "massKg": 0,
+            "friction": 0.06
+          },
+          {
+            "sourceId": "floor-89",
+            "size": [
+              1,
+              0.3,
+              2
+            ],
+            "restitution": 0,
+            "material": {
+              "restitution": 0,
+              "tile": 0,
+              "name": "Default surface",
+              "dragNsPerM": 0,
+              "friction": 0.6
+            },
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "tile": 0,
+            "id": "floor-89",
+            "label": "floor-89",
+            "position": [
+              -0.5,
+              -0.15,
+              2
+            ],
+            "massKg": 0,
+            "friction": 0.6
+          },
+          {
+            "sourceId": "floor-92",
+            "size": [
+              1,
+              0.3,
+              3
+            ],
+            "restitution": 0,
+            "material": {
+              "restitution": 0,
+              "tile": 0,
+              "name": "Default surface",
+              "dragNsPerM": 0,
+              "friction": 0.6
+            },
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "tile": 0,
+            "id": "floor-92",
+            "label": "floor-92",
+            "position": [
+              2.5,
+              -0.15,
+              2.5
+            ],
+            "massKg": 0,
+            "friction": 0.6
+          },
+          {
+            "sourceId": "floor-93",
+            "size": [
+              2,
+              0.3,
+              1
+            ],
+            "restitution": 0,
+            "material": {
+              "restitution": 0,
+              "tile": 1,
+              "name": "Ice",
+              "dragNsPerM": 0.02,
+              "friction": 0.06
+            },
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "tile": 1,
+            "id": "floor-93",
+            "label": "floor-93",
+            "position": [
+              4,
+              -0.15,
+              1.5
+            ],
+            "massKg": 0,
+            "friction": 0.06
+          },
+          {
+            "sourceId": "floor-98",
+            "size": [
+              1,
+              0.3,
+              2
+            ],
+            "restitution": 0,
+            "material": {
+              "restitution": 0,
+              "tile": 0,
+              "name": "Default surface",
+              "dragNsPerM": 0,
+              "friction": 0.6
+            },
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "tile": 0,
+            "id": "floor-98",
+            "label": "floor-98",
+            "position": [
+              -3.5,
+              -0.15,
+              3
+            ],
+            "massKg": 0,
+            "friction": 0.6
+          },
+          {
+            "sourceId": "floor-100",
+            "size": [
+              1,
+              0.3,
+              2
+            ],
+            "restitution": 0,
+            "material": {
+              "restitution": 0,
+              "tile": 0,
+              "name": "Default surface",
+              "dragNsPerM": 0,
+              "friction": 0.6
+            },
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "tile": 0,
+            "id": "floor-100",
+            "label": "floor-100",
+            "position": [
+              -1.5,
+              -0.15,
+              3
+            ],
+            "massKg": 0,
+            "friction": 0.6
+          },
+          {
+            "sourceId": "floor-103",
+            "size": [
+              1,
+              0.3,
+              1
+            ],
+            "restitution": 0,
+            "material": {
+              "restitution": 0,
+              "tile": 0,
+              "name": "Default surface",
+              "dragNsPerM": 0,
+              "friction": 0.6
+            },
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "tile": 0,
+            "id": "floor-103",
+            "label": "floor-103",
+            "position": [
+              1.5,
+              -0.15,
+              2.5
+            ],
+            "massKg": 0,
+            "friction": 0.6
+          },
+          {
+            "sourceId": "floor-105",
+            "size": [
+              1,
+              0.3,
+              3
+            ],
+            "restitution": 0,
+            "material": {
+              "restitution": 0,
+              "tile": 1,
+              "name": "Ice",
+              "dragNsPerM": 0.02,
+              "friction": 0.06
+            },
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "tile": 1,
+            "id": "floor-105",
+            "label": "floor-105",
+            "position": [
+              3.5,
+              -0.15,
+              3.5
+            ],
+            "massKg": 0,
+            "friction": 0.06
+          },
+          {
+            "sourceId": "floor-106",
+            "size": [
+              1,
+              0.3,
+              2
+            ],
+            "restitution": 0,
+            "material": {
+              "restitution": 0,
+              "tile": 0,
+              "name": "Default surface",
+              "dragNsPerM": 0,
+              "friction": 0.6
+            },
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "tile": 0,
+            "id": "floor-106",
+            "label": "floor-106",
+            "position": [
+              4.5,
+              -0.15,
+              3
+            ],
+            "massKg": 0,
+            "friction": 0.6
+          },
+          {
+            "sourceId": "floor-113",
+            "size": [
+              1,
+              0.3,
+              2
+            ],
+            "restitution": 0,
+            "material": {
+              "restitution": 0,
+              "tile": 1,
+              "name": "Ice",
+              "dragNsPerM": 0.02,
+              "friction": 0.06
+            },
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "tile": 1,
+            "id": "floor-113",
+            "label": "floor-113",
+            "position": [
+              -0.5,
+              -0.15,
+              4
+            ],
+            "massKg": 0,
+            "friction": 0.06
+          },
+          {
+            "sourceId": "floor-115",
+            "size": [
+              1,
+              0.3,
+              2
+            ],
+            "restitution": 0,
+            "material": {
+              "restitution": 0,
+              "tile": 1,
+              "name": "Ice",
+              "dragNsPerM": 0.02,
+              "friction": 0.06
+            },
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "tile": 1,
+            "id": "floor-115",
+            "label": "floor-115",
+            "position": [
+              1.5,
+              -0.15,
+              4
+            ],
+            "massKg": 0,
+            "friction": 0.06
+          },
+          {
+            "sourceId": "floor-122",
+            "size": [
+              1,
+              0.3,
+              1
+            ],
+            "restitution": 0,
+            "material": {
+              "restitution": 0,
+              "tile": 1,
+              "name": "Ice",
+              "dragNsPerM": 0.02,
+              "friction": 0.06
+            },
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "tile": 1,
+            "id": "floor-122",
+            "label": "floor-122",
+            "position": [
+              -3.5,
+              -0.15,
+              4.5
+            ],
+            "massKg": 0,
+            "friction": 0.06
+          },
+          {
+            "sourceId": "floor-124",
+            "size": [
+              1,
+              0.3,
+              1
+            ],
+            "restitution": 0,
+            "material": {
+              "restitution": 0,
+              "tile": 1,
+              "name": "Ice",
+              "dragNsPerM": 0.02,
+              "friction": 0.06
+            },
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "tile": 1,
+            "id": "floor-124",
+            "label": "floor-124",
+            "position": [
+              -1.5,
+              -0.15,
+              4.5
+            ],
+            "massKg": 0,
+            "friction": 0.06
+          },
+          {
+            "sourceId": "floor-128",
+            "size": [
+              1,
+              0.3,
+              1
+            ],
+            "restitution": 0,
+            "material": {
+              "restitution": 0,
+              "tile": 1,
+              "name": "Ice",
+              "dragNsPerM": 0.02,
+              "friction": 0.06
+            },
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "tile": 1,
+            "id": "floor-128",
+            "label": "floor-128",
+            "position": [
+              2.5,
+              -0.15,
+              4.5
+            ],
+            "massKg": 0,
+            "friction": 0.06
+          },
+          {
+            "sourceId": "floor-130",
+            "size": [
+              1,
+              0.3,
+              1
+            ],
+            "restitution": 0,
+            "material": {
+              "restitution": 0,
+              "tile": 1,
+              "name": "Ice",
+              "dragNsPerM": 0.02,
+              "friction": 0.06
+            },
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "tile": 1,
+            "id": "floor-130",
+            "label": "floor-130",
+            "position": [
+              4.5,
+              -0.15,
+              4.5
+            ],
+            "massKg": 0,
+            "friction": 0.06
+          },
+          {
+            "sourceId": "floor-133",
+            "size": [
+              10,
+              0.3,
+              1
+            ],
+            "restitution": 0,
+            "material": {
+              "restitution": 0,
+              "tile": 0,
+              "name": "Default surface",
+              "dragNsPerM": 0,
+              "friction": 0.6
+            },
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "tile": 0,
+            "id": "floor-133",
+            "label": "floor-133",
+            "position": [
+              0,
+              -0.15,
+              5.5
+            ],
+            "massKg": 0,
+            "friction": 0.6
+          },
+          {
+            "sourceId": "wall-0",
+            "size": [
+              12,
+              1.1,
+              1
+            ],
+            "restitution": 0,
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "id": "wall-0",
+            "label": "wall-0",
+            "position": [
+              0,
+              0.55,
+              -5.5
+            ],
+            "massKg": 0,
+            "friction": 0.6
+          },
+          {
+            "sourceId": "wall-12",
+            "size": [
+              1,
+              1.1,
+              11
+            ],
+            "restitution": 0,
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "id": "wall-12",
+            "label": "wall-12",
+            "position": [
+              -5.5,
+              0.55,
+              0.5
+            ],
+            "massKg": 0,
+            "friction": 0.6
+          },
+          {
+            "sourceId": "wall-15",
+            "size": [
+              1,
+              1.1,
+              1
+            ],
+            "restitution": 0,
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "id": "wall-15",
+            "label": "wall-15",
+            "position": [
+              -2.5,
+              0.55,
+              -4.5
+            ],
+            "massKg": 0,
+            "friction": 0.6
+          },
+          {
+            "sourceId": "wall-23",
+            "size": [
+              1,
+              1.1,
+              11
+            ],
+            "restitution": 0,
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "id": "wall-23",
+            "label": "wall-23",
+            "position": [
+              5.5,
+              0.55,
+              0.5
+            ],
+            "massKg": 0,
+            "friction": 0.6
+          },
+          {
+            "sourceId": "wall-25",
+            "size": [
+              1,
+              1.1,
+              1
+            ],
+            "restitution": 0,
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "id": "wall-25",
+            "label": "wall-25",
+            "position": [
+              -4.5,
+              0.55,
+              -3.5
+            ],
+            "massKg": 0,
+            "friction": 0.6
+          },
+          {
+            "sourceId": "wall-28",
+            "size": [
+              1,
+              1.1,
+              2
+            ],
+            "restitution": 0,
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "id": "wall-28",
+            "label": "wall-28",
+            "position": [
+              -1.5,
+              0.55,
+              -3
+            ],
+            "massKg": 0,
+            "friction": 0.6
+          },
+          {
+            "sourceId": "wall-30",
+            "size": [
+              2,
+              1.1,
+              1
+            ],
+            "restitution": 0,
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "id": "wall-30",
+            "label": "wall-30",
+            "position": [
+              1,
+              0.55,
+              -3.5
+            ],
+            "massKg": 0,
+            "friction": 0.6
+          },
+          {
+            "sourceId": "wall-34",
+            "size": [
+              1,
+              1.1,
+              1
+            ],
+            "restitution": 0,
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "id": "wall-34",
+            "label": "wall-34",
+            "position": [
+              4.5,
+              0.55,
+              -3.5
+            ],
+            "massKg": 0,
+            "friction": 0.6
+          },
+          {
+            "sourceId": "wall-39",
+            "size": [
+              1,
+              1.1,
+              1
+            ],
+            "restitution": 0,
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "id": "wall-39",
+            "label": "wall-39",
+            "position": [
+              -2.5,
+              0.55,
+              -2.5
+            ],
+            "massKg": 0,
+            "friction": 0.6
+          },
+          {
+            "sourceId": "wall-62",
+            "size": [
+              1,
+              1.1,
+              1
+            ],
+            "restitution": 0,
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "id": "wall-62",
+            "label": "wall-62",
+            "position": [
+              -3.5,
+              0.55,
+              -0.5
+            ],
+            "massKg": 0,
+            "friction": 0.6
+          },
+          {
+            "sourceId": "wall-67",
+            "size": [
+              1,
+              1.1,
+              1
+            ],
+            "restitution": 0,
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "id": "wall-67",
+            "label": "wall-67",
+            "position": [
+              1.5,
+              0.55,
+              -0.5
+            ],
+            "massKg": 0,
+            "friction": 0.6
+          },
+          {
+            "sourceId": "wall-75",
+            "size": [
+              1,
+              1.1,
+              1
+            ],
+            "restitution": 0,
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "id": "wall-75",
+            "label": "wall-75",
+            "position": [
+              -2.5,
+              0.55,
+              0.5
+            ],
+            "massKg": 0,
+            "friction": 0.6
+          },
+          {
+            "sourceId": "wall-82",
+            "size": [
+              1,
+              1.1,
+              1
+            ],
+            "restitution": 0,
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "id": "wall-82",
+            "label": "wall-82",
+            "position": [
+              4.5,
+              0.55,
+              0.5
+            ],
+            "massKg": 0,
+            "friction": 0.6
+          },
+          {
+            "sourceId": "wall-89",
+            "size": [
+              1,
+              1.1,
+              2
+            ],
+            "restitution": 0,
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "id": "wall-89",
+            "label": "wall-89",
+            "position": [
+              -0.5,
+              0.55,
+              2
+            ],
+            "massKg": 0,
+            "friction": 0.6
+          },
+          {
+            "sourceId": "wall-92",
+            "size": [
+              1,
+              1.1,
+              3
+            ],
+            "restitution": 0,
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "id": "wall-92",
+            "label": "wall-92",
+            "position": [
+              2.5,
+              0.55,
+              2.5
+            ],
+            "massKg": 0,
+            "friction": 0.6
+          },
+          {
+            "sourceId": "wall-98",
+            "size": [
+              1,
+              1.1,
+              2
+            ],
+            "restitution": 0,
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "id": "wall-98",
+            "label": "wall-98",
+            "position": [
+              -3.5,
+              0.55,
+              3
+            ],
+            "massKg": 0,
+            "friction": 0.6
+          },
+          {
+            "sourceId": "wall-100",
+            "size": [
+              1,
+              1.1,
+              2
+            ],
+            "restitution": 0,
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "id": "wall-100",
+            "label": "wall-100",
+            "position": [
+              -1.5,
+              0.55,
+              3
+            ],
+            "massKg": 0,
+            "friction": 0.6
+          },
+          {
+            "sourceId": "wall-103",
+            "size": [
+              1,
+              1.1,
+              1
+            ],
+            "restitution": 0,
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "id": "wall-103",
+            "label": "wall-103",
+            "position": [
+              1.5,
+              0.55,
+              2.5
+            ],
+            "massKg": 0,
+            "friction": 0.6
+          },
+          {
+            "sourceId": "wall-106",
+            "size": [
+              1,
+              1.1,
+              2
+            ],
+            "restitution": 0,
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "id": "wall-106",
+            "label": "wall-106",
+            "position": [
+              4.5,
+              0.55,
+              3
+            ],
+            "massKg": 0,
+            "friction": 0.6
+          },
+          {
+            "sourceId": "wall-133",
+            "size": [
+              10,
+              1.1,
+              1
+            ],
+            "restitution": 0,
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "id": "wall-133",
+            "label": "wall-133",
+            "position": [
+              0,
+              0.55,
+              5.5
+            ],
+            "massKg": 0,
+            "friction": 0.6
+          },
+          {
+            "sourceId": "avatar",
+            "size": [
+              0.36,
+              0.36,
+              0.36
+            ],
+            "restitution": 1,
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "id": "avatar",
+            "label": "avatar",
+            "position": [
+              -4.5,
+              0.2,
+              -4.5
+            ],
+            "massKg": 1,
+            "friction": 1
+          }
+        ],
+        "pins": [
+          {
+            "x": 0,
+            "tile": 0,
+            "y": 0
+          },
+          {
+            "x": 1,
+            "tile": 0,
+            "y": 0
+          },
+          {
+            "x": 2,
+            "tile": 0,
+            "y": 0
+          },
+          {
+            "x": 3,
+            "tile": 0,
+            "y": 0
+          },
+          {
+            "x": 4,
+            "tile": 0,
+            "y": 0
+          },
+          {
+            "x": 5,
+            "tile": 0,
+            "y": 0
+          },
+          {
+            "x": 6,
+            "tile": 0,
+            "y": 0
+          },
+          {
+            "x": 7,
+            "tile": 0,
+            "y": 0
+          },
+          {
+            "x": 8,
+            "tile": 0,
+            "y": 0
+          },
+          {
+            "x": 9,
+            "tile": 0,
+            "y": 0
+          },
+          {
+            "x": 10,
+            "tile": 0,
+            "y": 0
+          },
+          {
+            "x": 11,
+            "tile": 0,
+            "y": 0
+          },
+          {
+            "x": 0,
+            "tile": 0,
+            "y": 1
+          },
+          {
+            "x": 1,
+            "tile": 1,
+            "y": 1
+          },
+          {
+            "x": 11,
+            "tile": 0,
+            "y": 1
+          },
+          {
+            "x": 0,
+            "tile": 0,
+            "y": 2
+          },
+          {
+            "x": 11,
+            "tile": 0,
+            "y": 2
+          },
+          {
+            "x": 0,
+            "tile": 0,
+            "y": 3
+          },
+          {
+            "x": 11,
+            "tile": 0,
+            "y": 3
+          },
+          {
+            "x": 0,
+            "tile": 0,
+            "y": 4
+          },
+          {
+            "x": 11,
+            "tile": 0,
+            "y": 4
+          },
+          {
+            "x": 0,
+            "tile": 0,
+            "y": 5
+          },
+          {
+            "x": 11,
+            "tile": 0,
+            "y": 5
+          },
+          {
+            "x": 0,
+            "tile": 0,
+            "y": 6
+          },
+          {
+            "x": 11,
+            "tile": 0,
+            "y": 6
+          },
+          {
+            "x": 0,
+            "tile": 0,
+            "y": 7
+          },
+          {
+            "x": 11,
+            "tile": 0,
+            "y": 7
+          },
+          {
+            "x": 0,
+            "tile": 0,
+            "y": 8
+          },
+          {
+            "x": 11,
+            "tile": 0,
+            "y": 8
+          },
+          {
+            "x": 0,
+            "tile": 0,
+            "y": 9
+          },
+          {
+            "x": 11,
+            "tile": 0,
+            "y": 9
+          },
+          {
+            "x": 0,
+            "tile": 0,
+            "y": 10
+          },
+          {
+            "x": 10,
+            "tile": 1,
+            "y": 10
+          },
+          {
+            "x": 11,
+            "tile": 0,
+            "y": 10
+          },
+          {
+            "x": 0,
+            "tile": 0,
+            "y": 11
+          },
+          {
+            "x": 1,
+            "tile": 0,
+            "y": 11
+          },
+          {
+            "x": 2,
+            "tile": 0,
+            "y": 11
+          },
+          {
+            "x": 3,
+            "tile": 0,
+            "y": 11
+          },
+          {
+            "x": 4,
+            "tile": 0,
+            "y": 11
+          },
+          {
+            "x": 5,
+            "tile": 0,
+            "y": 11
+          },
+          {
+            "x": 6,
+            "tile": 0,
+            "y": 11
+          },
+          {
+            "x": 7,
+            "tile": 0,
+            "y": 11
+          },
+          {
+            "x": 8,
+            "tile": 0,
+            "y": 11
+          },
+          {
+            "x": 9,
+            "tile": 0,
+            "y": 11
+          },
+          {
+            "x": 10,
+            "tile": 0,
+            "y": 11
+          },
+          {
+            "x": 11,
+            "tile": 0,
+            "y": 11
+          }
+        ],
+        "source": {
+          "reference": {
+            "walkable": [
+              false,
+              true
+            ],
+            "rules": [
+              [
+                [
+                  true,
+                  true
+                ],
+                [
+                  true,
+                  true
+                ]
+              ],
+              [
+                [
+                  true,
+                  true
+                ],
+                [
+                  true,
+                  true
+                ]
+              ],
+              [
+                [
+                  true,
+                  true
+                ],
+                [
+                  true,
+                  true
+                ]
+              ],
+              [
+                [
+                  true,
+                  true
+                ],
+                [
+                  true,
+                  true
+                ]
+              ]
+            ],
+            "tilePixels": 1,
+            "title": "Courtyard and central barrier · labelled test reference",
+            "version": 1,
+            "cells": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              0,
+              0,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              0,
+              0,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              0,
+              0,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              0,
+              0,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              0,
+              0,
+              1,
+              1,
+              1,
+              1,
+              1,
+              0,
+              0,
+              0,
+              0,
+              1,
+              1,
+              1,
+              1,
+              1,
+              0,
+              0,
+              1,
+              1,
+              1,
+              1,
+              1,
+              0,
+              0,
+              0,
+              0,
+              1,
+              1,
+              1,
+              1,
+              1,
+              0,
+              0,
+              1,
+              1,
+              1,
+              1,
+              1,
+              0,
+              0,
+              0,
+              0,
+              1,
+              1,
+              1,
+              1,
+              1,
+              0,
+              0,
+              1,
+              1,
+              1,
+              1,
+              1,
+              0,
+              0,
+              0,
+              0,
+              1,
+              1,
+              1,
+              1,
+              1,
+              0,
+              0,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              0,
+              0,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              0,
+              0,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              0,
+              0,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              0,
+              0,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "imageSha256": "c06bf0f0f8ce3ff4f88dc4cb774137c2303f0e485e121178b83971ac75f6afa9",
+            "scope": "Dominant tile colours and observed directional adjacency. Passability is user-declared; not photographic object recognition or measured physical material inference.",
+            "pngBase64": "iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAAJUlEQVR4nGNQsw4gCTEA8Z33N4hEw1cDcpgMVQ2DMFhpoIEkBABd8Q9HxSiGdwAAAABJRU5ErkJggg==",
+            "width": 16,
+            "palette": [
+              "#263b50",
+              "#dcefd8"
+            ],
+            "id": "2d2833f6-d11a-4787-8b3e-9ee872cfc491",
+            "frequencies": [
+              76,
+              180
+            ],
+            "height": 16
+          },
+          "kind": "reference-image"
+        },
+        "version": "reference-grid-v1",
+        "materialVersion": "declared-palette-materials-v1",
+        "friction": 0.6,
+        "gravityMps2": 9.81,
+        "path": [
+          13,
+          14,
+          26,
+          38,
+          50,
+          51,
+          52,
+          53,
+          54,
+          55,
+          56,
+          57,
+          69,
+          81,
+          93,
+          105,
+          117,
+          129,
+          130
+        ],
+        "cells": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          1,
+          0,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          0,
+          0,
+          0,
+          1,
+          1,
+          0,
+          1,
+          0,
+          0,
+          1,
+          1,
+          0,
+          0,
+          0,
+          1,
+          1,
+          0,
+          0,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          0,
+          0,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          0,
+          0,
+          1,
+          0,
+          1,
+          1,
+          1,
+          1,
+          0,
+          1,
+          1,
+          1,
+          0,
+          0,
+          1,
+          1,
+          0,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          0,
+          0,
+          0,
+          1,
+          1,
+          1,
+          1,
+          0,
+          1,
+          1,
+          0,
+          1,
+          1,
+          0,
+          0,
+          1,
+          0,
+          1,
+          0,
+          0,
+          1,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          1,
+          0,
+          1,
+          0,
+          1,
+          1,
+          1,
+          0,
+          1,
+          0,
+          0,
+          0,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "materials": [
+          {
+            "restitution": 0,
+            "tile": 1,
+            "name": "Ice",
+            "dragNsPerM": 0.02,
+            "friction": 0.06
+          }
+        ],
+        "cellSizeM": 1,
+        "scope": "Declared-scale3D rigid-body scene from an explicit2D grid/layer. Blocked tiles are solid barriers, not inferred materials or fluid simulation. Original higher-dimensional data remain separate.",
+        "width": 12,
+        "options": {
+          "seed": 2801,
+          "materials": [
+            {
+              "restitution": 0,
+              "tile": 1,
+              "name": "Ice",
+              "dragNsPerM": 0.02,
+              "friction": 0.06
+            }
+          ],
+          "cellSizeM": 1,
+          "width": 12,
+          "pins": [],
+          "friction": 0.6,
+          "height": 12
+        },
+        "palette": [
+          "#263b50",
+          "#dcefd8"
+        ],
+        "metrics": {
+          "reachableCells": 76,
+          "colliders": 64,
+          "floorCells": 76,
+          "pathSteps": 18,
+          "cellSizeM": 1,
+          "physicalAxes": 3,
+          "compiledCells": 144
+        },
+        "height": 12
+      },
+      "id": "a85d4f88-360a-49cb-8a05-10808c8fc823",
+      "title": "Reference map · seed 2801"
+    }
+  },
+  "rawNativeSha256": "27b58b54722a16c976e82ebaf5e25710f06c88af851f3cacd6327e2452c168dd",
+  "note": "Original native package and full-run.json preserve exact decompressed Java bytes; summary transport JSON is labelled separately."
+}

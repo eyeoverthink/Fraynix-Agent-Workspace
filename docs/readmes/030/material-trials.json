@@ -1,0 +1,90 @@
+{
+  "scope": "Three fixed development native surface comparisons, not held-out policy evaluation. Original unit-mass sphere/direct-force controller and unchanged source grid. No training/promotion.",
+  "codeSha256": "d87b14f970dabb18624be9a458c5fd3266dd15cb51fe01f570f86fab50360c33",
+  "cases": [
+    {
+      "case": 1,
+      "material": {
+        "restitution": 0,
+        "tile": 1,
+        "name": "Declared test surface",
+        "dragNsPerM": 0.02,
+        "friction": 0.06
+      },
+      "nativePassed": true,
+      "timeS": 10.783333333333333,
+      "endpointErrorM": 0.010166168391816386,
+      "work": {
+        "brakingWorkJ": 25.22846864148352,
+        "convention": "Discrete force dot measured step displacement, J; effort is force magnitude times dt, N·s. Contact/damping residual is unresolved work, not proof of energy conservation.",
+        "effortNs": 49.230681173138976,
+        "positiveWorkJ": 42.16620224829609,
+        "actuatorWorkJ": 16.937733606812554,
+        "dragWorkJ": -0.6198525570878737,
+        "passed": true,
+        "integrationTicks": 2588,
+        "impulseWorkJ": 0.792893648147583,
+        "kineticEnergyJ": 2.586727744957898e-05,
+        "gravityWorkJ": 0.19620039761066202,
+        "unresolvedContactDampingWorkJ": -17.306949228205475
+      },
+      "run": "examples/surface-1/full-run.json"
+    },
+    {
+      "case": 2,
+      "material": {
+        "restitution": 0,
+        "tile": 1,
+        "name": "Declared test surface",
+        "dragNsPerM": 0.25,
+        "friction": 0.85
+      },
+      "nativePassed": true,
+      "timeS": 11.129166666666666,
+      "endpointErrorM": 0.010813715439202487,
+      "work": {
+        "brakingWorkJ": 24.344991333122454,
+        "convention": "Discrete force dot measured step displacement, J; effort is force magnitude times dt, N·s. Contact/damping residual is unresolved work, not proof of energy conservation.",
+        "effortNs": 59.92443268252736,
+        "positiveWorkJ": 56.13420518214678,
+        "actuatorWorkJ": 31.789213849024392,
+        "dragWorkJ": -7.436862596986308,
+        "passed": true,
+        "integrationTicks": 2671,
+        "impulseWorkJ": 0.7366430759429932,
+        "kineticEnergyJ": 0.00018602319958154113,
+        "gravityWorkJ": 0.19620010524987921,
+        "unresolvedContactDampingWorkJ": -25.285008410031374
+      },
+      "run": "examples/surface-2/full-run.json"
+    },
+    {
+      "case": 3,
+      "material": {
+        "restitution": 0,
+        "tile": 1,
+        "name": "Declared test surface",
+        "dragNsPerM": 6,
+        "friction": 1.1
+      },
+      "nativePassed": true,
+      "timeS": 16.1875,
+      "endpointErrorM": 0.022712235187352995,
+      "work": {
+        "brakingWorkJ": 0,
+        "convention": "Discrete force dot measured step displacement, J; effort is force magnitude times dt, N·s. Contact/damping residual is unresolved work, not proof of energy conservation.",
+        "effortNs": 121.13998505615348,
+        "positiveWorkJ": 141.08006790495713,
+        "actuatorWorkJ": 141.08006790495713,
+        "dragWorkJ": -123.91233038565007,
+        "passed": true,
+        "integrationTicks": 3885,
+        "impulseWorkJ": 0.5487759709358215,
+        "kineticEnergyJ": 0.004208826516568661,
+        "gravityWorkJ": 0.19620025143026892,
+        "unresolvedContactDampingWorkJ": -17.9085049151566
+      },
+      "run": "examples/surface-3/full-run.json"
+    }
+  ]
+}
