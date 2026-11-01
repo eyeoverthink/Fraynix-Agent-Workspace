@@ -1,0 +1,12 @@
+package fraymus.workspace;
+import org.json.*;
+import org.junit.Test;
+import java.nio.file.*;
+import java.util.*;
+import static org.junit.Assert.*;
+/** Only now-seen032 cases; never read reserved033 sources while tuning. */
+public class ContactDevelopmentTest {
+ static JSONObject run(JSONObject c) throws Exception {var scene=PushLearning.source(c,UUID.randomUUID().toString());var plan=PushLearning.plan(PushLearning.suite(),c,UUID.randomUUID().toString(),8); // Rebind plan to the actual source identity.
+  var p=new PushPlan(scene,PushNativeTest.id(scene,"crate"),PushNativeTest.id(scene,"pusher"));plan=p.plan(p.intent(c.getJSONArray("displacementM"),8,32));var events=new JSONArray();var samples=new JSONArray();try(var world=new ContactPhysics(scene,plan,Files.createTempDirectory("contact033-native-"),null,events)){var initial=world.sample().put("integration",new JSONArray());while(!world.settled()){world.step();if(world.tick%12==0||world.settled())samples.put(world.sample().put("integration",world.takeIntegration()));}var last=samples.getJSONObject(samples.length()-1);var r=new JSONObject().put("definition",scene).put("plan",plan).put("events",events).put("initialState",initial).put("samples",samples).put("final",last).put("status",world.controller.getString("phase").equals("finished")?"completed":"failed").put("resumes",0);r.put("verification",PushVerify.verify(r));return r;}}
+ @Test public void seenDevelopmentCasesExposeTheCandidateWithoutTouchingReservedData() throws Exception {var folder=Files.createTempDirectory("contact033-development-");int passed=0;var wrong=new java.util.ArrayList<String>();for(Object raw:PushLearning.cases(PushLearning.suite(),"evaluation")){var c=(JSONObject)raw;var r=run(c);Files.writeString(folder.resolve(c.getString("id")+".json"),r.toString());boolean ok=r.getJSONObject("verification").getBoolean("passed");if(ok)passed++;if(ok==c.optBoolean("negativeControl"))wrong.add(c.getString("id"));System.out.println("CONTACT_DEVELOPMENT_033 "+new JSONObject().put("case",c.getString("id")).put("metrics",r.getJSONObject("verification")).put("controller",r.getJSONObject("final").getJSONObject("controller")));}System.out.println("CONTACT_DEVELOPMENT_FOLDER_033 "+folder);assertTrue("Per-case negative/positive outcome mismatch: "+wrong,wrong.isEmpty());assertEquals("All seven seen feasible cases should pass; original force-negative control must fail",7,passed);}
+}
