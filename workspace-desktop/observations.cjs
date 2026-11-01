@@ -2,7 +2,7 @@
 const {randomUUID}=require('node:crypto');
 const sleep=ms=>new Promise(r=>setTimeout(r,ms));
 function asksForObservedWorld(goal){const creation=/\b(build|create|design|generate)\b/i.test(goal)&&/\b(html|website|dashboard|viewer)\b/i.test(goal);return !creation&&/\b(observed world|world estimate|footage|observation run)\b/i.test(goal);}
-function latestObservationFrame(run){const frame=run?.trace?.at(-1);return frame?{ordinal:frame.ordinal,sourceFrame:frame.sourceFrame,objects:frame.objects.map(o=>({bodyId:o.bodyId,trackingStatus:o.tracker.status,...o.estimate}))}:null;}
+function latestObservationFrame(run){const frame=run?.trace?.at(-1);return frame?{runId:run.id,datasetId:run.datasetId,nativeBinding:run.nativeBinding,ordinal:frame.ordinal,sourceFrame:frame.sourceFrame,objects:frame.objects.map(o=>({bodyId:o.bodyId,trackingStatus:o.tracker.status,...o.estimate}))}:null;}
 function createObservations({api,openArtifact,execute,emit,activity}){
  let selection=null;
  async function importPack(pack){
