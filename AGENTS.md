@@ -1,5 +1,10 @@
 # Fraynix Studio collaboration and documentation
 
+## Latest handoff · edition037
+
+Published2026-11-01: readme-037 release09dee469c146cb177f794c015a64e21f6d601b53, direct GitHub main/tag fetch and all709source hashes verified. Preserve README001–037 and snapshots; next unused038. Current private app remains Fraynix-Agent-Workspace, not Chandra. Read the newest PROJECT_MEMORY section. Independent324Java/69classes,83desktopunits,82UI assertions, three actual gpt-oss:20b checks and nine offline browser-guide checks pass. First new calibrated EPFL footage profile is rejected (12.5% coverage/1.6285m radius; second offscreen seed refused), never relabel as validated. User Cricut mat12x12in; physical camera preview only metadata, no personal frames saved. Normal review037 has its own project and camera initially off; preserve all older/personal data. Full checks after the machine reboot used one worker and one test JVM per class; avoid overlapping heavy validation jobs. No model/GPU training or native-action authority was added.
+
+
 Read `docs/PROJECT_MEMORY.md` and `docs/DEVELOPMENT_LOG.md` for current engineering
 continuity. Update them with verified outcomes and remaining work; keep personal
 runtime state and credentials outside Git.
