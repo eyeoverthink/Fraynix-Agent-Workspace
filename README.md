@@ -2,9 +2,9 @@
 
 **A local visual environment for agents to browse, create runnable artifacts, test behavior and reuse verified skills.**
 
-> **Latest implementation: [README038 — physical tabletop and grounded evidence](README-038.md)** · [Offline guide](docs/readmes/038/index.html) · [Operation and limits](docs/TABLETOP_OBSERVER.md) · [Edition history](docs/readmes/INDEX.md)
+> **Latest implementation: [README039 — operational self-model and persistent object knowledge](README-039.md)** · [Offline guide](docs/readmes/039/index.html) · [Operation](docs/OBJECT_KNOWLEDGE.md) · [Edition history](docs/readmes/INDEX.md)
 
-Track one human-selected physical object against a declared mat/tape reference, retain measured versus predicted state, and let local chat read the actual evidence. [Original physical results, screenshots, tests and next gates](README-038.md).
+Inspect actual tools and host state, retain human-associated object evidence, and let local chat research real references in a separate browser with restart recovery. [Screenshots, evidence boundaries and next gates](README-039.md).
 
 The spatial proof and next independent-capture gates are documented in the [spatial contract](docs/SPATIAL_WORLD.md) and the [world-model frontier assessment](docs/WORLD_MODEL_FRONTIERS.md), including Genie, persistent3D capture, physics-aware prediction and the source-qualified local scene/manipulation milestone.
 

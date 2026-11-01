@@ -1,0 +1,1210 @@
+{
+  "passed": true,
+  "date": "2026-11-01T23:25:12.531Z",
+  "model": "gpt-oss:20b",
+  "project": "C:\\Users\\eyeka\\AppData\\Local\\Temp\\fraynix-live-knowledge039-sixYVM",
+  "checks": [
+    "Real gpt-oss:20b chat reads current actual 99-tool inventory and correctly reports offline/camera-off state; every planning turn retains its injected self-context hash",
+    "Real gpt-oss:20b chat performs actual public search in a separate browser, caches readable source pages and image URLs, and verifies the exact object/job/source report",
+    "Actual external workflow preserves visible browser and original camera/native histories; sources remain candidates, and no camera pixels are sent, identity inferred or weights trained"
+  ],
+  "selfTask": {
+    "done": {
+      "summary": "99 registered tools; 1 retained objects; 0 unfinished research jobs. offline; no dated successful external-source receipt yet. Camera off or unavailable; browser ready. Host state stale/unavailable. This is operational self-knowledge; registered tools still have execution prerequisites.",
+      "goal": "What tools can you use, is internet access enabled in this session, and is the camera running? Read your actual capabilities.",
+      "selfModel": {
+        "schema": "operational-self-039-v1",
+        "capabilities": [
+          {
+            "args": "{query?}",
+            "name": "self.read",
+            "description": "Read current registered capabilities, actual host/network/camera state, persistent object and research counts, recent execution receipts. Network allowed is not proof of connectivity."
+          },
+          {
+            "args": "{}",
+            "name": "object.read",
+            "description": "Read the selected durable human-associated object, original camera provenance and actual research history. Labels are human guidance, not visual recognition."
+          },
+          {
+            "args": "{}",
+            "name": "object.research",
+            "description": "Start or join bounded real web research for the selected object human category in a separate browser. Original camera images are not uploaded."
+          },
+          {
+            "args": "{}",
+            "name": "object.wait",
+            "description": "Read saved progress of this task research job without starting duplicate work."
+          },
+          {
+            "args": "{}",
+            "name": "object.report",
+            "description": "Open and test the actual cached-source object report with source URLs/hashes and identity. Candidate references are not visual matches or measured physical properties."
+          },
+          {
+            "args": "{question}",
+            "name": "tabletop.answer",
+            "description": "Ask a registered Java evidence question about selected tabletop position, motion, visibility, calibration, prediction or limits. No model-supplied measurements."
+          },
+          {
+            "args": "{}",
+            "name": "tabletop.read",
+            "description": "Read the explicitly selected actual tabletop camera run, planar measurements, tape check, freshness and uncertainty. Human target labels are not recognition."
+          },
+          {
+            "args": "{}",
+            "name": "tabletop.report",
+            "description": "Open and test the actual numeric tabletop report; no private camera image is included."
+          },
+          {
+            "args": "{}",
+            "name": "observations.read",
+            "description": "Read actual observed-world estimates, uncertainty, stable body identities and recorded footage history. Pixel coordinates/frame-index time; no physical calibration implied."
+          },
+          {
+            "args": "{}",
+            "name": "observations.start",
+            "description": "Process explicitly selected original footage and bindings ONCE; Java owns tracker, prediction filter and persistent estimate revisions."
+          },
+          {
+            "args": "{}",
+            "name": "observations.wait",
+            "description": "Wait for this request owned real observation run; retain losses and rejected updates."
+          },
+          {
+            "args": "{}",
+            "name": "observations.report",
+            "description": "Open and test the actual saved motion report from recorded evidence."
+          },
+          {
+            "args": "{}",
+            "name": "world.observe",
+            "description": "Observe the selected persistent world current revision and all native body kinematics; explicitly refresh a stale request binding."
+          },
+          {
+            "args": "{targets?:[{sourceId,positionM:[x,y,z],yawDeg}],forceLimitN?,torqueLimitNm?,saveSkillName?}",
+            "name": "world.arrange",
+            "description": "Continue the current versioned world with bounded native forces/torques; verify all bodies and actual charts before advancing its head. Never reset the original source."
+          },
+          {
+            "args": "{}",
+            "name": "pose.compare",
+            "description": "Run the frozen native multi-object pose/translation-only ablation with fixed source data and gates. Not a033 contact-controller promotion."
+          },
+          {
+            "args": "{}",
+            "name": "pose.study",
+            "description": "Read current native pose comparison history."
+          },
+          {
+            "args": "{}",
+            "name": "pose.read",
+            "description": "Read actual selected multi-object scene, displayed target poses and virtual gripper limits."
+          },
+          {
+            "args": "{targets?:[{sourceId,positionM:[x,y,z],yawDeg}],forceLimitN?,torqueLimitNm?,saveSkillName?}",
+            "name": "pose.start",
+            "description": "Arrange2..4 actual source roles at target positions and yaw by bounded native virtual-gripper forces/torques; release, verify all bodies/charts and optionally retain a procedure."
+          },
+          {
+            "args": "{}",
+            "name": "contact.compare",
+            "description": "Compare the original and versioned solver-contact controller on frozen development and different reserved native cases. Settings, sources, gates and results belong to Java."
+          },
+          {
+            "args": "{}",
+            "name": "contact.read",
+            "description": "Read contact study history and the currently validated controller."
+          },
+          {
+            "args": "{}",
+            "name": "force.start",
+            "description": "Run the frozen native force-learning experiment: training-only cap selection, paired reserved evaluation and exact report verification. No user supplied gates, data, force settings or success values."
+          },
+          {
+            "args": "{}",
+            "name": "force.read",
+            "description": "Read the frozen suite scope and current active evaluated force profile."
+          },
+          {
+            "args": "{}",
+            "name": "map.read",
+            "description": "Inspect the selected original palette-map reference or compiled native world. User-declared passability, actual source hash and learned frequencies; host binds selection."
+          },
+          {
+            "args": "{}",
+            "name": "push.read",
+            "description": "Observe the actual selected crate/pusher roles, source geometry, masses, friction and committed native state. Labels are qualified scene data."
+          }
+        ],
+        "registered": true,
+        "registeredToolCount": 99,
+        "researchJobs": 2,
+        "selectedObject": {
+          "createdAt": "2026-11-01T23:21:48.684653200Z",
+          "labelSource": "Human guidance; no automatic semantic identification",
+          "bindingCount": 1,
+          "identityRevision": 1,
+          "id": "155ae2a7-c659-42b8-8bd9-424db1705acd",
+          "label": "LABELLED ANALYTIC TARGET · 039",
+          "category": "labelled analytic rigid target",
+          "nativeAssociation": {
+            "worldId": "a751198e-f5fc-430c-9648-aad4d417fe24",
+            "bodyId": "c3b5717b-db39-3da2-a83a-cad17fd31317"
+          },
+          "updatedAt": "2026-11-01T23:21:48.836259Z"
+        },
+        "activeResearch": [],
+        "persistentObjects": 1,
+        "hostAgeMs": 15583,
+        "modelDiscovery": "complete",
+        "lastExternalSource": null,
+        "generatedAt": "2026-11-01T23:23:08.783742900Z",
+        "registrySha256": "8ebdb6ef671192bf67efc8978f13afd5633d26df1fc7c70daad8b38bf33fc23e",
+        "host": {
+          "offline": true,
+          "browserReady": true,
+          "observedAt": "2026-11-01T23:22:53.200532800Z",
+          "selectedObjectId": "155ae2a7-c659-42b8-8bd9-424db1705acd",
+          "agentActive": true,
+          "sessionId": "750b4d92-d764-4809-af47-58f75d9aba93",
+          "cameraActive": false,
+          "canvasReady": true
+        },
+        "hostFresh": false,
+        "recentExecutions": [
+          {
+            "reason": "Actual host execution returned",
+            "at": "2026-11-01T23:22:53.167369600Z",
+            "ok": true,
+            "tool": "self.read"
+          }
+        ],
+        "availableLocalModels": [
+          "deepseek-r1:latest",
+          "eyeoverthink/FRAYNIX-PROTOCOL:3b",
+          "fraymus-genesis:latest",
+          "fraymus-nexus:latest",
+          "fraymus-oracle:latest",
+          "gemma2:latest",
+          "gemma3:latest",
+          "gemma4:latest",
+          "genesis:latest",
+          "gpt-oss:120b",
+          "gpt-oss:20b",
+          "llama3.2:latest",
+          "llama3:latest",
+          "llava:latest",
+          "mistral:latest",
+          "nemotron-3-nano:30b",
+          "nemotron-3-super:latest"
+        ],
+        "matchesTruncated": true,
+        "limits": "Operational state/capability inventory, not subjective awareness. Network permission is not reachability; registered tools are not evidence of success. Object labels and research remain source-qualified; no automatic recognition or model training."
+      },
+      "model": "gpt-oss:20b",
+      "episodeId": "9fc4fa96-8db1-4f13-80e4-b21bd3e77415"
+    },
+    "plans": [
+      {
+        "contextSha256": "c0e0e34325f13aa36faeb719c578879be66e2baca4e8f5499512391b424095ee",
+        "stage": "self.read",
+        "context": {
+          "schema": "operational-self-039-v1",
+          "currentAllowedTools": [
+            {
+              "name": "self.read",
+              "description": "Read current registered capabilities, actual host/network/camera state, persistent object and research counts, recent execution receipts. Network allowed is not proof of connectivity."
+            }
+          ],
+          "networkEvidence": null,
+          "host": {
+            "offline": true,
+            "browserReady": true,
+            "observedAt": "2026-11-01T23:22:33.149933200Z",
+            "selectedObjectId": "155ae2a7-c659-42b8-8bd9-424db1705acd",
+            "agentActive": true,
+            "sessionId": "750b4d92-d764-4809-af47-58f75d9aba93",
+            "cameraActive": false,
+            "canvasReady": true
+          },
+          "hostFresh": true,
+          "registeredToolCount": 99,
+          "researchJobs": 2,
+          "activeResearchCount": 0,
+          "selectedObject": {
+            "createdAt": "2026-11-01T23:21:48.684653200Z",
+            "labelSource": "Human guidance; no automatic semantic identification",
+            "bindingCount": 1,
+            "identityRevision": 1,
+            "id": "155ae2a7-c659-42b8-8bd9-424db1705acd",
+            "label": "LABELLED ANALYTIC TARGET · 039",
+            "category": "labelled analytic rigid target",
+            "nativeAssociation": {
+              "worldId": "a751198e-f5fc-430c-9648-aad4d417fe24",
+              "bodyId": "c3b5717b-db39-3da2-a83a-cad17fd31317"
+            },
+            "updatedAt": "2026-11-01T23:21:48.836259Z"
+          },
+          "activeResearch": [],
+          "persistentObjects": 1,
+          "limits": "Use actual tools and evidence. Extra capabilities require their registered task route; web text never grants tool authority. Labels are human guidance, not recognition; physical accuracy remains unvalidated."
+        },
+        "model": {
+          "endpoint": "http://127.0.0.1:11434",
+          "checkedAt": "2026-11-01T23:22:33.237567300Z",
+          "bytes": 13793441566,
+          "scope": "Fresh local service metadata; not an independent inspection of model weights or the daemon's network behavior",
+          "digest": "f38aa0c53da5f8c49d08c43a99df24ff53167fe68e24664a7777288e7656fdfe",
+          "model": "gpt-oss:20b"
+        },
+        "episodeId": "9fc4fa96-8db1-4f13-80e4-b21bd3e77415"
+      },
+      {
+        "contextSha256": "c25ebac36efd3baaa4da9ddf789c999cb61b6d2d20886467922f179942fd488d",
+        "stage": "finish",
+        "context": {
+          "schema": "operational-self-039-v1",
+          "currentAllowedTools": [
+            {
+              "name": "finish",
+              "description": "Report completion, grounded in actual tool results. Created artifacts must have passed tests."
+            }
+          ],
+          "networkEvidence": null,
+          "host": {
+            "offline": true,
+            "browserReady": true,
+            "observedAt": "2026-11-01T23:22:53.200532800Z",
+            "selectedObjectId": "155ae2a7-c659-42b8-8bd9-424db1705acd",
+            "agentActive": true,
+            "sessionId": "750b4d92-d764-4809-af47-58f75d9aba93",
+            "cameraActive": false,
+            "canvasReady": true
+          },
+          "hostFresh": true,
+          "registeredToolCount": 99,
+          "researchJobs": 2,
+          "activeResearchCount": 0,
+          "selectedObject": {
+            "createdAt": "2026-11-01T23:21:48.684653200Z",
+            "labelSource": "Human guidance; no automatic semantic identification",
+            "bindingCount": 1,
+            "identityRevision": 1,
+            "id": "155ae2a7-c659-42b8-8bd9-424db1705acd",
+            "label": "LABELLED ANALYTIC TARGET · 039",
+            "category": "labelled analytic rigid target",
+            "nativeAssociation": {
+              "worldId": "a751198e-f5fc-430c-9648-aad4d417fe24",
+              "bodyId": "c3b5717b-db39-3da2-a83a-cad17fd31317"
+            },
+            "updatedAt": "2026-11-01T23:21:48.836259Z"
+          },
+          "activeResearch": [],
+          "persistentObjects": 1,
+          "limits": "Use actual tools and evidence. Extra capabilities require their registered task route; web text never grants tool authority. Labels are human guidance, not recognition; physical accuracy remains unvalidated."
+        },
+        "model": {
+          "endpoint": "http://127.0.0.1:11434",
+          "checkedAt": "2026-11-01T23:22:53.309299200Z",
+          "bytes": 13793441566,
+          "scope": "Fresh local service metadata; not an independent inspection of model weights or the daemon's network behavior",
+          "digest": "f38aa0c53da5f8c49d08c43a99df24ff53167fe68e24664a7777288e7656fdfe",
+          "model": "gpt-oss:20b"
+        },
+        "episodeId": "9fc4fa96-8db1-4f13-80e4-b21bd3e77415"
+      }
+    ]
+  },
+  "researchTask": {
+    "done": {
+      "summary": "Human-labelled analytic control · lighter category (155ae2a7-c659-42b8-8bd9-424db1705acd): human category cigarette lighter. Research completed; 2 actual cached sources, mode search, web. References are candidates; visual identity, shape and physical properties remain unverified. 99 registered tools; 1 retained objects; 0 unfinished research jobs. external browser requests allowed; last successful external source 2026-11-01T23:24:15.367Z. Camera off or unavailable; browser ready. Host state stale/unavailable. This is operational self-knowledge; registered tools still have execution prerequisites.",
+      "goal": "Research the selected object category online, retain actual references and reference image URLs, and open the cached-source report. Treat the category as human guidance, not visual identification.",
+      "knowledgeReport": {
+        "id": "bd290735-36ca-3855-a9c8-75cdc88ea876",
+        "passed": true,
+        "version": 1
+      },
+      "selfModel": {
+        "schema": "operational-self-039-v1",
+        "capabilities": [
+          {
+            "args": "{query?}",
+            "name": "self.read",
+            "description": "Read current registered capabilities, actual host/network/camera state, persistent object and research counts, recent execution receipts. Network allowed is not proof of connectivity."
+          },
+          {
+            "args": "{}",
+            "name": "object.read",
+            "description": "Read the selected durable human-associated object, original camera provenance and actual research history. Labels are human guidance, not visual recognition."
+          },
+          {
+            "args": "{}",
+            "name": "object.research",
+            "description": "Start or join bounded real web research for the selected object human category in a separate browser. Original camera images are not uploaded."
+          },
+          {
+            "args": "{}",
+            "name": "object.wait",
+            "description": "Read saved progress of this task research job without starting duplicate work."
+          },
+          {
+            "args": "{}",
+            "name": "object.report",
+            "description": "Open and test the actual cached-source object report with source URLs/hashes and identity. Candidate references are not visual matches or measured physical properties."
+          },
+          {
+            "args": "{question}",
+            "name": "tabletop.answer",
+            "description": "Ask a registered Java evidence question about selected tabletop position, motion, visibility, calibration, prediction or limits. No model-supplied measurements."
+          },
+          {
+            "args": "{}",
+            "name": "tabletop.read",
+            "description": "Read the explicitly selected actual tabletop camera run, planar measurements, tape check, freshness and uncertainty. Human target labels are not recognition."
+          },
+          {
+            "args": "{}",
+            "name": "tabletop.report",
+            "description": "Open and test the actual numeric tabletop report; no private camera image is included."
+          },
+          {
+            "args": "{}",
+            "name": "observations.read",
+            "description": "Read actual observed-world estimates, uncertainty, stable body identities and recorded footage history. Pixel coordinates/frame-index time; no physical calibration implied."
+          },
+          {
+            "args": "{}",
+            "name": "observations.start",
+            "description": "Process explicitly selected original footage and bindings ONCE; Java owns tracker, prediction filter and persistent estimate revisions."
+          },
+          {
+            "args": "{}",
+            "name": "observations.wait",
+            "description": "Wait for this request owned real observation run; retain losses and rejected updates."
+          },
+          {
+            "args": "{}",
+            "name": "observations.report",
+            "description": "Open and test the actual saved motion report from recorded evidence."
+          },
+          {
+            "args": "{}",
+            "name": "world.observe",
+            "description": "Observe the selected persistent world current revision and all native body kinematics; explicitly refresh a stale request binding."
+          },
+          {
+            "args": "{targets?:[{sourceId,positionM:[x,y,z],yawDeg}],forceLimitN?,torqueLimitNm?,saveSkillName?}",
+            "name": "world.arrange",
+            "description": "Continue the current versioned world with bounded native forces/torques; verify all bodies and actual charts before advancing its head. Never reset the original source."
+          },
+          {
+            "args": "{}",
+            "name": "pose.compare",
+            "description": "Run the frozen native multi-object pose/translation-only ablation with fixed source data and gates. Not a033 contact-controller promotion."
+          },
+          {
+            "args": "{}",
+            "name": "pose.study",
+            "description": "Read current native pose comparison history."
+          },
+          {
+            "args": "{}",
+            "name": "pose.read",
+            "description": "Read actual selected multi-object scene, displayed target poses and virtual gripper limits."
+          },
+          {
+            "args": "{targets?:[{sourceId,positionM:[x,y,z],yawDeg}],forceLimitN?,torqueLimitNm?,saveSkillName?}",
+            "name": "pose.start",
+            "description": "Arrange2..4 actual source roles at target positions and yaw by bounded native virtual-gripper forces/torques; release, verify all bodies/charts and optionally retain a procedure."
+          },
+          {
+            "args": "{}",
+            "name": "contact.compare",
+            "description": "Compare the original and versioned solver-contact controller on frozen development and different reserved native cases. Settings, sources, gates and results belong to Java."
+          },
+          {
+            "args": "{}",
+            "name": "contact.read",
+            "description": "Read contact study history and the currently validated controller."
+          },
+          {
+            "args": "{}",
+            "name": "force.start",
+            "description": "Run the frozen native force-learning experiment: training-only cap selection, paired reserved evaluation and exact report verification. No user supplied gates, data, force settings or success values."
+          },
+          {
+            "args": "{}",
+            "name": "force.read",
+            "description": "Read the frozen suite scope and current active evaluated force profile."
+          },
+          {
+            "args": "{}",
+            "name": "map.read",
+            "description": "Inspect the selected original palette-map reference or compiled native world. User-declared passability, actual source hash and learned frequencies; host binds selection."
+          },
+          {
+            "args": "{}",
+            "name": "push.read",
+            "description": "Observe the actual selected crate/pusher roles, source geometry, masses, friction and committed native state. Labels are qualified scene data."
+          }
+        ],
+        "registered": true,
+        "registeredToolCount": 99,
+        "researchJobs": 3,
+        "selectedObject": {
+          "createdAt": "2026-11-01T23:21:48.684653200Z",
+          "labelSource": "Human guidance; no automatic semantic identification",
+          "bindingCount": 1,
+          "identityRevision": 2,
+          "id": "155ae2a7-c659-42b8-8bd9-424db1705acd",
+          "label": "Human-labelled analytic control · lighter category",
+          "category": "cigarette lighter",
+          "nativeAssociation": {
+            "worldId": "a751198e-f5fc-430c-9648-aad4d417fe24",
+            "bodyId": "c3b5717b-db39-3da2-a83a-cad17fd31317"
+          },
+          "updatedAt": "2026-11-01T23:23:10.750606800Z"
+        },
+        "activeResearch": [],
+        "persistentObjects": 1,
+        "hostAgeMs": 14067,
+        "modelDiscovery": "complete",
+        "lastExternalSource": {
+          "sha256": "5e88c5b326a4c5dd55159dbd4523ed9ce9230f882783b36b10d98528bddab605",
+          "observedAt": "2026-11-01T23:24:15.367Z",
+          "meaning": "A dated successful public-source receipt; not proof that every internet service is reachable now",
+          "url": "https://lighterlibrary.com/"
+        },
+        "generatedAt": "2026-11-01T23:25:12.143112600Z",
+        "registrySha256": "8ebdb6ef671192bf67efc8978f13afd5633d26df1fc7c70daad8b38bf33fc23e",
+        "host": {
+          "offline": false,
+          "browserReady": true,
+          "observedAt": "2026-11-01T23:24:58.075691300Z",
+          "selectedObjectId": "155ae2a7-c659-42b8-8bd9-424db1705acd",
+          "agentActive": true,
+          "sessionId": "963bf956-4fb0-49ec-a9d7-5327696013d9",
+          "cameraActive": false,
+          "canvasReady": true
+        },
+        "hostFresh": false,
+        "recentExecutions": [
+          {
+            "reason": "Actual host execution returned",
+            "at": "2026-11-01T23:23:10.871300100Z",
+            "ok": true,
+            "tool": "browser.observe"
+          },
+          {
+            "reason": "Actual host execution returned",
+            "at": "2026-11-01T23:23:17.683750Z",
+            "ok": true,
+            "tool": "self.read"
+          },
+          {
+            "reason": "Actual host execution returned",
+            "at": "2026-11-01T23:23:31.156130700Z",
+            "ok": true,
+            "tool": "object.read"
+          },
+          {
+            "reason": "Actual host execution returned",
+            "at": "2026-11-01T23:24:10.683470400Z",
+            "ok": true,
+            "tool": "object.research"
+          },
+          {
+            "reason": "Actual host execution returned",
+            "at": "2026-11-01T23:24:58.018041100Z",
+            "ok": true,
+            "tool": "canvas.test"
+          },
+          {
+            "reason": "Actual host execution returned",
+            "at": "2026-11-01T23:24:58.051137300Z",
+            "ok": true,
+            "tool": "object.report"
+          }
+        ],
+        "availableLocalModels": [
+          "deepseek-r1:latest",
+          "eyeoverthink/FRAYNIX-PROTOCOL:3b",
+          "fraymus-genesis:latest",
+          "fraymus-nexus:latest",
+          "fraymus-oracle:latest",
+          "gemma2:latest",
+          "gemma3:latest",
+          "gemma4:latest",
+          "genesis:latest",
+          "gpt-oss:120b",
+          "gpt-oss:20b",
+          "llama3.2:latest",
+          "llama3:latest",
+          "llava:latest",
+          "mistral:latest",
+          "nemotron-3-nano:30b",
+          "nemotron-3-super:latest"
+        ],
+        "matchesTruncated": true,
+        "limits": "Operational state/capability inventory, not subjective awareness. Network permission is not reachability; registered tools are not evidence of success. Object labels and research remain source-qualified; no automatic recognition or model training."
+      },
+      "model": "gpt-oss:20b",
+      "episodeId": "0949d31a-a63c-46c1-bfe8-f2459d549ad7",
+      "objectId": "155ae2a7-c659-42b8-8bd9-424db1705acd",
+      "research": {
+        "generation": 1,
+        "reason": "Actual cached web references retained as candidate knowledge; visual match and physical properties unverified",
+        "completedAt": "2026-11-01T23:24:16.102435100Z",
+        "sources": [
+          {
+            "sha256": "55abc580ec30c3fee52397a1705f4bf644918fc95e33badfb32e83e45291296b",
+            "observedAt": "2026-11-01T23:24:14.434Z",
+            "imageReferences": 12,
+            "textSha256": "717a7b8d2f413fe065b530bd44ba8de86db4389023cf0015ce20443f80c1f208",
+            "title": "Cigarette Lighters: Zippo, Ronson 2026 | Antique Identifier",
+            "finalUrl": "https://antique-identifier.app/blog/antique-cigarette-lighters-identification-guide",
+            "url": "https://antique-identifier.app/blog/antique-cigarette-lighters-identification-guide"
+          },
+          {
+            "sha256": "5e88c5b326a4c5dd55159dbd4523ed9ce9230f882783b36b10d98528bddab605",
+            "observedAt": "2026-11-01T23:24:15.367Z",
+            "imageReferences": 12,
+            "textSha256": "fb77fe3c1b85a8d5bdea00efe67e34b5ad2fafe9f2afbf9697f4b38a29fba094",
+            "title": "The Lighter Library - Homepage",
+            "finalUrl": "https://lighterlibrary.com/",
+            "url": "https://lighterlibrary.com/"
+          }
+        ],
+        "query": "cigarette lighter identification reference images",
+        "identityRevision": 2,
+        "searchAttempts": 2,
+        "steps": [
+          {
+            "phase": "search",
+            "reason": "Source requests human verification/consent",
+            "at": "2026-11-01T23:24:12.483606200Z",
+            "document": {
+              "sha256": "c4e4fc52e7b62050c4ed1e6bf025e8e557adac35503c1144fc6664a078beccd5",
+              "observedAt": "2026-11-01T23:24:12.467Z",
+              "imageReferences": 0,
+              "textSha256": "4aea8634797f23064028565a07eea543250da2553e6ecbfc5d34c2366583eaaf",
+              "title": "https://www.google.com/search?q=cigarette+lighter+identification+reference+images&sei=HMrnauTUBpvGkPIPrMSfUA",
+              "finalUrl": "https://www.google.com/sorry/index?continue=https://www.google.com/search%3Fq%3Dcigarette%2Blighter%2Bidentification%2Breference%2Bimages%26sei%3DHMrnauTUBpvGkPIPrMSfUA&q=EhAmAQZDgAPE-1iXyzsEMelUGJyUn9cGIjCdhk2fbem7irJwKoZ81Efd3EOZXJD3uh5c134nV-nlgA4Wi-SxAaJ8mR08E0OA1dMyAVJaAUNg6Yv24uTW2I_YAQ",
+              "url": "https://www.google.com/search?q=cigarette+lighter+identification+reference+images"
+            },
+            "index": 0,
+            "ok": false,
+            "url": "https://www.google.com/search?q=cigarette+lighter+identification+reference+images"
+          },
+          {
+            "phase": "search",
+            "reason": "Actual bounded browser source read",
+            "at": "2026-11-01T23:24:13.433288600Z",
+            "document": {
+              "sha256": "d4eec064de314e7232f4a2dc8c1a9230cfe4e3f260dbeb1e93653f1437e74951",
+              "observedAt": "2026-11-01T23:24:13.427Z",
+              "imageReferences": 0,
+              "textSha256": "20acc9ab4aea6ad286a6440e80c63c2fd1146d591d190d41b9d2ad570e8b9b51",
+              "title": "cigarette lighter identification reference images - Search",
+              "finalUrl": "https://www.bing.com/search?q=cigarette+lighter+identification+reference+images",
+              "url": "https://www.bing.com/search?q=cigarette+lighter+identification+reference+images"
+            },
+            "index": 1,
+            "links": [
+              {
+                "title": "Cigarette Lighters: Zippo, Ronson 2026 | Antique Identifier",
+                "url": "https://antique-identifier.app/blog/antique-cigarette-lighters-identification-guide"
+              },
+              {
+                "title": "The Lighter Library - Homepage",
+                "url": "https://lighterlibrary.com/"
+              },
+              {
+                "title": "Cigarette Lighters royalty-free images - Shutterstock",
+                "url": "https://www.shutterstock.com/search/cigarette-lighters?msockid=1478d7ac72926b953877cfa873426aa9"
+              },
+              {
+                "title": "How to Date your Zippo Lighter with the Bottom Stamp",
+                "url": "https://kb.zippo.com/zippo-lighter/date-codes"
+              },
+              {
+                "title": "4,413 Cigarette Lighter Images and Stock Photos",
+                "url": "https://www.gettyimages.com/photos/cigarette-lighter"
+              },
+              {
+                "title": "Dating a Zippo Lighter - Toledo Bend Reservoir",
+                "url": "https://www.toledo-bend.us/VCL/articles/index.asp?request=zippo"
+              },
+              {
+                "title": "How to Identify the Make & Model of a Vintage Lighter",
+                "url": "https://www.sellmylighters.com/how-can-i-identify-the-make-and-model-of-a-vintage-lighter/"
+              },
+              {
+                "title": "Cigarette Lighter Pictures, Images and Stock Photos",
+                "url": "https://www.istockphoto.com/photos/cigarette-lighter?msockid=1478d7ac72926b953877cfa873426aa9"
+              }
+            ],
+            "ok": true,
+            "url": "https://www.bing.com/search?q=cigarette+lighter+identification+reference+images"
+          },
+          {
+            "phase": "source",
+            "reason": "Actual bounded browser source read",
+            "at": "2026-11-01T23:24:14.456273700Z",
+            "document": {
+              "sha256": "55abc580ec30c3fee52397a1705f4bf644918fc95e33badfb32e83e45291296b",
+              "observedAt": "2026-11-01T23:24:14.434Z",
+              "imageReferences": 12,
+              "textSha256": "717a7b8d2f413fe065b530bd44ba8de86db4389023cf0015ce20443f80c1f208",
+              "title": "Cigarette Lighters: Zippo, Ronson 2026 | Antique Identifier",
+              "finalUrl": "https://antique-identifier.app/blog/antique-cigarette-lighters-identification-guide",
+              "url": "https://antique-identifier.app/blog/antique-cigarette-lighters-identification-guide"
+            },
+            "index": 0,
+            "ok": true,
+            "url": "https://antique-identifier.app/blog/antique-cigarette-lighters-identification-guide"
+          },
+          {
+            "phase": "source",
+            "reason": "Actual bounded browser source read",
+            "at": "2026-11-01T23:24:15.384515200Z",
+            "document": {
+              "sha256": "5e88c5b326a4c5dd55159dbd4523ed9ce9230f882783b36b10d98528bddab605",
+              "observedAt": "2026-11-01T23:24:15.367Z",
+              "imageReferences": 12,
+              "textSha256": "fb77fe3c1b85a8d5bdea00efe67e34b5ad2fafe9f2afbf9697f4b38a29fba094",
+              "title": "The Lighter Library - Homepage",
+              "finalUrl": "https://lighterlibrary.com/",
+              "url": "https://lighterlibrary.com/"
+            },
+            "index": 1,
+            "ok": true,
+            "url": "https://lighterlibrary.com/"
+          },
+          {
+            "phase": "source",
+            "reason": "Source response/text unavailable",
+            "at": "2026-11-01T23:24:16.076483400Z",
+            "document": {
+              "sha256": "427d8ffe5e1fe904b76feaa0383cd220a295870b41a7978c63d6b1deefbb66a8",
+              "observedAt": "2026-11-01T23:24:16.061Z",
+              "imageReferences": 0,
+              "textSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "title": "shutterstock.com",
+              "finalUrl": "https://www.shutterstock.com/search/cigarette-lighters?msockid=1478d7ac72926b953877cfa873426aa9",
+              "url": "https://www.shutterstock.com/search/cigarette-lighters?msockid=1478d7ac72926b953877cfa873426aa9"
+            },
+            "index": 2,
+            "ok": false,
+            "url": "https://www.shutterstock.com/search/cigarette-lighters?msockid=1478d7ac72926b953877cfa873426aa9"
+          }
+        ],
+        "attemptStartedAt": "2026-11-01T23:24:10.916799200Z",
+        "mode": "search",
+        "createdAt": "2026-11-01T23:24:10.666866700Z",
+        "sourceKind": "web",
+        "pageAttempts": 3,
+        "id": "95ddfa04-b328-487e-8246-9d041c46bfdd",
+        "category": "cigarette lighter",
+        "objectId": "155ae2a7-c659-42b8-8bd9-424db1705acd",
+        "status": "completed",
+        "attempts": 1
+      }
+    },
+    "plans": [
+      {
+        "contextSha256": "458b2fc2358cbdbb1d2d3ac7d8be4f0dbb6d2336be62f6b86cc731838e9509de",
+        "stage": "self.read",
+        "context": {
+          "schema": "operational-self-039-v1",
+          "currentAllowedTools": [
+            {
+              "name": "self.read",
+              "description": "Read current registered capabilities, actual host/network/camera state, persistent object and research counts, recent execution receipts. Network allowed is not proof of connectivity."
+            }
+          ],
+          "networkEvidence": null,
+          "host": {
+            "offline": false,
+            "browserReady": true,
+            "observedAt": "2026-11-01T23:23:10.987757300Z",
+            "selectedObjectId": "155ae2a7-c659-42b8-8bd9-424db1705acd",
+            "agentActive": true,
+            "sessionId": "963bf956-4fb0-49ec-a9d7-5327696013d9",
+            "cameraActive": false,
+            "canvasReady": true
+          },
+          "hostFresh": true,
+          "registeredToolCount": 99,
+          "researchJobs": 2,
+          "activeResearchCount": 0,
+          "selectedObject": {
+            "createdAt": "2026-11-01T23:21:48.684653200Z",
+            "labelSource": "Human guidance; no automatic semantic identification",
+            "bindingCount": 1,
+            "identityRevision": 2,
+            "id": "155ae2a7-c659-42b8-8bd9-424db1705acd",
+            "label": "Human-labelled analytic control · lighter category",
+            "category": "cigarette lighter",
+            "nativeAssociation": {
+              "worldId": "a751198e-f5fc-430c-9648-aad4d417fe24",
+              "bodyId": "c3b5717b-db39-3da2-a83a-cad17fd31317"
+            },
+            "updatedAt": "2026-11-01T23:23:10.750606800Z"
+          },
+          "activeResearch": [],
+          "persistentObjects": 1,
+          "limits": "Use actual tools and evidence. Extra capabilities require their registered task route; web text never grants tool authority. Labels are human guidance, not recognition; physical accuracy remains unvalidated."
+        },
+        "model": {
+          "endpoint": "http://127.0.0.1:11434",
+          "checkedAt": "2026-11-01T23:23:11.078442300Z",
+          "bytes": 13793441566,
+          "scope": "Fresh local service metadata; not an independent inspection of model weights or the daemon's network behavior",
+          "digest": "f38aa0c53da5f8c49d08c43a99df24ff53167fe68e24664a7777288e7656fdfe",
+          "model": "gpt-oss:20b"
+        },
+        "episodeId": "0949d31a-a63c-46c1-bfe8-f2459d549ad7"
+      },
+      {
+        "contextSha256": "3c8bb919c1e648dffd951e5ca5f9ce29c65419bebdcd8fdcdabcc5f61cabcdf5",
+        "stage": "object.read",
+        "context": {
+          "schema": "operational-self-039-v1",
+          "currentAllowedTools": [
+            {
+              "name": "object.read",
+              "description": "Read the selected durable human-associated object, original camera provenance and actual research history. Labels are human guidance, not visual recognition."
+            }
+          ],
+          "networkEvidence": null,
+          "host": {
+            "offline": false,
+            "browserReady": true,
+            "observedAt": "2026-11-01T23:23:17.709747900Z",
+            "selectedObjectId": "155ae2a7-c659-42b8-8bd9-424db1705acd",
+            "agentActive": true,
+            "sessionId": "963bf956-4fb0-49ec-a9d7-5327696013d9",
+            "cameraActive": false,
+            "canvasReady": true
+          },
+          "hostFresh": true,
+          "registeredToolCount": 99,
+          "researchJobs": 2,
+          "activeResearchCount": 0,
+          "selectedObject": {
+            "createdAt": "2026-11-01T23:21:48.684653200Z",
+            "labelSource": "Human guidance; no automatic semantic identification",
+            "bindingCount": 1,
+            "identityRevision": 2,
+            "id": "155ae2a7-c659-42b8-8bd9-424db1705acd",
+            "label": "Human-labelled analytic control · lighter category",
+            "category": "cigarette lighter",
+            "nativeAssociation": {
+              "worldId": "a751198e-f5fc-430c-9648-aad4d417fe24",
+              "bodyId": "c3b5717b-db39-3da2-a83a-cad17fd31317"
+            },
+            "updatedAt": "2026-11-01T23:23:10.750606800Z"
+          },
+          "activeResearch": [],
+          "persistentObjects": 1,
+          "limits": "Use actual tools and evidence. Extra capabilities require their registered task route; web text never grants tool authority. Labels are human guidance, not recognition; physical accuracy remains unvalidated."
+        },
+        "model": {
+          "endpoint": "http://127.0.0.1:11434",
+          "checkedAt": "2026-11-01T23:23:17.809334500Z",
+          "bytes": 13793441566,
+          "scope": "Fresh local service metadata; not an independent inspection of model weights or the daemon's network behavior",
+          "digest": "f38aa0c53da5f8c49d08c43a99df24ff53167fe68e24664a7777288e7656fdfe",
+          "model": "gpt-oss:20b"
+        },
+        "episodeId": "0949d31a-a63c-46c1-bfe8-f2459d549ad7"
+      },
+      {
+        "contextSha256": "913872e6557a297a6d2050839ac8e0dd104d2cbdec5ec5f0d99767a1f5725ae1",
+        "stage": "object.research",
+        "context": {
+          "schema": "operational-self-039-v1",
+          "currentAllowedTools": [
+            {
+              "name": "object.research",
+              "description": "Start or join bounded real web research for the selected object human category in a separate browser. Original camera images are not uploaded."
+            }
+          ],
+          "networkEvidence": null,
+          "host": {
+            "offline": false,
+            "browserReady": true,
+            "observedAt": "2026-11-01T23:23:31.183768400Z",
+            "selectedObjectId": "155ae2a7-c659-42b8-8bd9-424db1705acd",
+            "agentActive": true,
+            "sessionId": "963bf956-4fb0-49ec-a9d7-5327696013d9",
+            "cameraActive": false,
+            "canvasReady": true
+          },
+          "hostFresh": true,
+          "registeredToolCount": 99,
+          "researchJobs": 2,
+          "activeResearchCount": 0,
+          "selectedObject": {
+            "createdAt": "2026-11-01T23:21:48.684653200Z",
+            "labelSource": "Human guidance; no automatic semantic identification",
+            "bindingCount": 1,
+            "identityRevision": 2,
+            "id": "155ae2a7-c659-42b8-8bd9-424db1705acd",
+            "label": "Human-labelled analytic control · lighter category",
+            "category": "cigarette lighter",
+            "nativeAssociation": {
+              "worldId": "a751198e-f5fc-430c-9648-aad4d417fe24",
+              "bodyId": "c3b5717b-db39-3da2-a83a-cad17fd31317"
+            },
+            "updatedAt": "2026-11-01T23:23:10.750606800Z"
+          },
+          "activeResearch": [],
+          "persistentObjects": 1,
+          "limits": "Use actual tools and evidence. Extra capabilities require their registered task route; web text never grants tool authority. Labels are human guidance, not recognition; physical accuracy remains unvalidated."
+        },
+        "model": {
+          "endpoint": "http://127.0.0.1:11434",
+          "checkedAt": "2026-11-01T23:23:31.277522300Z",
+          "bytes": 13793441566,
+          "scope": "Fresh local service metadata; not an independent inspection of model weights or the daemon's network behavior",
+          "digest": "f38aa0c53da5f8c49d08c43a99df24ff53167fe68e24664a7777288e7656fdfe",
+          "model": "gpt-oss:20b"
+        },
+        "episodeId": "0949d31a-a63c-46c1-bfe8-f2459d549ad7"
+      },
+      {
+        "contextSha256": "4fb9f5e7ee030799a4ca19aa6e58f28d11004fe7a9c61b6ea6facb1bed328f6b",
+        "stage": "object.report",
+        "context": {
+          "schema": "operational-self-039-v1",
+          "currentAllowedTools": [
+            {
+              "name": "object.report",
+              "description": "Open and test the actual cached-source object report with source URLs/hashes and identity. Candidate references are not visual matches or measured physical properties."
+            }
+          ],
+          "networkEvidence": {
+            "sha256": "5e88c5b326a4c5dd55159dbd4523ed9ce9230f882783b36b10d98528bddab605",
+            "observedAt": "2026-11-01T23:24:15.367Z",
+            "meaning": "A dated successful public-source receipt; not proof that every internet service is reachable now",
+            "url": "https://lighterlibrary.com/"
+          },
+          "host": {
+            "offline": false,
+            "browserReady": true,
+            "observedAt": "2026-11-01T23:24:16.258476100Z",
+            "selectedObjectId": "155ae2a7-c659-42b8-8bd9-424db1705acd",
+            "agentActive": true,
+            "sessionId": "963bf956-4fb0-49ec-a9d7-5327696013d9",
+            "cameraActive": false,
+            "canvasReady": true
+          },
+          "hostFresh": true,
+          "registeredToolCount": 99,
+          "researchJobs": 3,
+          "activeResearchCount": 0,
+          "selectedObject": {
+            "createdAt": "2026-11-01T23:21:48.684653200Z",
+            "labelSource": "Human guidance; no automatic semantic identification",
+            "bindingCount": 1,
+            "identityRevision": 2,
+            "id": "155ae2a7-c659-42b8-8bd9-424db1705acd",
+            "label": "Human-labelled analytic control · lighter category",
+            "category": "cigarette lighter",
+            "nativeAssociation": {
+              "worldId": "a751198e-f5fc-430c-9648-aad4d417fe24",
+              "bodyId": "c3b5717b-db39-3da2-a83a-cad17fd31317"
+            },
+            "updatedAt": "2026-11-01T23:23:10.750606800Z"
+          },
+          "activeResearch": [],
+          "persistentObjects": 1,
+          "limits": "Use actual tools and evidence. Extra capabilities require their registered task route; web text never grants tool authority. Labels are human guidance, not recognition; physical accuracy remains unvalidated."
+        },
+        "model": {
+          "endpoint": "http://127.0.0.1:11434",
+          "checkedAt": "2026-11-01T23:24:16.354180900Z",
+          "bytes": 13793441566,
+          "scope": "Fresh local service metadata; not an independent inspection of model weights or the daemon's network behavior",
+          "digest": "f38aa0c53da5f8c49d08c43a99df24ff53167fe68e24664a7777288e7656fdfe",
+          "model": "gpt-oss:20b"
+        },
+        "episodeId": "0949d31a-a63c-46c1-bfe8-f2459d549ad7"
+      },
+      {
+        "contextSha256": "7ef4040790fd81a9c7c5846ebafcfa76f8ad27164ab1edcd914e22ef40537e44",
+        "stage": "finish",
+        "context": {
+          "schema": "operational-self-039-v1",
+          "currentAllowedTools": [
+            {
+              "name": "finish",
+              "description": "Report completion, grounded in actual tool results. Created artifacts must have passed tests."
+            }
+          ],
+          "networkEvidence": {
+            "sha256": "5e88c5b326a4c5dd55159dbd4523ed9ce9230f882783b36b10d98528bddab605",
+            "observedAt": "2026-11-01T23:24:15.367Z",
+            "meaning": "A dated successful public-source receipt; not proof that every internet service is reachable now",
+            "url": "https://lighterlibrary.com/"
+          },
+          "host": {
+            "offline": false,
+            "browserReady": true,
+            "observedAt": "2026-11-01T23:24:58.075691300Z",
+            "selectedObjectId": "155ae2a7-c659-42b8-8bd9-424db1705acd",
+            "agentActive": true,
+            "sessionId": "963bf956-4fb0-49ec-a9d7-5327696013d9",
+            "cameraActive": false,
+            "canvasReady": true
+          },
+          "hostFresh": true,
+          "registeredToolCount": 99,
+          "researchJobs": 3,
+          "activeResearchCount": 0,
+          "selectedObject": {
+            "createdAt": "2026-11-01T23:21:48.684653200Z",
+            "labelSource": "Human guidance; no automatic semantic identification",
+            "bindingCount": 1,
+            "identityRevision": 2,
+            "id": "155ae2a7-c659-42b8-8bd9-424db1705acd",
+            "label": "Human-labelled analytic control · lighter category",
+            "category": "cigarette lighter",
+            "nativeAssociation": {
+              "worldId": "a751198e-f5fc-430c-9648-aad4d417fe24",
+              "bodyId": "c3b5717b-db39-3da2-a83a-cad17fd31317"
+            },
+            "updatedAt": "2026-11-01T23:23:10.750606800Z"
+          },
+          "activeResearch": [],
+          "persistentObjects": 1,
+          "limits": "Use actual tools and evidence. Extra capabilities require their registered task route; web text never grants tool authority. Labels are human guidance, not recognition; physical accuracy remains unvalidated."
+        },
+        "model": {
+          "endpoint": "http://127.0.0.1:11434",
+          "checkedAt": "2026-11-01T23:24:58.158437300Z",
+          "bytes": 13793441566,
+          "scope": "Fresh local service metadata; not an independent inspection of model weights or the daemon's network behavior",
+          "digest": "f38aa0c53da5f8c49d08c43a99df24ff53167fe68e24664a7777288e7656fdfe",
+          "model": "gpt-oss:20b"
+        },
+        "episodeId": "0949d31a-a63c-46c1-bfe8-f2459d549ad7"
+      }
+    ]
+  },
+  "research": {
+    "generation": 1,
+    "reason": "Actual cached web references retained as candidate knowledge; visual match and physical properties unverified",
+    "completedAt": "2026-11-01T23:24:16.102435100Z",
+    "sources": [
+      {
+        "sha256": "55abc580ec30c3fee52397a1705f4bf644918fc95e33badfb32e83e45291296b",
+        "observedAt": "2026-11-01T23:24:14.434Z",
+        "imageReferences": 12,
+        "textSha256": "717a7b8d2f413fe065b530bd44ba8de86db4389023cf0015ce20443f80c1f208",
+        "title": "Cigarette Lighters: Zippo, Ronson 2026 | Antique Identifier",
+        "finalUrl": "https://antique-identifier.app/blog/antique-cigarette-lighters-identification-guide",
+        "url": "https://antique-identifier.app/blog/antique-cigarette-lighters-identification-guide"
+      },
+      {
+        "sha256": "5e88c5b326a4c5dd55159dbd4523ed9ce9230f882783b36b10d98528bddab605",
+        "observedAt": "2026-11-01T23:24:15.367Z",
+        "imageReferences": 12,
+        "textSha256": "fb77fe3c1b85a8d5bdea00efe67e34b5ad2fafe9f2afbf9697f4b38a29fba094",
+        "title": "The Lighter Library - Homepage",
+        "finalUrl": "https://lighterlibrary.com/",
+        "url": "https://lighterlibrary.com/"
+      }
+    ],
+    "query": "cigarette lighter identification reference images",
+    "identityRevision": 2,
+    "searchAttempts": 2,
+    "steps": [
+      {
+        "phase": "search",
+        "reason": "Source requests human verification/consent",
+        "at": "2026-11-01T23:24:12.483606200Z",
+        "document": {
+          "sha256": "c4e4fc52e7b62050c4ed1e6bf025e8e557adac35503c1144fc6664a078beccd5",
+          "observedAt": "2026-11-01T23:24:12.467Z",
+          "imageReferences": 0,
+          "textSha256": "4aea8634797f23064028565a07eea543250da2553e6ecbfc5d34c2366583eaaf",
+          "title": "https://www.google.com/search?q=cigarette+lighter+identification+reference+images&sei=HMrnauTUBpvGkPIPrMSfUA",
+          "finalUrl": "https://www.google.com/sorry/index?continue=https://www.google.com/search%3Fq%3Dcigarette%2Blighter%2Bidentification%2Breference%2Bimages%26sei%3DHMrnauTUBpvGkPIPrMSfUA&q=EhAmAQZDgAPE-1iXyzsEMelUGJyUn9cGIjCdhk2fbem7irJwKoZ81Efd3EOZXJD3uh5c134nV-nlgA4Wi-SxAaJ8mR08E0OA1dMyAVJaAUNg6Yv24uTW2I_YAQ",
+          "url": "https://www.google.com/search?q=cigarette+lighter+identification+reference+images"
+        },
+        "index": 0,
+        "ok": false,
+        "url": "https://www.google.com/search?q=cigarette+lighter+identification+reference+images"
+      },
+      {
+        "phase": "search",
+        "reason": "Actual bounded browser source read",
+        "at": "2026-11-01T23:24:13.433288600Z",
+        "document": {
+          "sha256": "d4eec064de314e7232f4a2dc8c1a9230cfe4e3f260dbeb1e93653f1437e74951",
+          "observedAt": "2026-11-01T23:24:13.427Z",
+          "imageReferences": 0,
+          "textSha256": "20acc9ab4aea6ad286a6440e80c63c2fd1146d591d190d41b9d2ad570e8b9b51",
+          "title": "cigarette lighter identification reference images - Search",
+          "finalUrl": "https://www.bing.com/search?q=cigarette+lighter+identification+reference+images",
+          "url": "https://www.bing.com/search?q=cigarette+lighter+identification+reference+images"
+        },
+        "index": 1,
+        "links": [
+          {
+            "title": "Cigarette Lighters: Zippo, Ronson 2026 | Antique Identifier",
+            "url": "https://antique-identifier.app/blog/antique-cigarette-lighters-identification-guide"
+          },
+          {
+            "title": "The Lighter Library - Homepage",
+            "url": "https://lighterlibrary.com/"
+          },
+          {
+            "title": "Cigarette Lighters royalty-free images - Shutterstock",
+            "url": "https://www.shutterstock.com/search/cigarette-lighters?msockid=1478d7ac72926b953877cfa873426aa9"
+          },
+          {
+            "title": "How to Date your Zippo Lighter with the Bottom Stamp",
+            "url": "https://kb.zippo.com/zippo-lighter/date-codes"
+          },
+          {
+            "title": "4,413 Cigarette Lighter Images and Stock Photos",
+            "url": "https://www.gettyimages.com/photos/cigarette-lighter"
+          },
+          {
+            "title": "Dating a Zippo Lighter - Toledo Bend Reservoir",
+            "url": "https://www.toledo-bend.us/VCL/articles/index.asp?request=zippo"
+          },
+          {
+            "title": "How to Identify the Make & Model of a Vintage Lighter",
+            "url": "https://www.sellmylighters.com/how-can-i-identify-the-make-and-model-of-a-vintage-lighter/"
+          },
+          {
+            "title": "Cigarette Lighter Pictures, Images and Stock Photos",
+            "url": "https://www.istockphoto.com/photos/cigarette-lighter?msockid=1478d7ac72926b953877cfa873426aa9"
+          }
+        ],
+        "ok": true,
+        "url": "https://www.bing.com/search?q=cigarette+lighter+identification+reference+images"
+      },
+      {
+        "phase": "source",
+        "reason": "Actual bounded browser source read",
+        "at": "2026-11-01T23:24:14.456273700Z",
+        "document": {
+          "sha256": "55abc580ec30c3fee52397a1705f4bf644918fc95e33badfb32e83e45291296b",
+          "observedAt": "2026-11-01T23:24:14.434Z",
+          "imageReferences": 12,
+          "textSha256": "717a7b8d2f413fe065b530bd44ba8de86db4389023cf0015ce20443f80c1f208",
+          "title": "Cigarette Lighters: Zippo, Ronson 2026 | Antique Identifier",
+          "finalUrl": "https://antique-identifier.app/blog/antique-cigarette-lighters-identification-guide",
+          "url": "https://antique-identifier.app/blog/antique-cigarette-lighters-identification-guide"
+        },
+        "index": 0,
+        "ok": true,
+        "url": "https://antique-identifier.app/blog/antique-cigarette-lighters-identification-guide"
+      },
+      {
+        "phase": "source",
+        "reason": "Actual bounded browser source read",
+        "at": "2026-11-01T23:24:15.384515200Z",
+        "document": {
+          "sha256": "5e88c5b326a4c5dd55159dbd4523ed9ce9230f882783b36b10d98528bddab605",
+          "observedAt": "2026-11-01T23:24:15.367Z",
+          "imageReferences": 12,
+          "textSha256": "fb77fe3c1b85a8d5bdea00efe67e34b5ad2fafe9f2afbf9697f4b38a29fba094",
+          "title": "The Lighter Library - Homepage",
+          "finalUrl": "https://lighterlibrary.com/",
+          "url": "https://lighterlibrary.com/"
+        },
+        "index": 1,
+        "ok": true,
+        "url": "https://lighterlibrary.com/"
+      },
+      {
+        "phase": "source",
+        "reason": "Source response/text unavailable",
+        "at": "2026-11-01T23:24:16.076483400Z",
+        "document": {
+          "sha256": "427d8ffe5e1fe904b76feaa0383cd220a295870b41a7978c63d6b1deefbb66a8",
+          "observedAt": "2026-11-01T23:24:16.061Z",
+          "imageReferences": 0,
+          "textSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "title": "shutterstock.com",
+          "finalUrl": "https://www.shutterstock.com/search/cigarette-lighters?msockid=1478d7ac72926b953877cfa873426aa9",
+          "url": "https://www.shutterstock.com/search/cigarette-lighters?msockid=1478d7ac72926b953877cfa873426aa9"
+        },
+        "index": 2,
+        "ok": false,
+        "url": "https://www.shutterstock.com/search/cigarette-lighters?msockid=1478d7ac72926b953877cfa873426aa9"
+      }
+    ],
+    "attemptStartedAt": "2026-11-01T23:24:10.916799200Z",
+    "mode": "search",
+    "createdAt": "2026-11-01T23:24:10.666866700Z",
+    "sourceKind": "web",
+    "pageAttempts": 3,
+    "id": "95ddfa04-b328-487e-8246-9d041c46bfdd",
+    "category": "cigarette lighter",
+    "objectId": "155ae2a7-c659-42b8-8bd9-424db1705acd",
+    "status": "completed",
+    "attempts": 1
+  },
+  "scope": "Real local-model operational-self and public web research workflows. Human cigarette-lighter category applied to labelled analytic software-camera control; not visual recognition or private-camera validation.",
+  "documents": [
+    {
+      "url": "https://antique-identifier.app/blog/antique-cigarette-lighters-identification-guide",
+      "finalUrl": "https://antique-identifier.app/blog/antique-cigarette-lighters-identification-guide",
+      "title": "Cigarette Lighters: Zippo, Ronson 2026 | Antique Identifier",
+      "statusCode": 200,
+      "observedAt": "2026-11-01T23:24:14.434Z",
+      "textSha256": "717a7b8d2f413fe065b530bd44ba8de86db4389023cf0015ce20443f80c1f208",
+      "originalTextChars": 39260,
+      "cachedTextChars": 12000,
+      "imageReferenceCount": 12,
+      "imageReferenceUrls": [
+        "https://antique-identifier.app/assets/icons/apple-touch-icon.png",
+        "https://antique-identifier.app/assets/photos/antique-cigarette-lighters-identification-guide/76-commons.webp",
+        "https://antique-identifier.app/assets/app-qr.png",
+        "https://antique-identifier.app/assets/photos/antique-cigarette-lighters-identification-guide/42-commons.webp",
+        "https://antique-identifier.app/assets/photos/antique-cigarette-lighters-identification-guide/78-commons.webp",
+        "https://antique-identifier.app/assets/photos/antique-cigarette-lighters-identification-guide/120-commons.webp",
+        "https://antique-identifier.app/assets/photos/antique-cigarette-lighters-identification-guide/12-commons.webp",
+        "https://antique-identifier.app/assets/photos/antique-cigarette-lighters-identification-guide/23-commons.webp",
+        "https://antique-identifier.app/assets/photos/antique-cigarette-lighters-identification-guide/28-commons.webp",
+        "https://antique-identifier.app/assets/photos/antique-cigarette-lighters-identification-guide/15-commons.webp",
+        "https://antique-identifier.app/assets/photos/antique-cigarette-lighters-identification-guide/71-commons.webp",
+        "https://antique-identifier.app/assets/app-store.svg"
+      ]
+    },
+    {
+      "url": "https://lighterlibrary.com/",
+      "finalUrl": "https://lighterlibrary.com/",
+      "title": "The Lighter Library - Homepage",
+      "statusCode": 200,
+      "observedAt": "2026-11-01T23:24:15.367Z",
+      "textSha256": "fb77fe3c1b85a8d5bdea00efe67e34b5ad2fafe9f2afbf9697f4b38a29fba094",
+      "originalTextChars": 5508,
+      "cachedTextChars": 5508,
+      "imageReferenceCount": 12,
+      "imageReferenceUrls": [
+        "https://lighterlibrary.com/assets/images/home-logo2.png",
+        "https://lighterlibrary.com/assets/images/b818d85a85bbc3eaf769196e61eb186f_lg.jpg",
+        "https://lighterlibrary.com/assets/images/b1f10163f93d71abaee9c1e9eb8f584d_lg.jpg",
+        "https://lighterlibrary.com/assets/images/c84acf2aa5d779378808715b66070e8d_lg.jpg",
+        "https://lighterlibrary.com/assets/images/5b7268d126e2b74e49398b62a1223b83_lg.jpg",
+        "https://lighterlibrary.com/assets/images/89efa7b08483fc3e3bc86dcefc3c8a67_lg.jpg",
+        "https://lighterlibrary.com/assets/images/174e4bf7dd43bb0671cfc1cfd673eab4_lg.jpg",
+        "https://lighterlibrary.com/assets/images/ffee88e1b5765edb51b35f65c7531878_lg.jpg",
+        "https://lighterlibrary.com/assets/images/6cf2b7b4ad125662523e17485312d4b7_lg.jpg",
+        "https://lighterlibrary.com/assets/images/e82f4625a192baec1d252e6cca8e680e_lg.jpg",
+        "https://lighterlibrary.com/assets/images/9bc8e2896001a1f1e333b94ed72da56f_lg.jpg",
+        "https://lighterlibrary.com/assets/images/7fcc976a048e983ca0fe983279066ba1_lg.jpg"
+      ]
+    }
+  ],
+  "publicationScope": "Metadata derivative; full third-party cached text is retained only in the local project. Original test JSON SHA256 25843160d0ba2d1d90c791b81d983cba13280628d49404bbc4027b005b82237f"
+}

@@ -1,0 +1,49 @@
+{
+  "date": "2026-11-01",
+  "passed": true,
+  "java": {
+    "passed": true,
+    "tests": 341,
+    "classes": 74,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "sourceCommit": "a816301",
+    "finalSourceCommit": "6439709",
+    "qualification": "Final6439709 only changes the desktop address checker and its tests; all Java sources remain identical to the full-test candidate."
+  },
+  "desktopUnits": 94,
+  "newJavaChecks": 7,
+  "newDesktopChecks": 6,
+  "actualUI": {
+    "checks": 8,
+    "passed": true
+  },
+  "actualModel": {
+    "model": "gpt-oss:20b",
+    "checks": 3,
+    "passed": true,
+    "publicSources": 2,
+    "referenceImageUrls": 24
+  },
+  "regressions": {
+    "passed": true,
+    "sourceBaseline": "64397092f47b380e9fbfe1582bce9111b5df478a",
+    "independentJava": 7,
+    "desktopUnits": 94,
+    "groups": {
+      "integration": 12,
+      "knowledge-integration": 8,
+      "live-knowledge": 3,
+      "live-tabletop": 3,
+      "broader-validation": 45
+    },
+    "actualUIAssertions": 65,
+    "actualModelAssertions": 6,
+    "scope": "Separate matching-source checkout. Actual public research and legacy tabletop question/report use gpt-oss:20b. Controlled analytic camera/loopback pages remain labelled; no private user footage used."
+  },
+  "sourceFiles": 744,
+  "sourceBaseline": "64397092f47b380e9fbfe1582bce9111b5df478a",
+  "physicalAccuracy": "Edition038 displacement and uncertainty remain UNVALIDATED; tracker unchanged.",
+  "scope": "Operational self-knowledge, human-associated object memory and actual public-source/report workflow. No automatic recognition, image matching, reconstruction, native authority or model-weight training."
+}

@@ -1,6 +1,6 @@
 ---
 title: Fraynix Studio map of content
-edition_context: 038
+edition_context: 039
 updated: 2026-11-01
 tags: [fraynix, system-map]
 ---
@@ -9,9 +9,9 @@ tags: [fraynix, system-map]
 
 Open the repository root as an Obsidian vault. The numbered README is the edition snapshot; these notes are the working map.
 
-Current: [[README-038|Edition038 — physical tabletop evidence]] ·
-[[docs/obsidian/46-tabletop-observer|Operation and honest limits]] ·
-[[docs/obsidian/tabletop-observer.canvas|System map]].
+Current: [[README-039|Edition039 — persistent object knowledge]] ·
+[[docs/obsidian/47-object-knowledge|Operation and limits]] ·
+[[docs/obsidian/object-knowledge.canvas|System map]].
 
 Previous: [[README-031|Edition031 — native contact tasks]] ·
 [[docs/obsidian/39-native-pushing|Pushing contract and measured limits]] ·

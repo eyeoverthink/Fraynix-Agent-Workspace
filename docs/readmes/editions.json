@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "latest": 38,
+  "latest": 39,
   "canonicalization": "UTF-8 without BOM; CRLF normalized to LF for text",
   "editions": [
     {
@@ -9754,6 +9754,490 @@
           "path": "docs/readmes/038/verification.json",
           "kind": "text",
           "sha256": "68e8ca315096b233edeaa2aaa56b600cf0db6bc05677164249c478855f7a18b7"
+        }
+      ]
+    },
+    {
+      "number": 39,
+      "date": "2026-11-01",
+      "title": "Operational self-model, persistent object knowledge and background research",
+      "status": "published",
+      "markdown": "README-039.md",
+      "markdownSha256": "55c77006c9cfb3194fd1e6ca2a8bcd260dad826adbb669efdf812138e408f070",
+      "snapshotDirectory": "docs/readmes/039",
+      "companion": "docs/readmes/039/index.html",
+      "tag": "readme-039",
+      "sourceBaseline": "64397092f47b380e9fbfe1582bce9111b5df478a",
+      "snapshotFiles": [
+        {
+          "path": "docs/readmes/039/broader-validation.json",
+          "kind": "text",
+          "sha256": "4f00d5b8ef5ed442b715d91765fe168b2cfa97a4dcd4be0540ecab3397b02b8b"
+        },
+        {
+          "path": "docs/readmes/039/broader-validation.original.gzip.json",
+          "kind": "text",
+          "sha256": "f03bd8012255d38ec3dc743b5ccb8d6b8bef46623eea7ffe36c6e22eeb353670"
+        },
+        {
+          "path": "docs/readmes/039/development/first-live-knowledge.metadata.json",
+          "kind": "text",
+          "sha256": "73812267fbfe5a1de8fcb2cea371411b573f92d5a95858f2d823c333bb83ae3e"
+        },
+        {
+          "path": "docs/readmes/039/development/INDEX.md",
+          "kind": "text",
+          "sha256": "7109bfc5170519c3093c9e329363f8df3b84f9c9cc1a48a2ce1c39953bcea480"
+        },
+        {
+          "path": "docs/readmes/039/development/knowledge-failure-1793575093142.json.original.gzip.json",
+          "kind": "text",
+          "sha256": "42cd09cca366c83b9e9794821864eb49811a459f436e4a5e493b92d08a38a52f"
+        },
+        {
+          "path": "docs/readmes/039/development/knowledge-failure-1793575115273.json.original.gzip.json",
+          "kind": "text",
+          "sha256": "742b72fb9e89f1c4ecf908083d6cac7a2b1a12ec5db1a384f7658c87c6b6c120"
+        },
+        {
+          "path": "docs/readmes/039/development/knowledge-failure-1793575137327.json.original.gzip.json",
+          "kind": "text",
+          "sha256": "f64eacf3545c1a1c175d7ae11ca0033546d92f5dd5764e6d37e0ba9e19953bcc"
+        },
+        {
+          "path": "docs/readmes/039/development/knowledge-failure-1793575166467.json.original.gzip.json",
+          "kind": "text",
+          "sha256": "948e6060486924380b5bcbdf82e1e41896be7d493c9461dc3d80a15f1795dd5d"
+        },
+        {
+          "path": "docs/readmes/039/development/knowledge-failure-1793575202350.json.original.gzip.json",
+          "kind": "text",
+          "sha256": "70f660041a1d40fc901f1fb07351a5c6a633d95eac2c998fb90130e8a295edbb"
+        },
+        {
+          "path": "docs/readmes/039/development/knowledge-failure-1793575292840.json.original.gzip.json",
+          "kind": "text",
+          "sha256": "a7dcbbd579a91fe6d46c7ffaf3efadcef4f12eccf04ae6c61d79ed48efc4d044"
+        },
+        {
+          "path": "docs/readmes/039/development/knowledge039-address-amendment.log.original.gzip.json",
+          "kind": "text",
+          "sha256": "39aff78abfb3de6f612d05fae56c2438c79f6da507459d6a6b40c9c363bee503"
+        },
+        {
+          "path": "docs/readmes/039/development/knowledge039-address-amendment.log.txt",
+          "kind": "text",
+          "sha256": "c24d756999704f8ef38c06051017507e86f9491942c09ee74644da53ad38afa6"
+        },
+        {
+          "path": "docs/readmes/039/development/knowledge039-compile-first.log.original.gzip.json",
+          "kind": "text",
+          "sha256": "60225d58cf93ec1859f506bde8c3f00f5ef4f2955605f298002856cb39b24e8d"
+        },
+        {
+          "path": "docs/readmes/039/development/knowledge039-compile-first.log.txt",
+          "kind": "text",
+          "sha256": "b399f818da35a621b99e171d097a07a90c6a6b3f8f6f27b28b72b614c20229ff"
+        },
+        {
+          "path": "docs/readmes/039/development/knowledge039-desktop-new.log.original.gzip.json",
+          "kind": "text",
+          "sha256": "b91115f184819060f59ff709fa0df1de791e32d2cf9f8c5cda8b5c5235c8d37e"
+        },
+        {
+          "path": "docs/readmes/039/development/knowledge039-desktop-new.log.txt",
+          "kind": "text",
+          "sha256": "d99abc0335641c8bebe8ffeb3ff5aa2bea59a23a4997b95fe302c3e8ff99d610"
+        },
+        {
+          "path": "docs/readmes/039/development/knowledge039-docs-browser.log.original.gzip.json",
+          "kind": "text",
+          "sha256": "bd3c4019d97ffb1eefa9c1a33c362653230ddcd548dc55c5b03c4a0db182df55"
+        },
+        {
+          "path": "docs/readmes/039/development/knowledge039-docs-browser.log.txt",
+          "kind": "text",
+          "sha256": "8a7caba8f03bd92c02f2fb108614824055dd5c3ee6d3c28963ae12ac76b675d3"
+        },
+        {
+          "path": "docs/readmes/039/development/knowledge039-existing-units-corrected.log.original.gzip.json",
+          "kind": "text",
+          "sha256": "a8bf61785263cda634b898599992175ae22d10438292bbeda5cdaf9cbeba32bb"
+        },
+        {
+          "path": "docs/readmes/039/development/knowledge039-existing-units-corrected.log.txt",
+          "kind": "text",
+          "sha256": "7c31a1ac998e2d99ea5ef69cee8342881fd2a82b9c6e41d9fcd439805b91a0bb"
+        },
+        {
+          "path": "docs/readmes/039/development/knowledge039-existing-units-first.log.original.gzip.json",
+          "kind": "text",
+          "sha256": "4f1c52a0123d9a2480efd95dd49e8b30eb4cfdd79279ea9e2175b76aa31bfbb7"
+        },
+        {
+          "path": "docs/readmes/039/development/knowledge039-existing-units-first.log.txt",
+          "kind": "text",
+          "sha256": "4730900bcb9c93d352e8f72f3b3008014323a271c30614c5b9fae67fce3c16ff"
+        },
+        {
+          "path": "docs/readmes/039/development/knowledge039-focused-java-second.log.original.gzip.json",
+          "kind": "text",
+          "sha256": "5990270da757c01de3767ae42a2a489965e6de753e722b411be05c1a57037a43"
+        },
+        {
+          "path": "docs/readmes/039/development/knowledge039-focused-java-second.log.txt",
+          "kind": "text",
+          "sha256": "5677a8c8d0a4152dd6c6cbb3fde5a5d280011695296b4abbab5d68a622969586"
+        },
+        {
+          "path": "docs/readmes/039/development/knowledge039-focused-java-third.log.original.gzip.json",
+          "kind": "text",
+          "sha256": "d377847c2a4126a79fadbbcc7fd34eb370e6001aebcfed77f43e70300d1d3640"
+        },
+        {
+          "path": "docs/readmes/039/development/knowledge039-focused-java-third.log.txt",
+          "kind": "text",
+          "sha256": "80c78b4cacfdf11b381a06105a70f2f1788bc5070a08eaab0de89d0b551b9bc3"
+        },
+        {
+          "path": "docs/readmes/039/development/knowledge039-focused-java.log.original.gzip.json",
+          "kind": "text",
+          "sha256": "f459043956b2219324c7a8eaed01446dd02fd215789abc29fc964dfc03328c49"
+        },
+        {
+          "path": "docs/readmes/039/development/knowledge039-focused-java.log.txt",
+          "kind": "text",
+          "sha256": "0b8b80ea6494d78e70ccf168155e7dbd1024124a777ae77805f91458b9905c2b"
+        },
+        {
+          "path": "docs/readmes/039/development/knowledge039-full.log.original.gzip.json",
+          "kind": "text",
+          "sha256": "5d1eb01a1fd6527aea2c1a39fde57154aaab6b2b02390bc8a279ec4cc4e0ead5"
+        },
+        {
+          "path": "docs/readmes/039/development/knowledge039-full.log.txt",
+          "kind": "text",
+          "sha256": "cb9f67c8dc352e4aa87902eb6ce1e221213a01558b447a717a3833200637aad2"
+        },
+        {
+          "path": "docs/readmes/039/development/knowledge039-install-candidate.log.original.gzip.json",
+          "kind": "text",
+          "sha256": "f6818f897aace8fdae1cd29707a6b5d6d8f785d800b065ddb33bb6037e77b35e"
+        },
+        {
+          "path": "docs/readmes/039/development/knowledge039-install-candidate.log.txt",
+          "kind": "text",
+          "sha256": "6393ca51e8bb57bcc3e12d010f9435a9443827f9bf33f8da9ac4a8bc39dcb2ed"
+        },
+        {
+          "path": "docs/readmes/039/development/knowledge039-install-first.log.original.gzip.json",
+          "kind": "text",
+          "sha256": "ef42da00142822de6813390665ab4e5b75a62ace431bf4f8e334c9fd5d9ae61a"
+        },
+        {
+          "path": "docs/readmes/039/development/knowledge039-install-first.log.txt",
+          "kind": "text",
+          "sha256": "3893204abbad0ba3581f35a4539f4f28b89393a7c5b9d93ce53fc7958eb9b5fa"
+        },
+        {
+          "path": "docs/readmes/039/development/knowledge039-live-first.log.original.gzip.json",
+          "kind": "text",
+          "sha256": "54575f85092befb2db2733d5f94c5fddf0758efcd1133aeedab1203c0da7a050"
+        },
+        {
+          "path": "docs/readmes/039/development/knowledge039-live-first.log.txt",
+          "kind": "text",
+          "sha256": "033a0dee48ef28060e10d78be5759ba2851d438d753b9b869a3e9dc618c48241"
+        },
+        {
+          "path": "docs/readmes/039/development/knowledge039-network-bing.log.original.gzip.json",
+          "kind": "text",
+          "sha256": "a8cf304e85e577c9daa577d41955fc1d6885deac5d4b9e95ee75a2e0aff4267d"
+        },
+        {
+          "path": "docs/readmes/039/development/knowledge039-network-bing.log.txt",
+          "kind": "text",
+          "sha256": "8fa6f55385e2617e507e9d3cc8153176d441fb834e54adc3bd71a23e1c1f573b"
+        },
+        {
+          "path": "docs/readmes/039/development/knowledge039-network-probe-second.log.original.gzip.json",
+          "kind": "text",
+          "sha256": "7acdfe3e749196111bfac386a485ee9cc8e2b228723c7ba6e3996f8c88436d63"
+        },
+        {
+          "path": "docs/readmes/039/development/knowledge039-network-probe-second.log.txt",
+          "kind": "text",
+          "sha256": "dac3a9a7dac252de09cda10f922b04eac96711d87f47db36ff36695d043f82a5"
+        },
+        {
+          "path": "docs/readmes/039/development/knowledge039-network-probe.log.original.gzip.json",
+          "kind": "text",
+          "sha256": "c55ea3509692be9fc50509cd301d502ea385a9fa7e26c27cf11fc6686b55d67e"
+        },
+        {
+          "path": "docs/readmes/039/development/knowledge039-network-probe.log.txt",
+          "kind": "text",
+          "sha256": "e5a19a983dd42fab91e498239faa8ea0ba85fa5eb488dba234bc0be9d9723984"
+        },
+        {
+          "path": "docs/readmes/039/development/knowledge039-qa039-broader-validation.log.original.gzip.json",
+          "kind": "text",
+          "sha256": "a12d70608cbda88ca246c9ca47485f79bf00eaa3fb317e3491cb3841b9133cb2"
+        },
+        {
+          "path": "docs/readmes/039/development/knowledge039-qa039-broader-validation.log.txt",
+          "kind": "text",
+          "sha256": "3dcd2d7727fba2c9008f52237db53b916acda2f14f30edfbb0ae3ff3529a0a30"
+        },
+        {
+          "path": "docs/readmes/039/development/knowledge039-qa039-build-java.log.original.gzip.json",
+          "kind": "text",
+          "sha256": "0859a263088a19b4b79e37dd61bf02d4a63d08cdd69ab6e4e0c8ab3058c3bb60"
+        },
+        {
+          "path": "docs/readmes/039/development/knowledge039-qa039-build-java.log.txt",
+          "kind": "text",
+          "sha256": "37d3dff88900c57f35de45274933cba81243b698b78d849b0954c217a780ddbe"
+        },
+        {
+          "path": "docs/readmes/039/development/knowledge039-qa039-integration.log.original.gzip.json",
+          "kind": "text",
+          "sha256": "5b8a0b089d0464a30cfe0212fdc701aec6d8312d60c8ec989519aaae30a3fcb0"
+        },
+        {
+          "path": "docs/readmes/039/development/knowledge039-qa039-integration.log.txt",
+          "kind": "text",
+          "sha256": "d505ef1337df0c8d3638d1ba67a85551def8d088a3378c16659e652dffe8849d"
+        },
+        {
+          "path": "docs/readmes/039/development/knowledge039-qa039-knowledge-integration.log.original.gzip.json",
+          "kind": "text",
+          "sha256": "e504e72dc997776a7b1c20b92698d3ccd93ab9baf8c21cc352ff771825cc9c3a"
+        },
+        {
+          "path": "docs/readmes/039/development/knowledge039-qa039-knowledge-integration.log.txt",
+          "kind": "text",
+          "sha256": "03dbada3f4c186dce2b4d05e8d1e2643175414d762948782fcdd55bbadd7e1f4"
+        },
+        {
+          "path": "docs/readmes/039/development/knowledge039-qa039-live-knowledge.log.original.gzip.json",
+          "kind": "text",
+          "sha256": "9bbe151b8f10196c94e2d26a9565c2dc2cb73e5a1d263681ae3c2632516dc126"
+        },
+        {
+          "path": "docs/readmes/039/development/knowledge039-qa039-live-knowledge.log.txt",
+          "kind": "text",
+          "sha256": "39c36730299679cc81c3611fedad8d4c3ddd63a9cb0466df528a1bb2dca38fb4"
+        },
+        {
+          "path": "docs/readmes/039/development/knowledge039-qa039-live-tabletop.log.original.gzip.json",
+          "kind": "text",
+          "sha256": "d13aac018c62c9b0a406de3385b25b27f473541cb5636fefef0430989a1ae472"
+        },
+        {
+          "path": "docs/readmes/039/development/knowledge039-qa039-live-tabletop.log.txt",
+          "kind": "text",
+          "sha256": "110fb68e9a2673c7e62503853dfeadd9c5f984455383804c2230643f63a2bd0e"
+        },
+        {
+          "path": "docs/readmes/039/development/knowledge039-qa039-units.log.original.gzip.json",
+          "kind": "text",
+          "sha256": "00a0ef6280c97d8489fdd1176841a77df58519563848175f2e0bdf0b42ced193"
+        },
+        {
+          "path": "docs/readmes/039/development/knowledge039-qa039-units.log.txt",
+          "kind": "text",
+          "sha256": "941c7c46eeea5e7d8df567dc2738f8c713afd06c7fbd2c0002aed3ca6cd1b332"
+        },
+        {
+          "path": "docs/readmes/039/development/knowledge039-ui-fifth.log.original.gzip.json",
+          "kind": "text",
+          "sha256": "de483314ad4d0f21fc8e71a9cee1bb61885075c8f7a070cbac48204ed572e705"
+        },
+        {
+          "path": "docs/readmes/039/development/knowledge039-ui-fifth.log.txt",
+          "kind": "text",
+          "sha256": "125af13af7bf0e16ab0dbc3ff416d2b303713d4ca99fe932ad55bd85fc86958a"
+        },
+        {
+          "path": "docs/readmes/039/development/knowledge039-ui-first.log.original.gzip.json",
+          "kind": "text",
+          "sha256": "6cd74e81121b3f2ec6cf9e65be8058590ed1adb78bdd2ddcc8e43dd78dbed5eb"
+        },
+        {
+          "path": "docs/readmes/039/development/knowledge039-ui-first.log.txt",
+          "kind": "text",
+          "sha256": "2a2335ec17c5b1a358e826f3f6361264a148545fba71d45ab5a0541c3eaadbf6"
+        },
+        {
+          "path": "docs/readmes/039/development/knowledge039-ui-fourth.log.original.gzip.json",
+          "kind": "text",
+          "sha256": "cc0768daa20b6826532e76ba382c7f41b50f03adf02880ab411b2f3b8e363d84"
+        },
+        {
+          "path": "docs/readmes/039/development/knowledge039-ui-fourth.log.txt",
+          "kind": "text",
+          "sha256": "da12f39465b15def8f4ea724160753a3ac2efde7e8b48ceaa8cb43238d873f2b"
+        },
+        {
+          "path": "docs/readmes/039/development/knowledge039-ui-second.log.original.gzip.json",
+          "kind": "text",
+          "sha256": "947592879d5f86c26d0c2ccab6cf48139faa5a54e726a457fd32cf7abc86672f"
+        },
+        {
+          "path": "docs/readmes/039/development/knowledge039-ui-second.log.txt",
+          "kind": "text",
+          "sha256": "f1e4b458852d3a13eee5d0594691b9ff9bf7dc825f85985569e1b727406f254c"
+        },
+        {
+          "path": "docs/readmes/039/development/knowledge039-ui-seventh.log.original.gzip.json",
+          "kind": "text",
+          "sha256": "788bb9ad7b3b6345b17b9c2dd2e9ecaf2cf21a2e63046f412fb04006be3b07ec"
+        },
+        {
+          "path": "docs/readmes/039/development/knowledge039-ui-seventh.log.txt",
+          "kind": "text",
+          "sha256": "b53b24c688dad782eaa72648bfea4bc87cb71cdd04c9adecdcb28b7c19ad17f7"
+        },
+        {
+          "path": "docs/readmes/039/development/knowledge039-ui-sixth.log.original.gzip.json",
+          "kind": "text",
+          "sha256": "80dd08509325e106a45ddcdcad277bb363cd323945e8d1d11438d0d3ce9994dd"
+        },
+        {
+          "path": "docs/readmes/039/development/knowledge039-ui-sixth.log.txt",
+          "kind": "text",
+          "sha256": "ad717bbd6a0c91ff68fc7104d7cac905fe04cc2e952f5460e95029f315180d79"
+        },
+        {
+          "path": "docs/readmes/039/development/knowledge039-ui-third.log.original.gzip.json",
+          "kind": "text",
+          "sha256": "6942c021611d96ff38f498375d1ea8805a6110baa3d4259b2b85f8071a1d715e"
+        },
+        {
+          "path": "docs/readmes/039/development/knowledge039-ui-third.log.txt",
+          "kind": "text",
+          "sha256": "86b1e1d2ea31aefebab1007d2e5ca1acb3e1568fdf6eede09c6f487f30a2af13"
+        },
+        {
+          "path": "docs/readmes/039/development/knowledge039-units-final.log.original.gzip.json",
+          "kind": "text",
+          "sha256": "b3124b1504188ddcb71b0e7a0d90f7b742f30e3e6fa01fdf7643f1a973a2eeb8"
+        },
+        {
+          "path": "docs/readmes/039/development/knowledge039-units-final.log.txt",
+          "kind": "text",
+          "sha256": "8d20e17ca9409c2a580854ef81bb5f36465956af8dcf402a9b0323e9e4cdcc1a"
+        },
+        {
+          "path": "docs/readmes/039/docs039-narrow.png",
+          "kind": "binary",
+          "sha256": "cbd16ee54c1031ff29b259cf0fc42767337dca691d20ab9d3e18671f41f379c2"
+        },
+        {
+          "path": "docs/readmes/039/docs039-wide.png",
+          "kind": "binary",
+          "sha256": "b847e3a8e997b9796ce19fd6124d0c06b1101b14c755362b499066202825ccce"
+        },
+        {
+          "path": "docs/readmes/039/documentation-qa.json",
+          "kind": "text",
+          "sha256": "e2fa84d110e4aef89ee05e8a5590a8032be53f818d5e679017ca10da3a5d2a91"
+        },
+        {
+          "path": "docs/readmes/039/file-inventory.json",
+          "kind": "text",
+          "sha256": "ba19c4c7c9e5fa57ed01c4071bfb6dc810f10b5b66a9dfbcc5ec30d253872757"
+        },
+        {
+          "path": "docs/readmes/039/FILE_TREE.md",
+          "kind": "text",
+          "sha256": "851aa61dacde2b23dbd4536a0c94b8f856e9abe905aabe4275b0e1b56c952185"
+        },
+        {
+          "path": "docs/readmes/039/images/knowledge039-cached-report.png",
+          "kind": "binary",
+          "sha256": "4dcb9aa56b11f7406f4c216275302678d62aa072c01ab09312852efddb0c9441"
+        },
+        {
+          "path": "docs/readmes/039/images/knowledge039-public-chat.png",
+          "kind": "binary",
+          "sha256": "bfd6c2b77093a65c270068436795ee4470ddfc1dca674f38978a04af458148a3"
+        },
+        {
+          "path": "docs/readmes/039/images/knowledge039-self-chat.png",
+          "kind": "binary",
+          "sha256": "0da98ac16c693ab5a56b6d738344167b92d664bce04a7a70c86685f3510a5dda"
+        },
+        {
+          "path": "docs/readmes/039/images/knowledge039-tools-objects.png",
+          "kind": "binary",
+          "sha256": "dbebca8a692ed93700f4df24c91fbb0d82fcaf603fa831495fee88bdd6e5134a"
+        },
+        {
+          "path": "docs/readmes/039/index.html",
+          "kind": "text",
+          "sha256": "44b53dc8efd4408331be698eb6e597a7147fe636a8928f39d908ef2f0e6db54a"
+        },
+        {
+          "path": "docs/readmes/039/integration.json",
+          "kind": "text",
+          "sha256": "72eca76967a4126e02a8160f0acf33400724b3e1a6de7381e37870a3d829aac6"
+        },
+        {
+          "path": "docs/readmes/039/integration.original.gzip.json",
+          "kind": "text",
+          "sha256": "b40a4c7b5b493173c7c1ea4e88757dd7531a962ce6fe6a52b140fed8af794faa"
+        },
+        {
+          "path": "docs/readmes/039/knowledge-integration.json",
+          "kind": "text",
+          "sha256": "dd4679359da85556674861013b43b61032c6ff978b1316589a852320b9db5eae"
+        },
+        {
+          "path": "docs/readmes/039/knowledge-integration.original.gzip.json",
+          "kind": "text",
+          "sha256": "ff360a4f6084bfe564270d2c55afef195738bc035d1f8700c5374b5b885d3da3"
+        },
+        {
+          "path": "docs/readmes/039/legacy-preservation.json",
+          "kind": "text",
+          "sha256": "0ca599bdbfffc9f1812b8b264afcb0bb865bc2fe00f8bc1f033aad4b3e4406b4"
+        },
+        {
+          "path": "docs/readmes/039/live-knowledge.metadata.json",
+          "kind": "text",
+          "sha256": "2335ef83d717be9ce9e124836d518fb708c3cef72934752ae1eaeedb94d0a125"
+        },
+        {
+          "path": "docs/readmes/039/live-tabletop.json",
+          "kind": "text",
+          "sha256": "7dfafba0524d6936be0ec600396e92d64ec5685b1cf11a5a24c3a41aac94bf8e"
+        },
+        {
+          "path": "docs/readmes/039/live-tabletop.original.gzip.json",
+          "kind": "text",
+          "sha256": "b1227d9b0b9dd8566a3d5e8f00bc0e83540898802f501b370db26d99f9b942e2"
+        },
+        {
+          "path": "docs/readmes/039/research-data.json",
+          "kind": "text",
+          "sha256": "faf99d783728e5bfbc914984f0a0512cd3b375d53cc19244a5c69375aaf1b36e"
+        },
+        {
+          "path": "docs/readmes/039/source-match.json",
+          "kind": "text",
+          "sha256": "6bc7c25edd1c25eba946956350e7aa60793552b74e4e5780d68a169ac3da7578"
+        },
+        {
+          "path": "docs/readmes/039/system-map.json",
+          "kind": "text",
+          "sha256": "2c1e580a53646727030d8c0d99167117bbf8795d049b2e7f92b0b21f10b644a5"
+        },
+        {
+          "path": "docs/readmes/039/verification.json",
+          "kind": "text",
+          "sha256": "603bf58fb2a6b44041299f669a272f3f25e8155070e6982a442113d22a61b49d"
         }
       ]
     }

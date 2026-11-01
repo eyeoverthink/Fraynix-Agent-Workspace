@@ -46,4 +46,6 @@ Numbered editions preserve dated system behavior and evidence. The root [README]
 
 | [038](../../README-038.md) | 2026-11-01 | Private physical tabletop, original appearance tracking, mat/tape scale, durable evidence and grounded chat | [Viewer](038/index.html) · [evidence](038/verification.json) · [operation](../TABLETOP_OBSERVER.md) |
 
-Latest implementation/documentation edition: **038**. Earlier snapshots remain intact. See [sequence policy](README_SEQUENCE.md) and [manifest](editions.json).
+| [039](../../README-039.md) | 2026-11-01 | Operational self-model, persistent human-associated objects and actual background research | [Viewer](039/index.html) · [evidence](039/verification.json) · [operation](../OBJECT_KNOWLEDGE.md) |
+
+Latest implementation/documentation edition: **039**. Earlier snapshots remain intact. See [sequence policy](README_SEQUENCE.md) and [manifest](editions.json).

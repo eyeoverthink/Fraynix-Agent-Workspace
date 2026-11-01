@@ -1,4 +1,9 @@
-# Fraynix Studio system architecture
+# Fraynix Agent Workspace system architecture
+
+## Edition039: operational self-model and persistent object knowledge
+
+Java registers actual host capabilities and injects compact current state into every planning request. Durable human-associated object identities retain original observation/native provenance. A lease-fenced Java job coordinates one separate unprivileged browser worker for actual bounded public research, cached citations and checked reports. Human labels, observations, native state and untrusted web references remain distinct. See [operation and limits](OBJECT_KNOWLEDGE.md) and [README039](../README-039.md).
+
 
 ## Edition032: native experience with a reserved decision
 

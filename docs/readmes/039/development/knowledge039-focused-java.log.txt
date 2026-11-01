@@ -1,0 +1,82 @@
+> Task :brain-core:compileJava UP-TO-DATE
+> Task :brain-gpu:compileJava UP-TO-DATE
+> Task :factory-runtime:compileJava UP-TO-DATE
+> Task :factory-kernel:compileJava UP-TO-DATE
+> Task :factory-models:compileJava UP-TO-DATE
+> Task :geometry-core:compileJava UP-TO-DATE
+> Task :workspace-engine:compileJava UP-TO-DATE
+> Task :workspace-engine:processResources UP-TO-DATE
+> Task :workspace-engine:classes UP-TO-DATE
+> Task :workspace-engine:jar UP-TO-DATE
+
+> Task :compileJava
+
+Note: C:\Users\eyeka\Documents\Codex\2026-10-26\is\work\fraynix-workspace-edition039\src\main\java\components\Component.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+> Task :processResources
+> Task :classes
+> Task :jar
+> Task :brain-core:processResources NO-SOURCE
+> Task :brain-core:classes UP-TO-DATE
+> Task :brain-core:jar UP-TO-DATE
+> Task :factory-kernel:processResources NO-SOURCE
+> Task :factory-kernel:classes UP-TO-DATE
+> Task :factory-kernel:jar UP-TO-DATE
+> Task :factory-models:processResources NO-SOURCE
+> Task :factory-models:classes UP-TO-DATE
+> Task :factory-models:jar UP-TO-DATE
+> Task :factory-runtime:processResources NO-SOURCE
+> Task :factory-runtime:classes UP-TO-DATE
+> Task :factory-runtime:jar UP-TO-DATE
+> Task :startScripts
+> Task :installDist
+> Task :brain-gpu:processResources NO-SOURCE
+> Task :brain-gpu:classes UP-TO-DATE
+> Task :brain-gpu:jar UP-TO-DATE
+> Task :geometry-core:processResources NO-SOURCE
+> Task :geometry-core:classes UP-TO-DATE
+> Task :geometry-core:jar UP-TO-DATE
+> Task :workspace-engine:compileTestJava
+> Task :workspace-engine:processTestResources NO-SOURCE
+> Task :workspace-engine:testClasses
+
+> Task :workspace-engine:test
+
+KnowledgeStoreTest > interruptedPrefixResumesWithNewLeaseAndExactCachedSources FAILED
+    java.lang.IllegalStateException at KnowledgeStoreTest.java:42
+
+KnowledgeStoreTest > reportEscapesUntrustedTextAndCorruptedCacheCannotResume FAILED
+    java.lang.IllegalStateException at KnowledgeStoreTest.java:54
+
+KnowledgeStoreTest > operationalSelfStateDoesNotConfuseDeclaredToolsWithInternetEvidence FAILED
+    java.lang.IllegalStateException at KnowledgeStoreTest.java:61
+
+KnowledgeStoreTest > cancellationFencesLateCallbacksAndCannotInventSuccess FAILED
+    java.lang.IllegalStateException at KnowledgeStoreTest.java:48
+
+KnowledgeStoreTest > changedHumanCategoryMakesFrozenResearchStale FAILED
+    java.lang.IllegalStateException at KnowledgeStoreTest.java:51
+
+KnowledgeStoreTest > searchFallbackKeepsFailedSearchAndOnlyActualResultSources FAILED
+    java.lang.IllegalStateException at KnowledgeStoreTest.java:58
+
+KnowledgeStoreTest > exactObservationAndHumanIdentitySurviveRestartWithoutWorldMutation FAILED
+    java.lang.IllegalStateException at KnowledgeStoreTest.java:33
+
+7 tests completed, 7 failed
+
+> Task :workspace-engine:test FAILED
+
+[Incubating] Problems report is available at: file:///C:/Users/eyeka/Documents/Codex/2026-10-26/is/work/fraynix-workspace-edition039/build/reports/problems/problems-report.html
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':workspace-engine:test'.
+> There were failing tests. See the report at: file:///C:/Users/eyeka/Documents/Codex/2026-10-26/is/work/fraynix-workspace-edition039/workspace-engine/build/reports/tests/test/index.html
+
+* Try:
+> Run with --scan to get full insights from a Build Scan (powered by Develocity).
+
+BUILD FAILED in 9s
+22 actionable tasks: 7 executed, 15 up-to-date
