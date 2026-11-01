@@ -9,7 +9,7 @@ export class ContactStudyPanel {
   $('contact-promote').onclick=()=>this.action(async()=>{const p=await this.call('promote',{goalId:this.g.id});this.notice('Activated verified contact controller: '+p.initialForceN+' N. New tasks opt in visibly.');await this.refresh();});
   $('contact-rollback').onclick=()=>this.action(async()=>{const p=await this.call('rollback',{expectedProfileId:this.state.active.id});this.notice('Restored prior contact controller: '+p.initialForceN+' N');await this.refresh();});
   $('contact-export').onclick=()=>this.action(async()=>{const r=await this.call('export',{goalId:this.g.id});this.notice('Complete native contact experience saved: '+r.path);});
-  $('contact-load-case').onclick=()=>this.action(async()=>{const c=this.suite.cases.find(c=>c.id===$('contact-case').value);await this.spatial.import(JSON.stringify(c.source));this.spatial.pushMode=true;$('push-panel').open=true;$('push-dx').value=c.displacementM[0];$('push-dz').value=c.displacementM[2];});
+  $('contact-load-case').onclick=()=>this.action(async()=>{const c=this.suite.cases.find(c=>c.id===$('contact-case').value);await this.spatial.action(async()=>{await this.spatial.import(JSON.stringify(c.source));this.spatial.pushMode=true;$('push-panel').open=true;$('push-dx').value=c.displacementM[0];$('push-dz').value=c.displacementM[2];});});
   box.ontoggle=()=>{if(box.open)this.action(()=>this.refresh());};setInterval(()=>{if(!this.busy&&!$('spatial-view').hidden)this.refresh().catch(e=>this.notice(e.message));},1200);
  }
  async action(fn){if(this.busy)return;this.busy=true;this.controls();try{await fn();}catch(e){this.notice(e.message);}finally{this.busy=false;this.controls();}}

@@ -9,7 +9,7 @@ export class ForceLearningPanel {
   $('force-promote').onclick=()=>this.action(async()=>{const p=await this.call('promote',{goalId:this.g.id});this.notice('Activated verified force profile: '+p.initialForceN+' N. New tasks opt in visibly.');await this.refresh();});
   $('force-rollback').onclick=()=>this.action(async()=>{const p=await this.call('rollback',{expectedProfileId:this.state.active.id});this.notice('Restored prior force profile: '+p.initialForceN+' N');await this.refresh();});
   $('force-export').onclick=()=>this.action(async()=>{const r=await this.call('export',{goalId:this.g.id});this.notice('Complete native force experience saved: '+r.path);});
-  $('force-load-case').onclick=()=>this.action(async()=>{const c=this.suite.cases.find(c=>c.id===$('force-case').value);await this.spatial.import(JSON.stringify(c.source));this.spatial.pushMode=true;$('push-panel').open=true;$('push-dx').value=c.displacementM[0];$('push-dz').value=c.displacementM[2];});
+  $('force-load-case').onclick=()=>this.action(async()=>{const c=this.suite.cases.find(c=>c.id===$('force-case').value);await this.spatial.action(async()=>{await this.spatial.import(JSON.stringify(c.source));this.spatial.pushMode=true;$('push-panel').open=true;$('push-dx').value=c.displacementM[0];$('push-dz').value=c.displacementM[2];});});
   box.ontoggle=()=>{if(box.open)this.action(()=>this.refresh());};setInterval(()=>{if(!this.busy&&!$('spatial-view').hidden)this.refresh().catch(e=>this.notice(e.message));},1200);
  }
  async action(fn){if(this.busy)return;this.busy=true;this.controls();try{await fn();}catch(e){this.notice(e.message);}finally{this.busy=false;this.controls();}}
