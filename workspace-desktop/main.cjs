@@ -87,7 +87,7 @@ async function executeRaw(tool,args={}){
   }
   let result;
   switch(tool){
-    case 'tabletop.read':case 'tabletop.report':result=await tabletopBridge.action(tool,args,captureContext);break;
+    case 'tabletop.read':case 'tabletop.answer':case 'tabletop.report':result=await tabletopBridge.action(tool,args,captureContext);break;
     case 'observations.read':case 'observations.start':case 'observations.wait':case 'observations.report':result=await observationBridge.action(tool,args,captureContext);break;
     case 'tracking.read':case 'tracking.start':case 'tracking.wait':case 'tracking.report':case 'tracking.rollback':result=await trackingBridge.action(tool,args,captureContext);break;
     case 'world.observe':case 'world.arrange':case 'pose.compare':case 'pose.study':case 'pose.read':case 'pose.start':case 'contact.compare':case 'contact.read':case 'force.read':case 'force.start':case 'push.read':case 'push.start':case 'map.read':case 'map.start':case 'space.start':case 'space.export':case 'perception.read':case 'perception.select':case 'perception.start':case 'spatial.read':case 'spatial.start':case 'data.read':case 'data.start':case 'world.model':case 'goal.start':case 'goal.read':case 'goal.cancel':case 'goal.resume':case 'procedures.list':case 'procedure.save':case 'procedure.run':result=await goalBridge.execute(tool,args,captureContext);break;

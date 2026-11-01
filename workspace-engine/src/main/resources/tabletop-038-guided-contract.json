@@ -1,0 +1,70 @@
+{
+  "edition": "038",
+  "amendmentTiming": "Before any user movement/occlusion recording or candidate lock; initial static development only has been scored.",
+  "reason": "Use two separate source-timed procedures so returning to the start does not cancel the displacement being verified. Both preserve first outcomes; no threshold/tracker tuning after reserved results.",
+  "occlusion": {
+    "sourceSecondsFromFirstRecordedFrame": true,
+    "cues": [
+      {
+        "from": 0,
+        "to": 3,
+        "instruction": "Keep the lighter still. Keep the camera, mat and tape fixed."
+      },
+      {
+        "from": 3,
+        "to": 6,
+        "instruction": "Cover the lighter completely; keep the mat corners visible."
+      },
+      {
+        "from": 6,
+        "to": 11,
+        "instruction": "Reveal the lighter and leave it in its original position."
+      }
+    ],
+    "hiddenScoringWindowS": [
+      4,
+      5.5
+    ],
+    "minimumHiddenSamples": 3,
+    "maximumAcceptedHiddenSamples": 0,
+    "recoveryScoringWindowS": [
+      8,
+      11.5
+    ],
+    "minimumRecoverySamples": 8,
+    "minimumRecoveryAcceptedCoverage": 0.8,
+    "maximumRecoveredPositionErrorM": 0.01,
+    "truthQualification": "User-cued visibility, corroborated by private original frames. Cues alone do not certify that the user followed them; disclose any unverified action rather than fabricate labels."
+  },
+  "displacement": {
+    "cues": [
+      {
+        "from": 0,
+        "to": 3,
+        "instruction": "Hold still with the lighter metal top aligned with the tape4inch mark."
+      },
+      {
+        "from": 3,
+        "to": 7,
+        "instruction": "Slide slowly parallel to the tape until the same metal top aligns with8inches. Keep the lighter resting flat."
+      },
+      {
+        "from": 7,
+        "to": 11,
+        "instruction": "Release and keep it still at8inches."
+      }
+    ],
+    "firstMeasuredSamples": 8,
+    "lastMeasuredSamples": 8,
+    "knownDisplacementM": 0.1016,
+    "maximumVectorErrorM": 0.01,
+    "truthQualification": "User-declared alignment of the SAME feature at both marks and parallel motion; independent of predicted positions. Initial/final occluded samples refuse verification."
+  },
+  "privacy": "Private original webcam samples stay outsideGit. Publish only numeric results, hashes and camera-hidden screenshots. No automatic physical action or semantic-recognition claim.",
+  "acquisitionClockAmendment": {
+    "timing": "Before candidate lock/held user actions; initial static callback-time development remains preserved.",
+    "method": "ImageCapture.grabFrame produces an ImageBitmap independently of video-element visibility; host monotonic time at acquisition completion. Not certified sensor exposure time.",
+    "reason": "Keep source acquisition independent of switching to numeric report/privacy view. Actual runtime availability checked; image bitmaps explicitly closed.",
+    "primarySource": "https://developer.mozilla.org/en-US/docs/Web/API/ImageCapture/grabFrame"
+  }
+}

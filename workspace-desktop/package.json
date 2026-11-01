@@ -6,7 +6,7 @@
   "main": "main.cjs",
   "scripts": {
     "start": "electron .",
-    "test": "node --test test/policy.test.cjs test/controller.test.cjs test/tracking.test.cjs test/creation.test.cjs test/workflows.test.cjs test/procedural.test.cjs test/maps.test.cjs test/pushing.test.cjs test/force-learning.test.cjs test/contact-study.test.cjs test/poses.test.cjs test/pose-exports.test.cjs test/persistent-world.test.cjs test/observations.test.cjs",
+    "test": "node --test test/policy.test.cjs test/controller.test.cjs test/tracking.test.cjs test/creation.test.cjs test/workflows.test.cjs test/procedural.test.cjs test/maps.test.cjs test/pushing.test.cjs test/force-learning.test.cjs test/contact-study.test.cjs test/poses.test.cjs test/pose-exports.test.cjs test/persistent-world.test.cjs test/observations.test.cjs test/tabletop.test.cjs",
     "test:integration": "node test/integration.cjs",
     "test:learning": "node test/learning-integration.cjs",
     "test:scene": "node test/scene-integration.cjs",
@@ -68,6 +68,7 @@
     "test:observations": "node test/observations-integration.cjs",
     "test:live-observations": "node test/live-observations.cjs",
     "test:metrics": "node test/metrics-integration.cjs",
+    "test:tabletop": "node test/tabletop-integration.cjs",
     "test:camera-metrics": "node test/camera-metrics-integration.cjs"
   },
   "devDependencies": {

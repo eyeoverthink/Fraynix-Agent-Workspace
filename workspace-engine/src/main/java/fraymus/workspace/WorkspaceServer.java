@@ -95,9 +95,10 @@ public final class WorkspaceServer {
                     case "/api/tabletop/frame" -> result=tabletop.frame(input);
                     case "/api/tabletop/read" -> result=tabletop.read(input.getString("id"));
                     case "/api/tabletop/understanding" -> result=tabletop.understanding(input.getString("id"));
+                    case "/api/tabletop/probe" -> {SpatialScene.keys(input,"id","question");var facts=tabletop.understanding(input.getString("id"));result=TabletopUnderstanding.probe(facts,input.getString("question")).put("facts",facts);}
                     case "/api/tabletop/image" -> result=tabletop.image(input.getString("id"),input.getInt("ordinal"));
                     case "/api/tabletop/analyse" -> result=tabletop.analyse(input);
-                    case "/api/tabletop/report" -> {String id=input.getString("id");var r=tabletop.read(id);result=new JSONObject().put("artifact",store.writeOnce("tabletop-report:"+id+":"+r.getInt("completedFrames")+":"+r.getString("status"),TabletopReport.build(r,tabletop.understanding(id),tabletop.analyses(id))));}
+                    case "/api/tabletop/report" -> {String id=input.getString("id");var snapshot=tabletop.snapshot(id);var r=snapshot.getJSONObject("run");if(r.getInt("completedFrames")==0)throw new IllegalStateException("No actual camera frames to report");var facts=snapshot.getJSONObject("facts");var analyses=snapshot.getJSONArray("analyses");var data=TabletopReport.data(r,facts,analyses);result=new JSONObject().put("artifact",store.writeOnce("tabletop-report:"+WorldFrames.hash(data),TabletopReport.build(r,facts,analyses))).put("receipt",new JSONObject().put("runId",id).put("frames",r.getInt("completedFrames")).put("status",r.getString("status")).put("worldId",r.getJSONObject("nativeBinding").getString("worldId")));}
                     case "/api/tabletop/finish" -> result=tabletop.finish(input.getString("id"));
                     case "/api/tabletop/stop" -> result=tabletop.stop(input.getString("id"));
                     case "/api/tabletop/resume" -> result=tabletop.resume(input.getString("id"));
