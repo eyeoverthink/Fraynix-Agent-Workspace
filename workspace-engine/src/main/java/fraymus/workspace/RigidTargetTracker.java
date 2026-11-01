@@ -6,7 +6,7 @@ import java.util.*;
 
 /** Immutable, human-seeded rigid appearance. Scores describe matching, never identity probability. */
 final class RigidTargetTracker {
-    static final String VERSION="rigid-anchor-038-v1";
+    static final String VERSION="rigid-anchor-038-v2";
     private static final int COLS=16,ROWS=24;
     private final double[] anchor;
     private final double baseW,baseH;
@@ -30,14 +30,16 @@ final class RigidTargetTracker {
     JSONObject update(BufferedImage original){
         long begin=System.nanoTime();BufferedImage image=original;
         if(Math.max(image.getWidth(),image.getHeight())>640){double s=640./Math.max(image.getWidth(),image.getHeight());var small=new BufferedImage((int)(image.getWidth()*s),(int)(image.getHeight()*s),BufferedImage.TYPE_INT_RGB);var g=small.createGraphics();g.drawImage(image,0,0,small.getWidth(),small.getHeight(),null);g.dispose();image=small;}
-        double range=lost>=2?1:.14,step=lost>=2?.025:.015;var candidates=new ArrayList<Candidate>();
+        double range=lost>=2?1:.14,step=lost>=2?.0125:.015;var candidates=new ArrayList<Candidate>();
         for(double sc:new double[]{Math.max(.75,scale*.94),scale,Math.min(1.3,scale*1.06)}){
             double x0=lost>=2?baseW*sc/2:Math.max(baseW*sc/2,cx-range),x1=lost>=2?1-baseW*sc/2:Math.min(1-baseW*sc/2,cx+range),y0=lost>=2?baseH*sc/2:Math.max(baseH*sc/2,cy-range),y1=lost>=2?1-baseH*sc/2:Math.min(1-baseH*sc/2,cy+range);
             for(double y=y0;y<=y1+1e-8;y+=step)for(double x=x0;x<=x1+1e-8;x+=step){double q=score(image,x,y,sc,angle);candidates.add(new Candidate(x,y,sc,angle,q));}
         }
         candidates.add(new Candidate(cx,cy,scale,angle,score(image,cx,cy,scale,angle)));candidates.sort(Comparator.comparingDouble(Candidate::score).reversed());var best=candidates.get(0);
         double px=1./image.getWidth(),py=1./image.getHeight();
-        for(int n=0;n<Math.min(3,candidates.size());n++){var seed=candidates.get(n);for(double a:new double[]{angle-6,angle,angle+6})for(double y=seed.y-step;y<=seed.y+step;y+=py*2)for(double x=seed.x-step;x<=seed.x+step;x+=px*2){double q=score(image,x,y,seed.scale,a);if(q>best.score)best=new Candidate(x,y,seed.scale,a,q);}}
+        // Nearby scales of one distractor must not consume every refinement slot.
+        var seeds=new ArrayList<Candidate>();for(var c:candidates){boolean distinct=true;for(var seed:seeds)if(overlap(c,seed,baseW,baseH)>.45){distinct=false;break;}if(distinct)seeds.add(c);if(seeds.size()==8)break;}
+        for(var seed:seeds){for(double a:new double[]{angle-6,angle,angle+6})for(double y=seed.y-step;y<=seed.y+step;y+=py*2)for(double x=seed.x-step;x<=seed.x+step;x+=px*2){double q=score(image,x,y,seed.scale,a);if(q>best.score)best=new Candidate(x,y,seed.scale,a,q);}}
         var coarse=best;for(double y=coarse.y-2*py;y<=coarse.y+2*py;y+=py*.5)for(double x=coarse.x-2*px;x<=coarse.x+2*px;x+=px*.5){double q=score(image,x,y,coarse.scale,coarse.angle);if(q>best.score)best=new Candidate(x,y,coarse.scale,coarse.angle,q);}
         double other=-1;Candidate distractor=null;for(var c:candidates)if(overlap(c,best,baseW,baseH)<.2&&(distractor==null||c.score>distractor.score))distractor=c;
         if(distractor!=null){other=distractor.score;for(double y=distractor.y-step;y<=distractor.y+step;y+=py)for(double x=distractor.x-step;x<=distractor.x+step;x+=px)other=Math.max(other,score(image,x,y,distractor.scale,distractor.angle));}double margin=best.score-other;boolean accepted=best.score>=.72&&margin>=.035;
