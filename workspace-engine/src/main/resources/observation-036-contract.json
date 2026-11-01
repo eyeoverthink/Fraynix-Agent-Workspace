@@ -7,12 +7,35 @@
   "archiveEtag": "\"31a3032d-54c6d0af8b4dc\"",
   "license": "DAVIS CC BY-NC 4.0 research footage; check external-source exceptions before use; original images stay private",
   "cases": [
-    {"sequence": "car-turn", "split": "development", "frames": 60, "objectId": 1},
-    {"sequence": "drift-chicane", "split": "reserved", "frames": 60, "objectId": 1},
-    {"sequence": "drift-straight", "split": "reserved", "frames": 60, "objectId": 1}
+    {
+      "sequence": "car-turn",
+      "split": "development",
+      "frames": 60,
+      "objectId": 1
+    },
+    {
+      "sequence": "car-roundabout",
+      "split": "reserved",
+      "frames": 60,
+      "objectId": 1
+    },
+    {
+      "sequence": "bus",
+      "split": "reserved",
+      "frames": 60,
+      "objectId": 1
+    }
   ],
   "domain": "normalized image-plane x/y; source-frame ordinal time; depth/metric scale/capture FPS unknown",
-  "estimator": {"initialPositionSigma": 0.02, "initialVelocitySigma": 0.03, "measurementSigma": 0.015, "accelerationSigma": 0.002, "innovationGateSigma": 5, "minimumInnovationGate": 0.12, "maximumGapFrames": 30},
+  "estimator": {
+    "initialPositionSigma": 0.02,
+    "initialVelocitySigma": 0.03,
+    "measurementSigma": 0.015,
+    "accelerationSigma": 0.002,
+    "innovationGateSigma": 5,
+    "minimumInnovationGate": 0.12,
+    "maximumGapFrames": 30
+  },
   "gates": [
     "Runtime only receives initial rectangles and image pixels; all later reference masks remain scorer-only.",
     "Every subsequent frame counts; report losses as zero IoU and all prediction errors, with no omitted failures.",
@@ -22,5 +45,10 @@
     "Out-of-order, duplicate timestamps, oversized input, future annotations, tampered bytes and stale world bindings are refused.",
     "Lock candidate sources before reserved fetch. Preserve first measurements. No retuning after reserved inspection.",
     "Report mean IoU and IoU>=0.5 coverage per sequence. They describe these footage tests, not a promotion or general recognition claim."
-  ]
+  ],
+  "preFootageAmendment": {
+    "originalProtocolCommit": "19c207d",
+    "originalCandidateCommit": "1dd0f07",
+    "reason": "Archive SOURCES metadata lists drift-chicane and drift-straight as external-source exceptions. Fetch stopped before any images/masks or measurements. Replace with car-roundabout and bus before inspection; candidate algorithms and numeric gates unchanged."
+  }
 }

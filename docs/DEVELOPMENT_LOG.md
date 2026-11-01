@@ -1,5 +1,10 @@
 # Agent Workspace development log
 
+## Edition 036 candidate locked; source metadata amendment — 2026-11-01
+
+Candidate1dd0f07 passed9newJava/80desktop/8actualframeUI/4actualvideoUI checks. Source metadata only revealed both drift clips are external-source exceptions; fetch stopped BEFORE images/masks/results. New reserved car-roundabout/bus60frames each are committed before download; all algorithms/gates unchanged. First real development car-turn result retains drift and slightly worse updated-reference error; no accuracy/weight-training claim. Same035world/body IDs, separate durable observed estimate revisions, exact interrupted prefix resume, Stop generations, full multi-run/pixel export and stale native binding guards are implemented. Old nine protected sources and all001–035 snapshots unchanged. Need reserved first measurements, actual model, independent offline old/new regressions, extensive036docs/screenshots/notes, actualmain/tagpush/directverify. Preserve review03535728/58605 and all private apps/models.
+
+
 ## Edition 036 started — 2026-11-01
 
 User authorized real footage tracking, predicted-motion comparison and persistent-world updates, actual tests/screenshots/documentation/memories/logs/main push. See EDITION_036_PLAN.md and observation-036-contract.json, frozen before implementation. New durable observation estimates attach to the SAME 035 world/body IDs; native verified frames stay immutable, image-plane units and source-frame time remain explicit. Development car-turn is already seen; reserve drift-chicane/drift-straight until a committed candidate lock. No later masks enter runtime. Preserve older apps/private state and all 001–035 snapshots. Review035 PID35728/port58605 remains separate. No new dependencies or model weights.

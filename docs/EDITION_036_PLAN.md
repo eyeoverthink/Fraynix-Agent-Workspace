@@ -43,3 +43,13 @@ of the saved estimate. Publish an extensive linked README-036, dated screenshots
 offline HTML/source explorer, Obsidian map, complete first-result evidence,
 memories/logs, main and annotated readme-036 tag. Fetch directly from GitHub to
 verify publication. Preserve review 035 and all older/private apps/models.
+
+## Source-metadata amendment before any reserved images
+
+The archive SOURCES metadata identifies both initially declared drift clips as
+external-source exceptions. The verified fetch stopped before any image/mask
+or measurement. Commit 1dd0f07 retains that initial candidate. Reserved cases
+are now car-roundabout and bus, 60 original consecutive frames each, declared
+and committed before fetching their pixels. All algorithm sources and numeric
+gates remain byte-identical. Preserve the original refusal log and both protocol
+commits; this is a source-selection amendment, not result-based retuning.

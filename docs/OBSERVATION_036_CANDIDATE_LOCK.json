@@ -16,6 +16,11 @@
     "workspace-engine/src/test/java/fraymus/workspace/ObservationFootageEvaluation.java": "98aeb709cfa957427b31a8d7bcb13f1c2774c67290f6d7131b5bbc87ad619614",
     "scripts/Prepare-Observations036.py": "f606719c963d294298385c3880e226bc315a2def565291b6079be70abd75f964",
     "scripts/Inspect-ObservedWorld.cjs": "b0b40f9f955d5b1195432b65eaa98c38c834b9017847b57ca5f51a143bef9815",
-    "workspace-engine/src/main/resources/observation-036-contract.json": "edad75cdd5bb5c4a9997db77073f38a184177d7c775384c4b9359a083c762567"
+    "workspace-engine/src/main/resources/observation-036-contract.json": "4421db204b3a2cb9d26254f05bf5a82121a5f5df0e29a079835dd3ed707bf941"
+  },
+  "preFootageAmendment": {
+    "originalProtocolCommit": "19c207d",
+    "originalCandidateCommit": "1dd0f07",
+    "reason": "Archive SOURCES metadata lists drift-chicane and drift-straight as external-source exceptions. Fetch stopped before any images/masks or measurements. Replace with car-roundabout and bus before inspection; candidate algorithms and numeric gates unchanged."
   }
 }
