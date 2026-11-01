@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "latest": 34,
+  "latest": 35,
   "canonicalization": "UTF-8 without BOM; CRLF normalized to LF for text",
   "editions": [
     {
@@ -7063,6 +7063,560 @@
           "path": "docs/readmes/034/verification.json",
           "kind": "text",
           "sha256": "f9f93c8a2c7118f584832efd5dc46234ab50004c223da4a35d59fb2a41e302d7"
+        }
+      ]
+    },
+    {
+      "number": 35,
+      "date": "2026-11-01",
+      "title": "One evolving native world across successive verified goals",
+      "status": "published",
+      "markdown": "README-035.md",
+      "markdownSha256": "0761ffd97c971d419425a4325c131404431850a821bf2737670e46f7188b7d57",
+      "snapshotDirectory": "docs/readmes/035",
+      "companion": "docs/readmes/035/index.html",
+      "tag": "readme-035",
+      "sourceBaseline": "6d8fd80821232a95ecfa88b574cd26ec02377546",
+      "snapshotFiles": [
+        {
+          "path": "docs/readmes/035/candidate-source-lock.json",
+          "kind": "text",
+          "sha256": "3c0506e6e1cf61a0982d8952c27348f05ca44f3329e297da29f9436409953d71"
+        },
+        {
+          "path": "docs/readmes/035/development/035-clean.log.txt",
+          "kind": "text",
+          "sha256": "72859d21987a0db4e4ad5c00bc4b4e7b7536863df7d80273ba9d9af33ca1b42f"
+        },
+        {
+          "path": "docs/readmes/035/development/compile035-first.log.txt",
+          "kind": "text",
+          "sha256": "ca345bd4d7b85b453cf5972ea9c56609935f7e3ab46b70c6aec309d05c7c2a15"
+        },
+        {
+          "path": "docs/readmes/035/development/dev035-final.log.txt",
+          "kind": "text",
+          "sha256": "01b78ae8f37a27843be270566164915fdd1aba94cdd4b6b73bb066e0a49bf6af"
+        },
+        {
+          "path": "docs/readmes/035/development/dev035-first.log.txt",
+          "kind": "text",
+          "sha256": "e276ee838a540e19aec259c122a80aa5fe14b435741336ab79a519a1393c2015"
+        },
+        {
+          "path": "docs/readmes/035/development/dev035-fourth.log.txt",
+          "kind": "text",
+          "sha256": "d2afabc35ec88278e96a20b8893b14149d8e58e78d9804ed7ac6b3791c739393"
+        },
+        {
+          "path": "docs/readmes/035/development/dev035-second.log.txt",
+          "kind": "text",
+          "sha256": "cf2e78b924e19a173f95d377aa62d6047387ddd74e4efa96e2929da15895fe32"
+        },
+        {
+          "path": "docs/readmes/035/development/dev035-third.log.txt",
+          "kind": "text",
+          "sha256": "10dc76930b6c8e76ac91355fcf598ba38590c323508b4619b0ba83b59ddd5b4a"
+        },
+        {
+          "path": "docs/readmes/035/development/docs035-ui-final.log.txt",
+          "kind": "text",
+          "sha256": "7ad57ecf70bdf38ad0cbd710f2b31f8a92a0166d9eec1bb6a860ec36b91b2715"
+        },
+        {
+          "path": "docs/readmes/035/development/docs035-ui-first.log.txt",
+          "kind": "text",
+          "sha256": "b4042944a5e7b5e8ce77eaaae3ea5acb060e9a48f67713c6fe6c38f0412a0ffd"
+        },
+        {
+          "path": "docs/readmes/035/development/edition035-narrow.png",
+          "kind": "binary",
+          "sha256": "e78f8056e60d60986163dcb831bbbf7d8a4cf4cae528d02edacb1d80d10f1809"
+        },
+        {
+          "path": "docs/readmes/035/development/edition035-wide.png",
+          "kind": "binary",
+          "sha256": "3fc35a24461e11fa70dd338949dbaeb2c0ecfa5b4250d059f99c70b50b1e54b2"
+        },
+        {
+          "path": "docs/readmes/035/development/export035-native-test.log.txt",
+          "kind": "text",
+          "sha256": "00aeff61dde21347af3af812431439435b7f76a9ce9d558bff2a885e2589e134"
+        },
+        {
+          "path": "docs/readmes/035/development/first-measurement/manifest.json",
+          "kind": "text",
+          "sha256": "bb326784b125be3fc1bef26b62138c79ffead473b7cd9fd1fc3759b3b787c224"
+        },
+        {
+          "path": "docs/readmes/035/development/first-measurement/reserved035-blocked-next/e58a1b22-cb9f-4137-a183-ed45b53064bb.json.gzip.json",
+          "kind": "text",
+          "sha256": "1df7a332c3bca2173831b89a2b6b922a8d5d3b0ef42f8f81744e8258f70774e5"
+        },
+        {
+          "path": "docs/readmes/035/development/first-measurement/reserved035-blocked-next/persistent-worlds/state.json.gzip.json",
+          "kind": "text",
+          "sha256": "4c4655006dbc37d477f9f749454e31636a9dfeee94f725da3dbc5d655401f2ee"
+        },
+        {
+          "path": "docs/readmes/035/development/first-measurement/reserved035-blocked-next/summary.json.gzip.json",
+          "kind": "text",
+          "sha256": "8e48facabe9aeeb48dbe397fec06332d5aaa1c080c360733cd3a46cbfa848ae3"
+        },
+        {
+          "path": "docs/readmes/035/development/first-measurement/reserved035-force-negative/2cc4b2cc-9080-46b6-9da0-833877cab32f.json.gzip.json",
+          "kind": "text",
+          "sha256": "59f9e29c036cb1aaea423ca5ebfe22e31757a077f0eab9b97574e9c28c5c79bf"
+        },
+        {
+          "path": "docs/readmes/035/development/first-measurement/reserved035-force-negative/5bfb084b-ed40-46d6-91ad-e6b5b828a3b8.json.gzip.json",
+          "kind": "text",
+          "sha256": "b6629a2f51d932f7d3d3f1b7b8488903b586cd9e0227c19d7aa7a6a7b27ea349"
+        },
+        {
+          "path": "docs/readmes/035/development/first-measurement/reserved035-force-negative/persistent-worlds/state.json.gzip.json",
+          "kind": "text",
+          "sha256": "3346f0eb518ff9a1c429f511abde405eb74fe6ef47bce9fc9d18974578da65a6"
+        },
+        {
+          "path": "docs/readmes/035/development/first-measurement/reserved035-force-negative/summary.json.gzip.json",
+          "kind": "text",
+          "sha256": "8f7be16a59493efc4a83a9dcb45a1e17523838d39eb7d0b82e96c7c8edf37560"
+        },
+        {
+          "path": "docs/readmes/035/development/first-measurement/reserved035-three-body-chain/81a98c0a-4562-41a5-9e9d-10a1c3f968f7.json.gzip.json",
+          "kind": "text",
+          "sha256": "908a2c5517c232d6cdc21a805fac7e0ed67bf7f662fd3a42fd55a316ed0a152a"
+        },
+        {
+          "path": "docs/readmes/035/development/first-measurement/reserved035-three-body-chain/a2bbaf5b-b427-48d1-bfad-e0f0fe4a5782.json.gzip.json",
+          "kind": "text",
+          "sha256": "9e61c57819c2e992d4d60181ecee6a88b70e954422e46eb15cf83a53db255cf9"
+        },
+        {
+          "path": "docs/readmes/035/development/first-measurement/reserved035-three-body-chain/e80ad236-f949-42c9-b97c-5bc47d610aeb.json.gzip.json",
+          "kind": "text",
+          "sha256": "830279fc889cac3825283cd91d8aa395f95ec026b6533833f4571dbb7a16be27"
+        },
+        {
+          "path": "docs/readmes/035/development/first-measurement/reserved035-three-body-chain/persistent-worlds/state.json.gzip.json",
+          "kind": "text",
+          "sha256": "eee762a489f0f44971bab7afd1f4e5f5995cff2ec20596355e84c6afd3ed4ffa"
+        },
+        {
+          "path": "docs/readmes/035/development/first-measurement/reserved035-three-body-chain/summary.json.gzip.json",
+          "kind": "text",
+          "sha256": "324a4bce7a787efab8d776a1c604ef3aa278e7ac6e36e8512d7a7d1e250f1727"
+        },
+        {
+          "path": "docs/readmes/035/development/first-measurement/reserved035-two-body-chain/54525ca7-d416-48be-8767-620e273c471e.json.gzip.json",
+          "kind": "text",
+          "sha256": "1d736192cf02a86cdc92c1092051c5a9574576f0292d5dfa189f5732e75ca22e"
+        },
+        {
+          "path": "docs/readmes/035/development/first-measurement/reserved035-two-body-chain/6f70434d-af13-4e51-9281-15d0ef29e58a.json.gzip.json",
+          "kind": "text",
+          "sha256": "b0e976499d5f1415b4af0fafd8ab2ba38b6459c9e4deae5d9e1486aba3c762df"
+        },
+        {
+          "path": "docs/readmes/035/development/first-measurement/reserved035-two-body-chain/b5fd013e-a7c3-4716-a114-ca9765a55c12.json.gzip.json",
+          "kind": "text",
+          "sha256": "316aad9739e7819b09dad337f3559717e17662855db0d861b879eac13c54f07f"
+        },
+        {
+          "path": "docs/readmes/035/development/first-measurement/reserved035-two-body-chain/persistent-worlds/state.json.gzip.json",
+          "kind": "text",
+          "sha256": "951cf4475568fa3e8550bf781fb0d683995c54b840347b75b83197b533a38965"
+        },
+        {
+          "path": "docs/readmes/035/development/first-measurement/reserved035-two-body-chain/summary.json.gzip.json",
+          "kind": "text",
+          "sha256": "2e8c82bb166d77b0c811763d69e34483f28f50745bba94d23cd2f2a38ba961fa"
+        },
+        {
+          "path": "docs/readmes/035/development/first-measurement/summary.json.gzip.json",
+          "kind": "text",
+          "sha256": "d628ec92a1060c7fcd013eb1350d21d31c3fd3b8fd3ad07d6592426993702f2f"
+        },
+        {
+          "path": "docs/readmes/035/development/java035-integration.log.txt",
+          "kind": "text",
+          "sha256": "ca345bd4d7b85b453cf5972ea9c56609935f7e3ab46b70c6aec309d05c7c2a15"
+        },
+        {
+          "path": "docs/readmes/035/development/live035-first.log.txt",
+          "kind": "text",
+          "sha256": "5a29b8195bf9a81bcbcc85f621a1b7f8155a292d01a10b35b3fada7123548540"
+        },
+        {
+          "path": "docs/readmes/035/development/persistent-world-failed-1793542989598.json",
+          "kind": "text",
+          "sha256": "1a8727b0f84223ebfdc026bbbf20c447ae76d4f3c582b604edab2f7aef2b5be9"
+        },
+        {
+          "path": "docs/readmes/035/development/persistent-world-failed-1793543124016.json",
+          "kind": "text",
+          "sha256": "8c2a7b404f684e84f709abf3907aca66bbf19c48b0a36b47f8313417cf2abb5b"
+        },
+        {
+          "path": "docs/readmes/035/development/poses-failed-1793545231903.json",
+          "kind": "text",
+          "sha256": "fc5ce5937f90519849f86892537d038dbebd646661803a649b87777081fa3df6"
+        },
+        {
+          "path": "docs/readmes/035/development/regress035-final.log.txt",
+          "kind": "text",
+          "sha256": "49ffb22fbef097a43a341e222e00447d852b9d4d2f784f6f9b9135cea74d64c7"
+        },
+        {
+          "path": "docs/readmes/035/development/regress035-second.log.txt",
+          "kind": "text",
+          "sha256": "b4f5d7a9d22fd06321e6cf4ddee86fd2971ee474a2cb69defebdc3fe1f5eaa10"
+        },
+        {
+          "path": "docs/readmes/035/development/reserved035-first.log.txt",
+          "kind": "text",
+          "sha256": "fabab29d5de1c13561e33af44fe7eecd6e72292337d02464335bad624b872f5e"
+        },
+        {
+          "path": "docs/readmes/035/development/ui035-first.log.txt",
+          "kind": "text",
+          "sha256": "de2c0c5b148582ed45e6ef9909ae361e34f32a76edffa9aff0ce2c740e36d06f"
+        },
+        {
+          "path": "docs/readmes/035/development/ui035-second.log.txt",
+          "kind": "text",
+          "sha256": "c16e06fafbae32bb9d8ca4ed727303e484fd29b66b74bc4bedd9a3caaa90b186"
+        },
+        {
+          "path": "docs/readmes/035/development/ui035-third.log.txt",
+          "kind": "text",
+          "sha256": "753ca975a238b576758d14c8667c1551d9fd80c47e1a169a2983db86d65b4a2c"
+        },
+        {
+          "path": "docs/readmes/035/development/units035-final.log.txt",
+          "kind": "text",
+          "sha256": "a94a790fcbf824509f257751deb4f065b42dcfbe5d1e266b42ea3e90f1c02721"
+        },
+        {
+          "path": "docs/readmes/035/development/units035-first.log.txt",
+          "kind": "text",
+          "sha256": "7b44aa35695f99993f6c13ea4d0082c0e5a3f3744faede7ac8f1dbaf850147de"
+        },
+        {
+          "path": "docs/readmes/035/development/units035-second.log.txt",
+          "kind": "text",
+          "sha256": "1c49c1bb18b1861a19702d50550044a8143416fe71e7f67d0558d1072ab205d9"
+        },
+        {
+          "path": "docs/readmes/035/development/world035-history.png",
+          "kind": "binary",
+          "sha256": "24d021bdf91df85a6864d99d12ebe8af645e03a25cfe05caf7a151b3fca33d9b"
+        },
+        {
+          "path": "docs/readmes/035/development/world035-native-narrow.png",
+          "kind": "binary",
+          "sha256": "c37c49512fdc0fb8d13deca02300d2308136f7b0a6902559b8fc0fc913900306"
+        },
+        {
+          "path": "docs/readmes/035/development/world035-native.png",
+          "kind": "binary",
+          "sha256": "995ba20d83f8e250c48c54b8273076dd95947d623dab0a5f946ac61273c94115"
+        },
+        {
+          "path": "docs/readmes/035/development-attempts.json",
+          "kind": "text",
+          "sha256": "8c8308d91e8840c1cd00b6a2472735367dc37b52740c390a15095f95aa8e81b0"
+        },
+        {
+          "path": "docs/readmes/035/examples/chat-world.json",
+          "kind": "text",
+          "sha256": "8cfc2f0be4264867aa190d2e9893b67963474eb887e19f33a8ad9ef11ae9b322"
+        },
+        {
+          "path": "docs/readmes/035/examples/checkpoint.json",
+          "kind": "text",
+          "sha256": "a08ada23f24764749acc9dcdc8b1e91baddc55611c6e57aae664bd2b40521094"
+        },
+        {
+          "path": "docs/readmes/035/examples/continued.json",
+          "kind": "text",
+          "sha256": "76b57bfbdd5eac8df705cb6ffbbfb46277564c0cb9968169b09a012031142786"
+        },
+        {
+          "path": "docs/readmes/035/examples/goal-1/actual-receipt.json",
+          "kind": "text",
+          "sha256": "fbdfec3492c5abeb7a67d4bdd223c11ce6a808cc3310b3718f0e9d765e59f1d4"
+        },
+        {
+          "path": "docs/readmes/035/examples/goal-1/charts.json",
+          "kind": "text",
+          "sha256": "7ee88fa7652e16754a0ef3945bb68a69dba2b0e9678ace39a33d43c2a0df095e"
+        },
+        {
+          "path": "docs/readmes/035/examples/goal-1/index.html",
+          "kind": "text",
+          "sha256": "79c49cdda0512b6319bd437f0d00ac307d3ad9daa2e595736f225af7c962b36d"
+        },
+        {
+          "path": "docs/readmes/035/examples/goal-1/native-run.json",
+          "kind": "text",
+          "sha256": "47fde1322acad4414367d87cdb84ca07d846f1fb57c8d6404af7b9fc16971195"
+        },
+        {
+          "path": "docs/readmes/035/examples/goal-1/proof.json",
+          "kind": "text",
+          "sha256": "e6de395978e821efc46b184ec21f9451fa66e86e129e17f4bc9750de28aba68a"
+        },
+        {
+          "path": "docs/readmes/035/examples/goal-1/trace.csv",
+          "kind": "text",
+          "sha256": "8ba89f8e08af89855f3c37ae2c96735eeab8c54d0f50e3c51e32786c2587bf77"
+        },
+        {
+          "path": "docs/readmes/035/examples/goal-3/actual-receipt.json",
+          "kind": "text",
+          "sha256": "e07e99a2bf41aa775e5020f09c9001067892f86e26380141c0f1e9ac7fd09e90"
+        },
+        {
+          "path": "docs/readmes/035/examples/goal-3/charts.json",
+          "kind": "text",
+          "sha256": "49a4da0dce190f2ad2d89ed4b7e4c4a4e0d7ff6bdca2e73fdc3bd22c984992c1"
+        },
+        {
+          "path": "docs/readmes/035/examples/goal-3/index.html",
+          "kind": "text",
+          "sha256": "79c49cdda0512b6319bd437f0d00ac307d3ad9daa2e595736f225af7c962b36d"
+        },
+        {
+          "path": "docs/readmes/035/examples/goal-3/native-run.json",
+          "kind": "text",
+          "sha256": "ac90e02ccabfe21de4f5d534fdf156296c6dfd3c58f6c7e2b5db9189c4509485"
+        },
+        {
+          "path": "docs/readmes/035/examples/goal-3/proof.json",
+          "kind": "text",
+          "sha256": "fd5e8b55fb8d7954b4f41ff6ceadc463eb9a849653e0630f2e6414814b9696db"
+        },
+        {
+          "path": "docs/readmes/035/examples/goal-3/trace.csv",
+          "kind": "text",
+          "sha256": "fa558cf65344f62663270671f0275d37082156266ba9c860a27023ffc03c2134"
+        },
+        {
+          "path": "docs/readmes/035/examples/goal-4/actual-receipt.json",
+          "kind": "text",
+          "sha256": "f4061ff68f4956db9f5480ab9bb335f7dd141668b887f9f5590894a442cfface"
+        },
+        {
+          "path": "docs/readmes/035/examples/goal-4/charts.json",
+          "kind": "text",
+          "sha256": "5adb34b132a515889281d792c507956ef888efda063bb4d0b14055303a27fd9d"
+        },
+        {
+          "path": "docs/readmes/035/examples/goal-4/index.html",
+          "kind": "text",
+          "sha256": "79c49cdda0512b6319bd437f0d00ac307d3ad9daa2e595736f225af7c962b36d"
+        },
+        {
+          "path": "docs/readmes/035/examples/goal-4/native-run.json",
+          "kind": "text",
+          "sha256": "0f6254fb5fabd7f87449bbfb173f1fcc563a369ded07de77fd4fe90fb23efac3"
+        },
+        {
+          "path": "docs/readmes/035/examples/goal-4/proof.json",
+          "kind": "text",
+          "sha256": "64a61ff4d1043025f226845a97864523b256b97a98ecfb6750b8caaa54faf583"
+        },
+        {
+          "path": "docs/readmes/035/examples/goal-4/trace.csv",
+          "kind": "text",
+          "sha256": "ef90951e965c5db384f4610d9c28dce5aba6e7af96c6c18c90e90e5480f45097"
+        },
+        {
+          "path": "docs/readmes/035/examples/original/actual-receipt.json",
+          "kind": "text",
+          "sha256": "cad63f09ac90e7051af3d4dbedb59db2098ab27dd750f55d3d7956278318589e"
+        },
+        {
+          "path": "docs/readmes/035/examples/original/charts.json",
+          "kind": "text",
+          "sha256": "c81377e0b58d515ff7fcf94c38b81649c7bee46b8d656e062b80d3248307688c"
+        },
+        {
+          "path": "docs/readmes/035/examples/original/index.html",
+          "kind": "text",
+          "sha256": "79c49cdda0512b6319bd437f0d00ac307d3ad9daa2e595736f225af7c962b36d"
+        },
+        {
+          "path": "docs/readmes/035/examples/original/native-run.json",
+          "kind": "text",
+          "sha256": "c626586a17e833a0074e01a416c23cd0c9e834883a0adf2f6a40ab583f9bc74f"
+        },
+        {
+          "path": "docs/readmes/035/examples/original/proof.json",
+          "kind": "text",
+          "sha256": "9ba976c8fe25a3bfcf4fb9b33a629e1497c7b233485a932320c5f7137c179408"
+        },
+        {
+          "path": "docs/readmes/035/examples/original/trace.csv",
+          "kind": "text",
+          "sha256": "e747996ea1e5e0d51047d833017bf8abcb1753c8f36c4aad73e8a8b6e444871e"
+        },
+        {
+          "path": "docs/readmes/035/examples/originalRun.json",
+          "kind": "text",
+          "sha256": "d52e6557ea2b4ff522dadca59705adb1fb92a44e8976b96250db3828a4750239"
+        },
+        {
+          "path": "docs/readmes/035/examples/persistent-world.json",
+          "kind": "text",
+          "sha256": "aefcd9491199d4df7bf303fd9554fbc118168b439f2c75ff7b06f4a60de6a852"
+        },
+        {
+          "path": "docs/readmes/035/examples/world-ledger.json",
+          "kind": "text",
+          "sha256": "76dd87283b285a17da453d21577d9b1fbe91438dbfc9593dcd54a1888127bf19"
+        },
+        {
+          "path": "docs/readmes/035/file-inventory.json",
+          "kind": "text",
+          "sha256": "a517cea6a78039d399f91a769ca28653141fe14843c77878c5ba9d58be6bb77a"
+        },
+        {
+          "path": "docs/readmes/035/FILE_TREE.md",
+          "kind": "text",
+          "sha256": "48871629971a2e44f98ba3ae36a555f2baccc0345abb775ee6029896e9c2b9ee"
+        },
+        {
+          "path": "docs/readmes/035/frozen-contract.json",
+          "kind": "text",
+          "sha256": "6bd8dcb983eaf00125dcb60f0305c0c30981530621b16aa620c10b55c89d2737"
+        },
+        {
+          "path": "docs/readmes/035/frozen-suite.json",
+          "kind": "text",
+          "sha256": "e2ec7a096b1f764afce45a7d0e715eed30616eefdb0a5d3c3a5771976a08bb9c"
+        },
+        {
+          "path": "docs/readmes/035/history-data.json",
+          "kind": "text",
+          "sha256": "d6653c03430fc314021091916de989fad1355aa3e4a0ba425caf1efb4f8aa519"
+        },
+        {
+          "path": "docs/readmes/035/images/world-chat-first-commit-035.png",
+          "kind": "binary",
+          "sha256": "ee842042d23423bdb7df3ee8a69074ee6aab590d6295a7ed247370fd9cc9ab3b"
+        },
+        {
+          "path": "docs/readmes/035/images/world-chat-skill-continuation-035.png",
+          "kind": "binary",
+          "sha256": "d833045c7125d574c53409d1714838601ce93bd715e1fe113e0c6289d6f90c68"
+        },
+        {
+          "path": "docs/readmes/035/images/world-chat-third-revision-035.png",
+          "kind": "binary",
+          "sha256": "38fe649a4b407e8c90af3d216f7bef4fa6752cc954fbe3c41dbfe07726de9696"
+        },
+        {
+          "path": "docs/readmes/035/images/world-confirmed-origin-035.png",
+          "kind": "binary",
+          "sha256": "3d48974411296a13dea54c7211da1b01fad29272d643eb7ca279e4072ba9e3d0"
+        },
+        {
+          "path": "docs/readmes/035/images/world-explicit-failed-state-restore-035.png",
+          "kind": "binary",
+          "sha256": "f41e96072cf47c970147e6ded4ed733bf24610d45406e64ab3137ea2d4cf3a66"
+        },
+        {
+          "path": "docs/readmes/035/images/world-explicit-history-restore-035.png",
+          "kind": "binary",
+          "sha256": "063b9ab00b9ec1233e1d5afab9f5e5cf30010a516fd2ac6c7c9765f44a685709"
+        },
+        {
+          "path": "docs/readmes/035/images/world-first-verified-revision-035.png",
+          "kind": "binary",
+          "sha256": "97c1fe9692ebbeaf2989778412dbb08da7d0fd8087bc62a8de366fa4b2997b3f"
+        },
+        {
+          "path": "docs/readmes/035/images/world-force-failure-no-commit-035.png",
+          "kind": "binary",
+          "sha256": "20c56ffb7668b65a55eec0cd6b1d2ad829abb701b943c04780a14cf3634265d8"
+        },
+        {
+          "path": "docs/readmes/035/images/world-full-history-export-035.png",
+          "kind": "binary",
+          "sha256": "b2daddf9eabdc2eeb5bc6134678892ec0ead5b5f703fc3f3582a0a870c89256f"
+        },
+        {
+          "path": "docs/readmes/035/images/world-interrupted-owned-revision-035.png",
+          "kind": "binary",
+          "sha256": "02bfba5721a22e751cdbe7a4ec25fa7f76978779ab4d2419b6f8a6198a1ac3f3"
+        },
+        {
+          "path": "docs/readmes/035/images/world-resumed-second-commit-035.png",
+          "kind": "binary",
+          "sha256": "138355e84df34792b58d37ca12f4fd4d3ddac40924fe96cc18329ed016e8b5d0"
+        },
+        {
+          "path": "docs/readmes/035/images/world-retained-skill-form-035.png",
+          "kind": "binary",
+          "sha256": "52a91619528d575bc54c0a6cd5d30bfccdd3b1fd7e2c38cd2bb111be219cf954"
+        },
+        {
+          "path": "docs/readmes/035/images/world-second-native-motion-035.png",
+          "kind": "binary",
+          "sha256": "7759f2bcb9a116a0065489d78680e6dc0abe11bdaba3d67446c6298b1e6e1ba0"
+        },
+        {
+          "path": "docs/readmes/035/images/world-skill-third-revision-035.png",
+          "kind": "binary",
+          "sha256": "e30953445796aee7c3153e477e7639d43583d53a8a7255a3085547cdb9364a27"
+        },
+        {
+          "path": "docs/readmes/035/images/world-stop-and-restore-035.png",
+          "kind": "binary",
+          "sha256": "1f176384803585d43e6054735f44c3e1a5f4b50503853263db768f89ecb0625a"
+        },
+        {
+          "path": "docs/readmes/035/images.json",
+          "kind": "text",
+          "sha256": "5d160d16c5ce9daa60ccc980ca6bf0d0713c03a1539c675834df2cc92700ddf9"
+        },
+        {
+          "path": "docs/readmes/035/index.html",
+          "kind": "text",
+          "sha256": "316748df35b25994a242603f278e024251432cf998bf0b0eaa07484502834e40"
+        },
+        {
+          "path": "docs/readmes/035/live-persistent-world.json",
+          "kind": "text",
+          "sha256": "640e52b884a7389ab206bd542b3ae0aa62a620ba93fe4add103c3a193d4e216c"
+        },
+        {
+          "path": "docs/readmes/035/persistent-world-integration.json",
+          "kind": "text",
+          "sha256": "60489115eb5425f9038bd2599d8ee9075909ebb5ac56506f3a8c59afedd1d842"
+        },
+        {
+          "path": "docs/readmes/035/persistent-world-original.gzip.json",
+          "kind": "text",
+          "sha256": "a2d06940fe5387a32af6b7d4318383e26e23750584019075cb9a82818df6785e"
+        },
+        {
+          "path": "docs/readmes/035/regressions.json",
+          "kind": "text",
+          "sha256": "c5316fdbd38dc107a6b8f597c77920776c00e79f6e5dd24802db52bb75fe6298"
+        },
+        {
+          "path": "docs/readmes/035/system-map.json",
+          "kind": "text",
+          "sha256": "b8eda05f10614cb758396ce1e6eb1d0f039c3afd300783e8e2cfbb6e2362ecb8"
+        },
+        {
+          "path": "docs/readmes/035/verification.json",
+          "kind": "text",
+          "sha256": "952d9b78386e9ce852ec4b068da9ca29b076dfd1039e5150ebebe8a2ad9a6455"
         }
       ]
     }

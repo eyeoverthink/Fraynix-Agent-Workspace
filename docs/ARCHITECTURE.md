@@ -169,3 +169,17 @@ currently start from that source; persistent world revisions across goals are
 planned. A registered64MBcomparison transport uses hashed10MBparts; ordinary
 exports retain20MB. No new libraries, models or cloud services are introduced.
 [Full scope, evidence and next gate](MULTI_OBJECT_POSES.md).
+
+## Edition035: persistent world revisions across goals
+
+WorldFrames/WorldLedger preserve stable IDs and all-body kinematics across
+completed goals, independently of immutable imported scenes. Separate035native
+classes restore positions/quaternions/linear and angular velocities; physics
+pauses between goals and solver caches are reconstructed. Pending goal/run
+ownership blocks replacements. Atomic forced ledger writes, head compare-and-set,
+idempotent verified commit and explicit labelled restore protect continuity.
+
+The existing Java runner, Spatial, chat, original reports and Skills use this
+same world. Real native and Chromium evidence precedes head advancement and
+retention. Full history export includes abandoned attempts.034and older native
+sources remain preserved. [Complete contract and next gate](PERSISTENT_WORLDS.md).

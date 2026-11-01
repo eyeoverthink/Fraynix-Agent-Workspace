@@ -1,0 +1,119 @@
+{
+  "status": "passed",
+  "checkout": "fraynix-workspace-qa035-release",
+  "sourceCommit": "6d8fd80821232a95ecfa88b574cd26ec02377546",
+  "offlineBuild": true,
+  "javaTests": 309,
+  "javaClasses": 65,
+  "desktopUnitTests": 77,
+  "uiChecks": 231,
+  "groups": {
+    "persistent-world": {
+      "checks": 12,
+      "passed": true
+    },
+    "poses": {
+      "checks": 10,
+      "passed": true
+    },
+    "body": {
+      "checks": 10,
+      "passed": true
+    },
+    "brain-game": {
+      "checks": 10,
+      "passed": true
+    },
+    "feedback": {
+      "checks": 12,
+      "passed": true
+    },
+    "world-model": {
+      "checks": 15,
+      "passed": true
+    },
+    "goals": {
+      "checks": 14,
+      "passed": true
+    },
+    "data-goals": {
+      "checks": 12,
+      "passed": true
+    },
+    "spatial": {
+      "checks": 14,
+      "passed": true
+    },
+    "perception": {
+      "checks": 15,
+      "passed": true
+    },
+    "tracking024": {
+      "checks": 9,
+      "passed": true
+    },
+    "tracking-controls": {
+      "checks": 6,
+      "passed": true
+    },
+    "creation": {
+      "checks": 8,
+      "passed": true
+    },
+    "workflow": {
+      "checks": 8,
+      "passed": true
+    },
+    "procedural": {
+      "checks": 9,
+      "passed": true
+    },
+    "responsive": {
+      "checks": 4,
+      "passed": true
+    },
+    "maps": {
+      "checks": 9,
+      "passed": true
+    },
+    "topology": {
+      "checks": 10,
+      "passed": true
+    },
+    "recovery-materials": {
+      "checks": 9,
+      "passed": true
+    },
+    "pushing": {
+      "checks": 12,
+      "passed": true
+    },
+    "force-learning": {
+      "checks": 8,
+      "passed": true
+    },
+    "force-learning-library": {
+      "checks": 2,
+      "passed": true
+    },
+    "contact-study": {
+      "checks": 8,
+      "passed": true
+    },
+    "contact-library": {
+      "checks": 2,
+      "passed": true
+    },
+    "tracking-migration": {
+      "checks": 3,
+      "passed": true
+    }
+  },
+  "modelWeightsOrPrivateRuntimeCopied": false,
+  "electronBinary": "Existing pinned45.1.0 cache after npm ci --offline --ignore-scripts",
+  "sourceBuildCommit": "f07f1e75ea8e26919158dd069678cdd359174680",
+  "changesSinceBuild": [
+    "workspace-desktop/test/poses-integration.cjs"
+  ],
+  "validationNote": "Only cancellation-test synchronization changed after the offline build. All product Java/desktop sources are identical to the built runtime. The corrected full UI suite ran at sourceCommit."
+}

@@ -1,0 +1,5541 @@
+{
+  "passed": true,
+  "date": "2026-11-01T14:43:40.950Z",
+  "project": "C:\\Users\\eyeka\\AppData\\Local\\Temp\\fraynix-persistent035-2Bx6TK",
+  "checks": [
+    "Visible controls create a labelled persistent world, retain four actual body identities and confirm targets without native actuation",
+    "Actual native outcome and all15 original cells/six chart modes pass before the first world revision and exact-version procedure are retained",
+    "Goal two starts from goal one exact all-body kinematics, then a real Java child kill preserves its pending ownership and leaves verified revision1 unchanged",
+    "Stale revision and a fresh replacement request against an interrupted owned world are both refused before another goal/native effect",
+    "Visible Resume continues the same goal/run/attempt and exact committed prefix, restores all native bodies/controller and commits revision2 only after original report verification",
+    "Actual visible Skills form retains the035 native version and wrench defaults while reusing the same world stable roles and new targets to reach revision3",
+    "A real2N physical failure advances no verified head, keeps dirty ownership and retains no skill instead of silently resetting the world",
+    "Visible explicit abandon/restore appends revision4 with the verified frame unchanged and preserves the failed attempt in history",
+    "Restoring an older revision is labelled nonphysical history, keeps the same identities/velocities and a later real goal continues from that exact selected frame",
+    "Visible Stop ends native effects without a false world commit; the separate explicit restore retains both cancelled evidence and verified state",
+    "Actual complete export retains every verified/restored revision and all six complete native attempts, including failure/cancellation; raw hashes, offline Inspector and original API records match",
+    "Blocked next geometry cannot create a goal or alter current state; old contact activation remains baseline and the integrated app finishes without renderer errors"
+  ],
+  "worldId": "21e04861-d6ca-4f53-86db-bb2fe442a153",
+  "origin": {
+    "worldId": "21e04861-d6ca-4f53-86db-bb2fe442a153",
+    "expectedHash": "f5c087c20513ba7af3710bc0e00217ce36b61badf7135b84aea8ffe3e79307d2",
+    "expectedRevision": 0,
+    "title": "dev035-three-body-chain",
+    "frame": {
+      "elapsedTicks": 0,
+      "bodies": [
+        {
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "id": "332833ae-b71d-3c62-9525-12efa4fc2c1d",
+          "position": [
+            -2,
+            0.3,
+            -1.5
+          ],
+          "velocity": [
+            0,
+            0,
+            0
+          ],
+          "angularVelocity": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "id": "0afd1a6f-79de-34ed-ac03-7d9f34d7b259",
+          "position": [
+            2,
+            0.25,
+            1.5
+          ],
+          "velocity": [
+            0,
+            0,
+            0
+          ],
+          "angularVelocity": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "id": "9266be6f-f639-334a-b0ed-7d4c9dcd7ebd",
+          "position": [
+            3,
+            0.25,
+            2.7
+          ],
+          "velocity": [
+            0,
+            0,
+            0
+          ],
+          "angularVelocity": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "id": "357fecb7-d947-380f-a61b-604e421089cb",
+          "position": [
+            -3.6,
+            0.2,
+            0.7
+          ],
+          "velocity": [
+            0,
+            0,
+            0
+          ],
+          "angularVelocity": [
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "format": "fraynix.world-frame-035-v1",
+      "originalScene": {
+        "importedAt": "2026-11-01T14:41:35.474623400Z",
+        "objects": [
+          {
+            "sourceId": "floor",
+            "bodyType": "static",
+            "size": [
+              12,
+              0.5,
+              12
+            ],
+            "restitution": 0,
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "id": "579a92fc-6717-3a5e-a83b-a06b4e5205a6",
+            "label": "floor",
+            "position": [
+              0,
+              -0.25,
+              0
+            ],
+            "massKg": 0,
+            "friction": 0.5
+          },
+          {
+            "sourceId": "A",
+            "bodyType": "dynamic",
+            "size": [
+              0.8,
+              0.6,
+              0.45
+            ],
+            "restitution": 0,
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "id": "332833ae-b71d-3c62-9525-12efa4fc2c1d",
+            "label": "A",
+            "position": [
+              -2,
+              0.3,
+              -1.5
+            ],
+            "massKg": 1,
+            "friction": 0.45
+          },
+          {
+            "sourceId": "B",
+            "bodyType": "dynamic",
+            "size": [
+              0.7,
+              0.5,
+              0.5
+            ],
+            "restitution": 0,
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "id": "0afd1a6f-79de-34ed-ac03-7d9f34d7b259",
+            "label": "B",
+            "position": [
+              2,
+              0.25,
+              1.5
+            ],
+            "massKg": 1.2,
+            "friction": 0.45
+          },
+          {
+            "sourceId": "bystander",
+            "bodyType": "dynamic",
+            "size": [
+              0.5,
+              0.5,
+              0.6
+            ],
+            "restitution": 0,
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "id": "9266be6f-f639-334a-b0ed-7d4c9dcd7ebd",
+            "label": "bystander",
+            "position": [
+              3,
+              0.25,
+              2.7
+            ],
+            "massKg": 1,
+            "friction": 0.6
+          },
+          {
+            "sourceId": "obstacle",
+            "bodyType": "static",
+            "size": [
+              0.8,
+              1.2,
+              0.8
+            ],
+            "restitution": 0,
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "id": "d820aec9-77a7-35fc-aa82-911111c14e77",
+            "label": "obstacle",
+            "position": [
+              0,
+              0.6,
+              0
+            ],
+            "massKg": 0,
+            "friction": 0.5
+          },
+          {
+            "sourceId": "C",
+            "bodyType": "dynamic",
+            "size": [
+              0.65,
+              0.4,
+              0.5
+            ],
+            "restitution": 0,
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "id": "357fecb7-d947-380f-a61b-604e421089cb",
+            "label": "C",
+            "position": [
+              -3.6,
+              0.2,
+              0.7
+            ],
+            "massKg": 0.8,
+            "friction": 0.45
+          }
+        ],
+        "format": "fraynix.spatial-scene",
+        "sourceText": "{\"objects\":[{\"sourceId\":\"floor\",\"shape\":\"box\",\"size\":[12,0.5,12],\"restitution\":0,\"rotation\":[0,0,0,1],\"label\":\"floor\",\"position\":[0,-0.25,0],\"massKg\":0,\"friction\":0.5},{\"sourceId\":\"A\",\"shape\":\"box\",\"size\":[0.8,0.6,0.45],\"restitution\":0,\"rotation\":[0,0,0,1],\"label\":\"A\",\"position\":[-2,0.3,-1.5],\"massKg\":1,\"friction\":0.45},{\"sourceId\":\"B\",\"shape\":\"box\",\"size\":[0.7,0.5,0.5],\"restitution\":0,\"rotation\":[0,0,0,1],\"label\":\"B\",\"position\":[2,0.25,1.5],\"massKg\":1.2,\"friction\":0.45},{\"sourceId\":\"bystander\",\"shape\":\"box\",\"size\":[0.5,0.5,0.6],\"restitution\":0,\"rotation\":[0,0,0,1],\"label\":\"bystander\",\"position\":[3,0.25,2.7],\"massKg\":1,\"friction\":0.6},{\"sourceId\":\"obstacle\",\"shape\":\"box\",\"size\":[0.8,1.2,0.8],\"restitution\":0,\"rotation\":[0,0,0,1],\"label\":\"obstacle\",\"position\":[0,0.6,0],\"massKg\":0,\"friction\":0.5},{\"sourceId\":\"C\",\"shape\":\"box\",\"size\":[0.65,0.4,0.5],\"restitution\":0,\"rotation\":[0,0,0,1],\"label\":\"C\",\"position\":[-3.6,0.2,0.7],\"massKg\":0.8,\"friction\":0.45}],\"format\":\"fraynix.spatial-scene\",\"units\":\"m\",\"source\":{\"note\":\"Declared synthetic sequential-world test; not a real room or learned policy.\",\"kind\":\"synthetic\",\"physicalProperties\":\"declared\"},\"title\":\"Labelled035 development three-body-chain\",\"version\":1,\"scaleReference\":{\"a\":[0,0,0],\"b\":[1,0,0],\"toleranceM\":0,\"knownLengthM\":1,\"basis\":\"declared-test\"},\"frame\":\"right-handed-y-up\",\"gravityMps2\":9.81}",
+        "units": "m",
+        "source": {
+          "note": "Declared synthetic sequential-world test; not a real room or learned policy.",
+          "kind": "synthetic",
+          "physicalProperties": "declared"
+        },
+        "title": "Labelled035 development three-body-chain",
+        "version": 1,
+        "gravityMps2": 9.81,
+        "sourceUnits": "m",
+        "sourceSha256": "14179faabdc943a5300212a2d4686632a1dbda573bf99e2689682099fd8760d4",
+        "id": "a50db948-147a-4e60-a25d-f51c425086d1",
+        "scaleCheck": {
+          "independentlyCalibrated": false,
+          "toleranceM": 0,
+          "knownLengthM": 1,
+          "passed": true,
+          "basis": "declared-test",
+          "convertedLengthM": 1
+        },
+        "frame": "right-handed-y-up"
+      }
+    },
+    "status": "verified"
+  },
+  "first": {
+    "request": "Continue the observed persistent world toward the confirmed target poses",
+    "reason": "Verified final body state committed as the next world revision; original charts and skill verified",
+    "worldCodeSha256": "2d071b7114fb07967502425978b51eafaafdf2b7b372caf706977c1b0ba057f0",
+    "worldPlanSummary": {
+      "liftHeightM": 2.299621125123532,
+      "scope": "Versioned persistent native box world, paused between goals; bounded virtual force/torque gripper and exact kinematic cold handoff, not contact-only pushing, a physical robot hand, photographic recognition or LLM-weight training.",
+      "targets": [
+        {
+          "sourceId": "A",
+          "positionM": [
+            -1,
+            0.3,
+            1.1
+          ],
+          "rotation": [
+            0,
+            0.7071067811865475,
+            0,
+            0.7071067811865476
+          ],
+          "objectId": "332833ae-b71d-3c62-9525-12efa4fc2c1d",
+          "yawDeg": 90
+        },
+        {
+          "sourceId": "B",
+          "positionM": [
+            1,
+            0.25,
+            -1.1
+          ],
+          "rotation": [
+            0,
+            -0.7071067811865475,
+            0,
+            0.7071067811865476
+          ],
+          "objectId": "0afd1a6f-79de-34ed-ac03-7d9f34d7b259",
+          "yawDeg": -90
+        },
+        {
+          "sourceId": "C",
+          "positionM": [
+            -3.6,
+            0.2,
+            -1.1
+          ],
+          "rotation": [
+            0,
+            0.3826834323650898,
+            0,
+            0.9238795325112867
+          ],
+          "objectId": "357fecb7-d947-380f-a61b-604e421089cb",
+          "yawDeg": 45
+        }
+      ]
+    },
+    "procedure": "persistent-world-arrange-v1",
+    "history": [
+      {
+        "reason": "Actual roles, target poses, bounded virtual gripper and clear ordered routes frozen",
+        "at": "2026-11-01T14:41:36.132901100Z",
+        "step": "world-start",
+        "attempt": 1,
+        "status": "running"
+      },
+      {
+        "reason": "Native virtual gripper controls position and orientation; all other bodies remain observed",
+        "at": "2026-11-01T14:41:36.254744700Z",
+        "step": "world-wait",
+        "attempt": 1,
+        "status": "running"
+      },
+      {
+        "reason": "All native body poses, force/torque ledger, release and protected-body gates independently verified",
+        "at": "2026-11-01T14:41:50.372610600Z",
+        "step": "world-report",
+        "attempt": 1,
+        "status": "running"
+      },
+      {
+        "reason": "Waiting for registered desktop action: canvas.verify-report",
+        "at": "2026-11-01T14:41:51.814860200Z",
+        "step": "world-report",
+        "attempt": 1,
+        "status": "waiting-host"
+      },
+      {
+        "reason": "Actual Chromium canvas assertions passed for the pinned report version",
+        "at": "2026-11-01T14:41:55.673919400Z",
+        "step": "complete",
+        "attempt": 1,
+        "status": "running"
+      },
+      {
+        "reason": "Verified final body state committed as the next world revision; original charts and skill verified",
+        "at": "2026-11-01T14:41:59.226016300Z",
+        "step": "completed",
+        "attempt": 1,
+        "status": "completed"
+      }
+    ],
+    "attempt": 1,
+    "resumes": 0,
+    "createdAt": "2026-11-01T14:41:36.132901100Z",
+    "worldBinding": {
+      "worldId": "21e04861-d6ca-4f53-86db-bb2fe442a153",
+      "expectedHash": "f5c087c20513ba7af3710bc0e00217ce36b61badf7135b84aea8ffe3e79307d2",
+      "expectedRevision": 0
+    },
+    "report": {
+      "sha256": "22434b298ed74bab93984e643f94101172543b7f2cbb9c91980663463d9376de",
+      "id": "383b27bd-a0b2-30df-ba9a-ea8712efcc1e",
+      "version": 1
+    },
+    "poseView": {
+      "cells": 15,
+      "frames": 6,
+      "maxError": 3.0312500030049705e-05,
+      "dataSha256": "c762c8c398d580987e6b72d514f1893ee3e752ffbcf5fce862bc3349ee437e41",
+      "passed": true,
+      "points": 4272
+    },
+    "step": "completed",
+    "worldCommit": {
+      "at": "2026-11-01T14:41:57.906056200Z",
+      "goalId": "c18e5f4c-28af-4c0e-9eaa-d04b6328aae8",
+      "kind": "goal",
+      "report": {
+        "sha256": "22434b298ed74bab93984e643f94101172543b7f2cbb9c91980663463d9376de",
+        "id": "383b27bd-a0b2-30df-ba9a-ea8712efcc1e",
+        "version": 1
+      },
+      "receipt": {
+        "cells": 15,
+        "frames": 6,
+        "maxError": 3.0312500030049705e-05,
+        "dataSha256": "c762c8c398d580987e6b72d514f1893ee3e752ffbcf5fce862bc3349ee437e41",
+        "passed": true,
+        "points": 4272
+      },
+      "runId": "642b97b9-fd6c-3ab1-8a7e-f2b9191d9a84",
+      "nativeCanonicalSha256": "9f3d694d850e03bb0e3cc8c23c8b5f9e8d5f220502839678f09445e22ce98d72",
+      "metrics": {
+        "maxBoundaryPositionM": 9.61557973545745e-08,
+        "maxBystanderDriftM": 1.4901161193847656e-08,
+        "grabs": 3,
+        "contactPoints": 8664,
+        "maxRestoreAngleErrorDeg": 0,
+        "targets": [
+          {
+            "sourceId": "A",
+            "speedMps": 4.2935443280567744e-05,
+            "positionErrorM": 0.001737506452574343,
+            "angleErrorDeg": 0.000368490193562589,
+            "angularSpeedRadps": 1.8604142747204177e-06
+          },
+          {
+            "sourceId": "B",
+            "speedMps": 7.076050283842814e-05,
+            "positionErrorM": 0.0010111666558909578,
+            "angleErrorDeg": 8.769528416039162e-05,
+            "angularSpeedRadps": 1.0162742958749102e-06
+          },
+          {
+            "sourceId": "C",
+            "speedMps": 0.0001138795688500473,
+            "positionErrorM": 3.8528730538382996e-05,
+            "angleErrorDeg": 0.0005427617392779047,
+            "angularSpeedRadps": 3.89596166681474e-06
+          }
+        ],
+        "resumes": 0,
+        "maxRestoreVelocityError": 0,
+        "maxAngleErrorDeg": 0.0005427617392779047,
+        "maxRestorePositionErrorM": 0,
+        "scope": "Versioned persistent native box world, paused between goals; bounded virtual force/torque gripper and exact kinematic cold handoff, not contact-only pushing, a physical robot hand, photographic recognition or LLM-weight training.",
+        "maxTorqueNm": 0.5040000081062318,
+        "workJ": 1.073049854054795,
+        "passed": true,
+        "maxPositionErrorM": 0.001737506452574343,
+        "nativeTicks": 8542,
+        "maxForceN": 19.451995849609443,
+        "effortNs": 338.07973651336056,
+        "maxInactiveAngleDeg": 0.0007902664552750429,
+        "maxInactiveDriftM": 0.01489740702461621,
+        "maxBoundaryVelocity": 0,
+        "releases": 3,
+        "maxBoundaryAngleDeg": 0,
+        "timeS": 35.59166666666667,
+        "maxAngularSpeedRadps": 3.89596166681474e-06,
+        "maxSpeedMps": 0.0001138795688500473,
+        "nativePhysics": true,
+        "torqueEffortNms": 0.4746878730038368,
+        "maxBystanderAngleDeg": 0.0002608237665716736,
+        "angularWorkJ": 0.0598326014907678
+      },
+      "parentHash": "f5c087c20513ba7af3710bc0e00217ce36b61badf7135b84aea8ffe3e79307d2",
+      "hash": "03d62abfbaba63b061f6d81706d80f11c55bba4305dfdda1cd09d5ba25d5a53a",
+      "revision": 1,
+      "frame": {
+        "elapsedTicks": 8542,
+        "bodies": [
+          {
+            "rotation": [
+              -1.839247e-07,
+              0.7071045,
+              2.1527204e-07,
+              0.70710903
+            ],
+            "id": "332833ae-b71d-3c62-9525-12efa4fc2c1d",
+            "position": [
+              -1.0000050067901611,
+              0.2999999225139618,
+              1.1017374992370605
+            ],
+            "velocity": [
+              7.532302674917446e-07,
+              2.4512410163879395e-06,
+              4.2858795495703816e-05
+            ],
+            "angularVelocity": [
+              -4.215855540223856e-07,
+              1.8093494418280898e-06,
+              -9.829288671880931e-08
+            ]
+          },
+          {
+            "rotation": [
+              -9.5673e-08,
+              -0.70710623,
+              -6.370941e-08,
+              0.7071073
+            ],
+            "id": "0afd1a6f-79de-34ed-ac03-7d9f34d7b259",
+            "position": [
+              1.0000044107437134,
+              0.2499999850988388,
+              -1.1010111570358276
+            ],
+            "velocity": [
+              -1.891543490728509e-07,
+              -8.67992639541626e-07,
+              -7.075492612784728e-05
+            ],
+            "angularVelocity": [
+              -6.579161322406435e-07,
+              7.284682510544371e-07,
+              -2.632371831623459e-07
+            ]
+          },
+          {
+            "rotation": [
+              5.386485e-09,
+              -2.275588e-06,
+              4.8761525e-08,
+              1
+            ],
+            "id": "9266be6f-f639-334a-b0ed-7d4c9dcd7ebd",
+            "position": [
+              3,
+              0.2499999850988388,
+              2.700000047683716
+            ],
+            "velocity": [
+              -1.0252714446323807e-06,
+              6.258487701416016e-07,
+              0
+            ],
+            "angularVelocity": [
+              6.699009418298374e-07,
+              -1.2762698986534815e-07,
+              3.947935056203278e-06
+            ]
+          },
+          {
+            "rotation": [
+              -1.47082035e-08,
+              0.3826878,
+              1.5860437e-08,
+              0.9238777
+            ],
+            "id": "357fecb7-d947-380f-a61b-604e421089cb",
+            "position": [
+              -3.6000001430511475,
+              0.19999995827674866,
+              -1.1000385284423828
+            ],
+            "velocity": [
+              -6.26372980150336e-08,
+              1.4975666999816895e-06,
+              -0.0001138697043643333
+            ],
+            "angularVelocity": [
+              -3.8514363041031174e-06,
+              1.2791562653546862e-07,
+              5.732305794481363e-07
+            ]
+          }
+        ],
+        "format": "fraynix.world-frame-035-v1",
+        "originalScene": {
+          "importedAt": "2026-11-01T14:41:35.474623400Z",
+          "objects": [
+            {
+              "sourceId": "floor",
+              "bodyType": "static",
+              "size": [
+                12,
+                0.5,
+                12
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "id": "579a92fc-6717-3a5e-a83b-a06b4e5205a6",
+              "label": "floor",
+              "position": [
+                0,
+                -0.25,
+                0
+              ],
+              "massKg": 0,
+              "friction": 0.5
+            },
+            {
+              "sourceId": "A",
+              "bodyType": "dynamic",
+              "size": [
+                0.8,
+                0.6,
+                0.45
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "id": "332833ae-b71d-3c62-9525-12efa4fc2c1d",
+              "label": "A",
+              "position": [
+                -2,
+                0.3,
+                -1.5
+              ],
+              "massKg": 1,
+              "friction": 0.45
+            },
+            {
+              "sourceId": "B",
+              "bodyType": "dynamic",
+              "size": [
+                0.7,
+                0.5,
+                0.5
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "id": "0afd1a6f-79de-34ed-ac03-7d9f34d7b259",
+              "label": "B",
+              "position": [
+                2,
+                0.25,
+                1.5
+              ],
+              "massKg": 1.2,
+              "friction": 0.45
+            },
+            {
+              "sourceId": "bystander",
+              "bodyType": "dynamic",
+              "size": [
+                0.5,
+                0.5,
+                0.6
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "id": "9266be6f-f639-334a-b0ed-7d4c9dcd7ebd",
+              "label": "bystander",
+              "position": [
+                3,
+                0.25,
+                2.7
+              ],
+              "massKg": 1,
+              "friction": 0.6
+            },
+            {
+              "sourceId": "obstacle",
+              "bodyType": "static",
+              "size": [
+                0.8,
+                1.2,
+                0.8
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "id": "d820aec9-77a7-35fc-aa82-911111c14e77",
+              "label": "obstacle",
+              "position": [
+                0,
+                0.6,
+                0
+              ],
+              "massKg": 0,
+              "friction": 0.5
+            },
+            {
+              "sourceId": "C",
+              "bodyType": "dynamic",
+              "size": [
+                0.65,
+                0.4,
+                0.5
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "id": "357fecb7-d947-380f-a61b-604e421089cb",
+              "label": "C",
+              "position": [
+                -3.6,
+                0.2,
+                0.7
+              ],
+              "massKg": 0.8,
+              "friction": 0.45
+            }
+          ],
+          "format": "fraynix.spatial-scene",
+          "sourceText": "{\"objects\":[{\"sourceId\":\"floor\",\"shape\":\"box\",\"size\":[12,0.5,12],\"restitution\":0,\"rotation\":[0,0,0,1],\"label\":\"floor\",\"position\":[0,-0.25,0],\"massKg\":0,\"friction\":0.5},{\"sourceId\":\"A\",\"shape\":\"box\",\"size\":[0.8,0.6,0.45],\"restitution\":0,\"rotation\":[0,0,0,1],\"label\":\"A\",\"position\":[-2,0.3,-1.5],\"massKg\":1,\"friction\":0.45},{\"sourceId\":\"B\",\"shape\":\"box\",\"size\":[0.7,0.5,0.5],\"restitution\":0,\"rotation\":[0,0,0,1],\"label\":\"B\",\"position\":[2,0.25,1.5],\"massKg\":1.2,\"friction\":0.45},{\"sourceId\":\"bystander\",\"shape\":\"box\",\"size\":[0.5,0.5,0.6],\"restitution\":0,\"rotation\":[0,0,0,1],\"label\":\"bystander\",\"position\":[3,0.25,2.7],\"massKg\":1,\"friction\":0.6},{\"sourceId\":\"obstacle\",\"shape\":\"box\",\"size\":[0.8,1.2,0.8],\"restitution\":0,\"rotation\":[0,0,0,1],\"label\":\"obstacle\",\"position\":[0,0.6,0],\"massKg\":0,\"friction\":0.5},{\"sourceId\":\"C\",\"shape\":\"box\",\"size\":[0.65,0.4,0.5],\"restitution\":0,\"rotation\":[0,0,0,1],\"label\":\"C\",\"position\":[-3.6,0.2,0.7],\"massKg\":0.8,\"friction\":0.45}],\"format\":\"fraynix.spatial-scene\",\"units\":\"m\",\"source\":{\"note\":\"Declared synthetic sequential-world test; not a real room or learned policy.\",\"kind\":\"synthetic\",\"physicalProperties\":\"declared\"},\"title\":\"Labelled035 development three-body-chain\",\"version\":1,\"scaleReference\":{\"a\":[0,0,0],\"b\":[1,0,0],\"toleranceM\":0,\"knownLengthM\":1,\"basis\":\"declared-test\"},\"frame\":\"right-handed-y-up\",\"gravityMps2\":9.81}",
+          "units": "m",
+          "source": {
+            "note": "Declared synthetic sequential-world test; not a real room or learned policy.",
+            "kind": "synthetic",
+            "physicalProperties": "declared"
+          },
+          "title": "Labelled035 development three-body-chain",
+          "version": 1,
+          "gravityMps2": 9.81,
+          "sourceUnits": "m",
+          "sourceSha256": "14179faabdc943a5300212a2d4686632a1dbda573bf99e2689682099fd8760d4",
+          "id": "a50db948-147a-4e60-a25d-f51c425086d1",
+          "scaleCheck": {
+            "independentlyCalibrated": false,
+            "toleranceM": 0,
+            "knownLengthM": 1,
+            "passed": true,
+            "basis": "declared-test",
+            "convertedLengthM": 1
+          },
+          "frame": "right-handed-y-up"
+        }
+      }
+    },
+    "id": "c18e5f4c-28af-4c0e-9eaa-d04b6328aae8",
+    "runId": "642b97b9-fd6c-3ab1-8a7e-f2b9191d9a84",
+    "metrics": {
+      "maxBoundaryPositionM": 9.61557973545745e-08,
+      "maxBystanderDriftM": 1.4901161193847656e-08,
+      "grabs": 3,
+      "contactPoints": 8664,
+      "maxRestoreAngleErrorDeg": 0,
+      "targets": [
+        {
+          "sourceId": "A",
+          "speedMps": 4.2935443280567744e-05,
+          "positionErrorM": 0.001737506452574343,
+          "angleErrorDeg": 0.000368490193562589,
+          "angularSpeedRadps": 1.8604142747204177e-06
+        },
+        {
+          "sourceId": "B",
+          "speedMps": 7.076050283842814e-05,
+          "positionErrorM": 0.0010111666558909578,
+          "angleErrorDeg": 8.769528416039162e-05,
+          "angularSpeedRadps": 1.0162742958749102e-06
+        },
+        {
+          "sourceId": "C",
+          "speedMps": 0.0001138795688500473,
+          "positionErrorM": 3.8528730538382996e-05,
+          "angleErrorDeg": 0.0005427617392779047,
+          "angularSpeedRadps": 3.89596166681474e-06
+        }
+      ],
+      "resumes": 0,
+      "maxRestoreVelocityError": 0,
+      "maxAngleErrorDeg": 0.0005427617392779047,
+      "maxRestorePositionErrorM": 0,
+      "scope": "Versioned persistent native box world, paused between goals; bounded virtual force/torque gripper and exact kinematic cold handoff, not contact-only pushing, a physical robot hand, photographic recognition or LLM-weight training.",
+      "maxTorqueNm": 0.5040000081062318,
+      "workJ": 1.073049854054795,
+      "passed": true,
+      "maxPositionErrorM": 0.001737506452574343,
+      "nativeTicks": 8542,
+      "maxForceN": 19.451995849609443,
+      "effortNs": 338.07973651336056,
+      "maxInactiveAngleDeg": 0.0007902664552750429,
+      "maxInactiveDriftM": 0.01489740702461621,
+      "maxBoundaryVelocity": 0,
+      "releases": 3,
+      "maxBoundaryAngleDeg": 0,
+      "timeS": 35.59166666666667,
+      "maxAngularSpeedRadps": 3.89596166681474e-06,
+      "maxSpeedMps": 0.0001138795688500473,
+      "nativePhysics": true,
+      "torqueEffortNms": 0.4746878730038368,
+      "maxBystanderAngleDeg": 0.0002608237665716736,
+      "angularWorkJ": 0.0598326014907678
+    },
+    "savedSkill": {
+      "name": "persistent-arrange-route",
+      "id": "fb6b9361-85b1-3e1e-bb8f-0e4223792cb5",
+      "version": 1
+    },
+    "status": "completed",
+    "updatedAt": "2026-11-01T14:41:59.226016300Z"
+  },
+  "second": {
+    "request": "Continue the observed persistent world toward the confirmed target poses",
+    "reason": "Verified final body state committed as the next world revision; original charts and skill verified",
+    "worldCodeSha256": "2d071b7114fb07967502425978b51eafaafdf2b7b372caf706977c1b0ba057f0",
+    "worldPlanSummary": {
+      "liftHeightM": 2.299621125123532,
+      "scope": "Versioned persistent native box world, paused between goals; bounded virtual force/torque gripper and exact kinematic cold handoff, not contact-only pushing, a physical robot hand, photographic recognition or LLM-weight training.",
+      "targets": [
+        {
+          "sourceId": "A",
+          "positionM": [
+            -2.2,
+            0.3,
+            2.2
+          ],
+          "rotation": [
+            0,
+            -0.49999999999999994,
+            0,
+            0.8660254037844387
+          ],
+          "objectId": "332833ae-b71d-3c62-9525-12efa4fc2c1d",
+          "yawDeg": -60
+        },
+        {
+          "sourceId": "B",
+          "positionM": [
+            2.2,
+            0.25,
+            -2
+          ],
+          "rotation": [
+            0,
+            0.49999999999999994,
+            0,
+            0.8660254037844387
+          ],
+          "objectId": "0afd1a6f-79de-34ed-ac03-7d9f34d7b259",
+          "yawDeg": 60
+        },
+        {
+          "sourceId": "C",
+          "positionM": [
+            -3.6,
+            0.2,
+            1.3
+          ],
+          "rotation": [
+            0,
+            -0.25881904510252074,
+            0,
+            0.9659258262890683
+          ],
+          "objectId": "357fecb7-d947-380f-a61b-604e421089cb",
+          "yawDeg": -30
+        }
+      ]
+    },
+    "procedure": "persistent-world-arrange-v1",
+    "history": [
+      {
+        "reason": "Actual roles, target poses, bounded virtual gripper and clear ordered routes frozen",
+        "at": "2026-11-01T14:41:59.648858400Z",
+        "step": "world-start",
+        "attempt": 1,
+        "status": "running"
+      },
+      {
+        "reason": "Native virtual gripper controls position and orientation; all other bodies remain observed",
+        "at": "2026-11-01T14:41:59.887570700Z",
+        "step": "world-wait",
+        "attempt": 1,
+        "status": "running"
+      },
+      {
+        "reason": "Explicit same-run resume preserves all bodies, held orientation, original trace and native version",
+        "at": "2026-11-01T14:42:06.055828400Z",
+        "step": "world-wait",
+        "attempt": 1,
+        "status": "running"
+      },
+      {
+        "reason": "All native body poses, force/torque ledger, release and protected-body gates independently verified",
+        "at": "2026-11-01T14:42:18.487240400Z",
+        "step": "world-report",
+        "attempt": 1,
+        "status": "running"
+      },
+      {
+        "reason": "Waiting for registered desktop action: canvas.verify-report",
+        "at": "2026-11-01T14:42:19.935870200Z",
+        "step": "world-report",
+        "attempt": 1,
+        "status": "waiting-host"
+      },
+      {
+        "reason": "Actual Chromium canvas assertions passed for the pinned report version",
+        "at": "2026-11-01T14:42:23.817828400Z",
+        "step": "complete",
+        "attempt": 1,
+        "status": "running"
+      },
+      {
+        "reason": "Verified final body state committed as the next world revision; original charts and skill verified",
+        "at": "2026-11-01T14:42:26.108629400Z",
+        "step": "completed",
+        "attempt": 1,
+        "status": "completed"
+      }
+    ],
+    "attempt": 1,
+    "resumes": 1,
+    "createdAt": "2026-11-01T14:41:59.648858400Z",
+    "worldBinding": {
+      "worldId": "21e04861-d6ca-4f53-86db-bb2fe442a153",
+      "expectedHash": "03d62abfbaba63b061f6d81706d80f11c55bba4305dfdda1cd09d5ba25d5a53a",
+      "expectedRevision": 1
+    },
+    "report": {
+      "sha256": "79a5e80ff6bc685ba9247e004d3f405c13155ffc6d1881af5cc9ae362e4fe5ff",
+      "id": "fbe59a39-9376-3812-a4cc-7a59d5b612af",
+      "version": 1
+    },
+    "poseView": {
+      "cells": 15,
+      "frames": 6,
+      "maxError": 3.03007813045042e-05,
+      "dataSha256": "28175295f2fc3597a82c9a4192d43885fe3341a2818a4f0ae0269bd05f83640f",
+      "passed": true,
+      "points": 4266
+    },
+    "step": "completed",
+    "worldCommit": {
+      "at": "2026-11-01T14:42:26.100651Z",
+      "goalId": "026dc950-7efc-4370-8169-369cfff97fda",
+      "kind": "goal",
+      "report": {
+        "sha256": "79a5e80ff6bc685ba9247e004d3f405c13155ffc6d1881af5cc9ae362e4fe5ff",
+        "id": "fbe59a39-9376-3812-a4cc-7a59d5b612af",
+        "version": 1
+      },
+      "receipt": {
+        "cells": 15,
+        "frames": 6,
+        "maxError": 3.03007813045042e-05,
+        "dataSha256": "28175295f2fc3597a82c9a4192d43885fe3341a2818a4f0ae0269bd05f83640f",
+        "passed": true,
+        "points": 4266
+      },
+      "runId": "0fb27f36-3781-36e2-a409-7e5fdc07faef",
+      "nativeCanonicalSha256": "bf8ea69f035dfbbed864d292545a3346e551d0e9f4d8a3e36cf29f0bf5355277",
+      "metrics": {
+        "maxBoundaryPositionM": 0,
+        "maxBystanderDriftM": 9.075249542140129e-05,
+        "grabs": 3,
+        "contactPoints": 8644,
+        "maxRestoreAngleErrorDeg": 0,
+        "targets": [
+          {
+            "sourceId": "A",
+            "speedMps": 3.13212318079571e-05,
+            "positionErrorM": 0.0013695585500782487,
+            "angleErrorDeg": 0.000249626970306612,
+            "angularSpeedRadps": 1.3832951812228117e-06
+          },
+          {
+            "sourceId": "B",
+            "speedMps": 4.3298910390562325e-05,
+            "positionErrorM": 0.0006998437238080837,
+            "angleErrorDeg": 0.0004244855943308853,
+            "angularSpeedRadps": 1.1270933806178192e-06
+          },
+          {
+            "sourceId": "C",
+            "speedMps": 0.00011405399102654074,
+            "positionErrorM": 4.009650528416401e-05,
+            "angleErrorDeg": 0.0004332115722775123,
+            "angularSpeedRadps": 2.468541875286193e-06
+          }
+        ],
+        "resumes": 1,
+        "maxRestoreVelocityError": 0,
+        "maxAngleErrorDeg": 0.0004332115722775123,
+        "maxRestorePositionErrorM": 0,
+        "scope": "Versioned persistent native box world, paused between goals; bounded virtual force/torque gripper and exact kinematic cold handoff, not contact-only pushing, a physical robot hand, photographic recognition or LLM-weight training.",
+        "maxTorqueNm": 0.5040000081062352,
+        "workJ": 1.0007383451941918,
+        "passed": true,
+        "maxPositionErrorM": 0.0013695585500782487,
+        "nativeTicks": 8528,
+        "maxForceN": 19.452005396420148,
+        "effortNs": 333.76311848836167,
+        "maxInactiveAngleDeg": 0.020984441850925236,
+        "maxInactiveDriftM": 0.014897466629257292,
+        "maxBoundaryVelocity": 0,
+        "releases": 3,
+        "maxBoundaryAngleDeg": 0,
+        "timeS": 35.53333333333333,
+        "maxAngularSpeedRadps": 2.468541875286193e-06,
+        "maxSpeedMps": 0.00011405399102654074,
+        "nativePhysics": true,
+        "torqueEffortNms": 0.5178738700826364,
+        "maxBystanderAngleDeg": 0.019991973383496293,
+        "angularWorkJ": 0.10470933380737722
+      },
+      "parentHash": "03d62abfbaba63b061f6d81706d80f11c55bba4305dfdda1cd09d5ba25d5a53a",
+      "hash": "817017cde30be63326b5a799d5123e7871f0b4c14bb85aafac77d779a553fbd0",
+      "revision": 2,
+      "frame": {
+        "elapsedTicks": 17070,
+        "bodies": [
+          {
+            "rotation": [
+              -8.897351e-08,
+              -0.49999812,
+              -3.9198753e-08,
+              0.8660265
+            ],
+            "id": "332833ae-b71d-3c62-9525-12efa4fc2c1d",
+            "position": [
+              -2.1999902725219727,
+              0.2999999225139618,
+              2.201369524002075
+            ],
+            "velocity": [
+              -5.7917528550888164e-08,
+              2.4847686290740967e-06,
+              3.122246198472567e-05
+            ],
+            "angularVelocity": [
+              -3.651344684385549e-07,
+              1.1389456631150097e-06,
+              -6.949713338144647e-07
+            ]
+          },
+          {
+            "rotation": [
+              -5.3468792e-08,
+              0.5000032,
+              7.582257e-08,
+              0.86602354
+            ],
+            "id": "0afd1a6f-79de-34ed-ac03-7d9f34d7b259",
+            "position": [
+              2.199989080429077,
+              0.2499999701976776,
+              -2.000699758529663
+            ],
+            "velocity": [
+              5.371733777792542e-07,
+              5.327165126800537e-07,
+              -4.329230068833567e-05
+            ],
+            "angularVelocity": [
+              -3.0733190214959905e-07,
+              9.140866836787609e-07,
+              -5.833799150423147e-07
+            ]
+          },
+          {
+            "rotation": [
+              9.414011e-09,
+              -4.552073e-06,
+              4.954236e-08,
+              1
+            ],
+            "id": "9266be6f-f639-334a-b0ed-7d4c9dcd7ebd",
+            "position": [
+              2.9999382495880127,
+              0.2499999701976776,
+              2.700000047683716
+            ],
+            "velocity": [
+              4.4321065928443204e-08,
+              1.6987323760986328e-06,
+              -1.5945293085906087e-08
+            ],
+            "angularVelocity": [
+              6.676385737591772e-07,
+              -1.2775551283539244e-07,
+              -3.305896427718835e-07
+            ]
+          },
+          {
+            "rotation": [
+              1.4515536e-08,
+              -0.2588227,
+              -4.300443e-09,
+              0.96592486
+            ],
+            "id": "357fecb7-d947-380f-a61b-604e421089cb",
+            "position": [
+              -3.6000113487243652,
+              0.19999995827674866,
+              1.300038456916809
+            ],
+            "velocity": [
+              -9.9411266774041e-08,
+              1.5422701835632324e-06,
+              0.00011404351971577853
+            ],
+            "angularVelocity": [
+              2.4141386347764637e-06,
+              -3.066283227326494e-07,
+              4.142616489843931e-07
+            ]
+          }
+        ],
+        "format": "fraynix.world-frame-035-v1",
+        "originalScene": {
+          "importedAt": "2026-11-01T14:41:35.474623400Z",
+          "objects": [
+            {
+              "sourceId": "floor",
+              "bodyType": "static",
+              "size": [
+                12,
+                0.5,
+                12
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "id": "579a92fc-6717-3a5e-a83b-a06b4e5205a6",
+              "label": "floor",
+              "position": [
+                0,
+                -0.25,
+                0
+              ],
+              "massKg": 0,
+              "friction": 0.5
+            },
+            {
+              "sourceId": "A",
+              "bodyType": "dynamic",
+              "size": [
+                0.8,
+                0.6,
+                0.45
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "id": "332833ae-b71d-3c62-9525-12efa4fc2c1d",
+              "label": "A",
+              "position": [
+                -2,
+                0.3,
+                -1.5
+              ],
+              "massKg": 1,
+              "friction": 0.45
+            },
+            {
+              "sourceId": "B",
+              "bodyType": "dynamic",
+              "size": [
+                0.7,
+                0.5,
+                0.5
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "id": "0afd1a6f-79de-34ed-ac03-7d9f34d7b259",
+              "label": "B",
+              "position": [
+                2,
+                0.25,
+                1.5
+              ],
+              "massKg": 1.2,
+              "friction": 0.45
+            },
+            {
+              "sourceId": "bystander",
+              "bodyType": "dynamic",
+              "size": [
+                0.5,
+                0.5,
+                0.6
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "id": "9266be6f-f639-334a-b0ed-7d4c9dcd7ebd",
+              "label": "bystander",
+              "position": [
+                3,
+                0.25,
+                2.7
+              ],
+              "massKg": 1,
+              "friction": 0.6
+            },
+            {
+              "sourceId": "obstacle",
+              "bodyType": "static",
+              "size": [
+                0.8,
+                1.2,
+                0.8
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "id": "d820aec9-77a7-35fc-aa82-911111c14e77",
+              "label": "obstacle",
+              "position": [
+                0,
+                0.6,
+                0
+              ],
+              "massKg": 0,
+              "friction": 0.5
+            },
+            {
+              "sourceId": "C",
+              "bodyType": "dynamic",
+              "size": [
+                0.65,
+                0.4,
+                0.5
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "id": "357fecb7-d947-380f-a61b-604e421089cb",
+              "label": "C",
+              "position": [
+                -3.6,
+                0.2,
+                0.7
+              ],
+              "massKg": 0.8,
+              "friction": 0.45
+            }
+          ],
+          "format": "fraynix.spatial-scene",
+          "sourceText": "{\"objects\":[{\"sourceId\":\"floor\",\"shape\":\"box\",\"size\":[12,0.5,12],\"restitution\":0,\"rotation\":[0,0,0,1],\"label\":\"floor\",\"position\":[0,-0.25,0],\"massKg\":0,\"friction\":0.5},{\"sourceId\":\"A\",\"shape\":\"box\",\"size\":[0.8,0.6,0.45],\"restitution\":0,\"rotation\":[0,0,0,1],\"label\":\"A\",\"position\":[-2,0.3,-1.5],\"massKg\":1,\"friction\":0.45},{\"sourceId\":\"B\",\"shape\":\"box\",\"size\":[0.7,0.5,0.5],\"restitution\":0,\"rotation\":[0,0,0,1],\"label\":\"B\",\"position\":[2,0.25,1.5],\"massKg\":1.2,\"friction\":0.45},{\"sourceId\":\"bystander\",\"shape\":\"box\",\"size\":[0.5,0.5,0.6],\"restitution\":0,\"rotation\":[0,0,0,1],\"label\":\"bystander\",\"position\":[3,0.25,2.7],\"massKg\":1,\"friction\":0.6},{\"sourceId\":\"obstacle\",\"shape\":\"box\",\"size\":[0.8,1.2,0.8],\"restitution\":0,\"rotation\":[0,0,0,1],\"label\":\"obstacle\",\"position\":[0,0.6,0],\"massKg\":0,\"friction\":0.5},{\"sourceId\":\"C\",\"shape\":\"box\",\"size\":[0.65,0.4,0.5],\"restitution\":0,\"rotation\":[0,0,0,1],\"label\":\"C\",\"position\":[-3.6,0.2,0.7],\"massKg\":0.8,\"friction\":0.45}],\"format\":\"fraynix.spatial-scene\",\"units\":\"m\",\"source\":{\"note\":\"Declared synthetic sequential-world test; not a real room or learned policy.\",\"kind\":\"synthetic\",\"physicalProperties\":\"declared\"},\"title\":\"Labelled035 development three-body-chain\",\"version\":1,\"scaleReference\":{\"a\":[0,0,0],\"b\":[1,0,0],\"toleranceM\":0,\"knownLengthM\":1,\"basis\":\"declared-test\"},\"frame\":\"right-handed-y-up\",\"gravityMps2\":9.81}",
+          "units": "m",
+          "source": {
+            "note": "Declared synthetic sequential-world test; not a real room or learned policy.",
+            "kind": "synthetic",
+            "physicalProperties": "declared"
+          },
+          "title": "Labelled035 development three-body-chain",
+          "version": 1,
+          "gravityMps2": 9.81,
+          "sourceUnits": "m",
+          "sourceSha256": "14179faabdc943a5300212a2d4686632a1dbda573bf99e2689682099fd8760d4",
+          "id": "a50db948-147a-4e60-a25d-f51c425086d1",
+          "scaleCheck": {
+            "independentlyCalibrated": false,
+            "toleranceM": 0,
+            "knownLengthM": 1,
+            "passed": true,
+            "basis": "declared-test",
+            "convertedLengthM": 1
+          },
+          "frame": "right-handed-y-up"
+        }
+      }
+    },
+    "id": "026dc950-7efc-4370-8169-369cfff97fda",
+    "runId": "0fb27f36-3781-36e2-a409-7e5fdc07faef",
+    "metrics": {
+      "maxBoundaryPositionM": 0,
+      "maxBystanderDriftM": 9.075249542140129e-05,
+      "grabs": 3,
+      "contactPoints": 8644,
+      "maxRestoreAngleErrorDeg": 0,
+      "targets": [
+        {
+          "sourceId": "A",
+          "speedMps": 3.13212318079571e-05,
+          "positionErrorM": 0.0013695585500782487,
+          "angleErrorDeg": 0.000249626970306612,
+          "angularSpeedRadps": 1.3832951812228117e-06
+        },
+        {
+          "sourceId": "B",
+          "speedMps": 4.3298910390562325e-05,
+          "positionErrorM": 0.0006998437238080837,
+          "angleErrorDeg": 0.0004244855943308853,
+          "angularSpeedRadps": 1.1270933806178192e-06
+        },
+        {
+          "sourceId": "C",
+          "speedMps": 0.00011405399102654074,
+          "positionErrorM": 4.009650528416401e-05,
+          "angleErrorDeg": 0.0004332115722775123,
+          "angularSpeedRadps": 2.468541875286193e-06
+        }
+      ],
+      "resumes": 1,
+      "maxRestoreVelocityError": 0,
+      "maxAngleErrorDeg": 0.0004332115722775123,
+      "maxRestorePositionErrorM": 0,
+      "scope": "Versioned persistent native box world, paused between goals; bounded virtual force/torque gripper and exact kinematic cold handoff, not contact-only pushing, a physical robot hand, photographic recognition or LLM-weight training.",
+      "maxTorqueNm": 0.5040000081062352,
+      "workJ": 1.0007383451941918,
+      "passed": true,
+      "maxPositionErrorM": 0.0013695585500782487,
+      "nativeTicks": 8528,
+      "maxForceN": 19.452005396420148,
+      "effortNs": 333.76311848836167,
+      "maxInactiveAngleDeg": 0.020984441850925236,
+      "maxInactiveDriftM": 0.014897466629257292,
+      "maxBoundaryVelocity": 0,
+      "releases": 3,
+      "maxBoundaryAngleDeg": 0,
+      "timeS": 35.53333333333333,
+      "maxAngularSpeedRadps": 2.468541875286193e-06,
+      "maxSpeedMps": 0.00011405399102654074,
+      "nativePhysics": true,
+      "torqueEffortNms": 0.5178738700826364,
+      "maxBystanderAngleDeg": 0.019991973383496293,
+      "angularWorkJ": 0.10470933380737722
+    },
+    "status": "completed",
+    "updatedAt": "2026-11-01T14:42:26.108629400Z"
+  },
+  "third": {
+    "request": "Arrange multiple native objects at the selected positions and orientations, release and verify every body",
+    "reason": "Verified final body state committed as the next world revision; original charts and skill verified",
+    "worldCodeSha256": "2d071b7114fb07967502425978b51eafaafdf2b7b372caf706977c1b0ba057f0",
+    "worldPlanSummary": {
+      "liftHeightM": 2.299621125123532,
+      "scope": "Versioned persistent native box world, paused between goals; bounded virtual force/torque gripper and exact kinematic cold handoff, not contact-only pushing, a physical robot hand, photographic recognition or LLM-weight training.",
+      "targets": [
+        {
+          "sourceId": "A",
+          "positionM": [
+            -2,
+            0.3,
+            -1.5
+          ],
+          "rotation": [
+            0,
+            0.3007057995042731,
+            0,
+            0.9537169507482269
+          ],
+          "objectId": "332833ae-b71d-3c62-9525-12efa4fc2c1d",
+          "yawDeg": 35
+        },
+        {
+          "sourceId": "B",
+          "positionM": [
+            2,
+            0.25,
+            1.5
+          ],
+          "rotation": [
+            0,
+            -0.3007057995042731,
+            0,
+            0.9537169507482269
+          ],
+          "objectId": "0afd1a6f-79de-34ed-ac03-7d9f34d7b259",
+          "yawDeg": -35
+        },
+        {
+          "sourceId": "C",
+          "positionM": [
+            -3.6,
+            0.2,
+            -1.1
+          ],
+          "rotation": [
+            0,
+            0.1521233861899167,
+            0,
+            0.9883615104677607
+          ],
+          "objectId": "357fecb7-d947-380f-a61b-604e421089cb",
+          "yawDeg": 17.5
+        }
+      ]
+    },
+    "procedure": "persistent-world-arrange-v1",
+    "history": [
+      {
+        "reason": "Actual roles, target poses, bounded virtual gripper and clear ordered routes frozen",
+        "at": "2026-11-01T14:42:30.756789200Z",
+        "step": "world-start",
+        "attempt": 1,
+        "status": "running"
+      },
+      {
+        "reason": "Native virtual gripper controls position and orientation; all other bodies remain observed",
+        "at": "2026-11-01T14:42:31.176292100Z",
+        "step": "world-wait",
+        "attempt": 1,
+        "status": "running"
+      },
+      {
+        "reason": "All native body poses, force/torque ledger, release and protected-body gates independently verified",
+        "at": "2026-11-01T14:42:47.519575300Z",
+        "step": "world-report",
+        "attempt": 1,
+        "status": "running"
+      },
+      {
+        "reason": "Waiting for registered desktop action: canvas.verify-report",
+        "at": "2026-11-01T14:42:48.978974400Z",
+        "step": "world-report",
+        "attempt": 1,
+        "status": "waiting-host"
+      },
+      {
+        "reason": "Actual Chromium canvas assertions passed for the pinned report version",
+        "at": "2026-11-01T14:42:53.103764200Z",
+        "step": "complete",
+        "attempt": 1,
+        "status": "running"
+      },
+      {
+        "reason": "Verified final body state committed as the next world revision; original charts and skill verified",
+        "at": "2026-11-01T14:42:55.574424Z",
+        "step": "completed",
+        "attempt": 1,
+        "status": "completed"
+      }
+    ],
+    "attempt": 1,
+    "resumes": 0,
+    "createdAt": "2026-11-01T14:42:30.756789200Z",
+    "skill": {
+      "name": "persistent-arrange-route",
+      "id": "fb6b9361-85b1-3e1e-bb8f-0e4223792cb5",
+      "version": 1
+    },
+    "worldBinding": {
+      "worldId": "21e04861-d6ca-4f53-86db-bb2fe442a153",
+      "expectedHash": "817017cde30be63326b5a799d5123e7871f0b4c14bb85aafac77d779a553fbd0",
+      "expectedRevision": 2
+    },
+    "report": {
+      "sha256": "c42a30039e247931e1a13920f940569d791a8232564906aa37934fe3ee851823",
+      "id": "1d7a8324-cf47-39d1-822a-42fd927c9daa",
+      "version": 1
+    },
+    "poseView": {
+      "cells": 15,
+      "frames": 6,
+      "maxError": 3.0480468694804586e-05,
+      "dataSha256": "b752774cc05d5a56cd6790e93bbd5569f6c83157582a5e191819a44922c664f7",
+      "passed": true,
+      "points": 4638
+    },
+    "step": "completed",
+    "worldCommit": {
+      "at": "2026-11-01T14:42:55.568442Z",
+      "goalId": "ebdfbc50-fad3-48fe-bc5b-4fa8c2e659af",
+      "kind": "goal",
+      "report": {
+        "sha256": "c42a30039e247931e1a13920f940569d791a8232564906aa37934fe3ee851823",
+        "id": "1d7a8324-cf47-39d1-822a-42fd927c9daa",
+        "version": 1
+      },
+      "receipt": {
+        "cells": 15,
+        "frames": 6,
+        "maxError": 3.0480468694804586e-05,
+        "dataSha256": "b752774cc05d5a56cd6790e93bbd5569f6c83157582a5e191819a44922c664f7",
+        "passed": true,
+        "points": 4638
+      },
+      "runId": "14c7e76f-462c-39fc-93f6-796761bfd76e",
+      "nativeCanonicalSha256": "9ecefc64cf0c51109c552357d4ba00f2d9ae15af3827126b04de058de3d4f996",
+      "metrics": {
+        "maxBoundaryPositionM": 0,
+        "maxBystanderDriftM": 1.4901161193847656e-08,
+        "grabs": 3,
+        "contactPoints": 9392,
+        "maxRestoreAngleErrorDeg": 0,
+        "targets": [
+          {
+            "sourceId": "A",
+            "speedMps": 4.3133576081691196e-05,
+            "positionErrorM": 0.0019445483784060222,
+            "angleErrorDeg": 0.00012428838371409626,
+            "angularSpeedRadps": 3.457985873715502e-06
+          },
+          {
+            "sourceId": "B",
+            "speedMps": 7.139778976380068e-05,
+            "positionErrorM": 0.0011134230353955163,
+            "angleErrorDeg": 0.00013243964679752175,
+            "angularSpeedRadps": 1.7398654147393752e-06
+          },
+          {
+            "sourceId": "C",
+            "speedMps": 0.0001110651101471405,
+            "positionErrorM": 4.062274138474157e-05,
+            "angleErrorDeg": 2.1621790875197717e-05,
+            "angularSpeedRadps": 1.963651737300478e-07
+          }
+        ],
+        "resumes": 0,
+        "maxRestoreVelocityError": 0,
+        "maxAngleErrorDeg": 0.00013243964679752175,
+        "maxRestorePositionErrorM": 0,
+        "scope": "Versioned persistent native box world, paused between goals; bounded virtual force/torque gripper and exact kinematic cold handoff, not contact-only pushing, a physical robot hand, photographic recognition or LLM-weight training.",
+        "maxTorqueNm": 0.5040000081062331,
+        "workJ": 1.1467835870511816,
+        "passed": true,
+        "maxPositionErrorM": 0.0019445483784060222,
+        "nativeTicks": 9265,
+        "maxForceN": 19.45200538781302,
+        "effortNs": 368.00850451577406,
+        "maxInactiveAngleDeg": 0.000780244286038924,
+        "maxInactiveDriftM": 0.014897466629257292,
+        "maxBoundaryVelocity": 0,
+        "releases": 3,
+        "maxBoundaryAngleDeg": 0,
+        "timeS": 38.604166666666664,
+        "maxAngularSpeedRadps": 3.457985873715502e-06,
+        "maxSpeedMps": 0.0001110651101471405,
+        "nativePhysics": true,
+        "torqueEffortNms": 0.47895986983014344,
+        "maxBystanderAngleDeg": 0.0002828179654014469,
+        "angularWorkJ": 0.0635771018766228
+      },
+      "parentHash": "817017cde30be63326b5a799d5123e7871f0b4c14bb85aafac77d779a553fbd0",
+      "hash": "7fb3a2f7f19fcbfcfec4ec40006df6fda82489dae75f9f47c92a3085ad0eae10",
+      "revision": 3,
+      "frame": {
+        "elapsedTicks": 26335,
+        "bodies": [
+          {
+            "rotation": [
+              -8.8257465e-08,
+              0.30070478,
+              8.916408e-08,
+              0.9537173
+            ],
+            "id": "332833ae-b71d-3c62-9525-12efa4fc2c1d",
+            "position": [
+              -2.000005006790161,
+              0.2999999225139618,
+              -1.5019445419311523
+            ],
+            "velocity": [
+              8.758348712945008e-08,
+              3.3974647521972656e-06,
+              -4.299947613617405e-05
+            ],
+            "angularVelocity": [
+              3.3834621717687696e-06,
+              5.456432177197712e-07,
+              4.6056868541199947e-07
+            ]
+          },
+          {
+            "rotation": [
+              3.426561e-08,
+              -0.3007069,
+              2.215323e-08,
+              0.9537166
+            ],
+            "id": "0afd1a6f-79de-34ed-ac03-7d9f34d7b259",
+            "position": [
+              2.000004291534424,
+              0.2499999701976776,
+              1.5011134147644043
+            ],
+            "velocity": [
+              -3.538675628078636e-07,
+              8.791685104370117e-07,
+              7.139149965951219e-05
+            ],
+            "angularVelocity": [
+              -5.865380217073835e-07,
+              -8.473975867673289e-07,
+              1.401792474098329e-06
+            ]
+          },
+          {
+            "rotation": [
+              5.9234853e-09,
+              -7.0201195e-06,
+              4.5462706e-08,
+              1
+            ],
+            "id": "9266be6f-f639-334a-b0ed-7d4c9dcd7ebd",
+            "position": [
+              2.9999382495880127,
+              0.2499999701976776,
+              2.700000047683716
+            ],
+            "velocity": [
+              4.258500396758791e-08,
+              1.6987323760986328e-06,
+              -3.298590955935765e-09
+            ],
+            "angularVelocity": [
+              6.719433827129251e-07,
+              -1.2782453495674417e-07,
+              -3.237274484035879e-07
+            ]
+          },
+          {
+            "rotation": [
+              3.9376918e-10,
+              0.1521232,
+              8.003472e-09,
+              0.98836154
+            ],
+            "id": "357fecb7-d947-380f-a61b-604e421089cb",
+            "position": [
+              -3.6000113487243652,
+              0.19999995827674866,
+              -1.100039005279541
+            ],
+            "velocity": [
+              -4.8333539837130957e-08,
+              1.4863908290863037e-06,
+              -0.00011105515295639634
+            ],
+            "angularVelocity": [
+              -1.2516621517022486e-08,
+              -2.842356927601486e-08,
+              1.9389356964438775e-07
+            ]
+          }
+        ],
+        "format": "fraynix.world-frame-035-v1",
+        "originalScene": {
+          "importedAt": "2026-11-01T14:41:35.474623400Z",
+          "objects": [
+            {
+              "sourceId": "floor",
+              "bodyType": "static",
+              "size": [
+                12,
+                0.5,
+                12
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "id": "579a92fc-6717-3a5e-a83b-a06b4e5205a6",
+              "label": "floor",
+              "position": [
+                0,
+                -0.25,
+                0
+              ],
+              "massKg": 0,
+              "friction": 0.5
+            },
+            {
+              "sourceId": "A",
+              "bodyType": "dynamic",
+              "size": [
+                0.8,
+                0.6,
+                0.45
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "id": "332833ae-b71d-3c62-9525-12efa4fc2c1d",
+              "label": "A",
+              "position": [
+                -2,
+                0.3,
+                -1.5
+              ],
+              "massKg": 1,
+              "friction": 0.45
+            },
+            {
+              "sourceId": "B",
+              "bodyType": "dynamic",
+              "size": [
+                0.7,
+                0.5,
+                0.5
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "id": "0afd1a6f-79de-34ed-ac03-7d9f34d7b259",
+              "label": "B",
+              "position": [
+                2,
+                0.25,
+                1.5
+              ],
+              "massKg": 1.2,
+              "friction": 0.45
+            },
+            {
+              "sourceId": "bystander",
+              "bodyType": "dynamic",
+              "size": [
+                0.5,
+                0.5,
+                0.6
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "id": "9266be6f-f639-334a-b0ed-7d4c9dcd7ebd",
+              "label": "bystander",
+              "position": [
+                3,
+                0.25,
+                2.7
+              ],
+              "massKg": 1,
+              "friction": 0.6
+            },
+            {
+              "sourceId": "obstacle",
+              "bodyType": "static",
+              "size": [
+                0.8,
+                1.2,
+                0.8
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "id": "d820aec9-77a7-35fc-aa82-911111c14e77",
+              "label": "obstacle",
+              "position": [
+                0,
+                0.6,
+                0
+              ],
+              "massKg": 0,
+              "friction": 0.5
+            },
+            {
+              "sourceId": "C",
+              "bodyType": "dynamic",
+              "size": [
+                0.65,
+                0.4,
+                0.5
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "id": "357fecb7-d947-380f-a61b-604e421089cb",
+              "label": "C",
+              "position": [
+                -3.6,
+                0.2,
+                0.7
+              ],
+              "massKg": 0.8,
+              "friction": 0.45
+            }
+          ],
+          "format": "fraynix.spatial-scene",
+          "sourceText": "{\"objects\":[{\"sourceId\":\"floor\",\"shape\":\"box\",\"size\":[12,0.5,12],\"restitution\":0,\"rotation\":[0,0,0,1],\"label\":\"floor\",\"position\":[0,-0.25,0],\"massKg\":0,\"friction\":0.5},{\"sourceId\":\"A\",\"shape\":\"box\",\"size\":[0.8,0.6,0.45],\"restitution\":0,\"rotation\":[0,0,0,1],\"label\":\"A\",\"position\":[-2,0.3,-1.5],\"massKg\":1,\"friction\":0.45},{\"sourceId\":\"B\",\"shape\":\"box\",\"size\":[0.7,0.5,0.5],\"restitution\":0,\"rotation\":[0,0,0,1],\"label\":\"B\",\"position\":[2,0.25,1.5],\"massKg\":1.2,\"friction\":0.45},{\"sourceId\":\"bystander\",\"shape\":\"box\",\"size\":[0.5,0.5,0.6],\"restitution\":0,\"rotation\":[0,0,0,1],\"label\":\"bystander\",\"position\":[3,0.25,2.7],\"massKg\":1,\"friction\":0.6},{\"sourceId\":\"obstacle\",\"shape\":\"box\",\"size\":[0.8,1.2,0.8],\"restitution\":0,\"rotation\":[0,0,0,1],\"label\":\"obstacle\",\"position\":[0,0.6,0],\"massKg\":0,\"friction\":0.5},{\"sourceId\":\"C\",\"shape\":\"box\",\"size\":[0.65,0.4,0.5],\"restitution\":0,\"rotation\":[0,0,0,1],\"label\":\"C\",\"position\":[-3.6,0.2,0.7],\"massKg\":0.8,\"friction\":0.45}],\"format\":\"fraynix.spatial-scene\",\"units\":\"m\",\"source\":{\"note\":\"Declared synthetic sequential-world test; not a real room or learned policy.\",\"kind\":\"synthetic\",\"physicalProperties\":\"declared\"},\"title\":\"Labelled035 development three-body-chain\",\"version\":1,\"scaleReference\":{\"a\":[0,0,0],\"b\":[1,0,0],\"toleranceM\":0,\"knownLengthM\":1,\"basis\":\"declared-test\"},\"frame\":\"right-handed-y-up\",\"gravityMps2\":9.81}",
+          "units": "m",
+          "source": {
+            "note": "Declared synthetic sequential-world test; not a real room or learned policy.",
+            "kind": "synthetic",
+            "physicalProperties": "declared"
+          },
+          "title": "Labelled035 development three-body-chain",
+          "version": 1,
+          "gravityMps2": 9.81,
+          "sourceUnits": "m",
+          "sourceSha256": "14179faabdc943a5300212a2d4686632a1dbda573bf99e2689682099fd8760d4",
+          "id": "a50db948-147a-4e60-a25d-f51c425086d1",
+          "scaleCheck": {
+            "independentlyCalibrated": false,
+            "toleranceM": 0,
+            "knownLengthM": 1,
+            "passed": true,
+            "basis": "declared-test",
+            "convertedLengthM": 1
+          },
+          "frame": "right-handed-y-up"
+        }
+      }
+    },
+    "id": "ebdfbc50-fad3-48fe-bc5b-4fa8c2e659af",
+    "runId": "14c7e76f-462c-39fc-93f6-796761bfd76e",
+    "metrics": {
+      "maxBoundaryPositionM": 0,
+      "maxBystanderDriftM": 1.4901161193847656e-08,
+      "grabs": 3,
+      "contactPoints": 9392,
+      "maxRestoreAngleErrorDeg": 0,
+      "targets": [
+        {
+          "sourceId": "A",
+          "speedMps": 4.3133576081691196e-05,
+          "positionErrorM": 0.0019445483784060222,
+          "angleErrorDeg": 0.00012428838371409626,
+          "angularSpeedRadps": 3.457985873715502e-06
+        },
+        {
+          "sourceId": "B",
+          "speedMps": 7.139778976380068e-05,
+          "positionErrorM": 0.0011134230353955163,
+          "angleErrorDeg": 0.00013243964679752175,
+          "angularSpeedRadps": 1.7398654147393752e-06
+        },
+        {
+          "sourceId": "C",
+          "speedMps": 0.0001110651101471405,
+          "positionErrorM": 4.062274138474157e-05,
+          "angleErrorDeg": 2.1621790875197717e-05,
+          "angularSpeedRadps": 1.963651737300478e-07
+        }
+      ],
+      "resumes": 0,
+      "maxRestoreVelocityError": 0,
+      "maxAngleErrorDeg": 0.00013243964679752175,
+      "maxRestorePositionErrorM": 0,
+      "scope": "Versioned persistent native box world, paused between goals; bounded virtual force/torque gripper and exact kinematic cold handoff, not contact-only pushing, a physical robot hand, photographic recognition or LLM-weight training.",
+      "maxTorqueNm": 0.5040000081062331,
+      "workJ": 1.1467835870511816,
+      "passed": true,
+      "maxPositionErrorM": 0.0019445483784060222,
+      "nativeTicks": 9265,
+      "maxForceN": 19.45200538781302,
+      "effortNs": 368.00850451577406,
+      "maxInactiveAngleDeg": 0.000780244286038924,
+      "maxInactiveDriftM": 0.014897466629257292,
+      "maxBoundaryVelocity": 0,
+      "releases": 3,
+      "maxBoundaryAngleDeg": 0,
+      "timeS": 38.604166666666664,
+      "maxAngularSpeedRadps": 3.457985873715502e-06,
+      "maxSpeedMps": 0.0001110651101471405,
+      "nativePhysics": true,
+      "torqueEffortNms": 0.47895986983014344,
+      "maxBystanderAngleDeg": 0.0002828179654014469,
+      "angularWorkJ": 0.0635771018766228
+    },
+    "status": "completed",
+    "updatedAt": "2026-11-01T14:42:55.574424Z"
+  },
+  "failed": {
+    "request": "Continue the observed persistent world toward the confirmed target poses",
+    "reason": "Execution stopped: Native pose task failed: Measured pose progress stalled within the declared force/torque limits; no blind repeated actuation. Review and Resume; no failed result is a saved skill.",
+    "worldCodeSha256": "2d071b7114fb07967502425978b51eafaafdf2b7b372caf706977c1b0ba057f0",
+    "worldPlanSummary": {
+      "liftHeightM": 2.299621125123532,
+      "scope": "Versioned persistent native box world, paused between goals; bounded virtual force/torque gripper and exact kinematic cold handoff, not contact-only pushing, a physical robot hand, photographic recognition or LLM-weight training.",
+      "targets": [
+        {
+          "sourceId": "A",
+          "positionM": [
+            -2.2,
+            0.3,
+            2.2
+          ],
+          "rotation": [
+            0,
+            -0.49999999999999994,
+            0,
+            0.8660254037844387
+          ],
+          "objectId": "332833ae-b71d-3c62-9525-12efa4fc2c1d",
+          "yawDeg": -60
+        },
+        {
+          "sourceId": "B",
+          "positionM": [
+            2.2,
+            0.25,
+            -2
+          ],
+          "rotation": [
+            0,
+            0.49999999999999994,
+            0,
+            0.8660254037844387
+          ],
+          "objectId": "0afd1a6f-79de-34ed-ac03-7d9f34d7b259",
+          "yawDeg": 60
+        }
+      ]
+    },
+    "procedure": "persistent-world-arrange-v1",
+    "history": [
+      {
+        "reason": "Actual roles, target poses, bounded virtual gripper and clear ordered routes frozen",
+        "at": "2026-11-01T14:42:56.188226100Z",
+        "step": "world-start",
+        "attempt": 1,
+        "status": "running"
+      },
+      {
+        "reason": "Native virtual gripper controls position and orientation; all other bodies remain observed",
+        "at": "2026-11-01T14:42:56.835450600Z",
+        "step": "world-wait",
+        "attempt": 1,
+        "status": "running"
+      },
+      {
+        "reason": "Execution stopped: Native pose task failed: Measured pose progress stalled within the declared force/torque limits; no blind repeated actuation. Review and Resume; no failed result is a saved skill.",
+        "at": "2026-11-01T14:42:58.100250100Z",
+        "step": "world-wait",
+        "attempt": 1,
+        "status": "interrupted"
+      }
+    ],
+    "attempt": 1,
+    "resumes": 0,
+    "createdAt": "2026-11-01T14:42:56.188226100Z",
+    "worldBinding": {
+      "worldId": "21e04861-d6ca-4f53-86db-bb2fe442a153",
+      "expectedHash": "7fb3a2f7f19fcbfcfec4ec40006df6fda82489dae75f9f47c92a3085ad0eae10",
+      "expectedRevision": 3
+    },
+    "step": "world-wait",
+    "id": "4b9721ce-e65b-4041-98b0-688b2789e1f2",
+    "runId": "c2a63888-e3f3-345f-9799-1d057e2acdbb",
+    "status": "interrupted",
+    "updatedAt": "2026-11-01T14:42:58.100250100Z"
+  },
+  "restored": {
+    "worldId": "21e04861-d6ca-4f53-86db-bb2fe442a153",
+    "expectedHash": "b72722a030b8b94e816f064ec44852a0c55a8e62049b00dfde16bbea02880c4c",
+    "expectedRevision": 5,
+    "title": "dev035-three-body-chain",
+    "frame": {
+      "elapsedTicks": 8542,
+      "bodies": [
+        {
+          "rotation": [
+            -1.839247e-07,
+            0.7071045,
+            2.1527204e-07,
+            0.70710903
+          ],
+          "id": "332833ae-b71d-3c62-9525-12efa4fc2c1d",
+          "position": [
+            -1.0000050067901611,
+            0.2999999225139618,
+            1.1017374992370605
+          ],
+          "velocity": [
+            7.532302674917446e-07,
+            2.4512410163879395e-06,
+            4.2858795495703816e-05
+          ],
+          "angularVelocity": [
+            -4.215855540223856e-07,
+            1.8093494418280898e-06,
+            -9.829288671880931e-08
+          ]
+        },
+        {
+          "rotation": [
+            -9.5673e-08,
+            -0.70710623,
+            -6.370941e-08,
+            0.7071073
+          ],
+          "id": "0afd1a6f-79de-34ed-ac03-7d9f34d7b259",
+          "position": [
+            1.0000044107437134,
+            0.2499999850988388,
+            -1.1010111570358276
+          ],
+          "velocity": [
+            -1.891543490728509e-07,
+            -8.67992639541626e-07,
+            -7.075492612784728e-05
+          ],
+          "angularVelocity": [
+            -6.579161322406435e-07,
+            7.284682510544371e-07,
+            -2.632371831623459e-07
+          ]
+        },
+        {
+          "rotation": [
+            5.386485e-09,
+            -2.275588e-06,
+            4.8761525e-08,
+            1
+          ],
+          "id": "9266be6f-f639-334a-b0ed-7d4c9dcd7ebd",
+          "position": [
+            3,
+            0.2499999850988388,
+            2.700000047683716
+          ],
+          "velocity": [
+            -1.0252714446323807e-06,
+            6.258487701416016e-07,
+            0
+          ],
+          "angularVelocity": [
+            6.699009418298374e-07,
+            -1.2762698986534815e-07,
+            3.947935056203278e-06
+          ]
+        },
+        {
+          "rotation": [
+            -1.47082035e-08,
+            0.3826878,
+            1.5860437e-08,
+            0.9238777
+          ],
+          "id": "357fecb7-d947-380f-a61b-604e421089cb",
+          "position": [
+            -3.6000001430511475,
+            0.19999995827674866,
+            -1.1000385284423828
+          ],
+          "velocity": [
+            -6.26372980150336e-08,
+            1.4975666999816895e-06,
+            -0.0001138697043643333
+          ],
+          "angularVelocity": [
+            -3.8514363041031174e-06,
+            1.2791562653546862e-07,
+            5.732305794481363e-07
+          ]
+        }
+      ],
+      "format": "fraynix.world-frame-035-v1",
+      "originalScene": {
+        "importedAt": "2026-11-01T14:41:35.474623400Z",
+        "objects": [
+          {
+            "sourceId": "floor",
+            "bodyType": "static",
+            "size": [
+              12,
+              0.5,
+              12
+            ],
+            "restitution": 0,
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "id": "579a92fc-6717-3a5e-a83b-a06b4e5205a6",
+            "label": "floor",
+            "position": [
+              0,
+              -0.25,
+              0
+            ],
+            "massKg": 0,
+            "friction": 0.5
+          },
+          {
+            "sourceId": "A",
+            "bodyType": "dynamic",
+            "size": [
+              0.8,
+              0.6,
+              0.45
+            ],
+            "restitution": 0,
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "id": "332833ae-b71d-3c62-9525-12efa4fc2c1d",
+            "label": "A",
+            "position": [
+              -2,
+              0.3,
+              -1.5
+            ],
+            "massKg": 1,
+            "friction": 0.45
+          },
+          {
+            "sourceId": "B",
+            "bodyType": "dynamic",
+            "size": [
+              0.7,
+              0.5,
+              0.5
+            ],
+            "restitution": 0,
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "id": "0afd1a6f-79de-34ed-ac03-7d9f34d7b259",
+            "label": "B",
+            "position": [
+              2,
+              0.25,
+              1.5
+            ],
+            "massKg": 1.2,
+            "friction": 0.45
+          },
+          {
+            "sourceId": "bystander",
+            "bodyType": "dynamic",
+            "size": [
+              0.5,
+              0.5,
+              0.6
+            ],
+            "restitution": 0,
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "id": "9266be6f-f639-334a-b0ed-7d4c9dcd7ebd",
+            "label": "bystander",
+            "position": [
+              3,
+              0.25,
+              2.7
+            ],
+            "massKg": 1,
+            "friction": 0.6
+          },
+          {
+            "sourceId": "obstacle",
+            "bodyType": "static",
+            "size": [
+              0.8,
+              1.2,
+              0.8
+            ],
+            "restitution": 0,
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "id": "d820aec9-77a7-35fc-aa82-911111c14e77",
+            "label": "obstacle",
+            "position": [
+              0,
+              0.6,
+              0
+            ],
+            "massKg": 0,
+            "friction": 0.5
+          },
+          {
+            "sourceId": "C",
+            "bodyType": "dynamic",
+            "size": [
+              0.65,
+              0.4,
+              0.5
+            ],
+            "restitution": 0,
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "id": "357fecb7-d947-380f-a61b-604e421089cb",
+            "label": "C",
+            "position": [
+              -3.6,
+              0.2,
+              0.7
+            ],
+            "massKg": 0.8,
+            "friction": 0.45
+          }
+        ],
+        "format": "fraynix.spatial-scene",
+        "sourceText": "{\"objects\":[{\"sourceId\":\"floor\",\"shape\":\"box\",\"size\":[12,0.5,12],\"restitution\":0,\"rotation\":[0,0,0,1],\"label\":\"floor\",\"position\":[0,-0.25,0],\"massKg\":0,\"friction\":0.5},{\"sourceId\":\"A\",\"shape\":\"box\",\"size\":[0.8,0.6,0.45],\"restitution\":0,\"rotation\":[0,0,0,1],\"label\":\"A\",\"position\":[-2,0.3,-1.5],\"massKg\":1,\"friction\":0.45},{\"sourceId\":\"B\",\"shape\":\"box\",\"size\":[0.7,0.5,0.5],\"restitution\":0,\"rotation\":[0,0,0,1],\"label\":\"B\",\"position\":[2,0.25,1.5],\"massKg\":1.2,\"friction\":0.45},{\"sourceId\":\"bystander\",\"shape\":\"box\",\"size\":[0.5,0.5,0.6],\"restitution\":0,\"rotation\":[0,0,0,1],\"label\":\"bystander\",\"position\":[3,0.25,2.7],\"massKg\":1,\"friction\":0.6},{\"sourceId\":\"obstacle\",\"shape\":\"box\",\"size\":[0.8,1.2,0.8],\"restitution\":0,\"rotation\":[0,0,0,1],\"label\":\"obstacle\",\"position\":[0,0.6,0],\"massKg\":0,\"friction\":0.5},{\"sourceId\":\"C\",\"shape\":\"box\",\"size\":[0.65,0.4,0.5],\"restitution\":0,\"rotation\":[0,0,0,1],\"label\":\"C\",\"position\":[-3.6,0.2,0.7],\"massKg\":0.8,\"friction\":0.45}],\"format\":\"fraynix.spatial-scene\",\"units\":\"m\",\"source\":{\"note\":\"Declared synthetic sequential-world test; not a real room or learned policy.\",\"kind\":\"synthetic\",\"physicalProperties\":\"declared\"},\"title\":\"Labelled035 development three-body-chain\",\"version\":1,\"scaleReference\":{\"a\":[0,0,0],\"b\":[1,0,0],\"toleranceM\":0,\"knownLengthM\":1,\"basis\":\"declared-test\"},\"frame\":\"right-handed-y-up\",\"gravityMps2\":9.81}",
+        "units": "m",
+        "source": {
+          "note": "Declared synthetic sequential-world test; not a real room or learned policy.",
+          "kind": "synthetic",
+          "physicalProperties": "declared"
+        },
+        "title": "Labelled035 development three-body-chain",
+        "version": 1,
+        "gravityMps2": 9.81,
+        "sourceUnits": "m",
+        "sourceSha256": "14179faabdc943a5300212a2d4686632a1dbda573bf99e2689682099fd8760d4",
+        "id": "a50db948-147a-4e60-a25d-f51c425086d1",
+        "scaleCheck": {
+          "independentlyCalibrated": false,
+          "toleranceM": 0,
+          "knownLengthM": 1,
+          "passed": true,
+          "basis": "declared-test",
+          "convertedLengthM": 1
+        },
+        "frame": "right-handed-y-up"
+      }
+    },
+    "status": "verified"
+  },
+  "finalGoal": {
+    "request": "Continue the observed persistent world toward the confirmed target poses",
+    "reason": "Verified final body state committed as the next world revision; original charts and skill verified",
+    "worldCodeSha256": "2d071b7114fb07967502425978b51eafaafdf2b7b372caf706977c1b0ba057f0",
+    "worldPlanSummary": {
+      "liftHeightM": 2.299621125123532,
+      "scope": "Versioned persistent native box world, paused between goals; bounded virtual force/torque gripper and exact kinematic cold handoff, not contact-only pushing, a physical robot hand, photographic recognition or LLM-weight training.",
+      "targets": [
+        {
+          "sourceId": "A",
+          "positionM": [
+            -2,
+            0.3,
+            -1.5
+          ],
+          "rotation": [
+            0,
+            0.3007057995042731,
+            0,
+            0.9537169507482269
+          ],
+          "objectId": "332833ae-b71d-3c62-9525-12efa4fc2c1d",
+          "yawDeg": 35
+        },
+        {
+          "sourceId": "B",
+          "positionM": [
+            2,
+            0.25,
+            1.5
+          ],
+          "rotation": [
+            0,
+            -0.3007057995042731,
+            0,
+            0.9537169507482269
+          ],
+          "objectId": "0afd1a6f-79de-34ed-ac03-7d9f34d7b259",
+          "yawDeg": -35
+        }
+      ]
+    },
+    "procedure": "persistent-world-arrange-v1",
+    "history": [
+      {
+        "reason": "Actual roles, target poses, bounded virtual gripper and clear ordered routes frozen",
+        "at": "2026-11-01T14:42:59.490778800Z",
+        "step": "world-start",
+        "attempt": 1,
+        "status": "running"
+      },
+      {
+        "reason": "Native virtual gripper controls position and orientation; all other bodies remain observed",
+        "at": "2026-11-01T14:43:00.149240300Z",
+        "step": "world-wait",
+        "attempt": 1,
+        "status": "running"
+      },
+      {
+        "reason": "All native body poses, force/torque ledger, release and protected-body gates independently verified",
+        "at": "2026-11-01T14:43:08.700379500Z",
+        "step": "world-report",
+        "attempt": 1,
+        "status": "running"
+      },
+      {
+        "reason": "Waiting for registered desktop action: canvas.verify-report",
+        "at": "2026-11-01T14:43:09.796191600Z",
+        "step": "world-report",
+        "attempt": 1,
+        "status": "waiting-host"
+      },
+      {
+        "reason": "Actual Chromium canvas assertions passed for the pinned report version",
+        "at": "2026-11-01T14:43:12.875536600Z",
+        "step": "complete",
+        "attempt": 1,
+        "status": "running"
+      },
+      {
+        "reason": "Verified final body state committed as the next world revision; original charts and skill verified",
+        "at": "2026-11-01T14:43:14.482954800Z",
+        "step": "completed",
+        "attempt": 1,
+        "status": "completed"
+      }
+    ],
+    "attempt": 1,
+    "resumes": 0,
+    "createdAt": "2026-11-01T14:42:59.490778800Z",
+    "worldBinding": {
+      "worldId": "21e04861-d6ca-4f53-86db-bb2fe442a153",
+      "expectedHash": "b72722a030b8b94e816f064ec44852a0c55a8e62049b00dfde16bbea02880c4c",
+      "expectedRevision": 5
+    },
+    "report": {
+      "sha256": "c532e32f2b3a37a9713d4c36760a66d4b96186a2fc4b5cace4c942d985918a0b",
+      "id": "3f3a0fa0-dec7-3823-8da4-9007208ef4d1",
+      "version": 1
+    },
+    "poseView": {
+      "cells": 10,
+      "frames": 6,
+      "maxError": 3.0515624985127943e-05,
+      "dataSha256": "c38f903a72a2945543509414c5695fb38bee7f2d3db7756b21aa7472d0ab370f",
+      "passed": true,
+      "points": 2868
+    },
+    "step": "completed",
+    "worldCommit": {
+      "at": "2026-11-01T14:43:14.457715800Z",
+      "goalId": "053f1d55-8a30-42f4-a227-430548d6ecbb",
+      "kind": "goal",
+      "report": {
+        "sha256": "c532e32f2b3a37a9713d4c36760a66d4b96186a2fc4b5cace4c942d985918a0b",
+        "id": "3f3a0fa0-dec7-3823-8da4-9007208ef4d1",
+        "version": 1
+      },
+      "receipt": {
+        "cells": 10,
+        "frames": 6,
+        "maxError": 3.0515624985127943e-05,
+        "dataSha256": "c38f903a72a2945543509414c5695fb38bee7f2d3db7756b21aa7472d0ab370f",
+        "passed": true,
+        "points": 2868
+      },
+      "runId": "56e3ecbc-6cec-3bf3-8e99-df9706a99533",
+      "nativeCanonicalSha256": "d1cf485d43710b2f96a7939dbe7f79d16d77656906b3934caf3421f65833f4dd",
+      "metrics": {
+        "maxBoundaryPositionM": 0,
+        "maxBystanderDriftM": 0.0017808675766614627,
+        "grabs": 2,
+        "contactPoints": 5816,
+        "maxRestoreAngleErrorDeg": 0,
+        "targets": [
+          {
+            "sourceId": "A",
+            "speedMps": 6.686692462176429e-05,
+            "positionErrorM": 0.0010761162312727661,
+            "angleErrorDeg": 0.0002158119179566213,
+            "angularSpeedRadps": 1.2693872049901937e-05
+          },
+          {
+            "sourceId": "B",
+            "speedMps": 0.00010825512552175991,
+            "positionErrorM": 3.997211423446008e-05,
+            "angleErrorDeg": 0.00019489900384095756,
+            "angularSpeedRadps": 1.0176117802999072e-06
+          }
+        ],
+        "resumes": 0,
+        "maxRestoreVelocityError": 0,
+        "maxAngleErrorDeg": 0.0002158119179566213,
+        "maxRestorePositionErrorM": 0,
+        "scope": "Versioned persistent native box world, paused between goals; bounded virtual force/torque gripper and exact kinematic cold handoff, not contact-only pushing, a physical robot hand, photographic recognition or LLM-weight training.",
+        "maxTorqueNm": 0.5040000081062351,
+        "workJ": 0.8028561811846396,
+        "passed": true,
+        "maxPositionErrorM": 0.0010761162312727661,
+        "nativeTicks": 5725,
+        "maxForceN": 19.451984415570102,
+        "effortNs": 246.76218852718492,
+        "maxInactiveAngleDeg": 0.020984441850925236,
+        "maxInactiveDriftM": 0.014892132071612945,
+        "maxBoundaryVelocity": 0,
+        "releases": 2,
+        "maxBoundaryAngleDeg": 0,
+        "timeS": 23.854166666666668,
+        "maxAngularSpeedRadps": 1.2693872049901937e-05,
+        "maxSpeedMps": 0.00010825512552175991,
+        "nativePhysics": true,
+        "torqueEffortNms": 0.34511903948798,
+        "maxBystanderAngleDeg": 0.019991973383496293,
+        "angularWorkJ": 0.029817224323726663
+      },
+      "parentHash": "b72722a030b8b94e816f064ec44852a0c55a8e62049b00dfde16bbea02880c4c",
+      "hash": "a144049c7b1a21ddcf2e6c5b336a4bb6904ba89d0443773d92de9347a8cc9d74",
+      "revision": 6,
+      "frame": {
+        "elapsedTicks": 14267,
+        "bodies": [
+          {
+            "rotation": [
+              -2.5087732e-09,
+              0.3007076,
+              4.4935206e-08,
+              0.9537164
+            ],
+            "id": "332833ae-b71d-3c62-9525-12efa4fc2c1d",
+            "position": [
+              -1.9999945163726807,
+              0.2999999225139618,
+              -1.501076102256775
+            ],
+            "velocity": [
+              3.7141412576602306e-06,
+              2.2426247596740723e-06,
+              -6.672601739410311e-05
+            ],
+            "angularVelocity": [
+              5.065774075774243e-06,
+              5.467660457725287e-07,
+              -1.16264081952977e-05
+            ]
+          },
+          {
+            "rotation": [
+              1.4569782e-08,
+              -0.30070418,
+              1.4472077e-08,
+              0.95371747
+            ],
+            "id": "0afd1a6f-79de-34ed-ac03-7d9f34d7b259",
+            "position": [
+              1.9999943971633911,
+              0.2499999701976776,
+              1.5000395774841309
+            ],
+            "velocity": [
+              -1.4369865652952285e-07,
+              1.2367963790893555e-06,
+              0.00010824796481756493
+            ],
+            "angularVelocity": [
+              -1.3029875844949856e-08,
+              -8.488505045534112e-07,
+              5.610853577309172e-07
+            ]
+          },
+          {
+            "rotation": [
+              3.765136e-09,
+              -3.8043938e-06,
+              4.9141278e-08,
+              1
+            ],
+            "id": "9266be6f-f639-334a-b0ed-7d4c9dcd7ebd",
+            "position": [
+              2.9999382495880127,
+              0.2499999701976776,
+              2.700000047683716
+            ],
+            "velocity": [
+              -1.0263534022669774e-06,
+              1.344829797744751e-06,
+              -2.568378398848381e-08
+            ],
+            "angularVelocity": [
+              6.662294254056178e-07,
+              -1.2761367429448e-07,
+              3.952278348151594e-06
+            ]
+          },
+          {
+            "rotation": [
+              6.6945316e-10,
+              0.3826878,
+              3.0627668e-08,
+              0.9238777
+            ],
+            "id": "357fecb7-d947-380f-a61b-604e421089cb",
+            "position": [
+              -3.6000001430511475,
+              0.19999997317790985,
+              -1.101819396018982
+            ],
+            "velocity": [
+              -4.249186531524174e-07,
+              5.550682544708252e-07,
+              -4.300957516534254e-05
+            ],
+            "angularVelocity": [
+              -1.7682834823062876e-06,
+              1.2779776170646073e-07,
+              2.38439861277584e-06
+            ]
+          }
+        ],
+        "format": "fraynix.world-frame-035-v1",
+        "originalScene": {
+          "importedAt": "2026-11-01T14:41:35.474623400Z",
+          "objects": [
+            {
+              "sourceId": "floor",
+              "bodyType": "static",
+              "size": [
+                12,
+                0.5,
+                12
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "id": "579a92fc-6717-3a5e-a83b-a06b4e5205a6",
+              "label": "floor",
+              "position": [
+                0,
+                -0.25,
+                0
+              ],
+              "massKg": 0,
+              "friction": 0.5
+            },
+            {
+              "sourceId": "A",
+              "bodyType": "dynamic",
+              "size": [
+                0.8,
+                0.6,
+                0.45
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "id": "332833ae-b71d-3c62-9525-12efa4fc2c1d",
+              "label": "A",
+              "position": [
+                -2,
+                0.3,
+                -1.5
+              ],
+              "massKg": 1,
+              "friction": 0.45
+            },
+            {
+              "sourceId": "B",
+              "bodyType": "dynamic",
+              "size": [
+                0.7,
+                0.5,
+                0.5
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "id": "0afd1a6f-79de-34ed-ac03-7d9f34d7b259",
+              "label": "B",
+              "position": [
+                2,
+                0.25,
+                1.5
+              ],
+              "massKg": 1.2,
+              "friction": 0.45
+            },
+            {
+              "sourceId": "bystander",
+              "bodyType": "dynamic",
+              "size": [
+                0.5,
+                0.5,
+                0.6
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "id": "9266be6f-f639-334a-b0ed-7d4c9dcd7ebd",
+              "label": "bystander",
+              "position": [
+                3,
+                0.25,
+                2.7
+              ],
+              "massKg": 1,
+              "friction": 0.6
+            },
+            {
+              "sourceId": "obstacle",
+              "bodyType": "static",
+              "size": [
+                0.8,
+                1.2,
+                0.8
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "id": "d820aec9-77a7-35fc-aa82-911111c14e77",
+              "label": "obstacle",
+              "position": [
+                0,
+                0.6,
+                0
+              ],
+              "massKg": 0,
+              "friction": 0.5
+            },
+            {
+              "sourceId": "C",
+              "bodyType": "dynamic",
+              "size": [
+                0.65,
+                0.4,
+                0.5
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "id": "357fecb7-d947-380f-a61b-604e421089cb",
+              "label": "C",
+              "position": [
+                -3.6,
+                0.2,
+                0.7
+              ],
+              "massKg": 0.8,
+              "friction": 0.45
+            }
+          ],
+          "format": "fraynix.spatial-scene",
+          "sourceText": "{\"objects\":[{\"sourceId\":\"floor\",\"shape\":\"box\",\"size\":[12,0.5,12],\"restitution\":0,\"rotation\":[0,0,0,1],\"label\":\"floor\",\"position\":[0,-0.25,0],\"massKg\":0,\"friction\":0.5},{\"sourceId\":\"A\",\"shape\":\"box\",\"size\":[0.8,0.6,0.45],\"restitution\":0,\"rotation\":[0,0,0,1],\"label\":\"A\",\"position\":[-2,0.3,-1.5],\"massKg\":1,\"friction\":0.45},{\"sourceId\":\"B\",\"shape\":\"box\",\"size\":[0.7,0.5,0.5],\"restitution\":0,\"rotation\":[0,0,0,1],\"label\":\"B\",\"position\":[2,0.25,1.5],\"massKg\":1.2,\"friction\":0.45},{\"sourceId\":\"bystander\",\"shape\":\"box\",\"size\":[0.5,0.5,0.6],\"restitution\":0,\"rotation\":[0,0,0,1],\"label\":\"bystander\",\"position\":[3,0.25,2.7],\"massKg\":1,\"friction\":0.6},{\"sourceId\":\"obstacle\",\"shape\":\"box\",\"size\":[0.8,1.2,0.8],\"restitution\":0,\"rotation\":[0,0,0,1],\"label\":\"obstacle\",\"position\":[0,0.6,0],\"massKg\":0,\"friction\":0.5},{\"sourceId\":\"C\",\"shape\":\"box\",\"size\":[0.65,0.4,0.5],\"restitution\":0,\"rotation\":[0,0,0,1],\"label\":\"C\",\"position\":[-3.6,0.2,0.7],\"massKg\":0.8,\"friction\":0.45}],\"format\":\"fraynix.spatial-scene\",\"units\":\"m\",\"source\":{\"note\":\"Declared synthetic sequential-world test; not a real room or learned policy.\",\"kind\":\"synthetic\",\"physicalProperties\":\"declared\"},\"title\":\"Labelled035 development three-body-chain\",\"version\":1,\"scaleReference\":{\"a\":[0,0,0],\"b\":[1,0,0],\"toleranceM\":0,\"knownLengthM\":1,\"basis\":\"declared-test\"},\"frame\":\"right-handed-y-up\",\"gravityMps2\":9.81}",
+          "units": "m",
+          "source": {
+            "note": "Declared synthetic sequential-world test; not a real room or learned policy.",
+            "kind": "synthetic",
+            "physicalProperties": "declared"
+          },
+          "title": "Labelled035 development three-body-chain",
+          "version": 1,
+          "gravityMps2": 9.81,
+          "sourceUnits": "m",
+          "sourceSha256": "14179faabdc943a5300212a2d4686632a1dbda573bf99e2689682099fd8760d4",
+          "id": "a50db948-147a-4e60-a25d-f51c425086d1",
+          "scaleCheck": {
+            "independentlyCalibrated": false,
+            "toleranceM": 0,
+            "knownLengthM": 1,
+            "passed": true,
+            "basis": "declared-test",
+            "convertedLengthM": 1
+          },
+          "frame": "right-handed-y-up"
+        }
+      }
+    },
+    "id": "053f1d55-8a30-42f4-a227-430548d6ecbb",
+    "runId": "56e3ecbc-6cec-3bf3-8e99-df9706a99533",
+    "metrics": {
+      "maxBoundaryPositionM": 0,
+      "maxBystanderDriftM": 0.0017808675766614627,
+      "grabs": 2,
+      "contactPoints": 5816,
+      "maxRestoreAngleErrorDeg": 0,
+      "targets": [
+        {
+          "sourceId": "A",
+          "speedMps": 6.686692462176429e-05,
+          "positionErrorM": 0.0010761162312727661,
+          "angleErrorDeg": 0.0002158119179566213,
+          "angularSpeedRadps": 1.2693872049901937e-05
+        },
+        {
+          "sourceId": "B",
+          "speedMps": 0.00010825512552175991,
+          "positionErrorM": 3.997211423446008e-05,
+          "angleErrorDeg": 0.00019489900384095756,
+          "angularSpeedRadps": 1.0176117802999072e-06
+        }
+      ],
+      "resumes": 0,
+      "maxRestoreVelocityError": 0,
+      "maxAngleErrorDeg": 0.0002158119179566213,
+      "maxRestorePositionErrorM": 0,
+      "scope": "Versioned persistent native box world, paused between goals; bounded virtual force/torque gripper and exact kinematic cold handoff, not contact-only pushing, a physical robot hand, photographic recognition or LLM-weight training.",
+      "maxTorqueNm": 0.5040000081062351,
+      "workJ": 0.8028561811846396,
+      "passed": true,
+      "maxPositionErrorM": 0.0010761162312727661,
+      "nativeTicks": 5725,
+      "maxForceN": 19.451984415570102,
+      "effortNs": 246.76218852718492,
+      "maxInactiveAngleDeg": 0.020984441850925236,
+      "maxInactiveDriftM": 0.014892132071612945,
+      "maxBoundaryVelocity": 0,
+      "releases": 2,
+      "maxBoundaryAngleDeg": 0,
+      "timeS": 23.854166666666668,
+      "maxAngularSpeedRadps": 1.2693872049901937e-05,
+      "maxSpeedMps": 0.00010825512552175991,
+      "nativePhysics": true,
+      "torqueEffortNms": 0.34511903948798,
+      "maxBystanderAngleDeg": 0.019991973383496293,
+      "angularWorkJ": 0.029817224323726663
+    },
+    "status": "completed",
+    "updatedAt": "2026-11-01T14:43:14.482954800Z"
+  },
+  "cancelled": {
+    "request": "Continue the observed persistent world toward the confirmed target poses",
+    "reason": "Cancelled; owned effects stopped and no new skill promoted",
+    "worldCodeSha256": "2d071b7114fb07967502425978b51eafaafdf2b7b372caf706977c1b0ba057f0",
+    "worldPlanSummary": {
+      "liftHeightM": 2.299621125123532,
+      "scope": "Versioned persistent native box world, paused between goals; bounded virtual force/torque gripper and exact kinematic cold handoff, not contact-only pushing, a physical robot hand, photographic recognition or LLM-weight training.",
+      "targets": [
+        {
+          "sourceId": "A",
+          "positionM": [
+            -2.2,
+            0.3,
+            2.2
+          ],
+          "rotation": [
+            0,
+            -0.49999999999999994,
+            0,
+            0.8660254037844387
+          ],
+          "objectId": "332833ae-b71d-3c62-9525-12efa4fc2c1d",
+          "yawDeg": -60
+        },
+        {
+          "sourceId": "B",
+          "positionM": [
+            2.2,
+            0.25,
+            -2
+          ],
+          "rotation": [
+            0,
+            0.49999999999999994,
+            0,
+            0.8660254037844387
+          ],
+          "objectId": "0afd1a6f-79de-34ed-ac03-7d9f34d7b259",
+          "yawDeg": 60
+        }
+      ]
+    },
+    "procedure": "persistent-world-arrange-v1",
+    "history": [
+      {
+        "reason": "Actual roles, target poses, bounded virtual gripper and clear ordered routes frozen",
+        "at": "2026-11-01T14:43:14.812405200Z",
+        "step": "world-start",
+        "attempt": 1,
+        "status": "running"
+      },
+      {
+        "reason": "Native virtual gripper controls position and orientation; all other bodies remain observed",
+        "at": "2026-11-01T14:43:15.553204500Z",
+        "step": "world-wait",
+        "attempt": 1,
+        "status": "running"
+      },
+      {
+        "reason": "Cancelled; owned effects stopped and no new skill promoted",
+        "at": "2026-11-01T14:43:16.196183Z",
+        "step": "world-wait",
+        "attempt": 1,
+        "status": "cancelled"
+      }
+    ],
+    "attempt": 1,
+    "resumes": 0,
+    "createdAt": "2026-11-01T14:43:14.812405200Z",
+    "worldBinding": {
+      "worldId": "21e04861-d6ca-4f53-86db-bb2fe442a153",
+      "expectedHash": "a144049c7b1a21ddcf2e6c5b336a4bb6904ba89d0443773d92de9347a8cc9d74",
+      "expectedRevision": 6
+    },
+    "step": "world-wait",
+    "id": "44ab3ec2-3464-4e03-8be7-7985f7c81fcf",
+    "runId": "c74e6204-c494-3841-afc9-9e9333c6fcc6",
+    "status": "cancelled",
+    "updatedAt": "2026-11-01T14:43:16.196183Z"
+  },
+  "checkpoint": {
+    "originalFile": "examples/checkpoint.json"
+  },
+  "continued": {
+    "originalFile": "examples/continued.json"
+  },
+  "originalRun": {
+    "originalFile": "examples/originalRun.json"
+  },
+  "history": {
+    "createdAt": "2026-11-01T14:41:35.548426900Z",
+    "codeSha256": "2d071b7114fb07967502425978b51eafaafdf2b7b372caf706977c1b0ba057f0",
+    "revisions": [
+      {
+        "at": "2026-11-01T14:41:35.548426900Z",
+        "kind": "create",
+        "parentHash": "",
+        "hash": "f5c087c20513ba7af3710bc0e00217ce36b61badf7135b84aea8ffe3e79307d2",
+        "revision": 0,
+        "frame": {
+          "elapsedTicks": 0,
+          "bodies": [
+            {
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "id": "332833ae-b71d-3c62-9525-12efa4fc2c1d",
+              "position": [
+                -2,
+                0.3,
+                -1.5
+              ],
+              "velocity": [
+                0,
+                0,
+                0
+              ],
+              "angularVelocity": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "id": "0afd1a6f-79de-34ed-ac03-7d9f34d7b259",
+              "position": [
+                2,
+                0.25,
+                1.5
+              ],
+              "velocity": [
+                0,
+                0,
+                0
+              ],
+              "angularVelocity": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "id": "9266be6f-f639-334a-b0ed-7d4c9dcd7ebd",
+              "position": [
+                3,
+                0.25,
+                2.7
+              ],
+              "velocity": [
+                0,
+                0,
+                0
+              ],
+              "angularVelocity": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "id": "357fecb7-d947-380f-a61b-604e421089cb",
+              "position": [
+                -3.6,
+                0.2,
+                0.7
+              ],
+              "velocity": [
+                0,
+                0,
+                0
+              ],
+              "angularVelocity": [
+                0,
+                0,
+                0
+              ]
+            }
+          ],
+          "format": "fraynix.world-frame-035-v1",
+          "originalScene": {
+            "importedAt": "2026-11-01T14:41:35.474623400Z",
+            "objects": [
+              {
+                "sourceId": "floor",
+                "bodyType": "static",
+                "size": [
+                  12,
+                  0.5,
+                  12
+                ],
+                "restitution": 0,
+                "rotation": [
+                  0,
+                  0,
+                  0,
+                  1
+                ],
+                "id": "579a92fc-6717-3a5e-a83b-a06b4e5205a6",
+                "label": "floor",
+                "position": [
+                  0,
+                  -0.25,
+                  0
+                ],
+                "massKg": 0,
+                "friction": 0.5
+              },
+              {
+                "sourceId": "A",
+                "bodyType": "dynamic",
+                "size": [
+                  0.8,
+                  0.6,
+                  0.45
+                ],
+                "restitution": 0,
+                "rotation": [
+                  0,
+                  0,
+                  0,
+                  1
+                ],
+                "id": "332833ae-b71d-3c62-9525-12efa4fc2c1d",
+                "label": "A",
+                "position": [
+                  -2,
+                  0.3,
+                  -1.5
+                ],
+                "massKg": 1,
+                "friction": 0.45
+              },
+              {
+                "sourceId": "B",
+                "bodyType": "dynamic",
+                "size": [
+                  0.7,
+                  0.5,
+                  0.5
+                ],
+                "restitution": 0,
+                "rotation": [
+                  0,
+                  0,
+                  0,
+                  1
+                ],
+                "id": "0afd1a6f-79de-34ed-ac03-7d9f34d7b259",
+                "label": "B",
+                "position": [
+                  2,
+                  0.25,
+                  1.5
+                ],
+                "massKg": 1.2,
+                "friction": 0.45
+              },
+              {
+                "sourceId": "bystander",
+                "bodyType": "dynamic",
+                "size": [
+                  0.5,
+                  0.5,
+                  0.6
+                ],
+                "restitution": 0,
+                "rotation": [
+                  0,
+                  0,
+                  0,
+                  1
+                ],
+                "id": "9266be6f-f639-334a-b0ed-7d4c9dcd7ebd",
+                "label": "bystander",
+                "position": [
+                  3,
+                  0.25,
+                  2.7
+                ],
+                "massKg": 1,
+                "friction": 0.6
+              },
+              {
+                "sourceId": "obstacle",
+                "bodyType": "static",
+                "size": [
+                  0.8,
+                  1.2,
+                  0.8
+                ],
+                "restitution": 0,
+                "rotation": [
+                  0,
+                  0,
+                  0,
+                  1
+                ],
+                "id": "d820aec9-77a7-35fc-aa82-911111c14e77",
+                "label": "obstacle",
+                "position": [
+                  0,
+                  0.6,
+                  0
+                ],
+                "massKg": 0,
+                "friction": 0.5
+              },
+              {
+                "sourceId": "C",
+                "bodyType": "dynamic",
+                "size": [
+                  0.65,
+                  0.4,
+                  0.5
+                ],
+                "restitution": 0,
+                "rotation": [
+                  0,
+                  0,
+                  0,
+                  1
+                ],
+                "id": "357fecb7-d947-380f-a61b-604e421089cb",
+                "label": "C",
+                "position": [
+                  -3.6,
+                  0.2,
+                  0.7
+                ],
+                "massKg": 0.8,
+                "friction": 0.45
+              }
+            ],
+            "format": "fraynix.spatial-scene",
+            "sourceText": "{\"objects\":[{\"sourceId\":\"floor\",\"shape\":\"box\",\"size\":[12,0.5,12],\"restitution\":0,\"rotation\":[0,0,0,1],\"label\":\"floor\",\"position\":[0,-0.25,0],\"massKg\":0,\"friction\":0.5},{\"sourceId\":\"A\",\"shape\":\"box\",\"size\":[0.8,0.6,0.45],\"restitution\":0,\"rotation\":[0,0,0,1],\"label\":\"A\",\"position\":[-2,0.3,-1.5],\"massKg\":1,\"friction\":0.45},{\"sourceId\":\"B\",\"shape\":\"box\",\"size\":[0.7,0.5,0.5],\"restitution\":0,\"rotation\":[0,0,0,1],\"label\":\"B\",\"position\":[2,0.25,1.5],\"massKg\":1.2,\"friction\":0.45},{\"sourceId\":\"bystander\",\"shape\":\"box\",\"size\":[0.5,0.5,0.6],\"restitution\":0,\"rotation\":[0,0,0,1],\"label\":\"bystander\",\"position\":[3,0.25,2.7],\"massKg\":1,\"friction\":0.6},{\"sourceId\":\"obstacle\",\"shape\":\"box\",\"size\":[0.8,1.2,0.8],\"restitution\":0,\"rotation\":[0,0,0,1],\"label\":\"obstacle\",\"position\":[0,0.6,0],\"massKg\":0,\"friction\":0.5},{\"sourceId\":\"C\",\"shape\":\"box\",\"size\":[0.65,0.4,0.5],\"restitution\":0,\"rotation\":[0,0,0,1],\"label\":\"C\",\"position\":[-3.6,0.2,0.7],\"massKg\":0.8,\"friction\":0.45}],\"format\":\"fraynix.spatial-scene\",\"units\":\"m\",\"source\":{\"note\":\"Declared synthetic sequential-world test; not a real room or learned policy.\",\"kind\":\"synthetic\",\"physicalProperties\":\"declared\"},\"title\":\"Labelled035 development three-body-chain\",\"version\":1,\"scaleReference\":{\"a\":[0,0,0],\"b\":[1,0,0],\"toleranceM\":0,\"knownLengthM\":1,\"basis\":\"declared-test\"},\"frame\":\"right-handed-y-up\",\"gravityMps2\":9.81}",
+            "units": "m",
+            "source": {
+              "note": "Declared synthetic sequential-world test; not a real room or learned policy.",
+              "kind": "synthetic",
+              "physicalProperties": "declared"
+            },
+            "title": "Labelled035 development three-body-chain",
+            "version": 1,
+            "gravityMps2": 9.81,
+            "sourceUnits": "m",
+            "sourceSha256": "14179faabdc943a5300212a2d4686632a1dbda573bf99e2689682099fd8760d4",
+            "id": "a50db948-147a-4e60-a25d-f51c425086d1",
+            "scaleCheck": {
+              "independentlyCalibrated": false,
+              "toleranceM": 0,
+              "knownLengthM": 1,
+              "passed": true,
+              "basis": "declared-test",
+              "convertedLengthM": 1
+            },
+            "frame": "right-handed-y-up"
+          }
+        }
+      },
+      {
+        "at": "2026-11-01T14:41:57.906056200Z",
+        "goalId": "c18e5f4c-28af-4c0e-9eaa-d04b6328aae8",
+        "kind": "goal",
+        "report": {
+          "sha256": "22434b298ed74bab93984e643f94101172543b7f2cbb9c91980663463d9376de",
+          "id": "383b27bd-a0b2-30df-ba9a-ea8712efcc1e",
+          "version": 1
+        },
+        "receipt": {
+          "cells": 15,
+          "frames": 6,
+          "maxError": 3.0312500030049705e-05,
+          "dataSha256": "c762c8c398d580987e6b72d514f1893ee3e752ffbcf5fce862bc3349ee437e41",
+          "passed": true,
+          "points": 4272
+        },
+        "runId": "642b97b9-fd6c-3ab1-8a7e-f2b9191d9a84",
+        "nativeCanonicalSha256": "9f3d694d850e03bb0e3cc8c23c8b5f9e8d5f220502839678f09445e22ce98d72",
+        "metrics": {
+          "maxBoundaryPositionM": 9.61557973545745e-08,
+          "maxBystanderDriftM": 1.4901161193847656e-08,
+          "grabs": 3,
+          "contactPoints": 8664,
+          "maxRestoreAngleErrorDeg": 0,
+          "targets": [
+            {
+              "sourceId": "A",
+              "speedMps": 4.2935443280567744e-05,
+              "positionErrorM": 0.001737506452574343,
+              "angleErrorDeg": 0.000368490193562589,
+              "angularSpeedRadps": 1.8604142747204177e-06
+            },
+            {
+              "sourceId": "B",
+              "speedMps": 7.076050283842814e-05,
+              "positionErrorM": 0.0010111666558909578,
+              "angleErrorDeg": 8.769528416039162e-05,
+              "angularSpeedRadps": 1.0162742958749102e-06
+            },
+            {
+              "sourceId": "C",
+              "speedMps": 0.0001138795688500473,
+              "positionErrorM": 3.8528730538382996e-05,
+              "angleErrorDeg": 0.0005427617392779047,
+              "angularSpeedRadps": 3.89596166681474e-06
+            }
+          ],
+          "resumes": 0,
+          "maxRestoreVelocityError": 0,
+          "maxAngleErrorDeg": 0.0005427617392779047,
+          "maxRestorePositionErrorM": 0,
+          "scope": "Versioned persistent native box world, paused between goals; bounded virtual force/torque gripper and exact kinematic cold handoff, not contact-only pushing, a physical robot hand, photographic recognition or LLM-weight training.",
+          "maxTorqueNm": 0.5040000081062318,
+          "workJ": 1.073049854054795,
+          "passed": true,
+          "maxPositionErrorM": 0.001737506452574343,
+          "nativeTicks": 8542,
+          "maxForceN": 19.451995849609443,
+          "effortNs": 338.07973651336056,
+          "maxInactiveAngleDeg": 0.0007902664552750429,
+          "maxInactiveDriftM": 0.01489740702461621,
+          "maxBoundaryVelocity": 0,
+          "releases": 3,
+          "maxBoundaryAngleDeg": 0,
+          "timeS": 35.59166666666667,
+          "maxAngularSpeedRadps": 3.89596166681474e-06,
+          "maxSpeedMps": 0.0001138795688500473,
+          "nativePhysics": true,
+          "torqueEffortNms": 0.4746878730038368,
+          "maxBystanderAngleDeg": 0.0002608237665716736,
+          "angularWorkJ": 0.0598326014907678
+        },
+        "parentHash": "f5c087c20513ba7af3710bc0e00217ce36b61badf7135b84aea8ffe3e79307d2",
+        "hash": "03d62abfbaba63b061f6d81706d80f11c55bba4305dfdda1cd09d5ba25d5a53a",
+        "revision": 1,
+        "frame": {
+          "elapsedTicks": 8542,
+          "bodies": [
+            {
+              "rotation": [
+                -1.839247e-07,
+                0.7071045,
+                2.1527204e-07,
+                0.70710903
+              ],
+              "id": "332833ae-b71d-3c62-9525-12efa4fc2c1d",
+              "position": [
+                -1.0000050067901611,
+                0.2999999225139618,
+                1.1017374992370605
+              ],
+              "velocity": [
+                7.532302674917446e-07,
+                2.4512410163879395e-06,
+                4.2858795495703816e-05
+              ],
+              "angularVelocity": [
+                -4.215855540223856e-07,
+                1.8093494418280898e-06,
+                -9.829288671880931e-08
+              ]
+            },
+            {
+              "rotation": [
+                -9.5673e-08,
+                -0.70710623,
+                -6.370941e-08,
+                0.7071073
+              ],
+              "id": "0afd1a6f-79de-34ed-ac03-7d9f34d7b259",
+              "position": [
+                1.0000044107437134,
+                0.2499999850988388,
+                -1.1010111570358276
+              ],
+              "velocity": [
+                -1.891543490728509e-07,
+                -8.67992639541626e-07,
+                -7.075492612784728e-05
+              ],
+              "angularVelocity": [
+                -6.579161322406435e-07,
+                7.284682510544371e-07,
+                -2.632371831623459e-07
+              ]
+            },
+            {
+              "rotation": [
+                5.386485e-09,
+                -2.275588e-06,
+                4.8761525e-08,
+                1
+              ],
+              "id": "9266be6f-f639-334a-b0ed-7d4c9dcd7ebd",
+              "position": [
+                3,
+                0.2499999850988388,
+                2.700000047683716
+              ],
+              "velocity": [
+                -1.0252714446323807e-06,
+                6.258487701416016e-07,
+                0
+              ],
+              "angularVelocity": [
+                6.699009418298374e-07,
+                -1.2762698986534815e-07,
+                3.947935056203278e-06
+              ]
+            },
+            {
+              "rotation": [
+                -1.47082035e-08,
+                0.3826878,
+                1.5860437e-08,
+                0.9238777
+              ],
+              "id": "357fecb7-d947-380f-a61b-604e421089cb",
+              "position": [
+                -3.6000001430511475,
+                0.19999995827674866,
+                -1.1000385284423828
+              ],
+              "velocity": [
+                -6.26372980150336e-08,
+                1.4975666999816895e-06,
+                -0.0001138697043643333
+              ],
+              "angularVelocity": [
+                -3.8514363041031174e-06,
+                1.2791562653546862e-07,
+                5.732305794481363e-07
+              ]
+            }
+          ],
+          "format": "fraynix.world-frame-035-v1",
+          "originalScene": {
+            "importedAt": "2026-11-01T14:41:35.474623400Z",
+            "objects": [
+              {
+                "sourceId": "floor",
+                "bodyType": "static",
+                "size": [
+                  12,
+                  0.5,
+                  12
+                ],
+                "restitution": 0,
+                "rotation": [
+                  0,
+                  0,
+                  0,
+                  1
+                ],
+                "id": "579a92fc-6717-3a5e-a83b-a06b4e5205a6",
+                "label": "floor",
+                "position": [
+                  0,
+                  -0.25,
+                  0
+                ],
+                "massKg": 0,
+                "friction": 0.5
+              },
+              {
+                "sourceId": "A",
+                "bodyType": "dynamic",
+                "size": [
+                  0.8,
+                  0.6,
+                  0.45
+                ],
+                "restitution": 0,
+                "rotation": [
+                  0,
+                  0,
+                  0,
+                  1
+                ],
+                "id": "332833ae-b71d-3c62-9525-12efa4fc2c1d",
+                "label": "A",
+                "position": [
+                  -2,
+                  0.3,
+                  -1.5
+                ],
+                "massKg": 1,
+                "friction": 0.45
+              },
+              {
+                "sourceId": "B",
+                "bodyType": "dynamic",
+                "size": [
+                  0.7,
+                  0.5,
+                  0.5
+                ],
+                "restitution": 0,
+                "rotation": [
+                  0,
+                  0,
+                  0,
+                  1
+                ],
+                "id": "0afd1a6f-79de-34ed-ac03-7d9f34d7b259",
+                "label": "B",
+                "position": [
+                  2,
+                  0.25,
+                  1.5
+                ],
+                "massKg": 1.2,
+                "friction": 0.45
+              },
+              {
+                "sourceId": "bystander",
+                "bodyType": "dynamic",
+                "size": [
+                  0.5,
+                  0.5,
+                  0.6
+                ],
+                "restitution": 0,
+                "rotation": [
+                  0,
+                  0,
+                  0,
+                  1
+                ],
+                "id": "9266be6f-f639-334a-b0ed-7d4c9dcd7ebd",
+                "label": "bystander",
+                "position": [
+                  3,
+                  0.25,
+                  2.7
+                ],
+                "massKg": 1,
+                "friction": 0.6
+              },
+              {
+                "sourceId": "obstacle",
+                "bodyType": "static",
+                "size": [
+                  0.8,
+                  1.2,
+                  0.8
+                ],
+                "restitution": 0,
+                "rotation": [
+                  0,
+                  0,
+                  0,
+                  1
+                ],
+                "id": "d820aec9-77a7-35fc-aa82-911111c14e77",
+                "label": "obstacle",
+                "position": [
+                  0,
+                  0.6,
+                  0
+                ],
+                "massKg": 0,
+                "friction": 0.5
+              },
+              {
+                "sourceId": "C",
+                "bodyType": "dynamic",
+                "size": [
+                  0.65,
+                  0.4,
+                  0.5
+                ],
+                "restitution": 0,
+                "rotation": [
+                  0,
+                  0,
+                  0,
+                  1
+                ],
+                "id": "357fecb7-d947-380f-a61b-604e421089cb",
+                "label": "C",
+                "position": [
+                  -3.6,
+                  0.2,
+                  0.7
+                ],
+                "massKg": 0.8,
+                "friction": 0.45
+              }
+            ],
+            "format": "fraynix.spatial-scene",
+            "sourceText": "{\"objects\":[{\"sourceId\":\"floor\",\"shape\":\"box\",\"size\":[12,0.5,12],\"restitution\":0,\"rotation\":[0,0,0,1],\"label\":\"floor\",\"position\":[0,-0.25,0],\"massKg\":0,\"friction\":0.5},{\"sourceId\":\"A\",\"shape\":\"box\",\"size\":[0.8,0.6,0.45],\"restitution\":0,\"rotation\":[0,0,0,1],\"label\":\"A\",\"position\":[-2,0.3,-1.5],\"massKg\":1,\"friction\":0.45},{\"sourceId\":\"B\",\"shape\":\"box\",\"size\":[0.7,0.5,0.5],\"restitution\":0,\"rotation\":[0,0,0,1],\"label\":\"B\",\"position\":[2,0.25,1.5],\"massKg\":1.2,\"friction\":0.45},{\"sourceId\":\"bystander\",\"shape\":\"box\",\"size\":[0.5,0.5,0.6],\"restitution\":0,\"rotation\":[0,0,0,1],\"label\":\"bystander\",\"position\":[3,0.25,2.7],\"massKg\":1,\"friction\":0.6},{\"sourceId\":\"obstacle\",\"shape\":\"box\",\"size\":[0.8,1.2,0.8],\"restitution\":0,\"rotation\":[0,0,0,1],\"label\":\"obstacle\",\"position\":[0,0.6,0],\"massKg\":0,\"friction\":0.5},{\"sourceId\":\"C\",\"shape\":\"box\",\"size\":[0.65,0.4,0.5],\"restitution\":0,\"rotation\":[0,0,0,1],\"label\":\"C\",\"position\":[-3.6,0.2,0.7],\"massKg\":0.8,\"friction\":0.45}],\"format\":\"fraynix.spatial-scene\",\"units\":\"m\",\"source\":{\"note\":\"Declared synthetic sequential-world test; not a real room or learned policy.\",\"kind\":\"synthetic\",\"physicalProperties\":\"declared\"},\"title\":\"Labelled035 development three-body-chain\",\"version\":1,\"scaleReference\":{\"a\":[0,0,0],\"b\":[1,0,0],\"toleranceM\":0,\"knownLengthM\":1,\"basis\":\"declared-test\"},\"frame\":\"right-handed-y-up\",\"gravityMps2\":9.81}",
+            "units": "m",
+            "source": {
+              "note": "Declared synthetic sequential-world test; not a real room or learned policy.",
+              "kind": "synthetic",
+              "physicalProperties": "declared"
+            },
+            "title": "Labelled035 development three-body-chain",
+            "version": 1,
+            "gravityMps2": 9.81,
+            "sourceUnits": "m",
+            "sourceSha256": "14179faabdc943a5300212a2d4686632a1dbda573bf99e2689682099fd8760d4",
+            "id": "a50db948-147a-4e60-a25d-f51c425086d1",
+            "scaleCheck": {
+              "independentlyCalibrated": false,
+              "toleranceM": 0,
+              "knownLengthM": 1,
+              "passed": true,
+              "basis": "declared-test",
+              "convertedLengthM": 1
+            },
+            "frame": "right-handed-y-up"
+          }
+        }
+      },
+      {
+        "at": "2026-11-01T14:42:26.100651Z",
+        "goalId": "026dc950-7efc-4370-8169-369cfff97fda",
+        "kind": "goal",
+        "report": {
+          "sha256": "79a5e80ff6bc685ba9247e004d3f405c13155ffc6d1881af5cc9ae362e4fe5ff",
+          "id": "fbe59a39-9376-3812-a4cc-7a59d5b612af",
+          "version": 1
+        },
+        "receipt": {
+          "cells": 15,
+          "frames": 6,
+          "maxError": 3.03007813045042e-05,
+          "dataSha256": "28175295f2fc3597a82c9a4192d43885fe3341a2818a4f0ae0269bd05f83640f",
+          "passed": true,
+          "points": 4266
+        },
+        "runId": "0fb27f36-3781-36e2-a409-7e5fdc07faef",
+        "nativeCanonicalSha256": "bf8ea69f035dfbbed864d292545a3346e551d0e9f4d8a3e36cf29f0bf5355277",
+        "metrics": {
+          "maxBoundaryPositionM": 0,
+          "maxBystanderDriftM": 9.075249542140129e-05,
+          "grabs": 3,
+          "contactPoints": 8644,
+          "maxRestoreAngleErrorDeg": 0,
+          "targets": [
+            {
+              "sourceId": "A",
+              "speedMps": 3.13212318079571e-05,
+              "positionErrorM": 0.0013695585500782487,
+              "angleErrorDeg": 0.000249626970306612,
+              "angularSpeedRadps": 1.3832951812228117e-06
+            },
+            {
+              "sourceId": "B",
+              "speedMps": 4.3298910390562325e-05,
+              "positionErrorM": 0.0006998437238080837,
+              "angleErrorDeg": 0.0004244855943308853,
+              "angularSpeedRadps": 1.1270933806178192e-06
+            },
+            {
+              "sourceId": "C",
+              "speedMps": 0.00011405399102654074,
+              "positionErrorM": 4.009650528416401e-05,
+              "angleErrorDeg": 0.0004332115722775123,
+              "angularSpeedRadps": 2.468541875286193e-06
+            }
+          ],
+          "resumes": 1,
+          "maxRestoreVelocityError": 0,
+          "maxAngleErrorDeg": 0.0004332115722775123,
+          "maxRestorePositionErrorM": 0,
+          "scope": "Versioned persistent native box world, paused between goals; bounded virtual force/torque gripper and exact kinematic cold handoff, not contact-only pushing, a physical robot hand, photographic recognition or LLM-weight training.",
+          "maxTorqueNm": 0.5040000081062352,
+          "workJ": 1.0007383451941918,
+          "passed": true,
+          "maxPositionErrorM": 0.0013695585500782487,
+          "nativeTicks": 8528,
+          "maxForceN": 19.452005396420148,
+          "effortNs": 333.76311848836167,
+          "maxInactiveAngleDeg": 0.020984441850925236,
+          "maxInactiveDriftM": 0.014897466629257292,
+          "maxBoundaryVelocity": 0,
+          "releases": 3,
+          "maxBoundaryAngleDeg": 0,
+          "timeS": 35.53333333333333,
+          "maxAngularSpeedRadps": 2.468541875286193e-06,
+          "maxSpeedMps": 0.00011405399102654074,
+          "nativePhysics": true,
+          "torqueEffortNms": 0.5178738700826364,
+          "maxBystanderAngleDeg": 0.019991973383496293,
+          "angularWorkJ": 0.10470933380737722
+        },
+        "parentHash": "03d62abfbaba63b061f6d81706d80f11c55bba4305dfdda1cd09d5ba25d5a53a",
+        "hash": "817017cde30be63326b5a799d5123e7871f0b4c14bb85aafac77d779a553fbd0",
+        "revision": 2,
+        "frame": {
+          "elapsedTicks": 17070,
+          "bodies": [
+            {
+              "rotation": [
+                -8.897351e-08,
+                -0.49999812,
+                -3.9198753e-08,
+                0.8660265
+              ],
+              "id": "332833ae-b71d-3c62-9525-12efa4fc2c1d",
+              "position": [
+                -2.1999902725219727,
+                0.2999999225139618,
+                2.201369524002075
+              ],
+              "velocity": [
+                -5.7917528550888164e-08,
+                2.4847686290740967e-06,
+                3.122246198472567e-05
+              ],
+              "angularVelocity": [
+                -3.651344684385549e-07,
+                1.1389456631150097e-06,
+                -6.949713338144647e-07
+              ]
+            },
+            {
+              "rotation": [
+                -5.3468792e-08,
+                0.5000032,
+                7.582257e-08,
+                0.86602354
+              ],
+              "id": "0afd1a6f-79de-34ed-ac03-7d9f34d7b259",
+              "position": [
+                2.199989080429077,
+                0.2499999701976776,
+                -2.000699758529663
+              ],
+              "velocity": [
+                5.371733777792542e-07,
+                5.327165126800537e-07,
+                -4.329230068833567e-05
+              ],
+              "angularVelocity": [
+                -3.0733190214959905e-07,
+                9.140866836787609e-07,
+                -5.833799150423147e-07
+              ]
+            },
+            {
+              "rotation": [
+                9.414011e-09,
+                -4.552073e-06,
+                4.954236e-08,
+                1
+              ],
+              "id": "9266be6f-f639-334a-b0ed-7d4c9dcd7ebd",
+              "position": [
+                2.9999382495880127,
+                0.2499999701976776,
+                2.700000047683716
+              ],
+              "velocity": [
+                4.4321065928443204e-08,
+                1.6987323760986328e-06,
+                -1.5945293085906087e-08
+              ],
+              "angularVelocity": [
+                6.676385737591772e-07,
+                -1.2775551283539244e-07,
+                -3.305896427718835e-07
+              ]
+            },
+            {
+              "rotation": [
+                1.4515536e-08,
+                -0.2588227,
+                -4.300443e-09,
+                0.96592486
+              ],
+              "id": "357fecb7-d947-380f-a61b-604e421089cb",
+              "position": [
+                -3.6000113487243652,
+                0.19999995827674866,
+                1.300038456916809
+              ],
+              "velocity": [
+                -9.9411266774041e-08,
+                1.5422701835632324e-06,
+                0.00011404351971577853
+              ],
+              "angularVelocity": [
+                2.4141386347764637e-06,
+                -3.066283227326494e-07,
+                4.142616489843931e-07
+              ]
+            }
+          ],
+          "format": "fraynix.world-frame-035-v1",
+          "originalScene": {
+            "importedAt": "2026-11-01T14:41:35.474623400Z",
+            "objects": [
+              {
+                "sourceId": "floor",
+                "bodyType": "static",
+                "size": [
+                  12,
+                  0.5,
+                  12
+                ],
+                "restitution": 0,
+                "rotation": [
+                  0,
+                  0,
+                  0,
+                  1
+                ],
+                "id": "579a92fc-6717-3a5e-a83b-a06b4e5205a6",
+                "label": "floor",
+                "position": [
+                  0,
+                  -0.25,
+                  0
+                ],
+                "massKg": 0,
+                "friction": 0.5
+              },
+              {
+                "sourceId": "A",
+                "bodyType": "dynamic",
+                "size": [
+                  0.8,
+                  0.6,
+                  0.45
+                ],
+                "restitution": 0,
+                "rotation": [
+                  0,
+                  0,
+                  0,
+                  1
+                ],
+                "id": "332833ae-b71d-3c62-9525-12efa4fc2c1d",
+                "label": "A",
+                "position": [
+                  -2,
+                  0.3,
+                  -1.5
+                ],
+                "massKg": 1,
+                "friction": 0.45
+              },
+              {
+                "sourceId": "B",
+                "bodyType": "dynamic",
+                "size": [
+                  0.7,
+                  0.5,
+                  0.5
+                ],
+                "restitution": 0,
+                "rotation": [
+                  0,
+                  0,
+                  0,
+                  1
+                ],
+                "id": "0afd1a6f-79de-34ed-ac03-7d9f34d7b259",
+                "label": "B",
+                "position": [
+                  2,
+                  0.25,
+                  1.5
+                ],
+                "massKg": 1.2,
+                "friction": 0.45
+              },
+              {
+                "sourceId": "bystander",
+                "bodyType": "dynamic",
+                "size": [
+                  0.5,
+                  0.5,
+                  0.6
+                ],
+                "restitution": 0,
+                "rotation": [
+                  0,
+                  0,
+                  0,
+                  1
+                ],
+                "id": "9266be6f-f639-334a-b0ed-7d4c9dcd7ebd",
+                "label": "bystander",
+                "position": [
+                  3,
+                  0.25,
+                  2.7
+                ],
+                "massKg": 1,
+                "friction": 0.6
+              },
+              {
+                "sourceId": "obstacle",
+                "bodyType": "static",
+                "size": [
+                  0.8,
+                  1.2,
+                  0.8
+                ],
+                "restitution": 0,
+                "rotation": [
+                  0,
+                  0,
+                  0,
+                  1
+                ],
+                "id": "d820aec9-77a7-35fc-aa82-911111c14e77",
+                "label": "obstacle",
+                "position": [
+                  0,
+                  0.6,
+                  0
+                ],
+                "massKg": 0,
+                "friction": 0.5
+              },
+              {
+                "sourceId": "C",
+                "bodyType": "dynamic",
+                "size": [
+                  0.65,
+                  0.4,
+                  0.5
+                ],
+                "restitution": 0,
+                "rotation": [
+                  0,
+                  0,
+                  0,
+                  1
+                ],
+                "id": "357fecb7-d947-380f-a61b-604e421089cb",
+                "label": "C",
+                "position": [
+                  -3.6,
+                  0.2,
+                  0.7
+                ],
+                "massKg": 0.8,
+                "friction": 0.45
+              }
+            ],
+            "format": "fraynix.spatial-scene",
+            "sourceText": "{\"objects\":[{\"sourceId\":\"floor\",\"shape\":\"box\",\"size\":[12,0.5,12],\"restitution\":0,\"rotation\":[0,0,0,1],\"label\":\"floor\",\"position\":[0,-0.25,0],\"massKg\":0,\"friction\":0.5},{\"sourceId\":\"A\",\"shape\":\"box\",\"size\":[0.8,0.6,0.45],\"restitution\":0,\"rotation\":[0,0,0,1],\"label\":\"A\",\"position\":[-2,0.3,-1.5],\"massKg\":1,\"friction\":0.45},{\"sourceId\":\"B\",\"shape\":\"box\",\"size\":[0.7,0.5,0.5],\"restitution\":0,\"rotation\":[0,0,0,1],\"label\":\"B\",\"position\":[2,0.25,1.5],\"massKg\":1.2,\"friction\":0.45},{\"sourceId\":\"bystander\",\"shape\":\"box\",\"size\":[0.5,0.5,0.6],\"restitution\":0,\"rotation\":[0,0,0,1],\"label\":\"bystander\",\"position\":[3,0.25,2.7],\"massKg\":1,\"friction\":0.6},{\"sourceId\":\"obstacle\",\"shape\":\"box\",\"size\":[0.8,1.2,0.8],\"restitution\":0,\"rotation\":[0,0,0,1],\"label\":\"obstacle\",\"position\":[0,0.6,0],\"massKg\":0,\"friction\":0.5},{\"sourceId\":\"C\",\"shape\":\"box\",\"size\":[0.65,0.4,0.5],\"restitution\":0,\"rotation\":[0,0,0,1],\"label\":\"C\",\"position\":[-3.6,0.2,0.7],\"massKg\":0.8,\"friction\":0.45}],\"format\":\"fraynix.spatial-scene\",\"units\":\"m\",\"source\":{\"note\":\"Declared synthetic sequential-world test; not a real room or learned policy.\",\"kind\":\"synthetic\",\"physicalProperties\":\"declared\"},\"title\":\"Labelled035 development three-body-chain\",\"version\":1,\"scaleReference\":{\"a\":[0,0,0],\"b\":[1,0,0],\"toleranceM\":0,\"knownLengthM\":1,\"basis\":\"declared-test\"},\"frame\":\"right-handed-y-up\",\"gravityMps2\":9.81}",
+            "units": "m",
+            "source": {
+              "note": "Declared synthetic sequential-world test; not a real room or learned policy.",
+              "kind": "synthetic",
+              "physicalProperties": "declared"
+            },
+            "title": "Labelled035 development three-body-chain",
+            "version": 1,
+            "gravityMps2": 9.81,
+            "sourceUnits": "m",
+            "sourceSha256": "14179faabdc943a5300212a2d4686632a1dbda573bf99e2689682099fd8760d4",
+            "id": "a50db948-147a-4e60-a25d-f51c425086d1",
+            "scaleCheck": {
+              "independentlyCalibrated": false,
+              "toleranceM": 0,
+              "knownLengthM": 1,
+              "passed": true,
+              "basis": "declared-test",
+              "convertedLengthM": 1
+            },
+            "frame": "right-handed-y-up"
+          }
+        }
+      },
+      {
+        "at": "2026-11-01T14:42:55.568442Z",
+        "goalId": "ebdfbc50-fad3-48fe-bc5b-4fa8c2e659af",
+        "kind": "goal",
+        "report": {
+          "sha256": "c42a30039e247931e1a13920f940569d791a8232564906aa37934fe3ee851823",
+          "id": "1d7a8324-cf47-39d1-822a-42fd927c9daa",
+          "version": 1
+        },
+        "receipt": {
+          "cells": 15,
+          "frames": 6,
+          "maxError": 3.0480468694804586e-05,
+          "dataSha256": "b752774cc05d5a56cd6790e93bbd5569f6c83157582a5e191819a44922c664f7",
+          "passed": true,
+          "points": 4638
+        },
+        "runId": "14c7e76f-462c-39fc-93f6-796761bfd76e",
+        "nativeCanonicalSha256": "9ecefc64cf0c51109c552357d4ba00f2d9ae15af3827126b04de058de3d4f996",
+        "metrics": {
+          "maxBoundaryPositionM": 0,
+          "maxBystanderDriftM": 1.4901161193847656e-08,
+          "grabs": 3,
+          "contactPoints": 9392,
+          "maxRestoreAngleErrorDeg": 0,
+          "targets": [
+            {
+              "sourceId": "A",
+              "speedMps": 4.3133576081691196e-05,
+              "positionErrorM": 0.0019445483784060222,
+              "angleErrorDeg": 0.00012428838371409626,
+              "angularSpeedRadps": 3.457985873715502e-06
+            },
+            {
+              "sourceId": "B",
+              "speedMps": 7.139778976380068e-05,
+              "positionErrorM": 0.0011134230353955163,
+              "angleErrorDeg": 0.00013243964679752175,
+              "angularSpeedRadps": 1.7398654147393752e-06
+            },
+            {
+              "sourceId": "C",
+              "speedMps": 0.0001110651101471405,
+              "positionErrorM": 4.062274138474157e-05,
+              "angleErrorDeg": 2.1621790875197717e-05,
+              "angularSpeedRadps": 1.963651737300478e-07
+            }
+          ],
+          "resumes": 0,
+          "maxRestoreVelocityError": 0,
+          "maxAngleErrorDeg": 0.00013243964679752175,
+          "maxRestorePositionErrorM": 0,
+          "scope": "Versioned persistent native box world, paused between goals; bounded virtual force/torque gripper and exact kinematic cold handoff, not contact-only pushing, a physical robot hand, photographic recognition or LLM-weight training.",
+          "maxTorqueNm": 0.5040000081062331,
+          "workJ": 1.1467835870511816,
+          "passed": true,
+          "maxPositionErrorM": 0.0019445483784060222,
+          "nativeTicks": 9265,
+          "maxForceN": 19.45200538781302,
+          "effortNs": 368.00850451577406,
+          "maxInactiveAngleDeg": 0.000780244286038924,
+          "maxInactiveDriftM": 0.014897466629257292,
+          "maxBoundaryVelocity": 0,
+          "releases": 3,
+          "maxBoundaryAngleDeg": 0,
+          "timeS": 38.604166666666664,
+          "maxAngularSpeedRadps": 3.457985873715502e-06,
+          "maxSpeedMps": 0.0001110651101471405,
+          "nativePhysics": true,
+          "torqueEffortNms": 0.47895986983014344,
+          "maxBystanderAngleDeg": 0.0002828179654014469,
+          "angularWorkJ": 0.0635771018766228
+        },
+        "parentHash": "817017cde30be63326b5a799d5123e7871f0b4c14bb85aafac77d779a553fbd0",
+        "hash": "7fb3a2f7f19fcbfcfec4ec40006df6fda82489dae75f9f47c92a3085ad0eae10",
+        "revision": 3,
+        "frame": {
+          "elapsedTicks": 26335,
+          "bodies": [
+            {
+              "rotation": [
+                -8.8257465e-08,
+                0.30070478,
+                8.916408e-08,
+                0.9537173
+              ],
+              "id": "332833ae-b71d-3c62-9525-12efa4fc2c1d",
+              "position": [
+                -2.000005006790161,
+                0.2999999225139618,
+                -1.5019445419311523
+              ],
+              "velocity": [
+                8.758348712945008e-08,
+                3.3974647521972656e-06,
+                -4.299947613617405e-05
+              ],
+              "angularVelocity": [
+                3.3834621717687696e-06,
+                5.456432177197712e-07,
+                4.6056868541199947e-07
+              ]
+            },
+            {
+              "rotation": [
+                3.426561e-08,
+                -0.3007069,
+                2.215323e-08,
+                0.9537166
+              ],
+              "id": "0afd1a6f-79de-34ed-ac03-7d9f34d7b259",
+              "position": [
+                2.000004291534424,
+                0.2499999701976776,
+                1.5011134147644043
+              ],
+              "velocity": [
+                -3.538675628078636e-07,
+                8.791685104370117e-07,
+                7.139149965951219e-05
+              ],
+              "angularVelocity": [
+                -5.865380217073835e-07,
+                -8.473975867673289e-07,
+                1.401792474098329e-06
+              ]
+            },
+            {
+              "rotation": [
+                5.9234853e-09,
+                -7.0201195e-06,
+                4.5462706e-08,
+                1
+              ],
+              "id": "9266be6f-f639-334a-b0ed-7d4c9dcd7ebd",
+              "position": [
+                2.9999382495880127,
+                0.2499999701976776,
+                2.700000047683716
+              ],
+              "velocity": [
+                4.258500396758791e-08,
+                1.6987323760986328e-06,
+                -3.298590955935765e-09
+              ],
+              "angularVelocity": [
+                6.719433827129251e-07,
+                -1.2782453495674417e-07,
+                -3.237274484035879e-07
+              ]
+            },
+            {
+              "rotation": [
+                3.9376918e-10,
+                0.1521232,
+                8.003472e-09,
+                0.98836154
+              ],
+              "id": "357fecb7-d947-380f-a61b-604e421089cb",
+              "position": [
+                -3.6000113487243652,
+                0.19999995827674866,
+                -1.100039005279541
+              ],
+              "velocity": [
+                -4.8333539837130957e-08,
+                1.4863908290863037e-06,
+                -0.00011105515295639634
+              ],
+              "angularVelocity": [
+                -1.2516621517022486e-08,
+                -2.842356927601486e-08,
+                1.9389356964438775e-07
+              ]
+            }
+          ],
+          "format": "fraynix.world-frame-035-v1",
+          "originalScene": {
+            "importedAt": "2026-11-01T14:41:35.474623400Z",
+            "objects": [
+              {
+                "sourceId": "floor",
+                "bodyType": "static",
+                "size": [
+                  12,
+                  0.5,
+                  12
+                ],
+                "restitution": 0,
+                "rotation": [
+                  0,
+                  0,
+                  0,
+                  1
+                ],
+                "id": "579a92fc-6717-3a5e-a83b-a06b4e5205a6",
+                "label": "floor",
+                "position": [
+                  0,
+                  -0.25,
+                  0
+                ],
+                "massKg": 0,
+                "friction": 0.5
+              },
+              {
+                "sourceId": "A",
+                "bodyType": "dynamic",
+                "size": [
+                  0.8,
+                  0.6,
+                  0.45
+                ],
+                "restitution": 0,
+                "rotation": [
+                  0,
+                  0,
+                  0,
+                  1
+                ],
+                "id": "332833ae-b71d-3c62-9525-12efa4fc2c1d",
+                "label": "A",
+                "position": [
+                  -2,
+                  0.3,
+                  -1.5
+                ],
+                "massKg": 1,
+                "friction": 0.45
+              },
+              {
+                "sourceId": "B",
+                "bodyType": "dynamic",
+                "size": [
+                  0.7,
+                  0.5,
+                  0.5
+                ],
+                "restitution": 0,
+                "rotation": [
+                  0,
+                  0,
+                  0,
+                  1
+                ],
+                "id": "0afd1a6f-79de-34ed-ac03-7d9f34d7b259",
+                "label": "B",
+                "position": [
+                  2,
+                  0.25,
+                  1.5
+                ],
+                "massKg": 1.2,
+                "friction": 0.45
+              },
+              {
+                "sourceId": "bystander",
+                "bodyType": "dynamic",
+                "size": [
+                  0.5,
+                  0.5,
+                  0.6
+                ],
+                "restitution": 0,
+                "rotation": [
+                  0,
+                  0,
+                  0,
+                  1
+                ],
+                "id": "9266be6f-f639-334a-b0ed-7d4c9dcd7ebd",
+                "label": "bystander",
+                "position": [
+                  3,
+                  0.25,
+                  2.7
+                ],
+                "massKg": 1,
+                "friction": 0.6
+              },
+              {
+                "sourceId": "obstacle",
+                "bodyType": "static",
+                "size": [
+                  0.8,
+                  1.2,
+                  0.8
+                ],
+                "restitution": 0,
+                "rotation": [
+                  0,
+                  0,
+                  0,
+                  1
+                ],
+                "id": "d820aec9-77a7-35fc-aa82-911111c14e77",
+                "label": "obstacle",
+                "position": [
+                  0,
+                  0.6,
+                  0
+                ],
+                "massKg": 0,
+                "friction": 0.5
+              },
+              {
+                "sourceId": "C",
+                "bodyType": "dynamic",
+                "size": [
+                  0.65,
+                  0.4,
+                  0.5
+                ],
+                "restitution": 0,
+                "rotation": [
+                  0,
+                  0,
+                  0,
+                  1
+                ],
+                "id": "357fecb7-d947-380f-a61b-604e421089cb",
+                "label": "C",
+                "position": [
+                  -3.6,
+                  0.2,
+                  0.7
+                ],
+                "massKg": 0.8,
+                "friction": 0.45
+              }
+            ],
+            "format": "fraynix.spatial-scene",
+            "sourceText": "{\"objects\":[{\"sourceId\":\"floor\",\"shape\":\"box\",\"size\":[12,0.5,12],\"restitution\":0,\"rotation\":[0,0,0,1],\"label\":\"floor\",\"position\":[0,-0.25,0],\"massKg\":0,\"friction\":0.5},{\"sourceId\":\"A\",\"shape\":\"box\",\"size\":[0.8,0.6,0.45],\"restitution\":0,\"rotation\":[0,0,0,1],\"label\":\"A\",\"position\":[-2,0.3,-1.5],\"massKg\":1,\"friction\":0.45},{\"sourceId\":\"B\",\"shape\":\"box\",\"size\":[0.7,0.5,0.5],\"restitution\":0,\"rotation\":[0,0,0,1],\"label\":\"B\",\"position\":[2,0.25,1.5],\"massKg\":1.2,\"friction\":0.45},{\"sourceId\":\"bystander\",\"shape\":\"box\",\"size\":[0.5,0.5,0.6],\"restitution\":0,\"rotation\":[0,0,0,1],\"label\":\"bystander\",\"position\":[3,0.25,2.7],\"massKg\":1,\"friction\":0.6},{\"sourceId\":\"obstacle\",\"shape\":\"box\",\"size\":[0.8,1.2,0.8],\"restitution\":0,\"rotation\":[0,0,0,1],\"label\":\"obstacle\",\"position\":[0,0.6,0],\"massKg\":0,\"friction\":0.5},{\"sourceId\":\"C\",\"shape\":\"box\",\"size\":[0.65,0.4,0.5],\"restitution\":0,\"rotation\":[0,0,0,1],\"label\":\"C\",\"position\":[-3.6,0.2,0.7],\"massKg\":0.8,\"friction\":0.45}],\"format\":\"fraynix.spatial-scene\",\"units\":\"m\",\"source\":{\"note\":\"Declared synthetic sequential-world test; not a real room or learned policy.\",\"kind\":\"synthetic\",\"physicalProperties\":\"declared\"},\"title\":\"Labelled035 development three-body-chain\",\"version\":1,\"scaleReference\":{\"a\":[0,0,0],\"b\":[1,0,0],\"toleranceM\":0,\"knownLengthM\":1,\"basis\":\"declared-test\"},\"frame\":\"right-handed-y-up\",\"gravityMps2\":9.81}",
+            "units": "m",
+            "source": {
+              "note": "Declared synthetic sequential-world test; not a real room or learned policy.",
+              "kind": "synthetic",
+              "physicalProperties": "declared"
+            },
+            "title": "Labelled035 development three-body-chain",
+            "version": 1,
+            "gravityMps2": 9.81,
+            "sourceUnits": "m",
+            "sourceSha256": "14179faabdc943a5300212a2d4686632a1dbda573bf99e2689682099fd8760d4",
+            "id": "a50db948-147a-4e60-a25d-f51c425086d1",
+            "scaleCheck": {
+              "independentlyCalibrated": false,
+              "toleranceM": 0,
+              "knownLengthM": 1,
+              "passed": true,
+              "basis": "declared-test",
+              "convertedLengthM": 1
+            },
+            "frame": "right-handed-y-up"
+          }
+        }
+      },
+      {
+        "abandonedGoalId": "4b9721ce-e65b-4041-98b0-688b2789e1f2",
+        "reason": "Explicit state restoration, not physical movement",
+        "at": "2026-11-01T14:42:58.767739200Z",
+        "kind": "restore",
+        "restoredRevision": 3,
+        "abandonedRunId": "c2a63888-e3f3-345f-9799-1d057e2acdbb",
+        "parentHash": "7fb3a2f7f19fcbfcfec4ec40006df6fda82489dae75f9f47c92a3085ad0eae10",
+        "hash": "6fef7e4a7064819b658ac55d2c4df83e627fe9a38445b7d3c2909f9ae0e9c0e8",
+        "revision": 4,
+        "frame": {
+          "elapsedTicks": 26335,
+          "bodies": [
+            {
+              "rotation": [
+                -8.8257465e-08,
+                0.30070478,
+                8.916408e-08,
+                0.9537173
+              ],
+              "id": "332833ae-b71d-3c62-9525-12efa4fc2c1d",
+              "position": [
+                -2.000005006790161,
+                0.2999999225139618,
+                -1.5019445419311523
+              ],
+              "velocity": [
+                8.758348712945008e-08,
+                3.3974647521972656e-06,
+                -4.299947613617405e-05
+              ],
+              "angularVelocity": [
+                3.3834621717687696e-06,
+                5.456432177197712e-07,
+                4.6056868541199947e-07
+              ]
+            },
+            {
+              "rotation": [
+                3.426561e-08,
+                -0.3007069,
+                2.215323e-08,
+                0.9537166
+              ],
+              "id": "0afd1a6f-79de-34ed-ac03-7d9f34d7b259",
+              "position": [
+                2.000004291534424,
+                0.2499999701976776,
+                1.5011134147644043
+              ],
+              "velocity": [
+                -3.538675628078636e-07,
+                8.791685104370117e-07,
+                7.139149965951219e-05
+              ],
+              "angularVelocity": [
+                -5.865380217073835e-07,
+                -8.473975867673289e-07,
+                1.401792474098329e-06
+              ]
+            },
+            {
+              "rotation": [
+                5.9234853e-09,
+                -7.0201195e-06,
+                4.5462706e-08,
+                1
+              ],
+              "id": "9266be6f-f639-334a-b0ed-7d4c9dcd7ebd",
+              "position": [
+                2.9999382495880127,
+                0.2499999701976776,
+                2.700000047683716
+              ],
+              "velocity": [
+                4.258500396758791e-08,
+                1.6987323760986328e-06,
+                -3.298590955935765e-09
+              ],
+              "angularVelocity": [
+                6.719433827129251e-07,
+                -1.2782453495674417e-07,
+                -3.237274484035879e-07
+              ]
+            },
+            {
+              "rotation": [
+                3.9376918e-10,
+                0.1521232,
+                8.003472e-09,
+                0.98836154
+              ],
+              "id": "357fecb7-d947-380f-a61b-604e421089cb",
+              "position": [
+                -3.6000113487243652,
+                0.19999995827674866,
+                -1.100039005279541
+              ],
+              "velocity": [
+                -4.8333539837130957e-08,
+                1.4863908290863037e-06,
+                -0.00011105515295639634
+              ],
+              "angularVelocity": [
+                -1.2516621517022486e-08,
+                -2.842356927601486e-08,
+                1.9389356964438775e-07
+              ]
+            }
+          ],
+          "format": "fraynix.world-frame-035-v1",
+          "originalScene": {
+            "importedAt": "2026-11-01T14:41:35.474623400Z",
+            "objects": [
+              {
+                "sourceId": "floor",
+                "bodyType": "static",
+                "size": [
+                  12,
+                  0.5,
+                  12
+                ],
+                "restitution": 0,
+                "rotation": [
+                  0,
+                  0,
+                  0,
+                  1
+                ],
+                "id": "579a92fc-6717-3a5e-a83b-a06b4e5205a6",
+                "label": "floor",
+                "position": [
+                  0,
+                  -0.25,
+                  0
+                ],
+                "massKg": 0,
+                "friction": 0.5
+              },
+              {
+                "sourceId": "A",
+                "bodyType": "dynamic",
+                "size": [
+                  0.8,
+                  0.6,
+                  0.45
+                ],
+                "restitution": 0,
+                "rotation": [
+                  0,
+                  0,
+                  0,
+                  1
+                ],
+                "id": "332833ae-b71d-3c62-9525-12efa4fc2c1d",
+                "label": "A",
+                "position": [
+                  -2,
+                  0.3,
+                  -1.5
+                ],
+                "massKg": 1,
+                "friction": 0.45
+              },
+              {
+                "sourceId": "B",
+                "bodyType": "dynamic",
+                "size": [
+                  0.7,
+                  0.5,
+                  0.5
+                ],
+                "restitution": 0,
+                "rotation": [
+                  0,
+                  0,
+                  0,
+                  1
+                ],
+                "id": "0afd1a6f-79de-34ed-ac03-7d9f34d7b259",
+                "label": "B",
+                "position": [
+                  2,
+                  0.25,
+                  1.5
+                ],
+                "massKg": 1.2,
+                "friction": 0.45
+              },
+              {
+                "sourceId": "bystander",
+                "bodyType": "dynamic",
+                "size": [
+                  0.5,
+                  0.5,
+                  0.6
+                ],
+                "restitution": 0,
+                "rotation": [
+                  0,
+                  0,
+                  0,
+                  1
+                ],
+                "id": "9266be6f-f639-334a-b0ed-7d4c9dcd7ebd",
+                "label": "bystander",
+                "position": [
+                  3,
+                  0.25,
+                  2.7
+                ],
+                "massKg": 1,
+                "friction": 0.6
+              },
+              {
+                "sourceId": "obstacle",
+                "bodyType": "static",
+                "size": [
+                  0.8,
+                  1.2,
+                  0.8
+                ],
+                "restitution": 0,
+                "rotation": [
+                  0,
+                  0,
+                  0,
+                  1
+                ],
+                "id": "d820aec9-77a7-35fc-aa82-911111c14e77",
+                "label": "obstacle",
+                "position": [
+                  0,
+                  0.6,
+                  0
+                ],
+                "massKg": 0,
+                "friction": 0.5
+              },
+              {
+                "sourceId": "C",
+                "bodyType": "dynamic",
+                "size": [
+                  0.65,
+                  0.4,
+                  0.5
+                ],
+                "restitution": 0,
+                "rotation": [
+                  0,
+                  0,
+                  0,
+                  1
+                ],
+                "id": "357fecb7-d947-380f-a61b-604e421089cb",
+                "label": "C",
+                "position": [
+                  -3.6,
+                  0.2,
+                  0.7
+                ],
+                "massKg": 0.8,
+                "friction": 0.45
+              }
+            ],
+            "format": "fraynix.spatial-scene",
+            "sourceText": "{\"objects\":[{\"sourceId\":\"floor\",\"shape\":\"box\",\"size\":[12,0.5,12],\"restitution\":0,\"rotation\":[0,0,0,1],\"label\":\"floor\",\"position\":[0,-0.25,0],\"massKg\":0,\"friction\":0.5},{\"sourceId\":\"A\",\"shape\":\"box\",\"size\":[0.8,0.6,0.45],\"restitution\":0,\"rotation\":[0,0,0,1],\"label\":\"A\",\"position\":[-2,0.3,-1.5],\"massKg\":1,\"friction\":0.45},{\"sourceId\":\"B\",\"shape\":\"box\",\"size\":[0.7,0.5,0.5],\"restitution\":0,\"rotation\":[0,0,0,1],\"label\":\"B\",\"position\":[2,0.25,1.5],\"massKg\":1.2,\"friction\":0.45},{\"sourceId\":\"bystander\",\"shape\":\"box\",\"size\":[0.5,0.5,0.6],\"restitution\":0,\"rotation\":[0,0,0,1],\"label\":\"bystander\",\"position\":[3,0.25,2.7],\"massKg\":1,\"friction\":0.6},{\"sourceId\":\"obstacle\",\"shape\":\"box\",\"size\":[0.8,1.2,0.8],\"restitution\":0,\"rotation\":[0,0,0,1],\"label\":\"obstacle\",\"position\":[0,0.6,0],\"massKg\":0,\"friction\":0.5},{\"sourceId\":\"C\",\"shape\":\"box\",\"size\":[0.65,0.4,0.5],\"restitution\":0,\"rotation\":[0,0,0,1],\"label\":\"C\",\"position\":[-3.6,0.2,0.7],\"massKg\":0.8,\"friction\":0.45}],\"format\":\"fraynix.spatial-scene\",\"units\":\"m\",\"source\":{\"note\":\"Declared synthetic sequential-world test; not a real room or learned policy.\",\"kind\":\"synthetic\",\"physicalProperties\":\"declared\"},\"title\":\"Labelled035 development three-body-chain\",\"version\":1,\"scaleReference\":{\"a\":[0,0,0],\"b\":[1,0,0],\"toleranceM\":0,\"knownLengthM\":1,\"basis\":\"declared-test\"},\"frame\":\"right-handed-y-up\",\"gravityMps2\":9.81}",
+            "units": "m",
+            "source": {
+              "note": "Declared synthetic sequential-world test; not a real room or learned policy.",
+              "kind": "synthetic",
+              "physicalProperties": "declared"
+            },
+            "title": "Labelled035 development three-body-chain",
+            "version": 1,
+            "gravityMps2": 9.81,
+            "sourceUnits": "m",
+            "sourceSha256": "14179faabdc943a5300212a2d4686632a1dbda573bf99e2689682099fd8760d4",
+            "id": "a50db948-147a-4e60-a25d-f51c425086d1",
+            "scaleCheck": {
+              "independentlyCalibrated": false,
+              "toleranceM": 0,
+              "knownLengthM": 1,
+              "passed": true,
+              "basis": "declared-test",
+              "convertedLengthM": 1
+            },
+            "frame": "right-handed-y-up"
+          }
+        }
+      },
+      {
+        "reason": "Explicit state restoration, not physical movement",
+        "at": "2026-11-01T14:42:59.036255400Z",
+        "kind": "restore",
+        "restoredRevision": 1,
+        "parentHash": "6fef7e4a7064819b658ac55d2c4df83e627fe9a38445b7d3c2909f9ae0e9c0e8",
+        "hash": "b72722a030b8b94e816f064ec44852a0c55a8e62049b00dfde16bbea02880c4c",
+        "revision": 5,
+        "frame": {
+          "elapsedTicks": 8542,
+          "bodies": [
+            {
+              "rotation": [
+                -1.839247e-07,
+                0.7071045,
+                2.1527204e-07,
+                0.70710903
+              ],
+              "id": "332833ae-b71d-3c62-9525-12efa4fc2c1d",
+              "position": [
+                -1.0000050067901611,
+                0.2999999225139618,
+                1.1017374992370605
+              ],
+              "velocity": [
+                7.532302674917446e-07,
+                2.4512410163879395e-06,
+                4.2858795495703816e-05
+              ],
+              "angularVelocity": [
+                -4.215855540223856e-07,
+                1.8093494418280898e-06,
+                -9.829288671880931e-08
+              ]
+            },
+            {
+              "rotation": [
+                -9.5673e-08,
+                -0.70710623,
+                -6.370941e-08,
+                0.7071073
+              ],
+              "id": "0afd1a6f-79de-34ed-ac03-7d9f34d7b259",
+              "position": [
+                1.0000044107437134,
+                0.2499999850988388,
+                -1.1010111570358276
+              ],
+              "velocity": [
+                -1.891543490728509e-07,
+                -8.67992639541626e-07,
+                -7.075492612784728e-05
+              ],
+              "angularVelocity": [
+                -6.579161322406435e-07,
+                7.284682510544371e-07,
+                -2.632371831623459e-07
+              ]
+            },
+            {
+              "rotation": [
+                5.386485e-09,
+                -2.275588e-06,
+                4.8761525e-08,
+                1
+              ],
+              "id": "9266be6f-f639-334a-b0ed-7d4c9dcd7ebd",
+              "position": [
+                3,
+                0.2499999850988388,
+                2.700000047683716
+              ],
+              "velocity": [
+                -1.0252714446323807e-06,
+                6.258487701416016e-07,
+                0
+              ],
+              "angularVelocity": [
+                6.699009418298374e-07,
+                -1.2762698986534815e-07,
+                3.947935056203278e-06
+              ]
+            },
+            {
+              "rotation": [
+                -1.47082035e-08,
+                0.3826878,
+                1.5860437e-08,
+                0.9238777
+              ],
+              "id": "357fecb7-d947-380f-a61b-604e421089cb",
+              "position": [
+                -3.6000001430511475,
+                0.19999995827674866,
+                -1.1000385284423828
+              ],
+              "velocity": [
+                -6.26372980150336e-08,
+                1.4975666999816895e-06,
+                -0.0001138697043643333
+              ],
+              "angularVelocity": [
+                -3.8514363041031174e-06,
+                1.2791562653546862e-07,
+                5.732305794481363e-07
+              ]
+            }
+          ],
+          "format": "fraynix.world-frame-035-v1",
+          "originalScene": {
+            "importedAt": "2026-11-01T14:41:35.474623400Z",
+            "objects": [
+              {
+                "sourceId": "floor",
+                "bodyType": "static",
+                "size": [
+                  12,
+                  0.5,
+                  12
+                ],
+                "restitution": 0,
+                "rotation": [
+                  0,
+                  0,
+                  0,
+                  1
+                ],
+                "id": "579a92fc-6717-3a5e-a83b-a06b4e5205a6",
+                "label": "floor",
+                "position": [
+                  0,
+                  -0.25,
+                  0
+                ],
+                "massKg": 0,
+                "friction": 0.5
+              },
+              {
+                "sourceId": "A",
+                "bodyType": "dynamic",
+                "size": [
+                  0.8,
+                  0.6,
+                  0.45
+                ],
+                "restitution": 0,
+                "rotation": [
+                  0,
+                  0,
+                  0,
+                  1
+                ],
+                "id": "332833ae-b71d-3c62-9525-12efa4fc2c1d",
+                "label": "A",
+                "position": [
+                  -2,
+                  0.3,
+                  -1.5
+                ],
+                "massKg": 1,
+                "friction": 0.45
+              },
+              {
+                "sourceId": "B",
+                "bodyType": "dynamic",
+                "size": [
+                  0.7,
+                  0.5,
+                  0.5
+                ],
+                "restitution": 0,
+                "rotation": [
+                  0,
+                  0,
+                  0,
+                  1
+                ],
+                "id": "0afd1a6f-79de-34ed-ac03-7d9f34d7b259",
+                "label": "B",
+                "position": [
+                  2,
+                  0.25,
+                  1.5
+                ],
+                "massKg": 1.2,
+                "friction": 0.45
+              },
+              {
+                "sourceId": "bystander",
+                "bodyType": "dynamic",
+                "size": [
+                  0.5,
+                  0.5,
+                  0.6
+                ],
+                "restitution": 0,
+                "rotation": [
+                  0,
+                  0,
+                  0,
+                  1
+                ],
+                "id": "9266be6f-f639-334a-b0ed-7d4c9dcd7ebd",
+                "label": "bystander",
+                "position": [
+                  3,
+                  0.25,
+                  2.7
+                ],
+                "massKg": 1,
+                "friction": 0.6
+              },
+              {
+                "sourceId": "obstacle",
+                "bodyType": "static",
+                "size": [
+                  0.8,
+                  1.2,
+                  0.8
+                ],
+                "restitution": 0,
+                "rotation": [
+                  0,
+                  0,
+                  0,
+                  1
+                ],
+                "id": "d820aec9-77a7-35fc-aa82-911111c14e77",
+                "label": "obstacle",
+                "position": [
+                  0,
+                  0.6,
+                  0
+                ],
+                "massKg": 0,
+                "friction": 0.5
+              },
+              {
+                "sourceId": "C",
+                "bodyType": "dynamic",
+                "size": [
+                  0.65,
+                  0.4,
+                  0.5
+                ],
+                "restitution": 0,
+                "rotation": [
+                  0,
+                  0,
+                  0,
+                  1
+                ],
+                "id": "357fecb7-d947-380f-a61b-604e421089cb",
+                "label": "C",
+                "position": [
+                  -3.6,
+                  0.2,
+                  0.7
+                ],
+                "massKg": 0.8,
+                "friction": 0.45
+              }
+            ],
+            "format": "fraynix.spatial-scene",
+            "sourceText": "{\"objects\":[{\"sourceId\":\"floor\",\"shape\":\"box\",\"size\":[12,0.5,12],\"restitution\":0,\"rotation\":[0,0,0,1],\"label\":\"floor\",\"position\":[0,-0.25,0],\"massKg\":0,\"friction\":0.5},{\"sourceId\":\"A\",\"shape\":\"box\",\"size\":[0.8,0.6,0.45],\"restitution\":0,\"rotation\":[0,0,0,1],\"label\":\"A\",\"position\":[-2,0.3,-1.5],\"massKg\":1,\"friction\":0.45},{\"sourceId\":\"B\",\"shape\":\"box\",\"size\":[0.7,0.5,0.5],\"restitution\":0,\"rotation\":[0,0,0,1],\"label\":\"B\",\"position\":[2,0.25,1.5],\"massKg\":1.2,\"friction\":0.45},{\"sourceId\":\"bystander\",\"shape\":\"box\",\"size\":[0.5,0.5,0.6],\"restitution\":0,\"rotation\":[0,0,0,1],\"label\":\"bystander\",\"position\":[3,0.25,2.7],\"massKg\":1,\"friction\":0.6},{\"sourceId\":\"obstacle\",\"shape\":\"box\",\"size\":[0.8,1.2,0.8],\"restitution\":0,\"rotation\":[0,0,0,1],\"label\":\"obstacle\",\"position\":[0,0.6,0],\"massKg\":0,\"friction\":0.5},{\"sourceId\":\"C\",\"shape\":\"box\",\"size\":[0.65,0.4,0.5],\"restitution\":0,\"rotation\":[0,0,0,1],\"label\":\"C\",\"position\":[-3.6,0.2,0.7],\"massKg\":0.8,\"friction\":0.45}],\"format\":\"fraynix.spatial-scene\",\"units\":\"m\",\"source\":{\"note\":\"Declared synthetic sequential-world test; not a real room or learned policy.\",\"kind\":\"synthetic\",\"physicalProperties\":\"declared\"},\"title\":\"Labelled035 development three-body-chain\",\"version\":1,\"scaleReference\":{\"a\":[0,0,0],\"b\":[1,0,0],\"toleranceM\":0,\"knownLengthM\":1,\"basis\":\"declared-test\"},\"frame\":\"right-handed-y-up\",\"gravityMps2\":9.81}",
+            "units": "m",
+            "source": {
+              "note": "Declared synthetic sequential-world test; not a real room or learned policy.",
+              "kind": "synthetic",
+              "physicalProperties": "declared"
+            },
+            "title": "Labelled035 development three-body-chain",
+            "version": 1,
+            "gravityMps2": 9.81,
+            "sourceUnits": "m",
+            "sourceSha256": "14179faabdc943a5300212a2d4686632a1dbda573bf99e2689682099fd8760d4",
+            "id": "a50db948-147a-4e60-a25d-f51c425086d1",
+            "scaleCheck": {
+              "independentlyCalibrated": false,
+              "toleranceM": 0,
+              "knownLengthM": 1,
+              "passed": true,
+              "basis": "declared-test",
+              "convertedLengthM": 1
+            },
+            "frame": "right-handed-y-up"
+          }
+        }
+      },
+      {
+        "at": "2026-11-01T14:43:14.457715800Z",
+        "goalId": "053f1d55-8a30-42f4-a227-430548d6ecbb",
+        "kind": "goal",
+        "report": {
+          "sha256": "c532e32f2b3a37a9713d4c36760a66d4b96186a2fc4b5cace4c942d985918a0b",
+          "id": "3f3a0fa0-dec7-3823-8da4-9007208ef4d1",
+          "version": 1
+        },
+        "receipt": {
+          "cells": 10,
+          "frames": 6,
+          "maxError": 3.0515624985127943e-05,
+          "dataSha256": "c38f903a72a2945543509414c5695fb38bee7f2d3db7756b21aa7472d0ab370f",
+          "passed": true,
+          "points": 2868
+        },
+        "runId": "56e3ecbc-6cec-3bf3-8e99-df9706a99533",
+        "nativeCanonicalSha256": "d1cf485d43710b2f96a7939dbe7f79d16d77656906b3934caf3421f65833f4dd",
+        "metrics": {
+          "maxBoundaryPositionM": 0,
+          "maxBystanderDriftM": 0.0017808675766614627,
+          "grabs": 2,
+          "contactPoints": 5816,
+          "maxRestoreAngleErrorDeg": 0,
+          "targets": [
+            {
+              "sourceId": "A",
+              "speedMps": 6.686692462176429e-05,
+              "positionErrorM": 0.0010761162312727661,
+              "angleErrorDeg": 0.0002158119179566213,
+              "angularSpeedRadps": 1.2693872049901937e-05
+            },
+            {
+              "sourceId": "B",
+              "speedMps": 0.00010825512552175991,
+              "positionErrorM": 3.997211423446008e-05,
+              "angleErrorDeg": 0.00019489900384095756,
+              "angularSpeedRadps": 1.0176117802999072e-06
+            }
+          ],
+          "resumes": 0,
+          "maxRestoreVelocityError": 0,
+          "maxAngleErrorDeg": 0.0002158119179566213,
+          "maxRestorePositionErrorM": 0,
+          "scope": "Versioned persistent native box world, paused between goals; bounded virtual force/torque gripper and exact kinematic cold handoff, not contact-only pushing, a physical robot hand, photographic recognition or LLM-weight training.",
+          "maxTorqueNm": 0.5040000081062351,
+          "workJ": 0.8028561811846396,
+          "passed": true,
+          "maxPositionErrorM": 0.0010761162312727661,
+          "nativeTicks": 5725,
+          "maxForceN": 19.451984415570102,
+          "effortNs": 246.76218852718492,
+          "maxInactiveAngleDeg": 0.020984441850925236,
+          "maxInactiveDriftM": 0.014892132071612945,
+          "maxBoundaryVelocity": 0,
+          "releases": 2,
+          "maxBoundaryAngleDeg": 0,
+          "timeS": 23.854166666666668,
+          "maxAngularSpeedRadps": 1.2693872049901937e-05,
+          "maxSpeedMps": 0.00010825512552175991,
+          "nativePhysics": true,
+          "torqueEffortNms": 0.34511903948798,
+          "maxBystanderAngleDeg": 0.019991973383496293,
+          "angularWorkJ": 0.029817224323726663
+        },
+        "parentHash": "b72722a030b8b94e816f064ec44852a0c55a8e62049b00dfde16bbea02880c4c",
+        "hash": "a144049c7b1a21ddcf2e6c5b336a4bb6904ba89d0443773d92de9347a8cc9d74",
+        "revision": 6,
+        "frame": {
+          "elapsedTicks": 14267,
+          "bodies": [
+            {
+              "rotation": [
+                -2.5087732e-09,
+                0.3007076,
+                4.4935206e-08,
+                0.9537164
+              ],
+              "id": "332833ae-b71d-3c62-9525-12efa4fc2c1d",
+              "position": [
+                -1.9999945163726807,
+                0.2999999225139618,
+                -1.501076102256775
+              ],
+              "velocity": [
+                3.7141412576602306e-06,
+                2.2426247596740723e-06,
+                -6.672601739410311e-05
+              ],
+              "angularVelocity": [
+                5.065774075774243e-06,
+                5.467660457725287e-07,
+                -1.16264081952977e-05
+              ]
+            },
+            {
+              "rotation": [
+                1.4569782e-08,
+                -0.30070418,
+                1.4472077e-08,
+                0.95371747
+              ],
+              "id": "0afd1a6f-79de-34ed-ac03-7d9f34d7b259",
+              "position": [
+                1.9999943971633911,
+                0.2499999701976776,
+                1.5000395774841309
+              ],
+              "velocity": [
+                -1.4369865652952285e-07,
+                1.2367963790893555e-06,
+                0.00010824796481756493
+              ],
+              "angularVelocity": [
+                -1.3029875844949856e-08,
+                -8.488505045534112e-07,
+                5.610853577309172e-07
+              ]
+            },
+            {
+              "rotation": [
+                3.765136e-09,
+                -3.8043938e-06,
+                4.9141278e-08,
+                1
+              ],
+              "id": "9266be6f-f639-334a-b0ed-7d4c9dcd7ebd",
+              "position": [
+                2.9999382495880127,
+                0.2499999701976776,
+                2.700000047683716
+              ],
+              "velocity": [
+                -1.0263534022669774e-06,
+                1.344829797744751e-06,
+                -2.568378398848381e-08
+              ],
+              "angularVelocity": [
+                6.662294254056178e-07,
+                -1.2761367429448e-07,
+                3.952278348151594e-06
+              ]
+            },
+            {
+              "rotation": [
+                6.6945316e-10,
+                0.3826878,
+                3.0627668e-08,
+                0.9238777
+              ],
+              "id": "357fecb7-d947-380f-a61b-604e421089cb",
+              "position": [
+                -3.6000001430511475,
+                0.19999997317790985,
+                -1.101819396018982
+              ],
+              "velocity": [
+                -4.249186531524174e-07,
+                5.550682544708252e-07,
+                -4.300957516534254e-05
+              ],
+              "angularVelocity": [
+                -1.7682834823062876e-06,
+                1.2779776170646073e-07,
+                2.38439861277584e-06
+              ]
+            }
+          ],
+          "format": "fraynix.world-frame-035-v1",
+          "originalScene": {
+            "importedAt": "2026-11-01T14:41:35.474623400Z",
+            "objects": [
+              {
+                "sourceId": "floor",
+                "bodyType": "static",
+                "size": [
+                  12,
+                  0.5,
+                  12
+                ],
+                "restitution": 0,
+                "rotation": [
+                  0,
+                  0,
+                  0,
+                  1
+                ],
+                "id": "579a92fc-6717-3a5e-a83b-a06b4e5205a6",
+                "label": "floor",
+                "position": [
+                  0,
+                  -0.25,
+                  0
+                ],
+                "massKg": 0,
+                "friction": 0.5
+              },
+              {
+                "sourceId": "A",
+                "bodyType": "dynamic",
+                "size": [
+                  0.8,
+                  0.6,
+                  0.45
+                ],
+                "restitution": 0,
+                "rotation": [
+                  0,
+                  0,
+                  0,
+                  1
+                ],
+                "id": "332833ae-b71d-3c62-9525-12efa4fc2c1d",
+                "label": "A",
+                "position": [
+                  -2,
+                  0.3,
+                  -1.5
+                ],
+                "massKg": 1,
+                "friction": 0.45
+              },
+              {
+                "sourceId": "B",
+                "bodyType": "dynamic",
+                "size": [
+                  0.7,
+                  0.5,
+                  0.5
+                ],
+                "restitution": 0,
+                "rotation": [
+                  0,
+                  0,
+                  0,
+                  1
+                ],
+                "id": "0afd1a6f-79de-34ed-ac03-7d9f34d7b259",
+                "label": "B",
+                "position": [
+                  2,
+                  0.25,
+                  1.5
+                ],
+                "massKg": 1.2,
+                "friction": 0.45
+              },
+              {
+                "sourceId": "bystander",
+                "bodyType": "dynamic",
+                "size": [
+                  0.5,
+                  0.5,
+                  0.6
+                ],
+                "restitution": 0,
+                "rotation": [
+                  0,
+                  0,
+                  0,
+                  1
+                ],
+                "id": "9266be6f-f639-334a-b0ed-7d4c9dcd7ebd",
+                "label": "bystander",
+                "position": [
+                  3,
+                  0.25,
+                  2.7
+                ],
+                "massKg": 1,
+                "friction": 0.6
+              },
+              {
+                "sourceId": "obstacle",
+                "bodyType": "static",
+                "size": [
+                  0.8,
+                  1.2,
+                  0.8
+                ],
+                "restitution": 0,
+                "rotation": [
+                  0,
+                  0,
+                  0,
+                  1
+                ],
+                "id": "d820aec9-77a7-35fc-aa82-911111c14e77",
+                "label": "obstacle",
+                "position": [
+                  0,
+                  0.6,
+                  0
+                ],
+                "massKg": 0,
+                "friction": 0.5
+              },
+              {
+                "sourceId": "C",
+                "bodyType": "dynamic",
+                "size": [
+                  0.65,
+                  0.4,
+                  0.5
+                ],
+                "restitution": 0,
+                "rotation": [
+                  0,
+                  0,
+                  0,
+                  1
+                ],
+                "id": "357fecb7-d947-380f-a61b-604e421089cb",
+                "label": "C",
+                "position": [
+                  -3.6,
+                  0.2,
+                  0.7
+                ],
+                "massKg": 0.8,
+                "friction": 0.45
+              }
+            ],
+            "format": "fraynix.spatial-scene",
+            "sourceText": "{\"objects\":[{\"sourceId\":\"floor\",\"shape\":\"box\",\"size\":[12,0.5,12],\"restitution\":0,\"rotation\":[0,0,0,1],\"label\":\"floor\",\"position\":[0,-0.25,0],\"massKg\":0,\"friction\":0.5},{\"sourceId\":\"A\",\"shape\":\"box\",\"size\":[0.8,0.6,0.45],\"restitution\":0,\"rotation\":[0,0,0,1],\"label\":\"A\",\"position\":[-2,0.3,-1.5],\"massKg\":1,\"friction\":0.45},{\"sourceId\":\"B\",\"shape\":\"box\",\"size\":[0.7,0.5,0.5],\"restitution\":0,\"rotation\":[0,0,0,1],\"label\":\"B\",\"position\":[2,0.25,1.5],\"massKg\":1.2,\"friction\":0.45},{\"sourceId\":\"bystander\",\"shape\":\"box\",\"size\":[0.5,0.5,0.6],\"restitution\":0,\"rotation\":[0,0,0,1],\"label\":\"bystander\",\"position\":[3,0.25,2.7],\"massKg\":1,\"friction\":0.6},{\"sourceId\":\"obstacle\",\"shape\":\"box\",\"size\":[0.8,1.2,0.8],\"restitution\":0,\"rotation\":[0,0,0,1],\"label\":\"obstacle\",\"position\":[0,0.6,0],\"massKg\":0,\"friction\":0.5},{\"sourceId\":\"C\",\"shape\":\"box\",\"size\":[0.65,0.4,0.5],\"restitution\":0,\"rotation\":[0,0,0,1],\"label\":\"C\",\"position\":[-3.6,0.2,0.7],\"massKg\":0.8,\"friction\":0.45}],\"format\":\"fraynix.spatial-scene\",\"units\":\"m\",\"source\":{\"note\":\"Declared synthetic sequential-world test; not a real room or learned policy.\",\"kind\":\"synthetic\",\"physicalProperties\":\"declared\"},\"title\":\"Labelled035 development three-body-chain\",\"version\":1,\"scaleReference\":{\"a\":[0,0,0],\"b\":[1,0,0],\"toleranceM\":0,\"knownLengthM\":1,\"basis\":\"declared-test\"},\"frame\":\"right-handed-y-up\",\"gravityMps2\":9.81}",
+            "units": "m",
+            "source": {
+              "note": "Declared synthetic sequential-world test; not a real room or learned policy.",
+              "kind": "synthetic",
+              "physicalProperties": "declared"
+            },
+            "title": "Labelled035 development three-body-chain",
+            "version": 1,
+            "gravityMps2": 9.81,
+            "sourceUnits": "m",
+            "sourceSha256": "14179faabdc943a5300212a2d4686632a1dbda573bf99e2689682099fd8760d4",
+            "id": "a50db948-147a-4e60-a25d-f51c425086d1",
+            "scaleCheck": {
+              "independentlyCalibrated": false,
+              "toleranceM": 0,
+              "knownLengthM": 1,
+              "passed": true,
+              "basis": "declared-test",
+              "convertedLengthM": 1
+            },
+            "frame": "right-handed-y-up"
+          }
+        }
+      },
+      {
+        "abandonedGoalId": "44ab3ec2-3464-4e03-8be7-7985f7c81fcf",
+        "reason": "Explicit state restoration, not physical movement",
+        "at": "2026-11-01T14:43:17.447931200Z",
+        "kind": "restore",
+        "restoredRevision": 6,
+        "abandonedRunId": "c74e6204-c494-3841-afc9-9e9333c6fcc6",
+        "parentHash": "a144049c7b1a21ddcf2e6c5b336a4bb6904ba89d0443773d92de9347a8cc9d74",
+        "hash": "78ae45c5b4382dfcea00ac54b7275332b14ffe98eaf7a6a394bb885ca27ddb9b",
+        "revision": 7,
+        "frame": {
+          "elapsedTicks": 14267,
+          "bodies": [
+            {
+              "rotation": [
+                -2.5087732e-09,
+                0.3007076,
+                4.4935206e-08,
+                0.9537164
+              ],
+              "id": "332833ae-b71d-3c62-9525-12efa4fc2c1d",
+              "position": [
+                -1.9999945163726807,
+                0.2999999225139618,
+                -1.501076102256775
+              ],
+              "velocity": [
+                3.7141412576602306e-06,
+                2.2426247596740723e-06,
+                -6.672601739410311e-05
+              ],
+              "angularVelocity": [
+                5.065774075774243e-06,
+                5.467660457725287e-07,
+                -1.16264081952977e-05
+              ]
+            },
+            {
+              "rotation": [
+                1.4569782e-08,
+                -0.30070418,
+                1.4472077e-08,
+                0.95371747
+              ],
+              "id": "0afd1a6f-79de-34ed-ac03-7d9f34d7b259",
+              "position": [
+                1.9999943971633911,
+                0.2499999701976776,
+                1.5000395774841309
+              ],
+              "velocity": [
+                -1.4369865652952285e-07,
+                1.2367963790893555e-06,
+                0.00010824796481756493
+              ],
+              "angularVelocity": [
+                -1.3029875844949856e-08,
+                -8.488505045534112e-07,
+                5.610853577309172e-07
+              ]
+            },
+            {
+              "rotation": [
+                3.765136e-09,
+                -3.8043938e-06,
+                4.9141278e-08,
+                1
+              ],
+              "id": "9266be6f-f639-334a-b0ed-7d4c9dcd7ebd",
+              "position": [
+                2.9999382495880127,
+                0.2499999701976776,
+                2.700000047683716
+              ],
+              "velocity": [
+                -1.0263534022669774e-06,
+                1.344829797744751e-06,
+                -2.568378398848381e-08
+              ],
+              "angularVelocity": [
+                6.662294254056178e-07,
+                -1.2761367429448e-07,
+                3.952278348151594e-06
+              ]
+            },
+            {
+              "rotation": [
+                6.6945316e-10,
+                0.3826878,
+                3.0627668e-08,
+                0.9238777
+              ],
+              "id": "357fecb7-d947-380f-a61b-604e421089cb",
+              "position": [
+                -3.6000001430511475,
+                0.19999997317790985,
+                -1.101819396018982
+              ],
+              "velocity": [
+                -4.249186531524174e-07,
+                5.550682544708252e-07,
+                -4.300957516534254e-05
+              ],
+              "angularVelocity": [
+                -1.7682834823062876e-06,
+                1.2779776170646073e-07,
+                2.38439861277584e-06
+              ]
+            }
+          ],
+          "format": "fraynix.world-frame-035-v1",
+          "originalScene": {
+            "importedAt": "2026-11-01T14:41:35.474623400Z",
+            "objects": [
+              {
+                "sourceId": "floor",
+                "bodyType": "static",
+                "size": [
+                  12,
+                  0.5,
+                  12
+                ],
+                "restitution": 0,
+                "rotation": [
+                  0,
+                  0,
+                  0,
+                  1
+                ],
+                "id": "579a92fc-6717-3a5e-a83b-a06b4e5205a6",
+                "label": "floor",
+                "position": [
+                  0,
+                  -0.25,
+                  0
+                ],
+                "massKg": 0,
+                "friction": 0.5
+              },
+              {
+                "sourceId": "A",
+                "bodyType": "dynamic",
+                "size": [
+                  0.8,
+                  0.6,
+                  0.45
+                ],
+                "restitution": 0,
+                "rotation": [
+                  0,
+                  0,
+                  0,
+                  1
+                ],
+                "id": "332833ae-b71d-3c62-9525-12efa4fc2c1d",
+                "label": "A",
+                "position": [
+                  -2,
+                  0.3,
+                  -1.5
+                ],
+                "massKg": 1,
+                "friction": 0.45
+              },
+              {
+                "sourceId": "B",
+                "bodyType": "dynamic",
+                "size": [
+                  0.7,
+                  0.5,
+                  0.5
+                ],
+                "restitution": 0,
+                "rotation": [
+                  0,
+                  0,
+                  0,
+                  1
+                ],
+                "id": "0afd1a6f-79de-34ed-ac03-7d9f34d7b259",
+                "label": "B",
+                "position": [
+                  2,
+                  0.25,
+                  1.5
+                ],
+                "massKg": 1.2,
+                "friction": 0.45
+              },
+              {
+                "sourceId": "bystander",
+                "bodyType": "dynamic",
+                "size": [
+                  0.5,
+                  0.5,
+                  0.6
+                ],
+                "restitution": 0,
+                "rotation": [
+                  0,
+                  0,
+                  0,
+                  1
+                ],
+                "id": "9266be6f-f639-334a-b0ed-7d4c9dcd7ebd",
+                "label": "bystander",
+                "position": [
+                  3,
+                  0.25,
+                  2.7
+                ],
+                "massKg": 1,
+                "friction": 0.6
+              },
+              {
+                "sourceId": "obstacle",
+                "bodyType": "static",
+                "size": [
+                  0.8,
+                  1.2,
+                  0.8
+                ],
+                "restitution": 0,
+                "rotation": [
+                  0,
+                  0,
+                  0,
+                  1
+                ],
+                "id": "d820aec9-77a7-35fc-aa82-911111c14e77",
+                "label": "obstacle",
+                "position": [
+                  0,
+                  0.6,
+                  0
+                ],
+                "massKg": 0,
+                "friction": 0.5
+              },
+              {
+                "sourceId": "C",
+                "bodyType": "dynamic",
+                "size": [
+                  0.65,
+                  0.4,
+                  0.5
+                ],
+                "restitution": 0,
+                "rotation": [
+                  0,
+                  0,
+                  0,
+                  1
+                ],
+                "id": "357fecb7-d947-380f-a61b-604e421089cb",
+                "label": "C",
+                "position": [
+                  -3.6,
+                  0.2,
+                  0.7
+                ],
+                "massKg": 0.8,
+                "friction": 0.45
+              }
+            ],
+            "format": "fraynix.spatial-scene",
+            "sourceText": "{\"objects\":[{\"sourceId\":\"floor\",\"shape\":\"box\",\"size\":[12,0.5,12],\"restitution\":0,\"rotation\":[0,0,0,1],\"label\":\"floor\",\"position\":[0,-0.25,0],\"massKg\":0,\"friction\":0.5},{\"sourceId\":\"A\",\"shape\":\"box\",\"size\":[0.8,0.6,0.45],\"restitution\":0,\"rotation\":[0,0,0,1],\"label\":\"A\",\"position\":[-2,0.3,-1.5],\"massKg\":1,\"friction\":0.45},{\"sourceId\":\"B\",\"shape\":\"box\",\"size\":[0.7,0.5,0.5],\"restitution\":0,\"rotation\":[0,0,0,1],\"label\":\"B\",\"position\":[2,0.25,1.5],\"massKg\":1.2,\"friction\":0.45},{\"sourceId\":\"bystander\",\"shape\":\"box\",\"size\":[0.5,0.5,0.6],\"restitution\":0,\"rotation\":[0,0,0,1],\"label\":\"bystander\",\"position\":[3,0.25,2.7],\"massKg\":1,\"friction\":0.6},{\"sourceId\":\"obstacle\",\"shape\":\"box\",\"size\":[0.8,1.2,0.8],\"restitution\":0,\"rotation\":[0,0,0,1],\"label\":\"obstacle\",\"position\":[0,0.6,0],\"massKg\":0,\"friction\":0.5},{\"sourceId\":\"C\",\"shape\":\"box\",\"size\":[0.65,0.4,0.5],\"restitution\":0,\"rotation\":[0,0,0,1],\"label\":\"C\",\"position\":[-3.6,0.2,0.7],\"massKg\":0.8,\"friction\":0.45}],\"format\":\"fraynix.spatial-scene\",\"units\":\"m\",\"source\":{\"note\":\"Declared synthetic sequential-world test; not a real room or learned policy.\",\"kind\":\"synthetic\",\"physicalProperties\":\"declared\"},\"title\":\"Labelled035 development three-body-chain\",\"version\":1,\"scaleReference\":{\"a\":[0,0,0],\"b\":[1,0,0],\"toleranceM\":0,\"knownLengthM\":1,\"basis\":\"declared-test\"},\"frame\":\"right-handed-y-up\",\"gravityMps2\":9.81}",
+            "units": "m",
+            "source": {
+              "note": "Declared synthetic sequential-world test; not a real room or learned policy.",
+              "kind": "synthetic",
+              "physicalProperties": "declared"
+            },
+            "title": "Labelled035 development three-body-chain",
+            "version": 1,
+            "gravityMps2": 9.81,
+            "sourceUnits": "m",
+            "sourceSha256": "14179faabdc943a5300212a2d4686632a1dbda573bf99e2689682099fd8760d4",
+            "id": "a50db948-147a-4e60-a25d-f51c425086d1",
+            "scaleCheck": {
+              "independentlyCalibrated": false,
+              "toleranceM": 0,
+              "knownLengthM": 1,
+              "passed": true,
+              "basis": "declared-test",
+              "convertedLengthM": 1
+            },
+            "frame": "right-handed-y-up"
+          }
+        }
+      }
+    ],
+    "id": "21e04861-d6ca-4f53-86db-bb2fe442a153",
+    "title": "dev035-three-body-chain"
+  },
+  "exported": {
+    "id": "7ce68e19-c2fc-441f-bae5-4b34136515cf",
+    "kind": "persistent-world",
+    "path": "C:\\Users\\eyeka\\AppData\\Local\\Temp\\fraynix-persistent035-2Bx6TK\\exports\\7ce68e19-c2fc-441f-bae5-4b34136515cf.json",
+    "bytes": 7856395,
+    "sha256": "aefcd9491199d4df7bf303fd9554fbc118168b439f2c75ff7b06f4a60de6a852",
+    "source": {
+      "worldId": "21e04861-d6ca-4f53-86db-bb2fe442a153"
+    },
+    "createdAt": "2026-11-01T14:43:22.707Z"
+  },
+  "packedMetadata": {
+    "format": "fraynix.persistent-world-export-gzip-v1",
+    "rawBytes": 34062621,
+    "rawSha256": "c72dc4980f37c726ffc1f7984ba58a833f4a440c783308d589cdf2486b5030ec"
+  },
+  "artifacts": [
+    {
+      "originalFolder": "examples/goal-1",
+      "id": "383b27bd-a0b2-30df-ba9a-ea8712efcc1e",
+      "version": 1
+    },
+    {
+      "originalFolder": "examples/original",
+      "id": "fbe59a39-9376-3812-a4cc-7a59d5b612af",
+      "version": 1
+    },
+    {
+      "originalFolder": "examples/goal-3",
+      "id": "1d7a8324-cf47-39d1-822a-42fd927c9daa",
+      "version": 1
+    },
+    {
+      "originalFolder": "examples/goal-4",
+      "id": "3f3a0fa0-dec7-3823-8da4-9007208ef4d1",
+      "version": 1
+    }
+  ],
+  "scope": "Actual discrete native kinematic continuity across verified goals. Cold native solver reconstruction and paused between goals, not uninterrupted warm solver equivalence, robot calibration or model-weight training.",
+  "originalProof": "persistent-world-original.gzip.json"
+}

@@ -1,0 +1,118 @@
+{
+  "checks": [
+    {
+      "actual": {
+        "count": 1,
+        "text": "Native multi-object pose task verified",
+        "value": null
+      },
+      "expected": {
+        "expectText": "Native multi-object pose task verified",
+        "selector": "#pose-result"
+      },
+      "index": 0,
+      "selector": "#pose-result",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 2,
+        "text": "A\t0.001076\t0.000216\t0.000067\t0.000013",
+        "value": null
+      },
+      "expected": {
+        "expectCount": 2,
+        "selector": "#pose-body-table tbody tr"
+      },
+      "index": 1,
+      "selector": "#pose-body-table tbody tr",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 1,
+        "text": "Next metric",
+        "value": ""
+      },
+      "expected": {
+        "action": "click",
+        "selector": "#pose-mode"
+      },
+      "index": 2,
+      "selector": "#pose-mode",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 1,
+        "text": "Maximum target orientation error · degrees",
+        "value": null
+      },
+      "expected": {
+        "expectText": "Maximum target orientation error · degrees",
+        "selector": "#pose-label"
+      },
+      "index": 3,
+      "selector": "#pose-label",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 1,
+        "text": "Reset charts",
+        "value": ""
+      },
+      "expected": {
+        "action": "click",
+        "selector": "#pose-reset"
+      },
+      "index": 4,
+      "selector": "#pose-reset",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 1,
+        "text": "Maximum target position error · m",
+        "value": null
+      },
+      "expected": {
+        "expectText": "Maximum target position error · m",
+        "selector": "#pose-label"
+      },
+      "index": 5,
+      "selector": "#pose-label",
+      "passed": true
+    }
+  ],
+  "at": "2026-11-01T14:43:10.650879600Z",
+  "id": "3f3a0fa0-dec7-3823-8da4-9007208ef4d1",
+  "passed": true,
+  "version": 1,
+  "steps": [
+    {
+      "expectText": "Native multi-object pose task verified",
+      "selector": "#pose-result"
+    },
+    {
+      "expectCount": 2,
+      "selector": "#pose-body-table tbody tr"
+    },
+    {
+      "action": "click",
+      "selector": "#pose-mode"
+    },
+    {
+      "expectText": "Maximum target orientation error · degrees",
+      "selector": "#pose-label"
+    },
+    {
+      "action": "click",
+      "selector": "#pose-reset"
+    },
+    {
+      "expectText": "Maximum target position error · m",
+      "selector": "#pose-label"
+    }
+  ]
+}

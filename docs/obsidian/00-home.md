@@ -1,6 +1,6 @@
 ---
 title: Fraynix Studio map of content
-edition_context: 034
+edition_context: 035
 updated: 2026-11-01
 tags: [fraynix, system-map]
 ---
@@ -9,9 +9,9 @@ tags: [fraynix, system-map]
 
 Open the repository root as an Obsidian vault. The numbered README is the edition snapshot; these notes are the working map.
 
-Current: [[README-034|Edition034 — native multi-object poses]] ·
-[[docs/obsidian/42-multi-object-poses|All-body verification and retained procedures]] ·
-[[docs/obsidian/multi-object-poses.canvas|Pose task and continuity map]].
+Current: [[README-035|Edition035 — one evolving world]] ·
+[[docs/obsidian/43-persistent-worlds|Stable kinematics, verified revisions and recovery]] ·
+[[docs/obsidian/persistent-worlds.canvas|Persistent world ownership map]].
 
 Previous: [[README-031|Edition031 — native contact tasks]] ·
 [[docs/obsidian/39-native-pushing|Pushing contract and measured limits]] ·

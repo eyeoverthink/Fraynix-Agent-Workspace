@@ -1,0 +1,85 @@
+{
+  "edition": 35,
+  "modules": [
+    {
+      "id": "frames",
+      "name": "Stable world frames",
+      "status": "verified",
+      "summary": "Original geometry and stable body identities, with every position/quaternion/linear and angular velocity.",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/WorldFrames.java",
+      "note": "docs/PERSISTENT_WORLDS.md"
+    },
+    {
+      "id": "owner",
+      "name": "Atomic revision ledger",
+      "status": "verified",
+      "summary": "Compare-and-set head, pending ownership, idempotent verified commit and explicit labelled restore.",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/WorldLedger.java",
+      "note": "docs/PERSISTENT_WORLDS.md"
+    },
+    {
+      "id": "native",
+      "name": "Native continuation",
+      "status": "verified",
+      "summary": "Real bounded forces/torques initialize from previous verified kinematics; native solver caches reconstructed.",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/WorldPhysics.java",
+      "note": "docs/PERSISTENT_WORLDS.md"
+    },
+    {
+      "id": "recovery",
+      "name": "All-body durable checkpoint",
+      "status": "verified",
+      "summary": "Same goal/run/attempt, original committed prefix and held controller survive compatible restart.",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/WorldNativeCheckpoint.java",
+      "note": "docs/PERSISTENT_WORLDS.md"
+    },
+    {
+      "id": "goal",
+      "name": "Shared Java goals",
+      "status": "verified",
+      "summary": "Native audit and real original canvas receipt precede head advancement and skill retention.",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/GoalRunner.java",
+      "note": "docs/PERSISTENT_WORLDS.md"
+    },
+    {
+      "id": "report",
+      "name": "Original measured reports",
+      "status": "verified",
+      "summary": "All15body cells, all six native chart modes and source/state evidence remain inspectable.",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/WorldReport.java",
+      "note": "docs/PERSISTENT_WORLDS.md"
+    },
+    {
+      "id": "chat",
+      "name": "Local typed reasoning",
+      "status": "verified",
+      "summary": "Actual gpt-oss:20b observes and completes three requests in the same world, including retained-skill reuse.",
+      "source": "workspace-desktop/goals.cjs",
+      "note": "docs/PERSISTENT_WORLDS.md"
+    },
+    {
+      "id": "skills",
+      "name": "World-aware Spatial and Skills",
+      "status": "verified",
+      "summary": "Current revision/targets/defaults, visible continuation and explicit restore within the existing app.",
+      "source": "workspace-desktop/renderer/persistent-world-panel.js",
+      "note": "docs/PERSISTENT_WORLDS.md"
+    },
+    {
+      "id": "export",
+      "name": "Complete native history",
+      "status": "verified",
+      "summary": "All revisions and referenced native attempts, including failures/cancellations; no selected-summary substitution.",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/WorldExport.java",
+      "note": "docs/PERSISTENT_WORLDS.md"
+    },
+    {
+      "id": "next",
+      "name": "Observation-driven revisions",
+      "status": "planned",
+      "summary": "Freeze different calibrated/delayed/missing observation sequences and verify uncertainty/identity/scale before applying updates.",
+      "source": "docs/PERSISTENT_WORLDS.md",
+      "note": "docs/PERSISTENT_WORLDS.md"
+    }
+  ]
+}
