@@ -1,6 +1,8 @@
 'use strict';
 const { randomUUID } = require('node:crypto');
 const catalog = [
+ ['world.observe','Observe the selected persistent world current revision and all native body kinematics; explicitly refresh a stale request binding.','{}'],
+ ['world.arrange','Continue the current versioned world with bounded native forces/torques; verify all bodies and actual charts before advancing its head. Never reset the original source.','{targets?:[{sourceId,positionM:[x,y,z],yawDeg}],forceLimitN?,torqueLimitNm?,saveSkillName?}'],
  ['pose.compare','Run the frozen native multi-object pose/translation-only ablation with fixed source data and gates. Not a033 contact-controller promotion.','{}'],
  ['pose.study','Read current native pose comparison history.','{}'],
  ['pose.read','Read actual selected multi-object scene, displayed target poses and virtual gripper limits.','{}'],
@@ -115,7 +117,7 @@ const argumentSchemas={
  'map.read':empty,'map.start':object(mapOptions,[]),
  'space.start':object({...proceduralOptions,saveSkillName:text},['type','dimensions','seed']),'space.export':empty,
  'tracking.read':empty,'tracking.start':object({autoPromote:{type:'boolean'}},[]),'tracking.wait':empty,'tracking.report':empty,'tracking.rollback':empty,'perception.read':empty,'perception.select':object({ref:text}),'perception.start':object(perceptionOptions,[]),
- 'pose.compare':empty,'pose.study':empty,'pose.read':empty,'pose.start':object(poseOptions,[]),'contact.compare':empty,'contact.read':empty,'force.start':empty,'force.read':empty,'push.read':empty,'push.start':object(pushOptions,['displacementM']),
+ 'world.observe':empty,'world.arrange':object(poseOptions,[]),'pose.compare':empty,'pose.study':empty,'pose.read':empty,'pose.start':object(poseOptions,[]),'contact.compare':empty,'contact.read':empty,'force.start':empty,'force.read':empty,'push.read':empty,'push.start':object(pushOptions,['displacementM']),
  'spatial.read':empty,'spatial.start':object(spatialOptions,['displacementM']),
  'data.read':empty,'data.start':object({...dataOptions,saveSkillName:text},[]),
  'world.model':empty,'goal.start':object({...goalOptions,saveSkillName:text},[]),'goal.read':empty,'goal.cancel':empty,'goal.resume':object({id:text}),'procedures.list':empty,'procedure.save':object({name:text}),
@@ -166,8 +168,9 @@ function calibrationStage(context,goal){
 function planTools(allowed,context={}){return catalog.filter(t=>allowed.includes(t.name)).map(t=>{
  let parameters=argumentSchemas[t.name];
   if(t.name==='map.start'&&context.mapCompiled)parameters=object({disturbanceNs:mapOptions.disturbanceNs,saveSkillName:text},[]);
- if(t.name==='procedure.run'&&context.family){const options=context.family==='pose'?poseOptions:context.family==='push'?Object.fromEntries(Object.entries(pushOptions).filter(([key])=>!['useActiveProfile','useContactController'].includes(key))):context.family==='map'?(context.procedureBound&&context.allowMaterialOverride===false?Object.fromEntries(Object.entries(mapOptions).filter(([key])=>key!=='materials')):mapOptions):context.family==='procedural'?{seed:proceduralOptions.seed,definition:object(proceduralOptions,[]),saveSkillName:text}:context.family==='perception'?{targetLabel:text,seconds:perceptionOptions.seconds,saveSkillName:text}:context.family==='spatial'?spatialOptions:context.family==='data'?{...dataOptions,saveSkillName:text}:{...goalOptions,saveSkillName:text};parameters=context.procedureBound?object(options,[]):object({name:context.names?.length?{type:'string',enum:context.names}:text,version:{type:'integer',minimum:1,maximum:8},...options},['name','version']);}
+ if(t.name==='procedure.run'&&context.family){const options=['world-poses','pose'].includes(context.family)?poseOptions:context.family==='push'?Object.fromEntries(Object.entries(pushOptions).filter(([key])=>!['useActiveProfile','useContactController'].includes(key))):context.family==='map'?(context.procedureBound&&context.allowMaterialOverride===false?Object.fromEntries(Object.entries(mapOptions).filter(([key])=>key!=='materials')):mapOptions):context.family==='procedural'?{seed:proceduralOptions.seed,definition:object(proceduralOptions,[]),saveSkillName:text}:context.family==='perception'?{targetLabel:text,seconds:perceptionOptions.seconds,saveSkillName:text}:context.family==='spatial'?spatialOptions:context.family==='data'?{...dataOptions,saveSkillName:text}:{...goalOptions,saveSkillName:text};parameters=context.procedureBound?object(options,[]):object({name:context.names?.length?{type:'string',enum:context.names}:text,version:{type:'integer',minimum:1,maximum:8},...options},['name','version']);}
  if(context.family==='pose'&&context.allowPoseSave===false&&['pose.start','procedure.run'].includes(t.name))parameters={...parameters,properties:Object.fromEntries(Object.entries(parameters.properties).filter(([key])=>key!=='saveSkillName'))};
+ if(context.family==='world-poses'&&['world.arrange','procedure.run'].includes(t.name)){const properties={...parameters.properties};if(context.saveWorldName){properties.saveSkillName={type:'string',enum:[context.saveWorldName]};parameters={...parameters,properties,required:[...new Set([...(parameters.required||[]),'saveSkillName'])]};}else{delete properties.saveSkillName;parameters={...parameters,properties};}}
  return {type:'function',function:{name:t.name.replace('.','_'),description:t.description,parameters}};
 });}
 function observerStage(context,goal){
@@ -192,6 +195,7 @@ function bodyStage(context){
 }
 const originalTaskMode=taskMode;
 function expandedTaskMode(goal){
+ if(/\b(?:persistent world|evolving world|world revision|world skill)\b/i.test(goal)&&!/\b(?:website|html|git)\b/i.test(goal))return {needsPersistentWorld:true,needsGoal:true,needsScene:false,needsComparison:false};
  if(/\b(?:compare|evaluate|test)\b/i.test(goal)&&/\b(?:pose control|pose controller|pose capability|pose feature)\b/i.test(goal)&&!/\b(?:website|html|git)\b/i.test(goal))return {needsPoseStudy:true,needsGoal:true,needsScene:false,needsComparison:false};
  if(/\b(?:arrange|multi[- ]object|target poses|pose skill|pose procedure)\b/i.test(goal)&&!/\b(?:website|html|git)\b/i.test(goal))return {needsPose:true,needsGoal:true,needsScene:false,needsComparison:false};
  if(/\b(?:compare|evaluate|test)\b/i.test(goal)&&/\bcontact controller\b/i.test(goal)&&!/\b(?:website|html|git)\b/i.test(goal))return {needsContactStudy:true,needsGoal:true,needsScene:false,needsComparison:false};

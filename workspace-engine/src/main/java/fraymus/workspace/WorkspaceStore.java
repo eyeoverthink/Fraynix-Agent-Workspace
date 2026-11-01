@@ -82,6 +82,7 @@ public final class WorkspaceStore implements AutoCloseable {
         if(!PushRuntime.verify(run).getBoolean("passed"))throw new IllegalStateException("Only verified native outcomes can produce a native report");
         return writeOnce(key,PushReport.build(run),2_000_000,4_000_000);
     }
+    synchronized JSONObject writeNativeWorldOnce(String key,JSONObject run) throws IOException {if(!WorldVerify.verify(run).getBoolean("passed"))throw new IllegalStateException("Only actual verified native poses can use the bounded report path");return writeOnce(key,WorldReport.build(run),4_000_000,8_000_000);}
     synchronized JSONObject writeNativePoseOnce(String key,JSONObject run) throws IOException {if(!PoseVerify.verify(run).getBoolean("passed"))throw new IllegalStateException("Only actual verified native poses can use the bounded report path");return writeOnce(key,PoseReport.build(run),4_000_000,8_000_000);}
     private JSONObject writeOnce(String key,JSONObject args,int fileLimit,int totalLimit) throws IOException {
         String id=UUID.nameUUIDFromBytes(key.getBytes(StandardCharsets.UTF_8)).toString();
