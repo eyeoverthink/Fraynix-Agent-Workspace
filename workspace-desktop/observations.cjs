@@ -2,6 +2,7 @@
 const {randomUUID}=require('node:crypto');
 const sleep=ms=>new Promise(r=>setTimeout(r,ms));
 function asksForObservedWorld(goal){const creation=/\b(build|create|design|generate)\b/i.test(goal)&&/\b(html|website|dashboard|viewer)\b/i.test(goal);return !creation&&/\b(observed world|world estimate|footage|observation run)\b/i.test(goal);}
+function latestObservationFrame(run){const frame=run?.trace?.at(-1);return frame?{ordinal:frame.ordinal,sourceFrame:frame.sourceFrame,objects:frame.objects.map(o=>({bodyId:o.bodyId,trackingStatus:o.tracker.status,...o.estimate}))}:null;}
 function createObservations({api,openArtifact,execute,emit,activity}){
  let selection=null;
  async function importPack(pack){
@@ -18,7 +19,8 @@ function createObservations({api,openArtifact,execute,emit,activity}){
   if(tool==='observations.read'){
    const state=await api('/api/observations/state',{worldId:chosen.worldId});const active=state.runs.filter(r=>r.nativeBinding.worldId===chosen.worldId).at(-1);
    if(context)context.observationEvidence=active;
-   return {nativeBinding:state.nativeBinding,stale:state.stale,estimate:{...state.estimate,history:undefined},selected:{...chosen},run:active,scope:state.scope};
+   const lastFrame=active?latestObservationFrame(await api('/api/observations/read',{id:active.id})):null;
+   return {nativeBinding:state.nativeBinding,stale:state.stale,estimate:{...state.estimate,history:undefined},lastFrame,selected:{...chosen},run:active,scope:state.scope+' Retained tracks are last accepted measurements; lastFrame separately exposes missing/rejected predictions and their growing model uncertainty. Recorded footage is not a live camera observation.'};
   }
   if(tool==='observations.start'){
    if(context?.observationRunId)throw Error('This request already owns an observation run');
@@ -51,4 +53,4 @@ function createObservations({api,openArtifact,execute,emit,activity}){
  }
  return {importPack,select,action,runAgent,selection:()=>selection};
 }
-module.exports={createObservations,asksForObservedWorld};
+module.exports={createObservations,asksForObservedWorld,latestObservationFrame};
