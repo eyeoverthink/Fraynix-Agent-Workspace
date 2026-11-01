@@ -1,0 +1,57 @@
+> Task :brain-core:compileJava UP-TO-DATE
+> Task :factory-runtime:compileJava UP-TO-DATE
+> Task :factory-kernel:compileJava UP-TO-DATE
+> Task :factory-models:compileJava UP-TO-DATE
+> Task :compileJava UP-TO-DATE
+> Task :processResources UP-TO-DATE
+> Task :classes UP-TO-DATE
+> Task :jar UP-TO-DATE
+> Task :brain-core:processResources NO-SOURCE
+> Task :brain-core:classes UP-TO-DATE
+> Task :brain-core:jar UP-TO-DATE
+> Task :factory-kernel:processResources NO-SOURCE
+> Task :factory-kernel:classes UP-TO-DATE
+> Task :factory-kernel:jar UP-TO-DATE
+> Task :factory-models:processResources NO-SOURCE
+> Task :factory-models:classes UP-TO-DATE
+> Task :factory-models:jar UP-TO-DATE
+> Task :factory-runtime:processResources NO-SOURCE
+> Task :factory-runtime:classes UP-TO-DATE
+> Task :factory-runtime:jar UP-TO-DATE
+> Task :startScripts UP-TO-DATE
+> Task :installDist
+> Task :brain-gpu:compileJava UP-TO-DATE
+> Task :brain-gpu:processResources NO-SOURCE
+> Task :brain-gpu:classes UP-TO-DATE
+> Task :brain-gpu:jar UP-TO-DATE
+> Task :geometry-core:compileJava UP-TO-DATE
+> Task :geometry-core:processResources NO-SOURCE
+> Task :geometry-core:classes UP-TO-DATE
+> Task :geometry-core:jar UP-TO-DATE
+
+> Task :workspace-engine:compileJava FAILED
+C:\Users\eyeka\Documents\Codex\2026-10-26\is\work\fraynix-agent-workspace\workspace-engine\src\main\java\fraymus\workspace\MetricObservationStore.java:48: error: incompatible types: JSONArray cannot be converted to JSONObject
+            var nativeState=worlds.observe(run.getJSONObject("nativeBinding").getString("worldId"));boolean stale=!nativeState.getString("expectedHash").equals(run.getJSONObject("nativeBinding").getString("expectedHash"));return new JSONObject().put("version",VERSION).put("runId",run.getString("id")).put("datasetId",d.getString("id")).put("runStatus",run.getString("status")).put("runTraceSha256",WorldFrames.hash(run.getJSONArray("trace"))).put("nativeBinding",run.getJSONObject("nativeBinding")).put("nativeStale",stale).put("geometry",g).put("clock",c).put("codeSha256",run.getString("codeSha256")).put("profile",profile==null?JSONObject.NULL:WorldFrames.copy(profile)).put("rows",rows).put("uncertaintyMeaning",profile==null?"Uncalibrated propagated model radius, plus declared anchor/scale error; not probability":"Empirical calibration on correlated reference footage, same fixed camera/plane only; held coverage and width are separate evidence").put("scope","Metres on declared plane, actual supplied source seconds; box bottom centre assumes ground contact. Native verified physics is unchanged.");});
+                                                                                                                                                                                                                                                                                                                                                                                                                                                ^
+Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
+1 error
+
+[Incubating] Problems report is available at: file:///C:/Users/eyeka/Documents/Codex/2026-10-26/is/work/fraynix-agent-workspace/build/reports/problems/problems-report.html
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':workspace-engine:compileJava'.
+> Compilation failed; see the compiler output below.
+  C:\Users\eyeka\Documents\Codex\2026-10-26\is\work\fraynix-agent-workspace\workspace-engine\src\main\java\fraymus\workspace\MetricObservationStore.java:48: error: incompatible types: JSONArray cannot be converted to JSONObject
+              var nativeState=worlds.observe(run.getJSONObject("nativeBinding").getString("worldId"));boolean stale=!nativeState.getString("expectedHash").equals(run.getJSONObject("nativeBinding").getString("expectedHash"));return new JSONObject().put("version",VERSION).put("runId",run.getString("id")).put("datasetId",d.getString("id")).put("runStatus",run.getString("status")).put("runTraceSha256",WorldFrames.hash(run.getJSONArray("trace"))).put("nativeBinding",run.getJSONObject("nativeBinding")).put("nativeStale",stale).put("geometry",g).put("clock",c).put("codeSha256",run.getString("codeSha256")).put("profile",profile==null?JSONObject.NULL:WorldFrames.copy(profile)).put("rows",rows).put("uncertaintyMeaning",profile==null?"Uncalibrated propagated model radius, plus declared anchor/scale error; not probability":"Empirical calibration on correlated reference footage, same fixed camera/plane only; held coverage and width are separate evidence").put("scope","Metres on declared plane, actual supplied source seconds; box bottom centre assumes ground contact. Native verified physics is unchanged.");});
+                                                                                                                                                                                                                                                                                                                                                                                                                                                  ^
+  Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
+  1 error
+
+* Try:
+> Check your code and dependencies to fix the compilation error(s)
+> Run with --scan to get full insights from a Build Scan (powered by Develocity).
+
+BUILD FAILED in 5s
+18 actionable tasks: 2 executed, 16 up-to-date

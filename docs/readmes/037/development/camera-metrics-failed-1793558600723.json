@@ -1,0 +1,9 @@
+{
+  "passed": false,
+  "checks": [
+    "Explicit preview uses Chromium getUserMedia through the actual trusted app; software camera contains only disclosed public EPFL frames, no physical webcam recording",
+    "Microphone access is denied in the app and camera access is denied in the untrusted creation canvas"
+  ],
+  "project": "C:\\Users\\eyeka\\AppData\\Local\\Temp\\fraynix-camera037-VowuFP",
+  "error": "Error: Software camera workflow timed out\n    at until (C:\\Users\\eyeka\\Documents\\Codex\\2026-10-26\\is\\work\\fraynix-agent-workspace\\workspace-desktop\\test\\camera-metrics-integration.cjs:8:131)\n    at async main (C:\\Users\\eyeka\\Documents\\Codex\\2026-10-26\\is\\work\\fraynix-agent-workspace\\workspace-desktop\\test\\camera-metrics-integration.cjs:15:56)"
+}

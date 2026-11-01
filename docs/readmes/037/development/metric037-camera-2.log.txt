@@ -1,0 +1,34 @@
+AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
++ actual - expected
+
+  [
+    [
+      0,
+      0
+    ],
+    [
++     0.30479999999999996,
+-     0.3048,
+      0
+    ],
+    [
++     0.30479999999999996,
++     0.30479999999999996
+-     0.3048,
+-     0.3048
+    ],
+    [
+      0,
++     0.30479999999999996
+-     0.3048
+    ]
+  ]
+
+    at main (C:\Users\eyeka\Documents\Codex\2026-10-26\is\work\fraynix-agent-workspace\workspace-desktop\test\camera-metrics-integration.cjs:18:596) {
+  generatedMessage: true,
+  code: 'ERR_ASSERTION',
+  actual: [Array],
+  expected: [Array],
+  operator: 'deepStrictEqual',
+  diff: 'simple'
+}

@@ -1,0 +1,6 @@
+Exception in thread "main" java.lang.IllegalArgumentException: normalized box must be finite and between 0.0 and 1.0
+	at fraymus.workspace.RampDefinition.range(RampDefinition.java:13)
+	at fraymus.workspace.PixelTracker$Box.from(PixelTracker.java:13)
+	at fraymus.workspace.WorldObservationStore.begin(WorldObservationStore.java:74)
+	at fraymus.workspace.WorldObservationStoreTest.importPack(WorldObservationStoreTest.java:16)
+	at fraymus.workspace.MetricFootageEvaluation.main(MetricFootageEvaluation.java:16)

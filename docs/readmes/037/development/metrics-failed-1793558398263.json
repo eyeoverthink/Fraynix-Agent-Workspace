@@ -1,0 +1,9 @@
+{
+  "passed": false,
+  "checks": [
+    "Actual public EPFL footage imports through visible037 file control with source seconds and fixed camera binding; Java executes original tracker without later reference positions",
+    "Visible metric table/chart derives80 positions/radii from supplied camera plane and actual seconds on the same stable body/world IDs; native verified state stays byte-equivalent"
+  ],
+  "project": "C:\\Users\\eyeka\\AppData\\Local\\Temp\\fraynix-metric037-Q4kAT4",
+  "error": "locator.click: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('#metric-fit')\u001b[22m\n\u001b[2m    - locator resolved to <button id=\"metric-fit\">Fit uncertainty from this run</button>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    56 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m       - element is not visible\u001b[22m\n\u001b[2m     - retrying click action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n\n    at main (C:\\Users\\eyeka\\Documents\\Codex\\2026-10-26\\is\\work\\fraynix-agent-workspace\\workspace-desktop\\test\\metrics-integration.cjs:15:340)"
+}

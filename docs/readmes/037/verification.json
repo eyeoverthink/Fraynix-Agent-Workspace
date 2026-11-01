@@ -1,0 +1,63 @@
+{
+  "sourceBaseline": "c07a468",
+  "protocolCommit": "6faa54e",
+  "candidateCommit": "4d80927",
+  "firstReservedA": {
+    "coverage": 0.125,
+    "meanErrorM": 2.716537518151058,
+    "meanRadiusM": 1.6284671992348718,
+    "referenceCount": 16,
+    "unprojectable": 0
+  },
+  "firstReservedB": {
+    "stage": "original036 import validation",
+    "outcome": "refused; required case failed, not substituted"
+  },
+  "profileAccepted": false,
+  "sourceInventory": 709,
+  "hardwarePreview": {
+    "previewStarted": true,
+    "dimensions": [
+      640,
+      480
+    ],
+    "videoTracks": 1,
+    "audioTracks": 0,
+    "capturedSamples": 0,
+    "stopped": true,
+    "passed": true,
+    "date": "2026-11-01T18:48:21.953Z",
+    "scope": "Physical local camera preview only; no frames captured/exported, no device identifiers saved, no physical mat scale measurement or tracking accuracy validation."
+  },
+  "freshClone": {
+    "status": "pending"
+  },
+  "uiGroups": {
+    "metrics": {
+      "passed": true,
+      "checks": 8,
+      "sourceCommit": "c07a468fc9f18b8b72d9ff3c7e4f76db0c32ba62"
+    },
+    "camera-metrics": {
+      "passed": true,
+      "checks": 5,
+      "sourceCommit": "c07a468fc9f18b8b72d9ff3c7e4f76db0c32ba62"
+    },
+    "observations": {
+      "passed": true,
+      "checks": 8,
+      "sourceCommit": "c07a468fc9f18b8b72d9ff3c7e4f76db0c32ba62"
+    },
+    "observations-video": {
+      "passed": true,
+      "checks": 4,
+      "sourceCommit": "c07a468fc9f18b8b72d9ff3c7e4f76db0c32ba62"
+    },
+    "integration": {
+      "passed": true,
+      "checks": 12,
+      "sourceCommit": "c07a468fc9f18b8b72d9ff3c7e4f76db0c32ba62"
+    }
+  },
+  "scope": "Working metric/camera/evidence workflow, failed real-footage accuracy qualification. No native authority or model-weight training."
+}

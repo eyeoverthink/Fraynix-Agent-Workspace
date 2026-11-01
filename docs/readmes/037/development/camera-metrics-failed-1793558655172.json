@@ -1,0 +1,11 @@
+{
+  "passed": false,
+  "checks": [
+    "Explicit preview uses Chromium getUserMedia through the actual trusted app; software camera contains only disclosed public EPFL frames, no physical webcam recording",
+    "Microphone access is denied in the app and camera access is denied in the untrusted creation canvas",
+    "Explicit Capture samples40 actual software-camera frames with monotonic mediaTime seconds; preview/capture does not silently import a dataset",
+    "Stop releases camera tracks; real pointer-drawn object seed and explicit Import persist exact captured clocks/source hashes in Java"
+  ],
+  "project": "C:\\Users\\eyeka\\AppData\\Local\\Temp\\fraynix-camera037-IPRsOM",
+  "error": "AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:\n+ actual - expected\n\n  [\n    [\n      0,\n      0\n    ],\n    [\n+     0.30479999999999996,\n-     0.3048,\n      0\n    ],\n    [\n+     0.30479999999999996,\n+     0.30479999999999996\n-     0.3048,\n-     0.3048\n    ],\n    [\n      0,\n+     0.30479999999999996\n-     0.3048\n    ]\n  ]\n\n    at main (C:\\Users\\eyeka\\Documents\\Codex\\2026-10-26\\is\\work\\fraynix-agent-workspace\\workspace-desktop\\test\\camera-metrics-integration.cjs:18:596)"
+}
