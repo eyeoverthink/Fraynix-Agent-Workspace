@@ -1,6 +1,10 @@
 'use strict';
 const { randomUUID } = require('node:crypto');
 const catalog = [
+ ['pose.compare','Run the frozen native multi-object pose/translation-only ablation with fixed source data and gates. Not a033 contact-controller promotion.','{}'],
+ ['pose.study','Read current native pose comparison history.','{}'],
+ ['pose.read','Read actual selected multi-object scene, displayed target poses and virtual gripper limits.','{}'],
+ ['pose.start','Arrange2..4 actual source roles at target positions and yaw by bounded native virtual-gripper forces/torques; release, verify all bodies/charts and optionally retain a procedure.','{targets?:[{sourceId,positionM:[x,y,z],yawDeg}],forceLimitN?,torqueLimitNm?,saveSkillName?}'],
  ['contact.compare','Compare the original and versioned solver-contact controller on frozen development and different reserved native cases. Settings, sources, gates and results belong to Java.','{}'],
  ['contact.read','Read contact study history and the currently validated controller.','{}'],
  ['force.start','Run the frozen native force-learning experiment: training-only cap selection, paired reserved evaluation and exact report verification. No user supplied gates, data, force settings or success values.','{}'],
@@ -101,6 +105,7 @@ const goalParameters=object({angleDeg:{type:'number',minimum:10,maximum:40},fric
 const goalOptions={...goalParameters.properties,targetM:{type:'number',minimum:.4,maximum:1.8},disturbanceMps:{type:'number',minimum:-.5,maximum:.5},browserContext:{type:'boolean'}};
 const dataOptions={maxGapS:{type:'number',minimum:.000001,maximum:86400},speedLimitMps:{type:'number',minimum:.000001,maximum:1e9}};
 const proceduralOptions={type:{type:'string',enum:['colonization','dungeon']},dimensions:{type:'integer',minimum:2,maximum:16},seed:{type:'integer',minimum:0,maximum:1e9},samples:{type:'integer',minimum:16,maximum:512},iterations:{type:'integer',minimum:1,maximum:128},step:{type:'number',minimum:.015,maximum:.08},influence:{type:'number',minimum:.12,maximum:.6},kill:{type:'number',minimum:.015,maximum:.6},side:{type:'integer',minimum:12,maximum:40},rooms:{type:'integer',minimum:4,maximum:24}};
+const poseOptions={targets:{type:'array',minItems:2,maxItems:4,items:object({sourceId:text,positionM:{type:'array',items:{type:'number',minimum:-5,maximum:5},minItems:3,maxItems:3},yawDeg:{type:'number',minimum:-180,maximum:180}},['sourceId','positionM','yawDeg'])},forceLimitN:{type:'number',minimum:2,maximum:60},torqueLimitNm:{type:'number',minimum:0,maximum:4},saveSkillName:text};
 const pushOptions={useContactController:{type:'boolean'},useActiveProfile:{type:'boolean'},displacementM:{type:'array',items:{type:'integer',minimum:-4,maximum:4},minItems:3,maxItems:3},initialForceN:{type:'number',minimum:2,maximum:60},maxForceN:{type:'number',minimum:2,maximum:60},saveSkillName:text};
 const spatialOptions={displacementM:{type:'array',items:{type:'number',minimum:-6,maximum:6},minItems:3,maxItems:3},saveSkillName:text};
 const perceptionOptions={mode:{type:'string',enum:['vision','appearance','dom']},targetLabel:text,visionModel:text,lessonName:text,seconds:{type:'number',minimum:2,maximum:30},saveSkillName:text};
@@ -110,7 +115,7 @@ const argumentSchemas={
  'map.read':empty,'map.start':object(mapOptions,[]),
  'space.start':object({...proceduralOptions,saveSkillName:text},['type','dimensions','seed']),'space.export':empty,
  'tracking.read':empty,'tracking.start':object({autoPromote:{type:'boolean'}},[]),'tracking.wait':empty,'tracking.report':empty,'tracking.rollback':empty,'perception.read':empty,'perception.select':object({ref:text}),'perception.start':object(perceptionOptions,[]),
- 'contact.compare':empty,'contact.read':empty,'force.start':empty,'force.read':empty,'push.read':empty,'push.start':object(pushOptions,['displacementM']),
+ 'pose.compare':empty,'pose.study':empty,'pose.read':empty,'pose.start':object(poseOptions,[]),'contact.compare':empty,'contact.read':empty,'force.start':empty,'force.read':empty,'push.read':empty,'push.start':object(pushOptions,['displacementM']),
  'spatial.read':empty,'spatial.start':object(spatialOptions,['displacementM']),
  'data.read':empty,'data.start':object({...dataOptions,saveSkillName:text},[]),
  'world.model':empty,'goal.start':object({...goalOptions,saveSkillName:text},[]),'goal.read':empty,'goal.cancel':empty,'goal.resume':object({id:text}),'procedures.list':empty,'procedure.save':object({name:text}),
@@ -161,7 +166,7 @@ function calibrationStage(context,goal){
 function planTools(allowed,context={}){return catalog.filter(t=>allowed.includes(t.name)).map(t=>{
  let parameters=argumentSchemas[t.name];
   if(t.name==='map.start'&&context.mapCompiled)parameters=object({disturbanceNs:mapOptions.disturbanceNs,saveSkillName:text},[]);
- if(t.name==='procedure.run'&&context.family){const options=context.family==='push'?Object.fromEntries(Object.entries(pushOptions).filter(([key])=>!['useActiveProfile','useContactController'].includes(key))):context.family==='map'?(context.procedureBound&&context.allowMaterialOverride===false?Object.fromEntries(Object.entries(mapOptions).filter(([key])=>key!=='materials')):mapOptions):context.family==='procedural'?{seed:proceduralOptions.seed,definition:object(proceduralOptions,[]),saveSkillName:text}:context.family==='perception'?{targetLabel:text,seconds:perceptionOptions.seconds,saveSkillName:text}:context.family==='spatial'?spatialOptions:context.family==='data'?{...dataOptions,saveSkillName:text}:{...goalOptions,saveSkillName:text};parameters=context.procedureBound?object(options,[]):object({name:context.names?.length?{type:'string',enum:context.names}:text,version:{type:'integer',minimum:1,maximum:8},...options},['name','version']);}
+ if(t.name==='procedure.run'&&context.family){const options=context.family==='pose'?poseOptions:context.family==='push'?Object.fromEntries(Object.entries(pushOptions).filter(([key])=>!['useActiveProfile','useContactController'].includes(key))):context.family==='map'?(context.procedureBound&&context.allowMaterialOverride===false?Object.fromEntries(Object.entries(mapOptions).filter(([key])=>key!=='materials')):mapOptions):context.family==='procedural'?{seed:proceduralOptions.seed,definition:object(proceduralOptions,[]),saveSkillName:text}:context.family==='perception'?{targetLabel:text,seconds:perceptionOptions.seconds,saveSkillName:text}:context.family==='spatial'?spatialOptions:context.family==='data'?{...dataOptions,saveSkillName:text}:{...goalOptions,saveSkillName:text};parameters=context.procedureBound?object(options,[]):object({name:context.names?.length?{type:'string',enum:context.names}:text,version:{type:'integer',minimum:1,maximum:8},...options},['name','version']);}
  return {type:'function',function:{name:t.name.replace('.','_'),description:t.description,parameters}};
 });}
 function observerStage(context,goal){
@@ -186,6 +191,8 @@ function bodyStage(context){
 }
 const originalTaskMode=taskMode;
 function expandedTaskMode(goal){
+ if(/\b(?:compare|evaluate|test)\b/i.test(goal)&&/\b(?:pose control|pose controller|pose capability|pose feature)\b/i.test(goal)&&!/\b(?:website|html|git)\b/i.test(goal))return {needsPoseStudy:true,needsGoal:true,needsScene:false,needsComparison:false};
+ if(/\b(?:arrange|multi[- ]object|target poses|pose skill|pose procedure)\b/i.test(goal)&&!/\b(?:website|html|git)\b/i.test(goal))return {needsPose:true,needsGoal:true,needsScene:false,needsComparison:false};
  if(/\b(?:compare|evaluate|test)\b/i.test(goal)&&/\bcontact controller\b/i.test(goal)&&!/\b(?:website|html|git)\b/i.test(goal))return {needsContactStudy:true,needsGoal:true,needsScene:false,needsComparison:false};
  if(/\b(?:learn|train|evaluate|compare)\b/i.test(goal)&&/\b(?:pushing|force)\b/i.test(goal)&&/\b(?:profile|reserved|experience|evaluation|training)\b/i.test(goal)&&!/\b(?:website|html|git)\b/i.test(goal))return {needsForceLearning:true,needsGoal:true,needsScene:false,needsComparison:false};
  if(/\bpush(?:ing)?\b/i.test(goal)&&/\b(?:crate|pusher|box|selected object|imported object)\b/i.test(goal)&&!/\b(?:website|web app|html|git)\b/i.test(goal))return {needsPush:true,needsGoal:true,needsScene:false,needsComparison:false};

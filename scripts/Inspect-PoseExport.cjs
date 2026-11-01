@@ -1,0 +1,3 @@
+'use strict';
+const {readNativeExport}=require('../workspace-desktop/exports.cjs');
+(async()=>{const file=process.argv[2];if(!file)throw Error('Usage: node scripts/Inspect-PoseExport.cjs <export-manifest-or-run.json>');const {packed,value}=await readNativeExport(file);const result=value.job?{format:value.format,jobId:value.job.id,runs:value.runs.length,decision:value.job.decision,rawBytes:packed.rawBytes,rawSha256:packed.rawSha256}:{runId:value.id,controllerVersion:value.controllerVersion,status:value.status,verification:value.verification,rawBytes:packed.rawBytes,rawSha256:packed.rawSha256};process.stdout.write(JSON.stringify(result,null,2)+'\n');})().catch(e=>{process.stderr.write(e.message+'\n');process.exitCode=1;});
