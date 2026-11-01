@@ -18,3 +18,15 @@ test('agent readout separates last accepted world position from a later missing-
  const bridge=createObservations({api:async route=>route.endsWith('/state')?state:{id:'actual-run',datasetId:'source-camera',nativeBinding:state.nativeBinding,trace:[{ordinal:10,sourceFrame:10,objects:[{bodyId:'body',tracker:{status:'lost'},estimate:{status:'predicted',accepted:false,position:[.4,.3],positionSigma:.2}}]}]}});
  await bridge.select({worldId:'world'});const result=await bridge.action('observations.read',{});assert.equal(result.estimate.revision,7);assert.deepEqual(result.estimate.tracks.body.position,[.2,.3]);assert.equal(result.lastFrame.sourceFrame,10);assert.equal(result.lastFrame.datasetId,'source-camera');assert.equal(result.lastFrame.runId,'actual-run');assert.equal(result.lastFrame.objects[0].trackingStatus,'lost');assert.equal(result.lastFrame.objects[0].accepted,false);assert.equal(result.lastFrame.objects[0].positionSigma,.2);assert(result.scope.includes('not a live camera'));
 });
+
+test('037 preserves explicit clocks beside unchanged036 pixel imports and refuses malformed timing before writes',async()=>{
+ const calls=[];const bridge=createObservations({api:async(route,args)=>{calls.push({route,args});if(route.endsWith('/import-begin'))return{id:'dataset'};if(route.endsWith('/import-commit'))return{id:'dataset'};return{};}});
+ const pack={schema:'fraynix-observation-frames-037-v1',title:'control',cameraKey:'fixed',timingSource:'Measured source clock',seconds:[0,.2,.41,.6,.8],frames:Array.from({length:5},(_,i)=>({sourceFrame:i,image:'test',imageSha256:'test'})),objects:[]};
+ await bridge.importPack(pack);assert.equal(calls[0].args.schema,'fraynix-observation-frames-036-v1');assert(!Object.hasOwn(calls[0].args,'seconds'));assert.equal(calls.at(-1).route,'/api/metrics/clock');assert.deepEqual(calls.at(-1).args.seconds,pack.seconds);const n=calls.length;await assert.rejects(bridge.importPack({...pack,seconds:[0,.2,.2,.6,.8]}),/valid source seconds/);assert.equal(calls.length,n);
+});
+
+test('chat metric readout preserves qualification and source binding without allowing model fitting or fake measurements',async()=>{
+ const state={nativeBinding:{worldId:'w'},estimate:{revision:0,history:[],tracks:{}},runs:[{id:'r',status:'completed',nativeBinding:{worldId:'w'}}],scope:'base'};
+ const metric={runId:'r',nativeBinding:{worldId:'w'},rows:[{positionM:[.1,.2],radiusM:.3}],clock:{seconds:[0,.1],source:'Measured clock'},uncertaintyMeaning:'experimental empirical interval',nativeStale:true};
+ const bridge=createObservations({api:async(route)=>route.endsWith('/metrics/view')?metric:route.endsWith('/state')?state:{id:'r',trace:[]}});await bridge.select({worldId:'w'});await bridge.metricSelect({runId:'r',geometryId:'g'});const context={};const result=await bridge.action('observations.read',{},context);assert.equal(result.metric.uncertaintyMeaning,metric.uncertaintyMeaning);assert.equal(result.metric.nativeStale,true);assert.deepEqual(context.metricSelection,{runId:'r',geometryId:'g'});await assert.rejects(bridge.action('metrics.fit',{references:[]}),/no model supplied/);
+});

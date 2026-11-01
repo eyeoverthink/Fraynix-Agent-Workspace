@@ -25,6 +25,7 @@ public final class WorkspaceServer {
     private final BrainService brain;
     private final GoalRunner goals;
     private final WorldObservationStore observations;
+    private final MetricObservationStore metrics;
     private final WorkflowRunner workflows;
     private final EmbeddedGameClient game;
     private final String token;
@@ -35,7 +36,7 @@ public final class WorkspaceServer {
     public WorkspaceServer(Path project,String token) throws IOException {
         if(token==null||token.length()<32)throw new IllegalArgumentException("A private session capability is required");
         this.token=token;store=new WorkspaceStore(project);learning=new LearningStore(project);
-        try{scenes=new SceneStore(project);spatial=new SpatialStore(project);maps=new MapStore(project);perception=new PerceptionStore(project);measurements=new MeasurementStore(project);calibrations=new CalibrationStore(project,scenes,measurements);observers=new ObserverStore(project,scenes);brain=new BrainService(project);goals=new GoalRunner(project,scenes,brain,store,measurements,spatial,perception,maps);observations=new WorldObservationStore(project,goals.worlds());workflows=new WorkflowRunner(project,goals,measurements,scenes,store);game=new EmbeddedGameClient(Path.of(System.getProperty("user.dir")),project);}catch(Exception e){throw new IOException("Experiment stores could not start",e);}
+        try{scenes=new SceneStore(project);spatial=new SpatialStore(project);maps=new MapStore(project);perception=new PerceptionStore(project);measurements=new MeasurementStore(project);calibrations=new CalibrationStore(project,scenes,measurements);observers=new ObserverStore(project,scenes);brain=new BrainService(project);goals=new GoalRunner(project,scenes,brain,store,measurements,spatial,perception,maps);observations=new WorldObservationStore(project,goals.worlds());metrics=new MetricObservationStore(project,observations,goals.worlds());workflows=new WorkflowRunner(project,goals,measurements,scenes,store);game=new EmbeddedGameClient(Path.of(System.getProperty("user.dir")),project);}catch(Exception e){throw new IOException("Experiment stores could not start",e);}
         scanner.scheduleWithFixedDelay(()->{try{catalog=models.observe();}catch(Exception e){System.err.println("Model discovery: "+e.getMessage());}},0,45,TimeUnit.SECONDS);
     }
     private JSONObject visionModels(){var out=new JSONArray();try{var tags=LocalModelAdmission.request("http://127.0.0.1:11434/api/tags",null);for(Object raw:tags.getJSONArray("models")){var tag=(JSONObject)raw;try{var show=LocalModelAdmission.request("http://127.0.0.1:11434/api/show",new JSONObject().put("model",tag.getString("name")));if(show.getJSONArray("capabilities").toList().contains("vision"))out.put(new JSONObject().put("name",tag.getString("name")).put("bytes",tag.getLong("size")));}catch(Exception unavailable){/* Unavailable metadata is not an eligible detector. */}}return new JSONObject().put("models",out).put("available",!out.isEmpty());}catch(Exception unavailable){return new JSONObject().put("models",out).put("available",false).put("reason","Local vision metadata unavailable; DOM and taught appearance remain usable offline");}}
@@ -87,6 +88,14 @@ public final class WorkspaceServer {
                     case "/api/tracking/report" -> {var j=perception.lab().read(input.getString("id"));j.remove("activation");var artifact=store.writeOnce("tracking-report:"+j.getString("id"),TrackingPresentation.report(j,perception.lab()));result=new JSONObject().put("artifact",artifact).put("checks",TrackingPresentation.checks(j));}
 
                     case "/api/creation/source" -> result=Creation.preview(store,input);
+                    case "/api/metrics/state" -> result=metrics.state();
+                    case "/api/metrics/clock" -> result=metrics.clock(input);
+                    case "/api/metrics/geometry" -> result=metrics.geometry(input);
+                    case "/api/metrics/view" -> result=metrics.view(input);
+                    case "/api/metrics/fit" -> result=metrics.fit(input);
+                    case "/api/metrics/evaluate" -> result=metrics.evaluate(input);
+                    case "/api/metrics/export" -> result=metrics.export(input);
+                    case "/api/metrics/report" -> {var view=metrics.view(input);result=new JSONObject().put("artifact",store.writeOnce("metric-report:"+WorldFrames.hash(view),MetricReport.build(view)));}
                     case "/api/observations/state" -> result=observations.state(input.optString("worldId",""));
                     case "/api/observations/import-begin" -> result=observations.begin(input);
                     case "/api/observations/import-frame" -> result=observations.upload(input.getString("id"),input.getInt("ordinal"),input.getJSONObject("frame"));

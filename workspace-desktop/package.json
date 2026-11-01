@@ -66,7 +66,9 @@
     "test:persistent-world": "node test/persistent-world-integration.cjs",
     "test:live-world": "node test/live-persistent-world.cjs",
     "test:observations": "node test/observations-integration.cjs",
-    "test:live-observations": "node test/live-observations.cjs"
+    "test:live-observations": "node test/live-observations.cjs",
+    "test:metrics": "node test/metrics-integration.cjs",
+    "test:camera-metrics": "node test/camera-metrics-integration.cjs"
   },
   "devDependencies": {
     "electron": "45.1.0",
