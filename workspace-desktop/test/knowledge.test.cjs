@@ -4,7 +4,7 @@ const {publicURL,privateAddress,resultURL,selectLinks}=require('../research-work
 const {asksSelf,asksResearch,selfSummary,createKnowledge}=require('../knowledge.cjs');
 const {planTools}=require('../policy.cjs');
 test('public research rejects local, private, multicast, credentials and private DNS results',async()=>{
- for(const url of ['http://localhost/a','http://127.0.0.1','http://10.2.3.4','http://169.254.1.2','http://100.64.0.1','http://[::1]','http://[ff02::1]','https://user:password@example.org','file:///C:/x'])await assert.rejects(publicURL(url));
+ for(const url of ['http://localhost/a','http://127.0.0.1','http://10.2.3.4','http://169.254.1.2','http://100.64.0.1','http://[::1]','http://[::ffff:127.0.0.1]','http://[::ffff:192.168.1.2]','http://[ff02::1]','https://user:password@example.org','file:///C:/x'])await assert.rejects(publicURL(url));
  await assert.rejects(publicURL('https://example.org',false,async()=>[{address:'192.168.1.1'}]));
  assert.equal(await publicURL('http://127.0.0.1/a',true),'http://127.0.0.1/a');
  assert.equal(await publicURL('https://example.org',false,async()=>[{address:'93.184.215.14'}]),'https://example.org/');assert(privateAddress('::ffff:127.0.0.1'));
