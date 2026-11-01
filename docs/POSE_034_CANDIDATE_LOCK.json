@@ -1,0 +1,28 @@
+{
+  "date": "2026-11-01",
+  "scope": "Core native controller, planner, verifier, store and checkpoint locked after seen development, before any reserved native trial. New virtual gripper feature/torque ablation, not a033 contact-controller promotion.",
+  "sources": [
+    {
+      "path": "workspace-engine/src/main/java/fraymus/workspace/PosePlan.java",
+      "sha256": "1906784d549adce9dff65abda2201215e0313d9c2b0e640155926b087bd88d04"
+    },
+    {
+      "path": "workspace-engine/src/main/java/fraymus/workspace/PosePhysics.java",
+      "sha256": "a8ba990c2ed1734a0f9edd0ac1b386c45845b429305eca62ccab56ffee85a9ef"
+    },
+    {
+      "path": "workspace-engine/src/main/java/fraymus/workspace/PoseVerify.java",
+      "sha256": "4ac219e30d888f72b1bccf137d2d1e6291aba15407b2d3168551a6589b4b4ff3"
+    },
+    {
+      "path": "workspace-engine/src/main/java/fraymus/workspace/PoseCheckpoint.java",
+      "sha256": "071e10a2e3239b93e83be4267013d1491eb03945f936f1ea406295f4a099273d"
+    },
+    {
+      "path": "workspace-engine/src/main/java/fraymus/workspace/PoseStore.java",
+      "sha256": "5668c713f5f588f80fdcc17ba9f2df6ea5395f119873ccd7391d88892c8dc01a"
+    }
+  ],
+  "development": "8/8 feasible candidate; force/torque negatives fail; translation-only matched4 cases with effort ratio1.0. Actual native store, corruption and same-run resume tests pass.",
+  "reservedTrialsRun": 0
+}
