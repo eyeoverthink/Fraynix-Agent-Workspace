@@ -1,5 +1,77 @@
 # Agent Workspace project memory
 
+## Edition 035 published and directly verified — 2026-11-01
+
+The atomic push of main and the annotated readme-035 tag succeeded. A separate
+checkout fetched directly from GitHub and verified release commit
+f5bb3c9ff1a02bff3c69f888adc241d75878a859, tag object b4946374f1a1fb61a9e1a036b0260f9a5a51b645, all 679 canonical
+implementation hashes, and all 35 frozen editions. Documentation
+validation covers 40 canvases, 4598 references and
+1461 frozen hashes. Earlier editions 001–034 remain unchanged.
+The final continuity commit changes only these notes, after the frozen release.
+
+One persistent world now carries stable body IDs, positions, orientations and
+linear/angular velocities across successive goals. Java owns a hash-chained
+revision ledger, atomic writes, cross-process locking, expected-head checks and
+pending goal/run ownership. Actual native verification and the original chart
+receipt precede commit and skill retention. Chat, Spatial and the visible Skills
+form use the same revision. Failed, stopped and interrupted attempts do not
+advance its verified head. Explicit restore adds a labelled, nonphysical state
+revision and retains abandoned evidence. Complete world exports include every
+referenced native attempt; the offline inspector verifies bytes and references.
+
+Physics pauses between goals; each task reconstructs native contact caches from
+the retained kinematic state. This does not establish bit-identical uninterrupted
+simulation, calibrated robot control, learned-policy improvement or Ollama weight
+training. Explicit budgets remain 16 worlds, 64 revisions per world and 32 native
+attempts per project, with 256 MB raw/20 MB transport export limits. No evidence
+is silently pruned. No new dependencies, models, cloud service, Docker or WSL.
+
+The suite and gates were frozen in 9efd27f before development. Eight new core
+World sources were locked in dccd93c before the first reserved measurements;
+fingerprint 2d071b7114fb07967502425978b51eafaafdf2b7b372caf706977c1b0ba057f0.
+Four different reserved sequences produced eight native goal commits, one actual
+low-force failure without head advance and one blocked-next refusal. All 18
+original byte records are archived. No native retuning followed measurement.
+These are now seen regression cases, not evidence of newly trained behavior.
+
+Independent offline validation passed 309 Java tests
+in 65 classes, 77
+desktop unit tests and 231 actual UI checks across
+25 groups. The four-body test killed Java during
+angular motion and resumed the same goal/run/attempt and exact trace prefix.
+Maximum measured goal-boundary position error was 9.61557973545745e-8 m, below
+the frozen 2e-6 m gate. Stale requests, replacement attempts, skill continuation,
+2 N failure, Stop, explicit restores and complete exports were exercised.
+Three real installed gpt-oss:20b chat episodes passed on their first run with
+zero rejected calls, continuing the same world through revisions 1, 2 and 3.
+
+Runtime product sources remain f07f1e7. Commit 6d8fd80 fixes only an older pose
+cancellation test: wait for the new goal's own native study and trial before
+Stop. The earlier test accidentally matched the prior completed study, then
+legitimately stopped the new task before native effects existed. The failed
+test and diagnostic are retained; application logic and physical gates did not
+change. The Spatial tab reentry display bug was corrected before f07f1e7.
+
+README-035 contains the extensive linked guide, 15 dated actual app captures,
+complete native reports, original exports, exact-byte archives, source explorer,
+interactive history and Obsidian map. Ten offline documentation UI checks pass,
+including 48 history cells, both history chart modes, six original native chart
+modes, wide/390 px layouts, navigation, filters and raw evidence verification.
+
+Normal isolated review 035 is open from the directly fetched QA checkout:
+Electron PID 35728, engine port 58605, /welcome HTTP 200.
+Project: C:\Users\eyeka\.fraynix-agent-workspace\projects\review-035. Only the closed synthetic/local-model acceptance
+project was copied; no personal database or model weights were copied. Older
+reviews and private model services were preserved. The correct private origin
+is eyeoverthink/Fraynix-Agent-Workspace; never relocate this app into Chandra.
+
+Next unused edition: 036. Proposed next gate is observation-driven revisions
+with explicit identity, scale, discrepancy and uncertainty checks. Freeze new
+calibrated, delayed and missing-observation sequences before implementing or
+evaluating that work. It is not implemented by edition 035.
+
+
 Edition035 VALIDATED RELEASE CANDIDATE; publication pending,2026-11-01.
 
 Independent offline309Java/65classes,77desktop units,231actualUIchecks/25groups and three REALgpt-oss:20b episodes/four checks pass. Product runtimef07f1e7; only cancellation-test synchronization changed in6d8fd80 after build; allproduct Java/desktop sources remain identical. Corrected old test waits for new owned poseJobId and its own first trial before Stop, instead of matching prior completed study then legitimately cancelling before effects. No application/controller/gate change. All679canonical implementation hashes match independent source. Four different reserved035sequences retain8nativecommits/1actualforce-negative-noadvance/1blocked-next-refusal;18first exact-byte files archived. Eight native/ledger/frame/report core sources locked dccd93c after development before reserved; cases/gates9efd27f. No post-inspection retuning. Stable native IDs/p/q/v/omega carry across discrete goals. Physics pauses and solver contact caches reconstruct; no uninterrupted warm-solver, calibrated robot or model-weight-training claim.
