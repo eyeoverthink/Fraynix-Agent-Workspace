@@ -44,4 +44,6 @@ Numbered editions preserve dated system behavior and evidence. The root [README]
 
 | [037](../../README-037.md) | 2026-11-01 | Measured plane/time, local camera/mat workflow, empirical uncertainty and original rejected footage results | [Viewer](037/index.html) · [evidence](037/verification.json) · [contract](../METRIC_WORLDS.md) |
 
-Latest implementation/documentation edition: **037**. Earlier snapshots remain intact. See [sequence policy](README_SEQUENCE.md) and [manifest](editions.json).
+| [038](../../README-038.md) | 2026-11-01 | Private physical tabletop, original appearance tracking, mat/tape scale, durable evidence and grounded chat | [Viewer](038/index.html) · [evidence](038/verification.json) · [operation](../TABLETOP_OBSERVER.md) |
+
+Latest implementation/documentation edition: **038**. Earlier snapshots remain intact. See [sequence policy](README_SEQUENCE.md) and [manifest](editions.json).

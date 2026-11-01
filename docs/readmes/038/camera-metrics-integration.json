@@ -1,0 +1,110 @@
+{
+  "passed": true,
+  "date": "2026-11-01T21:43:49.591Z",
+  "checks": [
+    "Explicit preview uses Chromium getUserMedia through the actual trusted app; software camera contains only disclosed public EPFL frames, no physical webcam recording",
+    "Microphone access is denied in the app and camera access is denied in the untrusted creation canvas",
+    "Explicit Capture samples40 actual software-camera frames with monotonic mediaTime seconds; preview/capture does not silently import a dataset",
+    "Stop releases camera tracks; real pointer-drawn object seed and explicit Import persist exact captured clocks/source hashes in Java",
+    "Four real pointer clicks save a perspective-plane calibration with exact12-inch to0.3048m conversion; screenshot explicitly discloses imposed test geometry"
+  ],
+  "project": "C:\\Users\\eyeka\\AppData\\Local\\Temp\\fraynix-camera037-wU5ChK",
+  "pack": {
+    "schema": "fraynix-observation-frames-037-v1",
+    "seconds": [
+      0,
+      0.18694300000000003,
+      0.389913,
+      0.5777019999999999,
+      0.774767,
+      0.983368,
+      1.1790669999999999,
+      1.374868,
+      1.577979,
+      1.774486,
+      1.98476,
+      2.183394,
+      2.389739,
+      2.5827839999999997,
+      2.790563,
+      2.9882429999999998,
+      3.1801749999999998,
+      3.389585,
+      3.593074,
+      3.788943,
+      3.983227,
+      4.183131,
+      4.374561000000001,
+      4.577693,
+      4.774624,
+      4.984292000000001,
+      5.187259,
+      5.383705,
+      5.589005,
+      5.774707,
+      5.984225,
+      6.186373000000001,
+      6.389773000000001,
+      6.586403000000001,
+      6.774416,
+      6.982924000000001,
+      7.178255,
+      7.383172,
+      7.586847000000001,
+      7.789484
+    ],
+    "frames": 40,
+    "cameraKey": "webcam-mat-1793569420223"
+  },
+  "geometry": {
+    "createdAt": "2026-11-01T21:43:49.397953900Z",
+    "sha256": "a31627fe54f543a1f2f5dd2e70dd81f1b4b7ab45e3a5cbcf9e27bee2f2d1daaa",
+    "definition": {
+      "mode": "homography",
+      "note": "SOFTWARE CAMERA UI TEST ONLY: public EPFL footage, imposed12-inch test rectangle, not a physically measured Cricut mat.",
+      "anchorSigmaM": 0.002,
+      "cameraKey": "webcam-mat-1793569420223",
+      "scaleRelativeSigma": 0.01,
+      "worldPoints": [
+        [
+          0,
+          0
+        ],
+        [
+          0.30479999999999996,
+          0
+        ],
+        [
+          0.30479999999999996,
+          0.30479999999999996
+        ],
+        [
+          0,
+          0.30479999999999996
+        ]
+      ],
+      "imagePoints": [
+        [
+          0.05,
+          0.049999978807237416
+        ],
+        [
+          0.95,
+          0.049999978807237416
+        ],
+        [
+          0.95,
+          0.9500000211927626
+        ],
+        [
+          0.05,
+          0.9500000211927626
+        ]
+      ]
+    },
+    "id": "27ee21bb-9f6d-48c6-af77-5eaebc32f39e"
+  },
+  "source": "EPFL terrace1 camera0, converted to software camera fixture using existing ffmpeg; no personal webcam images or hardware scale validation",
+  "audioDenied": "NotAllowedError",
+  "canvasCameraDenied": "NotAllowedError"
+}

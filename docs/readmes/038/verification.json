@@ -1,0 +1,105 @@
+{
+  "passed": true,
+  "date": "2026-11-01",
+  "java": {
+    "passed": true,
+    "tests": 334,
+    "classes": 73
+  },
+  "desktopUnits": 88,
+  "independentFocusedJava": 10,
+  "uiGroups": {
+    "tabletop": {
+      "passed": true,
+      "checks": 8
+    },
+    "metrics": {
+      "passed": true,
+      "checks": 8
+    },
+    "camera-metrics": {
+      "passed": true,
+      "checks": 5
+    },
+    "observations": {
+      "passed": true,
+      "checks": 8
+    },
+    "video": {
+      "passed": true,
+      "checks": 4
+    },
+    "original": {
+      "passed": true,
+      "checks": 12
+    },
+    "broader": {
+      "passed": true,
+      "checks": 45
+    },
+    "live-tabletop": {
+      "passed": true,
+      "checks": 3
+    }
+  },
+  "sourceMatch": {
+    "passed": true,
+    "files": 732,
+    "rootHead": "a25a541e9512f40ef51b690fdf149c6a625dcf2b",
+    "independentHead": "a25a541e9512f40ef51b690fdf149c6a625dcf2b",
+    "scope": "All canonical implementation source/assets match independent checkout. Dependencies reused locally; no personal runtime state copied. Full334 Java run was in root; focused9Java and all listedUI/model workflows are from matching independent checkout."
+  },
+  "actualModel": {
+    "name": "gpt-oss:20b",
+    "checks": 3,
+    "calls": [
+      "tabletop.read",
+      "tabletop.answer",
+      "canvas.test",
+      "tabletop.report"
+    ]
+  },
+  "physical": {
+    "date": "2026-11-01",
+    "tapeChecks": {
+      "firstDevelopmentErrorM": 0.0028734242867187038,
+      "newSessionErrorM": 0.003418,
+      "finalSessionErrorM": 0.0030183156919143528,
+      "expectedSpanM": 0.1016,
+      "toleranceM": 0.005
+    },
+    "sourceAudit": {
+      "passed": true,
+      "runs": 21,
+      "postSeedFrames": 772,
+      "originalImagesIncludingRepeatedSeeds": 793,
+      "distinctOriginalHashes": 777,
+      "originalBytes": 69378046,
+      "scope": "Independent private byte/hash/metadata/ordinal/time audit. No raw camera pixels or original image files copied to Git; does not authenticate sensor exposure or establish target/metric accuracy."
+    },
+    "firstSlide": {
+      "runId": "10e864c6-c576-490f-96d5-5932ed660bb1",
+      "frames": 19,
+      "appearanceAccepted": 17,
+      "metricAccepted": 6,
+      "result": "Displacement analysis REFUSED: first/end windows contain unmeasured estimates. Old search latched onto tape housing outside plane; no native state change."
+    },
+    "seenDevelopmentReplay": {
+      "codeSha256": "b66756a2a6b1ba3e399d52b777dbd846b12f02d97d91cb4dd459386da66bcdf4",
+      "frames": 19,
+      "metricAccepted": 17,
+      "qualification": "Original failure reused to develop v2, not new footage or independent validation."
+    },
+    "newV2Trial": {
+      "runId": "98441fc0-01f5-4296-ac8a-134697551e89",
+      "frames": 52,
+      "metricAccepted": 5,
+      "result": "NOT VALIDATED: moved before eight-measurement start window; target/tape-housing confusion persists. No certified displacement or uncertainty result."
+    },
+    "physicalAccuracyValidated": false,
+    "modelWeightTraining": false,
+    "nativeWorldUpdated": false,
+    "narrative": "The complete physical journal retains **21 runs, 772 post-seed samples and 793 original images including repeated seeds**. An independent private audit verifies all original bytes, metadata, ordinals and increasing times; 777 distinct image hashes remain outside Git. All numeric rows are included in the companion, including failed/mistimed attempts, cancelled runs and both code versions.\n\nOne actual cover/reveal sequence (`acb19212`) loses the target for seven samples and reacquires it at 8.1913 seconds; the private hidden/reappeared frames were visually corroborated. It has seven recovery samples where the frozen procedure requires eight, so it does not pass that strict timed gate. Large sheets covering reference corners correctly stop trusted coordinates. Other recordings left the target visible or covered at the wrong time and cannot establish a successful occlusion test.\n\nThe first real 4-to-8-inch slide has 19 samples but only six accepted metric updates. Its old matcher accepts the tape housing below the measured plane; geometry withholds those coordinates. The endpoint analysis is refused. A documented revised candidate refines eight spatially distinct candidates and uses a denser global search without changing the appearance, ambiguity, filter, scale or displacement gates. Replaying the same seen failure with the original images/times/geometry improves to 17 accepted metric updates, including the released lighter endpoint. This is an engineering development regression, not independent validation or self-trained model weights.\n\nThe new candidate's subsequent physical manual recording still fails: the object moves before the eight-sample start window is complete and confusion with the tape housing recurs. Its 52 samples contain only five accepted metric updates. A manual interface now folds short timed controls away, waits for measured start samples and coaches release/hand-away at the endpoint. **Real displacement accuracy and empirical uncertainty remain unvalidated.** The next work is stronger target/background discrimination, faster acquisition/processing and explicit preparation/recovery; no threshold was relaxed to manufacture a pass. Long unmeasured gaps can make the simple constant-velocity radius enormous; that represents unusable extrapolation, not measured physical precision."
+  },
+  "scope": "Workflow correctness and disclosed physical results are separate. No model weights trained, general physical accuracy, semantic identity, action promotion or personal pixels published."
+}

@@ -38,3 +38,10 @@ Independent reference fitting uses12–96 non-seed accepted measurements. A prof
 Complete new controlled slide and actual hidden-target recordings under the frozen gates, retain first failures, then compare performance on different objects and lighting. Collect independent physical position references before fitting uncertainty. Evaluate a separate later sequence and repeat after restart. Only after those measurements support the claim should planning consume stronger physical predictions. Multi-object identity, automatic semantics/OCR, height/contact sensing, force estimation and robot actuation remain separate additions.
 
 Earlier calibrated-footage results and sources remain in [edition037](../README-037.md). This new small-object path does not relabel its rejected pedestrian profile as successful.
+
+
+## Edition038 outcome and following work
+
+The final full suite passes334Java tests/73classes and88desktop checks. Independent workflow checks pass90UI assertions plus three actual gpt-oss:20b assertions, with732canonical source/assets matching. Actual physical data retain21runs/772post-seed frames/793recording originals and777distinct hashes privately. Real tape checks pass5mm (latest3.018mm discrepancy over101.6mm), and one real cover/reveal sequence loses/reacquires the lighter, but its strict recovery window lacks a required sample. The first4to8inch displacement fails because the matcher selects the tape housing outside the plane. Revised search improves a seen replay from6to17metric accepts, yet new v2 footage still fails its start window and confuses background. No physical displacement/uncertainty certificate or model training is claimed.
+
+Use the prominent manual-slide button, keep the target visible during preparation, wait for measured start samples, release/take your hand away at the endpoint and wait for END WINDOW. Short timed controls are under Advanced. Next candidate must improve target/background discrimination and processing latency, add explicit fresh-start/preparation recovery, then face genuinely new footage and independent position references. Preserve current first failures and gates.

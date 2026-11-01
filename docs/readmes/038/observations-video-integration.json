@@ -1,0 +1,4815 @@
+{
+  "passed": true,
+  "date": "2026-11-01T21:44:16.287Z",
+  "project": "C:\\Users\\eyeka\\AppData\\Local\\Temp\\fraynix-video036-RUHLIA",
+  "worldId": "f9f7f4c0-8fb6-4f96-a7c7-db0ec5db119a",
+  "checks": [
+    "Chromium MediaRecorder encoded18 original real DAVIS photos as a disclosed lossy video derivative; no synthetic motion or image generator",
+    "Actual local video file decodes through the app Chromium path; a real pointer-drawn first rectangle initializes the human-guided tracker with explicit sample-index timing",
+    "Actual decoded video pixels drive Java prediction/measurement/filter updates on the same persistent world while the native verified frame remains exact",
+    "Video-derived original decoded images, full trace and world estimates export with valid raw hashes and source references; no renderer errors"
+  ],
+  "run": {
+    "reason": "All source frames processed; accepted estimates retained with full evidence",
+    "observationRevision": 20,
+    "completedAt": "2026-11-01T21:44:15.139122500Z",
+    "bindings": [
+      {
+        "objectKey": "subject",
+        "bodyId": "408d2769-d13f-3600-a2cf-81b506f279f6"
+      }
+    ],
+    "baseObservationRevision": 0,
+    "nativeBinding": {
+      "worldId": "f9f7f4c0-8fb6-4f96-a7c7-db0ec5db119a",
+      "expectedHash": "b5688b4e25a72021c155ec7b1a1b63244d1e1838397b8ad81432746f771a6ced",
+      "expectedRevision": 0
+    },
+    "resumes": 0,
+    "createdAt": "2026-11-01T21:44:13.954692500Z",
+    "codeSha256": "d199d7fc2722caeb5900b1637fd1d7dfc0c9eaf95a1412132316756002c65821",
+    "trace": [
+      {
+        "sourceFrame": 1,
+        "imageSha256": "e4c94eb187cb31edba0c5825a33f142303a4adb4de8a45a1bb3c3ddb20640382",
+        "objects": [
+          {
+            "tracker": {
+              "matchScore": 0.9998658641435295,
+              "scoreMeaning": "Local patch correlation and motion consistency, not calibrated semantic confidence",
+              "motion": {
+                "seedPoints": 47,
+                "inliers": 47,
+                "vectors": [
+                  [
+                    0.8375,
+                    0.463,
+                    0.8375,
+                    0.4629
+                  ],
+                  [
+                    0.8583,
+                    0.463,
+                    0.8583,
+                    0.463
+                  ],
+                  [
+                    0.8688,
+                    0.4704,
+                    0.8688,
+                    0.4704
+                  ],
+                  [
+                    0.8854,
+                    0.4704,
+                    0.8854,
+                    0.4704
+                  ],
+                  [
+                    0.8917,
+                    0.4704,
+                    0.8917,
+                    0.4704
+                  ],
+                  [
+                    0.9042,
+                    0.463,
+                    0.9042,
+                    0.463
+                  ],
+                  [
+                    0.9146,
+                    0.4556,
+                    0.9146,
+                    0.4556
+                  ],
+                  [
+                    0.8375,
+                    0.4852,
+                    0.8375,
+                    0.4852
+                  ],
+                  [
+                    0.8729,
+                    0.4852,
+                    0.8729,
+                    0.4852
+                  ],
+                  [
+                    0.9146,
+                    0.4704,
+                    0.9146,
+                    0.4704
+                  ],
+                  [
+                    0.8375,
+                    0.4963,
+                    0.8375,
+                    0.4963
+                  ],
+                  [
+                    0.85,
+                    0.5037,
+                    0.85,
+                    0.5037
+                  ]
+                ],
+                "method": "pyramidal-flow",
+                "dxPixels": 0.00027078453780404743,
+                "dyPixels": 0.0003392405162543355,
+                "medianForwardBackwardPixels": 0.0009408041066695849,
+                "scale": 1.000016343283659,
+                "ambiguous": false,
+                "reliablePoints": 47
+              },
+              "lastKnownBox": [
+                0.8196717982203185,
+                0.44166633503131014,
+                0.9379406581735886,
+                0.6354194581036372
+              ],
+              "appearanceUpdates": 1,
+              "box": [
+                0.8196717982203185,
+                0.44166633503131014,
+                0.9379406581735886,
+                0.6354194581036372
+              ],
+              "id": "408d2769-d13f-3600-a2cf-81b506f279f6",
+              "label": "selected object",
+              "status": "tracked"
+            },
+            "estimate": {
+              "innovation": 0.0000013772817898043756,
+              "reason": "Actual pixel measurement accepted under the fixed innovation gate",
+              "positionSigma": 0.019586987147869352,
+              "accepted": true,
+              "uncertaintyMeaning": "Model covariance under declared motion/noise assumptions; not calibrated probability or metric accuracy",
+              "covariance": [
+                [
+                  0.00019182503276539962,
+                  0.00013299475753604186,
+                  0.00013299475753604186,
+                  0.00037083879423328956
+                ],
+                [
+                  0.00019182503276539962,
+                  0.00013299475753604186,
+                  0.00013299475753604186,
+                  0.00037083879423328956
+                ]
+              ],
+              "innovationGate": 0.27622454633866267,
+              "velocity": [
+                3.3345299943855225e-7,
+                7.426701268506765e-7
+              ],
+              "measurement": [
+                0.8788062281969535,
+                0.5385428965674737
+              ],
+              "predictedVariance": [
+                0.001301,
+                0.001301
+              ],
+              "domain": "normalized image-plane; unknown depth, metric scale and capture FPS",
+              "time": 1,
+              "position": [
+                0.8788061450185446,
+                0.5385427113116217
+              ],
+              "predicted": [
+                0.8788056640624999,
+                0.5385416401211172
+              ],
+              "timeUnit": "sample-index",
+              "status": "observed"
+            },
+            "bodyId": "408d2769-d13f-3600-a2cf-81b506f279f6"
+          }
+        ],
+        "ordinal": 1
+      },
+      {
+        "sourceFrame": 2,
+        "imageSha256": "939f463eb850b03c36ed3ec45f2a992b5ce42548dbae125ad35d0d42dd7ac475",
+        "objects": [
+          {
+            "tracker": {
+              "matchScore": 0.9659171388585676,
+              "scoreMeaning": "Local patch correlation and motion consistency, not calibrated semantic confidence",
+              "motion": {
+                "seedPoints": 47,
+                "inliers": 44,
+                "vectors": [
+                  [
+                    0.8375,
+                    0.463,
+                    0.8354,
+                    0.4625
+                  ],
+                  [
+                    0.8583,
+                    0.463,
+                    0.857,
+                    0.4633
+                  ],
+                  [
+                    0.8688,
+                    0.4704,
+                    0.8672,
+                    0.4711
+                  ],
+                  [
+                    0.8854,
+                    0.4704,
+                    0.884,
+                    0.471
+                  ],
+                  [
+                    0.8917,
+                    0.4704,
+                    0.8901,
+                    0.471
+                  ],
+                  [
+                    0.9042,
+                    0.463,
+                    0.9028,
+                    0.4633
+                  ],
+                  [
+                    0.9146,
+                    0.4556,
+                    0.9136,
+                    0.456
+                  ],
+                  [
+                    0.8375,
+                    0.4852,
+                    0.8349,
+                    0.4857
+                  ],
+                  [
+                    0.8729,
+                    0.4852,
+                    0.8712,
+                    0.4857
+                  ],
+                  [
+                    0.9146,
+                    0.4704,
+                    0.9134,
+                    0.4704
+                  ],
+                  [
+                    0.8375,
+                    0.4963,
+                    0.8348,
+                    0.4973
+                  ],
+                  [
+                    0.85,
+                    0.5037,
+                    0.8469,
+                    0.5048
+                  ]
+                ],
+                "method": "pyramidal-flow",
+                "dxPixels": -1.2236654139117888,
+                "dyPixels": 0.3983928988899095,
+                "medianForwardBackwardPixels": 0.02404075616444107,
+                "scale": 1.0115424875092185,
+                "ambiguous": false,
+                "reliablePoints": 44
+              },
+              "lastKnownBox": [
+                0.8164399368552989,
+                0.44202366778499075,
+                0.9360739136473092,
+                0.6380131838602523
+              ],
+              "appearanceUpdates": 2,
+              "box": [
+                0.8164399368552989,
+                0.44202366778499075,
+                0.9360739136473092,
+                0.6380131838602523
+              ],
+              "id": "408d2769-d13f-3600-a2cf-81b506f279f6",
+              "label": "selected object",
+              "status": "tracked"
+            },
+            "estimate": {
+              "innovation": 0.0029454649130832024,
+              "reason": "Actual pixel measurement accepted under the fixed innovation gate",
+              "positionSigma": 0.018814805095155183,
+              "accepted": true,
+              "uncertaintyMeaning": "Model covariance under declared motion/noise assumptions; not calibrated probability or metric accuracy",
+              "covariance": [
+                [
+                  0.0001769984453843387,
+                  0.0001079146527186202,
+                  0.0001079146527186202,
+                  0.00013223056279945146
+                ],
+                [
+                  0.0001769984453843387,
+                  0.0001079146527186202,
+                  0.0001079146527186202,
+                  0.00013223056279945146
+                ]
+              ],
+              "innovationGate": 0.22963594471149035,
+              "velocity": [
+                -0.0012224849929998352,
+                0.0007081696655826322
+              ],
+              "measurement": [
+                0.876256925251304,
+                0.5400184258226215
+              ],
+              "predictedVariance": [
+                0.0008296533420707729,
+                0.0008296533420707729
+              ],
+              "domain": "normalized image-plane; unknown depth, metric scale and capture FPS",
+              "time": 2,
+              "position": [
+                0.8768008475541791,
+                0.5397037549720605
+              ],
+              "predicted": [
+                0.878806478471544,
+                0.5385434539817485
+              ],
+              "timeUnit": "sample-index",
+              "status": "observed"
+            },
+            "bodyId": "408d2769-d13f-3600-a2cf-81b506f279f6"
+          }
+        ],
+        "ordinal": 2
+      },
+      {
+        "sourceFrame": 3,
+        "imageSha256": "57472b6928eb12792afe90478e2d3bcefb3c74c4375518ba10993755418c2856",
+        "objects": [
+          {
+            "tracker": {
+              "matchScore": 0.9656584245476233,
+              "scoreMeaning": "Local patch correlation and motion consistency, not calibrated semantic confidence",
+              "motion": {
+                "seedPoints": 53,
+                "inliers": 51,
+                "vectors": [
+                  [
+                    0.8333,
+                    0.463,
+                    0.8314,
+                    0.4628
+                  ],
+                  [
+                    0.8396,
+                    0.4556,
+                    0.8375,
+                    0.4557
+                  ],
+                  [
+                    0.8562,
+                    0.463,
+                    0.8547,
+                    0.4636
+                  ],
+                  [
+                    0.8646,
+                    0.4704,
+                    0.8633,
+                    0.4717
+                  ],
+                  [
+                    0.8917,
+                    0.4704,
+                    0.8902,
+                    0.4715
+                  ],
+                  [
+                    0.9062,
+                    0.463,
+                    0.9048,
+                    0.4639
+                  ],
+                  [
+                    0.9125,
+                    0.4556,
+                    0.9113,
+                    0.4565
+                  ],
+                  [
+                    0.8375,
+                    0.4889,
+                    0.8352,
+                    0.4893
+                  ],
+                  [
+                    0.8562,
+                    0.4741,
+                    0.8544,
+                    0.475
+                  ],
+                  [
+                    0.8708,
+                    0.4815,
+                    0.8696,
+                    0.4826
+                  ],
+                  [
+                    0.8875,
+                    0.4815,
+                    0.8861,
+                    0.4826
+                  ],
+                  [
+                    0.9021,
+                    0.4741,
+                    0.9006,
+                    0.4753
+                  ]
+                ],
+                "method": "pyramidal-flow",
+                "dxPixels": -1.1334450257136268,
+                "dyPixels": 0.46458007869034645,
+                "medianForwardBackwardPixels": 0.027211859484506624,
+                "scale": 1.0115242472211443,
+                "ambiguous": false,
+                "reliablePoints": 51
+              },
+              "lastKnownBox": [
+                0.8133892472894291,
+                0.4426150189251012,
+                0.9344019156060391,
+                0.6408631666363664
+              ],
+              "appearanceUpdates": 3,
+              "box": [
+                0.8133892472894291,
+                0.4426150189251012,
+                0.9344019156060391,
+                0.6408631666363664
+              ],
+              "id": "408d2769-d13f-3600-a2cf-81b506f279f6",
+              "label": "selected object",
+              "status": "tracked"
+            },
+            "estimate": {
+              "innovation": 0.002143158313285065,
+              "reason": "Actual pixel measurement accepted under the fixed innovation gate",
+              "positionSigma": 0.017753597607918996,
+              "accepted": true,
+              "uncertaintyMeaning": "Model covariance under declared motion/noise assumptions; not calibrated probability or metric accuracy",
+              "covariance": [
+                [
+                  0.00015759511401195356,
+                  0.00007254120286465137,
+                  0.00007254120286465137,
+                  0.000058161650792335184
+                ],
+                [
+                  0.00015759511401195356,
+                  0.00007254120286465137,
+                  0.00007254120286465137,
+                  0.000058161650792335184
+                ]
+              ],
+              "innovationGate": 0.19378574684700506,
+              "velocity": [
+                -0.0017650226202319845,
+                0.0011360557700424048
+              ],
+              "measurement": [
+                0.873895581447734,
+                0.5417390927807338
+              ],
+              "predictedVariance": [
+                0.0005260583136210306,
+                0.0005260583136210306
+              ],
+              "domain": "normalized image-plane; unknown depth, metric scale and capture FPS",
+              "time": 3,
+              "position": [
+                0.8743997044214878,
+                0.5413415033701916
+              ],
+              "predicted": [
+                0.8755783625611793,
+                0.5404119246376431
+              ],
+              "timeUnit": "sample-index",
+              "status": "observed"
+            },
+            "bodyId": "408d2769-d13f-3600-a2cf-81b506f279f6"
+          }
+        ],
+        "ordinal": 3
+      },
+      {
+        "sourceFrame": 4,
+        "imageSha256": "2c1d9be9065cc16af739f4c5cd1b5e8aba3f20a3ededa8c910fa9c032a8efcb2",
+        "objects": [
+          {
+            "tracker": {
+              "matchScore": 0.9681606257645435,
+              "scoreMeaning": "Local patch correlation and motion consistency, not calibrated semantic confidence",
+              "motion": {
+                "seedPoints": 49,
+                "inliers": 49,
+                "vectors": [
+                  [
+                    0.8312,
+                    0.463,
+                    0.829,
+                    0.4622
+                  ],
+                  [
+                    0.8542,
+                    0.463,
+                    0.8527,
+                    0.4626
+                  ],
+                  [
+                    0.8625,
+                    0.4704,
+                    0.8606,
+                    0.4704
+                  ],
+                  [
+                    0.8688,
+                    0.4704,
+                    0.8667,
+                    0.4704
+                  ],
+                  [
+                    0.8812,
+                    0.463,
+                    0.8797,
+                    0.4628
+                  ],
+                  [
+                    0.8896,
+                    0.4704,
+                    0.8879,
+                    0.4703
+                  ],
+                  [
+                    0.9083,
+                    0.4556,
+                    0.9071,
+                    0.4557
+                  ],
+                  [
+                    0.8312,
+                    0.4889,
+                    0.8287,
+                    0.4889
+                  ],
+                  [
+                    0.8542,
+                    0.4741,
+                    0.8528,
+                    0.4741
+                  ],
+                  [
+                    0.8688,
+                    0.4815,
+                    0.8672,
+                    0.4818
+                  ],
+                  [
+                    0.8854,
+                    0.4815,
+                    0.8837,
+                    0.4814
+                  ],
+                  [
+                    0.9,
+                    0.4741,
+                    0.8983,
+                    0.474
+                  ]
+                ],
+                "method": "pyramidal-flow",
+                "dxPixels": -1.2945612358370795,
+                "dyPixels": 0.3446607800400443,
+                "medianForwardBackwardPixels": 0.0262794426072362,
+                "scale": 1.011940949075512,
+                "ambiguous": false,
+                "reliablePoints": 49
+              },
+              "lastKnownBox": [
+                0.8099697416598383,
+                0.44270790481458955,
+                0.9324274160863087,
+                0.6433233235619896
+              ],
+              "appearanceUpdates": 4,
+              "box": [
+                0.8099697416598383,
+                0.44270790481458955,
+                0.9324274160863087,
+                0.6433233235619896
+              ],
+              "id": "408d2769-d13f-3600-a2cf-81b506f279f6",
+              "label": "selected object",
+              "status": "tracked"
+            },
+            "estimate": {
+              "innovation": 0.0015335888807212633,
+              "reason": "Actual pixel measurement accepted under the fixed innovation gate",
+              "positionSigma": 0.016657295845602566,
+              "accepted": true,
+              "uncertaintyMeaning": "Model covariance under declared motion/noise assumptions; not calibrated probability or metric accuracy",
+              "covariance": [
+                [
+                  0.00013873275244396423,
+                  0.00005087959967919838,
+                  0.00005087959967919838,
+                  0.0000321533482574253
+                ],
+                [
+                  0.00013873275244396423,
+                  0.00005087959967919838,
+                  0.00005087959967919838,
+                  0.0000321533482574253
+                ]
+              ],
+              "innovationGate": 0.17129494600448542,
+              "velocity": [
+                -0.002089770807272163,
+                0.0012577269942665853
+              ],
+              "measurement": [
+                0.8711985788730735,
+                0.5430156141882896
+              ],
+              "predictedVariance": [
+                0.00036183917053359146,
+                0.00036183917053359146
+              ],
+              "domain": "normalized image-plane; unknown depth, metric scale and capture FPS",
+              "time": 4,
+              "position": [
+                0.8717491950811689,
+                0.5428093185081589
+              ],
+              "predicted": [
+                0.8726346818012558,
+                0.542477559140234
+              ],
+              "timeUnit": "sample-index",
+              "status": "observed"
+            },
+            "bodyId": "408d2769-d13f-3600-a2cf-81b506f279f6"
+          }
+        ],
+        "ordinal": 4
+      },
+      {
+        "sourceFrame": 5,
+        "imageSha256": "1f81c4f57a85937a7da272c4340afa98f81b338e4b987ecf92f3fc2261de5bb7",
+        "objects": [
+          {
+            "tracker": {
+              "matchScore": 0.9660627122101391,
+              "scoreMeaning": "Local patch correlation and motion consistency, not calibrated semantic confidence",
+              "motion": {
+                "seedPoints": 58,
+                "inliers": 55,
+                "vectors": [
+                  [
+                    0.8312,
+                    0.463,
+                    0.829,
+                    0.4631
+                  ],
+                  [
+                    0.8375,
+                    0.463,
+                    0.835,
+                    0.4634
+                  ],
+                  [
+                    0.85,
+                    0.463,
+                    0.8484,
+                    0.4637
+                  ],
+                  [
+                    0.8562,
+                    0.463,
+                    0.8547,
+                    0.4638
+                  ],
+                  [
+                    0.8792,
+                    0.463,
+                    0.8775,
+                    0.4639
+                  ],
+                  [
+                    0.8875,
+                    0.4704,
+                    0.8858,
+                    0.4716
+                  ],
+                  [
+                    0.9062,
+                    0.4556,
+                    0.9049,
+                    0.457
+                  ],
+                  [
+                    0.8312,
+                    0.4889,
+                    0.8286,
+                    0.4892
+                  ],
+                  [
+                    0.8417,
+                    0.4889,
+                    0.8395,
+                    0.4892
+                  ],
+                  [
+                    0.8604,
+                    0.4741,
+                    0.8586,
+                    0.4751
+                  ],
+                  [
+                    0.8688,
+                    0.4889,
+                    0.8672,
+                    0.4897
+                  ],
+                  [
+                    0.9021,
+                    0.4741,
+                    0.9005,
+                    0.4753
+                  ]
+                ],
+                "method": "pyramidal-flow",
+                "dxPixels": -1.370866748996832,
+                "dyPixels": 0.47535625316274377,
+                "medianForwardBackwardPixels": 0.032971098239073154,
+                "scale": 1.0106148544830864,
+                "ambiguous": false,
+                "reliablePoints": 55
+              },
+              "lastKnownBox": [
+                0.8064638340689079,
+                0.4434037317914736,
+                0.9302213788897525,
+                0.6461486540159407
+              ],
+              "appearanceUpdates": 5,
+              "box": [
+                0.8064638340689079,
+                0.4434037317914736,
+                0.9302213788897525,
+                0.6461486540159407
+              ],
+              "id": "408d2769-d13f-3600-a2cf-81b506f279f6",
+              "label": "selected object",
+              "status": "tracked"
+            },
+            "estimate": {
+              "innovation": 0.001495626671610061,
+              "reason": "Actual pixel measurement accepted under the fixed innovation gate",
+              "positionSigma": 0.015714638270225255,
+              "accepted": true,
+              "uncertaintyMeaning": "Model covariance under declared motion/noise assumptions; not calibrated probability or metric accuracy",
+              "covariance": [
+                [
+                  0.00012347492798201408,
+                  0.000038368782947410514,
+                  0.000038368782947410514,
+                  0.0000216528561562752
+                ],
+                [
+                  0.00012347492798201408,
+                  0.000038368782947410514,
+                  0.000038368782947410514,
+                  0.0000216528561562752
+                ]
+              ],
+              "innovationGate": 0.15789954085743668,
+              "velocity": [
+                -0.002314325012343317,
+                0.0013786564285665557
+              ],
+              "measurement": [
+                0.8683426064793303,
+                0.5447761929037072
+              ],
+              "predictedVariance": [
+                0.0002736453000597863,
+                0.0002736453000597863
+              ],
+              "domain": "normalized image-plane; unknown depth, metric scale and capture FPS",
+              "time": 5,
+              "position": [
+                0.8689367843523432,
+                0.544456209610434
+              ],
+              "predicted": [
+                0.8696594242738968,
+                0.5440670455024256
+              ],
+              "timeUnit": "sample-index",
+              "status": "observed"
+            },
+            "bodyId": "408d2769-d13f-3600-a2cf-81b506f279f6"
+          }
+        ],
+        "ordinal": 5
+      },
+      {
+        "sourceFrame": 6,
+        "imageSha256": "1ed6d8add4bd66455feae652a7f2cc3ec675dafb6b4de33d4a458bda6fdf4d7d",
+        "objects": [
+          {
+            "tracker": {
+              "matchScore": 0.9682848591418574,
+              "scoreMeaning": "Local patch correlation and motion consistency, not calibrated semantic confidence",
+              "motion": {
+                "seedPoints": 46,
+                "inliers": 43,
+                "vectors": [
+                  [
+                    0.8292,
+                    0.4593,
+                    0.8269,
+                    0.4589
+                  ],
+                  [
+                    0.8479,
+                    0.4667,
+                    0.8466,
+                    0.4663
+                  ],
+                  [
+                    0.8562,
+                    0.4667,
+                    0.8545,
+                    0.4665
+                  ],
+                  [
+                    0.8667,
+                    0.4741,
+                    0.865,
+                    0.4742
+                  ],
+                  [
+                    0.8854,
+                    0.4741,
+                    0.8837,
+                    0.4746
+                  ],
+                  [
+                    0.9,
+                    0.4593,
+                    0.8985,
+                    0.4595
+                  ],
+                  [
+                    0.8292,
+                    0.4889,
+                    0.8264,
+                    0.489
+                  ],
+                  [
+                    0.9,
+                    0.4741,
+                    0.8984,
+                    0.4744
+                  ],
+                  [
+                    0.9083,
+                    0.4889,
+                    0.9064,
+                    0.4882
+                  ],
+                  [
+                    0.825,
+                    0.5074,
+                    0.8221,
+                    0.5082
+                  ],
+                  [
+                    0.8396,
+                    0.5,
+                    0.8369,
+                    0.5009
+                  ],
+                  [
+                    0.8479,
+                    0.5074,
+                    0.8448,
+                    0.5084
+                  ]
+                ],
+                "method": "pyramidal-flow",
+                "dxPixels": -1.3346033980419634,
+                "dyPixels": 0.4340755393619986,
+                "medianForwardBackwardPixels": 0.030788675963497113,
+                "scale": 1.0134326167349526,
+                "ambiguous": false,
+                "reliablePoints": 43
+              },
+              "lastKnownBox": [
+                0.8028522164891685,
+                0.4436497215566963,
+                0.9282721489776502,
+                0.6491180386163625
+              ],
+              "appearanceUpdates": 6,
+              "box": [
+                0.8028522164891685,
+                0.4436497215566963,
+                0.9282721489776502,
+                0.6491180386163625
+              ],
+              "id": "408d2769-d13f-3600-a2cf-81b506f279f6",
+              "label": "selected object",
+              "status": "tracked"
+            },
+            "estimate": {
+              "innovation": 0.0011939861418237764,
+              "reason": "Actual pixel measurement accepted under the fixed innovation gate",
+              "positionSigma": 0.014964210231444536,
+              "accepted": true,
+              "uncertaintyMeaning": "Model covariance under declared motion/noise assumptions; not calibrated probability or metric accuracy",
+              "covariance": [
+                [
+                  0.00011196379392543466,
+                  0.000031158625683584616,
+                  0.000031158625683584616,
+                  0.000017063927102434677
+                ],
+                [
+                  0.00011196379392543466,
+                  0.000031158625683584616,
+                  0.000031158625683584616,
+                  0.000017063927102434677
+                ]
+              ],
+              "innovationGate": 0.14964380208232989,
+              "velocity": [
+                -0.0024611550652580603,
+                0.001454685420575358
+              ],
+              "measurement": [
+                0.8655621827334093,
+                0.5463838800865294
+              ],
+              "predictedVariance": [
+                0.00022286535003311031,
+                0.00022286535003311031
+              ],
+              "domain": "normalized image-plane; unknown depth, metric scale and capture FPS",
+              "time": 6,
+              "position": [
+                0.8660948478222921,
+                0.5461080646864658
+              ],
+              "predicted": [
+                0.8666224593399999,
+                0.5458348660390006
+              ],
+              "timeUnit": "sample-index",
+              "status": "observed"
+            },
+            "bodyId": "408d2769-d13f-3600-a2cf-81b506f279f6"
+          }
+        ],
+        "ordinal": 6
+      },
+      {
+        "sourceFrame": 7,
+        "imageSha256": "7c478068f71bdf7b0a5885c9b8d89f966125f79b657db3d62e333b74f9a70ec1",
+        "objects": [
+          {
+            "tracker": {
+              "matchScore": 0.9998518500860105,
+              "scoreMeaning": "Local patch correlation and motion consistency, not calibrated semantic confidence",
+              "motion": {
+                "seedPoints": 62,
+                "inliers": 62,
+                "vectors": [
+                  [
+                    0.825,
+                    0.4593,
+                    0.825,
+                    0.4592
+                  ],
+                  [
+                    0.8312,
+                    0.4593,
+                    0.8312,
+                    0.4593
+                  ],
+                  [
+                    0.8542,
+                    0.4667,
+                    0.8542,
+                    0.4667
+                  ],
+                  [
+                    0.8646,
+                    0.4741,
+                    0.8646,
+                    0.4741
+                  ],
+                  [
+                    0.8833,
+                    0.4741,
+                    0.8833,
+                    0.4741
+                  ],
+                  [
+                    0.8979,
+                    0.4593,
+                    0.8979,
+                    0.4593
+                  ],
+                  [
+                    0.9062,
+                    0.4593,
+                    0.9062,
+                    0.4592
+                  ],
+                  [
+                    0.825,
+                    0.4889,
+                    0.825,
+                    0.4889
+                  ],
+                  [
+                    0.8354,
+                    0.4889,
+                    0.8354,
+                    0.4889
+                  ],
+                  [
+                    0.8688,
+                    0.4889,
+                    0.8687,
+                    0.4889
+                  ],
+                  [
+                    0.8979,
+                    0.4741,
+                    0.8979,
+                    0.4741
+                  ],
+                  [
+                    0.9062,
+                    0.4889,
+                    0.9062,
+                    0.4889
+                  ]
+                ],
+                "method": "pyramidal-flow",
+                "dxPixels": -0.003614371573121389,
+                "dyPixels": 0.002513739695572781,
+                "medianForwardBackwardPixels": 0.0008912828185574053,
+                "scale": 1.0000361789390935,
+                "ambiguous": false,
+                "reliablePoints": 62
+              },
+              "lastKnownBox": [
+                0.8028424177683418,
+                0.4436553148908527,
+                0.9282668878169221,
+                0.6491310655762474
+              ],
+              "appearanceUpdates": 7,
+              "box": [
+                0.8028424177683418,
+                0.4436553148908527,
+                0.9282668878169221,
+                0.6491310655762474
+              ],
+              "id": "408d2769-d13f-3600-a2cf-81b506f279f6",
+              "label": "selected object",
+              "status": "tracked"
+            },
+            "estimate": {
+              "innovation": 0.002248990385938662,
+              "reason": "Actual pixel measurement accepted under the fixed innovation gate",
+              "positionSigma": 0.014401213315431554,
+              "accepted": true,
+              "uncertaintyMeaning": "Model covariance under declared motion/noise assumptions; not calibrated probability or metric accuracy",
+              "covariance": [
+                [
+                  0.00010369747247828154,
+                  0.000027076100406831395,
+                  0.000027076100406831395,
+                  0.000015020234293894017
+                ],
+                [
+                  0.00010369747247828154,
+                  0.000027076100406831395,
+                  0.000027076100406831395,
+                  0.000015020234293894017
+                ]
+              ],
+              "innovationGate": 0.14445500551989165,
+              "velocity": [
+                -0.002229990146140917,
+                0.0013139426625022647
+              ],
+              "measurement": [
+                0.8655546527926319,
+                0.54639319023355
+              ],
+              "predictedVariance": [
+                0.00019234497239503857,
+                0.00019234497239503857
+              ],
+              "domain": "normalized image-plane; unknown depth, metric scale and capture FPS",
+              "time": 7,
+              "position": [
+                0.8645190203144709,
+                0.5470237260946276
+              ],
+              "predicted": [
+                0.863633692757034,
+                0.5475627501070411
+              ],
+              "timeUnit": "sample-index",
+              "status": "observed"
+            },
+            "bodyId": "408d2769-d13f-3600-a2cf-81b506f279f6"
+          }
+        ],
+        "ordinal": 7
+      },
+      {
+        "sourceFrame": 8,
+        "imageSha256": "f97ba02e5ce49795263c0a8433f239460061eff15634cb062a2328618ed635f9",
+        "objects": [
+          {
+            "tracker": {
+              "matchScore": 0.9690018547095115,
+              "scoreMeaning": "Local patch correlation and motion consistency, not calibrated semantic confidence",
+              "motion": {
+                "seedPoints": 61,
+                "inliers": 61,
+                "vectors": [
+                  [
+                    0.825,
+                    0.4593,
+                    0.8233,
+                    0.4582
+                  ],
+                  [
+                    0.8312,
+                    0.4593,
+                    0.8295,
+                    0.4584
+                  ],
+                  [
+                    0.8542,
+                    0.4667,
+                    0.8525,
+                    0.4671
+                  ],
+                  [
+                    0.8646,
+                    0.4741,
+                    0.8629,
+                    0.4745
+                  ],
+                  [
+                    0.8833,
+                    0.4741,
+                    0.8818,
+                    0.4748
+                  ],
+                  [
+                    0.8979,
+                    0.4593,
+                    0.8964,
+                    0.4599
+                  ],
+                  [
+                    0.9062,
+                    0.4593,
+                    0.9049,
+                    0.4597
+                  ],
+                  [
+                    0.825,
+                    0.4889,
+                    0.8223,
+                    0.4892
+                  ],
+                  [
+                    0.8354,
+                    0.4889,
+                    0.8335,
+                    0.4899
+                  ],
+                  [
+                    0.8688,
+                    0.4889,
+                    0.8674,
+                    0.4896
+                  ],
+                  [
+                    0.8979,
+                    0.4741,
+                    0.8963,
+                    0.4747
+                  ],
+                  [
+                    0.9062,
+                    0.4889,
+                    0.9044,
+                    0.489
+                  ]
+                ],
+                "method": "pyramidal-flow",
+                "dxPixels": -1.3953737995195752,
+                "dyPixels": 0.40804367230609273,
+                "medianForwardBackwardPixels": 0.025793876103297683,
+                "scale": 1.0121142011719118,
+                "ambiguous": false,
+                "reliablePoints": 61
+              },
+              "lastKnownBox": [
+                0.7991756803883182,
+                0.4439220004613694,
+                0.9261195676989475,
+                0.6518869257265166
+              ],
+              "appearanceUpdates": 8,
+              "box": [
+                0.7991756803883182,
+                0.4439220004613694,
+                0.9261195676989475,
+                0.6518869257265166
+              ],
+              "id": "408d2769-d13f-3600-a2cf-81b506f279f6",
+              "label": "selected object",
+              "status": "tracked"
+            },
+            "estimate": {
+              "innovation": 0.0005623670634220113,
+              "reason": "Actual pixel measurement accepted under the fixed innovation gate",
+              "positionSigma": 0.014005635910007327,
+              "accepted": true,
+              "uncertaintyMeaning": "Model covariance under declared motion/noise assumptions; not calibrated probability or metric accuracy",
+              "covariance": [
+                [
+                  0.00009807891862184338,
+                  0.000024874464377907563,
+                  0.000024874464377907563,
+                  0.000014145244486296311
+                ],
+                [
+                  0.00009807891862184338,
+                  0.000024874464377907563,
+                  0.000024874464377907563,
+                  0.000014145244486296311
+                ]
+              ],
+              "innovationGate": 0.1412214409333509,
+              "velocity": [
+                -0.002190346454685993,
+                0.0012660504010033819
+              ],
+              "measurement": [
+                0.8626476240436329,
+                0.547904463093943
+              ],
+              "predictedVariance": [
+                0.00017386990758583835,
+                0.00017386990758583835
+              ],
+              "domain": "normalized image-plane; unknown depth, metric scale and capture FPS",
+              "time": 8,
+              "position": [
+                0.862445343499504,
+                0.5481488316771911
+              ],
+              "predicted": [
+                0.86228903016833,
+                0.5483376687571299
+              ],
+              "timeUnit": "sample-index",
+              "status": "observed"
+            },
+            "bodyId": "408d2769-d13f-3600-a2cf-81b506f279f6"
+          }
+        ],
+        "ordinal": 8
+      },
+      {
+        "sourceFrame": 9,
+        "imageSha256": "1e181ab3d8f6a3f963af05d1bddaf9775fdd915abe7e425a63bbee997858c58e",
+        "objects": [
+          {
+            "tracker": {
+              "matchScore": 0.9656531886596833,
+              "scoreMeaning": "Local patch correlation and motion consistency, not calibrated semantic confidence",
+              "motion": {
+                "seedPoints": 57,
+                "inliers": 54,
+                "vectors": [
+                  [
+                    0.8208,
+                    0.4593,
+                    0.8189,
+                    0.4581
+                  ],
+                  [
+                    0.8312,
+                    0.4593,
+                    0.8291,
+                    0.4587
+                  ],
+                  [
+                    0.8375,
+                    0.4667,
+                    0.8355,
+                    0.4668
+                  ],
+                  [
+                    0.85,
+                    0.4667,
+                    0.8482,
+                    0.4669
+                  ],
+                  [
+                    0.8625,
+                    0.4741,
+                    0.8603,
+                    0.4743
+                  ],
+                  [
+                    0.875,
+                    0.4667,
+                    0.8729,
+                    0.4675
+                  ],
+                  [
+                    0.8854,
+                    0.4667,
+                    0.8835,
+                    0.4674
+                  ],
+                  [
+                    0.8979,
+                    0.4667,
+                    0.8961,
+                    0.4672
+                  ],
+                  [
+                    0.9042,
+                    0.4593,
+                    0.9026,
+                    0.4598
+                  ],
+                  [
+                    0.8208,
+                    0.4926,
+                    0.8178,
+                    0.4932
+                  ],
+                  [
+                    0.8271,
+                    0.4926,
+                    0.8244,
+                    0.493
+                  ],
+                  [
+                    0.8333,
+                    0.4926,
+                    0.831,
+                    0.4931
+                  ]
+                ],
+                "method": "pyramidal-flow",
+                "dxPixels": -1.5940547157224785,
+                "dyPixels": 0.35969151557084444,
+                "medianForwardBackwardPixels": 0.022926390495172633,
+                "scale": 1.011426115488836,
+                "ambiguous": false,
+                "reliablePoints": 54
+              },
+              "lastKnownBox": [
+                0.7951294953053899,
+                0.4440660756329266,
+                0.9235238581330323,
+                0.6544072321517805
+              ],
+              "appearanceUpdates": 9,
+              "box": [
+                0.7951294953053899,
+                0.4440660756329266,
+                0.9235238581330323,
+                0.6544072321517805
+              ],
+              "id": "408d2769-d13f-3600-a2cf-81b506f279f6",
+              "label": "selected object",
+              "status": "tracked"
+            },
+            "estimate": {
+              "innovation": 0.0009452745173561806,
+              "reason": "Actual pixel measurement accepted under the fixed innovation gate",
+              "positionSigma": 0.013748756057865016,
+              "accepted": true,
+              "uncertaintyMeaning": "Model covariance under declared motion/noise assumptions; not calibrated probability or metric accuracy",
+              "covariance": [
+                [
+                  0.00009451414656934,
+                  0.00002378885208276823,
+                  0.00002378885208276823,
+                  0.000013808303212301808
+                ],
+                [
+                  0.00009451414656934,
+                  0.00002378885208276823,
+                  0.00002378885208276823,
+                  0.000013808303212301808
+                ]
+              ],
+              "innovationGate": 0.1392790529591501,
+              "velocity": [
+                -0.0022884961209583875,
+                0.0012472066501147182
+              ],
+              "measurement": [
+                0.8593266767192111,
+                0.5492366538923535
+              ],
+              "predictedVariance": [
+                0.00016297309186395482,
+                0.00016297309186395482
+              ],
+              "domain": "normalized image-plane; unknown depth, metric scale and capture FPS",
+              "time": 9,
+              "position": [
+                0.8598650441411838,
+                0.5493400150342862
+              ],
+              "predicted": [
+                0.860254997044818,
+                0.5494148820781944
+              ],
+              "timeUnit": "sample-index",
+              "status": "observed"
+            },
+            "bodyId": "408d2769-d13f-3600-a2cf-81b506f279f6"
+          }
+        ],
+        "ordinal": 9
+      },
+      {
+        "sourceFrame": 10,
+        "imageSha256": "5b775b40005bb765170bc5a06fa45539e7b2294f318e8f26a93c0773bfaf2896",
+        "objects": [
+          {
+            "tracker": {
+              "matchScore": 0.9688697992057821,
+              "scoreMeaning": "Local patch correlation and motion consistency, not calibrated semantic confidence",
+              "motion": {
+                "seedPoints": 60,
+                "inliers": 58,
+                "vectors": [
+                  [
+                    0.8188,
+                    0.4593,
+                    0.8156,
+                    0.4593
+                  ],
+                  [
+                    0.8271,
+                    0.4593,
+                    0.8241,
+                    0.4596
+                  ],
+                  [
+                    0.8333,
+                    0.4667,
+                    0.8307,
+                    0.4669
+                  ],
+                  [
+                    0.8479,
+                    0.4667,
+                    0.8454,
+                    0.4671
+                  ],
+                  [
+                    0.8583,
+                    0.4667,
+                    0.8557,
+                    0.4674
+                  ],
+                  [
+                    0.8729,
+                    0.4667,
+                    0.8702,
+                    0.4678
+                  ],
+                  [
+                    0.8812,
+                    0.4741,
+                    0.8787,
+                    0.4746
+                  ],
+                  [
+                    0.8958,
+                    0.4593,
+                    0.8933,
+                    0.4599
+                  ],
+                  [
+                    0.8188,
+                    0.4926,
+                    0.8153,
+                    0.4929
+                  ],
+                  [
+                    0.8292,
+                    0.4926,
+                    0.8264,
+                    0.4927
+                  ],
+                  [
+                    0.8479,
+                    0.4778,
+                    0.8456,
+                    0.4786
+                  ],
+                  [
+                    0.8562,
+                    0.4852,
+                    0.8541,
+                    0.4859
+                  ]
+                ],
+                "method": "pyramidal-flow",
+                "dxPixels": -1.8220219076045225,
+                "dyPixels": 0.560862939651571,
+                "medianForwardBackwardPixels": 0.026435732572923788,
+                "scale": 1.0134841803722403,
+                "ambiguous": false,
+                "reliablePoints": 58
+              },
+              "lastKnownBox": [
+                0.7904679699576403,
+                0.44472520673268134,
+                0.9205936255324294,
+                0.6579026413457412
+              ],
+              "appearanceUpdates": 10,
+              "box": [
+                0.7904679699576403,
+                0.44472520673268134,
+                0.9205936255324294,
+                0.6579026413457412
+              ],
+              "id": "408d2769-d13f-3600-a2cf-81b506f279f6",
+              "label": "selected object",
+              "status": "tracked"
+            },
+            "estimate": {
+              "innovation": 0.002170988369597925,
+              "reason": "Actual pixel measurement accepted under the fixed innovation gate",
+              "positionSigma": 0.013596997729274026,
+              "accepted": true,
+              "uncertaintyMeaning": "Model covariance under declared motion/noise assumptions; not calibrated probability or metric accuracy",
+              "covariance": [
+                [
+                  0.00009243917362494152,
+                  0.000023329029457848914,
+                  0.000023329029457848914,
+                  0.000013702688979743109
+                ],
+                [
+                  0.00009243917362494152,
+                  0.000023329029457848914,
+                  0.000023329029457848914,
+                  0.000013702688979743109
+                ]
+              ],
+              "innovationGate": 0.1381846869134164,
+              "velocity": [
+                -0.002500608869550939,
+                0.001322554475192321
+              ],
+              "measurement": [
+                0.8555307977450348,
+                0.5513139240392113
+              ],
+              "predictedVariance": [
+                0.00015690015394717827,
+                0.00015690015394717827
+              ],
+              "domain": "normalized image-plane; unknown depth, metric scale and capture FPS",
+              "time": 10,
+              "position": [
+                0.8567360703985294,
+                0.550885780640623
+              ],
+              "predicted": [
+                0.8575765480202254,
+                0.5505872216844009
+              ],
+              "timeUnit": "sample-index",
+              "status": "observed"
+            },
+            "bodyId": "408d2769-d13f-3600-a2cf-81b506f279f6"
+          }
+        ],
+        "ordinal": 10
+      },
+      {
+        "sourceFrame": 11,
+        "imageSha256": "3091698110abdfbc5f7fd21a5a43847adfdcf6b7e9122b29ffbb0774395bc3a1",
+        "objects": [
+          {
+            "tracker": {
+              "matchScore": 0.9674998635659757,
+              "scoreMeaning": "Local patch correlation and motion consistency, not calibrated semantic confidence",
+              "motion": {
+                "seedPoints": 68,
+                "inliers": 67,
+                "vectors": [
+                  [
+                    0.8125,
+                    0.4667,
+                    0.8088,
+                    0.4673
+                  ],
+                  [
+                    0.8229,
+                    0.4593,
+                    0.8195,
+                    0.4596
+                  ],
+                  [
+                    0.8292,
+                    0.4667,
+                    0.8263,
+                    0.4669
+                  ],
+                  [
+                    0.8438,
+                    0.4667,
+                    0.8412,
+                    0.4671
+                  ],
+                  [
+                    0.8542,
+                    0.4741,
+                    0.8516,
+                    0.4751
+                  ],
+                  [
+                    0.8729,
+                    0.4667,
+                    0.8703,
+                    0.4674
+                  ],
+                  [
+                    0.8792,
+                    0.4741,
+                    0.8765,
+                    0.475
+                  ],
+                  [
+                    0.8917,
+                    0.4593,
+                    0.8887,
+                    0.46
+                  ],
+                  [
+                    0.9021,
+                    0.4593,
+                    0.8998,
+                    0.4604
+                  ],
+                  [
+                    0.8125,
+                    0.4926,
+                    0.8091,
+                    0.4926
+                  ],
+                  [
+                    0.8188,
+                    0.4926,
+                    0.8155,
+                    0.4923
+                  ],
+                  [
+                    0.825,
+                    0.4926,
+                    0.8221,
+                    0.4928
+                  ]
+                ],
+                "method": "pyramidal-flow",
+                "dxPixels": -1.9979210749795584,
+                "dyPixels": 0.5544006820909146,
+                "medianForwardBackwardPixels": 0.02474635910560672,
+                "scale": 1.0134687482228382,
+                "ambiguous": false,
+                "reliablePoints": 67
+              },
+              "lastKnownBox": [
+                0.785429319538632,
+                0.4453429259954804,
+                0.9173076048056897,
+                0.661391593802134
+              ],
+              "appearanceUpdates": 11,
+              "box": [
+                0.785429319538632,
+                0.4453429259954804,
+                0.9173076048056897,
+                0.661391593802134
+              ],
+              "id": "408d2769-d13f-3600-a2cf-81b506f279f6",
+              "label": "selected object",
+              "status": "tracked"
+            },
+            "estimate": {
+              "innovation": 0.0030923764267347816,
+              "reason": "Actual pixel measurement accepted under the fixed innovation gate",
+              "positionSigma": 0.013516970738629185,
+              "accepted": true,
+              "uncertaintyMeaning": "Model covariance under declared motion/noise assumptions; not calibrated probability or metric accuracy",
+              "covariance": [
+                [
+                  0.00009135424897447882,
+                  0.00002318410366403853,
+                  0.00002318410366403853,
+                  0.000013680842728886675
+                ],
+                [
+                  0.00009135424897447882,
+                  0.00002318410366403853,
+                  0.00002318410366403853,
+                  0.000013680842728886675
+                ]
+              ],
+              "innovationGate": 0.13762265829440704,
+              "velocity": [
+                -0.0027960258041873393,
+                0.0014419706187821266
+              ],
+              "measurement": [
+                0.8513684621721609,
+                0.5533672598988072
+              ],
+              "predictedVariance": [
+                0.00015379992152038245,
+                0.00015379992152038245
+              ],
+              "domain": "normalized image-plane; unknown depth, metric scale and capture FPS",
+              "time": 11,
+              "position": [
+                0.8530714056487456,
+                0.5526788804632292
+              ],
+              "predicted": [
+                0.8542354615289784,
+                0.5522083351158154
+              ],
+              "timeUnit": "sample-index",
+              "status": "observed"
+            },
+            "bodyId": "408d2769-d13f-3600-a2cf-81b506f279f6"
+          }
+        ],
+        "ordinal": 11
+      },
+      {
+        "sourceFrame": 12,
+        "imageSha256": "c2522ca0ecc38144ffc86ac8222a3c1f7aafbf91396c11b6a6241d8536fe9752",
+        "objects": [
+          {
+            "tracker": {
+              "matchScore": 0.9685591853418225,
+              "scoreMeaning": "Local patch correlation and motion consistency, not calibrated semantic confidence",
+              "motion": {
+                "seedPoints": 71,
+                "inliers": 67,
+                "vectors": [
+                  [
+                    0.8083,
+                    0.4667,
+                    0.8042,
+                    0.4672
+                  ],
+                  [
+                    0.8188,
+                    0.4593,
+                    0.8149,
+                    0.46
+                  ],
+                  [
+                    0.8292,
+                    0.4667,
+                    0.826,
+                    0.4672
+                  ],
+                  [
+                    0.8438,
+                    0.4667,
+                    0.8407,
+                    0.4673
+                  ],
+                  [
+                    0.8542,
+                    0.4741,
+                    0.8512,
+                    0.4751
+                  ],
+                  [
+                    0.8688,
+                    0.4667,
+                    0.8657,
+                    0.4673
+                  ],
+                  [
+                    0.875,
+                    0.4741,
+                    0.8719,
+                    0.4751
+                  ],
+                  [
+                    0.8896,
+                    0.4593,
+                    0.8863,
+                    0.4596
+                  ],
+                  [
+                    0.8083,
+                    0.4926,
+                    0.8042,
+                    0.4929
+                  ],
+                  [
+                    0.8146,
+                    0.4926,
+                    0.8106,
+                    0.4928
+                  ],
+                  [
+                    0.8208,
+                    0.4926,
+                    0.8174,
+                    0.4937
+                  ],
+                  [
+                    0.8312,
+                    0.4926,
+                    0.8282,
+                    0.4934
+                  ]
+                ],
+                "method": "pyramidal-flow",
+                "dxPixels": -2.269873212418247,
+                "dyPixels": 0.5882418053802496,
+                "medianForwardBackwardPixels": 0.02048980426830372,
+                "scale": 1.009718512754865,
+                "ambiguous": false,
+                "reliablePoints": 67
+              },
+              "lastKnownBox": [
+                0.7800595866140319,
+                0.4464717634818653,
+                0.9132195326785472,
+                0.6646201030222694
+              ],
+              "appearanceUpdates": 12,
+              "box": [
+                0.7800595866140319,
+                0.4464717634818653,
+                0.9132195326785472,
+                0.6646201030222694
+              ],
+              "id": "408d2769-d13f-3600-a2cf-81b506f279f6",
+              "label": "selected object",
+              "status": "tracked"
+            },
+            "estimate": {
+              "innovation": 0.0039051309460184412,
+              "reason": "Actual pixel measurement accepted under the fixed innovation gate",
+              "positionSigma": 0.013480332202748075,
+              "accepted": true,
+              "uncertaintyMeaning": "Model covariance under declared motion/noise assumptions; not calibrated probability or metric accuracy",
+              "covariance": [
+                [
+                  0.00009085967814822337,
+                  0.000023170472968440143,
+                  0.000023170472968440143,
+                  0.000013678535218588235
+                ],
+                [
+                  0.00009085967814822337,
+                  0.000023170472968440143,
+                  0.000023170472968440143,
+                  0.000013678535218588235
+                ]
+              ],
+              "innovationGate": 0.13736871897041233,
+              "velocity": [
+                -0.0031704421313966547,
+                0.0015887254094447416
+              ],
+              "measurement": [
+                0.8466395596462895,
+                0.5555459332520674
+              ],
+              "predictedVariance": [
+                0.00015240329903144255,
+                0.00015240329903144255
+              ],
+              "domain": "normalized image-plane; unknown depth, metric scale and capture FPS",
+              "time": 12,
+              "position": [
+                0.8488071600533604,
+                0.5546963288922605
+              ],
+              "predicted": [
+                0.8502753798445583,
+                0.5541208510820114
+              ],
+              "timeUnit": "sample-index",
+              "status": "observed"
+            },
+            "bodyId": "408d2769-d13f-3600-a2cf-81b506f279f6"
+          }
+        ],
+        "ordinal": 12
+      },
+      {
+        "sourceFrame": 13,
+        "imageSha256": "c2522ca0ecc38144ffc86ac8222a3c1f7aafbf91396c11b6a6241d8536fe9752",
+        "objects": [
+          {
+            "tracker": {
+              "matchScore": 1,
+              "scoreMeaning": "Local patch correlation and motion consistency, not calibrated semantic confidence",
+              "motion": {
+                "seedPoints": 67,
+                "inliers": 67,
+                "vectors": [
+                  [
+                    0.8042,
+                    0.463,
+                    0.8042,
+                    0.463
+                  ],
+                  [
+                    0.8125,
+                    0.463,
+                    0.8125,
+                    0.463
+                  ],
+                  [
+                    0.8229,
+                    0.463,
+                    0.8229,
+                    0.463
+                  ],
+                  [
+                    0.8438,
+                    0.4704,
+                    0.8438,
+                    0.4704
+                  ],
+                  [
+                    0.85,
+                    0.4778,
+                    0.85,
+                    0.4778
+                  ],
+                  [
+                    0.8646,
+                    0.4704,
+                    0.8646,
+                    0.4704
+                  ],
+                  [
+                    0.875,
+                    0.4704,
+                    0.875,
+                    0.4704
+                  ],
+                  [
+                    0.8896,
+                    0.463,
+                    0.8896,
+                    0.463
+                  ],
+                  [
+                    0.7958,
+                    0.4963,
+                    0.7958,
+                    0.4963
+                  ],
+                  [
+                    0.8125,
+                    0.4963,
+                    0.8125,
+                    0.4963
+                  ],
+                  [
+                    0.825,
+                    0.4963,
+                    0.825,
+                    0.4963
+                  ],
+                  [
+                    0.8438,
+                    0.4815,
+                    0.8438,
+                    0.4815
+                  ]
+                ],
+                "method": "pyramidal-flow",
+                "dxPixels": 0,
+                "dyPixels": 0,
+                "medianForwardBackwardPixels": 0,
+                "scale": 1,
+                "ambiguous": false,
+                "reliablePoints": 67
+              },
+              "lastKnownBox": [
+                0.7800595866140319,
+                0.4464717634818653,
+                0.9132195326785472,
+                0.6646201030222694
+              ],
+              "appearanceUpdates": 13,
+              "box": [
+                0.7800595866140319,
+                0.4464717634818653,
+                0.9132195326785472,
+                0.6646201030222694
+              ],
+              "id": "408d2769-d13f-3600-a2cf-81b506f279f6",
+              "label": "selected object",
+              "status": "tracked"
+            },
+            "estimate": {
+              "innovation": 0.0012457894886642197,
+              "reason": "Actual pixel measurement accepted under the fixed innovation gate",
+              "positionSigma": 0.01346648612386147,
+              "accepted": true,
+              "uncertaintyMeaning": "Model covariance under declared motion/noise assumptions; not calibrated probability or metric accuracy",
+              "covariance": [
+                [
+                  0.00009067312426207675,
+                  0.000023193181756802327,
+                  0.000023193181756802327,
+                  0.000013673948072129344
+                ],
+                [
+                  0.00009067312426207675,
+                  0.000023193181756802327,
+                  0.000023193181756802327,
+                  0.000013673948072129344
+                ]
+              ],
+              "innovationGate": 0.13727329662095464,
+              "velocity": [
+                -0.003067068396349591,
+                0.0015125362145801608
+              ],
+              "measurement": [
+                0.8466395596462895,
+                0.5555459332520674
+              ],
+              "predictedVariance": [
+                0.00015187915930369187,
+                0.00015187915930369187
+              ],
+              "domain": "normalized image-plane; unknown depth, metric scale and capture FPS",
+              "time": 13,
+              "position": [
+                0.8460408547765637,
+                0.5559871946804673
+              ],
+              "predicted": [
+                0.8456367179219638,
+                0.5562850543017053
+              ],
+              "timeUnit": "sample-index",
+              "status": "observed"
+            },
+            "bodyId": "408d2769-d13f-3600-a2cf-81b506f279f6"
+          }
+        ],
+        "ordinal": 13
+      },
+      {
+        "sourceFrame": 14,
+        "imageSha256": "8b53bd579ad7e08b0901bfacb3dea606027a75bd126dd193e95a3fbec0fa3434",
+        "objects": [
+          {
+            "tracker": {
+              "matchScore": 0.9726650518345291,
+              "scoreMeaning": "Local patch correlation and motion consistency, not calibrated semantic confidence",
+              "motion": {
+                "seedPoints": 67,
+                "inliers": 66,
+                "vectors": [
+                  [
+                    0.8042,
+                    0.463,
+                    0.8001,
+                    0.4627
+                  ],
+                  [
+                    0.8125,
+                    0.463,
+                    0.8084,
+                    0.463
+                  ],
+                  [
+                    0.8229,
+                    0.463,
+                    0.8196,
+                    0.4631
+                  ],
+                  [
+                    0.8438,
+                    0.4704,
+                    0.8407,
+                    0.4706
+                  ],
+                  [
+                    0.85,
+                    0.4778,
+                    0.847,
+                    0.4781
+                  ],
+                  [
+                    0.8646,
+                    0.4704,
+                    0.8614,
+                    0.4704
+                  ],
+                  [
+                    0.875,
+                    0.4704,
+                    0.8719,
+                    0.4704
+                  ],
+                  [
+                    0.8896,
+                    0.463,
+                    0.8863,
+                    0.4632
+                  ],
+                  [
+                    0.7958,
+                    0.4963,
+                    0.7912,
+                    0.4968
+                  ],
+                  [
+                    0.8125,
+                    0.4963,
+                    0.8085,
+                    0.4964
+                  ],
+                  [
+                    0.825,
+                    0.4963,
+                    0.8218,
+                    0.4963
+                  ],
+                  [
+                    0.8438,
+                    0.4815,
+                    0.8409,
+                    0.4818
+                  ]
+                ],
+                "method": "pyramidal-flow",
+                "dxPixels": -2.2919592420580557,
+                "dyPixels": 0.6030389305753374,
+                "medianForwardBackwardPixels": 0.021020684552675268,
+                "scale": 1.0153844969400838,
+                "ambiguous": false,
+                "reliablePoints": 66
+              },
+              "lastKnownBox": [
+                0.7742603721350252,
+                0.44702718977144285,
+                0.9094689169823118,
+                0.6685316317739907
+              ],
+              "appearanceUpdates": 14,
+              "box": [
+                0.7742603721350252,
+                0.44702718977144285,
+                0.9094689169823118,
+                0.6685316317739907
+              ],
+              "id": "408d2769-d13f-3600-a2cf-81b506f279f6",
+              "label": "selected object",
+              "status": "tracked"
+            },
+            "estimate": {
+              "innovation": 0.001143860312395907,
+              "reason": "Actual pixel measurement accepted under the fixed innovation gate",
+              "positionSigma": 0.013462627200520768,
+              "accepted": true,
+              "uncertaintyMeaning": "Model covariance under declared motion/noise assumptions; not calibrated probability or metric accuracy",
+              "covariance": [
+                [
+                  0.00009062116557010083,
+                  0.000023212976017988463,
+                  0.000023212976017988463,
+                  0.000013664073616098077
+                ],
+                [
+                  0.00009062116557010083,
+                  0.000023212976017988463,
+                  0.000023212976017988463,
+                  0.000013664073616098077
+                ]
+              ],
+              "innovationGate": 0.13724675512517787,
+              "velocity": [
+                -0.0031814972074788554,
+                0.001541390446993723
+              ],
+              "measurement": [
+                0.8418646445586685,
+                0.5577794107727168
+              ],
+              "predictedVariance": [
+                0.00015173343584781073,
+                0.00015173343584781073
+              ],
+              "domain": "normalized image-plane; unknown depth, metric scale and capture FPS",
+              "time": 14,
+              "position": [
+                0.8425270676039873,
+                0.5576123749683848
+              ],
+              "predicted": [
+                0.842973786380214,
+                0.5574997308950475
+              ],
+              "timeUnit": "sample-index",
+              "status": "observed"
+            },
+            "bodyId": "408d2769-d13f-3600-a2cf-81b506f279f6"
+          }
+        ],
+        "ordinal": 14
+      },
+      {
+        "sourceFrame": 15,
+        "imageSha256": "a50d47f94a45ad2d74fbf693fb0f078c3ac2e08884e4533710635a68b0acfa15",
+        "objects": [
+          {
+            "tracker": {
+              "matchScore": 0.975741636959595,
+              "scoreMeaning": "Local patch correlation and motion consistency, not calibrated semantic confidence",
+              "motion": {
+                "seedPoints": 73,
+                "inliers": 71,
+                "vectors": [
+                  [
+                    0.7979,
+                    0.4704,
+                    0.7932,
+                    0.4707
+                  ],
+                  [
+                    0.8083,
+                    0.463,
+                    0.8039,
+                    0.4636
+                  ],
+                  [
+                    0.8146,
+                    0.463,
+                    0.8105,
+                    0.4637
+                  ],
+                  [
+                    0.825,
+                    0.463,
+                    0.8216,
+                    0.4639
+                  ],
+                  [
+                    0.8396,
+                    0.4704,
+                    0.8363,
+                    0.4711
+                  ],
+                  [
+                    0.8604,
+                    0.4704,
+                    0.857,
+                    0.4711
+                  ],
+                  [
+                    0.8708,
+                    0.4704,
+                    0.8676,
+                    0.4713
+                  ],
+                  [
+                    0.7938,
+                    0.4963,
+                    0.7888,
+                    0.497
+                  ],
+                  [
+                    0.8083,
+                    0.4963,
+                    0.8043,
+                    0.4952
+                  ],
+                  [
+                    0.8208,
+                    0.4963,
+                    0.8172,
+                    0.4971
+                  ],
+                  [
+                    0.8396,
+                    0.4815,
+                    0.8364,
+                    0.4829
+                  ],
+                  [
+                    0.8458,
+                    0.4815,
+                    0.8426,
+                    0.4827
+                  ]
+                ],
+                "method": "pyramidal-flow",
+                "dxPixels": -2.6316581133518184,
+                "dyPixels": 0.7041897505595216,
+                "medianForwardBackwardPixels": 0.01283464713340371,
+                "scale": 1.0153877287892286,
+                "ambiguous": false,
+                "reliablePoints": 71
+              },
+              "lastKnownBox": [
+                0.7677374748564941,
+                0.44793107481912803,
+                0.905026572121877,
+                0.6728439671008205
+              ],
+              "appearanceUpdates": 15,
+              "box": [
+                0.7677374748564941,
+                0.44793107481912803,
+                0.905026572121877,
+                0.6728439671008205
+              ],
+              "id": "408d2769-d13f-3600-a2cf-81b506f279f6",
+              "label": "selected object",
+              "status": "tracked"
+            },
+            "estimate": {
+              "innovation": 0.003210103271816018,
+              "reason": "Actual pixel measurement accepted under the fixed innovation gate",
+              "positionSigma": 0.013462037777442402,
+              "accepted": true,
+              "uncertaintyMeaning": "Model covariance under declared motion/noise assumptions; not calibrated probability or metric accuracy",
+              "covariance": [
+                [
+                  0.00009061323056064319,
+                  0.000023220271580704087,
+                  0.000023220271580704087,
+                  0.000013651915168275846
+                ],
+                [
+                  0.00009061323056064319,
+                  0.000023220271580704087,
+                  0.000023220271580704087,
+                  0.000013651915168275846
+                ]
+              ],
+              "innovationGate": 0.1372427031251891,
+              "velocity": [
+                -0.0034873388253908286,
+                0.0016687155083702195
+              ],
+              "measurement": [
+                0.8363820234891856,
+                0.5603875209599742
+              ],
+              "predictedVariance": [
+                0.00015171119122217583,
+                0.00015171119122217583
+              ],
+              "domain": "normalized image-plane; unknown depth, metric scale and capture FPS",
+              "time": 15,
+              "position": [
+                0.8381520745778839,
+                0.5596506301959027
+              ],
+              "predicted": [
+                0.8393455703965085,
+                0.5591537654153785
+              ],
+              "timeUnit": "sample-index",
+              "status": "observed"
+            },
+            "bodyId": "408d2769-d13f-3600-a2cf-81b506f279f6"
+          }
+        ],
+        "ordinal": 15
+      },
+      {
+        "sourceFrame": 16,
+        "imageSha256": "fe8db0dc56b8418ec7bfe4b700b836f88eebd369fb04c6ed740cc611c68ed9b9",
+        "objects": [
+          {
+            "tracker": {
+              "matchScore": 0.9778574620455144,
+              "scoreMeaning": "Local patch correlation and motion consistency, not calibrated semantic confidence",
+              "motion": {
+                "seedPoints": 73,
+                "inliers": 70,
+                "vectors": [
+                  [
+                    0.7917,
+                    0.463,
+                    0.7865,
+                    0.4637
+                  ],
+                  [
+                    0.8021,
+                    0.463,
+                    0.7972,
+                    0.4641
+                  ],
+                  [
+                    0.8188,
+                    0.463,
+                    0.8147,
+                    0.4644
+                  ],
+                  [
+                    0.8333,
+                    0.4704,
+                    0.8295,
+                    0.4725
+                  ],
+                  [
+                    0.8458,
+                    0.4778,
+                    0.842,
+                    0.4796
+                  ],
+                  [
+                    0.8604,
+                    0.4704,
+                    0.8565,
+                    0.4724
+                  ],
+                  [
+                    0.8667,
+                    0.463,
+                    0.863,
+                    0.4648
+                  ],
+                  [
+                    0.8812,
+                    0.463,
+                    0.8769,
+                    0.4647
+                  ],
+                  [
+                    0.7875,
+                    0.5037,
+                    0.7822,
+                    0.5053
+                  ],
+                  [
+                    0.8021,
+                    0.5037,
+                    0.797,
+                    0.5055
+                  ],
+                  [
+                    0.8188,
+                    0.5037,
+                    0.815,
+                    0.5054
+                  ],
+                  [
+                    0.8333,
+                    0.4815,
+                    0.8295,
+                    0.4838
+                  ]
+                ],
+                "method": "pyramidal-flow",
+                "dxPixels": -2.8791603473709415,
+                "dyPixels": 0.9662892742079521,
+                "medianForwardBackwardPixels": 0.013027278160885896,
+                "scale": 1.0147441382160625,
+                "ambiguous": false,
+                "reliablePoints": 70
+              },
+              "lastKnownBox": [
+                0.760727119419985,
+                0.4498518505976734,
+                0.9000404261110071,
+                0.6780808896497414
+              ],
+              "appearanceUpdates": 16,
+              "box": [
+                0.760727119419985,
+                0.4498518505976734,
+                0.9000404261110071,
+                0.6780808896497414
+              ],
+              "id": "408d2769-d13f-3600-a2cf-81b506f279f6",
+              "label": "selected object",
+              "status": "tracked"
+            },
+            "estimate": {
+              "innovation": 0.00503322782845362,
+              "reason": "Actual pixel measurement accepted under the fixed innovation gate",
+              "positionSigma": 0.013461891965645654,
+              "accepted": true,
+              "uncertaintyMeaning": "Model covariance under declared motion/noise assumptions; not calibrated probability or metric accuracy",
+              "covariance": [
+                [
+                  0.0000906112676473575,
+                  0.000023217706226536003,
+                  0.000023217706226536003,
+                  0.000013640701780183127
+                ],
+                [
+                  0.0000906112676473575,
+                  0.000023217706226536003,
+                  0.000023217706226536003,
+                  0.000013640701780183127
+                ]
+              ],
+              "innovationGate": 0.13724170082200368,
+              "velocity": [
+                -0.003929090563163129,
+                0.0019418614432364337
+              ],
+              "measurement": [
+                0.8303837727654961,
+                0.5639663701237074
+              ],
+              "predictedVariance": [
+                0.00015170568889032721,
+                0.00015170568889032721
+              ],
+              "domain": "normalized image-plane; unknown depth, metric scale and capture FPS",
+              "time": 16,
+              "position": [
+                0.8329407202724788,
+                0.5623853467626662
+              ],
+              "predicted": [
+                0.834664735752493,
+                0.5613193457042729
+              ],
+              "timeUnit": "sample-index",
+              "status": "observed"
+            },
+            "bodyId": "408d2769-d13f-3600-a2cf-81b506f279f6"
+          }
+        ],
+        "ordinal": 16
+      },
+      {
+        "sourceFrame": 17,
+        "imageSha256": "a35ab57ee96a4c4c0392c9a2e0a47ae72be8bc86aed025a03c6eb05d72b23216",
+        "objects": [
+          {
+            "tracker": {
+              "matchScore": 0.9755111251627072,
+              "scoreMeaning": "Local patch correlation and motion consistency, not calibrated semantic confidence",
+              "motion": {
+                "seedPoints": 69,
+                "inliers": 69,
+                "vectors": [
+                  [
+                    0.7854,
+                    0.4667,
+                    0.7802,
+                    0.4679
+                  ],
+                  [
+                    0.7958,
+                    0.4667,
+                    0.7908,
+                    0.4678
+                  ],
+                  [
+                    0.8062,
+                    0.4667,
+                    0.8018,
+                    0.468
+                  ],
+                  [
+                    0.8271,
+                    0.4667,
+                    0.8233,
+                    0.4681
+                  ],
+                  [
+                    0.8333,
+                    0.4741,
+                    0.8294,
+                    0.4755
+                  ],
+                  [
+                    0.8396,
+                    0.4815,
+                    0.8358,
+                    0.4832
+                  ],
+                  [
+                    0.8542,
+                    0.4741,
+                    0.8503,
+                    0.4755
+                  ],
+                  [
+                    0.8646,
+                    0.4667,
+                    0.8608,
+                    0.4682
+                  ],
+                  [
+                    0.875,
+                    0.4667,
+                    0.8703,
+                    0.4681
+                  ],
+                  [
+                    0.7771,
+                    0.5,
+                    0.7713,
+                    0.5021
+                  ],
+                  [
+                    0.7958,
+                    0.5,
+                    0.7914,
+                    0.4988
+                  ],
+                  [
+                    0.8125,
+                    0.5,
+                    0.8083,
+                    0.5021
+                  ]
+                ],
+                "method": "pyramidal-flow",
+                "dxPixels": -3.0017008662849776,
+                "dyPixels": 0.9487736954132515,
+                "medianForwardBackwardPixels": 0.014832967352968253,
+                "scale": 1.013706472119118,
+                "ambiguous": false,
+                "reliablePoints": 69
+              },
+              "lastKnownBox": [
+                0.7535188289715667,
+                0.45180171976708194,
+                0.8947416296165714,
+                0.6831589737796904
+              ],
+              "appearanceUpdates": 17,
+              "box": [
+                0.7535188289715667,
+                0.45180171976708194,
+                0.8947416296165714,
+                0.6831589737796904
+              ],
+              "id": "408d2769-d13f-3600-a2cf-81b506f279f6",
+              "label": "selected object",
+              "status": "tracked"
+            },
+            "estimate": {
+              "innovation": 0.0058112264488421085,
+              "reason": "Actual pixel measurement accepted under the fixed innovation gate",
+              "positionSigma": 0.01346140678784434,
+              "accepted": true,
+              "uncertaintyMeaning": "Model covariance under declared motion/noise assumptions; not calibrated probability or metric accuracy",
+              "covariance": [
+                [
+                  0.00009060473635391085,
+                  0.000023210604395245863,
+                  0.000023210604395245863,
+                  0.000013632136732747518
+                ],
+                [
+                  0.00009060473635391085,
+                  0.000023210604395245863,
+                  0.000023210604395245863,
+                  0.000013632136732747518
+                ]
+              ],
+              "innovationGate": 0.13723836596969025,
+              "velocity": [
+                -0.004432647247310135,
+                0.002267133673873126
+              ],
+              "measurement": [
+                0.8241302292940691,
+                0.5674803467733862
+              ],
+              "predictedVariance": [
+                0.00015168738188061265,
+                0.00015168738188061265
+              ],
+              "domain": "normalized image-plane; unknown depth, metric scale and capture FPS",
+              "time": 17,
+              "position": [
+                0.8270459497197099,
+                0.5655969383774323
+              ],
+              "predicted": [
+                0.8290116297093156,
+                0.5643272082059025
+              ],
+              "timeUnit": "sample-index",
+              "status": "observed"
+            },
+            "bodyId": "408d2769-d13f-3600-a2cf-81b506f279f6"
+          }
+        ],
+        "ordinal": 17
+      },
+      {
+        "sourceFrame": 18,
+        "imageSha256": "bfab18db779b5cff3f5d64fc4fae93b38e192ca857a207e84694dc25d71a1a06",
+        "objects": [
+          {
+            "tracker": {
+              "matchScore": 0.974880299141413,
+              "scoreMeaning": "Local patch correlation and motion consistency, not calibrated semantic confidence",
+              "motion": {
+                "seedPoints": 70,
+                "inliers": 68,
+                "vectors": [
+                  [
+                    0.7875,
+                    0.4667,
+                    0.782,
+                    0.4679
+                  ],
+                  [
+                    0.7958,
+                    0.4667,
+                    0.7905,
+                    0.4676
+                  ],
+                  [
+                    0.8104,
+                    0.4667,
+                    0.8061,
+                    0.4678
+                  ],
+                  [
+                    0.8271,
+                    0.4741,
+                    0.8228,
+                    0.4754
+                  ],
+                  [
+                    0.8375,
+                    0.4889,
+                    0.8336,
+                    0.4905
+                  ],
+                  [
+                    0.8521,
+                    0.4741,
+                    0.8478,
+                    0.4754
+                  ],
+                  [
+                    0.8604,
+                    0.4667,
+                    0.8562,
+                    0.468
+                  ],
+                  [
+                    0.8708,
+                    0.4667,
+                    0.866,
+                    0.468
+                  ],
+                  [
+                    0.7688,
+                    0.5037,
+                    0.763,
+                    0.506
+                  ],
+                  [
+                    0.7792,
+                    0.5037,
+                    0.7735,
+                    0.504
+                  ],
+                  [
+                    0.8104,
+                    0.5037,
+                    0.8061,
+                    0.5054
+                  ],
+                  [
+                    0.8312,
+                    0.4889,
+                    0.8271,
+                    0.4905
+                  ]
+                ],
+                "method": "pyramidal-flow",
+                "dxPixels": -3.169319205695672,
+                "dyPixels": 0.8814943757144675,
+                "medianForwardBackwardPixels": 0.01569205137200107,
+                "scale": 1.0152213408629687,
+                "ambiguous": false,
+                "reliablePoints": 70
+              },
+              "lastKnownBox": [
+                0.745841280433247,
+                0.45330572993898643,
+                0.8892136814644924,
+                0.6881845515760412
+              ],
+              "appearanceUpdates": 18,
+              "box": [
+                0.745841280433247,
+                0.45330572993898643,
+                0.8892136814644924,
+                0.6881845515760412
+              ],
+              "id": "408d2769-d13f-3600-a2cf-81b506f279f6",
+              "label": "selected object",
+              "status": "tracked"
+            },
+            "estimate": {
+              "innovation": 0.005845180703716036,
+              "reason": "Actual pixel measurement accepted under the fixed innovation gate",
+              "positionSigma": 0.013460630135915905,
+              "accepted": true,
+              "uncertaintyMeaning": "Model covariance under declared motion/noise assumptions; not calibrated probability or metric accuracy",
+              "covariance": [
+                [
+                  0.00009059428182796371,
+                  0.000023203051187015297,
+                  0.000023203051187015297,
+                  0.000013626491796583896
+                ],
+                [
+                  0.00009059428182796371,
+                  0.000023203051187015297,
+                  0.000023203051187015297,
+                  0.000013626491796583896
+                ]
+              ],
+              "innovationGate": 0.1372330284365156,
+              "velocity": [
+                -0.004957120923481204,
+                0.002564242939044067
+              ],
+              "measurement": [
+                0.8175274809488697,
+                0.5707451407575138
+              ],
+              "predictedVariance": [
+                0.00015165808187715007,
+                0.00015165808187715007
+              ],
+              "domain": "normalized image-plane; unknown depth, metric scale and capture FPS",
+              "time": 18,
+              "position": [
+                0.8205655409238246,
+                0.5690241091639098
+              ],
+              "predicted": [
+                0.8226133024723997,
+                0.5678640720513054
+              ],
+              "timeUnit": "sample-index",
+              "status": "observed"
+            },
+            "bodyId": "408d2769-d13f-3600-a2cf-81b506f279f6"
+          }
+        ],
+        "ordinal": 18
+      },
+      {
+        "sourceFrame": 19,
+        "imageSha256": "bfab18db779b5cff3f5d64fc4fae93b38e192ca857a207e84694dc25d71a1a06",
+        "objects": [
+          {
+            "tracker": {
+              "matchScore": 1,
+              "scoreMeaning": "Local patch correlation and motion consistency, not calibrated semantic confidence",
+              "motion": {
+                "seedPoints": 65,
+                "inliers": 65,
+                "vectors": [
+                  [
+                    0.7625,
+                    0.4704,
+                    0.7625,
+                    0.4704
+                  ],
+                  [
+                    0.7812,
+                    0.4704,
+                    0.7812,
+                    0.4704
+                  ],
+                  [
+                    0.7917,
+                    0.4704,
+                    0.7917,
+                    0.4704
+                  ],
+                  [
+                    0.7979,
+                    0.4704,
+                    0.7979,
+                    0.4704
+                  ],
+                  [
+                    0.8146,
+                    0.4704,
+                    0.8146,
+                    0.4704
+                  ],
+                  [
+                    0.8312,
+                    0.4852,
+                    0.8312,
+                    0.4852
+                  ],
+                  [
+                    0.85,
+                    0.4704,
+                    0.85,
+                    0.4704
+                  ],
+                  [
+                    0.8688,
+                    0.4704,
+                    0.8688,
+                    0.4704
+                  ],
+                  [
+                    0.7625,
+                    0.5111,
+                    0.7625,
+                    0.5111
+                  ],
+                  [
+                    0.7729,
+                    0.5111,
+                    0.7729,
+                    0.5111
+                  ],
+                  [
+                    0.7875,
+                    0.5111,
+                    0.7875,
+                    0.5111
+                  ],
+                  [
+                    0.8062,
+                    0.5037,
+                    0.8062,
+                    0.5037
+                  ]
+                ],
+                "method": "pyramidal-flow",
+                "dxPixels": 0,
+                "dyPixels": 0,
+                "medianForwardBackwardPixels": 0,
+                "scale": 1,
+                "ambiguous": false,
+                "reliablePoints": 65
+              },
+              "lastKnownBox": [
+                0.745841280433247,
+                0.45330572993898643,
+                0.8892136814644924,
+                0.6881845515760412
+              ],
+              "appearanceUpdates": 19,
+              "box": [
+                0.745841280433247,
+                0.45330572993898643,
+                0.8892136814644924,
+                0.6881845515760412
+              ],
+              "id": "408d2769-d13f-3600-a2cf-81b506f279f6",
+              "label": "selected object",
+              "status": "tracked"
+            },
+            "estimate": {
+              "innovation": 0.0020961393792488328,
+              "reason": "Actual pixel measurement accepted under the fixed innovation gate",
+              "positionSigma": 0.013459802782988159,
+              "accepted": true,
+              "uncertaintyMeaning": "Model covariance under declared motion/noise assumptions; not calibrated probability or metric accuracy",
+              "covariance": [
+                [
+                  0.00009058314547846788,
+                  0.000023197089023840137,
+                  0.000023197089023840137,
+                  0.000013623236839492438
+                ],
+                [
+                  0.00009058314547846788,
+                  0.000023197089023840137,
+                  0.000023197089023840137,
+                  0.000013623236839492438
+                ]
+              ],
+              "innovationGate": 0.13722734348492252,
+              "velocity": [
+                -0.0047592692449694675,
+                0.0024773093895059093
+              ],
+              "measurement": [
+                0.8175274809488697,
+                0.5707451407575138
+              ],
+              "predictedVariance": [
+                0.0001516268759985782,
+                0.0001516268759985782
+              ],
+              "domain": "normalized image-plane; unknown depth, metric scale and capture FPS",
+              "time": 19,
+              "position": [
+                0.8163810181207096,
+                0.5712488821652957
+              ],
+              "predicted": [
+                0.8156084200003434,
+                0.5715883521029539
+              ],
+              "timeUnit": "sample-index",
+              "status": "observed"
+            },
+            "bodyId": "408d2769-d13f-3600-a2cf-81b506f279f6"
+          }
+        ],
+        "ordinal": 19
+      },
+      {
+        "sourceFrame": 20,
+        "imageSha256": "e0c8730b2391f34da07b1a8b69bf79c34df5f169327d8a559ed0eb37541f2d57",
+        "objects": [
+          {
+            "tracker": {
+              "matchScore": 0.976599617435559,
+              "scoreMeaning": "Local patch correlation and motion consistency, not calibrated semantic confidence",
+              "motion": {
+                "seedPoints": 65,
+                "inliers": 64,
+                "vectors": [
+                  [
+                    0.7812,
+                    0.4704,
+                    0.7755,
+                    0.4719
+                  ],
+                  [
+                    0.7917,
+                    0.4704,
+                    0.7864,
+                    0.4715
+                  ],
+                  [
+                    0.7979,
+                    0.4704,
+                    0.7931,
+                    0.4717
+                  ],
+                  [
+                    0.8146,
+                    0.4704,
+                    0.81,
+                    0.4719
+                  ],
+                  [
+                    0.8312,
+                    0.4852,
+                    0.8267,
+                    0.4868
+                  ],
+                  [
+                    0.85,
+                    0.4704,
+                    0.8454,
+                    0.4721
+                  ],
+                  [
+                    0.8688,
+                    0.4704,
+                    0.8637,
+                    0.4722
+                  ],
+                  [
+                    0.7625,
+                    0.5111,
+                    0.7564,
+                    0.5124
+                  ],
+                  [
+                    0.7729,
+                    0.5111,
+                    0.7666,
+                    0.5128
+                  ],
+                  [
+                    0.7875,
+                    0.5111,
+                    0.7822,
+                    0.5124
+                  ],
+                  [
+                    0.8062,
+                    0.5037,
+                    0.8016,
+                    0.5058
+                  ],
+                  [
+                    0.825,
+                    0.4889,
+                    0.8204,
+                    0.4904
+                  ]
+                ],
+                "method": "pyramidal-flow",
+                "dxPixels": -3.354757521225025,
+                "dyPixels": 0.8805660029220377,
+                "medianForwardBackwardPixels": 0.016632067921009557,
+                "scale": 1.0138026385139842,
+                "ambiguous": false,
+                "reliablePoints": 65
+              },
+              "lastKnownBox": [
+                0.7378627435518701,
+                0.454946111770541,
+                0.8832140620074318,
+                0.6930668808772426
+              ],
+              "appearanceUpdates": 20,
+              "box": [
+                0.7378627435518701,
+                0.454946111770541,
+                0.8832140620074318,
+                0.6930668808772426
+              ],
+              "id": "408d2769-d13f-3600-a2cf-81b506f279f6",
+              "label": "selected object",
+              "status": "tracked"
+            },
+            "estimate": {
+              "innovation": 0.0011190216832065393,
+              "reason": "Actual pixel measurement accepted under the fixed innovation gate",
+              "positionSigma": 0.013459104937703357,
+              "accepted": true,
+              "uncertaintyMeaning": "Model covariance under declared motion/noise assumptions; not calibrated probability or metric accuracy",
+              "covariance": [
+                [
+                  0.00009057375286205545,
+                  0.000023193203193243928,
+                  0.000023193203193243928,
+                  0.00001362160259159815
+                ],
+                [
+                  0.00009057375286205545,
+                  0.000023193203193243928,
+                  0.000023193203193243928,
+                  0.00001362160259159815
+                ]
+              ],
+              "innovationGate": 0.13722254923401628,
+              "velocity": [
+                -0.0048709415389037065,
+                0.0025062034582416667
+              ],
+              "measurement": [
+                0.810538402779651,
+                0.5740064963238918
+              ],
+              "predictedVariance": [
+                0.00015160056036564058,
+                0.00015160056036564058
+              ],
+              "domain": "normalized image-plane; unknown depth, metric scale and capture FPS",
+              "time": 20,
+              "position": [
+                0.811185647890979,
+                0.5738390282431644
+              ],
+              "predicted": [
+                0.8116217488757401,
+                0.5737261915548015
+              ],
+              "timeUnit": "sample-index",
+              "status": "observed"
+            },
+            "bodyId": "408d2769-d13f-3600-a2cf-81b506f279f6"
+          }
+        ],
+        "ordinal": 20
+      }
+    ],
+    "datasetId": "8b93b1e5-243e-4086-936a-e56e4b08dfba",
+    "completedFrames": 20,
+    "id": "d63af07a-bc99-4a62-8391-e7b2bbadcb85",
+    "status": "completed",
+    "totalFrames": 20
+  },
+  "state": {
+    "codeSha256": "d199d7fc2722caeb5900b1637fd1d7dfc0c9eaf95a1412132316756002c65821",
+    "stale": false,
+    "scope": "Observed image-plane state on the same saved world IDs; native verified simulation remains separate",
+    "estimate": {
+      "worldId": "f9f7f4c0-8fb6-4f96-a7c7-db0ec5db119a",
+      "history": [
+        {
+          "sourceFrame": 1,
+          "runId": "d63af07a-bc99-4a62-8391-e7b2bbadcb85",
+          "parentHash": "",
+          "updates": {
+            "408d2769-d13f-3600-a2cf-81b506f279f6": {
+              "innovation": 0.0000013772817898043756,
+              "reason": "Actual pixel measurement accepted under the fixed innovation gate",
+              "sourceFrame": 1,
+              "positionSigma": 0.019586987147869352,
+              "accepted": true,
+              "uncertaintyMeaning": "Model covariance under declared motion/noise assumptions; not calibrated probability or metric accuracy",
+              "covariance": [
+                [
+                  0.00019182503276539962,
+                  0.00013299475753604186,
+                  0.00013299475753604186,
+                  0.00037083879423328956
+                ],
+                [
+                  0.00019182503276539962,
+                  0.00013299475753604186,
+                  0.00013299475753604186,
+                  0.00037083879423328956
+                ]
+              ],
+              "innovationGate": 0.27622454633866267,
+              "velocity": [
+                3.3345299943855225e-7,
+                7.426701268506765e-7
+              ],
+              "nativeBinding": {
+                "worldId": "f9f7f4c0-8fb6-4f96-a7c7-db0ec5db119a",
+                "expectedHash": "b5688b4e25a72021c155ec7b1a1b63244d1e1838397b8ad81432746f771a6ced",
+                "expectedRevision": 0
+              },
+              "measurement": [
+                0.8788062281969535,
+                0.5385428965674737
+              ],
+              "imageSha256": "e4c94eb187cb31edba0c5825a33f142303a4adb4de8a45a1bb3c3ddb20640382",
+              "predictedVariance": [
+                0.001301,
+                0.001301
+              ],
+              "domain": "normalized image-plane; unknown depth, metric scale and capture FPS",
+              "datasetId": "8b93b1e5-243e-4086-936a-e56e4b08dfba",
+              "time": 1,
+              "position": [
+                0.8788061450185446,
+                0.5385427113116217
+              ],
+              "runId": "d63af07a-bc99-4a62-8391-e7b2bbadcb85",
+              "predicted": [
+                0.8788056640624999,
+                0.5385416401211172
+              ],
+              "timeUnit": "sample-index",
+              "status": "observed"
+            }
+          },
+          "nativeBinding": {
+            "worldId": "f9f7f4c0-8fb6-4f96-a7c7-db0ec5db119a",
+            "expectedHash": "b5688b4e25a72021c155ec7b1a1b63244d1e1838397b8ad81432746f771a6ced",
+            "expectedRevision": 0
+          },
+          "hash": "fb51d1ead58ecc6aec6178902a432ac84f7fcf7bfd15d94fcbe768ff9d0a5d7f",
+          "revision": 1,
+          "ordinal": 1
+        },
+        {
+          "sourceFrame": 2,
+          "runId": "d63af07a-bc99-4a62-8391-e7b2bbadcb85",
+          "parentHash": "fb51d1ead58ecc6aec6178902a432ac84f7fcf7bfd15d94fcbe768ff9d0a5d7f",
+          "updates": {
+            "408d2769-d13f-3600-a2cf-81b506f279f6": {
+              "innovation": 0.0029454649130832024,
+              "reason": "Actual pixel measurement accepted under the fixed innovation gate",
+              "sourceFrame": 2,
+              "positionSigma": 0.018814805095155183,
+              "accepted": true,
+              "uncertaintyMeaning": "Model covariance under declared motion/noise assumptions; not calibrated probability or metric accuracy",
+              "covariance": [
+                [
+                  0.0001769984453843387,
+                  0.0001079146527186202,
+                  0.0001079146527186202,
+                  0.00013223056279945146
+                ],
+                [
+                  0.0001769984453843387,
+                  0.0001079146527186202,
+                  0.0001079146527186202,
+                  0.00013223056279945146
+                ]
+              ],
+              "innovationGate": 0.22963594471149035,
+              "velocity": [
+                -0.0012224849929998352,
+                0.0007081696655826322
+              ],
+              "nativeBinding": {
+                "worldId": "f9f7f4c0-8fb6-4f96-a7c7-db0ec5db119a",
+                "expectedHash": "b5688b4e25a72021c155ec7b1a1b63244d1e1838397b8ad81432746f771a6ced",
+                "expectedRevision": 0
+              },
+              "measurement": [
+                0.876256925251304,
+                0.5400184258226215
+              ],
+              "imageSha256": "939f463eb850b03c36ed3ec45f2a992b5ce42548dbae125ad35d0d42dd7ac475",
+              "predictedVariance": [
+                0.0008296533420707729,
+                0.0008296533420707729
+              ],
+              "domain": "normalized image-plane; unknown depth, metric scale and capture FPS",
+              "datasetId": "8b93b1e5-243e-4086-936a-e56e4b08dfba",
+              "time": 2,
+              "position": [
+                0.8768008475541791,
+                0.5397037549720605
+              ],
+              "runId": "d63af07a-bc99-4a62-8391-e7b2bbadcb85",
+              "predicted": [
+                0.878806478471544,
+                0.5385434539817485
+              ],
+              "timeUnit": "sample-index",
+              "status": "observed"
+            }
+          },
+          "nativeBinding": {
+            "worldId": "f9f7f4c0-8fb6-4f96-a7c7-db0ec5db119a",
+            "expectedHash": "b5688b4e25a72021c155ec7b1a1b63244d1e1838397b8ad81432746f771a6ced",
+            "expectedRevision": 0
+          },
+          "hash": "284999e8318643eb64cfd27be5f76ac288461740f389dbac44944ed029e0638e",
+          "revision": 2,
+          "ordinal": 2
+        },
+        {
+          "sourceFrame": 3,
+          "runId": "d63af07a-bc99-4a62-8391-e7b2bbadcb85",
+          "parentHash": "284999e8318643eb64cfd27be5f76ac288461740f389dbac44944ed029e0638e",
+          "updates": {
+            "408d2769-d13f-3600-a2cf-81b506f279f6": {
+              "innovation": 0.002143158313285065,
+              "reason": "Actual pixel measurement accepted under the fixed innovation gate",
+              "sourceFrame": 3,
+              "positionSigma": 0.017753597607918996,
+              "accepted": true,
+              "uncertaintyMeaning": "Model covariance under declared motion/noise assumptions; not calibrated probability or metric accuracy",
+              "covariance": [
+                [
+                  0.00015759511401195356,
+                  0.00007254120286465137,
+                  0.00007254120286465137,
+                  0.000058161650792335184
+                ],
+                [
+                  0.00015759511401195356,
+                  0.00007254120286465137,
+                  0.00007254120286465137,
+                  0.000058161650792335184
+                ]
+              ],
+              "innovationGate": 0.19378574684700506,
+              "velocity": [
+                -0.0017650226202319845,
+                0.0011360557700424048
+              ],
+              "nativeBinding": {
+                "worldId": "f9f7f4c0-8fb6-4f96-a7c7-db0ec5db119a",
+                "expectedHash": "b5688b4e25a72021c155ec7b1a1b63244d1e1838397b8ad81432746f771a6ced",
+                "expectedRevision": 0
+              },
+              "measurement": [
+                0.873895581447734,
+                0.5417390927807338
+              ],
+              "imageSha256": "57472b6928eb12792afe90478e2d3bcefb3c74c4375518ba10993755418c2856",
+              "predictedVariance": [
+                0.0005260583136210306,
+                0.0005260583136210306
+              ],
+              "domain": "normalized image-plane; unknown depth, metric scale and capture FPS",
+              "datasetId": "8b93b1e5-243e-4086-936a-e56e4b08dfba",
+              "time": 3,
+              "position": [
+                0.8743997044214878,
+                0.5413415033701916
+              ],
+              "runId": "d63af07a-bc99-4a62-8391-e7b2bbadcb85",
+              "predicted": [
+                0.8755783625611793,
+                0.5404119246376431
+              ],
+              "timeUnit": "sample-index",
+              "status": "observed"
+            }
+          },
+          "nativeBinding": {
+            "worldId": "f9f7f4c0-8fb6-4f96-a7c7-db0ec5db119a",
+            "expectedHash": "b5688b4e25a72021c155ec7b1a1b63244d1e1838397b8ad81432746f771a6ced",
+            "expectedRevision": 0
+          },
+          "hash": "564543f85ecabfcb0c5869b3969b1e5e40ffee6e596e1bf71bfe7a55e1848489",
+          "revision": 3,
+          "ordinal": 3
+        },
+        {
+          "sourceFrame": 4,
+          "runId": "d63af07a-bc99-4a62-8391-e7b2bbadcb85",
+          "parentHash": "564543f85ecabfcb0c5869b3969b1e5e40ffee6e596e1bf71bfe7a55e1848489",
+          "updates": {
+            "408d2769-d13f-3600-a2cf-81b506f279f6": {
+              "innovation": 0.0015335888807212633,
+              "reason": "Actual pixel measurement accepted under the fixed innovation gate",
+              "sourceFrame": 4,
+              "positionSigma": 0.016657295845602566,
+              "accepted": true,
+              "uncertaintyMeaning": "Model covariance under declared motion/noise assumptions; not calibrated probability or metric accuracy",
+              "covariance": [
+                [
+                  0.00013873275244396423,
+                  0.00005087959967919838,
+                  0.00005087959967919838,
+                  0.0000321533482574253
+                ],
+                [
+                  0.00013873275244396423,
+                  0.00005087959967919838,
+                  0.00005087959967919838,
+                  0.0000321533482574253
+                ]
+              ],
+              "innovationGate": 0.17129494600448542,
+              "velocity": [
+                -0.002089770807272163,
+                0.0012577269942665853
+              ],
+              "nativeBinding": {
+                "worldId": "f9f7f4c0-8fb6-4f96-a7c7-db0ec5db119a",
+                "expectedHash": "b5688b4e25a72021c155ec7b1a1b63244d1e1838397b8ad81432746f771a6ced",
+                "expectedRevision": 0
+              },
+              "measurement": [
+                0.8711985788730735,
+                0.5430156141882896
+              ],
+              "imageSha256": "2c1d9be9065cc16af739f4c5cd1b5e8aba3f20a3ededa8c910fa9c032a8efcb2",
+              "predictedVariance": [
+                0.00036183917053359146,
+                0.00036183917053359146
+              ],
+              "domain": "normalized image-plane; unknown depth, metric scale and capture FPS",
+              "datasetId": "8b93b1e5-243e-4086-936a-e56e4b08dfba",
+              "time": 4,
+              "position": [
+                0.8717491950811689,
+                0.5428093185081589
+              ],
+              "runId": "d63af07a-bc99-4a62-8391-e7b2bbadcb85",
+              "predicted": [
+                0.8726346818012558,
+                0.542477559140234
+              ],
+              "timeUnit": "sample-index",
+              "status": "observed"
+            }
+          },
+          "nativeBinding": {
+            "worldId": "f9f7f4c0-8fb6-4f96-a7c7-db0ec5db119a",
+            "expectedHash": "b5688b4e25a72021c155ec7b1a1b63244d1e1838397b8ad81432746f771a6ced",
+            "expectedRevision": 0
+          },
+          "hash": "ede7d5ceb8d5dba4784e42d1b151cab6d5ada4d81db46379d789ba6832cf12ef",
+          "revision": 4,
+          "ordinal": 4
+        },
+        {
+          "sourceFrame": 5,
+          "runId": "d63af07a-bc99-4a62-8391-e7b2bbadcb85",
+          "parentHash": "ede7d5ceb8d5dba4784e42d1b151cab6d5ada4d81db46379d789ba6832cf12ef",
+          "updates": {
+            "408d2769-d13f-3600-a2cf-81b506f279f6": {
+              "innovation": 0.001495626671610061,
+              "reason": "Actual pixel measurement accepted under the fixed innovation gate",
+              "sourceFrame": 5,
+              "positionSigma": 0.015714638270225255,
+              "accepted": true,
+              "uncertaintyMeaning": "Model covariance under declared motion/noise assumptions; not calibrated probability or metric accuracy",
+              "covariance": [
+                [
+                  0.00012347492798201408,
+                  0.000038368782947410514,
+                  0.000038368782947410514,
+                  0.0000216528561562752
+                ],
+                [
+                  0.00012347492798201408,
+                  0.000038368782947410514,
+                  0.000038368782947410514,
+                  0.0000216528561562752
+                ]
+              ],
+              "innovationGate": 0.15789954085743668,
+              "velocity": [
+                -0.002314325012343317,
+                0.0013786564285665557
+              ],
+              "nativeBinding": {
+                "worldId": "f9f7f4c0-8fb6-4f96-a7c7-db0ec5db119a",
+                "expectedHash": "b5688b4e25a72021c155ec7b1a1b63244d1e1838397b8ad81432746f771a6ced",
+                "expectedRevision": 0
+              },
+              "measurement": [
+                0.8683426064793303,
+                0.5447761929037072
+              ],
+              "imageSha256": "1f81c4f57a85937a7da272c4340afa98f81b338e4b987ecf92f3fc2261de5bb7",
+              "predictedVariance": [
+                0.0002736453000597863,
+                0.0002736453000597863
+              ],
+              "domain": "normalized image-plane; unknown depth, metric scale and capture FPS",
+              "datasetId": "8b93b1e5-243e-4086-936a-e56e4b08dfba",
+              "time": 5,
+              "position": [
+                0.8689367843523432,
+                0.544456209610434
+              ],
+              "runId": "d63af07a-bc99-4a62-8391-e7b2bbadcb85",
+              "predicted": [
+                0.8696594242738968,
+                0.5440670455024256
+              ],
+              "timeUnit": "sample-index",
+              "status": "observed"
+            }
+          },
+          "nativeBinding": {
+            "worldId": "f9f7f4c0-8fb6-4f96-a7c7-db0ec5db119a",
+            "expectedHash": "b5688b4e25a72021c155ec7b1a1b63244d1e1838397b8ad81432746f771a6ced",
+            "expectedRevision": 0
+          },
+          "hash": "8eddd5b282a7399539c984b6683d0b2a4f2edc551735716f742e852a4c011ad7",
+          "revision": 5,
+          "ordinal": 5
+        },
+        {
+          "sourceFrame": 6,
+          "runId": "d63af07a-bc99-4a62-8391-e7b2bbadcb85",
+          "parentHash": "8eddd5b282a7399539c984b6683d0b2a4f2edc551735716f742e852a4c011ad7",
+          "updates": {
+            "408d2769-d13f-3600-a2cf-81b506f279f6": {
+              "innovation": 0.0011939861418237764,
+              "reason": "Actual pixel measurement accepted under the fixed innovation gate",
+              "sourceFrame": 6,
+              "positionSigma": 0.014964210231444536,
+              "accepted": true,
+              "uncertaintyMeaning": "Model covariance under declared motion/noise assumptions; not calibrated probability or metric accuracy",
+              "covariance": [
+                [
+                  0.00011196379392543466,
+                  0.000031158625683584616,
+                  0.000031158625683584616,
+                  0.000017063927102434677
+                ],
+                [
+                  0.00011196379392543466,
+                  0.000031158625683584616,
+                  0.000031158625683584616,
+                  0.000017063927102434677
+                ]
+              ],
+              "innovationGate": 0.14964380208232989,
+              "velocity": [
+                -0.0024611550652580603,
+                0.001454685420575358
+              ],
+              "nativeBinding": {
+                "worldId": "f9f7f4c0-8fb6-4f96-a7c7-db0ec5db119a",
+                "expectedHash": "b5688b4e25a72021c155ec7b1a1b63244d1e1838397b8ad81432746f771a6ced",
+                "expectedRevision": 0
+              },
+              "measurement": [
+                0.8655621827334093,
+                0.5463838800865294
+              ],
+              "imageSha256": "1ed6d8add4bd66455feae652a7f2cc3ec675dafb6b4de33d4a458bda6fdf4d7d",
+              "predictedVariance": [
+                0.00022286535003311031,
+                0.00022286535003311031
+              ],
+              "domain": "normalized image-plane; unknown depth, metric scale and capture FPS",
+              "datasetId": "8b93b1e5-243e-4086-936a-e56e4b08dfba",
+              "time": 6,
+              "position": [
+                0.8660948478222921,
+                0.5461080646864658
+              ],
+              "runId": "d63af07a-bc99-4a62-8391-e7b2bbadcb85",
+              "predicted": [
+                0.8666224593399999,
+                0.5458348660390006
+              ],
+              "timeUnit": "sample-index",
+              "status": "observed"
+            }
+          },
+          "nativeBinding": {
+            "worldId": "f9f7f4c0-8fb6-4f96-a7c7-db0ec5db119a",
+            "expectedHash": "b5688b4e25a72021c155ec7b1a1b63244d1e1838397b8ad81432746f771a6ced",
+            "expectedRevision": 0
+          },
+          "hash": "cc2fbceaf2d161477fb43d28ac9f98b55a2860ec538aa685350d7893b6dfc9ff",
+          "revision": 6,
+          "ordinal": 6
+        },
+        {
+          "sourceFrame": 7,
+          "runId": "d63af07a-bc99-4a62-8391-e7b2bbadcb85",
+          "parentHash": "cc2fbceaf2d161477fb43d28ac9f98b55a2860ec538aa685350d7893b6dfc9ff",
+          "updates": {
+            "408d2769-d13f-3600-a2cf-81b506f279f6": {
+              "innovation": 0.002248990385938662,
+              "reason": "Actual pixel measurement accepted under the fixed innovation gate",
+              "sourceFrame": 7,
+              "positionSigma": 0.014401213315431554,
+              "accepted": true,
+              "uncertaintyMeaning": "Model covariance under declared motion/noise assumptions; not calibrated probability or metric accuracy",
+              "covariance": [
+                [
+                  0.00010369747247828154,
+                  0.000027076100406831395,
+                  0.000027076100406831395,
+                  0.000015020234293894017
+                ],
+                [
+                  0.00010369747247828154,
+                  0.000027076100406831395,
+                  0.000027076100406831395,
+                  0.000015020234293894017
+                ]
+              ],
+              "innovationGate": 0.14445500551989165,
+              "velocity": [
+                -0.002229990146140917,
+                0.0013139426625022647
+              ],
+              "nativeBinding": {
+                "worldId": "f9f7f4c0-8fb6-4f96-a7c7-db0ec5db119a",
+                "expectedHash": "b5688b4e25a72021c155ec7b1a1b63244d1e1838397b8ad81432746f771a6ced",
+                "expectedRevision": 0
+              },
+              "measurement": [
+                0.8655546527926319,
+                0.54639319023355
+              ],
+              "imageSha256": "7c478068f71bdf7b0a5885c9b8d89f966125f79b657db3d62e333b74f9a70ec1",
+              "predictedVariance": [
+                0.00019234497239503857,
+                0.00019234497239503857
+              ],
+              "domain": "normalized image-plane; unknown depth, metric scale and capture FPS",
+              "datasetId": "8b93b1e5-243e-4086-936a-e56e4b08dfba",
+              "time": 7,
+              "position": [
+                0.8645190203144709,
+                0.5470237260946276
+              ],
+              "runId": "d63af07a-bc99-4a62-8391-e7b2bbadcb85",
+              "predicted": [
+                0.863633692757034,
+                0.5475627501070411
+              ],
+              "timeUnit": "sample-index",
+              "status": "observed"
+            }
+          },
+          "nativeBinding": {
+            "worldId": "f9f7f4c0-8fb6-4f96-a7c7-db0ec5db119a",
+            "expectedHash": "b5688b4e25a72021c155ec7b1a1b63244d1e1838397b8ad81432746f771a6ced",
+            "expectedRevision": 0
+          },
+          "hash": "dab67601372167a04a2d0063adc64708e3e6407c31b6118c1990044d6586abe1",
+          "revision": 7,
+          "ordinal": 7
+        },
+        {
+          "sourceFrame": 8,
+          "runId": "d63af07a-bc99-4a62-8391-e7b2bbadcb85",
+          "parentHash": "dab67601372167a04a2d0063adc64708e3e6407c31b6118c1990044d6586abe1",
+          "updates": {
+            "408d2769-d13f-3600-a2cf-81b506f279f6": {
+              "innovation": 0.0005623670634220113,
+              "reason": "Actual pixel measurement accepted under the fixed innovation gate",
+              "sourceFrame": 8,
+              "positionSigma": 0.014005635910007327,
+              "accepted": true,
+              "uncertaintyMeaning": "Model covariance under declared motion/noise assumptions; not calibrated probability or metric accuracy",
+              "covariance": [
+                [
+                  0.00009807891862184338,
+                  0.000024874464377907563,
+                  0.000024874464377907563,
+                  0.000014145244486296311
+                ],
+                [
+                  0.00009807891862184338,
+                  0.000024874464377907563,
+                  0.000024874464377907563,
+                  0.000014145244486296311
+                ]
+              ],
+              "innovationGate": 0.1412214409333509,
+              "velocity": [
+                -0.002190346454685993,
+                0.0012660504010033819
+              ],
+              "nativeBinding": {
+                "worldId": "f9f7f4c0-8fb6-4f96-a7c7-db0ec5db119a",
+                "expectedHash": "b5688b4e25a72021c155ec7b1a1b63244d1e1838397b8ad81432746f771a6ced",
+                "expectedRevision": 0
+              },
+              "measurement": [
+                0.8626476240436329,
+                0.547904463093943
+              ],
+              "imageSha256": "f97ba02e5ce49795263c0a8433f239460061eff15634cb062a2328618ed635f9",
+              "predictedVariance": [
+                0.00017386990758583835,
+                0.00017386990758583835
+              ],
+              "domain": "normalized image-plane; unknown depth, metric scale and capture FPS",
+              "datasetId": "8b93b1e5-243e-4086-936a-e56e4b08dfba",
+              "time": 8,
+              "position": [
+                0.862445343499504,
+                0.5481488316771911
+              ],
+              "runId": "d63af07a-bc99-4a62-8391-e7b2bbadcb85",
+              "predicted": [
+                0.86228903016833,
+                0.5483376687571299
+              ],
+              "timeUnit": "sample-index",
+              "status": "observed"
+            }
+          },
+          "nativeBinding": {
+            "worldId": "f9f7f4c0-8fb6-4f96-a7c7-db0ec5db119a",
+            "expectedHash": "b5688b4e25a72021c155ec7b1a1b63244d1e1838397b8ad81432746f771a6ced",
+            "expectedRevision": 0
+          },
+          "hash": "6f3c7e463e9981c41e254181398c967ab3138c7a56026e1dec24a715d7f5771f",
+          "revision": 8,
+          "ordinal": 8
+        },
+        {
+          "sourceFrame": 9,
+          "runId": "d63af07a-bc99-4a62-8391-e7b2bbadcb85",
+          "parentHash": "6f3c7e463e9981c41e254181398c967ab3138c7a56026e1dec24a715d7f5771f",
+          "updates": {
+            "408d2769-d13f-3600-a2cf-81b506f279f6": {
+              "innovation": 0.0009452745173561806,
+              "reason": "Actual pixel measurement accepted under the fixed innovation gate",
+              "sourceFrame": 9,
+              "positionSigma": 0.013748756057865016,
+              "accepted": true,
+              "uncertaintyMeaning": "Model covariance under declared motion/noise assumptions; not calibrated probability or metric accuracy",
+              "covariance": [
+                [
+                  0.00009451414656934,
+                  0.00002378885208276823,
+                  0.00002378885208276823,
+                  0.000013808303212301808
+                ],
+                [
+                  0.00009451414656934,
+                  0.00002378885208276823,
+                  0.00002378885208276823,
+                  0.000013808303212301808
+                ]
+              ],
+              "innovationGate": 0.1392790529591501,
+              "velocity": [
+                -0.0022884961209583875,
+                0.0012472066501147182
+              ],
+              "nativeBinding": {
+                "worldId": "f9f7f4c0-8fb6-4f96-a7c7-db0ec5db119a",
+                "expectedHash": "b5688b4e25a72021c155ec7b1a1b63244d1e1838397b8ad81432746f771a6ced",
+                "expectedRevision": 0
+              },
+              "measurement": [
+                0.8593266767192111,
+                0.5492366538923535
+              ],
+              "imageSha256": "1e181ab3d8f6a3f963af05d1bddaf9775fdd915abe7e425a63bbee997858c58e",
+              "predictedVariance": [
+                0.00016297309186395482,
+                0.00016297309186395482
+              ],
+              "domain": "normalized image-plane; unknown depth, metric scale and capture FPS",
+              "datasetId": "8b93b1e5-243e-4086-936a-e56e4b08dfba",
+              "time": 9,
+              "position": [
+                0.8598650441411838,
+                0.5493400150342862
+              ],
+              "runId": "d63af07a-bc99-4a62-8391-e7b2bbadcb85",
+              "predicted": [
+                0.860254997044818,
+                0.5494148820781944
+              ],
+              "timeUnit": "sample-index",
+              "status": "observed"
+            }
+          },
+          "nativeBinding": {
+            "worldId": "f9f7f4c0-8fb6-4f96-a7c7-db0ec5db119a",
+            "expectedHash": "b5688b4e25a72021c155ec7b1a1b63244d1e1838397b8ad81432746f771a6ced",
+            "expectedRevision": 0
+          },
+          "hash": "e56bcf8c2a51018195e3f24f27e53b300343199919d6d50a06c6cb7b99f93d7c",
+          "revision": 9,
+          "ordinal": 9
+        },
+        {
+          "sourceFrame": 10,
+          "runId": "d63af07a-bc99-4a62-8391-e7b2bbadcb85",
+          "parentHash": "e56bcf8c2a51018195e3f24f27e53b300343199919d6d50a06c6cb7b99f93d7c",
+          "updates": {
+            "408d2769-d13f-3600-a2cf-81b506f279f6": {
+              "innovation": 0.002170988369597925,
+              "reason": "Actual pixel measurement accepted under the fixed innovation gate",
+              "sourceFrame": 10,
+              "positionSigma": 0.013596997729274026,
+              "accepted": true,
+              "uncertaintyMeaning": "Model covariance under declared motion/noise assumptions; not calibrated probability or metric accuracy",
+              "covariance": [
+                [
+                  0.00009243917362494152,
+                  0.000023329029457848914,
+                  0.000023329029457848914,
+                  0.000013702688979743109
+                ],
+                [
+                  0.00009243917362494152,
+                  0.000023329029457848914,
+                  0.000023329029457848914,
+                  0.000013702688979743109
+                ]
+              ],
+              "innovationGate": 0.1381846869134164,
+              "velocity": [
+                -0.002500608869550939,
+                0.001322554475192321
+              ],
+              "nativeBinding": {
+                "worldId": "f9f7f4c0-8fb6-4f96-a7c7-db0ec5db119a",
+                "expectedHash": "b5688b4e25a72021c155ec7b1a1b63244d1e1838397b8ad81432746f771a6ced",
+                "expectedRevision": 0
+              },
+              "measurement": [
+                0.8555307977450348,
+                0.5513139240392113
+              ],
+              "imageSha256": "5b775b40005bb765170bc5a06fa45539e7b2294f318e8f26a93c0773bfaf2896",
+              "predictedVariance": [
+                0.00015690015394717827,
+                0.00015690015394717827
+              ],
+              "domain": "normalized image-plane; unknown depth, metric scale and capture FPS",
+              "datasetId": "8b93b1e5-243e-4086-936a-e56e4b08dfba",
+              "time": 10,
+              "position": [
+                0.8567360703985294,
+                0.550885780640623
+              ],
+              "runId": "d63af07a-bc99-4a62-8391-e7b2bbadcb85",
+              "predicted": [
+                0.8575765480202254,
+                0.5505872216844009
+              ],
+              "timeUnit": "sample-index",
+              "status": "observed"
+            }
+          },
+          "nativeBinding": {
+            "worldId": "f9f7f4c0-8fb6-4f96-a7c7-db0ec5db119a",
+            "expectedHash": "b5688b4e25a72021c155ec7b1a1b63244d1e1838397b8ad81432746f771a6ced",
+            "expectedRevision": 0
+          },
+          "hash": "12a394454f86e53d251bb65c467528b5d283f10c1a78a78d93575270cc74c59d",
+          "revision": 10,
+          "ordinal": 10
+        },
+        {
+          "sourceFrame": 11,
+          "runId": "d63af07a-bc99-4a62-8391-e7b2bbadcb85",
+          "parentHash": "12a394454f86e53d251bb65c467528b5d283f10c1a78a78d93575270cc74c59d",
+          "updates": {
+            "408d2769-d13f-3600-a2cf-81b506f279f6": {
+              "innovation": 0.0030923764267347816,
+              "reason": "Actual pixel measurement accepted under the fixed innovation gate",
+              "sourceFrame": 11,
+              "positionSigma": 0.013516970738629185,
+              "accepted": true,
+              "uncertaintyMeaning": "Model covariance under declared motion/noise assumptions; not calibrated probability or metric accuracy",
+              "covariance": [
+                [
+                  0.00009135424897447882,
+                  0.00002318410366403853,
+                  0.00002318410366403853,
+                  0.000013680842728886675
+                ],
+                [
+                  0.00009135424897447882,
+                  0.00002318410366403853,
+                  0.00002318410366403853,
+                  0.000013680842728886675
+                ]
+              ],
+              "innovationGate": 0.13762265829440704,
+              "velocity": [
+                -0.0027960258041873393,
+                0.0014419706187821266
+              ],
+              "nativeBinding": {
+                "worldId": "f9f7f4c0-8fb6-4f96-a7c7-db0ec5db119a",
+                "expectedHash": "b5688b4e25a72021c155ec7b1a1b63244d1e1838397b8ad81432746f771a6ced",
+                "expectedRevision": 0
+              },
+              "measurement": [
+                0.8513684621721609,
+                0.5533672598988072
+              ],
+              "imageSha256": "3091698110abdfbc5f7fd21a5a43847adfdcf6b7e9122b29ffbb0774395bc3a1",
+              "predictedVariance": [
+                0.00015379992152038245,
+                0.00015379992152038245
+              ],
+              "domain": "normalized image-plane; unknown depth, metric scale and capture FPS",
+              "datasetId": "8b93b1e5-243e-4086-936a-e56e4b08dfba",
+              "time": 11,
+              "position": [
+                0.8530714056487456,
+                0.5526788804632292
+              ],
+              "runId": "d63af07a-bc99-4a62-8391-e7b2bbadcb85",
+              "predicted": [
+                0.8542354615289784,
+                0.5522083351158154
+              ],
+              "timeUnit": "sample-index",
+              "status": "observed"
+            }
+          },
+          "nativeBinding": {
+            "worldId": "f9f7f4c0-8fb6-4f96-a7c7-db0ec5db119a",
+            "expectedHash": "b5688b4e25a72021c155ec7b1a1b63244d1e1838397b8ad81432746f771a6ced",
+            "expectedRevision": 0
+          },
+          "hash": "72e3232f4351496b4569117417002d4206f3de449ff132e49cb2ae357f8d4352",
+          "revision": 11,
+          "ordinal": 11
+        },
+        {
+          "sourceFrame": 12,
+          "runId": "d63af07a-bc99-4a62-8391-e7b2bbadcb85",
+          "parentHash": "72e3232f4351496b4569117417002d4206f3de449ff132e49cb2ae357f8d4352",
+          "updates": {
+            "408d2769-d13f-3600-a2cf-81b506f279f6": {
+              "innovation": 0.0039051309460184412,
+              "reason": "Actual pixel measurement accepted under the fixed innovation gate",
+              "sourceFrame": 12,
+              "positionSigma": 0.013480332202748075,
+              "accepted": true,
+              "uncertaintyMeaning": "Model covariance under declared motion/noise assumptions; not calibrated probability or metric accuracy",
+              "covariance": [
+                [
+                  0.00009085967814822337,
+                  0.000023170472968440143,
+                  0.000023170472968440143,
+                  0.000013678535218588235
+                ],
+                [
+                  0.00009085967814822337,
+                  0.000023170472968440143,
+                  0.000023170472968440143,
+                  0.000013678535218588235
+                ]
+              ],
+              "innovationGate": 0.13736871897041233,
+              "velocity": [
+                -0.0031704421313966547,
+                0.0015887254094447416
+              ],
+              "nativeBinding": {
+                "worldId": "f9f7f4c0-8fb6-4f96-a7c7-db0ec5db119a",
+                "expectedHash": "b5688b4e25a72021c155ec7b1a1b63244d1e1838397b8ad81432746f771a6ced",
+                "expectedRevision": 0
+              },
+              "measurement": [
+                0.8466395596462895,
+                0.5555459332520674
+              ],
+              "imageSha256": "c2522ca0ecc38144ffc86ac8222a3c1f7aafbf91396c11b6a6241d8536fe9752",
+              "predictedVariance": [
+                0.00015240329903144255,
+                0.00015240329903144255
+              ],
+              "domain": "normalized image-plane; unknown depth, metric scale and capture FPS",
+              "datasetId": "8b93b1e5-243e-4086-936a-e56e4b08dfba",
+              "time": 12,
+              "position": [
+                0.8488071600533604,
+                0.5546963288922605
+              ],
+              "runId": "d63af07a-bc99-4a62-8391-e7b2bbadcb85",
+              "predicted": [
+                0.8502753798445583,
+                0.5541208510820114
+              ],
+              "timeUnit": "sample-index",
+              "status": "observed"
+            }
+          },
+          "nativeBinding": {
+            "worldId": "f9f7f4c0-8fb6-4f96-a7c7-db0ec5db119a",
+            "expectedHash": "b5688b4e25a72021c155ec7b1a1b63244d1e1838397b8ad81432746f771a6ced",
+            "expectedRevision": 0
+          },
+          "hash": "57a3d80e04b57205b3930915b4a33a7bb9779236bf185f7f066b15fa17fefeb6",
+          "revision": 12,
+          "ordinal": 12
+        },
+        {
+          "sourceFrame": 13,
+          "runId": "d63af07a-bc99-4a62-8391-e7b2bbadcb85",
+          "parentHash": "57a3d80e04b57205b3930915b4a33a7bb9779236bf185f7f066b15fa17fefeb6",
+          "updates": {
+            "408d2769-d13f-3600-a2cf-81b506f279f6": {
+              "innovation": 0.0012457894886642197,
+              "reason": "Actual pixel measurement accepted under the fixed innovation gate",
+              "sourceFrame": 13,
+              "positionSigma": 0.01346648612386147,
+              "accepted": true,
+              "uncertaintyMeaning": "Model covariance under declared motion/noise assumptions; not calibrated probability or metric accuracy",
+              "covariance": [
+                [
+                  0.00009067312426207675,
+                  0.000023193181756802327,
+                  0.000023193181756802327,
+                  0.000013673948072129344
+                ],
+                [
+                  0.00009067312426207675,
+                  0.000023193181756802327,
+                  0.000023193181756802327,
+                  0.000013673948072129344
+                ]
+              ],
+              "innovationGate": 0.13727329662095464,
+              "velocity": [
+                -0.003067068396349591,
+                0.0015125362145801608
+              ],
+              "nativeBinding": {
+                "worldId": "f9f7f4c0-8fb6-4f96-a7c7-db0ec5db119a",
+                "expectedHash": "b5688b4e25a72021c155ec7b1a1b63244d1e1838397b8ad81432746f771a6ced",
+                "expectedRevision": 0
+              },
+              "measurement": [
+                0.8466395596462895,
+                0.5555459332520674
+              ],
+              "imageSha256": "c2522ca0ecc38144ffc86ac8222a3c1f7aafbf91396c11b6a6241d8536fe9752",
+              "predictedVariance": [
+                0.00015187915930369187,
+                0.00015187915930369187
+              ],
+              "domain": "normalized image-plane; unknown depth, metric scale and capture FPS",
+              "datasetId": "8b93b1e5-243e-4086-936a-e56e4b08dfba",
+              "time": 13,
+              "position": [
+                0.8460408547765637,
+                0.5559871946804673
+              ],
+              "runId": "d63af07a-bc99-4a62-8391-e7b2bbadcb85",
+              "predicted": [
+                0.8456367179219638,
+                0.5562850543017053
+              ],
+              "timeUnit": "sample-index",
+              "status": "observed"
+            }
+          },
+          "nativeBinding": {
+            "worldId": "f9f7f4c0-8fb6-4f96-a7c7-db0ec5db119a",
+            "expectedHash": "b5688b4e25a72021c155ec7b1a1b63244d1e1838397b8ad81432746f771a6ced",
+            "expectedRevision": 0
+          },
+          "hash": "4fcaafea662a7e84f63b81af4923e48344362e44c463e3ac2cb4abb8911f56b1",
+          "revision": 13,
+          "ordinal": 13
+        },
+        {
+          "sourceFrame": 14,
+          "runId": "d63af07a-bc99-4a62-8391-e7b2bbadcb85",
+          "parentHash": "4fcaafea662a7e84f63b81af4923e48344362e44c463e3ac2cb4abb8911f56b1",
+          "updates": {
+            "408d2769-d13f-3600-a2cf-81b506f279f6": {
+              "innovation": 0.001143860312395907,
+              "reason": "Actual pixel measurement accepted under the fixed innovation gate",
+              "sourceFrame": 14,
+              "positionSigma": 0.013462627200520768,
+              "accepted": true,
+              "uncertaintyMeaning": "Model covariance under declared motion/noise assumptions; not calibrated probability or metric accuracy",
+              "covariance": [
+                [
+                  0.00009062116557010083,
+                  0.000023212976017988463,
+                  0.000023212976017988463,
+                  0.000013664073616098077
+                ],
+                [
+                  0.00009062116557010083,
+                  0.000023212976017988463,
+                  0.000023212976017988463,
+                  0.000013664073616098077
+                ]
+              ],
+              "innovationGate": 0.13724675512517787,
+              "velocity": [
+                -0.0031814972074788554,
+                0.001541390446993723
+              ],
+              "nativeBinding": {
+                "worldId": "f9f7f4c0-8fb6-4f96-a7c7-db0ec5db119a",
+                "expectedHash": "b5688b4e25a72021c155ec7b1a1b63244d1e1838397b8ad81432746f771a6ced",
+                "expectedRevision": 0
+              },
+              "measurement": [
+                0.8418646445586685,
+                0.5577794107727168
+              ],
+              "imageSha256": "8b53bd579ad7e08b0901bfacb3dea606027a75bd126dd193e95a3fbec0fa3434",
+              "predictedVariance": [
+                0.00015173343584781073,
+                0.00015173343584781073
+              ],
+              "domain": "normalized image-plane; unknown depth, metric scale and capture FPS",
+              "datasetId": "8b93b1e5-243e-4086-936a-e56e4b08dfba",
+              "time": 14,
+              "position": [
+                0.8425270676039873,
+                0.5576123749683848
+              ],
+              "runId": "d63af07a-bc99-4a62-8391-e7b2bbadcb85",
+              "predicted": [
+                0.842973786380214,
+                0.5574997308950475
+              ],
+              "timeUnit": "sample-index",
+              "status": "observed"
+            }
+          },
+          "nativeBinding": {
+            "worldId": "f9f7f4c0-8fb6-4f96-a7c7-db0ec5db119a",
+            "expectedHash": "b5688b4e25a72021c155ec7b1a1b63244d1e1838397b8ad81432746f771a6ced",
+            "expectedRevision": 0
+          },
+          "hash": "3f1d27bb72b96954c18fac5ca9eafb5e87caeada157f0fc8ad7e0e1127f5a47d",
+          "revision": 14,
+          "ordinal": 14
+        },
+        {
+          "sourceFrame": 15,
+          "runId": "d63af07a-bc99-4a62-8391-e7b2bbadcb85",
+          "parentHash": "3f1d27bb72b96954c18fac5ca9eafb5e87caeada157f0fc8ad7e0e1127f5a47d",
+          "updates": {
+            "408d2769-d13f-3600-a2cf-81b506f279f6": {
+              "innovation": 0.003210103271816018,
+              "reason": "Actual pixel measurement accepted under the fixed innovation gate",
+              "sourceFrame": 15,
+              "positionSigma": 0.013462037777442402,
+              "accepted": true,
+              "uncertaintyMeaning": "Model covariance under declared motion/noise assumptions; not calibrated probability or metric accuracy",
+              "covariance": [
+                [
+                  0.00009061323056064319,
+                  0.000023220271580704087,
+                  0.000023220271580704087,
+                  0.000013651915168275846
+                ],
+                [
+                  0.00009061323056064319,
+                  0.000023220271580704087,
+                  0.000023220271580704087,
+                  0.000013651915168275846
+                ]
+              ],
+              "innovationGate": 0.1372427031251891,
+              "velocity": [
+                -0.0034873388253908286,
+                0.0016687155083702195
+              ],
+              "nativeBinding": {
+                "worldId": "f9f7f4c0-8fb6-4f96-a7c7-db0ec5db119a",
+                "expectedHash": "b5688b4e25a72021c155ec7b1a1b63244d1e1838397b8ad81432746f771a6ced",
+                "expectedRevision": 0
+              },
+              "measurement": [
+                0.8363820234891856,
+                0.5603875209599742
+              ],
+              "imageSha256": "a50d47f94a45ad2d74fbf693fb0f078c3ac2e08884e4533710635a68b0acfa15",
+              "predictedVariance": [
+                0.00015171119122217583,
+                0.00015171119122217583
+              ],
+              "domain": "normalized image-plane; unknown depth, metric scale and capture FPS",
+              "datasetId": "8b93b1e5-243e-4086-936a-e56e4b08dfba",
+              "time": 15,
+              "position": [
+                0.8381520745778839,
+                0.5596506301959027
+              ],
+              "runId": "d63af07a-bc99-4a62-8391-e7b2bbadcb85",
+              "predicted": [
+                0.8393455703965085,
+                0.5591537654153785
+              ],
+              "timeUnit": "sample-index",
+              "status": "observed"
+            }
+          },
+          "nativeBinding": {
+            "worldId": "f9f7f4c0-8fb6-4f96-a7c7-db0ec5db119a",
+            "expectedHash": "b5688b4e25a72021c155ec7b1a1b63244d1e1838397b8ad81432746f771a6ced",
+            "expectedRevision": 0
+          },
+          "hash": "fc30579f341ee484659ed58257bdd75715003d94315c064dbd8ea133451873de",
+          "revision": 15,
+          "ordinal": 15
+        },
+        {
+          "sourceFrame": 16,
+          "runId": "d63af07a-bc99-4a62-8391-e7b2bbadcb85",
+          "parentHash": "fc30579f341ee484659ed58257bdd75715003d94315c064dbd8ea133451873de",
+          "updates": {
+            "408d2769-d13f-3600-a2cf-81b506f279f6": {
+              "innovation": 0.00503322782845362,
+              "reason": "Actual pixel measurement accepted under the fixed innovation gate",
+              "sourceFrame": 16,
+              "positionSigma": 0.013461891965645654,
+              "accepted": true,
+              "uncertaintyMeaning": "Model covariance under declared motion/noise assumptions; not calibrated probability or metric accuracy",
+              "covariance": [
+                [
+                  0.0000906112676473575,
+                  0.000023217706226536003,
+                  0.000023217706226536003,
+                  0.000013640701780183127
+                ],
+                [
+                  0.0000906112676473575,
+                  0.000023217706226536003,
+                  0.000023217706226536003,
+                  0.000013640701780183127
+                ]
+              ],
+              "innovationGate": 0.13724170082200368,
+              "velocity": [
+                -0.003929090563163129,
+                0.0019418614432364337
+              ],
+              "nativeBinding": {
+                "worldId": "f9f7f4c0-8fb6-4f96-a7c7-db0ec5db119a",
+                "expectedHash": "b5688b4e25a72021c155ec7b1a1b63244d1e1838397b8ad81432746f771a6ced",
+                "expectedRevision": 0
+              },
+              "measurement": [
+                0.8303837727654961,
+                0.5639663701237074
+              ],
+              "imageSha256": "fe8db0dc56b8418ec7bfe4b700b836f88eebd369fb04c6ed740cc611c68ed9b9",
+              "predictedVariance": [
+                0.00015170568889032721,
+                0.00015170568889032721
+              ],
+              "domain": "normalized image-plane; unknown depth, metric scale and capture FPS",
+              "datasetId": "8b93b1e5-243e-4086-936a-e56e4b08dfba",
+              "time": 16,
+              "position": [
+                0.8329407202724788,
+                0.5623853467626662
+              ],
+              "runId": "d63af07a-bc99-4a62-8391-e7b2bbadcb85",
+              "predicted": [
+                0.834664735752493,
+                0.5613193457042729
+              ],
+              "timeUnit": "sample-index",
+              "status": "observed"
+            }
+          },
+          "nativeBinding": {
+            "worldId": "f9f7f4c0-8fb6-4f96-a7c7-db0ec5db119a",
+            "expectedHash": "b5688b4e25a72021c155ec7b1a1b63244d1e1838397b8ad81432746f771a6ced",
+            "expectedRevision": 0
+          },
+          "hash": "c04aa235c35f1f5112763c0dde8912727be5db5c2b434fb2fecee338a3ccc773",
+          "revision": 16,
+          "ordinal": 16
+        },
+        {
+          "sourceFrame": 17,
+          "runId": "d63af07a-bc99-4a62-8391-e7b2bbadcb85",
+          "parentHash": "c04aa235c35f1f5112763c0dde8912727be5db5c2b434fb2fecee338a3ccc773",
+          "updates": {
+            "408d2769-d13f-3600-a2cf-81b506f279f6": {
+              "innovation": 0.0058112264488421085,
+              "reason": "Actual pixel measurement accepted under the fixed innovation gate",
+              "sourceFrame": 17,
+              "positionSigma": 0.01346140678784434,
+              "accepted": true,
+              "uncertaintyMeaning": "Model covariance under declared motion/noise assumptions; not calibrated probability or metric accuracy",
+              "covariance": [
+                [
+                  0.00009060473635391085,
+                  0.000023210604395245863,
+                  0.000023210604395245863,
+                  0.000013632136732747518
+                ],
+                [
+                  0.00009060473635391085,
+                  0.000023210604395245863,
+                  0.000023210604395245863,
+                  0.000013632136732747518
+                ]
+              ],
+              "innovationGate": 0.13723836596969025,
+              "velocity": [
+                -0.004432647247310135,
+                0.002267133673873126
+              ],
+              "nativeBinding": {
+                "worldId": "f9f7f4c0-8fb6-4f96-a7c7-db0ec5db119a",
+                "expectedHash": "b5688b4e25a72021c155ec7b1a1b63244d1e1838397b8ad81432746f771a6ced",
+                "expectedRevision": 0
+              },
+              "measurement": [
+                0.8241302292940691,
+                0.5674803467733862
+              ],
+              "imageSha256": "a35ab57ee96a4c4c0392c9a2e0a47ae72be8bc86aed025a03c6eb05d72b23216",
+              "predictedVariance": [
+                0.00015168738188061265,
+                0.00015168738188061265
+              ],
+              "domain": "normalized image-plane; unknown depth, metric scale and capture FPS",
+              "datasetId": "8b93b1e5-243e-4086-936a-e56e4b08dfba",
+              "time": 17,
+              "position": [
+                0.8270459497197099,
+                0.5655969383774323
+              ],
+              "runId": "d63af07a-bc99-4a62-8391-e7b2bbadcb85",
+              "predicted": [
+                0.8290116297093156,
+                0.5643272082059025
+              ],
+              "timeUnit": "sample-index",
+              "status": "observed"
+            }
+          },
+          "nativeBinding": {
+            "worldId": "f9f7f4c0-8fb6-4f96-a7c7-db0ec5db119a",
+            "expectedHash": "b5688b4e25a72021c155ec7b1a1b63244d1e1838397b8ad81432746f771a6ced",
+            "expectedRevision": 0
+          },
+          "hash": "9374b2ce9193aa8f057ff4befa642611008b2fc09fef41c2c0d628a11d8378c3",
+          "revision": 17,
+          "ordinal": 17
+        },
+        {
+          "sourceFrame": 18,
+          "runId": "d63af07a-bc99-4a62-8391-e7b2bbadcb85",
+          "parentHash": "9374b2ce9193aa8f057ff4befa642611008b2fc09fef41c2c0d628a11d8378c3",
+          "updates": {
+            "408d2769-d13f-3600-a2cf-81b506f279f6": {
+              "innovation": 0.005845180703716036,
+              "reason": "Actual pixel measurement accepted under the fixed innovation gate",
+              "sourceFrame": 18,
+              "positionSigma": 0.013460630135915905,
+              "accepted": true,
+              "uncertaintyMeaning": "Model covariance under declared motion/noise assumptions; not calibrated probability or metric accuracy",
+              "covariance": [
+                [
+                  0.00009059428182796371,
+                  0.000023203051187015297,
+                  0.000023203051187015297,
+                  0.000013626491796583896
+                ],
+                [
+                  0.00009059428182796371,
+                  0.000023203051187015297,
+                  0.000023203051187015297,
+                  0.000013626491796583896
+                ]
+              ],
+              "innovationGate": 0.1372330284365156,
+              "velocity": [
+                -0.004957120923481204,
+                0.002564242939044067
+              ],
+              "nativeBinding": {
+                "worldId": "f9f7f4c0-8fb6-4f96-a7c7-db0ec5db119a",
+                "expectedHash": "b5688b4e25a72021c155ec7b1a1b63244d1e1838397b8ad81432746f771a6ced",
+                "expectedRevision": 0
+              },
+              "measurement": [
+                0.8175274809488697,
+                0.5707451407575138
+              ],
+              "imageSha256": "bfab18db779b5cff3f5d64fc4fae93b38e192ca857a207e84694dc25d71a1a06",
+              "predictedVariance": [
+                0.00015165808187715007,
+                0.00015165808187715007
+              ],
+              "domain": "normalized image-plane; unknown depth, metric scale and capture FPS",
+              "datasetId": "8b93b1e5-243e-4086-936a-e56e4b08dfba",
+              "time": 18,
+              "position": [
+                0.8205655409238246,
+                0.5690241091639098
+              ],
+              "runId": "d63af07a-bc99-4a62-8391-e7b2bbadcb85",
+              "predicted": [
+                0.8226133024723997,
+                0.5678640720513054
+              ],
+              "timeUnit": "sample-index",
+              "status": "observed"
+            }
+          },
+          "nativeBinding": {
+            "worldId": "f9f7f4c0-8fb6-4f96-a7c7-db0ec5db119a",
+            "expectedHash": "b5688b4e25a72021c155ec7b1a1b63244d1e1838397b8ad81432746f771a6ced",
+            "expectedRevision": 0
+          },
+          "hash": "8b993ef05fcfcae5fc9227c7e5ec3131671b1a62a5daf0bd760b0ba30e451d5e",
+          "revision": 18,
+          "ordinal": 18
+        },
+        {
+          "sourceFrame": 19,
+          "runId": "d63af07a-bc99-4a62-8391-e7b2bbadcb85",
+          "parentHash": "8b993ef05fcfcae5fc9227c7e5ec3131671b1a62a5daf0bd760b0ba30e451d5e",
+          "updates": {
+            "408d2769-d13f-3600-a2cf-81b506f279f6": {
+              "innovation": 0.0020961393792488328,
+              "reason": "Actual pixel measurement accepted under the fixed innovation gate",
+              "sourceFrame": 19,
+              "positionSigma": 0.013459802782988159,
+              "accepted": true,
+              "uncertaintyMeaning": "Model covariance under declared motion/noise assumptions; not calibrated probability or metric accuracy",
+              "covariance": [
+                [
+                  0.00009058314547846788,
+                  0.000023197089023840137,
+                  0.000023197089023840137,
+                  0.000013623236839492438
+                ],
+                [
+                  0.00009058314547846788,
+                  0.000023197089023840137,
+                  0.000023197089023840137,
+                  0.000013623236839492438
+                ]
+              ],
+              "innovationGate": 0.13722734348492252,
+              "velocity": [
+                -0.0047592692449694675,
+                0.0024773093895059093
+              ],
+              "nativeBinding": {
+                "worldId": "f9f7f4c0-8fb6-4f96-a7c7-db0ec5db119a",
+                "expectedHash": "b5688b4e25a72021c155ec7b1a1b63244d1e1838397b8ad81432746f771a6ced",
+                "expectedRevision": 0
+              },
+              "measurement": [
+                0.8175274809488697,
+                0.5707451407575138
+              ],
+              "imageSha256": "bfab18db779b5cff3f5d64fc4fae93b38e192ca857a207e84694dc25d71a1a06",
+              "predictedVariance": [
+                0.0001516268759985782,
+                0.0001516268759985782
+              ],
+              "domain": "normalized image-plane; unknown depth, metric scale and capture FPS",
+              "datasetId": "8b93b1e5-243e-4086-936a-e56e4b08dfba",
+              "time": 19,
+              "position": [
+                0.8163810181207096,
+                0.5712488821652957
+              ],
+              "runId": "d63af07a-bc99-4a62-8391-e7b2bbadcb85",
+              "predicted": [
+                0.8156084200003434,
+                0.5715883521029539
+              ],
+              "timeUnit": "sample-index",
+              "status": "observed"
+            }
+          },
+          "nativeBinding": {
+            "worldId": "f9f7f4c0-8fb6-4f96-a7c7-db0ec5db119a",
+            "expectedHash": "b5688b4e25a72021c155ec7b1a1b63244d1e1838397b8ad81432746f771a6ced",
+            "expectedRevision": 0
+          },
+          "hash": "05b967781679b424581d6f274149ba27a6e30279d8b0496c25d629018aa6bbf8",
+          "revision": 19,
+          "ordinal": 19
+        },
+        {
+          "sourceFrame": 20,
+          "runId": "d63af07a-bc99-4a62-8391-e7b2bbadcb85",
+          "parentHash": "05b967781679b424581d6f274149ba27a6e30279d8b0496c25d629018aa6bbf8",
+          "updates": {
+            "408d2769-d13f-3600-a2cf-81b506f279f6": {
+              "innovation": 0.0011190216832065393,
+              "reason": "Actual pixel measurement accepted under the fixed innovation gate",
+              "sourceFrame": 20,
+              "positionSigma": 0.013459104937703357,
+              "accepted": true,
+              "uncertaintyMeaning": "Model covariance under declared motion/noise assumptions; not calibrated probability or metric accuracy",
+              "covariance": [
+                [
+                  0.00009057375286205545,
+                  0.000023193203193243928,
+                  0.000023193203193243928,
+                  0.00001362160259159815
+                ],
+                [
+                  0.00009057375286205545,
+                  0.000023193203193243928,
+                  0.000023193203193243928,
+                  0.00001362160259159815
+                ]
+              ],
+              "innovationGate": 0.13722254923401628,
+              "velocity": [
+                -0.0048709415389037065,
+                0.0025062034582416667
+              ],
+              "nativeBinding": {
+                "worldId": "f9f7f4c0-8fb6-4f96-a7c7-db0ec5db119a",
+                "expectedHash": "b5688b4e25a72021c155ec7b1a1b63244d1e1838397b8ad81432746f771a6ced",
+                "expectedRevision": 0
+              },
+              "measurement": [
+                0.810538402779651,
+                0.5740064963238918
+              ],
+              "imageSha256": "e0c8730b2391f34da07b1a8b69bf79c34df5f169327d8a559ed0eb37541f2d57",
+              "predictedVariance": [
+                0.00015160056036564058,
+                0.00015160056036564058
+              ],
+              "domain": "normalized image-plane; unknown depth, metric scale and capture FPS",
+              "datasetId": "8b93b1e5-243e-4086-936a-e56e4b08dfba",
+              "time": 20,
+              "position": [
+                0.811185647890979,
+                0.5738390282431644
+              ],
+              "runId": "d63af07a-bc99-4a62-8391-e7b2bbadcb85",
+              "predicted": [
+                0.8116217488757401,
+                0.5737261915548015
+              ],
+              "timeUnit": "sample-index",
+              "status": "observed"
+            }
+          },
+          "nativeBinding": {
+            "worldId": "f9f7f4c0-8fb6-4f96-a7c7-db0ec5db119a",
+            "expectedHash": "b5688b4e25a72021c155ec7b1a1b63244d1e1838397b8ad81432746f771a6ced",
+            "expectedRevision": 0
+          },
+          "hash": "c464065e00ebfc3ca51401dae8a22e64a88dbbc2143a52de36fdf60d5d0dad7e",
+          "revision": 20,
+          "ordinal": 20
+        }
+      ],
+      "nativeBinding": {
+        "worldId": "f9f7f4c0-8fb6-4f96-a7c7-db0ec5db119a",
+        "expectedHash": "b5688b4e25a72021c155ec7b1a1b63244d1e1838397b8ad81432746f771a6ced",
+        "expectedRevision": 0
+      },
+      "tracks": {
+        "408d2769-d13f-3600-a2cf-81b506f279f6": {
+          "innovation": 0.0011190216832065393,
+          "reason": "Actual pixel measurement accepted under the fixed innovation gate",
+          "sourceFrame": 20,
+          "positionSigma": 0.013459104937703357,
+          "accepted": true,
+          "uncertaintyMeaning": "Model covariance under declared motion/noise assumptions; not calibrated probability or metric accuracy",
+          "covariance": [
+            [
+              0.00009057375286205545,
+              0.000023193203193243928,
+              0.000023193203193243928,
+              0.00001362160259159815
+            ],
+            [
+              0.00009057375286205545,
+              0.000023193203193243928,
+              0.000023193203193243928,
+              0.00001362160259159815
+            ]
+          ],
+          "innovationGate": 0.13722254923401628,
+          "velocity": [
+            -0.0048709415389037065,
+            0.0025062034582416667
+          ],
+          "nativeBinding": {
+            "worldId": "f9f7f4c0-8fb6-4f96-a7c7-db0ec5db119a",
+            "expectedHash": "b5688b4e25a72021c155ec7b1a1b63244d1e1838397b8ad81432746f771a6ced",
+            "expectedRevision": 0
+          },
+          "measurement": [
+            0.810538402779651,
+            0.5740064963238918
+          ],
+          "imageSha256": "e0c8730b2391f34da07b1a8b69bf79c34df5f169327d8a559ed0eb37541f2d57",
+          "predictedVariance": [
+            0.00015160056036564058,
+            0.00015160056036564058
+          ],
+          "domain": "normalized image-plane; unknown depth, metric scale and capture FPS",
+          "datasetId": "8b93b1e5-243e-4086-936a-e56e4b08dfba",
+          "time": 20,
+          "position": [
+            0.811185647890979,
+            0.5738390282431644
+          ],
+          "runId": "d63af07a-bc99-4a62-8391-e7b2bbadcb85",
+          "predicted": [
+            0.8116217488757401,
+            0.5737261915548015
+          ],
+          "timeUnit": "sample-index",
+          "status": "observed"
+        }
+      },
+      "revision": 20
+    },
+    "datasets": [
+      {
+        "schema": "fraynix-observation-frames-036-v1",
+        "importedAt": "2026-11-01T21:44:13.700937500Z",
+        "objects": [
+          {
+            "box": [
+              0.8196722005208333,
+              0.44166666184020315,
+              0.9379391276041666,
+              0.6354166184020312
+            ],
+            "label": "selected object",
+            "key": "subject"
+          }
+        ],
+        "source": "Local video real-car-turn-derivative.webm; Chromium decoded 21 uniform samples over 2.040816 container seconds; sourceFrame is SAMPLE INDEX, not original capture FPS; resized to 854x480",
+        "clock": "sample-index",
+        "title": "real-car-turn-derivative.webm",
+        "license": "User-selected local video; ownership/permission declared by importer",
+        "frameCount": 21,
+        "width": 854,
+        "contentSha256": "31179cb0688c2e5aad5b784727323cd2bf8263b65496a70f0352874de2f71f35",
+        "id": "8b93b1e5-243e-4086-936a-e56e4b08dfba",
+        "height": 480
+      }
+    ],
+    "runs": [
+      {
+        "reason": "All source frames processed; accepted estimates retained with full evidence",
+        "observationRevision": 20,
+        "completedAt": "2026-11-01T21:44:15.139122500Z",
+        "bindings": [
+          {
+            "objectKey": "subject",
+            "bodyId": "408d2769-d13f-3600-a2cf-81b506f279f6"
+          }
+        ],
+        "baseObservationRevision": 0,
+        "nativeBinding": {
+          "worldId": "f9f7f4c0-8fb6-4f96-a7c7-db0ec5db119a",
+          "expectedHash": "b5688b4e25a72021c155ec7b1a1b63244d1e1838397b8ad81432746f771a6ced",
+          "expectedRevision": 0
+        },
+        "resumes": 0,
+        "createdAt": "2026-11-01T21:44:13.954692500Z",
+        "codeSha256": "d199d7fc2722caeb5900b1637fd1d7dfc0c9eaf95a1412132316756002c65821",
+        "datasetId": "8b93b1e5-243e-4086-936a-e56e4b08dfba",
+        "completedFrames": 20,
+        "id": "d63af07a-bc99-4a62-8391-e7b2bbadcb85",
+        "status": "completed",
+        "totalFrames": 20
+      }
+    ],
+    "nativeBinding": {
+      "worldId": "f9f7f4c0-8fb6-4f96-a7c7-db0ec5db119a",
+      "expectedHash": "b5688b4e25a72021c155ec7b1a1b63244d1e1838397b8ad81432746f771a6ced",
+      "expectedRevision": 0
+    }
+  },
+  "exported": {
+    "id": "7f6430ea-4582-45cf-af39-2f0798aad14b",
+    "kind": "observed-world",
+    "path": "C:\\Users\\eyeka\\AppData\\Local\\Temp\\fraynix-video036-RUHLIA\\exports\\7f6430ea-4582-45cf-af39-2f0798aad14b.json",
+    "bytes": 2548091,
+    "sha256": "bab05cde235eaa7d65b40b1d8e938634cadd4f0660bf99075ee9e7ce69fdc26a",
+    "source": {
+      "runId": "d63af07a-bc99-4a62-8391-e7b2bbadcb85"
+    },
+    "createdAt": "2026-11-01T21:44:16.248Z"
+  },
+  "audit": {
+    "passed": true,
+    "worldId": "f9f7f4c0-8fb6-4f96-a7c7-db0ec5db119a",
+    "observationRevision": 20,
+    "runId": "d63af07a-bc99-4a62-8391-e7b2bbadcb85",
+    "processedFrames": 20,
+    "originalImages": 21,
+    "relatedRuns": 1,
+    "rawBytes": 2597339,
+    "rawSha256": "46aca9b392fc5f4e448016003c4e4cbc57e2fc1674b2b74832a401970e6e3388",
+    "scope": "Original byte hashes, body references, frame order and observation-history links verified. Java canonical event hashes and tracking are not independently recomputed by this reader."
+  },
+  "scope": "Research video derivative from real DAVIS photographs, encoded/decoded by Chromium; sample-index time, not asserted original FPS or metric calibration"
+}

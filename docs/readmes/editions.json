@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "latest": 37,
+  "latest": 38,
   "canonicalization": "UTF-8 without BOM; CRLF normalized to LF for text",
   "editions": [
     {
@@ -9135,6 +9135,625 @@
           "path": "docs/readmes/037/verification.json",
           "kind": "text",
           "sha256": "abcb5a34057db6c9f91c762eee1b55dd24a0272f021e9056ed309db4bdff44fd"
+        }
+      ]
+    },
+    {
+      "number": 38,
+      "date": "2026-11-01",
+      "title": "Physical tabletop, durable observations and grounded questions",
+      "status": "published",
+      "markdown": "README-038.md",
+      "markdownSha256": "821bef4796a22e3c6f49d621560bb5f8b4be0e7f9f18d54b1a6ad528c30bfe53",
+      "snapshotDirectory": "docs/readmes/038",
+      "companion": "docs/readmes/038/index.html",
+      "tag": "readme-038",
+      "sourceBaseline": "a25a541e9512f40ef51b690fdf149c6a625dcf2b",
+      "snapshotFiles": [
+        {
+          "path": "docs/readmes/038/broader-validation.json",
+          "kind": "text",
+          "sha256": "4f00d5b8ef5ed442b715d91765fe168b2cfa97a4dcd4be0540ecab3397b02b8b"
+        },
+        {
+          "path": "docs/readmes/038/broader-validation.original.gzip.json",
+          "kind": "text",
+          "sha256": "f03bd8012255d38ec3dc743b5ccb8d6b8bef46623eea7ffe36c6e22eeb353670"
+        },
+        {
+          "path": "docs/readmes/038/camera-metrics-integration.json",
+          "kind": "text",
+          "sha256": "d21ff08c946ed52d2fc5cdc3623e83b45eac5c4ffeb019f19240468d8983f60d"
+        },
+        {
+          "path": "docs/readmes/038/camera-metrics-integration.original.gzip.json",
+          "kind": "text",
+          "sha256": "3f91d1b19813ad248e20553f4c6f19dcb1ce3dd5bd944838d07e136583f0b549"
+        },
+        {
+          "path": "docs/readmes/038/development/tabletop038-broader.log.original.gzip.json",
+          "kind": "text",
+          "sha256": "7ce40d8e94e6c36b27121b4b72ca6a600ad306ad243e0b34e0a3120bd9951f08"
+        },
+        {
+          "path": "docs/readmes/038/development/tabletop038-broader.log.txt",
+          "kind": "text",
+          "sha256": "3dcd2d7727fba2c9008f52237db53b916acda2f14f30edfbb0ae3ff3529a0a30"
+        },
+        {
+          "path": "docs/readmes/038/development/tabletop038-build-2.log.original.gzip.json",
+          "kind": "text",
+          "sha256": "6591c0d0f069a3b18168b01b85837602f1f99707c94c082d32b689ba31071226"
+        },
+        {
+          "path": "docs/readmes/038/development/tabletop038-build-2.log.txt",
+          "kind": "text",
+          "sha256": "d1ab2a036726b7a878acb47ad3d3810b4f19f08574282a3a2fdf3fb5e5c5b3ed"
+        },
+        {
+          "path": "docs/readmes/038/development/tabletop038-build-3.log.original.gzip.json",
+          "kind": "text",
+          "sha256": "fd659705743b9782bab549ebf6a01c567ebbebc98f8fb4dae7118b9ac9d69185"
+        },
+        {
+          "path": "docs/readmes/038/development/tabletop038-build-3.log.txt",
+          "kind": "text",
+          "sha256": "fb68d1a0412b5673fc2475c70b69ed7a9fb878ec3de0232681d3b30dbdf4e40c"
+        },
+        {
+          "path": "docs/readmes/038/development/tabletop038-build-4.log.original.gzip.json",
+          "kind": "text",
+          "sha256": "124989a617845a198b5739a32048413e42e0721d86999fa60e4ec28d9fae94b5"
+        },
+        {
+          "path": "docs/readmes/038/development/tabletop038-build-4.log.txt",
+          "kind": "text",
+          "sha256": "ef695e3ff54cbbd4be276fdf402bb7cfaeac9cf04d9e7ba4498efa7748f0365f"
+        },
+        {
+          "path": "docs/readmes/038/development/tabletop038-camera-metrics.log.original.gzip.json",
+          "kind": "text",
+          "sha256": "949ab324db6bfe13ee0e9a66d33df3894a5422f7969fa229e22a9a252b0eab8c"
+        },
+        {
+          "path": "docs/readmes/038/development/tabletop038-camera-metrics.log.txt",
+          "kind": "text",
+          "sha256": "3a3f5b57bd0a61de63924637e4f2b9a26161a0743ac501ea00e5a1da19af030a"
+        },
+        {
+          "path": "docs/readmes/038/development/tabletop038-desktop-units.log.original.gzip.json",
+          "kind": "text",
+          "sha256": "3ce2ef21cab97ee19d9abec21353e30ae14e8971c8b9d1f5de848a24d15f4b27"
+        },
+        {
+          "path": "docs/readmes/038/development/tabletop038-desktop-units.log.txt",
+          "kind": "text",
+          "sha256": "2811e961b8712a59c93033b1eab04156d5f75bf372152d9346b6cd0842ce41ca"
+        },
+        {
+          "path": "docs/readmes/038/development/tabletop038-docs-browser.log.original.gzip.json",
+          "kind": "text",
+          "sha256": "0117b66a5c9345bcadcd112630a465f9d3377837f207fdf8a6363e8ace74c1f6"
+        },
+        {
+          "path": "docs/readmes/038/development/tabletop038-docs-browser.log.txt",
+          "kind": "text",
+          "sha256": "1cdfd028391dc4e006c4e184c5507d30c598f51584e5d7abdc4764e436e919fd"
+        },
+        {
+          "path": "docs/readmes/038/development/tabletop038-evaluator-build.log.original.gzip.json",
+          "kind": "text",
+          "sha256": "7b8274dc7559072b75ed1b186f84c852d4c9acf716168a3574ae084ade9446d6"
+        },
+        {
+          "path": "docs/readmes/038/development/tabletop038-evaluator-build.log.txt",
+          "kind": "text",
+          "sha256": "a52770967e9dbf5a22551813c69fc3abfce17948a5c17a8434316be1ab8e133e"
+        },
+        {
+          "path": "docs/readmes/038/development/tabletop038-final-ux-ui.log.original.gzip.json",
+          "kind": "text",
+          "sha256": "d7a9bcd2e68fd92ce093ddbde6522e0745f0d1bcbfe846ec5ab8592ddc1b1cb8"
+        },
+        {
+          "path": "docs/readmes/038/development/tabletop038-final-ux-ui.log.txt",
+          "kind": "text",
+          "sha256": "4ee0ab7908317cde082403d6855e31454be0cb3fff4b2e0dc3df7d735d010eb7"
+        },
+        {
+          "path": "docs/readmes/038/development/tabletop038-first-tests.log.original.gzip.json",
+          "kind": "text",
+          "sha256": "c465d32c8095733be00dfd6ef2ef186f180b25d09910ad8b82d889c872e2a0bc"
+        },
+        {
+          "path": "docs/readmes/038/development/tabletop038-first-tests.log.txt",
+          "kind": "text",
+          "sha256": "dbe40893703e9e39df72d6ee44413fe0023e9fb6b9330a5a0054e593d3fba5dc"
+        },
+        {
+          "path": "docs/readmes/038/development/tabletop038-full-check.log.original.gzip.json",
+          "kind": "text",
+          "sha256": "01e31325f5643434147adf5e1967247279745e9149032aeb0ae701b607081b20"
+        },
+        {
+          "path": "docs/readmes/038/development/tabletop038-full-check.log.txt",
+          "kind": "text",
+          "sha256": "542b33d046ed2f36822f6645c80b34602c699beb1ae3f78e8dfbe0cacd2c3a54"
+        },
+        {
+          "path": "docs/readmes/038/development/tabletop038-guided-build-2.log.original.gzip.json",
+          "kind": "text",
+          "sha256": "f77f4e774c79da3cd4a2db443abe284eed6ac597182f5689c7f08f2f3df13ab7"
+        },
+        {
+          "path": "docs/readmes/038/development/tabletop038-guided-build-2.log.txt",
+          "kind": "text",
+          "sha256": "1fcf82a722b928b4adb77c27f370248e063b6900c8463575d206e4b645374afd"
+        },
+        {
+          "path": "docs/readmes/038/development/tabletop038-guided-build.log.original.gzip.json",
+          "kind": "text",
+          "sha256": "f77f4e774c79da3cd4a2db443abe284eed6ac597182f5689c7f08f2f3df13ab7"
+        },
+        {
+          "path": "docs/readmes/038/development/tabletop038-guided-build.log.txt",
+          "kind": "text",
+          "sha256": "1fcf82a722b928b4adb77c27f370248e063b6900c8463575d206e4b645374afd"
+        },
+        {
+          "path": "docs/readmes/038/development/tabletop038-hardening.log.original.gzip.json",
+          "kind": "text",
+          "sha256": "80c5c9b35fb5fe36920f3156aca13422023fc25b5b0b48cf21f910930da77dd6"
+        },
+        {
+          "path": "docs/readmes/038/development/tabletop038-hardening.log.txt",
+          "kind": "text",
+          "sha256": "d522eb267d4061bb66a7e6c8e404ab1a09adfcc3c3c3525d7d4f66a5e71f3f69"
+        },
+        {
+          "path": "docs/readmes/038/development/tabletop038-independent-build.log.original.gzip.json",
+          "kind": "text",
+          "sha256": "f040450dd8c1aaa779cc0739bbf139be3d82cebcebb6b5e58d60d3df0bafc0c7"
+        },
+        {
+          "path": "docs/readmes/038/development/tabletop038-independent-build.log.txt",
+          "kind": "text",
+          "sha256": "ec205d1c64c14c53cd3d87d55ddc8ced054f7bda7e3dd103475f0be154134cd8"
+        },
+        {
+          "path": "docs/readmes/038/development/tabletop038-independent-ui.log.original.gzip.json",
+          "kind": "text",
+          "sha256": "be2aed5d38f7b8f58bd7b57427204e68355ed4dc399a8171bdb06726ec6346bf"
+        },
+        {
+          "path": "docs/readmes/038/development/tabletop038-independent-ui.log.txt",
+          "kind": "text",
+          "sha256": "c78d43dd5743de11c3b203a782c24ee63971f78b9db1dd99e5a551439f1b6b1d"
+        },
+        {
+          "path": "docs/readmes/038/development/tabletop038-live-tabletop-corrected.log.original.gzip.json",
+          "kind": "text",
+          "sha256": "7addfe24d3ef092851718aa2df0ade09089fb12568a92c2d0c7e382430fa79a0"
+        },
+        {
+          "path": "docs/readmes/038/development/tabletop038-live-tabletop-corrected.log.txt",
+          "kind": "text",
+          "sha256": "a943bc244c0440c3748e83495aefaa314cadae369ce2fc366ef704f730d53d85"
+        },
+        {
+          "path": "docs/readmes/038/development/tabletop038-live-tabletop.log.original.gzip.json",
+          "kind": "text",
+          "sha256": "d98948213f52ef37377bd43d2cbda32cb6534a54a59af45a4d2dffa90fa32de4"
+        },
+        {
+          "path": "docs/readmes/038/development/tabletop038-live-tabletop.log.txt",
+          "kind": "text",
+          "sha256": "c68a40a64578e348672b4e6be502ba019fe5990265d91cb34d03edb6ed061984"
+        },
+        {
+          "path": "docs/readmes/038/development/tabletop038-manual-ux-units.log.original.gzip.json",
+          "kind": "text",
+          "sha256": "534cf82d4ad949ab46311beca7f9571c37e0424bf7e136b1236f5fe4cfbea916"
+        },
+        {
+          "path": "docs/readmes/038/development/tabletop038-manual-ux-units.log.txt",
+          "kind": "text",
+          "sha256": "a148687a9dd6c2c9792a1bca1c36ab89e00c3134ce3f232e28e636b31adf8c39"
+        },
+        {
+          "path": "docs/readmes/038/development/tabletop038-metrics.log.original.gzip.json",
+          "kind": "text",
+          "sha256": "feb50cfbe986bbcaaa1d3389d87d4262d2b875d67eb38f5d68c14d9b56c6851d"
+        },
+        {
+          "path": "docs/readmes/038/development/tabletop038-metrics.log.txt",
+          "kind": "text",
+          "sha256": "f15ab3fbeb4c4b23122f011784b4c8ef29e8e86654b544f4cf20698904c315f0"
+        },
+        {
+          "path": "docs/readmes/038/development/tabletop038-observations.log.original.gzip.json",
+          "kind": "text",
+          "sha256": "076cfcdb8eb7690533d1460f4211a6c2a2b42dd7771ca95956e751356a8ea94d"
+        },
+        {
+          "path": "docs/readmes/038/development/tabletop038-observations.log.txt",
+          "kind": "text",
+          "sha256": "bcbf13eb2b6f37b2860f9619fcd9f765254b83e127624581709964e7bd9f7abf"
+        },
+        {
+          "path": "docs/readmes/038/development/tabletop038-original.log.original.gzip.json",
+          "kind": "text",
+          "sha256": "fb04dfb3d8354a9a646a3c66f33ed61fcd7759aaed743ac760622deff73c455a"
+        },
+        {
+          "path": "docs/readmes/038/development/tabletop038-original.log.txt",
+          "kind": "text",
+          "sha256": "d16216dbed7146a783440f5d75a495b8a314bbf1c503f7383ae1666a38eef219"
+        },
+        {
+          "path": "docs/readmes/038/development/tabletop038-persistence-tests.log.original.gzip.json",
+          "kind": "text",
+          "sha256": "80c5c9b35fb5fe36920f3156aca13422023fc25b5b0b48cf21f910930da77dd6"
+        },
+        {
+          "path": "docs/readmes/038/development/tabletop038-persistence-tests.log.txt",
+          "kind": "text",
+          "sha256": "d522eb267d4061bb66a7e6c8e404ab1a09adfcc3c3c3525d7d4f66a5e71f3f69"
+        },
+        {
+          "path": "docs/readmes/038/development/tabletop038-private-first.log.original.gzip.json",
+          "kind": "text",
+          "sha256": "b647c312865dee49f1b1e1c1042d05d716f832b3411257fb40dec738f96b8f66"
+        },
+        {
+          "path": "docs/readmes/038/development/tabletop038-private-first.log.txt",
+          "kind": "text",
+          "sha256": "f82b3d5641ffffd1201b992a9863c9f504ecf610a3734bec53a7cf4b0267ed02"
+        },
+        {
+          "path": "docs/readmes/038/development/tabletop038-private-second.log.original.gzip.json",
+          "kind": "text",
+          "sha256": "16aabde1f92b57d7831b06c34a890933d3eefe6557ea615ae523a08694c6d479"
+        },
+        {
+          "path": "docs/readmes/038/development/tabletop038-private-second.log.txt",
+          "kind": "text",
+          "sha256": "5341f27115d376feec6bc5c3293108a9ffb1c46e1a9dc4459293bcaf3f5e15bb"
+        },
+        {
+          "path": "docs/readmes/038/development/tabletop038-probe-tests.log.original.gzip.json",
+          "kind": "text",
+          "sha256": "80c5c9b35fb5fe36920f3156aca13422023fc25b5b0b48cf21f910930da77dd6"
+        },
+        {
+          "path": "docs/readmes/038/development/tabletop038-probe-tests.log.txt",
+          "kind": "text",
+          "sha256": "d522eb267d4061bb66a7e6c8e404ab1a09adfcc3c3c3525d7d4f66a5e71f3f69"
+        },
+        {
+          "path": "docs/readmes/038/development/tabletop038-recovery-tests.log.original.gzip.json",
+          "kind": "text",
+          "sha256": "77d06109c15baaaba9ac605f3e5a4150023ff17ad8e5cfa66bc4611cab90f6d2"
+        },
+        {
+          "path": "docs/readmes/038/development/tabletop038-recovery-tests.log.txt",
+          "kind": "text",
+          "sha256": "1b2f80231de44573602f2a263fc619b9a0a0567b79f0be6b83c6b57c5c8589e7"
+        },
+        {
+          "path": "docs/readmes/038/development/tabletop038-ui-first.log.original.gzip.json",
+          "kind": "text",
+          "sha256": "f2a0eced6e72b0a714b35f3d714b783683a5308a82853f49542a729c8e806b23"
+        },
+        {
+          "path": "docs/readmes/038/development/tabletop038-ui-first.log.txt",
+          "kind": "text",
+          "sha256": "87828a6fb5938c0430222dc584b2da69198b433e2c3252a33a2a6e1a6dcad39d"
+        },
+        {
+          "path": "docs/readmes/038/development/tabletop038-ui-second.log.original.gzip.json",
+          "kind": "text",
+          "sha256": "b2758cd897d0c1f6b7eab28a9f42c492a687734ebb406c87bc69ced5f18311f8"
+        },
+        {
+          "path": "docs/readmes/038/development/tabletop038-ui-second.log.txt",
+          "kind": "text",
+          "sha256": "adec947d5db4951f867e09f8b6d9ade2c0d7749220382dbe518445b3c5c0c4c0"
+        },
+        {
+          "path": "docs/readmes/038/development/tabletop038-units-2.log.original.gzip.json",
+          "kind": "text",
+          "sha256": "5a3831fa43105b1f636acc81a0acb30009b180763a3ca711f33379227693b339"
+        },
+        {
+          "path": "docs/readmes/038/development/tabletop038-units-2.log.txt",
+          "kind": "text",
+          "sha256": "c1f2106f759ec7f32eee9ce85c4f05cb9b0117bd32700e891684f97c7ef91c13"
+        },
+        {
+          "path": "docs/readmes/038/development/tabletop038-units-3.log.original.gzip.json",
+          "kind": "text",
+          "sha256": "5fd6e4da665b352e04ef349e29493435e9c2466cad1dd3b88878991f5c96f744"
+        },
+        {
+          "path": "docs/readmes/038/development/tabletop038-units-3.log.txt",
+          "kind": "text",
+          "sha256": "a37017fc5495cbe93c97c2a76a9c3db3c5dc04e7bbd41893db216b3fb63d2e52"
+        },
+        {
+          "path": "docs/readmes/038/development/tabletop038-units-final.log.original.gzip.json",
+          "kind": "text",
+          "sha256": "b3034f8b90323840ec3dcb17a756dcf2938f049d469205093ba9c9ad1f4964e0"
+        },
+        {
+          "path": "docs/readmes/038/development/tabletop038-units-final.log.txt",
+          "kind": "text",
+          "sha256": "dafe6c1d1ef12de8bd50100247b08fd52e2062211aff283d53e42fe5e86af09c"
+        },
+        {
+          "path": "docs/readmes/038/development/tabletop038-units-recovery.log.original.gzip.json",
+          "kind": "text",
+          "sha256": "1145e52ea633b723135e7452239c12e10bfd7c328b4be9b5dcee5f6e0bf66e67"
+        },
+        {
+          "path": "docs/readmes/038/development/tabletop038-units-recovery.log.txt",
+          "kind": "text",
+          "sha256": "632ad7ab99b4500484f21756eefeeced485ce429dad146158a11a5fc9368645a"
+        },
+        {
+          "path": "docs/readmes/038/development/tabletop038-units.log.original.gzip.json",
+          "kind": "text",
+          "sha256": "b50d1779e6646d718b96bc0275429057a22133056e130fb1a4def5c0d261e13a"
+        },
+        {
+          "path": "docs/readmes/038/development/tabletop038-units.log.txt",
+          "kind": "text",
+          "sha256": "fb58b157b931889a90163f8dec283a1d6d3506dd6b569ea663ae1f35b2cded2f"
+        },
+        {
+          "path": "docs/readmes/038/development/tabletop038-v2-final-focused.log.original.gzip.json",
+          "kind": "text",
+          "sha256": "9e9869341f9bf5d1ef4f53057387c147b0b3b7bc1d1fc5382baa14e491128de7"
+        },
+        {
+          "path": "docs/readmes/038/development/tabletop038-v2-final-focused.log.txt",
+          "kind": "text",
+          "sha256": "142e6712dfb08ce658d8fc21eb14ef1bd1d2e03dfde8dccea922fda583c223a5"
+        },
+        {
+          "path": "docs/readmes/038/development/tabletop038-v2-full-check.log.original.gzip.json",
+          "kind": "text",
+          "sha256": "17de9eccc7e9046afbf62f34480afa5b8045d649b3e29098963a1319b2f98a2d"
+        },
+        {
+          "path": "docs/readmes/038/development/tabletop038-v2-full-check.log.txt",
+          "kind": "text",
+          "sha256": "7ff31325f13b80bb7fffef8583c35c9de36b45c1bdb36761871a72c1d96646ac"
+        },
+        {
+          "path": "docs/readmes/038/development/tabletop038-v2-independent-build.log.original.gzip.json",
+          "kind": "text",
+          "sha256": "e21b1361f8d9ba699255c04ae71358f152c0edb70869cdabf41c406f6910edc9"
+        },
+        {
+          "path": "docs/readmes/038/development/tabletop038-v2-independent-build.log.txt",
+          "kind": "text",
+          "sha256": "e16939cabe14799ea9e7f5e087c7ce4ac3f9259ad7e82f3d89edb1a59a64c779"
+        },
+        {
+          "path": "docs/readmes/038/development/tabletop038-v2-live.log.original.gzip.json",
+          "kind": "text",
+          "sha256": "fd732b0178b17c5eb42d7614d25d6f5802dfe9019507cd2ff72faee50637015f"
+        },
+        {
+          "path": "docs/readmes/038/development/tabletop038-v2-live.log.txt",
+          "kind": "text",
+          "sha256": "f337386194dae2f04e8bbd0778fd2d45d4dd2715a04abfb0c1b351a34a31e9e7"
+        },
+        {
+          "path": "docs/readmes/038/development/tabletop038-v2-replay-build.log.original.gzip.json",
+          "kind": "text",
+          "sha256": "fc3bded2af9f574dd4ab6726001b069a09c594c4a194720c65b2d409b7674dc3"
+        },
+        {
+          "path": "docs/readmes/038/development/tabletop038-v2-replay-build.log.txt",
+          "kind": "text",
+          "sha256": "8ce491aab2cf39499908ea1b28811ddc980e47d40bae101ce043077cb536f1b5"
+        },
+        {
+          "path": "docs/readmes/038/development/tabletop038-v2-seen-full-replay.log.original.gzip.json",
+          "kind": "text",
+          "sha256": "b5064bb49317ca9354d48fadfd162fe59a5c4180d48b4e524464ce5ea7bbe272"
+        },
+        {
+          "path": "docs/readmes/038/development/tabletop038-v2-seen-full-replay.log.txt",
+          "kind": "text",
+          "sha256": "93e08fab866d9ee3dfe12548f311dba4abe0aed4fed53929c319ef15a888b05c"
+        },
+        {
+          "path": "docs/readmes/038/development/tabletop038-v2-seen-replay.log.original.gzip.json",
+          "kind": "text",
+          "sha256": "36b0808f864ee47b2fdc0664d2c2fa865369281c09b4a347337b512fcbf314ed"
+        },
+        {
+          "path": "docs/readmes/038/development/tabletop038-v2-seen-replay.log.txt",
+          "kind": "text",
+          "sha256": "d76f7710c2eeb20241869a780c0c53124902423fc3db740c4f8ef71c5a4a6f21"
+        },
+        {
+          "path": "docs/readmes/038/development/tabletop038-v2-tests.log.original.gzip.json",
+          "kind": "text",
+          "sha256": "fb37dfd5536945831c9976c8c0a7e62dd2185152687ec911d13d7713cca1ffa8"
+        },
+        {
+          "path": "docs/readmes/038/development/tabletop038-v2-tests.log.txt",
+          "kind": "text",
+          "sha256": "1e2205789b475891c5fa5b8eb0166b3d4caad6c8c9836ee678bb45501b516415"
+        },
+        {
+          "path": "docs/readmes/038/development/tabletop038-v2-ui.log.original.gzip.json",
+          "kind": "text",
+          "sha256": "e62d3c0856d7956b0084631c4b9b291f9eb9178295088e8f6525e71d8737ddfb"
+        },
+        {
+          "path": "docs/readmes/038/development/tabletop038-v2-ui.log.txt",
+          "kind": "text",
+          "sha256": "c328077aef257833546c09896a3a3a734b13ad220522fca162a3c168a2c62cb9"
+        },
+        {
+          "path": "docs/readmes/038/development/tabletop038-v2-units.log.original.gzip.json",
+          "kind": "text",
+          "sha256": "6ad437a7bf1535eb224a7b4a4627298ab423b8cc681667bf8f364755ec9933e3"
+        },
+        {
+          "path": "docs/readmes/038/development/tabletop038-v2-units.log.txt",
+          "kind": "text",
+          "sha256": "90f97580d7b7964f821e159fda25a5cdf7d8f7687f340f7fdd81538666308452"
+        },
+        {
+          "path": "docs/readmes/038/development/tabletop038-video.log.original.gzip.json",
+          "kind": "text",
+          "sha256": "0eadb4bad708f1ede03f18ad21fe871ad0d4030430d6754a81430905734e5adc"
+        },
+        {
+          "path": "docs/readmes/038/development/tabletop038-video.log.txt",
+          "kind": "text",
+          "sha256": "919179dd7bdbd33c43a7712e1b5235582b5871d13baceba3627b0e779a56d80a"
+        },
+        {
+          "path": "docs/readmes/038/docs038-narrow.png",
+          "kind": "binary",
+          "sha256": "96cbc8eea4570c5f673da5a86c44d7872c130c55e4a74df9fb876f86a79ef352"
+        },
+        {
+          "path": "docs/readmes/038/docs038-wide.png",
+          "kind": "binary",
+          "sha256": "460d1334992eff1185df8925c0f5db333e765f00ca3f9ea92aa8e5692c3bdce0"
+        },
+        {
+          "path": "docs/readmes/038/documentation-qa.json",
+          "kind": "text",
+          "sha256": "995689bba87c3b913258ebf7cd6c14f002f82aba4c47227b2d76f81247edbb0e"
+        },
+        {
+          "path": "docs/readmes/038/file-inventory.json",
+          "kind": "text",
+          "sha256": "493a65c990cd90df67477a334a814b5cc6fcdc9d4f4fd480a4e2effca6e8aa28"
+        },
+        {
+          "path": "docs/readmes/038/FILE_TREE.md",
+          "kind": "text",
+          "sha256": "525e18d3e2ea0829572e26ab8f12b169135b4abcdd94dc7878a2900f4f5e3682"
+        },
+        {
+          "path": "docs/readmes/038/images/tabletop-camera-hidden-038.png",
+          "kind": "binary",
+          "sha256": "fa80a722b742aa3d9b90e4f2ae7c6cddd248cbcd468996d6ed292edcb1d37041"
+        },
+        {
+          "path": "docs/readmes/038/images/tabletop-chat-038.png",
+          "kind": "binary",
+          "sha256": "53bc6bc316bfd94c5c5e4e5135d05eb319beee0b27b08a1f77d8b8badfdc5544"
+        },
+        {
+          "path": "docs/readmes/038/images/tabletop-numeric-report-038.png",
+          "kind": "binary",
+          "sha256": "f74ff1e275d4ff9db5eb19f1889a48dcde62487109cd81c7f2e5c46bcc0d9173"
+        },
+        {
+          "path": "docs/readmes/038/images/tabletop-physical-failure-038.png",
+          "kind": "binary",
+          "sha256": "6ab48484072eb74dee6613488fddadae37d67a2a1cda2c5b7408bfcc49f27486"
+        },
+        {
+          "path": "docs/readmes/038/index.html",
+          "kind": "text",
+          "sha256": "653ea7154b956aa9f49ef3224d14369b86dd5a006bab6c95f5e660b149600d45"
+        },
+        {
+          "path": "docs/readmes/038/integration.json",
+          "kind": "text",
+          "sha256": "7f4d75e9e633a9a4bf00734e40e099a1d2f7f38f0288df4dc82e72c6a5c2b034"
+        },
+        {
+          "path": "docs/readmes/038/integration.original.gzip.json",
+          "kind": "text",
+          "sha256": "ce1807194b36f205c868147970d06b364c044501ef081ba5960e8811a16cbc88"
+        },
+        {
+          "path": "docs/readmes/038/live-tabletop.json",
+          "kind": "text",
+          "sha256": "f2442e5cd33ceb516888da41cd92f0ce0ee730a3b6b0fd1f55c17060a059c58c"
+        },
+        {
+          "path": "docs/readmes/038/live-tabletop.original.gzip.json",
+          "kind": "text",
+          "sha256": "273e273978cebd2fe44ac7c01fe16dfa10ec6aa6a6f6e19e5f2866f01aa9e9a7"
+        },
+        {
+          "path": "docs/readmes/038/metrics-integration.json",
+          "kind": "text",
+          "sha256": "124dbf670d9ac99fa3150f96056263161d28703de12442678999108dd57fbe3e"
+        },
+        {
+          "path": "docs/readmes/038/metrics-integration.original.gzip.json",
+          "kind": "text",
+          "sha256": "43f86037833b9cfc30788b280665946f60f4d824cf53b314e589ba6ed857d34d"
+        },
+        {
+          "path": "docs/readmes/038/observations-integration.json",
+          "kind": "text",
+          "sha256": "5c5e515d32fad78be912b6f557192e959f56a6690e432514b3dce08b37240371"
+        },
+        {
+          "path": "docs/readmes/038/observations-integration.original.gzip.json",
+          "kind": "text",
+          "sha256": "4311b059e96e06d13eca9b96add6c7e87d0ff33992129523e090c358f3359acc"
+        },
+        {
+          "path": "docs/readmes/038/observations-video-integration.json",
+          "kind": "text",
+          "sha256": "c6eaff303f0c34780aee35daae7f82a37492686598b3751150c6e209e4b38686"
+        },
+        {
+          "path": "docs/readmes/038/observations-video-integration.original.gzip.json",
+          "kind": "text",
+          "sha256": "c6a24bb3864a69acf1557591d23fc09b6d8843f909111a33f7546002d2729cfb"
+        },
+        {
+          "path": "docs/readmes/038/physical-results.json",
+          "kind": "text",
+          "sha256": "c5e9822ccb985c1db7a71aaa7bd8924fc8c314ca3d5ee429f419b33ba64ef622"
+        },
+        {
+          "path": "docs/readmes/038/source-match.json",
+          "kind": "text",
+          "sha256": "d3aabd0947ac79c24a8e9703ed312165a0399f16d4db769ffbff0e7bdc73ae28"
+        },
+        {
+          "path": "docs/readmes/038/system-map.json",
+          "kind": "text",
+          "sha256": "6f3a1211b19d2a2305c0eed59b7e6b6f3298556e2c89ff094d76a9ebc94a7598"
+        },
+        {
+          "path": "docs/readmes/038/tabletop-data.json",
+          "kind": "text",
+          "sha256": "2f49487645153aa4aca4356ce89eac9974e2cf6bc8f9e185360d1cb2719a7898"
+        },
+        {
+          "path": "docs/readmes/038/tabletop-integration.json",
+          "kind": "text",
+          "sha256": "d0641158999df358ef7392ddc5aebf793e6926fb075c0cf0e6c1126d8063fc5a"
+        },
+        {
+          "path": "docs/readmes/038/tabletop-integration.original.gzip.json",
+          "kind": "text",
+          "sha256": "48d7681ee36dd2f7e470d81b3d34231fcdb31c098e12f791738bc853d3249267"
+        },
+        {
+          "path": "docs/readmes/038/verification.json",
+          "kind": "text",
+          "sha256": "68e8ca315096b233edeaa2aaa56b600cf0db6bc05677164249c478855f7a18b7"
         }
       ]
     }
