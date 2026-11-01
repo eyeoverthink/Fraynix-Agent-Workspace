@@ -106,7 +106,7 @@ function createGoals({api,browser,canvas,openArtifact,emit,refresh,activity,getS
   else if(!g){
    const id=context?.ownedGoalId||args.id||latest?.id;if(!id)throw Error('No Java goal selected');
    if(tool==='goal.read'){
-    const prior=await api("/api/goals/read",{id});const until=Date.now()+(prior.procedure==="contact-study-v1"?30000:6500);
+    const prior=await api("/api/goals/read",{id});const until=Date.now()+(prior.procedure==="contact-study-v1"&&context?900000:6500);
     do{g=await api('/api/goals/read',{id});if(terminal(g)||context?.cancelled)break;await sleep(250);}while(Date.now()<until);
     if(g.procedure==='spatial-push-v1'&&g.runId){const snap=await api('/api/push/snapshot',{});if(snap.id===g.runId)g.nativeObservation={tick:snap.sample?.tick,bodies:snap.sample?.bodies,force:snap.sample?.force,controller:snap.sample?.controller,nativeContact:snap.sample?.nativeContact,contacts:snap.sample?.contacts,checkpoint:snap.checkpoint};}
    }else if(tool==='goal.resume'&&(await api('/api/goals/read',{id})).procedure==='browser-perception-v1'){const prior=await api('/api/goals/read',{id});const r=prior.runId?await api('/api/perception/read',{id:prior.runId}):null;if(r?.status==='completed'&&r.metrics.passed)g=await api('/api/goals/resume',{id});else{const f=await perception.capture();g=await api('/api/goals/perception-resume',{id,frameId:f.id});}}else if(tool==='goal.resume'||tool==='goal.cancel'){if(tool==='goal.cancel')await creation?.cancel(id);g=await api('/api/goals/'+tool.split('.')[1],{id});}else throw Error('Unknown goal action');
