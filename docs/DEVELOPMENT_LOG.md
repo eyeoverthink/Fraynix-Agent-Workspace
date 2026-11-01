@@ -1,5 +1,77 @@
 # Agent Workspace development log
 
+## Edition 036 published and directly verified — 2026-11-01
+
+Actual main/readme-036 atomic push succeeded. Independent direct GitHub fetch
+verified release f66bb2c3e39e4f9900da8de76202ed1303327f9b, annotated tag b392f6ff80f76a875e27843e073e237276e6f0ec and
+all 695 canonical source hashes.
+All 36 editions, 41 canvases, 4698 local
+references and 1600 frozen hashes validate. Earlier editions 001–035
+snapshots remain unchanged. This final continuity commit changes only notes.
+
+Real recorded images now drive actual Java optical-flow tracking, prior motion
+prediction, measured innovation and persistent observed-state revisions on the
+same edition035 world/body IDs. Native verified physics stays separate. Frame/index units,
+unknown camera depth/metric scale/capture FPS and uncalibrated covariance are
+explicit. Human initial rectangles and labels are disclosed; later masks never
+enter runtime. Latest prediction/loss, run/dataset coordinate frame and growing
+uncertainty are exposed separately from last accepted measurements, including
+through ordinary world.observe. Different source coordinate frames are not
+silently treated as calibrated physical coordinates.
+
+Protocol19c207d and candidate1dd0f07 precede reserved pixels. Metadata-only
+amendment85f546c replaced two external-source exceptions before any image/mask
+or result. First car-roundabout/bus results:59frames/59accepted each; meanIoU
+0.7289859582251114/0.8988617569444699; IoUhalf coverage
+0.9152542372881356/0.9830508474576272; zero losses/visibleIoUbelow0.1.
+Prior→updated errors0.06471739882149238→0.06474071843760228 (car slightly worse),
+0.0264553821326737→0.02428093586630485 (bus better). Nominal2sigma coverage
+0.23728813559322035/0.8135593220338984 exposes uncertainty underestimation.
+Exact first-result bytes/hashes preserved; locked algorithms and numeric gates
+never retuned. These clips are now seen regressions, not new training cases.
+
+Independent offline 318 Java tests in
+67 classes,81 desktop units and
+243 actual UI checks across
+27 groups pass. Java/native sources match the full
+offline build atf91a1d0. Later host routing/readout/provenance changes and a grip
+fixture readiness wait are separately recorded; affected workflows rerun at
+final source71010ea. The unchanged native pose comparison already passed all40
+trials at its recorded source commit. No physical assertion weakened. Original
+grip failure log retained: it read a scene ID before asynchronous creation ended.
+
+Actual Java kill/same-run exact-prefix resume, immediate Stop/Resume generation,
+multi-object identities, complete-loss/no invented measurement, stale native
+binding and full original-pixel/multi-run exports pass. Chromium decoded a real
+video derivative of18original DAVISphotos; actual pointer-drawn initialization
+and imported samples pass. Source video containers stay separate from decoded
+sample exports. Complete observation exports include every world-related run,
+dataset/source image, observed history and native lineage under explicit bounds.
+Standalone Inspector verifies original bytes, body/source references and links;
+it does not rerun tracking or Java canonical event hashes.
+
+Two real installed gpt-oss:20b episodes process/retrieve the same saved estimate
+with actual report checks and zero repairs. The final source was retested with
+the local model after readout changes. Original first model proof also retained.
+No semantic identity, metric calibration, general accuracy, native physical
+success, learned policy/weights, GPU acceleration or consciousness claim.
+
+Extensive README036 with12dated actual app images, first-result archives/scoring,
+original actual reports/receipts, offline695file source explorer,118row/944cell
+five-mode data chart,390px layout checks and Obsidian44/canvas published. Private
+datasets/original videos, personal databases, credentials and weights stay out
+of Git. Existing dependencies remain explicit; no new runtime libraries/models,
+cloud provider, Docker or WSL. Normal isolated review036 PID43824,
+engineport51844, /welcome200 is open to Spatial/real footage from
+directly fetched qa036-release. Project C:\Users\eyeka\.fraynix-agent-workspace\projects\review-036; only this phase
+closed acceptance data copied. Older/private apps and model services preserved.
+
+Correct private origin:eyeoverthink/Fraynix-Agent-Workspace, never Chandra.
+Next unused037: freeze new known-plane/scale/timing observations, separate camera
+motion and evaluate uncertainty calibration/active re-observation on different
+held sequences. These are next gates, not implemented036capabilities.
+
+
 ## Edition 036 validated; publication gate — 2026-11-01
 
 Implementation71010ea is ready to publish. Independent offline318Java/67classes,
