@@ -1,5 +1,10 @@
 # Agent Workspace development log
 
+## Edition 036 started — 2026-11-01
+
+User authorized real footage tracking, predicted-motion comparison and persistent-world updates, actual tests/screenshots/documentation/memories/logs/main push. See EDITION_036_PLAN.md and observation-036-contract.json, frozen before implementation. New durable observation estimates attach to the SAME 035 world/body IDs; native verified frames stay immutable, image-plane units and source-frame time remain explicit. Development car-turn is already seen; reserve drift-chicane/drift-straight until a committed candidate lock. No later masks enter runtime. Preserve older apps/private state and all 001–035 snapshots. Review035 PID35728/port58605 remains separate. No new dependencies or model weights.
+
+
 ## Edition 035 published and directly verified — 2026-11-01
 
 The atomic push of main and the annotated readme-035 tag succeeded. A separate

@@ -1,0 +1,45 @@
+# Edition 036 — real footage updates a persistent world estimate
+
+Declared before implementation and new reserved footage inspection, 2026-11-01.
+Preserve every published 001–035 snapshot and all existing native controllers,
+including the source identities of the 035 world ledger and checkpoints.
+
+Connect a new durable observation layer to the SAME saved world ID and stable
+body IDs. A human supplies only initial image rectangles. Existing Java flow-v3
+tracks actual subsequent pixels; a Java constant-velocity covariance filter
+predicts before observing, measures innovation and updates accepted estimates.
+Loss/ambiguity predicts with growing uncertainty and does not fabricate a
+measurement. Future masks/annotations never enter the runtime.
+
+Image-plane coordinates and source-frame time are the first supported domain.
+Unknown camera depth, metric scale, orientation and physical parameters remain
+unknown. Optional viewport projection is labelled visualization, not metric
+calibration. Observation revisions update the persistent world's ESTIMATE;
+they do not counterfeit a native verified goal or move the original physics
+frame. Native progress invalidates an old observation binding. Preserve original
+evidence and show stale estimates explicitly. This separation is intentional.
+
+Import bounded JSON frame packages (real JPEG/PNG pixels, original source frame
+ordinals, source/license declarations, no later annotations). Support actual
+local video decoding through Chromium into such packages. Persist original
+source hashes, exact trace, covariance, prediction error, accepted/rejected
+updates and world-estimate history. Resume after interruption under the same
+run/owner, reconstructing tracker state by replaying its exact prior prefix.
+Provide Stop, explicit resume, revision checks, complete export, real frame
+overlays/charts and current world estimates in Spatial and typed chat tools.
+
+Development uses the previously seen DAVIS car-turn sequence plus synthetic
+timing/loss/outlier/corruption controls. Freeze implementation and its source
+hashes BEFORE fetching two different reserved DAVIS sequences. Preserve the
+first complete evaluation, including losses and failures, with no retuning.
+Report tracking IoU/coverage and all prediction errors without claiming physical
+calibration, semantic recognition, learned weights or general accuracy.
+
+Test actual UI import/run/frame overlays/world history/chart/export, a real Java
+kill/resume, Stop, stale binding, malformed images/unknown fields/checksum and
+annotation refusal. Verify original 035 native state unchanged. Run meaningful
+Java/desktop tests and older app regressions, plus actual local-model inspection
+of the saved estimate. Publish an extensive linked README-036, dated screenshots,
+offline HTML/source explorer, Obsidian map, complete first-result evidence,
+memories/logs, main and annotated readme-036 tag. Fetch directly from GitHub to
+verify publication. Preserve review 035 and all older/private apps/models.

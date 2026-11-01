@@ -1,0 +1,26 @@
+{
+  "edition": "036",
+  "declaredBeforeImplementation": true,
+  "tracker": "unchanged flow-v3 from edition024; first frame human rectangle only",
+  "source": "https://data.vision.ee.ethz.ch/csergi/share/davis/DAVIS-2017-trainval-480p.zip",
+  "archiveBytes": 832766765,
+  "archiveEtag": "\"31a3032d-54c6d0af8b4dc\"",
+  "license": "DAVIS CC BY-NC 4.0 research footage; check external-source exceptions before use; original images stay private",
+  "cases": [
+    {"sequence": "car-turn", "split": "development", "frames": 60, "objectId": 1},
+    {"sequence": "drift-chicane", "split": "reserved", "frames": 60, "objectId": 1},
+    {"sequence": "drift-straight", "split": "reserved", "frames": 60, "objectId": 1}
+  ],
+  "domain": "normalized image-plane x/y; source-frame ordinal time; depth/metric scale/capture FPS unknown",
+  "estimator": {"initialPositionSigma": 0.02, "initialVelocitySigma": 0.03, "measurementSigma": 0.015, "accelerationSigma": 0.002, "innovationGateSigma": 5, "minimumInnovationGate": 0.12, "maximumGapFrames": 30},
+  "gates": [
+    "Runtime only receives initial rectangles and image pixels; all later reference masks remain scorer-only.",
+    "Every subsequent frame counts; report losses as zero IoU and all prediction errors, with no omitted failures.",
+    "Only accepted actual tracker measurements advance the world's estimate revision; loss/outlier predictions are labelled.",
+    "No observation updates a native verified physics revision or silently changes physical units.",
+    "Exact same world/body IDs, source/base head, owner, run, trace prefix, state covariance and hashes survive restart.",
+    "Out-of-order, duplicate timestamps, oversized input, future annotations, tampered bytes and stale world bindings are refused.",
+    "Lock candidate sources before reserved fetch. Preserve first measurements. No retuning after reserved inspection.",
+    "Report mean IoU and IoU>=0.5 coverage per sequence. They describe these footage tests, not a promotion or general recognition claim."
+  ]
+}
