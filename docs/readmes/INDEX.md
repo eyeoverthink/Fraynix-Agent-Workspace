@@ -37,5 +37,6 @@ Numbered editions preserve dated system behavior and evidence. The root [README]
 | [031](../../README-031.md) | 2026-10-31 | Reachable approaches, native contact pushing, measured jam recovery and durable two-body skills | [Viewer](031/index.html) · [evidence](031/verification.json) · [contract](../NATIVE_PUSHING.md) |
 | [032](../../README-032.md) | 2026-10-31 | Frozen native experience, training-only force selection, honest reserved rejection and recoverable profile workflow | [Viewer](032/index.html) · [evidence](032/verification.json) · [contract](../NATIVE_EXPERIENCE.md) |
 | [033](../../README-033.md) | 2026-11-01 | Locked solver-contact controller, different reserved improvement, exact version activation/rollback and retained skills | [Viewer](033/index.html) · [evidence](033/verification.json) · [contract](../CONTACT_CONTROLLERS.md) |
+| [034](../../README-034.md) | 2026-11-01 | Native multi-object poses, all-body continuation, exact-version skills and original torque ablation | [Viewer](034/index.html) · [evidence](034/verification.json) · [contract](../MULTI_OBJECT_POSES.md) |
 
-Latest implementation/documentation edition: **033**. Earlier snapshots remain intact. See [sequence policy](README_SEQUENCE.md) and [manifest](editions.json).
+Latest implementation/documentation edition: **034**. Earlier snapshots remain intact. See [sequence policy](README_SEQUENCE.md) and [manifest](editions.json).

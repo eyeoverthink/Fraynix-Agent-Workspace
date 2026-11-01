@@ -1,0 +1,81 @@
+{
+  "request": "Arrange the displayed target poses",
+  "reason": "Execution stopped: Native pose task failed: Measured pose progress stalled within the declared force/torque limits; no blind repeated actuation. Review and Resume; no failed result is a saved skill.",
+  "procedure": "spatial-arrange-v1",
+  "history": [
+    {
+      "reason": "Actual roles, target poses, bounded virtual gripper and clear ordered routes frozen",
+      "at": "2026-11-01T13:09:31.294752200Z",
+      "step": "pose-start",
+      "attempt": 1,
+      "status": "running"
+    },
+    {
+      "reason": "Native virtual gripper controls position and orientation; all other bodies remain observed",
+      "at": "2026-11-01T13:09:31.770471300Z",
+      "step": "pose-wait",
+      "attempt": 1,
+      "status": "running"
+    },
+    {
+      "reason": "Execution stopped: Native pose task failed: Measured pose progress stalled within the declared force/torque limits; no blind repeated actuation. Review and Resume; no failed result is a saved skill.",
+      "at": "2026-11-01T13:09:32.800907100Z",
+      "step": "pose-wait",
+      "attempt": 1,
+      "status": "interrupted"
+    }
+  ],
+  "attempt": 1,
+  "resumes": 0,
+  "posePlanSummary": {
+    "liftHeightM": 1.4232928049865328,
+    "scope": "Declared native multi-box pose arrangement by a bounded virtual force/torque gripper, not contact-only pushing, a physical robot hand, photographic recognition or LLM-weight training.",
+    "targets": [
+      {
+        "sourceId": "A",
+        "positionM": [
+          -1,
+          0.3,
+          1
+        ],
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "objectId": "8e66587c-fd2b-3df4-884f-f0b2150d15c1",
+        "yawDeg": 0
+      },
+      {
+        "sourceId": "B",
+        "positionM": [
+          1,
+          0.25,
+          -1
+        ],
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "objectId": "8fa395c2-3f96-392a-a323-5df7458924ad",
+        "yawDeg": 0
+      }
+    ]
+  },
+  "createdAt": "2026-11-01T13:09:31.294752200Z",
+  "poseBinding": {
+    "sourceSha256": "a5e7dc938273a0d8902981079440230e4e0bfaa53f5f43c52388d112b4134069",
+    "definitionSha256": "ebac36c1ba3b2e91a61cdd853403013ae7333be39a48f20af58daac11164e4ba",
+    "sceneId": "cbbba64d-3d51-4231-9637-14ac18796a81",
+    "version": 1
+  },
+  "step": "pose-wait",
+  "id": "2122d0e5-6d2a-4803-85e0-b9dcc3f4e273",
+  "runId": "9839ff20-2205-38b3-b1a2-b792af529d14",
+  "poseCodeSha256": "c6d538c60e4768f5d6cefb996ed4386d498169144f8b57a3ea150d601cb7ff9d",
+  "status": "interrupted",
+  "updatedAt": "2026-11-01T13:09:32.800907100Z"
+}

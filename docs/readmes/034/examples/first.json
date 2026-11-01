@@ -1,0 +1,194 @@
+{
+  "request": "Arrange the displayed target poses",
+  "reason": "All requested native poses, unchanged bystanders, original charts and versioned skill verified",
+  "procedure": "spatial-arrange-v1",
+  "history": [
+    {
+      "reason": "Actual roles, target poses, bounded virtual gripper and clear ordered routes frozen",
+      "at": "2026-11-01T13:08:35.694751800Z",
+      "step": "pose-start",
+      "attempt": 1,
+      "status": "running"
+    },
+    {
+      "reason": "Native virtual gripper controls position and orientation; all other bodies remain observed",
+      "at": "2026-11-01T13:08:35.713345600Z",
+      "step": "pose-wait",
+      "attempt": 1,
+      "status": "running"
+    },
+    {
+      "reason": "Explicit same-run resume preserves all bodies, held orientation, original trace and native version",
+      "at": "2026-11-01T13:08:40.915978700Z",
+      "step": "pose-wait",
+      "attempt": 1,
+      "status": "running"
+    },
+    {
+      "reason": "All native body poses, force/torque ledger, release and protected-body gates independently verified",
+      "at": "2026-11-01T13:08:52.840513400Z",
+      "step": "pose-report",
+      "attempt": 1,
+      "status": "running"
+    },
+    {
+      "reason": "Waiting for registered desktop action: canvas.verify-report",
+      "at": "2026-11-01T13:08:54.244119500Z",
+      "step": "pose-report",
+      "attempt": 1,
+      "status": "waiting-host"
+    },
+    {
+      "reason": "Actual Chromium canvas assertions passed for the pinned report version",
+      "at": "2026-11-01T13:08:57.873930500Z",
+      "step": "complete",
+      "attempt": 1,
+      "status": "running"
+    },
+    {
+      "reason": "All requested native poses, unchanged bystanders, original charts and versioned skill verified",
+      "at": "2026-11-01T13:09:00.609711900Z",
+      "step": "completed",
+      "attempt": 1,
+      "status": "completed"
+    }
+  ],
+  "attempt": 1,
+  "resumes": 1,
+  "posePlanSummary": {
+    "liftHeightM": 2.299621125123532,
+    "scope": "Declared native multi-box pose arrangement by a bounded virtual force/torque gripper, not contact-only pushing, a physical robot hand, photographic recognition or LLM-weight training.",
+    "targets": [
+      {
+        "sourceId": "A",
+        "positionM": [
+          -1,
+          0.3,
+          1
+        ],
+        "rotation": [
+          0,
+          0.7071067811865475,
+          0,
+          0.7071067811865476
+        ],
+        "objectId": "144e6565-48e6-3cea-b91c-ab759e6e2b8b",
+        "yawDeg": 90
+      },
+      {
+        "sourceId": "B",
+        "positionM": [
+          1,
+          0.25,
+          -1
+        ],
+        "rotation": [
+          0,
+          -0.7071067811865475,
+          0,
+          0.7071067811865476
+        ],
+        "objectId": "88e45b71-d9f8-3db1-ae2f-3249f0ee0260",
+        "yawDeg": -90
+      },
+      {
+        "sourceId": "C",
+        "positionM": [
+          -3.6,
+          0.2,
+          -1.1
+        ],
+        "rotation": [
+          0,
+          0.3826834323650898,
+          0,
+          0.9238795325112867
+        ],
+        "objectId": "af00dabb-027a-3f07-9bc7-b72f6ee5cc71",
+        "yawDeg": 45
+      }
+    ]
+  },
+  "createdAt": "2026-11-01T13:08:35.694751800Z",
+  "poseBinding": {
+    "sourceSha256": "ecdfbc460b8dcb23c3f678a25d6b52272f221dbbd1f3b556af70535d4eecfedf",
+    "definitionSha256": "b739b7a5582654bd6b4a5acb8d7d33b302979790efe005912fee820f00fee705",
+    "sceneId": "010002f3-1330-465a-8b7a-eadee8b99d98",
+    "version": 1
+  },
+  "report": {
+    "sha256": "be9357fbc4752fe645053ed6ef1d6a610f0e92008ff2070673f3ae52304eab4c",
+    "id": "bf127977-3939-3cf2-ba78-807678c538cf",
+    "version": 1
+  },
+  "poseView": {
+    "cells": 15,
+    "frames": 6,
+    "maxError": 3.0386718776753696e-05,
+    "dataSha256": "463447f6ade3e61ab9f6cd9da7426772051d18267d06297a723013ce2a1483e0",
+    "passed": true,
+    "points": 4248
+  },
+  "step": "completed",
+  "id": "0579bf56-0f5d-44a0-a2f0-ecd303080119",
+  "runId": "8ab0e8bc-3c8e-3558-af04-921dd532aec3",
+  "metrics": {
+    "maxBystanderDriftM": 9.07668185268743e-05,
+    "grabs": 3,
+    "contactPoints": 8612,
+    "maxRestoreAngleErrorDeg": 0,
+    "targets": [
+      {
+        "sourceId": "A",
+        "speedMps": 4.316783000084429e-05,
+        "positionErrorM": 0.0017325947099132342,
+        "angleErrorDeg": 0.00036849134483748905,
+        "angularSpeedRadps": 1.8614995009932804e-06
+      },
+      {
+        "sourceId": "B",
+        "speedMps": 7.068265170713825e-05,
+        "positionErrorM": 0.0010095953040890372,
+        "angleErrorDeg": 8.7768483902604e-05,
+        "angularSpeedRadps": 1.016782687447261e-06
+      },
+      {
+        "sourceId": "C",
+        "speedMps": 0.0001138795688500473,
+        "positionErrorM": 3.8528730538382996e-05,
+        "angleErrorDeg": 0.0005427617392779047,
+        "angularSpeedRadps": 3.89596166681474e-06
+      }
+    ],
+    "resumes": 1,
+    "maxRestoreVelocityError": 0,
+    "maxAngleErrorDeg": 0.0005427617392779047,
+    "maxRestorePositionErrorM": 0,
+    "scope": "Declared native multi-box pose arrangement by a bounded virtual force/torque gripper, not contact-only pushing, a physical robot hand, photographic recognition or LLM-weight training.",
+    "maxTorqueNm": 0.5040000081062318,
+    "workJ": 1.0663939588419646,
+    "passed": true,
+    "maxPositionErrorM": 0.0017325947099132342,
+    "nativeTicks": 8486,
+    "maxForceN": 19.45199966430666,
+    "effortNs": 335.5618154845115,
+    "maxInactiveAngleDeg": 0.019988493571559105,
+    "maxInactiveDriftM": 0.01489740702461621,
+    "releases": 3,
+    "timeS": 35.358333333333334,
+    "maxAngularSpeedRadps": 3.89596166681474e-06,
+    "maxSpeedMps": 0.0001138795688500473,
+    "nativePhysics": true,
+    "torqueEffortNms": 0.4746877838149865,
+    "maxBystanderAngleDeg": 0.019988493571559105,
+    "angularWorkJ": 0.059832602936779
+  },
+  "poseCodeSha256": "c6d538c60e4768f5d6cefb996ed4386d498169144f8b57a3ea150d601cb7ff9d",
+  "savedSkill": {
+    "name": "arranged-pose-route",
+    "id": "ba7f5468-e27a-3fd9-8b4c-12496e20f189",
+    "version": 1
+  },
+  "status": "completed",
+  "updatedAt": "2026-11-01T13:09:00.609711900Z"
+}

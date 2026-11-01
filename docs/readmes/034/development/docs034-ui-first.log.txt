@@ -1,0 +1,64 @@
+AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
++ actual - expected
+... Skipped lines
+
+  {
+    bodyRows: [
+      [
+        'A',
+        '0.001733',
+...
+              b: 'af00dabb-027a-3f07-9bc7-b72f6ee5cc71',
++             distanceM: 0,
+-             distanceM: -0,
+              normalImpulseNs: 0.010374555
+            },
+            {
+              a: 'c5bf123c-d9ec-3ac4-a9f2-e9ebe715d708',
+              b: 'af00dabb-027a-3f07-9bc7-b72f6ee5cc71',
++             distanceM: 0,
+-             distanceM: -0,
+              normalImpulseNs: 0.0059754476
+            },
+            {
+              a: 'c5bf123c-d9ec-3ac4-a9f2-e9ebe715d708',
+              b: 'af00dabb-027a-3f07-9bc7-b72f6ee5cc71',
++             distanceM: 0,
+-             distanceM: -0,
+              normalImpulseNs: 0.010374554
+            },
+            {
+              a: 'c5bf123c-d9ec-3ac4-a9f2-e9ebe715d708',
+              b: 'af00dabb-027a-3f07-9bc7-b72f6ee5cc71',
++             distanceM: 0,
+-             distanceM: -0,
+              normalImpulseNs: 0.005975448
+            },
+            {
+              a: 'c5bf123c-d9ec-3ac4-a9f2-e9ebe715d708',
+              b: '88e45b71-d9f8-3db1-ae2f-3249f0ee0260',
+...
+              b: '88e45b71-d9f8-3db1-ae2f-3249f0ee0260',
++             distanceM: 0,
+-             distanceM: -0,
+              normalImpulseNs: 0.016325574
+            },
+            {
+              a: 'c5bf123c-d9ec-3ac4-a9f2-e9ebe715d708',
+              b: '88e45b71-d9f8-3db1-ae2f-3249f0ee0260',
++             distanceM: 0,
+-             distanceM: -0,
+              normalImpulseNs: 0.00819943
+            },
+            {
+              a: 'c5bf123c-d9ec-3ac4-a9f2-e9ebe715d708',
+              b: 'd374f95d-9c3b-34d5-b298-1b3330e0d071',
+
+    at main (C:\Users\eyeka\Documents\Codex\2026-10-26\is\work\fraynix-agent-workspace\build\qa034.cjs:19:505) {
+  generatedMessage: true,
+  code: 'ERR_ASSERTION',
+  actual: [Object],
+  expected: [Object],
+  operator: 'deepStrictEqual',
+  diff: 'simple'
+}

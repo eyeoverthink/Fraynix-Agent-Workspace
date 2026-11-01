@@ -1,6 +1,6 @@
 ---
 title: Fraynix Studio map of content
-edition_context: 033
+edition_context: 034
 updated: 2026-11-01
 tags: [fraynix, system-map]
 ---
@@ -9,9 +9,9 @@ tags: [fraynix, system-map]
 
 Open the repository root as an Obsidian vault. The numbered README is the edition snapshot; these notes are the working map.
 
-Current: [[README-033|Edition033 — validated contact controllers]] ·
-[[docs/obsidian/41-contact-controllers|Actual solver contacts, reserved gain and retained version]] ·
-[[docs/obsidian/contact-controllers.canvas|Comparison/activation/recovery map]].
+Current: [[README-034|Edition034 — native multi-object poses]] ·
+[[docs/obsidian/42-multi-object-poses|All-body verification and retained procedures]] ·
+[[docs/obsidian/multi-object-poses.canvas|Pose task and continuity map]].
 
 Previous: [[README-031|Edition031 — native contact tasks]] ·
 [[docs/obsidian/39-native-pushing|Pushing contract and measured limits]] ·

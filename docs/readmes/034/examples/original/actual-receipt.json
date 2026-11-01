@@ -1,0 +1,118 @@
+{
+  "checks": [
+    {
+      "actual": {
+        "count": 1,
+        "text": "Pose-control feature passes reserved gates",
+        "value": null
+      },
+      "expected": {
+        "expectText": "Pose-control feature passes reserved gates",
+        "selector": "#pose-study-result"
+      },
+      "index": 0,
+      "selector": "#pose-study-result",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 20,
+        "text": "development / dev034-translate-x\tpass\tpass\t13.158333\t13.158333\t131.505708\t131.505708\t0.000224\t0.000224",
+        "value": null
+      },
+      "expected": {
+        "expectCount": 20,
+        "selector": "#pose-study-table tbody tr"
+      },
+      "index": 1,
+      "selector": "#pose-study-table tbody tr",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 1,
+        "text": "Next metric",
+        "value": ""
+      },
+      "expected": {
+        "action": "click",
+        "selector": "#pose-study-mode"
+      },
+      "index": 2,
+      "selector": "#pose-study-mode",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 1,
+        "text": "Virtual gripper force effort · N·s",
+        "value": null
+      },
+      "expected": {
+        "expectText": "Virtual gripper force effort · N·s",
+        "selector": "#pose-study-label"
+      },
+      "index": 3,
+      "selector": "#pose-study-label",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 1,
+        "text": "Reset chart",
+        "value": ""
+      },
+      "expected": {
+        "action": "click",
+        "selector": "#pose-study-reset"
+      },
+      "index": 4,
+      "selector": "#pose-study-reset",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 1,
+        "text": "Penalized native time · s",
+        "value": null
+      },
+      "expected": {
+        "expectText": "Penalized native time · s",
+        "selector": "#pose-study-label"
+      },
+      "index": 5,
+      "selector": "#pose-study-label",
+      "passed": true
+    }
+  ],
+  "at": "2026-11-01T13:11:59.492021100Z",
+  "id": "45a0924c-7da4-3494-ab6d-b876541963e9",
+  "passed": true,
+  "version": 1,
+  "steps": [
+    {
+      "expectText": "Pose-control feature passes reserved gates",
+      "selector": "#pose-study-result"
+    },
+    {
+      "expectCount": 20,
+      "selector": "#pose-study-table tbody tr"
+    },
+    {
+      "action": "click",
+      "selector": "#pose-study-mode"
+    },
+    {
+      "expectText": "Virtual gripper force effort · N·s",
+      "selector": "#pose-study-label"
+    },
+    {
+      "action": "click",
+      "selector": "#pose-study-reset"
+    },
+    {
+      "expectText": "Penalized native time · s",
+      "selector": "#pose-study-label"
+    }
+  ]
+}

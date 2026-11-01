@@ -1,0 +1,77 @@
+{
+  "edition": 34,
+  "modules": [
+    {
+      "id": "freeze",
+      "name": "Frozen cases and gates",
+      "status": "verified",
+      "summary": "Ten development/ten different reserved definitions and the native source lock precede measurement.",
+      "source": "workspace-engine/src/main/resources/pose-tasks034.json",
+      "note": "docs/MULTI_OBJECT_POSES.md"
+    },
+    {
+      "id": "native",
+      "name": "Native virtual gripper",
+      "status": "verified",
+      "summary": "Bounded actual forces/torques, all-body motion and native contacts; no pose writes during execution.",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/PosePhysics.java",
+      "note": "docs/MULTI_OBJECT_POSES.md"
+    },
+    {
+      "id": "owner",
+      "name": "Durable comparison owner",
+      "status": "verified",
+      "summary": "40actual trials, exact raw hashes, source/code pin and fixed feature gates.",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/PoseStudyStore.java",
+      "note": "docs/MULTI_OBJECT_POSES.md"
+    },
+    {
+      "id": "goal",
+      "name": "Shared Java goal runner",
+      "status": "verified",
+      "summary": "Source/target binding, measured completion, recovery and exact-version procedural memory.",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/GoalRunner.java",
+      "note": "docs/MULTI_OBJECT_POSES.md"
+    },
+    {
+      "id": "recovery",
+      "name": "All-body checkpoint",
+      "status": "verified",
+      "summary": "Four moving bodies/controller restore under same goal/run/attempt and exact committed prefix.",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/PoseCheckpoint.java",
+      "note": "docs/MULTI_OBJECT_POSES.md"
+    },
+    {
+      "id": "report",
+      "name": "Independent evidence",
+      "status": "verified",
+      "summary": "All180 paired cells/four chart modes and15individual pose cells/six chart modes checked.",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/PoseStudyReport.java",
+      "note": "docs/MULTI_OBJECT_POSES.md"
+    },
+    {
+      "id": "chat",
+      "name": "Local model tools",
+      "status": "verified",
+      "summary": "Actual gpt-oss:20b comparison, retention and fresh-role reuse with typed bounds.",
+      "source": "workspace-desktop/goals.cjs",
+      "note": "docs/MULTI_OBJECT_POSES.md"
+    },
+    {
+      "id": "skills",
+      "name": "Retained controller and defaults",
+      "status": "verified",
+      "summary": "Visible form and chat bind fresh sources; exact native version requires a new verification.",
+      "source": "workspace-desktop/renderer/goals-panel.js",
+      "note": "docs/MULTI_OBJECT_POSES.md"
+    },
+    {
+      "id": "next",
+      "name": "Persistent cross-goal world",
+      "status": "planned",
+      "summary": "Version a verified final world, bind next intent, reject stale observations and test different sequences.",
+      "source": "docs/MULTI_OBJECT_POSES.md",
+      "note": "docs/MULTI_OBJECT_POSES.md"
+    }
+  ]
+}

@@ -1,0 +1,693 @@
+{
+  "date": "2026-11-01",
+  "sourceBaseline": "58d22b51b4356fb9d6454d4bd945ee9b8516669d",
+  "sourceInventory": 661,
+  "suiteFreezeCommit": "a28a75e",
+  "candidateSourceLockCommit": "e646bc6",
+  "comparisonImplementationSha256": "45236b46c04443e68019c3a97c72763ebf1244f21df93f8106c3acf989a60e92",
+  "suiteSha256": "6fff72b93c18bc41acc3442d9de54c960c3b373c3a7323427bb5376efdf73f28",
+  "freshClone": {
+    "status": "passed",
+    "checkout": "fraynix-workspace-qa034-release",
+    "sourceCommit": "58d22b51b4356fb9d6454d4bd945ee9b8516669d",
+    "offlineBuild": true,
+    "javaTests": 304,
+    "javaClasses": 62,
+    "desktopUnitTests": 72,
+    "uiChecks": 219,
+    "groups": {
+      "poses": {
+        "checks": 10,
+        "passed": true
+      },
+      "body": {
+        "checks": 10,
+        "passed": true
+      },
+      "brain-game": {
+        "checks": 10,
+        "passed": true
+      },
+      "feedback": {
+        "checks": 12,
+        "passed": true
+      },
+      "world-model": {
+        "checks": 15,
+        "passed": true
+      },
+      "goals": {
+        "checks": 14,
+        "passed": true
+      },
+      "data-goals": {
+        "checks": 12,
+        "passed": true
+      },
+      "spatial": {
+        "checks": 14,
+        "passed": true
+      },
+      "perception": {
+        "checks": 15,
+        "passed": true
+      },
+      "tracking024": {
+        "checks": 9,
+        "passed": true
+      },
+      "tracking-controls": {
+        "checks": 6,
+        "passed": true
+      },
+      "creation": {
+        "checks": 8,
+        "passed": true
+      },
+      "workflow": {
+        "checks": 8,
+        "passed": true
+      },
+      "procedural": {
+        "checks": 9,
+        "passed": true
+      },
+      "responsive": {
+        "checks": 4,
+        "passed": true
+      },
+      "maps": {
+        "checks": 9,
+        "passed": true
+      },
+      "topology": {
+        "checks": 10,
+        "passed": true
+      },
+      "recovery-materials": {
+        "checks": 9,
+        "passed": true
+      },
+      "pushing": {
+        "checks": 12,
+        "passed": true
+      },
+      "force-learning": {
+        "checks": 8,
+        "passed": true
+      },
+      "force-learning-library": {
+        "checks": 2,
+        "passed": true
+      },
+      "contact-study": {
+        "checks": 8,
+        "passed": true
+      },
+      "contact-library": {
+        "checks": 2,
+        "passed": true
+      },
+      "tracking-migration": {
+        "checks": 3,
+        "passed": true
+      }
+    },
+    "modelWeightsOrPrivateRuntimeCopied": false,
+    "electronBinary": "Existing pinned45.1.0 cache after npm ci --offline --ignore-scripts"
+  },
+  "sourceMatch": {
+    "passed": true,
+    "canonicalSourceHashesMatched": 661,
+    "sourceBaseline": "58d22b51b4356fb9d6454d4bd945ee9b8516669d",
+    "independentHead": "58d22b51b4356fb9d6454d4bd945ee9b8516669d"
+  },
+  "documentationQa": {
+    "status": "passed",
+    "checks": [
+      "Offline architecture loads real source-linked pose modules and durable owner details",
+      "Filters distinguish eight verified modules from planned persistent cross-goal world ownership",
+      "Source search and all fifteen actual dated screenshot originals resolve",
+      "Navigation, selection and source search work at390px without body overflow",
+      "Original offline comparison retains every180table cell and320coordinate values in all four paired modes, with working reset",
+      "Original code pin, chronological split, negative controls and unchanged capability gates remain visibly inspectable",
+      "Actual multi-part app export reassembles and decompresses to exact original job/all40runs, checking part/compressed/raw SHA-256 and sizes",
+      "Separately labelled earlier nine-group app repetition retains its own complete40run manifest and exact parts, without counting seen cases as new evaluation",
+      "Entire original48MBactual UI proof survives lossless byte-hashed archival transport, including exact continued checkpoint prefix and separate complete native record",
+      "First headless40result originals retain exact original byte hashes and matching original suite/code pin in separately labelled archival transport",
+      "Original comparison/data view fits390px with contained table scrolling",
+      "Actual resumed individual report preserves all15body cells, all original points in six modes, original proof under browser JSON zero normalization and real reset; native byte hashes checked separately",
+      "Both offline original reports and guide operate with no script errors, CDN/external requests, model or Java engine"
+    ]
+  },
+  "actualUi": {
+    "checks": 10,
+    "decision": {
+      "developmentPositivePasses": 8,
+      "matchedSuccessCases": 4,
+      "accepted": true,
+      "baselineEvaluationPositivePasses": 4,
+      "pairs": [
+        {
+          "baselineAngleDeg": 0.00022411516910456883,
+          "baselineTimeS": 13.158333333333333,
+          "baselineRunId": "fd48891e-8916-3490-9fb9-f89ca35e0c76",
+          "negativeControl": false,
+          "candidateEffortNs": 131.50570789838687,
+          "baselineProtectedDriftM": 0.014940979168124906,
+          "candidateProtectedDriftM": 0.014940979168124906,
+          "candidateRunId": "3a65a8ff-adcd-378b-98da-3ca0b6c2b5a8",
+          "baselineEffortNs": 131.50570789838687,
+          "split": "development",
+          "caseId": "dev034-translate-x",
+          "candidateAngleDeg": 0.00022411516910456883,
+          "candidateTimeS": 13.158333333333333,
+          "baselinePassed": true,
+          "candidatePassed": true
+        },
+        {
+          "baselineAngleDeg": 0.00023156123640002027,
+          "baselineTimeS": 14.545833333333333,
+          "baselineRunId": "3b72ee42-5b9a-3080-b736-a0607ce0c140",
+          "negativeControl": false,
+          "candidateEffortNs": 145.6159938919204,
+          "baselineProtectedDriftM": 0.01494130699362572,
+          "candidateProtectedDriftM": 0.01494130699362572,
+          "candidateRunId": "dbe4157e-a60d-364e-8c51-3daa10acfe29",
+          "baselineEffortNs": 145.6159938919204,
+          "split": "development",
+          "caseId": "dev034-translate-z",
+          "candidateAngleDeg": 0.00023156123640002027,
+          "candidateTimeS": 14.545833333333333,
+          "baselinePassed": true,
+          "candidatePassed": true
+        },
+        {
+          "baselineAngleDeg": 0.0002716134676139304,
+          "baselineTimeS": 16.53333333333333,
+          "baselineRunId": "30c6abb3-d061-395d-8ada-a1abcef72230",
+          "negativeControl": false,
+          "candidateEffortNs": 243.3855983550973,
+          "baselineProtectedDriftM": 0.014941336695245205,
+          "candidateProtectedDriftM": 0.014941336695245205,
+          "candidateRunId": "67f2d4e8-4f73-3bd2-9742-f36ec0c9980f",
+          "baselineEffortNs": 243.3855983550973,
+          "split": "development",
+          "caseId": "dev034-heavy-translate",
+          "candidateAngleDeg": 0.0002716134676139304,
+          "candidateTimeS": 16.53333333333333,
+          "baselinePassed": true,
+          "candidatePassed": true
+        },
+        {
+          "baselineAngleDeg": 3.2600075043603696e-05,
+          "baselineTimeS": 16.53333333333333,
+          "baselineRunId": "5ac93e51-02f5-3f7a-8256-b754cf3af08d",
+          "negativeControl": false,
+          "candidateEffortNs": 167.80332153853706,
+          "baselineProtectedDriftM": 0.014941336695245205,
+          "candidateProtectedDriftM": 0.014941336695245205,
+          "candidateRunId": "7efac6fe-9f8f-3a94-a340-b5f31d62591b",
+          "baselineEffortNs": 167.80332153853706,
+          "split": "development",
+          "caseId": "dev034-retained-heading",
+          "candidateAngleDeg": 3.256392777639035e-05,
+          "candidateTimeS": 16.53333333333333,
+          "baselinePassed": true,
+          "candidatePassed": true
+        },
+        {
+          "baselineAngleDeg": 90.00027161112408,
+          "baselineTimeS": 60,
+          "baselineRunId": "fbc27b04-0d37-31cc-9628-f79ea42a4bf5",
+          "negativeControl": false,
+          "candidateEffortNs": 208.05250242948668,
+          "baselineProtectedDriftM": 0.014941336695245205,
+          "candidateProtectedDriftM": 0.014941634718429771,
+          "candidateRunId": "590ccacf-1414-351a-83ee-5fa7785c3a79",
+          "baselineEffortNs": 167.80332066433542,
+          "split": "development",
+          "caseId": "dev034-quarter-turn",
+          "candidateAngleDeg": 0.0003679518014556761,
+          "candidateTimeS": 20.266666666666666,
+          "baselinePassed": false,
+          "candidatePassed": true
+        },
+        {
+          "baselineAngleDeg": 89.99993628391901,
+          "baselineTimeS": 60,
+          "baselineRunId": "9f556393-59cd-347a-a346-f305235eecc5",
+          "negativeControl": false,
+          "candidateEffortNs": 255.5748830258492,
+          "baselineProtectedDriftM": 0.014891804419288932,
+          "candidateProtectedDriftM": 0.014892132244809777,
+          "candidateRunId": "d4150c56-2591-35fe-b5cb-8bd64f05a60a",
+          "baselineEffortNs": 215.32574118934923,
+          "split": "development",
+          "caseId": "dev034-opposite-turn",
+          "candidateAngleDeg": 0.0004694598514898189,
+          "candidateTimeS": 24.670833333333334,
+          "baselinePassed": false,
+          "candidatePassed": true
+        },
+        {
+          "baselineAngleDeg": 179.99966403975682,
+          "baselineTimeS": 60,
+          "baselineRunId": "4a9a5ae7-3bcd-36c9-9903-70ace5e4ecd7",
+          "negativeControl": false,
+          "candidateEffortNs": 269.02275810159773,
+          "baselineProtectedDriftM": 0.014891804419288932,
+          "candidateProtectedDriftM": 0.014892132244809777,
+          "candidateRunId": "9db93e48-4527-30fa-a8fd-4391accc5d1b",
+          "baselineEffortNs": 215.32574118934923,
+          "split": "development",
+          "caseId": "dev034-half-turn",
+          "candidateAngleDeg": 0.0003899899773341927,
+          "candidateTimeS": 26.041666666666668,
+          "baselinePassed": false,
+          "candidatePassed": true
+        },
+        {
+          "baselineAngleDeg": 90.00061463314086,
+          "baselineTimeS": 60,
+          "baselineRunId": "6ffcf727-0a08-31f1-af44-b723818c1b80",
+          "negativeControl": false,
+          "candidateEffortNs": 335.5618154845115,
+          "baselineProtectedDriftM": 0.014897109001410806,
+          "candidateProtectedDriftM": 0.01489740702461621,
+          "candidateRunId": "f6e5e8fd-c0a5-3cb8-a3ec-d1667c66116b",
+          "baselineEffortNs": 286.25636163333195,
+          "split": "development",
+          "caseId": "dev034-three-objects",
+          "candidateAngleDeg": 0.0005427617392779047,
+          "candidateTimeS": 35.358333333333334,
+          "baselinePassed": false,
+          "candidatePassed": true
+        },
+        {
+          "baselineAngleDeg": 4.086652517060797e-05,
+          "baselineTimeS": 60,
+          "baselineRunId": "41bd5e51-2e22-388e-9ad5-be3a7583be3b",
+          "negativeControl": true,
+          "candidateEffortNs": 20.000000000000124,
+          "baselineProtectedDriftM": 1.4901161193847656e-08,
+          "candidateProtectedDriftM": 1.4901161193847656e-08,
+          "candidateRunId": "0854987c-d8c9-3238-b694-a1612c9478fd",
+          "baselineEffortNs": 20.000000000000128,
+          "split": "development",
+          "caseId": "dev034-force-negative",
+          "candidateAngleDeg": 3.772777130614788e-05,
+          "candidateTimeS": 60,
+          "baselinePassed": false,
+          "candidatePassed": false
+        },
+        {
+          "baselineAngleDeg": 90.00027161112408,
+          "baselineTimeS": 60,
+          "baselineRunId": "4217fd2e-6a78-339f-90f2-0159b20164e4",
+          "negativeControl": true,
+          "candidateEffortNs": 57.843090724945114,
+          "baselineProtectedDriftM": 0.014941336695245205,
+          "candidateProtectedDriftM": 0.0001703500747680664,
+          "candidateRunId": "8ffbe874-9eb5-39ab-9dec-19b8683b3684",
+          "baselineEffortNs": 167.80332066433542,
+          "split": "development",
+          "caseId": "dev034-torque-negative",
+          "candidateAngleDeg": 90,
+          "candidateTimeS": 60,
+          "baselinePassed": false,
+          "candidatePassed": false
+        },
+        {
+          "baselineAngleDeg": 0.00023039836089372673,
+          "baselineTimeS": 13.375,
+          "baselineRunId": "06bd570b-fbec-376f-9fe5-888f53c20991",
+          "negativeControl": false,
+          "candidateEffortNs": 154.70271603563285,
+          "baselineProtectedDriftM": 0.014940979168124906,
+          "candidateProtectedDriftM": 0.014940979168124906,
+          "candidateRunId": "c6ea36f2-b97c-369e-ac03-38e0b84286da",
+          "baselineEffortNs": 154.70271603563285,
+          "split": "evaluation",
+          "caseId": "reserved034-translate-x",
+          "candidateAngleDeg": 0.00023039836089372673,
+          "candidateTimeS": 13.375,
+          "baselinePassed": true,
+          "candidatePassed": true
+        },
+        {
+          "baselineAngleDeg": 0.0002314953045462871,
+          "baselineTimeS": 14.758333333333333,
+          "baselineRunId": "4521baa7-2cc3-3631-affe-5d9800c9061f",
+          "negativeControl": false,
+          "candidateEffortNs": 170.65407691427174,
+          "baselineProtectedDriftM": 0.01494130699362572,
+          "candidateProtectedDriftM": 0.01494130699362572,
+          "candidateRunId": "cfff265e-05e3-38b2-951f-66e3b943242a",
+          "baselineEffortNs": 170.65407691427174,
+          "split": "evaluation",
+          "caseId": "reserved034-translate-z",
+          "candidateAngleDeg": 0.0002314953045462871,
+          "candidateTimeS": 14.758333333333333,
+          "baselinePassed": true,
+          "candidatePassed": true
+        },
+        {
+          "baselineAngleDeg": 0.00027739363334818425,
+          "baselineTimeS": 16.933333333333334,
+          "baselineRunId": "e87710cc-307c-3d05-bbfa-39223863e29d",
+          "negativeControl": false,
+          "candidateEffortNs": 276.2447747686026,
+          "baselineProtectedDriftM": 0.014941337026112592,
+          "candidateProtectedDriftM": 0.014941337026112592,
+          "candidateRunId": "11e69830-ac24-3492-a3b7-4f0b87a5d194",
+          "baselineEffortNs": 276.2447747686026,
+          "split": "evaluation",
+          "caseId": "reserved034-heavy-translate",
+          "candidateAngleDeg": 0.00027739363334818425,
+          "candidateTimeS": 16.933333333333334,
+          "baselinePassed": true,
+          "candidatePassed": true
+        },
+        {
+          "baselineAngleDeg": 1.8831975797572922e-05,
+          "baselineTimeS": 16.933333333333334,
+          "baselineRunId": "49b9e42e-3240-30f3-a7ca-7d99b2da2c3f",
+          "negativeControl": false,
+          "candidateEffortNs": 198.70046603082952,
+          "baselineProtectedDriftM": 0.014941337026112592,
+          "candidateProtectedDriftM": 0.014941337026112592,
+          "candidateRunId": "cefe100d-f686-3e93-97da-ce61be077225",
+          "baselineEffortNs": 198.70046603082952,
+          "split": "evaluation",
+          "caseId": "reserved034-retained-heading",
+          "candidateAngleDeg": 1.8834811146556786e-05,
+          "candidateTimeS": 16.933333333333334,
+          "baselinePassed": true,
+          "candidatePassed": true
+        },
+        {
+          "baselineAngleDeg": 100.20027739745923,
+          "baselineTimeS": 60,
+          "baselineRunId": "b15318d4-67dc-3ed9-9592-49d518a20e65",
+          "negativeControl": false,
+          "candidateEffortNs": 248.33628007224027,
+          "baselineProtectedDriftM": 0.014941337026112592,
+          "candidateProtectedDriftM": 0.01494163504929056,
+          "candidateRunId": "6b03a3b5-39ce-3f18-a655-352d56bb1f4a",
+          "baselineEffortNs": 198.7004663964046,
+          "split": "evaluation",
+          "caseId": "reserved034-quarter-turn",
+          "candidateAngleDeg": 0.0005979312968996524,
+          "candidateTimeS": 20.925,
+          "baselinePassed": false,
+          "candidatePassed": true
+        },
+        {
+          "baselineAngleDeg": 100.19963805346225,
+          "baselineTimeS": 60,
+          "baselineRunId": "e6d7cb6d-fd9f-3f86-8341-b38ee6e0b6a7",
+          "negativeControl": false,
+          "candidateEffortNs": 320.438417056521,
+          "baselineProtectedDriftM": 0.014889181237685012,
+          "candidateProtectedDriftM": 0.014889509063218563,
+          "candidateRunId": "a82e9e58-ad13-350d-a804-dacbf646ba5d",
+          "baselineEffortNs": 270.80265231422686,
+          "split": "evaluation",
+          "caseId": "reserved034-opposite-turn",
+          "candidateAngleDeg": 0.0005978853692888738,
+          "candidateTimeS": 26.7125,
+          "baselinePassed": false,
+          "candidatePassed": true
+        },
+        {
+          "baselineAngleDeg": 171.50036194653774,
+          "baselineTimeS": 60,
+          "baselineRunId": "cf6b0164-f386-3fe2-a963-0833218f76aa",
+          "negativeControl": false,
+          "candidateEffortNs": 333.2645840515407,
+          "baselineProtectedDriftM": 0.014889181237685012,
+          "candidateProtectedDriftM": 0.014889509063218563,
+          "candidateRunId": "1cf19018-744f-31f6-974f-d784693d9170",
+          "baselineEffortNs": 270.80265231422686,
+          "split": "evaluation",
+          "caseId": "reserved034-half-turn",
+          "candidateAngleDeg": 0.0008919453467865215,
+          "candidateTimeS": 27.825,
+          "baselinePassed": false,
+          "candidatePassed": true
+        },
+        {
+          "baselineAngleDeg": 100.2006670780305,
+          "baselineTimeS": 60,
+          "baselineRunId": "0078bdf4-589f-317c-82ca-06f27b6cf161",
+          "negativeControl": false,
+          "candidateEffortNs": 427.4537998875261,
+          "baselineProtectedDriftM": 0.014894456594882742,
+          "candidateProtectedDriftM": 0.01489478442040868,
+          "candidateRunId": "4221e557-ffa5-3955-a875-63f64f152487",
+          "baselineEffortNs": 365.4099326276906,
+          "split": "evaluation",
+          "caseId": "reserved034-three-objects",
+          "candidateAngleDeg": 0.0005978792826738123,
+          "candidateTimeS": 38.454166666666666,
+          "baselinePassed": false,
+          "candidatePassed": true
+        },
+        {
+          "baselineAngleDeg": 4.165094750580676e-05,
+          "baselineTimeS": 60,
+          "baselineRunId": "8ee79254-8dda-3fa1-9852-99d68fc2e2a5",
+          "negativeControl": true,
+          "candidateEffortNs": 20.00000000000014,
+          "baselineProtectedDriftM": 1.4901161193847656e-08,
+          "candidateProtectedDriftM": 1.4901161193847656e-08,
+          "candidateRunId": "c1ca77fa-d88c-318f-bed0-31cc560afcb9",
+          "baselineEffortNs": 20.000000000000135,
+          "split": "evaluation",
+          "caseId": "reserved034-force-negative",
+          "candidateAngleDeg": 3.842558058450159e-05,
+          "candidateTimeS": 60,
+          "baselinePassed": false,
+          "candidatePassed": false
+        },
+        {
+          "baselineAngleDeg": 100.20027739745923,
+          "baselineTimeS": 60,
+          "baselineRunId": "5dabe711-f421-33fb-ae1a-cc340a122886",
+          "negativeControl": true,
+          "candidateEffortNs": 67.67641479571671,
+          "baselineProtectedDriftM": 0.014941337026112592,
+          "candidateProtectedDriftM": 0.0001703500747680664,
+          "candidateRunId": "c1f68509-d518-33e9-9fb0-edd9998f8e2b",
+          "baselineEffortNs": 198.7004663964046,
+          "split": "evaluation",
+          "caseId": "reserved034-torque-negative",
+          "candidateAngleDeg": 100.2,
+          "candidateTimeS": 60,
+          "baselinePassed": false,
+          "candidatePassed": false
+        }
+      ],
+      "gates": {
+        "negativeControlsMustFailBothArms": true,
+        "allFeasibleEvaluation": true,
+        "noTranslationAblationSuccessRegression": true,
+        "maxMatchedSuccessEffortRatio": 1.1,
+        "minMatchedSuccessCases": 4,
+        "allFeasibleDevelopment": true
+      },
+      "allCaseEffortRatio": 1.0436544129234546,
+      "evaluationPositiveCases": 8,
+      "successRegressions": 0,
+      "evaluationPositivePasses": 8,
+      "matchedSuccessEffortRatio": 1,
+      "scope": "Feature validation of a virtual force/torque gripper on multiple native bodies. Translation-only ablation is newly declared034, not the preserved033 contact pusher or a trained-policy comparison.",
+      "negativeControlErrors": 0,
+      "passed": true,
+      "developmentPositiveCases": 8,
+      "meanPenalizedTimeGainS": 12.608333333333338
+    },
+    "poseView": {
+      "cells": 15,
+      "frames": 6,
+      "maxError": 3.0386718776753696e-05,
+      "dataSha256": "463447f6ade3e61ab9f6cd9da7426772051d18267d06297a723013ce2a1483e0",
+      "passed": true,
+      "points": 4248
+    },
+    "comparisonView": {
+      "cells": 180,
+      "frames": 4,
+      "maxError": 2.8542968721012585e-05,
+      "coordinates": 320,
+      "dataSha256": "a4827362a02b033e062e70212113d98ab3b8f8c32692f7bdcd52f97aaf5d186a",
+      "passed": true
+    },
+    "sameRun": true,
+    "exactPrefix": true,
+    "restore": {
+      "maxBystanderDriftM": 9.07668185268743e-05,
+      "grabs": 3,
+      "contactPoints": 8612,
+      "maxRestoreAngleErrorDeg": 0,
+      "targets": [
+        {
+          "sourceId": "A",
+          "speedMps": 4.316783000084429e-05,
+          "positionErrorM": 0.0017325947099132342,
+          "angleErrorDeg": 0.00036849134483748905,
+          "angularSpeedRadps": 1.8614995009932804e-06
+        },
+        {
+          "sourceId": "B",
+          "speedMps": 7.068265170713825e-05,
+          "positionErrorM": 0.0010095953040890372,
+          "angleErrorDeg": 8.7768483902604e-05,
+          "angularSpeedRadps": 1.016782687447261e-06
+        },
+        {
+          "sourceId": "C",
+          "speedMps": 0.0001138795688500473,
+          "positionErrorM": 3.8528730538382996e-05,
+          "angleErrorDeg": 0.0005427617392779047,
+          "angularSpeedRadps": 3.89596166681474e-06
+        }
+      ],
+      "resumes": 1,
+      "maxRestoreVelocityError": 0,
+      "maxAngleErrorDeg": 0.0005427617392779047,
+      "maxRestorePositionErrorM": 0,
+      "scope": "Declared native multi-box pose arrangement by a bounded virtual force/torque gripper, not contact-only pushing, a physical robot hand, photographic recognition or LLM-weight training.",
+      "maxTorqueNm": 0.5040000081062318,
+      "workJ": 1.0663939588419646,
+      "passed": true,
+      "maxPositionErrorM": 0.0017325947099132342,
+      "nativeTicks": 8486,
+      "maxForceN": 19.45199966430666,
+      "effortNs": 335.5618154845115,
+      "maxInactiveAngleDeg": 0.019988493571559105,
+      "maxInactiveDriftM": 0.01489740702461621,
+      "releases": 3,
+      "timeS": 35.358333333333334,
+      "maxAngularSpeedRadps": 3.89596166681474e-06,
+      "maxSpeedMps": 0.0001138795688500473,
+      "nativePhysics": true,
+      "torqueEffortNms": 0.4746877838149865,
+      "maxBystanderAngleDeg": 0.019988493571559105,
+      "angularWorkJ": 0.059832602936779
+    }
+  },
+  "actualLocalModel": {
+    "model": "gpt-oss:20b",
+    "episodes": 3,
+    "checks": 4,
+    "starts": [
+      [
+        "pose.compare",
+        "goal.read"
+      ],
+      [
+        "pose.start",
+        "goal.read"
+      ],
+      [
+        "procedure.run",
+        "goal.read"
+      ]
+    ],
+    "repairs": [
+      [
+        {
+          "at": "2026-11-01T13:01:56.462800100Z",
+          "data": {
+            "turn": 2,
+            "episodeId": "6f1f4556-3464-44cf-984b-1adef58340a9",
+            "error": "This tool cannot advance the current Java goal stage"
+          },
+          "kind": "agent_repair"
+        },
+        {
+          "at": "2026-11-01T13:02:02.155445Z",
+          "data": {
+            "turn": 3,
+            "episodeId": "6f1f4556-3464-44cf-984b-1adef58340a9",
+            "error": "This tool cannot advance the current Java goal stage"
+          },
+          "kind": "agent_repair"
+        },
+        {
+          "at": "2026-11-01T13:02:07.572136400Z",
+          "data": {
+            "turn": 4,
+            "episodeId": "6f1f4556-3464-44cf-984b-1adef58340a9",
+            "error": "This tool cannot advance the current Java goal stage"
+          },
+          "kind": "agent_repair"
+        }
+      ],
+      [
+        {
+          "at": "2026-11-01T13:05:16.662643700Z",
+          "data": {
+            "turn": 1,
+            "episodeId": "5a5ea918-3690-4a4e-8a81-43c4ad3931f7",
+            "error": "Preserve the requested saved pose skill name"
+          },
+          "kind": "agent_repair"
+        },
+        {
+          "at": "2026-11-01T13:05:33.572100600Z",
+          "data": {
+            "turn": 2,
+            "episodeId": "5a5ea918-3690-4a4e-8a81-43c4ad3931f7",
+            "error": "Preserve the requested saved pose skill name"
+          },
+          "kind": "agent_repair"
+        },
+        {
+          "at": "2026-11-01T13:05:44.559955300Z",
+          "data": {
+            "turn": 3,
+            "episodeId": "5a5ea918-3690-4a4e-8a81-43c4ad3931f7",
+            "error": "Preserve the requested saved pose skill name"
+          },
+          "kind": "agent_repair"
+        },
+        {
+          "at": "2026-11-01T13:05:54.122910300Z",
+          "data": {
+            "turn": 4,
+            "episodeId": "5a5ea918-3690-4a4e-8a81-43c4ad3931f7",
+            "error": "Preserve the requested saved pose skill name"
+          },
+          "kind": "agent_repair"
+        },
+        {
+          "at": "2026-11-01T13:06:04.386028700Z",
+          "data": {
+            "turn": 5,
+            "episodeId": "5a5ea918-3690-4a4e-8a81-43c4ad3931f7",
+            "error": "Preserve the requested saved pose skill name"
+          },
+          "kind": "agent_repair"
+        }
+      ],
+      []
+    ]
+  },
+  "actualExport": {
+    "format": "fraynix.native-export-parts-v1",
+    "rawSha256": "3a45fa92efc98c6d4718ed4ff30de70306d782e79149708a319266e244ae2317",
+    "rawBytes": 129319380,
+    "manifestSha256": "5f6a41d6292d042868444147324879d6f4d7eac72d7f8b62b565b66cc71a65a2",
+    "parts": 3,
+    "runs": 40
+  },
+  "scope": [
+    "New bounded virtual force/torque gripper; torque ablation, not033contact-controller improvement",
+    "Frozen different synthetic cases now seen; no native retuning after first measurement",
+    "Same-run all-body continuation supported; new goals start from immutable source, not implicit previous-world continuation",
+    "No new dependencies/models/cloud/Docker/WSL; no LLM-weight training, physical robot or calibrated perception claim"
+  ]
+}

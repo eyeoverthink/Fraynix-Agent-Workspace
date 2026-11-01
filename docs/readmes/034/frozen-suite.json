@@ -1,0 +1,3300 @@
+{
+  "version": "pose-tasks-034-v1",
+  "scope": "Feature validation of a virtual force/torque gripper on multiple native bodies. Translation-only ablation is newly declared034, not the preserved033 contact pusher or a trained-policy comparison.",
+  "limits": {
+    "maxSeconds": 60,
+    "stageSeconds": 12,
+    "stalledSeconds": 2,
+    "positionM": 0.1,
+    "angleDeg": 5,
+    "speedMps": 0.2,
+    "angularSpeedRadps": 0.2,
+    "bystanderDriftM": 0.05,
+    "bystanderAngleDeg": 5,
+    "maxForceN": 60,
+    "maxTorqueNm": 4,
+    "fixedHz": 240,
+    "maxTargets": 4
+  },
+  "gates": {
+    "allFeasibleDevelopment": true,
+    "allFeasibleEvaluation": true,
+    "negativeControlsMustFailBothArms": true,
+    "noTranslationAblationSuccessRegression": true,
+    "maxMatchedSuccessEffortRatio": 1.1,
+    "minMatchedSuccessCases": 4
+  },
+  "failedSeconds": 60,
+  "cases": [
+    {
+      "id": "dev034-translate-x",
+      "split": "development",
+      "negativeControl": false,
+      "source": {
+        "format": "fraynix.spatial-scene",
+        "version": 1,
+        "title": "Labelled034 development: translate-x",
+        "units": "m",
+        "frame": "right-handed-y-up",
+        "source": {
+          "kind": "synthetic",
+          "physicalProperties": "declared",
+          "note": "Frozen034 declared native rigid-body pose task. Virtual force/torque gripper; not a captured room or physical robot hand."
+        },
+        "scaleReference": {
+          "a": [
+            0,
+            0,
+            0
+          ],
+          "b": [
+            1,
+            0,
+            0
+          ],
+          "knownLengthM": 1,
+          "toleranceM": 0,
+          "basis": "declared-test"
+        },
+        "gravityMps2": 9.81,
+        "objects": [
+          {
+            "sourceId": "floor",
+            "label": "floor",
+            "shape": "box",
+            "position": [
+              0,
+              -0.25,
+              0
+            ],
+            "size": [
+              12,
+              0.5,
+              12
+            ],
+            "massKg": 0,
+            "friction": 0.5,
+            "restitution": 0,
+            "rotation": [
+              0,
+              0.0,
+              0,
+              1.0
+            ]
+          },
+          {
+            "sourceId": "A",
+            "label": "A",
+            "shape": "box",
+            "position": [
+              -2,
+              0.3,
+              -1.5
+            ],
+            "size": [
+              0.8,
+              0.6,
+              0.45
+            ],
+            "massKg": 1.0,
+            "friction": 0.45,
+            "restitution": 0,
+            "rotation": [
+              0,
+              0.0,
+              0,
+              1.0
+            ]
+          },
+          {
+            "sourceId": "B",
+            "label": "B",
+            "shape": "box",
+            "position": [
+              2,
+              0.25,
+              1.5
+            ],
+            "size": [
+              0.7,
+              0.5,
+              0.5
+            ],
+            "massKg": 1.2,
+            "friction": 0.45,
+            "restitution": 0,
+            "rotation": [
+              0,
+              0.0,
+              0,
+              1.0
+            ]
+          },
+          {
+            "sourceId": "bystander",
+            "label": "bystander",
+            "shape": "box",
+            "position": [
+              3,
+              0.25,
+              2.7
+            ],
+            "size": [
+              0.5,
+              0.5,
+              0.6
+            ],
+            "massKg": 1,
+            "friction": 0.6,
+            "restitution": 0,
+            "rotation": [
+              0,
+              0.0,
+              0,
+              1.0
+            ]
+          }
+        ]
+      },
+      "targets": [
+        {
+          "sourceId": "A",
+          "positionM": [
+            -0.7,
+            0.3,
+            -1.5
+          ],
+          "yawDeg": 0
+        },
+        {
+          "sourceId": "B",
+          "positionM": [
+            2,
+            0.25,
+            0.1
+          ],
+          "yawDeg": 0
+        }
+      ],
+      "forceLimitN": 60,
+      "torqueLimitNm": 4
+    },
+    {
+      "id": "dev034-translate-z",
+      "split": "development",
+      "negativeControl": false,
+      "source": {
+        "format": "fraynix.spatial-scene",
+        "version": 1,
+        "title": "Labelled034 development: translate-z",
+        "units": "m",
+        "frame": "right-handed-y-up",
+        "source": {
+          "kind": "synthetic",
+          "physicalProperties": "declared",
+          "note": "Frozen034 declared native rigid-body pose task. Virtual force/torque gripper; not a captured room or physical robot hand."
+        },
+        "scaleReference": {
+          "a": [
+            0,
+            0,
+            0
+          ],
+          "b": [
+            1,
+            0,
+            0
+          ],
+          "knownLengthM": 1,
+          "toleranceM": 0,
+          "basis": "declared-test"
+        },
+        "gravityMps2": 9.81,
+        "objects": [
+          {
+            "sourceId": "floor",
+            "label": "floor",
+            "shape": "box",
+            "position": [
+              0,
+              -0.25,
+              0
+            ],
+            "size": [
+              12,
+              0.5,
+              12
+            ],
+            "massKg": 0,
+            "friction": 0.5,
+            "restitution": 0,
+            "rotation": [
+              0,
+              0.0,
+              0,
+              1.0
+            ]
+          },
+          {
+            "sourceId": "A",
+            "label": "A",
+            "shape": "box",
+            "position": [
+              -2,
+              0.3,
+              -1.5
+            ],
+            "size": [
+              0.8,
+              0.6,
+              0.45
+            ],
+            "massKg": 1.0,
+            "friction": 0.45,
+            "restitution": 0,
+            "rotation": [
+              0,
+              0.0,
+              0,
+              1.0
+            ]
+          },
+          {
+            "sourceId": "B",
+            "label": "B",
+            "shape": "box",
+            "position": [
+              2,
+              0.25,
+              1.5
+            ],
+            "size": [
+              0.7,
+              0.5,
+              0.5
+            ],
+            "massKg": 1.2,
+            "friction": 0.45,
+            "restitution": 0,
+            "rotation": [
+              0,
+              0.0,
+              0,
+              1.0
+            ]
+          },
+          {
+            "sourceId": "bystander",
+            "label": "bystander",
+            "shape": "box",
+            "position": [
+              3,
+              0.25,
+              2.7
+            ],
+            "size": [
+              0.5,
+              0.5,
+              0.6
+            ],
+            "massKg": 1,
+            "friction": 0.6,
+            "restitution": 0,
+            "rotation": [
+              0,
+              0.0,
+              0,
+              1.0
+            ]
+          }
+        ]
+      },
+      "targets": [
+        {
+          "sourceId": "A",
+          "positionM": [
+            -2,
+            0.3,
+            0.7
+          ],
+          "yawDeg": 0
+        },
+        {
+          "sourceId": "B",
+          "positionM": [
+            0.4,
+            0.25,
+            1.5
+          ],
+          "yawDeg": 0
+        }
+      ],
+      "forceLimitN": 60,
+      "torqueLimitNm": 4
+    },
+    {
+      "id": "dev034-heavy-translate",
+      "split": "development",
+      "negativeControl": false,
+      "source": {
+        "format": "fraynix.spatial-scene",
+        "version": 1,
+        "title": "Labelled034 development: heavy-translate",
+        "units": "m",
+        "frame": "right-handed-y-up",
+        "source": {
+          "kind": "synthetic",
+          "physicalProperties": "declared",
+          "note": "Frozen034 declared native rigid-body pose task. Virtual force/torque gripper; not a captured room or physical robot hand."
+        },
+        "scaleReference": {
+          "a": [
+            0,
+            0,
+            0
+          ],
+          "b": [
+            1,
+            0,
+            0
+          ],
+          "knownLengthM": 1,
+          "toleranceM": 0,
+          "basis": "declared-test"
+        },
+        "gravityMps2": 9.81,
+        "objects": [
+          {
+            "sourceId": "floor",
+            "label": "floor",
+            "shape": "box",
+            "position": [
+              0,
+              -0.25,
+              0
+            ],
+            "size": [
+              12,
+              0.5,
+              12
+            ],
+            "massKg": 0,
+            "friction": 0.5,
+            "restitution": 0,
+            "rotation": [
+              0,
+              0.0,
+              0,
+              1.0
+            ]
+          },
+          {
+            "sourceId": "A",
+            "label": "A",
+            "shape": "box",
+            "position": [
+              -2,
+              0.3,
+              -1.5
+            ],
+            "size": [
+              0.8,
+              0.6,
+              0.45
+            ],
+            "massKg": 2.0,
+            "friction": 0.45,
+            "restitution": 0,
+            "rotation": [
+              0,
+              0.0,
+              0,
+              1.0
+            ]
+          },
+          {
+            "sourceId": "B",
+            "label": "B",
+            "shape": "box",
+            "position": [
+              2,
+              0.25,
+              1.5
+            ],
+            "size": [
+              0.7,
+              0.5,
+              0.5
+            ],
+            "massKg": 1.2,
+            "friction": 0.45,
+            "restitution": 0,
+            "rotation": [
+              0,
+              0.0,
+              0,
+              1.0
+            ]
+          },
+          {
+            "sourceId": "bystander",
+            "label": "bystander",
+            "shape": "box",
+            "position": [
+              3,
+              0.25,
+              2.7
+            ],
+            "size": [
+              0.5,
+              0.5,
+              0.6
+            ],
+            "massKg": 1,
+            "friction": 0.6,
+            "restitution": 0,
+            "rotation": [
+              0,
+              0.0,
+              0,
+              1.0
+            ]
+          }
+        ]
+      },
+      "targets": [
+        {
+          "sourceId": "A",
+          "positionM": [
+            -1,
+            0.3,
+            1
+          ],
+          "yawDeg": 0
+        },
+        {
+          "sourceId": "B",
+          "positionM": [
+            1,
+            0.25,
+            -1
+          ],
+          "yawDeg": 0
+        }
+      ],
+      "forceLimitN": 60,
+      "torqueLimitNm": 4
+    },
+    {
+      "id": "dev034-retained-heading",
+      "split": "development",
+      "negativeControl": false,
+      "source": {
+        "format": "fraynix.spatial-scene",
+        "version": 1,
+        "title": "Labelled034 development: retained-heading",
+        "units": "m",
+        "frame": "right-handed-y-up",
+        "source": {
+          "kind": "synthetic",
+          "physicalProperties": "declared",
+          "note": "Frozen034 declared native rigid-body pose task. Virtual force/torque gripper; not a captured room or physical robot hand."
+        },
+        "scaleReference": {
+          "a": [
+            0,
+            0,
+            0
+          ],
+          "b": [
+            1,
+            0,
+            0
+          ],
+          "knownLengthM": 1,
+          "toleranceM": 0,
+          "basis": "declared-test"
+        },
+        "gravityMps2": 9.81,
+        "objects": [
+          {
+            "sourceId": "floor",
+            "label": "floor",
+            "shape": "box",
+            "position": [
+              0,
+              -0.25,
+              0
+            ],
+            "size": [
+              12,
+              0.5,
+              12
+            ],
+            "massKg": 0,
+            "friction": 0.5,
+            "restitution": 0,
+            "rotation": [
+              0,
+              0.0,
+              0,
+              1.0
+            ]
+          },
+          {
+            "sourceId": "A",
+            "label": "A",
+            "shape": "box",
+            "position": [
+              -2,
+              0.3,
+              -1.5
+            ],
+            "size": [
+              0.8,
+              0.6,
+              0.45
+            ],
+            "massKg": 1.0,
+            "friction": 0.45,
+            "restitution": 0,
+            "rotation": [
+              0,
+              0.21643961393810288,
+              0,
+              0.9762960071199334
+            ]
+          },
+          {
+            "sourceId": "B",
+            "label": "B",
+            "shape": "box",
+            "position": [
+              2,
+              0.25,
+              1.5
+            ],
+            "size": [
+              0.7,
+              0.5,
+              0.5
+            ],
+            "massKg": 1.2,
+            "friction": 0.45,
+            "restitution": 0,
+            "rotation": [
+              0,
+              -0.21643961393810288,
+              0,
+              0.9762960071199334
+            ]
+          },
+          {
+            "sourceId": "bystander",
+            "label": "bystander",
+            "shape": "box",
+            "position": [
+              3,
+              0.25,
+              2.7
+            ],
+            "size": [
+              0.5,
+              0.5,
+              0.6
+            ],
+            "massKg": 1,
+            "friction": 0.6,
+            "restitution": 0,
+            "rotation": [
+              0,
+              0.0,
+              0,
+              1.0
+            ]
+          }
+        ]
+      },
+      "targets": [
+        {
+          "sourceId": "A",
+          "positionM": [
+            -1,
+            0.3,
+            1
+          ],
+          "yawDeg": 25
+        },
+        {
+          "sourceId": "B",
+          "positionM": [
+            1,
+            0.25,
+            -1
+          ],
+          "yawDeg": -25
+        }
+      ],
+      "forceLimitN": 60,
+      "torqueLimitNm": 4
+    },
+    {
+      "id": "dev034-quarter-turn",
+      "split": "development",
+      "negativeControl": false,
+      "source": {
+        "format": "fraynix.spatial-scene",
+        "version": 1,
+        "title": "Labelled034 development: quarter-turn",
+        "units": "m",
+        "frame": "right-handed-y-up",
+        "source": {
+          "kind": "synthetic",
+          "physicalProperties": "declared",
+          "note": "Frozen034 declared native rigid-body pose task. Virtual force/torque gripper; not a captured room or physical robot hand."
+        },
+        "scaleReference": {
+          "a": [
+            0,
+            0,
+            0
+          ],
+          "b": [
+            1,
+            0,
+            0
+          ],
+          "knownLengthM": 1,
+          "toleranceM": 0,
+          "basis": "declared-test"
+        },
+        "gravityMps2": 9.81,
+        "objects": [
+          {
+            "sourceId": "floor",
+            "label": "floor",
+            "shape": "box",
+            "position": [
+              0,
+              -0.25,
+              0
+            ],
+            "size": [
+              12,
+              0.5,
+              12
+            ],
+            "massKg": 0,
+            "friction": 0.5,
+            "restitution": 0,
+            "rotation": [
+              0,
+              0.0,
+              0,
+              1.0
+            ]
+          },
+          {
+            "sourceId": "A",
+            "label": "A",
+            "shape": "box",
+            "position": [
+              -2,
+              0.3,
+              -1.5
+            ],
+            "size": [
+              0.8,
+              0.6,
+              0.45
+            ],
+            "massKg": 1.0,
+            "friction": 0.45,
+            "restitution": 0,
+            "rotation": [
+              0,
+              0.0,
+              0,
+              1.0
+            ]
+          },
+          {
+            "sourceId": "B",
+            "label": "B",
+            "shape": "box",
+            "position": [
+              2,
+              0.25,
+              1.5
+            ],
+            "size": [
+              0.7,
+              0.5,
+              0.5
+            ],
+            "massKg": 1.2,
+            "friction": 0.45,
+            "restitution": 0,
+            "rotation": [
+              0,
+              0.0,
+              0,
+              1.0
+            ]
+          },
+          {
+            "sourceId": "bystander",
+            "label": "bystander",
+            "shape": "box",
+            "position": [
+              3,
+              0.25,
+              2.7
+            ],
+            "size": [
+              0.5,
+              0.5,
+              0.6
+            ],
+            "massKg": 1,
+            "friction": 0.6,
+            "restitution": 0,
+            "rotation": [
+              0,
+              0.0,
+              0,
+              1.0
+            ]
+          }
+        ]
+      },
+      "targets": [
+        {
+          "sourceId": "A",
+          "positionM": [
+            -1,
+            0.3,
+            1
+          ],
+          "yawDeg": 90
+        },
+        {
+          "sourceId": "B",
+          "positionM": [
+            1,
+            0.25,
+            -1
+          ],
+          "yawDeg": -90
+        }
+      ],
+      "forceLimitN": 60,
+      "torqueLimitNm": 4
+    },
+    {
+      "id": "dev034-opposite-turn",
+      "split": "development",
+      "negativeControl": false,
+      "source": {
+        "format": "fraynix.spatial-scene",
+        "version": 1,
+        "title": "Labelled034 development: opposite-turn",
+        "units": "m",
+        "frame": "right-handed-y-up",
+        "source": {
+          "kind": "synthetic",
+          "physicalProperties": "declared",
+          "note": "Frozen034 declared native rigid-body pose task. Virtual force/torque gripper; not a captured room or physical robot hand."
+        },
+        "scaleReference": {
+          "a": [
+            0,
+            0,
+            0
+          ],
+          "b": [
+            1,
+            0,
+            0
+          ],
+          "knownLengthM": 1,
+          "toleranceM": 0,
+          "basis": "declared-test"
+        },
+        "gravityMps2": 9.81,
+        "objects": [
+          {
+            "sourceId": "floor",
+            "label": "floor",
+            "shape": "box",
+            "position": [
+              0,
+              -0.25,
+              0
+            ],
+            "size": [
+              12,
+              0.5,
+              12
+            ],
+            "massKg": 0,
+            "friction": 0.5,
+            "restitution": 0,
+            "rotation": [
+              0,
+              0.0,
+              0,
+              1.0
+            ]
+          },
+          {
+            "sourceId": "A",
+            "label": "A",
+            "shape": "box",
+            "position": [
+              -2,
+              0.3,
+              -1.5
+            ],
+            "size": [
+              0.8,
+              0.6,
+              0.45
+            ],
+            "massKg": 1.0,
+            "friction": 0.45,
+            "restitution": 0,
+            "rotation": [
+              0,
+              0.0,
+              0,
+              1.0
+            ]
+          },
+          {
+            "sourceId": "B",
+            "label": "B",
+            "shape": "box",
+            "position": [
+              2,
+              0.25,
+              1.5
+            ],
+            "size": [
+              0.7,
+              0.5,
+              0.5
+            ],
+            "massKg": 1.2,
+            "friction": 0.45,
+            "restitution": 0,
+            "rotation": [
+              0,
+              0.0,
+              0,
+              1.0
+            ]
+          },
+          {
+            "sourceId": "bystander",
+            "label": "bystander",
+            "shape": "box",
+            "position": [
+              3,
+              0.25,
+              2.7
+            ],
+            "size": [
+              0.5,
+              0.5,
+              0.6
+            ],
+            "massKg": 1,
+            "friction": 0.6,
+            "restitution": 0,
+            "rotation": [
+              0,
+              0.0,
+              0,
+              1.0
+            ]
+          },
+          {
+            "sourceId": "obstacle",
+            "label": "obstacle",
+            "shape": "box",
+            "position": [
+              0,
+              0.6,
+              0
+            ],
+            "size": [
+              0.8,
+              1.2,
+              0.8
+            ],
+            "massKg": 0,
+            "friction": 0.5,
+            "restitution": 0,
+            "rotation": [
+              0,
+              0.0,
+              0,
+              1.0
+            ]
+          }
+        ]
+      },
+      "targets": [
+        {
+          "sourceId": "A",
+          "positionM": [
+            -1,
+            0.3,
+            1
+          ],
+          "yawDeg": -90
+        },
+        {
+          "sourceId": "B",
+          "positionM": [
+            1,
+            0.25,
+            -1
+          ],
+          "yawDeg": -90
+        }
+      ],
+      "forceLimitN": 60,
+      "torqueLimitNm": 4
+    },
+    {
+      "id": "dev034-half-turn",
+      "split": "development",
+      "negativeControl": false,
+      "source": {
+        "format": "fraynix.spatial-scene",
+        "version": 1,
+        "title": "Labelled034 development: half-turn",
+        "units": "m",
+        "frame": "right-handed-y-up",
+        "source": {
+          "kind": "synthetic",
+          "physicalProperties": "declared",
+          "note": "Frozen034 declared native rigid-body pose task. Virtual force/torque gripper; not a captured room or physical robot hand."
+        },
+        "scaleReference": {
+          "a": [
+            0,
+            0,
+            0
+          ],
+          "b": [
+            1,
+            0,
+            0
+          ],
+          "knownLengthM": 1,
+          "toleranceM": 0,
+          "basis": "declared-test"
+        },
+        "gravityMps2": 9.81,
+        "objects": [
+          {
+            "sourceId": "floor",
+            "label": "floor",
+            "shape": "box",
+            "position": [
+              0,
+              -0.25,
+              0
+            ],
+            "size": [
+              12,
+              0.5,
+              12
+            ],
+            "massKg": 0,
+            "friction": 0.5,
+            "restitution": 0,
+            "rotation": [
+              0,
+              0.0,
+              0,
+              1.0
+            ]
+          },
+          {
+            "sourceId": "A",
+            "label": "A",
+            "shape": "box",
+            "position": [
+              -2,
+              0.3,
+              -1.5
+            ],
+            "size": [
+              0.8,
+              0.6,
+              0.45
+            ],
+            "massKg": 1.0,
+            "friction": 0.45,
+            "restitution": 0,
+            "rotation": [
+              0,
+              0.0,
+              0,
+              1.0
+            ]
+          },
+          {
+            "sourceId": "B",
+            "label": "B",
+            "shape": "box",
+            "position": [
+              2,
+              0.25,
+              1.5
+            ],
+            "size": [
+              0.7,
+              0.5,
+              0.5
+            ],
+            "massKg": 1.2,
+            "friction": 0.45,
+            "restitution": 0,
+            "rotation": [
+              0,
+              0.0,
+              0,
+              1.0
+            ]
+          },
+          {
+            "sourceId": "bystander",
+            "label": "bystander",
+            "shape": "box",
+            "position": [
+              3,
+              0.25,
+              2.7
+            ],
+            "size": [
+              0.5,
+              0.5,
+              0.6
+            ],
+            "massKg": 1,
+            "friction": 0.6,
+            "restitution": 0,
+            "rotation": [
+              0,
+              0.0,
+              0,
+              1.0
+            ]
+          },
+          {
+            "sourceId": "obstacle",
+            "label": "obstacle",
+            "shape": "box",
+            "position": [
+              0,
+              0.6,
+              0
+            ],
+            "size": [
+              0.8,
+              1.2,
+              0.8
+            ],
+            "massKg": 0,
+            "friction": 0.5,
+            "restitution": 0,
+            "rotation": [
+              0,
+              0.0,
+              0,
+              1.0
+            ]
+          }
+        ]
+      },
+      "targets": [
+        {
+          "sourceId": "A",
+          "positionM": [
+            -1,
+            0.3,
+            1
+          ],
+          "yawDeg": 180
+        },
+        {
+          "sourceId": "B",
+          "positionM": [
+            1,
+            0.25,
+            -1
+          ],
+          "yawDeg": 90
+        }
+      ],
+      "forceLimitN": 60,
+      "torqueLimitNm": 4
+    },
+    {
+      "id": "dev034-three-objects",
+      "split": "development",
+      "negativeControl": false,
+      "source": {
+        "format": "fraynix.spatial-scene",
+        "version": 1,
+        "title": "Labelled034 development: three-objects",
+        "units": "m",
+        "frame": "right-handed-y-up",
+        "source": {
+          "kind": "synthetic",
+          "physicalProperties": "declared",
+          "note": "Frozen034 declared native rigid-body pose task. Virtual force/torque gripper; not a captured room or physical robot hand."
+        },
+        "scaleReference": {
+          "a": [
+            0,
+            0,
+            0
+          ],
+          "b": [
+            1,
+            0,
+            0
+          ],
+          "knownLengthM": 1,
+          "toleranceM": 0,
+          "basis": "declared-test"
+        },
+        "gravityMps2": 9.81,
+        "objects": [
+          {
+            "sourceId": "floor",
+            "label": "floor",
+            "shape": "box",
+            "position": [
+              0,
+              -0.25,
+              0
+            ],
+            "size": [
+              12,
+              0.5,
+              12
+            ],
+            "massKg": 0,
+            "friction": 0.5,
+            "restitution": 0,
+            "rotation": [
+              0,
+              0.0,
+              0,
+              1.0
+            ]
+          },
+          {
+            "sourceId": "A",
+            "label": "A",
+            "shape": "box",
+            "position": [
+              -2,
+              0.3,
+              -1.5
+            ],
+            "size": [
+              0.8,
+              0.6,
+              0.45
+            ],
+            "massKg": 1.0,
+            "friction": 0.45,
+            "restitution": 0,
+            "rotation": [
+              0,
+              0.0,
+              0,
+              1.0
+            ]
+          },
+          {
+            "sourceId": "B",
+            "label": "B",
+            "shape": "box",
+            "position": [
+              2,
+              0.25,
+              1.5
+            ],
+            "size": [
+              0.7,
+              0.5,
+              0.5
+            ],
+            "massKg": 1.2,
+            "friction": 0.45,
+            "restitution": 0,
+            "rotation": [
+              0,
+              0.0,
+              0,
+              1.0
+            ]
+          },
+          {
+            "sourceId": "bystander",
+            "label": "bystander",
+            "shape": "box",
+            "position": [
+              3,
+              0.25,
+              2.7
+            ],
+            "size": [
+              0.5,
+              0.5,
+              0.6
+            ],
+            "massKg": 1,
+            "friction": 0.6,
+            "restitution": 0,
+            "rotation": [
+              0,
+              0.0,
+              0,
+              1.0
+            ]
+          },
+          {
+            "sourceId": "obstacle",
+            "label": "obstacle",
+            "shape": "box",
+            "position": [
+              0,
+              0.6,
+              0
+            ],
+            "size": [
+              0.8,
+              1.2,
+              0.8
+            ],
+            "massKg": 0,
+            "friction": 0.5,
+            "restitution": 0,
+            "rotation": [
+              0,
+              0.0,
+              0,
+              1.0
+            ]
+          },
+          {
+            "sourceId": "C",
+            "label": "C",
+            "shape": "box",
+            "position": [
+              -3.6,
+              0.2,
+              0.7
+            ],
+            "size": [
+              0.65,
+              0.4,
+              0.5
+            ],
+            "massKg": 0.8,
+            "friction": 0.45,
+            "restitution": 0,
+            "rotation": [
+              0,
+              0.0,
+              0,
+              1.0
+            ]
+          }
+        ]
+      },
+      "targets": [
+        {
+          "sourceId": "A",
+          "positionM": [
+            -1,
+            0.3,
+            1
+          ],
+          "yawDeg": 90
+        },
+        {
+          "sourceId": "B",
+          "positionM": [
+            1,
+            0.25,
+            -1
+          ],
+          "yawDeg": -90
+        },
+        {
+          "sourceId": "C",
+          "positionM": [
+            -3.6,
+            0.2,
+            -1.1
+          ],
+          "yawDeg": 45
+        }
+      ],
+      "forceLimitN": 60,
+      "torqueLimitNm": 4
+    },
+    {
+      "id": "dev034-force-negative",
+      "split": "development",
+      "negativeControl": true,
+      "source": {
+        "format": "fraynix.spatial-scene",
+        "version": 1,
+        "title": "Labelled034 development: force-negative",
+        "units": "m",
+        "frame": "right-handed-y-up",
+        "source": {
+          "kind": "synthetic",
+          "physicalProperties": "declared",
+          "note": "Frozen034 declared native rigid-body pose task. Virtual force/torque gripper; not a captured room or physical robot hand."
+        },
+        "scaleReference": {
+          "a": [
+            0,
+            0,
+            0
+          ],
+          "b": [
+            1,
+            0,
+            0
+          ],
+          "knownLengthM": 1,
+          "toleranceM": 0,
+          "basis": "declared-test"
+        },
+        "gravityMps2": 9.81,
+        "objects": [
+          {
+            "sourceId": "floor",
+            "label": "floor",
+            "shape": "box",
+            "position": [
+              0,
+              -0.25,
+              0
+            ],
+            "size": [
+              12,
+              0.5,
+              12
+            ],
+            "massKg": 0,
+            "friction": 0.5,
+            "restitution": 0,
+            "rotation": [
+              0,
+              0.0,
+              0,
+              1.0
+            ]
+          },
+          {
+            "sourceId": "A",
+            "label": "A",
+            "shape": "box",
+            "position": [
+              -2,
+              0.3,
+              -1.5
+            ],
+            "size": [
+              0.8,
+              0.6,
+              0.45
+            ],
+            "massKg": 3.2,
+            "friction": 0.45,
+            "restitution": 0,
+            "rotation": [
+              0,
+              0.0,
+              0,
+              1.0
+            ]
+          },
+          {
+            "sourceId": "B",
+            "label": "B",
+            "shape": "box",
+            "position": [
+              2,
+              0.25,
+              1.5
+            ],
+            "size": [
+              0.7,
+              0.5,
+              0.5
+            ],
+            "massKg": 1.2,
+            "friction": 0.45,
+            "restitution": 0,
+            "rotation": [
+              0,
+              0.0,
+              0,
+              1.0
+            ]
+          },
+          {
+            "sourceId": "bystander",
+            "label": "bystander",
+            "shape": "box",
+            "position": [
+              3,
+              0.25,
+              2.7
+            ],
+            "size": [
+              0.5,
+              0.5,
+              0.6
+            ],
+            "massKg": 1,
+            "friction": 0.6,
+            "restitution": 0,
+            "rotation": [
+              0,
+              0.0,
+              0,
+              1.0
+            ]
+          }
+        ]
+      },
+      "targets": [
+        {
+          "sourceId": "A",
+          "positionM": [
+            -1,
+            0.3,
+            1
+          ],
+          "yawDeg": 0
+        },
+        {
+          "sourceId": "B",
+          "positionM": [
+            1,
+            0.25,
+            -1
+          ],
+          "yawDeg": 0
+        }
+      ],
+      "forceLimitN": 10,
+      "torqueLimitNm": 4
+    },
+    {
+      "id": "dev034-torque-negative",
+      "split": "development",
+      "negativeControl": true,
+      "source": {
+        "format": "fraynix.spatial-scene",
+        "version": 1,
+        "title": "Labelled034 development: torque-negative",
+        "units": "m",
+        "frame": "right-handed-y-up",
+        "source": {
+          "kind": "synthetic",
+          "physicalProperties": "declared",
+          "note": "Frozen034 declared native rigid-body pose task. Virtual force/torque gripper; not a captured room or physical robot hand."
+        },
+        "scaleReference": {
+          "a": [
+            0,
+            0,
+            0
+          ],
+          "b": [
+            1,
+            0,
+            0
+          ],
+          "knownLengthM": 1,
+          "toleranceM": 0,
+          "basis": "declared-test"
+        },
+        "gravityMps2": 9.81,
+        "objects": [
+          {
+            "sourceId": "floor",
+            "label": "floor",
+            "shape": "box",
+            "position": [
+              0,
+              -0.25,
+              0
+            ],
+            "size": [
+              12,
+              0.5,
+              12
+            ],
+            "massKg": 0,
+            "friction": 0.5,
+            "restitution": 0,
+            "rotation": [
+              0,
+              0.0,
+              0,
+              1.0
+            ]
+          },
+          {
+            "sourceId": "A",
+            "label": "A",
+            "shape": "box",
+            "position": [
+              -2,
+              0.3,
+              -1.5
+            ],
+            "size": [
+              0.8,
+              0.6,
+              0.45
+            ],
+            "massKg": 1.0,
+            "friction": 0.45,
+            "restitution": 0,
+            "rotation": [
+              0,
+              0.0,
+              0,
+              1.0
+            ]
+          },
+          {
+            "sourceId": "B",
+            "label": "B",
+            "shape": "box",
+            "position": [
+              2,
+              0.25,
+              1.5
+            ],
+            "size": [
+              0.7,
+              0.5,
+              0.5
+            ],
+            "massKg": 1.2,
+            "friction": 0.45,
+            "restitution": 0,
+            "rotation": [
+              0,
+              0.0,
+              0,
+              1.0
+            ]
+          },
+          {
+            "sourceId": "bystander",
+            "label": "bystander",
+            "shape": "box",
+            "position": [
+              3,
+              0.25,
+              2.7
+            ],
+            "size": [
+              0.5,
+              0.5,
+              0.6
+            ],
+            "massKg": 1,
+            "friction": 0.6,
+            "restitution": 0,
+            "rotation": [
+              0,
+              0.0,
+              0,
+              1.0
+            ]
+          }
+        ]
+      },
+      "targets": [
+        {
+          "sourceId": "A",
+          "positionM": [
+            -1,
+            0.3,
+            1
+          ],
+          "yawDeg": 90
+        },
+        {
+          "sourceId": "B",
+          "positionM": [
+            1,
+            0.25,
+            -1
+          ],
+          "yawDeg": -90
+        }
+      ],
+      "forceLimitN": 60,
+      "torqueLimitNm": 0
+    },
+    {
+      "id": "reserved034-translate-x",
+      "split": "evaluation",
+      "negativeControl": false,
+      "source": {
+        "format": "fraynix.spatial-scene",
+        "version": 1,
+        "title": "Labelled034 evaluation: translate-x",
+        "units": "m",
+        "frame": "right-handed-y-up",
+        "source": {
+          "kind": "synthetic",
+          "physicalProperties": "declared",
+          "note": "Frozen034 declared native rigid-body pose task. Virtual force/torque gripper; not a captured room or physical robot hand."
+        },
+        "scaleReference": {
+          "a": [
+            0,
+            0,
+            0
+          ],
+          "b": [
+            1,
+            0,
+            0
+          ],
+          "knownLengthM": 1,
+          "toleranceM": 0,
+          "basis": "declared-test"
+        },
+        "gravityMps2": 9.81,
+        "objects": [
+          {
+            "sourceId": "floor",
+            "label": "floor",
+            "shape": "box",
+            "position": [
+              0,
+              -0.25,
+              0
+            ],
+            "size": [
+              12,
+              0.5,
+              12
+            ],
+            "massKg": 0,
+            "friction": 0.5,
+            "restitution": 0,
+            "rotation": [
+              0,
+              0.0,
+              0,
+              1.0
+            ]
+          },
+          {
+            "sourceId": "A",
+            "label": "A",
+            "shape": "box",
+            "position": [
+              -2.17,
+              0.3,
+              -1.5
+            ],
+            "size": [
+              0.8,
+              0.6,
+              0.45
+            ],
+            "massKg": 1.17,
+            "friction": 0.62,
+            "restitution": 0,
+            "rotation": [
+              0,
+              0.0,
+              0,
+              1.0
+            ]
+          },
+          {
+            "sourceId": "B",
+            "label": "B",
+            "shape": "box",
+            "position": [
+              2.17,
+              0.25,
+              1.5
+            ],
+            "size": [
+              0.7,
+              0.5,
+              0.5
+            ],
+            "massKg": 1.3699999999999999,
+            "friction": 0.62,
+            "restitution": 0,
+            "rotation": [
+              0,
+              0.0,
+              0,
+              1.0
+            ]
+          },
+          {
+            "sourceId": "bystander",
+            "label": "bystander",
+            "shape": "box",
+            "position": [
+              3,
+              0.25,
+              2.7
+            ],
+            "size": [
+              0.5,
+              0.5,
+              0.6
+            ],
+            "massKg": 1,
+            "friction": 0.6,
+            "restitution": 0,
+            "rotation": [
+              0,
+              0.0,
+              0,
+              1.0
+            ]
+          }
+        ]
+      },
+      "targets": [
+        {
+          "sourceId": "A",
+          "positionM": [
+            -0.87,
+            0.3,
+            -1.5
+          ],
+          "yawDeg": 0
+        },
+        {
+          "sourceId": "B",
+          "positionM": [
+            2.17,
+            0.25,
+            -0.07
+          ],
+          "yawDeg": 0
+        }
+      ],
+      "forceLimitN": 60,
+      "torqueLimitNm": 4
+    },
+    {
+      "id": "reserved034-translate-z",
+      "split": "evaluation",
+      "negativeControl": false,
+      "source": {
+        "format": "fraynix.spatial-scene",
+        "version": 1,
+        "title": "Labelled034 evaluation: translate-z",
+        "units": "m",
+        "frame": "right-handed-y-up",
+        "source": {
+          "kind": "synthetic",
+          "physicalProperties": "declared",
+          "note": "Frozen034 declared native rigid-body pose task. Virtual force/torque gripper; not a captured room or physical robot hand."
+        },
+        "scaleReference": {
+          "a": [
+            0,
+            0,
+            0
+          ],
+          "b": [
+            1,
+            0,
+            0
+          ],
+          "knownLengthM": 1,
+          "toleranceM": 0,
+          "basis": "declared-test"
+        },
+        "gravityMps2": 9.81,
+        "objects": [
+          {
+            "sourceId": "floor",
+            "label": "floor",
+            "shape": "box",
+            "position": [
+              0,
+              -0.25,
+              0
+            ],
+            "size": [
+              12,
+              0.5,
+              12
+            ],
+            "massKg": 0,
+            "friction": 0.5,
+            "restitution": 0,
+            "rotation": [
+              0,
+              0.0,
+              0,
+              1.0
+            ]
+          },
+          {
+            "sourceId": "A",
+            "label": "A",
+            "shape": "box",
+            "position": [
+              -2.17,
+              0.3,
+              -1.5
+            ],
+            "size": [
+              0.8,
+              0.6,
+              0.45
+            ],
+            "massKg": 1.17,
+            "friction": 0.62,
+            "restitution": 0,
+            "rotation": [
+              0,
+              0.0,
+              0,
+              1.0
+            ]
+          },
+          {
+            "sourceId": "B",
+            "label": "B",
+            "shape": "box",
+            "position": [
+              2.17,
+              0.25,
+              1.5
+            ],
+            "size": [
+              0.7,
+              0.5,
+              0.5
+            ],
+            "massKg": 1.3699999999999999,
+            "friction": 0.62,
+            "restitution": 0,
+            "rotation": [
+              0,
+              0.0,
+              0,
+              1.0
+            ]
+          },
+          {
+            "sourceId": "bystander",
+            "label": "bystander",
+            "shape": "box",
+            "position": [
+              3,
+              0.25,
+              2.7
+            ],
+            "size": [
+              0.5,
+              0.5,
+              0.6
+            ],
+            "massKg": 1,
+            "friction": 0.6,
+            "restitution": 0,
+            "rotation": [
+              0,
+              0.0,
+              0,
+              1.0
+            ]
+          }
+        ]
+      },
+      "targets": [
+        {
+          "sourceId": "A",
+          "positionM": [
+            -2.17,
+            0.3,
+            0.87
+          ],
+          "yawDeg": 0
+        },
+        {
+          "sourceId": "B",
+          "positionM": [
+            0.5700000000000001,
+            0.25,
+            1.5
+          ],
+          "yawDeg": 0
+        }
+      ],
+      "forceLimitN": 60,
+      "torqueLimitNm": 4
+    },
+    {
+      "id": "reserved034-heavy-translate",
+      "split": "evaluation",
+      "negativeControl": false,
+      "source": {
+        "format": "fraynix.spatial-scene",
+        "version": 1,
+        "title": "Labelled034 evaluation: heavy-translate",
+        "units": "m",
+        "frame": "right-handed-y-up",
+        "source": {
+          "kind": "synthetic",
+          "physicalProperties": "declared",
+          "note": "Frozen034 declared native rigid-body pose task. Virtual force/torque gripper; not a captured room or physical robot hand."
+        },
+        "scaleReference": {
+          "a": [
+            0,
+            0,
+            0
+          ],
+          "b": [
+            1,
+            0,
+            0
+          ],
+          "knownLengthM": 1,
+          "toleranceM": 0,
+          "basis": "declared-test"
+        },
+        "gravityMps2": 9.81,
+        "objects": [
+          {
+            "sourceId": "floor",
+            "label": "floor",
+            "shape": "box",
+            "position": [
+              0,
+              -0.25,
+              0
+            ],
+            "size": [
+              12,
+              0.5,
+              12
+            ],
+            "massKg": 0,
+            "friction": 0.5,
+            "restitution": 0,
+            "rotation": [
+              0,
+              0.0,
+              0,
+              1.0
+            ]
+          },
+          {
+            "sourceId": "A",
+            "label": "A",
+            "shape": "box",
+            "position": [
+              -2.17,
+              0.3,
+              -1.5
+            ],
+            "size": [
+              0.8,
+              0.6,
+              0.45
+            ],
+            "massKg": 2.17,
+            "friction": 0.62,
+            "restitution": 0,
+            "rotation": [
+              0,
+              0.0,
+              0,
+              1.0
+            ]
+          },
+          {
+            "sourceId": "B",
+            "label": "B",
+            "shape": "box",
+            "position": [
+              2.17,
+              0.25,
+              1.5
+            ],
+            "size": [
+              0.7,
+              0.5,
+              0.5
+            ],
+            "massKg": 1.3699999999999999,
+            "friction": 0.62,
+            "restitution": 0,
+            "rotation": [
+              0,
+              0.0,
+              0,
+              1.0
+            ]
+          },
+          {
+            "sourceId": "bystander",
+            "label": "bystander",
+            "shape": "box",
+            "position": [
+              3,
+              0.25,
+              2.7
+            ],
+            "size": [
+              0.5,
+              0.5,
+              0.6
+            ],
+            "massKg": 1,
+            "friction": 0.6,
+            "restitution": 0,
+            "rotation": [
+              0,
+              0.0,
+              0,
+              1.0
+            ]
+          }
+        ]
+      },
+      "targets": [
+        {
+          "sourceId": "A",
+          "positionM": [
+            -1.17,
+            0.3,
+            1.17
+          ],
+          "yawDeg": 0
+        },
+        {
+          "sourceId": "B",
+          "positionM": [
+            1.17,
+            0.25,
+            -1.17
+          ],
+          "yawDeg": 0
+        }
+      ],
+      "forceLimitN": 60,
+      "torqueLimitNm": 4
+    },
+    {
+      "id": "reserved034-retained-heading",
+      "split": "evaluation",
+      "negativeControl": false,
+      "source": {
+        "format": "fraynix.spatial-scene",
+        "version": 1,
+        "title": "Labelled034 evaluation: retained-heading",
+        "units": "m",
+        "frame": "right-handed-y-up",
+        "source": {
+          "kind": "synthetic",
+          "physicalProperties": "declared",
+          "note": "Frozen034 declared native rigid-body pose task. Virtual force/torque gripper; not a captured room or physical robot hand."
+        },
+        "scaleReference": {
+          "a": [
+            0,
+            0,
+            0
+          ],
+          "b": [
+            1,
+            0,
+            0
+          ],
+          "knownLengthM": 1,
+          "toleranceM": 0,
+          "basis": "declared-test"
+        },
+        "gravityMps2": 9.81,
+        "objects": [
+          {
+            "sourceId": "floor",
+            "label": "floor",
+            "shape": "box",
+            "position": [
+              0,
+              -0.25,
+              0
+            ],
+            "size": [
+              12,
+              0.5,
+              12
+            ],
+            "massKg": 0,
+            "friction": 0.5,
+            "restitution": 0,
+            "rotation": [
+              0,
+              0.0,
+              0,
+              1.0
+            ]
+          },
+          {
+            "sourceId": "A",
+            "label": "A",
+            "shape": "box",
+            "position": [
+              -2.17,
+              0.3,
+              -1.5
+            ],
+            "size": [
+              0.8,
+              0.6,
+              0.45
+            ],
+            "massKg": 1.17,
+            "friction": 0.62,
+            "restitution": 0,
+            "rotation": [
+              0,
+              0.24530738587880255,
+              0,
+              0.9694453498951389
+            ]
+          },
+          {
+            "sourceId": "B",
+            "label": "B",
+            "shape": "box",
+            "position": [
+              2.17,
+              0.25,
+              1.5
+            ],
+            "size": [
+              0.7,
+              0.5,
+              0.5
+            ],
+            "massKg": 1.3699999999999999,
+            "friction": 0.62,
+            "restitution": 0,
+            "rotation": [
+              0,
+              -0.24530738587880255,
+              0,
+              0.9694453498951389
+            ]
+          },
+          {
+            "sourceId": "bystander",
+            "label": "bystander",
+            "shape": "box",
+            "position": [
+              3,
+              0.25,
+              2.7
+            ],
+            "size": [
+              0.5,
+              0.5,
+              0.6
+            ],
+            "massKg": 1,
+            "friction": 0.6,
+            "restitution": 0,
+            "rotation": [
+              0,
+              0.0,
+              0,
+              1.0
+            ]
+          }
+        ]
+      },
+      "targets": [
+        {
+          "sourceId": "A",
+          "positionM": [
+            -1.17,
+            0.3,
+            1.17
+          ],
+          "yawDeg": 28.4
+        },
+        {
+          "sourceId": "B",
+          "positionM": [
+            1.17,
+            0.25,
+            -1.17
+          ],
+          "yawDeg": -28.4
+        }
+      ],
+      "forceLimitN": 60,
+      "torqueLimitNm": 4
+    },
+    {
+      "id": "reserved034-quarter-turn",
+      "split": "evaluation",
+      "negativeControl": false,
+      "source": {
+        "format": "fraynix.spatial-scene",
+        "version": 1,
+        "title": "Labelled034 evaluation: quarter-turn",
+        "units": "m",
+        "frame": "right-handed-y-up",
+        "source": {
+          "kind": "synthetic",
+          "physicalProperties": "declared",
+          "note": "Frozen034 declared native rigid-body pose task. Virtual force/torque gripper; not a captured room or physical robot hand."
+        },
+        "scaleReference": {
+          "a": [
+            0,
+            0,
+            0
+          ],
+          "b": [
+            1,
+            0,
+            0
+          ],
+          "knownLengthM": 1,
+          "toleranceM": 0,
+          "basis": "declared-test"
+        },
+        "gravityMps2": 9.81,
+        "objects": [
+          {
+            "sourceId": "floor",
+            "label": "floor",
+            "shape": "box",
+            "position": [
+              0,
+              -0.25,
+              0
+            ],
+            "size": [
+              12,
+              0.5,
+              12
+            ],
+            "massKg": 0,
+            "friction": 0.5,
+            "restitution": 0,
+            "rotation": [
+              0,
+              0.0,
+              0,
+              1.0
+            ]
+          },
+          {
+            "sourceId": "A",
+            "label": "A",
+            "shape": "box",
+            "position": [
+              -2.17,
+              0.3,
+              -1.5
+            ],
+            "size": [
+              0.8,
+              0.6,
+              0.45
+            ],
+            "massKg": 1.17,
+            "friction": 0.62,
+            "restitution": 0,
+            "rotation": [
+              0,
+              0.0,
+              0,
+              1.0
+            ]
+          },
+          {
+            "sourceId": "B",
+            "label": "B",
+            "shape": "box",
+            "position": [
+              2.17,
+              0.25,
+              1.5
+            ],
+            "size": [
+              0.7,
+              0.5,
+              0.5
+            ],
+            "massKg": 1.3699999999999999,
+            "friction": 0.62,
+            "restitution": 0,
+            "rotation": [
+              0,
+              0.0,
+              0,
+              1.0
+            ]
+          },
+          {
+            "sourceId": "bystander",
+            "label": "bystander",
+            "shape": "box",
+            "position": [
+              3,
+              0.25,
+              2.7
+            ],
+            "size": [
+              0.5,
+              0.5,
+              0.6
+            ],
+            "massKg": 1,
+            "friction": 0.6,
+            "restitution": 0,
+            "rotation": [
+              0,
+              0.0,
+              0,
+              1.0
+            ]
+          }
+        ]
+      },
+      "targets": [
+        {
+          "sourceId": "A",
+          "positionM": [
+            -1.17,
+            0.3,
+            1.17
+          ],
+          "yawDeg": 100.2
+        },
+        {
+          "sourceId": "B",
+          "positionM": [
+            1.17,
+            0.25,
+            -1.17
+          ],
+          "yawDeg": -96.8
+        }
+      ],
+      "forceLimitN": 60,
+      "torqueLimitNm": 4
+    },
+    {
+      "id": "reserved034-opposite-turn",
+      "split": "evaluation",
+      "negativeControl": false,
+      "source": {
+        "format": "fraynix.spatial-scene",
+        "version": 1,
+        "title": "Labelled034 evaluation: opposite-turn",
+        "units": "m",
+        "frame": "right-handed-y-up",
+        "source": {
+          "kind": "synthetic",
+          "physicalProperties": "declared",
+          "note": "Frozen034 declared native rigid-body pose task. Virtual force/torque gripper; not a captured room or physical robot hand."
+        },
+        "scaleReference": {
+          "a": [
+            0,
+            0,
+            0
+          ],
+          "b": [
+            1,
+            0,
+            0
+          ],
+          "knownLengthM": 1,
+          "toleranceM": 0,
+          "basis": "declared-test"
+        },
+        "gravityMps2": 9.81,
+        "objects": [
+          {
+            "sourceId": "floor",
+            "label": "floor",
+            "shape": "box",
+            "position": [
+              0,
+              -0.25,
+              0
+            ],
+            "size": [
+              12,
+              0.5,
+              12
+            ],
+            "massKg": 0,
+            "friction": 0.5,
+            "restitution": 0,
+            "rotation": [
+              0,
+              0.0,
+              0,
+              1.0
+            ]
+          },
+          {
+            "sourceId": "A",
+            "label": "A",
+            "shape": "box",
+            "position": [
+              -2.17,
+              0.3,
+              -1.5
+            ],
+            "size": [
+              0.8,
+              0.6,
+              0.45
+            ],
+            "massKg": 1.17,
+            "friction": 0.62,
+            "restitution": 0,
+            "rotation": [
+              0,
+              0.0,
+              0,
+              1.0
+            ]
+          },
+          {
+            "sourceId": "B",
+            "label": "B",
+            "shape": "box",
+            "position": [
+              2.17,
+              0.25,
+              1.5
+            ],
+            "size": [
+              0.7,
+              0.5,
+              0.5
+            ],
+            "massKg": 1.3699999999999999,
+            "friction": 0.62,
+            "restitution": 0,
+            "rotation": [
+              0,
+              0.0,
+              0,
+              1.0
+            ]
+          },
+          {
+            "sourceId": "bystander",
+            "label": "bystander",
+            "shape": "box",
+            "position": [
+              3,
+              0.25,
+              2.7
+            ],
+            "size": [
+              0.5,
+              0.5,
+              0.6
+            ],
+            "massKg": 1,
+            "friction": 0.6,
+            "restitution": 0,
+            "rotation": [
+              0,
+              0.0,
+              0,
+              1.0
+            ]
+          },
+          {
+            "sourceId": "obstacle",
+            "label": "obstacle",
+            "shape": "box",
+            "position": [
+              0,
+              0.6849999999999999,
+              0
+            ],
+            "size": [
+              0.9700000000000001,
+              1.3699999999999999,
+              0.8
+            ],
+            "massKg": 0,
+            "friction": 0.5,
+            "restitution": 0,
+            "rotation": [
+              0,
+              0.0,
+              0,
+              1.0
+            ]
+          }
+        ]
+      },
+      "targets": [
+        {
+          "sourceId": "A",
+          "positionM": [
+            -1.17,
+            0.3,
+            1.17
+          ],
+          "yawDeg": -100.2
+        },
+        {
+          "sourceId": "B",
+          "positionM": [
+            1.17,
+            0.25,
+            -1.17
+          ],
+          "yawDeg": -96.8
+        }
+      ],
+      "forceLimitN": 60,
+      "torqueLimitNm": 4
+    },
+    {
+      "id": "reserved034-half-turn",
+      "split": "evaluation",
+      "negativeControl": false,
+      "source": {
+        "format": "fraynix.spatial-scene",
+        "version": 1,
+        "title": "Labelled034 evaluation: half-turn",
+        "units": "m",
+        "frame": "right-handed-y-up",
+        "source": {
+          "kind": "synthetic",
+          "physicalProperties": "declared",
+          "note": "Frozen034 declared native rigid-body pose task. Virtual force/torque gripper; not a captured room or physical robot hand."
+        },
+        "scaleReference": {
+          "a": [
+            0,
+            0,
+            0
+          ],
+          "b": [
+            1,
+            0,
+            0
+          ],
+          "knownLengthM": 1,
+          "toleranceM": 0,
+          "basis": "declared-test"
+        },
+        "gravityMps2": 9.81,
+        "objects": [
+          {
+            "sourceId": "floor",
+            "label": "floor",
+            "shape": "box",
+            "position": [
+              0,
+              -0.25,
+              0
+            ],
+            "size": [
+              12,
+              0.5,
+              12
+            ],
+            "massKg": 0,
+            "friction": 0.5,
+            "restitution": 0,
+            "rotation": [
+              0,
+              0.0,
+              0,
+              1.0
+            ]
+          },
+          {
+            "sourceId": "A",
+            "label": "A",
+            "shape": "box",
+            "position": [
+              -2.17,
+              0.3,
+              -1.5
+            ],
+            "size": [
+              0.8,
+              0.6,
+              0.45
+            ],
+            "massKg": 1.17,
+            "friction": 0.62,
+            "restitution": 0,
+            "rotation": [
+              0,
+              0.0,
+              0,
+              1.0
+            ]
+          },
+          {
+            "sourceId": "B",
+            "label": "B",
+            "shape": "box",
+            "position": [
+              2.17,
+              0.25,
+              1.5
+            ],
+            "size": [
+              0.7,
+              0.5,
+              0.5
+            ],
+            "massKg": 1.3699999999999999,
+            "friction": 0.62,
+            "restitution": 0,
+            "rotation": [
+              0,
+              0.0,
+              0,
+              1.0
+            ]
+          },
+          {
+            "sourceId": "bystander",
+            "label": "bystander",
+            "shape": "box",
+            "position": [
+              3,
+              0.25,
+              2.7
+            ],
+            "size": [
+              0.5,
+              0.5,
+              0.6
+            ],
+            "massKg": 1,
+            "friction": 0.6,
+            "restitution": 0,
+            "rotation": [
+              0,
+              0.0,
+              0,
+              1.0
+            ]
+          },
+          {
+            "sourceId": "obstacle",
+            "label": "obstacle",
+            "shape": "box",
+            "position": [
+              0,
+              0.6849999999999999,
+              0
+            ],
+            "size": [
+              0.9700000000000001,
+              1.3699999999999999,
+              0.8
+            ],
+            "massKg": 0,
+            "friction": 0.5,
+            "restitution": 0,
+            "rotation": [
+              0,
+              0.0,
+              0,
+              1.0
+            ]
+          }
+        ]
+      },
+      "targets": [
+        {
+          "sourceId": "A",
+          "positionM": [
+            -1.17,
+            0.3,
+            1.17
+          ],
+          "yawDeg": 171.5
+        },
+        {
+          "sourceId": "B",
+          "positionM": [
+            1.17,
+            0.25,
+            -1.17
+          ],
+          "yawDeg": 98.5
+        }
+      ],
+      "forceLimitN": 60,
+      "torqueLimitNm": 4
+    },
+    {
+      "id": "reserved034-three-objects",
+      "split": "evaluation",
+      "negativeControl": false,
+      "source": {
+        "format": "fraynix.spatial-scene",
+        "version": 1,
+        "title": "Labelled034 evaluation: three-objects",
+        "units": "m",
+        "frame": "right-handed-y-up",
+        "source": {
+          "kind": "synthetic",
+          "physicalProperties": "declared",
+          "note": "Frozen034 declared native rigid-body pose task. Virtual force/torque gripper; not a captured room or physical robot hand."
+        },
+        "scaleReference": {
+          "a": [
+            0,
+            0,
+            0
+          ],
+          "b": [
+            1,
+            0,
+            0
+          ],
+          "knownLengthM": 1,
+          "toleranceM": 0,
+          "basis": "declared-test"
+        },
+        "gravityMps2": 9.81,
+        "objects": [
+          {
+            "sourceId": "floor",
+            "label": "floor",
+            "shape": "box",
+            "position": [
+              0,
+              -0.25,
+              0
+            ],
+            "size": [
+              12,
+              0.5,
+              12
+            ],
+            "massKg": 0,
+            "friction": 0.5,
+            "restitution": 0,
+            "rotation": [
+              0,
+              0.0,
+              0,
+              1.0
+            ]
+          },
+          {
+            "sourceId": "A",
+            "label": "A",
+            "shape": "box",
+            "position": [
+              -2.17,
+              0.3,
+              -1.5
+            ],
+            "size": [
+              0.8,
+              0.6,
+              0.45
+            ],
+            "massKg": 1.17,
+            "friction": 0.62,
+            "restitution": 0,
+            "rotation": [
+              0,
+              0.0,
+              0,
+              1.0
+            ]
+          },
+          {
+            "sourceId": "B",
+            "label": "B",
+            "shape": "box",
+            "position": [
+              2.17,
+              0.25,
+              1.5
+            ],
+            "size": [
+              0.7,
+              0.5,
+              0.5
+            ],
+            "massKg": 1.3699999999999999,
+            "friction": 0.62,
+            "restitution": 0,
+            "rotation": [
+              0,
+              0.0,
+              0,
+              1.0
+            ]
+          },
+          {
+            "sourceId": "bystander",
+            "label": "bystander",
+            "shape": "box",
+            "position": [
+              3,
+              0.25,
+              2.7
+            ],
+            "size": [
+              0.5,
+              0.5,
+              0.6
+            ],
+            "massKg": 1,
+            "friction": 0.6,
+            "restitution": 0,
+            "rotation": [
+              0,
+              0.0,
+              0,
+              1.0
+            ]
+          },
+          {
+            "sourceId": "obstacle",
+            "label": "obstacle",
+            "shape": "box",
+            "position": [
+              0,
+              0.6849999999999999,
+              0
+            ],
+            "size": [
+              0.9700000000000001,
+              1.3699999999999999,
+              0.8
+            ],
+            "massKg": 0,
+            "friction": 0.5,
+            "restitution": 0,
+            "rotation": [
+              0,
+              0.0,
+              0,
+              1.0
+            ]
+          },
+          {
+            "sourceId": "C",
+            "label": "C",
+            "shape": "box",
+            "position": [
+              -3.6,
+              0.2,
+              0.7
+            ],
+            "size": [
+              0.65,
+              0.4,
+              0.5
+            ],
+            "massKg": 0.9700000000000001,
+            "friction": 0.62,
+            "restitution": 0,
+            "rotation": [
+              0,
+              0.0,
+              0,
+              1.0
+            ]
+          }
+        ]
+      },
+      "targets": [
+        {
+          "sourceId": "A",
+          "positionM": [
+            -1.17,
+            0.3,
+            1.17
+          ],
+          "yawDeg": 100.2
+        },
+        {
+          "sourceId": "B",
+          "positionM": [
+            1.17,
+            0.25,
+            -1.17
+          ],
+          "yawDeg": -96.8
+        },
+        {
+          "sourceId": "C",
+          "positionM": [
+            -3.6,
+            0.2,
+            -1.27
+          ],
+          "yawDeg": 55.2
+        }
+      ],
+      "forceLimitN": 60,
+      "torqueLimitNm": 4
+    },
+    {
+      "id": "reserved034-force-negative",
+      "split": "evaluation",
+      "negativeControl": true,
+      "source": {
+        "format": "fraynix.spatial-scene",
+        "version": 1,
+        "title": "Labelled034 evaluation: force-negative",
+        "units": "m",
+        "frame": "right-handed-y-up",
+        "source": {
+          "kind": "synthetic",
+          "physicalProperties": "declared",
+          "note": "Frozen034 declared native rigid-body pose task. Virtual force/torque gripper; not a captured room or physical robot hand."
+        },
+        "scaleReference": {
+          "a": [
+            0,
+            0,
+            0
+          ],
+          "b": [
+            1,
+            0,
+            0
+          ],
+          "knownLengthM": 1,
+          "toleranceM": 0,
+          "basis": "declared-test"
+        },
+        "gravityMps2": 9.81,
+        "objects": [
+          {
+            "sourceId": "floor",
+            "label": "floor",
+            "shape": "box",
+            "position": [
+              0,
+              -0.25,
+              0
+            ],
+            "size": [
+              12,
+              0.5,
+              12
+            ],
+            "massKg": 0,
+            "friction": 0.5,
+            "restitution": 0,
+            "rotation": [
+              0,
+              0.0,
+              0,
+              1.0
+            ]
+          },
+          {
+            "sourceId": "A",
+            "label": "A",
+            "shape": "box",
+            "position": [
+              -2.17,
+              0.3,
+              -1.5
+            ],
+            "size": [
+              0.8,
+              0.6,
+              0.45
+            ],
+            "massKg": 3.37,
+            "friction": 0.62,
+            "restitution": 0,
+            "rotation": [
+              0,
+              0.0,
+              0,
+              1.0
+            ]
+          },
+          {
+            "sourceId": "B",
+            "label": "B",
+            "shape": "box",
+            "position": [
+              2.17,
+              0.25,
+              1.5
+            ],
+            "size": [
+              0.7,
+              0.5,
+              0.5
+            ],
+            "massKg": 1.3699999999999999,
+            "friction": 0.62,
+            "restitution": 0,
+            "rotation": [
+              0,
+              0.0,
+              0,
+              1.0
+            ]
+          },
+          {
+            "sourceId": "bystander",
+            "label": "bystander",
+            "shape": "box",
+            "position": [
+              3,
+              0.25,
+              2.7
+            ],
+            "size": [
+              0.5,
+              0.5,
+              0.6
+            ],
+            "massKg": 1,
+            "friction": 0.6,
+            "restitution": 0,
+            "rotation": [
+              0,
+              0.0,
+              0,
+              1.0
+            ]
+          }
+        ]
+      },
+      "targets": [
+        {
+          "sourceId": "A",
+          "positionM": [
+            -1.17,
+            0.3,
+            1.17
+          ],
+          "yawDeg": 0
+        },
+        {
+          "sourceId": "B",
+          "positionM": [
+            1.17,
+            0.25,
+            -1.17
+          ],
+          "yawDeg": 0
+        }
+      ],
+      "forceLimitN": 10,
+      "torqueLimitNm": 4
+    },
+    {
+      "id": "reserved034-torque-negative",
+      "split": "evaluation",
+      "negativeControl": true,
+      "source": {
+        "format": "fraynix.spatial-scene",
+        "version": 1,
+        "title": "Labelled034 evaluation: torque-negative",
+        "units": "m",
+        "frame": "right-handed-y-up",
+        "source": {
+          "kind": "synthetic",
+          "physicalProperties": "declared",
+          "note": "Frozen034 declared native rigid-body pose task. Virtual force/torque gripper; not a captured room or physical robot hand."
+        },
+        "scaleReference": {
+          "a": [
+            0,
+            0,
+            0
+          ],
+          "b": [
+            1,
+            0,
+            0
+          ],
+          "knownLengthM": 1,
+          "toleranceM": 0,
+          "basis": "declared-test"
+        },
+        "gravityMps2": 9.81,
+        "objects": [
+          {
+            "sourceId": "floor",
+            "label": "floor",
+            "shape": "box",
+            "position": [
+              0,
+              -0.25,
+              0
+            ],
+            "size": [
+              12,
+              0.5,
+              12
+            ],
+            "massKg": 0,
+            "friction": 0.5,
+            "restitution": 0,
+            "rotation": [
+              0,
+              0.0,
+              0,
+              1.0
+            ]
+          },
+          {
+            "sourceId": "A",
+            "label": "A",
+            "shape": "box",
+            "position": [
+              -2.17,
+              0.3,
+              -1.5
+            ],
+            "size": [
+              0.8,
+              0.6,
+              0.45
+            ],
+            "massKg": 1.17,
+            "friction": 0.62,
+            "restitution": 0,
+            "rotation": [
+              0,
+              0.0,
+              0,
+              1.0
+            ]
+          },
+          {
+            "sourceId": "B",
+            "label": "B",
+            "shape": "box",
+            "position": [
+              2.17,
+              0.25,
+              1.5
+            ],
+            "size": [
+              0.7,
+              0.5,
+              0.5
+            ],
+            "massKg": 1.3699999999999999,
+            "friction": 0.62,
+            "restitution": 0,
+            "rotation": [
+              0,
+              0.0,
+              0,
+              1.0
+            ]
+          },
+          {
+            "sourceId": "bystander",
+            "label": "bystander",
+            "shape": "box",
+            "position": [
+              3,
+              0.25,
+              2.7
+            ],
+            "size": [
+              0.5,
+              0.5,
+              0.6
+            ],
+            "massKg": 1,
+            "friction": 0.6,
+            "restitution": 0,
+            "rotation": [
+              0,
+              0.0,
+              0,
+              1.0
+            ]
+          }
+        ]
+      },
+      "targets": [
+        {
+          "sourceId": "A",
+          "positionM": [
+            -1.17,
+            0.3,
+            1.17
+          ],
+          "yawDeg": 100.2
+        },
+        {
+          "sourceId": "B",
+          "positionM": [
+            1.17,
+            0.25,
+            -1.17
+          ],
+          "yawDeg": -96.8
+        }
+      ],
+      "forceLimitN": 60,
+      "torqueLimitNm": 0
+    }
+  ]
+}

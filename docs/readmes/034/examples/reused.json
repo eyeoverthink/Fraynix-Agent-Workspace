@@ -1,0 +1,187 @@
+{
+  "request": "Arrange multiple native objects at the selected positions and orientations, release and verify every body",
+  "reason": "All requested native poses, unchanged bystanders, original charts and versioned skill verified",
+  "procedure": "spatial-arrange-v1",
+  "history": [
+    {
+      "reason": "Actual roles, target poses, bounded virtual gripper and clear ordered routes frozen",
+      "at": "2026-11-01T13:09:05.338782400Z",
+      "step": "pose-start",
+      "attempt": 1,
+      "status": "running"
+    },
+    {
+      "reason": "Native virtual gripper controls position and orientation; all other bodies remain observed",
+      "at": "2026-11-01T13:09:05.760460500Z",
+      "step": "pose-wait",
+      "attempt": 1,
+      "status": "running"
+    },
+    {
+      "reason": "All native body poses, force/torque ledger, release and protected-body gates independently verified",
+      "at": "2026-11-01T13:09:20.305252300Z",
+      "step": "pose-report",
+      "attempt": 1,
+      "status": "running"
+    },
+    {
+      "reason": "Waiting for registered desktop action: canvas.verify-report",
+      "at": "2026-11-01T13:09:21.670954800Z",
+      "step": "pose-report",
+      "attempt": 1,
+      "status": "waiting-host"
+    },
+    {
+      "reason": "Actual Chromium canvas assertions passed for the pinned report version",
+      "at": "2026-11-01T13:09:25.301702400Z",
+      "step": "complete",
+      "attempt": 1,
+      "status": "running"
+    },
+    {
+      "reason": "All requested native poses, unchanged bystanders, original charts and versioned skill verified",
+      "at": "2026-11-01T13:09:26.639551200Z",
+      "step": "completed",
+      "attempt": 1,
+      "status": "completed"
+    }
+  ],
+  "attempt": 1,
+  "resumes": 0,
+  "posePlanSummary": {
+    "liftHeightM": 2.5747580330387043,
+    "scope": "Declared native multi-box pose arrangement by a bounded virtual force/torque gripper, not contact-only pushing, a physical robot hand, photographic recognition or LLM-weight training.",
+    "targets": [
+      {
+        "sourceId": "A",
+        "positionM": [
+          -1,
+          0.3,
+          1
+        ],
+        "rotation": [
+          0,
+          0.7071067811865475,
+          0,
+          0.7071067811865476
+        ],
+        "objectId": "e493833a-8718-31a2-bed5-10a0f79b1067",
+        "yawDeg": 90
+      },
+      {
+        "sourceId": "B",
+        "positionM": [
+          1,
+          0.25,
+          -1
+        ],
+        "rotation": [
+          0,
+          -0.7071067811865475,
+          0,
+          0.7071067811865476
+        ],
+        "objectId": "fd700e7b-0fa0-3d39-970c-e3f41ef86c6f",
+        "yawDeg": -90
+      },
+      {
+        "sourceId": "C",
+        "positionM": [
+          -3.6,
+          0.2,
+          -1.1
+        ],
+        "rotation": [
+          0,
+          0.3826834323650898,
+          0,
+          0.9238795325112867
+        ],
+        "objectId": "f8266d28-692e-3814-9f46-227643f46fa9",
+        "yawDeg": 45
+      }
+    ]
+  },
+  "createdAt": "2026-11-01T13:09:05.338782400Z",
+  "poseBinding": {
+    "sourceSha256": "8a63c2a613f9316b3f32652466939687fdbcb1b6be4ed4a73cfabe581ffa03ad",
+    "definitionSha256": "c2c20a671973a353c8fa9ff718461e3b120156ef426cbea64f1c52858256e387",
+    "sceneId": "ed299e9f-14bf-40a9-963f-b352397499ab",
+    "version": 1
+  },
+  "skill": {
+    "name": "arranged-pose-route",
+    "id": "ba7f5468-e27a-3fd9-8b4c-12496e20f189",
+    "version": 1
+  },
+  "report": {
+    "sha256": "6b3b87a8a2ca7128e593e8a051bacf1cea0bfadc8b6b20737319fcf279fdbaff",
+    "id": "9e54989d-82a3-3bd7-88bf-f605fa9c159f",
+    "version": 1
+  },
+  "poseView": {
+    "cells": 15,
+    "frames": 6,
+    "maxError": 3.0386718776753696e-05,
+    "dataSha256": "cbf9195336ad0655e7014aa9de4e11acaffc577c5b8c6a4b3591ffca5c119281",
+    "passed": true,
+    "points": 4518
+  },
+  "step": "completed",
+  "id": "b50a5be7-7ff1-4205-975f-7b43d10bf8a1",
+  "runId": "71b5329e-c2c0-302c-9dc6-7ae128a532cf",
+  "metrics": {
+    "maxBystanderDriftM": 1.4901161193847656e-08,
+    "grabs": 3,
+    "contactPoints": 9152,
+    "maxRestoreAngleErrorDeg": 0,
+    "targets": [
+      {
+        "sourceId": "A",
+        "speedMps": 3.4871973525050334e-05,
+        "positionErrorM": 0.0014827340060987776,
+        "angleErrorDeg": 0.00036851875902992726,
+        "angularSpeedRadps": 1.859754298084133e-06
+      },
+      {
+        "sourceId": "B",
+        "speedMps": 5.895264524269028e-05,
+        "positionErrorM": 0.0008703614241408989,
+        "angleErrorDeg": 8.736271584591599e-05,
+        "angularSpeedRadps": 1.1591138241775796e-05
+      },
+      {
+        "sourceId": "C",
+        "speedMps": 0.00010243617872887262,
+        "positionErrorM": 4.0674482548755176e-05,
+        "angleErrorDeg": 0.000542761366845054,
+        "angularSpeedRadps": 3.900196369642998e-06
+      }
+    ],
+    "resumes": 0,
+    "maxRestoreVelocityError": 0,
+    "maxAngleErrorDeg": 0.000542761366845054,
+    "maxRestorePositionErrorM": 0,
+    "scope": "Declared native multi-box pose arrangement by a bounded virtual force/torque gripper, not contact-only pushing, a physical robot hand, photographic recognition or LLM-weight training.",
+    "maxTorqueNm": 0.5753999948501588,
+    "workJ": 1.3147519803377241,
+    "passed": true,
+    "maxPositionErrorM": 0.0014827340060987776,
+    "nativeTicks": 9026,
+    "maxForceN": 22.207695007324297,
+    "effortNs": 418.0397796486405,
+    "maxInactiveAngleDeg": 0.0007907263033625209,
+    "maxInactiveDriftM": 0.01489475461808814,
+    "releases": 3,
+    "timeS": 37.608333333333334,
+    "maxAngularSpeedRadps": 1.1591138241775796e-05,
+    "maxSpeedMps": 0.00010243617872887262,
+    "nativePhysics": true,
+    "torqueEffortNms": 0.5543573986414329,
+    "maxBystanderAngleDeg": 0.00027556535055445143,
+    "angularWorkJ": 0.06955101294815173
+  },
+  "poseCodeSha256": "c6d538c60e4768f5d6cefb996ed4386d498169144f8b57a3ea150d601cb7ff9d",
+  "status": "completed",
+  "updatedAt": "2026-11-01T13:09:26.639551200Z"
+}

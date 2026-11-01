@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "latest": 33,
+  "latest": 34,
   "canonicalization": "UTF-8 without BOM; CRLF normalized to LF for text",
   "editions": [
     {
@@ -6289,6 +6289,780 @@
           "path": "docs/readmes/033/verification.json",
           "kind": "text",
           "sha256": "bf1ce6676a5cf9d21d29d3864f70e0794fff7c61b39dd1a968322a39376930d5"
+        }
+      ]
+    },
+    {
+      "number": 34,
+      "date": "2026-11-01",
+      "title": "Native multi-object poses and retained versioned procedures",
+      "status": "published",
+      "markdown": "README-034.md",
+      "markdownSha256": "5820ed14973f4a3e521529f0ffbc71334b9d819316cbda5922298a7dc630b348",
+      "snapshotDirectory": "docs/readmes/034",
+      "companion": "docs/readmes/034/index.html",
+      "tag": "readme-034",
+      "sourceBaseline": "58d22b51b4356fb9d6454d4bd945ee9b8516669d",
+      "snapshotFiles": [
+        {
+          "path": "docs/readmes/034/candidate-source-lock.json",
+          "kind": "text",
+          "sha256": "2a219162c4762806bb6deac38abfc316fd0135c81e44dc2238e7f9485d02cb52"
+        },
+        {
+          "path": "docs/readmes/034/development/034-clean.log.txt",
+          "kind": "text",
+          "sha256": "cdf09f19a782499fd923ffabbdf80baa3ff9a9e133bf6ba6968dd159a8299f3b"
+        },
+        {
+          "path": "docs/readmes/034/development/clean034-final-build.log.txt",
+          "kind": "text",
+          "sha256": "d27f95ae277beb1341c5a4d0c8910703a814d8da8e0ddaf6c839a36bd6dea95e"
+        },
+        {
+          "path": "docs/readmes/034/development/docs034-ui-final.log.txt",
+          "kind": "text",
+          "sha256": "971d05794cc694ee074c990c206c96120332fb86e2c5fdf7ff5f91107681748e"
+        },
+        {
+          "path": "docs/readmes/034/development/docs034-ui-first.log.txt",
+          "kind": "text",
+          "sha256": "a0fee919ca851e36a1a557a33436404f0ede2c18e40dcf8f0266503ec676f0ac"
+        },
+        {
+          "path": "docs/readmes/034/development/edition034-narrow.png",
+          "kind": "binary",
+          "sha256": "070de642dbae29bc4e0ef1698bf6e2099b71544e7f4a586590d9f19f30b18b77"
+        },
+        {
+          "path": "docs/readmes/034/development/edition034-wide.png",
+          "kind": "binary",
+          "sha256": "ab249afde07583a5f1f2ba9478fa262ce28c27988a0b67eb37cc5625ef6c1561"
+        },
+        {
+          "path": "docs/readmes/034/development/first-measurement/compile034-study.log.txt",
+          "kind": "text",
+          "sha256": "cb3525b3c2435a6cd573e72fe6dfbaaa5bd315dbc277962a4244767858b222ef"
+        },
+        {
+          "path": "docs/readmes/034/development/first-measurement/dev034-force-negative-baseline.gzip.json",
+          "kind": "text",
+          "sha256": "ddaae517f599def2bc1a173a24a0ef6b77de634293263231c51bd8d89f2118ec"
+        },
+        {
+          "path": "docs/readmes/034/development/first-measurement/dev034-force-negative-candidate.gzip.json",
+          "kind": "text",
+          "sha256": "00ab0cb861d1cbbb1dd924d0b98514ac300ac218a160e86b55e4e4e2d254945e"
+        },
+        {
+          "path": "docs/readmes/034/development/first-measurement/dev034-force-negative.gzip.json",
+          "kind": "text",
+          "sha256": "00ab0cb861d1cbbb1dd924d0b98514ac300ac218a160e86b55e4e4e2d254945e"
+        },
+        {
+          "path": "docs/readmes/034/development/first-measurement/dev034-half-turn-baseline.gzip.json",
+          "kind": "text",
+          "sha256": "7ee3241db8d71e7c06877d021913b3337d79dc95febde2027431a07789e24a4c"
+        },
+        {
+          "path": "docs/readmes/034/development/first-measurement/dev034-half-turn-candidate.gzip.json",
+          "kind": "text",
+          "sha256": "2a3a3e1e0ea43ebd65a1f5425ae473b3783d844a38e0fb0ee13198711b5bbd7a"
+        },
+        {
+          "path": "docs/readmes/034/development/first-measurement/dev034-half-turn.gzip.json",
+          "kind": "text",
+          "sha256": "2a3a3e1e0ea43ebd65a1f5425ae473b3783d844a38e0fb0ee13198711b5bbd7a"
+        },
+        {
+          "path": "docs/readmes/034/development/first-measurement/dev034-heavy-translate-baseline.gzip.json",
+          "kind": "text",
+          "sha256": "e9100c56bd05e90a5557bac3a91fd7ca4cb3319eadba02c0a0472d8ce74dc2ef"
+        },
+        {
+          "path": "docs/readmes/034/development/first-measurement/dev034-heavy-translate-candidate.gzip.json",
+          "kind": "text",
+          "sha256": "a2f02cc9483a6e52f12143eacdc5758cfa01bb6cf06d48928a9d2ded2efc0137"
+        },
+        {
+          "path": "docs/readmes/034/development/first-measurement/dev034-heavy-translate.gzip.json",
+          "kind": "text",
+          "sha256": "a2f02cc9483a6e52f12143eacdc5758cfa01bb6cf06d48928a9d2ded2efc0137"
+        },
+        {
+          "path": "docs/readmes/034/development/first-measurement/dev034-opposite-turn-baseline.gzip.json",
+          "kind": "text",
+          "sha256": "3881dc3706503315ae65b1de3d78f6cf85d9f08803a0535667e3db59a12792c4"
+        },
+        {
+          "path": "docs/readmes/034/development/first-measurement/dev034-opposite-turn-candidate.gzip.json",
+          "kind": "text",
+          "sha256": "bdb5d065d0714d8bca1f662d133bb33a09b503fdb01e27094a529d8037f38f89"
+        },
+        {
+          "path": "docs/readmes/034/development/first-measurement/dev034-opposite-turn.gzip.json",
+          "kind": "text",
+          "sha256": "bdb5d065d0714d8bca1f662d133bb33a09b503fdb01e27094a529d8037f38f89"
+        },
+        {
+          "path": "docs/readmes/034/development/first-measurement/dev034-quarter-turn-baseline.gzip.json",
+          "kind": "text",
+          "sha256": "8faea80a435f77aad4ad6166ce4b85b034c8258bd01fbab2f5572d02a40f6b4c"
+        },
+        {
+          "path": "docs/readmes/034/development/first-measurement/dev034-quarter-turn-candidate.gzip.json",
+          "kind": "text",
+          "sha256": "3a6fe51fbc12ddab8a7d21d7504b2f429d24d6d74a8181e846a03db8c1d09424"
+        },
+        {
+          "path": "docs/readmes/034/development/first-measurement/dev034-quarter-turn.gzip.json",
+          "kind": "text",
+          "sha256": "3a6fe51fbc12ddab8a7d21d7504b2f429d24d6d74a8181e846a03db8c1d09424"
+        },
+        {
+          "path": "docs/readmes/034/development/first-measurement/dev034-retained-heading-baseline.gzip.json",
+          "kind": "text",
+          "sha256": "3c597169e23a501247faf89b0a2d362e70f8ec14df0d15637edc75741a666aea"
+        },
+        {
+          "path": "docs/readmes/034/development/first-measurement/dev034-retained-heading-candidate.gzip.json",
+          "kind": "text",
+          "sha256": "bb5ee749cf2f869fb26fdad0fd45bfad75428ec2228df497ec2beadab89c2524"
+        },
+        {
+          "path": "docs/readmes/034/development/first-measurement/dev034-retained-heading.gzip.json",
+          "kind": "text",
+          "sha256": "bb5ee749cf2f869fb26fdad0fd45bfad75428ec2228df497ec2beadab89c2524"
+        },
+        {
+          "path": "docs/readmes/034/development/first-measurement/dev034-three-objects-baseline.gzip.json",
+          "kind": "text",
+          "sha256": "9ef1116cfc7f8395dec43c7da421e47ad389bb1f60974b75c50f1764eebee288"
+        },
+        {
+          "path": "docs/readmes/034/development/first-measurement/dev034-three-objects-candidate.gzip.json",
+          "kind": "text",
+          "sha256": "a5e3d2097041922cdd70912db7b2aa305c5176aa333f01e4da3b62dd1dc6b812"
+        },
+        {
+          "path": "docs/readmes/034/development/first-measurement/dev034-three-objects.gzip.json",
+          "kind": "text",
+          "sha256": "a5e3d2097041922cdd70912db7b2aa305c5176aa333f01e4da3b62dd1dc6b812"
+        },
+        {
+          "path": "docs/readmes/034/development/first-measurement/dev034-torque-negative-baseline.gzip.json",
+          "kind": "text",
+          "sha256": "816d8ecd09fbe7a61582fa4a4f8e332aaf41353ed90ce1eac34c391a8cbcb19e"
+        },
+        {
+          "path": "docs/readmes/034/development/first-measurement/dev034-torque-negative-candidate.gzip.json",
+          "kind": "text",
+          "sha256": "49c504b77eba44fc0d7adf3dad493737fb99a9186f0b4880529ccad3085baf15"
+        },
+        {
+          "path": "docs/readmes/034/development/first-measurement/dev034-torque-negative.gzip.json",
+          "kind": "text",
+          "sha256": "49c504b77eba44fc0d7adf3dad493737fb99a9186f0b4880529ccad3085baf15"
+        },
+        {
+          "path": "docs/readmes/034/development/first-measurement/dev034-translate-x-baseline.gzip.json",
+          "kind": "text",
+          "sha256": "d0cca76b1928bf7f5cb88edcab145c2ac02b9ff1af0f71f615af9a4d71dfe9df"
+        },
+        {
+          "path": "docs/readmes/034/development/first-measurement/dev034-translate-x-candidate.gzip.json",
+          "kind": "text",
+          "sha256": "18f1f16cb67ec058ae5cd60e17b73aed07d616462c0cb44818c9a3c7e2a4ae6d"
+        },
+        {
+          "path": "docs/readmes/034/development/first-measurement/dev034-translate-x.gzip.json",
+          "kind": "text",
+          "sha256": "18f1f16cb67ec058ae5cd60e17b73aed07d616462c0cb44818c9a3c7e2a4ae6d"
+        },
+        {
+          "path": "docs/readmes/034/development/first-measurement/dev034-translate-z-baseline.gzip.json",
+          "kind": "text",
+          "sha256": "f36dc9c46ac5592ecba8748badb6de5a8806b9faa90eb937d0488e974181ca01"
+        },
+        {
+          "path": "docs/readmes/034/development/first-measurement/dev034-translate-z-candidate.gzip.json",
+          "kind": "text",
+          "sha256": "a15937a7cb770cb7d1a0c5df4f2a11340c98dd2a594ece1a435b133e2adeab86"
+        },
+        {
+          "path": "docs/readmes/034/development/first-measurement/dev034-translate-z.gzip.json",
+          "kind": "text",
+          "sha256": "a15937a7cb770cb7d1a0c5df4f2a11340c98dd2a594ece1a435b133e2adeab86"
+        },
+        {
+          "path": "docs/readmes/034/development/first-measurement/first-reserved/dev034-force-negative-baseline.gzip.json",
+          "kind": "text",
+          "sha256": "a91e076245436480f31d8773f6d9d1e3354a8743b0412f6561af98b27965b9b0"
+        },
+        {
+          "path": "docs/readmes/034/development/first-measurement/first-reserved/dev034-force-negative-candidate.gzip.json",
+          "kind": "text",
+          "sha256": "40be3e435aad7bb50fdb51a24f67ae6189e6729aed74ef1b0f6bd26c2e2c5383"
+        },
+        {
+          "path": "docs/readmes/034/development/first-measurement/first-reserved/dev034-half-turn-baseline.gzip.json",
+          "kind": "text",
+          "sha256": "b3312d5de57c3f5248b861fdad394cd30d38b8cc116e9efd195cb454f5f2809d"
+        },
+        {
+          "path": "docs/readmes/034/development/first-measurement/first-reserved/dev034-half-turn-candidate.gzip.json",
+          "kind": "text",
+          "sha256": "85e1d99d55975904efbaede1b2e68282a26de9f9eb31ba5bd05caa43b61b9542"
+        },
+        {
+          "path": "docs/readmes/034/development/first-measurement/first-reserved/dev034-heavy-translate-baseline.gzip.json",
+          "kind": "text",
+          "sha256": "a33f2b5391f404ca45f71a3da6944ff4de1f3843c1768c724eee4e2bd1ab0aae"
+        },
+        {
+          "path": "docs/readmes/034/development/first-measurement/first-reserved/dev034-heavy-translate-candidate.gzip.json",
+          "kind": "text",
+          "sha256": "8b1b880a140421cee0aa6d85e84f10db937b0e30481551217806fea94992bf0e"
+        },
+        {
+          "path": "docs/readmes/034/development/first-measurement/first-reserved/dev034-opposite-turn-baseline.gzip.json",
+          "kind": "text",
+          "sha256": "d2046f425cf3519733516b0154149e402d4c0155b1240f85efcf188b8e552699"
+        },
+        {
+          "path": "docs/readmes/034/development/first-measurement/first-reserved/dev034-opposite-turn-candidate.gzip.json",
+          "kind": "text",
+          "sha256": "dcdf7895f8950c315132f7f0c65840ccd5c703b2dd6e431cb7936401d8c2bea1"
+        },
+        {
+          "path": "docs/readmes/034/development/first-measurement/first-reserved/dev034-quarter-turn-baseline.gzip.json",
+          "kind": "text",
+          "sha256": "44e123949f81f0cca65c79043cc9e1b4ba155eda70afc806805506c37b23ebe6"
+        },
+        {
+          "path": "docs/readmes/034/development/first-measurement/first-reserved/dev034-quarter-turn-candidate.gzip.json",
+          "kind": "text",
+          "sha256": "ae06c004bbdc27dc4c2fc033699a0052f269f2dfe85762ec82a7f3d779c1b802"
+        },
+        {
+          "path": "docs/readmes/034/development/first-measurement/first-reserved/dev034-retained-heading-baseline.gzip.json",
+          "kind": "text",
+          "sha256": "098b4b3f3ddc49bdbb006eab57c3253bb5d5a62abc68ae73d07fe02b3bbdcf38"
+        },
+        {
+          "path": "docs/readmes/034/development/first-measurement/first-reserved/dev034-retained-heading-candidate.gzip.json",
+          "kind": "text",
+          "sha256": "fee0ab1e0dda396529520a7dda0cfd8ec876473ad31a9a02b042a52b544f1f7c"
+        },
+        {
+          "path": "docs/readmes/034/development/first-measurement/first-reserved/dev034-three-objects-baseline.gzip.json",
+          "kind": "text",
+          "sha256": "7d7bdcd2ceb6d4cf75abedb0d0626aad758197d54398bdb9f98b25c197157050"
+        },
+        {
+          "path": "docs/readmes/034/development/first-measurement/first-reserved/dev034-three-objects-candidate.gzip.json",
+          "kind": "text",
+          "sha256": "607a944453d83a10a420e722a9fa6de6006003e94c1223bf7bf775fd11bc99c7"
+        },
+        {
+          "path": "docs/readmes/034/development/first-measurement/first-reserved/dev034-torque-negative-baseline.gzip.json",
+          "kind": "text",
+          "sha256": "b483547584ab25ab21db0dec2fd8d944abdea6c3a31448e17e1868341f9e6f89"
+        },
+        {
+          "path": "docs/readmes/034/development/first-measurement/first-reserved/dev034-torque-negative-candidate.gzip.json",
+          "kind": "text",
+          "sha256": "54137316f023375f61a46fcccd80de24326b86509917d5c618fad47d1617beee"
+        },
+        {
+          "path": "docs/readmes/034/development/first-measurement/first-reserved/dev034-translate-x-baseline.gzip.json",
+          "kind": "text",
+          "sha256": "abf253fa96227ad1a5e175b359f0979c225cd36e711f4be8c4b6b94d06685d55"
+        },
+        {
+          "path": "docs/readmes/034/development/first-measurement/first-reserved/dev034-translate-x-candidate.gzip.json",
+          "kind": "text",
+          "sha256": "5631945be2f442688ddfff6fe15750fe87f914c3e2b5f7caa467af96f8fe5685"
+        },
+        {
+          "path": "docs/readmes/034/development/first-measurement/first-reserved/dev034-translate-z-baseline.gzip.json",
+          "kind": "text",
+          "sha256": "2e126264c09d1599dd01337233374caecbcd5c2e0c046287dc725c2d936d20bd"
+        },
+        {
+          "path": "docs/readmes/034/development/first-measurement/first-reserved/dev034-translate-z-candidate.gzip.json",
+          "kind": "text",
+          "sha256": "f42f582c412cb1722dbc5d10a528e9021038a061a559f91ef8da752d19c4371b"
+        },
+        {
+          "path": "docs/readmes/034/development/first-measurement/first-reserved/manifest.json",
+          "kind": "text",
+          "sha256": "b100a4eb059092678eacf303b0f3ab077746ae5d20d2f352e6203f68cb421ace"
+        },
+        {
+          "path": "docs/readmes/034/development/first-measurement/first-reserved/original-summary.json",
+          "kind": "text",
+          "sha256": "3f3f14f065578382e0cb12f927750e94138b46935da28df19fedc4e5bbf91eb0"
+        },
+        {
+          "path": "docs/readmes/034/development/first-measurement/first-reserved/reserved034-force-negative-baseline.gzip.json",
+          "kind": "text",
+          "sha256": "133a836b92e7a1ac45d155175af8016e163637f22d3f14654c589e6804f54a0e"
+        },
+        {
+          "path": "docs/readmes/034/development/first-measurement/first-reserved/reserved034-force-negative-candidate.gzip.json",
+          "kind": "text",
+          "sha256": "382ec225fe02280cf6cdba4aa7a657fa665d44baaf0b57e5915093a61df21973"
+        },
+        {
+          "path": "docs/readmes/034/development/first-measurement/first-reserved/reserved034-half-turn-baseline.gzip.json",
+          "kind": "text",
+          "sha256": "9de306f5118b6dbc03cdd3a09bafbb286f51548366389b74251cd693ca6a652d"
+        },
+        {
+          "path": "docs/readmes/034/development/first-measurement/first-reserved/reserved034-half-turn-candidate.gzip.json",
+          "kind": "text",
+          "sha256": "d84bd3a3ec388caca5eda0e94a5987f8188ef13c513fd327ea4a0b8ede2015ba"
+        },
+        {
+          "path": "docs/readmes/034/development/first-measurement/first-reserved/reserved034-heavy-translate-baseline.gzip.json",
+          "kind": "text",
+          "sha256": "ec67d2fef9be99a5b4f52db5ef83ce9dac0b3921ad14699aa3623c324560e589"
+        },
+        {
+          "path": "docs/readmes/034/development/first-measurement/first-reserved/reserved034-heavy-translate-candidate.gzip.json",
+          "kind": "text",
+          "sha256": "cf2eb16b3cf8ed0ff480e97ee849eac2610a884ce7b6ac12dabe978c689908d8"
+        },
+        {
+          "path": "docs/readmes/034/development/first-measurement/first-reserved/reserved034-opposite-turn-baseline.gzip.json",
+          "kind": "text",
+          "sha256": "c17778e3afcb67c98c151b248bf79a5dd4ab017392495914bf0a77e2018ac060"
+        },
+        {
+          "path": "docs/readmes/034/development/first-measurement/first-reserved/reserved034-opposite-turn-candidate.gzip.json",
+          "kind": "text",
+          "sha256": "4a57e992eb9d276b497426c897cfe55b340e573ecd32cf9cca73eec2fbf1434e"
+        },
+        {
+          "path": "docs/readmes/034/development/first-measurement/first-reserved/reserved034-quarter-turn-baseline.gzip.json",
+          "kind": "text",
+          "sha256": "bd7d5ba9fd8287b79cf13caf67e64e57e782e759ae5dd5e0461cdeabe0bdf0f6"
+        },
+        {
+          "path": "docs/readmes/034/development/first-measurement/first-reserved/reserved034-quarter-turn-candidate.gzip.json",
+          "kind": "text",
+          "sha256": "adabfec31e5f46ed9a4ee68a35a2de6515ac874d7543ac7c7a322c9a61ba842d"
+        },
+        {
+          "path": "docs/readmes/034/development/first-measurement/first-reserved/reserved034-retained-heading-baseline.gzip.json",
+          "kind": "text",
+          "sha256": "9392bc67fd41b478ddd537872d0e12d411911624578599e858a3f68d0d0bf271"
+        },
+        {
+          "path": "docs/readmes/034/development/first-measurement/first-reserved/reserved034-retained-heading-candidate.gzip.json",
+          "kind": "text",
+          "sha256": "ed99ee4cd67a68f401d6fd8ef68de487b1d33d0090ec18518501c0db1f60b5af"
+        },
+        {
+          "path": "docs/readmes/034/development/first-measurement/first-reserved/reserved034-three-objects-baseline.gzip.json",
+          "kind": "text",
+          "sha256": "a5579dd058e76bba13ac1d46ef68064df02b41d93fb0af36f06b0518a45f2552"
+        },
+        {
+          "path": "docs/readmes/034/development/first-measurement/first-reserved/reserved034-three-objects-candidate.gzip.json",
+          "kind": "text",
+          "sha256": "6a160b48e54aa6f8a8ff625e1c78ab82ec7e25a526bfad1b5327987e71bb4918"
+        },
+        {
+          "path": "docs/readmes/034/development/first-measurement/first-reserved/reserved034-torque-negative-baseline.gzip.json",
+          "kind": "text",
+          "sha256": "81b5f2978bce2570679468e87655519aca46e9873cdac2d33341d9a9d9e89e4e"
+        },
+        {
+          "path": "docs/readmes/034/development/first-measurement/first-reserved/reserved034-torque-negative-candidate.gzip.json",
+          "kind": "text",
+          "sha256": "54e4a2a6d44175742a7cf331c987ecdd473c3e2ffd9b5de4d71fa3863a887645"
+        },
+        {
+          "path": "docs/readmes/034/development/first-measurement/first-reserved/reserved034-translate-x-baseline.gzip.json",
+          "kind": "text",
+          "sha256": "63148e5067031d31ea3ed5e54189482de744ffd77d6b3a5ca43a3405d0161ce9"
+        },
+        {
+          "path": "docs/readmes/034/development/first-measurement/first-reserved/reserved034-translate-x-candidate.gzip.json",
+          "kind": "text",
+          "sha256": "f23f336684056dedec43e433c09b41c38de4f4617e70491f6098435e06443415"
+        },
+        {
+          "path": "docs/readmes/034/development/first-measurement/first-reserved/reserved034-translate-z-baseline.gzip.json",
+          "kind": "text",
+          "sha256": "95afb3d8f5ab713d693970ad20697cd21de4517d71b81e14d0a564e0577932d9"
+        },
+        {
+          "path": "docs/readmes/034/development/first-measurement/first-reserved/reserved034-translate-z-candidate.gzip.json",
+          "kind": "text",
+          "sha256": "2168961a0aa3f6ddb95cf723632c519ef55811840fcefc92b643624298fdeceb"
+        },
+        {
+          "path": "docs/readmes/034/development/first-measurement/pose034-dev-first.log.txt",
+          "kind": "text",
+          "sha256": "a8ba19884b014785a2862d5ecfcbf94f72521bcc4bf90136dccf1f9c7f7f8a7a"
+        },
+        {
+          "path": "docs/readmes/034/development/first-measurement/pose034-dev-second.log.txt",
+          "kind": "text",
+          "sha256": "bbafe1e3ca9d7008e7f62ab51a1f8d1787f3702d269fe4ba8fbc1b7ee1314069"
+        },
+        {
+          "path": "docs/readmes/034/development/first-measurement/pose034-native-store-first.log.txt",
+          "kind": "text",
+          "sha256": "6343e91096ee38d9a7f5e794c338b0519e3d85b9090a55d0637ae6d5d4e84383"
+        },
+        {
+          "path": "docs/readmes/034/development/first-measurement/pose034-study-first.log.txt",
+          "kind": "text",
+          "sha256": "a3b07d19eee6fc6ddef4d71fced58a8781b4c51f27401742af291ad6d7180a2d"
+        },
+        {
+          "path": "docs/readmes/034/development/live-poses-failed-1793537726510.json",
+          "kind": "text",
+          "sha256": "92cc39e59a234ec9b4630c2cab2650f077ebd4bd02178f5f3ff585689476b171"
+        },
+        {
+          "path": "docs/readmes/034/development/live-poses-failed-1793538085904.json",
+          "kind": "text",
+          "sha256": "42544cac55aa8ecf5295de94e049b05e780ed37c534b36f5fdce49ae07e64855"
+        },
+        {
+          "path": "docs/readmes/034/development/live034-first.log.txt",
+          "kind": "text",
+          "sha256": "2adf72e0853f7beeb1f5149e2da01e18ad3f18d398b1a622e579cb3a1833972d"
+        },
+        {
+          "path": "docs/readmes/034/development/live034-second.log.txt",
+          "kind": "text",
+          "sha256": "0f2730445f979e9cc89fbb9622556246657500f2ce5405ed4d1889a1c6a46cdd"
+        },
+        {
+          "path": "docs/readmes/034/development/live034-third.log.txt",
+          "kind": "text",
+          "sha256": "32b84e0e2108830cd1258ae3154a54acd75776d9298a21bd7500f99a054143df"
+        },
+        {
+          "path": "docs/readmes/034/development/observe034-build.log.txt",
+          "kind": "text",
+          "sha256": "e22e8e6dfbfaaaffb1730bb79f932ce1dabe39245dd5bc0fce2b81618413a612"
+        },
+        {
+          "path": "docs/readmes/034/development/pose034-individual.png",
+          "kind": "binary",
+          "sha256": "a506ac5b21ac69b4b978ab1fb5008f8cf4935d0a581993b353b0d89c97818a66"
+        },
+        {
+          "path": "docs/readmes/034/development/pose034-narrow.png",
+          "kind": "binary",
+          "sha256": "1cce01e0c3adca255b8b3dbc6684c76cf303e95789a91ca5a00dd09fa22db93f"
+        },
+        {
+          "path": "docs/readmes/034/development/pose034-offline.png",
+          "kind": "binary",
+          "sha256": "a41bf98457f8dfa661b947cf5422e05328b9246940740dfeb17a3aced5842863"
+        },
+        {
+          "path": "docs/readmes/034/development/units034-independent-final.log.txt",
+          "kind": "text",
+          "sha256": "e415b6152f539463cefbf112cdbb144f0cd8301d1803b5f5ea4ca33d7cd174e6"
+        },
+        {
+          "path": "docs/readmes/034/development-attempts.json",
+          "kind": "text",
+          "sha256": "a6544e8d433b166c7cd7eb139dae30e54075c3e58e4963b75176a14924ebb74a"
+        },
+        {
+          "path": "docs/readmes/034/examples/728e8e98-e1f9-4001-8689-955cc01412fd.part.bin",
+          "kind": "binary",
+          "sha256": "ab2243204e6e38e2d701cf6fce67e8d559d3518421ba1dcc87531d2def42743a"
+        },
+        {
+          "path": "docs/readmes/034/examples/a2d3e111-5f3f-446a-9493-7e70a9c8d6a6.part.bin",
+          "kind": "binary",
+          "sha256": "f1df696727b4557f4d03268c95548d228ec125a106c84bde4d884b6438e5511b"
+        },
+        {
+          "path": "docs/readmes/034/examples/b7b7699e-3b1a-4b71-8c23-906c4fa0b0b6.part.bin",
+          "kind": "binary",
+          "sha256": "28fbd79c9f52d9228a9f8f173ffb6d006a74dbd3dface129b2f171ac5c491fb3"
+        },
+        {
+          "path": "docs/readmes/034/examples/be70d143-fd1d-46d7-804f-d7775c85c19f.part.bin",
+          "kind": "binary",
+          "sha256": "e817c638950cd439e2111c823db41d1a4ecd5cfe4efe910b36bbd60976246a50"
+        },
+        {
+          "path": "docs/readmes/034/examples/cancelled.json",
+          "kind": "text",
+          "sha256": "65e4589093fc26f1d188b4de744953f659f802d6f7f42b5b36e7e02e28e7cd2b"
+        },
+        {
+          "path": "docs/readmes/034/examples/checkpoint.json",
+          "kind": "text",
+          "sha256": "8b748e0db339cc3551458810b9e682ddfafa6c4fc015ec3c151d491e48c85f93"
+        },
+        {
+          "path": "docs/readmes/034/examples/continued.json",
+          "kind": "text",
+          "sha256": "224de9705cb6839bda9a9f21b8d9404a541defa512f3a7ed9f2a09406ad20bdb"
+        },
+        {
+          "path": "docs/readmes/034/examples/d67a42b7-5527-4a0d-8901-890207b2f2c0.part.bin",
+          "kind": "binary",
+          "sha256": "e2698bad37e4f71279649e222b31cb7dddfb73e6269b2cdcec2e6f4763b85fe0"
+        },
+        {
+          "path": "docs/readmes/034/examples/efb48a60-0ee7-4678-b350-bb5901fc3e9f.part.bin",
+          "kind": "binary",
+          "sha256": "33537dfc9d22a09211f90b0598ffda4dbc6ef7859df5fc948825867eab896d37"
+        },
+        {
+          "path": "docs/readmes/034/examples/failed.json",
+          "kind": "text",
+          "sha256": "09540347eb3abaca670f89a5bfb8b6a5c52daf4c56c14ab8f4da0e48f497ddfe"
+        },
+        {
+          "path": "docs/readmes/034/examples/failedRun.json",
+          "kind": "text",
+          "sha256": "95cd73f381c19aa47c5e738ae9fd14e1a95b5875fde98078810431d3daf2d11e"
+        },
+        {
+          "path": "docs/readmes/034/examples/first.json",
+          "kind": "text",
+          "sha256": "2f02d1270e266f6a45a233bf350785c83b5535a0ce38361575040a93fafca517"
+        },
+        {
+          "path": "docs/readmes/034/examples/individual/charts.json",
+          "kind": "text",
+          "sha256": "125b25af21be05e361a98f58a06301d7263570a8fd91aae0696973a562b3bc68"
+        },
+        {
+          "path": "docs/readmes/034/examples/individual/index.html",
+          "kind": "text",
+          "sha256": "e51e5250214a1f9c8f8a368e82d77152c558a2891d0ba73561e609d8e4c93253"
+        },
+        {
+          "path": "docs/readmes/034/examples/individual/native-run.json",
+          "kind": "text",
+          "sha256": "3579739de30250e55a22951bcdee787ed6289b06b5e903fbd66f85c1eab2bcb0"
+        },
+        {
+          "path": "docs/readmes/034/examples/individual/proof.json",
+          "kind": "text",
+          "sha256": "01a9ea73f36344667747dc45e2a7d9100af5bccb81e0981235c4712fad4015a9"
+        },
+        {
+          "path": "docs/readmes/034/examples/individual/trace.csv",
+          "kind": "text",
+          "sha256": "c81170265d0cc66a8cb9146dc739f83d1f15636590250b27f82f0c1e2950b5bf"
+        },
+        {
+          "path": "docs/readmes/034/examples/initial-ui-native-experience.json",
+          "kind": "text",
+          "sha256": "333a5c0e13630ff5ade2e1fccce1c3fb478cbae003c7d3c06406cada92b12d54"
+        },
+        {
+          "path": "docs/readmes/034/examples/native-experience.json",
+          "kind": "text",
+          "sha256": "5f6a41d6292d042868444147324879d6f4d7eac72d7f8b62b565b66cc71a65a2"
+        },
+        {
+          "path": "docs/readmes/034/examples/original/actual-receipt.json",
+          "kind": "text",
+          "sha256": "06a59a7cd48cb0114c436ee7be26aa2089ba0acfaac670ae1893cfd624520e99"
+        },
+        {
+          "path": "docs/readmes/034/examples/original/charts.json",
+          "kind": "text",
+          "sha256": "ba9e428bfdd8bd4602bc01006d732271dad8f3925ea7d78aa41a707455327e6a"
+        },
+        {
+          "path": "docs/readmes/034/examples/original/data.json",
+          "kind": "text",
+          "sha256": "b92396376464a38bbeefb29abaabaf717e75663986c492fe5d028ea74c2fb31c"
+        },
+        {
+          "path": "docs/readmes/034/examples/original/index.html",
+          "kind": "text",
+          "sha256": "b863249d70264d74ffbd6f255ee1a568efea61977eaf76a8b294f72bffeeb757"
+        },
+        {
+          "path": "docs/readmes/034/examples/original/job.json",
+          "kind": "text",
+          "sha256": "57674d961ea76bc9f086f4132bfa428b9fb1ce5be468aa41df94bd6b4dead3de"
+        },
+        {
+          "path": "docs/readmes/034/examples/original/table.json",
+          "kind": "text",
+          "sha256": "f13791e160a25cbd65275ebe7e91f661a569914261d4b81d4e058f827b19ff22"
+        },
+        {
+          "path": "docs/readmes/034/examples/reused.json",
+          "kind": "text",
+          "sha256": "2c5fa151806f6e34f7c5af6ea30abb31063d4ddd5e1fd9e8d85ab41464dfadf3"
+        },
+        {
+          "path": "docs/readmes/034/examples/reusedRun.json",
+          "kind": "text",
+          "sha256": "376cac3d358586c07c5dfb2cccca7234275147ac63225e2ab6bdef0a7d7c0fac"
+        },
+        {
+          "path": "docs/readmes/034/examples/rotating.json",
+          "kind": "text",
+          "sha256": "6135007ccc7a35558ff201075e778589ac24424d16e0888fc20b4e5ef56d0523"
+        },
+        {
+          "path": "docs/readmes/034/file-inventory.json",
+          "kind": "text",
+          "sha256": "cd26947732c34e6f0bd35b0962ff9ff85c37ca2df90062d8946e14757aef577d"
+        },
+        {
+          "path": "docs/readmes/034/FILE_TREE.md",
+          "kind": "text",
+          "sha256": "4c1b1f5925c10a456a2135bd91ac57290f60671146a846d0fd0232b63a2b3509"
+        },
+        {
+          "path": "docs/readmes/034/frozen-contract.json",
+          "kind": "text",
+          "sha256": "86f0d832a3026e419e9a5d92e9275c26c2d2c3647e7364ee42425f8e8a3daeb7"
+        },
+        {
+          "path": "docs/readmes/034/frozen-suite.json",
+          "kind": "text",
+          "sha256": "6c8cf72ff611d99e7cf9304afc33d318f2c5756bab77f80f3c93bfe671455a24"
+        },
+        {
+          "path": "docs/readmes/034/images/pose-actual-native-rotation-034.png",
+          "kind": "binary",
+          "sha256": "bb9b5dc35044adb842889a0c5b2c9bd12759efc873ab908bbac1d6b3d6a3b260"
+        },
+        {
+          "path": "docs/readmes/034/images/pose-actual-paired-worlds-034.png",
+          "kind": "binary",
+          "sha256": "aed5d4999da76dd462dbd516e4893d1b0ff58cc8f26b29feaa8e3a31bc8ce19b"
+        },
+        {
+          "path": "docs/readmes/034/images/pose-chat-feature-comparison-034.png",
+          "kind": "binary",
+          "sha256": "7e0d0fa3967fc6d8b5e0b81bb4341e85840f7c60088be4616bbe88154f4113cd"
+        },
+        {
+          "path": "docs/readmes/034/images/pose-chat-native-arrangement-034.png",
+          "kind": "binary",
+          "sha256": "f0af5cd2dcbe141315c60f4b03c862c3facaa78b72c221193d508ac4c789b0d5"
+        },
+        {
+          "path": "docs/readmes/034/images/pose-chat-retained-fresh-roles-034.png",
+          "kind": "binary",
+          "sha256": "6537db4c95ffd2be0f45d121afc4ae9b5b0575c9b455173994201208a4c2d74f"
+        },
+        {
+          "path": "docs/readmes/034/images/pose-complete-export-034.png",
+          "kind": "binary",
+          "sha256": "3783d22871d4357808eec2a5c487749b4a5b09dd9419a8b63e435a4f34c4ceb0"
+        },
+        {
+          "path": "docs/readmes/034/images/pose-confirmed-targets-034.png",
+          "kind": "binary",
+          "sha256": "1f05d705161af5ad5dc28740994c3710d07db2bf59a3865475085e626757e505"
+        },
+        {
+          "path": "docs/readmes/034/images/pose-feature-comparison-034.png",
+          "kind": "binary",
+          "sha256": "b7a00a59764e24766f5dcb32b789882dc5d9369940deca24fc9c924051700fc9"
+        },
+        {
+          "path": "docs/readmes/034/images/pose-force-negative-034.png",
+          "kind": "binary",
+          "sha256": "3b9b37b834458c3437f09b1a282d0fa99a0075a7469d11e29e2707389ef264ed"
+        },
+        {
+          "path": "docs/readmes/034/images/pose-interrupted-four-bodies-034.png",
+          "kind": "binary",
+          "sha256": "48d8a4e9c7ca5a7cdfcd1f347e613750f3c184cb8ac60faea1078aae7fa39159"
+        },
+        {
+          "path": "docs/readmes/034/images/pose-orientation-ablation-chart-034.png",
+          "kind": "binary",
+          "sha256": "a43974419573d6e9aea57a2360bf861a67e569b40ce09ffa22007ac8e238c3c7"
+        },
+        {
+          "path": "docs/readmes/034/images/pose-resumed-verified-report-034.png",
+          "kind": "binary",
+          "sha256": "c3b83df0ed0cd018189d2f0084083d74234e42807fd7bb8fc07abce29d8ffa2f"
+        },
+        {
+          "path": "docs/readmes/034/images/pose-retained-version-form-034.png",
+          "kind": "binary",
+          "sha256": "06dd6f9c56e208b511042516f9ecf8d3619ad7e94b2a74b8c871aba480fd4495"
+        },
+        {
+          "path": "docs/readmes/034/images/pose-saved-comparison-history-034.png",
+          "kind": "binary",
+          "sha256": "43914d85fbce6155e7df4a33072bca47ffd3e62bba099dd3f00560a6abe81249"
+        },
+        {
+          "path": "docs/readmes/034/images/pose-visible-fresh-role-reuse-034.png",
+          "kind": "binary",
+          "sha256": "3c454c5116aad04388b8b77c4800dd50d11dc4b28a8ce8a616c789a131f43e38"
+        },
+        {
+          "path": "docs/readmes/034/images.json",
+          "kind": "text",
+          "sha256": "c0fcf16c5efb924ed1cefa2f31c1821b3a0cb1a9aef482822ef85b55cde0e6b6"
+        },
+        {
+          "path": "docs/readmes/034/index.html",
+          "kind": "text",
+          "sha256": "8e0c02f79aea60eab21ab05a35e33b19c472aa59cc69e6c487a19c430cf4e7f0"
+        },
+        {
+          "path": "docs/readmes/034/initial-ui-provenance.json",
+          "kind": "text",
+          "sha256": "6ecc1ca9088a2f227e9d84710362ce2c20aa33a40649e16b0b7cc96799f8c5a8"
+        },
+        {
+          "path": "docs/readmes/034/live-poses.json",
+          "kind": "text",
+          "sha256": "bccd0b5028685baa17de801c4d8555635b32b162bdb4bee3735e2ef4b396dfb8"
+        },
+        {
+          "path": "docs/readmes/034/native-outcomes.json",
+          "kind": "text",
+          "sha256": "c514b5676852f4c69cd6a25534eaa0a916bc5d16f6d3c9ba35ccb912de887ea4"
+        },
+        {
+          "path": "docs/readmes/034/poses-integration-original.gzip.json",
+          "kind": "text",
+          "sha256": "20c6fbce4786de26fa709b4fb76d1af7fd1e19d505bf092595a9955dd3b7c89a"
+        },
+        {
+          "path": "docs/readmes/034/poses-integration.json",
+          "kind": "text",
+          "sha256": "58dfbdd05a95905d7357a350e49301110214d311b2d25781d4d32d5c79f77d57"
+        },
+        {
+          "path": "docs/readmes/034/regressions.json",
+          "kind": "text",
+          "sha256": "50c2b91133011a5e4f6098e9bc50eff988544cb04ea2f099bf3db76d58367362"
+        },
+        {
+          "path": "docs/readmes/034/system-map.json",
+          "kind": "text",
+          "sha256": "a82db6ae62240105b9390bc267f2bfe5ab0edbba7e9e984f9364058b81503eb3"
+        },
+        {
+          "path": "docs/readmes/034/verification.json",
+          "kind": "text",
+          "sha256": "f9f93c8a2c7118f584832efd5dc46234ab50004c223da4a35d59fb2a41e302d7"
         }
       ]
     }

@@ -1,0 +1,69 @@
+> Task :brain-core:compileJava UP-TO-DATE
+> Task :factory-runtime:compileJava UP-TO-DATE
+> Task :factory-kernel:compileJava UP-TO-DATE
+> Task :factory-models:compileJava UP-TO-DATE
+> Task :compileJava UP-TO-DATE
+> Task :processResources UP-TO-DATE
+> Task :classes UP-TO-DATE
+> Task :jar UP-TO-DATE
+> Task :brain-core:processResources NO-SOURCE
+> Task :brain-core:classes UP-TO-DATE
+> Task :brain-core:jar UP-TO-DATE
+> Task :factory-kernel:processResources NO-SOURCE
+> Task :factory-kernel:classes UP-TO-DATE
+> Task :factory-kernel:jar UP-TO-DATE
+> Task :factory-models:processResources NO-SOURCE
+> Task :factory-models:classes UP-TO-DATE
+> Task :factory-models:jar UP-TO-DATE
+> Task :factory-runtime:processResources NO-SOURCE
+> Task :factory-runtime:classes UP-TO-DATE
+> Task :factory-runtime:jar UP-TO-DATE
+> Task :startScripts UP-TO-DATE
+> Task :installDist
+> Task :brain-gpu:compileJava UP-TO-DATE
+> Task :brain-gpu:processResources NO-SOURCE
+> Task :brain-gpu:classes UP-TO-DATE
+> Task :brain-gpu:jar UP-TO-DATE
+> Task :geometry-core:compileJava UP-TO-DATE
+> Task :geometry-core:processResources NO-SOURCE
+> Task :geometry-core:classes UP-TO-DATE
+> Task :geometry-core:jar UP-TO-DATE
+
+> Task :workspace-engine:compileJava FAILED
+C:\Users\eyeka\Documents\Codex\2026-10-26\is\work\fraynix-agent-workspace\workspace-engine\src\main\java\fraymus\workspace\PosePhysics.java:16: error: cannot find symbol
+  PosePlan.verify(scene,plan);this.scene=scene;this.plan=plan;this.orientation=orientation;this.events=events;BulletRamp.load(nativeDir);space=new PhysicsSpace(PhysicsSpace.BroadphaseType.DBVT);space.setGravity(new Vector3f(0,(float)-scene.getDouble("gravityMps2"),0));space.setAccuracy((float)BulletRamp.DT);
+          ^
+  symbol:   method verify(JSONObject,JSONObject)
+  location: class PosePlan
+C:\Users\eyeka\Documents\Codex\2026-10-26\is\work\fraynix-agent-workspace\workspace-engine\src\main\java\fraymus\workspace\PoseVerify.java:12: error: cannot find symbol
+  var scene=run.getJSONObject("definition");var plan=run.getJSONObject("plan");PosePlan.verify(scene,plan);if(!run.getString("controllerVersion").equals(PosePhysics.VERSION))throw new IllegalStateException("Pose controller version changed");var parsed=SpatialScene.parse(scene.getString("sourceText"),scene.getString("id"));for(String key:parsed.keySet())if(!new JSONObject().put("v",parsed.get(key)).similar(new JSONObject().put("v",scene.get(key))))throw new IllegalStateException("Original source changed");
+                                                                                       ^
+  symbol:   method verify(JSONObject,JSONObject)
+  location: class PosePlan
+2 errors
+
+[Incubating] Problems report is available at: file:///C:/Users/eyeka/Documents/Codex/2026-10-26/is/work/fraynix-agent-workspace/build/reports/problems/problems-report.html
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':workspace-engine:compileJava'.
+> Compilation failed; see the compiler output below.
+  C:\Users\eyeka\Documents\Codex\2026-10-26\is\work\fraynix-agent-workspace\workspace-engine\src\main\java\fraymus\workspace\PosePhysics.java:16: error: cannot find symbol
+    PosePlan.verify(scene,plan);this.scene=scene;this.plan=plan;this.orientation=orientation;this.events=events;BulletRamp.load(nativeDir);space=new PhysicsSpace(PhysicsSpace.BroadphaseType.DBVT);space.setGravity(new Vector3f(0,(float)-scene.getDouble("gravityMps2"),0));space.setAccuracy((float)BulletRamp.DT);
+            ^
+    symbol:   method verify(JSONObject,JSONObject)
+    location: class PosePlan
+  C:\Users\eyeka\Documents\Codex\2026-10-26\is\work\fraynix-agent-workspace\workspace-engine\src\main\java\fraymus\workspace\PoseVerify.java:12: error: cannot find symbol
+    var scene=run.getJSONObject("definition");var plan=run.getJSONObject("plan");PosePlan.verify(scene,plan);if(!run.getString("controllerVersion").equals(PosePhysics.VERSION))throw new IllegalStateException("Pose controller version changed");var parsed=SpatialScene.parse(scene.getString("sourceText"),scene.getString("id"));for(String key:parsed.keySet())if(!new JSONObject().put("v",parsed.get(key)).similar(new JSONObject().put("v",scene.get(key))))throw new IllegalStateException("Original source changed");
+                                                                                         ^
+    symbol:   method verify(JSONObject,JSONObject)
+    location: class PosePlan
+  2 errors
+
+* Try:
+> Check your code and dependencies to fix the compilation error(s)
+> Run with --scan to get full insights from a Build Scan (powered by Develocity).
+
+BUILD FAILED in 3s
+18 actionable tasks: 2 executed, 16 up-to-date

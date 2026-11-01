@@ -1,0 +1,6158 @@
+{
+  "completedAt": "2026-11-01T12:21:25.377220400Z",
+  "goalId": "1e4ec579-0112-48a7-9d88-0d4e25934cb4",
+  "decision": {
+    "developmentPositivePasses": 8,
+    "matchedSuccessCases": 4,
+    "accepted": true,
+    "baselineEvaluationPositivePasses": 4,
+    "pairs": [
+      {
+        "baselineAngleDeg": 0.00022411516910456883,
+        "baselineTimeS": 13.158333333333333,
+        "baselineRunId": "41385613-16e9-30f9-90ea-6411401f2295",
+        "negativeControl": false,
+        "candidateEffortNs": 131.50570789838687,
+        "baselineProtectedDriftM": 0.014940979168124906,
+        "candidateProtectedDriftM": 0.014940979168124906,
+        "candidateRunId": "836e276d-c8ae-33f1-b7e6-06523f055359",
+        "baselineEffortNs": 131.50570789838687,
+        "split": "development",
+        "caseId": "dev034-translate-x",
+        "candidateAngleDeg": 0.00022411516910456883,
+        "candidateTimeS": 13.158333333333333,
+        "baselinePassed": true,
+        "candidatePassed": true
+      },
+      {
+        "baselineAngleDeg": 0.00023156123640002027,
+        "baselineTimeS": 14.545833333333333,
+        "baselineRunId": "78c5d87f-7fd4-3a7c-a04d-c1cc8005c4cf",
+        "negativeControl": false,
+        "candidateEffortNs": 145.6159938919204,
+        "baselineProtectedDriftM": 0.01494130699362572,
+        "candidateProtectedDriftM": 0.01494130699362572,
+        "candidateRunId": "fcf74754-dab0-3afe-90c0-086a67262da2",
+        "baselineEffortNs": 145.6159938919204,
+        "split": "development",
+        "caseId": "dev034-translate-z",
+        "candidateAngleDeg": 0.00023156123640002027,
+        "candidateTimeS": 14.545833333333333,
+        "baselinePassed": true,
+        "candidatePassed": true
+      },
+      {
+        "baselineAngleDeg": 0.0002716134676139304,
+        "baselineTimeS": 16.53333333333333,
+        "baselineRunId": "a5672ac5-cf5b-37f7-9a41-ece66bafae8c",
+        "negativeControl": false,
+        "candidateEffortNs": 243.3855983550973,
+        "baselineProtectedDriftM": 0.014941336695245205,
+        "candidateProtectedDriftM": 0.014941336695245205,
+        "candidateRunId": "7127e007-e8bc-3253-9ec6-597d882691af",
+        "baselineEffortNs": 243.3855983550973,
+        "split": "development",
+        "caseId": "dev034-heavy-translate",
+        "candidateAngleDeg": 0.0002716134676139304,
+        "candidateTimeS": 16.53333333333333,
+        "baselinePassed": true,
+        "candidatePassed": true
+      },
+      {
+        "baselineAngleDeg": 3.2600075043603696e-05,
+        "baselineTimeS": 16.53333333333333,
+        "baselineRunId": "45d08ed2-dd0a-370c-aa56-4003b6521bb9",
+        "negativeControl": false,
+        "candidateEffortNs": 167.80332153853706,
+        "baselineProtectedDriftM": 0.014941336695245205,
+        "candidateProtectedDriftM": 0.014941336695245205,
+        "candidateRunId": "e976793d-e798-34f4-8540-7ae2f006b02c",
+        "baselineEffortNs": 167.80332153853706,
+        "split": "development",
+        "caseId": "dev034-retained-heading",
+        "candidateAngleDeg": 3.256392777639035e-05,
+        "candidateTimeS": 16.53333333333333,
+        "baselinePassed": true,
+        "candidatePassed": true
+      },
+      {
+        "baselineAngleDeg": 90.00027161112408,
+        "baselineTimeS": 60,
+        "baselineRunId": "0890063b-40b4-3305-87fa-19a13fac20a2",
+        "negativeControl": false,
+        "candidateEffortNs": 208.05250242948668,
+        "baselineProtectedDriftM": 0.014941336695245205,
+        "candidateProtectedDriftM": 0.014941634718429771,
+        "candidateRunId": "fe9a2371-68fe-3f67-a357-a3d7f9cc1487",
+        "baselineEffortNs": 167.80332066433542,
+        "split": "development",
+        "caseId": "dev034-quarter-turn",
+        "candidateAngleDeg": 0.0003679518014556761,
+        "candidateTimeS": 20.266666666666666,
+        "baselinePassed": false,
+        "candidatePassed": true
+      },
+      {
+        "baselineAngleDeg": 89.99993628391901,
+        "baselineTimeS": 60,
+        "baselineRunId": "42d0b516-59b1-37ad-924f-6d4d023372ff",
+        "negativeControl": false,
+        "candidateEffortNs": 255.5748830258492,
+        "baselineProtectedDriftM": 0.014891804419288932,
+        "candidateProtectedDriftM": 0.014892132244809777,
+        "candidateRunId": "382bbeea-f5ae-30cc-8995-e14d5fd8649d",
+        "baselineEffortNs": 215.32574118934923,
+        "split": "development",
+        "caseId": "dev034-opposite-turn",
+        "candidateAngleDeg": 0.0004694598514898189,
+        "candidateTimeS": 24.670833333333334,
+        "baselinePassed": false,
+        "candidatePassed": true
+      },
+      {
+        "baselineAngleDeg": 179.99966403975682,
+        "baselineTimeS": 60,
+        "baselineRunId": "bdc98707-7bdb-341f-8be9-5b4b2cfd5c65",
+        "negativeControl": false,
+        "candidateEffortNs": 269.02275810159773,
+        "baselineProtectedDriftM": 0.014891804419288932,
+        "candidateProtectedDriftM": 0.014892132244809777,
+        "candidateRunId": "13f1c679-bee1-3942-a752-177664feb6d7",
+        "baselineEffortNs": 215.32574118934923,
+        "split": "development",
+        "caseId": "dev034-half-turn",
+        "candidateAngleDeg": 0.0003899899773341927,
+        "candidateTimeS": 26.041666666666668,
+        "baselinePassed": false,
+        "candidatePassed": true
+      },
+      {
+        "baselineAngleDeg": 90.00061463314086,
+        "baselineTimeS": 60,
+        "baselineRunId": "8edb303f-ccca-39a2-949b-f929ddee0f6a",
+        "negativeControl": false,
+        "candidateEffortNs": 335.5618154845115,
+        "baselineProtectedDriftM": 0.014897109001410806,
+        "candidateProtectedDriftM": 0.01489740702461621,
+        "candidateRunId": "0134fb8a-1cf0-385f-8295-0dbc4b523ee2",
+        "baselineEffortNs": 286.25636163333195,
+        "split": "development",
+        "caseId": "dev034-three-objects",
+        "candidateAngleDeg": 0.0005427617392779047,
+        "candidateTimeS": 35.358333333333334,
+        "baselinePassed": false,
+        "candidatePassed": true
+      },
+      {
+        "baselineAngleDeg": 4.086652517060797e-05,
+        "baselineTimeS": 60,
+        "baselineRunId": "5aed6d43-d8bb-312d-8d2d-b4b85602ad1b",
+        "negativeControl": true,
+        "candidateEffortNs": 20.000000000000124,
+        "baselineProtectedDriftM": 1.4901161193847656e-08,
+        "candidateProtectedDriftM": 1.4901161193847656e-08,
+        "candidateRunId": "2bf2a7b8-b272-3abe-9705-2a73c81adcb8",
+        "baselineEffortNs": 20.000000000000128,
+        "split": "development",
+        "caseId": "dev034-force-negative",
+        "candidateAngleDeg": 3.772777130614788e-05,
+        "candidateTimeS": 60,
+        "baselinePassed": false,
+        "candidatePassed": false
+      },
+      {
+        "baselineAngleDeg": 90.00027161112408,
+        "baselineTimeS": 60,
+        "baselineRunId": "e3303b86-1b40-3a7a-b6da-02a7d467e813",
+        "negativeControl": true,
+        "candidateEffortNs": 57.843090724945114,
+        "baselineProtectedDriftM": 0.014941336695245205,
+        "candidateProtectedDriftM": 0.0001703500747680664,
+        "candidateRunId": "ec0a5bb7-abb9-3864-ac06-015cbf7e5868",
+        "baselineEffortNs": 167.80332066433542,
+        "split": "development",
+        "caseId": "dev034-torque-negative",
+        "candidateAngleDeg": 90,
+        "candidateTimeS": 60,
+        "baselinePassed": false,
+        "candidatePassed": false
+      },
+      {
+        "baselineAngleDeg": 0.00023039836089372673,
+        "baselineTimeS": 13.375,
+        "baselineRunId": "840ff27c-3c3a-3a22-b5a3-b2280e9d6fc2",
+        "negativeControl": false,
+        "candidateEffortNs": 154.70271603563285,
+        "baselineProtectedDriftM": 0.014940979168124906,
+        "candidateProtectedDriftM": 0.014940979168124906,
+        "candidateRunId": "f0d88ce3-0b17-3b2a-baf5-1c5f5b017ab9",
+        "baselineEffortNs": 154.70271603563285,
+        "split": "evaluation",
+        "caseId": "reserved034-translate-x",
+        "candidateAngleDeg": 0.00023039836089372673,
+        "candidateTimeS": 13.375,
+        "baselinePassed": true,
+        "candidatePassed": true
+      },
+      {
+        "baselineAngleDeg": 0.0002314953045462871,
+        "baselineTimeS": 14.758333333333333,
+        "baselineRunId": "e8ec90b5-51ac-36e7-8de6-585c1d2187ce",
+        "negativeControl": false,
+        "candidateEffortNs": 170.65407691427174,
+        "baselineProtectedDriftM": 0.01494130699362572,
+        "candidateProtectedDriftM": 0.01494130699362572,
+        "candidateRunId": "d163ee1e-6987-3f32-bdae-37a3c5c9a004",
+        "baselineEffortNs": 170.65407691427174,
+        "split": "evaluation",
+        "caseId": "reserved034-translate-z",
+        "candidateAngleDeg": 0.0002314953045462871,
+        "candidateTimeS": 14.758333333333333,
+        "baselinePassed": true,
+        "candidatePassed": true
+      },
+      {
+        "baselineAngleDeg": 0.00027739363334818425,
+        "baselineTimeS": 16.933333333333334,
+        "baselineRunId": "bf625f23-ae86-3bb8-92bd-ec4c65f17242",
+        "negativeControl": false,
+        "candidateEffortNs": 276.2447747686026,
+        "baselineProtectedDriftM": 0.014941337026112592,
+        "candidateProtectedDriftM": 0.014941337026112592,
+        "candidateRunId": "098a8395-7975-3fec-b653-3d2ba087cce3",
+        "baselineEffortNs": 276.2447747686026,
+        "split": "evaluation",
+        "caseId": "reserved034-heavy-translate",
+        "candidateAngleDeg": 0.00027739363334818425,
+        "candidateTimeS": 16.933333333333334,
+        "baselinePassed": true,
+        "candidatePassed": true
+      },
+      {
+        "baselineAngleDeg": 1.8831975797572922e-05,
+        "baselineTimeS": 16.933333333333334,
+        "baselineRunId": "37058948-ed8b-30fb-95e5-d0a1af04b998",
+        "negativeControl": false,
+        "candidateEffortNs": 198.70046603082952,
+        "baselineProtectedDriftM": 0.014941337026112592,
+        "candidateProtectedDriftM": 0.014941337026112592,
+        "candidateRunId": "1011c4b5-f807-3011-958b-80ec6e850232",
+        "baselineEffortNs": 198.70046603082952,
+        "split": "evaluation",
+        "caseId": "reserved034-retained-heading",
+        "candidateAngleDeg": 1.8834811146556786e-05,
+        "candidateTimeS": 16.933333333333334,
+        "baselinePassed": true,
+        "candidatePassed": true
+      },
+      {
+        "baselineAngleDeg": 100.20027739745923,
+        "baselineTimeS": 60,
+        "baselineRunId": "b631794e-c777-3b5f-977c-2cf609056c7c",
+        "negativeControl": false,
+        "candidateEffortNs": 248.33628007224027,
+        "baselineProtectedDriftM": 0.014941337026112592,
+        "candidateProtectedDriftM": 0.01494163504929056,
+        "candidateRunId": "4c0b5b63-70ff-3fd3-937c-04ce023de658",
+        "baselineEffortNs": 198.7004663964046,
+        "split": "evaluation",
+        "caseId": "reserved034-quarter-turn",
+        "candidateAngleDeg": 0.0005979312968996524,
+        "candidateTimeS": 20.925,
+        "baselinePassed": false,
+        "candidatePassed": true
+      },
+      {
+        "baselineAngleDeg": 100.19963805346225,
+        "baselineTimeS": 60,
+        "baselineRunId": "201265d7-9bfe-3bf6-ac51-dddff521b391",
+        "negativeControl": false,
+        "candidateEffortNs": 320.438417056521,
+        "baselineProtectedDriftM": 0.014889181237685012,
+        "candidateProtectedDriftM": 0.014889509063218563,
+        "candidateRunId": "45a0b018-1a87-37c6-a580-aedd72b7cbdb",
+        "baselineEffortNs": 270.80265231422686,
+        "split": "evaluation",
+        "caseId": "reserved034-opposite-turn",
+        "candidateAngleDeg": 0.0005978853692888738,
+        "candidateTimeS": 26.7125,
+        "baselinePassed": false,
+        "candidatePassed": true
+      },
+      {
+        "baselineAngleDeg": 171.50036194653774,
+        "baselineTimeS": 60,
+        "baselineRunId": "7527cd03-6da0-30ef-9911-2320dd7014e2",
+        "negativeControl": false,
+        "candidateEffortNs": 333.2645840515407,
+        "baselineProtectedDriftM": 0.014889181237685012,
+        "candidateProtectedDriftM": 0.014889509063218563,
+        "candidateRunId": "052b7057-eba1-39af-b02a-3f6b91ea4eed",
+        "baselineEffortNs": 270.80265231422686,
+        "split": "evaluation",
+        "caseId": "reserved034-half-turn",
+        "candidateAngleDeg": 0.0008919453467865215,
+        "candidateTimeS": 27.825,
+        "baselinePassed": false,
+        "candidatePassed": true
+      },
+      {
+        "baselineAngleDeg": 100.2006670780305,
+        "baselineTimeS": 60,
+        "baselineRunId": "364ce974-0de1-378c-9534-fa817d48689c",
+        "negativeControl": false,
+        "candidateEffortNs": 427.4537998875261,
+        "baselineProtectedDriftM": 0.014894456594882742,
+        "candidateProtectedDriftM": 0.01489478442040868,
+        "candidateRunId": "6196a813-93e9-374e-8212-4c80a6e51f66",
+        "baselineEffortNs": 365.4099326276906,
+        "split": "evaluation",
+        "caseId": "reserved034-three-objects",
+        "candidateAngleDeg": 0.0005978792826738123,
+        "candidateTimeS": 38.454166666666666,
+        "baselinePassed": false,
+        "candidatePassed": true
+      },
+      {
+        "baselineAngleDeg": 4.165094750580676e-05,
+        "baselineTimeS": 60,
+        "baselineRunId": "c316035d-391c-32e7-859d-05e41ac8217c",
+        "negativeControl": true,
+        "candidateEffortNs": 20.00000000000014,
+        "baselineProtectedDriftM": 1.4901161193847656e-08,
+        "candidateProtectedDriftM": 1.4901161193847656e-08,
+        "candidateRunId": "537c9b88-5969-3f9f-bb8a-d4b5b1e28a76",
+        "baselineEffortNs": 20.000000000000135,
+        "split": "evaluation",
+        "caseId": "reserved034-force-negative",
+        "candidateAngleDeg": 3.842558058450159e-05,
+        "candidateTimeS": 60,
+        "baselinePassed": false,
+        "candidatePassed": false
+      },
+      {
+        "baselineAngleDeg": 100.20027739745923,
+        "baselineTimeS": 60,
+        "baselineRunId": "4e4767ed-50fa-3267-8139-78853e8edb51",
+        "negativeControl": true,
+        "candidateEffortNs": 67.67641479571671,
+        "baselineProtectedDriftM": 0.014941337026112592,
+        "candidateProtectedDriftM": 0.0001703500747680664,
+        "candidateRunId": "8ff7b15f-cb06-3e74-a683-c86bf8b21781",
+        "baselineEffortNs": 198.7004663964046,
+        "split": "evaluation",
+        "caseId": "reserved034-torque-negative",
+        "candidateAngleDeg": 100.2,
+        "candidateTimeS": 60,
+        "baselinePassed": false,
+        "candidatePassed": false
+      }
+    ],
+    "gates": {
+      "negativeControlsMustFailBothArms": true,
+      "allFeasibleEvaluation": true,
+      "noTranslationAblationSuccessRegression": true,
+      "maxMatchedSuccessEffortRatio": 1.1,
+      "minMatchedSuccessCases": 4,
+      "allFeasibleDevelopment": true
+    },
+    "allCaseEffortRatio": 1.0436544129234546,
+    "evaluationPositiveCases": 8,
+    "successRegressions": 0,
+    "evaluationPositivePasses": 8,
+    "matchedSuccessEffortRatio": 1,
+    "scope": "Feature validation of a virtual force/torque gripper on multiple native bodies. Translation-only ablation is newly declared034, not the preserved033 contact pusher or a trained-policy comparison.",
+    "negativeControlErrors": 0,
+    "passed": true,
+    "developmentPositiveCases": 8,
+    "meanPenalizedTimeGainS": 12.608333333333338
+  },
+  "candidateFrozenCodeSha256": "c6d538c60e4768f5d6cefb996ed4386d498169144f8b57a3ea150d601cb7ff9d",
+  "candidateFrozenAt": "2026-11-01T12:20:11.593907200Z",
+  "resumes": 0,
+  "createdAt": "2026-11-01T12:19:13.324529600Z",
+  "codeSha256": "45236b46c04443e68019c3a97c72763ebf1244f21df93f8106c3acf989a60e92",
+  "current": {
+    "split": "evaluation",
+    "caseId": "reserved034-torque-negative",
+    "initialForceN": 60,
+    "runId": "8ff7b15f-cb06-3e74-a683-c86bf8b21781",
+    "arm": "candidate"
+  },
+  "suite": {
+    "gates": {
+      "negativeControlsMustFailBothArms": true,
+      "allFeasibleEvaluation": true,
+      "noTranslationAblationSuccessRegression": true,
+      "maxMatchedSuccessEffortRatio": 1.1,
+      "minMatchedSuccessCases": 4,
+      "allFeasibleDevelopment": true
+    },
+    "cases": [
+      {
+        "split": "development",
+        "negativeControl": false,
+        "id": "dev034-translate-x",
+        "source": {
+          "objects": [
+            {
+              "sourceId": "floor",
+              "shape": "box",
+              "size": [
+                12,
+                0.5,
+                12
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "floor",
+              "position": [
+                0,
+                -0.25,
+                0
+              ],
+              "massKg": 0,
+              "friction": 0.5
+            },
+            {
+              "sourceId": "A",
+              "shape": "box",
+              "size": [
+                0.8,
+                0.6,
+                0.45
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "A",
+              "position": [
+                -2,
+                0.3,
+                -1.5
+              ],
+              "massKg": 1,
+              "friction": 0.45
+            },
+            {
+              "sourceId": "B",
+              "shape": "box",
+              "size": [
+                0.7,
+                0.5,
+                0.5
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "B",
+              "position": [
+                2,
+                0.25,
+                1.5
+              ],
+              "massKg": 1.2,
+              "friction": 0.45
+            },
+            {
+              "sourceId": "bystander",
+              "shape": "box",
+              "size": [
+                0.5,
+                0.5,
+                0.6
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "bystander",
+              "position": [
+                3,
+                0.25,
+                2.7
+              ],
+              "massKg": 1,
+              "friction": 0.6
+            }
+          ],
+          "format": "fraynix.spatial-scene",
+          "units": "m",
+          "source": {
+            "note": "Frozen034 declared native rigid-body pose task. Virtual force/torque gripper; not a captured room or physical robot hand.",
+            "kind": "synthetic",
+            "physicalProperties": "declared"
+          },
+          "title": "Labelled034 development: translate-x",
+          "version": 1,
+          "scaleReference": {
+            "a": [
+              0,
+              0,
+              0
+            ],
+            "b": [
+              1,
+              0,
+              0
+            ],
+            "toleranceM": 0,
+            "knownLengthM": 1,
+            "basis": "declared-test"
+          },
+          "frame": "right-handed-y-up",
+          "gravityMps2": 9.81
+        },
+        "forceLimitN": 60,
+        "targets": [
+          {
+            "sourceId": "A",
+            "positionM": [
+              -0.7,
+              0.3,
+              -1.5
+            ],
+            "yawDeg": 0
+          },
+          {
+            "sourceId": "B",
+            "positionM": [
+              2,
+              0.25,
+              0.1
+            ],
+            "yawDeg": 0
+          }
+        ],
+        "torqueLimitNm": 4
+      },
+      {
+        "split": "development",
+        "negativeControl": false,
+        "id": "dev034-translate-z",
+        "source": {
+          "objects": [
+            {
+              "sourceId": "floor",
+              "shape": "box",
+              "size": [
+                12,
+                0.5,
+                12
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "floor",
+              "position": [
+                0,
+                -0.25,
+                0
+              ],
+              "massKg": 0,
+              "friction": 0.5
+            },
+            {
+              "sourceId": "A",
+              "shape": "box",
+              "size": [
+                0.8,
+                0.6,
+                0.45
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "A",
+              "position": [
+                -2,
+                0.3,
+                -1.5
+              ],
+              "massKg": 1,
+              "friction": 0.45
+            },
+            {
+              "sourceId": "B",
+              "shape": "box",
+              "size": [
+                0.7,
+                0.5,
+                0.5
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "B",
+              "position": [
+                2,
+                0.25,
+                1.5
+              ],
+              "massKg": 1.2,
+              "friction": 0.45
+            },
+            {
+              "sourceId": "bystander",
+              "shape": "box",
+              "size": [
+                0.5,
+                0.5,
+                0.6
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "bystander",
+              "position": [
+                3,
+                0.25,
+                2.7
+              ],
+              "massKg": 1,
+              "friction": 0.6
+            }
+          ],
+          "format": "fraynix.spatial-scene",
+          "units": "m",
+          "source": {
+            "note": "Frozen034 declared native rigid-body pose task. Virtual force/torque gripper; not a captured room or physical robot hand.",
+            "kind": "synthetic",
+            "physicalProperties": "declared"
+          },
+          "title": "Labelled034 development: translate-z",
+          "version": 1,
+          "scaleReference": {
+            "a": [
+              0,
+              0,
+              0
+            ],
+            "b": [
+              1,
+              0,
+              0
+            ],
+            "toleranceM": 0,
+            "knownLengthM": 1,
+            "basis": "declared-test"
+          },
+          "frame": "right-handed-y-up",
+          "gravityMps2": 9.81
+        },
+        "forceLimitN": 60,
+        "targets": [
+          {
+            "sourceId": "A",
+            "positionM": [
+              -2,
+              0.3,
+              0.7
+            ],
+            "yawDeg": 0
+          },
+          {
+            "sourceId": "B",
+            "positionM": [
+              0.4,
+              0.25,
+              1.5
+            ],
+            "yawDeg": 0
+          }
+        ],
+        "torqueLimitNm": 4
+      },
+      {
+        "split": "development",
+        "negativeControl": false,
+        "id": "dev034-heavy-translate",
+        "source": {
+          "objects": [
+            {
+              "sourceId": "floor",
+              "shape": "box",
+              "size": [
+                12,
+                0.5,
+                12
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "floor",
+              "position": [
+                0,
+                -0.25,
+                0
+              ],
+              "massKg": 0,
+              "friction": 0.5
+            },
+            {
+              "sourceId": "A",
+              "shape": "box",
+              "size": [
+                0.8,
+                0.6,
+                0.45
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "A",
+              "position": [
+                -2,
+                0.3,
+                -1.5
+              ],
+              "massKg": 2,
+              "friction": 0.45
+            },
+            {
+              "sourceId": "B",
+              "shape": "box",
+              "size": [
+                0.7,
+                0.5,
+                0.5
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "B",
+              "position": [
+                2,
+                0.25,
+                1.5
+              ],
+              "massKg": 1.2,
+              "friction": 0.45
+            },
+            {
+              "sourceId": "bystander",
+              "shape": "box",
+              "size": [
+                0.5,
+                0.5,
+                0.6
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "bystander",
+              "position": [
+                3,
+                0.25,
+                2.7
+              ],
+              "massKg": 1,
+              "friction": 0.6
+            }
+          ],
+          "format": "fraynix.spatial-scene",
+          "units": "m",
+          "source": {
+            "note": "Frozen034 declared native rigid-body pose task. Virtual force/torque gripper; not a captured room or physical robot hand.",
+            "kind": "synthetic",
+            "physicalProperties": "declared"
+          },
+          "title": "Labelled034 development: heavy-translate",
+          "version": 1,
+          "scaleReference": {
+            "a": [
+              0,
+              0,
+              0
+            ],
+            "b": [
+              1,
+              0,
+              0
+            ],
+            "toleranceM": 0,
+            "knownLengthM": 1,
+            "basis": "declared-test"
+          },
+          "frame": "right-handed-y-up",
+          "gravityMps2": 9.81
+        },
+        "forceLimitN": 60,
+        "targets": [
+          {
+            "sourceId": "A",
+            "positionM": [
+              -1,
+              0.3,
+              1
+            ],
+            "yawDeg": 0
+          },
+          {
+            "sourceId": "B",
+            "positionM": [
+              1,
+              0.25,
+              -1
+            ],
+            "yawDeg": 0
+          }
+        ],
+        "torqueLimitNm": 4
+      },
+      {
+        "split": "development",
+        "negativeControl": false,
+        "id": "dev034-retained-heading",
+        "source": {
+          "objects": [
+            {
+              "sourceId": "floor",
+              "shape": "box",
+              "size": [
+                12,
+                0.5,
+                12
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "floor",
+              "position": [
+                0,
+                -0.25,
+                0
+              ],
+              "massKg": 0,
+              "friction": 0.5
+            },
+            {
+              "sourceId": "A",
+              "shape": "box",
+              "size": [
+                0.8,
+                0.6,
+                0.45
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0.21643961393810288,
+                0,
+                0.9762960071199334
+              ],
+              "label": "A",
+              "position": [
+                -2,
+                0.3,
+                -1.5
+              ],
+              "massKg": 1,
+              "friction": 0.45
+            },
+            {
+              "sourceId": "B",
+              "shape": "box",
+              "size": [
+                0.7,
+                0.5,
+                0.5
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                -0.21643961393810288,
+                0,
+                0.9762960071199334
+              ],
+              "label": "B",
+              "position": [
+                2,
+                0.25,
+                1.5
+              ],
+              "massKg": 1.2,
+              "friction": 0.45
+            },
+            {
+              "sourceId": "bystander",
+              "shape": "box",
+              "size": [
+                0.5,
+                0.5,
+                0.6
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "bystander",
+              "position": [
+                3,
+                0.25,
+                2.7
+              ],
+              "massKg": 1,
+              "friction": 0.6
+            }
+          ],
+          "format": "fraynix.spatial-scene",
+          "units": "m",
+          "source": {
+            "note": "Frozen034 declared native rigid-body pose task. Virtual force/torque gripper; not a captured room or physical robot hand.",
+            "kind": "synthetic",
+            "physicalProperties": "declared"
+          },
+          "title": "Labelled034 development: retained-heading",
+          "version": 1,
+          "scaleReference": {
+            "a": [
+              0,
+              0,
+              0
+            ],
+            "b": [
+              1,
+              0,
+              0
+            ],
+            "toleranceM": 0,
+            "knownLengthM": 1,
+            "basis": "declared-test"
+          },
+          "frame": "right-handed-y-up",
+          "gravityMps2": 9.81
+        },
+        "forceLimitN": 60,
+        "targets": [
+          {
+            "sourceId": "A",
+            "positionM": [
+              -1,
+              0.3,
+              1
+            ],
+            "yawDeg": 25
+          },
+          {
+            "sourceId": "B",
+            "positionM": [
+              1,
+              0.25,
+              -1
+            ],
+            "yawDeg": -25
+          }
+        ],
+        "torqueLimitNm": 4
+      },
+      {
+        "split": "development",
+        "negativeControl": false,
+        "id": "dev034-quarter-turn",
+        "source": {
+          "objects": [
+            {
+              "sourceId": "floor",
+              "shape": "box",
+              "size": [
+                12,
+                0.5,
+                12
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "floor",
+              "position": [
+                0,
+                -0.25,
+                0
+              ],
+              "massKg": 0,
+              "friction": 0.5
+            },
+            {
+              "sourceId": "A",
+              "shape": "box",
+              "size": [
+                0.8,
+                0.6,
+                0.45
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "A",
+              "position": [
+                -2,
+                0.3,
+                -1.5
+              ],
+              "massKg": 1,
+              "friction": 0.45
+            },
+            {
+              "sourceId": "B",
+              "shape": "box",
+              "size": [
+                0.7,
+                0.5,
+                0.5
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "B",
+              "position": [
+                2,
+                0.25,
+                1.5
+              ],
+              "massKg": 1.2,
+              "friction": 0.45
+            },
+            {
+              "sourceId": "bystander",
+              "shape": "box",
+              "size": [
+                0.5,
+                0.5,
+                0.6
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "bystander",
+              "position": [
+                3,
+                0.25,
+                2.7
+              ],
+              "massKg": 1,
+              "friction": 0.6
+            }
+          ],
+          "format": "fraynix.spatial-scene",
+          "units": "m",
+          "source": {
+            "note": "Frozen034 declared native rigid-body pose task. Virtual force/torque gripper; not a captured room or physical robot hand.",
+            "kind": "synthetic",
+            "physicalProperties": "declared"
+          },
+          "title": "Labelled034 development: quarter-turn",
+          "version": 1,
+          "scaleReference": {
+            "a": [
+              0,
+              0,
+              0
+            ],
+            "b": [
+              1,
+              0,
+              0
+            ],
+            "toleranceM": 0,
+            "knownLengthM": 1,
+            "basis": "declared-test"
+          },
+          "frame": "right-handed-y-up",
+          "gravityMps2": 9.81
+        },
+        "forceLimitN": 60,
+        "targets": [
+          {
+            "sourceId": "A",
+            "positionM": [
+              -1,
+              0.3,
+              1
+            ],
+            "yawDeg": 90
+          },
+          {
+            "sourceId": "B",
+            "positionM": [
+              1,
+              0.25,
+              -1
+            ],
+            "yawDeg": -90
+          }
+        ],
+        "torqueLimitNm": 4
+      },
+      {
+        "split": "development",
+        "negativeControl": false,
+        "id": "dev034-opposite-turn",
+        "source": {
+          "objects": [
+            {
+              "sourceId": "floor",
+              "shape": "box",
+              "size": [
+                12,
+                0.5,
+                12
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "floor",
+              "position": [
+                0,
+                -0.25,
+                0
+              ],
+              "massKg": 0,
+              "friction": 0.5
+            },
+            {
+              "sourceId": "A",
+              "shape": "box",
+              "size": [
+                0.8,
+                0.6,
+                0.45
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "A",
+              "position": [
+                -2,
+                0.3,
+                -1.5
+              ],
+              "massKg": 1,
+              "friction": 0.45
+            },
+            {
+              "sourceId": "B",
+              "shape": "box",
+              "size": [
+                0.7,
+                0.5,
+                0.5
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "B",
+              "position": [
+                2,
+                0.25,
+                1.5
+              ],
+              "massKg": 1.2,
+              "friction": 0.45
+            },
+            {
+              "sourceId": "bystander",
+              "shape": "box",
+              "size": [
+                0.5,
+                0.5,
+                0.6
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "bystander",
+              "position": [
+                3,
+                0.25,
+                2.7
+              ],
+              "massKg": 1,
+              "friction": 0.6
+            },
+            {
+              "sourceId": "obstacle",
+              "shape": "box",
+              "size": [
+                0.8,
+                1.2,
+                0.8
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "obstacle",
+              "position": [
+                0,
+                0.6,
+                0
+              ],
+              "massKg": 0,
+              "friction": 0.5
+            }
+          ],
+          "format": "fraynix.spatial-scene",
+          "units": "m",
+          "source": {
+            "note": "Frozen034 declared native rigid-body pose task. Virtual force/torque gripper; not a captured room or physical robot hand.",
+            "kind": "synthetic",
+            "physicalProperties": "declared"
+          },
+          "title": "Labelled034 development: opposite-turn",
+          "version": 1,
+          "scaleReference": {
+            "a": [
+              0,
+              0,
+              0
+            ],
+            "b": [
+              1,
+              0,
+              0
+            ],
+            "toleranceM": 0,
+            "knownLengthM": 1,
+            "basis": "declared-test"
+          },
+          "frame": "right-handed-y-up",
+          "gravityMps2": 9.81
+        },
+        "forceLimitN": 60,
+        "targets": [
+          {
+            "sourceId": "A",
+            "positionM": [
+              -1,
+              0.3,
+              1
+            ],
+            "yawDeg": -90
+          },
+          {
+            "sourceId": "B",
+            "positionM": [
+              1,
+              0.25,
+              -1
+            ],
+            "yawDeg": -90
+          }
+        ],
+        "torqueLimitNm": 4
+      },
+      {
+        "split": "development",
+        "negativeControl": false,
+        "id": "dev034-half-turn",
+        "source": {
+          "objects": [
+            {
+              "sourceId": "floor",
+              "shape": "box",
+              "size": [
+                12,
+                0.5,
+                12
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "floor",
+              "position": [
+                0,
+                -0.25,
+                0
+              ],
+              "massKg": 0,
+              "friction": 0.5
+            },
+            {
+              "sourceId": "A",
+              "shape": "box",
+              "size": [
+                0.8,
+                0.6,
+                0.45
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "A",
+              "position": [
+                -2,
+                0.3,
+                -1.5
+              ],
+              "massKg": 1,
+              "friction": 0.45
+            },
+            {
+              "sourceId": "B",
+              "shape": "box",
+              "size": [
+                0.7,
+                0.5,
+                0.5
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "B",
+              "position": [
+                2,
+                0.25,
+                1.5
+              ],
+              "massKg": 1.2,
+              "friction": 0.45
+            },
+            {
+              "sourceId": "bystander",
+              "shape": "box",
+              "size": [
+                0.5,
+                0.5,
+                0.6
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "bystander",
+              "position": [
+                3,
+                0.25,
+                2.7
+              ],
+              "massKg": 1,
+              "friction": 0.6
+            },
+            {
+              "sourceId": "obstacle",
+              "shape": "box",
+              "size": [
+                0.8,
+                1.2,
+                0.8
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "obstacle",
+              "position": [
+                0,
+                0.6,
+                0
+              ],
+              "massKg": 0,
+              "friction": 0.5
+            }
+          ],
+          "format": "fraynix.spatial-scene",
+          "units": "m",
+          "source": {
+            "note": "Frozen034 declared native rigid-body pose task. Virtual force/torque gripper; not a captured room or physical robot hand.",
+            "kind": "synthetic",
+            "physicalProperties": "declared"
+          },
+          "title": "Labelled034 development: half-turn",
+          "version": 1,
+          "scaleReference": {
+            "a": [
+              0,
+              0,
+              0
+            ],
+            "b": [
+              1,
+              0,
+              0
+            ],
+            "toleranceM": 0,
+            "knownLengthM": 1,
+            "basis": "declared-test"
+          },
+          "frame": "right-handed-y-up",
+          "gravityMps2": 9.81
+        },
+        "forceLimitN": 60,
+        "targets": [
+          {
+            "sourceId": "A",
+            "positionM": [
+              -1,
+              0.3,
+              1
+            ],
+            "yawDeg": 180
+          },
+          {
+            "sourceId": "B",
+            "positionM": [
+              1,
+              0.25,
+              -1
+            ],
+            "yawDeg": 90
+          }
+        ],
+        "torqueLimitNm": 4
+      },
+      {
+        "split": "development",
+        "negativeControl": false,
+        "id": "dev034-three-objects",
+        "source": {
+          "objects": [
+            {
+              "sourceId": "floor",
+              "shape": "box",
+              "size": [
+                12,
+                0.5,
+                12
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "floor",
+              "position": [
+                0,
+                -0.25,
+                0
+              ],
+              "massKg": 0,
+              "friction": 0.5
+            },
+            {
+              "sourceId": "A",
+              "shape": "box",
+              "size": [
+                0.8,
+                0.6,
+                0.45
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "A",
+              "position": [
+                -2,
+                0.3,
+                -1.5
+              ],
+              "massKg": 1,
+              "friction": 0.45
+            },
+            {
+              "sourceId": "B",
+              "shape": "box",
+              "size": [
+                0.7,
+                0.5,
+                0.5
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "B",
+              "position": [
+                2,
+                0.25,
+                1.5
+              ],
+              "massKg": 1.2,
+              "friction": 0.45
+            },
+            {
+              "sourceId": "bystander",
+              "shape": "box",
+              "size": [
+                0.5,
+                0.5,
+                0.6
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "bystander",
+              "position": [
+                3,
+                0.25,
+                2.7
+              ],
+              "massKg": 1,
+              "friction": 0.6
+            },
+            {
+              "sourceId": "obstacle",
+              "shape": "box",
+              "size": [
+                0.8,
+                1.2,
+                0.8
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "obstacle",
+              "position": [
+                0,
+                0.6,
+                0
+              ],
+              "massKg": 0,
+              "friction": 0.5
+            },
+            {
+              "sourceId": "C",
+              "shape": "box",
+              "size": [
+                0.65,
+                0.4,
+                0.5
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "C",
+              "position": [
+                -3.6,
+                0.2,
+                0.7
+              ],
+              "massKg": 0.8,
+              "friction": 0.45
+            }
+          ],
+          "format": "fraynix.spatial-scene",
+          "units": "m",
+          "source": {
+            "note": "Frozen034 declared native rigid-body pose task. Virtual force/torque gripper; not a captured room or physical robot hand.",
+            "kind": "synthetic",
+            "physicalProperties": "declared"
+          },
+          "title": "Labelled034 development: three-objects",
+          "version": 1,
+          "scaleReference": {
+            "a": [
+              0,
+              0,
+              0
+            ],
+            "b": [
+              1,
+              0,
+              0
+            ],
+            "toleranceM": 0,
+            "knownLengthM": 1,
+            "basis": "declared-test"
+          },
+          "frame": "right-handed-y-up",
+          "gravityMps2": 9.81
+        },
+        "forceLimitN": 60,
+        "targets": [
+          {
+            "sourceId": "A",
+            "positionM": [
+              -1,
+              0.3,
+              1
+            ],
+            "yawDeg": 90
+          },
+          {
+            "sourceId": "B",
+            "positionM": [
+              1,
+              0.25,
+              -1
+            ],
+            "yawDeg": -90
+          },
+          {
+            "sourceId": "C",
+            "positionM": [
+              -3.6,
+              0.2,
+              -1.1
+            ],
+            "yawDeg": 45
+          }
+        ],
+        "torqueLimitNm": 4
+      },
+      {
+        "split": "development",
+        "negativeControl": true,
+        "id": "dev034-force-negative",
+        "source": {
+          "objects": [
+            {
+              "sourceId": "floor",
+              "shape": "box",
+              "size": [
+                12,
+                0.5,
+                12
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "floor",
+              "position": [
+                0,
+                -0.25,
+                0
+              ],
+              "massKg": 0,
+              "friction": 0.5
+            },
+            {
+              "sourceId": "A",
+              "shape": "box",
+              "size": [
+                0.8,
+                0.6,
+                0.45
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "A",
+              "position": [
+                -2,
+                0.3,
+                -1.5
+              ],
+              "massKg": 3.2,
+              "friction": 0.45
+            },
+            {
+              "sourceId": "B",
+              "shape": "box",
+              "size": [
+                0.7,
+                0.5,
+                0.5
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "B",
+              "position": [
+                2,
+                0.25,
+                1.5
+              ],
+              "massKg": 1.2,
+              "friction": 0.45
+            },
+            {
+              "sourceId": "bystander",
+              "shape": "box",
+              "size": [
+                0.5,
+                0.5,
+                0.6
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "bystander",
+              "position": [
+                3,
+                0.25,
+                2.7
+              ],
+              "massKg": 1,
+              "friction": 0.6
+            }
+          ],
+          "format": "fraynix.spatial-scene",
+          "units": "m",
+          "source": {
+            "note": "Frozen034 declared native rigid-body pose task. Virtual force/torque gripper; not a captured room or physical robot hand.",
+            "kind": "synthetic",
+            "physicalProperties": "declared"
+          },
+          "title": "Labelled034 development: force-negative",
+          "version": 1,
+          "scaleReference": {
+            "a": [
+              0,
+              0,
+              0
+            ],
+            "b": [
+              1,
+              0,
+              0
+            ],
+            "toleranceM": 0,
+            "knownLengthM": 1,
+            "basis": "declared-test"
+          },
+          "frame": "right-handed-y-up",
+          "gravityMps2": 9.81
+        },
+        "forceLimitN": 10,
+        "targets": [
+          {
+            "sourceId": "A",
+            "positionM": [
+              -1,
+              0.3,
+              1
+            ],
+            "yawDeg": 0
+          },
+          {
+            "sourceId": "B",
+            "positionM": [
+              1,
+              0.25,
+              -1
+            ],
+            "yawDeg": 0
+          }
+        ],
+        "torqueLimitNm": 4
+      },
+      {
+        "split": "development",
+        "negativeControl": true,
+        "id": "dev034-torque-negative",
+        "source": {
+          "objects": [
+            {
+              "sourceId": "floor",
+              "shape": "box",
+              "size": [
+                12,
+                0.5,
+                12
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "floor",
+              "position": [
+                0,
+                -0.25,
+                0
+              ],
+              "massKg": 0,
+              "friction": 0.5
+            },
+            {
+              "sourceId": "A",
+              "shape": "box",
+              "size": [
+                0.8,
+                0.6,
+                0.45
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "A",
+              "position": [
+                -2,
+                0.3,
+                -1.5
+              ],
+              "massKg": 1,
+              "friction": 0.45
+            },
+            {
+              "sourceId": "B",
+              "shape": "box",
+              "size": [
+                0.7,
+                0.5,
+                0.5
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "B",
+              "position": [
+                2,
+                0.25,
+                1.5
+              ],
+              "massKg": 1.2,
+              "friction": 0.45
+            },
+            {
+              "sourceId": "bystander",
+              "shape": "box",
+              "size": [
+                0.5,
+                0.5,
+                0.6
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "bystander",
+              "position": [
+                3,
+                0.25,
+                2.7
+              ],
+              "massKg": 1,
+              "friction": 0.6
+            }
+          ],
+          "format": "fraynix.spatial-scene",
+          "units": "m",
+          "source": {
+            "note": "Frozen034 declared native rigid-body pose task. Virtual force/torque gripper; not a captured room or physical robot hand.",
+            "kind": "synthetic",
+            "physicalProperties": "declared"
+          },
+          "title": "Labelled034 development: torque-negative",
+          "version": 1,
+          "scaleReference": {
+            "a": [
+              0,
+              0,
+              0
+            ],
+            "b": [
+              1,
+              0,
+              0
+            ],
+            "toleranceM": 0,
+            "knownLengthM": 1,
+            "basis": "declared-test"
+          },
+          "frame": "right-handed-y-up",
+          "gravityMps2": 9.81
+        },
+        "forceLimitN": 60,
+        "targets": [
+          {
+            "sourceId": "A",
+            "positionM": [
+              -1,
+              0.3,
+              1
+            ],
+            "yawDeg": 90
+          },
+          {
+            "sourceId": "B",
+            "positionM": [
+              1,
+              0.25,
+              -1
+            ],
+            "yawDeg": -90
+          }
+        ],
+        "torqueLimitNm": 0
+      },
+      {
+        "split": "evaluation",
+        "negativeControl": false,
+        "id": "reserved034-translate-x",
+        "source": {
+          "objects": [
+            {
+              "sourceId": "floor",
+              "shape": "box",
+              "size": [
+                12,
+                0.5,
+                12
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "floor",
+              "position": [
+                0,
+                -0.25,
+                0
+              ],
+              "massKg": 0,
+              "friction": 0.5
+            },
+            {
+              "sourceId": "A",
+              "shape": "box",
+              "size": [
+                0.8,
+                0.6,
+                0.45
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "A",
+              "position": [
+                -2.17,
+                0.3,
+                -1.5
+              ],
+              "massKg": 1.17,
+              "friction": 0.62
+            },
+            {
+              "sourceId": "B",
+              "shape": "box",
+              "size": [
+                0.7,
+                0.5,
+                0.5
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "B",
+              "position": [
+                2.17,
+                0.25,
+                1.5
+              ],
+              "massKg": 1.3699999999999999,
+              "friction": 0.62
+            },
+            {
+              "sourceId": "bystander",
+              "shape": "box",
+              "size": [
+                0.5,
+                0.5,
+                0.6
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "bystander",
+              "position": [
+                3,
+                0.25,
+                2.7
+              ],
+              "massKg": 1,
+              "friction": 0.6
+            }
+          ],
+          "format": "fraynix.spatial-scene",
+          "units": "m",
+          "source": {
+            "note": "Frozen034 declared native rigid-body pose task. Virtual force/torque gripper; not a captured room or physical robot hand.",
+            "kind": "synthetic",
+            "physicalProperties": "declared"
+          },
+          "title": "Labelled034 evaluation: translate-x",
+          "version": 1,
+          "scaleReference": {
+            "a": [
+              0,
+              0,
+              0
+            ],
+            "b": [
+              1,
+              0,
+              0
+            ],
+            "toleranceM": 0,
+            "knownLengthM": 1,
+            "basis": "declared-test"
+          },
+          "frame": "right-handed-y-up",
+          "gravityMps2": 9.81
+        },
+        "forceLimitN": 60,
+        "targets": [
+          {
+            "sourceId": "A",
+            "positionM": [
+              -0.87,
+              0.3,
+              -1.5
+            ],
+            "yawDeg": 0
+          },
+          {
+            "sourceId": "B",
+            "positionM": [
+              2.17,
+              0.25,
+              -0.07
+            ],
+            "yawDeg": 0
+          }
+        ],
+        "torqueLimitNm": 4
+      },
+      {
+        "split": "evaluation",
+        "negativeControl": false,
+        "id": "reserved034-translate-z",
+        "source": {
+          "objects": [
+            {
+              "sourceId": "floor",
+              "shape": "box",
+              "size": [
+                12,
+                0.5,
+                12
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "floor",
+              "position": [
+                0,
+                -0.25,
+                0
+              ],
+              "massKg": 0,
+              "friction": 0.5
+            },
+            {
+              "sourceId": "A",
+              "shape": "box",
+              "size": [
+                0.8,
+                0.6,
+                0.45
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "A",
+              "position": [
+                -2.17,
+                0.3,
+                -1.5
+              ],
+              "massKg": 1.17,
+              "friction": 0.62
+            },
+            {
+              "sourceId": "B",
+              "shape": "box",
+              "size": [
+                0.7,
+                0.5,
+                0.5
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "B",
+              "position": [
+                2.17,
+                0.25,
+                1.5
+              ],
+              "massKg": 1.3699999999999999,
+              "friction": 0.62
+            },
+            {
+              "sourceId": "bystander",
+              "shape": "box",
+              "size": [
+                0.5,
+                0.5,
+                0.6
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "bystander",
+              "position": [
+                3,
+                0.25,
+                2.7
+              ],
+              "massKg": 1,
+              "friction": 0.6
+            }
+          ],
+          "format": "fraynix.spatial-scene",
+          "units": "m",
+          "source": {
+            "note": "Frozen034 declared native rigid-body pose task. Virtual force/torque gripper; not a captured room or physical robot hand.",
+            "kind": "synthetic",
+            "physicalProperties": "declared"
+          },
+          "title": "Labelled034 evaluation: translate-z",
+          "version": 1,
+          "scaleReference": {
+            "a": [
+              0,
+              0,
+              0
+            ],
+            "b": [
+              1,
+              0,
+              0
+            ],
+            "toleranceM": 0,
+            "knownLengthM": 1,
+            "basis": "declared-test"
+          },
+          "frame": "right-handed-y-up",
+          "gravityMps2": 9.81
+        },
+        "forceLimitN": 60,
+        "targets": [
+          {
+            "sourceId": "A",
+            "positionM": [
+              -2.17,
+              0.3,
+              0.87
+            ],
+            "yawDeg": 0
+          },
+          {
+            "sourceId": "B",
+            "positionM": [
+              0.5700000000000001,
+              0.25,
+              1.5
+            ],
+            "yawDeg": 0
+          }
+        ],
+        "torqueLimitNm": 4
+      },
+      {
+        "split": "evaluation",
+        "negativeControl": false,
+        "id": "reserved034-heavy-translate",
+        "source": {
+          "objects": [
+            {
+              "sourceId": "floor",
+              "shape": "box",
+              "size": [
+                12,
+                0.5,
+                12
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "floor",
+              "position": [
+                0,
+                -0.25,
+                0
+              ],
+              "massKg": 0,
+              "friction": 0.5
+            },
+            {
+              "sourceId": "A",
+              "shape": "box",
+              "size": [
+                0.8,
+                0.6,
+                0.45
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "A",
+              "position": [
+                -2.17,
+                0.3,
+                -1.5
+              ],
+              "massKg": 2.17,
+              "friction": 0.62
+            },
+            {
+              "sourceId": "B",
+              "shape": "box",
+              "size": [
+                0.7,
+                0.5,
+                0.5
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "B",
+              "position": [
+                2.17,
+                0.25,
+                1.5
+              ],
+              "massKg": 1.3699999999999999,
+              "friction": 0.62
+            },
+            {
+              "sourceId": "bystander",
+              "shape": "box",
+              "size": [
+                0.5,
+                0.5,
+                0.6
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "bystander",
+              "position": [
+                3,
+                0.25,
+                2.7
+              ],
+              "massKg": 1,
+              "friction": 0.6
+            }
+          ],
+          "format": "fraynix.spatial-scene",
+          "units": "m",
+          "source": {
+            "note": "Frozen034 declared native rigid-body pose task. Virtual force/torque gripper; not a captured room or physical robot hand.",
+            "kind": "synthetic",
+            "physicalProperties": "declared"
+          },
+          "title": "Labelled034 evaluation: heavy-translate",
+          "version": 1,
+          "scaleReference": {
+            "a": [
+              0,
+              0,
+              0
+            ],
+            "b": [
+              1,
+              0,
+              0
+            ],
+            "toleranceM": 0,
+            "knownLengthM": 1,
+            "basis": "declared-test"
+          },
+          "frame": "right-handed-y-up",
+          "gravityMps2": 9.81
+        },
+        "forceLimitN": 60,
+        "targets": [
+          {
+            "sourceId": "A",
+            "positionM": [
+              -1.17,
+              0.3,
+              1.17
+            ],
+            "yawDeg": 0
+          },
+          {
+            "sourceId": "B",
+            "positionM": [
+              1.17,
+              0.25,
+              -1.17
+            ],
+            "yawDeg": 0
+          }
+        ],
+        "torqueLimitNm": 4
+      },
+      {
+        "split": "evaluation",
+        "negativeControl": false,
+        "id": "reserved034-retained-heading",
+        "source": {
+          "objects": [
+            {
+              "sourceId": "floor",
+              "shape": "box",
+              "size": [
+                12,
+                0.5,
+                12
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "floor",
+              "position": [
+                0,
+                -0.25,
+                0
+              ],
+              "massKg": 0,
+              "friction": 0.5
+            },
+            {
+              "sourceId": "A",
+              "shape": "box",
+              "size": [
+                0.8,
+                0.6,
+                0.45
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0.24530738587880255,
+                0,
+                0.9694453498951389
+              ],
+              "label": "A",
+              "position": [
+                -2.17,
+                0.3,
+                -1.5
+              ],
+              "massKg": 1.17,
+              "friction": 0.62
+            },
+            {
+              "sourceId": "B",
+              "shape": "box",
+              "size": [
+                0.7,
+                0.5,
+                0.5
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                -0.24530738587880255,
+                0,
+                0.9694453498951389
+              ],
+              "label": "B",
+              "position": [
+                2.17,
+                0.25,
+                1.5
+              ],
+              "massKg": 1.3699999999999999,
+              "friction": 0.62
+            },
+            {
+              "sourceId": "bystander",
+              "shape": "box",
+              "size": [
+                0.5,
+                0.5,
+                0.6
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "bystander",
+              "position": [
+                3,
+                0.25,
+                2.7
+              ],
+              "massKg": 1,
+              "friction": 0.6
+            }
+          ],
+          "format": "fraynix.spatial-scene",
+          "units": "m",
+          "source": {
+            "note": "Frozen034 declared native rigid-body pose task. Virtual force/torque gripper; not a captured room or physical robot hand.",
+            "kind": "synthetic",
+            "physicalProperties": "declared"
+          },
+          "title": "Labelled034 evaluation: retained-heading",
+          "version": 1,
+          "scaleReference": {
+            "a": [
+              0,
+              0,
+              0
+            ],
+            "b": [
+              1,
+              0,
+              0
+            ],
+            "toleranceM": 0,
+            "knownLengthM": 1,
+            "basis": "declared-test"
+          },
+          "frame": "right-handed-y-up",
+          "gravityMps2": 9.81
+        },
+        "forceLimitN": 60,
+        "targets": [
+          {
+            "sourceId": "A",
+            "positionM": [
+              -1.17,
+              0.3,
+              1.17
+            ],
+            "yawDeg": 28.4
+          },
+          {
+            "sourceId": "B",
+            "positionM": [
+              1.17,
+              0.25,
+              -1.17
+            ],
+            "yawDeg": -28.4
+          }
+        ],
+        "torqueLimitNm": 4
+      },
+      {
+        "split": "evaluation",
+        "negativeControl": false,
+        "id": "reserved034-quarter-turn",
+        "source": {
+          "objects": [
+            {
+              "sourceId": "floor",
+              "shape": "box",
+              "size": [
+                12,
+                0.5,
+                12
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "floor",
+              "position": [
+                0,
+                -0.25,
+                0
+              ],
+              "massKg": 0,
+              "friction": 0.5
+            },
+            {
+              "sourceId": "A",
+              "shape": "box",
+              "size": [
+                0.8,
+                0.6,
+                0.45
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "A",
+              "position": [
+                -2.17,
+                0.3,
+                -1.5
+              ],
+              "massKg": 1.17,
+              "friction": 0.62
+            },
+            {
+              "sourceId": "B",
+              "shape": "box",
+              "size": [
+                0.7,
+                0.5,
+                0.5
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "B",
+              "position": [
+                2.17,
+                0.25,
+                1.5
+              ],
+              "massKg": 1.3699999999999999,
+              "friction": 0.62
+            },
+            {
+              "sourceId": "bystander",
+              "shape": "box",
+              "size": [
+                0.5,
+                0.5,
+                0.6
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "bystander",
+              "position": [
+                3,
+                0.25,
+                2.7
+              ],
+              "massKg": 1,
+              "friction": 0.6
+            }
+          ],
+          "format": "fraynix.spatial-scene",
+          "units": "m",
+          "source": {
+            "note": "Frozen034 declared native rigid-body pose task. Virtual force/torque gripper; not a captured room or physical robot hand.",
+            "kind": "synthetic",
+            "physicalProperties": "declared"
+          },
+          "title": "Labelled034 evaluation: quarter-turn",
+          "version": 1,
+          "scaleReference": {
+            "a": [
+              0,
+              0,
+              0
+            ],
+            "b": [
+              1,
+              0,
+              0
+            ],
+            "toleranceM": 0,
+            "knownLengthM": 1,
+            "basis": "declared-test"
+          },
+          "frame": "right-handed-y-up",
+          "gravityMps2": 9.81
+        },
+        "forceLimitN": 60,
+        "targets": [
+          {
+            "sourceId": "A",
+            "positionM": [
+              -1.17,
+              0.3,
+              1.17
+            ],
+            "yawDeg": 100.2
+          },
+          {
+            "sourceId": "B",
+            "positionM": [
+              1.17,
+              0.25,
+              -1.17
+            ],
+            "yawDeg": -96.8
+          }
+        ],
+        "torqueLimitNm": 4
+      },
+      {
+        "split": "evaluation",
+        "negativeControl": false,
+        "id": "reserved034-opposite-turn",
+        "source": {
+          "objects": [
+            {
+              "sourceId": "floor",
+              "shape": "box",
+              "size": [
+                12,
+                0.5,
+                12
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "floor",
+              "position": [
+                0,
+                -0.25,
+                0
+              ],
+              "massKg": 0,
+              "friction": 0.5
+            },
+            {
+              "sourceId": "A",
+              "shape": "box",
+              "size": [
+                0.8,
+                0.6,
+                0.45
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "A",
+              "position": [
+                -2.17,
+                0.3,
+                -1.5
+              ],
+              "massKg": 1.17,
+              "friction": 0.62
+            },
+            {
+              "sourceId": "B",
+              "shape": "box",
+              "size": [
+                0.7,
+                0.5,
+                0.5
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "B",
+              "position": [
+                2.17,
+                0.25,
+                1.5
+              ],
+              "massKg": 1.3699999999999999,
+              "friction": 0.62
+            },
+            {
+              "sourceId": "bystander",
+              "shape": "box",
+              "size": [
+                0.5,
+                0.5,
+                0.6
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "bystander",
+              "position": [
+                3,
+                0.25,
+                2.7
+              ],
+              "massKg": 1,
+              "friction": 0.6
+            },
+            {
+              "sourceId": "obstacle",
+              "shape": "box",
+              "size": [
+                0.9700000000000001,
+                1.3699999999999999,
+                0.8
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "obstacle",
+              "position": [
+                0,
+                0.6849999999999999,
+                0
+              ],
+              "massKg": 0,
+              "friction": 0.5
+            }
+          ],
+          "format": "fraynix.spatial-scene",
+          "units": "m",
+          "source": {
+            "note": "Frozen034 declared native rigid-body pose task. Virtual force/torque gripper; not a captured room or physical robot hand.",
+            "kind": "synthetic",
+            "physicalProperties": "declared"
+          },
+          "title": "Labelled034 evaluation: opposite-turn",
+          "version": 1,
+          "scaleReference": {
+            "a": [
+              0,
+              0,
+              0
+            ],
+            "b": [
+              1,
+              0,
+              0
+            ],
+            "toleranceM": 0,
+            "knownLengthM": 1,
+            "basis": "declared-test"
+          },
+          "frame": "right-handed-y-up",
+          "gravityMps2": 9.81
+        },
+        "forceLimitN": 60,
+        "targets": [
+          {
+            "sourceId": "A",
+            "positionM": [
+              -1.17,
+              0.3,
+              1.17
+            ],
+            "yawDeg": -100.2
+          },
+          {
+            "sourceId": "B",
+            "positionM": [
+              1.17,
+              0.25,
+              -1.17
+            ],
+            "yawDeg": -96.8
+          }
+        ],
+        "torqueLimitNm": 4
+      },
+      {
+        "split": "evaluation",
+        "negativeControl": false,
+        "id": "reserved034-half-turn",
+        "source": {
+          "objects": [
+            {
+              "sourceId": "floor",
+              "shape": "box",
+              "size": [
+                12,
+                0.5,
+                12
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "floor",
+              "position": [
+                0,
+                -0.25,
+                0
+              ],
+              "massKg": 0,
+              "friction": 0.5
+            },
+            {
+              "sourceId": "A",
+              "shape": "box",
+              "size": [
+                0.8,
+                0.6,
+                0.45
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "A",
+              "position": [
+                -2.17,
+                0.3,
+                -1.5
+              ],
+              "massKg": 1.17,
+              "friction": 0.62
+            },
+            {
+              "sourceId": "B",
+              "shape": "box",
+              "size": [
+                0.7,
+                0.5,
+                0.5
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "B",
+              "position": [
+                2.17,
+                0.25,
+                1.5
+              ],
+              "massKg": 1.3699999999999999,
+              "friction": 0.62
+            },
+            {
+              "sourceId": "bystander",
+              "shape": "box",
+              "size": [
+                0.5,
+                0.5,
+                0.6
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "bystander",
+              "position": [
+                3,
+                0.25,
+                2.7
+              ],
+              "massKg": 1,
+              "friction": 0.6
+            },
+            {
+              "sourceId": "obstacle",
+              "shape": "box",
+              "size": [
+                0.9700000000000001,
+                1.3699999999999999,
+                0.8
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "obstacle",
+              "position": [
+                0,
+                0.6849999999999999,
+                0
+              ],
+              "massKg": 0,
+              "friction": 0.5
+            }
+          ],
+          "format": "fraynix.spatial-scene",
+          "units": "m",
+          "source": {
+            "note": "Frozen034 declared native rigid-body pose task. Virtual force/torque gripper; not a captured room or physical robot hand.",
+            "kind": "synthetic",
+            "physicalProperties": "declared"
+          },
+          "title": "Labelled034 evaluation: half-turn",
+          "version": 1,
+          "scaleReference": {
+            "a": [
+              0,
+              0,
+              0
+            ],
+            "b": [
+              1,
+              0,
+              0
+            ],
+            "toleranceM": 0,
+            "knownLengthM": 1,
+            "basis": "declared-test"
+          },
+          "frame": "right-handed-y-up",
+          "gravityMps2": 9.81
+        },
+        "forceLimitN": 60,
+        "targets": [
+          {
+            "sourceId": "A",
+            "positionM": [
+              -1.17,
+              0.3,
+              1.17
+            ],
+            "yawDeg": 171.5
+          },
+          {
+            "sourceId": "B",
+            "positionM": [
+              1.17,
+              0.25,
+              -1.17
+            ],
+            "yawDeg": 98.5
+          }
+        ],
+        "torqueLimitNm": 4
+      },
+      {
+        "split": "evaluation",
+        "negativeControl": false,
+        "id": "reserved034-three-objects",
+        "source": {
+          "objects": [
+            {
+              "sourceId": "floor",
+              "shape": "box",
+              "size": [
+                12,
+                0.5,
+                12
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "floor",
+              "position": [
+                0,
+                -0.25,
+                0
+              ],
+              "massKg": 0,
+              "friction": 0.5
+            },
+            {
+              "sourceId": "A",
+              "shape": "box",
+              "size": [
+                0.8,
+                0.6,
+                0.45
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "A",
+              "position": [
+                -2.17,
+                0.3,
+                -1.5
+              ],
+              "massKg": 1.17,
+              "friction": 0.62
+            },
+            {
+              "sourceId": "B",
+              "shape": "box",
+              "size": [
+                0.7,
+                0.5,
+                0.5
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "B",
+              "position": [
+                2.17,
+                0.25,
+                1.5
+              ],
+              "massKg": 1.3699999999999999,
+              "friction": 0.62
+            },
+            {
+              "sourceId": "bystander",
+              "shape": "box",
+              "size": [
+                0.5,
+                0.5,
+                0.6
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "bystander",
+              "position": [
+                3,
+                0.25,
+                2.7
+              ],
+              "massKg": 1,
+              "friction": 0.6
+            },
+            {
+              "sourceId": "obstacle",
+              "shape": "box",
+              "size": [
+                0.9700000000000001,
+                1.3699999999999999,
+                0.8
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "obstacle",
+              "position": [
+                0,
+                0.6849999999999999,
+                0
+              ],
+              "massKg": 0,
+              "friction": 0.5
+            },
+            {
+              "sourceId": "C",
+              "shape": "box",
+              "size": [
+                0.65,
+                0.4,
+                0.5
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "C",
+              "position": [
+                -3.6,
+                0.2,
+                0.7
+              ],
+              "massKg": 0.9700000000000001,
+              "friction": 0.62
+            }
+          ],
+          "format": "fraynix.spatial-scene",
+          "units": "m",
+          "source": {
+            "note": "Frozen034 declared native rigid-body pose task. Virtual force/torque gripper; not a captured room or physical robot hand.",
+            "kind": "synthetic",
+            "physicalProperties": "declared"
+          },
+          "title": "Labelled034 evaluation: three-objects",
+          "version": 1,
+          "scaleReference": {
+            "a": [
+              0,
+              0,
+              0
+            ],
+            "b": [
+              1,
+              0,
+              0
+            ],
+            "toleranceM": 0,
+            "knownLengthM": 1,
+            "basis": "declared-test"
+          },
+          "frame": "right-handed-y-up",
+          "gravityMps2": 9.81
+        },
+        "forceLimitN": 60,
+        "targets": [
+          {
+            "sourceId": "A",
+            "positionM": [
+              -1.17,
+              0.3,
+              1.17
+            ],
+            "yawDeg": 100.2
+          },
+          {
+            "sourceId": "B",
+            "positionM": [
+              1.17,
+              0.25,
+              -1.17
+            ],
+            "yawDeg": -96.8
+          },
+          {
+            "sourceId": "C",
+            "positionM": [
+              -3.6,
+              0.2,
+              -1.27
+            ],
+            "yawDeg": 55.2
+          }
+        ],
+        "torqueLimitNm": 4
+      },
+      {
+        "split": "evaluation",
+        "negativeControl": true,
+        "id": "reserved034-force-negative",
+        "source": {
+          "objects": [
+            {
+              "sourceId": "floor",
+              "shape": "box",
+              "size": [
+                12,
+                0.5,
+                12
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "floor",
+              "position": [
+                0,
+                -0.25,
+                0
+              ],
+              "massKg": 0,
+              "friction": 0.5
+            },
+            {
+              "sourceId": "A",
+              "shape": "box",
+              "size": [
+                0.8,
+                0.6,
+                0.45
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "A",
+              "position": [
+                -2.17,
+                0.3,
+                -1.5
+              ],
+              "massKg": 3.37,
+              "friction": 0.62
+            },
+            {
+              "sourceId": "B",
+              "shape": "box",
+              "size": [
+                0.7,
+                0.5,
+                0.5
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "B",
+              "position": [
+                2.17,
+                0.25,
+                1.5
+              ],
+              "massKg": 1.3699999999999999,
+              "friction": 0.62
+            },
+            {
+              "sourceId": "bystander",
+              "shape": "box",
+              "size": [
+                0.5,
+                0.5,
+                0.6
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "bystander",
+              "position": [
+                3,
+                0.25,
+                2.7
+              ],
+              "massKg": 1,
+              "friction": 0.6
+            }
+          ],
+          "format": "fraynix.spatial-scene",
+          "units": "m",
+          "source": {
+            "note": "Frozen034 declared native rigid-body pose task. Virtual force/torque gripper; not a captured room or physical robot hand.",
+            "kind": "synthetic",
+            "physicalProperties": "declared"
+          },
+          "title": "Labelled034 evaluation: force-negative",
+          "version": 1,
+          "scaleReference": {
+            "a": [
+              0,
+              0,
+              0
+            ],
+            "b": [
+              1,
+              0,
+              0
+            ],
+            "toleranceM": 0,
+            "knownLengthM": 1,
+            "basis": "declared-test"
+          },
+          "frame": "right-handed-y-up",
+          "gravityMps2": 9.81
+        },
+        "forceLimitN": 10,
+        "targets": [
+          {
+            "sourceId": "A",
+            "positionM": [
+              -1.17,
+              0.3,
+              1.17
+            ],
+            "yawDeg": 0
+          },
+          {
+            "sourceId": "B",
+            "positionM": [
+              1.17,
+              0.25,
+              -1.17
+            ],
+            "yawDeg": 0
+          }
+        ],
+        "torqueLimitNm": 4
+      },
+      {
+        "split": "evaluation",
+        "negativeControl": true,
+        "id": "reserved034-torque-negative",
+        "source": {
+          "objects": [
+            {
+              "sourceId": "floor",
+              "shape": "box",
+              "size": [
+                12,
+                0.5,
+                12
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "floor",
+              "position": [
+                0,
+                -0.25,
+                0
+              ],
+              "massKg": 0,
+              "friction": 0.5
+            },
+            {
+              "sourceId": "A",
+              "shape": "box",
+              "size": [
+                0.8,
+                0.6,
+                0.45
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "A",
+              "position": [
+                -2.17,
+                0.3,
+                -1.5
+              ],
+              "massKg": 1.17,
+              "friction": 0.62
+            },
+            {
+              "sourceId": "B",
+              "shape": "box",
+              "size": [
+                0.7,
+                0.5,
+                0.5
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "B",
+              "position": [
+                2.17,
+                0.25,
+                1.5
+              ],
+              "massKg": 1.3699999999999999,
+              "friction": 0.62
+            },
+            {
+              "sourceId": "bystander",
+              "shape": "box",
+              "size": [
+                0.5,
+                0.5,
+                0.6
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "bystander",
+              "position": [
+                3,
+                0.25,
+                2.7
+              ],
+              "massKg": 1,
+              "friction": 0.6
+            }
+          ],
+          "format": "fraynix.spatial-scene",
+          "units": "m",
+          "source": {
+            "note": "Frozen034 declared native rigid-body pose task. Virtual force/torque gripper; not a captured room or physical robot hand.",
+            "kind": "synthetic",
+            "physicalProperties": "declared"
+          },
+          "title": "Labelled034 evaluation: torque-negative",
+          "version": 1,
+          "scaleReference": {
+            "a": [
+              0,
+              0,
+              0
+            ],
+            "b": [
+              1,
+              0,
+              0
+            ],
+            "toleranceM": 0,
+            "knownLengthM": 1,
+            "basis": "declared-test"
+          },
+          "frame": "right-handed-y-up",
+          "gravityMps2": 9.81
+        },
+        "forceLimitN": 60,
+        "targets": [
+          {
+            "sourceId": "A",
+            "positionM": [
+              -1.17,
+              0.3,
+              1.17
+            ],
+            "yawDeg": 100.2
+          },
+          {
+            "sourceId": "B",
+            "positionM": [
+              1.17,
+              0.25,
+              -1.17
+            ],
+            "yawDeg": -96.8
+          }
+        ],
+        "torqueLimitNm": 0
+      }
+    ],
+    "scope": "Feature validation of a virtual force/torque gripper on multiple native bodies. Translation-only ablation is newly declared034, not the preserved033 contact pusher or a trained-policy comparison.",
+    "failedSeconds": 60,
+    "version": "pose-tasks-034-v1",
+    "limits": {
+      "stalledSeconds": 2,
+      "maxForceN": 60,
+      "positionM": 0.1,
+      "stageSeconds": 12,
+      "angularSpeedRadps": 0.2,
+      "bystanderDriftM": 0.05,
+      "angleDeg": 5,
+      "speedMps": 0.2,
+      "fixedHz": 240,
+      "bystanderAngleDeg": 5,
+      "maxTargets": 4,
+      "maxTorqueNm": 4,
+      "maxSeconds": 60
+    }
+  },
+  "trials": [
+    {
+      "nativeStatus": "completed",
+      "reason": "",
+      "split": "development",
+      "rawSha256": "4c424afff6745c300149802d1b232111f82384c25f4b2a14029d46c5b30ebf62",
+      "caseId": "dev034-translate-x",
+      "initialForceN": 60,
+      "runId": "41385613-16e9-30f9-90ea-6411401f2295",
+      "metrics": {
+        "maxBystanderDriftM": 1.4901161193847656e-08,
+        "grabs": 2,
+        "contactPoints": 2196,
+        "maxRestoreAngleErrorDeg": 0,
+        "targets": [
+          {
+            "sourceId": "A",
+            "speedMps": 3.1380694984281372e-06,
+            "positionErrorM": 2.186312101490812e-05,
+            "angleErrorDeg": 0.00022411516910456883,
+            "angularSpeedRadps": 2.9998224037258023e-06
+          },
+          {
+            "sourceId": "B",
+            "speedMps": 0.00016844013335889183,
+            "positionErrorM": 5.767543316681886e-05,
+            "angleErrorDeg": 4.476100154097215e-05,
+            "angularSpeedRadps": 4.130732270813371e-07
+          }
+        ],
+        "resumes": 0,
+        "maxRestoreVelocityError": 0,
+        "maxAngleErrorDeg": 0.00022411516910456883,
+        "maxRestorePositionErrorM": 0,
+        "scope": "Declared native multi-box pose arrangement by a bounded virtual force/torque gripper, not contact-only pushing, a physical robot hand, photographic recognition or LLM-weight training.",
+        "maxTorqueNm": 0,
+        "workJ": 0.576654544767737,
+        "passed": true,
+        "maxPositionErrorM": 5.767543316681886e-05,
+        "nativeTicks": 3158,
+        "maxForceN": 19.451995849609443,
+        "effortNs": 131.50570789838687,
+        "maxInactiveAngleDeg": 0.00022411516910456883,
+        "maxInactiveDriftM": 0.014940979168124906,
+        "releases": 2,
+        "timeS": 13.158333333333333,
+        "maxAngularSpeedRadps": 2.9998224037258023e-06,
+        "maxSpeedMps": 0.00016844013335889183,
+        "nativePhysics": true,
+        "torqueEffortNms": 0,
+        "maxBystanderAngleDeg": 9.668646330783708e-05,
+        "angularWorkJ": 0
+      },
+      "arm": "baseline",
+      "key": "dev034-translate-x:baseline:60.0"
+    },
+    {
+      "nativeStatus": "completed",
+      "reason": "",
+      "split": "development",
+      "rawSha256": "951636abf1056f13a4700b080b2570b2aa664f3cd63fdfb85497e3ecb90eac12",
+      "caseId": "dev034-translate-x",
+      "initialForceN": 60,
+      "runId": "836e276d-c8ae-33f1-b7e6-06523f055359",
+      "metrics": {
+        "maxBystanderDriftM": 1.4901161193847656e-08,
+        "grabs": 2,
+        "contactPoints": 2196,
+        "maxRestoreAngleErrorDeg": 0,
+        "targets": [
+          {
+            "sourceId": "A",
+            "speedMps": 3.1380694984281372e-06,
+            "positionErrorM": 2.186312101490812e-05,
+            "angleErrorDeg": 0.00022411516910456883,
+            "angularSpeedRadps": 2.9998224037258023e-06
+          },
+          {
+            "sourceId": "B",
+            "speedMps": 0.00016844016595306667,
+            "positionErrorM": 5.767346198473563e-05,
+            "angleErrorDeg": 4.270829963517278e-06,
+            "angularSpeedRadps": 4.0027590848082425e-07
+          }
+        ],
+        "resumes": 0,
+        "maxRestoreVelocityError": 0,
+        "maxAngleErrorDeg": 0.00022411516910456883,
+        "maxRestorePositionErrorM": 0,
+        "scope": "Declared native multi-box pose arrangement by a bounded virtual force/torque gripper, not contact-only pushing, a physical robot hand, photographic recognition or LLM-weight training.",
+        "maxTorqueNm": 5.919044890564592e-07,
+        "workJ": 0.576654544767737,
+        "passed": true,
+        "maxPositionErrorM": 5.767346198473563e-05,
+        "nativeTicks": 3158,
+        "maxForceN": 19.451995849609443,
+        "effortNs": 131.50570789838687,
+        "maxInactiveAngleDeg": 0.00022411516910456883,
+        "maxInactiveDriftM": 0.014940979168124906,
+        "releases": 2,
+        "timeS": 13.158333333333333,
+        "maxAngularSpeedRadps": 2.9998224037258023e-06,
+        "maxSpeedMps": 0.00016844016595306667,
+        "nativePhysics": true,
+        "torqueEffortNms": 2.1194396203174256e-07,
+        "maxBystanderAngleDeg": 9.668646330783708e-05,
+        "angularWorkJ": -1.5600123824533032e-14
+      },
+      "arm": "candidate",
+      "key": "dev034-translate-x:candidate:60.0"
+    },
+    {
+      "nativeStatus": "completed",
+      "reason": "",
+      "split": "development",
+      "rawSha256": "9947bb46c420ecc6fca8fd4245245a78c386188733673ec1002f14057fdacb33",
+      "caseId": "dev034-translate-z",
+      "initialForceN": 60,
+      "runId": "78c5d87f-7fd4-3a7c-a04d-c1cc8005c4cf",
+      "metrics": {
+        "maxBystanderDriftM": 1.4901161193847656e-08,
+        "grabs": 2,
+        "contactPoints": 2404,
+        "maxRestoreAngleErrorDeg": 0,
+        "targets": [
+          {
+            "sourceId": "A",
+            "speedMps": 0.00012627104019871617,
+            "positionErrorM": 0.001073229342176398,
+            "angleErrorDeg": 0.00023156123640002027,
+            "angularSpeedRadps": 2.6058275974544808e-06
+          },
+          {
+            "sourceId": "B",
+            "speedMps": 1.1784443774633249e-06,
+            "positionErrorM": 2.0569584501581696e-05,
+            "angleErrorDeg": 4.968751011061223e-05,
+            "angularSpeedRadps": 8.106492417907377e-07
+          }
+        ],
+        "resumes": 0,
+        "maxRestoreVelocityError": 0,
+        "maxAngleErrorDeg": 0.00023156123640002027,
+        "maxRestorePositionErrorM": 0,
+        "scope": "Declared native multi-box pose arrangement by a bounded virtual force/torque gripper, not contact-only pushing, a physical robot hand, photographic recognition or LLM-weight training.",
+        "maxTorqueNm": 0,
+        "workJ": 0.6137118354224687,
+        "passed": true,
+        "maxPositionErrorM": 0.001073229342176398,
+        "nativeTicks": 3491,
+        "maxForceN": 19.45199966430666,
+        "effortNs": 145.6159938919204,
+        "maxInactiveAngleDeg": 0.00023156123640002027,
+        "maxInactiveDriftM": 0.01494130699362572,
+        "releases": 2,
+        "timeS": 14.545833333333333,
+        "maxAngularSpeedRadps": 2.6058275974544808e-06,
+        "maxSpeedMps": 0.00012627104019871617,
+        "nativePhysics": true,
+        "torqueEffortNms": 0,
+        "maxBystanderAngleDeg": 0.00010681513649926984,
+        "angularWorkJ": 0
+      },
+      "arm": "baseline",
+      "key": "dev034-translate-z:baseline:60.0"
+    },
+    {
+      "nativeStatus": "completed",
+      "reason": "",
+      "split": "development",
+      "rawSha256": "83fe73475ff913a573b5fe538deee9ad8896507264fb6d70ebbfaaf5517db766",
+      "caseId": "dev034-translate-z",
+      "initialForceN": 60,
+      "runId": "fcf74754-dab0-3afe-90c0-086a67262da2",
+      "metrics": {
+        "maxBystanderDriftM": 1.4901161193847656e-08,
+        "grabs": 2,
+        "contactPoints": 2404,
+        "maxRestoreAngleErrorDeg": 0,
+        "targets": [
+          {
+            "sourceId": "A",
+            "speedMps": 0.00012627104019871617,
+            "positionErrorM": 0.001073229342176398,
+            "angleErrorDeg": 0.00023156123640002027,
+            "angularSpeedRadps": 2.6058275974544808e-06
+          },
+          {
+            "sourceId": "B",
+            "speedMps": 1.5260469401379068e-06,
+            "positionErrorM": 2.0390770756582564e-05,
+            "angleErrorDeg": 4.38288651959625e-06,
+            "angularSpeedRadps": 3.988458384068219e-07
+          }
+        ],
+        "resumes": 0,
+        "maxRestoreVelocityError": 0,
+        "maxAngleErrorDeg": 0.00023156123640002027,
+        "maxRestorePositionErrorM": 0,
+        "scope": "Declared native multi-box pose arrangement by a bounded virtual force/torque gripper, not contact-only pushing, a physical robot hand, photographic recognition or LLM-weight training.",
+        "maxTorqueNm": 6.9534468429482e-07,
+        "workJ": 0.6137118354224687,
+        "passed": true,
+        "maxPositionErrorM": 0.001073229342176398,
+        "nativeTicks": 3491,
+        "maxForceN": 19.45199966430666,
+        "effortNs": 145.6159938919204,
+        "maxInactiveAngleDeg": 0.00023156123640002027,
+        "maxInactiveDriftM": 0.01494130699362572,
+        "releases": 2,
+        "timeS": 14.545833333333333,
+        "maxAngularSpeedRadps": 2.6058275974544808e-06,
+        "maxSpeedMps": 0.00012627104019871617,
+        "nativePhysics": true,
+        "torqueEffortNms": 1.909242100463727e-07,
+        "maxBystanderAngleDeg": 0.00010681513649926984,
+        "angularWorkJ": 3.544310968534882e-15
+      },
+      "arm": "candidate",
+      "key": "dev034-translate-z:candidate:60.0"
+    },
+    {
+      "nativeStatus": "completed",
+      "reason": "",
+      "split": "development",
+      "rawSha256": "18e9d55102f2af50e4e41eda48d9d1071b29f75878fe74946ee55ff1c9d4b46d",
+      "caseId": "dev034-heavy-translate",
+      "initialForceN": 60,
+      "runId": "a5672ac5-cf5b-37f7-9a41-ece66bafae8c",
+      "metrics": {
+        "maxBystanderDriftM": 1.4901161193847656e-08,
+        "grabs": 2,
+        "contactPoints": 2728,
+        "maxRestoreAngleErrorDeg": 0,
+        "targets": [
+          {
+            "sourceId": "A",
+            "speedMps": 0.00011343754400464353,
+            "positionErrorM": 0.0011686393181498096,
+            "angleErrorDeg": 0.0002716134676139304,
+            "angularSpeedRadps": 5.583218486601708e-06
+          },
+          {
+            "sourceId": "B",
+            "speedMps": 0.00015473657061971044,
+            "positionErrorM": 4.9151981079467555e-05,
+            "angleErrorDeg": 5.336394994152183e-05,
+            "angularSpeedRadps": 4.040357247553434e-07
+          }
+        ],
+        "resumes": 0,
+        "maxRestoreVelocityError": 0,
+        "maxAngleErrorDeg": 0.0002716134676139304,
+        "maxRestorePositionErrorM": 0,
+        "scope": "Declared native multi-box pose arrangement by a bounded virtual force/torque gripper, not contact-only pushing, a physical robot hand, photographic recognition or LLM-weight training.",
+        "maxTorqueNm": 0,
+        "workJ": 0.9778292550453198,
+        "passed": true,
+        "maxPositionErrorM": 0.0011686393181498096,
+        "nativeTicks": 3968,
+        "maxForceN": 32.41999816894531,
+        "effortNs": 243.3855983550973,
+        "maxInactiveAngleDeg": 0.0002716134676139304,
+        "maxInactiveDriftM": 0.014941336695245205,
+        "releases": 2,
+        "timeS": 16.53333333333333,
+        "maxAngularSpeedRadps": 5.583218486601708e-06,
+        "maxSpeedMps": 0.00015473657061971044,
+        "nativePhysics": true,
+        "torqueEffortNms": 0,
+        "maxBystanderAngleDeg": 0.00012131980591920462,
+        "angularWorkJ": 0
+      },
+      "arm": "baseline",
+      "key": "dev034-heavy-translate:baseline:60.0"
+    },
+    {
+      "nativeStatus": "completed",
+      "reason": "",
+      "split": "development",
+      "rawSha256": "c1d57747f666851d52db2a85415c0af76fe7e82d14032d7c62302bf63a145474",
+      "caseId": "dev034-heavy-translate",
+      "initialForceN": 60,
+      "runId": "7127e007-e8bc-3253-9ec6-597d882691af",
+      "metrics": {
+        "maxBystanderDriftM": 1.4901161193847656e-08,
+        "grabs": 2,
+        "contactPoints": 2728,
+        "maxRestoreAngleErrorDeg": 0,
+        "targets": [
+          {
+            "sourceId": "A",
+            "speedMps": 0.00011343754400464353,
+            "positionErrorM": 0.0011686393181498096,
+            "angleErrorDeg": 0.0002716134676139304,
+            "angularSpeedRadps": 5.583218486601708e-06
+          },
+          {
+            "sourceId": "B",
+            "speedMps": 0.00015473657041538167,
+            "positionErrorM": 4.9151981079467555e-05,
+            "angleErrorDeg": 4.378109210039629e-06,
+            "angularSpeedRadps": 4.0043152277387525e-07
+          }
+        ],
+        "resumes": 0,
+        "maxRestoreVelocityError": 0,
+        "maxAngleErrorDeg": 0.0002716134676139304,
+        "maxRestorePositionErrorM": 0,
+        "scope": "Declared native multi-box pose arrangement by a bounded virtual force/torque gripper, not contact-only pushing, a physical robot hand, photographic recognition or LLM-weight training.",
+        "maxTorqueNm": 7.501967584137424e-07,
+        "workJ": 0.9778292550453198,
+        "passed": true,
+        "maxPositionErrorM": 0.0011686393181498096,
+        "nativeTicks": 3968,
+        "maxForceN": 32.41999816894531,
+        "effortNs": 243.3855983550973,
+        "maxInactiveAngleDeg": 0.0002716134676139304,
+        "maxInactiveDriftM": 0.014941336695245205,
+        "releases": 2,
+        "timeS": 16.53333333333333,
+        "maxAngularSpeedRadps": 5.583218486601708e-06,
+        "maxSpeedMps": 0.00015473657041538167,
+        "nativePhysics": true,
+        "torqueEffortNms": 2.043113235293684e-07,
+        "maxBystanderAngleDeg": 0.00012131980591920462,
+        "angularWorkJ": 4.749855640658412e-15
+      },
+      "arm": "candidate",
+      "key": "dev034-heavy-translate:candidate:60.0"
+    },
+    {
+      "nativeStatus": "completed",
+      "reason": "",
+      "split": "development",
+      "rawSha256": "c581173b516adaf81560f81737f97dc70468cdeecf5eaccb7707e4a88952be11",
+      "caseId": "dev034-retained-heading",
+      "initialForceN": 60,
+      "runId": "45d08ed2-dd0a-370c-aa56-4003b6521bb9",
+      "metrics": {
+        "maxBystanderDriftM": 1.4901161193847656e-08,
+        "grabs": 2,
+        "contactPoints": 2728,
+        "maxRestoreAngleErrorDeg": 0,
+        "targets": [
+          {
+            "sourceId": "A",
+            "speedMps": 0.00011343935578611793,
+            "positionErrorM": 0.00116864018760176,
+            "angleErrorDeg": 3.2600075043603696e-05,
+            "angularSpeedRadps": 2.189184155109437e-06
+          },
+          {
+            "sourceId": "B",
+            "speedMps": 0.0001934451462143444,
+            "positionErrorM": 0.00011058131943411154,
+            "angleErrorDeg": 2.2261353948569915e-05,
+            "angularSpeedRadps": 2.4055017923661675e-06
+          }
+        ],
+        "resumes": 0,
+        "maxRestoreVelocityError": 0,
+        "maxAngleErrorDeg": 3.2600075043603696e-05,
+        "maxRestorePositionErrorM": 0,
+        "scope": "Declared native multi-box pose arrangement by a bounded virtual force/torque gripper, not contact-only pushing, a physical robot hand, photographic recognition or LLM-weight training.",
+        "maxTorqueNm": 0,
+        "workJ": 0.6723059874769619,
+        "passed": true,
+        "maxPositionErrorM": 0.00116864018760176,
+        "nativeTicks": 3968,
+        "maxForceN": 19.452007293703204,
+        "effortNs": 167.80332153853706,
+        "maxInactiveAngleDeg": 0.001380897217245053,
+        "maxInactiveDriftM": 0.014941336695245205,
+        "releases": 2,
+        "timeS": 16.53333333333333,
+        "maxAngularSpeedRadps": 2.4055017923661675e-06,
+        "maxSpeedMps": 0.0001934451462143444,
+        "nativePhysics": true,
+        "torqueEffortNms": 0,
+        "maxBystanderAngleDeg": 0.00012131980591920462,
+        "angularWorkJ": 0
+      },
+      "arm": "baseline",
+      "key": "dev034-retained-heading:baseline:60.0"
+    },
+    {
+      "nativeStatus": "completed",
+      "reason": "",
+      "split": "development",
+      "rawSha256": "acab7f04968c63ad0afe0c98e2dff297301154a984075da88bf710a45ef8ebc8",
+      "caseId": "dev034-retained-heading",
+      "initialForceN": 60,
+      "runId": "e976793d-e798-34f4-8540-7ae2f006b02c",
+      "metrics": {
+        "maxBystanderDriftM": 1.4901161193847656e-08,
+        "grabs": 2,
+        "contactPoints": 2728,
+        "maxRestoreAngleErrorDeg": 0,
+        "targets": [
+          {
+            "sourceId": "A",
+            "speedMps": 0.00011343891612208171,
+            "positionErrorM": 0.00116864018760176,
+            "angleErrorDeg": 3.256392777639035e-05,
+            "angularSpeedRadps": 2.6324027912538567e-06
+          },
+          {
+            "sourceId": "B",
+            "speedMps": 0.00015473384303186624,
+            "positionErrorM": 4.91330400246987e-05,
+            "angleErrorDeg": 2.2155065036732707e-05,
+            "angularSpeedRadps": 7.293476180369188e-06
+          }
+        ],
+        "resumes": 0,
+        "maxRestoreVelocityError": 0,
+        "maxAngleErrorDeg": 3.256392777639035e-05,
+        "maxRestorePositionErrorM": 0,
+        "scope": "Declared native multi-box pose arrangement by a bounded virtual force/torque gripper, not contact-only pushing, a physical robot hand, photographic recognition or LLM-weight training.",
+        "maxTorqueNm": 2.7487823515740947e-06,
+        "workJ": 0.6723059874769619,
+        "passed": true,
+        "maxPositionErrorM": 0.00116864018760176,
+        "nativeTicks": 3968,
+        "maxForceN": 19.452007293703204,
+        "effortNs": 167.80332153853706,
+        "maxInactiveAngleDeg": 0.0001303172598026515,
+        "maxInactiveDriftM": 0.014941336695245205,
+        "releases": 2,
+        "timeS": 16.53333333333333,
+        "maxAngularSpeedRadps": 7.293476180369188e-06,
+        "maxSpeedMps": 0.00015473384303186624,
+        "nativePhysics": true,
+        "torqueEffortNms": 8.466212163126768e-07,
+        "maxBystanderAngleDeg": 0.00012131980591920462,
+        "angularWorkJ": -1.0889097252406876e-12
+      },
+      "arm": "candidate",
+      "key": "dev034-retained-heading:candidate:60.0"
+    },
+    {
+      "nativeStatus": "failed",
+      "reason": "Original final pose or protected-body gate failed",
+      "split": "development",
+      "rawSha256": "13599e81488a23a297fbc6cabcfab7b8e6ff2c435005fad0189ead4bd4c721b8",
+      "caseId": "dev034-quarter-turn",
+      "initialForceN": 60,
+      "runId": "0890063b-40b4-3305-87fa-19a13fac20a2",
+      "metrics": {
+        "maxBystanderDriftM": 1.4901161193847656e-08,
+        "grabs": 2,
+        "contactPoints": 2728,
+        "maxRestoreAngleErrorDeg": 0,
+        "targets": [
+          {
+            "sourceId": "A",
+            "speedMps": 0.00011343754400464353,
+            "positionErrorM": 0.0011686393181498096,
+            "angleErrorDeg": 90.00027161112408,
+            "angularSpeedRadps": 5.583218486601708e-06
+          },
+          {
+            "sourceId": "B",
+            "speedMps": 0.00015473657061971044,
+            "positionErrorM": 4.9151981079467555e-05,
+            "angleErrorDeg": 89.99994666203646,
+            "angularSpeedRadps": 4.040357247553434e-07
+          }
+        ],
+        "resumes": 0,
+        "maxRestoreVelocityError": 0,
+        "maxAngleErrorDeg": 90.00027161112408,
+        "maxRestorePositionErrorM": 0,
+        "scope": "Declared native multi-box pose arrangement by a bounded virtual force/torque gripper, not contact-only pushing, a physical robot hand, photographic recognition or LLM-weight training.",
+        "maxTorqueNm": 0,
+        "workJ": 0.6723060808829773,
+        "passed": false,
+        "maxPositionErrorM": 0.0011686393181498096,
+        "nativeTicks": 3968,
+        "maxForceN": 19.45199966430666,
+        "effortNs": 167.80332066433542,
+        "maxInactiveAngleDeg": 0.0002716134676139304,
+        "maxInactiveDriftM": 0.014941336695245205,
+        "releases": 2,
+        "timeS": 16.53333333333333,
+        "maxAngularSpeedRadps": 5.583218486601708e-06,
+        "maxSpeedMps": 0.00015473657061971044,
+        "nativePhysics": true,
+        "torqueEffortNms": 0,
+        "maxBystanderAngleDeg": 0.00012131980591920462,
+        "angularWorkJ": 0
+      },
+      "arm": "baseline",
+      "key": "dev034-quarter-turn:baseline:60.0"
+    },
+    {
+      "nativeStatus": "completed",
+      "reason": "",
+      "split": "development",
+      "rawSha256": "3c6cdeecebf0944adfeb68096fc4610fbae5a368895aeb976fb9afb40122e08c",
+      "caseId": "dev034-quarter-turn",
+      "initialForceN": 60,
+      "runId": "fe9a2371-68fe-3f67-a357-a3d7f9cc1487",
+      "metrics": {
+        "maxBystanderDriftM": 1.4901161193847656e-08,
+        "grabs": 2,
+        "contactPoints": 3324,
+        "maxRestoreAngleErrorDeg": 0,
+        "targets": [
+          {
+            "sourceId": "A",
+            "speedMps": 0.00010515540217161905,
+            "positionErrorM": 0.001380350314945438,
+            "angleErrorDeg": 0.0003679518014556761,
+            "angularSpeedRadps": 3.626895982624325e-06
+          },
+          {
+            "sourceId": "B",
+            "speedMps": 0.00015473624995219156,
+            "positionErrorM": 4.917120384649392e-05,
+            "angleErrorDeg": 8.79493896566764e-05,
+            "angularSpeedRadps": 4.106867134980728e-06
+          }
+        ],
+        "resumes": 0,
+        "maxRestoreVelocityError": 0,
+        "maxAngleErrorDeg": 0.0003679518014556761,
+        "maxRestorePositionErrorM": 0,
+        "scope": "Declared native multi-box pose arrangement by a bounded virtual force/torque gripper, not contact-only pushing, a physical robot hand, photographic recognition or LLM-weight training.",
+        "maxTorqueNm": 0.5040000081062318,
+        "workJ": 0.67238214188973,
+        "passed": true,
+        "maxPositionErrorM": 0.001380350314945438,
+        "nativeTicks": 4864,
+        "maxForceN": 19.45199966430666,
+        "effortNs": 208.05250242948668,
+        "maxInactiveAngleDeg": 0.0007796940447676028,
+        "maxInactiveDriftM": 0.014941634718429771,
+        "releases": 2,
+        "timeS": 20.266666666666666,
+        "maxAngularSpeedRadps": 4.106867134980728e-06,
+        "maxSpeedMps": 0.00015473624995219156,
+        "nativePhysics": true,
+        "torqueEffortNms": 0.37216109509152767,
+        "maxBystanderAngleDeg": 0.00014864895006755257,
+        "angularWorkJ": 0.052473075436621774
+      },
+      "arm": "candidate",
+      "key": "dev034-quarter-turn:candidate:60.0"
+    },
+    {
+      "nativeStatus": "failed",
+      "reason": "Original final pose or protected-body gate failed",
+      "split": "development",
+      "rawSha256": "62bbe4b65b73da3244e4ea9174f45bf9ff85c54ddc1206c1e18e0c83a862e807",
+      "caseId": "dev034-opposite-turn",
+      "initialForceN": 60,
+      "runId": "42d0b516-59b1-37ad-924f-6d4d023372ff",
+      "metrics": {
+        "maxBystanderDriftM": 1.4901161193847656e-08,
+        "grabs": 2,
+        "contactPoints": 3432,
+        "maxRestoreAngleErrorDeg": 0,
+        "targets": [
+          {
+            "sourceId": "A",
+            "speedMps": 7.20545224548988e-05,
+            "positionErrorM": 0.001012694143937621,
+            "angleErrorDeg": 89.9996640397568,
+            "angularSpeedRadps": 1.2469365211685309e-06
+          },
+          {
+            "sourceId": "B",
+            "speedMps": 0.00010930467442062743,
+            "positionErrorM": 3.944117531758812e-05,
+            "angleErrorDeg": 89.99993628391901,
+            "angularSpeedRadps": 8.144891258894542e-07
+          }
+        ],
+        "resumes": 0,
+        "maxRestoreVelocityError": 0,
+        "maxAngleErrorDeg": 89.99993628391901,
+        "maxRestorePositionErrorM": 0,
+        "scope": "Declared native multi-box pose arrangement by a bounded virtual force/torque gripper, not contact-only pushing, a physical robot hand, photographic recognition or LLM-weight training.",
+        "maxTorqueNm": 0,
+        "workJ": 0.7959542449626651,
+        "passed": false,
+        "maxPositionErrorM": 0.001012694143937621,
+        "nativeTicks": 5025,
+        "maxForceN": 19.451995849609443,
+        "effortNs": 215.32574118934923,
+        "maxInactiveAngleDeg": 0.0003359664215955638,
+        "maxInactiveDriftM": 0.014891804419288932,
+        "releases": 2,
+        "timeS": 20.9375,
+        "maxAngularSpeedRadps": 1.2469365211685309e-06,
+        "maxSpeedMps": 0.00010930467442062743,
+        "nativePhysics": true,
+        "torqueEffortNms": 0,
+        "maxBystanderAngleDeg": 0.00015356746643710684,
+        "angularWorkJ": 0
+      },
+      "arm": "baseline",
+      "key": "dev034-opposite-turn:baseline:60.0"
+    },
+    {
+      "nativeStatus": "completed",
+      "reason": "",
+      "split": "development",
+      "rawSha256": "f512a232a9307c9773ac7e5e3f53200949b27c683bcbe65f00b6630fa6a7ecbb",
+      "caseId": "dev034-opposite-turn",
+      "initialForceN": 60,
+      "runId": "382bbeea-f5ae-30cc-8995-e14d5fd8649d",
+      "metrics": {
+        "maxBystanderDriftM": 1.4901161193847656e-08,
+        "grabs": 2,
+        "contactPoints": 4028,
+        "maxRestoreAngleErrorDeg": 0,
+        "targets": [
+          {
+            "sourceId": "A",
+            "speedMps": 6.668425530874856e-05,
+            "positionErrorM": 0.0011210523759197448,
+            "angleErrorDeg": 0.0004694598514898189,
+            "angularSpeedRadps": 3.25527112715823e-06
+          },
+          {
+            "sourceId": "B",
+            "speedMps": 0.00010933027450079751,
+            "positionErrorM": 3.9523231067930666e-05,
+            "angleErrorDeg": 8.762088024374644e-05,
+            "angularSpeedRadps": 1.0175907246704037e-06
+          }
+        ],
+        "resumes": 0,
+        "maxRestoreVelocityError": 0,
+        "maxAngleErrorDeg": 0.0004694598514898189,
+        "maxRestorePositionErrorM": 0,
+        "scope": "Declared native multi-box pose arrangement by a bounded virtual force/torque gripper, not contact-only pushing, a physical robot hand, photographic recognition or LLM-weight training.",
+        "maxTorqueNm": 0.5040000081062318,
+        "workJ": 0.7960409986710517,
+        "passed": true,
+        "maxPositionErrorM": 0.0011210523759197448,
+        "nativeTicks": 5921,
+        "maxForceN": 19.45199966430666,
+        "effortNs": 255.5748830258492,
+        "maxInactiveAngleDeg": 0.0007911100573292863,
+        "maxInactiveDriftM": 0.014892132244809777,
+        "releases": 2,
+        "timeS": 24.670833333333334,
+        "maxAngularSpeedRadps": 3.25527112715823e-06,
+        "maxSpeedMps": 0.00010933027450079751,
+        "nativePhysics": true,
+        "torqueEffortNms": 0.3721614393289931,
+        "maxBystanderAngleDeg": 0.00018088584651965324,
+        "angularWorkJ": 0.0524729878223795
+      },
+      "arm": "candidate",
+      "key": "dev034-opposite-turn:candidate:60.0"
+    },
+    {
+      "nativeStatus": "failed",
+      "reason": "Original final pose or protected-body gate failed",
+      "split": "development",
+      "rawSha256": "ab5bdd9fb66051e9e5a1038cc2877e3fd944cc47acfbc45d87d859e91b2bad32",
+      "caseId": "dev034-half-turn",
+      "initialForceN": 60,
+      "runId": "bdc98707-7bdb-341f-8be9-5b4b2cfd5c65",
+      "metrics": {
+        "maxBystanderDriftM": 1.4901161193847656e-08,
+        "grabs": 2,
+        "contactPoints": 3432,
+        "maxRestoreAngleErrorDeg": 0,
+        "targets": [
+          {
+            "sourceId": "A",
+            "speedMps": 7.20545224548988e-05,
+            "positionErrorM": 0.001012694143937621,
+            "angleErrorDeg": 179.99966403975682,
+            "angularSpeedRadps": 1.2469365211685309e-06
+          },
+          {
+            "sourceId": "B",
+            "speedMps": 0.00010930467442062743,
+            "positionErrorM": 3.944117531758812e-05,
+            "angleErrorDeg": 90.00006371608103,
+            "angularSpeedRadps": 8.144891258894542e-07
+          }
+        ],
+        "resumes": 0,
+        "maxRestoreVelocityError": 0,
+        "maxAngleErrorDeg": 179.99966403975682,
+        "maxRestorePositionErrorM": 0,
+        "scope": "Declared native multi-box pose arrangement by a bounded virtual force/torque gripper, not contact-only pushing, a physical robot hand, photographic recognition or LLM-weight training.",
+        "maxTorqueNm": 0,
+        "workJ": 0.7959542449626651,
+        "passed": false,
+        "maxPositionErrorM": 0.001012694143937621,
+        "nativeTicks": 5025,
+        "maxForceN": 19.451995849609443,
+        "effortNs": 215.32574118934923,
+        "maxInactiveAngleDeg": 0.0003359664215955638,
+        "maxInactiveDriftM": 0.014891804419288932,
+        "releases": 2,
+        "timeS": 20.9375,
+        "maxAngularSpeedRadps": 1.2469365211685309e-06,
+        "maxSpeedMps": 0.00010930467442062743,
+        "nativePhysics": true,
+        "torqueEffortNms": 0,
+        "maxBystanderAngleDeg": 0.00015356746643710684,
+        "angularWorkJ": 0
+      },
+      "arm": "baseline",
+      "key": "dev034-half-turn:baseline:60.0"
+    },
+    {
+      "nativeStatus": "completed",
+      "reason": "",
+      "split": "development",
+      "rawSha256": "7fd24765fab7ae7136a7f8eac8c03170ef33d01efd04fb2e624391a85ed71b36",
+      "caseId": "dev034-half-turn",
+      "initialForceN": 60,
+      "runId": "13f1c679-bee1-3942-a752-177664feb6d7",
+      "metrics": {
+        "maxBystanderDriftM": 1.4901161193847656e-08,
+        "grabs": 2,
+        "contactPoints": 4244,
+        "maxRestoreAngleErrorDeg": 0,
+        "targets": [
+          {
+            "sourceId": "A",
+            "speedMps": 6.672687469128836e-05,
+            "positionErrorM": 0.0011210533139694126,
+            "angleErrorDeg": 0.0003899899773341927,
+            "angularSpeedRadps": 5.57946412552474e-06
+          },
+          {
+            "sourceId": "B",
+            "speedMps": 0.00010933030261212963,
+            "positionErrorM": 3.949445603239279e-05,
+            "angleErrorDeg": 5.814149169991772e-05,
+            "angularSpeedRadps": 1.0232300827120297e-06
+          }
+        ],
+        "resumes": 0,
+        "maxRestoreVelocityError": 0,
+        "maxAngleErrorDeg": 0.0003899899773341927,
+        "maxRestorePositionErrorM": 0,
+        "scope": "Declared native multi-box pose arrangement by a bounded virtual force/torque gripper, not contact-only pushing, a physical robot hand, photographic recognition or LLM-weight training.",
+        "maxTorqueNm": 0.5040000081062318,
+        "workJ": 0.7960411418924722,
+        "passed": true,
+        "maxPositionErrorM": 0.0011210533139694126,
+        "nativeTicks": 6250,
+        "maxForceN": 19.45199966430666,
+        "effortNs": 269.02275810159773,
+        "maxInactiveAngleDeg": 0.00039003904184178835,
+        "maxInactiveDriftM": 0.014892132244809777,
+        "releases": 2,
+        "timeS": 26.041666666666668,
+        "maxAngularSpeedRadps": 5.57946412552474e-06,
+        "maxSpeedMps": 0.00010933030261212963,
+        "nativePhysics": true,
+        "torqueEffortNms": 0.39702926264171634,
+        "maxBystanderAngleDeg": 0.00019093760916257275,
+        "angularWorkJ": 0.08072879008012733
+      },
+      "arm": "candidate",
+      "key": "dev034-half-turn:candidate:60.0"
+    },
+    {
+      "nativeStatus": "failed",
+      "reason": "Original final pose or protected-body gate failed",
+      "split": "development",
+      "rawSha256": "879e8da2928b77ab8b6b34dd892a778efcf550bebf5aae60c4a87b52214fb527",
+      "caseId": "dev034-three-objects",
+      "initialForceN": 60,
+      "runId": "8edb303f-ccca-39a2-949b-f929ddee0f6a",
+      "metrics": {
+        "maxBystanderDriftM": 1.4901161193847656e-08,
+        "grabs": 3,
+        "contactPoints": 7436,
+        "maxRestoreAngleErrorDeg": 0,
+        "targets": [
+          {
+            "sourceId": "A",
+            "speedMps": 4.888048239607385e-05,
+            "positionErrorM": 0.0015626026448494366,
+            "angleErrorDeg": 90.00061463314086,
+            "angularSpeedRadps": 5.578322043297876e-06
+          },
+          {
+            "sourceId": "B",
+            "speedMps": 7.40762745753353e-05,
+            "positionErrorM": 0.0009187554689468309,
+            "angleErrorDeg": 89.99989675548508,
+            "angularSpeedRadps": 8.15373695540992e-07
+          },
+          {
+            "sourceId": "C",
+            "speedMps": 0.00011389112444469622,
+            "positionErrorM": 3.8529910801474595e-05,
+            "angleErrorDeg": 44.99998963699767,
+            "angularSpeedRadps": 1.4884265880449258e-07
+          }
+        ],
+        "resumes": 0,
+        "maxRestoreVelocityError": 0,
+        "maxAngleErrorDeg": 90.00061463314086,
+        "maxRestorePositionErrorM": 0,
+        "scope": "Declared native multi-box pose arrangement by a bounded virtual force/torque gripper, not contact-only pushing, a physical robot hand, photographic recognition or LLM-weight training.",
+        "maxTorqueNm": 0,
+        "workJ": 1.066275001294415,
+        "passed": false,
+        "maxPositionErrorM": 0.0015626026448494366,
+        "nativeTicks": 7313,
+        "maxForceN": 19.451995849609443,
+        "effortNs": 286.25636163333195,
+        "maxInactiveAngleDeg": 0.0006146343305459187,
+        "maxInactiveDriftM": 0.014897109001410806,
+        "releases": 3,
+        "timeS": 30.47083333333333,
+        "maxAngularSpeedRadps": 5.578322043297876e-06,
+        "maxSpeedMps": 0.00011389112444469622,
+        "nativePhysics": true,
+        "torqueEffortNms": 0,
+        "maxBystanderAngleDeg": 0.00022332711224530832,
+        "angularWorkJ": 0
+      },
+      "arm": "baseline",
+      "key": "dev034-three-objects:baseline:60.0"
+    },
+    {
+      "nativeStatus": "completed",
+      "reason": "",
+      "split": "development",
+      "rawSha256": "26257b885f9dbad9ee9bff4b1485a416c2e118aeeeb7e5e5a3501cedc29415d4",
+      "caseId": "dev034-three-objects",
+      "initialForceN": 60,
+      "runId": "0134fb8a-1cf0-385f-8295-0dbc4b523ee2",
+      "metrics": {
+        "maxBystanderDriftM": 1.4901161193847656e-08,
+        "grabs": 3,
+        "contactPoints": 8612,
+        "maxRestoreAngleErrorDeg": 0,
+        "targets": [
+          {
+            "sourceId": "A",
+            "speedMps": 4.316783000084429e-05,
+            "positionErrorM": 0.0017325947099132342,
+            "angleErrorDeg": 0.00036849134483748905,
+            "angularSpeedRadps": 1.8614995009932804e-06
+          },
+          {
+            "sourceId": "B",
+            "speedMps": 7.068265170713825e-05,
+            "positionErrorM": 0.0010095953040890372,
+            "angleErrorDeg": 8.7768483902604e-05,
+            "angularSpeedRadps": 1.016782687447261e-06
+          },
+          {
+            "sourceId": "C",
+            "speedMps": 0.0001138795688500473,
+            "positionErrorM": 3.8528730538382996e-05,
+            "angleErrorDeg": 0.0005427617392779047,
+            "angularSpeedRadps": 3.89596166681474e-06
+          }
+        ],
+        "resumes": 0,
+        "maxRestoreVelocityError": 0,
+        "maxAngleErrorDeg": 0.0005427617392779047,
+        "maxRestorePositionErrorM": 0,
+        "scope": "Declared native multi-box pose arrangement by a bounded virtual force/torque gripper, not contact-only pushing, a physical robot hand, photographic recognition or LLM-weight training.",
+        "maxTorqueNm": 0.5040000081062318,
+        "workJ": 1.0663939588419646,
+        "passed": true,
+        "maxPositionErrorM": 0.0017325947099132342,
+        "nativeTicks": 8486,
+        "maxForceN": 19.45199966430666,
+        "effortNs": 335.5618154845115,
+        "maxInactiveAngleDeg": 0.0007902809918392774,
+        "maxInactiveDriftM": 0.01489740702461621,
+        "releases": 3,
+        "timeS": 35.358333333333334,
+        "maxAngularSpeedRadps": 3.89596166681474e-06,
+        "maxSpeedMps": 0.0001138795688500473,
+        "nativePhysics": true,
+        "torqueEffortNms": 0.4746877834911327,
+        "maxBystanderAngleDeg": 0.00025911759240048794,
+        "angularWorkJ": 0.05983260342620021
+      },
+      "arm": "candidate",
+      "key": "dev034-three-objects:candidate:60.0"
+    },
+    {
+      "nativeStatus": "failed",
+      "reason": "Measured pose progress stalled within the declared force/torque limits; no blind repeated actuation",
+      "split": "development",
+      "rawSha256": "f729514d4d52dabc3b849ef6a5032411540fb0da641ef2472c36715f7962566b",
+      "caseId": "dev034-force-negative",
+      "initialForceN": 10,
+      "runId": "5aed6d43-d8bb-312d-8d2d-b4b85602ad1b",
+      "metrics": {
+        "maxBystanderDriftM": 1.4901161193847656e-08,
+        "grabs": 1,
+        "contactPoints": 492,
+        "maxRestoreAngleErrorDeg": 0,
+        "targets": [
+          {
+            "sourceId": "A",
+            "speedMps": 1.25975180521045e-06,
+            "positionErrorM": 2.692582403567252,
+            "angleErrorDeg": 4.086652517060797e-05,
+            "angularSpeedRadps": 2.508091141701871e-06
+          },
+          {
+            "sourceId": "B",
+            "speedMps": 4.774600396060434e-07,
+            "positionErrorM": 2.692582403567252,
+            "angleErrorDeg": 8.548413834888014e-06,
+            "angularSpeedRadps": 8.024638061064098e-07
+          }
+        ],
+        "resumes": 0,
+        "maxRestoreVelocityError": 0,
+        "maxAngleErrorDeg": 4.086652517060797e-05,
+        "maxRestorePositionErrorM": 0,
+        "scope": "Declared native multi-box pose arrangement by a bounded virtual force/torque gripper, not contact-only pushing, a physical robot hand, photographic recognition or LLM-weight training.",
+        "maxTorqueNm": 0,
+        "workJ": 0,
+        "passed": false,
+        "maxPositionErrorM": 2.692582403567252,
+        "nativeTicks": 481,
+        "maxForceN": 10.00000000000311,
+        "effortNs": 20.000000000000128,
+        "maxInactiveAngleDeg": 1.5838420508793317e-05,
+        "maxInactiveDriftM": 1.4901161193847656e-08,
+        "releases": 0,
+        "timeS": 2.0041666666666664,
+        "maxAngularSpeedRadps": 2.508091141701871e-06,
+        "maxSpeedMps": 1.25975180521045e-06,
+        "nativePhysics": true,
+        "torqueEffortNms": 0,
+        "maxBystanderAngleDeg": 1.5838420508793317e-05,
+        "angularWorkJ": 0
+      },
+      "arm": "baseline",
+      "key": "dev034-force-negative:baseline:10.0"
+    },
+    {
+      "nativeStatus": "failed",
+      "reason": "Measured pose progress stalled within the declared force/torque limits; no blind repeated actuation",
+      "split": "development",
+      "rawSha256": "99667a44bca1e5f045534be0dcc52e90b900319ba2b021e9ab6e32ad1c18ec4d",
+      "caseId": "dev034-force-negative",
+      "initialForceN": 10,
+      "runId": "2bf2a7b8-b272-3abe-9705-2a73c81adcb8",
+      "metrics": {
+        "maxBystanderDriftM": 1.4901161193847656e-08,
+        "grabs": 1,
+        "contactPoints": 492,
+        "maxRestoreAngleErrorDeg": 0,
+        "targets": [
+          {
+            "sourceId": "A",
+            "speedMps": 1.259323375139761e-06,
+            "positionErrorM": 2.692582403567252,
+            "angleErrorDeg": 3.772777130614788e-05,
+            "angularSpeedRadps": 2.5053106657876953e-06
+          },
+          {
+            "sourceId": "B",
+            "speedMps": 4.774600396060434e-07,
+            "positionErrorM": 2.692582403567252,
+            "angleErrorDeg": 8.548413834888014e-06,
+            "angularSpeedRadps": 8.024638061064098e-07
+          }
+        ],
+        "resumes": 0,
+        "maxRestoreVelocityError": 0,
+        "maxAngleErrorDeg": 3.772777130614788e-05,
+        "maxRestorePositionErrorM": 0,
+        "scope": "Declared native multi-box pose arrangement by a bounded virtual force/torque gripper, not contact-only pushing, a physical robot hand, photographic recognition or LLM-weight training.",
+        "maxTorqueNm": 1.5035471268094833e-05,
+        "workJ": 0,
+        "passed": false,
+        "maxPositionErrorM": 2.692582403567252,
+        "nativeTicks": 481,
+        "maxForceN": 10.00000000000311,
+        "effortNs": 20.000000000000124,
+        "maxInactiveAngleDeg": 1.5838420508793317e-05,
+        "maxInactiveDriftM": 1.4901161193847656e-08,
+        "releases": 0,
+        "timeS": 2.0041666666666664,
+        "maxAngularSpeedRadps": 2.5053106657876953e-06,
+        "maxSpeedMps": 1.259323375139761e-06,
+        "nativePhysics": true,
+        "torqueEffortNms": 3.844401465072978e-06,
+        "maxBystanderAngleDeg": 1.5838420508793317e-05,
+        "angularWorkJ": -3.2273881700090606e-15
+      },
+      "arm": "candidate",
+      "key": "dev034-force-negative:candidate:10.0"
+    },
+    {
+      "nativeStatus": "failed",
+      "reason": "Original final pose or protected-body gate failed",
+      "split": "development",
+      "rawSha256": "30e72ae9f8be0a5bdb61655c81623d1388e015413d9de0e6b3522fedb815a286",
+      "caseId": "dev034-torque-negative",
+      "initialForceN": 60,
+      "runId": "e3303b86-1b40-3a7a-b6da-02a7d467e813",
+      "metrics": {
+        "maxBystanderDriftM": 1.4901161193847656e-08,
+        "grabs": 2,
+        "contactPoints": 2728,
+        "maxRestoreAngleErrorDeg": 0,
+        "targets": [
+          {
+            "sourceId": "A",
+            "speedMps": 0.00011343754400464353,
+            "positionErrorM": 0.0011686393181498096,
+            "angleErrorDeg": 90.00027161112408,
+            "angularSpeedRadps": 5.583218486601708e-06
+          },
+          {
+            "sourceId": "B",
+            "speedMps": 0.00015473657061971044,
+            "positionErrorM": 4.9151981079467555e-05,
+            "angleErrorDeg": 89.99994666203646,
+            "angularSpeedRadps": 4.040357247553434e-07
+          }
+        ],
+        "resumes": 0,
+        "maxRestoreVelocityError": 0,
+        "maxAngleErrorDeg": 90.00027161112408,
+        "maxRestorePositionErrorM": 0,
+        "scope": "Declared native multi-box pose arrangement by a bounded virtual force/torque gripper, not contact-only pushing, a physical robot hand, photographic recognition or LLM-weight training.",
+        "maxTorqueNm": 0,
+        "workJ": 0.6723060808829773,
+        "passed": false,
+        "maxPositionErrorM": 0.0011686393181498096,
+        "nativeTicks": 3968,
+        "maxForceN": 19.45199966430666,
+        "effortNs": 167.80332066433542,
+        "maxInactiveAngleDeg": 0.0002716134676139304,
+        "maxInactiveDriftM": 0.014941336695245205,
+        "releases": 2,
+        "timeS": 16.53333333333333,
+        "maxAngularSpeedRadps": 5.583218486601708e-06,
+        "maxSpeedMps": 0.00015473657061971044,
+        "nativePhysics": true,
+        "torqueEffortNms": 0,
+        "maxBystanderAngleDeg": 0.00012131980591920462,
+        "angularWorkJ": 0
+      },
+      "arm": "baseline",
+      "key": "dev034-torque-negative:baseline:60.0"
+    },
+    {
+      "nativeStatus": "failed",
+      "reason": "Measured pose progress stalled within the declared force/torque limits; no blind repeated actuation",
+      "split": "development",
+      "rawSha256": "eb09086ba7eec26ba5f6b00e55fd9b225173acdbd1ae69106119fe967197b2e8",
+      "caseId": "dev034-torque-negative",
+      "initialForceN": 60,
+      "runId": "ec0a5bb7-abb9-3864-ac06-015cbf7e5868",
+      "metrics": {
+        "maxBystanderDriftM": 1.4901161193847656e-08,
+        "grabs": 1,
+        "contactPoints": 944,
+        "maxRestoreAngleErrorDeg": 0,
+        "targets": [
+          {
+            "sourceId": "A",
+            "speedMps": 0.040880534797906876,
+            "positionErrorM": 2.9174319232107604,
+            "angleErrorDeg": 90,
+            "angularSpeedRadps": 0
+          },
+          {
+            "sourceId": "B",
+            "speedMps": 1.2716567700710024e-07,
+            "positionErrorM": 2.692582403567252,
+            "angleErrorDeg": 89.99997545366874,
+            "angularSpeedRadps": 4.0740393234571415e-07
+          }
+        ],
+        "resumes": 0,
+        "maxRestoreVelocityError": 0,
+        "maxAngleErrorDeg": 90,
+        "maxRestorePositionErrorM": 0,
+        "scope": "Declared native multi-box pose arrangement by a bounded virtual force/torque gripper, not contact-only pushing, a physical robot hand, photographic recognition or LLM-weight training.",
+        "maxTorqueNm": 0,
+        "workJ": 11.058647245294082,
+        "passed": false,
+        "maxPositionErrorM": 2.9174319232107604,
+        "nativeTicks": 1415,
+        "maxForceN": 16.209999084472656,
+        "effortNs": 57.843090724945114,
+        "maxInactiveAngleDeg": 4.374336972864736e-05,
+        "maxInactiveDriftM": 0.0001703500747680664,
+        "releases": 0,
+        "timeS": 5.895833333333333,
+        "maxAngularSpeedRadps": 4.0740393234571415e-07,
+        "maxSpeedMps": 0.040880534797906876,
+        "nativePhysics": true,
+        "torqueEffortNms": 0,
+        "maxBystanderAngleDeg": 4.374336972864736e-05,
+        "angularWorkJ": 0
+      },
+      "arm": "candidate",
+      "key": "dev034-torque-negative:candidate:60.0"
+    },
+    {
+      "nativeStatus": "completed",
+      "reason": "",
+      "split": "evaluation",
+      "rawSha256": "37dc79f9ae325b6ca4625563d57618a1f1ec529df2f278be46f23b073fe37c17",
+      "caseId": "reserved034-translate-x",
+      "initialForceN": 60,
+      "runId": "840ff27c-3c3a-3a22-b5a3-b2280e9d6fc2",
+      "metrics": {
+        "maxBystanderDriftM": 1.4901161193847656e-08,
+        "grabs": 2,
+        "contactPoints": 2224,
+        "maxRestoreAngleErrorDeg": 0,
+        "targets": [
+          {
+            "sourceId": "A",
+            "speedMps": 3.0734950628471367e-06,
+            "positionErrorM": 2.1760601672764357e-05,
+            "angleErrorDeg": 0.00023039836089372673,
+            "angularSpeedRadps": 1.2461745251489726e-06
+          },
+          {
+            "sourceId": "B",
+            "speedMps": 0.00016270942860566892,
+            "positionErrorM": 5.5738151651533305e-05,
+            "angleErrorDeg": 4.4824590543807584e-05,
+            "angularSpeedRadps": 4.063966871893201e-07
+          }
+        ],
+        "resumes": 0,
+        "maxRestoreVelocityError": 0,
+        "maxAngleErrorDeg": 0.00023039836089372673,
+        "maxRestorePositionErrorM": 0,
+        "scope": "Declared native multi-box pose arrangement by a bounded virtual force/torque gripper, not contact-only pushing, a physical robot hand, photographic recognition or LLM-weight training.",
+        "maxTorqueNm": 0,
+        "workJ": 0.67329336495954,
+        "passed": true,
+        "maxPositionErrorM": 5.5738151651533305e-05,
+        "nativeTicks": 3210,
+        "maxForceN": 22.207698822021506,
+        "effortNs": 154.70271603563285,
+        "maxInactiveAngleDeg": 0.00023039836089372673,
+        "maxInactiveDriftM": 0.014940979168124906,
+        "releases": 2,
+        "timeS": 13.375,
+        "maxAngularSpeedRadps": 1.2461745251489726e-06,
+        "maxSpeedMps": 0.00016270942860566892,
+        "nativePhysics": true,
+        "torqueEffortNms": 0,
+        "maxBystanderAngleDeg": 9.8283074023095e-05,
+        "angularWorkJ": 0
+      },
+      "arm": "baseline",
+      "key": "reserved034-translate-x:baseline:60.0"
+    },
+    {
+      "nativeStatus": "completed",
+      "reason": "",
+      "split": "evaluation",
+      "rawSha256": "0f205ab165ff6a7da6a210833af95b9cb3c6d0a4821e0b7ef71a40683862de34",
+      "caseId": "reserved034-translate-x",
+      "initialForceN": 60,
+      "runId": "f0d88ce3-0b17-3b2a-baf5-1c5f5b017ab9",
+      "metrics": {
+        "maxBystanderDriftM": 1.4901161193847656e-08,
+        "grabs": 2,
+        "contactPoints": 2224,
+        "maxRestoreAngleErrorDeg": 0,
+        "targets": [
+          {
+            "sourceId": "A",
+            "speedMps": 3.0734950628471367e-06,
+            "positionErrorM": 2.1760601672764357e-05,
+            "angleErrorDeg": 0.00023039836089372673,
+            "angularSpeedRadps": 1.2461745251489726e-06
+          },
+          {
+            "sourceId": "B",
+            "speedMps": 0.00016270942864481046,
+            "positionErrorM": 5.5738151651533305e-05,
+            "angleErrorDeg": 4.229039160236911e-06,
+            "angularSpeedRadps": 4.021629608189623e-07
+          }
+        ],
+        "resumes": 0,
+        "maxRestoreVelocityError": 0,
+        "maxAngleErrorDeg": 0.00023039836089372673,
+        "maxRestorePositionErrorM": 0,
+        "scope": "Declared native multi-box pose arrangement by a bounded virtual force/torque gripper, not contact-only pushing, a physical robot hand, photographic recognition or LLM-weight training.",
+        "maxTorqueNm": 6.761221220540117e-07,
+        "workJ": 0.67329336495954,
+        "passed": true,
+        "maxPositionErrorM": 5.5738151651533305e-05,
+        "nativeTicks": 3210,
+        "maxForceN": 22.207698822021506,
+        "effortNs": 154.70271603563285,
+        "maxInactiveAngleDeg": 0.00023039836089372673,
+        "maxInactiveDriftM": 0.014940979168124906,
+        "releases": 2,
+        "timeS": 13.375,
+        "maxAngularSpeedRadps": 1.2461745251489726e-06,
+        "maxSpeedMps": 0.00016270942864481046,
+        "nativePhysics": true,
+        "torqueEffortNms": 1.9091090398166907e-07,
+        "maxBystanderAngleDeg": 9.8283074023095e-05,
+        "angularWorkJ": 1.6271379384969045e-15
+      },
+      "arm": "candidate",
+      "key": "reserved034-translate-x:candidate:60.0"
+    },
+    {
+      "nativeStatus": "completed",
+      "reason": "",
+      "split": "evaluation",
+      "rawSha256": "7f91346ffa94901df5b1da076a73baa79809c57c847645cbc59137ebe9b73a05",
+      "caseId": "reserved034-translate-z",
+      "initialForceN": 60,
+      "runId": "e8ec90b5-51ac-36e7-8de6-585c1d2187ce",
+      "metrics": {
+        "maxBystanderDriftM": 1.4901161193847656e-08,
+        "grabs": 2,
+        "contactPoints": 2448,
+        "maxRestoreAngleErrorDeg": 0,
+        "targets": [
+          {
+            "sourceId": "A",
+            "speedMps": 0.00012752647412859835,
+            "positionErrorM": 0.0010833788402907706,
+            "angleErrorDeg": 0.0002314953045462871,
+            "angularSpeedRadps": 5.588218962687808e-06
+          },
+          {
+            "sourceId": "B",
+            "speedMps": 1.1692915889115901e-06,
+            "positionErrorM": 1.942398450228619e-05,
+            "angleErrorDeg": 5.043614666748826e-05,
+            "angularSpeedRadps": 1.1790387215704579e-06
+          }
+        ],
+        "resumes": 0,
+        "maxRestoreVelocityError": 0,
+        "maxAngleErrorDeg": 0.0002314953045462871,
+        "maxRestorePositionErrorM": 0,
+        "scope": "Declared native multi-box pose arrangement by a bounded virtual force/torque gripper, not contact-only pushing, a physical robot hand, photographic recognition or LLM-weight training.",
+        "maxTorqueNm": 0,
+        "workJ": 0.7153199993428296,
+        "passed": true,
+        "maxPositionErrorM": 0.0010833788402907706,
+        "nativeTicks": 3542,
+        "maxForceN": 22.207695007324297,
+        "effortNs": 170.65407691427174,
+        "maxInactiveAngleDeg": 0.0002314953045462871,
+        "maxInactiveDriftM": 0.01494130699362572,
+        "releases": 2,
+        "timeS": 14.758333333333333,
+        "maxAngularSpeedRadps": 5.588218962687808e-06,
+        "maxSpeedMps": 0.00012752647412859835,
+        "nativePhysics": true,
+        "torqueEffortNms": 0,
+        "maxBystanderAngleDeg": 0.00010834590488997941,
+        "angularWorkJ": 0
+      },
+      "arm": "baseline",
+      "key": "reserved034-translate-z:baseline:60.0"
+    },
+    {
+      "nativeStatus": "completed",
+      "reason": "",
+      "split": "evaluation",
+      "rawSha256": "32f41f93d571a62548ec9467415386b24e082e526f0afcf84014bde3cb0b66fc",
+      "caseId": "reserved034-translate-z",
+      "initialForceN": 60,
+      "runId": "d163ee1e-6987-3f32-bdae-37a3c5c9a004",
+      "metrics": {
+        "maxBystanderDriftM": 1.4901161193847656e-08,
+        "grabs": 2,
+        "contactPoints": 2448,
+        "maxRestoreAngleErrorDeg": 0,
+        "targets": [
+          {
+            "sourceId": "A",
+            "speedMps": 0.00012752647412859835,
+            "positionErrorM": 0.0010833788402907706,
+            "angleErrorDeg": 0.0002314953045462871,
+            "angularSpeedRadps": 5.588218962687808e-06
+          },
+          {
+            "sourceId": "B",
+            "speedMps": 1.5261115559423714e-06,
+            "positionErrorM": 1.9960425690816952e-05,
+            "angleErrorDeg": 4.1461385597147635e-06,
+            "angularSpeedRadps": 3.9985598262638655e-07
+          }
+        ],
+        "resumes": 0,
+        "maxRestoreVelocityError": 0,
+        "maxAngleErrorDeg": 0.0002314953045462871,
+        "maxRestorePositionErrorM": 0,
+        "scope": "Declared native multi-box pose arrangement by a bounded virtual force/torque gripper, not contact-only pushing, a physical robot hand, photographic recognition or LLM-weight training.",
+        "maxTorqueNm": 8.155915003449823e-07,
+        "workJ": 0.7153199993428296,
+        "passed": true,
+        "maxPositionErrorM": 0.0010833788402907706,
+        "nativeTicks": 3542,
+        "maxForceN": 22.207695007324297,
+        "effortNs": 170.65407691427174,
+        "maxInactiveAngleDeg": 0.0002314953045462871,
+        "maxInactiveDriftM": 0.01494130699362572,
+        "releases": 2,
+        "timeS": 14.758333333333333,
+        "maxAngularSpeedRadps": 5.588218962687808e-06,
+        "maxSpeedMps": 0.00012752647412859835,
+        "nativePhysics": true,
+        "torqueEffortNms": 2.7332306085963267e-07,
+        "maxBystanderAngleDeg": 0.00010834590488997941,
+        "angularWorkJ": -1.461926659867711e-14
+      },
+      "arm": "candidate",
+      "key": "reserved034-translate-z:candidate:60.0"
+    },
+    {
+      "nativeStatus": "completed",
+      "reason": "",
+      "split": "evaluation",
+      "rawSha256": "9dfc8adf83668e5362045f87661697b7dee379064397251a15b33c78942a6ab8",
+      "caseId": "reserved034-heavy-translate",
+      "initialForceN": 60,
+      "runId": "bf625f23-ae86-3bb8-92bd-ec4c65f17242",
+      "metrics": {
+        "maxBystanderDriftM": 1.4901161193847656e-08,
+        "grabs": 2,
+        "contactPoints": 2792,
+        "maxRestoreAngleErrorDeg": 0,
+        "targets": [
+          {
+            "sourceId": "A",
+            "speedMps": 0.00011234840574198591,
+            "positionErrorM": 0.0011918372512032531,
+            "angleErrorDeg": 0.00027739363334818425,
+            "angularSpeedRadps": 5.5787152556555624e-06
+          },
+          {
+            "sourceId": "B",
+            "speedMps": 0.00015451683996935944,
+            "positionErrorM": 4.857581838190355e-05,
+            "angleErrorDeg": 5.4196936338865906e-05,
+            "angularSpeedRadps": 4.0686650881509883e-07
+          }
+        ],
+        "resumes": 0,
+        "maxRestoreVelocityError": 0,
+        "maxAngleErrorDeg": 0.00027739363334818425,
+        "maxRestorePositionErrorM": 0,
+        "scope": "Declared native multi-box pose arrangement by a bounded virtual force/torque gripper, not contact-only pushing, a physical robot hand, photographic recognition or LLM-weight training.",
+        "maxTorqueNm": 0,
+        "workJ": 1.1000156129917802,
+        "passed": true,
+        "maxPositionErrorM": 0.0011918372512032531,
+        "nativeTicks": 4064,
+        "maxForceN": 35.17570114135742,
+        "effortNs": 276.2447747686026,
+        "maxInactiveAngleDeg": 0.00027739363334818425,
+        "maxInactiveDriftM": 0.014941337026112592,
+        "releases": 2,
+        "timeS": 16.933333333333334,
+        "maxAngularSpeedRadps": 5.5787152556555624e-06,
+        "maxSpeedMps": 0.00015451683996935944,
+        "nativePhysics": true,
+        "torqueEffortNms": 0,
+        "maxBystanderAngleDeg": 0.00012429270434932178,
+        "angularWorkJ": 0
+      },
+      "arm": "baseline",
+      "key": "reserved034-heavy-translate:baseline:60.0"
+    },
+    {
+      "nativeStatus": "completed",
+      "reason": "",
+      "split": "evaluation",
+      "rawSha256": "83bb6530b0b97fc6220d49ca9352aeb46366598de884179c44c96fea697d1c5a",
+      "caseId": "reserved034-heavy-translate",
+      "initialForceN": 60,
+      "runId": "098a8395-7975-3fec-b653-3d2ba087cce3",
+      "metrics": {
+        "maxBystanderDriftM": 1.4901161193847656e-08,
+        "grabs": 2,
+        "contactPoints": 2792,
+        "maxRestoreAngleErrorDeg": 0,
+        "targets": [
+          {
+            "sourceId": "A",
+            "speedMps": 0.00011234840574198591,
+            "positionErrorM": 0.0011918372512032531,
+            "angleErrorDeg": 0.00027739363334818425,
+            "angularSpeedRadps": 5.5787152556555624e-06
+          },
+          {
+            "sourceId": "B",
+            "speedMps": 0.00015451684024355645,
+            "positionErrorM": 4.857581838190355e-05,
+            "angleErrorDeg": 4.247672053873606e-06,
+            "angularSpeedRadps": 4.086296341769268e-07
+          }
+        ],
+        "resumes": 0,
+        "maxRestoreVelocityError": 0,
+        "maxAngleErrorDeg": 0.00027739363334818425,
+        "maxRestorePositionErrorM": 0,
+        "scope": "Declared native multi-box pose arrangement by a bounded virtual force/torque gripper, not contact-only pushing, a physical robot hand, photographic recognition or LLM-weight training.",
+        "maxTorqueNm": 8.773272454975267e-07,
+        "workJ": 1.1000156129917802,
+        "passed": true,
+        "maxPositionErrorM": 0.0011918372512032531,
+        "nativeTicks": 4064,
+        "maxForceN": 35.17570114135742,
+        "effortNs": 276.2447747686026,
+        "maxInactiveAngleDeg": 0.00027739363334818425,
+        "maxInactiveDriftM": 0.014941337026112592,
+        "releases": 2,
+        "timeS": 16.933333333333334,
+        "maxAngularSpeedRadps": 5.5787152556555624e-06,
+        "maxSpeedMps": 0.00015451684024355645,
+        "nativePhysics": true,
+        "torqueEffortNms": 2.3672599852203413e-07,
+        "maxBystanderAngleDeg": 0.00012429270434932178,
+        "angularWorkJ": 6.237905528627564e-15
+      },
+      "arm": "candidate",
+      "key": "reserved034-heavy-translate:candidate:60.0"
+    },
+    {
+      "nativeStatus": "completed",
+      "reason": "",
+      "split": "evaluation",
+      "rawSha256": "104ee5b05c1911bd1b1c288c60d42792b22e4379d6df8c5f635f5076d84f2de0",
+      "caseId": "reserved034-retained-heading",
+      "initialForceN": 60,
+      "runId": "37058948-ed8b-30fb-95e5-d0a1af04b998",
+      "metrics": {
+        "maxBystanderDriftM": 1.4901161193847656e-08,
+        "grabs": 2,
+        "contactPoints": 2792,
+        "maxRestoreAngleErrorDeg": 0,
+        "targets": [
+          {
+            "sourceId": "A",
+            "speedMps": 0.00011234927406865546,
+            "positionErrorM": 0.0011918380398223526,
+            "angleErrorDeg": 1.8831975797572922e-05,
+            "angularSpeedRadps": 2.929407737982055e-06
+          },
+          {
+            "sourceId": "B",
+            "speedMps": 0.0001545137746542238,
+            "positionErrorM": 4.8594286476962814e-05,
+            "angleErrorDeg": 1.6643970147816644e-05,
+            "angularSpeedRadps": 3.2762654243389693e-06
+          }
+        ],
+        "resumes": 0,
+        "maxRestoreVelocityError": 0,
+        "maxAngleErrorDeg": 1.8831975797572922e-05,
+        "maxRestorePositionErrorM": 0,
+        "scope": "Declared native multi-box pose arrangement by a bounded virtual force/torque gripper, not contact-only pushing, a physical robot hand, photographic recognition or LLM-weight training.",
+        "maxTorqueNm": 0,
+        "workJ": 0.7893282759486645,
+        "passed": true,
+        "maxPositionErrorM": 0.0011918380398223526,
+        "nativeTicks": 4064,
+        "maxForceN": 22.207693099975632,
+        "effortNs": 198.70046603082952,
+        "maxInactiveAngleDeg": 0.000307943714658892,
+        "maxInactiveDriftM": 0.014941337026112592,
+        "releases": 2,
+        "timeS": 16.933333333333334,
+        "maxAngularSpeedRadps": 3.2762654243389693e-06,
+        "maxSpeedMps": 0.0001545137746542238,
+        "nativePhysics": true,
+        "torqueEffortNms": 0,
+        "maxBystanderAngleDeg": 0.00012429270434932178,
+        "angularWorkJ": 0
+      },
+      "arm": "baseline",
+      "key": "reserved034-retained-heading:baseline:60.0"
+    },
+    {
+      "nativeStatus": "completed",
+      "reason": "",
+      "split": "evaluation",
+      "rawSha256": "f02698f626690dc41c759aa6d41bfc5abbbfb7a8c4561ebf08b85835085c494d",
+      "caseId": "reserved034-retained-heading",
+      "initialForceN": 60,
+      "runId": "1011c4b5-f807-3011-958b-80ec6e850232",
+      "metrics": {
+        "maxBystanderDriftM": 1.4901161193847656e-08,
+        "grabs": 2,
+        "contactPoints": 2792,
+        "maxRestoreAngleErrorDeg": 0,
+        "targets": [
+          {
+            "sourceId": "A",
+            "speedMps": 0.0001123492750177653,
+            "positionErrorM": 0.0011918380398223526,
+            "angleErrorDeg": 1.8834811146556786e-05,
+            "angularSpeedRadps": 2.9301351062350997e-06
+          },
+          {
+            "sourceId": "B",
+            "speedMps": 0.00015451655964210365,
+            "positionErrorM": 4.855763592317542e-05,
+            "angleErrorDeg": 1.6599978483205473e-05,
+            "angularSpeedRadps": 2.525163532449326e-06
+          }
+        ],
+        "resumes": 0,
+        "maxRestoreVelocityError": 0,
+        "maxAngleErrorDeg": 1.8834811146556786e-05,
+        "maxRestorePositionErrorM": 0,
+        "scope": "Declared native multi-box pose arrangement by a bounded virtual force/torque gripper, not contact-only pushing, a physical robot hand, photographic recognition or LLM-weight training.",
+        "maxTorqueNm": 7.906395604836176e-07,
+        "workJ": 0.7893282759486645,
+        "passed": true,
+        "maxPositionErrorM": 0.0011918380398223526,
+        "nativeTicks": 4064,
+        "maxForceN": 22.207693099975632,
+        "effortNs": 198.70046603082952,
+        "maxInactiveAngleDeg": 0.00013790030364933912,
+        "maxInactiveDriftM": 0.014941337026112592,
+        "releases": 2,
+        "timeS": 16.933333333333334,
+        "maxAngularSpeedRadps": 2.9301351062350997e-06,
+        "maxSpeedMps": 0.00015451655964210365,
+        "nativePhysics": true,
+        "torqueEffortNms": 4.819639195644105e-07,
+        "maxBystanderAngleDeg": 0.00012429270434932178,
+        "angularWorkJ": -9.036212216288754e-14
+      },
+      "arm": "candidate",
+      "key": "reserved034-retained-heading:candidate:60.0"
+    },
+    {
+      "nativeStatus": "failed",
+      "reason": "Original final pose or protected-body gate failed",
+      "split": "evaluation",
+      "rawSha256": "39ea8346478fa9feede2ddb71c3a612f8a58783ce2284f0ad0ad0607cea18d84",
+      "caseId": "reserved034-quarter-turn",
+      "initialForceN": 60,
+      "runId": "b631794e-c777-3b5f-977c-2cf609056c7c",
+      "metrics": {
+        "maxBystanderDriftM": 1.4901161193847656e-08,
+        "grabs": 2,
+        "contactPoints": 2792,
+        "maxRestoreAngleErrorDeg": 0,
+        "targets": [
+          {
+            "sourceId": "A",
+            "speedMps": 0.00011234806512668356,
+            "positionErrorM": 0.0011918372512032531,
+            "angleErrorDeg": 100.20027739745923,
+            "angularSpeedRadps": 2.600994606064208e-06
+          },
+          {
+            "sourceId": "B",
+            "speedMps": 0.00015451683996935944,
+            "positionErrorM": 4.857581838190355e-05,
+            "angleErrorDeg": 96.79994584500093,
+            "angularSpeedRadps": 4.0686650881509883e-07
+          }
+        ],
+        "resumes": 0,
+        "maxRestoreVelocityError": 0,
+        "maxAngleErrorDeg": 100.20027739745923,
+        "maxRestorePositionErrorM": 0,
+        "scope": "Declared native multi-box pose arrangement by a bounded virtual force/torque gripper, not contact-only pushing, a physical robot hand, photographic recognition or LLM-weight training.",
+        "maxTorqueNm": 0,
+        "workJ": 0.7893281172302998,
+        "passed": false,
+        "maxPositionErrorM": 0.0011918372512032531,
+        "nativeTicks": 4064,
+        "maxForceN": 22.207698822021506,
+        "effortNs": 198.7004663964046,
+        "maxInactiveAngleDeg": 0.00027740224929198305,
+        "maxInactiveDriftM": 0.014941337026112592,
+        "releases": 2,
+        "timeS": 16.933333333333334,
+        "maxAngularSpeedRadps": 2.600994606064208e-06,
+        "maxSpeedMps": 0.00015451683996935944,
+        "nativePhysics": true,
+        "torqueEffortNms": 0,
+        "maxBystanderAngleDeg": 0.00012429270434932178,
+        "angularWorkJ": 0
+      },
+      "arm": "baseline",
+      "key": "reserved034-quarter-turn:baseline:60.0"
+    },
+    {
+      "nativeStatus": "completed",
+      "reason": "",
+      "split": "evaluation",
+      "rawSha256": "3747759c07085b71378778efc9d560db87ef1fdd6c389f9cde340ee9e51dfd63",
+      "caseId": "reserved034-quarter-turn",
+      "initialForceN": 60,
+      "runId": "4c0b5b63-70ff-3fd3-937c-04ce023de658",
+      "metrics": {
+        "maxBystanderDriftM": 1.4901161193847656e-08,
+        "grabs": 2,
+        "contactPoints": 3428,
+        "maxRestoreAngleErrorDeg": 0,
+        "targets": [
+          {
+            "sourceId": "A",
+            "speedMps": 0.00010378063188678802,
+            "positionErrorM": 0.0014149936539633434,
+            "angleErrorDeg": 0.00018690678804145425,
+            "angularSpeedRadps": 1.0496299147222162e-05
+          },
+          {
+            "sourceId": "B",
+            "speedMps": 0.00015430028663598693,
+            "positionErrorM": 4.775144441540172e-05,
+            "angleErrorDeg": 0.0005979312968996524,
+            "angularSpeedRadps": 3.5193558543345385e-06
+          }
+        ],
+        "resumes": 0,
+        "maxRestoreVelocityError": 0,
+        "maxAngleErrorDeg": 0.0005979312968996524,
+        "maxRestorePositionErrorM": 0,
+        "scope": "Declared native multi-box pose arrangement by a bounded virtual force/torque gripper, not contact-only pushing, a physical robot hand, photographic recognition or LLM-weight training.",
+        "maxTorqueNm": 0.5753999948501588,
+        "workJ": 0.78942223175496,
+        "passed": true,
+        "maxPositionErrorM": 0.0014149936539633434,
+        "nativeTicks": 5022,
+        "maxForceN": 22.207695007324237,
+        "effortNs": 248.33628007224027,
+        "maxInactiveAngleDeg": 0.0006042214185316429,
+        "maxInactiveDriftM": 0.01494163504929056,
+        "releases": 2,
+        "timeS": 20.925,
+        "maxAngularSpeedRadps": 1.0496299147222162e-05,
+        "maxSpeedMps": 0.00015430028663598693,
+        "nativePhysics": true,
+        "torqueEffortNms": 0.43578016485761073,
+        "maxBystanderAngleDeg": 0.0001534941412844529,
+        "angularWorkJ": 0.06695744705883645
+      },
+      "arm": "candidate",
+      "key": "reserved034-quarter-turn:candidate:60.0"
+    },
+    {
+      "nativeStatus": "failed",
+      "reason": "Original final pose or protected-body gate failed",
+      "split": "evaluation",
+      "rawSha256": "694205897440ac6e1ef0727a7974b29b70c1faa3fbc81c8286a65bda723a1382",
+      "caseId": "reserved034-opposite-turn",
+      "initialForceN": 60,
+      "runId": "201265d7-9bfe-3bf6-ac51-dddff521b391",
+      "metrics": {
+        "maxBystanderDriftM": 1.4901161193847656e-08,
+        "grabs": 2,
+        "contactPoints": 3716,
+        "maxRestoreAngleErrorDeg": 0,
+        "targets": [
+          {
+            "sourceId": "A",
+            "speedMps": 6.290744603071396e-05,
+            "positionErrorM": 0.0009304008113333006,
+            "angleErrorDeg": 100.19963805346225,
+            "angularSpeedRadps": 1.2470993737243894e-06
+          },
+          {
+            "sourceId": "B",
+            "speedMps": 9.756368409866946e-05,
+            "positionErrorM": 2.739685769649828e-05,
+            "angleErrorDeg": 96.79993235976545,
+            "angularSpeedRadps": 8.021703258268593e-07
+          }
+        ],
+        "resumes": 0,
+        "maxRestoreVelocityError": 0,
+        "maxAngleErrorDeg": 100.19963805346225,
+        "maxRestorePositionErrorM": 0,
+        "scope": "Declared native multi-box pose arrangement by a bounded virtual force/torque gripper, not contact-only pushing, a physical robot hand, photographic recognition or LLM-weight training.",
+        "maxTorqueNm": 0,
+        "workJ": 0.9771358463932333,
+        "passed": false,
+        "maxPositionErrorM": 0.0009304008113333006,
+        "nativeTicks": 5453,
+        "maxForceN": 22.207698822021506,
+        "effortNs": 270.80265231422686,
+        "maxInactiveAngleDeg": 0.0003619537523664304,
+        "maxInactiveDriftM": 0.014889181237685012,
+        "releases": 2,
+        "timeS": 22.72083333333333,
+        "maxAngularSpeedRadps": 1.2470993737243894e-06,
+        "maxSpeedMps": 9.756368409866946e-05,
+        "nativePhysics": true,
+        "torqueEffortNms": 0,
+        "maxBystanderAngleDeg": 0.00016663627793977857,
+        "angularWorkJ": 0
+      },
+      "arm": "baseline",
+      "key": "reserved034-opposite-turn:baseline:60.0"
+    },
+    {
+      "nativeStatus": "completed",
+      "reason": "",
+      "split": "evaluation",
+      "rawSha256": "57c04a581fcba3e21ed8b3f50966404a7f7fca924bf47413ea720d028365c1d3",
+      "caseId": "reserved034-opposite-turn",
+      "initialForceN": 60,
+      "runId": "45a0b018-1a87-37c6-a580-aedd72b7cbdb",
+      "metrics": {
+        "maxBystanderDriftM": 1.4901161193847656e-08,
+        "grabs": 2,
+        "contactPoints": 4356,
+        "maxRestoreAngleErrorDeg": 0,
+        "targets": [
+          {
+            "sourceId": "A",
+            "speedMps": 5.807000367405308e-05,
+            "positionErrorM": 0.0010422168899525972,
+            "angleErrorDeg": 0.0001202449388471772,
+            "angularSpeedRadps": 6.237112419037702e-06
+          },
+          {
+            "sourceId": "B",
+            "speedMps": 9.755820157261554e-05,
+            "positionErrorM": 2.7396845539374824e-05,
+            "angleErrorDeg": 0.0005978853692888738,
+            "angularSpeedRadps": 2.8068489784031525e-06
+          }
+        ],
+        "resumes": 0,
+        "maxRestoreVelocityError": 0,
+        "maxAngleErrorDeg": 0.0005978853692888738,
+        "maxRestorePositionErrorM": 0,
+        "scope": "Declared native multi-box pose arrangement by a bounded virtual force/torque gripper, not contact-only pushing, a physical robot hand, photographic recognition or LLM-weight training.",
+        "maxTorqueNm": 0.5753999948501588,
+        "workJ": 0.9772450105385607,
+        "passed": true,
+        "maxPositionErrorM": 0.0010422168899525972,
+        "nativeTicks": 6411,
+        "maxForceN": 22.207698822021506,
+        "effortNs": 320.438417056521,
+        "maxInactiveAngleDeg": 0.0008627309403826779,
+        "maxInactiveDriftM": 0.014889509063218563,
+        "releases": 2,
+        "timeS": 26.7125,
+        "maxAngularSpeedRadps": 6.237112419037702e-06,
+        "maxSpeedMps": 9.755820157261554e-05,
+        "nativePhysics": true,
+        "torqueEffortNms": 0.4357810187430068,
+        "maxBystanderAngleDeg": 0.00019581579928854936,
+        "angularWorkJ": 0.06695732733542636
+      },
+      "arm": "candidate",
+      "key": "reserved034-opposite-turn:candidate:60.0"
+    },
+    {
+      "nativeStatus": "failed",
+      "reason": "Original final pose or protected-body gate failed",
+      "split": "evaluation",
+      "rawSha256": "e3665cebfb1470f77318e53eaf336e46669768409402ee9530b98ada58699ea8",
+      "caseId": "reserved034-half-turn",
+      "initialForceN": 60,
+      "runId": "7527cd03-6da0-30ef-9911-2320dd7014e2",
+      "metrics": {
+        "maxBystanderDriftM": 1.4901161193847656e-08,
+        "grabs": 2,
+        "contactPoints": 3716,
+        "maxRestoreAngleErrorDeg": 0,
+        "targets": [
+          {
+            "sourceId": "A",
+            "speedMps": 6.290744603071396e-05,
+            "positionErrorM": 0.0009304008113333006,
+            "angleErrorDeg": 171.50036194653774,
+            "angularSpeedRadps": 1.2470993737243894e-06
+          },
+          {
+            "sourceId": "B",
+            "speedMps": 9.756368409866946e-05,
+            "positionErrorM": 2.739685769649828e-05,
+            "angleErrorDeg": 98.50006764023459,
+            "angularSpeedRadps": 8.021703258268593e-07
+          }
+        ],
+        "resumes": 0,
+        "maxRestoreVelocityError": 0,
+        "maxAngleErrorDeg": 171.50036194653774,
+        "maxRestorePositionErrorM": 0,
+        "scope": "Declared native multi-box pose arrangement by a bounded virtual force/torque gripper, not contact-only pushing, a physical robot hand, photographic recognition or LLM-weight training.",
+        "maxTorqueNm": 0,
+        "workJ": 0.9771358463932333,
+        "passed": false,
+        "maxPositionErrorM": 0.0009304008113333006,
+        "nativeTicks": 5453,
+        "maxForceN": 22.207698822021506,
+        "effortNs": 270.80265231422686,
+        "maxInactiveAngleDeg": 0.0003619537523664304,
+        "maxInactiveDriftM": 0.014889181237685012,
+        "releases": 2,
+        "timeS": 22.72083333333333,
+        "maxAngularSpeedRadps": 1.2470993737243894e-06,
+        "maxSpeedMps": 9.756368409866946e-05,
+        "nativePhysics": true,
+        "torqueEffortNms": 0,
+        "maxBystanderAngleDeg": 0.00016663627793977857,
+        "angularWorkJ": 0
+      },
+      "arm": "baseline",
+      "key": "reserved034-half-turn:baseline:60.0"
+    },
+    {
+      "nativeStatus": "completed",
+      "reason": "",
+      "split": "evaluation",
+      "rawSha256": "bfad2f2fc295f51ad3637610d45e4168f68c9e37b9f8d43b236cd7df19e2cfd8",
+      "caseId": "reserved034-half-turn",
+      "initialForceN": 60,
+      "runId": "052b7057-eba1-39af-b02a-3f6b91ea4eed",
+      "metrics": {
+        "maxBystanderDriftM": 1.4901161193847656e-08,
+        "grabs": 2,
+        "contactPoints": 4532,
+        "maxRestoreAngleErrorDeg": 0,
+        "targets": [
+          {
+            "sourceId": "A",
+            "speedMps": 5.804773733200946e-05,
+            "positionErrorM": 0.001043885211960457,
+            "angleErrorDeg": 3.8551699016000726e-05,
+            "angularSpeedRadps": 5.040571224646147e-06
+          },
+          {
+            "sourceId": "B",
+            "speedMps": 9.755675017363236e-05,
+            "positionErrorM": 2.7374459500847093e-05,
+            "angleErrorDeg": 0.0008919453467865215,
+            "angularSpeedRadps": 1.0669271272056934e-06
+          }
+        ],
+        "resumes": 0,
+        "maxRestoreVelocityError": 0,
+        "maxAngleErrorDeg": 0.0008919453467865215,
+        "maxRestorePositionErrorM": 0,
+        "scope": "Declared native multi-box pose arrangement by a bounded virtual force/torque gripper, not contact-only pushing, a physical robot hand, photographic recognition or LLM-weight training.",
+        "maxTorqueNm": 0.5753999948501587,
+        "workJ": 0.9772464490471796,
+        "passed": true,
+        "maxPositionErrorM": 0.001043885211960457,
+        "nativeTicks": 6678,
+        "maxForceN": 22.207710266114535,
+        "effortNs": 333.2645840515407,
+        "maxInactiveAngleDeg": 0.00022861234824111682,
+        "maxInactiveDriftM": 0.014889509063218563,
+        "releases": 2,
+        "timeS": 27.825,
+        "maxAngularSpeedRadps": 5.040571224646147e-06,
+        "maxSpeedMps": 9.755675017363236e-05,
+        "nativePhysics": true,
+        "torqueEffortNms": 0.45929729618009374,
+        "maxBystanderAngleDeg": 0.00020395818901018255,
+        "angularWorkJ": 0.09379215804774954
+      },
+      "arm": "candidate",
+      "key": "reserved034-half-turn:candidate:60.0"
+    },
+    {
+      "nativeStatus": "failed",
+      "reason": "Original final pose or protected-body gate failed",
+      "split": "evaluation",
+      "rawSha256": "dfb91c7f4e92df26ecfc6802d5655323b817734e420f7e63120519070feaa727",
+      "caseId": "reserved034-three-objects",
+      "initialForceN": 60,
+      "runId": "364ce974-0de1-378c-9534-fa817d48689c",
+      "metrics": {
+        "maxBystanderDriftM": 1.4901161193847656e-08,
+        "grabs": 3,
+        "contactPoints": 8084,
+        "maxRestoreAngleErrorDeg": 0,
+        "targets": [
+          {
+            "sourceId": "A",
+            "speedMps": 4.115110401489179e-05,
+            "positionErrorM": 0.0014961623435199626,
+            "angleErrorDeg": 100.2006670780305,
+            "angularSpeedRadps": 1.2492560294765148e-06
+          },
+          {
+            "sourceId": "B",
+            "speedMps": 6.373304044344033e-05,
+            "positionErrorM": 0.0008417099555667473,
+            "angleErrorDeg": 96.79988908811346,
+            "angularSpeedRadps": 4.030490445169147e-07
+          },
+          {
+            "sourceId": "C",
+            "speedMps": 0.00010607458206453023,
+            "positionErrorM": 3.991617424505104e-05,
+            "angleErrorDeg": 55.199988911688756,
+            "angularSpeedRadps": 1.524564348225831e-07
+          }
+        ],
+        "resumes": 0,
+        "maxRestoreVelocityError": 0,
+        "maxAngleErrorDeg": 100.2006670780305,
+        "maxRestorePositionErrorM": 0,
+        "scope": "Declared native multi-box pose arrangement by a bounded virtual force/torque gripper, not contact-only pushing, a physical robot hand, photographic recognition or LLM-weight training.",
+        "maxTorqueNm": 0,
+        "workJ": 1.3274851146024125,
+        "passed": false,
+        "maxPositionErrorM": 0.0014961623435199626,
+        "nativeTicks": 7958,
+        "maxForceN": 22.207698822021506,
+        "effortNs": 365.4099326276906,
+        "maxInactiveAngleDeg": 0.0006670814302167235,
+        "maxInactiveDriftM": 0.014894456594882742,
+        "releases": 3,
+        "timeS": 33.15833333333333,
+        "maxAngularSpeedRadps": 1.2492560294765148e-06,
+        "maxSpeedMps": 0.00010607458206453023,
+        "nativePhysics": true,
+        "torqueEffortNms": 0,
+        "maxBystanderAngleDeg": 0.0002430183204679516,
+        "angularWorkJ": 0
+      },
+      "arm": "baseline",
+      "key": "reserved034-three-objects:baseline:60.0"
+    },
+    {
+      "nativeStatus": "completed",
+      "reason": "",
+      "split": "evaluation",
+      "rawSha256": "0a99a20bffe208127b7048bdb3efe102dc5e046d085192a8b2ba8f5ef4fcdabb",
+      "caseId": "reserved034-three-objects",
+      "initialForceN": 60,
+      "runId": "6196a813-93e9-374e-8212-4c80a6e51f66",
+      "metrics": {
+        "maxBystanderDriftM": 1.4901161193847656e-08,
+        "grabs": 3,
+        "contactPoints": 9356,
+        "maxRestoreAngleErrorDeg": 0,
+        "targets": [
+          {
+            "sourceId": "A",
+            "speedMps": 3.5940774809254995e-05,
+            "positionErrorM": 0.0015896222735428394,
+            "angleErrorDeg": 0.00018748351542669656,
+            "angularSpeedRadps": 7.646162652499235e-06
+          },
+          {
+            "sourceId": "B",
+            "speedMps": 6.0414545346724486e-05,
+            "positionErrorM": 0.0009163336611411421,
+            "angleErrorDeg": 0.0005978792826738123,
+            "angularSpeedRadps": 2.8211429268630275e-06
+          },
+          {
+            "sourceId": "C",
+            "speedMps": 0.0001057870076169738,
+            "positionErrorM": 3.9916316651777955e-05,
+            "angleErrorDeg": 0.000371496789825268,
+            "angularSpeedRadps": 7.955747539221868e-06
+          }
+        ],
+        "resumes": 0,
+        "maxRestoreVelocityError": 0,
+        "maxAngleErrorDeg": 0.0005978792826738123,
+        "maxRestorePositionErrorM": 0,
+        "scope": "Declared native multi-box pose arrangement by a bounded virtual force/torque gripper, not contact-only pushing, a physical robot hand, photographic recognition or LLM-weight training.",
+        "maxTorqueNm": 0.5753999948501588,
+        "workJ": 1.3276337742483257,
+        "passed": true,
+        "maxPositionErrorM": 0.0015896222735428394,
+        "nativeTicks": 9229,
+        "maxForceN": 22.207698822021506,
+        "effortNs": 427.4537998875261,
+        "maxInactiveAngleDeg": 0.0006128525395402909,
+        "maxInactiveDriftM": 0.01489478442040868,
+        "releases": 3,
+        "timeS": 38.454166666666666,
+        "maxAngularSpeedRadps": 7.955747539221868e-06,
+        "maxSpeedMps": 0.0001057870076169738,
+        "nativePhysics": true,
+        "torqueEffortNms": 0.5653873921751671,
+        "maxBystanderAngleDeg": 0.0002817596885320103,
+        "angularWorkJ": 0.07839377515939469
+      },
+      "arm": "candidate",
+      "key": "reserved034-three-objects:candidate:60.0"
+    },
+    {
+      "nativeStatus": "failed",
+      "reason": "Measured pose progress stalled within the declared force/torque limits; no blind repeated actuation",
+      "split": "evaluation",
+      "rawSha256": "c6a011fd09df70f96a30eea1d68de3f6d6f80b7fd0992ed489e9867277b32aa8",
+      "caseId": "reserved034-force-negative",
+      "initialForceN": 10,
+      "runId": "c316035d-391c-32e7-859d-05e41ac8217c",
+      "metrics": {
+        "maxBystanderDriftM": 1.4901161193847656e-08,
+        "grabs": 1,
+        "contactPoints": 492,
+        "maxRestoreAngleErrorDeg": 0,
+        "targets": [
+          {
+            "sourceId": "A",
+            "speedMps": 1.0572609449067456e-06,
+            "positionErrorM": 2.851122612689236,
+            "angleErrorDeg": 4.165094750580676e-05,
+            "angularSpeedRadps": 3.3752974902652773e-06
+          },
+          {
+            "sourceId": "B",
+            "speedMps": 4.819661404306692e-07,
+            "positionErrorM": 2.851122612689236,
+            "angleErrorDeg": 8.54635108402797e-06,
+            "angularSpeedRadps": 8.121138343551124e-07
+          }
+        ],
+        "resumes": 0,
+        "maxRestoreVelocityError": 0,
+        "maxAngleErrorDeg": 4.165094750580676e-05,
+        "maxRestorePositionErrorM": 0,
+        "scope": "Declared native multi-box pose arrangement by a bounded virtual force/torque gripper, not contact-only pushing, a physical robot hand, photographic recognition or LLM-weight training.",
+        "maxTorqueNm": 0,
+        "workJ": 0,
+        "passed": false,
+        "maxPositionErrorM": 2.851122612689236,
+        "nativeTicks": 481,
+        "maxForceN": 10.000000000003022,
+        "effortNs": 20.000000000000135,
+        "maxInactiveAngleDeg": 1.5838420508793317e-05,
+        "maxInactiveDriftM": 1.4901161193847656e-08,
+        "releases": 0,
+        "timeS": 2.0041666666666664,
+        "maxAngularSpeedRadps": 3.3752974902652773e-06,
+        "maxSpeedMps": 1.0572609449067456e-06,
+        "nativePhysics": true,
+        "torqueEffortNms": 0,
+        "maxBystanderAngleDeg": 1.5838420508793317e-05,
+        "angularWorkJ": 0
+      },
+      "arm": "baseline",
+      "key": "reserved034-force-negative:baseline:10.0"
+    },
+    {
+      "nativeStatus": "failed",
+      "reason": "Measured pose progress stalled within the declared force/torque limits; no blind repeated actuation",
+      "split": "evaluation",
+      "rawSha256": "bf06ba7fa27c0bbb71ef424c647cb6867eb34a499931f931e49fa82077c69f6d",
+      "caseId": "reserved034-force-negative",
+      "initialForceN": 10,
+      "runId": "537c9b88-5969-3f9f-bb8a-d4b5b1e28a76",
+      "metrics": {
+        "maxBystanderDriftM": 1.4901161193847656e-08,
+        "grabs": 1,
+        "contactPoints": 492,
+        "maxRestoreAngleErrorDeg": 0,
+        "targets": [
+          {
+            "sourceId": "A",
+            "speedMps": 1.0561080045247282e-06,
+            "positionErrorM": 2.851122612689236,
+            "angleErrorDeg": 3.842558058450159e-05,
+            "angularSpeedRadps": 3.372728434295104e-06
+          },
+          {
+            "sourceId": "B",
+            "speedMps": 4.819661404306692e-07,
+            "positionErrorM": 2.851122612689236,
+            "angleErrorDeg": 8.54635108402797e-06,
+            "angularSpeedRadps": 8.121138343551124e-07
+          }
+        ],
+        "resumes": 0,
+        "maxRestoreVelocityError": 0,
+        "maxAngleErrorDeg": 3.842558058450159e-05,
+        "maxRestorePositionErrorM": 0,
+        "scope": "Declared native multi-box pose arrangement by a bounded virtual force/torque gripper, not contact-only pushing, a physical robot hand, photographic recognition or LLM-weight training.",
+        "maxTorqueNm": 1.5850947286406393e-05,
+        "workJ": 0,
+        "passed": false,
+        "maxPositionErrorM": 2.851122612689236,
+        "nativeTicks": 481,
+        "maxForceN": 10.000000000003022,
+        "effortNs": 20.00000000000014,
+        "maxInactiveAngleDeg": 1.5838420508793317e-05,
+        "maxInactiveDriftM": 1.4901161193847656e-08,
+        "releases": 0,
+        "timeS": 2.0041666666666664,
+        "maxAngularSpeedRadps": 3.372728434295104e-06,
+        "maxSpeedMps": 1.0561080045247282e-06,
+        "nativePhysics": true,
+        "torqueEffortNms": 4.171274011977491e-06,
+        "maxBystanderAngleDeg": 1.5838420508793317e-05,
+        "angularWorkJ": 3.091702253184326e-14
+      },
+      "arm": "candidate",
+      "key": "reserved034-force-negative:candidate:10.0"
+    },
+    {
+      "nativeStatus": "failed",
+      "reason": "Original final pose or protected-body gate failed",
+      "split": "evaluation",
+      "rawSha256": "b673977467857b8e6d16e09367eb1df81c2245b0489cac8b633a2078ab30a319",
+      "caseId": "reserved034-torque-negative",
+      "initialForceN": 60,
+      "runId": "4e4767ed-50fa-3267-8139-78853e8edb51",
+      "metrics": {
+        "maxBystanderDriftM": 1.4901161193847656e-08,
+        "grabs": 2,
+        "contactPoints": 2792,
+        "maxRestoreAngleErrorDeg": 0,
+        "targets": [
+          {
+            "sourceId": "A",
+            "speedMps": 0.00011234806512668356,
+            "positionErrorM": 0.0011918372512032531,
+            "angleErrorDeg": 100.20027739745923,
+            "angularSpeedRadps": 2.600994606064208e-06
+          },
+          {
+            "sourceId": "B",
+            "speedMps": 0.00015451683996935944,
+            "positionErrorM": 4.857581838190355e-05,
+            "angleErrorDeg": 96.79994584500093,
+            "angularSpeedRadps": 4.0686650881509883e-07
+          }
+        ],
+        "resumes": 0,
+        "maxRestoreVelocityError": 0,
+        "maxAngleErrorDeg": 100.20027739745923,
+        "maxRestorePositionErrorM": 0,
+        "scope": "Declared native multi-box pose arrangement by a bounded virtual force/torque gripper, not contact-only pushing, a physical robot hand, photographic recognition or LLM-weight training.",
+        "maxTorqueNm": 0,
+        "workJ": 0.7893281172302998,
+        "passed": false,
+        "maxPositionErrorM": 0.0011918372512032531,
+        "nativeTicks": 4064,
+        "maxForceN": 22.207698822021506,
+        "effortNs": 198.7004663964046,
+        "maxInactiveAngleDeg": 0.00027740224929198305,
+        "maxInactiveDriftM": 0.014941337026112592,
+        "releases": 2,
+        "timeS": 16.933333333333334,
+        "maxAngularSpeedRadps": 2.600994606064208e-06,
+        "maxSpeedMps": 0.00015451683996935944,
+        "nativePhysics": true,
+        "torqueEffortNms": 0,
+        "maxBystanderAngleDeg": 0.00012429270434932178,
+        "angularWorkJ": 0
+      },
+      "arm": "baseline",
+      "key": "reserved034-torque-negative:baseline:60.0"
+    },
+    {
+      "nativeStatus": "failed",
+      "reason": "Measured pose progress stalled within the declared force/torque limits; no blind repeated actuation",
+      "split": "evaluation",
+      "rawSha256": "7e01bb39cabed1dbcff5ad32b31ff111af10ceba7b8cb7cf084172d2a4e8ac4b",
+      "caseId": "reserved034-torque-negative",
+      "initialForceN": 60,
+      "runId": "8ff7b15f-cb06-3e74-a683-c86bf8b21781",
+      "metrics": {
+        "maxBystanderDriftM": 1.4901161193847656e-08,
+        "grabs": 1,
+        "contactPoints": 944,
+        "maxRestoreAngleErrorDeg": 0,
+        "targets": [
+          {
+            "sourceId": "A",
+            "speedMps": 0.040880560874938965,
+            "positionErrorM": 3.064361137195995,
+            "angleErrorDeg": 100.2,
+            "angularSpeedRadps": 0
+          },
+          {
+            "sourceId": "B",
+            "speedMps": 1.2715442407290013e-07,
+            "positionErrorM": 2.851122612689236,
+            "angleErrorDeg": 96.79997545596171,
+            "angularSpeedRadps": 4.042605787201083e-07
+          }
+        ],
+        "resumes": 0,
+        "maxRestoreVelocityError": 0,
+        "maxAngleErrorDeg": 100.2,
+        "maxRestorePositionErrorM": 0,
+        "scope": "Declared native multi-box pose arrangement by a bounded virtual force/torque gripper, not contact-only pushing, a physical robot hand, photographic recognition or LLM-weight training.",
+        "maxTorqueNm": 0,
+        "workJ": 12.938617368608703,
+        "passed": false,
+        "maxPositionErrorM": 3.064361137195995,
+        "nativeTicks": 1415,
+        "maxForceN": 18.965700149536133,
+        "effortNs": 67.67641479571671,
+        "maxInactiveAngleDeg": 4.374336972864736e-05,
+        "maxInactiveDriftM": 0.0001703500747680664,
+        "releases": 0,
+        "timeS": 5.895833333333333,
+        "maxAngularSpeedRadps": 4.042605787201083e-07,
+        "maxSpeedMps": 0.040880560874938965,
+        "nativePhysics": true,
+        "torqueEffortNms": 0,
+        "maxBystanderAngleDeg": 4.374336972864736e-05,
+        "angularWorkJ": 0
+      },
+      "arm": "candidate",
+      "key": "reserved034-torque-negative:candidate:60.0"
+    }
+  ],
+  "candidateFrozenAfterTrial": 20,
+  "id": "1980e80f-f13e-478f-b9d9-d53a4643b554",
+  "suiteSha256": "6fff72b93c18bc41acc3442d9de54c960c3b373c3a7323427bb5376efdf73f28",
+  "events": [
+    {
+      "kind": "trial-completed",
+      "caseId": "dev034-translate-x",
+      "arm": "baseline",
+      "ordinal": 1
+    },
+    {
+      "kind": "trial-completed",
+      "caseId": "dev034-translate-x",
+      "arm": "candidate",
+      "ordinal": 2
+    },
+    {
+      "kind": "trial-completed",
+      "caseId": "dev034-translate-z",
+      "arm": "baseline",
+      "ordinal": 3
+    },
+    {
+      "kind": "trial-completed",
+      "caseId": "dev034-translate-z",
+      "arm": "candidate",
+      "ordinal": 4
+    },
+    {
+      "kind": "trial-completed",
+      "caseId": "dev034-heavy-translate",
+      "arm": "baseline",
+      "ordinal": 5
+    },
+    {
+      "kind": "trial-completed",
+      "caseId": "dev034-heavy-translate",
+      "arm": "candidate",
+      "ordinal": 6
+    },
+    {
+      "kind": "trial-completed",
+      "caseId": "dev034-retained-heading",
+      "arm": "baseline",
+      "ordinal": 7
+    },
+    {
+      "kind": "trial-completed",
+      "caseId": "dev034-retained-heading",
+      "arm": "candidate",
+      "ordinal": 8
+    },
+    {
+      "kind": "trial-completed",
+      "caseId": "dev034-quarter-turn",
+      "arm": "baseline",
+      "ordinal": 9
+    },
+    {
+      "kind": "trial-completed",
+      "caseId": "dev034-quarter-turn",
+      "arm": "candidate",
+      "ordinal": 10
+    },
+    {
+      "kind": "trial-completed",
+      "caseId": "dev034-opposite-turn",
+      "arm": "baseline",
+      "ordinal": 11
+    },
+    {
+      "kind": "trial-completed",
+      "caseId": "dev034-opposite-turn",
+      "arm": "candidate",
+      "ordinal": 12
+    },
+    {
+      "kind": "trial-completed",
+      "caseId": "dev034-half-turn",
+      "arm": "baseline",
+      "ordinal": 13
+    },
+    {
+      "kind": "trial-completed",
+      "caseId": "dev034-half-turn",
+      "arm": "candidate",
+      "ordinal": 14
+    },
+    {
+      "kind": "trial-completed",
+      "caseId": "dev034-three-objects",
+      "arm": "baseline",
+      "ordinal": 15
+    },
+    {
+      "kind": "trial-completed",
+      "caseId": "dev034-three-objects",
+      "arm": "candidate",
+      "ordinal": 16
+    },
+    {
+      "kind": "trial-completed",
+      "caseId": "dev034-force-negative",
+      "arm": "baseline",
+      "ordinal": 17
+    },
+    {
+      "kind": "trial-completed",
+      "caseId": "dev034-force-negative",
+      "arm": "candidate",
+      "ordinal": 18
+    },
+    {
+      "kind": "trial-completed",
+      "caseId": "dev034-torque-negative",
+      "arm": "baseline",
+      "ordinal": 19
+    },
+    {
+      "kind": "trial-completed",
+      "caseId": "dev034-torque-negative",
+      "arm": "candidate",
+      "ordinal": 20
+    },
+    {
+      "kind": "trial-completed",
+      "caseId": "reserved034-translate-x",
+      "arm": "baseline",
+      "ordinal": 21
+    },
+    {
+      "kind": "trial-completed",
+      "caseId": "reserved034-translate-x",
+      "arm": "candidate",
+      "ordinal": 22
+    },
+    {
+      "kind": "trial-completed",
+      "caseId": "reserved034-translate-z",
+      "arm": "baseline",
+      "ordinal": 23
+    },
+    {
+      "kind": "trial-completed",
+      "caseId": "reserved034-translate-z",
+      "arm": "candidate",
+      "ordinal": 24
+    },
+    {
+      "kind": "trial-completed",
+      "caseId": "reserved034-heavy-translate",
+      "arm": "baseline",
+      "ordinal": 25
+    },
+    {
+      "kind": "trial-completed",
+      "caseId": "reserved034-heavy-translate",
+      "arm": "candidate",
+      "ordinal": 26
+    },
+    {
+      "kind": "trial-completed",
+      "caseId": "reserved034-retained-heading",
+      "arm": "baseline",
+      "ordinal": 27
+    },
+    {
+      "kind": "trial-completed",
+      "caseId": "reserved034-retained-heading",
+      "arm": "candidate",
+      "ordinal": 28
+    },
+    {
+      "kind": "trial-completed",
+      "caseId": "reserved034-quarter-turn",
+      "arm": "baseline",
+      "ordinal": 29
+    },
+    {
+      "kind": "trial-completed",
+      "caseId": "reserved034-quarter-turn",
+      "arm": "candidate",
+      "ordinal": 30
+    },
+    {
+      "kind": "trial-completed",
+      "caseId": "reserved034-opposite-turn",
+      "arm": "baseline",
+      "ordinal": 31
+    },
+    {
+      "kind": "trial-completed",
+      "caseId": "reserved034-opposite-turn",
+      "arm": "candidate",
+      "ordinal": 32
+    },
+    {
+      "kind": "trial-completed",
+      "caseId": "reserved034-half-turn",
+      "arm": "baseline",
+      "ordinal": 33
+    },
+    {
+      "kind": "trial-completed",
+      "caseId": "reserved034-half-turn",
+      "arm": "candidate",
+      "ordinal": 34
+    },
+    {
+      "kind": "trial-completed",
+      "caseId": "reserved034-three-objects",
+      "arm": "baseline",
+      "ordinal": 35
+    },
+    {
+      "kind": "trial-completed",
+      "caseId": "reserved034-three-objects",
+      "arm": "candidate",
+      "ordinal": 36
+    },
+    {
+      "kind": "trial-completed",
+      "caseId": "reserved034-force-negative",
+      "arm": "baseline",
+      "ordinal": 37
+    },
+    {
+      "kind": "trial-completed",
+      "caseId": "reserved034-force-negative",
+      "arm": "candidate",
+      "ordinal": 38
+    },
+    {
+      "kind": "trial-completed",
+      "caseId": "reserved034-torque-negative",
+      "arm": "baseline",
+      "ordinal": 39
+    },
+    {
+      "kind": "trial-completed",
+      "caseId": "reserved034-torque-negative",
+      "arm": "candidate",
+      "ordinal": 40
+    }
+  ],
+  "status": "completed"
+}

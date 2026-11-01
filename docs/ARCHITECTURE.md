@@ -151,3 +151,21 @@ A package-private verified native report path supports bounded lossless native
 records while public creation retains its original file limits. Case import
 uses the existing Spatial busy queue before enabling physical tasks.
 [Complete contract and next acceptance gate](CONTACT_CONTROLLERS.md).
+
+## Edition034: native multi-object poses
+
+The separate PosePlan/PosePhysics/PoseVerify/PoseCheckpoint/PoseStore path adds
+bounded selected-body virtual force and torque, ordered multi-box target poses,
+all-body observations and compatible same-run continuation. It does not replace
+contact-only PushRuntime or change033activation/profile behavior. PoseStudyStore
+owns40fixed paired native trials, original byte hashes and unchanged feature
+gates. PoseStudyReport and PoseReport supply original registered artifacts;
+actual canvas rows/coordinates are checked before procedural retention.
+
+Chat binds actual roles/displayed targets to Java goals. Exact-version skills
+reuse fresh source roles and retain unrequested wrench defaults. Moving native
+observations remain separate from immutable authored source objects. New goals
+currently start from that source; persistent world revisions across goals are
+planned. A registered64MBcomparison transport uses hashed10MBparts; ordinary
+exports retain20MB. No new libraries, models or cloud services are introduced.
+[Full scope, evidence and next gate](MULTI_OBJECT_POSES.md).

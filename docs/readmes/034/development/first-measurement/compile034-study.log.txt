@@ -1,0 +1,35 @@
+> Task :brain-core:compileJava UP-TO-DATE
+> Task :brain-gpu:compileJava UP-TO-DATE
+> Task :factory-runtime:compileJava UP-TO-DATE
+> Task :factory-kernel:compileJava UP-TO-DATE
+> Task :factory-models:compileJava UP-TO-DATE
+> Task :geometry-core:compileJava UP-TO-DATE
+
+> Task :workspace-engine:compileJava FAILED
+C:\Users\eyeka\Documents\Codex\2026-10-26\is\work\fraynix-agent-workspace\workspace-engine\src\main\java\fraymus\workspace\PoseStudyReport.java:8: error: cannot find symbol
+    static JSONObject data(JSONObject j){return new JSONObject().put("jobId",j.getString("id")).put("suiteSha256",j.getString("suiteSha256")).put("codeSha256",j.getString("codeSha256")).put("candidateFrozenCodeSha256",j.getString("candidateFrozenCodeSha256")).put("candidateFrozenAfterTrial",j.getInt("candidateFrozenAfterTrial")).put("decision",j.getJSONObject("decision")).put("trials",j.getJSONArray("trials")).put("scope",PoseStudy.SCOPE);}
+                                                                                                                                                                                                                                                                                                                                                                                                                                                   ^
+  symbol:   variable SCOPE
+  location: class PoseStudy
+1 error
+
+[Incubating] Problems report is available at: file:///C:/Users/eyeka/Documents/Codex/2026-10-26/is/work/fraynix-agent-workspace/build/reports/problems/problems-report.html
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':workspace-engine:compileJava'.
+> Compilation failed; see the compiler output below.
+  C:\Users\eyeka\Documents\Codex\2026-10-26\is\work\fraynix-agent-workspace\workspace-engine\src\main\java\fraymus\workspace\PoseStudyReport.java:8: error: cannot find symbol
+      static JSONObject data(JSONObject j){return new JSONObject().put("jobId",j.getString("id")).put("suiteSha256",j.getString("suiteSha256")).put("codeSha256",j.getString("codeSha256")).put("candidateFrozenCodeSha256",j.getString("candidateFrozenCodeSha256")).put("candidateFrozenAfterTrial",j.getInt("candidateFrozenAfterTrial")).put("decision",j.getJSONObject("decision")).put("trials",j.getJSONArray("trials")).put("scope",PoseStudy.SCOPE);}
+                                                                                                                                                                                                                                                                                                                                                                                                                                                     ^
+    symbol:   variable SCOPE
+    location: class PoseStudy
+  1 error
+
+* Try:
+> Check your code and dependencies to fix the compilation error(s)
+> Run with --scan to get full insights from a Build Scan (powered by Develocity).
+
+BUILD FAILED in 940ms
+7 actionable tasks: 1 executed, 6 up-to-date
