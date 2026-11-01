@@ -1,3 +1,4 @@
+import {TabletopPanel} from './tabletop-panel.js';
 import {MetricPanel} from './metric-panel.js';
 import {ObservationPanel} from './observation-panel.js';
 import {PersistentWorldPanel} from './persistent-world-panel.js';
@@ -48,6 +49,7 @@ const persistentPanel=new PersistentWorldPanel({call:(command,args={})=>request(
 const observationPanel=new ObservationPanel({call:(command,args={})=>request('observations',{command,args}),persistent:persistentPanel,notice});
 window.observationView=observationPanel;
 window.metricView=new MetricPanel({call:(command,args={})=>request('metrics',{command,args}),observation:observationPanel,notice});
+window.tabletopView=new TabletopPanel({call:(command,args={})=>request('tabletop',{command,args}),metricCall:(command,args={})=>request('metrics',{command,args}),persistent:persistentPanel,metric:window.metricView,notice});
 const perceptionPanel=new PerceptionPanel({call:(command,args={})=>request('perception',{command,args}),goalCall:(command,args={})=>request('javaGoal',{command,args}),notice,activate:setCanvasMode,goal:g=>goalsPanel.accept(g)});
 const trackingPanel=new TrackingPanel({call:(command,args={})=>request('tracking',{command,args}),notice,requireSaved,openPerception:()=>perceptionPanel.open()});
 const creationPanel=new CreationPanel({layout:updateLayout,call:(command,args,model)=>request('creation',{command,args,model}),getState:()=>state,getArtifact:()=>artifact,getModel:()=>$('model').value,requireSaved,notice,onGoal:g=>goalsPanel.accept(g)});

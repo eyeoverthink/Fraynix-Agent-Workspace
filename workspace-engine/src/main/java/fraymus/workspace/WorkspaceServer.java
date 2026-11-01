@@ -26,6 +26,7 @@ public final class WorkspaceServer {
     private final GoalRunner goals;
     private final WorldObservationStore observations;
     private final MetricObservationStore metrics;
+    private final TabletopStore tabletop;
     private final WorkflowRunner workflows;
     private final EmbeddedGameClient game;
     private final String token;
@@ -36,7 +37,7 @@ public final class WorkspaceServer {
     public WorkspaceServer(Path project,String token) throws IOException {
         if(token==null||token.length()<32)throw new IllegalArgumentException("A private session capability is required");
         this.token=token;store=new WorkspaceStore(project);learning=new LearningStore(project);
-        try{scenes=new SceneStore(project);spatial=new SpatialStore(project);maps=new MapStore(project);perception=new PerceptionStore(project);measurements=new MeasurementStore(project);calibrations=new CalibrationStore(project,scenes,measurements);observers=new ObserverStore(project,scenes);brain=new BrainService(project);goals=new GoalRunner(project,scenes,brain,store,measurements,spatial,perception,maps);observations=new WorldObservationStore(project,goals.worlds());metrics=new MetricObservationStore(project,observations,goals.worlds());workflows=new WorkflowRunner(project,goals,measurements,scenes,store);game=new EmbeddedGameClient(Path.of(System.getProperty("user.dir")),project);}catch(Exception e){throw new IOException("Experiment stores could not start",e);}
+        try{scenes=new SceneStore(project);spatial=new SpatialStore(project);maps=new MapStore(project);perception=new PerceptionStore(project);measurements=new MeasurementStore(project);calibrations=new CalibrationStore(project,scenes,measurements);observers=new ObserverStore(project,scenes);brain=new BrainService(project);goals=new GoalRunner(project,scenes,brain,store,measurements,spatial,perception,maps);observations=new WorldObservationStore(project,goals.worlds());metrics=new MetricObservationStore(project,observations,goals.worlds());tabletop=new TabletopStore(project,goals.worlds(),metrics);workflows=new WorkflowRunner(project,goals,measurements,scenes,store);game=new EmbeddedGameClient(Path.of(System.getProperty("user.dir")),project);}catch(Exception e){throw new IOException("Experiment stores could not start",e);}
         scanner.scheduleWithFixedDelay(()->{try{catalog=models.observe();}catch(Exception e){System.err.println("Model discovery: "+e.getMessage());}},0,45,TimeUnit.SECONDS);
     }
     private JSONObject visionModels(){var out=new JSONArray();try{var tags=LocalModelAdmission.request("http://127.0.0.1:11434/api/tags",null);for(Object raw:tags.getJSONArray("models")){var tag=(JSONObject)raw;try{var show=LocalModelAdmission.request("http://127.0.0.1:11434/api/show",new JSONObject().put("model",tag.getString("name")));if(show.getJSONArray("capabilities").toList().contains("vision"))out.put(new JSONObject().put("name",tag.getString("name")).put("bytes",tag.getLong("size")));}catch(Exception unavailable){/* Unavailable metadata is not an eligible detector. */}}return new JSONObject().put("models",out).put("available",!out.isEmpty());}catch(Exception unavailable){return new JSONObject().put("models",out).put("available",false).put("reason","Local vision metadata unavailable; DOM and taught appearance remain usable offline");}}
@@ -55,7 +56,7 @@ public final class WorkspaceServer {
                 if(!exchange.getRequestMethod().equals("POST")){send(exchange,405,new JSONObject().put("error","POST required"));return;}
                 byte[] body=exchange.getRequestBody().readNBytes(2_100_001);if(body.length>2_100_000)throw new IllegalArgumentException("Request too large");
                 JSONObject input=new JSONObject(new String(body,StandardCharsets.UTF_8));String route=exchange.getRequestURI().getPath();JSONObject result;
-                if(observations.busy()&&Set.of("/api/world/start","/api/world/restore","/api/goals/start","/api/procedures/run").contains(route))throw new IllegalStateException("The observation run owns this world binding; Stop it before native actions");
+                if((observations.busy()||tabletop.busy())&&Set.of("/api/world/start","/api/world/restore","/api/goals/start","/api/procedures/run","/api/observations/start","/api/observations/resume","/api/tabletop/start").contains(route))throw new IllegalStateException("The observation run owns this world binding; Stop it before native actions");
                 if(route.equals("/api/plan")){send(exchange,200,plan(input));return;}
                 if(route.startsWith("/api/workflows/")){
                     result=switch(route){case "/api/workflows/start"->workflows.start(input);case "/api/workflows/read"->workflows.read(input.getString("id"));case "/api/workflows/list"->new JSONObject().put("workflows",workflows.list());case "/api/workflows/resume"->workflows.resume(input.getString("id"));case "/api/workflows/cancel"->workflows.cancel(input.getString("id"));case "/api/workflows/reuse"->workflows.reuse(input);case "/api/workflows/claim"->workflows.claim();case "/api/workflows/ack"->workflows.acknowledge(input);default->throw new IllegalArgumentException("Unknown workflow operation");};send(exchange,200,result);return;
@@ -88,6 +89,20 @@ public final class WorkspaceServer {
                     case "/api/tracking/report" -> {var j=perception.lab().read(input.getString("id"));j.remove("activation");var artifact=store.writeOnce("tracking-report:"+j.getString("id"),TrackingPresentation.report(j,perception.lab()));result=new JSONObject().put("artifact",artifact).put("checks",TrackingPresentation.checks(j));}
 
                     case "/api/creation/source" -> result=Creation.preview(store,input);
+                    case "/api/tabletop/state" -> result=tabletop.state();
+                    case "/api/tabletop/check" -> result=tabletop.check(input);
+                    case "/api/tabletop/start" -> {if(goals.busy())throw new IllegalStateException("Finish the shared goal first");result=tabletop.start(input);}
+                    case "/api/tabletop/frame" -> result=tabletop.frame(input);
+                    case "/api/tabletop/read" -> result=tabletop.read(input.getString("id"));
+                    case "/api/tabletop/understanding" -> result=tabletop.understanding(input.getString("id"));
+                    case "/api/tabletop/image" -> result=tabletop.image(input.getString("id"),input.getInt("ordinal"));
+                    case "/api/tabletop/analyse" -> result=tabletop.analyse(input);
+                    case "/api/tabletop/report" -> {String id=input.getString("id");var r=tabletop.read(id);result=new JSONObject().put("artifact",store.writeOnce("tabletop-report:"+id+":"+r.getInt("completedFrames")+":"+r.getString("status"),TabletopReport.build(r,tabletop.understanding(id),tabletop.analyses(id))));}
+                    case "/api/tabletop/finish" -> result=tabletop.finish(input.getString("id"));
+                    case "/api/tabletop/stop" -> result=tabletop.stop(input.getString("id"));
+                    case "/api/tabletop/resume" -> result=tabletop.resume(input.getString("id"));
+                    case "/api/tabletop/export" -> result=tabletop.export(input.getString("id"));
+                    case "/api/metrics/source-frame" -> {var d=observations.dataset(input.getString("datasetId"));result=new JSONObject().put("image",Base64.getEncoder().encodeToString(observations.image(d.getString("id"),0))).put("width",d.getInt("width")).put("height",d.getInt("height")).put("cameraKey","unassigned");}
                     case "/api/metrics/state" -> result=metrics.state();
                     case "/api/metrics/clock" -> result=metrics.clock(input);
                     case "/api/metrics/geometry" -> result=metrics.geometry(input);
