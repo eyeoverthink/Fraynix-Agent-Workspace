@@ -1,0 +1,9 @@
+# Edition035 — a versioned world across goals
+
+Preserve all034and older controllers, sources and published evidence. Add a separate persistent-world procedure using bounded native force/torque. Stable bodies carry exact positions/quaternions/linear and angular velocities into each new goal. Physics pauses between goals; native solver contact caches are reconstructed, so do not claim bit-identical uninterrupted simulation.
+
+Freeze four development/four different reserved sequential cases before development. Every feasible goal must pass unchanged physical gates, initial handoff2e-6m/velocity and.0001degree bounds. Actual force failure never advances verified head; blocked geometry/stale observations refuse before actuation. Lock new native/ledger core before reserved measurement. Preserve all original outcomes, including failures; no tuning after reserved results.
+
+Java owns hash-chained revisions, atomic forced writes, compare-and-set head, pending goal/run ownership, idempotent commit after original native+canvas verification, explicit restore as a labelled new revision and same-run interruption recovery. Corrupt ledgers/checkpoints fail closed and preserve bytes. New requests never silently reset failed worlds. Shared goals, chat, Spatial and Skills must use this actual world, not a disconnected demo.
+
+Test actual native sequences, multi-instance stale writes, corrupt state, duplicate/recovered commits, failures, original charts, real Java process termination, visible fresh-target skill reuse and actual local chat. Independent build/old+new app regressions, extensive linkedREADME035/dated actual screenshots/rawdata/offline guide/Obsidian and memories/logs precede actualmain/readme-035push/direct remote/source/frozen verification. Preserve all older reviews/private projects/models. No new dependencies/models/cloud/Docker/WSL; no robot calibration or Ollama-weight-training claim.
