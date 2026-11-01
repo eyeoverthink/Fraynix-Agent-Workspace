@@ -1,3 +1,4 @@
+import {ObservationPanel} from './observation-panel.js';
 import {PersistentWorldPanel} from './persistent-world-panel.js';
 import {PosePanel} from './pose-panel.js';
 import {ContactStudyPanel} from './contact-study-panel.js';
@@ -43,6 +44,8 @@ const forcePanel=new ForceLearningPanel({call:(command,args={})=>request('forceL
 const contactPanel=new ContactStudyPanel({call:(command,args={})=>request('contactStudy',{command,args}),spatial,notice,goal:g=>goalsPanel.accept(g),openReport:async id=>{setCanvasMode('preview');await request('tool',{tool:'canvas.open',args:{id}});}});
 const posePanel=new PosePanel({call:(command,args={})=>request('pose',{command,args}),studyCall:(command,args={})=>request('poseStudy',{command,args}),goalCall:(command,args={})=>request('javaGoal',{command,args}),spatial,notice,goal:g=>goalsPanel.accept(g),openReport:async id=>{setCanvasMode('preview');await request('tool',{tool:'canvas.open',args:{id}});}});
 const persistentPanel=new PersistentWorldPanel({call:(command,args={})=>request('persistentWorld',{command,args}),spatial,notice,goal:g=>goalsPanel.accept(g),openReport:async id=>{setCanvasMode('preview');await request('tool',{tool:'canvas.open',args:{id}});}});
+const observationPanel=new ObservationPanel({call:(command,args={})=>request('observations',{command,args}),persistent:persistentPanel,notice});
+window.observationView=observationPanel;
 const perceptionPanel=new PerceptionPanel({call:(command,args={})=>request('perception',{command,args}),goalCall:(command,args={})=>request('javaGoal',{command,args}),notice,activate:setCanvasMode,goal:g=>goalsPanel.accept(g)});
 const trackingPanel=new TrackingPanel({call:(command,args={})=>request('tracking',{command,args}),notice,requireSaved,openPerception:()=>perceptionPanel.open()});
 const creationPanel=new CreationPanel({layout:updateLayout,call:(command,args,model)=>request('creation',{command,args,model}),getState:()=>state,getArtifact:()=>artifact,getModel:()=>$('model').value,requireSaved,notice,onGoal:g=>goalsPanel.accept(g)});

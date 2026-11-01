@@ -24,6 +24,7 @@ public final class WorkspaceServer {
     private final ObserverStore observers;
     private final BrainService brain;
     private final GoalRunner goals;
+    private final WorldObservationStore observations;
     private final WorkflowRunner workflows;
     private final EmbeddedGameClient game;
     private final String token;
@@ -34,7 +35,7 @@ public final class WorkspaceServer {
     public WorkspaceServer(Path project,String token) throws IOException {
         if(token==null||token.length()<32)throw new IllegalArgumentException("A private session capability is required");
         this.token=token;store=new WorkspaceStore(project);learning=new LearningStore(project);
-        try{scenes=new SceneStore(project);spatial=new SpatialStore(project);maps=new MapStore(project);perception=new PerceptionStore(project);measurements=new MeasurementStore(project);calibrations=new CalibrationStore(project,scenes,measurements);observers=new ObserverStore(project,scenes);brain=new BrainService(project);goals=new GoalRunner(project,scenes,brain,store,measurements,spatial,perception,maps);workflows=new WorkflowRunner(project,goals,measurements,scenes,store);game=new EmbeddedGameClient(Path.of(System.getProperty("user.dir")),project);}catch(Exception e){throw new IOException("Experiment stores could not start",e);}
+        try{scenes=new SceneStore(project);spatial=new SpatialStore(project);maps=new MapStore(project);perception=new PerceptionStore(project);measurements=new MeasurementStore(project);calibrations=new CalibrationStore(project,scenes,measurements);observers=new ObserverStore(project,scenes);brain=new BrainService(project);goals=new GoalRunner(project,scenes,brain,store,measurements,spatial,perception,maps);observations=new WorldObservationStore(project,goals.worlds());workflows=new WorkflowRunner(project,goals,measurements,scenes,store);game=new EmbeddedGameClient(Path.of(System.getProperty("user.dir")),project);}catch(Exception e){throw new IOException("Experiment stores could not start",e);}
         scanner.scheduleWithFixedDelay(()->{try{catalog=models.observe();}catch(Exception e){System.err.println("Model discovery: "+e.getMessage());}},0,45,TimeUnit.SECONDS);
     }
     private JSONObject visionModels(){var out=new JSONArray();try{var tags=LocalModelAdmission.request("http://127.0.0.1:11434/api/tags",null);for(Object raw:tags.getJSONArray("models")){var tag=(JSONObject)raw;try{var show=LocalModelAdmission.request("http://127.0.0.1:11434/api/show",new JSONObject().put("model",tag.getString("name")));if(show.getJSONArray("capabilities").toList().contains("vision"))out.put(new JSONObject().put("name",tag.getString("name")).put("bytes",tag.getLong("size")));}catch(Exception unavailable){/* Unavailable metadata is not an eligible detector. */}}return new JSONObject().put("models",out).put("available",!out.isEmpty());}catch(Exception unavailable){return new JSONObject().put("models",out).put("available",false).put("reason","Local vision metadata unavailable; DOM and taught appearance remain usable offline");}}
@@ -53,6 +54,7 @@ public final class WorkspaceServer {
                 if(!exchange.getRequestMethod().equals("POST")){send(exchange,405,new JSONObject().put("error","POST required"));return;}
                 byte[] body=exchange.getRequestBody().readNBytes(2_100_001);if(body.length>2_100_000)throw new IllegalArgumentException("Request too large");
                 JSONObject input=new JSONObject(new String(body,StandardCharsets.UTF_8));String route=exchange.getRequestURI().getPath();JSONObject result;
+                if(observations.busy()&&Set.of("/api/world/start","/api/world/restore","/api/goals/start","/api/procedures/run").contains(route))throw new IllegalStateException("The observation run owns this world binding; Stop it before native actions");
                 if(route.equals("/api/plan")){send(exchange,200,plan(input));return;}
                 if(route.startsWith("/api/workflows/")){
                     result=switch(route){case "/api/workflows/start"->workflows.start(input);case "/api/workflows/read"->workflows.read(input.getString("id"));case "/api/workflows/list"->new JSONObject().put("workflows",workflows.list());case "/api/workflows/resume"->workflows.resume(input.getString("id"));case "/api/workflows/cancel"->workflows.cancel(input.getString("id"));case "/api/workflows/reuse"->workflows.reuse(input);case "/api/workflows/claim"->workflows.claim();case "/api/workflows/ack"->workflows.acknowledge(input);default->throw new IllegalArgumentException("Unknown workflow operation");};send(exchange,200,result);return;
@@ -85,6 +87,18 @@ public final class WorkspaceServer {
                     case "/api/tracking/report" -> {var j=perception.lab().read(input.getString("id"));j.remove("activation");var artifact=store.writeOnce("tracking-report:"+j.getString("id"),TrackingPresentation.report(j,perception.lab()));result=new JSONObject().put("artifact",artifact).put("checks",TrackingPresentation.checks(j));}
 
                     case "/api/creation/source" -> result=Creation.preview(store,input);
+                    case "/api/observations/state" -> result=observations.state(input.optString("worldId",""));
+                    case "/api/observations/import-begin" -> result=observations.begin(input);
+                    case "/api/observations/import-frame" -> result=observations.upload(input.getString("id"),input.getInt("ordinal"),input.getJSONObject("frame"));
+                    case "/api/observations/import-commit" -> result=observations.commitImport(input.getString("id"));
+                    case "/api/observations/import-cancel" -> result=observations.cancelImport(input.getString("id"));
+                    case "/api/observations/start" -> {if(goals.busy())throw new IllegalStateException("Finish or Stop the shared goal first");result=observations.start(input);}
+                    case "/api/observations/resume" -> {if(goals.busy())throw new IllegalStateException("Finish or Stop the shared goal first");result=observations.resume(input.getString("id"));}
+                    case "/api/observations/stop" -> result=observations.stop(input.getString("id"));
+                    case "/api/observations/read" -> result=observations.read(input.getString("id"));
+                    case "/api/observations/frame" -> result=observations.frame(input.getString("id"),input.getInt("ordinal"));
+                    case "/api/observations/report" -> {var run=observations.read(input.getString("id"));if(run.getInt("completedFrames")==0)throw new IllegalStateException("No recorded observations");result=new JSONObject().put("artifact",store.writeOnce("observation-report:"+run.getString("id")+":"+run.getInt("completedFrames"),ObservationReport.build(run)));}
+                    case "/api/observations/export" -> result=observations.export(input.getString("id"));
                     case "/api/world/export" -> result=new JSONObject().put("text",goals.exportWorld(input.getString("worldId")).toString());
                     case "/api/world/export-run" -> {var run=goals.worldNative().run(input.getString("id"));if(run.has("final"))WorldVerify.verify(run);result=new JSONObject().put("text",WorldReport.packed(run).toString());}
                     case "/api/world/create" -> result=goals.createWorld(input);
@@ -289,7 +303,7 @@ public final class WorkspaceServer {
         server.createContext("/tracking-assets/",exchange->{try{String[] parts=exchange.getRequestURI().getPath().split("/");if(parts.length!=4)throw new IllegalArgumentException("Frame route required");byte[] pixels=perception.lab().image(parts[2],Integer.parseInt(parts[3]));exchange.getResponseHeaders().set("Content-Type",pixels[0]==(byte)0xff?"image/jpeg":"image/png");exchange.getResponseHeaders().set("Cache-Control","no-store");exchange.getResponseHeaders().set("X-Content-Type-Options","nosniff");exchange.sendResponseHeaders(200,pixels.length);try(var out=exchange.getResponseBody()){out.write(pixels);}}catch(Exception e){send(exchange,404,new JSONObject().put("error","Unknown recorded frame"));}});
         server.createContext("/tracking-page/",exchange->{try{String id=exchange.getRequestURI().getPath().substring("/tracking-page/".length());var d=perception.lab().readDataset(id);byte[] html=TrackingPresentation.replay(d).getBytes(StandardCharsets.UTF_8);exchange.getResponseHeaders().set("Content-Type","text/html; charset=utf-8");exchange.getResponseHeaders().set("Cache-Control","no-store");exchange.getResponseHeaders().set("X-Content-Type-Options","nosniff");exchange.sendResponseHeaders(200,html.length);try(var out=exchange.getResponseBody()){out.write(html);}}catch(Exception e){send(exchange,404,new JSONObject().put("error","Unknown recorded sequence"));}});
         server.createContext("/welcome",exchange->{byte[] bytes=WELCOME.getBytes(StandardCharsets.UTF_8);exchange.getResponseHeaders().set("Content-Type","text/html; charset=utf-8");exchange.sendResponseHeaders(200,bytes.length);try(var out=exchange.getResponseBody()){out.write(bytes);}});
-        server.start();Runtime.getRuntime().addShutdownHook(new Thread(()->{requests.values().forEach(OllamaIntegration.RequestControl::cancel);scanner.shutdownNow();game.close();workflows.close();goals.close();perception.close();brain.close();calibrations.close();scenes.close();server.stop(0);try{store.close();}catch(IOException ignored){}}));return server;
+        server.start();Runtime.getRuntime().addShutdownHook(new Thread(()->{requests.values().forEach(OllamaIntegration.RequestControl::cancel);scanner.shutdownNow();observations.close();game.close();workflows.close();goals.close();perception.close();brain.close();calibrations.close();scenes.close();server.stop(0);try{store.close();}catch(IOException ignored){}}));return server;
     }
     private JSONObject plan(JSONObject input) throws Exception {
         if(catalog==null)throw new IllegalStateException("Local models are still being discovered");

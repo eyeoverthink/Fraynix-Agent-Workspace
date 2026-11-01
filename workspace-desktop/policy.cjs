@@ -1,6 +1,10 @@
 'use strict';
 const { randomUUID } = require('node:crypto');
 const catalog = [
+ ['observations.read','Read actual observed-world estimates, uncertainty, stable body identities and recorded footage history. Pixel coordinates/frame-index time; no physical calibration implied.','{}'],
+ ['observations.start','Process explicitly selected original footage and bindings ONCE; Java owns tracker, prediction filter and persistent estimate revisions.','{}'],
+ ['observations.wait','Wait for this request owned real observation run; retain losses and rejected updates.','{}'],
+ ['observations.report','Open and test the actual saved motion report from recorded evidence.','{}'],
  ['world.observe','Observe the selected persistent world current revision and all native body kinematics; explicitly refresh a stale request binding.','{}'],
  ['world.arrange','Continue the current versioned world with bounded native forces/torques; verify all bodies and actual charts before advancing its head. Never reset the original source.','{targets?:[{sourceId,positionM:[x,y,z],yawDeg}],forceLimitN?,torqueLimitNm?,saveSkillName?}'],
  ['pose.compare','Run the frozen native multi-object pose/translation-only ablation with fixed source data and gates. Not a033 contact-controller promotion.','{}'],
@@ -114,6 +118,7 @@ const perceptionOptions={mode:{type:'string',enum:['vision','appearance','dom']}
 const mapConstraints=object({connected:{type:'boolean'},minFloorFraction:{type:'number',minimum:.05,maximum:.95},maxFloorFraction:{type:'number',minimum:.05,maximum:.95},minRouteSteps:{type:'integer',minimum:0,maximum:128},maxRouteSteps:{type:'integer',minimum:0,maximum:128}},[]);
 const mapOptions={materials:{type:'array',minItems:1,maxItems:8,items:object({tile:{type:'integer',minimum:0,maximum:7},name:{type:'string',minLength:1,maxLength:60},friction:{type:'number',minimum:.05,maximum:1.2},restitution:{type:'number',minimum:0,maximum:.95},dragNsPerM:{type:'number',minimum:0,maximum:8}},['tile','name','friction'])},constraints:mapConstraints,seed:{type:'integer',minimum:0,maximum:1e9},width:{type:'integer',minimum:8,maximum:24},height:{type:'integer',minimum:8,maximum:24},cellSizeM:{type:'number',minimum:.6,maximum:1.2},friction:{type:'number',minimum:.05,maximum:1.2},disturbanceNs:{type:'number',minimum:-.5,maximum:.5},saveSkillName:text,pins:{type:'array',maxItems:64,items:object({x:{type:'integer',minimum:0,maximum:23},y:{type:'integer',minimum:0,maximum:23},tile:{type:'integer',minimum:0,maximum:7}},['x','y','tile'])}};
 const argumentSchemas={
+ 'observations.read':empty,'observations.start':empty,'observations.wait':empty,'observations.report':empty,
  'map.read':empty,'map.start':object(mapOptions,[]),
  'space.start':object({...proceduralOptions,saveSkillName:text},['type','dimensions','seed']),'space.export':empty,
  'tracking.read':empty,'tracking.start':object({autoPromote:{type:'boolean'}},[]),'tracking.wait':empty,'tracking.report':empty,'tracking.rollback':empty,'perception.read':empty,'perception.select':object({ref:text}),'perception.start':object(perceptionOptions,[]),
