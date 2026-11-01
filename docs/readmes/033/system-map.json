@@ -1,0 +1,77 @@
+{
+  "edition": 33,
+  "modules": [
+    {
+      "id": "freeze",
+      "name": "Frozen design",
+      "status": "verified",
+      "summary": "Different reserved definitions/gates and candidate source lock precede measurement.",
+      "source": "workspace-engine/src/main/resources/contact-study033.json",
+      "note": "docs/CONTACT_CONTROLLERS.md"
+    },
+    {
+      "id": "native",
+      "name": "Versioned contact controller",
+      "status": "verified",
+      "summary": "Actual persistent solver manifolds and bounded lateral target feedback; same pusher-only actuator.",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/ContactPhysics.java",
+      "note": "docs/CONTACT_CONTROLLERS.md"
+    },
+    {
+      "id": "owner",
+      "name": "Durable comparison owner",
+      "status": "verified",
+      "summary": "32 actual native trials, original hashes, chronology and reversible version registry.",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/ContactStudyStore.java",
+      "note": "docs/CONTACT_CONTROLLERS.md"
+    },
+    {
+      "id": "goal",
+      "name": "Shared task and skill runner",
+      "status": "verified",
+      "summary": "Java owns source/controller binding, actual outcomes, recovery and retained procedures.",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/GoalRunner.java",
+      "note": "docs/CONTACT_CONTROLLERS.md"
+    },
+    {
+      "id": "recovery",
+      "name": "Both-body checkpoint",
+      "status": "verified",
+      "summary": "Compatible state and committed trace restore; explicit Resume and no silent replay.",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/ContactCheckpoint.java",
+      "note": "docs/CONTACT_CONTROLLERS.md"
+    },
+    {
+      "id": "report",
+      "name": "Actual evidence view",
+      "status": "verified",
+      "summary": "All144 cells and both lines in three modes are checked against original native data.",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/ContactStudyReport.java",
+      "note": "docs/CONTACT_CONTROLLERS.md"
+    },
+    {
+      "id": "chat",
+      "name": "Local model tools",
+      "status": "verified",
+      "summary": "Actual gpt-oss:20b requests choose typed comparison and validated push; model cannot set gates.",
+      "source": "workspace-desktop/goals.cjs",
+      "note": "docs/CONTACT_CONTROLLERS.md"
+    },
+    {
+      "id": "skills",
+      "name": "Visible retained version",
+      "status": "verified",
+      "summary": "Skills form displays exact controller/code provenance and binds new roles for re-verification.",
+      "source": "workspace-desktop/renderer/goals-panel.js",
+      "note": "docs/CONTACT_CONTROLLERS.md"
+    },
+    {
+      "id": "next",
+      "name": "Broader contact transitions",
+      "status": "planned",
+      "summary": "Freeze different multi-contact/orientation cases; compare against033 before another promotion.",
+      "source": "docs/CONTACT_CONTROLLERS.md",
+      "note": "docs/CONTACT_CONTROLLERS.md"
+    }
+  ]
+}

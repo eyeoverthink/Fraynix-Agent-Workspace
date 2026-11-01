@@ -1,0 +1,80 @@
+Starting a Gradle Daemon, 1 busy Daemon could not be reused, use --status for details
+> Task :brain-core:compileJava UP-TO-DATE
+> Task :brain-gpu:compileJava UP-TO-DATE
+> Task :factory-runtime:compileJava UP-TO-DATE
+> Task :factory-kernel:compileJava UP-TO-DATE
+> Task :factory-models:compileJava UP-TO-DATE
+> Task :geometry-core:compileJava UP-TO-DATE
+
+> Task :workspace-engine:compileJava FAILED
+C:\Users\eyeka\Documents\Codex\2026-10-26\is\work\fraynix-agent-workspace\workspace-engine\src\main\java\fraymus\workspace\GoalRunner.java:208: error: method cancel(String) is already defined in class GoalRunner
+    public synchronized JSONObject cancel(String id) throws Exception {var g=read(id);requireWorkflowOwner(g);if(!LIVE.contains(g.getString("status"))&&!g.getString("status").equals("interrupted"))throw new IllegalStateException("Goal is already settled");stopOwned(g);if(pushGoal(g)&&g.has("runId")&&push.hasRun(g.getString("runId"))&&Set.of("paused","interrupted").contains(push.status(g.getString("runId"))))push.cancel(g.getString("runId"));g.put("status","cancelled");g.remove("hostClaim");change(g,g.getString("step"),"Cancelled; owned effects stopped and no new skill promoted");return view(g);}
+                                   ^
+C:\Users\eyeka\Documents\Codex\2026-10-26\is\work\fraynix-agent-workspace\workspace-engine\src\main\java\fraymus\workspace\GoalRunner.java:209: error: method resume(String) is already defined in class GoalRunner
+    public synchronized JSONObject resume(String id) throws Exception {
+                                   ^
+C:\Users\eyeka\Documents\Codex\2026-10-26\is\work\fraynix-agent-workspace\workspace-engine\src\main\java\fraymus\workspace\GoalRunner.java:198: error: incompatible types: missing return value
+        if(forceGoal(g)){if(g.has("forceJobId"))forceLearning.cancel(g.getString("forceJobId"));return;}
+                                                                                                ^
+C:\Users\eyeka\Documents\Codex\2026-10-26\is\work\fraynix-agent-workspace\workspace-engine\src\main\java\fraymus\workspace\GoalRunner.java:199: error: incompatible types: missing return value
+        if(pushGoal(g)){if(g.getString("id").equals(geometryGoal)&&geometryFuture!=null){geometryFuture.cancel(true);geometryFuture=null;geometryGoal="";}if(g.has("runId")&&push.hasRun(g.getString("runId"))&&push.status(g.getString("runId")).equals("running"))push.cancel(g.getString("runId"));return;}
+                                                                                                                                                                                                                                                                                                      ^
+C:\Users\eyeka\Documents\Codex\2026-10-26\is\work\fraynix-agent-workspace\workspace-engine\src\main\java\fraymus\workspace\GoalRunner.java:200: error: incompatible types: missing return value
+        if(mapGoal(g)){if(g.getString("id").equals(geometryGoal)&&geometryFuture!=null){geometryFuture.cancel(true);geometryFuture=null;geometryGoal="";}if(g.has("runId")&&maps.hasRun(g.getString("runId"))&&maps.run(g.getString("runId")).getString("status").equals("running"))maps.stop();return;}
+                                                                                                                                                                                                                                                                                                ^
+C:\Users\eyeka\Documents\Codex\2026-10-26\is\work\fraynix-agent-workspace\workspace-engine\src\main\java\fraymus\workspace\GoalRunner.java:201: error: incompatible types: missing return value
+        if(proceduralGoal(g)){if(g.getString("id").equals(geometryGoal)&&geometryFuture!=null){geometryFuture.cancel(true);geometryFuture=null;geometryGoal="";}return;}
+                                                                                                                                                                ^
+C:\Users\eyeka\Documents\Codex\2026-10-26\is\work\fraynix-agent-workspace\workspace-engine\src\main\java\fraymus\workspace\GoalRunner.java:202: error: incompatible types: missing return value
+        if(creationGoal(g))return;
+                           ^
+C:\Users\eyeka\Documents\Codex\2026-10-26\is\work\fraynix-agent-workspace\workspace-engine\src\main\java\fraymus\workspace\GoalRunner.java:203: error: incompatible types: missing return value
+        if(perceptionGoal(g)){if(g.has("runId"))perception.cancel(g.getString("runId"));return;}
+                                                                                        ^
+C:\Users\eyeka\Documents\Codex\2026-10-26\is\work\fraynix-agent-workspace\workspace-engine\src\main\java\fraymus\workspace\GoalRunner.java:204: error: incompatible types: missing return value
+        if(spatialGoal(g)){if(g.has("runId"))spatial.cancel(g.getString("runId"));return;}
+                                                                                  ^
+9 errors
+
+[Incubating] Problems report is available at: file:///C:/Users/eyeka/Documents/Codex/2026-10-26/is/work/fraynix-agent-workspace/build/reports/problems/problems-report.html
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':workspace-engine:compileJava'.
+> Compilation failed; see the compiler output below.
+  C:\Users\eyeka\Documents\Codex\2026-10-26\is\work\fraynix-agent-workspace\workspace-engine\src\main\java\fraymus\workspace\GoalRunner.java:198: error: incompatible types: missing return value
+          if(forceGoal(g)){if(g.has("forceJobId"))forceLearning.cancel(g.getString("forceJobId"));return;}
+                                                                                                  ^
+  C:\Users\eyeka\Documents\Codex\2026-10-26\is\work\fraynix-agent-workspace\workspace-engine\src\main\java\fraymus\workspace\GoalRunner.java:199: error: incompatible types: missing return value
+          if(pushGoal(g)){if(g.getString("id").equals(geometryGoal)&&geometryFuture!=null){geometryFuture.cancel(true);geometryFuture=null;geometryGoal="";}if(g.has("runId")&&push.hasRun(g.getString("runId"))&&push.status(g.getString("runId")).equals("running"))push.cancel(g.getString("runId"));return;}
+                                                                                                                                                                                                                                                                                                        ^
+  C:\Users\eyeka\Documents\Codex\2026-10-26\is\work\fraynix-agent-workspace\workspace-engine\src\main\java\fraymus\workspace\GoalRunner.java:200: error: incompatible types: missing return value
+          if(mapGoal(g)){if(g.getString("id").equals(geometryGoal)&&geometryFuture!=null){geometryFuture.cancel(true);geometryFuture=null;geometryGoal="";}if(g.has("runId")&&maps.hasRun(g.getString("runId"))&&maps.run(g.getString("runId")).getString("status").equals("running"))maps.stop();return;}
+                                                                                                                                                                                                                                                                                                  ^
+  C:\Users\eyeka\Documents\Codex\2026-10-26\is\work\fraynix-agent-workspace\workspace-engine\src\main\java\fraymus\workspace\GoalRunner.java:201: error: incompatible types: missing return value
+          if(proceduralGoal(g)){if(g.getString("id").equals(geometryGoal)&&geometryFuture!=null){geometryFuture.cancel(true);geometryFuture=null;geometryGoal="";}return;}
+                                                                                                                                                                  ^
+  C:\Users\eyeka\Documents\Codex\2026-10-26\is\work\fraynix-agent-workspace\workspace-engine\src\main\java\fraymus\workspace\GoalRunner.java:202: error: incompatible types: missing return value
+          if(creationGoal(g))return;
+                             ^
+  C:\Users\eyeka\Documents\Codex\2026-10-26\is\work\fraynix-agent-workspace\workspace-engine\src\main\java\fraymus\workspace\GoalRunner.java:203: error: incompatible types: missing return value
+          if(perceptionGoal(g)){if(g.has("runId"))perception.cancel(g.getString("runId"));return;}
+                                                                                          ^
+  C:\Users\eyeka\Documents\Codex\2026-10-26\is\work\fraynix-agent-workspace\workspace-engine\src\main\java\fraymus\workspace\GoalRunner.java:204: error: incompatible types: missing return value
+          if(spatialGoal(g)){if(g.has("runId"))spatial.cancel(g.getString("runId"));return;}
+                                                                                    ^
+  C:\Users\eyeka\Documents\Codex\2026-10-26\is\work\fraynix-agent-workspace\workspace-engine\src\main\java\fraymus\workspace\GoalRunner.java:208: error: method cancel(String) is already defined in class GoalRunner
+      public synchronized JSONObject cancel(String id) throws Exception {var g=read(id);requireWorkflowOwner(g);if(!LIVE.contains(g.getString("status"))&&!g.getString("status").equals("interrupted"))throw new IllegalStateException("Goal is already settled");stopOwned(g);if(pushGoal(g)&&g.has("runId")&&push.hasRun(g.getString("runId"))&&Set.of("paused","interrupted").contains(push.status(g.getString("runId"))))push.cancel(g.getString("runId"));g.put("status","cancelled");g.remove("hostClaim");change(g,g.getString("step"),"Cancelled; owned effects stopped and no new skill promoted");return view(g);}
+                                     ^
+  C:\Users\eyeka\Documents\Codex\2026-10-26\is\work\fraynix-agent-workspace\workspace-engine\src\main\java\fraymus\workspace\GoalRunner.java:209: error: method resume(String) is already defined in class GoalRunner
+      public synchronized JSONObject resume(String id) throws Exception {
+                                     ^
+  9 errors
+
+* Try:
+> Check your code and dependencies to fix the compilation error(s)
+> Run with --scan to get full insights from a Build Scan (powered by Develocity).
+
+BUILD FAILED in 7s
+7 actionable tasks: 1 executed, 6 up-to-date

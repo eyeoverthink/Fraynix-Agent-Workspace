@@ -1,0 +1,106 @@
+{
+  "status": "passed",
+  "checkout": "fraynix-workspace-qa033-release",
+  "sourceCommit": "e13290a9b5d66e751df223d45c31878eec847952",
+  "offlineBuild": true,
+  "javaTests": 295,
+  "javaClasses": 58,
+  "desktopUnitTests": 66,
+  "uiChecks": 209,
+  "groups": {
+    "contact-study": {
+      "checks": 8,
+      "passed": true
+    },
+    "contact-library": {
+      "checks": 2,
+      "passed": true
+    },
+    "body": {
+      "checks": 10,
+      "passed": true
+    },
+    "brain-game": {
+      "checks": 10,
+      "passed": true
+    },
+    "feedback": {
+      "checks": 12,
+      "passed": true
+    },
+    "world-model": {
+      "checks": 15,
+      "passed": true
+    },
+    "goals": {
+      "checks": 14,
+      "passed": true
+    },
+    "data-goals": {
+      "checks": 12,
+      "passed": true
+    },
+    "spatial": {
+      "checks": 14,
+      "passed": true
+    },
+    "perception": {
+      "checks": 15,
+      "passed": true
+    },
+    "tracking024": {
+      "checks": 9,
+      "passed": true
+    },
+    "tracking-controls": {
+      "checks": 6,
+      "passed": true
+    },
+    "creation": {
+      "checks": 8,
+      "passed": true
+    },
+    "workflow": {
+      "checks": 8,
+      "passed": true
+    },
+    "procedural": {
+      "checks": 9,
+      "passed": true
+    },
+    "responsive": {
+      "checks": 4,
+      "passed": true
+    },
+    "maps": {
+      "checks": 9,
+      "passed": true
+    },
+    "topology": {
+      "checks": 10,
+      "passed": true
+    },
+    "recovery-materials": {
+      "checks": 9,
+      "passed": true
+    },
+    "pushing": {
+      "checks": 12,
+      "passed": true
+    },
+    "force-learning": {
+      "checks": 8,
+      "passed": true
+    },
+    "force-learning-library": {
+      "checks": 2,
+      "passed": true
+    },
+    "tracking-migration": {
+      "checks": 3,
+      "passed": true
+    }
+  },
+  "modelWeightsOrPrivateRuntimeCopied": false,
+  "electronBinary": "Existing pinned 45.1.0 cache after npm ci --offline --ignore-scripts"
+}

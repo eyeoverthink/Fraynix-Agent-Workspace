@@ -1,0 +1,3589 @@
+{
+  "format": "fraynix.contact-controller-study",
+  "version": 1,
+  "id": "contact-study-033-v1",
+  "frozenDate": "2026-11-01",
+  "scope": "Seen032 cases are development/regression; eight different synthetic reserved cases exclude tuning. Same8/32N, native240Hz,0.1m/.2mps,60s/two recoveries. Not blind/real-world data.",
+  "initialForceN": 8,
+  "maxForceN": 32,
+  "failedSeconds": 60,
+  "gates": {
+    "requireAllPositiveDevelopment": true,
+    "requireAllPositiveEvaluation": true,
+    "minEvaluationSuccessGain": 1,
+    "minEvaluationMeanPenalizedTimeGainS": 2,
+    "maxMatchedSuccessEffortRatio": 1.1,
+    "negativeControlsMustFail": true,
+    "noBaselineSuccessRegression": true
+  },
+  "cases": [
+    {
+      "id": "eval-light",
+      "split": "development",
+      "displacementM": [
+        3,
+        0,
+        0
+      ],
+      "negativeControl": false,
+      "source": {
+        "objects": [
+          {
+            "sourceId": "floor",
+            "shape": "box",
+            "size": [
+              8,
+              0.4,
+              8
+            ],
+            "restitution": 0,
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "label": "floor",
+            "position": [
+              0,
+              -0.2,
+              0
+            ],
+            "massKg": 0,
+            "friction": 0.55
+          },
+          {
+            "sourceId": "crate",
+            "shape": "box",
+            "size": [
+              0.6,
+              0.6,
+              0.6
+            ],
+            "restitution": 0,
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "label": "crate",
+            "position": [
+              -1,
+              0.32,
+              0
+            ],
+            "massKg": 0.75,
+            "friction": 0.6
+          },
+          {
+            "sourceId": "pusher",
+            "shape": "box",
+            "size": [
+              0.5,
+              0.4,
+              0.5
+            ],
+            "restitution": 0,
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "label": "pusher",
+            "position": [
+              -3,
+              0.22,
+              0
+            ],
+            "massKg": 2.5,
+            "friction": 0.15
+          },
+          {
+            "sourceId": "boundary-x--1",
+            "shape": "box",
+            "size": [
+              0.3,
+              1.5,
+              8
+            ],
+            "restitution": 0,
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "label": "boundary-x--1",
+            "position": [
+              -4,
+              0.75,
+              0
+            ],
+            "massKg": 0,
+            "friction": 0.6
+          },
+          {
+            "sourceId": "boundary-z--1",
+            "shape": "box",
+            "size": [
+              8,
+              1.5,
+              0.3
+            ],
+            "restitution": 0,
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "label": "boundary-z--1",
+            "position": [
+              0,
+              0.75,
+              -4
+            ],
+            "massKg": 0,
+            "friction": 0.6
+          },
+          {
+            "sourceId": "boundary-x-1",
+            "shape": "box",
+            "size": [
+              0.3,
+              1.5,
+              8
+            ],
+            "restitution": 0,
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "label": "boundary-x-1",
+            "position": [
+              4,
+              0.75,
+              0
+            ],
+            "massKg": 0,
+            "friction": 0.6
+          },
+          {
+            "sourceId": "boundary-z-1",
+            "shape": "box",
+            "size": [
+              8,
+              1.5,
+              0.3
+            ],
+            "restitution": 0,
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "label": "boundary-z-1",
+            "position": [
+              0,
+              0.75,
+              4
+            ],
+            "massKg": 0,
+            "friction": 0.6
+          }
+        ],
+        "format": "fraynix.spatial-scene",
+        "units": "m",
+        "source": {
+          "note": "Synthetic declared native-physics case frozen before edition032 selection/evaluation. No captured room or measured material inference.",
+          "kind": "synthetic",
+          "physicalProperties": "declared"
+        },
+        "title": "Labelled reserved pushing case · eval-light",
+        "version": 1,
+        "scaleReference": {
+          "a": [
+            -1,
+            0,
+            0
+          ],
+          "b": [
+            1,
+            0,
+            0
+          ],
+          "toleranceM": 0.001,
+          "knownLengthM": 2,
+          "basis": "declared-test"
+        },
+        "frame": "right-handed-y-up",
+        "gravityMps2": 9.81
+      }
+    },
+    {
+      "id": "eval-corner",
+      "split": "development",
+      "displacementM": [
+        3,
+        0,
+        0
+      ],
+      "negativeControl": false,
+      "source": {
+        "objects": [
+          {
+            "sourceId": "floor",
+            "shape": "box",
+            "size": [
+              8,
+              0.4,
+              8
+            ],
+            "restitution": 0,
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "label": "floor",
+            "position": [
+              0,
+              -0.2,
+              0
+            ],
+            "massKg": 0,
+            "friction": 0.7
+          },
+          {
+            "sourceId": "crate",
+            "shape": "box",
+            "size": [
+              0.6,
+              0.6,
+              0.6
+            ],
+            "restitution": 0,
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "label": "crate",
+            "position": [
+              -1,
+              0.32,
+              0
+            ],
+            "massKg": 1.25,
+            "friction": 0.65
+          },
+          {
+            "sourceId": "pusher",
+            "shape": "box",
+            "size": [
+              0.5,
+              0.4,
+              0.5
+            ],
+            "restitution": 0,
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "label": "pusher",
+            "position": [
+              -3,
+              0.22,
+              0
+            ],
+            "massKg": 2,
+            "friction": 0.15
+          },
+          {
+            "sourceId": "boundary-x--1",
+            "shape": "box",
+            "size": [
+              0.3,
+              1.5,
+              8
+            ],
+            "restitution": 0,
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "label": "boundary-x--1",
+            "position": [
+              -4,
+              0.75,
+              0
+            ],
+            "massKg": 0,
+            "friction": 0.6
+          },
+          {
+            "sourceId": "boundary-z--1",
+            "shape": "box",
+            "size": [
+              8,
+              1.5,
+              0.3
+            ],
+            "restitution": 0,
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "label": "boundary-z--1",
+            "position": [
+              0,
+              0.75,
+              -4
+            ],
+            "massKg": 0,
+            "friction": 0.6
+          },
+          {
+            "sourceId": "boundary-x-1",
+            "shape": "box",
+            "size": [
+              0.3,
+              1.5,
+              8
+            ],
+            "restitution": 0,
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "label": "boundary-x-1",
+            "position": [
+              4,
+              0.75,
+              0
+            ],
+            "massKg": 0,
+            "friction": 0.6
+          },
+          {
+            "sourceId": "boundary-z-1",
+            "shape": "box",
+            "size": [
+              8,
+              1.5,
+              0.3
+            ],
+            "restitution": 0,
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "label": "boundary-z-1",
+            "position": [
+              0,
+              0.75,
+              4
+            ],
+            "massKg": 0,
+            "friction": 0.6
+          },
+          {
+            "sourceId": "central-obstacle",
+            "shape": "box",
+            "size": [
+              0.6,
+              1.2,
+              0.6
+            ],
+            "restitution": 0,
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "label": "central-obstacle",
+            "position": [
+              1,
+              0.6,
+              0
+            ],
+            "massKg": 0,
+            "friction": 0.6
+          }
+        ],
+        "format": "fraynix.spatial-scene",
+        "units": "m",
+        "source": {
+          "note": "Synthetic declared native-physics case frozen before edition032 selection/evaluation. No captured room or measured material inference.",
+          "kind": "synthetic",
+          "physicalProperties": "declared"
+        },
+        "title": "Labelled reserved pushing case · eval-corner",
+        "version": 1,
+        "scaleReference": {
+          "a": [
+            -1,
+            0,
+            0
+          ],
+          "b": [
+            1,
+            0,
+            0
+          ],
+          "toleranceM": 0.001,
+          "knownLengthM": 2,
+          "basis": "declared-test"
+        },
+        "frame": "right-handed-y-up",
+        "gravityMps2": 9.81
+      }
+    },
+    {
+      "id": "eval-heavy-friction",
+      "split": "development",
+      "displacementM": [
+        3,
+        0,
+        0
+      ],
+      "negativeControl": false,
+      "source": {
+        "objects": [
+          {
+            "sourceId": "floor",
+            "shape": "box",
+            "size": [
+              8,
+              0.4,
+              8
+            ],
+            "restitution": 0,
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "label": "floor",
+            "position": [
+              0,
+              -0.2,
+              0
+            ],
+            "massKg": 0,
+            "friction": 0.9
+          },
+          {
+            "sourceId": "crate",
+            "shape": "box",
+            "size": [
+              0.6,
+              0.6,
+              0.6
+            ],
+            "restitution": 0,
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "label": "crate",
+            "position": [
+              -1,
+              0.32,
+              0
+            ],
+            "massKg": 2,
+            "friction": 0.8
+          },
+          {
+            "sourceId": "pusher",
+            "shape": "box",
+            "size": [
+              0.5,
+              0.4,
+              0.5
+            ],
+            "restitution": 0,
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "label": "pusher",
+            "position": [
+              -3,
+              0.22,
+              0
+            ],
+            "massKg": 1.5,
+            "friction": 0.15
+          },
+          {
+            "sourceId": "boundary-x--1",
+            "shape": "box",
+            "size": [
+              0.3,
+              1.5,
+              8
+            ],
+            "restitution": 0,
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "label": "boundary-x--1",
+            "position": [
+              -4,
+              0.75,
+              0
+            ],
+            "massKg": 0,
+            "friction": 0.6
+          },
+          {
+            "sourceId": "boundary-z--1",
+            "shape": "box",
+            "size": [
+              8,
+              1.5,
+              0.3
+            ],
+            "restitution": 0,
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "label": "boundary-z--1",
+            "position": [
+              0,
+              0.75,
+              -4
+            ],
+            "massKg": 0,
+            "friction": 0.6
+          },
+          {
+            "sourceId": "boundary-x-1",
+            "shape": "box",
+            "size": [
+              0.3,
+              1.5,
+              8
+            ],
+            "restitution": 0,
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "label": "boundary-x-1",
+            "position": [
+              4,
+              0.75,
+              0
+            ],
+            "massKg": 0,
+            "friction": 0.6
+          },
+          {
+            "sourceId": "boundary-z-1",
+            "shape": "box",
+            "size": [
+              8,
+              1.5,
+              0.3
+            ],
+            "restitution": 0,
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "label": "boundary-z-1",
+            "position": [
+              0,
+              0.75,
+              4
+            ],
+            "massKg": 0,
+            "friction": 0.6
+          }
+        ],
+        "format": "fraynix.spatial-scene",
+        "units": "m",
+        "source": {
+          "note": "Synthetic declared native-physics case frozen before edition032 selection/evaluation. No captured room or measured material inference.",
+          "kind": "synthetic",
+          "physicalProperties": "declared"
+        },
+        "title": "Labelled reserved pushing case · eval-heavy-friction",
+        "version": 1,
+        "scaleReference": {
+          "a": [
+            -1,
+            0,
+            0
+          ],
+          "b": [
+            1,
+            0,
+            0
+          ],
+          "toleranceM": 0.001,
+          "knownLengthM": 2,
+          "basis": "declared-test"
+        },
+        "frame": "right-handed-y-up",
+        "gravityMps2": 9.81
+      }
+    },
+    {
+      "id": "eval-rough-corner",
+      "split": "development",
+      "displacementM": [
+        3,
+        0,
+        0
+      ],
+      "negativeControl": false,
+      "source": {
+        "objects": [
+          {
+            "sourceId": "floor",
+            "shape": "box",
+            "size": [
+              8,
+              0.4,
+              8
+            ],
+            "restitution": 0,
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "label": "floor",
+            "position": [
+              0,
+              -0.2,
+              0
+            ],
+            "massKg": 0,
+            "friction": 0.9
+          },
+          {
+            "sourceId": "crate",
+            "shape": "box",
+            "size": [
+              0.6,
+              0.6,
+              0.6
+            ],
+            "restitution": 0,
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "label": "crate",
+            "position": [
+              -1,
+              0.32,
+              0
+            ],
+            "massKg": 0.8,
+            "friction": 0.85
+          },
+          {
+            "sourceId": "pusher",
+            "shape": "box",
+            "size": [
+              0.5,
+              0.4,
+              0.5
+            ],
+            "restitution": 0,
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "label": "pusher",
+            "position": [
+              -3,
+              0.22,
+              0
+            ],
+            "massKg": 2,
+            "friction": 0.15
+          },
+          {
+            "sourceId": "boundary-x--1",
+            "shape": "box",
+            "size": [
+              0.3,
+              1.5,
+              8
+            ],
+            "restitution": 0,
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "label": "boundary-x--1",
+            "position": [
+              -4,
+              0.75,
+              0
+            ],
+            "massKg": 0,
+            "friction": 0.6
+          },
+          {
+            "sourceId": "boundary-z--1",
+            "shape": "box",
+            "size": [
+              8,
+              1.5,
+              0.3
+            ],
+            "restitution": 0,
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "label": "boundary-z--1",
+            "position": [
+              0,
+              0.75,
+              -4
+            ],
+            "massKg": 0,
+            "friction": 0.6
+          },
+          {
+            "sourceId": "boundary-x-1",
+            "shape": "box",
+            "size": [
+              0.3,
+              1.5,
+              8
+            ],
+            "restitution": 0,
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "label": "boundary-x-1",
+            "position": [
+              4,
+              0.75,
+              0
+            ],
+            "massKg": 0,
+            "friction": 0.6
+          },
+          {
+            "sourceId": "boundary-z-1",
+            "shape": "box",
+            "size": [
+              8,
+              1.5,
+              0.3
+            ],
+            "restitution": 0,
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "label": "boundary-z-1",
+            "position": [
+              0,
+              0.75,
+              4
+            ],
+            "massKg": 0,
+            "friction": 0.6
+          },
+          {
+            "sourceId": "central-obstacle",
+            "shape": "box",
+            "size": [
+              0.6,
+              1.2,
+              0.6
+            ],
+            "restitution": 0,
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "label": "central-obstacle",
+            "position": [
+              1,
+              0.6,
+              0
+            ],
+            "massKg": 0,
+            "friction": 0.6
+          }
+        ],
+        "format": "fraynix.spatial-scene",
+        "units": "m",
+        "source": {
+          "note": "Synthetic declared native-physics case frozen before edition032 selection/evaluation. No captured room or measured material inference.",
+          "kind": "synthetic",
+          "physicalProperties": "declared"
+        },
+        "title": "Labelled reserved pushing case · eval-rough-corner",
+        "version": 1,
+        "scaleReference": {
+          "a": [
+            -1,
+            0,
+            0
+          ],
+          "b": [
+            1,
+            0,
+            0
+          ],
+          "toleranceM": 0.001,
+          "knownLengthM": 2,
+          "basis": "declared-test"
+        },
+        "frame": "right-handed-y-up",
+        "gravityMps2": 9.81
+      }
+    },
+    {
+      "id": "eval-mass",
+      "split": "development",
+      "displacementM": [
+        3,
+        0,
+        0
+      ],
+      "negativeControl": false,
+      "source": {
+        "objects": [
+          {
+            "sourceId": "floor",
+            "shape": "box",
+            "size": [
+              8,
+              0.4,
+              8
+            ],
+            "restitution": 0,
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "label": "floor",
+            "position": [
+              0,
+              -0.2,
+              0
+            ],
+            "massKg": 0,
+            "friction": 0.4
+          },
+          {
+            "sourceId": "crate",
+            "shape": "box",
+            "size": [
+              0.6,
+              0.6,
+              0.6
+            ],
+            "restitution": 0,
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "label": "crate",
+            "position": [
+              -1,
+              0.32,
+              0
+            ],
+            "massKg": 3.2,
+            "friction": 0.45
+          },
+          {
+            "sourceId": "pusher",
+            "shape": "box",
+            "size": [
+              0.5,
+              0.4,
+              0.5
+            ],
+            "restitution": 0,
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "label": "pusher",
+            "position": [
+              -3,
+              0.22,
+              0
+            ],
+            "massKg": 2.5,
+            "friction": 0.15
+          },
+          {
+            "sourceId": "boundary-x--1",
+            "shape": "box",
+            "size": [
+              0.3,
+              1.5,
+              8
+            ],
+            "restitution": 0,
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "label": "boundary-x--1",
+            "position": [
+              -4,
+              0.75,
+              0
+            ],
+            "massKg": 0,
+            "friction": 0.6
+          },
+          {
+            "sourceId": "boundary-z--1",
+            "shape": "box",
+            "size": [
+              8,
+              1.5,
+              0.3
+            ],
+            "restitution": 0,
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "label": "boundary-z--1",
+            "position": [
+              0,
+              0.75,
+              -4
+            ],
+            "massKg": 0,
+            "friction": 0.6
+          },
+          {
+            "sourceId": "boundary-x-1",
+            "shape": "box",
+            "size": [
+              0.3,
+              1.5,
+              8
+            ],
+            "restitution": 0,
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "label": "boundary-x-1",
+            "position": [
+              4,
+              0.75,
+              0
+            ],
+            "massKg": 0,
+            "friction": 0.6
+          },
+          {
+            "sourceId": "boundary-z-1",
+            "shape": "box",
+            "size": [
+              8,
+              1.5,
+              0.3
+            ],
+            "restitution": 0,
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "label": "boundary-z-1",
+            "position": [
+              0,
+              0.75,
+              4
+            ],
+            "massKg": 0,
+            "friction": 0.6
+          }
+        ],
+        "format": "fraynix.spatial-scene",
+        "units": "m",
+        "source": {
+          "note": "Synthetic declared native-physics case frozen before edition032 selection/evaluation. No captured room or measured material inference.",
+          "kind": "synthetic",
+          "physicalProperties": "declared"
+        },
+        "title": "Labelled reserved pushing case · eval-mass",
+        "version": 1,
+        "scaleReference": {
+          "a": [
+            -1,
+            0,
+            0
+          ],
+          "b": [
+            1,
+            0,
+            0
+          ],
+          "toleranceM": 0.001,
+          "knownLengthM": 2,
+          "basis": "declared-test"
+        },
+        "frame": "right-handed-y-up",
+        "gravityMps2": 9.81
+      }
+    },
+    {
+      "id": "eval-obstacle",
+      "split": "development",
+      "displacementM": [
+        3,
+        0,
+        0
+      ],
+      "negativeControl": false,
+      "source": {
+        "objects": [
+          {
+            "sourceId": "floor",
+            "shape": "box",
+            "size": [
+              8,
+              0.4,
+              8
+            ],
+            "restitution": 0,
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "label": "floor",
+            "position": [
+              0,
+              -0.2,
+              0
+            ],
+            "massKg": 0,
+            "friction": 0.6
+          },
+          {
+            "sourceId": "crate",
+            "shape": "box",
+            "size": [
+              0.6,
+              0.6,
+              0.6
+            ],
+            "restitution": 0,
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "label": "crate",
+            "position": [
+              -1,
+              0.32,
+              0
+            ],
+            "massKg": 1.1,
+            "friction": 0.7
+          },
+          {
+            "sourceId": "pusher",
+            "shape": "box",
+            "size": [
+              0.5,
+              0.4,
+              0.5
+            ],
+            "restitution": 0,
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "label": "pusher",
+            "position": [
+              -3,
+              0.22,
+              0
+            ],
+            "massKg": 2,
+            "friction": 0.15
+          },
+          {
+            "sourceId": "boundary-x--1",
+            "shape": "box",
+            "size": [
+              0.3,
+              1.5,
+              8
+            ],
+            "restitution": 0,
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "label": "boundary-x--1",
+            "position": [
+              -4,
+              0.75,
+              0
+            ],
+            "massKg": 0,
+            "friction": 0.6
+          },
+          {
+            "sourceId": "boundary-z--1",
+            "shape": "box",
+            "size": [
+              8,
+              1.5,
+              0.3
+            ],
+            "restitution": 0,
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "label": "boundary-z--1",
+            "position": [
+              0,
+              0.75,
+              -4
+            ],
+            "massKg": 0,
+            "friction": 0.6
+          },
+          {
+            "sourceId": "boundary-x-1",
+            "shape": "box",
+            "size": [
+              0.3,
+              1.5,
+              8
+            ],
+            "restitution": 0,
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "label": "boundary-x-1",
+            "position": [
+              4,
+              0.75,
+              0
+            ],
+            "massKg": 0,
+            "friction": 0.6
+          },
+          {
+            "sourceId": "boundary-z-1",
+            "shape": "box",
+            "size": [
+              8,
+              1.5,
+              0.3
+            ],
+            "restitution": 0,
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "label": "boundary-z-1",
+            "position": [
+              0,
+              0.75,
+              4
+            ],
+            "massKg": 0,
+            "friction": 0.6
+          },
+          {
+            "sourceId": "central-obstacle",
+            "shape": "box",
+            "size": [
+              0.6,
+              1.2,
+              0.6
+            ],
+            "restitution": 0,
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "label": "central-obstacle",
+            "position": [
+              0,
+              0.6,
+              0
+            ],
+            "massKg": 0,
+            "friction": 0.6
+          }
+        ],
+        "format": "fraynix.spatial-scene",
+        "units": "m",
+        "source": {
+          "note": "Synthetic declared native-physics case frozen before edition032 selection/evaluation. No captured room or measured material inference.",
+          "kind": "synthetic",
+          "physicalProperties": "declared"
+        },
+        "title": "Labelled reserved pushing case · eval-obstacle",
+        "version": 1,
+        "scaleReference": {
+          "a": [
+            -1,
+            0,
+            0
+          ],
+          "b": [
+            1,
+            0,
+            0
+          ],
+          "toleranceM": 0.001,
+          "knownLengthM": 2,
+          "basis": "declared-test"
+        },
+        "frame": "right-handed-y-up",
+        "gravityMps2": 9.81
+      }
+    },
+    {
+      "id": "eval-z-axis",
+      "split": "development",
+      "displacementM": [
+        0,
+        0,
+        3
+      ],
+      "negativeControl": false,
+      "source": {
+        "objects": [
+          {
+            "sourceId": "floor",
+            "shape": "box",
+            "size": [
+              8,
+              0.4,
+              8
+            ],
+            "restitution": 0,
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "label": "floor",
+            "position": [
+              0,
+              -0.2,
+              0
+            ],
+            "massKg": 0,
+            "friction": 0.75
+          },
+          {
+            "sourceId": "crate",
+            "shape": "box",
+            "size": [
+              0.6,
+              0.6,
+              0.6
+            ],
+            "restitution": 0,
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "label": "crate",
+            "position": [
+              0,
+              0.32,
+              -1
+            ],
+            "massKg": 1.4,
+            "friction": 0.7
+          },
+          {
+            "sourceId": "pusher",
+            "shape": "box",
+            "size": [
+              0.5,
+              0.4,
+              0.5
+            ],
+            "restitution": 0,
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "label": "pusher",
+            "position": [
+              0,
+              0.22,
+              -3
+            ],
+            "massKg": 2,
+            "friction": 0.15
+          },
+          {
+            "sourceId": "boundary-x--1",
+            "shape": "box",
+            "size": [
+              0.3,
+              1.5,
+              8
+            ],
+            "restitution": 0,
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "label": "boundary-x--1",
+            "position": [
+              -4,
+              0.75,
+              0
+            ],
+            "massKg": 0,
+            "friction": 0.6
+          },
+          {
+            "sourceId": "boundary-z--1",
+            "shape": "box",
+            "size": [
+              8,
+              1.5,
+              0.3
+            ],
+            "restitution": 0,
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "label": "boundary-z--1",
+            "position": [
+              0,
+              0.75,
+              -4
+            ],
+            "massKg": 0,
+            "friction": 0.6
+          },
+          {
+            "sourceId": "boundary-x-1",
+            "shape": "box",
+            "size": [
+              0.3,
+              1.5,
+              8
+            ],
+            "restitution": 0,
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "label": "boundary-x-1",
+            "position": [
+              4,
+              0.75,
+              0
+            ],
+            "massKg": 0,
+            "friction": 0.6
+          },
+          {
+            "sourceId": "boundary-z-1",
+            "shape": "box",
+            "size": [
+              8,
+              1.5,
+              0.3
+            ],
+            "restitution": 0,
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "label": "boundary-z-1",
+            "position": [
+              0,
+              0.75,
+              4
+            ],
+            "massKg": 0,
+            "friction": 0.6
+          },
+          {
+            "sourceId": "central-obstacle",
+            "shape": "box",
+            "size": [
+              0.6,
+              1.2,
+              0.6
+            ],
+            "restitution": 0,
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "label": "central-obstacle",
+            "position": [
+              0,
+              0.6,
+              1
+            ],
+            "massKg": 0,
+            "friction": 0.6
+          }
+        ],
+        "format": "fraynix.spatial-scene",
+        "units": "m",
+        "source": {
+          "note": "Synthetic declared native-physics case frozen before edition032 selection/evaluation. No captured room or measured material inference.",
+          "kind": "synthetic",
+          "physicalProperties": "declared"
+        },
+        "title": "Labelled reserved pushing case · eval-z-axis",
+        "version": 1,
+        "scaleReference": {
+          "a": [
+            -1,
+            0,
+            0
+          ],
+          "b": [
+            1,
+            0,
+            0
+          ],
+          "toleranceM": 0.001,
+          "knownLengthM": 2,
+          "basis": "declared-test"
+        },
+        "frame": "right-handed-y-up",
+        "gravityMps2": 9.81
+      }
+    },
+    {
+      "id": "eval-force-negative",
+      "split": "development",
+      "displacementM": [
+        3,
+        0,
+        0
+      ],
+      "negativeControl": true,
+      "source": {
+        "objects": [
+          {
+            "sourceId": "floor",
+            "shape": "box",
+            "size": [
+              8,
+              0.4,
+              8
+            ],
+            "restitution": 0,
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "label": "floor",
+            "position": [
+              0,
+              -0.2,
+              0
+            ],
+            "massKg": 0,
+            "friction": 1
+          },
+          {
+            "sourceId": "crate",
+            "shape": "box",
+            "size": [
+              0.6,
+              0.6,
+              0.6
+            ],
+            "restitution": 0,
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "label": "crate",
+            "position": [
+              -1,
+              0.32,
+              0
+            ],
+            "massKg": 4,
+            "friction": 1
+          },
+          {
+            "sourceId": "pusher",
+            "shape": "box",
+            "size": [
+              0.5,
+              0.4,
+              0.5
+            ],
+            "restitution": 0,
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "label": "pusher",
+            "position": [
+              -3,
+              0.22,
+              0
+            ],
+            "massKg": 2,
+            "friction": 0.15
+          },
+          {
+            "sourceId": "boundary-x--1",
+            "shape": "box",
+            "size": [
+              0.3,
+              1.5,
+              8
+            ],
+            "restitution": 0,
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "label": "boundary-x--1",
+            "position": [
+              -4,
+              0.75,
+              0
+            ],
+            "massKg": 0,
+            "friction": 0.6
+          },
+          {
+            "sourceId": "boundary-z--1",
+            "shape": "box",
+            "size": [
+              8,
+              1.5,
+              0.3
+            ],
+            "restitution": 0,
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "label": "boundary-z--1",
+            "position": [
+              0,
+              0.75,
+              -4
+            ],
+            "massKg": 0,
+            "friction": 0.6
+          },
+          {
+            "sourceId": "boundary-x-1",
+            "shape": "box",
+            "size": [
+              0.3,
+              1.5,
+              8
+            ],
+            "restitution": 0,
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "label": "boundary-x-1",
+            "position": [
+              4,
+              0.75,
+              0
+            ],
+            "massKg": 0,
+            "friction": 0.6
+          },
+          {
+            "sourceId": "boundary-z-1",
+            "shape": "box",
+            "size": [
+              8,
+              1.5,
+              0.3
+            ],
+            "restitution": 0,
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "label": "boundary-z-1",
+            "position": [
+              0,
+              0.75,
+              4
+            ],
+            "massKg": 0,
+            "friction": 0.6
+          }
+        ],
+        "format": "fraynix.spatial-scene",
+        "units": "m",
+        "source": {
+          "note": "Synthetic declared native-physics case frozen before edition032 selection/evaluation. No captured room or measured material inference.",
+          "kind": "synthetic",
+          "physicalProperties": "declared"
+        },
+        "title": "Labelled reserved pushing case · eval-force-negative",
+        "version": 1,
+        "scaleReference": {
+          "a": [
+            -1,
+            0,
+            0
+          ],
+          "b": [
+            1,
+            0,
+            0
+          ],
+          "toleranceM": 0.001,
+          "knownLengthM": 2,
+          "basis": "declared-test"
+        },
+        "frame": "right-handed-y-up",
+        "gravityMps2": 9.81
+      }
+    },
+    {
+      "id": "reserved033-offset",
+      "split": "evaluation",
+      "negativeControl": false,
+      "displacementM": [
+        3,
+        0,
+        0
+      ],
+      "source": {
+        "objects": [
+          {
+            "sourceId": "floor",
+            "shape": "box",
+            "size": [
+              8,
+              0.4,
+              8
+            ],
+            "restitution": 0,
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "label": "floor",
+            "position": [
+              0,
+              -0.2,
+              0
+            ],
+            "massKg": 0,
+            "friction": 0.6
+          },
+          {
+            "sourceId": "crate",
+            "shape": "box",
+            "size": [
+              0.6,
+              0.6,
+              0.6
+            ],
+            "restitution": 0,
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "label": "crate",
+            "position": [
+              -1,
+              0.32,
+              0
+            ],
+            "massKg": 1.1,
+            "friction": 0.65
+          },
+          {
+            "sourceId": "pusher",
+            "shape": "box",
+            "size": [
+              0.5,
+              0.4,
+              0.5
+            ],
+            "restitution": 0,
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "label": "pusher",
+            "position": [
+              -3,
+              0.22,
+              0
+            ],
+            "massKg": 2,
+            "friction": 0.15
+          },
+          {
+            "sourceId": "boundary-x--1",
+            "shape": "box",
+            "size": [
+              0.3,
+              1.5,
+              8
+            ],
+            "restitution": 0,
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "label": "boundary-x--1",
+            "position": [
+              -4,
+              0.75,
+              0
+            ],
+            "massKg": 0,
+            "friction": 0.6
+          },
+          {
+            "sourceId": "boundary-z--1",
+            "shape": "box",
+            "size": [
+              8,
+              1.5,
+              0.3
+            ],
+            "restitution": 0,
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "label": "boundary-z--1",
+            "position": [
+              0,
+              0.75,
+              -4
+            ],
+            "massKg": 0,
+            "friction": 0.6
+          },
+          {
+            "sourceId": "boundary-x-1",
+            "shape": "box",
+            "size": [
+              0.3,
+              1.5,
+              8
+            ],
+            "restitution": 0,
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "label": "boundary-x-1",
+            "position": [
+              4,
+              0.75,
+              0
+            ],
+            "massKg": 0,
+            "friction": 0.6
+          },
+          {
+            "sourceId": "boundary-z-1",
+            "shape": "box",
+            "size": [
+              8,
+              1.5,
+              0.3
+            ],
+            "restitution": 0,
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "label": "boundary-z-1",
+            "position": [
+              0,
+              0.75,
+              4
+            ],
+            "massKg": 0,
+            "friction": 0.6
+          },
+          {
+            "sourceId": "central-obstacle",
+            "shape": "box",
+            "size": [
+              0.6,
+              1.2,
+              0.6
+            ],
+            "restitution": 0,
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "label": "central-obstacle",
+            "position": [
+              0.25,
+              0.6,
+              0
+            ],
+            "massKg": 0,
+            "friction": 0.6
+          }
+        ],
+        "format": "fraynix.spatial-scene",
+        "units": "m",
+        "source": {
+          "note": "Declared synthetic033 reserved case frozen before candidate evaluation. Not real-world measurements.",
+          "kind": "synthetic",
+          "physicalProperties": "declared"
+        },
+        "title": "Labelled033 reserved contact case · offset",
+        "version": 1,
+        "scaleReference": {
+          "a": [
+            -1,
+            0,
+            0
+          ],
+          "b": [
+            1,
+            0,
+            0
+          ],
+          "toleranceM": 0.001,
+          "knownLengthM": 2,
+          "basis": "declared-test"
+        },
+        "frame": "right-handed-y-up",
+        "gravityMps2": 9.81
+      }
+    },
+    {
+      "id": "reserved033-z-turn",
+      "split": "evaluation",
+      "negativeControl": false,
+      "displacementM": [
+        0,
+        0,
+        3
+      ],
+      "source": {
+        "objects": [
+          {
+            "sourceId": "floor",
+            "shape": "box",
+            "size": [
+              8,
+              0.4,
+              8
+            ],
+            "restitution": 0,
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "label": "floor",
+            "position": [
+              0,
+              -0.2,
+              0
+            ],
+            "massKg": 0,
+            "friction": 0.55
+          },
+          {
+            "sourceId": "crate",
+            "shape": "box",
+            "size": [
+              0.6,
+              0.6,
+              0.6
+            ],
+            "restitution": 0,
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "label": "crate",
+            "position": [
+              0,
+              0.32,
+              -1
+            ],
+            "massKg": 1.1,
+            "friction": 0.65
+          },
+          {
+            "sourceId": "pusher",
+            "shape": "box",
+            "size": [
+              0.5,
+              0.4,
+              0.5
+            ],
+            "restitution": 0,
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "label": "pusher",
+            "position": [
+              0,
+              0.22,
+              -3
+            ],
+            "massKg": 1.8,
+            "friction": 0.15
+          },
+          {
+            "sourceId": "boundary-x--1",
+            "shape": "box",
+            "size": [
+              0.3,
+              1.5,
+              8
+            ],
+            "restitution": 0,
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "label": "boundary-x--1",
+            "position": [
+              -4,
+              0.75,
+              0
+            ],
+            "massKg": 0,
+            "friction": 0.6
+          },
+          {
+            "sourceId": "boundary-z--1",
+            "shape": "box",
+            "size": [
+              8,
+              1.5,
+              0.3
+            ],
+            "restitution": 0,
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "label": "boundary-z--1",
+            "position": [
+              0,
+              0.75,
+              -4
+            ],
+            "massKg": 0,
+            "friction": 0.6
+          },
+          {
+            "sourceId": "boundary-x-1",
+            "shape": "box",
+            "size": [
+              0.3,
+              1.5,
+              8
+            ],
+            "restitution": 0,
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "label": "boundary-x-1",
+            "position": [
+              4,
+              0.75,
+              0
+            ],
+            "massKg": 0,
+            "friction": 0.6
+          },
+          {
+            "sourceId": "boundary-z-1",
+            "shape": "box",
+            "size": [
+              8,
+              1.5,
+              0.3
+            ],
+            "restitution": 0,
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "label": "boundary-z-1",
+            "position": [
+              0,
+              0.75,
+              4
+            ],
+            "massKg": 0,
+            "friction": 0.6
+          },
+          {
+            "sourceId": "central-obstacle",
+            "shape": "box",
+            "size": [
+              0.6,
+              1.2,
+              0.6
+            ],
+            "restitution": 0,
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "label": "central-obstacle",
+            "position": [
+              0,
+              0.6,
+              0.75
+            ],
+            "massKg": 0,
+            "friction": 0.6
+          }
+        ],
+        "format": "fraynix.spatial-scene",
+        "units": "m",
+        "source": {
+          "note": "Declared synthetic033 reserved case frozen before candidate evaluation. Not real-world measurements.",
+          "kind": "synthetic",
+          "physicalProperties": "declared"
+        },
+        "title": "Labelled033 reserved contact case · z-turn",
+        "version": 1,
+        "scaleReference": {
+          "a": [
+            -1,
+            0,
+            0
+          ],
+          "b": [
+            1,
+            0,
+            0
+          ],
+          "toleranceM": 0.001,
+          "knownLengthM": 2,
+          "basis": "declared-test"
+        },
+        "frame": "right-handed-y-up",
+        "gravityMps2": 9.81
+      }
+    },
+    {
+      "id": "reserved033-reverse-x",
+      "split": "evaluation",
+      "negativeControl": false,
+      "displacementM": [
+        -3,
+        0,
+        0
+      ],
+      "source": {
+        "objects": [
+          {
+            "sourceId": "floor",
+            "shape": "box",
+            "size": [
+              8,
+              0.4,
+              8
+            ],
+            "restitution": 0,
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "label": "floor",
+            "position": [
+              0,
+              -0.2,
+              0
+            ],
+            "massKg": 0,
+            "friction": 0.65
+          },
+          {
+            "sourceId": "crate",
+            "shape": "box",
+            "size": [
+              0.6,
+              0.6,
+              0.6
+            ],
+            "restitution": 0,
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "label": "crate",
+            "position": [
+              1,
+              0.32,
+              0
+            ],
+            "massKg": 1.4,
+            "friction": 0.6
+          },
+          {
+            "sourceId": "pusher",
+            "shape": "box",
+            "size": [
+              0.5,
+              0.4,
+              0.5
+            ],
+            "restitution": 0,
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "label": "pusher",
+            "position": [
+              3,
+              0.22,
+              0
+            ],
+            "massKg": 2,
+            "friction": 0.15
+          },
+          {
+            "sourceId": "boundary-x--1",
+            "shape": "box",
+            "size": [
+              0.3,
+              1.5,
+              8
+            ],
+            "restitution": 0,
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "label": "boundary-x--1",
+            "position": [
+              -4,
+              0.75,
+              0
+            ],
+            "massKg": 0,
+            "friction": 0.6
+          },
+          {
+            "sourceId": "boundary-z--1",
+            "shape": "box",
+            "size": [
+              8,
+              1.5,
+              0.3
+            ],
+            "restitution": 0,
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "label": "boundary-z--1",
+            "position": [
+              0,
+              0.75,
+              -4
+            ],
+            "massKg": 0,
+            "friction": 0.6
+          },
+          {
+            "sourceId": "boundary-x-1",
+            "shape": "box",
+            "size": [
+              0.3,
+              1.5,
+              8
+            ],
+            "restitution": 0,
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "label": "boundary-x-1",
+            "position": [
+              4,
+              0.75,
+              0
+            ],
+            "massKg": 0,
+            "friction": 0.6
+          },
+          {
+            "sourceId": "boundary-z-1",
+            "shape": "box",
+            "size": [
+              8,
+              1.5,
+              0.3
+            ],
+            "restitution": 0,
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "label": "boundary-z-1",
+            "position": [
+              0,
+              0.75,
+              4
+            ],
+            "massKg": 0,
+            "friction": 0.6
+          },
+          {
+            "sourceId": "central-obstacle",
+            "shape": "box",
+            "size": [
+              0.6,
+              1.2,
+              0.6
+            ],
+            "restitution": 0,
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "label": "central-obstacle",
+            "position": [
+              -0.5,
+              0.6,
+              0
+            ],
+            "massKg": 0,
+            "friction": 0.6
+          }
+        ],
+        "format": "fraynix.spatial-scene",
+        "units": "m",
+        "source": {
+          "note": "Declared synthetic033 reserved case frozen before candidate evaluation. Not real-world measurements.",
+          "kind": "synthetic",
+          "physicalProperties": "declared"
+        },
+        "title": "Labelled033 reserved contact case · reverse-x",
+        "version": 1,
+        "scaleReference": {
+          "a": [
+            -1,
+            0,
+            0
+          ],
+          "b": [
+            1,
+            0,
+            0
+          ],
+          "toleranceM": 0.001,
+          "knownLengthM": 2,
+          "basis": "declared-test"
+        },
+        "frame": "right-handed-y-up",
+        "gravityMps2": 9.81
+      }
+    },
+    {
+      "id": "reserved033-reverse-z",
+      "split": "evaluation",
+      "negativeControl": false,
+      "displacementM": [
+        0,
+        0,
+        -3
+      ],
+      "source": {
+        "objects": [
+          {
+            "sourceId": "floor",
+            "shape": "box",
+            "size": [
+              8,
+              0.4,
+              8
+            ],
+            "restitution": 0,
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "label": "floor",
+            "position": [
+              0,
+              -0.2,
+              0
+            ],
+            "massKg": 0,
+            "friction": 0.7
+          },
+          {
+            "sourceId": "crate",
+            "shape": "box",
+            "size": [
+              0.6,
+              0.6,
+              0.6
+            ],
+            "restitution": 0,
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "label": "crate",
+            "position": [
+              0,
+              0.32,
+              1
+            ],
+            "massKg": 0.9,
+            "friction": 0.75
+          },
+          {
+            "sourceId": "pusher",
+            "shape": "box",
+            "size": [
+              0.5,
+              0.4,
+              0.5
+            ],
+            "restitution": 0,
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "label": "pusher",
+            "position": [
+              0,
+              0.22,
+              3
+            ],
+            "massKg": 2,
+            "friction": 0.15
+          },
+          {
+            "sourceId": "boundary-x--1",
+            "shape": "box",
+            "size": [
+              0.3,
+              1.5,
+              8
+            ],
+            "restitution": 0,
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "label": "boundary-x--1",
+            "position": [
+              -4,
+              0.75,
+              0
+            ],
+            "massKg": 0,
+            "friction": 0.6
+          },
+          {
+            "sourceId": "boundary-z--1",
+            "shape": "box",
+            "size": [
+              8,
+              1.5,
+              0.3
+            ],
+            "restitution": 0,
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "label": "boundary-z--1",
+            "position": [
+              0,
+              0.75,
+              -4
+            ],
+            "massKg": 0,
+            "friction": 0.6
+          },
+          {
+            "sourceId": "boundary-x-1",
+            "shape": "box",
+            "size": [
+              0.3,
+              1.5,
+              8
+            ],
+            "restitution": 0,
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "label": "boundary-x-1",
+            "position": [
+              4,
+              0.75,
+              0
+            ],
+            "massKg": 0,
+            "friction": 0.6
+          },
+          {
+            "sourceId": "boundary-z-1",
+            "shape": "box",
+            "size": [
+              8,
+              1.5,
+              0.3
+            ],
+            "restitution": 0,
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "label": "boundary-z-1",
+            "position": [
+              0,
+              0.75,
+              4
+            ],
+            "massKg": 0,
+            "friction": 0.6
+          },
+          {
+            "sourceId": "central-obstacle",
+            "shape": "box",
+            "size": [
+              0.6,
+              1.2,
+              0.6
+            ],
+            "restitution": 0,
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "label": "central-obstacle",
+            "position": [
+              0,
+              0.6,
+              -0.5
+            ],
+            "massKg": 0,
+            "friction": 0.6
+          }
+        ],
+        "format": "fraynix.spatial-scene",
+        "units": "m",
+        "source": {
+          "note": "Declared synthetic033 reserved case frozen before candidate evaluation. Not real-world measurements.",
+          "kind": "synthetic",
+          "physicalProperties": "declared"
+        },
+        "title": "Labelled033 reserved contact case · reverse-z",
+        "version": 1,
+        "scaleReference": {
+          "a": [
+            -1,
+            0,
+            0
+          ],
+          "b": [
+            1,
+            0,
+            0
+          ],
+          "toleranceM": 0.001,
+          "knownLengthM": 2,
+          "basis": "declared-test"
+        },
+        "frame": "right-handed-y-up",
+        "gravityMps2": 9.81
+      }
+    },
+    {
+      "id": "reserved033-heavy-turn",
+      "split": "evaluation",
+      "negativeControl": false,
+      "displacementM": [
+        3,
+        0,
+        0
+      ],
+      "source": {
+        "objects": [
+          {
+            "sourceId": "floor",
+            "shape": "box",
+            "size": [
+              8,
+              0.4,
+              8
+            ],
+            "restitution": 0,
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "label": "floor",
+            "position": [
+              0,
+              -0.2,
+              0
+            ],
+            "massKg": 0,
+            "friction": 0.55
+          },
+          {
+            "sourceId": "crate",
+            "shape": "box",
+            "size": [
+              0.6,
+              0.6,
+              0.6
+            ],
+            "restitution": 0,
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "label": "crate",
+            "position": [
+              -1,
+              0.32,
+              0
+            ],
+            "massKg": 2.2,
+            "friction": 0.6
+          },
+          {
+            "sourceId": "pusher",
+            "shape": "box",
+            "size": [
+              0.5,
+              0.4,
+              0.5
+            ],
+            "restitution": 0,
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "label": "pusher",
+            "position": [
+              -3,
+              0.22,
+              0
+            ],
+            "massKg": 2,
+            "friction": 0.15
+          },
+          {
+            "sourceId": "boundary-x--1",
+            "shape": "box",
+            "size": [
+              0.3,
+              1.5,
+              8
+            ],
+            "restitution": 0,
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "label": "boundary-x--1",
+            "position": [
+              -4,
+              0.75,
+              0
+            ],
+            "massKg": 0,
+            "friction": 0.6
+          },
+          {
+            "sourceId": "boundary-z--1",
+            "shape": "box",
+            "size": [
+              8,
+              1.5,
+              0.3
+            ],
+            "restitution": 0,
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "label": "boundary-z--1",
+            "position": [
+              0,
+              0.75,
+              -4
+            ],
+            "massKg": 0,
+            "friction": 0.6
+          },
+          {
+            "sourceId": "boundary-x-1",
+            "shape": "box",
+            "size": [
+              0.3,
+              1.5,
+              8
+            ],
+            "restitution": 0,
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "label": "boundary-x-1",
+            "position": [
+              4,
+              0.75,
+              0
+            ],
+            "massKg": 0,
+            "friction": 0.6
+          },
+          {
+            "sourceId": "boundary-z-1",
+            "shape": "box",
+            "size": [
+              8,
+              1.5,
+              0.3
+            ],
+            "restitution": 0,
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "label": "boundary-z-1",
+            "position": [
+              0,
+              0.75,
+              4
+            ],
+            "massKg": 0,
+            "friction": 0.6
+          },
+          {
+            "sourceId": "central-obstacle",
+            "shape": "box",
+            "size": [
+              0.6,
+              1.2,
+              0.6
+            ],
+            "restitution": 0,
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "label": "central-obstacle",
+            "position": [
+              0.25,
+              0.6,
+              0
+            ],
+            "massKg": 0,
+            "friction": 0.6
+          }
+        ],
+        "format": "fraynix.spatial-scene",
+        "units": "m",
+        "source": {
+          "note": "Declared synthetic033 reserved case frozen before candidate evaluation. Not real-world measurements.",
+          "kind": "synthetic",
+          "physicalProperties": "declared"
+        },
+        "title": "Labelled033 reserved contact case · heavy-turn",
+        "version": 1,
+        "scaleReference": {
+          "a": [
+            -1,
+            0,
+            0
+          ],
+          "b": [
+            1,
+            0,
+            0
+          ],
+          "toleranceM": 0.001,
+          "knownLengthM": 2,
+          "basis": "declared-test"
+        },
+        "frame": "right-handed-y-up",
+        "gravityMps2": 9.81
+      }
+    },
+    {
+      "id": "reserved033-light-clear",
+      "split": "evaluation",
+      "negativeControl": false,
+      "displacementM": [
+        3,
+        0,
+        0
+      ],
+      "source": {
+        "objects": [
+          {
+            "sourceId": "floor",
+            "shape": "box",
+            "size": [
+              8,
+              0.4,
+              8
+            ],
+            "restitution": 0,
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "label": "floor",
+            "position": [
+              0,
+              -0.2,
+              0
+            ],
+            "massKg": 0,
+            "friction": 0.8
+          },
+          {
+            "sourceId": "crate",
+            "shape": "box",
+            "size": [
+              0.6,
+              0.6,
+              0.6
+            ],
+            "restitution": 0,
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "label": "crate",
+            "position": [
+              -1,
+              0.32,
+              0
+            ],
+            "massKg": 0.6,
+            "friction": 0.75
+          },
+          {
+            "sourceId": "pusher",
+            "shape": "box",
+            "size": [
+              0.5,
+              0.4,
+              0.5
+            ],
+            "restitution": 0,
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "label": "pusher",
+            "position": [
+              -3,
+              0.22,
+              0
+            ],
+            "massKg": 1.6,
+            "friction": 0.15
+          },
+          {
+            "sourceId": "boundary-x--1",
+            "shape": "box",
+            "size": [
+              0.3,
+              1.5,
+              8
+            ],
+            "restitution": 0,
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "label": "boundary-x--1",
+            "position": [
+              -4,
+              0.75,
+              0
+            ],
+            "massKg": 0,
+            "friction": 0.6
+          },
+          {
+            "sourceId": "boundary-z--1",
+            "shape": "box",
+            "size": [
+              8,
+              1.5,
+              0.3
+            ],
+            "restitution": 0,
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "label": "boundary-z--1",
+            "position": [
+              0,
+              0.75,
+              -4
+            ],
+            "massKg": 0,
+            "friction": 0.6
+          },
+          {
+            "sourceId": "boundary-x-1",
+            "shape": "box",
+            "size": [
+              0.3,
+              1.5,
+              8
+            ],
+            "restitution": 0,
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "label": "boundary-x-1",
+            "position": [
+              4,
+              0.75,
+              0
+            ],
+            "massKg": 0,
+            "friction": 0.6
+          },
+          {
+            "sourceId": "boundary-z-1",
+            "shape": "box",
+            "size": [
+              8,
+              1.5,
+              0.3
+            ],
+            "restitution": 0,
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "label": "boundary-z-1",
+            "position": [
+              0,
+              0.75,
+              4
+            ],
+            "massKg": 0,
+            "friction": 0.6
+          }
+        ],
+        "format": "fraynix.spatial-scene",
+        "units": "m",
+        "source": {
+          "note": "Declared synthetic033 reserved case frozen before candidate evaluation. Not real-world measurements.",
+          "kind": "synthetic",
+          "physicalProperties": "declared"
+        },
+        "title": "Labelled033 reserved contact case · light-clear",
+        "version": 1,
+        "scaleReference": {
+          "a": [
+            -1,
+            0,
+            0
+          ],
+          "b": [
+            1,
+            0,
+            0
+          ],
+          "toleranceM": 0.001,
+          "knownLengthM": 2,
+          "basis": "declared-test"
+        },
+        "frame": "right-handed-y-up",
+        "gravityMps2": 9.81
+      }
+    },
+    {
+      "id": "reserved033-diagonal",
+      "split": "evaluation",
+      "negativeControl": false,
+      "displacementM": [
+        2,
+        0,
+        2
+      ],
+      "source": {
+        "objects": [
+          {
+            "sourceId": "floor",
+            "shape": "box",
+            "size": [
+              8,
+              0.4,
+              8
+            ],
+            "restitution": 0,
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "label": "floor",
+            "position": [
+              0,
+              -0.2,
+              0
+            ],
+            "massKg": 0,
+            "friction": 0.55
+          },
+          {
+            "sourceId": "crate",
+            "shape": "box",
+            "size": [
+              0.6,
+              0.6,
+              0.6
+            ],
+            "restitution": 0,
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "label": "crate",
+            "position": [
+              -1,
+              0.32,
+              -1
+            ],
+            "massKg": 1.25,
+            "friction": 0.6
+          },
+          {
+            "sourceId": "pusher",
+            "shape": "box",
+            "size": [
+              0.5,
+              0.4,
+              0.5
+            ],
+            "restitution": 0,
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "label": "pusher",
+            "position": [
+              -3,
+              0.22,
+              -1
+            ],
+            "massKg": 2,
+            "friction": 0.15
+          },
+          {
+            "sourceId": "boundary-x--1",
+            "shape": "box",
+            "size": [
+              0.3,
+              1.5,
+              8
+            ],
+            "restitution": 0,
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "label": "boundary-x--1",
+            "position": [
+              -4,
+              0.75,
+              0
+            ],
+            "massKg": 0,
+            "friction": 0.6
+          },
+          {
+            "sourceId": "boundary-z--1",
+            "shape": "box",
+            "size": [
+              8,
+              1.5,
+              0.3
+            ],
+            "restitution": 0,
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "label": "boundary-z--1",
+            "position": [
+              0,
+              0.75,
+              -4
+            ],
+            "massKg": 0,
+            "friction": 0.6
+          },
+          {
+            "sourceId": "boundary-x-1",
+            "shape": "box",
+            "size": [
+              0.3,
+              1.5,
+              8
+            ],
+            "restitution": 0,
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "label": "boundary-x-1",
+            "position": [
+              4,
+              0.75,
+              0
+            ],
+            "massKg": 0,
+            "friction": 0.6
+          },
+          {
+            "sourceId": "boundary-z-1",
+            "shape": "box",
+            "size": [
+              8,
+              1.5,
+              0.3
+            ],
+            "restitution": 0,
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "label": "boundary-z-1",
+            "position": [
+              0,
+              0.75,
+              4
+            ],
+            "massKg": 0,
+            "friction": 0.6
+          },
+          {
+            "sourceId": "central-obstacle",
+            "shape": "box",
+            "size": [
+              0.6,
+              1.2,
+              0.6
+            ],
+            "restitution": 0,
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "label": "central-obstacle",
+            "position": [
+              0,
+              0.6,
+              0
+            ],
+            "massKg": 0,
+            "friction": 0.6
+          }
+        ],
+        "format": "fraynix.spatial-scene",
+        "units": "m",
+        "source": {
+          "note": "Declared synthetic033 reserved case frozen before candidate evaluation. Not real-world measurements.",
+          "kind": "synthetic",
+          "physicalProperties": "declared"
+        },
+        "title": "Labelled033 reserved contact case · diagonal",
+        "version": 1,
+        "scaleReference": {
+          "a": [
+            -1,
+            0,
+            0
+          ],
+          "b": [
+            1,
+            0,
+            0
+          ],
+          "toleranceM": 0.001,
+          "knownLengthM": 2,
+          "basis": "declared-test"
+        },
+        "frame": "right-handed-y-up",
+        "gravityMps2": 9.81
+      }
+    },
+    {
+      "id": "reserved033-force-negative",
+      "split": "evaluation",
+      "negativeControl": true,
+      "displacementM": [
+        3,
+        0,
+        0
+      ],
+      "source": {
+        "objects": [
+          {
+            "sourceId": "floor",
+            "shape": "box",
+            "size": [
+              8,
+              0.4,
+              8
+            ],
+            "restitution": 0,
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "label": "floor",
+            "position": [
+              0,
+              -0.2,
+              0
+            ],
+            "massKg": 0,
+            "friction": 1.15
+          },
+          {
+            "sourceId": "crate",
+            "shape": "box",
+            "size": [
+              0.6,
+              0.6,
+              0.6
+            ],
+            "restitution": 0,
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "label": "crate",
+            "position": [
+              -1,
+              0.32,
+              0
+            ],
+            "massKg": 3.6,
+            "friction": 0.98
+          },
+          {
+            "sourceId": "pusher",
+            "shape": "box",
+            "size": [
+              0.5,
+              0.4,
+              0.5
+            ],
+            "restitution": 0,
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "label": "pusher",
+            "position": [
+              -3,
+              0.22,
+              0
+            ],
+            "massKg": 2.2,
+            "friction": 0.15
+          },
+          {
+            "sourceId": "boundary-x--1",
+            "shape": "box",
+            "size": [
+              0.3,
+              1.5,
+              8
+            ],
+            "restitution": 0,
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "label": "boundary-x--1",
+            "position": [
+              -4,
+              0.75,
+              0
+            ],
+            "massKg": 0,
+            "friction": 0.6
+          },
+          {
+            "sourceId": "boundary-z--1",
+            "shape": "box",
+            "size": [
+              8,
+              1.5,
+              0.3
+            ],
+            "restitution": 0,
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "label": "boundary-z--1",
+            "position": [
+              0,
+              0.75,
+              -4
+            ],
+            "massKg": 0,
+            "friction": 0.6
+          },
+          {
+            "sourceId": "boundary-x-1",
+            "shape": "box",
+            "size": [
+              0.3,
+              1.5,
+              8
+            ],
+            "restitution": 0,
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "label": "boundary-x-1",
+            "position": [
+              4,
+              0.75,
+              0
+            ],
+            "massKg": 0,
+            "friction": 0.6
+          },
+          {
+            "sourceId": "boundary-z-1",
+            "shape": "box",
+            "size": [
+              8,
+              1.5,
+              0.3
+            ],
+            "restitution": 0,
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "label": "boundary-z-1",
+            "position": [
+              0,
+              0.75,
+              4
+            ],
+            "massKg": 0,
+            "friction": 0.6
+          }
+        ],
+        "format": "fraynix.spatial-scene",
+        "units": "m",
+        "source": {
+          "note": "Declared synthetic033 reserved case frozen before candidate evaluation. Not real-world measurements.",
+          "kind": "synthetic",
+          "physicalProperties": "declared"
+        },
+        "title": "Labelled033 reserved contact case · force-negative",
+        "version": 1,
+        "scaleReference": {
+          "a": [
+            -1,
+            0,
+            0
+          ],
+          "b": [
+            1,
+            0,
+            0
+          ],
+          "toleranceM": 0.001,
+          "knownLengthM": 2,
+          "basis": "declared-test"
+        },
+        "frame": "right-handed-y-up",
+        "gravityMps2": 9.81
+      }
+    }
+  ]
+}

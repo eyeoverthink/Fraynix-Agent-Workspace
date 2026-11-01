@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "latest": 32,
+  "latest": 33,
   "canonicalization": "UTF-8 without BOM; CRLF normalized to LF for text",
   "editions": [
     {
@@ -5935,6 +5935,360 @@
           "path": "docs/readmes/032/verification.json",
           "kind": "text",
           "sha256": "cc5bb3a22a10e849d25610c0b901a3755470f4ef24848d2d7dc1f0c5324016ef"
+        }
+      ]
+    },
+    {
+      "number": 33,
+      "date": "2026-11-01",
+      "title": "Validated contact controllers and retained versioned skills",
+      "status": "published",
+      "markdown": "README-033.md",
+      "markdownSha256": "2944b6c372ddbd4e7934c0dc16c46c14dac9ae4eb28d63c434ca469df365a800",
+      "snapshotDirectory": "docs/readmes/033",
+      "companion": "docs/readmes/033/index.html",
+      "tag": "readme-033",
+      "sourceBaseline": "e13290a9b5d66e751df223d45c31878eec847952",
+      "snapshotFiles": [
+        {
+          "path": "docs/readmes/033/candidate-source-lock.json",
+          "kind": "text",
+          "sha256": "e2cf9195d65f9064eeff505e83b296b19a69447ac2541cf01ddc5b903b17050f"
+        },
+        {
+          "path": "docs/readmes/033/contact-library-integration.json",
+          "kind": "text",
+          "sha256": "e3e685614eeba83ca9086df0a6dbc944c732d48ea58b0295cdf6968ebe71b255"
+        },
+        {
+          "path": "docs/readmes/033/contact-study-integration.json",
+          "kind": "text",
+          "sha256": "8374cefe9c8c3a496f31c38c7e56112bdd16bb5d1ee15c689c6ad2418ed44a59"
+        },
+        {
+          "path": "docs/readmes/033/development/033-clean.log.txt",
+          "kind": "text",
+          "sha256": "a50db0568044b12369faca824ac0eeb3a43498a99231e554a50dd2f5da5b266a"
+        },
+        {
+          "path": "docs/readmes/033/development/check033-first.log.txt",
+          "kind": "text",
+          "sha256": "34bb37bc0cf93ac29a7fc1f223ec6b730f74abd2a0b92ee778b7e7b32841f142"
+        },
+        {
+          "path": "docs/readmes/033/development/clean033-final-build.log.txt",
+          "kind": "text",
+          "sha256": "079a840978abf8c23cee5c38cc1836d2154a586f76c1147cf4102685bd3edd4a"
+        },
+        {
+          "path": "docs/readmes/033/development/contact-study-failed-1793524877483.json",
+          "kind": "text",
+          "sha256": "3a03efb4e43c8d9f4ab6bf8ac2838099a0a87945c0dcdb117676cc8df0d652df"
+        },
+        {
+          "path": "docs/readmes/033/development/contact-study-failed-1793525180602.json",
+          "kind": "text",
+          "sha256": "a52a6a57984789562aea8ec16610a7743273ea7190068e1d2400d44f7be5bc36"
+        },
+        {
+          "path": "docs/readmes/033/development/contact-study-failed-1793525666228.json",
+          "kind": "text",
+          "sha256": "f85ec78e7249d2d2fe0d08bb033cdb127d8381f8a93f9e9d2fa8b3d3871bfbb6"
+        },
+        {
+          "path": "docs/readmes/033/development/contact033-narrow.png",
+          "kind": "binary",
+          "sha256": "c700c3582eca318d30bbe2e382a96763d8a1627bac044548f23399a83ff4a370"
+        },
+        {
+          "path": "docs/readmes/033/development/contact033-offline.png",
+          "kind": "binary",
+          "sha256": "5ebc9837c249168b87306e766b1f941038d9793e147eee7c77df9eb122c644e0"
+        },
+        {
+          "path": "docs/readmes/033/development/edition033-narrow.png",
+          "kind": "binary",
+          "sha256": "15f93d045e881fa719270d1c619f30cc79e03038052c650fdbe1a5951a5d3bd8"
+        },
+        {
+          "path": "docs/readmes/033/development/edition033-wide.png",
+          "kind": "binary",
+          "sha256": "2c2bfe4014cf751df42f21ceb8517a22ad19c494e550422495a65d418db4d95a"
+        },
+        {
+          "path": "docs/readmes/033/development/first-measurement/compile033-repair.log.txt",
+          "kind": "text",
+          "sha256": "ca345bd4d7b85b453cf5972ea9c56609935f7e3ab46b70c6aec309d05c7c2a15"
+        },
+        {
+          "path": "docs/readmes/033/development/first-measurement/compile033-wire.log.txt",
+          "kind": "text",
+          "sha256": "ca3b9cf1fa7f8afc52d7da09942a13d1bfdfee3c7561d0c260c9760bbf3b6245"
+        },
+        {
+          "path": "docs/readmes/033/development/first-measurement/dev033-first.log.txt",
+          "kind": "text",
+          "sha256": "7553e16f2bda1d5380cd6836e481e6fce2d675070ecdf2c90ca75a34c179182b"
+        },
+        {
+          "path": "docs/readmes/033/development/first-measurement/first-reserved-originals.json",
+          "kind": "text",
+          "sha256": "c52f5da6c90859c004d0040a49f27538e3f5481ad6894b8d3890d283363d9999"
+        },
+        {
+          "path": "docs/readmes/033/development/first-measurement/first-summary.json",
+          "kind": "text",
+          "sha256": "c34de1077736d9896bcc042caf8848cf1b2cc4bffa352fa85cdd13d1b2b30c62"
+        },
+        {
+          "path": "docs/readmes/033/development/first-measurement/study033-first.log.txt",
+          "kind": "text",
+          "sha256": "ebd5c46da097dbaffd7c54b52c86227eeae79aad7f1ca054c416493c888af890"
+        },
+        {
+          "path": "docs/readmes/033/development/live-contact-study-failed-1793525948706.json",
+          "kind": "text",
+          "sha256": "c35b196fadc987f7da843a45ef6eaed44e15f2530503be9fc75c52e8ad5f0e6c"
+        },
+        {
+          "path": "docs/readmes/033/development/live033-first.log.txt",
+          "kind": "text",
+          "sha256": "a088ebcc7fd1541ed45162281eb053783c6f2a829d619243a06b74cb62fcc9e2"
+        },
+        {
+          "path": "docs/readmes/033/development/live033-second.log.txt",
+          "kind": "text",
+          "sha256": "ec1906c83a4b6ab2296b87a6bd472aa13b95f998eb0f1e868010efa04d46d31b"
+        },
+        {
+          "path": "docs/readmes/033/development/storage033.log.txt",
+          "kind": "text",
+          "sha256": "0477f2d000ffbf7d02ee55446b94b0d62ca6506e87dd5818fd8f44bfe05339ee"
+        },
+        {
+          "path": "docs/readmes/033/development/ui033-first.log.txt",
+          "kind": "text",
+          "sha256": "beda23528f076d635575c4ef012e608515cf3b5cdb08269031a95ac4dff99331"
+        },
+        {
+          "path": "docs/readmes/033/development/ui033-second.log.txt",
+          "kind": "text",
+          "sha256": "e8f2108f8b7f8a061f77d7f9e90f22c1cb323ba9d3ae61507e915527f73fc039"
+        },
+        {
+          "path": "docs/readmes/033/development/ui033-third.log.txt",
+          "kind": "text",
+          "sha256": "f2064c59df84d5b7434251c5dcdca8f13dc8be128c00f9ae75295746b169339c"
+        },
+        {
+          "path": "docs/readmes/033/development/units033-clean-final.log.txt",
+          "kind": "text",
+          "sha256": "0b931544cba3b92cf6b3bb4d0cf2dd85707658fc99f5e841a3f57188498745ba"
+        },
+        {
+          "path": "docs/readmes/033/development/units033-host-wait.log.txt",
+          "kind": "text",
+          "sha256": "cfe0cb1cc26e6250827e987c51f0de4c41e7c6b4acd0e5345c7653bc94f2ed47"
+        },
+        {
+          "path": "docs/readmes/033/development-attempts.json",
+          "kind": "text",
+          "sha256": "78f012448ff47d83286bd5d426afcc1b31fa4f9ce77ace40e056f5305931ffc0"
+        },
+        {
+          "path": "docs/readmes/033/examples/activated-profile.json",
+          "kind": "text",
+          "sha256": "b92cf65191076df728bbf58a197b7fb68c387cecbf26333138ec3ab026e1e940"
+        },
+        {
+          "path": "docs/readmes/033/examples/cancelled-goal.json",
+          "kind": "text",
+          "sha256": "3f35a5bb6a4f19dc1f42e07ca01109534a39979264772202d3d9873147b5878f"
+        },
+        {
+          "path": "docs/readmes/033/examples/explicit-controller-push.json",
+          "kind": "text",
+          "sha256": "3abc4da6c1ee2e6c1a1bffc08437b26a99e562c490dbfb0529a59bbbf8cf1636"
+        },
+        {
+          "path": "docs/readmes/033/examples/fresh-role-skill.json",
+          "kind": "text",
+          "sha256": "627b2ed9a9000b734ac756d8570ef15f7f65a10ed716d5cc1e5d991542a6e866"
+        },
+        {
+          "path": "docs/readmes/033/examples/native-experience.json",
+          "kind": "text",
+          "sha256": "5469f040e72fd5fd904f1d69adbee4e986137bcfee66726bfb318580cbf19da5"
+        },
+        {
+          "path": "docs/readmes/033/examples/original/actual-receipt.json",
+          "kind": "text",
+          "sha256": "28043298d74c468f9fe3db55350a86ebb6623f5624c011a80c1121d7304c5819"
+        },
+        {
+          "path": "docs/readmes/033/examples/original/charts.json",
+          "kind": "text",
+          "sha256": "679c6b54337b7ff1847d2cd4ca44267968b236a12ef3922cc2a3c0c8a7b2170a"
+        },
+        {
+          "path": "docs/readmes/033/examples/original/data.json",
+          "kind": "text",
+          "sha256": "e4098ae5484b8ceff2c579f0d2361accde0fdd9c04da773f659585162cee8388"
+        },
+        {
+          "path": "docs/readmes/033/examples/original/index.html",
+          "kind": "text",
+          "sha256": "fcd0ee5d8dbd52c625b6711b4131df482de8da48b613974e07861e8739d3d19f"
+        },
+        {
+          "path": "docs/readmes/033/examples/original/job.json",
+          "kind": "text",
+          "sha256": "275e90cd92ce0fe645b5bc10a904a23aa6e8326cf0275cce4fd1eecf99836cf1"
+        },
+        {
+          "path": "docs/readmes/033/examples/original/table.json",
+          "kind": "text",
+          "sha256": "0c356c8f29b67d6318dd3173adab6cdfaa17a3a080c673a402585c6a3a7f8337"
+        },
+        {
+          "path": "docs/readmes/033/examples/recovery/committed-run.json",
+          "kind": "text",
+          "sha256": "97a105b4466536c6f93f61247482c01fe8232e6ddfd7e10376d000a3aa78b4ce"
+        },
+        {
+          "path": "docs/readmes/033/examples/recovery/continued-run.json",
+          "kind": "text",
+          "sha256": "901d31fef4e8a1d794d6fd982a4a0f285d82c21520ff553f00e7287347433bc1"
+        },
+        {
+          "path": "docs/readmes/033/file-inventory.json",
+          "kind": "text",
+          "sha256": "eb1eae8fa84da05361343388cbf98aae9a48861491cb3b3a18d04d7669c00e50"
+        },
+        {
+          "path": "docs/readmes/033/FILE_TREE.md",
+          "kind": "text",
+          "sha256": "00b7ab79fc748b1c30c29473c8e8c550f08a8ae539c253d9324d0f2761668bfa"
+        },
+        {
+          "path": "docs/readmes/033/frozen-contract.json",
+          "kind": "text",
+          "sha256": "2d3081b65b20141357ac14bde69f10c84eca30b303801448b417091dd433d394"
+        },
+        {
+          "path": "docs/readmes/033/frozen-suite.json",
+          "kind": "text",
+          "sha256": "9259ce52877d48a68ca679166f7a5ba865accca9d170fb213c3d8cea0f1185ed"
+        },
+        {
+          "path": "docs/readmes/033/images/contact-activated-033.png",
+          "kind": "binary",
+          "sha256": "40e6c060d2b0662b19696ffb4ccb93607dbcfb013be6ff831994798e96c981e8"
+        },
+        {
+          "path": "docs/readmes/033/images/contact-both-bodies-before-crash-033.png",
+          "kind": "binary",
+          "sha256": "788e6894099639968d95fd17f3a7a13cf8d86de87dbad5af26eec856e03f698c"
+        },
+        {
+          "path": "docs/readmes/033/images/contact-chat-comparison-033.png",
+          "kind": "binary",
+          "sha256": "0ac7a55f3042a4f07769766dafbc3bc36b1fc2447c07098177715ef3ef0d6730"
+        },
+        {
+          "path": "docs/readmes/033/images/contact-chat-validated-use-033.png",
+          "kind": "binary",
+          "sha256": "2dbe5865240038e2cd5579755786b2f5aaa4f878447a5d0077781e01226f0a94"
+        },
+        {
+          "path": "docs/readmes/033/images/contact-effort-report-033.png",
+          "kind": "binary",
+          "sha256": "f6e9059457ae64c1dfa57a06ca08c72e020588bdbc9487a97798d13f89fc5dd2"
+        },
+        {
+          "path": "docs/readmes/033/images/contact-fresh-role-skill-033.png",
+          "kind": "binary",
+          "sha256": "ae1a5d17a71976d2d5f17b98d16313c48a89b2b889a4e9d76bdf220acabcc67a"
+        },
+        {
+          "path": "docs/readmes/033/images/contact-frozen-controls-033.png",
+          "kind": "binary",
+          "sha256": "48ac0dbc1008124f2a97ed97385a164194ca0e5bbfc0364c068d3336bad2dd11"
+        },
+        {
+          "path": "docs/readmes/033/images/contact-history-restored-033.png",
+          "kind": "binary",
+          "sha256": "a3151fdef3cdf791eb3e8ba2c532fce5958255941b4c8036c7d085216de08cd8"
+        },
+        {
+          "path": "docs/readmes/033/images/contact-interrupted-033.png",
+          "kind": "binary",
+          "sha256": "25237409fdba4f4d1e5bdeed160dd87827236961b35c80ac35f489a91a280a98"
+        },
+        {
+          "path": "docs/readmes/033/images/contact-native-solver-033.png",
+          "kind": "binary",
+          "sha256": "dffa4f23e6a1c14e0746a2179bba48121fa1e444c8f6e1464517f0caa95bc4ee"
+        },
+        {
+          "path": "docs/readmes/033/images/contact-passing-report-033.png",
+          "kind": "binary",
+          "sha256": "57655a43c4da4d6ce7b263982761497b5b762c7bbe164e4856f0c17d7f68b0cc"
+        },
+        {
+          "path": "docs/readmes/033/images/contact-resumed-skill-report-033.png",
+          "kind": "binary",
+          "sha256": "7f064db22d1f79a6db4e38b08982fc5930d80e4afb77c43bb6cad540d1c5da18"
+        },
+        {
+          "path": "docs/readmes/033/images/contact-rollback-033.png",
+          "kind": "binary",
+          "sha256": "c7807013907480bc450a1f7e7d2b3f07d7f04b41d85656f74c737f881edbbc44"
+        },
+        {
+          "path": "docs/readmes/033/images/contact-skill-version-pin-033.png",
+          "kind": "binary",
+          "sha256": "d46555bc8b9e92efd5781ac21c69a7325d9bd900bdc3525d219494f7f4e41dff"
+        },
+        {
+          "path": "docs/readmes/033/images/contact-visible-skill-reuse-033.png",
+          "kind": "binary",
+          "sha256": "8d556424a126679994849ea37611aa46e275c1e673885c66655d16bb05458a2f"
+        },
+        {
+          "path": "docs/readmes/033/images.json",
+          "kind": "text",
+          "sha256": "1dc0abbc474751fb4a2bdc2e25210d9454901e4c7ca0fb4d4b4fa5c55113e92b"
+        },
+        {
+          "path": "docs/readmes/033/index.html",
+          "kind": "text",
+          "sha256": "38c6b6bfe23fb5bebcfae0fc510158e98f7cde4defaab1e76d5ec021023ed86f"
+        },
+        {
+          "path": "docs/readmes/033/live-contact-study.json",
+          "kind": "text",
+          "sha256": "7578f7e32611a27a339e91832b5d3ec44147f42cb47263df24f65d65952751f2"
+        },
+        {
+          "path": "docs/readmes/033/native-outcomes.json",
+          "kind": "text",
+          "sha256": "b6ab0e8e5f8de1d5e48844181178d934db31f484090f1fd0b4f979564751401c"
+        },
+        {
+          "path": "docs/readmes/033/regressions.json",
+          "kind": "text",
+          "sha256": "db8b78ff29428bb06df8d078dee4001bffdd69da3e9265bb6f7a1d246573fa7e"
+        },
+        {
+          "path": "docs/readmes/033/system-map.json",
+          "kind": "text",
+          "sha256": "ee96ca32d677e3d805d9b83ed4e67d4b6b7977bf41a845c8981eb4b49e1a1cc7"
+        },
+        {
+          "path": "docs/readmes/033/verification.json",
+          "kind": "text",
+          "sha256": "bf1ce6676a5cf9d21d29d3864f70e0794fff7c61b39dd1a968322a39376930d5"
         }
       ]
     }

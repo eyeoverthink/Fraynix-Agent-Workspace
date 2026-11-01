@@ -1,0 +1,451 @@
+{
+  "passed": false,
+  "project": "C:\\Users\\eyeka\\AppData\\Local\\Temp\\fraynix-contact033-LQow8M",
+  "error": "Process ended. Resume explicitly from the compatible pushing checkpoint for both bodies and the recovery controller.\n+ actual - expected\n\n+ 'interrupted'\n- 'completed'\n",
+  "checks": [
+    "Actual comparison starts both native versions in the existing Spatial view, displays committed solver contact bodies and refuses early activation",
+    "All32 original native trials pass independent re-audit: different reserved feasible success2/7→7/7, physical negatives both fail, original frozen gates pass and all144 actual cells/three paired charts match",
+    "Visible activation requires the passing native decision and genuine canvas receipt, stores exact controller/code/decision provenance and preserves original8/32N",
+    "Visible export saves the complete32-run package; decompression/hash and every original run independently match, including both physical failures"
+  ],
+  "goals": {
+    "procedures": [],
+    "goals": [
+      {
+        "request": "Compare the contact controller on different reserved scenes",
+        "reason": "Reserved gates and actual view pass; explicit reversible activation available",
+        "procedure": "contact-study-v1",
+        "history": [
+          {
+            "reason": "Frozen suite, gates and candidate source lock precede reserved native trials",
+            "at": "2026-11-01T09:17:42.712219300Z",
+            "step": "contact-start",
+            "attempt": 1,
+            "status": "running"
+          },
+          {
+            "reason": "Paired seen development trials, candidate identity pin, then different reserved evaluation",
+            "at": "2026-11-01T09:17:42.829391900Z",
+            "step": "contact-wait",
+            "attempt": 1,
+            "status": "running"
+          },
+          {
+            "reason": "Independent original native trials, training chronology and reserved gates verified",
+            "at": "2026-11-01T09:20:35.999140900Z",
+            "step": "contact-report",
+            "attempt": 1,
+            "status": "running"
+          },
+          {
+            "reason": "Waiting for registered desktop action: canvas.verify-report",
+            "at": "2026-11-01T09:20:38.399236400Z",
+            "step": "contact-report",
+            "attempt": 1,
+            "status": "waiting-host"
+          },
+          {
+            "reason": "Actual Chromium canvas assertions passed for the pinned report version",
+            "at": "2026-11-01T09:20:41.602330400Z",
+            "step": "complete",
+            "attempt": 1,
+            "status": "running"
+          },
+          {
+            "reason": "Reserved gates and actual view pass; explicit reversible activation available",
+            "at": "2026-11-01T09:20:43.757445300Z",
+            "step": "completed",
+            "attempt": 1,
+            "status": "completed"
+          }
+        ],
+        "attempt": 1,
+        "resumes": 0,
+        "createdAt": "2026-11-01T09:17:42.712219300Z",
+        "contactView": {
+          "cells": 144,
+          "frames": 3,
+          "maxError": 7.454101563553195e-06,
+          "coordinates": 192,
+          "dataSha256": "70226d8b833078490ec87550dbc089ccfeb3140a8e085b93619b60f7fcdf072a",
+          "passed": true
+        },
+        "report": {
+          "sha256": "f66d366e72fc998312d3cae28c8c6900c42fd07342d2c0f46e2d35e728986aba",
+          "id": "66ca83b5-bb54-3c5c-9aa0-786c57f5bc4d",
+          "version": 1
+        },
+        "contactJobId": "eb935933-9916-3651-b318-6599719c6b41",
+        "step": "completed",
+        "id": "787473e9-94a0-407c-8690-1a907352465c",
+        "metrics": {
+          "developmentPositivePasses": 7,
+          "matchedSuccessCases": 2,
+          "accepted": true,
+          "baselineEvaluationPositivePasses": 2,
+          "pairs": [
+            {
+              "baselineTimeS": 12.591666666666667,
+              "baselineRunId": "125137db-976e-3269-a5d8-b3c660eb981d",
+              "negativeControl": false,
+              "candidateEffortNs": 44.70106111435832,
+              "candidateRunId": "90c6197b-13d4-3965-a309-82fa16aeb98f",
+              "baselineEffortNs": 44.70989412686491,
+              "split": "development",
+              "caseId": "eval-light",
+              "candidateJams": 0,
+              "baselineJams": 0,
+              "candidateTimeS": 12.591666666666667,
+              "baselinePassed": true,
+              "candidatePassed": true
+            },
+            {
+              "baselineTimeS": 30.275,
+              "baselineRunId": "a7852387-fa40-3cff-89e8-a2c5be767eac",
+              "negativeControl": false,
+              "candidateEffortNs": 130.8322656780947,
+              "candidateRunId": "14fc5538-3fc2-3547-9a75-e6267ea1a69d",
+              "baselineEffortNs": 131.98909163600808,
+              "split": "development",
+              "caseId": "eval-corner",
+              "candidateJams": 0,
+              "baselineJams": 0,
+              "candidateTimeS": 30.029166666666665,
+              "baselinePassed": true,
+              "candidatePassed": true
+            },
+            {
+              "baselineTimeS": 15.591666666666667,
+              "baselineRunId": "5094f841-b475-3532-bd69-fbb7143d3fb8",
+              "negativeControl": false,
+              "candidateEffortNs": 120.83276779359099,
+              "candidateRunId": "777d7b1d-7e59-323f-a578-fc672266df65",
+              "baselineEffortNs": 129.46532410045316,
+              "split": "development",
+              "caseId": "eval-heavy-friction",
+              "candidateJams": 1,
+              "baselineJams": 1,
+              "candidateTimeS": 14.545833333333333,
+              "baselinePassed": true,
+              "candidatePassed": true
+            },
+            {
+              "baselineTimeS": 33.37083333333333,
+              "baselineRunId": "7d23fc58-67ad-3c34-8442-645bc87b52bf",
+              "negativeControl": false,
+              "candidateEffortNs": 165.56186320560116,
+              "candidateRunId": "665e9945-77b3-3c5b-baf0-9da5c7b82049",
+              "baselineEffortNs": 168.18355829073482,
+              "split": "development",
+              "caseId": "eval-rough-corner",
+              "candidateJams": 1,
+              "baselineJams": 1,
+              "candidateTimeS": 33.03333333333333,
+              "baselinePassed": true,
+              "candidatePassed": true
+            },
+            {
+              "baselineTimeS": 13.95,
+              "baselineRunId": "9e49fb4c-9ac4-3339-8e7e-286abb91f5ab",
+              "negativeControl": false,
+              "candidateEffortNs": 67.78934744242811,
+              "candidateRunId": "5cb5b96e-a376-3314-9595-245bbae184b4",
+              "baselineEffortNs": 67.82542725817495,
+              "split": "development",
+              "caseId": "eval-mass",
+              "candidateJams": 0,
+              "baselineJams": 0,
+              "candidateTimeS": 13.95,
+              "baselinePassed": true,
+              "candidatePassed": true
+            },
+            {
+              "baselineTimeS": 60,
+              "baselineRunId": "cf47602c-9748-30a0-b003-064734c02d4c",
+              "negativeControl": false,
+              "candidateEffortNs": 109.54847110904966,
+              "candidateRunId": "3c14cd5b-c70c-39f2-a736-76662c214772",
+              "baselineEffortNs": 80.34127352911239,
+              "split": "development",
+              "caseId": "eval-obstacle",
+              "candidateJams": 0,
+              "baselineJams": 0,
+              "candidateTimeS": 29.166666666666668,
+              "baselinePassed": false,
+              "candidatePassed": true
+            },
+            {
+              "baselineTimeS": 60,
+              "baselineRunId": "8da31d2f-a6a4-3258-a99d-598afcda380f",
+              "negativeControl": false,
+              "candidateEffortNs": 163.1904885495818,
+              "candidateRunId": "50aa07ad-969b-3560-aa3c-b5e76553b8b8",
+              "baselineEffortNs": 132.42872369963177,
+              "split": "development",
+              "caseId": "eval-z-axis",
+              "candidateJams": 1,
+              "baselineJams": 0,
+              "candidateTimeS": 32.1625,
+              "baselinePassed": false,
+              "candidatePassed": true
+            },
+            {
+              "baselineTimeS": 60,
+              "baselineRunId": "2146f62c-43b5-36b7-b6e2-08b2f63739a6",
+              "negativeControl": true,
+              "candidateEffortNs": 146.56517009048576,
+              "candidateRunId": "93c6e69b-83e5-3102-827b-f083ffb5f1e1",
+              "baselineEffortNs": 146.56425985113378,
+              "split": "development",
+              "caseId": "eval-force-negative",
+              "candidateJams": 2,
+              "baselineJams": 2,
+              "candidateTimeS": 60,
+              "baselinePassed": false,
+              "candidatePassed": false
+            },
+            {
+              "baselineTimeS": 60,
+              "baselineRunId": "d31f84a6-fedf-3975-b0a8-eb01554cfec3",
+              "negativeControl": false,
+              "candidateEffortNs": 106.51195930426505,
+              "candidateRunId": "8cae2fde-be04-3845-b6e5-3f6cddab4692",
+              "baselineEffortNs": 78.42464011785039,
+              "split": "evaluation",
+              "caseId": "reserved033-offset",
+              "candidateJams": 0,
+              "baselineJams": 0,
+              "candidateTimeS": 29.195833333333333,
+              "baselinePassed": false,
+              "candidatePassed": true
+            },
+            {
+              "baselineTimeS": 60,
+              "baselineRunId": "3edfe609-7dcc-3745-b95a-6e1c4a147eaf",
+              "negativeControl": false,
+              "candidateEffortNs": 94.14349353164293,
+              "candidateRunId": "39dc265f-c946-336e-a7a9-6866737744fd",
+              "baselineEffortNs": 70.73856185134032,
+              "split": "evaluation",
+              "caseId": "reserved033-z-turn",
+              "candidateJams": 0,
+              "baselineJams": 0,
+              "candidateTimeS": 29.0875,
+              "baselinePassed": false,
+              "candidatePassed": true
+            },
+            {
+              "baselineTimeS": 60,
+              "baselineRunId": "3e0838fe-889d-3c12-b3b0-5c2207ad08c6",
+              "negativeControl": false,
+              "candidateEffortNs": 122.81805361366251,
+              "candidateRunId": "316a9439-5841-3bf8-8ce0-4b07048e0086",
+              "baselineEffortNs": 88.36821148245546,
+              "split": "evaluation",
+              "caseId": "reserved033-reverse-x",
+              "candidateJams": 0,
+              "baselineJams": 0,
+              "candidateTimeS": 29.404166666666665,
+              "baselinePassed": false,
+              "candidatePassed": true
+            },
+            {
+              "baselineTimeS": 60,
+              "baselineRunId": "e9deda48-b4f3-3557-b823-30a6ef8894ea",
+              "negativeControl": false,
+              "candidateEffortNs": 116.16582434799402,
+              "candidateRunId": "2fed667e-ebde-3213-a2c5-09e498499706",
+              "baselineEffortNs": 84.97140747385568,
+              "split": "evaluation",
+              "caseId": "reserved033-reverse-z",
+              "candidateJams": 0,
+              "baselineJams": 0,
+              "candidateTimeS": 29.2,
+              "baselinePassed": false,
+              "candidatePassed": true
+            },
+            {
+              "baselineTimeS": 34.354166666666664,
+              "baselineRunId": "f039722d-d3da-3518-94bc-b87c91d5be37",
+              "negativeControl": false,
+              "candidateEffortNs": 157.87663339909997,
+              "candidateRunId": "c394b456-6884-38a6-9e10-4ef137f1bd17",
+              "baselineEffortNs": 166.0886314259528,
+              "split": "evaluation",
+              "caseId": "reserved033-heavy-turn",
+              "candidateJams": 1,
+              "baselineJams": 1,
+              "candidateTimeS": 33.15,
+              "baselinePassed": true,
+              "candidatePassed": true
+            },
+            {
+              "baselineTimeS": 12.179166666666667,
+              "baselineRunId": "3ab09dfa-ec8f-3fbc-970a-6be8718e37e1",
+              "negativeControl": false,
+              "candidateEffortNs": 45.94889219835061,
+              "candidateRunId": "7ea0cb86-e220-3219-b7e0-96a9754ca8b5",
+              "baselineEffortNs": 45.94027772722044,
+              "split": "evaluation",
+              "caseId": "reserved033-light-clear",
+              "candidateJams": 0,
+              "baselineJams": 0,
+              "candidateTimeS": 12.183333333333334,
+              "baselinePassed": true,
+              "candidatePassed": true
+            },
+            {
+              "baselineTimeS": 60,
+              "baselineRunId": "43c193bb-c8f2-37d6-80e4-22b4cc29f746",
+              "negativeControl": false,
+              "candidateEffortNs": 71.27962301550599,
+              "candidateRunId": "ca90520e-1350-39c4-8069-cb262c12b7eb",
+              "baselineEffortNs": 82.76539645866508,
+              "split": "evaluation",
+              "caseId": "reserved033-diagonal",
+              "candidateJams": 0,
+              "baselineJams": 0,
+              "candidateTimeS": 19.1875,
+              "baselinePassed": false,
+              "candidatePassed": true
+            },
+            {
+              "baselineTimeS": 60,
+              "baselineRunId": "b04c82df-6147-38d9-aaa1-bef8a978ae04",
+              "negativeControl": true,
+              "candidateEffortNs": 150.94679031641414,
+              "candidateRunId": "32ef6deb-27da-3f8e-b34c-f09a422efc8c",
+              "baselineEffortNs": 406.9473519216697,
+              "split": "evaluation",
+              "caseId": "reserved033-force-negative",
+              "candidateJams": 2,
+              "baselineJams": 2,
+              "candidateTimeS": 60,
+              "baselinePassed": false,
+              "candidatePassed": false
+            }
+          ],
+          "gates": {
+            "minEvaluationMeanPenalizedTimeGainS": 2,
+            "minEvaluationSuccessGain": 1,
+            "requireAllPositiveDevelopment": true,
+            "requireAllPositiveEvaluation": true,
+            "maxMatchedSuccessEffortRatio": 1.1,
+            "negativeControlsMustFail": true,
+            "noBaselineSuccessRegression": true
+          },
+          "allCaseEffortRatio": 0.8451998404027327,
+          "evaluationPositiveCases": 7,
+          "successRegressions": 0,
+          "evaluationPositivePasses": 7,
+          "matchedSuccessEffortRatio": 0.9613100704593242,
+          "scope": "Versioned contact-controller comparison on seen development and different reserved synthetic scenes. Same8/32N and original native budgets. Not LLM training or calibrated robot control.",
+          "negativeControlErrors": 0,
+          "passed": true,
+          "developmentPositiveCases": 7,
+          "meanPenalizedTimeGainS": 20.640625000000004
+        },
+        "status": "completed",
+        "updatedAt": "2026-11-01T09:20:43.757445300Z"
+      },
+      {
+        "pusherId": "0b783227-30a5-32cf-a611-39b8ae2322f5",
+        "request": "Plan a standing approach, push through native contacts, recover and verify the crate",
+        "reason": "Compatible checkpoint restores both bodies, original plan and complete recovery controller in the same run",
+        "maxForceN": 32,
+        "pushPlanSummary": {
+          "reason": "Every push has a reachable standing pose and conservatively clear swept crate path",
+          "expanded": 86,
+          "passed": true,
+          "pushes": 5
+        },
+        "procedure": "spatial-push-v1",
+        "history": [
+          {
+            "reason": "Original scene, two actual body roles, target and force budgets frozen; standing-pose search required",
+            "at": "2026-11-01T09:21:13.582754900Z",
+            "step": "push-plan",
+            "attempt": 1,
+            "status": "running"
+          },
+          {
+            "reason": "Every push has a reachable standing cell and conservatively clear swept path; actual native execution next",
+            "at": "2026-11-01T09:21:13.777638Z",
+            "step": "push-start",
+            "attempt": 1,
+            "status": "running"
+          },
+          {
+            "reason": "Native pusher forces executing; measured crate contact/progress and bounded recovery active",
+            "at": "2026-11-01T09:21:13.959676300Z",
+            "step": "push-wait",
+            "attempt": 1,
+            "status": "running"
+          },
+          {
+            "reason": "Compatible checkpoint restores both bodies, original plan and complete recovery controller in the same run",
+            "at": "2026-11-01T09:21:17.420208900Z",
+            "step": "push-wait",
+            "attempt": 1,
+            "status": "running"
+          }
+        ],
+        "attempt": 1,
+        "resumes": 1,
+        "createdAt": "2026-11-01T09:21:13.582754900Z",
+        "contactPolicy": {
+          "jobId": "eb935933-9916-3651-b318-6599719c6b41",
+          "maxForceN": 32,
+          "codeSha256": "90b857f35771d801f7d9fd7a03dc19de80ad02f762c04b94d4ba381dd45ca388",
+          "viewReceipt": {
+            "cells": 144,
+            "frames": 3,
+            "maxError": 7.454101563553195e-06,
+            "coordinates": 192,
+            "dataSha256": "70226d8b833078490ec87550dbc089ccfeb3140a8e085b93619b60f7fcdf072a",
+            "passed": true
+          },
+          "sha256": "f236f4c43ca34f84992e6aa6951aa0595580d106a77706a87a0015d0a74741e9",
+          "initialForceN": 8,
+          "nativeCodeSha256": "5fcab3485670948d1da3117eef96a0f6a85ee725a214f4713387b37875cc1bb7",
+          "id": "contact-eb935933-9916-3651-b318-6599719c6b41",
+          "suiteSha256": "766227d3821323f00ee18069fd9c04743242e92734d707580e53c9df11195892",
+          "controllerVersion": "solver-contact-controller-033-v1",
+          "decisionSha256": "18ddfbbe297709b77f46e3c66906bd94c3b022400179d99a7b61aef698973284"
+        },
+        "pushRuntimeKind": "solver-contact-controller-033-v1",
+        "pushBinding": {
+          "sourceSha256": "7d651eaabed49fe2da2d7e0a87bdbb261ab95c752f7340112022b30dabd6f114",
+          "definitionSha256": "69ba0e3439cacd0a90fdebe15477bcebc400652d4da55fbe501bf814cfbe515c",
+          "sceneId": "25bc3f0f-0b83-4a82-b31d-3d6b814bf83c",
+          "version": 1
+        },
+        "initialForceN": 8,
+        "step": "push-wait",
+        "id": "43fb2f88-a71e-47eb-84a6-92891560725c",
+        "runId": "ad3b798d-a267-3685-b5b7-d960ff4e0bca",
+        "pushTargetM": [
+          0,
+          0.3,
+          2
+        ],
+        "displacementM": [
+          0,
+          0,
+          3
+        ],
+        "objectId": "f02270c7-e1e5-36e0-bd25-8182abc9ed75",
+        "status": "running",
+        "updatedAt": "2026-11-01T09:21:17.420208900Z"
+      }
+    ]
+  },
+  "activity": [
+    {
+      "at": "2026-11-01T09:21:16.797Z",
+      "kind": "goal",
+      "text": "Java contact pushing interrupted: Process ended. Resume explicitly from the compatible pushing checkpoint for both bodies and the recovery controller. Declared native two-body contact task and procedural retention; no universal robot or LLM-weight-training claim.",
+      "data": {}
+    }
+  ]
+}

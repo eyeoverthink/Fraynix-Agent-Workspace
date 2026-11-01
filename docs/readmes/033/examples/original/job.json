@@ -1,0 +1,5392 @@
+{
+  "completedAt": "2026-11-01T09:49:13.899299600Z",
+  "goalId": "d5f3bd9f-b6e1-44f9-bf5f-37171a1ab1d5",
+  "viewReceipt": {
+    "cells": 144,
+    "frames": 3,
+    "maxError": 7.454101563553195e-06,
+    "coordinates": 192,
+    "dataSha256": "677fe101431f2c73a232dc9f98b0185c9298afe89677f54f934d09dfb5e14286",
+    "passed": true
+  },
+  "decision": {
+    "developmentPositivePasses": 7,
+    "matchedSuccessCases": 2,
+    "accepted": true,
+    "baselineEvaluationPositivePasses": 2,
+    "pairs": [
+      {
+        "baselineTimeS": 12.591666666666667,
+        "baselineRunId": "f351dd6c-ab0f-3a21-bace-f594bfe9dec3",
+        "negativeControl": false,
+        "candidateEffortNs": 44.70106111435832,
+        "candidateRunId": "7986f569-2007-3361-b038-36711f469170",
+        "baselineEffortNs": 44.70989412686491,
+        "split": "development",
+        "caseId": "eval-light",
+        "candidateJams": 0,
+        "baselineJams": 0,
+        "candidateTimeS": 12.591666666666667,
+        "baselinePassed": true,
+        "candidatePassed": true
+      },
+      {
+        "baselineTimeS": 30.275,
+        "baselineRunId": "b5a9e848-2192-3e28-84c4-0eed02ca6164",
+        "negativeControl": false,
+        "candidateEffortNs": 130.8322656780947,
+        "candidateRunId": "eea83cbc-bc49-339d-a3e4-3376d7a92e63",
+        "baselineEffortNs": 131.98909163600808,
+        "split": "development",
+        "caseId": "eval-corner",
+        "candidateJams": 0,
+        "baselineJams": 0,
+        "candidateTimeS": 30.029166666666665,
+        "baselinePassed": true,
+        "candidatePassed": true
+      },
+      {
+        "baselineTimeS": 15.591666666666667,
+        "baselineRunId": "828a3c13-dc4b-3bb3-a005-69d83a88e0cb",
+        "negativeControl": false,
+        "candidateEffortNs": 120.83276779359099,
+        "candidateRunId": "99586756-6fbb-3927-bcae-ddb82b0d729e",
+        "baselineEffortNs": 129.46532410045316,
+        "split": "development",
+        "caseId": "eval-heavy-friction",
+        "candidateJams": 1,
+        "baselineJams": 1,
+        "candidateTimeS": 14.545833333333333,
+        "baselinePassed": true,
+        "candidatePassed": true
+      },
+      {
+        "baselineTimeS": 33.37083333333333,
+        "baselineRunId": "65f9f4f0-15ff-3494-a8d1-bceeb71a4844",
+        "negativeControl": false,
+        "candidateEffortNs": 165.56186320560116,
+        "candidateRunId": "de9c35f3-3519-3c9b-8157-cc91b6956120",
+        "baselineEffortNs": 168.18355829073482,
+        "split": "development",
+        "caseId": "eval-rough-corner",
+        "candidateJams": 1,
+        "baselineJams": 1,
+        "candidateTimeS": 33.03333333333333,
+        "baselinePassed": true,
+        "candidatePassed": true
+      },
+      {
+        "baselineTimeS": 13.95,
+        "baselineRunId": "341839a2-0ba5-3c10-8913-d9e2b6d4ec2b",
+        "negativeControl": false,
+        "candidateEffortNs": 67.78934744242811,
+        "candidateRunId": "2e37647d-19bf-35f0-aa4d-f253fc2c37ee",
+        "baselineEffortNs": 67.82542725817495,
+        "split": "development",
+        "caseId": "eval-mass",
+        "candidateJams": 0,
+        "baselineJams": 0,
+        "candidateTimeS": 13.95,
+        "baselinePassed": true,
+        "candidatePassed": true
+      },
+      {
+        "baselineTimeS": 60,
+        "baselineRunId": "b2a3b5cb-fc28-38fe-9b2a-5cbc02ed5d76",
+        "negativeControl": false,
+        "candidateEffortNs": 109.54847110904966,
+        "candidateRunId": "4cbe34ac-721a-3d5f-9667-f4b6eba71dd3",
+        "baselineEffortNs": 80.34127352911239,
+        "split": "development",
+        "caseId": "eval-obstacle",
+        "candidateJams": 0,
+        "baselineJams": 0,
+        "candidateTimeS": 29.166666666666668,
+        "baselinePassed": false,
+        "candidatePassed": true
+      },
+      {
+        "baselineTimeS": 60,
+        "baselineRunId": "60e6c8d9-bc59-3abb-b867-537f34c24a55",
+        "negativeControl": false,
+        "candidateEffortNs": 163.1904885495818,
+        "candidateRunId": "5b963ce3-fdbe-3d88-8cc7-eca0cdc07bc3",
+        "baselineEffortNs": 132.42872369963177,
+        "split": "development",
+        "caseId": "eval-z-axis",
+        "candidateJams": 1,
+        "baselineJams": 0,
+        "candidateTimeS": 32.1625,
+        "baselinePassed": false,
+        "candidatePassed": true
+      },
+      {
+        "baselineTimeS": 60,
+        "baselineRunId": "17c06eba-b8f7-3eb3-8550-92f2afb7a68f",
+        "negativeControl": true,
+        "candidateEffortNs": 146.56517009048576,
+        "candidateRunId": "0748613b-6b53-3a1e-8933-96db858c226b",
+        "baselineEffortNs": 146.56425985113378,
+        "split": "development",
+        "caseId": "eval-force-negative",
+        "candidateJams": 2,
+        "baselineJams": 2,
+        "candidateTimeS": 60,
+        "baselinePassed": false,
+        "candidatePassed": false
+      },
+      {
+        "baselineTimeS": 60,
+        "baselineRunId": "73ed0b20-a0af-3f65-b49b-e28b9054e5d2",
+        "negativeControl": false,
+        "candidateEffortNs": 106.51195930426505,
+        "candidateRunId": "7bb8c124-e3e1-3030-8543-b1aca92d6e39",
+        "baselineEffortNs": 78.42464011785039,
+        "split": "evaluation",
+        "caseId": "reserved033-offset",
+        "candidateJams": 0,
+        "baselineJams": 0,
+        "candidateTimeS": 29.195833333333333,
+        "baselinePassed": false,
+        "candidatePassed": true
+      },
+      {
+        "baselineTimeS": 60,
+        "baselineRunId": "11870c95-3abb-311a-a4a1-fe8a2c24ce01",
+        "negativeControl": false,
+        "candidateEffortNs": 94.14349353164293,
+        "candidateRunId": "740bcdab-841f-327e-93e0-1feda004cc4d",
+        "baselineEffortNs": 70.73856185134032,
+        "split": "evaluation",
+        "caseId": "reserved033-z-turn",
+        "candidateJams": 0,
+        "baselineJams": 0,
+        "candidateTimeS": 29.0875,
+        "baselinePassed": false,
+        "candidatePassed": true
+      },
+      {
+        "baselineTimeS": 60,
+        "baselineRunId": "53a370f7-489d-3956-ba67-7a4a32be5bc8",
+        "negativeControl": false,
+        "candidateEffortNs": 122.81805361366251,
+        "candidateRunId": "30a4d850-dfac-32d5-8852-48131632b01e",
+        "baselineEffortNs": 88.36821148245546,
+        "split": "evaluation",
+        "caseId": "reserved033-reverse-x",
+        "candidateJams": 0,
+        "baselineJams": 0,
+        "candidateTimeS": 29.404166666666665,
+        "baselinePassed": false,
+        "candidatePassed": true
+      },
+      {
+        "baselineTimeS": 60,
+        "baselineRunId": "13f67d62-a074-3b6b-b899-d1a7e88be373",
+        "negativeControl": false,
+        "candidateEffortNs": 116.16582434799402,
+        "candidateRunId": "e625ffff-c375-3bca-a822-5fe4e2901e6b",
+        "baselineEffortNs": 84.97140747385568,
+        "split": "evaluation",
+        "caseId": "reserved033-reverse-z",
+        "candidateJams": 0,
+        "baselineJams": 0,
+        "candidateTimeS": 29.2,
+        "baselinePassed": false,
+        "candidatePassed": true
+      },
+      {
+        "baselineTimeS": 34.354166666666664,
+        "baselineRunId": "cd2f8b21-b5de-3076-9109-06cbaada8cbf",
+        "negativeControl": false,
+        "candidateEffortNs": 157.87663339909997,
+        "candidateRunId": "e9fa6387-fe42-325d-8bcc-c95c55e468c3",
+        "baselineEffortNs": 166.0886314259528,
+        "split": "evaluation",
+        "caseId": "reserved033-heavy-turn",
+        "candidateJams": 1,
+        "baselineJams": 1,
+        "candidateTimeS": 33.15,
+        "baselinePassed": true,
+        "candidatePassed": true
+      },
+      {
+        "baselineTimeS": 12.179166666666667,
+        "baselineRunId": "cda07388-da32-3a18-927b-05229e61ae57",
+        "negativeControl": false,
+        "candidateEffortNs": 45.94889219835061,
+        "candidateRunId": "535dbdbc-3457-3715-b22c-1a7caa533497",
+        "baselineEffortNs": 45.94027772722044,
+        "split": "evaluation",
+        "caseId": "reserved033-light-clear",
+        "candidateJams": 0,
+        "baselineJams": 0,
+        "candidateTimeS": 12.183333333333334,
+        "baselinePassed": true,
+        "candidatePassed": true
+      },
+      {
+        "baselineTimeS": 60,
+        "baselineRunId": "861b5b5d-466d-3d17-ba01-25e037a89dc0",
+        "negativeControl": false,
+        "candidateEffortNs": 71.27962301550599,
+        "candidateRunId": "b7087b29-6084-3023-99be-0a6fa57f5579",
+        "baselineEffortNs": 82.76539645866508,
+        "split": "evaluation",
+        "caseId": "reserved033-diagonal",
+        "candidateJams": 0,
+        "baselineJams": 0,
+        "candidateTimeS": 19.1875,
+        "baselinePassed": false,
+        "candidatePassed": true
+      },
+      {
+        "baselineTimeS": 60,
+        "baselineRunId": "318c2831-0941-3ad9-8356-5e378ed30421",
+        "negativeControl": true,
+        "candidateEffortNs": 150.94679031641414,
+        "candidateRunId": "f0d576b5-2f22-3ff3-b12f-8cce20ce8e77",
+        "baselineEffortNs": 406.9473519216697,
+        "split": "evaluation",
+        "caseId": "reserved033-force-negative",
+        "candidateJams": 2,
+        "baselineJams": 2,
+        "candidateTimeS": 60,
+        "baselinePassed": false,
+        "candidatePassed": false
+      }
+    ],
+    "gates": {
+      "minEvaluationMeanPenalizedTimeGainS": 2,
+      "minEvaluationSuccessGain": 1,
+      "requireAllPositiveDevelopment": true,
+      "requireAllPositiveEvaluation": true,
+      "maxMatchedSuccessEffortRatio": 1.1,
+      "negativeControlsMustFail": true,
+      "noBaselineSuccessRegression": true
+    },
+    "allCaseEffortRatio": 0.8451998404027327,
+    "evaluationPositiveCases": 7,
+    "successRegressions": 0,
+    "evaluationPositivePasses": 7,
+    "matchedSuccessEffortRatio": 0.9613100704593242,
+    "scope": "Versioned contact-controller comparison on seen development and different reserved synthetic scenes. Same8/32N and original native budgets. Not LLM training or calibrated robot control.",
+    "negativeControlErrors": 0,
+    "passed": true,
+    "developmentPositiveCases": 7,
+    "meanPenalizedTimeGainS": 20.640625000000004
+  },
+  "candidateFrozenCodeSha256": "5fcab3485670948d1da3117eef96a0f6a85ee725a214f4713387b37875cc1bb7",
+  "candidateFrozenAt": "2026-11-01T09:47:43.420772900Z",
+  "resumes": 0,
+  "createdAt": "2026-11-01T09:46:35.124722300Z",
+  "codeSha256": "90b857f35771d801f7d9fd7a03dc19de80ad02f762c04b94d4ba381dd45ca388",
+  "current": {
+    "split": "evaluation",
+    "caseId": "reserved033-force-negative",
+    "initialForceN": 8,
+    "runId": "f0d576b5-2f22-3ff3-b12f-8cce20ce8e77",
+    "arm": "candidate"
+  },
+  "suite": {
+    "frozenDate": "2026-11-01",
+    "gates": {
+      "minEvaluationMeanPenalizedTimeGainS": 2,
+      "minEvaluationSuccessGain": 1,
+      "requireAllPositiveDevelopment": true,
+      "requireAllPositiveEvaluation": true,
+      "maxMatchedSuccessEffortRatio": 1.1,
+      "negativeControlsMustFail": true,
+      "noBaselineSuccessRegression": true
+    },
+    "maxForceN": 32,
+    "cases": [
+      {
+        "split": "development",
+        "negativeControl": false,
+        "id": "eval-light",
+        "source": {
+          "objects": [
+            {
+              "sourceId": "floor",
+              "shape": "box",
+              "size": [
+                8,
+                0.4,
+                8
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "floor",
+              "position": [
+                0,
+                -0.2,
+                0
+              ],
+              "massKg": 0,
+              "friction": 0.55
+            },
+            {
+              "sourceId": "crate",
+              "shape": "box",
+              "size": [
+                0.6,
+                0.6,
+                0.6
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "crate",
+              "position": [
+                -1,
+                0.32,
+                0
+              ],
+              "massKg": 0.75,
+              "friction": 0.6
+            },
+            {
+              "sourceId": "pusher",
+              "shape": "box",
+              "size": [
+                0.5,
+                0.4,
+                0.5
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "pusher",
+              "position": [
+                -3,
+                0.22,
+                0
+              ],
+              "massKg": 2.5,
+              "friction": 0.15
+            },
+            {
+              "sourceId": "boundary-x--1",
+              "shape": "box",
+              "size": [
+                0.3,
+                1.5,
+                8
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "boundary-x--1",
+              "position": [
+                -4,
+                0.75,
+                0
+              ],
+              "massKg": 0,
+              "friction": 0.6
+            },
+            {
+              "sourceId": "boundary-z--1",
+              "shape": "box",
+              "size": [
+                8,
+                1.5,
+                0.3
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "boundary-z--1",
+              "position": [
+                0,
+                0.75,
+                -4
+              ],
+              "massKg": 0,
+              "friction": 0.6
+            },
+            {
+              "sourceId": "boundary-x-1",
+              "shape": "box",
+              "size": [
+                0.3,
+                1.5,
+                8
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "boundary-x-1",
+              "position": [
+                4,
+                0.75,
+                0
+              ],
+              "massKg": 0,
+              "friction": 0.6
+            },
+            {
+              "sourceId": "boundary-z-1",
+              "shape": "box",
+              "size": [
+                8,
+                1.5,
+                0.3
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "boundary-z-1",
+              "position": [
+                0,
+                0.75,
+                4
+              ],
+              "massKg": 0,
+              "friction": 0.6
+            }
+          ],
+          "format": "fraynix.spatial-scene",
+          "units": "m",
+          "source": {
+            "note": "Synthetic declared native-physics case frozen before edition032 selection/evaluation. No captured room or measured material inference.",
+            "kind": "synthetic",
+            "physicalProperties": "declared"
+          },
+          "title": "Labelled reserved pushing case · eval-light",
+          "version": 1,
+          "scaleReference": {
+            "a": [
+              -1,
+              0,
+              0
+            ],
+            "b": [
+              1,
+              0,
+              0
+            ],
+            "toleranceM": 0.001,
+            "knownLengthM": 2,
+            "basis": "declared-test"
+          },
+          "frame": "right-handed-y-up",
+          "gravityMps2": 9.81
+        },
+        "displacementM": [
+          3,
+          0,
+          0
+        ]
+      },
+      {
+        "split": "development",
+        "negativeControl": false,
+        "id": "eval-corner",
+        "source": {
+          "objects": [
+            {
+              "sourceId": "floor",
+              "shape": "box",
+              "size": [
+                8,
+                0.4,
+                8
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "floor",
+              "position": [
+                0,
+                -0.2,
+                0
+              ],
+              "massKg": 0,
+              "friction": 0.7
+            },
+            {
+              "sourceId": "crate",
+              "shape": "box",
+              "size": [
+                0.6,
+                0.6,
+                0.6
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "crate",
+              "position": [
+                -1,
+                0.32,
+                0
+              ],
+              "massKg": 1.25,
+              "friction": 0.65
+            },
+            {
+              "sourceId": "pusher",
+              "shape": "box",
+              "size": [
+                0.5,
+                0.4,
+                0.5
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "pusher",
+              "position": [
+                -3,
+                0.22,
+                0
+              ],
+              "massKg": 2,
+              "friction": 0.15
+            },
+            {
+              "sourceId": "boundary-x--1",
+              "shape": "box",
+              "size": [
+                0.3,
+                1.5,
+                8
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "boundary-x--1",
+              "position": [
+                -4,
+                0.75,
+                0
+              ],
+              "massKg": 0,
+              "friction": 0.6
+            },
+            {
+              "sourceId": "boundary-z--1",
+              "shape": "box",
+              "size": [
+                8,
+                1.5,
+                0.3
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "boundary-z--1",
+              "position": [
+                0,
+                0.75,
+                -4
+              ],
+              "massKg": 0,
+              "friction": 0.6
+            },
+            {
+              "sourceId": "boundary-x-1",
+              "shape": "box",
+              "size": [
+                0.3,
+                1.5,
+                8
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "boundary-x-1",
+              "position": [
+                4,
+                0.75,
+                0
+              ],
+              "massKg": 0,
+              "friction": 0.6
+            },
+            {
+              "sourceId": "boundary-z-1",
+              "shape": "box",
+              "size": [
+                8,
+                1.5,
+                0.3
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "boundary-z-1",
+              "position": [
+                0,
+                0.75,
+                4
+              ],
+              "massKg": 0,
+              "friction": 0.6
+            },
+            {
+              "sourceId": "central-obstacle",
+              "shape": "box",
+              "size": [
+                0.6,
+                1.2,
+                0.6
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "central-obstacle",
+              "position": [
+                1,
+                0.6,
+                0
+              ],
+              "massKg": 0,
+              "friction": 0.6
+            }
+          ],
+          "format": "fraynix.spatial-scene",
+          "units": "m",
+          "source": {
+            "note": "Synthetic declared native-physics case frozen before edition032 selection/evaluation. No captured room or measured material inference.",
+            "kind": "synthetic",
+            "physicalProperties": "declared"
+          },
+          "title": "Labelled reserved pushing case · eval-corner",
+          "version": 1,
+          "scaleReference": {
+            "a": [
+              -1,
+              0,
+              0
+            ],
+            "b": [
+              1,
+              0,
+              0
+            ],
+            "toleranceM": 0.001,
+            "knownLengthM": 2,
+            "basis": "declared-test"
+          },
+          "frame": "right-handed-y-up",
+          "gravityMps2": 9.81
+        },
+        "displacementM": [
+          3,
+          0,
+          0
+        ]
+      },
+      {
+        "split": "development",
+        "negativeControl": false,
+        "id": "eval-heavy-friction",
+        "source": {
+          "objects": [
+            {
+              "sourceId": "floor",
+              "shape": "box",
+              "size": [
+                8,
+                0.4,
+                8
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "floor",
+              "position": [
+                0,
+                -0.2,
+                0
+              ],
+              "massKg": 0,
+              "friction": 0.9
+            },
+            {
+              "sourceId": "crate",
+              "shape": "box",
+              "size": [
+                0.6,
+                0.6,
+                0.6
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "crate",
+              "position": [
+                -1,
+                0.32,
+                0
+              ],
+              "massKg": 2,
+              "friction": 0.8
+            },
+            {
+              "sourceId": "pusher",
+              "shape": "box",
+              "size": [
+                0.5,
+                0.4,
+                0.5
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "pusher",
+              "position": [
+                -3,
+                0.22,
+                0
+              ],
+              "massKg": 1.5,
+              "friction": 0.15
+            },
+            {
+              "sourceId": "boundary-x--1",
+              "shape": "box",
+              "size": [
+                0.3,
+                1.5,
+                8
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "boundary-x--1",
+              "position": [
+                -4,
+                0.75,
+                0
+              ],
+              "massKg": 0,
+              "friction": 0.6
+            },
+            {
+              "sourceId": "boundary-z--1",
+              "shape": "box",
+              "size": [
+                8,
+                1.5,
+                0.3
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "boundary-z--1",
+              "position": [
+                0,
+                0.75,
+                -4
+              ],
+              "massKg": 0,
+              "friction": 0.6
+            },
+            {
+              "sourceId": "boundary-x-1",
+              "shape": "box",
+              "size": [
+                0.3,
+                1.5,
+                8
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "boundary-x-1",
+              "position": [
+                4,
+                0.75,
+                0
+              ],
+              "massKg": 0,
+              "friction": 0.6
+            },
+            {
+              "sourceId": "boundary-z-1",
+              "shape": "box",
+              "size": [
+                8,
+                1.5,
+                0.3
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "boundary-z-1",
+              "position": [
+                0,
+                0.75,
+                4
+              ],
+              "massKg": 0,
+              "friction": 0.6
+            }
+          ],
+          "format": "fraynix.spatial-scene",
+          "units": "m",
+          "source": {
+            "note": "Synthetic declared native-physics case frozen before edition032 selection/evaluation. No captured room or measured material inference.",
+            "kind": "synthetic",
+            "physicalProperties": "declared"
+          },
+          "title": "Labelled reserved pushing case · eval-heavy-friction",
+          "version": 1,
+          "scaleReference": {
+            "a": [
+              -1,
+              0,
+              0
+            ],
+            "b": [
+              1,
+              0,
+              0
+            ],
+            "toleranceM": 0.001,
+            "knownLengthM": 2,
+            "basis": "declared-test"
+          },
+          "frame": "right-handed-y-up",
+          "gravityMps2": 9.81
+        },
+        "displacementM": [
+          3,
+          0,
+          0
+        ]
+      },
+      {
+        "split": "development",
+        "negativeControl": false,
+        "id": "eval-rough-corner",
+        "source": {
+          "objects": [
+            {
+              "sourceId": "floor",
+              "shape": "box",
+              "size": [
+                8,
+                0.4,
+                8
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "floor",
+              "position": [
+                0,
+                -0.2,
+                0
+              ],
+              "massKg": 0,
+              "friction": 0.9
+            },
+            {
+              "sourceId": "crate",
+              "shape": "box",
+              "size": [
+                0.6,
+                0.6,
+                0.6
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "crate",
+              "position": [
+                -1,
+                0.32,
+                0
+              ],
+              "massKg": 0.8,
+              "friction": 0.85
+            },
+            {
+              "sourceId": "pusher",
+              "shape": "box",
+              "size": [
+                0.5,
+                0.4,
+                0.5
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "pusher",
+              "position": [
+                -3,
+                0.22,
+                0
+              ],
+              "massKg": 2,
+              "friction": 0.15
+            },
+            {
+              "sourceId": "boundary-x--1",
+              "shape": "box",
+              "size": [
+                0.3,
+                1.5,
+                8
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "boundary-x--1",
+              "position": [
+                -4,
+                0.75,
+                0
+              ],
+              "massKg": 0,
+              "friction": 0.6
+            },
+            {
+              "sourceId": "boundary-z--1",
+              "shape": "box",
+              "size": [
+                8,
+                1.5,
+                0.3
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "boundary-z--1",
+              "position": [
+                0,
+                0.75,
+                -4
+              ],
+              "massKg": 0,
+              "friction": 0.6
+            },
+            {
+              "sourceId": "boundary-x-1",
+              "shape": "box",
+              "size": [
+                0.3,
+                1.5,
+                8
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "boundary-x-1",
+              "position": [
+                4,
+                0.75,
+                0
+              ],
+              "massKg": 0,
+              "friction": 0.6
+            },
+            {
+              "sourceId": "boundary-z-1",
+              "shape": "box",
+              "size": [
+                8,
+                1.5,
+                0.3
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "boundary-z-1",
+              "position": [
+                0,
+                0.75,
+                4
+              ],
+              "massKg": 0,
+              "friction": 0.6
+            },
+            {
+              "sourceId": "central-obstacle",
+              "shape": "box",
+              "size": [
+                0.6,
+                1.2,
+                0.6
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "central-obstacle",
+              "position": [
+                1,
+                0.6,
+                0
+              ],
+              "massKg": 0,
+              "friction": 0.6
+            }
+          ],
+          "format": "fraynix.spatial-scene",
+          "units": "m",
+          "source": {
+            "note": "Synthetic declared native-physics case frozen before edition032 selection/evaluation. No captured room or measured material inference.",
+            "kind": "synthetic",
+            "physicalProperties": "declared"
+          },
+          "title": "Labelled reserved pushing case · eval-rough-corner",
+          "version": 1,
+          "scaleReference": {
+            "a": [
+              -1,
+              0,
+              0
+            ],
+            "b": [
+              1,
+              0,
+              0
+            ],
+            "toleranceM": 0.001,
+            "knownLengthM": 2,
+            "basis": "declared-test"
+          },
+          "frame": "right-handed-y-up",
+          "gravityMps2": 9.81
+        },
+        "displacementM": [
+          3,
+          0,
+          0
+        ]
+      },
+      {
+        "split": "development",
+        "negativeControl": false,
+        "id": "eval-mass",
+        "source": {
+          "objects": [
+            {
+              "sourceId": "floor",
+              "shape": "box",
+              "size": [
+                8,
+                0.4,
+                8
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "floor",
+              "position": [
+                0,
+                -0.2,
+                0
+              ],
+              "massKg": 0,
+              "friction": 0.4
+            },
+            {
+              "sourceId": "crate",
+              "shape": "box",
+              "size": [
+                0.6,
+                0.6,
+                0.6
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "crate",
+              "position": [
+                -1,
+                0.32,
+                0
+              ],
+              "massKg": 3.2,
+              "friction": 0.45
+            },
+            {
+              "sourceId": "pusher",
+              "shape": "box",
+              "size": [
+                0.5,
+                0.4,
+                0.5
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "pusher",
+              "position": [
+                -3,
+                0.22,
+                0
+              ],
+              "massKg": 2.5,
+              "friction": 0.15
+            },
+            {
+              "sourceId": "boundary-x--1",
+              "shape": "box",
+              "size": [
+                0.3,
+                1.5,
+                8
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "boundary-x--1",
+              "position": [
+                -4,
+                0.75,
+                0
+              ],
+              "massKg": 0,
+              "friction": 0.6
+            },
+            {
+              "sourceId": "boundary-z--1",
+              "shape": "box",
+              "size": [
+                8,
+                1.5,
+                0.3
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "boundary-z--1",
+              "position": [
+                0,
+                0.75,
+                -4
+              ],
+              "massKg": 0,
+              "friction": 0.6
+            },
+            {
+              "sourceId": "boundary-x-1",
+              "shape": "box",
+              "size": [
+                0.3,
+                1.5,
+                8
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "boundary-x-1",
+              "position": [
+                4,
+                0.75,
+                0
+              ],
+              "massKg": 0,
+              "friction": 0.6
+            },
+            {
+              "sourceId": "boundary-z-1",
+              "shape": "box",
+              "size": [
+                8,
+                1.5,
+                0.3
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "boundary-z-1",
+              "position": [
+                0,
+                0.75,
+                4
+              ],
+              "massKg": 0,
+              "friction": 0.6
+            }
+          ],
+          "format": "fraynix.spatial-scene",
+          "units": "m",
+          "source": {
+            "note": "Synthetic declared native-physics case frozen before edition032 selection/evaluation. No captured room or measured material inference.",
+            "kind": "synthetic",
+            "physicalProperties": "declared"
+          },
+          "title": "Labelled reserved pushing case · eval-mass",
+          "version": 1,
+          "scaleReference": {
+            "a": [
+              -1,
+              0,
+              0
+            ],
+            "b": [
+              1,
+              0,
+              0
+            ],
+            "toleranceM": 0.001,
+            "knownLengthM": 2,
+            "basis": "declared-test"
+          },
+          "frame": "right-handed-y-up",
+          "gravityMps2": 9.81
+        },
+        "displacementM": [
+          3,
+          0,
+          0
+        ]
+      },
+      {
+        "split": "development",
+        "negativeControl": false,
+        "id": "eval-obstacle",
+        "source": {
+          "objects": [
+            {
+              "sourceId": "floor",
+              "shape": "box",
+              "size": [
+                8,
+                0.4,
+                8
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "floor",
+              "position": [
+                0,
+                -0.2,
+                0
+              ],
+              "massKg": 0,
+              "friction": 0.6
+            },
+            {
+              "sourceId": "crate",
+              "shape": "box",
+              "size": [
+                0.6,
+                0.6,
+                0.6
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "crate",
+              "position": [
+                -1,
+                0.32,
+                0
+              ],
+              "massKg": 1.1,
+              "friction": 0.7
+            },
+            {
+              "sourceId": "pusher",
+              "shape": "box",
+              "size": [
+                0.5,
+                0.4,
+                0.5
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "pusher",
+              "position": [
+                -3,
+                0.22,
+                0
+              ],
+              "massKg": 2,
+              "friction": 0.15
+            },
+            {
+              "sourceId": "boundary-x--1",
+              "shape": "box",
+              "size": [
+                0.3,
+                1.5,
+                8
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "boundary-x--1",
+              "position": [
+                -4,
+                0.75,
+                0
+              ],
+              "massKg": 0,
+              "friction": 0.6
+            },
+            {
+              "sourceId": "boundary-z--1",
+              "shape": "box",
+              "size": [
+                8,
+                1.5,
+                0.3
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "boundary-z--1",
+              "position": [
+                0,
+                0.75,
+                -4
+              ],
+              "massKg": 0,
+              "friction": 0.6
+            },
+            {
+              "sourceId": "boundary-x-1",
+              "shape": "box",
+              "size": [
+                0.3,
+                1.5,
+                8
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "boundary-x-1",
+              "position": [
+                4,
+                0.75,
+                0
+              ],
+              "massKg": 0,
+              "friction": 0.6
+            },
+            {
+              "sourceId": "boundary-z-1",
+              "shape": "box",
+              "size": [
+                8,
+                1.5,
+                0.3
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "boundary-z-1",
+              "position": [
+                0,
+                0.75,
+                4
+              ],
+              "massKg": 0,
+              "friction": 0.6
+            },
+            {
+              "sourceId": "central-obstacle",
+              "shape": "box",
+              "size": [
+                0.6,
+                1.2,
+                0.6
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "central-obstacle",
+              "position": [
+                0,
+                0.6,
+                0
+              ],
+              "massKg": 0,
+              "friction": 0.6
+            }
+          ],
+          "format": "fraynix.spatial-scene",
+          "units": "m",
+          "source": {
+            "note": "Synthetic declared native-physics case frozen before edition032 selection/evaluation. No captured room or measured material inference.",
+            "kind": "synthetic",
+            "physicalProperties": "declared"
+          },
+          "title": "Labelled reserved pushing case · eval-obstacle",
+          "version": 1,
+          "scaleReference": {
+            "a": [
+              -1,
+              0,
+              0
+            ],
+            "b": [
+              1,
+              0,
+              0
+            ],
+            "toleranceM": 0.001,
+            "knownLengthM": 2,
+            "basis": "declared-test"
+          },
+          "frame": "right-handed-y-up",
+          "gravityMps2": 9.81
+        },
+        "displacementM": [
+          3,
+          0,
+          0
+        ]
+      },
+      {
+        "split": "development",
+        "negativeControl": false,
+        "id": "eval-z-axis",
+        "source": {
+          "objects": [
+            {
+              "sourceId": "floor",
+              "shape": "box",
+              "size": [
+                8,
+                0.4,
+                8
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "floor",
+              "position": [
+                0,
+                -0.2,
+                0
+              ],
+              "massKg": 0,
+              "friction": 0.75
+            },
+            {
+              "sourceId": "crate",
+              "shape": "box",
+              "size": [
+                0.6,
+                0.6,
+                0.6
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "crate",
+              "position": [
+                0,
+                0.32,
+                -1
+              ],
+              "massKg": 1.4,
+              "friction": 0.7
+            },
+            {
+              "sourceId": "pusher",
+              "shape": "box",
+              "size": [
+                0.5,
+                0.4,
+                0.5
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "pusher",
+              "position": [
+                0,
+                0.22,
+                -3
+              ],
+              "massKg": 2,
+              "friction": 0.15
+            },
+            {
+              "sourceId": "boundary-x--1",
+              "shape": "box",
+              "size": [
+                0.3,
+                1.5,
+                8
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "boundary-x--1",
+              "position": [
+                -4,
+                0.75,
+                0
+              ],
+              "massKg": 0,
+              "friction": 0.6
+            },
+            {
+              "sourceId": "boundary-z--1",
+              "shape": "box",
+              "size": [
+                8,
+                1.5,
+                0.3
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "boundary-z--1",
+              "position": [
+                0,
+                0.75,
+                -4
+              ],
+              "massKg": 0,
+              "friction": 0.6
+            },
+            {
+              "sourceId": "boundary-x-1",
+              "shape": "box",
+              "size": [
+                0.3,
+                1.5,
+                8
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "boundary-x-1",
+              "position": [
+                4,
+                0.75,
+                0
+              ],
+              "massKg": 0,
+              "friction": 0.6
+            },
+            {
+              "sourceId": "boundary-z-1",
+              "shape": "box",
+              "size": [
+                8,
+                1.5,
+                0.3
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "boundary-z-1",
+              "position": [
+                0,
+                0.75,
+                4
+              ],
+              "massKg": 0,
+              "friction": 0.6
+            },
+            {
+              "sourceId": "central-obstacle",
+              "shape": "box",
+              "size": [
+                0.6,
+                1.2,
+                0.6
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "central-obstacle",
+              "position": [
+                0,
+                0.6,
+                1
+              ],
+              "massKg": 0,
+              "friction": 0.6
+            }
+          ],
+          "format": "fraynix.spatial-scene",
+          "units": "m",
+          "source": {
+            "note": "Synthetic declared native-physics case frozen before edition032 selection/evaluation. No captured room or measured material inference.",
+            "kind": "synthetic",
+            "physicalProperties": "declared"
+          },
+          "title": "Labelled reserved pushing case · eval-z-axis",
+          "version": 1,
+          "scaleReference": {
+            "a": [
+              -1,
+              0,
+              0
+            ],
+            "b": [
+              1,
+              0,
+              0
+            ],
+            "toleranceM": 0.001,
+            "knownLengthM": 2,
+            "basis": "declared-test"
+          },
+          "frame": "right-handed-y-up",
+          "gravityMps2": 9.81
+        },
+        "displacementM": [
+          0,
+          0,
+          3
+        ]
+      },
+      {
+        "split": "development",
+        "negativeControl": true,
+        "id": "eval-force-negative",
+        "source": {
+          "objects": [
+            {
+              "sourceId": "floor",
+              "shape": "box",
+              "size": [
+                8,
+                0.4,
+                8
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "floor",
+              "position": [
+                0,
+                -0.2,
+                0
+              ],
+              "massKg": 0,
+              "friction": 1
+            },
+            {
+              "sourceId": "crate",
+              "shape": "box",
+              "size": [
+                0.6,
+                0.6,
+                0.6
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "crate",
+              "position": [
+                -1,
+                0.32,
+                0
+              ],
+              "massKg": 4,
+              "friction": 1
+            },
+            {
+              "sourceId": "pusher",
+              "shape": "box",
+              "size": [
+                0.5,
+                0.4,
+                0.5
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "pusher",
+              "position": [
+                -3,
+                0.22,
+                0
+              ],
+              "massKg": 2,
+              "friction": 0.15
+            },
+            {
+              "sourceId": "boundary-x--1",
+              "shape": "box",
+              "size": [
+                0.3,
+                1.5,
+                8
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "boundary-x--1",
+              "position": [
+                -4,
+                0.75,
+                0
+              ],
+              "massKg": 0,
+              "friction": 0.6
+            },
+            {
+              "sourceId": "boundary-z--1",
+              "shape": "box",
+              "size": [
+                8,
+                1.5,
+                0.3
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "boundary-z--1",
+              "position": [
+                0,
+                0.75,
+                -4
+              ],
+              "massKg": 0,
+              "friction": 0.6
+            },
+            {
+              "sourceId": "boundary-x-1",
+              "shape": "box",
+              "size": [
+                0.3,
+                1.5,
+                8
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "boundary-x-1",
+              "position": [
+                4,
+                0.75,
+                0
+              ],
+              "massKg": 0,
+              "friction": 0.6
+            },
+            {
+              "sourceId": "boundary-z-1",
+              "shape": "box",
+              "size": [
+                8,
+                1.5,
+                0.3
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "boundary-z-1",
+              "position": [
+                0,
+                0.75,
+                4
+              ],
+              "massKg": 0,
+              "friction": 0.6
+            }
+          ],
+          "format": "fraynix.spatial-scene",
+          "units": "m",
+          "source": {
+            "note": "Synthetic declared native-physics case frozen before edition032 selection/evaluation. No captured room or measured material inference.",
+            "kind": "synthetic",
+            "physicalProperties": "declared"
+          },
+          "title": "Labelled reserved pushing case · eval-force-negative",
+          "version": 1,
+          "scaleReference": {
+            "a": [
+              -1,
+              0,
+              0
+            ],
+            "b": [
+              1,
+              0,
+              0
+            ],
+            "toleranceM": 0.001,
+            "knownLengthM": 2,
+            "basis": "declared-test"
+          },
+          "frame": "right-handed-y-up",
+          "gravityMps2": 9.81
+        },
+        "displacementM": [
+          3,
+          0,
+          0
+        ]
+      },
+      {
+        "split": "evaluation",
+        "negativeControl": false,
+        "id": "reserved033-offset",
+        "source": {
+          "objects": [
+            {
+              "sourceId": "floor",
+              "shape": "box",
+              "size": [
+                8,
+                0.4,
+                8
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "floor",
+              "position": [
+                0,
+                -0.2,
+                0
+              ],
+              "massKg": 0,
+              "friction": 0.6
+            },
+            {
+              "sourceId": "crate",
+              "shape": "box",
+              "size": [
+                0.6,
+                0.6,
+                0.6
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "crate",
+              "position": [
+                -1,
+                0.32,
+                0
+              ],
+              "massKg": 1.1,
+              "friction": 0.65
+            },
+            {
+              "sourceId": "pusher",
+              "shape": "box",
+              "size": [
+                0.5,
+                0.4,
+                0.5
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "pusher",
+              "position": [
+                -3,
+                0.22,
+                0
+              ],
+              "massKg": 2,
+              "friction": 0.15
+            },
+            {
+              "sourceId": "boundary-x--1",
+              "shape": "box",
+              "size": [
+                0.3,
+                1.5,
+                8
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "boundary-x--1",
+              "position": [
+                -4,
+                0.75,
+                0
+              ],
+              "massKg": 0,
+              "friction": 0.6
+            },
+            {
+              "sourceId": "boundary-z--1",
+              "shape": "box",
+              "size": [
+                8,
+                1.5,
+                0.3
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "boundary-z--1",
+              "position": [
+                0,
+                0.75,
+                -4
+              ],
+              "massKg": 0,
+              "friction": 0.6
+            },
+            {
+              "sourceId": "boundary-x-1",
+              "shape": "box",
+              "size": [
+                0.3,
+                1.5,
+                8
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "boundary-x-1",
+              "position": [
+                4,
+                0.75,
+                0
+              ],
+              "massKg": 0,
+              "friction": 0.6
+            },
+            {
+              "sourceId": "boundary-z-1",
+              "shape": "box",
+              "size": [
+                8,
+                1.5,
+                0.3
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "boundary-z-1",
+              "position": [
+                0,
+                0.75,
+                4
+              ],
+              "massKg": 0,
+              "friction": 0.6
+            },
+            {
+              "sourceId": "central-obstacle",
+              "shape": "box",
+              "size": [
+                0.6,
+                1.2,
+                0.6
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "central-obstacle",
+              "position": [
+                0.25,
+                0.6,
+                0
+              ],
+              "massKg": 0,
+              "friction": 0.6
+            }
+          ],
+          "format": "fraynix.spatial-scene",
+          "units": "m",
+          "source": {
+            "note": "Declared synthetic033 reserved case frozen before candidate evaluation. Not real-world measurements.",
+            "kind": "synthetic",
+            "physicalProperties": "declared"
+          },
+          "title": "Labelled033 reserved contact case · offset",
+          "version": 1,
+          "scaleReference": {
+            "a": [
+              -1,
+              0,
+              0
+            ],
+            "b": [
+              1,
+              0,
+              0
+            ],
+            "toleranceM": 0.001,
+            "knownLengthM": 2,
+            "basis": "declared-test"
+          },
+          "frame": "right-handed-y-up",
+          "gravityMps2": 9.81
+        },
+        "displacementM": [
+          3,
+          0,
+          0
+        ]
+      },
+      {
+        "split": "evaluation",
+        "negativeControl": false,
+        "id": "reserved033-z-turn",
+        "source": {
+          "objects": [
+            {
+              "sourceId": "floor",
+              "shape": "box",
+              "size": [
+                8,
+                0.4,
+                8
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "floor",
+              "position": [
+                0,
+                -0.2,
+                0
+              ],
+              "massKg": 0,
+              "friction": 0.55
+            },
+            {
+              "sourceId": "crate",
+              "shape": "box",
+              "size": [
+                0.6,
+                0.6,
+                0.6
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "crate",
+              "position": [
+                0,
+                0.32,
+                -1
+              ],
+              "massKg": 1.1,
+              "friction": 0.65
+            },
+            {
+              "sourceId": "pusher",
+              "shape": "box",
+              "size": [
+                0.5,
+                0.4,
+                0.5
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "pusher",
+              "position": [
+                0,
+                0.22,
+                -3
+              ],
+              "massKg": 1.8,
+              "friction": 0.15
+            },
+            {
+              "sourceId": "boundary-x--1",
+              "shape": "box",
+              "size": [
+                0.3,
+                1.5,
+                8
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "boundary-x--1",
+              "position": [
+                -4,
+                0.75,
+                0
+              ],
+              "massKg": 0,
+              "friction": 0.6
+            },
+            {
+              "sourceId": "boundary-z--1",
+              "shape": "box",
+              "size": [
+                8,
+                1.5,
+                0.3
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "boundary-z--1",
+              "position": [
+                0,
+                0.75,
+                -4
+              ],
+              "massKg": 0,
+              "friction": 0.6
+            },
+            {
+              "sourceId": "boundary-x-1",
+              "shape": "box",
+              "size": [
+                0.3,
+                1.5,
+                8
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "boundary-x-1",
+              "position": [
+                4,
+                0.75,
+                0
+              ],
+              "massKg": 0,
+              "friction": 0.6
+            },
+            {
+              "sourceId": "boundary-z-1",
+              "shape": "box",
+              "size": [
+                8,
+                1.5,
+                0.3
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "boundary-z-1",
+              "position": [
+                0,
+                0.75,
+                4
+              ],
+              "massKg": 0,
+              "friction": 0.6
+            },
+            {
+              "sourceId": "central-obstacle",
+              "shape": "box",
+              "size": [
+                0.6,
+                1.2,
+                0.6
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "central-obstacle",
+              "position": [
+                0,
+                0.6,
+                0.75
+              ],
+              "massKg": 0,
+              "friction": 0.6
+            }
+          ],
+          "format": "fraynix.spatial-scene",
+          "units": "m",
+          "source": {
+            "note": "Declared synthetic033 reserved case frozen before candidate evaluation. Not real-world measurements.",
+            "kind": "synthetic",
+            "physicalProperties": "declared"
+          },
+          "title": "Labelled033 reserved contact case · z-turn",
+          "version": 1,
+          "scaleReference": {
+            "a": [
+              -1,
+              0,
+              0
+            ],
+            "b": [
+              1,
+              0,
+              0
+            ],
+            "toleranceM": 0.001,
+            "knownLengthM": 2,
+            "basis": "declared-test"
+          },
+          "frame": "right-handed-y-up",
+          "gravityMps2": 9.81
+        },
+        "displacementM": [
+          0,
+          0,
+          3
+        ]
+      },
+      {
+        "split": "evaluation",
+        "negativeControl": false,
+        "id": "reserved033-reverse-x",
+        "source": {
+          "objects": [
+            {
+              "sourceId": "floor",
+              "shape": "box",
+              "size": [
+                8,
+                0.4,
+                8
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "floor",
+              "position": [
+                0,
+                -0.2,
+                0
+              ],
+              "massKg": 0,
+              "friction": 0.65
+            },
+            {
+              "sourceId": "crate",
+              "shape": "box",
+              "size": [
+                0.6,
+                0.6,
+                0.6
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "crate",
+              "position": [
+                1,
+                0.32,
+                0
+              ],
+              "massKg": 1.4,
+              "friction": 0.6
+            },
+            {
+              "sourceId": "pusher",
+              "shape": "box",
+              "size": [
+                0.5,
+                0.4,
+                0.5
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "pusher",
+              "position": [
+                3,
+                0.22,
+                0
+              ],
+              "massKg": 2,
+              "friction": 0.15
+            },
+            {
+              "sourceId": "boundary-x--1",
+              "shape": "box",
+              "size": [
+                0.3,
+                1.5,
+                8
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "boundary-x--1",
+              "position": [
+                -4,
+                0.75,
+                0
+              ],
+              "massKg": 0,
+              "friction": 0.6
+            },
+            {
+              "sourceId": "boundary-z--1",
+              "shape": "box",
+              "size": [
+                8,
+                1.5,
+                0.3
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "boundary-z--1",
+              "position": [
+                0,
+                0.75,
+                -4
+              ],
+              "massKg": 0,
+              "friction": 0.6
+            },
+            {
+              "sourceId": "boundary-x-1",
+              "shape": "box",
+              "size": [
+                0.3,
+                1.5,
+                8
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "boundary-x-1",
+              "position": [
+                4,
+                0.75,
+                0
+              ],
+              "massKg": 0,
+              "friction": 0.6
+            },
+            {
+              "sourceId": "boundary-z-1",
+              "shape": "box",
+              "size": [
+                8,
+                1.5,
+                0.3
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "boundary-z-1",
+              "position": [
+                0,
+                0.75,
+                4
+              ],
+              "massKg": 0,
+              "friction": 0.6
+            },
+            {
+              "sourceId": "central-obstacle",
+              "shape": "box",
+              "size": [
+                0.6,
+                1.2,
+                0.6
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "central-obstacle",
+              "position": [
+                -0.5,
+                0.6,
+                0
+              ],
+              "massKg": 0,
+              "friction": 0.6
+            }
+          ],
+          "format": "fraynix.spatial-scene",
+          "units": "m",
+          "source": {
+            "note": "Declared synthetic033 reserved case frozen before candidate evaluation. Not real-world measurements.",
+            "kind": "synthetic",
+            "physicalProperties": "declared"
+          },
+          "title": "Labelled033 reserved contact case · reverse-x",
+          "version": 1,
+          "scaleReference": {
+            "a": [
+              -1,
+              0,
+              0
+            ],
+            "b": [
+              1,
+              0,
+              0
+            ],
+            "toleranceM": 0.001,
+            "knownLengthM": 2,
+            "basis": "declared-test"
+          },
+          "frame": "right-handed-y-up",
+          "gravityMps2": 9.81
+        },
+        "displacementM": [
+          -3,
+          0,
+          0
+        ]
+      },
+      {
+        "split": "evaluation",
+        "negativeControl": false,
+        "id": "reserved033-reverse-z",
+        "source": {
+          "objects": [
+            {
+              "sourceId": "floor",
+              "shape": "box",
+              "size": [
+                8,
+                0.4,
+                8
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "floor",
+              "position": [
+                0,
+                -0.2,
+                0
+              ],
+              "massKg": 0,
+              "friction": 0.7
+            },
+            {
+              "sourceId": "crate",
+              "shape": "box",
+              "size": [
+                0.6,
+                0.6,
+                0.6
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "crate",
+              "position": [
+                0,
+                0.32,
+                1
+              ],
+              "massKg": 0.9,
+              "friction": 0.75
+            },
+            {
+              "sourceId": "pusher",
+              "shape": "box",
+              "size": [
+                0.5,
+                0.4,
+                0.5
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "pusher",
+              "position": [
+                0,
+                0.22,
+                3
+              ],
+              "massKg": 2,
+              "friction": 0.15
+            },
+            {
+              "sourceId": "boundary-x--1",
+              "shape": "box",
+              "size": [
+                0.3,
+                1.5,
+                8
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "boundary-x--1",
+              "position": [
+                -4,
+                0.75,
+                0
+              ],
+              "massKg": 0,
+              "friction": 0.6
+            },
+            {
+              "sourceId": "boundary-z--1",
+              "shape": "box",
+              "size": [
+                8,
+                1.5,
+                0.3
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "boundary-z--1",
+              "position": [
+                0,
+                0.75,
+                -4
+              ],
+              "massKg": 0,
+              "friction": 0.6
+            },
+            {
+              "sourceId": "boundary-x-1",
+              "shape": "box",
+              "size": [
+                0.3,
+                1.5,
+                8
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "boundary-x-1",
+              "position": [
+                4,
+                0.75,
+                0
+              ],
+              "massKg": 0,
+              "friction": 0.6
+            },
+            {
+              "sourceId": "boundary-z-1",
+              "shape": "box",
+              "size": [
+                8,
+                1.5,
+                0.3
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "boundary-z-1",
+              "position": [
+                0,
+                0.75,
+                4
+              ],
+              "massKg": 0,
+              "friction": 0.6
+            },
+            {
+              "sourceId": "central-obstacle",
+              "shape": "box",
+              "size": [
+                0.6,
+                1.2,
+                0.6
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "central-obstacle",
+              "position": [
+                0,
+                0.6,
+                -0.5
+              ],
+              "massKg": 0,
+              "friction": 0.6
+            }
+          ],
+          "format": "fraynix.spatial-scene",
+          "units": "m",
+          "source": {
+            "note": "Declared synthetic033 reserved case frozen before candidate evaluation. Not real-world measurements.",
+            "kind": "synthetic",
+            "physicalProperties": "declared"
+          },
+          "title": "Labelled033 reserved contact case · reverse-z",
+          "version": 1,
+          "scaleReference": {
+            "a": [
+              -1,
+              0,
+              0
+            ],
+            "b": [
+              1,
+              0,
+              0
+            ],
+            "toleranceM": 0.001,
+            "knownLengthM": 2,
+            "basis": "declared-test"
+          },
+          "frame": "right-handed-y-up",
+          "gravityMps2": 9.81
+        },
+        "displacementM": [
+          0,
+          0,
+          -3
+        ]
+      },
+      {
+        "split": "evaluation",
+        "negativeControl": false,
+        "id": "reserved033-heavy-turn",
+        "source": {
+          "objects": [
+            {
+              "sourceId": "floor",
+              "shape": "box",
+              "size": [
+                8,
+                0.4,
+                8
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "floor",
+              "position": [
+                0,
+                -0.2,
+                0
+              ],
+              "massKg": 0,
+              "friction": 0.55
+            },
+            {
+              "sourceId": "crate",
+              "shape": "box",
+              "size": [
+                0.6,
+                0.6,
+                0.6
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "crate",
+              "position": [
+                -1,
+                0.32,
+                0
+              ],
+              "massKg": 2.2,
+              "friction": 0.6
+            },
+            {
+              "sourceId": "pusher",
+              "shape": "box",
+              "size": [
+                0.5,
+                0.4,
+                0.5
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "pusher",
+              "position": [
+                -3,
+                0.22,
+                0
+              ],
+              "massKg": 2,
+              "friction": 0.15
+            },
+            {
+              "sourceId": "boundary-x--1",
+              "shape": "box",
+              "size": [
+                0.3,
+                1.5,
+                8
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "boundary-x--1",
+              "position": [
+                -4,
+                0.75,
+                0
+              ],
+              "massKg": 0,
+              "friction": 0.6
+            },
+            {
+              "sourceId": "boundary-z--1",
+              "shape": "box",
+              "size": [
+                8,
+                1.5,
+                0.3
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "boundary-z--1",
+              "position": [
+                0,
+                0.75,
+                -4
+              ],
+              "massKg": 0,
+              "friction": 0.6
+            },
+            {
+              "sourceId": "boundary-x-1",
+              "shape": "box",
+              "size": [
+                0.3,
+                1.5,
+                8
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "boundary-x-1",
+              "position": [
+                4,
+                0.75,
+                0
+              ],
+              "massKg": 0,
+              "friction": 0.6
+            },
+            {
+              "sourceId": "boundary-z-1",
+              "shape": "box",
+              "size": [
+                8,
+                1.5,
+                0.3
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "boundary-z-1",
+              "position": [
+                0,
+                0.75,
+                4
+              ],
+              "massKg": 0,
+              "friction": 0.6
+            },
+            {
+              "sourceId": "central-obstacle",
+              "shape": "box",
+              "size": [
+                0.6,
+                1.2,
+                0.6
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "central-obstacle",
+              "position": [
+                0.25,
+                0.6,
+                0
+              ],
+              "massKg": 0,
+              "friction": 0.6
+            }
+          ],
+          "format": "fraynix.spatial-scene",
+          "units": "m",
+          "source": {
+            "note": "Declared synthetic033 reserved case frozen before candidate evaluation. Not real-world measurements.",
+            "kind": "synthetic",
+            "physicalProperties": "declared"
+          },
+          "title": "Labelled033 reserved contact case · heavy-turn",
+          "version": 1,
+          "scaleReference": {
+            "a": [
+              -1,
+              0,
+              0
+            ],
+            "b": [
+              1,
+              0,
+              0
+            ],
+            "toleranceM": 0.001,
+            "knownLengthM": 2,
+            "basis": "declared-test"
+          },
+          "frame": "right-handed-y-up",
+          "gravityMps2": 9.81
+        },
+        "displacementM": [
+          3,
+          0,
+          0
+        ]
+      },
+      {
+        "split": "evaluation",
+        "negativeControl": false,
+        "id": "reserved033-light-clear",
+        "source": {
+          "objects": [
+            {
+              "sourceId": "floor",
+              "shape": "box",
+              "size": [
+                8,
+                0.4,
+                8
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "floor",
+              "position": [
+                0,
+                -0.2,
+                0
+              ],
+              "massKg": 0,
+              "friction": 0.8
+            },
+            {
+              "sourceId": "crate",
+              "shape": "box",
+              "size": [
+                0.6,
+                0.6,
+                0.6
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "crate",
+              "position": [
+                -1,
+                0.32,
+                0
+              ],
+              "massKg": 0.6,
+              "friction": 0.75
+            },
+            {
+              "sourceId": "pusher",
+              "shape": "box",
+              "size": [
+                0.5,
+                0.4,
+                0.5
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "pusher",
+              "position": [
+                -3,
+                0.22,
+                0
+              ],
+              "massKg": 1.6,
+              "friction": 0.15
+            },
+            {
+              "sourceId": "boundary-x--1",
+              "shape": "box",
+              "size": [
+                0.3,
+                1.5,
+                8
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "boundary-x--1",
+              "position": [
+                -4,
+                0.75,
+                0
+              ],
+              "massKg": 0,
+              "friction": 0.6
+            },
+            {
+              "sourceId": "boundary-z--1",
+              "shape": "box",
+              "size": [
+                8,
+                1.5,
+                0.3
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "boundary-z--1",
+              "position": [
+                0,
+                0.75,
+                -4
+              ],
+              "massKg": 0,
+              "friction": 0.6
+            },
+            {
+              "sourceId": "boundary-x-1",
+              "shape": "box",
+              "size": [
+                0.3,
+                1.5,
+                8
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "boundary-x-1",
+              "position": [
+                4,
+                0.75,
+                0
+              ],
+              "massKg": 0,
+              "friction": 0.6
+            },
+            {
+              "sourceId": "boundary-z-1",
+              "shape": "box",
+              "size": [
+                8,
+                1.5,
+                0.3
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "boundary-z-1",
+              "position": [
+                0,
+                0.75,
+                4
+              ],
+              "massKg": 0,
+              "friction": 0.6
+            }
+          ],
+          "format": "fraynix.spatial-scene",
+          "units": "m",
+          "source": {
+            "note": "Declared synthetic033 reserved case frozen before candidate evaluation. Not real-world measurements.",
+            "kind": "synthetic",
+            "physicalProperties": "declared"
+          },
+          "title": "Labelled033 reserved contact case · light-clear",
+          "version": 1,
+          "scaleReference": {
+            "a": [
+              -1,
+              0,
+              0
+            ],
+            "b": [
+              1,
+              0,
+              0
+            ],
+            "toleranceM": 0.001,
+            "knownLengthM": 2,
+            "basis": "declared-test"
+          },
+          "frame": "right-handed-y-up",
+          "gravityMps2": 9.81
+        },
+        "displacementM": [
+          3,
+          0,
+          0
+        ]
+      },
+      {
+        "split": "evaluation",
+        "negativeControl": false,
+        "id": "reserved033-diagonal",
+        "source": {
+          "objects": [
+            {
+              "sourceId": "floor",
+              "shape": "box",
+              "size": [
+                8,
+                0.4,
+                8
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "floor",
+              "position": [
+                0,
+                -0.2,
+                0
+              ],
+              "massKg": 0,
+              "friction": 0.55
+            },
+            {
+              "sourceId": "crate",
+              "shape": "box",
+              "size": [
+                0.6,
+                0.6,
+                0.6
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "crate",
+              "position": [
+                -1,
+                0.32,
+                -1
+              ],
+              "massKg": 1.25,
+              "friction": 0.6
+            },
+            {
+              "sourceId": "pusher",
+              "shape": "box",
+              "size": [
+                0.5,
+                0.4,
+                0.5
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "pusher",
+              "position": [
+                -3,
+                0.22,
+                -1
+              ],
+              "massKg": 2,
+              "friction": 0.15
+            },
+            {
+              "sourceId": "boundary-x--1",
+              "shape": "box",
+              "size": [
+                0.3,
+                1.5,
+                8
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "boundary-x--1",
+              "position": [
+                -4,
+                0.75,
+                0
+              ],
+              "massKg": 0,
+              "friction": 0.6
+            },
+            {
+              "sourceId": "boundary-z--1",
+              "shape": "box",
+              "size": [
+                8,
+                1.5,
+                0.3
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "boundary-z--1",
+              "position": [
+                0,
+                0.75,
+                -4
+              ],
+              "massKg": 0,
+              "friction": 0.6
+            },
+            {
+              "sourceId": "boundary-x-1",
+              "shape": "box",
+              "size": [
+                0.3,
+                1.5,
+                8
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "boundary-x-1",
+              "position": [
+                4,
+                0.75,
+                0
+              ],
+              "massKg": 0,
+              "friction": 0.6
+            },
+            {
+              "sourceId": "boundary-z-1",
+              "shape": "box",
+              "size": [
+                8,
+                1.5,
+                0.3
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "boundary-z-1",
+              "position": [
+                0,
+                0.75,
+                4
+              ],
+              "massKg": 0,
+              "friction": 0.6
+            },
+            {
+              "sourceId": "central-obstacle",
+              "shape": "box",
+              "size": [
+                0.6,
+                1.2,
+                0.6
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "central-obstacle",
+              "position": [
+                0,
+                0.6,
+                0
+              ],
+              "massKg": 0,
+              "friction": 0.6
+            }
+          ],
+          "format": "fraynix.spatial-scene",
+          "units": "m",
+          "source": {
+            "note": "Declared synthetic033 reserved case frozen before candidate evaluation. Not real-world measurements.",
+            "kind": "synthetic",
+            "physicalProperties": "declared"
+          },
+          "title": "Labelled033 reserved contact case · diagonal",
+          "version": 1,
+          "scaleReference": {
+            "a": [
+              -1,
+              0,
+              0
+            ],
+            "b": [
+              1,
+              0,
+              0
+            ],
+            "toleranceM": 0.001,
+            "knownLengthM": 2,
+            "basis": "declared-test"
+          },
+          "frame": "right-handed-y-up",
+          "gravityMps2": 9.81
+        },
+        "displacementM": [
+          2,
+          0,
+          2
+        ]
+      },
+      {
+        "split": "evaluation",
+        "negativeControl": true,
+        "id": "reserved033-force-negative",
+        "source": {
+          "objects": [
+            {
+              "sourceId": "floor",
+              "shape": "box",
+              "size": [
+                8,
+                0.4,
+                8
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "floor",
+              "position": [
+                0,
+                -0.2,
+                0
+              ],
+              "massKg": 0,
+              "friction": 1.15
+            },
+            {
+              "sourceId": "crate",
+              "shape": "box",
+              "size": [
+                0.6,
+                0.6,
+                0.6
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "crate",
+              "position": [
+                -1,
+                0.32,
+                0
+              ],
+              "massKg": 3.6,
+              "friction": 0.98
+            },
+            {
+              "sourceId": "pusher",
+              "shape": "box",
+              "size": [
+                0.5,
+                0.4,
+                0.5
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "pusher",
+              "position": [
+                -3,
+                0.22,
+                0
+              ],
+              "massKg": 2.2,
+              "friction": 0.15
+            },
+            {
+              "sourceId": "boundary-x--1",
+              "shape": "box",
+              "size": [
+                0.3,
+                1.5,
+                8
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "boundary-x--1",
+              "position": [
+                -4,
+                0.75,
+                0
+              ],
+              "massKg": 0,
+              "friction": 0.6
+            },
+            {
+              "sourceId": "boundary-z--1",
+              "shape": "box",
+              "size": [
+                8,
+                1.5,
+                0.3
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "boundary-z--1",
+              "position": [
+                0,
+                0.75,
+                -4
+              ],
+              "massKg": 0,
+              "friction": 0.6
+            },
+            {
+              "sourceId": "boundary-x-1",
+              "shape": "box",
+              "size": [
+                0.3,
+                1.5,
+                8
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "boundary-x-1",
+              "position": [
+                4,
+                0.75,
+                0
+              ],
+              "massKg": 0,
+              "friction": 0.6
+            },
+            {
+              "sourceId": "boundary-z-1",
+              "shape": "box",
+              "size": [
+                8,
+                1.5,
+                0.3
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "label": "boundary-z-1",
+              "position": [
+                0,
+                0.75,
+                4
+              ],
+              "massKg": 0,
+              "friction": 0.6
+            }
+          ],
+          "format": "fraynix.spatial-scene",
+          "units": "m",
+          "source": {
+            "note": "Declared synthetic033 reserved case frozen before candidate evaluation. Not real-world measurements.",
+            "kind": "synthetic",
+            "physicalProperties": "declared"
+          },
+          "title": "Labelled033 reserved contact case · force-negative",
+          "version": 1,
+          "scaleReference": {
+            "a": [
+              -1,
+              0,
+              0
+            ],
+            "b": [
+              1,
+              0,
+              0
+            ],
+            "toleranceM": 0.001,
+            "knownLengthM": 2,
+            "basis": "declared-test"
+          },
+          "frame": "right-handed-y-up",
+          "gravityMps2": 9.81
+        },
+        "displacementM": [
+          3,
+          0,
+          0
+        ]
+      }
+    ],
+    "scope": "Seen032 cases are development/regression; eight different synthetic reserved cases exclude tuning. Same8/32N, native240Hz,0.1m/.2mps,60s/two recoveries. Not blind/real-world data.",
+    "initialForceN": 8,
+    "format": "fraynix.contact-controller-study",
+    "failedSeconds": 60,
+    "id": "contact-study-033-v1",
+    "version": 1
+  },
+  "trials": [
+    {
+      "nativeStatus": "completed",
+      "reason": "",
+      "split": "development",
+      "rawSha256": "0c9bc92fce639a5b41ad3423979f63d6add239ad8160f21e2ee1e8a84ed24827",
+      "caseId": "eval-light",
+      "initialForceN": 8,
+      "runId": "f351dd6c-ab0f-3a21-bace-f594bfe9dec3",
+      "metrics": {
+        "pusherWorkJ": 20.439977716787382,
+        "endpointErrorM": 0.028054716576530126,
+        "maxForceN": 27.24375887695074,
+        "effortNs": 44.70989412686491,
+        "crateTravelM": 2.972012302611816,
+        "jams": 0,
+        "physicalAxes": 3,
+        "resumes": 0,
+        "recoveries": 0,
+        "maxRestoreVelocityError": 0,
+        "timeS": 12.591666666666667,
+        "maxRestorePositionErrorM": 0,
+        "expandedStates": 22,
+        "scope": "Declared-scale native contact pushing of two boxes on a flat floor. Conservative integer-metre planning, finite force/recovery budgets; not universal robotic manipulation or measured material inference.",
+        "nativePhysics": true,
+        "plannedActions": 7,
+        "passed": true,
+        "terminalSpeedMps": 0.00011441364266422699,
+        "maxRestoreQuaternionError": 0,
+        "contactTicks": 998,
+        "completedActions": 7,
+        "plannedPushes": 3,
+        "nativeTicks": 3022
+      },
+      "arm": "baseline",
+      "key": "eval-light:baseline:8.0",
+      "contactAudit": {
+        "method": "legacy transient contact query"
+      }
+    },
+    {
+      "nativeStatus": "completed",
+      "reason": "",
+      "split": "development",
+      "rawSha256": "52e5aec111e0739ebc37b98b4ed35384d23e24d1ac7e7545a7f728edf129dd36",
+      "caseId": "eval-light",
+      "initialForceN": 8,
+      "runId": "7986f569-2007-3361-b038-36711f469170",
+      "metrics": {
+        "pusherWorkJ": 20.433757635514482,
+        "endpointErrorM": 0.02801217379514841,
+        "maxForceN": 27.235258039306373,
+        "effortNs": 44.70106111435832,
+        "crateTravelM": 2.9720263661549944,
+        "jams": 0,
+        "physicalAxes": 3,
+        "resumes": 0,
+        "recoveries": 0,
+        "maxRestoreVelocityError": 0,
+        "timeS": 12.591666666666667,
+        "maxRestorePositionErrorM": 0,
+        "expandedStates": 22,
+        "scope": "Declared-scale native contact pushing of two boxes on a flat floor. Conservative integer-metre planning, finite force/recovery budgets; not universal robotic manipulation or measured material inference.",
+        "nativePhysics": true,
+        "plannedActions": 7,
+        "passed": true,
+        "terminalSpeedMps": 3.9698901496163105e-05,
+        "maxRestoreQuaternionError": 0,
+        "contactTicks": 1524,
+        "completedActions": 7,
+        "plannedPushes": 3,
+        "nativeTicks": 3022
+      },
+      "arm": "candidate",
+      "key": "eval-light:candidate:8.0",
+      "contactAudit": {
+        "scope": "Sampled actual solver impulses/contact observations, not total physical energy or a photographic detector",
+        "passed": true,
+        "solverContactSamples": 127,
+        "solverOnlySamples": 45,
+        "sampledNormalImpulseNs": 1.0886725632132006
+      }
+    },
+    {
+      "nativeStatus": "completed",
+      "reason": "",
+      "split": "development",
+      "rawSha256": "29e23098032a89d403bb4f54155ee08d31b56524132fa95efb04a03d5c030bb7",
+      "caseId": "eval-corner",
+      "initialForceN": 8,
+      "runId": "b5a9e848-2192-3e28-84c4-0eed02ca6164",
+      "metrics": {
+        "pusherWorkJ": 61.92310971845972,
+        "endpointErrorM": 0.03145841206148411,
+        "maxForceN": 27.40622709990954,
+        "effortNs": 131.98909163600808,
+        "crateTravelM": 4.9201063510234615,
+        "jams": 0,
+        "physicalAxes": 3,
+        "resumes": 0,
+        "recoveries": 0,
+        "maxRestoreVelocityError": 0,
+        "timeS": 30.275,
+        "maxRestorePositionErrorM": 0,
+        "expandedStates": 77,
+        "scope": "Declared-scale native contact pushing of two boxes on a flat floor. Conservative integer-metre planning, finite force/recovery budgets; not universal robotic manipulation or measured material inference.",
+        "nativePhysics": true,
+        "plannedActions": 17,
+        "passed": true,
+        "terminalSpeedMps": 3.5091906035120756e-05,
+        "maxRestoreQuaternionError": 0,
+        "contactTicks": 1702,
+        "completedActions": 17,
+        "plannedPushes": 5,
+        "nativeTicks": 7266
+      },
+      "arm": "baseline",
+      "key": "eval-corner:baseline:8.0",
+      "contactAudit": {
+        "method": "legacy transient contact query"
+      }
+    },
+    {
+      "nativeStatus": "completed",
+      "reason": "",
+      "split": "development",
+      "rawSha256": "a91361249a1ec6d2bc2c31124202744e280070a7f70a15433650a4158187f6ef",
+      "caseId": "eval-corner",
+      "initialForceN": 8,
+      "runId": "eea83cbc-bc49-339d-a3e4-3376d7a92e63",
+      "metrics": {
+        "pusherWorkJ": 61.776187842533815,
+        "endpointErrorM": 0.02833340013297989,
+        "maxForceN": 27.41874068685337,
+        "effortNs": 130.8322656780947,
+        "crateTravelM": 4.8921552456086985,
+        "jams": 0,
+        "physicalAxes": 3,
+        "resumes": 0,
+        "recoveries": 0,
+        "maxRestoreVelocityError": 0,
+        "timeS": 30.029166666666665,
+        "maxRestorePositionErrorM": 0,
+        "expandedStates": 77,
+        "scope": "Declared-scale native contact pushing of two boxes on a flat floor. Conservative integer-metre planning, finite force/recovery budgets; not universal robotic manipulation or measured material inference.",
+        "nativePhysics": true,
+        "plannedActions": 17,
+        "passed": true,
+        "terminalSpeedMps": 1.6201678822492666e-05,
+        "maxRestoreQuaternionError": 0,
+        "contactTicks": 2489,
+        "completedActions": 17,
+        "plannedPushes": 5,
+        "nativeTicks": 7207
+      },
+      "arm": "candidate",
+      "key": "eval-corner:candidate:8.0",
+      "contactAudit": {
+        "scope": "Sampled actual solver impulses/contact observations, not total physical energy or a photographic detector",
+        "passed": true,
+        "solverContactSamples": 208,
+        "solverOnlySamples": 78,
+        "sampledNormalImpulseNs": 4.575186950603902
+      }
+    },
+    {
+      "nativeStatus": "completed",
+      "reason": "",
+      "split": "development",
+      "rawSha256": "bc335ff1ec2960248882895aff6c0e7a1253eabb9721199525b76f0459d25960",
+      "caseId": "eval-heavy-friction",
+      "initialForceN": 8,
+      "runId": "828a3c13-dc4b-3bb3-a005-69d83a88e0cb",
+      "metrics": {
+        "pusherWorkJ": 58.141941208723814,
+        "endpointErrorM": 0.01843548111691172,
+        "maxForceN": 32.00000155487585,
+        "effortNs": 129.46532410045316,
+        "crateTravelM": 2.986882814569551,
+        "jams": 1,
+        "physicalAxes": 3,
+        "resumes": 0,
+        "recoveries": 1,
+        "maxRestoreVelocityError": 0,
+        "timeS": 15.591666666666667,
+        "maxRestorePositionErrorM": 0,
+        "expandedStates": 22,
+        "scope": "Declared-scale native contact pushing of two boxes on a flat floor. Conservative integer-metre planning, finite force/recovery budgets; not universal robotic manipulation or measured material inference.",
+        "nativePhysics": true,
+        "plannedActions": 7,
+        "passed": true,
+        "terminalSpeedMps": 9.767901704758237e-06,
+        "maxRestoreQuaternionError": 0,
+        "contactTicks": 1234,
+        "completedActions": 7,
+        "plannedPushes": 3,
+        "nativeTicks": 3742
+      },
+      "arm": "baseline",
+      "key": "eval-heavy-friction:baseline:8.0",
+      "contactAudit": {
+        "method": "legacy transient contact query"
+      }
+    },
+    {
+      "nativeStatus": "completed",
+      "reason": "",
+      "split": "development",
+      "rawSha256": "33848eb68c9256fa4a92866185c5f58f38e9faea6a73bb65183d044e764d79c1",
+      "caseId": "eval-heavy-friction",
+      "initialForceN": 8,
+      "runId": "99586756-6fbb-3927-bcae-ddb82b0d729e",
+      "metrics": {
+        "pusherWorkJ": 58.110409699050905,
+        "endpointErrorM": 0.02172001451452122,
+        "maxForceN": 32.000000798379205,
+        "effortNs": 120.83276779359099,
+        "crateTravelM": 2.981082120009916,
+        "jams": 1,
+        "physicalAxes": 3,
+        "resumes": 0,
+        "recoveries": 1,
+        "maxRestoreVelocityError": 0,
+        "timeS": 14.545833333333333,
+        "maxRestorePositionErrorM": 0,
+        "expandedStates": 22,
+        "scope": "Declared-scale native contact pushing of two boxes on a flat floor. Conservative integer-metre planning, finite force/recovery budgets; not universal robotic manipulation or measured material inference.",
+        "nativePhysics": true,
+        "plannedActions": 7,
+        "passed": true,
+        "terminalSpeedMps": 1.5044082513250993e-05,
+        "maxRestoreQuaternionError": 0,
+        "contactTicks": 1832,
+        "completedActions": 7,
+        "plannedPushes": 3,
+        "nativeTicks": 3491
+      },
+      "arm": "candidate",
+      "key": "eval-heavy-friction:candidate:8.0",
+      "contactAudit": {
+        "scope": "Sampled actual solver impulses/contact observations, not total physical energy or a photographic detector",
+        "passed": true,
+        "solverContactSamples": 153,
+        "solverOnlySamples": 63,
+        "sampledNormalImpulseNs": 6.984938440988005
+      }
+    },
+    {
+      "nativeStatus": "completed",
+      "reason": "",
+      "split": "development",
+      "rawSha256": "73fee45ed61659ea85732fb53db19b9d5cb24b69ae2ab5dc71ecde056dd984d3",
+      "caseId": "eval-rough-corner",
+      "initialForceN": 8,
+      "runId": "65f9f4f0-15ff-3494-a8d1-bceeb71a4844",
+      "metrics": {
+        "pusherWorkJ": 75.20646003017849,
+        "endpointErrorM": 0.031696331097602184,
+        "maxForceN": 27.762364915807186,
+        "effortNs": 168.18355829073482,
+        "crateTravelM": 4.919481397257236,
+        "jams": 1,
+        "physicalAxes": 3,
+        "resumes": 0,
+        "recoveries": 1,
+        "maxRestoreVelocityError": 0,
+        "timeS": 33.37083333333333,
+        "maxRestorePositionErrorM": 0,
+        "expandedStates": 77,
+        "scope": "Declared-scale native contact pushing of two boxes on a flat floor. Conservative integer-metre planning, finite force/recovery budgets; not universal robotic manipulation or measured material inference.",
+        "nativePhysics": true,
+        "plannedActions": 17,
+        "passed": true,
+        "terminalSpeedMps": 1.8875063283316467e-06,
+        "maxRestoreQuaternionError": 0,
+        "contactTicks": 1956,
+        "completedActions": 17,
+        "plannedPushes": 5,
+        "nativeTicks": 8009
+      },
+      "arm": "baseline",
+      "key": "eval-rough-corner:baseline:8.0",
+      "contactAudit": {
+        "method": "legacy transient contact query"
+      }
+    },
+    {
+      "nativeStatus": "completed",
+      "reason": "",
+      "split": "development",
+      "rawSha256": "c85871592928f053bc64fa706047a094280044d89e615f4b2532ace48a328ad3",
+      "caseId": "eval-rough-corner",
+      "initialForceN": 8,
+      "runId": "de9c35f3-3519-3c9b-8157-cc91b6956120",
+      "metrics": {
+        "pusherWorkJ": 74.94490102754861,
+        "endpointErrorM": 0.029019436153450453,
+        "maxForceN": 27.794405248046335,
+        "effortNs": 165.56186320560116,
+        "crateTravelM": 4.890899260760642,
+        "jams": 1,
+        "physicalAxes": 3,
+        "resumes": 0,
+        "recoveries": 1,
+        "maxRestoreVelocityError": 0,
+        "timeS": 33.03333333333333,
+        "maxRestorePositionErrorM": 0,
+        "expandedStates": 77,
+        "scope": "Declared-scale native contact pushing of two boxes on a flat floor. Conservative integer-metre planning, finite force/recovery budgets; not universal robotic manipulation or measured material inference.",
+        "nativePhysics": true,
+        "plannedActions": 17,
+        "passed": true,
+        "terminalSpeedMps": 2.3902220940701257e-06,
+        "maxRestoreQuaternionError": 0,
+        "contactTicks": 2857,
+        "completedActions": 17,
+        "plannedPushes": 5,
+        "nativeTicks": 7928
+      },
+      "arm": "candidate",
+      "key": "eval-rough-corner:candidate:8.0",
+      "contactAudit": {
+        "scope": "Sampled actual solver impulses/contact observations, not total physical energy or a photographic detector",
+        "passed": true,
+        "solverContactSamples": 238,
+        "solverOnlySamples": 96,
+        "sampledNormalImpulseNs": 5.653916077189699
+      }
+    },
+    {
+      "nativeStatus": "completed",
+      "reason": "",
+      "split": "development",
+      "rawSha256": "88570402fc1ea48ba5b76624305c408ed6bfecc826b720aa39c01b3cfd40837a",
+      "caseId": "eval-mass",
+      "initialForceN": 8,
+      "runId": "341839a2-0ba5-3c10-8913-d9e2b6d4ec2b",
+      "metrics": {
+        "pusherWorkJ": 28.083587547809216,
+        "endpointErrorM": 0.010487189964939005,
+        "maxForceN": 25.153696875756733,
+        "effortNs": 67.82542725817495,
+        "crateTravelM": 2.9895196069433863,
+        "jams": 0,
+        "physicalAxes": 3,
+        "resumes": 0,
+        "recoveries": 0,
+        "maxRestoreVelocityError": 0,
+        "timeS": 13.95,
+        "maxRestorePositionErrorM": 0,
+        "expandedStates": 22,
+        "scope": "Declared-scale native contact pushing of two boxes on a flat floor. Conservative integer-metre planning, finite force/recovery budgets; not universal robotic manipulation or measured material inference.",
+        "nativePhysics": true,
+        "plannedActions": 7,
+        "passed": true,
+        "terminalSpeedMps": 1.5040991512809374e-06,
+        "maxRestoreQuaternionError": 0,
+        "contactTicks": 1135,
+        "completedActions": 7,
+        "plannedPushes": 3,
+        "nativeTicks": 3348
+      },
+      "arm": "baseline",
+      "key": "eval-mass:baseline:8.0",
+      "contactAudit": {
+        "method": "legacy transient contact query"
+      }
+    },
+    {
+      "nativeStatus": "completed",
+      "reason": "",
+      "split": "development",
+      "rawSha256": "fcc9a7aa624192a6f241b59d177e7b07aa4c1bb0281fca75b2935ef077aa8b1e",
+      "caseId": "eval-mass",
+      "initialForceN": 8,
+      "runId": "2e37647d-19bf-35f0-aa4d-f253fc2c37ee",
+      "metrics": {
+        "pusherWorkJ": 28.078270630153753,
+        "endpointErrorM": 0.010146757383186874,
+        "maxForceN": 25.136530174169902,
+        "effortNs": 67.78934744242811,
+        "crateTravelM": 2.989875358051556,
+        "jams": 0,
+        "physicalAxes": 3,
+        "resumes": 0,
+        "recoveries": 0,
+        "maxRestoreVelocityError": 0,
+        "timeS": 13.95,
+        "maxRestorePositionErrorM": 0,
+        "expandedStates": 22,
+        "scope": "Declared-scale native contact pushing of two boxes on a flat floor. Conservative integer-metre planning, finite force/recovery budgets; not universal robotic manipulation or measured material inference.",
+        "nativePhysics": true,
+        "plannedActions": 7,
+        "passed": true,
+        "terminalSpeedMps": 1.0501726070390716e-05,
+        "maxRestoreQuaternionError": 0,
+        "contactTicks": 1817,
+        "completedActions": 7,
+        "plannedPushes": 3,
+        "nativeTicks": 3348
+      },
+      "arm": "candidate",
+      "key": "eval-mass:candidate:8.0",
+      "contactAudit": {
+        "scope": "Sampled actual solver impulses/contact observations, not total physical energy or a photographic detector",
+        "passed": true,
+        "solverContactSamples": 152,
+        "solverOnlySamples": 61,
+        "sampledNormalImpulseNs": 4.310346943667299
+      }
+    },
+    {
+      "nativeStatus": "failed",
+      "reason": "Push leg exceeded fifteen simulated seconds",
+      "split": "development",
+      "rawSha256": "0fdb7c0cc3c2e30269847cda65d4edadc890ddbfd6d0f35e76a8551c09dc31d9",
+      "caseId": "eval-obstacle",
+      "initialForceN": 8,
+      "runId": "b2a3b5cb-fc28-38fe-9b2a-5cbc02ed5d76",
+      "metrics": {
+        "pusherWorkJ": 32.39847274646508,
+        "endpointErrorM": 1.3994358827501285,
+        "maxForceN": 26.88393015034523,
+        "effortNs": 80.34127352911239,
+        "crateTravelM": 2.9542415204641412,
+        "jams": 0,
+        "physicalAxes": 3,
+        "resumes": 0,
+        "recoveries": 0,
+        "maxRestoreVelocityError": 0,
+        "timeS": 31.004166666666666,
+        "maxRestorePositionErrorM": 0,
+        "expandedStates": 71,
+        "scope": "Declared-scale native contact pushing of two boxes on a flat floor. Conservative integer-metre planning, finite force/recovery budgets; not universal robotic manipulation or measured material inference.",
+        "nativePhysics": true,
+        "plannedActions": 17,
+        "passed": false,
+        "terminalSpeedMps": 2.6463964713625442e-05,
+        "maxRestoreQuaternionError": 0,
+        "contactTicks": 950,
+        "completedActions": 10,
+        "plannedPushes": 5,
+        "nativeTicks": 7441
+      },
+      "arm": "baseline",
+      "key": "eval-obstacle:baseline:8.0",
+      "contactAudit": {
+        "method": "legacy transient contact query"
+      }
+    },
+    {
+      "nativeStatus": "completed",
+      "reason": "",
+      "split": "development",
+      "rawSha256": "bb614be42c9f4ba27345af28f6406e7e25ac793807dee71dc04f088a1b017d08",
+      "caseId": "eval-obstacle",
+      "initialForceN": 8,
+      "runId": "4cbe34ac-721a-3d5f-9667-f4b6eba71dd3",
+      "metrics": {
+        "pusherWorkJ": 51.93460194937022,
+        "endpointErrorM": 0.02860206320054723,
+        "maxForceN": 26.87696333044676,
+        "effortNs": 109.54847110904966,
+        "crateTravelM": 4.914355334114808,
+        "jams": 0,
+        "physicalAxes": 3,
+        "resumes": 0,
+        "recoveries": 0,
+        "maxRestoreVelocityError": 0,
+        "timeS": 29.166666666666668,
+        "maxRestorePositionErrorM": 0,
+        "expandedStates": 71,
+        "scope": "Declared-scale native contact pushing of two boxes on a flat floor. Conservative integer-metre planning, finite force/recovery budgets; not universal robotic manipulation or measured material inference.",
+        "nativePhysics": true,
+        "plannedActions": 17,
+        "passed": true,
+        "terminalSpeedMps": 2.707532934696163e-05,
+        "maxRestoreQuaternionError": 0,
+        "contactTicks": 2352,
+        "completedActions": 17,
+        "plannedPushes": 5,
+        "nativeTicks": 7000
+      },
+      "arm": "candidate",
+      "key": "eval-obstacle:candidate:8.0",
+      "contactAudit": {
+        "scope": "Sampled actual solver impulses/contact observations, not total physical energy or a photographic detector",
+        "passed": true,
+        "solverContactSamples": 195,
+        "solverOnlySamples": 64,
+        "sampledNormalImpulseNs": 3.468714779038795
+      }
+    },
+    {
+      "nativeStatus": "failed",
+      "reason": "Push leg exceeded fifteen simulated seconds",
+      "split": "development",
+      "rawSha256": "5da7b06549107cbb0ee2dc45609e89fe930364e6476a5fffb2393268cac9a08a",
+      "caseId": "eval-z-axis",
+      "initialForceN": 8,
+      "runId": "60e6c8d9-bc59-3abb-b867-537f34c24a55",
+      "metrics": {
+        "pusherWorkJ": 11.917708185041556,
+        "endpointErrorM": 3.030075263712809,
+        "maxForceN": 25.05556324704199,
+        "effortNs": 132.42872369963177,
+        "crateTravelM": 0.450564354506703,
+        "jams": 0,
+        "physicalAxes": 3,
+        "resumes": 0,
+        "recoveries": 0,
+        "maxRestoreVelocityError": 0,
+        "timeS": 20.295833333333334,
+        "maxRestorePositionErrorM": 0,
+        "expandedStates": 86,
+        "scope": "Declared-scale native contact pushing of two boxes on a flat floor. Conservative integer-metre planning, finite force/recovery budgets; not universal robotic manipulation or measured material inference.",
+        "nativePhysics": true,
+        "plannedActions": 17,
+        "passed": false,
+        "terminalSpeedMps": 0.0011418443171761004,
+        "maxRestoreQuaternionError": 0,
+        "contactTicks": 255,
+        "completedActions": 4,
+        "plannedPushes": 5,
+        "nativeTicks": 4871
+      },
+      "arm": "baseline",
+      "key": "eval-z-axis:baseline:8.0",
+      "contactAudit": {
+        "method": "legacy transient contact query"
+      }
+    },
+    {
+      "nativeStatus": "completed",
+      "reason": "",
+      "split": "development",
+      "rawSha256": "84b2b9eb477bdfee8ea4144a61ad7d18e3bdd9a70d8f64e2119d9475aaaee2d1",
+      "caseId": "eval-z-axis",
+      "initialForceN": 8,
+      "runId": "5b963ce3-fdbe-3d88-8cc7-eca0cdc07bc3",
+      "metrics": {
+        "pusherWorkJ": 74.66512102590812,
+        "endpointErrorM": 0.02689520305332918,
+        "maxForceN": 27.525347704202595,
+        "effortNs": 163.1904885495818,
+        "crateTravelM": 4.92303320392931,
+        "jams": 1,
+        "physicalAxes": 3,
+        "resumes": 0,
+        "recoveries": 1,
+        "maxRestoreVelocityError": 0,
+        "timeS": 32.1625,
+        "maxRestorePositionErrorM": 0,
+        "expandedStates": 86,
+        "scope": "Declared-scale native contact pushing of two boxes on a flat floor. Conservative integer-metre planning, finite force/recovery budgets; not universal robotic manipulation or measured material inference.",
+        "nativePhysics": true,
+        "plannedActions": 17,
+        "passed": true,
+        "terminalSpeedMps": 2.7503956639331903e-05,
+        "maxRestoreQuaternionError": 0,
+        "contactTicks": 2867,
+        "completedActions": 17,
+        "plannedPushes": 5,
+        "nativeTicks": 7719
+      },
+      "arm": "candidate",
+      "key": "eval-z-axis:candidate:8.0",
+      "contactAudit": {
+        "scope": "Sampled actual solver impulses/contact observations, not total physical energy or a photographic detector",
+        "passed": true,
+        "solverContactSamples": 242,
+        "solverOnlySamples": 83,
+        "sampledNormalImpulseNs": 6.4110122597674
+      }
+    },
+    {
+      "nativeStatus": "failed",
+      "reason": "Physical pushing stalled after two bounded recovery attempts",
+      "split": "development",
+      "rawSha256": "52cc36bf9faf187dc575929a4616a20ad96caa10a51b2142b279b2f108881034",
+      "caseId": "eval-force-negative",
+      "initialForceN": 8,
+      "runId": "17c06eba-b8f7-3eb3-8550-92f2afb7a68f",
+      "metrics": {
+        "pusherWorkJ": 27.116191510987175,
+        "endpointErrorM": 2.723502413902931,
+        "maxForceN": 32.00000370142709,
+        "effortNs": 146.56425985113378,
+        "crateTravelM": 0.2864280068878091,
+        "jams": 2,
+        "physicalAxes": 3,
+        "resumes": 0,
+        "recoveries": 2,
+        "maxRestoreVelocityError": 0,
+        "timeS": 9.854166666666666,
+        "maxRestorePositionErrorM": 0,
+        "expandedStates": 22,
+        "scope": "Declared-scale native contact pushing of two boxes on a flat floor. Conservative integer-metre planning, finite force/recovery budgets; not universal robotic manipulation or measured material inference.",
+        "nativePhysics": true,
+        "plannedActions": 7,
+        "passed": false,
+        "terminalSpeedMps": 0.0017754409144464134,
+        "maxRestoreQuaternionError": 0,
+        "contactTicks": 689,
+        "completedActions": 2,
+        "plannedPushes": 3,
+        "nativeTicks": 2365
+      },
+      "arm": "baseline",
+      "key": "eval-force-negative:baseline:8.0",
+      "contactAudit": {
+        "method": "legacy transient contact query"
+      }
+    },
+    {
+      "nativeStatus": "failed",
+      "reason": "Physical pushing stalled after two bounded recovery attempts",
+      "split": "development",
+      "rawSha256": "104d81d101ab089a87a3a9290ad9c065e990e7d7b0808bb20c94ea714c4f1d15",
+      "caseId": "eval-force-negative",
+      "initialForceN": 8,
+      "runId": "0748613b-6b53-3a1e-8933-96db858c226b",
+      "metrics": {
+        "pusherWorkJ": 27.01050587857253,
+        "endpointErrorM": 2.7268319982614555,
+        "maxForceN": 32.000003602164725,
+        "effortNs": 146.56517009048576,
+        "crateTravelM": 0.28318586235849813,
+        "jams": 2,
+        "physicalAxes": 3,
+        "resumes": 0,
+        "recoveries": 2,
+        "maxRestoreVelocityError": 0,
+        "timeS": 9.854166666666666,
+        "maxRestorePositionErrorM": 0,
+        "expandedStates": 22,
+        "scope": "Declared-scale native contact pushing of two boxes on a flat floor. Conservative integer-metre planning, finite force/recovery budgets; not universal robotic manipulation or measured material inference.",
+        "nativePhysics": true,
+        "plannedActions": 7,
+        "passed": false,
+        "terminalSpeedMps": 0.002019935519524947,
+        "maxRestoreQuaternionError": 0,
+        "contactTicks": 976,
+        "completedActions": 2,
+        "plannedPushes": 3,
+        "nativeTicks": 2365
+      },
+      "arm": "candidate",
+      "key": "eval-force-negative:candidate:8.0",
+      "contactAudit": {
+        "scope": "Sampled actual solver impulses/contact observations, not total physical energy or a photographic detector",
+        "passed": true,
+        "solverContactSamples": 82,
+        "solverOnlySamples": 42,
+        "sampledNormalImpulseNs": 9.111857478919994
+      }
+    },
+    {
+      "nativeStatus": "failed",
+      "reason": "Push leg exceeded fifteen simulated seconds",
+      "split": "evaluation",
+      "rawSha256": "562db0b645dbd6613d5a22de8659e79c26470901f52da3d12df5a6178cf7ff51",
+      "caseId": "reserved033-offset",
+      "initialForceN": 8,
+      "runId": "73ed0b20-a0af-3f65-b49b-e28b9054e5d2",
+      "metrics": {
+        "pusherWorkJ": 31.420057055382404,
+        "endpointErrorM": 1.399928886769952,
+        "maxForceN": 26.903443911775895,
+        "effortNs": 78.42464011785039,
+        "crateTravelM": 2.9542663730056526,
+        "jams": 0,
+        "physicalAxes": 3,
+        "resumes": 0,
+        "recoveries": 0,
+        "maxRestoreVelocityError": 0,
+        "timeS": 31.0125,
+        "maxRestorePositionErrorM": 0,
+        "expandedStates": 71,
+        "scope": "Declared-scale native contact pushing of two boxes on a flat floor. Conservative integer-metre planning, finite force/recovery budgets; not universal robotic manipulation or measured material inference.",
+        "nativePhysics": true,
+        "plannedActions": 17,
+        "passed": false,
+        "terminalSpeedMps": 1.3101352598880896e-05,
+        "maxRestoreQuaternionError": 0,
+        "contactTicks": 934,
+        "completedActions": 10,
+        "plannedPushes": 5,
+        "nativeTicks": 7443
+      },
+      "arm": "baseline",
+      "key": "reserved033-offset:baseline:8.0",
+      "contactAudit": {
+        "method": "legacy transient contact query"
+      }
+    },
+    {
+      "nativeStatus": "completed",
+      "reason": "",
+      "split": "evaluation",
+      "rawSha256": "a622bf2e04682d524703c86858ef475b617cc99f461715c9439afb1e48799c75",
+      "caseId": "reserved033-offset",
+      "initialForceN": 8,
+      "runId": "7bb8c124-e3e1-3030-8543-b1aca92d6e39",
+      "metrics": {
+        "pusherWorkJ": 50.33524960443403,
+        "endpointErrorM": 0.028816338461904612,
+        "maxForceN": 26.92685873615941,
+        "effortNs": 106.51195930426505,
+        "crateTravelM": 4.913410288201387,
+        "jams": 0,
+        "physicalAxes": 3,
+        "resumes": 0,
+        "recoveries": 0,
+        "maxRestoreVelocityError": 0,
+        "timeS": 29.195833333333333,
+        "maxRestorePositionErrorM": 0,
+        "expandedStates": 71,
+        "scope": "Declared-scale native contact pushing of two boxes on a flat floor. Conservative integer-metre planning, finite force/recovery budgets; not universal robotic manipulation or measured material inference.",
+        "nativePhysics": true,
+        "plannedActions": 17,
+        "passed": true,
+        "terminalSpeedMps": 7.588698377949377e-05,
+        "maxRestoreQuaternionError": 0,
+        "contactTicks": 2350,
+        "completedActions": 17,
+        "plannedPushes": 5,
+        "nativeTicks": 7007
+      },
+      "arm": "candidate",
+      "key": "reserved033-offset:candidate:8.0",
+      "contactAudit": {
+        "scope": "Sampled actual solver impulses/contact observations, not total physical energy or a photographic detector",
+        "passed": true,
+        "solverContactSamples": 196,
+        "solverOnlySamples": 69,
+        "sampledNormalImpulseNs": 3.206010884259999
+      }
+    },
+    {
+      "nativeStatus": "failed",
+      "reason": "Push leg exceeded fifteen simulated seconds",
+      "split": "evaluation",
+      "rawSha256": "08063a5a95b7be0925eb1af1c87de5eb852e889d67eb7088308a6f06de6c0fe9",
+      "caseId": "reserved033-z-turn",
+      "initialForceN": 8,
+      "runId": "11870c95-3abb-311a-a4a1-fe8a2c24ce01",
+      "metrics": {
+        "pusherWorkJ": 27.20626028967539,
+        "endpointErrorM": 1.399665058081164,
+        "maxForceN": 26.428044579339694,
+        "effortNs": 70.73856185134032,
+        "crateTravelM": 2.953205907081649,
+        "jams": 0,
+        "physicalAxes": 3,
+        "resumes": 0,
+        "recoveries": 0,
+        "maxRestoreVelocityError": 0,
+        "timeS": 30.9625,
+        "maxRestorePositionErrorM": 0,
+        "expandedStates": 86,
+        "scope": "Declared-scale native contact pushing of two boxes on a flat floor. Conservative integer-metre planning, finite force/recovery budgets; not universal robotic manipulation or measured material inference.",
+        "nativePhysics": true,
+        "plannedActions": 17,
+        "passed": false,
+        "terminalSpeedMps": 8.169214915593935e-06,
+        "maxRestoreQuaternionError": 0,
+        "contactTicks": 857,
+        "completedActions": 10,
+        "plannedPushes": 5,
+        "nativeTicks": 7431
+      },
+      "arm": "baseline",
+      "key": "reserved033-z-turn:baseline:8.0",
+      "contactAudit": {
+        "method": "legacy transient contact query"
+      }
+    },
+    {
+      "nativeStatus": "completed",
+      "reason": "",
+      "split": "evaluation",
+      "rawSha256": "4bae43913dbd35b5ed52c5bbcbe56f78a5e3af93d0370b36045ee1f4b38033f3",
+      "caseId": "reserved033-z-turn",
+      "initialForceN": 8,
+      "runId": "740bcdab-841f-327e-93e0-1feda004cc4d",
+      "metrics": {
+        "pusherWorkJ": 43.610505174428994,
+        "endpointErrorM": 0.02889260727448969,
+        "maxForceN": 26.518680254772413,
+        "effortNs": 94.14349353164293,
+        "crateTravelM": 4.912938187743047,
+        "jams": 0,
+        "physicalAxes": 3,
+        "resumes": 0,
+        "recoveries": 0,
+        "maxRestoreVelocityError": 0,
+        "timeS": 29.0875,
+        "maxRestorePositionErrorM": 0,
+        "expandedStates": 86,
+        "scope": "Declared-scale native contact pushing of two boxes on a flat floor. Conservative integer-metre planning, finite force/recovery budgets; not universal robotic manipulation or measured material inference.",
+        "nativePhysics": true,
+        "plannedActions": 17,
+        "passed": true,
+        "terminalSpeedMps": 8.5237582300622e-06,
+        "maxRestoreQuaternionError": 0,
+        "contactTicks": 2489,
+        "completedActions": 17,
+        "plannedPushes": 5,
+        "nativeTicks": 6981
+      },
+      "arm": "candidate",
+      "key": "reserved033-z-turn:candidate:8.0",
+      "contactAudit": {
+        "scope": "Sampled actual solver impulses/contact observations, not total physical energy or a photographic detector",
+        "passed": true,
+        "solverContactSamples": 207,
+        "solverOnlySamples": 68,
+        "sampledNormalImpulseNs": 2.9875094699256004
+      }
+    },
+    {
+      "nativeStatus": "failed",
+      "reason": "Push leg exceeded fifteen simulated seconds",
+      "split": "evaluation",
+      "rawSha256": "52728726d2ee0360c00c3e45c7b4aeff2fd65ed8ad3ff63cb4ff70ff09e3d5f6",
+      "caseId": "reserved033-reverse-x",
+      "initialForceN": 8,
+      "runId": "53a370f7-489d-3956-ba67-7a4a32be5bc8",
+      "metrics": {
+        "pusherWorkJ": 36.46522911738899,
+        "endpointErrorM": 1.3991708867464299,
+        "maxForceN": 27.279295505452218,
+        "effortNs": 88.36821148245546,
+        "crateTravelM": 2.958170126369598,
+        "jams": 0,
+        "physicalAxes": 3,
+        "resumes": 0,
+        "recoveries": 0,
+        "maxRestoreVelocityError": 0,
+        "timeS": 31.066666666666666,
+        "maxRestorePositionErrorM": 0,
+        "expandedStates": 79,
+        "scope": "Declared-scale native contact pushing of two boxes on a flat floor. Conservative integer-metre planning, finite force/recovery budgets; not universal robotic manipulation or measured material inference.",
+        "nativePhysics": true,
+        "plannedActions": 17,
+        "passed": false,
+        "terminalSpeedMps": 0.00013521789502871567,
+        "maxRestoreQuaternionError": 0,
+        "contactTicks": 1061,
+        "completedActions": 10,
+        "plannedPushes": 5,
+        "nativeTicks": 7456
+      },
+      "arm": "baseline",
+      "key": "reserved033-reverse-x:baseline:8.0",
+      "contactAudit": {
+        "method": "legacy transient contact query"
+      }
+    },
+    {
+      "nativeStatus": "completed",
+      "reason": "",
+      "split": "evaluation",
+      "rawSha256": "fda56d3c73990fffa2cfe47c09ad9c64f0fca3e420cf2f030df987aea1f471a3",
+      "caseId": "reserved033-reverse-x",
+      "initialForceN": 8,
+      "runId": "30a4d850-dfac-32d5-8852-48131632b01e",
+      "metrics": {
+        "pusherWorkJ": 58.54451518856782,
+        "endpointErrorM": 0.028016877475936453,
+        "maxForceN": 27.25781433049257,
+        "effortNs": 122.81805361366251,
+        "crateTravelM": 4.916732202254452,
+        "jams": 0,
+        "physicalAxes": 3,
+        "resumes": 0,
+        "recoveries": 0,
+        "maxRestoreVelocityError": 0,
+        "timeS": 29.404166666666665,
+        "maxRestorePositionErrorM": 0,
+        "expandedStates": 79,
+        "scope": "Declared-scale native contact pushing of two boxes on a flat floor. Conservative integer-metre planning, finite force/recovery budgets; not universal robotic manipulation or measured material inference.",
+        "nativePhysics": true,
+        "plannedActions": 17,
+        "passed": true,
+        "terminalSpeedMps": 1.8586301720842163e-05,
+        "maxRestoreQuaternionError": 0,
+        "contactTicks": 2412,
+        "completedActions": 17,
+        "plannedPushes": 5,
+        "nativeTicks": 7057
+      },
+      "arm": "candidate",
+      "key": "reserved033-reverse-x:candidate:8.0",
+      "contactAudit": {
+        "scope": "Sampled actual solver impulses/contact observations, not total physical energy or a photographic detector",
+        "passed": true,
+        "solverContactSamples": 199,
+        "solverOnlySamples": 67,
+        "sampledNormalImpulseNs": 4.1908481504034985
+      }
+    },
+    {
+      "nativeStatus": "failed",
+      "reason": "Push leg exceeded fifteen simulated seconds",
+      "split": "evaluation",
+      "rawSha256": "49969d49939ffc7346262960b2658412e171b92c81cb34fb07766debdf4a5440",
+      "caseId": "reserved033-reverse-z",
+      "initialForceN": 8,
+      "runId": "13f67d62-a074-3b6b-b899-d1a7e88be373",
+      "metrics": {
+        "pusherWorkJ": 35.53123744431125,
+        "endpointErrorM": 1.3994428396051406,
+        "maxForceN": 27.068812020564025,
+        "effortNs": 84.97140747385568,
+        "crateTravelM": 2.9533844039345962,
+        "jams": 0,
+        "physicalAxes": 3,
+        "resumes": 0,
+        "recoveries": 0,
+        "maxRestoreVelocityError": 0,
+        "timeS": 31.05,
+        "maxRestorePositionErrorM": 0,
+        "expandedStates": 78,
+        "scope": "Declared-scale native contact pushing of two boxes on a flat floor. Conservative integer-metre planning, finite force/recovery budgets; not universal robotic manipulation or measured material inference.",
+        "nativePhysics": true,
+        "plannedActions": 17,
+        "passed": false,
+        "terminalSpeedMps": 2.5289764063769424e-06,
+        "maxRestoreQuaternionError": 0,
+        "contactTicks": 1028,
+        "completedActions": 10,
+        "plannedPushes": 5,
+        "nativeTicks": 7452
+      },
+      "arm": "baseline",
+      "key": "reserved033-reverse-z:baseline:8.0",
+      "contactAudit": {
+        "method": "legacy transient contact query"
+      }
+    },
+    {
+      "nativeStatus": "completed",
+      "reason": "",
+      "split": "evaluation",
+      "rawSha256": "09bc52f33dc2fb02dc6a133e873a9a8eb15df627569dc457d8ede3082f38643c",
+      "caseId": "reserved033-reverse-z",
+      "initialForceN": 8,
+      "runId": "e625ffff-c375-3bca-a822-5fe4e2901e6b",
+      "metrics": {
+        "pusherWorkJ": 56.78061776777018,
+        "endpointErrorM": 0.02900943698239491,
+        "maxForceN": 27.191489309001405,
+        "effortNs": 116.16582434799402,
+        "crateTravelM": 4.912621942407428,
+        "jams": 0,
+        "physicalAxes": 3,
+        "resumes": 0,
+        "recoveries": 0,
+        "maxRestoreVelocityError": 0,
+        "timeS": 29.2,
+        "maxRestorePositionErrorM": 0,
+        "expandedStates": 78,
+        "scope": "Declared-scale native contact pushing of two boxes on a flat floor. Conservative integer-metre planning, finite force/recovery budgets; not universal robotic manipulation or measured material inference.",
+        "nativePhysics": true,
+        "plannedActions": 17,
+        "passed": true,
+        "terminalSpeedMps": 2.5835289295446345e-05,
+        "maxRestoreQuaternionError": 0,
+        "contactTicks": 2459,
+        "completedActions": 17,
+        "plannedPushes": 5,
+        "nativeTicks": 7008
+      },
+      "arm": "candidate",
+      "key": "reserved033-reverse-z:candidate:8.0",
+      "contactAudit": {
+        "scope": "Sampled actual solver impulses/contact observations, not total physical energy or a photographic detector",
+        "passed": true,
+        "solverContactSamples": 204,
+        "solverOnlySamples": 69,
+        "sampledNormalImpulseNs": 3.522923689537305
+      }
+    },
+    {
+      "nativeStatus": "completed",
+      "reason": "",
+      "split": "evaluation",
+      "rawSha256": "ef621d903daf0b766fef9ee97d18b13ffe7ae47d9f0d2d120c6f1011b655de54",
+      "caseId": "reserved033-heavy-turn",
+      "initialForceN": 8,
+      "runId": "cd2f8b21-b5de-3076-9109-06cbaada8cbf",
+      "metrics": {
+        "pusherWorkJ": 65.44842117282265,
+        "endpointErrorM": 0.022603928600778696,
+        "maxForceN": 26.923655076424588,
+        "effortNs": 166.0886314259528,
+        "crateTravelM": 4.918130717565828,
+        "jams": 1,
+        "physicalAxes": 3,
+        "resumes": 0,
+        "recoveries": 1,
+        "maxRestoreVelocityError": 0,
+        "timeS": 34.354166666666664,
+        "maxRestorePositionErrorM": 0,
+        "expandedStates": 71,
+        "scope": "Declared-scale native contact pushing of two boxes on a flat floor. Conservative integer-metre planning, finite force/recovery budgets; not universal robotic manipulation or measured material inference.",
+        "nativePhysics": true,
+        "plannedActions": 17,
+        "passed": true,
+        "terminalSpeedMps": 0.00011044287440036929,
+        "maxRestoreQuaternionError": 0,
+        "contactTicks": 1785,
+        "completedActions": 17,
+        "plannedPushes": 5,
+        "nativeTicks": 8245
+      },
+      "arm": "baseline",
+      "key": "reserved033-heavy-turn:baseline:8.0",
+      "contactAudit": {
+        "method": "legacy transient contact query"
+      }
+    },
+    {
+      "nativeStatus": "completed",
+      "reason": "",
+      "split": "evaluation",
+      "rawSha256": "75cdc229457f2e03c487fe0950d15e4e4b933e91e79b491ec180fdc34e69ae9f",
+      "caseId": "reserved033-heavy-turn",
+      "initialForceN": 8,
+      "runId": "e9fa6387-fe42-325d-8bcc-c95c55e468c3",
+      "metrics": {
+        "pusherWorkJ": 65.64728232953277,
+        "endpointErrorM": 0.020313900364929804,
+        "maxForceN": 26.965790868422687,
+        "effortNs": 157.87663339909997,
+        "crateTravelM": 4.940229130888961,
+        "jams": 1,
+        "physicalAxes": 3,
+        "resumes": 0,
+        "recoveries": 1,
+        "maxRestoreVelocityError": 0,
+        "timeS": 33.15,
+        "maxRestorePositionErrorM": 0,
+        "expandedStates": 71,
+        "scope": "Declared-scale native contact pushing of two boxes on a flat floor. Conservative integer-metre planning, finite force/recovery budgets; not universal robotic manipulation or measured material inference.",
+        "nativePhysics": true,
+        "plannedActions": 17,
+        "passed": true,
+        "terminalSpeedMps": 1.992329791883937e-05,
+        "maxRestoreQuaternionError": 0,
+        "contactTicks": 2955,
+        "completedActions": 17,
+        "plannedPushes": 5,
+        "nativeTicks": 7956
+      },
+      "arm": "candidate",
+      "key": "reserved033-heavy-turn:candidate:8.0",
+      "contactAudit": {
+        "scope": "Sampled actual solver impulses/contact observations, not total physical energy or a photographic detector",
+        "passed": true,
+        "solverContactSamples": 245,
+        "solverOnlySamples": 71,
+        "sampledNormalImpulseNs": 8.813729627785005
+      }
+    },
+    {
+      "nativeStatus": "completed",
+      "reason": "",
+      "split": "evaluation",
+      "rawSha256": "396870704d6617d8f2cb010ea8ec655ba38272e3a1aa42859b15950b4ddf6026",
+      "caseId": "reserved033-light-clear",
+      "initialForceN": 8,
+      "runId": "cda07388-da32-3a18-927b-05229e61ae57",
+      "metrics": {
+        "pusherWorkJ": 22.466352841453336,
+        "endpointErrorM": 0.029634212635568275,
+        "maxForceN": 26.55443419927367,
+        "effortNs": 45.94027772722044,
+        "crateTravelM": 2.97044344135025,
+        "jams": 0,
+        "physicalAxes": 3,
+        "resumes": 0,
+        "recoveries": 0,
+        "maxRestoreVelocityError": 0,
+        "timeS": 12.179166666666667,
+        "maxRestorePositionErrorM": 0,
+        "expandedStates": 22,
+        "scope": "Declared-scale native contact pushing of two boxes on a flat floor. Conservative integer-metre planning, finite force/recovery budgets; not universal robotic manipulation or measured material inference.",
+        "nativePhysics": true,
+        "plannedActions": 7,
+        "passed": true,
+        "terminalSpeedMps": 1.5699497770033237e-05,
+        "maxRestoreQuaternionError": 0,
+        "contactTicks": 1062,
+        "completedActions": 7,
+        "plannedPushes": 3,
+        "nativeTicks": 2923
+      },
+      "arm": "baseline",
+      "key": "reserved033-light-clear:baseline:8.0",
+      "contactAudit": {
+        "method": "legacy transient contact query"
+      }
+    },
+    {
+      "nativeStatus": "completed",
+      "reason": "",
+      "split": "evaluation",
+      "rawSha256": "c5708eb28594bc17fe84484da4fa10f87368276ad785d7c86a8fea1e5af7df32",
+      "caseId": "reserved033-light-clear",
+      "initialForceN": 8,
+      "runId": "535dbdbc-3457-3715-b22c-1a7caa533497",
+      "metrics": {
+        "pusherWorkJ": 22.45597927448531,
+        "endpointErrorM": 0.029672736432752752,
+        "maxForceN": 26.581495865240296,
+        "effortNs": 45.94889219835061,
+        "crateTravelM": 2.970905311935518,
+        "jams": 0,
+        "physicalAxes": 3,
+        "resumes": 0,
+        "recoveries": 0,
+        "maxRestoreVelocityError": 0,
+        "timeS": 12.183333333333334,
+        "maxRestorePositionErrorM": 0,
+        "expandedStates": 22,
+        "scope": "Declared-scale native contact pushing of two boxes on a flat floor. Conservative integer-metre planning, finite force/recovery budgets; not universal robotic manipulation or measured material inference.",
+        "nativePhysics": true,
+        "plannedActions": 7,
+        "passed": true,
+        "terminalSpeedMps": 0.00011079827436729752,
+        "maxRestoreQuaternionError": 0,
+        "contactTicks": 1572,
+        "completedActions": 7,
+        "plannedPushes": 3,
+        "nativeTicks": 2924
+      },
+      "arm": "candidate",
+      "key": "reserved033-light-clear:candidate:8.0",
+      "contactAudit": {
+        "scope": "Sampled actual solver impulses/contact observations, not total physical energy or a photographic detector",
+        "passed": true,
+        "solverContactSamples": 131,
+        "solverOnlySamples": 40,
+        "sampledNormalImpulseNs": 1.7001076577572012
+      }
+    },
+    {
+      "nativeStatus": "failed",
+      "reason": "Push leg exceeded fifteen simulated seconds",
+      "split": "evaluation",
+      "rawSha256": "7796c723072e4acc2c48d9dd3dd0d8690a8ea390f4b5be441b453ff547991fb1",
+      "caseId": "reserved033-diagonal",
+      "initialForceN": 8,
+      "runId": "861b5b5d-466d-3d17-ba01-25e037a89dc0",
+      "metrics": {
+        "pusherWorkJ": 33.62777529612803,
+        "endpointErrorM": 0.03608888342007222,
+        "maxForceN": 26.84845020767072,
+        "effortNs": 82.76539645866508,
+        "crateTravelM": 3.9587171618540706,
+        "jams": 0,
+        "physicalAxes": 3,
+        "resumes": 0,
+        "recoveries": 0,
+        "maxRestoreVelocityError": 0,
+        "timeS": 31.425,
+        "maxRestorePositionErrorM": 0,
+        "expandedStates": 46,
+        "scope": "Declared-scale native contact pushing of two boxes on a flat floor. Conservative integer-metre planning, finite force/recovery budgets; not universal robotic manipulation or measured material inference.",
+        "nativePhysics": true,
+        "plannedActions": 11,
+        "passed": false,
+        "terminalSpeedMps": 0.00010764291007244732,
+        "maxRestoreQuaternionError": 0,
+        "contactTicks": 1208,
+        "completedActions": 10,
+        "plannedPushes": 4,
+        "nativeTicks": 7542
+      },
+      "arm": "baseline",
+      "key": "reserved033-diagonal:baseline:8.0",
+      "contactAudit": {
+        "method": "legacy transient contact query"
+      }
+    },
+    {
+      "nativeStatus": "completed",
+      "reason": "",
+      "split": "evaluation",
+      "rawSha256": "126f6151a0b53966f1459b7b51e7eecd1c2db93f5f56eb8f885dcf24e016cc6d",
+      "caseId": "reserved033-diagonal",
+      "initialForceN": 8,
+      "runId": "b7087b29-6084-3023-99be-0a6fa57f5579",
+      "metrics": {
+        "pusherWorkJ": 33.54705927854814,
+        "endpointErrorM": 0.028091189773992224,
+        "maxForceN": 26.817794996677726,
+        "effortNs": 71.27962301550599,
+        "crateTravelM": 3.943605647179565,
+        "jams": 0,
+        "physicalAxes": 3,
+        "resumes": 0,
+        "recoveries": 0,
+        "maxRestoreVelocityError": 0,
+        "timeS": 19.1875,
+        "maxRestorePositionErrorM": 0,
+        "expandedStates": 46,
+        "scope": "Declared-scale native contact pushing of two boxes on a flat floor. Conservative integer-metre planning, finite force/recovery budgets; not universal robotic manipulation or measured material inference.",
+        "nativePhysics": true,
+        "plannedActions": 11,
+        "passed": true,
+        "terminalSpeedMps": 1.2239046535895047e-05,
+        "maxRestoreQuaternionError": 0,
+        "contactTicks": 1890,
+        "completedActions": 11,
+        "plannedPushes": 4,
+        "nativeTicks": 4605
+      },
+      "arm": "candidate",
+      "key": "reserved033-diagonal:candidate:8.0",
+      "contactAudit": {
+        "scope": "Sampled actual solver impulses/contact observations, not total physical energy or a photographic detector",
+        "passed": true,
+        "solverContactSamples": 157,
+        "solverOnlySamples": 61,
+        "sampledNormalImpulseNs": 2.4577582997542016
+      }
+    },
+    {
+      "nativeStatus": "failed",
+      "reason": "Physical pushing stalled after two bounded recovery attempts",
+      "split": "evaluation",
+      "rawSha256": "da7e371685c9aa5fd7ed03fcfac4d1f38ac22f5a43a8cddb910779691304e079",
+      "caseId": "reserved033-force-negative",
+      "initialForceN": 8,
+      "runId": "318c2831-0941-3ad9-8356-5e378ed30421",
+      "metrics": {
+        "pusherWorkJ": 32.469284247817164,
+        "endpointErrorM": 2.6227797164681026,
+        "maxForceN": 32.00000363329495,
+        "effortNs": 406.9473519216697,
+        "crateTravelM": 0.4170926210140127,
+        "jams": 2,
+        "physicalAxes": 3,
+        "resumes": 0,
+        "recoveries": 2,
+        "maxRestoreVelocityError": 0,
+        "timeS": 26.912499999999998,
+        "maxRestorePositionErrorM": 0,
+        "expandedStates": 22,
+        "scope": "Declared-scale native contact pushing of two boxes on a flat floor. Conservative integer-metre planning, finite force/recovery budgets; not universal robotic manipulation or measured material inference.",
+        "nativePhysics": true,
+        "plannedActions": 7,
+        "passed": false,
+        "terminalSpeedMps": 0.0012404643502674938,
+        "maxRestoreQuaternionError": 0,
+        "contactTicks": 953,
+        "completedActions": 2,
+        "plannedPushes": 3,
+        "nativeTicks": 6459
+      },
+      "arm": "baseline",
+      "key": "reserved033-force-negative:baseline:8.0",
+      "contactAudit": {
+        "method": "legacy transient contact query"
+      }
+    },
+    {
+      "nativeStatus": "failed",
+      "reason": "Physical pushing stalled after two bounded recovery attempts",
+      "split": "evaluation",
+      "rawSha256": "525436249bdb0dc30765002f4f8ec049b299504ee46776591c6f4b8671255020",
+      "caseId": "reserved033-force-negative",
+      "initialForceN": 8,
+      "runId": "f0d576b5-2f22-3ff3-b12f-8cce20ce8e77",
+      "metrics": {
+        "pusherWorkJ": 30.116248039311404,
+        "endpointErrorM": 2.7140920292356014,
+        "maxForceN": 32.00000381533283,
+        "effortNs": 150.94679031641414,
+        "crateTravelM": 0.2972999417365863,
+        "jams": 2,
+        "physicalAxes": 3,
+        "resumes": 0,
+        "recoveries": 2,
+        "maxRestoreVelocityError": 0,
+        "timeS": 9.9125,
+        "maxRestorePositionErrorM": 0,
+        "expandedStates": 22,
+        "scope": "Declared-scale native contact pushing of two boxes on a flat floor. Conservative integer-metre planning, finite force/recovery budgets; not universal robotic manipulation or measured material inference.",
+        "nativePhysics": true,
+        "plannedActions": 7,
+        "passed": false,
+        "terminalSpeedMps": 0.0005900032635816401,
+        "maxRestoreQuaternionError": 0,
+        "contactTicks": 955,
+        "completedActions": 2,
+        "plannedPushes": 3,
+        "nativeTicks": 2379
+      },
+      "arm": "candidate",
+      "key": "reserved033-force-negative:candidate:8.0",
+      "contactAudit": {
+        "scope": "Sampled actual solver impulses/contact observations, not total physical energy or a photographic detector",
+        "passed": true,
+        "solverContactSamples": 82,
+        "solverOnlySamples": 36,
+        "sampledNormalImpulseNs": 8.918729440730303
+      }
+    }
+  ],
+  "candidateFrozenAfterTrial": 16,
+  "id": "b24b53ee-f266-3c79-b78e-03fe7170ff12",
+  "suiteSha256": "766227d3821323f00ee18069fd9c04743242e92734d707580e53c9df11195892",
+  "events": [
+    {
+      "kind": "trial-completed",
+      "caseId": "eval-light",
+      "arm": "baseline",
+      "ordinal": 1
+    },
+    {
+      "kind": "trial-completed",
+      "caseId": "eval-light",
+      "arm": "candidate",
+      "ordinal": 2
+    },
+    {
+      "kind": "trial-completed",
+      "caseId": "eval-corner",
+      "arm": "baseline",
+      "ordinal": 3
+    },
+    {
+      "kind": "trial-completed",
+      "caseId": "eval-corner",
+      "arm": "candidate",
+      "ordinal": 4
+    },
+    {
+      "kind": "trial-completed",
+      "caseId": "eval-heavy-friction",
+      "arm": "baseline",
+      "ordinal": 5
+    },
+    {
+      "kind": "trial-completed",
+      "caseId": "eval-heavy-friction",
+      "arm": "candidate",
+      "ordinal": 6
+    },
+    {
+      "kind": "trial-completed",
+      "caseId": "eval-rough-corner",
+      "arm": "baseline",
+      "ordinal": 7
+    },
+    {
+      "kind": "trial-completed",
+      "caseId": "eval-rough-corner",
+      "arm": "candidate",
+      "ordinal": 8
+    },
+    {
+      "kind": "trial-completed",
+      "caseId": "eval-mass",
+      "arm": "baseline",
+      "ordinal": 9
+    },
+    {
+      "kind": "trial-completed",
+      "caseId": "eval-mass",
+      "arm": "candidate",
+      "ordinal": 10
+    },
+    {
+      "kind": "trial-completed",
+      "caseId": "eval-obstacle",
+      "arm": "baseline",
+      "ordinal": 11
+    },
+    {
+      "kind": "trial-completed",
+      "caseId": "eval-obstacle",
+      "arm": "candidate",
+      "ordinal": 12
+    },
+    {
+      "kind": "trial-completed",
+      "caseId": "eval-z-axis",
+      "arm": "baseline",
+      "ordinal": 13
+    },
+    {
+      "kind": "trial-completed",
+      "caseId": "eval-z-axis",
+      "arm": "candidate",
+      "ordinal": 14
+    },
+    {
+      "kind": "trial-completed",
+      "caseId": "eval-force-negative",
+      "arm": "baseline",
+      "ordinal": 15
+    },
+    {
+      "kind": "trial-completed",
+      "caseId": "eval-force-negative",
+      "arm": "candidate",
+      "ordinal": 16
+    },
+    {
+      "kind": "trial-completed",
+      "caseId": "reserved033-offset",
+      "arm": "baseline",
+      "ordinal": 17
+    },
+    {
+      "kind": "trial-completed",
+      "caseId": "reserved033-offset",
+      "arm": "candidate",
+      "ordinal": 18
+    },
+    {
+      "kind": "trial-completed",
+      "caseId": "reserved033-z-turn",
+      "arm": "baseline",
+      "ordinal": 19
+    },
+    {
+      "kind": "trial-completed",
+      "caseId": "reserved033-z-turn",
+      "arm": "candidate",
+      "ordinal": 20
+    },
+    {
+      "kind": "trial-completed",
+      "caseId": "reserved033-reverse-x",
+      "arm": "baseline",
+      "ordinal": 21
+    },
+    {
+      "kind": "trial-completed",
+      "caseId": "reserved033-reverse-x",
+      "arm": "candidate",
+      "ordinal": 22
+    },
+    {
+      "kind": "trial-completed",
+      "caseId": "reserved033-reverse-z",
+      "arm": "baseline",
+      "ordinal": 23
+    },
+    {
+      "kind": "trial-completed",
+      "caseId": "reserved033-reverse-z",
+      "arm": "candidate",
+      "ordinal": 24
+    },
+    {
+      "kind": "trial-completed",
+      "caseId": "reserved033-heavy-turn",
+      "arm": "baseline",
+      "ordinal": 25
+    },
+    {
+      "kind": "trial-completed",
+      "caseId": "reserved033-heavy-turn",
+      "arm": "candidate",
+      "ordinal": 26
+    },
+    {
+      "kind": "trial-completed",
+      "caseId": "reserved033-light-clear",
+      "arm": "baseline",
+      "ordinal": 27
+    },
+    {
+      "kind": "trial-completed",
+      "caseId": "reserved033-light-clear",
+      "arm": "candidate",
+      "ordinal": 28
+    },
+    {
+      "kind": "trial-completed",
+      "caseId": "reserved033-diagonal",
+      "arm": "baseline",
+      "ordinal": 29
+    },
+    {
+      "kind": "trial-completed",
+      "caseId": "reserved033-diagonal",
+      "arm": "candidate",
+      "ordinal": 30
+    },
+    {
+      "kind": "trial-completed",
+      "caseId": "reserved033-force-negative",
+      "arm": "baseline",
+      "ordinal": 31
+    },
+    {
+      "kind": "trial-completed",
+      "caseId": "reserved033-force-negative",
+      "arm": "candidate",
+      "ordinal": 32
+    }
+  ],
+  "status": "completed"
+}

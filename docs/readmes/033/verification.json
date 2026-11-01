@@ -1,0 +1,805 @@
+{
+  "date": "2026-11-01",
+  "sourceBaseline": "e13290a9b5d66e751df223d45c31878eec847952",
+  "sourceInventory": 640,
+  "suiteFreezeCommit": "c461a97",
+  "candidateSourceLockCommit": "57dec5e",
+  "comparisonImplementationSha256": "90b857f35771d801f7d9fd7a03dc19de80ad02f762c04b94d4ba381dd45ca388",
+  "suiteSha256": "766227d3821323f00ee18069fd9c04743242e92734d707580e53c9df11195892",
+  "freshClone": {
+    "status": "passed",
+    "checkout": "fraynix-workspace-qa033-release",
+    "sourceCommit": "e13290a9b5d66e751df223d45c31878eec847952",
+    "offlineBuild": true,
+    "javaTests": 295,
+    "javaClasses": 58,
+    "desktopUnitTests": 66,
+    "uiChecks": 209,
+    "groups": {
+      "contact-study": {
+        "checks": 8,
+        "passed": true
+      },
+      "contact-library": {
+        "checks": 2,
+        "passed": true
+      },
+      "body": {
+        "checks": 10,
+        "passed": true
+      },
+      "brain-game": {
+        "checks": 10,
+        "passed": true
+      },
+      "feedback": {
+        "checks": 12,
+        "passed": true
+      },
+      "world-model": {
+        "checks": 15,
+        "passed": true
+      },
+      "goals": {
+        "checks": 14,
+        "passed": true
+      },
+      "data-goals": {
+        "checks": 12,
+        "passed": true
+      },
+      "spatial": {
+        "checks": 14,
+        "passed": true
+      },
+      "perception": {
+        "checks": 15,
+        "passed": true
+      },
+      "tracking024": {
+        "checks": 9,
+        "passed": true
+      },
+      "tracking-controls": {
+        "checks": 6,
+        "passed": true
+      },
+      "creation": {
+        "checks": 8,
+        "passed": true
+      },
+      "workflow": {
+        "checks": 8,
+        "passed": true
+      },
+      "procedural": {
+        "checks": 9,
+        "passed": true
+      },
+      "responsive": {
+        "checks": 4,
+        "passed": true
+      },
+      "maps": {
+        "checks": 9,
+        "passed": true
+      },
+      "topology": {
+        "checks": 10,
+        "passed": true
+      },
+      "recovery-materials": {
+        "checks": 9,
+        "passed": true
+      },
+      "pushing": {
+        "checks": 12,
+        "passed": true
+      },
+      "force-learning": {
+        "checks": 8,
+        "passed": true
+      },
+      "force-learning-library": {
+        "checks": 2,
+        "passed": true
+      },
+      "tracking-migration": {
+        "checks": 3,
+        "passed": true
+      }
+    },
+    "modelWeightsOrPrivateRuntimeCopied": false,
+    "electronBinary": "Existing pinned 45.1.0 cache after npm ci --offline --ignore-scripts"
+  },
+  "sourceMatch": {
+    "passed": true,
+    "canonicalSourceHashesMatched": 640,
+    "sourceBaseline": "e13290a9b5d66e751df223d45c31878eec847952",
+    "independentHead": "e13290a9b5d66e751df223d45c31878eec847952"
+  },
+  "documentationQa": {
+    "status": "passed",
+    "checks": [
+      "Offline architecture loads actual-source experience modules and source-linked native owner details",
+      "Status filters distinguish implemented evaluation from the planned broader contact-transition work",
+      "Source search resolves the new Java class; all fifteen dated actual captures decode and link to originals",
+      "Navigation, search and architecture selection work at390px without body overflow",
+      "Original offline report preserves all144 cells, both native chart arms and every coordinate in all three metric modes with real reset behavior",
+      "Original candidate pin/split/gates and accepted decision remain exact and visibly inspectable",
+      "Actual complete export decompresses to the original job and all32 native runs with exact raw-byte SHA-256",
+      "First pre-integration headless measurement retains all32 exact original native-result byte strings and their hashes, separately labelled from the actual app export",
+      "Paired report and original-data view fit390px with contained table scrolling",
+      "Offline guide/report run without script errors, external requests, CDN or Java engine"
+    ]
+  },
+  "actualUi": {
+    "checks": 8,
+    "decision": {
+      "developmentPositivePasses": 7,
+      "matchedSuccessCases": 2,
+      "accepted": true,
+      "baselineEvaluationPositivePasses": 2,
+      "pairs": [
+        {
+          "baselineTimeS": 12.591666666666667,
+          "baselineRunId": "f351dd6c-ab0f-3a21-bace-f594bfe9dec3",
+          "negativeControl": false,
+          "candidateEffortNs": 44.70106111435832,
+          "candidateRunId": "7986f569-2007-3361-b038-36711f469170",
+          "baselineEffortNs": 44.70989412686491,
+          "split": "development",
+          "caseId": "eval-light",
+          "candidateJams": 0,
+          "baselineJams": 0,
+          "candidateTimeS": 12.591666666666667,
+          "baselinePassed": true,
+          "candidatePassed": true
+        },
+        {
+          "baselineTimeS": 30.275,
+          "baselineRunId": "b5a9e848-2192-3e28-84c4-0eed02ca6164",
+          "negativeControl": false,
+          "candidateEffortNs": 130.8322656780947,
+          "candidateRunId": "eea83cbc-bc49-339d-a3e4-3376d7a92e63",
+          "baselineEffortNs": 131.98909163600808,
+          "split": "development",
+          "caseId": "eval-corner",
+          "candidateJams": 0,
+          "baselineJams": 0,
+          "candidateTimeS": 30.029166666666665,
+          "baselinePassed": true,
+          "candidatePassed": true
+        },
+        {
+          "baselineTimeS": 15.591666666666667,
+          "baselineRunId": "828a3c13-dc4b-3bb3-a005-69d83a88e0cb",
+          "negativeControl": false,
+          "candidateEffortNs": 120.83276779359099,
+          "candidateRunId": "99586756-6fbb-3927-bcae-ddb82b0d729e",
+          "baselineEffortNs": 129.46532410045316,
+          "split": "development",
+          "caseId": "eval-heavy-friction",
+          "candidateJams": 1,
+          "baselineJams": 1,
+          "candidateTimeS": 14.545833333333333,
+          "baselinePassed": true,
+          "candidatePassed": true
+        },
+        {
+          "baselineTimeS": 33.37083333333333,
+          "baselineRunId": "65f9f4f0-15ff-3494-a8d1-bceeb71a4844",
+          "negativeControl": false,
+          "candidateEffortNs": 165.56186320560116,
+          "candidateRunId": "de9c35f3-3519-3c9b-8157-cc91b6956120",
+          "baselineEffortNs": 168.18355829073482,
+          "split": "development",
+          "caseId": "eval-rough-corner",
+          "candidateJams": 1,
+          "baselineJams": 1,
+          "candidateTimeS": 33.03333333333333,
+          "baselinePassed": true,
+          "candidatePassed": true
+        },
+        {
+          "baselineTimeS": 13.95,
+          "baselineRunId": "341839a2-0ba5-3c10-8913-d9e2b6d4ec2b",
+          "negativeControl": false,
+          "candidateEffortNs": 67.78934744242811,
+          "candidateRunId": "2e37647d-19bf-35f0-aa4d-f253fc2c37ee",
+          "baselineEffortNs": 67.82542725817495,
+          "split": "development",
+          "caseId": "eval-mass",
+          "candidateJams": 0,
+          "baselineJams": 0,
+          "candidateTimeS": 13.95,
+          "baselinePassed": true,
+          "candidatePassed": true
+        },
+        {
+          "baselineTimeS": 60,
+          "baselineRunId": "b2a3b5cb-fc28-38fe-9b2a-5cbc02ed5d76",
+          "negativeControl": false,
+          "candidateEffortNs": 109.54847110904966,
+          "candidateRunId": "4cbe34ac-721a-3d5f-9667-f4b6eba71dd3",
+          "baselineEffortNs": 80.34127352911239,
+          "split": "development",
+          "caseId": "eval-obstacle",
+          "candidateJams": 0,
+          "baselineJams": 0,
+          "candidateTimeS": 29.166666666666668,
+          "baselinePassed": false,
+          "candidatePassed": true
+        },
+        {
+          "baselineTimeS": 60,
+          "baselineRunId": "60e6c8d9-bc59-3abb-b867-537f34c24a55",
+          "negativeControl": false,
+          "candidateEffortNs": 163.1904885495818,
+          "candidateRunId": "5b963ce3-fdbe-3d88-8cc7-eca0cdc07bc3",
+          "baselineEffortNs": 132.42872369963177,
+          "split": "development",
+          "caseId": "eval-z-axis",
+          "candidateJams": 1,
+          "baselineJams": 0,
+          "candidateTimeS": 32.1625,
+          "baselinePassed": false,
+          "candidatePassed": true
+        },
+        {
+          "baselineTimeS": 60,
+          "baselineRunId": "17c06eba-b8f7-3eb3-8550-92f2afb7a68f",
+          "negativeControl": true,
+          "candidateEffortNs": 146.56517009048576,
+          "candidateRunId": "0748613b-6b53-3a1e-8933-96db858c226b",
+          "baselineEffortNs": 146.56425985113378,
+          "split": "development",
+          "caseId": "eval-force-negative",
+          "candidateJams": 2,
+          "baselineJams": 2,
+          "candidateTimeS": 60,
+          "baselinePassed": false,
+          "candidatePassed": false
+        },
+        {
+          "baselineTimeS": 60,
+          "baselineRunId": "73ed0b20-a0af-3f65-b49b-e28b9054e5d2",
+          "negativeControl": false,
+          "candidateEffortNs": 106.51195930426505,
+          "candidateRunId": "7bb8c124-e3e1-3030-8543-b1aca92d6e39",
+          "baselineEffortNs": 78.42464011785039,
+          "split": "evaluation",
+          "caseId": "reserved033-offset",
+          "candidateJams": 0,
+          "baselineJams": 0,
+          "candidateTimeS": 29.195833333333333,
+          "baselinePassed": false,
+          "candidatePassed": true
+        },
+        {
+          "baselineTimeS": 60,
+          "baselineRunId": "11870c95-3abb-311a-a4a1-fe8a2c24ce01",
+          "negativeControl": false,
+          "candidateEffortNs": 94.14349353164293,
+          "candidateRunId": "740bcdab-841f-327e-93e0-1feda004cc4d",
+          "baselineEffortNs": 70.73856185134032,
+          "split": "evaluation",
+          "caseId": "reserved033-z-turn",
+          "candidateJams": 0,
+          "baselineJams": 0,
+          "candidateTimeS": 29.0875,
+          "baselinePassed": false,
+          "candidatePassed": true
+        },
+        {
+          "baselineTimeS": 60,
+          "baselineRunId": "53a370f7-489d-3956-ba67-7a4a32be5bc8",
+          "negativeControl": false,
+          "candidateEffortNs": 122.81805361366251,
+          "candidateRunId": "30a4d850-dfac-32d5-8852-48131632b01e",
+          "baselineEffortNs": 88.36821148245546,
+          "split": "evaluation",
+          "caseId": "reserved033-reverse-x",
+          "candidateJams": 0,
+          "baselineJams": 0,
+          "candidateTimeS": 29.404166666666665,
+          "baselinePassed": false,
+          "candidatePassed": true
+        },
+        {
+          "baselineTimeS": 60,
+          "baselineRunId": "13f67d62-a074-3b6b-b899-d1a7e88be373",
+          "negativeControl": false,
+          "candidateEffortNs": 116.16582434799402,
+          "candidateRunId": "e625ffff-c375-3bca-a822-5fe4e2901e6b",
+          "baselineEffortNs": 84.97140747385568,
+          "split": "evaluation",
+          "caseId": "reserved033-reverse-z",
+          "candidateJams": 0,
+          "baselineJams": 0,
+          "candidateTimeS": 29.2,
+          "baselinePassed": false,
+          "candidatePassed": true
+        },
+        {
+          "baselineTimeS": 34.354166666666664,
+          "baselineRunId": "cd2f8b21-b5de-3076-9109-06cbaada8cbf",
+          "negativeControl": false,
+          "candidateEffortNs": 157.87663339909997,
+          "candidateRunId": "e9fa6387-fe42-325d-8bcc-c95c55e468c3",
+          "baselineEffortNs": 166.0886314259528,
+          "split": "evaluation",
+          "caseId": "reserved033-heavy-turn",
+          "candidateJams": 1,
+          "baselineJams": 1,
+          "candidateTimeS": 33.15,
+          "baselinePassed": true,
+          "candidatePassed": true
+        },
+        {
+          "baselineTimeS": 12.179166666666667,
+          "baselineRunId": "cda07388-da32-3a18-927b-05229e61ae57",
+          "negativeControl": false,
+          "candidateEffortNs": 45.94889219835061,
+          "candidateRunId": "535dbdbc-3457-3715-b22c-1a7caa533497",
+          "baselineEffortNs": 45.94027772722044,
+          "split": "evaluation",
+          "caseId": "reserved033-light-clear",
+          "candidateJams": 0,
+          "baselineJams": 0,
+          "candidateTimeS": 12.183333333333334,
+          "baselinePassed": true,
+          "candidatePassed": true
+        },
+        {
+          "baselineTimeS": 60,
+          "baselineRunId": "861b5b5d-466d-3d17-ba01-25e037a89dc0",
+          "negativeControl": false,
+          "candidateEffortNs": 71.27962301550599,
+          "candidateRunId": "b7087b29-6084-3023-99be-0a6fa57f5579",
+          "baselineEffortNs": 82.76539645866508,
+          "split": "evaluation",
+          "caseId": "reserved033-diagonal",
+          "candidateJams": 0,
+          "baselineJams": 0,
+          "candidateTimeS": 19.1875,
+          "baselinePassed": false,
+          "candidatePassed": true
+        },
+        {
+          "baselineTimeS": 60,
+          "baselineRunId": "318c2831-0941-3ad9-8356-5e378ed30421",
+          "negativeControl": true,
+          "candidateEffortNs": 150.94679031641414,
+          "candidateRunId": "f0d576b5-2f22-3ff3-b12f-8cce20ce8e77",
+          "baselineEffortNs": 406.9473519216697,
+          "split": "evaluation",
+          "caseId": "reserved033-force-negative",
+          "candidateJams": 2,
+          "baselineJams": 2,
+          "candidateTimeS": 60,
+          "baselinePassed": false,
+          "candidatePassed": false
+        }
+      ],
+      "gates": {
+        "minEvaluationMeanPenalizedTimeGainS": 2,
+        "minEvaluationSuccessGain": 1,
+        "requireAllPositiveDevelopment": true,
+        "requireAllPositiveEvaluation": true,
+        "maxMatchedSuccessEffortRatio": 1.1,
+        "negativeControlsMustFail": true,
+        "noBaselineSuccessRegression": true
+      },
+      "allCaseEffortRatio": 0.8451998404027327,
+      "evaluationPositiveCases": 7,
+      "successRegressions": 0,
+      "evaluationPositivePasses": 7,
+      "matchedSuccessEffortRatio": 0.9613100704593242,
+      "scope": "Versioned contact-controller comparison on seen development and different reserved synthetic scenes. Same8/32N and original native budgets. Not LLM training or calibrated robot control.",
+      "negativeControlErrors": 0,
+      "passed": true,
+      "developmentPositiveCases": 7,
+      "meanPenalizedTimeGainS": 20.640625000000004
+    },
+    "view": {
+      "cells": 144,
+      "frames": 3,
+      "maxError": 7.454101563553195e-06,
+      "coordinates": 192,
+      "dataSha256": "677fe101431f2c73a232dc9f98b0185c9298afe89677f54f934d09dfb5e14286",
+      "passed": true
+    },
+    "committedBeforeKill": 70,
+    "sameNativeRun": true,
+    "recoveredPush": {
+      "pusherWorkJ": 74.60876831567032,
+      "endpointErrorM": 0.0273938810277763,
+      "maxForceN": 27.535071179901266,
+      "effortNs": 162.97281059863852,
+      "crateTravelM": 4.921683063198754,
+      "jams": 1,
+      "physicalAxes": 3,
+      "resumes": 1,
+      "recoveries": 1,
+      "maxRestoreVelocityError": 0,
+      "timeS": 32.125,
+      "maxRestorePositionErrorM": 0,
+      "expandedStates": 86,
+      "scope": "Declared-scale native contact pushing of two boxes on a flat floor. Conservative integer-metre planning, finite force/recovery budgets; not universal robotic manipulation or measured material inference.",
+      "nativePhysics": true,
+      "plannedActions": 17,
+      "passed": true,
+      "terminalSpeedMps": 8.380261255267005e-05,
+      "maxRestoreQuaternionError": 0,
+      "contactTicks": 2863,
+      "completedActions": 17,
+      "plannedPushes": 5,
+      "nativeTicks": 7710
+    },
+    "activatedProfile": {
+      "jobId": "b24b53ee-f266-3c79-b78e-03fe7170ff12",
+      "maxForceN": 32,
+      "codeSha256": "90b857f35771d801f7d9fd7a03dc19de80ad02f762c04b94d4ba381dd45ca388",
+      "viewReceipt": {
+        "cells": 144,
+        "frames": 3,
+        "maxError": 7.454101563553195e-06,
+        "coordinates": 192,
+        "dataSha256": "677fe101431f2c73a232dc9f98b0185c9298afe89677f54f934d09dfb5e14286",
+        "passed": true
+      },
+      "sha256": "39da84b16a6c49dd9a423673b18ec1e1efa376b4adab223f7d845dee1a874151",
+      "initialForceN": 8,
+      "nativeCodeSha256": "5fcab3485670948d1da3117eef96a0f6a85ee725a214f4713387b37875cc1bb7",
+      "id": "contact-b24b53ee-f266-3c79-b78e-03fe7170ff12",
+      "suiteSha256": "766227d3821323f00ee18069fd9c04743242e92734d707580e53c9df11195892",
+      "controllerVersion": "solver-contact-controller-033-v1",
+      "decisionSha256": "30e40a6bb2fcf4410c420f92a55f206326996e1e4794ffbeb8040779948c492f"
+    },
+    "retainedPolicy": {
+      "jobId": "b24b53ee-f266-3c79-b78e-03fe7170ff12",
+      "maxForceN": 32,
+      "codeSha256": "90b857f35771d801f7d9fd7a03dc19de80ad02f762c04b94d4ba381dd45ca388",
+      "viewReceipt": {
+        "cells": 144,
+        "frames": 3,
+        "maxError": 7.454101563553195e-06,
+        "coordinates": 192,
+        "dataSha256": "677fe101431f2c73a232dc9f98b0185c9298afe89677f54f934d09dfb5e14286",
+        "passed": true
+      },
+      "sha256": "39da84b16a6c49dd9a423673b18ec1e1efa376b4adab223f7d845dee1a874151",
+      "initialForceN": 8,
+      "nativeCodeSha256": "5fcab3485670948d1da3117eef96a0f6a85ee725a214f4713387b37875cc1bb7",
+      "id": "contact-b24b53ee-f266-3c79-b78e-03fe7170ff12",
+      "suiteSha256": "766227d3821323f00ee18069fd9c04743242e92734d707580e53c9df11195892",
+      "controllerVersion": "solver-contact-controller-033-v1",
+      "decisionSha256": "30e40a6bb2fcf4410c420f92a55f206326996e1e4794ffbeb8040779948c492f"
+    },
+    "visibleSkillsChecks": 2
+  },
+  "actualLocalModel": {
+    "model": "gpt-oss:20b",
+    "episodes": 2,
+    "checks": 4,
+    "admittedStarts": [
+      [
+        "contact.compare",
+        "goal.read"
+      ],
+      [
+        "push.start",
+        "goal.read"
+      ]
+    ],
+    "secondEpisodeGuards": "Three unrelated force-profile options were rejected before the correct requested contact-controller task was admitted; original event/episode data retained",
+    "decisions": [
+      {
+        "developmentPositivePasses": 7,
+        "matchedSuccessCases": 2,
+        "accepted": true,
+        "baselineEvaluationPositivePasses": 2,
+        "pairs": [
+          {
+            "baselineTimeS": 12.591666666666667,
+            "baselineRunId": "2dc018e7-48ef-36f5-b580-c1bf191f9e4f",
+            "negativeControl": false,
+            "candidateEffortNs": 44.70106111435832,
+            "candidateRunId": "d7dc394a-3c9a-3f35-93ae-10cee1f8552a",
+            "baselineEffortNs": 44.70989412686491,
+            "split": "development",
+            "caseId": "eval-light",
+            "candidateJams": 0,
+            "baselineJams": 0,
+            "candidateTimeS": 12.591666666666667,
+            "baselinePassed": true,
+            "candidatePassed": true
+          },
+          {
+            "baselineTimeS": 30.275,
+            "baselineRunId": "26a736c9-4905-3f3a-abc8-bd52e138cf4b",
+            "negativeControl": false,
+            "candidateEffortNs": 130.8322656780947,
+            "candidateRunId": "324033ed-53b3-3b7b-9ce3-04d08a3e7dcd",
+            "baselineEffortNs": 131.98909163600808,
+            "split": "development",
+            "caseId": "eval-corner",
+            "candidateJams": 0,
+            "baselineJams": 0,
+            "candidateTimeS": 30.029166666666665,
+            "baselinePassed": true,
+            "candidatePassed": true
+          },
+          {
+            "baselineTimeS": 15.591666666666667,
+            "baselineRunId": "d060e8c8-9230-3a7c-b972-e68f17b7ce4f",
+            "negativeControl": false,
+            "candidateEffortNs": 120.83276779359099,
+            "candidateRunId": "c0e77a55-0a68-32de-85e0-4a8aa6b5f9a3",
+            "baselineEffortNs": 129.46532410045316,
+            "split": "development",
+            "caseId": "eval-heavy-friction",
+            "candidateJams": 1,
+            "baselineJams": 1,
+            "candidateTimeS": 14.545833333333333,
+            "baselinePassed": true,
+            "candidatePassed": true
+          },
+          {
+            "baselineTimeS": 33.37083333333333,
+            "baselineRunId": "9e48088a-0110-3de4-995c-8a6b887f6a99",
+            "negativeControl": false,
+            "candidateEffortNs": 165.56186320560116,
+            "candidateRunId": "aa3d6d5f-f59e-38c8-b788-099e9d005966",
+            "baselineEffortNs": 168.18355829073482,
+            "split": "development",
+            "caseId": "eval-rough-corner",
+            "candidateJams": 1,
+            "baselineJams": 1,
+            "candidateTimeS": 33.03333333333333,
+            "baselinePassed": true,
+            "candidatePassed": true
+          },
+          {
+            "baselineTimeS": 13.95,
+            "baselineRunId": "3c69039e-1b18-3b57-9c4e-c7a509668c2d",
+            "negativeControl": false,
+            "candidateEffortNs": 67.78934744242811,
+            "candidateRunId": "8a5fce37-1f3a-35b2-90fb-f2322062a67a",
+            "baselineEffortNs": 67.82542725817495,
+            "split": "development",
+            "caseId": "eval-mass",
+            "candidateJams": 0,
+            "baselineJams": 0,
+            "candidateTimeS": 13.95,
+            "baselinePassed": true,
+            "candidatePassed": true
+          },
+          {
+            "baselineTimeS": 60,
+            "baselineRunId": "67fa481c-0b6a-39ea-87fc-8df542b65f43",
+            "negativeControl": false,
+            "candidateEffortNs": 109.54847110904966,
+            "candidateRunId": "78a9aba0-e206-3065-b88b-aad4390843b4",
+            "baselineEffortNs": 80.34127352911239,
+            "split": "development",
+            "caseId": "eval-obstacle",
+            "candidateJams": 0,
+            "baselineJams": 0,
+            "candidateTimeS": 29.166666666666668,
+            "baselinePassed": false,
+            "candidatePassed": true
+          },
+          {
+            "baselineTimeS": 60,
+            "baselineRunId": "89f4aa0b-c9cf-3b6e-ae17-2775f763d2f0",
+            "negativeControl": false,
+            "candidateEffortNs": 163.1904885495818,
+            "candidateRunId": "d1e59b1d-4a90-327a-b905-194b5a396396",
+            "baselineEffortNs": 132.42872369963177,
+            "split": "development",
+            "caseId": "eval-z-axis",
+            "candidateJams": 1,
+            "baselineJams": 0,
+            "candidateTimeS": 32.1625,
+            "baselinePassed": false,
+            "candidatePassed": true
+          },
+          {
+            "baselineTimeS": 60,
+            "baselineRunId": "c2fc766c-6d81-3dbc-91dd-79ab09687379",
+            "negativeControl": true,
+            "candidateEffortNs": 146.56517009048576,
+            "candidateRunId": "6a64cf73-e971-3a79-8459-a0e04bb30069",
+            "baselineEffortNs": 146.56425985113378,
+            "split": "development",
+            "caseId": "eval-force-negative",
+            "candidateJams": 2,
+            "baselineJams": 2,
+            "candidateTimeS": 60,
+            "baselinePassed": false,
+            "candidatePassed": false
+          },
+          {
+            "baselineTimeS": 60,
+            "baselineRunId": "d13d99ff-7dff-3bd0-af50-f859f98eefe0",
+            "negativeControl": false,
+            "candidateEffortNs": 106.51195930426505,
+            "candidateRunId": "a0c5f49d-3fd5-3f6c-b604-66cf4ccfa3c0",
+            "baselineEffortNs": 78.42464011785039,
+            "split": "evaluation",
+            "caseId": "reserved033-offset",
+            "candidateJams": 0,
+            "baselineJams": 0,
+            "candidateTimeS": 29.195833333333333,
+            "baselinePassed": false,
+            "candidatePassed": true
+          },
+          {
+            "baselineTimeS": 60,
+            "baselineRunId": "59fd0c9c-abba-3dab-a732-9605a4b26550",
+            "negativeControl": false,
+            "candidateEffortNs": 94.14349353164293,
+            "candidateRunId": "31450cba-c95d-31f8-86f4-96cd9f610ad6",
+            "baselineEffortNs": 70.73856185134032,
+            "split": "evaluation",
+            "caseId": "reserved033-z-turn",
+            "candidateJams": 0,
+            "baselineJams": 0,
+            "candidateTimeS": 29.0875,
+            "baselinePassed": false,
+            "candidatePassed": true
+          },
+          {
+            "baselineTimeS": 60,
+            "baselineRunId": "e299b5f9-63fb-3d29-90b1-8b505378c683",
+            "negativeControl": false,
+            "candidateEffortNs": 122.81805361366251,
+            "candidateRunId": "812a9203-54d8-30c2-8749-4b71f16a0839",
+            "baselineEffortNs": 88.36821148245546,
+            "split": "evaluation",
+            "caseId": "reserved033-reverse-x",
+            "candidateJams": 0,
+            "baselineJams": 0,
+            "candidateTimeS": 29.404166666666665,
+            "baselinePassed": false,
+            "candidatePassed": true
+          },
+          {
+            "baselineTimeS": 60,
+            "baselineRunId": "51a49d7f-0f2b-3766-8928-72d8cfb8133e",
+            "negativeControl": false,
+            "candidateEffortNs": 116.16582434799402,
+            "candidateRunId": "7baff8fd-07af-3b70-9046-2bc7b488d743",
+            "baselineEffortNs": 84.97140747385568,
+            "split": "evaluation",
+            "caseId": "reserved033-reverse-z",
+            "candidateJams": 0,
+            "baselineJams": 0,
+            "candidateTimeS": 29.2,
+            "baselinePassed": false,
+            "candidatePassed": true
+          },
+          {
+            "baselineTimeS": 34.354166666666664,
+            "baselineRunId": "d9c19cb7-167e-3e32-b19a-9fe49cb59387",
+            "negativeControl": false,
+            "candidateEffortNs": 157.87663339909997,
+            "candidateRunId": "66c4d2c5-7657-394b-85ab-e1bcd0f00e61",
+            "baselineEffortNs": 166.0886314259528,
+            "split": "evaluation",
+            "caseId": "reserved033-heavy-turn",
+            "candidateJams": 1,
+            "baselineJams": 1,
+            "candidateTimeS": 33.15,
+            "baselinePassed": true,
+            "candidatePassed": true
+          },
+          {
+            "baselineTimeS": 12.179166666666667,
+            "baselineRunId": "af82bc72-cf67-3aa8-86a2-257d2ab17aba",
+            "negativeControl": false,
+            "candidateEffortNs": 45.94889219835061,
+            "candidateRunId": "6c38d6db-f052-39f8-bd05-e7a6c08baf00",
+            "baselineEffortNs": 45.94027772722044,
+            "split": "evaluation",
+            "caseId": "reserved033-light-clear",
+            "candidateJams": 0,
+            "baselineJams": 0,
+            "candidateTimeS": 12.183333333333334,
+            "baselinePassed": true,
+            "candidatePassed": true
+          },
+          {
+            "baselineTimeS": 60,
+            "baselineRunId": "d49907c5-6e7c-36a5-afcd-7b32bcefcf4e",
+            "negativeControl": false,
+            "candidateEffortNs": 71.27962301550599,
+            "candidateRunId": "64d67895-f989-3bed-a9d1-cf26bbb644f1",
+            "baselineEffortNs": 82.76539645866508,
+            "split": "evaluation",
+            "caseId": "reserved033-diagonal",
+            "candidateJams": 0,
+            "baselineJams": 0,
+            "candidateTimeS": 19.1875,
+            "baselinePassed": false,
+            "candidatePassed": true
+          },
+          {
+            "baselineTimeS": 60,
+            "baselineRunId": "45c5a638-da98-30d0-bbff-f0ee6bd68847",
+            "negativeControl": true,
+            "candidateEffortNs": 150.94679031641414,
+            "candidateRunId": "afd2b31d-239a-3f84-9c75-4a1ec795f02e",
+            "baselineEffortNs": 406.9473519216697,
+            "split": "evaluation",
+            "caseId": "reserved033-force-negative",
+            "candidateJams": 2,
+            "baselineJams": 2,
+            "candidateTimeS": 60,
+            "baselinePassed": false,
+            "candidatePassed": false
+          }
+        ],
+        "gates": {
+          "minEvaluationMeanPenalizedTimeGainS": 2,
+          "minEvaluationSuccessGain": 1,
+          "requireAllPositiveDevelopment": true,
+          "requireAllPositiveEvaluation": true,
+          "maxMatchedSuccessEffortRatio": 1.1,
+          "negativeControlsMustFail": true,
+          "noBaselineSuccessRegression": true
+        },
+        "allCaseEffortRatio": 0.8451998404027327,
+        "evaluationPositiveCases": 7,
+        "successRegressions": 0,
+        "evaluationPositivePasses": 7,
+        "matchedSuccessEffortRatio": 0.9613100704593242,
+        "scope": "Versioned contact-controller comparison on seen development and different reserved synthetic scenes. Same8/32N and original native budgets. Not LLM training or calibrated robot control.",
+        "negativeControlErrors": 0,
+        "passed": true,
+        "developmentPositiveCases": 7,
+        "meanPenalizedTimeGainS": 20.640625000000004
+      },
+      {
+        "pusherWorkJ": 74.66512102590812,
+        "endpointErrorM": 0.02689520305332918,
+        "maxForceN": 27.525347704202595,
+        "effortNs": 163.1904885495818,
+        "crateTravelM": 4.92303320392931,
+        "jams": 1,
+        "physicalAxes": 3,
+        "resumes": 0,
+        "recoveries": 1,
+        "maxRestoreVelocityError": 0,
+        "timeS": 32.1625,
+        "maxRestorePositionErrorM": 0,
+        "expandedStates": 86,
+        "scope": "Declared-scale native contact pushing of two boxes on a flat floor. Conservative integer-metre planning, finite force/recovery budgets; not universal robotic manipulation or measured material inference.",
+        "nativePhysics": true,
+        "plannedActions": 17,
+        "passed": true,
+        "terminalSpeedMps": 2.7503956639331903e-05,
+        "maxRestoreQuaternionError": 0,
+        "contactTicks": 2867,
+        "completedActions": 17,
+        "plannedPushes": 5,
+        "nativeTicks": 7719
+      }
+    ]
+  },
+  "actualExport": {
+    "rawSha256": "65dcdd7f645e4187ddbb391f5cd488b2c1f4aa7f32ecacd557be65b303240e5b",
+    "rawBytes": 44261626,
+    "fileSha256": "5469f040e72fd5fd904f1d69adbee4e986137bcfee66726bfb318580cbf19da5",
+    "runs": 32
+  },
+  "scope": [
+    "Fixed synthetic cases, now seen after initial reserved measurement; not calibrated real observations",
+    "Actual positive native controller activation/rollback and exact retained policy use verified",
+    "Seen development and different evaluation definitions frozen before candidate measurement",
+    "Preserve original031/032/030 implementations and all published001–032 snapshots/private apps/models",
+    "No new libraries/weights/cloud/Docker/WSL; no Ollama-weight training or universal learning claim"
+  ]
+}

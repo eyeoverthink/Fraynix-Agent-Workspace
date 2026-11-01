@@ -1,0 +1,106 @@
+{
+  "passed": false,
+  "project": "C:\\Users\\eyeka\\AppData\\Local\\Temp\\fraynix-live-contact033-7Pbaul",
+  "error": "The browser and canvas are real, separate Chromium surfaces. Ask me to create a small web app, inspect a page, or reuse a verified recipe.\nCompare the contact controller on the different reserved native scenes. Verify the original paired charts and report the measured decision.\nThe model returned no native tool call. No answer or reasoning text was executed.",
+  "results": [],
+  "activity": [
+    {
+      "at": "2026-11-01T09:36:17.349Z",
+      "kind": "tool",
+      "text": "canvas.write",
+      "data": {
+        "args": {
+          "title": "Welcome canvas",
+          "files": [
+            "index.html"
+          ]
+        },
+        "result": "{\"id\":\"959c2b4e-adc6-4c13-90c7-cbb53730f8d7\",\"title\":\"Welcome canvas\",\"version\":1,\"files\":[\"index.html\"],\"url\":\"http://127.0.0.1:58134/artifact/959c2b4e-adc6-4c13-90c7-cbb53730f8d7/1/index.html\"}"
+      }
+    },
+    {
+      "at": "2026-11-01T09:37:10.039Z",
+      "kind": "model",
+      "text": "Fresh local model metadata admitted",
+      "data": {
+        "endpoint": "http://127.0.0.1:11434",
+        "checkedAt": "2026-11-01T09:36:17.656722800Z",
+        "bytes": 13793441566,
+        "scope": "Fresh local service metadata; not an independent inspection of model weights or the daemon's network behavior",
+        "digest": "f38aa0c53da5f8c49d08c43a99df24ff53167fe68e24664a7777288e7656fdfe",
+        "model": "gpt-oss:20b"
+      }
+    },
+    {
+      "at": "2026-11-01T09:37:10.039Z",
+      "kind": "decision",
+      "text": "contact.compare",
+      "data": {
+        "args": {}
+      }
+    },
+    {
+      "at": "2026-11-01T09:37:10.053Z",
+      "kind": "tool",
+      "text": "contact.compare",
+      "data": {
+        "args": {},
+        "result": "{\"request\":\"Compare the contact controller on the different reserved native scenes. Verify the original paired charts and report the measured decision.\",\"createdAt\":\"2026-11-01T09:37:10.040987800Z\",\"reason\":\"Frozen suite, gates and candidate source lock precede reserved native trials\",\"step\":\"contact-start\",\"procedure\":\"contact-study-v1\",\"id\":\"5fd6f6a6-f98e-4b52-9d1a-2147877a3684\",\"history\":[{\"reason\":\"Frozen suite, gates and candidate source lock precede reserved native trials\",\"at\":\"2026-11-01T09:37:10.040987800Z\",\"step\":\"contact-start\",\"attempt\":1,\"status\":\"running\"}],\"attempt\":1,\"resumes\":0,\"status\":\"running\",\"updatedAt\":\"2026-11-01T09:37:10.040987800Z\"}"
+      }
+    },
+    {
+      "at": "2026-11-01T09:37:19.946Z",
+      "kind": "decision",
+      "text": "goal.read",
+      "data": {
+        "args": {}
+      }
+    },
+    {
+      "at": "2026-11-01T09:37:50.522Z",
+      "kind": "tool",
+      "text": "goal.read",
+      "data": {
+        "args": {},
+        "result": "{\"request\":\"Compare the contact controller on the different reserved native scenes. Verify the original paired charts and report the measured decision.\",\"createdAt\":\"2026-11-01T09:37:10.040987800Z\",\"reason\":\"Paired seen development trials, candidate identity pin, then different reserved evaluation\",\"contactJobId\":\"79cd6e01-fd57-3709-9832-cc83e6b26376\",\"step\":\"contact-wait\",\"procedure\":\"contact-study-v1\",\"id\":\"5fd6f6a6-f98e-4b52-9d1a-2147877a3684\",\"history\":[{\"reason\":\"Frozen suite, gates and candidate source lock precede reserved native trials\",\"at\":\"2026-11-01T09:37:10.040987800Z\",\"step\":\"contact-start\",\"attempt\":1,\"status\":\"running\"},{\"reason\":\"Paired seen development trials, candidate identity pin, then different reserved evaluation\",\"at\":\"2026-11-01T09:37:10.188725600Z\",\"step\":\"contact-wait\",\"attempt\":1,\"status\":\"running\"}],\"attempt\":1,\"resumes\":0,\"status\":\"running\",\"updatedAt\":\"2026-11-01T09:37:10.188725600Z\"}"
+      }
+    },
+    {
+      "at": "2026-11-01T09:38:10.178Z",
+      "kind": "repair",
+      "text": "Native tool response missing; bounded retry 1/2",
+      "data": {}
+    },
+    {
+      "at": "2026-11-01T09:38:17.572Z",
+      "kind": "decision",
+      "text": "goal.read",
+      "data": {
+        "args": {}
+      }
+    },
+    {
+      "at": "2026-11-01T09:38:48.750Z",
+      "kind": "tool",
+      "text": "goal.read",
+      "data": {
+        "args": {},
+        "result": "{\"request\":\"Compare the contact controller on the different reserved native scenes. Verify the original paired charts and report the measured decision.\",\"createdAt\":\"2026-11-01T09:37:10.040987800Z\",\"reason\":\"Paired seen development trials, candidate identity pin, then different reserved evaluation\",\"contactJobId\":\"79cd6e01-fd57-3709-9832-cc83e6b26376\",\"step\":\"contact-wait\",\"procedure\":\"contact-study-v1\",\"id\":\"5fd6f6a6-f98e-4b52-9d1a-2147877a3684\",\"history\":[{\"reason\":\"Frozen suite, gates and candidate source lock precede reserved native trials\",\"at\":\"2026-11-01T09:37:10.040987800Z\",\"step\":\"contact-start\",\"attempt\":1,\"status\":\"running\"},{\"reason\":\"Paired seen development trials, candidate identity pin, then different reserved evaluation\",\"at\":\"2026-11-01T09:37:10.188725600Z\",\"step\":\"contact-wait\",\"attempt\":1,\"status\":\"running\"}],\"attempt\":1,\"resumes\":0,\"status\":\"running\",\"updatedAt\":\"2026-11-01T09:37:10.188725600Z\"}"
+      }
+    },
+    {
+      "at": "2026-11-01T09:39:02.933Z",
+      "kind": "repair",
+      "text": "Native tool response missing; bounded retry 2/2",
+      "data": {}
+    },
+    {
+      "at": "2026-11-01T09:39:08.487Z",
+      "kind": "error",
+      "text": "The model returned no native tool call. No answer or reasoning text was executed.",
+      "data": {}
+    }
+  ],
+  "timeline": "01:36:17\ntool\ncanvas.write\nDetails\n01:37:10\nmodel\nFresh local model metadata admitted\nDetails\n01:37:10\ndecision\ncontact.compare\nDetails\n01:37:10\ntool\ncontact.compare\nDetails\n01:37:19\ndecision\ngoal.read\nDetails\n01:37:50\ntool\ngoal.read\nDetails\n01:38:10\nrepair\nNative tool response missing; bounded retry 1/2\n01:38:17\ndecision\ngoal.read\nDetails\n01:38:48\ntool\ngoal.read\nDetails\n01:39:02\nrepair\nNative tool response missing; bounded retry 2/2\n01:39:08\nerror\nThe model returned no native tool call. No answer or reasoning text was executed.",
+  "messages": "The browser and canvas are real, separate Chromium surfaces. Ask me to create a small web app, inspect a page, or reuse a verified recipe.\nCompare the contact controller on the different reserved native scenes. Verify the original paired charts and report the measured decision.\nThe model returned no native tool call. No answer or reasoning text was executed."
+}

@@ -1,0 +1,136 @@
+{
+  "nodes": [
+    {
+      "id": "freeze",
+      "type": "file",
+      "file": "workspace-engine/src/main/resources/contact-study033.json",
+      "x": 0,
+      "y": 0,
+      "width": 340,
+      "height": 170
+    },
+    {
+      "id": "native",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/ContactPhysics.java",
+      "x": 390,
+      "y": 0,
+      "width": 340,
+      "height": 170
+    },
+    {
+      "id": "owner",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/ContactStudyStore.java",
+      "x": 780,
+      "y": 0,
+      "width": 340,
+      "height": 170
+    },
+    {
+      "id": "goal",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/GoalRunner.java",
+      "x": 0,
+      "y": 250,
+      "width": 340,
+      "height": 170
+    },
+    {
+      "id": "recovery",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/ContactCheckpoint.java",
+      "x": 390,
+      "y": 250,
+      "width": 340,
+      "height": 170
+    },
+    {
+      "id": "report",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/ContactStudyReport.java",
+      "x": 780,
+      "y": 250,
+      "width": 340,
+      "height": 170
+    },
+    {
+      "id": "chat",
+      "type": "file",
+      "file": "workspace-desktop/goals.cjs",
+      "x": 0,
+      "y": 500,
+      "width": 340,
+      "height": 170
+    },
+    {
+      "id": "skills",
+      "type": "file",
+      "file": "workspace-desktop/renderer/goals-panel.js",
+      "x": 390,
+      "y": 500,
+      "width": 340,
+      "height": 170
+    },
+    {
+      "id": "next",
+      "type": "file",
+      "file": "docs/CONTACT_CONTROLLERS.md",
+      "x": 780,
+      "y": 500,
+      "width": 340,
+      "height": 170
+    },
+    {
+      "id": "readme",
+      "type": "file",
+      "file": "README-033.md",
+      "x": 0,
+      "y": 800,
+      "width": 1100,
+      "height": 200
+    }
+  ],
+  "edges": [
+    {
+      "id": "e0",
+      "fromNode": "freeze",
+      "toNode": "native"
+    },
+    {
+      "id": "e1",
+      "fromNode": "native",
+      "toNode": "owner"
+    },
+    {
+      "id": "e2",
+      "fromNode": "owner",
+      "toNode": "goal"
+    },
+    {
+      "id": "e3",
+      "fromNode": "goal",
+      "toNode": "recovery"
+    },
+    {
+      "id": "e4",
+      "fromNode": "recovery",
+      "toNode": "report"
+    },
+    {
+      "id": "e5",
+      "fromNode": "report",
+      "toNode": "chat"
+    },
+    {
+      "id": "e6",
+      "fromNode": "chat",
+      "toNode": "skills"
+    },
+    {
+      "id": "e7",
+      "fromNode": "skills",
+      "toNode": "next"
+    }
+  ]
+}

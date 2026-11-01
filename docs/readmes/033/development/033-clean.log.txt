@@ -1,0 +1,918 @@
+Cloning into 'C:\Users\eyeka\Documents\Codex\2026-10-26\is\work\fraynix-workspace-qa033-release'...
+done.
+Updating files:  48% (936/1933)
+Updating files:  49% (948/1933)
+Updating files:  50% (967/1933)
+Updating files:  51% (986/1933)
+Updating files:  52% (1006/1933)
+Updating files:  52% (1009/1933)
+Updating files:  53% (1025/1933)
+Updating files:  54% (1044/1933)
+Updating files:  55% (1064/1933)
+Updating files:  56% (1083/1933)
+Updating files:  57% (1102/1933)
+Updating files:  58% (1122/1933)
+Updating files:  59% (1141/1933)
+Updating files:  60% (1160/1933)
+Updating files:  61% (1180/1933)
+Updating files:  62% (1199/1933)
+Updating files:  63% (1218/1933)
+Updating files:  64% (1238/1933)
+Updating files:  65% (1257/1933)
+Updating files:  66% (1276/1933)
+Updating files:  67% (1296/1933)
+Updating files:  68% (1315/1933)
+Updating files:  68% (1320/1933)
+Updating files:  69% (1334/1933)
+Updating files:  70% (1354/1933)
+Updating files:  71% (1373/1933)
+Updating files:  72% (1392/1933)
+Updating files:  73% (1412/1933)
+Updating files:  74% (1431/1933)
+Updating files:  75% (1450/1933)
+Updating files:  76% (1470/1933)
+Updating files:  77% (1489/1933)
+Updating files:  78% (1508/1933)
+Updating files:  79% (1528/1933)
+Updating files:  80% (1547/1933)
+Updating files:  81% (1566/1933)
+Updating files:  82% (1586/1933)
+Updating files:  83% (1605/1933)
+Updating files:  84% (1624/1933)
+Updating files:  85% (1644/1933)
+Updating files:  86% (1663/1933)
+Updating files:  87% (1682/1933)
+Updating files:  88% (1702/1933)
+Updating files:  89% (1721/1933)
+Updating files:  90% (1740/1933)
+Updating files:  91% (1760/1933)
+Updating files:  92% (1779/1933)
+Updating files:  93% (1798/1933)
+Updating files:  94% (1818/1933)
+Updating files:  95% (1837/1933)
+Updating files:  96% (1856/1933)
+Updating files:  97% (1876/1933)
+Updating files:  98% (1895/1933)
+Updating files:  99% (1914/1933)
+Updating files: 100% (1933/1933)
+Updating files: 100% (1933/1933), done.
+> Task :brain-core:compileJava
+> Task :factory-runtime:compileJava
+> Task :factory-kernel:compileJava
+> Task :factory-models:compileJava
+
+> Task :compileJava
+Note: C:\Users\eyeka\Documents\Codex\2026-10-26\is\work\fraynix-workspace-qa033-release\src\main\java\components\Component.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+
+> Task :processResources
+> Task :classes
+> Task :jar
+> Task :compileTestJava
+> Task :processTestResources NO-SOURCE
+> Task :testClasses
+> Task :brain-core:processResources NO-SOURCE
+> Task :brain-core:classes
+> Task :brain-core:jar
+> Task :factory-kernel:processResources NO-SOURCE
+> Task :factory-kernel:classes
+> Task :factory-kernel:jar
+> Task :factory-models:processResources NO-SOURCE
+> Task :factory-models:classes
+> Task :factory-models:jar
+> Task :factory-runtime:processResources NO-SOURCE
+> Task :factory-runtime:classes
+> Task :factory-runtime:jar
+
+> Task :test
+
+ActorControlsTest > rejectsOldEpisodesDuplicateSequencesAndExpiredCommands PASSED
+
+MotorRecoveryTest > repeatedFailuresAndUnsafeBackoffStopInsteadOfLooping PASSED
+
+MotorRecoveryTest > ceilingPreventsTheForwardJumpUntilThereIsRoom PASSED
+
+MotorRecoveryTest > blockedMovementBacksUpThenJumpsThroughNormalInputs PASSED
+
+PlayMemoryTest > failedChoiceChangesNextRunAndSurvivesRestart PASSED
+
+PlayMemoryTest > corruptMemoryIsPreservedBeforeReplacement PASSED
+
+PlayMemoryTest > measuredRewardFavorsSuccessfulPolicyAfterExploration PASSED
+
+PlayMemoryTest > keepsUsefulKnownRouteInsteadOfRandomlyChangingEverySuccessfulAction PASSED
+
+PowerupPlannerTest > identifiesMushroomAndTimesOutUnreachablePickup PASSED
+
+PowerupPlannerTest > laterRunAvoidsPreviouslyUnreachableOptionalBlock PASSED
+
+PowerupPlannerTest > recognizesActivePowerupBlockAndStopsTargetingAfterUse PASSED
+
+EditorCorrectionsTest > assetSelectionDoesNotInsertAndPlacementRequiresExplicitMode PASSED
+
+EditorCorrectionsTest > exportedOriginalLevelCanBeImportedAndInvalidTypesAreRejected PASSED
+
+FraynixWorkspaceTest > chatSceneBridgeDeserializesGsonGameObjectAndMovesSquare PASSED
+
+FraynixWorkspaceTest > liveChatSeparatesAttachmentsUsesOwnIdentityAndRestoresEvidence PASSED
+
+ModelAvailabilityTest > advertisedDecisionAndEmbeddingModelsAreNotOfferedForChat PASSED
+
+ModelAvailabilityTest > driveDiscoveryReportsMissingBlobsWithoutClaimingTheyAreServed PASSED
+
+EditorPhysicsRegressionTest > dynamicBoxFallsAndLandsOnStaticBox PASSED
+
+EditorPhysicsRegressionTest > editorChangesRefreshFixtureAndDoNotShiftObjectByColliderOffset PASSED
+
+EditorPhysicsRegressionTest > repeatedInspectionKeepsOneStatusAndDoesNotAddSceneComponents PASSED
+
+EditorPhysicsRegressionTest > physicsValuesAndIdentitySurviveActualCheckpointDeserialization PASSED
+
+EditorPhysicsRegressionTest > visibleEditorCommandsAreIdempotentAndRegisterLateComponents PASSED
+
+FactorySceneIntegrationTest > circleBodyUsesCircleFixture PASSED
+
+FactorySceneIntegrationTest > jsonPreservesIdentityAndCloneAllocatesFreshIdentity PASSED
+
+FactorySceneIntegrationTest > legacyJsonWithoutUuidIsMigrated PASSED
+
+FactorySceneIntegrationTest > fixedStepConsumesElapsedTimeAndDoesNotAdvanceAtZero PASSED
+
+FactorySceneIntegrationTest > checkpointDoesNotPretendAnInterruptedWorkerIsStillRunning PASSED
+
+FactorySceneIntegrationTest > negativeAndNonFiniteElapsedTimesAreRejected PASSED
+
+FactorySceneIntegrationTest > typedWorldTransformEditsReachRestoredScene PASSED
+
+FactorySceneIntegrationTest > unregisteredClassesCannotBeLoadedAsComponents PASSED
+
+FactorySceneIntegrationTest > sharedWorldCloneRemapsSceneAndPickingHandles PASSED
+
+FactorySceneIntegrationTest > sceneAndActualKernelTaskSurviveSessionRestart PASSED
+
+FactorySceneIntegrationTest > localToolsUseTheLiveCapturedWorldWithoutAddingEntitiesAndRestoreReceipts PASSED
+
+FactorySceneIntegrationTest > legacySceneSaveIsAnIdentityPreservingRoundtrip PASSED
+
+FactorySceneIntegrationTest > legacyDuplicateEditorHandlesAreMigratedWithoutChangingPersistentIds PASSED
+
+FullMarioLevelTest > transformClonePreservesRotationAndLayer PASSED
+
+FullMarioLevelTest > importsEveryComponentAndRoundTripsTheOriginalLevel PASSED
+
+FullMarioLevelTest > originalAssetsResolveAndPillboxRegistersBothFixtures PASSED
+
+GridPlacementRegressionTest > duplicatePressAndReleaseDoNotLeavePlacementDragging PASSED
+
+GridPlacementRegressionTest > rectangularCellsUseTheirOwnAxisSpacing PASSED
+
+GridPlacementRegressionTest > tileEdgesMatchTheGridOnBothSidesOfZero PASSED
+
+GridPlacementRegressionTest > pickingTracksViewportMoveResizePanAndZoom PASSED
+
+SceneAgentIntegrationTest > applicationIsGuardedAndUndoSurvivesRestart PASSED
+
+SceneAgentIntegrationTest > observationIncludesCompleteComponentsRuntimeAndSelection PASSED
+
+SceneAgentIntegrationTest > stagedCreationSimulatesRealCollisionWithoutChangingLiveScene PASSED
+
+SceneAgentIntegrationTest > rotatedColliderBoundsAndSpatialQueriesMatchActualLocalOffsets PASSED
+
+SceneAgentIntegrationTest > invalidOrExecutablePropertiesRejectTheWholeDraft PASSED
+
+SceneAgentIntegrationTest > failedSceneInstallationRestoresTheCheckpointAndKeepsOriginalWorld PASSED
+
+SceneAgentIntegrationTest > modelQueriesFeedBackIntoARealAdapterProposalAndDetachedPreview PASSED
+
+SceneAgentIntegrationTest > backgroundPreviewIdentityAllocationIsUniqueAcrossThreads PASSED
+
+SceneModelBudgetTest > fullLevelProducesBoundedValidJsonAndRetainsSelectedEntity PASSED
+
+SolidRaycastTest > sensorsAndTheActorDoNotHideTheNearestSolidBlock PASSED
+
+NeuromorphicCoreTest > causalAndAnticausalSpikePairsChangeActualSynapsesInOppositeDirections PASSED
+
+NeuromorphicCoreTest > rejectsCorruptCheckpoint PASSED
+
+NeuromorphicCoreTest > bothTimingDirectionsChangeWeightsAndFrozenEvaluationDoesNot PASSED
+
+NeuromorphicCoreTest > seededCoreAndCheckpointContinueIdentically PASSED
+
+CollisionDetectorTests > pointOnLine2DShouldReturnTrueTest PASSED
+
+CollisionDetectorTests > pointOnLine2DShouldReturnTrueTestTwo PASSED
+
+CollisionDetectorTests > pointOnLineShouldReturnTrueTestThree PASSED
+
+CollisionDetectorTests > pointInCircleShouldReturnTrueTestFive PASSED
+
+CollisionDetectorTests > pointInCircleShouldReturnTrueTestFour PASSED
+
+CollisionDetectorTests > pointInRotatedShouldReturnFalseTestOne PASSED
+
+CollisionDetectorTests > pointInRotatedShouldReturnFalseTestTwo PASSED
+
+CollisionDetectorTests > pointInRotatedBox2DShouldReturnTrueTestOne PASSED
+
+CollisionDetectorTests > pointInBox2DShouldReturnTrueTestFour PASSED
+
+CollisionDetectorTests > pointOnVerticalLineShouldReturnTrue PASSED
+
+CollisionDetectorTests > pointOnLineShouldReturnTrueTestFour PASSED
+
+CollisionDetectorTests > pointInCircleShouldReturnTrueTestOne PASSED
+
+CollisionDetectorTests > pointInCircleShouldReturnTrueTestTwo PASSED
+
+CollisionDetectorTests > pointInRotatedBox2DShouldReturnTrueTestThree PASSED
+
+CollisionDetectorTests > pointInBox2DShouldReturnTrueTestOne PASSED
+
+CollisionDetectorTests > pointInBox2DShouldReturnTrueTestTwo PASSED
+
+CollisionDetectorTests > pointOnLineShouldReturnTrueTestOne PASSED
+
+CollisionDetectorTests > pointOnLineShouldReturnTrueTestTwo PASSED
+
+CollisionDetectorTests > pointInRotatedShouldReturnTrueTestTwo PASSED
+
+CollisionDetectorTests > pointInBox2DShouldReturnTrueTestThree PASSED
+
+CollisionDetectorTests > pointInCircleShouldReturnFalseTestOne PASSED
+
+CollisionDetectorTests > pointInCircleShouldReturnFalseTestTwo PASSED
+
+CollisionDetectorTests > pointInRotatedShouldReturnTrueTestFour PASSED
+
+CollisionDetectorTests > pointInBox2DShouldReturnFalseTestOne PASSED
+
+CollisionDetectorTests > pointInBox2DShouldReturnFalseTestTwo PASSED
+
+CollisionDetectorTests > pointOnLineShouldReturnFalseTestOne PASSED
+
+CollisionDetectorTests > pointOnLineShouldReturnFalseTestTwo PASSED
+
+AnimationTextureBatchTest > animationSwitchRegistersNewTextureBeforeDrawing PASSED
+
+AnimationTextureBatchTest > fullSamplerTableMovesAnimationInsteadOfUsingSlotZeroOrEight PASSED
+
+ShaderSourceTest > loadsCrLfShaderWithoutAnOpenGlContext PASSED
+
+ShaderSourceTest > loadsLfShaderWithoutAnOpenGlContext PASSED
+
+> Task :verifySourceIsolation
+Verified every project/source root belongs to Fraynix-Studio.
+
+> Task :factory-kernel:compileTestJava
+> Task :factory-kernel:processTestResources NO-SOURCE
+> Task :factory-kernel:testClasses
+
+> Task :factory-kernel:verifyJournal
+JournalContinuityTest passed: legacy/J2, every field tamper, Merkle prefixes, anchored tail recovery, staged crash, failed write, threads and JVM writers
+
+> Task :factory-kernel:verifySkills
+Symlink creation unavailable; traversal and absolute-path checks still exercised
+LocalSkillsTest passed: all five tools, real AST/errors, hash mismatch, reference-data isolation, capabilities, path boundaries and persisted receipts
+
+> Task :factory-kernel:verifyIntegration
+FactoryKernelIntegrationTest passed: real gateway, subprocess validator, trace persistence and restart
+
+> Task :factory-models:compileTestJava
+> Task :factory-models:processTestResources NO-SOURCE
+> Task :factory-models:testClasses
+
+> Task :factory-models:verifyModels
+FactoryModelsTest passed: health, exact routing, Unicode NDJSON streaming, partial rejection, live/pre-connect cancellation, model load/unload, profile restart, legacy attachment migration, evidence and thread/history budgets
+
+> Task :factory-runtime:compileTestJava
+> Task :factory-runtime:processTestResources NO-SOURCE
+> Task :factory-runtime:testClasses
+
+> Task :factory-runtime:verifyRuntime
+FactoryRuntimeTest passed: clone/remap, identity, revision guards, schema, atomic edit, save/restore, corruption recovery
+
+> Task :factory-runtime:verifyTransactions
+WorldTransactionTest passed: isolated staging, atomic rejection, revision guards and deterministic spatial queries
+
+> Task :brain-gpu:compileJava
+> Task :geometry-core:compileJava
+> Task :workspace-engine:compileJava
+> Task :workspace-engine:processResources
+> Task :workspace-engine:classes
+> Task :workspace-engine:jar
+> Task :startScripts
+> Task :installDist
+> Task :brain-gpu:processResources NO-SOURCE
+> Task :brain-gpu:classes
+> Task :brain-gpu:jar
+> Task :geometry-core:processResources NO-SOURCE
+> Task :geometry-core:classes
+> Task :geometry-core:jar
+> Task :workspace-engine:compileTestJava
+> Task :workspace-engine:processTestResources NO-SOURCE
+> Task :workspace-engine:testClasses
+Libbulletjme version 22.0.3 initializing
+> Task :workspace-engine:test
+> Task :workspace-engine:check
+> Task :check
+> Task :brain-core:compileTestJava NO-SOURCE
+> Task :brain-core:processTestResources NO-SOURCE
+> Task :brain-core:testClasses UP-TO-DATE
+> Task :brain-core:test NO-SOURCE
+> Task :brain-core:check UP-TO-DATE
+> Task :brain-gpu:compileTestJava NO-SOURCE
+> Task :brain-gpu:processTestResources NO-SOURCE
+> Task :brain-gpu:testClasses UP-TO-DATE
+> Task :brain-gpu:test NO-SOURCE
+> Task :brain-gpu:check UP-TO-DATE
+> Task :factory-kernel:test SKIPPED
+> Task :factory-kernel:check
+> Task :factory-models:test SKIPPED
+> Task :factory-models:check
+> Task :factory-runtime:test SKIPPED
+> Task :factory-runtime:check
+> Task :geometry-core:compileTestJava
+> Task :geometry-core:processTestResources NO-SOURCE
+> Task :geometry-core:testClasses
+> Task :geometry-core:test
+> Task :geometry-core:check
+> Task :workspace-engine:startScripts
+> Task :workspace-engine:installDist
+
+[Incubating] Problems report is available at: file:///C:/Users/eyeka/Documents/Codex/2026-10-26/is/work/fraynix-workspace-qa033-release/build/reports/problems/problems-report.html
+
+BUILD SUCCESSFUL in 8m 31s
+38 actionable tasks: 38 executed
+Consider enabling configuration cache to speed up this build: https://docs.gradle.org/9.3.1/userguide/configuration_cache_enabling.html
+
+added 16 packages, and audited 17 packages in 5s
+
+1 package is looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities
+
+> fraynix-agent-workspace@0.1.0 test
+> node --test test/policy.test.cjs test/controller.test.cjs test/tracking.test.cjs test/creation.test.cjs test/workflows.test.cjs test/procedural.test.cjs test/maps.test.cjs test/pushing.test.cjs test/force-learning.test.cjs test/contact-study.test.cjs
+
+✔ contact comparison and explicit controller use preserve existing task families (3.5831ms)
+✔ contact tools cannot receive model invented cases gates or results (2.3437ms)
+✔ explicit controller request cannot silently fall back to an unbound push (2.3347ms)
+✔ comparison summary separates measured acceptance and explicit activation (0.3966ms)
+✔ controller refreshes stale observations without guessing or retrying the action (1.4824ms)
+✔ adapted read budget preserves mandatory testing and repair stages (1.1984ms)
+✔ only unchanged page reads count as repeated observations (0.741ms)
+✔ changed DOM controls recover by observing instead of retrying the action (0.5334ms)
+✔ bounded worker updates actual Fraymus prototypes from recorded failure classes (296.0794ms)
+✔ pinned Think fixture retains a learned rule after serialization (18.0105ms)
+✔ creation routing preserves ordinary browser, physical and classic creation requests (4.3114ms)
+✔ generated code receives bounded source context and cannot choose host handlers (2.3962ms)
+✔ creation status reports declared artifact behavior without native-physics metrics (0.4769ms)
+✔ owned generation uses one admitted model call and explicit cancel reaches its request (1.7642ms)
+✔ experience evaluation routes to the shared runner without replacing ordinary pushes or web creation (3.3993ms)
+✔ the model cannot inject evaluation sources settings gates profiles or success flags (1.3064ms)
+✔ evaluation completion and candidate rejection remain distinct in the actual host summary (0.5593ms)
+✔ force experiment start accepts no model supplied gate changes (2.1419ms)
+✔ an explicit active-profile request cannot be silently replaced by an unbound manual push (4.3512ms)
+✔ reference mapping routes to native map goals while existing procedural generation remains intact (3.5653ms)
+✔ map schema exposes semantic conditions but no invented result data or source identities (0.3912ms)
+✔ existing native maps expose only impulse and retention fields, with exact corrective feedback (2.9571ms)
+✔ explicit requested map dimensions seed impulse and retention name cannot be substituted (1.3751ms)
+✔ map summaries derive physical outcomes and qualify dimensions and procedural memory (0.487ms)
+✔ fully connected requests preserve each explicit global bound, including procedure reuse defaults (0.5107ms)
+✔ saved global bounds survive partial reuse options and cannot be silently relaxed (0.3874ms)
+✔ declared surface schema has finite physical bounds and exact requested values survive key ordering (0.467ms)
+✔ saved material values cannot be silently replaced during chat reuse (0.3243ms)
+✔ bound material skill omits unrequested overrides while explicit replacement remains available (0.259ms)
+✔ native observer tools preserve ordinary web routing and expose bounded actions (6.3715ms)
+✔ observer completion requires a capture of the current pose version (0.8393ms)
+✔ calibration uses typed native tools without changing CSV application routing (2.4011ms)
+✔ CSV web creation stays in artifact mode while native measurement comparisons use physical tools (0.5765ms)
+✖ a corrupted theme or invalid UTF-8 stops startup before code is loaded (24.1546ms)
+✔ offline application policy permits loopback and rejects external navigation without dispatch (0.3815ms)
+✔ browser cannot navigate to host files or executable protocols (0.2041ms)
+✔ model cannot invent tool handlers or smuggle extra executable fields (0.215ms)
+✔ an old observation expires after navigation or action (0.462ms)
+✔ native body stages retain physical progress and never repeat a completed movement (0.3378ms)
+✔ body and file task modes stay separate from ordinary web artifact requests (0.1793ms)
+✔ physical result reporting uses native target error rather than model travel-distance prose (1.1752ms)
+✔ physical result reporting refuses stale final frames or a remaining native grip (0.182ms)
+✔ world-goal routing keeps ordinary creation and direct body actions independent (0.5475ms)
+✔ explicit physical and retention requirements cannot disappear into model defaults (2.4443ms)
+✔ motion data tasks use their registered family while CSV web creation and physics stay separate (0.9484ms)
+✔ spatial chat selects its own typed task family and retains exact vector intent (0.3637ms)
+✔ browser perception has a separate typed task family (0.4657ms)
+✔ perception procedural schema keeps native and dataset fields out (0.1215ms)
+✔ tracking evaluation is a distinct task with fixed host-bound options (0.2195ms)
+✔ procedural tasks route to the existing Java coordinator without hijacking physical/data creation (3.5898ms)
+✔ procedural tool schema carries semantic dimensions/seeds and no invented source coordinates (1.4485ms)
+✔ explicit procedural requests are preserved before any Java task can start (2.3883ms)
+✔ procedural summaries report real mathematical outcomes without native-physics or weight-training claims (0.3833ms)
+✔ physical pushing routes to its registered Java task without hijacking web or Git tasks (3.4652ms)
+✔ native pushing schema admits only semantic conditions and finite force limits (1.3707ms)
+✔ requested target force and skill name survive exact semantic validation (3.13ms)
+✔ bound saved skill keeps its name version and unrequested force defaults under host control (0.5357ms)
+✔ pushing summary uses measured outcome and qualifies retained learning (0.4841ms)
+✔ tracking state and baseline restoration use authenticated JSON operations (2.4759ms)
+✔ models cannot replace selected dataset bindings, tune gates or start duplicate jobs (1.0449ms)
+✔ reporting requires a completed actual comparison and makes its canvas visible (0.5176ms)
+✔ whole workflow routing preserves the single app and physical task paths (2.6782ms)
+✔ reuse names one retained version without guessing a different procedure (1.1062ms)
+✔ cancel reaches the owned generation and fresh source binding stays explicit (0.5229ms)
+✔ audit returns actual DOM observations without manufacturing a passing verdict (0.3887ms)
+ℹ tests 65
+ℹ suites 0
+ℹ pass 64
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 410.6577
+
+✖ failing tests:
+
+test at test\policy.test.cjs:62:1
+✖ a corrupted theme or invalid UTF-8 stops startup before code is loaded (24.1546ms)
+  Error: ENOENT: no such file or directory, open 'C:\Users\eyeka\AppData\Local\Temp\fraynix-source-guard-sGVqCN\contact-study-panel.js'
+      at Object.openSync (node:fs:560:18)
+      at Object.readFileSync (node:fs:444:35)
+      at verifyRendererSources (C:\Users\eyeka\Documents\Codex\2026-10-26\is\work\fraynix-workspace-qa033-release\workspace-desktop\source-integrity.cjs:5:42)
+      at TestContext.<anonymous> (C:\Users\eyeka\Documents\Codex\2026-10-26\is\work\fraynix-workspace-qa033-release\workspace-desktop\test\policy.test.cjs:65:16)
+      at Test.runInAsyncScope (node:async_hooks:228:14)
+      at Test.run (node:internal/test_runner/test:1118:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:787:18)
+      at Test.postRun (node:internal/test_runner/test:1247:19)
+      at Test.run (node:internal/test_runner/test:1175:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:787:7) {
+    errno: -4058,
+    code: 'ENOENT',
+    syscall: 'open',
+    path: 'C:\\Users\\eyeka\\AppData\\Local\\Temp\\fraynix-source-guard-sGVqCN\\contact-study-panel.js'
+  }
+CHECK Actual comparison starts both native versions in the existing Spatial view, displays committed solver contact bodies and refuses early activation
+CHECK All32 original native trials pass independent re-audit: different reserved feasible success2/7→7/7, physical negatives both fail, original frozen gates pass and all144 actual cells/three paired charts match
+CHECK Visible activation requires the passing native decision and genuine canvas receipt, stores exact controller/code/decision provenance and preserves original8/32N
+CHECK Visible export saves the complete32-run package; decompression/hash and every original run independently match, including both physical failures
+CHECK Actual Java process termination mid candidate push preserves both bodies and exact committed prefix; explicit same-goal/run/attempt Resume completes the previously failed Z task and retains the verified controller-bound skill
+CHECK Visible rollback restores the exact prior baseline; a retained candidate skill refuses silent execution with a different active controller
+CHECK Reactivation reuses the exact validated version; its retained skill binds fresh imported roles and a changed direction, runs actual native contact physics and re-verifies all six report charts
+CHECK Visible Stop cancels new native trials without changing the active version; saved comparison history reopens the original report after later tasks with no renderer errors
+{"passed":true,"checks":8,"project":"C:\\Users\\eyeka\\AppData\\Local\\Temp\\fraynix-contact033-PlMHVS"}
+{"passed":true,"checks":2,"project":"C:\\Users\\eyeka\\AppData\\Local\\Temp\\fraynix-contact-library033-OrnU02"}
+{
+  "passed": true,
+  "checks": [
+    "Visible Grab attaches a real native constraint to the dynamic Block at tick zero without moving the authored scene",
+    "Lift visibly advances intermediate native solver ticks; the actual body reaches +0.5 m within 0.08 m and stays dynamic/held",
+    "Release removes the constraint, preserves velocity, advances 120 real gravity/contact ticks and records an intervention rather than a frictionless-reference pass",
+    "Manipulation changes live physics while authored geometry and scene version remain unchanged",
+    "Run JSON retains exact native samples/commands and CSV retains actual coordinates/ticks; both saved files match independent SHA-256",
+    "Actual exported VP8 WebM decodes at 960×540, contains visible native block pixels, plays to completion and matches the source tick range/duration",
+    "Native replay re-executes recorded grab/move/release commands and reproduces final position within 0.0001 m",
+    "Choosing a scene file only previews it; explicit import creates fresh identities with equivalent native geometry and provenance",
+    "The same typed agent tools duplicate supported scenes and reject executable/unknown import fields before any new scene is created",
+    "No renderer errors; all operations use isolated private test data and leave authored/user projects intact"
+  ],
+  "decodedVideo": {
+    "width": 960,
+    "height": 540,
+    "ended": true,
+    "playbackEndS": 1.044,
+    "orangePixels": 397
+  }
+}
+{
+  "passed": true,
+  "checks": 10,
+  "evaluation": {
+    "trainedMeanErrorM": 0.07436792929196029,
+    "baselineMeanErrorM": 0.7150511310663955,
+    "maxTrainedErrorM": 0.14779747981716884,
+    "relativeMeanGain": 0.8959963475883868,
+    "accepted": true
+  },
+  "latency": [
+    {
+      "roundTripMs": 7,
+      "bridgeMs": 2.7723,
+      "captureMs": 25.0415,
+      "frameSequence": 12
+    },
+    {
+      "roundTripMs": 5,
+      "bridgeMs": 2.5693,
+      "captureMs": 25.0415,
+      "frameSequence": 12
+    },
+    {
+      "roundTripMs": 5,
+      "bridgeMs": 2.1939,
+      "captureMs": 25.0415,
+      "frameSequence": 12
+    },
+    {
+      "roundTripMs": 5,
+      "bridgeMs": 2.1107,
+      "captureMs": 25.0415,
+      "frameSequence": 12
+    },
+    {
+      "roundTripMs": 4,
+      "bridgeMs": 2.0859,
+      "captureMs": 25.0415,
+      "frameSequence": 12
+    },
+    {
+      "roundTripMs": 5,
+      "bridgeMs": 2.2447,
+      "captureMs": 25.0415,
+      "frameSequence": 12
+    },
+    {
+      "roundTripMs": 4,
+      "bridgeMs": 1.9861,
+      "captureMs": 25.0415,
+      "frameSequence": 12
+    },
+    {
+      "roundTripMs": 5,
+      "bridgeMs": 1.9915,
+      "captureMs": 25.0415,
+      "frameSequence": 12
+    },
+    {
+      "roundTripMs": 4,
+      "bridgeMs": 2.057,
+      "captureMs": 25.0415,
+      "frameSequence": 12
+    },
+    {
+      "roundTripMs": 5,
+      "bridgeMs": 2.2039,
+      "captureMs": 25.0415,
+      "frameSequence": 12
+    },
+    {
+      "roundTripMs": 5,
+      "bridgeMs": 2.1063,
+      "captureMs": 25.0415,
+      "frameSequence": 12
+    },
+    {
+      "roundTripMs": 5,
+      "bridgeMs": 2.1113,
+      "captureMs": 25.0415,
+      "frameSequence": 12
+    }
+  ]
+}
+{
+  "passed": true,
+  "checks": 12,
+  "evaluation": {
+    "maxSettlingErrorM": 0.03005396344616018,
+    "relativeFeedforwardScoreGain": 0.904806595351324,
+    "accepted": true,
+    "meanScores": {
+      "zero": 4.438543574419839,
+      "analytical-feedback": 0.05274830458624686,
+      "candidate": 0.03116247941157444,
+      "feedforward": 0.32735964772542536
+    },
+    "maxTerminalSpeedMps": 0.17115115474645065,
+    "maxEndpointErrorM": 0.013623580627082132
+  },
+  "live": {
+    "score": 0.031073336818645145,
+    "endpointErrorM": 0.00629858117170734,
+    "controlAbsoluteImpulseNs": 6.464245215138736,
+    "settlingMaxErrorM": 0.016374844452537785,
+    "terminalSpeedMps": 0.11058222280445942,
+    "passed": true
+  }
+}
+DECODED_NATIVE_VIDEO {"width":960,"height":540,"cyan":0}
+{
+  "passed": true,
+  "checks": 15,
+  "prediction": {
+    "oneStepBandCoverage": 0.82421875,
+    "velocityRmseMps": 0.024407791196429107,
+    "positionRmseM": 0.0005662888957009049,
+    "rolloutPositionRmseM": 0.02742956762888434,
+    "rollouts": 32,
+    "kinematicVelocityRmseMps": 0.17874505203086138,
+    "transitions": 256,
+    "kinematicPositionRmseM": 0.004878736748076842,
+    "rolloutVelocityRmseMps": 0.10433044374451514
+  },
+  "planning": {
+    "minModelActionFraction": 1,
+    "meanScore": 0.05647321605759449,
+    "feedback017MeanScore": 0.02848374114296594,
+    "maxSpeedMps": 0.17517544984255584,
+    "maxSettlingErrorM": 0.07022428550081461,
+    "maxEndpointErrorM": 0.06210194923439816
+  },
+  "reality": {
+    "rmse": 0.02970833495711241,
+    "max": 0.06215231621852524,
+    "accepted": false
+  },
+  "live": {
+    "score": 0.020311754478803706,
+    "endpointErrorM": 0.0075608479478532775,
+    "modelActionFraction": 1,
+    "controlAbsoluteImpulseNs": 5.600000000000001,
+    "settlingMaxErrorM": 0.008270715835243525,
+    "terminalSpeedMps": 0.05743699075552443,
+    "passed": true
+  },
+  "decoded": {
+    "width": 960,
+    "height": 540,
+    "cyan": 0
+  }
+}
+{
+  "passed": true,
+  "checks": 14,
+  "first": {
+    "rmseM": 0.0008112361237400156,
+    "score": 0.06851365961912681,
+    "endpointErrorM": 0.03969413484655537,
+    "modelActionFraction": 1,
+    "controlAbsoluteImpulseNs": 5.600000000000001,
+    "settlingMaxErrorM": 0.04040400273394584,
+    "terminalSpeedMps": 0.05745015603732344,
+    "passed": true
+  },
+  "changed": {
+    "rmseM": 0.0016888764724868816,
+    "score": 0.08006916297052545,
+    "endpointErrorM": 0.041604587587808606,
+    "modelActionFraction": 1,
+    "controlAbsoluteImpulseNs": 5.600000000000001,
+    "settlingMaxErrorM": 0.049101015643838286,
+    "terminalSpeedMps": 0.09276045040531802,
+    "passed": true
+  },
+  "recoveredAttempts": 2,
+  "reusedCompletedRun": true
+}
+{
+  "passed": true,
+  "checks": 12,
+  "first": {
+    "peakAbsAccelerationMps2": 3.333333333333334,
+    "meanSpeedMps": 0.8,
+    "meanVelocityMps": 0.8,
+    "qualityPassed": true,
+    "maxGapS": 0.25,
+    "speedFlags": 0,
+    "gapFlags": 0,
+    "netDisplacementM": 0.4,
+    "totalTravelM": 0.4,
+    "intervalCount": 3,
+    "peakAbsVelocityMps": 1.2000000000000002,
+    "skippedSourceRows": 0,
+    "durationS": 0.5,
+    "rowCount": 4,
+    "passed": true
+  },
+  "changed": {
+    "peakAbsAccelerationMps2": 7.999999999999999,
+    "meanSpeedMps": 0.18,
+    "meanVelocityMps": 0.08,
+    "qualityPassed": false,
+    "maxGapS": 0.6000000000000001,
+    "speedFlags": 1,
+    "gapFlags": 1,
+    "netDisplacementM": 0.08,
+    "totalTravelM": 0.18,
+    "intervalCount": 4,
+    "peakAbsVelocityMps": 0.5,
+    "skippedSourceRows": 0,
+    "durationS": 1,
+    "rowCount": 5,
+    "passed": true
+  },
+  "recorded": {
+    "peakAbsAccelerationMps2": 135.30891307729846,
+    "meanSpeedMps": 0.9698065952819892,
+    "meanVelocityMps": 0.9694481787882638,
+    "qualityPassed": true,
+    "maxGapS": 0.01666666666666672,
+    "speedFlags": 0,
+    "gapFlags": 0,
+    "netDisplacementM": 0.7755585430306111,
+    "totalTravelM": 0.7758452762255914,
+    "intervalCount": 48,
+    "peakAbsVelocityMps": 3.866609224437713,
+    "skippedSourceRows": 0,
+    "durationS": 0.8,
+    "rowCount": 49,
+    "passed": true
+  },
+  "recovery": 1
+}
+{
+  "passed": true,
+  "checks": 14,
+  "first": {
+    "forecastMaxErrorM": 0,
+    "grabs": 1,
+    "maxGripEndpointErrorM": 3.2641218307618527e-7,
+    "forecastRmseM": 0,
+    "samples": 266,
+    "releases": 1,
+    "route": "left",
+    "sourceKind": "synthetic",
+    "verticalErrorM": 2.9802322387695312e-8,
+    "passed": true,
+    "terminalSpeedMps": 0.00004893745787276532,
+    "horizontalErrorM": 0.00005019225104818921,
+    "scaleIndependentlyCalibrated": false
+  },
+  "changed": {
+    "forecastMaxErrorM": 0,
+    "grabs": 1,
+    "maxGripEndpointErrorM": 4.6399404102711486e-7,
+    "forecastRmseM": 0,
+    "samples": 315,
+    "releases": 1,
+    "route": "over",
+    "sourceKind": "synthetic",
+    "verticalErrorM": 2.9802322387695312e-8,
+    "passed": true,
+    "terminalSpeedMps": 4.346469810174415e-7,
+    "horizontalErrorM": 1.1920928955078125e-7,
+    "scaleIndependentlyCalibrated": false
+  },
+  "recovery": 2
+}
+{
+  "passed": true,
+  "checks": 15,
+  "first": {
+    "trackedFraction": 0.9444444444444444,
+    "mode": "appearance",
+    "trackedObservations": 17,
+    "meanMatchScore": 0.9841941304442886,
+    "lostObservations": 1,
+    "frames": 18,
+    "appearanceUpdates": 17,
+    "reacquisitions": 1,
+    "passed": true,
+    "semanticGroundTruthVerified": false
+  },
+  "transferIou": 0.9883095262882955,
+  "memoryUsed": true,
+  "recovery": 2
+}
+{
+  "passed": true,
+  "checks": 9,
+  "gate": {
+    "baselineMeanIou": 0.08018287319796724,
+    "lowOverlapVisibleCandidate": 4,
+    "cases": [
+      {
+        "candidate": {
+          "meanIou": 0.5375745072784427,
+          "referenceAbsentFrames": 0,
+          "p95ProcessingMillis": 24.7758,
+          "latencyScope": "JPEG/PNG decode plus CPU tracking; excludes browser capture, network and LLM. Initialization excluded from scored frames.",
+          "scoredFrames": 59,
+          "iouHalfFraction": 0.5423728813559322,
+          "reacquired": 0,
+          "lost": 0,
+          "lowOverlapVisiblePredictions": 2,
+          "medianProcessingMillis": 13.9773
+        },
+        "datasetId": "af4b92c9-4fd1-4d21-9c1c-dda72a470e18",
+        "baseline": {
+          "meanIou": 0.10154912193644795,
+          "referenceAbsentFrames": 0,
+          "p95ProcessingMillis": 14.5467,
+          "latencyScope": "JPEG/PNG decode plus CPU tracking; excludes browser capture, network and LLM. Initialization excluded from scored frames.",
+          "scoredFrames": 59,
+          "iouHalfFraction": 0.11864406779661017,
+          "reacquired": 5,
+          "lost": 50,
+          "lowOverlapVisiblePredictions": 0,
+          "medianProcessingMillis": 13.9245
+        },
+        "gain": 0.43602538534199475
+      },
+      {
+        "candidate": {
+          "meanIou": 0.22036301471962963,
+          "referenceAbsentFrames": 0,
+          "p95ProcessingMillis": 102.5934,
+          "latencyScope": "JPEG/PNG decode plus CPU tracking; excludes browser capture, network and LLM. Initialization excluded from scored frames.",
+          "scoredFrames": 59,
+          "iouHalfFraction": 0.2033898305084746,
+          "reacquired": 0,
+          "lost": 32,
+          "lowOverlapVisiblePredictions": 0,
+          "medianProcessingMillis": 89.6866
+        },
+        "datasetId": "ef676395-3ef3-4f33-805e-44faa7e2b568",
+        "baseline": {
+          "meanIou": 0.12405014841715481,
+          "referenceAbsentFrames": 0,
+          "p95ProcessingMillis": 9.2631,
+          "latencyScope": "JPEG/PNG decode plus CPU tracking; excludes browser capture, network and LLM. Initialization excluded from scored frames.",
+          "scoredFrames": 59,
+          "iouHalfFraction": 0.13559322033898305,
+          "reacquired": 1,
+          "lost": 46,
+          "lowOverlapVisiblePredictions": 0,
+          "medianProcessingMillis": 8.1888
+        },
+        "gain": 0.09631286630247482
+      },
+      {
+        "candidate": {
+          "meanIou": 0.2045259686103885,
+          "referenceAbsentFrames": 0,
+          "p95ProcessingMillis": 107.8626,
+          "latencyScope": "JPEG/PNG decode plus CPU tracking; excludes browser capture, network and LLM. Initialization excluded from scored frames.",
+          "scoredFrames": 48,
+          "iouHalfFraction": 0.25,
+          "reacquired": 0,
+          "lost": 28,
+          "lowOverlapVisiblePredictions": 2,
+          "medianProcessingMillis": 88.5589
+        },
+        "datasetId": "9c0081c4-0c40-4868-95c6-2a2842c8dec7",
+        "baseline": {
+          "meanIou": 0,
+          "referenceAbsentFrames": 0,
+          "p95ProcessingMillis": 11.2391,
+          "latencyScope": "JPEG/PNG decode plus CPU tracking; excludes browser capture, network and LLM. Initialization excluded from scored frames.",
+          "scoredFrames": 48,
+          "iouHalfFraction": 0,
+          "reacquired": 0,
+          "lost": 48,
+          "lowOverlapVisiblePredictions": 0,
+          "medianProcessingMillis": 10.5184
+        },
+        "gain": 0.2045259686103885
+      }
+    ],
+    "negativeControlsPassed": true,
+    "scope": "Small declared human-guided box-tracking evaluation; not general category accuracy or official DAVIS mask metrics",
+    "passed": false,
+    "candidateIouHalfFraction": 0.3373493975903614,
+    "perSequenceRegression": false,
+    "candidateMeanIou": 0.32852747163364404,
+    "scoredEvaluationFrames": 166,
+    "pooledMeanIouGain": 0.24834459843567683,
+    "lowOverlapVisibleBaseline": 0
+  },
+  "project": "C:\\Users\\eyeka\\AppData\\Local\\Temp\\fraynix-tracking024-XObRPN",
+  "reportFiles": 18
+}
+{"passed":true,"checks":6,"gate":true,"pinned":"flow-v3","active":"rgb-v1"}
+{"passed":true,"checks":8,"drafts":2,"reusedRows":118,"recovered":1}
+{"passed":true,"checks":8,"rows":62,"freshRows":63,"plotError":0.000010560613247889705}
+{"passed":true,"checks":9,"vertices":[["colonization",3,226],["colonization",3,210],["dungeon",4,548],["dungeon",4,548],["dungeon",2,143],["dungeon",3,318],["colonization",16,648]]}
+{"passed":true,"checks":4,"views":[780,390]}
+{"passed":true,"checks":9,"routes":[19,19,10]}
+{"passed":true,"checks":10,"candidates":[5,19]}
+CHECK Actual material controls compile declared Ice into native floor patches; force-limited traversal passes physical gates and all nine measured charts plus visible work/material data are independently verified
+CHECK Signed actuator work, signed drag work and kinetic-energy charts use original per-tick physics measurements; force effort remains a separate N·s quantity
+CHECK Real export produces complete plain JSON run evidence; report gzip package reconstructs the exact original run/hash; real file import independently reconstructs material patches and original source
+CHECK The test terminates only its own actual Java child while the native body is moving; a new process loads the last atomically committed body/controller/trace and requires explicit Resume
+CHECK Visible Resume continues the same goal/run without a new attempt, preserves every committed sample and all velocities, records actual native initialization and retains the skill only after complete resumed verification; the disturbance occurs exactly once
+CHECK The existing Skills interface reuses saved surface declarations on a new generated scene, re-runs native physics and verifies new work/energy charts before retaining success
+CHECK Actual keyboard movement, Pause & save and Resume saved preserve manual native state while clearing held input; no key lease is replayed after recovery
+CHECK An edited checkpoint is visibly refused and preserved for inspection; it does not silently start a fresh body or report recovery success
+CHECK Cancellation stops native motion and prevents skill retention; existing app/browser/canvas surfaces remain intact with no renderer errors
+{"passed":true,"checks":9,"checkpointTick":720,"resumedRun":"8b97747e-ca5d-3bb0-8400-d8d41e1f52d3"}
+CHECK Actual Plan only computes a joint crate/pusher standing route around the obstacle without changing native state
+CHECK Visible Push & verify applies bounded forces only to the actual pusher; the crate turns around an obstacle through native contacts, passes endpoint/speed/ledger checks and all six original-data charts before skill retention
+CHECK The actual report switches between six measured charts, including signed actuator work separate from force effort; complete gzip reconstructs the original native run and SHA-256
+CHECK Visible object observation and the registered agent read use the committed actual two-body state; identity and ray visibility are explicitly qualified, not photographic recognition
+CHECK Real file controls export full native JSON and import a source-preserving spatial scene; exported evidence independently equals the run
+CHECK The real Skills form binds a fresh high-friction scene and both new body IDs, preserves 8/32 N defaults, detects a measured contact stall, backs away/reapproaches and succeeds inside the original force budget
+CHECK Deliberately terminating only this test Java child restores the committed prefix and both saved bodies in a new process, with explicit Resume required
+CHECK Visible Resume continues the same goal/run/attempt, preserves every committed sample and independently checks actual native initialization of both bodies plus complete controller state before final retention
+CHECK A crate path with an unreachable pushing pose is rejected before native actuation; no run or skill is manufactured
+CHECK An actual 8 N maximum cannot move the high-friction crate: two measured bounded recoveries exhaust, the native attempt fails and no skill is promoted
+CHECK Actual Pause commits both bodies; edited checkpoint Resume is visibly refused and its bytes preserved without spawning replacement bodies; explicit abandonment releases the task
+CHECK Visible cancellation stops the native task and retains no skill; all workflows complete without renderer errors and the existing app design remains intact
+{"passed":true,"checks":12,"project":"C:\\Users\\eyeka\\AppData\\Local\\Temp\\fraynix-pushing031-igU1yn"}
+CHECK Actual Train & evaluate launches frozen native cases, displays committed moving bodies in the existing Spatial view and refuses early promotion
+CHECK All32 actual native trials complete;16 training trials select24N before16 paired reserved trials; Java independently audits every original run,72 visible cells and all three paired chart modes
+CHECK Candidate is faster but fails frozen success/effort gates; activation is disabled and direct promotion refused, preserving the exact8N baseline
+CHECK Actual export saves a lossless complete experiment package; all32 decompressed native runs independently match committed originals and the full raw-byte hash
+CHECK A real Java child termination after training preserves selected24N, completed native trial IDs and original bytes; restart requires explicit Resume
+CHECK Explicit same-goal/job/attempt recovery resumes the actual incomplete native trial, never repeats settled trials or reselects from reserved outcomes, and re-verifies the complete report
+CHECK Visible opt-in uses the actual retained baseline profile8/32N on a fresh high-friction native push, records policy provenance, completes measured recovery and retains the existing pushing skill
+CHECK Visible Stop cancels native learning and cannot change the active profile; the existing browser/canvas/Spatial surfaces finish without renderer errors
+{"passed":true,"checks":8,"project":"C:\\Users\\eyeka\\AppData\\Local\\Temp\\fraynix-force032-krUcJY"}
+{"passed":true,"checks":2,"project":"C:\\Users\\eyeka\\AppData\\Local\\Temp\\fraynix-force-library032-mgTnLY"}
+{"passed":true,"checks":3,"legacyJobId":"8b82979f-91d3-4b6a-8524-6e0674589ad6"}

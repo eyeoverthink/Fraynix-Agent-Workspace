@@ -1,0 +1,118 @@
+{
+  "checks": [
+    {
+      "actual": {
+        "count": 1,
+        "text": "Contact controller passes reserved gates",
+        "value": null
+      },
+      "expected": {
+        "expectText": "Contact controller passes reserved gates",
+        "selector": "#contact-result"
+      },
+      "index": 0,
+      "selector": "#contact-result",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 16,
+        "text": "development / eval-light\tpass\tpass\t12.591667\t12.591667\t44.709894\t44.701061\t0\t0",
+        "value": null
+      },
+      "expected": {
+        "expectCount": 16,
+        "selector": "#contact-table tbody tr"
+      },
+      "index": 1,
+      "selector": "#contact-table tbody tr",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 1,
+        "text": "Next metric",
+        "value": ""
+      },
+      "expected": {
+        "action": "click",
+        "selector": "#contact-mode"
+      },
+      "index": 2,
+      "selector": "#contact-mode",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 1,
+        "text": "Actual pusher effort · N·s",
+        "value": null
+      },
+      "expected": {
+        "expectText": "Actual pusher effort · N·s",
+        "selector": "#contact-label"
+      },
+      "index": 3,
+      "selector": "#contact-label",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 1,
+        "text": "Reset chart",
+        "value": ""
+      },
+      "expected": {
+        "action": "click",
+        "selector": "#contact-reset"
+      },
+      "index": 4,
+      "selector": "#contact-reset",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 1,
+        "text": "Penalized native time · s",
+        "value": null
+      },
+      "expected": {
+        "expectText": "Penalized native time · s",
+        "selector": "#contact-label"
+      },
+      "index": 5,
+      "selector": "#contact-label",
+      "passed": true
+    }
+  ],
+  "at": "2026-11-01T09:49:19.081098Z",
+  "id": "c5b1bf33-1bd5-385c-85da-e39d9c93b321",
+  "passed": true,
+  "version": 1,
+  "steps": [
+    {
+      "expectText": "Contact controller passes reserved gates",
+      "selector": "#contact-result"
+    },
+    {
+      "expectCount": 16,
+      "selector": "#contact-table tbody tr"
+    },
+    {
+      "action": "click",
+      "selector": "#contact-mode"
+    },
+    {
+      "expectText": "Actual pusher effort · N·s",
+      "selector": "#contact-label"
+    },
+    {
+      "action": "click",
+      "selector": "#contact-reset"
+    },
+    {
+      "expectText": "Penalized native time · s",
+      "selector": "#contact-label"
+    }
+  ]
+}
