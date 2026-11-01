@@ -1,0 +1,41 @@
+{
+  "edition": "038",
+  "version": "tabletop-038-v1",
+  "baseline": "f0149dcc19cf50bf8dafadadfbb46082b4d419b9",
+  "purpose": "Improve small rigid-object tracking and measured planar calibration on user local webcam; monitor grounded observations, not assert consciousness/semantic recognition.",
+  "priorInspection": "Two640x480 setup frames viewed locally in memory, not saved/published: Cricut12x12in mat, dual-unit tape, black lighter placed right of tape between4and8 by user. Full mat top cropped. No numerical scale/error or tracking performance measured before declaration.",
+  "geometry": {
+    "method": "Four known visible mat-grid intersections define a subrectangle; exact corner coordinates/dimensions recorded before scoring. Fixed camera, mat-plane projection of object centre; object height/depth unknown.",
+    "knownMatInches": [
+      12,
+      12
+    ],
+    "plannedVisibleRectangleInches": [
+      10,
+      8
+    ],
+    "check": "Independent pairs of inch marks on tape, not used to fit homography; user confirmed both units. Preserve first pixel annotations/calibration/check result.",
+    "gateMaxAbsoluteTapeLengthErrorM": 0.005,
+    "anchorErrorBudgetM": 0.003,
+    "cameraChange": "Static anchor patches/position consistency; degrade/recalibrate if anchors shift or no longer match, not silent rebase."
+  },
+  "candidate": {
+    "tracker": "New versioned Java rigid-target anchor/template matcher with local/coarse-to-fine search, appearance/ambiguity/innovation gates, bounded reacquisition; old036/037 tracker/filter/native identities remain unchanged.",
+    "clock": "Actual camera callback seconds; new constant-velocity prediction in seconds, metric plane projection, declared process/noise parameters and missing-measurement uncertainty.",
+    "rate": "Bounded single-flight frame processing, nominal5Hz, no queue growth or invented times; original sampled frames stored locally with hashes.",
+    "scope": "One human-seeded lighter per session; projected centre, rotation/occlusion limitations disclosed. User label is guidance, not automatic BIC/person/semantic recognition."
+  },
+  "evaluation": {
+    "development": "Initial static setup and declared analytic controls; original037 known EPFL failures are seen regressions, not novel held footage.",
+    "reserved": "After committed candidate lock, a new physical sequence requested from user: stay still, move slowly across visible grid, pause, briefly cover, reveal and return. First outputs retained, no substitution/tuning on reserved scores.",
+    "stationaryJitterRmsGateM": 0.003,
+    "independentMotionPositionToleranceM": 0.01,
+    "referencePolicy": "Independent human grid/tape annotations before candidate scoring; never use predicted output as reference. If user cannot supply/reference occluded frames, mark unscored; no invented ground truth.",
+    "occlusion": "No accepted measurement while target hidden in labelled controls; growing predicted uncertainty and explicit lost state. Reacquisition must agree with original anchor, not tape housing.",
+    "latency": "Report actual processing median/p95 and captured timestamps; no claim of hard realtime.",
+    "empiricalUncertainty": "Fit only calibration/reference frames, test on separate clip/positions; retain coverage and width, no guarantee from correlation or reused samples."
+  },
+  "understanding": "Show fresh observed/predicted/lost status, source/camera/calibration IDs, projected location, velocity/uncertainty, independent tape-check residual, confidence qualification and next verification need. Test chat answers against actual typed receipts; model cannot invent measurements or install handlers.",
+  "privacy": "User authorizes private webcam capture for this task. Original frames stay outsideGit in a new project. Publish derived numeric charts and app screenshots with camera/video hidden, or clearly labelled software-camera fixtures; no raw personal webcam images, device IDs or private database. No crop/edit of private footage for publication.",
+  "acceptance": "Actual Java/desktop/camera workflows, interruption/restart/Stop, stale source/world/camera guards, independent export audit, real local-model read/report, extensive README038 with dated actual screenshots/offline explorer/Obsidian, notes/logs, actual main/tag push and independent GitHub fetch. One heavy validator at a time."
+}
