@@ -2,9 +2,9 @@
 
 **A local visual environment for agents to browse, create runnable artifacts, test behavior and reuse verified skills.**
 
-> **Latest implementation: [README035 — one evolving world](README-035.md)** · [Offline guide](docs/readmes/035/index.html) · [Runtime contract](docs/PERSISTENT_WORLDS.md) · [Edition history](docs/readmes/INDEX.md)
+> **Latest implementation: [README036 — real footage and observed worlds](README-036.md)** · [Offline guide](docs/readmes/036/index.html) · [Runtime contract](docs/OBSERVED_WORLDS.md) · [Edition history](docs/readmes/INDEX.md)
 
-Continue stable native body state across successive goals, verify each result and retain a world-aware skill. Failure, interruption and explicit restore preserve history. [Functions, original evidence, actual screenshots and next gates](README-035.md).
+Track real footage, compare predicted motion and retain observed estimates on the same saved world identities. Native verified physics stays explicit. [Functions, original results, actual screenshots and next gates](README-036.md).
 
 The spatial proof and next independent-capture gates are documented in the [spatial contract](docs/SPATIAL_WORLD.md) and the [world-model frontier assessment](docs/WORLD_MODEL_FRONTIERS.md), including Genie, persistent3D capture, physics-aware prediction and the source-qualified local scene/manipulation milestone.
 
@@ -18,9 +18,9 @@ The app includes a real browser, live creation canvas, editable source, versione
 
 Local `gpt-oss:20b` is the verified default for the first agent fixture. The custom FRAYNIX 3B trial returned an Ollama native-format error; advertised tool capability alone does not establish task reliability. You can select other eligible installed models explicitly.
 
-![Actual native controller comparison inside the existing app](docs/readmes/035/images/world-second-native-motion-035.png)
+![Actual real-footage observation workflow](docs/readmes/036/images/observed-world-completed-036.png)
 
-Actual edition035 native world continuation shown above. Earlier October30 body/scene/file workflows remain preserved. Native actuation, decoded video, import/replication, Java/desktop regressions and local-agent evidence are recorded in [edition 015 verification](docs/readmes/015/verification.json). The previous [real-data fit](README-013.md) remains rejected.
+Actual edition036 real-footage tracking and retained image-plane estimates shown above. Native035 world continuation remains documented in [edition035](README-035.md). Earlier October30 body/scene/file workflows remain preserved. Native actuation, decoded video, import/replication, Java/desktop regressions and local-agent evidence are recorded in [edition 015 verification](docs/readmes/015/verification.json). The previous [real-data fit](README-013.md) remains rejected.
 
 ## Verify
 

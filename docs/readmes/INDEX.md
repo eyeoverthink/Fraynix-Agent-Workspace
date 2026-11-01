@@ -40,4 +40,6 @@ Numbered editions preserve dated system behavior and evidence. The root [README]
 | [034](../../README-034.md) | 2026-11-01 | Native multi-object poses, all-body continuation, exact-version skills and original torque ablation | [Viewer](034/index.html) · [evidence](034/verification.json) · [contract](../MULTI_OBJECT_POSES.md) |
 | [035](../../README-035.md) | 2026-11-01 | Persistent native worlds across successive goals, state continuity, owned recovery and complete history | [Viewer](035/index.html) · [evidence](035/verification.json) · [contract](../PERSISTENT_WORLDS.md) |
 
-Latest implementation/documentation edition: **035**. Earlier snapshots remain intact. See [sequence policy](README_SEQUENCE.md) and [manifest](editions.json).
+| [036](../../README-036.md) | 2026-11-01 | Real footage, predicted motion, persistent observed worlds, exact recovery and complete evidence | [Viewer](036/index.html) · [evidence](036/verification.json) · [contract](../OBSERVED_WORLDS.md) |
+
+Latest implementation/documentation edition: **036**. Earlier snapshots remain intact. See [sequence policy](README_SEQUENCE.md) and [manifest](editions.json).

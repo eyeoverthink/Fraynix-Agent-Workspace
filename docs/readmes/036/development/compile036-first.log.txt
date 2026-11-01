@@ -1,0 +1,51 @@
+> Task :brain-core:compileJava UP-TO-DATE
+> Task :brain-gpu:compileJava UP-TO-DATE
+> Task :factory-runtime:compileJava UP-TO-DATE
+> Task :factory-kernel:compileJava UP-TO-DATE
+> Task :factory-models:compileJava UP-TO-DATE
+> Task :geometry-core:compileJava UP-TO-DATE
+
+> Task :workspace-engine:compileJava FAILED
+C:\Users\eyeka\Documents\Codex\2026-10-26\is\work\fraynix-agent-workspace\workspace-engine\src\main\java\fraymus\workspace\WorldObservationStore.java:45: error: incompatible types: byte[] cannot be converted to String
+    static String identity(){var s=new StringBuilder(VERSION);for(Class<?> c:new Class<?>[]{ObservationFilter.class,WorldObservationStore.class,FlowTracker.class})try(var in=c.getResourceAsStream(c.getSimpleName()+".class")){s.append(MeasurementStore.hash(in.readAllBytes()));}catch(Exception e){throw new IllegalStateException(e);}return MeasurementStore.hash(s.toString());}
+                                                                                                                                                                                                                                                                               ^
+C:\Users\eyeka\Documents\Codex\2026-10-26\is\work\fraynix-agent-workspace\workspace-engine\src\main\java\fraymus\workspace\WorldObservationStore.java:80: error: incompatible types: byte[] cannot be converted to String
+        byte[] bytes=Base64.getDecoder().decode(frame.getString("image"));if(!MeasurementStore.hash(bytes).equals(frame.getString("imageSha256")))throw new IllegalStateException("Observation source checksum differs");var image=decode(bytes);if(ordinal>0&&(image.getWidth()!=staging.getInt("width")||image.getHeight()!=staging.getInt("height")))throw new IllegalArgumentException("Frame dimensions changed");if(stagedBytes+bytes.length>32_000_000)throw new IllegalArgumentException("Frame package exceeds32MB");
+                                                                                                    ^
+C:\Users\eyeka\Documents\Codex\2026-10-26\is\work\fraynix-agent-workspace\workspace-engine\src\main\java\fraymus\workspace\WorldObservationStore.java:87: error: incompatible types: byte[] cannot be converted to String
+    byte[] image(String id,int ordinal)throws Exception{var d=dataset(id);if(ordinal<0||ordinal>=d.getJSONArray("frames").length())throw new IllegalArgumentException("Unknown observation frame");byte[] b=Files.readAllBytes(root.resolve("datasets").resolve(id).resolve(ordinal+".image"));if(!MeasurementStore.hash(b).equals(d.getJSONArray("frames").getJSONObject(ordinal).getString("imageSha256")))throw new IllegalStateException("Original observation image integrity changed");return b;}
+                                                                                                                                                                                                                                                                                                                         ^
+C:\Users\eyeka\Documents\Codex\2026-10-26\is\work\fraynix-agent-workspace\workspace-engine\src\main\java\fraymus\workspace\WorldObservationStore.java:120: error: incompatible types: byte[] cannot be converted to String
+        var value=new JSONObject().put("format","fraynix-observed-world-036-v1").put("run",r).put("dataset",d).put("images",images).put("world",state(r.getJSONObject("nativeBinding").getString("worldId"))).put("scope","Complete original pixels and observed image-plane history; no metric calibration or native physical success implied");byte[] raw=value.toString().getBytes(StandardCharsets.UTF_8);if(raw.length>64_000_000)throw new IllegalStateException("Observation export exceeds64MB raw");try(var bytes=new ByteArrayOutputStream()){try(var gzip=new java.util.zip.GZIPOutputStream(bytes)){gzip.write(raw);}return new JSONObject().put("format","fraynix-observed-world-gzip-036-v1").put("rawBytes",raw.length).put("rawSha256",MeasurementStore.hash(raw)).put("data",Base64.getEncoder().encodeToString(bytes.toByteArray()));}}
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             ^
+Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
+4 errors
+
+[Incubating] Problems report is available at: file:///C:/Users/eyeka/Documents/Codex/2026-10-26/is/work/fraynix-agent-workspace/build/reports/problems/problems-report.html
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':workspace-engine:compileJava'.
+> Compilation failed; see the compiler output below.
+  C:\Users\eyeka\Documents\Codex\2026-10-26\is\work\fraynix-agent-workspace\workspace-engine\src\main\java\fraymus\workspace\WorldObservationStore.java:45: error: incompatible types: byte[] cannot be converted to String
+      static String identity(){var s=new StringBuilder(VERSION);for(Class<?> c:new Class<?>[]{ObservationFilter.class,WorldObservationStore.class,FlowTracker.class})try(var in=c.getResourceAsStream(c.getSimpleName()+".class")){s.append(MeasurementStore.hash(in.readAllBytes()));}catch(Exception e){throw new IllegalStateException(e);}return MeasurementStore.hash(s.toString());}
+                                                                                                                                                                                                                                                                                 ^
+  C:\Users\eyeka\Documents\Codex\2026-10-26\is\work\fraynix-agent-workspace\workspace-engine\src\main\java\fraymus\workspace\WorldObservationStore.java:80: error: incompatible types: byte[] cannot be converted to String
+          byte[] bytes=Base64.getDecoder().decode(frame.getString("image"));if(!MeasurementStore.hash(bytes).equals(frame.getString("imageSha256")))throw new IllegalStateException("Observation source checksum differs");var image=decode(bytes);if(ordinal>0&&(image.getWidth()!=staging.getInt("width")||image.getHeight()!=staging.getInt("height")))throw new IllegalArgumentException("Frame dimensions changed");if(stagedBytes+bytes.length>32_000_000)throw new IllegalArgumentException("Frame package exceeds32MB");
+                                                                                                      ^
+  C:\Users\eyeka\Documents\Codex\2026-10-26\is\work\fraynix-agent-workspace\workspace-engine\src\main\java\fraymus\workspace\WorldObservationStore.java:87: error: incompatible types: byte[] cannot be converted to String
+      byte[] image(String id,int ordinal)throws Exception{var d=dataset(id);if(ordinal<0||ordinal>=d.getJSONArray("frames").length())throw new IllegalArgumentException("Unknown observation frame");byte[] b=Files.readAllBytes(root.resolve("datasets").resolve(id).resolve(ordinal+".image"));if(!MeasurementStore.hash(b).equals(d.getJSONArray("frames").getJSONObject(ordinal).getString("imageSha256")))throw new IllegalStateException("Original observation image integrity changed");return b;}
+                                                                                                                                                                                                                                                                                                                           ^
+  C:\Users\eyeka\Documents\Codex\2026-10-26\is\work\fraynix-agent-workspace\workspace-engine\src\main\java\fraymus\workspace\WorldObservationStore.java:120: error: incompatible types: byte[] cannot be converted to String
+          var value=new JSONObject().put("format","fraynix-observed-world-036-v1").put("run",r).put("dataset",d).put("images",images).put("world",state(r.getJSONObject("nativeBinding").getString("worldId"))).put("scope","Complete original pixels and observed image-plane history; no metric calibration or native physical success implied");byte[] raw=value.toString().getBytes(StandardCharsets.UTF_8);if(raw.length>64_000_000)throw new IllegalStateException("Observation export exceeds64MB raw");try(var bytes=new ByteArrayOutputStream()){try(var gzip=new java.util.zip.GZIPOutputStream(bytes)){gzip.write(raw);}return new JSONObject().put("format","fraynix-observed-world-gzip-036-v1").put("rawBytes",raw.length).put("rawSha256",MeasurementStore.hash(raw)).put("data",Base64.getEncoder().encodeToString(bytes.toByteArray()));}}
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               ^
+  Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
+  4 errors
+
+* Try:
+> Check your code and dependencies to fix the compilation error(s)
+> Run with --scan to get full insights from a Build Scan (powered by Develocity).
+
+BUILD FAILED in 1s
+7 actionable tasks: 1 executed, 6 up-to-date

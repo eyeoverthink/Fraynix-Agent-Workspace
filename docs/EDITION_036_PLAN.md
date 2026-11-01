@@ -53,3 +53,13 @@ are now car-roundabout and bus, 60 original consecutive frames each, declared
 and committed before fetching their pixels. All algorithm sources and numeric
 gates remain byte-identical. Preserve the original refusal log and both protocol
 commits; this is a source-selection amendment, not result-based retuning.
+
+## Verified outcome and publication gate
+
+Implementation71010ea, independent318Java/67classes,81desktop units,243actual
+UIchecks/27groups and two final real local-model episodes pass. Ten offline
+documentation groups and visual inspection pass. Reserved outcomes and locked
+algorithms/gates remain unchanged, including poor car uncertainty calibration.
+The staged-byte, historical-hash, actual GitHub push/direct-fetch and isolated
+normal-review checks are the remaining publication gate. See PROJECT_MEMORY.md
+and DEVELOPMENT_LOG.md for final published commit/tag verification.

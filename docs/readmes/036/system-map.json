@@ -1,0 +1,85 @@
+{
+  "edition": 36,
+  "modules": [
+    {
+      "id": "ingest",
+      "name": "Real source pixels",
+      "summary": "Strict bounded image import and actual Chromium local-video decoding; explicit initial rectangle and sampling domain.",
+      "source": "workspace-desktop/renderer/observation-panel.js",
+      "note": "docs/OBSERVED_WORLDS.md",
+      "status": "verified"
+    },
+    {
+      "id": "tracker",
+      "name": "Java temporal tracking",
+      "summary": "Unchanged flow-v3 actual-pixel tracking; losses and drift retained, human labels qualified.",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/FlowTracker.java",
+      "note": "docs/OBSERVED_WORLDS.md",
+      "status": "verified"
+    },
+    {
+      "id": "filter",
+      "name": "Predict and compare",
+      "summary": "Prior position/velocity prediction, actual measurement innovation, fixed gates and uncalibrated model covariance.",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/ObservationFilter.java",
+      "note": "docs/OBSERVED_WORLDS.md",
+      "status": "verified"
+    },
+    {
+      "id": "owner",
+      "name": "Durable observation history",
+      "summary": "Atomic checksum envelope and hash-chained observed revisions on the same world/body IDs.",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/WorldObservationStore.java",
+      "note": "docs/OBSERVED_WORLDS.md",
+      "status": "verified"
+    },
+    {
+      "id": "recovery",
+      "name": "Exact interruption recovery",
+      "summary": "Same run and trace prefix; replay original pixels and restore filter, with Stop/Resume execution generations.",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/WorldObservationStore.java",
+      "note": "docs/OBSERVED_WORLDS.md",
+      "status": "verified"
+    },
+    {
+      "id": "binding",
+      "name": "Native state stays explicit",
+      "summary": "Native revision/hash CAS, stale refusal and separate observation revisions; original035source protected.",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/WorldLedger.java",
+      "note": "docs/OBSERVED_WORLDS.md",
+      "status": "verified"
+    },
+    {
+      "id": "goal",
+      "name": "Actual local-model tools",
+      "summary": "Host-bound read/start/wait/report, no invented IDs or supplied measurements; standard world.observe also exposes estimates.",
+      "source": "workspace-desktop/observations.cjs",
+      "note": "docs/OBSERVED_WORLDS.md",
+      "status": "verified"
+    },
+    {
+      "id": "report",
+      "name": "Original measured charts",
+      "summary": "Actual saved report, five chart modes and every object/frame row, with original view receipts.",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/ObservationReport.java",
+      "note": "docs/OBSERVED_WORLDS.md",
+      "status": "verified"
+    },
+    {
+      "id": "export",
+      "name": "Complete original evidence",
+      "summary": "All world-related attempts/datasets/images, native lineage, raw hashes and standalone byte/reference inspection.",
+      "source": "scripts/Inspect-ObservedWorld.cjs",
+      "note": "docs/OBSERVED_WORLDS.md",
+      "status": "verified"
+    },
+    {
+      "id": "calibration",
+      "name": "Calibrated physical observation",
+      "summary": "Future: camera-motion separation, known plane/scale/timing and empirically evaluated uncertainty. Not implemented by036.",
+      "source": "docs/EDITION_036_PLAN.md",
+      "note": "docs/OBSERVED_WORLDS.md",
+      "status": "planned"
+    }
+  ]
+}

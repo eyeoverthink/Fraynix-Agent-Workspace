@@ -1,6 +1,6 @@
 ---
 title: Fraynix Studio map of content
-edition_context: 035
+edition_context: 036
 updated: 2026-11-01
 tags: [fraynix, system-map]
 ---
@@ -9,9 +9,9 @@ tags: [fraynix, system-map]
 
 Open the repository root as an Obsidian vault. The numbered README is the edition snapshot; these notes are the working map.
 
-Current: [[README-035|Edition035 — one evolving world]] ·
-[[docs/obsidian/43-persistent-worlds|Stable kinematics, verified revisions and recovery]] ·
-[[docs/obsidian/persistent-worlds.canvas|Persistent world ownership map]].
+Current: [[README-036|Edition036 — real footage and observed worlds]] ·
+[[docs/obsidian/44-observed-worlds|Measurements, estimates and native state]] ·
+[[docs/obsidian/observed-worlds.canvas|Observed world system map]].
 
 Previous: [[README-031|Edition031 — native contact tasks]] ·
 [[docs/obsidian/39-native-pushing|Pushing contract and measured limits]] ·

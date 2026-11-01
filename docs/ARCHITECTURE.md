@@ -183,3 +183,19 @@ The existing Java runner, Spatial, chat, original reports and Skills use this
 same world. Real native and Chromium evidence precedes head advancement and
 retention. Full history export includes abandoned attempts.034and older native
 sources remain preserved. [Complete contract and next gate](PERSISTENT_WORLDS.md).
+
+
+## Edition036: observations attached to persistent world identities
+
+[Observed-world contract](OBSERVED_WORLDS.md) and [edition036](../README-036.md)
+describe the new Java observation store, separate from the unchanged035 native
+ledger. Imported real pixels and first-frame human rectangles drive unchanged
+flow-v3 tracking. A Java position/velocity covariance filter predicts before
+measurement and retains accepted image-plane estimates under the SAME world/body
+IDs. Native binding and observation revision CAS, exact-prefix replay, Stop
+execution generations and explicit stale state preserve provenance. Native
+verified frames are not overwritten. Missing depth/scale/FPS and uncalibrated
+uncertainty remain explicit. Chromium decodes actual local videos into bounded
+samples. Chat read/start/wait/report tools and standard world.observe consume
+this evidence; complete exports retain every related observation attempt and
+original imported pixel source. Original video containers stay separate.

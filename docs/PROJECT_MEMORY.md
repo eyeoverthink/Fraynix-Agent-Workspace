@@ -1,5 +1,80 @@
 # Agent Workspace project memory
 
+## Edition 036 validated; publication gate — 2026-11-01
+
+Implementation71010ea is ready to publish. Independent offline318Java/67classes,
+81desktop units and243actualUIchecks/27groups pass. Java/native code is identical
+to buildf91a1d0; later host routing/readout/provenance changes and the grip-test
+scene-readiness wait are recorded, and affected actual workflows rerun at710.
+All original physical assertions remain. Both first and final two-episode real
+gpt-oss:20b checks pass with zero repairs; final project is
+Temp/fraynix-live-observations036-UWfTeC. Every test app is now closed.
+
+Ten offline documentation UI groups pass:695source paths,12actual images,
+390px layouts,118scored rows/944cells, all five chart modes/every original point,
+exact first-result and test archives, source-isolated scoring, original actual
+motion report data/receipts and no external requests. Wide/narrow/report/data
+captures visually inspected. README036~2400words and observed-world contract,
+Obsidian44/canvas and full source explorer explain scope and limits.
+
+First car-roundabout/bus59frame measurements remain unchanged:meanIoU
+.7289859582251114/.8988617569444699. Car updated-reference error slightly worse;
+nominal2sigma coverage.237288/.813559 remains UNCALIBRATED. No retuning of locked
+algorithms/gates, no metric physical calibration, semantic identity, learned
+weights or native physical-goal success claimed. Observed estimates, later
+predictions/loss and native verified state remain distinct on the SAME world/
+body IDs. All protected old sources and001–035snapshots unchanged.
+
+Next actions are local036freeze, all documentation/hash/staged-byte/size/secret
+checks, actual atomicmain/readme-036push, direct independent GitHub fetch and
+source/frozen validation, isolated normalreview036 copied ONLY from the closed
+new model acceptance project, final continuity mainpush/directverify. Preserve
+older/private apps/models and use private Fraynix-Agent-Workspace, NEVERChandra.
+Publication is NOT yet claimed by this readiness note.
+
+
+## Edition 036 measured; final regression/publication in progress — 2026-11-01
+
+Current implementation source71010ea. Protocol19c207d, locked candidate1dd0f07,
+metadata-only source amendment85f546c before any reserved images. All locked
+tracking/estimator/evaluator sources and nine protected035native/flow sources
+remain unchanged. First car-roundabout/bus results are preserved in
+build/first036 with original hashes:59frames/59accepted each; meanIoU
+0.7289859582251114/0.8988617569444699 and IoU>=0.5 coverage
+0.9152542372881356/0.9830508474576272. Prior→updated reference errors
+0.06471739882149238→0.06474071843760228 (car slightly worse) and
+0.0264553821326737→0.02428093586630485 (bus better). Nominal2sigma coverage
+0.23728813559322035/0.8135593220338984 is uncalibrated. No retuning or general
+recognition/physical-calibration/weight-training claim.
+
+Nine new Java controls and81desktop units pass. Independent offline full build
+passed318Java/67classes atf91a1d0. Java/native sources remain byte-identical;
+subsequent host-only changes preserve HTML footage-creation routing and expose
+latest missing/rejected predictions separately from last accepted measurements,
+with run/dataset/native coordinate binding. Actual root frame UI8checks and
+Chromium video4checks pass; two real gpt-oss:20b episodes/fourchecks pass, zero
+repairs, first proof saved. Exact same-run/prefix Java-kill recovery, Stop,
+multibody/loss/stale binding and complete multi-run/original-pixel exports work.
+
+Independent actual UI suite running via build/clean036.py --continue, session50138.
+Sourceq71010ea; affected footage/video/persistent workflows rerun. Earlier native
+pose10checks atf91 passed all40original trials and unchanged gates. One old grip
+fixture raced asynchronous scene creation; test now awaits actual scene ID and
+all10original physical checks pass. Preserve original failure logs. Remaining
+old/new workflows, final model regression, source hashes and documentation QA
+must finish before publication. No036push/tag yet.
+
+Draft README036 is~2390words with12actualimages, numeric first-results/exact byte
+archives, original actual reports/receipts,695source paths, offline5-mode
+118frame/944cell data chart and Obsidian44/canvas. Regenerate after independent
+proofs complete, run build/qa036.cjs and inspect images, then freeze036ONCE.
+Do not edit published001–035 or locked candidate. Publish actualmain/readme-036,
+directGitHubfetch/hash/frozenverify, isolatedreview036 only copied closed new
+acceptance data, final continuitypush. Preserve review03535728/58605 and all
+older/private apps/models. Correct private repoFraynix-Agent-Workspace, never
+Chandra. Existing libraries retained; no newdependencies/models/cloud/Docker/WSL.
+
+
 ## Edition 036 candidate locked; source metadata amendment — 2026-11-01
 
 Candidate1dd0f07 passed9newJava/80desktop/8actualframeUI/4actualvideoUI checks. Source metadata only revealed both drift clips are external-source exceptions; fetch stopped BEFORE images/masks/results. New reserved car-roundabout/bus60frames each are committed before download; all algorithms/gates unchanged. First real development car-turn result retains drift and slightly worse updated-reference error; no accuracy/weight-training claim. Same035world/body IDs, separate durable observed estimate revisions, exact interrupted prefix resume, Stop generations, full multi-run/pixel export and stale native binding guards are implemented. Old nine protected sources and all001–035 snapshots unchanged. Need reserved first measurements, actual model, independent offline old/new regressions, extensive036docs/screenshots/notes, actualmain/tagpush/directverify. Preserve review03535728/58605 and all private apps/models.

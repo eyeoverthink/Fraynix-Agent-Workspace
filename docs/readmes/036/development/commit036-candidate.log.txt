@@ -1,0 +1,17 @@
+[main 1dd0f07] Connect real footage to persistent observed worlds and lock edition036 candidate before reserved measurement
+ 25 files changed, 630 insertions(+), 13 deletions(-)
+ create mode 100644 docs/OBSERVATION_036_CANDIDATE_LOCK.json
+ create mode 100644 scripts/Inspect-ObservedWorld.cjs
+ create mode 100644 scripts/Prepare-Observations036.py
+ create mode 100644 workspace-desktop/observations.cjs
+ create mode 100644 workspace-desktop/renderer/observation-panel.js
+ create mode 100644 workspace-desktop/renderer/observations.css
+ create mode 100644 workspace-desktop/test/observations-integration.cjs
+ create mode 100644 workspace-desktop/test/observations-video-integration.cjs
+ create mode 100644 workspace-desktop/test/observations.test.cjs
+ create mode 100644 workspace-engine/src/main/java/fraymus/workspace/ObservationFilter.java
+ create mode 100644 workspace-engine/src/main/java/fraymus/workspace/ObservationReport.java
+ create mode 100644 workspace-engine/src/main/java/fraymus/workspace/WorldObservationStore.java
+ create mode 100644 workspace-engine/src/test/java/fraymus/workspace/ObservationFilterTest.java
+ create mode 100644 workspace-engine/src/test/java/fraymus/workspace/ObservationFootageEvaluation.java
+ create mode 100644 workspace-engine/src/test/java/fraymus/workspace/WorldObservationStoreTest.java

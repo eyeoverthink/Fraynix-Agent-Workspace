@@ -1,0 +1,159 @@
+{
+  "nodes": [
+    {
+      "id": "ingest",
+      "type": "file",
+      "file": "workspace-desktop/renderer/observation-panel.js",
+      "x": 0,
+      "y": 0,
+      "width": 390,
+      "height": 170
+    },
+    {
+      "id": "tracker",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/FlowTracker.java",
+      "x": 440,
+      "y": 0,
+      "width": 390,
+      "height": 170
+    },
+    {
+      "id": "filter",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/ObservationFilter.java",
+      "x": 880,
+      "y": 0,
+      "width": 390,
+      "height": 170
+    },
+    {
+      "id": "owner",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/WorldObservationStore.java",
+      "x": 0,
+      "y": 220,
+      "width": 390,
+      "height": 170
+    },
+    {
+      "id": "recovery",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/WorldObservationStore.java",
+      "x": 440,
+      "y": 220,
+      "width": 390,
+      "height": 170
+    },
+    {
+      "id": "binding",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/WorldLedger.java",
+      "x": 880,
+      "y": 220,
+      "width": 390,
+      "height": 170
+    },
+    {
+      "id": "goal",
+      "type": "file",
+      "file": "workspace-desktop/observations.cjs",
+      "x": 0,
+      "y": 440,
+      "width": 390,
+      "height": 170
+    },
+    {
+      "id": "report",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/ObservationReport.java",
+      "x": 440,
+      "y": 440,
+      "width": 390,
+      "height": 170
+    },
+    {
+      "id": "export",
+      "type": "file",
+      "file": "scripts/Inspect-ObservedWorld.cjs",
+      "x": 880,
+      "y": 440,
+      "width": 390,
+      "height": 170
+    },
+    {
+      "id": "calibration",
+      "type": "file",
+      "file": "docs/EDITION_036_PLAN.md",
+      "x": 0,
+      "y": 660,
+      "width": 390,
+      "height": 170
+    }
+  ],
+  "edges": [
+    {
+      "id": "e0",
+      "fromNode": "ingest",
+      "fromSide": "right",
+      "toNode": "tracker",
+      "toSide": "left"
+    },
+    {
+      "id": "e1",
+      "fromNode": "tracker",
+      "fromSide": "right",
+      "toNode": "filter",
+      "toSide": "left"
+    },
+    {
+      "id": "e2",
+      "fromNode": "filter",
+      "fromSide": "right",
+      "toNode": "owner",
+      "toSide": "left"
+    },
+    {
+      "id": "e3",
+      "fromNode": "owner",
+      "fromSide": "right",
+      "toNode": "recovery",
+      "toSide": "left"
+    },
+    {
+      "id": "e4",
+      "fromNode": "binding",
+      "fromSide": "right",
+      "toNode": "owner",
+      "toSide": "left"
+    },
+    {
+      "id": "e5",
+      "fromNode": "goal",
+      "fromSide": "right",
+      "toNode": "owner",
+      "toSide": "left"
+    },
+    {
+      "id": "e6",
+      "fromNode": "owner",
+      "fromSide": "right",
+      "toNode": "report",
+      "toSide": "left"
+    },
+    {
+      "id": "e7",
+      "fromNode": "owner",
+      "fromSide": "right",
+      "toNode": "export",
+      "toSide": "left"
+    },
+    {
+      "id": "e8",
+      "fromNode": "owner",
+      "fromSide": "right",
+      "toNode": "calibration",
+      "toSide": "left"
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "edition": "036",
+  "beforeReservedDownload": true,
+  "protocolCommit": "19c207d",
+  "development": "9 Java checks +80 desktop unit tests +8 actual frame-package UI checks +4 actual Chromium video UI checks; first car-turn result retained including drift and no claimed error gain",
+  "scope": "No later annotation enters runtime. Preserve first reserved results with no candidate retuning. Unknown depth/scale/FPS; model covariance is not calibrated confidence.",
+  "sources": {
+    "workspace-engine/src/main/java/fraymus/workspace/ObservationFilter.java": "a0dc7560be00bca29dd7f72995d9cbe607b9e26f14be70286360dbf2d8764e21",
+    "workspace-engine/src/main/java/fraymus/workspace/WorldObservationStore.java": "48b18bf703857616f882e47dbaf556f21578b5dabef8f77e053361c285785a48",
+    "workspace-engine/src/main/java/fraymus/workspace/ObservationReport.java": "6fc3a5b15500df0154127187a6e0175f1d7700152567fe676ce42f40b4281cca",
+    "workspace-engine/src/main/java/fraymus/workspace/FlowTracker.java": "2b6e4552a38c503a4c6e0309d2db730f701d08038117a2f15663c55d1c08762f",
+    "workspace-engine/src/main/java/fraymus/workspace/PixelTracker.java": "85d569217814a39618796bfbe43dc0b7db1ca61378a60f0198099d248674425c",
+    "workspace-engine/src/main/java/fraymus/workspace/ImageTracker.java": "bbf68078bb0b6cc7816fc68e8d790b0e6880dcb430f8dc802e777f93acbbb4b0",
+    "workspace-engine/src/test/java/fraymus/workspace/ObservationFilterTest.java": "d806bb02df826990caa58dde890c68c025a34ae2d483ae07e77909afe2a9e79f",
+    "workspace-engine/src/test/java/fraymus/workspace/WorldObservationStoreTest.java": "0511c9591641df3271c5d1249f38e557cf433d7c58d682a715b86726d6d26eb6",
+    "workspace-engine/src/test/java/fraymus/workspace/ObservationFootageEvaluation.java": "98aeb709cfa957427b31a8d7bcb13f1c2774c67290f6d7131b5bbc87ad619614",
+    "scripts/Prepare-Observations036.py": "f606719c963d294298385c3880e226bc315a2def565291b6079be70abd75f964",
+    "scripts/Inspect-ObservedWorld.cjs": "b0b40f9f955d5b1195432b65eaa98c38c834b9017847b57ca5f51a143bef9815",
+    "workspace-engine/src/main/resources/observation-036-contract.json": "4421db204b3a2cb9d26254f05bf5a82121a5f5df0e29a079835dd3ed707bf941"
+  },
+  "preFootageAmendment": {
+    "originalProtocolCommit": "19c207d",
+    "originalCandidateCommit": "1dd0f07",
+    "reason": "Archive SOURCES metadata lists drift-chicane and drift-straight as external-source exceptions. Fetch stopped before any images/masks or measurements. Replace with car-roundabout and bus before inspection; candidate algorithms and numeric gates unchanged."
+  }
+}
