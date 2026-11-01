@@ -1,8 +1,8 @@
 # Fraynix Studio collaboration and documentation
 
-## Latest handoff · edition038 publication preparation
+## Latest handoff · edition038 published2026-11-01
 
-Current private app remains Fraynix-Agent-Workspace. Source main backupa25a541 is pushed. Final334Java/73classes,88desktop,90UI plus3actual gpt-oss:20b assertions pass,732source/assets match independent checkout. Preserve001–037 and the soon-frozen038snapshot. Read newest PROJECT_MEMORY for original physical failures: tape latest3.018mm/101.6mm passes5mm, actual cover/reveal exists, but new displacement and uncertainty remain UNVALIDATED. Do not relabel seen v2 replay17/19 as fresh validation or train-model success. Camera is off; all21private runs and793originals remain outsideGit. Final README038, documents QA, main/readme-038 atomic push and direct fetch verification are next; do not claim release publication before those checks. No subagents or overlapping heavy checks.
+Actual GitHub main/tag release5bcd331621a913ea417d6e78c131cc98022fc38c directly fetched and verified; tag object14a1808ad527689306a3d73f53ca344fde09010b.334Java/73classes,88desktop,90UI plus3actual gpt-oss:20b assertions pass with scope qualifications.732canonical sources/assets and53raw-proof archives match;38-edition documentation passes43canvases/4827references/1883frozen hashes. PreserveREADME001–038 and their snapshots; nextunused039. Physical tape latest3.018mm/101.6mm passes5mm, but displacement/uncertainty remain UNVALIDATED; target/housing confusion persists. Never relabel seen v2 replay17/19 as fresh validation or model training. All21private runs/793recording originals remain outsideGit. Normal root review uses existing tabletop-038-live project, cameraOFF, latest failure selected, gpt-oss:20b and unsent evidence-inspection prompt ready. No subagents or overlapping heavy checks. Read newest memory/log before continuing.
 
 Read `docs/PROJECT_MEMORY.md` and `docs/DEVELOPMENT_LOG.md` for current engineering
 continuity. Update them with verified outcomes and remaining work; keep personal
