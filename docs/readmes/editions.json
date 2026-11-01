@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "latest": 36,
+  "latest": 37,
   "canonicalization": "UTF-8 without BOM; CRLF normalized to LF for text",
   "editions": [
     {
@@ -8321,6 +8321,820 @@
           "path": "docs/readmes/036/verification.json",
           "kind": "text",
           "sha256": "cea49e00372915f853d28258d6bf42081282764b85a4d7a3a35f21c5d4a4b6b9"
+        }
+      ]
+    },
+    {
+      "number": 37,
+      "date": "2026-11-01",
+      "title": "Measured plane, local camera and empirically challenged uncertainty",
+      "status": "published",
+      "markdown": "README-037.md",
+      "markdownSha256": "3d7b30bf722c7d53c84870afbb1cdd3fafce8ffa114661ddabfa7a2f8fedbd85",
+      "snapshotDirectory": "docs/readmes/037",
+      "companion": "docs/readmes/037/index.html",
+      "tag": "readme-037",
+      "sourceBaseline": "c07a468fc9f18b8b72d9ff3c7e4f76db0c32ba62",
+      "snapshotFiles": [
+        {
+          "path": "docs/readmes/037/camera-metrics-integration.json",
+          "kind": "text",
+          "sha256": "d8a98d52fd24d39b94ad194451f5b3a25ada7194c1f9df9ec00d0bd91a79c583"
+        },
+        {
+          "path": "docs/readmes/037/camera-metrics-integration.original.gzip.json",
+          "kind": "text",
+          "sha256": "3e32587d6d1d8cf19313e8aca63908dcf89fa1643371555f84e66b05c807a02f"
+        },
+        {
+          "path": "docs/readmes/037/candidate-development/profile-id.txt",
+          "kind": "text",
+          "sha256": "0c1e6683e9f56e0f73ad54e89c5d09cb5b7e145a7595bbc6b1790912df0aa717"
+        },
+        {
+          "path": "docs/readmes/037/candidate-development/profile-id.txt.original.gzip.json",
+          "kind": "text",
+          "sha256": "d0487fb314f5fabfc0d4c8f162660027a5823802b4c94c1018e67c740866f897"
+        },
+        {
+          "path": "docs/readmes/037/candidate-development/terrace-calibration.first.json",
+          "kind": "text",
+          "sha256": "09ef0aa5c92f905cbfbb4c5364d19a5511aeadf7d678f7684eaeb5b9d355611e"
+        },
+        {
+          "path": "docs/readmes/037/candidate-development/terrace-calibration.first.json.original.gzip.json",
+          "kind": "text",
+          "sha256": "964535eaa50f6c96ee8a64abe6171a7921f59cd3afd0324e4c49c8160f2702e8"
+        },
+        {
+          "path": "docs/readmes/037/candidate-development/terrace-calibration.report.html",
+          "kind": "text",
+          "sha256": "c7594620466418395ea9c4129100adb6d66efe5ff5d7548e4ef2f92b8e49ae68"
+        },
+        {
+          "path": "docs/readmes/037/candidate-development/terrace-calibration.report.html.original.gzip.json",
+          "kind": "text",
+          "sha256": "3eb70b66439ffe672251a3f46996f3133c01409955633a1fd3326a95ae8a778a"
+        },
+        {
+          "path": "docs/readmes/037/candidate-development/terrace-calibration.runtime-first.json",
+          "kind": "text",
+          "sha256": "dbade856827ddc745a3d00d60a9e11688ce5f4d7046611cbde7c9d3621d61036"
+        },
+        {
+          "path": "docs/readmes/037/candidate-development/terrace-calibration.runtime-first.json.original.gzip.json",
+          "kind": "text",
+          "sha256": "2ff09c5d0366a5fb9b03ad85db4780a9cc3c426b98326b6eaca08752043694c2"
+        },
+        {
+          "path": "docs/readmes/037/candidate-development/world-id.txt",
+          "kind": "text",
+          "sha256": "ee1e05fa7af9c597bc671f6e98389db1e0ccb40009fe6bd34af2c011c9b41f8e"
+        },
+        {
+          "path": "docs/readmes/037/candidate-development/world-id.txt.original.gzip.json",
+          "kind": "text",
+          "sha256": "b8740ed57af078eda89b28ac4dce9477684dba344711c5266625e923afd1e24d"
+        },
+        {
+          "path": "docs/readmes/037/candidate-lock.json",
+          "kind": "text",
+          "sha256": "c19d0cdd6e99c5e1d821819646ce506f82fa260f18086d1cec817acf2169c0eb"
+        },
+        {
+          "path": "docs/readmes/037/development/camera-metrics-failed-1793558600723.json",
+          "kind": "text",
+          "sha256": "57196bd968d1fd3ca72defa71aa83d73ed77d24c577a5562a811919ceddfbe55"
+        },
+        {
+          "path": "docs/readmes/037/development/camera-metrics-failed-1793558655172.json",
+          "kind": "text",
+          "sha256": "f58633071b90f161bb2baabd4aafce24eb27b9d4bcb0fe1510df5847ea3b98ca"
+        },
+        {
+          "path": "docs/readmes/037/development/metric037-build-3.log.original.gzip.json",
+          "kind": "text",
+          "sha256": "c61945e7d2df917dc921a04f06b02e8a77c0985c362cfcb1f1cf305f4c4f94ce"
+        },
+        {
+          "path": "docs/readmes/037/development/metric037-build-3.log.txt",
+          "kind": "text",
+          "sha256": "9ff5109ab9555b662b5119eb7a5dadc40ff434caf4e6feacc625def09b0d1964"
+        },
+        {
+          "path": "docs/readmes/037/development/metric037-build.log.original.gzip.json",
+          "kind": "text",
+          "sha256": "13ac61c727c400d26aaafc64e2903c39a869a062873aa249ee00bbf77d33d07e"
+        },
+        {
+          "path": "docs/readmes/037/development/metric037-build.log.txt",
+          "kind": "text",
+          "sha256": "afaf3852bf832c9000c525380d79fb62c125e3940a28932c6d7da2ac620b2f18"
+        },
+        {
+          "path": "docs/readmes/037/development/metric037-camera-2.log.original.gzip.json",
+          "kind": "text",
+          "sha256": "a5a87e7d17c0e6dc638184c8f60ed5ace60401f1839e9011f65bdb50d849afc7"
+        },
+        {
+          "path": "docs/readmes/037/development/metric037-camera-2.log.txt",
+          "kind": "text",
+          "sha256": "d1788b5914404b28592c0f3bf581b35944f8a175162abceff51e377f8e0fefcc"
+        },
+        {
+          "path": "docs/readmes/037/development/metric037-camera-3.log.original.gzip.json",
+          "kind": "text",
+          "sha256": "a84761546f140c5346c421d0b138268c1f4203b4fef4c83760621e5ee39e264f"
+        },
+        {
+          "path": "docs/readmes/037/development/metric037-camera-3.log.txt",
+          "kind": "text",
+          "sha256": "ceecfed55066f45c044e3052af379a14445dc62af9faa9b5735024f38cb9cb61"
+        },
+        {
+          "path": "docs/readmes/037/development/metric037-camera.log.original.gzip.json",
+          "kind": "text",
+          "sha256": "c2e49e943037d5e6cd39b5e43bd8ebe38854812dc1aa1df43491c6b1079e9dbd"
+        },
+        {
+          "path": "docs/readmes/037/development/metric037-camera.log.txt",
+          "kind": "text",
+          "sha256": "3eeddc81e86677438dc6044ff7508bf74465749d3ed69e663a20010b65730571"
+        },
+        {
+          "path": "docs/readmes/037/development/metric037-candidate-calibration.log.original.gzip.json",
+          "kind": "text",
+          "sha256": "2ad68da9a9897c10d05cd96952e45c3357128b3cbe3170bd48252f0873898b40"
+        },
+        {
+          "path": "docs/readmes/037/development/metric037-candidate-calibration.log.txt",
+          "kind": "text",
+          "sha256": "1897403003b172c60ccedf586d500436a3d51abf1c7f95bca5b7fe62e10b3d64"
+        },
+        {
+          "path": "docs/readmes/037/development/metric037-clean-build.log.original.gzip.json",
+          "kind": "text",
+          "sha256": "a735878a4380e7baf78fc45743aa08fe09a236078c1d7f5410cb281af7984f1e"
+        },
+        {
+          "path": "docs/readmes/037/development/metric037-clean-build.log.txt",
+          "kind": "text",
+          "sha256": "d014da39e5efcb97466b189e7d595800e7756365f957863d53718476738e160a"
+        },
+        {
+          "path": "docs/readmes/037/development/metric037-clean-live-recovery.log.original.gzip.json",
+          "kind": "text",
+          "sha256": "0e30bdb2d19fa009aedc20186b678648539cf5c6bd1a546627bedecf8ef9d1b6"
+        },
+        {
+          "path": "docs/readmes/037/development/metric037-clean-live-recovery.log.txt",
+          "kind": "text",
+          "sha256": "9d65aa5bf08495a7fee8335e22104dbd1d478d934bb93070063f5dbf2eb58a82"
+        },
+        {
+          "path": "docs/readmes/037/development/metric037-clean-ui.log.original.gzip.json",
+          "kind": "text",
+          "sha256": "fea1c1757bdcf748223d77c3e164771aad9782d7688981b33d43953f0b62f784"
+        },
+        {
+          "path": "docs/readmes/037/development/metric037-clean-ui.log.txt",
+          "kind": "text",
+          "sha256": "07e17a8c675bd1c3dd95c3c07095f3a08f399e33e2788bc3e34a3aeb4b7e0438"
+        },
+        {
+          "path": "docs/readmes/037/development/metric037-current-build.log.original.gzip.json",
+          "kind": "text",
+          "sha256": "2ef3e1b99077ce98f86f40f22fdd3ff15c11d81a871e4dbadaf10e62202517d0"
+        },
+        {
+          "path": "docs/readmes/037/development/metric037-current-build.log.txt",
+          "kind": "text",
+          "sha256": "a3e641c77e87085f9e68a0b4ceac48f669a28b430be273336a7337fe04b7b44d"
+        },
+        {
+          "path": "docs/readmes/037/development/metric037-desktop-tests.log.original.gzip.json",
+          "kind": "text",
+          "sha256": "d56e1b98e03ae57ca23edd6e3b374753ba6b8e84df2021542f0e5e4b99226d70"
+        },
+        {
+          "path": "docs/readmes/037/development/metric037-desktop-tests.log.txt",
+          "kind": "text",
+          "sha256": "67d79c9f9c456ccb82cf6b4950da1534a0c15f46001fb73e82cd03b2d8ec257e"
+        },
+        {
+          "path": "docs/readmes/037/development/metric037-desktop-unit-2.log.original.gzip.json",
+          "kind": "text",
+          "sha256": "14f5394897eee7a321937ecc88f77c85607829af541357d63cdacdcb00c69e6e"
+        },
+        {
+          "path": "docs/readmes/037/development/metric037-desktop-unit-2.log.txt",
+          "kind": "text",
+          "sha256": "253b4018d0f6d1f97efd73e10fd40b85dadcc49971d0209e06c189332be45ec5"
+        },
+        {
+          "path": "docs/readmes/037/development/metric037-desktop-unit.log.original.gzip.json",
+          "kind": "text",
+          "sha256": "758562712d934fd5b9c0c14db62818172f346f8011d5229363f701e13fa6a30c"
+        },
+        {
+          "path": "docs/readmes/037/development/metric037-desktop-unit.log.txt",
+          "kind": "text",
+          "sha256": "15b0f6f7f738b27f56f1e1229cf964fbd31cf67b6f47e5d06f750ca81dd63ad1"
+        },
+        {
+          "path": "docs/readmes/037/development/metric037-doc-browser-2.log.original.gzip.json",
+          "kind": "text",
+          "sha256": "a7941da753fad4cdb40aba41dcefd32560a9ea35b006f7962f3c2d5333b52363"
+        },
+        {
+          "path": "docs/readmes/037/development/metric037-doc-browser-2.log.txt",
+          "kind": "text",
+          "sha256": "86347de7de682640ea8358e3c68a28fa0ec723053347e10e9a2add2d0986c057"
+        },
+        {
+          "path": "docs/readmes/037/development/metric037-doc-browser-3.log.original.gzip.json",
+          "kind": "text",
+          "sha256": "4b80b244efddac2f9d1e021e8420e1072ef78f7c73dee0f8e0564cd0a519d191"
+        },
+        {
+          "path": "docs/readmes/037/development/metric037-doc-browser-3.log.txt",
+          "kind": "text",
+          "sha256": "2bc7f01a51fbdd1df05c8bc4918c7e8c9581b49973b000776d0adc2c9a7cb854"
+        },
+        {
+          "path": "docs/readmes/037/development/metric037-doc-browser-final.log.original.gzip.json",
+          "kind": "text",
+          "sha256": "4b80b244efddac2f9d1e021e8420e1072ef78f7c73dee0f8e0564cd0a519d191"
+        },
+        {
+          "path": "docs/readmes/037/development/metric037-doc-browser-final.log.txt",
+          "kind": "text",
+          "sha256": "2bc7f01a51fbdd1df05c8bc4918c7e8c9581b49973b000776d0adc2c9a7cb854"
+        },
+        {
+          "path": "docs/readmes/037/development/metric037-doc-browser.log.original.gzip.json",
+          "kind": "text",
+          "sha256": "db3292d926cd4d831bc0d19cdc35564a333ddd298450826e6540fe47fb4a631d"
+        },
+        {
+          "path": "docs/readmes/037/development/metric037-doc-browser.log.txt",
+          "kind": "text",
+          "sha256": "cbf00a24f62b5c629ce8634f1c919293ffb7b107557a3f61d2d94e33b47a5989"
+        },
+        {
+          "path": "docs/readmes/037/development/metric037-export-audit.log.original.gzip.json",
+          "kind": "text",
+          "sha256": "df8a4e5fe9952b26baf713482dd0d207916cda59a3e45b69523f56243f07f545"
+        },
+        {
+          "path": "docs/readmes/037/development/metric037-export-audit.log.txt",
+          "kind": "text",
+          "sha256": "199e98f216db708248043c863dd5521035f7cc5e9417f0d167b1c79c311303fb"
+        },
+        {
+          "path": "docs/readmes/037/development/metric037-final-focused.log.original.gzip.json",
+          "kind": "text",
+          "sha256": "f25ae3a946e3d9e93f98c06950ffb8eb85bd3ec1066305d9ce17a61e3edfbbd3"
+        },
+        {
+          "path": "docs/readmes/037/development/metric037-final-focused.log.txt",
+          "kind": "text",
+          "sha256": "b1c0628d2024f9f4c208b7bad0439b58fcca256dd4d38de6854fd409cbce178e"
+        },
+        {
+          "path": "docs/readmes/037/development/metric037-first-calibration.log.original.gzip.json",
+          "kind": "text",
+          "sha256": "2ad68da9a9897c10d05cd96952e45c3357128b3cbe3170bd48252f0873898b40"
+        },
+        {
+          "path": "docs/readmes/037/development/metric037-first-calibration.log.txt",
+          "kind": "text",
+          "sha256": "1897403003b172c60ccedf586d500436a3d51abf1c7f95bca5b7fe62e10b3d64"
+        },
+        {
+          "path": "docs/readmes/037/development/metric037-first-tests.log.original.gzip.json",
+          "kind": "text",
+          "sha256": "e32b0b9d944104caac681ff4330076dab91694c52fe9d8aeae1f5023a41c6cc8"
+        },
+        {
+          "path": "docs/readmes/037/development/metric037-first-tests.log.txt",
+          "kind": "text",
+          "sha256": "ec9ae94e15a1a990719a8b8d0e71a7747f591757924bded59bde818919fbf24f"
+        },
+        {
+          "path": "docs/readmes/037/development/metric037-full-check.log.original.gzip.json",
+          "kind": "text",
+          "sha256": "59505bfc2dec1cf1e581238d5091189fb3f403ed6ea8e385df3b2de533cd1f52"
+        },
+        {
+          "path": "docs/readmes/037/development/metric037-full-check.log.txt",
+          "kind": "text",
+          "sha256": "5d668d5f43a775b702a2d293ca7cd7637faa1fd5e0c70dcb678bfcba96b46584"
+        },
+        {
+          "path": "docs/readmes/037/development/metric037-hardware-camera.log.original.gzip.json",
+          "kind": "text",
+          "sha256": "0c56c192e93fbd299bcb4ce6b11ff710788d352b24c2e9294142f40b0bea9493"
+        },
+        {
+          "path": "docs/readmes/037/development/metric037-hardware-camera.log.txt",
+          "kind": "text",
+          "sha256": "12c55df421c39b6358d8396e9521aae9f49ed10ff79c99c9afae21d9c5afb751"
+        },
+        {
+          "path": "docs/readmes/037/development/metric037-held-a-first.log.original.gzip.json",
+          "kind": "text",
+          "sha256": "91d14299f7a711494a7c354f258fead323c659a9f62d55541016972175356154"
+        },
+        {
+          "path": "docs/readmes/037/development/metric037-held-a-first.log.txt",
+          "kind": "text",
+          "sha256": "c3eceb6d8936f978c5effe8674df13df46a263e72ce1a6e15db10237723d499d"
+        },
+        {
+          "path": "docs/readmes/037/development/metric037-held-b-first.log.original.gzip.json",
+          "kind": "text",
+          "sha256": "f2d2d3721621f620e4c5e5908980a21872adddb4c78f1474fa9be4bf3124218b"
+        },
+        {
+          "path": "docs/readmes/037/development/metric037-held-b-first.log.txt",
+          "kind": "text",
+          "sha256": "92312ed4eec5a91384264ac13b10573189a67790f66a22f887844799c07d9c1a"
+        },
+        {
+          "path": "docs/readmes/037/development/metric037-integration-2.log.original.gzip.json",
+          "kind": "text",
+          "sha256": "9726dd1ac318e355a863ded6590f0fac5197bf52fd1fa4fae34f06e8bd99d36a"
+        },
+        {
+          "path": "docs/readmes/037/development/metric037-integration-2.log.txt",
+          "kind": "text",
+          "sha256": "1462c6e2d7b8c2dddc00505343bda5505a4d9fd439fbe3a124b7c2ccb679c40b"
+        },
+        {
+          "path": "docs/readmes/037/development/metric037-integration-3.log.original.gzip.json",
+          "kind": "text",
+          "sha256": "abecc8cbd040bccc7081c93197b48c0ea50a97cc349ec472f16215ac5e05eb05"
+        },
+        {
+          "path": "docs/readmes/037/development/metric037-integration-3.log.txt",
+          "kind": "text",
+          "sha256": "4555fa270d18499c94d28dee1363364890b2724b990a1b9adbea9e5e924bb724"
+        },
+        {
+          "path": "docs/readmes/037/development/metric037-integration-4.log.original.gzip.json",
+          "kind": "text",
+          "sha256": "28292df7cbefea7acd62ee5c795b5471194adce3e67568471665dba657e4ab67"
+        },
+        {
+          "path": "docs/readmes/037/development/metric037-integration-4.log.txt",
+          "kind": "text",
+          "sha256": "c6cc61df49a3db54961fe15865fb2faeec61de5a7a1234e4429c5767e7eda6b4"
+        },
+        {
+          "path": "docs/readmes/037/development/metric037-integration.log.original.gzip.json",
+          "kind": "text",
+          "sha256": "251d29d5caa4cbbb65f259c8845799a7bc536c30775cd3ffa6296a01bcb0ee82"
+        },
+        {
+          "path": "docs/readmes/037/development/metric037-integration.log.txt",
+          "kind": "text",
+          "sha256": "30e838c7785ca2ab75e0cd4707babee9583ec0c0fed8bf3925e21881d00ee73f"
+        },
+        {
+          "path": "docs/readmes/037/development/metric037-live-model.log.original.gzip.json",
+          "kind": "text",
+          "sha256": "1e1efc7fb9a03ff958f8c2d7ecbc76954597d4cd79bfbb8e981575415426893a"
+        },
+        {
+          "path": "docs/readmes/037/development/metric037-live-model.log.txt",
+          "kind": "text",
+          "sha256": "b53769a69058ae1ebef7e1bbae1e9defc2a4c318cc8282ac3a0444af170fafed"
+        },
+        {
+          "path": "docs/readmes/037/development/metric037-locked-calibration.log.original.gzip.json",
+          "kind": "text",
+          "sha256": "2ad68da9a9897c10d05cd96952e45c3357128b3cbe3170bd48252f0873898b40"
+        },
+        {
+          "path": "docs/readmes/037/development/metric037-locked-calibration.log.txt",
+          "kind": "text",
+          "sha256": "1897403003b172c60ccedf586d500436a3d51abf1c7f95bca5b7fe62e10b3d64"
+        },
+        {
+          "path": "docs/readmes/037/development/metric037-observations-regression.log.original.gzip.json",
+          "kind": "text",
+          "sha256": "7ba186cbb953a78c6074f13d89caba272c43f2818b958f52926d2a77154c980e"
+        },
+        {
+          "path": "docs/readmes/037/development/metric037-observations-regression.log.txt",
+          "kind": "text",
+          "sha256": "ae85b32954659816774c6fe97a76cfaf206d82284b12037699d5dd84ac9bbb23"
+        },
+        {
+          "path": "docs/readmes/037/development/metric037-original-ui.log.original.gzip.json",
+          "kind": "text",
+          "sha256": "76bb1820efcbe4e1e5b988a09af227468ac7384c4e8f458725185f0620c5f14a"
+        },
+        {
+          "path": "docs/readmes/037/development/metric037-original-ui.log.txt",
+          "kind": "text",
+          "sha256": "d22bfced5efae99e599f0243901e129b1405a2f6886b245df20e89969cb7da39"
+        },
+        {
+          "path": "docs/readmes/037/development/metric037-recovery-clean-check.log.original.gzip.json",
+          "kind": "text",
+          "sha256": "89ca48c3e233fc49886301d87b46a7f944c5830e6ae5b59456a771537d3c6318"
+        },
+        {
+          "path": "docs/readmes/037/development/metric037-recovery-clean-check.log.txt",
+          "kind": "text",
+          "sha256": "0ea6ef6c6415be9d9bf3ac0d4aff65f9f854ddb45306971a1b10f9981d9d0bb5"
+        },
+        {
+          "path": "docs/readmes/037/development/metric037-reserved-preparation.log.original.gzip.json",
+          "kind": "text",
+          "sha256": "961cde12328dec1e7e26c7714595a0605eca0dba03a17a18bdbad7a7df513263"
+        },
+        {
+          "path": "docs/readmes/037/development/metric037-reserved-preparation.log.txt",
+          "kind": "text",
+          "sha256": "64b959d1e3f7e5e68696f213dcc85114140b521d57f764281314c6937f1d30e7"
+        },
+        {
+          "path": "docs/readmes/037/development/metric037-root-test-thread-dump.log.original.gzip.json",
+          "kind": "text",
+          "sha256": "b64b8f745d573819703ba935eb3129e84ab98565ea17e297bd3e06d6377a3076"
+        },
+        {
+          "path": "docs/readmes/037/development/metric037-root-test-thread-dump.log.txt",
+          "kind": "text",
+          "sha256": "adf1b2380910fb9a8eeee2b66932539ffa8d6106549e79ebe751a9bc70939510"
+        },
+        {
+          "path": "docs/readmes/037/development/metric037-tests.log.original.gzip.json",
+          "kind": "text",
+          "sha256": "9aa170d0c90eefdbede50ac5d56a1d79fc1628399ab6461bb96986b5e1e10a15"
+        },
+        {
+          "path": "docs/readmes/037/development/metric037-tests.log.txt",
+          "kind": "text",
+          "sha256": "9c10380cf210bd2e606a0edeccc167a5fc28c9dcad541f95ad41f51f24790b5b"
+        },
+        {
+          "path": "docs/readmes/037/development/metric037-video-regression.log.original.gzip.json",
+          "kind": "text",
+          "sha256": "0b376e50137416c811c09e37b7360ff6157e5f8a96093eb492c350cb985c11e9"
+        },
+        {
+          "path": "docs/readmes/037/development/metric037-video-regression.log.txt",
+          "kind": "text",
+          "sha256": "c87d114b5d57cfbc9640259aadfaf15855b3ca7491c9b6cabe8c09b6e32608d1"
+        },
+        {
+          "path": "docs/readmes/037/development/metrics-failed-1793558398263.json",
+          "kind": "text",
+          "sha256": "9ccdecd68ea19a9f649d8de56534190beeb8f6becb157ec87a815dc4c60e4b2c"
+        },
+        {
+          "path": "docs/readmes/037/development/metrics-failed-1793558442904.json",
+          "kind": "text",
+          "sha256": "a86c762a5bf0eff216cd0d35d71935b87af60a547a31bcd68e5f6b444e7a74a2"
+        },
+        {
+          "path": "docs/readmes/037/development/metrics-failed-1793558735095.json",
+          "kind": "text",
+          "sha256": "e0f0fa88ce52446b0a9c4f715e92ed5285bc884ac21b454abed71bdbc9bd0b06"
+        },
+        {
+          "path": "docs/readmes/037/docs037-narrow.png",
+          "kind": "binary",
+          "sha256": "608cba44f1ba875119a923103f99628bebbe53563479ee2ce6fdfee6a4e87edd"
+        },
+        {
+          "path": "docs/readmes/037/docs037-wide.png",
+          "kind": "binary",
+          "sha256": "9968488f902abeefb798df6ad4e7555e39b33b86dc186743f743234118089e5b"
+        },
+        {
+          "path": "docs/readmes/037/documentation-qa.json",
+          "kind": "text",
+          "sha256": "2e3e95204feb2d7671a575dea391e5ea960b95c08393bdd3d82de07b6cbc5900"
+        },
+        {
+          "path": "docs/readmes/037/examples/actual-report/index.html",
+          "kind": "text",
+          "sha256": "5c7b7e1fdb30c0d544af79226cf728ddd501fa5414ab4a838b04a0ab400cf1bc"
+        },
+        {
+          "path": "docs/readmes/037/examples/actual-report/metric-data.json",
+          "kind": "text",
+          "sha256": "b14468b6ebadba940dfbea0bff19d6a26ccb78fe9120f5dff57548871b3e02b7"
+        },
+        {
+          "path": "docs/readmes/037/file-inventory.json",
+          "kind": "text",
+          "sha256": "2bbf3045f647f4060d7e70d216167e20c6827f2426454bedb85bb5c5ef8d4307"
+        },
+        {
+          "path": "docs/readmes/037/FILE_TREE.md",
+          "kind": "text",
+          "sha256": "207ee09e57e13c2c310fe31d7e52cdae9695c0f55b54973235151ce7b1773e2c"
+        },
+        {
+          "path": "docs/readmes/037/first-development/profile-id.txt",
+          "kind": "text",
+          "sha256": "b5b058934445a66df4ccbac21bbc868a87332757efdd0b72ad9de1a74b15f25d"
+        },
+        {
+          "path": "docs/readmes/037/first-development/profile-id.txt.original.gzip.json",
+          "kind": "text",
+          "sha256": "436100ac570e75d6e3cd226b18ae4a79fab2e14fd7d1d7ef2317c28743d14981"
+        },
+        {
+          "path": "docs/readmes/037/first-development/terrace-calibration.first.json",
+          "kind": "text",
+          "sha256": "23627d87058400e32f1ad8a13b43645d42ecc322db0b6c6014a18347366c0e0c"
+        },
+        {
+          "path": "docs/readmes/037/first-development/terrace-calibration.first.json.original.gzip.json",
+          "kind": "text",
+          "sha256": "9b8b9ff06a0501171e4d4a2b9adb94f4b74736e025930946b2026005de6124c3"
+        },
+        {
+          "path": "docs/readmes/037/first-development/terrace-calibration.report.html",
+          "kind": "text",
+          "sha256": "c5e57502ff3c130b877e517bebbdfcdc5388cf58b0a0d20388895f628a895be9"
+        },
+        {
+          "path": "docs/readmes/037/first-development/terrace-calibration.report.html.original.gzip.json",
+          "kind": "text",
+          "sha256": "66d0b844f39731c903e187041323060f9160f825290dadd2b67ea902af96ce96"
+        },
+        {
+          "path": "docs/readmes/037/first-development/terrace-calibration.runtime-first.json",
+          "kind": "text",
+          "sha256": "5aaf6f83c2de1db99237a82f7581790d046c6057802adc61a0254b34cff93223"
+        },
+        {
+          "path": "docs/readmes/037/first-development/terrace-calibration.runtime-first.json.original.gzip.json",
+          "kind": "text",
+          "sha256": "866e8ef63b0ed34da9bd527000b2dca7c2c96ee724763a2448ee9dc6ef8426cc"
+        },
+        {
+          "path": "docs/readmes/037/first-development/world-id.txt",
+          "kind": "text",
+          "sha256": "9f4338380c95fc004327bcd616bb67d9c2dbec80a35a4eaf53074098c610b98f"
+        },
+        {
+          "path": "docs/readmes/037/first-development/world-id.txt.original.gzip.json",
+          "kind": "text",
+          "sha256": "b5fa6d18dcea843e13aa67c28418c6ba99a9214b9b3308f830c6ea997e8342f8"
+        },
+        {
+          "path": "docs/readmes/037/first-measurement/manifest.json",
+          "kind": "text",
+          "sha256": "0bab8edc8b19ecdeafe020ab6851aaeafab6c6ea935c2aa8770dc3460e3dcec5"
+        },
+        {
+          "path": "docs/readmes/037/first-measurement/profile-id.txt",
+          "kind": "text",
+          "sha256": "f602f3df4062d7344b758096ee021e74758be8b9622466d69562a3ab0a66d164"
+        },
+        {
+          "path": "docs/readmes/037/first-measurement/profile-id.txt.original.gzip.json",
+          "kind": "text",
+          "sha256": "feb9a19eea41b18a559059622a5c4ff70150a543e920bc21eb5c6a481732bd79"
+        },
+        {
+          "path": "docs/readmes/037/first-measurement/terrace-calibration.first.json",
+          "kind": "text",
+          "sha256": "ac140dbd7a88a6d59f729285b7cd5be459d4e270dacafb6a13bfe2196623d20a"
+        },
+        {
+          "path": "docs/readmes/037/first-measurement/terrace-calibration.first.json.original.gzip.json",
+          "kind": "text",
+          "sha256": "2db244735bf804bf3b944d58783942500986f7fec58a023a6bd71020c1d56bb6"
+        },
+        {
+          "path": "docs/readmes/037/first-measurement/terrace-calibration.report.html",
+          "kind": "text",
+          "sha256": "33bcb4aa02ae4dc6d37743598a37b68ca357e61ba29853e65517779d853a2cef"
+        },
+        {
+          "path": "docs/readmes/037/first-measurement/terrace-calibration.report.html.original.gzip.json",
+          "kind": "text",
+          "sha256": "5c1604cb65826c28bfe72681c39296fa670baa84d950f772c273884c7176e25a"
+        },
+        {
+          "path": "docs/readmes/037/first-measurement/terrace-calibration.runtime-first.json",
+          "kind": "text",
+          "sha256": "b2247d8ca10c9c20f05fc27f398aa585ad7f6bed1d1ac6fa20a8da7260c65556"
+        },
+        {
+          "path": "docs/readmes/037/first-measurement/terrace-calibration.runtime-first.json.original.gzip.json",
+          "kind": "text",
+          "sha256": "e47abe13691a77ce44f6859caaaf1ae8e59a5f3e8cb63894a8e84ecf834aa8ec"
+        },
+        {
+          "path": "docs/readmes/037/first-measurement/terrace-later-a.first.json",
+          "kind": "text",
+          "sha256": "479b9ec08226abb568e0b9964113ba3c22570f2790d6c33fcd82d9eba7ee2425"
+        },
+        {
+          "path": "docs/readmes/037/first-measurement/terrace-later-a.first.json.original.gzip.json",
+          "kind": "text",
+          "sha256": "35d8a4f729f589d83d7f548bf8de92136ff06b5427025e9bc24222ab03632d5f"
+        },
+        {
+          "path": "docs/readmes/037/first-measurement/terrace-later-a.report.html",
+          "kind": "text",
+          "sha256": "6f5ebe876514ac4a72c14ec0f2eb1e8bbd596654cb6e94e028e9f5b26eee0847"
+        },
+        {
+          "path": "docs/readmes/037/first-measurement/terrace-later-a.report.html.original.gzip.json",
+          "kind": "text",
+          "sha256": "abacb76de35a50cf03b6a454ee7a547b5edbfba37029b9538861f6448267f396"
+        },
+        {
+          "path": "docs/readmes/037/first-measurement/terrace-later-a.runtime-first.json",
+          "kind": "text",
+          "sha256": "1c61664af4221ae41fa9d8b257ef762c8f262fd637a3888f623c093629545342"
+        },
+        {
+          "path": "docs/readmes/037/first-measurement/terrace-later-a.runtime-first.json.original.gzip.json",
+          "kind": "text",
+          "sha256": "fdbf62d716e87563e49e984147192b2ab51cee9710d170c8ddd032f52fe9f3e7"
+        },
+        {
+          "path": "docs/readmes/037/first-measurement/terrace-later-b.first-failure.json",
+          "kind": "text",
+          "sha256": "a1c3aef787dfceb79a0d8a03767627453ddda7de9c0686050ab8abc087cb99ad"
+        },
+        {
+          "path": "docs/readmes/037/first-measurement/terrace-later-b.first-failure.json.original.gzip.json",
+          "kind": "text",
+          "sha256": "939944640becfe7b12981dd50ac024070cb609cda2c139c56b4cca1826745dc1"
+        },
+        {
+          "path": "docs/readmes/037/first-measurement/world-id.txt",
+          "kind": "text",
+          "sha256": "cb26d3fd8f432f97e5cba22a70c86755be145dbb88f4c3647d1e93723ccc06d5"
+        },
+        {
+          "path": "docs/readmes/037/first-measurement/world-id.txt.original.gzip.json",
+          "kind": "text",
+          "sha256": "03f7cad05de6e3f6742b3f788dc0edbfccac534db76c878a7f782cf82d3ebb59"
+        },
+        {
+          "path": "docs/readmes/037/fresh-broader-validation.json",
+          "kind": "text",
+          "sha256": "4f00d5b8ef5ed442b715d91765fe168b2cfa97a4dcd4be0540ecab3397b02b8b"
+        },
+        {
+          "path": "docs/readmes/037/fresh-broader-validation.json.original.gzip.json",
+          "kind": "text",
+          "sha256": "f03bd8012255d38ec3dc743b5ccb8d6b8bef46623eea7ffe36c6e22eeb353670"
+        },
+        {
+          "path": "docs/readmes/037/fresh-camera-metrics-integration.json",
+          "kind": "text",
+          "sha256": "d8a98d52fd24d39b94ad194451f5b3a25ada7194c1f9df9ec00d0bd91a79c583"
+        },
+        {
+          "path": "docs/readmes/037/fresh-camera-metrics-integration.json.original.gzip.json",
+          "kind": "text",
+          "sha256": "3e32587d6d1d8cf19313e8aca63908dcf89fa1643371555f84e66b05c807a02f"
+        },
+        {
+          "path": "docs/readmes/037/fresh-integration.json",
+          "kind": "text",
+          "sha256": "ca7593806ba49800e1ea61165dc682aab841760e20d2f1d062faa753344eaa5d"
+        },
+        {
+          "path": "docs/readmes/037/fresh-integration.json.original.gzip.json",
+          "kind": "text",
+          "sha256": "b8fbedd34091fa0f09c009cdf4de2a76ee1916fcd60d8590c3f8415d10218a8d"
+        },
+        {
+          "path": "docs/readmes/037/fresh-metrics-integration.json",
+          "kind": "text",
+          "sha256": "eac23a872f75155f60fd1ab096d8d8b64ae31843ea6fc166c64b82981c95ada5"
+        },
+        {
+          "path": "docs/readmes/037/fresh-metrics-integration.json.original.gzip.json",
+          "kind": "text",
+          "sha256": "16b90c44fc41442e9393266c7406bb11b8b514523313b66a4aee52fdc48473e2"
+        },
+        {
+          "path": "docs/readmes/037/fresh-observations-integration.json",
+          "kind": "text",
+          "sha256": "3f1d77a8a209bb9c753cde259410fa2b89677e91d7edac52a60d6cf1fde0926d"
+        },
+        {
+          "path": "docs/readmes/037/fresh-observations-integration.json.original.gzip.json",
+          "kind": "text",
+          "sha256": "58f267aef6c7510a69d04e9871fe06df33e1f147890c982203c228b6c2aaee1d"
+        },
+        {
+          "path": "docs/readmes/037/fresh-observations-video-integration.json",
+          "kind": "text",
+          "sha256": "7919816b40396c4ee1b8ee08e19c1758c4cfad503c474523f565b114756eb005"
+        },
+        {
+          "path": "docs/readmes/037/fresh-observations-video-integration.json.original.gzip.json",
+          "kind": "text",
+          "sha256": "db9cd9ddb8452590ca7adc3f0ad6ed992e1d109d4f944f4462eb33c0d2852152"
+        },
+        {
+          "path": "docs/readmes/037/frozen-contract.json",
+          "kind": "text",
+          "sha256": "a80f69732e2a51e48fe42559f776533b94c64e2fbcd5d0a4300ed1e8727852cb"
+        },
+        {
+          "path": "docs/readmes/037/hardware-camera-037.json",
+          "kind": "text",
+          "sha256": "6be9ee8ed87cd591e47bf5ec9498661f294e92cd19759b5cdf33b67091af7b81"
+        },
+        {
+          "path": "docs/readmes/037/images/camera-mat-software-test-037.png",
+          "kind": "binary",
+          "sha256": "f9f1aafee12e692bb515a4fec9fac84c347f9bfb8eef712f525cce972f8a5e4f"
+        },
+        {
+          "path": "docs/readmes/037/images/metric-chat-037.png",
+          "kind": "binary",
+          "sha256": "0ae33fbe0d27c717d0414341245e67d42906b299803a8dc7655e2d2b0731443e"
+        },
+        {
+          "path": "docs/readmes/037/images/metric-plane-037.png",
+          "kind": "binary",
+          "sha256": "d15f834a52ebc30c56347f116b8c9b803300b445f06af2389e165ba321ff294d"
+        },
+        {
+          "path": "docs/readmes/037/images/metric-profile-037.png",
+          "kind": "binary",
+          "sha256": "708b1a42fa1073f992a93a9983b3ec06da7e6d11c665563b6df94483d58532c3"
+        },
+        {
+          "path": "docs/readmes/037/images/metric-report-037.png",
+          "kind": "binary",
+          "sha256": "55833ce7188158dc718d6882abafed3e7ad75134cc13c13c0783dca28b84184e"
+        },
+        {
+          "path": "docs/readmes/037/images.json",
+          "kind": "text",
+          "sha256": "9cece340c433c93d6af6bccd069127356b198b144bb722e150a1082917a36f24"
+        },
+        {
+          "path": "docs/readmes/037/index.html",
+          "kind": "text",
+          "sha256": "06c5774c0f0851280e0e2ead6dca25ee2103e00d51a66cae98e9e67fede4deef"
+        },
+        {
+          "path": "docs/readmes/037/live-metrics.json",
+          "kind": "text",
+          "sha256": "20277b65acb8f1ee4e04046d70997b3427181d5a68852b23e5ae574875824371"
+        },
+        {
+          "path": "docs/readmes/037/live-metrics.original.gzip.json",
+          "kind": "text",
+          "sha256": "5a50f275c5555a70579e7b0cee009c40ff18b943745a126872def40b38a7f843"
+        },
+        {
+          "path": "docs/readmes/037/metric-data.json",
+          "kind": "text",
+          "sha256": "4293194438dab3046f40ffc2e162d5231a343101f4e671aaed50513763677cdd"
+        },
+        {
+          "path": "docs/readmes/037/metrics-integration.json",
+          "kind": "text",
+          "sha256": "eac23a872f75155f60fd1ab096d8d8b64ae31843ea6fc166c64b82981c95ada5"
+        },
+        {
+          "path": "docs/readmes/037/metrics-integration.original.gzip.json",
+          "kind": "text",
+          "sha256": "16b90c44fc41442e9393266c7406bb11b8b514523313b66a4aee52fdc48473e2"
+        },
+        {
+          "path": "docs/readmes/037/source-match.json",
+          "kind": "text",
+          "sha256": "138fc452c18cbb266b0e233e6b08f88ba03e911705cf2c7cfaa9d8906ddff415"
+        },
+        {
+          "path": "docs/readmes/037/system-map.json",
+          "kind": "text",
+          "sha256": "c81ae07123937f5f13109ff6b9d68dfe52bf69eed9d30277a464abfa15d1d19a"
+        },
+        {
+          "path": "docs/readmes/037/test-execution.init.gradle",
+          "kind": "text",
+          "sha256": "144df9440158a850e4c3e167e4eb054857a6b98d5541d53f5c684b7d3242fb3d"
+        },
+        {
+          "path": "docs/readmes/037/verification.json",
+          "kind": "text",
+          "sha256": "abcb5a34057db6c9f91c762eee1b55dd24a0272f021e9056ed309db4bdff44fd"
         }
       ]
     }

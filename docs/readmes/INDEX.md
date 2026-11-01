@@ -42,4 +42,6 @@ Numbered editions preserve dated system behavior and evidence. The root [README]
 
 | [036](../../README-036.md) | 2026-11-01 | Real footage, predicted motion, persistent observed worlds, exact recovery and complete evidence | [Viewer](036/index.html) · [evidence](036/verification.json) · [contract](../OBSERVED_WORLDS.md) |
 
-Latest implementation/documentation edition: **036**. Earlier snapshots remain intact. See [sequence policy](README_SEQUENCE.md) and [manifest](editions.json).
+| [037](../../README-037.md) | 2026-11-01 | Measured plane/time, local camera/mat workflow, empirical uncertainty and original rejected footage results | [Viewer](037/index.html) · [evidence](037/verification.json) · [contract](../METRIC_WORLDS.md) |
+
+Latest implementation/documentation edition: **037**. Earlier snapshots remain intact. See [sequence policy](README_SEQUENCE.md) and [manifest](editions.json).

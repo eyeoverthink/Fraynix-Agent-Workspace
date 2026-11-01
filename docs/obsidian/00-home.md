@@ -1,6 +1,6 @@
 ---
 title: Fraynix Studio map of content
-edition_context: 036
+edition_context: 037
 updated: 2026-11-01
 tags: [fraynix, system-map]
 ---
@@ -9,9 +9,9 @@ tags: [fraynix, system-map]
 
 Open the repository root as an Obsidian vault. The numbered README is the edition snapshot; these notes are the working map.
 
-Current: [[README-036|Edition036 — real footage and observed worlds]] ·
-[[docs/obsidian/44-observed-worlds|Measurements, estimates and native state]] ·
-[[docs/obsidian/observed-worlds.canvas|Observed world system map]].
+Current: [[README-037|Edition037 — measured worlds and honest uncertainty]] ·
+[[docs/obsidian/45-measured-worlds|Camera, plane and empirical limits]] ·
+[[docs/obsidian/measured-worlds.canvas|System map]].
 
 Previous: [[README-031|Edition031 — native contact tasks]] ·
 [[docs/obsidian/39-native-pushing|Pushing contract and measured limits]] ·

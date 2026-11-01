@@ -111,7 +111,17 @@ The original initializer/preparer, refusal log, first traces, reference scoring 
 
 ## What was actually tested
 
-Verification is in progress. Current verified evidence and exact final counts are recorded in [verification.json](docs/readmes/037/verification.json).
+The independent offline checkout passes **324 Java tests across 69 test classes**, **83 desktop unit checks**, and **82 actual UI assertions across 6 groups**. These cover metric derivation/export integrity, camera capture/denial/Stop, observation recovery, local video, original browser/canvas behavior and45 varied creation/control cases. **3 actual gpt-oss:20b assertions** verify typed metric retrieval/reporting. All709canonical implementation source/assets match. The real-footage performance result remains rejected; workflow passes do not change it.
+
+The first concurrent full Java runs were interrupted by a Windows restart and are preserved as **interrupted**, not passes. Recovery uses a single Gradle worker, one test process per class and a512MiB test heap, without changing/skipping assertions. The completed recovery result is the release evidence. The exact [test execution settings](docs/readmes/037/test-execution.init.gradle) are included.
+
+```powershell
+.\gradlew.bat check --offline --no-daemon --no-parallel --max-workers=1 --init-script docs/readmes/037/test-execution.init.gradle
+cd workspace-desktop
+npm test
+npm run test:metrics
+npm run test:camera-metrics
+```
 
 The physical USB camera separately passed preview at640×480, one video track, zero audio tracks, zero captured samples and explicit Stop. Only that metadata was saved. No personal webcam image, device identifier, microphone sample or user's mat photograph is included in this repository. Actual mat scale/tracking still needs the user's placed reference and recording.
 
