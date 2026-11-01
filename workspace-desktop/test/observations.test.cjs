@@ -11,5 +11,5 @@ test('host pins both native and observation revisions and retains stale refusal'
  const bridge=createObservations({api});await bridge.select({worldId:'test-world',datasetId:'pixels',bindings:[{objectKey:'subject',bodyId:'stable-body'}]});assert.equal(bridge.selection().expectedObservationRevision,9);assert.equal(bridge.selection().expectedRevision,3);await assert.rejects(bridge.action('observations.start',{}),/Stale observation/);assert.equal(calls.at(-1).args.expectedHash,'abc');
 });
 test('footage chat selects the typed observation workflow without changing ordinary world goals',()=>{
- assert(asksForObservedWorld('Explain the observed world and its footage prediction error'));assert(asksForObservedWorld('Update the world estimate'));assert(!asksForObservedWorld('Arrange the blocks and save a skill'));
+ assert(asksForObservedWorld('Explain the observed world and its footage prediction error'));assert(asksForObservedWorld('Update the world estimate'));assert(!asksForObservedWorld('Arrange the blocks and save a skill'));assert(!asksForObservedWorld('Build an HTML footage viewer'));assert(!asksForObservedWorld('Create a website using the observed world'));assert(asksForObservedWorld('Track the selected footage and update its saved world'));
 });
