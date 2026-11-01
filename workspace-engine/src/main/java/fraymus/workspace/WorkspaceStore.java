@@ -76,14 +76,21 @@ public final class WorkspaceStore implements AutoCloseable {
     }
     public synchronized JSONObject write(JSONObject args) throws IOException { return write(args,null); }
     /** Internal durable effect key; public writes cannot choose a fresh entity ID. */
-    synchronized JSONObject writeOnce(String key,JSONObject args) throws IOException {
+    synchronized JSONObject writeOnce(String key,JSONObject args) throws IOException {return writeOnce(key,args,512_000,2_000_000);}
+    /** Only registered, independently verified native pushing can use the larger bounded lossless transport. */
+    synchronized JSONObject writeNativePushOnce(String key,JSONObject run) throws IOException {
+        if(!PushRuntime.verify(run).getBoolean("passed"))throw new IllegalStateException("Only verified native outcomes can produce a native report");
+        return writeOnce(key,PushReport.build(run),2_000_000,4_000_000);
+    }
+    private JSONObject writeOnce(String key,JSONObject args,int fileLimit,int totalLimit) throws IOException {
         String id=UUID.nameUUIDFromBytes(key.getBytes(StandardCharsets.UTF_8)).toString();
         if(world.snapshot().entities().stream().anyMatch(e->e.id().toString().equals(id))){
             var prior=read(id);if(!prior.getJSONObject("contents").similar(args.getJSONObject("files"))||!prior.getJSONArray("sources").similar(args.getJSONArray("sources")))throw new IllegalStateException("Durable report effect changed");return prior;
         }
-        return write(args,id);
+        return write(args,id,fileLimit,totalLimit);
     }
-    private JSONObject write(JSONObject args,String newId) throws IOException {
+    private JSONObject write(JSONObject args,String newId) throws IOException {return write(args,newId,512_000,2_000_000);}
+    private JSONObject write(JSONObject args,String newId,int fileLimit,int totalLimit) throws IOException {
         String title=args.getString("title").strip();if(title.isEmpty()||title.length()>140)throw new IllegalArgumentException("Title must contain 1..140 characters");
         boolean existing=args.has("id")&&!args.optString("id").isBlank();String id=existing?args.getString("id"):newId==null?UUID.randomUUID().toString():newId;
         JSONObject previous=existing?read(id):null;
@@ -91,8 +98,8 @@ public final class WorkspaceStore implements AutoCloseable {
         if(existing && args.optInt("expectedVersion",-1)!=prior)throw new ConcurrentModificationException("Artifact changed; read the current version before editing");
         var contents=previous==null?new JSONObject():previous.getJSONObject("contents");JSONObject changes=args.getJSONObject("files");
         if(changes.isEmpty()||changes.length()>20)throw new IllegalArgumentException("Supply 1..20 files");
-        for(String name:changes.keySet()){validFile(name);String value=changes.getString(name);if(value.length()>512_000)throw new IllegalArgumentException("File exceeds 512K characters");contents.put(name,value);}
-        if(!contents.has("index.html")||contents.length()>32||contents.toString().length()>2_000_000)throw new IllegalArgumentException("Artifact needs index.html and must fit 32 files / 2MB");
+        for(String name:changes.keySet()){validFile(name);String value=changes.getString(name);if(value.length()>fileLimit)throw new IllegalArgumentException("File exceeds "+fileLimit+" characters");contents.put(name,value);}
+        if(!contents.has("index.html")||contents.length()>32||contents.toString().length()>totalLimit)throw new IllegalArgumentException("Artifact needs index.html and must fit32 files / "+totalLimit+" characters");
         int version=prior+1;
         var sources=args.optJSONArray("sources");if(sources==null)sources=previous==null?new JSONArray():previous.getJSONArray("sources");
         if(sources.length()>32)throw new IllegalArgumentException("At most 32 source references");
