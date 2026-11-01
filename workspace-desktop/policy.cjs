@@ -1,6 +1,11 @@
 'use strict';
 const { randomUUID } = require('node:crypto');
 const catalog = [
+ ['self.read','Read current registered capabilities, actual host/network/camera state, persistent object and research counts, recent execution receipts. Network allowed is not proof of connectivity.','{query?}'],
+ ['object.read','Read the selected durable human-associated object, original camera provenance and actual research history. Labels are human guidance, not visual recognition.','{}'],
+ ['object.research','Start or join bounded real web research for the selected object human category in a separate browser. Original camera images are not uploaded.','{}'],
+ ['object.wait','Read saved progress of this task research job without starting duplicate work.','{}'],
+ ['object.report','Open and test the actual cached-source object report with source URLs/hashes and identity. Candidate references are not visual matches or measured physical properties.','{}'],
  ['tabletop.answer','Ask a registered Java evidence question about selected tabletop position, motion, visibility, calibration, prediction or limits. No model-supplied measurements.','{question}'],
  ['tabletop.read','Read the explicitly selected actual tabletop camera run, planar measurements, tape check, freshness and uncertainty. Human target labels are not recognition.','{}'],
  ['tabletop.report','Open and test the actual numeric tabletop report; no private camera image is included.','{}'],
@@ -121,6 +126,7 @@ const perceptionOptions={mode:{type:'string',enum:['vision','appearance','dom']}
 const mapConstraints=object({connected:{type:'boolean'},minFloorFraction:{type:'number',minimum:.05,maximum:.95},maxFloorFraction:{type:'number',minimum:.05,maximum:.95},minRouteSteps:{type:'integer',minimum:0,maximum:128},maxRouteSteps:{type:'integer',minimum:0,maximum:128}},[]);
 const mapOptions={materials:{type:'array',minItems:1,maxItems:8,items:object({tile:{type:'integer',minimum:0,maximum:7},name:{type:'string',minLength:1,maxLength:60},friction:{type:'number',minimum:.05,maximum:1.2},restitution:{type:'number',minimum:0,maximum:.95},dragNsPerM:{type:'number',minimum:0,maximum:8}},['tile','name','friction'])},constraints:mapConstraints,seed:{type:'integer',minimum:0,maximum:1e9},width:{type:'integer',minimum:8,maximum:24},height:{type:'integer',minimum:8,maximum:24},cellSizeM:{type:'number',minimum:.6,maximum:1.2},friction:{type:'number',minimum:.05,maximum:1.2},disturbanceNs:{type:'number',minimum:-.5,maximum:.5},saveSkillName:text,pins:{type:'array',maxItems:64,items:object({x:{type:'integer',minimum:0,maximum:23},y:{type:'integer',minimum:0,maximum:23},tile:{type:'integer',minimum:0,maximum:7}},['x','y','tile'])}};
 const argumentSchemas={
+ 'self.read':object({query:{type:'string',maxLength:160}},[]),'object.read':empty,'object.research':empty,'object.wait':empty,'object.report':empty,
  'tabletop.answer':object({question:{type:'string',enum:['position','motion','visibility','calibration','prediction','limits']}}),'tabletop.read':empty,'tabletop.report':empty,'observations.read':empty,'observations.start':empty,'observations.wait':empty,'observations.report':empty,
  'map.read':empty,'map.start':object(mapOptions,[]),
  'space.start':object({...proceduralOptions,saveSkillName:text},['type','dimensions','seed']),'space.export':empty,

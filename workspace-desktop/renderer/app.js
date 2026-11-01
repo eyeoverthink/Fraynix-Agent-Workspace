@@ -1,3 +1,4 @@
+import {KnowledgePanel} from './knowledge-panel.js';
 import {TabletopPanel} from './tabletop-panel.js';
 import {MetricPanel} from './metric-panel.js';
 import {ObservationPanel} from './observation-panel.js';
@@ -50,6 +51,7 @@ const observationPanel=new ObservationPanel({call:(command,args={})=>request('ob
 window.observationView=observationPanel;
 window.metricView=new MetricPanel({call:(command,args={})=>request('metrics',{command,args}),observation:observationPanel,notice});
 window.tabletopView=new TabletopPanel({call:(command,args={})=>request('tabletop',{command,args}),metricCall:(command,args={})=>request('metrics',{command,args}),persistent:persistentPanel,metric:window.metricView,notice});
+window.knowledgeView=new KnowledgePanel({call:(command,args={})=>request('knowledge',{command,args}),tabletop:window.tabletopView,notice,activate:setCanvasMode});
 const perceptionPanel=new PerceptionPanel({call:(command,args={})=>request('perception',{command,args}),goalCall:(command,args={})=>request('javaGoal',{command,args}),notice,activate:setCanvasMode,goal:g=>goalsPanel.accept(g)});
 const trackingPanel=new TrackingPanel({call:(command,args={})=>request('tracking',{command,args}),notice,requireSaved,openPerception:()=>perceptionPanel.open()});
 const creationPanel=new CreationPanel({layout:updateLayout,call:(command,args,model)=>request('creation',{command,args,model}),getState:()=>state,getArtifact:()=>artifact,getModel:()=>$('model').value,requireSaved,notice,onGoal:g=>goalsPanel.accept(g)});
@@ -115,6 +117,7 @@ host.onEvent(({type,value})=>{
   else if(type==='view'&&['preview','scene'].includes(value))setCanvasMode(value);
   else if(type==='javaGoal'){goalsPanel.accept(value);forcePanel.accept(value);contactPanel.accept(value);posePanel.accept(value);persistentPanel.accept(value);mapPanel.onGoal(value);spatial.onPushGoal(value);creationBusy=(value.workflow&&!['completed','cancelled'].includes(value.status))||(value.procedure==='creation-web-v1'&&['running','waiting-host'].includes(value.status));$('creation-open').disabled=creationBusy||running;$('run').disabled=creationBusy||running||dirty||lab.dirty||!state?.models.length;}
   else if(type==='dataset'){dataPanel.selected=value;dataPanel.binding();}
+  else if(type==='knowledgeResearch'&&window.knowledgeView.root.open)window.knowledgeView.refresh().catch(e=>notice(e.message));
   else if(type==='activity')timeline(value);
   else if(type==='answer')message(value);
   else if(type==='error')notice(value);
