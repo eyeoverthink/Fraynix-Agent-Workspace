@@ -308,7 +308,7 @@ function bindings044(){const b={scene:currentScene,dataset:currentDataset,spatia
 async function startAgent(goal,model,extra={}){
  if(run||learningJob||manualBusy||pendingAgency043)throw Error('Finish or stop the current operation first');if(typeof goal!=='string'||!goal.trim()||goal.length>8000)throw Error('Enter a request up to8000characters');
  const generation=agencyLaunchGeneration043;pendingAgency043++;emit('run',{active:true,goal,model,phase:'Java is admitting and routing the request'});
- try{const settings=await window.webContents.executeJavaScript('window.agency043View?.settings()||({visionModel:""})');if(generation!==agencyLaunchGeneration043)return{stopped:true};return await agency043.begin({goal,model,visionModel:settings.visionModel||'',artifactId:currentArtifact?.id||'',bindings:bindings044(),...extra});}finally{pendingAgency043--;if(!agency043.busy())emit('run',{active:false});}
+ try{const settings=await window.webContents.executeJavaScript('window.agency043View?.settings()||({visionModel:""})');if(generation!==agencyLaunchGeneration043)return{stopped:true};await updateSelfHost();if(generation!==agencyLaunchGeneration043)return{stopped:true};return await agency043.begin({goal,model,visionModel:settings.visionModel||'',artifactId:currentArtifact?.id||'',bindings:bindings044(),...extra});}finally{pendingAgency043--;if(!agency043.busy())emit('run',{active:false});}
 }
 function startCreationAgent(goal,model,options={}){return startAgent(goal,model,{family:'creation',options});}
 function startWorkflowAgent(goal,model,options={}){return startAgent(goal,model,{family:'workflow',options});}
