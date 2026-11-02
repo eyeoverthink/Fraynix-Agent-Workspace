@@ -80,7 +80,7 @@ public final class WorkspaceServer implements AutoCloseable {
                     result=switch(route){
                         case "/api/agency043/state"->agency.state();
                         case "/api/agency043/register"->agency.register(input);
-                        case "/api/agency043/start"->agency.start(input);
+                        case "/api/agency043/start"->startAgency044(input);
                         case "/api/agency043/read"->agency.read(input.getString("id"));
                         case "/api/agency043/claim"->agency.claim(input.getString("sessionId"));
                         case "/api/agency043/frame"->agency.frame(input);
@@ -484,7 +484,14 @@ public final class WorkspaceServer implements AutoCloseable {
     private JSONObject claimGoal044(String session)throws Exception{synchronized(agency){if(agency.busy()&&!agency.canClaimNative044("goal",goals.list()))return new JSONObject();var effect=goals.claim();if(effect.has("id")&&agency.busy())effect.put("taskAuthority",agency.delegate044("goal",effect.getString("goalId"),effect.getString("nonce"),session));return effect;}}
     private JSONObject claimWorkflow044(String session)throws Exception{synchronized(agency){if(agency.busy()&&!agency.canClaimNative044("workflow",workflows.list()))return new JSONObject();var effect=workflows.claim();if(effect.has("id")&&agency.busy())effect.put("taskAuthority",agency.delegate044("workflow",effect.getString("workflowId"),effect.getString("nonce"),session));return effect;}}
     private JSONObject claimResearch043(String session)throws Exception{synchronized(agency){if(agency.busy()&&!agency.canClaimNative044("research",knowledge.state().getJSONArray("jobs")))return new JSONObject().put("idle",true);var job=knowledge.claim();if(!job.optBoolean("idle")&&agency.busy())job.put("taskAuthority",agency.delegate044("research",job.getString("id"),job.getString("lease"),session));return job;}}
-    private boolean sharedBusy043(){try{return knowledge.state().getJSONArray("jobs").toList().stream().anyMatch(raw->"running".equals(((java.util.Map<?,?>)raw).get("status")))||goals.busy()||brain.state().getBoolean("busy")||tabletop.busy()||alignment041.busy()||observations.busy()||!workflowsIdle042()||requests.keySet().stream().anyMatch(id->!durableRequests043.contains(id));}catch(Exception e){return true;}}
+    private JSONObject startAgency044(JSONObject input)throws Exception{
+        if(tabletop.busy()||alignment041.busy()||observations.busy()){
+            String family=ChatPolicy044.route(input.getString("goal"),input.optJSONObject("bindings",new JSONObject()),!alignment041.state().optString("selectedRegistrationId").isBlank());
+            if(input.has("family")||!input.optString("mode","workbench").equals("workbench")||!Set.of("alignment","tabletop").contains(family))throw new IllegalStateException("Stop the owning observation before starting a different task; current alignment/tabletop evidence can still be explained");
+        }
+        return agency.start(input);
+    }
+    private boolean sharedBusy043(){try{return knowledge.state().getJSONArray("jobs").toList().stream().anyMatch(raw->"running".equals(((java.util.Map<?,?>)raw).get("status")))||goals.busy()||brain.state().getBoolean("busy")||!workflowsIdle042()||requests.keySet().stream().anyMatch(id->!durableRequests043.contains(id));}catch(Exception e){return true;}}
     private static boolean passive043(String route){if(Set.of("/api/knowledge/claim","/api/goals/claim","/api/workflows/claim").contains(route))return true;String last=route.substring(route.lastIndexOf('/')+1);return route.startsWith("/api/self/")||route.startsWith("/api/agent042/")||route.equals("/api/event")||Set.of("read","state","list","snapshot","catalog","models","summary","view","image","history","observe","context").contains(last);}
     private JSONObject visionModels043(){var out=new JSONArray();try{var tags=LocalModelAdmission.request("http://127.0.0.1:11434/api/tags",null).getJSONArray("models");for(Object raw:tags){var tag=(JSONObject)raw;if(tag.optLong("size")>12_000_000_000L)continue;var show=LocalModelAdmission.request("http://127.0.0.1:11434/api/show",new JSONObject().put("model",tag.getString("name")));var caps=show.optJSONArray("capabilities",new JSONArray()).toList();if(caps.contains("completion")&&caps.contains("vision"))out.put(new JSONObject().put("name",tag.getString("name")).put("bytes",tag.getLong("size")));}return new JSONObject().put("models",out);}catch(Exception e){return new JSONObject().put("models",out).put("reason","Local vision metadata unavailable; pixel comparisons remain available");}}
     JSONObject agent042(){return agentRuntime.state();}
