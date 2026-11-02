@@ -1,0 +1,59 @@
+{
+  "edition": 42,
+  "repository": "https://github.com/eyeoverthink/Fraynix-Agent-Workspace",
+  "releaseCommit": "35952737abda1d567346c63c394a79b5048dc1a4",
+  "annotatedTag": "readme-042",
+  "tagObject": "5f94e31d245bfb22c69ac6480ce054413d80abc6",
+  "sourceBaseline": "5ff56f73b1634a5dd54b155df68090075e3ebcf1",
+  "verifiedAtUtc": "2026-11-02T08:18:47.156877+00:00",
+  "directGithubFetchVerified": true,
+  "canonicalSources": 790,
+  "originalProofArchives": 426,
+  "documentation": {
+    "editions": 42,
+    "canvases": 47,
+    "references": 5074,
+    "frozenHashes": 2327
+  },
+  "validation": {
+    "fullJavaBaselineChecks": 368,
+    "finalFocusedJavaChecks": 9,
+    "distinctJavaChecksCovered": 369,
+    "desktopChecks": 111,
+    "actualUIChecks": 109,
+    "actualLocalModelChecks": 6,
+    "localModel": "gpt-oss:20b",
+    "planning": "CPU-only,four threads",
+    "qualification": "Full Java check on6430e8e, final9-case suite for only amended new runtime/appraisal classes and test. Other Java bytes unchanged. Actual UI/model use the exact final matching source. See docs/readmes/042/java-validation.json."
+  },
+  "productionReview": {
+    "electronPid": 11516,
+    "javaPid": 7000,
+    "agentId": "51a77b2e-0e46-4739-9d00-6b0c2b86cdce",
+    "bootId": "bdda2b54-71e5-4c62-bd64-ce338ff3f029",
+    "background": "awake",
+    "cameraOff": true,
+    "gameOff": true,
+    "physicalObservationFresh": false,
+    "sharedCortexTicks": 2,
+    "testApiAbsent": true,
+    "singleWindow": true,
+    "promptUnsent": true,
+    "projectName": "review-042-20261101",
+    "privateOriginalSourceFiles": 1868,
+    "privateOriginalSourceBytes": 92881374,
+    "initialCopyExact": true,
+    "originalSourceStillExact": true,
+    "scope": "Distinct private review copy, no shared original database. No private frames, capability tokens or model weights published.",
+    "world": {
+      "id": "a2aed6a7-8d9f-4922-a717-a9dfa2026077",
+      "revision": 0,
+      "tick": 0,
+      "headHash": "41cd72facca05c5189e72ae459a51b4ab652bd874d202b329e95ce604f4d3c79",
+      "pending": false
+    },
+    "registrationId": "58d5a958-c6fe-41f5-9b59-4e5f81338709",
+    "trialId": "e44cdfe4-2854-4b74-8a04-92f94fe81ca4"
+  },
+  "publicationScope": "Release and annotated tag pushed atomically; separate checkout fetched actual GitHub main/tag and verified all790 canonical assets,426 exact original proof archives and frozen documentation. This receipt and final handoff notes follow the release tag."
+}
