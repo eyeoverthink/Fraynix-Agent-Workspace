@@ -47,3 +47,42 @@ The first production proof is reproducibility: a fresh supported machine/setup, 
 5. **Production distribution:** reproducible supported-platform installation, offline dependency manifest, resource budgets, crash recovery, real export/import and documented model requirements.
 
 This direction preserves the user's central idea: the application's evolving work is the content. Its strength will be judged by complete, inspectable outcomes across the connected world, browser, creation and memory systems.
+
+## A concrete next experiment
+
+The first counterfactual mission should stay small enough to disprove: move one selected crate to a declared target while preserving a second body's pose. Start from the same committed world head. Compare a direct candidate, a staged candidate and the existing controller baseline under identical force/torque and time budgets. Candidate names are not evidence that a motion is feasible; the actual solver and independent verifier decide that.
+
+Each alternative should retain its complete initial state, controller/version, numeric parameters, seed if used, step budget, trajectory, contacts, final goal error, protected-body drift and termination reason. Score physical constraints first; rank only admissible candidates by a declared objective. Keep failed alternatives. Never replace an actual failed trial with the best-looking animation. The first protocol must freeze the alternatives, bounds and scoring before running its reserved cases.
+
+Execution then uses the ordinary owned goal and expected world revision/hash. After a deliberate intervening world change, the old decision must be refused. After ordinary execution, independently recompute forecast residuals from the original trace. Close/reopen during planning and during a claimed physical action to establish their different recovery rules. Add a condition the selector did not see—such as a changed material—without retuning the acceptance gate. A failed unfamiliar condition is a useful recorded boundary, not permission to lower the standard.
+
+The user sees one mission: **Goal → Bound world → Alternatives → Chosen action → Actual outcome → Retained procedure**. Alternatives belong to that mission, with their own source/time/status. They should not become an unrelated simulation app. No new tab should appear until it can show actual computed candidates and their evidence. A video export can illustrate a trace, but the numeric state, configuration and verification receipt remain the reproducible result.
+
+## The shared representation
+
+The next representation work should connect existing records through typed references rather than flattening everything into coordinates. The following is a design proposal, not a new installed schema:
+
+| Record | Essential meaning | Current foundation |
+| --- | --- | --- |
+| Entity reference | Stable identity plus component/source revision | Existing scene/body IDs and world ledger |
+| Observation | Source, sequence/time, coordinate frame, units, uncertainty and original-content hash | Recorded-world and mat-alignment evidence |
+| Hypothesis | A proposed interpretation with supporting and contradicting references | Human object association and bounded research |
+| Action intent | Subject, target, prerequisites, expected revision and resource limits | Existing typed tools and Java task binding |
+| Transition | Before/action/after, independent checks and any unexplained residual | Native goal traces, task history and report receipts |
+| Skill candidate | Versioned supported procedure plus trials, failures and promotion state | Existing recipe/procedure registry and evaluations |
+
+An image of a lighter, a browser product listing and a native body can be related by a hypothesis. They should retain separate identities until an explicit verified association supports merging them. A rendered prediction, a photograph and a measurement should be recognizable as different sources in every view and prompt. A neural novelty score can decide what merits inspection; it cannot supply a missing physical measurement.
+
+## The brain's clocks and attention
+
+The continuing Java runtime already supplies independent clocks and retained identity. Extend it through measurable attention policies: what changed, how surprising was it, which current goal might it affect, and which bounded computation is justified? Begin with the existing prediction-error baseline. Compare an owned neural novelty channel on the same frozen traces, counting false alarms, missed changes, processing latency and retained useful outcomes.
+
+A background process can summarize already authorized work, verify stored integrity or evaluate retained candidates within a declared budget. New web requests, camera capture and physical actions need their corresponding task authority. A witness log establishes which computation or action was recorded. It does not establish subjective experience. This keeps the user's heartbeat/subconscious analogy useful as an engineering description of continuity, attention and offline rehearsal.
+
+## Production and visual design
+
+Keep the familiar browser, central work view and chat. Mission becomes the common explanation of progress, with domain detail available when needed. Show a clear next action when a prerequisite is missing, keep Stop accessible and distinguish waiting for a person, waiting for a model and waiting for a native controller. Use actual phase transitions rather than percentages unsupported by a known workload.
+
+The production gate should include a disconnected-network workflow after dependencies/models are prepared; a restart retaining identity and a verified procedure; changed-input reuse; an interrupted write/action; a full export/import round trip; and declared disk/memory/CPU limits. Setup should explain which dependencies are bundled, which require preparation and which optional providers need a network. The current local architecture is a foundation for this distribution work, not a claim of a dependency-free installer.
+
+The next implementation should be judged by these complete outcomes before broadening the physics vocabulary or adding another model. That gives imagination a falsifiable path into a working product.

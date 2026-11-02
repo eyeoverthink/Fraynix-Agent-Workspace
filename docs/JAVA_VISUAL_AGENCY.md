@@ -1,5 +1,8 @@
 # Java workbench tasks and visual memory043
 
+
+Edition044 extends this043 contract to all remaining active chat routes and native-procedure scheduling, including Java-owned creation contracts/code generation and native child waits. [Current operation](JAVA_CHAT_044.md) and [mission/production direction](EDITION_044_VISION.md). The specialized-planner limitation in the dated043 description below is superseded; original screenshot, descriptor, source and verification guarantees remain.
+
 [Edition043](../README-043.md) · [Continuing agent042](CONTINUING_JAVA_AGENT.md)
 
 Ordinary browser/canvas chat now enters `Agency043`. Java owns queueing, model stage selection, native versioned artifact/recipe writes, frozen checks, repair and recovery. Existing specialized scene, camera, alignment, world and continuity adapters remain. The desktop is the real surface host; it executes one leased claim and returns original captured pixels and browser test receipts.

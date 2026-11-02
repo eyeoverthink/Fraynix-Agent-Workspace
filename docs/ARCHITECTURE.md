@@ -1,8 +1,15 @@
 # Fraynix Agent Workspace system architecture
 
+
+## Current edition044: one Java owner, visible missions
+
+Every active chat route and native-procedure selection now uses the existing durable Java queue. Java owns semantic routing, selected sources, typed stages, child goal/workflow identities, model contracts/code generation, actual outcome checks, cancellation and recovery. The desktop hosts the real browser/canvas/camera and formats observations. It contains no active chat-planning model call. [Ownership and operating details](JAVA_CHAT_044.md).
+
+The existing timeline now switches between Activity and Mission. Mission reads actual Java goal, source/version, child status, history/hash, retained skill and result; its controls stop/resume the real task and refuse opening a later artifact revision as the original result. Normal Game Lab is already integrated using the original Java renderer with its native window hidden and editor uninitialized. Source-qualified screenshot/vision behavior from043 remains. [Concept and production sequence](EDITION_044_VISION.md). Earlier edition sections below retain their dated scope; the044 contract supersedes earlier ownership/window descriptions.
+
 ## Edition043: Java workbench ownership and visual evidence
 
-Ordinary browser/canvas chat and saved-recipe scheduling now run through the durable Java Agency043 queue. The desktop executes authenticated surface claims. Original before/during/after PNGs retain source/version/time/hash metadata; owned JDK pixel descriptors and differences support tested visual references. Optional installed local vision is an untrusted estimate. Actual current artifact checks control completion. Existing specialized physics/perception agents remain. [Operation and scope](JAVA_VISUAL_AGENCY.md).
+Ordinary browser/canvas chat and saved-recipe scheduling now run through the durable Java Agency043 queue. The desktop executes authenticated surface claims. Original before/during/after PNGs retain source/version/time/hash metadata; owned JDK pixel descriptors and differences support tested visual references. Optional installed local vision is an untrusted estimate. Actual current artifact checks control completion. The earlier043 specialized-agent limitation is superseded by044 Java coordination; existing physical/perception controllers and surface adapters remain. [Operation and scope](JAVA_VISUAL_AGENCY.md).
 
 ## Edition042: one continuing Java agent
 
@@ -86,7 +93,7 @@ flowchart LR
     Skill -->|fresh source and declared conditions| Parent
 ```
 
-Edition025 adds `creation-web-v1` to the same Java goal/procedure registry. The desktop supplies admitted local generation and actual canvas interactions through private leased effects; Java pins source/model/checks, owns artifact versions, validates observed receipts, bounds repairs and reconciles restart. Passing procedures can regenerate and verify on a fresh selected CSV. See [durable creation](DURABLE_CREATION.md). This extends the current layout and creation canvas; it does not install generated host handlers or train LLM weights.
+Edition025 adds `creation-web-v1` to the same Java goal/procedure registry. Edition025 initially supplied generation through the desktop;044 moves admitted generation into Java. The desktop still supplies actual canvas interactions through private leased effects; Java pins source/model/checks, owns artifact versions, validates observed receipts, bounds repairs and reconciles restart. Passing procedures can regenerate and verify on a fresh selected CSV. See [durable creation](DURABLE_CREATION.md). This extends the current layout and creation canvas; it does not install generated host handlers or train LLM weights.
 
 Edition024 adds pure Java temporal feature tracking, visible motion diagnostics and new reserved-footage evaluation. The candidate improves all three clips but fails the unchanged coverage/false-visible gates, so baseline remains active. Old profiles and pinned goals/skills remain installed; the new adapter retains the unchanged earlier scorer. See [temporal tracking](TEMPORAL_TRACKING.md) for actual computations, source freeze, results and limits.
 

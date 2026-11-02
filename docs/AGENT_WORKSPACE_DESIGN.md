@@ -1,5 +1,12 @@
 # Fraynix Agent Workspace design and delivery plan
 
+
+## Current edition044: one Java owner, visible missions
+
+Every active chat route and native-procedure selection now uses the existing durable Java queue. Java owns semantic routing, selected sources, typed stages, child goal/workflow identities, model contracts/code generation, actual outcome checks, cancellation and recovery. The desktop hosts the real browser/canvas/camera and formats observations. It contains no active chat-planning model call. [Ownership and operating details](JAVA_CHAT_044.md).
+
+The existing timeline now switches between Activity and Mission. Mission reads actual Java goal, source/version, child status, history/hash, retained skill and result; its controls stop/resume the real task and refuse opening a later artifact revision as the original result. Normal Game Lab is already integrated using the original Java renderer with its native window hidden and editor uninitialized. Source-qualified screenshot/vision behavior from043 remains. [Concept and production sequence](EDITION_044_VISION.md). Earlier edition sections below retain their dated scope; the044 contract supersedes earlier ownership/window descriptions.
+
 Edition018 adds a learned numerical world model, separate uncertainty calibration/native evaluation, paused counterfactual previews, receding-horizon action/observation checks and recorded-motion forecasting. Native limits pass; the previous feedback controller still scores better on tracking, and the recorded-reality gate remains rejected. See [current world/reality contract](WORLD_MODEL_REALITY.md) and [README018](../README-018.md). Broader real calibration and multi-object/contact models remain next.
 
 Edition 017 adds live bounded native feedback, gain selection from actual training outcomes, predeclared stronger-baseline evaluation, real disturbances, intent/receipt history, stop/replay/restart and separate feedback rollback. Job completion and activation now commit atomically. See [current feedback contract](CLOSED_LOOP_CONTROL.md) and [README 017](../README-017.md). Broader geometry/sensing, closed-loop manipulation/navigation and Java task graphs remain next.
@@ -16,7 +23,7 @@ This successor starts from Fraynix Studio commit `6341404`. The working Studio r
 
 The left column contains persistent project objects and a real browser. The center is a runnable creation canvas with a source view. The right column holds the local model selector, request, results and takeover control. The bottom timeline shows decisions, tool calls, failures and measured outcomes. Browser and canvas can each expand while keeping the agent visible.
 
-The original Java game editor remains a separate Game Lab window, launched from this repository with a distinct project directory. Embedding its native viewport in the new shell is a later integration milestone. The existing Studio application is not replaced.
+Normal Game Lab uses the integrated original Java renderer, with its native window hidden and full editor uninitialized. The inherited full editor and Studio sources remain preserved. The workspace and original Studio keep separate private projects.
 
 ## Implementation boundaries
 
@@ -42,7 +49,7 @@ The general object abstraction preserves domain meaning. A browser tab has a URL
 
 ## Agent execution and progress
 
-The agent runs a bounded local-model loop outside the render thread. The first milestone allows 16 steps, with model requests using the existing cancellable streaming transport and a JSON schema for permitted tool arguments. Stage guards advance repeated read-only observations toward creation, require tests for a new artifact, require a source change after a failed test and read, and require verified evidence before reporting completion.
+The current Java queue owns bounded local-model decisions outside the render thread: up to20 decisions, four rejected-decision repairs, and at most three explicit resumes. Creation retains its separate original three-draft contract. Model requests use the admitted local transport and registered typed arguments. Stage guards advance repeated read-only observations toward creation, require tests for a new artifact, require a source change after a failed test and read, and require verified evidence before reporting completion.
 
 The model still chooses page actions, generates artifact contents, specifies behavioral assertions, repairs code and describes its result. Stage guards constrain progress rather than establish that the generated work is correct. The separate integration harness evaluates real behavior independently of model prose.
 
@@ -77,7 +84,7 @@ The first delivery targets the first five gates. The remaining gates extend the 
 
 The [October 29 Fraymus-OS-One assessment](FRAYMUS_OS_ONE_ASSESSMENT.md) identifies reusable Think rule revision/replay, synaptic adaptation, continuity, project generators and the separate fraymus-brain numerical training kernel. The review built OS One, ran four OPEG tests and sixteen standalone kernel tests, and independently checked persistent operator learning, bind collision repair and actual weight changes. No reviewed code is imported into the running app by this documentation update.
 
-The next coding milestone is durable LearningEpisode, LearningCandidate, EvaluationReport and PromotionRecord components, a bounded worker for the extracted controller, independent regression/validation/final-test suites and reversible promotion. Java owns state and evidence; existing typed tools still execute actions. The visible library, browser, canvas, agent panel and timeline keep their current design. Do not copy the original generated-function or unrestricted Node runtime paths into the privileged shell.
+The earlier next milestone described durable LearningEpisode, LearningCandidate, EvaluationReport and PromotionRecord components, a bounded worker for the extracted controller, independent regression/validation/final-test suites and reversible promotion. Java owns state and evidence; existing typed tools still execute actions. The visible library, browser, canvas, agent panel and timeline keep their current design. Do not copy the original generated-function or unrestricted Node runtime paths into the privileged shell.
 
 Weight-training workers follow when the episode data and evaluation path are ready. The existing small ternary trainer can support a measured routing/controller experiment; the saved single-tensor reconstruction experiment does not by itself establish new full-model task knowledge or a loadable Ollama checkpoint. Whole-model training needs its own dataset, runtime adapter, quality gate and rollback.
 
