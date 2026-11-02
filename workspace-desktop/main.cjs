@@ -397,9 +397,10 @@ async function startAgent042(goal,model){
  try{await api('/api/learning/begin',{id:job.id,taskKind:'experiment-task',goal,model});job.episodeStarted=true;const result=await agent042.agent({goal,model,job,planTools,command,onTurn:(turn,phase)=>emit('run',{active:true,turn,phase,goal,model})});outcome='verified';activity('complete',result.summary);emit('answer',result.summary);await api('/api/event',{kind:'agent_completed',data:{goal,model,...result,episodeId:job.id}});}catch(e){activity(job.cancelled?'stopped':'error',e.message);emit('answer',e.message);}finally{if(job.episodeStarted)await api('/api/learning/end',{id:job.id,status:job.cancelled?'cancelled':outcome}).catch(()=>{});if(captureContext===job)captureContext=null;if(run===job)run=null;emit('run',{active:false});await refresh();}
 }
 async function startAgent(goal,model){
+  const launchGeneration043=agencyLaunchGeneration043;
   if(pendingAgency043||agency043?.busy())throw Error('A Java task owns this workspace. Finish or stop it first.');
   if(asksAgent042(goal))return startAgent042(goal,model);
-  const alignmentSelection=await api('/api/alignment041/state',{});
+  const alignmentSelection=await api('/api/alignment041/state',{});if(launchGeneration043!==agencyLaunchGeneration043)return{stopped:true};
   if(asksAlignment041(goal,!!alignmentSelection.selectedRegistrationId))return startAlignment041Agent(goal,model);
   if(asksRuntime040(goal))return startRuntime040Agent(goal,model);
   if(asksSelf(goal)||knowledgeBridge.selected()&&asksResearch(goal))return startKnowledgeAgent(goal,model);
@@ -409,7 +410,7 @@ async function startAgent(goal,model){
   if(taskMode(goal).needsCreation)return startCreationAgent(goal,model);
   if(taskMode(goal).needsTracking)return startTrackingAgent(goal,model);
   if(taskMode(goal).needsGoal)return startGoalAgent(goal,model);
-  if(!taskMode(goal).needsScene&&process.env.FRAYNIX_WORKSPACE_LEGACY_CHAT!=='1'){if(run||learningJob||manualBusy||pendingAgency043)throw Error('Finish the current operation first');const generation=agencyLaunchGeneration043;pendingAgency043++;emit('run',{active:true,goal,model,phase:'Starting the Java task'});try{const settings=await window.webContents.executeJavaScript('window.agency043View?.settings()||({visionModel:""})');if(generation!==agencyLaunchGeneration043)return{stopped:true};return await agency043.begin({goal,model,visionModel:settings.visionModel||'',artifactId:currentArtifact?.id||''});}finally{pendingAgency043--;if(!agency043.busy())emit('run',{active:false});}}
+  if(!taskMode(goal).needsScene&&process.env.FRAYNIX_WORKSPACE_LEGACY_CHAT!=='1'){if(run||learningJob||manualBusy||pendingAgency043)throw Error('Finish the current operation first');const generation=launchGeneration043;pendingAgency043++;emit('run',{active:true,goal,model,phase:'Starting the Java task'});try{const settings=await window.webContents.executeJavaScript('window.agency043View?.settings()||({visionModel:""})');if(generation!==agencyLaunchGeneration043)return{stopped:true};return await agency043.begin({goal,model,visionModel:settings.visionModel||'',artifactId:currentArtifact?.id||''});}finally{pendingAgency043--;if(!agency043.busy())emit('run',{active:false});}}
   if(run||learningJob)throw Error('A task is running. Stop it before starting another.');
   if(typeof goal!=='string'||!goal.trim()||goal.length>8000)throw Error('Enter a request up to 8000 characters');
   const {needsScene,needsComparison,needsCalibration=false,needsObserver=false,needsBody=false,needsTransfer=false}=taskMode(goal);
