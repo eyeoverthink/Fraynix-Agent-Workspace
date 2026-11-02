@@ -1,0 +1,11 @@
+{
+  "edition": "042",
+  "baseline": "d35c4951a397bce9898bf197b406df3cc5e9d027",
+  "scope": "One integrated workspace backed by a persistent Java-owned agent. No new external dependency, framework, separate editor or additional user-facing window.",
+  "ownership": "One Java host holds the project lock before constructing stores. Desktop reconnects using a private loopback capability and exact installed-build identity. Java owns identity, clocks, heartbeat, observation freshness, appraisal, neural checkpoint, witness and recovery. Existing Java goals and policy evaluation remain authoritative.",
+  "lifecycle": "Production desktop exit detaches its single lease, stops camera capture and closes host-only surfaces; pure Java tasks can continue. Explicit runtime stop requires quiescent tasks. Restart restores the stable agent ID, creates a new boot ID and records the gap. Monotonic values never span boots. No silent replay of uncertain actions or sensor activation.",
+  "brain": "Reuse the headless Java nervous system and existing durable BrainService. Actual new source/goal evidence feeds neural sensory populations; resource appraisal changes bounded background work. Activity/plasticity is not proof of improved skill, language-model weight training, emotion experience or consciousness.",
+  "witness": "Original source identities, timestamps, input/output hashes, result qualification and causal decisions remain distinct. Append-only integrity does not prove external truth. Missing/stale observations stay unknown; retained estimates are labelled recorded/predicted, never invented fresh measurements.",
+  "validation": "Clock rollback/restart, exact state recovery, journal corruption, single owner/lease, stale source and appraisal ablations, actual neural persistence, actual pure-Java task progress without desktop, reconnect/restart, real UI/report/export and actual CPU-only local-model checks. New results do not retune041physical gates or overwrite001–041.",
+  "publication": "New linked README042, actual camera-hidden/labelled screenshots, offline guide, Obsidian map, exact original test evidence, notes, actual main/tag push and direct remote verification. No private project state, camera originals, model weights or capability tokens in Git. Serial heavy validation."
+}
