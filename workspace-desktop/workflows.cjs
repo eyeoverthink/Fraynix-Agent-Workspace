@@ -12,7 +12,7 @@ function createWorkflows({api,canvas,openArtifact,emit,refresh,activity,getDatas
  async function audit(effect){
   if(effect.kind==='workflow.graph-audit'){
    const a=await api('/api/artifact/read',{id:effect.report.id});if(a.version!==effect.report.version)throw Error('Graph report version changed');emit('view','preview');await openArtifact(a);
-   const checks=await canvas.test([{selector:'#graph-table tbody tr',expectCount:effect.rowCount},{selector:'#graph-line',expectCount:1}]);if(checks.some(c=>!c.passed))throw Error('Graph report failed its actual canvas checks');
+   const steps=[{selector:'#graph-table tbody tr',expectCount:effect.rowCount},{selector:'#graph-line',expectCount:1}],checks=await canvas.test(steps);const receipt=await api('/api/artifact/test',{id:a.id,version:a.version,steps,checks});if(!receipt.passed)throw Error('Graph report failed its actual canvas checks');
    const observed=await canvas.isolated(`(()=>{const e=document.querySelector('#graph-line'),r=e.getBoundingClientRect(),c=getComputedStyle(e),v=e.closest('svg').viewBox.baseVal;return {data:JSON.parse(document.querySelector('#graph-data').textContent),rows:[...document.querySelectorAll('#graph-table tbody tr')].map(r=>[...r.querySelectorAll('td')].map(c=>c.textContent)),points:Array.from({length:e.points.numberOfItems},(_,i)=>{const p=e.points.getItem(i);return[p.x,p.y]}),visible:r.width>0&&r.height>0&&c.display!=='none'&&c.visibility!=='hidden'&&Number(c.opacity)>0&&c.stroke!=='none'&&Number(c.strokeOpacity)>0&&parseFloat(c.strokeWidth)>0,viewBox:[v.x,v.y,v.width,v.height]}})()`);
    return{id:a.id,version:a.version,...observed};
   }
@@ -27,8 +27,8 @@ function createWorkflows({api,canvas,openArtifact,emit,refresh,activity,getDatas
  }catch(e){if(!stopped)activity('workflow-error',e.message);}finally{busy=false;}}
  function bindings(args){const source=getDataset();if(!args.datasetId){if(!source)throw Error('Select observation data in Data tasks first');args={...args,datasetId:source.datasetId,datasetVersion:source.version};}return args;}
  async function execute(command,args={},context){let w;
-  if(command==='workflow.start'){args=bindings({...args});const scene=getScene();if(scene&&!args.sceneId&&!args.parameters)args={...args,sceneId:scene.id,expectedVersion:scene.version};w=await api('/api/workflows/start',args);}
-  else if(command==='workflow.reuse'){w=await api('/api/workflows/reuse',bindings({...args}));}
+  if(command==='workflow.start'){args=args.graph?{...args}:bindings({...args});const scene=args.graph?null:getScene();if(scene&&!args.sceneId&&!args.parameters)args={...args,sceneId:scene.id,expectedVersion:scene.version};w=await api('/api/workflows/start',args);}
+  else if(command==='workflow.reuse'){w=await api('/api/workflows/reuse',args.worldBinding?{...args}:bindings({...args}));}
   else{const id=args.id||context?.ownedWorkflowId||latest?.id;if(!id)throw Error('No workflow selected');if(command==='workflow.cancel'){const current=await api('/api/workflows/read',{id});if(current.currentChild?.id)await getGoals()?.cancelGeneration(current.currentChild.id);w=await api('/api/workflows/cancel',{id});}else if(command==='workflow.resume')w=await api('/api/workflows/resume',{id});else if(command==='workflow.read'){const until=Date.now()+4500;do{w=await api('/api/workflows/read',{id});if(w.status!=='running'||context?.cancelled)break;await sleep(200);}while(Date.now()<until);}else throw Error('Unknown workflow command');}
   if(context)context.ownedWorkflowId=w.id;await update(w);if(command!=='workflow.read')await refresh();return w;
  }

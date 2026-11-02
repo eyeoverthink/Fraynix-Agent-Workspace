@@ -48,7 +48,7 @@ final class SkillGraph046 {
                 if(!n.getString("unit").equals("m")||!n.getString("frame").equals("native3d"))throw new IllegalArgumentException("Procedure input type must be metres/native3d");
                 var p=selected(goals,n.getJSONObject("skill"));
                 for(String k:List.of("forceLimitN","torqueLimitNm")){
-                    if(!(n.get(k) instanceof Number num)||!Double.isFinite(num.doubleValue())||num.doubleValue()<=0||num.doubleValue()>p.getJSONObject("defaults").getDouble(k))throw new IllegalArgumentException("Graph cannot increase retained wrench authority: "+k);
+                    if(!(n.get(k) instanceof Number num)||!Double.isFinite(num.doubleValue())||num.doubleValue()<(k.equals("forceLimitN")?2:0)||num.doubleValue()>p.getJSONObject("defaults").getDouble(k))throw new IllegalArgumentException("Graph cannot increase retained wrench authority: "+k);
                 }
                 // Geometry is checked against the actual incoming frame immediately before admission.
                 if(n.getJSONArray("targets").length()<2||n.getJSONArray("targets").length()>4)throw new IllegalArgumentException("Two to four distinct native targets required");

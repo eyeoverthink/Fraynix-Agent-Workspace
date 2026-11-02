@@ -12,7 +12,7 @@ public final class WorkflowRunner implements AutoCloseable {
     static final String PROCEDURE="evidence-workflow-v1";
     private static final List<String> STAGES=List.of("data","physics","creation");
     private final GoalRunner goals;private final MeasurementStore measurements;private final SceneStore scenes;private final WorkspaceStore artifacts;
-    private final SkillGraph046.ContractMemo graphMemo=new SkillGraph046.ContractMemo();private long graphClock=System.nanoTime();
+    private final SkillGraph046.ContractMemo graphMemo=new SkillGraph046.ContractMemo();private long graphClock=System.nanoTime(),graphBudgetMs,graphBudgetCheckpoint;private String graphBudgetId="";
     private final SchemaRegistry schemas=new SchemaRegistry();private final FactoryWorld world;private final WorldCheckpointStore checkpoint;
     private final ScheduledExecutorService worker=Executors.newSingleThreadScheduledExecutor(r->{var t=new Thread(r,"java-workflow-runner");t.setDaemon(true);return t;});private boolean closed;
     public WorkflowRunner(Path root,GoalRunner goals,MeasurementStore measurements,SceneStore scenes,WorkspaceStore artifacts) throws Exception {
@@ -121,7 +121,7 @@ public final class WorkflowRunner implements AutoCloseable {
         String id=UUID.randomUUID().toString();var stages=new JSONArray();for(Object raw:def.getJSONArray("nodes")){var n=(JSONObject)raw;stages.put(new JSONObject().put("name",n.getString("id")).put("kind",n.getString("kind")).put("status","pending"));}
         var w=new JSONObject().put("id",id).put("graph",def).put("graphSha256",WorldFrames.hash(def)).put("graphCodeSha256",SkillGraph046.code()).put("worldBinding",binding).put("title",title).put("request",request).put("modelName",model).put("saveSkillName",name).put("reviewEachNode",input.optBoolean("reviewEachNode")).put("status","running").put("step",stages.getJSONObject(0).getString("name")).put("stageIndex",0).put("stages",stages).put("resumes",0).put("graphRemainingMs",1_200_000L).put("createdAt",Instant.now()).put("history",new JSONArray()).put("auditHistory",new JSONArray()).put("diagnostics",new JSONArray()).put("memo",graphMemo.metrics());
         if(skill!=null)w.put("skill",new JSONObject().put("id",skill.getString("id")).put("name",skill.getString("name")).put("version",skill.getInt("version")));
-        goals.reserveWorkflow(id);graphClock=System.nanoTime();try{change(w,"Typed graph, exact verified procedures, source and wrench ceilings frozen before any effect");}catch(Exception e){goals.releaseWorkflow(id);throw e;}return view(w);
+        goals.reserveWorkflow(id);resetGraphClock(w);try{change(w,"Typed graph, exact verified procedures, source and wrench ceilings frozen before any effect");}catch(Exception e){goals.releaseWorkflow(id);throw e;}return view(w);
     }
     public synchronized JSONObject graphCatalog() throws Exception {
         var all=new JSONArray();for(Object raw:goals.procedures()){var p=(JSONObject)raw;if(p.getString("kind").equals(WorldPlan.PROCEDURE)){try{SkillGraph046.selected(goals,SkillGraph046.ref(p));all.put(new JSONObject().put("skill",SkillGraph046.ref(p)).put("defaults",p.getJSONObject("defaults")));}catch(Exception invalid){all.put(new JSONObject().put("name",p.getString("name")).put("version",p.getInt("version")).put("unavailable",invalid.getMessage()));}}}
@@ -135,9 +135,13 @@ public final class WorkflowRunner implements AutoCloseable {
         for(int i=0;i<w.getJSONArray("stages").length()-1;i++){var s=stage(w,i);if(!s.has("output")){missing=true;continue;}if(missing)throw new IllegalStateException("Graph has an outcome before its prerequisite");var actual=SkillGraph046.outcome(goals,w.getString("id"),goals.read(s.getString("goalId")),graphSource(w,i));var output=s.getJSONObject("output");SkillGraph046.verifySeal(output,previous);if(!SkillGraph046.seal(actual,previous).similar(output))throw new IllegalStateException("Original graph outcome changed");previous=output.getString("sha256");}
         w.put("memo",graphMemo.metrics());
     }
+    private void resetGraphClock(JSONObject w){graphBudgetId=w.getString("id");graphBudgetMs=w.getLong("graphRemainingMs");graphBudgetCheckpoint=graphClock=System.nanoTime();}
+    private void chargeGraphClock(JSONObject w){
+        if(!graphBudgetId.equals(w.getString("id")))resetGraphClock(w);long now=System.nanoTime(),elapsed=Math.max(0,(now-graphClock)/1_000_000);graphClock=now;graphBudgetMs=Math.max(0,graphBudgetMs-elapsed);w.put("graphRemainingMs",graphBudgetMs);if(graphBudgetMs==0)throw new IllegalStateException("Graph exhausted its retained1200seconds of awake execution");
+    }
     private void tickGraph(JSONObject w){
         try{
-            long now=System.nanoTime(),elapsed=Math.max(0,(now-graphClock)/1_000_000);graphClock=now;w.put("graphRemainingMs",Math.max(0,w.getLong("graphRemainingMs")-elapsed));if(w.getLong("graphRemainingMs")==0)throw new IllegalStateException("Graph exhausted its retained1200seconds of awake execution");
+            chargeGraphClock(w);if(System.nanoTime()-graphBudgetCheckpoint>=1_000_000_000L){save(w);graphBudgetCheckpoint=System.nanoTime();}
             if(w.getString("step").equals("audit"))return;
             if(w.getString("step").equals("complete")){completeGraph(w);return;}
             int index=w.getInt("stageIndex");var s=stage(w,index);var n=w.getJSONObject("graph").getJSONArray("nodes").getJSONObject(index);
@@ -184,7 +188,7 @@ public final class WorkflowRunner implements AutoCloseable {
         graphVerified(w);var a=graphArtifact(w);var audit=w.getJSONObject("audit");if(!audit.getBoolean("passed")||!audit.getJSONObject("artifact").similar(Creation.reference(a))||!audit.getString("dataSha256").equals(WorldFrames.hash(GraphReport046.data(w))))throw new IllegalStateException("Graph audit no longer matches original outcomes");
         SkillGraph046.current(goals,graphSource(w,w.getInt("stageIndex")));stage(w,w.getInt("stageIndex")).put("status","completed");
         double nativeTime=0;for(int i=0;i<w.getInt("stageIndex");i++)nativeTime+=stage(w,i).getJSONObject("output").getJSONObject("metrics").getDouble("timeS");
-        w.put("metrics",new JSONObject().put("stages",w.getJSONArray("stages").length()).put("worldCommits",w.getInt("stageIndex")).put("nativeTimeS",nativeTime).put("awakeElapsedMs",1_200_000-w.getLong("graphRemainingMs")).put("modelCalls",0).put("cells",audit.getInt("cells")).put("maxPlotError",audit.getDouble("maxPlotError")));
+        chargeGraphClock(w);w.put("metrics",new JSONObject().put("stages",w.getJSONArray("stages").length()).put("worldCommits",w.getInt("stageIndex")).put("nativeTimeS",nativeTime).put("awakeElapsedMs",1_200_000-w.getLong("graphRemainingMs")).put("modelCalls",0).put("cells",audit.getInt("cells")).put("maxPlotError",audit.getDouble("maxPlotError")));
         if(!w.getString("saveSkillName").isEmpty()){
             var p=new JSONObject().put("kind",SkillGraph046.KIND).put("sourceWorkflowId",w.getString("id")).put("graph",w.getJSONObject("graph")).put("graphSha256",w.getString("graphSha256")).put("graphCodeSha256",w.getString("graphCodeSha256")).put("report",w.getJSONObject("report")).put("defaults",new JSONObject().put("title",w.getString("title")).put("request",w.getString("request")).put("modelName",w.getString("modelName")).put("reviewEachNode",w.getBoolean("reviewEachNode"))).put("scope",SkillGraph046.SCOPE);
             w.put("savedSkill",goals.retainWorkflow(p,w.getString("saveSkillName")));
@@ -196,7 +200,7 @@ public final class WorkflowRunner implements AutoCloseable {
         var s=stage(w,w.getInt("stageIndex"));recoverPointer(w,s);
         if(s.has("goalId")){var g=goals.read(s.getString("goalId"));if(g.getString("status").equals("interrupted"))goals.controlOwned(w.getString("id"),g.getString("id"),false);else if(g.getString("status").equals("cancelled"))throw new IllegalStateException("Graph child was cancelled; start a new graph");else if(g.getString("status").equals("completed"))SkillGraph046.outcome(goals,w.getString("id"),g,s.getJSONObject("source"));}
         else SkillGraph046.current(goals,graphSource(w,w.getInt("stageIndex")));
-        w.put("status","running").put("resumes",w.getInt("resumes")+1);w.remove("claim");graphClock=System.nanoTime();change(w,"Explicit continuation keeps the same owned child, committed outcomes and remaining awake-time budget");return view(w);
+        w.put("status","running").put("resumes",w.getInt("resumes")+1);w.remove("claim");resetGraphClock(w);change(w,"Explicit continuation keeps the same owned child, committed outcomes and remaining awake-time budget");return view(w);
     }
     private JSONObject reuseGraph(JSONObject input) throws Exception {
         SpatialScene.keys(input,"name","version","worldBinding","request","title","modelName","saveSkillName","reviewEachNode");JSONObject chosen=null;for(Object raw:goals.procedures()){var p=(JSONObject)raw;if(p.getString("name").equals(input.getString("name"))&&p.getInt("version")==input.getInt("version"))chosen=p;}
