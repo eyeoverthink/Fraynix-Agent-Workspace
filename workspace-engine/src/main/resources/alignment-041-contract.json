@@ -1,0 +1,32 @@
+{
+  "edition": "041",
+  "baseline": "b90ed2015201e94e559c14a4cedeadb6ffb7f160",
+  "scope": "Measured fixed-camera mat-plane calibration, source-qualified metric plane-to-native registration and genuinely new manual-paced physical movement/occlusion trials. Original038 algorithms/results and040 sources remain distinguishable; no native actuation, semantic recognition, object height reconstruction or LLM weight training.",
+  "priorEvidence": "Known038 lighter-versus-tape-housing confusion and failed displacement/uncertainty are development history, not new performance evidence. No041 camera frame or numeric result inspected before this declaration. User confirms same fixed top-down webcam,12x12inch mat, dual-unit tape and black lighter ready.",
+  "registration": {
+    "fit": "Finite noncollinear measured mat-plane landmarks mapped to explicit native-plane landmarks. Similarity fit has declared scale, handedness and basis; native placement is operator-declared, not measured room pose. Record full source/frame/calibration/world hashes and exact annotations before scoring.",
+    "independentChecks": "At least three separate withheld image landmarks, not calibration corners or fitting points, with known metric positions from printed grid/tape. Fit points alone cannot certify accuracy. Independent tape length is separately checked.",
+    "maxFitRmsM": 0.003,
+    "maxWithheldPointErrorM": 0.005,
+    "maxTapeLengthErrorM": 0.005,
+    "scaleRange": [0.98, 1.02],
+    "sourceGuard": "Camera/mat reference consistency and exact world revision/head required. Reference loss or geometry/source mismatch suspends registered measurement. Alignment changes are new immutable records, not rewrites. Unknown object height/contact remain unknown."
+  },
+  "tracker": {
+    "method": "New versioned immutable target appearance with RGB/edge/contrast evidence, explicit negative/background exemplars, mat-constrained candidate search and bounded recovery. Original038 matcher/filter retained. No adapting target template during scored trials.",
+    "gatePolicy": "Candidate scores/ambiguity and search bounds committed in source before fresh physical trial scoring. Same source-specific reference geometry; no replacing first failed outputs or tuning on reserved footage.",
+    "maximumRateHz": 5,
+    "maximumFramesPerTrial": 300,
+    "clock": "Actual ImageCapture completion seconds on host monotonic clock, no invented sensor exposure timestamps. Single-flight uploads; preserve source pixels privately, hashes and exact replay."
+  },
+  "trials": {
+    "pace": "Manual phases with user acknowledgements, no timed race. Start/end and hidden/revealed annotations retained as source-sequence boundaries, not inferred from predictions. First eight designated start/end/revealed frames are fixed evaluation windows, never selected favourable later samples.",
+    "stationary": "At least12 post-seed measurements; all measured, RMS jitter<=0.003m. Jitter is not absolute accuracy.",
+    "movement": "Same metal end aligned at user-declared inch marks, orientation kept parallel and hand removed for each hold. At least8start and8end frames; every endpoint frame must be measured. Independent physical displacement=abs(mark difference)*0.0254m. Vector error<=0.010m. Preserve failed/missed setup as failure or unscored, not success.",
+    "occlusion": "Target visible in8start frames; user covers only target, then acknowledges hidden; at least8hidden frames with zero accepted target measurements; user uncovers then acknowledges visible; at least8revealed frames,>=80% measured recovery and recovered mean position within0.010m of initial. Raw local frames must corroborate user phase labels; incorrect cover/camera/reference conditions remain failed or unscored.",
+    "uncertainty": "Report prediction/model radii as uncalibrated. No promotion to empirical coverage without separate independently referenced footage.",
+    "candidateLock": "Commit implementation and observer/evaluator hashes before requesting fresh scored physical trials. Earlier setup images may support annotation/development only. Each first physical result is immutable and retained."
+  },
+  "privacy": "Private user originals stay outsideGit and are never uploaded to web/model providers. New recordings in a distinct project. Publication uses numeric-only camera-hidden captures or explicitly labelled analytic software-camera fixtures; no edited private footage for publication.",
+  "acceptance": "Actual Java geometry/tracker/persistence/source-guard tests, actual UI/manual-phase/export/report/restart checks, separate actual CPU-only local-model read/report, truthful first physical results, source/archive audits, new linked README041/screenshots/offline guide/Obsidian, memory/log updates, actual main/readme-041 push and direct remote verification. One heavy validator at a time."
+}
