@@ -48,4 +48,6 @@ Numbered editions preserve dated system behavior and evidence. The root [README]
 
 | [039](../../README-039.md) | 2026-11-01 | Operational self-model, persistent human-associated objects and actual background research | [Viewer](039/index.html) · [evidence](039/verification.json) · [operation](../OBJECT_KNOWLEDGE.md) |
 
-Latest implementation/documentation edition: **039**. Earlier snapshots remain intact. See [sequence policy](README_SEQUENCE.md) and [manifest](editions.json).
+| [040](../../README-040.md) | 2026-11-01 | Shared Java spatial runtime, integrated source-qualified views and checked chat reports | [Viewer](040/index.html) · [evidence](040/verification.json) · [operation](../SHARED_SPATIAL_RUNTIME.md) |
+
+Latest implementation/documentation edition: **040**. Earlier snapshots remain intact. See [sequence policy](README_SEQUENCE.md) and [manifest](editions.json).

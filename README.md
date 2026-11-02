@@ -2,9 +2,9 @@
 
 **A local visual environment for agents to browse, create runnable artifacts, test behavior and reuse verified skills.**
 
-> **Latest implementation: [README039 — operational self-model and persistent object knowledge](README-039.md)** · [Offline guide](docs/readmes/039/index.html) · [Operation](docs/OBJECT_KNOWLEDGE.md) · [Edition history](docs/readmes/INDEX.md)
+> **Latest implementation: [README040 — shared Java spatial runtime and integrated views](README-040.md)** · [Offline guide](docs/readmes/040/index.html) · [Operation](docs/SHARED_SPATIAL_RUNTIME.md) · [Edition history](docs/readmes/INDEX.md)
 
-Inspect actual tools and host state, retain human-associated object evidence, and let local chat research real references in a separate browser with restart recovery. [Screenshots, evidence boundaries and next gates](README-039.md).
+Inspect the same source identities through linked perspective/orthographic cameras, the actual original game renderer, separate observation planes and checked local-model reports. [Screenshots, continuity and next gates](README-040.md).
 
 The spatial proof and next independent-capture gates are documented in the [spatial contract](docs/SPATIAL_WORLD.md) and the [world-model frontier assessment](docs/WORLD_MODEL_FRONTIERS.md), including Genie, persistent3D capture, physics-aware prediction and the source-qualified local scene/manipulation milestone.
 
@@ -18,9 +18,9 @@ The app includes a real browser, live creation canvas, editable source, versione
 
 Local `gpt-oss:20b` is the verified default for the first agent fixture. The custom FRAYNIX 3B trial returned an Ollama native-format error; advertised tool capability alone does not establish task reliability. You can select other eligible installed models explicitly.
 
-![Actual edition038 numeric report](docs/readmes/038/images/tabletop-numeric-report-038.png)
+![Actual edition040 integrated native views](docs/readmes/040/images/spatial040-linked-native.png)
 
-Actual edition038 numeric report shown above. Display checks and physical accuracy are separate; the new physical displacement trial remains unvalidated. Earlier observation/native behavior remains documented in [edition036](README-036.md). Earlier October30 body/scene/file workflows remain preserved. Native actuation, decoded video, import/replication, Java/desktop regressions and local-agent evidence are recorded in [edition 015 verification](docs/readmes/015/verification.json). The previous [real-data fit](README-013.md) remains rejected.
+Actual edition040 linked views shown above, using an explicitly labelled analytic native control. Open **Spatial → Linked views** for shared selection, original-game inspection, separate observation planes, JSON export and checked local-model reports. Display checks and physical accuracy are separate; edition038 physical displacement/uncertainty remain unvalidated. Earlier observation/native behavior remains documented in [edition036](README-036.md). Earlier October30 body/scene/file workflows remain preserved. Native actuation, decoded video, import/replication, Java/desktop regressions and local-agent evidence are recorded in [edition015 verification](docs/readmes/015/verification.json). The previous [real-data fit](README-013.md) remains rejected.
 
 ## Verify
 

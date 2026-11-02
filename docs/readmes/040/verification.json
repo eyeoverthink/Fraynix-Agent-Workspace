@@ -1,0 +1,93 @@
+{
+  "date": "2026-11-01",
+  "passed": true,
+  "sourceBaseline": "dfadfe7e6fb8fb33031a72c2e8fe83ac94fcaf19",
+  "java": {
+    "passed": true,
+    "tests": 351,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "classes": 77,
+    "sourceCommit": "0a5748b20728b767a9d539a487e66a9f5548e729",
+    "scope": "Complete offline clean-checkout Gradle check, serial class forks, max512MiB test heap, one worker. Includes original game/native/perception/neural regressions plus10 new spatial tests.",
+    "finalSourceCommit": "dfadfe7e6fb8fb33031a72c2e8fe83ac94fcaf19",
+    "finalSourceQualification": "After the complete351-test baseline, one Java adapter retains exact pending goal/run metadata and selection checks; its test adds a changed-lease assertion. All other Java implementation sources remain exact. Final10 focused spatial tests and actual UI/model regressions are recorded separately."
+  },
+  "newJavaChecks": 10,
+  "desktopUnits": 100,
+  "newDesktopChecks": 6,
+  "actualUI": {
+    "passed": true,
+    "checks": 10
+  },
+  "actualModel": {
+    "passed": true,
+    "model": "gpt-oss:20b",
+    "checks": 3,
+    "compute": "CPU-only agent planning,4threads; original renderer unchanged"
+  },
+  "regressions": {
+    "passed": true,
+    "sourceCommit": "dfadfe7",
+    "fullJavaBaseline": "0a5748b20728b767a9d539a487e66a9f5548e729",
+    "finalFocusedJava": 10,
+    "desktopUnits": 100,
+    "groups": {
+      "spatial-runtime040-integration": 10,
+      "integration": 12,
+      "broader-validation": 45,
+      "knowledge-integration": 8,
+      "brain-game-integration": 10,
+      "live-spatial-runtime040": 3
+    },
+    "actualUIAssertions": 85,
+    "actualModelAssertions": 3,
+    "responsive": {
+      "passed": true,
+      "date": "2026-11-02T01:38:29.226Z",
+      "project": "C:\\Users\\eyeka\\AppData\\Local\\Temp\\fraynix-responsive040-3rKwGG",
+      "checks": [
+        {
+          "width": 1600,
+          "noLinkedPaneOverflow": true,
+          "columns": "359px 359px",
+          "views": 4,
+          "selectedId": "430773d6-c169-3a55-a432-2c2f3c4a7647"
+        },
+        {
+          "width": 1100,
+          "noLinkedPaneOverflow": true,
+          "columns": "407px",
+          "views": 4,
+          "selectedId": "430773d6-c169-3a55-a432-2c2f3c4a7647"
+        }
+      ],
+      "scope": "Actual Electron linked native view at desktop widths1600 and1100. Mobile app support is not claimed."
+    },
+    "scope": "Separate matching source checkout. Actual original game/OpenGL, native physics, canvas/browser, human-associated object memory and CPU-only gpt-oss:20b planning. Labelled analytic controls; no private-camera performance test."
+  },
+  "sourceFiles": 759,
+  "interruption": {
+    "status": "interrupted-system-restart",
+    "date": "2026-11-01",
+    "model": "gpt-oss:20b",
+    "completedTasks": 1,
+    "completedTaskGoals": [
+      "Inspect the shared spatial runtime and its selected native entity. Use the top orthographic view, preserve the exact source snapshot, and open the checked linked-view report. Do not move anything."
+    ],
+    "lastEvent": {
+      "at": "2026-11-02T00:53:34.449924500Z",
+      "kind": "tool_completed",
+      "tool": "runtime.read"
+    },
+    "windows": {
+      "unexpectedShutdown": true,
+      "bugcheckCode": 0,
+      "causeEstablished": false
+    },
+    "limits": "No passing whole live-model suite exists for this attempt. Nine Java,100 desktop and10 UI checks preceded the restart. Native model task completed, game task interrupted after read. CPU-only/four-thread plan requests for repeat; no global Ollama settings changed."
+  },
+  "physicalAccuracy": "Edition038 displacement/uncertainty remain UNVALIDATED. No new physical-camera performance claim.",
+  "scope": "Source-qualified integrated views, coherent original game, read-only typed local-model inspection/reporting and persistence. No 3D reconstruction, semantic recognition, coordinate registration, new physical solver or language-model weight training."
+}

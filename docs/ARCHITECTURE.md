@@ -1,5 +1,9 @@
 # Fraynix Agent Workspace system architecture
 
+## Edition040: shared Java spatial runtime and integrated views
+
+Java adapts actual source identities/poses from native ledger/live ownership, original game and separate recorded mat observations. It computes camera projection, clipping and picking; the shell draws integrated linked views and matching original game raster. Typed read/project/report tools pin one source and verify an actual saved artifact. Coordinate frames, action authority and unknown depth remain explicit. See [operation](SHARED_SPATIAL_RUNTIME.md) and [README040](../README-040.md).
+
 ## Edition039: operational self-model and persistent object knowledge
 
 Java registers actual host capabilities and injects compact current state into every planning request. Durable human-associated object identities retain original observation/native provenance. A lease-fenced Java job coordinates one separate unprivileged browser worker for actual bounded public research, cached citations and checked reports. Human labels, observations, native state and untrusted web references remain distinct. See [operation and limits](OBJECT_KNOWLEDGE.md) and [README039](../README-039.md).

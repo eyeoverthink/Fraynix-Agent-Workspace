@@ -1,0 +1,79 @@
+{
+  "edition": 40,
+  "modules": [
+    {
+      "id": "snapshot",
+      "name": "Shared source snapshot",
+      "summary": "Java preserves IDs, source clocks, units and committed/live ownership.",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/SpatialRuntime040.java",
+      "status": "verified"
+    },
+    {
+      "id": "projection",
+      "name": "Java camera and picking",
+      "summary": "Quaternion corners, clipping, camera bases and source-identity picking.",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/SpatialProjection040.java",
+      "status": "verified"
+    },
+    {
+      "id": "game",
+      "name": "Actual original game adapter",
+      "summary": "Owner-thread transforms/components and matching original raster. Game remains an XY source.",
+      "source": "src/main/java/runtime/SpatialGameSnapshot.java",
+      "status": "verified"
+    },
+    {
+      "id": "chat",
+      "name": "Typed local-model inspection",
+      "summary": "Read, pin, choose a camera and open a host-checked exact-source report.",
+      "source": "workspace-desktop/spatial-runtime040.cjs",
+      "status": "verified"
+    },
+    {
+      "id": "view",
+      "name": "Integrated linked views",
+      "summary": "Existing workspace layout, shared selection, native/observation qualifications and explicit game controls.",
+      "source": "workspace-desktop/renderer/spatial-runtime040.js",
+      "status": "verified"
+    },
+    {
+      "id": "report",
+      "name": "Portable report and JSON",
+      "summary": "Bounded model summary, complete compressed snapshot and independent checksum inspection.",
+      "source": "scripts/Inspect-Spatial040.cjs",
+      "status": "verified"
+    },
+    {
+      "id": "registration",
+      "name": "Explicit frame registration",
+      "summary": "Measure landmarks/residuals before relating camera-plane coordinates to native space.",
+      "source": "docs/SHARED_SPATIAL_RUNTIME.md",
+      "status": "planned"
+    },
+    {
+      "id": "perception",
+      "name": "New measured physical cases",
+      "summary": "Improve target/background discrimination and evaluate new motion/occlusion footage before promotion.",
+      "source": "docs/TABLETOP_OBSERVER.md",
+      "status": "planned"
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "docs/readmes/040/images/spatial040-linked-native.png",
+      "caption": "Actual native four-camera identity control ·2026-11-01"
+    },
+    {
+      "path": "docs/readmes/040/images/spatial040-original-game.png",
+      "caption": "Actual original renderer and selected player after bounded movement ·2026-11-01"
+    },
+    {
+      "path": "docs/readmes/040/images/spatial040-observation-plane.png",
+      "caption": "Separate labelled analytic observation plane, unknown native alignment ·2026-11-01"
+    },
+    {
+      "path": "docs/readmes/040/images/spatial040-chat-native.png",
+      "caption": "Actual local gpt-oss:20b source/projection/report task ·2026-11-01"
+    }
+  ]
+}

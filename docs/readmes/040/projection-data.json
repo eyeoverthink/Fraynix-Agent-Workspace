@@ -1,0 +1,504 @@
+{
+  "label": "LABELLED040 analytic single-box control; actual Java projection output",
+  "summary": {
+    "associations": [],
+    "entityCount": 2,
+    "selectedId": "430773d6-c169-3a55-a432-2c2f3c4a7647",
+    "entities": [
+      {
+        "sourceId": "box",
+        "shape": "box",
+        "size": [
+          0.8,
+          0.8,
+          0.8
+        ],
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "dynamic": true,
+        "id": "430773d6-c169-3a55-a432-2c2f3c4a7647",
+        "label": "Analytic identity box",
+        "position": [
+          0,
+          0.4,
+          0
+        ],
+        "velocity": [
+          0,
+          0,
+          0
+        ],
+        "properties": {
+          "source": {
+            "note": "Declared single box and floor for independent four-view selection checks, not real footage.",
+            "kind": "synthetic",
+            "physicalProperties": "declared"
+          },
+          "massKg": 1,
+          "friction": 0.5
+        },
+        "angularVelocity": [
+          0,
+          0,
+          0
+        ]
+      }
+    ],
+    "snapshotHash": "b34149fca9adcc691278f3555d5b71ccd9c55c73fe0e96eaef92adfaeadb4694",
+    "source": {
+      "phase": "committed-world-head",
+      "worldId": "6663e7cb-22f6-4a3d-bbf8-0efc53763740",
+      "kind": "world",
+      "pending": null,
+      "tick": 0,
+      "units": "m",
+      "revision": 0,
+      "coordinateFrame": "right-handed-y-up",
+      "livePendingAvailable": false,
+      "sourceSha256": "7eeab174e3acb337ff1f21eb41b72228b96d9750911f73416bd29bc198a5d027",
+      "headHash": "d7586c3c84dcd72d6f911b5db79c12c8291eed4aba9add1725056fe880ca6d75",
+      "pendingOwned": false,
+      "dimensions": 3
+    },
+    "limits": "Source-qualified native simulation. Declared properties are not physical observations; viewing/selecting cannot actuate this world."
+  },
+  "views": {
+    "perspective": {
+      "entityCount": 2,
+      "polygons": [
+        {
+          "face": 5,
+          "depth": 3.6,
+          "dynamic": false,
+          "id": "cd5dcf99-3946-3c83-8551-c4ffb8578c5e",
+          "layer": 0,
+          "selected": false,
+          "points": [
+            [
+              640,
+              400
+            ],
+            [
+              640,
+              130.88632850389791
+            ],
+            [
+              263.70056526600433,
+              60.20908461794161
+            ],
+            [
+              0,
+              142.25370471761374
+            ],
+            [
+              0,
+              400
+            ]
+          ]
+        },
+        {
+          "face": 3,
+          "depth": 3.201307294043138,
+          "dynamic": true,
+          "id": "430773d6-c169-3a55-a432-2c2f3c4a7647",
+          "layer": 0,
+          "selected": true,
+          "points": [
+            [
+              392.993871827063,
+              238.95360140337783
+            ],
+            [
+              401.88182543047674,
+              141.8653157552963
+            ],
+            [
+              337.45316536118077,
+              187.94210725495552
+            ],
+            [
+              335.2138177939039,
+              296.7926398231454
+            ]
+          ]
+        },
+        {
+          "face": 5,
+          "depth": 3.1999999999999997,
+          "dynamic": true,
+          "id": "430773d6-c169-3a55-a432-2c2f3c4a7647",
+          "layer": 0,
+          "selected": true,
+          "points": [
+            [
+              307.12007255363244,
+              118.05592815998894
+            ],
+            [
+              233.64572908874325,
+              153.91654443915604
+            ],
+            [
+              337.45316536118077,
+              187.94210725495552
+            ],
+            [
+              401.88182543047674,
+              141.8653157552963
+            ]
+          ]
+        },
+        {
+          "face": 0,
+          "depth": 3.116237408033511,
+          "dynamic": true,
+          "id": "430773d6-c169-3a55-a432-2c2f3c4a7647",
+          "layer": 0,
+          "selected": true,
+          "points": [
+            [
+              243.47286853228934,
+              254.3329438570674
+            ],
+            [
+              335.2138177939039,
+              296.7926398231454
+            ],
+            [
+              337.45316536118077,
+              187.94210725495552
+            ],
+            [
+              233.64572908874325,
+              153.91654443915604
+            ]
+          ]
+        }
+      ],
+      "snapshotHash": "b34149fca9adcc691278f3555d5b71ccd9c55c73fe0e96eaef92adfaeadb4694",
+      "scope": "Actual source geometry projection. Filled faces use depth ordering; this is not calibrated image reconstruction.",
+      "centers": [
+        {
+          "depth": 3.6499999999999995,
+          "id": "cd5dcf99-3946-3c83-8551-c4ffb8578c5e",
+          "pixel": [
+            320,
+            257.28137740208297
+          ]
+        },
+        {
+          "depth": 3.3999999999999995,
+          "id": "430773d6-c169-3a55-a432-2c2f3c4a7647",
+          "pixel": [
+            320,
+            200.00000000000006
+          ]
+        }
+      ],
+      "camera": {
+        "eye": [
+          1.6888880006333238,
+          2.0999999999999996,
+          2.4119820317151563
+        ],
+        "view": "perspective",
+        "forward": [
+          -0.49673176489215404,
+          -0.49999999999999994,
+          -0.7094064799162225
+        ],
+        "far": 200,
+        "spanX": 3.2,
+        "spanY": 2,
+        "tanHalfFov": 0.41421356237309503,
+        "width": 640,
+        "right": [
+          0.8191520442889919,
+          0,
+          -0.5735764363510462
+        ],
+        "up": [
+          -0.28678821817552297,
+          0.8660254037844386,
+          -0.4095760221444958
+        ],
+        "near": 0.0002,
+        "height": 400
+      }
+    },
+    "top": {
+      "entityCount": 2,
+      "polygons": [
+        {
+          "face": 5,
+          "depth": 3.8,
+          "dynamic": false,
+          "id": "cd5dcf99-3946-3c83-8551-c4ffb8578c5e",
+          "layer": 0,
+          "selected": false,
+          "points": [
+            [
+              640,
+              400
+            ],
+            [
+              640,
+              0
+            ],
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              400
+            ]
+          ]
+        },
+        {
+          "face": 5,
+          "depth": 3,
+          "dynamic": true,
+          "id": "430773d6-c169-3a55-a432-2c2f3c4a7647",
+          "layer": 0,
+          "selected": true,
+          "points": [
+            [
+              240,
+              120
+            ],
+            [
+              240,
+              280
+            ],
+            [
+              400,
+              280
+            ],
+            [
+              400,
+              120
+            ]
+          ]
+        }
+      ],
+      "snapshotHash": "b34149fca9adcc691278f3555d5b71ccd9c55c73fe0e96eaef92adfaeadb4694",
+      "scope": "Actual source geometry projection. Filled faces use depth ordering; this is not calibrated image reconstruction.",
+      "centers": [
+        {
+          "depth": 3.9,
+          "id": "cd5dcf99-3946-3c83-8551-c4ffb8578c5e",
+          "pixel": [
+            320,
+            200
+          ]
+        },
+        {
+          "depth": 3.4,
+          "id": "430773d6-c169-3a55-a432-2c2f3c4a7647",
+          "pixel": [
+            320,
+            200
+          ]
+        }
+      ],
+      "camera": {
+        "eye": [
+          0,
+          3.8,
+          0
+        ],
+        "view": "top",
+        "forward": [
+          0,
+          -1,
+          0
+        ],
+        "far": 200,
+        "spanX": 3.2,
+        "spanY": 2,
+        "tanHalfFov": 0.41421356237309503,
+        "width": 640,
+        "right": [
+          1,
+          0,
+          0
+        ],
+        "up": [
+          0,
+          0,
+          -1
+        ],
+        "near": 0.0002,
+        "height": 400
+      }
+    },
+    "front": {
+      "entityCount": 2,
+      "polygons": [
+        {
+          "face": 0,
+          "depth": 3,
+          "dynamic": true,
+          "id": "430773d6-c169-3a55-a432-2c2f3c4a7647",
+          "layer": 0,
+          "selected": true,
+          "points": [
+            [
+              240,
+              280
+            ],
+            [
+              400,
+              280
+            ],
+            [
+              400,
+              120
+            ],
+            [
+              240,
+              120
+            ]
+          ]
+        }
+      ],
+      "snapshotHash": "b34149fca9adcc691278f3555d5b71ccd9c55c73fe0e96eaef92adfaeadb4694",
+      "scope": "Actual source geometry projection. Filled faces use depth ordering; this is not calibrated image reconstruction.",
+      "centers": [
+        {
+          "depth": 3.4,
+          "id": "cd5dcf99-3946-3c83-8551-c4ffb8578c5e",
+          "pixel": [
+            320,
+            300
+          ]
+        },
+        {
+          "depth": 3.4,
+          "id": "430773d6-c169-3a55-a432-2c2f3c4a7647",
+          "pixel": [
+            320,
+            200
+          ]
+        }
+      ],
+      "camera": {
+        "eye": [
+          0,
+          0.4,
+          3.4
+        ],
+        "view": "front",
+        "forward": [
+          0,
+          0,
+          -1
+        ],
+        "far": 200,
+        "spanX": 3.2,
+        "spanY": 2,
+        "tanHalfFov": 0.41421356237309503,
+        "width": 640,
+        "right": [
+          1,
+          0,
+          0
+        ],
+        "up": [
+          0,
+          1,
+          0
+        ],
+        "near": 0.0002,
+        "height": 400
+      }
+    },
+    "side": {
+      "entityCount": 2,
+      "polygons": [
+        {
+          "face": 3,
+          "depth": 3,
+          "dynamic": true,
+          "id": "430773d6-c169-3a55-a432-2c2f3c4a7647",
+          "layer": 0,
+          "selected": true,
+          "points": [
+            [
+              400,
+              280
+            ],
+            [
+              400,
+              120
+            ],
+            [
+              240,
+              120
+            ],
+            [
+              240,
+              280
+            ]
+          ]
+        }
+      ],
+      "snapshotHash": "b34149fca9adcc691278f3555d5b71ccd9c55c73fe0e96eaef92adfaeadb4694",
+      "scope": "Actual source geometry projection. Filled faces use depth ordering; this is not calibrated image reconstruction.",
+      "centers": [
+        {
+          "depth": 3.4,
+          "id": "cd5dcf99-3946-3c83-8551-c4ffb8578c5e",
+          "pixel": [
+            320,
+            300
+          ]
+        },
+        {
+          "depth": 3.4,
+          "id": "430773d6-c169-3a55-a432-2c2f3c4a7647",
+          "pixel": [
+            320,
+            200
+          ]
+        }
+      ],
+      "camera": {
+        "eye": [
+          3.4,
+          0.4,
+          0
+        ],
+        "view": "side",
+        "forward": [
+          -1,
+          0,
+          0
+        ],
+        "far": 200,
+        "spanX": 3.2,
+        "spanY": 2,
+        "tanHalfFov": 0.41421356237309503,
+        "width": 640,
+        "right": [
+          0,
+          0,
+          -1
+        ],
+        "up": [
+          0,
+          1,
+          0
+        ],
+        "near": 0.0002,
+        "height": 400
+      }
+    }
+  },
+  "scope": "Recorded output, not a live simulation or camera reconstruction. Camera switching below displays Java-computed source polygons."
+}
