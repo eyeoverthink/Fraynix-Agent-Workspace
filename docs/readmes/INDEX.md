@@ -1,6 +1,6 @@
 # Fraynix Studio and Agent Workspace README editions
 
-Numbered editions preserve dated system behavior and evidence. The root [README](../../README.md) remains the entry point.
+Numbered editions preserve dated behavior and evidence. The root [README](../../README.md) remains the entry point.
 
 | Edition | Date | Focus | Explore |
 | --- | --- | --- | --- |
@@ -49,5 +49,6 @@ Numbered editions preserve dated system behavior and evidence. The root [README]
 | [043](../../README-043.md) | 2026-11-02 | Java tasks and visual memory | [Viewer](043/index.html) · [tree](043/FILE_TREE.md) |
 | [044](../../README-044.md) | 2026-11-02 | One Java agent and visible missions | [Viewer](044/index.html) · [tree](044/FILE_TREE.md) |
 | [045](../../README-045.md) | 2026-11-02 | Counterfactual worlds before verified action | [Viewer](045/index.html) · [tree](045/FILE_TREE.md) |
+| [046](../../README-046.md) | 2026-11-02 | Verified skill graphs and stacked local processors | [Viewer](046/index.html) · [tree](046/FILE_TREE.md) |
 
-Latest implementation/documentation edition: **045**. Earlier snapshots remain intact. See [sequence policy](README_SEQUENCE.md) and [manifest](editions.json).
+Latest implementation/documentation edition: **046**. Earlier snapshots remain intact. See [sequence policy](README_SEQUENCE.md) and [manifest](editions.json).

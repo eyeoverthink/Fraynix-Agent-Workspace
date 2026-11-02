@@ -125,3 +125,5 @@ Original before/during/after screenshots connect actual work to source/version/t
 - [Edition044: Java missions and world plans](52-java-missions-and-world-plans.md) · [Canvas](java-missions-and-world-plans.canvas)
 
 - [Edition045: counterfactual worlds](53-counterfactual-worlds.md) · [Canvas](counterfactual-worlds.canvas)
+
+- [Edition046: verified skill graphs](54-typed-skill-graphs.md) · [Canvas](typed-skill-graphs.canvas)

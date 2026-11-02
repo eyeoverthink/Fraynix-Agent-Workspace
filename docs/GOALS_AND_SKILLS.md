@@ -1,5 +1,11 @@
 # Java goals and procedural skills
 
+Edition046 adds `typed-skill-graph-v1` to the existing Java workflow owner. Connect **two to four already verified persistent-world procedures**, then reconstruct and check their combined outcome. Use **Spatial → One evolving world → Connect verified skills**, or reuse an exact saved graph from chat: “Reuse saved graph my-world-route v1.” Confirm a fresh world first. The graph is inert data; original physical controllers, authority ceilings and report checks still decide whether each task completes.
+
+Mission shows the actual current node, revision handoffs, retained result and explicit recovery. The same world persists across stages; no second task queue is introduced. Save the graph only after all native and comparison checks pass. Stop propagates to its owned child and prevents later stages. Up to three explicit continuations share the remaining1200-second awake budget, periodically checkpointed; process downtime does not count as observation or reset that budget. [Complete046 operation and evidence](../README-046.md) · [Current graph boundary and remaining design](SKILL_GRAPH_DESIGN.md) · [Stacked learning processors](STACKED_CORTEX_046.md).
+
+The sections below describe the original019 ramp family and020 data extension; their task-specific parameter ranges and recovery rules are not the graph's general limits. Other implemented families and the complete current workspace are covered in the linked numbered editions.
+
 Edition020 adds a second implemented family, motion-data-report-v1: local immutable CSV → audited motion/quality computation → actual report checks → reusable procedure. See the [motion-data contract](MOTION_DATA_PROCEDURES.md). The native workflow described below remains supported. Data tasks use the shared durable/verification layer while leaving native/model ownership separate.
 
 Edition 019 connects natural-language chat to the existing learned numerical world model and native physics. A tool performs one action. A procedural skill completes a registered task through actions, checks and recovery. The first registered procedure is `world-reach-report-v1`.
@@ -53,7 +59,7 @@ Limits are one active goal, 64 retained goals, 32 procedural version records, at
 
 ## Interfaces and testing
 
-Chat receives `world.model`, `goal.start`, `goal.read`, `goal.cancel`, `goal.resume`, `procedures.list`, `procedure.save` and `procedure.run`. Semantic chat inputs use direct fields such as `angleDeg`, `friction`, `targetM`, `disturbanceMps`, `saveSkillName` and `browserContext`. The desktop translates them to the Java typed definition and binds source/ownership handles. Host acknowledgment is not a model tool. Existing memory retrieval and local-model admission still apply to planning calls.
+Chat receives `world.model`, `goal.start`, `goal.read`, `goal.cancel`, `goal.resume`, `procedures.list`, `procedure.save` and `procedure.run`. Semantic chat inputs use direct fields such as `angleDeg`, `friction`, `targetM`, `disturbanceMps`, `saveSkillName` and `browserContext`. Java owns current chat routing, typed request preservation and registered-procedure scheduling; surface adapters return actual source selections and observations. Host acknowledgment is not a model tool. Existing memory retrieval and local-model admission still apply to planning calls.
 
 The private loopback API supplies `/api/goals/start|read|list|cancel|resume`, `/api/procedures/save|run`, and private desktop-effect routes. It requires the existing bearer capability. The original game, brain, browser, canvas, native manipulation, measurements, calibration and export interfaces remain available outside an active owned task.
 
