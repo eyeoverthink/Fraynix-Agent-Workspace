@@ -7,7 +7,9 @@ import java.util.regex.*;
 final class ChatPolicy044 {
  static boolean has(String s,String re){return Pattern.compile(re,Pattern.CASE_INSENSITIVE|Pattern.DOTALL).matcher(s).find();}
  static boolean webCreation(String s){return has(s,"\\b(build|create|make|design|generate)\\b.*\\b(website|html|web ?app|web application)\\b");}
+ static boolean counterReview045(String s){return has(s,"\\b(review|inspect) before\\b|\\b(do not|don['’]t|never)\\s+(move|execute|actuate|run)\\b")||!has(s,"\\b(execute|executing|run|reuse|move|actuate)\\b");}
  static String route(String s,JSONObject b,boolean measured){
+  if(!webCreation(s)&&has(s,"\\b(counterfactual|compare (alternative|possible) (plans|actions))\\b"))return "world";
   if(webCreation(s)&&!has(s,"\\b(create|build)\\s+and\\s+verify\\b|\\bdurable\\s+(creation|build|app)\\b|\\bevidence workflow\\b"))return "workbench";
   if(has(s,"\\b(heartbeat|witness|continuing (java |agent |runtime)|agent continuity|agent identity|background (brain|agent|replay)|retained active time)\\b")&&!webCreation(s))return "agent";
   if(!webCreation(s)&&(has(s,"\\b(mat.to.world|measured (mat |plane )?alignment|registered (mat|surface)|alignment (report|trial|checks)|manual (movement|occlusion) trial)\\b")||measured&&has(s,"\\b(lighter|cutting mat|tabletop|tape measure)\\b")&&has(s,"\\b(where|what|how|status|follow|track|predict|compare)\\b")&&!has(s,"\\b(038|older|earlier|legacy|old|research|search|google|web|browser|internet|images?|pictures?|pages?)\\b")))return "alignment";
