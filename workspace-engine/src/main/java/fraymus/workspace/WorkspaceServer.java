@@ -14,6 +14,8 @@ import java.util.concurrent.*;
 /** Loopback control plane. Browser/preview renderers never receive its bearer capability. */
 public final class WorkspaceServer implements AutoCloseable {
     private AgentRuntime042 agentRuntime;
+    private Agency043 agency;
+    private final Set<String> durableRequests043=ConcurrentHashMap.newKeySet();
     private final boolean persistentHost;
     private HttpServer httpServer;
     private boolean closed;
@@ -50,7 +52,7 @@ public final class WorkspaceServer implements AutoCloseable {
         if(token==null||token.length()<32)throw new IllegalArgumentException("A private session capability is required");
         this.token=token;this.persistentHost=persistentHost;store=new WorkspaceStore(project);learning=new LearningStore(project);
         try{scenes=new SceneStore(project);spatial=new SpatialStore(project);maps=new MapStore(project);perception=new PerceptionStore(project);measurements=new MeasurementStore(project);calibrations=new CalibrationStore(project,scenes,measurements);observers=new ObserverStore(project,scenes);brain=new BrainService(project);goals=new GoalRunner(project,scenes,brain,store,measurements,spatial,perception,maps);observations=new WorldObservationStore(project,goals.worlds());metrics=new MetricObservationStore(project,observations,goals.worlds());tabletop=new TabletopStore(project,goals.worlds(),metrics);knowledge=new KnowledgeStore(project,tabletop);selfModel=new SelfModel(knowledge);workflows=new WorkflowRunner(project,goals,measurements,scenes,store);game=new EmbeddedGameClient(Path.of(System.getProperty("user.dir")),project);runtime040=new SpatialRuntime040(project,goals.worlds(),goals.worldNative(),tabletop,knowledge,game);alignment041=new Alignment041Store(project,goals.worlds());}catch(Exception e){throw new IOException("Experiment stores could not start",e);}
-        try{agentRuntime=new AgentRuntime042(project,brain,this::agentFacts042,this::detachHost042,persistentHost);}catch(Exception e){close();throw new IOException("Java agent state needs attention; originals retained",e);}
+        try{agentRuntime=new AgentRuntime042(project,brain,this::agentFacts042,this::detachHost042,persistentHost);agency=new Agency043(project,store,learning,request->{String id=request.getString("requestId");durableRequests043.add(id);try{return plan(request,true);}finally{durableRequests043.remove(id);}},id->{var c=requests.get(id);if(c!=null)c.cancel();},(kind,evidence)->agentRuntime.record043(kind,evidence),this::sharedBusy043,true);}catch(Exception e){close();throw new IOException("Java agent state needs attention; originals retained",e);}
         scanner.scheduleWithFixedDelay(()->{try{catalog=models.observe();}catch(Exception e){System.err.println("Model discovery: "+e.getMessage());}},0,45,TimeUnit.SECONDS);
     }
     private JSONObject visionModels(){var out=new JSONArray();try{var tags=LocalModelAdmission.request("http://127.0.0.1:11434/api/tags",null);for(Object raw:tags.getJSONArray("models")){var tag=(JSONObject)raw;try{var show=LocalModelAdmission.request("http://127.0.0.1:11434/api/show",new JSONObject().put("model",tag.getString("name")));if(show.getJSONArray("capabilities").toList().contains("vision"))out.put(new JSONObject().put("name",tag.getString("name")).put("bytes",tag.getLong("size")));}catch(Exception unavailable){/* Unavailable metadata is not an eligible detector. */}}return new JSONObject().put("models",out).put("available",!out.isEmpty());}catch(Exception unavailable){return new JSONObject().put("models",out).put("available",false).put("reason","Local vision metadata unavailable; DOM and taught appearance remain usable offline");}}
@@ -68,9 +70,28 @@ public final class WorkspaceServer implements AutoCloseable {
                 if(!("Bearer "+token).equals(exchange.getRequestHeaders().getFirst("Authorization"))){send(exchange,403,new JSONObject().put("error","Not authorized"));return;}
                 if(exchange.getRequestMethod().equals("GET")&&exchange.getRequestURI().getPath().equals("/api/state")){send(exchange,200,state());return;}
                 if(!exchange.getRequestMethod().equals("POST")){send(exchange,405,new JSONObject().put("error","POST required"));return;}
-                byte[] body=exchange.getRequestBody().readNBytes(2_100_001);if(body.length>2_100_000)throw new IllegalArgumentException("Request too large");
+                int bodyLimit=exchange.getRequestURI().getPath().equals("/api/agency043/frame")?8_100_000:2_100_000;byte[] body=exchange.getRequestBody().readNBytes(bodyLimit+1);if(body.length>bodyLimit)throw new IllegalArgumentException("Request too large");
                 JSONObject input=new JSONObject(new String(body,StandardCharsets.UTF_8));String route=exchange.getRequestURI().getPath();JSONObject result;
                 if(persistentHost&&!Set.of("/api/agent042/state","/api/agent042/audit","/api/agent042/attach","/api/agent042/touch","/api/agent042/detach","/api/agent042/stop").contains(route))agentRuntime.requireLease(exchange.getRequestHeaders().getFirst("X-Fraynix-Interface"));
+                if(route.startsWith("/api/agency043/")){
+                    if(persistentHost&&Set.of("/api/agency043/claim","/api/agency043/frame","/api/agency043/ack","/api/agency043/abort").contains(route)&&!Objects.equals(input.optString("sessionId"),exchange.getRequestHeaders().getFirst("X-Fraynix-Interface")))throw new IllegalStateException("Surface session must match the authenticated interface lease");
+                    result=switch(route){
+                        case "/api/agency043/state"->agency.state();
+                        case "/api/agency043/register"->agency.register(input);
+                        case "/api/agency043/start"->agency.start(input);
+                        case "/api/agency043/read"->agency.read(input.getString("id"));
+                        case "/api/agency043/claim"->agency.claim(input.getString("sessionId"));
+                        case "/api/agency043/frame"->agency.frame(input);
+                        case "/api/agency043/ack"->agency.acknowledge(input);
+                        case "/api/agency043/abort"->agency.abort(input);
+                        case "/api/agency043/control"->agency.control(input.getString("id"),input.getString("action"));
+                        case "/api/agency043/models"->visionModels043();
+                        case "/api/agency043/image"->new JSONObject().put("id",input.getString("id")).put("jpeg",agency.visual.thumbnail(input.getString("id"),960));
+                        case "/api/agency043/report"->new JSONObject().put("artifact",agency.report(input.getString("id")));
+                        default->throw new IllegalArgumentException("Unknown Java workbench operation");
+                    };send(exchange,200,result);return;
+                }
+                if(agency.busy()&&!passive043(route))agency.requireExecution(exchange.getRequestHeaders().getFirst("X-Fraynix-Task"),exchange.getRequestHeaders().getFirst("X-Fraynix-Effect"));
                 if(route.startsWith("/api/agent042/")){
                     result=switch(route){
                         case "/api/agent042/state"->{SpatialScene.keys(input);yield agentRuntime.state();}
@@ -80,7 +101,7 @@ public final class WorkspaceServer implements AutoCloseable {
                         case "/api/agent042/control"->{SpatialScene.keys(input,"action");yield agentRuntime.control(input.getString("action"));}
                         case "/api/agent042/audit"->{SpatialScene.keys(input);yield agentRuntime.audit();}
                         case "/api/agent042/report"->{SpatialScene.keys(input);var snapshot=agentRuntime.state();var hash=WorldFrames.hash(snapshot);yield new JSONObject().put("artifact",store.writeOnce("agent042:"+hash,AgentReport042.build(snapshot,hash))).put("receipt",new JSONObject().put("snapshotSha256",hash).put("agentId",snapshot.getString("agentId")).put("bootId",snapshot.getString("bootId")).put("witness",agentRuntime.audit()));}
-                        case "/api/agent042/stop"->{SpatialScene.keys(input,"bootId");if(!persistentHost||!input.getString("bootId").equals(agentRuntime.state().getString("bootId")))throw new IllegalStateException("Only the current persistent Java owner can be stopped");if(!requests.isEmpty()||goals.busy()||brain.state().getBoolean("busy")||tabletop.busy()||alignment041.busy()||!workflowsIdle042())throw new IllegalStateException("Finish or stop active tasks and captures before stopping Java");agentRuntime.control("checkpoint");new Thread(()->{try{Thread.sleep(250);}catch(InterruptedException ignored){}System.exit(0);},"agent-stop").start();yield new JSONObject().put("stopping",true);}
+                        case "/api/agent042/stop"->{SpatialScene.keys(input,"bootId");if(!persistentHost||!input.getString("bootId").equals(agentRuntime.state().getString("bootId")))throw new IllegalStateException("Only the current persistent Java owner can be stopped");if(agency.busy()||!requests.isEmpty()||goals.busy()||brain.state().getBoolean("busy")||tabletop.busy()||alignment041.busy()||!workflowsIdle042())throw new IllegalStateException("Finish or stop active tasks and captures before stopping Java");agentRuntime.control("checkpoint");new Thread(()->{try{Thread.sleep(250);}catch(InterruptedException ignored){}System.exit(0);},"agent-stop").start();yield new JSONObject().put("stopping",true);}
                         default->throw new IllegalArgumentException("Unknown Java agent operation");
                     };send(exchange,200,result);return;
                 }
@@ -422,21 +443,25 @@ public final class WorkspaceServer implements AutoCloseable {
         server.createContext("/welcome",exchange->{byte[] bytes=WELCOME.getBytes(StandardCharsets.UTF_8);exchange.getResponseHeaders().set("Content-Type","text/html; charset=utf-8");exchange.sendResponseHeaders(200,bytes.length);try(var out=exchange.getResponseBody()){out.write(bytes);}});
         server.start();Runtime.getRuntime().addShutdownHook(new Thread(this::close));return server;
     }
+    private boolean sharedBusy043(){try{return goals.busy()||brain.state().getBoolean("busy")||tabletop.busy()||alignment041.busy()||observations.busy()||!workflowsIdle042()||requests.keySet().stream().anyMatch(id->!durableRequests043.contains(id));}catch(Exception e){return true;}}
+    private static boolean passive043(String route){String last=route.substring(route.lastIndexOf('/')+1);return route.startsWith("/api/self/")||route.startsWith("/api/agent042/")||route.equals("/api/event")||Set.of("read","state","list","snapshot","catalog","models","summary","view","image","history","observe","context").contains(last);}
+    private JSONObject visionModels043(){var out=new JSONArray();try{var tags=LocalModelAdmission.request("http://127.0.0.1:11434/api/tags",null).getJSONArray("models");for(Object raw:tags){var tag=(JSONObject)raw;if(tag.optLong("size")>12_000_000_000L)continue;var show=LocalModelAdmission.request("http://127.0.0.1:11434/api/show",new JSONObject().put("model",tag.getString("name")));var caps=show.optJSONArray("capabilities",new JSONArray()).toList();if(caps.contains("completion")&&caps.contains("vision"))out.put(new JSONObject().put("name",tag.getString("name")).put("bytes",tag.getLong("size")));}return new JSONObject().put("models",out);}catch(Exception e){return new JSONObject().put("models",out).put("reason","Local vision metadata unavailable; pixel comparisons remain available");}}
     JSONObject agent042(){return agentRuntime.state();}
     private boolean workflowsIdle042()throws Exception{for(Object raw:workflows.list())if(Set.of("running","waiting-host","queued").contains(((JSONObject)raw).getString("status")))return false;return true;}
     private JSONObject agentFacts042(){
-        var source=new JSONObject();var list=goals.list();int active=0;for(Object raw:list)if(Set.of("running","waiting-host").contains(((JSONObject)raw).optString("status")))active++;
+        var source=new JSONObject();var list=goals.list();if(agency!=null){for(Object task:agency.outcomes())list.put(task);source.put("agency043",agency.facts());}int active=0;for(Object raw:list)if(Set.of("running","waiting-host").contains(((JSONObject)raw).optString("status")))active++;
         var statuses=new JSONArray();for(Object raw:list){var g=(JSONObject)raw;statuses.put(new JSONObject().put("id",g.getString("id")).put("status",g.getString("status")));}source.put("goals",statuses);
         try{var b=runtime040.state().optJSONObject("binding");if(b!=null&&b.optString("kind").equals("world")){var w=goals.worlds().observe(b.getString("worldId"));source.put("worldId",w.getString("worldId")).put("headHash",w.getString("expectedHash")).put("revision",w.getInt("expectedRevision")).put("simulationTicks",w.getJSONObject("frame").getLong("elapsedTicks"));var bodies=w.getJSONObject("frame").getJSONArray("bodies");if(!bodies.isEmpty())source.put("positionM",bodies.getJSONObject(0).getJSONArray("position"));}else source.put("world","No selected native world; no game or camera started");}catch(Exception e){source.put("worldUnavailable",String.valueOf(e.getMessage()));}
         var camera=camera042.read();boolean fresh=camera.getBoolean("fresh");long age=camera.getLong("ageMs");if(!camera.isNull("evidence"))source.put("camera",camera.getJSONObject("evidence"));
         Runtime r=Runtime.getRuntime();return new JSONObject().put("source",source).put("goals",statuses).put("activeGoals",active).put("observationFresh",fresh).put("cameraReceiptAgeMs",age).put("physicalObservation",fresh?"Recent accepted measured plane sample; uncertainty, human label and geometry qualifications remain unchanged":"No recent accepted measured camera sample. Retained source data is not a live physical observation.").put("heapFraction",(r.totalMemory()-r.freeMemory())/(double)r.maxMemory());
     }
     private void detachHost042(){
-        requests.values().forEach(OllamaIntegration.RequestControl::cancel);camera042.clear();game.close();selfModel.detach();
-        try{goals.hostDetached042();workflows.hostDetached042();learning.hostDetached042();for(Object raw:alignment041.state().getJSONArray("trials")){var t=(JSONObject)raw;if(t.optString("status").equals("running"))alignment041.finish(t.getString("id"),true);}for(Object raw:tabletop.state().getJSONArray("runs")){var t=(JSONObject)raw;if(t.optString("status").equals("running"))tabletop.stop(t.getString("id"));}}catch(Exception e){throw new IllegalStateException("Host detach needs attention",e);}
+        requests.forEach((id,control)->{if(!durableRequests043.contains(id))control.cancel();});camera042.clear();game.close();selfModel.detach();
+        try{if(agency!=null)agency.hostDetached();goals.hostDetached042();workflows.hostDetached042();learning.hostDetached042(agency==null?Set.of():agency.retainedEpisodes());for(Object raw:alignment041.state().getJSONArray("trials")){var t=(JSONObject)raw;if(t.optString("status").equals("running"))alignment041.finish(t.getString("id"),true);}for(Object raw:tabletop.state().getJSONArray("runs")){var t=(JSONObject)raw;if(t.optString("status").equals("running"))tabletop.stop(t.getString("id"));}}catch(Exception e){throw new IllegalStateException("Host detach needs attention",e);}
     }
-    @Override public synchronized void close(){if(closed)return;closed=true;requests.values().forEach(OllamaIntegration.RequestControl::cancel);scanner.shutdownNow();if(agentRuntime!=null)agentRuntime.close();observations.close();game.close();workflows.close();goals.close();perception.close();brain.close();if(agentRuntime!=null)try{agentRuntime.checkpoint();}catch(Exception e){System.err.println("Final shared cortex checkpoint needs attention: "+e.getMessage());}calibrations.close();scenes.close();if(httpServer!=null)httpServer.stop(0);try{store.close();}catch(IOException ignored){}}
-    private JSONObject plan(JSONObject input) throws Exception {
+    @Override public synchronized void close(){if(closed)return;closed=true;requests.values().forEach(OllamaIntegration.RequestControl::cancel);scanner.shutdownNow();if(agency!=null)agency.close();if(agentRuntime!=null)agentRuntime.close();observations.close();game.close();workflows.close();goals.close();perception.close();brain.close();if(agentRuntime!=null)try{agentRuntime.checkpoint();}catch(Exception e){System.err.println("Final shared cortex checkpoint needs attention: "+e.getMessage());}calibrations.close();scenes.close();if(httpServer!=null)httpServer.stop(0);try{store.close();}catch(IOException ignored){}}
+    private JSONObject plan(JSONObject input)throws Exception{return plan(input,false);}
+    private JSONObject plan(JSONObject input,boolean javaOwned) throws Exception {
         if(catalog==null)throw new IllegalStateException("Local models are still being discovered");
         var model=catalog.models().stream().filter(m->m.available()&&m.name().equals(input.getString("model"))).findFirst().orElseThrow(()->new IllegalArgumentException("Select a completion-capable local model"));
         String prompt=input.getString("prompt");if(prompt.length()>32_000)throw new IllegalArgumentException("Model observation budget exceeded");
@@ -445,7 +470,7 @@ public final class WorkspaceServer implements AutoCloseable {
             var admission=LocalModelAdmission.verify(model.endpoint(),model.name());
             if(input.has("expectedDigest")&&!input.getString("expectedDigest").equals(admission.getString("digest")))throw new IOException("Model digest changed during this task; start a new task after reviewing model selection");
             boolean creationOutput=input.getJSONArray("allowedTools").length()==1&&input.getJSONArray("allowedTools").getString(0).equals("creation.submit");
-            boolean cpuOnly="1".equals(System.getenv("FRAYNIX_WORKSPACE_PLAN_CPU_ONLY"));
+            boolean cpuOnly=javaOwned||"1".equals(System.getenv("FRAYNIX_WORKSPACE_PLAN_CPU_ONLY"));
             var settings=new ModelRunSettings(model.systemContextEstimate()>6000?24576:16384,creationOutput?8192:4096,cpuOnly?4:0,cpuOnly?0:-1,cpuOnly?900:180,cpuOnly?0:600,.15,1.1,true);
             List<String> tools=new ArrayList<>();for(Object item:input.getJSONArray("allowedTools"))tools.add(item.toString());
             if(tools.isEmpty()||tools.size()>20||tools.stream().anyMatch(t->!t.matches("[a-z]+(?:\\.[a-z]+)?")))throw new IllegalArgumentException("Invalid tool grammar");

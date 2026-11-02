@@ -61,7 +61,7 @@ class Surface {
     }
     this.lease.invalidate();await new Promise(r=>setTimeout(r,160));return this.observe();
   }
-  async test(steps){
+  async test(steps,onStep){
     if(!Array.isArray(steps)||steps.length<1||steps.length>24)throw Error('Tests need 1..24 steps');
     if(!steps.some(s=>['expectText','expectValue','expectCount'].some(k=>Object.hasOwn(s,k))))throw Error('Tests need an actual assertion');
     const checks=[];
@@ -73,7 +73,7 @@ class Surface {
         if(!['click','fill'].includes(step.action))throw Error('Only click and fill actions are supported');
         const observed=await this.observe();
         const ref=await this.isolated(`(()=>{const e=document.querySelector(${selector});return globalThis.fraynixElements.indexOf(e)})()`);
-        if(ref<0){checks.push({index,selector:step.selector,passed:false,error:'Interactive control not found'});continue;}
+        if(ref<0){const missing={index,selector:step.selector,passed:false,error:'Interactive control not found',expected:step};checks.push(missing);if(onStep)await onStep(missing,steps.length);continue;}
         await this.act({observation:observed.observation,ref:String(ref),text:step.value||''},step.action==='fill'?'type':'click');
       }
       let actual={},passed=false;
@@ -82,7 +82,7 @@ class Surface {
         passed=(!Object.hasOwn(step,'expectText')||actual.text.trim()===String(step.expectText))&&(!Object.hasOwn(step,'expectValue')||actual.value===String(step.expectValue))&&(!Object.hasOwn(step,'expectCount')||actual.count===step.expectCount);
         if(passed)break;await new Promise(r=>setTimeout(r,80));
       }
-      checks.push({index,selector:step.selector,passed,actual,expected:step});
+      const check={index,selector:step.selector,passed,actual,expected:step};checks.push(check);if(onStep)await onStep(check,steps.length);
     }
     if(this.errors.length)checks.push({index:checks.length,passed:false,error:'Browser JavaScript errors',errors:this.errors.slice(-5)});
     return checks;

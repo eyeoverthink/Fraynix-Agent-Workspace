@@ -1,3 +1,4 @@
+import {Agency043Panel} from './agency043.js';
 import {Agent042Panel} from './agent042.js';
 import {Alignment041Panel} from './alignment041.js';
 import {SharedSpatial040} from './spatial-runtime040.js';
@@ -43,6 +44,7 @@ function notice(text){$('notice').textContent=text;}
 async function request(operation,data={}){try{return await host.request({operation,...data});}catch(error){notice(error.message);throw error;}}
 function requireSaved(){if(dirty||lab.dirty)throw Error('Save or revert your source or scene changes first');}
 const agent042Panel=new Agent042Panel(request);
+window.agency043View=new Agency043Panel(request);
 const brainGame=new BrainGame({call:(operation,command,args={})=>request(operation,{command,args}),notice,activate:setCanvasMode,layout:updateLayout,lab,requireSaved});
 const dataPanel=new DataPanel({call:(command,args)=>request('data',{command,args}),notice,requireSaved,layout:updateLayout});
 const goalsPanel=new GoalsPanel({getMapSources:()=>mapPanel.sources,onCompileMap:(id,layers)=>mapPanel.compile(id,layers),getCreationSources:()=>creationPanel.sources(),getDatasets:()=>state?.datasets||[],call:(command,args)=>request('javaGoal',{command,args}),notice,requireSaved,openReport:async id=>{requireSaved();setCanvasMode('preview');await request('tool',{tool:'canvas.open',args:{id}});}});
@@ -75,7 +77,7 @@ function showLearningRecord(value,type){
   if(value.results){const table=document.createElement('table');const head=table.insertRow();for(const text of ['Independent fixture','Baseline','Candidate']){const th=document.createElement('th');th.textContent=text;head.append(th);}for(const result of value.results){const row=table.insertRow();for(const text of [result.id,result.baseline.passed?'Pass':'Fail',result.candidate.passed?'Pass':'Fail'])row.insertCell().textContent=text;}$('learning-cases').append(table);}
   $('learning-inspection').showModal();updateLayout();
 }
-function renderLibrary(){
+function renderLibrary(){window.agency043View?.recipes(state?.skills||[]);
   if(!state)return;$('library-items').replaceChildren();
   const items=libraryTab==='learning'?learningItems():libraryTab==='scenes'?(state.scenes||[]):libraryTab==='artifacts'?state.artifacts:[...state.skills,...(state.procedures||[])];
   for(const item of items){const button=document.createElement('button');button.className='object'+(item.id===(libraryTab==='scenes'?lab.scene?.id:artifact?.id)?' selected':'');const label=document.createElement('span');label.textContent=item.label||item.title||item.name;const version=document.createElement('small');version.textContent=libraryTab==='learning'?(item.status||item.recordType):'v'+item.version;button.append(label,version);button.disabled=running;
@@ -124,6 +126,7 @@ host.onEvent(({type,value})=>{
   else if(type==='javaGoal'){goalsPanel.accept(value);forcePanel.accept(value);contactPanel.accept(value);posePanel.accept(value);persistentPanel.accept(value);mapPanel.onGoal(value);spatial.onPushGoal(value);creationBusy=(value.workflow&&!['completed','cancelled'].includes(value.status))||(value.procedure==='creation-web-v1'&&['running','waiting-host'].includes(value.status));$('creation-open').disabled=creationBusy||running;$('run').disabled=creationBusy||running||dirty||lab.dirty||!state?.models.length;}
   else if(type==='dataset'){dataPanel.selected=value;dataPanel.binding();}
   else if(type==='knowledgeResearch'&&window.knowledgeView.root.open)window.knowledgeView.refresh().catch(e=>notice(e.message));
+  else if(type==='agency043')window.agency043View.accept(value);
   else if(type==='activity')timeline(value);
   else if(type==='answer')message(value);
   else if(type==='error')notice(value);
