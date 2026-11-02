@@ -1,6 +1,8 @@
-# Proposed next layer: typed skill graphs
+# Typed skill graphs: current implementation and remaining design
 
-**Status: design proposal after edition045. This is not an installed graph interpreter or a new product page.** The implementation should extend the existing Java `WorkflowRunner`, `GoalRunner`, `Procedure044` and evidence checks. It should preserve the current fixed data/physics/creation workflow and all original physical gates.
+**Edition046 status:** the first bounded graph is implemented in the existing Java `WorkflowRunner`, `GoalRunner`, `Procedure044` and evidence checks. It connects two to four exact retained world procedures and one checked comparison. Original native controllers and report gates remain. [Edition046 contract](EDITION_046_CONTRACT.md) and [current operation](../README-046.md) describe the implemented boundary. [The frozen045 edition](../README-045.md) preserves the earlier proposal and evidence.
+
+The remaining dataset/observation/browser/artifact edge types, conditional branches and general graphs below are **future design**, not installed handlers. The existing fixed data→physics→creation workflow remains supported separately. The procedure graph is distinct from the proposed numerical synaptic graph; see [stacked local processors](STACKED_CORTEX_046.md).
 
 ## The problem to solve
 
@@ -49,7 +51,7 @@ flowchart LR
   F --> G[Retain the requested graph version]
 ```
 
-This diagram describes a proposed acceptance case. Edition045 currently runs one bounded counterfactual goal through its existing mission; it does not claim arbitrary graph execution.
+This diagram is the implemented046 world-chain case. Its exact retained references, typed metre/native3D binding, deterministic child IDs, sealed outcomes and original evidence checks are enforced. Arbitrary branch execution is not supported.
 
 ## Recovery is the central proof
 
