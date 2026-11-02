@@ -1,0 +1,73 @@
+{
+  "date": "2026-11-01",
+  "sourceCommit": "99fefcf7ba3bdf71890187b8c888c643597bde39",
+  "status": "locked before first041real measured registration and new physical trial scoring",
+  "sources": [
+    {
+      "path": "workspace-engine/src/main/java/fraymus/workspace/MatRegistration041.java",
+      "sha256": "12bff802f27a15ff56a0e735e0544bdb5175239a1e3b6b6579fbbfbc6cdb535d"
+    },
+    {
+      "path": "workspace-engine/src/main/java/fraymus/workspace/MatTarget041.java",
+      "sha256": "67798ba44cce42a0367d0a5a58745dec03c0d6f0e2b1e5555a83d13fa0041c4e"
+    },
+    {
+      "path": "workspace-engine/src/main/java/fraymus/workspace/MatTrials041.java",
+      "sha256": "f3f92b45411fe5c77d08117cdd0b15692d17882e4e6a3e51a6acbcfdb6e95d05"
+    },
+    {
+      "path": "workspace-engine/src/main/java/fraymus/workspace/Alignment041Store.java",
+      "sha256": "951a285abe623f011983227e39a3f45714c242f739ecea796281df910089fc9d"
+    },
+    {
+      "path": "workspace-engine/src/main/java/fraymus/workspace/Alignment041Report.java",
+      "sha256": "1d26729f0c73fcb14236929d1445a271d801016ac33a389b4b82de78d0d7b025"
+    },
+    {
+      "path": "workspace-engine/src/main/java/fraymus/workspace/PlaneCalibration.java",
+      "sha256": "ecbc105f09f4afe5008b6ee5843408ce6b7e47ffa9586545e2a7998407e83ebe"
+    },
+    {
+      "path": "workspace-engine/src/main/java/fraymus/workspace/MatReferenceGuard.java",
+      "sha256": "4c831e4f4a53224738ec320b5b0851c7dba4cb5fb422c52ee680ce50e9347ba4"
+    },
+    {
+      "path": "workspace-engine/src/main/java/fraymus/workspace/TabletopFilter.java",
+      "sha256": "82be9ab2734fae9ec01f6d06d9beaae7b81ffdca2f33ea4c6d3f40f88944c46c"
+    },
+    {
+      "path": "workspace-engine/src/main/java/fraymus/workspace/PixelTracker.java",
+      "sha256": "85d569217814a39618796bfbe43dc0b7db1ca61378a60f0198099d248674425c"
+    },
+    {
+      "path": "workspace-engine/src/main/java/fraymus/workspace/WorldFrames.java",
+      "sha256": "0d1c346959a1a2ad47fb876dbfb2b5016dc5b3363fa7ab54dd944d0cf0062dc0"
+    },
+    {
+      "path": "workspace-engine/src/main/java/fraymus/workspace/WorkspaceServer.java",
+      "sha256": "f1c07efe6105aa07bf24a84d0876ce598c932d9cf507fc67686a09434427ed4d"
+    },
+    {
+      "path": "workspace-desktop/renderer/alignment041.js",
+      "sha256": "926f85adb9bf62a6fdf0a1eef597d29dedf38a311649e1c360bcce696ebb3072"
+    },
+    {
+      "path": "workspace-desktop/renderer/tabletop-panel.js",
+      "sha256": "53770b3d70cdc854361023f4665c83f85861937aee7106b0a55b4e049afc1d2f"
+    },
+    {
+      "path": "workspace-desktop/main.cjs",
+      "sha256": "b1e4430368e91840ad5292726db7d6f4ad845e009b18d865f2eaa317df6ddd42"
+    },
+    {
+      "path": "workspace-desktop/policy.cjs",
+      "sha256": "5968f9be831429506c2f858a490b2634a1651f0569cb036802468e0de2588ec0"
+    },
+    {
+      "path": "workspace-engine/src/main/resources/alignment-041-contract.json",
+      "sha256": "4445edd82bc47db74c88da39c619bc450ce82bf3d6a115a33c6f4f853c9f8768"
+    }
+  ],
+  "priorInspection": "One privately retained setup frame after contractc24bc34, hash11763010b2a92afeccaeabe2f7ba0a019ba6a9df969c0a8716ffce6d8306f5e0, for camera/ROI inspection only. No041physical numeric outcomes yet.",
+  "qualification": "New synthetic controls pass; no real performance promotion from fixture results. Exact real annotations and first results will be retained separately. Original038 failures remain unvalidated."
+}
