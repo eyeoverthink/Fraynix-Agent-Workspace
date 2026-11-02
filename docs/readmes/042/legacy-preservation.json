@@ -1,0 +1,23 @@
+{
+  "passed": true,
+  "priorSources": 773,
+  "unchanged": 758,
+  "integrationChanges": [
+    "scripts/Start-Agent-Workspace.ps1",
+    "workspace-desktop/main.cjs",
+    "workspace-desktop/package.json",
+    "workspace-desktop/policy.cjs",
+    "workspace-desktop/renderer/app.js",
+    "workspace-desktop/renderer/brain-game.js",
+    "workspace-desktop/renderer/index.html",
+    "workspace-desktop/source-integrity.cjs",
+    "workspace-desktop/test/policy.test.cjs",
+    "workspace-engine/src/main/java/fraymus/workspace/BrainService.java",
+    "workspace-engine/src/main/java/fraymus/workspace/GoalRunner.java",
+    "workspace-engine/src/main/java/fraymus/workspace/LearningStore.java",
+    "workspace-engine/src/main/java/fraymus/workspace/SelfModel.java",
+    "workspace-engine/src/main/java/fraymus/workspace/WorkflowRunner.java",
+    "workspace-engine/src/main/java/fraymus/workspace/WorkspaceServer.java"
+  ],
+  "scope": "Original game physics, neural algorithms, mapping, tracking, calibration and source-specific041 gates remain unchanged. Lifecycle, host recovery, context and primary game-button integration are explicit changes."
+}

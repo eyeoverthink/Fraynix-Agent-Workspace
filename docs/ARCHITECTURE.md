@@ -1,5 +1,9 @@
 # Fraynix Agent Workspace system architecture
 
+## Edition042: one continuing Java agent
+
+A project-owned headless Java process now holds identity, per-boot clocks, checked shared neural state, bounded sensory replay, observation freshness and a segmented integrity witness. The existing interface reconnects under a single renewable lease. Pure Java goals continue without it; unfinished claimed host actions require explicit Resume. The primary Game Lab button uses the integrated original renderer rather than a separate editor. Existing Electron/browser hosting and native Bullet dependencies remain; no new neural framework is introduced. See [operation and recovery](CONTINUING_JAVA_AGENT.md) and [README042](../README-042.md).
+
 ## Edition040: shared Java spatial runtime and integrated views
 
 Java adapts actual source identities/poses from native ledger/live ownership, original game and separate recorded mat observations. It computes camera projection, clipping and picking; the shell draws integrated linked views and matching original game raster. Typed read/project/report tools pin one source and verify an actual saved artifact. Coordinate frames, action authority and unknown depth remain explicit. See [operation](SHARED_SPATIAL_RUNTIME.md) and [README040](../README-040.md).

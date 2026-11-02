@@ -1,0 +1,75 @@
+{
+  "edition": 42,
+  "modules": [
+    {
+      "id": "owner",
+      "name": "One Java owner",
+      "summary": "Project lock, exact installed Java fingerprint and leased interface reconnect.",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/AgentHost042.java",
+      "status": "verified"
+    },
+    {
+      "id": "clock",
+      "name": "Real clocks and heartbeat",
+      "summary": "Per-boot elapsed time, wall receipts and retained active time; no invented downtime activity.",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/AgentClock042.java",
+      "status": "verified"
+    },
+    {
+      "id": "runtime",
+      "name": "Continuing Java runtime",
+      "summary": "Source collection, durable identity, bounded experiences, explicit interruption and checked recovery.",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/AgentRuntime042.java",
+      "status": "verified"
+    },
+    {
+      "id": "core",
+      "name": "Shared owned nervous system",
+      "summary": "Existing Java LIF and synaptic computation; no new neural library.",
+      "source": "fraynix-modules/brain-core/src/main/java/fraymus/neural/NeuromorphicCore.java",
+      "status": "verified"
+    },
+    {
+      "id": "appraisal",
+      "name": "Causal resource appraisal",
+      "summary": "Measured pressure and latency suppress work; source novelty permits sensory integration.",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/AgentAppraisal042.java",
+      "status": "verified"
+    },
+    {
+      "id": "camera",
+      "name": "Source-qualified camera receipts",
+      "summary": "Accepted observer output, original hash/time, freshness expiry and duplicate refusal; no raw pixels.",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/CameraReceipt042.java",
+      "status": "verified"
+    },
+    {
+      "id": "witness",
+      "name": "Witness and recovery",
+      "summary": "Owned segmented integrity journal with exact record-count/root prefix anchors.",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/Witness042.java",
+      "status": "verified"
+    },
+    {
+      "id": "goals",
+      "name": "Goals and reusable skills",
+      "summary": "Existing Java tasks continue, await a host, verify outcomes and retain procedures.",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/GoalRunner.java",
+      "status": "verified"
+    },
+    {
+      "id": "chat",
+      "name": "Chat connected to the runtime",
+      "summary": "Typed read/report tools use actual Java context and checked canvas results.",
+      "source": "workspace-desktop/agent042.cjs",
+      "status": "verified"
+    },
+    {
+      "id": "next",
+      "name": "Java skill scheduling",
+      "summary": "Move more surface-independent planning into Java; evaluate candidates against frozen held-out tasks.",
+      "source": "docs/CONTINUING_JAVA_AGENT.md",
+      "status": "planned"
+    }
+  ]
+}

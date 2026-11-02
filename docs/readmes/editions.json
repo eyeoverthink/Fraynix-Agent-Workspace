@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "latest": 41,
+  "latest": 42,
   "canonicalization": "UTF-8 without BOM; CRLF normalized to LF for text",
   "editions": [
     {
@@ -11681,6 +11681,335 @@
           "path": "docs/readmes/041/verification.json",
           "kind": "text",
           "sha256": "d3d76503c9cc1c6dcab9d3d2ae24d87a44317bafbdf4e22da5affd1188e452f5"
+        }
+      ]
+    },
+    {
+      "number": 42,
+      "date": "2026-11-02",
+      "title": "One continuing Java brain and an integrated workspace",
+      "status": "published",
+      "markdown": "README-042.md",
+      "markdownSha256": "1efed67e776ddcaa41962288c4dd182bf259f7e37efb3be3547b5673cb97abcf",
+      "snapshotDirectory": "docs/readmes/042",
+      "companion": "docs/readmes/042/index.html",
+      "tag": "readme-042",
+      "sourceBaseline": "5ff56f73b1634a5dd54b155df68090075e3ebcf1",
+      "snapshotFiles": [
+        {
+          "path": "docs/readmes/042/agent042-chat-1100.png",
+          "kind": "binary",
+          "sha256": "9e4f619d8dd7dd3665b4796205afc9113c949f1ce8be58d0a1fc1d10e89b54bd"
+        },
+        {
+          "path": "docs/readmes/042/agent042-chat-1600.png",
+          "kind": "binary",
+          "sha256": "2f56305c76b9d48aa3e6cd2eb57bf14a5b99de31ec57fd81dde364d956add292"
+        },
+        {
+          "path": "docs/readmes/042/agent042-integrated.png",
+          "kind": "binary",
+          "sha256": "8a27ad19c98e041d0bdd26b1c2ca50c8041aad693389f34e6f2e227f23692255"
+        },
+        {
+          "path": "docs/readmes/042/agent042-integration.json",
+          "kind": "text",
+          "sha256": "bc30b7f96f791d8d4f383d12df301be8f74eb34c3d9a3662f30ac0f7423d7cc4"
+        },
+        {
+          "path": "docs/readmes/042/agent042-integration.original.gzip.json",
+          "kind": "text",
+          "sha256": "f6a6e186403df4db6c98cd95f9ceabe76a9a60cd3012b88c9ba91aebe58e9b94"
+        },
+        {
+          "path": "docs/readmes/042/agent042-reconnected.png",
+          "kind": "binary",
+          "sha256": "a365267143dbf4ddfbede38e51e9cc354b57e659fad6a6b7df710ff25f590566"
+        },
+        {
+          "path": "docs/readmes/042/agent042-recovered.png",
+          "kind": "binary",
+          "sha256": "0374570fd0a5768b3691221825bbce3cfc1c6e9f78c52c99b26a438e1f91f32d"
+        },
+        {
+          "path": "docs/readmes/042/alignment041-integration.json",
+          "kind": "text",
+          "sha256": "53cf7b0e0f270392f9319ac071eed70dc2970222d94cc69d1b3469816e439780"
+        },
+        {
+          "path": "docs/readmes/042/alignment041-integration.original.gzip.json",
+          "kind": "text",
+          "sha256": "e74a3eec60fa84d5fce8e94761f78726bb4bb1995232dea256cb87833b02b0d4"
+        },
+        {
+          "path": "docs/readmes/042/brain-game-integration.json",
+          "kind": "text",
+          "sha256": "01b819c7a37e350ccf027a91cc2613b22fc6774f897ded10d0d8e02d30d2946f"
+        },
+        {
+          "path": "docs/readmes/042/brain-game-integration.original.gzip.json",
+          "kind": "text",
+          "sha256": "71c12bee6cca0cc81f16943e3eb47610f04485ab6856063e2ec9251c364e2613"
+        },
+        {
+          "path": "docs/readmes/042/broader-validation.json",
+          "kind": "text",
+          "sha256": "4f00d5b8ef5ed442b715d91765fe168b2cfa97a4dcd4be0540ecab3397b02b8b"
+        },
+        {
+          "path": "docs/readmes/042/broader-validation.original.gzip.json",
+          "kind": "text",
+          "sha256": "f03bd8012255d38ec3dc743b5ccb8d6b8bef46623eea7ffe36c6e22eeb353670"
+        },
+        {
+          "path": "docs/readmes/042/clock-trace.json",
+          "kind": "text",
+          "sha256": "6f60cb584f9bd41c593cc33c41a543e7104232626da2e66cdbd54e23a566a5f5"
+        },
+        {
+          "path": "docs/readmes/042/development/attempts.json",
+          "kind": "text",
+          "sha256": "e55f43859108ca0ccacc40eb9fdc18a633820bc85d022e33f56dd0c96cf9c7a9"
+        },
+        {
+          "path": "docs/readmes/042/development/before-layout-fix.png",
+          "kind": "binary",
+          "sha256": "6979ee665137e3e20da6dd2dc2a911a5498a4f5d81eec57e6dc44844ff2df7e0"
+        },
+        {
+          "path": "docs/readmes/042/development/final-agent042-junit.original.gzip.json",
+          "kind": "text",
+          "sha256": "38cc51291c51e52fc9bf83c9571730a5cd62c84f50d9c9dc989d31f7c1ddf9cf"
+        },
+        {
+          "path": "docs/readmes/042/development/qa-agent042-agent042-integration.log.original.gzip.json",
+          "kind": "text",
+          "sha256": "5896db1374250396e9a2e9b9a346d25bc26aceb9e46ccf3ab046c5ae60bdfea7"
+        },
+        {
+          "path": "docs/readmes/042/development/qa-agent042-alignment041-integration.log.original.gzip.json",
+          "kind": "text",
+          "sha256": "501d1f3654228a6927123c8e1ff14dc84f3bd83357fb03f4262c676969c26426"
+        },
+        {
+          "path": "docs/readmes/042/development/qa-agent042-brain-game-integration.log.original.gzip.json",
+          "kind": "text",
+          "sha256": "0aae050b95ee31bbdde509ba15ecd2bd8752fbcb2c38c7cd89b53640c713d901"
+        },
+        {
+          "path": "docs/readmes/042/development/qa-agent042-broader-validation.log.original.gzip.json",
+          "kind": "text",
+          "sha256": "7ce40d8e94e6c36b27121b4b72ca6a600ad306ad243e0b34e0a3120bd9951f08"
+        },
+        {
+          "path": "docs/readmes/042/development/qa-agent042-desktop-units.log.original.gzip.json",
+          "kind": "text",
+          "sha256": "7df609371b62b77ca04756e23a518233de06c819ffdd39d7a943825c5df1179d"
+        },
+        {
+          "path": "docs/readmes/042/development/qa-agent042-full-java.log.original.gzip.json",
+          "kind": "text",
+          "sha256": "98f54fb502873b2c6e1caed671b083a648ea0d39b833a5f8580645fc94918839"
+        },
+        {
+          "path": "docs/readmes/042/development/qa-agent042-integration.log.original.gzip.json",
+          "kind": "text",
+          "sha256": "cdd0225441c69252d0f078def1ce80ee5ef25f2b14e5bf7e22339470b312e0a0"
+        },
+        {
+          "path": "docs/readmes/042/development/qa-agent042-knowledge-integration.log.original.gzip.json",
+          "kind": "text",
+          "sha256": "74ae9b6381548f74fa178a4db4ab49a90202668167e445f171fd9dab68e776e6"
+        },
+        {
+          "path": "docs/readmes/042/development/qa-agent042-live-agent042.log.original.gzip.json",
+          "kind": "text",
+          "sha256": "e2d9b9c7e5853871f02911a26a30ac96af414a5788e85cff6a05eed78a73349b"
+        },
+        {
+          "path": "docs/readmes/042/development/qa-agent042-live-alignment041.log.original.gzip.json",
+          "kind": "text",
+          "sha256": "c96d54fee743d213abc8cbb7b71e5481e1eba9d59dd8639214b9c4d9677e4ee1"
+        },
+        {
+          "path": "docs/readmes/042/development/qa-agent042-spatial-runtime040-integration.log.original.gzip.json",
+          "kind": "text",
+          "sha256": "d9b0c94a9c36a0f6e7fa2ff43706d3c132b7566acfbd562b2b16ae353cf3e38d"
+        },
+        {
+          "path": "docs/readmes/042/development/serial-results.original.gzip.json",
+          "kind": "text",
+          "sha256": "85d6307c1bb620bfcee37d44eb6d7c3866bff148f994705b503ac5c64a64a26e"
+        },
+        {
+          "path": "docs/readmes/042/development/work-agent042-desktop-first.log.original.gzip.json",
+          "kind": "text",
+          "sha256": "e103208947d09407db23988c6c412016ddae0c1d12b629e6263a01a785a63403"
+        },
+        {
+          "path": "docs/readmes/042/development/work-agent042-host-fence-build.log.original.gzip.json",
+          "kind": "text",
+          "sha256": "1b6a6818b5100bfe48e46f27ed2a2824b2b50a6c2d16d5b92de5a2715646b74c"
+        },
+        {
+          "path": "docs/readmes/042/development/work-agent042-java-final.log.original.gzip.json",
+          "kind": "text",
+          "sha256": "35e5315493eca4cc6bfc3148da1ef062855b6379c5cd064e3b1f1c757061dec9"
+        },
+        {
+          "path": "docs/readmes/042/development/work-agent042-java-first.log.original.gzip.json",
+          "kind": "text",
+          "sha256": "2e77597690ea9ca96d06305efa42f2106a89c8541b9aeb11f33cc34fc3f32273"
+        },
+        {
+          "path": "docs/readmes/042/development/work-agent042-java-second.log.original.gzip.json",
+          "kind": "text",
+          "sha256": "1e1f932166b06ad6c9a58065e52bdec27b0a637c13fa885538ef694bfb23edba"
+        },
+        {
+          "path": "docs/readmes/042/development/work-agent042-launch-fix-build.log.original.gzip.json",
+          "kind": "text",
+          "sha256": "1b6a6818b5100bfe48e46f27ed2a2824b2b50a6c2d16d5b92de5a2715646b74c"
+        },
+        {
+          "path": "docs/readmes/042/development/work-agent042-ui-fifth.log.original.gzip.json",
+          "kind": "text",
+          "sha256": "b816f92f2a02377f942a0594538b8151033c6b68adbe93885bd758d2ca885d41"
+        },
+        {
+          "path": "docs/readmes/042/development/work-agent042-ui-first.log.original.gzip.json",
+          "kind": "text",
+          "sha256": "36675a29c8ea6d16cf89f45077699eec48dc03147c76565e016c6715aed08577"
+        },
+        {
+          "path": "docs/readmes/042/development/work-agent042-ui-fourth.log.original.gzip.json",
+          "kind": "text",
+          "sha256": "6d766e359b4979116999af57abee242103d56f334dafbf18cf4baf4ed017cb4b"
+        },
+        {
+          "path": "docs/readmes/042/development/work-agent042-ui-second.log.original.gzip.json",
+          "kind": "text",
+          "sha256": "24b9d321fb293345a2d6bf879fd6feaaf83079ea490f2ea9f377a90aee63e68e"
+        },
+        {
+          "path": "docs/readmes/042/development/work-agent042-ui-seventh.log.original.gzip.json",
+          "kind": "text",
+          "sha256": "175f2b57b484c1f6a362eea5e7eb6298658fdf12fae0902ba7ce7b6fd4fdbdf9"
+        },
+        {
+          "path": "docs/readmes/042/development/work-agent042-ui-sixth.log.original.gzip.json",
+          "kind": "text",
+          "sha256": "6855bc04bf97b5e6ec96755a58369aeff7a2f808fcd1e37e5f699cc933ea5e0e"
+        },
+        {
+          "path": "docs/readmes/042/development/work-agent042-ui-third.log.original.gzip.json",
+          "kind": "text",
+          "sha256": "24b9d321fb293345a2d6bf879fd6feaaf83079ea490f2ea9f377a90aee63e68e"
+        },
+        {
+          "path": "docs/readmes/042/docs042-narrow.png",
+          "kind": "binary",
+          "sha256": "520ddc4f414e09f05f3e18a953a9862a9c16341ba6019b83c202970434ed04f1"
+        },
+        {
+          "path": "docs/readmes/042/docs042-wide.png",
+          "kind": "binary",
+          "sha256": "288132f2183834dfd4d52b07f276d30b75aea4c36d2dc25b4e31988144ced2ae"
+        },
+        {
+          "path": "docs/readmes/042/documentation-qa.json",
+          "kind": "text",
+          "sha256": "ec007777c64d8abe472589c7e86dbb5a602bb573292ebd8cf5e983b22cea1649"
+        },
+        {
+          "path": "docs/readmes/042/file-inventory.json",
+          "kind": "text",
+          "sha256": "8c334252c9b214b71664332ba2913a7353c6cbe2af3b8df24d97f902dbc04645"
+        },
+        {
+          "path": "docs/readmes/042/FILE_TREE.md",
+          "kind": "text",
+          "sha256": "856c5e1fb65a37d14b833daf584d5e4235c34abd18932913a73dd360d68acbac"
+        },
+        {
+          "path": "docs/readmes/042/index.html",
+          "kind": "text",
+          "sha256": "d801dece21a2524396e49dfa0bc333f051f3e1930c953a79f83278d69de43e7c"
+        },
+        {
+          "path": "docs/readmes/042/integration.json",
+          "kind": "text",
+          "sha256": "1b1a9d22d3fdd79254a7152e8b2751c02be443f72edec67fe5891ecd13c25b72"
+        },
+        {
+          "path": "docs/readmes/042/integration.original.gzip.json",
+          "kind": "text",
+          "sha256": "7d974b82236c8dc2ce38f543dc06b3f24ffb94a10b30aab29d48d4f673b2557e"
+        },
+        {
+          "path": "docs/readmes/042/java-validation.json",
+          "kind": "text",
+          "sha256": "49c3c1ea2538f1096fdbe62e2fb84e6961d0c39ce41b44b703a45279a96fc25e"
+        },
+        {
+          "path": "docs/readmes/042/knowledge-integration.json",
+          "kind": "text",
+          "sha256": "41a5a5adad9fd78d0aec9640562de338279078de0f1edee78671462f4dd9d3a7"
+        },
+        {
+          "path": "docs/readmes/042/knowledge-integration.original.gzip.json",
+          "kind": "text",
+          "sha256": "c5ab28734a0bd57e624c65e3f74a9c2f67fd657e381ff6965647fc33dcdfc6fb"
+        },
+        {
+          "path": "docs/readmes/042/legacy-preservation.json",
+          "kind": "text",
+          "sha256": "4bf1e2566056a5f43174d580953ebf819e2f5030171b54d60b8823bdaa99eb1b"
+        },
+        {
+          "path": "docs/readmes/042/live-agent042.json",
+          "kind": "text",
+          "sha256": "621b638a3f580dfa478b2e390b94fe12cd126ba01a120b24280c2114ba8b34fc"
+        },
+        {
+          "path": "docs/readmes/042/live-agent042.original.gzip.json",
+          "kind": "text",
+          "sha256": "db999e6c144fae54cbf24b059ad6580d07bae635fbcdc41b20458dc1d07930da"
+        },
+        {
+          "path": "docs/readmes/042/live-alignment041.json",
+          "kind": "text",
+          "sha256": "cb8fdeec7696883aa2ccfe3f9f85c7972e62800c960f98c5f6dfb6c8d6bc450f"
+        },
+        {
+          "path": "docs/readmes/042/live-alignment041.original.gzip.json",
+          "kind": "text",
+          "sha256": "f6b660fa477d166d0234e6342dee1ea1ece7c0149a05455a398b5e02bfb96748"
+        },
+        {
+          "path": "docs/readmes/042/source-match.json",
+          "kind": "text",
+          "sha256": "2129a8b6b5e3f9f0d851f464385e469494e384fc84cd06d6f37a12377f29d59d"
+        },
+        {
+          "path": "docs/readmes/042/spatial-runtime040-integration.json",
+          "kind": "text",
+          "sha256": "9a3ddcb4be1ff917fe3ac939b19cc38c78ce4cc87c546cd4d401ad6e4503835b"
+        },
+        {
+          "path": "docs/readmes/042/spatial-runtime040-integration.original.gzip.json",
+          "kind": "text",
+          "sha256": "b2c97f2f7467994f67ff08ef6a4afa3a5a9f0fc44c5a8d8bb6f70258fb40b8b5"
+        },
+        {
+          "path": "docs/readmes/042/system-map.json",
+          "kind": "text",
+          "sha256": "480e935382000b02285b12c2426d6a2f1459ed5ec735de632fb9792237d4541d"
+        },
+        {
+          "path": "docs/readmes/042/verification.json",
+          "kind": "text",
+          "sha256": "e8a6731857ba16215f373bfe30e6f73618b750e38efee5a52754747eb902d949"
         }
       ]
     }

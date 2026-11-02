@@ -1,6 +1,6 @@
 ---
 title: Fraynix Studio map of content
-edition_context: 041
+edition_context: 042
 updated: 2026-11-01
 tags: [fraynix, system-map]
 ---
@@ -9,9 +9,9 @@ tags: [fraynix, system-map]
 
 Open the repository root as an Obsidian vault. The numbered README is the edition snapshot; these notes are the working map.
 
-Current: [[README-041|Edition041 — measured alignment]] ·
-[[docs/obsidian/49-measured-alignment|Operation and limits]] ·
-[[docs/obsidian/measured-alignment.canvas|System map]].
+Current: [[README-042|Edition042 — continuing Java agent]] ·
+[[docs/obsidian/50-continuing-java-agent|Operation and recovery]] ·
+[[docs/obsidian/continuing-agent.canvas|System map]].
 
 Previous: [[README-031|Edition031 — native contact tasks]] ·
 [[docs/obsidian/39-native-pushing|Pushing contract and measured limits]] ·

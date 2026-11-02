@@ -52,4 +52,6 @@ Numbered editions preserve dated system behavior and evidence. The root [README]
 
 | [041](../../README-041.md) | 2026-11-01 | Measured mat alignment, fresh physical windows and source-aware chat | [Viewer](041/index.html) · [evidence](041/verification.json) · [operation](../MEASURED_ALIGNMENT.md) |
 
-Latest implementation/documentation edition: **041**. Earlier snapshots remain intact. See [sequence policy](README_SEQUENCE.md) and [manifest](editions.json).
+| [042](../../README-042.md) | 2026-11-02 | Continuing Java identity, heartbeat, shared neural memory and witnessed recovery | [Viewer](042/index.html) · [evidence](042/verification.json) · [operation](../CONTINUING_JAVA_AGENT.md) |
+
+Latest implementation/documentation edition: **042**. Earlier snapshots remain intact. See [sequence policy](README_SEQUENCE.md) and [manifest](editions.json).

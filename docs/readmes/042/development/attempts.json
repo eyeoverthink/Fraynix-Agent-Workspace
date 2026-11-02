@@ -1,0 +1,29 @@
+{
+  "scope": "Original development attempts retained separately from final successful validation. Empty logs from hung processes remain empty; they are not passing evidence.",
+  "attempts": [
+    {
+      "files": "work-agent042-java-first.log",
+      "result": "Initial boolean/double compilation error; fixed and rerun."
+    },
+    {
+      "files": "work-agent042-ui-first.log",
+      "result": "Incorrect test locator; corrected to actual artifact title."
+    },
+    {
+      "files": "work-agent042-ui-second.log / third.log",
+      "result": "Desktop closed and native goal advanced, but persistent child inherited launch/debugger lifetime handles; test did not complete. Independent hidden Windows launch fixed."
+    },
+    {
+      "files": "work-agent042-ui-fourth.log",
+      "result": "Startup handoff failed; explicit brief Windows launch handoff corrected."
+    },
+    {
+      "files": "work-agent042-ui-fifth.log",
+      "result": "Test sent POST to the GET-only state endpoint; corrected helper call."
+    },
+    {
+      "files": "before-layout-fix.png",
+      "result": "Expanded card crowded chat; focus layout and bounded details added, then actual input/button bounds checked at1600/1100 widths."
+    }
+  ]
+}

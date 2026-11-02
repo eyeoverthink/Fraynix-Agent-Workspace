@@ -1,0 +1,47 @@
+{
+  "edition": 42,
+  "date": "2026-11-02",
+  "passed": true,
+  "sourceBaseline": "5ff56f73b1634a5dd54b155df68090075e3ebcf1",
+  "java": {
+    "passed": true,
+    "fullBaseline": "6430e8e",
+    "fullChecks": 368,
+    "fullClasses": 79,
+    "failures": 0,
+    "skipped": 0,
+    "finalSource": "5ff56f73b1634a5dd54b155df68090075e3ebcf1",
+    "finalFocusedChecks": 9,
+    "amendedJava": [
+      "workspace-engine/src/main/java/fraymus/workspace/AgentAppraisal042.java",
+      "workspace-engine/src/main/java/fraymus/workspace/AgentRuntime042.java",
+      "workspace-engine/src/test/java/fraymus/workspace/Agent042Test.java"
+    ],
+    "distinctChecksCovered": 369,
+    "scope": "Complete serial Gradle check on6430e8e, then all9 final tests for the only amended Java class pair and its test. All other Java source bytes unchanged. Final actual UI/model checks use the exact matching candidate."
+  },
+  "desktopUnits": 111,
+  "groups": {
+    "agent042-integration": 15,
+    "integration": 12,
+    "broader-validation": 45,
+    "knowledge-integration": 8,
+    "brain-game-integration": 10,
+    "spatial-runtime040-integration": 10,
+    "alignment041-integration": 9,
+    "live-agent042": 3,
+    "live-alignment041": 3
+  },
+  "actualUIAssertions": 109,
+  "actualModelAssertions": 6,
+  "models": [
+    "gpt-oss:20b"
+  ],
+  "compute": "CPU-only local planning, four threads, actual num_gpu0 request receipts",
+  "appWidths": [
+    1600,
+    1100
+  ],
+  "sourceFiles": 790,
+  "scope": "Actual continuing Java process, shared neural checkpoint, native tasks, real desktop and actual local-model tools. Controlled observer footage is labelled software construction. No new physical accuracy, semantic identity, subjective awareness or LLM-weight improvement claim."
+}
