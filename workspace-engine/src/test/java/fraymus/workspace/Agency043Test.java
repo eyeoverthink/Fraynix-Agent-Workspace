@@ -40,4 +40,14 @@ public class Agency043Test {
     @Test public void unverifiedConversationIsNotPresentedAsVerifiedOutcomeToTheContinuingBrain()throws Exception{try(var f=new Fixture(request->reply("finish",new JSONObject().put("summary","A descriptive response only")))){var g=f.start("Summarize the current information","workbench");f.agency.tick();f.acknowledge(f.claim(),new JSONObject());f.agency.tick();assertEquals("completed-unverified",f.agency.read(g.getString("id")).getString("outcome"));assertEquals("completed-unverified",f.agency.outcomes().getJSONObject(0).getString("status"));assertEquals(0,f.agency.visual.state().getJSONArray("patterns").length());}}
     @Test public void rejectedNativeModelSyntaxRetriesWithinBudgetWithoutExecutingRejectedArguments()throws Exception{var attempts=new AtomicInteger();try(var f=new Fixture(request->{if(attempts.getAndIncrement()==0)throw new java.io.IOException("Ollama: error parsing tool call: invalid trailing escape");return reply("canvas.write",new JSONObject().put("title","Explicit unit boundary").put("files",new JSONObject().put("index.html","<h1>Boundary fixture, not a browser execution claim</h1>")));})){var g=f.start("Create counter with Reset","workbench");f.agency.tick();f.acknowledge(f.claim(),new JSONObject());f.agency.tick();assertEquals(0,f.store.artifacts().length());var rejected=f.agency.read(g.getString("id"));assertEquals("ready",rejected.getString("status"));assertEquals(1,rejected.getInt("failures"));assertTrue(rejected.getJSONArray("history").toList().stream().anyMatch(raw->"plan-rejected".equals(((Map<?,?>)raw).get("kind"))));f.agency.tick();assertEquals(1,f.store.artifacts().length());assertEquals("waiting-host",f.agency.read(g.getString("id")).getString("status"));assertEquals(2,attempts.get());}}
 
+    @Test public void missingActionAuthorityRefusesClearlyWhilePureDefinitionReadsRemainPassive()throws Exception{
+        try(var f=new Fixture(request->{throw new AssertionError();})){
+            var g=f.start("Inspect permission boundary","inspect");f.agency.tick();var claim=f.claim();
+            var error=assertThrows(IllegalStateException.class,()->f.agency.requireExecution044(null,null,"/api/game/close",f.session));assertTrue(error.getMessage().contains("owns execution"));
+            assertThrows(IllegalStateException.class,()->f.agency.requireExecution044(g.getString("id"),null,"/api/game/close",f.session));
+            for(String route:List.of("/api/world/suite","/api/pose-study/suite","/api/push-learning/suite","/api/contact-study/suite"))assertTrue(route,WorkspaceServer.passive043(route));
+            for(String route:List.of("/api/game/close","/api/world/start","/api/pose-study/start","/api/contact-study/start","/api/push-learning/start"))assertFalse(route,WorkspaceServer.passive043(route));
+            f.agency.requireExecution044(g.getString("id"),claim.getString("nonce"),"/api/browser/observe",f.session);
+        }
+    }
 }
