@@ -23,3 +23,8 @@ Set `FRAYNIX_WORKSPACE_PLAN_CPU_ONLY=1` before starting the desktop app to reque
 ## Verification and next gate
 
 See [edition040](../README-040.md), its [verification record](readmes/040/verification.json), [declared contract](../workspace-engine/src/main/resources/runtime-040-contract.json) and [independent source inventory](readmes/040/file-inventory.json). Existing038 physical displacement/uncertainty remain UNVALIDATED. The next physical step needs explicit frame registration, stronger target/background discrimination and genuinely new measured footage. A later reconstruction step must evaluate depth and scale separately. Neural policy promotion must demonstrate better held-out task outcomes and retain rollback; persistent identity or a new camera view is not itself weight learning.
+
+
+## Measured alignment successor
+
+[Edition041](../README-041.md) now supplies an explicit declared mat-to-native plane placement, separate withheld-grid/tape checks and fresh independently referenced physical movement/occlusion results. [Measured operation](MEASURED_ALIGNMENT.md) explains its source fences and remaining height/contact/uncertainty limits. It adds diagnostics without moving native bodies. Earlier038 failures stay preserved and unpromoted.

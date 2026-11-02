@@ -1,6 +1,6 @@
 # Fraynix Agent Workspace ·041
 
-> **Edition041 implementation checkpoint, not the completed release.** Full Java360/78classes,106desktop and9visible software-camera workflow checks pass. Actual model/broader regressions remain pending. First real registration passes its reference gates. The fresh4to8inch movement trial passes with6.377mm vector error; its first result is retained. Fresh occlusion has only its initial8samples and is not scored. [Current checkpoint](docs/ALIGNMENT_041_PROGRESS.json).
+> **Fresh physical results:** registration passed its reference gates; four-inch movement passed with **6.38 mm vector error**; occlusion had **0/8 hidden measurements and 8/8 revealed recoveries**. Validation passed: **360 Java tests, 106 desktop tests, 94 visible workflow checks and three actual local-model checks**. [Evidence and scope](docs/readmes/041/verification.json).
 
 **Measure the plane. Declare its native placement. Test what the camera actually observed.**
 
@@ -10,15 +10,15 @@ Edition041 connects the measured cutting-mat plane to the existing native spatia
 
 The new view is inside the existing workspace. Java performs the plane registration, source checking, target matching, motion estimation and projection. The desktop supplies the actual camera frames and visible controls. Chat can read the selected registration/trial and open its exact-source checked report. The original game, native physics, browser, creation canvas, saved procedures and older camera records remain available.
 
-The first real setup uses the user-confirmed12 ×12-inch cutting mat, dual-unit tape and black lighter. The visible measured rectangle spans ten columns and eight rows. Four printed-grid intersections fit the calibration, three other intersections act as withheld checks, and a separate four-inch tape interval checks scale. The camera image remains private. Exact numeric annotations were committed before calculating the first result.
+The first real setup uses the user-confirmed 12 × 12-inch cutting mat, dual-unit tape and black lighter. The visible measured rectangle spans ten columns and eight rows. Four printed-grid intersections fit the calibration, three other intersections act as withheld checks, and a separate four-inch tape interval checks scale. The camera image remains private. Exact numeric annotations were committed before calculating the first result.
 
 ## What the first alignment establishes
 
-The first registration passed its declared gates. Its maximum withheld-grid residual was **0.383975 mm**, and its independent tape-length discrepancy was **2.403976 mm** over a known101.6 mm interval. The fitted in-plane scale was1.0000000000000002. These are source-specific consistency checks with the recorded annotations.
+The first registration passed its declared gates. Its maximum withheld-grid residual was **0.383975 mm**, and its independent tape-length discrepancy was **2.403976 mm** over a known 101.6 mm interval. The fitted in-plane scale was 1.0000000000000002. These are source-specific consistency checks with the recorded annotations.
 
-The nearly zero fit residual is expected because its fitting landmarks reuse the calibration corners. It is not a physical accuracy measurement. The declared3 mm annotation budget remains in force; target height, camera parallax and contact are unmeasured. A small withheld residual does not turn the system into a calibrated sub-millimetre instrument. Fresh movement and occlusion outcomes are separate evidence and must be scored independently.
+The nearly zero fit residual is expected because its fitting landmarks reuse the calibration corners. It is not a physical accuracy measurement. The declared 3 mm annotation budget remains in force; target height, camera parallax and contact are unmeasured. A small withheld residual does not turn the system into a calibrated sub-millimetre instrument. Fresh movement and occlusion outcomes are separate evidence and must be scored independently.
 
-The native placement is explicit. By default, the chosen mat corner becomes the virtual origin, across the mat follows native+X, and upward on the mat follows native−Z on a declaredY=0 plane. That gives the observation a defined place in the existing right-handedY-up scene. It does not claim the system measured the mat’s pose in a physical room or reconstructed the lighter’s height.
+The native placement is explicit. By default, the chosen mat corner becomes the virtual origin, across the mat follows native +X, and upward on the mat follows native −Z on a declared Y=0 plane. That gives the observation a defined place in the existing right-handedY-up scene. It does not claim the system measured the mat’s pose in a physical room or reconstructed the lighter’s height.
 
 This is a useful bridge between observation and simulation. A point measured in mat metres can be displayed in native coordinates and compared with a hypothesis, without replacing the actual native body pose. The same retained body association carries the human label, while the observation marker states its current source, measurement/prediction status and limits. Native objects are not silently moved to follow a camera estimate.
 
@@ -76,42 +76,74 @@ Ask chat to inspect the **measured mat alignment** or retained manual trial. `al
 
 A report includes residuals, actual sampled motion, CSV, source-qualified view JSON and a complete compressed numeric snapshot. The host checks its exact source identities in the actual canvas. A verified read/report workflow can correctly report a failed physical experiment. The workflow status is not substituted for physical success.
 
-Numeric JSON exports are real local files. The standalone inspector independently verifies canonical snapshot and registration hashes, source relationships, finite planar values and increasing ordinals/times. The private originals remain in the project’s `alignment-041/frames` directory. No personal camera pixels enter the report, model prompts or Git documentation. Published camera examples use labelled analytic controls or numeric-only views.
+Numeric JSON exports are real local files. The standalone inspector independently verifies canonical snapshot and registration hashes, source relationships, finite planar values and increasing ordinals/times. The private originals remain in the project’s `alignment-041/frames` directory. The application’s chat/report tools contain numeric evidence; private originals were separately inspected during development. Personal camera images are absent from Git and app tool prompts. Published camera examples use labelled analytic controls or numeric-only views.
 
-## Continuity, validation and next gates
+## First fresh physical outcomes · 2026-11-01
 
-The candidate and observer/evaluator/source hashes were committed before fresh physical scoring. The first real reference annotations were separately committed before calculating registration. Initial development and test-harness failures remain in the evidence history. Previous001–040 documentation and original038 physical failures remain preserved.
+| Experiment | First retained outcome | Meaning |
+| --- | --- | --- |
+| Withheld grid | Maximum residual **0.384 mm** across three separate points | Consistency with the annotated plane, with a declared 3 mm budget |
+| Independent tape | **2.404 mm** discrepancy over 101.6 mm | Separate scale check; fitting corners alone do not certify accuracy |
+| Four-inch movement | **6.377 mm** vector error; **16/16** fixed endpoint measurements | Passes the predeclared 10 mm limit in this particular setup |
+| Fully covered target | **0/8** accepted target measurements | The pale cover did not become a false lighter detection |
+| Revealed target | **8/8** measured recoveries; no reference failures | Recovered the stationary target in all eight fixed revealed frames |
 
-Focused validation covers independent geometry, actual pixel movement/occlusion controls, phase/generation fences, replay/source corruption, fixed windows, restart, projection and exported evidence. Desktop checks cover typed tool limits and actual report assertions. The visible test exercises ImageCapture through a labelled camera source, real UI controls, source refusal, local files and full restart. Physical and local-model outcomes are recorded separately from those controls.
+The movement trial kept eight start, nine transition and eight end frames. The person moved the same metal end from 4 to 8 inches, uncovered, then removed their hand. Its observed endpoint-mean displacement was approximately 107.83 mm with a small lateral component, compared with the independent 101.6 mm reference. The error is reported rather than rounded away.
 
-The next acceptance gate is demonstrated performance on genuinely new movement and occlusion footage, with the original first results retained. Only then can a source-specific improvement be reported. Broader target variation, lighting, rotation, camera changes, multiple objects and depth need their own independent cases. A measured registration does not solve all of those problems.
+The separate occlusion trial kept eight visible, eight genuinely covered and eight revealed frames. Every unannotated original was inspected before the first evaluation. The small cover obscured the lighter without obscuring the reference corners. The source guard remained stable throughout. A computed return error near zero comes from recovering the same discretized template centre on a stationary object. It is not a claim of near-zero physical position error.
 
-The longer direction remains one local environment in which an agent can observe, compare hypotheses, create, act and check outcomes across continuing tasks. This edition strengthens the observation-to-world bridge. Later policy learning should demonstrate better held-out task outcomes with rollback, rather than treating new diagrams, changing weights or retained labels as proof of intelligence.
+Both first evaluations are immutable. Neither the observer nor its scoring gates were retuned after seeing these results. A button press alone is not a visibility reference: the labelled software-camera control deliberately leaves the object visible during its nominal hidden phase, and remains **unscored**. The earlier edition038 displacement/uncertainty failures stay preserved and **UNVALIDATED**. New source-specific results do not rewrite them.
 
-## Fresh physical checkpoint ·2026-11-01
+[Numeric physical evidence](docs/readmes/041/physical-evidence.json) retains positions, actual source times, hashes, acceptance flags and first evaluations without camera bytes. The initial registration and trial UUIDs can be followed into the private project’s originals. [Pre-score source lock](docs/ALIGNMENT_041_CANDIDATE_LOCK.json), [reference annotation lock](docs/ALIGNMENT_041_FIRST_ANNOTATIONS_LOCK.json) and [camera/chat amendment](docs/ALIGNMENT_041_UI_AMENDMENT_1.json) explain the exact versions used.
 
-The refreshed camera session retained the same measured grid and passed registration. The person confirmed the same metal end at4in, uncovered and hand away. The first8post-seed frames are now saved under trial131fd959-57fa-4bba-9944-0c267402bbb4. All8target detections were accepted and every mat-reference check was stable. Each unannotated original was inspected independently: the lighter remained visible by the4in mark. The app is paused until the person starts moving. No distance or occlusion success is claimed.
+## Performance and uncertainty limits
 
-Actual acquisition intervals averaged approximately1.46seconds in this window. The UI schedules at most5Hz, but complete durable replay, source checking and view updates currently reduce observed throughput. Reacquisition-after-gap labels preserve that timing limitation. This checkpoint does not establish smooth realtime tracking or calibrated uncertainty. Performance work should retain these originals and fixed first outcomes before attempting improvement.
+Actual acquisition intervals averaged approximately **1.46 seconds** in the first eight-sample hold. The UI schedules at most 5 Hz, but durable prefix replay, source checking and view updates currently reduce observed throughput. The interface’s scheduling ceiling is not the measured frame rate. Long gaps are labelled as reacquisition, so the display does not imply continuous measured motion while it was paused or waiting.
 
-The full isolated Java run passes360tests across78classes with no failures, errors or skips. Subsequent changes affect camera-session invalidation and chat wiring only; Java observer/evaluator sources remain exact. Independent final desktop checks pass106tests, and the visible labelled camera workflow passes9checks. Actual CPU-only model and broad integration runs are still pending; this edition is not yet tagged/frozen.
+The next engineering priority is to profile this complete path. A useful optimization should avoid recomputing already verified tracking history while retaining original-byte checks, source/generation fences, restart reconstruction and exact results. View refresh can be decoupled from observation without changing physical ground truth. The acceptance gate should compare exact outputs and complete acquisition latency, then measure genuinely fresh movement and occlusion sequences.
 
-## First fresh movement result
+Target height, contact, room pose, perspective/parallax effects and calibrated probability remain outside this result. The retained filter’s radius is a declared model budget. Empirical uncertainty coverage needs separately referenced positions, not just a plausible-looking radius or a successful endpoint test. Multiple targets, rotation, lighting changes, camera movement and other covers also need new cases.
 
-The same metal end moved from4in to8in with the lighter uncovered. The first result passes its declared10mm movement-vector gate: **6.376571mm error** against the independent101.6mm reference. All16fixed endpoint samples were measured; no endpoint mat-reference failures occurred. Observed endpoint-mean displacement was approximately107.83mm with a small lateral component. This is one source-specific result, with human-confirmed marks and each original endpoint frame inspected independently. It is not zero-error metrology or a general motion benchmark.
+## Validation and preservation
 
-The trial retains8start frames,9transition frames and8end frames. The first eight endpoint frames count even if unfavourable; transition predictions cannot supply ground truth. A new occlusion trial has saved its8visible baseline frames and is paused for the user. Its hidden/revealed results remain pending. [Numeric physical evidence](docs/ALIGNMENT_041_PHYSICAL.json) includes actual positions, timestamps, source hashes, acceptance flags and the immutable evaluation, without private camera bytes.
+The complete independent Java check passed **360 tests across 78 classes**, with zero failures, errors or skips. All Java sources remain identical to the tested candidate. The later amendment changes camera-session invalidation and chat wiring only. Final desktop checks pass **106 tests**. The independent visible workflow passes **nine checks**, including actual ImageCapture, fixed windows, source refusal, real report/export, independent checksum rejection, restart and stale-camera refusal.
+
+Actual **gpt-oss:20b** read/report/finish execution passes three checks. All planning calls carry CPU-only/four-thread receipts and the actual selected registration/trial IDs. The host supplies 104 registered tools. User-started recording continues during planning; the model cannot create camera measurements or reference labels. The pinned summary names its sample/time rather than pretending an old snapshot is a live stream.
+
+The existing browser/canvas, broader creation/control, object knowledge, original game and shared spatial views pass **85 additional visible checks**, for **94 total** with the nine new alignment checks. Measured-view layout checks pass at desktop widths 1600 and 1100; the offline guide passes at 1440 and 390. Mobile app support is not claimed. [Verification scope](docs/readmes/041/verification.json) separates completed controls, actual model execution and physical outcomes. Development and initial harness failures are retained as original-byte proof archives rather than replaced with a clean success story.
+
+All **773 canonical implementation files/assets** match the separate source checkout. Of 759 previous files, 749 are unchanged. Ten explicit integration files connect the new subsystem and update its test/packaging paths. The original physics, game, neural math, earlier tracker/filter/calibration and shared projection code retain their prior implementations. [Inventory](docs/readmes/041/FILE_TREE.md) and [preservation receipt](docs/readmes/041/legacy-preservation.json) show that boundary.
+
+The prepared production review uses a distinct copy of the closed camera-test project: **1,741 retained files / 76,629,858 bytes**, each compared by SHA-256. Original earlier projects and recordings remain preserved. The camera was released after these completed tests; a restart never silently begins another recording. Continue from the saved registration and selected trial instead of creating an empty new project or sharing a live database between processes.
 
 ## Screenshots and offline guide
 
-These actual application captures use the explicitly labelled analytic software-camera control, not personal webcam photographs. Private real-camera originals remain outside Git.
+The first capture uses the explicitly labelled analytic software-camera control. The physical-result capture shows actual numeric evidence, with personal camera images hidden. Native browser/canvas surfaces are captured through the app’s composite screenshot path; no private camera photograph was edited for publication.
 
 ![Actual labelled calibration UI](docs/readmes/041/images/alignment041-registration.png)
 
-The measured setup, source description and reference checks in the integrated workspace.
+Measured setup, source description and reference checks inside the existing workspace.
 
-![Actual labelled numeric report](docs/readmes/041/images/alignment041-report.png)
+![Actual physical numeric report](docs/readmes/041/images/alignment041-physical-result.png)
 
-The saved report opens in the real canvas and passes five source/identity assertions. Its control is labelled; it is not substituted for the fresh physical movement result.
+The fresh physical occlusion result opens as a saved report in the real canvas, with five checked source/identity assertions. Its physical outcome remains distinct from the report workflow’s verification status.
 
-[Offline system, residual and motion explorer](docs/readmes/041/index.html) · [All773implementation sources](docs/readmes/041/FILE_TREE.md) · [Current validation scope](docs/readmes/041/verification.json) · [Obsidian system map](docs/obsidian/measured-alignment.canvas). The guide works without a CDN and has passed actual1440/390-width checks for layout, module selection/filtering, source search, numeric sample selection and screenshots. Model/broad QA and occlusion are explicitly pending; this snapshot is not frozen or tagged yet.
+![Actual local-model inspection](docs/readmes/041/images/alignment041-chat.png)
+
+Actual local gpt-oss:20b workflow on the labelled software-camera control. It does not substitute for the separately scored physical tests.
+
+![Four registered source views](docs/readmes/041/images/alignment041-four-views.png)
+
+The labelled control’s same source shown through four Java projections; marker geometry is diagnostic.
+
+[Offline system, residual and motion explorer](docs/readmes/041/index.html) · [Complete implementation inventory](docs/readmes/041/FILE_TREE.md) · [Obsidian system map](docs/obsidian/measured-alignment.canvas). The companion has no CDN dependency. Its module selection/filtering, file search, landmark residuals, sample selection, image loading and wide/narrow layouts are checked in an actual browser.
+
+## Next edition and the continuing vision
+
+1. Profile and improve actual capture throughput while keeping exact original/result replay and the existing source fences. Publish complete latency, not just isolated matcher timing.
+2. Run new held-out movement, rotation and occlusion cases with independent references. Retain the first failures and measure uncertainty coverage before calling the radius calibrated.
+3. Extend human-associated objects into better perceptual descriptions and multiple-target identity, with explicit evidence and correction paths. A template and a human label do not establish automatic semantic recognition.
+4. Let the Java goal runner use measured prediction errors to choose bounded follow-up observations and verified procedures. Keep physical observations, simulated hypotheses and action authority explicit.
+5. Evaluate learned policies on separate conditions with rollback and retained experience. Useful learning means improved task outcomes after restart, not merely changing weights or saving a new label.
+
+The direction remains one local environment in which an agent can observe, compare hypotheses, create, act and check outcomes across continuing tasks. This edition gives measured plane observations a declared place in that environment and demonstrates two fresh physical tasks. It is a concrete connection between the camera and the world, with its remaining limits visible.
