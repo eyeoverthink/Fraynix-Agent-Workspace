@@ -46,7 +46,7 @@ async function main(){
     const afterHang=await app.evaluate(()=>global.workspaceTest.api('/api/state')),hung=afterHang.artifacts.find(a=>a.title==='Bounded renderer fixture');assert(hung);
     await app.evaluate((_,id)=>global.workspaceTest.execute('canvas.write',{id,expectedVersion:1,title:'Bounded renderer fixture',files:{'index.html':'<h1 id="recovered">Recovered</h1>'}}),hung.id);
     const recovered=await app.evaluate(()=>global.workspaceTest.execute('canvas.test',{steps:[{selector:'#recovered',expectText:'Recovered'}]}));assert(recovered.passed);checks.push('An infinite-loop artifact times out; the host survives and a corrected version runs');
-    const result={date:'2026-10-29',passed:true,checks,project,artifact:artifact.id};await fs.writeFile(path.join(output,'integration.json'),JSON.stringify(result,null,2));console.log(JSON.stringify(result,null,2));
+    const result={date:new Date().toISOString(),passed:true,checks,project,artifact:artifact.id};await fs.writeFile(path.join(output,'integration.json'),JSON.stringify(result,null,2));console.log(JSON.stringify(result,null,2));
   }finally{await app.close();}
 }
 main().catch(error=>{console.error(error);process.exitCode=1;});
