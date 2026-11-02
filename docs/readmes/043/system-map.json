@@ -1,0 +1,93 @@
+{
+  "edition": 43,
+  "modules": [
+    {
+      "id": "java",
+      "name": "Java task owner",
+      "summary": "Queue, native writes, stage gates, exact checks and explicit recovery.",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/Agency043.java",
+      "status": "implemented",
+      "note": "docs/obsidian/51-java-visual-agency.md"
+    },
+    {
+      "id": "pixels",
+      "name": "Owned pixel algorithms",
+      "summary": "Full-resolution difference and768-feature spatial descriptor.",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/ScreenPixels043.java",
+      "status": "implemented",
+      "note": "docs/obsidian/51-java-visual-agency.md"
+    },
+    {
+      "id": "memory",
+      "name": "Private visual references",
+      "summary": "Original PNG hashes and successful routine associations. Final-appearance retrieval.",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/VisualMemory043.java",
+      "status": "implemented",
+      "note": "docs/obsidian/51-java-visual-agency.md"
+    },
+    {
+      "id": "vision",
+      "name": "Optional local visual head",
+      "summary": "Installed completion+vision model; estimated description tied to original hash.",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/ScreenVision043.java",
+      "status": "optional",
+      "note": "docs/obsidian/51-java-visual-agency.md"
+    },
+    {
+      "id": "host",
+      "name": "Actual surface host",
+      "summary": "Authenticated session, one claimed action, real captures and actual DOM checks.",
+      "source": "workspace-desktop/agency043.cjs",
+      "status": "implemented",
+      "note": "docs/obsidian/51-java-visual-agency.md"
+    },
+    {
+      "id": "brain",
+      "name": "Continuing shared Java brain",
+      "summary": "Retained identity, clocks, witness and original neural channels preserved.",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/AgentRuntime042.java",
+      "status": "preserved",
+      "note": "docs/obsidian/51-java-visual-agency.md"
+    },
+    {
+      "id": "next",
+      "name": "Held-out usefulness evaluation",
+      "summary": "Compare retrieval on/off against frozen new tasks; no improvement claim yet.",
+      "source": "docs/JAVA_VISUAL_AGENCY.md",
+      "status": "planned",
+      "note": "docs/obsidian/51-java-visual-agency.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "docs/readmes/043/agency043-chat.png",
+      "caption": "Actual labelled software control,2026-11-02"
+    },
+    {
+      "path": "docs/readmes/043/agency043-vision.png",
+      "caption": "Actual labelled software control,2026-11-02"
+    },
+    {
+      "path": "docs/readmes/043/agency043-recipes.png",
+      "caption": "Actual labelled software control,2026-11-02"
+    },
+    {
+      "path": "docs/readmes/043/agency043-interface.png",
+      "caption": "Actual labelled software control,2026-11-02"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/readmes/043/verification.json"
+    },
+    {
+      "path": "docs/readmes/043/java-validation.json"
+    },
+    {
+      "path": "docs/readmes/043/source-match.json"
+    },
+    {
+      "path": "docs/readmes/043/visual-sequence.json"
+    }
+  ]
+}

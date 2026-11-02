@@ -115,3 +115,9 @@ The reserved real sequences reject the candidate. Baseline remains active; synth
 - [Runtime and evaluation contract](../TEMPORAL_TRACKING.md)
 
 All three new clips improve, but coverage and false-visible checks still reject the candidate. The first result, old profiles and saved implementation pins remain intact.
+
+## Java-owned workbench tasks and visual memory · edition043
+
+[README043](../../README-043.md) · [Operating guide](../JAVA_VISUAL_AGENCY.md) · [Visual agency note](51-java-visual-agency.md) · [System canvas](java-visual-agency.canvas)
+
+Original before/during/after screenshots connect actual work to source/version/time evidence. Java owns task stages and saved-recipe scheduling; optional local vision describes pixels. Tested visual references support retrieval, with no claim of trained temporal recognition or LLM-weight improvement.

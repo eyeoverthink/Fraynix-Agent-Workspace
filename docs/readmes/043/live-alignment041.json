@@ -1,0 +1,577 @@
+{
+  "passed": true,
+  "date": "2026-11-02T11:07:31.173Z",
+  "model": "gpt-oss:20b",
+  "compute": "CPU-only planning,4threads",
+  "project": "C:\\Users\\eyeka\\AppData\\Local\\Temp\\fraynix-live-alignment041-sZasxB",
+  "checks": [
+    "Actual local gpt-oss:20b uses selected-registration read/report/finish stages with104 registered tools, exact host identities and CPU-only/four-thread request receipts",
+    "Actual model task opens a real saved report with five exact-source host assertions while user-started ImageCapture continues through12fixed frames; full numeric evidence verifies, no raw pixels enter prompts, and no physical evaluation is invented",
+    "Natural current-lighter question selects actual alignment evidence; user-started frames continue during planning, old source/result remain exact, separate stationary evaluation happens only after the read/report task, then camera releases. No native movement, model-triggered camera or renderer errors"
+  ],
+  "plans": [
+    {
+      "compute": {
+        "options": {
+          "num_gpu": 0,
+          "stop": [],
+          "num_thread": 4,
+          "repeat_penalty": 1.1,
+          "temperature": 0.15,
+          "num_predict": 4096,
+          "num_ctx": 16384
+        },
+        "cpuOnly": true
+      },
+      "contextSha256": "b4db853497637021bd214ca8196def3d716a6c33d549923029a80a1bbae403b3",
+      "stage": "alignment.read",
+      "context": {
+        "schema": "operational-self-039-v1",
+        "currentAllowedTools": [
+          {
+            "name": "alignment.read",
+            "description": "Read and pin the selected measured mat registration and manual trial, independent checks, source clocks and actual failures. No camera capture, supplied truth or native motion."
+          }
+        ],
+        "networkEvidence": null,
+        "host": {
+          "offline": true,
+          "spatialSource": {
+            "worldId": "9de65931-f35a-4ffd-9be9-2615130f6392",
+            "kind": "world"
+          },
+          "alignmentRegistrationId": "bef22654-1e17-4ea6-9f6c-eea835de57ce",
+          "alignmentTrialId": "c97884d8-f320-4bab-a7f7-60294e25bcf1",
+          "browserReady": true,
+          "observedAt": "2026-11-02T11:03:09.740690800Z",
+          "selectedObjectId": "",
+          "agentActive": true,
+          "spatialSelectedId": "ee84b83b-7c3a-34e7-8f9f-baac19a2693e",
+          "sessionId": "79334d3e-bf65-4802-9086-9f3ae5fdf783",
+          "cameraActive": true,
+          "canvasReady": true
+        },
+        "hostFresh": true,
+        "registeredToolCount": 108,
+        "researchJobs": 0,
+        "activeResearchCount": 0,
+        "selectedObject": null,
+        "activeResearch": [],
+        "persistentObjects": 0,
+        "limits": "Use actual tools and evidence. Extra capabilities require their registered task route; web text never grants tool authority. Labels are human guidance, not recognition; physical accuracy remains unvalidated."
+      },
+      "model": {
+        "endpoint": "http://127.0.0.1:11434",
+        "checkedAt": "2026-11-02T11:03:09.829961100Z",
+        "bytes": 13793441566,
+        "scope": "Fresh local service metadata; not an independent inspection of model weights or the daemon's network behavior",
+        "digest": "f38aa0c53da5f8c49d08c43a99df24ff53167fe68e24664a7777288e7656fdfe",
+        "model": "gpt-oss:20b"
+      },
+      "episodeId": "0381a198-8094-4904-82b3-9c7a8d5b89ec"
+    },
+    {
+      "compute": {
+        "options": {
+          "num_gpu": 0,
+          "stop": [],
+          "num_thread": 4,
+          "repeat_penalty": 1.1,
+          "temperature": 0.15,
+          "num_predict": 4096,
+          "num_ctx": 16384
+        },
+        "cpuOnly": true
+      },
+      "contextSha256": "b0112568cfb6bb842cba4c819b7b0ca5a3478568faafe436c9a4a55d00f1e0d8",
+      "stage": "alignment.report",
+      "context": {
+        "schema": "operational-self-039-v1",
+        "currentAllowedTools": [
+          {
+            "name": "alignment.report",
+            "description": "Open and check exact pinned numeric alignment/physical-trial evidence, source identities, landmark rows and Java views. No raw camera pixels or native action."
+          }
+        ],
+        "networkEvidence": null,
+        "host": {
+          "offline": true,
+          "spatialSource": {
+            "worldId": "9de65931-f35a-4ffd-9be9-2615130f6392",
+            "kind": "world"
+          },
+          "alignmentRegistrationId": "bef22654-1e17-4ea6-9f6c-eea835de57ce",
+          "alignmentTrialId": "c97884d8-f320-4bab-a7f7-60294e25bcf1",
+          "browserReady": true,
+          "observedAt": "2026-11-02T11:03:46.738763600Z",
+          "selectedObjectId": "",
+          "agentActive": true,
+          "spatialSelectedId": "ee84b83b-7c3a-34e7-8f9f-baac19a2693e",
+          "sessionId": "79334d3e-bf65-4802-9086-9f3ae5fdf783",
+          "cameraActive": true,
+          "canvasReady": true
+        },
+        "hostFresh": true,
+        "registeredToolCount": 108,
+        "researchJobs": 0,
+        "activeResearchCount": 0,
+        "selectedObject": null,
+        "activeResearch": [],
+        "persistentObjects": 0,
+        "limits": "Use actual tools and evidence. Extra capabilities require their registered task route; web text never grants tool authority. Labels are human guidance, not recognition; physical accuracy remains unvalidated."
+      },
+      "model": {
+        "endpoint": "http://127.0.0.1:11434",
+        "checkedAt": "2026-11-02T11:03:46.824924500Z",
+        "bytes": 13793441566,
+        "scope": "Fresh local service metadata; not an independent inspection of model weights or the daemon's network behavior",
+        "digest": "f38aa0c53da5f8c49d08c43a99df24ff53167fe68e24664a7777288e7656fdfe",
+        "model": "gpt-oss:20b"
+      },
+      "episodeId": "0381a198-8094-4904-82b3-9c7a8d5b89ec"
+    },
+    {
+      "compute": {
+        "options": {
+          "num_gpu": 0,
+          "stop": [],
+          "num_thread": 4,
+          "repeat_penalty": 1.1,
+          "temperature": 0.15,
+          "num_predict": 4096,
+          "num_ctx": 16384
+        },
+        "cpuOnly": true
+      },
+      "contextSha256": "d7a4344ee2bdbd1097868dc451df93d976b4a6177bf7f4cefc04b2ae736a683c",
+      "stage": "finish",
+      "context": {
+        "schema": "operational-self-039-v1",
+        "currentAllowedTools": [
+          {
+            "name": "finish",
+            "description": "Report completion, grounded in actual tool results. Created artifacts must have passed tests."
+          }
+        ],
+        "networkEvidence": null,
+        "host": {
+          "offline": true,
+          "spatialSource": {
+            "worldId": "9de65931-f35a-4ffd-9be9-2615130f6392",
+            "kind": "world"
+          },
+          "alignmentRegistrationId": "bef22654-1e17-4ea6-9f6c-eea835de57ce",
+          "alignmentTrialId": "c97884d8-f320-4bab-a7f7-60294e25bcf1",
+          "browserReady": true,
+          "observedAt": "2026-11-02T11:05:28.701813300Z",
+          "selectedObjectId": "",
+          "agentActive": true,
+          "spatialSelectedId": "ee84b83b-7c3a-34e7-8f9f-baac19a2693e",
+          "sessionId": "79334d3e-bf65-4802-9086-9f3ae5fdf783",
+          "cameraActive": true,
+          "canvasReady": true
+        },
+        "hostFresh": true,
+        "registeredToolCount": 108,
+        "researchJobs": 0,
+        "activeResearchCount": 0,
+        "selectedObject": null,
+        "activeResearch": [],
+        "persistentObjects": 0,
+        "limits": "Use actual tools and evidence. Extra capabilities require their registered task route; web text never grants tool authority. Labels are human guidance, not recognition; physical accuracy remains unvalidated."
+      },
+      "model": {
+        "endpoint": "http://127.0.0.1:11434",
+        "checkedAt": "2026-11-02T11:05:28.790404300Z",
+        "bytes": 13793441566,
+        "scope": "Fresh local service metadata; not an independent inspection of model weights or the daemon's network behavior",
+        "digest": "f38aa0c53da5f8c49d08c43a99df24ff53167fe68e24664a7777288e7656fdfe",
+        "model": "gpt-oss:20b"
+      },
+      "episodeId": "0381a198-8094-4904-82b3-9c7a8d5b89ec"
+    }
+  ],
+  "completion": {
+    "summary": "Measured registration bef22654-1e17-4ea6-9f6c-eea835de57ce: checks passed, withheld max 0.00mm, tape discrepancy 0.00mm; native current. stationary recording running; first evaluation not performed. Pinned sample 12, recorded 2026-11-02T11:03:13.146284200Z: measured-estimate; reference reference-stable. Native placement is declared; object height/contact unknown. Exact pinned numeric report verified. Agent used read/report only; any sampled frames came from the user-started recorder. No native action performed.",
+    "goal": "Where is my lighter? Explain its current source, measured position, prediction and alignment limits, then open its checked report. Do not activate a camera, create measurements or move anything.",
+    "alignmentFacts": {
+      "fit": {
+        "a": 0.9999999999999999,
+        "b": 1.3492293702041832e-16,
+        "fitCount": 4,
+        "placementMeaning": "Operator-declared native placement of a measured mat plane; not measured room pose or object height",
+        "tx": 2.023844055306275e-17,
+        "ty": -2.7755575615628914e-17,
+        "heightKnown": false,
+        "scale": 0.9999999999999999,
+        "checkCount": 3,
+        "uncertaintyMeaning": "Residuals and declared calibration error budget, not a calibrated probability. Reused fit corners alone do not certify accuracy.",
+        "landmarks": [
+          {
+            "errorM": 3.435063978697848e-17,
+            "image": [
+              0.1,
+              0.9
+            ],
+            "role": "fit",
+            "native": [
+              0,
+              0,
+              0
+            ],
+            "name": "fit-grid-0",
+            "source": "Printed mat grid fitting corner; reused calibration point",
+            "mappedNativeM": [
+              2.0238440553062745e-17,
+              0,
+              -2.7755575615628907e-17
+            ],
+            "matM": [
+              0,
+              5.551115123125783e-17
+            ]
+          },
+          {
+            "errorM": 1.272130549049659e-17,
+            "image": [
+              0.9,
+              0.9
+            ],
+            "role": "fit",
+            "native": [
+              0.3,
+              0,
+              0
+            ],
+            "name": "fit-grid-1",
+            "source": "Printed mat grid fitting corner; reused calibration point",
+            "mappedNativeM": [
+              0.3,
+              0,
+              -1.272130549049659e-17
+            ],
+            "matM": [
+              0.30000000000000004,
+              0
+            ]
+          },
+          {
+            "errorM": 1.2412670766236366e-16,
+            "image": [
+              0.9,
+              0.1
+            ],
+            "role": "fit",
+            "native": [
+              0.3,
+              0,
+              -0.3
+            ],
+            "name": "fit-grid-2",
+            "source": "Printed mat grid fitting corner; reused calibration point",
+            "mappedNativeM": [
+              0.29999999999999993,
+              0,
+              -0.2999999999999999
+            ],
+            "matM": [
+              0.30000000000000004,
+              0.29999999999999993
+            ]
+          },
+          {
+            "errorM": 5.708209747453786e-17,
+            "image": [
+              0.1,
+              0.1
+            ],
+            "role": "fit",
+            "native": [
+              0,
+              0,
+              -0.3
+            ],
+            "name": "fit-grid-3",
+            "source": "Printed mat grid fitting corner; reused calibration point",
+            "mappedNativeM": [
+              -1.3299546649155523e-17,
+              0,
+              -0.29999999999999993
+            ],
+            "matM": [
+              6.938893903907228e-18,
+              0.30000000000000004
+            ]
+          },
+          {
+            "errorM": 5.003707553108401e-17,
+            "image": [
+              0.3,
+              0.7
+            ],
+            "role": "check",
+            "native": [
+              0.075,
+              0,
+              -0.075
+            ],
+            "name": "check-grid-0",
+            "source": "Independent printed grid intersection, not a fitting/calibration corner",
+            "mappedNativeM": [
+              0.07499999999999997,
+              0,
+              -0.07500000000000004
+            ],
+            "matM": [
+              0.07499999999999998,
+              0.07500000000000007
+            ]
+          },
+          {
+            "errorM": 1.0007415106216802e-16,
+            "image": [
+              0.7,
+              0.3
+            ],
+            "role": "check",
+            "native": [
+              0.225,
+              0,
+              -0.225
+            ],
+            "name": "check-grid-1",
+            "source": "Independent printed grid intersection, not a fitting/calibration corner",
+            "mappedNativeM": [
+              0.22499999999999992,
+              0,
+              -0.22499999999999995
+            ],
+            "matM": [
+              0.22499999999999995,
+              0.22499999999999998
+            ]
+          },
+          {
+            "errorM": 5.003707553108401e-17,
+            "image": [
+              0.3,
+              0.3
+            ],
+            "role": "check",
+            "native": [
+              0.075,
+              0,
+              -0.225
+            ],
+            "name": "check-grid-2",
+            "source": "Independent printed grid intersection, not a fitting/calibration corner",
+            "mappedNativeM": [
+              0.07499999999999996,
+              0,
+              -0.22499999999999998
+            ],
+            "matM": [
+              0.07499999999999998,
+              0.22500000000000003
+            ]
+          }
+        ],
+        "basis": {
+          "u": [
+            1,
+            0,
+            0
+          ],
+          "v": [
+            0,
+            0,
+            -1
+          ],
+          "origin": [
+            0,
+            0,
+            0
+          ],
+          "source": "Operator-declared virtual mat plane; not measured room pose"
+        },
+        "version": "mat-native-similarity-041-v1",
+        "fitRmsM": 7.072411801208238e-17,
+        "tape": {
+          "a": [
+            0.3,
+            0.5
+          ],
+          "b": [
+            0.6,
+            0.5
+          ],
+          "unit": "cm",
+          "markB": 11.25,
+          "markA": 0,
+          "source": "LABELLED analytic software-camera image, known .3m square and independent112.5mm image reference. Not user webcam footage.",
+          "expectedM": 0.1125,
+          "measuredM": 0.11249999999999998,
+          "absoluteErrorM": 2.7755575615628914e-17
+        },
+        "rotationDeg": 7.730514850779381e-15,
+        "maxCheckErrorM": 1.0007415106216802e-16,
+        "physicalContactKnown": false,
+        "passed": true
+      },
+      "nativeCurrent": true,
+      "snapshotHash": "1ee241e847fbd91881826471c5e933a86df356fb17394c8d74a04e8cb1f540f7",
+      "scope": "Measured surface-coordinate registration with declared native placement. Object height/contact unknown; native state not changed.",
+      "registrationId": "bef22654-1e17-4ea6-9f6c-eea835de57ce",
+      "nativeSource": {
+        "phase": "committed-world-head",
+        "worldId": "9de65931-f35a-4ffd-9be9-2615130f6392",
+        "kind": "world",
+        "pending": null,
+        "tick": 0,
+        "units": "m",
+        "revision": 0,
+        "coordinateFrame": "right-handed-y-up",
+        "livePendingAvailable": false,
+        "sourceSha256": "6569d9d313aed982112865f9d8c7e08c4fafd0bb3c5e8d87e5882482a8388c7e",
+        "headHash": "64a1e10d9e6e6fcdf5f0f48839cbabfe988b2d263d6bbd06dbe76034e68171c8",
+        "pendingOwned": false,
+        "dimensions": 3
+      },
+      "trial": {
+        "phase": "start",
+        "generation": 1,
+        "kind": "stationary",
+        "cameraKey": "tabletop-mat-1793617388421",
+        "label": "Black lighter, human identified",
+        "nativeBinding": {
+          "worldId": "9de65931-f35a-4ffd-9be9-2615130f6392",
+          "expectedHash": "64a1e10d9e6e6fcdf5f0f48839cbabfe988b2d263d6bbd06dbe76034e68171c8",
+          "expectedRevision": 0
+        },
+        "createdAt": "2026-11-02T11:03:09.318011500Z",
+        "codeSha256": "bafb71da01ec0ecaa916d8d5f1179b61386f7cfc87c25df2bfd7f89b5f4ae30b",
+        "sourceClock": "Host monotonic seconds at ImageCapture.grabFrame completion; not certified sensor exposure time",
+        "registrationId": "bef22654-1e17-4ea6-9f6c-eea835de57ce",
+        "totalBytes": 311870,
+        "toMark": 8,
+        "completedFrames": 12,
+        "id": "c97884d8-f320-4bab-a7f7-60294e25bcf1",
+        "fromMark": 4,
+        "phases": [
+          {
+            "afterOrdinal": 0,
+            "name": "start",
+            "acknowledgedAt": "2026-11-02T11:03:09.318011500Z"
+          }
+        ],
+        "status": "running"
+      },
+      "registrationSha256": "2ab1d90c3e9723f30f34b603204a962171886427df386c7dcb16bdc10e7a7416",
+      "latest": {
+        "reference": {
+          "valid": true,
+          "corners": [
+            {
+              "score": 1,
+              "corner": 0,
+              "dxPixels": 0,
+              "dyPixels": 0
+            },
+            {
+              "score": 1,
+              "corner": 1,
+              "dxPixels": 0,
+              "dyPixels": 0
+            },
+            {
+              "score": 1,
+              "corner": 2,
+              "dxPixels": 0,
+              "dyPixels": 0
+            },
+            {
+              "score": 1,
+              "corner": 3,
+              "dxPixels": 0,
+              "dyPixels": 0
+            }
+          ],
+          "medianShiftPixels": 0,
+          "meaning": "Mat/camera reference-patch consistency, not a physical motion sensor. Movement, occlusion or lighting failure require re-observation.",
+          "matchedAnchors": 4,
+          "usableAnchors": 4,
+          "status": "reference-stable"
+        },
+        "phase": "start",
+        "tracker": {
+          "margin": 0.7684066685094639,
+          "lostFrames": 0,
+          "processingMs": 65.4034,
+          "accepted": true,
+          "negativeMargin": 0.38054121679227393,
+          "box": [
+            0.365,
+            0.31999999999999995,
+            0.43500000000000005,
+            0.5533333333333333
+          ],
+          "version": "mat-colour-edge-negative-041-v1",
+          "point": [
+            0.4,
+            0.43666666666666665
+          ],
+          "angleDeg": 0,
+          "score": 1,
+          "colour": 1,
+          "correlation": 1,
+          "meaning": "Fixed human-seeded colour/edge appearance and background rejection, not semantic identity or probability",
+          "status": "observed"
+        },
+        "estimate": {
+          "dtS": 0.3921000000014896,
+          "predictedM": [
+            0.11250000000000002,
+            0.17375000000000002
+          ],
+          "positionM": [
+            0.11250000000000002,
+            0.17375000000000002
+          ],
+          "radiusM": 0.009769912393171706,
+          "innovationGateM": 0.06,
+          "velocityMps": [
+            0,
+            0
+          ],
+          "accepted": true,
+          "uncertaintyMeaning": "Declared motion/noise model plus anchor error; uncalibrated until separately evaluated. Appearance match is not probability.",
+          "seconds": 4.60460000000149,
+          "innovationM": 0,
+          "measurementM": [
+            0.11250000000000002,
+            0.17375000000000002
+          ],
+          "sigmaM": 0.0027079649572686825,
+          "gapReset": false,
+          "status": "measured-estimate"
+        },
+        "receivedAt": "2026-11-02T11:03:13.146284200Z",
+        "ordinal": 12,
+        "frame": {
+          "phase": "start",
+          "seconds": 4.60460000000149,
+          "imageSha256": "4a00aede13385e2edec92b85c73308c3a6859fcd3bb26cfbd186504986b7160e",
+          "bytes": 23990
+        }
+      }
+    },
+    "model": "gpt-oss:20b",
+    "episodeId": "0381a198-8094-4904-82b3-9c7a8d5b89ec",
+    "alignmentReport": {
+      "id": "455cd738-982d-389a-b40d-18ebab7cc80d",
+      "passed": true,
+      "version": 1
+    }
+  },
+  "scope": "Actual local-model read/report on labelled synthetic camera control. This does not establish physical tracking accuracy or train language-model weights."
+}

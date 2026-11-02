@@ -1,5 +1,9 @@
 # Fraynix Agent Workspace system architecture
 
+## Edition043: Java workbench ownership and visual evidence
+
+Ordinary browser/canvas chat and saved-recipe scheduling now run through the durable Java Agency043 queue. The desktop executes authenticated surface claims. Original before/during/after PNGs retain source/version/time/hash metadata; owned JDK pixel descriptors and differences support tested visual references. Optional installed local vision is an untrusted estimate. Actual current artifact checks control completion. Existing specialized physics/perception agents remain. [Operation and scope](JAVA_VISUAL_AGENCY.md).
+
 ## Edition042: one continuing Java agent
 
 A project-owned headless Java process now holds identity, per-boot clocks, checked shared neural state, bounded sensory replay, observation freshness and a segmented integrity witness. The existing interface reconnects under a single renewable lease. Pure Java goals continue without it; unfinished claimed host actions require explicit Resume. The primary Game Lab button uses the integrated original renderer rather than a separate editor. Existing Electron/browser hosting and native Bullet dependencies remain; no new neural framework is introduced. See [operation and recovery](CONTINUING_JAVA_AGENT.md) and [README042](../README-042.md).

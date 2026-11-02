@@ -1,0 +1,10 @@
+allprojects {
+    tasks.withType(Test).configureEach {
+        maxParallelForks = 1
+        forkEvery = 1
+        maxHeapSize = '512m'
+        afterSuite { descriptor, result ->
+            if (descriptor.className != null) logger.lifecycle("RECOVERY_CLASS ${descriptor.className} tests=${result.testCount} failures=${result.failedTestCount} skipped=${result.skippedTestCount}")
+        }
+    }
+}

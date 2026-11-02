@@ -4,54 +4,48 @@ Numbered editions preserve dated system behavior and evidence. The root [README]
 
 | Edition | Date | Focus | Explore |
 | --- | --- | --- | --- |
-| [001](../../README-001.md) | 2026-10-23 | Local creator system and Dreamer 120B | [Viewer](001/index.html) · [tree](001/FILE_TREE.md) |
-| [002](../../README-002.md) | 2026-10-28 | Full Mario engine and sensory cortex | [Viewer](002/index.html) · [tree](002/FILE_TREE.md) |
-| [003](../../README-003.md) | 2026-10-28 | Recovery, explicit placement, levels and model availability | [Viewer](003/index.html) · [tree](003/FILE_TREE.md) |
-| [004](../../README-004.md) | 2026-10-29 | Character rendering, power-up goals and persistent practice | [Viewer](004/index.html) · [tree](004/FILE_TREE.md) · [vision](../EMBODIED_AI_VISION.md) |
-| [005](../../README-005.md) | 2026-10-29 | Independent agent workspace, real browser, runnable canvas and verified recipes | [Viewer](005/index.html) · [tree](005/FILE_TREE.md) |
-| [006](../../README-006.md) | 2026-10-29 | Complete guide, step-by-step workflow, evidence and next development gates | [Viewer](006/index.html) · [tree](006/FILE_TREE.md) · [design](../AGENT_WORKSPACE_DESIGN.md) |
-| [007](../../README-007.md) | 2026-10-29 | Persistent episodes, prototype adaptation, independent replay, promotion and rollback | [Viewer](007/index.html) · [tree](007/FILE_TREE.md) · [memory](../PROJECT_MEMORY.md) |
-| [008](../../README-008.md) | 2026-10-29 | Broader validation, research-preserving control, changed-target recovery and independent model acceptance | [Viewer](008/index.html) · [tree](008/FILE_TREE.md) · [evidence](008/verification.json) |
-| [009](../../README-009.md) | 2026-10-29 | Design edition: shared world, 3D experiment sequence, real-data binding and target-language pipeline | [Viewer](009/index.html) · [plan](../SCENARIO_ENGINE_ROADMAP.md) · [tree](009/FILE_TREE.md) |
-| [010](../../README-010.md) | 2026-10-29 | First native 3D mechanics lab, persistent scenes, replay and local-model experiment tools | [Viewer](010/index.html) · [evidence](010/verification.json) · [backend](../3D_BACKEND_DECISION.md) |
-| [011](../../README-011.md) | 2026-10-30 | Versioned CSV measurements, native residual comparisons, repeatable experiments and guarded offline reports | [Viewer](011/index.html) · [evidence](011/verification.json) · [tree](011/FILE_TREE.md) |
-| [012](../../README-012.md) | 2026-10-30 | Native parameter calibration, separate validation, durable apply/rollback and actual local-model evidence | [Viewer](012/index.html) · [evidence](012/verification.json) · [tree](012/FILE_TREE.md) |
-| [013](../../README-013.md) | 2026-10-30 | Real recorded observations, rejected validation, reproducible evidence and JING observer assessment | [Viewer](013/index.html) · [evidence](013/verification.json) · [report](013/report/index.html) |
-| [014](../../README-014.md) | 2026-10-30 | Native Java first-person observer, actual frame capture, source-linked history and optional local request adapter | [Viewer](014/index.html) · [evidence](014/verification.json) · [contract](../NATIVE_OBSERVER.md) |
-| [015](../../README-015.md) | 2026-10-30 | Native body grab/move/release, command replay, portable scene import and actual JSON/CSV/WebM exports | [Viewer/video](015/index.html) · [evidence](015/verification.json) · [formats](../SCENE_INTERCHANGE.md) |
-| [016](../../README-016.md) | 2026-10-30 | Shared Java brain, integrated original game, retained physical learning and bounded memory | [Viewer](016/index.html) · [evidence](016/verification.json) · [contracts](../JAVA_BRAIN_RUNTIME.md) |
-| [017](../../README-017.md) | 2026-10-30 | Live native feedback, stronger fixed baselines, recovery and atomic policy/job activation | [Viewer](017/index.html) · [evidence](017/verification.json) · [contract](../CLOSED_LOOP_CONTROL.md) |
-| [018](../../README-018.md) | 2026-10-30 | Learned numerical world model, counterfactual native planning and separate rejected recorded-reality forecast | [Viewer/video](018/index.html) · [evidence](018/verification.json) · [contract](../WORLD_MODEL_REALITY.md) |
-| [019](../../README-019.md) | 2026-10-30 | Chat-connected durable Java goals, verified motion reports and reusable procedural skills | [Viewer](019/index.html) · [evidence](019/verification.json) · [contract](../GOALS_AND_SKILLS.md) |
-| [020](../../README-020.md) | 2026-10-30 | Verified offline CSV/motion procedures, honest quality flags and named new-source reuse | [Viewer](020/index.html) · [evidence](020/verification.json) · [contract](../MOTION_DATA_PROCEDURES.md) |
-| [021](../../README-021.md) | 2026-10-30 | Declared-scale spatial imports, actual native manipulation, isolated forecasts and new-scene procedural reuse | [Viewer](021/index.html) · [evidence](021/verification.json) · [contract](../SPATIAL_WORLD.md) |
-| [022](../../README-022.md) | 2026-10-30 | Actual browser perception, persistent drawn corrections, lost/reacquired traces and fresh-source procedural reuse | [Viewer](022/index.html) · [evidence](022/verification.json) · [contract](../BROWSER_PERCEPTION.md) |
-| [023](../../README-023.md) | 2026-10-30 | Recorded-sequence evaluation, rejected candidate, guarded profile lifecycle and retained implementation pins | [Viewer](023/index.html) · [evidence](023/verification.json) · [contract](../TRACKING_EVALUATION.md) |
-| [024](../../README-024.md) | 2026-10-30 | Java temporal motion, new recorded clips, improved overlap and retained quality rejection | [Viewer](024/index.html) · [evidence](024/verification.json) · [contract](../TEMPORAL_TRACKING.md) |
-| [025](../../README-025.md) | 2026-10-30 | Durable local creation, actual tests, bounded repair and fresh-source procedural reuse | [Viewer](025/index.html) · [evidence](025/verification.json) · [contract](../DURABLE_CREATION.md) |
-| [026](../../README-026.md) | 2026-10-30 | Complete data/native/creation workflows, independent evidence audit and retained whole-workflow skills | [Viewer](026/index.html) · [evidence](026/verification.json) · [contract](../EVIDENCE_WORKFLOWS.md) |
-| [027](../../README-027.md) | 2026-10-31 | JDK procedural space, verified original-coordinate views, retained skills and responsive evidence | [Viewer](027/index.html) · [evidence](027/verification.json) · [contract](../PROCEDURAL_SPACE.md) |
-| [028](../../README-028.md) | 2026-10-31 | Reference-image rules, actual native playable worlds, original dimensional layers and verified retained skills | [Viewer](028/index.html) · [evidence](028/verification.json) · [contract](../REFERENCE_MAP_WORLDS.md) |
-| [029](../../README-029.md) | 2026-10-31 | Global map contracts, full reserved comparison, actual native outcomes and preserved earlier worlds | [Viewer](029/index.html) · [evidence](029/verification.json) · [contract](../GLOBAL_MAP_TOPOLOGY.md) |
-| [030](../../README-030.md) | 2026-10-31 | Native moving-state recovery, declared materials, measured work and actual local-chat skill reuse | [Viewer](030/index.html) · [evidence](030/verification.json) · [contract](../NATIVE_MAP_RECOVERY.md) |
-| [031](../../README-031.md) | 2026-10-31 | Reachable approaches, native contact pushing, measured jam recovery and durable two-body skills | [Viewer](031/index.html) · [evidence](031/verification.json) · [contract](../NATIVE_PUSHING.md) |
-| [032](../../README-032.md) | 2026-10-31 | Frozen native experience, training-only force selection, honest reserved rejection and recoverable profile workflow | [Viewer](032/index.html) · [evidence](032/verification.json) · [contract](../NATIVE_EXPERIENCE.md) |
-| [033](../../README-033.md) | 2026-11-01 | Locked solver-contact controller, different reserved improvement, exact version activation/rollback and retained skills | [Viewer](033/index.html) · [evidence](033/verification.json) · [contract](../CONTACT_CONTROLLERS.md) |
-| [034](../../README-034.md) | 2026-11-01 | Native multi-object poses, all-body continuation, exact-version skills and original torque ablation | [Viewer](034/index.html) · [evidence](034/verification.json) · [contract](../MULTI_OBJECT_POSES.md) |
-| [035](../../README-035.md) | 2026-11-01 | Persistent native worlds across successive goals, state continuity, owned recovery and complete history | [Viewer](035/index.html) · [evidence](035/verification.json) · [contract](../PERSISTENT_WORLDS.md) |
+| [001](../../README-001.md) | 2026-10-23 | The local creator system and Dreamer 120B | [Viewer](001/index.html) · [tree](001/FILE_TREE.md) |
+| [002](../../README-002.md) | 2026-10-28 | Full Mario gameplay and the live sensory cortex | [Viewer](002/index.html) · [tree](002/FILE_TREE.md) |
+| [003](../../README-003.md) | 2026-10-28 | Reliable AI play selection and level files | [Viewer](003/index.html) · [tree](003/FILE_TREE.md) |
+| [004](../../README-004.md) | 2026-10-29 | Power ups character rendering and persistent practice | [Viewer](004/index.html) · [tree](004/FILE_TREE.md) |
+| [005](../../README-005.md) | 2026-10-29 | Fraynix Agent Workspace browser canvas and verified skills | [Viewer](005/index.html) · [tree](005/FILE_TREE.md) |
+| [006](../../README-006.md) | 2026-10-29 | Fraynix Agent Workspace complete guide and development roadmap | [Viewer](006/index.html) · [tree](006/FILE_TREE.md) |
+| [007](../../README-007.md) | 2026-10-29 | Persistent learning and evaluated control | [Viewer](007/index.html) · [tree](007/FILE_TREE.md) |
+| [008](../../README-008.md) | 2026-10-29 | Broader validation and useful recovery | [Viewer](008/index.html) · [tree](008/FILE_TREE.md) |
+| [009](../../README-009.md) | 2026-10-29 | Shared world and 3D experiment roadmap (design edition) | [Viewer](009/index.html) · [tree](009/FILE_TREE.md) |
+| [010](../../README-010.md) | 2026-10-29 | The first native 3D mechanics lab | [Viewer](010/index.html) · [tree](010/FILE_TREE.md) |
+| [011](../../README-011.md) | 2026-10-30 | Versioned measurements, repeated native comparisons and offline reports | [Viewer](011/index.html) · [tree](011/FILE_TREE.md) |
+| [012](../../README-012.md) | 2026-10-30 | Native calibration, separate validation and reversible scene application | [Viewer](012/index.html) · [tree](012/FILE_TREE.md) |
+| [013](../../README-013.md) | 2026-10-30 | Real observations, rejected validation and JING observer assessment | [Viewer](013/index.html) · [tree](013/FILE_TREE.md) |
+| [014](../../README-014.md) | 2026-10-30 | Native Java observer and source-linked experience | [Viewer](014/index.html) · [tree](014/FILE_TREE.md) |
+| [015](../../README-015.md) | 2026-10-30 | Native body control and portable scene/media files | [Viewer](015/index.html) · [tree](015/FILE_TREE.md) |
+| [016](../../README-016.md) | 2026-10-30 | Shared Java brain, integrated game and retained physical learning | [Viewer](016/index.html) · [tree](016/FILE_TREE.md) |
+| [017](../../README-017.md) | 2026-10-30 | Live native feedback and retained control learning | [Viewer](017/index.html) · [tree](017/FILE_TREE.md) |
+| [018](../../README-018.md) | 2026-10-30 | Learned numerical world model and recorded reality | [Viewer](018/index.html) · [tree](018/FILE_TREE.md) |
+| [019](../../README-019.md) | 2026-10-30 | Durable Java goals and reusable procedural skills | [Viewer](019/index.html) · [tree](019/FILE_TREE.md) |
+| [020](../../README-020.md) | 2026-10-30 | Verified offline motion-data procedures | [Viewer](020/index.html) · [tree](020/FILE_TREE.md) |
+| [021](../../README-021.md) | 2026-10-30 | Source-qualified spatial worlds and verified manipulation | [Viewer](021/index.html) · [tree](021/FILE_TREE.md) |
+| [022](../../README-022.md) | 2026-10-30 | Browser perception and persistent teaching | [Viewer](022/index.html) · [tree](022/FILE_TREE.md) |
+| [023](../../README-023.md) | 2026-10-30 | Recorded tracking evaluation and retained profile lifecycle | [Viewer](023/index.html) · [tree](023/FILE_TREE.md) |
+| [024](../../README-024.md) | 2026-10-30 | Java temporal tracking on new footage and retained reliability gates | [Viewer](024/index.html) · [tree](024/FILE_TREE.md) |
+| [025](../../README-025.md) | 2026-10-30 | Durable local creation and workflow content | [Viewer](025/index.html) · [tree](025/FILE_TREE.md) |
+| [026](../../README-026.md) | 2026-10-30 | One request, verified stages and whole-workflow skills | [Viewer](026/index.html) · [tree](026/FILE_TREE.md) |
+| [027](../../README-027.md) | 2026-10-31 | Procedural space and verified original-coordinate views | [Viewer](027/index.html) · [tree](027/FILE_TREE.md) |
+| [028](../../README-028.md) | 2026-10-31 | Reference images and playable measured physics worlds | [Viewer](028/index.html) · [tree](028/FILE_TREE.md) |
+| [029](../../README-029.md) | 2026-10-31 | Global map contracts and measured physical outcomes | [Viewer](029/index.html) · [tree](029/FILE_TREE.md) |
+| [030](../../README-030.md) | 2026-10-31 | Recoverable native worlds and measured declared materials | [Viewer](030/index.html) · [tree](030/FILE_TREE.md) |
+| [031](../../README-031.md) | 2026-10-31 | Contact-driven native tasks and durable two-body skills | [Viewer](031/index.html) · [tree](031/FILE_TREE.md) |
+| [032](../../README-032.md) | 2026-10-31 | Measured native experience and an honest reserved decision | [Viewer](032/index.html) · [tree](032/FILE_TREE.md) |
+| [033](../../README-033.md) | 2026-11-01 | Validated contact controllers and retained versioned skills | [Viewer](033/index.html) · [tree](033/FILE_TREE.md) |
+| [034](../../README-034.md) | 2026-11-01 | Native multi-object poses and retained versioned procedures | [Viewer](034/index.html) · [tree](034/FILE_TREE.md) |
+| [035](../../README-035.md) | 2026-11-01 | One evolving native world across successive verified goals | [Viewer](035/index.html) · [tree](035/FILE_TREE.md) |
+| [036](../../README-036.md) | 2026-11-01 | Real footage, predicted motion and persistent observed worlds | [Viewer](036/index.html) · [tree](036/FILE_TREE.md) |
+| [037](../../README-037.md) | 2026-11-01 | Measured plane, local camera and empirically challenged uncertainty | [Viewer](037/index.html) · [tree](037/FILE_TREE.md) |
+| [038](../../README-038.md) | 2026-11-01 | Physical tabletop, durable observations and grounded questions | [Viewer](038/index.html) · [tree](038/FILE_TREE.md) |
+| [039](../../README-039.md) | 2026-11-01 | Operational self-model, persistent object knowledge and background research | [Viewer](039/index.html) · [tree](039/FILE_TREE.md) |
+| [040](../../README-040.md) | 2026-11-01 | Shared Java spatial runtime, integrated views and checked chat reports | [Viewer](040/index.html) · [tree](040/FILE_TREE.md) |
+| [041](../../README-041.md) | 2026-11-01 | Measured mat alignment, fresh physical windows and source-aware chat | [Viewer](041/index.html) · [tree](041/FILE_TREE.md) |
+| [042](../../README-042.md) | 2026-11-02 | One continuing Java brain and an integrated workspace | [Viewer](042/index.html) · [tree](042/FILE_TREE.md) |
+| [043](../../README-043.md) | 2026-11-02 | Java tasks, original screenshots and tested visual references | [Viewer](043/index.html) · [tree](043/FILE_TREE.md) |
 
-| [036](../../README-036.md) | 2026-11-01 | Real footage, predicted motion, persistent observed worlds, exact recovery and complete evidence | [Viewer](036/index.html) · [evidence](036/verification.json) · [contract](../OBSERVED_WORLDS.md) |
-
-| [037](../../README-037.md) | 2026-11-01 | Measured plane/time, local camera/mat workflow, empirical uncertainty and original rejected footage results | [Viewer](037/index.html) · [evidence](037/verification.json) · [contract](../METRIC_WORLDS.md) |
-
-| [038](../../README-038.md) | 2026-11-01 | Private physical tabletop, original appearance tracking, mat/tape scale, durable evidence and grounded chat | [Viewer](038/index.html) · [evidence](038/verification.json) · [operation](../TABLETOP_OBSERVER.md) |
-
-| [039](../../README-039.md) | 2026-11-01 | Operational self-model, persistent human-associated objects and actual background research | [Viewer](039/index.html) · [evidence](039/verification.json) · [operation](../OBJECT_KNOWLEDGE.md) |
-
-| [040](../../README-040.md) | 2026-11-01 | Shared Java spatial runtime, integrated source-qualified views and checked chat reports | [Viewer](040/index.html) · [evidence](040/verification.json) · [operation](../SHARED_SPATIAL_RUNTIME.md) |
-
-| [041](../../README-041.md) | 2026-11-01 | Measured mat alignment, fresh physical windows and source-aware chat | [Viewer](041/index.html) · [evidence](041/verification.json) · [operation](../MEASURED_ALIGNMENT.md) |
-
-| [042](../../README-042.md) | 2026-11-02 | Continuing Java identity, heartbeat, shared neural memory and witnessed recovery | [Viewer](042/index.html) · [evidence](042/verification.json) · [operation](../CONTINUING_JAVA_AGENT.md) |
-
-Latest implementation/documentation edition: **042**. Earlier snapshots remain intact. See [sequence policy](README_SEQUENCE.md) and [manifest](editions.json).
+Latest implementation/documentation edition: **043**. Earlier snapshots remain intact. Rejected and experimental results retain their original scope; a title is not a promotion of physical accuracy. See [sequence policy](README_SEQUENCE.md) and [manifest](editions.json).

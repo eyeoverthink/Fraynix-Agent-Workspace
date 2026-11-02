@@ -1,0 +1,136 @@
+{
+  "nodes": [
+    {
+      "id": "edition",
+      "type": "file",
+      "file": "README-043.md",
+      "x": 0,
+      "y": 0,
+      "width": 400,
+      "height": 230
+    },
+    {
+      "id": "operation",
+      "type": "file",
+      "file": "docs/JAVA_VISUAL_AGENCY.md",
+      "x": 460,
+      "y": 0,
+      "width": 400,
+      "height": 230
+    },
+    {
+      "id": "java",
+      "type": "text",
+      "text": "Java task owner\nQueue, native writes, stage gates, exact checks and explicit recovery.\nimplemented\n[[workspace-engine/src/main/java/fraymus/workspace/Agency043.java]]",
+      "x": 0,
+      "y": 300,
+      "width": 400,
+      "height": 220
+    },
+    {
+      "id": "pixels",
+      "type": "text",
+      "text": "Owned pixel algorithms\nFull-resolution difference and768-feature spatial descriptor.\nimplemented\n[[workspace-engine/src/main/java/fraymus/workspace/ScreenPixels043.java]]",
+      "x": 460,
+      "y": 300,
+      "width": 400,
+      "height": 220
+    },
+    {
+      "id": "memory",
+      "type": "text",
+      "text": "Private visual references\nOriginal PNG hashes and successful routine associations. Final-appearance retrieval.\nimplemented\n[[workspace-engine/src/main/java/fraymus/workspace/VisualMemory043.java]]",
+      "x": 920,
+      "y": 300,
+      "width": 400,
+      "height": 220
+    },
+    {
+      "id": "vision",
+      "type": "text",
+      "text": "Optional local visual head\nInstalled completion+vision model; estimated description tied to original hash.\noptional\n[[workspace-engine/src/main/java/fraymus/workspace/ScreenVision043.java]]",
+      "x": 0,
+      "y": 570,
+      "width": 400,
+      "height": 220
+    },
+    {
+      "id": "host",
+      "type": "text",
+      "text": "Actual surface host\nAuthenticated session, one claimed action, real captures and actual DOM checks.\nimplemented\n[[workspace-desktop/agency043.cjs]]",
+      "x": 460,
+      "y": 570,
+      "width": 400,
+      "height": 220
+    },
+    {
+      "id": "brain",
+      "type": "text",
+      "text": "Continuing shared Java brain\nRetained identity, clocks, witness and original neural channels preserved.\npreserved\n[[workspace-engine/src/main/java/fraymus/workspace/AgentRuntime042.java]]",
+      "x": 920,
+      "y": 570,
+      "width": 400,
+      "height": 220
+    },
+    {
+      "id": "next",
+      "type": "text",
+      "text": "Held-out usefulness evaluation\nCompare retrieval on/off against frozen new tasks; no improvement claim yet.\nplanned\n[[docs/JAVA_VISUAL_AGENCY.md]]",
+      "x": 0,
+      "y": 840,
+      "width": 400,
+      "height": 220
+    }
+  ],
+  "edges": [
+    {
+      "id": "e0",
+      "fromNode": "edition",
+      "fromSide": "bottom",
+      "toNode": "java",
+      "toSide": "top"
+    },
+    {
+      "id": "e1",
+      "fromNode": "edition",
+      "fromSide": "bottom",
+      "toNode": "pixels",
+      "toSide": "top"
+    },
+    {
+      "id": "e2",
+      "fromNode": "edition",
+      "fromSide": "bottom",
+      "toNode": "memory",
+      "toSide": "top"
+    },
+    {
+      "id": "e3",
+      "fromNode": "edition",
+      "fromSide": "bottom",
+      "toNode": "vision",
+      "toSide": "top"
+    },
+    {
+      "id": "e4",
+      "fromNode": "edition",
+      "fromSide": "bottom",
+      "toNode": "host",
+      "toSide": "top"
+    },
+    {
+      "id": "e5",
+      "fromNode": "edition",
+      "fromSide": "bottom",
+      "toNode": "brain",
+      "toSide": "top"
+    },
+    {
+      "id": "e6",
+      "fromNode": "edition",
+      "fromSide": "bottom",
+      "toNode": "next",
+      "toSide": "top"
+    }
+  ]
+}

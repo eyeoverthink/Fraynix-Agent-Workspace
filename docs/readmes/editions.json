@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "latest": 42,
+  "latest": 43,
   "canonicalization": "UTF-8 without BOM; CRLF normalized to LF for text",
   "editions": [
     {
@@ -12010,6 +12010,630 @@
           "path": "docs/readmes/042/verification.json",
           "kind": "text",
           "sha256": "e8a6731857ba16215f373bfe30e6f73618b750e38efee5a52754747eb902d949"
+        }
+      ]
+    },
+    {
+      "number": 43,
+      "date": "2026-11-02",
+      "title": "Java tasks and visual memory",
+      "status": "published",
+      "markdown": "README-043.md",
+      "markdownSha256": "127dde3fabd3348ddc6c73c71767424d03a60d72a9c087165103dd3309f40af6",
+      "snapshotDirectory": "docs/readmes/043",
+      "companion": "docs/readmes/043/index.html",
+      "tag": "readme-043",
+      "sourceBaseline": "91f5f26abc36656dae9edd3ca7e7a83a238fe212",
+      "snapshotFiles": [
+        {
+          "path": "docs/readmes/043/agency043-chat.png",
+          "kind": "binary",
+          "sha256": "3a2044d54fc7a5c37073d68737e8498a19381b48cbe4f649964e4b681ca334cc"
+        },
+        {
+          "path": "docs/readmes/043/agency043-integration.json",
+          "kind": "text",
+          "sha256": "a12620a3e60030ecf42c0edd8fafa7e98f62b1a855e2210f2174842ff30d5e4c"
+        },
+        {
+          "path": "docs/readmes/043/agency043-integration.original.gzip.json",
+          "kind": "text",
+          "sha256": "b90cd306a70f632ad41f4608444ec1cd3a20163f7cefd10644cebe57932b8190"
+        },
+        {
+          "path": "docs/readmes/043/agency043-interface.png",
+          "kind": "binary",
+          "sha256": "4fe7ae3885007a97702d52298807b472bb0e9a29c0479bd5a8fbcf278c40d61a"
+        },
+        {
+          "path": "docs/readmes/043/agency043-layout-1100.png",
+          "kind": "binary",
+          "sha256": "9a99435d2ced9d98f52d2401b8e78bc91d550a50cf91696d32814dbba46e09bb"
+        },
+        {
+          "path": "docs/readmes/043/agency043-layout-1600.png",
+          "kind": "binary",
+          "sha256": "846a6c04cb4413c1df577f2355a6f832a77a9985b8ab36ee5b0a1764c4656e4a"
+        },
+        {
+          "path": "docs/readmes/043/agency043-recipes.png",
+          "kind": "binary",
+          "sha256": "5c38338d918dc4650d038c7d82042de72a7619005d6e5196e380a3a2e2b2c431"
+        },
+        {
+          "path": "docs/readmes/043/agency043-vision.png",
+          "kind": "binary",
+          "sha256": "e5ba0026ab7c983fd32172d3bb8456253fc35ef8e57977a38aca0a28f114dab4"
+        },
+        {
+          "path": "docs/readmes/043/agent042-integration.json",
+          "kind": "text",
+          "sha256": "83fe98463713403159d70945bcddf402e798337f1b5f735da528a63a47fa48ee"
+        },
+        {
+          "path": "docs/readmes/043/agent042-integration.original.gzip.json",
+          "kind": "text",
+          "sha256": "72d9ac1190302e25daf5ff7baefa2cfcf3bbaf3e72ba9f01e0c7401ff5c4c4cb"
+        },
+        {
+          "path": "docs/readmes/043/alignment041-integration.json",
+          "kind": "text",
+          "sha256": "f03f0e37800ddbc0a9a83c7a5019beb107ee8b63fc91a7aed6531fcb45ee5595"
+        },
+        {
+          "path": "docs/readmes/043/alignment041-integration.original.gzip.json",
+          "kind": "text",
+          "sha256": "dd67e25d8f3273979b3d09ce0e340f87a5b86d96c62924d470df70ade586ed13"
+        },
+        {
+          "path": "docs/readmes/043/brain-game-integration.json",
+          "kind": "text",
+          "sha256": "80e248f6b4f73859481bcac949626369b63498cc88acbde58e9496c18518aed4"
+        },
+        {
+          "path": "docs/readmes/043/brain-game-integration.original.gzip.json",
+          "kind": "text",
+          "sha256": "3a223cfaafd864b976c7f9d1da8c72b988e24027e25a7dab0bcfd955a7d4383d"
+        },
+        {
+          "path": "docs/readmes/043/broader-validation.json",
+          "kind": "text",
+          "sha256": "d0e1e5b3726b17612e93c794e1fd74d4f4a5c9976c24f76064c8a6f7153c8f4f"
+        },
+        {
+          "path": "docs/readmes/043/broader-validation.original.gzip.json",
+          "kind": "text",
+          "sha256": "853c8593962d61170001538982772a2935eb0cab09ea7ba8679f17b5b34b7314"
+        },
+        {
+          "path": "docs/readmes/043/counter-step-0.png",
+          "kind": "binary",
+          "sha256": "c28c07670f5151224e01b380be69f3d6309aa8829ecf5140cfd5671d31b0d10c"
+        },
+        {
+          "path": "docs/readmes/043/counter-step-1.png",
+          "kind": "binary",
+          "sha256": "ec9d120b757ac63c22544d776388329fa225bbce4f1bf82f1d92916090760eb9"
+        },
+        {
+          "path": "docs/readmes/043/counter-step-2.png",
+          "kind": "binary",
+          "sha256": "5690ffb6e24b258a41bca02d27b0d9001fd0a93599eb1eb0e2555e9d61bcf7f9"
+        },
+        {
+          "path": "docs/readmes/043/counter-step-3.png",
+          "kind": "binary",
+          "sha256": "5690ffb6e24b258a41bca02d27b0d9001fd0a93599eb1eb0e2555e9d61bcf7f9"
+        },
+        {
+          "path": "docs/readmes/043/development/attempts.json",
+          "kind": "text",
+          "sha256": "1b779d4097ac54e09b8abb89c5fe7a38c91228c47e427fa61caad8cfb80e0da0"
+        },
+        {
+          "path": "docs/readmes/043/development/junit/build-test-results-test-TEST-agent.ActorControlsTest.xml-TEST-agent.ActorControlsTest.xml.original.gzip.json",
+          "kind": "text",
+          "sha256": "ae85a0447fde28636960feae26e56318af233e0747ff3561cd3000af1bd601dc"
+        },
+        {
+          "path": "docs/readmes/043/development/junit/build-test-results-test-TEST-agent.MotorRecoveryTest.xml-TEST-agent.MotorRecoveryTest.xml.original.gzip.json",
+          "kind": "text",
+          "sha256": "9b5538790ede51482950be7ab27e5b7a2b8d2d18554139fbc69666d3d404ccb1"
+        },
+        {
+          "path": "docs/readmes/043/development/junit/build-test-results-test-TEST-agent.PlayMemoryTest.xml-TEST-agent.PlayMemoryTest.xml.original.gzip.json",
+          "kind": "text",
+          "sha256": "4f04c9d0234f6c7834d40feb73e6cd46b92bc2aeca4ad6780ce5d920d6d1152c"
+        },
+        {
+          "path": "docs/readmes/043/development/junit/build-test-results-test-TEST-agent.PowerupPlannerTest.xml-TEST-agent.PowerupPlannerTest.xml.original.gzip.json",
+          "kind": "text",
+          "sha256": "d46af01a867f34e1006ac8ae34c75e842141096f2992853b1eb55bcf8987b108"
+        },
+        {
+          "path": "docs/readmes/043/development/junit/build-test-results-test-TEST-editor.EditorCorrectionsTest.xml-TEST-editor.EditorCorrectionsTest.xml.original.gzip.json",
+          "kind": "text",
+          "sha256": "11e175e2b52cea215ff9d6181560d6053dc12260621069268d19470ce0c272df"
+        },
+        {
+          "path": "docs/readmes/043/development/junit/build-test-results-test-TEST-editor.FraynixWorkspaceTest.xml-TEST-editor.FraynixWorkspaceTest.xml.original.gzip.json",
+          "kind": "text",
+          "sha256": "ddeb0cb3dd119862b5f7e360fb8c74197175ff9a96485c7115236ce9f3ca8d53"
+        },
+        {
+          "path": "docs/readmes/043/development/junit/build-test-results-test-TEST-editor.ModelAvailabilityTest.xml-TEST-editor.ModelAvailabilityTest.xml.original.gzip.json",
+          "kind": "text",
+          "sha256": "ec079bfbc8666009b9f660936bf21b1ac2ddf827757fd2c26494aedef2fe94c8"
+        },
+        {
+          "path": "docs/readmes/043/development/junit/build-test-results-test-TEST-factory.EditorPhysicsRegressionTest.xml-TEST-factory.EditorPhysicsRegressionTest.xml.original.gzip.json",
+          "kind": "text",
+          "sha256": "b96af120067e4c95b308afedc12b094b23dc8359a0ff98cb98ed21691f7feafb"
+        },
+        {
+          "path": "docs/readmes/043/development/junit/build-test-results-test-TEST-factory.FactorySceneIntegrationTest.xml-TEST-factory.FactorySceneIntegrationTest.xml.original.gzip.json",
+          "kind": "text",
+          "sha256": "6d179379aca04cf4f2ffee1885a5be3a97cce047e876903cbbedde47fd8d2642"
+        },
+        {
+          "path": "docs/readmes/043/development/junit/build-test-results-test-TEST-factory.FullMarioLevelTest.xml-TEST-factory.FullMarioLevelTest.xml.original.gzip.json",
+          "kind": "text",
+          "sha256": "90687e44d771c1b94931c4dd70d8190ebc56eacdf67b501494d11d72588a7f1d"
+        },
+        {
+          "path": "docs/readmes/043/development/junit/build-test-results-test-TEST-factory.GridPlacementRegressionTest.xml-TEST-factory.GridPlacementRegressionTest.xml.original.gzip.json",
+          "kind": "text",
+          "sha256": "14e9ad0f6a439568cf92eb6790dc767520749bc12dca23087f3c8a429a39b012"
+        },
+        {
+          "path": "docs/readmes/043/development/junit/build-test-results-test-TEST-factory.SceneAgentIntegrationTest.xml-TEST-factory.SceneAgentIntegrationTest.xml.original.gzip.json",
+          "kind": "text",
+          "sha256": "170b16c3e7c700eeaf25c831df4e9553a2b4150e420a8766d26cf368e8dc6421"
+        },
+        {
+          "path": "docs/readmes/043/development/junit/build-test-results-test-TEST-factory.SceneModelBudgetTest.xml-TEST-factory.SceneModelBudgetTest.xml.original.gzip.json",
+          "kind": "text",
+          "sha256": "9f5639e5690764ae727c798ceb726ea6957fc69bb338a8bbbfe593005b0eb5b1"
+        },
+        {
+          "path": "docs/readmes/043/development/junit/build-test-results-test-TEST-factory.SolidRaycastTest.xml-TEST-factory.SolidRaycastTest.xml.original.gzip.json",
+          "kind": "text",
+          "sha256": "62f56e2c729b2d53a64d4ecf233f187b5b867a822a3fe1f2ca97028f32c9f158"
+        },
+        {
+          "path": "docs/readmes/043/development/junit/build-test-results-test-TEST-nervous.NeuromorphicCoreTest.xml-TEST-nervous.NeuromorphicCoreTest.xml.original.gzip.json",
+          "kind": "text",
+          "sha256": "da22aa6638a50c8e5f21d914f576ba13da39e4f0e2b502a604c43215ed874c72"
+        },
+        {
+          "path": "docs/readmes/043/development/junit/build-test-results-test-TEST-physics2dtmp.CollisionDetectorTests.xml-TEST-physics2dtmp.CollisionDetectorTests.xml.original.gzip.json",
+          "kind": "text",
+          "sha256": "382b7771e3a4bc7d55e741cce153a1883e427097fb0f3e8d7ff35076a7e920cf"
+        },
+        {
+          "path": "docs/readmes/043/development/junit/build-test-results-test-TEST-renderer.AnimationTextureBatchTest.xml-TEST-renderer.AnimationTextureBatchTest.xml.original.gzip.json",
+          "kind": "text",
+          "sha256": "42735bba2425486a0ba2dc5b2a64a98ca8344f66867585c1dd1e984c0ddc9ae5"
+        },
+        {
+          "path": "docs/readmes/043/development/junit/build-test-results-test-TEST-renderer.ShaderSourceTest.xml-TEST-renderer.ShaderSourceTest.xml.original.gzip.json",
+          "kind": "text",
+          "sha256": "88855f6274ff8f78b9dc58ca8be39ad79865b3e6ed16f31cc5f2e59b726038b8"
+        },
+        {
+          "path": "docs/readmes/043/development/junit/fraynix-modules-geometry-core-TEST-fraymus.geometry.GeometryTest.xml.original.gzip.json",
+          "kind": "text",
+          "sha256": "f6597ea6aa5da4cf4d0e7f94c14ac72288ad2e1c42ecb419dc93cefebee9f00a"
+        },
+        {
+          "path": "docs/readmes/043/development/junit/fraynix-modules-geometry-core-TEST-fraymus.geometry.ReferenceMapTest.xml.original.gzip.json",
+          "kind": "text",
+          "sha256": "aecfb4b1a0856df4b20e331c1e02585e2129b6ff61e7df0a9e025007379c52af"
+        },
+        {
+          "path": "docs/readmes/043/development/junit/fraynix-modules-geometry-core-TEST-fraymus.geometry.TopologyMapTest.xml.original.gzip.json",
+          "kind": "text",
+          "sha256": "8a0f4dc6191a94342b9e5441f33bf92d15eeb8026d34286688e54bd730d0c9d9"
+        },
+        {
+          "path": "docs/readmes/043/development/junit/workspace-engine-TEST-fraymus.workspace.Agency043Test.xml.original.gzip.json",
+          "kind": "text",
+          "sha256": "0bbbafb44128e6e2ecdc0734d6d27c5e64fa5ad721e517c91519c449abbdead9"
+        },
+        {
+          "path": "docs/readmes/043/development/junit/workspace-engine-TEST-fraymus.workspace.Agent042Test.xml.original.gzip.json",
+          "kind": "text",
+          "sha256": "77e729b6b1c8e96105a64fc7f18ad0694b6440dc435f7c7b9f16e2ca74fd65cb"
+        },
+        {
+          "path": "docs/readmes/043/development/junit/workspace-engine-TEST-fraymus.workspace.ScreenPixels043Test.xml.original.gzip.json",
+          "kind": "text",
+          "sha256": "56284441b9bd332574904cf638fbe06619ef5795c21dbefe38f6d3f28e7d10e3"
+        },
+        {
+          "path": "docs/readmes/043/development/junit/workspace-engine-TEST-fraymus.workspace.VisualMemory043Test.xml.original.gzip.json",
+          "kind": "text",
+          "sha256": "c7c6d476eefd373360524d68c51d9258c8ad10f10bd4e1b180e347ba0f98a3ac"
+        },
+        {
+          "path": "docs/readmes/043/development/qa-agency043-agency043-integration.log.original.gzip.json",
+          "kind": "text",
+          "sha256": "383ae08ba87f423e6793ccb22e66a2dbb325f5a1bdb2c60970201b5df888077c"
+        },
+        {
+          "path": "docs/readmes/043/development/qa-agency043-agent042-integration-first.log.original.gzip.json",
+          "kind": "text",
+          "sha256": "2c11c85ba3f3fbb8fbefb774de2ba5690c0f1bdf621250a967852247a5aced48"
+        },
+        {
+          "path": "docs/readmes/043/development/qa-agency043-agent042-integration.log.original.gzip.json",
+          "kind": "text",
+          "sha256": "5896db1374250396e9a2e9b9a346d25bc26aceb9e46ccf3ab046c5ae60bdfea7"
+        },
+        {
+          "path": "docs/readmes/043/development/qa-agency043-alignment041-integration.log.original.gzip.json",
+          "kind": "text",
+          "sha256": "2ae9754f377eca657fe45781c03269bd89fefe7ac7b19021567bf8de064f761a"
+        },
+        {
+          "path": "docs/readmes/043/development/qa-agency043-brain-game-integration.log.original.gzip.json",
+          "kind": "text",
+          "sha256": "03835b014480e358a6b1a29f9e1a5da0bd563e8680c890dd248f7ca4e0cad8cf"
+        },
+        {
+          "path": "docs/readmes/043/development/qa-agency043-broader-validation.log.original.gzip.json",
+          "kind": "text",
+          "sha256": "7ce40d8e94e6c36b27121b4b72ca6a600ad306ad243e0b34e0a3120bd9951f08"
+        },
+        {
+          "path": "docs/readmes/043/development/qa-agency043-desktop-units.log.original.gzip.json",
+          "kind": "text",
+          "sha256": "adb126b17a12757ffe14acf48204c2cc96fbfe7ca8d405b3db61bf91c3a52122"
+        },
+        {
+          "path": "docs/readmes/043/development/qa-agency043-final-focused-java.log.original.gzip.json",
+          "kind": "text",
+          "sha256": "1f4549bc5a7cc21334afb14b4553c3f8c41f35fd60477b48a3ad5ec721c919dd"
+        },
+        {
+          "path": "docs/readmes/043/development/qa-agency043-full-java.log.original.gzip.json",
+          "kind": "text",
+          "sha256": "5aba155ef528038937cd6b05229c0132f21a63927b8b7c9af9cab3f6d6d3c29a"
+        },
+        {
+          "path": "docs/readmes/043/development/qa-agency043-integration-takeover-failed.log.original.gzip.json",
+          "kind": "text",
+          "sha256": "d378e83fa9281990625f81ef8e5671438ecb6dfeb461e0171cc537ab9c24ac4e"
+        },
+        {
+          "path": "docs/readmes/043/development/qa-agency043-integration-takeover-retry-failed.log.original.gzip.json",
+          "kind": "text",
+          "sha256": "d378e83fa9281990625f81ef8e5671438ecb6dfeb461e0171cc537ab9c24ac4e"
+        },
+        {
+          "path": "docs/readmes/043/development/qa-agency043-integration.log.original.gzip.json",
+          "kind": "text",
+          "sha256": "0516839d34f1396bb0d1eb06750da3601797a24c245c426a99d0963355ae4983"
+        },
+        {
+          "path": "docs/readmes/043/development/qa-agency043-knowledge-integration.log.original.gzip.json",
+          "kind": "text",
+          "sha256": "16203edccd392837f9e7ffbf060ea6f466b61d44f9422d9faaac8770f6219628"
+        },
+        {
+          "path": "docs/readmes/043/development/qa-agency043-live-agency043.log.original.gzip.json",
+          "kind": "text",
+          "sha256": "a430f31f71d0a8d8f28cc7fe03174361d7c2609b43672e66810ce74e39f61885"
+        },
+        {
+          "path": "docs/readmes/043/development/qa-agency043-live-agent042.log.original.gzip.json",
+          "kind": "text",
+          "sha256": "e2d9b9c7e5853871f02911a26a30ac96af414a5788e85cff6a05eed78a73349b"
+        },
+        {
+          "path": "docs/readmes/043/development/qa-agency043-live-alignment041.log.original.gzip.json",
+          "kind": "text",
+          "sha256": "32453abd2fea24a152b30e568c5745ecfa0849cbf393bdc8c52a96eea05431a0"
+        },
+        {
+          "path": "docs/readmes/043/development/qa-agency043-live-native-parser-failed.log.original.gzip.json",
+          "kind": "text",
+          "sha256": "0dd974e30dadf675288ec7734cadb2d58da645d2fe82e339a0a41616d7e5e488"
+        },
+        {
+          "path": "docs/readmes/043/development/qa-agency043-serial-attempt1.log.original.gzip.json",
+          "kind": "text",
+          "sha256": "72724d912474eaf4afb469b455a90fce1738a4c93132f5553c21510698ed64d6"
+        },
+        {
+          "path": "docs/readmes/043/development/qa-agency043-serial-attempt2.log.original.gzip.json",
+          "kind": "text",
+          "sha256": "51dee59f89214048d382c00bc6ef023f5b87d9b989c5a526292153dfdc3f1321"
+        },
+        {
+          "path": "docs/readmes/043/development/qa-agency043-serial-attempt3.log.original.gzip.json",
+          "kind": "text",
+          "sha256": "3bf824bffbd249bd54c4cb203e1b62c0bcbaa7e68863f9943f740cbf1634bbed"
+        },
+        {
+          "path": "docs/readmes/043/development/qa-agency043-serial-attempt4.log.original.gzip.json",
+          "kind": "text",
+          "sha256": "977fc86982df5d7bad3906983868764f878ea2cdcbdf2f30c1e36302776a776c"
+        },
+        {
+          "path": "docs/readmes/043/development/qa-agency043-serial-before-final.log.original.gzip.json",
+          "kind": "text",
+          "sha256": "3bf824bffbd249bd54c4cb203e1b62c0bcbaa7e68863f9943f740cbf1634bbed"
+        },
+        {
+          "path": "docs/readmes/043/development/qa-agency043-serial.log.original.gzip.json",
+          "kind": "text",
+          "sha256": "8a18f8978674a56da6fb682447d0375acc385b4ea870829e40db49f2ec428229"
+        },
+        {
+          "path": "docs/readmes/043/development/qa-agency043-spatial-runtime040-integration.log.original.gzip.json",
+          "kind": "text",
+          "sha256": "caab1ef9948e60918b168dccd3d757494563e533fcbbab6f05a169d1e3686361"
+        },
+        {
+          "path": "docs/readmes/043/development/qa-agency043-takeover-confirmation.log.original.gzip.json",
+          "kind": "text",
+          "sha256": "d7c30669719a108ec9eb3d30a6e47dda61e6f9fd7d5e330d21a087c397a88596"
+        },
+        {
+          "path": "docs/readmes/043/development/qa-agency043-takeover-state-method-failed.log.original.gzip.json",
+          "kind": "text",
+          "sha256": "0fbc4da33a643882b0ed3340895e8ad26c25210716cb5145ed9ef72bc43fc88b"
+        },
+        {
+          "path": "docs/readmes/043/development/qa-live-agency043-failed-1793616374136.json.original.gzip.json",
+          "kind": "text",
+          "sha256": "0951b2b8555f6357690f0158fd2a1aae518bb254e37e53e4ff36a0ef8d9bc633"
+        },
+        {
+          "path": "docs/readmes/043/development/serial-java.init.gradle",
+          "kind": "text",
+          "sha256": "144df9440158a850e4c3e167e4eb054857a6b98d5541d53f5c684b7d3242fb3d"
+        },
+        {
+          "path": "docs/readmes/043/development/serial-results.original.gzip.json",
+          "kind": "text",
+          "sha256": "81ed90d47f220df1ca43cfb03ae199570d05d56da64e2cfda759cd71c0bce37d"
+        },
+        {
+          "path": "docs/readmes/043/development/serial-runner.cjs",
+          "kind": "text",
+          "sha256": "ed32b4bbfd45c5e0844b2222ee40ac454914f3cf4171f9fe7ac73097675ed4dc"
+        },
+        {
+          "path": "docs/readmes/043/development/work-agency043-backup-push.log.original.gzip.json",
+          "kind": "text",
+          "sha256": "4bda245ff39e4e00ab6c09edb0c60d7a11e9e13cfa32b2ae2869a2162c2c088b"
+        },
+        {
+          "path": "docs/readmes/043/development/work-agency043-build-third.log.original.gzip.json",
+          "kind": "text",
+          "sha256": "7efaeab43b8d13455857ff069b8e090a0da71f7790287b1d04a03fe0b2890c4c"
+        },
+        {
+          "path": "docs/readmes/043/development/work-agency043-build-ui.log.original.gzip.json",
+          "kind": "text",
+          "sha256": "1b6a6818b5100bfe48e46f27ed2a2824b2b50a6c2d16d5b92de5a2715646b74c"
+        },
+        {
+          "path": "docs/readmes/043/development/work-agency043-candidate-build.log.original.gzip.json",
+          "kind": "text",
+          "sha256": "dc63765170d16a08a0d33a62a9e91dd9dad99e95c9e085c94191181003fc6741"
+        },
+        {
+          "path": "docs/readmes/043/development/work-agency043-compile-first.log.original.gzip.json",
+          "kind": "text",
+          "sha256": "ad098da30f34d495099465d5b8cd3c9e40e6e50ac21d6ad490c547498b008088"
+        },
+        {
+          "path": "docs/readmes/043/development/work-agency043-compile-second.log.original.gzip.json",
+          "kind": "text",
+          "sha256": "41b8f806db26765c1c654ea7ef4d4ec697ac2fdb450babc8304a61d1110e8d80"
+        },
+        {
+          "path": "docs/readmes/043/development/work-agency043-docs-before-freeze.log.original.gzip.json",
+          "kind": "text",
+          "sha256": "ed58df2e8c0122e79077c65de603e6908695e984611315499a36ec21b6351d31"
+        },
+        {
+          "path": "docs/readmes/043/development/work-agency043-docs-browser.log.original.gzip.json",
+          "kind": "text",
+          "sha256": "8d8afc08f8260565124acb13d7f6ecea4d93bc0aa3a61e8c24ae21868e82386b"
+        },
+        {
+          "path": "docs/readmes/043/development/work-agency043-docs-freeze.log.original.gzip.json",
+          "kind": "text",
+          "sha256": "24b9d321fb293345a2d6bf879fd6feaaf83079ea490f2ea9f377a90aee63e68e"
+        },
+        {
+          "path": "docs/readmes/043/development/work-agency043-docs-prepare.log.original.gzip.json",
+          "kind": "text",
+          "sha256": "9406ff93e94b49aa41e09b958245e5e24c8649c6e778da22036c4f4c11870541"
+        },
+        {
+          "path": "docs/readmes/043/development/work-agency043-failed-1793611812705.json.original.gzip.json",
+          "kind": "text",
+          "sha256": "31886e82f617756edc9ea7f4afb0b03088d56411f712a4ffb1f4c313741e150a"
+        },
+        {
+          "path": "docs/readmes/043/development/work-agency043-live-first.log.original.gzip.json",
+          "kind": "text",
+          "sha256": "51434e665c892dd87fcb7143916e053eb9270979071cf7545a3265a507c7adaf"
+        },
+        {
+          "path": "docs/readmes/043/development/work-agency043-live-second.log.original.gzip.json",
+          "kind": "text",
+          "sha256": "259037fb08b9e67b0ac9056e00b8d2079094c88624c4778debe4330c242a6d06"
+        },
+        {
+          "path": "docs/readmes/043/development/work-agency043-live-third.log.original.gzip.json",
+          "kind": "text",
+          "sha256": "bd3c4019d97ffb1eefa9c1a33c362653230ddcd548dc55c5b03c4a0db182df55"
+        },
+        {
+          "path": "docs/readmes/043/development/work-agency043-model-repair-build.log.original.gzip.json",
+          "kind": "text",
+          "sha256": "8168dff34b0041cea6cd4199bcedd146fb01416cbac859566ecc8f7975cf586c"
+        },
+        {
+          "path": "docs/readmes/043/development/work-agency043-ui-first.log.original.gzip.json",
+          "kind": "text",
+          "sha256": "5f31e5123827331ff5aa9d9f92392daa139b05c2c4e60f49ed852f182b4be60a"
+        },
+        {
+          "path": "docs/readmes/043/development/work-agency043-ui-second.log.original.gzip.json",
+          "kind": "text",
+          "sha256": "76cc06b966d8fd5d2afafdc42bce5d0b8a181a9c5d6ea0efa4f20ce158aed9ab"
+        },
+        {
+          "path": "docs/readmes/043/development/work-agency043-ui-third.log.original.gzip.json",
+          "kind": "text",
+          "sha256": "a86929f5e2e0f3f67f32476c405d9779f833219c4546e5b359528b15c775c356"
+        },
+        {
+          "path": "docs/readmes/043/development/work-agency043-unit-final.log.original.gzip.json",
+          "kind": "text",
+          "sha256": "83092d54abb9b1547d77a18058268cb4fa7832ce9b2bc29c43c3166978a105f5"
+        },
+        {
+          "path": "docs/readmes/043/development/work-agency043-unit-first.log.original.gzip.json",
+          "kind": "text",
+          "sha256": "71d131a045ed025b08dbc73e41fad3b7a58b0fede4816da0807c89eb85d65fa9"
+        },
+        {
+          "path": "docs/readmes/043/development/work-live-agency043-failed-1793612855770.json.original.gzip.json",
+          "kind": "text",
+          "sha256": "5856d273648c1f1b853bea1aa2852b0a4b3972174dfb644c6cfea3243f5d0f9b"
+        },
+        {
+          "path": "docs/readmes/043/development/work-live-agency043-failed-1793613549703.json.original.gzip.json",
+          "kind": "text",
+          "sha256": "a9eed8bf9b186a686f055f98c956583a8e5c1b3c594ab11fbccf3238690dd05b"
+        },
+        {
+          "path": "docs/readmes/043/docs043-narrow.png",
+          "kind": "binary",
+          "sha256": "7a34bef17f60a091b01b732a76f2a05baf92131e8dac9a5405310b14f1e96a05"
+        },
+        {
+          "path": "docs/readmes/043/docs043-wide.png",
+          "kind": "binary",
+          "sha256": "0439764530eb195c6f38b1ffc020849d69ab357fc2a22a8c55011c01d53f2fff"
+        },
+        {
+          "path": "docs/readmes/043/documentation-qa.json",
+          "kind": "text",
+          "sha256": "83fe9187e126bc2e22aa8326b4ea6d9439ac693e886ac4c136a0d813636f64fc"
+        },
+        {
+          "path": "docs/readmes/043/file-inventory.json",
+          "kind": "text",
+          "sha256": "5732e9bee9feb75390f012e95a7cb762313cfbe82f33cdb1c468f3981b61136d"
+        },
+        {
+          "path": "docs/readmes/043/FILE_TREE.md",
+          "kind": "text",
+          "sha256": "c61c72e2071e4bf5fe59a40830b84d42c13126a98dd00f2c918802331c1d0003"
+        },
+        {
+          "path": "docs/readmes/043/index.html",
+          "kind": "text",
+          "sha256": "8cad174fd46cc5e16a11f18af0344a6e47e51b46bcc0c160836e1e77f849cde6"
+        },
+        {
+          "path": "docs/readmes/043/integration.json",
+          "kind": "text",
+          "sha256": "3798fb9d335672f9d5a9bda7a96aef7e7513b16372abc5c6a0d3e2e32615e7f9"
+        },
+        {
+          "path": "docs/readmes/043/integration.original.gzip.json",
+          "kind": "text",
+          "sha256": "30d45a2469bcaa63e7264722944a177e0349173fadb148cab24986cdc3a0fb7a"
+        },
+        {
+          "path": "docs/readmes/043/java-validation.json",
+          "kind": "text",
+          "sha256": "f16a71466c692de85feed89e104fa085f60a3ccf763f4145ba62a9a758c197d8"
+        },
+        {
+          "path": "docs/readmes/043/knowledge-integration.json",
+          "kind": "text",
+          "sha256": "35215372f25a6caf3401899e0557ccbf399d27f0887c4d3a2bba4c63ad13bbc9"
+        },
+        {
+          "path": "docs/readmes/043/knowledge-integration.original.gzip.json",
+          "kind": "text",
+          "sha256": "3892c864b4a7a299df26cd882b759ff72da2b90975418495d1f132343f723cc1"
+        },
+        {
+          "path": "docs/readmes/043/legacy-preservation.json",
+          "kind": "text",
+          "sha256": "f494d0b5d284da01ae2479986a77aa2d9036bc6ca990e9fc042ee0ea0cc23f3b"
+        },
+        {
+          "path": "docs/readmes/043/live-agency043.json",
+          "kind": "text",
+          "sha256": "483b87f0686862b44556d50cca1b2decbf497e0e0d4b2b1270b4a054afe72d72"
+        },
+        {
+          "path": "docs/readmes/043/live-agency043.original.gzip.json",
+          "kind": "text",
+          "sha256": "f835fb400e91d026e585865db3663e66f3ecff0a3ca1a7bd57ab5d45d4a087e4"
+        },
+        {
+          "path": "docs/readmes/043/live-agent042.json",
+          "kind": "text",
+          "sha256": "e09021eefe2e0377ddc3cad8d5e62ed08c893213028f988993e140b67b23a7f8"
+        },
+        {
+          "path": "docs/readmes/043/live-agent042.original.gzip.json",
+          "kind": "text",
+          "sha256": "539d41b2759b13a3aa6e8584342ad414cec4efe426e2e8c6b43959f17a9ce730"
+        },
+        {
+          "path": "docs/readmes/043/live-alignment041.json",
+          "kind": "text",
+          "sha256": "7e03a9f496cd32ca3773d61c09c34655be63c4fa692025da22f69539a4784d10"
+        },
+        {
+          "path": "docs/readmes/043/live-alignment041.original.gzip.json",
+          "kind": "text",
+          "sha256": "ffc7c61bb8d47465ca1c9989ff1f6abf167501983e4939aeddb65727281fd1e4"
+        },
+        {
+          "path": "docs/readmes/043/source-match.json",
+          "kind": "text",
+          "sha256": "af07a716256b32c6dfd9ad1f6d70adea1defee897de844fa7e23bd89f49c6bbe"
+        },
+        {
+          "path": "docs/readmes/043/spatial-runtime040-integration.json",
+          "kind": "text",
+          "sha256": "30fb7b31924cb5703087ac2d09a8f191b5dfcb91fd774a1bcaa776b034102cfc"
+        },
+        {
+          "path": "docs/readmes/043/spatial-runtime040-integration.original.gzip.json",
+          "kind": "text",
+          "sha256": "a3e531cdca740d91fa6101a86e9ed02120f542cdace485c956b6ff1fd8d09dc5"
+        },
+        {
+          "path": "docs/readmes/043/system-map.json",
+          "kind": "text",
+          "sha256": "4f4119120cdaedfd3ffe0af5e088891295ee46d7d65dd0d1aa403da28b8a85d2"
+        },
+        {
+          "path": "docs/readmes/043/verification.json",
+          "kind": "text",
+          "sha256": "b03845774cdf84b13bc1b82836650829adf91b0f676efb2ebc639604f7634847"
+        },
+        {
+          "path": "docs/readmes/043/visual-sequence.json",
+          "kind": "text",
+          "sha256": "ea9f24d89811c9fa4897a8090055f30f78350f14ef14b562e2317d0a62e66042"
         }
       ]
     }
