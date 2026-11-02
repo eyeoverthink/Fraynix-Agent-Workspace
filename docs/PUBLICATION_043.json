@@ -1,0 +1,80 @@
+{
+  "edition": 43,
+  "repository": "https://github.com/eyeoverthink/Fraynix-Agent-Workspace",
+  "visibility": "private",
+  "releaseCommit": "bacebf2686b968956af2e8c851c3f84657a870cb",
+  "annotatedTag": "readme-043",
+  "tagObject": "afc5c79ee071c9a80eabf09ff94fedebc2a02496",
+  "sourceBaseline": "91f5f26abc36656dae9edd3ca7e7a83a238fe212",
+  "verifiedAtUtc": "2026-11-02T11:31:26.517585+00:00",
+  "directGithubFetchVerified": true,
+  "canonicalSources": 807,
+  "originalProofArchives": 619,
+  "archiveScope": "Archive files with supported gzip payloads, including repeated original data; every payload byte count and SHA256 checked. Not a count of distinct experiments.",
+  "documentation": {
+    "editions": 43,
+    "canvases": 48,
+    "references": 5108,
+    "frozenHashes": 2450
+  },
+  "validation": {
+    "fullJavaBaseline": "1503c0d659f2ddd25a05bdd50649a740c58042ba",
+    "fullJavaBaselineChecks": 385,
+    "fullJavaClasses": 82,
+    "finalFocusedJavaChecks": 26,
+    "distinctJavaChecksCovered": 386,
+    "desktopChecks": 117,
+    "actualUIChecks": 119,
+    "actualLocalModelChecks": 11,
+    "localModels": [
+      "gpt-oss:20b",
+      "gemma3:latest"
+    ],
+    "planning": "CPU-only,four threads",
+    "qualification": "Complete385-case run, then all26 final focused checks including all10 Agency043 cases. Only Agency043 and its test changed in Java; all other Java bytes unchanged.386 distinct cases covered, not one386-case invocation. Final actual UI/model matrix uses source91f5f26."
+  },
+  "productionReview": {
+    "projectName": "review-043-20261102",
+    "closedOriginalProject": "review-042-20261101",
+    "originalSourceFiles": 1890,
+    "originalSourceBytes": 101854930,
+    "initialCopyExact": true,
+    "originalUnchangedAfterLaunch": true,
+    "electronPid": 11240,
+    "javaPid": 11028,
+    "agentId": "51a77b2e-0e46-4739-9d00-6b0c2b86cdce",
+    "bootId": "47138f21-c69b-4c0d-9f41-4ee90007cbba",
+    "background": "awake",
+    "cameraOff": true,
+    "gameOpened": false,
+    "physicalObservationFresh": false,
+    "testApiAbsent": true,
+    "singleWindow": true,
+    "promptUnsent": true,
+    "activeTasks": "",
+    "worldId": "a2aed6a7-8d9f-4922-a717-a9dfa2026077",
+    "worldTick": 0,
+    "worldRevision": 0,
+    "worldHead": "41cd72facca05c5189e72ae459a51b4ab652bd874d202b329e95ce604f4d3c79",
+    "selectedRegistrationId": "58d5a958-c6fe-41f5-9b59-4e5f81338709",
+    "actualNativeInspection": {
+      "taskId": "c18a3f47-fb98-42ef-a015-ed1ce7e8f78d",
+      "outcome": "verified",
+      "originalFrames": 6,
+      "source": "workspace",
+      "visionRequested": false,
+      "reportId": "32da9e20-2314-3d60-a2bb-45fee7d9dedc",
+      "reportVersion": 1,
+      "actualDOM": {
+        "task": "c18a3f47-fb98-42ef-a015-ed1ce7e8f78d",
+        "images": 2,
+        "loaded": true
+      }
+    },
+    "privateEvidenceOutsideGit": true,
+    "reopenLauncher": "~/.fraynix-agent-workspace/Launch-Review-043.ps1",
+    "desktopShortcut": "Fraynix Workspace - edition 043",
+    "launcherRepeat": "Exit0; same Java11028, boot and one window; running installation not rebuilt. Duplicate Chromium cache-lock messages retained privately."
+  },
+  "scope": "Real Java task ownership, app screenshots, private original hashes, owned visual descriptors and optional local visual descriptions. Tested reference memory; no LLM-weight training, general recognition, calibrated physical improvement or subjective-awareness claim."
+}
