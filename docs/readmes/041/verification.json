@@ -1,0 +1,170 @@
+{
+  "date": "2026-11-01",
+  "passed": false,
+  "sourceBaseline": "a2576e7c5aec1353db02ad1be83e3aaaa7b7553f",
+  "java": {
+    "passed": true,
+    "tests": 360,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "classes": 78,
+    "sourceCommit": "1ceade8",
+    "qualification": "All Java sources remain identical through subsequent camera-session/routing-only JavaScript amendment. Final desktop/UI/model checks recorded separately."
+  },
+  "desktopUnits": 106,
+  "newJavaChecks": 9,
+  "actualUI": {
+    "passed": true,
+    "checks": 9
+  },
+  "actualModel": {
+    "passed": false,
+    "model": "gpt-oss:20b",
+    "checks": 0,
+    "compute": "CPU-only planning,fourthreads"
+  },
+  "regressions": {
+    "passed": false,
+    "status": "pending"
+  },
+  "sourceFiles": 773,
+  "physicalMovement": {
+    "qualification": "User-declared physical marks and independent inspection of original fixed-window frames. Source phase boundaries are manual; no timed cue, prediction-derived truth, calibrated probability or native actuation.",
+    "createdAt": "2026-11-02T04:42:12.014163800Z",
+    "codeSha256": "bafb71da01ec0ecaa916d8d5f1179b61386f7cfc87c25df2bfd7f89b5f4ae30b",
+    "references": {
+      "frames": [
+        {
+          "visible": true,
+          "imageSha256": "22879f9ca943c081ee63416c6a15de78cc18449cd5ba7fe16474fdcac4e8aa4e",
+          "atDeclaredMark": true,
+          "ordinal": 1
+        },
+        {
+          "visible": true,
+          "imageSha256": "32cb5600f57183772319038cbdafebc2a0b45fa3e2f223422db8ec676e4a6e1b",
+          "atDeclaredMark": true,
+          "ordinal": 2
+        },
+        {
+          "visible": true,
+          "imageSha256": "11ca51069754445716e46e4654e1bceec770017303d9e56cf19c4682103d5075",
+          "atDeclaredMark": true,
+          "ordinal": 3
+        },
+        {
+          "visible": true,
+          "imageSha256": "63f2ea434a08036a01926b6d2afed38ebc5ad8de65430fe19ddac6c805d44e86",
+          "atDeclaredMark": true,
+          "ordinal": 4
+        },
+        {
+          "visible": true,
+          "imageSha256": "25ff809cbe13c15586fafcbcb9d069809998edcf688d6ba7ee3a3d14ed12fb4f",
+          "atDeclaredMark": true,
+          "ordinal": 5
+        },
+        {
+          "visible": true,
+          "imageSha256": "8109b7183aedbe1611ed0064a48f75eabad9d7adff6f9144d2e3bd1da92065f5",
+          "atDeclaredMark": true,
+          "ordinal": 6
+        },
+        {
+          "visible": true,
+          "imageSha256": "f73d5753872fd8835a725b0207dd22e5f88f6be6c794c9bed2f4d33b39af90d1",
+          "atDeclaredMark": true,
+          "ordinal": 7
+        },
+        {
+          "visible": true,
+          "imageSha256": "f586af8bf804b9b2e4b56f3b7d1b5ec2334e27616148b65da8462ddf365d27b5",
+          "atDeclaredMark": true,
+          "ordinal": 8
+        },
+        {
+          "visible": true,
+          "imageSha256": "cfdccc83865bb7d38b93c6ac8b67cc138868933d1eefb37ac82a7b20906567be",
+          "atDeclaredMark": true,
+          "ordinal": 18
+        },
+        {
+          "visible": true,
+          "imageSha256": "6ab7d58dd8fd090f47828f1453070b8b076049bf80dd92640397530610a32a75",
+          "atDeclaredMark": true,
+          "ordinal": 19
+        },
+        {
+          "visible": true,
+          "imageSha256": "a892cce768e30e1ed1abde1e5d791e799f5c872d6aaeeb76e4ad7f641a8edba0",
+          "atDeclaredMark": true,
+          "ordinal": 20
+        },
+        {
+          "visible": true,
+          "imageSha256": "ddbda699373f70211e4441168abd3199ca6c711e94932372e938bbe306edd88a",
+          "atDeclaredMark": true,
+          "ordinal": 21
+        },
+        {
+          "visible": true,
+          "imageSha256": "29c62c113a0d6a3a0e17a2e792467e28114af11268d134f962388fc3ec82e61a",
+          "atDeclaredMark": true,
+          "ordinal": 22
+        },
+        {
+          "visible": true,
+          "imageSha256": "3bc672fc0269cc4cf520e89b453e2d59eb83813426b1bb300caaa1716edbfb63",
+          "atDeclaredMark": true,
+          "ordinal": 23
+        },
+        {
+          "visible": true,
+          "imageSha256": "784d22e17c33bf5f4556fe9a458fafccf704e5fba7e748eeb87d556868511959",
+          "atDeclaredMark": true,
+          "ordinal": 24
+        },
+        {
+          "visible": true,
+          "imageSha256": "fb4674bbcb10365817e4125e30e60c726eb33d8722aa23625db46d47780267e7",
+          "atDeclaredMark": true,
+          "ordinal": 25
+        }
+      ],
+      "source": "Independent visual review of every unannotated fixed-window source: original start1..8 uncovered/hand-away at4inch, end18..25 uncovered/hand-away same metal end at8inch. User confirms completed4to8inch movement. Hash-bound original labels, no predictions used as truth; physical annotation/parallax budget still applies.",
+      "confirmed": true
+    },
+    "registrationId": "58d5a958-c6fe-41f5-9b59-4e5f81338709",
+    "runId": "131fd959-57fa-4bba-9944-0c267402bbb4",
+    "passed": true,
+    "metrics": {
+      "vectorErrorM": 0.006376571053779892,
+      "fixedSamples": 16,
+      "expectedDeltaM": [
+        0.0008406046182417641,
+        -0.10159652249893097
+      ],
+      "referenceFailures": 0,
+      "toleranceM": 0.01,
+      "firstMeanM": [
+        0.15849456826252672,
+        0.1469623324896916
+      ],
+      "lastMeanM": [
+        0.16080814659258014,
+        0.03916169789891255
+      ],
+      "actualDeltaM": [
+        0.002313578330053412,
+        -0.10780063459077904
+      ]
+    },
+    "version": "manual-physical-windows-041-v1",
+    "status": "evaluated"
+  },
+  "physicalOcclusion": {
+    "status": "pending"
+  },
+  "scope": "Measured planar registration and source-specific fresh physical outcomes. No measured room pose, depth/contact, semantic identification, general occlusion robustness, calibrated uncertainty or LLM weight training."
+}

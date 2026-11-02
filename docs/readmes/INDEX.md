@@ -50,4 +50,6 @@ Numbered editions preserve dated system behavior and evidence. The root [README]
 
 | [040](../../README-040.md) | 2026-11-01 | Shared Java spatial runtime, integrated source-qualified views and checked chat reports | [Viewer](040/index.html) · [evidence](040/verification.json) · [operation](../SHARED_SPATIAL_RUNTIME.md) |
 
-Latest implementation/documentation edition: **040**. Earlier snapshots remain intact. See [sequence policy](README_SEQUENCE.md) and [manifest](editions.json).
+| [041](../../README-041.md) | 2026-11-01 | Measured mat alignment, fresh physical windows and source-aware chat | [Viewer](041/index.html) · [evidence](041/verification.json) · [operation](../MEASURED_ALIGNMENT.md) |
+
+Latest implementation/documentation edition: **041**. Earlier snapshots remain intact. See [sequence policy](README_SEQUENCE.md) and [manifest](editions.json).

@@ -1,6 +1,6 @@
 # Fraynix Agent Workspace ·041
 
-> **Edition041 implementation checkpoint, not the completed release.** Full Java360/78classes,106desktop and9visible software-camera workflow checks pass. Actual model/broader regressions remain pending. First real registration passes its reference gates; the new movement trial has only its initial8samples. Movement displacement and fresh occlusion are not scored. [Current checkpoint](docs/ALIGNMENT_041_PROGRESS.json).
+> **Edition041 implementation checkpoint, not the completed release.** Full Java360/78classes,106desktop and9visible software-camera workflow checks pass. Actual model/broader regressions remain pending. First real registration passes its reference gates. The fresh4to8inch movement trial passes with6.377mm vector error; its first result is retained. Fresh occlusion has only its initial8samples and is not scored. [Current checkpoint](docs/ALIGNMENT_041_PROGRESS.json).
 
 **Measure the plane. Declare its native placement. Test what the camera actually observed.**
 
@@ -95,3 +95,23 @@ The refreshed camera session retained the same measured grid and passed registra
 Actual acquisition intervals averaged approximately1.46seconds in this window. The UI schedules at most5Hz, but complete durable replay, source checking and view updates currently reduce observed throughput. Reacquisition-after-gap labels preserve that timing limitation. This checkpoint does not establish smooth realtime tracking or calibrated uncertainty. Performance work should retain these originals and fixed first outcomes before attempting improvement.
 
 The full isolated Java run passes360tests across78classes with no failures, errors or skips. Subsequent changes affect camera-session invalidation and chat wiring only; Java observer/evaluator sources remain exact. Independent final desktop checks pass106tests, and the visible labelled camera workflow passes9checks. Actual CPU-only model and broad integration runs are still pending; this edition is not yet tagged/frozen.
+
+## First fresh movement result
+
+The same metal end moved from4in to8in with the lighter uncovered. The first result passes its declared10mm movement-vector gate: **6.376571mm error** against the independent101.6mm reference. All16fixed endpoint samples were measured; no endpoint mat-reference failures occurred. Observed endpoint-mean displacement was approximately107.83mm with a small lateral component. This is one source-specific result, with human-confirmed marks and each original endpoint frame inspected independently. It is not zero-error metrology or a general motion benchmark.
+
+The trial retains8start frames,9transition frames and8end frames. The first eight endpoint frames count even if unfavourable; transition predictions cannot supply ground truth. A new occlusion trial has saved its8visible baseline frames and is paused for the user. Its hidden/revealed results remain pending. [Numeric physical evidence](docs/ALIGNMENT_041_PHYSICAL.json) includes actual positions, timestamps, source hashes, acceptance flags and the immutable evaluation, without private camera bytes.
+
+## Screenshots and offline guide
+
+These actual application captures use the explicitly labelled analytic software-camera control, not personal webcam photographs. Private real-camera originals remain outside Git.
+
+![Actual labelled calibration UI](docs/readmes/041/images/alignment041-registration.png)
+
+The measured setup, source description and reference checks in the integrated workspace.
+
+![Actual labelled numeric report](docs/readmes/041/images/alignment041-report.png)
+
+The saved report opens in the real canvas and passes five source/identity assertions. Its control is labelled; it is not substituted for the fresh physical movement result.
+
+[Offline system, residual and motion explorer](docs/readmes/041/index.html) · [All773implementation sources](docs/readmes/041/FILE_TREE.md) · [Current validation scope](docs/readmes/041/verification.json) · [Obsidian system map](docs/obsidian/measured-alignment.canvas). The guide works without a CDN and has passed actual1440/390-width checks for layout, module selection/filtering, source search, numeric sample selection and screenshots. Model/broad QA and occlusion are explicitly pending; this snapshot is not frozen or tagged yet.

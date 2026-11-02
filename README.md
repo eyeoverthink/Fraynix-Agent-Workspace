@@ -2,9 +2,9 @@
 
 **A local visual environment for agents to browse, create runnable artifacts, test behavior and reuse verified skills.**
 
-> **Latest implementation: [README040 — shared Java spatial runtime and integrated views](README-040.md)** · [Offline guide](docs/readmes/040/index.html) · [Operation](docs/SHARED_SPATIAL_RUNTIME.md) · [Edition history](docs/readmes/INDEX.md)
+> **Latest implementation: [README041 — measured mat alignment and fresh physical tests](README-041.md)** · [Offline guide](docs/readmes/041/index.html) · [Operation](docs/MEASURED_ALIGNMENT.md) · [Edition history](docs/readmes/INDEX.md)
 
-Inspect the same source identities through linked perspective/orthographic cameras, the actual original game renderer, separate observation planes and checked local-model reports. [Screenshots, continuity and next gates](README-040.md).
+Explicit planar registration, fixed first physical windows, source-qualified views and typed chat inspection. [Screenshots, measured outcomes, limits and next gates](README-041.md).
 
 The spatial proof and next independent-capture gates are documented in the [spatial contract](docs/SPATIAL_WORLD.md) and the [world-model frontier assessment](docs/WORLD_MODEL_FRONTIERS.md), including Genie, persistent3D capture, physics-aware prediction and the source-qualified local scene/manipulation milestone.
 
