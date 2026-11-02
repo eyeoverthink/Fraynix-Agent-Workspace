@@ -223,7 +223,7 @@ async function executeRaw(tool,args={}){
     case 'skills.list':result=(await refresh()).skills;break;
     case 'skill.save':if(!currentArtifact)throw Error('Open an artifact first');result=await api('/api/skill/save',{...args,id:currentArtifact.id});await refresh();break;
     case 'skill.run':{
-      const skill=await api('/api/skill/read',args);await execute('canvas.write',{title:skill.title+' · '+new Date().toLocaleTimeString(),files:skill.files,sources:skill.sources});
+      const skill=await api('/api/skill/read',args);await execute('canvas.write',{title:skill.title+' Â· '+new Date().toLocaleTimeString(),files:skill.files,sources:skill.sources});
       result=await execute('canvas.test',{steps:skill.tests});break;
     }
     case 'memory.search':result=await api('/api/host/skill',{name:'memory.search',args});break;
@@ -283,7 +283,7 @@ async function learnFromEpisodes({proof=false,automatic=false}={}){
     const report=await replay(snapshot.activePolicy,candidate.policy,{signal:controller.signal,onProgress:id=>{emit('run',{active:true,phase:'Independent replay: '+id});activity('replay',id);}});checkStop();
     const result=await api('/api/learning/evaluate',{candidateId:candidate.id,...report});
     candidateId=null;
-    activity('learning',result.accepted?`Promoted controller v${candidate.policy.version}: ${result.baselinePassed}/8 → ${result.candidatePassed}/8 replay cases passed`:'Candidate rejected: no verified gain or a regression',{evaluationId:result.id,baselineFailures:result.baselineFailures,candidateFailures:result.candidateFailures,regression:result.regression});
+    activity('learning',result.accepted?`Promoted controller v${candidate.policy.version}: ${result.baselinePassed}/8 â†’ ${result.candidatePassed}/8 replay cases passed`:'Candidate rejected: no verified gain or a regression',{evaluationId:result.id,baselineFailures:result.baselineFailures,candidateFailures:result.candidateFailures,regression:result.regression});
     return result;
   }catch(error){if(controller.signal.aborted)throw Error('Learning cancelled');throw error;}
   finally{
@@ -369,7 +369,7 @@ ipcMain.handle('workspace:request',async(event,input)=>{
   switch(input.operation){
     case 'agency043':{if(input.command==='mission')return mission044(input.args.id);if(input.command==='mission-open'){const m=await mission044(input.args.id);if(!m.result)throw Error('This task has no saved canvas result');const a=await api('/api/artifact/read',{id:m.result.id});if(a.version!==m.result.version)throw Error('The saved result has a later revision; this task retains its original version reference');emit('view','preview');return openArtifact(a);}if(input.command==='start'){if(run||learningJob||manualBusy)throw Error('Finish the current operation first');return agency043.begin({...input.args,artifactId:currentArtifact?.id||''});}if(input.command==='report')return agency043.report(input.args.id);if(!['state','read','models','image','control'].includes(input.command))throw Error('Unknown Java task operation');const value=await api('/api/agency043/'+input.command,input.args||{});if(input.command==='control')await agency043.poll();return value;}
     case 'agent042':{if(input.command==='state')return api('/api/agent042/state',{});if(input.command==='control')return api('/api/agent042/control',input.args);if(input.command==='report')return execute('agent.report',{});if(input.command==='stop'){if(!runtimeConnection042)throw Error('This test session owns an ephemeral Java process');const stopped=await runtimeConnection042.stop();setTimeout(()=>app.quit(),100);return stopped;}throw Error('Unknown continuing agent operation');}
-    case 'workflow':{if(input.command==='start')return startWorkflowAgent(input.args.request,input.args.modelName,input.args);throw Error('Unknown workflow operation');}
+    case 'workflow':{if(input.command==='catalog')return api('/api/workflows/catalog',{});if(input.command==='start')return startWorkflowAgent(input.args.request,input.args.modelName,input.args);throw Error('Unknown workflow operation');}
     case 'creation':{if(input.command==='preview')return api('/api/creation/source',input.args);if(input.command==='start')return startCreationAgent(input.args.request,input.model,{definition:input.args.definition,source:input.args.source});throw Error('Unknown creation operation');}
     case 'tracking':{
       if(input.command==='select')return trackingBridge.select(input.args.datasetIds);

@@ -109,7 +109,7 @@ public final class WorkspaceServer implements AutoCloseable {
                         default->throw new IllegalArgumentException("Unknown Java agent operation");
                     };send(exchange,200,result);return;
                 }
-                if((observations.busy()||tabletop.busy()||alignment041.busy())&&Set.of("/api/world/start","/api/world/restore","/api/goals/start","/api/procedures/run","/api/observations/start","/api/observations/resume","/api/tabletop/start").contains(route))throw new IllegalStateException("The observation run owns this world binding; Stop it before native actions");
+                if((observations.busy()||tabletop.busy()||alignment041.busy())&&Set.of("/api/workflows/start","/api/workflows/reuse","/api/world/start","/api/world/restore","/api/goals/start","/api/procedures/run","/api/observations/start","/api/observations/resume","/api/tabletop/start").contains(route))throw new IllegalStateException("The observation run owns this world binding; Stop it before native actions");
                 if(route.startsWith("/api/alignment041/")){
                     result=switch(route){
                         case "/api/alignment041/state"->alignment041.state();
@@ -176,7 +176,7 @@ public final class WorkspaceServer implements AutoCloseable {
                 }
                 if(route.equals("/api/plan")){send(exchange,200,plan(input));return;}
                 if(route.startsWith("/api/workflows/")){
-                    result=switch(route){case "/api/workflows/start"->workflows.start(input);case "/api/workflows/read"->workflows.read(input.getString("id"));case "/api/workflows/list"->new JSONObject().put("workflows",workflows.list());case "/api/workflows/resume"->workflows.resume(input.getString("id"));case "/api/workflows/cancel"->workflows.cancel(input.getString("id"));case "/api/workflows/reuse"->workflows.reuse(input);case "/api/workflows/claim"->claimWorkflow044(exchange.getRequestHeaders().getFirst("X-Fraynix-Interface"));case "/api/workflows/ack"->workflows.acknowledge(input);default->throw new IllegalArgumentException("Unknown workflow operation");};send(exchange,200,result);return;
+                    result=switch(route){case "/api/workflows/catalog"->workflows.graphCatalog();case "/api/workflows/start"->workflows.start(input);case "/api/workflows/read"->workflows.read(input.getString("id"));case "/api/workflows/list"->new JSONObject().put("workflows",workflows.list());case "/api/workflows/resume"->workflows.resume(input.getString("id"));case "/api/workflows/cancel"->workflows.cancel(input.getString("id"));case "/api/workflows/reuse"->workflows.reuse(input);case "/api/workflows/claim"->claimWorkflow044(exchange.getRequestHeaders().getFirst("X-Fraynix-Interface"));case "/api/workflows/ack"->workflows.acknowledge(input);default->throw new IllegalArgumentException("Unknown workflow operation");};send(exchange,200,result);return;
                 }
                 // Task ownership is acquired before the native-goal monitor, never from inside it.
                 if(route.equals("/api/goals/claim")){result=claimGoal044(exchange.getRequestHeaders().getFirst("X-Fraynix-Interface"));send(exchange,200,result);return;}

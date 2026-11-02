@@ -446,6 +446,23 @@ public final class GoalRunner implements AutoCloseable {
     synchronized JSONObject verifiedOwned(String owner,String id) throws Exception {
         var g=read(id);if(!g.optString("workflowId").equals(owner)||!g.getString("status").equals("completed"))throw new IllegalStateException("Owned stage is not completed");verifyOutcome(g);if(!creationGoal(g))verifiedReport(g);return g;
     }
+    synchronized void verifyProcedure046(JSONObject p) throws Exception {
+        var g=read(p.getString("sourceGoalId"));
+        if(!g.getString("status").equals("completed")||!g.getString("procedure").equals(p.getString("kind"))||!g.getJSONObject("report").similar(p.getJSONObject("report")))throw new IllegalStateException("Retained procedure lacks its original completed source");
+        var intent=g.has("counterfactual045")?g.getJSONObject("counterfactual045").getJSONObject("originalIntent"):g.getJSONObject("worldIntent");
+        for(String k:List.of("targets","forceLimitN","torqueLimitNm"))if(!new JSONObject().put("value",p.getJSONObject("defaults").get(k)).similar(new JSONObject().put("value",intent.get(k))))throw new IllegalStateException("Retained procedure authority/defaults differ from its verified source");
+        if(!p.getString("worldCodeSha256").equals(g.getString("worldCodeSha256")))throw new IllegalStateException("Retained procedure code differs from its original source");
+        verifyOutcome(g);verifiedReport(g);
+    }
+    synchronized JSONObject startProcedureOwned046(String owner,String stage,JSONObject input) throws Exception {
+        if(!owner.equals(workflowReservation)||!stage.matches("graph:[a-z][a-z0-9-]{0,31}"))throw new IllegalStateException("Graph workflow reservation/node lost");
+        String id=UUID.nameUUIDFromBytes(("workflow:"+owner+":"+stage).getBytes(StandardCharsets.UTF_8)).toString();
+        for(var g:values("goal"))if(g.getString("id").equals(id)){
+            if(!g.optString("workflowId").equals(owner)||!g.optString("workflowStage").equals(stage)||!g.getJSONObject("workflowInput").similar(input))throw new IllegalStateException("Saved graph child intent changed");return view(g);
+        }
+        workflowAccess=owner;workflowIntent=new JSONObject().put("id",id).put("stage",stage).put("input",WorldFrames.copy(input));
+        try{return runProcedure(input);}finally{workflowIntent=null;workflowAccess="";}
+    }
     synchronized JSONObject ownedNativeRun(String owner,String id) throws Exception {return verifiedRun(verifiedOwned(owner,id));}
     synchronized JSONObject controlOwned(String owner,String id,boolean cancel) throws Exception {
         var g=read(id);if(!g.optString("workflowId").equals(owner)||!owner.equals(workflowReservation))throw new IllegalStateException("Foreign workflow child");workflowAccess=owner;try{return cancel?cancel(id):resume(id);}finally{workflowAccess="";}
@@ -686,7 +703,7 @@ public final class GoalRunner implements AutoCloseable {
     Counterfactual045 counterfactual045(){return counterfactual045;}
     WorldLedger worlds(){return worlds;}
     WorldNativeStore worldNative(){return worldNative;}
-    synchronized JSONObject createWorld(JSONObject input) throws Exception {keys(input,Set.of("sceneId","title"));if(busy())throw new IllegalStateException("Finish the shared goal before creating a world");worldNative.available();var source=spatial.read(input.getString("sceneId"));return worlds.create(source,input.optString("title",source.getString("title")+" · evolving world"));}
+    synchronized JSONObject createWorld(JSONObject input) throws Exception {keys(input,Set.of("sceneId","title"));if(busy())throw new IllegalStateException("Finish the shared goal before creating a world");worldNative.available();var source=spatial.read(input.getString("sceneId"));return worlds.create(source,input.optString("title",source.getString("title")+" Â· evolving world"));}
     synchronized JSONObject restoreWorld(JSONObject input) throws Exception {keys(input,Set.of("worldId","expectedRevision","expectedHash","targetRevision"));if(busy())throw new IllegalStateException("Stop the active shared goal before explicitly restoring its world");worldNative.available();var observation=worlds.observe(input.getString("worldId"));String abandon="";if(observation.has("pending")){abandon=observation.getJSONObject("pending").getString("goalId");JSONObject g=null;try{g=read(abandon);}catch(IllegalArgumentException unknown){}if(g!=null&&g.getString("status").equals("interrupted"))cancel(abandon);else if(g!=null&&!g.getString("status").equals("cancelled"))throw new IllegalStateException("Stop the owned goal before restoring");}return worlds.restore(input.getString("worldId"),input.getInt("expectedRevision"),input.getString("expectedHash"),input.getInt("targetRevision"),abandon);}
     @Override public synchronized void close(){closed=true;worker.shutdownNow();geometryWorker.shutdownNow();counterfactual045.close();worldNative.close();poseStudy.close();poses.close();contactStudy.close();forceLearning.close();push.close();maps.close();spatial.close();perception.close();}
 }
