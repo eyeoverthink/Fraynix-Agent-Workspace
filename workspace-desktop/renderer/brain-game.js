@@ -1,10 +1,11 @@
 const $=id=>document.getElementById(id);
 export class BrainGame {
+ async openIntegrated(){this.requireSaved();this.activate('game');if(!this.running)this.show(await this.call('gameRuntime','open'));}
  constructor({call,notice,activate,layout,lab,requireSaved}){Object.assign(this,{call,notice,activate,layout,lab,requireSaved});this.running=false;this.busy=false;this.polling=false;
   const safe=f=>async()=>{try{await f();}catch(e){this.notice(e.message);$('brain-status').textContent=e.message;}};
   $('brain-open').onclick=safe(async()=>{$('brain-dialog').showModal();this.layout();await this.refresh();});
   $('brain-close').onclick=()=>{$('brain-dialog').close();this.layout();};$('brain-dialog').addEventListener('close',this.layout);
-  $('game-tab').onclick=safe(async()=>{this.requireSaved();this.activate('game');if(!this.running)this.show(await this.call('gameRuntime','open'));});
+  $('game-tab').onclick=safe(()=>this.openIntegrated());
   for(const id of ['left','right','jump','step','play','pause','ai','reset'])$('game-'+id).onclick=safe(async()=>{const args=id==='left'||id==='right'||id==='jump'||id==='step'?{action:'step',ticks:30,horizontal:id==='left'?-1:id==='right'?1:0,jump:id==='jump'}:id==='ai'?{action:'ai',targetX:Number($('game-target').value)}:{action:id};this.show(await this.call('gameRuntime','command',args));});
   $('game-close').onclick=safe(async()=>{await this.call('gameRuntime','close');this.running=false;$('game-status').textContent='Runtime closed. Reopen with Start game.';});
   $('game-open').onclick=safe(async()=>this.show(await this.call('gameRuntime','open')));
