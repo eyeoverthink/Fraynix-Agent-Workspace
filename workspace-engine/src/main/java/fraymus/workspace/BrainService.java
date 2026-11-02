@@ -174,5 +174,22 @@ public final class BrainService implements AutoCloseable {
             job.put("neurons",cortex.neurons()).put("synapses",cortex.synapses()).put("ticks",cortex.ticks()).put("spikes",cortex.spikeCount()).put("checkpointSha256",hash).put("accepted",true).put("scope","Synthetic diagnostic sensory pulse; no gameplay improvement claim and no physical-policy training");
         }
     }
+    synchronized JSONObject background042(float[] sensory,boolean learning)throws Exception{
+        if(closed)throw new IllegalStateException("Brain is closed");
+        if(busyId!=null)return new JSONObject().put("status","foreground-brain-job").put("updated",false);
+        if(cortex==null)cortex=Files.exists(root.resolve("cortex.bin"))?NeuralCheckpoint.load(root.resolve("cortex.bin")):new NeuromorphicCore(32768,32,618033988L);
+        long begin=System.nanoTime();cortex.inject(sensory);cortex.tick(learning);
+        return new JSONObject().put("status","shared-java-cortex").put("updated",true).put("neurons",cortex.neurons()).put("synapses",cortex.synapses()).put("ticks",cortex.ticks()).put("spikes",cortex.spikeCount()).put("plasticity",cortex.plasticity()).put("learningEnabled",learning).put("processingMs",(System.nanoTime()-begin)/1e6).put("scope","Actual sensory dynamics/plasticity. Task improvement still requires separate policy evaluation; no language-model weights are changed.");
+    }
+    synchronized JSONObject checkpoint042(Path target)throws Exception{
+        if(cortex==null)return new JSONObject();String dataHash=NeuralCheckpoint.save(cortex,target);
+        return new JSONObject().put("file",target.getFileName().toString()).put("fileSha256",PerceptionStore.hash(Files.readAllBytes(target))).put("dataSha256",dataHash).put("ticks",cortex.ticks());
+    }
+    synchronized long cortexTicks042(){return cortex==null?-1:cortex.ticks();}
+    synchronized void restore042(Path file,JSONObject receipt)throws Exception{
+        if(busyId!=null)throw new IllegalStateException("Cannot replace an active brain");
+        if(!PerceptionStore.hash(Files.readAllBytes(file)).equals(receipt.getString("fileSha256")))throw new IllegalStateException("Agent neural checkpoint source differs");
+        cortex=NeuralCheckpoint.load(file);if(cortex.ticks()!=receipt.getLong("ticks"))throw new IllegalStateException("Agent neural checkpoint tick differs");
+    }
     public void close(){closed=true;cancel=true;worker.shutdown();try{if(!worker.awaitTermination(5,TimeUnit.SECONDS))worker.shutdownNow();}catch(InterruptedException e){Thread.currentThread().interrupt();worker.shutdownNow();}}
 }

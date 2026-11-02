@@ -1,5 +1,10 @@
 # Fraynix Studio collaboration and documentation
 
+## Edition042 in progress · 2026-11-01
+
+User approved Java-owned continuous brain while preserving one integrated app and owned algorithms. Working in isolated fraynix-workspace-edition042 branch edition042; contract committed first as9c754fe. Production041 checkout/JARs and private review stay untouched. Implementing stable agent identity, per-boot real clocks, leased desktop reconnection, exclusive project owner, checked shared neural checkpoints, bounded sensory replay and segmented witness. Actual new accepted041camera receipts enter through the existing verifier; no automatic camera, web or model calls. Java-core tests7 and desktop111 pass initially; persistent UI/lifecycle/native-task testing in progress. These are operational computation and causal scheduling, not consciousness or proven general learning. No new dependency; existing Electron/Bullet/JSON dependencies remain. No subagents/heavy test overlap. README042 not published yet.
+
+
 ## Latest handoff · edition041 published2026-11-01
 
 Actualmain/readme041releaseceac3e4851633105ed20822675204a3de76c0a21;tagobject6e2ae2a404b62e18922008190fb20b607304ef36.DirectGitHubfetchverified773canonicalassets/391rawproofarchives/41editions/46canvases/5003refs/2263frozenhashes.360Java/78classes,106desktop,94actualUI,3actualgpt-oss20bchecks,2appwidths/2offlinewidthsPASS.AllJavaunchangedsincefull1ceade8;finalsourcea2576e7.Preservepublished001–041;next042.Publicationreceipt docs/PUBLICATION_041.json.

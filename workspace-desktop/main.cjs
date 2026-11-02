@@ -7,6 +7,8 @@ const {failureClass,performControlled,observeProgress,stageControl,trainControll
 const {replay,rehearse}=require('./controller-replay.cjs');
 const {NetworkPolicy}=require('./network-policy.cjs');
 const {verifyRendererSources}=require('./source-integrity.cjs');
+const {connectRuntime042}=require('./runtime-connection042.cjs');
+const {createAgent042,asksAgent042}=require('./agent042.cjs');let agent042,runtimeConnection042;
 const {NativeExports}=require('./exports.cjs');
 const {bodyReport}=require('./body-result.cjs');
 const {createGoals,goalSummary,requestedPush,requestedMap,requestedPhysics:requestedTaskFields,requestedData}=require('./goals.cjs');
@@ -51,11 +53,12 @@ async function updateSelfHost(){
 }
 async function api(route,input){
   if(route==='/api/plan')await updateSelfHost();
-  const response=await fetch(origin+route,{method:input===undefined?'GET':'POST',headers:{Authorization:`Bearer ${token}`,'Content-Type':'application/json'},body:input===undefined?undefined:JSON.stringify(input)});
+  const response=await fetch(origin+route,{method:input===undefined?'GET':'POST',headers:{Authorization:`Bearer ${token}`,'Content-Type':'application/json','X-Fraynix-Interface':selfHostSession},body:input===undefined?undefined:JSON.stringify(input)});
   const data=await response.json();if(!response.ok)throw Error(data.error||`Engine HTTP ${response.status}`);return data;
 }
 async function refresh(){state={...await api('/api/state'),network:networkPolicy.status()};emit('state',state);return state;}
 async function engineStart(){
+  if(process.env.FRAYNIX_WORKSPACE_PERSISTENT==='1'||(!process.env.FRAYNIX_WORKSPACE_TEST&&process.env.FRAYNIX_WORKSPACE_PERSISTENT!=='0')){runtimeConnection042=await connectRuntime042({repo,project,sessionId:selfHostSession,onState:value=>emit('agent042',value),onError:e=>activity('error',e.message)});origin=runtimeConnection042.origin;token=runtimeConnection042.token;return;}
   await fsp.mkdir(project,{recursive:true});token=randomBytes(32).toString('hex');
   const java=process.env.JAVA_HOME?path.join(process.env.JAVA_HOME,'bin','java.exe'):'java';
   const lib=path.join(repo,'workspace-engine','build','install','workspace-engine','lib','*');
@@ -99,6 +102,8 @@ async function executeRaw(tool,args={}){
   }
   let result;
   switch(tool){
+    case 'agent.report':if((await api('/api/goals/list',{})).goals.some(g=>['running','waiting-host'].includes(g.status))||(await api('/api/workflows/list',{})).workflows.some(g=>['running','waiting-host','queued'].includes(g.status)))throw Error('Finish or stop the active goal before opening another canvas report');
+    case 'agent.read':result=await agent042.action(tool,args,captureContext||{});break;
     case 'alignment.read':case 'alignment.report':result=await alignment041.action(tool,args,captureContext||{});break;
     case 'runtime.read':case 'runtime.project':case 'runtime.report':result=await runtime040.action(tool,args,captureContext||{});break;
     case 'self.read':case 'object.read':case 'object.research':case 'object.wait':case 'object.report':await updateSelfHost();result=await knowledgeBridge.action(tool,args,captureContext||{});break;
@@ -384,7 +389,12 @@ async function startWorkflowAgent(goal,model,options={}){
  finally{if(job.episodeStarted)await api('/api/learning/end',{id:job.id,status:job.cancelled?'cancelled':outcome}).catch(()=>{});if(run===job)run=null;if(captureContext===job)captureContext=null;emit('run',{active:false});await refresh();}
 }
 
+async function startAgent042(goal,model){
+ if(run||learningJob||manualBusy)throw Error('Finish or stop the current task first');if(typeof goal!=='string'||!goal.trim()||goal.length>8000)throw Error('Enter a request up to8000characters');const job={id:randomUUID(),goal,model,cancelled:false,needsScene:false};run=job;captureContext=job;let outcome='failed';emit('run',{active:true,goal,model,phase:'Reading continuing Java agent'});
+ try{await api('/api/learning/begin',{id:job.id,taskKind:'experiment-task',goal,model});job.episodeStarted=true;const result=await agent042.agent({goal,model,job,planTools,command,onTurn:(turn,phase)=>emit('run',{active:true,turn,phase,goal,model})});outcome='verified';activity('complete',result.summary);emit('answer',result.summary);await api('/api/event',{kind:'agent_completed',data:{goal,model,...result,episodeId:job.id}});}catch(e){activity(job.cancelled?'stopped':'error',e.message);emit('answer',e.message);}finally{if(job.episodeStarted)await api('/api/learning/end',{id:job.id,status:job.cancelled?'cancelled':outcome}).catch(()=>{});if(captureContext===job)captureContext=null;if(run===job)run=null;emit('run',{active:false});await refresh();}
+}
 async function startAgent(goal,model){
+  if(asksAgent042(goal))return startAgent042(goal,model);
   const alignmentSelection=await api('/api/alignment041/state',{});
   if(asksAlignment041(goal,!!alignmentSelection.selectedRegistrationId))return startAlignment041Agent(goal,model);
   if(asksRuntime040(goal))return startRuntime040Agent(goal,model);
@@ -499,7 +509,7 @@ async function captureComposite(){
 ipcMain.handle('workspace:request',async(event,input)=>{
   validSender(event);
   if((['brain','gameRuntime','memory'].includes(input.operation))&&!['state','read','frame','context','cancel'].includes(input.command)&&(run||learningJob||manualBusy))throw Error('Wait for the current operation, or take over from the agent first');
-  const manual=(input.operation==='alignment041'&&!['state','trial','capture','view','image','frame','stop','finish'].includes(input.command))||(input.operation==='runtime040'&&!['state','read','view','raster','summary'].includes(input.command))||(input.operation==='knowledge'&&['bind','report','open-source'].includes(input.command))||(input.operation==='tabletop'&&!['state','read','image','understanding','frame','stop'].includes(input.command))||(input.operation==='metrics'&&!['state','view'].includes(input.command))||(input.operation==='observations'&&!['state','read','frame','native'].includes(input.command))||(input.operation==='persistentWorld'&&!['list','read','observe','visibility','run','suite'].includes(input.command))||(input.operation==='pose'&&!['snapshot','run','observe'].includes(input.command))||(input.operation==='poseStudy'&&!['state','suite','read','run','live','goal'].includes(input.command))||(input.operation==='contactStudy'&&!['state','suite','read','run','live','goal'].includes(input.command))||(input.operation==='forceLearning'&&!['state','suite','read','run','live','goal'].includes(input.command))||(input.operation==='tracking'&&!['state','read','dataset','frame'].includes(input.command))||(input.operation==='perception'&&!['catalog','state','models','read','frame-preview'].includes(input.command))||(input.operation==='maps'&&!['select','snapshot','reference','read','list','dungeons','example','reference-cases','reference-example','inspect-image','run'].includes(input.command))||(input.operation==='spatial'&&!['snapshot','read','list','example','observe','run'].includes(input.command))||(input.operation==='data'&&!['list','inspect'].includes(input.command))||(input.operation==='javaGoal'&&!['goal.read','procedures.list'].includes(input.command))||(input.operation==='body'&&input.command!=='cancel')||input.operation==='transfer'||['tool','new','sourceSave','proof','back','forward','learningProof','learningEvaluate','learningRollback'].includes(input.operation)||(input.operation==='scene'&&!['snapshot','read','runs'].includes(input.command))||(input.operation==='measurement'&&!['read','list','comparison'].includes(input.command))||(input.operation==='calibration'&&!['read','list'].includes(input.command))||(input.operation==='observer'&&!['observe','history'].includes(input.command));
+  const manual=(input.operation==='agent042'&&['report','stop'].includes(input.command))||(input.operation==='alignment041'&&!['state','trial','capture','view','image','frame','stop','finish'].includes(input.command))||(input.operation==='runtime040'&&!['state','read','view','raster','summary'].includes(input.command))||(input.operation==='knowledge'&&['bind','report','open-source'].includes(input.command))||(input.operation==='tabletop'&&!['state','read','image','understanding','frame','stop'].includes(input.command))||(input.operation==='metrics'&&!['state','view'].includes(input.command))||(input.operation==='observations'&&!['state','read','frame','native'].includes(input.command))||(input.operation==='persistentWorld'&&!['list','read','observe','visibility','run','suite'].includes(input.command))||(input.operation==='pose'&&!['snapshot','run','observe'].includes(input.command))||(input.operation==='poseStudy'&&!['state','suite','read','run','live','goal'].includes(input.command))||(input.operation==='contactStudy'&&!['state','suite','read','run','live','goal'].includes(input.command))||(input.operation==='forceLearning'&&!['state','suite','read','run','live','goal'].includes(input.command))||(input.operation==='tracking'&&!['state','read','dataset','frame'].includes(input.command))||(input.operation==='perception'&&!['catalog','state','models','read','frame-preview'].includes(input.command))||(input.operation==='maps'&&!['select','snapshot','reference','read','list','dungeons','example','reference-cases','reference-example','inspect-image','run'].includes(input.command))||(input.operation==='spatial'&&!['snapshot','read','list','example','observe','run'].includes(input.command))||(input.operation==='data'&&!['list','inspect'].includes(input.command))||(input.operation==='javaGoal'&&!['goal.read','procedures.list'].includes(input.command))||(input.operation==='body'&&input.command!=='cancel')||input.operation==='transfer'||['tool','new','sourceSave','proof','back','forward','learningProof','learningEvaluate','learningRollback'].includes(input.operation)||(input.operation==='scene'&&!['snapshot','read','runs'].includes(input.command))||(input.operation==='measurement'&&!['read','list','comparison'].includes(input.command))||(input.operation==='calibration'&&!['read','list'].includes(input.command))||(input.operation==='observer'&&!['observe','history'].includes(input.command));
   if(manual&&workflowBridge?.reserved()&&!(input.operation==='javaGoal'&&['workflow.cancel','workflow.resume'].includes(input.command)))throw Error('Resume or Stop the evidence workflow before changing its workspace');
   if(manual&&goalBridge?.latest()?.procedure==='creation-web-v1'&&['running','waiting-host'].includes(goalBridge.latest().status)&&!(input.operation==='javaGoal'&&input.command==='goal.cancel'))throw Error('The creation goal owns the canvas; stop it before editing or starting another operation');
   if(manual&&(run||learningJob||manualBusy))throw Error('Wait for the current operation, or take over from the agent first');
@@ -507,6 +517,7 @@ ipcMain.handle('workspace:request',async(event,input)=>{
   if(manual)manualBusy=true;
   try {
   switch(input.operation){
+    case 'agent042':{if(input.command==='state')return api('/api/agent042/state',{});if(input.command==='control')return api('/api/agent042/control',input.args);if(input.command==='report')return execute('agent.report',{});if(input.command==='stop'){if(!runtimeConnection042)throw Error('This test session owns an ephemeral Java process');const stopped=await runtimeConnection042.stop();setTimeout(()=>app.quit(),100);return stopped;}throw Error('Unknown continuing agent operation');}
     case 'workflow':{if(input.command==='start')return startWorkflowAgent(input.args.request,input.args.modelName,input.args);throw Error('Unknown workflow operation');}
     case 'creation':{if(input.command==='preview')return api('/api/creation/source',input.args);if(input.command==='start')return startCreationAgent(input.args.request,input.model,{definition:input.args.definition,source:input.args.source});throw Error('Unknown creation operation');}
     case 'tracking':{
@@ -705,6 +716,7 @@ else app.whenReady().then(async()=>{
     window.webContents.session.setPermissionRequestHandler((contents,permission,callback,details)=>callback(trustedMedia(contents,permission,details)));
     window.webContents.session.setPermissionCheckHandler((contents,permission,origin,details)=>trustedMedia(contents,permission,details));
     window.webContents.setWindowOpenHandler(()=>({action:'deny'}));window.webContents.on('will-navigate',e=>e.preventDefault());
+    agent042=createAgent042({api,execute,openArtifact,emit});
     await window.loadFile(path.join(__dirname,'renderer','index.html'));
     await api('/api/self/register',{sourceSha256:require('node:crypto').createHash('sha256').update(fs.readFileSync(path.join(__dirname,'policy.cjs'))).digest('hex'),capabilities:catalog.map(({name,description,args})=>({name,description,args}))});selfRegistered=true;const knowledgeState=await api('/api/knowledge/state',{});if(knowledgeState.selectedObjectId)await knowledgeBridge.select(knowledgeState.selectedObjectId);await updateSelfHost();researchWorker.start();
     await browser.navigate(origin+'/welcome');await refresh();
@@ -718,4 +730,4 @@ else app.whenReady().then(async()=>{
   }catch(error){console.error(error);app.quit();}
 });
 app.on('window-all-closed',()=>app.quit());
-app.on('before-quit',event=>{if(closing)return;event.preventDefault();closing=true;researchWorker?.stop();workflowBridge?.stop();goalBridge?.stop();learningJob?.abort();if(run)run.cancelled=true;browser?.close();canvas?.close();Promise.race([api('/api/game/close',{}).catch(()=>{}),new Promise(r=>setTimeout(r,5000))]).finally(()=>{engine?.kill();app.quit();});});
+app.on('before-quit',event=>{if(closing)return;event.preventDefault();closing=true;researchWorker?.stop();workflowBridge?.stop();goalBridge?.stop();learningJob?.abort();if(run)run.cancelled=true;browser?.close();canvas?.close();Promise.race([runtimeConnection042?runtimeConnection042.detach().catch(()=>{}):api('/api/game/close',{}).catch(()=>{}),new Promise(r=>setTimeout(r,5000))]).finally(()=>{if(!runtimeConnection042)engine?.kill();app.quit();});});

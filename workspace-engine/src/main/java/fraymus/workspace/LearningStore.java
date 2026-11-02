@@ -39,6 +39,7 @@ public final class LearningStore {
         if(!recovered.isEmpty())commit(recovered);
     }
     public static JSONObject baseline(){return new JSONObject().put("version",1).put("observationLimit",2).put("refreshStale",false);}
+    synchronized void hostDetached042()throws IOException{var changed=new ArrayList<EntityRecord>();for(var entity:world.snapshot().entities())if(kind(entity).equals("episode")){var data=payload(entity);if(data.optString("status").equals("running")){data.put("status","interrupted").put("endedAt",now()).put("outcome","Interface detached before a final host outcome; Java goal evidence remains separately durable");changed.add(record("episode",data));}}if(!changed.isEmpty())commit(changed);}
     public static String digest(String value){
         try{return HexFormat.of().formatHex(MessageDigest.getInstance("SHA-256").digest(value.getBytes(StandardCharsets.UTF_8)));}
         catch(Exception error){throw new IllegalStateException(error);}

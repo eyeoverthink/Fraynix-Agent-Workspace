@@ -1,3 +1,4 @@
+import {Agent042Panel} from './agent042.js';
 import {Alignment041Panel} from './alignment041.js';
 import {SharedSpatial040} from './spatial-runtime040.js';
 import {KnowledgePanel} from './knowledge-panel.js';
@@ -41,6 +42,7 @@ lab.afterOpen=async()=>{observers.sceneChanged();bodies.packet=null;bodies.contr
 function notice(text){$('notice').textContent=text;}
 async function request(operation,data={}){try{return await host.request({operation,...data});}catch(error){notice(error.message);throw error;}}
 function requireSaved(){if(dirty||lab.dirty)throw Error('Save or revert your source or scene changes first');}
+const agent042Panel=new Agent042Panel(request);
 const brainGame=new BrainGame({call:(operation,command,args={})=>request(operation,{command,args}),notice,activate:setCanvasMode,layout:updateLayout,lab,requireSaved});
 const dataPanel=new DataPanel({call:(command,args)=>request('data',{command,args}),notice,requireSaved,layout:updateLayout});
 const goalsPanel=new GoalsPanel({getMapSources:()=>mapPanel.sources,onCompileMap:(id,layers)=>mapPanel.compile(id,layers),getCreationSources:()=>creationPanel.sources(),getDatasets:()=>state?.datasets||[],call:(command,args)=>request('javaGoal',{command,args}),notice,requireSaved,openReport:async id=>{requireSaved();setCanvasMode('preview');await request('tool',{tool:'canvas.open',args:{id}});}});
