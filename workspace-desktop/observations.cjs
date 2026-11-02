@@ -40,21 +40,6 @@ function createObservations({api,openArtifact,execute,emit,activity}){
   }
   throw Error('Unknown observation tool');
  }
- async function runAgent({goal,model,job,planTools,command,onTurn}){
-  const recent=[];let inspected=false;
-  for(let turn=1;turn<=12;turn++){
-   if(job.cancelled)throw Error('Stopped by you');
-   if(job.observationRunId&&['interrupted','cancelled'].includes(job.observationEvidence?.status))throw Error('Observation run '+job.observationEvidence.status+': '+job.observationEvidence.reason+'; original evidence is retained');
-   const needsStart=/\b(start|track|process|update)\b/i.test(goal)&&!(/\b(inspect|explain|read|describe)\b/i.test(goal));
-   const allowed=!inspected?['observations.read']:job.observationReport?['finish']:job.observationRunId&&job.observationEvidence?.status==='running'?['observations.wait']:needsStart&&!job.observationRunId?['observations.start']:['observations.report'];
-   onTurn(turn,'Connecting real footage to its saved world estimate');job.requestId=randomUUID();
-   const reply=await api('/api/plan',{model,prompt:`Use ONE typed tool. ${goal}. Host stage permits ${allowed.join(', ')}. Read actual observed-world state, optionally start the selected footage ONCE if requested, wait for that owned run, then report and finish. Base image-plane estimates have unknown metric scale/FPS. A selected metric interpretation may supply measured/source timing and planar geometry; quote its provenance, uncertainty qualification and stale flag. Never infer3D depth or claim confidence guarantees. Native verified physics is separate. Source labels and model covariance are not recognition probabilities. Do not fabricate IDs, measurements or physical success. Actual recent tool results: ${JSON.stringify(recent).slice(-9000)}`,requestId:job.requestId,allowedTools:allowed,tools:planTools(allowed),...(job.modelDigest?{expectedDigest:job.modelDigest}:{})});job.modelDigest=reply.localModel.digest;
-   const next=command(JSON.parse(reply.text));if(!allowed.includes(next.tool))throw Error('Tool cannot advance this observation stage');
-   if(next.tool==='finish')return {summary:'Observed-world evidence and the actual report are saved. The saved evidence declares its coordinate, timing and uncertainty scope; any selected metric interpretation applies only to its fixed camera and plane. Native verified physics is unchanged.',observationReport:job.observationReport,observationRunId:job.observationRunId||job.observationEvidence?.id};
-   const result=await execute(next.tool,next.args);if(next.tool==='observations.read')inspected=true;if(next.tool==='observations.start')job.observationEvidence=result;recent.push({tool:next.tool,result});while(recent.length>2)recent.shift();
-  }
-  throw Error('Observation chat reached its12-step budget; the actual Java run and evidence remain saved');
- }
- return {importPack,select,metricSelect,action,runAgent,selection:()=>selection};
+ return {importPack,select,metricSelect,action,selection:()=>selection,metricSelection:()=>metricSelection};
 }
 module.exports={createObservations,asksForObservedWorld,latestObservationFrame};

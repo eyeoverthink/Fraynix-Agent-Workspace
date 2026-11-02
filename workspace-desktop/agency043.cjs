@@ -1,6 +1,6 @@
 'use strict';
 const workbenchNames=['browser.navigate','browser.observe','browser.click','browser.type','canvas.write','canvas.read','canvas.observe','canvas.test','artifacts.list','skills.list','skill.save','skill.run','memory.search','finish'];
-function createAgency043({api,execute,openArtifact,getArtifact,getSurface,showPreview,emit,activity,sessionId,withAuthority,planTools,captureWorkspace,refresh=async()=>{}}){
+function createAgency043({api,execute,openArtifact,getArtifact,getSurface,showPreview,emit,activity,sessionId,withAuthority,planTools,captureWorkspace,refresh=async()=>{},toolNames=workbenchNames,withContext=async(_job,fn)=>fn()}){
  let stopped=false,polling=false,executing=false,canceling=false,pendingStarts=0,startGeneration=0,timer,sequence=0,activeId='',lastRunning=false,lastCompleted='',latestState={tasks:[]};
  const start=performance.now();
  async function capture(kind,phase,details={}){
@@ -12,6 +12,11 @@ function createAgency043({api,execute,openArtifact,getArtifact,getSurface,showPr
  let currentClaim=null,during=[];
  async function onTestStep(check,total){if(!currentClaim)return;if(check.expected?.action||check.index===0||check.index===total-1)during.push(await capture('canvas','during',{testIndex:check.index}));}
  async function runEffect(c){
+  if(c.kind==='domain'){
+   const context=structuredClone(c.extra.context);let result,error;
+   try{await withAuthority({taskId:c.taskId,nonce:c.nonce},async()=>{result=await withContext(context,()=>execute(c.tool,c.args));});}catch(e){error=e.message;}
+   try{await api('/api/agency043/ack',{taskId:c.taskId,effectId:c.id,nonce:c.nonce,sessionId,context,result:result&&typeof result==='object'&&!Array.isArray(result)?result:{value:result},...(error?{error}:{})});}catch(e){await api('/api/agency043/abort',{taskId:c.taskId,effectId:c.id,nonce:c.nonce,sessionId,error:e.message}).catch(()=>{});activity('error',e.message);}return;
+  }
   currentClaim=c;during=[];const kind=c.extra?.captureFocus||(c.tool.startsWith('browser.')?'browser':'canvas');let beforeId,afterId,result,error;
   try{await withAuthority({taskId:c.taskId,nonce:c.nonce},async()=>{
    if(c.extra?.artifact&&c.kind==='tool'&&c.tool.startsWith('canvas.')&&(getArtifact()?.id!==c.extra.artifact.id||getArtifact()?.version!==c.extra.artifact.version))await openArtifact(await api('/api/artifact/read',{id:c.extra.artifact.id}));
@@ -36,6 +41,6 @@ function createAgency043({api,execute,openArtifact,getArtifact,getSurface,showPr
  async function begin(args){const generation=startGeneration;pendingStarts++;try{const g=await api('/api/agency043/start',args);if(generation!==startGeneration)return await api('/api/agency043/control',{id:g.id,action:'cancel'});await poll();return g;}finally{pendingStarts--;}}
  async function cancel(){startGeneration++;canceling=true;try{const state=await api('/api/agency043/state',{});for(const g of state.tasks.filter(g=>['queued','ready','planning','waiting-host','vision'].includes(g.status)))await api('/api/agency043/control',{id:g.id,action:'cancel'});}finally{canceling=false;}await poll();}
  async function report(id){const task=await api('/api/agency043/read',{id}),{artifact}=await api('/api/agency043/report',{id});await showPreview();await openArtifact(artifact);const result=await execute('canvas.test',{steps:[{selector:'#visual-task',expectText:id},{selector:'#visual-before',expectText:task.lastPair.beforeSha256},{selector:'#visual-after',expectText:task.lastPair.afterSha256},{selector:'.images img',expectCount:2}]});if(!result.passed)throw Error('Actual visual report checks failed');return{id:artifact.id,version:artifact.version,passed:true};}
- return{async start(sourceSha256){await api('/api/agency043/register',{sourceSha256,tools:planTools(workbenchNames)});await poll();timer=setInterval(()=>poll(),400);timer.unref();},stop(){stopped=true;clearInterval(timer);},begin,poll,onTestStep,busy:()=>!!activeId||executing||pendingStarts>0,active:()=>latestState.tasks.find(g=>g.id===activeId),state:()=>latestState,cancel,report,async action(tool,args={}){if(Object.keys(args).length)throw Error('Visual tools use actual recorded task evidence, not supplied facts');const g=latestState.tasks.findLast(t=>t.lastFrameId);if(!g)throw Error('Choose See workspace to record an actual screen first');if(tool==='screen.read')return api('/api/agency043/read',{id:g.id});if(tool==='screen.report')return report(g.id);throw Error('Unknown visual tool');}};
+ return{async start(sourceSha256){await api('/api/agency043/register',{sourceSha256,tools:planTools(toolNames)});await poll();timer=setInterval(()=>poll(),400);timer.unref();},stop(){stopped=true;clearInterval(timer);},begin,poll,onTestStep,busy:()=>!!activeId||executing||pendingStarts>0,active:()=>latestState.tasks.find(g=>g.id===activeId),state:()=>latestState,cancel,report,async action(tool,args={}){if(Object.keys(args).length)throw Error('Visual tools use actual recorded task evidence, not supplied facts');const g=latestState.tasks.findLast(t=>t.lastFrameId);if(!g)throw Error('Choose See workspace to record an actual screen first');if(tool==='screen.read')return api('/api/agency043/read',{id:g.id});if(tool==='screen.report')return report(g.id);throw Error('Unknown visual tool');}};
 }
 module.exports={createAgency043,workbenchNames};

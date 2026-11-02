@@ -1,0 +1,96 @@
+[
+  {
+    "type": "function",
+    "function": {
+      "name": "creation_contract",
+      "description": "Declare actual observable interactions and success checks before code generation. Source-derived counts use sourceRows:true or sourceCount, never hardcoded dataset counts.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "checks": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "selector": {
+                  "type": "string",
+                  "maxLength": 200
+                },
+                "action": {
+                  "type": "string",
+                  "enum": [
+                    "click",
+                    "fill"
+                  ]
+                },
+                "value": {
+                  "type": "string"
+                },
+                "expectText": {
+                  "type": "string"
+                },
+                "expectValue": {
+                  "type": "string"
+                },
+                "expectCount": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "sourceRows": {
+                  "type": "boolean"
+                },
+                "sourceCount": {
+                  "type": "object",
+                  "properties": {
+                    "column": {
+                      "type": "string"
+                    },
+                    "equals": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "column",
+                    "equals"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "required": [
+                "selector"
+              ],
+              "additionalProperties": false
+            },
+            "minItems": 1,
+            "maxItems": 24
+          }
+        },
+        "required": [
+          "checks"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "creation_submit",
+      "description": "Return a complete runnable index.html document. Put CSS and JavaScript inline. Java owns source inputs, artifact identity and verification.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "html": {
+            "type": "string",
+            "minLength": 30,
+            "description": "Complete HTML document with actual inline CSS and JavaScript; no placeholders."
+          }
+        },
+        "required": [
+          "html"
+        ],
+        "additionalProperties": false
+      }
+    }
+  }
+]

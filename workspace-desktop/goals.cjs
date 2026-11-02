@@ -30,7 +30,7 @@ function mapReuseOptions(defaults,provided,goal){const out={...provided};if(goal
 
 function poseOptions(binding,args,goal=''){for(const key of Object.keys(args))if(!['sceneId','targets','forceLimitN','torqueLimitNm','saveSkillName'].includes(key))throw Error('Unsupported pose option '+key);if(args.sceneId&&args.sceneId!==binding.sceneId)throw Error('Actual pose source changed');const chosen={...binding,...args};const requestedName=requestedPhysics(goal||String()).saveSkillName;if(goal&&!requestedName&&args.saveSkillName)throw Error('Omit saveSkillName when reusing a skill. It creates a NEW saved version and was not requested');if(requestedName&&chosen.saveSkillName!==requestedName)throw Error('Preserve the requested saved pose skill name');if(/displayed|selected target/i.test(goal)&&!isDeepStrictEqual(chosen.targets,binding.targets))throw Error('Preserve the displayed target poses exactly; no native run started');for(const key of ['forceLimitN','torqueLimitNm'])if(goal&&args[key]!==undefined&&args[key]!==binding[key]&&!new RegExp(key+'\\s*[=:]?\\s*'+args[key]+'\\b','i').test(goal))throw Error('Preserve the selected '+key+' unless explicitly changed');return chosen;}
 function worldOptions(binding,args,goal=''){const semantic={targets:binding.targets,forceLimitN:binding.forceLimitN,torqueLimitNm:binding.torqueLimitNm};return {...binding,...poseOptions(semantic,args,goal)};}
-function createGoals({api,browser,canvas,openArtifact,emit,refresh,activity,getScene,getDataset,getSpatial,getPose,getWorld,getPush,getMapping,perception,creation,workflow,getCreationSource,onScene,onTest}){
+function createGoals({api,browser,canvas,openArtifact,emit,refresh,activity,getScene,getDataset,getSpatial,getPose,getWorld,getPush,getMapping,perception,creation,workflow,getCreationSource,onScene,onTest,withAuthority=(_a,fn)=>fn()}){
  let timer,busy=false,latest=null,shownScene='',stopped=false,lastPoll=0;
  async function update(g){latest=g;emit(g.workflowId?'workflowChild':'javaGoal',g);if(g.sceneId&&g.sceneId!==shownScene){shownScene=g.sceneId;await onScene(await api('/api/scene/read',{id:g.sceneId}));}return g;}
  async function poll(){
@@ -39,9 +39,10 @@ function createGoals({api,browser,canvas,openArtifact,emit,refresh,activity,getS
    const all=await api('/api/goals/list',{}),active=all.goals.find(g=>['running','waiting-host'].includes(g.status));
    const next=active||all.goals.at(-1);if(next){const changed=latest?.id!==next.id||latest?.updatedAt!==next.updatedAt;if(changed){await update(next);if(terminal(next)){activity('goal',goalSummary(next));await refresh();}}}
    if(active?.status!=='waiting-host')return;const effect=await api('/api/goals/claim',{});if(!effect.id)return;
+   await withAuthority(effect.taskAuthority,async()=>{
    let result,error;
    try{
-    if(effect.kind==='creation.plan'||effect.kind==='creation.generate')result=await creation.generate(effect);
+    if(effect.kind==='creation.plan'||effect.kind==='creation.generate'){await creation.generate(effect);return;}
     else if(effect.kind==='creation.test'){const a=await api('/api/artifact/read',{id:effect.report.id});if(a.version!==effect.report.version)throw Error('Created version changed');emit('view','preview');await openArtifact(a);const checks=await canvas.test(effect.steps);const proof=await api('/api/artifact/test',{id:a.id,version:a.version,steps:effect.steps,checks});result={id:a.id,version:a.version};await onTest?.(effect,proof);await openArtifact(await api('/api/artifact/read',{id:a.id}));activity('creation-test',proof.passed?'Declared behavior passed':'Declared behavior failed; Java retains the failures',{goalId:effect.goalId,version:a.version,checks:proof.checks});}
     else if(effect.kind==='browser.perception.sample')result=await perception.sample(effect);
     else if(effect.kind==='browser.observe')result=await browser.observe();
@@ -62,6 +63,7 @@ function createGoals({api,browser,canvas,openArtifact,emit,refresh,activity,getS
    }catch(e){error=e.message;}
    if(['creation.plan','creation.generate','creation.test'].includes(effect.kind)){const current=await api('/api/goals/read',{id:effect.goalId});if(!['running','waiting-host'].includes(current.status))return;}
    await update(await api('/api/goals/ack',{goalId:effect.goalId,id:effect.id,nonce:effect.nonce,...(error?{error}:{result})}));
+   });
   }catch(e){if(!stopped)activity('goal-error',e.message);}finally{busy=false;}
  }
  async function execute(tool,args={},context){
@@ -97,24 +99,12 @@ function createGoals({api,browser,canvas,openArtifact,emit,refresh,activity,getS
   else if(tool==='goal.start'){
    const source=getScene();if(context?.goal){const chosen={...(source?.parameters||{angleDeg:25,friction:0}),...(args.parameters||{}),targetM:args.targetM??1.2,disturbanceMps:args.disturbanceMps??.35,browserContext:args.browserContext??false,saveSkillName:args.saveSkillName??''};for(const [key,value] of Object.entries(requestedPhysics(context.goal)))if(chosen[key]!==value)throw Error(`The request specifies ${key}=${value}; send that exact value to goal.start. No goal has started.`);args.request=context.goal;}g=await api('/api/goals/start',{...(source&&!args.sceneId?{sceneId:source.id,expectedVersion:source.version}:{}),...args});
   }else if(tool==='procedure.run'){
-   if(context?.procedureBinding){for(const key of ['name','version'])if(args[key]!==undefined&&args[key]!==context.procedureBinding[key])throw Error('The selected procedure binding changed');args={name:context.procedureBinding.name,version:context.procedureBinding.version,...args};}
-   const skills=(await api('/api/goals/list',{})).procedures,skill=skills.find(p=>p.name===args.name&&p.version===args.version);
-   if(skill?.kind==='persistent-world-arrange-v1'){const selected=context?.worldBinding||getWorld();if(!selected)throw Error('Select a current persistent world first');const{name,version,...provided}=args;for(const key of ['worldId','expectedRevision','expectedHash'])delete provided[key];const chosen={...selected,...skill.defaults,...(/displayed|selected target/i.test(context?.goal||'')?{targets:selected.targets}:{})};args={name,version,...worldOptions(chosen,provided,context?.goal),...(context?.goal?{request:context.goal}:{})};}
-   if(skill?.kind==='spatial-arrange-v1'){const selected=getPose();if(!selected)throw Error('Confirm fresh pose roles/targets in Spatial');const{name,version,...provided}=args;args={name,version,...poseOptions({...selected,...skill.defaults,sceneId:selected.sceneId,...(/displayed|selected target/i.test(context?.goal||'')?{targets:selected.targets}:{})},provided,context?.goal),...(context?.goal?{request:context.goal}:{})};}
-   if(skill?.kind==='spatial-push-v1'){const selected=getPush();if(!selected)throw Error('Choose fresh crate/pusher roles in Spatial');for(const key of ['sceneId','objectId','pusherId'])if(args[key]!==undefined&&args[key]!==selected[key])throw Error('Pushing source/body role changed');const{name,version,...provided}=args;delete provided.sceneId;delete provided.objectId;delete provided.pusherId;const chosen=pushReuse(skill.defaults,provided,context?.goal);if(context?.goal)preservePush(context.goal,{...chosen,saveSkillName:chosen.saveSkillName||''});args={name,version,...chosen,...selected,...(context?.goal?{request:context.goal}:{})};}
-   if(skill?.kind==='evidence-workflow-v1')return workflow.execute('workflow.reuse',args,context);
-   if(context?.goal&&skill&&!['persistent-world-arrange-v1','map-world-v1','spatial-push-v1','spatial-arrange-v1'].includes(skill.kind)){
-    const expected=skill.kind==='motion-data-report-v1'?requestedData(context.goal):requestedPhysics(context.goal);
-    const chosen={...(skill.defaults||{}),...(skill.defaults?.parameters||{}),...(args.parameters||{}),...args,browserContext:args.browserContext??false,saveSkillName:args.saveSkillName??''};
-    for(const [key,value] of Object.entries(expected))if(chosen[key]!==value)throw Error(`The request specifies ${key}=${value}; send that exact value to procedure.run. No goal started.`);
-   }
-   if(skill?.kind==='map-world-v1'){const selected=args.referenceId||args.mapId?{...(args.referenceId?{referenceId:args.referenceId}:{mapId:args.mapId})}:getMapping();if(!selected)throw Error('Bind a fresh source in Maps');const {name,version,options,disturbanceNs,saveSkillName,...flat}=args;delete flat.referenceId;delete flat.mapId;args={name,version,...selected,options:{...(options||{}),...flat},...(disturbanceNs!==undefined?{disturbanceNs}:{}),...(saveSkillName!==undefined?{saveSkillName}:{})};args.options=mapReuseOptions(skill.defaults.options,args.options,context?.goal);if(context?.goal)preserveMap(context.goal,{...skill.defaults.options,...args.options,disturbanceNs:args.disturbanceNs??skill.defaults.disturbanceNs,saveSkillName:args.saveSkillName});}
-   if(skill?.kind==='creation-web-v1'&&!args.sourceArtifactId&&skill.sourceRequirements.required){const selected=getCreationSource?.();if(!selected)throw Error('Choose a CSV source for this creation procedure');args={...args,...selected};}
-   if(skill?.kind==='browser-perception-v1'){if(skill.defaults.mode==='appearance'&&args.targetLabel&&args.targetLabel!==skill.defaults.targetLabel)throw Error('This saved taught-appearance procedure retains its category; select another taught procedure for a different category.');if(context?.goal&&Object.keys(args).some(k=>!['name','version','targetLabel','seconds','saveSkillName'].includes(k)))throw Error('procedure.run uses its saved detector policy. Send only targetLabel, seconds and optional saveSkillName; no lessonName or mode.');if(context?.goal){const seconds=String(context.goal).match(/\bfor\s+(\d+(?:\.\d+)?)\s+seconds?\b/i);if(seconds&&(args.seconds??skill.defaults.seconds)!==Number(seconds[1]))throw Error('Preserve the requested tracking duration');}if('lessonName' in args){const name=args.lessonName;delete args.lessonName;if(name){const lessons=(await api('/api/perception/state',{})).lessons.filter(l=>l.name===name).sort((a,b)=>b.version-a.version);if(!lessons.length)throw Error('Unknown taught appearance name');args.lessonId=lessons[0].id;}}const frame=await perception.capture();args={...args,frameId:frame.id};}
-   if(skill?.kind==='spatial-manipulation-v1'){const selected=getSpatial();if(!selected)throw Error('Select an imported spatial scene and dynamic object first');if(context?.goal)preserveSpatial(context.goal,args,skill.defaults);for(const key of ['sceneId','objectId'])if(args[key]!==undefined&&args[key]!==selected[key])throw Error('Spatial selection binding changed');args={...args,...selected};}
-   if(skill?.kind==='procedural-space-v1'&&context?.goal)preserveProcedural(context.goal,{...skill.defaults.definition,...args.definition,...(args.seed!==undefined?{seed:args.seed}:{}),saveSkillName:args.saveSkillName});
-   if(skill?.kind==='motion-data-report-v1'&&!args.datasetId){const selected=getDataset();if(!selected)throw Error('Choose a source dataset in Data tasks before reusing this procedure');args={datasetId:selected.datasetId,datasetVersion:selected.version,...args};}
-   g=await api('/api/procedures/run',args);
+   const bindings={spatial:getSpatial(),pose:getPose(),world:context?.worldBinding||getWorld(),push:getPush(),mapping:getMapping(),creation:getCreationSource?.(),dataset:getDataset(),scene:getScene()};
+   const packet={args,bindings:Object.fromEntries(Object.entries(bindings).filter(([,v])=>v)),request:context?.goal||''};
+   const prepared=await api('/api/procedures044/prepare',packet);
+   if(prepared.needsPerceptionFrame)packet.args={...args,frameId:(await perception.capture()).id};
+   const scheduled=await api('/api/procedures044/run',packet);g=scheduled.record;
+   if(scheduled.family==='workflow'){if(context)context.ownedWorkflowId=g.id;return g;}
   }
   else if(!g){
    const id=context?.ownedGoalId||args.id||latest?.id;if(!id)throw Error('No Java goal selected');

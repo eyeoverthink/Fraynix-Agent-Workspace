@@ -15,6 +15,7 @@ import java.util.concurrent.*;
 public final class WorkspaceServer implements AutoCloseable {
     private AgentRuntime042 agentRuntime;
     private Agency043 agency;
+    private CreationPlanner044 creation044;
     private final Set<String> durableRequests043=ConcurrentHashMap.newKeySet();
     private final boolean persistentHost;
     private HttpServer httpServer;
@@ -52,7 +53,7 @@ public final class WorkspaceServer implements AutoCloseable {
         if(token==null||token.length()<32)throw new IllegalArgumentException("A private session capability is required");
         this.token=token;this.persistentHost=persistentHost;store=new WorkspaceStore(project);learning=new LearningStore(project);
         try{scenes=new SceneStore(project);spatial=new SpatialStore(project);maps=new MapStore(project);perception=new PerceptionStore(project);measurements=new MeasurementStore(project);calibrations=new CalibrationStore(project,scenes,measurements);observers=new ObserverStore(project,scenes);brain=new BrainService(project);goals=new GoalRunner(project,scenes,brain,store,measurements,spatial,perception,maps);observations=new WorldObservationStore(project,goals.worlds());metrics=new MetricObservationStore(project,observations,goals.worlds());tabletop=new TabletopStore(project,goals.worlds(),metrics);knowledge=new KnowledgeStore(project,tabletop);selfModel=new SelfModel(knowledge);workflows=new WorkflowRunner(project,goals,measurements,scenes,store);game=new EmbeddedGameClient(Path.of(System.getProperty("user.dir")),project);runtime040=new SpatialRuntime040(project,goals.worlds(),goals.worldNative(),tabletop,knowledge,game);alignment041=new Alignment041Store(project,goals.worlds());}catch(Exception e){throw new IOException("Experiment stores could not start",e);}
-        try{agentRuntime=new AgentRuntime042(project,brain,this::agentFacts042,this::detachHost042,persistentHost);agency=new Agency043(project,store,learning,request->{String id=request.getString("requestId");durableRequests043.add(id);try{return plan(request,true);}finally{durableRequests043.remove(id);}},id->{var c=requests.get(id);if(c!=null)c.cancel();},(kind,evidence)->agentRuntime.record043(kind,evidence),this::sharedBusy043,true);}catch(Exception e){close();throw new IOException("Java agent state needs attention; originals retained",e);}
+        try{agentRuntime=new AgentRuntime042(project,brain,this::agentFacts042,this::detachHost042,persistentHost);agency=new Agency043(project,store,learning,request->{String id=request.getString("requestId");durableRequests043.add(id);try{return plan(request,true);}finally{durableRequests043.remove(id);}},id->{var c=requests.get(id);if(c!=null)c.cancel();},(kind,evidence)->agentRuntime.record043(kind,evidence),this::sharedBusy043,true);agency.install044(new Domain044(this::call044,store));creation044=new CreationPlanner044(project,goals,request->{String id=request.getString("requestId");durableRequests043.add(id);try{return plan(request,true);}finally{durableRequests043.remove(id);}},id->{var c=requests.get(id);if(c!=null)c.cancel();});}catch(Exception e){close();throw new IOException("Java agent state needs attention; originals retained",e);}
         scanner.scheduleWithFixedDelay(()->{try{catalog=models.observe();}catch(Exception e){System.err.println("Model discovery: "+e.getMessage());}},0,45,TimeUnit.SECONDS);
     }
     private JSONObject visionModels(){var out=new JSONArray();try{var tags=LocalModelAdmission.request("http://127.0.0.1:11434/api/tags",null);for(Object raw:tags.getJSONArray("models")){var tag=(JSONObject)raw;try{var show=LocalModelAdmission.request("http://127.0.0.1:11434/api/show",new JSONObject().put("model",tag.getString("name")));if(show.getJSONArray("capabilities").toList().contains("vision"))out.put(new JSONObject().put("name",tag.getString("name")).put("bytes",tag.getLong("size")));}catch(Exception unavailable){/* Unavailable metadata is not an eligible detector. */}}return new JSONObject().put("models",out).put("available",!out.isEmpty());}catch(Exception unavailable){return new JSONObject().put("models",out).put("available",false).put("reason","Local vision metadata unavailable; DOM and taught appearance remain usable offline");}}
@@ -72,6 +73,7 @@ public final class WorkspaceServer implements AutoCloseable {
                 if(!exchange.getRequestMethod().equals("POST")){send(exchange,405,new JSONObject().put("error","POST required"));return;}
                 int bodyLimit=exchange.getRequestURI().getPath().equals("/api/agency043/frame")?8_100_000:2_100_000;byte[] body=exchange.getRequestBody().readNBytes(bodyLimit+1);if(body.length>bodyLimit)throw new IllegalArgumentException("Request too large");
                 JSONObject input=new JSONObject(new String(body,StandardCharsets.UTF_8));String route=exchange.getRequestURI().getPath();JSONObject result;
+                
                 if(persistentHost&&!Set.of("/api/agent042/state","/api/agent042/audit","/api/agent042/attach","/api/agent042/touch","/api/agent042/detach","/api/agent042/stop").contains(route))agentRuntime.requireLease(exchange.getRequestHeaders().getFirst("X-Fraynix-Interface"));
                 if(route.startsWith("/api/agency043/")){
                     if(persistentHost&&Set.of("/api/agency043/claim","/api/agency043/frame","/api/agency043/ack","/api/agency043/abort").contains(route)&&!Objects.equals(input.optString("sessionId"),exchange.getRequestHeaders().getFirst("X-Fraynix-Interface")))throw new IllegalStateException("Surface session must match the authenticated interface lease");
@@ -91,7 +93,9 @@ public final class WorkspaceServer implements AutoCloseable {
                         default->throw new IllegalArgumentException("Unknown Java workbench operation");
                     };send(exchange,200,result);return;
                 }
-                if(agency.busy()&&!passive043(route))agency.requireExecution(exchange.getRequestHeaders().getFirst("X-Fraynix-Task"),exchange.getRequestHeaders().getFirst("X-Fraynix-Effect"));
+                if(agency.busy()&&!passive043(route))agency.requireExecution044(exchange.getRequestHeaders().getFirst("X-Fraynix-Task"),exchange.getRequestHeaders().getFirst("X-Fraynix-Effect"),route,exchange.getRequestHeaders().getFirst("X-Fraynix-Interface"));
+                if(route.startsWith("/api/procedures044/")){var scheduler=new Procedure044(this::call044);String task=exchange.getRequestHeaders().getFirst("X-Fraynix-Task");if(task!=null)input=agency.procedureInput044(task,exchange.getRequestHeaders().getFirst("X-Fraynix-Effect"),input);result=route.equals("/api/procedures044/prepare")?scheduler.prepare(input):route.equals("/api/procedures044/run")?scheduler.run(input):null;if(result==null)throw new IllegalArgumentException("Unknown Java procedure operation");send(exchange,200,result);return;}
+                if(route.startsWith("/api/creation044/")){result=switch(route){case "/api/creation044/start"->creation044.start(input);case "/api/creation044/read"->creation044.read(input.getString("id"));case "/api/creation044/cancel"->creation044.cancel(input.getString("goalId"));default->throw new IllegalArgumentException("Unknown Java creation operation");};send(exchange,200,result);return;}
                 if(route.startsWith("/api/agent042/")){
                     result=switch(route){
                         case "/api/agent042/state"->{SpatialScene.keys(input);yield agentRuntime.state();}
@@ -159,7 +163,7 @@ public final class WorkspaceServer implements AutoCloseable {
                         case "/api/knowledge/source"->knowledge.source(input.getString("sha256"));
                         case "/api/knowledge/start"->knowledge.start(input);
                         case "/api/knowledge/job"->knowledge.job(input.getString("id"));
-                        case "/api/knowledge/claim"->claimResearch043();
+                        case "/api/knowledge/claim"->claimResearch043(exchange.getRequestHeaders().getFirst("X-Fraynix-Interface"));
                         case "/api/knowledge/work"->knowledge.work(input);
                         case "/api/knowledge/ack"->knowledge.acknowledge(input);
                         case "/api/knowledge/finish"->knowledge.finish(input);
@@ -172,8 +176,11 @@ public final class WorkspaceServer implements AutoCloseable {
                 }
                 if(route.equals("/api/plan")){send(exchange,200,plan(input));return;}
                 if(route.startsWith("/api/workflows/")){
-                    result=switch(route){case "/api/workflows/start"->workflows.start(input);case "/api/workflows/read"->workflows.read(input.getString("id"));case "/api/workflows/list"->new JSONObject().put("workflows",workflows.list());case "/api/workflows/resume"->workflows.resume(input.getString("id"));case "/api/workflows/cancel"->workflows.cancel(input.getString("id"));case "/api/workflows/reuse"->workflows.reuse(input);case "/api/workflows/claim"->workflows.claim();case "/api/workflows/ack"->workflows.acknowledge(input);default->throw new IllegalArgumentException("Unknown workflow operation");};send(exchange,200,result);return;
+                    result=switch(route){case "/api/workflows/start"->workflows.start(input);case "/api/workflows/read"->workflows.read(input.getString("id"));case "/api/workflows/list"->new JSONObject().put("workflows",workflows.list());case "/api/workflows/resume"->workflows.resume(input.getString("id"));case "/api/workflows/cancel"->workflows.cancel(input.getString("id"));case "/api/workflows/reuse"->workflows.reuse(input);case "/api/workflows/claim"->claimWorkflow044(exchange.getRequestHeaders().getFirst("X-Fraynix-Interface"));case "/api/workflows/ack"->workflows.acknowledge(input);default->throw new IllegalArgumentException("Unknown workflow operation");};send(exchange,200,result);return;
                 }
+                // Task ownership is acquired before the native-goal monitor, never from inside it.
+                if(route.equals("/api/goals/claim")){result=claimGoal044(exchange.getRequestHeaders().getFirst("X-Fraynix-Interface"));send(exchange,200,result);return;}
+                if(route.equals("/api/goals/cancel")){result=cancelGoal044(input.getString("id"));send(exchange,200,result);return;}
                 synchronized(goals){
                 if(goals.workflowReserved()&&Set.of("/api/world/create","/api/world/start","/api/world/restore","/api/pose/start","/api/pose/preview","/api/pose/pause","/api/pose-study/start","/api/contact-study/start","/api/contact-study/promote","/api/contact-study/rollback","/api/push-learning/start","/api/push-learning/promote","/api/push-learning/rollback","/api/push/start","/api/push/preview","/api/push/pause","/api/maps/start","/api/maps/pause","/api/maps/resume","/api/maps/manual","/api/maps/control","/api/maps/stop","/api/maps/import-image","/api/maps/import-package","/api/maps/from-procedural","/api/space/start","/api/space/import","/api/goals/start","/api/goals/data-start","/api/goals/spatial-start","/api/goals/perception-start","/api/goals/creation-start","/api/goals/resume","/api/goals/perception-resume","/api/goals/cancel","/api/procedures/save","/api/procedures/run","/api/artifact/write","/api/measurement/import","/api/scene/save","/api/scene/import","/api/experiment/control","/api/experiment/run","/api/experiment/replay","/api/body/action","/api/body/cancel","/api/brain/start","/api/brain/cancel","/api/brain/rollback","/api/brain/world-prepare","/api/brain/world-kick","/api/brain/world-cancel","/api/brain/world-rollback","/api/brain/feedback-start","/api/brain/feedback-kick","/api/brain/feedback-cancel","/api/brain/feedback-rollback","/api/spatial/import","/api/spatial/preview","/api/observer/action","/api/observer/replay","/api/calibration/start","/api/calibration/resume","/api/calibration/apply","/api/calibration/rollback","/api/tracking/start","/api/tracking/promote","/api/tracking/rollback").contains(route))throw new IllegalStateException("The evidence workflow owns this workspace. Resume or Stop it before manual changes.");
                 if((goals.ownsForceLearning()||goals.ownsContactStudy()||goals.ownsPose())&&Set.of("/api/maps/manual","/api/maps/control","/api/maps/resume","/api/maps/stop","/api/spatial/preview","/api/spatial/import","/api/push/preview","/api/push/pause").contains(route))throw new IllegalStateException("Native force evaluation owns the physics workflow; Stop or finish it first");
@@ -332,10 +339,8 @@ public final class WorkspaceServer implements AutoCloseable {
                     case "/api/goals/read" -> result=GoalRunner.view(goals.read(input.getString("id")));
                     // Never acquire the workflow monitor while holding goals: the supervisor owns that lock order.
                     case "/api/goals/list" -> result=new JSONObject().put("goals",goals.list()).put("procedures",goals.procedures());
-                    case "/api/goals/cancel" -> result=goals.cancel(input.getString("id"));
-                    case "/api/goals/resume" -> result=goals.resume(input.getString("id"));
-                    case "/api/goals/claim" -> result=goals.claim();
-                    case "/api/goals/ack" -> result=goals.acknowledge(input);
+                                        case "/api/goals/resume" -> result=goals.resume(input.getString("id"));
+                                        case "/api/goals/ack" -> result=goals.acknowledge(input);
                     case "/api/procedures/save" -> result=goals.saveProcedure(input.getString("goalId"),input.getString("name"));
                     case "/api/procedures/run" -> result=goals.runProcedure(input);
                     case "/api/brain/state" -> result=brain.state();
@@ -443,9 +448,44 @@ public final class WorkspaceServer implements AutoCloseable {
         server.createContext("/welcome",exchange->{byte[] bytes=WELCOME.getBytes(StandardCharsets.UTF_8);exchange.getResponseHeaders().set("Content-Type","text/html; charset=utf-8");exchange.sendResponseHeaders(200,bytes.length);try(var out=exchange.getResponseBody()){out.write(bytes);}});
         server.start();Runtime.getRuntime().addShutdownHook(new Thread(this::close));return server;
     }
-    private JSONObject claimResearch043()throws Exception{synchronized(agency){return agency.busy()?new JSONObject().put("idle",true):knowledge.claim();}}
+    /** Registered in-process Java ports; no interface lease, HTTP hop or model-selected URL. */
+    private JSONObject call044(String route,JSONObject args)throws Exception{
+        return switch(route){
+            case "/api/state"->state();
+            case "/api/alignment041/state"->alignment041.state();
+            case "/api/goals/read"->goals.read(args.getString("id"));
+            case "/api/workflows/read"->workflows.read(args.getString("id"));
+            case "/api/calibration/read"->calibrations.read(args.getString("id"));
+            case "/api/calibration/resume"->calibrations.resume(args.getString("id"));
+            case "/api/scene/read"->scenes.read(args.getString("id"));
+            case "/api/knowledge/job"->knowledge.job(args.getString("id"));
+            case "/api/knowledge/resume"->knowledge.control(args.getString("id"),"resume");
+            case "/api/tracking/read"->perception.lab().read(args.getString("id"));
+            case "/api/observations/read"->observations.read(args.getString("id"));
+            case "/api/observations/resume"->observations.resume(args.getString("id"));
+            case "/api/runtime040/release"->runtime040.release(args.getString("snapshotHash"));
+            case "/api/alignment041/release"->alignment041.release(args.getString("snapshotHash"));
+            case "/api/metrics/view"->metrics.view(args);
+            case "/api/goals/cancel"->cancelGoal044(args.getString("id"));
+            case "/api/goals/resume"->goals.resume(args.getString("id"));
+            case "/api/workflows/cancel"->workflows.cancel(args.getString("id"));
+            case "/api/workflows/resume"->workflows.resume(args.getString("id"));
+            case "/api/tracking/cancel"->perception.lab().cancel(args.getString("id"));
+            case "/api/observations/stop"->observations.stop(args.getString("id"));
+            case "/api/knowledge/cancel"->knowledge.control(args.getString("id"),"cancel");
+            case "/api/calibration/cancel"->calibrations.cancel(args.getString("id"));
+            case "/api/body/cancel"->scenes.cancelOwnedBody(args.getString("id"),args.getString("runId"));
+            case "/api/procedures/run"->{if(observations.busy()||tabletop.busy()||alignment041.busy()||goals.workflowReserved())throw new IllegalStateException("Stop the owning observation or workflow before starting a different procedure");yield goals.runProcedure(args);}
+            case "/api/workflows/reuse"->{if(observations.busy()||tabletop.busy()||alignment041.busy())throw new IllegalStateException("Stop the owning observation before starting a workflow");yield workflows.reuse(args);}
+            default->throw new IllegalArgumentException("Java internal operation not registered");
+        };
+    }
+    private JSONObject cancelGoal044(String id)throws Exception{String warning="";try{creation044.cancel(id);}catch(Exception e){warning=e.getMessage();}var result=goals.cancel(id);if(!warning.isEmpty())result.put("generationCancelNote044",warning);return result;}
+    private JSONObject claimGoal044(String session)throws Exception{synchronized(agency){if(agency.busy()&&!agency.canClaimNative044("goal",goals.list()))return new JSONObject();var effect=goals.claim();if(effect.has("id")&&agency.busy())effect.put("taskAuthority",agency.delegate044("goal",effect.getString("goalId"),effect.getString("nonce"),session));return effect;}}
+    private JSONObject claimWorkflow044(String session)throws Exception{synchronized(agency){if(agency.busy()&&!agency.canClaimNative044("workflow",workflows.list()))return new JSONObject();var effect=workflows.claim();if(effect.has("id")&&agency.busy())effect.put("taskAuthority",agency.delegate044("workflow",effect.getString("workflowId"),effect.getString("nonce"),session));return effect;}}
+    private JSONObject claimResearch043(String session)throws Exception{synchronized(agency){if(agency.busy()&&!agency.canClaimNative044("research",knowledge.state().getJSONArray("jobs")))return new JSONObject().put("idle",true);var job=knowledge.claim();if(!job.optBoolean("idle")&&agency.busy())job.put("taskAuthority",agency.delegate044("research",job.getString("id"),job.getString("lease"),session));return job;}}
     private boolean sharedBusy043(){try{return knowledge.state().getJSONArray("jobs").toList().stream().anyMatch(raw->"running".equals(((java.util.Map<?,?>)raw).get("status")))||goals.busy()||brain.state().getBoolean("busy")||tabletop.busy()||alignment041.busy()||observations.busy()||!workflowsIdle042()||requests.keySet().stream().anyMatch(id->!durableRequests043.contains(id));}catch(Exception e){return true;}}
-    private static boolean passive043(String route){if(route.equals("/api/knowledge/claim"))return true;String last=route.substring(route.lastIndexOf('/')+1);return route.startsWith("/api/self/")||route.startsWith("/api/agent042/")||route.equals("/api/event")||Set.of("read","state","list","snapshot","catalog","models","summary","view","image","history","observe","context").contains(last);}
+    private static boolean passive043(String route){if(Set.of("/api/knowledge/claim","/api/goals/claim","/api/workflows/claim").contains(route))return true;String last=route.substring(route.lastIndexOf('/')+1);return route.startsWith("/api/self/")||route.startsWith("/api/agent042/")||route.equals("/api/event")||Set.of("read","state","list","snapshot","catalog","models","summary","view","image","history","observe","context").contains(last);}
     private JSONObject visionModels043(){var out=new JSONArray();try{var tags=LocalModelAdmission.request("http://127.0.0.1:11434/api/tags",null).getJSONArray("models");for(Object raw:tags){var tag=(JSONObject)raw;if(tag.optLong("size")>12_000_000_000L)continue;var show=LocalModelAdmission.request("http://127.0.0.1:11434/api/show",new JSONObject().put("model",tag.getString("name")));var caps=show.optJSONArray("capabilities",new JSONArray()).toList();if(caps.contains("completion")&&caps.contains("vision"))out.put(new JSONObject().put("name",tag.getString("name")).put("bytes",tag.getLong("size")));}return new JSONObject().put("models",out);}catch(Exception e){return new JSONObject().put("models",out).put("reason","Local vision metadata unavailable; pixel comparisons remain available");}}
     JSONObject agent042(){return agentRuntime.state();}
     private boolean workflowsIdle042()throws Exception{for(Object raw:workflows.list())if(Set.of("running","waiting-host","queued").contains(((JSONObject)raw).getString("status")))return false;return true;}
@@ -458,9 +498,9 @@ public final class WorkspaceServer implements AutoCloseable {
     }
     private void detachHost042(){
         requests.forEach((id,control)->{if(!durableRequests043.contains(id))control.cancel();});camera042.clear();game.close();selfModel.detach();
-        try{if(agency!=null)agency.hostDetached();goals.hostDetached042();workflows.hostDetached042();learning.hostDetached042(agency==null?Set.of():agency.retainedEpisodes());for(Object raw:alignment041.state().getJSONArray("trials")){var t=(JSONObject)raw;if(t.optString("status").equals("running"))alignment041.finish(t.getString("id"),true);}for(Object raw:tabletop.state().getJSONArray("runs")){var t=(JSONObject)raw;if(t.optString("status").equals("running"))tabletop.stop(t.getString("id"));}}catch(Exception e){throw new IllegalStateException("Host detach needs attention",e);}
+        try{if(agency!=null)agency.hostDetached();knowledge.hostDetached044();goals.hostDetached042(creation044==null?Set.of():creation044.retained());workflows.hostDetached042();learning.hostDetached042(agency==null?Set.of():agency.retainedEpisodes());for(Object raw:alignment041.state().getJSONArray("trials")){var t=(JSONObject)raw;if(t.optString("status").equals("running"))alignment041.finish(t.getString("id"),true);}for(Object raw:tabletop.state().getJSONArray("runs")){var t=(JSONObject)raw;if(t.optString("status").equals("running"))tabletop.stop(t.getString("id"));}}catch(Exception e){throw new IllegalStateException("Host detach needs attention",e);}
     }
-    @Override public synchronized void close(){if(closed)return;closed=true;requests.values().forEach(OllamaIntegration.RequestControl::cancel);scanner.shutdownNow();if(agency!=null)agency.close();if(agentRuntime!=null)agentRuntime.close();observations.close();game.close();workflows.close();goals.close();perception.close();brain.close();if(agentRuntime!=null)try{agentRuntime.checkpoint();}catch(Exception e){System.err.println("Final shared cortex checkpoint needs attention: "+e.getMessage());}calibrations.close();scenes.close();if(httpServer!=null)httpServer.stop(0);try{store.close();}catch(IOException ignored){}}
+    @Override public synchronized void close(){if(closed)return;closed=true;requests.values().forEach(OllamaIntegration.RequestControl::cancel);scanner.shutdownNow();if(creation044!=null)creation044.close();if(agency!=null)agency.close();if(agentRuntime!=null)agentRuntime.close();observations.close();game.close();workflows.close();goals.close();perception.close();brain.close();if(agentRuntime!=null)try{agentRuntime.checkpoint();}catch(Exception e){System.err.println("Final shared cortex checkpoint needs attention: "+e.getMessage());}calibrations.close();scenes.close();if(httpServer!=null)httpServer.stop(0);try{store.close();}catch(IOException ignored){}}
     private JSONObject plan(JSONObject input)throws Exception{return plan(input,false);}
     private JSONObject plan(JSONObject input,boolean javaOwned) throws Exception {
         if(catalog==null)throw new IllegalStateException("Local models are still being discovered");
@@ -485,7 +525,8 @@ public final class WorkspaceServer implements AutoCloseable {
             return new JSONObject().put("text",reply.text()).put("evidence",reply.evidence()).put("compute",new JSONObject().put("cpuOnly",cpuOnly).put("options",settings.options())).put("localModel",admission).put("continuingAgent",continuing).put("continuingAgentSha256",WorldFrames.hash(continuing)).put("selfModel",selfContext).put("selfModelSha256",WorldFrames.hash(selfContext)).put("memory",new JSONObject().put("sources",context.getJSONArray("hits").length()).put("usedChars",context.getInt("usedChars")).put("journal",context.getJSONObject("journal")));
         }finally{requests.remove(id);}
     }
-    private static void send(HttpExchange exchange,int status,JSONObject body) throws IOException {
+    private void send(HttpExchange exchange,int status,JSONObject body) throws IOException {
+        String taskId=exchange.getRequestHeaders().getFirst("X-Fraynix-Task"),nonce=exchange.getRequestHeaders().getFirst("X-Fraynix-Effect");if(status==200&&taskId!=null&&agency!=null)try{agency.nativeReceipt044(taskId,nonce,exchange.getRequestURI().getPath(),body);}catch(Exception e){throw new IOException("Native receipt could not be retained",e);}
         byte[] bytes=body.toString().getBytes(StandardCharsets.UTF_8);exchange.getResponseHeaders().set("Content-Type","application/json; charset=utf-8");exchange.getResponseHeaders().set("Cache-Control","no-store");exchange.sendResponseHeaders(status,bytes.length);try(var out=exchange.getResponseBody()){out.write(bytes);}
     }
     public static void main(String[] args) throws Exception {
