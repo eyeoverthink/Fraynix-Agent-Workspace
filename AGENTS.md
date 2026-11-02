@@ -1,5 +1,15 @@
 # Fraynix Studio collaboration and documentation
 
+## Active edition041 ·2026-11-01
+
+Actual main a2576e7 includes complete candidate1ceade8 and JS-only camera-session/routing amendment60a78e9 with provenance. Full independent Java360tests/78classes pass, no failures/errors/skips, all Java unchanged since1ceade8.106desktop and9actualUI checks pass. Actual CPU-only model and broader final regressions pending. Preserve001–040. No subagents/overlapping heavy validators.
+
+LIVE production candidate uses041worktree installed JARs and distinct private camera-041-live-20261101 (1622retained files/71627292bytes exact closed040copy). DO NOT rebuild these live JARs or open another instance against the same database. Camera is ON but PAUSED after first physical movement initial8samples; all trackeraccepted/reference-stable, no movement score yet. User confirmed4INCHmark uncovered/hand-away. App was found closed at reconnect, relaunched amendedsource using NodeREPL reviewApp041b/reviewPage041b. Fresh session registration58d5a958-c6fe-41f5-9b59-4e5f81338709 passes same reference checks. Movement trial131fd959-57fa-4bba-9944-0c267402bbb4 initial8saved, paused, pending USER Startmoving -> same metal end4to8INCH -> handaway -> Atendmark. No cover during movement. Asynchronous question pending; no newphysicalscore until independent originals checked.
+
+First immutable real registration66d47541 passes withheldmax0.383975mm/tape4in discrepancy2.403976mm; 3mm annotation budget applies; zero fit by construction. Sourceimage40d5fad558c94286028e8d5a64570957be5a21ddee7b51fbebcc6b993769675f and exact pre-score annotations04d5e07 retained. Session2fresh source and pre-score annotations are private research/alignment-041. Original040/038 data preserved. No raw personal pixels inGit/models. Private frame copies/receipts remain ~/.fraynix-agent-workspace/research/alignment-041.
+
+Next: complete movement fixed8endpoint and separate fresh8start/8hidden/8revealed test at manual pace. Save immutable first results, failures/unscored included. No038physicalpromotion, semantic recognition, height/contact reconstruction or weight-training claim. Finish independent model/regression/docs041screenshots/offline/Obsidian/memories/main+tag/directverify. Full rawJava log/JUnit in QA041, result at build/alignment041-full-result.json; do not overwrite before evidence archived.
+
 ## Latest handoff · edition040 published2026-11-01
 
 Actual main/readme-040 releasecde6875ce7ab9b4888fa22df92a55a9c32089dea fetched and verified; tag object55d1bbfeff28f52f9ff688c3e70151aa55236483.351Java/77classes baseline0a5748b; metadata-only finaldfadfe7 passes10focused Java/100desktop/85actualUI/3actual gpt-oss:20b checks, plus2desktop widths. CPU-only planning/four threads and actual0GPU-memory residency verified.759canonical sources match;263raw archives verify;40editions/45canvases/4937refs/2082frozen hashes pass. PreserveREADME001–040 and snapshots; nextunused041. New2227wordREADME/four actual captures/offline projection explorer/Obsidian map pushed. Publication receipt docs/PUBLICATION_040.json.

@@ -1,0 +1,99 @@
+{
+  "date": "2026-11-02T04:18:41.628Z",
+  "status": "movement-initial-window-saved-awaiting-user",
+  "sourceCommit": "a2576e7",
+  "registrationId": "58d5a958-c6fe-41f5-9b59-4e5f81338709",
+  "trialId": "131fd959-57fa-4bba-9944-0c267402bbb4",
+  "source": "Fresh actual webcam on user-confirmed12x12inch mat; same metal end at4INCH, uncovered, hand away. Original images remain private.",
+  "initialWindow": [
+    {
+      "ordinal": 1,
+      "imageSha256": "22879f9ca943c081ee63416c6a15de78cc18449cd5ba7fe16474fdcac4e8aa4e",
+      "seconds": 24.176400000000374,
+      "trackerAccepted": true,
+      "estimateStatus": "measured-estimate",
+      "referenceStatus": "reference-stable",
+      "trackerProcessingMs": 140.9986
+    },
+    {
+      "ordinal": 2,
+      "imageSha256": "32cb5600f57183772319038cbdafebc2a0b45fa3e2f223422db8ec676e4a6e1b",
+      "seconds": 25.50360000000149,
+      "trackerAccepted": true,
+      "estimateStatus": "reacquired-after-gap",
+      "referenceStatus": "reference-stable",
+      "trackerProcessingMs": 95.4655
+    },
+    {
+      "ordinal": 3,
+      "imageSha256": "11ca51069754445716e46e4654e1bceec770017303d9e56cf19c4682103d5075",
+      "seconds": 26.7035,
+      "trackerAccepted": true,
+      "estimateStatus": "reacquired-after-gap",
+      "referenceStatus": "reference-stable",
+      "trackerProcessingMs": 91.9863
+    },
+    {
+      "ordinal": 4,
+      "imageSha256": "63f2ea434a08036a01926b6d2afed38ebc5ad8de65430fe19ddac6c805d44e86",
+      "seconds": 28.3675,
+      "trackerAccepted": true,
+      "estimateStatus": "reacquired-after-gap",
+      "referenceStatus": "reference-stable",
+      "trackerProcessingMs": 88.5364
+    },
+    {
+      "ordinal": 5,
+      "imageSha256": "25ff809cbe13c15586fafcbcb9d069809998edcf688d6ba7ee3a3d14ed12fb4f",
+      "seconds": 29.826300000000746,
+      "trackerAccepted": true,
+      "estimateStatus": "reacquired-after-gap",
+      "referenceStatus": "reference-stable",
+      "trackerProcessingMs": 88.8152
+    },
+    {
+      "ordinal": 6,
+      "imageSha256": "8109b7183aedbe1611ed0064a48f75eabad9d7adff6f9144d2e3bd1da92065f5",
+      "seconds": 31.615900000000373,
+      "trackerAccepted": true,
+      "estimateStatus": "reacquired-after-gap",
+      "referenceStatus": "reference-stable",
+      "trackerProcessingMs": 88.4509
+    },
+    {
+      "ordinal": 7,
+      "imageSha256": "f73d5753872fd8835a725b0207dd22e5f88f6be6c794c9bed2f4d33b39af90d1",
+      "seconds": 33.009800000000745,
+      "trackerAccepted": true,
+      "estimateStatus": "reacquired-after-gap",
+      "referenceStatus": "reference-stable",
+      "trackerProcessingMs": 88.3766
+    },
+    {
+      "ordinal": 8,
+      "imageSha256": "f586af8bf804b9b2e4b56f3b7d1b5ec2334e27616148b65da8462ddf365d27b5",
+      "seconds": 34.39960000000149,
+      "trackerAccepted": true,
+      "estimateStatus": "reacquired-after-gap",
+      "referenceStatus": "reference-stable",
+      "trackerProcessingMs": 90.0905
+    }
+  ],
+  "independentInspection": "Assistant independently inspected every unannotated original start1..8: lighter visible, same metal end adjacent to4inch tick; user confirmed4in and hand away. No tracker overlays or predictions used as reference.",
+  "measuredMovement": "PENDING: no end window or evaluation yet",
+  "occlusion": "PENDING: not started",
+  "java": {
+    "tests": 360,
+    "classes": 78,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "source": "1ceade8; all Java unchanged through JS-only amendment"
+  },
+  "desktopUnits": 106,
+  "actualUIControls": 9,
+  "actualLocalModel": "PENDING",
+  "broaderRegressions": "PENDING",
+  "performance": "Initial8source intervals average1.4605s, not5Hz. UI requests at most5Hz but complete source guards, durable replay and views govern actual rate. Long gaps are labelled reacquired; no continuous realtime prediction claim.",
+  "privateData": "No camera images included in this progress receipt"
+}
