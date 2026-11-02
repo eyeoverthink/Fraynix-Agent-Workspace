@@ -31,6 +31,7 @@ public final class EmbeddedGameClient implements AutoCloseable {
         var response=http.send(b.build(),HttpResponse.BodyHandlers.ofString());var value=new JSONObject(response.body());if(response.statusCode()!=200)throw new IllegalStateException(value.optString("error","Game request failed"));return value;
     }
     public synchronized JSONObject frame() throws Exception {long t=System.nanoTime();var result=request("/frame",null);result.put("bridgeMs",(System.nanoTime()-t)/1e6).put("pid",process.pid());return result;}
+    public synchronized JSONObject spatial() throws Exception {return request("/command",new JSONObject().put("action","spatial"));}
     public synchronized JSONObject command(JSONObject input) throws Exception {request("/command",input);return frame();}
     public synchronized JSONObject status(){return new JSONObject().put("running",process!=null&&process.isAlive()).put("project",project.toString());}
     public synchronized void close(){

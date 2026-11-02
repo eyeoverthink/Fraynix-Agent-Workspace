@@ -1,0 +1,17 @@
+package fraymus.workspace;
+import org.json.*;
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class SpatialProjection040Test {
+    static JSONObject entity(){return new JSONObject().put("id","box").put("label","Analytic box").put("shape","box").put("position",new double[]{0,0,0}).put("size",new double[]{2,2,2}).put("rotation",new double[]{0,0,0,1}).put("dynamic",true);}
+    static JSONObject frame(){return new JSONObject().put("source",new JSONObject().put("kind","world").put("units","m")).put("focus",new JSONObject().put("center",new double[]{0,0,0}).put("span",6)).put("entities",new JSONArray().put(entity())).put("selectedId","box").put("snapshotHash","a".repeat(64));}
+    static JSONObject camera(String view){return new JSONObject().put("view",view).put("width",800).put("height",400);}
+    @Test public void knownOrthographicCoordinatesAndDepthInvariance(){var f=frame();var c=SpatialProjection040.camera(f,camera("front"));var p=c.screen(c.local(new double[]{3,1.5,0}));assertArrayEquals(new double[]{600,100},p,1e-10);assertArrayEquals(p,c.screen(c.local(new double[]{3,1.5,-5})),1e-10);var top=SpatialProjection040.camera(f,camera("top"));assertArrayEquals(new double[]{400,200},top.screen(top.local(new double[]{0,3,0})),1e-10);}
+    @Test public void perspectiveUsesActualDepthAndIndependentFortyFiveDegreeFormula(){var f=frame();var c=SpatialProjection040.camera(f,camera("perspective").put("yawDeg",0).put("pitchDeg",0));var p=c.screen(c.local(new double[]{1,0,0}));double depth=6*1.7;assertEquals(400+200/(depth*Math.tan(Math.PI/8)),p[0],1e-10);double farther=c.screen(c.local(new double[]{1,0,-3}))[0];assertTrue(farther>400&&farther<p[0]);}
+    @Test public void quaternionCornersAndClippedFacesStayInsideViewport(){var e=entity().put("size",new double[]{4,2,2}).put("rotation",new double[]{0,0,Math.sin(Math.PI/4),Math.cos(Math.PI/4)});var corners=SpatialProjection040.corners(e);double xmax=0,ymax=0;for(Object raw:corners){var p=(JSONArray)raw;xmax=Math.max(xmax,Math.abs(p.getDouble(0)));ymax=Math.max(ymax,Math.abs(p.getDouble(1)));}assertEquals(1,xmax,1e-10);assertEquals(2,ymax,1e-10);
+        var f=frame().put("entities",new JSONArray().put(e));for(String name:SpatialProjection040.VIEWS){var view=SpatialProjection040.project(f,camera(name));assertTrue(view.getJSONArray("polygons").length()>0);for(Object raw:view.getJSONArray("polygons"))for(Object point:((JSONObject)raw).getJSONArray("points")){var p=(JSONArray)point;assertTrue(p.getDouble(0)>=0&&p.getDouble(0)<=800);assertTrue(p.getDouble(1)>=0&&p.getDouble(1)<=400);}}
+        var close=SpatialProjection040.project(f,camera("perspective").put("span",.2));for(Object raw:close.getJSONArray("polygons"))for(Object p:((JSONObject)raw).getJSONArray("points"))for(Object n:(JSONArray)p)assertTrue(Double.isFinite(((Number)n).doubleValue()));
+    }
+    @Test public void fourViewsPickTheSameActualBoxAndUnknownModesAreRejected(){var f=frame();for(String view:SpatialProjection040.VIEWS){var hit=SpatialProjection040.pick(f,new JSONObject().put("camera",camera(view)).put("x",400).put("y",200));assertEquals("box",hit.getString("id"));}assertThrows(IllegalArgumentException.class,()->SpatialProjection040.project(f,camera("made-up")));assertThrows(IllegalArgumentException.class,()->SpatialProjection040.project(f,camera("front").put("width",1)));assertThrows(RuntimeException.class,()->SpatialProjection040.project(f,camera("front").put("span",Double.POSITIVE_INFINITY)));}
+}

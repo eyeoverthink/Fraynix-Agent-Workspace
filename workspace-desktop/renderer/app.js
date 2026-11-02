@@ -1,3 +1,4 @@
+import {SharedSpatial040} from './spatial-runtime040.js';
 import {KnowledgePanel} from './knowledge-panel.js';
 import {TabletopPanel} from './tabletop-panel.js';
 import {MetricPanel} from './metric-panel.js';
@@ -51,7 +52,8 @@ const observationPanel=new ObservationPanel({call:(command,args={})=>request('ob
 window.observationView=observationPanel;
 window.metricView=new MetricPanel({call:(command,args={})=>request('metrics',{command,args}),observation:observationPanel,notice});
 window.tabletopView=new TabletopPanel({call:(command,args={})=>request('tabletop',{command,args}),metricCall:(command,args={})=>request('metrics',{command,args}),persistent:persistentPanel,metric:window.metricView,notice});
-window.knowledgeView=new KnowledgePanel({call:(command,args={})=>request('knowledge',{command,args}),tabletop:window.tabletopView,notice,activate:setCanvasMode});
+window.knowledgeView=new KnowledgePanel({call:(command,args={})=>request('knowledge',{command,args}),tabletop:window.tabletopView,notice,activate:mode=>{window.sharedSpatial040?.close();setCanvasMode(mode);}});
+window.sharedSpatial040=new SharedSpatial040({call:(command,args={})=>request('runtime040',{command,args}),spatial,persistent:persistentPanel,tabletop:window.tabletopView,notice,activate:mode=>{window.sharedSpatial040?.close();setCanvasMode(mode);}});
 const perceptionPanel=new PerceptionPanel({call:(command,args={})=>request('perception',{command,args}),goalCall:(command,args={})=>request('javaGoal',{command,args}),notice,activate:setCanvasMode,goal:g=>goalsPanel.accept(g)});
 const trackingPanel=new TrackingPanel({call:(command,args={})=>request('tracking',{command,args}),notice,requireSaved,openPerception:()=>perceptionPanel.open()});
 const creationPanel=new CreationPanel({layout:updateLayout,call:(command,args,model)=>request('creation',{command,args,model}),getState:()=>state,getArtifact:()=>artifact,getModel:()=>$('model').value,requireSaved,notice,onGoal:g=>goalsPanel.accept(g)});

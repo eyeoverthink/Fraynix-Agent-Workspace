@@ -66,12 +66,13 @@ public final class EmbeddedGameRuntime implements ControlledRuntime,AutoCloseabl
     }
     public void frame(){
         check();String parent=System.getenv("FRAYNIX_GAME_PARENT_PID");if(parent!=null&&!ProcessHandle.of(Long.parseLong(parent)).map(ProcessHandle::isAlive).orElse(false))closing=true;
-        Request pending=requests.poll();Object outcome=null;Exception failure=null;
+        Request pending=requests.poll();Object outcome=null;Exception failure=null;boolean spatialRead=false;
         if(pending!=null)try{
             var args=pending.args;String action=args.get("action").getAsString();
             var allowed=new HashSet<>(Set.of("action"));if(action.equals("step"))allowed.addAll(Set.of("ticks","horizontal","jump"));if(action.equals("ai"))allowed.add("targetX");
             if(!allowed.containsAll(args.keySet()))throw new IllegalArgumentException("Unsupported game command field");
             switch(action){
+                case "spatial"->spatialRead=true;
                 case "step"->step(args.get("ticks").getAsInt(),args.has("horizontal")?args.get("horizontal").getAsFloat():0,args.has("jump")&&args.get("jump").getAsBoolean());
                 case "play"->continuous=true;
                 case "pause"->{continuous=false;agent.GameInput.stop("Embedded pause");agent.GameInput.externalOff();}
@@ -92,8 +93,9 @@ public final class EmbeddedGameRuntime implements ControlledRuntime,AutoCloseabl
             for(int y=0;y<540;y++)for(int x=0;x<960;x++){int p=((539-y)*960+x)*4;image.setRGB(x,y,(buffer.get(p)&255)<<16|(buffer.get(p+1)&255)<<8|(buffer.get(p+2)&255));}
             try(var out=new ByteArrayOutputStream()){ImageIO.write(image,"png",out);last=new Frame(observe(),out.toByteArray(),System.nanoTime()-started);}catch(IOException error){failure=error;}
         }
+        if(spatialRead&&failure==null)try{var data=new LinkedHashMap<String,Object>(SpatialGameSnapshot.capture());data.put("state",last.state);data.put("pngBase64",Base64.getEncoder().encodeToString(last.png));data.put("pngSha256",hash(last.png));outcome=data;}catch(Exception error){failure=error;}
         sequence++;
-        if(pending!=null){if(failure!=null)pending.result.completeExceptionally(failure);else pending.result.complete(last.state);}
+        if(pending!=null){if(failure!=null)pending.result.completeExceptionally(failure);else pending.result.complete(outcome==null?last.state:(Map<String,Object>)outcome);}
         if(closing)org.lwjgl.glfw.GLFW.glfwSetWindowShouldClose(Window.get().nativeWindow(),true);
     }
     public void close(){if(server!=null)server.stop(0);for(Request request:requests)request.result.completeExceptionally(new IllegalStateException("Game runtime stopped"));requests.clear();}

@@ -1,0 +1,22 @@
+package fraymus.workspace;
+import org.json.*;
+import java.io.*;
+import java.nio.charset.StandardCharsets;
+import java.util.*;
+import java.util.zip.GZIPOutputStream;
+
+/** Actual projected snapshot report; source data and human labels are escaped. */
+final class SpatialReport040 {
+    static String e(String value){return KnowledgeReport.escape(value);}
+    static JSONObject packed(JSONObject frame)throws Exception{byte[] raw=SpatialRuntime040.exported(frame).toString().getBytes(StandardCharsets.UTF_8);var out=new ByteArrayOutputStream();try(var zip=new GZIPOutputStream(out)){zip.write(raw);}return new JSONObject().put("format","fraynix.shared-spatial-040-gzip-v1").put("rawBytes",raw.length).put("rawSha256",PerceptionStore.hash(raw)).put("gzipBase64",Base64.getEncoder().encodeToString(out.toByteArray()));}
+    static JSONObject build(JSONObject frame)throws Exception{
+        var summary=SpatialRuntime040.summary(frame);var files=new JSONObject().put("snapshot-gzip.json",packed(frame).toString());var body=new StringBuilder("<p>FRAYNIX / LINKED SPATIAL VIEWS040</p><h1>One source. Linked views.</h1><p id=runtime-snapshot>").append(frame.getString("snapshotHash")).append("</p><p id=runtime-selected>").append(frame.getString("selectedId")).append("</p><p id=runtime-source>").append(e(frame.getJSONObject("source").toString())).append("</p><p>Projection and selection read actual source geometry. They do not advance physics, convert game units to metres or align a camera mat to native coordinates.</p><div class=views>");
+        var names=frame.getJSONObject("source").getString("kind").equals("game")?List.of("front","perspective"):List.of("perspective","top","front","side");
+        for(String name:names){var projected=SpatialProjection040.project(frame,new JSONObject().put("view",name).put("width",640).put("height",400));files.put("view-"+name+".json",projected.toString());body.append("<section><h2>").append(name).append("</h2><svg viewBox=\"0 0 640 400\" aria-label=\"").append(name).append(" source projection\">");for(Object raw:projected.getJSONArray("polygons")){var p=(JSONObject)raw;body.append("<polygon points=\"");for(Object point:p.getJSONArray("points")){var a=(JSONArray)point;body.append(a.getDouble(0)).append(',').append(a.getDouble(1)).append(' ');}body.append("\" fill=\"").append(p.getBoolean("selected")?"#d6a754":p.getBoolean("dynamic")?"#4e9b85":"#344d5c").append("\" stroke=\"#b6d8cf\" stroke-width=\"0.7\"/>");}body.append("</svg></section>");}
+        body.append("</div><h2>Compact entity evidence</h2><p>").append(summary.getJSONArray("entities").length()).append(" listed / ").append(frame.getJSONArray("entities").length()).append(" source entities. Full data is in snapshot-gzip.json; this table is intentionally bounded.</p><div class=scroll><table><thead><tr><th>Identity</th><th>Label</th><th>Position / source units</th></tr></thead><tbody id=runtime-entities>");
+        for(Object raw:summary.getJSONArray("entities")){var row=(JSONObject)raw;body.append("<tr><td>").append(row.getString("id")).append("</td><td>").append(e(row.getString("label"))).append("</td><td>").append(e(row.optJSONArray("position",new JSONArray()).toString())).append("</td></tr>");}
+        body.append("</tbody></table></div><h2>Source and coordinate qualifications</h2><pre id=runtime-evidence>").append(e(summary.toString(2))).append("</pre>");
+        files.put("summary.json",summary.toString(2)).put("index.html","<!doctype html><html lang=en><meta charset=utf-8><meta name=viewport content=\"width=device-width,initial-scale=1\"><title>Linked spatial snapshot040</title><style>*{box-sizing:border-box}body{background:#10242b;color:#e4f1ed;font:16px/1.6 system-ui;padding:24px;margin:0;overflow-wrap:anywhere}.views{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px}section,pre{background:#19383e;padding:16px;border-radius:12px}svg{width:100%;height:auto;background:#122832}polygon{stroke-linejoin:round}table{border-collapse:collapse;width:100%}td,th{padding:8px;border-bottom:1px solid #52766d;text-align:left}.scroll{overflow:auto}pre{white-space:pre-wrap;max-height:440px;overflow:auto}@media(max-width:700px){body{padding:14px}.views{grid-template-columns:1fr}}</style>"+body+"</html>");
+        return new JSONObject().put("title","Linked spatial snapshot040 · "+frame.getJSONObject("source").getString("kind")).put("files",files).put("sources",new JSONArray().put(frame.getJSONObject("source")));
+    }
+}
