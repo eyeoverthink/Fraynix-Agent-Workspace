@@ -47,6 +47,7 @@ Numbered editions preserve dated system behavior and evidence. The root [README]
 | [041](../../README-041.md) | 2026-11-01 | Measured mat alignment, fresh physical windows and source-aware chat | [Viewer](041/index.html) · [tree](041/FILE_TREE.md) |
 | [042](../../README-042.md) | 2026-11-02 | One continuing Java brain and an integrated workspace | [Viewer](042/index.html) · [tree](042/FILE_TREE.md) |
 | [043](../../README-043.md) | 2026-11-02 | Java tasks and visual memory | [Viewer](043/index.html) · [tree](043/FILE_TREE.md) |
-| [044](../../README-044.md) | 2026-11-02 | One Java agent, visible missions and grounded world planning | [Viewer](044/index.html) · [tree](044/FILE_TREE.md) |
+| [044](../../README-044.md) | 2026-11-02 | One Java agent and visible missions | [Viewer](044/index.html) · [tree](044/FILE_TREE.md) |
+| [045](../../README-045.md) | 2026-11-02 | Counterfactual worlds before verified action | [Viewer](045/index.html) · [tree](045/FILE_TREE.md) |
 
-Latest implementation/documentation edition: **044**. Earlier snapshots remain intact. Rejected and experimental results retain their original scope. See [sequence policy](README_SEQUENCE.md) and [manifest](editions.json).
+Latest implementation/documentation edition: **045**. Earlier snapshots remain intact. See [sequence policy](README_SEQUENCE.md) and [manifest](editions.json).

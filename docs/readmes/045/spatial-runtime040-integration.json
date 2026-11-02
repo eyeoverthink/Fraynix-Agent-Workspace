@@ -1,0 +1,114 @@
+{
+  "passed": true,
+  "date": "2026-11-02T18:20:44.160Z",
+  "checks": [
+    "Actual visible source binding loads a declared single-box control through the native world ledger; four linked cameras share its stable source identity",
+    "Independent analytic centre picks in perspective/top/front/side select the same real box UUID; camera and selection changes leave native tick, poses and ledger exact",
+    "Visible full JSON export writes an actual local file; independent canonical inspector and Java both reject a changed coordinate",
+    "Actual saved report passes exact snapshot, selected UUID, four SVG views and compact row assertions; compressed full snapshot verifies independently",
+    "Full application restart restores the exact native world, selected entity and camera focus without advancing simulation",
+    "Recorded analytic camera estimate retains original image/geometry hashes and measured status in a separate mat view, with unknown height/alignment and unchanged source history",
+    "Existing Knowledge panel remains usable from linked mode; explicit Game button starts the real hidden runtime and displays matching original raster plus planar/perspective geometry without inventing depth or SI units",
+    "Visible Step right executes exactly30 original game ticks, moves the same player UUID in source/raster/projected state and rejects selecting the older motion snapshot",
+    "Game export verifies all source identities; restarting does not auto-open a game or silently reuse its old session, and native world remains exact",
+    "No renderer JavaScript errors across linked selection, export/report, restart, observation plane, Knowledge navigation and actual game controls"
+  ],
+  "project": "C:\\Users\\eyeka\\AppData\\Local\\Temp\\fraynix-spatial040-fCliVU",
+  "worldId": "65bfd2c2-ff05-4e91-8c68-aac70a04560e",
+  "boxId": "37d67962-5c59-3d05-9047-3aaeca2989f4",
+  "fixtureRunId": "8dd3c114-7494-4ced-9d39-93a835b45be0",
+  "report": {
+    "id": "fe78730d-8ab2-3c0d-8018-aa00324967f5",
+    "test": {
+      "checks": [
+        {
+          "actual": {
+            "count": 1,
+            "text": "3a8ee1f76f9f2ee189607ce0dfbdce51f08fc99e4780f2a6c9ab8888f3dfd84a",
+            "value": null
+          },
+          "expected": {
+            "expectText": "3a8ee1f76f9f2ee189607ce0dfbdce51f08fc99e4780f2a6c9ab8888f3dfd84a",
+            "selector": "#runtime-snapshot"
+          },
+          "index": 0,
+          "selector": "#runtime-snapshot",
+          "passed": true
+        },
+        {
+          "actual": {
+            "count": 1,
+            "text": "37d67962-5c59-3d05-9047-3aaeca2989f4",
+            "value": null
+          },
+          "expected": {
+            "expectText": "37d67962-5c59-3d05-9047-3aaeca2989f4",
+            "selector": "#runtime-selected"
+          },
+          "index": 1,
+          "selector": "#runtime-selected",
+          "passed": true
+        },
+        {
+          "actual": {
+            "count": 4,
+            "text": "",
+            "value": null
+          },
+          "expected": {
+            "expectCount": 4,
+            "selector": ".views svg"
+          },
+          "index": 2,
+          "selector": ".views svg",
+          "passed": true
+        },
+        {
+          "actual": {
+            "count": 1,
+            "text": "37d67962-5c59-3d05-9047-3aaeca2989f4\tAnalytic identity box\t[0,0.4,0]",
+            "value": null
+          },
+          "expected": {
+            "expectCount": 1,
+            "selector": "#runtime-entities tr"
+          },
+          "index": 3,
+          "selector": "#runtime-entities tr",
+          "passed": true
+        }
+      ],
+      "at": "2026-11-02T18:20:28.621902600Z",
+      "id": "fe78730d-8ab2-3c0d-8018-aa00324967f5",
+      "passed": true,
+      "version": 1,
+      "steps": [
+        {
+          "expectText": "3a8ee1f76f9f2ee189607ce0dfbdce51f08fc99e4780f2a6c9ab8888f3dfd84a",
+          "selector": "#runtime-snapshot"
+        },
+        {
+          "expectText": "37d67962-5c59-3d05-9047-3aaeca2989f4",
+          "selector": "#runtime-selected"
+        },
+        {
+          "expectCount": 4,
+          "selector": ".views svg"
+        },
+        {
+          "expectCount": 1,
+          "selector": "#runtime-entities tr"
+        }
+      ]
+    }
+  },
+  "game": {
+    "beforeTick": 0,
+    "afterTick": 30,
+    "playerId": "779d6252-3cbd-3d58-afae-3b6896b07435",
+    "entities": 1249,
+    "beforeRaster": "54564ac5c48fa32ca5d9da7a8b6f588c0ba5692ed9553708d4dca43168d7113b",
+    "afterRaster": "e842f7fb0ba2f5d3dc9c7825ddb03c61fbfc5ed1fd91460201f2940e0c9cc0fb"
+  },
+  "scope": "Actual Electron/Java/native-world/original-game workflow. Declared analytic box and software-camera controls, not physical reconstruction or tracker improvement."
+}

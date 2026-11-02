@@ -1,0 +1,120 @@
+{
+  "passed": true,
+  "date": "2026-11-02T17:48:56.448Z",
+  "source": "782ab94b679f35b37905d43f4bb51f4eecfebc42",
+  "cases": [
+    {
+      "caseId": "reserved045-material",
+      "passed": true,
+      "studyId": "601c8c7c-9b6a-4682-985b-d0fbc0cd4e79",
+      "sourceFrameSha256": "71b8824a65d09461ee8091ae445ee312e1a525e73a9d8f037369c058e0f5b451",
+      "selectedCandidate": "reversed-target-order",
+      "candidates": [
+        {
+          "id": "existing-controller-order",
+          "ordinal": 0,
+          "passed": true,
+          "nativeTicks": 5977,
+          "timeS": 24.904166666666665,
+          "effortNs": 243.94753321641676,
+          "maxForceN": 18.000000000000057,
+          "maxTorqueNm": 0.4620000123977662,
+          "maxBystanderDriftM": 1.4901161193847656e-08,
+          "maxPositionErrorM": 0.0011265617223104177,
+          "maxAngleErrorDeg": 0.0003863356800609966
+        },
+        {
+          "id": "reversed-target-order",
+          "ordinal": 1,
+          "passed": true,
+          "nativeTicks": 5977,
+          "timeS": 24.904166666666665,
+          "effortNs": 243.94753294819688,
+          "maxForceN": 18,
+          "maxTorqueNm": 0.4620000123977661,
+          "maxBystanderDriftM": 1.4901161193847656e-08,
+          "maxPositionErrorM": 0.0011058184902799815,
+          "maxAngleErrorDeg": 0.00038628821582131447
+        },
+        {
+          "id": "half-force",
+          "ordinal": 2,
+          "passed": false,
+          "nativeTicks": 481,
+          "timeS": 2.004166666666667,
+          "effortNs": 17.999999999999968,
+          "maxForceN": 9.000000000000071,
+          "maxTorqueNm": 3.206018082825737e-07,
+          "maxBystanderDriftM": 1.4901161193847656e-08,
+          "maxPositionErrorM": 2.785677655436824,
+          "maxAngleErrorDeg": 90.00000194132843
+        }
+      ],
+      "comparison": {
+        "pairs": 499,
+        "coverage": 1,
+        "maxPositionResidualM": 0,
+        "maxAngleResidualDeg": 3.17513789120793e-15,
+        "passed": true
+      },
+      "scope": "Independent Node raw-byte checksum, displacement/wrench/effort/endpoint/protected-drift reconstruction, ranking and forecast comparison. Java additionally checks canonical content seals, native lifecycle/controller and report gates. This inspector does not run an independent physics solver."
+    },
+    {
+      "caseId": "reserved045-pose",
+      "passed": true,
+      "studyId": "322cc997-03dc-4f5f-ad80-ed3e2e848810",
+      "sourceFrameSha256": "5b56a80f5915f2a703f55a6993314c488bc4b523e8bf637b1263cbc727ba3aee",
+      "selectedCandidate": "reversed-target-order",
+      "candidates": [
+        {
+          "id": "existing-controller-order",
+          "ordinal": 0,
+          "passed": true,
+          "nativeTicks": 5991,
+          "timeS": 24.9625,
+          "effortNs": 258.73876332628294,
+          "maxForceN": 18.000000000000018,
+          "maxTorqueNm": 0.5040000081062321,
+          "maxBystanderDriftM": 1.4901161193847656e-08,
+          "maxPositionErrorM": 0.0011341718593373127,
+          "maxAngleErrorDeg": 0.0002979793331794422
+        },
+        {
+          "id": "reversed-target-order",
+          "ordinal": 1,
+          "passed": true,
+          "nativeTicks": 5991,
+          "timeS": 24.9625,
+          "effortNs": 258.7387633143595,
+          "maxForceN": 18,
+          "maxTorqueNm": 0.5040000081062317,
+          "maxBystanderDriftM": 1.4901161193847656e-08,
+          "maxPositionErrorM": 0.001123533629921266,
+          "maxAngleErrorDeg": 0.0002979795758738558
+        },
+        {
+          "id": "half-force",
+          "ordinal": 2,
+          "passed": false,
+          "nativeTicks": 481,
+          "timeS": 2.004166666666667,
+          "effortNs": 17.99999999999998,
+          "maxForceN": 9.000000000000064,
+          "maxTorqueNm": 3.4381221870698765e-07,
+          "maxBystanderDriftM": 1.4901161193847656e-08,
+          "maxPositionErrorM": 3.511409960994205,
+          "maxAngleErrorDeg": 44.999991589964516
+        }
+      ],
+      "comparison": {
+        "pairs": 500,
+        "coverage": 1,
+        "maxPositionResidualM": 0,
+        "maxAngleResidualDeg": 3.148265615067663e-15,
+        "passed": true
+      },
+      "scope": "Independent Node raw-byte checksum, displacement/wrench/effort/endpoint/protected-drift reconstruction, ranking and forecast comparison. Java additionally checks canonical content seals, native lifecycle/controller and report gates. This inspector does not run an independent physics solver."
+    }
+  ],
+  "scope": "Independent Node reconstruction from original first reserved native traces; no native solver or policy is rerun."
+}

@@ -2,7 +2,7 @@
 
 The direction is one continuing Java agent with an inspectable world, a controlled ability to act and a record of what happened. The next useful step is to make a prediction compete with alternatives before it becomes an action.
 
-Edition045 implements that step for the existing persistent native manipulation task. Three actual native trials begin from the same verified all-body frame. The agent keeps the failed candidate, ranks only verified results and carries out its selected plan through the original controller, world ledger and report checks. Optional review separates prediction from authorization to move. This is a bounded planning mechanism, not an additional editor or a scene animation masquerading as a result.
+Edition045 implements that step for the existing persistent native manipulation task. Three actual native trials begin from the same verified all-body frame. The agent keeps the failed candidate, ranks only verified results and carries out its selected plan through the original controller, world ledger and report checks. Optional review separates prediction from authorization to move. This bounded planning mechanism works inside the existing editor and Java task loop.
 
 ## What the architecture gains
 
@@ -29,6 +29,40 @@ flowchart LR
   K --> L[Actual report checks]
   L --> M[Commit world and retain requested skill]
 ```
+
+## A coherent world, not a collection of chat panels
+
+The useful unification is a common record of **entities, observations, actions, goals and time**. Different views can show that record without pretending they are interchangeable measurements:
+
+| View / representation | Grounding | Next useful connection |
+| --- | --- | --- |
+| Browser page | Current DOM references, actual pixels and leased browser actions | Tie a selected visible object to a source-qualified hypothesis and a checked task. |
+| Camera and mat | Original frame, timestamp, registered plane, scale and uncertainty | Compare fresh measured movement against the correctly aligned prediction. |
+| Native3D world | Stable body identities, poses, contacts, velocities, controller and ticks | Test alternatives and retain an actual verified revision. |
+| Procedural2D/3D/higher-dimensional map | Algorithm, seed, parameters and explicit projection | Carry the source recipe and scale into a supported playable-world compiler. |
+| Creation canvas | Versioned files, actual execution and observable behavior checks | Connect an authored artifact to its producing task, test and reusable procedure. |
+| Neural memory | Actual encoding, weights, replay and measured outcomes | Evaluate a specific contribution to novelty detection, policy choice or recovery. |
+
+A higher-dimensional point representation can organise features, trajectories and procedural parameters. Its projection can produce2D/3D views. It does not add physical dimensions to the present3D solver or infer unseen object geometry from a single image. The same distinction lets the system grow without confusing an invented representation with an observed fact.
+
+The next visual design should follow the same unification: one primary world/creation surface, one conversational mission, and inspectable evidence when needed. Orthographic, perspective, map, timeline and chart views can share selections and provenance. A new capability should earn a place in an existing task flow rather than automatically becoming another tab.
+
+## A useful internal loop
+
+The architectural analogue of a subconscious is bounded background work with a continuing clock and retained state: inspect an unresolved outcome, replay a relevant experience, prepare an alternative and propose a check. It should run at idle priority, keep its work observable and yield to the user's task. The existing heartbeat and witness provide continuity; they do not by themselves establish subjective experience or useful intelligence.
+
+A production reasoning cycle would bind every stage to evidence:
+
+1. **Notice:** register an observation with its source, time, uncertainty and active coordinate frame.
+2. **Hypothesise:** retain possible identities or causes separately from verified properties.
+3. **Predict:** compute a finite set of source-bound alternatives within declared authority.
+4. **Choose:** compare them using an explicit objective and measurable gates.
+5. **Act:** use the owner/controller appropriate to the surface, with an idempotent effect identity.
+6. **Witness:** connect the resulting frame, numeric trace, surface receipt and goal to the same causal record.
+7. **Evaluate:** measure success, prediction error, latency and unintended effects.
+8. **Retain or reject:** save a verified method, preserve a failed case and use separate evaluation before promoting a changed policy.
+
+Edition045 implements the prediction/choice/execution comparison for its narrow native task inside the existing loop. A future typed skill graph can extend that pattern across browser, data, maps and creation without handing an LLM authority to invent completion.
 
 ## Production boundaries
 

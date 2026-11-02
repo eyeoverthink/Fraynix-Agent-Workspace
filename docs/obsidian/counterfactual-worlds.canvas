@@ -1,0 +1,143 @@
+{
+  "nodes": [
+    {
+      "id": "readme",
+      "type": "file",
+      "file": "README-045.md",
+      "x": 0,
+      "y": 0,
+      "width": 400,
+      "height": 260
+    },
+    {
+      "id": "owner",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/GoalRunner.java",
+      "x": 0,
+      "y": 350,
+      "width": 310,
+      "height": 220
+    },
+    {
+      "id": "branches",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/Counterfactual045.java",
+      "x": 350,
+      "y": 350,
+      "width": 310,
+      "height": 220
+    },
+    {
+      "id": "report",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/CounterfactualReport045.java",
+      "x": 700,
+      "y": 350,
+      "width": 310,
+      "height": 220
+    },
+    {
+      "id": "skills",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/Procedure044.java",
+      "x": 1050,
+      "y": 350,
+      "width": 310,
+      "height": 220
+    },
+    {
+      "id": "physics",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/WorldPhysics.java",
+      "x": 0,
+      "y": 620,
+      "width": 310,
+      "height": 220
+    },
+    {
+      "id": "brain",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/AgentRuntime042.java",
+      "x": 350,
+      "y": 620,
+      "width": 310,
+      "height": 220
+    },
+    {
+      "id": "graphs",
+      "type": "file",
+      "file": "docs/EDITION_045_VISION.md",
+      "x": 700,
+      "y": 620,
+      "width": 310,
+      "height": 220
+    },
+    {
+      "id": "measurement",
+      "type": "file",
+      "file": "docs/EDITION_045_VISION.md",
+      "x": 1050,
+      "y": 620,
+      "width": 310,
+      "height": 220
+    }
+  ],
+  "edges": [
+    {
+      "id": "e-owner",
+      "fromNode": "readme",
+      "fromSide": "bottom",
+      "toNode": "owner",
+      "toSide": "top"
+    },
+    {
+      "id": "e-branches",
+      "fromNode": "readme",
+      "fromSide": "bottom",
+      "toNode": "branches",
+      "toSide": "top"
+    },
+    {
+      "id": "e-report",
+      "fromNode": "readme",
+      "fromSide": "bottom",
+      "toNode": "report",
+      "toSide": "top"
+    },
+    {
+      "id": "e-skills",
+      "fromNode": "readme",
+      "fromSide": "bottom",
+      "toNode": "skills",
+      "toSide": "top"
+    },
+    {
+      "id": "e-physics",
+      "fromNode": "readme",
+      "fromSide": "bottom",
+      "toNode": "physics",
+      "toSide": "top"
+    },
+    {
+      "id": "e-brain",
+      "fromNode": "readme",
+      "fromSide": "bottom",
+      "toNode": "brain",
+      "toSide": "top"
+    },
+    {
+      "id": "e-graphs",
+      "fromNode": "readme",
+      "fromSide": "bottom",
+      "toNode": "graphs",
+      "toSide": "top"
+    },
+    {
+      "id": "e-measurement",
+      "fromNode": "readme",
+      "fromSide": "bottom",
+      "toNode": "measurement",
+      "toSide": "top"
+    }
+  ]
+}

@@ -1,0 +1,366 @@
+{
+  "passed": true,
+  "date": "2026-11-02T19:03:17.575Z",
+  "project": "C:\\Users\\eyeka\\AppData\\Local\\Temp\\fraynix-mission044-qzspid",
+  "checks": [
+    "Mission shows actual retained Java creation status, child, history/hash, saved skill and result in the existing app; its result button opens the real artifact",
+    "Opening a retained result refuses a later source revision instead of presenting it as the original checked version",
+    "A new Java recipe task really recreates/tests the artifact, appears in mission history and reports its reused version; source text cannot inject HTML",
+    "Mission Stop reaches the actual current Java task and cancels it without performing its unclaimed action",
+    "A claimed action interrupts on real desktop close; Mission Resume reconnects to the same Java boot and takes fresh checked evidence, while the stale nonce remains refused and hidden",
+    "Activity/Mission switching, real result/history navigation and controls work at1600/1100 widths in one window, without source injection, horizontal overflow or renderer errors"
+  ],
+  "recipe": {
+    "generation": 1,
+    "needsRecipe": true,
+    "reason": "Queued in Java",
+    "goal": "Run the actual saved recipe; mission <img src=x onerror=window.missionInjected=true> is source text",
+    "failures": 0,
+    "frames": [],
+    "saved": false,
+    "created": false,
+    "needsArtifact": false,
+    "focus": "canvas",
+    "turn": 0,
+    "historyRecords": 1,
+    "resumes": 0,
+    "mode": "recipe",
+    "createdAt": "2026-11-02T19:03:09.452966400Z",
+    "counterContract": false,
+    "model": "no-model-used",
+    "id": "86adad6b-0ab3-4fd2-99bd-d4fb7a9e11b3",
+    "recipeBinding": {
+      "sha256": "929e627f5602458f3a2f5da79f3c7fec270d367540576b4603cf80c797efc434",
+      "name": "mission-actual-recipe",
+      "version": 1
+    },
+    "visionModel": "",
+    "status": "queued"
+  },
+  "recovered": {
+    "needsRecipe": false,
+    "reason": "Java completion gates passed",
+    "saved": false,
+    "focus": "canvas",
+    "turn": 0,
+    "episodeId": "e31b1174-c411-4146-893f-b7245d12e07d",
+    "resumes": 1,
+    "mode": "inspect",
+    "createdAt": "2026-11-02T19:03:12.309763Z",
+    "lastPair": {
+      "thresholdChannelUnits": 24,
+      "changedBounds": null,
+      "beforeSha256": "721a788d9d47fdccad752232e0d543c6609b62c93e92bc11a7bb5946d09e9877",
+      "afterId": "08f015f3-7e48-4fa9-9626-b5ed3d340cc6",
+      "afterSha256": "721a788d9d47fdccad752232e0d543c6609b62c93e92bc11a7bb5946d09e9877",
+      "beforeId": "349aa86c-72de-4acc-80cb-dcd91c1693fe",
+      "meanAbsoluteChannelDifference": 0,
+      "meaning": "Digital pixel change, not proof that an intended action succeeded, an object moved physically or an identity was recognized",
+      "width": 795,
+      "changedFraction": 0,
+      "comparable": true,
+      "height": 473,
+      "changedPixels": 0
+    },
+    "afterTool": "screen.report",
+    "model": "no-model-used",
+    "resumeReverify": false,
+    "id": "b72a5821-2db4-4481-b256-c01db225a8ba",
+    "visualEvidence": {
+      "difference": {
+        "thresholdChannelUnits": 24,
+        "changedBounds": null,
+        "beforeSha256": "721a788d9d47fdccad752232e0d543c6609b62c93e92bc11a7bb5946d09e9877",
+        "afterId": "08f015f3-7e48-4fa9-9626-b5ed3d340cc6",
+        "afterSha256": "721a788d9d47fdccad752232e0d543c6609b62c93e92bc11a7bb5946d09e9877",
+        "beforeId": "349aa86c-72de-4acc-80cb-dcd91c1693fe",
+        "meanAbsoluteChannelDifference": 0,
+        "meaning": "Digital pixel change, not proof that an intended action succeeded, an object moved physically or an identity was recognized",
+        "width": 795,
+        "changedFraction": 0,
+        "comparable": true,
+        "height": 473,
+        "changedPixels": 0
+      },
+      "similarRoutines": [],
+      "frame": {
+        "phase": "after",
+        "effectId": "851955da-55c0-4e7d-b01d-27134c45cce9",
+        "sha256": "721a788d9d47fdccad752232e0d543c6609b62c93e92bc11a7bb5946d09e9877",
+        "bytes": 2933,
+        "visual": {
+          "contrast": 0.020567961097329675,
+          "informative": false,
+          "dimensions": 768
+        },
+        "id": "08f015f3-7e48-4fa9-9626-b5ed3d340cc6",
+        "source": {
+          "sequence": 2,
+          "artifactVersion": 1,
+          "viewport": [
+            795,
+            473
+          ],
+          "kind": "canvas",
+          "artifactId": "dd5bc1f9-7fd8-32e8-a99b-71c7d1545de4",
+          "sessionId": "a858cf78-a227-4307-b6ad-6e5df88c344a",
+          "title": "127.0.0.1:64608/artifact/dd5bc1f9-7fd8-32e8-a99b-71c7d1545de4/1/index.html",
+          "url": "http://127.0.0.1:64608/artifact/dd5bc1f9-7fd8-32e8-a99b-71c7d1545de4/1/index.html",
+          "elapsedMs": 1248.6199000000001
+        },
+        "receivedAt": "2026-11-02T19:03:14.489635600Z",
+        "taskId": "b72a5821-2db4-4481-b256-c01db225a8ba"
+      }
+    },
+    "recent": [
+      {
+        "result": {
+          "controls": [
+            {
+              "ref": "0",
+              "role": "submit",
+              "disabled": false,
+              "tag": "button",
+              "label": "Add",
+              "value": ""
+            }
+          ],
+          "observation": "6009550b-7cae-4f4e-b7de-e7cf2e290778",
+          "kind": "canvas",
+          "text": "0Add",
+          "title": "",
+          "url": "http://127.0.0.1:64608/artifact/dd5bc1f9-7fd8-32e8-a99b-71c7d1545de4/1/index.html",
+          "errors": []
+        },
+        "tool": "canvas.observe"
+      },
+      {
+        "result": {
+          "checks": [
+            {
+              "actual": {
+                "count": 1,
+                "text": "b72a5821-2db4-4481-b256-c01db225a8ba",
+                "value": null
+              },
+              "expected": {
+                "expectText": "b72a5821-2db4-4481-b256-c01db225a8ba",
+                "selector": "#visual-task"
+              },
+              "index": 0,
+              "selector": "#visual-task",
+              "passed": true
+            },
+            {
+              "actual": {
+                "count": 1,
+                "text": "721a788d9d47fdccad752232e0d543c6609b62c93e92bc11a7bb5946d09e9877",
+                "value": null
+              },
+              "expected": {
+                "expectText": "721a788d9d47fdccad752232e0d543c6609b62c93e92bc11a7bb5946d09e9877",
+                "selector": "#visual-before"
+              },
+              "index": 1,
+              "selector": "#visual-before",
+              "passed": true
+            },
+            {
+              "actual": {
+                "count": 1,
+                "text": "721a788d9d47fdccad752232e0d543c6609b62c93e92bc11a7bb5946d09e9877",
+                "value": null
+              },
+              "expected": {
+                "expectText": "721a788d9d47fdccad752232e0d543c6609b62c93e92bc11a7bb5946d09e9877",
+                "selector": "#visual-after"
+              },
+              "index": 2,
+              "selector": "#visual-after",
+              "passed": true
+            },
+            {
+              "actual": {
+                "count": 2,
+                "text": "",
+                "value": null
+              },
+              "expected": {
+                "expectCount": 2,
+                "selector": ".images img"
+              },
+              "index": 3,
+              "selector": ".images img",
+              "passed": true
+            }
+          ],
+          "at": "2026-11-02T19:03:15.698279Z",
+          "id": "1ebf32fa-4c4b-3e4f-a784-1f73ad12a17c",
+          "passed": true,
+          "version": 1,
+          "steps": [
+            {
+              "expectText": "b72a5821-2db4-4481-b256-c01db225a8ba",
+              "selector": "#visual-task"
+            },
+            {
+              "expectText": "721a788d9d47fdccad752232e0d543c6609b62c93e92bc11a7bb5946d09e9877",
+              "selector": "#visual-before"
+            },
+            {
+              "expectText": "721a788d9d47fdccad752232e0d543c6609b62c93e92bc11a7bb5946d09e9877",
+              "selector": "#visual-after"
+            },
+            {
+              "expectCount": 2,
+              "selector": ".images img"
+            }
+          ]
+        },
+        "tool": "screen.report"
+      }
+    ],
+    "outcome": "verified",
+    "generation": 2,
+    "summary": "Dated workspace screenshot, original hashes and local visual description opened and checked.",
+    "goal": "Inspect the canvas for explicit mission recovery",
+    "failures": 0,
+    "frames": [
+      "349aa86c-72de-4acc-80cb-dcd91c1693fe",
+      "08f015f3-7e48-4fa9-9626-b5ed3d340cc6",
+      "dea189d0-6bfe-4348-aebe-e31f0065fbe3",
+      "449dbc96-a816-4cef-ae2c-da772eb86bd2",
+      "7d427d45-8122-4a3a-95bf-dac3be904183",
+      "f1bc6848-270a-49e9-9d39-2bf1764a087a"
+    ],
+    "created": false,
+    "needsArtifact": true,
+    "history": [
+      {
+        "parent": "GENESIS",
+        "at": "2026-11-02T19:03:12.325720400Z",
+        "sha256": "7d510ddf81c503be38f0c0c98f18801786b35b05cfd772c3bf46ac307cdeb8a4",
+        "kind": "queued",
+        "detail": {
+          "mode": "inspect"
+        }
+      },
+      {
+        "parent": "7d510ddf81c503be38f0c0c98f18801786b35b05cfd772c3bf46ac307cdeb8a4",
+        "at": "2026-11-02T19:03:12.635890600Z",
+        "sha256": "4f5284e98ae6f66316915afa34b362c19a43ba1ac94d8f4d49fa0e211f875884",
+        "kind": "interrupted",
+        "detail": {
+          "reason": "Interface ended during a claimed surface action; explicitly Resume"
+        }
+      },
+      {
+        "parent": "4f5284e98ae6f66316915afa34b362c19a43ba1ac94d8f4d49fa0e211f875884",
+        "at": "2026-11-02T19:03:14.550472Z",
+        "sha256": "0669cbced339c535951d2624cfcc2923799a86d4c11692fd6cc7c69e0cec5782",
+        "kind": "surface-action",
+        "detail": {
+          "resultSha256": "e3b74adf5ca1926085ff993875e67c324eb6dfb30732c9625d97c71ee501c396",
+          "duringIds": [],
+          "kind": "tool",
+          "error": "",
+          "tool": "canvas.observe",
+          "pair": {
+            "thresholdChannelUnits": 24,
+            "changedBounds": null,
+            "beforeSha256": "721a788d9d47fdccad752232e0d543c6609b62c93e92bc11a7bb5946d09e9877",
+            "afterId": "08f015f3-7e48-4fa9-9626-b5ed3d340cc6",
+            "afterSha256": "721a788d9d47fdccad752232e0d543c6609b62c93e92bc11a7bb5946d09e9877",
+            "beforeId": "349aa86c-72de-4acc-80cb-dcd91c1693fe",
+            "meanAbsoluteChannelDifference": 0,
+            "meaning": "Digital pixel change, not proof that an intended action succeeded, an object moved physically or an identity was recognized",
+            "width": 795,
+            "changedFraction": 0,
+            "comparable": true,
+            "height": 473,
+            "changedPixels": 0
+          }
+        }
+      },
+      {
+        "parent": "0669cbced339c535951d2624cfcc2923799a86d4c11692fd6cc7c69e0cec5782",
+        "at": "2026-11-02T19:03:15.989673300Z",
+        "sha256": "dbdcf1f9f67d39b9f55bd0de4006481e0fb3f29e905927a84abdc412e419cb07",
+        "kind": "surface-action",
+        "detail": {
+          "resultSha256": "a737e56818ca7cd8ffa541f144810223143627ff6cfde4f592069dbe0a2d6760",
+          "duringIds": [
+            "449dbc96-a816-4cef-ae2c-da772eb86bd2",
+            "7d427d45-8122-4a3a-95bf-dac3be904183"
+          ],
+          "kind": "report",
+          "error": "",
+          "tool": "screen.report",
+          "pair": {
+            "thresholdChannelUnits": 24,
+            "changedBounds": [
+              0,
+              0,
+              792,
+              473
+            ],
+            "beforeSha256": "721a788d9d47fdccad752232e0d543c6609b62c93e92bc11a7bb5946d09e9877",
+            "afterId": "f1bc6848-270a-49e9-9d39-2bf1764a087a",
+            "afterSha256": "bca17ba4b81a039ad5b6236677db22af36ac0cc7bd4ec3b824775ac79406e258",
+            "beforeId": "dea189d0-6bfe-4348-aebe-e31f0065fbe3",
+            "meanAbsoluteChannelDifference": 0.6645907717358044,
+            "meaning": "Digital pixel change, not proof that an intended action succeeded, an object moved physically or an identity was recognized",
+            "width": 795,
+            "changedFraction": 0.797396518941056,
+            "comparable": true,
+            "height": 473,
+            "changedPixels": 299849
+          }
+        }
+      },
+      {
+        "parent": "dbdcf1f9f67d39b9f55bd0de4006481e0fb3f29e905927a84abdc412e419cb07",
+        "at": "2026-11-02T19:03:16.069489200Z",
+        "sha256": "f8b83cf8dbb0216556212ed6096b6f0a9c5d0af8f0efd4a328f07426b5186711",
+        "kind": "completed",
+        "detail": {
+          "verified": true
+        }
+      }
+    ],
+    "afterKind": "report",
+    "attemptStartedAt": "2026-11-02T19:03:14.134584500Z",
+    "lastFrameId": "08f015f3-7e48-4fa9-9626-b5ed3d340cc6",
+    "finishedAt": "2026-11-02T19:03:16.069489200Z",
+    "counterContract": false,
+    "reportPair": {
+      "thresholdChannelUnits": 24,
+      "changedBounds": [
+        0,
+        0,
+        792,
+        473
+      ],
+      "beforeSha256": "721a788d9d47fdccad752232e0d543c6609b62c93e92bc11a7bb5946d09e9877",
+      "afterId": "f1bc6848-270a-49e9-9d39-2bf1764a087a",
+      "afterSha256": "bca17ba4b81a039ad5b6236677db22af36ac0cc7bd4ec3b824775ac79406e258",
+      "beforeId": "dea189d0-6bfe-4348-aebe-e31f0065fbe3",
+      "meanAbsoluteChannelDifference": 0.6645907717358044,
+      "meaning": "Digital pixel change, not proof that an intended action succeeded, an object moved physically or an identity was recognized",
+      "width": 795,
+      "changedFraction": 0.797396518941056,
+      "comparable": true,
+      "height": 473,
+      "changedPixels": 299849
+    },
+    "report": {
+      "sha256": "0fb1cd0f065e1996d59c54bed7d0c7a48a76a7302918ae5c0f1d21ac034b6fce",
+      "id": "1ebf32fa-4c4b-3e4f-a784-1f73ad12a17c",
+      "version": 1
+    },
+    "visionModel": "",
+    "status": "completed"
+  },
+  "errors": [],
+  "scope": "Actual persisted Java tasks, existing local-model artifact and new real native recipe/screenshot actions. No new inference needed for mission presentation."
+}

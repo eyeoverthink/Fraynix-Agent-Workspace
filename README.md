@@ -2,9 +2,9 @@
 
 **A local visual environment for agents to browse, create runnable artifacts, test behavior and reuse verified skills.**
 
-> **Latest implementation: [README044 — one Java agent and visible missions](README-044.md)** · [Offline guide](docs/readmes/044/index.html) · [Operation](docs/JAVA_CHAT_044.md) · [Edition history](docs/readmes/INDEX.md)
+> **Latest implementation: [README045 — alternatives before action](README-045.md)** · [Offline guide](docs/readmes/045/index.html) · [Operation](docs/JAVA_CHAT_044.md) · [Edition history](docs/readmes/INDEX.md)
 
-One integrated app, with Java-owned chat planning, creation, native skill scheduling, continuing identity, real clocks and checked outcomes. Mission connects the actual goal, source, child task, recovery and retained result. [Screenshots, complete behavior, evidence and production direction](README-044.md).
+One integrated app, with Java-owned chat planning, creation, native skill scheduling, continuing identity, real clocks and checked outcomes. Mission connects the actual goal, source, child task, recovery and retained result. [Screenshots, native alternatives, complete behavior and production direction](README-045.md).
 
 The spatial proof and next independent-capture gates are documented in the [spatial contract](docs/SPATIAL_WORLD.md) and the [world-model frontier assessment](docs/WORLD_MODEL_FRONTIERS.md), including Genie, persistent3D capture, physics-aware prediction and the source-qualified local scene/manipulation milestone.
 

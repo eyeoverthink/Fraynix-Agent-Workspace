@@ -1,0 +1,278 @@
+{
+  "controlMissionWallS": 51.925344,
+  "edition": 45,
+  "date": "2026-11-02",
+  "passed": true,
+  "sourceBaseline": "ad3882a1aa76f229bd872226882cf3fcd4f8843b",
+  "fullJavaCommit": "782ab94b679f35b37905d43f4bb51f4eecfebc42",
+  "finalFocusedJava": {
+    "source": "bf48619bf76339ed5a9ee9fcd51eddfd2084309f",
+    "checks": 7,
+    "classes": 2,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "rows": [
+      {
+        "file": "TEST-fraymus.workspace.Counterfactual045Test.xml",
+        "checks": 6,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "file": "TEST-fraymus.workspace.CounterfactualReserved045Test.xml",
+        "checks": 1,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      }
+    ],
+    "scope": "Final native counterfactual and reserved regression cases after presentation-only report ordering change. Original first reserved results remain separately retained.",
+    "passed": true
+  },
+  "presentationOnlyChanges": [
+    "workspace-engine/src/main/java/fraymus/workspace/CounterfactualReport045.java"
+  ],
+  "postJavaDesktopAndTestChanges": [
+    "workspace-desktop/agency043.cjs",
+    "workspace-desktop/main.cjs",
+    "workspace-desktop/test/agency043.test.cjs",
+    "workspace-desktop/test/counterfactual045-integration.cjs",
+    "workspace-desktop/test/knowledge-integration.cjs",
+    "workspace-desktop/test/live-data-goals.cjs"
+  ],
+  "groupRuns": [
+    {
+      "name": "broader-validation",
+      "passed": true,
+      "exit": 0,
+      "elapsedMs": 17894,
+      "source": "bf48619bf76339ed5a9ee9fcd51eddfd2084309f"
+    },
+    {
+      "name": "goals-integration",
+      "passed": true,
+      "exit": 0,
+      "elapsedMs": 62898,
+      "source": "bf48619bf76339ed5a9ee9fcd51eddfd2084309f"
+    },
+    {
+      "name": "data-goals-integration",
+      "passed": true,
+      "exit": 0,
+      "elapsedMs": 17157,
+      "source": "bf48619bf76339ed5a9ee9fcd51eddfd2084309f"
+    },
+    {
+      "name": "creation-integration",
+      "passed": true,
+      "exit": 0,
+      "elapsedMs": 12429,
+      "source": "bf48619bf76339ed5a9ee9fcd51eddfd2084309f"
+    },
+    {
+      "name": "procedural-integration",
+      "passed": true,
+      "exit": 0,
+      "elapsedMs": 30667,
+      "source": "bf48619bf76339ed5a9ee9fcd51eddfd2084309f"
+    },
+    {
+      "name": "maps-integration",
+      "passed": true,
+      "exit": 0,
+      "elapsedMs": 35081,
+      "source": "bf48619bf76339ed5a9ee9fcd51eddfd2084309f"
+    },
+    {
+      "name": "topology-integration",
+      "passed": true,
+      "exit": 0,
+      "elapsedMs": 33554,
+      "source": "bf48619bf76339ed5a9ee9fcd51eddfd2084309f"
+    },
+    {
+      "name": "recovery-materials-integration",
+      "passed": true,
+      "exit": 0,
+      "elapsedMs": 29273,
+      "source": "bf48619bf76339ed5a9ee9fcd51eddfd2084309f"
+    },
+    {
+      "name": "pushing-integration",
+      "passed": true,
+      "exit": 0,
+      "elapsedMs": 57833,
+      "source": "bf48619bf76339ed5a9ee9fcd51eddfd2084309f"
+    },
+    {
+      "name": "poses-integration",
+      "passed": true,
+      "exit": 0,
+      "elapsedMs": 298369,
+      "source": "bf48619bf76339ed5a9ee9fcd51eddfd2084309f"
+    },
+    {
+      "name": "persistent-world-integration",
+      "passed": true,
+      "exit": 0,
+      "elapsedMs": 130177,
+      "source": "bf48619bf76339ed5a9ee9fcd51eddfd2084309f"
+    },
+    {
+      "name": "workflow-integration",
+      "passed": true,
+      "exit": 0,
+      "elapsedMs": 37355,
+      "source": "bf48619bf76339ed5a9ee9fcd51eddfd2084309f"
+    },
+    {
+      "name": "knowledge-integration",
+      "source": "fbbc20edcc453de220a18f2b6764559e098a7220",
+      "passed": true,
+      "exit": 0,
+      "elapsedMs": 13019
+    },
+    {
+      "name": "brain-game-integration",
+      "source": "fbbc20edcc453de220a18f2b6764559e098a7220",
+      "passed": true,
+      "exit": 0,
+      "elapsedMs": 16831
+    },
+    {
+      "name": "spatial-runtime040-integration",
+      "source": "fbbc20edcc453de220a18f2b6764559e098a7220",
+      "passed": true,
+      "exit": 0,
+      "elapsedMs": 20741
+    },
+    {
+      "name": "alignment041-integration",
+      "source": "fbbc20edcc453de220a18f2b6764559e098a7220",
+      "passed": true,
+      "exit": 0,
+      "elapsedMs": 24689
+    },
+    {
+      "name": "live-agent042",
+      "source": "fbbc20edcc453de220a18f2b6764559e098a7220",
+      "passed": true,
+      "exit": 0,
+      "elapsedMs": 532620
+    },
+    {
+      "name": "desktop-units",
+      "source": "ad3882a1aa76f229bd872226882cf3fcd4f8843b",
+      "passed": true,
+      "exit": 0,
+      "elapsedMs": 1188
+    },
+    {
+      "name": "agency043-integration",
+      "source": "ad3882a1aa76f229bd872226882cf3fcd4f8843b",
+      "passed": true,
+      "exit": 0,
+      "elapsedMs": 20002
+    },
+    {
+      "name": "agent042-integration",
+      "source": "ad3882a1aa76f229bd872226882cf3fcd4f8843b",
+      "passed": true,
+      "exit": 0,
+      "elapsedMs": 26635
+    },
+    {
+      "name": "integration",
+      "source": "ad3882a1aa76f229bd872226882cf3fcd4f8843b",
+      "passed": true,
+      "exit": 0,
+      "elapsedMs": 26278
+    },
+    {
+      "name": "counterfactual045-integration",
+      "source": "ad3882a1aa76f229bd872226882cf3fcd4f8843b",
+      "passed": true,
+      "exit": 0,
+      "elapsedMs": 192910
+    },
+    {
+      "name": "live-data-goals",
+      "source": "ad3882a1aa76f229bd872226882cf3fcd4f8843b",
+      "passed": true,
+      "exit": 0,
+      "elapsedMs": 434330
+    },
+    {
+      "name": "live-alignment041",
+      "source": "ad3882a1aa76f229bd872226882cf3fcd4f8843b",
+      "passed": true,
+      "exit": 0,
+      "elapsedMs": 512054
+    },
+    {
+      "name": "domain044-integration",
+      "source": "ad3882a1aa76f229bd872226882cf3fcd4f8843b",
+      "passed": true,
+      "exit": 0,
+      "elapsedMs": 272888
+    },
+    {
+      "name": "mission044-integration",
+      "source": "ad3882a1aa76f229bd872226882cf3fcd4f8843b",
+      "passed": true,
+      "exit": 0,
+      "elapsedMs": 12231
+    }
+  ],
+  "java": {
+    "checks": 412,
+    "classes": 86,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "desktopUnits": 121,
+  "groups": {
+    "broader-validation": 45,
+    "goals-integration": 14,
+    "data-goals-integration": 12,
+    "creation-integration": 8,
+    "procedural-integration": 9,
+    "maps-integration": 9,
+    "topology-integration": 10,
+    "recovery-materials-integration": 9,
+    "pushing-integration": 12,
+    "poses-integration": 10,
+    "persistent-world-integration": 12,
+    "workflow-integration": 8,
+    "knowledge-integration": 8,
+    "brain-game-integration": 10,
+    "spatial-runtime040-integration": 10,
+    "alignment041-integration": 9,
+    "live-agent042": 3,
+    "agency043-integration": 10,
+    "agent042-integration": 15,
+    "integration": 12,
+    "counterfactual045-integration": 8,
+    "live-data-goals": 4,
+    "live-alignment041": 3,
+    "domain044-integration": 6,
+    "mission044-integration": 6
+  },
+  "actualUIAssertions": 246,
+  "actualModelAssertions": 16,
+  "models": [
+    "gpt-oss:20b"
+  ],
+  "appWidths": [
+    1600,
+    1100
+  ],
+  "sourceFiles": 828,
+  "reservedCases": 2,
+  "counterfactualChecks": 8,
+  "qualification": "One complete412-case serial Java run on782ab94. Only the report insertion position changed afterward; all forecasting, physical, selection, comparison and gate source is exact. Final7-case focused native run covers the report change. Java sources remain exact after the focused run. Subsequent desktop fixes prevent stale polls clearing admitted tasks and include waiting-native parents in Take over. Targeted desktop/queue/app/counterfactual workflows and remaining real-model/Mission cases rerun on the final source. Unchanged native/manual and earlier model groups retain their actual per-run source. Original failed attempts are retained. Group counts bundle actual assertions. No new native solver algorithm or dependency. Original failed development attempts remain uncounted as passing runs.",
+  "scope": "Actual Java/native/Chromium labelled-control workflows. Same-solver forecast/execution consistency is not physical accuracy, semantic identity, consciousness, learned dynamics or LLM-weight training."
+}

@@ -123,3 +123,5 @@ All three new clips improve, but coverage and false-visible checks still reject 
 Original before/during/after screenshots connect actual work to source/version/time evidence. Java owns task stages and saved-recipe scheduling; optional local vision describes pixels. Tested visual references support retrieval, with no claim of trained temporal recognition or LLM-weight improvement.
 
 - [Edition044: Java missions and world plans](52-java-missions-and-world-plans.md) · [Canvas](java-missions-and-world-plans.canvas)
+
+- [Edition045: counterfactual worlds](53-counterfactual-worlds.md) · [Canvas](counterfactual-worlds.canvas)
