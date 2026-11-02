@@ -1,0 +1,96 @@
+{
+  "edition": 44,
+  "date": "2026-11-02",
+  "passed": true,
+  "sourceBaseline": "337c437b469136319130b74961c2b83d22d8a273",
+  "fullJavaCommit": "73b67c0ae57f05412d77c367781ea062ec75a426",
+  "java": {
+    "checks": 404,
+    "classes": 84,
+    "failures": 0,
+    "skipped": 0
+  },
+  "distinctJavaChecksCovered": 405,
+  "finalFocusedJava": {
+    "passed": true,
+    "source": "337c437b469136319130b74961c2b83d22d8a273",
+    "classes": 5,
+    "checks": 40,
+    "rows": [
+      {
+        "file": "workspace-engine/build/test-results/test/TEST-fraymus.workspace.Agency043Test.xml",
+        "tests": 10,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "file": "workspace-engine/build/test-results/test/TEST-fraymus.workspace.Alignment041Test.xml",
+        "tests": 9,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "file": "workspace-engine/build/test-results/test/TEST-fraymus.workspace.CreationPlanner044Test.xml",
+        "tests": 5,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "file": "workspace-engine/build/test-results/test/TEST-fraymus.workspace.Domain044Test.xml",
+        "tests": 14,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "file": "workspace-engine/build/test-results/test/TEST-fraymus.workspace.TabletopStoreTest.xml",
+        "tests": 2,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      }
+    ]
+  },
+  "desktopUnits": 117,
+  "groups": {
+    "agency043-integration": 10,
+    "agent042-integration": 15,
+    "integration": 12,
+    "broader-validation": 45,
+    "goals-integration": 14,
+    "data-goals-integration": 12,
+    "creation-integration": 8,
+    "procedural-integration": 9,
+    "maps-integration": 9,
+    "topology-integration": 10,
+    "recovery-materials-integration": 9,
+    "pushing-integration": 12,
+    "poses-integration": 10,
+    "persistent-world-integration": 12,
+    "workflow-integration": 8,
+    "knowledge-integration": 8,
+    "brain-game-integration": 10,
+    "spatial-runtime040-integration": 10,
+    "alignment041-integration": 9,
+    "live-agent042": 3,
+    "live-data-goals": 4,
+    "live-alignment041": 3,
+    "domain044-integration": 6,
+    "mission044-integration": 6
+  },
+  "actualUIAssertions": 238,
+  "actualModelAssertions": 16,
+  "models": [
+    "gpt-oss:20b"
+  ],
+  "appWidths": [
+    1600,
+    1100
+  ],
+  "sourceFiles": 821,
+  "qualification": "Complete404-case run on73b67c0. Only WorkspaceServer and CreationPlanner044 plus its test changed afterward for ongoing camera ingestion and bounded wrong-stage/schema recovery; all other final Java bytes match.405 distinct Java cases covered, not a single405-case invocation. Final focused queue/domain/camera-store tests and actual final camera/model/Mission workflows cover that integration. Original19 native/UI groups and first real agent case preceded final reuse-schema/self-state amendments; final real-data, alignment, Java generation/reconnect and Mission checks cover those paths. All source-specific records and failed attempts are retained. Group check counts bundle multiple actual assertions, not every individual assert statement.",
+  "scope": "Actual Java/Chromium/native controllers and local-model inference on labelled software/data controls. No new physical accuracy, semantic identity, subjective awareness or LLM-weight training claim."
+}

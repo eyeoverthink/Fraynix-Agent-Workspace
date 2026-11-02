@@ -1,0 +1,159 @@
+{
+  "nodes": [
+    {
+      "id": "readme",
+      "type": "file",
+      "file": "README-044.md",
+      "x": 0,
+      "y": 0,
+      "width": 370,
+      "height": 240
+    },
+    {
+      "id": "vision",
+      "type": "file",
+      "file": "docs/EDITION_044_VISION.md",
+      "x": 440,
+      "y": 0,
+      "width": 420,
+      "height": 280
+    },
+    {
+      "id": "owner",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/Agency043.java",
+      "x": 0,
+      "y": 360,
+      "width": 300,
+      "height": 210
+    },
+    {
+      "id": "creation",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/CreationPlanner044.java",
+      "x": 340,
+      "y": 360,
+      "width": 300,
+      "height": 210
+    },
+    {
+      "id": "skills",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/Procedure044.java",
+      "x": 680,
+      "y": 360,
+      "width": 300,
+      "height": 210
+    },
+    {
+      "id": "mission",
+      "type": "file",
+      "file": "workspace-desktop/renderer/agency043.js",
+      "x": 1020,
+      "y": 360,
+      "width": 300,
+      "height": 210
+    },
+    {
+      "id": "brain",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/AgentRuntime042.java",
+      "x": 0,
+      "y": 620,
+      "width": 300,
+      "height": 210
+    },
+    {
+      "id": "world",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/WorldLedger.java",
+      "x": 340,
+      "y": 620,
+      "width": 300,
+      "height": 210
+    },
+    {
+      "id": "dream",
+      "type": "file",
+      "file": "docs/EDITION_044_VISION.md",
+      "x": 680,
+      "y": 620,
+      "width": 300,
+      "height": 210
+    },
+    {
+      "id": "production",
+      "type": "file",
+      "file": "docs/EDITION_044_VISION.md",
+      "x": 1020,
+      "y": 620,
+      "width": 300,
+      "height": 210
+    }
+  ],
+  "edges": [
+    {
+      "id": "edge-owner",
+      "fromNode": "readme",
+      "fromSide": "bottom",
+      "toNode": "owner",
+      "toSide": "top"
+    },
+    {
+      "id": "edge-creation",
+      "fromNode": "readme",
+      "fromSide": "bottom",
+      "toNode": "creation",
+      "toSide": "top"
+    },
+    {
+      "id": "edge-skills",
+      "fromNode": "readme",
+      "fromSide": "bottom",
+      "toNode": "skills",
+      "toSide": "top"
+    },
+    {
+      "id": "edge-mission",
+      "fromNode": "readme",
+      "fromSide": "bottom",
+      "toNode": "mission",
+      "toSide": "top"
+    },
+    {
+      "id": "edge-brain",
+      "fromNode": "readme",
+      "fromSide": "bottom",
+      "toNode": "brain",
+      "toSide": "top"
+    },
+    {
+      "id": "edge-world",
+      "fromNode": "readme",
+      "fromSide": "bottom",
+      "toNode": "world",
+      "toSide": "top"
+    },
+    {
+      "id": "edge-dream",
+      "fromNode": "readme",
+      "fromSide": "bottom",
+      "toNode": "dream",
+      "toSide": "top"
+    },
+    {
+      "id": "edge-production",
+      "fromNode": "readme",
+      "fromSide": "bottom",
+      "toNode": "production",
+      "toSide": "top"
+    },
+    {
+      "id": "vision-next",
+      "fromNode": "vision",
+      "fromSide": "bottom",
+      "toNode": "dream",
+      "toSide": "top"
+    }
+  ]
+}

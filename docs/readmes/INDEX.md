@@ -46,6 +46,7 @@ Numbered editions preserve dated system behavior and evidence. The root [README]
 | [040](../../README-040.md) | 2026-11-01 | Shared Java spatial runtime, integrated views and checked chat reports | [Viewer](040/index.html) · [tree](040/FILE_TREE.md) |
 | [041](../../README-041.md) | 2026-11-01 | Measured mat alignment, fresh physical windows and source-aware chat | [Viewer](041/index.html) · [tree](041/FILE_TREE.md) |
 | [042](../../README-042.md) | 2026-11-02 | One continuing Java brain and an integrated workspace | [Viewer](042/index.html) · [tree](042/FILE_TREE.md) |
-| [043](../../README-043.md) | 2026-11-02 | Java tasks, original screenshots and tested visual references | [Viewer](043/index.html) · [tree](043/FILE_TREE.md) |
+| [043](../../README-043.md) | 2026-11-02 | Java tasks and visual memory | [Viewer](043/index.html) · [tree](043/FILE_TREE.md) |
+| [044](../../README-044.md) | 2026-11-02 | One Java agent, visible missions and grounded world planning | [Viewer](044/index.html) · [tree](044/FILE_TREE.md) |
 
-Latest implementation/documentation edition: **043**. Earlier snapshots remain intact. Rejected and experimental results retain their original scope; a title is not a promotion of physical accuracy. See [sequence policy](README_SEQUENCE.md) and [manifest](editions.json).
+Latest implementation/documentation edition: **044**. Earlier snapshots remain intact. Rejected and experimental results retain their original scope. See [sequence policy](README_SEQUENCE.md) and [manifest](editions.json).

@@ -1,0 +1,44 @@
+{
+  "scope": "Actual recorded mission interruption/recovery, not a live simulation or generated success animation.",
+  "taskId": "903cc830-4701-486d-b38b-4a4d0251d00f",
+  "generation": 2,
+  "status": "completed",
+  "outcome": "verified",
+  "events": [
+    {
+      "kind": "queued",
+      "at": "2026-11-02T15:34:55.749314200Z",
+      "sha256": "e0045dcb2c553b00bd9191b475aadb6394623d4a389d99d6abea1d19054e9b30",
+      "tool": null,
+      "reason": null
+    },
+    {
+      "kind": "interrupted",
+      "at": "2026-11-02T15:34:56.187046Z",
+      "sha256": "8502a18a7cceaef33169e2a626450b0fc7d081cb0752ab19b75f25f410849da9",
+      "tool": null,
+      "reason": "Interface ended during a claimed surface action; explicitly Resume"
+    },
+    {
+      "kind": "surface-action",
+      "at": "2026-11-02T15:34:57.897866900Z",
+      "sha256": "70e7b3e398e98d9f4ce3fbccbd7072abe4bd10205d5e8daaba336b816741dfdb",
+      "tool": "canvas.observe",
+      "reason": null
+    },
+    {
+      "kind": "surface-action",
+      "at": "2026-11-02T15:34:59.268606700Z",
+      "sha256": "855f1bd2fef33fe3b843330544212b4b7996a8e8d3e6831d08eb8ebc6bf77de8",
+      "tool": "screen.report",
+      "reason": null
+    },
+    {
+      "kind": "completed",
+      "at": "2026-11-02T15:34:59.306092300Z",
+      "sha256": "6861a2f981e3cb4e20f3c15f5501f6998d3db2dd64c77e790f6726f81aecf56f",
+      "tool": null,
+      "reason": null
+    }
+  ]
+}
