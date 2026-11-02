@@ -453,7 +453,7 @@ public final class WorkspaceServer implements AutoCloseable {
         return switch(route){
             case "/api/state"->state();
             case "/api/alignment041/state"->alignment041.state();
-            case "/api/goals/read"->goals.read(args.getString("id"));
+            case "/api/goals/read"->GoalRunner.view(goals.read(args.getString("id")));
             case "/api/workflows/read"->workflows.read(args.getString("id"));
             case "/api/calibration/read"->calibrations.read(args.getString("id"));
             case "/api/calibration/resume"->calibrations.resume(args.getString("id"));
