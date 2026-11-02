@@ -30,6 +30,7 @@ public final class WorkspaceServer {
     private final KnowledgeStore knowledge;
     private final SelfModel selfModel;
     private final SpatialRuntime040 runtime040;
+    private final Alignment041Store alignment041;
     private final WorkflowRunner workflows;
     private final EmbeddedGameClient game;
     private final String token;
@@ -40,7 +41,7 @@ public final class WorkspaceServer {
     public WorkspaceServer(Path project,String token) throws IOException {
         if(token==null||token.length()<32)throw new IllegalArgumentException("A private session capability is required");
         this.token=token;store=new WorkspaceStore(project);learning=new LearningStore(project);
-        try{scenes=new SceneStore(project);spatial=new SpatialStore(project);maps=new MapStore(project);perception=new PerceptionStore(project);measurements=new MeasurementStore(project);calibrations=new CalibrationStore(project,scenes,measurements);observers=new ObserverStore(project,scenes);brain=new BrainService(project);goals=new GoalRunner(project,scenes,brain,store,measurements,spatial,perception,maps);observations=new WorldObservationStore(project,goals.worlds());metrics=new MetricObservationStore(project,observations,goals.worlds());tabletop=new TabletopStore(project,goals.worlds(),metrics);knowledge=new KnowledgeStore(project,tabletop);selfModel=new SelfModel(knowledge);workflows=new WorkflowRunner(project,goals,measurements,scenes,store);game=new EmbeddedGameClient(Path.of(System.getProperty("user.dir")),project);runtime040=new SpatialRuntime040(project,goals.worlds(),goals.worldNative(),tabletop,knowledge,game);}catch(Exception e){throw new IOException("Experiment stores could not start",e);}
+        try{scenes=new SceneStore(project);spatial=new SpatialStore(project);maps=new MapStore(project);perception=new PerceptionStore(project);measurements=new MeasurementStore(project);calibrations=new CalibrationStore(project,scenes,measurements);observers=new ObserverStore(project,scenes);brain=new BrainService(project);goals=new GoalRunner(project,scenes,brain,store,measurements,spatial,perception,maps);observations=new WorldObservationStore(project,goals.worlds());metrics=new MetricObservationStore(project,observations,goals.worlds());tabletop=new TabletopStore(project,goals.worlds(),metrics);knowledge=new KnowledgeStore(project,tabletop);selfModel=new SelfModel(knowledge);workflows=new WorkflowRunner(project,goals,measurements,scenes,store);game=new EmbeddedGameClient(Path.of(System.getProperty("user.dir")),project);runtime040=new SpatialRuntime040(project,goals.worlds(),goals.worldNative(),tabletop,knowledge,game);alignment041=new Alignment041Store(project,goals.worlds());}catch(Exception e){throw new IOException("Experiment stores could not start",e);}
         scanner.scheduleWithFixedDelay(()->{try{catalog=models.observe();}catch(Exception e){System.err.println("Model discovery: "+e.getMessage());}},0,45,TimeUnit.SECONDS);
     }
     private JSONObject visionModels(){var out=new JSONArray();try{var tags=LocalModelAdmission.request("http://127.0.0.1:11434/api/tags",null);for(Object raw:tags.getJSONArray("models")){var tag=(JSONObject)raw;try{var show=LocalModelAdmission.request("http://127.0.0.1:11434/api/show",new JSONObject().put("model",tag.getString("name")));if(show.getJSONArray("capabilities").toList().contains("vision"))out.put(new JSONObject().put("name",tag.getString("name")).put("bytes",tag.getLong("size")));}catch(Exception unavailable){/* Unavailable metadata is not an eligible detector. */}}return new JSONObject().put("models",out).put("available",!out.isEmpty());}catch(Exception unavailable){return new JSONObject().put("models",out).put("available",false).put("reason","Local vision metadata unavailable; DOM and taught appearance remain usable offline");}}
@@ -59,7 +60,29 @@ public final class WorkspaceServer {
                 if(!exchange.getRequestMethod().equals("POST")){send(exchange,405,new JSONObject().put("error","POST required"));return;}
                 byte[] body=exchange.getRequestBody().readNBytes(2_100_001);if(body.length>2_100_000)throw new IllegalArgumentException("Request too large");
                 JSONObject input=new JSONObject(new String(body,StandardCharsets.UTF_8));String route=exchange.getRequestURI().getPath();JSONObject result;
-                if((observations.busy()||tabletop.busy())&&Set.of("/api/world/start","/api/world/restore","/api/goals/start","/api/procedures/run","/api/observations/start","/api/observations/resume","/api/tabletop/start").contains(route))throw new IllegalStateException("The observation run owns this world binding; Stop it before native actions");
+                if((observations.busy()||tabletop.busy()||alignment041.busy())&&Set.of("/api/world/start","/api/world/restore","/api/goals/start","/api/procedures/run","/api/observations/start","/api/observations/resume","/api/tabletop/start").contains(route))throw new IllegalStateException("The observation run owns this world binding; Stop it before native actions");
+                if(route.startsWith("/api/alignment041/")){
+                    result=switch(route){
+                        case "/api/alignment041/state"->alignment041.state();
+                        case "/api/alignment041/register"->alignment041.register(input);
+                        case "/api/alignment041/select"->alignment041.select(input);
+                        case "/api/alignment041/trial"->alignment041.trial(input.getString("id"));
+                        case "/api/alignment041/start"->alignment041.start(input);
+                        case "/api/alignment041/frame"->alignment041.frame(input);
+                        case "/api/alignment041/mark"->alignment041.mark(input);
+                        case "/api/alignment041/finish"->alignment041.finish(input.getString("id"),false);
+                        case "/api/alignment041/stop"->alignment041.finish(input.getString("id"),true);
+                        case "/api/alignment041/evaluate"->alignment041.evaluate(input);
+                        case "/api/alignment041/image"->alignment041.image(input.getString("id"),input.getInt("ordinal"));
+                        case "/api/alignment041/capture"->{SpatialScene.keys(input,"pin");yield alignment041.capture(runtime040.read(),input.optBoolean("pin",false));}
+                        case "/api/alignment041/release"->alignment041.release(input.getString("snapshotHash"));
+                        case "/api/alignment041/view"->{SpatialScene.keys(input,"snapshotHash","view");yield Alignment041Report.view(alignment041.cached(input.getString("snapshotHash")),input.getString("view"));}
+                        case "/api/alignment041/export"->Alignment041Report.exported(alignment041.cached(input.getString("snapshotHash")));
+                        case "/api/alignment041/verify-export"->Alignment041Report.verify(input);
+                        case "/api/alignment041/report"->{var snapshot=alignment041.cached(input.getString("snapshotHash"));var artifact=store.writeOnce("alignment041:"+snapshot.getString("snapshotHash"),Alignment041Report.build(snapshot));var t=snapshot.optJSONObject("trial");yield new JSONObject().put("artifact",artifact).put("receipt",new JSONObject().put("snapshotHash",snapshot.getString("snapshotHash")).put("registrationId",snapshot.getJSONObject("registration").getString("id")).put("trialId",t==null?"none":t.getString("id")).put("landmarks",snapshot.getJSONObject("registration").getJSONObject("fit").getJSONArray("landmarks").length()));}
+                        default->throw new IllegalArgumentException("Unknown measured alignment operation");
+                    };send(exchange,200,result);return;
+                }
                 if(route.startsWith("/api/runtime040/")){
                     result=switch(route){
                         case "/api/runtime040/state"->runtime040.state();

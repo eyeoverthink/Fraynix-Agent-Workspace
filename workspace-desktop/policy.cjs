@@ -1,6 +1,8 @@
 'use strict';
 const { randomUUID } = require('node:crypto');
 const catalog = [
+ ['alignment.read','Read and pin the selected measured mat registration and manual trial, independent checks, source clocks and actual failures. No camera capture, supplied truth or native motion.','{}'],
+ ['alignment.report','Open and check exact pinned numeric alignment/physical-trial evidence, source identities, landmark rows and Java views. No raw camera pixels or native action.','{}'],
  ['runtime.read','Read the user-selected shared spatial source, actual stable entity identities, source clocks/units and separately qualified observations. Pins exact data; cannot start or actuate a runtime.','{}'],
  ['runtime.project','Inspect an exact-source Java perspective/top/front/side projection. Game render layer is not physical depth; no geometry or poses can be supplied.','{view}'],
  ['runtime.report','Open and verify the exact pinned snapshot report, source/entity identity, camera projections and compact rows. Does not change the source.','{}'],
@@ -129,6 +131,7 @@ const perceptionOptions={mode:{type:'string',enum:['vision','appearance','dom']}
 const mapConstraints=object({connected:{type:'boolean'},minFloorFraction:{type:'number',minimum:.05,maximum:.95},maxFloorFraction:{type:'number',minimum:.05,maximum:.95},minRouteSteps:{type:'integer',minimum:0,maximum:128},maxRouteSteps:{type:'integer',minimum:0,maximum:128}},[]);
 const mapOptions={materials:{type:'array',minItems:1,maxItems:8,items:object({tile:{type:'integer',minimum:0,maximum:7},name:{type:'string',minLength:1,maxLength:60},friction:{type:'number',minimum:.05,maximum:1.2},restitution:{type:'number',minimum:0,maximum:.95},dragNsPerM:{type:'number',minimum:0,maximum:8}},['tile','name','friction'])},constraints:mapConstraints,seed:{type:'integer',minimum:0,maximum:1e9},width:{type:'integer',minimum:8,maximum:24},height:{type:'integer',minimum:8,maximum:24},cellSizeM:{type:'number',minimum:.6,maximum:1.2},friction:{type:'number',minimum:.05,maximum:1.2},disturbanceNs:{type:'number',minimum:-.5,maximum:.5},saveSkillName:text,pins:{type:'array',maxItems:64,items:object({x:{type:'integer',minimum:0,maximum:23},y:{type:'integer',minimum:0,maximum:23},tile:{type:'integer',minimum:0,maximum:7}},['x','y','tile'])}};
 const argumentSchemas={
+ 'alignment.read':empty,'alignment.report':empty,
  'runtime.read':empty,'runtime.project':object({view:{type:'string',enum:['perspective','top','front','side']}}),'runtime.report':empty,
  'self.read':object({query:{type:'string',maxLength:160}},[]),'object.read':empty,'object.research':empty,'object.wait':empty,'object.report':empty,
  'tabletop.answer':object({question:{type:'string',enum:['position','motion','visibility','calibration','prediction','limits']}}),'tabletop.read':empty,'tabletop.report':empty,'observations.read':empty,'observations.start':empty,'observations.wait':empty,'observations.report':empty,
