@@ -50,7 +50,7 @@ async function updateSelfHost(){
  if(!selfRegistered)return;
  let cameraActive=false;if(window&&!window.isDestroyed())try{cameraActive=await Promise.race([window.webContents.executeJavaScript('Boolean(window.tabletopView?.stream||window.metricView?.stream)'),new Promise(resolve=>setTimeout(()=>resolve(false),500))]);}catch{}
  const spatialState=await api('/api/runtime040/state',{}),alignmentState=await api('/api/alignment041/state',{});
- await api('/api/self/host',{alignmentRegistrationId:alignmentState.selectedRegistrationId||'',alignmentTrialId:alignmentState.selectedTrialId||'',spatialSource:spatialState.binding||{},spatialSelectedId:spatialState.selectedId||'',sessionId:selfHostSession,offline:networkPolicy.enabled,browserReady:!!browser&&!browser.view.webContents.isDestroyed()&&!browser.pending,canvasReady:!!canvas&&!canvas.view.webContents.isDestroyed()&&!canvas.pending,cameraActive,selectedObjectId:knowledgeBridge?.selected()?.id||'',agentActive:!!run});
+ await api('/api/self/host',{alignmentRegistrationId:alignmentState.selectedRegistrationId||'',alignmentTrialId:alignmentState.selectedTrialId||'',spatialSource:spatialState.binding||{},spatialSelectedId:spatialState.selectedId||'',sessionId:selfHostSession,offline:networkPolicy.enabled,browserReady:!!browser&&!browser.view.webContents.isDestroyed()&&!browser.pending,canvasReady:!!canvas&&!canvas.view.webContents.isDestroyed()&&!canvas.pending,cameraActive,selectedObjectId:knowledgeBridge?.selected()?.id||'',agentActive:!!run||!!pendingAgency043||!!agency043?.busy()});
 }
 async function api(route,input){
   const agencyAuthority043=agencyScope043.getStore();
