@@ -223,7 +223,7 @@ async function executeRaw(tool,args={}){
     case 'skills.list':result=(await refresh()).skills;break;
     case 'skill.save':if(!currentArtifact)throw Error('Open an artifact first');result=await api('/api/skill/save',{...args,id:currentArtifact.id});await refresh();break;
     case 'skill.run':{
-      const skill=await api('/api/skill/read',args);await execute('canvas.write',{title:skill.title+' Â· '+new Date().toLocaleTimeString(),files:skill.files,sources:skill.sources});
+      const skill=await api('/api/skill/read',args);await execute('canvas.write',{title:skill.title+' · '+new Date().toLocaleTimeString(),files:skill.files,sources:skill.sources});
       result=await execute('canvas.test',{steps:skill.tests});break;
     }
     case 'memory.search':result=await api('/api/host/skill',{name:'memory.search',args});break;
