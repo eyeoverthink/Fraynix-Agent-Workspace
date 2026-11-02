@@ -1,0 +1,2536 @@
+[
+  {
+    "type": "function",
+    "function": {
+      "name": "screen_read",
+      "description": "Read dated app-surface screenshots, local visual estimates, original hashes and retained routine matches. No supplied facts or capture of other desktop apps.",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": false
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "screen_report",
+      "description": "Open and verify the actual saved visual witness report for a recorded Java task. Pixel differences and captions are not task success.",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": false
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "agent_read",
+      "description": "Read actual continuing Java identity, independent clocks, shared sensory state, retained experience and integrity audit. No supplied facts or action authority.",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": false
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "agent_report",
+      "description": "Open and verify a dated Java continuity report with exact identity, boot and source evidence. Does not prove consciousness, physical truth or policy improvement.",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": false
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "alignment_read",
+      "description": "Read and pin the selected measured mat registration and manual trial, independent checks, source clocks and actual failures. No camera capture, supplied truth or native motion.",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": false
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "alignment_report",
+      "description": "Open and check exact pinned numeric alignment/physical-trial evidence, source identities, landmark rows and Java views. No raw camera pixels or native action.",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": false
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "runtime_read",
+      "description": "Read the user-selected shared spatial source, actual stable entity identities, source clocks/units and separately qualified observations. Pins exact data; cannot start or actuate a runtime.",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": false
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "runtime_project",
+      "description": "Inspect an exact-source Java perspective/top/front/side projection. Game render layer is not physical depth; no geometry or poses can be supplied.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "view": {
+            "type": "string",
+            "enum": [
+              "perspective",
+              "top",
+              "front",
+              "side"
+            ]
+          }
+        },
+        "required": [
+          "view"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "runtime_report",
+      "description": "Open and verify the exact pinned snapshot report, source/entity identity, camera projections and compact rows. Does not change the source.",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": false
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "self_read",
+      "description": "Read current registered capabilities, actual host/network/camera state, persistent object and research counts, recent execution receipts. Network allowed is not proof of connectivity.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "query": {
+            "type": "string",
+            "maxLength": 160
+          }
+        },
+        "required": [],
+        "additionalProperties": false
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "object_read",
+      "description": "Read the selected durable human-associated object, original camera provenance and actual research history. Labels are human guidance, not visual recognition.",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": false
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "object_research",
+      "description": "Start or join bounded real web research for the selected object human category in a separate browser. Original camera images are not uploaded.",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": false
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "object_wait",
+      "description": "Read saved progress of this task research job without starting duplicate work.",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": false
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "object_report",
+      "description": "Open and test the actual cached-source object report with source URLs/hashes and identity. Candidate references are not visual matches or measured physical properties.",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": false
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "tabletop_answer",
+      "description": "Ask a registered Java evidence question about selected tabletop position, motion, visibility, calibration, prediction or limits. No model-supplied measurements.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "question": {
+            "type": "string",
+            "enum": [
+              "position",
+              "motion",
+              "visibility",
+              "calibration",
+              "prediction",
+              "limits"
+            ]
+          }
+        },
+        "required": [
+          "question"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "tabletop_read",
+      "description": "Read the explicitly selected actual tabletop camera run, planar measurements, tape check, freshness and uncertainty. Human target labels are not recognition.",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": false
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "tabletop_report",
+      "description": "Open and test the actual numeric tabletop report; no private camera image is included.",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": false
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "observations_read",
+      "description": "Read actual observed-world estimates, uncertainty, stable body identities and recorded footage history. Pixel coordinates/frame-index time; no physical calibration implied.",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": false
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "observations_start",
+      "description": "Process explicitly selected original footage and bindings ONCE; Java owns tracker, prediction filter and persistent estimate revisions.",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": false
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "observations_wait",
+      "description": "Wait for this request owned real observation run; retain losses and rejected updates.",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": false
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "observations_report",
+      "description": "Open and test the actual saved motion report from recorded evidence.",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": false
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "world_observe",
+      "description": "Observe the selected persistent world current revision and all native body kinematics; explicitly refresh a stale request binding.",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": false
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "world_arrange",
+      "description": "Continue the current versioned world with bounded native forces/torques; verify all bodies and actual charts before advancing its head. Never reset the original source.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "targets": {
+            "type": "array",
+            "minItems": 2,
+            "maxItems": 4,
+            "items": {
+              "type": "object",
+              "properties": {
+                "sourceId": {
+                  "type": "string"
+                },
+                "positionM": {
+                  "type": "array",
+                  "items": {
+                    "type": "number",
+                    "minimum": -5,
+                    "maximum": 5
+                  },
+                  "minItems": 3,
+                  "maxItems": 3
+                },
+                "yawDeg": {
+                  "type": "number",
+                  "minimum": -180,
+                  "maximum": 180
+                }
+              },
+              "required": [
+                "sourceId",
+                "positionM",
+                "yawDeg"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "forceLimitN": {
+            "type": "number",
+            "minimum": 2,
+            "maximum": 60
+          },
+          "torqueLimitNm": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 4
+          },
+          "saveSkillName": {
+            "type": "string"
+          }
+        },
+        "required": [],
+        "additionalProperties": false
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "pose_compare",
+      "description": "Run the frozen native multi-object pose/translation-only ablation with fixed source data and gates. Not a033 contact-controller promotion.",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": false
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "pose_study",
+      "description": "Read current native pose comparison history.",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": false
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "pose_read",
+      "description": "Read actual selected multi-object scene, displayed target poses and virtual gripper limits.",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": false
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "pose_start",
+      "description": "Arrange2..4 actual source roles at target positions and yaw by bounded native virtual-gripper forces/torques; release, verify all bodies/charts and optionally retain a procedure.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "targets": {
+            "type": "array",
+            "minItems": 2,
+            "maxItems": 4,
+            "items": {
+              "type": "object",
+              "properties": {
+                "sourceId": {
+                  "type": "string"
+                },
+                "positionM": {
+                  "type": "array",
+                  "items": {
+                    "type": "number",
+                    "minimum": -5,
+                    "maximum": 5
+                  },
+                  "minItems": 3,
+                  "maxItems": 3
+                },
+                "yawDeg": {
+                  "type": "number",
+                  "minimum": -180,
+                  "maximum": 180
+                }
+              },
+              "required": [
+                "sourceId",
+                "positionM",
+                "yawDeg"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "forceLimitN": {
+            "type": "number",
+            "minimum": 2,
+            "maximum": 60
+          },
+          "torqueLimitNm": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 4
+          },
+          "saveSkillName": {
+            "type": "string"
+          }
+        },
+        "required": [],
+        "additionalProperties": false
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "contact_compare",
+      "description": "Compare the original and versioned solver-contact controller on frozen development and different reserved native cases. Settings, sources, gates and results belong to Java.",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": false
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "contact_read",
+      "description": "Read contact study history and the currently validated controller.",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": false
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "force_start",
+      "description": "Run the frozen native force-learning experiment: training-only cap selection, paired reserved evaluation and exact report verification. No user supplied gates, data, force settings or success values.",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": false
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "force_read",
+      "description": "Read the frozen suite scope and current active evaluated force profile.",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": false
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "map_read",
+      "description": "Inspect the selected original palette-map reference or compiled native world. User-declared passability, actual source hash and learned frequencies; host binds selection.",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": false
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "push_read",
+      "description": "Observe the actual selected crate/pusher roles, source geometry, masses, friction and committed native state. Labels are qualified scene data.",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": false
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "push_start",
+      "description": "Plan reachable standing poses and push the selected crate by bounded native pusher forces. Java owns collision timing, measured jam recovery, both-body checkpoints and exact report verification. No direct crate force or grip.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "useContactController": {
+            "type": "boolean"
+          },
+          "useActiveProfile": {
+            "type": "boolean"
+          },
+          "displacementM": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "minimum": -4,
+              "maximum": 4
+            },
+            "minItems": 3,
+            "maxItems": 3
+          },
+          "initialForceN": {
+            "type": "number",
+            "minimum": 2,
+            "maximum": 60
+          },
+          "maxForceN": {
+            "type": "number",
+            "minimum": 2,
+            "maximum": 60
+          },
+          "saveSkillName": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "displacementM"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "map_start",
+      "description": "Java learns image adjacency, preserves hard pins, compiles real colliders, navigates a force-driven avatar with feedback and verifies actual trace/charts; optionally retain a skill. For selected existing maps omit generation fields.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "materials": {
+            "type": "array",
+            "minItems": 1,
+            "maxItems": 8,
+            "items": {
+              "type": "object",
+              "properties": {
+                "tile": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 7
+                },
+                "name": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 60
+                },
+                "friction": {
+                  "type": "number",
+                  "minimum": 0.05,
+                  "maximum": 1.2
+                },
+                "restitution": {
+                  "type": "number",
+                  "minimum": 0,
+                  "maximum": 0.95
+                },
+                "dragNsPerM": {
+                  "type": "number",
+                  "minimum": 0,
+                  "maximum": 8
+                }
+              },
+              "required": [
+                "tile",
+                "name",
+                "friction"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "constraints": {
+            "type": "object",
+            "properties": {
+              "connected": {
+                "type": "boolean"
+              },
+              "minFloorFraction": {
+                "type": "number",
+                "minimum": 0.05,
+                "maximum": 0.95
+              },
+              "maxFloorFraction": {
+                "type": "number",
+                "minimum": 0.05,
+                "maximum": 0.95
+              },
+              "minRouteSteps": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 128
+              },
+              "maxRouteSteps": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 128
+              }
+            },
+            "required": [],
+            "additionalProperties": false
+          },
+          "seed": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 1000000000
+          },
+          "width": {
+            "type": "integer",
+            "minimum": 8,
+            "maximum": 24
+          },
+          "height": {
+            "type": "integer",
+            "minimum": 8,
+            "maximum": 24
+          },
+          "cellSizeM": {
+            "type": "number",
+            "minimum": 0.6,
+            "maximum": 1.2
+          },
+          "friction": {
+            "type": "number",
+            "minimum": 0.05,
+            "maximum": 1.2
+          },
+          "disturbanceNs": {
+            "type": "number",
+            "minimum": -0.5,
+            "maximum": 0.5
+          },
+          "saveSkillName": {
+            "type": "string"
+          },
+          "pins": {
+            "type": "array",
+            "maxItems": 64,
+            "items": {
+              "type": "object",
+              "properties": {
+                "x": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 23
+                },
+                "y": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 23
+                },
+                "tile": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 7
+                }
+              },
+              "required": [
+                "x",
+                "y",
+                "tile"
+              ],
+              "additionalProperties": false
+            }
+          }
+        },
+        "required": [],
+        "additionalProperties": false
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "space_start",
+      "description": "Generate and verify actual Java procedural coordinates: colonization in2..16 dimensions or connected BSP dungeons in2..4 dimensions. Seeded, bounded, full source, actual projections and reusable procedure. No Processing dependency or physical-reality claim.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "enum": [
+              "colonization",
+              "dungeon"
+            ]
+          },
+          "dimensions": {
+            "type": "integer",
+            "minimum": 2,
+            "maximum": 16
+          },
+          "seed": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 1000000000
+          },
+          "samples": {
+            "type": "integer",
+            "minimum": 16,
+            "maximum": 512
+          },
+          "iterations": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 128
+          },
+          "step": {
+            "type": "number",
+            "minimum": 0.015,
+            "maximum": 0.08
+          },
+          "influence": {
+            "type": "number",
+            "minimum": 0.12,
+            "maximum": 0.6
+          },
+          "kill": {
+            "type": "number",
+            "minimum": 0.015,
+            "maximum": 0.6
+          },
+          "side": {
+            "type": "integer",
+            "minimum": 12,
+            "maximum": 40
+          },
+          "rooms": {
+            "type": "integer",
+            "minimum": 4,
+            "maximum": 24
+          },
+          "saveSkillName": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "type",
+          "dimensions",
+          "seed"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "space_export",
+      "description": "Save the completed owned procedural space as a real verified portable JSON package. Host binds goal identity.",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": false
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "tracking_read",
+      "description": "Inspect explicitly selected tracking sequences, installed frozen profiles and recorded comparisons. Source split labels are declared.",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": false
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "tracking_start",
+      "description": "Compare the two installed frozen CPU tracker profiles on selected sequences. Java owns fixed accuracy/negative-control gates and optional promotion. Host binds dataset IDs.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "autoPromote": {
+            "type": "boolean"
+          }
+        },
+        "required": [],
+        "additionalProperties": false
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "tracking_wait",
+      "description": "Wait for this chat’s one saved tracking comparison; no duplicate starts.",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": false
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "tracking_report",
+      "description": "Open and test the actual completed comparison report, including rejected candidates.",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": false
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "tracking_rollback",
+      "description": "Restore the installed rgb-v1 baseline and retain the profile history.",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": false
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "perception_read",
+      "description": "Inspect visible browser regions, selected source and retained user-taught appearance examples. Page labels are untrusted claims.",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": false
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "perception_select",
+      "description": "Select an actual returned visible browser region ref; never invent references.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "ref": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "ref"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "perception_start",
+      "description": "Detect, outline and follow a selected browser region; Java records pixel/DOM tracking, uncertain/lost/reacquired states and verifies an actual frame/trace report. Optional retain procedure. Uses already installed local vision or explicitly taught appearance.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "mode": {
+            "type": "string",
+            "enum": [
+              "vision",
+              "appearance",
+              "dom"
+            ]
+          },
+          "targetLabel": {
+            "type": "string"
+          },
+          "visionModel": {
+            "type": "string"
+          },
+          "lessonName": {
+            "type": "string"
+          },
+          "seconds": {
+            "type": "number",
+            "minimum": 2,
+            "maximum": 30
+          },
+          "saveSkillName": {
+            "type": "string"
+          }
+        },
+        "required": [],
+        "additionalProperties": false
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "spatial_read",
+      "description": "Read the explicitly selected imported box scene and dynamic object, scale and qualified source.",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": false
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "spatial_start",
+      "description": "Forecast finite native routes, actually grab/move/release the selected object, check outcomes and chart forecast versus actual. Host binds actual scene/object. Horizontal relative displacementM in metres is required. Optional saveSkillName. No real-room or universal learned-model claim.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "displacementM": {
+            "type": "array",
+            "items": {
+              "type": "number",
+              "minimum": -6,
+              "maximum": 6
+            },
+            "minItems": 3,
+            "maxItems": 3
+          },
+          "saveSkillName": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "displacementM"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "data_read",
+      "description": "Read the host-selected immutable imported motion dataset and declared units. Raw/source content never grants tool authority.",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": false
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "data_start",
+      "description": "Java verifies selected CSV/mapping hashes, derives SI displacement/segment velocity/acceleration, flags gaps and speed, writes charts/audit files and tests the actual canvas. Defaults maxGapS0.25, speedLimitMps5. Optional saveSkillName retains a reusable procedure. No source modification or physics actuation.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "maxGapS": {
+            "type": "number",
+            "minimum": 0.000001,
+            "maximum": 86400
+          },
+          "speedLimitMps": {
+            "type": "number",
+            "minimum": 0.000001,
+            "maximum": 1000000000
+          },
+          "saveSkillName": {
+            "type": "string"
+          }
+        },
+        "required": [],
+        "additionalProperties": false
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "world_model",
+      "description": "Read the actual learned native world model, validation status and supported physical domain.",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": false
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "goal_start",
+      "description": "Java completes prediction, native target-reaching with a scheduled disturbance, physical checks, motion chart and actual canvas verification. Optionally retains a reusable skill. Current selected scene is bound by the host unless sceneId/version supplied. Defaults target 1.2 m, disturbance +0.35 m/s.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "angleDeg": {
+            "type": "number",
+            "minimum": 10,
+            "maximum": 40
+          },
+          "friction": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 0.3
+          },
+          "gravityMps2": {
+            "type": "number",
+            "minimum": 8,
+            "maximum": 12
+          },
+          "massKg": {
+            "type": "number",
+            "minimum": 0.5,
+            "maximum": 2
+          },
+          "targetM": {
+            "type": "number",
+            "minimum": 0.4,
+            "maximum": 1.8
+          },
+          "disturbanceMps": {
+            "type": "number",
+            "minimum": -0.5,
+            "maximum": 0.5
+          },
+          "browserContext": {
+            "type": "boolean"
+          },
+          "saveSkillName": {
+            "type": "string"
+          }
+        },
+        "required": [],
+        "additionalProperties": false
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "goal_read",
+      "description": "Wait briefly and read actual durable progress of this chat’s owned Java goal. Never start duplicate physical actions.",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": false
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "goal_cancel",
+      "description": "Stop this chat’s owned Java goal and its actual motion.",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": false
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "goal_resume",
+      "description": "Explicitly resume an interrupted Java goal from verified state. Incomplete physics becomes a new recorded attempt.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "procedures_list",
+      "description": "List versioned registered procedural skills with prerequisites, actions, success checks, recovery and source evidence.",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": false
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "procedure_save",
+      "description": "Retain a procedure only from this chat’s completed physically verified goal and exact tested report.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "name"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "procedure_run",
+      "description": "Run a saved registered procedure version with freshly checked conditions and outcomes.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "version": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 8
+          },
+          "angleDeg": {
+            "type": "number",
+            "minimum": 10,
+            "maximum": 40
+          },
+          "friction": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 0.3
+          },
+          "gravityMps2": {
+            "type": "number",
+            "minimum": 8,
+            "maximum": 12
+          },
+          "massKg": {
+            "type": "number",
+            "minimum": 0.5,
+            "maximum": 2
+          },
+          "targetM": {
+            "type": "number",
+            "minimum": 0.4,
+            "maximum": 1.8
+          },
+          "disturbanceMps": {
+            "type": "number",
+            "minimum": -0.5,
+            "maximum": 0.5
+          },
+          "browserContext": {
+            "type": "boolean"
+          },
+          "maxGapS": {
+            "type": "number",
+            "minimum": 0.000001,
+            "maximum": 86400
+          },
+          "speedLimitMps": {
+            "type": "number",
+            "minimum": 0.000001,
+            "maximum": 1000000000
+          },
+          "saveSkillName": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "name",
+          "version"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "body_grab",
+      "description": "Attach a real native constraint to a visible dynamic Block within 6 m. Requires fresh observation; no current experiment. The host binds actual task ownership and a fresh source.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "entityId": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "entityId"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "body_move",
+      "description": "Move the held body toward a world-space target through native solver ticks, collisions and a bounded constraint. Read measured reached/blocked outcome.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "target": {
+            "type": "array",
+            "items": {
+              "type": "number"
+            },
+            "minItems": 3,
+            "maxItems": 3
+          }
+        },
+        "required": [
+          "target"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "body_release",
+      "description": "Remove the native constraint, preserve velocity and simulate 0.5 s of actual gravity/contact response; settles this manipulation run.",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": false
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "body_cancel",
+      "description": "Cancel an owned manipulation, stop pending motion and remove its native constraint.",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": false
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "body_capture",
+      "description": "Capture the actual final view of this task’s owned native body run. The host binds the observer and source.",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": false
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "scene_export",
+      "description": "Save a portable native scene JSON file and return its validated data and file receipt.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "scene_clone",
+      "description": "Create a new native scene with equivalent supported geometry/parameters, fresh entity IDs and import provenance. Reset active physics first.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "scene_import",
+      "description": "Validate and recreate a supported fraynix.scene package as a new scene. Data only, no code execution.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "package": {
+            "type": "object"
+          }
+        },
+        "required": [
+          "package"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "run_export",
+      "description": "Save a settled native run as JSON with actual samples, commands, source definition and results.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "run_csv",
+      "description": "Save actual recorded native position/velocity/contact samples as CSV.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "run_video",
+      "description": "Render recorded native poses to a real silent WebM video, up to 30 s at nominal 30 fps.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "observer_open",
+      "description": "Open or restore the latest Java-owned first-person free camera for sceneId. Send only the saved sceneId; the host returns observer.id. No avatar body.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "sceneId": {
+            "type": "string",
+            "description": "The saved scene id, not an observer id"
+          }
+        },
+        "required": [
+          "sceneId"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "observer_observe",
+      "description": "Observe actual native entities with camera pose, source scene/run/tick and a fresh observation id. Visibility uses geometric rays.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "observer_move",
+      "description": "Move the free camera by declared metres in yaw-relative forward/right and world up. Requires a fresh observationId. Does not move objects.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "observationId": {
+            "type": "string"
+          },
+          "forward": {
+            "type": "number",
+            "minimum": -5,
+            "maximum": 5
+          },
+          "right": {
+            "type": "number",
+            "minimum": -5,
+            "maximum": 5
+          },
+          "up": {
+            "type": "number",
+            "minimum": -5,
+            "maximum": 5
+          }
+        },
+        "required": [
+          "id",
+          "observationId"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "observer_look",
+      "description": "Turn the camera by declared yaw/pitch degree deltas, using a fresh observationId.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "observationId": {
+            "type": "string"
+          },
+          "yawDeg": {
+            "type": "number",
+            "minimum": -90,
+            "maximum": 90
+          },
+          "pitchDeg": {
+            "type": "number",
+            "minimum": -45,
+            "maximum": 45
+          }
+        },
+        "required": [
+          "id",
+          "observationId"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "observer_focus",
+      "description": "Look at a known native entity id; uses actual current engine geometry, with stale-source protection.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "observationId": {
+            "type": "string"
+          },
+          "entityId": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "observationId",
+          "entityId"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "observer_inspect",
+      "description": "Inspect an actual visible native entity id and retain its identity/position/body data in an action receipt.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "observationId": {
+            "type": "string"
+          },
+          "entityId": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "observationId",
+          "entityId"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "observer_fov",
+      "description": "Set the camera vertical field of view, 30..110 degrees, with a fresh observationId.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "observationId": {
+            "type": "string"
+          },
+          "fovDeg": {
+            "type": "number",
+            "minimum": 30,
+            "maximum": 110
+          }
+        },
+        "required": [
+          "id",
+          "observationId",
+          "fovDeg"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "observer_capture",
+      "description": "Render and save an actual PNG from the current Java observer/world snapshot. Returns frame hash, source binding and receipt.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "observer_history",
+      "description": "Read persisted camera actions and saved frame receipts.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "observer_replay",
+      "description": "Show a saved native view and its verified original PNG as a read-only historical observation. Does not change world/pose.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "calibration_start",
+      "description": "Start a durable one-parameter native Bullet search. Training-only selection then separate validation. Does not edit authored scenes.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "trainingSceneId": {
+            "type": "string"
+          },
+          "trainingSceneVersion": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "validationSceneId": {
+            "type": "string"
+          },
+          "validationSceneVersion": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "trainingDatasetId": {
+            "type": "string"
+          },
+          "trainingDatasetVersion": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "validationDatasetId": {
+            "type": "string"
+          },
+          "validationDatasetVersion": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "parameter": {
+            "type": "string",
+            "enum": [
+              "friction",
+              "gravityMps2"
+            ]
+          },
+          "minimum": {
+            "type": "number"
+          },
+          "maximum": {
+            "type": "number"
+          },
+          "seconds": {
+            "type": "number",
+            "minimum": 0.05,
+            "maximum": 10
+          },
+          "toleranceM": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 10
+          },
+          "minImprovementM": {
+            "type": "number",
+            "exclusiveMinimum": 0,
+            "maximum": 10
+          }
+        },
+        "required": [
+          "trainingSceneId",
+          "trainingSceneVersion",
+          "validationSceneId",
+          "validationSceneVersion",
+          "trainingDatasetId",
+          "trainingDatasetVersion",
+          "validationDatasetId",
+          "validationDatasetVersion",
+          "parameter",
+          "minimum",
+          "maximum",
+          "seconds",
+          "toleranceM",
+          "minImprovementM"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "calibration_read",
+      "description": "Read real job progress, selection and validation metrics. Use this to wait for settlement.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "calibration_cancel",
+      "description": "Cancel an active native calibration.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "calibration_resume",
+      "description": "Explicitly resume a cancelled or interrupted calibration using frozen inputs.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "calibration_apply",
+      "description": "Apply only a completed accepted current fit; returns durable scene receipt.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "calibration_rollback",
+      "description": "Restore the prior parameter only without intervening authored changes.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "calibration_report",
+      "description": "Open and test a real host-rendered calibration report with original CSV and exact native evidence.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "dataset_import",
+      "description": "Import actual UTF-8 CSV with explicit column mapping, units, source classification and notes. Does not infer units or execute cells.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string"
+          },
+          "filename": {
+            "type": "string"
+          },
+          "csv": {
+            "type": "string",
+            "maxLength": 262144
+          },
+          "sourceKind": {
+            "type": "string",
+            "enum": [
+              "measured",
+              "synthetic",
+              "unverified"
+            ]
+          },
+          "sourceNote": {
+            "type": "string"
+          },
+          "missingPolicy": {
+            "type": "string",
+            "enum": [
+              "reject",
+              "skip"
+            ]
+          },
+          "mapping": {
+            "type": "object",
+            "properties": {
+              "timeColumn": {
+                "type": "string"
+              },
+              "distanceColumn": {
+                "type": "string"
+              },
+              "timeUnit": {
+                "type": "string",
+                "enum": [
+                  "s",
+                  "ms"
+                ]
+              },
+              "distanceUnit": {
+                "type": "string",
+                "enum": [
+                  "m",
+                  "cm",
+                  "mm"
+                ]
+              }
+            },
+            "required": [
+              "timeColumn",
+              "distanceColumn",
+              "timeUnit",
+              "distanceUnit"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "title",
+          "filename",
+          "csv",
+          "sourceKind",
+          "sourceNote",
+          "missingPolicy",
+          "mapping"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "dataset_read",
+      "description": "Read exact measurement version, source digest, mapping and up to 12 sample rows.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "version": {
+            "type": "integer",
+            "minimum": 1
+          }
+        },
+        "required": [
+          "id",
+          "version"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "experiment_compare",
+      "description": "Compare every dataset row to a completed native run using interpolation, no extrapolation. Both bindings must match current saved versions. Receipt includes actual residuals and declared tolerance.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "datasetId": {
+            "type": "string"
+          },
+          "datasetVersion": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "runId": {
+            "type": "string"
+          },
+          "expectedSceneVersion": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "toleranceM": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 10
+          }
+        },
+        "required": [
+          "datasetId",
+          "datasetVersion",
+          "runId",
+          "expectedSceneVersion",
+          "toleranceM"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "comparison_report",
+      "description": "Create and open a standalone local report, preserving original CSV and comparison JSON. Host verifies actual report DOM; numerical agreement is separate.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "scene_create",
+      "description": "Create a persistent actual 3D ramp scene with SI parameters, stable entity IDs and version.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string"
+          },
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "angleDeg": {
+                "type": "number"
+              },
+              "lengthM": {
+                "type": "number"
+              },
+              "widthM": {
+                "type": "number"
+              },
+              "gravityMps2": {
+                "type": "number"
+              },
+              "massKg": {
+                "type": "number"
+              },
+              "friction": {
+                "type": "number"
+              },
+              "offsetZ": {
+                "type": "number"
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "title"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "scene_read",
+      "description": "Read the authored scene and its real 3D entities.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "scene_update",
+      "description": "Revise bounded authored parameters after reset, with version conflict protection.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "expectedVersion": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "title": {
+            "type": "string"
+          },
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "angleDeg": {
+                "type": "number"
+              },
+              "lengthM": {
+                "type": "number"
+              },
+              "widthM": {
+                "type": "number"
+              },
+              "gravityMps2": {
+                "type": "number"
+              },
+              "massKg": {
+                "type": "number"
+              },
+              "friction": {
+                "type": "number"
+              },
+              "offsetZ": {
+                "type": "number"
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "id",
+          "expectedVersion",
+          "title",
+          "parameters"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "experiment_run",
+      "description": "Run actual native Bullet physics (0.05 to 10 simulated seconds), store results and independent frictionless-incline reference evaluation. Use experiment.reset before another run.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "expectedVersion": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "seconds": {
+            "type": "number",
+            "minimum": 0.05,
+            "maximum": 10
+          }
+        },
+        "required": [
+          "id",
+          "expectedVersion",
+          "seconds"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "experiment_reset",
+      "description": "Stop/reset the current physical experiment, preserving recorded runs and authored scene. Required before edits or another run.",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": false
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "browser_navigate",
+      "description": "Navigate the visible real browser to an http/https URL.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "url": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "url"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "browser_observe",
+      "description": "Read bounded page text and interactive controls, with observation ID.",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": false
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "browser_click",
+      "description": "Click a control from a fresh observation.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "observation": {
+            "type": "string"
+          },
+          "ref": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "observation",
+          "ref"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "browser_type",
+      "description": "Fill a text control from a fresh observation.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "observation": {
+            "type": "string"
+          },
+          "ref": {
+            "type": "string"
+          },
+          "text": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "observation",
+          "ref",
+          "text"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "canvas_write",
+      "description": "Create or revise a real runnable web artifact. index.html required. Existing artifact requires expectedVersion. Opens live preview.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string",
+            "minLength": 1
+          },
+          "files": {
+            "type": "object",
+            "properties": {
+              "index.html": {
+                "type": "string",
+                "minLength": 30
+              }
+            },
+            "required": [
+              "index.html"
+            ],
+            "additionalProperties": {
+              "type": "string"
+            }
+          },
+          "sources": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "id": {
+            "type": "string"
+          },
+          "expectedVersion": {
+            "type": "integer",
+            "minimum": 1
+          }
+        },
+        "required": [
+          "title",
+          "files"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "canvas_read",
+      "description": "Read an existing artifact and current revision.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "canvas_observe",
+      "description": "Inspect the visible running artifact.",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": false
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "canvas_test",
+      "description": "Interact with the current artifact and check exact observable results. At least one assertion. Saves real receipt.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "steps": {
+            "type": "array",
+            "minItems": 1,
+            "maxItems": 24,
+            "items": {
+              "type": "object",
+              "properties": {
+                "selector": {
+                  "type": "string"
+                },
+                "action": {
+                  "type": "string",
+                  "enum": [
+                    "click",
+                    "fill"
+                  ]
+                },
+                "value": {
+                  "type": "string"
+                },
+                "expectText": {
+                  "type": "string"
+                },
+                "expectValue": {
+                  "type": "string"
+                },
+                "expectCount": {
+                  "type": "integer",
+                  "minimum": 0
+                }
+              },
+              "required": [
+                "selector"
+              ],
+              "additionalProperties": false,
+              "anyOf": [
+                {
+                  "required": [
+                    "expectText"
+                  ]
+                },
+                {
+                  "required": [
+                    "expectValue"
+                  ]
+                },
+                {
+                  "required": [
+                    "expectCount"
+                  ]
+                }
+              ]
+            }
+          }
+        },
+        "required": [
+          "steps"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "artifacts_list",
+      "description": "List saved artifacts and versions.",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": false
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "skills_list",
+      "description": "List verified reusable web-artifact recipes.",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": false
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "skill_save",
+      "description": "Save the current artifact as a reusable recipe only after tests pass.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9-]{2,55}$"
+          },
+          "description": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "name",
+          "description"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "skill_run",
+      "description": "Recreate and test an existing verified recipe as a new artifact.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "name"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "memory_search",
+      "description": "Search existing project memory through the Fraynix kernel.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "query": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "query"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "finish",
+      "description": "Report completion, grounded in actual tool results. Created artifacts must have passed tests.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "summary": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "summary"
+        ],
+        "additionalProperties": false
+      }
+    }
+  }
+]
