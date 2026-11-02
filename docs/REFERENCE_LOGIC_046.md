@@ -4,6 +4,10 @@ Review date:2026-11-02. The requested repositories are private and were read thr
 
 The practical opportunity is to connect three already useful ideas: **procedures grounded in verified outcomes; remembered evidence that can be reopened; and computation owned in Java.** Typed skill graphs supply the connection. They do not require another portal, service, orchestration framework or replacement for the current engine.
 
+## Additional user clarification: stacked small processors
+
+The subsequent Needle3/MicroLlama/offline-Ollama/JEV/Dream-RSI clarification expands this review beyond a single model. The [stacked cortex analysis](STACKED_CORTEX_046.md) traces actual native workers, local LoRA training, sparse LIF/STDP/TD algorithms, witnessed memory and recorded-tree policy learning in additional pinned owner repositories. Small models can divide responsibilities and learn useful connections without every responsibility fitting inside one context. The Java procedure graph and a numerical neural graph remain distinct structures connected by verified decision/outcome records. These newly inspected processors are not yet installed046 handlers.
+
 ## What each application actually contributes
 
 | Repository at the reviewed commit | Actual design | Best contribution to this workspace |

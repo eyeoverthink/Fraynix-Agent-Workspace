@@ -53,6 +53,7 @@ public class SkillGraph046Test {
             var foreign=WorldFrames.copy(base);foreign.getJSONObject("graph").getJSONArray("nodes").getJSONObject(1).getJSONObject("skill").put("sha256","a".repeat(64));assertThrows(Exception.class,()->f.workflows.start(foreign));
             var authority=WorldFrames.copy(base);authority.getJSONObject("graph").getJSONArray("nodes").getJSONObject(1).put("forceLimitN",61);assertThrows(Exception.class,()->f.workflows.start(authority));
             var handler=WorldFrames.copy(base);handler.getJSONObject("graph").getJSONArray("nodes").getJSONObject(1).put("handler","shell");assertThrows(Exception.class,()->f.workflows.start(handler));
+            var wrongName=WorldFrames.copy(base).put("saveSkillName","original-world-route");assertThrows(IllegalArgumentException.class,()->f.workflows.start(wrongName));
             var stale=WorldFrames.copy(base);stale.getJSONObject("worldBinding").put("expectedHash","a".repeat(64));assertThrows(Exception.class,()->f.workflows.start(stale));assertEquals(count,f.goals.list().length());assertFalse(f.goals.workflowReserved());assertEquals(0,f.goals.worlds().observe(w.getString("worldId")).getInt("expectedRevision"));
         }
     }

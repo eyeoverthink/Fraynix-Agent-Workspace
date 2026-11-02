@@ -115,7 +115,10 @@ public final class WorkflowRunner implements AutoCloseable {
         String title=Creation.text(input,"title",100),request=Creation.text(input,"request",4000),model=Creation.text(input,"modelName",120),name=input.optString("saveSkillName","");
         if(!name.isEmpty()&&!name.matches("[a-z][a-z0-9-]{2,55}"))throw new IllegalArgumentException("Graph skill name needs3..56 lowercase letters, digits or hyphens");
         if(input.has("reviewEachNode")&&!(input.get("reviewEachNode") instanceof Boolean))throw new IllegalArgumentException("Review each node must be boolean");
-        var def=graphMemo.get(input.getJSONObject("graph"),goals);var binding=WorldFrames.copy(input.getJSONObject("worldBinding"));SkillGraph046.current(goals,binding);
+        var def=graphMemo.get(input.getJSONObject("graph"),goals);
+        if(goals.list().length()+def.getJSONArray("nodes").length()-1>64)throw new IllegalStateException("Insufficient retained-goal capacity for every graph procedure");
+        if(!name.isEmpty()){int version=1;var retained=goals.procedures();for(Object raw:retained){var p=(JSONObject)raw;if(p.getString("name").equals(name)){if(!p.getString("kind").equals(SkillGraph046.KIND))throw new IllegalArgumentException("Use a distinct name for this graph task family");version=Math.max(version,p.getInt("version")+1);}}if(retained.length()>=32||version>8)throw new IllegalStateException("No retained skill capacity for the requested graph version");}
+        var binding=WorldFrames.copy(input.getJSONObject("worldBinding"));SkillGraph046.current(goals,binding);
         var scene=goals.worlds().source(SkillGraph046.binding(binding));
         for(Object raw:def.getJSONArray("nodes")){var n=(JSONObject)raw;if(n.getString("kind").equals("procedure"))WorldPlan.intent(scene,n.getJSONArray("targets"),n.getDouble("forceLimitN"),n.getDouble("torqueLimitNm"));}
         String id=UUID.randomUUID().toString();var stages=new JSONArray();for(Object raw:def.getJSONArray("nodes")){var n=(JSONObject)raw;stages.put(new JSONObject().put("name",n.getString("id")).put("kind",n.getString("kind")).put("status","pending"));}
