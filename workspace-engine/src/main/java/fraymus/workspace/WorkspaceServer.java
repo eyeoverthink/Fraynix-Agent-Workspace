@@ -159,7 +159,7 @@ public final class WorkspaceServer implements AutoCloseable {
                         case "/api/knowledge/source"->knowledge.source(input.getString("sha256"));
                         case "/api/knowledge/start"->knowledge.start(input);
                         case "/api/knowledge/job"->knowledge.job(input.getString("id"));
-                        case "/api/knowledge/claim"->knowledge.claim();
+                        case "/api/knowledge/claim"->claimResearch043();
                         case "/api/knowledge/work"->knowledge.work(input);
                         case "/api/knowledge/ack"->knowledge.acknowledge(input);
                         case "/api/knowledge/finish"->knowledge.finish(input);
@@ -443,8 +443,9 @@ public final class WorkspaceServer implements AutoCloseable {
         server.createContext("/welcome",exchange->{byte[] bytes=WELCOME.getBytes(StandardCharsets.UTF_8);exchange.getResponseHeaders().set("Content-Type","text/html; charset=utf-8");exchange.sendResponseHeaders(200,bytes.length);try(var out=exchange.getResponseBody()){out.write(bytes);}});
         server.start();Runtime.getRuntime().addShutdownHook(new Thread(this::close));return server;
     }
-    private boolean sharedBusy043(){try{return goals.busy()||brain.state().getBoolean("busy")||tabletop.busy()||alignment041.busy()||observations.busy()||!workflowsIdle042()||requests.keySet().stream().anyMatch(id->!durableRequests043.contains(id));}catch(Exception e){return true;}}
-    private static boolean passive043(String route){String last=route.substring(route.lastIndexOf('/')+1);return route.startsWith("/api/self/")||route.startsWith("/api/agent042/")||route.equals("/api/event")||Set.of("read","state","list","snapshot","catalog","models","summary","view","image","history","observe","context").contains(last);}
+    private JSONObject claimResearch043()throws Exception{synchronized(agency){return agency.busy()?new JSONObject().put("idle",true):knowledge.claim();}}
+    private boolean sharedBusy043(){try{return knowledge.state().getJSONArray("jobs").toList().stream().anyMatch(raw->"running".equals(((java.util.Map<?,?>)raw).get("status")))||goals.busy()||brain.state().getBoolean("busy")||tabletop.busy()||alignment041.busy()||observations.busy()||!workflowsIdle042()||requests.keySet().stream().anyMatch(id->!durableRequests043.contains(id));}catch(Exception e){return true;}}
+    private static boolean passive043(String route){if(route.equals("/api/knowledge/claim"))return true;String last=route.substring(route.lastIndexOf('/')+1);return route.startsWith("/api/self/")||route.startsWith("/api/agent042/")||route.equals("/api/event")||Set.of("read","state","list","snapshot","catalog","models","summary","view","image","history","observe","context").contains(last);}
     private JSONObject visionModels043(){var out=new JSONArray();try{var tags=LocalModelAdmission.request("http://127.0.0.1:11434/api/tags",null).getJSONArray("models");for(Object raw:tags){var tag=(JSONObject)raw;if(tag.optLong("size")>12_000_000_000L)continue;var show=LocalModelAdmission.request("http://127.0.0.1:11434/api/show",new JSONObject().put("model",tag.getString("name")));var caps=show.optJSONArray("capabilities",new JSONArray()).toList();if(caps.contains("completion")&&caps.contains("vision"))out.put(new JSONObject().put("name",tag.getString("name")).put("bytes",tag.getLong("size")));}return new JSONObject().put("models",out);}catch(Exception e){return new JSONObject().put("models",out).put("reason","Local vision metadata unavailable; pixel comparisons remain available");}}
     JSONObject agent042(){return agentRuntime.state();}
     private boolean workflowsIdle042()throws Exception{for(Object raw:workflows.list())if(Set.of("running","waiting-host","queued").contains(((JSONObject)raw).getString("status")))return false;return true;}
