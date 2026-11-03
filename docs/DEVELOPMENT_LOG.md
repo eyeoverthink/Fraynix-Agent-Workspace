@@ -1,5 +1,14 @@
 # Agent Workspace development log
 
+## Edition054 · Development checkpoint before publication
+
+2026-11-03. Resume in `C:/Users/eyeka/Documents/Codex/2026-10-26/is/work/fraynix-workspace-edition054`, branch edition054, separate Java successor repository `eyeoverthink/Fraynix-Agent-Workspace`. Current implementation and UI e138ed2; native geometry matrix9842381; final production Java matches32dbed5. Original normal045 Java33224/private camera/mat data and installed runtime untouched. Do not rebuild that canonical installation or relocate this Java app to Chandra.
+
+Implemented declared compact/wide/barrier/blocked geometry, conservative obstacle routing, measured direct-controller baseline, all-attempt costs, explicit closed053 compatibility handoff, bounded Windows atomic checkpoint retry and responsive refusal/busy controls.98 distinct targeted Java cases/16 classes and123desktop cases pass across source-qualified invocations. Four positive frozen native cases tie26N/40N motion costs; blocked target refuses before actuation. No efficiency gain or full-suite claim. Original Windows-sharing failure, compact-world UI timeout, test-fixture failures and text-encoding issue retained.
+
+Final full Electron/local gpt-oss:20b workflow is running in a separate synthetic project. Review/restart, barrier build and changed-centre chat have passed; compact-world creation now succeeds and saved-skill reuse is running. No054 publication yet. GitHub main remains121f22e; no054tag. Finish full test, run construction054-review.cjs, inspect screenshots, run build/prepare-docs054.py once, browser-check/freeze054 and Verify-Documentation, stage complete original archives including ignored XML/fworld gzip, then non-force main/edition054/tag push and fresh fetched-tree audit. Ignored helpers and test054 logs in build; original test projects retained under Temp. README054 draft has a results placeholder until validated data is inserted. Preserve001–053 frozen exactly.
+
+
 ## Edition053 · Published and fetched back on 2026-11-03
 
 Actual non-forced atomic push to private `eyeoverthink/Fraynix-Agent-Workspace`: main, edition053 and readme-053 accepted. Release `3dca031fbac729ece5ae4810f2cca7f25626ad7a`; annotated tag `2dca14d16ba4b84b9fc9b92d7fb6e9712ee39f48`. Fresh direct GitHub fetch confirms release and tag. All 872 canonical source files, 3551 frozen hashes across53 editions, and 58 complete original evidence archives were read from that fetched tree and checked. Gzip files were decompressed and original byte counts/SHA verified. Documentation passes 58 canvases and 5762 references. [Publication receipt](PUBLICATION_053.json).
