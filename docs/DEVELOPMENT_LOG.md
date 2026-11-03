@@ -1,5 +1,16 @@
 # Agent Workspace development log
 
+## Edition 054 · Published and fetched back on 2026-11-03
+
+Actual non-forced atomic push to private `eyeoverthink/Fraynix-Agent-Workspace`: main, edition054 and readme-054 accepted. Release `83620ff97c2aec73da27386df169d5fb8dfb3480`; annotated tag `d999ea477dcc7ad298938920d36a5f6e55a049ab`. Fresh GitHub fetch confirms release and tag. All 882 canonical source files, 3678 frozen hashes across 54 editions, and 82 complete original evidence archives were read from that fetched tree and checked, including decompressed byte counts and SHA. Documentation passes 59 canvases and 5829 references. [Publication receipt](PUBLICATION_054.json).
+
+Actual app source `e138ed2c5c65a8d2e863adf953607310912c04c4` passes the complete integrated native/local-model workflow: barrier geometry, review/restart, selected fresh execution, changed-centre chat, exact saved skill reused with compact geometry while preserving the earlier world, 17 original report assertions per completion, blocked-target refusal, active-trial Stop and original export reconstruction. 98 distinct targeted Java cases across 16 classes and 123 desktop cases pass across precise source-qualified invocations. Five frozen cases pass their declared outcomes; positive cases tie at 26 N / 40 N motion cost, and the blocked target refuses before actuation. Comparison adds work; no efficiency gain claimed.
+
+Fresh local CPU/four-thread chat 187.517 s; cross-geometry reuse 190.545 s. The first actual chat exposed Windows checkpoint replacement denial; bounded atomic retry is tested with actual Windows locks and the complete app workflow rerun. Original pending bytes, failed invocation and earlier test-fixture failures retained. No full-suite 054 or model-weight-learning claim. README 054, seven dated real app captures, original native matrix/evidence, offline guide and Obsidian map published.
+
+Normal review 045/private camera/mat/project and installed runtime remain untouched. Do not rebuild its live JARs. Explicit compatible handoff applies only to known closed 053 copies with no pending owner; unknown identities/stale bindings refuse. Use isolated 054 checkout and separate projects. Preserve 001–054 immutable; next unused 055. Next: frozen direct-first comparison, lateral obstacle routes, independent load experiments and diagnostic-retention evaluation. This continuity/receipt commit follows the verified release.
+
+
 ## Edition054 · Geometry and measured choices validated locally
 
 2026-11-03. Actual app sourcee138ed2c5c65a8d2e863adf953607310912c04c4; frozen native geometry matrix9842381. Java adds declared compact/wide/barrier/blocked box stock, dimension-aware conservative overhead routing and original native support/motion proof with zero obstacle contacts. Actual simpler maximum-force baseline and all-attempt costs are visible;26N/40N tie in the four positive frozen cases. Blocked target refuses before actuation. No efficiency/energy or general-learning gain claimed.
