@@ -6,7 +6,7 @@
 
 One integrated app, with Java-owned chat planning, creation, native skill scheduling, continuing identity, real clocks and checked outcomes. Mission connects the actual goal, source, child task, recovery and retained result. [Screenshots, typed skill graphs, new logic and production direction](README-046.md).
 
-The [edition 050 construction workshop](README-050.md) adds finite-stock ramp experiments, predictions saved before native physics execution, recorded failures, bounded design repair and procedures that are retested after restart. Its integrated replay and charts expose actual solver outcomes. Construction uses a Java decision policy; chat-driven construction and physically actuated assembly are next.
+The [edition 050 construction workshop](README-050.md) adds finite-stock ramp experiments, predictions saved before native physics execution, recorded failures, bounded design repair and procedures that are retested after restart. Its integrated replay and charts expose actual solver outcomes. Construction uses a Java decision policy; chat-driven construction and physically actuated assembly are next. [Verified GitHub publication](docs/PUBLICATION_050.json) · [Final application validation](docs/publication050/validation.json).
 
 The spatial proof and next independent-capture gates are documented in the [spatial contract](docs/SPATIAL_WORLD.md) and the [world-model frontier assessment](docs/WORLD_MODEL_FRONTIERS.md), including Genie, persistent3D capture, physics-aware prediction and the source-qualified local scene/manipulation milestone.
 

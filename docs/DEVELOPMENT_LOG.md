@@ -1,5 +1,12 @@
 # Agent Workspace development log
 
+## Edition 050 · Published and fetched back on 2026-11-02
+
+Actual non-forced GitHub main/edition050 push accepted, including previously local047–049 history. Annotated readme-050 fixes release12bcadc. Fetch-back inspection found one mixed-encoding middle-dot label and a Windows-byte source inventory mismatch; be4ec0c fixes that label without changing logic. Published snapshots remain immutable and the correction is explicit. The complete actual desktop construction/restart/reuse/cancel/world-preservation workflow passed again; cb0e068 retains its original files and screenshot. Fresh remote audit verifies all856 current canonical source entries with the declared correction, all3234 frozen hashes across50 editions, and26 original trial/prediction files from both runs. Original20 focused Java/123 desktop unit checks retain their exact source scope.50-edition/55-canvas/5578-reference documentation check passes. [Publication receipt](PUBLICATION_050.json) · [Final validation](publication050/validation.json).
+
+Existing review045 runtime and private data were preserved. No new LLM chat construction route, physical gripper assembly, real-world material calibration or weight training is claimed. Next work: physically actuated construction and continuing-world transactions, then typed chat selection and measured cooperation. The integration tests closed their own isolated apps; no normal050 review app was started automatically.
+
+
 ## Edition 050 · Construction workshop validated locally
 
 2026-11-02. Isolated edition050 extends the existing Java GoalRunner. Finite-stock ramp/bin assembly, pre-action analytic prediction, actual three-body Bullet trials, bounded repair, exact export and versioned skill reuse are implemented. Original rough 20° failed, smooth 20° and rough 39.024° delivered 3/3; remembered rough at friction ×1.3 failed after cold restart, rough 40° failed, smooth 20° delivered 3/3. These are development/acceptance simulation results, not a broad held-out benchmark or LLM weight learning. Six new workshop tests + five runner + nine evidence checks pass; 123 desktop tests and the actual integrated workflow pass. The original persistent world remains unchanged. No camera, board, Minecraft or model call activated. New LLM chat routing and physically actuated/continuing-world assembly remain next. [README050](../README-050.md) · [Validation](readmes/050/verification.json). No publication is claimed until its separate receipt is written.
