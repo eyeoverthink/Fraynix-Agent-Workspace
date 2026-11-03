@@ -52,7 +52,20 @@ const spatial=new SpatialPanel({call:(command,args={})=>request('spatial',{comma
 const forcePanel=new ForceLearningPanel({call:(command,args={})=>request('forceLearning',{command,args}),spatial,notice,goal:g=>goalsPanel.accept(g),openReport:async id=>{setCanvasMode('preview');await request('tool',{tool:'canvas.open',args:{id}});}});
 const contactPanel=new ContactStudyPanel({call:(command,args={})=>request('contactStudy',{command,args}),spatial,notice,goal:g=>goalsPanel.accept(g),openReport:async id=>{setCanvasMode('preview');await request('tool',{tool:'canvas.open',args:{id}});}});
 const posePanel=new PosePanel({call:(command,args={})=>request('pose',{command,args}),studyCall:(command,args={})=>request('poseStudy',{command,args}),goalCall:(command,args={})=>request('javaGoal',{command,args}),spatial,notice,goal:g=>goalsPanel.accept(g),openReport:async id=>{setCanvasMode('preview');await request('tool',{tool:'canvas.open',args:{id}});}});
-const persistentPanel=new PersistentWorldPanel({call:(command,args={})=>request('persistentWorld',{command,args}),spatial,notice,goal:g=>goalsPanel.accept(g),openReport:async id=>{setCanvasMode('preview');await request('tool',{tool:'canvas.open',args:{id}});}});
+const persistentPanel=new PersistentWorldPanel({
+  call:(command,args={})=>request('persistentWorld',{command,args}),
+  spatial,notice,goal:g=>goalsPanel.accept(g),
+  openReport:async id=>{requireSaved();setCanvasMode('preview');await request('tool',{tool:'canvas.open',args:{id}});},
+  requireFirstSkillReady:()=>{
+    requireSaved();
+    if(running||creationBusy||state?.goals?.some(g=>['running','waiting-host'].includes(g.status))){
+      throw Error('Finish or stop the active task before running the practice skill');
+    }
+  },
+  connectFirstSkill:(goal,steps)=>workflowPanel.openGraph(null,{
+    worldId:goal.worldBinding.worldId,skill:goal.savedSkill,steps
+  })
+});
 const observationPanel=new ObservationPanel({call:(command,args={})=>request('observations',{command,args}),persistent:persistentPanel,notice});
 window.observationView=observationPanel;
 window.metricView=new MetricPanel({call:(command,args={})=>request('metrics',{command,args}),observation:observationPanel,notice});
@@ -63,7 +76,7 @@ window.alignment041=new Alignment041Panel({call:(command,args={})=>request('alig
 const perceptionPanel=new PerceptionPanel({call:(command,args={})=>request('perception',{command,args}),goalCall:(command,args={})=>request('javaGoal',{command,args}),notice,activate:setCanvasMode,goal:g=>goalsPanel.accept(g)});
 const trackingPanel=new TrackingPanel({call:(command,args={})=>request('tracking',{command,args}),notice,requireSaved,openPerception:()=>perceptionPanel.open()});
 const creationPanel=new CreationPanel({layout:updateLayout,call:(command,args,model)=>request('creation',{command,args,model}),getState:()=>state,getArtifact:()=>artifact,getModel:()=>$('model').value,requireSaved,notice,onGoal:g=>goalsPanel.accept(g)});
-const workflowPanel=new WorkflowPanel({layout:updateLayout,call:(command,args)=>request('workflow',{command,args}),getState:()=>state,getModel:()=>$('model').value,requireSaved,notice,onGoal:w=>goalsPanel.accept(w)});
+const workflowPanel=new WorkflowPanel({layout:updateLayout,call:(command,args)=>request('workflow',{command,args}),getState:()=>state,getModel:()=>$('model').value,requireSaved,notice,onGoal:w=>goalsPanel.accept(w),openFirstSkill:()=>persistentPanel.showFirstSkill()});
 const proceduralPanel=new ProceduralPanel({layout:updateLayout,call:(command,args)=>request('javaGoal',{command,args}),requireSaved,notice,onGoal:g=>goalsPanel.accept(g)});
 const mapPanel=new MapPanel({controlCall:args=>host.request({operation:'maps',command:'control',args}),call:(command,args={})=>request('maps',{command,args}),goalCall:(command,args={})=>request('javaGoal',{command,args}),notice,activate:setCanvasMode,goal:g=>goalsPanel.accept(g),requireSaved});
 window.nativeMap={snapshot:()=>({mapId:mapPanel.map?.id,avatar:mapPanel.avatar?.position.toArray(),trace:mapPanel.history.length}),open:id=>mapPanel.open().then(()=>id?mapPanel.selectWorld(id):undefined)};
@@ -80,6 +93,28 @@ function showLearningRecord(value,type){
 function renderLibrary(){window.agency043View?.recipes(state?.skills||[]);
   if(!state)return;$('library-items').replaceChildren();
   const items=libraryTab==='learning'?learningItems():libraryTab==='scenes'?(state.scenes||[]):libraryTab==='artifacts'?state.artifacts:[...state.skills,...(state.procedures||[])];
+  persistentPanel.updateFirstSkill(state.goals?.find(goal=>goal.id===persistentPanel.firstSkillGoalId));
+  if(libraryTab==='skills'){
+    const hasWorldSkill=items.some(item=>item.kind==='persistent-world-arrange-v1');
+    const entry=document.createElement('button');
+    entry.id='first-world-library';
+    entry.className='quiet';
+    entry.textContent=hasWorldSkill?'Connect verified world skills':'Create first world skill';
+    entry.onclick=()=>safe(async()=>{
+      requireSaved();
+      if(hasWorldSkill)await workflowPanel.openGraph();
+      else persistentPanel.showFirstSkill();
+    });
+    $('library-items').append(entry);
+    if(persistentPanel.firstSkillGoal?.savedSkill){
+      const practice=document.createElement('button');
+      practice.id='first-world-resume-guide';
+      practice.className='quiet';
+      practice.textContent='Continue practice world';
+      practice.onclick=()=>safe(()=>{requireSaved();persistentPanel.showFirstSkill();});
+      $('library-items').append(practice);
+    }
+  }
   for(const item of items){const button=document.createElement('button');button.className='object'+(item.id===(libraryTab==='scenes'?lab.scene?.id:artifact?.id)?' selected':'');const label=document.createElement('span');label.textContent=item.label||item.title||item.name;const version=document.createElement('small');version.textContent=libraryTab==='learning'?(item.status||item.recordType):'v'+item.version;button.append(label,version);button.disabled=running;
     button.onclick=()=>safe(async()=>{requireSaved();if(libraryTab==='learning')showLearningRecord(await request('learningRead',{type:item.recordType,id:item.id}),item.recordType);else if(libraryTab==='scenes')await lab.select(item.id);else{setCanvasMode('preview');if(libraryTab==='artifacts')await request('tool',{tool:'canvas.open',args:{id:item.id}});else if(item.kind==='typed-skill-graph-v1'){await window.openSkillGraph046(item);updateLayout();}else if(['persistent-world-arrange-v1','world-reach-report-v1','motion-data-report-v1','spatial-manipulation-v1','spatial-push-v1','spatial-arrange-v1','browser-perception-v1','creation-web-v1','evidence-workflow-v1','procedural-space-v1','map-world-v1'].includes(item.kind)){goalsPanel.showProcedure(item);updateLayout();}else await request('tool',{tool:'skill.run',args:{name:item.name}});}});$('library-items').append(button);}
     if(!items.length){const empty=document.createElement('p');empty.className='muted';empty.textContent=libraryTab==='learning'?'Task episodes, candidates and measured replay results appear here.':libraryTab==='scenes'?'Open 3D Lab to create a real ramp scene.':libraryTab==='skills'?'Passing recipes appear here after you save them.':'Create your first artifact.';$('library-items').append(empty);}

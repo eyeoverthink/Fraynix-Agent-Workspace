@@ -419,7 +419,14 @@ ipcMain.handle('workspace:request',async(event,input)=>{
       if(input.command==='counter-export'){const data=await api('/api/world/counter045/export',input.args);return nativeExports.save('counterfactual-world','json',JSON.stringify(data),{studyId:input.args.id});}
 
       if(input.command==='select'){const args=input.args||{};const plan=await api('/api/world/preview',args);if(!plan.passed)throw Error(plan.reason);currentPersistentWorld={...args};return currentPersistentWorld;}
-      if(input.command==='start')return goalBridge.execute('world.arrange',input.args||{});
+      if(input.command==='start'){
+        const {expectedWorldId,expectedHash,...options}=input.args||{};
+        if((expectedWorldId!==undefined||expectedHash!==undefined)&&
+          (expectedWorldId!==currentPersistentWorld?.worldId||expectedHash!==currentPersistentWorld?.expectedHash)){
+          throw Error('The selected practice world changed. Confirm the practice targets again.');
+        }
+        return goalBridge.execute('world.arrange',options);
+      }
       if(input.command==='export'){const output=await api('/api/world/export',input.args||{});return nativeExports.save('persistent-world','json',output.text,{worldId:input.args.worldId});}
       if(input.command==='export-run'){const output=await api('/api/world/export-run',input.args||{});return nativeExports.save('persistent-world-run','json',output.text,{id:input.args.id});}
       if(!['create','list','read','observe','visibility','preview','restore','run','suite'].includes(input.command))throw Error('Unknown persistent world operation');return api('/api/world/'+input.command,input.args||{});
