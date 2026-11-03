@@ -1,0 +1,107 @@
+package fraymus.workspace;
+
+import org.json.*;
+import java.util.*;
+
+/** Presentation/context projections of the original checked task. Never an execution authority. */
+final class ChatChain052 {
+    private ChatChain052() {}
+
+    static String objectiveHash(JSONObject g) {
+        return WorldFrames.hash(new JSONObject().put("goal", g.getString("goal")));
+    }
+
+    static void verifyObjective(JSONObject g) {
+        for (Object raw : g.getJSONArray("history")) {
+            var row = (JSONObject) raw;
+            if (row.getString("kind").equals("queued") && row.getJSONObject("detail").has("objectiveSha256")) {
+                if (!objectiveHash(g).equals(row.getJSONObject("detail").getString("objectiveSha256")))
+                    throw new IllegalStateException("Original task objective changed; start a new task");
+            }
+        }
+    }
+
+    /** Only the optional discovery catalog is reduced. Bound selections and requirements stay exact. */
+    static JSONObject context(JSONObject g) {
+        var c = WorldFrames.copy(g.getJSONObject("context044"));
+        if (c.has("available044")) {
+            var original = c.getJSONObject("available044");
+            var catalog = new JSONObject();
+            for (String key : original.keySet()) {
+                var entries = original.getJSONArray(key);
+                var selected = new JSONArray();
+                int count = Math.min(entries.length(), 4);
+                for (int i = 0; i < count; i++) {
+                    int index = i < (count+1)/2 ? i : entries.length()-(count-i);
+                    var entry = entries.getJSONObject(index);
+                    var item = new JSONObject().put("catalogIndex", index);
+                    for (String field : List.of("id","name","title","version","kind","sourceVersion"))
+                        if (entry.has(field)) item.put(field, entry.get(field));
+                    selected.put(item);
+                }
+                catalog.put(key, new JSONObject().put("total",entries.length()).put("omittedEntries",entries.length()-count)
+                        .put("sha256",WorldFrames.hash(new JSONObject().put("entries",entries))).put("identitySummaries",selected));
+            }
+            c.put("available044",catalog).put("catalogScope052","Discovery identities only; full catalog through registered read tools. Exact selected bindings remain above.");
+        }
+        c.put("retainedDiagnostics052", diagnostics(g));
+        return c;
+    }
+
+    /** Never silently erase an essential field or leave a partial JSON document. */
+    static String exact(Object value, int limit) {
+        String s=String.valueOf(value);
+        if(s.length()>limit) throw new IllegalStateException("Task context exceeds the checked "+limit+" character budget; narrow the task or source selection. No requirements were silently removed.");
+        return s;
+    }
+
+    static JSONArray diagnostics(JSONObject g) {
+        var groups = new LinkedHashMap<String,JSONObject>();
+        for(Object raw:g.optJSONArray("history",new JSONArray())) {
+            var row=(JSONObject)raw;
+            if(!Set.of("repair","plan-rejected","interrupted").contains(row.getString("kind"))) continue;
+            var detail=row.getJSONObject("detail");
+            String message=detail.optString("reason",detail.optString("diagnostic",""));
+            String key=message.strip().toLowerCase(Locale.ROOT).replaceAll("\\s+"," ");
+            var group=groups.computeIfAbsent(key,k->new JSONObject().put("message",message).put("occurrences",new JSONArray()));
+            group.getJSONArray("occurrences").put(new JSONObject().put("kind",row.getString("kind")).put("at",row.getString("at")).put("sha256",row.getString("sha256")));
+        }
+        return new JSONArray(groups.values());
+    }
+
+    static JSONObject timing(JSONObject g) {
+        int calls=0,failed=0,terminal=0;double millis=0;
+        for(Object raw:g.getJSONArray("history")) {
+            var row=(JSONObject)raw;var d=row.getJSONObject("detail");
+            if(row.getString("kind").equals("model-call")){calls++;millis+=d.getDouble("durationMs");if(!d.getBoolean("returned"))failed++;}
+            if(row.getString("kind").equals("terminal-check"))terminal++;
+        }
+        return new JSONObject().put("modelCalls",calls).put("failedModelCalls",failed).put("modelMillis",millis)
+                .put("terminalChecksWithoutModel",terminal).put("scope","Measured Java planner-request wall time, including local admission and inference. Not simulated time or an estimate of time saved.");
+    }
+
+    static JSONObject evidence(JSONObject reply) {
+        var out=new JSONObject();var e=reply.optJSONObject("evidence",new JSONObject());
+        for(String k:List.of("total_duration","load_duration","prompt_eval_count","prompt_eval_duration","eval_count","eval_duration","done_reason"))
+            if(e.has(k))out.put(k,e.get(k));
+        return out;
+    }
+
+    static String summary(JSONObject g,JSONObject meta) {
+        String family=g.getString("family044");
+        var out=new StringBuilder("Java completed the "+family+" task and checked its actual receipts. ");
+        var child=meta.optJSONObject("javaGoal");
+        if(child!=null){
+            out.append(child.optString("reason","Native task completed")).append(". ");
+            var m=child.optJSONObject("metrics",new JSONObject());
+            var v=child.optJSONObject("constructionVerification051");
+            if(v!=null)out.append(m.optInt("releases")).append(" releases; ").append(v.optInt("supportContacts")).append(" support contacts; settled structure ").append(v.optBoolean("passed")?"passed":"failed").append(". ");
+            if(child.has("worldCommit"))out.append("World revision ").append(child.getJSONObject("worldCommit").getInt("revision")).append(" saved. ");
+            if(m.has("meanSpeedMps"))out.append(String.format(Locale.ROOT,"Mean speed %.6f m/s. ",m.getDouble("meanSpeedMps")));
+            if(m.has("qualityPassed")&&!m.getBoolean("qualityPassed"))out.append("Data quality checks rejected this candidate; inspect the retained flags. ");
+            if(child.has("savedSkill")){var s=child.getJSONObject("savedSkill");out.append("Saved skill: ").append(s.getString("name")).append(" v").append(s.getInt("version")).append(". ");}
+        }else if(meta.has("alignmentFacts"))out.append("Selected alignment: ").append(meta.getJSONObject("alignmentFacts").optString("registrationId")).append(". No independent physical evaluation was performed by this read task. ");
+        out.append("Open Mission for the full source evidence and checks. Native simulation and physical observations keep their original scope.");
+        return out.toString();
+    }
+}
