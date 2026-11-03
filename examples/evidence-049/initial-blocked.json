@@ -1,0 +1,100 @@
+{
+  "schema": "fraynix.evidence-stream-049-v1",
+  "title": "Initially blocked sensor \u00b7 synthetic",
+  "provenance": "synthetic",
+  "source": "Hand-authored test coordinates and clocks; no hardware measurements.",
+  "frame": {
+    "id": "test-mat-plane",
+    "unit": "m",
+    "calibrationSha256": "aa5d2b0873eedf9ddfffc3a060bcc4d74a715f46857677df7b8cee30e8aacd6a"
+  },
+  "target": "test block",
+  "sources": [
+    {
+      "id": "camera",
+      "kind": "camera",
+      "clockId": "host-test-clock",
+      "clock": {
+        "deviceStartMs": 0,
+        "deviceEndMs": 10000,
+        "sessionStartMs": 0,
+        "sessionEndMs": 10000,
+        "uncertaintyMs": 5,
+        "evidenceSha256": "5ee45cf3cc246433e9f300ba7894ab7354deb08b49714540c4ddbadfc42f2109"
+      },
+      "periodMs": 1000
+    },
+    {
+      "id": "beam",
+      "kind": "beam",
+      "clockId": "arduino-test-clock",
+      "clock": {
+        "deviceStartMs": 800,
+        "deviceEndMs": 10800,
+        "sessionStartMs": 0,
+        "sessionEndMs": 10000,
+        "uncertaintyMs": 5,
+        "evidenceSha256": "2b29ae4dd5328371710649ad834ce02ae1072f397315fcd73fc242811cff7795"
+      },
+      "periodMs": 1000,
+      "xM": 0.1,
+      "uncertaintyM": 0.001
+    }
+  ],
+  "events": [
+    {
+      "sourceId": "camera",
+      "seq": 0,
+      "deviceMs": 1000,
+      "state": "measured",
+      "xM": 0.02,
+      "yM": 0.05,
+      "uncertaintyM": 0.002
+    },
+    {
+      "sourceId": "camera",
+      "seq": 1,
+      "deviceMs": 2000,
+      "state": "measured",
+      "xM": 0.09,
+      "yM": 0.05,
+      "uncertaintyM": 0.002
+    },
+    {
+      "sourceId": "camera",
+      "seq": 2,
+      "deviceMs": 3000,
+      "state": "measured",
+      "xM": 0.11,
+      "yM": 0.05,
+      "uncertaintyM": 0.002
+    },
+    {
+      "sourceId": "camera",
+      "seq": 3,
+      "deviceMs": 4000,
+      "state": "measured",
+      "xM": 0.18,
+      "yM": 0.05,
+      "uncertaintyM": 0.002
+    },
+    {
+      "sourceId": "beam",
+      "seq": 0,
+      "deviceMs": 2600,
+      "state": "blocked"
+    },
+    {
+      "sourceId": "beam",
+      "seq": 1,
+      "deviceMs": 3600,
+      "state": "blocked"
+    },
+    {
+      "sourceId": "beam",
+      "seq": 2,
+      "deviceMs": 3700,
+      "state": "blocked"
+    }
+  ]
+}
