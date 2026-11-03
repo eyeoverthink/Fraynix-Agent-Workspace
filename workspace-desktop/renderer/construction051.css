@@ -1,0 +1,10 @@
+#construction051{padding:14px;border:1px solid #3d6269;border-radius:12px;margin:12px 0;background:#10272c;min-width:0}
+#construction051 summary{font-weight:700;color:#a3e2cf;cursor:pointer}
+#construction051 p{line-height:1.5}#construction051 label{display:flex;flex-direction:column;gap:5px;min-width:0}
+.construction051-fields{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:12px 0}
+#construction051 input,#construction051 select{width:100%;min-width:0;box-sizing:border-box}
+#c051-stage{height:340px;max-width:100%;overflow:hidden;border-radius:10px;background:#132d34}
+#c051-stage canvas{display:block;width:100%;height:100%}#c051-evidence{white-space:pre-wrap;overflow-wrap:anywhere;font-size:12px}
+#c051-status{border-left:3px solid #87d8bf;padding:9px;background:#17353c}
+#construction051 .runtime-controls{flex-wrap:wrap;margin:10px 0}
+@media(max-width:1200px){.construction051-fields{grid-template-columns:1fr}#c051-stage{height:280px}}

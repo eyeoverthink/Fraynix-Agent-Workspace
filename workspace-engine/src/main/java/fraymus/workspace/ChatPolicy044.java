@@ -18,6 +18,7 @@ final class ChatPolicy044 {
   if(b.has("knowledge")&&!webCreation(s)&&has(s,"\\b(research|learn about|find references|look up|search (for|online))\\b")&&has(s,"\\b(object|lighter|selected|category)\\b"))return "knowledge";
   if(b.has("tabletop")&&!webCreation(s)&&has(s,"\\b(lighter|cutting mat|tabletop|tape measure|mat monitor)\\b"))return "tabletop";
   if(!webCreation(s)&&has(s,"\\b(observed world|world estimate|footage|observation run)\\b"))return "observations";
+  if(!webCreation(s)&&has(s,"\\b(assemble|reassemble|build|rebuild|construct)\\b")&&has(s,"\\b(bridge|construction|gripper assembly)\\b"))return "construction";
   if(!webCreation(s)&&has(s,"\\b(persistent world|same world|evolving world|successive goals|world revision|world skill)\\b"))return "world";
   if(!webCreation(s)&&has(s,"\\b(compare|evaluate|test)\\b")&&has(s,"\\b(pose control|pose controller|pose capability|pose feature|pose evaluation|rotation controller|virtual gripper)\\b"))return "poseStudy";
   if(!webCreation(s)&&has(s,"\\b(arrange|rotate|pose|orient|stack)\\b")&&has(s,"\\b(objects|bodies|crates|cubes|targets|poses|selected object|imported)\\b"))return "pose";
@@ -40,7 +41,7 @@ final class ChatPolicy044 {
   if(has(s,"\\b(3d|physics|ramp|trajectory|incline|downhill)\\b")||has(s,"\\b(compare|comparison)\\b.*\\b(measurements?|observed|simulated)\\b"))return has(s,"\\b(calibrat\\w*|fit|fitting)\\b")?"calibration":"scene";
   return "workbench";
  }
- static final Set<String> GOALS=Set.of("world","pose","poseStudy","contact","force","push","map","space","perception","spatial","data","goal","creation");
+ static final Set<String> GOALS=Set.of("construction","world","pose","poseStudy","contact","force","push","map","space","perception","spatial","data","goal","creation");
  static boolean reuse(String goal){return has(goal,"\\b(reuse|run)\\b.*\\b(procedure|skill|routine|graph)\\b");}
  static List<String> allowed(JSONObject task){
   String family=task.getString("family044"),goal=task.getString("goal");var c=task.getJSONObject("context044");
@@ -62,8 +63,8 @@ final class ChatPolicy044 {
    default->{if(!GOALS.contains(family))throw new IllegalStateException("No owned Java stage for "+family);if(c.has("goalEvidence")&&c.getJSONObject("goalEvidence").optString("status").equals("completed"))yield family.equals("space")&&has(goal,"\\bexport\\b")&&!c.has("proceduralExport")?List.of("space.export"):List.of("finish");if(c.has("ownedGoalId"))yield List.of("goal.read");String start=c.has("procedureBinding")?"procedure.run":starter(family);if(c.optBoolean("domainInspected")||family.equals("creation"))yield List.of(start);String read=reader(family);yield read.isEmpty()?List.of(start):List.of(read,"procedures.list",start);}
   };
  }
- static String starter(String f){return switch(f){case"world"->"world.arrange";case"pose"->"pose.start";case"poseStudy"->"pose.compare";case"contact"->"contact.compare";case"force"->"force.start";case"push"->"push.start";case"map"->"map.start";case"space"->"space.start";case"perception"->"perception.start";case"spatial"->"spatial.start";case"data"->"data.start";case"goal"->"goal.start";case"creation"->"creation.start";default->throw new IllegalArgumentException(f);};}
- static String reader(String f){return switch(f){case"world"->"world.observe";case"pose"->"pose.read";case"poseStudy"->"pose.study";case"contact"->"contact.read";case"force"->"force.read";case"push"->"push.read";case"map"->"map.read";case"space"->"procedures.list";case"perception"->"perception.read";case"spatial"->"spatial.read";case"data"->"data.read";case"goal"->"world.model";default->"";};}
+ static String starter(String f){return switch(f){case"construction"->"construction.start";case"world"->"world.arrange";case"pose"->"pose.start";case"poseStudy"->"pose.compare";case"contact"->"contact.compare";case"force"->"force.start";case"push"->"push.start";case"map"->"map.start";case"space"->"space.start";case"perception"->"perception.start";case"spatial"->"spatial.start";case"data"->"data.start";case"goal"->"goal.start";case"creation"->"creation.start";default->throw new IllegalArgumentException(f);};}
+ static String reader(String f){return switch(f){case"construction","world"->"world.observe";case"pose"->"pose.read";case"poseStudy"->"pose.study";case"contact"->"contact.read";case"force"->"force.read";case"push"->"push.read";case"map"->"map.read";case"space"->"procedures.list";case"perception"->"perception.read";case"spatial"->"spatial.read";case"data"->"data.read";case"goal"->"world.model";default->"";};}
  static List<String> stage(JSONObject c,String a,String read,String b,String report){return !c.has(a)?List.of(read):!c.has(b)?List.of(report):List.of("finish");}
  static boolean apply(String g){return has(g,"\\bapply\\b")&&!has(g,"\\b(do not|don't|without|no)\\s+apply");}
  static List<String> observer(JSONObject c,String goal,boolean body){

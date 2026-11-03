@@ -1003,12 +1003,12 @@
         "properties": {
           "maxGapS": {
             "type": "number",
-            "minimum": 0.000001,
+            "minimum": 1e-06,
             "maximum": 86400
           },
           "speedLimitMps": {
             "type": "number",
-            "minimum": 0.000001,
+            "minimum": 1e-06,
             "maximum": 1000000000
           },
           "saveSkillName": {
@@ -1207,12 +1207,12 @@
           },
           "maxGapS": {
             "type": "number",
-            "minimum": 0.000001,
+            "minimum": 1e-06,
             "maximum": 86400
           },
           "speedLimitMps": {
             "type": "number",
-            "minimum": 0.000001,
+            "minimum": 1e-06,
             "maximum": 1000000000
           },
           "saveSkillName": {
@@ -2529,6 +2529,43 @@
         "required": [
           "summary"
         ],
+        "additionalProperties": false
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "construction_start",
+      "description": "Assemble the declared three-part bridge with the native virtual gripper in the selected persistent world. Java verifies release, support contacts, stable state and charts before committing. Reassembly stages the beam first. No source IDs, reset or success flags.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "centerX": {
+            "type": "number",
+            "minimum": -1,
+            "maximum": 1
+          },
+          "centerZ": {
+            "type": "number",
+            "minimum": -0.5,
+            "maximum": 0.8
+          },
+          "forceLimitN": {
+            "type": "number",
+            "minimum": 2,
+            "maximum": 60
+          },
+          "torqueLimitNm": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 4
+          },
+          "saveSkillName": {
+            "type": "string"
+          }
+        },
+        "required": [],
         "additionalProperties": false
       }
     }

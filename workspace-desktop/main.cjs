@@ -112,7 +112,7 @@ async function executeRaw(tool,args={}){
     case 'tabletop.read':case 'tabletop.answer':case 'tabletop.report':result=await tabletopBridge.action(tool,args,captureContext);break;
     case 'observations.read':case 'observations.start':case 'observations.wait':case 'observations.report':result=await observationBridge.action(tool,args,captureContext);break;
     case 'tracking.read':case 'tracking.start':case 'tracking.wait':case 'tracking.report':case 'tracking.rollback':result=await trackingBridge.action(tool,args,captureContext);break;
-    case 'creation.start':case 'world.observe':case 'world.arrange':case 'pose.compare':case 'pose.study':case 'pose.read':case 'pose.start':case 'contact.compare':case 'contact.read':case 'force.read':case 'force.start':case 'push.read':case 'push.start':case 'map.read':case 'map.start':case 'space.start':case 'space.export':case 'perception.read':case 'perception.select':case 'perception.start':case 'spatial.read':case 'spatial.start':case 'data.read':case 'data.start':case 'world.model':case 'goal.start':case 'goal.read':case 'goal.cancel':case 'goal.resume':case 'procedures.list':case 'procedure.save':case 'procedure.run':result=await goalBridge.execute(tool,args,captureContext);break;
+    case 'construction.start':case 'creation.start':case 'world.observe':case 'world.arrange':case 'pose.compare':case 'pose.study':case 'pose.read':case 'pose.start':case 'contact.compare':case 'contact.read':case 'force.read':case 'force.start':case 'push.read':case 'push.start':case 'map.read':case 'map.start':case 'space.start':case 'space.export':case 'perception.read':case 'perception.select':case 'perception.start':case 'spatial.read':case 'spatial.start':case 'data.read':case 'data.start':case 'world.model':case 'goal.start':case 'goal.read':case 'goal.cancel':case 'goal.resume':case 'procedures.list':case 'procedure.save':case 'procedure.run':result=await goalBridge.execute(tool,args,captureContext);break;
     case 'workflow.start':case 'workflow.reuse':result=await workflowBridge.execute(tool,args,captureContext);break;
     case 'body.capture':{if(!run?.needsBody||!run.ownedObserverId)throw Error('Body capture requires an owned native body task');result=await executeRaw('observer.capture',{id:run.ownedObserverId});break;}
     case 'body.grab':case 'body.move':case 'body.release':case 'body.cancel':{
@@ -434,6 +434,14 @@ ipcMain.handle('workspace:request',async(event,input)=>{
     case 'skillMemory': {
       if(!['state','teach','recall'].includes(input.command))throw Error('Unknown skill memory command');
       return api('/api/brain/skill-memory-'+input.command,input.args||{});
+    }
+    case 'construction051': {
+      const args=input.args||{};
+      if(input.command==='select'){const observed=await api('/api/world/observe',{worldId:args.worldId});currentPersistentWorld={worldId:observed.worldId,expectedRevision:observed.expectedRevision,expectedHash:observed.expectedHash};return observed;}
+      if(input.command==='start')return goalBridge.execute('construction.start',args);
+      if(input.command==='export'){const output=await api('/api/world/export',args);return nativeExports.save('assembled-world','json',output.text,{worldId:args.worldId});}
+      const routes={restore:'/api/world/restore',create:'/api/construction051/create',upgrade:'/api/construction051/upgrade',list:'/api/world/list',observe:'/api/world/observe',read:'/api/goals/read',goals:'/api/goals/list',stop:'/api/goals/cancel',resume:'/api/goals/resume'};
+      if(!routes[input.command])throw Error('Unknown construction operation');return api(routes[input.command],args);
     }
     case 'workshop050': {
       if(input.command==='export'){const data=await api('/api/workshop050/trial',input.args||{});return nativeExports.save('construction-trial','json',JSON.stringify(data,null,2),{id:data.id});}
