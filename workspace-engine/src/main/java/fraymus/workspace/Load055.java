@@ -21,15 +21,17 @@ final class Load055 {
         if(!WorldVerify.verify(run).getBoolean("passed")||!Construction051.verifyStructure(run).getBoolean("passed"))throw new IllegalStateException("Load evaluation requires verified released assembly");
         Path file=file(root,run);var data=Files.exists(file)?AgentFiles042.loadChecked(file):new JSONObject().put("version",VERSION).put("codeSha256",code()).put("sourceRunSha256",WorldFrames.hash(run)).put("attempts",new JSONArray());
         binding(data,run);
+        for(Object item:data.getJSONArray("attempts")){var old=(JSONObject)item;if(old.getString("status").equals("running"))old.put("status","interrupted").put("reason","Prior owner ended; retained partial trace is not successful evidence");}
         for(Object raw:protocol().getJSONArray("cases")) {
             var c=(JSONObject)raw;boolean done=false;
             for(Object item:data.getJSONArray("attempts")){var a=(JSONObject)item;if(a.getString("caseId").equals(c.getString("id"))&&a.getString("status").equals("completed")){verifyAttempt(a,run,c);done=true;}}
             if(done)continue;if(Thread.interrupted())throw new InterruptedException("Load experiment stopped before next case");
             var a=new JSONObject().put("id",UUID.randomUUID().toString()).put("caseId",c.getString("id")).put("startedAt",Instant.now()).put("status","running").put("initial",WorldFrames.copy(run.getJSONObject("final"))).put("rows",new JSONArray()).put("samples",new JSONArray());
             data.getJSONArray("attempts").put(a);AgentFiles042.saveChecked(file,data);long start=System.nanoTime();
-            try {simulate(root.resolve("native"),run,c,a);a.put("status","completed");a.put("metrics",verifyAttempt(a,run,c));}
+            // Verify the exact JSON numeric representation that will be retained and reloaded.
+            try {simulate(root.resolve("native"),run,c,a,()->{AgentFiles042.saveChecked(file,data);return null;});a.put("status","completed");a.put("metrics",verifyAttempt(new JSONObject(a.toString()),run,c));}
             catch(InterruptedException e){a.put("status","interrupted").put("reason",e.getMessage());a.put("wallMillis",(System.nanoTime()-start)/1_000_000.0);AgentFiles042.saveChecked(file,data);throw e;}
-            catch(Exception e){a.put("status","failed").put("reason",e.toString());AgentFiles042.saveChecked(file,data);throw e;}
+            catch(Exception e){boolean interrupted=Thread.interrupted();a.put("status",interrupted?"interrupted":"failed").put("reason",e.toString());AgentFiles042.saveChecked(file,data);if(interrupted)throw new InterruptedException("Load recording interrupted; original partial attempt retained");throw e;}
             a.put("wallMillis",(System.nanoTime()-start)/1_000_000.0);AgentFiles042.saveChecked(file,data);
         }
         return read(root,run);
@@ -60,7 +62,7 @@ final class Load055 {
             if(impulse>1e-6&&distance<=.015)out.put(new JSONObject().put("a",ids.get(com.jme3.bullet.collision.PersistentManifolds.getBodyAId(manifold))).put("b",ids.get(com.jme3.bullet.collision.PersistentManifolds.getBodyBId(manifold))).put("distanceM",distance).put("normalImpulseNs",impulse));
         }return out;
     }
-    private static void simulate(Path nativeDir,JSONObject run,JSONObject spec,JSONObject attempt)throws Exception {
+    private static void simulate(Path nativeDir,JSONObject run,JSONObject spec,JSONObject attempt,java.util.concurrent.Callable<Void> checkpoint)throws Exception {
         BulletRamp.load(nativeDir);var space=new PhysicsSpace(PhysicsSpace.BroadphaseType.DBVT);var bodies=new LinkedHashMap<String,PhysicsRigidBody>();var dynamic=new LinkedHashSet<String>();
         var scene=run.getJSONObject("definition");String beam=WorldPlan.sourceObject(scene,"beam").getString("id");var protocol=protocol();
         try {
@@ -82,6 +84,7 @@ final class Load055 {
                 for(Object raw:after){var b=(JSONObject)raw;String id=b.getString("id");var old=ContactPhysics.dynamic(before,id);double[] dp=ObserverGeometry.sub(SpatialScene.vector(b.getJSONArray("position"),10000),SpatialScene.vector(old.getJSONArray("position"),10000));deltas.put(new JSONArray().put(id).put(new JSONArray(dp)).put(b.getJSONArray("rotation")));if(id.equals(beam))work=force.x*dp[0]+force.y*dp[1]+force.z*dp[2];}
                 attempt.getJSONArray("rows").put(new JSONArray().put(tick+1).put(SpatialPhysics.json(force)).put(deltas).put(work));
                 if((tick+1)%protocol.getInt("sampleEvery")==0)attempt.getJSONArray("samples").put(new JSONObject().put("tick",tick+1).put("bodies",after).put("contacts",contacts(space,bodies)));
+                if((tick+1)%240==0)checkpoint.call();
             }
         } finally {space.destroy();}
     }
