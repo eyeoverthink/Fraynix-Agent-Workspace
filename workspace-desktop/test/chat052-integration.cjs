@@ -66,6 +66,7 @@ async function main(){
   assert.equal(counted.mode,'workbench');assert.equal(counted.outcome,'verified');assert.equal(counted.timing052.terminalChecksWithoutModel,1);assert(!counted.history.some(r=>r.kind==='proposal'&&r.detail.tool==='finish'));
   const actual=await api('/api/artifact/read',{id:counted.artifact.id});assert(actual.test.passed);assert.deepEqual(actual.test.steps.map(s=>s.selector),['#count','#add','#count','#reset','#count']);report.liveCounter=counted;
   await page.locator('#mission044-open').click();await page.waitForFunction(id=>document.querySelector('#mission044').dataset.taskId===id,counter.id);await page.locator('#mission044-result').click();
+  await page.waitForFunction(()=>document.querySelector('#preview-tab').classList.contains('selected'));await page.evaluate(()=>new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r))));
   await fs.writeFile(path.join(out,'chat052-counter.png'),Buffer.from(await app.evaluate(()=>global.workspaceTest.capture()),'base64'));
   await app.close();app=null;await open();const restoredTask=await api('/api/agency043/read',{id:counter.id});assert.deepEqual(restoredTask.timing052,counted.timing052);assert.equal(restoredTask.summary,counted.summary);assert.deepEqual((await api('/api/world/observe',{worldId:id})).frame,retained.frame);
   checks.push('A third actual local-model request creates an HTML counter, passes the five original Add/Reset assertions and finishes in Java; task timing, summary and world restore exactly after another cold restart');
