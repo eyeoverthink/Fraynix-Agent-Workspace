@@ -3,7 +3,11 @@ export class BrainGame {
  async openIntegrated(){this.requireSaved();this.activate('game');if(!this.running)this.show(await this.call('gameRuntime','open'));}
  constructor({call,notice,activate,layout,lab,requireSaved}){Object.assign(this,{call,notice,activate,layout,lab,requireSaved});this.running=false;this.busy=false;this.polling=false;
   const safe=f=>async()=>{try{await f();}catch(e){this.notice(e.message);$('brain-status').textContent=e.message;}};
-  $('brain-open').onclick=safe(async()=>{$('brain-dialog').showModal();this.layout();await this.refresh();});
+  this.addSkillMemory();
+  $('brain-open').onclick=safe(async()=>{
+   $('brain-dialog').showModal();this.layout();await this.refresh();
+   if($('skill-memory-panel').open)await this.skillMemoryAction('state');
+  });
   $('brain-close').onclick=()=>{$('brain-dialog').close();this.layout();};$('brain-dialog').addEventListener('close',this.layout);
   $('game-tab').onclick=safe(()=>this.openIntegrated());
   for(const id of ['left','right','jump','step','play','pause','ai','reset'])$('game-'+id).onclick=safe(async()=>{const args=id==='left'||id==='right'||id==='jump'||id==='step'?{action:'step',ticks:30,horizontal:id==='left'?-1:id==='right'?1:0,jump:id==='jump'}:id==='ai'?{action:'ai',targetX:Number($('game-target').value)}:{action:id};this.show(await this.call('gameRuntime','command',args));});
@@ -21,6 +25,68 @@ export class BrainGame {
   $('memory-save').onclick=safe(async()=>{const receipt=await this.call('memory','remember',{text:$('memory-text').value});$('memory-result').textContent=JSON.stringify(receipt,null,2);});
   $('memory-search').onclick=safe(async()=>{$('memory-result').textContent=JSON.stringify(await this.call('memory','context',{query:$('memory-text').value,maxChars:2400}),null,2);});
   setInterval(()=>this.poll().catch(e=>this.notice(e.message)),150);
+ }
+ addSkillMemory(){
+  const panel=document.createElement('details');
+  panel.id='skill-memory-panel';
+  panel.innerHTML=`<summary>Skill recall · compare three methods</summary>
+   <p>Teach a phrase for a saved world skill. Compare suggestions for another phrase, then inspect the skill in Verified skills.</p>
+   <p id="skill-memory-state" role="status">Open to load saved world skills.</p>
+   <div class="skill-memory-fields">
+    <label>Verified world skill<select id="skill-memory-choice"></select></label>
+    <label>Teaching phrase or recall query
+     <input id="skill-memory-phrase" maxlength="240" placeholder="Arrange the objects beside the marker">
+    </label>
+   </div>
+   <div class="runtime-controls">
+    <button id="skill-memory-teach" disabled>Teach this phrase</button>
+    <button id="skill-memory-recall" disabled>Compare recall</button>
+   </div>
+   <div id="skill-memory-result" aria-live="polite"></div>`;
+  $('brain-state').after(panel);
+  panel.ontoggle=()=>{if(panel.open)this.skillMemoryAction('state');};
+  $('skill-memory-teach').onclick=()=>this.skillMemoryAction('teach');
+  $('skill-memory-recall').onclick=()=>this.skillMemoryAction('recall');
+ }
+ async skillMemoryAction(command){
+  if(this.skillMemoryBusy)return;
+  this.skillMemoryBusy=true;
+  const teach=$('skill-memory-teach'),recall=$('skill-memory-recall'),choice=$('skill-memory-choice');
+  teach.disabled=recall.disabled=true;
+  const result=$('skill-memory-result');
+  result.replaceChildren();
+  try{
+   const args=command==='state'?{}:{phrase:$('skill-memory-phrase').value};
+   if(command==='teach')args.skill=this.skillMemoryChoices[Number(choice.value)];
+   const response=await this.call('skillMemory',command,args);
+   if(command==='state'){
+    this.skillMemoryChoices=response.choices;
+    choice.replaceChildren(...response.choices.map((skill,index)=>new Option(skill.name+' · v'+skill.version,String(index))));
+   }
+   this.skillMemoryAvailable=response.available;
+   $('skill-memory-state').textContent=response.available
+    ? `${response.examples} taught phrase${response.examples===1?'':'s'} · ${response.skillCount} remembered skill${response.skillCount===1?'':'s'} · checkpoint ${response.sha256.slice(0,12)}`
+    : response.reason;
+   if(command==='teach')result.textContent=response.changed?'Phrase saved in Java skill memory.':'This phrase was already taught for that skill.';
+   if(command==='recall'){
+    const rows=document.createElement('ul');
+    for(const [key,label] of [['exact','Exact phrase'],['lexical','Keyword overlap'],['hdc','Packed HDC']]){
+     const match=response[key],row=document.createElement('li');
+     row.textContent=match.status==='suggestion'
+      ? `${label} · ${match.skill.name} v${match.skill.version} · score ${match.score.toFixed(3)}`
+      : `${label} · No suggestion${match.reason?' · '+match.reason:''}`;
+     rows.append(row);
+    }
+    result.append(rows);
+   }
+  }catch(error){
+   result.textContent=error.message;
+   if(command==='state')this.skillMemoryAvailable=false;
+  }finally{
+   this.skillMemoryBusy=false;
+   recall.disabled=!this.skillMemoryAvailable;
+   teach.disabled=recall.disabled||!this.skillMemoryChoices?.length;
+  }
  }
  show(frame){this.running=true;$('game-frame').src='data:image/png;base64,'+frame.pngBase64;const s=frame.state,p=s.player;this.lastFrame=frame;$('game-status').textContent=`Original Java renderer · tick ${s.tick} · ${s.objects} objects\nPlayer X ${p.x.toFixed(3)} / Y ${p.y.toFixed(3)} · ${p.dead?'dead':p.won?'goal reached':p.onGround?'on ground':'airborne'}\nCapture ${Number(frame.captureMs).toFixed(1)} ms · bridge ${Number(frame.bridgeMs).toFixed(1)} ms · hidden runtime · no editor panels`;}
  async refresh(){const s=await this.call('brain','state');this.busy=s.busy;this.version=s.activePolicy.version;this.feedbackVersion=s.activeFeedback.version;$('brain-feedback-rollback').disabled=s.busy||this.feedbackVersion<2;$('brain-feedback-run').disabled=s.busy;const latest=s.jobs.at(-1);if(latest)this.jobId=latest.id;

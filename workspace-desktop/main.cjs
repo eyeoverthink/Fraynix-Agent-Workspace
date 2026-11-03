@@ -431,6 +431,10 @@ ipcMain.handle('workspace:request',async(event,input)=>{
       if(input.command==='export-run'){const output=await api('/api/world/export-run',input.args||{});return nativeExports.save('persistent-world-run','json',output.text,{id:input.args.id});}
       if(!['create','list','read','observe','visibility','preview','restore','run','suite'].includes(input.command))throw Error('Unknown persistent world operation');return api('/api/world/'+input.command,input.args||{});
     }
+    case 'skillMemory': {
+      if(!['state','teach','recall'].includes(input.command))throw Error('Unknown skill memory command');
+      return api('/api/brain/skill-memory-'+input.command,input.args||{});
+    }
     case 'pose':{
       if(input.command==='select'){const args=input.args||{},scene=await api('/api/spatial/read',{id:args.sceneId});await api('/api/pose/preview',args);currentPose={sceneId:scene.id,targets:args.targets,forceLimitN:args.forceLimitN??60,torqueLimitNm:args.torqueLimitNm??4};return currentPose;}
       if(input.command==='start')return goalBridge.execute('pose.start',input.args||{});
