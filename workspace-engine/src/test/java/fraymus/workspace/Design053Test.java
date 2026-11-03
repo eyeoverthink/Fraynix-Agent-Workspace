@@ -9,7 +9,8 @@ import java.util.*;
 /** Actual native trials; report pixels and local inference are verified in the separate desktop run. */
 public class Design053Test {
     static JSONObject input(WorldLedger worlds,double force)throws Exception{
-        var w=worlds.create(Construction051Test.scene(),"LABELLED design053 native acceptance");
+        var imported=SpatialScene.parse(Construction051.kit().toString(),UUID.randomUUID().toString());
+        var w=worlds.create(imported,"LABELLED design053 native acceptance");
         var observed=worlds.observe(w.getString("id"));var a=new JSONObject();
         for(String k:List.of("worldId","expectedRevision","expectedHash"))a.put(k,observed.get(k));
         return a.put("construction051",Construction051.options(new JSONObject())).put("forceLimitN",force).put("torqueLimitNm",4);
