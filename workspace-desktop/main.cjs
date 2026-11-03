@@ -435,6 +435,14 @@ ipcMain.handle('workspace:request',async(event,input)=>{
       if(!['state','teach','recall'].includes(input.command))throw Error('Unknown skill memory command');
       return api('/api/brain/skill-memory-'+input.command,input.args||{});
     }
+    case 'evidence049': {
+      if(input.command==='save-export'){
+        const data=await api('/api/evidence049/export',input.args||{});
+        return nativeExports.save('observation-evidence','json',data.text,{id:data.id});
+      }
+      if(!['list','import','read','export'].includes(input.command))throw Error('Unknown observation evidence operation');
+      return api('/api/evidence049/'+input.command,input.args||{});
+    }
     case 'pose':{
       if(input.command==='select'){const args=input.args||{},scene=await api('/api/spatial/read',{id:args.sceneId});await api('/api/pose/preview',args);currentPose={sceneId:scene.id,targets:args.targets,forceLimitN:args.forceLimitN??60,torqueLimitNm:args.torqueLimitNm??4};return currentPose;}
       if(input.command==='start')return goalBridge.execute('pose.start',input.args||{});

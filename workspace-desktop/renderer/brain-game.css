@@ -9,3 +9,16 @@
 }
 .skill-memory-fields label { display: grid; gap: 4px; }
 .skill-memory-fields input, .skill-memory-fields select { min-width: 0; width: 100%; }
+
+/* Recorded evidence stays in the integrated Java Brain view. */
+#evidence049-panel { border-top: 1px solid var(--border, #38545a); margin-top: 14px; padding-top: 12px; }
+.evidence049-fields { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.evidence049-fields label { min-width: 0; display: grid; gap: 6px; }
+.evidence049-fields input, .evidence049-fields select { width: 100%; min-width: 0; box-sizing: border-box; }
+#evidence049-seek, #evidence049-chart { width: 100%; display: block; }
+#evidence049-panel > label { display: grid; grid-template-columns: 1fr; width: 100%; max-width: none; gap: 6px; }
+#evidence049-seek { max-width: none; box-sizing: border-box; }
+#evidence049-chart { background: #10232a; border-radius: 8px; }
+#evidence049-current, #evidence049-results { overflow-wrap: anywhere; }
+.evidence049-legend { color: #c9dfe0; font-size: .9em; }
+@media(max-width: 700px) { .evidence049-fields { grid-template-columns: 1fr; } }

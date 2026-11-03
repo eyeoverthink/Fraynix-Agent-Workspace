@@ -1,9 +1,11 @@
+import {EvidenceBench049} from './evidence049.js';
 const $=id=>document.getElementById(id);
 export class BrainGame {
  async openIntegrated(){this.requireSaved();this.activate('game');if(!this.running)this.show(await this.call('gameRuntime','open'));}
  constructor({call,notice,activate,layout,lab,requireSaved}){Object.assign(this,{call,notice,activate,layout,lab,requireSaved});this.running=false;this.busy=false;this.polling=false;
   const safe=f=>async()=>{try{await f();}catch(e){this.notice(e.message);$('brain-status').textContent=e.message;}};
   this.addSkillMemory();
+  this.evidenceBench=new EvidenceBench049(call);
   $('brain-open').onclick=safe(async()=>{
    $('brain-dialog').showModal();this.layout();await this.refresh();
    if($('skill-memory-panel').open)await this.skillMemoryAction('state');
