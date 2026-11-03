@@ -6,6 +6,7 @@ import java.nio.charset.StandardCharsets;
 
 /** Declared variable box stock and fixed obstacles; native motion/contacts remain the evidence. */
 final class Construction054 {
+ static final String LEGACY_053="05eae61fc6fed8df7e7d1649d7c726773b822bfd20d698a4b5e8811d230d85cb";
  static final String PREFIX="Edition 054 declared box construction: ";
  static final String VERSION="geometry-construction-054-v1";
  static final String SCOPE="Declared rectangular bridge stock and fixed box obstacles; conservative overhead clearance, actual released contacts. No arbitrary path finding, material strength or physical calibration.";
