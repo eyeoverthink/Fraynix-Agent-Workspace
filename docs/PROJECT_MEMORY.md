@@ -1,5 +1,16 @@
 # Agent Workspace project memory
 
+## Edition052 · Published and fetched back on 2026-11-03
+
+Actual non-forced atomic push to private `eyeoverthink/Fraynix-Agent-Workspace`: main, edition052 and readme-052 accepted. Release `43c33334f2c66515d0adc3b5c772a1e3cf001a14`; annotated tag `28e0aa7676ca985fe397c5319995b1b286bb8e05`. Fresh direct GitHub fetch confirms the release and tag. All 867 canonical source files, 3451 frozen hashes across52 editions, and 147 complete original evidence archives were read from that fetched tree and checked. Original gzip files were decompressed and original byte counts/SHA verified. Documentation passes 57 canvases and 5704 references. [Publication receipt](PUBLICATION_052.json).
+
+Final Java source099d44f and final UI source1e08210 retain the original completion gates while removing redundant terminal inference. Actual local CPU gpt-oss:20b saved construction reuse107.166s and fresh construction91.779s each use one model request; historical051359.438/355.213s each used two. This is a source-qualified historical comparison, not a randomized speed benchmark. Actual counter creation completes with one request and passes all five original Chromium checks. Exact task timing/summary and committed world survive cold restart.456 distinct Java cases across92 classes are covered by the full/affected invocations;123desktop tests pass on final UI source. Original initial fixture/source-lock failures and first three-call acceptance failure remain preserved. The later actual-model invocation passed its task assertions then failed at screenshot capture; separate cold-restart UI verification passes. No claim of one all-green uninterrupted full/UI run. New README, five actual app screenshots, offline guide, Obsidian map, complete original evidence, memories and logs published. No model weights were trained.
+
+FRAYMUS-Logic-Chain freshly reviewed at7c15c783c784417977b0445eb086b2915025472d: objective continuity, retained diagnostic occurrences and proposal/admission/outcome separation adapted into existing Java ownership. Reference suite reports269passes and five original Windows background save errors; both retained. Fixed sixteen-call pipeline, paid providers and voting-as-proof are not activated.
+
+Normal review045/private camera/mat/project and installed runtime remain untouched. Never rebuild its live installed JARs. This edition uses an isolated checkout and independent practice projects. Preserve001–052 immutable; next unused053. Next: bounded task-sized design skill, frozen diagnostic-retention comparison, broader part/obstacle cases and separate load trials. This continuity/receipt commit follows the verified release.
+
+
 ## Edition052 · Checked chat validated locally
 
 2026-11-03. Source099d44fa938a1775b7394ad0420ea512fd04a137 in isolated edition052 removes the redundant terminal model decision through the SAME original completion path. ChatChain052 preserves objective identity, diagnostic occurrences and valid bounded domain context; Mission exposes concise results, measured model time and full original evidence. Native physics, planner, world/commit/checkpoint/export and construction algorithms unchanged. No new scheduler, dependency or cloud activation.
