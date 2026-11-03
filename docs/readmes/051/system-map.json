@@ -1,0 +1,89 @@
+{
+  "edition": 51,
+  "modules": [
+    {
+      "id": "assembly",
+      "name": "Java assembly planner",
+      "summary": "Declared finite kit, ordered overhead grasp routes, actual release and two-support contact check.",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/Construction051.java",
+      "status": "Verified native simulation",
+      "note": "docs/obsidian/59-gripper-assembly.md"
+    },
+    {
+      "id": "runner",
+      "name": "Existing goal runner",
+      "summary": "Owns construction progress, host checks, commit, interruption and saved procedures.",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/GoalRunner.java",
+      "status": "Verified",
+      "note": "docs/obsidian/59-gripper-assembly.md"
+    },
+    {
+      "id": "world",
+      "name": "Continuing world ledger",
+      "summary": "Complete retained frame, stable identities, source-bound revisions and explicit compatible upgrade.",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/WorldLedger.java",
+      "status": "Verified",
+      "note": "docs/obsidian/59-gripper-assembly.md"
+    },
+    {
+      "id": "chat",
+      "name": "Typed local chat",
+      "summary": "Exact procedure and selected-world bindings; registered construction family.",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/Procedure044.java",
+      "status": "Verified with actual local model",
+      "note": "docs/obsidian/59-gripper-assembly.md"
+    },
+    {
+      "id": "view",
+      "name": "Integrated assembly view",
+      "summary": "Renders native state, supports direct and chat actions, Stop, resume and export.",
+      "source": "workspace-desktop/renderer/construction051.js",
+      "status": "Verified actual app",
+      "note": "docs/obsidian/59-gripper-assembly.md"
+    },
+    {
+      "id": "next",
+      "name": "Broader assembly and cooperation",
+      "summary": "Additional parts and obstructed routes, separate load checks and measured shared effectors.",
+      "source": "docs/EDITION_051_CONTRACT.md",
+      "status": "Planned",
+      "note": "docs/obsidian/59-gripper-assembly.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "docs/readmes/051/construction051-built.png",
+      "title": "The released beam rests on two native dynamic supports · November 3, 2026 · synthetic test world"
+    },
+    {
+      "path": "docs/readmes/051/construction051-live.png",
+      "title": "The real native gripper in motion · November 3, 2026 · synthetic test world"
+    },
+    {
+      "path": "docs/readmes/051/construction051-rebuilt.png",
+      "title": "Rebuilt from the previous world frame after restarting Java · November 3, 2026 · synthetic test world"
+    },
+    {
+      "path": "docs/readmes/051/construction051-chat-built.png",
+      "title": "Actual gpt-oss:20b construction request completes and saves a skill · November 3, 2026 · synthetic test world"
+    },
+    {
+      "path": "docs/readmes/051/construction051-narrow.png",
+      "title": "The integrated assembly panel at 1100 pixels · November 3, 2026 · synthetic test world"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/readmes/051/verification.json",
+      "title": "Source-qualified verification receipt"
+    },
+    {
+      "path": "docs/readmes/051/case-results.json",
+      "title": "Actual outcomes and metrics"
+    },
+    {
+      "path": "docs/readmes/051/original-evidence.json",
+      "title": "Full original compressed evidence"
+    }
+  ]
+}

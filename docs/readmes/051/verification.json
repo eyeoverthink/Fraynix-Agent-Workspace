@@ -1,0 +1,72 @@
+{
+  "edition": 51,
+  "date": "2026-11-03",
+  "source": "9cb1e025f5250f81f4cccf4efa26fead2b2595cc",
+  "passed": true,
+  "javaSource": "3f257ee",
+  "allJavaUnchangedSinceTest": true,
+  "java": [
+    {
+      "name": "fraymus.workspace.Construction051Test",
+      "tests": "6",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0"
+    },
+    {
+      "name": "fraymus.workspace.Domain044Test",
+      "tests": "15",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0"
+    },
+    {
+      "name": "fraymus.workspace.Workshop050Test",
+      "tests": "6",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0"
+    },
+    {
+      "name": "fraymus.workspace.WorldExportTest",
+      "tests": "1",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0"
+    },
+    {
+      "name": "fraymus.workspace.WorldLedgerTest",
+      "tests": "3",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0"
+    }
+  ],
+  "javaCount": 31,
+  "desktopUnitTests": 123,
+  "desktopUnitSource": "d5aba41 (subsequent changes only improve the integration test harness)",
+  "actualLocalModel": "gpt-oss:20b, CPU-only planning",
+  "integration": [
+    "Actual UI runs three native gripper placements, verifies support contacts and original report, commits revision 1 and saves a construction skill",
+    "Fresh Java process restores the exact complete constructed frame and stable body IDs; stale observation refused",
+    "Second goal stages the beam, relocates supports and rebuilds the same bodies from the exact prior frame, earning revision 2 with four verified releases",
+    "Shared verified-skill library opens the retained construction procedure in the same app",
+    "Actual installed gpt-oss:20b chat selects the retained exact construction procedure and earns a new revision in the same world",
+    "A second actual local-model request uses construction.start with exact requested coordinates and saves a newly verified skill at revision 4",
+    "Stop cannot earn a construction; explicit restore preserves the previous committed frame and removes pending ownership. Export and narrow layout work"
+  ],
+  "scope": "Known native three-part bridge, persistent-world reassembly, typed chat and verified procedure reuse; no physical robot, general assembly benchmark or LLM weight training.",
+  "developmentCorrections": [
+    "Repeated beam targets now checked at each actual release; only final placement is compared with final pose. Original thresholds retained.",
+    "Progress polling no longer replaces an explicitly selected skill with the latest completed skill. The original local run passed its old assertions but used bridge-rebuilt rather than the library-selected bridge-assembly. Final chat run asserts exact bridge-assembly version 1.",
+    "A duplicated declaration in the strengthened test harness was corrected before launching the final app; original SyntaxError log retained."
+  ],
+  "originalEvidence": "original-evidence.json",
+  "documentationBrowser": "documentation-browser.json",
+  "publication": "Local verification; actual fetched GitHub receipt follows separately.",
+  "developmentBaselineScope": "desktop-baseline.json is an earlier direct-UI development run, before final numeric-input/selection refinements. The final source-qualified live run repeats its complete workflow. development-first-local-chat.json is the original pre-selection-fix actual-model run, not proof of the final picker behavior.",
+  "localChatWallSeconds": {
+    "liveReuse": 359.437585,
+    "liveStart": 355.212777
+  }
+}

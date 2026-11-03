@@ -1,5 +1,14 @@
 # Fraynix Studio collaboration and documentation
 
+## Edition 051 · Native gripper assembly validated locally
+
+2026-11-03. Isolated edition051 adds Construction051 to the existing native WorldPlan/WorldVerify/GoalRunner, with typed local chat, stable saved-skill selection, continuing-world construction proof and explicit known 050 migration. Actual released bridge uses two dynamic supports and one beam. Same-world reassembly stages the beam then rebuilds; no pose teleport during actuation. Original displacement/wrench/release checks remain; intermediate repeated placements now verified at release and final placements at final state. Native WorldPhysics, WorldFrames and WorldExport algorithms unchanged. No new dependency or scheduler.
+
+31 focused Java cases on `3f257ee` passed (6 new construction, 15 domain, 6 workshop, 3 world-ledger, 1 export); 123 desktop unit tests passed. Final actual Electron/Java/local gpt-oss:20b workflow checks direct build, exact cold restart, same-frame rebuild, exact named skill reuse and fresh construction chat, stale refusal, Stop/restoration, lossless export and narrow layout. Final source is `9cb1e02`; the source-qualified receipt records the desktop selection correction separately; all Java matches `3f257ee`. Original first-stage verifier failure and pre-selection-fix local run are retained as development evidence. These are known-kit simulation acceptance cases, not general assembly, hardware safety, LLM weight training or held-out learning claims.
+
+README 051, real dated screenshots, full original test-world/native/chat/export archives, offline guide and Obsidian map accompany the source. Review 045 and private user/camera data untouched; never rebuild its active installed JARs. No camera/Arduino/Minecraft activation. World paused between goals; resume requires compatible code; only exact 050 world identity can be explicitly upgraded with no active owner. Previous README 001–050 remain frozen. Publication is not claimed until the fetched-remote receipt. Measured CPU-only chat took about six minutes per task. Next: reduce redundant chat stages without weakening checks, broader parts/obstructed routes, separate bridge-load experiments, then measured shared effectors. [README 051](README-051.md) · [Validation](docs/readmes/051/verification.json).
+
+
 ## Latest handoff · edition050 published2026-11-02
 
 Isolated `fraynix-workspace-edition050` source f36f4c4 implements native construction experiments in the existing Java GoalRunner. Finite stock, pre-action analytic ramp predictions, three actual Bullet bodies, bounded design repair, immutable results and versioned procedure reuse are installed in the integrated Spatial workshop. No new model/dependency/daemon. Current review045 and its private data remain untouched; never rebuild its live JARs or reuse its project for tests.

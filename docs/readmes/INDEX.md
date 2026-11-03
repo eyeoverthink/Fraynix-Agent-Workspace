@@ -55,4 +55,6 @@ Numbered editions preserve dated behavior and evidence. The root [README](../../
 | [049](../../README-049.md) | 2026-11-02 | Replayable observations, source clocks and independent witness evidence | [Viewer](049/index.html) · [tree](049/FILE_TREE.md) |
 | [050](../../README-050.md) | 2026-11-02 | Native construction, prediction and retained recovery | [Viewer](050/index.html) · [tree](050/FILE_TREE.md) |
 
-Latest implementation and documentation edition in this checkout is **050**. See [sequence policy](README_SEQUENCE.md) and [manifest](editions.json).
+| [051](../../README-051.md) | 2026-11-03 | Native gripper assembly, continuing constructions and typed chat | [Viewer](051/index.html) · [tree](051/FILE_TREE.md) |
+
+Latest implementation and documentation edition in this checkout is **051**. See [sequence policy](README_SEQUENCE.md) and [manifest](editions.json).
