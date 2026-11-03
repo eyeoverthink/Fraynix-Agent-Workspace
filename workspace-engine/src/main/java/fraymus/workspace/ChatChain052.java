@@ -114,7 +114,7 @@ final class ChatChain052 {
         var child=meta.optJSONObject("javaGoal");
         if(child!=null){
             out.append(child.optString("reason","Native task completed")).append(". ");
-            if(child.has("design053")){var d=child.getJSONObject("counterfactual045");out.append("Compared ").append(d.getJSONArray("candidates").length()).append(" assembly strategies; selected ").append(d.getString("selectedCandidate")).append(" by verified feasibility and measured effort. ");}
+            if(child.has("design053")){var d=child.getJSONObject("counterfactual045");out.append("Compared ").append(d.getJSONArray("candidates").length()).append(" assembly strategies; selected ").append(d.getString("selectedCandidate")).append(" by verified feasibility and measured effort. ");if(d.has("baseline054"))out.append(d.getJSONObject("baseline054").getString("verdict")).append(". ");}
             var m=child.optJSONObject("metrics",new JSONObject());
             var v=child.optJSONObject("constructionVerification051");
             if(v!=null)out.append(m.optInt("releases")).append(" releases; ").append(v.optInt("supportContacts")).append(" support contacts; settled structure ").append(v.optBoolean("passed")?"passed":"failed").append(". ");

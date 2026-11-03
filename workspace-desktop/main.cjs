@@ -442,7 +442,7 @@ ipcMain.handle('workspace:request',async(event,input)=>{
       if(input.command==='design-export'){const data=await api('/api/world/counter045/export',args);return nativeExports.save('assembly-design','json',JSON.stringify(data),{studyId:args.id});}
       if(input.command==='report'){const g=await api('/api/goals/read',args);if(g.status!=='completed'||!g.design053||!g.report)throw Error('Choose a completed verified assembly design');const a=await api('/api/artifact/read',{id:g.report.id});if(a.version!==g.report.version)throw Error('Saved design report changed; this goal retains its original checked version');emit('view','preview');return openArtifact(a);}
       if(input.command==='export'){const output=await api('/api/world/export',args);return nativeExports.save('assembled-world','json',output.text,{worldId:args.worldId});}
-      const routes={restore:'/api/world/restore',create:'/api/construction051/create',upgrade:'/api/construction051/upgrade',list:'/api/world/list',observe:'/api/world/observe',read:'/api/goals/read',goals:'/api/goals/list',stop:'/api/goals/cancel',resume:'/api/goals/resume'};
+      const routes={configurations:'/api/construction054/configurations',restore:'/api/world/restore',create:'/api/construction051/create',upgrade:'/api/construction051/upgrade',list:'/api/world/list',observe:'/api/world/observe',read:'/api/goals/read',goals:'/api/goals/list',stop:'/api/goals/cancel',resume:'/api/goals/resume'};
       if(!routes[input.command])throw Error('Unknown construction operation');return api(routes[input.command],args);
     }
     case 'workshop050': {

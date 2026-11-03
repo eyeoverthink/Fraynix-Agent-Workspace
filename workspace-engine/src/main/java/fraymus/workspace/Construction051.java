@@ -36,6 +36,7 @@ final class Construction051 {
             .put("rotation",WorldPlan.quat(yaw)).put("massKg",mass).put("friction",.8).put("restitution",0);
     }
     static void stock(JSONObject scene) {
+        if(Construction054.is(scene)){Construction054.stock(scene);return;}
         WorldFrames.verifyScene(scene);
         if(scene.getJSONArray("objects").length()!=4)throw new IllegalArgumentException("Bridge construction requires the declared floor and exactly three retained kit parts");
         for(Object raw:kit().getJSONArray("objects")) {
@@ -49,6 +50,7 @@ final class Construction051 {
         }
     }
     static JSONObject intent(JSONObject scene,JSONObject requested,double force,double torque) {
+        if(Construction054.is(scene))return Construction054.intent(scene,requested,force,torque);
         stock(scene);var o=options(requested);RampDefinition.range(force,2,60,"gripper force N");RampDefinition.range(torque,0,4,"gripper torque Nm");
         var targets=new JSONArray();var beam=WorldPlan.sourceObject(scene,"beam");
         // Removing the beam first protects supports when rebuilding a retained structure.
@@ -60,6 +62,7 @@ final class Construction051 {
     }
     private static JSONObject target(String id,double x,double y,double z){return new JSONObject().put("sourceId",id).put("positionM",new JSONArray(new double[]{x,y,z})).put("yawDeg",0);}
     static JSONObject plan(JSONObject scene,JSONObject requested) {
+        if(Construction054.is(scene))return Construction054.plan(scene,requested);
         var expected=intent(scene,requested.getJSONObject("construction051"),requested.getDouble("forceLimitN"),requested.getDouble("torqueLimitNm"));
         if(!expected.similar(requested))throw new IllegalStateException("Construction source, design, code or stock binding changed");
         var positions=new LinkedHashMap<String,JSONObject>();double top=0,radius=0;
@@ -84,6 +87,7 @@ final class Construction051 {
     private static double[] halfBounds(JSONObject o){double yaw=Math.toRadians(WorldPlan.yaw(o.getJSONArray("rotation"))),c=Math.abs(Math.cos(yaw)),s=Math.abs(Math.sin(yaw));var b=o.getJSONArray("size");return new double[]{(c*b.getDouble(0)+s*b.getDouble(2))/2,b.getDouble(1)/2,(s*b.getDouble(0)+c*b.getDouble(2))/2};}
 
     static JSONObject verifyStructure(JSONObject run) {
+        if(Construction054.is(run.getJSONObject("definition")))return Construction054.verifyStructure(run);
         var scene=run.getJSONObject("definition");var plan=run.getJSONObject("plan");var intent=plan.getJSONObject("intent");
         if(!plan(scene,intent).similar(plan))throw new IllegalStateException("Construction plan changed");
         var last=run.getJSONObject("final");String beam=WorldPlan.sourceObject(scene,"beam").getString("id");
