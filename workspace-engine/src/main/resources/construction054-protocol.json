@@ -1,0 +1,16 @@
+{
+  "version": "construction-geometry-054-acceptance-v1",
+  "sourceBaseline": "121f22ea4479843f30ed9a11e82c4a131ce3501e",
+  "scope": "Declared synthetic acceptance cases, not held-out data or physical calibration",
+  "forceLimitN": 40,
+  "torqueLimitNm": 4,
+  "centerX": 0,
+  "centerZ": 0,
+  "cases": [
+    {"id":"legacy053","preset":"legacy","expect":"verified"},
+    {"id":"compact054","preset":"compact","supportSize":[0.35,0.45,0.5],"beamSize":[1.6,0.25,0.35],"spanM":1.0,"supportMassKg":1.0,"beamMassKg":0.8,"obstacle":"none","expect":"verified"},
+    {"id":"wide054","preset":"wide","supportSize":[0.45,0.75,0.65],"beamSize":[2.6,0.3,0.5],"spanM":1.9,"supportMassKg":1.5,"beamMassKg":1.2,"obstacle":"none","expect":"verified"},
+    {"id":"barrier054","preset":"barrier","supportSize":[0.45,0.75,0.65],"beamSize":[2.6,0.3,0.5],"spanM":1.9,"supportMassKg":1.5,"beamMassKg":1.2,"obstacle":"barrier","obstacleHeightM":0.8,"expect":"verified"},
+    {"id":"blocked054","preset":"blocked","supportSize":[0.45,0.75,0.65],"beamSize":[2.6,0.3,0.5],"spanM":1.9,"supportMassKg":1.5,"beamMassKg":1.2,"obstacle":"blocked-target","obstacleHeightM":0.8,"expect":"admission-refused"}
+  ]
+}
