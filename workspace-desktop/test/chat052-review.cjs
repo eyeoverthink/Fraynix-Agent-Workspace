@@ -21,7 +21,10 @@ async function main(){
   await page.locator('#mission052-details').evaluate(e=>e.open=false);await page.locator('#mission044').evaluate(e=>e.scrollTop=0);
   await app.evaluate(({BrowserWindow})=>BrowserWindow.getAllWindows()[0].setSize(1100,920));await capture('chat052-narrow.png');assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));
   await page.locator('#mission044-task').selectOption(record.liveCounter.id);await page.waitForFunction(id=>document.querySelector('#mission044').dataset.taskId===id,record.liveCounter.id);await page.locator('#mission044-result').click();
-  await page.waitForFunction(()=>document.querySelector('#preview-tab').classList.contains('selected'));assert.equal(await app.evaluate(()=>global.workspaceTest.canvasRead('document.querySelector("#count").textContent')),'0');await capture('chat052-counter.png');
+  await page.waitForFunction(()=>document.querySelector('#preview-tab').classList.contains('selected'));
+  let counterText;const deadline=Date.now()+15000;
+  do{counterText=await app.evaluate(()=>global.workspaceTest.canvasRead('document.querySelector("#count")?.textContent ?? "pending"'));if(counterText==='0')break;await new Promise(r=>setTimeout(r,100));}while(Date.now()<deadline);
+  assert.equal(counterText,'0');await capture('chat052-counter.png');
   const restored=await api('/api/agency043/read',{id:record.liveCounter.id});assert.equal(restored.outcome,'verified');assert.deepEqual(restored.timing052,record.liveCounter.timing052);assert.equal(restored.summary,record.liveCounter.summary);
   const world=await api('/api/world/read',{worldId:record.worldId});assert.deepEqual(world.frame,record.world.frame);assert.equal(world.revision,record.world.revision);
   const artifact=await api('/api/artifact/read',{id:restored.artifact.id});assert(artifact.test.passed);assert.deepEqual(artifact.test.steps.map(s=>s.selector),['#count','#add','#count','#reset','#count']);assert.deepEqual(errors,[]);
