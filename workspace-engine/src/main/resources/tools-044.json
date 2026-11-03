@@ -2537,7 +2537,7 @@
     "type": "function",
     "function": {
       "name": "construction_start",
-      "description": "Assemble the declared three-part bridge with the native virtual gripper in the selected persistent world. Java verifies release, support contacts, stable state and charts before committing. Reassembly stages the beam first. No source IDs, reset or success flags.",
+      "description": "Assemble or rebuild declared bridge stock in the selected persistent world. Java routes around supported fixed obstacles and verifies native motion, released support and charts before commit. Optional design053 compares actual trials; directFirst055 tries maximum force first and expands only on failed verification. loadTests055 evaluates unloaded, downward and horizontal-overload copies, retaining unstable outcomes without mutating the live world. Direct-first/load options require design053. No material-strength or robot claim.",
       "parameters": {
         "type": "object",
         "properties": {
@@ -2563,6 +2563,18 @@
           },
           "saveSkillName": {
             "type": "string"
+          },
+          "design053": {
+            "type": "boolean"
+          },
+          "directFirst055": {
+            "type": "boolean"
+          },
+          "loadTests055": {
+            "type": "boolean"
+          },
+          "reviewCounterfactual045": {
+            "type": "boolean"
           }
         },
         "required": [],

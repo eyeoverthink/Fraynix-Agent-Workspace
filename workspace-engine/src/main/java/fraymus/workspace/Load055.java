@@ -19,28 +19,32 @@ final class Load055 {
     private static Path file(Path root,JSONObject run){UUID.fromString(run.getString("id"));return root.resolve(run.getString("id")+".json");}
     static JSONObject evaluate(Path root,JSONObject run)throws Exception {
         if(!WorldVerify.verify(run).getBoolean("passed")||!Construction051.verifyStructure(run).getBoolean("passed"))throw new IllegalStateException("Load evaluation requires verified released assembly");
-        Path file=file(root,run);var data=Files.exists(file)?AgentFiles042.loadChecked(file):new JSONObject().put("version",VERSION).put("codeSha256",code()).put("sourceRunSha256",WorldFrames.hash(run)).put("attempts",new JSONArray());
+        Path file=file(root,run);var data=Files.exists(file)?load(file):new JSONObject().put("version",VERSION).put("codeSha256",code()).put("sourceRunSha256",WorldFrames.hash(run)).put("attempts",new JSONArray());
         binding(data,run);
         for(Object item:data.getJSONArray("attempts")){var old=(JSONObject)item;if(old.getString("status").equals("running"))old.put("status","interrupted").put("reason","Prior owner ended; retained partial trace is not successful evidence");}
         for(Object raw:protocol().getJSONArray("cases")) {
             var c=(JSONObject)raw;boolean done=false;
             for(Object item:data.getJSONArray("attempts")){var a=(JSONObject)item;if(a.getString("caseId").equals(c.getString("id"))&&a.getString("status").equals("completed")){verifyAttempt(a,run,c);done=true;}}
             if(done)continue;if(Thread.interrupted())throw new InterruptedException("Load experiment stopped before next case");
+            if(data.getJSONArray("attempts").length()>=12)throw new IllegalStateException("Load history reached its 12-attempt limit; originals retained");
             var a=new JSONObject().put("id",UUID.randomUUID().toString()).put("caseId",c.getString("id")).put("startedAt",Instant.now()).put("status","running").put("initial",WorldFrames.copy(run.getJSONObject("final"))).put("rows",new JSONArray()).put("samples",new JSONArray());
-            data.getJSONArray("attempts").put(a);AgentFiles042.saveChecked(file,data);long start=System.nanoTime();
+            data.getJSONArray("attempts").put(a);save(file,data);long start=System.nanoTime();
             // Verify the exact JSON numeric representation that will be retained and reloaded.
-            try {simulate(root.resolve("native"),run,c,a,()->{AgentFiles042.saveChecked(file,data);return null;});a.put("status","completed");a.put("metrics",verifyAttempt(new JSONObject(a.toString()),run,c));}
-            catch(InterruptedException e){a.put("status","interrupted").put("reason",e.getMessage());a.put("wallMillis",(System.nanoTime()-start)/1_000_000.0);AgentFiles042.saveChecked(file,data);throw e;}
-            catch(Exception e){boolean interrupted=Thread.interrupted();a.put("status",interrupted?"interrupted":"failed").put("reason",e.toString());AgentFiles042.saveChecked(file,data);if(interrupted)throw new InterruptedException("Load recording interrupted; original partial attempt retained");throw e;}
-            a.put("wallMillis",(System.nanoTime()-start)/1_000_000.0);AgentFiles042.saveChecked(file,data);
+            try {simulate(root.resolve("native"),run,c,a,()->{save(file,data);return null;});a.put("status","completed");a.put("metrics",verifyAttempt(new JSONObject(a.toString()),run,c));}
+            catch(InterruptedException e){a.put("status","interrupted").put("reason",e.getMessage());a.put("wallMillis",(System.nanoTime()-start)/1_000_000.0);save(file,data);throw e;}
+            catch(Exception e){boolean interrupted=Thread.interrupted();a.put("status",interrupted?"interrupted":"failed").put("reason",e.toString());save(file,data);if(interrupted)throw new InterruptedException("Load recording interrupted; original partial attempt retained");throw e;}
+            a.put("wallMillis",(System.nanoTime()-start)/1_000_000.0);save(file,data);
         }
         return read(root,run);
     }
+    private static JSONObject load(Path path)throws Exception{var envelope=AgentFiles042.read(path,32_000_000);var data=envelope.getJSONObject("data");if(!envelope.getString("format").equals("java-agent-042-v1")||!WorldFrames.hash(data).equals(envelope.getString("sha256")))throw new IllegalStateException("Original load checkpoint checksum changed");return data;}
+    private static void save(Path path,JSONObject data)throws Exception{if(data.toString().getBytes(java.nio.charset.StandardCharsets.UTF_8).length>31_999_000)throw new IllegalStateException("Load trace exceeds its 32 MB budget; prior checkpoint retained");AgentFiles042.saveChecked(path,data);}
     private static void binding(JSONObject data,JSONObject run) {
+        var ids=new HashSet<String>();if(data.getJSONArray("attempts").length()>12)throw new IllegalStateException("Load attempt budget changed");for(Object raw:data.getJSONArray("attempts")){var a=(JSONObject)raw;UUID.fromString(a.getString("id"));if(!ids.add(a.getString("id"))||!Set.of("unloaded","downward-2kg-equivalent","horizontal-overload").contains(a.getString("caseId"))||!Set.of("running","interrupted","failed","completed").contains(a.getString("status"))||a.getJSONArray("rows").length()>protocol().getInt("ticks"))throw new IllegalStateException("Load attempt identity or bounds changed");}
         if(!data.getString("version").equals(VERSION)||!data.getString("codeSha256").equals(code())||!data.getString("sourceRunSha256").equals(WorldFrames.hash(run)))throw new IllegalStateException("Original load source/code changed");
     }
     static JSONObject read(Path root,JSONObject run)throws Exception {
-        var data=AgentFiles042.loadChecked(file(root,run));binding(data,run);var results=new JSONArray();int ticks=0;
+        var data=load(file(root,run));binding(data,run);var results=new JSONArray();int ticks=0;
         for(Object raw:protocol().getJSONArray("cases")) {
             var c=(JSONObject)raw;JSONObject completed=null;
             for(Object item:data.getJSONArray("attempts")){var a=(JSONObject)item;ticks+=a.getString("caseId").equals(c.getString("id"))?a.getJSONArray("rows").length():0;
@@ -51,7 +55,7 @@ final class Load055 {
             .put("codeSha256",code()).put("originalSha256",WorldFrames.hash(data)).put("attempts",data.getJSONArray("attempts").length()).put("totalTicks",ticks).put("results",results);
     }
     static JSONObject export(Path root,JSONObject run)throws Exception {read(root,run);return original(root,run);}
-    static JSONObject original(Path root,JSONObject run)throws Exception{var data=AgentFiles042.loadChecked(file(root,run));binding(data,run);return WorldReport.packed(data).put("format","fraynix.load-experiments-gzip-v1");}
+    static JSONObject original(Path root,JSONObject run)throws Exception{var data=load(file(root,run));binding(data,run);return WorldReport.packed(data).put("format","fraynix.load-experiments-gzip-v1");}
     private static JSONArray states(Map<String,PhysicsRigidBody> bodies,Set<String> dynamic) {
         var out=new JSONArray();for(String id:dynamic){var b=bodies.get(id);var q=b.getPhysicsRotation();out.put(new JSONObject().put("id",id).put("position",SpatialPhysics.json(b.getPhysicsLocation())).put("rotation",new JSONArray(new float[]{q.getX(),q.getY(),q.getZ(),q.getW()})).put("velocity",SpatialPhysics.json(b.getLinearVelocity())).put("angularVelocity",SpatialPhysics.json(b.getAngularVelocity())).put("initializationPoseWrites",1));}return out;
     }
