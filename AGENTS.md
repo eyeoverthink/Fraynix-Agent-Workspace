@@ -1,5 +1,14 @@
 # Fraynix Studio collaboration and documentation
 
+## Latest handoff · edition050 validated locally
+
+Isolated `fraynix-workspace-edition050` source f36f4c4 implements native construction experiments in the existing Java GoalRunner. Finite stock, pre-action analytic ramp predictions, three actual Bullet bodies, bounded design repair, immutable results and versioned procedure reuse are installed in the integrated Spatial workshop. No new model/dependency/daemon. Current review045 and its private data remain untouched; never rebuild its live JARs or reuse its project for tests.
+
+Passed: 20 focused Java cases (6 new workshop, 5 runner, 9 evidence replay), all 123 desktop unit tests, actual Electron/Java workflow including cold restart, shared skill library, changed-condition failure/recovery, original JSON export, cancellation and existing native-world preservation. The original rough20 failed, rough39.024 and smooth20 delivered3/3; after friction×1.3 and start+0.25, remembered rough39.024 and rough40 failed while smooth20 delivered3/3. These are development/acceptance simulation cases, not a held-out physical benchmark or model-weight training. README050, real screenshots, original trial files, offline guide and Obsidian map accompany the source. Publication is pending until a separate fetched-remote receipt exists.
+
+Next: physically actuated assembly, versioned continuing-world construction and typed chat routing for this new procedure; then measured cooperation. Assembly in050 initializes geometry; replay displays recorded native states. The new construction decision policy is Java and does not invoke the LLM. See [README050](README-050.md) and [verification](docs/readmes/050/verification.json). Preserve all earlier frozen editions.
+
+
 ## Latest handoff · edition046 published2026-11-02
 
 Actual atomic private GitHub main/edition046/readme-046 push accepted. Releasedfd71bb8c2f6666f8f765da2d3fdbb9e90a032c7; annotated taga2308cb133b3ea7edaeab5cffeefd289faf00177. Fresh direct GitHub fetch verifies release/tag. ALL834 canonical source blobs,1200 supported original gzip proof archive files and3166 frozen README/snapshot hashes read from the FETCHED Git tree and verified.46 editions/51 canvases/5362 references pass. Preserve001–046 immutable; next unused047. [Publication receipt](docs/PUBLICATION_046.json). This continuity/receipt commit follows the frozen release tag.

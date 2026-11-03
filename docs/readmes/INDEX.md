@@ -53,5 +53,6 @@ Numbered editions preserve dated behavior and evidence. The root [README](../../
 | [047](../../README-047.md) | 2026-11-02 | Your first verified world skill and phased plan | [Viewer](047/index.html) · [tree](047/FILE_TREE.md) |
 | [048](../../README-048.md) | 2026-11-02 | Java memory for verified skills and a held-out recall comparison | [Viewer](048/index.html) · [tree](048/FILE_TREE.md) |
 | [049](../../README-049.md) | 2026-11-02 | Replayable observations, source clocks and independent witness evidence | [Viewer](049/index.html) · [tree](049/FILE_TREE.md) |
+| [050](../../README-050.md) | 2026-11-02 | Native construction, prediction and retained recovery | [Viewer](050/index.html) · [tree](050/FILE_TREE.md) |
 
-Latest implementation and documentation edition in this checkout is **049**. See [sequence policy](README_SEQUENCE.md) and [manifest](editions.json).
+Latest implementation and documentation edition in this checkout is **050**. See [sequence policy](README_SEQUENCE.md) and [manifest](editions.json).

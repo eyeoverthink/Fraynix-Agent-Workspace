@@ -1,5 +1,10 @@
 # Agent Workspace development log
 
+## Edition 050 · Construction workshop validated locally
+
+2026-11-02. Isolated edition050 extends the existing Java GoalRunner. Finite-stock ramp/bin assembly, pre-action analytic prediction, actual three-body Bullet trials, bounded repair, exact export and versioned skill reuse are implemented. Original rough 20° failed, smooth 20° and rough 39.024° delivered 3/3; remembered rough at friction ×1.3 failed after cold restart, rough 40° failed, smooth 20° delivered 3/3. These are development/acceptance simulation results, not a broad held-out benchmark or LLM weight learning. Six new workshop tests + five runner + nine evidence checks pass; 123 desktop tests and the actual integrated workflow pass. The original persistent world remains unchanged. No camera, board, Minecraft or model call activated. New LLM chat routing and physically actuated/continuing-world assembly remain next. [README050](../README-050.md) · [Validation](readmes/050/verification.json). No publication is claimed until its separate receipt is written.
+
+
 ## Edition 049 · Observation replay and witness intervals
 
 2026-11-02. Contract 673f00d and six synthetic fixtures 50033b5 preceded test execution. Source ffd49fa implements Java clock alignment, immutable recordings and the integrated evidence view. Initial combined Java validation passed 22 cases. Review added one-to-many beam ambiguity refusal; the final replay-only invocation passed all nine cases, and final desktop unit/integration checks passed. These are separate source-qualified invocations, not a single 23-case run. The original screenshots came from the actual isolated application. Native world state and cold restart behavior were checked. Hardware work awaits identification and a new physical experiment. [Edition 049](../README-049.md) · [Validation](readmes/049/verification.json)

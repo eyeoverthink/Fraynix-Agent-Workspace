@@ -1,0 +1,410 @@
+{
+  "first": {
+    "request": "Construct a ramp, deliver three blocks, compare surfaces and retain a verified procedure",
+    "reason": "Three settled deliveries verified; chosen by material cost then lower angle. Fresh conditions must be retested.",
+    "procedure": "construction-workshop-050-v1",
+    "history": [
+      {
+        "reason": "Finite stock verified; Java owns the construction experiment",
+        "at": "2026-11-03T04:37:57.302335200Z",
+        "step": "workshop-prepare",
+        "attempt": 1,
+        "status": "running"
+      },
+      {
+        "reason": "Assembly reserved and analytic prediction retained BEFORE native release: rough at 20.0 degrees",
+        "at": "2026-11-03T04:37:57.333252800Z",
+        "step": "workshop-run",
+        "attempt": 1,
+        "status": "running"
+      },
+      {
+        "reason": "Delivery incomplete; retain this trial and revise within the budget; candidate parts returned; trial and original prediction retained",
+        "at": "2026-11-03T04:37:57.634597800Z",
+        "step": "workshop-prepare",
+        "attempt": 1,
+        "status": "running"
+      },
+      {
+        "reason": "Assembly reserved and analytic prediction retained BEFORE native release: smooth at 20.0 degrees",
+        "at": "2026-11-03T04:37:57.824090600Z",
+        "step": "workshop-run",
+        "attempt": 1,
+        "status": "running"
+      },
+      {
+        "reason": "All three original blocks settled inside the collection bin; candidate parts returned; trial and original prediction retained",
+        "at": "2026-11-03T04:37:58.017609100Z",
+        "step": "workshop-prepare",
+        "attempt": 1,
+        "status": "running"
+      },
+      {
+        "reason": "Assembly reserved and analytic prediction retained BEFORE native release: rough at 39.02386755579665 degrees",
+        "at": "2026-11-03T04:37:58.199821500Z",
+        "step": "workshop-run",
+        "attempt": 1,
+        "status": "running"
+      },
+      {
+        "reason": "All three original blocks settled inside the collection bin; candidate parts returned; trial and original prediction retained",
+        "at": "2026-11-03T04:37:58.367373500Z",
+        "step": "workshop-prepare",
+        "attempt": 1,
+        "status": "running"
+      },
+      {
+        "reason": "Three settled deliveries verified; chosen by material cost then lower angle. Fresh conditions must be retested.",
+        "at": "2026-11-03T04:37:58.554870Z",
+        "step": "completed",
+        "attempt": 1,
+        "status": "completed"
+      }
+    ],
+    "attempt": 1,
+    "resumes": 0,
+    "createdAt": "2026-11-03T04:37:57.302335200Z",
+    "workshop050": {
+      "candidates": [
+        {
+          "angleDeg": 20,
+          "material": "rough",
+          "materialCost": 1,
+          "friction": 0.65
+        },
+        {
+          "angleDeg": 20,
+          "material": "smooth",
+          "materialCost": 2,
+          "friction": 0.15
+        },
+        {
+          "angleDeg": 39.02386755579665,
+          "material": "rough",
+          "materialCost": 1,
+          "friction": 0.65
+        }
+      ],
+      "codeSha256": "82843f9cdb30ce4cabd7a0404ccc4cb0b2f803a7100f46599acaf8ca6d6a4dcf",
+      "reuse": false,
+      "trials": [
+        {
+          "partsReturned": true,
+          "sha256": "30ab517b7521a4bca0632f35f189d9940b86739f51e171a1204231abbde62860",
+          "design": {
+            "angleDeg": 20,
+            "material": "rough",
+            "materialCost": 1,
+            "friction": 0.65
+          },
+          "id": "f9a9cf33-73e8-32fe-9d1f-973fc3ff919b",
+          "verification": {
+            "predictionComparisons": 360,
+            "reason": "Delivery incomplete; retain this trial and revise within the budget",
+            "rampRmseM": 0.0005820686576933182,
+            "delivered": 0,
+            "passed": false,
+            "nativeTicks": 2880
+          }
+        },
+        {
+          "partsReturned": true,
+          "sha256": "54af591c62cb26bd3971aeb0bd6f91c1c705192a164f5ebf8692bcf7b51ab4fa",
+          "design": {
+            "angleDeg": 20,
+            "material": "smooth",
+            "materialCost": 2,
+            "friction": 0.15
+          },
+          "id": "088312ed-0615-3b82-8c74-85b713b93e25",
+          "verification": {
+            "predictionComparisons": 63,
+            "reason": "All three original blocks settled inside the collection bin",
+            "rampRmseM": 0.0025447321805784134,
+            "delivered": 3,
+            "passed": true,
+            "nativeTicks": 2880
+          }
+        },
+        {
+          "partsReturned": true,
+          "sha256": "9d90e4364ab0faed629a4d934d7a33f5c0854a33371912e30cccdbe373f9066b",
+          "design": {
+            "angleDeg": 39.02386755579665,
+            "material": "rough",
+            "materialCost": 1,
+            "friction": 0.65
+          },
+          "id": "5824bb96-4814-3e14-b620-0b903173db6b",
+          "verification": {
+            "predictionComparisons": 78,
+            "reason": "All three original blocks settled inside the collection bin",
+            "rampRmseM": 0.03313021656220389,
+            "delivered": 3,
+            "passed": true,
+            "nativeTicks": 2880
+          }
+        }
+      ],
+      "assembly": {
+        "walls": 3,
+        "blocks": 3,
+        "ramp": 1
+      },
+      "stockPolicy": "Each disposable candidate reserves 1 ramp, 3 blocks, 3 walls; all are returned when its trial closes. No material is consumed across separate candidate worlds.",
+      "stock": {
+        "walls": 3,
+        "blocks": 3,
+        "ramp": 1
+      },
+      "config": {
+        "frictionScale": 1,
+        "startShiftM": 0,
+        "wallStock": 3,
+        "massKg": 1,
+        "rampStock": 1,
+        "blockStock": 3
+      },
+      "selected": {
+        "partsReturned": true,
+        "sha256": "9d90e4364ab0faed629a4d934d7a33f5c0854a33371912e30cccdbe373f9066b",
+        "design": {
+          "angleDeg": 39.02386755579665,
+          "material": "rough",
+          "materialCost": 1,
+          "friction": 0.65
+        },
+        "id": "5824bb96-4814-3e14-b620-0b903173db6b",
+        "verification": {
+          "predictionComparisons": 78,
+          "reason": "All three original blocks settled inside the collection bin",
+          "rampRmseM": 0.03313021656220389,
+          "delivered": 3,
+          "passed": true,
+          "nativeTicks": 2880
+        }
+      }
+    },
+    "step": "completed",
+    "id": "f4ecaf25-3d5d-4852-a4d6-d48c501a503d",
+    "metrics": {
+      "predictionComparisons": 78,
+      "reason": "All three original blocks settled inside the collection bin",
+      "rampRmseM": 0.03313021656220389,
+      "delivered": 3,
+      "passed": true,
+      "nativeTicks": 2880
+    },
+    "savedSkill": {
+      "name": "ramp-delivery",
+      "id": "d4889488-5fbc-40b1-ba23-ed653e760dd8",
+      "version": 1
+    },
+    "status": "completed",
+    "updatedAt": "2026-11-03T04:37:58.554870Z"
+  },
+  "reused": {
+    "request": "Construct a ramp, deliver three blocks, compare surfaces and retain a verified procedure",
+    "reason": "Three settled deliveries verified; chosen by material cost then lower angle. Fresh conditions must be retested.",
+    "procedure": "construction-workshop-050-v1",
+    "history": [
+      {
+        "reason": "Finite stock verified; Java owns the construction experiment",
+        "at": "2026-11-03T04:38:02.850006500Z",
+        "step": "workshop-prepare",
+        "attempt": 1,
+        "status": "running"
+      },
+      {
+        "reason": "Assembly reserved and analytic prediction retained BEFORE native release: rough at 39.02386755579665 degrees",
+        "at": "2026-11-03T04:38:02.921885800Z",
+        "step": "workshop-run",
+        "attempt": 1,
+        "status": "running"
+      },
+      {
+        "reason": "Delivery incomplete; retain this trial and revise within the budget; candidate parts returned; trial and original prediction retained",
+        "at": "2026-11-03T04:38:03.163240600Z",
+        "step": "workshop-prepare",
+        "attempt": 1,
+        "status": "running"
+      },
+      {
+        "reason": "Assembly reserved and analytic prediction retained BEFORE native release: rough at 40.0 degrees",
+        "at": "2026-11-03T04:38:03.320818800Z",
+        "step": "workshop-run",
+        "attempt": 1,
+        "status": "running"
+      },
+      {
+        "reason": "Delivery incomplete; retain this trial and revise within the budget; candidate parts returned; trial and original prediction retained",
+        "at": "2026-11-03T04:38:03.475887600Z",
+        "step": "workshop-prepare",
+        "attempt": 1,
+        "status": "running"
+      },
+      {
+        "reason": "Assembly reserved and analytic prediction retained BEFORE native release: smooth at 20.0 degrees",
+        "at": "2026-11-03T04:38:03.673359100Z",
+        "step": "workshop-run",
+        "attempt": 1,
+        "status": "running"
+      },
+      {
+        "reason": "All three original blocks settled inside the collection bin; candidate parts returned; trial and original prediction retained",
+        "at": "2026-11-03T04:38:03.846894700Z",
+        "step": "workshop-prepare",
+        "attempt": 1,
+        "status": "running"
+      },
+      {
+        "reason": "Three settled deliveries verified; chosen by material cost then lower angle. Fresh conditions must be retested.",
+        "at": "2026-11-03T04:38:04.004475200Z",
+        "step": "completed",
+        "attempt": 1,
+        "status": "completed"
+      }
+    ],
+    "attempt": 1,
+    "resumes": 0,
+    "createdAt": "2026-11-03T04:38:02.850006500Z",
+    "workshop050": {
+      "candidates": [
+        {
+          "angleDeg": 39.02386755579665,
+          "material": "rough",
+          "materialCost": 1,
+          "friction": 0.65
+        },
+        {
+          "angleDeg": 40,
+          "material": "rough",
+          "materialCost": 1,
+          "friction": 0.65
+        },
+        {
+          "angleDeg": 20,
+          "material": "smooth",
+          "materialCost": 2,
+          "friction": 0.15
+        }
+      ],
+      "codeSha256": "82843f9cdb30ce4cabd7a0404ccc4cb0b2f803a7100f46599acaf8ca6d6a4dcf",
+      "reuse": true,
+      "trials": [
+        {
+          "partsReturned": true,
+          "sha256": "3ee526388bea0877470c9cb437d8221105e08f98b8c8f5f36fb00d60b791665b",
+          "design": {
+            "angleDeg": 39.02386755579665,
+            "material": "rough",
+            "materialCost": 1,
+            "friction": 0.65
+          },
+          "id": "140b232e-d08c-3962-a262-e0171e0c9705",
+          "verification": {
+            "predictionComparisons": 360,
+            "reason": "Delivery incomplete; retain this trial and revise within the budget",
+            "rampRmseM": 0.001121836278021773,
+            "delivered": 0,
+            "passed": false,
+            "nativeTicks": 2880
+          }
+        },
+        {
+          "partsReturned": true,
+          "sha256": "c77ba0c4021bee4a601419350fe8aad7f0692158b54da55666275f27b9e48ed4",
+          "design": {
+            "angleDeg": 40,
+            "material": "rough",
+            "materialCost": 1,
+            "friction": 0.65
+          },
+          "id": "3748e74c-2505-3f8e-836a-9f6374223efd",
+          "verification": {
+            "predictionComparisons": 360,
+            "reason": "Delivery incomplete; retain this trial and revise within the budget",
+            "rampRmseM": 0.0024091866426342074,
+            "delivered": 0,
+            "passed": false,
+            "nativeTicks": 2880
+          }
+        },
+        {
+          "partsReturned": true,
+          "sha256": "07d2251b4e4c06ab02ab58c8e53684bf1118ae3b5e824d21319be797b65c7b39",
+          "design": {
+            "angleDeg": 20,
+            "material": "smooth",
+            "materialCost": 2,
+            "friction": 0.15
+          },
+          "id": "e717d487-cf67-31d9-b97f-ee50418b0246",
+          "verification": {
+            "predictionComparisons": 69,
+            "reason": "All three original blocks settled inside the collection bin",
+            "rampRmseM": 0.0027111839714649135,
+            "delivered": 3,
+            "passed": true,
+            "nativeTicks": 2880
+          }
+        }
+      ],
+      "assembly": {
+        "walls": 3,
+        "blocks": 3,
+        "ramp": 1
+      },
+      "stockPolicy": "Each disposable candidate reserves 1 ramp, 3 blocks, 3 walls; all are returned when its trial closes. No material is consumed across separate candidate worlds.",
+      "stock": {
+        "walls": 3,
+        "blocks": 3,
+        "ramp": 1
+      },
+      "config": {
+        "frictionScale": 1.3,
+        "startShiftM": 0.25,
+        "wallStock": 3,
+        "massKg": 1,
+        "rampStock": 1,
+        "blockStock": 3
+      },
+      "selected": {
+        "partsReturned": true,
+        "sha256": "07d2251b4e4c06ab02ab58c8e53684bf1118ae3b5e824d21319be797b65c7b39",
+        "design": {
+          "angleDeg": 20,
+          "material": "smooth",
+          "materialCost": 2,
+          "friction": 0.15
+        },
+        "id": "e717d487-cf67-31d9-b97f-ee50418b0246",
+        "verification": {
+          "predictionComparisons": 69,
+          "reason": "All three original blocks settled inside the collection bin",
+          "rampRmseM": 0.0027111839714649135,
+          "delivered": 3,
+          "passed": true,
+          "nativeTicks": 2880
+        }
+      }
+    },
+    "step": "completed",
+    "id": "5f9f3858-7e57-4874-8b0b-a043c2995abf",
+    "metrics": {
+      "predictionComparisons": 69,
+      "reason": "All three original blocks settled inside the collection bin",
+      "rampRmseM": 0.0027111839714649135,
+      "delivered": 3,
+      "passed": true,
+      "nativeTicks": 2880
+    },
+    "savedSkill": {
+      "name": "ramp-delivery-changed",
+      "id": "30ceace4-cdac-4424-a167-c19d30fb69a0",
+      "version": 1
+    },
+    "status": "completed",
+    "updatedAt": "2026-11-03T04:38:04.004475200Z"
+  }
+}

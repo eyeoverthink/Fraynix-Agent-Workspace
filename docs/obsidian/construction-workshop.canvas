@@ -1,0 +1,79 @@
+{
+  "nodes": [
+    {
+      "id": "scheduler",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/GoalRunner.java",
+      "x": 0,
+      "y": 0,
+      "width": 380,
+      "height": 190
+    },
+    {
+      "id": "physics",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/Workshop050.java",
+      "x": 410,
+      "y": 0,
+      "width": 380,
+      "height": 190
+    },
+    {
+      "id": "view",
+      "type": "file",
+      "file": "workspace-desktop/renderer/workshop050.js",
+      "x": 820,
+      "y": 0,
+      "width": 380,
+      "height": 190
+    },
+    {
+      "id": "tests",
+      "type": "file",
+      "file": "workspace-engine/src/test/java/fraymus/workspace/Workshop050Test.java",
+      "x": 0,
+      "y": 240,
+      "width": 380,
+      "height": 190
+    },
+    {
+      "id": "next",
+      "type": "file",
+      "file": "docs/EDITION_050_CONTRACT.md",
+      "x": 410,
+      "y": 240,
+      "width": 380,
+      "height": 190
+    }
+  ],
+  "edges": [
+    {
+      "id": "e0",
+      "fromNode": "scheduler",
+      "fromSide": "right",
+      "toNode": "physics",
+      "toSide": "left"
+    },
+    {
+      "id": "e1",
+      "fromNode": "physics",
+      "fromSide": "right",
+      "toNode": "view",
+      "toSide": "left"
+    },
+    {
+      "id": "e2",
+      "fromNode": "view",
+      "fromSide": "right",
+      "toNode": "tests",
+      "toSide": "left"
+    },
+    {
+      "id": "e3",
+      "fromNode": "tests",
+      "fromSide": "right",
+      "toNode": "next",
+      "toSide": "left"
+    }
+  ]
+}

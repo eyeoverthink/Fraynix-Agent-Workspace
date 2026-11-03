@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "latest": 49,
+  "latest": 50,
   "canonicalization": "UTF-8 without BOM; CRLF normalized to LF for text",
   "editions": [
     {
@@ -16443,6 +16443,180 @@
           "path": "docs/readmes/049/verification.json",
           "kind": "text",
           "sha256": "382f449de508523ac4aafc990a1457ffde78044cb68037ff8e44b0335ddaa4e4"
+        }
+      ]
+    },
+    {
+      "number": 50,
+      "date": "2026-11-02",
+      "title": "Build, test and remember",
+      "status": "validated-local",
+      "markdown": "README-050.md",
+      "markdownSha256": "e030f3590bcf5f25eb2727dd3863c56895134f66a59fa18305eda00fda950394",
+      "companion": "docs/readmes/050/index.html",
+      "tag": "readme-050",
+      "sourceBaseline": "f36f4c4025fd2a9d99968ac342bb5daab6f643f1",
+      "snapshotDirectory": "docs/readmes/050",
+      "snapshotFiles": [
+        {
+          "path": "docs/readmes/050/case-results.json",
+          "kind": "text",
+          "sha256": "6cadaad8b569af7b150b1a1dd2336ad1537e1221ed28f999fb12533def648789"
+        },
+        {
+          "path": "docs/readmes/050/desktop-integration.json",
+          "kind": "text",
+          "sha256": "d1379cacde1df182a59a8c57bd20f145361ea32dae4ceec5e68869d809b8782b"
+        },
+        {
+          "path": "docs/readmes/050/desktop-unit.txt",
+          "kind": "text",
+          "sha256": "e4219e3cd9bbc2b499424bd17121774b1abb856c36d1a7c55de6e11de7f5a577"
+        },
+        {
+          "path": "docs/readmes/050/documentation-browser.json",
+          "kind": "text",
+          "sha256": "fc13a2ec95f20c436278676a7c21da263d4f5dc6cf7d5bd5a5204746a67faae6"
+        },
+        {
+          "path": "docs/readmes/050/file-inventory.json",
+          "kind": "text",
+          "sha256": "988c0cd653cb54cd18221195d0cb9520f127c48c97b42a146a0eb48b5880bfd0"
+        },
+        {
+          "path": "docs/readmes/050/FILE_TREE.md",
+          "kind": "text",
+          "sha256": "825e8d0759eb25f2dd8e486872e273122e5132730c030414d3334ddbb9b18337"
+        },
+        {
+          "path": "docs/readmes/050/guide-1440.png",
+          "kind": "binary",
+          "sha256": "d9a0b1f7a0daea5814c5684705cb7856d06912f88d72ef9892e4cf5c84ab3cbf"
+        },
+        {
+          "path": "docs/readmes/050/guide-390.png",
+          "kind": "binary",
+          "sha256": "0f7c06b7af5a45823d47f722c31e9b2783c2ed4a75b4fffe840db22afcbd2f9f"
+        },
+        {
+          "path": "docs/readmes/050/index.html",
+          "kind": "text",
+          "sha256": "de275b21c9cad41889ca8f59131b676e6c653ee65f471361266804ea82710ec8"
+        },
+        {
+          "path": "docs/readmes/050/java-validation.txt",
+          "kind": "text",
+          "sha256": "61afa4860ec72c4837dd90e0c826d9831373557bc403b066dbfe1e109c3e5ca0"
+        },
+        {
+          "path": "docs/readmes/050/original/088312ed-0615-3b82-8c74-85b713b93e25-prediction.json",
+          "kind": "binary",
+          "sha256": "1882c36c51ed2b7427e6eb19f7f9e61154bf457738b5fa9655d2b49ff78cc57d"
+        },
+        {
+          "path": "docs/readmes/050/original/088312ed-0615-3b82-8c74-85b713b93e25-result.json",
+          "kind": "binary",
+          "sha256": "67cfaabae032a07a6d927d47ce4c865cf2e19b73fc3b162e6fddbafba8ae5097"
+        },
+        {
+          "path": "docs/readmes/050/original/140b232e-d08c-3962-a262-e0171e0c9705-prediction.json",
+          "kind": "binary",
+          "sha256": "ff478aea2d7386911ed88ad9b0c385c56d350c8c341390a97160a3f4e3dda1d3"
+        },
+        {
+          "path": "docs/readmes/050/original/140b232e-d08c-3962-a262-e0171e0c9705-result.json",
+          "kind": "binary",
+          "sha256": "1e5bb1b16ffa7d5837ffa48928de4c33045f9d9837d929bd442edfa6ffd012bb"
+        },
+        {
+          "path": "docs/readmes/050/original/3748e74c-2505-3f8e-836a-9f6374223efd-prediction.json",
+          "kind": "binary",
+          "sha256": "dc621003ac058a7f7b2019affbce445af36ab07e43a9b9571be37a717dd4fd46"
+        },
+        {
+          "path": "docs/readmes/050/original/3748e74c-2505-3f8e-836a-9f6374223efd-result.json",
+          "kind": "binary",
+          "sha256": "db931806cf93e7de7f8fb09e9ad1d5c7ea101bc3b0760827a58d3dbf38e6d223"
+        },
+        {
+          "path": "docs/readmes/050/original/55b3ec1b-b1da-39e0-b4c9-504d3e2a93d9-prediction.json",
+          "kind": "binary",
+          "sha256": "491d29077d75e6d64080db49758be775762cdfada8e09f5800a19a7ee311b2ff"
+        },
+        {
+          "path": "docs/readmes/050/original/5824bb96-4814-3e14-b620-0b903173db6b-prediction.json",
+          "kind": "binary",
+          "sha256": "94d24094d7b14c0f194f1a3a35fc9ceccff1ae9b23c7a0b38a8e193c9e50f6dd"
+        },
+        {
+          "path": "docs/readmes/050/original/5824bb96-4814-3e14-b620-0b903173db6b-result.json",
+          "kind": "binary",
+          "sha256": "466b76e95718e7a415d116c3b5ad14ded8627ee97f65e6efba7ca1cdfc2df8c4"
+        },
+        {
+          "path": "docs/readmes/050/original/e717d487-cf67-31d9-b97f-ee50418b0246-prediction.json",
+          "kind": "binary",
+          "sha256": "cf3f2db11f8be75d5c2409d3c8d179e2cb0780457d4a46146968f0a57c94c49c"
+        },
+        {
+          "path": "docs/readmes/050/original/e717d487-cf67-31d9-b97f-ee50418b0246-result.json",
+          "kind": "binary",
+          "sha256": "3ad5de81243e52f82c9f88c69ecbf2a6476f721709a325586dd884fd2b81809c"
+        },
+        {
+          "path": "docs/readmes/050/original/f9a9cf33-73e8-32fe-9d1f-973fc3ff919b-prediction.json",
+          "kind": "binary",
+          "sha256": "406f6da8c3147c67c98e053bec6209f991963efe28b3bcac478196bf3af297e5"
+        },
+        {
+          "path": "docs/readmes/050/original/f9a9cf33-73e8-32fe-9d1f-973fc3ff919b-result.json",
+          "kind": "binary",
+          "sha256": "f74acc766c0c089eb5e01a92ce0dd47b85d32677557a07cf8324bd29d900264e"
+        },
+        {
+          "path": "docs/readmes/050/original-evidence.json",
+          "kind": "text",
+          "sha256": "7e97f9246166ed8612d713ae07e15632d7497c9d8d5ee19cc5f036da25211df0"
+        },
+        {
+          "path": "docs/readmes/050/system-map.json",
+          "kind": "text",
+          "sha256": "b4ee21b2f58d6f5344a8b01b9984ada2cc826297ac4a8eed1acd1f76fa84692f"
+        },
+        {
+          "path": "docs/readmes/050/TEST-fraymus.workspace.EvidenceReplay049Test.xml",
+          "kind": "text",
+          "sha256": "712c99ba2256b505c7dbdd95d9aa85cf8f33b4ef1f8a1d4714ae73e9b36b3243"
+        },
+        {
+          "path": "docs/readmes/050/TEST-fraymus.workspace.GoalRunnerTest.xml",
+          "kind": "text",
+          "sha256": "128a55922f2505a30f7d830e107ab70dd9122f88ff48f1adb10ba29e8756d7da"
+        },
+        {
+          "path": "docs/readmes/050/TEST-fraymus.workspace.Workshop050Test.xml",
+          "kind": "text",
+          "sha256": "0ef20341a76ddc829c7dca6ca9ea34a13b3c159f422deb83dd477ebe42cc5bba"
+        },
+        {
+          "path": "docs/readmes/050/verification.json",
+          "kind": "text",
+          "sha256": "d1fc625c8f2b261bb0bc36b0d6b59cfa4806c2a6a425a7b35444ea7f93b04702"
+        },
+        {
+          "path": "docs/readmes/050/workshop050-delivered.png",
+          "kind": "binary",
+          "sha256": "cd2c66b51ed5281fc7bc5fc28fcb50f880ae79d756b400d9590cb36df71eeee5"
+        },
+        {
+          "path": "docs/readmes/050/workshop050-narrow.png",
+          "kind": "binary",
+          "sha256": "b07b598df12f964cf658dde48d40fb95f46ba83019763cc13d70aae6cc68f322"
+        },
+        {
+          "path": "docs/readmes/050/workshop050-recovery.png",
+          "kind": "binary",
+          "sha256": "9e5c89d2b9494f14e5ddabc20a670afa34d0e4225731bbfed8453fa9fb956e0c"
         }
       ]
     }
