@@ -435,6 +435,11 @@ ipcMain.handle('workspace:request',async(event,input)=>{
       if(!['state','teach','recall'].includes(input.command))throw Error('Unknown skill memory command');
       return api('/api/brain/skill-memory-'+input.command,input.args||{});
     }
+    case 'workshop050': {
+      if(input.command==='export'){const data=await api('/api/workshop050/trial',input.args||{});return nativeExports.save('construction-trial','json',JSON.stringify(data,null,2),{id:data.id});}
+      const routes={start:'/api/workshop050/start',trial:'/api/workshop050/trial',read:'/api/goals/read',list:'/api/goals/list',stop:'/api/goals/cancel',resume:'/api/goals/resume',reuse:'/api/procedures/run'};
+      if(!routes[input.command])throw Error('Unknown construction operation');return api(routes[input.command],input.args||{});
+    }
     case 'evidence049': {
       if(input.command==='save-export'){
         const data=await api('/api/evidence049/export',input.args||{});
