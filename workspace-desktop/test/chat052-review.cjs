@@ -11,7 +11,7 @@ async function main(){
   await page.locator('#spatial-tab').click();await page.locator('#construction051').evaluate(e=>e.open=true);await page.waitForFunction(()=>document.querySelector('#c051-world').options.length>1);await page.locator('#c051-world').selectOption(record.worldId);
   await page.locator('#mission044-open').click();await page.locator('#mission044-task').selectOption(record.liveStart.id);await page.waitForFunction(id=>document.querySelector('#mission044').dataset.taskId===id,record.liveStart.id);
   assert.match(await page.locator('#mission052-outcome').innerText(),/World revision 4 saved/);assert.match(await page.locator('#mission044-facts').innerText(),/Model requests: 1/);
-  await page.locator('#c051-stage').evaluate(e=>e.scrollIntoView({block:'center'}));await page.locator('#mission044').evaluate(e=>e.scrollTop=0);await capture('chat052-mission.png');
+  await page.locator('#mission044-result').click();await page.waitForFunction(()=>document.querySelector('#preview-tab').classList.contains('selected'));await page.locator('#mission044').evaluate(e=>e.scrollTop=0);await capture('chat052-mission.png');
   await page.locator('#mission052-details').evaluate(e=>{e.open=true;e.scrollIntoView({block:'start'});});await paint();assert(await page.locator('#mission052-evidence').isVisible());await capture('chat052-evidence.png');
   assert.notDeepEqual(await fs.readFile(path.join(out,'chat052-mission.png')),await fs.readFile(path.join(out,'chat052-evidence.png')));
   await page.locator('#mission052-details').evaluate(e=>e.open=false);await page.locator('#mission044').evaluate(e=>e.scrollTop=0);
