@@ -127,3 +127,4 @@ Original before/during/after screenshots connect actual work to source/version/t
 - [Edition045: counterfactual worlds](53-counterfactual-worlds.md) · [Canvas](counterfactual-worlds.canvas)
 
 - [Edition046: verified skill graphs](54-typed-skill-graphs.md) · [Canvas](typed-skill-graphs.canvas)
+- [Edition 047 · First verified world skill](55-first-world-skill.md) · [Canvas](first-world-skill.canvas)

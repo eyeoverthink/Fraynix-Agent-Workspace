@@ -1,5 +1,11 @@
 # Agent Workspace project memory
 
+## Edition 047 · Local validation on 2026-11-02
+
+Work continued from published edition 046 in the separate `fraynix-workspace-edition047` checkout. The skill library and empty graph composer now guide the user through a labelled native world. The existing Java runner verifies motion and the Chromium report, commits revision 1, and saves `first-world-skill`. The composer then uses that exact skill and two new practice targets. The actual integration reached revision 3 and kept both skills and the exact head after restart. A stopped exercise retained revision 0 and earned no skill. All 123 desktop tests passed. [Edition 047](../README-047.md) · [Validation](readmes/047/verification.json) · [Phased plan](EDITION_047_PLAN.md)
+
+Next compare exact, lexical and packed HDC recall in Java, and verify lossless restoration across a new JVM. Use the tested scratch Carbon fix as a reference. Keep proposals advisory until fresh-task results support promotion. The planned sensor bench pairs the PC webcam with one ESP32-CAM and a separately timed Arduino witness on the existing mat. Use isolated projects for edition 047 and preserve the live edition 045 and review 046 data.
+
 ## Latest handoff · edition046 published2026-11-02
 
 Actual atomic private GitHub main/edition046/readme-046 push accepted. Releasedfd71bb8c2f6666f8f765da2d3fdbb9e90a032c7; annotated taga2308cb133b3ea7edaeab5cffeefd289faf00177. Fresh direct GitHub fetch verifies release/tag. ALL834 canonical source blobs,1200 supported original gzip proof archive files and3166 frozen README/snapshot hashes read from the FETCHED Git tree and verified.46 editions/51 canvases/5362 references pass. Preserve001–046 immutable; next unused047. [Publication receipt](PUBLICATION_046.json). This continuity/receipt commit follows the frozen release tag.

@@ -1,5 +1,9 @@
 # Agent Workspace development log
 
+## Edition 047 · First verified world skill
+
+2026-11-02. The local source commit `d587352` adds a direct guide and hands the retained procedure to the existing Java graph workflow. The ordinary native and report gates decide whether a skill is saved. Test work used labelled synthetic projects in a separate checkout. Verified the stopped and completed paths, exact skill selection, revision 3 after two connected stages, and retention across a desktop and Java reopen. The desktop suite passed all 123 cases. The offline guide passed at 1440 and 390 px, including navigation, filters, source links and the four screenshots. The [receipt](readmes/047/verification.json) identifies earlier UI and test timing issues and the final evidence.
+
 ## Latest handoff · edition046 published2026-11-02
 
 Actual atomic private GitHub main/edition046/readme-046 push accepted. Releasedfd71bb8c2f6666f8f765da2d3fdbb9e90a032c7; annotated taga2308cb133b3ea7edaeab5cffeefd289faf00177. Fresh direct GitHub fetch verifies release/tag. ALL834 canonical source blobs,1200 supported original gzip proof archive files and3166 frozen README/snapshot hashes read from the FETCHED Git tree and verified.46 editions/51 canvases/5362 references pass. Preserve001–046 immutable; next unused047. [Publication receipt](PUBLICATION_046.json). This continuity/receipt commit follows the frozen release tag.

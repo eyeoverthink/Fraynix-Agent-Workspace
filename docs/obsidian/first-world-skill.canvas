@@ -1,0 +1,47 @@
+{
+  "nodes": [
+    {
+      "id": "entry",
+      "type": "file",
+      "file": "README-047.md",
+      "x": 0,
+      "y": 0,
+      "width": 480,
+      "height": 290
+    },
+    {
+      "id": "result",
+      "type": "file",
+      "file": "docs/readmes/047/verification.json",
+      "x": 540,
+      "y": 0,
+      "width": 470,
+      "height": 290
+    },
+    {
+      "id": "plan",
+      "type": "file",
+      "file": "docs/EDITION_047_PLAN.md",
+      "x": 1080,
+      "y": 0,
+      "width": 480,
+      "height": 290
+    }
+  ],
+  "edges": [
+    {
+      "id": "verified",
+      "fromNode": "entry",
+      "fromSide": "right",
+      "toNode": "result",
+      "toSide": "left"
+    },
+    {
+      "id": "next",
+      "fromNode": "result",
+      "fromSide": "right",
+      "toNode": "plan",
+      "toSide": "left"
+    }
+  ]
+}
