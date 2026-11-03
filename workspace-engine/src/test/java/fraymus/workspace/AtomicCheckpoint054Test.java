@@ -25,9 +25,9 @@ public class AtomicCheckpoint054Test {
   }
  }
  @Test public void interruptedRetryPreservesCheckpointAndInterruptFlag()throws Exception{
-  var p=file();byte[] old=Files.readAllBytes(p);
+  var p=file();byte[] old=Files.readAllBytes(p);var executor=Executors.newSingleThreadScheduledExecutor();Thread writer=Thread.currentThread();
   try(var held=FileChannel.open(p,StandardOpenOption.READ,ExtendedOpenOption.NOSHARE_DELETE)){
-   Thread.currentThread().interrupt();assertThrows(java.io.InterruptedIOException.class,()->AgentFiles042.saveChecked(p,new JSONObject().put("revision",2)));assertTrue(Thread.currentThread().isInterrupted());assertArrayEquals(old,Files.readAllBytes(p));
-  }finally{Thread.interrupted();}
+   executor.schedule(writer::interrupt,100,TimeUnit.MILLISECONDS);assertThrows(java.io.InterruptedIOException.class,()->AgentFiles042.saveChecked(p,new JSONObject().put("revision",2)));assertTrue(Thread.currentThread().isInterrupted());assertArrayEquals(old,Files.readAllBytes(p));
+  }finally{executor.shutdownNow();Thread.interrupted();}
  }
 }
