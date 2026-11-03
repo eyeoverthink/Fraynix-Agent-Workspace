@@ -6,7 +6,7 @@ async function main(){
  const {app,page}=await launch(prior.project),errors=[];page.on('pageerror',e=>errors.push(e.message));
  const api=(route,args={})=>app.evaluate((_,a)=>global.workspaceTest.api(a.route,a.args),{route,args});
  try{
-  const before=await api('/api/world/read',{worldId:prior.worldId});assert.equal(before.revision,3);
+  const before=await api('/api/world/read',{worldId:prior.worldId});assert.equal((await api('/api/world/observe',{worldId:prior.worldId})).expectedRevision,3);
   for(const g of [prior.first,prior.liveStart.completion044.javaGoal,prior.liveReuse.completion044.javaGoal]){const a=await api('/api/artifact/read',{id:g.report.id});assert.equal(a.version,g.report.version);assert.equal(a.test.steps.length,15);assert(a.test.passed);}
   await page.locator('#spatial-tab').click();await page.locator('#construction051').evaluate(e=>e.open=true);
   await page.waitForFunction(()=>document.querySelector('#d053-status').textContent.startsWith('cancelled')&&!document.querySelector('#d053-export').disabled);
