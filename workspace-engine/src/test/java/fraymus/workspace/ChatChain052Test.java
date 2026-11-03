@@ -6,6 +6,7 @@ import static org.junit.Assert.*;
 
 public class ChatChain052Test {
     static JSONObject task(){return new JSONObject().put("goal","Build at x=0.2 without changing the checks").put("history",new JSONArray()).put("context044",new JSONObject());}
+    @Test public void numericRefusalExplainsOriginalBoundsWithoutChangingThem(){var schema=new JSONObject().put("type","number").put("minimum",1).put("maximum",40);var error=assertThrows(IllegalArgumentException.class,()->ToolSchema043.validate(schema,0));assertTrue(error.getMessage().contains("[1, 40]"));assertTrue(error.getMessage().contains("received 0"));ToolSchema043.validate(schema,1);ToolSchema043.validate(schema,40);assertThrows(IllegalArgumentException.class,()->ToolSchema043.validate(schema,41));}
     @Test public void providerMapMetadataIsRetainedWithoutUnrelatedFields(){var e=ChatChain052.evidence(new JSONObject().put("evidence",java.util.Map.of("eval_count","42","total_duration","1000","unrelated","omit")));assertEquals("42",e.getString("eval_count"));assertFalse(e.has("unrelated"));}
     @Test public void legacyTaskDoesNotClaimCompleteTimingCoverage(){var g=task();g.getJSONArray("history").put(new JSONObject().put("kind","plan").put("detail",new JSONObject()));assertFalse(ChatChain052.timing(g).getBoolean("completeSinceAdmission"));}
     @Test public void discoverySummaryKeepsExactBindingsAndBothEndsWithoutBreakingJson(){
@@ -13,7 +14,7 @@ public class ChatChain052Test {
         var binding=new JSONObject().put("name","skill-17").put("version",1).put("kind","gripper-construction-051-v1");
         g.getJSONObject("context044").put("procedureBinding",binding).put("available044",new JSONObject().put("procedures",entries));
         var context=new JSONObject(ChatChain052.exact(ChatChain052.context(g),12500));
-        assertTrue(binding.similar(context.getJSONObject("procedureBinding")));var c=context.getJSONObject("available044").getJSONObject("procedures");
+        assertTrue(binding.similar(context.getJSONObject("procedureBinding")));assertEquals("x".repeat(2000),context.getJSONObject("selectedProcedure052").getJSONObject("defaults").getString("largeData"));var c=context.getJSONObject("available044").getJSONObject("procedures");
         assertEquals(26,c.getInt("omittedEntries"));var s=c.getJSONArray("identitySummaries");assertEquals("skill-0",s.getJSONObject(0).getString("name"));assertEquals("skill-29",s.getJSONObject(3).getString("name"));
         assertEquals(30,g.getJSONObject("context044").getJSONObject("available044").getJSONArray("procedures").length());
     }

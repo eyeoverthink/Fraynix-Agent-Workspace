@@ -26,6 +26,12 @@ final class ChatChain052 {
         var c = WorldFrames.copy(g.getJSONObject("context044"));
         if (c.has("available044")) {
             var original = c.getJSONObject("available044");
+            var bound=c.optJSONObject("procedureBinding");
+            if(bound!=null)for(Object raw:original.optJSONArray("procedures",new JSONArray())){
+                var procedure=(JSONObject)raw;
+                if(procedure.optString("name").equals(bound.getString("name"))&&procedure.optInt("version")==bound.getInt("version"))
+                    c.put("selectedProcedure052",WorldFrames.copy(procedure));
+            }
             var catalog = new JSONObject();
             for (String key : original.keySet()) {
                 var entries = original.getJSONArray(key);
