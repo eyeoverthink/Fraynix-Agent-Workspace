@@ -8,7 +8,10 @@ final class ChatPolicy044 {
  static boolean has(String s,String re){return Pattern.compile(re,Pattern.CASE_INSENSITIVE|Pattern.DOTALL).matcher(s).find();}
  static boolean webCreation(String s){return has(s,"\\b(build|create|make|design|generate)\\b.*\\b(website|html|web ?app|web application)\\b");}
  static boolean counterReview045(String s){return has(s,"\\b(review|inspect) before\\b|\\b(do not|don['’]t|never)\\s+(move|execute|actuate|run)\\b")||!has(s,"\\b(execute|executing|run|reuse|move|actuate)\\b");}
+ static boolean design053(String s){return !webCreation(s)&&has(s,"\\b(compare|design|evaluate)\\b")&&has(s,"\\b(assembly|bridge|construction)\\b");}
+ static boolean designReview053(String s){return has(s,"\\b(review|inspect) before\\b|\\b(do not|don['’]t|never)\\s+(move|execute|actuate|run|build|assemble)\\b")||!has(s,"\\b(execute|executing|run|reuse|move|actuate|build|assemble)\\b");}
  static String route(String s,JSONObject b,boolean measured){
+  if(design053(s))return "construction";
   if(!webCreation(s)&&has(s,"\\b(counterfactual|compare (alternative|possible) (plans|actions))\\b"))return "world";
   if(webCreation(s)&&!has(s,"\\b(create|build)\\s+and\\s+verify\\b|\\bdurable\\s+(creation|build|app)\\b|\\bevidence workflow\\b"))return "workbench";
   if(has(s,"\\b(heartbeat|witness|continuing (java |agent |runtime)|agent continuity|agent identity|background (brain|agent|replay)|retained active time)\\b")&&!webCreation(s))return "agent";
