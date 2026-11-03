@@ -1,5 +1,14 @@
 # Fraynix Studio collaboration and documentation
 
+## Edition 051 · Published and fetched back on 2026-11-03
+
+Actual non-forced atomic push to private `eyeoverthink/Fraynix-Agent-Workspace`: main, edition051 and readme-051 accepted. Release `b10e9e3fdefe0cd01abd077c55ebe0c18a8b9964`; annotated tag `9edf406339f3ce0af0977afaf73d5d16817a8c86`. Fresh direct GitHub fetch confirms main and tag. All 862 canonical source files, 3,268 frozen hashes across 51 editions, and all four complete original evidence archives were read from that fetched tree and checked. Each new gzip archive was decompressed and its original byte count/SHA verified. Documentation passes 56 canvases and 5,639 references. [Publication receipt](docs/PUBLICATION_051.json).
+
+Final source `9cb1e02` passes the complete actual app/local gpt-oss:20b construction workflow: three-release bridge, exact cold restart, four-release reassembly in the same world, exact bridge-assembly v1 reuse through chat, fresh chat construction, original complete export decoding, Stop/restoration and 1100-pixel layout. Both actual chat tasks reached verified completion (359.4 s and 355.2 s CPU wall time). Java remains exact to the passing 31-case `3f257ee` invocation; 123 desktop unit tests passed after the selection correction. No model weights were trained. Source-qualified earlier failures and development attempts remain preserved. README051, five dated app screenshots, two offline guide captures, full original evidence, Obsidian note/canvas, memories and logs are published. Preserve frozen001–051; next unused052.
+
+Original normal review045 and its private data remain untouched. Do not rebuild its installed JARs while its Java owner lives; this edition uses isolated edition051 source and independent test projects. Next: reduce redundant CPU chat completion stages while preserving verification, broaden parts/obstructed routes and separate bridge-load tests, then measure cooperative effectors. Known three-part native kit, virtual force/torque actuator and paused-between-goals world only; no physical robot/material-strength/general-learning claim. This continuity/receipt commit follows the verified release.
+
+
 ## Edition 051 · Native gripper assembly validated locally
 
 2026-11-03. Isolated edition051 adds Construction051 to the existing native WorldPlan/WorldVerify/GoalRunner, with typed local chat, stable saved-skill selection, continuing-world construction proof and explicit known 050 migration. Actual released bridge uses two dynamic supports and one beam. Same-world reassembly stages the beam then rebuilds; no pose teleport during actuation. Original displacement/wrench/release checks remain; intermediate repeated placements now verified at release and final placements at final state. Native WorldPhysics, WorldFrames and WorldExport algorithms unchanged. No new dependency or scheduler.

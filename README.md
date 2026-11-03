@@ -4,6 +4,8 @@
 
 > **[Edition 051 · Assemble a world that remembers](README-051.md)** · [Offline guide](docs/readmes/051/index.html) · [Operation](docs/JAVA_CHAT_044.md) · [Edition history](docs/readmes/INDEX.md)
 
+Edition 051 is published to main with its original evidence. [Fetched GitHub verification](docs/PUBLICATION_051.json).
+
 One integrated app, with Java-owned chat planning, creation, native skill scheduling, continuing identity, real clocks and checked outcomes. Mission connects the actual goal, source, child task, recovery and retained result. [Screenshots, typed skill graphs, new logic and production direction](README-046.md).
 
 The [edition 050 construction workshop](README-050.md) adds finite-stock ramp experiments, predictions saved before native physics execution, recorded failures, bounded design repair and procedures that are retested after restart. Its integrated replay and charts expose actual solver outcomes. The [edition 051 gripper assembly](README-051.md) now adds force/torque-driven bridge assembly, same-world reassembly after restart, typed chat and verified saved skills. The kit and actuator are virtual; construction remains subject to native verification. [Verified GitHub publication](docs/PUBLICATION_050.json) · [Final application validation](docs/publication050/validation.json).
