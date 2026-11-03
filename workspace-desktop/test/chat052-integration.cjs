@@ -14,6 +14,7 @@ async function main(){
   assert.equal(g.outcome,'verified');assert.equal(g.timing052.modelCalls,1);assert.equal(g.timing052.failedModelCalls,0);assert.equal(g.timing052.terminalChecksWithoutModel,1);
   assert(g.timing052.modelMillis>0);assert(g.summary.length<1000);assert(!g.summary.includes('Actual metrics:'));
   assert(g.history.some(r=>r.kind==='admitted'));assert(!g.history.some(r=>r.kind==='proposal'&&r.detail.tool==='finish'));
+  const plans=g.history.filter(r=>r.kind==='plan');assert.equal(plans.length,1);assert(plans.every(r=>r.detail.compute.cpuOnly&&r.detail.compute.options.num_gpu===0&&r.detail.compute.options.num_thread===4&&r.detail.model.digest===g.modelDigest));
   assert(g.completion044.javaGoal.metrics.nativeTicks>0);assert(g.completion044.javaGoal.poseView.passed);
  }
  const report={project,live,checks,source:require('node:child_process').execFileSync('git',['rev-parse','HEAD'],{encoding:'utf8'}).trim()};

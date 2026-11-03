@@ -1,0 +1,27 @@
+{
+  "schema": "world-052-regression-source-lock-v1",
+  "sourceBaseline": "ebe3794b49c5cd0b5d83a7897476c54e8d1cf243",
+  "scope": "Exact already-published051 construction extension, locked before052 reruns of known035 sequences. Original035 contract and first held evaluation remain immutable. This is regression evidence, not a fresh held-out evaluation. No physical threshold or algorithm is changed in052.",
+  "extensions": [
+    {
+      "path": "workspace-engine/src/main/java/fraymus/workspace/WorldLedger.java",
+      "original035Sha256": "67c013f74dbb530a25a9e014954fd86e5ea4c6a6676e0a962dacb7c8c778403c",
+      "published051Sha256": "106b780a70c5d130145257e9c96883e1297b96a79ca818740660c00a1777c56a"
+    },
+    {
+      "path": "workspace-engine/src/main/java/fraymus/workspace/WorldPlan.java",
+      "original035Sha256": "bd90514723d9bf3a926c6f850537f824c6b05beff5c73ec9cecb6a00aa2b4680",
+      "published051Sha256": "86668d4fb164c5393de695599246ecfb47da151754750d470362b5850a21e54d"
+    },
+    {
+      "path": "workspace-engine/src/main/java/fraymus/workspace/WorldVerify.java",
+      "original035Sha256": "95979090590c0501b438c81dd7bfd8742874204ad1e4d0adec5edfb324c3f6d7",
+      "published051Sha256": "0b8f63185c581ae1745636c1cd699904eb5accbaaa3f7129b5a981ef7e79ed89"
+    },
+    {
+      "path": "workspace-engine/src/main/java/fraymus/workspace/WorldNativeCheckpoint.java",
+      "original035Sha256": "32ecd041ea93db8fd10c3417f7f103d86370f8473412b2c3bf26782e80e53621",
+      "published051Sha256": "3f971a07dbe45dc2e5e5a43a3909107247649be902b0a0fbc1b84b629bc8dfcd"
+    }
+  ]
+}

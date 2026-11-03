@@ -55,6 +55,19 @@ final class ChatChain052 {
         return s;
     }
 
+    /** The recent window is a bounded observation, never the original action receipt. */
+    static JSONObject recentObservation(JSONObject result) {
+        String text=result.toString();
+        if(text.length()<=6000)return WorldFrames.copy(result);
+        var summary=new JSONObject().put("observationSummary052",true).put("originalChars",text.length())
+                .put("originalSha256",WorldFrames.hash(result))
+                .put("scope","Large observation omitted from recent context; use its original source/result record. This summary is not a complete observation or proof.");
+        for(String key:List.of("id","worldId","datasetId","version","expectedRevision","expectedHash","status","reason","error"))
+            if(result.has(key))summary.put(key,result.get(key));
+        exact(summary,6000);
+        return summary;
+    }
+
     static JSONArray diagnostics(JSONObject g) {
         var groups = new LinkedHashMap<String,JSONObject>();
         for(Object raw:g.optJSONArray("history",new JSONArray())) {
@@ -70,18 +83,20 @@ final class ChatChain052 {
     }
 
     static JSONObject timing(JSONObject g) {
-        int calls=0,failed=0,terminal=0;double millis=0;
+        int calls=0,failed=0,terminal=0;double millis=0;boolean complete=false;
         for(Object raw:g.getJSONArray("history")) {
             var row=(JSONObject)raw;var d=row.getJSONObject("detail");
+            if(row.getString("kind").equals("queued")&&d.has("objectiveSha256"))complete=true;
             if(row.getString("kind").equals("model-call")){calls++;millis+=d.getDouble("durationMs");if(!d.getBoolean("returned"))failed++;}
             if(row.getString("kind").equals("terminal-check"))terminal++;
         }
-        return new JSONObject().put("modelCalls",calls).put("failedModelCalls",failed).put("modelMillis",millis)
+        return new JSONObject().put("completeSinceAdmission",complete&&g.optInt("turn")==calls).put("modelCalls",calls).put("failedModelCalls",failed).put("modelMillis",millis)
                 .put("terminalChecksWithoutModel",terminal).put("scope","Measured Java planner-request wall time, including local admission and inference. Not simulated time or an estimate of time saved.");
     }
 
     static JSONObject evidence(JSONObject reply) {
-        var out=new JSONObject();var e=reply.optJSONObject("evidence",new JSONObject());
+        var out=new JSONObject();var raw=reply.opt("evidence");
+        var e=raw instanceof JSONObject j?j:raw instanceof Map<?,?> m?new JSONObject(m):new JSONObject();
         for(String k:List.of("total_duration","load_duration","prompt_eval_count","prompt_eval_duration","eval_count","eval_duration","done_reason"))
             if(e.has(k))out.put(k,e.get(k));
         return out;
@@ -98,7 +113,7 @@ final class ChatChain052 {
             if(v!=null)out.append(m.optInt("releases")).append(" releases; ").append(v.optInt("supportContacts")).append(" support contacts; settled structure ").append(v.optBoolean("passed")?"passed":"failed").append(". ");
             if(child.has("worldCommit"))out.append("World revision ").append(child.getJSONObject("worldCommit").getInt("revision")).append(" saved. ");
             if(m.has("meanSpeedMps"))out.append(String.format(Locale.ROOT,"Mean speed %.6f m/s. ",m.getDouble("meanSpeedMps")));
-            if(m.has("qualityPassed")&&!m.getBoolean("qualityPassed"))out.append("Data quality checks rejected this candidate; inspect the retained flags. ");
+            if(m.has("qualityPassed")&&!m.getBoolean("qualityPassed"))out.append("Data quality checks did not pass; inspect the retained flags. ");
             if(child.has("savedSkill")){var s=child.getJSONObject("savedSkill");out.append("Saved skill: ").append(s.getString("name")).append(" v").append(s.getInt("version")).append(". ");}
         }else if(meta.has("alignmentFacts"))out.append("Selected alignment: ").append(meta.getJSONObject("alignmentFacts").optString("registrationId")).append(". No independent physical evaluation was performed by this read task. ");
         out.append("Open Mission for the full source evidence and checks. Native simulation and physical observations keep their original scope.");
