@@ -7,6 +7,15 @@ import java.util.*;
 
 /** Explicit request/admission boundary fixtures; no inference or native success is simulated. */
 public class DesignPolicy053Test {
+ @Test public void taskProjectionRetainsDesignPolicyAndOriginalComparisonWithoutFullTraces(){
+  var comparison=new JSONObject().put("passed",true);
+  var goal=new JSONObject().put("design053",Design053.policy()).put("counterfactual045",new JSONObject().put("studyId","study").put("data",new JSONObject().put("comparison",comparison).put("largeTrace","private original")));
+  var view=GoalRunner.view(goal);
+  assertTrue(view.getJSONObject("design053").similar(Design053.policy()));
+  assertTrue(view.getJSONObject("counterfactual045").getJSONObject("comparison").similar(comparison));
+  assertFalse(view.getJSONObject("counterfactual045").has("data"));
+  assertTrue(goal.getJSONObject("counterfactual045").has("data"));
+ }
  @Test public void javaPinsCompareReviewAndForceCeilingBeforeAnyAction()throws Exception{
   try(var store=new WorkspaceStore(Files.createTempDirectory("design053-policy-"))){
    var d=new Domain044((route,args)->route.equals("/api/state")?new JSONObject().put("scenes",new JSONArray()).put("datasets",new JSONArray()).put("procedures",new JSONArray()):new JSONObject(),store);
