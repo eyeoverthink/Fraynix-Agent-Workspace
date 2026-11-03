@@ -1,5 +1,11 @@
 # Agent Workspace project memory
 
+## Edition 048 · Local Java skill memory on 2026-11-02
+
+Java Brain can explicitly teach a phrase for an exact verified native world procedure and compare three read-only retrieval methods. The JDK-only packed HDC memory lives in brain-core. The engine checks the retained procedure and original evidence, and stores a versioned bounded checkpoint with exact signed votes. A cold JVM restored the same bytes and suggestions. A stale skill, altered report and damaged snapshot were refused. Existing chat and procedure routing continue through their normal handlers.
+
+Frozen held-out results were 0/18 exact, 6/18 keyword and 13/18 packed HDC on supported requests. Both approximate methods suggested a skill on four unsupported or ambiguous requests. HDC made one wrong supported selection and missed the gate. Keep suggestions advisory and test the action separately from shared objects against a fresh frozen suite. Next workspace phase is recorded sensor intake and an Arduino witness on the existing mat. [Edition 048](../README-048.md) · [Evaluation](readmes/048/benchmark.json) · [Validation](readmes/048/verification.json)
+
 ## Edition 047 · Local validation on 2026-11-02
 
 Work continued from published edition 046 in the separate `fraynix-workspace-edition047` checkout. The skill library and empty graph composer now guide the user through a labelled native world. The existing Java runner verifies motion and the Chromium report, commits revision 1, and saves `first-world-skill`. The composer then uses that exact skill and two new practice targets. The actual integration reached revision 3 and kept both skills and the exact head after restart. A stopped exercise retained revision 0 and earned no skill. All 123 desktop tests passed. [Edition 047](../README-047.md) · [Validation](readmes/047/verification.json) · [Phased plan](EDITION_047_PLAN.md)

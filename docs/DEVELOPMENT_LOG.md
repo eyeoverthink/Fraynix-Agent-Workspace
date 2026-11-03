@@ -1,5 +1,9 @@
 # Agent Workspace development log
 
+## Edition 048 · Persistent skill recall
+
+2026-11-02. Contract and fixtures were committed before the comparison. Fourteen focused Java tests and 123 desktop tests passed. The isolated desktop test created a real verified procedure, taught two phrases, compared methods, then reopened with a new Java boot and the same checkpoint and results. The test also refused an incorrect procedure hash and an altered report, and preserved a corrupt snapshot while starting the rest of the app. The HDC candidate missed the declared promotion gate. [Original per-case scores](readmes/048/benchmark.json) · [Runtime verification](readmes/048/verification.json)
+
 ## Edition 047 · First verified world skill
 
 2026-11-02. The local source commit `d587352` adds a direct guide and hands the retained procedure to the existing Java graph workflow. The ordinary native and report gates decide whether a skill is saved. Test work used labelled synthetic projects in a separate checkout. Verified the stopped and completed paths, exact skill selection, revision 3 after two connected stages, and retention across a desktop and Java reopen. The desktop suite passed all 123 cases. The offline guide passed at 1440 and 390 px, including navigation, filters, source links and the four screenshots. The [receipt](readmes/047/verification.json) identifies earlier UI and test timing issues and the final evidence.

@@ -1,0 +1,110 @@
+{
+  "date": "2026-11-02",
+  "source": "e93a2f07373faf6ea7f7c963e5036cc606ec3f6f",
+  "frozenContractCommit": "ed634fd",
+  "desktopUnitTests": {
+    "passed": 123
+  },
+  "focusedJava": {
+    "tests": 14,
+    "failures": 0,
+    "errors": 0
+  },
+  "desktopIntegration": {
+    "passed": true,
+    "bootChanged": true,
+    "originalSkill": {
+      "sha256": "96fdf012cdcf18eb6fbfb7652ebb1ae2a8ededb0bac3ada68d801d3fd33e7c78",
+      "name": "first-world-skill",
+      "id": "712aec6a-87c0-377f-a9dd-6e0bc9140faf",
+      "version": 1
+    },
+    "trained": {
+      "advisory": true,
+      "examples": 2,
+      "sha256": "49e8b7458bcd36795ad8e0a02ec648df6fdbedd0df635d3a45f42b7dd1aacae9",
+      "available": true,
+      "skillCount": 1,
+      "choices": [
+        {
+          "sha256": "96fdf012cdcf18eb6fbfb7652ebb1ae2a8ededb0bac3ada68d801d3fd33e7c78",
+          "name": "first-world-skill",
+          "id": "712aec6a-87c0-377f-a9dd-6e0bc9140faf",
+          "version": 1
+        }
+      ]
+    },
+    "query": "arange the blue crat beside the marker",
+    "beforeRecall": {
+      "lexical": {
+        "score": 0.42857142857142855,
+        "skill": {
+          "sha256": "96fdf012cdcf18eb6fbfb7652ebb1ae2a8ededb0bac3ada68d801d3fd33e7c78",
+          "name": "first-world-skill",
+          "id": "712aec6a-87c0-377f-a9dd-6e0bc9140faf",
+          "version": 1
+        },
+        "lead": 0.42857142857142855,
+        "status": "suggestion"
+      },
+      "advisory": true,
+      "examples": 2,
+      "sha256": "49e8b7458bcd36795ad8e0a02ec648df6fdbedd0df635d3a45f42b7dd1aacae9",
+      "hdc": {
+        "score": 0.77099609375,
+        "skill": {
+          "sha256": "96fdf012cdcf18eb6fbfb7652ebb1ae2a8ededb0bac3ada68d801d3fd33e7c78",
+          "name": "first-world-skill",
+          "id": "712aec6a-87c0-377f-a9dd-6e0bc9140faf",
+          "version": 1
+        },
+        "lead": 0.77099609375,
+        "status": "suggestion"
+      },
+      "available": true,
+      "exact": {
+        "status": "abstain"
+      },
+      "skillCount": 1
+    },
+    "unsupported": {
+      "lexical": {
+        "status": "abstain"
+      },
+      "advisory": true,
+      "examples": 2,
+      "sha256": "49e8b7458bcd36795ad8e0a02ec648df6fdbedd0df635d3a45f42b7dd1aacae9",
+      "hdc": {
+        "status": "abstain"
+      },
+      "available": true,
+      "exact": {
+        "status": "abstain"
+      },
+      "skillCount": 1
+    },
+    "checkpointBytes": 8448,
+    "checkpointUnchanged": true,
+    "worldHeadUnchanged": "c5a65c162014480167bc25fc7cfe160b17cf6fa8281a6f81419e905c850811e5",
+    "goalCount": 1,
+    "staleSkillRejected": true,
+    "editedReportAbstained": true,
+    "damagedCheckpointRetained": true
+  },
+  "scope": "One real verified procedure in a labelled synthetic native practice world. Three methods compared separately on a frozen labelled fixture.",
+  "earlierAttempt": "The report exceeded the editor API's ordinary content limit. The final test changes one file of the closed synthetic project directly, then reopens the app to check refusal.",
+  "offlineGuide": {
+    "passed": true,
+    "widthsPx": [
+      1440,
+      390
+    ],
+    "checks": [
+      "section navigation",
+      "benchmark numbers",
+      "feature and source filters",
+      "two screenshot loads",
+      "no horizontal overflow"
+    ]
+  }
+}

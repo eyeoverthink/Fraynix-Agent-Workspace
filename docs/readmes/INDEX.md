@@ -51,5 +51,6 @@ Numbered editions preserve dated behavior and evidence. The root [README](../../
 | [045](../../README-045.md) | 2026-11-02 | Counterfactual worlds before verified action | [Viewer](045/index.html) · [tree](045/FILE_TREE.md) |
 | [046](../../README-046.md) | 2026-11-02 | Verified skill graphs and stacked local processors | [Viewer](046/index.html) · [tree](046/FILE_TREE.md) |
 | [047](../../README-047.md) | 2026-11-02 | Your first verified world skill and phased plan | [Viewer](047/index.html) · [tree](047/FILE_TREE.md) |
+| [048](../../README-048.md) | 2026-11-02 | Java memory for verified skills and a held-out recall comparison | [Viewer](048/index.html) · [tree](048/FILE_TREE.md) |
 
-Latest implementation and documentation edition in this checkout is **047**. See [sequence policy](README_SEQUENCE.md) and [manifest](editions.json).
+Latest implementation and documentation edition in this checkout is **048**. See [sequence policy](README_SEQUENCE.md) and [manifest](editions.json).
