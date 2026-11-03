@@ -54,11 +54,9 @@ Numbered editions preserve dated behavior and evidence. The root [README](../../
 | [048](../../README-048.md) | 2026-11-02 | Java memory for verified skills and a held-out recall comparison | [Viewer](048/index.html) · [tree](048/FILE_TREE.md) |
 | [049](../../README-049.md) | 2026-11-02 | Replayable observations, source clocks and independent witness evidence | [Viewer](049/index.html) · [tree](049/FILE_TREE.md) |
 | [050](../../README-050.md) | 2026-11-02 | Native construction, prediction and retained recovery | [Viewer](050/index.html) · [tree](050/FILE_TREE.md) |
-
 | [051](../../README-051.md) | 2026-11-03 | Native gripper assembly, continuing constructions and typed chat | [Viewer](051/index.html) · [tree](051/FILE_TREE.md) |
-
 | [052](../../README-052.md) | 2026-11-03 | Faster checked chat, concise evidence and retained logic chain | [Viewer](052/index.html) · [tree](052/FILE_TREE.md) |
-
 | [053](../../README-053.md) | 2026-11-03 | Bounded assembly design, actual native comparisons and retained fresh-trial skills | [Viewer](053/index.html) · [tree](053/FILE_TREE.md) |
+| [054](../../README-054.md) | 2026-11-03 | Declared variable geometry, fixed obstacles, original simpler-control comparison and cross-geometry reuse | [Viewer](054/index.html) · [tree](054/FILE_TREE.md) |
 
-Latest implementation and documentation edition in this checkout is **053**. See [sequence policy](README_SEQUENCE.md) and [manifest](editions.json).
+Latest implementation and documentation edition in this checkout is **054**. See [sequence policy](README_SEQUENCE.md) and [manifest](editions.json).

@@ -38,3 +38,8 @@ Validation and dated screenshots belong to the numbered edition's final evidence
 ## Assembly design053
 
 Chat requests to compare assembly designs use the existing construction route. Java pins the design policy and explicit review preference, preserves numerical limits, compares three native force profiles and requires original motion/support/report checks before commit. Review-only pauses before live movement. Exact saved design procedures retain their original maximum and run fresh trials against the selected current world. Compare controls, original exports and verified report are in Spatial → Gripper assembly. [Edition053 walkthrough and measured limits](../README-053.md).
+
+
+## Geometry and baseline054
+
+Spatial → Gripper assembly → Choose stock and obstacles creates separate declared worlds. Java validates bounded dimensions/corridors and uses actual native forces, released contacts and zero obstacle-contact checks. Chat and exact saved-design reuse run the same existing goal owner. The verified report compares one maximum-force attempt with the selected fresh execution and charges all original trial attempts.26N/40N tie in the frozen cases; no efficiency gain claimed. Closed known053 worlds have an explicit compatible handoff with unchanged frames/history, never automatic migration. [Edition054 walkthrough, measurements and limits](../README-054.md).

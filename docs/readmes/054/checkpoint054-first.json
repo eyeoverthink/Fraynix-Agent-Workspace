@@ -1,0 +1,214 @@
+{
+  "source": "0c4278b",
+  "suites": [
+    {
+      "module": "workspace-engine/build/test-results/test",
+      "name": "fraymus.workspace.Agency043Test",
+      "tests": "11",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0"
+    },
+    {
+      "module": "workspace-engine/build/test-results/test",
+      "name": "fraymus.workspace.Agent042Test",
+      "tests": "9",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0"
+    },
+    {
+      "module": "workspace-engine/build/test-results/test",
+      "name": "fraymus.workspace.AtomicCheckpoint054Test",
+      "tests": "3",
+      "failures": "1",
+      "errors": "0",
+      "skipped": "0"
+    },
+    {
+      "module": "workspace-engine/build/test-results/test",
+      "name": "fraymus.workspace.ChatChain052Test",
+      "tests": "11",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0"
+    }
+  ],
+  "cases": [
+    {
+      "case": "fraymus.workspace.Agency043Test#inspectionReportRequiresActualStoredMatchingReportAssertions",
+      "passed": true,
+      "diagnostics": []
+    },
+    {
+      "case": "fraymus.workspace.Agency043Test#prematureModelFinishCannotCreateAnArtifactOrVisualRoutine",
+      "passed": true,
+      "diagnostics": []
+    },
+    {
+      "case": "fraymus.workspace.Agency043Test#explicitScreenQuestionUsesNativeInspectionAndCounterCreationUsesOnlyTheCreationStage",
+      "passed": true,
+      "diagnostics": []
+    },
+    {
+      "case": "fraymus.workspace.Agency043Test#actualStoredReceiptAndFrozenCounterStepsAreRequiredBeforeClaimIsConsumed",
+      "passed": true,
+      "diagnostics": []
+    },
+    {
+      "case": "fraymus.workspace.Agency043Test#missingActionAuthorityRefusesClearlyWhilePureDefinitionReadsRemainPassive",
+      "passed": true,
+      "diagnostics": []
+    },
+    {
+      "case": "fraymus.workspace.Agency043Test#registeredSchemasRejectInventedFieldsAndAssertionFreeTests",
+      "passed": true,
+      "diagnostics": []
+    },
+    {
+      "case": "fraymus.workspace.Agency043Test#commitFailureAfterConsumingHostClaimInterruptsInsteadOfWaitingForever",
+      "passed": true,
+      "diagnostics": []
+    },
+    {
+      "case": "fraymus.workspace.Agency043Test#queuedAndClaimedTasksRestoreAsInterruptedWithoutSilentReplay",
+      "passed": true,
+      "diagnostics": []
+    },
+    {
+      "case": "fraymus.workspace.Agency043Test#claimedHostInterruptionRejectsOldNonceAndExplicitResumeStartsFreshObservation",
+      "passed": true,
+      "diagnostics": []
+    },
+    {
+      "case": "fraymus.workspace.Agency043Test#unverifiedConversationIsNotPresentedAsVerifiedOutcomeToTheContinuingBrain",
+      "passed": true,
+      "diagnostics": []
+    },
+    {
+      "case": "fraymus.workspace.Agency043Test#rejectedNativeModelSyntaxRetriesWithinBudgetWithoutExecutingRejectedArguments",
+      "passed": true,
+      "diagnostics": []
+    },
+    {
+      "case": "fraymus.workspace.Agent042Test#actualSharedCortexCheckpointReplayLeaseAndRestart",
+      "passed": true,
+      "diagnostics": []
+    },
+    {
+      "case": "fraymus.workspace.Agent042Test#acceptedCameraOutputsExpireAndReplayCannotRefreshThem",
+      "passed": true,
+      "diagnostics": []
+    },
+    {
+      "case": "fraymus.workspace.Agent042Test#missingNeuralCheckpointDoesNotSilentlyResetBrain",
+      "passed": true,
+      "diagnostics": []
+    },
+    {
+      "case": "fraymus.workspace.Agent042Test#clocksKeepWallRollbackAndBootDomainsSeparate",
+      "passed": true,
+      "diagnostics": []
+    },
+    {
+      "case": "fraymus.workspace.Agent042Test#failedGoalsAreWitnessedOnceWithoutRewardingSuccess",
+      "passed": true,
+      "diagnostics": []
+    },
+    {
+      "case": "fraymus.workspace.Agent042Test#checkedStateRejectsAlterationWithoutErasingOriginal",
+      "passed": true,
+      "diagnostics": []
+    },
+    {
+      "case": "fraymus.workspace.Agent042Test#appraisalAblationsActuallyChangeWork",
+      "passed": true,
+      "diagnostics": []
+    },
+    {
+      "case": "fraymus.workspace.Agent042Test#witnessSegmentsVerifyExactCheckpointPrefixAndRefuseDamage",
+      "passed": true,
+      "diagnostics": []
+    },
+    {
+      "case": "fraymus.workspace.Agent042Test#reportEscapesSourceDataAndKeepsExactSnapshot",
+      "passed": true,
+      "diagnostics": []
+    },
+    {
+      "case": "fraymus.workspace.AtomicCheckpoint054Test#interruptedRetryPreservesCheckpointAndInterruptFlag",
+      "passed": false,
+      "diagnostics": [
+        [
+          "failure",
+          "java.lang.AssertionError: unexpected exception type thrown; expected:<java.io.InterruptedIOException> but was:<java.nio.channels.ClosedByInterruptException>"
+        ]
+      ]
+    },
+    {
+      "case": "fraymus.workspace.AtomicCheckpoint054Test#prolongedWindowsLockPreservesPreviousAndForcedPendingBytes",
+      "passed": true,
+      "diagnostics": []
+    },
+    {
+      "case": "fraymus.workspace.AtomicCheckpoint054Test#temporaryWindowsReadHandleRetriesWithoutDroppingCheckpoint",
+      "passed": true,
+      "diagnostics": []
+    },
+    {
+      "case": "fraymus.workspace.ChatChain052Test#duplicateWarningsKeepEveryOriginalOccurrenceBeyondRecentWindow",
+      "passed": true,
+      "diagnostics": []
+    },
+    {
+      "case": "fraymus.workspace.ChatChain052Test#numericRefusalExplainsOriginalBoundsWithoutChangingThem",
+      "passed": true,
+      "diagnostics": []
+    },
+    {
+      "case": "fraymus.workspace.ChatChain052Test#oversizedRequirementsRefuseRatherThanBeingSilentlyTruncated",
+      "passed": true,
+      "diagnostics": []
+    },
+    {
+      "case": "fraymus.workspace.ChatChain052Test#legacyTaskDoesNotClaimCompleteTimingCoverage",
+      "passed": true,
+      "diagnostics": []
+    },
+    {
+      "case": "fraymus.workspace.ChatChain052Test#summaryRetainsRejectedQualityAndDoesNotDumpMetrics",
+      "passed": true,
+      "diagnostics": []
+    },
+    {
+      "case": "fraymus.workspace.ChatChain052Test#discoverySummaryKeepsExactBindingsAndBothEndsWithoutBreakingJson",
+      "passed": true,
+      "diagnostics": []
+    },
+    {
+      "case": "fraymus.workspace.ChatChain052Test#largeRecentObservationHasExplicitOmissionHashAndKeepsFailure",
+      "passed": true,
+      "diagnostics": []
+    },
+    {
+      "case": "fraymus.workspace.ChatChain052Test#queuedObjectiveSealRefusesChangedRequest",
+      "passed": true,
+      "diagnostics": []
+    },
+    {
+      "case": "fraymus.workspace.ChatChain052Test#providerMapMetadataIsRetainedWithoutUnrelatedFields",
+      "passed": true,
+      "diagnostics": []
+    },
+    {
+      "case": "fraymus.workspace.ChatChain052Test#automaticCompletionRechecksCurrentArtifactInsteadOfTrustingOldSuccess",
+      "passed": true,
+      "diagnostics": []
+    },
+    {
+      "case": "fraymus.workspace.ChatChain052Test#failedPlannerCallIsTimedAndDoesNotBecomeAnAction",
+      "passed": true,
+      "diagnostics": []
+    }
+  ]
+}

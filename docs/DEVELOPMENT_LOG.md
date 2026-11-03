@@ -1,5 +1,14 @@
 # Agent Workspace development log
 
+## Edition054 · Geometry and measured choices validated locally
+
+2026-11-03. Actual app sourcee138ed2c5c65a8d2e863adf953607310912c04c4; frozen native geometry matrix9842381. Java adds declared compact/wide/barrier/blocked box stock, dimension-aware conservative overhead routing and original native support/motion proof with zero obstacle contacts. Actual simpler maximum-force baseline and all-attempt costs are visible;26N/40N tie in the four positive frozen cases. Blocked target refuses before actuation. No efficiency/energy or general-learning gain claimed.
+
+98 distinct targeted Java cases/16 classes and123desktop cases pass, with exact invocation scope recorded. Actual local CPU/four-thread gpt-oss:20b verifies review/restart, barrier build, changed-centre chat, exact saved-skill reuse in a new compact world, unchanged earlier world,17 report assertions per completion, blocked refusal, Stop and original export. Fresh chat187.517s; reuse190.545s. Source-qualified original development failures retained. No full-suite054 claim.
+
+README054, seven actual dated screenshots, original native matrix and app records, offline guide and Obsidian map prepared. Explicit closed053 handoff preserves exact frame/history; pending owners and unknown code refuse. Original normal review045/private camera/mat data and installed runtime untouched. Use this isolated054 checkout and separate projects. Preserve001–053 frozen. Publication is not claimed until actual push and fresh fetched-tree audit. Next: frozen direct-first comparison, lateral obstacle routes, independent load and diagnostic-retention tests.
+
+
 ## Edition054 · Development checkpoint before publication
 
 2026-11-03. Resume in `C:/Users/eyeka/Documents/Codex/2026-10-26/is/work/fraynix-workspace-edition054`, branch edition054, separate Java successor repository `eyeoverthink/Fraynix-Agent-Workspace`. Current implementation and UI e138ed2; native geometry matrix9842381; final production Java matches32dbed5. Original normal045 Java33224/private camera/mat data and installed runtime untouched. Do not rebuild that canonical installation or relocate this Java app to Chandra.
