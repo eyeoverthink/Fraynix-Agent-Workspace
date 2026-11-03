@@ -2,9 +2,9 @@
 
 **A local visual environment for agents to browse, create runnable artifacts, test behavior and reuse verified skills.**
 
-> **[Edition052 · Faster chat, the same evidence](README-052.md)** · [Offline guide](docs/readmes/052/index.html) · [Operation](docs/JAVA_CHAT_044.md) · [Edition history](docs/readmes/INDEX.md)
+> **[Edition053 · Assembly that compares before it acts](README-053.md)** · [Offline guide](docs/readmes/053/index.html) · [Operation](docs/JAVA_CHAT_044.md) · [Edition history](docs/readmes/INDEX.md)
 
-Edition052 reduces redundant terminal inference while preserving original completion checks. [Tests, measured timings and full evidence](docs/readmes/052/verification.json). Previous051 publication remains [verified](docs/PUBLICATION_051.json).
+Edition053 compares bounded native assembly strategies, retains failed trials and executes the verified choice in the continuing world. [Actual results and complete evidence](docs/readmes/053/verification.json).
 
 Edition052 is published to main with the original evidence. [Fetched GitHub verification](docs/PUBLICATION_052.json).
 

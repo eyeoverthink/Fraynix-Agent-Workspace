@@ -1,5 +1,14 @@
 # Agent Workspace project memory
 
+## Edition053 · Assembly design validated locally
+
+2026-11-03. Actual source5d201a6071d934508dbdb5d9531557695a203694 extends the existing Java counterfactual worker and goal runner with three declared construction force profiles, pretrial objections, unchanged native/support feasibility gates and effort/tick/order ranking. Fresh selected execution and original report/chart checks precede one world commit and versioned skill retention. The initial10N trial fails;26N/40N tie on effort/ticks and26N wins by declaration order. No energy improvement claim.
+
+80 distinct Java cases/11 classes across source-qualified targeted invocations,123desktop cases and the actual Electron/Java/local CPU gpt-oss:20b flow pass. Direct review/restart, changed-centre chat, exact saved-skill reuse after restart,6N infeasibility, active-trial Stop and independent original-export reconstruction are checked. Fresh chat156.127s; reuse179.129s. Initial fixture and public-projection failures remain preserved; no full-suite053 or model-weight-learning claim.
+
+New README053, five actual screenshots, offline guide, full original trial evidence and Obsidian map prepared. Normal review045/private data and installed JARs untouched; use this isolated checkout and independent projects. Preserve001–052 immutable. Actual main publication is not claimed until push and fresh fetched-tree verification. Next: separately frozen geometry/obstacle cases, simpler-policy comparison, diagnostic-retention evaluation and independent load experiments.
+
+
 ## Edition052 · Published and fetched back on 2026-11-03
 
 Actual non-forced atomic push to private `eyeoverthink/Fraynix-Agent-Workspace`: main, edition052 and readme-052 accepted. Release `43c33334f2c66515d0adc3b5c772a1e3cf001a14`; annotated tag `28e0aa7676ca985fe397c5319995b1b286bb8e05`. Fresh direct GitHub fetch confirms the release and tag. All 867 canonical source files, 3451 frozen hashes across52 editions, and 147 complete original evidence archives were read from that fetched tree and checked. Original gzip files were decompressed and original byte counts/SHA verified. Documentation passes 57 canvases and 5704 references. [Publication receipt](PUBLICATION_052.json).

@@ -59,4 +59,6 @@ Numbered editions preserve dated behavior and evidence. The root [README](../../
 
 | [052](../../README-052.md) | 2026-11-03 | Faster checked chat, concise evidence and retained logic chain | [Viewer](052/index.html) · [tree](052/FILE_TREE.md) |
 
-Latest implementation and documentation edition in this checkout is **052**. See [sequence policy](README_SEQUENCE.md) and [manifest](editions.json).
+| [053](../../README-053.md) | 2026-11-03 | Bounded assembly design, actual native comparisons and retained fresh-trial skills | [Viewer](053/index.html) · [tree](053/FILE_TREE.md) |
+
+Latest implementation and documentation edition in this checkout is **053**. See [sequence policy](README_SEQUENCE.md) and [manifest](editions.json).

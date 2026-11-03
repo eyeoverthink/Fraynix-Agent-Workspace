@@ -1,0 +1,1583 @@
+{
+  "source": "ac9f3f0707b49079af64cb0ae8435be14f4e1f54",
+  "project": "C:\\Users\\eyeka\\AppData\\Local\\Temp\\fraynix-design053-wn70X2",
+  "checks": [
+    "Three actual native candidates retain a failed low-force trial; decision is ready while the source world remains exactly unowned and unchanged; original exported effort independently reconstructed"
+  ],
+  "worldId": "5a56dd8a-782f-455f-8a7e-3cbc084d4899",
+  "before": {
+    "worldId": "5a56dd8a-782f-455f-8a7e-3cbc084d4899",
+    "expectedHash": "729ed9f3b40070f553a34c152f4a7e273f9b457ecee144c02d9260df297744ac",
+    "expectedRevision": 0,
+    "title": "Bridge assembly · native construction",
+    "requiresUpgrade051": false,
+    "frame": {
+      "elapsedTicks": 0,
+      "bodies": [
+        {
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "id": "ee293940-95f9-34e6-bf8c-39f2d7c519ed",
+          "position": [
+            -2,
+            0.3,
+            -1.5
+          ],
+          "velocity": [
+            0,
+            0,
+            0
+          ],
+          "angularVelocity": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "id": "3555bcb9-e0c3-3f44-9ffd-26370410b28b",
+          "position": [
+            0,
+            0.3,
+            -1.5
+          ],
+          "velocity": [
+            0,
+            0,
+            0
+          ],
+          "angularVelocity": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "rotation": [
+            0,
+            0.7071067811865475,
+            0,
+            0.7071067811865476
+          ],
+          "id": "881224bb-344f-3fe2-8048-9f107b24991d",
+          "position": [
+            2,
+            0.15,
+            -1.5
+          ],
+          "velocity": [
+            0,
+            0,
+            0
+          ],
+          "angularVelocity": [
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "format": "fraynix.world-frame-035-v1",
+      "originalScene": {
+        "importedAt": "2026-11-03T21:25:56.528294700Z",
+        "objects": [
+          {
+            "sourceId": "floor",
+            "bodyType": "static",
+            "size": [
+              8,
+              0.2,
+              8
+            ],
+            "restitution": 0,
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "id": "8b61cfd8-63e4-3f8f-a90c-c56874ff0996",
+            "label": "floor",
+            "position": [
+              0,
+              -0.1,
+              0
+            ],
+            "massKg": 0,
+            "friction": 0.8
+          },
+          {
+            "sourceId": "support-a",
+            "bodyType": "dynamic",
+            "size": [
+              0.4,
+              0.6,
+              0.6
+            ],
+            "restitution": 0,
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "id": "ee293940-95f9-34e6-bf8c-39f2d7c519ed",
+            "label": "support-a",
+            "position": [
+              -2,
+              0.3,
+              -1.5
+            ],
+            "massKg": 1.2,
+            "friction": 0.8
+          },
+          {
+            "sourceId": "support-b",
+            "bodyType": "dynamic",
+            "size": [
+              0.4,
+              0.6,
+              0.6
+            ],
+            "restitution": 0,
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "id": "3555bcb9-e0c3-3f44-9ffd-26370410b28b",
+            "label": "support-b",
+            "position": [
+              0,
+              0.3,
+              -1.5
+            ],
+            "massKg": 1.2,
+            "friction": 0.8
+          },
+          {
+            "sourceId": "beam",
+            "bodyType": "dynamic",
+            "size": [
+              2,
+              0.3,
+              0.4
+            ],
+            "restitution": 0,
+            "rotation": [
+              0,
+              0.7071067811865475,
+              0,
+              0.7071067811865476
+            ],
+            "id": "881224bb-344f-3fe2-8048-9f107b24991d",
+            "label": "beam",
+            "position": [
+              2,
+              0.15,
+              -1.5
+            ],
+            "massKg": 0.8,
+            "friction": 0.8
+          }
+        ],
+        "format": "fraynix.spatial-scene",
+        "sourceText": "{\"objects\":[{\"sourceId\":\"floor\",\"shape\":\"box\",\"size\":[8,0.2,8],\"restitution\":0,\"rotation\":[0,0,0,1],\"label\":\"floor\",\"position\":[0,-0.1,0],\"massKg\":0,\"friction\":0.8},{\"sourceId\":\"support-a\",\"shape\":\"box\",\"size\":[0.4,0.6,0.6],\"restitution\":0,\"rotation\":[0,0,0,1],\"label\":\"support-a\",\"position\":[-2,0.3,-1.5],\"massKg\":1.2,\"friction\":0.8},{\"sourceId\":\"support-b\",\"shape\":\"box\",\"size\":[0.4,0.6,0.6],\"restitution\":0,\"rotation\":[0,0,0,1],\"label\":\"support-b\",\"position\":[0,0.3,-1.5],\"massKg\":1.2,\"friction\":0.8},{\"sourceId\":\"beam\",\"shape\":\"box\",\"size\":[2,0.3,0.4],\"restitution\":0,\"rotation\":[0,0.7071067811865475,0,0.7071067811865476],\"label\":\"beam\",\"position\":[2,0.15,-1.5],\"massKg\":0.8,\"friction\":0.8}],\"format\":\"fraynix.spatial-scene\",\"units\":\"m\",\"source\":{\"note\":\"Edition 051 declared-scale loose construction stock; not physical capture\",\"kind\":\"synthetic\",\"physicalProperties\":\"declared\"},\"title\":\"Declared bridge kit · three loose parts\",\"version\":1,\"scaleReference\":{\"a\":[0,0,0],\"b\":[1,0,0],\"toleranceM\":0,\"knownLengthM\":1,\"basis\":\"declared-test\"},\"frame\":\"right-handed-y-up\",\"gravityMps2\":9.81}",
+        "units": "m",
+        "source": {
+          "note": "Edition 051 declared-scale loose construction stock; not physical capture",
+          "kind": "synthetic",
+          "physicalProperties": "declared"
+        },
+        "title": "Declared bridge kit · three loose parts",
+        "version": 1,
+        "gravityMps2": 9.81,
+        "sourceUnits": "m",
+        "sourceSha256": "50446f789da6a54452916ad7d1c1e93ebed7ed44d9beb657e6877e706ea36423",
+        "id": "4810a508-bd4c-491c-a23c-c60ca050d611",
+        "scaleCheck": {
+          "independentlyCalibrated": false,
+          "toleranceM": 0,
+          "knownLengthM": 1,
+          "passed": true,
+          "basis": "declared-test",
+          "convertedLengthM": 1
+        },
+        "frame": "right-handed-y-up"
+      }
+    },
+    "status": "verified"
+  },
+  "initialGoalId": "e6683ce1-786f-405e-be65-4a1c6afbea64",
+  "review": {
+    "counterfactual045": {
+      "phase": "review",
+      "candidates": [
+        {
+          "reason": "Measured pose progress stalled within the declared force/torque limits; no blind repeated actuation",
+          "hypothesis053": {
+            "largestStaticWeightN": 11.772,
+            "maximumAdmittedForceN": 40,
+            "origin": "Declared Java assembly design policy",
+            "forceLimitN": 10,
+            "torqueLimitNm": 4,
+            "staticLiftMarginN": -1.7720000000000002,
+            "status": "Unverified until native execution",
+            "objection": "This force ceiling cannot balance the heaviest part's static weight; run the trial and retain the failure."
+          },
+          "motionSha256": "28c39a8b92e4fb4eed2e81cbb76f5cb86c6ba9303e3a08b6f1086898b46bde01",
+          "structure053": {
+            "maxSettledSpeedMps": 0.0000083920124191879,
+            "supportContacts": 0,
+            "settledSamples": 8,
+            "design": {
+              "centerZ": 0,
+              "centerX": 0
+            },
+            "scope": "Three-part native bridge; bounded virtual force/torque gripper, gravity and contacts. No welded joints, real robot or material-strength claim.",
+            "beamCenterHeightM": 0.1499999761581421,
+            "passed": false,
+            "released": true
+          },
+          "planSha256": "00789f83069067d450ed870e980231c9d27b464a79b69255289cb7c035fb3708",
+          "runSha256": "6ce3cbf845be37c3cef89f1ae5212945b3ed79198a1cf813467552a059d7b4da",
+          "id": "quarter-force",
+          "runId": "15de679a-2df3-4e63-bfb7-b6b6e2a6f1af",
+          "metrics": {
+            "maxBoundaryPositionM": 1.1920928966180355e-8,
+            "maxBystanderDriftM": 0,
+            "grabs": 1,
+            "contactPoints": 492,
+            "maxRestoreAngleErrorDeg": 0,
+            "targets": [
+              {
+                "sourceId": "support-a",
+                "speedMps": 0.0000083920124191879,
+                "positionErrorM": 2.0180436070610566,
+                "angleErrorDeg": 0.000009864055032656135,
+                "angularSpeedRadps": 0.00002734159674961042
+              },
+              {
+                "sourceId": "support-b",
+                "speedMps": 0.0000013634546223310432,
+                "positionErrorM": 1.6347782405344915,
+                "angleErrorDeg": 0.000013970428307639786,
+                "angularSpeedRadps": 0.00000444288833358144
+              },
+              {
+                "sourceId": "beam",
+                "speedMps": 0.0000014041329275001799,
+                "positionErrorM": 2.5757328185832398,
+                "angleErrorDeg": 90.00000000000081,
+                "angularSpeedRadps": 0.000003961097727215578
+              }
+            ],
+            "resumes": 0,
+            "maxRestoreVelocityError": 0,
+            "maxAngleErrorDeg": 90.00000000000081,
+            "maxRestorePositionErrorM": 0,
+            "scope": "Versioned persistent native box world, paused between goals; bounded virtual force/torque gripper and exact kinematic cold handoff, not contact-only pushing, a physical robot hand, photographic recognition or LLM-weight training.",
+            "maxTorqueNm": 0.0000020063269822293875,
+            "workJ": 0,
+            "passed": false,
+            "maxPositionErrorM": 2.5757328185832398,
+            "nativeTicks": 481,
+            "maxForceN": 10.000000000002553,
+            "effortNs": 19.99999848604247,
+            "maxInactiveAngleDeg": 0.000022006769678157996,
+            "maxInactiveDriftM": 1.228781230931777e-7,
+            "maxBoundaryVelocity": 0,
+            "releases": 0,
+            "maxBoundaryAngleDeg": 0,
+            "timeS": 2.0041666666666664,
+            "maxAngularSpeedRadps": 0.00002734159674961042,
+            "maxSpeedMps": 0.0000083920124191879,
+            "nativePhysics": true,
+            "torqueEffortNms": 0.0000010365800566987889,
+            "maxBystanderAngleDeg": 0,
+            "angularWorkJ": 3.730235696717893e-13
+          },
+          "ordinal": 0,
+          "attempts": [
+            "15de679a-2df3-4e63-bfb7-b6b6e2a6f1af"
+          ],
+          "status": "failed"
+        },
+        {
+          "reason": "Original native gates passed",
+          "hypothesis053": {
+            "largestStaticWeightN": 11.772,
+            "maximumAdmittedForceN": 40,
+            "origin": "Declared Java assembly design policy",
+            "forceLimitN": 26,
+            "torqueLimitNm": 4,
+            "staticLiftMarginN": 14.228,
+            "status": "Unverified until native execution",
+            "objection": "Positive static lift margin does not establish successful motion or released bridge support."
+          },
+          "motionSha256": "769c863b81e8ef1da9b138b144bf14c71900309aaaf6e18157a66404661720cd",
+          "structure053": {
+            "maxSettledSpeedMps": 0.00019056758202045152,
+            "supportContacts": 2,
+            "settledSamples": 8,
+            "design": {
+              "centerZ": 0,
+              "centerX": 0
+            },
+            "scope": "Three-part native bridge; bounded virtual force/torque gripper, gravity and contacts. No welded joints, real robot or material-strength claim.",
+            "beamCenterHeightM": 0.7499963641166687,
+            "passed": true,
+            "released": true
+          },
+          "planSha256": "0a5ffe7789f4c39f581cc3d61192031e847a2e476f746c8c24585b6cecbfa32a",
+          "runSha256": "aafe28609a3cb355a2ae405e42521085eade2420bc6399d0b3c34322be4cca4d",
+          "id": "balanced-force",
+          "runId": "4046e24f-2a67-4dab-bf13-ff10704cd7e5",
+          "metrics": {
+            "maxBoundaryPositionM": 1.1920928966180355e-8,
+            "maxBystanderDriftM": 0,
+            "grabs": 3,
+            "contactPoints": 5216,
+            "maxRestoreAngleErrorDeg": 0,
+            "targets": [
+              {
+                "sourceId": "support-a",
+                "speedMps": 0.00005621058383746295,
+                "positionErrorM": 0.0015445717134854207,
+                "angleErrorDeg": 0.0009381375140387696,
+                "angularSpeedRadps": 0.00007234534286400197
+              },
+              {
+                "sourceId": "support-b",
+                "speedMps": 0.0001671181019748982,
+                "positionErrorM": 0.0014369173677624546,
+                "angleErrorDeg": 0.0008328021438760466,
+                "angularSpeedRadps": 0.000058803491885136666
+              },
+              {
+                "sourceId": "beam",
+                "speedMps": 0.00009406426396908952,
+                "positionErrorM": 0.020003694510135575,
+                "angleErrorDeg": 0.06926733440617663,
+                "angularSpeedRadps": 0.00019187502208221118
+              }
+            ],
+            "resumes": 0,
+            "maxRestoreVelocityError": 0,
+            "maxAngleErrorDeg": 0.06926733440617663,
+            "maxRestorePositionErrorM": 0,
+            "scope": "Versioned persistent native box world, paused between goals; bounded virtual force/torque gripper and exact kinematic cold handoff, not contact-only pushing, a physical robot hand, photographic recognition or LLM-weight training.",
+            "maxTorqueNm": 0.3360114991664929,
+            "workJ": 5.869284773798089,
+            "passed": true,
+            "maxPositionErrorM": 0.020003694510135575,
+            "nativeTicks": 7587,
+            "maxForceN": 19.45202827459217,
+            "effortNs": 298.8796929234222,
+            "maxInactiveAngleDeg": 0.009609565071149835,
+            "maxInactiveDriftM": 0.03513938422709854,
+            "maxBoundaryVelocity": 0,
+            "releases": 3,
+            "maxBoundaryAngleDeg": 0,
+            "timeS": 31.6125,
+            "maxAngularSpeedRadps": 0.00019187502208221118,
+            "maxSpeedMps": 0.0001671181019748982,
+            "nativePhysics": true,
+            "torqueEffortNms": 0.7497957057631177,
+            "maxBystanderAngleDeg": 0,
+            "angularWorkJ": 0.08424228293508729
+          },
+          "ordinal": 1,
+          "attempts": [
+            "4046e24f-2a67-4dab-bf13-ff10704cd7e5"
+          ],
+          "status": "completed"
+        },
+        {
+          "reason": "Original native gates passed",
+          "hypothesis053": {
+            "largestStaticWeightN": 11.772,
+            "maximumAdmittedForceN": 40,
+            "origin": "Declared Java assembly design policy",
+            "forceLimitN": 40,
+            "torqueLimitNm": 4,
+            "staticLiftMarginN": 28.228,
+            "status": "Unverified until native execution",
+            "objection": "Positive static lift margin does not establish successful motion or released bridge support."
+          },
+          "motionSha256": "5f34faa1be0d12c2183abffb6f7b096eb9eb9a88a3800743b20e7114b0164c03",
+          "structure053": {
+            "maxSettledSpeedMps": 0.00019056758202045152,
+            "supportContacts": 2,
+            "settledSamples": 8,
+            "design": {
+              "centerZ": 0,
+              "centerX": 0
+            },
+            "scope": "Three-part native bridge; bounded virtual force/torque gripper, gravity and contacts. No welded joints, real robot or material-strength claim.",
+            "beamCenterHeightM": 0.7499963641166687,
+            "passed": true,
+            "released": true
+          },
+          "planSha256": "993a3114fb73939d3d601141a41b265ff57c6fc1f1911447b212d0831ef287f4",
+          "runSha256": "e0924f32f65f053a36e38cc9aae0a9f75afb132b56d383ec6715e5a74cad2cb8",
+          "id": "maximum-force",
+          "runId": "41601f9a-3d5d-4bc3-b436-5aca945b6064",
+          "metrics": {
+            "maxBoundaryPositionM": 1.1920928966180355e-8,
+            "maxBystanderDriftM": 0,
+            "grabs": 3,
+            "contactPoints": 5216,
+            "maxRestoreAngleErrorDeg": 0,
+            "targets": [
+              {
+                "sourceId": "support-a",
+                "speedMps": 0.00005621058383746295,
+                "positionErrorM": 0.0015445717134854207,
+                "angleErrorDeg": 0.0009381375140387696,
+                "angularSpeedRadps": 0.00007234534286400197
+              },
+              {
+                "sourceId": "support-b",
+                "speedMps": 0.0001671181019748982,
+                "positionErrorM": 0.0014369173677624546,
+                "angleErrorDeg": 0.0008328021438760466,
+                "angularSpeedRadps": 0.000058803491885136666
+              },
+              {
+                "sourceId": "beam",
+                "speedMps": 0.00009406426396908952,
+                "positionErrorM": 0.020003694510135575,
+                "angleErrorDeg": 0.06926733440617663,
+                "angularSpeedRadps": 0.00019187502208221118
+              }
+            ],
+            "resumes": 0,
+            "maxRestoreVelocityError": 0,
+            "maxAngleErrorDeg": 0.06926733440617663,
+            "maxRestorePositionErrorM": 0,
+            "scope": "Versioned persistent native box world, paused between goals; bounded virtual force/torque gripper and exact kinematic cold handoff, not contact-only pushing, a physical robot hand, photographic recognition or LLM-weight training.",
+            "maxTorqueNm": 0.3360114991664929,
+            "workJ": 5.869284773798089,
+            "passed": true,
+            "maxPositionErrorM": 0.020003694510135575,
+            "nativeTicks": 7587,
+            "maxForceN": 19.45202827459217,
+            "effortNs": 298.8796929234222,
+            "maxInactiveAngleDeg": 0.009609565071149835,
+            "maxInactiveDriftM": 0.03513938422709854,
+            "maxBoundaryVelocity": 0,
+            "releases": 3,
+            "maxBoundaryAngleDeg": 0,
+            "timeS": 31.6125,
+            "maxAngularSpeedRadps": 0.00019187502208221118,
+            "maxSpeedMps": 0.0001671181019748982,
+            "nativePhysics": true,
+            "torqueEffortNms": 0.7497957057631177,
+            "maxBystanderAngleDeg": 0,
+            "angularWorkJ": 0.08424228293508729
+          },
+          "ordinal": 2,
+          "attempts": [
+            "41601f9a-3d5d-4bc3-b436-5aca945b6064"
+          ],
+          "status": "completed"
+        }
+      ],
+      "reviewRequested": true,
+      "originalIntent": {
+        "actuator": "bounded virtual force/torque gripper",
+        "construction051": {
+          "centerZ": 0,
+          "centerX": 0
+        },
+        "constructionCodeSha256": "9cf6295e41fb0b7fef2505d8f06e107388a6d018dd1522dacc7c2772377e17f5",
+        "binding": {
+          "sourceSha256": "50446f789da6a54452916ad7d1c1e93ebed7ed44d9beb657e6877e706ea36423",
+          "definitionSha256": "1ddb733ce451b892b0799f6372fdb5a122b03c43e7fde7b2876f2d95e84f2c8b",
+          "sceneId": "4810a508-bd4c-491c-a23c-c60ca050d611",
+          "version": 1
+        },
+        "forceLimitN": 40,
+        "targets": [
+          {
+            "sourceId": "support-a",
+            "positionM": [
+              -0.65,
+              0.3,
+              0
+            ],
+            "yawDeg": 0
+          },
+          {
+            "sourceId": "support-b",
+            "positionM": [
+              0.65,
+              0.3,
+              0
+            ],
+            "yawDeg": 0
+          },
+          {
+            "sourceId": "beam",
+            "positionM": [
+              0,
+              0.77,
+              0
+            ],
+            "yawDeg": 0
+          }
+        ],
+        "torqueLimitNm": 4
+      },
+      "studyId": "d7106e30-db9b-4bb7-8df5-341166611aa3",
+      "awaitingReview": true,
+      "sourceFrameSha256": "ae22845421615555e751f55deae9bb81c3b888d548b414f80b256d07b83fc340",
+      "selectedCandidate": "balanced-force",
+      "decisionSha256": "f239834bcace1fafedd41849f385d0235d10dda843f0a410c6d5d84a45584a24"
+    },
+    "request": "Assemble the bridge with native gripper forces, verify and retain its world frame",
+    "reason": "Review point: alternatives are ready and the live world is unchanged. Resume explicitly to execute this frozen decision.",
+    "construction051": {
+      "centerZ": 0,
+      "centerX": 0
+    },
+    "worldCodeSha256": "05eae61fc6fed8df7e7d1649d7c726773b822bfd20d698a4b5e8811d230d85cb",
+    "worldPlanSummary": {
+      "liftHeightM": 1.955776406404415,
+      "scope": "Versioned persistent native box world, paused between goals; bounded virtual force/torque gripper and exact kinematic cold handoff, not contact-only pushing, a physical robot hand, photographic recognition or LLM-weight training.",
+      "targets": [
+        {
+          "sourceId": "support-a",
+          "positionM": [
+            -0.65,
+            0.3,
+            0
+          ],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "objectId": "ee293940-95f9-34e6-bf8c-39f2d7c519ed",
+          "yawDeg": 0
+        },
+        {
+          "sourceId": "support-b",
+          "positionM": [
+            0.65,
+            0.3,
+            0
+          ],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "objectId": "3555bcb9-e0c3-3f44-9ffd-26370410b28b",
+          "yawDeg": 0
+        },
+        {
+          "sourceId": "beam",
+          "positionM": [
+            0,
+            0.77,
+            0
+          ],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "objectId": "881224bb-344f-3fe2-8048-9f107b24991d",
+          "yawDeg": 0
+        }
+      ]
+    },
+    "procedure": "persistent-world-arrange-v1",
+    "history": [
+      {
+        "reason": "Compare bounded actual native alternatives before any live-world ownership or action",
+        "at": "2026-11-03T21:25:56.829248400Z",
+        "step": "world-imagine",
+        "attempt": 1,
+        "status": "running"
+      },
+      {
+        "reason": "Review point: alternatives are ready and the live world is unchanged. Resume explicitly to execute this frozen decision.",
+        "at": "2026-11-03T21:26:14.367535Z",
+        "step": "world-review",
+        "attempt": 1,
+        "status": "interrupted"
+      }
+    ],
+    "attempt": 1,
+    "resumes": 0,
+    "createdAt": "2026-11-03T21:25:56.802683900Z",
+    "worldBinding": {
+      "worldId": "5a56dd8a-782f-455f-8a7e-3cbc084d4899",
+      "expectedHash": "729ed9f3b40070f553a34c152f4a7e273f9b457ecee144c02d9260df297744ac",
+      "expectedRevision": 0
+    },
+    "step": "world-review",
+    "id": "e6683ce1-786f-405e-be65-4a1c6afbea64",
+    "status": "interrupted",
+    "updatedAt": "2026-11-03T21:26:14.367535Z"
+  },
+  "reviewExports": [
+    {
+      "candidate": "quarter-force",
+      "runId": "15de679a-2df3-4e63-bfb7-b6b6e2a6f1af",
+      "status": "failed",
+      "ticks": 481,
+      "effortNs": 19.99999848604247,
+      "rawSha256": "fec6306936eb29f26d19d62424d3fc109cfc2f852cb15184a2f81bf6b4764af9"
+    },
+    {
+      "candidate": "balanced-force",
+      "runId": "4046e24f-2a67-4dab-bf13-ff10704cd7e5",
+      "status": "completed",
+      "ticks": 7587,
+      "effortNs": 298.8796929234223,
+      "rawSha256": "7a5c0014c9b3adb64a79b43c0846f2c19c4223cc8c85795287215028cd0dcbe6"
+    },
+    {
+      "candidate": "maximum-force",
+      "runId": "41601f9a-3d5d-4bc3-b436-5aca945b6064",
+      "status": "completed",
+      "ticks": 7587,
+      "effortNs": 298.8796929234223,
+      "rawSha256": "53d2bc8516136bbe230593bf46cf94e74a8c5c54d77876c1ab80862717a5900c"
+    }
+  ],
+  "first": {
+    "counterfactual045": {
+      "phase": "actual-compared",
+      "candidates": [
+        {
+          "reason": "Measured pose progress stalled within the declared force/torque limits; no blind repeated actuation",
+          "hypothesis053": {
+            "largestStaticWeightN": 11.772,
+            "maximumAdmittedForceN": 40,
+            "origin": "Declared Java assembly design policy",
+            "forceLimitN": 10,
+            "torqueLimitNm": 4,
+            "staticLiftMarginN": -1.7720000000000002,
+            "status": "Unverified until native execution",
+            "objection": "This force ceiling cannot balance the heaviest part's static weight; run the trial and retain the failure."
+          },
+          "motionSha256": "28c39a8b92e4fb4eed2e81cbb76f5cb86c6ba9303e3a08b6f1086898b46bde01",
+          "structure053": {
+            "maxSettledSpeedMps": 0.0000083920124191879,
+            "supportContacts": 0,
+            "settledSamples": 8,
+            "design": {
+              "centerZ": 0,
+              "centerX": 0
+            },
+            "scope": "Three-part native bridge; bounded virtual force/torque gripper, gravity and contacts. No welded joints, real robot or material-strength claim.",
+            "beamCenterHeightM": 0.1499999761581421,
+            "passed": false,
+            "released": true
+          },
+          "planSha256": "00789f83069067d450ed870e980231c9d27b464a79b69255289cb7c035fb3708",
+          "runSha256": "6ce3cbf845be37c3cef89f1ae5212945b3ed79198a1cf813467552a059d7b4da",
+          "id": "quarter-force",
+          "runId": "15de679a-2df3-4e63-bfb7-b6b6e2a6f1af",
+          "metrics": {
+            "maxBoundaryPositionM": 1.1920928966180355e-8,
+            "maxBystanderDriftM": 0,
+            "grabs": 1,
+            "contactPoints": 492,
+            "maxRestoreAngleErrorDeg": 0,
+            "targets": [
+              {
+                "sourceId": "support-a",
+                "speedMps": 0.0000083920124191879,
+                "positionErrorM": 2.0180436070610566,
+                "angleErrorDeg": 0.000009864055032656135,
+                "angularSpeedRadps": 0.00002734159674961042
+              },
+              {
+                "sourceId": "support-b",
+                "speedMps": 0.0000013634546223310432,
+                "positionErrorM": 1.6347782405344915,
+                "angleErrorDeg": 0.000013970428307639786,
+                "angularSpeedRadps": 0.00000444288833358144
+              },
+              {
+                "sourceId": "beam",
+                "speedMps": 0.0000014041329275001799,
+                "positionErrorM": 2.5757328185832398,
+                "angleErrorDeg": 90.00000000000081,
+                "angularSpeedRadps": 0.000003961097727215578
+              }
+            ],
+            "resumes": 0,
+            "maxRestoreVelocityError": 0,
+            "maxAngleErrorDeg": 90.00000000000081,
+            "maxRestorePositionErrorM": 0,
+            "scope": "Versioned persistent native box world, paused between goals; bounded virtual force/torque gripper and exact kinematic cold handoff, not contact-only pushing, a physical robot hand, photographic recognition or LLM-weight training.",
+            "maxTorqueNm": 0.0000020063269822293875,
+            "workJ": 0,
+            "passed": false,
+            "maxPositionErrorM": 2.5757328185832398,
+            "nativeTicks": 481,
+            "maxForceN": 10.000000000002553,
+            "effortNs": 19.99999848604247,
+            "maxInactiveAngleDeg": 0.000022006769678157996,
+            "maxInactiveDriftM": 1.228781230931777e-7,
+            "maxBoundaryVelocity": 0,
+            "releases": 0,
+            "maxBoundaryAngleDeg": 0,
+            "timeS": 2.0041666666666664,
+            "maxAngularSpeedRadps": 0.00002734159674961042,
+            "maxSpeedMps": 0.0000083920124191879,
+            "nativePhysics": true,
+            "torqueEffortNms": 0.0000010365800566987889,
+            "maxBystanderAngleDeg": 0,
+            "angularWorkJ": 3.730235696717893e-13
+          },
+          "ordinal": 0,
+          "attempts": [
+            "15de679a-2df3-4e63-bfb7-b6b6e2a6f1af"
+          ],
+          "status": "failed"
+        },
+        {
+          "reason": "Original native gates passed",
+          "hypothesis053": {
+            "largestStaticWeightN": 11.772,
+            "maximumAdmittedForceN": 40,
+            "origin": "Declared Java assembly design policy",
+            "forceLimitN": 26,
+            "torqueLimitNm": 4,
+            "staticLiftMarginN": 14.228,
+            "status": "Unverified until native execution",
+            "objection": "Positive static lift margin does not establish successful motion or released bridge support."
+          },
+          "motionSha256": "769c863b81e8ef1da9b138b144bf14c71900309aaaf6e18157a66404661720cd",
+          "structure053": {
+            "maxSettledSpeedMps": 0.00019056758202045152,
+            "supportContacts": 2,
+            "settledSamples": 8,
+            "design": {
+              "centerZ": 0,
+              "centerX": 0
+            },
+            "scope": "Three-part native bridge; bounded virtual force/torque gripper, gravity and contacts. No welded joints, real robot or material-strength claim.",
+            "beamCenterHeightM": 0.7499963641166687,
+            "passed": true,
+            "released": true
+          },
+          "planSha256": "0a5ffe7789f4c39f581cc3d61192031e847a2e476f746c8c24585b6cecbfa32a",
+          "runSha256": "aafe28609a3cb355a2ae405e42521085eade2420bc6399d0b3c34322be4cca4d",
+          "id": "balanced-force",
+          "runId": "4046e24f-2a67-4dab-bf13-ff10704cd7e5",
+          "metrics": {
+            "maxBoundaryPositionM": 1.1920928966180355e-8,
+            "maxBystanderDriftM": 0,
+            "grabs": 3,
+            "contactPoints": 5216,
+            "maxRestoreAngleErrorDeg": 0,
+            "targets": [
+              {
+                "sourceId": "support-a",
+                "speedMps": 0.00005621058383746295,
+                "positionErrorM": 0.0015445717134854207,
+                "angleErrorDeg": 0.0009381375140387696,
+                "angularSpeedRadps": 0.00007234534286400197
+              },
+              {
+                "sourceId": "support-b",
+                "speedMps": 0.0001671181019748982,
+                "positionErrorM": 0.0014369173677624546,
+                "angleErrorDeg": 0.0008328021438760466,
+                "angularSpeedRadps": 0.000058803491885136666
+              },
+              {
+                "sourceId": "beam",
+                "speedMps": 0.00009406426396908952,
+                "positionErrorM": 0.020003694510135575,
+                "angleErrorDeg": 0.06926733440617663,
+                "angularSpeedRadps": 0.00019187502208221118
+              }
+            ],
+            "resumes": 0,
+            "maxRestoreVelocityError": 0,
+            "maxAngleErrorDeg": 0.06926733440617663,
+            "maxRestorePositionErrorM": 0,
+            "scope": "Versioned persistent native box world, paused between goals; bounded virtual force/torque gripper and exact kinematic cold handoff, not contact-only pushing, a physical robot hand, photographic recognition or LLM-weight training.",
+            "maxTorqueNm": 0.3360114991664929,
+            "workJ": 5.869284773798089,
+            "passed": true,
+            "maxPositionErrorM": 0.020003694510135575,
+            "nativeTicks": 7587,
+            "maxForceN": 19.45202827459217,
+            "effortNs": 298.8796929234222,
+            "maxInactiveAngleDeg": 0.009609565071149835,
+            "maxInactiveDriftM": 0.03513938422709854,
+            "maxBoundaryVelocity": 0,
+            "releases": 3,
+            "maxBoundaryAngleDeg": 0,
+            "timeS": 31.6125,
+            "maxAngularSpeedRadps": 0.00019187502208221118,
+            "maxSpeedMps": 0.0001671181019748982,
+            "nativePhysics": true,
+            "torqueEffortNms": 0.7497957057631177,
+            "maxBystanderAngleDeg": 0,
+            "angularWorkJ": 0.08424228293508729
+          },
+          "ordinal": 1,
+          "attempts": [
+            "4046e24f-2a67-4dab-bf13-ff10704cd7e5"
+          ],
+          "status": "completed"
+        },
+        {
+          "reason": "Original native gates passed",
+          "hypothesis053": {
+            "largestStaticWeightN": 11.772,
+            "maximumAdmittedForceN": 40,
+            "origin": "Declared Java assembly design policy",
+            "forceLimitN": 40,
+            "torqueLimitNm": 4,
+            "staticLiftMarginN": 28.228,
+            "status": "Unverified until native execution",
+            "objection": "Positive static lift margin does not establish successful motion or released bridge support."
+          },
+          "motionSha256": "5f34faa1be0d12c2183abffb6f7b096eb9eb9a88a3800743b20e7114b0164c03",
+          "structure053": {
+            "maxSettledSpeedMps": 0.00019056758202045152,
+            "supportContacts": 2,
+            "settledSamples": 8,
+            "design": {
+              "centerZ": 0,
+              "centerX": 0
+            },
+            "scope": "Three-part native bridge; bounded virtual force/torque gripper, gravity and contacts. No welded joints, real robot or material-strength claim.",
+            "beamCenterHeightM": 0.7499963641166687,
+            "passed": true,
+            "released": true
+          },
+          "planSha256": "993a3114fb73939d3d601141a41b265ff57c6fc1f1911447b212d0831ef287f4",
+          "runSha256": "e0924f32f65f053a36e38cc9aae0a9f75afb132b56d383ec6715e5a74cad2cb8",
+          "id": "maximum-force",
+          "runId": "41601f9a-3d5d-4bc3-b436-5aca945b6064",
+          "metrics": {
+            "maxBoundaryPositionM": 1.1920928966180355e-8,
+            "maxBystanderDriftM": 0,
+            "grabs": 3,
+            "contactPoints": 5216,
+            "maxRestoreAngleErrorDeg": 0,
+            "targets": [
+              {
+                "sourceId": "support-a",
+                "speedMps": 0.00005621058383746295,
+                "positionErrorM": 0.0015445717134854207,
+                "angleErrorDeg": 0.0009381375140387696,
+                "angularSpeedRadps": 0.00007234534286400197
+              },
+              {
+                "sourceId": "support-b",
+                "speedMps": 0.0001671181019748982,
+                "positionErrorM": 0.0014369173677624546,
+                "angleErrorDeg": 0.0008328021438760466,
+                "angularSpeedRadps": 0.000058803491885136666
+              },
+              {
+                "sourceId": "beam",
+                "speedMps": 0.00009406426396908952,
+                "positionErrorM": 0.020003694510135575,
+                "angleErrorDeg": 0.06926733440617663,
+                "angularSpeedRadps": 0.00019187502208221118
+              }
+            ],
+            "resumes": 0,
+            "maxRestoreVelocityError": 0,
+            "maxAngleErrorDeg": 0.06926733440617663,
+            "maxRestorePositionErrorM": 0,
+            "scope": "Versioned persistent native box world, paused between goals; bounded virtual force/torque gripper and exact kinematic cold handoff, not contact-only pushing, a physical robot hand, photographic recognition or LLM-weight training.",
+            "maxTorqueNm": 0.3360114991664929,
+            "workJ": 5.869284773798089,
+            "passed": true,
+            "maxPositionErrorM": 0.020003694510135575,
+            "nativeTicks": 7587,
+            "maxForceN": 19.45202827459217,
+            "effortNs": 298.8796929234222,
+            "maxInactiveAngleDeg": 0.009609565071149835,
+            "maxInactiveDriftM": 0.03513938422709854,
+            "maxBoundaryVelocity": 0,
+            "releases": 3,
+            "maxBoundaryAngleDeg": 0,
+            "timeS": 31.6125,
+            "maxAngularSpeedRadps": 0.00019187502208221118,
+            "maxSpeedMps": 0.0001671181019748982,
+            "nativePhysics": true,
+            "torqueEffortNms": 0.7497957057631177,
+            "maxBystanderAngleDeg": 0,
+            "angularWorkJ": 0.08424228293508729
+          },
+          "ordinal": 2,
+          "attempts": [
+            "41601f9a-3d5d-4bc3-b436-5aca945b6064"
+          ],
+          "status": "completed"
+        }
+      ],
+      "reviewRequested": true,
+      "reviewApproved": true,
+      "comparison": {
+        "actualRunSha256": "0a92bb870e2b8769bda61fa62b6ecc680e423c56c295732d59d1442d7849b2bb",
+        "actualRunId": "6dd5bdc9-f04b-3534-a5a1-e95a6dc57001",
+        "sampleCoverage": 1,
+        "forecastRunId": "4046e24f-2a67-4dab-bf13-ff10704cd7e5",
+        "maxPositionResidualM": 0,
+        "bodies": [
+          {
+            "angleResidualDeg": 0,
+            "id": "ee293940-95f9-34e6-bf8c-39f2d7c519ed",
+            "actualPositionM": [
+              -0.6500059366226196,
+              0.29999810457229614,
+              0.0015445591416209936
+            ],
+            "forecastPositionM": [
+              -0.6500059366226196,
+              0.29999810457229614,
+              0.0015445591416209936
+            ],
+            "positionResidualM": 0
+          },
+          {
+            "angleResidualDeg": 0,
+            "id": "3555bcb9-e0c3-3f44-9ffd-26370410b28b",
+            "actualPositionM": [
+              0.6499882340431213,
+              0.29999813437461853,
+              0.0014368679840117693
+            ],
+            "forecastPositionM": [
+              0.6499882340431213,
+              0.29999813437461853,
+              0.0014368679840117693
+            ],
+            "positionResidualM": 0
+          },
+          {
+            "angleResidualDeg": 0,
+            "id": "881224bb-344f-3fe2-8048-9f107b24991d",
+            "actualPositionM": [
+              0.000014054673556529451,
+              0.7499963641166687,
+              0.00004634617653209716
+            ],
+            "forecastPositionM": [
+              0.000014054673556529451,
+              0.7499963641166687,
+              0.00004634617653209716
+            ],
+            "positionResidualM": 0
+          }
+        ],
+        "timeResidualS": 0,
+        "matchedSamples": 633,
+        "selectedCandidate": "balanced-force",
+        "effortResidualNs": 0,
+        "scope": "Bounded native simulation alternatives using the unchanged virtual force/torque gripper. Simulation forecasts compared with simulation execution, not a learned model of reality or physical robot control.",
+        "forecastRunSha256": "aafe28609a3cb355a2ae405e42521085eade2420bc6399d0b3c34322be4cca4d",
+        "passed": true,
+        "maxAngleResidualDeg": 0,
+        "sourceFrameSha256": "ae22845421615555e751f55deae9bb81c3b888d548b414f80b256d07b83fc340",
+        "decisionSha256": "f239834bcace1fafedd41849f385d0235d10dda843f0a410c6d5d84a45584a24"
+      },
+      "originalIntent": {
+        "actuator": "bounded virtual force/torque gripper",
+        "construction051": {
+          "centerZ": 0,
+          "centerX": 0
+        },
+        "constructionCodeSha256": "9cf6295e41fb0b7fef2505d8f06e107388a6d018dd1522dacc7c2772377e17f5",
+        "binding": {
+          "sourceSha256": "50446f789da6a54452916ad7d1c1e93ebed7ed44d9beb657e6877e706ea36423",
+          "definitionSha256": "1ddb733ce451b892b0799f6372fdb5a122b03c43e7fde7b2876f2d95e84f2c8b",
+          "sceneId": "4810a508-bd4c-491c-a23c-c60ca050d611",
+          "version": 1
+        },
+        "forceLimitN": 40,
+        "targets": [
+          {
+            "sourceId": "support-a",
+            "positionM": [
+              -0.65,
+              0.3,
+              0
+            ],
+            "yawDeg": 0
+          },
+          {
+            "sourceId": "support-b",
+            "positionM": [
+              0.65,
+              0.3,
+              0
+            ],
+            "yawDeg": 0
+          },
+          {
+            "sourceId": "beam",
+            "positionM": [
+              0,
+              0.77,
+              0
+            ],
+            "yawDeg": 0
+          }
+        ],
+        "torqueLimitNm": 4
+      },
+      "studyId": "d7106e30-db9b-4bb7-8df5-341166611aa3",
+      "awaitingReview": false,
+      "sourceFrameSha256": "ae22845421615555e751f55deae9bb81c3b888d548b414f80b256d07b83fc340",
+      "selectedCandidate": "balanced-force",
+      "decisionSha256": "f239834bcace1fafedd41849f385d0235d10dda843f0a410c6d5d84a45584a24"
+    },
+    "request": "Assemble the bridge with native gripper forces, verify and retain its world frame",
+    "reason": "Verified final body state committed as the next world revision; original charts and skill verified",
+    "construction051": {
+      "centerZ": 0,
+      "centerX": 0
+    },
+    "worldCodeSha256": "05eae61fc6fed8df7e7d1649d7c726773b822bfd20d698a4b5e8811d230d85cb",
+    "worldPlanSummary": {
+      "liftHeightM": 1.955776406404415,
+      "scope": "Versioned persistent native box world, paused between goals; bounded virtual force/torque gripper and exact kinematic cold handoff, not contact-only pushing, a physical robot hand, photographic recognition or LLM-weight training.",
+      "targets": [
+        {
+          "sourceId": "support-a",
+          "positionM": [
+            -0.65,
+            0.3,
+            0
+          ],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "objectId": "ee293940-95f9-34e6-bf8c-39f2d7c519ed",
+          "yawDeg": 0
+        },
+        {
+          "sourceId": "support-b",
+          "positionM": [
+            0.65,
+            0.3,
+            0
+          ],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "objectId": "3555bcb9-e0c3-3f44-9ffd-26370410b28b",
+          "yawDeg": 0
+        },
+        {
+          "sourceId": "beam",
+          "positionM": [
+            0,
+            0.77,
+            0
+          ],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "objectId": "881224bb-344f-3fe2-8048-9f107b24991d",
+          "yawDeg": 0
+        }
+      ]
+    },
+    "procedure": "persistent-world-arrange-v1",
+    "history": [
+      {
+        "reason": "Compare bounded actual native alternatives before any live-world ownership or action",
+        "at": "2026-11-03T21:25:56.829248400Z",
+        "step": "world-imagine",
+        "attempt": 1,
+        "status": "running"
+      },
+      {
+        "reason": "Review point: alternatives are ready and the live world is unchanged. Resume explicitly to execute this frozen decision.",
+        "at": "2026-11-03T21:26:14.367535Z",
+        "step": "world-review",
+        "attempt": 1,
+        "status": "interrupted"
+      },
+      {
+        "reason": "Explicit review accepted; current world head rechecked before native ownership",
+        "at": "2026-11-03T21:26:22.941779600Z",
+        "step": "world-start",
+        "attempt": 1,
+        "status": "running"
+      },
+      {
+        "reason": "Native virtual gripper controls position and orientation; all other bodies remain observed",
+        "at": "2026-11-03T21:26:24.929453500Z",
+        "step": "world-wait",
+        "attempt": 1,
+        "status": "running"
+      },
+      {
+        "reason": "All native body poses, force/torque ledger, release and protected-body gates independently verified",
+        "at": "2026-11-03T21:26:46.600980300Z",
+        "step": "world-report",
+        "attempt": 1,
+        "status": "running"
+      },
+      {
+        "reason": "Waiting for registered desktop action: canvas.verify-report",
+        "at": "2026-11-03T21:26:55.245355800Z",
+        "step": "world-report",
+        "attempt": 1,
+        "status": "waiting-host"
+      },
+      {
+        "reason": "Actual Chromium canvas assertions passed for the pinned report version",
+        "at": "2026-11-03T21:26:58.772043600Z",
+        "step": "complete",
+        "attempt": 1,
+        "status": "running"
+      },
+      {
+        "reason": "Verified final body state committed as the next world revision; original charts and skill verified",
+        "at": "2026-11-03T21:27:13.197712400Z",
+        "step": "completed",
+        "attempt": 1,
+        "status": "completed"
+      }
+    ],
+    "attempt": 1,
+    "resumes": 1,
+    "constructionVerification051": {
+      "maxSettledSpeedMps": 0.00019056758202045152,
+      "supportContacts": 2,
+      "settledSamples": 8,
+      "design": {
+        "centerZ": 0,
+        "centerX": 0
+      },
+      "scope": "Three-part native bridge; bounded virtual force/torque gripper, gravity and contacts. No welded joints, real robot or material-strength claim.",
+      "beamCenterHeightM": 0.7499963641166687,
+      "passed": true,
+      "released": true
+    },
+    "createdAt": "2026-11-03T21:25:56.802683900Z",
+    "counterfactual045View": {
+      "maxError": 0.00003040897468054027,
+      "dataSha256": "b5c83762bed8e614992452e0dd4d637f55fcd8ccf50917eb0db62ba2d2a804f9",
+      "passed": true,
+      "points": 1266
+    },
+    "worldBinding": {
+      "worldId": "5a56dd8a-782f-455f-8a7e-3cbc084d4899",
+      "expectedHash": "729ed9f3b40070f553a34c152f4a7e273f9b457ecee144c02d9260df297744ac",
+      "expectedRevision": 0
+    },
+    "report": {
+      "sha256": "e221965eabb71d0780f1479a5cdb636da4ae9b720ed075b382150ecaacc95e5c",
+      "id": "18fc6747-0ac7-3581-aa02-20abc83f1ff8",
+      "version": 1
+    },
+    "poseView": {
+      "cells": 15,
+      "frames": 6,
+      "maxError": 0.000030355468766174454,
+      "dataSha256": "a87a8fc5a0b41c40478a3a6d5564fd465220a64180efe200976923e85be141df",
+      "passed": true,
+      "points": 3798
+    },
+    "step": "completed",
+    "worldCommit": {
+      "goalId": "e6683ce1-786f-405e-be65-4a1c6afbea64",
+      "kind": "goal",
+      "construction051": {
+        "maxSettledSpeedMps": 0.00019056758202045152,
+        "supportContacts": 2,
+        "settledSamples": 8,
+        "design": {
+          "centerZ": 0,
+          "centerX": 0
+        },
+        "scope": "Three-part native bridge; bounded virtual force/torque gripper, gravity and contacts. No welded joints, real robot or material-strength claim.",
+        "beamCenterHeightM": 0.7499963641166687,
+        "passed": true,
+        "released": true
+      },
+      "nativeCanonicalSha256": "0a92bb870e2b8769bda61fa62b6ecc680e423c56c295732d59d1442d7849b2bb",
+      "revision": 1,
+      "at": "2026-11-03T21:27:06.117858Z",
+      "report": {
+        "sha256": "e221965eabb71d0780f1479a5cdb636da4ae9b720ed075b382150ecaacc95e5c",
+        "id": "18fc6747-0ac7-3581-aa02-20abc83f1ff8",
+        "version": 1
+      },
+      "receipt": {
+        "cells": 15,
+        "frames": 6,
+        "maxError": 0.000030355468766174454,
+        "dataSha256": "a87a8fc5a0b41c40478a3a6d5564fd465220a64180efe200976923e85be141df",
+        "passed": true,
+        "points": 3798
+      },
+      "runId": "6dd5bdc9-f04b-3534-a5a1-e95a6dc57001",
+      "metrics": {
+        "maxBoundaryPositionM": 1.1920928966180355e-8,
+        "maxBystanderDriftM": 0,
+        "grabs": 3,
+        "contactPoints": 5216,
+        "maxRestoreAngleErrorDeg": 0,
+        "targets": [
+          {
+            "sourceId": "support-a",
+            "speedMps": 0.00005621058383746295,
+            "positionErrorM": 0.0015445717134854207,
+            "angleErrorDeg": 0.0009381375140387696,
+            "angularSpeedRadps": 0.00007234534286400197
+          },
+          {
+            "sourceId": "support-b",
+            "speedMps": 0.0001671181019748982,
+            "positionErrorM": 0.0014369173677624546,
+            "angleErrorDeg": 0.0008328021438760466,
+            "angularSpeedRadps": 0.000058803491885136666
+          },
+          {
+            "sourceId": "beam",
+            "speedMps": 0.00009406426396908952,
+            "positionErrorM": 0.020003694510135575,
+            "angleErrorDeg": 0.06926733440617663,
+            "angularSpeedRadps": 0.00019187502208221118
+          }
+        ],
+        "resumes": 0,
+        "maxRestoreVelocityError": 0,
+        "maxAngleErrorDeg": 0.06926733440617663,
+        "maxRestorePositionErrorM": 0,
+        "scope": "Versioned persistent native box world, paused between goals; bounded virtual force/torque gripper and exact kinematic cold handoff, not contact-only pushing, a physical robot hand, photographic recognition or LLM-weight training.",
+        "maxTorqueNm": 0.3360114991664929,
+        "workJ": 5.869284773798089,
+        "passed": true,
+        "maxPositionErrorM": 0.020003694510135575,
+        "nativeTicks": 7587,
+        "maxForceN": 19.45202827459217,
+        "effortNs": 298.8796929234222,
+        "maxInactiveAngleDeg": 0.009609565071149835,
+        "maxInactiveDriftM": 0.03513938422709854,
+        "maxBoundaryVelocity": 0,
+        "releases": 3,
+        "maxBoundaryAngleDeg": 0,
+        "timeS": 31.6125,
+        "maxAngularSpeedRadps": 0.00019187502208221118,
+        "maxSpeedMps": 0.0001671181019748982,
+        "nativePhysics": true,
+        "torqueEffortNms": 0.7497957057631177,
+        "maxBystanderAngleDeg": 0,
+        "angularWorkJ": 0.08424228293508729
+      },
+      "parentHash": "729ed9f3b40070f553a34c152f4a7e273f9b457ecee144c02d9260df297744ac",
+      "hash": "05e5da660ecde1b6b4680f9d17a424cb8fda22bbc880cba8db62239e1599bda8",
+      "frame": {
+        "elapsedTicks": 7587,
+        "bodies": [
+          {
+            "rotation": [
+              -3.35361e-7,
+              0.0000031919485,
+              -0.0000075314406,
+              1
+            ],
+            "id": "ee293940-95f9-34e6-bf8c-39f2d7c519ed",
+            "position": [
+              -0.6500059366226196,
+              0.29999810457229614,
+              0.0015445591416209936
+            ],
+            "velocity": [
+              0.00002491545819793828,
+              -0.0000093802809715271,
+              -0.000049506161303725094
+            ],
+            "angularVelocity": [
+              -0.00002403120197413955,
+              0.000016952719306573272,
+              -0.00006609807314816862
+            ]
+          },
+          {
+            "rotation": [
+              3.214127e-8,
+              -5.7439627e-7,
+              0.000007244764,
+              1
+            ],
+            "id": "3555bcb9-e0c3-3f44-9ffd-26370410b28b",
+            "position": [
+              0.6499882340431213,
+              0.29999813437461853,
+              0.0014368679840117693
+            ],
+            "velocity": [
+              -0.000020764169676112942,
+              -0.000009629875421524048,
+              0.00016554327157791704
+            ],
+            "angularVelocity": [
+              0.000011513784556882456,
+              -0.000013043778380961157,
+              0.00005617066199192777
+            ]
+          },
+          {
+            "rotation": [
+              -0.0000012795242,
+              -0.0006044688,
+              0.0000012647959,
+              0.9999998
+            ],
+            "id": "881224bb-344f-3fe2-8048-9f107b24991d",
+            "position": [
+              0.000014054673556529451,
+              0.7499963641166687,
+              0.00004634617653209716
+            ],
+            "velocity": [
+              0.000012268679711269215,
+              -0.000020854175090789795,
+              0.00009089922241400927
+            ],
+            "angularVelocity": [
+              -0.00006566807860508561,
+              -0.00018005591118708253,
+              0.000009143106581177562
+            ]
+          }
+        ],
+        "format": "fraynix.world-frame-035-v1",
+        "originalScene": {
+          "importedAt": "2026-11-03T21:25:56.528294700Z",
+          "objects": [
+            {
+              "sourceId": "floor",
+              "bodyType": "static",
+              "size": [
+                8,
+                0.2,
+                8
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "id": "8b61cfd8-63e4-3f8f-a90c-c56874ff0996",
+              "label": "floor",
+              "position": [
+                0,
+                -0.1,
+                0
+              ],
+              "massKg": 0,
+              "friction": 0.8
+            },
+            {
+              "sourceId": "support-a",
+              "bodyType": "dynamic",
+              "size": [
+                0.4,
+                0.6,
+                0.6
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "id": "ee293940-95f9-34e6-bf8c-39f2d7c519ed",
+              "label": "support-a",
+              "position": [
+                -2,
+                0.3,
+                -1.5
+              ],
+              "massKg": 1.2,
+              "friction": 0.8
+            },
+            {
+              "sourceId": "support-b",
+              "bodyType": "dynamic",
+              "size": [
+                0.4,
+                0.6,
+                0.6
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "id": "3555bcb9-e0c3-3f44-9ffd-26370410b28b",
+              "label": "support-b",
+              "position": [
+                0,
+                0.3,
+                -1.5
+              ],
+              "massKg": 1.2,
+              "friction": 0.8
+            },
+            {
+              "sourceId": "beam",
+              "bodyType": "dynamic",
+              "size": [
+                2,
+                0.3,
+                0.4
+              ],
+              "restitution": 0,
+              "rotation": [
+                0,
+                0.7071067811865475,
+                0,
+                0.7071067811865476
+              ],
+              "id": "881224bb-344f-3fe2-8048-9f107b24991d",
+              "label": "beam",
+              "position": [
+                2,
+                0.15,
+                -1.5
+              ],
+              "massKg": 0.8,
+              "friction": 0.8
+            }
+          ],
+          "format": "fraynix.spatial-scene",
+          "sourceText": "{\"objects\":[{\"sourceId\":\"floor\",\"shape\":\"box\",\"size\":[8,0.2,8],\"restitution\":0,\"rotation\":[0,0,0,1],\"label\":\"floor\",\"position\":[0,-0.1,0],\"massKg\":0,\"friction\":0.8},{\"sourceId\":\"support-a\",\"shape\":\"box\",\"size\":[0.4,0.6,0.6],\"restitution\":0,\"rotation\":[0,0,0,1],\"label\":\"support-a\",\"position\":[-2,0.3,-1.5],\"massKg\":1.2,\"friction\":0.8},{\"sourceId\":\"support-b\",\"shape\":\"box\",\"size\":[0.4,0.6,0.6],\"restitution\":0,\"rotation\":[0,0,0,1],\"label\":\"support-b\",\"position\":[0,0.3,-1.5],\"massKg\":1.2,\"friction\":0.8},{\"sourceId\":\"beam\",\"shape\":\"box\",\"size\":[2,0.3,0.4],\"restitution\":0,\"rotation\":[0,0.7071067811865475,0,0.7071067811865476],\"label\":\"beam\",\"position\":[2,0.15,-1.5],\"massKg\":0.8,\"friction\":0.8}],\"format\":\"fraynix.spatial-scene\",\"units\":\"m\",\"source\":{\"note\":\"Edition 051 declared-scale loose construction stock; not physical capture\",\"kind\":\"synthetic\",\"physicalProperties\":\"declared\"},\"title\":\"Declared bridge kit · three loose parts\",\"version\":1,\"scaleReference\":{\"a\":[0,0,0],\"b\":[1,0,0],\"toleranceM\":0,\"knownLengthM\":1,\"basis\":\"declared-test\"},\"frame\":\"right-handed-y-up\",\"gravityMps2\":9.81}",
+          "units": "m",
+          "source": {
+            "note": "Edition 051 declared-scale loose construction stock; not physical capture",
+            "kind": "synthetic",
+            "physicalProperties": "declared"
+          },
+          "title": "Declared bridge kit · three loose parts",
+          "version": 1,
+          "gravityMps2": 9.81,
+          "sourceUnits": "m",
+          "sourceSha256": "50446f789da6a54452916ad7d1c1e93ebed7ed44d9beb657e6877e706ea36423",
+          "id": "4810a508-bd4c-491c-a23c-c60ca050d611",
+          "scaleCheck": {
+            "independentlyCalibrated": false,
+            "toleranceM": 0,
+            "knownLengthM": 1,
+            "passed": true,
+            "basis": "declared-test",
+            "convertedLengthM": 1
+          },
+          "frame": "right-handed-y-up"
+        }
+      }
+    },
+    "id": "e6683ce1-786f-405e-be65-4a1c6afbea64",
+    "runId": "6dd5bdc9-f04b-3534-a5a1-e95a6dc57001",
+    "metrics": {
+      "maxBoundaryPositionM": 1.1920928966180355e-8,
+      "maxBystanderDriftM": 0,
+      "grabs": 3,
+      "contactPoints": 5216,
+      "maxRestoreAngleErrorDeg": 0,
+      "targets": [
+        {
+          "sourceId": "support-a",
+          "speedMps": 0.00005621058383746295,
+          "positionErrorM": 0.0015445717134854207,
+          "angleErrorDeg": 0.0009381375140387696,
+          "angularSpeedRadps": 0.00007234534286400197
+        },
+        {
+          "sourceId": "support-b",
+          "speedMps": 0.0001671181019748982,
+          "positionErrorM": 0.0014369173677624546,
+          "angleErrorDeg": 0.0008328021438760466,
+          "angularSpeedRadps": 0.000058803491885136666
+        },
+        {
+          "sourceId": "beam",
+          "speedMps": 0.00009406426396908952,
+          "positionErrorM": 0.020003694510135575,
+          "angleErrorDeg": 0.06926733440617663,
+          "angularSpeedRadps": 0.00019187502208221118
+        }
+      ],
+      "resumes": 0,
+      "maxRestoreVelocityError": 0,
+      "maxAngleErrorDeg": 0.06926733440617663,
+      "maxRestorePositionErrorM": 0,
+      "scope": "Versioned persistent native box world, paused between goals; bounded virtual force/torque gripper and exact kinematic cold handoff, not contact-only pushing, a physical robot hand, photographic recognition or LLM-weight training.",
+      "maxTorqueNm": 0.3360114991664929,
+      "workJ": 5.869284773798089,
+      "passed": true,
+      "maxPositionErrorM": 0.020003694510135575,
+      "nativeTicks": 7587,
+      "maxForceN": 19.45202827459217,
+      "effortNs": 298.8796929234222,
+      "maxInactiveAngleDeg": 0.009609565071149835,
+      "maxInactiveDriftM": 0.03513938422709854,
+      "maxBoundaryVelocity": 0,
+      "releases": 3,
+      "maxBoundaryAngleDeg": 0,
+      "timeS": 31.6125,
+      "maxAngularSpeedRadps": 0.00019187502208221118,
+      "maxSpeedMps": 0.0001671181019748982,
+      "nativePhysics": true,
+      "torqueEffortNms": 0.7497957057631177,
+      "maxBystanderAngleDeg": 0,
+      "angularWorkJ": 0.08424228293508729
+    },
+    "savedSkill": {
+      "name": "design-bridge",
+      "id": "d6fbed63-033f-34bc-b679-bb0ffd7c20e4",
+      "version": 1
+    },
+    "status": "completed",
+    "updatedAt": "2026-11-03T21:27:13.197712400Z"
+  },
+  "passed": false,
+  "error": "AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:\n\n  assert(g.design053)\n\n    at checked (C:\\Users\\eyeka\\Documents\\Codex\\2026-10-26\\is\\work\\fraynix-workspace-edition053\\workspace-desktop\\test\\design053-integration.cjs:22:66)\n    at main (C:\\Users\\eyeka\\Documents\\Codex\\2026-10-26\\is\\work\\fraynix-workspace-edition053\\workspace-desktop\\test\\design053-integration.cjs:34:105)",
+  "errors": []
+}

@@ -1,0 +1,72 @@
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/9.3.1/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build 
+> Task :brain-core:compileJava
+> Task :brain-gpu:compileJava
+> Task :factory-runtime:compileJava
+> Task :factory-kernel:compileJava
+> Task :factory-models:compileJava
+> Task :geometry-core:compileJava
+> Task :workspace-engine:compileJava
+> Task :workspace-engine:processResources
+> Task :workspace-engine:classes
+> Task :workspace-engine:jar
+
+> Task :compileJava
+
+> Task :processResources
+Note: Some input files use unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+> Task :classes
+> Task :jar
+> Task :brain-core:processResources NO-SOURCE
+> Task :brain-core:classes
+> Task :brain-core:jar
+> Task :factory-kernel:processResources NO-SOURCE
+> Task :factory-kernel:classes
+> Task :factory-kernel:jar
+> Task :factory-models:processResources NO-SOURCE
+> Task :factory-models:classes
+> Task :factory-models:jar
+> Task :factory-runtime:processResources NO-SOURCE
+> Task :factory-runtime:classes
+> Task :factory-runtime:jar
+> Task :startScripts
+> Task :installDist
+> Task :brain-gpu:processResources NO-SOURCE
+> Task :brain-gpu:classes
+> Task :brain-gpu:jar
+> Task :geometry-core:processResources NO-SOURCE
+> Task :geometry-core:classes
+> Task :geometry-core:jar
+> Task :workspace-engine:compileTestJava
+> Task :workspace-engine:processTestResources
+> Task :workspace-engine:testClasses
+Libbulletjme version 22.0.3 initializing
+> Task :workspace-engine:test
+
+Design053Test > minimalCeilingDeduplicatesWithoutExceedingAuthority FAILED
+    java.lang.IllegalStateException at Design053Test.java:12
+
+Design053Test > actualTrialsPreserveSourceAndCheckBridgeBeforeSelectedExecution FAILED
+    java.lang.IllegalStateException at Design053Test.java:12
+
+Design053Test > allFailedTrialsCannotEarnDecisionOrLiveOwnership FAILED
+    java.lang.IllegalStateException at Design053Test.java:12
+
+55 tests completed, 3 failed
+
+> Task :workspace-engine:test FAILED
+
+[Incubating] Problems report is available at: file:///C:/Users/eyeka/Documents/Codex/2026-10-26/is/work/fraynix-workspace-edition053/build/reports/problems/problems-report.html
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':workspace-engine:test'.
+> There were failing tests. See the report at: file:///C:/Users/eyeka/Documents/Codex/2026-10-26/is/work/fraynix-workspace-edition053/workspace-engine/build/reports/tests/test/index.html
+
+* Try:
+> Run with --scan to get full insights from a Build Scan (powered by Develocity).
+
+BUILD FAILED in 1m 25s
+23 actionable tasks: 23 executed

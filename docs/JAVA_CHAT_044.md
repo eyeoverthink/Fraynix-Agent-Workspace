@@ -33,3 +33,8 @@ A passing-looking model summary cannot complete a task. Java checks the current 
 These are operational ownership and continuity guarantees. They do not establish subjective awareness, general recursive improvement, new photographic identity recognition or trained language-model weights. Existing measured041 results and failed/unvalidated038 observations keep their original source-specific scope. This edition changes coordination; it does not replace the underlying physical, tracking, calibration or neural algorithms.
 
 Validation and dated screenshots belong to the numbered edition's final evidence bundle. Development failures remain evidence, never passing results. Original private review projects, camera images, model weights and credentials are not publication assets.
+
+
+## Assembly design053
+
+Chat requests to compare assembly designs use the existing construction route. Java pins the design policy and explicit review preference, preserves numerical limits, compares three native force profiles and requires original motion/support/report checks before commit. Review-only pauses before live movement. Exact saved design procedures retain their original maximum and run fresh trials against the selected current world. Compare controls, original exports and verified report are in Spatial → Gripper assembly. [Edition053 walkthrough and measured limits](../README-053.md).
