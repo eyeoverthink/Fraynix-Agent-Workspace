@@ -1,5 +1,9 @@
 # Agent Workspace project memory
 
+## Edition 049 · Local recorded evidence bench
+
+2026-11-02. Java now validates bounded source-clock recordings and derives distinct measured, predicted and beam-event evidence. Import/export/restart preserve original packages; ambiguity, sequence gaps, missing samples and initially blocked baselines cannot earn false measured crossings. Six labelled synthetic cases and nine final Java replay tests pass. The actual isolated desktop test covers visible/occluded import, play/pause/seek, export/duplicate, 1100px, cold-Java restore, unchanged native world and changed-evidence refusal. 123 desktop tests pass; the earlier combined Java run also passed 14 unchanged memory/persistence/skill-graph regressions. No live hardware access, capture, firmware flashing or physical calibration occurred. The user asked for the exact sensor; supplied the Adafruit 2168 reference and wiring guide. Actual board/sensor confirmation and synchronized physical acquisition remain next. Work stayed in the independent Java edition049 worktree; original review runtimes and private mat recordings preserved. Local validation only; no GitHub publication claimed. [Edition 049](../README-049.md) · [Validation](readmes/049/verification.json)
+
 ## Edition 048 · Local Java skill memory on 2026-11-02
 
 Java Brain can explicitly teach a phrase for an exact verified native world procedure and compare three read-only retrieval methods. The JDK-only packed HDC memory lives in brain-core. The engine checks the retained procedure and original evidence, and stores a versioned bounded checkpoint with exact signed votes. A cold JVM restored the same bytes and suggestions. A stale skill, altered report and damaged snapshot were refused. Existing chat and procedure routing continue through their normal handlers.

@@ -1,0 +1,853 @@
+{
+  "visible": {
+    "schema": "fraynix.evidence-stream-049-v1",
+    "associations": [{
+      "cameraEvidence": "measured",
+      "cameraId": "camera",
+      "toMs": 2905,
+      "fromMs": 2795,
+      "beamId": "beam",
+      "seq": 2,
+      "status": "measured-crossing-supported"
+    }],
+    "crossings": [{
+      "toSeq": 2,
+      "evidence": "measured",
+      "cameraId": "camera",
+      "fromSeq": 1,
+      "toMs": 3005,
+      "fromMs": 1995,
+      "beamId": "beam"
+    }],
+    "startMs": 1000,
+    "endMs": 4000,
+    "counts": {
+      "measured": 4,
+      "reacquisitionTransitions": 0,
+      "droppedSequenceNumbers": 0,
+      "missing": 0,
+      "initialBlockedBaselines": 0,
+      "unobservedBeamTransitions": 0,
+      "predicted": 0
+    },
+    "title": "Visible crossing · synthetic",
+    "gaps": [],
+    "target": "test block",
+    "clocks": [
+      {
+        "sourceId": "camera",
+        "ratePpm": 0,
+        "uncertaintyMs": 5,
+        "offsetMs": 0
+      },
+      {
+        "sourceId": "beam",
+        "ratePpm": 0,
+        "uncertaintyMs": 5,
+        "offsetMs": -800
+      }
+    ],
+    "provenance": "synthetic",
+    "scope": "Declared recorded evidence. A beam supports an event, not target identity or a hidden trajectory. Clock/position uncertainties are supplied bounds, not validated confidence intervals.",
+    "displacement": [{
+      "cameraId": "camera",
+      "declaredUncertaintyM": 0.004,
+      "firstSeq": 0,
+      "distanceM": 0.16,
+      "lastSeq": 3
+    }],
+    "events": [
+      {
+        "sourceId": "camera",
+        "yM": 0.05,
+        "xM": 0.02,
+        "kind": "camera",
+        "sessionMs": 1000,
+        "uncertaintyM": 0.002,
+        "state": "measured",
+        "timeUncertaintyMs": 5,
+        "seq": 0
+      },
+      {
+        "sourceId": "beam",
+        "kind": "beam",
+        "sessionMs": 1800,
+        "state": "clear",
+        "timeUncertaintyMs": 5,
+        "seq": 0
+      },
+      {
+        "sourceId": "camera",
+        "yM": 0.05,
+        "xM": 0.09,
+        "kind": "camera",
+        "sessionMs": 2000,
+        "uncertaintyM": 0.002,
+        "state": "measured",
+        "timeUncertaintyMs": 5,
+        "seq": 1
+      },
+      {
+        "sourceId": "beam",
+        "kind": "beam",
+        "sessionMs": 2800,
+        "state": "clear",
+        "timeUncertaintyMs": 5,
+        "seq": 1
+      },
+      {
+        "sourceId": "beam",
+        "kind": "beam",
+        "sessionMs": 2900,
+        "state": "blocked",
+        "timeUncertaintyMs": 5,
+        "seq": 2
+      },
+      {
+        "sourceId": "camera",
+        "yM": 0.05,
+        "xM": 0.11,
+        "kind": "camera",
+        "sessionMs": 3000,
+        "uncertaintyM": 0.002,
+        "state": "measured",
+        "timeUncertaintyMs": 5,
+        "seq": 2
+      },
+      {
+        "sourceId": "camera",
+        "yM": 0.05,
+        "xM": 0.18,
+        "kind": "camera",
+        "sessionMs": 4000,
+        "uncertaintyM": 0.002,
+        "state": "measured",
+        "timeUncertaintyMs": 5,
+        "seq": 3
+      }
+    ],
+    "frame": {
+      "unit": "m",
+      "calibrationSha256": "aa5d2b0873eedf9ddfffc3a060bcc4d74a715f46857677df7b8cee30e8aacd6a",
+      "id": "test-mat-plane"
+    }
+  },
+  "initial-blocked": {
+    "schema": "fraynix.evidence-stream-049-v1",
+    "associations": [],
+    "crossings": [{
+      "toSeq": 2,
+      "evidence": "measured",
+      "cameraId": "camera",
+      "fromSeq": 1,
+      "toMs": 3005,
+      "fromMs": 1995,
+      "beamId": "beam"
+    }],
+    "startMs": 1000,
+    "endMs": 4000,
+    "counts": {
+      "measured": 4,
+      "reacquisitionTransitions": 0,
+      "droppedSequenceNumbers": 0,
+      "missing": 0,
+      "initialBlockedBaselines": 1,
+      "unobservedBeamTransitions": 0,
+      "predicted": 0
+    },
+    "title": "Initially blocked sensor · synthetic",
+    "gaps": [],
+    "target": "test block",
+    "clocks": [
+      {
+        "sourceId": "camera",
+        "ratePpm": 0,
+        "uncertaintyMs": 5,
+        "offsetMs": 0
+      },
+      {
+        "sourceId": "beam",
+        "ratePpm": 0,
+        "uncertaintyMs": 5,
+        "offsetMs": -800
+      }
+    ],
+    "provenance": "synthetic",
+    "scope": "Declared recorded evidence. A beam supports an event, not target identity or a hidden trajectory. Clock/position uncertainties are supplied bounds, not validated confidence intervals.",
+    "displacement": [{
+      "cameraId": "camera",
+      "declaredUncertaintyM": 0.004,
+      "firstSeq": 0,
+      "distanceM": 0.16,
+      "lastSeq": 3
+    }],
+    "events": [
+      {
+        "sourceId": "camera",
+        "yM": 0.05,
+        "xM": 0.02,
+        "kind": "camera",
+        "sessionMs": 1000,
+        "uncertaintyM": 0.002,
+        "state": "measured",
+        "timeUncertaintyMs": 5,
+        "seq": 0
+      },
+      {
+        "sourceId": "beam",
+        "kind": "beam",
+        "sessionMs": 1800,
+        "state": "blocked",
+        "timeUncertaintyMs": 5,
+        "seq": 0
+      },
+      {
+        "sourceId": "camera",
+        "yM": 0.05,
+        "xM": 0.09,
+        "kind": "camera",
+        "sessionMs": 2000,
+        "uncertaintyM": 0.002,
+        "state": "measured",
+        "timeUncertaintyMs": 5,
+        "seq": 1
+      },
+      {
+        "sourceId": "beam",
+        "kind": "beam",
+        "sessionMs": 2800,
+        "state": "blocked",
+        "timeUncertaintyMs": 5,
+        "seq": 1
+      },
+      {
+        "sourceId": "beam",
+        "kind": "beam",
+        "sessionMs": 2900,
+        "state": "blocked",
+        "timeUncertaintyMs": 5,
+        "seq": 2
+      },
+      {
+        "sourceId": "camera",
+        "yM": 0.05,
+        "xM": 0.11,
+        "kind": "camera",
+        "sessionMs": 3000,
+        "uncertaintyM": 0.002,
+        "state": "measured",
+        "timeUncertaintyMs": 5,
+        "seq": 2
+      },
+      {
+        "sourceId": "camera",
+        "yM": 0.05,
+        "xM": 0.18,
+        "kind": "camera",
+        "sessionMs": 4000,
+        "uncertaintyM": 0.002,
+        "state": "measured",
+        "timeUncertaintyMs": 5,
+        "seq": 3
+      }
+    ],
+    "frame": {
+      "unit": "m",
+      "calibrationSha256": "aa5d2b0873eedf9ddfffc3a060bcc4d74a715f46857677df7b8cee30e8aacd6a",
+      "id": "test-mat-plane"
+    }
+  },
+  "gap": {
+    "schema": "fraynix.evidence-stream-049-v1",
+    "associations": [{
+      "toMs": 2905,
+      "fromMs": 2795,
+      "beamId": "beam",
+      "seq": 2,
+      "status": "witness-only"
+    }],
+    "crossings": [],
+    "startMs": 1000,
+    "endMs": 4000,
+    "counts": {
+      "measured": 4,
+      "reacquisitionTransitions": 0,
+      "droppedSequenceNumbers": 1,
+      "missing": 0,
+      "initialBlockedBaselines": 0,
+      "unobservedBeamTransitions": 0,
+      "predicted": 0
+    },
+    "title": "Skipped camera sequence · synthetic",
+    "gaps": [{
+      "sourceId": "camera",
+      "toMs": 3000,
+      "fromMs": 2000,
+      "missingSequenceCount": 1
+    }],
+    "target": "test block",
+    "clocks": [
+      {
+        "sourceId": "camera",
+        "ratePpm": 0,
+        "uncertaintyMs": 5,
+        "offsetMs": 0
+      },
+      {
+        "sourceId": "beam",
+        "ratePpm": 0,
+        "uncertaintyMs": 5,
+        "offsetMs": -800
+      }
+    ],
+    "provenance": "synthetic",
+    "scope": "Declared recorded evidence. A beam supports an event, not target identity or a hidden trajectory. Clock/position uncertainties are supplied bounds, not validated confidence intervals.",
+    "displacement": [{
+      "cameraId": "camera",
+      "declaredUncertaintyM": 0.004,
+      "firstSeq": 0,
+      "distanceM": 0.16,
+      "lastSeq": 4
+    }],
+    "events": [
+      {
+        "sourceId": "camera",
+        "yM": 0.05,
+        "xM": 0.02,
+        "kind": "camera",
+        "sessionMs": 1000,
+        "uncertaintyM": 0.002,
+        "state": "measured",
+        "timeUncertaintyMs": 5,
+        "seq": 0
+      },
+      {
+        "sourceId": "beam",
+        "kind": "beam",
+        "sessionMs": 1800,
+        "state": "clear",
+        "timeUncertaintyMs": 5,
+        "seq": 0
+      },
+      {
+        "sourceId": "camera",
+        "yM": 0.05,
+        "xM": 0.09,
+        "kind": "camera",
+        "sessionMs": 2000,
+        "uncertaintyM": 0.002,
+        "state": "measured",
+        "timeUncertaintyMs": 5,
+        "seq": 1
+      },
+      {
+        "sourceId": "beam",
+        "kind": "beam",
+        "sessionMs": 2800,
+        "state": "clear",
+        "timeUncertaintyMs": 5,
+        "seq": 1
+      },
+      {
+        "sourceId": "beam",
+        "kind": "beam",
+        "sessionMs": 2900,
+        "state": "blocked",
+        "timeUncertaintyMs": 5,
+        "seq": 2
+      },
+      {
+        "sourceId": "camera",
+        "yM": 0.05,
+        "xM": 0.11,
+        "kind": "camera",
+        "sessionMs": 3000,
+        "uncertaintyM": 0.002,
+        "state": "measured",
+        "timeUncertaintyMs": 5,
+        "seq": 3
+      },
+      {
+        "sourceId": "camera",
+        "yM": 0.05,
+        "xM": 0.18,
+        "kind": "camera",
+        "sessionMs": 4000,
+        "uncertaintyM": 0.002,
+        "state": "measured",
+        "timeUncertaintyMs": 5,
+        "seq": 4
+      }
+    ],
+    "frame": {
+      "unit": "m",
+      "calibrationSha256": "aa5d2b0873eedf9ddfffc3a060bcc4d74a715f46857677df7b8cee30e8aacd6a",
+      "id": "test-mat-plane"
+    }
+  },
+  "occluded": {
+    "schema": "fraynix.evidence-stream-049-v1",
+    "associations": [{
+      "cameraEvidence": "predicted",
+      "cameraId": "camera",
+      "toMs": 2905,
+      "fromMs": 2795,
+      "beamId": "beam",
+      "seq": 2,
+      "status": "prediction-near-witness"
+    }],
+    "crossings": [{
+      "toSeq": 2,
+      "evidence": "predicted",
+      "cameraId": "camera",
+      "fromSeq": 1,
+      "toMs": 3005,
+      "fromMs": 1995,
+      "beamId": "beam"
+    }],
+    "startMs": 1000,
+    "endMs": 4000,
+    "counts": {
+      "measured": 2,
+      "reacquisitionTransitions": 1,
+      "droppedSequenceNumbers": 0,
+      "missing": 0,
+      "initialBlockedBaselines": 0,
+      "unobservedBeamTransitions": 0,
+      "predicted": 2
+    },
+    "title": "Occluded crossing · synthetic",
+    "gaps": [],
+    "target": "test block",
+    "clocks": [
+      {
+        "sourceId": "camera",
+        "ratePpm": 0,
+        "uncertaintyMs": 5,
+        "offsetMs": 0
+      },
+      {
+        "sourceId": "beam",
+        "ratePpm": 0,
+        "uncertaintyMs": 5,
+        "offsetMs": -800
+      }
+    ],
+    "provenance": "synthetic",
+    "scope": "Declared recorded evidence. A beam supports an event, not target identity or a hidden trajectory. Clock/position uncertainties are supplied bounds, not validated confidence intervals.",
+    "displacement": [{
+      "cameraId": "camera",
+      "declaredUncertaintyM": 0.004,
+      "firstSeq": 0,
+      "distanceM": 0.16,
+      "lastSeq": 3
+    }],
+    "events": [
+      {
+        "sourceId": "camera",
+        "yM": 0.05,
+        "xM": 0.02,
+        "kind": "camera",
+        "sessionMs": 1000,
+        "uncertaintyM": 0.002,
+        "state": "measured",
+        "timeUncertaintyMs": 5,
+        "seq": 0
+      },
+      {
+        "sourceId": "beam",
+        "kind": "beam",
+        "sessionMs": 1800,
+        "state": "clear",
+        "timeUncertaintyMs": 5,
+        "seq": 0
+      },
+      {
+        "sourceId": "camera",
+        "yM": 0.05,
+        "xM": 0.09,
+        "kind": "camera",
+        "sessionMs": 2000,
+        "uncertaintyM": 0.002,
+        "state": "predicted",
+        "timeUncertaintyMs": 5,
+        "seq": 1
+      },
+      {
+        "sourceId": "beam",
+        "kind": "beam",
+        "sessionMs": 2800,
+        "state": "clear",
+        "timeUncertaintyMs": 5,
+        "seq": 1
+      },
+      {
+        "sourceId": "beam",
+        "kind": "beam",
+        "sessionMs": 2900,
+        "state": "blocked",
+        "timeUncertaintyMs": 5,
+        "seq": 2
+      },
+      {
+        "sourceId": "camera",
+        "yM": 0.05,
+        "xM": 0.11,
+        "kind": "camera",
+        "sessionMs": 3000,
+        "uncertaintyM": 0.002,
+        "state": "predicted",
+        "timeUncertaintyMs": 5,
+        "seq": 2
+      },
+      {
+        "sourceId": "camera",
+        "yM": 0.05,
+        "xM": 0.18,
+        "kind": "camera",
+        "sessionMs": 4000,
+        "uncertaintyM": 0.002,
+        "state": "measured",
+        "timeUncertaintyMs": 5,
+        "seq": 3
+      }
+    ],
+    "frame": {
+      "unit": "m",
+      "calibrationSha256": "aa5d2b0873eedf9ddfffc3a060bcc4d74a715f46857677df7b8cee30e8aacd6a",
+      "id": "test-mat-plane"
+    }
+  },
+  "ambiguous": {
+    "schema": "fraynix.evidence-stream-049-v1",
+    "associations": [{
+      "toMs": 2905,
+      "fromMs": 2795,
+      "beamId": "beam",
+      "seq": 2,
+      "status": "ambiguous"
+    }],
+    "crossings": [
+      {
+        "toSeq": 2,
+        "evidence": "measured",
+        "cameraId": "camera",
+        "fromSeq": 1,
+        "toMs": 3005,
+        "fromMs": 1995,
+        "beamId": "beam"
+      },
+      {
+        "toSeq": 2,
+        "evidence": "measured",
+        "cameraId": "camera-two",
+        "fromSeq": 1,
+        "toMs": 3005,
+        "fromMs": 1995,
+        "beamId": "beam"
+      }
+    ],
+    "startMs": 1000,
+    "endMs": 4000,
+    "counts": {
+      "measured": 8,
+      "reacquisitionTransitions": 0,
+      "droppedSequenceNumbers": 0,
+      "missing": 0,
+      "initialBlockedBaselines": 0,
+      "unobservedBeamTransitions": 0,
+      "predicted": 0
+    },
+    "title": "Two possible camera crossings · synthetic",
+    "gaps": [],
+    "target": "test block",
+    "clocks": [
+      {
+        "sourceId": "camera",
+        "ratePpm": 0,
+        "uncertaintyMs": 5,
+        "offsetMs": 0
+      },
+      {
+        "sourceId": "beam",
+        "ratePpm": 0,
+        "uncertaintyMs": 5,
+        "offsetMs": -800
+      },
+      {
+        "sourceId": "camera-two",
+        "ratePpm": 0,
+        "uncertaintyMs": 5,
+        "offsetMs": 0
+      }
+    ],
+    "provenance": "synthetic",
+    "scope": "Declared recorded evidence. A beam supports an event, not target identity or a hidden trajectory. Clock/position uncertainties are supplied bounds, not validated confidence intervals.",
+    "displacement": [
+      {
+        "cameraId": "camera",
+        "declaredUncertaintyM": 0.004,
+        "firstSeq": 0,
+        "distanceM": 0.16,
+        "lastSeq": 3
+      },
+      {
+        "cameraId": "camera-two",
+        "declaredUncertaintyM": 0.004,
+        "firstSeq": 0,
+        "distanceM": 0.16,
+        "lastSeq": 3
+      }
+    ],
+    "events": [
+      {
+        "sourceId": "camera",
+        "yM": 0.05,
+        "xM": 0.02,
+        "kind": "camera",
+        "sessionMs": 1000,
+        "uncertaintyM": 0.002,
+        "state": "measured",
+        "timeUncertaintyMs": 5,
+        "seq": 0
+      },
+      {
+        "sourceId": "camera-two",
+        "yM": 0.05,
+        "xM": 0.02,
+        "kind": "camera",
+        "sessionMs": 1000,
+        "uncertaintyM": 0.002,
+        "state": "measured",
+        "timeUncertaintyMs": 5,
+        "seq": 0
+      },
+      {
+        "sourceId": "beam",
+        "kind": "beam",
+        "sessionMs": 1800,
+        "state": "clear",
+        "timeUncertaintyMs": 5,
+        "seq": 0
+      },
+      {
+        "sourceId": "camera",
+        "yM": 0.05,
+        "xM": 0.09,
+        "kind": "camera",
+        "sessionMs": 2000,
+        "uncertaintyM": 0.002,
+        "state": "measured",
+        "timeUncertaintyMs": 5,
+        "seq": 1
+      },
+      {
+        "sourceId": "camera-two",
+        "yM": 0.05,
+        "xM": 0.09,
+        "kind": "camera",
+        "sessionMs": 2000,
+        "uncertaintyM": 0.002,
+        "state": "measured",
+        "timeUncertaintyMs": 5,
+        "seq": 1
+      },
+      {
+        "sourceId": "beam",
+        "kind": "beam",
+        "sessionMs": 2800,
+        "state": "clear",
+        "timeUncertaintyMs": 5,
+        "seq": 1
+      },
+      {
+        "sourceId": "beam",
+        "kind": "beam",
+        "sessionMs": 2900,
+        "state": "blocked",
+        "timeUncertaintyMs": 5,
+        "seq": 2
+      },
+      {
+        "sourceId": "camera",
+        "yM": 0.05,
+        "xM": 0.11,
+        "kind": "camera",
+        "sessionMs": 3000,
+        "uncertaintyM": 0.002,
+        "state": "measured",
+        "timeUncertaintyMs": 5,
+        "seq": 2
+      },
+      {
+        "sourceId": "camera-two",
+        "yM": 0.05,
+        "xM": 0.11,
+        "kind": "camera",
+        "sessionMs": 3000,
+        "uncertaintyM": 0.002,
+        "state": "measured",
+        "timeUncertaintyMs": 5,
+        "seq": 2
+      },
+      {
+        "sourceId": "camera",
+        "yM": 0.05,
+        "xM": 0.18,
+        "kind": "camera",
+        "sessionMs": 4000,
+        "uncertaintyM": 0.002,
+        "state": "measured",
+        "timeUncertaintyMs": 5,
+        "seq": 3
+      },
+      {
+        "sourceId": "camera-two",
+        "yM": 0.05,
+        "xM": 0.18,
+        "kind": "camera",
+        "sessionMs": 4000,
+        "uncertaintyM": 0.002,
+        "state": "measured",
+        "timeUncertaintyMs": 5,
+        "seq": 3
+      }
+    ],
+    "frame": {
+      "unit": "m",
+      "calibrationSha256": "aa5d2b0873eedf9ddfffc3a060bcc4d74a715f46857677df7b8cee30e8aacd6a",
+      "id": "test-mat-plane"
+    }
+  },
+  "shifted": {
+    "schema": "fraynix.evidence-stream-049-v1",
+    "associations": [{
+      "toMs": 4905,
+      "fromMs": 4795,
+      "beamId": "beam",
+      "seq": 2,
+      "status": "witness-only"
+    }],
+    "crossings": [{
+      "toSeq": 2,
+      "evidence": "measured",
+      "cameraId": "camera",
+      "fromSeq": 1,
+      "toMs": 3005,
+      "fromMs": 1995,
+      "beamId": "beam"
+    }],
+    "startMs": 1000,
+    "endMs": 4900,
+    "counts": {
+      "measured": 4,
+      "reacquisitionTransitions": 0,
+      "droppedSequenceNumbers": 0,
+      "missing": 0,
+      "initialBlockedBaselines": 0,
+      "unobservedBeamTransitions": 0,
+      "predicted": 0
+    },
+    "title": "Witness shifted in time · synthetic",
+    "gaps": [],
+    "target": "test block",
+    "clocks": [
+      {
+        "sourceId": "camera",
+        "ratePpm": 0,
+        "uncertaintyMs": 5,
+        "offsetMs": 0
+      },
+      {
+        "sourceId": "beam",
+        "ratePpm": 0,
+        "uncertaintyMs": 5,
+        "offsetMs": -800
+      }
+    ],
+    "provenance": "synthetic",
+    "scope": "Declared recorded evidence. A beam supports an event, not target identity or a hidden trajectory. Clock/position uncertainties are supplied bounds, not validated confidence intervals.",
+    "displacement": [{
+      "cameraId": "camera",
+      "declaredUncertaintyM": 0.004,
+      "firstSeq": 0,
+      "distanceM": 0.16,
+      "lastSeq": 3
+    }],
+    "events": [
+      {
+        "sourceId": "camera",
+        "yM": 0.05,
+        "xM": 0.02,
+        "kind": "camera",
+        "sessionMs": 1000,
+        "uncertaintyM": 0.002,
+        "state": "measured",
+        "timeUncertaintyMs": 5,
+        "seq": 0
+      },
+      {
+        "sourceId": "camera",
+        "yM": 0.05,
+        "xM": 0.09,
+        "kind": "camera",
+        "sessionMs": 2000,
+        "uncertaintyM": 0.002,
+        "state": "measured",
+        "timeUncertaintyMs": 5,
+        "seq": 1
+      },
+      {
+        "sourceId": "camera",
+        "yM": 0.05,
+        "xM": 0.11,
+        "kind": "camera",
+        "sessionMs": 3000,
+        "uncertaintyM": 0.002,
+        "state": "measured",
+        "timeUncertaintyMs": 5,
+        "seq": 2
+      },
+      {
+        "sourceId": "beam",
+        "kind": "beam",
+        "sessionMs": 3800,
+        "state": "clear",
+        "timeUncertaintyMs": 5,
+        "seq": 0
+      },
+      {
+        "sourceId": "camera",
+        "yM": 0.05,
+        "xM": 0.18,
+        "kind": "camera",
+        "sessionMs": 4000,
+        "uncertaintyM": 0.002,
+        "state": "measured",
+        "timeUncertaintyMs": 5,
+        "seq": 3
+      },
+      {
+        "sourceId": "beam",
+        "kind": "beam",
+        "sessionMs": 4800,
+        "state": "clear",
+        "timeUncertaintyMs": 5,
+        "seq": 1
+      },
+      {
+        "sourceId": "beam",
+        "kind": "beam",
+        "sessionMs": 4900,
+        "state": "blocked",
+        "timeUncertaintyMs": 5,
+        "seq": 2
+      }
+    ],
+    "frame": {
+      "unit": "m",
+      "calibrationSha256": "aa5d2b0873eedf9ddfffc3a060bcc4d74a715f46857677df7b8cee30e8aacd6a",
+      "id": "test-mat-plane"
+    }
+  }
+}

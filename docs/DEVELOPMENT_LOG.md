@@ -1,5 +1,9 @@
 # Agent Workspace development log
 
+## Edition 049 · Observation replay and witness intervals
+
+2026-11-02. Contract 673f00d and six synthetic fixtures 50033b5 preceded test execution. Source ffd49fa implements Java clock alignment, immutable recordings and the integrated evidence view. Initial combined Java validation passed 22 cases. Review added one-to-many beam ambiguity refusal; the final replay-only invocation passed all nine cases, and final desktop unit/integration checks passed. These are separate source-qualified invocations, not a single 23-case run. The original screenshots came from the actual isolated application. Native world state and cold restart behavior were checked. Hardware work awaits identification and a new physical experiment. [Edition 049](../README-049.md) · [Validation](readmes/049/verification.json)
+
 ## Edition 048 · Persistent skill recall
 
 2026-11-02. Contract and fixtures were committed before the comparison. Fourteen focused Java tests and 123 desktop tests passed. The isolated desktop test created a real verified procedure, taught two phrases, compared methods, then reopened with a new Java boot and the same checkpoint and results. The test also refused an incorrect procedure hash and an altered report, and preserved a corrupt snapshot while starting the rest of the app. The HDC candidate missed the declared promotion gate. [Original per-case scores](readmes/048/benchmark.json) · [Runtime verification](readmes/048/verification.json)

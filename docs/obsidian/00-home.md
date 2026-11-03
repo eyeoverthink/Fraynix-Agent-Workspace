@@ -129,3 +129,5 @@ Original before/during/after screenshots connect actual work to source/version/t
 - [Edition046: verified skill graphs](54-typed-skill-graphs.md) · [Canvas](typed-skill-graphs.canvas)
 - [Edition 047 · First verified world skill](55-first-world-skill.md) · [Canvas](first-world-skill.canvas)
 - [Edition 048 · Java skill memory](56-java-skill-memory.md) · [Canvas](java-skill-memory.canvas)
+
+- [[docs/obsidian/57-observation-evidence]]
