@@ -439,6 +439,7 @@ ipcMain.handle('workspace:request',async(event,input)=>{
       const args=input.args||{};
       if(input.command==='select'){const observed=await api('/api/world/observe',{worldId:args.worldId});currentPersistentWorld={worldId:observed.worldId,expectedRevision:observed.expectedRevision,expectedHash:observed.expectedHash};return observed;}
       if(input.command==='start')return goalBridge.execute('construction.start',args);
+      if(input.command==='load-export'){const data=await api('/api/construction055/load-export',args);return nativeExports.save('load-experiments','json',JSON.stringify(data,null,2),{id:args.id});}
       if(input.command==='design-export'){const data=await api('/api/world/counter045/export',args);return nativeExports.save('assembly-design','json',JSON.stringify(data),{studyId:args.id});}
       if(input.command==='report'){const g=await api('/api/goals/read',args);if(g.status!=='completed'||!g.design053||!g.report)throw Error('Choose a completed verified assembly design');const a=await api('/api/artifact/read',{id:g.report.id});if(a.version!==g.report.version)throw Error('Saved design report changed; this goal retains its original checked version');emit('view','preview');return openArtifact(a);}
       if(input.command==='export'){const output=await api('/api/world/export',args);return nativeExports.save('assembled-world','json',output.text,{worldId:args.worldId});}

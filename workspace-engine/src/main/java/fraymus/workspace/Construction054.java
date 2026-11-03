@@ -12,8 +12,9 @@ final class Construction054 {
  static final String SCOPE="Declared rectangular bridge stock and fixed box obstacles; conservative overhead clearance, actual released contacts. No arbitrary path finding, material strength or physical calibration.";
  private Construction054(){}
  static JSONObject protocol(){try(var in=Construction054.class.getResourceAsStream("/construction054-protocol.json")){return new JSONObject(new String(in.readAllBytes(),StandardCharsets.UTF_8));}catch(Exception e){throw new IllegalStateException(e);}}
- static JSONObject configurations(){return new JSONObject().put("cases",protocol().getJSONArray("cases")).put("scope",SCOPE);}
+ static JSONObject configurations(){var cases=protocol().getJSONArray("cases");for(Object c:Construction055.protocol().getJSONArray("cases"))cases.put(c);return new JSONObject().put("cases",cases).put("scope",SCOPE+" "+Construction055.SCOPE);}
  static JSONObject configuration(JSONObject input){
+  if(Construction055.preset(input.optString("preset")))return Construction055.configuration(input);
   SpatialScene.keys(input,"preset","beamLengthM","supportHeightM","spanM","obstacleHeightM");String name=input.optString("preset","wide");JSONObject source=null;
   for(Object raw:protocol().getJSONArray("cases")){var c=(JSONObject)raw;if(c.getString("preset").equals(name)&&!name.equals("legacy"))source=c;}
   if(source==null)throw new IllegalArgumentException("Choose compact, wide, barrier or blocked geometry");
@@ -30,6 +31,7 @@ final class Construction054 {
  static boolean is(JSONObject scene){return scene.getJSONObject("source").getString("note").startsWith(PREFIX);}
  static JSONObject config(JSONObject scene){if(!is(scene))throw new IllegalArgumentException("Selected scene is not a declared054 kit");var raw=new JSONObject(scene.getJSONObject("source").getString("note").substring(PREFIX.length()));var c=configuration(raw);if(!c.similar(raw))throw new IllegalStateException("Declared geometry configuration changed");return c;}
  static JSONObject kit(JSONObject requested){
+  if(Construction055.preset(requested.optString("preset")))return Construction055.kit(requested);
   var c=configuration(requested);var s=spec(c);var support=s.getJSONArray("supportSize");support.put(1,c.getDouble("supportHeightM"));var beam=s.getJSONArray("beamSize");beam.put(0,c.getDouble("beamLengthM"));var objects=new JSONArray();
   objects.put(part("floor",0,-.1,0,new JSONArray(new double[]{8,.2,8}),0));
   objects.put(part("support-a",-2.2,support.getDouble(1)/2,-2,support,s.getDouble("supportMassKg")));
@@ -57,6 +59,7 @@ final class Construction054 {
  }
  private static JSONObject target(String id,double x,double y,double z){return new JSONObject().put("sourceId",id).put("positionM",new JSONArray(new double[]{x,y,z})).put("yawDeg",0);}
  static JSONObject plan(JSONObject scene,JSONObject request){
+  if(Construction055.is(scene))return Construction055.plan(scene,request);
   var expected=intent(scene,request.getJSONObject("construction051"),request.getDouble("forceLimitN"),request.getDouble("torqueLimitNm"));if(!expected.similar(request))throw new IllegalStateException("Geometry construction source/intent changed");
   var bodies=new LinkedHashMap<String,JSONObject>();double top=0,radius=0;
   for(Object raw:scene.getJSONArray("objects")){var b=WorldFrames.copy((JSONObject)raw);if(b.getString("sourceId").equals("floor"))continue;bodies.put(b.getString("sourceId"),b);top=Math.max(top,b.getJSONArray("position").getDouble(1)+b.getJSONArray("size").getDouble(1)/2);if(b.getDouble("massKg")>0)radius=Math.max(radius,WorldPlan.radius(b));}
@@ -70,7 +73,7 @@ final class Construction054 {
   return new JSONObject().put("version",VERSION).put("scope",SCOPE).put("intent",expected).put("liftHeightM",lift).put("orderedTargets",ordered).put("passed",clear).put("reason",reason).put("clearance054",new JSONObject().put("highestBodyOrTargetM",top).put("rotationRadiusM",radius).put("marginM",.3));
  }
  private static double[] half(JSONObject o){var s=o.getJSONArray("size");double a=Math.toRadians(WorldPlan.yaw(o.getJSONArray("rotation"))),c=Math.abs(Math.cos(a)),n=Math.abs(Math.sin(a));return new double[]{(c*s.getDouble(0)+n*s.getDouble(2))/2,s.getDouble(1)/2,(n*s.getDouble(0)+c*s.getDouble(2))/2};}
- private static boolean columnClear(JSONObject selected,Map<String,JSONObject> bodies,String id){double[] a=half(selected);var p=selected.getJSONArray("position");for(var e:bodies.entrySet())if(!e.getKey().equals(id)){var b=e.getValue();var q=b.getJSONArray("position");double[] h=half(b);if(Math.abs(p.getDouble(0)-q.getDouble(0))<a[0]+h[0]+.025&&Math.abs(p.getDouble(2)-q.getDouble(2))<a[2]+h[2]+.025&&p.getDouble(1)-a[1]<q.getDouble(1)+h[1]-.005)return false;}return true;}
+ static boolean columnClear(JSONObject selected,Map<String,JSONObject> bodies,String id){double[] a=half(selected);var p=selected.getJSONArray("position");for(var e:bodies.entrySet())if(!e.getKey().equals(id)){var b=e.getValue();var q=b.getJSONArray("position");double[] h=half(b);if(Math.abs(p.getDouble(0)-q.getDouble(0))<a[0]+h[0]+.025&&Math.abs(p.getDouble(2)-q.getDouble(2))<a[2]+h[2]+.025&&p.getDouble(1)-a[1]<q.getDouble(1)+h[1]-.005)return false;}return true;}
  static JSONObject verifyStructure(JSONObject run){
   var scene=run.getJSONObject("definition");var p=run.getJSONObject("plan");if(!plan(scene,p.getJSONObject("intent")).similar(p))throw new IllegalStateException("Geometry plan changed");var last=run.getJSONObject("final");String beam=WorldPlan.sourceObject(scene,"beam").getString("id");var supports=new HashSet<String>();var obstacles=new HashSet<String>();
   for(String id:List.of("support-a","support-b"))supports.add(WorldPlan.sourceObject(scene,id).getString("id"));for(Object raw:scene.getJSONArray("objects")){var o=(JSONObject)raw;if(o.getString("sourceId").startsWith("obstacle-"))obstacles.add(o.getString("id"));}

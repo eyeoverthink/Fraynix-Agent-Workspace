@@ -114,8 +114,9 @@ final class ChatChain052 {
         var child=meta.optJSONObject("javaGoal");
         if(child!=null){
             out.append(child.optString("reason","Native task completed")).append(". ");
-            if(child.has("design053")){var d=child.getJSONObject("counterfactual045");out.append("Compared ").append(d.getJSONArray("candidates").length()).append(" assembly strategies; selected ").append(d.getString("selectedCandidate")).append(" by verified feasibility and measured effort. ");if(d.has("baseline054"))out.append(d.getJSONObject("baseline054").getString("verdict")).append(". ");}
+            if(child.has("design053")){var d=child.getJSONObject("counterfactual045");if(child.optBoolean("directFirst055"))out.append("Tried simpler control first; selected ").append(d.getString("selectedCandidate")).append(" after original native verification. ");else out.append("Compared ").append(d.getJSONArray("candidates").length()).append(" assembly strategies; selected ").append(d.getString("selectedCandidate")).append(" by verified feasibility and measured effort. ");if(d.has("baseline054"))out.append(d.getJSONObject("baseline054").getString("verdict")).append(". ");}
             var m=child.optJSONObject("metrics",new JSONObject());
+            if(child.has("load055")){out.append("Independent load experiments: ");for(Object raw:child.getJSONObject("load055").getJSONArray("results")){var result=(JSONObject)raw;out.append(result.getString("caseId")).append(result.getJSONObject("metrics").getBoolean("stable")?" stable; ":" unstable; ");}out.append("These isolated rigid-body experiments do not establish material strength. ");}
             var v=child.optJSONObject("constructionVerification051");
             if(v!=null)out.append(m.optInt("releases")).append(" releases; ").append(v.optInt("supportContacts")).append(" support contacts; settled structure ").append(v.optBoolean("passed")?"passed":"failed").append(". ");
             if(child.has("worldCommit"))out.append("World revision ").append(child.getJSONObject("worldCommit").getInt("revision")).append(" saved. ");

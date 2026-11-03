@@ -354,6 +354,7 @@ public final class WorkspaceServer implements AutoCloseable {
                     case "/api/procedures/run" -> result=goals.runProcedure(input);
                     case "/api/brain/state" -> result=brain.state();
                     case "/api/brain/skill-memory-state" -> result=skillMemory.state(input);
+                    case "/api/construction055/load-export" -> {SpatialScene.keys(input,"id");result=goals.exportLoad055(input.getString("id"));}
                     case "/api/construction054/configurations" -> result=Construction054.configurations();
                     case "/api/construction051/create" -> result=goals.createConstruction051(input);
                     case "/api/construction051/start" -> result=goals.startConstruction051(input);
