@@ -57,4 +57,6 @@ Numbered editions preserve dated behavior and evidence. The root [README](../../
 
 | [051](../../README-051.md) | 2026-11-03 | Native gripper assembly, continuing constructions and typed chat | [Viewer](051/index.html) · [tree](051/FILE_TREE.md) |
 
-Latest implementation and documentation edition in this checkout is **051**. See [sequence policy](README_SEQUENCE.md) and [manifest](editions.json).
+| [052](../../README-052.md) | 2026-11-03 | Faster checked chat, concise evidence and retained logic chain | [Viewer](052/index.html) · [tree](052/FILE_TREE.md) |
+
+Latest implementation and documentation edition in this checkout is **052**. See [sequence policy](README_SEQUENCE.md) and [manifest](editions.json).

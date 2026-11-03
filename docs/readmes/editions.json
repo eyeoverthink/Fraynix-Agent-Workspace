@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "latest": 51,
+  "latest": 52,
   "canonicalization": "UTF-8 without BOM; CRLF normalized to LF for text",
   "editions": [
     {
@@ -16796,6 +16796,930 @@
           "path": "docs/readmes/051/verification.json",
           "kind": "text",
           "sha256": "6551990117480b4a4d5cecdb8d235e4a19007cb59bc83b922ba8d166c497e32a"
+        }
+      ]
+    },
+    {
+      "number": 52,
+      "date": "2026-11-03",
+      "title": "Faster chat, the same evidence",
+      "status": "validated-local",
+      "markdown": "README-052.md",
+      "markdownSha256": "dbabc0a6f245be7cf83319527b526be0699185b2b17b3b55d94897810a028c57",
+      "companion": "docs/readmes/052/index.html",
+      "tag": "readme-052",
+      "sourceBaseline": "1e08210fdbd59abe507d3f401b0cc67482a0ef9a",
+      "snapshotDirectory": "docs/readmes/052",
+      "snapshotFiles": [
+        {
+          "path": "docs/readmes/052/case-results.json",
+          "kind": "text",
+          "sha256": "ad2bfc136830c78350ed3585127919fc500bb74fa682460d99b801bc317cb443"
+        },
+        {
+          "path": "docs/readmes/052/chat052-built.png",
+          "kind": "binary",
+          "sha256": "be5ce68a919882f59609b6f1518e3eba22c6700272eea5b6c754d402329fb49a"
+        },
+        {
+          "path": "docs/readmes/052/chat052-counter.png",
+          "kind": "binary",
+          "sha256": "6303a5cb04a9d4188c064aa1d5e12d6e67922cabfca1880c4479b0d2124690da"
+        },
+        {
+          "path": "docs/readmes/052/chat052-evidence.png",
+          "kind": "binary",
+          "sha256": "8c610d8b358cabea50eaddcebfc3a1d1ad8732a95010b9f2b634db48b03b537c"
+        },
+        {
+          "path": "docs/readmes/052/chat052-mission.png",
+          "kind": "binary",
+          "sha256": "20e6349474e16d9936446a57f4d6c40b53557c209b480d013b06068acca52348"
+        },
+        {
+          "path": "docs/readmes/052/chat052-narrow.png",
+          "kind": "binary",
+          "sha256": "1798563f29e1c050e4ee87040a503a8d25c8e3d856cca3d28b297c789007baf1"
+        },
+        {
+          "path": "docs/readmes/052/desktop-live.json",
+          "kind": "text",
+          "sha256": "9c8c2ce912fd99e958dfbf841f48999dbc54a086f73475bf1990c7849c3be1db"
+        },
+        {
+          "path": "docs/readmes/052/desktop-live.txt",
+          "kind": "text",
+          "sha256": "38caf07dc1aa6a1b79b0be8d8b34f247b2770e6cbb777dd483824bddf54530be"
+        },
+        {
+          "path": "docs/readmes/052/desktop-review.json",
+          "kind": "text",
+          "sha256": "0f4e3fa608a9f589d1cb66319508afb6d4c4e289cee22cf13bb885ee91d41abc"
+        },
+        {
+          "path": "docs/readmes/052/desktop-review.txt",
+          "kind": "text",
+          "sha256": "76d1b9b93c8be3d2cde6d6a40fbdabc59e8cc9cad557af2962cd299bd15c3bce"
+        },
+        {
+          "path": "docs/readmes/052/desktop-unit.txt",
+          "kind": "text",
+          "sha256": "f9d95ede116fc7e786a02a95da612e61ddb0eeb4c97d90dee1c3e1bea2e6c717"
+        },
+        {
+          "path": "docs/readmes/052/development-capture-failure.json",
+          "kind": "text",
+          "sha256": "6632bd6d4ec5917712cf6b09836de6d82a6aaf082162e8e0213c36a0710fa52a"
+        },
+        {
+          "path": "docs/readmes/052/development-first-chat.json",
+          "kind": "text",
+          "sha256": "9d318c2f480148c1b82e8d8a77565edb86cfa860ead69ae8b5660d3b7ef8507c"
+        },
+        {
+          "path": "docs/readmes/052/development-first-chat.png",
+          "kind": "binary",
+          "sha256": "50d36dc1759c733f253a35251472d8ae3d9021d54b797ec29a61be021c7b2b46"
+        },
+        {
+          "path": "docs/readmes/052/development-first-chat.txt",
+          "kind": "text",
+          "sha256": "a7912072e6c121584d3a34aad5c0413aaec001c582dece53782bfebc5b6ca22d"
+        },
+        {
+          "path": "docs/readmes/052/development-review-first.txt",
+          "kind": "text",
+          "sha256": "fdc125620a86737807595afa9dbf4d547a6e481c446f6868b42d6c1030aed503"
+        },
+        {
+          "path": "docs/readmes/052/documentation-browser.json",
+          "kind": "text",
+          "sha256": "406ca5a6115329b61f04cad87386e4241f551eae9221feca3d6ac6a060c98cda"
+        },
+        {
+          "path": "docs/readmes/052/file-inventory.json",
+          "kind": "text",
+          "sha256": "f78c4d8fb0d1569194d7609476c7fe9013152eca18d672a73219a0839e7277fe"
+        },
+        {
+          "path": "docs/readmes/052/FILE_TREE.md",
+          "kind": "text",
+          "sha256": "b28ae82495925eebc80340539a4361729f5e0ad6f086a9091e2f92c19a302564"
+        },
+        {
+          "path": "docs/readmes/052/final-chat052.json",
+          "kind": "text",
+          "sha256": "ecb15d0254ed719a4ea94618b86180ed8d3456ae601924cb919035ab7b3c23aa"
+        },
+        {
+          "path": "docs/readmes/052/final-focused052.json",
+          "kind": "text",
+          "sha256": "25aa64e1412340906fec8440d0c93d0072b439d9fdb9e11e078b0917a87b4aaf"
+        },
+        {
+          "path": "docs/readmes/052/guide-1440.png",
+          "kind": "binary",
+          "sha256": "aff1cc4ea3032a66857198d2dab7e4a540121629a0c3f65593bf937dc805c5bc"
+        },
+        {
+          "path": "docs/readmes/052/guide-390.png",
+          "kind": "binary",
+          "sha256": "0815f3d018a0bc544f4d14c85a340c7a2292bfab81971f8f38dbbbfecef05f29"
+        },
+        {
+          "path": "docs/readmes/052/index.html",
+          "kind": "text",
+          "sha256": "83c146039746e6c202f129fb559f6fba20984028c62662adf78f6d2c6543641c"
+        },
+        {
+          "path": "docs/readmes/052/initial-full052.json",
+          "kind": "text",
+          "sha256": "1c133c5da9407babb712578ac0f42dfe31b7225e1ce1749870fac800225127b3"
+        },
+        {
+          "path": "docs/readmes/052/java/final-chat052/build/test-results/test/TEST-agent.ActorControlsTest.xml.gz",
+          "kind": "binary",
+          "sha256": "ca4fe325512a9433e1fa310b7f89101a9ed98e042b6f1cd3239790694a25052a"
+        },
+        {
+          "path": "docs/readmes/052/java/final-chat052/build/test-results/test/TEST-agent.MotorRecoveryTest.xml.gz",
+          "kind": "binary",
+          "sha256": "a8833bcf501503832e251a3ffa451be1379ac3d06451bfc7ef2fc27197ec1d8c"
+        },
+        {
+          "path": "docs/readmes/052/java/final-chat052/build/test-results/test/TEST-agent.PlayMemoryTest.xml.gz",
+          "kind": "binary",
+          "sha256": "7b9d5201009b46d5f7976ae0060590b1da9edf2c28ba8f2a3a2a118c31fb95f5"
+        },
+        {
+          "path": "docs/readmes/052/java/final-chat052/build/test-results/test/TEST-agent.PowerupPlannerTest.xml.gz",
+          "kind": "binary",
+          "sha256": "57b6679bc16c75ce4a487c1120824781818a855845f04b0b587346f0f8d109c2"
+        },
+        {
+          "path": "docs/readmes/052/java/final-chat052/build/test-results/test/TEST-editor.EditorCorrectionsTest.xml.gz",
+          "kind": "binary",
+          "sha256": "1288467d923fbea9114dbd35082f01355dfdec0e8b61c294be5a646e4a87f1a6"
+        },
+        {
+          "path": "docs/readmes/052/java/final-chat052/build/test-results/test/TEST-editor.FraynixWorkspaceTest.xml.gz",
+          "kind": "binary",
+          "sha256": "93225ac62b871781d63e768e85d4ad8c93f326790a15090648b2759ef6f99437"
+        },
+        {
+          "path": "docs/readmes/052/java/final-chat052/build/test-results/test/TEST-editor.ModelAvailabilityTest.xml.gz",
+          "kind": "binary",
+          "sha256": "c4d6f397ea0a2eef71cd64d35cd6df8cf8a3f51be97e3dfaa1f92000853c1bf3"
+        },
+        {
+          "path": "docs/readmes/052/java/final-chat052/build/test-results/test/TEST-factory.EditorPhysicsRegressionTest.xml.gz",
+          "kind": "binary",
+          "sha256": "fd0e9bfe2e9f481dbedcd4ec53d5ef139193ccb7c0996061e3134865ab00d765"
+        },
+        {
+          "path": "docs/readmes/052/java/final-chat052/build/test-results/test/TEST-factory.FactorySceneIntegrationTest.xml.gz",
+          "kind": "binary",
+          "sha256": "4314fdd66cadf6991204cce2057cbffd45fb5679c0d17d421fabd2894ef2c4f6"
+        },
+        {
+          "path": "docs/readmes/052/java/final-chat052/build/test-results/test/TEST-factory.FullMarioLevelTest.xml.gz",
+          "kind": "binary",
+          "sha256": "d2e0c1537a25793781a971d70810dd9318099ec4d8197abb3ef36183d549cb33"
+        },
+        {
+          "path": "docs/readmes/052/java/final-chat052/build/test-results/test/TEST-factory.GridPlacementRegressionTest.xml.gz",
+          "kind": "binary",
+          "sha256": "1256496c73183d98c6f4cbe1908ceb082ca6a6ee297bb430a251bf0ab643ea20"
+        },
+        {
+          "path": "docs/readmes/052/java/final-chat052/build/test-results/test/TEST-factory.SceneAgentIntegrationTest.xml.gz",
+          "kind": "binary",
+          "sha256": "c6132f4265b4fb1ab0d3d4397da5197f59e8d422fe1225e0488c78db50e3b277"
+        },
+        {
+          "path": "docs/readmes/052/java/final-chat052/build/test-results/test/TEST-factory.SceneModelBudgetTest.xml.gz",
+          "kind": "binary",
+          "sha256": "c643c7e2ffb89ecd88e1ca5199c44b9f430dd052d6edb9fb0e6e2691086df700"
+        },
+        {
+          "path": "docs/readmes/052/java/final-chat052/build/test-results/test/TEST-factory.SolidRaycastTest.xml.gz",
+          "kind": "binary",
+          "sha256": "8c5afd3dcf984bbfd3aa7237e18b38297c7bf17c23bcfe2f98dfd49fa4439ce8"
+        },
+        {
+          "path": "docs/readmes/052/java/final-chat052/build/test-results/test/TEST-nervous.NeuromorphicCoreTest.xml.gz",
+          "kind": "binary",
+          "sha256": "89440e03aca7ebc896165ca9b9f886b5ab8c1c8fec340e81fdb12d5e3b23c0cb"
+        },
+        {
+          "path": "docs/readmes/052/java/final-chat052/build/test-results/test/TEST-physics2dtmp.CollisionDetectorTests.xml.gz",
+          "kind": "binary",
+          "sha256": "b8141005ecd7d930e1b75c3a097b9c827e862915deed234ffc8d2a49504c41cc"
+        },
+        {
+          "path": "docs/readmes/052/java/final-chat052/build/test-results/test/TEST-renderer.AnimationTextureBatchTest.xml.gz",
+          "kind": "binary",
+          "sha256": "f066e6c37a156f2846cdc1ccc7e8c4901f375448ddfc8797b9adcd3f192bfea0"
+        },
+        {
+          "path": "docs/readmes/052/java/final-chat052/build/test-results/test/TEST-renderer.ShaderSourceTest.xml.gz",
+          "kind": "binary",
+          "sha256": "434b71015948880651aad8ff3dca39e4c7083d34bbcb6f0db9b7c9acce134bbe"
+        },
+        {
+          "path": "docs/readmes/052/java/final-chat052/fraynix-modules/geometry-core/build/test-results/test/TEST-fraymus.geometry.GeometryTest.xml.gz",
+          "kind": "binary",
+          "sha256": "de30f93be4f3cdd912133fb58abbc53e711cb5f131759620fd8243f1fb819b13"
+        },
+        {
+          "path": "docs/readmes/052/java/final-chat052/fraynix-modules/geometry-core/build/test-results/test/TEST-fraymus.geometry.ReferenceMapTest.xml.gz",
+          "kind": "binary",
+          "sha256": "0983d8519cdef6ea8531827e878b6a4f02d2d34b013be6003b9b4f84896d8079"
+        },
+        {
+          "path": "docs/readmes/052/java/final-chat052/fraynix-modules/geometry-core/build/test-results/test/TEST-fraymus.geometry.TopologyMapTest.xml.gz",
+          "kind": "binary",
+          "sha256": "d952cdcd1234e89bb040e4adb6cf9d42acd58198b761a7617f0478a10faabe2e"
+        },
+        {
+          "path": "docs/readmes/052/java/final-chat052/workspace-engine/build/test-results/test/TEST-fraymus.workspace.Agency043Test.xml.gz",
+          "kind": "binary",
+          "sha256": "064f361e3057527e9dcc4dacb4613c063043221d9ffbce528580bb872d8c3944"
+        },
+        {
+          "path": "docs/readmes/052/java/final-chat052/workspace-engine/build/test-results/test/TEST-fraymus.workspace.ChatChain052Test.xml.gz",
+          "kind": "binary",
+          "sha256": "83cd937ed4a6ae633aec5917ff134112ff35b9afa086295a4ca73dbf80817638"
+        },
+        {
+          "path": "docs/readmes/052/java/final-chat052/workspace-engine/build/test-results/test/TEST-fraymus.workspace.Domain044Test.xml.gz",
+          "kind": "binary",
+          "sha256": "6da1b566fe47bc9443917806c85d826ec4bd51d839d458d116b5df85ec594579"
+        },
+        {
+          "path": "docs/readmes/052/java/final-focused052/build/test-results/test/TEST-agent.ActorControlsTest.xml.gz",
+          "kind": "binary",
+          "sha256": "ca4fe325512a9433e1fa310b7f89101a9ed98e042b6f1cd3239790694a25052a"
+        },
+        {
+          "path": "docs/readmes/052/java/final-focused052/build/test-results/test/TEST-agent.MotorRecoveryTest.xml.gz",
+          "kind": "binary",
+          "sha256": "a8833bcf501503832e251a3ffa451be1379ac3d06451bfc7ef2fc27197ec1d8c"
+        },
+        {
+          "path": "docs/readmes/052/java/final-focused052/build/test-results/test/TEST-agent.PlayMemoryTest.xml.gz",
+          "kind": "binary",
+          "sha256": "7b9d5201009b46d5f7976ae0060590b1da9edf2c28ba8f2a3a2a118c31fb95f5"
+        },
+        {
+          "path": "docs/readmes/052/java/final-focused052/build/test-results/test/TEST-agent.PowerupPlannerTest.xml.gz",
+          "kind": "binary",
+          "sha256": "57b6679bc16c75ce4a487c1120824781818a855845f04b0b587346f0f8d109c2"
+        },
+        {
+          "path": "docs/readmes/052/java/final-focused052/build/test-results/test/TEST-editor.EditorCorrectionsTest.xml.gz",
+          "kind": "binary",
+          "sha256": "1288467d923fbea9114dbd35082f01355dfdec0e8b61c294be5a646e4a87f1a6"
+        },
+        {
+          "path": "docs/readmes/052/java/final-focused052/build/test-results/test/TEST-editor.FraynixWorkspaceTest.xml.gz",
+          "kind": "binary",
+          "sha256": "93225ac62b871781d63e768e85d4ad8c93f326790a15090648b2759ef6f99437"
+        },
+        {
+          "path": "docs/readmes/052/java/final-focused052/build/test-results/test/TEST-editor.ModelAvailabilityTest.xml.gz",
+          "kind": "binary",
+          "sha256": "c4d6f397ea0a2eef71cd64d35cd6df8cf8a3f51be97e3dfaa1f92000853c1bf3"
+        },
+        {
+          "path": "docs/readmes/052/java/final-focused052/build/test-results/test/TEST-factory.EditorPhysicsRegressionTest.xml.gz",
+          "kind": "binary",
+          "sha256": "fd0e9bfe2e9f481dbedcd4ec53d5ef139193ccb7c0996061e3134865ab00d765"
+        },
+        {
+          "path": "docs/readmes/052/java/final-focused052/build/test-results/test/TEST-factory.FactorySceneIntegrationTest.xml.gz",
+          "kind": "binary",
+          "sha256": "4314fdd66cadf6991204cce2057cbffd45fb5679c0d17d421fabd2894ef2c4f6"
+        },
+        {
+          "path": "docs/readmes/052/java/final-focused052/build/test-results/test/TEST-factory.FullMarioLevelTest.xml.gz",
+          "kind": "binary",
+          "sha256": "d2e0c1537a25793781a971d70810dd9318099ec4d8197abb3ef36183d549cb33"
+        },
+        {
+          "path": "docs/readmes/052/java/final-focused052/build/test-results/test/TEST-factory.GridPlacementRegressionTest.xml.gz",
+          "kind": "binary",
+          "sha256": "1256496c73183d98c6f4cbe1908ceb082ca6a6ee297bb430a251bf0ab643ea20"
+        },
+        {
+          "path": "docs/readmes/052/java/final-focused052/build/test-results/test/TEST-factory.SceneAgentIntegrationTest.xml.gz",
+          "kind": "binary",
+          "sha256": "c6132f4265b4fb1ab0d3d4397da5197f59e8d422fe1225e0488c78db50e3b277"
+        },
+        {
+          "path": "docs/readmes/052/java/final-focused052/build/test-results/test/TEST-factory.SceneModelBudgetTest.xml.gz",
+          "kind": "binary",
+          "sha256": "c643c7e2ffb89ecd88e1ca5199c44b9f430dd052d6edb9fb0e6e2691086df700"
+        },
+        {
+          "path": "docs/readmes/052/java/final-focused052/build/test-results/test/TEST-factory.SolidRaycastTest.xml.gz",
+          "kind": "binary",
+          "sha256": "8c5afd3dcf984bbfd3aa7237e18b38297c7bf17c23bcfe2f98dfd49fa4439ce8"
+        },
+        {
+          "path": "docs/readmes/052/java/final-focused052/build/test-results/test/TEST-nervous.NeuromorphicCoreTest.xml.gz",
+          "kind": "binary",
+          "sha256": "89440e03aca7ebc896165ca9b9f886b5ab8c1c8fec340e81fdb12d5e3b23c0cb"
+        },
+        {
+          "path": "docs/readmes/052/java/final-focused052/build/test-results/test/TEST-physics2dtmp.CollisionDetectorTests.xml.gz",
+          "kind": "binary",
+          "sha256": "b8141005ecd7d930e1b75c3a097b9c827e862915deed234ffc8d2a49504c41cc"
+        },
+        {
+          "path": "docs/readmes/052/java/final-focused052/build/test-results/test/TEST-renderer.AnimationTextureBatchTest.xml.gz",
+          "kind": "binary",
+          "sha256": "f066e6c37a156f2846cdc1ccc7e8c4901f375448ddfc8797b9adcd3f192bfea0"
+        },
+        {
+          "path": "docs/readmes/052/java/final-focused052/build/test-results/test/TEST-renderer.ShaderSourceTest.xml.gz",
+          "kind": "binary",
+          "sha256": "434b71015948880651aad8ff3dca39e4c7083d34bbcb6f0db9b7c9acce134bbe"
+        },
+        {
+          "path": "docs/readmes/052/java/final-focused052/fraynix-modules/geometry-core/build/test-results/test/TEST-fraymus.geometry.GeometryTest.xml.gz",
+          "kind": "binary",
+          "sha256": "de30f93be4f3cdd912133fb58abbc53e711cb5f131759620fd8243f1fb819b13"
+        },
+        {
+          "path": "docs/readmes/052/java/final-focused052/fraynix-modules/geometry-core/build/test-results/test/TEST-fraymus.geometry.ReferenceMapTest.xml.gz",
+          "kind": "binary",
+          "sha256": "0983d8519cdef6ea8531827e878b6a4f02d2d34b013be6003b9b4f84896d8079"
+        },
+        {
+          "path": "docs/readmes/052/java/final-focused052/fraynix-modules/geometry-core/build/test-results/test/TEST-fraymus.geometry.TopologyMapTest.xml.gz",
+          "kind": "binary",
+          "sha256": "d952cdcd1234e89bb040e4adb6cf9d42acd58198b761a7617f0478a10faabe2e"
+        },
+        {
+          "path": "docs/readmes/052/java/final-focused052/workspace-engine/build/test-results/test/TEST-fraymus.workspace.Agency043Test.xml.gz",
+          "kind": "binary",
+          "sha256": "c42b45cd2f7823977435707e70955c9a8927d504fad04c6cf840902da061a5d4"
+        },
+        {
+          "path": "docs/readmes/052/java/final-focused052/workspace-engine/build/test-results/test/TEST-fraymus.workspace.ChatChain052Test.xml.gz",
+          "kind": "binary",
+          "sha256": "cc3d61f9651eba706b4c1edb6c1352be0da9dfba55291490d3b63c72d2940109"
+        },
+        {
+          "path": "docs/readmes/052/java/final-focused052/workspace-engine/build/test-results/test/TEST-fraymus.workspace.Domain044Test.xml.gz",
+          "kind": "binary",
+          "sha256": "37d31050c897dbf9d5821b14c13e3563dc904701cc2b2f971785da019c608946"
+        },
+        {
+          "path": "docs/readmes/052/java/final-focused052/workspace-engine/build/test-results/test/TEST-fraymus.workspace.MetricObservationStoreTest.xml.gz",
+          "kind": "binary",
+          "sha256": "a93e89f67273476a5735f087f4f385a9eb904c107136c31479af82595685c758"
+        },
+        {
+          "path": "docs/readmes/052/java/final-focused052/workspace-engine/build/test-results/test/TEST-fraymus.workspace.WorldObservationStoreTest.xml.gz",
+          "kind": "binary",
+          "sha256": "a614b77e33764819f2c1908f237d3129ba0a4f8d1175091fe8427107a9264b50"
+        },
+        {
+          "path": "docs/readmes/052/java/final-focused052/workspace-engine/build/test-results/test/TEST-fraymus.workspace.WorldReservedTest.xml.gz",
+          "kind": "binary",
+          "sha256": "cfdec0fc506e5feebc54e4d9d3aed68c728d973343fecf7c5221b945d28bff81"
+        },
+        {
+          "path": "docs/readmes/052/java/initial-full052/build/test-results/test/TEST-agent.ActorControlsTest.xml.gz",
+          "kind": "binary",
+          "sha256": "ca4fe325512a9433e1fa310b7f89101a9ed98e042b6f1cd3239790694a25052a"
+        },
+        {
+          "path": "docs/readmes/052/java/initial-full052/build/test-results/test/TEST-agent.MotorRecoveryTest.xml.gz",
+          "kind": "binary",
+          "sha256": "a8833bcf501503832e251a3ffa451be1379ac3d06451bfc7ef2fc27197ec1d8c"
+        },
+        {
+          "path": "docs/readmes/052/java/initial-full052/build/test-results/test/TEST-agent.PlayMemoryTest.xml.gz",
+          "kind": "binary",
+          "sha256": "7b9d5201009b46d5f7976ae0060590b1da9edf2c28ba8f2a3a2a118c31fb95f5"
+        },
+        {
+          "path": "docs/readmes/052/java/initial-full052/build/test-results/test/TEST-agent.PowerupPlannerTest.xml.gz",
+          "kind": "binary",
+          "sha256": "57b6679bc16c75ce4a487c1120824781818a855845f04b0b587346f0f8d109c2"
+        },
+        {
+          "path": "docs/readmes/052/java/initial-full052/build/test-results/test/TEST-editor.EditorCorrectionsTest.xml.gz",
+          "kind": "binary",
+          "sha256": "1288467d923fbea9114dbd35082f01355dfdec0e8b61c294be5a646e4a87f1a6"
+        },
+        {
+          "path": "docs/readmes/052/java/initial-full052/build/test-results/test/TEST-editor.FraynixWorkspaceTest.xml.gz",
+          "kind": "binary",
+          "sha256": "93225ac62b871781d63e768e85d4ad8c93f326790a15090648b2759ef6f99437"
+        },
+        {
+          "path": "docs/readmes/052/java/initial-full052/build/test-results/test/TEST-editor.ModelAvailabilityTest.xml.gz",
+          "kind": "binary",
+          "sha256": "c4d6f397ea0a2eef71cd64d35cd6df8cf8a3f51be97e3dfaa1f92000853c1bf3"
+        },
+        {
+          "path": "docs/readmes/052/java/initial-full052/build/test-results/test/TEST-factory.EditorPhysicsRegressionTest.xml.gz",
+          "kind": "binary",
+          "sha256": "fd0e9bfe2e9f481dbedcd4ec53d5ef139193ccb7c0996061e3134865ab00d765"
+        },
+        {
+          "path": "docs/readmes/052/java/initial-full052/build/test-results/test/TEST-factory.FactorySceneIntegrationTest.xml.gz",
+          "kind": "binary",
+          "sha256": "4314fdd66cadf6991204cce2057cbffd45fb5679c0d17d421fabd2894ef2c4f6"
+        },
+        {
+          "path": "docs/readmes/052/java/initial-full052/build/test-results/test/TEST-factory.FullMarioLevelTest.xml.gz",
+          "kind": "binary",
+          "sha256": "d2e0c1537a25793781a971d70810dd9318099ec4d8197abb3ef36183d549cb33"
+        },
+        {
+          "path": "docs/readmes/052/java/initial-full052/build/test-results/test/TEST-factory.GridPlacementRegressionTest.xml.gz",
+          "kind": "binary",
+          "sha256": "1256496c73183d98c6f4cbe1908ceb082ca6a6ee297bb430a251bf0ab643ea20"
+        },
+        {
+          "path": "docs/readmes/052/java/initial-full052/build/test-results/test/TEST-factory.SceneAgentIntegrationTest.xml.gz",
+          "kind": "binary",
+          "sha256": "c6132f4265b4fb1ab0d3d4397da5197f59e8d422fe1225e0488c78db50e3b277"
+        },
+        {
+          "path": "docs/readmes/052/java/initial-full052/build/test-results/test/TEST-factory.SceneModelBudgetTest.xml.gz",
+          "kind": "binary",
+          "sha256": "c643c7e2ffb89ecd88e1ca5199c44b9f430dd052d6edb9fb0e6e2691086df700"
+        },
+        {
+          "path": "docs/readmes/052/java/initial-full052/build/test-results/test/TEST-factory.SolidRaycastTest.xml.gz",
+          "kind": "binary",
+          "sha256": "8c5afd3dcf984bbfd3aa7237e18b38297c7bf17c23bcfe2f98dfd49fa4439ce8"
+        },
+        {
+          "path": "docs/readmes/052/java/initial-full052/build/test-results/test/TEST-nervous.NeuromorphicCoreTest.xml.gz",
+          "kind": "binary",
+          "sha256": "89440e03aca7ebc896165ca9b9f886b5ab8c1c8fec340e81fdb12d5e3b23c0cb"
+        },
+        {
+          "path": "docs/readmes/052/java/initial-full052/build/test-results/test/TEST-physics2dtmp.CollisionDetectorTests.xml.gz",
+          "kind": "binary",
+          "sha256": "b8141005ecd7d930e1b75c3a097b9c827e862915deed234ffc8d2a49504c41cc"
+        },
+        {
+          "path": "docs/readmes/052/java/initial-full052/build/test-results/test/TEST-renderer.AnimationTextureBatchTest.xml.gz",
+          "kind": "binary",
+          "sha256": "f066e6c37a156f2846cdc1ccc7e8c4901f375448ddfc8797b9adcd3f192bfea0"
+        },
+        {
+          "path": "docs/readmes/052/java/initial-full052/build/test-results/test/TEST-renderer.ShaderSourceTest.xml.gz",
+          "kind": "binary",
+          "sha256": "434b71015948880651aad8ff3dca39e4c7083d34bbcb6f0db9b7c9acce134bbe"
+        },
+        {
+          "path": "docs/readmes/052/java/initial-full052/workspace-engine/build/test-results/test/TEST-fraymus.workspace.Agency043Test.xml.gz",
+          "kind": "binary",
+          "sha256": "fb1504b6b7a0c493699e65901393f8a9071765f5daf254dda3f8b0cb482ebce9"
+        },
+        {
+          "path": "docs/readmes/052/java/initial-full052/workspace-engine/build/test-results/test/TEST-fraymus.workspace.Agent042Test.xml.gz",
+          "kind": "binary",
+          "sha256": "c575a1e837318558425f006fc5bb106c8ba9158ea1f6394092dc6e8543d1eaed"
+        },
+        {
+          "path": "docs/readmes/052/java/initial-full052/workspace-engine/build/test-results/test/TEST-fraymus.workspace.Alignment041Test.xml.gz",
+          "kind": "binary",
+          "sha256": "6c44cdf7d5b5fd2095ec0546d38378a5b98db868e20ca61955f9178ae4e8b9b0"
+        },
+        {
+          "path": "docs/readmes/052/java/initial-full052/workspace-engine/build/test-results/test/TEST-fraymus.workspace.BodyActuatorTest.xml.gz",
+          "kind": "binary",
+          "sha256": "f7c43f13dad19a8e5b92353406c09570db6d9208a0148d7f499be99d9d2e3314"
+        },
+        {
+          "path": "docs/readmes/052/java/initial-full052/workspace-engine/build/test-results/test/TEST-fraymus.workspace.BrainPersistenceTest.xml.gz",
+          "kind": "binary",
+          "sha256": "db7257a43701a5675236035756c19093b99e4da41e607d475f745ddfce48fe75"
+        },
+        {
+          "path": "docs/readmes/052/java/initial-full052/workspace-engine/build/test-results/test/TEST-fraymus.workspace.BrainServiceTest.xml.gz",
+          "kind": "binary",
+          "sha256": "ed44d7a6c97f76e2e06f76062bfc4f7ddb5dab7a840076fb5d802a5df14dcd63"
+        },
+        {
+          "path": "docs/readmes/052/java/initial-full052/workspace-engine/build/test-results/test/TEST-fraymus.workspace.CalibrationStoreTest.xml.gz",
+          "kind": "binary",
+          "sha256": "f2cdc6ec7cc0ce7ae619987bdf95b606c3d973488c2cd989381d939058b1358f"
+        },
+        {
+          "path": "docs/readmes/052/java/initial-full052/workspace-engine/build/test-results/test/TEST-fraymus.workspace.ChatChain052Test.xml.gz",
+          "kind": "binary",
+          "sha256": "e093e7479bdb05a3a8d50cb2f47a297c2505e3de0c0147fdb804d63a76fa8833"
+        },
+        {
+          "path": "docs/readmes/052/java/initial-full052/workspace-engine/build/test-results/test/TEST-fraymus.workspace.Construction051Test.xml.gz",
+          "kind": "binary",
+          "sha256": "b7e63f9894d8a25613f6ceba9faae29291ad73c748da9664920a849b0c31ee88"
+        },
+        {
+          "path": "docs/readmes/052/java/initial-full052/workspace-engine/build/test-results/test/TEST-fraymus.workspace.ContactDevelopmentTest.xml.gz",
+          "kind": "binary",
+          "sha256": "30c31b7cd64ca5d51b16ca8459037cb1d57484c707a2f8c08c3c59f5f66029fc"
+        },
+        {
+          "path": "docs/readmes/052/java/initial-full052/workspace-engine/build/test-results/test/TEST-fraymus.workspace.ContactStoreTest.xml.gz",
+          "kind": "binary",
+          "sha256": "db620b9cdd0c179e15e6585bcc1246612c18872144d600d5aad780670edf772e"
+        },
+        {
+          "path": "docs/readmes/052/java/initial-full052/workspace-engine/build/test-results/test/TEST-fraymus.workspace.ContactStudyTest.xml.gz",
+          "kind": "binary",
+          "sha256": "976ecc5a474488d6dd22461570715b6e80e96144708751cef552f64824003391"
+        },
+        {
+          "path": "docs/readmes/052/java/initial-full052/workspace-engine/build/test-results/test/TEST-fraymus.workspace.Counterfactual045Test.xml.gz",
+          "kind": "binary",
+          "sha256": "a9275b9bd90abfcc8e4860b0d4bc4fd1d9b0d831953ba6809bfd4621851ef3eb"
+        },
+        {
+          "path": "docs/readmes/052/java/initial-full052/workspace-engine/build/test-results/test/TEST-fraymus.workspace.CounterfactualReserved045Test.xml.gz",
+          "kind": "binary",
+          "sha256": "60761141412092dcfbed5af70a7c6e8ecf1d55bb7e6ef862c943bb9497b4d7f2"
+        },
+        {
+          "path": "docs/readmes/052/java/initial-full052/workspace-engine/build/test-results/test/TEST-fraymus.workspace.CreationPlanner044Test.xml.gz",
+          "kind": "binary",
+          "sha256": "9b1f0e43878231d4eeeb806c7b99a5fbe5c527c3dc3e04f27455c21293ccb57d"
+        },
+        {
+          "path": "docs/readmes/052/java/initial-full052/workspace-engine/build/test-results/test/TEST-fraymus.workspace.CreationTest.xml.gz",
+          "kind": "binary",
+          "sha256": "79526cbe3092ae48339e04aa7a6712ac0ff3a9bde851b0c52e727b38f5b3ebe0"
+        },
+        {
+          "path": "docs/readmes/052/java/initial-full052/workspace-engine/build/test-results/test/TEST-fraymus.workspace.Domain044Test.xml.gz",
+          "kind": "binary",
+          "sha256": "d1a7fb67187d38054bf0c34f648b29b1b99bf3f812ff23fd0cbb6cbc8a9ebb29"
+        },
+        {
+          "path": "docs/readmes/052/java/initial-full052/workspace-engine/build/test-results/test/TEST-fraymus.workspace.EmbeddedGameTest.xml.gz",
+          "kind": "binary",
+          "sha256": "2b6b5345171affb30c457602df45e4d0e48decc8f73af4d37909aefa35d2c728"
+        },
+        {
+          "path": "docs/readmes/052/java/initial-full052/workspace-engine/build/test-results/test/TEST-fraymus.workspace.EvidenceReplay049Test.xml.gz",
+          "kind": "binary",
+          "sha256": "244dc529d9d1788013dd03f04f031fa614e95e2d76ba74f35b4f12af17b4ab11"
+        },
+        {
+          "path": "docs/readmes/052/java/initial-full052/workspace-engine/build/test-results/test/TEST-fraymus.workspace.FeedbackTest.xml.gz",
+          "kind": "binary",
+          "sha256": "ea6eabcf66dab473a62a6f58caa5466d9ba25bf82fb328e47f9c722a5658beb9"
+        },
+        {
+          "path": "docs/readmes/052/java/initial-full052/workspace-engine/build/test-results/test/TEST-fraymus.workspace.FlowTrackerTest.xml.gz",
+          "kind": "binary",
+          "sha256": "c48cc35fe4414ee072dfb575ae3f96b03e04ea51662b436b3aa10f1e01d76ca4"
+        },
+        {
+          "path": "docs/readmes/052/java/initial-full052/workspace-engine/build/test-results/test/TEST-fraymus.workspace.GoalRunnerTest.xml.gz",
+          "kind": "binary",
+          "sha256": "d96d4570fe7da571ca9040fde283b6ca11c27f52d388db1a8f857e9bb14c1f3f"
+        },
+        {
+          "path": "docs/readmes/052/java/initial-full052/workspace-engine/build/test-results/test/TEST-fraymus.workspace.GpuComputeTest.xml.gz",
+          "kind": "binary",
+          "sha256": "19c1d02d94f6bc36dbe2d3bca98098f978a2a13bfc55f379074a7241e16e20e5"
+        },
+        {
+          "path": "docs/readmes/052/java/initial-full052/workspace-engine/build/test-results/test/TEST-fraymus.workspace.KnowledgeStoreTest.xml.gz",
+          "kind": "binary",
+          "sha256": "8e006d83e6687aa7e7c274374e1fb352033e9e1f0fb0e1b433b1faf2495c51d7"
+        },
+        {
+          "path": "docs/readmes/052/java/initial-full052/workspace-engine/build/test-results/test/TEST-fraymus.workspace.LearningStoreTest.xml.gz",
+          "kind": "binary",
+          "sha256": "9546271af13fe7dcbb765445901d7bd6f4fe9851ad325f7962f97db556468569"
+        },
+        {
+          "path": "docs/readmes/052/java/initial-full052/workspace-engine/build/test-results/test/TEST-fraymus.workspace.LocalModelAdmissionTest.xml.gz",
+          "kind": "binary",
+          "sha256": "ac77175c17d2f127fa961e5b89ae6141ae7712eafac957dfe8dd98b8b915d619"
+        },
+        {
+          "path": "docs/readmes/052/java/initial-full052/workspace-engine/build/test-results/test/TEST-fraymus.workspace.MapRecoveryMaterialsTest.xml.gz",
+          "kind": "binary",
+          "sha256": "35eee57bfd18ea093fac555bbeb736d92ddd643993c58537e1dff05369badcbe"
+        },
+        {
+          "path": "docs/readmes/052/java/initial-full052/workspace-engine/build/test-results/test/TEST-fraymus.workspace.MapTopologyEvaluationTest.xml.gz",
+          "kind": "binary",
+          "sha256": "2476ea71e8ca61e140d4b5b866408cbb4c17a4211210bc8898fc9f1a4554c811"
+        },
+        {
+          "path": "docs/readmes/052/java/initial-full052/workspace-engine/build/test-results/test/TEST-fraymus.workspace.MapTopologyWorldTest.xml.gz",
+          "kind": "binary",
+          "sha256": "3aa663d83cf1e47cf0f047524acf0cd7867f140cbc6a1eeca24e52f94cdf21be"
+        },
+        {
+          "path": "docs/readmes/052/java/initial-full052/workspace-engine/build/test-results/test/TEST-fraymus.workspace.MapWorldTest.xml.gz",
+          "kind": "binary",
+          "sha256": "300c0a4b6055145215b9822e8f6e2ee067fc7af1864127a8c5c7af0faea648f0"
+        },
+        {
+          "path": "docs/readmes/052/java/initial-full052/workspace-engine/build/test-results/test/TEST-fraymus.workspace.MeasurementStoreTest.xml.gz",
+          "kind": "binary",
+          "sha256": "a2bd4d58c482eaf71f04adaf5fbaf993ce4b5db084f65d22e877565b9a55fc73"
+        },
+        {
+          "path": "docs/readmes/052/java/initial-full052/workspace-engine/build/test-results/test/TEST-fraymus.workspace.MetricObservationStoreTest.xml.gz",
+          "kind": "binary",
+          "sha256": "8b67953d6a0942710c6e87412b0bd53de92e7e2b6493f98ab2469840f01f7dc8"
+        },
+        {
+          "path": "docs/readmes/052/java/initial-full052/workspace-engine/build/test-results/test/TEST-fraymus.workspace.MotionDataTest.xml.gz",
+          "kind": "binary",
+          "sha256": "8ce107acc32fe4f2a6dfd77fb1931c40fbe1c99e290a9cdd5bed7a002e613efb"
+        },
+        {
+          "path": "docs/readmes/052/java/initial-full052/workspace-engine/build/test-results/test/TEST-fraymus.workspace.NativeReportStorageTest.xml.gz",
+          "kind": "binary",
+          "sha256": "06e0ac3d33070e425f4b69c2d6c5eee929862321b9eb146354487b7d22e71a9d"
+        },
+        {
+          "path": "docs/readmes/052/java/initial-full052/workspace-engine/build/test-results/test/TEST-fraymus.workspace.ObservationFilterTest.xml.gz",
+          "kind": "binary",
+          "sha256": "c1bfe7a4094ac68eaac5b0e03f81a56c7b8dd59174bbd2eb0e8e4bf0d24fd53c"
+        },
+        {
+          "path": "docs/readmes/052/java/initial-full052/workspace-engine/build/test-results/test/TEST-fraymus.workspace.ObserverStoreTest.xml.gz",
+          "kind": "binary",
+          "sha256": "d2f3b60d1d098d6512b60fecac13a8c673afb20052ebeb61a214a1b320ec1321"
+        },
+        {
+          "path": "docs/readmes/052/java/initial-full052/workspace-engine/build/test-results/test/TEST-fraymus.workspace.PerceptionTest.xml.gz",
+          "kind": "binary",
+          "sha256": "d207df4d41c6df6e901a2cab2c056538b29931ea4b206767662702dbff067fc3"
+        },
+        {
+          "path": "docs/readmes/052/java/initial-full052/workspace-engine/build/test-results/test/TEST-fraymus.workspace.PlaneCalibrationTest.xml.gz",
+          "kind": "binary",
+          "sha256": "8f05830de6bdbefa2df8249fed19fba5214beee580b08c606de0fc1a3e2c0d81"
+        },
+        {
+          "path": "docs/readmes/052/java/initial-full052/workspace-engine/build/test-results/test/TEST-fraymus.workspace.PoseDevelopmentTest.xml.gz",
+          "kind": "binary",
+          "sha256": "5b796dcd828aaa06557985e643c67a37fabb666a90d81041f5c6023c18a085da"
+        },
+        {
+          "path": "docs/readmes/052/java/initial-full052/workspace-engine/build/test-results/test/TEST-fraymus.workspace.PoseReportTest.xml.gz",
+          "kind": "binary",
+          "sha256": "b9937f744ebb728d38a14e579d415d51dff1ed97ad026c90180dcb0c284fd03a"
+        },
+        {
+          "path": "docs/readmes/052/java/initial-full052/workspace-engine/build/test-results/test/TEST-fraymus.workspace.PoseStoreTest.xml.gz",
+          "kind": "binary",
+          "sha256": "8a1b22370db55d07654263d4f7499e8f324622ee6a36b883b36f9b0393f2eab9"
+        },
+        {
+          "path": "docs/readmes/052/java/initial-full052/workspace-engine/build/test-results/test/TEST-fraymus.workspace.PoseStudyTest.xml.gz",
+          "kind": "binary",
+          "sha256": "e6ac75906cb2a82a6098d2acba0628109f2e7bf4af47da7016eec74c2b3bff30"
+        },
+        {
+          "path": "docs/readmes/052/java/initial-full052/workspace-engine/build/test-results/test/TEST-fraymus.workspace.ProceduralTest.xml.gz",
+          "kind": "binary",
+          "sha256": "047b874aad2dad069c1b016aef0c7db936e02a7babbcea3b53ae843bdd42c843"
+        },
+        {
+          "path": "docs/readmes/052/java/initial-full052/workspace-engine/build/test-results/test/TEST-fraymus.workspace.PushLearningTest.xml.gz",
+          "kind": "binary",
+          "sha256": "3bd6f9bfd828a2b9e00eba29344894c21a0fd4e7b802ae28d274afc29537755d"
+        },
+        {
+          "path": "docs/readmes/052/java/initial-full052/workspace-engine/build/test-results/test/TEST-fraymus.workspace.PushNativeTest.xml.gz",
+          "kind": "binary",
+          "sha256": "f84f0e8ed02e86ad0b9e6ca8c4c50ebedb04be21376708c3addc53dba5306284"
+        },
+        {
+          "path": "docs/readmes/052/java/initial-full052/workspace-engine/build/test-results/test/TEST-fraymus.workspace.PushStoreTest.xml.gz",
+          "kind": "binary",
+          "sha256": "9da3982ec794d3640569a2269c77174b77645ba2ec2b33b3a70fd1fa3db6c545"
+        },
+        {
+          "path": "docs/readmes/052/java/initial-full052/workspace-engine/build/test-results/test/TEST-fraymus.workspace.ResponsiveLayoutTest.xml.gz",
+          "kind": "binary",
+          "sha256": "ecdb22e4e28a0bb870d82aedfce3e12368804a53c10b0fd587db69248a30805f"
+        },
+        {
+          "path": "docs/readmes/052/java/initial-full052/workspace-engine/build/test-results/test/TEST-fraymus.workspace.SceneExchangeTest.xml.gz",
+          "kind": "binary",
+          "sha256": "c6e4c98e2c817b009d370b3dcb88634074d01b5608b34f345db9588e6d91562b"
+        },
+        {
+          "path": "docs/readmes/052/java/initial-full052/workspace-engine/build/test-results/test/TEST-fraymus.workspace.SceneStoreTest.xml.gz",
+          "kind": "binary",
+          "sha256": "64ee67533d53ff5098de9c05c8f9824432edef5ae2921b4df461b2434b3d89d6"
+        },
+        {
+          "path": "docs/readmes/052/java/initial-full052/workspace-engine/build/test-results/test/TEST-fraymus.workspace.ScreenPixels043Test.xml.gz",
+          "kind": "binary",
+          "sha256": "7d25de706a33a9a2baa0916c2aa646efd53b36bb52244e617f4873720b48deb3"
+        },
+        {
+          "path": "docs/readmes/052/java/initial-full052/workspace-engine/build/test-results/test/TEST-fraymus.workspace.SkillGraph046Test.xml.gz",
+          "kind": "binary",
+          "sha256": "138bbaa7a024b48e7df54f0cdb170240765ee440579a600df7561b92735d6db3"
+        },
+        {
+          "path": "docs/readmes/052/java/initial-full052/workspace-engine/build/test-results/test/TEST-fraymus.workspace.SkillMemory048Test.xml.gz",
+          "kind": "binary",
+          "sha256": "e0e194f046aee41cd9435fceea114816fd79b185da3eb4539cfdc87f6271c433"
+        },
+        {
+          "path": "docs/readmes/052/java/initial-full052/workspace-engine/build/test-results/test/TEST-fraymus.workspace.SpatialGame040Test.xml.gz",
+          "kind": "binary",
+          "sha256": "d70c23c9ef60b5276d30e8891acb9e47ba66bf693a419efb775b5a1b903fd07d"
+        },
+        {
+          "path": "docs/readmes/052/java/initial-full052/workspace-engine/build/test-results/test/TEST-fraymus.workspace.SpatialProjection040Test.xml.gz",
+          "kind": "binary",
+          "sha256": "6a49a5f2be70cf4770c87f8a49a90209ab43550e7f467a5b98abb3120f69cd3e"
+        },
+        {
+          "path": "docs/readmes/052/java/initial-full052/workspace-engine/build/test-results/test/TEST-fraymus.workspace.SpatialRuntime040Test.xml.gz",
+          "kind": "binary",
+          "sha256": "88a5fb77080c262f268d2662947c3b5682b3bf1f4608db50924151b9bcacafc2"
+        },
+        {
+          "path": "docs/readmes/052/java/initial-full052/workspace-engine/build/test-results/test/TEST-fraymus.workspace.SpatialTest.xml.gz",
+          "kind": "binary",
+          "sha256": "5480f384a68b1d873bfb4e6804fc2b87c9286b3fd1ef7b0dd1b6839d98a162a5"
+        },
+        {
+          "path": "docs/readmes/052/java/initial-full052/workspace-engine/build/test-results/test/TEST-fraymus.workspace.TabletopCoreTest.xml.gz",
+          "kind": "binary",
+          "sha256": "8023ab5d5f95eab2ad31a124db3528d8b35c14ba93cec16f6725b092d6997ccb"
+        },
+        {
+          "path": "docs/readmes/052/java/initial-full052/workspace-engine/build/test-results/test/TEST-fraymus.workspace.TabletopRecoveryTest.xml.gz",
+          "kind": "binary",
+          "sha256": "84420411c1113704c205708d57dc76f59f3a92986401dc13275b0e0f2ffbce96"
+        },
+        {
+          "path": "docs/readmes/052/java/initial-full052/workspace-engine/build/test-results/test/TEST-fraymus.workspace.TabletopStoreTest.xml.gz",
+          "kind": "binary",
+          "sha256": "a7bfdc031ac6eb05994147c127c78261965b2e67c94f4b1ee5a0c6b8be571663"
+        },
+        {
+          "path": "docs/readmes/052/java/initial-full052/workspace-engine/build/test-results/test/TEST-fraymus.workspace.TabletopUnderstandingTest.xml.gz",
+          "kind": "binary",
+          "sha256": "075267c409f9c10469b133bd381305323ceabbc9d5b13caf6049f1451b6de262"
+        },
+        {
+          "path": "docs/readmes/052/java/initial-full052/workspace-engine/build/test-results/test/TEST-fraymus.workspace.TrackingEvaluationTest.xml.gz",
+          "kind": "binary",
+          "sha256": "b9b74e6acdb97de6ed3e5f9051ed39be79bb9350d55320137ad7179073663c89"
+        },
+        {
+          "path": "docs/readmes/052/java/initial-full052/workspace-engine/build/test-results/test/TEST-fraymus.workspace.TrackingLabTest.xml.gz",
+          "kind": "binary",
+          "sha256": "a4ec9f13594277f47fe094638a1c09f5fa711a702ceb70c00a8ee48cd7497217"
+        },
+        {
+          "path": "docs/readmes/052/java/initial-full052/workspace-engine/build/test-results/test/TEST-fraymus.workspace.VisualMemory043Test.xml.gz",
+          "kind": "binary",
+          "sha256": "9b6630af4d8b1f84f85b719ca2226db9887aa95aa55371dc80fa770196b2cdc9"
+        },
+        {
+          "path": "docs/readmes/052/java/initial-full052/workspace-engine/build/test-results/test/TEST-fraymus.workspace.WorkflowTest.xml.gz",
+          "kind": "binary",
+          "sha256": "d8b7f176d52934f221d4cdf653b57097bd2fafa9448b1917cf462255515f3486"
+        },
+        {
+          "path": "docs/readmes/052/java/initial-full052/workspace-engine/build/test-results/test/TEST-fraymus.workspace.Workshop050Test.xml.gz",
+          "kind": "binary",
+          "sha256": "25970eb927d4723822753feb0527c5342d6e3d7a6d0e66ca9bb6d25046c1dbf5"
+        },
+        {
+          "path": "docs/readmes/052/java/initial-full052/workspace-engine/build/test-results/test/TEST-fraymus.workspace.WorkspaceStoreTest.xml.gz",
+          "kind": "binary",
+          "sha256": "bcdaec37beb6a6dbd6045dce8004a1b4f2e1c4025670842b0691b1df8325e4ee"
+        },
+        {
+          "path": "docs/readmes/052/java/initial-full052/workspace-engine/build/test-results/test/TEST-fraymus.workspace.WorldExportTest.xml.gz",
+          "kind": "binary",
+          "sha256": "545ca7da34b41ee5a9551c21e2df5e582b6bddd8d9179859fa0e25a8eef27dba"
+        },
+        {
+          "path": "docs/readmes/052/java/initial-full052/workspace-engine/build/test-results/test/TEST-fraymus.workspace.WorldLedgerTest.xml.gz",
+          "kind": "binary",
+          "sha256": "ecb442b83066d0ab0b1f302702a42c91d74ffebf859cd6219b731f3c159c3866"
+        },
+        {
+          "path": "docs/readmes/052/java/initial-full052/workspace-engine/build/test-results/test/TEST-fraymus.workspace.WorldModelTest.xml.gz",
+          "kind": "binary",
+          "sha256": "cad5a213f1e1e27d046ad58ee92e6dfba9fbacba2abe50cb61decdad94806c8f"
+        },
+        {
+          "path": "docs/readmes/052/java/initial-full052/workspace-engine/build/test-results/test/TEST-fraymus.workspace.WorldObservationStoreTest.xml.gz",
+          "kind": "binary",
+          "sha256": "6d4a957946adaa08288fb856ffe1e5caddda5c85a03abf3332ff96bb7d43546f"
+        },
+        {
+          "path": "docs/readmes/052/java/initial-full052/workspace-engine/build/test-results/test/TEST-fraymus.workspace.WorldReservedTest.xml.gz",
+          "kind": "binary",
+          "sha256": "d041553233e99cf5fc2bc3ae75c085fd3603d1975a81770dba3720f11ead07d9"
+        },
+        {
+          "path": "docs/readmes/052/java-final-affected.txt",
+          "kind": "text",
+          "sha256": "eae1e7a6808d0635fb4e671f2dd4abc49aa4b01e71ebfada3a1ec0bf97160b27"
+        },
+        {
+          "path": "docs/readmes/052/java-final-chat.txt",
+          "kind": "text",
+          "sha256": "4ff08d107ba01b34f1b0e82758a8b8fb3f21f3fd33aa7c1c0828fa65fae4efba"
+        },
+        {
+          "path": "docs/readmes/052/java-focused.txt",
+          "kind": "text",
+          "sha256": "6d6f16c0dc1f8d79896f593bddd9f11eb4a6198814eb152a1485752649bf6d58"
+        },
+        {
+          "path": "docs/readmes/052/java-initial-focused.txt",
+          "kind": "text",
+          "sha256": "258a04818add6110a776af44daa0513caf15105e031aaa3cd22de9f65377fc7b"
+        },
+        {
+          "path": "docs/readmes/052/java-validation.txt",
+          "kind": "text",
+          "sha256": "715f3049c51f1bdbca4a1e0d6ba0a208714dd31dd579d626203a9cd84692bac1"
+        },
+        {
+          "path": "docs/readmes/052/model-residency.json",
+          "kind": "text",
+          "sha256": "0b2cc92dbacf4a640ef7c7411efe0f7fecf34b4d9b2e1870b72fbbb90ec8ff1b"
+        },
+        {
+          "path": "docs/readmes/052/original/chat-tasks.json.gz",
+          "kind": "binary",
+          "sha256": "ef3b03a493f4d4404f26413df461de0b331654c098768571338a28e9c438ac7f"
+        },
+        {
+          "path": "docs/readmes/052/original/development-first-chat-tasks.json.gz",
+          "kind": "binary",
+          "sha256": "89aa92b9cdf45eb64044beca026b88fe27596531b5c746c85a62f526b0b3725f"
+        },
+        {
+          "path": "docs/readmes/052/original/development-first-native.json.gz",
+          "kind": "binary",
+          "sha256": "0ce812fcb7de48fe4c1c51b6756e22ab1846fde80c4157762f15b01925b4a3d7"
+        },
+        {
+          "path": "docs/readmes/052/original/development-first-world.json.gz",
+          "kind": "binary",
+          "sha256": "33dd1399013272fdd8766419a6a1f4a648eaae2c9bbcc7b5cc39fe8c712d1fa2"
+        },
+        {
+          "path": "docs/readmes/052/original/native-state.json.gz",
+          "kind": "binary",
+          "sha256": "409c4f65be4f636e882e5433de5e5a73cc5a47ae2c20701e1699e0221767e890"
+        },
+        {
+          "path": "docs/readmes/052/original/world-export.json.gz",
+          "kind": "binary",
+          "sha256": "cb3946385fb2cf6001c392c9cce9353e1aaee0cd8aeeef47db7b397fb42ea410"
+        },
+        {
+          "path": "docs/readmes/052/original/world-ledger.json.gz",
+          "kind": "binary",
+          "sha256": "3ebd6848cb09a52dbb383bca4711fc6c02a5885c57877352c061f87109e055bc"
+        },
+        {
+          "path": "docs/readmes/052/original-evidence.json",
+          "kind": "text",
+          "sha256": "e4a2d06a1e56515729e17cdfcd6fe676fe6003dde2c6f89aa1a9ebf535f1ce66"
+        },
+        {
+          "path": "docs/readmes/052/reference-tests.txt",
+          "kind": "text",
+          "sha256": "c08666d432e987f2fd98e58b2a27b8a28f42720e3135535f05924e36dd3a19f2"
+        },
+        {
+          "path": "docs/readmes/052/system-map.json",
+          "kind": "text",
+          "sha256": "d7f4b745b71a471974cd9ba9a3b0f71641ec717b3dfa99301bc07685f2a69192"
+        },
+        {
+          "path": "docs/readmes/052/verification.json",
+          "kind": "text",
+          "sha256": "df8db5864d7bd68796efc53e13525ac51deb090beb2fdf1789ceec5cfafd53c7"
         }
       ]
     }

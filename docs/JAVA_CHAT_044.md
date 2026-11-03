@@ -1,5 +1,7 @@
 # Java chat and procedural ownership
 
+Edition052 adds terminal completion without a redundant model request, measured planner-call timing, objective continuity, retained diagnostic groups and concise source-derived results. The original completion routine still reads current native/report evidence. Mission exposes the complete result through an expandable evidence panel. Only optional discovery catalog entries are summarized; exact bound requirements are preserved and oversized essential domain context refuses explicitly. See [README052](../README-052.md) and the [Logic Chain review](REFERENCE_LOGIC_052.md).
+
 Edition044 extends the existing Java task queue. There is one conversation/task owner and one existing interface. Java calls the locally admitted Ollama model when a semantic decision or generated document is required; it does not turn the Java source into a replacement language model.
 
 The desktop submits the user's request, selected model and actual visible source selections. `ChatPolicy044` classifies the request; `Domain044` freezes its source bindings, semantic options, stage and child identities. Java stores each allowed action, model admission, real result hash, interruption and outcome in the existing task history and witness. The interface executes a leased typed action and returns observations. It does not choose the next stage or set completion flags.

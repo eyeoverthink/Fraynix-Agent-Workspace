@@ -1,5 +1,14 @@
 # Agent Workspace project memory
 
+## Edition052 · Checked chat validated locally
+
+2026-11-03. Source099d44fa938a1775b7394ad0420ea512fd04a137 in isolated edition052 removes the redundant terminal model decision through the SAME original completion path. ChatChain052 preserves objective identity, diagnostic occurrences and valid bounded domain context; Mission exposes concise results, measured model time and full original evidence. Native physics, planner, world/commit/checkpoint/export and construction algorithms unchanged. No new scheduler, dependency or cloud activation.
+
+456 distinct Java cases/92 classes validated across the initial full and final affected-case invocations; original custom verification tasks retained. Initial observation-helper failures and their correction are preserved; no claim of a single all-green full-suite invocation.123desktop tests pass. Actual local gpt-oss:20b CPU/four-thread bridge reuse and fresh start each use ONE model request, versus two in051. Reuse 107.166s and fresh start 91.779s wall time; historical051359.438/355.213s is not a controlled paired benchmark. Original source/receipt gates, cold restart, same-world reassembly, complete export, Stop/restoration and wide/narrow integrated Mission checks pass. Reference Logic Chain pinned7c15c78 reports269passes but logs five Windows save errors; output and qualification retained. No model-weight learning claim.
+
+README052, real screenshots, original evidence, offline guide and Obsidian map accompany the source. Preserve001–051 immutable. Normal review045/private camera/mat/project and its installed runtime remain untouched. Publication is not claimed until actual push and fresh fetched-tree verification. Next: task-sized design chain and frozen diagnostic-retention evaluation, then broader parts/obstacles and separate load experiments.
+
+
 ## Edition 051 · Published and fetched back on 2026-11-03
 
 Actual non-forced atomic push to private `eyeoverthink/Fraynix-Agent-Workspace`: main, edition051 and readme-051 accepted. Release `b10e9e3fdefe0cd01abd077c55ebe0c18a8b9964`; annotated tag `9edf406339f3ce0af0977afaf73d5d16817a8c86`. Fresh direct GitHub fetch confirms main and tag. All 862 canonical source files, 3,268 frozen hashes across 51 editions, and all four complete original evidence archives were read from that fetched tree and checked. Each new gzip archive was decompressed and its original byte count/SHA verified. Documentation passes 56 canvases and 5,639 references. [Publication receipt](PUBLICATION_051.json).

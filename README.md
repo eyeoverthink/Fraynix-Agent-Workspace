@@ -2,9 +2,9 @@
 
 **A local visual environment for agents to browse, create runnable artifacts, test behavior and reuse verified skills.**
 
-> **[Edition 051 · Assemble a world that remembers](README-051.md)** · [Offline guide](docs/readmes/051/index.html) · [Operation](docs/JAVA_CHAT_044.md) · [Edition history](docs/readmes/INDEX.md)
+> **[Edition052 · Faster chat, the same evidence](README-052.md)** · [Offline guide](docs/readmes/052/index.html) · [Operation](docs/JAVA_CHAT_044.md) · [Edition history](docs/readmes/INDEX.md)
 
-Edition 051 is published to main with its original evidence. [Fetched GitHub verification](docs/PUBLICATION_051.json).
+Edition052 reduces redundant terminal inference while preserving original completion checks. [Tests, measured timings and full evidence](docs/readmes/052/verification.json). Previous051 publication remains [verified](docs/PUBLICATION_051.json).
 
 One integrated app, with Java-owned chat planning, creation, native skill scheduling, continuing identity, real clocks and checked outcomes. Mission connects the actual goal, source, child task, recovery and retained result. [Screenshots, typed skill graphs, new logic and production direction](README-046.md).
 
