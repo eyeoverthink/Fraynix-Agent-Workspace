@@ -16,7 +16,17 @@ final class AgentFiles042 {
         try(var channel=FileChannel.open(pending,StandardOpenOption.CREATE_NEW,StandardOpenOption.WRITE)){
             var bytes=ByteBuffer.wrap(data.toString().getBytes(StandardCharsets.UTF_8));while(bytes.hasRemaining())channel.write(bytes);channel.force(true);
         }
-        Files.move(pending,path,StandardCopyOption.ATOMIC_MOVE,StandardCopyOption.REPLACE_EXISTING);
+        // Windows readers/virus scanners can briefly deny replacement. Keep the forced
+        // pending bytes and retry only access denial; never downgrade to a non-atomic save.
+        for(int attempt=0;;attempt++){
+            try{Files.move(pending,path,StandardCopyOption.ATOMIC_MOVE,StandardCopyOption.REPLACE_EXISTING);break;}
+            catch(AccessDeniedException denied){
+                if(attempt>=5)throw denied;
+                try{Thread.sleep(25L<<attempt);}catch(InterruptedException interrupted){
+                    Thread.currentThread().interrupt();var failure=new InterruptedIOException("Checkpoint replacement interrupted; previous and pending bytes retained");failure.initCause(denied);throw failure;
+                }
+            }
+        }
     }
     static JSONObject read(Path path,int max)throws IOException{if(Files.size(path)>max)throw new IOException("Agent checkpoint exceeds its format limit");return new JSONObject(Files.readString(path,StandardCharsets.UTF_8));}
     static JSONObject loadChecked(Path path)throws IOException{
