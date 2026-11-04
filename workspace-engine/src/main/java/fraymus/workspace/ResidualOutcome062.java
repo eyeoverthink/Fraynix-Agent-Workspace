@@ -56,7 +56,7 @@ final class ResidualOutcome062 {
             p.push(c.getDouble("pushMps"));var samples=new JSONArray().put(p.sample());
             for(int t=0;t<180;t++){cancel.run();p.step();if(p.tick()%4==0)samples.put(p.sample());}
             var r=new JSONObject().put("id",UUID.randomUUID().toString()).put("definition",c).put("physicalParameters",config.json()).put("ids",ids)
-                .put("source",source()).put("backend",BulletRamp.BACKEND).put("observedAt",Instant.now()).put("samples",samples).put("final",p.sample());
+                .put("source",source()).put("backend",BulletRamp.BACKEND).put("observedAt",Instant.now().toString()).put("samples",samples).put("final",p.sample());
             r.put("sha256",WorldFrames.hash(r));verify(r);return r;
         }
     }
@@ -118,7 +118,7 @@ final class ResidualOutcome062 {
         job.put("manifest062",manifest()).put("train062",new JSONArray()).put("select062",new JSONArray()).put("reserved062",new JSONArray()).put("progress",0).put("total",60);
         progress.save("Collecting new native training residuals");
         for(Object raw:definitions("train")){
-            var c=(JSONObject)raw;var row=new JSONObject().put("definition",c).put("predictionBeforeObservation",new JSONObject().put("analytical",analytic(c))).put("predictedAt",Instant.now());
+            var c=(JSONObject)raw;var row=new JSONObject().put("definition",c).put("predictionBeforeObservation",new JSONObject().put("analytical",analytic(c))).put("predictedAt",Instant.now().toString());
             job.getJSONArray("train062").put(row);progress.save("Analytical prediction saved before training observation");
             row.put("record",trial(c,dir,cancel));job.put("progress",job.getInt("progress")+1);progress.save("Training observation "+job.getInt("progress")+" / 32");
         }
@@ -126,11 +126,11 @@ final class ResidualOutcome062 {
         for(String phase:List.of("select","reserved")){
             if(phase.equals("reserved")){
                 var decision=select(metrics(job.getJSONArray("select062"))).put("modelSha256",job.getString("modelSha256062"))
-                    .put("selectionSha256",WorldFrames.hash(new JSONObject().put("rows",job.getJSONArray("select062")))).put("pinnedAt",Instant.now());
+                    .put("selectionSha256",WorldFrames.hash(new JSONObject().put("rows",job.getJSONArray("select062")))).put("pinnedAt",Instant.now().toString());
                 job.put("decision062",decision).put("decisionSha256062",WorldFrames.hash(decision));progress.save("Selected method pinned before reserved observations");
             }
             for(Object raw:definitions(phase)){
-                cancel.run();var c=(JSONObject)raw;var row=new JSONObject().put("definition",c).put("predictionBeforeObservation",predictions(model,c)).put("predictedAt",Instant.now());
+                cancel.run();var c=(JSONObject)raw;var row=new JSONObject().put("definition",c).put("predictionBeforeObservation",predictions(model,c)).put("predictedAt",Instant.now().toString());
                 job.getJSONArray(phase+"062").put(row);progress.save(phase+" prediction saved before observation");
                 row.put("record",trial(c,dir,cancel));job.put("progress",job.getInt("progress")+1);progress.save("Verified "+phase+" observation "+job.getInt("progress")+" / 60");
             }

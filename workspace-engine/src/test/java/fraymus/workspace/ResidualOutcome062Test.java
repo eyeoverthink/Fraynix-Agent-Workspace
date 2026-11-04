@@ -19,7 +19,7 @@ public class ResidualOutcome062Test {
    tamper(j,v->v.getJSONArray("train062").put(1,v.getJSONArray("train062").getJSONObject(0)));
    tamper(j,v->v.getJSONArray("reserved062").getJSONObject(0).getJSONObject("predictionBeforeObservation").put("linear",42));
    tamper(j,v->v.getJSONObject("evaluation062").put("qualified",!v.getJSONObject("evaluation062").getBoolean("qualified")));
-   tamper(j,v->{v.getJSONObject("decision062").put("method","cortex").put("selectionQualified",true);v.put("decisionSha256062",WorldFrames.hash(v.getJSONObject("decision062")));});
+   tamper(j,v->{v.getJSONObject("decision062").put("method",v.getJSONObject("decision062").getString("method").equals("cortex")?"linear":"cortex").put("selectionQualified",true);v.put("decisionSha256062",WorldFrames.hash(v.getJSONObject("decision062")));});
    tamper(j,v->{var model=v.getJSONObject("model062");model.put("meanResidualM",.012345);v.put("modelSha256062",WorldFrames.hash(model));});
    tamper(j,v->{var r=v.getJSONArray("train062").getJSONObject(0).getJSONObject("record");r.getJSONObject("physicalParameters").put("massKg",2);r.remove("sha256");r.put("sha256",WorldFrames.hash(r));});
    tamper(j,v->v.getJSONArray("reserved062").getJSONObject(0).put("predictedAt","2000-01-01T00:00:00Z"));

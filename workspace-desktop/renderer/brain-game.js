@@ -1,3 +1,4 @@
+import {Residual062} from './residual062.js';
 import {Cortex061} from './cortex061.js';
 import {EvidenceBench049} from './evidence049.js';
 const $=id=>document.getElementById(id);
@@ -7,6 +8,7 @@ export class BrainGame {
   const safe=f=>async()=>{try{await f();}catch(e){this.notice(e.message);$('brain-status').textContent=e.message;}};
   this.addSkillMemory();
   this.cortex061=new Cortex061(call,notice);
+  this.residual062=new Residual062(call,notice);
   this.evidenceBench=new EvidenceBench049(call);
   $('brain-open').onclick=safe(async()=>{
    $('brain-dialog').showModal();this.layout();await this.refresh();
@@ -93,7 +95,7 @@ export class BrainGame {
   }
  }
  show(frame){this.running=true;$('game-frame').src='data:image/png;base64,'+frame.pngBase64;const s=frame.state,p=s.player;this.lastFrame=frame;$('game-status').textContent=`Original Java renderer · tick ${s.tick} · ${s.objects} objects\nPlayer X ${p.x.toFixed(3)} / Y ${p.y.toFixed(3)} · ${p.dead?'dead':p.won?'goal reached':p.onGround?'on ground':'airborne'}\nCapture ${Number(frame.captureMs).toFixed(1)} ms · bridge ${Number(frame.bridgeMs).toFixed(1)} ms · hidden runtime · no editor panels`;}
- async refresh(){const s=await this.call('brain','state');this.cortex061.refresh(s);this.busy=s.busy;this.version=s.activePolicy.version;this.feedbackVersion=s.activeFeedback.version;$('brain-feedback-rollback').disabled=s.busy||this.feedbackVersion<2;$('brain-feedback-run').disabled=s.busy;const latest=s.jobs.at(-1);if(latest)this.jobId=latest.id;
+ async refresh(){const s=await this.call('brain','state');this.cortex061.refresh(s);this.residual062.refresh(s);this.busy=s.busy;this.version=s.activePolicy.version;this.feedbackVersion=s.activeFeedback.version;$('brain-feedback-rollback').disabled=s.busy||this.feedbackVersion<2;$('brain-feedback-run').disabled=s.busy;const latest=s.jobs.at(-1);if(latest)this.jobId=latest.id;
   $('brain-state').textContent=`Java coordinator · policy v${this.version} (${s.activePolicy.kind}) · feedback v${this.feedbackVersion} (${s.activeFeedback.kind}) · ${s.journalEntries} journal entries · shared cortex ${s.cortex.ready?s.cortex.neurons+' neurons / '+s.cortex.synapses+' synapses / tick '+s.cortex.ticks:'ready to load on pulse'}`;
   for(const kind of ['pulse','gpu-check','train','feedback-train'])$('brain-'+kind).disabled=s.busy;$('brain-cancel').disabled=!s.busy;$('brain-rollback').disabled=s.busy||this.version<2;$('brain-run').disabled=s.busy;
   if(latest){$('brain-status').textContent=`${latest.kind}: ${latest.status} · ${latest.phase} · ${latest.total?latest.progress+'/'+latest.total:''}`;$('brain-status').dataset.status=latest.status;const stamp=[latest.id,latest.status,latest.phase,latest.progress].join('/');const j=this.jobStamp===stamp?this.lastJob:await this.call('brain','read',{id:latest.id});this.jobStamp=stamp;this.lastJob=j;const e=j.evaluation,f=j.feedbackEvaluation;$('brain-result').textContent=f?`${f.accepted?'Feedback accepted':'Feedback rejected'} · score ${f.meanScores['analytical-feedback'].toFixed(4)} → ${f.meanScores.candidate.toFixed(4)} vs hand-designed feedback · worst endpoint ${(100*f.maxEndpointErrorM).toFixed(2)} cm · terminal speed ≤ ${f.maxTerminalSpeedMps.toFixed(3)} m/s · ${j.feedbackPromotion?'activated v'+j.feedbackPromotion.version:'candidate retained'}`:e?`${e.accepted?'Validation accepted':'Validation rejected'} · mean error ${e.baselineMeanErrorM.toFixed(3)} → ${e.trainedMeanErrorM.toFixed(3)} m · ${(e.relativeMeanGain*100).toFixed(1)}% improvement · worst ${e.maxTrainedErrorM.toFixed(3)} m · ${j.promotion?'activated as policy v'+j.promotion.version:'candidate retained without activation'}`:j.kind==='gpu-check'&&j.cases?`${j.device}\nCPU/GPU parity passed for ${j.cases.length} workloads. Timings include transfer overhead; open evidence for measured costs.`:j.kind==='pulse'&&j.ticks?`Cortex tick ${j.ticks} saved · ${j.neurons} neurons · ${j.synapses} synapses. Diagnostic computation; physical learning is measured separately.`:'';const compact={...j};for(const key of ['training','validation','trainingDefinitions','validationDefinitions','search','feedbackTrials','worldTraining','worldCalibration','worldTestEpisodes','worldPlanningTrials'])delete compact[key];$('brain-evidence').textContent=JSON.stringify(compact,null,2);}
