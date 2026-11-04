@@ -348,7 +348,7 @@ async function launchGame(){
   await new Promise((resolve,reject)=>{gameProcess.once('error',reject);setTimeout(()=>gameProcess.exitCode===null?resolve():reject(Error('Game Lab failed to start; inspect '+logPath)),1200);});
   activity('game','Game Lab started in separate project storage',{pid:gameProcess.pid});return {launched:true,pid:gameProcess.pid,log:logPath};
 }
-function layout(input){for(const kind of ['browser','canvas']){const rect=input[kind];if(!rect)continue;const [w,h]=window.getContentSize();const x=Math.max(0,Math.min(w,Math.round(rect.x))),y=Math.max(0,Math.min(h,Math.round(rect.y)));const width=Math.max(1,Math.min(w-x,Math.round(rect.width))),height=Math.max(1,Math.min(h-y,Math.round(rect.height)));const surface=kind==='browser'?browser:canvas;surface.view.setBounds({x,y,width,height});surface.view.setVisible(rect.visible!==false);surfacesVisible[kind]=rect.visible!==false;}}
+function layout(input){for(const kind of ['browser','canvas']){const rect=input[kind];if(!rect)continue;const [w,h]=window.getContentSize();const x=Math.max(0,Math.min(w,Math.round(rect.x))),y=Math.max(0,Math.min(h,Math.round(rect.y)));const width=Math.max(1,Math.min(w-x,Math.round(rect.width))),height=Math.max(1,Math.min(h-y,Math.round(rect.height)));const surface=kind==='browser'?browser:canvas;surface.view.setBounds(kind==='canvas'&&rect.visible===false?{x:0,y:0,width:640,height:480}:{x,y,width,height});surface.view.setVisible(rect.visible!==false);surfacesVisible[kind]=rect.visible!==false;}}
 // Faithful application export: the shell and child WebContents have separate compositor surfaces.
 async function captureComposite(){
   const shell=await window.capturePage(),size=window.getContentSize();
