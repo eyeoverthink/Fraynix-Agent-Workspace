@@ -1,5 +1,14 @@
 # Agent Workspace development log
 
+## Edition 065 · Validated locally; publication next
+
+Frozen contract `73ec4dc`; native implementation `00bd434`; final actual-app source `abd1610`. The study completed 216 decision slots: 60 supported tasks × three methods and 12 unsupported × three. There were 85 independent native executions. Simple: 27 successes, 33 misses, zero refusals. Fixed: 13 successes, zero misses, 47 refusals. Pooled: 12 successes, zero misses, 48 refusals. Mean utilities: −0.670000, +0.094833 and +0.076000. Pooled fails the Fixed comparison and 50% completion gates. No posthoc method switch, controller promotion or LLM-weight training. Selected coverage of 12/13 Fixed and 11/12 Pooled is not a selected-action guarantee. All 36 unsupported decisions refuse without native motion.
+
+62 distinct targeted Java checks across nine classes, 127 desktop checks and actual UI/restart/Stop/local CPU/four-thread gpt-oss:20b reporting passed. Initial 34-degree admission failure retained with checkpoint, journal and XML; repaired refusal handling leaves all 60 supported plans identical. First actual chat hit the 12,500-character context guard. Lossless metric tables preserve every number, null, subgroup and paired result while retaining original facts and checks. The same completed study and interrupted chat resumed successfully; no actual native study was rerun for the chat repair. Preliminary test-source syntax failure retained.
+
+README 065, seven actual app captures, an offline 60-task/12-refusal explorer, Obsidian map, 968 canonical sources and original archives are prepared. Main push and fetched audit remain pending. The test app is closed. Preserve normal045/qa046 installations, personal worlds and frozen editions 001–064. No subagents or overlapping heavy validation. Next 066: bounded additional observation/replanning with costs declared before fresh outcomes; compare completion, misses and total utility with simpler controls. Native simulation remains distinct from physical calibration.
+
+
 ## Edition 064 · Published and fetched back on 2026-11-04
 
 Actual atomic push to Fraynix-Agent-Workspace main, edition064 and readme-064 succeeded. Release `50be9a6568037915c4060804a247e6df60326062`; annotated tag `e9a2aa10cb582a637642eb4daca374e94998b2ff`. Fresh GitHub fetch verified 961 canonical sources, 5495 frozen hashes across 64 editions and 40 original archives including decompressed bytes. Documentation passed 69 canvases and 6586 references. [Publication receipt](PUBLICATION_064.json).

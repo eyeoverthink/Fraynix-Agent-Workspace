@@ -93,3 +93,8 @@ Java Brain → Stopping & uncertainty runs matched interventions, original-engin
 ## Contact study facts 064
 
 Java Brain → Contact impulses & new uncertainty runs persistent manifold tracing, original parity, fresh pooled calibration, reserved evaluation and separate out-of-domain stress. Chat requests mentioning contact study, contact impulses or pooled uncertainty use existing agent-state and checked reporting. Compact progress indexes preserve full evidence; bounded lossless storage restores exact original JSON. Planning omits repeated witness history with count/hash while retaining original task facts and report data. Chat reports the completed study; it does not start these experiments or actuate objects. [Edition 064](../README-064.md).
+
+
+## Decision study facts 065
+
+Java Brain → Reach a target: does caution help? compares Simple, Fixed and the published Pooled margin on fresh target windows. Chat requests mentioning decision study, decision value or target window use the existing continuing-agent read/report path. Chat does not start this experiment or move objects. Java owns plans, domain refusal, independent native execution, costs, auditing and retained outcomes. Planning uses shared metric columns and lossless rows; original facts and checked reports retain full objects. `/api/brain/decision-plan` previews a task without motion; `/api/brain/decision-trace` reads a completed audited case. Pooled failed the declared usefulness gate; no controller promotion. [Edition 065](../README-065.md).

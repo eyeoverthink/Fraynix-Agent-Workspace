@@ -2,11 +2,11 @@
 
 **A local visual environment for agents to browse, create runnable artifacts, test behavior and reuse verified skills.**
 
-> **[Edition 064 · Contact impulses and prospective uncertainty](README-064.md)** · [Offline guide](docs/readmes/064/index.html) · [Operation](docs/JAVA_CHAT_044.md) · [Edition history](docs/readmes/INDEX.md)
+> **[Edition 065 · Does caution improve decisions?](README-065.md)** · [Offline guide](docs/readmes/065/index.html) · [Operation](docs/JAVA_CHAT_044.md) · [Edition history](docs/readmes/INDEX.md)
 
-Edition 064 records persistent contact impulses, compares them with momentum, and tests preselected pooled uncertainty on fresh reserved and out-of-range cases. Reserved coverage was 55/60, passing the declared advisory gate. [Measured results and originals](docs/readmes/064/verification.json).
+Edition 065 compares three Java policies on 60 fresh target tasks and 12 unsupported cases. Simple completed 27 tasks, Fixed 13 and Pooled 12; Pooled failed its declared usefulness gate. Actual motion, refusals, costs and original evidence remain inspectable. [Measured results](docs/readmes/065/verification.json).
 
-Edition 064 is published to main with source, nine actual app captures, original evidence and updated continuity notes. [Fetched GitHub verification](docs/PUBLICATION_064.json).
+Edition 065 implementation, screenshots and original evidence are prepared for publication. [Previous fetched publication](docs/PUBLICATION_064.json).
 
 One integrated app, with Java-owned chat planning, creation, native skill scheduling, continuing identity, real clocks and checked outcomes. Mission connects the actual goal, source, child task, recovery and retained result. [Screenshots, typed skill graphs, new logic and production direction](README-046.md).
 

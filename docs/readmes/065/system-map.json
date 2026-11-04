@@ -1,0 +1,97 @@
+{
+  "edition": 65,
+  "modules": [
+    {
+      "id": "calibration",
+      "name": "Published calibration, checked again",
+      "summary": "Java verifies the exact published 064 model and all 60 calibration records before using its frozen margin.",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/Calibration065.java",
+      "status": "Verified",
+      "note": "docs/obsidian/73-decision-value.md"
+    },
+    {
+      "id": "policy",
+      "name": "Three owned Java decision policies",
+      "summary": "Simple chooses nearest; Fixed and Pooled admit a push only when its interval fits the target window.",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/DecisionPolicy065.java",
+      "status": "Verified",
+      "note": "docs/obsidian/73-decision-value.md"
+    },
+    {
+      "id": "study",
+      "name": "Declared native experiment",
+      "summary": "Plans precede independent observations. Java audits 216 decision slots, 85 executions and every refusal.",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/DecisionStudy065.java",
+      "status": "Verified",
+      "note": "docs/obsidian/73-decision-value.md"
+    },
+    {
+      "id": "owner",
+      "name": "Continuing Java owner",
+      "summary": "Durable evidence, compact progress, Stop and cold restoration retain the original outcomes.",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/BrainService.java",
+      "status": "Verified",
+      "note": "docs/obsidian/73-decision-value.md"
+    },
+    {
+      "id": "view",
+      "name": "Integrated task and motion explorer",
+      "summary": "Actual goals, timelines, policy costs and local-model reports in the existing app.",
+      "source": "workspace-desktop/renderer/decision065.js",
+      "status": "Actual app",
+      "note": "docs/obsidian/73-decision-value.md"
+    },
+    {
+      "id": "next",
+      "name": "Bounded observation and replanning",
+      "summary": "Prospectively test whether one extra observation recovers refused tasks after its costs are counted.",
+      "source": "docs/EDITION_065_CONTRACT.md",
+      "status": "Planned",
+      "note": "docs/obsidian/73-decision-value.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "docs/readmes/065/decision065-comparison.png",
+      "title": "Success, misses, refusals and the failed decision-value gate"
+    },
+    {
+      "path": "docs/readmes/065/decision065-motion.png",
+      "title": "Target window and independent recorded native trajectories"
+    },
+    {
+      "path": "docs/readmes/065/decision065-refusal.png",
+      "title": "A supported task where caution refuses"
+    },
+    {
+      "path": "docs/readmes/065/decision065-domain.png",
+      "title": "Unsupported task: refusal without invented motion"
+    },
+    {
+      "path": "docs/readmes/065/decision065-preview.png",
+      "title": "Preview a new Java decision without executing it"
+    },
+    {
+      "path": "docs/readmes/065/decision065-narrow.png",
+      "title": "Integrated Java Brain at 1100 pixels"
+    },
+    {
+      "path": "docs/readmes/065/decision065-chat.png",
+      "title": "Actual local-model checked report after context recovery"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/readmes/065/verification.json",
+      "title": "Verification"
+    },
+    {
+      "path": "docs/readmes/065/original-evidence.json",
+      "title": "Exact originals"
+    },
+    {
+      "path": "docs/readmes/065/decision-data.json",
+      "title": "Audited Java-derived trajectories"
+    }
+  ]
+}
