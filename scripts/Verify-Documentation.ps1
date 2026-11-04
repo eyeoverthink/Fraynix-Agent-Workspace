@@ -6,9 +6,18 @@ $anchors = @{}
 $referenceCount = 0
 $hashCount = 0
 function Canonical-Hash([string]$Path,[bool]$Binary = $false) {
-    $bytes = if($Binary){[IO.File]::ReadAllBytes($Path)}else{[Text.Encoding]::UTF8.GetBytes([IO.File]::ReadAllText($Path).Replace("`r`n","`n"))}
     $sha = [Security.Cryptography.SHA256]::Create()
-    try { return ([BitConverter]::ToString($sha.ComputeHash($bytes))).Replace('-','').ToLowerInvariant() } finally { $sha.Dispose() }
+    $stream = $null
+    try {
+        if($Binary){
+            $stream = [IO.File]::OpenRead($Path)
+            $digest = $sha.ComputeHash($stream)
+        }else{
+            [byte[]]$bytes = [Text.Encoding]::UTF8.GetBytes([IO.File]::ReadAllText($Path).Replace("`r`n","`n"))
+            $digest = $sha.ComputeHash($bytes)
+        }
+        return ([BitConverter]::ToString($digest)).Replace('-','').ToLowerInvariant()
+    } finally { if($stream){$stream.Dispose()}; $sha.Dispose() }
 }
 function Resolve-Local([string]$Origin,[string]$Target,[bool]$Vault = $false) {
     if($Target -match '^(https?|mailto|obsidian|data):'){return $null}
@@ -44,7 +53,7 @@ function Check-Wiki([string]$Origin,[string]$Text){
     }
 }
 $manifestPath=Join-Path $repo 'docs/readmes/editions.json'
-$manifest=Get-Content -LiteralPath $manifestPath -Raw | ConvertFrom-Json
+$manifest=Get-Content -LiteralPath $manifestPath -Raw -Encoding UTF8 | ConvertFrom-Json
 $ids=@($manifest.editions | ForEach-Object {[int]$_.number})
 if(@($ids|Sort-Object -Unique).Count -ne $ids.Count){$issues.Add('Duplicate edition number')}
 if(($ids|Measure-Object -Maximum).Maximum -ne [int]$manifest.latest){$issues.Add('Latest edition does not match highest registered number')}
@@ -74,7 +83,7 @@ foreach($file in $scope){
 }
 $canvases=@(Get-ChildItem -LiteralPath (Join-Path $repo 'docs') -Filter '*.canvas' -Recurse -File)
 foreach($file in $canvases){
-    $c=Get-Content -LiteralPath $file.FullName -Raw | ConvertFrom-Json
+    $c=Get-Content -LiteralPath $file.FullName -Raw -Encoding UTF8 | ConvertFrom-Json
     $nodes=[System.Collections.Generic.HashSet[string]]::new();$edges=[System.Collections.Generic.HashSet[string]]::new()
     foreach($n in $c.nodes){
         if(!$nodes.Add($n.id)){$issues.Add("Duplicate canvas node: $($file.Name) $($n.id)")}
@@ -87,8 +96,8 @@ foreach($file in $canvases){
 foreach($edition in $manifest.editions){
     $html=[IO.File]::ReadAllText((Join-Path $repo $edition.companion))
     $dir=Join-Path $repo $edition.snapshotDirectory
-    $map=Get-Content -LiteralPath (Join-Path $dir 'system-map.json') -Raw | ConvertFrom-Json
-    $inventory=Get-Content -LiteralPath (Join-Path $dir 'file-inventory.json') -Raw | ConvertFrom-Json
+    $map=Get-Content -LiteralPath (Join-Path $dir 'system-map.json') -Raw -Encoding UTF8 | ConvertFrom-Json
+    $inventory=Get-Content -LiteralPath (Join-Path $dir 'file-inventory.json') -Raw -Encoding UTF8 | ConvertFrom-Json
     foreach($pair in @(@('system-data',$map),@('inventory-data',$inventory))){
         $capture=[regex]::Match($html,'(?s)<script id="'+$pair[0]+'" type="application/json">(.*?)</script>')
         if(!$capture.Success){$issues.Add("Missing embedded dataset $($pair[0])");continue}
