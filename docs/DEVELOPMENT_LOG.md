@@ -1,5 +1,12 @@
 # Agent Workspace development log
 
+## Edition057 implementation checkpoint · not published
+
+2026-11-03. Work in isolated fraynix-workspace-edition057/edition057 from ca57e27; target private Fraynix-Agent-Workspace. Frozen contract7009814 precedes seven native force/drop cases, each repeated, actual payload bodies and recorded report/replay. Integration source0db57e8 under serial regression (build/test057-regression.log). 123desktop checks pass. First sourceb58c305 reached64MB; cb0aa0c compact contacts then hit512MB heap during full-history hashing. Streaming hash source0db57e8 completes native results, but a test held multiple complete histories while checking altered source and exhausted heap at its last assertion. Preserve all original tests/Temp roots. Current uncommitted fix frees extra test references; report originals split by attempt,64MBtotal artifact cap, original full export unchanged. Physical gates and protocol unchanged.
+
+Still required: final native/regression checks, actual app/localCPUmodel/restart/reuse in compact stock and changedcentre, screenshots, documentation preparation/freeze/verification and actual main/edition057/readme-057 push with fresh fetched audit. README057 is draft with measured-result placeholders. Prepared build/prepare-docs057.py; do not run until actual live test passes. Never claim057published yet. Preserve001–056immutable, normal045/qa046installedJARs/private projects, dependencyjunction053. No subagents or overlapping native/model jobs.
+
+
 ## Edition056 · Published and fetched back on2026-11-03
 
 Actual non-forced atomic push to private eyeoverthink/Fraynix-Agent-Workspace: main, edition056 and readme-056 accepted. Release `9dad7eb03a6c9dc099b9349583845e222c7f5c26`; annotated tag `81a8050072c0b8039244f21b5f01ad4a1e3323cc`. Fresh direct GitHub fetch verifies 902 canonical sources, 4350 frozen hashes across56 editions and 281 original archives including decompressed bytes/SHA. Documentation passes 61canvases/5990references. [Publication receipt](PUBLICATION_056.json).
