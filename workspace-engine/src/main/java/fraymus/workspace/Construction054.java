@@ -54,7 +54,7 @@ final class Construction054 {
  static JSONObject intent(JSONObject scene,JSONObject requested,double force,double torque){
   stock(scene);var o=Construction051.options(requested);var c=config(scene);RampDefinition.range(force,2,60,"gripper force N");RampDefinition.range(torque,0,4,"gripper torque Nm");var targets=new JSONArray();var beam=WorldPlan.sourceObject(scene,"beam");double bh=beam.getJSONArray("size").getDouble(1)/2,sh=c.getDouble("supportHeightM"),span=o.optDouble("supportSpanM",c.getDouble("spanM"));double sw=WorldPlan.sourceObject(scene,"support-a").getJSONArray("size").getDouble(0);double offset=o.optDouble("supportOffsetM",0);if(span<sw+.2||span+sw+2*Math.abs(offset)>beam.getJSONArray("size").getDouble(0)-.16+1e-9)throw new IllegalArgumentException("Redesigned span must retain original beam-end margins");
   if(beam.getJSONArray("position").getDouble(1)>bh+.15)targets.put(target("beam",2,bh,-2));double x=o.getDouble("centerX"),z=o.getDouble("centerZ");
-  targets.put(target("support-a",x+offset-span/2,sh/2,z)).put(target("support-b",x+offset+span/2,sh/2,z)).put(target("beam",x,sh+bh+.02,z));
+  if(o.has("supportA060")){for(Object t:SupportRepair060.targets(scene,o,sh))targets.put(t);}else targets.put(target("support-a",x+offset-span/2,sh/2,z)).put(target("support-b",x+offset+span/2,sh/2,z));targets.put(target("beam",x,sh+bh+.02,z));
   return new JSONObject().put("binding",SpatialStore.binding(scene)).put("targets",targets).put("forceLimitN",force).put("torqueLimitNm",torque).put("actuator","bounded virtual force/torque gripper").put("construction051",o).put("constructionCodeSha256",Construction051.identity()).put("geometry054",c);
  }
  private static JSONObject target(String id,double x,double y,double z){return new JSONObject().put("sourceId",id).put("positionM",new JSONArray(new double[]{x,y,z})).put("yawDeg",0);}
@@ -65,10 +65,10 @@ final class Construction054 {
   for(Object raw:scene.getJSONArray("objects")){var b=WorldFrames.copy((JSONObject)raw);if(b.getString("sourceId").equals("floor"))continue;bodies.put(b.getString("sourceId"),b);top=Math.max(top,b.getJSONArray("position").getDouble(1)+b.getJSONArray("size").getDouble(1)/2);if(b.getDouble("massKg")>0)radius=Math.max(radius,WorldPlan.radius(b));}
   for(Object raw:expected.getJSONArray("targets")){var t=(JSONObject)raw;top=Math.max(top,t.getJSONArray("positionM").getDouble(1)+bodies.get(t.getString("sourceId")).getJSONArray("size").getDouble(1)/2);}
   double lift=top+radius+.3;boolean clear=lift<=4;String reason=clear?"Declared geometry and obstacle corridors clear; native support/contact proof still required":"Required overhead clearance exceeds4m";var ordered=new JSONArray();
-  for(Object raw:expected.getJSONArray("targets")){var t=(JSONObject)raw;String id=t.getString("sourceId");var from=bodies.get(id);var next=WorldFrames.copy(from).put("position",t.getJSONArray("positionM")).put("rotation",WorldPlan.quat(0));
+  for(Object raw:expected.getJSONArray("targets")){var t=(JSONObject)raw;String id=t.getString("sourceId");var from=bodies.get(id);var next=WorldFrames.copy(from).put("position",t.getJSONArray("positionM")).put("rotation",WorldPlan.quat(t.getDouble("yawDeg")));
    if(!columnClear(from,bodies,id)||!columnClear(next,bodies,id)){clear=false;reason="A static obstacle or retained body occupies a pickup/lowering corridor; no actuation admitted";break;}
-   for(int k:new int[]{0,2})if(Math.abs(next.getJSONArray("position").getDouble(k))+next.getJSONArray("size").getDouble(k)/2>3.9){clear=false;reason="Declared construction exceeds the fixed floor";}
-   ordered.put(WorldFrames.copy(t).put("objectId",from.getString("id")).put("rotation",WorldPlan.quat(0)));bodies.put(id,next);
+   for(int k:new int[]{0,2})if(Math.abs(next.getJSONArray("position").getDouble(k))+half(next)[k]>3.9){clear=false;reason="Declared construction exceeds the fixed floor";}
+   ordered.put(WorldFrames.copy(t).put("objectId",from.getString("id")).put("rotation",WorldPlan.quat(t.getDouble("yawDeg"))));bodies.put(id,next);
   }
   return new JSONObject().put("version",VERSION).put("scope",SCOPE).put("intent",expected).put("liftHeightM",lift).put("orderedTargets",ordered).put("passed",clear).put("reason",reason).put("clearance054",new JSONObject().put("highestBodyOrTargetM",top).put("rotationRadiusM",radius).put("marginM",.3));
  }

@@ -10,18 +10,21 @@ import java.util.function.BooleanSupplier;
 final class PayloadSeries058 {
     private final JSONObject protocol;
     private final String phase;
-    private final boolean asymmetric;
+    private final boolean asymmetric,independent;
     PayloadSeries058(String phase){this(phase,false);}
-    PayloadSeries058(String phase,boolean asymmetric) {
-        this.asymmetric=asymmetric;
+    PayloadSeries058(String phase,boolean asymmetric){this(phase,asymmetric,false);}
+    PayloadSeries058(String phase,boolean asymmetric,boolean independent) {
+        if(asymmetric&&independent)throw new IllegalArgumentException("Choose one support policy");
+        this.asymmetric=asymmetric;this.independent=independent;
         if (!Set.of("design", "reserved").contains(phase)) throw new IllegalArgumentException("Unknown payload phase");
         this.phase=phase;
         protocol=Payload057.protocol();
         var cases=new JSONArray();
-        if(asymmetric)cases=SupportDesign059.protocol().getJSONArray(phase.equals("design")?"designCases":"reservedCases");
+        if(independent)cases=SupportRepair060.protocol().getJSONArray(phase.equals("design")?"designCases":"reservedCases");
+        else if(asymmetric)cases=SupportDesign059.protocol().getJSONArray(phase.equals("design")?"designCases":"reservedCases");
         else if (phase.equals("design")) for (Object id:Design058.protocol().getJSONArray("trainingCaseIds")) cases.put(Payload057.specification(id.toString()));
         else cases=Design058.protocol().getJSONArray("reservedCases");
-        protocol.put("cases",cases).put("version",(asymmetric?"payload-series-059-":"payload-series-058-")+phase);
+        protocol.put("cases",cases).put("version",(independent?"payload-series-060-":asymmetric?"payload-series-059-":"payload-series-058-")+phase);
     }
     JSONObject protocol(){return WorldFrames.copy(protocol);}
     private Path file(Path root,JSONObject run){UUID.fromString(run.getString("id"));return root.resolve(phase).resolve(run.getString("id")+".json");}
@@ -84,7 +87,7 @@ final class PayloadSeries058 {
             results.put(new JSONObject().put("caseId",spec.getString("id")).put("spec",spec).put("firstAttemptId",first.getString("id")).put("repeatAttemptId",second.getString("id")).put("metrics",first.getJSONObject("metrics")).put("repeatMetrics",second.getJSONObject("metrics")).put("repeatAgrees",agrees).put("chart",chart).put("frames",frames).put("objects",first.getJSONArray("objects")));
         }
         for(Object raw:d.getJSONArray("attempts")){var a=(JSONObject)raw;ticks+=a.getJSONArray("rows").length();wall+=a.optDouble("wallMillis",0);}
-        return new JSONObject().put("version","payload-series-058-v1").put("phase",phase).put("complete",true).put("qualifies",qualifies).put("repeatable",repeatable).put("scope",(asymmetric?SupportDesign059.protocol():Design058.protocol()).getString("scope")).put("sourceRunSha256",WorldFrames.hash(run)).put("codeSha256",Design058.code()).put("originalSha256",Payload057.evidenceHash(d)).put("attempts",d.getJSONArray("attempts").length()).put("totalTicks",ticks).put("observedWallMillis",wall).put("results",results);
+        return new JSONObject().put("version","payload-series-058-v1").put("phase",phase).put("complete",true).put("qualifies",qualifies).put("repeatable",repeatable).put("scope",(independent?SupportRepair060.protocol():asymmetric?SupportDesign059.protocol():Design058.protocol()).getString("scope")).put("sourceRunSha256",WorldFrames.hash(run)).put("codeSha256",Design058.code()).put("originalSha256",Payload057.evidenceHash(d)).put("attempts",d.getJSONArray("attempts").length()).put("totalTicks",ticks).put("observedWallMillis",wall).put("results",results);
     }
     JSONObject costs(Path root,JSONObject run)throws Exception {return Evidence059.derive(file(root,run),binding(run,"costs"),d->costData(validate(d,run)));}
     private JSONObject costData(JSONObject d){long ticks=0;double wall=0;for(Object raw:d.getJSONArray("attempts")){var a=(JSONObject)raw;ticks+=a.getJSONArray("rows").length();wall+=a.optDouble("wallMillis",0);}return new JSONObject().put("ticks",ticks).put("wallMillis",wall).put("attempts",d.getJSONArray("attempts").length());}
