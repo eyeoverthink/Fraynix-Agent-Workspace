@@ -45,7 +45,13 @@ final class SupportRepair060 {
         for(int i=0;i<3;i++){
             var c=WorldFrames.copy(config);double ax=i==2?-a:-span/2,bx=i>0?b:span/2;
             if(i>0){c.remove("supportSpanM");c.remove("supportOffsetM");c.put("supportA060",pose(ax,i==2?90:0)).put("supportB060",pose(bx,90));}
-            var plan=WorldPlan.build(scene,Construction051.intent(scene,c,intent.getDouble("forceLimitN"),intent.getDouble("torqueLimitNm")));
+            JSONObject plan;
+            try{plan=WorldPlan.build(scene,Construction051.intent(scene,c,intent.getDouble("forceLimitN"),intent.getDouble("torqueLimitNm")));}
+            catch(IllegalArgumentException refused){
+                if(i==0)throw refused;
+                // A measured comparison retains a geometry refusal without inventing an executable route.
+                plan=new JSONObject().put("version","refused-independent-placement-060-v1").put("intent",new JSONObject().put("binding",SpatialStore.binding(scene)).put("construction051",c).put("forceLimitN",intent.getDouble("forceLimitN")).put("torqueLimitNm",intent.getDouble("torqueLimitNm"))).put("orderedTargets",new JSONArray()).put("liftHeightM",0).put("passed",false).put("reason",refused.getMessage()).put("rejectedGeometry060",true);
+            }
             out.put(new JSONObject().put("id",names[i]).put("plan",plan).put("hypothesis053",new JSONObject().put("forceLimitN",intent.getDouble("forceLimitN")).put("supportA060",pose(ax,i==2?90:0)).put("supportB060",pose(bx,i>0?90:0)).put("additionalSupportTravelM",Math.abs(ax+span/2)+Math.abs(bx-span/2)).put("additionalSupportRotationDeg",i*90).put("objection","Rotated independent bearings may redistribute contact but can still slide or fail. Same stock and limits; only repeated native outcomes certify the repair.")));
         }
         return out;
