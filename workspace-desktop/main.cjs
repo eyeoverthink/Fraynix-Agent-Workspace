@@ -447,7 +447,7 @@ ipcMain.handle('workspace:request',async(event,input)=>{
       if(input.command==='select'){const observed=await api('/api/world/observe',{worldId:args.worldId});currentPersistentWorld={worldId:observed.worldId,expectedRevision:observed.expectedRevision,expectedHash:observed.expectedHash};return observed;}
       if(input.command==='start')return goalBridge.execute('construction.start',args);
       if(input.command==='envelope-export'){const data=await api('/api/construction056/load-export',args);return nativeExports.save('measured-load-redesign','json',JSON.stringify(data),{id:args.id});}
-      if(input.command==='redesign-export'){const data=await api('/api/construction058/payload-export',args);return nativeExports.payloadStudy(data,{id:args.id,edition:58});}
+      if(input.command==='redesign-export'){const data=await api('/api/construction058/payload-export',args);return nativeExports.payloadStudy(data,{id:args.id,edition:data.originals?.manifest?.edition});}
       if(input.command==='payload-export'){const data=await api('/api/construction057/payload-export',args);return nativeExports.payloadStudy(data,{id:args.id});}
       if(input.command==='load-export'){const data=await api('/api/construction055/load-export',args);return nativeExports.save('load-experiments','json',JSON.stringify(data,null,2),{id:args.id});}
       if(input.command==='design-export'){const data=await api('/api/world/counter045/export',args);return nativeExports.save('assembly-design','json',JSON.stringify(data),{studyId:args.id});}

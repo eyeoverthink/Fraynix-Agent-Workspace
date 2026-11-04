@@ -1,5 +1,12 @@
 # Agent Workspace project memory
 
+## Edition 059 implementation checkpoint · not published
+
+Isolated fraynix-workspace-edition059 / edition059 from d872b1f. Frozen contract477a36e precedes implementation and tests. Actual205b108 native comparison: symmetric2/3, left-shift1/3, right-shift3/3; first benchmark caught JSON numeric round-trip mismatch before evaluation. Originals and source-qualified XML retained in build/native059-first and Temp/design059-native-3645743673771787137. EvidenceValue059 now uses bounded private typed snapshots preserving signed zero/numeric types; byte digest still checked on every cache lookup. Native final source111ddd0 runs serially, build/test059-native-final.log. Subsequent uncompiled explicit058 cold-world handoff preserves every prior frame and refuses pending owners. Current app installed045/qa046 and private data untouched.
+
+Remaining: finish native/performance tests and preserve results; final regression/install and actual construction059-integration workflow (real local CPU4thread model, cold review/reuse, exports/report, Stop). Then inspect screenshots, extensiveREADME059/offlineguide/Obsidian/source/original archives, docs/frozen/credential audits, actual non-force main/edition059/readme-059 push, fresh GitHub fetch and blob audit; receipt and continuity push. No059publication yet. Preserve001–058 frozen and node_modules053junction; no subagents or overlapping heavy jobs.
+
+
 ## Edition 058 · Published and fetched back on 2026-11-03
 
 Actual non-forced atomic push to private eyeoverthink/Fraynix-Agent-Workspace: main, edition058 and readme-058 accepted. Release `db2defb72d78b255f22c72dc7344c6014877d6a2`; annotated tag `d7749ceb7b71d81becfcf461fd8074f5c8857935`. Fresh GitHub fetch verifies 915 canonical source files, 4867 frozen hashes across 58 editions and 183 original archives, including decompressed bytes and SHA-256. Documentation passes 63 canvases and 6135 references. [Publication receipt](PUBLICATION_058.json).

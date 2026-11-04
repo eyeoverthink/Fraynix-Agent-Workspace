@@ -6,6 +6,7 @@ import java.util.Locale;
 
 /** Fixed same-stock asymmetric hypotheses. Reserved measurements never select the design. */
 final class SupportDesign059 {
+    static final String LEGACY_058="933109af7e76c1cc8dbf32f556956505bbf762ee9b8e8fcca599420c1059b8f5";
     private SupportDesign059() {}
     static JSONObject protocol(){try(var in=SupportDesign059.class.getResourceAsStream("/construction059-protocol.json")){return new JSONObject(new String(in.readAllBytes(),StandardCharsets.UTF_8));}catch(Exception e){throw new IllegalStateException(e);}}
     static boolean requested(String text){String s=text.toLowerCase(Locale.ROOT);return s.contains("asymmetric")||s.contains("asymmetricsupports059");}
