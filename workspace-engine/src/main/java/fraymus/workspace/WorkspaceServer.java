@@ -353,6 +353,8 @@ public final class WorkspaceServer implements AutoCloseable {
                                         case "/api/goals/ack" -> result=goals.acknowledge(input);
                     case "/api/procedures/save" -> result=goals.saveProcedure(input.getString("goalId"),input.getString("name"));
                     case "/api/procedures/run" -> result=goals.runProcedure(input);
+                    case "/api/brain/decision-plan" -> result=brain.decisionPlan065(input);
+                    case "/api/brain/decision-trace" -> result=brain.decisionTrace065(input);
                     case "/api/brain/contact-predict" -> result=brain.contactPredict064(input);
                     case "/api/brain/contact-trace" -> result=brain.contactTrace064(input);
                     case "/api/brain/stopping-predict" -> result=brain.stoppingPredict063(input);
