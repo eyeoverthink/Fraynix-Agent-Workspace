@@ -1,0 +1,95 @@
+{
+  "nodes": [
+    {
+      "id": "native",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/ContactRamp064.java",
+      "x": 0,
+      "y": 0,
+      "width": 390,
+      "height": 200
+    },
+    {
+      "id": "math",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/ContactMath064.java",
+      "x": 420,
+      "y": 0,
+      "width": 390,
+      "height": 200
+    },
+    {
+      "id": "study",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/ContactStudy064.java",
+      "x": 840,
+      "y": 0,
+      "width": 390,
+      "height": 200
+    },
+    {
+      "id": "owner",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/BrainService.java",
+      "x": 0,
+      "y": 250,
+      "width": 390,
+      "height": 200
+    },
+    {
+      "id": "view",
+      "type": "file",
+      "file": "workspace-desktop/renderer/contact064.js",
+      "x": 420,
+      "y": 250,
+      "width": 390,
+      "height": 200
+    },
+    {
+      "id": "next",
+      "type": "file",
+      "file": "docs/EDITION_064_CONTRACT.md",
+      "x": 840,
+      "y": 250,
+      "width": 390,
+      "height": 200
+    }
+  ],
+  "edges": [
+    {
+      "id": "e0",
+      "fromNode": "native",
+      "fromSide": "right",
+      "toNode": "math",
+      "toSide": "left"
+    },
+    {
+      "id": "e1",
+      "fromNode": "math",
+      "fromSide": "right",
+      "toNode": "study",
+      "toSide": "left"
+    },
+    {
+      "id": "e2",
+      "fromNode": "study",
+      "fromSide": "right",
+      "toNode": "owner",
+      "toSide": "left"
+    },
+    {
+      "id": "e3",
+      "fromNode": "owner",
+      "fromSide": "right",
+      "toNode": "view",
+      "toSide": "left"
+    },
+    {
+      "id": "e4",
+      "fromNode": "view",
+      "fromSide": "right",
+      "toNode": "next",
+      "toSide": "left"
+    }
+  ]
+}

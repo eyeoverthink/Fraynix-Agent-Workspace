@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "latest": 63,
+  "latest": 64,
   "canonicalization": "UTF-8 without BOM; CRLF normalized to LF for text",
   "editions": [
     {
@@ -27739,6 +27739,315 @@
           "path": "docs/readmes/063/verification.json",
           "kind": "text",
           "sha256": "1dd08d5a85520ae1d961a37d9ff2255540a06172623bb3cee855572b0d522933"
+        }
+      ]
+    },
+    {
+      "number": 64,
+      "date": "2026-11-04",
+      "title": "Persistent contact impulses and prospective uncertainty",
+      "status": "validated-local",
+      "markdown": "README-064.md",
+      "markdownSha256": "0b070b979a12c354ad8fbada850b3ecafc307aea5f0f1a59ad1e677d87db282f",
+      "companion": "docs/readmes/064/index.html",
+      "tag": "readme-064",
+      "sourceBaseline": "a6925fd940bce42dc5c54dfcf4656011284db1c0",
+      "snapshotDirectory": "docs/readmes/064",
+      "snapshotFiles": [
+        {
+          "path": "docs/readmes/064/contact064-chat.png",
+          "kind": "binary",
+          "sha256": "4e0592c2196c4a879abd7f0729f4ccdf1dbd21d6306ee8bca47df0c5c0191d81"
+        },
+        {
+          "path": "docs/readmes/064/contact064-comparison.png",
+          "kind": "binary",
+          "sha256": "6a9f052613d2cfffc7717e30ceffe87d126690735bffee2bb0517251f26187b4"
+        },
+        {
+          "path": "docs/readmes/064/contact064-halfstep.png",
+          "kind": "binary",
+          "sha256": "54d76221b6ca90723ac6594cb251b2a449ab635b4a3e27a2c2bdf6caa910ade6"
+        },
+        {
+          "path": "docs/readmes/064/contact064-impulses.png",
+          "kind": "binary",
+          "sha256": "e852ab408ab6e742193c208aa744af210a75656cec585dac3f7c439213ee56e9"
+        },
+        {
+          "path": "docs/readmes/064/contact064-narrow.png",
+          "kind": "binary",
+          "sha256": "194c191a85939da7eb9b3ab35f1488e1aab3d93d8354cd860b3ab72a2f83dcba"
+        },
+        {
+          "path": "docs/readmes/064/contact064-points.png",
+          "kind": "binary",
+          "sha256": "08bf5ae33bc8f024093ad8a99e6120298572c10710c28ca4c2c2b5490755268d"
+        },
+        {
+          "path": "docs/readmes/064/contact064-prediction.png",
+          "kind": "binary",
+          "sha256": "6a9b2b108ef2333e1a1b2f44bf328578e25c6592e51945eef6e35bf34dc22638"
+        },
+        {
+          "path": "docs/readmes/064/contact064-stress.png",
+          "kind": "binary",
+          "sha256": "607e676dc2bbc13b7aee61117bd54490bc7e9ef759b99aa479ff0329c5157af1"
+        },
+        {
+          "path": "docs/readmes/064/contact064-uncertainty.png",
+          "kind": "binary",
+          "sha256": "1bfdca42de27acedfd3c9788d8e3624c5eb8f94a2cf6fd0970c6e66d2e183944"
+        },
+        {
+          "path": "docs/readmes/064/documentation-browser.json",
+          "kind": "text",
+          "sha256": "56191b20f68cf43ff75bc6a5c0f8b3b8e63a518d1b9c8538e968a6d8afc6830a"
+        },
+        {
+          "path": "docs/readmes/064/file-inventory.json",
+          "kind": "text",
+          "sha256": "7259d7fe3d1d6fa615731f57839b36a774d9c0dcdd65d2eb08b7b8e12c8d2bc5"
+        },
+        {
+          "path": "docs/readmes/064/FILE_TREE.md",
+          "kind": "text",
+          "sha256": "87112dad76d2658614e21e598a3a689f934b185048ac4827360774f77712f0a1"
+        },
+        {
+          "path": "docs/readmes/064/guide-1440.png",
+          "kind": "binary",
+          "sha256": "926e6c5b8811f4beba7791f69872949d1bf0a3d7458a58e2e11c778d09f2a151"
+        },
+        {
+          "path": "docs/readmes/064/guide-390.png",
+          "kind": "binary",
+          "sha256": "0df50ce8ebf91fecabfa8c040ab9cfa75d004ac96d1735a2290d5ae435e278b2"
+        },
+        {
+          "path": "docs/readmes/064/index.html",
+          "kind": "text",
+          "sha256": "70b62b2c59308af90309730e2e06b414302e854411d646d2700fcd7427bd6d63"
+        },
+        {
+          "path": "docs/readmes/064/original/actual-app/contact064-checkpoint.json.gz",
+          "kind": "binary",
+          "sha256": "62754c9ef92609d1deb265e26ab81503eb556991fdfc0958886b71247f38c153"
+        },
+        {
+          "path": "docs/readmes/064/original/actual-app/contact064-failed-1793827891838.json.gz",
+          "kind": "binary",
+          "sha256": "8814ed54eb2964bbfa5964b0d003bd84348df71c76385c74e76940f68c923dfb"
+        },
+        {
+          "path": "docs/readmes/064/original/actual-app/contact064-failed-1793827992083.json.gz",
+          "kind": "binary",
+          "sha256": "b1cc800f70f7685263a81b64a34fa24c4d81567c27debd3fa4cdc2a87eb08a45"
+        },
+        {
+          "path": "docs/readmes/064/original/actual-app/contact064-live.json.gz",
+          "kind": "binary",
+          "sha256": "3621e42e1e049e92426e2383f620d7694fb7723d658bdbd10a095d249f3180ea"
+        },
+        {
+          "path": "docs/readmes/064/original/actual-app/contact064-review.json.gz",
+          "kind": "binary",
+          "sha256": "ca2025cd70ac4597551e574d300b0aa16e07afea3f29b5dda4efc8072939603e"
+        },
+        {
+          "path": "docs/readmes/064/original/interrupted-progress-run/kernel-journal.log.gz",
+          "kind": "binary",
+          "sha256": "a60cdf09a7ca1416da130abda360772f923b39d9ad69029e4b067d54fa14b5d1"
+        },
+        {
+          "path": "docs/readmes/064/original/interrupted-progress-run/native064-first.log.gz",
+          "kind": "binary",
+          "sha256": "fc6fef570b1d5b4bd4900b2958d35bfa913037fa26268187f080006d8a57c2fd"
+        },
+        {
+          "path": "docs/readmes/064/original/interrupted-progress-run/source.txt.gz",
+          "kind": "binary",
+          "sha256": "ea176380ad786147a0404af6bdf740bc6d44cadf13f49017bd352e01f9f89560"
+        },
+        {
+          "path": "docs/readmes/064/original/interrupted-progress-run/tasks.fworld.gz",
+          "kind": "binary",
+          "sha256": "156bd2d441a49d3fd997537f7b6aa3c2c71aef5450168267e539cf2e502b6a89"
+        },
+        {
+          "path": "docs/readmes/064/original/interrupted-progress-run/threads064.txt.gz",
+          "kind": "binary",
+          "sha256": "c52d149a436d1605190581804565a1e0318e7f71f38d67a1026cfdedabc6165c"
+        },
+        {
+          "path": "docs/readmes/064/original/logs/codec-probe064.json.gz",
+          "kind": "binary",
+          "sha256": "a53d9b7bd86b407e6e067888316bc01a98596ccc5b1dd0c2c1f72299a958d028"
+        },
+        {
+          "path": "docs/readmes/064/original/logs/CodecProbe064.java.gz",
+          "kind": "binary",
+          "sha256": "df7bf36291c57dbce6c92dddb8a78e951621ba2a030aa154bb3d4d7d3b018330"
+        },
+        {
+          "path": "docs/readmes/064/original/logs/desktop064.log.gz",
+          "kind": "binary",
+          "sha256": "d87d8b88e7daeceab4db15ded1cddb532df65517fdcc3a110e66ba6d55eef261"
+        },
+        {
+          "path": "docs/readmes/064/original/logs/ExportContact064.java.gz",
+          "kind": "binary",
+          "sha256": "88e1171427b3f81c4f1837b2db728f10668a3567cb7f192b3e67c65b0c7ccf50"
+        },
+        {
+          "path": "docs/readmes/064/original/logs/source-isolation.json.gz",
+          "kind": "binary",
+          "sha256": "0ac4baed845012d1d0cf8b2c5a79a2a2c030074a115ba2927f77ad3e798a1b7b"
+        },
+        {
+          "path": "docs/readmes/064/original/logs/ui064-first.log.gz",
+          "kind": "binary",
+          "sha256": "fd26fd6acc682c2a5dec87066956b5fac5c095c7b790cdf60c853def33720f6e"
+        },
+        {
+          "path": "docs/readmes/064/original/logs/ui064-resume-collapsed-panel.log.gz",
+          "kind": "binary",
+          "sha256": "95a329621ded330e8bddca60c26b93ff945104178f8134c0d444dbf2403291ae"
+        },
+        {
+          "path": "docs/readmes/064/original/logs/ui064-resume.log.gz",
+          "kind": "binary",
+          "sha256": "6ce68c1cf6dab82c4254d7a0c114a2b860a5fc8a3790511633f8b5267ef95f3d"
+        },
+        {
+          "path": "docs/readmes/064/original/logs/validation064.init.gradle.gz",
+          "kind": "binary",
+          "sha256": "75448212a9e91bec442ffb1d3ade920400830e2c2d806c8007cd90c437eb371f"
+        },
+        {
+          "path": "docs/readmes/064/original/native064-before-storage-fix/native064.log.gz",
+          "kind": "binary",
+          "sha256": "29a7d2c18738b3a940949070f3cc43bce14c6f86e1ee259a4ac7806a29872217"
+        },
+        {
+          "path": "docs/readmes/064/original/native064-before-storage-fix/source.txt.gz",
+          "kind": "binary",
+          "sha256": "63f5e20c66d9f6bc0c2aca5270926b443b4612e915c9ef21fbe7a26edffbb28d"
+        },
+        {
+          "path": "docs/readmes/064/original/native064-before-storage-fix/TEST-fraymus.workspace.Contact064Test.xml.gz",
+          "kind": "binary",
+          "sha256": "cbaf44585d3fd936e6b1f354e91e7cbda8044985f5bbbf1d7596deb363cd30d7"
+        },
+        {
+          "path": "docs/readmes/064/original/native064-date-failure/native064-resume.log.gz",
+          "kind": "binary",
+          "sha256": "3a4cef2646fead8c5983655aec933b9d4465d83c3e4c99200048ae5216fa874e"
+        },
+        {
+          "path": "docs/readmes/064/original/native064-date-failure/source.txt.gz",
+          "kind": "binary",
+          "sha256": "6fe54b74201f29d585dde96a81128f84ffbe76b26573bc0e6f8617fa429c3546"
+        },
+        {
+          "path": "docs/readmes/064/original/native064-date-failure/TEST-fraymus.workspace.Contact064Test.xml.gz",
+          "kind": "binary",
+          "sha256": "ba0b61404f2af25380108c33d6688b84266cf66a88d8953a0386bf0e2df7885a"
+        },
+        {
+          "path": "docs/readmes/064/original/native064-final/native064-resume-final.log.gz",
+          "kind": "binary",
+          "sha256": "7076c6c9cf5246b91ff406a3c116ccc293d446d42a9031c6d9ec7df01143871d"
+        },
+        {
+          "path": "docs/readmes/064/original/native064-final/native064-resume.log.gz",
+          "kind": "binary",
+          "sha256": "3a4cef2646fead8c5983655aec933b9d4465d83c3e4c99200048ae5216fa874e"
+        },
+        {
+          "path": "docs/readmes/064/original/native064-final/native064.log.gz",
+          "kind": "binary",
+          "sha256": "29a7d2c18738b3a940949070f3cc43bce14c6f86e1ee259a4ac7806a29872217"
+        },
+        {
+          "path": "docs/readmes/064/original/native064-final/original-experiment.json.gz",
+          "kind": "binary",
+          "sha256": "40eaaa520f3451dc53db9cfa6ffa7b68f2ce4f639e2e6356d52b37dd3234aa33"
+        },
+        {
+          "path": "docs/readmes/064/original/native064-final/prediction.json.gz",
+          "kind": "binary",
+          "sha256": "d1dcd507a8319975ae0f4c2a3f04d072093a9de738414370ef25d0117de21884"
+        },
+        {
+          "path": "docs/readmes/064/original/native064-final/state-timing.json.gz",
+          "kind": "binary",
+          "sha256": "0f47604afca6c6b2e6cf3f95785132091efe3e88426241d8aefcd94d95a4dfca"
+        },
+        {
+          "path": "docs/readmes/064/original/native064-final/TEST-fraymus.workspace.Contact064Test.xml.gz",
+          "kind": "binary",
+          "sha256": "1e17b2cc80a5b216e23137eae57e5af2e6daa2503e33fe941af1fd7bae226f6e"
+        },
+        {
+          "path": "docs/readmes/064/original/regression064/regression.log.gz",
+          "kind": "binary",
+          "sha256": "5c05c62204e6cec9c75537751a5e9f7aaac6d90deb88c4bdb0a9f6bd107df971"
+        },
+        {
+          "path": "docs/readmes/064/original/regression064/TEST-fraymus.workspace.Agent042Test.xml.gz",
+          "kind": "binary",
+          "sha256": "ca107ed0e58295bcb38ecc836a88d9fffb9c0e4b0e8c731257876c3cd294caad"
+        },
+        {
+          "path": "docs/readmes/064/original/regression064/TEST-fraymus.workspace.BrainPayload064Test.xml.gz",
+          "kind": "binary",
+          "sha256": "10ada794dae6dddf4840c6f51aa2d34a9df675c67d93cb9775b8d8d293bc5b8a"
+        },
+        {
+          "path": "docs/readmes/064/original/regression064/TEST-fraymus.workspace.BrainPersistenceTest.xml.gz",
+          "kind": "binary",
+          "sha256": "69acd05aea8a9911695d11e73f9774bf714c0656ea51c6a6084f82e9ab71639d"
+        },
+        {
+          "path": "docs/readmes/064/original/regression064/TEST-fraymus.workspace.BrainServiceTest.xml.gz",
+          "kind": "binary",
+          "sha256": "7ce825a92696b5099296b8c07506f5d019e7ce781203fbfe708294bfcfcfdbea"
+        },
+        {
+          "path": "docs/readmes/064/original/regression064/TEST-fraymus.workspace.ChatChain052Test.xml.gz",
+          "kind": "binary",
+          "sha256": "79b20fe54e42cfeb6626a8d362fe7e284ee5a86ff441d1dd0a563dd7fc05f3ee"
+        },
+        {
+          "path": "docs/readmes/064/original/regression064/TEST-fraymus.workspace.Domain044Test.xml.gz",
+          "kind": "binary",
+          "sha256": "f2ee821135e0caa468a4204b584a4273aca7ed1d64b1d9e0a081950a52b1890e"
+        },
+        {
+          "path": "docs/readmes/064/original/regression064/TEST-fraymus.workspace.StoppingContext063Test.xml.gz",
+          "kind": "binary",
+          "sha256": "c21f4185c5ac9bd5f803068798a83ef2407069fee4d5dacd274e4eec7870a525"
+        },
+        {
+          "path": "docs/readmes/064/original-evidence.json",
+          "kind": "text",
+          "sha256": "6e9764f5f1461775876f5f3a42ebddc576a6dd62889e3aeffe3385e7cef53b1c"
+        },
+        {
+          "path": "docs/readmes/064/system-map.json",
+          "kind": "text",
+          "sha256": "0b7577df001d9394f89cabdb51ad361f3389e377712b3f5c0a3e350167da2f86"
+        },
+        {
+          "path": "docs/readmes/064/trace-data.json",
+          "kind": "text",
+          "sha256": "d5648ca23c206fcd1738ce266de2daa98720648daa856370b9f0c98bea99e730"
+        },
+        {
+          "path": "docs/readmes/064/verification.json",
+          "kind": "text",
+          "sha256": "e2d1818d046fd602cc49c10dbbc90cec25c243f1723df3eafe14e92900fabf89"
         }
       ]
     }

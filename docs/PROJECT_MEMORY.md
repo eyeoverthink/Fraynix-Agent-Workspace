@@ -1,5 +1,16 @@
 # Agent Workspace project memory
 
+## Edition 064 · Validated locally; publication next
+
+Final app source `a6925fd940bce42dc5c54dfcf4656011284db1c0`; native physics implementation e50582e, declared contract b3e79fc before observations. 170 native executions: 16 interventions, four original-063 parity checks, 60 calibration, 60 reserved and 30 stress cases. All four parity checks pass at 0.75 and 3 seconds. Proposed pooled interval covers 55/60 reserved (91.7%), mean width 42.019 mm; passed the declared advisory gate. Separate stress 30/30. No posthoc switching, controller or LLM-weight promotion. README064 retains exact intervention results and limitations.
+
+55 distinct targeted Java checks across eight classes, 127 desktop checks and the actual 170-case app run, point inspection, seven charts, half-step scrubber, domain refusal, cold query, Stop and real CPU/four-thread gpt-oss:20b checked report pass. First native invocation intentionally interrupted after thread evidence showed full-evidence reparsing in progress polling; original checkpoint/journal/log retained. The completed 170-execution run then exceeded the default 512 MB test heap while opening duplicate full records. The original study was preserved and remaining verification resumed against those same observations at the existing app limit of 768 MB. That resume exposed mixed Instant/string timestamps in the compact history cache; metadata is now normalized to its persisted JSON form. All failed invocations remain archived separately from passing results. No case, gate, native physics or observation was replaced. Compact indexes and versioned bounded lossless storage fix that operational cost while preserving native source identity and complete originals.
+
+The first actual-app pass caught a study-selection race at the time scrubber. Inspection buttons now disable synchronously when a study changes, and pending trace replies are invalidated. The same completed app study was reused for the corrected UI checks; no physics result was replaced. Tiny momentum residuals now use scientific notation, and an unused empty plot container was removed.
+
+Nine actual captures, offline explorer, Obsidian map, source inventory and originals prepared. Publication and fetched audit pending. Preserve normal045 / qa046 installations/private data and frozen editions 001–063. No subagents or overlapping heavy validators. Next 065: narrower contact mechanism tests and measured decision value for supported uncertainty versus simpler control, with fresh cases and explicit costs. No physical coverage or general intelligence claim.
+
+
 ## Edition 063 · Published and fetched back on 2026-11-04
 
 Actual atomic push to Fraynix-Agent-Workspace main, edition063 and readme-063 succeeded. Release `22b2d98760e4a1c5163f6004baf05510267e7281`; annotated tag `69876060ac4de388e1e43c374c4b65c4117b5b91`. Fresh GitHub fetch verified 952 canonical sources, 5435 frozen hashes across 63 editions, and 26 original archives including decompressed hashes. Documentation passed 68 canvases and 6503 references. [Publication receipt](PUBLICATION_063.json).

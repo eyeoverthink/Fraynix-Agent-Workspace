@@ -1,0 +1,603 @@
+{
+  "edition": 64,
+  "date": "2026-11-04T21:33:40.226Z",
+  "source": "a6925fd940bce42dc5c54dfcf4656011284db1c0",
+  "contractCommit": "b3e79fc",
+  "nativeImplementation": "e50582e",
+  "completedNativeStudySource": "3a10840",
+  "nativeVerificationResumed": true,
+  "nativeAttemptTimeline": [
+    {
+      "source": "e50582e",
+      "outcome": "Intentionally interrupted after progress-polling thread diagnosis",
+      "archive": "original/interrupted-progress-run"
+    },
+    {
+      "source": "3a10840",
+      "outcome": "All170executions and initial audit completed; default512MBtestheap failed on duplicate records",
+      "archive": "original/native064-before-storage-fix"
+    },
+    {
+      "source": "6db71ec",
+      "outcome": "Same completed original resumed at768MB; new/restored timestamp comparison failed",
+      "archive": "original/native064-date-failure"
+    },
+    {
+      "source": "d07d500",
+      "outcome": "Same completed original resumed; all7Contact064Test cases passed",
+      "archive": "original/native064-final"
+    }
+  ],
+  "javaDistinct": 55,
+  "javaClasses": 8,
+  "javaAllPassed": true,
+  "javaInvocations": [
+    {
+      "name": "native064-final",
+      "source": "d07d5008275eacab0cdbf30269e59375c82111ef",
+      "cases": [
+        {
+          "case": "fraymus.workspace.Contact064Test#wilsonAndRankHaveIndependentKnownValues",
+          "passed": true,
+          "seconds": 0.005
+        },
+        {
+          "case": "fraymus.workspace.Contact064Test#stressCannotQualifyAndWidthAndGroupsMatter",
+          "passed": true,
+          "seconds": 0.007
+        },
+        {
+          "case": "fraymus.workspace.Contact064Test#partitionsAreFreshAndStressIsOutsideCalibratedSupport",
+          "passed": true,
+          "seconds": 0.031
+        },
+        {
+          "case": "fraymus.workspace.Contact064Test#plannerProjectionKeepsEvidenceAndOriginalHistory",
+          "passed": true,
+          "seconds": 0.004
+        },
+        {
+          "case": "fraymus.workspace.Contact064Test#published063OriginalStillAudits",
+          "passed": true,
+          "seconds": 1.382
+        },
+        {
+          "case": "fraymus.workspace.Contact064Test#cachedImpulseOrientationAndGravityBalanceAreIndependent",
+          "passed": true,
+          "seconds": 0.001
+        },
+        {
+          "case": "fraymus.workspace.Contact064Test#nativeStudyParityUncertaintyColdRestoreAndStop",
+          "passed": true,
+          "seconds": 62.78
+        }
+      ]
+    },
+    {
+      "name": "regression064",
+      "source": "d07d5008275eacab0cdbf30269e59375c82111ef",
+      "cases": [
+        {
+          "case": "fraymus.workspace.Agent042Test#actualSharedCortexCheckpointReplayLeaseAndRestart",
+          "passed": true,
+          "seconds": 1.024
+        },
+        {
+          "case": "fraymus.workspace.Agent042Test#acceptedCameraOutputsExpireAndReplayCannotRefreshThem",
+          "passed": true,
+          "seconds": 0.624
+        },
+        {
+          "case": "fraymus.workspace.Agent042Test#missingNeuralCheckpointDoesNotSilentlyResetBrain",
+          "passed": true,
+          "seconds": 0.371
+        },
+        {
+          "case": "fraymus.workspace.Agent042Test#clocksKeepWallRollbackAndBootDomainsSeparate",
+          "passed": true,
+          "seconds": 0.001
+        },
+        {
+          "case": "fraymus.workspace.Agent042Test#failedGoalsAreWitnessedOnceWithoutRewardingSuccess",
+          "passed": true,
+          "seconds": 0.081
+        },
+        {
+          "case": "fraymus.workspace.Agent042Test#checkedStateRejectsAlterationWithoutErasingOriginal",
+          "passed": true,
+          "seconds": 0.007
+        },
+        {
+          "case": "fraymus.workspace.Agent042Test#appraisalAblationsActuallyChangeWork",
+          "passed": true,
+          "seconds": 0.0
+        },
+        {
+          "case": "fraymus.workspace.Agent042Test#witnessSegmentsVerifyExactCheckpointPrefixAndRefuseDamage",
+          "passed": true,
+          "seconds": 2.332
+        },
+        {
+          "case": "fraymus.workspace.Agent042Test#reportEscapesSourceDataAndKeepsExactSnapshot",
+          "passed": true,
+          "seconds": 0.006
+        },
+        {
+          "case": "fraymus.workspace.BrainPayload064Test#exactTextRoundTripPreservesUnicodeNumbersAndWhitespace",
+          "passed": true,
+          "seconds": 0.02
+        },
+        {
+          "case": "fraymus.workspace.BrainPayload064Test#corruptedOrOversizedEnvelopesAreRefused",
+          "passed": true,
+          "seconds": 0.001
+        },
+        {
+          "case": "fraymus.workspace.BrainPayload064Test#oldAndSmallRecordsStayCompatible",
+          "passed": true,
+          "seconds": 0.009
+        },
+        {
+          "case": "fraymus.workspace.BrainPersistenceTest#cancelDoesNotPromoteAndSharedCortexCheckpointRestarts",
+          "passed": true,
+          "seconds": 0.642
+        },
+        {
+          "case": "fraymus.workspace.BrainPersistenceTest#checkpointRetainsActualWeightsRandomStateAndDynamicsAndRejectsCorruption",
+          "passed": true,
+          "seconds": 0.007
+        },
+        {
+          "case": "fraymus.workspace.BrainPersistenceTest#savedUnsettledJobIsMarkedInterruptedOnRestart",
+          "passed": true,
+          "seconds": 0.053
+        },
+        {
+          "case": "fraymus.workspace.BrainPersistenceTest#acceptedControllerUsesActualImpulseAndReplaysWithoutReferenceConfusion",
+          "passed": true,
+          "seconds": 5.613
+        },
+        {
+          "case": "fraymus.workspace.BrainPersistenceTest#immutableLocalMemorySurvivesRestartIsBoundedAndCannotInstallTools",
+          "passed": true,
+          "seconds": 0.09
+        },
+        {
+          "case": "fraymus.workspace.BrainServiceTest#physicalLearningIsEvaluatedPromotedRestartedAndRolledBack",
+          "passed": true,
+          "seconds": 5.29
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#duplicateWarningsKeepEveryOriginalOccurrenceBeyondRecentWindow",
+          "passed": true,
+          "seconds": 0.001
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#numericRefusalExplainsOriginalBoundsWithoutChangingThem",
+          "passed": true,
+          "seconds": 0.002
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#oversizedRequirementsRefuseRatherThanBeingSilentlyTruncated",
+          "passed": true,
+          "seconds": 0.001
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#legacyTaskDoesNotClaimCompleteTimingCoverage",
+          "passed": true,
+          "seconds": 0.0
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#summaryRetainsRejectedQualityAndDoesNotDumpMetrics",
+          "passed": true,
+          "seconds": 0.001
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#payloadHistoryProjectionRetainsPolicyRequirementsAndContraryOutcomes",
+          "passed": true,
+          "seconds": 0.005
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#discoverySummaryKeepsExactBindingsAndBothEndsWithoutBreakingJson",
+          "passed": true,
+          "seconds": 0.003
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#largeRecentObservationHasExplicitOmissionHashAndKeepsFailure",
+          "passed": true,
+          "seconds": 0.002
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#queuedObjectiveSealRefusesChangedRequest",
+          "passed": true,
+          "seconds": 0.0
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#providerMapMetadataIsRetainedWithoutUnrelatedFields",
+          "passed": true,
+          "seconds": 0.001
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#automaticCompletionRechecksCurrentArtifactInsteadOfTrustingOldSuccess",
+          "passed": true,
+          "seconds": 0.382
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#failedPlannerCallIsTimedAndDoesNotBecomeAnAction",
+          "passed": true,
+          "seconds": 0.116
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#retainedAppearancePolicyCannotChangeCategoryOrInstallDetectorOptions",
+          "passed": true,
+          "seconds": 0.003
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#retainedSkillSourceAndForceDefaultsCannotBeSilentlyChanged",
+          "passed": true,
+          "seconds": 0.002
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#nativeWaitUsesActualChildAndRetainsItsIdentity",
+          "passed": true,
+          "seconds": 0.005
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#savedGraphChatSelectsExactVersionAndWorkflowBeforePlanning",
+          "passed": true,
+          "seconds": 0.008
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#sourceFreeHostSuccessAndForeignChildrenAreRejected",
+          "passed": true,
+          "seconds": 0.007
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#reportStageCannotSkipActualReads",
+          "passed": true,
+          "seconds": 0.0
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#typedOptionsPreserveExplicitValuesAndRejectContradictions",
+          "passed": true,
+          "seconds": 0.001
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#interruptedChildCannotProduceSuccessfulCompletion",
+          "passed": true,
+          "seconds": 0.006
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#inventedHostFactsDoNotReplaceActualJavaRead",
+          "passed": true,
+          "seconds": 0.005
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#retainedSkillSchemasKeepDefaultsOptionalAndHideBoundDetectorPolicy",
+          "passed": true,
+          "seconds": 0.001
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#javaRoutesEveryFormerDesktopFamilyWithoutChangingWebCreation",
+          "passed": true,
+          "seconds": 0.008
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#constructionReuseExposesOnlyExplicitChangesAndKeepsOriginalLimits",
+          "passed": true,
+          "seconds": 0.001
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#actualQueueCompletionRecordsTheVerifiedReportInTheSameLearningEpisode",
+          "passed": true,
+          "seconds": 0.333
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#workflowBootstrapBindsDatasetAndSceneInJavaBeforeAnyHostAction",
+          "passed": true,
+          "seconds": 0.005
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#reportMustHaveFrozenOriginalAssertionsAndExactSourceVersion",
+          "passed": true,
+          "seconds": 0.032
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#creationPromptsAreOwnedBoundedAndKeepSourceReserved",
+          "passed": true,
+          "seconds": 0.014
+        },
+        {
+          "case": "fraymus.workspace.StoppingContext063Test#projectionPreservesFailuresExactMetricsAndOriginalEvidence",
+          "passed": true,
+          "seconds": 0.013
+        },
+        {
+          "case": "fraymus.workspace.StoppingContext063Test#ordinaryFactsAndEssentialTaskRequirementsAreNotReduced",
+          "passed": true,
+          "seconds": 0.001
+        }
+      ]
+    }
+  ],
+  "desktopUnitTests": 127,
+  "actualApp": {
+    "source": "a6925fd940bce42dc5c54dfcf4656011284db1c0",
+    "physicsJobSource": "d07d5008275eacab0cdbf30269e59375c82111ef",
+    "checks": [
+      "Visible controls run16contact interventions,4original parity,60calibration,60reserved and30out-of-domain stress cases",
+      "Seven Java-derived charts, persistent contact point positions/counts and1441-sample half-step scrubber match saved originals",
+      "Reserved and out-of-domain stress are separate; all60/30intervals, misses, widths and Wilson sampling intervals shown",
+      "Out-of-domain queries refused; cold Java/app restart reproduces exact interval and unchanged controller",
+      "Visible Stop retains completed study, frozen radius and shared Java facts",
+      "Changing studies disables inspection immediately and refuses a late trace from the previous selection",
+      "Actual CPU/four-thread gpt-oss20b reads retained contact evidence and completes its checked report"
+    ],
+    "original": "original/actual-app/contact064-live.json.gz",
+    "model": "gpt-oss:20b CPU-only/four threads",
+    "widths": [
+      1600,
+      1100
+    ]
+  },
+  "visualReview": {
+    "passed": true,
+    "method": "Assistant visual inspection of actual app captures, with automated interaction checks retained separately",
+    "source": "a6925fd940bce42dc5c54dfcf4656011284db1c0",
+    "screenshots": [
+      {
+        "name": "comparison",
+        "path": "contact064-comparison.png",
+        "sha256": "6a9f052613d2cfffc7717e30ceffe87d126690735bffee2bb0517251f26187b4"
+      },
+      {
+        "name": "points",
+        "path": "contact064-points.png",
+        "sha256": "08bf5ae33bc8f024093ad8a99e6120298572c10710c28ca4c2c2b5490755268d"
+      },
+      {
+        "name": "impulses",
+        "path": "contact064-impulses.png",
+        "sha256": "e852ab408ab6e742193c208aa744af210a75656cec585dac3f7c439213ee56e9"
+      },
+      {
+        "name": "halfstep",
+        "path": "contact064-halfstep.png",
+        "sha256": "54d76221b6ca90723ac6594cb251b2a449ab635b4a3e27a2c2bdf6caa910ade6"
+      },
+      {
+        "name": "uncertainty",
+        "path": "contact064-uncertainty.png",
+        "sha256": "1bfdca42de27acedfd3c9788d8e3624c5eb8f94a2cf6fd0970c6e66d2e183944"
+      },
+      {
+        "name": "stress",
+        "path": "contact064-stress.png",
+        "sha256": "607e676dc2bbc13b7aee61117bd54490bc7e9ef759b99aa479ff0329c5157af1"
+      },
+      {
+        "name": "prediction",
+        "path": "contact064-prediction.png",
+        "sha256": "6a9b2b108ef2333e1a1b2f44bf328578e25c6592e51945eef6e35bf34dc22638"
+      },
+      {
+        "name": "narrow",
+        "path": "contact064-narrow.png",
+        "sha256": "194c191a85939da7eb9b3ab35f1488e1aab3d93d8354cd860b3ab72a2f83dcba"
+      },
+      {
+        "name": "chat",
+        "path": "contact064-chat.png",
+        "sha256": "4e0592c2196c4a879abd7f0729f4ccdf1dbd21d6306ee8bca47df0c5c0191d81"
+      }
+    ],
+    "observations": [
+      "Matched table and gate are readable in the integrated Java Brain panel",
+      "Four contact markers and their per-sample lifetime/impulse table are visible",
+      "Impulse and momentum charts show legends, axes and recorded time",
+      "Half-step view shows2.083ms and selected0.7500s",
+      "Reserved55/60 and separate stress30/30 retain distinct qualification language",
+      "Advisory bounds and supported-domain text are legible",
+      "1100px app panel retains controls and readable results",
+      "Actual report canvas exposes retained source-qualified agent facts and test status"
+    ],
+    "limitations": [
+      "Screenshots show selected scrolled areas; the complete evidence is in the archived original job",
+      "No claim of pixel-perfect validation at all display sizes"
+    ]
+  },
+  "intervalModel": {
+    "radiusM": 0.021009609197235324,
+    "calibrationSha256": "b6667b99747cc2337d58c842ca49a770b31a030e1c88020714936f21b0a68580",
+    "pinnedAt": "2026-11-04T21:23:51.947398Z"
+  },
+  "evaluation": {
+    "qualified": true,
+    "stress": false,
+    "proposed": "pooled",
+    "interpretation": "Reserved simulation evaluation; descriptive sampling intervals, no physical guarantee",
+    "methods": {
+      "pooled": {
+        "coverage": 0.9166666666666666,
+        "missedCases": [
+          19,
+          30,
+          32,
+          40,
+          45
+        ],
+        "covered": 55,
+        "count": 60,
+        "regimes": {
+          "slowing": {
+            "hits": 27,
+            "coverage": 0.9,
+            "count": 30,
+            "wilson95": {
+              "meaning": "Descriptive Wilson sampling interval; stratified simulation proportions, not a physical predictive guarantee",
+              "lower": 0.7437891742081593,
+              "upper": 0.9654001112526658,
+              "confidence": 0.95
+            }
+          },
+          "accelerating": {
+            "hits": 28,
+            "coverage": 0.9333333333333333,
+            "count": 30,
+            "wilson95": {
+              "meaning": "Descriptive Wilson sampling interval; stratified simulation proportions, not a physical predictive guarantee",
+              "lower": 0.7867654163738308,
+              "upper": 0.9815229762087295,
+              "confidence": 0.95
+            }
+          }
+        },
+        "wilson95": {
+          "meaning": "Descriptive Wilson sampling interval; stratified simulation proportions, not a physical predictive guarantee",
+          "lower": 0.8193105798166558,
+          "upper": 0.9638795433982692,
+          "confidence": 0.95
+        },
+        "meanWidthM": 0.042019218394470696
+      },
+      "fixed20mm": {
+        "coverage": 0.9166666666666666,
+        "missedCases": [
+          19,
+          30,
+          32,
+          40,
+          45
+        ],
+        "covered": 55,
+        "count": 60,
+        "regimes": {
+          "slowing": {
+            "hits": 27,
+            "coverage": 0.9,
+            "count": 30,
+            "wilson95": {
+              "meaning": "Descriptive Wilson sampling interval; stratified simulation proportions, not a physical predictive guarantee",
+              "lower": 0.7437891742081593,
+              "upper": 0.9654001112526658,
+              "confidence": 0.95
+            }
+          },
+          "accelerating": {
+            "hits": 28,
+            "coverage": 0.9333333333333333,
+            "count": 30,
+            "wilson95": {
+              "meaning": "Descriptive Wilson sampling interval; stratified simulation proportions, not a physical predictive guarantee",
+              "lower": 0.7867654163738308,
+              "upper": 0.9815229762087295,
+              "confidence": 0.95
+            }
+          }
+        },
+        "wilson95": {
+          "meaning": "Descriptive Wilson sampling interval; stratified simulation proportions, not a physical predictive guarantee",
+          "lower": 0.8193105798166558,
+          "upper": 0.9638795433982692,
+          "confidence": 0.95
+        },
+        "meanWidthM": 0.04000000000000003
+      }
+    },
+    "controllerAuthority": false
+  },
+  "stressEvaluation": {
+    "qualified": false,
+    "stress": true,
+    "proposed": "pooled",
+    "interpretation": "Deliberate out-of-domain stress; no calibrated coverage claim",
+    "methods": {
+      "pooled": {
+        "coverage": 1,
+        "missedCases": [],
+        "covered": 30,
+        "count": 30,
+        "regimes": {
+          "slowing": {
+            "hits": 15,
+            "coverage": 1,
+            "count": 15,
+            "wilson95": {
+              "meaning": "Descriptive Wilson sampling interval; stratified simulation proportions, not a physical predictive guarantee",
+              "lower": 0.7961166989641515,
+              "upper": 1,
+              "confidence": 0.95
+            }
+          },
+          "accelerating": {
+            "hits": 15,
+            "coverage": 1,
+            "count": 15,
+            "wilson95": {
+              "meaning": "Descriptive Wilson sampling interval; stratified simulation proportions, not a physical predictive guarantee",
+              "lower": 0.7961166989641515,
+              "upper": 1,
+              "confidence": 0.95
+            }
+          }
+        },
+        "wilson95": {
+          "meaning": "Descriptive Wilson sampling interval; stratified simulation proportions, not a physical predictive guarantee",
+          "lower": 0.8864866068260312,
+          "upper": 0.9999999999999999,
+          "confidence": 0.95
+        },
+        "meanWidthM": 0.04201921839447067
+      },
+      "fixed20mm": {
+        "coverage": 1,
+        "missedCases": [],
+        "covered": 30,
+        "count": 30,
+        "regimes": {
+          "slowing": {
+            "hits": 15,
+            "coverage": 1,
+            "count": 15,
+            "wilson95": {
+              "meaning": "Descriptive Wilson sampling interval; stratified simulation proportions, not a physical predictive guarantee",
+              "lower": 0.7961166989641515,
+              "upper": 1,
+              "confidence": 0.95
+            }
+          },
+          "accelerating": {
+            "hits": 15,
+            "coverage": 1,
+            "count": 15,
+            "wilson95": {
+              "meaning": "Descriptive Wilson sampling interval; stratified simulation proportions, not a physical predictive guarantee",
+              "lower": 0.7961166989641515,
+              "upper": 1,
+              "confidence": 0.95
+            }
+          }
+        },
+        "wilson95": {
+          "meaning": "Descriptive Wilson sampling interval; stratified simulation proportions, not a physical predictive guarantee",
+          "lower": 0.8864866068260312,
+          "upper": 0.9999999999999999,
+          "confidence": 0.95
+        },
+        "meanWidthM": 0.04000000000000003
+      }
+    },
+    "controllerAuthority": false
+  },
+  "limitations": [
+    "Native simulation, not physical calibration",
+    "Pooled method selected before fresh observations; no posthoc switch",
+    "First native invocation intentionally interrupted after thread trace showed progress polling reparsing full evidence; exact checkpoint retained",
+    "The completed 170-execution run then exceeded the default 512 MB test heap while opening duplicate full records. The original study was preserved and remaining verification resumed against those same observations at the existing app limit of 768 MB. That resume exposed mixed Instant/string timestamps in the compact history cache; metadata is now normalized to its persisted JSON form. All failed invocations remain archived separately from passing results. No case, gate, native physics or observation was replaced.",
+    "The first actual-app pass caught a study-selection race at the time scrubber. Inspection buttons now disable synchronously when a study changes, and pending trace replies are invalidated. The same completed app study was reused for the corrected UI checks; no physics result was replaced. Tiny momentum residuals now use scientific notation, and an unused empty plot container was removed.",
+    "An added UI regression initially tried to click inside a folded trace panel; harness now opens it first. Original failed attempt retained.",
+    "Targeted invocations, not a fresh full repository suite",
+    "Cached impulses may not explain momentum; residual is reported",
+    "No controller or LLM-weight promotion"
+  ]
+}

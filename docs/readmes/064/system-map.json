@@ -1,0 +1,105 @@
+{
+  "edition": 64,
+  "modules": [
+    {
+      "id": "native",
+      "name": "Persistent contact recorder",
+      "summary": "Existing solver manifolds, cached impulses and unchanged baseline parity.",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/ContactRamp064.java",
+      "status": "Verified",
+      "note": "docs/obsidian/72-contact-impulses.md"
+    },
+    {
+      "id": "math",
+      "name": "Momentum and sampling uncertainty",
+      "summary": "Java reconstructs cached vectors, momentum residuals and Wilson bounds.",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/ContactMath064.java",
+      "status": "Verified",
+      "note": "docs/obsidian/72-contact-impulses.md"
+    },
+    {
+      "id": "study",
+      "name": "Prospective pooled study",
+      "summary": "Declared cases, frozen calibration, reserved and shifted evaluation.",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/ContactStudy064.java",
+      "status": "Verified",
+      "note": "docs/obsidian/72-contact-impulses.md"
+    },
+    {
+      "id": "owner",
+      "name": "Continuing Java coordinator",
+      "summary": "Compact progress index; original evidence, Stop and cold queries.",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/BrainService.java",
+      "status": "Verified",
+      "note": "docs/obsidian/72-contact-impulses.md"
+    },
+    {
+      "id": "view",
+      "name": "Integrated contact explorer",
+      "summary": "Seven charts, contact points and actual local-model checked report.",
+      "source": "workspace-desktop/renderer/contact064.js",
+      "status": "Actual app",
+      "note": "docs/obsidian/72-contact-impulses.md"
+    },
+    {
+      "id": "next",
+      "name": "Decision-value evaluation",
+      "summary": "Compare uncertainty-aware choices with simpler control on new tasks.",
+      "source": "docs/EDITION_064_CONTRACT.md",
+      "status": "Planned",
+      "note": "docs/obsidian/72-contact-impulses.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "docs/readmes/064/contact064-comparison.png",
+      "title": "Matched contact interventions"
+    },
+    {
+      "path": "docs/readmes/064/contact064-points.png",
+      "title": "Persistent contact positions and lifetime"
+    },
+    {
+      "path": "docs/readmes/064/contact064-impulses.png",
+      "title": "Cached and momentum-derived impulses"
+    },
+    {
+      "path": "docs/readmes/064/contact064-halfstep.png",
+      "title": "Half-step trace inspection"
+    },
+    {
+      "path": "docs/readmes/064/contact064-uncertainty.png",
+      "title": "Fresh reserved coverage"
+    },
+    {
+      "path": "docs/readmes/064/contact064-stress.png",
+      "title": "Separate out-of-range stress results"
+    },
+    {
+      "path": "docs/readmes/064/contact064-prediction.png",
+      "title": "Advisory pooled interval"
+    },
+    {
+      "path": "docs/readmes/064/contact064-narrow.png",
+      "title": "Integrated panel at 1100 px"
+    },
+    {
+      "path": "docs/readmes/064/contact064-chat.png",
+      "title": "Actual local-model checked report"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/readmes/064/verification.json",
+      "title": "Verification"
+    },
+    {
+      "path": "docs/readmes/064/original-evidence.json",
+      "title": "Exact originals"
+    },
+    {
+      "path": "docs/readmes/064/trace-data.json",
+      "title": "Audited Java-derived traces"
+    }
+  ]
+}

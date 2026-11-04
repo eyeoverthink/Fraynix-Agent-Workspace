@@ -88,3 +88,8 @@ Java Brain → Physics first → Learn residuals & compare runs the declared nat
 ## Stopping study facts 063
 
 Java Brain → Stopping & uncertainty runs matched interventions, original-engine parity and separate uncertainty calibration/evaluation. Chat requests mentioning stopping study, stopping traces or stopping uncertainty use the existing agent-state and checked report procedure. Planning receives an exact historical comparison matrix with source hashes; full facts, original receipts and report data remain retained. Context limits, requirements and verification checks are unchanged. Chat reads/reports this study; it does not start experiments or move objects. [Edition 063](../README-063.md).
+
+
+## Contact study facts 064
+
+Java Brain → Contact impulses & new uncertainty runs persistent manifold tracing, original parity, fresh pooled calibration, reserved evaluation and separate out-of-domain stress. Chat requests mentioning contact study, contact impulses or pooled uncertainty use existing agent-state and checked reporting. Compact progress indexes preserve full evidence; bounded lossless storage restores exact original JSON. Planning omits repeated witness history with count/hash while retaining original task facts and report data. Chat reports the completed study; it does not start these experiments or actuate objects. [Edition 064](../README-064.md).

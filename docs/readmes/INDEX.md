@@ -59,21 +59,14 @@ Numbered editions preserve dated behavior and evidence. The root [README](../../
 | [053](../../README-053.md) | 2026-11-03 | Bounded assembly design, actual native comparisons and retained fresh-trial skills | [Viewer](053/index.html) · [tree](053/FILE_TREE.md) |
 | [054](../../README-054.md) | 2026-11-03 | Declared variable geometry, fixed obstacles, original simpler-control comparison and cross-geometry reuse | [Viewer](054/index.html) · [tree](054/FILE_TREE.md) |
 | [055](../../README-055.md) | 2026-11-03 | Direct-first control, native lateral routes and independent load experiments | [Viewer](055/index.html) · [tree](055/FILE_TREE.md) |
-
 | [056](../../README-056.md) | 2026-11-03 | Measured load limits and verified redesign after failure | [Viewer](056/index.html) · [tree](056/FILE_TREE.md) |
-
 | [057](../../README-057.md) | 2026-11-03 | Dynamic payloads and new load positions | [Viewer](057/index.html) · [tree](057/FILE_TREE.md) |
-
 | [058](../../README-058.md) | 2026-11-03 | Measured redesign and unfamiliar payloads | [Viewer](058/index.html) · [tree](058/FILE_TREE.md) |
-
 | [059](../../README-059.md) | 2026-11-04 | Faster evidence and asymmetric supports | [Viewer](059/index.html) · [tree](059/FILE_TREE.md) |
-
 | [060](../../README-060.md) | 2026-11-04 | Independent bearings and measured repairs | [Viewer](060/index.html) · [tree](060/FILE_TREE.md) |
-
 | [061](../../README-061.md) | 2026-11-04 | FraynixGPT and verified outcomes | [Viewer](061/index.html) · [tree](061/FILE_TREE.md) |
-
 | [062](../../README-062.md) | 2026-11-04 | Physics first and learned residuals | [Viewer](062/index.html) · [tree](062/FILE_TREE.md) |
-
 | [063](../../README-063.md) | 2026-11-04 | Stopping traces and measured uncertainty | [Viewer](063/index.html) · [tree](063/FILE_TREE.md) |
+| [064](../../README-064.md) | 2026-11-04 | Persistent contact impulses and prospective uncertainty | [Viewer](064/index.html) · [tree](064/FILE_TREE.md) |
 
-Latest implementation and documentation edition in this checkout is **063**. See [sequence policy](README_SEQUENCE.md) and [manifest](editions.json).
+Latest implementation and documentation edition in this checkout is **064**. See [sequence policy](README_SEQUENCE.md) and [manifest](editions.json).
