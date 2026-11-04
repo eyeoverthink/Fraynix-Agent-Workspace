@@ -6,7 +6,7 @@
 
 Edition 064 records persistent contact impulses, compares them with momentum, and tests preselected pooled uncertainty on fresh reserved and out-of-range cases. Reserved coverage was 55/60, passing the declared advisory gate. [Measured results and originals](docs/readmes/064/verification.json).
 
-Edition 064 implementation, screenshots and original evidence are prepared for publication. [Previous fetched publication](docs/PUBLICATION_063.json).
+Edition 064 is published to main with source, nine actual app captures, original evidence and updated continuity notes. [Fetched GitHub verification](docs/PUBLICATION_064.json).
 
 One integrated app, with Java-owned chat planning, creation, native skill scheduling, continuing identity, real clocks and checked outcomes. Mission connects the actual goal, source, child task, recovery and retained result. [Screenshots, typed skill graphs, new logic and production direction](README-046.md).
 

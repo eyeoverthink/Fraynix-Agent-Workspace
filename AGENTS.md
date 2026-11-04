@@ -1,5 +1,18 @@
 # Fraynix Studio collaboration and documentation
 
+## Edition 064 · Published and fetched back on 2026-11-04
+
+Actual atomic push to Fraynix-Agent-Workspace main, edition064 and readme-064 succeeded. Release `50be9a6568037915c4060804a247e6df60326062`; annotated tag `e9a2aa10cb582a637642eb4daca374e94998b2ff`. Fresh GitHub fetch verified 961 canonical sources, 5495 frozen hashes across 64 editions and 40 original archives including decompressed bytes. Documentation passed 69 canvases and 6586 references. [Publication receipt](docs/PUBLICATION_064.json).
+
+The 170-execution study records persistent contact points and cached solver impulses, compares momentum change, and tests zero clearance, half time step and locked rotation against original controls. All four original063 parity checks passed at .75 and3 seconds. Pooled uncertainty was preselected before60new calibration/60reserved/30stress cases. Reserved 55/60 (91.7%), width 42.019 mm, qualified=True; stress 30/30. See README064 for exact intervention results and limitations. No controller or LLM-weight promotion.
+
+55 distinct targeted Java checks/8 classes,127 desktop checks and actual app/restart/Stop/local-model report passed. First native invocation was intentionally interrupted after a thread trace exposed full-evidence reparsing in progress polling; its exact checkpoint and logs remain archived. The completed 170-execution run then exceeded the default 512 MB test heap while opening duplicate full records. The original study was preserved and remaining verification resumed against those same observations at the existing app limit of 768 MB. That resume exposed mixed Instant/string timestamps in the compact history cache; metadata is now normalized to its persisted JSON form. All failed invocations remain archived separately from passing results. No case, gate, native physics or observation was replaced. Compact progress indexes and bounded lossless storage preserve complete originals. Native physics source unchanged since e50582e; invocations are source-qualified in verification064.
+
+The first actual-app pass caught a study-selection race at the time scrubber. Inspection buttons now disable synchronously when a study changes, and pending trace replies are invalidated. The same completed app study was reused for the corrected UI checks; no physics result was replaced. Tiny momentum residuals now use scientific notation, and an unused empty plot container was removed.
+
+README064, nine actual captures, two offline captures, original evidence, Obsidian map, memories and logs published. Test app closed. Preserve normal045/qa046 installed runtimes, private data and immutable editions001–064. Next unused065: use the measured contact evidence to choose a new causal experiment; prospectively test whether supported uncertainty improves decisions against simpler control, with costs and out-of-domain refusal. No subagents or overlapping heavy validators. Receipt follows the immutable release tag.
+
+
 ## Edition 064 · Validated locally; publication next
 
 Final app source `a6925fd940bce42dc5c54dfcf4656011284db1c0`; native physics implementation e50582e, declared contract b3e79fc before observations. 170 native executions: 16 interventions, four original-063 parity checks, 60 calibration, 60 reserved and 30 stress cases. All four parity checks pass at 0.75 and 3 seconds. Proposed pooled interval covers 55/60 reserved (91.7%), mean width 42.019 mm; passed the declared advisory gate. Separate stress 30/30. No posthoc switching, controller or LLM-weight promotion. README064 retains exact intervention results and limitations.
