@@ -10,19 +10,25 @@ import java.util.function.BooleanSupplier;
 final class PayloadSeries058 {
     private final JSONObject protocol;
     private final String phase;
-    PayloadSeries058(String phase) {
+    private final boolean asymmetric;
+    PayloadSeries058(String phase){this(phase,false);}
+    PayloadSeries058(String phase,boolean asymmetric) {
+        this.asymmetric=asymmetric;
         if (!Set.of("design", "reserved").contains(phase)) throw new IllegalArgumentException("Unknown payload phase");
         this.phase=phase;
         protocol=Payload057.protocol();
         var cases=new JSONArray();
-        if (phase.equals("design")) for (Object id:Design058.protocol().getJSONArray("trainingCaseIds")) cases.put(Payload057.specification(id.toString()));
+        if(asymmetric)cases=SupportDesign059.protocol().getJSONArray(phase.equals("design")?"designCases":"reservedCases");
+        else if (phase.equals("design")) for (Object id:Design058.protocol().getJSONArray("trainingCaseIds")) cases.put(Payload057.specification(id.toString()));
         else cases=Design058.protocol().getJSONArray("reservedCases");
-        protocol.put("cases",cases).put("version","payload-series-058-"+phase);
+        protocol.put("cases",cases).put("version",(asymmetric?"payload-series-059-":"payload-series-058-")+phase);
     }
     JSONObject protocol(){return WorldFrames.copy(protocol);}
     private Path file(Path root,JSONObject run){UUID.fromString(run.getString("id"));return root.resolve(phase).resolve(run.getString("id")+".json");}
     private JSONObject load(Path root,JSONObject run)throws Exception {
-        var d=Payload057.load(file(root,run));
+        return validate(Payload057.load(file(root,run)),run);
+    }
+    private JSONObject validate(JSONObject d,JSONObject run)throws Exception {
         if(!d.getJSONObject("protocol").similar(protocol)||!d.getString("codeSha256").equals(Design058.code())||!d.getString("sourceRunSha256").equals(WorldFrames.hash(run)))throw new IllegalStateException("Payload series source, policy or implementation changed");
         if(d.getJSONArray("attempts").length()>protocol.getInt("maxAttempts"))throw new IllegalStateException("Payload attempt budget exceeded");
         var ids=new HashSet<String>();
@@ -64,8 +70,10 @@ final class PayloadSeries058 {
         }
         return read(root,run);
     }
-    JSONObject read(Path root,JSONObject run)throws Exception {
-        var d=load(root,run);var results=new JSONArray();long ticks=0;double wall=0;boolean repeatable=true,qualifies=true;
+    private String binding(JSONObject run,String operation){return operation+":"+WorldFrames.hash(run)+":"+Design058.code()+":"+WorldFrames.hash(protocol);}
+    JSONObject read(Path root,JSONObject run)throws Exception {return Evidence059.derive(file(root,run),binding(run,"read"),d->readData(validate(d,run),run));}
+    JSONObject readUncached(Path root,JSONObject run)throws Exception {return readData(load(root,run),run);}
+    private JSONObject readData(JSONObject d,JSONObject run)throws Exception {var results=new JSONArray();long ticks=0;double wall=0;boolean repeatable=true,qualifies=true;
         String beamId=WorldPlan.sourceObject(run.getJSONObject("definition"),"beam").getString("id");
         for(Object raw:protocol.getJSONArray("cases")) {
             var spec=(JSONObject)raw;var first=completed(d,run,spec.getString("id"),0);var second=completed(d,run,spec.getString("id"),1);
@@ -76,12 +84,13 @@ final class PayloadSeries058 {
             results.put(new JSONObject().put("caseId",spec.getString("id")).put("spec",spec).put("firstAttemptId",first.getString("id")).put("repeatAttemptId",second.getString("id")).put("metrics",first.getJSONObject("metrics")).put("repeatMetrics",second.getJSONObject("metrics")).put("repeatAgrees",agrees).put("chart",chart).put("frames",frames).put("objects",first.getJSONArray("objects")));
         }
         for(Object raw:d.getJSONArray("attempts")){var a=(JSONObject)raw;ticks+=a.getJSONArray("rows").length();wall+=a.optDouble("wallMillis",0);}
-        return new JSONObject().put("version","payload-series-058-v1").put("phase",phase).put("complete",true).put("qualifies",qualifies).put("repeatable",repeatable).put("scope",Design058.protocol().getString("scope")).put("sourceRunSha256",WorldFrames.hash(run)).put("codeSha256",Design058.code()).put("originalSha256",Payload057.evidenceHash(d)).put("attempts",d.getJSONArray("attempts").length()).put("totalTicks",ticks).put("observedWallMillis",wall).put("results",results);
+        return new JSONObject().put("version","payload-series-058-v1").put("phase",phase).put("complete",true).put("qualifies",qualifies).put("repeatable",repeatable).put("scope",(asymmetric?SupportDesign059.protocol():Design058.protocol()).getString("scope")).put("sourceRunSha256",WorldFrames.hash(run)).put("codeSha256",Design058.code()).put("originalSha256",Payload057.evidenceHash(d)).put("attempts",d.getJSONArray("attempts").length()).put("totalTicks",ticks).put("observedWallMillis",wall).put("results",results);
     }
-    JSONObject costs(Path root,JSONObject run)throws Exception {var d=load(root,run);long ticks=0;double wall=0;for(Object raw:d.getJSONArray("attempts")){var a=(JSONObject)raw;ticks+=a.getJSONArray("rows").length();wall+=a.optDouble("wallMillis",0);}return new JSONObject().put("ticks",ticks).put("wallMillis",wall).put("attempts",d.getJSONArray("attempts").length());}
+    JSONObject costs(Path root,JSONObject run)throws Exception {return Evidence059.derive(file(root,run),binding(run,"costs"),d->costData(validate(d,run)));}
+    private JSONObject costData(JSONObject d){long ticks=0;double wall=0;for(Object raw:d.getJSONArray("attempts")){var a=(JSONObject)raw;ticks+=a.getJSONArray("rows").length();wall+=a.optDouble("wallMillis",0);}return new JSONObject().put("ticks",ticks).put("wallMillis",wall).put("attempts",d.getJSONArray("attempts").length());}
     boolean exists(Path root,JSONObject run){return Files.exists(file(root,run));}
-    JSONObject originals(Path root,JSONObject run)throws Exception {
-        var d=load(root,run);var records=new JSONArray();var headers=new JSONObject();for(String key:d.keySet())if(!key.equals("attempts"))headers.put(key,d.get(key));
+    JSONObject originals(Path root,JSONObject run)throws Exception {return Evidence059.derive(file(root,run),binding(run,"originals"),d->originalData(validate(d,run),run));}
+    private JSONObject originalData(JSONObject d,JSONObject run)throws Exception {var records=new JSONArray();var headers=new JSONObject();for(String key:d.keySet())if(!key.equals("attempts"))headers.put(key,d.get(key));
         for(Object raw:d.getJSONArray("attempts")){var a=(JSONObject)raw;if(a.getString("status").equals("completed")&&!Payload057.verify(a,run,a.getJSONObject("spec"),protocol).similar(a.getJSONObject("metrics")))throw new IllegalStateException("Original payload metrics changed");records.put(new JSONObject().put("attemptId",a.getString("id")).put("original",WorldReport.packed(a)));}
         return new JSONObject().put("header",headers).put("originalCanonicalSha256",Payload057.evidenceHash(d)).put("records",records);
     }

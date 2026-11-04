@@ -2537,7 +2537,7 @@
     "type": "function",
     "function": {
       "name": "construction_start",
-      "description": "Optional dynamic payload tests drop actual bodies at declared positions and retain unstable cases. Assemble or rebuild declared bridge stock in the selected persistent world. Java routes around supported fixed obstacles and verifies native motion, released support and charts before commit. Optional design053 compares actual trials; directFirst055 tries maximum force first and expands only on failed verification. loadTests055 evaluates unloaded, downward and horizontal-overload copies, retaining unstable outcomes without mutating the live world. Direct-first/load options require design053. No material-strength or robot claim. Measured load design056 tests off-centre downward load limits and at most two wider support layouts after measured failure; requiredLoadN must earn fresh verification. Payload redesign selects from measured design failures, then tests unfamiliar payloads under a pinned decision before promotion.",
+      "description": "Optional dynamic payload tests drop actual bodies at declared positions and retain unstable cases. Assemble or rebuild declared bridge stock in the selected persistent world. Java routes around supported fixed obstacles and verifies native motion, released support and charts before commit. Optional design053 compares actual trials; directFirst055 tries maximum force first and expands only on failed verification. loadTests055 evaluates unloaded, downward and horizontal-overload copies, retaining unstable outcomes without mutating the live world. Direct-first/load options require design053. No material-strength or robot claim. Measured load design056 tests off-centre downward load limits and at most two wider support layouts after measured failure; requiredLoadN must earn fresh verification. Payload redesign selects from measured design failures, then tests unfamiliar payloads under a pinned decision before promotion. Optional asymmetricSupports059 compares the same-span symmetric and left/right shifted support layouts against separate frozen design and new reserved payloads; no stock or threshold changes.",
       "parameters": {
         "type": "object",
         "properties": {
@@ -2600,6 +2600,9 @@
             "type": "boolean"
           },
           "allowPayloadRedesign058": {
+            "type": "boolean"
+          },
+          "asymmetricSupports059": {
             "type": "boolean"
           }
         },

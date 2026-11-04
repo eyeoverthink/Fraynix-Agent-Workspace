@@ -1,0 +1,17 @@
+{
+  "version": "asymmetric-payload-059-v1",
+  "maxOffsetM": 0.30,
+  "maxGoalSeconds": 1200,
+  "designCases": [
+    {"id":"force-centre","kind":"force","halfLengthFraction":0,"forceN":16},
+    {"id":"force-right","kind":"force","halfLengthFraction":0.9,"forceN":16},
+    {"id":"design059-right-drop","kind":"payload","massKg":1.35,"halfLengthFraction":0.55,"dropHeightM":0.22}
+  ],
+  "reservedCases": [
+    {"id":"reserved059-light-left","kind":"payload","massKg":0.60,"halfLengthFraction":-0.25,"dropHeightM":0.16},
+    {"id":"reserved059-inner-right","kind":"payload","massKg":0.90,"halfLengthFraction":0.20,"dropHeightM":0.12},
+    {"id":"reserved059-outer-right","kind":"payload","massKg":1.65,"halfLengthFraction":0.60,"dropHeightM":0.30},
+    {"id":"reserved059-heavy-right","kind":"payload","massKg":1.90,"halfLengthFraction":0.65,"dropHeightM":0.36}
+  ],
+  "scope": "Fixed same-span asymmetric support layouts chosen from measured design cases only, before new paired reserved payloads. Native rigid-body simulation; not material strength, physical certification or LLM weight learning."
+}
