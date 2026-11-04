@@ -36,12 +36,17 @@ public class JournalAtomic067Test {
     }
     @Test public void interruptedRetryRetainsInterruptAndOriginalJournal()throws Exception{
         var root=root();var file=root.resolve("kernel-journal.log");var before=Files.readAllBytes(file);var journal=new MerkleAppendOnlyJournal(root);
-        var executor=Executors.newSingleThreadScheduledExecutor();Thread writer=Thread.currentThread();
+        var failure=new java.util.concurrent.atomic.AtomicReference<Throwable>();
+        var interrupted=new java.util.concurrent.atomic.AtomicBoolean();
+        var writer=new Thread(()->{try{journal.append("second","interrupted",Map.of());}catch(Throwable e){failure.set(e);}finally{interrupted.set(Thread.currentThread().isInterrupted());}},"journal-retry067");
         try(var held=FileChannel.open(file,StandardOpenOption.READ,ExtendedOpenOption.NOSHARE_DELETE)){
-            executor.schedule(writer::interrupt,100,TimeUnit.MILLISECONDS);
-            assertThrows(java.io.InterruptedIOException.class,()->journal.append("second","interrupted",Map.of()));
-            assertTrue(Thread.currentThread().isInterrupted());assertEquals(1,journal.size());assertArrayEquals(before,Files.readAllBytes(file));
-        }finally{executor.shutdownNow();Thread.interrupted();}
+            writer.start();long end=System.nanoTime()+5_000_000_000L;
+            while(writer.isAlive()&&writer.getState()!=Thread.State.TIMED_WAITING&&System.nanoTime()<end)Thread.sleep(1);
+            assertEquals("Interrupt the replacement retry, not an earlier file write",Thread.State.TIMED_WAITING,writer.getState());
+            writer.interrupt();writer.join(3000);assertFalse(writer.isAlive());
+            assertTrue(String.valueOf(failure.get()),failure.get() instanceof java.io.InterruptedIOException);
+            assertTrue(interrupted.get());assertEquals(1,journal.size());assertArrayEquals(before,Files.readAllBytes(file));
+        }finally{if(writer.isAlive()){writer.interrupt();writer.join(3000);}}
         assertEquals(1,new MerkleAppendOnlyJournal(root).verify().pendingFiles().size());
     }
 }
