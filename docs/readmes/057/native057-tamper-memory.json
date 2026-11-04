@@ -1,0 +1,23 @@
+{
+  "label": "native057-tamper-memory",
+  "source": "e48773c",
+  "count": 3,
+  "failures": 1,
+  "cases": [
+    {
+      "case": "fraymus.workspace.Payload057Test#frozenNativePayloadsRetainImpactPositionsRecoveryAndOriginalFailures",
+      "passed": false,
+      "seconds": 203.454
+    },
+    {
+      "case": "fraymus.workspace.Payload057Test#protocolUsesSeparateRealMassesAndDeclaredPositions",
+      "passed": true,
+      "seconds": 0.003
+    },
+    {
+      "case": "fraymus.workspace.Payload057Test#explicitChatPayloadRequestCannotBeDropped",
+      "passed": true,
+      "seconds": 0.15
+    }
+  ]
+}

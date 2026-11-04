@@ -2,19 +2,9 @@
 
 **A local visual environment for agents to browse, create runnable artifacts, test behavior and reuse verified skills.**
 
-> **[Edition 056 · Measured load limits and verified redesign](README-056.md)** · [Offline guide](docs/readmes/056/index.html) · [Operation](docs/JAVA_CHAT_044.md) · [Edition history](docs/readmes/INDEX.md)
+> **[Edition057 · Dynamic payloads and new load positions](README-057.md)** · [Offline guide](docs/readmes/057/index.html) · [Operation](docs/JAVA_CHAT_044.md) · [Edition history](docs/readmes/INDEX.md)
 
-Edition 056 measures a tested load bracket, retains failures and admits bounded same-stock redesign only when fresh execution verifies the requirement. [Measured results and originals](docs/readmes/056/verification.json).
-
-Edition052 is published to main with the original evidence. [Fetched GitHub verification](docs/PUBLICATION_052.json).
-
-Edition053 is published to main with complete original evidence. [Fetched GitHub verification](docs/PUBLICATION_053.json).
-
-Edition054 is published to main with complete original evidence. [Fetched GitHub verification](docs/PUBLICATION_054.json).
-
-Edition055 is published to main with complete original evidence. [Fetched GitHub verification](docs/PUBLICATION_055.json).
-
-Edition056 is published to main with complete original evidence. [Fetched GitHub verification](docs/PUBLICATION_056.json).
+Edition057 tests actual falling payloads and new force positions, preserves failures and verifies recorded motion before completion. [Measured results and originals](docs/readmes/057/verification.json).
 
 One integrated app, with Java-owned chat planning, creation, native skill scheduling, continuing identity, real clocks and checked outcomes. Mission connects the actual goal, source, child task, recovery and retained result. [Screenshots, typed skill graphs, new logic and production direction](README-046.md).
 

@@ -53,3 +53,8 @@ Spatial → Gripper assembly supports a tall detour wall and a sealed-wall refus
 ## Measured load redesign056
 
 Spatial → Gripper assembly → 16 N redesign example creates separate labelled stock. Review original failure, verified wider supports, then fresh execution. Chat preserves requiredLoadN and saved procedures preserve the same load policy. Original 24 N case refuses all tested layouts. Reports and exports retain force/motion/contact records and repeats; no material-strength claim. [Edition 056 walkthrough](../README-056.md).
+
+
+## Dynamic payloads057
+
+Spatial → Gripper assembly → Dynamic payload example creates labelled stock. Chat can request dynamic payloads and new load positions. Java retains14completed repetitions, originals and interrupted attempts; saved procedures cannot silently remove the checks. Recorded motion, actual charts and exports accompany stable and unstable results. [Edition057 walkthrough](../README-057.md).

@@ -62,4 +62,6 @@ Numbered editions preserve dated behavior and evidence. The root [README](../../
 
 | [056](../../README-056.md) | 2026-11-03 | Measured load limits and verified redesign after failure | [Viewer](056/index.html) · [tree](056/FILE_TREE.md) |
 
-Latest implementation and documentation edition in this checkout is **056**. See [sequence policy](README_SEQUENCE.md) and [manifest](editions.json).
+| [057](../../README-057.md) | 2026-11-03 | Dynamic payloads and new load positions | [Viewer](057/index.html) · [tree](057/FILE_TREE.md) |
+
+Latest implementation and documentation edition in this checkout is **057**. See [sequence policy](README_SEQUENCE.md) and [manifest](editions.json).

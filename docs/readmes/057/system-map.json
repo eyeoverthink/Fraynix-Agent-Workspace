@@ -1,0 +1,89 @@
+{
+  "edition": 57,
+  "modules": [
+    {
+      "id": "payload",
+      "name": "Actual dynamic payloads",
+      "summary": "Separate native bodies with measured gravity, impact, support and settling.",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/Payload057.java",
+      "status": "Verified",
+      "note": "docs/obsidian/65-dynamic-payloads.md"
+    },
+    {
+      "id": "protocol",
+      "name": "Frozen positions and repeats",
+      "summary": "Seven six-second cases, twice; original gates and failure outcomes remain.",
+      "source": "workspace-engine/src/main/resources/construction057-protocol.json",
+      "status": "Verified",
+      "note": "docs/obsidian/65-dynamic-payloads.md"
+    },
+    {
+      "id": "goal",
+      "name": "Continuing Java goal",
+      "summary": "Interrupted attempts retained, completed cases skipped, exact skill policy reused.",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/GoalRunner.java",
+      "status": "Verified",
+      "note": "docs/obsidian/65-dynamic-payloads.md"
+    },
+    {
+      "id": "replay",
+      "name": "Verified original replay",
+      "summary": "Numbers, curves and projected body poses checked against original native rows.",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/PayloadReport057.java",
+      "status": "Verified",
+      "note": "docs/obsidian/65-dynamic-payloads.md"
+    },
+    {
+      "id": "view",
+      "name": "Integrated controls and chat",
+      "summary": "Visible payload example, originals export and actual local-model requests.",
+      "source": "workspace-desktop/renderer/construction051.js",
+      "status": "Actual app verified",
+      "note": "docs/obsidian/65-dynamic-payloads.md"
+    },
+    {
+      "id": "next",
+      "name": "Payload-aware redesign",
+      "summary": "Freeze supported mass, landing region and impact speed before evaluation.",
+      "source": "docs/EDITION_057_CONTRACT.md",
+      "status": "Planned",
+      "note": "docs/obsidian/65-dynamic-payloads.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "docs/readmes/057/construction057-stock.png",
+      "title": "Labelled synthetic stock before assembly · November3,2026 · synthetic practice world"
+    },
+    {
+      "path": "docs/readmes/057/construction057-results.png",
+      "title": "Measured force and dynamic-payload outcomes · November3,2026 · synthetic practice world"
+    },
+    {
+      "path": "docs/readmes/057/construction057-report.png",
+      "title": "Actual verified results table · November3,2026 · synthetic practice world · Reopened prior verified study; sidebar shows later Stop check"
+    },
+    {
+      "path": "docs/readmes/057/construction057-replay-edge.png",
+      "title": "Recorded edge-impact motion at the selected time · November3,2026 · synthetic practice world · Reopened prior verified study; sidebar shows later Stop check"
+    },
+    {
+      "path": "docs/readmes/057/construction057-chat.png",
+      "title": "Local-model completion and retained skill reuse · November3,2026 · synthetic practice world"
+    },
+    {
+      "path": "docs/readmes/057/construction057-compact.png",
+      "title": "New compact stock and integrated narrow layout · November3,2026 · synthetic practice world"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/readmes/057/verification.json",
+      "title": "Source-qualified results"
+    },
+    {
+      "path": "docs/readmes/057/original-evidence.json",
+      "title": "Complete originals and failures"
+    }
+  ]
+}

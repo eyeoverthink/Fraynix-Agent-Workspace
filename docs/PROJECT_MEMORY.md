@@ -1,5 +1,21 @@
 # Agent Workspace project memory
 
+## Edition057 · Validated locally; publication audit next
+
+2026-11-03. Actual app source 2aaddc64906b7a00b2fcae224ee6310a1b8621b2. Dynamic native payloads and new force positions verified in wide, changed-centre and compact worlds. 50distinct targeted Java cases/8classes across source-qualified invocations,124desktop tests, actual CPU/four-thread local-model chat and cold saved-skill reuse. Original memory/storage failures retained; compact contact identities and streaming hashes preserve all measurements. Restart, exact skill policy, report/replay and original export checks pass. No physical-strength or model-weight-learning claim.
+
+NewREADME057/screenshots/offlineguide/Obsidian/originals prepared. Actual main/edition057/readme-057 push and fresh fetched audit pending. Preserve normal045/qa046 installed runtimes/private data and frozen001–056. Next: predeclared payload-aware objectives and verified redesign with reserved conditions and complete costs.
+
+
+## Edition 057 recovery checkpoint · not published
+
+2026-11-03, about 19:43 PST. Isolated edition057 checkout/branch; source2ee2c75. Native payload/report algorithms passed at d9a6219; latest installed Java2ee2c75 narrows payload-only chat schema after the real model proposed requiredLoadN0 for an unrelated redesign. All original invalid proposals were rejected before actuation; that task was explicitly stopped. 44 distinct targeted Java cases/7 classes pass across source-qualified invocations, including latest29/29 schema/domain/chat checks; 124 desktop checks pass. Physical gates unchanged.
+
+First actual wide task is verified and committed as revision1, including cold continuation,14 completed experiments plus the original interrupted attempt, all report values/curves/replay and byte-checked chunked exports. Actual app continuation exec20307 runs build/test057-live-schema.log in the same synthetic Temp/fraynix-construction057-Solikr project, resuming construction057-checkpoint.json. Prior failures retained in test-output, build/native057-* and build/ui057-*. Export/selection and chat/view readiness defects corrected; screenshot captures now wait for the actually visible completed report. No publication claim.
+
+Remaining: actual changed-centre chat, cold exact skill reuse on compact stock, Stop, screenshot inspection; optional build/capture-report057.cjs improves report captures. Then run prepared documentation helpers once: prepare-docs057.py, check-docs057.cjs, freeze-docs057.py, Verify-Documentation.ps1 (PowerShell7), preflight057.py/stage057.py. Audit local release, annotated readme-057 tag, non-force atomic main/edition057/tag push, fresh direct GitHub fetch/audit, publication receipt and continuity push/final audit. Preserve001–056 frozen, normal045/qa046 installed JARs/private projects and dependencyjunction053. No subagents or concurrent heavy native/model jobs.
+
+
 ## Edition057 implementation checkpoint · not published
 
 2026-11-03. Work in isolated fraynix-workspace-edition057/edition057 from ca57e27; target private Fraynix-Agent-Workspace. Frozen contract7009814 precedes seven native force/drop cases, each repeated, actual payload bodies and recorded report/replay. Integration source0db57e8 under serial regression (build/test057-regression.log). 123desktop checks pass. First sourceb58c305 reached64MB; cb0aa0c compact contacts then hit512MB heap during full-history hashing. Streaming hash source0db57e8 completes native results, but a test held multiple complete histories while checking altered source and exhausted heap at its last assertion. Preserve all original tests/Temp roots. Current uncommitted fix frees extra test references; report originals split by attempt,64MBtotal artifact cap, original full export unchanged. Physical gates and protocol unchanged.
