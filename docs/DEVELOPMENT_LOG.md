@@ -1,5 +1,13 @@
 # Agent Workspace development log
 
+## Edition 057 · Published and fetched back on 2026-11-03
+
+Actual non-forced atomic push to private `eyeoverthink/Fraynix-Agent-Workspace`: main, edition057 and readme-057 accepted. Release `fd14495f6329ce40e57ddb7b0fefbf2aef37e281`; annotated tag `fbb884be8084552ad894ac592a092c7e599ab3cb`. Fresh direct GitHub fetch verifies 907 canonical source files, 4,659 frozen hashes across 57 editions and 282 original archives, including decompressed bytes and SHA-256. Documentation passes 62 canvases and 6,059 references. [Publication receipt](PUBLICATION_057.json).
+
+Dynamic payloads and new force positions: seven cases, each repeated in wide, changed-centre and compact worlds. Wide and changed-centre layouts pass all seven cases; compact passes five, with both edge-force failures retained. Freefall, impact and contact evidence, original charts and replay, cold continuation and exact saved-skill checks verified. 50 distinct targeted Java cases across eight classes, 124 desktop tests and the actual CPU/four-thread local-model workflow pass across recorded source-qualified invocations. Chat took 415.090 seconds; saved-skill reuse took 368.259 seconds. Complete originals and development failures retained. These are rigid-body simulation results; this does not establish material strength, hardware performance or model-weight learning. No full-suite claim.
+
+New extensive README 057, six actual screenshots, offline guide, Obsidian map and original records published. Preserve normal045/qa046 installed JARs and private data; editions 001–057 remain immutable. Next unused edition is 058: freeze payload-aware objectives and reserved conditions before verified redesign, retaining complete effort, cost and failure records. This receipt follows the fetched release.
+
 ## Edition057 · Validated locally; publication audit next
 
 2026-11-03. Actual app source 2aaddc64906b7a00b2fcae224ee6310a1b8621b2. Dynamic native payloads and new force positions verified in wide, changed-centre and compact worlds. 50distinct targeted Java cases/8classes across source-qualified invocations,124desktop tests, actual CPU/four-thread local-model chat and cold saved-skill reuse. Original memory/storage failures retained; compact contact identities and streaming hashes preserve all measurements. Restart, exact skill policy, report/replay and original export checks pass. No physical-strength or model-weight-learning claim.

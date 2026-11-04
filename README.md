@@ -6,6 +6,8 @@
 
 Edition057 tests actual falling payloads and new force positions, preserves failures and verifies recorded motion before completion. [Measured results and originals](docs/readmes/057/verification.json).
 
+Edition 057 is published to main with original payload evidence. [Fetched GitHub verification](docs/PUBLICATION_057.json).
+
 One integrated app, with Java-owned chat planning, creation, native skill scheduling, continuing identity, real clocks and checked outcomes. Mission connects the actual goal, source, child task, recovery and retained result. [Screenshots, typed skill graphs, new logic and production direction](README-046.md).
 
 The [edition 050 construction workshop](README-050.md) adds finite-stock ramp experiments, predictions saved before native physics execution, recorded failures, bounded design repair and procedures that are retested after restart. Its integrated replay and charts expose actual solver outcomes. The [edition 051 gripper assembly](README-051.md) now adds force/torque-driven bridge assembly, same-world reassembly after restart, typed chat and verified saved skills. The kit and actuator are virtual; construction remains subject to native verification. [Verified GitHub publication](docs/PUBLICATION_050.json) · [Final application validation](docs/publication050/validation.json).
