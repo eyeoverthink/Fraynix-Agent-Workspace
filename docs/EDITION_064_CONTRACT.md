@@ -36,8 +36,9 @@ comparison. Analytical .75-second mean remains unchanged. Fresh Java Random
 seeds: 64001 calibration, 64002 reserved, 64003 shifted stress. Regime outermost.
 Calibration/reserved: 30 accelerating then 30 slowing cases each. Each draw
 consumes angle, speed, ratio uniforms in that order: angle 12+20*u, speed
-.05+.35*u, ratio .85+.14*u or 1.01+.19*u. Stress: 15 per regime, angle 32+3*u,
-same speed; ratio .70+.15*u or 1.20+.15*u. Stress is outside calibration support,
+.05+.35*u, ratio .85+.14*u or 1.01+.19*u. Stress: 15 per regime, angle 8+4*u,
+same speed; ratio .70+.15*u or 1.20+.10*u. These remain inside the unchanged
+native adapter's admitted physical domain. Stress is outside calibration support,
 explicitly labelled, and never calibrates or selects anything.
 
 Use unchanged edition063 baseline native trial for these 150 uncertainty runs,
