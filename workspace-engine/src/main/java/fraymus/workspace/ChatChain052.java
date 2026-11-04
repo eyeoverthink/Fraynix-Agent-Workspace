@@ -21,7 +21,7 @@ final class ChatChain052 {
         }
     }
 
-    /** Only the optional discovery catalog is reduced. Bound selections and requirements stay exact. */
+    /** Reduce discovery and historical diagnostics; keep selected identity and execution requirements exact. */
     static JSONObject context(JSONObject g) {
         var c = WorldFrames.copy(g.getJSONObject("context044"));
         if (c.has("available044")) {
@@ -30,7 +30,7 @@ final class ChatChain052 {
             if(bound!=null)for(Object raw:original.optJSONArray("procedures",new JSONArray())){
                 var procedure=(JSONObject)raw;
                 if(procedure.optString("name").equals(bound.getString("name"))&&procedure.optInt("version")==bound.getInt("version"))
-                    c.put("selectedProcedure052",WorldFrames.copy(procedure));
+                    c.put("selectedProcedure052",procedureContext(procedure));
             }
             var catalog = new JSONObject();
             for (String key : original.keySet()) {
@@ -52,6 +52,26 @@ final class ChatChain052 {
         }
         c.put("retainedDiagnostics052", diagnostics(g));
         return c;
+    }
+
+    private static JSONObject procedureContext(JSONObject procedure) {
+        var selected=WorldFrames.copy(procedure);
+        if(selected.has("payload057")) {
+            var original=selected.getJSONObject("payload057");
+            var summary=new JSONObject().put("originalSummarySha256",WorldFrames.hash(original));
+            for(String key:List.of("version","codeSha256","sourceRunSha256","originalSha256","complete","repeatable","attempts","totalTicks","observedWallMillis","scope"))
+                if(original.has(key))summary.put(key,original.get(key));
+            var outcomes=new JSONArray();
+            for(Object raw:original.getJSONArray("results")) {
+                var result=(JSONObject)raw;
+                outcomes.put(new JSONObject().put("caseId",result.getString("caseId"))
+                    .put("stable",result.getJSONObject("metrics").getBoolean("stable"))
+                    .put("repeatAgrees",result.getBoolean("repeatAgrees")));
+            }
+            summary.put("outcomes",outcomes).put("projectionScope","Historical measurements summarized for planning only. Java retains the complete procedure and report, resolves its exact name/version and reruns the unchanged payload policy. Defaults, policy, prerequisites, actions and recovery are not reduced.");
+            selected.remove("payload057");selected.put("historicalPayloadEvidence057",summary);
+        }
+        return selected;
     }
 
     /** Never silently erase an essential field or leave a partial JSON document. */
