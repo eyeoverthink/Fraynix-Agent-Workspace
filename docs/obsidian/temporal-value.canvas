@@ -1,0 +1,111 @@
+{
+  "nodes": [
+    {
+      "id": "contact",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/TemporalContact067.java",
+      "x": 0,
+      "y": 0,
+      "width": 390,
+      "height": 200
+    },
+    {
+      "id": "value",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/ValueScreen067.java",
+      "x": 420,
+      "y": 0,
+      "width": 390,
+      "height": 200
+    },
+    {
+      "id": "policy",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/TemporalPolicy067.java",
+      "x": 840,
+      "y": 0,
+      "width": 390,
+      "height": 200
+    },
+    {
+      "id": "trial",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/TemporalTrial067.java",
+      "x": 0,
+      "y": 250,
+      "width": 390,
+      "height": 200
+    },
+    {
+      "id": "study",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/TemporalStudy067.java",
+      "x": 420,
+      "y": 250,
+      "width": 390,
+      "height": 200
+    },
+    {
+      "id": "view",
+      "type": "file",
+      "file": "workspace-desktop/renderer/temporal067.js",
+      "x": 840,
+      "y": 250,
+      "width": 390,
+      "height": 200
+    },
+    {
+      "id": "next",
+      "type": "file",
+      "file": "docs/EDITION_067_CONTRACT.md",
+      "x": 0,
+      "y": 500,
+      "width": 390,
+      "height": 200
+    }
+  ],
+  "edges": [
+    {
+      "id": "e0",
+      "fromNode": "contact",
+      "fromSide": "right",
+      "toNode": "value",
+      "toSide": "left"
+    },
+    {
+      "id": "e1",
+      "fromNode": "value",
+      "fromSide": "right",
+      "toNode": "policy",
+      "toSide": "left"
+    },
+    {
+      "id": "e2",
+      "fromNode": "policy",
+      "fromSide": "right",
+      "toNode": "trial",
+      "toSide": "left"
+    },
+    {
+      "id": "e3",
+      "fromNode": "trial",
+      "fromSide": "right",
+      "toNode": "study",
+      "toSide": "left"
+    },
+    {
+      "id": "e4",
+      "fromNode": "study",
+      "fromSide": "right",
+      "toNode": "view",
+      "toSide": "left"
+    },
+    {
+      "id": "e5",
+      "fromNode": "view",
+      "fromSide": "right",
+      "toNode": "next",
+      "toSide": "left"
+    }
+  ]
+}

@@ -1,5 +1,18 @@
 # Agent Workspace development log
 
+## Edition 067 · Validated locally; publication next
+
+Contract 9af32f4 preceded new outcomes. Original implementation 7be5a73, journal persistence repair 3f35d83, synchronized interruption test 12ce1f8, actual app source f93fd12d8e24617cbcf46104509c21120b2f592d. Seven policies, 508 slots, 305 native executions and all four original-runtime parity differences zero. Temporal uses ticks 52/56/60 with known oriented clearance; Value saves nine analytical scenarios before any first push. Costs and original observations persist.
+
+Simple 25 successes/35 misses; Fixed 11/2/47 refusals; Pooled 11/1/48; Blind 42/18; Observed 44/16; Temporal 44/16; Value 29/3/28. Value recovers 18/48 initial refusals. Mean utilities: Value +0.259333, Temporal +0.089000, Observed +0.137667, Blind +0.060000, Pooled +0.026000, Fixed −0.005167, Simple −0.770000. Value gate PASSED; no active controller or LLM-weight promotion. Screening avoids 13 Temporal misses and sacrifices 15 Temporal successes. Twenty screened attempts agree with Temporal outcomes/endpoints. Contact history adds cost without more completions on this set.
+
+First native invocation failed on Windows journal replacement after 280 executions/392 slots. Original partial job, checkpoint, journal and pending bytes remain archived. Bounded AccessDenied retry holds the existing lock and retains atomicity. Three real Windows lock/interruption tests and original journal integrity/concurrency harness pass. Initial interruption test timing failure and preliminary Gradle filter-placement failure are retained. No native rule, gate or case changed; completed partial-run samples/plans match the unchanged rerun. The first real chat exceeded the unchanged planning guard. Explicit subgroup source references keep all values in original facts/reports; the same interrupted chat resumed against the same completed study.
+
+77 distinct targeted Java checks across 14 classes, 127 desktop checks, actual app contact/screen/motion inspection, cold restart, Stop and local CPU-only/four-thread gpt-oss:20b reporting passed. Offline guide passed desktop/phone interactions and visual review. Ten actual captures, two offline captures, original evidence, README067, full source inventory and Obsidian map are prepared. Main push and freshly fetched audit remain pending.
+
+Test app closed. Preserve normal045/qa046 installations, user worlds and immutable 001–066. Current source worktree work/fraynix-workspace-edition067; no subagents or overlapping heavy validators. Next unused 068: prospectively calibrate value assumptions and selection tradeoffs on new disturbances and unfamiliar cases. Scenario fraction is not calibrated probability; known native geometry is not camera inference. Physical calibration remains separate.
+
+
 ## Edition 066 · Published and fetched back on 2026-11-04
 
 Actual atomic push to Fraynix-Agent-Workspace main, edition066 and readme-066 succeeded. Release `29d2b0b43f0429bfecddbb667bce92885493d872`; annotated tag `0b4cc8680490800e263f51914f8ed42e6812d780`. Fresh GitHub fetch verified 977 canonical sources, 5603 frozen hashes across 66 editions and 26 original archives, including decompressed bytes. Documentation passed 71 canvases and 6754 references. [Publication receipt](PUBLICATION_066.json).

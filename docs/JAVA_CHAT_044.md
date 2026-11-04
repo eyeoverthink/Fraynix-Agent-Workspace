@@ -1,5 +1,14 @@
 # Java chat and procedural ownership
 
+## Edition 067: contact history and pre-push value
+
+Java Brain → Contact history and value before the push runs the seven-policy comparison. Temporal uses three recent native samples and oriented clearance. Value first saves nine analytical sensitivity scenarios and declines an attempt whose estimated utility does not justify its cost. Scenario fractions are not calibrated confidence. All real misses, sacrificed successes, costs and unsupported refusals remain visible.
+
+Chat phrases “temporal contact,” “temporal recovery,” “pre-push” and “recovery value” use the continuing-agent evidence route. Ask for a checked report without running another study. Exact aggregate metrics are projected into planning tables; oversized subgroup detail becomes an explicit source reference while all values remain in the original facts and checked report. The unchanged context guard still rejects oversized execution requirements. The new temporal trace endpoint audits the saved initial plan, screen, three contact samples and actual impulse. Stop and cold restore retain completed studies.
+
+The declared Value gate passed in the finite native comparison; no controller promotion occurred. Contact history did not improve completion over the instantaneous policy in these tasks. The Windows journal repair preserves atomicity and prior/pending evidence on failure. See [README 067](../README-067.md), [contract](EDITION_067_CONTRACT.md) and [verification](readmes/067/verification.json).
+
+
 ## Edition 066: bounded recovery inspection
 
 Open Java Brain → One observation, one recovery → Compare bounded recovery. Java persists five initial plans, checks original-runtime parity, and permits at most one corrective impulse at 0.25 seconds in the same world. Observed receives measured motion and contact; Blind receives predicted state only. Costs include the first real action even when later correction is withheld. All misses and unsupported refusals remain visible.

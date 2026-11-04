@@ -2,11 +2,11 @@
 
 **A local visual environment for agents to browse, create runnable artifacts, test behavior and reuse verified skills.**
 
-> **[Edition 066 · Bounded recovery and the cost of observation](README-066.md)** · [Offline guide](docs/readmes/066/index.html) · [Operation](docs/JAVA_CHAT_044.md) · [Edition history](docs/readmes/INDEX.md)
+> **[Edition 067 · Contact history and value before the push](README-067.md)** · [Offline guide](docs/readmes/067/index.html) · [Operation](docs/JAVA_CHAT_044.md) · [Edition history](docs/readmes/INDEX.md)
 
-Edition 066 gives a refused goal one real first push, one observation and at most one corrective impulse in the same native world. Observed recovered 27/47 initial refusals and completed 40/60 goals. Prediction-only replanning completed 43/60. Costs and failures prevent measured-policy qualification; no controller was promoted. [Measured results](docs/readmes/066/verification.json).
+Edition 067 compares three recent contact samples and a pre-push value screen against five existing policies. Value completed 29/60 tasks, with 3 misses and 28 refusals. It avoided 13 Temporal misses but sacrificed 15 successes. It passed the declared usefulness test; no automatic promotion. [Measured results](docs/readmes/067/verification.json).
 
-Edition 066 is published to main with source, eight actual app captures, original evidence and updated continuity notes. [Fetched GitHub verification](docs/PUBLICATION_066.json).
+Edition 067 implementation, screenshots and original evidence are prepared for publication. [Previous fetched publication](docs/PUBLICATION_066.json).
 
 
 One integrated app, with Java-owned chat planning, creation, native skill scheduling, continuing identity, real clocks and checked outcomes. Mission connects the actual goal, source, child task, recovery and retained result. [Screenshots, typed skill graphs, new logic and production direction](README-046.md).
