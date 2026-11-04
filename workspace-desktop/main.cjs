@@ -437,6 +437,7 @@ ipcMain.handle('workspace:request',async(event,input)=>{
     }
     case 'construction051': {
       const args=input.args||{};
+      if(input.command==='ready')return {ready:!manualBusy};
       if(input.command==='select'){const observed=await api('/api/world/observe',{worldId:args.worldId});currentPersistentWorld={worldId:observed.worldId,expectedRevision:observed.expectedRevision,expectedHash:observed.expectedHash};return observed;}
       if(input.command==='start')return goalBridge.execute('construction.start',args);
       if(input.command==='envelope-export'){const data=await api('/api/construction056/load-export',args);return nativeExports.save('measured-load-redesign','json',JSON.stringify(data),{id:args.id});}
