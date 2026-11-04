@@ -64,7 +64,7 @@ async function engineStart(){
   const java=process.env.JAVA_HOME?path.join(process.env.JAVA_HOME,'bin','java.exe'):'java';
   const lib=path.join(repo,'workspace-engine','build','install','workspace-engine','lib','*');
   const engineLog=fs.openSync(path.join(project,'engine.log'),'a');
-  engine=spawn(java,['-cp',lib,'fraymus.workspace.WorkspaceServer'],{cwd:repo,windowsHide:true,env:{...process.env,FRAYNIX_WORKSPACE_PROJECT:project,FRAYNIX_WORKSPACE_TOKEN:token},stdio:['pipe','pipe',engineLog]});
+  engine=spawn(java,['-Xmx768m','-cp',lib,'fraymus.workspace.WorkspaceServer'],{cwd:repo,windowsHide:true,env:{...process.env,FRAYNIX_WORKSPACE_PROJECT:project,FRAYNIX_WORKSPACE_TOKEN:token},stdio:['pipe','pipe',engineLog]});
   engine.on('error',e=>activity('error',e.message));
   engine.on('exit',code=>{if(!closing)activity('error',`Java engine stopped (${code})`);});
   await new Promise((resolve,reject)=>{
