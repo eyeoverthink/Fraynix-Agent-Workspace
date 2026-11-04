@@ -24,14 +24,14 @@ public final class BrainService implements AutoCloseable {
         var recover=new ArrayList<JSONObject>();for(var e:world.snapshot().entities())if(e.components().get(0).type().endsWith(".job")){var job=value(e);indexJob(job);if(Set.of("queued","running").contains(job.getString("status"))){job.put("status","interrupted").put("reason","Coordinator process ended; native trials are not silently resumed");recover.add(job);}}
         for(var job:recover)save("job",job);
     }
-    private static JSONObject value(EntityRecord e){return new JSONObject(e.components().get(0).values().get("payload"));}
+    private static JSONObject value(EntityRecord e){return new JSONObject(BrainPayload064.unpack(e.components().get(0).values().get("payload")));}
     private synchronized List<JSONObject> values(String type){var out=new ArrayList<JSONObject>();for(var e:world.snapshot().entities())if(e.components().get(0).type().equals("workspace.brain."+type))out.add(value(e));return out;}
     private synchronized void save(String type,JSONObject value) throws Exception {saveMany(Map.of(type,value));}
     private synchronized void saveMany(Map<String,JSONObject> records) throws Exception {
         var before=world.snapshot();var tx=new WorldTransaction(before);
         for(var entry:records.entrySet()){
             String type=entry.getKey();JSONObject value=entry.getValue();UUID id=UUID.fromString(value.getString("id"));var existing=before.entities().stream().filter(e->e.id().equals(id)).findFirst();
-            var component=new ComponentRecord(existing.map(e->e.components().get(0).id()).orElse(UUID.randomUUID()),"workspace.brain."+type,1,Map.of("payload",value.toString()));
+            var component=new ComponentRecord(existing.map(e->e.components().get(0).id()).orElse(UUID.randomUUID()),"workspace.brain."+type,1,Map.of("payload",BrainPayload064.encode(value)));
             if(existing.isEmpty())tx.add(new WorldTransaction.Create(new EntityRecord(id,type,List.of(component))));else tx.add(new WorldTransaction.Put(id,component));
         }
         try{tx.commit(world,schemas);checkpoint.save(world.snapshot(),schemas);for(var entry:records.entrySet())if(entry.getKey().equals("job"))indexJob(entry.getValue());}catch(Exception error){world.restore(before);throw error;}
