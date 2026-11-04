@@ -838,7 +838,7 @@
     "type": "function",
     "function": {
       "name": "tracking_wait",
-      "description": "Wait for this chat’s one saved tracking comparison; no duplicate starts.",
+      "description": "Wait for this chat\u2019s one saved tracking comparison; no duplicate starts.",
       "parameters": {
         "type": "object",
         "properties": {},
@@ -1086,7 +1086,7 @@
     "type": "function",
     "function": {
       "name": "goal_read",
-      "description": "Wait briefly and read actual durable progress of this chat’s owned Java goal. Never start duplicate physical actions.",
+      "description": "Wait briefly and read actual durable progress of this chat\u2019s owned Java goal. Never start duplicate physical actions.",
       "parameters": {
         "type": "object",
         "properties": {},
@@ -1098,7 +1098,7 @@
     "type": "function",
     "function": {
       "name": "goal_cancel",
-      "description": "Stop this chat’s owned Java goal and its actual motion.",
+      "description": "Stop this chat\u2019s owned Java goal and its actual motion.",
       "parameters": {
         "type": "object",
         "properties": {},
@@ -1141,7 +1141,7 @@
     "type": "function",
     "function": {
       "name": "procedure_save",
-      "description": "Retain a procedure only from this chat’s completed physically verified goal and exact tested report.",
+      "description": "Retain a procedure only from this chat\u2019s completed physically verified goal and exact tested report.",
       "parameters": {
         "type": "object",
         "properties": {
@@ -1298,7 +1298,7 @@
     "type": "function",
     "function": {
       "name": "body_capture",
-      "description": "Capture the actual final view of this task’s owned native body run. The host binds the observer and source.",
+      "description": "Capture the actual final view of this task\u2019s owned native body run. The host binds the observer and source.",
       "parameters": {
         "type": "object",
         "properties": {},
@@ -2537,7 +2537,7 @@
     "type": "function",
     "function": {
       "name": "construction_start",
-      "description": "Assemble or rebuild declared bridge stock in the selected persistent world. Java routes around supported fixed obstacles and verifies native motion, released support and charts before commit. Optional design053 compares actual trials; directFirst055 tries maximum force first and expands only on failed verification. loadTests055 evaluates unloaded, downward and horizontal-overload copies, retaining unstable outcomes without mutating the live world. Direct-first/load options require design053. No material-strength or robot claim.",
+      "description": "Assemble or rebuild declared bridge stock in the selected persistent world. Java routes around supported fixed obstacles and verifies native motion, released support and charts before commit. Optional design053 compares actual trials; directFirst055 tries maximum force first and expands only on failed verification. loadTests055 evaluates unloaded, downward and horizontal-overload copies, retaining unstable outcomes without mutating the live world. Direct-first/load options require design053. No material-strength or robot claim. Measured load design056 tests off-centre downward load limits and at most two wider support layouts after measured failure; requiredLoadN must earn fresh verification.",
       "parameters": {
         "type": "object",
         "properties": {
@@ -2574,6 +2574,23 @@
             "type": "boolean"
           },
           "reviewCounterfactual045": {
+            "type": "boolean"
+          },
+          "loadDesign056": {
+            "type": "boolean"
+          },
+          "requiredLoadN": {
+            "type": "integer",
+            "enum": [
+              8,
+              16,
+              24,
+              32,
+              48,
+              64
+            ]
+          },
+          "allowRedesign056": {
             "type": "boolean"
           }
         },

@@ -17,3 +17,9 @@ The chosen layout must execute freshly in the continuing world, pass the origina
 ## Frozen demonstration and publication
 
 Wide054 stock with initial span1.0m, centre(0,0),40N/4Nm gripper, requested24N. Compare initial, midpoint and maximum spacing by actual outcomes, retaining contrary results. Repeat a changed centre and compact stock; test a no-redesign requested-load refusal and an obstruction refusal. Publish actual screenshots, measured limits, failures, original evidence, newREADME/offline guide, memory/log updates. Push main/edition056/readme-056 without force and audit a fresh fetched GitHub tree. No new libraries, cloud services, stubs or learned-model claims.
+
+## Recorded contrary result and new declared case · 2026-11-03
+
+The original24N experiment produced verified measurements but no feasible redesign: initial1.0m, midpoint1.495m and maximum1.99m spacing all had a stable tested prefix16N and failed24N. Wider layouts retained support but exceeded the unchanged0.05m motion threshold. The initial expectation that at least one would pass was wrong; retain its failing invocation and every original trace. This becomes the no-feasible-candidate acceptance case; never lower its requested force during execution.
+
+Before the next run, declare a separate case: same wide stock, original span0.8m, requested16N, centre(0,0), same40N/4Nm controller and unchanged full force sweep/thresholds. Hypothesis: the original narrow support footprint fails16N and a wider layout passes. If the measurements disagree, record that outcome. The UI example explicitly selects this16N task; the general default requirement remains24N. This is a new development case, not held-out generalization or a softened version of the24N task.

@@ -2,6 +2,7 @@ package fraymus.workspace;
 import org.json.*;
 /** Bounded support-layout redesign; native movement and load evidence decide feasibility. */
 final class Design056 {
+ static final String LEGACY_055="f8768788af1014b27b19182b4b458daaf68484dc4ae4a3cb83cccb68b3f55c8d";
  private Design056(){}
  static JSONObject policy(int required){return policy(required,true);}
  static JSONObject policy(int required,boolean allow){return new JSONObject().put("version","load-redesign-056-v1").put("requiredLoadN",Load056.required(new JSONObject().put("requiredLoadN",required))).put("protocol",Load056.protocol()).put("allowRedesign",allow);}
