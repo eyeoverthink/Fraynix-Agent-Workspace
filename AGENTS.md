@@ -1,5 +1,12 @@
 # Fraynix Studio collaboration and documentation
 
+## Edition 061 · Published and fetched back on 2026-11-04
+
+Actual atomic push to Fraynix-Agent-Workspace main, edition061 and readme-061 succeeded. Release `be542c537f37fd5931773740210a8d8b1be74d85`; annotated tag `4b45f860fe30b440931060d47f7d8bf384c7f6ad`. Fresh fetch verified 941 canonical sources,5351 frozen hashes/61 editions and28 original archives including decompressed hashes. Documentation passed66 canvases/6359 references. [Publication receipt](docs/PUBLICATION_061.json).
+
+Three FraynixGPT-port gaps repaired. Native24-training/12-withheld outcome readout, full continuation and strict admission work in existing Java Brain. Cortex52.890mm MAE versus linear61.135mm and analytical4.224mm: candidate unqualified, no controller or LLM weight promotion.50 targeted Java/127 desktop checks pass; actual CPU4-thread gpt-oss20b report, Stop,cold prediction and completed-history selection verified. README061/four app captures/two offline captures/originals/memory published. Test app closed. Preserve normal045/qa046 installs/private data and immutable001–061. Next unused062: analytical residual learning under newly declared contact cases, then typed construction outcomes and calibrated uncertainty.
+
+
 ## Edition 061 · Validated locally; publication next
 
 Source `872e40b269aede144e50513eaeaac0bd93563fec`. Contract7e49b7f before outcomes; Java implementationabf7c42. Three repaired FraynixGPT-port gaps: small sparse encoder, complete bounded continuation and strict format admission. Actual native training24/evaluation12: cortex MAE52.890mm, linear61.135mm, analytical4.224mm, constant395.213mm; worst82.620mm. Candidate unqualified; no controller promotion or LLM weight update. Hive adapts verified input patterns; supervised readout learns actual endpoints.

@@ -6,7 +6,7 @@
 
 Edition 061 connects the owned FraynixGPT numerical cortex to verified native motion outcomes, repairs continuation and format admission, and compares its learned readout against simpler models. The analytical baseline wins; the candidate remains unqualified. [Measured results and originals](docs/readmes/061/verification.json).
 
-Edition 060 is published to main with original redesign and reserved-evaluation evidence. [Fetched GitHub verification](docs/PUBLICATION_060.json).
+Edition 061 is published to main with source, actual app captures and original outcome evidence. [Fetched GitHub verification](docs/PUBLICATION_061.json).
 
 One integrated app, with Java-owned chat planning, creation, native skill scheduling, continuing identity, real clocks and checked outcomes. Mission connects the actual goal, source, child task, recovery and retained result. [Screenshots, typed skill graphs, new logic and production direction](README-046.md).
 
