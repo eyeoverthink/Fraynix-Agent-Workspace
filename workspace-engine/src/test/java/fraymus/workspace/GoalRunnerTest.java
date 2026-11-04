@@ -31,7 +31,7 @@ public class GoalRunnerTest {
    var goals=new GoalRunner(root,scenes,brain,artifacts);synchronized(goals){id=goals.start(new JSONObject().put("parameters",new JSONObject().put("friction",.17))).getString("id");goals.close();}
    for(int i=0;i<4;i++){
     goals=new GoalRunner(root,scenes,brain,artifacts);synchronized(goals){
-     assertEquals("interrupted",goals.read(id).getString("status"));assertFalse(goals.busy());assertEquals(.17,goals.read(id).getJSONObject("parameters").getDouble("friction"),0);
+     assertEquals("interrupted",goals.read(id).getString("status"));assertFalse(goals.busy());assertEquals("interrupted",goals.list().getJSONObject(0).getString("status"));assertEquals(.17,goals.read(id).getJSONObject("parameters").getDouble("friction"),0);
      if(i<3){goals.resume(id);assertEquals(i+1,goals.read(id).getInt("resumes"));final var owned=goals;assertThrows(IllegalStateException.class,()->owned.start(new JSONObject()));}
      else {final var owned=goals;assertThrows(IllegalStateException.class,()->owned.resume(id));}
      goals.close();
@@ -43,7 +43,7 @@ public class GoalRunnerTest {
   var root=Files.createTempDirectory("goals-receipts-");try(var artifacts=new WorkspaceStore(root);var scenes=new SceneStore(root);var brain=new BrainService(root);var goals=new GoalRunner(root,scenes,brain,artifacts)){
    synchronized(goals){var g=goals.start(new JSONObject());String id=g.getString("id");assertThrows(IllegalStateException.class,()->goals.start(new JSONObject()));
     assertThrows(IllegalStateException.class,()->goals.acknowledge(new JSONObject().put("goalId",id).put("id",UUID.randomUUID()).put("nonce",UUID.randomUUID()).put("result",new JSONObject().put("passed",true))));
-    goals.cancel(id);assertEquals("cancelled",goals.read(id).getString("status"));assertThrows(IllegalStateException.class,()->goals.resume(id));assertThrows(IllegalStateException.class,()->goals.saveProcedure(id,"failed-procedure"));assertEquals(0,goals.procedures().length());}
+    goals.cancel(id);assertFalse(goals.busy());assertEquals("cancelled",goals.list().getJSONObject(0).getString("status"));var detached=goals.list().getJSONObject(0);detached.put("status","running");detached.getJSONArray("history").clear();assertFalse(goals.busy());assertTrue(goals.list().getJSONObject(0).getJSONArray("history").length()>0);assertEquals("cancelled",goals.read(id).getString("status"));assertThrows(IllegalStateException.class,()->goals.resume(id));assertThrows(IllegalStateException.class,()->goals.saveProcedure(id,"failed-procedure"));assertEquals(0,goals.procedures().length());}
   }
  }
  @Test public void frozenSceneAndReportEffectsHaveStableIdentitiesAndRejectChangedContent() throws Exception {

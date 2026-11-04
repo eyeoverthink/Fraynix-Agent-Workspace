@@ -16,6 +16,8 @@ public final class GoalRunner implements AutoCloseable {
     private final Workshop050 workshop; private final Path loadRoot055,loadRoot056,payloadRoot057;
     private final SchemaRegistry schemas=new SchemaRegistry(); private final FactoryWorld world;
     private final WorldCheckpointStore checkpoint;
+    // Committed display/ownership metadata only; full evidence stays in the checkpoint.
+    private final Map<String,JSONObject> goalIndex=new LinkedHashMap<>();
     private final ScheduledExecutorService worker=Executors.newSingleThreadScheduledExecutor(r->{var t=new Thread(r,"java-goal-runner");t.setDaemon(true);return t;});
     private boolean closed;
     private final ExecutorService geometryWorker=Executors.newSingleThreadExecutor(r->{var t=new Thread(r,"java-procedural-compute");t.setDaemon(true);return t;});
@@ -38,7 +40,7 @@ public final class GoalRunner implements AutoCloseable {
         for(String type:List.of("goal","procedure"))schemas.register(new ComponentSchema("workspace."+type,1,Map.of("payload",ComponentSchema.Kind.TEXT),Set.of("payload")));
         world=new FactoryWorld(schemas);checkpoint=new WorldCheckpointStore(project.resolve("goals/tasks.fworld"));
         if(Files.exists(checkpoint.path()))world.restore(checkpoint.load(schemas).snapshot());
-        for(var g:values("goal"))if(LIVE.contains(g.getString("status"))){g.put("status","interrupted").put("reason",worldGoal(g)?"Process ended; explicitly Resume the owned persistent world and all-body native checkpoint, or Stop and restore a verified revision.":mapGoal(g)?"Process ended. Resume explicitly from the compatible committed native checkpoint; source, velocities, controller and trace remain bound.":(pushGoal(g)||poseGoal(g))?"Process ended. Resume explicitly from the compatible pushing checkpoint for both bodies and the recovery controller.":proceduralGoal(g)?"Process ended. Resume explicitly from the frozen procedural definition.":creationGoal(g)?"Process ended. Resume explicitly; saved creation source, drafts and checks remain.":dataGoal(g)?"Process ended. Resume explicitly from the frozen dataset version.":"Process ended. Resume explicitly; incomplete native trials restart from frozen conditions.");g.remove("hostClaim");save("goal",g);}
+        for(var g:values("goal")){indexGoal(g);if(LIVE.contains(g.getString("status"))){g.put("status","interrupted").put("reason",worldGoal(g)?"Process ended; explicitly Resume the owned persistent world and all-body native checkpoint, or Stop and restore a verified revision.":mapGoal(g)?"Process ended. Resume explicitly from the compatible committed native checkpoint; source, velocities, controller and trace remain bound.":(pushGoal(g)||poseGoal(g))?"Process ended. Resume explicitly from the compatible pushing checkpoint for both bodies and the recovery controller.":proceduralGoal(g)?"Process ended. Resume explicitly from the frozen procedural definition.":creationGoal(g)?"Process ended. Resume explicitly; saved creation source, drafts and checks remain.":dataGoal(g)?"Process ended. Resume explicitly from the frozen dataset version.":"Process ended. Resume explicitly; incomplete native trials restart from frozen conditions.");g.remove("hostClaim");save("goal",g);}}
         worker.scheduleWithFixedDelay(this::tick,50,100,TimeUnit.MILLISECONDS);
     }
     private List<JSONObject> values(String type){var out=new ArrayList<JSONObject>();for(var e:world.snapshot().entities())if(e.components().get(0).type().equals("workspace."+type))out.add(new JSONObject(e.components().get(0).values().get("payload")));return out;}
@@ -46,10 +48,12 @@ public final class GoalRunner implements AutoCloseable {
         UUID id=UUID.fromString(value.getString("id"));var before=world.snapshot();var prior=before.entities().stream().filter(e->e.id().equals(id)).findFirst();
         var c=new ComponentRecord(prior.map(e->e.components().get(0).id()).orElse(UUID.randomUUID()),"workspace."+type,1,Map.of("payload",value.toString()));var tx=new WorldTransaction(before);
         if(prior.isEmpty())tx.add(new WorldTransaction.Create(new EntityRecord(id,type,List.of(c))));else tx.add(new WorldTransaction.Put(id,c));
-        try{tx.commit(world,schemas);checkpoint.save(world.snapshot(),schemas);}catch(Exception e){world.restore(before);throw e;}
+        try{tx.commit(world,schemas);checkpoint.save(world.snapshot(),schemas);if(type.equals("goal"))indexGoal(value);}catch(Exception e){world.restore(before);throw e;}
     }
-    private JSONObject active(){return values("goal").stream().filter(g->LIVE.contains(g.getString("status"))).findFirst().orElse(null);}
-    public synchronized boolean busy(){return active()!=null||counterfactual045.busy()||!workflowReservation.isEmpty()&&!workflowAccess.equals(workflowReservation);}
+    private void indexGoal(JSONObject g){goalIndex.put(g.getString("id"),WorldFrames.copy(view(g)));}
+    private JSONObject activeSummary(){return goalIndex.values().stream().filter(g->LIVE.contains(g.getString("status"))).findFirst().orElse(null);}
+    private JSONObject active(){var g=activeSummary();return g==null?null:read(g.getString("id"));}
+    public synchronized boolean busy(){return activeSummary()!=null||counterfactual045.busy()||!workflowReservation.isEmpty()&&!workflowAccess.equals(workflowReservation);}
     private static boolean worldGoal(JSONObject g){return g.optString("procedure").equals(WorldPlan.PROCEDURE);}
     private static boolean poseGoal(JSONObject g){return g.optString("procedure").equals(PosePlan.PROCEDURE);}
     private static boolean poseStudyGoal(JSONObject g){return g.optString("procedure").equals(PoseStudy.PROCEDURE);}
@@ -59,9 +63,9 @@ public final class GoalRunner implements AutoCloseable {
     private static boolean mapGoal(JSONObject g){return g.optString("procedure").equals(MapDefinition.PROCEDURE);}
     private static boolean proceduralGoal(JSONObject g){return g.optString("procedure").equals(Procedural.PROCEDURE);}
     private static boolean dataGoal(JSONObject g){return g.optString("procedure").equals(MotionData.PROCEDURE);}
-    public synchronized boolean ownsPhysics(){var g=active();return g!=null&&!pushGoal(g)&&!mapGoal(g)&&!proceduralGoal(g)&&!dataGoal(g)&&!spatialGoal(g)&&!perceptionGoal(g)&&!creationGoal(g);}
-    public synchronized JSONObject read(String id){UUID.fromString(id);return values("goal").stream().filter(g->id.equals(g.getString("id"))).findFirst().orElseThrow(()->new IllegalArgumentException("Unknown Java goal"));}
-    public synchronized JSONArray list(){var out=new JSONArray();var all=values("goal");all.sort(Comparator.comparing(g->g.getString("createdAt")));for(var g:all)out.put(view(g));return out;}
+    public synchronized boolean ownsPhysics(){var g=activeSummary();return g!=null&&!pushGoal(g)&&!mapGoal(g)&&!proceduralGoal(g)&&!dataGoal(g)&&!spatialGoal(g)&&!perceptionGoal(g)&&!creationGoal(g);}
+    public synchronized JSONObject read(String id){UUID key=UUID.fromString(id);for(var e:world.snapshot().entities())if(e.id().equals(key)&&e.components().get(0).type().equals("workspace.goal"))return new JSONObject(e.components().get(0).values().get("payload"));throw new IllegalArgumentException("Unknown Java goal");}
+    public synchronized JSONArray list(){var out=new JSONArray();var all=new ArrayList<>(goalIndex.values());all.sort(Comparator.comparing(g->g.getString("createdAt")));for(var g:all)out.put(WorldFrames.copy(g));return out;}
     synchronized void hostDetached042()throws Exception{hostDetached042(Set.of());}
     synchronized void hostDetached042(Set<String> javaGeneration)throws Exception{var g=active();if(g!=null&&javaGeneration.contains(g.getString("id")))return;if(g!=null&&g.getString("status").equals("waiting-host")&&g.has("hostClaim")){g.remove("hostClaim");g.put("status","interrupted");change(g,g.getString("step"),"Interface ended during a claimed host action; inspect evidence and explicitly Resume. No uncertain action is silently replayed.");}}
     public synchronized JSONArray procedures(){var out=new JSONArray();for(var p:values("procedure"))out.put(p);return out;}
@@ -91,7 +95,7 @@ public final class GoalRunner implements AutoCloseable {
     }
     private static String effectId(JSONObject g,String effect){return UUID.nameUUIDFromBytes((g.getString("id")+":"+g.getInt("attempt")+":"+effect).getBytes(StandardCharsets.UTF_8)).toString();}
     private synchronized void tick(){
-        if(closed)return;var g=active();if(g==null)return;
+        if(closed)return;var summary=activeSummary();if(summary==null)return;var g=read(summary.getString("id"));
         try{
             if(System.currentTimeMillis()>g.getLong("deadline"))throw new IllegalStateException("Goal exceeded its saved attempt time budget");
             if(g.getString("status").equals("waiting-host"))return;
@@ -318,7 +322,7 @@ public final class GoalRunner implements AutoCloseable {
         save("procedure",p);return new JSONObject().put("name",name).put("version",version).put("id",p.getString("id"));
     }
     private static boolean spatialGoal(JSONObject g){return g.optString("procedure").equals(SpatialScene.PROCEDURE);}
-    public synchronized boolean ownsSpatial(){var g=active();return g!=null&&spatialGoal(g);}
+    public synchronized boolean ownsSpatial(){var g=activeSummary();return g!=null&&spatialGoal(g);}
     public synchronized JSONObject startSpatial(JSONObject input) throws Exception {return startSpatial(input,null);}
     private JSONObject startSpatial(JSONObject input,JSONObject skill) throws Exception {
         keys(input,Set.of("request","sceneId","objectId","displacementM","saveSkillName"));if(closed||busy())throw new IllegalStateException("One Java goal is already active, or the runner is closed");if(values("goal").size()>=64)throw new IllegalStateException("Goal history limit reached");spatial.available();
@@ -349,7 +353,7 @@ public final class GoalRunner implements AutoCloseable {
             .put("recovery",new JSONArray(List.of("Reject all-infeasible forecasts before actual movement","Cancel owned constraints on failure","Require explicit resume; incomplete effects become a new attempt","Reuse completed matching native effects and stable report identity","Never promote cancelled, failed or unverified results"))).put("maxExplicitResumes",3).put("scope","Registered declared-parameter box manipulation. Every reuse requires a fresh explicit scene/object binding and new native forecasts; no captured-room validation, universal learning or arbitrary executable procedure installation.");save("procedure",p);return new JSONObject().put("name",name).put("version",version).put("id",p.getString("id"));
     }
     private static boolean perceptionGoal(JSONObject g){return g.optString("procedure").equals(PerceptionStore.PROCEDURE);}
-    public synchronized boolean ownsBrowser(){var g=active();return g!=null&&perceptionGoal(g);}
+    public synchronized boolean ownsBrowser(){var g=activeSummary();return g!=null&&perceptionGoal(g);}
     public synchronized JSONObject startPerception(JSONObject input) throws Exception {return startPerception(input,null);}
     private JSONObject startPerception(JSONObject input,JSONObject skill) throws Exception {
         keys(input,Set.of("request","frameId","mode","targetLabel","visionModel","lessonId","seconds","saveSkillName","trackerProfile","trackerCodeSha256"));if(closed||busy()||perception.busy())throw new IllegalStateException("One Java goal is already active, or the runner is closed");if(values("goal").size()>=64)throw new IllegalStateException("Goal history limit reached");var f=perception.frame(input.getString("frameId"));String mode=input.optString("mode","vision"),label=PerceptionStore.label(input.optString("targetLabel","person")),model=input.optString("visionModel","gemma3:latest"),lesson=mode.equals("appearance")?input.optString("lessonId",""):"";if(!Set.of("vision","appearance","dom").contains(mode))throw new IllegalArgumentException("Choose vision, appearance or DOM");if(mode.equals("appearance"))perception.lesson(lesson);double seconds=input.optDouble("seconds",6);RampDefinition.range(seconds,2,30,"tracking seconds");String name=input.optString("saveSkillName","");if(!name.isEmpty())validName(name);String request=input.optString("request","Observe, detect, outline, follow, trace and verify the selected browser region");if(request.isBlank()||request.length()>8000)throw new IllegalArgumentException("Request needs 1..8000 characters");
@@ -383,8 +387,8 @@ public final class GoalRunner implements AutoCloseable {
             .put("recovery",new JSONArray(List.of("Stop on source navigation/removal","Mark lost instead of inventing invisible motion","Reacquire only a sufficiently distinct appearance match","Explicit resume rebinds a current target as a separately recorded attempt","Reuse completed evidence for report recovery; never promote failed tracking"))).put("maxExplicitResumes",3).put("scope","Registered browser observation workflow. DOM names are page claims; local-model labels are estimates; taught templates recognize bounded visual appearance. No named-person identification, online LLM training or guarantee of general recognition.");save("procedure",p);return new JSONObject().put("name",name).put("version",version).put("id",p.getString("id"));
     }
     private static boolean creationGoal(JSONObject g){return g.optString("procedure").equals(Creation.PROCEDURE);}
-    public synchronized boolean ownsCanvas(){var g=active();return g!=null&&creationGoal(g);}
-    public synchronized void requireArtifactWrite(String id){var g=active();if(g!=null&&creationGoal(g)&&g.has("report")&&g.getJSONObject("report").getString("id").equals(id))throw new IllegalStateException("Creation goal owns this artifact; stop or finish it before manual editing");}
+    public synchronized boolean ownsCanvas(){var g=activeSummary();return g!=null&&creationGoal(g);}
+    public synchronized void requireArtifactWrite(String id){var g=activeSummary();if(g!=null&&creationGoal(g)&&g.has("report")&&g.getJSONObject("report").getString("id").equals(id))throw new IllegalStateException("Creation goal owns this artifact; stop or finish it before manual editing");}
     public synchronized JSONObject startCreation(JSONObject input) throws Exception {return startCreation(input,null);}
     private JSONObject startCreation(JSONObject input,JSONObject skill) throws Exception {
         if(closed||busy())throw new IllegalStateException("One shared Java goal at a time");if(values("goal").size()>=64)throw new IllegalStateException("Goal history limit reached");var definition=Creation.definition(artifacts,input);String name=input.optString("saveSkillName","");if(!name.isEmpty())validName(name);
@@ -450,7 +454,7 @@ public final class GoalRunner implements AutoCloseable {
     private String newGoalId(){return workflowIntent==null?UUID.randomUUID().toString():workflowIntent.getString("id");}
     private void requireWorkflowOwner(JSONObject g){if(g.has("workflowId")&&!g.getString("workflowId").equals(workflowAccess))throw new IllegalStateException("Use the parent workflow to control this owned stage");}
     synchronized void reserveWorkflow(String id) {
-        UUID.fromString(id);if(!workflowReservation.isEmpty()&&!workflowReservation.equals(id)||active()!=null&&!active().optString("workflowId").equals(id))throw new IllegalStateException("Another shared task owns the workspace");workflowReservation=id;
+        UUID.fromString(id);if(!workflowReservation.isEmpty()&&!workflowReservation.equals(id)||activeSummary()!=null&&!activeSummary().optString("workflowId").equals(id))throw new IllegalStateException("Another shared task owns the workspace");workflowReservation=id;
     }
     synchronized void releaseWorkflow(String id){if(workflowReservation.equals(id))workflowReservation="";}
     synchronized JSONObject findOwned(String owner,String stage){for(var g:values("goal"))if(g.optString("workflowId").equals(owner)&&g.optString("workflowStage").equals(stage))return view(g);return null;}
@@ -608,7 +612,7 @@ public final class GoalRunner implements AutoCloseable {
     }
 
     PushLearningStore forceLearning(){return forceLearning;}
-    synchronized boolean ownsForceLearning(){var g=active();return g!=null&&forceGoal(g);}
+    synchronized boolean ownsForceLearning(){var g=activeSummary();return g!=null&&forceGoal(g);}
     public synchronized JSONObject startForce(JSONObject input) throws Exception {
         keys(input,Set.of("request"));if(closed||busy()||forceLearning.busy()||values("goal").size()>=64)throw new IllegalStateException("Shared goal runner must be idle with capacity");
         var g=new JSONObject().put("id",newGoalId()).put("procedure",PushLearning.PROCEDURE).put("request",input.optString("request","Compare original and solver-contact controllers on seen development and different reserved native scenes; verify the original report"))
@@ -631,7 +635,7 @@ public final class GoalRunner implements AutoCloseable {
     synchronized JSONObject exportForce(String goalId) throws Exception {var g=read(goalId);var j=verifiedForce(g);var runs=new JSONArray();for(Object raw:j.getJSONArray("trials"))runs.put(forceLearning.nativeRun(j.getString("id"),((JSONObject)raw).getString("runId")));var full=new JSONObject().put("format","fraynix.native-force-experience").put("job",j).put("runs",runs);byte[] raw=full.toString().getBytes(StandardCharsets.UTF_8);var buffer=new java.io.ByteArrayOutputStream();try(var gzip=new java.util.zip.GZIPOutputStream(buffer)){gzip.write(raw);}return new JSONObject().put("text",new JSONObject().put("format","fraynix.native-force-experience-gzip-v1").put("rawSha256",MapDefinition.sha(raw)).put("rawBytes",raw.length).put("gzipBase64",Base64.getEncoder().encodeToString(buffer.toByteArray())).toString());}
 
     ContactStudyStore contactStudy(){return contactStudy;}
-    synchronized boolean ownsContactStudy(){var g=active();return g!=null&&contactGoal(g);}
+    synchronized boolean ownsContactStudy(){var g=activeSummary();return g!=null&&contactGoal(g);}
     public synchronized JSONObject startContact(JSONObject input) throws Exception {
         keys(input,Set.of("request"));if(closed||busy()||contactStudy.busy()||values("goal").size()>=64)throw new IllegalStateException("Shared goal runner must be idle with capacity");
         var g=new JSONObject().put("id",newGoalId()).put("procedure",ContactStudy.PROCEDURE).put("request",input.optString("request","Compare original and solver-contact controllers on seen development and different reserved native scenes; verify the original report"))
@@ -656,7 +660,7 @@ public final class GoalRunner implements AutoCloseable {
 
     PoseStore poses(){return poses;}
     PoseStudyStore poseStudy(){return poseStudy;}
-    synchronized boolean ownsPose(){var g=active();return g!=null&&(worldGoal(g)||poseGoal(g)||poseStudyGoal(g));}
+    synchronized boolean ownsPose(){var g=activeSummary();return g!=null&&(worldGoal(g)||poseGoal(g)||poseStudyGoal(g));}
     public synchronized JSONObject createConstruction051(JSONObject input)throws Exception{keys(input,Set.of("title","geometry054"));if(busy())throw new IllegalStateException("Finish the current goal first");worldNative.available();var imported=spatial.importScene((input.has("geometry054")?Construction054.kit(input.getJSONObject("geometry054")):Construction051.kit()).toString());return worlds.create(imported,input.optString("title","Bridge construction world"));}
     public synchronized JSONObject exportLoad055(String id)throws Exception{var g=read(id);if(!g.optBoolean("loadTests055")||!g.has("runId"))throw new IllegalStateException("This task has no load experiment");return Load055.original(loadRoot055,worldNative.run(g.getString("runId")));}
     public synchronized JSONObject startConstruction051(JSONObject input)throws Exception{keys(input,Set.of("worldId","expectedRevision","expectedHash","centerX","centerZ","forceLimitN","torqueLimitNm","saveSkillName","request","design053","directFirst055","loadTests055","payloadTests057","loadDesign056","requiredLoadN","allowRedesign056","reviewCounterfactual045"));var args=WorldFrames.copy(input);var config=new JSONObject();for(String k:List.of("centerX","centerZ"))if(args.has(k))config.put(k,args.remove(k));args.put("construction051",Construction051.options(config));return startWorld(args,null);}
