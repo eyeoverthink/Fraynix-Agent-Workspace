@@ -1,5 +1,14 @@
 # Fraynix Studio collaboration and documentation
 
+## Edition 060 · Published and fetched back on 2026-11-04
+
+Published to private eyeoverthink/Fraynix-Agent-Workspace: main, edition060 and readme-060. GitHub initially returned a commit_refs server error despite updating all three refs. An idempotent atomic retry succeeded; direct fresh fetch and complete audit verified the actual release. Initial server response is retained in docs/publication060/initial-push.log.gz. Release `9d10d1b682242ec93f2e19727b38541267a93174`; annotated tag `9b89b57e2df8cdc19e51c9e76a765937b8ae528b`. Fresh GitHub fetch verifies 933 canonical source files, 5308 frozen hashes across 60 editions and 204 original archives, including decompressed bytes and SHA-256. Documentation passes 65 canvases and 6298 references. [Publication receipt](docs/PUBLICATION_060.json).
+
+Compact original and independently rotated bearings all failed the edge-force design case. Wider original stock passed design and reserved tests; its rotated proposals were geometrically refused. Decision fixed before paired reserved tests: see validation060 for paired unfamiliar payload results, with repeats retained. See validation060 for changed-centre and compact outcomes, exact sources, complete costs and contrary evidence. 62 distinct targeted Java cases across 12 classes, 127 desktop checks and actual CPU/four-thread local-model workflows recorded. No full-suite, material-strength, hardware or model-weight-learning claim.
+
+Extensive README 060, eight actual screenshots, offline guide, Obsidian map, complete originals, memories and logs published. Preserve normal045/qa046 installed JARs/private data, dependency junction053 and immutable001–060. Next unused edition061: richer finite repair choices with predeclared costs and newly reserved conditions. This receipt follows the fetched release.
+
+
 ## Edition 060 · Validated locally; publication audit next
 
 Actual app source `9f1f92d9df81d02f3b1d33de9287a8a5203264e0`. Frozen design-only selection, fresh execution and paired reserved payloads checked. 62 targeted Java cases across 12 classes,127 desktop checks and actual CPU/four-thread local-model chat/reuse with complete originals. See validation060 for source-qualified invocations and contrary outcomes. New README060, eight actual screenshots, offline guide and Obsidian map prepared. No material-strength or model-weight-training claim.

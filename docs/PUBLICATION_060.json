@@ -1,0 +1,33 @@
+{
+  "passed": true,
+  "verifiedAtUtc": "2026-11-04T10:37:48.050143+00:00",
+  "remote": "https://github.com/eyeoverthink/Fraynix-Agent-Workspace.git",
+  "fetchedRef": "refs/verify/edition060-main",
+  "remoteFetched": true,
+  "commit": "9d10d1b682242ec93f2e19727b38541267a93174",
+  "canonicalSourceFiles": 933,
+  "editions": 60,
+  "frozenHashes": 5308,
+  "original060EvidenceFiles": 204,
+  "method": "Every enumerated blob read from the specified Git tree; remoteFetched identifies a fresh verification ref. Source byte counts and canonical UTF-8 LF/binary hashes checked. All frozen edition hashes checked. Original gzip evidence decompressed and raw byte counts and SHA-256 checked.",
+  "edition": 60,
+  "publication": "Initial non-forced atomic push returned a GitHub fatal error in commit_refs, but direct remote ref inspection showed all three refs updated. Idempotent atomic retry succeeded with Everything up-to-date. Main and annotated tag were then freshly fetched directly from GitHub and fully audited; tag peels to this release. Receipt added in a subsequent continuity commit.",
+  "initialPushLog": "docs/publication060/initial-push.log.gz",
+  "tag": "readme-060",
+  "tagObject": "9b89b57e2df8cdc19e51c9e76a765937b8ae528b",
+  "tagCommit": "9d10d1b682242ec93f2e19727b38541267a93174",
+  "actualAppSource": "9f1f92d9df81d02f3b1d33de9287a8a5203264e0",
+  "validation": "docs/readmes/060/verification.json",
+  "documentation": {
+    "passed": true,
+    "editions": 60,
+    "documents": 355,
+    "canvases": 65,
+    "references": 6298,
+    "frozenHashes": 5308,
+    "issues": []
+  },
+  "preservation": "Normal045/qa046 installed runtimes, private mat/camera/projects and frozen001\u2013059 preserved; synthetic060 projects isolated.",
+  "initialPushLogSha256": "3abc2e0e1f79e019a1270747260e39918d6afb953e9bfa276ee5f36bc800ef99",
+  "initialPushRawSha256": "9dbd2912343d94eeab9001de74c3f739444c991e914dfa2c1340b453edb83dec"
+}
