@@ -58,3 +58,8 @@ Spatial → Gripper assembly → 16 N redesign example creates separate labelled
 ## Dynamic payloads057
 
 Spatial → Gripper assembly → Dynamic payload example creates labelled stock. Chat can request dynamic payloads and new load positions. Java retains14completed repetitions, originals and interrupted attempts; saved procedures cannot silently remove the checks. Recorded motion, actual charts and exports accompany stable and unstable results. [Edition057 walkthrough](../README-057.md).
+
+
+## Failure-driven payload redesign 058
+
+Spatial → Gripper assembly → Failure → redesign → new payloads creates labelled stock. Chat can request redesign from measured failures and unfamiliar payloads. Java freezes a decision from design cases, executes freshly and compares original/selected reserved payloads before promotion. Saved procedures retain the exact policy. Report, replay and exports preserve failed and interrupted attempts. [Edition 058 walkthrough](../README-058.md).

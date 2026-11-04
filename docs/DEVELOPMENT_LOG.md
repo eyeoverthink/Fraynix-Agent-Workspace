@@ -1,5 +1,30 @@
 # Agent Workspace development log
 
+## Edition 058 · Validated locally; publication audit next
+
+Actual app source `fe4bfc1c30b0c2adb103c5ff6b931a44167ce830`. Frozen design-only selection, fresh execution and paired reserved payloads checked. 53 targeted Java cases across 9 classes,125 desktop checks and actual CPU/four-thread local-model chat/reuse with complete originals. See validation058 for source-qualified invocations and contrary outcomes. New README058, seven actual screenshots, offline guide and Obsidian map prepared. No material-strength or model-weight-training claim.
+
+Actual main/edition058/readme-058 push and fresh fetched audit remain pending. Preserve normal045/qa046 installed runtimes/private data, dependency junction053 and immutable001–057. Next: richer finite repair choices with predeclared costs and newly reserved conditions.
+
+
+## Edition058 recovery checkpoint · packaging corrected, final app validation running
+
+2026-11-03. Source fe4bfc1 in isolated fraynix-workspace-edition058. Native design/physics remain unchanged from the earlier qualified sources. 53 distinct targeted Java cases across9 classes now include exact streaming JSON byte/hash equivalence;125 desktop checks passed. Actual first project Temp/fraynix-construction058-gbKeGC completed all native design/fresh/reserved cases with decision pinned before reserved evaluation. Packaging hit8MB per-file and then768MB heap limits. Original77,151,249-character report now saved with058-specific16M/file96M/total bounds and streaming size/hash/HTTP output. Same original attempts retained. Large paired display receipt needs24MB; ordinary acknowledgements retain8.1MB. Idle waiting-host clock now checks indexed deadlines without repeatedly parsing8MB of evidence. All physical gates and original three-resume limit unchanged.
+
+First project explicitly closed after report storage/canvas assertions, before full receipt completion; its3 explicit resumes were exhausted by development defects. All originals/failure records retained in test-output and build/ui058-*; do not alter them or silently reset the recovery budget. New actual full workflow exec30121/build/test058-live-final.log uses fe4bfc1 and a separate synthetic project, unchanged frozen physical cases. Check workspace-desktop/test-output/construction058-checkpoint.json for its path/progress. Heavy native/model work remains serial, Java768m/local CPU4threads.
+
+Remaining: final actual review/restart/chat/compact saved skill/report/export/Stop validation; inspect seven actual captures; prepare-docs058.py then offline guide check/freeze/Verify-Documentation/preflight; non-force atomic main/edition058/readme-058 push, fresh fetched Git blob/original audit, publication receipt and continuity push/final audit. No058push yet. Preserve normal045/qa046 live runtimes/private data, frozen001–057 and dependencyjunction053. No subagents.
+
+
+## Edition 058 implementation checkpoint · not published
+
+2026-11-03. Isolated `fraynix-workspace-edition058` branch edition058, baseline main38854e9; target private Fraynix-Agent-Workspace. Frozen contract2231908 precedes implementation. Native source4ab6a9c passes both Design058Test cases, including measured failure, training-only selection, cold review, partial evaluation interruption, exact continuation and original records. Wide0.8m: design2/4; selected1.395m:4/4. Reserved original2/4, selected4/4; unchanged gates, all repeats agree. 41 attempts including one partial;57,840 payload ticks + assembly =81,541 total; observed payload wall168.257s, full test429.291s. Originals in Temp/design058-native-3151853290968350173 and build/native058-first; final test deliberately corrupts evaluation pin after originals were saved. Do not reinterpret that fixture as production damage.
+
+Integration source2e4f632 connects payloadDesign058/allowPayloadRedesign058 to Java goals, exact saved skills, chat, paired phase report and export. Serial regression exec28851 runs build/test058-regression.log (Payload058PolicyTest, Payload057Test, Design056Test, ChatChain052Test, Domain044Test, GoalRunnerTest, WorkspaceStoreTest). Source-qualified original test XML/logs must be archived before another Gradle test overwrites them. Actual UI harness workspace-desktop/test/construction058-integration.cjs is prepared but not run: first wide0.8 review/restart, verified actual execution/reserved evaluation, real local CPU4thread gpt-oss20b changed-centre chat, exact skill cold reuse on compact stock (preserve failure if any), report/export/replay,1100px and visible Stop. Uses separate Temp projects and supports FRAYNIX058_RESUME_RECORD.
+
+Remaining: regression completion, fix actual defects without changing frozen cases/gates, build workspace-engine:installDist,125 expected desktop checks and full actual UI/model workflow, screenshot inspection. Then extensive README058/offline guide/Obsidian/source inventory/original archives, documentation verification, actual atomic non-force main/edition058/readme-058 push, fresh fetched blob audit, publication receipt and continuity push/final audit. No058 push yet. Preserve installed normal045 Java33224 and qa046 Java37676, their JARs/private projects, all001–057 snapshots and the absolute node_modules junction to edition053. No subagents or overlapping heavy native/model jobs.
+
+
 ## Edition 057 · Published and fetched back on 2026-11-03
 
 Actual non-forced atomic push to private `eyeoverthink/Fraynix-Agent-Workspace`: main, edition057 and readme-057 accepted. Release `fd14495f6329ce40e57ddb7b0fefbf2aef37e281`; annotated tag `fbb884be8084552ad894ac592a092c7e599ab3cb`. Fresh direct GitHub fetch verifies 907 canonical source files, 4,659 frozen hashes across 57 editions and 282 original archives, including decompressed bytes and SHA-256. Documentation passes 62 canvases and 6,059 references. [Publication receipt](PUBLICATION_057.json).

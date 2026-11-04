@@ -2,9 +2,9 @@
 
 **A local visual environment for agents to browse, create runnable artifacts, test behavior and reuse verified skills.**
 
-> **[Edition057 · Dynamic payloads and new load positions](README-057.md)** · [Offline guide](docs/readmes/057/index.html) · [Operation](docs/JAVA_CHAT_044.md) · [Edition history](docs/readmes/INDEX.md)
+> **[Edition 058 · Measured failure, redesign and unfamiliar payloads](README-058.md)** · [Offline guide](docs/readmes/058/index.html) · [Operation](docs/JAVA_CHAT_044.md) · [Edition history](docs/readmes/INDEX.md)
 
-Edition057 tests actual falling payloads and new force positions, preserves failures and verifies recorded motion before completion. [Measured results and originals](docs/readmes/057/verification.json).
+Edition 058 selects a repair from measured failures, then tests unfamiliar payloads under a fixed decision. [Measured results and originals](docs/readmes/058/verification.json).
 
 Edition 057 is published to main with original payload evidence. [Fetched GitHub verification](docs/PUBLICATION_057.json).
 

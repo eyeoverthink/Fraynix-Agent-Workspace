@@ -64,4 +64,6 @@ Numbered editions preserve dated behavior and evidence. The root [README](../../
 
 | [057](../../README-057.md) | 2026-11-03 | Dynamic payloads and new load positions | [Viewer](057/index.html) · [tree](057/FILE_TREE.md) |
 
-Latest implementation and documentation edition in this checkout is **057**. See [sequence policy](README_SEQUENCE.md) and [manifest](editions.json).
+| [058](../../README-058.md) | 2026-11-03 | Measured redesign and unfamiliar payloads | [Viewer](058/index.html) · [tree](058/FILE_TREE.md) |
+
+Latest implementation and documentation edition in this checkout is **058**. See [sequence policy](README_SEQUENCE.md) and [manifest](editions.json).
