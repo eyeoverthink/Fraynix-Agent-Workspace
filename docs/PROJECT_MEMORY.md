@@ -1,5 +1,14 @@
 # Agent Workspace project memory
 
+## Edition 058 · Published and fetched back on 2026-11-03
+
+Actual non-forced atomic push to private eyeoverthink/Fraynix-Agent-Workspace: main, edition058 and readme-058 accepted. Release `db2defb72d78b255f22c72dc7344c6014877d6a2`; annotated tag `d7749ceb7b71d81becfcf461fd8074f5c8857935`. Fresh GitHub fetch verifies 915 canonical source files, 4867 frozen hashes across 58 editions and 183 original archives, including decompressed bytes and SHA-256. Documentation passes 63 canvases and 6135 references. [Publication receipt](PUBLICATION_058.json).
+
+Original wide 0.8 m spacing failed measured edge-force design cases; selected 1.395 m same-stock spacing passed. Decision fixed before paired reserved tests: original layout passed two of four unfamiliar payloads, selected layout passed all four, with repeats retained. See validation058 for changed-centre and compact outcomes, exact sources, complete costs and contrary evidence. 53 distinct targeted Java cases across 9 classes, 125 desktop checks and actual CPU/four-thread local-model workflows recorded. No full-suite, material-strength, hardware or model-weight-learning claim.
+
+Extensive README 058, seven actual screenshots, offline guide, Obsidian map, complete originals, memories and logs published. Preserve normal045/qa046 installed JARs/private data, dependency junction053 and immutable001–058. Next unused edition059: richer finite repair choices with predeclared costs and newly reserved conditions. This receipt follows the fetched release.
+
+
 ## Edition 058 · Validated locally; publication audit next
 
 Actual app source `fe4bfc1c30b0c2adb103c5ff6b931a44167ce830`. Frozen design-only selection, fresh execution and paired reserved payloads checked. 53 targeted Java cases across 9 classes,125 desktop checks and actual CPU/four-thread local-model chat/reuse with complete originals. See validation058 for source-qualified invocations and contrary outcomes. New README058, seven actual screenshots, offline guide and Obsidian map prepared. No material-strength or model-weight-training claim.
