@@ -7,37 +7,40 @@ import java.util.*;
 
 public class Contact064Test {
     @Test public void nativeStudyParityUncertaintyColdRestoreAndStop()throws Exception{
-        Path root=Files.createTempDirectory("fraynix-contact064-");String id;JSONObject job;
+        String resume=System.getenv("FRAYNIX064_NATIVE_RESUME");Path root=resume==null?Files.createTempDirectory("fraynix-contact064-"):Path.of(resume);String id,originalHash;JSONObject job;
         try(var brain=new BrainService(root)){
-            id=brain.start(new JSONObject().put("kind","contact-uncertainty")).getString("id");waitFor(brain);
-            job=brain.read(id);Files.writeString(root.resolve("original-experiment.json"),job.toString());System.out.println("EDITION064_NATIVE_ORIGINALS="+root);
+            if(resume==null){id=brain.start(new JSONObject().put("kind","contact-uncertainty")).getString("id");waitFor(brain);}else{id=brain.contactState064().getJSONObject("lastCompleted").getString("jobId");System.out.println("Resuming verification of the same completed native study; no new experiment executions");}
+            job=brain.read(id);originalHash=WorldFrames.hash(job);if(resume==null)Files.writeString(root.resolve("original-experiment.json"),job.toString());System.out.println("EDITION064_NATIVE_ORIGINALS="+root);
             assertEquals(job.optString("reason"),"completed",job.getString("status"));assertEquals(170,job.getInt("progress"));ContactStudy064.audit(job);assertEquals(1,brain.activePolicy().getInt("version"));
             for(Object raw:job.getJSONArray("diagnostics064")){var row=(JSONObject)raw;var r=row.getJSONObject("record");assertEquals(row.getString("variant").equals("halfStep")?1441:721,r.getJSONArray("samples").length());assertTrue(r.getJSONObject("summary").getDouble("summedNormalImpulseNs")>0);if(row.has("original063"))assertTrue(row.getDouble("parityErrorM")<=1e-6);}
-            var request=new JSONObject().put("jobId",id).put("definition",ContactStudy064.cases("reserved").getJSONObject(0));Files.writeString(root.resolve("prediction.json"),brain.contactPredict064(request).toString());assertEquals(1441,brain.contactTrace064(new JSONObject().put("jobId",id).put("traceIndex",2)).getJSONArray("series").length());
-            double radius=job.getJSONObject("intervalModel064").getDouble("radiusM");brain.contactState064().getJSONObject("lastCompleted").getJSONObject("intervalModel").put("radiusM",999);assertEquals(radius,brain.contactState064().getJSONObject("lastCompleted").getJSONObject("intervalModel").getDouble("radiusM"),0);
-            brain.state().getJSONArray("jobs").getJSONObject(0).put("progress",999);assertEquals(170,brain.state().getJSONArray("jobs").getJSONObject(0).getInt("progress"));
-            long started=System.nanoTime();for(int n=0;n<20;n++)assertFalse(brain.state().getBoolean("busy"));Files.writeString(root.resolve("state-timing.json"),new JSONObject().put("calls",20).put("totalMillis",(System.nanoTime()-started)/1e6).put("meaning","Observed completed-state polling cost on this machine; no cross-machine speed guarantee").toString());
-            tamper(job,j->j.getJSONObject("evaluation064").put("qualified",!j.getJSONObject("evaluation064").getBoolean("qualified")));
-            tamper(job,j->{var m=j.getJSONObject("intervalModel064");m.put("radiusM",1);j.put("intervalModelSha256064",WorldFrames.hash(m));});
-            tamper(job,j->j.getJSONArray("reserved064").getJSONObject(0).getJSONObject("intervalsBeforeObservation").getJSONObject("pooled").put("upperM",20));
-            tamper(job,j->j.getJSONArray("stress064").put(1,j.getJSONArray("stress064").getJSONObject(0)));
-            tamper(job,j->j.getJSONArray("reserved064").getJSONObject(0).put("predictedAt","2000-01-01T00:00:00Z"));
-            tamper(job,j->{var r=j.getJSONArray("diagnostics064").getJSONObject(0).getJSONObject("record");r.getJSONObject("summary").put("maximumMomentumResidualNs",100);rehash(r);});
-            tamper(job,j->{var r=j.getJSONArray("diagnostics064").getJSONObject(0).getJSONObject("record");r.getJSONObject("settings").put("dt",.1);rehash(r);});
-            tamper(job,j->{var r=j.getJSONArray("diagnostics064").getJSONObject(0).getJSONObject("record");r.getJSONArray("samples").getJSONObject(1).put("tick",42);rehash(r);});
-            tamper(job,j->{var r=j.getJSONArray("diagnostics064").getJSONObject(0).getJSONObject("record");r.getJSONObject("physicalParameters").put("massKg",2);rehash(r);});
+            double radius=job.getJSONObject("intervalModel064").getDouble("radiusM");
             for(Object raw:job.getJSONArray("diagnostics064")){var row=(JSONObject)raw;System.out.println("CONTACT064="+new JSONObject().put("definition",row.getJSONObject("definition")).put("variant",row.getString("variant")).put("summary",row.getJSONObject("record").getJSONObject("summary")));}
             System.out.println("POOLED064="+job.getJSONObject("intervalModel064"));System.out.println("RESERVED064="+job.getJSONObject("evaluation064"));System.out.println("STRESS064="+job.getJSONObject("stressEvaluation064"));
+            job=null; // Full originals are on disk; do not retain a second large copy across API audits.
+            var request=new JSONObject().put("jobId",id).put("definition",ContactStudy064.cases("reserved").getJSONObject(0));Files.writeString(root.resolve("prediction.json"),brain.contactPredict064(request).toString());assertEquals(1441,brain.contactTrace064(new JSONObject().put("jobId",id).put("traceIndex",2)).getJSONArray("series").length());
+            brain.contactState064().getJSONObject("lastCompleted").getJSONObject("intervalModel").put("radiusM",999);assertEquals(radius,brain.contactState064().getJSONObject("lastCompleted").getJSONObject("intervalModel").getDouble("radiusM"),0);
+            brain.state().getJSONArray("jobs").getJSONObject(0).put("progress",999);assertEquals(170,brain.state().getJSONArray("jobs").getJSONObject(0).getInt("progress"));
+            long started=System.nanoTime();for(int n=0;n<20;n++)assertFalse(brain.state().getBoolean("busy"));Files.writeString(root.resolve("state-timing.json"),new JSONObject().put("calls",20).put("totalMillis",(System.nanoTime()-started)/1e6).put("meaning","Observed completed-state polling cost on this machine; no cross-machine speed guarantee").toString());
+            tamper(root.resolve("original-experiment.json"),j->j.getJSONObject("evaluation064").put("qualified",!j.getJSONObject("evaluation064").getBoolean("qualified")));
+            tamper(root.resolve("original-experiment.json"),j->{var m=j.getJSONObject("intervalModel064");m.put("radiusM",1);j.put("intervalModelSha256064",WorldFrames.hash(m));});
+            tamper(root.resolve("original-experiment.json"),j->j.getJSONArray("reserved064").getJSONObject(0).getJSONObject("intervalsBeforeObservation").getJSONObject("pooled").put("upperM",20));
+            tamper(root.resolve("original-experiment.json"),j->j.getJSONArray("stress064").put(1,j.getJSONArray("stress064").getJSONObject(0)));
+            tamper(root.resolve("original-experiment.json"),j->j.getJSONArray("reserved064").getJSONObject(0).put("predictedAt","2000-01-01T00:00:00Z"));
+            tamper(root.resolve("original-experiment.json"),j->{var r=j.getJSONArray("diagnostics064").getJSONObject(0).getJSONObject("record");r.getJSONObject("summary").put("maximumMomentumResidualNs",100);rehash(r);});
+            tamper(root.resolve("original-experiment.json"),j->{var r=j.getJSONArray("diagnostics064").getJSONObject(0).getJSONObject("record");r.getJSONObject("settings").put("dt",.1);rehash(r);});
+            tamper(root.resolve("original-experiment.json"),j->{var r=j.getJSONArray("diagnostics064").getJSONObject(0).getJSONObject("record");r.getJSONArray("samples").getJSONObject(1).put("tick",42);rehash(r);});
+            tamper(root.resolve("original-experiment.json"),j->{var r=j.getJSONArray("diagnostics064").getJSONObject(0).getJSONObject("record");r.getJSONObject("physicalParameters").put("massKg",2);rehash(r);});
+
         }
         try(var brain=new BrainService(root)){
             assertTrue(new JSONObject(Files.readString(root.resolve("prediction.json"))).similar(brain.contactPredict064(new JSONObject().put("jobId",id).put("definition",ContactStudy064.cases("reserved").getJSONObject(0)))));
             try{brain.contactPredict064(new JSONObject().put("jobId",id).put("definition",ContactStudy064.cases("stress").getJSONObject(0)));fail();}catch(IllegalArgumentException expected){}
-            String stopped=brain.start(new JSONObject().put("kind","contact-uncertainty")).getString("id");brain.cancel(stopped);waitFor(brain);assertEquals("cancelled",brain.read(stopped).getString("status"));assertEquals(id,brain.contactState064().getJSONObject("lastCompleted").getString("jobId"));assertTrue(job.similar(brain.read(id)));
+            String stopped=brain.start(new JSONObject().put("kind","contact-uncertainty")).getString("id");brain.cancel(stopped);waitFor(brain);assertEquals("cancelled",brain.read(stopped).getString("status"));assertEquals(id,brain.contactState064().getJSONObject("lastCompleted").getString("jobId"));assertEquals(originalHash,WorldFrames.hash(brain.read(id)));
         }
     }
     static void waitFor(BrainService b)throws Exception{long end=System.nanoTime()+1_200_000_000_000L;while(b.state().getBoolean("busy")&&System.nanoTime()<end)Thread.sleep(1500);assertFalse(b.state().getBoolean("busy"));}
     interface Edit{void run(JSONObject j);}
-    static void tamper(JSONObject j,Edit edit){var copy=WorldFrames.copy(j);edit.run(copy);try{ContactStudy064.audit(copy);fail("Changed contact evidence accepted");}catch(IllegalStateException expected){}}
+    static void tamper(Path original,Edit edit)throws Exception{var copy=new JSONObject(Files.readString(original));edit.run(copy);try{ContactStudy064.audit(copy);fail("Changed contact evidence accepted");}catch(IllegalStateException expected){}}
     static void rehash(JSONObject r){r.remove("sha256");r.put("sha256",WorldFrames.hash(r));}
     @Test public void partitionsAreFreshAndStressIsOutsideCalibratedSupport(){var seen=new HashSet<String>();for(String old:List.of("calibration","reserved"))for(Object c:Stopping063.cases(old))seen.add(WorldFrames.hash((JSONObject)c));for(String phase:List.of("calibration","reserved","stress")){assertEquals(phase.equals("stress")?30:60,ContactStudy064.cases(phase).length());for(Object raw:ContactStudy064.cases(phase)){var c=(JSONObject)raw;assertTrue(seen.add(WorldFrames.hash(c)));ResidualOutcome062.physical(c);if(phase.equals("stress")){try{Stopping063.queryDomain(c);fail();}catch(IllegalArgumentException expected){}}else Stopping063.queryDomain(c);}}assertEquals(230,seen.size());}
     @Test public void wilsonAndRankHaveIndependentKnownValues(){var zero=ContactMath064.wilson(0,10);assertEquals(0,zero.getDouble("lower"),1e-14);assertEquals(.2775328,zero.getDouble("upper"),1e-7);var full=ContactMath064.wilson(10,10);assertEquals(.7224672,full.getDouble("lower"),1e-7);assertEquals(1,full.getDouble("upper"),1e-14);double[] e=new double[60];for(int i=0;i<60;i++)e[i]=i;assertEquals(54,Stopping063.quantile(e),0);for(int[] invalid:new int[][]{{0,0},{11,10},{-1,10}})try{ContactMath064.wilson(invalid[0],invalid[1]);fail();}catch(IllegalArgumentException expected){}}
