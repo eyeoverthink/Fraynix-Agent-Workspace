@@ -106,7 +106,7 @@ public final class WorkspaceStore implements AutoCloseable {
         var contents=previous==null?new JSONObject():previous.getJSONObject("contents");JSONObject changes=args.getJSONObject("files");
         if(changes.isEmpty()||changes.length()>maxFiles)throw new IllegalArgumentException("Supply1.."+maxFiles+" files");
         for(String name:changes.keySet()){validFile(name);String value=changes.getString(name);if(value.length()>fileLimit)throw new IllegalArgumentException("File exceeds "+fileLimit+" characters");contents.put(name,value);}
-        if(!contents.has("index.html")||contents.length()>Math.max(32,maxFiles)||contents.toString().length()>totalLimit)throw new IllegalArgumentException("Artifact needs index.html and must fit"+Math.max(32,maxFiles)+" files / "+totalLimit+" characters");
+        if(!contents.has("index.html")||contents.length()>Math.max(32,maxFiles)||JsonStream058.characters(contents)>totalLimit)throw new IllegalArgumentException("Artifact needs index.html and must fit"+Math.max(32,maxFiles)+" files / "+totalLimit+" characters");
         int version=prior+1;
         var sources=args.optJSONArray("sources");if(sources==null)sources=previous==null?new JSONArray():previous.getJSONArray("sources");
         if(sources.length()>32)throw new IllegalArgumentException("At most 32 source references");

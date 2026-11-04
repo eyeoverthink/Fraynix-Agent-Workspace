@@ -564,7 +564,7 @@ public final class WorkspaceServer implements AutoCloseable {
     }
     private void send(HttpExchange exchange,int status,JSONObject body) throws IOException {
         String taskId=exchange.getRequestHeaders().getFirst("X-Fraynix-Task"),nonce=exchange.getRequestHeaders().getFirst("X-Fraynix-Effect");if(status==200&&taskId!=null&&agency!=null)try{agency.nativeReceipt044(taskId,nonce,exchange.getRequestURI().getPath(),body);}catch(Exception e){throw new IOException("Native receipt could not be retained",e);}
-        byte[] bytes=body.toString().getBytes(StandardCharsets.UTF_8);exchange.getResponseHeaders().set("Content-Type","application/json; charset=utf-8");exchange.getResponseHeaders().set("Cache-Control","no-store");exchange.sendResponseHeaders(status,bytes.length);try(var out=exchange.getResponseBody()){out.write(bytes);}
+        exchange.getResponseHeaders().set("Content-Type","application/json; charset=utf-8");exchange.getResponseHeaders().set("Cache-Control","no-store");exchange.sendResponseHeaders(status,0);try(var out=exchange.getResponseBody()){JsonStream058.write(body,out);}
     }
     public static void main(String[] args) throws Exception {
         AgentHost042.run(false);
