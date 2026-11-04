@@ -1,5 +1,14 @@
 # Java chat and procedural ownership
 
+## Edition 066: bounded recovery inspection
+
+Open Java Brain → One observation, one recovery → Compare bounded recovery. Java persists five initial plans, checks original-runtime parity, and permits at most one corrective impulse at 0.25 seconds in the same world. Observed receives measured motion and contact; Blind receives predicted state only. Costs include the first real action even when later correction is withheld. All misses and unsupported refusals remain visible.
+
+Chat phrases including “bounded recovery,” “recovery study” and “replanning costs” use the continuing-agent evidence route. Ask for the actual five-policy report without running another experiment. Java exposes exact compact metrics while retaining original records. Recovery studies run through the Java Brain job owner; the chat report does not imply an unrestricted physical-action tool.
+
+The new trace endpoint returns audited task plans, before/after impulse receipts, costs and 46 recorded samples. Stop cancels a running comparison while preserving completed history. Cold restart restores the exact completed study. Observed's 40/60 completion and 27/47 recoveries fail its declared utility/miss gate against simpler controls; no promotion. See [README 066](../README-066.md), [contract](EDITION_066_CONTRACT.md) and [verification](readmes/066/verification.json).
+
+
 Edition052 adds terminal completion without a redundant model request, measured planner-call timing, objective continuity, retained diagnostic groups and concise source-derived results. The original completion routine still reads current native/report evidence. Mission exposes the complete result through an expandable evidence panel. Only optional discovery catalog entries are summarized; exact bound requirements are preserved and oversized essential domain context refuses explicitly. See [README052](../README-052.md) and the [Logic Chain review](REFERENCE_LOGIC_052.md).
 
 Edition044 extends the existing Java task queue. There is one conversation/task owner and one existing interface. Java calls the locally admitted Ollama model when a semantic decision or generated document is required; it does not turn the Java source into a replacement language model.

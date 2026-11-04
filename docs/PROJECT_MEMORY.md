@@ -1,5 +1,18 @@
 # Agent Workspace project memory
 
+## Edition 066 · Validated locally; publication next
+
+Contract `41c68b7` preceded all new outcomes. Native implementation `51ee6ef`; actual app and compatibility source `8109792`. Java performs one first push, one bounded replan at 0.25 seconds and at most one corrective impulse in the same native world. Actual motion, immediate impulse response, fees and failures persist. Blind receives predicted state only; Observed receives measured state and contact guards.
+
+The study completed 364 slots and 214 native executions. All four comparisons with the original runtime have exactly zero sample difference. Simple: 27 successes/33 misses; Fixed and Pooled: 13 successes/47 refusals; Blind: 43 successes/17 misses; Observed: 40 successes/20 misses. Observed recovered 27/47 initial refusals, versus Blind's 30/47. Mean utilities: Simple −0.670000; Fixed/Pooled +0.094833; Blind +0.110500; Observed −0.060333. Observed failed its declared comparative-utility and miss gates. No posthoc promotion, controller replacement or LLM-weight training.
+
+All 11 measured guard refusals lacked instantaneous near-contact callbacks. This descriptive result does not establish lost physical support. Measured state, guard eligibility and fees differ from Blind, so the comparison does not isolate observation alone. Trial wall time includes instrumentation and saving a pre-action plan; logical fees are declared assumptions. No case, threshold, correction bound or gate was tuned after outcomes.
+
+68 distinct targeted Java checks across 11 classes, 127 desktop checks, installation/source isolation, actual app comparison, motion/source/cost inspection, cold restart, Stop and CPU-only/four-thread gpt-oss:20b reporting passed. Published 064/065 evidence remains readable through the current Java owner. Both native and actual-app study passed on their first full invocation. Eight actual app captures, two offline guide captures, the 977-file source inventory, exact compressed originals, Obsidian map, README 066 and these notes are prepared. Main push and fresh fetched audit remain pending.
+
+The test app is closed. Preserve normal045/qa046 installations, personal worlds and frozen editions 001–065. Current worktree: work/fraynix-workspace-edition066; installed Java output belongs to this isolated test checkout. No subagents or overlapping heavy validators. Next unused edition 067: declare and test bounded temporal contact evidence and pre-action attempt selection, with new tasks, unchanged comparisons and complete costs. Physical-camera transfer and broader geometry remain separate evaluations.
+
+
 ## Edition 065 · Published and fetched back on 2026-11-04
 
 Actual atomic push to Fraynix-Agent-Workspace main, edition065 and readme-065 succeeded. Release `1479a019b0c756923512b9d40facf915df910a48`; annotated tag `95dd9b540fe5b0f63aeeb49392dc7d6ea218bcec`. Fresh GitHub fetch verified 968 canonical sources, 5556 frozen hashes across 65 editions and 42 original archives, including decompressed bytes. Documentation passed 70 canvases and 6668 references. [Publication receipt](PUBLICATION_065.json).

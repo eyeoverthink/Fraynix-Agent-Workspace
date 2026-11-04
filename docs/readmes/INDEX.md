@@ -69,5 +69,6 @@ Numbered editions preserve dated behavior and evidence. The root [README](../../
 | [063](../../README-063.md) | 2026-11-04 | Stopping traces and measured uncertainty | [Viewer](063/index.html) · [tree](063/FILE_TREE.md) |
 | [064](../../README-064.md) | 2026-11-04 | Persistent contact impulses and prospective uncertainty | [Viewer](064/index.html) · [tree](064/FILE_TREE.md) |
 | [065](../../README-065.md) | 2026-11-04 | Target decisions, costs and useful refusal | [Viewer](065/index.html) · [tree](065/FILE_TREE.md) |
+| [066](../../README-066.md) | 2026-11-04 | Bounded recovery, observation ablation and complete costs | [Viewer](066/index.html) · [tree](066/FILE_TREE.md) |
 
-Latest implementation and documentation edition in this checkout is **065**. See [sequence policy](README_SEQUENCE.md) and [manifest](editions.json).
+Latest implementation and documentation edition in this checkout is **066**. See [sequence policy](README_SEQUENCE.md) and [manifest](editions.json).

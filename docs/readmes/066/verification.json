@@ -1,0 +1,1193 @@
+{
+  "edition": 66,
+  "date": "2026-11-04T22:38:57.247Z",
+  "source": "ec72de0f5ccad89d6f421b2fdbece76dc2f888dc",
+  "contractCommit": "41c68b7",
+  "nativeImplementation": "51ee6ef5949d54823ca6a3a57b15501553167ae7",
+  "nativeExecutions": 214,
+  "progressSlots": 364,
+  "parityMaximumDeltas": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "javaDistinct": 68,
+  "javaClasses": 11,
+  "javaAllPassed": true,
+  "javaInvocations": [
+    {
+      "name": "native066",
+      "source": "51ee6ef5949d54823ca6a3a57b15501553167ae7",
+      "cases": [
+        {
+          "case": "fraymus.workspace.Recovery066Test#freshTasksAndLosslessContextRetainSubgroupsAndNulls",
+          "passed": true,
+          "seconds": 0.565
+        },
+        {
+          "case": "fraymus.workspace.Recovery066Test#inverseAndBoundsUseOnlyTheSelectedState",
+          "passed": true,
+          "seconds": 0.001
+        },
+        {
+          "case": "fraymus.workspace.Recovery066Test#qualificationRequiresObservationBenefitCompletionAndRecovery",
+          "passed": true,
+          "seconds": 0.003
+        },
+        {
+          "case": "fraymus.workspace.Recovery066Test#attemptedRecoveryPaysForFailuresAndEveryUsedOperation",
+          "passed": true,
+          "seconds": 0.001
+        },
+        {
+          "case": "fraymus.workspace.Recovery066Test#initialPoliciesRetainOldChoicesAndRefusalDomain",
+          "passed": true,
+          "seconds": 0.019
+        },
+        {
+          "case": "fraymus.workspace.Recovery066Test#nativeStudyParityRealCorrectionColdHistoryStopAndTampering",
+          "passed": true,
+          "seconds": 175.332
+        }
+      ]
+    },
+    {
+      "name": "regression066",
+      "source": "81097920166252e3483b5388580bedb16c1228ae",
+      "cases": [
+        {
+          "case": "fraymus.workspace.Agent042Test#actualSharedCortexCheckpointReplayLeaseAndRestart",
+          "passed": true,
+          "seconds": 1.102
+        },
+        {
+          "case": "fraymus.workspace.Agent042Test#acceptedCameraOutputsExpireAndReplayCannotRefreshThem",
+          "passed": true,
+          "seconds": 0.62
+        },
+        {
+          "case": "fraymus.workspace.Agent042Test#missingNeuralCheckpointDoesNotSilentlyResetBrain",
+          "passed": true,
+          "seconds": 0.61
+        },
+        {
+          "case": "fraymus.workspace.Agent042Test#clocksKeepWallRollbackAndBootDomainsSeparate",
+          "passed": true,
+          "seconds": 0.001
+        },
+        {
+          "case": "fraymus.workspace.Agent042Test#failedGoalsAreWitnessedOnceWithoutRewardingSuccess",
+          "passed": true,
+          "seconds": 0.032
+        },
+        {
+          "case": "fraymus.workspace.Agent042Test#checkedStateRejectsAlterationWithoutErasingOriginal",
+          "passed": true,
+          "seconds": 0.006
+        },
+        {
+          "case": "fraymus.workspace.Agent042Test#appraisalAblationsActuallyChangeWork",
+          "passed": true,
+          "seconds": 0.0
+        },
+        {
+          "case": "fraymus.workspace.Agent042Test#witnessSegmentsVerifyExactCheckpointPrefixAndRefuseDamage",
+          "passed": true,
+          "seconds": 3.935
+        },
+        {
+          "case": "fraymus.workspace.Agent042Test#reportEscapesSourceDataAndKeepsExactSnapshot",
+          "passed": true,
+          "seconds": 0.006
+        },
+        {
+          "case": "fraymus.workspace.BrainPayload064Test#exactTextRoundTripPreservesUnicodeNumbersAndWhitespace",
+          "passed": true,
+          "seconds": 0.02
+        },
+        {
+          "case": "fraymus.workspace.BrainPayload064Test#corruptedOrOversizedEnvelopesAreRefused",
+          "passed": true,
+          "seconds": 0.001
+        },
+        {
+          "case": "fraymus.workspace.BrainPayload064Test#oldAndSmallRecordsStayCompatible",
+          "passed": true,
+          "seconds": 0.01
+        },
+        {
+          "case": "fraymus.workspace.BrainPersistenceTest#cancelDoesNotPromoteAndSharedCortexCheckpointRestarts",
+          "passed": true,
+          "seconds": 0.524
+        },
+        {
+          "case": "fraymus.workspace.BrainPersistenceTest#checkpointRetainsActualWeightsRandomStateAndDynamicsAndRejectsCorruption",
+          "passed": true,
+          "seconds": 0.009
+        },
+        {
+          "case": "fraymus.workspace.BrainPersistenceTest#savedUnsettledJobIsMarkedInterruptedOnRestart",
+          "passed": true,
+          "seconds": 0.017
+        },
+        {
+          "case": "fraymus.workspace.BrainPersistenceTest#acceptedControllerUsesActualImpulseAndReplaysWithoutReferenceConfusion",
+          "passed": true,
+          "seconds": 5.922
+        },
+        {
+          "case": "fraymus.workspace.BrainPersistenceTest#immutableLocalMemorySurvivesRestartIsBoundedAndCannotInstallTools",
+          "passed": true,
+          "seconds": 0.092
+        },
+        {
+          "case": "fraymus.workspace.BrainServiceTest#physicalLearningIsEvaluatedPromotedRestartedAndRolledBack",
+          "passed": true,
+          "seconds": 5.516
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#duplicateWarningsKeepEveryOriginalOccurrenceBeyondRecentWindow",
+          "passed": true,
+          "seconds": 0.001
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#numericRefusalExplainsOriginalBoundsWithoutChangingThem",
+          "passed": true,
+          "seconds": 0.002
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#oversizedRequirementsRefuseRatherThanBeingSilentlyTruncated",
+          "passed": true,
+          "seconds": 0.001
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#legacyTaskDoesNotClaimCompleteTimingCoverage",
+          "passed": true,
+          "seconds": 0.0
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#summaryRetainsRejectedQualityAndDoesNotDumpMetrics",
+          "passed": true,
+          "seconds": 0.0
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#payloadHistoryProjectionRetainsPolicyRequirementsAndContraryOutcomes",
+          "passed": true,
+          "seconds": 0.006
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#discoverySummaryKeepsExactBindingsAndBothEndsWithoutBreakingJson",
+          "passed": true,
+          "seconds": 0.004
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#largeRecentObservationHasExplicitOmissionHashAndKeepsFailure",
+          "passed": true,
+          "seconds": 0.002
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#queuedObjectiveSealRefusesChangedRequest",
+          "passed": true,
+          "seconds": 0.001
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#providerMapMetadataIsRetainedWithoutUnrelatedFields",
+          "passed": true,
+          "seconds": 0.0
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#automaticCompletionRechecksCurrentArtifactInsteadOfTrustingOldSuccess",
+          "passed": true,
+          "seconds": 0.676
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#failedPlannerCallIsTimedAndDoesNotBecomeAnAction",
+          "passed": true,
+          "seconds": 0.163
+        },
+        {
+          "case": "fraymus.workspace.Contact064Test#wilsonAndRankHaveIndependentKnownValues",
+          "passed": true,
+          "seconds": 0.002
+        },
+        {
+          "case": "fraymus.workspace.Contact064Test#stressCannotQualifyAndWidthAndGroupsMatter",
+          "passed": true,
+          "seconds": 0.003
+        },
+        {
+          "case": "fraymus.workspace.Contact064Test#partitionsAreFreshAndStressIsOutsideCalibratedSupport",
+          "passed": true,
+          "seconds": 0.002
+        },
+        {
+          "case": "fraymus.workspace.Contact064Test#plannerProjectionKeepsEvidenceAndOriginalHistory",
+          "passed": true,
+          "seconds": 0.003
+        },
+        {
+          "case": "fraymus.workspace.Contact064Test#published063OriginalStillAudits",
+          "passed": true,
+          "seconds": 1.201
+        },
+        {
+          "case": "fraymus.workspace.Contact064Test#cachedImpulseOrientationAndGravityBalanceAreIndependent",
+          "passed": true,
+          "seconds": 0.001
+        },
+        {
+          "case": "fraymus.workspace.Contact064Test#nativeStudyParityUncertaintyColdRestoreAndStop",
+          "passed": true,
+          "seconds": 68.902
+        },
+        {
+          "case": "fraymus.workspace.Decision065Test#publishedCalibrationIsExactAndRecomputed",
+          "passed": true,
+          "seconds": 1.821
+        },
+        {
+          "case": "fraymus.workspace.Decision065Test#policyFitsIntervalsAndSharesDomainFence",
+          "passed": true,
+          "seconds": 0.004
+        },
+        {
+          "case": "fraymus.workspace.Decision065Test#utilityCountsMissesAndRefusalsWithoutInventingEndpoints",
+          "passed": true,
+          "seconds": 0.001
+        },
+        {
+          "case": "fraymus.workspace.Decision065Test#freshPartitionsHaveNoOldNativeDefinitions",
+          "passed": true,
+          "seconds": 0.005
+        },
+        {
+          "case": "fraymus.workspace.Decision065Test#gateRequiresBothComparisonsAndRealTaskSuccess",
+          "passed": true,
+          "seconds": 0.0
+        },
+        {
+          "case": "fraymus.workspace.Decision065Test#planningTablesRetainEveryMetricAndLeaveOriginalsUntouched",
+          "passed": true,
+          "seconds": 0.003
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#retainedAppearancePolicyCannotChangeCategoryOrInstallDetectorOptions",
+          "passed": true,
+          "seconds": 0.002
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#retainedSkillSourceAndForceDefaultsCannotBeSilentlyChanged",
+          "passed": true,
+          "seconds": 0.002
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#nativeWaitUsesActualChildAndRetainsItsIdentity",
+          "passed": true,
+          "seconds": 0.176
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#savedGraphChatSelectsExactVersionAndWorkflowBeforePlanning",
+          "passed": true,
+          "seconds": 0.009
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#sourceFreeHostSuccessAndForeignChildrenAreRejected",
+          "passed": true,
+          "seconds": 0.007
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#reportStageCannotSkipActualReads",
+          "passed": true,
+          "seconds": 0.0
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#typedOptionsPreserveExplicitValuesAndRejectContradictions",
+          "passed": true,
+          "seconds": 0.001
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#interruptedChildCannotProduceSuccessfulCompletion",
+          "passed": true,
+          "seconds": 0.008
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#inventedHostFactsDoNotReplaceActualJavaRead",
+          "passed": true,
+          "seconds": 0.007
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#retainedSkillSchemasKeepDefaultsOptionalAndHideBoundDetectorPolicy",
+          "passed": true,
+          "seconds": 0.001
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#javaRoutesEveryFormerDesktopFamilyWithoutChangingWebCreation",
+          "passed": true,
+          "seconds": 0.008
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#constructionReuseExposesOnlyExplicitChangesAndKeepsOriginalLimits",
+          "passed": true,
+          "seconds": 0.003
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#actualQueueCompletionRecordsTheVerifiedReportInTheSameLearningEpisode",
+          "passed": true,
+          "seconds": 0.193
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#workflowBootstrapBindsDatasetAndSceneInJavaBeforeAnyHostAction",
+          "passed": true,
+          "seconds": 0.007
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#reportMustHaveFrozenOriginalAssertionsAndExactSourceVersion",
+          "passed": true,
+          "seconds": 0.032
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#creationPromptsAreOwnedBoundedAndKeepSourceReserved",
+          "passed": true,
+          "seconds": 0.015
+        },
+        {
+          "case": "fraymus.workspace.RecoveryCompatibility066Test#published065OriginalRestoresThroughCurrentOwnerWithoutChangedEvidence",
+          "passed": true,
+          "seconds": 1.416
+        },
+        {
+          "case": "fraymus.workspace.StoppingContext063Test#projectionPreservesFailuresExactMetricsAndOriginalEvidence",
+          "passed": true,
+          "seconds": 0.006
+        },
+        {
+          "case": "fraymus.workspace.StoppingContext063Test#ordinaryFactsAndEssentialTaskRequirementsAreNotReduced",
+          "passed": true,
+          "seconds": 0.001
+        }
+      ]
+    }
+  ],
+  "desktopUnitTests": 127,
+  "actualApp": {
+    "source": "81097920166252e3483b5388580bedb16c1228ae",
+    "physicsJobSource": "81097920166252e3483b5388580bedb16c1228ae",
+    "checks": [
+      "Visible study completes364slots with four original-runtime parity pairs and all independently executed decisions",
+      "Five-policy costs, real46sample trajectories, measured versus predicted planning and unsupported no-motion refusals match Java evidence",
+      "Cold Java/app restart restores exact plans, impulse receipts, cost and motion; active controller remains v1",
+      "Visible Stop cancels a new recovery comparison and retains the completed native evidence",
+      "Actual CPU/four-thread gpt-oss20b reads recovery evidence and completes its checked report"
+    ],
+    "original": "original/actual-app/recovery066-live.json.gz",
+    "model": "gpt-oss:20b CPU-only/four threads",
+    "widths": [
+      1600,
+      1100
+    ]
+  },
+  "visualReview": {
+    "passed": true,
+    "reviewer": "Codex visual inspection",
+    "date": "2026-11-04",
+    "captures": [
+      "comparison",
+      "recovery",
+      "cost",
+      "blind",
+      "failure",
+      "domain",
+      "narrow",
+      "chat"
+    ],
+    "findings": [
+      "Policy totals and fees are readable.",
+      "Measured and predicted planner sources remain distinct.",
+      "Failed attempts retain actual endpoints and costs.",
+      "Unsupported cases show no invented motion.",
+      "Integrated panel remains usable at 1100 pixels.",
+      "Completed local-model reporting is visible in the actual app; original task evidence supplies the detailed verification."
+    ],
+    "scope": "Manual visual review of actual screenshots, separate from automated interaction checks."
+  },
+  "model": {
+    "modelSha256": "64dd2f4d50a6888651525d89535be92ae41a9085deef5263b764e8effb0df77d",
+    "radiusM": 0.021009609197235324,
+    "originalRawSha256": "b13ab33071294561d1203ba63840eb8e493938e802e2f323d9aa85ac3936dd2b",
+    "calibrationCount": 60,
+    "sourceRelease": "50be9a6568037915c4060804a247e6df60326062",
+    "sourceStudyId": "a51b6236-3363-486b-a09a-b099416d8971",
+    "calibrationSha256": "38f60aeba62c42d9419df466554fe559da79577f2c9db479422de6de9b4e54f3",
+    "resourceSha256": "bee148d4270d4e45c5c5777fd292fcc933f3993c2849760b706c93dc08503c4f",
+    "sourcePath": "docs/readmes/064/original/native064-final/original-experiment.json.gz"
+  },
+  "evaluation": {
+    "qualified": false,
+    "subgroups": {
+      "width24mm": {
+        "methods": {
+          "blind": {
+            "meanUtility": 0.05400000000000007,
+            "allTaskSuccessRate": 0.7,
+            "initiallyRefusedAttempts": 20,
+            "successes": 14,
+            "allTaskMissRate": 0.3,
+            "misses": 6,
+            "refusals": 0,
+            "meanLogicalCost": 0.04600000000000002,
+            "initiallyRefusedSuccesses": 14,
+            "tasks": 20
+          },
+          "pooled": {
+            "meanUtility": -0.14999999999999997,
+            "allTaskSuccessRate": 0,
+            "initiallyRefusedAttempts": 0,
+            "successes": 0,
+            "allTaskMissRate": 0,
+            "misses": 0,
+            "refusals": 20,
+            "meanLogicalCost": 0.14999999999999997,
+            "initiallyRefusedSuccesses": 0,
+            "tasks": 20
+          },
+          "simple": {
+            "meanUtility": -0.5199999999999999,
+            "allTaskSuccessRate": 0.5,
+            "initiallyRefusedAttempts": 20,
+            "successes": 10,
+            "allTaskMissRate": 0.5,
+            "misses": 10,
+            "refusals": 0,
+            "meanLogicalCost": 0.020000000000000004,
+            "initiallyRefusedSuccesses": 10,
+            "tasks": 20
+          },
+          "fixed": {
+            "meanUtility": -0.14999999999999997,
+            "allTaskSuccessRate": 0,
+            "initiallyRefusedAttempts": 0,
+            "successes": 0,
+            "allTaskMissRate": 0,
+            "misses": 0,
+            "refusals": 20,
+            "meanLogicalCost": 0.14999999999999997,
+            "initiallyRefusedSuccesses": 0,
+            "tasks": 20
+          },
+          "observed": {
+            "meanUtility": -0.12100000000000004,
+            "allTaskSuccessRate": 0.65,
+            "initiallyRefusedAttempts": 20,
+            "successes": 13,
+            "allTaskMissRate": 0.35,
+            "misses": 7,
+            "refusals": 0,
+            "meanLogicalCost": 0.07100000000000002,
+            "initiallyRefusedSuccesses": 13,
+            "tasks": 20
+          }
+        },
+        "pairedObservedMinus": {
+          "blind": {
+            "wins": 1,
+            "ties": 0,
+            "meanDelta": -0.175,
+            "losses": 19
+          },
+          "pooled": {
+            "wins": 13,
+            "ties": 0,
+            "meanDelta": 0.029000000000000005,
+            "losses": 7
+          },
+          "simple": {
+            "wins": 3,
+            "ties": 0,
+            "meanDelta": 0.39899999999999997,
+            "losses": 17
+          },
+          "fixed": {
+            "wins": 13,
+            "ties": 0,
+            "meanDelta": 0.029000000000000005,
+            "losses": 7
+          }
+        }
+      },
+      "width45mm": {
+        "methods": {
+          "blind": {
+            "meanUtility": 0.5225000000000002,
+            "allTaskSuccessRate": 0.85,
+            "initiallyRefusedAttempts": 7,
+            "successes": 17,
+            "allTaskMissRate": 0.15,
+            "misses": 3,
+            "refusals": 0,
+            "meanLogicalCost": 0.027500000000000004,
+            "initiallyRefusedSuccesses": 4,
+            "tasks": 20
+          },
+          "pooled": {
+            "meanUtility": 0.5845,
+            "allTaskSuccessRate": 0.65,
+            "initiallyRefusedAttempts": 0,
+            "successes": 13,
+            "allTaskMissRate": 0,
+            "misses": 0,
+            "refusals": 7,
+            "meanLogicalCost": 0.0655,
+            "initiallyRefusedSuccesses": 0,
+            "tasks": 20
+          },
+          "simple": {
+            "meanUtility": -0.06999999999999995,
+            "allTaskSuccessRate": 0.65,
+            "initiallyRefusedAttempts": 7,
+            "successes": 13,
+            "allTaskMissRate": 0.35,
+            "misses": 7,
+            "refusals": 0,
+            "meanLogicalCost": 0.020000000000000004,
+            "initiallyRefusedSuccesses": 0,
+            "tasks": 20
+          },
+          "fixed": {
+            "meanUtility": 0.5845,
+            "allTaskSuccessRate": 0.65,
+            "initiallyRefusedAttempts": 0,
+            "successes": 13,
+            "allTaskMissRate": 0,
+            "misses": 0,
+            "refusals": 7,
+            "meanLogicalCost": 0.0655,
+            "initiallyRefusedSuccesses": 0,
+            "tasks": 20
+          },
+          "observed": {
+            "meanUtility": 0.21399999999999997,
+            "allTaskSuccessRate": 0.75,
+            "initiallyRefusedAttempts": 7,
+            "successes": 15,
+            "allTaskMissRate": 0.25,
+            "misses": 5,
+            "refusals": 0,
+            "meanLogicalCost": 0.036,
+            "initiallyRefusedSuccesses": 2,
+            "tasks": 20
+          }
+        },
+        "pairedObservedMinus": {
+          "blind": {
+            "wins": 0,
+            "ties": 13,
+            "meanDelta": -0.30850000000000005,
+            "losses": 7
+          },
+          "pooled": {
+            "wins": 2,
+            "ties": 13,
+            "meanDelta": -0.3705,
+            "losses": 5
+          },
+          "simple": {
+            "wins": 2,
+            "ties": 13,
+            "meanDelta": 0.284,
+            "losses": 5
+          },
+          "fixed": {
+            "wins": 2,
+            "ties": 13,
+            "meanDelta": -0.3705,
+            "losses": 5
+          }
+        }
+      },
+      "slowing": {
+        "methods": {
+          "blind": {
+            "meanUtility": -0.33899999999999986,
+            "allTaskSuccessRate": 0.5666666666666667,
+            "initiallyRefusedAttempts": 25,
+            "successes": 17,
+            "allTaskMissRate": 0.43333333333333335,
+            "misses": 13,
+            "refusals": 0,
+            "meanLogicalCost": 0.03900000000000002,
+            "initiallyRefusedSuccesses": 12,
+            "tasks": 30
+          },
+          "pooled": {
+            "meanUtility": 0.03833333333333339,
+            "allTaskSuccessRate": 0.16666666666666666,
+            "initiallyRefusedAttempts": 0,
+            "successes": 5,
+            "allTaskMissRate": 0,
+            "misses": 0,
+            "refusals": 25,
+            "meanLogicalCost": 0.1283333333333333,
+            "initiallyRefusedSuccesses": 0,
+            "tasks": 30
+          },
+          "simple": {
+            "meanUtility": -1.0199999999999998,
+            "allTaskSuccessRate": 0.3333333333333333,
+            "initiallyRefusedAttempts": 25,
+            "successes": 10,
+            "allTaskMissRate": 0.6666666666666666,
+            "misses": 20,
+            "refusals": 0,
+            "meanLogicalCost": 0.020000000000000007,
+            "initiallyRefusedSuccesses": 5,
+            "tasks": 30
+          },
+          "fixed": {
+            "meanUtility": 0.03833333333333339,
+            "allTaskSuccessRate": 0.16666666666666666,
+            "initiallyRefusedAttempts": 0,
+            "successes": 5,
+            "allTaskMissRate": 0,
+            "misses": 0,
+            "refusals": 25,
+            "meanLogicalCost": 0.1283333333333333,
+            "initiallyRefusedSuccesses": 0,
+            "tasks": 30
+          },
+          "observed": {
+            "meanUtility": -0.3613333333333334,
+            "allTaskSuccessRate": 0.5666666666666667,
+            "initiallyRefusedAttempts": 25,
+            "successes": 17,
+            "allTaskMissRate": 0.43333333333333335,
+            "misses": 13,
+            "refusals": 0,
+            "meanLogicalCost": 0.06133333333333336,
+            "initiallyRefusedSuccesses": 12,
+            "tasks": 30
+          }
+        },
+        "pairedObservedMinus": {
+          "blind": {
+            "wins": 1,
+            "ties": 5,
+            "meanDelta": -0.022333333333333396,
+            "losses": 24
+          },
+          "pooled": {
+            "wins": 12,
+            "ties": 5,
+            "meanDelta": -0.39966666666666667,
+            "losses": 13
+          },
+          "simple": {
+            "wins": 7,
+            "ties": 5,
+            "meanDelta": 0.6586666666666668,
+            "losses": 18
+          },
+          "fixed": {
+            "wins": 12,
+            "ties": 5,
+            "meanDelta": -0.39966666666666667,
+            "losses": 13
+          }
+        }
+      },
+      "accelerating": {
+        "methods": {
+          "blind": {
+            "meanUtility": 0.5599999999999998,
+            "allTaskSuccessRate": 0.8666666666666667,
+            "initiallyRefusedAttempts": 22,
+            "successes": 26,
+            "allTaskMissRate": 0.13333333333333333,
+            "misses": 4,
+            "refusals": 0,
+            "meanLogicalCost": 0.04000000000000002,
+            "initiallyRefusedSuccesses": 18,
+            "tasks": 30
+          },
+          "pooled": {
+            "meanUtility": 0.15133333333333338,
+            "allTaskSuccessRate": 0.26666666666666666,
+            "initiallyRefusedAttempts": 0,
+            "successes": 8,
+            "allTaskMissRate": 0,
+            "misses": 0,
+            "refusals": 22,
+            "meanLogicalCost": 0.1153333333333333,
+            "initiallyRefusedSuccesses": 0,
+            "tasks": 30
+          },
+          "simple": {
+            "meanUtility": -0.3199999999999999,
+            "allTaskSuccessRate": 0.5666666666666667,
+            "initiallyRefusedAttempts": 22,
+            "successes": 17,
+            "allTaskMissRate": 0.43333333333333335,
+            "misses": 13,
+            "refusals": 0,
+            "meanLogicalCost": 0.020000000000000007,
+            "initiallyRefusedSuccesses": 9,
+            "tasks": 30
+          },
+          "fixed": {
+            "meanUtility": 0.15133333333333338,
+            "allTaskSuccessRate": 0.26666666666666666,
+            "initiallyRefusedAttempts": 0,
+            "successes": 8,
+            "allTaskMissRate": 0,
+            "misses": 0,
+            "refusals": 22,
+            "meanLogicalCost": 0.1153333333333333,
+            "initiallyRefusedSuccesses": 0,
+            "tasks": 30
+          },
+          "observed": {
+            "meanUtility": 0.24066666666666664,
+            "allTaskSuccessRate": 0.7666666666666667,
+            "initiallyRefusedAttempts": 22,
+            "successes": 23,
+            "allTaskMissRate": 0.23333333333333334,
+            "misses": 7,
+            "refusals": 0,
+            "meanLogicalCost": 0.059333333333333356,
+            "initiallyRefusedSuccesses": 15,
+            "tasks": 30
+          }
+        },
+        "pairedObservedMinus": {
+          "blind": {
+            "wins": 1,
+            "ties": 8,
+            "meanDelta": -0.3193333333333331,
+            "losses": 21
+          },
+          "pooled": {
+            "wins": 15,
+            "ties": 8,
+            "meanDelta": 0.08933333333333335,
+            "losses": 7
+          },
+          "simple": {
+            "wins": 6,
+            "ties": 8,
+            "meanDelta": 0.5606666666666668,
+            "losses": 16
+          },
+          "fixed": {
+            "wins": 15,
+            "ties": 8,
+            "meanDelta": 0.08933333333333335,
+            "losses": 7
+          }
+        }
+      },
+      "width12mm": {
+        "methods": {
+          "blind": {
+            "meanUtility": -0.24499999999999988,
+            "allTaskSuccessRate": 0.6,
+            "initiallyRefusedAttempts": 20,
+            "successes": 12,
+            "allTaskMissRate": 0.4,
+            "misses": 8,
+            "refusals": 0,
+            "meanLogicalCost": 0.04500000000000002,
+            "initiallyRefusedSuccesses": 12,
+            "tasks": 20
+          },
+          "pooled": {
+            "meanUtility": -0.14999999999999997,
+            "allTaskSuccessRate": 0,
+            "initiallyRefusedAttempts": 0,
+            "successes": 0,
+            "allTaskMissRate": 0,
+            "misses": 0,
+            "refusals": 20,
+            "meanLogicalCost": 0.14999999999999997,
+            "initiallyRefusedSuccesses": 0,
+            "tasks": 20
+          },
+          "simple": {
+            "meanUtility": -1.4199999999999997,
+            "allTaskSuccessRate": 0.2,
+            "initiallyRefusedAttempts": 20,
+            "successes": 4,
+            "allTaskMissRate": 0.8,
+            "misses": 16,
+            "refusals": 0,
+            "meanLogicalCost": 0.020000000000000004,
+            "initiallyRefusedSuccesses": 4,
+            "tasks": 20
+          },
+          "fixed": {
+            "meanUtility": -0.14999999999999997,
+            "allTaskSuccessRate": 0,
+            "initiallyRefusedAttempts": 0,
+            "successes": 0,
+            "allTaskMissRate": 0,
+            "misses": 0,
+            "refusals": 20,
+            "meanLogicalCost": 0.14999999999999997,
+            "initiallyRefusedSuccesses": 0,
+            "tasks": 20
+          },
+          "observed": {
+            "meanUtility": -0.274,
+            "allTaskSuccessRate": 0.6,
+            "initiallyRefusedAttempts": 20,
+            "successes": 12,
+            "allTaskMissRate": 0.4,
+            "misses": 8,
+            "refusals": 0,
+            "meanLogicalCost": 0.07400000000000001,
+            "initiallyRefusedSuccesses": 12,
+            "tasks": 20
+          }
+        },
+        "pairedObservedMinus": {
+          "blind": {
+            "wins": 1,
+            "ties": 0,
+            "meanDelta": -0.02900000000000002,
+            "losses": 19
+          },
+          "pooled": {
+            "wins": 12,
+            "ties": 0,
+            "meanDelta": -0.12399999999999997,
+            "losses": 8
+          },
+          "simple": {
+            "wins": 8,
+            "ties": 0,
+            "meanDelta": 1.1460000000000004,
+            "losses": 12
+          },
+          "fixed": {
+            "wins": 12,
+            "ties": 0,
+            "meanDelta": -0.12399999999999997,
+            "losses": 8
+          }
+        }
+      }
+    },
+    "proposed": "observed",
+    "methods": {
+      "blind": {
+        "meanUtility": 0.11049999999999978,
+        "initiallyRefusedAttempts": 47,
+        "allTaskMissRate": 0.2833333333333333,
+        "conditionalSuccessRate": 0.7166666666666667,
+        "refusals": 0,
+        "initialRefusals": 47,
+        "nativeWallMillis": 11653.767900000003,
+        "replans": 47,
+        "executionRate": 1,
+        "meanTargetErrorM": 0.03810304283974654,
+        "absoluteImpulseNs": 18.116254567803836,
+        "allTaskSuccessRate": 0.7166666666666667,
+        "executions": 60,
+        "successes": 43,
+        "recoveryRate": 0.6382978723404256,
+        "misses": 17,
+        "observations": 0,
+        "meanLogicalCost": 0.03949999999999999,
+        "initiallyRefusedSuccesses": 30,
+        "actions": 95,
+        "tasks": 60,
+        "nativeTicks": 10800
+      },
+      "pooled": {
+        "meanUtility": 0.09483333333333324,
+        "initiallyRefusedAttempts": 0,
+        "allTaskMissRate": 0,
+        "conditionalSuccessRate": 1,
+        "refusals": 47,
+        "initialRefusals": 47,
+        "nativeWallMillis": 76.16969999999999,
+        "replans": 0,
+        "executionRate": 0.21666666666666667,
+        "meanTargetErrorM": 0.013035669951260433,
+        "absoluteImpulseNs": 3.2399999999999998,
+        "allTaskSuccessRate": 0.21666666666666667,
+        "executions": 13,
+        "successes": 13,
+        "recoveryRate": 0,
+        "misses": 0,
+        "observations": 0,
+        "meanLogicalCost": 0.12183333333333342,
+        "initiallyRefusedSuccesses": 0,
+        "actions": 13,
+        "tasks": 60,
+        "nativeTicks": 2340
+      },
+      "simple": {
+        "meanUtility": -0.67,
+        "initiallyRefusedAttempts": 47,
+        "allTaskMissRate": 0.55,
+        "conditionalSuccessRate": 0.45,
+        "refusals": 0,
+        "initialRefusals": 47,
+        "nativeWallMillis": 352.4049999999999,
+        "replans": 0,
+        "executionRate": 1,
+        "meanTargetErrorM": 0.054490603072965514,
+        "absoluteImpulseNs": 16.020000000000017,
+        "allTaskSuccessRate": 0.45,
+        "executions": 60,
+        "successes": 27,
+        "recoveryRate": 0.2978723404255319,
+        "misses": 33,
+        "observations": 0,
+        "meanLogicalCost": 0.02000000000000001,
+        "initiallyRefusedSuccesses": 14,
+        "actions": 60,
+        "tasks": 60,
+        "nativeTicks": 10800
+      },
+      "fixed": {
+        "meanUtility": 0.09483333333333324,
+        "initiallyRefusedAttempts": 0,
+        "allTaskMissRate": 0,
+        "conditionalSuccessRate": 1,
+        "refusals": 47,
+        "initialRefusals": 47,
+        "nativeWallMillis": 77.08380000000001,
+        "replans": 0,
+        "executionRate": 0.21666666666666667,
+        "meanTargetErrorM": 0.013035669951260433,
+        "absoluteImpulseNs": 3.2399999999999998,
+        "allTaskSuccessRate": 0.21666666666666667,
+        "executions": 13,
+        "successes": 13,
+        "recoveryRate": 0,
+        "misses": 0,
+        "observations": 0,
+        "meanLogicalCost": 0.12183333333333342,
+        "initiallyRefusedSuccesses": 0,
+        "actions": 13,
+        "tasks": 60,
+        "nativeTicks": 2340
+      },
+      "observed": {
+        "meanUtility": -0.060333333333333385,
+        "initiallyRefusedAttempts": 47,
+        "allTaskMissRate": 0.3333333333333333,
+        "conditionalSuccessRate": 0.6666666666666666,
+        "refusals": 0,
+        "initialRefusals": 47,
+        "nativeWallMillis": 12058.374700000002,
+        "replans": 47,
+        "executionRate": 1,
+        "meanTargetErrorM": 0.041810924464684415,
+        "absoluteImpulseNs": 17.54340846900385,
+        "allTaskSuccessRate": 0.6666666666666666,
+        "executions": 60,
+        "successes": 40,
+        "recoveryRate": 0.574468085106383,
+        "misses": 20,
+        "observations": 47,
+        "meanLogicalCost": 0.06033333333333337,
+        "initiallyRefusedSuccesses": 27,
+        "actions": 87,
+        "tasks": 60,
+        "nativeTicks": 10800
+      }
+    },
+    "meaning": "Empirical native task utility after declared assumed costs; timings are machine-specific diagnostics, not qualification or physical calibration",
+    "pairedObservedMinus": {
+      "blind": {
+        "wins": 2,
+        "ties": 13,
+        "meanDelta": -0.17083333333333328,
+        "losses": 45
+      },
+      "pooled": {
+        "wins": 27,
+        "ties": 13,
+        "meanDelta": -0.15516666666666665,
+        "losses": 20
+      },
+      "simple": {
+        "wins": 13,
+        "ties": 13,
+        "meanDelta": 0.6096666666666671,
+        "losses": 34
+      },
+      "fixed": {
+        "wins": 27,
+        "ties": 13,
+        "meanDelta": -0.15516666666666665,
+        "losses": 20
+      }
+    },
+    "controllerAuthority": false
+  },
+  "shiftedEvaluation": {
+    "methods": {
+      "blind": {
+        "meanUtility": -0.14999999999999997,
+        "initiallyRefusedAttempts": 0,
+        "allTaskMissRate": 0,
+        "conditionalSuccessRate": null,
+        "refusals": 12,
+        "initialRefusals": 0,
+        "nativeWallMillis": 0,
+        "replans": 0,
+        "executionRate": 0,
+        "meanTargetErrorM": null,
+        "absoluteImpulseNs": 0,
+        "allTaskSuccessRate": 0,
+        "executions": 0,
+        "successes": 0,
+        "recoveryRate": null,
+        "misses": 0,
+        "observations": 0,
+        "meanLogicalCost": 0.14999999999999997,
+        "initiallyRefusedSuccesses": 0,
+        "actions": 0,
+        "tasks": 12,
+        "nativeTicks": 0
+      },
+      "pooled": {
+        "meanUtility": -0.14999999999999997,
+        "initiallyRefusedAttempts": 0,
+        "allTaskMissRate": 0,
+        "conditionalSuccessRate": null,
+        "refusals": 12,
+        "initialRefusals": 0,
+        "nativeWallMillis": 0,
+        "replans": 0,
+        "executionRate": 0,
+        "meanTargetErrorM": null,
+        "absoluteImpulseNs": 0,
+        "allTaskSuccessRate": 0,
+        "executions": 0,
+        "successes": 0,
+        "recoveryRate": null,
+        "misses": 0,
+        "observations": 0,
+        "meanLogicalCost": 0.14999999999999997,
+        "initiallyRefusedSuccesses": 0,
+        "actions": 0,
+        "tasks": 12,
+        "nativeTicks": 0
+      },
+      "simple": {
+        "meanUtility": -0.14999999999999997,
+        "initiallyRefusedAttempts": 0,
+        "allTaskMissRate": 0,
+        "conditionalSuccessRate": null,
+        "refusals": 12,
+        "initialRefusals": 0,
+        "nativeWallMillis": 0,
+        "replans": 0,
+        "executionRate": 0,
+        "meanTargetErrorM": null,
+        "absoluteImpulseNs": 0,
+        "allTaskSuccessRate": 0,
+        "executions": 0,
+        "successes": 0,
+        "recoveryRate": null,
+        "misses": 0,
+        "observations": 0,
+        "meanLogicalCost": 0.14999999999999997,
+        "initiallyRefusedSuccesses": 0,
+        "actions": 0,
+        "tasks": 12,
+        "nativeTicks": 0
+      },
+      "fixed": {
+        "meanUtility": -0.14999999999999997,
+        "initiallyRefusedAttempts": 0,
+        "allTaskMissRate": 0,
+        "conditionalSuccessRate": null,
+        "refusals": 12,
+        "initialRefusals": 0,
+        "nativeWallMillis": 0,
+        "replans": 0,
+        "executionRate": 0,
+        "meanTargetErrorM": null,
+        "absoluteImpulseNs": 0,
+        "allTaskSuccessRate": 0,
+        "executions": 0,
+        "successes": 0,
+        "recoveryRate": null,
+        "misses": 0,
+        "observations": 0,
+        "meanLogicalCost": 0.14999999999999997,
+        "initiallyRefusedSuccesses": 0,
+        "actions": 0,
+        "tasks": 12,
+        "nativeTicks": 0
+      },
+      "observed": {
+        "meanUtility": -0.14999999999999997,
+        "initiallyRefusedAttempts": 0,
+        "allTaskMissRate": 0,
+        "conditionalSuccessRate": null,
+        "refusals": 12,
+        "initialRefusals": 0,
+        "nativeWallMillis": 0,
+        "replans": 0,
+        "executionRate": 0,
+        "meanTargetErrorM": null,
+        "absoluteImpulseNs": 0,
+        "allTaskSuccessRate": 0,
+        "executions": 0,
+        "successes": 0,
+        "recoveryRate": null,
+        "misses": 0,
+        "observations": 0,
+        "meanLogicalCost": 0.14999999999999997,
+        "initiallyRefusedSuccesses": 0,
+        "actions": 0,
+        "tasks": 12,
+        "nativeTicks": 0
+      }
+    },
+    "pairedObservedMinus": {
+      "blind": {
+        "wins": 0,
+        "ties": 12,
+        "meanDelta": 0,
+        "losses": 0
+      },
+      "pooled": {
+        "wins": 0,
+        "ties": 12,
+        "meanDelta": 0,
+        "losses": 0
+      },
+      "simple": {
+        "wins": 0,
+        "ties": 12,
+        "meanDelta": 0,
+        "losses": 0
+      },
+      "fixed": {
+        "wins": 0,
+        "ties": 12,
+        "meanDelta": 0,
+        "losses": 0
+      }
+    }
+  },
+  "limitations": [
+    "Native ramp simulation; not physical-world calibration or a resting target",
+    "One real first push, one replan and at most one correction; no repeated online search",
+    "Predicted-state comparison differs from Observed in state and measured guard eligibility, not solely observation fee",
+    "Assumed utility costs are distinct from instrumented machine-specific wall timings",
+    "Trial wall time includes measurement and saving a correction plan; not a pure solver benchmark",
+    "Earlier pooled interval is not a calibrated interval for controlled recovery trajectories",
+    "Fixed order, finite initial action grid, expanded corrective action space and possibly unreachable goals",
+    "Observed failed declared usefulness gate; no controller or LLM-weight promotion",
+    "Instantaneous near-contact callback absence does not establish physical support loss",
+    "Source-qualified targeted tests, not a fresh full repository suite"
+  ]
+}

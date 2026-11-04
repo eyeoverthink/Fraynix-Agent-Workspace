@@ -1,0 +1,105 @@
+{
+  "edition": 66,
+  "modules": [
+    {
+      "id": "policy",
+      "name": "Bounded Java replanning",
+      "summary": "Five policies share initial choices; one measured or predicted state can request a bounded corrective impulse.",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/RecoveryPolicy066.java",
+      "status": "Verified",
+      "note": "docs/obsidian/74-bounded-recovery.md"
+    },
+    {
+      "id": "native",
+      "name": "One native world",
+      "summary": "The existing body receives at most one correction at tick60. No reset, teleport or rewritten pose.",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/RecoveryRamp066.java",
+      "status": "Verified",
+      "note": "docs/obsidian/74-bounded-recovery.md"
+    },
+    {
+      "id": "trial",
+      "name": "Prior plan and impulse evidence",
+      "summary": "Java saves the plan before action, records immediate state and verifies source, clock, identity and real velocity response.",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/RecoveryTrial066.java",
+      "status": "Verified",
+      "note": "docs/obsidian/74-bounded-recovery.md"
+    },
+    {
+      "id": "study",
+      "name": "Fresh tasks and full costs",
+      "summary": "Four parity checks, 60 new tasks, 12 unsupported cases and every attempted miss remain in the durable study.",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/RecoveryStudy066.java",
+      "status": "Verified",
+      "note": "docs/obsidian/74-bounded-recovery.md"
+    },
+    {
+      "id": "view",
+      "name": "Integrated recovery inspector",
+      "summary": "Actual endpoints, correction source, displacement/speed/rotation and assumed versus measured costs.",
+      "source": "workspace-desktop/renderer/recovery066.js",
+      "status": "Actual app",
+      "note": "docs/obsidian/74-bounded-recovery.md"
+    },
+    {
+      "id": "next",
+      "name": "Contact evidence and attempt selection",
+      "summary": "Test bounded temporal contact evidence and whether a task is worth attempting before an irreversible push.",
+      "source": "docs/EDITION_066_CONTRACT.md",
+      "status": "Planned",
+      "note": "docs/obsidian/74-bounded-recovery.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "docs/readmes/066/recovery066-comparison.png",
+      "title": "Five policies, actual successes and declared costs"
+    },
+    {
+      "path": "docs/readmes/066/recovery066-recovery.png",
+      "title": "Same-world recovery and recorded motion"
+    },
+    {
+      "path": "docs/readmes/066/recovery066-cost.png",
+      "title": "Measured observation, actual impulse and full cost"
+    },
+    {
+      "path": "docs/readmes/066/recovery066-blind.png",
+      "title": "Prediction-only replanning: no measured state passed to this planner"
+    },
+    {
+      "path": "docs/readmes/066/recovery066-failure.png",
+      "title": "Failed recovery attempts remain counted"
+    },
+    {
+      "path": "docs/readmes/066/recovery066-domain.png",
+      "title": "Unsupported goals refuse without motion"
+    },
+    {
+      "path": "docs/readmes/066/recovery066-narrow.png",
+      "title": "Integrated Java Brain at 1100 pixels"
+    },
+    {
+      "path": "docs/readmes/066/recovery066-chat.png",
+      "title": "Actual local-model checked report"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/readmes/066/verification.json",
+      "title": "Verification"
+    },
+    {
+      "path": "docs/readmes/066/original-evidence.json",
+      "title": "Exact originals"
+    },
+    {
+      "path": "docs/readmes/066/recovery-data.json",
+      "title": "Audited Java-projected motion"
+    },
+    {
+      "path": "docs/readmes/066/posthoc-diagnostics.json",
+      "title": "Retained failure analysis"
+    }
+  ]
+}
