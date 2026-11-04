@@ -42,4 +42,18 @@ public class Stopping063Test {
         for(String name:List.of("../docs/readmes/061/original/final061/native-experiment.json.gz","../docs/readmes/062/original/native062-final/native-experiment062.json.gz"))try(var in=new java.util.zip.GZIPInputStream(Files.newInputStream(Path.of(name)))){var j=new JSONObject(new String(in.readAllBytes(),java.nio.charset.StandardCharsets.UTF_8));if(j.has("outcomeModel061"))FraynixOutcome061.audit(j);else ResidualOutcome062.audit(j);}
     }
     @Test public void chatReportsStoppingWithoutStartingExperiment(){assertEquals("agent",ChatPolicy044.route("Inspect stopping study and its uncertainty",new JSONObject(),false));}
+    @Test public void coverageAndWidthAreIndependentAcceptanceGates(){
+        var rows=new JSONArray();var radii=new JSONObject().put("pooled",.02).put("accelerating",.02).put("slowing",.02);
+        for(Object raw:Stopping063.cases("reserved")){var c=(JSONObject)raw;rows.put(new JSONObject().put("definition",c).put("intervalsBeforeObservation",Stopping063.intervals(radii,c)).put("record",new JSONObject().put("summary",new JSONObject().put("endpointM",Stopping063.analytic(c,.75)))));}
+        assertTrue(Stopping063.evaluate(rows).getBoolean("qualified"));
+        for(int i=0;i<4;i++)rows.getJSONObject(i).getJSONObject("record").getJSONObject("summary").put("endpointM",10);
+        var result=Stopping063.evaluate(rows);assertEquals(.9,result.getJSONObject("methods").getJSONObject("regime").getDouble("coverage"),0);assertFalse(result.getBoolean("qualified"));
+        for(int i=0;i<40;i++){var row=rows.getJSONObject(i);row.getJSONObject("record").getJSONObject("summary").put("endpointM",row.getJSONObject("intervalsBeforeObservation").getJSONObject("regime").getDouble("lowerM"));}assertTrue(Stopping063.evaluate(rows).getBoolean("qualified"));
+        for(Object raw:rows)((JSONObject)raw).getJSONObject("intervalsBeforeObservation").getJSONObject("regime").put("upperM",20);assertFalse(Stopping063.evaluate(rows).getBoolean("qualified"));
+    }
+    @Test public void briefQuietWindowDoesNotBecomePermanentRest(){
+        var c=Stopping063.definition(30,1.05,.25);var config=RampDefinition.from(ResidualOutcome062.physical(c));var samples=new JSONArray();
+        for(int t=0;t<=180;t++)samples.put(new JSONObject().put("tick",t).put("timeS",t*BulletRamp.DT).put("position",new JSONArray(config.start())).put("velocity",new JSONArray(new int[]{t>=30&&t<=60?0:1,0,0})).put("angularVelocity",new JSONArray(new int[]{0,0,0})).put("rotation",new JSONArray(new double[]{0,0,-Math.sin(config.radians()/2),Math.cos(config.radians()/2)})).put("contactSeparationsM",new JSONArray(new double[]{.001})));
+        var summary=Stopping063.summary(new JSONObject().put("definition",c).put("samples",samples));assertEquals(30,summary.getInt("firstQuietWindowStartTick"));assertFalse(summary.getBoolean("finalQuiet100ms"));assertTrue(summary.isNull("firstTouchTick"));
+    }
 }
