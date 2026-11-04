@@ -1,5 +1,10 @@
 # Fraynix Studio collaboration and documentation
 
+## Edition 066 · Implementation checkpoint · not published
+
+Isolated worktree fraynix-workspace-edition066, branch edition066, from fetched main 2de7abd. Contract41c68b7 committed before new outcomes. One same-world correction at tick60; observed versus predicted-only replanning; all attempted misses and costs count. Five fast unit checks passed before native outcomes. Java adapter/policy/study/context and integrated recovery panel implemented; native study, real app, docs/screenshots and actual push remain pending. Preserve original runtime classes and frozen editions001–065, normal045/qa046 installs and private worlds. No subagents or overlapping heavy validators. Test heap768MB, four CPU threads; use the edition053 desktop dependency junction without installing through it. Current build/unit066.log records the first fast pass. Continue through original-runtime parity, new native tasks, regression, real local-model report, documentation, push and fresh fetched audit. Do not tune declared cases, fees or gates to results.
+
+
 ## Edition 065 · Published and fetched back on 2026-11-04
 
 Actual atomic push to Fraynix-Agent-Workspace main, edition065 and readme-065 succeeded. Release `1479a019b0c756923512b9d40facf915df910a48`; annotated tag `95dd9b540fe5b0f63aeeb49392dc7d6ea218bcec`. Fresh GitHub fetch verified 968 canonical sources, 5556 frozen hashes across 65 editions and 42 original archives, including decompressed bytes. Documentation passed 70 canvases and 6668 references. [Publication receipt](docs/PUBLICATION_065.json).

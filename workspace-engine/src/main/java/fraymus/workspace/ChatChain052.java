@@ -50,7 +50,7 @@ final class ChatChain052 {
             }
             c.put("available044",catalog).put("catalogScope052","Discovery identities only; full catalog through registered read tools. Exact selected bindings remain above.");
         }
-        if(c.has("agent042Facts"))c.put("agent042Facts",ContactContext064.project(StoppingContext063.project(c.getJSONObject("agent042Facts"))));
+        if(c.has("agent042Facts"))c.put("agent042Facts",RecoveryContext066.project(ContactContext064.project(StoppingContext063.project(c.getJSONObject("agent042Facts")))));
         c.put("retainedDiagnostics052", diagnostics(g));
         return c;
     }

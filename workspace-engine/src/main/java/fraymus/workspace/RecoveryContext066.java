@@ -1,0 +1,12 @@
+package fraymus.workspace;
+import org.json.*;
+import java.util.*;
+
+/** Lossless repeated-label removal for planning; original facts/report remain untouched. */
+final class RecoveryContext066 {
+    static JSONObject project(JSONObject original){var copy=WorldFrames.copy(original);var state=copy.optJSONObject("recovery066");if(state==null||!state.has("lastCompleted"))return copy;var study=state.getJSONObject("lastCompleted");if(!study.has("evaluation"))return copy;
+        if(copy.has("recentWitnesses")){var rows=copy.getJSONArray("recentWitnesses");copy.remove("recentWitnesses");copy.put("witnessHistory066",new JSONObject().put("count",rows.length()).put("sha256",WorldFrames.hash(new JSONObject().put("rows",rows))).put("meaning","Historical witnesses omitted from planning only; original facts/report retain them"));}
+        var columns=new JSONObject();compact(study.getJSONObject("evaluation"),columns);compact(study.getJSONObject("shiftedEvaluation"),columns);study.put("tableColumns066",columns).put("tableMeaning066","Each methods/pairedObservedMinus table contains columnsRef and rows [method, values in referenced column order]. Every metric, subgroup, null, cost and comparison is retained. Original facts and checked report keep full objects.");return copy;
+    }
+    private static void compact(JSONObject evaluation,JSONObject columns){for(String name:List.of("methods","pairedObservedMinus")){var data=evaluation.getJSONObject(name);if(data.has("columnsRef"))throw new IllegalStateException("Already compacted recovery table");var names=new ArrayList<>(data.getJSONObject(new TreeSet<>(data.keySet()).first()).keySet());Collections.sort(names);var cols=new JSONArray(names);String ref=null;for(String key:columns.keySet())if(columns.getJSONArray(key).similar(cols))ref=key;if(ref==null){ref="c"+columns.length();columns.put(ref,cols);}var rows=new JSONArray();for(String method:new TreeSet<>(data.keySet())){var metrics=data.getJSONObject(method);if(!metrics.keySet().equals(new HashSet<>(names)))throw new IllegalStateException("Recovery metric schema differs");var row=new JSONArray().put(method);for(String key:names)row.put(metrics.get(key));rows.put(row);}evaluation.put(name,new JSONObject().put("columnsRef",ref).put("rows",rows));}var groups=evaluation.optJSONObject("subgroups");if(groups!=null)for(String key:groups.keySet())compact(groups.getJSONObject(key),columns);}
+}
