@@ -1,5 +1,16 @@
 # Agent Workspace development log
 
+## Edition055 · Published and fetched back on 2026-11-03
+
+Actual non-forced atomic push to private `eyeoverthink/Fraynix-Agent-Workspace`: main, edition055 and readme-055 accepted. Release `793d219cd6ac928f28688f816f2d719ba508fdd8`; annotated tag `4939190425512721768a41b2b508a1949b35e42c`. Fresh direct GitHub fetch confirms release and tag. All 893 canonical source files, 4042 frozen hashes across55 editions, and 330 complete original evidence archives were read from the fetched tree and verified, including decompressed bytes/SHA. Documentation passes 60 canvases and 5904 references. [Publication receipt](PUBLICATION_055.json).
+
+Actual app sourcea8e18880856fc58ba7137d9ffb4db0201e3e5c5b. Direct-first requires original native/support gates and one fresh execution. Compact assembly forecast+execution ticks27472→13292, wide/barrier24151→15780; this excludes4320additional load ticks. Tall-wall native lateral detour and cold mid-route restart pass; sealed wall refuses. Wide unloaded/downward loads stable; horizontal overload unstable and retained. No material-strength, real-hardware or model-weight-learning claim.
+
+60 distinct targeted Java cases/14 classes and123desktop checks pass across recorded source-qualified invocations, plus actual CPU/four-thread local gpt-oss:20b review/restart, changed-centre chat and saved-skill reuse in compact geometry, prior-world preservation, original reports/exports and cancellation. Chat172.446s; reuse183.852s. Saved-number mismatch and obsolete historical source-lock failures retained; physical thresholds unchanged. No full-suite055 claim. Full structured report data is preserved separately from its concise display; the hidden canvas retains a usable layout width. Actual unresponsive-artifact startup recovery, normal report reopening, saved-skill readiness and visible screenshot timing are checked, with original failed attempts retained. New extensive README, eight actual screenshots, offline guide, Obsidian map and originals published.
+
+Original normal review045/private mat-camera data and installed JARs preserved. Do not rebuild that live installation. Explicit known closed054 handoff preserves prior history; pending/unknown sources refuse. Use isolated edition055 checkout and separate projects. Preserve001–055immutable; next unused056. Next: unfamiliar route layouts, measured load envelopes and bounded task recovery with full experiment costs. This continuity/receipt commit follows the verified release.
+
+
 ## Edition055 · Validated locally; publication audit next
 
 2026-11-03. Actual app sourcea8e18880856fc58ba7137d9ffb4db0201e3e5c5b. Java direct-first policy reduces assembly forecast+execution ticks compact27472→13292 and wide/barrier24151→15780, with original native/support checks unchanged. Tall wall uses actual intermediate lateral stages; sealed wall refuses. Independent loads add4320ticks; wide unloaded/downward stable, horizontal overload unstable and retained. No material-strength, hardware or model-weight-learning claim.
