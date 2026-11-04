@@ -2,11 +2,11 @@
 
 **A local visual environment for agents to browse, create runnable artifacts, test behavior and reuse verified skills.**
 
-> **[Edition 062 · Physics first, learned residuals](README-062.md)** · [Offline guide](docs/readmes/062/index.html) · [Operation](docs/JAVA_CHAT_044.md) · [Edition history](docs/readmes/INDEX.md)
+> **[Edition 063 · Stopping traces and uncertainty](README-063.md)** · [Offline guide](docs/readmes/063/index.html) · [Operation](docs/JAVA_CHAT_044.md) · [Edition history](docs/readmes/INDEX.md)
 
-Edition 062 learns bounded corrections to analytical physics, selects a method on separate cases, and checks new reserved conditions. Analytical physics won selection; learned corrections remain unqualified. Java retains the experiment through restart and exposes its verified results to chat. [Measured results and originals](docs/readmes/062/verification.json).
+Edition 063 records contact, velocity and rotation, compares matched stopping interventions, and tests calibrated intervals on new cases. Rotation locking reduced the diagnostic discrepancy; the proposed uncertainty interval missed its coverage target. [Measured results and originals](docs/readmes/063/verification.json).
 
-Edition 062 is published to main with source, actual app captures, original experiment evidence and updated continuity notes. [Fetched GitHub verification](docs/PUBLICATION_062.json).
+Edition 063 implementation, screenshots and original evidence are prepared for publication. [Previous fetched publication](docs/PUBLICATION_062.json).
 
 One integrated app, with Java-owned chat planning, creation, native skill scheduling, continuing identity, real clocks and checked outcomes. Mission connects the actual goal, source, child task, recovery and retained result. [Screenshots, typed skill graphs, new logic and production direction](README-046.md).
 

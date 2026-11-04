@@ -1,0 +1,101 @@
+{
+  "edition": 63,
+  "modules": [
+    {
+      "id": "native",
+      "name": "Instrumented native world",
+      "summary": "Unchanged baseline geometry, signed contact separation and angular velocity.",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/StoppingRamp063.java",
+      "status": "Verified",
+      "note": "docs/obsidian/71-stopping-uncertainty.md"
+    },
+    {
+      "id": "study",
+      "name": "Stopping and calibration",
+      "summary": "Matched interventions, original parity, frozen intervals and reserved evaluation.",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/Stopping063.java",
+      "status": "Verified",
+      "note": "docs/obsidian/71-stopping-uncertainty.md"
+    },
+    {
+      "id": "owner",
+      "name": "Durable Java study",
+      "summary": "Progress, Stop, audited queries and last completed evidence.",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/BrainService.java",
+      "status": "Verified",
+      "note": "docs/obsidian/71-stopping-uncertainty.md"
+    },
+    {
+      "id": "view",
+      "name": "Integrated trace explorer",
+      "summary": "Scrub retained motion and inspect interval misses in Java Brain.",
+      "source": "workspace-desktop/renderer/stopping063.js",
+      "status": "Actual app",
+      "note": "docs/obsidian/71-stopping-uncertainty.md"
+    },
+    {
+      "id": "chat",
+      "name": "Chat and shared facts",
+      "summary": "Existing checked reporting reads the actual retained study.",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/AgentRuntime042.java",
+      "status": "Actual local model",
+      "note": "docs/obsidian/71-stopping-uncertainty.md"
+    },
+    {
+      "id": "next",
+      "name": "Prospective contact study",
+      "summary": "Contact/friction mechanism and a simpler uncertainty choice on new cases.",
+      "source": "docs/EDITION_063_CONTRACT.md",
+      "status": "Planned",
+      "note": "docs/obsidian/71-stopping-uncertainty.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "docs/readmes/063/stopping063-comparison.png",
+      "title": "Matched intervention errors"
+    },
+    {
+      "path": "docs/readmes/063/stopping063-traces.png",
+      "title": "Recorded baseline and time scrubber"
+    },
+    {
+      "path": "docs/readmes/063/stopping063-plots.png",
+      "title": "Contact, velocity and rotation charts"
+    },
+    {
+      "path": "docs/readmes/063/stopping063-rotation.png",
+      "title": "Matched locked-rotation trace"
+    },
+    {
+      "path": "docs/readmes/063/stopping063-uncertainty.png",
+      "title": "Reserved coverage and missed predictions"
+    },
+    {
+      "path": "docs/readmes/063/stopping063-prediction.png",
+      "title": "Audited interval prediction"
+    },
+    {
+      "path": "docs/readmes/063/stopping063-narrow.png",
+      "title": "Integrated panel at 1100 px"
+    },
+    {
+      "path": "docs/readmes/063/stopping063-chat.png",
+      "title": "Actual local-model report"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/readmes/063/verification.json",
+      "title": "Verification"
+    },
+    {
+      "path": "docs/readmes/063/original-evidence.json",
+      "title": "Exact original archives"
+    },
+    {
+      "path": "docs/readmes/063/trace-data.json",
+      "title": "Recorded motion and uncertainty explorer data"
+    }
+  ]
+}

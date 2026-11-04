@@ -1,5 +1,14 @@
 # Agent Workspace development log
 
+## Edition 063 · Validated locally; publication next
+
+Source `c9f52048b6eb8c2d170fc2cd6761c7446f867676`; native implementation0ebd28f; contract6dda526.104native executions:18three-second intervention traces,6original062parity,40calibration/40reserved. All6parity checks≤1e-6m. Worst062anchor30°/.25m/s: baseline−44.723mm vs rotation-locked+0.217mm;80iterationsmixed. Locking rotation changes physical problem; precise friction mechanism remains unestablished.
+
+Proposed regime interval35/40coverage87.5%, accelerating85%,slowing90%,mean full width44.231mm:unqualified. Pooled37/40,width44.069mm;fixed36/40,width40mm remaincomparators. No posthoc switching/controller/LLM-weight promotion.57distinct targeted Java/8classes,127desktop checks. Actual UI104executions, trace scrubber/charts, intervals, cold restart, Stop and retained history. Firstactualchat interrupted at12500-character context guard; c9f5204 adds planning-only evidence projection retaining exact outcomes, originalfacts/reports and checks. Same interrupted task explicitly resumed against same saved study. Original failure retained.
+
+README063/eight actual app captures/offline explorer/Obsidian map/original archives prepared. Main push/fetched audit pending. Preserve normal045/qa046 installs/private data and immutable001–062. No subagents; heavy checks serial. Next064: contact/friction-impulse and clearance/time-step interventions on new cases; prospectively test simpler pooled vs fixed uncertainty; evaluate decision benefit before control use.
+
+
 ## Edition 062 · Published and fetched back on 2026-11-04
 
 Actual atomic push to Fraynix-Agent-Workspace main, edition062 and readme-062 succeeded. Release `a3dce6291c92fcabe16af075728339f9d117acb7`; annotated tag `0612df24b9b6502563bca22cdf85cd9fc467f197`. Fresh GitHub fetch verified945canonical sources,5390frozen hashes across62editions and25original archives including decompressed hashes. Documentation passed67canvases/6423references. [Publication receipt](PUBLICATION_062.json).

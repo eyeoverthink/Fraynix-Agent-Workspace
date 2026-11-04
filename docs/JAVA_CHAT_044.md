@@ -83,3 +83,8 @@ Java Brain → FraynixGPT → Learn & compare runs a real native outcome job. Ch
 ## Physics residual facts 062
 
 Java Brain → Physics first → Learn residuals & compare runs the declared native training, selection and reserved partitions. Chat requests mentioning physics residuals or residual learning use the existing agent-state and checked report procedure. The last completed result remains available after another job is stopped. Chat can report its pinned method, model identity and qualification; it does not start training or actuate objects. Analytical physics won this experiment. [Edition 062](../README-062.md).
+
+
+## Stopping study facts 063
+
+Java Brain → Stopping & uncertainty runs matched interventions, original-engine parity and separate uncertainty calibration/evaluation. Chat requests mentioning stopping study, stopping traces or stopping uncertainty use the existing agent-state and checked report procedure. Planning receives an exact historical comparison matrix with source hashes; full facts, original receipts and report data remain retained. Context limits, requirements and verification checks are unchanged. Chat reads/reports this study; it does not start experiments or move objects. [Edition 063](../README-063.md).
