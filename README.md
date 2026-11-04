@@ -6,7 +6,7 @@
 
 Edition 065 compares three Java policies on 60 fresh target tasks and 12 unsupported cases. Simple completed 27 tasks, Fixed 13 and Pooled 12; Pooled failed its declared usefulness gate. Actual motion, refusals, costs and original evidence remain inspectable. [Measured results](docs/readmes/065/verification.json).
 
-Edition 065 implementation, screenshots and original evidence are prepared for publication. [Previous fetched publication](docs/PUBLICATION_064.json).
+Edition 065 is published to main with source, seven actual app captures, original evidence and updated continuity notes. [Fetched GitHub verification](docs/PUBLICATION_065.json).
 
 One integrated app, with Java-owned chat planning, creation, native skill scheduling, continuing identity, real clocks and checked outcomes. Mission connects the actual goal, source, child task, recovery and retained result. [Screenshots, typed skill graphs, new logic and production direction](README-046.md).
 

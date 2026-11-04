@@ -1,5 +1,16 @@
 # Agent Workspace project memory
 
+## Edition 065 · Published and fetched back on 2026-11-04
+
+Actual atomic push to Fraynix-Agent-Workspace main, edition065 and readme-065 succeeded. Release `1479a019b0c756923512b9d40facf915df910a48`; annotated tag `95dd9b540fe5b0f63aeeb49392dc7d6ea218bcec`. Fresh GitHub fetch verified 968 canonical sources, 5556 frozen hashes across 65 editions and 42 original archives, including decompressed bytes. Documentation passed 70 canvases and 6668 references. [Publication receipt](PUBLICATION_065.json).
+
+The target-window comparison completed 216 decision slots and 85 independent native executions. Simple: 27 successes, 33 misses, zero refusals. Fixed: 13 successes, zero misses, 47 refusals. Pooled: 12 successes, zero misses, 48 refusals. Mean utilities: −0.670000, +0.094833 and +0.076000. Pooled failed the Fixed comparison and 50% completion gates. All 36 unsupported decisions refused without motion. No posthoc method switch, controller promotion or LLM-weight training. Selected-action coverage is not guaranteed by the earlier calibration.
+
+62 distinct targeted Java checks across 9 classes, 127 desktop checks and actual UI/restart/Stop/local-model reporting passed. The initial 34-degree admission failure remains archived; all 60 supported plans are unchanged after refusal repair. The first chat hit its context guard. Lossless planning tables preserve all metrics and original evidence, and the same interrupted chat resumed against the same completed actual study. Preliminary compiler and documentation-check failures are also retained with their corrections. No case, margin, cost, gate or physics setting was tuned to the observed result.
+
+README 065, seven actual captures, two offline captures, the interactive task explorer, complete original evidence, Obsidian map, memories and logs are published. Test app closed. Preserve normal045/qa046 installed runtimes, personal worlds and immutable editions 001–065. Next unused edition 066: bounded additional observation/replanning with explicit costs, fresh goals and comparisons against simpler controls; measure whether refused opportunities can be recovered. Native simulation remains distinct from physical calibration. No subagents or overlapping heavy validators. This receipt follows the immutable release tag.
+
+
 ## Edition 065 · Validated locally; publication next
 
 Frozen contract `73ec4dc`; native implementation `00bd434`; final actual-app source `abd1610`. The study completed 216 decision slots: 60 supported tasks × three methods and 12 unsupported × three. There were 85 independent native executions. Simple: 27 successes, 33 misses, zero refusals. Fixed: 13 successes, zero misses, 47 refusals. Pooled: 12 successes, zero misses, 48 refusals. Mean utilities: −0.670000, +0.094833 and +0.076000. Pooled fails the Fixed comparison and 50% completion gates. No posthoc method switch, controller promotion or LLM-weight training. Selected coverage of 12/13 Fixed and 11/12 Pooled is not a selected-action guarantee. All 36 unsupported decisions refuse without native motion.
