@@ -11,7 +11,7 @@ final class ChatPolicy044 {
  static boolean design053(String s){return !webCreation(s)&&has(s,"\\b(compare|design|evaluate)\\b")&&has(s,"\\b(assembly|bridge|construction)\\b");}
  static boolean designReview053(String s){return has(s,"\\b(review|inspect) before\\b|\\b(do not|don['’]t|never)\\s+(move|execute|actuate|run|build|assemble)\\b")||!has(s,"\\b(execute|executing|run|reuse|move|actuate|build|assemble)\\b");}
  static String route(String s,JSONObject b,boolean measured){
-  if(!webCreation(s)&&has(s,"(?i)fraynixgpt|fraynix gpt|cortex outcome|physics residual|residual learning|stopping study|stopping traces|stopping uncertainty"))return "agent";
+  if(!webCreation(s)&&has(s,"(?i)fraynixgpt|fraynix gpt|cortex outcome|physics residual|residual learning|stopping study|stopping traces|stopping uncertainty|contact study|contact impulses|pooled uncertainty"))return "agent";
   if(design053(s)||Design058.requested(s))return "construction";
   if(!webCreation(s)&&has(s,"\\b(counterfactual|compare (alternative|possible) (plans|actions))\\b"))return "world";
   if(webCreation(s)&&!has(s,"\\b(create|build)\\s+and\\s+verify\\b|\\bdurable\\s+(creation|build|app)\\b|\\bevidence workflow\\b"))return "workbench";
