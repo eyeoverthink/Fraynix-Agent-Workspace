@@ -1,5 +1,16 @@
 # Agent Workspace project memory
 
+## Edition 066 · Published and fetched back on 2026-11-04
+
+Actual atomic push to Fraynix-Agent-Workspace main, edition066 and readme-066 succeeded. Release `29d2b0b43f0429bfecddbb667bce92885493d872`; annotated tag `0b4cc8680490800e263f51914f8ed42e6812d780`. Fresh GitHub fetch verified 977 canonical sources, 5603 frozen hashes across 66 editions and 26 original archives, including decompressed bytes. Documentation passed 71 canvases and 6754 references. [Publication receipt](PUBLICATION_066.json).
+
+Bounded same-world recovery is implemented and tested: one real first push, a replan at 0.25 seconds and at most one corrective impulse. Four original-runtime parity comparisons have zero sample difference. The study has 364 slots and 214 native executions. Simple: 27 successes/33 misses; Fixed and Pooled: 13 successes/47 refusals; Blind: 43 successes/17 misses; Observed: 40 successes/20 misses. Observed recovered 27/47 initial refusals, versus Blind's 30/47. Mean utility −0.060333 for Observed, +0.110500 for Blind, +0.094833 for Fixed/Pooled. Declared Observed gate FAILED; no controller or LLM-weight promotion.
+
+68 distinct targeted Java checks across 11 classes, 127 desktop checks, actual UI/restart/Stop/local-model reporting and offline desktop/phone interactions passed. Published 064/065 evidence remains compatible. Exact originals, eight actual screenshots, two offline captures, README 066, source inventory and Obsidian map are published. No implementation gate or case was tuned after outcomes. Test app closed; preserve normal045/qa046 installations, personal worlds and frozen editions 001–066.
+
+All 11 measured guard refusals lacked instantaneous near-contact callbacks; this does not establish physical support loss. Next unused edition 067: prospectively test bounded temporal contact evidence and pre-action attempt selection on fresh tasks, including complete costs and simpler comparisons. Logical fees are assumptions; instrumented timings are machine-specific. Native simulation remains distinct from physical calibration. No subagents or overlapping heavy validators. Current source worktree: work/fraynix-workspace-edition066. This receipt follows the immutable release tag.
+
+
 ## Edition 066 · Validated locally; publication next
 
 Contract `41c68b7` preceded all new outcomes. Native implementation `51ee6ef`; actual app and compatibility source `8109792`. Java performs one first push, one bounded replan at 0.25 seconds and at most one corrective impulse in the same native world. Actual motion, immediate impulse response, fees and failures persist. Blind receives predicted state only; Observed receives measured state and contact guards.
