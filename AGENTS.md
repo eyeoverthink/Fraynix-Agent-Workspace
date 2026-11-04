@@ -1,5 +1,16 @@
 # Fraynix Studio collaboration and documentation
 
+## Edition 067 · Implementation and native validation in progress
+
+User requested temporal contact evidence and recovery value before the first push, no stubs, tests, README/screenshots, memories/logs and actual main push. Isolated worktree work/fraynix-workspace-edition067, branch edition067, based on fetched main 6dc14e666428a526563c5fc42e14735be3ad849a. Contract 9af32f4 preceded new outcomes. Main implementation 7be5a73; actual-app harness 46c1cff. No 067 publication yet. Preserve frozen 001–066, user worlds and normal045/qa046 installations. No subagents or overlapping heavy validators.
+
+New Java TemporalContact067 uses ticks 52/56/60 plus oriented cube/ramp clearance and old motion guards. TemporalPolicy067 retains five old policies and adds Temporal and Value. ValueScreen067 evaluates nine declared analytical scenarios before any first push. Fixed costs, fresh seed67001/67002 cases, same 0.75 s horizon and ±0.16 m/s correction. Seven policies, 508 progress slots; maximum 428 native executions. All rules/gates are in docs/EDITION_067_CONTRACT.md; do not tune after outcomes. Original Recovery066/Stopping063 implementations unchanged. New TemporalTrial067/Study067, compact lossless chat projection, durable job/trace APIs and integrated temporal067.js panel are wired.
+
+First four fast logic tests passed. Six-test Temporal067Test native suite currently runs under exec session24873, logs build/native067/native.log, source recorded there. Temporary native project C:/Users/eyeka/AppData/Local/Temp/fraynix-temporal067-3632700568408631833. Original result, XML and traces are retained when complete. JDK21, four CPUs, 768MB test heap via build/validation067.init.gradle. Desktop dependencies are a junction to edition053: do not install/delete through it.
+
+Next: finish native suite; run focused regressions including new published066 compatibility, old Recovery066 fast tests and old 064 restore from a separate CLOSED synthetic copy. Install current workspace-engine; then actual app harness workspace-desktop/test/temporal067-integration.cjs (supports FRAYNIX067_RESUME checkpoint reuse) tests all seven policies, contact samples, pre-push accepted/declined screens, cold restart, Stop and real local CPU/four-thread gpt-oss:20b reporting. Inspect actual screenshots. Prepare extensive README067/offline explorer/Obsidian75/full inventory/original archives, update notes/logs, freeze only067, Verify-Documentation, commit, nonforce atomic main/edition067/readme-067 push, freshly fetch and audit, publication receipt commit/push/final audit. Prior edition066 build helpers provide patterns. Current build generators implement067.py/wire067.py/ui067.py are development helpers: do not rerun over hand-fixed final sources.
+
+
 ## Edition 066 · Published and fetched back on 2026-11-04
 
 Actual atomic push to Fraynix-Agent-Workspace main, edition066 and readme-066 succeeded. Release `29d2b0b43f0429bfecddbb667bce92885493d872`; annotated tag `0b4cc8680490800e263f51914f8ed42e6812d780`. Fresh GitHub fetch verified 977 canonical sources, 5603 frozen hashes across 66 editions and 26 original archives, including decompressed bytes. Documentation passed 71 canvases and 6754 references. [Publication receipt](docs/PUBLICATION_066.json).
