@@ -78,3 +78,8 @@ Spatial → Gripper assembly → Independent bearings · compact stock creates l
 ## FraynixGPT outcome facts 061
 
 Java Brain → FraynixGPT → Learn & compare runs a real native outcome job. Chat requests mentioning FraynixGPT route through the existing agent-state and checked report procedure. They can inspect saved evaluation and checkpoint identity; they do not start training or actuate objects. The numerical candidate is unqualified against analytical physics. [Edition 061](../README-061.md).
+
+
+## Physics residual facts 062
+
+Java Brain → Physics first → Learn residuals & compare runs the declared native training, selection and reserved partitions. Chat requests mentioning physics residuals or residual learning use the existing agent-state and checked report procedure. The last completed result remains available after another job is stopped. Chat can report its pinned method, model identity and qualification; it does not start training or actuate objects. Analytical physics won this experiment. [Edition 062](../README-062.md).

@@ -1,5 +1,14 @@
 # Fraynix Studio collaboration and documentation
 
+## Edition 062 · Validated locally; publication next
+
+Source `f4af2ccdd61bd654cc41516a27785e3317842bb1`; Java implementation3bb0329; frozen contract68403e9. Analytical baseline plus bounded constant/linear/cortex corrections,32 train/12 selection/16 reserved. Analytical won selection1.596mm MAE; reserved5.645mm, worst44.723mm. Linear reserved5.347mm and cortex5.401mm did not qualify; no posthoc switching, no controller or LLM-weight change. Original failed timestamp-format audit and complete observations retained; storage-format correction only.
+
+55 distinct targeted Java checks across8classes,127desktop, actual Electron60-case experiment, cold Java/app restart, exact restored prediction, unsupported-input refusal, visible Stop, retained completed history and actual CPU/four-thread gpt-oss20b checked report passed. Published061 original audit and prediction remain compatible. Actual1600/1100 captures; offline1440/390 guide. README062, source inventory, original archives and Obsidian map prepared. Main push/fetched audit pending. Preserve normal045/qa046 installs/private data and immutable001–061. No subagents; heavy checks serial.
+
+Next063: inspect contact, tangential speed, rotation and stopping-time traces on new declared cases before more fitting; then calibrated uncertainty and decision utility. The worst case is30°,balance1.05,push.25m/s; observed.073801m, analyticalerror44.723mm. Posthoc diagnostic only; cause not established.
+
+
 ## Edition 061 · Published and fetched back on 2026-11-04
 
 Actual atomic push to Fraynix-Agent-Workspace main, edition061 and readme-061 succeeded. Release `be542c537f37fd5931773740210a8d8b1be74d85`; annotated tag `4b45f860fe30b440931060d47f7d8bf384c7f6ad`. Fresh fetch verified 941 canonical sources,5351 frozen hashes/61 editions and28 original archives including decompressed hashes. Documentation passed66 canvases/6359 references. [Publication receipt](docs/PUBLICATION_061.json).

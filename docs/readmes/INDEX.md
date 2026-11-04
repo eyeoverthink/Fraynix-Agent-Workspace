@@ -72,4 +72,6 @@ Numbered editions preserve dated behavior and evidence. The root [README](../../
 
 | [061](../../README-061.md) | 2026-11-04 | FraynixGPT and verified outcomes | [Viewer](061/index.html) · [tree](061/FILE_TREE.md) |
 
-Latest implementation and documentation edition in this checkout is **061**. See [sequence policy](README_SEQUENCE.md) and [manifest](editions.json).
+| [062](../../README-062.md) | 2026-11-04 | Physics first and learned residuals | [Viewer](062/index.html) · [tree](062/FILE_TREE.md) |
+
+Latest implementation and documentation edition in this checkout is **062**. See [sequence policy](README_SEQUENCE.md) and [manifest](editions.json).

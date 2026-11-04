@@ -1,0 +1,81 @@
+{
+  "edition": 62,
+  "modules": [
+    {
+      "id": "physics",
+      "name": "Physics baseline",
+      "summary": "Original Bullet observations; analytical endpoint plus bounded corrections.",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/ResidualOutcome062.java",
+      "status": "Implemented",
+      "note": "docs/obsidian/70-physics-residuals.md"
+    },
+    {
+      "id": "cortex",
+      "name": "Owned numerical cortex",
+      "summary": "Frozen train-only input adaptation and supervised residual readout.",
+      "source": "fraynix-modules/brain-core/src/main/java/fraymus/neural/FraynixCortex061.java",
+      "status": "Implemented",
+      "note": "docs/obsidian/70-physics-residuals.md"
+    },
+    {
+      "id": "owner",
+      "name": "Durable Java job",
+      "summary": "Separate selection, reserved evaluation, cancellation and original records.",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/BrainService.java",
+      "status": "Verified",
+      "note": "docs/obsidian/70-physics-residuals.md"
+    },
+    {
+      "id": "chat",
+      "name": "Chat and live state",
+      "summary": "Read the last completed experiment through the existing checked report workflow.",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/AgentRuntime042.java",
+      "status": "Actual local model",
+      "note": "docs/obsidian/70-physics-residuals.md"
+    },
+    {
+      "id": "view",
+      "name": "Integrated comparison",
+      "summary": "Visible controls, history, chart, prediction and evidence in Java Brain.",
+      "source": "workspace-desktop/renderer/residual062.js",
+      "status": "Actual app",
+      "note": "docs/obsidian/70-physics-residuals.md"
+    },
+    {
+      "id": "next",
+      "name": "Investigate stopping",
+      "summary": "New contact/velocity/orientation study before further fitting or uncertainty claims.",
+      "source": "docs/EDITION_062_CONTRACT.md",
+      "status": "Planned",
+      "note": "docs/obsidian/70-physics-residuals.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "docs/readmes/062/residual062-comparison.png",
+      "title": "Selection and reserved results"
+    },
+    {
+      "path": "docs/readmes/062/residual062-prediction.png",
+      "title": "A checked advisory prediction"
+    },
+    {
+      "path": "docs/readmes/062/residual062-narrow.png",
+      "title": "The same integrated panel at 1100 px"
+    },
+    {
+      "path": "docs/readmes/062/residual062-chat.png",
+      "title": "Actual local-model report after restart and Stop"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/readmes/062/verification.json",
+      "title": "Source-qualified checks"
+    },
+    {
+      "path": "docs/readmes/062/original-evidence.json",
+      "title": "Exact original archives"
+    }
+  ]
+}
