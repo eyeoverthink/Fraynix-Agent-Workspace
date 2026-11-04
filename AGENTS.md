@@ -1,5 +1,12 @@
 # Fraynix Studio collaboration and documentation
 
+## Edition 059 · Validated locally; publication audit next
+
+Actual app source `807508ee8f5ad299dc434fa7ea75baa769bd1eec`. Frozen design-only selection, fresh execution and paired reserved payloads checked. 56 targeted Java cases across 11 classes,126 desktop checks and actual CPU/four-thread local-model chat/reuse with complete originals. See validation059 for source-qualified invocations and contrary outcomes. New README059, seven actual screenshots, offline guide and Obsidian map prepared. No material-strength or model-weight-training claim.
+
+Actual main/edition059/readme-059 push and fresh fetched audit remain pending. Preserve normal045/qa046 installed runtimes/private data, dependency junction053 and immutable001–058. Next: individually placed supports or braces with predeclared costs and newly reserved conditions.
+
+
 ## Edition 059 actual-app validation checkpoint · not published
 
 Native verified source111ddd0: symmetric2/3, left offset1/3, right offset3/3 design cases; original reserved2/4 versus selected4/4, fresh design passed, repeats agree.41 attempts include one preserved interrupted experiment;57,840payload ticks. Five alternating reconstruction pairs after warmup: medianuncached1563.6013ms versuscached183.5817ms (8.52x), exact serialized output hashes match. Corrected typed numeric snapshots retain signed zero. Original first205b108 round-trip mismatch retained. Native records in build/native059-first/final. Final Java integration61bfc95 passes regression (build/native059-regression), including exact published058 cold-world handoff;56distinct targeted cases/11classes across invocations,126desktop tests. No full-suite or physical-strength claim.

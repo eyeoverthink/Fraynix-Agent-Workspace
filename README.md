@@ -2,11 +2,9 @@
 
 **A local visual environment for agents to browse, create runnable artifacts, test behavior and reuse verified skills.**
 
-> **[Edition 058 · Measured failure, redesign and unfamiliar payloads](README-058.md)** · [Offline guide](docs/readmes/058/index.html) · [Operation](docs/JAVA_CHAT_044.md) · [Edition history](docs/readmes/INDEX.md)
+> **[Edition 059 · Faster evidence and asymmetric supports](README-059.md)** · [Offline guide](docs/readmes/059/index.html) · [Operation](docs/JAVA_CHAT_044.md) · [Edition history](docs/readmes/INDEX.md)
 
-Edition 058 selects a repair from measured failures, then tests unfamiliar payloads under a fixed decision. [Measured results and originals](docs/readmes/058/verification.json).
-
-Edition 057 is published to main with original payload evidence. [Fetched GitHub verification](docs/PUBLICATION_057.json).
+Edition 059 reuses verified evidence after checking original bytes, compares asymmetric supports at the same span, and tests new payloads under a fixed decision. [Measured results and originals](docs/readmes/059/verification.json).
 
 Edition 058 is published to main with original redesign and reserved-evaluation evidence. [Fetched GitHub verification](docs/PUBLICATION_058.json).
 
