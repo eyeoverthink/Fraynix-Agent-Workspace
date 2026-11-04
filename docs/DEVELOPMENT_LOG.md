@@ -1,5 +1,12 @@
 # Agent Workspace development log
 
+## Edition 061 · Validated locally; publication next
+
+Source `872e40b269aede144e50513eaeaac0bd93563fec`. Contract7e49b7f before outcomes; Java implementationabf7c42. Three repaired FraynixGPT-port gaps: small sparse encoder, complete bounded continuation and strict format admission. Actual native training24/evaluation12: cortex MAE52.890mm, linear61.135mm, analytical4.224mm, constant395.213mm; worst82.620mm. Candidate unqualified; no controller promotion or LLM weight update. Hive adapts verified input patterns; supervised readout learns actual endpoints.
+
+50 distinct targeted Java checks across7classes, actual UI/cold restart/local gpt-oss20b CPU4-thread report and Stop. Preserve original binary32 cold-audit failure and UI exact-button-locator failure. No physical gate or frozen case tuned. README061, real captures, offline guide, Obsidian map and original evidence prepared. Main push/fresh audit still pending. Preserve normal045/qa046 live installs/private data and immutable001–060; no subagents. Next: physics residual learning under new frozen contact cases, then typed construction outcomes and calibrated uncertainty.
+
+
 ## Edition 060 · Published and fetched back on 2026-11-04
 
 Published to private eyeoverthink/Fraynix-Agent-Workspace: main, edition060 and readme-060. GitHub initially returned a commit_refs server error despite updating all three refs. An idempotent atomic retry succeeded; direct fresh fetch and complete audit verified the actual release. Initial server response is retained in docs/publication060/initial-push.log.gz. Release `9d10d1b682242ec93f2e19727b38541267a93174`; annotated tag `9b89b57e2df8cdc19e51c9e76a765937b8ae528b`. Fresh GitHub fetch verifies 933 canonical source files, 5308 frozen hashes across 60 editions and 204 original archives, including decompressed bytes and SHA-256. Documentation passes 65 canvases and 6298 references. [Publication receipt](PUBLICATION_060.json).

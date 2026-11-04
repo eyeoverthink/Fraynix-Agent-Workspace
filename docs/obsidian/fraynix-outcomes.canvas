@@ -1,0 +1,79 @@
+{
+  "nodes": [
+    {
+      "id": "cortex",
+      "type": "file",
+      "file": "fraynix-modules/brain-core/src/main/java/fraymus/neural/FraynixCortex061.java",
+      "x": 0,
+      "y": 0,
+      "width": 380,
+      "height": 190
+    },
+    {
+      "id": "evidence",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/FraynixOutcome061.java",
+      "x": 410,
+      "y": 0,
+      "width": 380,
+      "height": 190
+    },
+    {
+      "id": "owner",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/BrainService.java",
+      "x": 820,
+      "y": 0,
+      "width": 380,
+      "height": 190
+    },
+    {
+      "id": "view",
+      "type": "file",
+      "file": "workspace-desktop/renderer/cortex061.js",
+      "x": 0,
+      "y": 240,
+      "width": 380,
+      "height": 190
+    },
+    {
+      "id": "next",
+      "type": "file",
+      "file": "docs/EDITION_061_CONTRACT.md",
+      "x": 410,
+      "y": 240,
+      "width": 380,
+      "height": 190
+    }
+  ],
+  "edges": [
+    {
+      "id": "e0",
+      "fromNode": "cortex",
+      "fromSide": "right",
+      "toNode": "evidence",
+      "toSide": "left"
+    },
+    {
+      "id": "e1",
+      "fromNode": "evidence",
+      "fromSide": "right",
+      "toNode": "owner",
+      "toSide": "left"
+    },
+    {
+      "id": "e2",
+      "fromNode": "owner",
+      "fromSide": "right",
+      "toNode": "view",
+      "toSide": "left"
+    },
+    {
+      "id": "e3",
+      "fromNode": "view",
+      "fromSide": "right",
+      "toNode": "next",
+      "toSide": "left"
+    }
+  ]
+}

@@ -73,3 +73,8 @@ Spatial → Gripper assembly → Asymmetric supports · new payloads creates lab
 ## Failure-driven payload redesign 060
 
 Spatial → Gripper assembly → Independent bearings · compact stock creates labelled stock. Chat can request redesign from measured failures and unfamiliar payloads. Java freezes a decision from design cases, executes freshly and compares original/selected reserved payloads before promotion. Saved procedures retain the exact policy. Report, replay and exports preserve failed and interrupted attempts. [Edition 060 walkthrough](../README-060.md).
+
+
+## FraynixGPT outcome facts 061
+
+Java Brain → FraynixGPT → Learn & compare runs a real native outcome job. Chat requests mentioning FraynixGPT route through the existing agent-state and checked report procedure. They can inspect saved evaluation and checkpoint identity; they do not start training or actuate objects. The numerical candidate is unqualified against analytical physics. [Edition 061](../README-061.md).

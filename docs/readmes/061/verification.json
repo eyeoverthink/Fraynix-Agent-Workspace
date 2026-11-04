@@ -1,0 +1,363 @@
+{
+  "finalDesktopReview": {
+    "passed": true,
+    "source": "872e40b269aede144e50513eaeaac0bd93563fec",
+    "date": "2026-11-04T17:31:49.114Z",
+    "originalSource": "62824e9777b214e00ec8f114efe1f101d669f3ff",
+    "jobId": "a01daead-84e0-4249-9811-c14d492be366",
+    "modelSha256": "2de525630859db909babcfe49d258501d9a55394baaaf08c83e2e64e983d4c19",
+    "checks": [
+      "Select completed original after cancelled job and cold restart",
+      "Reproduce exact prior prediction",
+      "Actual Electron window 1600 and 1100 widths",
+      "Retained local-model report contains exact outcome checkpoint"
+    ],
+    "errors": []
+  },
+  "desktopUnitTests": 127,
+  "edition": 61,
+  "source": "872e40b269aede144e50513eaeaac0bd93563fec",
+  "contractCommit": "7e49b7f",
+  "javaDistinct": 50,
+  "javaAllPassed": true,
+  "javaInvocations": [
+    {
+      "name": "first061",
+      "source": "uncommitted first implementation; before native serialization repair",
+      "cases": [
+        {
+          "case": "fraymus.neural.FraynixCortex061Test#continuationIncludesLifecycleFossilsAndHistory",
+          "passed": true,
+          "seconds": 0.239
+        },
+        {
+          "case": "fraymus.neural.FraynixCortex061Test#unsupportedVersionAndMalformedInputsRefuseWithoutMutation",
+          "passed": true,
+          "seconds": 0.001
+        },
+        {
+          "case": "fraymus.neural.FraynixCortex061Test#readoutLearnsMeasuredMappingAndRetainsPrediction",
+          "passed": true,
+          "seconds": 0.001
+        },
+        {
+          "case": "fraymus.neural.FraynixCortex061Test#smallEncodersFireAndZeroStaysZero",
+          "passed": true,
+          "seconds": 0.005
+        },
+        {
+          "case": "fraymus.workspace.FraynixOutcome061Test#chatRoutesToActualRuntimeFacts",
+          "passed": true,
+          "seconds": 0.005
+        },
+        {
+          "case": "fraymus.workspace.FraynixOutcome061Test#cancellationKeepsPartialEvidenceAndNoControllerChange",
+          "passed": true,
+          "seconds": 0.36
+        },
+        {
+          "case": "fraymus.workspace.FraynixOutcome061Test#actualNativeTrainingFrozenEvaluationColdReloadAndTamperRefusal",
+          "passed": false,
+          "seconds": 6.896
+        }
+      ]
+    },
+    {
+      "name": "final061",
+      "source": "abf7c42",
+      "cases": [
+        {
+          "case": "fraymus.neural.FraynixCortex061Test#continuationIncludesLifecycleFossilsAndHistory",
+          "passed": true,
+          "seconds": 0.16
+        },
+        {
+          "case": "fraymus.neural.FraynixCortex061Test#unsupportedVersionAndMalformedInputsRefuseWithoutMutation",
+          "passed": true,
+          "seconds": 0.001
+        },
+        {
+          "case": "fraymus.neural.FraynixCortex061Test#readoutLearnsMeasuredMappingAndRetainsPrediction",
+          "passed": true,
+          "seconds": 0.0
+        },
+        {
+          "case": "fraymus.neural.FraynixCortex061Test#smallEncodersFireAndZeroStaysZero",
+          "passed": true,
+          "seconds": 0.004
+        },
+        {
+          "case": "fraymus.workspace.FraynixOutcome061Test#chatRoutesToActualRuntimeFacts",
+          "passed": true,
+          "seconds": 0.007
+        },
+        {
+          "case": "fraymus.workspace.FraynixOutcome061Test#cancellationKeepsPartialEvidenceAndNoControllerChange",
+          "passed": true,
+          "seconds": 0.322
+        },
+        {
+          "case": "fraymus.workspace.FraynixOutcome061Test#actualNativeTrainingFrozenEvaluationColdReloadAndTamperRefusal",
+          "passed": true,
+          "seconds": 5.375
+        }
+      ]
+    },
+    {
+      "name": "regression061",
+      "source": "abf7c42",
+      "cases": [
+        {
+          "case": "fraymus.workspace.Agent042Test#actualSharedCortexCheckpointReplayLeaseAndRestart",
+          "passed": true,
+          "seconds": 1.115
+        },
+        {
+          "case": "fraymus.workspace.Agent042Test#acceptedCameraOutputsExpireAndReplayCannotRefreshThem",
+          "passed": true,
+          "seconds": 0.527
+        },
+        {
+          "case": "fraymus.workspace.Agent042Test#missingNeuralCheckpointDoesNotSilentlyResetBrain",
+          "passed": true,
+          "seconds": 0.336
+        },
+        {
+          "case": "fraymus.workspace.Agent042Test#clocksKeepWallRollbackAndBootDomainsSeparate",
+          "passed": true,
+          "seconds": 0.001
+        },
+        {
+          "case": "fraymus.workspace.Agent042Test#failedGoalsAreWitnessedOnceWithoutRewardingSuccess",
+          "passed": true,
+          "seconds": 0.068
+        },
+        {
+          "case": "fraymus.workspace.Agent042Test#checkedStateRejectsAlterationWithoutErasingOriginal",
+          "passed": true,
+          "seconds": 0.006
+        },
+        {
+          "case": "fraymus.workspace.Agent042Test#appraisalAblationsActuallyChangeWork",
+          "passed": true,
+          "seconds": 0.0
+        },
+        {
+          "case": "fraymus.workspace.Agent042Test#witnessSegmentsVerifyExactCheckpointPrefixAndRefuseDamage",
+          "passed": true,
+          "seconds": 1.837
+        },
+        {
+          "case": "fraymus.workspace.Agent042Test#reportEscapesSourceDataAndKeepsExactSnapshot",
+          "passed": true,
+          "seconds": 0.006
+        },
+        {
+          "case": "fraymus.workspace.BrainPersistenceTest#cancelDoesNotPromoteAndSharedCortexCheckpointRestarts",
+          "passed": true,
+          "seconds": 0.662
+        },
+        {
+          "case": "fraymus.workspace.BrainPersistenceTest#checkpointRetainsActualWeightsRandomStateAndDynamicsAndRejectsCorruption",
+          "passed": true,
+          "seconds": 0.005
+        },
+        {
+          "case": "fraymus.workspace.BrainPersistenceTest#savedUnsettledJobIsMarkedInterruptedOnRestart",
+          "passed": true,
+          "seconds": 0.018
+        },
+        {
+          "case": "fraymus.workspace.BrainPersistenceTest#acceptedControllerUsesActualImpulseAndReplaysWithoutReferenceConfusion",
+          "passed": true,
+          "seconds": 4.991
+        },
+        {
+          "case": "fraymus.workspace.BrainPersistenceTest#immutableLocalMemorySurvivesRestartIsBoundedAndCannotInstallTools",
+          "passed": true,
+          "seconds": 0.086
+        },
+        {
+          "case": "fraymus.workspace.BrainServiceTest#physicalLearningIsEvaluatedPromotedRestartedAndRolledBack",
+          "passed": true,
+          "seconds": 4.823
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#duplicateWarningsKeepEveryOriginalOccurrenceBeyondRecentWindow",
+          "passed": true,
+          "seconds": 0.002
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#numericRefusalExplainsOriginalBoundsWithoutChangingThem",
+          "passed": true,
+          "seconds": 0.002
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#oversizedRequirementsRefuseRatherThanBeingSilentlyTruncated",
+          "passed": true,
+          "seconds": 0.001
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#legacyTaskDoesNotClaimCompleteTimingCoverage",
+          "passed": true,
+          "seconds": 0.0
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#summaryRetainsRejectedQualityAndDoesNotDumpMetrics",
+          "passed": true,
+          "seconds": 0.0
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#payloadHistoryProjectionRetainsPolicyRequirementsAndContraryOutcomes",
+          "passed": true,
+          "seconds": 0.005
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#discoverySummaryKeepsExactBindingsAndBothEndsWithoutBreakingJson",
+          "passed": true,
+          "seconds": 0.003
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#largeRecentObservationHasExplicitOmissionHashAndKeepsFailure",
+          "passed": true,
+          "seconds": 0.003
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#queuedObjectiveSealRefusesChangedRequest",
+          "passed": true,
+          "seconds": 0.0
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#providerMapMetadataIsRetainedWithoutUnrelatedFields",
+          "passed": true,
+          "seconds": 0.0
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#automaticCompletionRechecksCurrentArtifactInsteadOfTrustingOldSuccess",
+          "passed": true,
+          "seconds": 0.462
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#failedPlannerCallIsTimedAndDoesNotBecomeAnAction",
+          "passed": true,
+          "seconds": 0.129
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#retainedAppearancePolicyCannotChangeCategoryOrInstallDetectorOptions",
+          "passed": true,
+          "seconds": 0.003
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#retainedSkillSourceAndForceDefaultsCannotBeSilentlyChanged",
+          "passed": true,
+          "seconds": 0.002
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#nativeWaitUsesActualChildAndRetainsItsIdentity",
+          "passed": true,
+          "seconds": 0.006
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#savedGraphChatSelectsExactVersionAndWorkflowBeforePlanning",
+          "passed": true,
+          "seconds": 0.008
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#sourceFreeHostSuccessAndForeignChildrenAreRejected",
+          "passed": true,
+          "seconds": 0.007
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#reportStageCannotSkipActualReads",
+          "passed": true,
+          "seconds": 0.0
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#typedOptionsPreserveExplicitValuesAndRejectContradictions",
+          "passed": true,
+          "seconds": 0.001
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#interruptedChildCannotProduceSuccessfulCompletion",
+          "passed": true,
+          "seconds": 0.007
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#inventedHostFactsDoNotReplaceActualJavaRead",
+          "passed": true,
+          "seconds": 0.006
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#retainedSkillSchemasKeepDefaultsOptionalAndHideBoundDetectorPolicy",
+          "passed": true,
+          "seconds": 0.001
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#javaRoutesEveryFormerDesktopFamilyWithoutChangingWebCreation",
+          "passed": true,
+          "seconds": 0.007
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#constructionReuseExposesOnlyExplicitChangesAndKeepsOriginalLimits",
+          "passed": true,
+          "seconds": 0.001
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#actualQueueCompletionRecordsTheVerifiedReportInTheSameLearningEpisode",
+          "passed": true,
+          "seconds": 0.317
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#workflowBootstrapBindsDatasetAndSceneInJavaBeforeAnyHostAction",
+          "passed": true,
+          "seconds": 0.006
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#reportMustHaveFrozenOriginalAssertionsAndExactSourceVersion",
+          "passed": true,
+          "seconds": 0.032
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#creationPromptsAreOwnedBoundedAndKeepSourceReserved",
+          "passed": true,
+          "seconds": 0.015
+        }
+      ]
+    }
+  ],
+  "desktopUnitLog": "original/logs/desktop061.log.gz",
+  "actualApp": {
+    "source": "62824e9777b214e00ec8f114efe1f101d669f3ff",
+    "checks": [
+      "Visible Learn & compare collected all 36 actual native trials and retained the failed qualification",
+      "Real prediction operation audits original training/evaluation and rejects out-of-domain angle",
+      "Cold Java/app restart preserves exact checkpoint and prediction without retraining",
+      "Existing Brain view works at 1100 px with visible controls",
+      "Real prediction operation audits original training/evaluation and rejects out-of-domain angle",
+      "Cold Java/app restart preserves exact checkpoint and prediction without retraining",
+      "Existing Brain view works at 1100 px with visible controls",
+      "Actual local gpt-oss:20b CPU/four-thread chat reads the saved outcome facts and verifies a report",
+      "Visible Stop cancels fresh native learning; earlier original evidence remains"
+    ],
+    "project": "C:\\Users\\eyeka\\AppData\\Local\\Temp\\fraynix-cortex061-ui-eb2keP",
+    "original": "original/actual-app/cortex061-live.json.gz"
+  },
+  "evaluation": {
+    "qualified": false,
+    "maxErrorM": 0.08261959057330781,
+    "evaluationCount": 12,
+    "meanAbsoluteErrorM": {
+      "cortex": 0.05288995233190515,
+      "linear": 0.06113537542810445,
+      "analytical": 0.004223910989020541,
+      "mean": 0.3952126950948924
+    }
+  },
+  "limitations": [
+    "Native simulation, not real-world calibration",
+    "Numerical readout weights, not LLM weights",
+    "Candidate unqualified against analytical baseline",
+    "No controller promotion",
+    "Focused Java regressions, not full suite"
+  ]
+}

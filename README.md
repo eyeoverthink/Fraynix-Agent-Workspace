@@ -2,9 +2,9 @@
 
 **A local visual environment for agents to browse, create runnable artifacts, test behavior and reuse verified skills.**
 
-> **[Edition 060 · Independent bearings and measured repairs](README-060.md)** · [Offline guide](docs/readmes/060/index.html) · [Operation](docs/JAVA_CHAT_044.md) · [Edition history](docs/readmes/INDEX.md)
+> **[Edition 061 · FraynixGPT and verified outcomes](README-061.md)** · [Offline guide](docs/readmes/061/index.html) · [Operation](docs/JAVA_CHAT_044.md) · [Edition history](docs/readmes/INDEX.md)
 
-Edition 060 adds independent support positions and rotations, retains measured compact-stock failures, and verifies the original wider stock against new payloads. [Measured results and originals](docs/readmes/060/verification.json).
+Edition 061 connects the owned FraynixGPT numerical cortex to verified native motion outcomes, repairs continuation and format admission, and compares its learned readout against simpler models. The analytical baseline wins; the candidate remains unqualified. [Measured results and originals](docs/readmes/061/verification.json).
 
 Edition 060 is published to main with original redesign and reserved-evaluation evidence. [Fetched GitHub verification](docs/PUBLICATION_060.json).
 

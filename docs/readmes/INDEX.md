@@ -70,4 +70,6 @@ Numbered editions preserve dated behavior and evidence. The root [README](../../
 
 | [060](../../README-060.md) | 2026-11-04 | Independent bearings and measured repairs | [Viewer](060/index.html) · [tree](060/FILE_TREE.md) |
 
-Latest implementation and documentation edition in this checkout is **060**. See [sequence policy](README_SEQUENCE.md) and [manifest](editions.json).
+| [061](../../README-061.md) | 2026-11-04 | FraynixGPT and verified outcomes | [Viewer](061/index.html) · [tree](061/FILE_TREE.md) |
+
+Latest implementation and documentation edition in this checkout is **061**. See [sequence policy](README_SEQUENCE.md) and [manifest](editions.json).
