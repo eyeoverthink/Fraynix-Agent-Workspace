@@ -6,6 +6,9 @@ import java.nio.file.*;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class Evidence059Test {
+ @Test public void numericSnapshotsPreserveExactOutputAndSignedZero()throws Exception {
+  var value=new JSONObject().put("n",new JSONArray().put(-0.0).put(-0.0f).put(1).put(1L).put(new java.math.BigDecimal("1.2300")).put(new java.math.BigInteger("123456789012345678901234567890"))).put("text","Unicode π 🧠\n");var copy=EvidenceValue059.decode(EvidenceValue059.encode(value));assertEquals(value.toString(),copy.toString());assertEquals(Double.doubleToRawLongBits(-0.0),Double.doubleToRawLongBits(copy.getJSONArray("n").getDouble(0)));assertEquals(Payload057.evidenceHash(value),Payload057.evidenceHash(copy));
+ }
  @Test public void sameLengthSameTimestampEditsCannotReuseCheckedEvidence()throws Exception {
   Evidence059.clear();Path p=Files.createTempDirectory("evidence059-").resolve("data.json");var data=new JSONObject().put("value",1);Payload057.save(p,data);var time=Files.getLastModifiedTime(p);long size=Files.size(p);var calls=new AtomicInteger();
   Evidence059.Derive derive=d->{calls.incrementAndGet();return new JSONObject().put("verified",d.getInt("value"));};

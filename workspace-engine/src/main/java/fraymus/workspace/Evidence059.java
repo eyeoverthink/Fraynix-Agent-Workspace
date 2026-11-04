@@ -19,10 +19,10 @@ final class Evidence059 {
         String key=path.toAbsolutePath().normalize()+":"+binding+":"+MapDefinition.sha(bytes);
         byte[] found;
         synchronized(cache){bytesRead+=bytes.length;found=cache.get(key);if(found!=null)hits++;else misses++;}
-        if(found!=null)return new JSONObject(new String(found,StandardCharsets.UTF_8));
+        if(found!=null)return EvidenceValue059.decode(found);
         var envelope=new JSONObject(new String(bytes,StandardCharsets.UTF_8));var original=envelope.getJSONObject("data");
         if(!envelope.getString("sha256").equals(Payload057.evidenceHash(original)))throw new IllegalStateException("Payload checkpoint checksum changed");
-        var value=derive.apply(original);byte[] encoded=value.toString().getBytes(StandardCharsets.UTF_8);
+        var value=derive.apply(original);byte[] encoded=EvidenceValue059.encode(value);
         if(encoded.length<=LIMIT)synchronized(cache){
             byte[] previous=cache.remove(key);if(previous!=null)retained-=previous.length;
             while(!cache.isEmpty()&&(retained+encoded.length>LIMIT||cache.size()>=32)){var iterator=cache.entrySet().iterator();var entry=iterator.next();retained-=entry.getValue().length;iterator.remove();}
