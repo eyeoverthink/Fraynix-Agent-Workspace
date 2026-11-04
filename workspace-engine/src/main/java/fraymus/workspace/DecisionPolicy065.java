@@ -12,7 +12,8 @@ final class DecisionPolicy065 {
         SpatialScene.keys(t,"angleDeg","frictionRatio","centerM","halfWidthM");
         for(String k:List.of("angleDeg","frictionRatio","centerM","halfWidthM"))if(!Double.isFinite(t.getDouble(k)))throw new IllegalArgumentException("Non-finite task");
         if(t.getDouble("centerM")<.01||t.getDouble("centerM")>.6||t.getDouble("halfWidthM")<.005||t.getDouble("halfWidthM")>.1)throw new IllegalArgumentException("Target outside task limits");
-        ResidualOutcome062.physical(definition(t,.08));
+        // Physical/calibrated bounds are checked below as a recorded refusal,
+        // before any analytical prediction or native execution is allowed.
     }
     static JSONObject plan(JSONObject t){
         validate(t);boolean supported=true;try{Stopping063.queryDomain(definition(t,.08));}catch(IllegalArgumentException e){supported=false;}
