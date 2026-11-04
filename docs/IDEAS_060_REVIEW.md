@@ -20,6 +20,8 @@ Full source bytes and type declarations were indexed, repeated prefixes compared
 | agi-fraynix-4.txt | 469404 | 10107 | `72fa2afdb726246788760f431878a967097017f8a5ee5707da81844270592d87` |
 | system-update-1.txt | 6559 | 472 | `4f6158ff99c622b98f38834e82637e3ebbd4e648d66afe32278ddb9237868292` |
 
+`system-update-1.txt` is a Chandra dashboard/status transcript: agent counts, mood labels, dreams, events and an AI-generated assessment. It supplies no independent benchmark for the claim that the system is halfway to AGI. Useful UI lessons are an inspectable task clock and traceable activity; raw counts and psychological labels should not become capability scores. The Java workspace remains the current project.
+
 ## Mechanisms worth developing
 
 | Supplied idea | Existing home | Concrete adoption gate |
@@ -48,6 +50,8 @@ Line references identify the private source versions by the hashes above; they a
 - The same file, approximately lines 7951–8060: phase/permutation calculations and emitted WASM integer operations can become reproducible numerical demonstrations. They do not establish physical quantum processing. A compiler needs reference-output, inverse-operation and malformed-input tests before use.
 - The same file, approximately lines 8885 onward: exact enumeration of all 4,095 nonzero messages using the supplied `Golay24Codec` rows found a minimum codeword weight of **7**, with message 1025 producing `0x401592`. For this linear code, that is minimum distance 7, which still supports unique correction of up to three bit errors. It does not match the advertised extended distance 8. The nearest-codeword routine also needs an explicit uncorrectable policy; errors beyond the guaranteed radius must not become silent repairs. No arbitrary model weights can be reconstructed from a digest alone.
 - The same file, approximately lines 10045 onward: the ESP32 example orders measured FFT peaks and then imposes a permutation in software. A closed-permutation printout is not independent physical validation. Calibration, sensor timing and genuinely independent measurements would need separate evidence.
+
+The encoder enumeration is reproducible with the standalone JDK program [ProbeSuppliedEncoder060.java](../scripts/ProbeSuppliedEncoder060.java). It preserves the source matrix's most-significant-bit row order. The first standalone transcription reversed that order and failed its expected-witness assertion; it was corrected against the supplied implementation. This is an analysis probe, not an installed runtime codec.
 
 ## Next phases for the brain
 

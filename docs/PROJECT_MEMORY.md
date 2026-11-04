@@ -1,5 +1,14 @@
 # Agent Workspace project memory
 
+## Edition 060 implementation checkpoint · not published
+
+Isolated fraynix-workspace-edition060 / edition060 from main e029c4d. Frozen contract7da0334. Native final874bfd3: compact original/right-bearing/paired-bearing each2/3 stable, no promotion; actual rotations and all failed originals retained. Wide original1.9m qualifies3/3; rotated alternatives explicitly rejected because their narrow face cannot cover the beam. Fresh wide design and both original/selected new reserved cases pass;28payload attempts,40320payload ticks,56100complete native ticks. Tampered witness rejected, exact059cold world handoff preserves all frames/refuses pending owners. Earlier wide planner defect958930e preserved in native060-wide-first. Final native output in build/native060-final; compact/wide temp roots in XML.
+
+Regression/install running build/test060-regression.log, source4cb66f6. Next run127desktop checks then actual workspace-desktop/test/construction060-integration.cjs with CPU-only local gpt-oss20b/fourthreads, Java768m. Harness covers compactfailure, changed-centrecompactchat, widecoldreview/completeevaluation, originals/report/replay, exact saved-policy coldreuse onwide, narrowlayout andvisibleStop. No actual060UI run yet. No060push yet.
+
+README060 draft has measured/screenshot placeholders. build/prepare-docs060.py is adapted but not executed; inspect/check helpers before use. Need actualapp screenshots, final results, idea review, offlineguide/Obsidian/source/original archives, freeze/docs/frozen/credentialchecks, nonforced main/edition060/readme060push, freshGitHubblob audit, receipt+continuitypush. Preserve normal045/qa046 installedruntimes/private data, dependencyjunction053, immutable001–059. No subagents/overlappingheavychecks. Useridea files remain private; metadata/staticreview plus exact small encoder probe only, no neuraltraining/hardwareclaims.
+
+
 ## Edition 059 · Published and fetched back on 2026-11-04
 
 Actual non-forced atomic push to private eyeoverthink/Fraynix-Agent-Workspace: main, edition059 and readme-059 accepted. Release `d9d4ef34561fa5a9a245a1ec4142c79de0e86dc0`; annotated tag `7d4e7532151de8ad52c538266697e66aa46346ad`. Fresh GitHub fetch verifies 925 canonical source files, 5074 frozen hashes across 59 editions and 184 original archives, including decompressed bytes and SHA-256. Documentation passes 64 canvases and 6219 references. [Publication receipt](PUBLICATION_059.json).
