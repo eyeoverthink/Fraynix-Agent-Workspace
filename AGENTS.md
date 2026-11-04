@@ -1,5 +1,10 @@
 # Fraynix Studio collaboration and documentation
 
+## Edition 065 · Recovery checkpoint · not published
+
+Frozen contract73ec4dc; native implementation00bd434; actual-app harness7aa871e. Native6 and regression55 targeted Java checks plus127desktop checks passed. Actual app completed216decision slots/85native executions. Simple27success/33miss; fixed13success/47refusal; pooled12success/48refusal. Pooled gate FAILED; no promotion. Preserve this result. Initial unsupported34-degree admission failure and full checkpoint retained; only refusal handling fixed. Actual chat hit12500-character context guard. Lossless planning-table fix in progress; reuse completed actual study and interrupted chat from workspace-desktop/test-output/decision065-failed-1793829790099.json. No065push yet. See build/native065, regression065, admission-failure065 and ui065-first.log. Preserve normal045/qa046 installations, private worlds and frozen001–064. No subagents/heavy overlap. Finish real chat, screenshots/docs/notes, actual push and fetched audit.
+
+
 ## Edition 064 Â· Published and fetched back on 2026-11-04
 
 Actual atomic push to Fraynix-Agent-Workspace main, edition064 and readme-064 succeeded. Release `50be9a6568037915c4060804a247e6df60326062`; annotated tag `e9a2aa10cb582a637642eb4daca374e94998b2ff`. Fresh GitHub fetch verified 961 canonical sources, 5495 frozen hashes across 64 editions and 40 original archives including decompressed bytes. Documentation passed 69 canvases and 6586 references. [Publication receipt](docs/PUBLICATION_064.json).
