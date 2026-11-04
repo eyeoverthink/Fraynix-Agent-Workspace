@@ -43,6 +43,16 @@ public class Temporal067Test {
         }
         var original=new JSONObject().put("temporal067",new JSONObject().put("lastCompleted",new JSONObject().put("evaluation",TemporalStudy067.evaluation(rows)).put("shiftedEvaluation",TemporalPolicy067.evaluate(rows,true))));
         String hash=WorldFrames.hash(original);var compact=TemporalContext067.project(original);assertEquals(hash,WorldFrames.hash(original));assertTrue(compact.toString().length()<original.toString().length()*.65);
+        var overview=new JSONObject().put("agent042Facts",WorldFrames.copy(compact));
+        var overviewStudy=overview.getJSONObject("agent042Facts").getJSONObject("temporal067").getJSONObject("lastCompleted");overviewStudy.put("jobId","original-study");
+        String metrics=overviewStudy.getJSONObject("evaluation").getJSONObject("methods").toString();
+        String groupHash=WorldFrames.hash(overviewStudy.getJSONObject("evaluation").getJSONObject("subgroups"));
+        TemporalContext067.fitPlanningBudget(overview,overview.toString().length());assertTrue(overviewStudy.getJSONObject("evaluation").has("subgroups"));
+        TemporalContext067.fitPlanningBudget(overview,1);
+        assertEquals(metrics,overviewStudy.getJSONObject("evaluation").getJSONObject("methods").toString());
+        var ref=overviewStudy.getJSONObject("evaluation").getJSONObject("subgroupDetail067");assertEquals(groupHash,ref.getString("planningTablesSha256"));assertEquals("original-study",ref.getString("id"));assertEquals("evaluation067.subgroups",ref.getString("field"));
+        overview.put("worldBinding",new JSONObject().put("requirements","x".repeat(13000)));TemporalContext067.fitPlanningBudget(overview,12500);assertThrows(IllegalStateException.class,()->ChatChain052.exact(overview,12500));
+        assertEquals(hash,WorldFrames.hash(original));
         var study=compact.getJSONObject("temporal067").getJSONObject("lastCompleted");var columns=study.getJSONObject("tableColumns067");
         restore(study.getJSONObject("evaluation"),columns);restore(study.getJSONObject("shiftedEvaluation"),columns);study.remove("tableColumns067");study.remove("tableMeaning067");assertTrue(original.similar(compact));
         var c=Stopping063.definition(20,1.05,.24);var a=prefix(c);var d=new JSONObject().put("method","temporal").put("speedMps",.24);
