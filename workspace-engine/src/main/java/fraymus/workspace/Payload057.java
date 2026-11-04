@@ -35,8 +35,13 @@ final class Payload057 {
         return d;
     }
     private static void save(Path path,JSONObject d)throws Exception {
-        if(d.toString().getBytes(StandardCharsets.UTF_8).length>protocol().getInt("maxBytes")-1000)throw new IllegalStateException("Payload history exceeds64MB; previous checkpoint retained");
-        AgentFiles042.write(path,new JSONObject().put("format","java-agent-042-v1").put("sha256",evidenceHash(d)).put("data",d));
+        Files.createDirectories(path.getParent());Path pending=path.resolveSibling(path.getFileName()+"."+UUID.randomUUID()+".pending");
+        try(var channel=java.nio.channels.FileChannel.open(pending,StandardOpenOption.CREATE_NEW,StandardOpenOption.WRITE)){
+            var writer=new java.io.BufferedWriter(java.nio.channels.Channels.newWriter(channel,StandardCharsets.UTF_8),65536);
+            new JSONObject().put("format","java-agent-042-v1").put("sha256",evidenceHash(d)).put("data",d).write(writer);writer.flush();channel.force(true);
+            if(channel.size()>protocol().getInt("maxBytes"))throw new IllegalStateException("Payload history exceeds64MB; previous and pending originals retained");
+        }
+        for(int retry=0;;retry++){try{Files.move(pending,path,StandardCopyOption.ATOMIC_MOVE,StandardCopyOption.REPLACE_EXISTING);break;}catch(AccessDeniedException denied){if(retry>=5)throw denied;Thread.sleep(25L<<retry);}}
     }
     static JSONObject specification(String id) {
         for(Object raw:protocol().getJSONArray("cases"))if(((JSONObject)raw).getString("id").equals(id))return WorldFrames.copy((JSONObject)raw);
