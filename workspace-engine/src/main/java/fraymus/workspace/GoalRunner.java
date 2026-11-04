@@ -50,7 +50,8 @@ public final class GoalRunner implements AutoCloseable {
         if(prior.isEmpty())tx.add(new WorldTransaction.Create(new EntityRecord(id,type,List.of(c))));else tx.add(new WorldTransaction.Put(id,c));
         try{tx.commit(world,schemas);checkpoint.save(world.snapshot(),schemas);if(type.equals("goal"))indexGoal(value);}catch(Exception e){world.restore(before);throw e;}
     }
-    private void indexGoal(JSONObject g){goalIndex.put(g.getString("id"),WorldFrames.copy(view(g)));}
+    private final Map<String,Long> goalDeadlines=new HashMap<>();
+    private void indexGoal(JSONObject g){goalIndex.put(g.getString("id"),WorldFrames.copy(view(g)));goalDeadlines.put(g.getString("id"),g.optLong("deadline",0));}
     private JSONObject activeSummary(){return goalIndex.values().stream().filter(g->LIVE.contains(g.getString("status"))).findFirst().orElse(null);}
     private JSONObject active(){var g=activeSummary();return g==null?null:read(g.getString("id"));}
     public synchronized boolean busy(){return activeSummary()!=null||counterfactual045.busy()||!workflowReservation.isEmpty()&&!workflowAccess.equals(workflowReservation);}
@@ -95,7 +96,7 @@ public final class GoalRunner implements AutoCloseable {
     }
     private static String effectId(JSONObject g,String effect){return UUID.nameUUIDFromBytes((g.getString("id")+":"+g.getInt("attempt")+":"+effect).getBytes(StandardCharsets.UTF_8)).toString();}
     private synchronized void tick(){
-        if(closed)return;var summary=activeSummary();if(summary==null)return;var g=read(summary.getString("id"));
+        if(closed)return;var summary=activeSummary();if(summary==null)return;if(summary.getString("status").equals("waiting-host")&&System.currentTimeMillis()<=goalDeadlines.getOrDefault(summary.getString("id"),0L))return;var g=read(summary.getString("id"));
         try{
             if(System.currentTimeMillis()>g.getLong("deadline"))throw new IllegalStateException("Goal exceeded its saved attempt time budget");
             if(g.getString("status").equals("waiting-host"))return;
