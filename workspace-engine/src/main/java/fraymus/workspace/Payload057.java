@@ -31,12 +31,12 @@ final class Payload057 {
     private static Path file(Path root,JSONObject run){UUID.fromString(run.getString("id"));return root.resolve(run.getString("id")+".json");}
     private static JSONObject load(Path path)throws Exception {
         var e=AgentFiles042.read(path,protocol().getInt("maxBytes"));var d=e.getJSONObject("data");
-        if(!e.getString("sha256").equals(WorldFrames.hash(d)))throw new IllegalStateException("Payload checkpoint checksum changed");
+        if(!e.getString("sha256").equals(evidenceHash(d)))throw new IllegalStateException("Payload checkpoint checksum changed");
         return d;
     }
     private static void save(Path path,JSONObject d)throws Exception {
         if(d.toString().getBytes(StandardCharsets.UTF_8).length>protocol().getInt("maxBytes")-1000)throw new IllegalStateException("Payload history exceeds64MB; previous checkpoint retained");
-        AgentFiles042.saveChecked(path,d);
+        AgentFiles042.write(path,new JSONObject().put("format","java-agent-042-v1").put("sha256",evidenceHash(d)).put("data",d));
     }
     static JSONObject specification(String id) {
         for(Object raw:protocol().getJSONArray("cases"))if(((JSONObject)raw).getString("id").equals(id))return WorldFrames.copy((JSONObject)raw);
@@ -51,7 +51,10 @@ final class Payload057 {
             if(!ids.add(a.getString("id"))||!specification(a.getString("caseId")).similar(a.getJSONObject("spec"))||a.getInt("repeat")<0||a.getInt("repeat")>=2||!Set.of("running","interrupted","failed","completed").contains(a.getString("status"))||a.getJSONArray("rows").length()>protocol().getInt("ticks"))throw new IllegalStateException("Payload attempt identity, mass, position or bounds changed");
         }
     }
-    static JSONObject evaluate(Path root,JSONObject run,BooleanSupplier stopped)throws Exception {
+    static String evidenceHash(JSONObject value){try{var digest=java.security.MessageDigest.getInstance("SHA-256");try(var writer=new java.io.BufferedWriter(new java.io.OutputStreamWriter(new java.security.DigestOutputStream(java.io.OutputStream.nullOutputStream(),digest),StandardCharsets.UTF_8),65536)){canonical(value,writer);}return HexFormat.of().formatHex(digest.digest());}catch(Exception e){throw new IllegalStateException(e);}}
+    private static void canonical(Object value,java.io.Writer out)throws java.io.IOException{if(value instanceof JSONObject o){out.write('{');boolean first=true;for(String key:new TreeSet<>(o.keySet())){if(!first)out.write(',');first=false;out.write(JSONObject.quote(key));out.write(':');canonical(o.get(key),out);}out.write('}');}else if(value instanceof JSONArray a){out.write('[');boolean first=true;for(Object item:a){if(!first)out.write(',');first=false;canonical(item,out);}out.write(']');}else out.write(MapCheckpoint.canonical(value));}
+    static JSONObject evaluate(Path root,JSONObject run,BooleanSupplier stopped)throws Exception {runExperiments(root,run,stopped);return read(root,run);}
+    private static void runExperiments(Path root,JSONObject run,BooleanSupplier stopped)throws Exception {
         if(!WorldVerify.verify(run).getBoolean("passed")||!Construction051.verifyStructure(run).getBoolean("passed"))throw new IllegalStateException("Payload tests require a verified released assembly");
         Path path=file(root,run);var d=Files.exists(path)?load(path):new JSONObject().put("version",VERSION).put("codeSha256",code()).put("sourceRunSha256",WorldFrames.hash(run)).put("attempts",new JSONArray());
         binding(d,run);
@@ -70,7 +73,6 @@ final class Payload057 {
             catch(Exception e) {boolean stop=Thread.interrupted();a.put("status",stop?"interrupted":"failed").put("reason",e.toString());if(stop)throw new InterruptedException("Payload checkpoint interrupted");throw e;}
             finally {a.put("wallMillis",(System.nanoTime()-began)/1_000_000.0);save(path,d);}
         }
-        return read(root,run);
     }
     private static JSONObject completed(JSONObject d,JSONObject run,String id,int repeat) {
         JSONObject found=null;
@@ -157,7 +159,7 @@ final class Payload057 {
             results.put(new JSONObject().put("caseId",spec.getString("id")).put("spec",spec).put("firstAttemptId",first.getString("id")).put("repeatAttemptId",second.getString("id")).put("metrics",first.getJSONObject("metrics")).put("repeatMetrics",second.getJSONObject("metrics")).put("repeatAgrees",agrees).put("chart",chart).put("frames",frames).put("objects",first.getJSONArray("objects")));
         }
         for(Object raw:d.getJSONArray("attempts")){var a=(JSONObject)raw;ticks+=a.getJSONArray("rows").length();wall+=a.optDouble("wallMillis",0);}
-        return new JSONObject().put("version",VERSION).put("scope",protocol().getString("scope")).put("complete",true).put("repeatable",repeatable).put("sourceRunSha256",WorldFrames.hash(run)).put("codeSha256",code()).put("originalSha256",WorldFrames.hash(d)).put("attempts",d.getJSONArray("attempts").length()).put("totalTicks",ticks).put("observedWallMillis",wall).put("results",results);
+        return new JSONObject().put("version",VERSION).put("scope",protocol().getString("scope")).put("complete",true).put("repeatable",repeatable).put("sourceRunSha256",WorldFrames.hash(run)).put("codeSha256",code()).put("originalSha256",evidenceHash(d)).put("attempts",d.getJSONArray("attempts").length()).put("totalTicks",ticks).put("observedWallMillis",wall).put("results",results);
     }
     static JSONObject original(Path root,JSONObject run)throws Exception {var d=load(file(root,run));binding(d,run);for(Object raw:d.getJSONArray("attempts")){var a=(JSONObject)raw;if(a.getString("status").equals("completed")&&!verify(a,run,specification(a.getString("caseId"))).similar(a.getJSONObject("metrics")))throw new IllegalStateException("Payload original metrics changed");}return WorldReport.packed(d).put("format","fraynix.payload-native-gzip-v1");}
 }
