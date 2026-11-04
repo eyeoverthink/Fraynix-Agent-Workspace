@@ -1,5 +1,18 @@
 # Fraynix Studio collaboration and documentation
 
+## Edition 067 · Published and fetched back on 2026-11-04
+
+Actual atomic push to Fraynix-Agent-Workspace main, edition067 and readme-067 succeeded. Release 5d13d99553314e3f308a5a69701f7ef64f330aad; annotated tag df1600d9695e8633c4518b1ec6b5826916b67a24. Fresh GitHub fetch verified 988 canonical sources, 5676 frozen hashes across 67 editions and 49 original archives, including decompressed bytes. Documentation passed 72 canvases and 6846 references. [Publication receipt](docs/PUBLICATION_067.json).
+
+Temporal contact uses three source-bound samples and known oriented clearance. Value saves nine declared analytical scenarios before any first push. Seven policies, 508 slots,305 native executions, four original-runtime parity comparisons with zero sample difference. Value 29 successes/3 misses/28 refusals; recovered 18/48 initial refusals; mean utility +0.259333. Temporal 44/16, utility +0.089000; Observed 44/16,+0.137667; Blind 42/18,+0.060000. Value gate PASSED, but no controller or LLM-weight promotion. Screening avoids 13 Temporal misses and sacrifices 15 successes;20 screened attempts exactly agree with Temporal endpoints/outcomes.
+
+77 distinct targeted Java checks across 14 classes, 127 desktop checks, actual app/restart/Stop/local-model reporting, offline desktop/phone interactions and journal integrity/concurrency harness passed. First native invocation stopped at 392slots/280executions on Windows journal replacement denial; complete originals retained. Bounded retry preserves forced bytes and atomicity. Real Windows handle tests pass; initial interruption-test timing and preliminary command failures retained. Completed partial-run samples/plans match the unchanged rerun. The first real chat exceeded the unchanged planning guard. Explicit subgroup source references retain all values in the original facts/report; the same interrupted chat resumed against the same completed study. The local pre-push blob audit also caught one ignored synthetic failed-run checkpoint; that exact archive was explicitly added without changing the general runtime-data exclusion, and the complete audit then passed. No physics rule, task or gate was tuned after outcomes.
+
+README067, ten actual screenshots, two offline captures, exact original evidence, full source inventory, Obsidian map, memories and logs are published. Test app closed. Preserve normal045/qa046 installations, personal worlds and frozen 001–067. Source worktree: work/fraynix-workspace-edition067. No subagents or overlapping heavy validators.
+
+Next unused 068: prospectively test/calibrate scenario assumptions and selection tradeoffs on reserved unfamiliar conditions and native disturbances. Contact history did not improve completion on this task set. Scenario fraction is not calibrated probability; native known geometry is not camera inference or physical calibration. This receipt follows the immutable release tag.
+
+
 ## Edition 067 · Validated locally; publication next
 
 Contract 9af32f4 preceded new outcomes. Original implementation 7be5a73, journal persistence repair 3f35d83, synchronized interruption test 12ce1f8, actual app source f93fd12d8e24617cbcf46104509c21120b2f592d. Seven policies, 508 slots, 305 native executions and all four original-runtime parity differences zero. Temporal uses ticks 52/56/60 with known oriented clearance; Value saves nine analytical scenarios before any first push. Costs and original observations persist.
