@@ -43,7 +43,7 @@ public final class BrainService implements AutoCloseable {
     }
     private void indexJob(JSONObject j){
         var header=new JSONObject();for(String k:List.of("id","kind","status","createdAt","phase","progress","total","accepted","reason"))if(j.has(k))header.put(k,j.get(k));
-        jobHeaders.put(j.getString("id"),header);if(j.getString("kind").equals("contact-uncertainty"))contactViews.put(j.getString("id"),WorldFrames.copy(contactSummary064(j)));
+        jobHeaders.put(j.getString("id"),WorldFrames.copy(header));if(j.getString("kind").equals("contact-uncertainty"))contactViews.put(j.getString("id"),WorldFrames.copy(contactSummary064(j)));
     }
     private List<JSONObject> jobValues(String kind){var out=new ArrayList<JSONObject>();for(var header:jobHeaders.values())if(header.getString("kind").equals(kind))out.add(read(header.getString("id")));return out;}
     public synchronized JSONObject read(String id){UUID uuid=UUID.fromString(id);return world.snapshot().entities().stream().filter(e->e.id().equals(uuid)&&e.components().get(0).type().equals("workspace.brain.job")).findFirst().map(BrainService::value).orElseThrow(()->new IllegalArgumentException("Unknown brain job"));}
