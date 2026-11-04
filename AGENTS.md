@@ -1,5 +1,16 @@
 # Fraynix Studio collaboration and documentation
 
+## Edition 063 · Published and fetched back on 2026-11-04
+
+Actual atomic push to Fraynix-Agent-Workspace main, edition063 and readme-063 succeeded. Release `22b2d98760e4a1c5163f6004baf05510267e7281`; annotated tag `69876060ac4de388e1e43c374c4b65c4117b5b91`. Fresh GitHub fetch verified 952 canonical sources, 5435 frozen hashes across 63 editions, and 26 original archives including decompressed hashes. Documentation passed 68 canvases and 6503 references. [Publication receipt](docs/PUBLICATION_063.json).
+
+The 104-execution study records contact separation, linear/angular velocity and rotation. All six original-engine parity checks passed. Locking rotation reduced the prior worst anchor's error from 44.723 mm to 0.217 mm; increasing solver iterations had mixed effects. The intervention changes physics and does not establish the precise friction mechanism. Proposed regime uncertainty covered 35/40 reserved cases (87.5%): unqualified. Pooled 37/40 and fixed 36/40 remain comparisons, without posthoc promotion.
+
+57 distinct targeted Java checks across eight classes, 127 desktop checks and actual UI/restart/Stop/report verification passed. The first chat attempt hit the existing context guard; a planning-only evidence projection retained exact comparisons, full original evidence and checks. The same interrupted local-model task resumed and completed; its original failure remains archived. No physical-world accuracy or model-weight-learning claim.
+
+README 063, eight actual app captures, two offline captures, original evidence, Obsidian map, memories and logs are published. Test app closed. Preserve normal045/qa046 installed runtimes, private data and immutable editions 001–063. Next unused edition 064: contact-point/friction-impulse, clearance and time-step interventions on new cases; prospectively compare pooled versus fixed uncertainty and then measure decision value. No subagents or overlapping heavy validators. This receipt follows the immutable release tag.
+
+
 ## Edition 063 · Validated locally; publication next
 
 Source `c9f52048b6eb8c2d170fc2cd6761c7446f867676`; native implementation0ebd28f; contract6dda526.104native executions:18three-second intervention traces,6original062parity,40calibration/40reserved. All6parity checks≤1e-6m. Worst062anchor30°/.25m/s: baseline−44.723mm vs rotation-locked+0.217mm;80iterationsmixed. Locking rotation changes physical problem; precise friction mechanism remains unestablished.

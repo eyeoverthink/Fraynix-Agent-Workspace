@@ -6,7 +6,7 @@
 
 Edition 063 records contact, velocity and rotation, compares matched stopping interventions, and tests calibrated intervals on new cases. Rotation locking reduced the diagnostic discrepancy; the proposed uncertainty interval missed its coverage target. [Measured results and originals](docs/readmes/063/verification.json).
 
-Edition 063 implementation, screenshots and original evidence are prepared for publication. [Previous fetched publication](docs/PUBLICATION_062.json).
+Edition 063 is published to main with source, eight actual app captures, original evidence and updated continuity notes. [Fetched GitHub verification](docs/PUBLICATION_063.json).
 
 One integrated app, with Java-owned chat planning, creation, native skill scheduling, continuing identity, real clocks and checked outcomes. Mission connects the actual goal, source, child task, recovery and retained result. [Screenshots, typed skill graphs, new logic and production direction](README-046.md).
 
