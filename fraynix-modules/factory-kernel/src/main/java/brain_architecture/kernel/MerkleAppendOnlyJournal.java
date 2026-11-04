@@ -158,7 +158,23 @@ public final class MerkleAppendOnlyJournal {
         Path pending = file.resolveSibling("kernel-journal-" + UUID.randomUUID() + ".pending");
         writeForced(pending, data);
         // No non-atomic fallback: a failed commit retains the previous journal and pending evidence.
-        Files.move(pending, file, StandardCopyOption.ATOMIC_MOVE, StandardCopyOption.REPLACE_EXISTING);
+        // Windows readers can briefly deny deletion of the destination. Retry only that
+        // failure, with the same forced bytes and cross-process lock still held.
+        for (int attempt = 0;; attempt++) {
+            try {
+                Files.move(pending, file, StandardCopyOption.ATOMIC_MOVE, StandardCopyOption.REPLACE_EXISTING);
+                break;
+            } catch (AccessDeniedException denied) {
+                if (attempt >= 5) throw denied;
+                try { Thread.sleep(25L << attempt); }
+                catch (InterruptedException interrupted) {
+                    Thread.currentThread().interrupt();
+                    var failure = new java.io.InterruptedIOException("Journal replacement interrupted; previous and pending bytes retained");
+                    failure.initCause(denied);
+                    throw failure;
+                }
+            }
+        }
     }
     private static void writeForced(Path file, byte[] data) throws IOException {
         try (var channel = FileChannel.open(file, StandardOpenOption.CREATE_NEW, StandardOpenOption.WRITE)) {
