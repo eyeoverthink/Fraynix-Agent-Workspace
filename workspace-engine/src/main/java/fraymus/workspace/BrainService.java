@@ -47,7 +47,7 @@ public final class BrainService implements AutoCloseable {
     public synchronized JSONObject state() throws Exception {
         var jobs=new JSONArray();for(var j:values("job"))jobs.put(new JSONObject().put("id",j.getString("id")).put("kind",j.getString("kind")).put("status",j.getString("status")).put("phase",j.optString("phase")).put("progress",j.optInt("progress")).put("total",j.optInt("total")).put("accepted",j.optBoolean("accepted")).put("reason",j.optString("reason")));
         var core=new JSONObject().put("module","shared brain-core").put("ready",cortex!=null).put("neurons",cortex==null?0:cortex.neurons()).put("synapses",cortex==null?0:cortex.synapses()).put("ticks",cortex==null?0:cortex.ticks()).put("spikingBackend","Java CPU");
-        return new JSONObject().put("jobs",jobs).put("busy",busyId!=null).put("activePolicy",activePolicy()).put("activeFeedback",activeFeedback()).put("activeWorldModel",activeWorldModel()).put("cortex",core).put("journalEntries",journal.verify().entries()).put("protocol",PROTOCOL).put("fraynixGPT061",outcomeState061()).put("residual062",outcomeState062());
+        return new JSONObject().put("jobs",jobs).put("busy",busyId!=null).put("activePolicy",activePolicy()).put("activeFeedback",activeFeedback()).put("activeWorldModel",activeWorldModel()).put("cortex",core).put("journalEntries",journal.verify().entries()).put("protocol",PROTOCOL).put("fraynixGPT061",outcomeState061()).put("residual062",outcomeState062()).put("stopping063",stoppingState063());
     }
     public synchronized JSONObject start(JSONObject input) throws Exception { return start(input,UUID.randomUUID().toString()); }
     synchronized JSONObject startOwned(String id) throws Exception {
@@ -57,14 +57,14 @@ public final class BrainService implements AutoCloseable {
     private JSONObject start(JSONObject input,String id) throws Exception {
         if(closed)throw new IllegalStateException("Java coordinator is closed");if(!Set.of("kind","autoPromote").containsAll(input.keySet()))throw new IllegalArgumentException("Unsupported brain job field");
         if(busyId!=null)throw new IllegalStateException("One Java brain job is active; cancel or wait");if(values("job").size()>=16)throw new IllegalStateException("Brain job history budget reached (16)");
-        String kind=input.getString("kind");if(!Set.of("train","gpu-check","pulse","feedback-train","world-model-train","fraynix-outcomes","physics-residuals").contains(kind))throw new IllegalArgumentException("Unknown brain job kind");
+        String kind=input.getString("kind");if(!Set.of("train","gpu-check","pulse","feedback-train","world-model-train","fraynix-outcomes","physics-residuals","stopping-uncertainty").contains(kind))throw new IllegalArgumentException("Unknown brain job kind");
         var job=new JSONObject().put("id",id).put("kind",kind).put("status","queued").put("phase","queued").put("createdAt",Instant.now()).put("activeVersionAtStart",activePolicy().getInt("version")).put("autoPromote",input.optBoolean("autoPromote",true)).put("protocol",PROTOCOL).put("feedbackVersionAtStart",activeFeedback().getInt("version")).put("worldVersionAtStart",activeWorldModel().getInt("version"));
         if(kind.equals("feedback-train"))job.put("protocol",FeedbackExperiment.PROTOCOL).put("feedbackProtocol",FeedbackExperiment.manifest());
         if(kind.equals("world-model-train"))job.put("protocol",WorldModelExperiment.PROTOCOL).put("worldProtocol",WorldModelExperiment.manifest());
         save("job",job);busyId=job.getString("id");cancel=false;
         var receipt=new JSONObject(job.toString());
         worker.submit(()->{
-            try{job.put("status","running");update(job,"started");switch(kind){case "physics-residuals"->ResidualOutcome062.train(job,root.resolve("native"),this::checkCancel,phase->update(job,phase));case "fraynix-outcomes"->FraynixOutcome061.train(job,root.resolve("native"),this::checkCancel,phase->update(job,phase));case "train"->train(job);case "feedback-train"->trainFeedback(job);case "world-model-train"->trainWorldModel(job);case "gpu-check"->gpuCheck(job);case "pulse"->pulse(job);}synchronized(this){if(!job.getString("status").equals("completed")){checkCancel();job.put("status","completed").put("endedAt",Instant.now());update(job,"completed");}}}
+            try{job.put("status","running");update(job,"started");switch(kind){case "stopping-uncertainty"->Stopping063.run(job,root.resolve("native"),this::checkCancel,phase->update(job,phase));case "physics-residuals"->ResidualOutcome062.train(job,root.resolve("native"),this::checkCancel,phase->update(job,phase));case "fraynix-outcomes"->FraynixOutcome061.train(job,root.resolve("native"),this::checkCancel,phase->update(job,phase));case "train"->train(job);case "feedback-train"->trainFeedback(job);case "world-model-train"->trainWorldModel(job);case "gpu-check"->gpuCheck(job);case "pulse"->pulse(job);}synchronized(this){if(!job.getString("status").equals("completed")){checkCancel();job.put("status","completed").put("endedAt",Instant.now());update(job,"completed");}}}
             catch(Throwable error){job.remove("promotion");job.remove("feedbackPromotion");job.remove("worldPromotion");job.put("status",cancel?"cancelled":"failed").put("reason",String.valueOf(error.getMessage())).put("endedAt",Instant.now());try{update(job,"settled");}catch(Exception ignored){}}
             finally{synchronized(this){busyId=null;}}
         });
@@ -106,6 +106,26 @@ public final class BrainService implements AutoCloseable {
         return new JSONObject().put("advisory",true).put("qualified",j.getJSONObject("evaluation062").getBoolean("qualified"))
             .put("selectedMethod",selected).put("selectedPredictionM",predictions.getDouble(selected)).put("predictionM",predictions)
             .put("modelSha256",j.getString("modelSha256062")).put("decisionSha256",j.getString("decisionSha256062"));
+    }
+    private JSONObject stoppingSummary063(JSONObject j){
+        var o=new JSONObject().put("available",j.getString("status").equals("completed")).put("advisory",true).put("jobId",j.getString("id")).put("status",j.getString("status")).put("progress",j.optInt("progress")).put("total",Stopping063.TOTAL).put("reason",j.optString("reason"));
+        if(j.has("intervalModel063"))o.put("intervalModel",j.getJSONObject("intervalModel063")).put("modelSha256",j.getString("intervalModelSha256063"));
+        if(j.has("evaluation063"))o.put("evaluation",j.getJSONObject("evaluation063"));
+        if(j.has("diagnostics063")){var traces=new JSONArray();for(Object raw:j.getJSONArray("diagnostics063")){var row=(JSONObject)raw;if(row.has("record"))traces.put(new JSONObject().put("definition",row.getJSONObject("definition")).put("variant",row.getString("variant")).put("summary",row.getJSONObject("record").getJSONObject("summary")));}o.put("traces",traces);}return o;
+    }
+    public synchronized JSONObject stoppingState063(){
+        var jobs=values("job").stream().filter(j->j.optString("kind").equals("stopping-uncertainty")).sorted(Comparator.comparing(j->j.getString("createdAt"))).toList();
+        var o=jobs.isEmpty()?new JSONObject().put("available",false):stoppingSummary063(jobs.get(jobs.size()-1));o.put("protocol",Stopping063.PROTOCOL).put("meaning","Native stopping interventions and empirical uncertainty; no physical coverage guarantee or controller authority");
+        for(int i=jobs.size()-1;i>=0;i--)if(jobs.get(i).getString("status").equals("completed")){o.put("lastCompleted",stoppingSummary063(jobs.get(i)));break;}return o;
+    }
+    private JSONObject completedStopping063(String id){
+        if(busyId!=null)throw new IllegalStateException("Wait for the active Java brain job");var j=read(id);if(!j.getString("kind").equals("stopping-uncertainty")||!j.getString("status").equals("completed"))throw new IllegalStateException("Choose a completed stopping study");Stopping063.audit(j);return j;
+    }
+    public synchronized JSONObject stoppingPredict063(JSONObject input){
+        SpatialScene.keys(input,"jobId","definition");var j=completedStopping063(input.getString("jobId"));return new JSONObject().put("advisory",true).put("qualified",j.getJSONObject("evaluation063").getBoolean("qualified")).put("modelSha256",j.getString("intervalModelSha256063")).put("intervals",Stopping063.intervals(j.getJSONObject("intervalModel063").getJSONObject("radiiM"),input.getJSONObject("definition"))).put("meaning","Nominal90% calibrated intervals; finite simulation evaluation, not a real-world confidence guarantee");
+    }
+    public synchronized JSONObject stoppingTrace063(JSONObject input){
+        SpatialScene.keys(input,"jobId","traceIndex");int index=input.getInt("traceIndex");if(index<0||index>=18||input.getDouble("traceIndex")!=index)throw new IllegalArgumentException("Trace index must be0–17");var j=completedStopping063(input.getString("jobId"));var row=j.getJSONArray("diagnostics063").getJSONObject(index);var series=new JSONArray();for(Object raw:row.getJSONObject("record").getJSONArray("samples"))series.put(Stopping063.projected(row.getJSONObject("definition"),(JSONObject)raw));return new JSONObject().put("definition",row.getJSONObject("definition")).put("variant",row.getString("variant")).put("summary",row.getJSONObject("record").getJSONObject("summary")).put("series",series).put("recordSha256",row.getJSONObject("record").getString("sha256"));
     }
     private void checkCancel(){if(cancel||closed||Thread.currentThread().isInterrupted())throw new CancellationException("Java brain job cancelled");}
     private synchronized void update(JSONObject job,String phase) throws Exception {job.put("phase",phase);save("job",job);journal.append("brain-job",phase,Map.of("id",job.getString("id"),"status",job.getString("status"),"payloadSha256",MeasurementStore.hash(job.toString())));}
