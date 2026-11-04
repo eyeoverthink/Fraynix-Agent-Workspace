@@ -56,5 +56,17 @@
       "lines": 472,
       "commonPrefixLinesWithPrevious": 0
     }
-  ]
+  ],
+  "javaProbe": {
+    "source": "scripts/ProbeSuppliedEncoder060.java",
+    "command": "java scripts/ProbeSuppliedEncoder060.java",
+    "result": {
+      "messagesEnumerated": 4095,
+      "minimumNonzeroCodewordWeight": 7,
+      "message": 1025,
+      "codewordHex": "0x401592",
+      "scope": "Exact supplied linear encoder; not decoder or hardware certification"
+    },
+    "developmentCorrection": "Initial standalone transcription reversed matrix row bit order; expected-witness assertion failed. Corrected to the supplied most-significant-bit row order."
+  }
 }
