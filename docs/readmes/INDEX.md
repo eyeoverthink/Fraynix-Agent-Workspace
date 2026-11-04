@@ -68,4 +68,6 @@ Numbered editions preserve dated behavior and evidence. The root [README](../../
 
 | [059](../../README-059.md) | 2026-11-04 | Faster evidence and asymmetric supports | [Viewer](059/index.html) · [tree](059/FILE_TREE.md) |
 
-Latest implementation and documentation edition in this checkout is **059**. See [sequence policy](README_SEQUENCE.md) and [manifest](editions.json).
+| [060](../../README-060.md) | 2026-11-04 | Independent bearings and measured repairs | [Viewer](060/index.html) · [tree](060/FILE_TREE.md) |
+
+Latest implementation and documentation edition in this checkout is **060**. See [sequence policy](README_SEQUENCE.md) and [manifest](editions.json).

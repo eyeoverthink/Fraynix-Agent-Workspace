@@ -2,13 +2,9 @@
 
 **A local visual environment for agents to browse, create runnable artifacts, test behavior and reuse verified skills.**
 
-> **[Edition 059 · Faster evidence and asymmetric supports](README-059.md)** · [Offline guide](docs/readmes/059/index.html) · [Operation](docs/JAVA_CHAT_044.md) · [Edition history](docs/readmes/INDEX.md)
+> **[Edition 060 · Independent bearings and measured repairs](README-060.md)** · [Offline guide](docs/readmes/060/index.html) · [Operation](docs/JAVA_CHAT_044.md) · [Edition history](docs/readmes/INDEX.md)
 
-Edition 059 reuses verified evidence after checking original bytes, compares asymmetric supports at the same span, and tests new payloads under a fixed decision. [Measured results and originals](docs/readmes/059/verification.json).
-
-Edition 058 is published to main with original redesign and reserved-evaluation evidence. [Fetched GitHub verification](docs/PUBLICATION_058.json).
-
-Edition 059 is published to main with original redesign and reserved-evaluation evidence. [Fetched GitHub verification](docs/PUBLICATION_059.json).
+Edition 060 adds independent support positions and rotations, retains measured compact-stock failures, and verifies the original wider stock against new payloads. [Measured results and originals](docs/readmes/060/verification.json).
 
 One integrated app, with Java-owned chat planning, creation, native skill scheduling, continuing identity, real clocks and checked outcomes. Mission connects the actual goal, source, child task, recovery and retained result. [Screenshots, typed skill graphs, new logic and production direction](README-046.md).
 
@@ -57,7 +53,7 @@ npm.cmd run test:live-broader
 
 Project files, test receipts, learned recipes, browser cookies and event history live under `%USERPROFILE%/.fraynix-agent-workspace/projects/default`, outside Git. `FRAYNIX_WORKSPACE_PROJECT` selects another independent project.
 
-The current skill type is a tested web-artifact recipe. A bounded adaptive controller now learns from recorded outcomes and activates only after independent replay. Whole-model training, general code workers and broader computer control remain separate milestones in the [design plan](docs/AGENT_WORKSPACE_DESIGN.md).
+Skills include tested web-artifact recipes and Java-owned physical procedures. Construction skills retain their versioned requirements and must pass fresh physics checks when reused. A bounded adaptive controller learns from recorded outcomes and activates only after independent replay. Whole-model training, general code workers and broader computer control remain separate milestones in the [design plan](docs/AGENT_WORKSPACE_DESIGN.md).
 
 ## Persistent learning in the working app
 

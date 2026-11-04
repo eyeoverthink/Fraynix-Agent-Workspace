@@ -1,5 +1,21 @@
 # Agent Workspace development log
 
+## Edition 060 · Validated locally; publication audit next
+
+Actual app source `9f1f92d9df81d02f3b1d33de9287a8a5203264e0`. Frozen design-only selection, fresh execution and paired reserved payloads checked. 62 targeted Java cases across 12 classes,127 desktop checks and actual CPU/four-thread local-model chat/reuse with complete originals. See validation060 for source-qualified invocations and contrary outcomes. New README060, eight actual screenshots, offline guide and Obsidian map prepared. No material-strength or model-weight-training claim.
+
+Actual main/edition060/readme-060 push and fresh fetched audit remain pending. Preserve normal045/qa046 installed runtimes/private data, dependency junction053 and immutable001–059. Next: new finite restraint/support options and evidence retrieval, with explicit costs and newly reserved conditions; compact repair remains unverified.
+
+
+## Edition 060 actual-app checkpoint · not published
+
+Active validation: `build/test060-live-final.log`, exec session45113, source9f1f92d; isolated synthetic project `C:/Users/eyeka/AppData/Local/Temp/fraynix-construction060-whSj47`. Installed Java4cb66f6; native implementation874bfd3. 62 distinct targeted Java cases /12classes and127desktop checks passed. Compact at(0,0) and actual CPU/four-thread chat at(.2,.2): all three layouts2/3 stable, no world/skill promotion. Goal state is interrupted while its comparison failed; cleanup later cancels the comparison but retains all candidate evidence. Wide original1.9m: all design/reserved checks passed, cold review retained decision, one world commit and independent-bearings v1 saved. Report/export/replay/original archive checks passed. Cold local-model saved-skill reuse is currently running; then narrow capture and visible Stop remain. Read `workspace-desktop/test-output/construction060-checkpoint.json` for exact progress.
+
+No native outcomes were rerun for UI harness fixes. Original status-expectation and asynchronous canvas navigation inspection failures are retained in construction060-failed records and build/ui060-report-race. The report itself was independently inspected successfully; latest harness waits for its complete read. Do not rebuild the installed JARs while this app is active. Existing normal045/qa046 installs and private data untouched.
+
+After actual workflow: inspect eight captures; run prepared build/prepare-docs060.py ONCE (README draft still has placeholders), check-docs060.cjs, inspect guide images, freeze-docs060.py, Verify-Documentation, preflight060.py, stage060.py and release commit. Review helper outputs for exact current counts/text. Then actual non-force main/edition060/readme-060 push, fresh GitHub blob/original audit, receipt and continuity push/final audit. Helpers in ignored build, source proofs in native060-*; snapshot preservation001–059 mandatory. No060publication yet. No subagents or overlapping heavy validators.
+
+
 ## Edition 060 implementation checkpoint · not published
 
 Isolated fraynix-workspace-edition060 / edition060 from main e029c4d. Frozen contract7da0334. Native final874bfd3: compact original/right-bearing/paired-bearing each2/3 stable, no promotion; actual rotations and all failed originals retained. Wide original1.9m qualifies3/3; rotated alternatives explicitly rejected because their narrow face cannot cover the beam. Fresh wide design and both original/selected new reserved cases pass;28payload attempts,40320payload ticks,56100complete native ticks. Tampered witness rejected, exact059cold world handoff preserves all frames/refuses pending owners. Earlier wide planner defect958930e preserved in native060-wide-first. Final native output in build/native060-final; compact/wide temp roots in XML.

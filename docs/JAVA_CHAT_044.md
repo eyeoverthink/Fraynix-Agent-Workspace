@@ -68,3 +68,8 @@ Spatial → Gripper assembly → Failure → redesign → new payloads creates l
 ## Failure-driven payload redesign 059
 
 Spatial → Gripper assembly → Asymmetric supports · new payloads creates labelled stock. Chat can request redesign from measured failures and unfamiliar payloads. Java freezes a decision from design cases, executes freshly and compares original/selected reserved payloads before promotion. Saved procedures retain the exact policy. Report, replay and exports preserve failed and interrupted attempts. [Edition 059 walkthrough](../README-059.md).
+
+
+## Failure-driven payload redesign 060
+
+Spatial → Gripper assembly → Independent bearings · compact stock creates labelled stock. Chat can request redesign from measured failures and unfamiliar payloads. Java freezes a decision from design cases, executes freshly and compares original/selected reserved payloads before promotion. Saved procedures retain the exact policy. Report, replay and exports preserve failed and interrupted attempts. [Edition 060 walkthrough](../README-060.md).
