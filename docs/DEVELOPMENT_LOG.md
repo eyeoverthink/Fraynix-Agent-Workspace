@@ -1,5 +1,14 @@
 # Agent Workspace development log
 
+## Edition 062 · Published and fetched back on 2026-11-04
+
+Actual atomic push to Fraynix-Agent-Workspace main, edition062 and readme-062 succeeded. Release `a3dce6291c92fcabe16af075728339f9d117acb7`; annotated tag `0612df24b9b6502563bca22cdf85cd9fc467f197`. Fresh GitHub fetch verified945canonical sources,5390frozen hashes across62editions and25original archives including decompressed hashes. Documentation passed67canvases/6423references. [Publication receipt](PUBLICATION_062.json).
+
+Analytical residual learning is functional with32training/12selection/16reserved native trials. Analytical won selection1.596mm MAE; reserved5.645mm and worst44.723mm. Learned corrections unqualified; no posthoc method switch, controller promotion or LLM-weight change.55distinct targeted Java/127desktop checks pass; actual UI, cold restart, exact prediction, Stop, retained completed history and CPU4-thread gpt-oss20b report verified. Published061 original remains readable and reproducible. Original failed timestamp audit retained.
+
+README062, four actual app captures, two offline captures, original evidence, Obsidian map, memories and logs published. Test app closed; preserve normal045/qa046 installed runtimes/private data and immutable001–062. Next unused063: investigate contact, speed, rotation and stopping-time discrepancy before new fitting; then calibrated uncertainty, useful control decisions and typed construction outcomes. Worst stopping-case cause remains unestablished. This receipt follows the immutable release tag.
+
+
 ## Edition 062 · Validated locally; publication next
 
 Source `f4af2ccdd61bd654cc41516a27785e3317842bb1`; Java implementation3bb0329; frozen contract68403e9. Analytical baseline plus bounded constant/linear/cortex corrections,32 train/12 selection/16 reserved. Analytical won selection1.596mm MAE; reserved5.645mm, worst44.723mm. Linear reserved5.347mm and cortex5.401mm did not qualify; no posthoc switching, no controller or LLM-weight change. Original failed timestamp-format audit and complete observations retained; storage-format correction only.

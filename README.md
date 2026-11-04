@@ -6,7 +6,7 @@
 
 Edition 062 learns bounded corrections to analytical physics, selects a method on separate cases, and checks new reserved conditions. Analytical physics won selection; learned corrections remain unqualified. Java retains the experiment through restart and exposes its verified results to chat. [Measured results and originals](docs/readmes/062/verification.json).
 
-Edition 062 implementation, real captures and original experiment evidence are prepared for publication. The previous release remains verified in the [edition 061 publication receipt](docs/PUBLICATION_061.json).
+Edition 062 is published to main with source, actual app captures, original experiment evidence and updated continuity notes. [Fetched GitHub verification](docs/PUBLICATION_062.json).
 
 One integrated app, with Java-owned chat planning, creation, native skill scheduling, continuing identity, real clocks and checked outcomes. Mission connects the actual goal, source, child task, recovery and retained result. [Screenshots, typed skill graphs, new logic and production direction](README-046.md).
 
