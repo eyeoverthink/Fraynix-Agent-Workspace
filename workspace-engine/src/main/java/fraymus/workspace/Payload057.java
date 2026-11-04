@@ -29,12 +29,12 @@ final class Payload057 {
     }
     static JSONObject policy(){return new JSONObject().put("version",VERSION).put("codeSha256",code()).put("protocol",protocol());}
     private static Path file(Path root,JSONObject run){UUID.fromString(run.getString("id"));return root.resolve(run.getString("id")+".json");}
-    private static JSONObject load(Path path)throws Exception {
+    static JSONObject load(Path path)throws Exception {
         var e=AgentFiles042.read(path,protocol().getInt("maxBytes"));var d=e.getJSONObject("data");
         if(!e.getString("sha256").equals(evidenceHash(d)))throw new IllegalStateException("Payload checkpoint checksum changed");
         return d;
     }
-    private static void save(Path path,JSONObject d)throws Exception {
+    static void save(Path path,JSONObject d)throws Exception {
         Files.createDirectories(path.getParent());Path pending=path.resolveSibling(path.getFileName()+"."+UUID.randomUUID()+".pending");
         try(var channel=java.nio.channels.FileChannel.open(pending,StandardOpenOption.CREATE_NEW,StandardOpenOption.WRITE)){
             var writer=new java.io.BufferedWriter(java.nio.channels.Channels.newWriter(channel,StandardCharsets.UTF_8),65536);
@@ -43,8 +43,9 @@ final class Payload057 {
         }
         for(int retry=0;;retry++){try{Files.move(pending,path,StandardCopyOption.ATOMIC_MOVE,StandardCopyOption.REPLACE_EXISTING);break;}catch(AccessDeniedException denied){if(retry>=5)throw denied;Thread.sleep(25L<<retry);}}
     }
-    static JSONObject specification(String id) {
-        for(Object raw:protocol().getJSONArray("cases"))if(((JSONObject)raw).getString("id").equals(id))return WorldFrames.copy((JSONObject)raw);
+    static JSONObject specification(String id) {return specification(protocol(),id);}
+    static JSONObject specification(JSONObject p,String id) {
+        for(Object raw:p.getJSONArray("cases"))if(((JSONObject)raw).getString("id").equals(id))return WorldFrames.copy((JSONObject)raw);
         throw new IllegalArgumentException("Unknown frozen payload case");
     }
     private static void binding(JSONObject d,JSONObject run) {
@@ -87,8 +88,9 @@ final class Payload057 {
     }
     private static JSONObject beam(JSONObject run){return WorldPlan.sourceObject(run.getJSONObject("definition"),"beam");}
     static JSONArray localPoint(JSONObject run,JSONObject spec){return new JSONArray(new double[]{beam(run).getJSONArray("size").getDouble(0)*.5*spec.getDouble("halfLengthFraction"),0,0});}
-    private static JSONObject payloadDefinition(JSONObject run,JSONObject spec) {
-        var p=protocol();double size=p.getDouble("payloadSizeM");var original=ContactPhysics.dynamic(run.getJSONObject("final").getJSONArray("bodies"),beam(run).getString("id"));
+    private static JSONObject payloadDefinition(JSONObject run,JSONObject spec) { return payloadDefinition(run,spec,protocol()); }
+    private static JSONObject payloadDefinition(JSONObject run,JSONObject spec,JSONObject p) {
+        double size=p.getDouble("payloadSizeM");var original=ContactPhysics.dynamic(run.getJSONObject("final").getJSONArray("bodies"),beam(run).getString("id"));
         var local=localPoint(run,spec);local.put(1,beam(run).getJSONArray("size").getDouble(1)*.5+size*.5+spec.getDouble("dropHeightM"));
         return new JSONObject().put("id",PAYLOAD).put("size",new JSONArray(new double[]{size,size,size})).put("massKg",spec.getDouble("massKg")).put("friction",p.getDouble("payloadFriction")).put("restitution",p.getDouble("payloadRestitution")).put("position",new JSONArray(Load055.point(original,local))).put("rotation",WorldFrames.copy(original).getJSONArray("rotation")).put("velocity",new JSONArray(new int[]{0,0,0})).put("angularVelocity",new JSONArray(new int[]{0,0,0}));
     }
@@ -108,9 +110,10 @@ final class Payload057 {
             if(impulse>1e-6&&distance<=.015)out.put(new JSONArray().put(ids.get(com.jme3.bullet.collision.PersistentManifolds.getBodyAId(manifold))).put(ids.get(com.jme3.bullet.collision.PersistentManifolds.getBodyBId(manifold))).put(distance).put(impulse));
         }return out;
     }
-    static void simulate(Path nativeDir,JSONObject run,JSONObject spec,JSONObject attempt,java.util.concurrent.Callable<Void> checkpoint)throws Exception {
+    static void simulate(Path nativeDir,JSONObject run,JSONObject spec,JSONObject attempt,java.util.concurrent.Callable<Void> checkpoint)throws Exception {simulate(nativeDir,run,spec,attempt,checkpoint,protocol());}
+    static void simulate(Path nativeDir,JSONObject run,JSONObject spec,JSONObject attempt,java.util.concurrent.Callable<Void> checkpoint,JSONObject p)throws Exception {
         BulletRamp.load(nativeDir);var space=new PhysicsSpace(PhysicsSpace.BroadphaseType.DBVT);var bodies=new LinkedHashMap<String,PhysicsRigidBody>();var dynamic=new LinkedHashSet<String>();
-        var scene=run.getJSONObject("definition");var objects=new JSONArray(scene.getJSONArray("objects").toString());boolean payload=spec.getString("kind").equals("payload");if(payload)objects.put(payloadDefinition(run,spec));
+        var scene=run.getJSONObject("definition");var objects=new JSONArray(scene.getJSONArray("objects").toString());boolean payload=spec.getString("kind").equals("payload");if(payload)objects.put(payloadDefinition(run,spec,p));
         try {
             space.setGravity(new Vector3f(0,(float)-scene.getDouble("gravityMps2"),0));space.setAccuracy((float)BulletRamp.DT);
             for(Object raw:objects){var o=(JSONObject)raw;String id=o.getString("id");var size=o.getJSONArray("size");var b=new PhysicsRigidBody(new BoxCollisionShape(size.getFloat(0)/2,size.getFloat(1)/2,size.getFloat(2)/2),o.getFloat("massKg"));var pose=o;
@@ -118,7 +121,7 @@ final class Payload057 {
                 b.setPhysicsLocation(SpatialPhysics.vec(SpatialScene.vector(pose.getJSONArray("position"),30)));var q=pose.getJSONArray("rotation");b.setPhysicsRotation(new Quaternion(q.getFloat(0),q.getFloat(1),q.getFloat(2),q.getFloat(3)));b.setFriction(o.getFloat("friction"));b.setRestitution(o.getFloat("restitution"));
                 if(b.getMass()>0){b.setLinearVelocity(SpatialPhysics.vec(SpatialScene.vector(pose.getJSONArray("velocity"),100)));b.setAngularVelocity(SpatialPhysics.vec(SpatialScene.vector(pose.getJSONArray("angularVelocity"),100)));}space.addCollisionObject(b);bodies.put(id,b);
             }
-            attempt.put("contactEncoding","objects-index-v1").put("nativeInitial",states(bodies,dynamic)).put("objects",objects).put("gravityMps2",scene.getDouble("gravityMps2"));String beamId=beam(run).getString("id");var p=protocol();
+            attempt.put("contactEncoding","objects-index-v1").put("nativeInitial",states(bodies,dynamic)).put("objects",objects).put("gravityMps2",scene.getDouble("gravityMps2"));String beamId=beam(run).getString("id");
             for(int tick=0;tick<p.getInt("ticks");tick++){
                 if(Thread.interrupted())throw new InterruptedException("Payload integration interrupted");var target=bodies.get(beamId);var offset=target.getPhysicsRotation().mult(SpatialPhysics.vec(SpatialScene.vector(localPoint(run,spec),2)));var force=new Vector3f();
                 if(!payload&&tick>=p.getInt("forceStartTick")&&tick<p.getInt("forceEndTickExclusive")){force.y=-spec.getFloat("forceN");target.applyForce(force,offset);}
@@ -130,17 +133,18 @@ final class Payload057 {
     }
     static JSONArray decodedContacts(JSONArray rows,JSONArray objects){var out=new JSONArray();for(Object raw:rows){var r=(JSONArray)raw;if(r.length()!=4)throw new IllegalStateException("Contact width changed");var c=new JSONArray();for(int k=0;k<2;k++){Object v=r.get(k);if(!(v instanceof Number)||((Number)v).doubleValue()!=((Number)v).intValue())throw new IllegalStateException("Contact index changed");int i=((Number)v).intValue();if(i<0||i>=objects.length())throw new IllegalStateException("Unknown contact object index");c.put(objects.getJSONObject(i).getString("id"));}out.put(c.put(r.get(2)).put(r.get(3)));}return out;}
     private static boolean pair(JSONArray c,String a,String b){return c.getString(0).equals(a)&&c.getString(1).equals(b)||c.getString(1).equals(a)&&c.getString(0).equals(b);}
-    static JSONObject verify(JSONObject a,JSONObject run,JSONObject spec) {
+    static JSONObject verify(JSONObject a,JSONObject run,JSONObject spec) {return verify(a,run,spec,protocol());}
+    static JSONObject verify(JSONObject a,JSONObject run,JSONObject spec,JSONObject p) {
         if(!a.getString("contactEncoding").equals("objects-index-v1"))throw new IllegalStateException("Contact encoding changed");
-        if(!a.getJSONObject("spec").similar(spec)||!specification(spec.getString("id")).similar(spec))throw new IllegalStateException("Payload specification changed");
-        var objects=new JSONArray(run.getJSONObject("definition").getJSONArray("objects").toString());boolean payload=spec.getString("kind").equals("payload");if(payload)objects.put(payloadDefinition(run,spec));
+        if(!a.getJSONObject("spec").similar(spec)||!specification(p,spec.getString("id")).similar(spec))throw new IllegalStateException("Payload specification changed");
+        var objects=new JSONArray(run.getJSONObject("definition").getJSONArray("objects").toString());boolean payload=spec.getString("kind").equals("payload");if(payload)objects.put(payloadDefinition(run,spec,p));
         if(!objects.similar(a.getJSONArray("objects"))||a.getDouble("gravityMps2")!=run.getJSONObject("definition").getDouble("gravityMps2"))throw new IllegalStateException("Payload dimensions, mass, material or gravity changed");
         var ids=new HashSet<String>();var dynamic=new LinkedHashSet<String>();for(Object raw:objects){var o=(JSONObject)raw;ids.add(o.getString("id"));if(o.getDouble("massKg")>0)dynamic.add(o.getString("id"));}
         JSONArray initial=a.getJSONArray("nativeInitial");if(initial.length()!=dynamic.size())throw new IllegalStateException("Payload dynamic body missing");
         for(Object raw:objects){var o=(JSONObject)raw;if(o.getDouble("massKg")<=0)continue;String id=o.getString("id");var b=ContactPhysics.dynamic(initial,id);var expected=id.equals(PAYLOAD)?o:ContactPhysics.dynamic(run.getJSONObject("final").getJSONArray("bodies"),id);
             for(String k:List.of("position","velocity","angularVelocity"))WorldVerify.close(Load055.distance(b.getJSONArray(k),expected.getJSONArray(k)),0,2e-6,"Payload initial state changed");WorldVerify.close(WorldPlan.angle(b.getJSONArray("rotation"),expected.getJSONArray("rotation")),0,.0001,"Payload initial rotation changed");WorldVerify.close(b.getDouble("massKg"),o.getDouble("massKg"),1e-5,"Native payload mass changed");if(b.getInt("initializationPoseWrites")!=1)throw new IllegalStateException("Pose writes after initialization");
         }
-        String beamId=beam(run).getString("id"),sa=WorldPlan.sourceObject(run.getJSONObject("definition"),"support-a").getString("id"),sb=WorldPlan.sourceObject(run.getJSONObject("definition"),"support-b").getString("id");var initialBeam=ContactPhysics.dynamic(initial,beamId);JSONArray previous=initial;var p=protocol();
+        String beamId=beam(run).getString("id"),sa=WorldPlan.sourceObject(run.getJSONObject("definition"),"support-a").getString("id"),sb=WorldPlan.sourceObject(run.getJSONObject("definition"),"support-b").getString("id");var initialBeam=ContactPhysics.dynamic(initial,beamId);JSONArray previous=initial;
         int tick=0,supported=0,settled=0,payloadSupported=0,firstImpact=0,freeFallTicks=0;double maxDisplacement=0,maxTilt=0,maxSpeed=0,maxPayloadSpeed=0,impulse=0,effort=0,work=0,gravityWork=0,freeFallSum=0,payloadMinimumY=Double.POSITIVE_INFINITY;
         for(Object raw:a.getJSONArray("rows")){
             var row=(JSONArray)raw;if(row.length()!=5||row.getInt(0)!=++tick)throw new IllegalStateException("Payload tick sequence changed");var now=expand(row.getJSONArray(3));if(now.length()!=dynamic.size())throw new IllegalStateException("Payload body count changed");var seen=new HashSet<String>();
