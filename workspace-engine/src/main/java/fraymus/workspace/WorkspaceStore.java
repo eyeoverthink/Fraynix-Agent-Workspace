@@ -84,27 +84,29 @@ public final class WorkspaceStore implements AutoCloseable {
     }
     synchronized JSONObject writeCounterfactualWorldOnce(String key,JSONObject run,JSONObject data,JSONArray attempts)throws IOException{return writeCounterfactualWorldOnce(key,run,data,attempts,null);}
     synchronized JSONObject writeCounterfactualWorldOnce(String key,JSONObject run,JSONObject data,JSONArray attempts,JSONObject envelopes)throws IOException{return writeCounterfactualWorldOnce(key,run,data,attempts,envelopes,null);}
-    synchronized JSONObject writeCounterfactualWorldOnce(String key,JSONObject run,JSONObject data,JSONArray attempts,JSONObject envelopes,JSONObject payloadOriginal)throws IOException{if(!WorldVerify.verify(run).getBoolean("passed")||!data.getJSONObject("comparison").getBoolean("passed"))throw new IllegalStateException("Actual native/counterfactual gates required");if(data.has("load056")&&!data.getJSONObject("load056").getBoolean("qualifies"))throw new IllegalStateException("Fresh required-load proof required");return writeOnce(key,CounterfactualReport045.build(run,data,attempts,envelopes,payloadOriginal),(data.has("load056")||data.has("payload057"))?8_000_000:4_000_000,data.has("payload057")?64_000_000:data.has("load056")?32_000_000:20_000_000);}
+    synchronized JSONObject writeCounterfactualWorldOnce(String key,JSONObject run,JSONObject data,JSONArray attempts,JSONObject envelopes,JSONObject payloadOriginal)throws IOException{if(!WorldVerify.verify(run).getBoolean("passed")||!data.getJSONObject("comparison").getBoolean("passed"))throw new IllegalStateException("Actual native/counterfactual gates required");if(data.has("load056")&&!data.getJSONObject("load056").getBoolean("qualifies"))throw new IllegalStateException("Fresh required-load proof required");return writeOnce(key,CounterfactualReport045.build(run,data,attempts,envelopes,payloadOriginal),(data.has("load056")||data.has("payload057"))?8_000_000:4_000_000,data.has("payload057")?64_000_000:data.has("load056")?32_000_000:20_000_000,data.has("payload057")?64:20);}
     synchronized JSONObject writeNativeWorldOnce(String key,JSONObject run) throws IOException {if(!WorldVerify.verify(run).getBoolean("passed"))throw new IllegalStateException("Only actual verified native poses can use the bounded report path");return writeOnce(key,WorldReport.build(run),4_000_000,8_000_000);}
     synchronized JSONObject writeNativePoseOnce(String key,JSONObject run) throws IOException {if(!PoseVerify.verify(run).getBoolean("passed"))throw new IllegalStateException("Only actual verified native poses can use the bounded report path");return writeOnce(key,PoseReport.build(run),4_000_000,8_000_000);}
-    private JSONObject writeOnce(String key,JSONObject args,int fileLimit,int totalLimit) throws IOException {
+    private JSONObject writeOnce(String key,JSONObject args,int fileLimit,int totalLimit) throws IOException {return writeOnce(key,args,fileLimit,totalLimit,20);}
+    private JSONObject writeOnce(String key,JSONObject args,int fileLimit,int totalLimit,int maxFiles) throws IOException {
         String id=UUID.nameUUIDFromBytes(key.getBytes(StandardCharsets.UTF_8)).toString();
         if(world.snapshot().entities().stream().anyMatch(e->e.id().toString().equals(id))){
             var prior=read(id);if(!prior.getJSONObject("contents").similar(args.getJSONObject("files"))||!prior.getJSONArray("sources").similar(args.getJSONArray("sources")))throw new IllegalStateException("Durable report effect changed");return prior;
         }
-        return write(args,id,fileLimit,totalLimit);
+        return write(args,id,fileLimit,totalLimit,maxFiles);
     }
     private JSONObject write(JSONObject args,String newId) throws IOException {return write(args,newId,512_000,2_000_000);}
-    private JSONObject write(JSONObject args,String newId,int fileLimit,int totalLimit) throws IOException {
+    private JSONObject write(JSONObject args,String newId,int fileLimit,int totalLimit) throws IOException {return write(args,newId,fileLimit,totalLimit,20);}
+    private JSONObject write(JSONObject args,String newId,int fileLimit,int totalLimit,int maxFiles) throws IOException {
         String title=args.getString("title").strip();if(title.isEmpty()||title.length()>140)throw new IllegalArgumentException("Title must contain 1..140 characters");
         boolean existing=args.has("id")&&!args.optString("id").isBlank();String id=existing?args.getString("id"):newId==null?UUID.randomUUID().toString():newId;
         JSONObject previous=existing?read(id):null;
         int prior=previous==null?0:previous.getInt("version");
         if(existing && args.optInt("expectedVersion",-1)!=prior)throw new ConcurrentModificationException("Artifact changed; read the current version before editing");
         var contents=previous==null?new JSONObject():previous.getJSONObject("contents");JSONObject changes=args.getJSONObject("files");
-        if(changes.isEmpty()||changes.length()>20)throw new IllegalArgumentException("Supply 1..20 files");
+        if(changes.isEmpty()||changes.length()>maxFiles)throw new IllegalArgumentException("Supply1.."+maxFiles+" files");
         for(String name:changes.keySet()){validFile(name);String value=changes.getString(name);if(value.length()>fileLimit)throw new IllegalArgumentException("File exceeds "+fileLimit+" characters");contents.put(name,value);}
-        if(!contents.has("index.html")||contents.length()>32||contents.toString().length()>totalLimit)throw new IllegalArgumentException("Artifact needs index.html and must fit32 files / "+totalLimit+" characters");
+        if(!contents.has("index.html")||contents.length()>Math.max(32,maxFiles)||contents.toString().length()>totalLimit)throw new IllegalArgumentException("Artifact needs index.html and must fit"+Math.max(32,maxFiles)+" files / "+totalLimit+" characters");
         int version=prior+1;
         var sources=args.optJSONArray("sources");if(sources==null)sources=previous==null?new JSONArray():previous.getJSONArray("sources");
         if(sources.length()>32)throw new IllegalArgumentException("At most 32 source references");
