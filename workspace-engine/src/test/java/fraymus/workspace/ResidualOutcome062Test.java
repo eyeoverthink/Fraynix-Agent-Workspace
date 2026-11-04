@@ -52,4 +52,12 @@ public class ResidualOutcome062Test {
   max.put("linear",.021);assertFalse(ResidualOutcome062.evaluate(decision,metrics).getBoolean("qualified"));
  }
  @Test public void chatUsesExistingFactsAndReports(){assertEquals("agent",ChatPolicy044.route("Inspect physics residual learning results",new JSONObject(),false));}
+ @Test public void published061OutcomeRemainsReadable()throws Exception{
+  Path original=Path.of("../docs/readmes/061/original/final061/native-experiment.json.gz");
+  try(var in=new java.util.zip.GZIPInputStream(Files.newInputStream(original))){
+   var job=new JSONObject(new String(in.readAllBytes(),java.nio.charset.StandardCharsets.UTF_8));FraynixOutcome061.audit(job);
+   assertFalse(job.getJSONObject("outcomeEvaluation061").getBoolean("qualified"));
+   var c=FraynixOutcome061.definitions(false).getJSONObject(0);assertTrue(FraynixOutcome061.predictions(job.getJSONObject("outcomeModel061"),c).similar(job.getJSONArray("reserved061").getJSONObject(0).getJSONObject("predictionBeforeObservation")));
+  }
+ }
 }
