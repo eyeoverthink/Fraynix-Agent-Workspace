@@ -6,8 +6,10 @@ import java.nio.file.*;
 
 /** New compact outcomes are measurements, not assertions that a repair must succeed. */
 public class Design060Test {
- @Test public void compactRepairMeasuresAllAdmittedBearingsAndRetainsFailures()throws Exception{
-  Path root=Files.createTempDirectory("design060-native-");System.out.println("DESIGN060_NATIVE "+root);var worlds=new WorldLedger(root);var input=Load056Test.input(worlds,"compact",1,0);var before=worlds.observe(input.getString("worldId"));String id,decision="";JSONObject plan=null;
+ @Test public void compactRepairMeasuresAllAdmittedBearingsAndRetainsFailures()throws Exception{experiment("compact",1);}
+ @Test public void wideOriginalLayoutColdReviewAndPairedReservedEvaluation()throws Exception{experiment("wide",1.9);}
+ private void experiment(String preset,double span)throws Exception{
+  Path root=Files.createTempDirectory("design060-"+preset+"-");System.out.println("DESIGN060_NATIVE "+root);var worlds=new WorldLedger(root);var input=Load056Test.input(worlds,preset,span,0);var before=worlds.observe(input.getString("worldId"));String id,decision="";JSONObject plan=null;
   try(var store=new Counterfactual045(root,worlds)){
    id=store.prepare(before,worlds.preview(input),true,0,true,true,true,false,true).getString("id");store.begin(id);var study=Design056Test.terminal(store,id);Files.writeString(root.resolve("design-summary.json"),study.toString(2));
    assertTrue(study.toString(),java.util.Set.of("ready","failed").contains(study.getString("status")));assertTrue(study.has("repairEvidence060"));var original=study.getJSONArray("candidates").getJSONObject(0);assertTrue(original.has("payloadDesign058"));
@@ -23,6 +25,6 @@ public class Design060Test {
    assertTrue(before.similar(worlds.observe(input.getString("worldId"))));
   }
   // Tamper with a derived diagnosis while keeping its container checksum valid.
-  if(plan!=null){Path file=root.resolve("counterfactual-045/studies.json");byte[] original=Files.readAllBytes(file);var d=AgentFiles042.loadChecked(file);d.getJSONArray("studies").getJSONObject(0).getJSONObject("repairEvidence060").put("baselineQualifies",!d.getJSONArray("studies").getJSONObject(0).getJSONObject("repairEvidence060").getBoolean("baselineQualifies"));AgentFiles042.saveChecked(file,d);try(var store=new Counterfactual045(root,worlds)){assertThrows(IllegalStateException.class,()->store.audit(id));}finally{Files.write(file,original);}}
+  {Path file=root.resolve("counterfactual-045/studies.json");byte[] original=Files.readAllBytes(file);var d=AgentFiles042.loadChecked(file);d.getJSONArray("studies").getJSONObject(0).getJSONObject("repairEvidence060").put("baselineQualifies",!d.getJSONArray("studies").getJSONObject(0).getJSONObject("repairEvidence060").getBoolean("baselineQualifies"));AgentFiles042.saveChecked(file,d);try(var store=new Counterfactual045(root,worlds)){assertThrows(IllegalStateException.class,()->store.payloadOriginals058(id));}finally{Files.write(file,original);}}
  }
 }

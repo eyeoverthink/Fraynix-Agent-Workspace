@@ -113,7 +113,7 @@ final class Counterfactual045 implements AutoCloseable {
 
     synchronized JSONObject payloadSeries058(String id,String candidate)throws Exception {var s=study(id);return new PayloadSeries058("design",SupportDesign059.enabled(s),SupportRepair060.enabled(s)).read(branch(id).resolve("payload-058"),run(id,candidate));}
     synchronized JSONObject payloadOriginals058(String id)throws Exception {
-        var s=study(id);var groups=new JSONArray();var series=new PayloadSeries058("design",SupportDesign059.enabled(s),SupportRepair060.enabled(s));
+        var s=study(id);if(SupportRepair060.enabled(s)&&s.has("repairEvidence060")){var baseline=run(id,"maximum-force");if(!SupportRepair060.witness(new PayloadSeries058("design",false,true).read(branch(id).resolve("payload-058"),baseline),baseline).similar(s.getJSONObject("repairEvidence060")))throw new IllegalStateException("Measured repair witness changed");}var groups=new JSONArray();var series=new PayloadSeries058("design",SupportDesign059.enabled(s),SupportRepair060.enabled(s));
         try(var nativeStore=new WorldNativeStore(branch(id))){for(Object raw:s.getJSONArray("candidates")){var c=(JSONObject)raw;for(Object rid:c.getJSONArray("attempts")){var run=nativeStore.run(rid.toString());if(series.exists(branch(id).resolve("payload-058"),run))groups.put(new JSONObject().put("phase","design-"+c.getString("id")+"/"+rid).put("original",series.originals(branch(id).resolve("payload-058"),run)));}}}
         return new JSONObject().put("groups",groups);
     }
