@@ -43,3 +43,8 @@ Chat requests to compare assembly designs use the existing construction route. J
 ## Geometry and baseline054
 
 Spatial → Gripper assembly → Choose stock and obstacles creates separate declared worlds. Java validates bounded dimensions/corridors and uses actual native forces, released contacts and zero obstacle-contact checks. Chat and exact saved-design reuse run the same existing goal owner. The verified report compares one maximum-force attempt with the selected fresh execution and charges all original trial attempts.26N/40N tie in the frozen cases; no efficiency gain claimed. Closed known053 worlds have an explicit compatible handoff with unchanged frames/history, never automatic migration. [Edition054 walkthrough, measurements and limits](../README-054.md).
+
+
+## Simple control, routes and loads055
+
+Spatial → Gripper assembly supports a tall detour wall and a sealed-wall refusal. Try simpler control first keeps all original checks; unexecuted alternatives say not-needed. Independent load results retain stable and unstable outcomes in separate native copies. Chat and exact saved procedures preserve these requirements. Load exports retain original per-tick forces, work, motion and contacts; explicit restart preserves unfinished attempts. [Edition055 walkthrough and measured limits](../README-055.md).

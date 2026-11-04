@@ -1,0 +1,103 @@
+{
+  "label": "native055-report",
+  "source": "561d12c",
+  "count": 19,
+  "failures": 0,
+  "cases": [
+    {
+      "case": "fraymus.workspace.ChatChain052Test#duplicateWarningsKeepEveryOriginalOccurrenceBeyondRecentWindow",
+      "passed": true,
+      "seconds": 0.008
+    },
+    {
+      "case": "fraymus.workspace.ChatChain052Test#numericRefusalExplainsOriginalBoundsWithoutChangingThem",
+      "passed": true,
+      "seconds": 0.007
+    },
+    {
+      "case": "fraymus.workspace.ChatChain052Test#oversizedRequirementsRefuseRatherThanBeingSilentlyTruncated",
+      "passed": true,
+      "seconds": 0.006
+    },
+    {
+      "case": "fraymus.workspace.ChatChain052Test#legacyTaskDoesNotClaimCompleteTimingCoverage",
+      "passed": true,
+      "seconds": 0.001
+    },
+    {
+      "case": "fraymus.workspace.ChatChain052Test#summaryRetainsRejectedQualityAndDoesNotDumpMetrics",
+      "passed": true,
+      "seconds": 0.001
+    },
+    {
+      "case": "fraymus.workspace.ChatChain052Test#discoverySummaryKeepsExactBindingsAndBothEndsWithoutBreakingJson",
+      "passed": true,
+      "seconds": 0.025
+    },
+    {
+      "case": "fraymus.workspace.ChatChain052Test#largeRecentObservationHasExplicitOmissionHashAndKeepsFailure",
+      "passed": true,
+      "seconds": 0.005
+    },
+    {
+      "case": "fraymus.workspace.ChatChain052Test#queuedObjectiveSealRefusesChangedRequest",
+      "passed": true,
+      "seconds": 0.001
+    },
+    {
+      "case": "fraymus.workspace.ChatChain052Test#providerMapMetadataIsRetainedWithoutUnrelatedFields",
+      "passed": true,
+      "seconds": 0.0
+    },
+    {
+      "case": "fraymus.workspace.ChatChain052Test#automaticCompletionRechecksCurrentArtifactInsteadOfTrustingOldSuccess",
+      "passed": true,
+      "seconds": 2.893
+    },
+    {
+      "case": "fraymus.workspace.ChatChain052Test#failedPlannerCallIsTimedAndDoesNotBecomeAnAction",
+      "passed": true,
+      "seconds": 0.903
+    },
+    {
+      "case": "fraymus.workspace.Counterfactual045Test#unfinishedForecastRetainsCompletedBytesAndOriginalAttemptsAcrossRestart",
+      "passed": true,
+      "seconds": 16.56
+    },
+    {
+      "case": "fraymus.workspace.Counterfactual045Test#codeAndSourceCorruptionAreRefusedWithoutChangingOriginalBytes",
+      "passed": true,
+      "seconds": 0.112
+    },
+    {
+      "case": "fraymus.workspace.Counterfactual045Test#ordinaryWorldRequestAndExplicitCounterfactualRequestStayDistinct",
+      "passed": true,
+      "seconds": 0.002
+    },
+    {
+      "case": "fraymus.workspace.Counterfactual045Test#nativeAlternativesKeepWorldExactAndSelectedExecutionMatchesOriginalTraces",
+      "passed": true,
+      "seconds": 35.545
+    },
+    {
+      "case": "fraymus.workspace.Counterfactual045Test#forecastOnlyAndExplicitNoMovementRequestsRequireReview",
+      "passed": true,
+      "seconds": 0.001
+    },
+    {
+      "case": "fraymus.workspace.Counterfactual045Test#cancellationCannotAdvanceOrReserveTheLiveWorld",
+      "passed": true,
+      "seconds": 0.051
+    },
+    {
+      "case": "fraymus.workspace.WorldHandoff055Test#exactPublishedColdWorldNeedsExplicitUpgradeAndRetainsEveryFrame",
+      "passed": true,
+      "seconds": 0.116
+    },
+    {
+      "case": "fraymus.workspace.WorldHandoff055Test#pendingOwnersAndUnknownIdentitiesCannotBeUpgraded",
+      "passed": true,
+      "seconds": 0.04
+    }
+  ]
+}

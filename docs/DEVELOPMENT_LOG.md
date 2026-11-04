@@ -1,5 +1,14 @@
 # Agent Workspace development log
 
+## Edition055 · Validated locally; publication audit next
+
+2026-11-03. Actual app sourcea8e18880856fc58ba7137d9ffb4db0201e3e5c5b. Java direct-first policy reduces assembly forecast+execution ticks compact27472→13292 and wide/barrier24151→15780, with original native/support checks unchanged. Tall wall uses actual intermediate lateral stages; sealed wall refuses. Independent loads add4320ticks; wide unloaded/downward stable, horizontal overload unstable and retained. No material-strength, hardware or model-weight-learning claim.
+
+60 distinct targeted Java cases/14 classes across source-qualified invocations;123desktop checks and actual CPU/four-thread gpt-oss:20b chat/reuse pass. Cold lateral restart, interrupted load retention, altered-evidence rejection, exact closed054handoff, original reports/exports and prior-world preservation checked. Chat172.446s; reuse183.852s. First saved-number mismatch and original failed invocations retained. No full-suite055 claim.
+
+New README055, eight actual captures, offline guide, Obsidian map and original evidence prepared. Private normal review045/Java33224 and installed JARs untouched; synthetic tests use this isolated055checkout only. Preserve001–054immutable. Finish documentation verification, actual main/edition055/readme-055push and fetched-blob audit before claiming published. Next: new route layouts, load envelopes and bounded task recovery with all experiment cost.
+
+
 ## Edition055 current validation checkpoint · 2026-11-03, not published
 
 Latest app source a8e1888; native report fix6cf99a8. Active exec29930 is the final serial pipeline: startup055 fault recovery PASSED (Temp/fraynix-startup055-h7F9nW,16.427s),123desktop checks PASSED, complete construction055 workflow now runs in Temp/fraynix-construction055-aVgtoX, log build/test055-live.log. Its direct review/restart, real detour, load/chart receipt and visible file export have passed; real CPU model chat is underway. Still must pass normal saved-report reopen, compact-world exact skill reuse, sealed refusal and cancellation. Do not overlap native/model validation or upgrade original045Java33224/private data/JARs.

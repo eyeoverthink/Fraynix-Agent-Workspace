@@ -1,0 +1,33 @@
+{
+  "label": "native055-first",
+  "source": "3045794",
+  "count": 5,
+  "failures": 1,
+  "cases": [
+    {
+      "case": "fraymus.workspace.Construction055Test#failedDirectTrialExpandsWithoutInventingSuccessfulFallback",
+      "passed": true,
+      "seconds": 2.181
+    },
+    {
+      "case": "fraymus.workspace.Construction055Test#frozenDirectFirstComparisonAndIndependentLoads",
+      "passed": false,
+      "seconds": 173.553
+    },
+    {
+      "case": "fraymus.workspace.Construction055Test#lateralRoutesUseNativeWaypointsAndSealedWallRefuses",
+      "passed": true,
+      "seconds": 7.225
+    },
+    {
+      "case": "fraymus.workspace.WorldHandoff055Test#exactPublishedColdWorldNeedsExplicitUpgradeAndRetainsEveryFrame",
+      "passed": true,
+      "seconds": 0.136
+    },
+    {
+      "case": "fraymus.workspace.WorldHandoff055Test#pendingOwnersAndUnknownIdentitiesCannotBeUpgraded",
+      "passed": true,
+      "seconds": 0.037
+    }
+  ]
+}

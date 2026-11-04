@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "latest": 54,
+  "latest": 55,
   "canonicalization": "UTF-8 without BOM; CRLF normalized to LF for text",
   "editions": [
     {
@@ -18873,6 +18873,1835 @@
           "path": "docs/readmes/054/verification.json",
           "kind": "text",
           "sha256": "a2abd700251c738358b51e624e420748841e6df1fa9c6ea55682162edea6d733"
+        }
+      ]
+    },
+    {
+      "number": 55,
+      "date": "2026-11-03",
+      "title": "Simple first, routes and loads",
+      "status": "validated-local",
+      "markdown": "README-055.md",
+      "markdownSha256": "f53f06ce8c1590a27234c37c2c750f6a5e241734d4a3ba7d459aa044d587ac7a",
+      "companion": "docs/readmes/055/index.html",
+      "tag": "readme-055",
+      "sourceBaseline": "09c749ec7ee1e91ee57670b8e940d3e9dd38ed79",
+      "snapshotDirectory": "docs/readmes/055",
+      "snapshotFiles": [
+        {
+          "path": "docs/readmes/055/construction055-built.png",
+          "kind": "binary",
+          "sha256": "7239cb3a43d131795d4cba614c860c6b3acff124cb9df08f7ae1871be4428131"
+        },
+        {
+          "path": "docs/readmes/055/construction055-chat.png",
+          "kind": "binary",
+          "sha256": "0e040a97791f956ce5d89d89976aaca189dedd35bbafea4866200694fd23cd25"
+        },
+        {
+          "path": "docs/readmes/055/construction055-loads.png",
+          "kind": "binary",
+          "sha256": "c509e7d73d74777569e4ed2cbf5661ab341fa9e696de73d9241b2e66ce2e7b48"
+        },
+        {
+          "path": "docs/readmes/055/construction055-narrow.png",
+          "kind": "binary",
+          "sha256": "a4da3828bb22147ab51cfa0d397e19095d171b0f723dbccde5f34d7bcde946b4"
+        },
+        {
+          "path": "docs/readmes/055/construction055-report.png",
+          "kind": "binary",
+          "sha256": "b2bdcdfb1dcc77b387f15d795574c00518e53d9b341156835be405b4da5c7c94"
+        },
+        {
+          "path": "docs/readmes/055/construction055-review.png",
+          "kind": "binary",
+          "sha256": "765cf7f58687be6bb4728abed38704fe4fadff617ca26ad4682396fc3c55c515"
+        },
+        {
+          "path": "docs/readmes/055/construction055-sealed.png",
+          "kind": "binary",
+          "sha256": "174843dee3f3d02ca66facd88c4663ff037698ca5e76b983ec96e8de691d3143"
+        },
+        {
+          "path": "docs/readmes/055/construction055-stock.png",
+          "kind": "binary",
+          "sha256": "68924c803e5f27955ed4358391ee4ec42c64d13ca64ef18fa19216e0bb2f52f7"
+        },
+        {
+          "path": "docs/readmes/055/desktop-live.json",
+          "kind": "text",
+          "sha256": "e7708a875b7d8792bb91ee5aa0a33a0dd5965a997522fde93d8b9c23b52be1b9"
+        },
+        {
+          "path": "docs/readmes/055/development-first-construction055-built.png",
+          "kind": "binary",
+          "sha256": "47d2ac898a763a9bb209f36f241f8e692e2380232dae573bb067ef11eea60c22"
+        },
+        {
+          "path": "docs/readmes/055/development-first-construction055-loads.png",
+          "kind": "binary",
+          "sha256": "418e0ced66773768bd2ab6d46321ed2922b9793483dd1fe801622d43a9a8d081"
+        },
+        {
+          "path": "docs/readmes/055/development-first-construction055-report.png",
+          "kind": "binary",
+          "sha256": "f402449993ec5392ccc7aba95da62306d5ce5e5b75f032e6bbe23275b9bf0e3d"
+        },
+        {
+          "path": "docs/readmes/055/development-first-construction055-review.png",
+          "kind": "binary",
+          "sha256": "d1a7970cb03c7e36c4ba955713c8537e7dd0152f88e181624ab4c3ad1de6d486"
+        },
+        {
+          "path": "docs/readmes/055/development-first-construction055-stock.png",
+          "kind": "binary",
+          "sha256": "75484366f092697dfe01df7c2c41cce0c0ec4c4cce7565f305f1f8d4493bf5c7"
+        },
+        {
+          "path": "docs/readmes/055/development-first-readiness-race.png",
+          "kind": "binary",
+          "sha256": "7ea2499ed2b3d2e16045e0f585b1c3994dc743c2296f0ab836dde4ea0473853c"
+        },
+        {
+          "path": "docs/readmes/055/development-report-before-visible.png",
+          "kind": "binary",
+          "sha256": "6bd70b1e82b6afd63cd830f8b6834eeb916bd45d52202e2f177a5f53f5613cf8"
+        },
+        {
+          "path": "docs/readmes/055/documentation-browser.json",
+          "kind": "text",
+          "sha256": "9bb09503d77b6f0e7eccff340e23bec797b232972d79bd30515f53fa4b929deb"
+        },
+        {
+          "path": "docs/readmes/055/file-inventory.json",
+          "kind": "text",
+          "sha256": "1aa4b9b098ba576145d85ffd026bc8eca46fb3ec8a46688962853f2b3ab46c8f"
+        },
+        {
+          "path": "docs/readmes/055/FILE_TREE.md",
+          "kind": "text",
+          "sha256": "89774088a3e42ee63a113b386784f6b071154bcecd03aa21cc6239e87c791405"
+        },
+        {
+          "path": "docs/readmes/055/guide-1440.png",
+          "kind": "binary",
+          "sha256": "84a7875ec3082ddea2cbda26c050f1ae57c169f04c8764dbbfd6ea1262a6aa08"
+        },
+        {
+          "path": "docs/readmes/055/guide-390.png",
+          "kind": "binary",
+          "sha256": "7986ff40af6e8f57616b65be59fe19272cbd654f2368f85fec7f6c522be2a0c7"
+        },
+        {
+          "path": "docs/readmes/055/index.html",
+          "kind": "text",
+          "sha256": "c3df53ba898b945d7172cfc65eebef0ca0734accc07cdc74455e3c9febbbc8bf"
+        },
+        {
+          "path": "docs/readmes/055/java/native055-final/gradle.log.gz",
+          "kind": "binary",
+          "sha256": "6e43ea4804fc7d0c4a013325d2055cb34c7b5c7f5f4ddae967cbe9b3c8211195"
+        },
+        {
+          "path": "docs/readmes/055/java/native055-final/test/TEST-fraymus.workspace.ChatChain052Test.xml.gz",
+          "kind": "binary",
+          "sha256": "5884ec1b623f27291065c620ab1fbc91a5ea4f87640534329c661b544c3c8e5d"
+        },
+        {
+          "path": "docs/readmes/055/java/native055-final/test/TEST-fraymus.workspace.Construction051Test.xml.gz",
+          "kind": "binary",
+          "sha256": "b8293cf0225ff3a03ba8ae4145bf170e18c139c4f3ae2ab5ccd1739a1a846fc2"
+        },
+        {
+          "path": "docs/readmes/055/java/native055-final/test/TEST-fraymus.workspace.Counterfactual045Test.xml.gz",
+          "kind": "binary",
+          "sha256": "01b02adadd2df8d7d8a2f358bff75e3b0f2cc2a4deabfa276cad2cae02d2c6d9"
+        },
+        {
+          "path": "docs/readmes/055/java/native055-final/test/TEST-fraymus.workspace.Domain044Test.xml.gz",
+          "kind": "binary",
+          "sha256": "2652f273b8447994419f3c11cad46c377c9cb1f6f74c3cb766d78e48eeb70252"
+        },
+        {
+          "path": "docs/readmes/055/java/native055-final/test/TEST-fraymus.workspace.Load055Test.xml.gz",
+          "kind": "binary",
+          "sha256": "4985c9a80a0e938d8f9bd86dd1dc98aa1734f3058d0a1fa011b3d9256a071ea2"
+        },
+        {
+          "path": "docs/readmes/055/java/native055-final/test/TEST-fraymus.workspace.Route055RecoveryTest.xml.gz",
+          "kind": "binary",
+          "sha256": "b7eb512b37c110fb356b766f356816e7722bacadf4f939bae9b17368fadad694"
+        },
+        {
+          "path": "docs/readmes/055/java/native055-final/test/TEST-fraymus.workspace.WorldExportTest.xml.gz",
+          "kind": "binary",
+          "sha256": "7cdc0fbf2969a10021b0833b0ba224e6f61729aaeb9f2a93489b012ef6f1284a"
+        },
+        {
+          "path": "docs/readmes/055/java/native055-final/test/TEST-fraymus.workspace.WorldReservedTest.xml.gz",
+          "kind": "binary",
+          "sha256": "3f89c28bda91a7167d4d1b7a4254255ac95e65a66e5814617c14cbd67071ba95"
+        },
+        {
+          "path": "docs/readmes/055/java/native055-first/gradle.log.gz",
+          "kind": "binary",
+          "sha256": "4e09b7c9eaba519e0f81311154680ac43071f9b8bfe66b76ef40e91e0276dfda"
+        },
+        {
+          "path": "docs/readmes/055/java/native055-first/test/TEST-fraymus.workspace.Construction055Test.xml.gz",
+          "kind": "binary",
+          "sha256": "dd4b0e130a912fbf051cfa2a953ec2ea3fa6884f70c177c3ebe85fe614068ff2"
+        },
+        {
+          "path": "docs/readmes/055/java/native055-first/test/TEST-fraymus.workspace.WorldHandoff055Test.xml.gz",
+          "kind": "binary",
+          "sha256": "884df963ba2318d5214f37e77ed68b5bc655e85e3430f5f769edcf3a6535b89e"
+        },
+        {
+          "path": "docs/readmes/055/java/native055-historical/gradle.log.gz",
+          "kind": "binary",
+          "sha256": "01651fa2825bdcbbc24ab7302e19c5a12b1df2b605a518cfbf78da2a253efba6"
+        },
+        {
+          "path": "docs/readmes/055/java/native055-historical/test/TEST-fraymus.workspace.WorldReservedTest.xml.gz",
+          "kind": "binary",
+          "sha256": "e24f3454a690d297f7618b069e89dd44192320509805902a5d9af4632875cdd0"
+        },
+        {
+          "path": "docs/readmes/055/java/native055-regression/gradle.log.gz",
+          "kind": "binary",
+          "sha256": "e137ead31aee383a90fe921b232aa89c27e7ffd7835086aa74e5d4c748229c2a"
+        },
+        {
+          "path": "docs/readmes/055/java/native055-regression/test/TEST-fraymus.workspace.ChatChain052Test.xml.gz",
+          "kind": "binary",
+          "sha256": "ada817570cc74c4bc304bfefa518a0d8d66654f3a627ec07d8b3716aca7ebd9a"
+        },
+        {
+          "path": "docs/readmes/055/java/native055-regression/test/TEST-fraymus.workspace.Construction055Test.xml.gz",
+          "kind": "binary",
+          "sha256": "6724929cb1fc6b050bd17a9fa60192fd423ff608df929a5ca17ce6fd4aa03ac1"
+        },
+        {
+          "path": "docs/readmes/055/java/native055-regression/test/TEST-fraymus.workspace.CostAccounting054Test.xml.gz",
+          "kind": "binary",
+          "sha256": "0a6df49e63d74872d497419985e8d136ec621def483ea800028a8f2d0e30ce99"
+        },
+        {
+          "path": "docs/readmes/055/java/native055-regression/test/TEST-fraymus.workspace.DesignPolicy053Test.xml.gz",
+          "kind": "binary",
+          "sha256": "7b35b45887cbcda4719b6653238bd1831a8bb8be5f3f4ee3cdce0839b4faa31c"
+        },
+        {
+          "path": "docs/readmes/055/java/native055-regression/test/TEST-fraymus.workspace.Domain044Test.xml.gz",
+          "kind": "binary",
+          "sha256": "e9d1cbc1fd772fea3e8b0143728169fc3d833346028ba5a8459da1837141710a"
+        },
+        {
+          "path": "docs/readmes/055/java/native055-regression/test/TEST-fraymus.workspace.GoalRunnerTest.xml.gz",
+          "kind": "binary",
+          "sha256": "cdb5ed0215754200af67c19641f8d9593ba60439939c9234c43358b800dcd781"
+        },
+        {
+          "path": "docs/readmes/055/java/native055-regression/test/TEST-fraymus.workspace.Load055Test.xml.gz",
+          "kind": "binary",
+          "sha256": "4321893f4d3d4774f8e06f6bdc635cf9ba98cd5f7dc66de378c5ff72b3fb9671"
+        },
+        {
+          "path": "docs/readmes/055/java/native055-regression/test/TEST-fraymus.workspace.WorldHandoff055Test.xml.gz",
+          "kind": "binary",
+          "sha256": "ace6bc3100dae0137e84ead6f30e4b0f9f691555457fe0d1bc5acdfec913ae76"
+        },
+        {
+          "path": "docs/readmes/055/java/native055-regression/test/TEST-fraymus.workspace.WorldLedgerTest.xml.gz",
+          "kind": "binary",
+          "sha256": "bbd6e15b79cd6e3a0d1f5027ab100497cd53a5166d3a36c7a756c4c0fb1b8a14"
+        },
+        {
+          "path": "docs/readmes/055/java/native055-report/gradle.log.gz",
+          "kind": "binary",
+          "sha256": "dbfd16a8b4212523e340624bfee60561d43aad1939230addcb5fe2c238c76deb"
+        },
+        {
+          "path": "docs/readmes/055/java/native055-report/test/TEST-fraymus.workspace.ChatChain052Test.xml.gz",
+          "kind": "binary",
+          "sha256": "fc50406580ce0e0353fd679e04c8f49f1e7947d15a901e8f50a7f1397cb31441"
+        },
+        {
+          "path": "docs/readmes/055/java/native055-report/test/TEST-fraymus.workspace.Counterfactual045Test.xml.gz",
+          "kind": "binary",
+          "sha256": "4cc8db36d0dafaad00fba8cd7123a1af20114d352c6c47f6a45badcd700cabcf"
+        },
+        {
+          "path": "docs/readmes/055/java/native055-report/test/TEST-fraymus.workspace.WorldHandoff055Test.xml.gz",
+          "kind": "binary",
+          "sha256": "523530aa2e3fa351131d8018b6402c3f78a193b0bc0d96d627e62d25fda316da"
+        },
+        {
+          "path": "docs/readmes/055/java/native055-report-final/gradle.log.gz",
+          "kind": "binary",
+          "sha256": "6b8d2c7d03fe9e6b6a6574ceab6757ee3cef938efaf89ffd6dcdadfb16b382ba"
+        },
+        {
+          "path": "docs/readmes/055/java/native055-report-final/test/TEST-fraymus.workspace.ChatChain052Test.xml.gz",
+          "kind": "binary",
+          "sha256": "382739a791c78cb93d0507b6b4e23fd48b7d6ac2e14b9a4cd1f2fb0b4a2b54e3"
+        },
+        {
+          "path": "docs/readmes/055/java/native055-report-final/test/TEST-fraymus.workspace.Counterfactual045Test.xml.gz",
+          "kind": "binary",
+          "sha256": "2fdd35c1c28ac64f4c70784eaa095e302873ec2d4743cf4e2fe53bfa074bf236"
+        },
+        {
+          "path": "docs/readmes/055/java/native055-report-final/test/TEST-fraymus.workspace.WorldHandoff055Test.xml.gz",
+          "kind": "binary",
+          "sha256": "d1532fa594b9d6d039f678bd958c3a7d2c8f81f8fb1cdaefe9c3b954ed2f77d9"
+        },
+        {
+          "path": "docs/readmes/055/logs/compile055-first.log.gz",
+          "kind": "binary",
+          "sha256": "31392fbae60ebfe98ae8f67ebf89e40e064fec9ddb043b7563570d721aa09c90"
+        },
+        {
+          "path": "docs/readmes/055/logs/compile055-second.log.gz",
+          "kind": "binary",
+          "sha256": "834fd1dd1b968dac888d544efa1fec39b6e5bf95ae9055b27f4b921d645195e1"
+        },
+        {
+          "path": "docs/readmes/055/logs/docs055-browser-first.log.gz",
+          "kind": "binary",
+          "sha256": "6bc28442547b0a768b30667904d3a79e4f74a571abc7e4eba8b3ea8125fb7eca"
+        },
+        {
+          "path": "docs/readmes/055/logs/docs055-browser.log.gz",
+          "kind": "binary",
+          "sha256": "fe75257f3b523b0a313073429087dd3d1ff0fe445dee2038ee0b7298aaa065c2"
+        },
+        {
+          "path": "docs/readmes/055/logs/test055-desktop-final.log.gz",
+          "kind": "binary",
+          "sha256": "04ee7a1fe7d345df3728ae3acf4c8e121c0c12cf334b608469f33839d51506bc"
+        },
+        {
+          "path": "docs/readmes/055/logs/test055-desktop.log.gz",
+          "kind": "binary",
+          "sha256": "2bb84246f11c0ab3bfef3e70c5d1787374edd24d03181ef146970573aa343a2e"
+        },
+        {
+          "path": "docs/readmes/055/logs/test055-final.log.gz",
+          "kind": "binary",
+          "sha256": "6e43ea4804fc7d0c4a013325d2055cb34c7b5c7f5f4ddae967cbe9b3c8211195"
+        },
+        {
+          "path": "docs/readmes/055/logs/test055-historical.log.gz",
+          "kind": "binary",
+          "sha256": "01651fa2825bdcbbc24ab7302e19c5a12b1df2b605a518cfbf78da2a253efba6"
+        },
+        {
+          "path": "docs/readmes/055/logs/test055-live-first.log.gz",
+          "kind": "binary",
+          "sha256": "59dcd0d17c09955b9cdc26a998b8474e4b211e7e5b78a0a836980ef58fb28e4b"
+        },
+        {
+          "path": "docs/readmes/055/logs/test055-live-navigation.log.gz",
+          "kind": "binary",
+          "sha256": "62570f420cfb425d094be2718e8a04de6546a43f9dbab6f59adbc69d5b5deb8b"
+        },
+        {
+          "path": "docs/readmes/055/logs/test055-live-restart.log.gz",
+          "kind": "binary",
+          "sha256": "de1f92a237bf48e1a8abfd80148ed4468cfa5c591903e39056219ba2bbbb4076"
+        },
+        {
+          "path": "docs/readmes/055/logs/test055-live-structured-report.log.gz",
+          "kind": "binary",
+          "sha256": "5909ee3d911b9d539f6ccae9ff3a08feb8c03b4e666115fce5574e9291f50466"
+        },
+        {
+          "path": "docs/readmes/055/logs/test055-live.log.gz",
+          "kind": "binary",
+          "sha256": "0c5b3a449e720b67a6c0bff3929576236433e4836f8b7e4f8663f70c60c439ef"
+        },
+        {
+          "path": "docs/readmes/055/logs/test055-native-first.log.gz",
+          "kind": "binary",
+          "sha256": "4e09b7c9eaba519e0f81311154680ac43071f9b8bfe66b76ef40e91e0276dfda"
+        },
+        {
+          "path": "docs/readmes/055/logs/test055-regression.log.gz",
+          "kind": "binary",
+          "sha256": "e137ead31aee383a90fe921b232aa89c27e7ffd7835086aa74e5d4c748229c2a"
+        },
+        {
+          "path": "docs/readmes/055/logs/test055-report-capture.log.gz",
+          "kind": "binary",
+          "sha256": "a76ea67006b94a2481acff9c5079136fa37e2ccf228c696f8cf450805e386beb"
+        },
+        {
+          "path": "docs/readmes/055/logs/test055-report-final.log.gz",
+          "kind": "binary",
+          "sha256": "6b8d2c7d03fe9e6b6a6574ceab6757ee3cef938efaf89ffd6dcdadfb16b382ba"
+        },
+        {
+          "path": "docs/readmes/055/logs/test055-report.log.gz",
+          "kind": "binary",
+          "sha256": "dbfd16a8b4212523e340624bfee60561d43aad1939230addcb5fe2c238c76deb"
+        },
+        {
+          "path": "docs/readmes/055/logs/test055-startup-first.log.gz",
+          "kind": "binary",
+          "sha256": "0061cbd5823a15b23e1744f81f3f5389ebc1f855a0e4f0f554d6753c6eee25d8"
+        },
+        {
+          "path": "docs/readmes/055/logs/test055-startup.log.gz",
+          "kind": "binary",
+          "sha256": "419f9606fde626353e79320b9e0e7fc57dacd2cf5c056f23b92cb1e4bebad289"
+        },
+        {
+          "path": "docs/readmes/055/native055-final.json",
+          "kind": "text",
+          "sha256": "e5424d4268b9ad7555066c7e97bfceaac9c6c526787fcd3d77d65b1b279d00ac"
+        },
+        {
+          "path": "docs/readmes/055/native055-first.json",
+          "kind": "text",
+          "sha256": "3621d696e2b37802940dc33ffe3cc9c277c6d84102cf9b3eb27f00b1761c6b83"
+        },
+        {
+          "path": "docs/readmes/055/native055-historical.json",
+          "kind": "text",
+          "sha256": "6d429c1ff17899b6f7ab6cd6ff2c5aef19c1ec74aa84fc9f60c6e9c182357d82"
+        },
+        {
+          "path": "docs/readmes/055/native055-regression.json",
+          "kind": "text",
+          "sha256": "9b0f05b7acbdac3770ee6af3cbf5dcda10ba7b3f84d8891ebe3d89398d2c8186"
+        },
+        {
+          "path": "docs/readmes/055/native055-report-final.json",
+          "kind": "text",
+          "sha256": "af25c067f4210cb80d89e0110648d8fccd4b483565dc51c42973bfc25ca1081a"
+        },
+        {
+          "path": "docs/readmes/055/native055-report.json",
+          "kind": "text",
+          "sha256": "e4b8f24fefaddd29db1e94c4628a580ed8a856ac016f149f6b774888915cbf2c"
+        },
+        {
+          "path": "docs/readmes/055/original/actual-app/agency-043/tasks.json.gz",
+          "kind": "binary",
+          "sha256": "06a0c599fd3b93cabf2ae5b9caef26e36ecfdd7431499bb0a60fc46a9d9dac20"
+        },
+        {
+          "path": "docs/readmes/055/original/actual-app/alignment-041/state.json.gz",
+          "kind": "binary",
+          "sha256": "7da0189c2371d1a2eeef9c9657cc5c647015fc5aadb4b4dd85c670891a1ef0a8"
+        },
+        {
+          "path": "docs/readmes/055/original/actual-app/contact-study/state.json.gz",
+          "kind": "binary",
+          "sha256": "99a9034fabf96bbda08fbb95fc8bcb4defd72013c361289f0f0a4ae305c8738a"
+        },
+        {
+          "path": "docs/readmes/055/original/actual-app/counterfactual-045/branches/5a35fe2b-c42a-402f-9a07-f45e57968f06/world-native/state.json.gz",
+          "kind": "binary",
+          "sha256": "3cf82a3e3ba3770c35b12862743a2fd38de2c73c3ed76aaed14e203e8dc1446a"
+        },
+        {
+          "path": "docs/readmes/055/original/actual-app/counterfactual-045/branches/a1d16052-bc79-4e50-91d3-5d2a11770137/world-native/state.json.gz",
+          "kind": "binary",
+          "sha256": "eaa49616d1a5709b1ed09e335a9f5bc3798aadc1af414d5231af7010221de0e5"
+        },
+        {
+          "path": "docs/readmes/055/original/actual-app/counterfactual-045/branches/d158b26a-977a-435c-a45d-9d56a85381ee/world-native/state.json.gz",
+          "kind": "binary",
+          "sha256": "9d1c1d1ec1f366dd2837f4c60f3aafb09afc6e4556415988c1888a37247434c7"
+        },
+        {
+          "path": "docs/readmes/055/original/actual-app/counterfactual-045/branches/df650ce0-4c09-4874-a393-22f0b49f8974/world-native/state.json.gz",
+          "kind": "binary",
+          "sha256": "aabe242b81f93dcb14b5691f52466cd4cb08a677a99747d92c0d27aa6f9b18ac"
+        },
+        {
+          "path": "docs/readmes/055/original/actual-app/counterfactual-045/studies.json.gz",
+          "kind": "binary",
+          "sha256": "6ff7a536cc1521d4e87e047af24a71421b207fe50d4177ba09e7d71ae043ea8c"
+        },
+        {
+          "path": "docs/readmes/055/original/actual-app/exports/22d81c43-2531-431b-ba8b-c3b3c210bff8.json.gz",
+          "kind": "binary",
+          "sha256": "5e801604cd8bf4e42bf7418b3fc831005e24ba830102abdc9aa3fbc011cfdc42"
+        },
+        {
+          "path": "docs/readmes/055/original/actual-app/exports/22d81c43-2531-431b-ba8b-c3b3c210bff8.json.receipt.json.gz",
+          "kind": "binary",
+          "sha256": "c80d899fda4594619a9cb2c76e792a46c7b52c4306a8691c85b1f5280fc83e37"
+        },
+        {
+          "path": "docs/readmes/055/original/actual-app/exports/manifest.jsonl.gz",
+          "kind": "binary",
+          "sha256": "addc77015cea000a208b82afb034a26e5a63307b09ae55d0fe653910e603867d"
+        },
+        {
+          "path": "docs/readmes/055/original/actual-app/goals/tasks.fworld.gz",
+          "kind": "binary",
+          "sha256": "35519db29f2df4be3df7bb8cdb1dcef1088bde6c18ac76c29b8f8bef36a2e4c8"
+        },
+        {
+          "path": "docs/readmes/055/original/actual-app/knowledge-039/state.json.gz",
+          "kind": "binary",
+          "sha256": "5faf0c5a4aeddd69d56ac9f9bc33abb5c9227da009e03170201f7e9962f27af3"
+        },
+        {
+          "path": "docs/readmes/055/original/actual-app/load-055/29b1041d-a650-3e78-af34-a5d60d7bc081.json.gz",
+          "kind": "binary",
+          "sha256": "8394a0d80f067b85c92f65b44a98b377b66dfe7834c23500a5a8e7cb3fab0f0a"
+        },
+        {
+          "path": "docs/readmes/055/original/actual-app/load-055/9b2eada0-b8b2-3be7-b3a5-b6f05e0cf995.json.gz",
+          "kind": "binary",
+          "sha256": "ee9aa9beb3305968f1aa76a016c5c6e0dcab3da8963bbb7db94c2387b45ce5a1"
+        },
+        {
+          "path": "docs/readmes/055/original/actual-app/load-055/af58cef1-d41a-3087-a5d9-9761733cc046.json.gz",
+          "kind": "binary",
+          "sha256": "79be4438c7f8d39b57a4665daab00c8268c011e8b878effa89ba4af2d87ffa27"
+        },
+        {
+          "path": "docs/readmes/055/original/actual-app/persistent-worlds/state.json.gz",
+          "kind": "binary",
+          "sha256": "144f370019afa44c8fdeb2efed480dd9370e28c6d99252dc449ce76e9c1becb9"
+        },
+        {
+          "path": "docs/readmes/055/original/actual-app/pose-evaluation/state.json.gz",
+          "kind": "binary",
+          "sha256": "3e79fb3a01b75d718848cde31c0a8d75f2f3282a1927eb95f6483efb8f9830a1"
+        },
+        {
+          "path": "docs/readmes/055/original/actual-app/push-learning/state.json.gz",
+          "kind": "binary",
+          "sha256": "99a9034fabf96bbda08fbb95fc8bcb4defd72013c361289f0f0a4ae305c8738a"
+        },
+        {
+          "path": "docs/readmes/055/original/actual-app/spatial/state.json.gz",
+          "kind": "binary",
+          "sha256": "148f8b45b369fdcc72d8d91cd1322c80e691a314be53aed295dc6ea20da7689a"
+        },
+        {
+          "path": "docs/readmes/055/original/actual-app/tabletop-038/state.json.gz",
+          "kind": "binary",
+          "sha256": "f41d909801309e18bd5d6b0410e92bf96344524357d517d10eb1116e2eb9d516"
+        },
+        {
+          "path": "docs/readmes/055/original/actual-app/world-native/checkpoints/29b1041d-a650-3e78-af34-a5d60d7bc081.json.gz",
+          "kind": "binary",
+          "sha256": "6cb86e1d5b9ef013f3e667eae71a56fc163f1e18d54c6be804f61c5ced654eb9"
+        },
+        {
+          "path": "docs/readmes/055/original/actual-app/world-native/checkpoints/9b2eada0-b8b2-3be7-b3a5-b6f05e0cf995.json.gz",
+          "kind": "binary",
+          "sha256": "1ff2ed04017b74a57990bf5d20af4a721762313bfbc16b49d858137323e24920"
+        },
+        {
+          "path": "docs/readmes/055/original/actual-app/world-native/checkpoints/af58cef1-d41a-3087-a5d9-9761733cc046.json.gz",
+          "kind": "binary",
+          "sha256": "f9b82a0ff48b3cccc08588302834c45f1f74e6e815ab3ec0cc38b368c6fdbd3e"
+        },
+        {
+          "path": "docs/readmes/055/original/actual-app/world-native/state.json.gz",
+          "kind": "binary",
+          "sha256": "e59f3737a4b942941e11e94f3ffd05f80f3cd83a58f51ecff4f0d2e6f1d81575"
+        },
+        {
+          "path": "docs/readmes/055/original/actual-app/world-observations/state.json.gz",
+          "kind": "binary",
+          "sha256": "99bff461826e3471af74adf24c17ad74300b29073d3d289d59f65cd90d8a8f4c"
+        },
+        {
+          "path": "docs/readmes/055/original/construction055-failed-1793749981241/agency-043/tasks.json.gz",
+          "kind": "binary",
+          "sha256": "a837c5438d5ea72afbc66b9ce07ba47e86eae24d13a22ffbae3321c427643731"
+        },
+        {
+          "path": "docs/readmes/055/original/construction055-failed-1793749981241/alignment-041/state.json.gz",
+          "kind": "binary",
+          "sha256": "7da0189c2371d1a2eeef9c9657cc5c647015fc5aadb4b4dd85c670891a1ef0a8"
+        },
+        {
+          "path": "docs/readmes/055/original/construction055-failed-1793749981241/contact-study/state.json.gz",
+          "kind": "binary",
+          "sha256": "99a9034fabf96bbda08fbb95fc8bcb4defd72013c361289f0f0a4ae305c8738a"
+        },
+        {
+          "path": "docs/readmes/055/original/construction055-failed-1793749981241/counterfactual-045/branches/6c481ae2-9758-47e3-b650-db798dd97865/world-native/state.json.gz",
+          "kind": "binary",
+          "sha256": "14b042d4e7eb6114d9892a4b334c7ee542304c174cad4892d58fe3d259318261"
+        },
+        {
+          "path": "docs/readmes/055/original/construction055-failed-1793749981241/counterfactual-045/branches/e1439b02-0e13-4202-9e70-ebb7d8611d7e/world-native/state.json.gz",
+          "kind": "binary",
+          "sha256": "d105c56e109ee6795bc7ac587e28e757b96396d423c845eb3e5d2e65c690b89b"
+        },
+        {
+          "path": "docs/readmes/055/original/construction055-failed-1793749981241/counterfactual-045/studies.json.gz",
+          "kind": "binary",
+          "sha256": "e91a1128e49465ea255fcb20403d51f3e811c45bc7aaf54fe31e8c612a000480"
+        },
+        {
+          "path": "docs/readmes/055/original/construction055-failed-1793749981241/goals/tasks.fworld.gz",
+          "kind": "binary",
+          "sha256": "696ce1bf8111d3b7d947f82347c95d604379d76cf082872373eadee4ffc865a8"
+        },
+        {
+          "path": "docs/readmes/055/original/construction055-failed-1793749981241/knowledge-039/state.json.gz",
+          "kind": "binary",
+          "sha256": "5faf0c5a4aeddd69d56ac9f9bc33abb5c9227da009e03170201f7e9962f27af3"
+        },
+        {
+          "path": "docs/readmes/055/original/construction055-failed-1793749981241/load-055/2729c3a2-ed77-36e3-85a8-255ffeff5386.json.gz",
+          "kind": "binary",
+          "sha256": "679b75d8a81a8c6f31945047def8d4fee53789fa261eded6eb0c3127ba31e266"
+        },
+        {
+          "path": "docs/readmes/055/original/construction055-failed-1793749981241/load-055/db2ede2c-96a1-3630-8de0-83225b84ecc8.json.gz",
+          "kind": "binary",
+          "sha256": "b8bb8dfda5bcbad17968b55e75057c976dafa3249ad5929bf51d8d54d9c2d3f3"
+        },
+        {
+          "path": "docs/readmes/055/original/construction055-failed-1793749981241/persistent-worlds/state.json.gz",
+          "kind": "binary",
+          "sha256": "55dd8940e071d6ff727d41ca199c41afaf4fc2fb8f60de8d9a712d2be70bbec6"
+        },
+        {
+          "path": "docs/readmes/055/original/construction055-failed-1793749981241/pose-evaluation/state.json.gz",
+          "kind": "binary",
+          "sha256": "3e79fb3a01b75d718848cde31c0a8d75f2f3282a1927eb95f6483efb8f9830a1"
+        },
+        {
+          "path": "docs/readmes/055/original/construction055-failed-1793749981241/push-learning/state.json.gz",
+          "kind": "binary",
+          "sha256": "99a9034fabf96bbda08fbb95fc8bcb4defd72013c361289f0f0a4ae305c8738a"
+        },
+        {
+          "path": "docs/readmes/055/original/construction055-failed-1793749981241/spatial/state.json.gz",
+          "kind": "binary",
+          "sha256": "d29c544874c63b5fe942f01828aa816bed669f25fe23cf967b4e0f79cc4fc943"
+        },
+        {
+          "path": "docs/readmes/055/original/construction055-failed-1793749981241/tabletop-038/state.json.gz",
+          "kind": "binary",
+          "sha256": "f41d909801309e18bd5d6b0410e92bf96344524357d517d10eb1116e2eb9d516"
+        },
+        {
+          "path": "docs/readmes/055/original/construction055-failed-1793749981241/world-native/checkpoints/2729c3a2-ed77-36e3-85a8-255ffeff5386.json.gz",
+          "kind": "binary",
+          "sha256": "dcf766ffe546d0a70a8c61d7724dfc966e9edd2cc03c6a7191f855d07d732fcc"
+        },
+        {
+          "path": "docs/readmes/055/original/construction055-failed-1793749981241/world-native/checkpoints/db2ede2c-96a1-3630-8de0-83225b84ecc8.json.gz",
+          "kind": "binary",
+          "sha256": "71096a8f3cf8af96253e5bb10cdf7e6ab7e0faa8e17fb3e0bea067ea2a63e6be"
+        },
+        {
+          "path": "docs/readmes/055/original/construction055-failed-1793749981241/world-native/state.json.gz",
+          "kind": "binary",
+          "sha256": "26b960d26321f7ffba2e359d672b44ed945f5c6403b6acf79aada02e224835fb"
+        },
+        {
+          "path": "docs/readmes/055/original/construction055-failed-1793749981241/world-observations/state.json.gz",
+          "kind": "binary",
+          "sha256": "99bff461826e3471af74adf24c17ad74300b29073d3d289d59f65cd90d8a8f4c"
+        },
+        {
+          "path": "docs/readmes/055/original/construction055-failed-1793750103197/agency-043/tasks.json.gz",
+          "kind": "binary",
+          "sha256": "a7b20542daf0995f7da4dd429a5729968affa103936808f116ad6f9e04affd73"
+        },
+        {
+          "path": "docs/readmes/055/original/construction055-failed-1793750103197/alignment-041/state.json.gz",
+          "kind": "binary",
+          "sha256": "7da0189c2371d1a2eeef9c9657cc5c647015fc5aadb4b4dd85c670891a1ef0a8"
+        },
+        {
+          "path": "docs/readmes/055/original/construction055-failed-1793750103197/contact-study/state.json.gz",
+          "kind": "binary",
+          "sha256": "99a9034fabf96bbda08fbb95fc8bcb4defd72013c361289f0f0a4ae305c8738a"
+        },
+        {
+          "path": "docs/readmes/055/original/construction055-failed-1793750103197/counterfactual-045/branches/ba692a2e-66c4-4e41-b2b3-b62047e00abb/world-native/state.json.gz",
+          "kind": "binary",
+          "sha256": "881e498324cd402e7e6c72a3277a951146105500e6c7ad18d37da32719ef6cc3"
+        },
+        {
+          "path": "docs/readmes/055/original/construction055-failed-1793750103197/counterfactual-045/studies.json.gz",
+          "kind": "binary",
+          "sha256": "75754e49657918a29a8d2294e7fee56b5b8604bc83446ed4c1123304c302ac13"
+        },
+        {
+          "path": "docs/readmes/055/original/construction055-failed-1793750103197/goals/tasks.fworld.gz",
+          "kind": "binary",
+          "sha256": "f81d3c2adfc9c1e02a4b92587d6eaecdd5deeb1f0898899bf08cb97d7eddaa28"
+        },
+        {
+          "path": "docs/readmes/055/original/construction055-failed-1793750103197/knowledge-039/state.json.gz",
+          "kind": "binary",
+          "sha256": "5faf0c5a4aeddd69d56ac9f9bc33abb5c9227da009e03170201f7e9962f27af3"
+        },
+        {
+          "path": "docs/readmes/055/original/construction055-failed-1793750103197/load-055/a81fac78-9134-31e4-b11c-748eb47a9f16.json.gz",
+          "kind": "binary",
+          "sha256": "ad1fed3e94a1a126ebc25fd04c981650ba376731d0305886fda33fe90f301b15"
+        },
+        {
+          "path": "docs/readmes/055/original/construction055-failed-1793750103197/persistent-worlds/state.json.gz",
+          "kind": "binary",
+          "sha256": "fa3cd65e1223bece598ed442d6650aad18f0fb3067ba63f511d33279deee28ca"
+        },
+        {
+          "path": "docs/readmes/055/original/construction055-failed-1793750103197/pose-evaluation/state.json.gz",
+          "kind": "binary",
+          "sha256": "3e79fb3a01b75d718848cde31c0a8d75f2f3282a1927eb95f6483efb8f9830a1"
+        },
+        {
+          "path": "docs/readmes/055/original/construction055-failed-1793750103197/push-learning/state.json.gz",
+          "kind": "binary",
+          "sha256": "99a9034fabf96bbda08fbb95fc8bcb4defd72013c361289f0f0a4ae305c8738a"
+        },
+        {
+          "path": "docs/readmes/055/original/construction055-failed-1793750103197/spatial/state.json.gz",
+          "kind": "binary",
+          "sha256": "ae2be315392d9d679f9ae190b48b42d1bf1b629ba6fd5d399d5683486a865e3b"
+        },
+        {
+          "path": "docs/readmes/055/original/construction055-failed-1793750103197/tabletop-038/state.json.gz",
+          "kind": "binary",
+          "sha256": "f41d909801309e18bd5d6b0410e92bf96344524357d517d10eb1116e2eb9d516"
+        },
+        {
+          "path": "docs/readmes/055/original/construction055-failed-1793750103197/world-native/checkpoints/a81fac78-9134-31e4-b11c-748eb47a9f16.json.gz",
+          "kind": "binary",
+          "sha256": "07b671f84f759b4a2e8087b583ba34039c40cf379a92baef27cc6094b526d9b0"
+        },
+        {
+          "path": "docs/readmes/055/original/construction055-failed-1793750103197/world-native/state.json.gz",
+          "kind": "binary",
+          "sha256": "d419507416b2e40f45520d2c6f575bf6aecad1fc5a8184cd2d93c59acdba452e"
+        },
+        {
+          "path": "docs/readmes/055/original/construction055-failed-1793750103197/world-observations/state.json.gz",
+          "kind": "binary",
+          "sha256": "99bff461826e3471af74adf24c17ad74300b29073d3d289d59f65cd90d8a8f4c"
+        },
+        {
+          "path": "docs/readmes/055/original/construction055-failed-1793750399024/agency-043/tasks.json.gz",
+          "kind": "binary",
+          "sha256": "0d3bf8b838ba8f936e143d4c44d1d41ef0da1b57c9e5e6046610602f6bdba6d8"
+        },
+        {
+          "path": "docs/readmes/055/original/construction055-failed-1793750399024/alignment-041/state.json.gz",
+          "kind": "binary",
+          "sha256": "7da0189c2371d1a2eeef9c9657cc5c647015fc5aadb4b4dd85c670891a1ef0a8"
+        },
+        {
+          "path": "docs/readmes/055/original/construction055-failed-1793750399024/contact-study/state.json.gz",
+          "kind": "binary",
+          "sha256": "99a9034fabf96bbda08fbb95fc8bcb4defd72013c361289f0f0a4ae305c8738a"
+        },
+        {
+          "path": "docs/readmes/055/original/construction055-failed-1793750399024/counterfactual-045/branches/270aa9ef-fc35-4c6a-a917-4903a489d64b/world-native/state.json.gz",
+          "kind": "binary",
+          "sha256": "5654a07d3e4fd354d62ce4323b4c41bfda0ca6b617530485e4b3bff885cd8f63"
+        },
+        {
+          "path": "docs/readmes/055/original/construction055-failed-1793750399024/counterfactual-045/branches/a1d3aba5-f0f3-4d1f-b14e-8ae40070d25b/world-native/state.json.gz",
+          "kind": "binary",
+          "sha256": "29660dbe33a0cd2088a20fc58fe047918aecea7a192da223ae912dd069b93d80"
+        },
+        {
+          "path": "docs/readmes/055/original/construction055-failed-1793750399024/counterfactual-045/studies.json.gz",
+          "kind": "binary",
+          "sha256": "317cd414b373da9c06f475656bc92929eca1f63a55c5fec4f4e262eacc6710cd"
+        },
+        {
+          "path": "docs/readmes/055/original/construction055-failed-1793750399024/exports/d78a4bd8-b3b3-450f-8d60-a75b0502f0ad.json.gz",
+          "kind": "binary",
+          "sha256": "a0916b8ad39bf43236ad1fadf7d185567dd9a874a8b4e65517b2ab73379df5e6"
+        },
+        {
+          "path": "docs/readmes/055/original/construction055-failed-1793750399024/exports/d78a4bd8-b3b3-450f-8d60-a75b0502f0ad.json.receipt.json.gz",
+          "kind": "binary",
+          "sha256": "59dfaa844e7544cff302e479c2e61c01f890d7006460391b32bb056d1d341207"
+        },
+        {
+          "path": "docs/readmes/055/original/construction055-failed-1793750399024/exports/manifest.jsonl.gz",
+          "kind": "binary",
+          "sha256": "b1f59bc56a59116311dbb0c148c6d8e3c768bd46c0fe87003c2da69fb4953183"
+        },
+        {
+          "path": "docs/readmes/055/original/construction055-failed-1793750399024/goals/tasks.fworld.gz",
+          "kind": "binary",
+          "sha256": "a34c8ca864a8d70b68ca87778712ff49489270aecf01f4d70989b92a2aa0043d"
+        },
+        {
+          "path": "docs/readmes/055/original/construction055-failed-1793750399024/knowledge-039/state.json.gz",
+          "kind": "binary",
+          "sha256": "5faf0c5a4aeddd69d56ac9f9bc33abb5c9227da009e03170201f7e9962f27af3"
+        },
+        {
+          "path": "docs/readmes/055/original/construction055-failed-1793750399024/load-055/95e79252-f149-3a2b-9c7b-29683253dd60.json.gz",
+          "kind": "binary",
+          "sha256": "f6e259e56e5144639dbb5bf7a2996d5976472c5c98d6e431819e331936761104"
+        },
+        {
+          "path": "docs/readmes/055/original/construction055-failed-1793750399024/load-055/cc57102b-064d-3dfc-bb31-d1cd9e5eedcb.json.gz",
+          "kind": "binary",
+          "sha256": "2c7db5555095903b8ae3c89df1127c619578ef7f01bb12a3a19f9f71877c908c"
+        },
+        {
+          "path": "docs/readmes/055/original/construction055-failed-1793750399024/persistent-worlds/state.json.gz",
+          "kind": "binary",
+          "sha256": "5e9f96cfda5dd705d919495d3eff2570e412025be7ddd8568f35924f8a7079b3"
+        },
+        {
+          "path": "docs/readmes/055/original/construction055-failed-1793750399024/pose-evaluation/state.json.gz",
+          "kind": "binary",
+          "sha256": "3e79fb3a01b75d718848cde31c0a8d75f2f3282a1927eb95f6483efb8f9830a1"
+        },
+        {
+          "path": "docs/readmes/055/original/construction055-failed-1793750399024/push-learning/state.json.gz",
+          "kind": "binary",
+          "sha256": "99a9034fabf96bbda08fbb95fc8bcb4defd72013c361289f0f0a4ae305c8738a"
+        },
+        {
+          "path": "docs/readmes/055/original/construction055-failed-1793750399024/spatial/state.json.gz",
+          "kind": "binary",
+          "sha256": "6448ae15b86c09426d6546febb10599bbe753baa853d6556fca53c5ba183c4dc"
+        },
+        {
+          "path": "docs/readmes/055/original/construction055-failed-1793750399024/tabletop-038/state.json.gz",
+          "kind": "binary",
+          "sha256": "f41d909801309e18bd5d6b0410e92bf96344524357d517d10eb1116e2eb9d516"
+        },
+        {
+          "path": "docs/readmes/055/original/construction055-failed-1793750399024/world-native/checkpoints/95e79252-f149-3a2b-9c7b-29683253dd60.json.gz",
+          "kind": "binary",
+          "sha256": "ed452d14e7d04273ba4a824d20456eb81c802e08f9a35c0c6e6c177c12fc769b"
+        },
+        {
+          "path": "docs/readmes/055/original/construction055-failed-1793750399024/world-native/checkpoints/cc57102b-064d-3dfc-bb31-d1cd9e5eedcb.json.gz",
+          "kind": "binary",
+          "sha256": "38223c9b28151fecdc2e3622a387e01cde81d1d9e1eaf364debc83d41c1daf58"
+        },
+        {
+          "path": "docs/readmes/055/original/construction055-failed-1793750399024/world-native/state.json.gz",
+          "kind": "binary",
+          "sha256": "1ab872afba8f877fb2a33fa5707dcc06ff9f124c75ee7574b324dacf2e75f389"
+        },
+        {
+          "path": "docs/readmes/055/original/construction055-failed-1793750399024/world-observations/state.json.gz",
+          "kind": "binary",
+          "sha256": "99bff461826e3471af74adf24c17ad74300b29073d3d289d59f65cd90d8a8f4c"
+        },
+        {
+          "path": "docs/readmes/055/original/construction055-failed-1793750968621/agency-043/tasks.json.gz",
+          "kind": "binary",
+          "sha256": "a7b20542daf0995f7da4dd429a5729968affa103936808f116ad6f9e04affd73"
+        },
+        {
+          "path": "docs/readmes/055/original/construction055-failed-1793750968621/alignment-041/state.json.gz",
+          "kind": "binary",
+          "sha256": "7da0189c2371d1a2eeef9c9657cc5c647015fc5aadb4b4dd85c670891a1ef0a8"
+        },
+        {
+          "path": "docs/readmes/055/original/construction055-failed-1793750968621/contact-study/state.json.gz",
+          "kind": "binary",
+          "sha256": "99a9034fabf96bbda08fbb95fc8bcb4defd72013c361289f0f0a4ae305c8738a"
+        },
+        {
+          "path": "docs/readmes/055/original/construction055-failed-1793750968621/counterfactual-045/branches/3a77bd45-c8f9-458a-ba1e-7828f1ea5594/world-native/state.json.gz",
+          "kind": "binary",
+          "sha256": "8c3b592c4bc26db9a25a7c347307dcac737f4af0acd6ad45ce8a0d6cf2bbb2fd"
+        },
+        {
+          "path": "docs/readmes/055/original/construction055-failed-1793750968621/counterfactual-045/studies.json.gz",
+          "kind": "binary",
+          "sha256": "1d5de5666fcbfea39e95e837b5b98382602161eba41b69b23c80ef2b5b597310"
+        },
+        {
+          "path": "docs/readmes/055/original/construction055-failed-1793750968621/goals/tasks.fworld.gz",
+          "kind": "binary",
+          "sha256": "e99549589bd7eab3fb3a6c53d0f3cb2855bf80ac4536baf12ae16fe5aa37d5dd"
+        },
+        {
+          "path": "docs/readmes/055/original/construction055-failed-1793750968621/knowledge-039/state.json.gz",
+          "kind": "binary",
+          "sha256": "5faf0c5a4aeddd69d56ac9f9bc33abb5c9227da009e03170201f7e9962f27af3"
+        },
+        {
+          "path": "docs/readmes/055/original/construction055-failed-1793750968621/load-055/16c25b38-c576-3997-bc1a-acde6cc9cbd7.json.gz",
+          "kind": "binary",
+          "sha256": "7676e93638542ca7aa36f23dd418d3c8ede33205c27f3800eaf382c2a46548c6"
+        },
+        {
+          "path": "docs/readmes/055/original/construction055-failed-1793750968621/persistent-worlds/state.json.gz",
+          "kind": "binary",
+          "sha256": "5f6f162f2c6ca35ee9dd60d71c0cab422e15afb1a921ffea929ec30b7ba1b7e3"
+        },
+        {
+          "path": "docs/readmes/055/original/construction055-failed-1793750968621/pose-evaluation/state.json.gz",
+          "kind": "binary",
+          "sha256": "3e79fb3a01b75d718848cde31c0a8d75f2f3282a1927eb95f6483efb8f9830a1"
+        },
+        {
+          "path": "docs/readmes/055/original/construction055-failed-1793750968621/push-learning/state.json.gz",
+          "kind": "binary",
+          "sha256": "99a9034fabf96bbda08fbb95fc8bcb4defd72013c361289f0f0a4ae305c8738a"
+        },
+        {
+          "path": "docs/readmes/055/original/construction055-failed-1793750968621/spatial/state.json.gz",
+          "kind": "binary",
+          "sha256": "07c5e57bb930b9ef09af6970fab8f27c33f234cf1671758fba7e49c2721a9d67"
+        },
+        {
+          "path": "docs/readmes/055/original/construction055-failed-1793750968621/tabletop-038/state.json.gz",
+          "kind": "binary",
+          "sha256": "f41d909801309e18bd5d6b0410e92bf96344524357d517d10eb1116e2eb9d516"
+        },
+        {
+          "path": "docs/readmes/055/original/construction055-failed-1793750968621/world-native/checkpoints/16c25b38-c576-3997-bc1a-acde6cc9cbd7.json.gz",
+          "kind": "binary",
+          "sha256": "f144b77b55b1d1a678906aa09d528608ea3bc55ca8c56dbecea8f4731eeafe74"
+        },
+        {
+          "path": "docs/readmes/055/original/construction055-failed-1793750968621/world-native/state.json.gz",
+          "kind": "binary",
+          "sha256": "1324b79700d35715549290472954ce8f29b92d6a7e819d704f0571295349b439"
+        },
+        {
+          "path": "docs/readmes/055/original/construction055-failed-1793750968621/world-observations/state.json.gz",
+          "kind": "binary",
+          "sha256": "99bff461826e3471af74adf24c17ad74300b29073d3d289d59f65cd90d8a8f4c"
+        },
+        {
+          "path": "docs/readmes/055/original/development-first-ui/construction055-chat-loads.json.gz",
+          "kind": "binary",
+          "sha256": "d8aa67fd5633ca314dcf6d7513dee26c33047e2a259ec0aab44ba48575876bb1"
+        },
+        {
+          "path": "docs/readmes/055/original/development-first-ui/construction055-chat-trials.json.gz",
+          "kind": "binary",
+          "sha256": "987d3da932a90c748f90a0e2571dc336544a01850739fa28d6f2fd71021e68ea"
+        },
+        {
+          "path": "docs/readmes/055/original/development-first-ui/construction055-failed-1793749981241.json.gz",
+          "kind": "binary",
+          "sha256": "3d11f690ca086464354e2355539a9116b0c0ac4a2ab1979cbf8c0abfc1ec0628"
+        },
+        {
+          "path": "docs/readmes/055/original/development-first-ui/construction055-first-loads.json.gz",
+          "kind": "binary",
+          "sha256": "fae0667a5d1e919e785eb9992bec840788e6eabf83b5d6bbf23262226a767825"
+        },
+        {
+          "path": "docs/readmes/055/original/development-first-ui/construction055-first-trials.json.gz",
+          "kind": "binary",
+          "sha256": "c8a56dbddec4ebec2e97944489cd98953fd9d7039a806086cdf77e77a60bd4bb"
+        },
+        {
+          "path": "docs/readmes/055/original/exports/construction055-cancelled.json.gz",
+          "kind": "binary",
+          "sha256": "6b8f3e87a1021f30680ec8a2235e0de658e7d050ff83ac072a2a535aa79f7bba"
+        },
+        {
+          "path": "docs/readmes/055/original/exports/construction055-chat-loads.json.gz",
+          "kind": "binary",
+          "sha256": "1a0a37892e583d86b9ea2a9c30bacbb6ba29bf07988d59b7f614a04482782e26"
+        },
+        {
+          "path": "docs/readmes/055/original/exports/construction055-chat-trials.json.gz",
+          "kind": "binary",
+          "sha256": "12bcf3a33eb53c73b318ca7b97e2c38917141d1eca62fed3d155d045d422a8f4"
+        },
+        {
+          "path": "docs/readmes/055/original/exports/construction055-failed-1793749981241.json.gz",
+          "kind": "binary",
+          "sha256": "3d11f690ca086464354e2355539a9116b0c0ac4a2ab1979cbf8c0abfc1ec0628"
+        },
+        {
+          "path": "docs/readmes/055/original/exports/construction055-failed-1793750103197.json.gz",
+          "kind": "binary",
+          "sha256": "0e55256df895fd11f4bb732d88030dc1db52d558b62ae2c4b82b50c73fb7435f"
+        },
+        {
+          "path": "docs/readmes/055/original/exports/construction055-failed-1793750399024.json.gz",
+          "kind": "binary",
+          "sha256": "b98fb6bc99aff9a030d1a12c31b75f7d5957d27031fc96ed765ccb4c678833b4"
+        },
+        {
+          "path": "docs/readmes/055/original/exports/construction055-failed-1793750968621.json.gz",
+          "kind": "binary",
+          "sha256": "520273731b85932e68b01868391d5b970d6445eb5af0b5b301fb6e1692e6ee1d"
+        },
+        {
+          "path": "docs/readmes/055/original/exports/construction055-first-loads.json.gz",
+          "kind": "binary",
+          "sha256": "9e93a4568aab23352a9bf712533f39efc06891a064b12b40a48ac789bc95038a"
+        },
+        {
+          "path": "docs/readmes/055/original/exports/construction055-first-trials.json.gz",
+          "kind": "binary",
+          "sha256": "707bd37b9a3c7778e241a0e7c73de5f2314b3640003f0456dfe4944ca8fff7ba"
+        },
+        {
+          "path": "docs/readmes/055/original/exports/construction055-live.json.gz",
+          "kind": "binary",
+          "sha256": "ad017d390738c84c07fc7c6d7d721b783b0bb53d90eb9aa433ec3a45a5aa4c4e"
+        },
+        {
+          "path": "docs/readmes/055/original/exports/construction055-report-capture.json.gz",
+          "kind": "binary",
+          "sha256": "de466361ccd7eee673f4ddf915d54322809a8cfee860ed17513c19e89b552d10"
+        },
+        {
+          "path": "docs/readmes/055/original/exports/construction055-reuse-loads.json.gz",
+          "kind": "binary",
+          "sha256": "52223577e0fe81a64c34d4ec1d4604bea090d44768a6f9eeed69ace108e973d3"
+        },
+        {
+          "path": "docs/readmes/055/original/exports/construction055-reuse-trials.json.gz",
+          "kind": "binary",
+          "sha256": "32b44b92bc422dee283a66c09b57d2e4512ff5c7e5bcb35120d4bcb7bb1b5fbf"
+        },
+        {
+          "path": "docs/readmes/055/original/historical035-regression/reserved035-blocked-next/persistent-worlds/state.json.gz",
+          "kind": "binary",
+          "sha256": "71f709db59c983bdd98bfcd87502757b975071ec52979267cf329cc1c59c5a46"
+        },
+        {
+          "path": "docs/readmes/055/original/historical035-regression/reserved035-blocked-next/summary.json.gz",
+          "kind": "binary",
+          "sha256": "79411b41d2c2bb87d80b21eea48345a67f9f3621e74f4149ab803b6a32c6b799"
+        },
+        {
+          "path": "docs/readmes/055/original/historical035-regression/reserved035-blocked-next/world-native/checkpoints/f5b215f6-3549-49d8-a3ea-0e4f8bc46b93.json.gz",
+          "kind": "binary",
+          "sha256": "f746d88a664989d0f74f5bef8181e48c2e848dfec4fcc3a64c4ae5cf7bb5ed97"
+        },
+        {
+          "path": "docs/readmes/055/original/historical035-regression/reserved035-blocked-next/world-native/state.json.gz",
+          "kind": "binary",
+          "sha256": "b7f822bd83b78823d96d3fc25877f5b32a1180acaee772d34f8a3064063e3a3f"
+        },
+        {
+          "path": "docs/readmes/055/original/historical035-regression/reserved035-force-negative/persistent-worlds/state.json.gz",
+          "kind": "binary",
+          "sha256": "5917c33c62013eb80559f5dc46aa54b9cb61715de2485f91e03884d5d21181b0"
+        },
+        {
+          "path": "docs/readmes/055/original/historical035-regression/reserved035-force-negative/summary.json.gz",
+          "kind": "binary",
+          "sha256": "69b4e5210620d1cdca6d52393568b93a2a6353dc9a34cb56f45c8cb308224fb6"
+        },
+        {
+          "path": "docs/readmes/055/original/historical035-regression/reserved035-force-negative/world-native/checkpoints/0091af2e-ac65-429a-9446-124ede666224.json.gz",
+          "kind": "binary",
+          "sha256": "b83441f343744f33d6b3f8891c5f915610abc8023b78f5275df64123f7102b31"
+        },
+        {
+          "path": "docs/readmes/055/original/historical035-regression/reserved035-force-negative/world-native/checkpoints/40da27ea-f022-43c5-969f-3cf398b9d3a0.json.gz",
+          "kind": "binary",
+          "sha256": "6b76ade63d23ef7a0b065f88f2095fe4eb02d07086ac142ac7c9aa4a20af82f5"
+        },
+        {
+          "path": "docs/readmes/055/original/historical035-regression/reserved035-force-negative/world-native/state.json.gz",
+          "kind": "binary",
+          "sha256": "225187854f424784be1c0ea8bccc77bc0190932f9fcecd664581d68087ad02b6"
+        },
+        {
+          "path": "docs/readmes/055/original/historical035-regression/reserved035-three-body-chain/persistent-worlds/state.json.gz",
+          "kind": "binary",
+          "sha256": "bcc9f6c5bde8a78197bf73540fa38b44fc0120ebd9634b699a9269bb32ccfa3e"
+        },
+        {
+          "path": "docs/readmes/055/original/historical035-regression/reserved035-three-body-chain/summary.json.gz",
+          "kind": "binary",
+          "sha256": "3e7e5522afa9d5ae9f8f6f213f22ea172b3975bc9d820c338ca0843afd2e62fd"
+        },
+        {
+          "path": "docs/readmes/055/original/historical035-regression/reserved035-three-body-chain/world-native/checkpoints/53d18edc-cca7-443e-8ff1-9addaa6be091.json.gz",
+          "kind": "binary",
+          "sha256": "66cf63a97e5c00c35c2081ddd4024d3009526fb91a49e0d239c82e07dc7fe700"
+        },
+        {
+          "path": "docs/readmes/055/original/historical035-regression/reserved035-three-body-chain/world-native/checkpoints/7bee91b3-374a-47a3-aa35-68ca5e805ee5.json.gz",
+          "kind": "binary",
+          "sha256": "ca5ab3c6be72b4c50533b790da4a368a97c451658781a4b1199b26c48fd36c4e"
+        },
+        {
+          "path": "docs/readmes/055/original/historical035-regression/reserved035-three-body-chain/world-native/checkpoints/7cc1506b-ff02-4c44-9ff5-f563d5dac205.json.gz",
+          "kind": "binary",
+          "sha256": "03225a1474c145732185fd5ac939255d094ca2933b3877cd7d29ee825752c34b"
+        },
+        {
+          "path": "docs/readmes/055/original/historical035-regression/reserved035-three-body-chain/world-native/state.json.gz",
+          "kind": "binary",
+          "sha256": "fc0780aa42cedbd6536a1793c6b7198f4d0a1bffd4dda5e3d87d135fa5fafb0a"
+        },
+        {
+          "path": "docs/readmes/055/original/historical035-regression/reserved035-two-body-chain/persistent-worlds/state.json.gz",
+          "kind": "binary",
+          "sha256": "d363cca609957100baad8d8cbd0b3c834cd47b17e9d568b770a2b469084d432a"
+        },
+        {
+          "path": "docs/readmes/055/original/historical035-regression/reserved035-two-body-chain/summary.json.gz",
+          "kind": "binary",
+          "sha256": "fd6dd24dab81f299de1366889a45f4b6b72aa68c3a170541a9d3dfeaa21f0f62"
+        },
+        {
+          "path": "docs/readmes/055/original/historical035-regression/reserved035-two-body-chain/world-native/checkpoints/56b1d030-1d62-4caa-a0bf-0c86b092483e.json.gz",
+          "kind": "binary",
+          "sha256": "1d97c9817b333b6c129c8e35d70dd522bacae4fa386118adc6c41065d9457df5"
+        },
+        {
+          "path": "docs/readmes/055/original/historical035-regression/reserved035-two-body-chain/world-native/checkpoints/618ff4f8-d0a2-4e0c-81be-b6fd97165628.json.gz",
+          "kind": "binary",
+          "sha256": "2403a16a57f6c99a63ab713c0750887aa73191e092c85ae8ff6a6806c28b315d"
+        },
+        {
+          "path": "docs/readmes/055/original/historical035-regression/reserved035-two-body-chain/world-native/checkpoints/b24a0c2a-66c2-4d32-a427-5de21f8af2f8.json.gz",
+          "kind": "binary",
+          "sha256": "ef69423ceaa819d18c4032f133c2e0421fe3db3b95b3c9fd8f0f039276f479e2"
+        },
+        {
+          "path": "docs/readmes/055/original/historical035-regression/reserved035-two-body-chain/world-native/state.json.gz",
+          "kind": "binary",
+          "sha256": "dfc6fdcaa3add3871f8584fe4d674a480cfc3a311eb2ff179979e75b0046e897"
+        },
+        {
+          "path": "docs/readmes/055/original/historical035-regression/summary.json.gz",
+          "kind": "binary",
+          "sha256": "bf25c5a5da1c3fad7924f54ba31c4dd5ef3616fa3fe2e4a0ae4764bb1e9d157c"
+        },
+        {
+          "path": "docs/readmes/055/original/long-path-records/02627c850764b7b427a41ac6589b38cd181f580b4ff7dd4c14c644f70c545d1e.gz",
+          "kind": "binary",
+          "sha256": "a6ad2162989ecb70b6d10c646de0b3529899d45aaaf96778106ca950fd922f1d"
+        },
+        {
+          "path": "docs/readmes/055/original/long-path-records/04c59c923a7145224506f92265da28d9006435e856dd6508f2b20e47772700d2.gz",
+          "kind": "binary",
+          "sha256": "c739ebd16239ebc7e6aa2f06454be1857ac5efc555879a1a167ce953b2c4beb9"
+        },
+        {
+          "path": "docs/readmes/055/original/long-path-records/08e7192ba0e0a010fbea09b93efa500ac4f2b1503ea1976904a5d1db5c6f0706.gz",
+          "kind": "binary",
+          "sha256": "ae921c68918c86b7f8f504e11fdf92af864a81827ccb380180d618196d59b58f"
+        },
+        {
+          "path": "docs/readmes/055/original/long-path-records/0e59aad3684a47d8b04741e176c39a49a67361e7ba00afb3264708f8b68ffc51.gz",
+          "kind": "binary",
+          "sha256": "46b50c321b39e89a491b6727a01628c34245605a30beb3e7414c5e01cff90e6e"
+        },
+        {
+          "path": "docs/readmes/055/original/long-path-records/0ede91dfa53c76d5d6b36a3a24a7d3226fd328f39cfd28765db86a45debc6543.gz",
+          "kind": "binary",
+          "sha256": "0ba663aeb408e7aa6fabcb3bf710e8ab265aaeb27445c4b9b6cacfc08a88ecd2"
+        },
+        {
+          "path": "docs/readmes/055/original/long-path-records/1630f3e142715556941aaf38a030e1e83d7efdbdd72d1c18394cfd13b105dc99.gz",
+          "kind": "binary",
+          "sha256": "94d07fce1617639461bb801f5f4d93daa409b82d7812e20e5bc1fcbae30db1e8"
+        },
+        {
+          "path": "docs/readmes/055/original/long-path-records/199bf6a7796c4fb904b9838b36ef8914a1f4c7a67feba0c0ba9deed01103174b.gz",
+          "kind": "binary",
+          "sha256": "a9001aeedb118197d96162724c1b69ba759017cec14817b1d2e0dc54cced6cc3"
+        },
+        {
+          "path": "docs/readmes/055/original/long-path-records/19d3d90e5a7790aaca6c2b381f16c2c8bca5287c2800191edf131f37ea8bad3c.gz",
+          "kind": "binary",
+          "sha256": "37054dd538364fbfacf70a2f5190965f3086804cf8df89ca1ca2a9d24718fa00"
+        },
+        {
+          "path": "docs/readmes/055/original/long-path-records/1b228c744171e1c9b760f35891f49c1ceccfadb3663d93c8d553c6569f754a0b.gz",
+          "kind": "binary",
+          "sha256": "618b10de14d0c49f20c7c0971642b9dfffd00f57b6ae13c63cd75d8b6c5e5bf9"
+        },
+        {
+          "path": "docs/readmes/055/original/long-path-records/27c932a8528baef9cc14d4323e4ae66130e7822a21d1bdebc260198d5c86ffa2.gz",
+          "kind": "binary",
+          "sha256": "6c072c57f2e6ff2d9d10820969119832da06f1f9201074387491d71c62c0788f"
+        },
+        {
+          "path": "docs/readmes/055/original/long-path-records/2ab081c4414ee7479231fe37244413d85eb6027f92e18407db773a075c5bd4e0.gz",
+          "kind": "binary",
+          "sha256": "90cfa17f2103748f07e233da674c73ba87f0451fe583ba60cf763fefe44d5f64"
+        },
+        {
+          "path": "docs/readmes/055/original/long-path-records/2c2f26f099681a8c4b2dbc6ac361d114ed764f3e788b223dd8fb078e411708c4.gz",
+          "kind": "binary",
+          "sha256": "afa376719074fd2ba415d51bc14b0c256b829e15a7d57564d1fd77e0b95b4fd1"
+        },
+        {
+          "path": "docs/readmes/055/original/long-path-records/2c477b345386fdeae5311d02ba7f63c0eea391d21109116bb795b501abfd20dd.gz",
+          "kind": "binary",
+          "sha256": "0ac39cfdf4db14f4bea050d9470950fe9672454cefe7c14c88358e3fff4dcaa9"
+        },
+        {
+          "path": "docs/readmes/055/original/long-path-records/300f7e93db63bdad31ffcac99af9a6732a11b4dcbe0316ebbf2d8391168bf2bf.gz",
+          "kind": "binary",
+          "sha256": "75563d1f8740f910c5cbab8a30afe89a11d8fafe7eec54f8a648d17c7fdf369a"
+        },
+        {
+          "path": "docs/readmes/055/original/long-path-records/3b2bc8c49c17cf37a04ff740561de72912065f617ca67d8aacba6a56a15a68c6.gz",
+          "kind": "binary",
+          "sha256": "bfa779476d63d1e358a087c8bf73cd60784bae646c47d7d7efbc8dd543fe083d"
+        },
+        {
+          "path": "docs/readmes/055/original/long-path-records/4174c039d459298bc4951b2b515e157e1ca58b9ab931155330df14fc1003d137.gz",
+          "kind": "binary",
+          "sha256": "954b3f8bf3094a55937ff4e60ee3fac506868c5fc874f69be9f86e38581b6625"
+        },
+        {
+          "path": "docs/readmes/055/original/long-path-records/4e192d5a78616d3fd1474fe736cafb585402d4259db84c21e047ff51c5285db6.gz",
+          "kind": "binary",
+          "sha256": "671c81e720818868f6649c024d4f55d9e7fe88b513e3bed8dc5fc0ae15bf6ee1"
+        },
+        {
+          "path": "docs/readmes/055/original/long-path-records/4e9667fa9d700651bcf6fd9c195b50c6278c95e3c1518cd186f8080a5ab1f1cf.gz",
+          "kind": "binary",
+          "sha256": "2bf4c783ffb6685ba53ee09794fc8704fbd5e268dc40115d3a4aef755f44af8a"
+        },
+        {
+          "path": "docs/readmes/055/original/long-path-records/5595a7112363f415ee42e07c4958e30255a8e1bcc9e7d9735fed540d22c9c29b.gz",
+          "kind": "binary",
+          "sha256": "67086b071b0eb0123ed63f3ee09760800b35e56a8b12565b52450a6a904cbe12"
+        },
+        {
+          "path": "docs/readmes/055/original/long-path-records/560e7ac508d84651b779056abc8f950e8d36dbf8cd02d1564747f9c5fb9407c1.gz",
+          "kind": "binary",
+          "sha256": "10eb095e2826953f030d4110a19b23801a7baf82d37325e2f7ca227ecae977a5"
+        },
+        {
+          "path": "docs/readmes/055/original/long-path-records/571130c19b2da27b982feb5a97a9838f24164ced21edbe3e1d65c79dc635f169.gz",
+          "kind": "binary",
+          "sha256": "e11e157ae7f951db3a08b22fccffb09ae7d9cd70012286bb17aa113c0e7e8d13"
+        },
+        {
+          "path": "docs/readmes/055/original/long-path-records/591f9843387f527186497407f840bba572e5c926647337cc18000b6b37612e53.gz",
+          "kind": "binary",
+          "sha256": "19ff3a36ca574f02f1086775c0bb5471cc3a44969a54637bc72b49385f1ceed7"
+        },
+        {
+          "path": "docs/readmes/055/original/long-path-records/5f66cb1266560a25d0311799cef94883819893ca6386f25b5a3a7dad86ddfa3f.gz",
+          "kind": "binary",
+          "sha256": "ef5ed8bd5101367e4801650c0e2e20d40a762d3c18f592ac6497ea82b4709aed"
+        },
+        {
+          "path": "docs/readmes/055/original/long-path-records/648c607d7f54cf377006218b6b2efb6be06c7dcf110e2bcda45bede0b295c5ed.gz",
+          "kind": "binary",
+          "sha256": "84c8ffe03ee03ad44824bb147d0730670cd7b0f61b71cef4d474566f86842412"
+        },
+        {
+          "path": "docs/readmes/055/original/long-path-records/6707a8478a3b4cc030a3510f2e1eddf9a4c8f4b18538827cc7733411bd959461.gz",
+          "kind": "binary",
+          "sha256": "319159241c8a72073a0cd7888f405b32bf25e822529622fb648de5743cb7c361"
+        },
+        {
+          "path": "docs/readmes/055/original/long-path-records/67fbfb5b1760294c3400ad6dbb2e430fb88c97ae555b4a51d6172e7f8d0a2c3d.gz",
+          "kind": "binary",
+          "sha256": "bbbeb318e29db420cd6081b5c396240daae383ab82338a214f88f4eb7be5c03a"
+        },
+        {
+          "path": "docs/readmes/055/original/long-path-records/684bba0ebe66e4245abf7f1c49d366317c7c353bfa5a08777d4cdfd51ab570c0.gz",
+          "kind": "binary",
+          "sha256": "71a139e145264fa41c50ab76b2bde1241f3b0e498c840c1ffc58890003ab0701"
+        },
+        {
+          "path": "docs/readmes/055/original/long-path-records/6b3aa3a804dd936a75b57ce83aa737e7c6a4467f6bfb7b7c45e63bb0d7417ae7.gz",
+          "kind": "binary",
+          "sha256": "d48c00d8aee3220494e29ed43807e4fcae7bab9e686757ff6ebb5939965af819"
+        },
+        {
+          "path": "docs/readmes/055/original/long-path-records/6e72ab7cbc71e98421d546e75e73ee67e55a256fe636d021a79e20a2b85d22c1.gz",
+          "kind": "binary",
+          "sha256": "d4dc28cc0bf7d4314ca4eaea8e12182d299c238cf5f002a07515dc398a5c0370"
+        },
+        {
+          "path": "docs/readmes/055/original/long-path-records/777f656a19e41a4e9b726514804149e48910eac7e5597af50bcd9862d7444193.gz",
+          "kind": "binary",
+          "sha256": "9dbf458d0623f5e90d6bdd46261cba95710b50d635a02520ade576e130c84b47"
+        },
+        {
+          "path": "docs/readmes/055/original/long-path-records/7f79613f8948f6879b921389e4dc611599dc235aec7f5b77757a69a2521f2d22.gz",
+          "kind": "binary",
+          "sha256": "a91e95daedace2ca20a62a054b609eb24e7285822c6b4dce0ed8310118ca1dc8"
+        },
+        {
+          "path": "docs/readmes/055/original/long-path-records/83da563094243c3c7472bc3a1941d22b2d7cb8ab18e297c26e95e9f84e60a33e.gz",
+          "kind": "binary",
+          "sha256": "f54a1de6e2d0ce0947b3e78a186b77f57cad54fdfd93e8a7d508c45eb8b63b2b"
+        },
+        {
+          "path": "docs/readmes/055/original/long-path-records/85c3e8dacafa592761aa528388007c419f283fb762a8101d9543b3753a366d91.gz",
+          "kind": "binary",
+          "sha256": "aedc3a38315f6f2ee4314d65c1df4e8161629765aba73d3dd2431a7e16131552"
+        },
+        {
+          "path": "docs/readmes/055/original/long-path-records/8a6dc624f00af082fe4992d468b26eb28e7b67e27f85ccf583f36faef339b797.gz",
+          "kind": "binary",
+          "sha256": "f804df27cbe9cef331f232ddd9f3c7a48e5e33ce9909422c7811a3e26513f4ca"
+        },
+        {
+          "path": "docs/readmes/055/original/long-path-records/91a7b0c6c760f957e6b6922c853fd1e1d9ba5f186d6dab768432f1e19df1a890.gz",
+          "kind": "binary",
+          "sha256": "02cd420cace169fb268583700c7f579e8c699f27f891181ed8a074d976bbb091"
+        },
+        {
+          "path": "docs/readmes/055/original/long-path-records/97a51a07083dbec7df72ed48f66b2dfc377595d9f3543e09cbf29eb24ee40cff.gz",
+          "kind": "binary",
+          "sha256": "47af744250f38feb817a01e11be1d3632da9325f0931fd93871b05f4f219ac67"
+        },
+        {
+          "path": "docs/readmes/055/original/long-path-records/9b8359101207482fd91b4aef92bf442a51786b5ffd197e2c93f6ca85eda8771a.gz",
+          "kind": "binary",
+          "sha256": "0abdf86c83426f897fe614d96825b6488a19bf265178b29cce2fb652fd0a4274"
+        },
+        {
+          "path": "docs/readmes/055/original/long-path-records/af91c9659b91a606e96f67e38349e6c0ad22ce2367c8968173681cbc0a15b475.gz",
+          "kind": "binary",
+          "sha256": "b442479a94ef077e0efb898df808001454a5cb7b7ef4e8e22b5b2fb39beb8a06"
+        },
+        {
+          "path": "docs/readmes/055/original/long-path-records/b030c3914e85505173c458f96516f5adf193f2aabde9beccdadef807452d087c.gz",
+          "kind": "binary",
+          "sha256": "25324b64712a2da1dccc444d6140d5730af3510689a4fd1aa64c6e012387d814"
+        },
+        {
+          "path": "docs/readmes/055/original/long-path-records/b12eb3eb1a1f4f582f77d82509dd018b0546ba34cc7bed031ee4a99338d6d4b9.gz",
+          "kind": "binary",
+          "sha256": "428396a1be523a6b0ba843d1f8bf7a1234626a40189c98fb79070bd00fab774d"
+        },
+        {
+          "path": "docs/readmes/055/original/long-path-records/bda289dd3729525a30068152e6f506de3bcf8fd82f0b5365411710c8a1810fb9.gz",
+          "kind": "binary",
+          "sha256": "f8501c626efd91434a57c1963fba18fe578cf594323e3b306c51cf75f0557bc0"
+        },
+        {
+          "path": "docs/readmes/055/original/long-path-records/bf830be0a96e3761d1f441e92132078efd0ff027bfc534a14c0d895709b23474.gz",
+          "kind": "binary",
+          "sha256": "dc44341df15c9d8a9fd0926306fcf0b6e60d7d36826993269839ffa7c65226ac"
+        },
+        {
+          "path": "docs/readmes/055/original/long-path-records/c66edbac12afb20c821d4c18d156caf7b547327964d4343dd3ab6e6d22fe5eaa.gz",
+          "kind": "binary",
+          "sha256": "9a0fcff7985a6a977e7c38ac9d37335bb9bdceb5e9919dd606c1e4dd58bea931"
+        },
+        {
+          "path": "docs/readmes/055/original/long-path-records/c68706f8b569c64a5184f20484b23327524e9fb80f3196f3d97632b7b5ee734d.gz",
+          "kind": "binary",
+          "sha256": "4062ad2f7b103e636b5f2d5328ab40c165ff6b6be33725d3006e7729ebba4142"
+        },
+        {
+          "path": "docs/readmes/055/original/long-path-records/c8bcdcd442ad74890c7e462b3a9caa5c9f841497b1d1afdb2376b278570ff3e0.gz",
+          "kind": "binary",
+          "sha256": "b99b76238d7dc7e24bf408911dfaae047ec781a6d5eefe6396c6eeed1d8b5e97"
+        },
+        {
+          "path": "docs/readmes/055/original/long-path-records/d0bae62f4546afb6599a9f0dd5ee78239b7f297a62ef2bc2ad40ac1fe9bd7d65.gz",
+          "kind": "binary",
+          "sha256": "884035a28763ab5f037ea73ebaf2c8d1a269ff5eb7713c7bca84579c11516a59"
+        },
+        {
+          "path": "docs/readmes/055/original/long-path-records/d64854cec5d3339f4758646aecb143aa709499dfb876df8126b06dfdb9cd282e.gz",
+          "kind": "binary",
+          "sha256": "29934a90a46184487c332366321cf85a77c5b28243c18c5b1a37bd7528dd77c8"
+        },
+        {
+          "path": "docs/readmes/055/original/long-path-records/d909349728addc0dd45dbe75109f5b247d74cdb927d43ca7175a35631839abb6.gz",
+          "kind": "binary",
+          "sha256": "0f91f08385950bb8be066d0acdfe5348a5d5f811bcc5d298a372510b491ec23c"
+        },
+        {
+          "path": "docs/readmes/055/original/long-path-records/d98aec4858e2551982dc0c968fbd930bdb38763af251c866e4e1140929291233.gz",
+          "kind": "binary",
+          "sha256": "137002a05f8acf18eb7e150e07cd6e585c275d4a6e9f102b73366e0f4ac4d6f0"
+        },
+        {
+          "path": "docs/readmes/055/original/long-path-records/df4d63fb369bcdba416d9db14f9d8bed17feec74a3aa30e8db35ea7538991909.gz",
+          "kind": "binary",
+          "sha256": "e71c5c8006b70975d314ae9e717012bc3df7d58755e345145fb2ab487cdeb243"
+        },
+        {
+          "path": "docs/readmes/055/original/long-path-records/e06e474d62b52680defb4bd4df9b94d2ea4110068f17542f3786252af537cb71.gz",
+          "kind": "binary",
+          "sha256": "337755844b84099de00aaed36e50e2aedab5e2518a0621013ae9e16062ba26a3"
+        },
+        {
+          "path": "docs/readmes/055/original/long-path-records/e29e9756ca134372283eec5c6b8cc7c8841880a6e1b2f5a6ccf3fdc3d177e29f.gz",
+          "kind": "binary",
+          "sha256": "644edb9186500b1d25e91075fa63f8452a6dfdd1f411903e3a615c1304b50ddf"
+        },
+        {
+          "path": "docs/readmes/055/original/long-path-records/ea6b457319a3bb4b9194976bb82cd093b6581849dd7428ce4e809cca03b35c5d.gz",
+          "kind": "binary",
+          "sha256": "7e9ecd6f29228695922e65f191958c47f5af5c57a2083cccc897c43c9b1ed008"
+        },
+        {
+          "path": "docs/readmes/055/original/long-path-records/efb62a20a9dae7115c9b6f6c5250a3e294992760a4e0f679a83f99cb84e0cbf6.gz",
+          "kind": "binary",
+          "sha256": "6df0b522269c8f9b233d94e5f1cdb5ba7d75fb18918daee56dc18f4d620cad4b"
+        },
+        {
+          "path": "docs/readmes/055/original/long-path-records/f88dde1c08646b02e695783cc737aeba2eef181e68f2035ce88c809dba2d41a3.gz",
+          "kind": "binary",
+          "sha256": "24b797ba56d218ec0ec6078aad226762134992c7e8a99bba213660991e443934"
+        },
+        {
+          "path": "docs/readmes/055/original/long-path-records/ff153d4dc8df6ed595fca3ea1f14ae58cd1a309b1d1c169c4b1844e883d10deb.gz",
+          "kind": "binary",
+          "sha256": "4d3f33a0739d0e1dc7eb15c825bf39f6c70cc1513d6eac688cc90dc9736181cb"
+        },
+        {
+          "path": "docs/readmes/055/original/native/construction055-lowforce-1493237687120571908/counterfactual-045/studies.json.gz",
+          "kind": "binary",
+          "sha256": "4b25a958e80811ef36080558fbc6e8c3ced8ce7d0c59101fcf2a4fe4114d585d"
+        },
+        {
+          "path": "docs/readmes/055/original/native/construction055-lowforce-1493237687120571908/persistent-worlds/state.json.gz",
+          "kind": "binary",
+          "sha256": "83b23553dec000d35e4cfed92851e1ab26e21a6a4612629f37504bf9321dccc1"
+        },
+        {
+          "path": "docs/readmes/055/original/native/construction055-lowforce-1493237687120571908/result.json.gz",
+          "kind": "binary",
+          "sha256": "22e527de9e4676345aa97a6d448367d8bb004b450ec1c7d52501387fbddb3fbc"
+        },
+        {
+          "path": "docs/readmes/055/original/native/construction055-lowforce-3612493151378122839/counterfactual-045/studies.json.gz",
+          "kind": "binary",
+          "sha256": "830cbefb2b1a604c3957d1c5e17de929a890a6bdc3e8ba7aaeea214e6af1d04b"
+        },
+        {
+          "path": "docs/readmes/055/original/native/construction055-lowforce-3612493151378122839/persistent-worlds/state.json.gz",
+          "kind": "binary",
+          "sha256": "9f533e1df7112fb76c886a32241da541c1c714f6dfebd342b86479046fa1831a"
+        },
+        {
+          "path": "docs/readmes/055/original/native/construction055-lowforce-3612493151378122839/result.json.gz",
+          "kind": "binary",
+          "sha256": "7efbd845ee1530a30b18682f82736989b0971d1fe5f1be6dd2df532e5f13df95"
+        },
+        {
+          "path": "docs/readmes/055/original/native/construction055-matrix-3656490476297709631/barrier/actual/world-native/checkpoints/1bd0bfa9-ea7b-4479-9773-139c286c7cee.json.gz",
+          "kind": "binary",
+          "sha256": "c294465f3a34a28f7e25d5107fe1bcb715eb94e4812254d41c4e311b0d3bfb4b"
+        },
+        {
+          "path": "docs/readmes/055/original/native/construction055-matrix-3656490476297709631/barrier/actual/world-native/state.json.gz",
+          "kind": "binary",
+          "sha256": "0e1ebb42cebb729d695b94579bba25de3286cbb23b2d605007140df0be7ba91a"
+        },
+        {
+          "path": "docs/readmes/055/original/native/construction055-matrix-3656490476297709631/barrier/direct/counterfactual-045/studies.json.gz",
+          "kind": "binary",
+          "sha256": "d57eb854eaccfd29e31b35902925c5fe7560e57338b01364aa6e8eab23236a3c"
+        },
+        {
+          "path": "docs/readmes/055/original/native/construction055-matrix-3656490476297709631/barrier/exhaustive/counterfactual-045/studies.json.gz",
+          "kind": "binary",
+          "sha256": "179b31820fe0b35cec4338cc970f7f904ccaaf6babe892f8fe090eb0b6f02ff8"
+        },
+        {
+          "path": "docs/readmes/055/original/native/construction055-matrix-3656490476297709631/barrier/persistent-worlds/state.json.gz",
+          "kind": "binary",
+          "sha256": "0481ff1b01fc6f7e0af3a09f1d2007b6e77940575d118cf8c64237178e107ff2"
+        },
+        {
+          "path": "docs/readmes/055/original/native/construction055-matrix-3656490476297709631/compact/actual/world-native/checkpoints/2467ae7e-703b-439d-8c98-f04df96179f4.json.gz",
+          "kind": "binary",
+          "sha256": "5d3ef2f92974e06a9bf139dd0847f01129bb59a52b0991b3649d24bb38f5941e"
+        },
+        {
+          "path": "docs/readmes/055/original/native/construction055-matrix-3656490476297709631/compact/actual/world-native/state.json.gz",
+          "kind": "binary",
+          "sha256": "8b10462dd5934f95f3d65a6955c6cbc51276a318dd4df2b0ec3dbbf1b632aaae"
+        },
+        {
+          "path": "docs/readmes/055/original/native/construction055-matrix-3656490476297709631/compact/direct/counterfactual-045/studies.json.gz",
+          "kind": "binary",
+          "sha256": "5fe6c7864eb67fc23ab3fbaca9a76f82600f88630ae76c672a2b94120b7a5dd7"
+        },
+        {
+          "path": "docs/readmes/055/original/native/construction055-matrix-3656490476297709631/compact/exhaustive/counterfactual-045/studies.json.gz",
+          "kind": "binary",
+          "sha256": "30a303cbca60e68f73fea97b4aa13e4a85396cf2c3e70b72468ca6c710acda39"
+        },
+        {
+          "path": "docs/readmes/055/original/native/construction055-matrix-3656490476297709631/compact/persistent-worlds/state.json.gz",
+          "kind": "binary",
+          "sha256": "b18db634c2f2c36a65dc645e549f53ba0a02266823aea35cafa99015c0b3b660"
+        },
+        {
+          "path": "docs/readmes/055/original/native/construction055-matrix-3656490476297709631/results.json.gz",
+          "kind": "binary",
+          "sha256": "806b508a4906b511e19f4cb260640feb83ec6f9b4df54f8fdc22a2d6ea0dfa11"
+        },
+        {
+          "path": "docs/readmes/055/original/native/construction055-matrix-3656490476297709631/wide/actual/world-native/checkpoints/6be357d7-7ced-4e3b-95a3-b5872030f3c1.json.gz",
+          "kind": "binary",
+          "sha256": "8ba2dd8c21ad882a0b07151bacc4653e1174304e0029b3305182d22398b29926"
+        },
+        {
+          "path": "docs/readmes/055/original/native/construction055-matrix-3656490476297709631/wide/actual/world-native/state.json.gz",
+          "kind": "binary",
+          "sha256": "012dc1e07ca51f42a7e2997efbb61fdf7659f0f7bdfc1797af931bdfded94fe8"
+        },
+        {
+          "path": "docs/readmes/055/original/native/construction055-matrix-3656490476297709631/wide/direct/counterfactual-045/studies.json.gz",
+          "kind": "binary",
+          "sha256": "e67a014b1aeb229a97a6f28a8b368f23da83248dad523e78f24ec598f78b2819"
+        },
+        {
+          "path": "docs/readmes/055/original/native/construction055-matrix-3656490476297709631/wide/exhaustive/counterfactual-045/studies.json.gz",
+          "kind": "binary",
+          "sha256": "c12fe519b72e80d5d8cf045c8bc5961cbbdd88090f55136ef6532517a0e4e4b3"
+        },
+        {
+          "path": "docs/readmes/055/original/native/construction055-matrix-3656490476297709631/wide/loads/6be357d7-7ced-4e3b-95a3-b5872030f3c1.json.gz",
+          "kind": "binary",
+          "sha256": "c3d819c3364035311faae47025b98dfc5bc22f24cdce50c158b727e9a527fb4e"
+        },
+        {
+          "path": "docs/readmes/055/original/native/construction055-matrix-3656490476297709631/wide/persistent-worlds/state.json.gz",
+          "kind": "binary",
+          "sha256": "020636484986210ba19703db6ef730b5ad7fd5b55ece2e4739dd5c6adf8649c8"
+        },
+        {
+          "path": "docs/readmes/055/original/native/construction055-matrix-4313839099185279823/barrier/actual/world-native/checkpoints/697b219b-29f5-41f4-bf10-88ea8e134d3c.json.gz",
+          "kind": "binary",
+          "sha256": "4980ae8707beb82cc193c72dfb0ba4717ac2f3c3c7038e94691c93f0ce973d53"
+        },
+        {
+          "path": "docs/readmes/055/original/native/construction055-matrix-4313839099185279823/barrier/actual/world-native/state.json.gz",
+          "kind": "binary",
+          "sha256": "021fbf43cb5bea3bf55c245e7e062555126d22cf5d7314811f0421a2369d1564"
+        },
+        {
+          "path": "docs/readmes/055/original/native/construction055-matrix-4313839099185279823/barrier/direct/counterfactual-045/studies.json.gz",
+          "kind": "binary",
+          "sha256": "402e6cb95b707a2708ff6bb11ef9568df45549a1da6293ec9f96b8df3e70dffc"
+        },
+        {
+          "path": "docs/readmes/055/original/native/construction055-matrix-4313839099185279823/barrier/exhaustive/counterfactual-045/studies.json.gz",
+          "kind": "binary",
+          "sha256": "6ff9573dd63cfa94e964f7302425c83e4a841f37e4d6d18bcde95abc10494bcc"
+        },
+        {
+          "path": "docs/readmes/055/original/native/construction055-matrix-4313839099185279823/barrier/persistent-worlds/state.json.gz",
+          "kind": "binary",
+          "sha256": "c099c5df01f6cf5bc1b0d59ee3fbf79bdcc835bfbb8a0447e73b7745e6ebd839"
+        },
+        {
+          "path": "docs/readmes/055/original/native/construction055-matrix-4313839099185279823/compact/actual/world-native/checkpoints/978c08c2-21c2-49c1-89f0-21878dc13f21.json.gz",
+          "kind": "binary",
+          "sha256": "7166f3f8f462045c1fab96aa7c96aebea6ad41778cea1ce6b96145141c3bff39"
+        },
+        {
+          "path": "docs/readmes/055/original/native/construction055-matrix-4313839099185279823/compact/actual/world-native/state.json.gz",
+          "kind": "binary",
+          "sha256": "5f76225f761267026fb08fa8c4cb9144fa90f8eaa1792d1e5f05160dbed9e152"
+        },
+        {
+          "path": "docs/readmes/055/original/native/construction055-matrix-4313839099185279823/compact/direct/counterfactual-045/studies.json.gz",
+          "kind": "binary",
+          "sha256": "9ef16491d18feab1de2c8248851c82911745a95ff3789dabd7fb33c63eefe121"
+        },
+        {
+          "path": "docs/readmes/055/original/native/construction055-matrix-4313839099185279823/compact/exhaustive/counterfactual-045/studies.json.gz",
+          "kind": "binary",
+          "sha256": "7132afd40d7b3b8be4ca5147372874764d860e95221ebfdc4dc8ab115d359c6e"
+        },
+        {
+          "path": "docs/readmes/055/original/native/construction055-matrix-4313839099185279823/compact/persistent-worlds/state.json.gz",
+          "kind": "binary",
+          "sha256": "81deb90daf94dc86e325d11c21a91c6b8cb651d7d89a27dece925610bf7dd82b"
+        },
+        {
+          "path": "docs/readmes/055/original/native/construction055-matrix-4313839099185279823/results.json.gz",
+          "kind": "binary",
+          "sha256": "8923cde4fe348f2ff63a4c0ac7ad78dcc8d8123fb66d454ec52a4ee849aa883d"
+        },
+        {
+          "path": "docs/readmes/055/original/native/construction055-matrix-4313839099185279823/wide/actual/world-native/checkpoints/544928e7-d144-4652-94b6-8e89bde20eb8.json.gz",
+          "kind": "binary",
+          "sha256": "16d7720ff6de078208fff3ff18fd5e67fe7d8186211ecd4f6c3d1c6077161cb0"
+        },
+        {
+          "path": "docs/readmes/055/original/native/construction055-matrix-4313839099185279823/wide/actual/world-native/state.json.gz",
+          "kind": "binary",
+          "sha256": "667e9ca1b66bf640c09953974a8ca1124bd6a8e0c89fe7fa5b2ef42a1b204c84"
+        },
+        {
+          "path": "docs/readmes/055/original/native/construction055-matrix-4313839099185279823/wide/direct/counterfactual-045/studies.json.gz",
+          "kind": "binary",
+          "sha256": "7a23fdf589ecef1e2086e76c06a7f5e19f8d2c9094aeef454a9c1b5514f3df88"
+        },
+        {
+          "path": "docs/readmes/055/original/native/construction055-matrix-4313839099185279823/wide/exhaustive/counterfactual-045/studies.json.gz",
+          "kind": "binary",
+          "sha256": "0908e8c81d8ea89cae12e09cb9503d59fbb91a54e05f219ea5c8b04f18e62a03"
+        },
+        {
+          "path": "docs/readmes/055/original/native/construction055-matrix-4313839099185279823/wide/loads/544928e7-d144-4652-94b6-8e89bde20eb8.json.gz",
+          "kind": "binary",
+          "sha256": "313b0c8d490a1397b49f0c9c4d7aa64433583df0ecd4314afd261253163443ae"
+        },
+        {
+          "path": "docs/readmes/055/original/native/construction055-matrix-4313839099185279823/wide/persistent-worlds/state.json.gz",
+          "kind": "binary",
+          "sha256": "55c3bc73e02f601855e608fe2e74367243f4cddf3ae155b19cff884931c54a66"
+        },
+        {
+          "path": "docs/readmes/055/original/native/construction055-routes-12829372494575804742/actual/world-native/checkpoints/20ae388e-5eef-4567-8082-26fe0a6ea238.json.gz",
+          "kind": "binary",
+          "sha256": "ccc8116b4ac201473e0552c27485dc898f8b5f8493938bc9ddcde76db7c51544"
+        },
+        {
+          "path": "docs/readmes/055/original/native/construction055-routes-12829372494575804742/actual/world-native/state.json.gz",
+          "kind": "binary",
+          "sha256": "e7475bc23534bd9a7dc6c970c3613717e026408fdf812554d35344b07a813d4f"
+        },
+        {
+          "path": "docs/readmes/055/original/native/construction055-routes-12829372494575804742/detour/persistent-worlds/state.json.gz",
+          "kind": "binary",
+          "sha256": "89ac25b5563c94f45e8d533d807587a31b5151f39479dbfb134186fb6bba695b"
+        },
+        {
+          "path": "docs/readmes/055/original/native/construction055-routes-12829372494575804742/results.json.gz",
+          "kind": "binary",
+          "sha256": "56e40ff0c4234c7fbdcbed9e5a3edc279256a6e8c09ba6fb42efda3437640e5a"
+        },
+        {
+          "path": "docs/readmes/055/original/native/construction055-routes-12829372494575804742/sealed/persistent-worlds/state.json.gz",
+          "kind": "binary",
+          "sha256": "2e3d29f502733d2d453baa4264762c40f85d355c5ab974532e92725f435520e9"
+        },
+        {
+          "path": "docs/readmes/055/original/native/construction055-routes-2496199051069474413/actual/world-native/checkpoints/9bbaa513-ceec-4b16-8f13-e45a9e79e9c6.json.gz",
+          "kind": "binary",
+          "sha256": "4d0e9d249f4ae489f95202f480984ff581a5cd5220a5000df4d3989c98727b28"
+        },
+        {
+          "path": "docs/readmes/055/original/native/construction055-routes-2496199051069474413/actual/world-native/state.json.gz",
+          "kind": "binary",
+          "sha256": "40b439d78706715565fada5ab6092a3c3ed87e41c797ca97360208ff22bf276f"
+        },
+        {
+          "path": "docs/readmes/055/original/native/construction055-routes-2496199051069474413/detour/persistent-worlds/state.json.gz",
+          "kind": "binary",
+          "sha256": "722ffa3a5ccc790060d13e61d9c5232880e65b274d4a2c6f656ba62dc7225958"
+        },
+        {
+          "path": "docs/readmes/055/original/native/construction055-routes-2496199051069474413/results.json.gz",
+          "kind": "binary",
+          "sha256": "e25cfc4bc46ae4aa3fdaab9b7a279f80f599d90eae6695ad793458d407925e30"
+        },
+        {
+          "path": "docs/readmes/055/original/native/construction055-routes-2496199051069474413/sealed/persistent-worlds/state.json.gz",
+          "kind": "binary",
+          "sha256": "e1a0bf4834b829f7ee310ef6651ad7a2fe0579a61815791b50094c561c17785b"
+        },
+        {
+          "path": "docs/readmes/055/original/native/load055-recovery-7070685275794510984/loads/50bebd1b-534c-4ec4-abd2-4f88418abdbf.json.gz",
+          "kind": "binary",
+          "sha256": "2a6837de8528fa649179fb26c3240aec77d348c58ebed4f6cb4ee361a2c99574"
+        },
+        {
+          "path": "docs/readmes/055/original/native/load055-recovery-7070685275794510984/native-source/world-native/checkpoints/50bebd1b-534c-4ec4-abd2-4f88418abdbf.json.gz",
+          "kind": "binary",
+          "sha256": "3ec3246025d24da005b3a8fc0f83c301485b39484da7b9ce0a2d6396c6ad41de"
+        },
+        {
+          "path": "docs/readmes/055/original/native/load055-recovery-7070685275794510984/native-source/world-native/state.json.gz",
+          "kind": "binary",
+          "sha256": "20cae28c8888e8d65ddd3b7869bc83a28426588c1f8b681ae693e941167f04eb"
+        },
+        {
+          "path": "docs/readmes/055/original/native/load055-recovery-7070685275794510984/original-resumed.json.gz",
+          "kind": "binary",
+          "sha256": "d817fd06f9055c93c2cb65260ca023439a94082d927a09b7df41ca6d9a881a93"
+        },
+        {
+          "path": "docs/readmes/055/original/native/load055-recovery-7070685275794510984/original-stopped.json.gz",
+          "kind": "binary",
+          "sha256": "8146bd842fdc506d64d09e706f5bafcc016e3e2456fbe15364bf7bbb30cb8c7f"
+        },
+        {
+          "path": "docs/readmes/055/original/native/load055-recovery-7070685275794510984/persistent-worlds/state.json.gz",
+          "kind": "binary",
+          "sha256": "4940655fa08aa00ffdccae303a3c188d6957499d101e31b7b5a4a6c322674e08"
+        },
+        {
+          "path": "docs/readmes/055/original/native/load055-recovery-7070685275794510984/result.json.gz",
+          "kind": "binary",
+          "sha256": "bf358697963751fa027422faf09e6040a71a2385a925b4a2a59448f7c7b938e2"
+        },
+        {
+          "path": "docs/readmes/055/original/native/load055-recovery-910137363393751991/loads/3264cc4a-64ef-42f8-8534-47fb09881f05.json.gz",
+          "kind": "binary",
+          "sha256": "4ee1ca91a13a14a07092ef22db1abca8d586a8d8f206f8c6299f0a688e94b3cc"
+        },
+        {
+          "path": "docs/readmes/055/original/native/load055-recovery-910137363393751991/native-source/world-native/checkpoints/3264cc4a-64ef-42f8-8534-47fb09881f05.json.gz",
+          "kind": "binary",
+          "sha256": "0d31cfff3218b1595cc9ddf11e4d7f09cc1a9f1d6445157d692eb491cb5c2a67"
+        },
+        {
+          "path": "docs/readmes/055/original/native/load055-recovery-910137363393751991/native-source/world-native/state.json.gz",
+          "kind": "binary",
+          "sha256": "5c951abf9c6da8e4ad9371b3f7397e5caa690bb48ed7c0a690a1e0a9e33b4258"
+        },
+        {
+          "path": "docs/readmes/055/original/native/load055-recovery-910137363393751991/original-resumed.json.gz",
+          "kind": "binary",
+          "sha256": "d844fcd15c7bee80d58d61c830b5571c88712f40a3f4a3eebb5fcf8186baac3d"
+        },
+        {
+          "path": "docs/readmes/055/original/native/load055-recovery-910137363393751991/original-stopped.json.gz",
+          "kind": "binary",
+          "sha256": "98d00efbdfd8d3d29faca85ef3a450a8fc501a96c32f46fef283bf452dc6f962"
+        },
+        {
+          "path": "docs/readmes/055/original/native/load055-recovery-910137363393751991/persistent-worlds/state.json.gz",
+          "kind": "binary",
+          "sha256": "b086b296a09094d9389d79e9e3c81c24d8e35463fc72df5e3ef258d702715ef8"
+        },
+        {
+          "path": "docs/readmes/055/original/native/load055-recovery-910137363393751991/result.json.gz",
+          "kind": "binary",
+          "sha256": "58e82b584c2802bf65d0ef5f323e04eebdfac69a7c04c41a4afb7ab224926023"
+        },
+        {
+          "path": "docs/readmes/055/original/native/route055-recovery-4328440212786360460/persistent-worlds/state.json.gz",
+          "kind": "binary",
+          "sha256": "3c26c25e74acec538f7764a3bfd1b09412fad6b182c05aa04ae846322806bfc7"
+        },
+        {
+          "path": "docs/readmes/055/original/native/route055-recovery-4328440212786360460/result.json.gz",
+          "kind": "binary",
+          "sha256": "929908b99aa37262c07af1168b3afe8c34e1313723f47ada3976b4819fe2f652"
+        },
+        {
+          "path": "docs/readmes/055/original/native/route055-recovery-4328440212786360460/world-native/checkpoints/3f9acf76-ab8e-452e-8ace-c0d51428edd8.json.gz",
+          "kind": "binary",
+          "sha256": "87a8a325d96343b84497b8b898a566874b1b6d363dba6ca0830b6ee811a87af1"
+        },
+        {
+          "path": "docs/readmes/055/original/native/route055-recovery-4328440212786360460/world-native/state.json.gz",
+          "kind": "binary",
+          "sha256": "5fb2bbecde5d300c7086427c7c414dc5b7fa4b15620b4c7031ba2d041711b997"
+        },
+        {
+          "path": "docs/readmes/055/original/startup-recovery/agency-043/tasks.json.gz",
+          "kind": "binary",
+          "sha256": "a7b20542daf0995f7da4dd429a5729968affa103936808f116ad6f9e04affd73"
+        },
+        {
+          "path": "docs/readmes/055/original/startup-recovery/alignment-041/state.json.gz",
+          "kind": "binary",
+          "sha256": "7da0189c2371d1a2eeef9c9657cc5c647015fc5aadb4b4dd85c670891a1ef0a8"
+        },
+        {
+          "path": "docs/readmes/055/original/startup-recovery/artifacts/42fc21b6-7be2-41fd-9574-be7d171d0ea6/versions/1/index.html.gz",
+          "kind": "binary",
+          "sha256": "d8f4bf33ea24499c1e5bb96a0b6a7cb8ef23b565539e4107680c22d1d8707d17"
+        },
+        {
+          "path": "docs/readmes/055/original/startup-recovery/artifacts/63013cd3-3044-4162-b8b7-51cfc8c6353e/versions/1/index.html.gz",
+          "kind": "binary",
+          "sha256": "b7204c287c5d3b02b27b010342667c4df32d082cf4747e29fe04e8a93195ffd2"
+        },
+        {
+          "path": "docs/readmes/055/original/startup-recovery/artifacts/89806e96-ea65-49b8-9ebc-67dc8cc48ac4/versions/1/index.html.gz",
+          "kind": "binary",
+          "sha256": "ab4ecb696981879c750a38b0870fd1eecf64d119b982d1ef9a2db673af7b42e5"
+        },
+        {
+          "path": "docs/readmes/055/original/startup-recovery/contact-study/state.json.gz",
+          "kind": "binary",
+          "sha256": "99a9034fabf96bbda08fbb95fc8bcb4defd72013c361289f0f0a4ae305c8738a"
+        },
+        {
+          "path": "docs/readmes/055/original/startup-recovery/counterfactual-045/studies.json.gz",
+          "kind": "binary",
+          "sha256": "e40b1e8aee1bbf3011e76df1702353911a3c6f92c5d5b22bd7e38da8e776315b"
+        },
+        {
+          "path": "docs/readmes/055/original/startup-recovery/first-invocation.json.gz",
+          "kind": "binary",
+          "sha256": "8d153d12533db0879df30844866c3ab6c5df14597cd211e185f8d28b123b28e3"
+        },
+        {
+          "path": "docs/readmes/055/original/startup-recovery/knowledge-039/state.json.gz",
+          "kind": "binary",
+          "sha256": "5faf0c5a4aeddd69d56ac9f9bc33abb5c9227da009e03170201f7e9962f27af3"
+        },
+        {
+          "path": "docs/readmes/055/original/startup-recovery/pose-evaluation/state.json.gz",
+          "kind": "binary",
+          "sha256": "3e79fb3a01b75d718848cde31c0a8d75f2f3282a1927eb95f6483efb8f9830a1"
+        },
+        {
+          "path": "docs/readmes/055/original/startup-recovery/process.log.gz",
+          "kind": "binary",
+          "sha256": "bdbd2651739c00276db1b3a0e886590adb8979a18a7fbad7a6999fb5c6f21905"
+        },
+        {
+          "path": "docs/readmes/055/original/startup-recovery/push-learning/state.json.gz",
+          "kind": "binary",
+          "sha256": "99a9034fabf96bbda08fbb95fc8bcb4defd72013c361289f0f0a4ae305c8738a"
+        },
+        {
+          "path": "docs/readmes/055/original/startup-recovery/tabletop-038/state.json.gz",
+          "kind": "binary",
+          "sha256": "f41d909801309e18bd5d6b0410e92bf96344524357d517d10eb1116e2eb9d516"
+        },
+        {
+          "path": "docs/readmes/055/original/startup-recovery/workspace.fworld.gz",
+          "kind": "binary",
+          "sha256": "28584c26468390b2c702470eebb44e6acbef7c492c50514f4234af2538da767e"
+        },
+        {
+          "path": "docs/readmes/055/original/startup-recovery/world-observations/state.json.gz",
+          "kind": "binary",
+          "sha256": "99bff461826e3471af74adf24c17ad74300b29073d3d289d59f65cd90d8a8f4c"
+        },
+        {
+          "path": "docs/readmes/055/original-evidence.json",
+          "kind": "text",
+          "sha256": "32ec694aeeee8b41e4203bad148704d6a82e6130195aea0dbd5b681ff748a2f7"
+        },
+        {
+          "path": "docs/readmes/055/report-capture.json",
+          "kind": "text",
+          "sha256": "6d6ac8b1ddba35fdee9491b76fbc1f6bcca535505e83473cf3b32ad73140a349"
+        },
+        {
+          "path": "docs/readmes/055/startup-recovery.json",
+          "kind": "text",
+          "sha256": "504e2aa14a98e2b5ee8bc4a9cbb2d3cf3f3735042b027b1dfd04899dc52899dc"
+        },
+        {
+          "path": "docs/readmes/055/system-map.json",
+          "kind": "text",
+          "sha256": "8a7b89bd87dc073fe22797effe862ba6ca4decb76002f78f3a671ac148108058"
+        },
+        {
+          "path": "docs/readmes/055/verification.json",
+          "kind": "text",
+          "sha256": "3520e5114bd35ea08fcf780b31f4869fb29bd7345060524b4e1e18897ee81019"
         }
       ]
     }
