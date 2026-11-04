@@ -21,9 +21,9 @@ async function main(){
   const facts=await api('/api/agent042/state');assert.equal(facts.fraynixGPT061.modelSha256,record.job.modelSha256061);
   await app.close();app=null;await open();const cold=await api('/api/brain/state');assert.equal(cold.fraynixGPT061.modelSha256,record.job.modelSha256061);assert.equal(cold.activePolicy.version,1);
   await page.locator('#c061-predict-panel').evaluate(e=>e.open=true);await page.locator('#c061-predict').click();await until(async()=>(await page.locator('#c061-prediction').textContent()).includes('No action executed'));assert.equal(await page.locator('#c061-prediction').textContent(),record.prediction);record.checks.push('Cold Java/app restart preserves exact checkpoint and prediction without retraining');
-  await page.setViewportSize({width:1100,height:800});await page.locator('#c061-result').scrollIntoViewIfNeeded();await capture('narrow');
+  await app.evaluate(({BrowserWindow})=>BrowserWindow.getAllWindows()[0].setSize(1100,800));await page.locator('#c061-result').scrollIntoViewIfNeeded();await capture('narrow');
   assert(await page.locator('#c061-train').isVisible());record.checks.push('Existing Brain view works at 1100 px with visible controls');
-  await page.locator('#brain-close').click();await page.waitForFunction(()=>[...document.querySelector('#model').options].some(o=>o.value==='gpt-oss:20b'),{},{timeout:60000});await page.locator('#model').selectOption('gpt-oss:20b');
+  await app.evaluate(({BrowserWindow})=>BrowserWindow.getAllWindows()[0].setSize(1600,1000));await page.locator('#brain-close').click();await page.waitForFunction(()=>[...document.querySelector('#model').options].some(o=>o.value==='gpt-oss:20b'),{},{timeout:60000});await page.locator('#model').selectOption('gpt-oss:20b');
   const prior=(await api('/api/agency043/state')).tasks.map(t=>t.id);
   await page.getByLabel('Agent request').fill('Inspect FraynixGPT cortex outcome learning. Read the actual Java agent state and create its verified report. Explain that the analytical baseline won and the candidate is unqualified. Do not start training or move objects.');await page.locator('#run').click();
   const task=await until(async()=>(await api('/api/agency043/state')).tasks.find(t=>!prior.includes(t.id)));
