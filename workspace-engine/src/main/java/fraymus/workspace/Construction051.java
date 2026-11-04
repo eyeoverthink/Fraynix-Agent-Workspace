@@ -11,11 +11,11 @@ final class Construction051 {
     static final List<String> ROLES = List.of("support-a", "support-b", "beam");
 
     static JSONObject options(JSONObject input) {
-        SpatialScene.keys(input,"centerX","centerZ");
+        SpatialScene.keys(input,"centerX","centerZ","supportSpanM");
         if(input.has("centerX"))SpatialScene.number(input,"centerX",-1,1);
         if(input.has("centerZ"))SpatialScene.number(input,"centerZ",-.5,.8);
         var out=new JSONObject().put("centerX",input.optDouble("centerX",0)).put("centerZ",input.optDouble("centerZ",0));
-        SpatialScene.number(out,"centerX",-1,1);SpatialScene.number(out,"centerZ",-.5,.8);return out;
+        if(input.has("supportSpanM")){SpatialScene.number(input,"supportSpanM",.65,2);out.put("supportSpanM",input.get("supportSpanM"));}SpatialScene.number(out,"centerX",-1,1);SpatialScene.number(out,"centerZ",-.5,.8);return out;
     }
     static String identity() {
         try(var in=Construction051.class.getResourceAsStream("Construction051.class")){return MapDefinition.sha(in.readAllBytes());}
@@ -51,7 +51,7 @@ final class Construction051 {
     }
     static JSONObject intent(JSONObject scene,JSONObject requested,double force,double torque) {
         if(Construction054.is(scene))return Construction054.intent(scene,requested,force,torque);
-        stock(scene);var o=options(requested);RampDefinition.range(force,2,60,"gripper force N");RampDefinition.range(torque,0,4,"gripper torque Nm");
+        stock(scene);var o=options(requested);if(o.has("supportSpanM"))throw new IllegalArgumentException("Support redesign requires declared054 box stock");RampDefinition.range(force,2,60,"gripper force N");RampDefinition.range(torque,0,4,"gripper torque Nm");
         var targets=new JSONArray();var beam=WorldPlan.sourceObject(scene,"beam");
         // Removing the beam first protects supports when rebuilding a retained structure.
         if(beam.getJSONArray("position").getDouble(1)>.3)targets.put(target("beam",2,.15,-1.5));

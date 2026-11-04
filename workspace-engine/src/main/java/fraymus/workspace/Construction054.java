@@ -52,7 +52,7 @@ final class Construction054 {
   }
  }
  static JSONObject intent(JSONObject scene,JSONObject requested,double force,double torque){
-  stock(scene);var o=Construction051.options(requested);var c=config(scene);RampDefinition.range(force,2,60,"gripper force N");RampDefinition.range(torque,0,4,"gripper torque Nm");var targets=new JSONArray();var beam=WorldPlan.sourceObject(scene,"beam");double bh=beam.getJSONArray("size").getDouble(1)/2,sh=c.getDouble("supportHeightM"),span=c.getDouble("spanM");
+  stock(scene);var o=Construction051.options(requested);var c=config(scene);RampDefinition.range(force,2,60,"gripper force N");RampDefinition.range(torque,0,4,"gripper torque Nm");var targets=new JSONArray();var beam=WorldPlan.sourceObject(scene,"beam");double bh=beam.getJSONArray("size").getDouble(1)/2,sh=c.getDouble("supportHeightM"),span=o.optDouble("supportSpanM",c.getDouble("spanM"));double sw=WorldPlan.sourceObject(scene,"support-a").getJSONArray("size").getDouble(0);if(span<sw+.2||span+sw>beam.getJSONArray("size").getDouble(0)-.16+1e-9)throw new IllegalArgumentException("Redesigned span must retain original beam-end margins");
   if(beam.getJSONArray("position").getDouble(1)>bh+.15)targets.put(target("beam",2,bh,-2));double x=o.getDouble("centerX"),z=o.getDouble("centerZ");
   targets.put(target("support-a",x-span/2,sh/2,z)).put(target("support-b",x+span/2,sh/2,z)).put(target("beam",x,sh+bh+.02,z));
   return new JSONObject().put("binding",SpatialStore.binding(scene)).put("targets",targets).put("forceLimitN",force).put("torqueLimitNm",torque).put("actuator","bounded virtual force/torque gripper").put("construction051",o).put("constructionCodeSha256",Construction051.identity()).put("geometry054",c);

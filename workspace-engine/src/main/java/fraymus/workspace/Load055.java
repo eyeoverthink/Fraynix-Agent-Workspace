@@ -66,7 +66,7 @@ final class Load055 {
             if(impulse>1e-6&&distance<=.015)out.put(new JSONObject().put("a",ids.get(com.jme3.bullet.collision.PersistentManifolds.getBodyAId(manifold))).put("b",ids.get(com.jme3.bullet.collision.PersistentManifolds.getBodyBId(manifold))).put("distanceM",distance).put("normalImpulseNs",impulse));
         }return out;
     }
-    private static void simulate(Path nativeDir,JSONObject run,JSONObject spec,JSONObject attempt,java.util.concurrent.Callable<Void> checkpoint)throws Exception {
+    static void simulate(Path nativeDir,JSONObject run,JSONObject spec,JSONObject attempt,java.util.concurrent.Callable<Void> checkpoint)throws Exception {
         BulletRamp.load(nativeDir);var space=new PhysicsSpace(PhysicsSpace.BroadphaseType.DBVT);var bodies=new LinkedHashMap<String,PhysicsRigidBody>();var dynamic=new LinkedHashSet<String>();
         var scene=run.getJSONObject("definition");String beam=WorldPlan.sourceObject(scene,"beam").getString("id");var protocol=protocol();
         try {
@@ -83,10 +83,10 @@ final class Load055 {
             for(int tick=0;tick<protocol.getInt("ticks");tick++) {
                 if(Thread.interrupted())throw new InterruptedException("Load attempt interrupted; original partial trace retained");
                 var before=states(bodies,dynamic);var force=tick>=protocol.getInt("startTick")&&tick<protocol.getInt("endTickExclusive")?SpatialPhysics.vec(SpatialScene.vector(spec.getJSONArray("forceN"),100)):new Vector3f();
-                bodies.get(beam).applyCentralForce(force);PhysicsSpace.setLocalThreadPhysicsSpace(space);space.update((float)BulletRamp.DT,0);
+                var appliedOffset=new Vector3f();if(spec.has("localPointM")){appliedOffset=bodies.get(beam).getPhysicsRotation().mult(SpatialPhysics.vec(SpatialScene.vector(spec.getJSONArray("localPointM"),2)));bodies.get(beam).applyForce(force,appliedOffset);}else bodies.get(beam).applyCentralForce(force);PhysicsSpace.setLocalThreadPhysicsSpace(space);space.update((float)BulletRamp.DT,0);
                 var after=states(bodies,dynamic);var deltas=new JSONArray();double work=0;
-                for(Object raw:after){var b=(JSONObject)raw;String id=b.getString("id");var old=ContactPhysics.dynamic(before,id);double[] dp=ObserverGeometry.sub(SpatialScene.vector(b.getJSONArray("position"),10000),SpatialScene.vector(old.getJSONArray("position"),10000));deltas.put(new JSONArray().put(id).put(new JSONArray(dp)).put(b.getJSONArray("rotation")));if(id.equals(beam))work=force.x*dp[0]+force.y*dp[1]+force.z*dp[2];}
-                attempt.getJSONArray("rows").put(new JSONArray().put(tick+1).put(SpatialPhysics.json(force)).put(deltas).put(work));
+                for(Object raw:after){var b=(JSONObject)raw;String id=b.getString("id");var old=ContactPhysics.dynamic(before,id);double[] dp=ObserverGeometry.sub(SpatialScene.vector(b.getJSONArray("position"),10000),SpatialScene.vector(old.getJSONArray("position"),10000));deltas.put(new JSONArray().put(id).put(new JSONArray(dp)).put(b.getJSONArray("rotation")));if(id.equals(beam)){if(spec.has("localPointM"))dp=ObserverGeometry.sub(point(b,spec.getJSONArray("localPointM")),point(old,spec.getJSONArray("localPointM")));work=force.x*dp[0]+force.y*dp[1]+force.z*dp[2];}}
+                var integration=new JSONArray().put(tick+1).put(SpatialPhysics.json(force)).put(deltas).put(work);if(spec.has("localPointM"))integration.put(SpatialPhysics.json(appliedOffset));attempt.getJSONArray("rows").put(integration);
                 if((tick+1)%protocol.getInt("sampleEvery")==0)attempt.getJSONArray("samples").put(new JSONObject().put("tick",tick+1).put("bodies",after).put("contacts",contacts(space,bodies)));
                 if((tick+1)%240==0)checkpoint.call();
             }
@@ -102,9 +102,9 @@ final class Load055 {
         for(Object raw:a.getJSONArray("rows")) {
             var row=(JSONArray)raw;if(row.getInt(0)!=++tick)throw new IllegalStateException("Missing load integration tick");var force=row.getJSONArray(1);boolean active=tick-1>=p.getInt("startTick")&&tick-1<p.getInt("endTickExclusive");
             for(int k=0;k<3;k++)WorldVerify.close(force.getDouble(k),active?spec.getJSONArray("forceN").getDouble(k):0,1e-5,"Unauthorized load force");
-            var seen=new HashSet<String>();double observedWork=0;
+            var seen=new HashSet<String>();double observedWork=0;double[] beforePoint=spec.has("localPointM")?point(new JSONObject().put("position",new JSONArray(positions.get(beam))).put("rotation",rotations.get(beam)),spec.getJSONArray("localPointM")):null;double[] beforePosition=positions.get(beam).clone();
             for(Object value:row.getJSONArray(2)){var d=(JSONArray)value;String id=d.getString(0);if(!positions.containsKey(id)||!seen.add(id))throw new IllegalStateException("Foreign load body");var dp=SpatialScene.vector(d.getJSONArray(1),1);for(int k=0;k<3;k++){positions.get(id)[k]+=dp[k];if(id.equals(beam))observedWork+=force.getDouble(k)*dp[k];}WorldVerify.quaternion(d.getJSONArray(2));rotations.put(id,d.getJSONArray(2));}
-            if(seen.size()!=positions.size())throw new IllegalStateException("Load trace lost body");WorldVerify.close(observedWork,row.getDouble(3),1e-7,"Load work differs");work+=observedWork;effort+=WorldVerify.norm(force)*BulletRamp.DT;
+            if(seen.size()!=positions.size())throw new IllegalStateException("Load trace lost body");if(beforePoint!=null){var afterPoint=point(new JSONObject().put("position",new JSONArray(positions.get(beam))).put("rotation",rotations.get(beam)),spec.getJSONArray("localPointM"));observedWork=0;for(int k=0;k<3;k++){WorldVerify.close(row.getJSONArray(4).getDouble(k),beforePoint[k]-beforePosition[k],2e-6,"Load application point changed");observedWork+=force.getDouble(k)*(afterPoint[k]-beforePoint[k]);}}WorldVerify.close(observedWork,row.getDouble(3),beforePoint==null?1e-7:2e-5,"Load work differs");work+=observedWork;effort+=WorldVerify.norm(force)*BulletRamp.DT;
             maxDisplacement=Math.max(maxDisplacement,distance(new JSONArray(positions.get(beam)),initialBeam));var q=rotations.get(beam);maxTilt=Math.max(maxTilt,Math.toDegrees(Math.acos(Math.max(-1,Math.min(1,1-2*(q.getDouble(0)*q.getDouble(0)+q.getDouble(2)*q.getDouble(2)))))));
             if(tick%p.getInt("sampleEvery")==0) {
                 if(index>=a.getJSONArray("samples").length())throw new IllegalStateException("Missing load sample");var sample=a.getJSONArray("samples").getJSONObject(index++);if(sample.getInt("tick")!=tick||sample.getJSONArray("bodies").length()!=positions.size())throw new IllegalStateException("Load sample clock/bodies changed");
@@ -116,10 +116,11 @@ final class Load055 {
         boolean stable=supported==settled&&maxDisplacement<=p.getDouble("maxDisplacementM")&&maxTilt<=p.getDouble("maxTiltDeg")&&maxSpeed<=p.getDouble("maxSettledSpeedMps");
         return new JSONObject().put("stable",stable).put("nativeTicks",tick).put("forceEffortNs",effort).put("workJ",work).put("maxBeamDisplacementM",maxDisplacement).put("maxBeamTiltDeg",maxTilt).put("maxSettledSpeedMps",maxSpeed).put("supportedSamples",supported).put("settledSamples",settled);
     }
-    private static JSONArray chart(JSONObject attempt,JSONObject run) {
+    static JSONArray chart(JSONObject attempt,JSONObject run) {
         String beam=WorldPlan.sourceObject(run.getJSONObject("definition"),"beam").getString("id");var initial=ContactPhysics.dynamic(attempt.getJSONArray("nativeInitial"),beam).getJSONArray("position");var out=new JSONArray();
         for(Object raw:attempt.getJSONArray("samples")){var s=(JSONObject)raw;out.put(new JSONArray().put(s.getInt("tick")*BulletRamp.DT).put(distance(initial,ContactPhysics.dynamic(s.getJSONArray("bodies"),beam).getJSONArray("position"))));}return out;
     }
-    private static double distance(JSONArray a,JSONArray b){return ObserverGeometry.norm(ObserverGeometry.sub(SpatialScene.vector(a,10000),SpatialScene.vector(b,10000)));}
+    static double distance(JSONArray a,JSONArray b){return ObserverGeometry.norm(ObserverGeometry.sub(SpatialScene.vector(a,10000),SpatialScene.vector(b,10000)));}
+    static double[] point(JSONObject body,JSONArray local){var q=body.getJSONArray("rotation");double x=q.getDouble(0),y=q.getDouble(1),z=q.getDouble(2),w=q.getDouble(3),a=local.getDouble(0),b=local.getDouble(1),c=local.getDouble(2);var p=body.getJSONArray("position");return new double[]{p.getDouble(0)+(1-2*y*y-2*z*z)*a+2*(x*y-z*w)*b+2*(x*z+y*w)*c,p.getDouble(1)+2*(x*y+z*w)*a+(1-2*x*x-2*z*z)*b+2*(y*z-x*w)*c,p.getDouble(2)+2*(x*z-y*w)*a+2*(y*z+x*w)*b+(1-2*x*x-2*y*y)*c};}
     static String label(JSONObject result) {var m=result.getJSONObject("metrics");return String.format(Locale.ROOT,"%s · %s · displacement %.4f m · tilt %.3f deg · supported %d/%d samples",result.getString("caseId"),m.getBoolean("stable")?"stable":"unstable",m.getDouble("maxBeamDisplacementM"),m.getDouble("maxBeamTiltDeg"),m.getInt("supportedSamples"),m.getInt("settledSamples"));}
 }
