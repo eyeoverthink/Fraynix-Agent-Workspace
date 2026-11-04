@@ -60,4 +60,6 @@ Numbered editions preserve dated behavior and evidence. The root [README](../../
 | [054](../../README-054.md) | 2026-11-03 | Declared variable geometry, fixed obstacles, original simpler-control comparison and cross-geometry reuse | [Viewer](054/index.html) · [tree](054/FILE_TREE.md) |
 | [055](../../README-055.md) | 2026-11-03 | Direct-first control, native lateral routes and independent load experiments | [Viewer](055/index.html) · [tree](055/FILE_TREE.md) |
 
-Latest implementation and documentation edition in this checkout is **055**. See [sequence policy](README_SEQUENCE.md) and [manifest](editions.json).
+| [056](../../README-056.md) | 2026-11-03 | Measured load limits and verified redesign after failure | [Viewer](056/index.html) · [tree](056/FILE_TREE.md) |
+
+Latest implementation and documentation edition in this checkout is **056**. See [sequence policy](README_SEQUENCE.md) and [manifest](editions.json).

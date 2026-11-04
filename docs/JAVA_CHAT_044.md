@@ -48,3 +48,8 @@ Spatial → Gripper assembly → Choose stock and obstacles creates separate dec
 ## Simple control, routes and loads055
 
 Spatial → Gripper assembly supports a tall detour wall and a sealed-wall refusal. Try simpler control first keeps all original checks; unexecuted alternatives say not-needed. Independent load results retain stable and unstable outcomes in separate native copies. Chat and exact saved procedures preserve these requirements. Load exports retain original per-tick forces, work, motion and contacts; explicit restart preserves unfinished attempts. [Edition055 walkthrough and measured limits](../README-055.md).
+
+
+## Measured load redesign056
+
+Spatial → Gripper assembly → 16 N redesign example creates separate labelled stock. Review original failure, verified wider supports, then fresh execution. Chat preserves requiredLoadN and saved procedures preserve the same load policy. Original 24 N case refuses all tested layouts. Reports and exports retain force/motion/contact records and repeats; no material-strength claim. [Edition 056 walkthrough](../README-056.md).

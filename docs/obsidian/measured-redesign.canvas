@@ -1,0 +1,95 @@
+{
+  "nodes": [
+    {
+      "id": "limits",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/Load056.java",
+      "x": 0,
+      "y": 0,
+      "width": 380,
+      "height": 190
+    },
+    {
+      "id": "design",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/Design056.java",
+      "x": 410,
+      "y": 0,
+      "width": 380,
+      "height": 190
+    },
+    {
+      "id": "goal",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/GoalRunner.java",
+      "x": 820,
+      "y": 0,
+      "width": 380,
+      "height": 190
+    },
+    {
+      "id": "original",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/CounterfactualReport045.java",
+      "x": 0,
+      "y": 240,
+      "width": 380,
+      "height": 190
+    },
+    {
+      "id": "view",
+      "type": "file",
+      "file": "workspace-desktop/renderer/construction051.js",
+      "x": 410,
+      "y": 240,
+      "width": 380,
+      "height": 190
+    },
+    {
+      "id": "next",
+      "type": "file",
+      "file": "docs/EDITION_056_CONTRACT.md",
+      "x": 820,
+      "y": 240,
+      "width": 380,
+      "height": 190
+    }
+  ],
+  "edges": [
+    {
+      "id": "e0",
+      "fromNode": "limits",
+      "fromSide": "right",
+      "toNode": "design",
+      "toSide": "left"
+    },
+    {
+      "id": "e1",
+      "fromNode": "design",
+      "fromSide": "right",
+      "toNode": "goal",
+      "toSide": "left"
+    },
+    {
+      "id": "e2",
+      "fromNode": "goal",
+      "fromSide": "right",
+      "toNode": "original",
+      "toSide": "left"
+    },
+    {
+      "id": "e3",
+      "fromNode": "original",
+      "fromSide": "right",
+      "toNode": "view",
+      "toSide": "left"
+    },
+    {
+      "id": "e4",
+      "fromNode": "view",
+      "fromSide": "right",
+      "toNode": "next",
+      "toSide": "left"
+    }
+  ]
+}

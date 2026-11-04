@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "latest": 55,
+  "latest": 56,
   "canonicalization": "UTF-8 without BOM; CRLF normalized to LF for text",
   "editions": [
     {
@@ -20702,6 +20702,1555 @@
           "path": "docs/readmes/055/verification.json",
           "kind": "text",
           "sha256": "3520e5114bd35ea08fcf780b31f4869fb29bd7345060524b4e1e18897ee81019"
+        }
+      ]
+    },
+    {
+      "number": 56,
+      "date": "2026-11-03",
+      "title": "Measured load limits and verified redesign",
+      "status": "validated-local",
+      "markdown": "README-056.md",
+      "markdownSha256": "2b9cb7ce8da4d57469b35b586864097140c3302faae6d992631bf94c3cee01c8",
+      "companion": "docs/readmes/056/index.html",
+      "tag": "readme-056",
+      "sourceBaseline": "9b17ba7cc0cffb6a92aaac9307521042ea8958a2",
+      "snapshotDirectory": "docs/readmes/056",
+      "snapshotFiles": [
+        {
+          "path": "docs/readmes/056/construction056-built.png",
+          "kind": "binary",
+          "sha256": "0c2b7fe5c6eb293d59c3f948f90eadf4062721e55a1b3c7910f3f5fa0d0e3c52"
+        },
+        {
+          "path": "docs/readmes/056/construction056-chart.png",
+          "kind": "binary",
+          "sha256": "f07fc24cf0a9aaf6ba660aa267ff10aba2bc547c20970064c71f5d83c5bee7f1"
+        },
+        {
+          "path": "docs/readmes/056/construction056-chat.png",
+          "kind": "binary",
+          "sha256": "4aeb6ca7f006b152ee22bb7c1d51a768a9488a51b5d1f94173fbc6da6f7e60ef"
+        },
+        {
+          "path": "docs/readmes/056/construction056-loads.png",
+          "kind": "binary",
+          "sha256": "b0ca493b468f923bb9a169195bfb4f48e9f1c1457b08a218bd34ba1458df96ba"
+        },
+        {
+          "path": "docs/readmes/056/construction056-narrow.png",
+          "kind": "binary",
+          "sha256": "814b557aabf36604cd2e4c123ec4bbc7aa63a584c72418fdc41a21c9aae759a2"
+        },
+        {
+          "path": "docs/readmes/056/construction056-refused.png",
+          "kind": "binary",
+          "sha256": "28ccd93eb99a9aa8643ce3849dde1f93602b40640dbc2e85b4756fd9b57f5dd5"
+        },
+        {
+          "path": "docs/readmes/056/construction056-report.png",
+          "kind": "binary",
+          "sha256": "ef83aede95fe21521e606c0d66dcb004e6a3a97daf94a3598e9010b63aafeb61"
+        },
+        {
+          "path": "docs/readmes/056/construction056-review.png",
+          "kind": "binary",
+          "sha256": "d97daa89402c7265c1c735087079652a91523ac9ad074ae56270c274f794e31d"
+        },
+        {
+          "path": "docs/readmes/056/construction056-sealed.png",
+          "kind": "binary",
+          "sha256": "70a051074553df00a51944c40a3d64f1c7d3842a11ee634a98460f74c45001a0"
+        },
+        {
+          "path": "docs/readmes/056/construction056-stock.png",
+          "kind": "binary",
+          "sha256": "61a2016c1a2a78507ab3d815f1fbb49b3072a1fbc12b38b42cc224eb3e2da89b"
+        },
+        {
+          "path": "docs/readmes/056/desktop-live.json",
+          "kind": "text",
+          "sha256": "5c4dd14408e7b9015f0ce6ea9368369cd91d8bdd662c513cdd0e4529e527c38e"
+        },
+        {
+          "path": "docs/readmes/056/documentation-browser.json",
+          "kind": "text",
+          "sha256": "6499657acc3f931e6add8152fdc25cc3b7e391fc2df95f2300b74264be6cfd8f"
+        },
+        {
+          "path": "docs/readmes/056/file-inventory.json",
+          "kind": "text",
+          "sha256": "1a01c05d38e3a78872c43c0366c6f8bad1556f7a084b92c9cf12f83b2e83cdb7"
+        },
+        {
+          "path": "docs/readmes/056/FILE_TREE.md",
+          "kind": "text",
+          "sha256": "a8fd91be87b9fbe72bcc450a4aff36715a6e60cbf6a90e7360f10333e91ff987"
+        },
+        {
+          "path": "docs/readmes/056/guide-1440.png",
+          "kind": "binary",
+          "sha256": "f17ed56dd9ac97a18f1ba705d8f2d050ef33282a48cf8127cdaa278ce4d7dc96"
+        },
+        {
+          "path": "docs/readmes/056/guide-390.png",
+          "kind": "binary",
+          "sha256": "8f31b8b12d7e32cbe995230860034c16bb801674040abb74735ff50da01252d4"
+        },
+        {
+          "path": "docs/readmes/056/index.html",
+          "kind": "text",
+          "sha256": "46b53aca9136155c8909aef09e31162179c1c747ffa1e0365e237f13635df465"
+        },
+        {
+          "path": "docs/readmes/056/java/native056-final/gradle.log.gz",
+          "kind": "binary",
+          "sha256": "3517f8b6b7ba36d40000fcf960be7e9490a04f8bcc4d6c48480be4ca055c0ee1"
+        },
+        {
+          "path": "docs/readmes/056/java/native056-final/TEST-fraymus.workspace.Construction051Test.xml.gz",
+          "kind": "binary",
+          "sha256": "c975dc1d8c078706a5365ae539cad1916169c0fcac2ec57d12709da1e169609c"
+        },
+        {
+          "path": "docs/readmes/056/java/native056-final/TEST-fraymus.workspace.Counterfactual045Test.xml.gz",
+          "kind": "binary",
+          "sha256": "09a2ccfff099c4a8d2347205bcc16d09c4be46db75cd8bf2de6d82e949544c98"
+        },
+        {
+          "path": "docs/readmes/056/java/native056-final/TEST-fraymus.workspace.Design056Test.xml.gz",
+          "kind": "binary",
+          "sha256": "8ce9679b4e6133e939f4f908dd9629fcafc47ae7fde22acd44795d210a02ac66"
+        },
+        {
+          "path": "docs/readmes/056/java/native056-final/TEST-fraymus.workspace.Load056RecoveryTest.xml.gz",
+          "kind": "binary",
+          "sha256": "253ed094886f8f6ef74c4be1cbe9f7192aff655f5218a84d31bbd35d73e1e79e"
+        },
+        {
+          "path": "docs/readmes/056/java/native056-final/TEST-fraymus.workspace.Load056Test.xml.gz",
+          "kind": "binary",
+          "sha256": "bb081439f4d459c7dc32add017ee0d3451fbfae6d009d8680ef7c5d6af0c7483"
+        },
+        {
+          "path": "docs/readmes/056/java/native056-first/gradle.log.gz",
+          "kind": "binary",
+          "sha256": "ac838d29a6491f531975f0815278b41dbebdf26212d8bda0698764d807152015"
+        },
+        {
+          "path": "docs/readmes/056/java/native056-first/TEST-fraymus.workspace.Load056Test.xml.gz",
+          "kind": "binary",
+          "sha256": "ad66d0c7b1f3fb11f65bc7a4b8897819cf86fadb42cbd0131e444c08ad3442d9"
+        },
+        {
+          "path": "docs/readmes/056/java/native056-matrix24/gradle.log.gz",
+          "kind": "binary",
+          "sha256": "9b9e535547051029cd0a6c3fc008543f02dfd27f570c9ae343ba28a74a01a40d"
+        },
+        {
+          "path": "docs/readmes/056/java/native056-matrix24/TEST-fraymus.workspace.Load056Test.xml.gz",
+          "kind": "binary",
+          "sha256": "196c4e213a5e531fd6885b4093c6ae9870fe3f860b24ae5a0d84f4c5f468bac6"
+        },
+        {
+          "path": "docs/readmes/056/java/native056-redesign16/gradle.log.gz",
+          "kind": "binary",
+          "sha256": "8014cd05ef930a349efc9da74b3c1cd06b93319cbb0ab3a8d6beaa303edf8dfe"
+        },
+        {
+          "path": "docs/readmes/056/java/native056-redesign16/TEST-fraymus.workspace.Load056Test.xml.gz",
+          "kind": "binary",
+          "sha256": "f6c25efb47bf8860362dcbd58a32abc56060b40936847e2e92dd415d7ebd97a1"
+        },
+        {
+          "path": "docs/readmes/056/java/native056-regression/gradle.log.gz",
+          "kind": "binary",
+          "sha256": "db93c7eea3d2386b9ddbabaac83434bc9d466f25a4e130d0b7079642dd113d5f"
+        },
+        {
+          "path": "docs/readmes/056/java/native056-regression/TEST-fraymus.workspace.ChatChain052Test.xml.gz",
+          "kind": "binary",
+          "sha256": "0c37b917fc07ba13026a0cb2edf700e1308d07baf3f2593b86215ab902560f43"
+        },
+        {
+          "path": "docs/readmes/056/java/native056-regression/TEST-fraymus.workspace.Design056Test.xml.gz",
+          "kind": "binary",
+          "sha256": "4ce765c825c74e68c9ebd180317fc5c462eabf18730bac2e297611a7e10ee192"
+        },
+        {
+          "path": "docs/readmes/056/java/native056-regression/TEST-fraymus.workspace.Domain044Test.xml.gz",
+          "kind": "binary",
+          "sha256": "286477e7b33e71a67aa0c3fd19027f7b0e4657d4f5ac1017de4dcd149fb757d3"
+        },
+        {
+          "path": "docs/readmes/056/java/native056-regression/TEST-fraymus.workspace.Load055Test.xml.gz",
+          "kind": "binary",
+          "sha256": "79be4b214ecd58a9fc8877a74ee16c65c39c5b1892815a7b9b3b53f7f38f354f"
+        },
+        {
+          "path": "docs/readmes/056/java/native056-regression/TEST-fraymus.workspace.Load056RecoveryTest.xml.gz",
+          "kind": "binary",
+          "sha256": "fe5c78a217f69a4361d3fd8ee37603f2d58e29fc576e04932e4ccf83d1557d88"
+        },
+        {
+          "path": "docs/readmes/056/java/native056-regression/TEST-fraymus.workspace.Route055RecoveryTest.xml.gz",
+          "kind": "binary",
+          "sha256": "ceaf4e8746ec45ae415aad75ac5f3e72c5c5a089d5b52ce45d79b8a50657508f"
+        },
+        {
+          "path": "docs/readmes/056/java/native056-regression/TEST-fraymus.workspace.WorldHandoff056Test.xml.gz",
+          "kind": "binary",
+          "sha256": "57425f6c03923f91676f98c7215fac33121255f995a12043fb5450efe7344aea"
+        },
+        {
+          "path": "docs/readmes/056/java/native056-regression/TEST-fraymus.workspace.WorldReservedTest.xml.gz",
+          "kind": "binary",
+          "sha256": "c928c7f4cdec124ad571fa81ec5fcadec8b27917c8c8b16d94e9118eb945edd7"
+        },
+        {
+          "path": "docs/readmes/056/logs/compile056-app.log.gz",
+          "kind": "binary",
+          "sha256": "6429ce5521f216897dfa1b8281b9d3f5f9cb12897054f28f50c337e83ce95268"
+        },
+        {
+          "path": "docs/readmes/056/logs/compile056-core.log.gz",
+          "kind": "binary",
+          "sha256": "959c95457c44499b9d07217d60555a90827bc88e59b1a62e57df4be9a58f6e26"
+        },
+        {
+          "path": "docs/readmes/056/logs/compile056-restart.log.gz",
+          "kind": "binary",
+          "sha256": "6429ce5521f216897dfa1b8281b9d3f5f9cb12897054f28f50c337e83ce95268"
+        },
+        {
+          "path": "docs/readmes/056/logs/core056-commit.log.gz",
+          "kind": "binary",
+          "sha256": "ec6a46fa3b378a68647fc1a7ee4bc242814be2b0d0226181ed3f2fad627352e2"
+        },
+        {
+          "path": "docs/readmes/056/logs/goal056-commit.log.gz",
+          "kind": "binary",
+          "sha256": "4dadec3e7aa7d61f21db5a2c45d2fd715853f459b8a744d681f276913dcda281"
+        },
+        {
+          "path": "docs/readmes/056/logs/integration056-commit.log.gz",
+          "kind": "binary",
+          "sha256": "f2f160a2fc99590271ab2fb9d8de57c7be9aaec159821218d9e69526bffbced8"
+        },
+        {
+          "path": "docs/readmes/056/logs/test056-desktop-final.log.gz",
+          "kind": "binary",
+          "sha256": "68e0ce4a0d74ab1e5892422d2bd54153f5bd611a5bd5bb09bea36d755e78b5df"
+        },
+        {
+          "path": "docs/readmes/056/logs/test056-desktop-readiness.log.gz",
+          "kind": "binary",
+          "sha256": "c195a4ff79246a5f1dc53b5929dc20b048a0e9d0e043b4623180340572c69c2c"
+        },
+        {
+          "path": "docs/readmes/056/logs/test056-desktop.log.gz",
+          "kind": "binary",
+          "sha256": "04e7eb1a23bb7bf24a4fd7195199234d3b197382517c48fe6738767d26da24e8"
+        },
+        {
+          "path": "docs/readmes/056/logs/test056-final.log.gz",
+          "kind": "binary",
+          "sha256": "3517f8b6b7ba36d40000fcf960be7e9490a04f8bcc4d6c48480be4ca055c0ee1"
+        },
+        {
+          "path": "docs/readmes/056/logs/test056-first.log.gz",
+          "kind": "binary",
+          "sha256": "ac838d29a6491f531975f0815278b41dbebdf26212d8bda0698764d807152015"
+        },
+        {
+          "path": "docs/readmes/056/logs/test056-live-complete.log.gz",
+          "kind": "binary",
+          "sha256": "7f5c11ac2e6f077ea80998b26a3f12db35d0c581266883cc9932185e83a56597"
+        },
+        {
+          "path": "docs/readmes/056/logs/test056-live-readiness.log.gz",
+          "kind": "binary",
+          "sha256": "fdf88954001effed0223492d98f63eb9aae927ad49e0d6caf277bcaead0c985a"
+        },
+        {
+          "path": "docs/readmes/056/logs/test056-live-resume-final.log.gz",
+          "kind": "binary",
+          "sha256": "c3ce4b4ca95b6a6c47e937520068531bfe8c5db20588f78b187ff57d155166ae"
+        },
+        {
+          "path": "docs/readmes/056/logs/test056-live-resume.log.gz",
+          "kind": "binary",
+          "sha256": "bd37e56ffc244a4e5b9310c7a580d382272c410a1fb80504d8061b0b2e0d3440"
+        },
+        {
+          "path": "docs/readmes/056/logs/test056-live-skills.log.gz",
+          "kind": "binary",
+          "sha256": "655b1c372604c11d0cf23a7314d364447c06cdf96d6666fd00382a6d8341d9d5"
+        },
+        {
+          "path": "docs/readmes/056/logs/test056-live-stop-final.log.gz",
+          "kind": "binary",
+          "sha256": "10fa6ea16faedb74a63a37a0e1472e2f69b8199f57190d69ee40c6815baa41b3"
+        },
+        {
+          "path": "docs/readmes/056/logs/test056-live-stop-final2.log.gz",
+          "kind": "binary",
+          "sha256": "d547ebe94e22f76cd38d4cf3ef36ccd052d39785dfcb0be0bd900d3460bc128f"
+        },
+        {
+          "path": "docs/readmes/056/logs/test056-live-stop-final3.log.gz",
+          "kind": "binary",
+          "sha256": "747d5d9c2aead972912d4cd76c066a460f78eee422e4fb0b1b8800cc6091d28e"
+        },
+        {
+          "path": "docs/readmes/056/logs/test056-live.log.gz",
+          "kind": "binary",
+          "sha256": "c8b57ed501a7cad95c6d6c15ba669893969018f9d655cc66b2978b740e297bea"
+        },
+        {
+          "path": "docs/readmes/056/logs/test056-matrix.log.gz",
+          "kind": "binary",
+          "sha256": "9b9e535547051029cd0a6c3fc008543f02dfd27f570c9ae343ba28a74a01a40d"
+        },
+        {
+          "path": "docs/readmes/056/logs/test056-redesign16.log.gz",
+          "kind": "binary",
+          "sha256": "8014cd05ef930a349efc9da74b3c1cd06b93319cbb0ab3a8d6beaa303edf8dfe"
+        },
+        {
+          "path": "docs/readmes/056/logs/test056-regression.log.gz",
+          "kind": "binary",
+          "sha256": "db93c7eea3d2386b9ddbabaac83434bc9d466f25a4e130d0b7079642dd113d5f"
+        },
+        {
+          "path": "docs/readmes/056/logs/test056-report-capture.log.gz",
+          "kind": "binary",
+          "sha256": "a7082736390464cff47ea4ce7385c44bb897f27b77de6d159c36ec9f1325f331"
+        },
+        {
+          "path": "docs/readmes/056/logs/verify056-commit.log.gz",
+          "kind": "binary",
+          "sha256": "e84354991cde0598d481701e11c8bd043bd3cd5e7425b37e368dee3d57bf04c9"
+        },
+        {
+          "path": "docs/readmes/056/native056-final.json",
+          "kind": "text",
+          "sha256": "1880b2eb0a064ea11c2890e08e2b8b3cf3ada46a63cb15f3b7ce4769b4cd094b"
+        },
+        {
+          "path": "docs/readmes/056/native056-first.json",
+          "kind": "text",
+          "sha256": "f4760ed7693c6132fbc70497869d7280ad73758057cc7dc6de0b225aae0db644"
+        },
+        {
+          "path": "docs/readmes/056/native056-matrix24.json",
+          "kind": "text",
+          "sha256": "cb3d698ec29158c49c75a5b6f17604d21b1479f37a3df4c91400d0e1f39fe7c3"
+        },
+        {
+          "path": "docs/readmes/056/native056-redesign16.json",
+          "kind": "text",
+          "sha256": "b781de1aa3732a5c681ff360af1debb396782ace886a8ad7c624bf92a60ecf8b"
+        },
+        {
+          "path": "docs/readmes/056/native056-regression.json",
+          "kind": "text",
+          "sha256": "ed954625e3ccfd6fd260191fc034518d5689a2c8de667c0f07dedbb8dcc3c1a5"
+        },
+        {
+          "path": "docs/readmes/056/original/actual-app/agency-043/tasks.json.gz",
+          "kind": "binary",
+          "sha256": "1bcc7cba5a63b02764d0b9fd3cbf4d2eeeaabe0f611334f92432817fefebd130"
+        },
+        {
+          "path": "docs/readmes/056/original/actual-app/alignment-041/state.json.gz",
+          "kind": "binary",
+          "sha256": "7da0189c2371d1a2eeef9c9657cc5c647015fc5aadb4b4dd85c670891a1ef0a8"
+        },
+        {
+          "path": "docs/readmes/056/original/actual-app/contact-study/state.json.gz",
+          "kind": "binary",
+          "sha256": "99a9034fabf96bbda08fbb95fc8bcb4defd72013c361289f0f0a4ae305c8738a"
+        },
+        {
+          "path": "docs/readmes/056/original/actual-app/counterfactual-045/branches/1bbcd339-835a-4f60-a166-914619e7506f/load-056/0758c683-96c5-4731-947a-f73f76d75c5e.json.gz",
+          "kind": "binary",
+          "sha256": "f2fa20d608fd9e2b599de80488db9981db4916cc73727e15c4e639af7b358142"
+        },
+        {
+          "path": "docs/readmes/056/original/actual-app/counterfactual-045/branches/1bbcd339-835a-4f60-a166-914619e7506f/load-056/7d1da380-a356-4739-ac68-72a161c598e5.json.gz",
+          "kind": "binary",
+          "sha256": "fee0a5bb26e06626c5f4e0f276e59955f707c7e07b1fd6ed62dc11cc6748ece0"
+        },
+        {
+          "path": "docs/readmes/056/original/actual-app/counterfactual-045/branches/1bbcd339-835a-4f60-a166-914619e7506f/load-056/c33231c6-d052-4cd1-b9c2-98ea9088109e.json.gz",
+          "kind": "binary",
+          "sha256": "2177c31c05d0d40a5122630b8138b199343f88a5c665ec70997a17aa7c90b79b"
+        },
+        {
+          "path": "docs/readmes/056/original/actual-app/counterfactual-045/branches/1bbcd339-835a-4f60-a166-914619e7506f/world-native/state.json.gz",
+          "kind": "binary",
+          "sha256": "092cd2f8e8cb3730dd433bbfa46f77fc56ed55ae63ea2032af62c2b34df831c3"
+        },
+        {
+          "path": "docs/readmes/056/original/actual-app/counterfactual-045/branches/283f11a6-9a6c-4862-9abf-ca5e77aeb80d/load-056/3967e1e6-928e-46d7-8a6a-ac338c1c4f6a.json.gz",
+          "kind": "binary",
+          "sha256": "e23da9d09252cc50cb4f41c21671fbc18f11d41e09179c3d9eaecf05a0958ac9"
+        },
+        {
+          "path": "docs/readmes/056/original/actual-app/counterfactual-045/branches/283f11a6-9a6c-4862-9abf-ca5e77aeb80d/world-native/state.json.gz",
+          "kind": "binary",
+          "sha256": "b525217e6306d153714dbd318d6501b7280ec8ce855a55dc48c4870306276e80"
+        },
+        {
+          "path": "docs/readmes/056/original/actual-app/counterfactual-045/branches/29de73bc-a66a-4664-8d36-30a0a90a5d5f/load-056/285175ac-9029-4b5d-b6a7-0eca9d8612b5.json.gz",
+          "kind": "binary",
+          "sha256": "18418a1a1f9747f2754d36ca1f3853c5b7298af0f6c5affaf6fbb7bd11c7e699"
+        },
+        {
+          "path": "docs/readmes/056/original/actual-app/counterfactual-045/branches/29de73bc-a66a-4664-8d36-30a0a90a5d5f/world-native/state.json.gz",
+          "kind": "binary",
+          "sha256": "64b145c29ed03a3c0be189dc4c9df88d6726108cb7cdfcb1e3b2031f882c02a2"
+        },
+        {
+          "path": "docs/readmes/056/original/actual-app/counterfactual-045/branches/3910f854-fbca-4eaa-837a-4186459ff5be/load-056/c229ad58-6f04-45dd-8b45-6ab8b0ee665c.json.gz",
+          "kind": "binary",
+          "sha256": "b89189e26ff611259e9e739a8cb5bf3da7eaeaeba2a01c635de3d45991a7b821"
+        },
+        {
+          "path": "docs/readmes/056/original/actual-app/counterfactual-045/branches/3910f854-fbca-4eaa-837a-4186459ff5be/world-native/state.json.gz",
+          "kind": "binary",
+          "sha256": "15c5587f00fa1e73d0d8496b65e45aa01064a28fb2ca9484d6d0be22e2bd7413"
+        },
+        {
+          "path": "docs/readmes/056/original/actual-app/counterfactual-045/branches/3a0c6bb6-ee55-4a94-b8ab-940ce5c41301/load-056/20558766-da32-4914-958e-b9e60f77d9f4.json.gz",
+          "kind": "binary",
+          "sha256": "bd18c210a5941a4d71abf106f60591cdba29e20b82d168af36dc78b7c93ecee8"
+        },
+        {
+          "path": "docs/readmes/056/original/actual-app/counterfactual-045/branches/3a0c6bb6-ee55-4a94-b8ab-940ce5c41301/load-056/ba608177-9ec0-4f3a-8fc0-b4bf128fc0ad.json.gz",
+          "kind": "binary",
+          "sha256": "404a2e2280a9450a84cc87327591415de0bdcd8a19475e11aa4a1b216d0317eb"
+        },
+        {
+          "path": "docs/readmes/056/original/actual-app/counterfactual-045/branches/3a0c6bb6-ee55-4a94-b8ab-940ce5c41301/world-native/state.json.gz",
+          "kind": "binary",
+          "sha256": "3505a52146dc43dc5ac652f84c29dd26f937e00d3a363d8697ec5887d42ecdce"
+        },
+        {
+          "path": "docs/readmes/056/original/actual-app/counterfactual-045/branches/71d27b0f-b942-4722-b914-372673730b0c/load-056/6599ee36-e18a-4c5f-931c-31a3825e3925.json.gz",
+          "kind": "binary",
+          "sha256": "d97c594c91e19ca5013fa35bceb7f421941ba23a8a5e7139054685832dcbdfd9"
+        },
+        {
+          "path": "docs/readmes/056/original/actual-app/counterfactual-045/branches/71d27b0f-b942-4722-b914-372673730b0c/world-native/state.json.gz",
+          "kind": "binary",
+          "sha256": "f53b4c2a165305c0d91d7db6c203afb4313b71b19751988733ab5527c0db2f3d"
+        },
+        {
+          "path": "docs/readmes/056/original/actual-app/counterfactual-045/branches/77ddd68e-a145-435b-9134-bfd08919904e/world-native/state.json.gz",
+          "kind": "binary",
+          "sha256": "edf2d047f9f7b3915bd92cc0183bcb857f2c131c4aa67b2e5eee51c4efc24d09"
+        },
+        {
+          "path": "docs/readmes/056/original/actual-app/counterfactual-045/branches/7e8d7e2c-8ace-48cb-8642-b9729d03904d/load-056/4b210274-333f-4507-bd82-4a62c933df31.json.gz",
+          "kind": "binary",
+          "sha256": "11b35b7f38863b5bc231b09664870dd5aca50cd34db6ca2142e0d7ceb7eb580a"
+        },
+        {
+          "path": "docs/readmes/056/original/actual-app/counterfactual-045/branches/7e8d7e2c-8ace-48cb-8642-b9729d03904d/load-056/92f4d39b-4e31-44d0-a090-9fa8c3afbf95.json.gz",
+          "kind": "binary",
+          "sha256": "a55ae4522fa31a335b8797ae06eb2a4decd4098f9ac24532ed7cb773dd75df71"
+        },
+        {
+          "path": "docs/readmes/056/original/actual-app/counterfactual-045/branches/7e8d7e2c-8ace-48cb-8642-b9729d03904d/world-native/state.json.gz",
+          "kind": "binary",
+          "sha256": "9419ea9514060203f4479e9327846b989d21e71e821fbf348408ec4ec9893295"
+        },
+        {
+          "path": "docs/readmes/056/original/actual-app/counterfactual-045/studies.json.gz",
+          "kind": "binary",
+          "sha256": "463d83df3f03bc8394dfa4be619526d1373ef89a4db73dfcfc33a3bde71ec566"
+        },
+        {
+          "path": "docs/readmes/056/original/actual-app/exports/0416cd5c-d01f-4129-b329-cb23515e79db.json.gz",
+          "kind": "binary",
+          "sha256": "5558a2db4fcf1d0ee88a99c2ea6b9aa78481a38f3b6632f6ad83e8209011dbb1"
+        },
+        {
+          "path": "docs/readmes/056/original/actual-app/exports/0416cd5c-d01f-4129-b329-cb23515e79db.json.receipt.json.gz",
+          "kind": "binary",
+          "sha256": "5131801e98bd5748e0705c5061705b2f561b501bacf46af89bb0ad25ce27271d"
+        },
+        {
+          "path": "docs/readmes/056/original/actual-app/exports/manifest.jsonl.gz",
+          "kind": "binary",
+          "sha256": "726c0b53d2d0c8e22a693dd7fb5507d51b875f0185a9ea6a4880494e65d6b16c"
+        },
+        {
+          "path": "docs/readmes/056/original/actual-app/goals/tasks.fworld.gz",
+          "kind": "binary",
+          "sha256": "4a3e557fe656fbe0a3daf2f2c7466bb3648283e6e2cba84177b0e46656e58723"
+        },
+        {
+          "path": "docs/readmes/056/original/actual-app/knowledge-039/state.json.gz",
+          "kind": "binary",
+          "sha256": "5faf0c5a4aeddd69d56ac9f9bc33abb5c9227da009e03170201f7e9962f27af3"
+        },
+        {
+          "path": "docs/readmes/056/original/actual-app/load-055/6a748d91-3d4d-389a-80c8-5adca25546ed.json.gz",
+          "kind": "binary",
+          "sha256": "aacf04e0530216a497b25d3fd4b6c8a307274685506a7cac09d6c463a0ea0eee"
+        },
+        {
+          "path": "docs/readmes/056/original/actual-app/load-055/a1125043-ff4c-33ca-9cba-a191233ffe8d.json.gz",
+          "kind": "binary",
+          "sha256": "cb55d832ef3e9b1b4da6331f798400434258cef009c9f372bb3b210ca95b47aa"
+        },
+        {
+          "path": "docs/readmes/056/original/actual-app/load-055/b498a61c-a302-38a6-8beb-d8b74814c9c9.json.gz",
+          "kind": "binary",
+          "sha256": "e176d3a32f2e9899232ae73265b5dab43806669ed6c6482305b5f43194891d34"
+        },
+        {
+          "path": "docs/readmes/056/original/actual-app/load-056/6a748d91-3d4d-389a-80c8-5adca25546ed.json.gz",
+          "kind": "binary",
+          "sha256": "c775522708e7da17c7dbd066aae4eed77737d99aebe96bf10de22379a908fb85"
+        },
+        {
+          "path": "docs/readmes/056/original/actual-app/load-056/a1125043-ff4c-33ca-9cba-a191233ffe8d.json.gz",
+          "kind": "binary",
+          "sha256": "5b94dec8a5e5f300b4fa0c4faab1c94ad9afaa7fac583ab659ed6d4b6b2c6f9e"
+        },
+        {
+          "path": "docs/readmes/056/original/actual-app/load-056/b498a61c-a302-38a6-8beb-d8b74814c9c9.json.gz",
+          "kind": "binary",
+          "sha256": "4105e786d9f5ec80d9783ffbdc4e8ed3ae0480f96a8e34ead298a59fc0dc078a"
+        },
+        {
+          "path": "docs/readmes/056/original/actual-app/persistent-worlds/state.json.gz",
+          "kind": "binary",
+          "sha256": "73925f505075f630bfc44215a93074e4b760203e68a644567fc6688dd7ca927d"
+        },
+        {
+          "path": "docs/readmes/056/original/actual-app/pose-evaluation/state.json.gz",
+          "kind": "binary",
+          "sha256": "3e79fb3a01b75d718848cde31c0a8d75f2f3282a1927eb95f6483efb8f9830a1"
+        },
+        {
+          "path": "docs/readmes/056/original/actual-app/push-learning/state.json.gz",
+          "kind": "binary",
+          "sha256": "99a9034fabf96bbda08fbb95fc8bcb4defd72013c361289f0f0a4ae305c8738a"
+        },
+        {
+          "path": "docs/readmes/056/original/actual-app/spatial/state.json.gz",
+          "kind": "binary",
+          "sha256": "6e30f011b6eebb9ab98ffdb4cdb5b6031e0e54cf475271d7d35e449e16601bae"
+        },
+        {
+          "path": "docs/readmes/056/original/actual-app/tabletop-038/state.json.gz",
+          "kind": "binary",
+          "sha256": "f41d909801309e18bd5d6b0410e92bf96344524357d517d10eb1116e2eb9d516"
+        },
+        {
+          "path": "docs/readmes/056/original/actual-app/test-desktop-process.log.gz",
+          "kind": "binary",
+          "sha256": "16a90ae9b29df855513541ea4209f9e6d130f79d8cb54709747faf9b43255005"
+        },
+        {
+          "path": "docs/readmes/056/original/actual-app/world-native/checkpoints/6a748d91-3d4d-389a-80c8-5adca25546ed.json.gz",
+          "kind": "binary",
+          "sha256": "52bd39f6ce18eba08c67fb955f6079696d3a4ac0acaea6145bb6fb0bba09e590"
+        },
+        {
+          "path": "docs/readmes/056/original/actual-app/world-native/checkpoints/a1125043-ff4c-33ca-9cba-a191233ffe8d.json.gz",
+          "kind": "binary",
+          "sha256": "3a08d6b0141095ba9ebb2c61cda1a042341af1a38b2320ceab04dd36bdf1fd4e"
+        },
+        {
+          "path": "docs/readmes/056/original/actual-app/world-native/checkpoints/b498a61c-a302-38a6-8beb-d8b74814c9c9.json.gz",
+          "kind": "binary",
+          "sha256": "47dda6c0122e51738c142f7a5acfca2ebc313f7d5329dbb301c5ffdd7e21e03d"
+        },
+        {
+          "path": "docs/readmes/056/original/actual-app/world-native/state.json.gz",
+          "kind": "binary",
+          "sha256": "de8d6fcf80449c453316dca81819916a6825d6a4fb3ac0c926bc9c7aa31d0a40"
+        },
+        {
+          "path": "docs/readmes/056/original/actual-app/world-observations/state.json.gz",
+          "kind": "binary",
+          "sha256": "99bff461826e3471af74adf24c17ad74300b29073d3d289d59f65cd90d8a8f4c"
+        },
+        {
+          "path": "docs/readmes/056/original/development-ui/ui056-compact-status/process.log.gz",
+          "kind": "binary",
+          "sha256": "747d5d9c2aead972912d4cd76c066a460f78eee422e4fb0b1b8800cc6091d28e"
+        },
+        {
+          "path": "docs/readmes/056/original/development-ui/ui056-first/construction056-built.png.gz",
+          "kind": "binary",
+          "sha256": "7e69944a5671de0b487f78556655ff6515c78c0e0b5323dbb1f5452420094a8a"
+        },
+        {
+          "path": "docs/readmes/056/original/development-ui/ui056-first/construction056-failed-1793755269972.json.gz",
+          "kind": "binary",
+          "sha256": "4087f3ad36ea86c40d78b2dcc72160f058b7a3a48f86736eff04fa9d4902db9d"
+        },
+        {
+          "path": "docs/readmes/056/original/development-ui/ui056-first/construction056-failure.png.gz",
+          "kind": "binary",
+          "sha256": "fdcb70aa1239de48675949b4e46b2d526dbedbc228662382352b75ef86bb88ca"
+        },
+        {
+          "path": "docs/readmes/056/original/development-ui/ui056-first/construction056-first-envelopes.json.gz",
+          "kind": "binary",
+          "sha256": "5558a2db4fcf1d0ee88a99c2ea6b9aa78481a38f3b6632f6ad83e8209011dbb1"
+        },
+        {
+          "path": "docs/readmes/056/original/development-ui/ui056-first/construction056-first-trials.json.gz",
+          "kind": "binary",
+          "sha256": "fd090147d9cdf03080bfd30e76782e8347734a0775822ffb31569825f60dd69e"
+        },
+        {
+          "path": "docs/readmes/056/original/development-ui/ui056-first/construction056-loads.png.gz",
+          "kind": "binary",
+          "sha256": "cdf4b64c7448073a207591cf47bef4c40b0e214c323745a8de7a7dbea496acd8"
+        },
+        {
+          "path": "docs/readmes/056/original/development-ui/ui056-first/construction056-report.png.gz",
+          "kind": "binary",
+          "sha256": "cc6cc34a7038bba0b6a95331e47f79dcddb508b54618c4b5fae6f876f45aa80f"
+        },
+        {
+          "path": "docs/readmes/056/original/development-ui/ui056-first/construction056-review.png.gz",
+          "kind": "binary",
+          "sha256": "afd4d261bacf7d3a8ee728c943616690d2281563eac5150e2278ca11209c9dae"
+        },
+        {
+          "path": "docs/readmes/056/original/development-ui/ui056-first/construction056-stock.png.gz",
+          "kind": "binary",
+          "sha256": "5b234c4c9fb608d8570a589a5708490721af38f5affa021cf8b108e3005dbbc2"
+        },
+        {
+          "path": "docs/readmes/056/original/development-ui/ui056-first/process.log.gz",
+          "kind": "binary",
+          "sha256": "c8b57ed501a7cad95c6d6c15ba669893969018f9d655cc66b2978b740e297bea"
+        },
+        {
+          "path": "docs/readmes/056/original/development-ui/ui056-first/project-originals/agency-043/tasks.json.gz",
+          "kind": "binary",
+          "sha256": "12a686a018b4f6ced86e88be7ab21c954a70f90e7ed6bf980b63e0e66deba881"
+        },
+        {
+          "path": "docs/readmes/056/original/development-ui/ui056-first/project-originals/alignment-041/state.json.gz",
+          "kind": "binary",
+          "sha256": "7da0189c2371d1a2eeef9c9657cc5c647015fc5aadb4b4dd85c670891a1ef0a8"
+        },
+        {
+          "path": "docs/readmes/056/original/development-ui/ui056-first/project-originals/contact-study/state.json.gz",
+          "kind": "binary",
+          "sha256": "99a9034fabf96bbda08fbb95fc8bcb4defd72013c361289f0f0a4ae305c8738a"
+        },
+        {
+          "path": "docs/readmes/056/original/development-ui/ui056-first/project-originals/counterfactual-045/studies.json.gz",
+          "kind": "binary",
+          "sha256": "cf121e62570f926d04ae993a8365aa8b2bdfb1708bdba44d6975b33778cb3c5b"
+        },
+        {
+          "path": "docs/readmes/056/original/development-ui/ui056-first/project-originals/goals/tasks.fworld.gz",
+          "kind": "binary",
+          "sha256": "8a58ec496b0b9a06661e075dca44a1fc27fabeda6c27ed29fdf950061b4f0d1c"
+        },
+        {
+          "path": "docs/readmes/056/original/development-ui/ui056-first/project-originals/knowledge-039/state.json.gz",
+          "kind": "binary",
+          "sha256": "5faf0c5a4aeddd69d56ac9f9bc33abb5c9227da009e03170201f7e9962f27af3"
+        },
+        {
+          "path": "docs/readmes/056/original/development-ui/ui056-first/project-originals/load-055/6a748d91-3d4d-389a-80c8-5adca25546ed.json.gz",
+          "kind": "binary",
+          "sha256": "aacf04e0530216a497b25d3fd4b6c8a307274685506a7cac09d6c463a0ea0eee"
+        },
+        {
+          "path": "docs/readmes/056/original/development-ui/ui056-first/project-originals/load-056/6a748d91-3d4d-389a-80c8-5adca25546ed.json.gz",
+          "kind": "binary",
+          "sha256": "c775522708e7da17c7dbd066aae4eed77737d99aebe96bf10de22379a908fb85"
+        },
+        {
+          "path": "docs/readmes/056/original/development-ui/ui056-first/project-originals/persistent-worlds/state.json.gz",
+          "kind": "binary",
+          "sha256": "be81f3cbab953246a0d569bdbc158e4d076bc47d2b1eb56413332041e7efceb9"
+        },
+        {
+          "path": "docs/readmes/056/original/development-ui/ui056-first/project-originals/pose-evaluation/state.json.gz",
+          "kind": "binary",
+          "sha256": "3e79fb3a01b75d718848cde31c0a8d75f2f3282a1927eb95f6483efb8f9830a1"
+        },
+        {
+          "path": "docs/readmes/056/original/development-ui/ui056-first/project-originals/push-learning/state.json.gz",
+          "kind": "binary",
+          "sha256": "99a9034fabf96bbda08fbb95fc8bcb4defd72013c361289f0f0a4ae305c8738a"
+        },
+        {
+          "path": "docs/readmes/056/original/development-ui/ui056-first/project-originals/spatial/state.json.gz",
+          "kind": "binary",
+          "sha256": "4015c5440752abb76c39e0dfd7d7a963cb1f197b96498a33fe3d411e9d6c53c7"
+        },
+        {
+          "path": "docs/readmes/056/original/development-ui/ui056-first/project-originals/tabletop-038/state.json.gz",
+          "kind": "binary",
+          "sha256": "f41d909801309e18bd5d6b0410e92bf96344524357d517d10eb1116e2eb9d516"
+        },
+        {
+          "path": "docs/readmes/056/original/development-ui/ui056-first/project-originals/world-native/checkpoints/6a748d91-3d4d-389a-80c8-5adca25546ed.json.gz",
+          "kind": "binary",
+          "sha256": "52bd39f6ce18eba08c67fb955f6079696d3a4ac0acaea6145bb6fb0bba09e590"
+        },
+        {
+          "path": "docs/readmes/056/original/development-ui/ui056-first/project-originals/world-native/state.json.gz",
+          "kind": "binary",
+          "sha256": "780a5784baf6971045c3db753782c23837a5d4b8ae5b5ee58e192c5840633d2d"
+        },
+        {
+          "path": "docs/readmes/056/original/development-ui/ui056-first/project-originals/world-observations/state.json.gz",
+          "kind": "binary",
+          "sha256": "99bff461826e3471af74adf24c17ad74300b29073d3d289d59f65cd90d8a8f4c"
+        },
+        {
+          "path": "docs/readmes/056/original/development-ui/ui056-history-race/process.log.gz",
+          "kind": "binary",
+          "sha256": "fdf88954001effed0223492d98f63eb9aae927ad49e0d6caf277bcaead0c985a"
+        },
+        {
+          "path": "docs/readmes/056/original/development-ui/ui056-manual-race/process.log.gz",
+          "kind": "binary",
+          "sha256": "c3ce4b4ca95b6a6c47e937520068531bfe8c5db20588f78b187ff57d155166ae"
+        },
+        {
+          "path": "docs/readmes/056/original/development-ui/ui056-restart-race/construction056-failed-1793755269972.json.gz",
+          "kind": "binary",
+          "sha256": "4087f3ad36ea86c40d78b2dcc72160f058b7a3a48f86736eff04fa9d4902db9d"
+        },
+        {
+          "path": "docs/readmes/056/original/development-ui/ui056-restart-race/construction056-failed-1793755413577.json.gz",
+          "kind": "binary",
+          "sha256": "667024e82ff592e56faa0e148fd2913cec56e9163fabbd69153aaa0686dcce53"
+        },
+        {
+          "path": "docs/readmes/056/original/development-ui/ui056-restart-race/process.log.gz",
+          "kind": "binary",
+          "sha256": "bd37e56ffc244a4e5b9310c7a580d382272c410a1fb80504d8061b0b2e0d3440"
+        },
+        {
+          "path": "docs/readmes/056/original/development-ui/ui056-stop-admission/process.log.gz",
+          "kind": "binary",
+          "sha256": "d547ebe94e22f76cd38d4cf3ef36ccd052d39785dfcb0be0bd900d3460bc128f"
+        },
+        {
+          "path": "docs/readmes/056/original/development-ui/ui056-stop-between/construction056-failed-1793757496809.json.gz",
+          "kind": "binary",
+          "sha256": "53a8b3843f3d4ddd13475a1940c85f40bf2f86c7a4e87ec7daf13bcc5d4d9230"
+        },
+        {
+          "path": "docs/readmes/056/original/development-ui/ui056-stop-between/process.log.gz",
+          "kind": "binary",
+          "sha256": "47ddcbe51ebf3cfaad9312caf2386ed6dd0e71adc1727bd4afadb99d7f1f400b"
+        },
+        {
+          "path": "docs/readmes/056/original/development-ui/ui056-stop-scope/process.log.gz",
+          "kind": "binary",
+          "sha256": "10fa6ea16faedb74a63a37a0e1472e2f69b8199f57190d69ee40c6815baa41b3"
+        },
+        {
+          "path": "docs/readmes/056/original/documentation-tooling/audit-publication056.py.gz",
+          "kind": "binary",
+          "sha256": "3e18d6944a17d357b11194928f0ee12f197314ca8dccd4f96dc31cfc0becb7ef"
+        },
+        {
+          "path": "docs/readmes/056/original/documentation-tooling/capture-report056.cjs.gz",
+          "kind": "binary",
+          "sha256": "c9e746dd7908586f68ba5df6d76f15cf246cb909f3f46f905a295606308eb2da"
+        },
+        {
+          "path": "docs/readmes/056/original/documentation-tooling/check-docs056.cjs.gz",
+          "kind": "binary",
+          "sha256": "f374ecae8995d4863f66a18c3bfc741face288a9a8759aaa78a927a7a9c658ce"
+        },
+        {
+          "path": "docs/readmes/056/original/documentation-tooling/freeze-docs056.py.gz",
+          "kind": "binary",
+          "sha256": "a15f6dc99278e6af08cb0101ccf6e33c690a1ab0138101c12fc715478c971dcb"
+        },
+        {
+          "path": "docs/readmes/056/original/documentation-tooling/preflight056.py.gz",
+          "kind": "binary",
+          "sha256": "da3c32a26f31e3f10cbd7f1481cf3687b633843402366d2d1cc768c383dd5f83"
+        },
+        {
+          "path": "docs/readmes/056/original/documentation-tooling/prepare-docs056.py.gz",
+          "kind": "binary",
+          "sha256": "1b676522567268a0e9ea6b54c1a0d86eaa77c4c18c6b5c075f9ce62cf3f24d5f"
+        },
+        {
+          "path": "docs/readmes/056/original/documentation-tooling/record-publication056.py.gz",
+          "kind": "binary",
+          "sha256": "7435ec208d6e2105b447e22a175b0b86944824dd33974c067699ce9f0b622842"
+        },
+        {
+          "path": "docs/readmes/056/original/documentation-tooling/stage056.py.gz",
+          "kind": "binary",
+          "sha256": "5459351a14d43927e65eb9dfd54b0453433060b1198647a9f6e46699af5d8b78"
+        },
+        {
+          "path": "docs/readmes/056/original/exports/construction056-cancelled.json.gz",
+          "kind": "binary",
+          "sha256": "bbaf025c6fe34b0ac6380ad0f7cbaf400caa0f0534d06fc3561c6ea7616d385c"
+        },
+        {
+          "path": "docs/readmes/056/original/exports/construction056-chat-envelopes.json.gz",
+          "kind": "binary",
+          "sha256": "c61cab11c414cb9c2aa9a3ae32c262199120c43e70c88c1b603cc641dfaa6c09"
+        },
+        {
+          "path": "docs/readmes/056/original/exports/construction056-chat-trials.json.gz",
+          "kind": "binary",
+          "sha256": "82d134ec4f6cb26c0c8fc6e4b51d3c583821c4e68f3b1487fa0e0e1273ffc950"
+        },
+        {
+          "path": "docs/readmes/056/original/exports/construction056-compact.json.gz",
+          "kind": "binary",
+          "sha256": "0d0f454f8d0a5265cb6fda4e19ebd584253e3f23ac4144e30fe40e0318cee416"
+        },
+        {
+          "path": "docs/readmes/056/original/exports/construction056-failed-1793755269972.json.gz",
+          "kind": "binary",
+          "sha256": "4087f3ad36ea86c40d78b2dcc72160f058b7a3a48f86736eff04fa9d4902db9d"
+        },
+        {
+          "path": "docs/readmes/056/original/exports/construction056-failed-1793755413577.json.gz",
+          "kind": "binary",
+          "sha256": "667024e82ff592e56faa0e148fd2913cec56e9163fabbd69153aaa0686dcce53"
+        },
+        {
+          "path": "docs/readmes/056/original/exports/construction056-failed-1793755624098.json.gz",
+          "kind": "binary",
+          "sha256": "f67fbcd0c26e9f3a91ddaa2390eaa47a48625b59fa5dc0cd4c88bb979df3e12c"
+        },
+        {
+          "path": "docs/readmes/056/original/exports/construction056-failed-1793756218139.json.gz",
+          "kind": "binary",
+          "sha256": "1095b1d1018b8f0abc6c16cc7a564a266841b9214f3cea9a7864fab2c9d36d03"
+        },
+        {
+          "path": "docs/readmes/056/original/exports/construction056-failed-1793757496809.json.gz",
+          "kind": "binary",
+          "sha256": "53a8b3843f3d4ddd13475a1940c85f40bf2f86c7a4e87ec7daf13bcc5d4d9230"
+        },
+        {
+          "path": "docs/readmes/056/original/exports/construction056-failed-1793757532308.json.gz",
+          "kind": "binary",
+          "sha256": "c6f32f2057c91569334bf349851dd228ab34b991d1b33d6af1737c46b5ae34f2"
+        },
+        {
+          "path": "docs/readmes/056/original/exports/construction056-failed-1793757585396.json.gz",
+          "kind": "binary",
+          "sha256": "469a5efc4f76eb92e2bcbe6129258bb4a73da01618fd7cd0236603ed2600272c"
+        },
+        {
+          "path": "docs/readmes/056/original/exports/construction056-failed-1793757937783.json.gz",
+          "kind": "binary",
+          "sha256": "612e1111422fe01d28a4301f6e1e9e64568aa2068b5fa3fb8cce41a125dd407d"
+        },
+        {
+          "path": "docs/readmes/056/original/exports/construction056-first-envelopes.json.gz",
+          "kind": "binary",
+          "sha256": "5558a2db4fcf1d0ee88a99c2ea6b9aa78481a38f3b6632f6ad83e8209011dbb1"
+        },
+        {
+          "path": "docs/readmes/056/original/exports/construction056-first-trials.json.gz",
+          "kind": "binary",
+          "sha256": "fd090147d9cdf03080bfd30e76782e8347734a0775822ffb31569825f60dd69e"
+        },
+        {
+          "path": "docs/readmes/056/original/exports/construction056-live.json.gz",
+          "kind": "binary",
+          "sha256": "77469980d2756bc26f648d759552fbcc42ee15601b59457ec4c62f2f33527fcf"
+        },
+        {
+          "path": "docs/readmes/056/original/exports/construction056-refused.json.gz",
+          "kind": "binary",
+          "sha256": "ee49c7a8c8f91e3f9d48eb24979fd9306cb5cc4ccab431936de77ef17ce5561d"
+        },
+        {
+          "path": "docs/readmes/056/original/exports/construction056-report-capture.json.gz",
+          "kind": "binary",
+          "sha256": "a5c402e67be4efd10e4d65dd4865fc09e6b70381f153968e49a836d7b9a7e229"
+        },
+        {
+          "path": "docs/readmes/056/original/exports/construction056-reuse-envelopes.json.gz",
+          "kind": "binary",
+          "sha256": "22b7827ac3742d72c4e0e8232b424f4663a708e71174b138a713436ea814f8b6"
+        },
+        {
+          "path": "docs/readmes/056/original/exports/construction056-reuse-trials.json.gz",
+          "kind": "binary",
+          "sha256": "6b691171ab9bb14c0d5c7adec6abae78fe5447208a2c6bd9ab8c485f57bfa1e0"
+        },
+        {
+          "path": "docs/readmes/056/original/long-path-records/053a7628fd2887ab495e2b5475738fdd52115b6db76f1dca8f81a6d95142bbfe.gz",
+          "kind": "binary",
+          "sha256": "b579d88e2dcee8adb0a4219560a6eed9e9dd4822d56383d5f31d7ec4540d5e07"
+        },
+        {
+          "path": "docs/readmes/056/original/long-path-records/0d26dd010aaec6e02441e0f220490a2a4a29109e1cc75af7d374180d8125c020.gz",
+          "kind": "binary",
+          "sha256": "8e75d05a7193000225bad6190316a2cbf1d6584e9ca2c7bee4de9e45175bc970"
+        },
+        {
+          "path": "docs/readmes/056/original/long-path-records/10e2573f0643c64be6556935089c3f47e15a2a460c3be5951a9b60cb15a208c0.gz",
+          "kind": "binary",
+          "sha256": "25f3bef4aaeb6ec81b050394f65c2015fd2106e1a564b600802d21ff4e28ea4f"
+        },
+        {
+          "path": "docs/readmes/056/original/long-path-records/12dcd58e82f431077d03eb44cfd111d7410588557bf43fb83ab702361996f2f2.gz",
+          "kind": "binary",
+          "sha256": "556454687114f7ad5054b7af897522de8a080358a441fb59bd7d84d839a7ff66"
+        },
+        {
+          "path": "docs/readmes/056/original/long-path-records/1c3e3148927feeb054b93997ba9b8c0190c1ab2e1c2b51091cd2a3d5c8c9e6a0.gz",
+          "kind": "binary",
+          "sha256": "cb118b9db42076c0dfdf27451469ab2dae57191e3ffb7eda85d3d091fecddf93"
+        },
+        {
+          "path": "docs/readmes/056/original/long-path-records/1cfcf0ec8dba0316dc5bd4c09f47c8a97044a0226a48e18ac7ee6fcc445db1b2.gz",
+          "kind": "binary",
+          "sha256": "3505a52146dc43dc5ac652f84c29dd26f937e00d3a363d8697ec5887d42ecdce"
+        },
+        {
+          "path": "docs/readmes/056/original/long-path-records/2b2a3c244e5db3dbbe15f484a5cfeb00fb60d8bbbf2dffd736fc778681174063.gz",
+          "kind": "binary",
+          "sha256": "fa60cdf00ce9b9c8c4eed0d1bd3f75c0030a605acfbd7c6e5008d600df7c31bd"
+        },
+        {
+          "path": "docs/readmes/056/original/long-path-records/33d6c1a9a10afb9d82a6cb81330c2afd7d4130ae20a7375fce3b590e3b3cc8b3.gz",
+          "kind": "binary",
+          "sha256": "1f520e2f678939587015abb04de683487e2f7b4f6be728f1bc9bee78b9b2d6b1"
+        },
+        {
+          "path": "docs/readmes/056/original/long-path-records/41fdc54feeaf1e74f593ca73f620f03261ba365bd7adece2a6a4f6a83d1a2028.gz",
+          "kind": "binary",
+          "sha256": "7a3f0bb99fffeabb7eec2da5993788c9926f252af17bbd37f6482677dda63c09"
+        },
+        {
+          "path": "docs/readmes/056/original/long-path-records/44a4922b87d1711b6228549a2f31ae348499a5d8439aafcdf90c614a48fe84af.gz",
+          "kind": "binary",
+          "sha256": "32f55ba82ca6c7a6328ea1a13e227876cb62528124398d27d379fdb48e802781"
+        },
+        {
+          "path": "docs/readmes/056/original/long-path-records/4913a5be26c77d8491d7a4b239083bdfde51f630c4bedaa689bb35bc99e8725c.gz",
+          "kind": "binary",
+          "sha256": "864d2ed53e4045b815f48f188b01aea46862f00d96e1e3668b5472a401e407a2"
+        },
+        {
+          "path": "docs/readmes/056/original/long-path-records/51b9368485082c2884176690b1d6634eb51832aaff7bf1a3b29c299a679afeb0.gz",
+          "kind": "binary",
+          "sha256": "46b50c321b39e89a491b6727a01628c34245605a30beb3e7414c5e01cff90e6e"
+        },
+        {
+          "path": "docs/readmes/056/original/long-path-records/57353697e91f1240e76a534206bcef85b2601aa13645c8ca6a434186edaf8721.gz",
+          "kind": "binary",
+          "sha256": "0ead2fe7404dfb47292c691f6b6fd322957023a88731f9f4facf03b7ddd533bb"
+        },
+        {
+          "path": "docs/readmes/056/original/long-path-records/5bca78a0a6dd9f56d123adb39157865baa80163e66c4b3cbc761f312c522139a.gz",
+          "kind": "binary",
+          "sha256": "a037384924db71e4b14c3eae00b4053b8b6a3c265d5a5c89d25d1af08ad5aec6"
+        },
+        {
+          "path": "docs/readmes/056/original/long-path-records/69dce247bf28898065c8dd1d222447314099c61934798f641aa07c6406a42027.gz",
+          "kind": "binary",
+          "sha256": "1f520e2f678939587015abb04de683487e2f7b4f6be728f1bc9bee78b9b2d6b1"
+        },
+        {
+          "path": "docs/readmes/056/original/long-path-records/6df115989e85a1c397d79d24c0267d692fe6f40ee546415f606131918171aaf1.gz",
+          "kind": "binary",
+          "sha256": "404a2e2280a9450a84cc87327591415de0bdcd8a19475e11aa4a1b216d0317eb"
+        },
+        {
+          "path": "docs/readmes/056/original/long-path-records/704382fc9391f5fa1b5140c7d3569dfea2f121d99e6caf3dfe8eb998c6f47467.gz",
+          "kind": "binary",
+          "sha256": "2eb927b97e5f1f06b0c9cde964775431db0a953eeadd75cd7268852818d0f734"
+        },
+        {
+          "path": "docs/readmes/056/original/long-path-records/7a9e88bb1b317a771f5a1b0f8d142f40a91647bb8d16d129d8b16019d63f0169.gz",
+          "kind": "binary",
+          "sha256": "d020185b08f028c776a633cb9bfeef6e432e0c056aa84b7d031ceae9b1621ef0"
+        },
+        {
+          "path": "docs/readmes/056/original/long-path-records/82ac1bc09141140e1c19a9117125e05afb49bb3a637f0a503ce2bd186b76c01a.gz",
+          "kind": "binary",
+          "sha256": "25f3bef4aaeb6ec81b050394f65c2015fd2106e1a564b600802d21ff4e28ea4f"
+        },
+        {
+          "path": "docs/readmes/056/original/long-path-records/88c7a14f0a81d68c5dcf86cd17c297f4c24181d4427a079bd39548863b26b7fd.gz",
+          "kind": "binary",
+          "sha256": "547d91d3f13eb650a6034c922cd900f9230e8818e557c1662dc59da89ec62b11"
+        },
+        {
+          "path": "docs/readmes/056/original/long-path-records/98725cdbe89587ce42bb768907fcc2912d6e9d3b23245aaffe69811f48c2f3fe.gz",
+          "kind": "binary",
+          "sha256": "46b50c321b39e89a491b6727a01628c34245605a30beb3e7414c5e01cff90e6e"
+        },
+        {
+          "path": "docs/readmes/056/original/long-path-records/a0bbdf45e9fc79821d42556e090f12bb88b4613094d382a923a70c36945e83cd.gz",
+          "kind": "binary",
+          "sha256": "a2dc345fbc31f0da08b4dfbe3147446f660f294e85c5119905ede856be4b86e1"
+        },
+        {
+          "path": "docs/readmes/056/original/long-path-records/a2bcf5d1f0d246e936ef78808a2b14b03fcee4fd1478d2560db251f178a007d2.gz",
+          "kind": "binary",
+          "sha256": "7a1325317934e7ff424f7924915ddf5db9ae7cbe882cd7b9aca92df03716e4cf"
+        },
+        {
+          "path": "docs/readmes/056/original/long-path-records/a310a8249ac086bbaf7a8c8726805aa963f1c7f96da3d136d86ec1fb834a8a82.gz",
+          "kind": "binary",
+          "sha256": "b5fc9536cf8c442606c2891c76a6548822f0e4bec401295db533eff4795cbae1"
+        },
+        {
+          "path": "docs/readmes/056/original/long-path-records/a841617ce107af918c57cd6279127c114edf0948323385c83315aa8ec19ae126.gz",
+          "kind": "binary",
+          "sha256": "e32145a8ff881b43440f9f2f8b9fc9d1ecbf36b4d41502137118e20f23009fbf"
+        },
+        {
+          "path": "docs/readmes/056/original/long-path-records/ade229d93fe5d675fdda5ba0b0873c334801fa474911631c41164267be10b549.gz",
+          "kind": "binary",
+          "sha256": "4e3af616cda8259984f55ec12d137f3619cced659058b61fef600d3d3bc44fb8"
+        },
+        {
+          "path": "docs/readmes/056/original/long-path-records/b0de71ee5830cf0fe2df61cd502314e2b4f9429d0f9ca512024c081195453ca9.gz",
+          "kind": "binary",
+          "sha256": "394f4c7d93c2f963458005ec53700c4ed8766b49095a4de6e81730be93d4bb46"
+        },
+        {
+          "path": "docs/readmes/056/original/long-path-records/b287a3ae9f57509501525060e99e257dbb57768ebe867f576f9bcd6ebb8e5f44.gz",
+          "kind": "binary",
+          "sha256": "b73eabccdf53d8c444e2706e4f9e04dd4ed0611401a37cca16907bdd6a3b7d3c"
+        },
+        {
+          "path": "docs/readmes/056/original/long-path-records/b3eda7c0fdf6f48fc0dd9b797cb7d08500d2c2ec572a0bbe5265d6a69678a9d6.gz",
+          "kind": "binary",
+          "sha256": "824b0aacbbf8299af4a415db2ba2053e97a84b474a5ac0ed0fa645d04815afb7"
+        },
+        {
+          "path": "docs/readmes/056/original/long-path-records/b6c0360de6bc6c74e064f0ec0a56f04f68d4bc14877e871237c840eadbe290cb.gz",
+          "kind": "binary",
+          "sha256": "899aedca23ab7e50d41268325b149cfb7e701055947b947c124b0111786a349b"
+        },
+        {
+          "path": "docs/readmes/056/original/long-path-records/bc80ef21ecaee11caff78ee53c46d7580214fad4427c0603601e05c9202542d2.gz",
+          "kind": "binary",
+          "sha256": "73b00d81e371d21f3d7346446b54677fe3f18799090011b6b3a88c51d4c020b7"
+        },
+        {
+          "path": "docs/readmes/056/original/long-path-records/bdfe2916ea7ade90ad0653ccb07b6e4078065b275ab1ddd8d2e790149727a8ea.gz",
+          "kind": "binary",
+          "sha256": "0ba3d3bb8ce68221ccd05aa74d640e6d9fd97b72c0e98f4383368e01007d8df0"
+        },
+        {
+          "path": "docs/readmes/056/original/long-path-records/c2c98065bdab7a3067bdba4269633ebac63556b3ddd5c83a1847c82bdd0965b0.gz",
+          "kind": "binary",
+          "sha256": "4898442d06f221b6401ffeab407ef6095da8d7d42b43b459bedabf8c29d851ae"
+        },
+        {
+          "path": "docs/readmes/056/original/long-path-records/cef8e50128177f55ae5a098da00599b7f50765b4cec13e66d742e9405e57689d.gz",
+          "kind": "binary",
+          "sha256": "63092192a7da115e39aa285bb70c2442b978cf80fd3820ed11dfc881289b1572"
+        },
+        {
+          "path": "docs/readmes/056/original/long-path-records/d5f7ecd9c80fd2aee89fdf2637436ab340074d2656944a0ab48e01dc0d06b1fc.gz",
+          "kind": "binary",
+          "sha256": "e393ef219a116bc7b25c41961f4a6f9ff93f62c0201288307e879b513722bd23"
+        },
+        {
+          "path": "docs/readmes/056/original/long-path-records/de087c9a06e34f19654d1bb22350f14f892e1a6df788c38dfb45013493439347.gz",
+          "kind": "binary",
+          "sha256": "139846d80bb5c7c735e3974caa9c966cd32da18f1434513d4b29e4b5ede4de35"
+        },
+        {
+          "path": "docs/readmes/056/original/long-path-records/ded374c244a6dc1a33256f461ab48e9f099e11e38f5dfeae95a426b618b7ed1d.gz",
+          "kind": "binary",
+          "sha256": "18efb6777d452656b4666ec155e7c9cd2bbf9fa5201a440898871b5a13cef52d"
+        },
+        {
+          "path": "docs/readmes/056/original/long-path-records/faa1b5ff8e439656229295d239154be81453fe3165ea6b3429ee2eaa790080d2.gz",
+          "kind": "binary",
+          "sha256": "bd18c210a5941a4d71abf106f60591cdba29e20b82d168af36dc78b7c93ecee8"
+        },
+        {
+          "path": "docs/readmes/056/original/long-path-records/febfcc42528129e4efa7e6f697f50b479de33d546a4be0fd775d4eadcfa82ee0.gz",
+          "kind": "binary",
+          "sha256": "21d175cbf10ded87a5cbaf4635a10e629d7e72ea49c17ae7ac70a653dc916106"
+        },
+        {
+          "path": "docs/readmes/056/original/matrix16.json.gz",
+          "kind": "binary",
+          "sha256": "56c0a21a6cc651740e8de7d9de19810ffe778f15a339948bd4386099ae2789cc"
+        },
+        {
+          "path": "docs/readmes/056/original/matrix24.json.gz",
+          "kind": "binary",
+          "sha256": "18a0f6582028ad2e532544cadde39e5362852a5c44159cea14886391b7a970a1"
+        },
+        {
+          "path": "docs/readmes/056/original/native/counter045-control-4985612520851398049/actual/world-native/checkpoints/8d8c428f-805a-40f0-bae5-133df25d20a8.json.gz",
+          "kind": "binary",
+          "sha256": "ba84fef4607aa004a35026f919fe3d4a41c615b3c1629690b5df31f3d03fa91d"
+        },
+        {
+          "path": "docs/readmes/056/original/native/counter045-control-4985612520851398049/actual/world-native/state.json.gz",
+          "kind": "binary",
+          "sha256": "c94a78dfd53f4edde82929d74a347777e7d7600d12cdec1c1b58ae8d3f86d2c2"
+        },
+        {
+          "path": "docs/readmes/056/original/native/counter045-control-4985612520851398049/counterfactual-045/studies.json.gz",
+          "kind": "binary",
+          "sha256": "b24b136082db91856211303e092a6fb1a5def03d23f111afd845733c062f57ae"
+        },
+        {
+          "path": "docs/readmes/056/original/native/counter045-control-4985612520851398049/persistent-worlds/state.json.gz",
+          "kind": "binary",
+          "sha256": "741d42761c83d78a8fe03022f332a9371148dc0dd4eda5b8275d7e52b018eb31"
+        },
+        {
+          "path": "docs/readmes/056/original/native/counter045-control-4985612520851398049/summary.json.gz",
+          "kind": "binary",
+          "sha256": "96a17cef8e63df48881eeccde1d05e58fe5f089b8099ee95dbb805fd4d8c9397"
+        },
+        {
+          "path": "docs/readmes/056/original/native/design056-selection-14228255616137023071/counterfactual-045/studies.json.gz",
+          "kind": "binary",
+          "sha256": "3b2cd362dc350f0560b1e7f2ab96cef39e4111c5e8a69cd913bbab1f1d2a8555"
+        },
+        {
+          "path": "docs/readmes/056/original/native/design056-selection-14228255616137023071/original.json.gz",
+          "kind": "binary",
+          "sha256": "0c4c7c7607090c6c409abae6d8df288d8c95e02477674aa9e35ba1f152377d97"
+        },
+        {
+          "path": "docs/readmes/056/original/native/design056-selection-14228255616137023071/persistent-worlds/state.json.gz",
+          "kind": "binary",
+          "sha256": "6578bb15e16ac7e6a3ab8333e1445ae61efeb5575b1bdc3cc1d88c259781da6d"
+        },
+        {
+          "path": "docs/readmes/056/original/native/load055-recovery-2054003035624103827/loads/b2769416-feeb-41a6-939c-a4e609ab37f2.json.gz",
+          "kind": "binary",
+          "sha256": "eed19a87db7ed9f2c4477ae0393ef76b8461c50ef95b882e12c575706f7ba2c0"
+        },
+        {
+          "path": "docs/readmes/056/original/native/load055-recovery-2054003035624103827/native-source/world-native/checkpoints/b2769416-feeb-41a6-939c-a4e609ab37f2.json.gz",
+          "kind": "binary",
+          "sha256": "f28fa1fa04d2edb318eb01d0ebc60c06877abecab2d38a0e8faaf1b45a24b018"
+        },
+        {
+          "path": "docs/readmes/056/original/native/load055-recovery-2054003035624103827/native-source/world-native/state.json.gz",
+          "kind": "binary",
+          "sha256": "2e7493f4b97659e85f3e1dec8378a5b817bc8f7a29d095338594f2e3f2b88d8e"
+        },
+        {
+          "path": "docs/readmes/056/original/native/load055-recovery-2054003035624103827/original-resumed.json.gz",
+          "kind": "binary",
+          "sha256": "bfe4b7dfd995061513bdf94f419ff7c234f2dfa20b37e8cee6545ba03307df4c"
+        },
+        {
+          "path": "docs/readmes/056/original/native/load055-recovery-2054003035624103827/original-stopped.json.gz",
+          "kind": "binary",
+          "sha256": "344fa30b5e0023cc7cd8ce01df37843fca10451e2da5c4026c14921b3d017db5"
+        },
+        {
+          "path": "docs/readmes/056/original/native/load055-recovery-2054003035624103827/persistent-worlds/state.json.gz",
+          "kind": "binary",
+          "sha256": "f4578db4befdae74769e23d7238f3f2abf66f670cb7624f9c9693c914c43d160"
+        },
+        {
+          "path": "docs/readmes/056/original/native/load055-recovery-2054003035624103827/result.json.gz",
+          "kind": "binary",
+          "sha256": "daa2f00976ec507e09816630912dc3b1c648cc614b923ef41c0528a61cb6700e"
+        },
+        {
+          "path": "docs/readmes/056/original/native/load056-matrix-11337769168150964321/loads/31247489-ca42-46ee-8b54-051ecf12bd82.json.gz",
+          "kind": "binary",
+          "sha256": "c1229cf493f738e3e013393b874d5a592f25ee708efb4a8714d366a7d5c2922c"
+        },
+        {
+          "path": "docs/readmes/056/original/native/load056-matrix-11337769168150964321/loads/47e4b2e1-23ad-4b57-92cf-b03c0bf12d8e.json.gz",
+          "kind": "binary",
+          "sha256": "f2650e758b6aaa89df39347d84765a4d19c2611390ab6718671ddcd6cba1e9f2"
+        },
+        {
+          "path": "docs/readmes/056/original/native/load056-matrix-11337769168150964321/loads/ffa5afc7-5f86-46e2-94f1-19c3f297dd99.json.gz",
+          "kind": "binary",
+          "sha256": "78ad1e4838ff8ac0405f1d7bafa258e4f4823dd36729493daa99b2a6433b40f6"
+        },
+        {
+          "path": "docs/readmes/056/original/native/load056-matrix-11337769168150964321/maximum-force/world-native/checkpoints/ffa5afc7-5f86-46e2-94f1-19c3f297dd99.json.gz",
+          "kind": "binary",
+          "sha256": "66b1fc9600637e0cf78914d3ac9312e6b1e70d6eea9b040c917c6d21ad5eb91a"
+        },
+        {
+          "path": "docs/readmes/056/original/native/load056-matrix-11337769168150964321/maximum-force/world-native/state.json.gz",
+          "kind": "binary",
+          "sha256": "a6531633b40f82aff5c27547bd6cbfa10e9e066754d2efbdf5f38751e110cba0"
+        },
+        {
+          "path": "docs/readmes/056/original/native/load056-matrix-11337769168150964321/persistent-worlds/state.json.gz",
+          "kind": "binary",
+          "sha256": "718a6ece016e2fd6dd3fa20485a7b13bfd1bd58bed293292c613c3484e1e8edc"
+        },
+        {
+          "path": "docs/readmes/056/original/native/load056-matrix-11337769168150964321/results.json.gz",
+          "kind": "binary",
+          "sha256": "ce087bd2a3bc9a81e602173d79dc35124daab33bc1699208159b34fb1900ca31"
+        },
+        {
+          "path": "docs/readmes/056/original/native/load056-matrix-11337769168150964321/wider-supports/world-native/checkpoints/47e4b2e1-23ad-4b57-92cf-b03c0bf12d8e.json.gz",
+          "kind": "binary",
+          "sha256": "4204968c7b20e297d8fbc7d979beebaae3af892f4510d363ea101636813dcb98"
+        },
+        {
+          "path": "docs/readmes/056/original/native/load056-matrix-11337769168150964321/wider-supports/world-native/state.json.gz",
+          "kind": "binary",
+          "sha256": "2a7a6824a92a5cd391dd3535bf0d74c439ef0d9769c9dae5ad96dd256beab299"
+        },
+        {
+          "path": "docs/readmes/056/original/native/load056-matrix-11337769168150964321/widest-supports/world-native/checkpoints/31247489-ca42-46ee-8b54-051ecf12bd82.json.gz",
+          "kind": "binary",
+          "sha256": "d64adf825a0dc4347c0922de6eadd3dde44c813971205ad5715324940d3de633"
+        },
+        {
+          "path": "docs/readmes/056/original/native/load056-matrix-11337769168150964321/widest-supports/world-native/state.json.gz",
+          "kind": "binary",
+          "sha256": "cf71d761c2562ec46fefc8803270a18056acbeb669f586cbc300687d3bebf1dc"
+        },
+        {
+          "path": "docs/readmes/056/original/native/load056-matrix-11536350868961319315/loads/5ff05586-eff2-4811-9184-108b7ac39d33.json.gz",
+          "kind": "binary",
+          "sha256": "148ff3bd50a85d6b3cc0fe462d1204dfa6443e221314a293a4e639eb80642ddc"
+        },
+        {
+          "path": "docs/readmes/056/original/native/load056-matrix-11536350868961319315/loads/6c3f87f6-aa20-4d82-8b9d-354995f08707.json.gz",
+          "kind": "binary",
+          "sha256": "8467f20ff2185d90166e6e9ebb2037454fb649b18144ac4975547f82c90ae067"
+        },
+        {
+          "path": "docs/readmes/056/original/native/load056-matrix-11536350868961319315/loads/b6c0e5be-2ae3-4af8-a65d-a70d98357fb1.json.gz",
+          "kind": "binary",
+          "sha256": "1cc5b27875a78f681c2564cc29f9dafcd37dc9aed73d741d9e7d7a7255ddb576"
+        },
+        {
+          "path": "docs/readmes/056/original/native/load056-matrix-11536350868961319315/maximum-force/world-native/checkpoints/5ff05586-eff2-4811-9184-108b7ac39d33.json.gz",
+          "kind": "binary",
+          "sha256": "f5da854281c135c602132886bd2bc794739c4dfa46d8c9e012a69fd215bb23da"
+        },
+        {
+          "path": "docs/readmes/056/original/native/load056-matrix-11536350868961319315/maximum-force/world-native/state.json.gz",
+          "kind": "binary",
+          "sha256": "e513b2e33a70934c570f94793943b47ae5c0fb105d1a3e9ca73432f511073cbc"
+        },
+        {
+          "path": "docs/readmes/056/original/native/load056-matrix-11536350868961319315/persistent-worlds/state.json.gz",
+          "kind": "binary",
+          "sha256": "418fa82672ebb50c57d2312fa50d1a58c577d3c42451d9f56ab7d0630f84384c"
+        },
+        {
+          "path": "docs/readmes/056/original/native/load056-matrix-11536350868961319315/results.json.gz",
+          "kind": "binary",
+          "sha256": "9c086a0864b3b59e3c29662ae5e72b5abe3cdacd8aaf220fc28021ba9f5a318b"
+        },
+        {
+          "path": "docs/readmes/056/original/native/load056-matrix-11536350868961319315/wider-supports/world-native/checkpoints/6c3f87f6-aa20-4d82-8b9d-354995f08707.json.gz",
+          "kind": "binary",
+          "sha256": "9ec143fdbf08914cf7fc22a3030c1b2468f838ae12b528a4f292e6eea8f5c13e"
+        },
+        {
+          "path": "docs/readmes/056/original/native/load056-matrix-11536350868961319315/wider-supports/world-native/state.json.gz",
+          "kind": "binary",
+          "sha256": "d10b77e609042aa343e80cb9cf6f58bf2404700f193a15429683d3033ba73287"
+        },
+        {
+          "path": "docs/readmes/056/original/native/load056-matrix-11536350868961319315/widest-supports/world-native/checkpoints/b6c0e5be-2ae3-4af8-a65d-a70d98357fb1.json.gz",
+          "kind": "binary",
+          "sha256": "4726b28a80377fbe89ee6735f1006ce8de25984556dc1be91bd309d9d008e1ad"
+        },
+        {
+          "path": "docs/readmes/056/original/native/load056-matrix-11536350868961319315/widest-supports/world-native/state.json.gz",
+          "kind": "binary",
+          "sha256": "8c20b136d7cb796d287961527aa1969c6507a5b72035c314b25e8b40b0b9f012"
+        },
+        {
+          "path": "docs/readmes/056/original/native/load056-matrix-496265551592163358/loads/29af1eb2-e70b-4c69-acac-53b63193e286.json.gz",
+          "kind": "binary",
+          "sha256": "a6d2a2feb336ca59af62d1e213259b3d7492096804c2b7bd3d38d8e0c7581e29"
+        },
+        {
+          "path": "docs/readmes/056/original/native/load056-matrix-496265551592163358/loads/7df957a1-2510-4852-8c55-8485bc73aee1.json.gz",
+          "kind": "binary",
+          "sha256": "e9027076d12ea45c157e51c335f07ddfbbe172822665315a3b9e342b887f0e5c"
+        },
+        {
+          "path": "docs/readmes/056/original/native/load056-matrix-496265551592163358/loads/caa2a4ad-f908-4f0b-81a3-a5cf0c15fe44.json.gz",
+          "kind": "binary",
+          "sha256": "42dcb316480c8da7f1c74d1f613fe85f062bf911785d90ed54796f18983be2a2"
+        },
+        {
+          "path": "docs/readmes/056/original/native/load056-matrix-496265551592163358/maximum-force/world-native/checkpoints/7df957a1-2510-4852-8c55-8485bc73aee1.json.gz",
+          "kind": "binary",
+          "sha256": "b0873116b0d7e6880f3be926ec970bf31a6d2253c1034bfbc680032aa7dbd925"
+        },
+        {
+          "path": "docs/readmes/056/original/native/load056-matrix-496265551592163358/maximum-force/world-native/state.json.gz",
+          "kind": "binary",
+          "sha256": "c4e3d3abdeca008c0c95beac683d1c24ace829aed7eb39b140463115e7634e6a"
+        },
+        {
+          "path": "docs/readmes/056/original/native/load056-matrix-496265551592163358/persistent-worlds/state.json.gz",
+          "kind": "binary",
+          "sha256": "d7a837f67b430c25b2cff6746d7625924b51f7d6e302f4007c235979aee670b9"
+        },
+        {
+          "path": "docs/readmes/056/original/native/load056-matrix-496265551592163358/results.json.gz",
+          "kind": "binary",
+          "sha256": "36fbf00381e5ff7cf47d65fe2c7f3c4ef22f9962847e283ecfead2bf3b960a32"
+        },
+        {
+          "path": "docs/readmes/056/original/native/load056-matrix-496265551592163358/wider-supports/world-native/checkpoints/caa2a4ad-f908-4f0b-81a3-a5cf0c15fe44.json.gz",
+          "kind": "binary",
+          "sha256": "2f39ddc5849360589fca0272c0a8a4ad69ba232b680c05ba09a11b809a1ed432"
+        },
+        {
+          "path": "docs/readmes/056/original/native/load056-matrix-496265551592163358/wider-supports/world-native/state.json.gz",
+          "kind": "binary",
+          "sha256": "a66e682448ca84a2c340a2b32b02f95d8b4d349aeb5b924ccf9f637ca0f80fb0"
+        },
+        {
+          "path": "docs/readmes/056/original/native/load056-matrix-496265551592163358/widest-supports/world-native/checkpoints/29af1eb2-e70b-4c69-acac-53b63193e286.json.gz",
+          "kind": "binary",
+          "sha256": "79ebbd02e113e2bc2f78b6772d5c548632409d910785260147d07e98a70e6856"
+        },
+        {
+          "path": "docs/readmes/056/original/native/load056-matrix-496265551592163358/widest-supports/world-native/state.json.gz",
+          "kind": "binary",
+          "sha256": "889ce96f11971a902ee4640e4e95da6acfeee447c3e476bd03181b2d540921ef"
+        },
+        {
+          "path": "docs/readmes/056/original/native/load056-recovery-17010623840736594786/assembly/world-native/checkpoints/834ce268-f766-4be7-b5df-3308102b7081.json.gz",
+          "kind": "binary",
+          "sha256": "29bb84e27df250e88e3624fd0a025d9c673eb71304deb530133f9fde2ae0027c"
+        },
+        {
+          "path": "docs/readmes/056/original/native/load056-recovery-17010623840736594786/assembly/world-native/state.json.gz",
+          "kind": "binary",
+          "sha256": "61310c8e16455fabb09021dc047b4b13083fb14441ae05518f08ce9ffb74a01d"
+        },
+        {
+          "path": "docs/readmes/056/original/native/load056-recovery-17010623840736594786/loads/834ce268-f766-4be7-b5df-3308102b7081.json.gz",
+          "kind": "binary",
+          "sha256": "34ec9468dd5b8517345bbe8b454e3f60332e72c79e9046bf419c6def476345ff"
+        },
+        {
+          "path": "docs/readmes/056/original/native/load056-recovery-17010623840736594786/original-resumed.json.gz",
+          "kind": "binary",
+          "sha256": "df92dc4fd96c36712d22a5500a8e6fe549cf5f1bed9f8b8b215d2e9644199d35"
+        },
+        {
+          "path": "docs/readmes/056/original/native/load056-recovery-17010623840736594786/original-stopped.json.gz",
+          "kind": "binary",
+          "sha256": "30d8931e2dc059d1f476b01441a84cc78090ae1e4a74d3e09677992856cd8b25"
+        },
+        {
+          "path": "docs/readmes/056/original/native/load056-recovery-17010623840736594786/persistent-worlds/state.json.gz",
+          "kind": "binary",
+          "sha256": "ddf850f53e319d74c1daa1e0c8583ec2057c8fcfc26f0270afe229a7a0b2edee"
+        },
+        {
+          "path": "docs/readmes/056/original/native/load056-recovery-17010623840736594786/result.json.gz",
+          "kind": "binary",
+          "sha256": "a3d6d7976e8833df28e5d89882ed7ec48e7de59e7d05ccfe73675d41e38c7f22"
+        },
+        {
+          "path": "docs/readmes/056/original/native/load056-redesign16-3519748973132660123/loads/d9252060-d7bd-4cbf-8e2e-25ac84f53b3d.json.gz",
+          "kind": "binary",
+          "sha256": "014283cdb3dc85e361a10cc8085cd3562bc98224d513a21d04800f73bc6d2b2d"
+        },
+        {
+          "path": "docs/readmes/056/original/native/load056-redesign16-3519748973132660123/loads/db75daff-1338-484f-bffd-ac5af8fa906e.json.gz",
+          "kind": "binary",
+          "sha256": "086da74358417a73f43ab7bba85ad01305c598df900a31e33195fc45eebb167b"
+        },
+        {
+          "path": "docs/readmes/056/original/native/load056-redesign16-3519748973132660123/maximum-force/world-native/checkpoints/db75daff-1338-484f-bffd-ac5af8fa906e.json.gz",
+          "kind": "binary",
+          "sha256": "7521a5c7f90a20c2d34791cf6073f7890923f1b6e6998155f6cf94a45013fefe"
+        },
+        {
+          "path": "docs/readmes/056/original/native/load056-redesign16-3519748973132660123/maximum-force/world-native/state.json.gz",
+          "kind": "binary",
+          "sha256": "854bd2200c3f852f9959a4e4ae19300c2523e2395ae41b18ec6ba8c1d32101a9"
+        },
+        {
+          "path": "docs/readmes/056/original/native/load056-redesign16-3519748973132660123/persistent-worlds/state.json.gz",
+          "kind": "binary",
+          "sha256": "e771ab4da3be46d2ad4735c4849c75062e0e56222e6757946bc18dcf2263f1ef"
+        },
+        {
+          "path": "docs/readmes/056/original/native/load056-redesign16-3519748973132660123/results.json.gz",
+          "kind": "binary",
+          "sha256": "ded219dae0264c8d6b1ee6583494b9b39f3e84601a8d753087ae1effb1182daa"
+        },
+        {
+          "path": "docs/readmes/056/original/native/load056-redesign16-3519748973132660123/wider-supports/world-native/state.json.gz",
+          "kind": "binary",
+          "sha256": "06e8802f9e8faad2d05be493fd9b6849e8112dce4e26922f729db7ccf66b736e"
+        },
+        {
+          "path": "docs/readmes/056/original/native/load056-redesign16-6464958567513711506/loads/2915f630-0522-4de8-9d33-ccadf4c19101.json.gz",
+          "kind": "binary",
+          "sha256": "c7c055d0856bbeca14e0618eb446ab62f90cd22b56579260afe86b4a3594d71d"
+        },
+        {
+          "path": "docs/readmes/056/original/native/load056-redesign16-6464958567513711506/loads/64eea776-b81b-46a0-8269-f50686b3738b.json.gz",
+          "kind": "binary",
+          "sha256": "ed8613f1f993ccad0de5555e34cbf68bbcc75c5c3081ac50e8812f20e3d5274a"
+        },
+        {
+          "path": "docs/readmes/056/original/native/load056-redesign16-6464958567513711506/maximum-force/world-native/checkpoints/2915f630-0522-4de8-9d33-ccadf4c19101.json.gz",
+          "kind": "binary",
+          "sha256": "ed5dde20555eb1c5860308b54cd3df777690c493e50a734e51a53e10af12dbff"
+        },
+        {
+          "path": "docs/readmes/056/original/native/load056-redesign16-6464958567513711506/maximum-force/world-native/state.json.gz",
+          "kind": "binary",
+          "sha256": "22534f6edbda55b563a38dd54046510ba3c640c9f13e5043161ce00ebf59624c"
+        },
+        {
+          "path": "docs/readmes/056/original/native/load056-redesign16-6464958567513711506/persistent-worlds/state.json.gz",
+          "kind": "binary",
+          "sha256": "e02be6092cfdbb3798f8dd0b5af41b6d02e317ee576b1c1635109518ec9cf541"
+        },
+        {
+          "path": "docs/readmes/056/original/native/load056-redesign16-6464958567513711506/results.json.gz",
+          "kind": "binary",
+          "sha256": "9dce450cf0009f6aa4d6412c3865149146b61c64a63a43286311695b39d09ffb"
+        },
+        {
+          "path": "docs/readmes/056/original/native/load056-redesign16-6464958567513711506/wider-supports/world-native/state.json.gz",
+          "kind": "binary",
+          "sha256": "0a876b86e7c9f824ee9b0bcfc47efb3f041cdf3b67330ba3d82e6e66962fc209"
+        },
+        {
+          "path": "docs/readmes/056/original/native/route055-recovery-6061693359440873616/persistent-worlds/state.json.gz",
+          "kind": "binary",
+          "sha256": "6df6b9e3a45c58694898303cc2fb2f5ff648d158958ae5538cad2681ca2ac13a"
+        },
+        {
+          "path": "docs/readmes/056/original/native/route055-recovery-6061693359440873616/result.json.gz",
+          "kind": "binary",
+          "sha256": "e22694017f4d0c49a9abd9968682ce519c32a2797973fd358533cf0241b6c463"
+        },
+        {
+          "path": "docs/readmes/056/original/native/route055-recovery-6061693359440873616/world-native/checkpoints/891be12c-629c-4f17-9e70-8345d55f8b2f.json.gz",
+          "kind": "binary",
+          "sha256": "c13aabe4ced807ef2fd9d18794103e28d536d8e91028fdd2bc5c3e5c2a726846"
+        },
+        {
+          "path": "docs/readmes/056/original/native/route055-recovery-6061693359440873616/world-native/state.json.gz",
+          "kind": "binary",
+          "sha256": "bba5a82eae7138d67375852922ed6ef62aa663745981402c4510bccca6f7ec6b"
+        },
+        {
+          "path": "docs/readmes/056/original/native/world035-reserved-12538836895792775997/reserved035-blocked-next/persistent-worlds/state.json.gz",
+          "kind": "binary",
+          "sha256": "ac5f7313af4f8ed859e8697dc3307ef970fe52b4bb1e3a5981aebdc472bc724b"
+        },
+        {
+          "path": "docs/readmes/056/original/native/world035-reserved-12538836895792775997/reserved035-blocked-next/summary.json.gz",
+          "kind": "binary",
+          "sha256": "0adddcaa4f8ddf21be11c4cb710e0a76702ca9036eb5927b0bf4c56c5321e034"
+        },
+        {
+          "path": "docs/readmes/056/original/native/world035-reserved-12538836895792775997/reserved035-blocked-next/world-native/state.json.gz",
+          "kind": "binary",
+          "sha256": "d22fc18e1d34d9e61439f42765d70dbb9cce25e6a5060e13c77abb51f7ae0ed3"
+        },
+        {
+          "path": "docs/readmes/056/original/native/world035-reserved-12538836895792775997/reserved035-force-negative/persistent-worlds/state.json.gz",
+          "kind": "binary",
+          "sha256": "29a027a10137c1d2177896dc0ebd25a193eacf54022c2440e864e2a859228051"
+        },
+        {
+          "path": "docs/readmes/056/original/native/world035-reserved-12538836895792775997/reserved035-force-negative/summary.json.gz",
+          "kind": "binary",
+          "sha256": "0797d122ff0291e2448ecb8f479c71439ed089bc313119c67ed1e3f7652155ab"
+        },
+        {
+          "path": "docs/readmes/056/original/native/world035-reserved-12538836895792775997/reserved035-force-negative/world-native/state.json.gz",
+          "kind": "binary",
+          "sha256": "a606e643509f4c84f8507b4a37f0d24798c9f17be205d74f6db72d5e30a80e9c"
+        },
+        {
+          "path": "docs/readmes/056/original/native/world035-reserved-12538836895792775997/reserved035-three-body-chain/persistent-worlds/state.json.gz",
+          "kind": "binary",
+          "sha256": "5cc404d1cff17ca832a00a3b29569b471cb00cbc4082cbf8214eb58249b34c3b"
+        },
+        {
+          "path": "docs/readmes/056/original/native/world035-reserved-12538836895792775997/reserved035-three-body-chain/summary.json.gz",
+          "kind": "binary",
+          "sha256": "5544e195ae455659f5934e62d3107002b76affb4d44ead2dddf71ae076207b5e"
+        },
+        {
+          "path": "docs/readmes/056/original/native/world035-reserved-12538836895792775997/reserved035-three-body-chain/world-native/state.json.gz",
+          "kind": "binary",
+          "sha256": "740f0d507c153b61c693038e7f752feae1799ecdcbc97f3537cbdb2b61e3ebd7"
+        },
+        {
+          "path": "docs/readmes/056/original/native/world035-reserved-12538836895792775997/reserved035-two-body-chain/persistent-worlds/state.json.gz",
+          "kind": "binary",
+          "sha256": "fe1ffc7b51bd077cab7833dc971d38635fb8b4165734ca66aef85ce54e0e4aae"
+        },
+        {
+          "path": "docs/readmes/056/original/native/world035-reserved-12538836895792775997/reserved035-two-body-chain/summary.json.gz",
+          "kind": "binary",
+          "sha256": "372c2b9a1e97da358348aa8305437abf944e5f1577d3c836feeca32acbc3523c"
+        },
+        {
+          "path": "docs/readmes/056/original/native/world035-reserved-12538836895792775997/reserved035-two-body-chain/world-native/state.json.gz",
+          "kind": "binary",
+          "sha256": "2fd976b649309ce897af021638dd52ab7c0e9285d6294382a418182bf2247e6a"
+        },
+        {
+          "path": "docs/readmes/056/original/native/world035-reserved-12538836895792775997/summary.json.gz",
+          "kind": "binary",
+          "sha256": "2d7eff88095d65c0aff7e439f0f205a41c83d225ebd30b9846a7988241324596"
+        },
+        {
+          "path": "docs/readmes/056/original-evidence.json",
+          "kind": "text",
+          "sha256": "4b11213e82181fdc2de57fcdbee4ac092938c402b3dcd3b81a0c6767e4ddc789"
+        },
+        {
+          "path": "docs/readmes/056/report-capture.json",
+          "kind": "text",
+          "sha256": "308fabff811f23c763c883987c7bc56cc50e58e83d43541420c68837e5fa96c7"
+        },
+        {
+          "path": "docs/readmes/056/system-map.json",
+          "kind": "text",
+          "sha256": "d41ff37e361d32e88a8df38bcdd4dc68a64c901ad5627b69bb4cec3a53d6233e"
+        },
+        {
+          "path": "docs/readmes/056/verification.json",
+          "kind": "text",
+          "sha256": "c68a516dcf3055d25674ba4a5d2f5cfeb53b87e6acb29e45354d081e754f77e8"
         }
       ]
     }

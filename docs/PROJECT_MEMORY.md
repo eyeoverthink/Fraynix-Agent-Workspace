@@ -1,5 +1,37 @@
 # Agent Workspace project memory
 
+## Edition 056 · Validated locally; publication audit next
+
+2026-11-03. Actual app source 9b17ba7cc0cffb6a92aaac9307521042ea8958a2. Original frozen 24 N task has no feasible design; separately declared 16 N narrow layout improves through verified wider supports. Thresholds unchanged. 52 distinct targeted Java cases/11 classes across source-qualified invocations; 123 desktop checks and actual CPU/four-thread gpt-oss:20b chat/reuse pass. Chat 510.886s; reuse 405.505s. See 056 validation for exact scope, failures and originals; no full-suite claim. Review/restart, fresh execution/load verification, original chart/table receipts, disabled-redesign and sealed refusal, Stop and prior-world preservation checked.
+
+New extensive README 056, ten actual screenshots, offline guide, Obsidian map and original archives prepared. Preserve normal045/qa046 installed runtimes/private projects, frozen001–055 and node_modules053junction. Publication still pending: document validation, actual main/edition056/readme-056 atomic push and fresh fetched audit. No material-strength, physical-certification or model-weight-learning claim. Next: freeze new load locations/durations/payloads and evaluate unfamiliar conditions with all attempt costs.
+
+
+## Edition 056 current checkpoint · saved skill verified, publication pending
+
+2026-11-03. Actual app continuation source b3c5f59 (test history-ID fix), desktop product ae68cf2, installed Java c512da1; native algorithms remain validated b11ef7b. Actual changed-centre chat passed on ae68cf2, world revision 2. Exact load-redesign version 2 reused after cold restart in new wide stock at centre (0.1,0.2), retaining required 16 N. Original 1.9 m span passes; both wider alternatives remain not-needed. Earlier world unchanged. Actual UI screenshots chat/narrow/sealed/refused visually inspected. Sealed obstruction and disabled redesign refuse world change. Serial harness exec11591, build/test056-live-skills.log, same synthetic Temp/fraynix-construction056-HRMgkY; Stop and compact-stock final checks underway. Java heap capped768m; original first phase used default. Original failures and first-phase bytes retained under build/ui056-*.
+
+Still mandatory: successful live record and nonempty interrupted rows; actual report curve capture; prepare-docs056.py once, browser guide checks, freeze and Verify-Documentation, credential/preflight checks, local Git blob audit, non-force atomic main/edition056/readme-056 push, fresh GitHub fetch/audit, publication receipt and continuity push plus final fetched audit. No056push yet. Preserve installed045/qa046/private projects and frozen001–055. Prepared helpers remain ignored build files, archived by documentation preparation. No subagents or concurrent native/model jobs.
+
+
+## Edition056 current checkpoint · actual chat continuation, not published
+
+2026-11-03 sourceae68cf2; Java installedc512da1 (only view adds saveSkillName, native algorithms unchanged from validatedb11ef7b). Active serial actual UI/model harness exec69407, log build/test056-live-readiness.log, synthetic project Temp/fraynix-construction056-HRMgkY. It resumes first verified phase from workspace-desktop/test-output/construction056-failed-1793755269972.json (source6323724). Firstphase PASSED original8Nprefix/16Nfailure,1.395m redesign16Npass, cold review/restart, fresh native execution/repeated envelope, rendered report checks, revision1, saved load-redesignv1 and exact visible export. Its exact pre-resume checkpoint bytes/captures/logs retained in build/ui056-first/project-originals and first-failure record.
+
+Actual cold restart exposed UI controls resetting to default, dropping requiredLoadN from chat; invalid model40N proposals were rejected and validation explicitly cancelled that task before actuation. c512da1 restores goal controls/skillname once per world without overwriting later edits;4347d88 corrects the test's async input wait. View activation also briefly held manualBusy and rejected immediate chat: ae68cf2 waits for readiness (20s bound) while retaining final backend guard. New actual chat now includes requiredLoadN16, forceLimitN40, center(.2,.2), load-redesign.123desktop checks pass after finalreadinesschange;52distinct targeted Java/11classes source-qualified, original24Ncontrarycase retained. Continuation Java heap capped768m; first test used defaultheap.
+
+Still finish actual changed-centre model completion, exact savedskillreuse/restart, changedrequirement refusal, sealed/noredesign refusal, Stopduringload andcompactrepeat. Then build/capture-report056.cjs for real chart capture, inspect allten screenshots. DraftREADME placeholders until build/prepare-docs056.py runs ONCE afterlive success. Helpersprepared; originalfailures retained. Validate offlineguide/check-docs056.cjs, freeze-docs056.py, Verify-Documentation, preflight/stage/audit/publication056. Actual non-force main/edition056/readme-056push and fresh fetched audit remain mandatory; then receipt/notescommit/push/finalaudit. Preserve001–055immutable, normal045/qa046/privateprojects andnode_modules053junction. No subagents or overlapping native/modelchecks.
+
+
+## Edition056 actual-app validation checkpoint · not published
+
+2026-11-03. Source6323724 labels retained procedures accurately. Native algorithms unchanged since successful b11ef7b final invocation:17/17 checks; previous52c93ad regression35/37, corrected chat syntax/recovery test reader now pass.52distinct targeted Java cases/11classes across source-qualified invocations plus123desktop checks. Original failing24N expectation and numeric/checkpoint-reader defects retained under build/native056-*. New16N originalspan.8 fails at16; wider1.395 passes16. Original24N allthreefail unchanged gates.
+
+Actual native/local-model UI harness runs as exec66153 in synthetic Temp/fraynix-construction056-HRMgkY; log build/test056-live.log. Initial originalspan.8 measuredprefix8 and failed16; wider load check underway. Still must finish review/restart, fresh execution/load/report, realCPU gpt-oss20b chat and saved-skill reuse, no-redesign/sealed refusal, Stop andcompactrepeat. Do not overlap native/model jobs or touch normal045/qa046 installedJARs/private projects.
+
+README-056.md draft contains deliberate result/screenshot placeholders, not publishable yet. Prepared ignored build helpers prepare-docs056.py/check-docs056.cjs/freeze-docs056.py/preflight056.py/stage056.py/audit-publication056.py/record-publication056.py. Run prepare only after actual app passes; inspect captures, preserve original failed invocations. Publication remains actual non-force main/edition056/readme-056 push, fresh GitHub fetched blob audit, then publication receipt/continuity push and final fetched audit. Preserve001–055immutable. No subagents.
+
+
 ## Edition056 implementation checkpoint · not published
 
 2026-11-03. Work only in isolated fraynix-workspace-edition056 on edition056, from published781fb85; remote eyeoverthink/Fraynix-Agent-Workspace. Preserve normal installed045/private camera projects, all001–055 frozen editions and absolute node_modules junction to053. No subagents; heavy native/model checks serial.

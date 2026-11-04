@@ -2,9 +2,9 @@
 
 **A local visual environment for agents to browse, create runnable artifacts, test behavior and reuse verified skills.**
 
-> **[Edition055 · Simple first, routes and loads](README-055.md)** · [Offline guide](docs/readmes/055/index.html) · [Operation](docs/JAVA_CHAT_044.md) · [Edition history](docs/readmes/INDEX.md)
+> **[Edition 056 · Measured load limits and verified redesign](README-056.md)** · [Offline guide](docs/readmes/056/index.html) · [Operation](docs/JAVA_CHAT_044.md) · [Edition history](docs/readmes/INDEX.md)
 
-Edition055 tries simpler control first, carries declared stock around tall obstacles, and evaluates independent load outcomes. [Measured results and complete original evidence](docs/readmes/055/verification.json).
+Edition 056 measures a tested load bracket, retains failures and admits bounded same-stock redesign only when fresh execution verifies the requirement. [Measured results and originals](docs/readmes/056/verification.json).
 
 Edition052 is published to main with the original evidence. [Fetched GitHub verification](docs/PUBLICATION_052.json).
 
