@@ -6,7 +6,7 @@
 
 Edition 069 adds one measured later contact check and a bounded second correction in the same world. On60 unfamiliar-disturbance tasks, successes rise19→36 with no previously successful goal lost. Clean successes38→39, with a sensing-cost penalty. Both primary gates pass; no automatic controller promotion. [Full results and limitations](docs/readmes/069/verification.json).
 
-Edition 069 implementation, screenshots and original evidence are prepared for publication. [Previous fetched publication](docs/PUBLICATION_068.json).
+Edition 069 is published to main with full source, thirteen actual app captures, original evidence and updated continuity notes. [Fetched GitHub verification](docs/PUBLICATION_069.json).
 
 
 One integrated app, with Java-owned chat planning, creation, native skill scheduling, continuing identity, real clocks and checked outcomes. Mission connects the actual goal, source, child task, recovery and retained result. [Screenshots, typed skill graphs, new logic and production direction](README-046.md).

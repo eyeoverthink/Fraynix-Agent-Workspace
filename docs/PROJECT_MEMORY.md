@@ -1,5 +1,20 @@
 # Agent Workspace project memory
 
+## Edition 069 · Published and fetched back on 2026-11-05
+
+Actual atomic push to Fraynix-Agent-Workspace main, edition069 and readme-069 succeeded. Release 909726bcf571410572ab850bc2152189cb3e612e; annotated tag db97690e061bb4b2fd22e1be383c5a5436e30f50. Fresh GitHub fetch verified 1011 canonical sources, 5824 frozen hashes across 69 editions and 46 original archives including decompressed bytes. Documentation passed 74 canvases and 7031 references. [Publication receipt](PUBLICATION_069.json).
+
+Bounded later observation at100/104/108, one second correction at108, limits .12individual/.24cumulative m/s. Original first choice/correction unchanged; published068 model e63750b5cd55863d612f991f413a401d9e46db59b8ab55eed401d0de88702560 reused without refitting. Not calibrated for two-stage outcome. 484slots/406native executions. Original parity and paired prefix deltas zero; actual app/native outcome/sample arrays match.
+
+Clean Single38success/10miss, Later39/9; screened38/2/8refused, later-screened39/1/8. Disturbed Single19/41, Later36/24; screened19/32/9, later-screened36/15/9. Later-minus-single utility clean−.0379167, disturbed+.7443333; one clean and17 disturbed goals saved, zero harmed. Both primary and secondary gates PASS. Disturbed unscreened utility−.423333 remains worse than always-refuse−.15; later-screened−.118783. Spin and after-second push unchanged. No automatic promotion or LLM-weight training.
+
+83 targeted Java checks/17 classes,127desktop checks, real app/restart/Stop/CPU4gpt-oss20b report and offline1440/390 interactions/visual review pass. Source, plan, event, timing and frozen-model tampering rejected. Old068 original cold-restores unchanged. Initial test-loop syntax and JSON nonfinite assertion mistakes corrected before outcomes; exact originals retained. A harness-only old phase-field assertion was repaired after the app study completed; inspection resumed against the identical saved study. Visual review found garbled UTF-8 labels; corrected text and recaptured the same evidence, preserving original bad screenshots/timeout. No task, gate, model or physical rule tuning after outcomes. Source implementation f3c2f70, contract c857a97.
+
+README069,13 actual app captures,2 offline captures, exact original evidence, full source inventory and Obsidian77/canvas published. Test app closed. Preserve normal045/qa046 installations, personal worlds and frozen001–069. Source worktree work/fraynix-workspace-edition069. No subagents or overlapping heavy validators.
+
+Next unused070: prospectively compare adaptive observation schedules against fixed two-check recovery on fresh cases. Measure sensing costs, late-event misses and all-task utility; keep current evidence frozen. Diagnostic novelty is not event recognition, native contact is not camera/physical calibration, and relative improvement is not universal task value. This publication receipt follows the immutable release tag.
+
+
 ## Edition 069 · Validated locally; publication next
 
 Contract c857a97 and implementation f3c2f70 precede outcomes. New isolated worktree work/fraynix-workspace-edition069, base59478b3. Four paired policies reuse exact published068 model e63750b5cd55863d612f991f413a401d9e46db59b8ab55eed401d0de88702560. First behavior is unchanged; later policies read100/104/108 and have one extra bounded correction, .12individual/.24cumulative m/s. No new fitting or active-controller promotion.
