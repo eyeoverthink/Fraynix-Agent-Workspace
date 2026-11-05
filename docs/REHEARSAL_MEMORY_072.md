@@ -1,6 +1,6 @@
 # Game Lab as rehearsal, memory and internal inspection
 
-Design assessment added during edition072, November5,2026. This extends the user's idea without changing the already declared observation experiment or its gates. The following architecture is proposed; it is not a claim that general autonomous rehearsal or these external repositories have been installed into the app.
+Design assessment added during edition 072, November 5, 2026. This extends the user's idea without changing the already declared observation experiment or its gates. The following architecture is proposed; it is not a claim that general autonomous rehearsal or these external repositories have been installed into the app.
 
 ## The central connection
 
@@ -56,7 +56,7 @@ flowchart LR
 
 ## What Akashic supplies
 
-Pinned source: [fraynix-akashic at2e5a0f94](https://github.com/eyeoverthink/fraynix-akashic/tree/2e5a0f94b8d812d6ef9c976366220be8ba75aeaa). All13 Java source files were captured for review, with local copies checked against their Git blob identities. The focused reading covers the store, columns, consolidation, gate, runtime and verification paths. Its useful ingredients include deterministic recurrent columns, lineage and fossil records, binary state/weight serialization, a seal codec, HDC similarity, candidate consolidation and runtime compilation of a plasticity rule.
+Pinned source: [fraynix-akashic at 2e5a0f94](https://github.com/eyeoverthink/fraynix-akashic/tree/2e5a0f94b8d812d6ef9c976366220be8ba75aeaa). All 13 Java source files were captured for review, with local copies checked against their Git blob identities. The focused reading covers the store, columns, consolidation, gate, runtime and verification paths. Its useful ingredients include deterministic recurrent columns, lineage and fossil records, binary state/weight serialization, a seal codec, HDC similarity, candidate consolidation and runtime compilation of a plasticity rule.
 
 The best transfer is continuity with explicit lineage: retain an experiment even when its policy is retired, record how a candidate was derived, and preserve a recoverable previous version. HDC can be tested as an approximate episode-retrieval key. A retrieved candidate still needs exact metadata and outcome checks; vector similarity does not prove applicability or truth.
 
@@ -70,11 +70,11 @@ Several current source boundaries need attention before adopting its persistence
 
 These are specific implementation findings. Deterministic updates and changing weights are real computations, but useful learning must be measured on retained tasks and fresh conditions. The proposed Java integration should use the workspace's existing durable store and outcome checks rather than inherit an incomplete restore path.
 
-Executed review: the exact pinned13 Java source files compiled with Java21. The repository's original VerifyAll completed in RAM mode with19 passed/0 failed, including serialization, deterministic updates and runtime plasticity-rule compilation. Six additional focused checks reproduced the listed boundaries: weights are omitted from the root state seal; same-tick snapshots omit changed weights; tick phase changes after sealing; new runtime columns are missing from store.active; recorded surprise changes do not change the dream result; and the advertised restore method is absent. These checks used temporary RAM stores, not the user's live databases. The original suite and the counterexamples test different properties; both results are retained. [Original suite](readmes/072/original/logs/akashic-original072.log.gz) · [Focused checks](readmes/072/original/logs/akashic-probes072.log.gz).
+Executed review: the exact pinned 13 Java source files compiled with Java 21. The repository's original VerifyAll completed in RAM mode with 19 passed and 0 failed, including serialization, deterministic updates and runtime plasticity-rule compilation. Six additional focused checks reproduced the listed boundaries: weights are omitted from the root state seal; same-tick snapshots omit changed weights; tick phase changes after sealing; new runtime columns are missing from store.active; recorded surprise changes do not change the dream result; and the advertised restore method is absent. These checks used temporary RAM stores, not the user's live databases. The original suite and the counterexamples test different properties; both results are retained. [Original suite](readmes/072/original/logs/akashic-original072.log.gz) · [Focused checks](readmes/072/original/logs/akashic-probes072.log.gz).
 
 ## What the reverse-engineering agent contributes
 
-Pinned source: [fraymus-re-agent at4c04eee3](https://github.com/eyeoverthink/fraymus-re-agent/tree/4c04eee36be9a0c188a76bc5db8db16fb0142233). The reviewed first-party scripts coordinate radare2, Ghidra, local model annotations and a receipt log. The repository includes a built Ghidra distribution; its Mac execution claims and artifacts were inspected as supplied evidence, not rerun on this Windows workspace. No RE engine, new model or binary was installed or executed for this source review.
+Pinned source: [fraymus-re-agent at 4c04eee3](https://github.com/eyeoverthink/fraymus-re-agent/tree/4c04eee36be9a0c188a76bc5db8db16fb0142233). The reviewed first-party scripts coordinate radare2, Ghidra, local model annotations and a receipt log. The repository includes a built Ghidra distribution; its Mac execution claims and artifacts were inspected as supplied evidence, not rerun on this Windows workspace. No RE engine, new model or binary was installed or executed for this source review.
 
 This is useful as an internal investigator. It can connect a failure to a method, instruction range, branch, data structure, dependency or serialized field. The link should run both ways: an episode identifies the failing behavior; the investigator forms a code-level hypothesis; a controlled experiment tests it; the result updates the episode's explanation.
 
@@ -93,11 +93,11 @@ The receipt chain preserves recorded content; it does not make the recorded clai
 
 ## Proposed next delivery
 
-Edition072 supplies a concrete motivation. Its completed native study retained612 executions: the new policy succeeded on39/48 clean and39/60 disturbed tasks, while the preserved adaptive baseline succeeded on39/48 and40/60. Joint state ranges covered46/48 clean trajectories but20/60 disturbed trajectories. The declared combined qualification failed. These are native simulator results, not physical-world calibration. The full study took about47minutes including evidence processing; it is not a real-time background-thinking benchmark.
+Edition072 supplies a concrete motivation. Its completed native study retained 612 executions: the new policy succeeded on 39/48 clean and 39/60 disturbed tasks, while the preserved adaptive baseline succeeded on 39/48 and 40/60. Joint state ranges covered 46/48 clean trajectories but 20/60 disturbed trajectories. The declared combined qualification failed. These are native simulator results, not physical-world calibration. The full study took about 47 minutes including evidence processing; it is not a real-time background-thinking benchmark.
 
 An episode library should retain those missed predictions, changed conditions and costs. Retrieval should identify relevant failures as well as successes. Bounded background rehearsal needs a scheduler with explicit time, memory and execution budgets, interruption, and priority for the user's active work. Measure whether retrieving a valid prior episode avoids unnecessary trials; do not assume that a growing memory automatically makes the system faster or more capable.
 
-One retained example makes this concrete. In disturbed case7, an external push arrived at tick84. The preserved adaptive policy observed at tick92 and corrected successfully. The new policy waited until tick116; by then its remaining correction budget could not reach the goal. That is an episode about a missed intervention window, with a paired successful alternative. It can inform a future hypothesis and training case, but the same case must not then be counted as fresh evidence that the revised policy generalizes.
+One retained example makes this concrete. In disturbed case 7, an external push arrived at tick 84. The preserved adaptive policy observed at tick 92 and corrected successfully. The new policy waited until tick 116; by then its remaining correction budget could not reach the goal. That is an episode about a missed intervention window, with a paired successful alternative. It can inform a future hypothesis and training case, but the same case must not then be counted as fresh evidence that the revised policy generalizes.
 
 Extend the current Java goal runner with one concrete end-to-end rehearsal task:
 
