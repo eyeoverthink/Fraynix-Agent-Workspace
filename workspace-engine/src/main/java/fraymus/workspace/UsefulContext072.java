@@ -12,14 +12,17 @@ final class UsefulContext072 {
   for(String phase:List.of("clean","disturbed","unsupported")){
    var e=s.getJSONObject(phase);var groups=e.getJSONObject("subgroups");e.remove("subgroups");
    e.put("subgroupSource072",new JSONObject().put("names",new JSONArray(new TreeSet<>(groups.keySet()))).put("sha256",WorldFrames.hash(groups)).put("route","/api/brain/read").put("id",s.getString("jobId")).put("field",phase+"Evaluation072.subgroups"));
-   for(String name:List.of("methods","pairedUsefulMinus")){
-    var data=e.getJSONObject(name);var keys=new JSONArray(new TreeSet<>(data.getJSONObject(new TreeSet<>(data.keySet()).first()).keySet()));String ref=name;
-    if(columns.has(ref)&&!columns.getJSONArray(ref).similar(keys))throw new IllegalStateException("Metric schema differs");columns.put(ref,keys);
-    var rows=new JSONArray();for(String method:new TreeSet<>(data.keySet())){var row=new JSONArray().put(method);for(Object key:keys)row.put(data.getJSONObject(method).get((String)key));rows.put(row);}
-    e.put(name,new JSONObject().put("columnsRef",ref).put("rows",rows));
-   }
+   for(String name:List.of("methods","pairedUsefulMinus"))table(e,name,name,columns);
+   table(e.getJSONObject("coverage"),"cells","coverageCells",columns);
+   table(e.getJSONObject("diagnostics"),"goals","goalComparisons",columns);
   }
   s.put("tableColumns072",columns).put("tableMeaning072","Each row is [policy, values in column order]. All aggregate metrics, paired comparisons, gates, costs and diagnostics retained. Subgroups referenced in original checked report.");
   return true;
+ }
+ private static void table(JSONObject owner,String name,String ref,JSONObject columns){
+  var data=owner.getJSONObject(name);var keys=new JSONArray(new TreeSet<>(data.getJSONObject(new TreeSet<>(data.keySet()).first()).keySet()));
+  if(columns.has(ref)&&!columns.getJSONArray(ref).similar(keys))throw new IllegalStateException("Metric schema differs");columns.put(ref,keys);
+  var rows=new JSONArray();for(String identity:new TreeSet<>(data.keySet())){var values=data.getJSONObject(identity);if(!values.keySet().equals(new TreeSet<>(keys.toList())))throw new IllegalStateException("Metric row differs");var row=new JSONArray().put(identity);for(Object key:keys)row.put(values.get((String)key));rows.put(row);}
+  owner.put(name,new JSONObject().put("columnsRef",ref).put("rows",rows));
  }
 }
