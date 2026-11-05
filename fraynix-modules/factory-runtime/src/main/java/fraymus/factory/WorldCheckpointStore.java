@@ -125,14 +125,36 @@ public final class WorldCheckpointStore {
     }
     private static void writeAtomic(Path target, byte[] bytes) throws IOException {
         Path temp = Files.createTempFile(target.getParent(), target.getFileName().toString(), ".pending");
+        boolean forced = false;
         try {
             try (FileChannel out = FileChannel.open(temp, StandardOpenOption.WRITE)) {
                 ByteBuffer buffer = ByteBuffer.wrap(bytes);
                 while (buffer.hasRemaining()) out.write(buffer);
                 out.force(true);
             }
-            try { Files.move(temp, target, StandardCopyOption.ATOMIC_MOVE, StandardCopyOption.REPLACE_EXISTING); }
-            catch (AtomicMoveNotSupportedException unsupported) { throw new IOException("Atomic replacement required on this filesystem", unsupported); }
-        } finally { Files.deleteIfExists(temp); }
+            forced = true;
+            // Brief Windows readers can deny replacement. Keep the same forced bytes
+            // and the writer lock; never delete the old generation or fall back to copying.
+            for (int attempt = 0;; attempt++) {
+                try {
+                    Files.move(temp, target, StandardCopyOption.ATOMIC_MOVE, StandardCopyOption.REPLACE_EXISTING);
+                    break;
+                } catch (AccessDeniedException denied) {
+                    if (attempt >= 5) throw denied;
+                    try { Thread.sleep(25L << attempt); }
+                    catch (InterruptedException interrupted) {
+                        Thread.currentThread().interrupt();
+                        var failure = new InterruptedIOException("Checkpoint replacement interrupted; previous and pending bytes retained");
+                        failure.initCause(denied);
+                        throw failure;
+                    }
+                } catch (AtomicMoveNotSupportedException unsupported) {
+                    throw new IOException("Atomic replacement required on this filesystem", unsupported);
+                }
+            }
+        } finally {
+            // Preserve a complete uncommitted generation on failure for diagnosis.
+            if (!forced) Files.deleteIfExists(temp);
+        }
     }
 }
