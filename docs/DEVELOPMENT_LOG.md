@@ -1,5 +1,12 @@
 # Agent Workspace development log
 
+
+## Edition072 · In progress, not yet published
+
+Current isolated checkout: work/fraynix-workspace-edition072. Contract2e4a2e7/cost clarificationf7c4220 precede implementation4e36547 and new native outcomes. Eight focused Java checks, original071 cold compatibility and127desktop checks passed. Full666-slot/612-execution native study is running; sequential regression and actual-app/model checks are queued. Use build/HANDOFF072.md and build/continue072.log for current processes and recovery; do not duplicate heavy validators. No policy/case/gate tuning or controller promotion. Preserve normal045/qa046/private worlds.
+
+User follow-up: Game Lab as bounded rehearsal with reusable state/video memories and component substitutions, plus an internal reverse-engineering investigator. [Design assessment](REHEARSAL_MEMORY_072.md) separates current game/native3D adapters from missing restore/reuse interfaces. Pinned Akashic2e5a0f94 and RE4c04eee3 reviewed; four controlled RE-script counterexamples reproduced, Akashic verification pending. Chandra e984a336 review has four inheritance checks and six controlled counterexamples. No new external engine installed. Finish real app validation, screenshots/README/offline guide and fetched main publication before claiming release.
+
 ## Edition071 · Published and fetched back on 2026-11-05
 
 Atomic push to Fraynix-Agent-Workspace main,edition071 and readme-071 succeeded. Release 21f0ff54018ffb8400ca329a5550bb3b7819b934; annotated tag 645836af0d027257c05a711eaf7da301402d26c3. Fresh GitHub fetch verified 1035canonical sources,6018frozen hashes across71editions and73original archives including decompressed bytes. Documentation passed76canvases and7219references. [Publication receipt](PUBLICATION_071.json).
@@ -1637,3 +1644,4 @@ LIVE normal production review on canonical root installed042 JARs: ElectronPID11
 Agent51a77b2e-0e46-4739-9d00-6b0c2b86cdce, bootbdda2b54-71e5-4c62-bd64-ce338ff3f029. Background awake; no fresh physical observation. Worlda2aed6a7-8d9f-4922-a717-a9dfa2026077 remains committed tick0/revision0/head41cd72facca05c5189e72ae459a51b4ab652bd874d202b329e95ce604f4d3c79/no pending. Selected measured registration58d5a958-c6fe-41f5-9b59-4e5f81338709 and completed occlusione44cdfe4-2854-4b74-8a04-92f94fe81ca4 retained. Source-specific041 physical results retain their scope; older038 failures/uncertainty remain UNVALIDATED. No semantic recognition, depth/contact, subjective feeling, general learning or LLM-weight training claim.
 
 DO NOT rebuild canonical installed JARs while Java7000 is live, even if the interface closes. Stop through Java brain → Identity, memory and witness → Stop Java & close app before upgrading that installation. Use a new isolated043 checkout/project for further development. Java now owns continuing identity/clocks/sensory appraisal/shared cortex/replay/witness/recovery; surface-dependent browser/canvas hosting and portions of chat planning remain in the desktop. Next043: move remaining surface-independent procedure selection/scheduling into Java, with actual task/source/lease checks; then measure whether replay improves frozen held-out tasks before promotion. Keep one integrated app, owned algorithms, existing design and no stubs. No subagents; native/model validation ran sequentially.
+

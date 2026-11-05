@@ -1,5 +1,12 @@
 # Fraynix Studio collaboration and documentation
 
+
+## Edition072 · In progress, not yet published
+
+Current isolated checkout: work/fraynix-workspace-edition072. Contract2e4a2e7/cost clarificationf7c4220 precede implementation4e36547 and new native outcomes. Eight focused Java checks, original071 cold compatibility and127desktop checks passed. Full666-slot/612-execution native study is running; sequential regression and actual-app/model checks are queued. Use build/HANDOFF072.md and build/continue072.log for current processes and recovery; do not duplicate heavy validators. No policy/case/gate tuning or controller promotion. Preserve normal045/qa046/private worlds.
+
+User follow-up: Game Lab as bounded rehearsal with reusable state/video memories and component substitutions, plus an internal reverse-engineering investigator. [Design assessment](docs/REHEARSAL_MEMORY_072.md) separates current game/native3D adapters from missing restore/reuse interfaces. Pinned Akashic2e5a0f94 and RE4c04eee3 reviewed; four controlled RE-script counterexamples reproduced, Akashic verification pending. Chandra e984a336 review has four inheritance checks and six controlled counterexamples. No new external engine installed. Finish real app validation, screenshots/README/offline guide and fetched main publication before claiming release.
+
 ## Edition071 · Published and fetched back on 2026-11-05
 
 Atomic push to Fraynix-Agent-Workspace main,edition071 and readme-071 succeeded. Release 21f0ff54018ffb8400ca329a5550bb3b7819b934; annotated tag 645836af0d027257c05a711eaf7da301402d26c3. Fresh GitHub fetch verified 1035canonical sources,6018frozen hashes across71editions and73original archives including decompressed bytes. Documentation passed76canvases and7219references. [Publication receipt](docs/PUBLICATION_071.json).
