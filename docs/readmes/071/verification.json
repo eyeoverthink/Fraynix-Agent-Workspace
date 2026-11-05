@@ -15,8 +15,8 @@
     0,
     0
   ],
-  "javaDistinct": 102,
-  "javaClasses": 23,
+  "javaDistinct": 110,
+  "javaClasses": 24,
   "javaAllPassed": true,
   "javaInvocations": [
     {
@@ -581,6 +581,77 @@
           "case": "fraymus.workspace.UncertainCompatibility071Test#published070OriginalRestoresThroughCurrentOwnerWithoutChangedEvidence",
           "passed": true,
           "seconds": 22.025
+        }
+      ]
+    },
+    {
+      "name": "merged-main071",
+      "source": "b95582eedfa516e333c5c62c6c994adea0f7a019",
+      "cases": [
+        {
+          "case": "fraymus.workspace.BrainPersistenceTest#cancelDoesNotPromoteAndSharedCortexCheckpointRestarts",
+          "passed": true,
+          "seconds": 6.771
+        },
+        {
+          "case": "fraymus.workspace.BrainPersistenceTest#checkpointRetainsActualWeightsRandomStateAndDynamicsAndRejectsCorruption",
+          "passed": true,
+          "seconds": 0.065
+        },
+        {
+          "case": "fraymus.workspace.BrainPersistenceTest#savedUnsettledJobIsMarkedInterruptedOnRestart",
+          "passed": true,
+          "seconds": 1.293
+        },
+        {
+          "case": "fraymus.workspace.BrainPersistenceTest#acceptedControllerUsesActualImpulseAndReplaysWithoutReferenceConfusion",
+          "passed": true,
+          "seconds": 21.907
+        },
+        {
+          "case": "fraymus.workspace.BrainPersistenceTest#immutableLocalMemorySurvivesRestartIsBoundedAndCannotInstallTools",
+          "passed": true,
+          "seconds": 0.094
+        },
+        {
+          "case": "fraymus.workspace.ProceduralTest#restartReusesStableReportAndReconcilesPassingViewWithoutReplayingControls",
+          "passed": true,
+          "seconds": 1.198
+        },
+        {
+          "case": "fraymus.workspace.ProceduralTest#cancellationRejectsLateEffectsAndDoesNotCreateAProcedure",
+          "passed": true,
+          "seconds": 1.022
+        },
+        {
+          "case": "fraymus.workspace.ProceduralTest#realJavaResultAndTypedViewFixtureRetainThenRebindANewSeed",
+          "passed": true,
+          "seconds": 1.394
+        },
+        {
+          "case": "fraymus.workspace.ProceduralTest#forgedDisplayedCoordinatesCannotCompleteOrRetainASkill",
+          "passed": true,
+          "seconds": 0.38
+        },
+        {
+          "case": "fraymus.workspace.ProceduralTest#realExportImportsByReconstructionAndRejectsChangedPayload",
+          "passed": true,
+          "seconds": 4.936
+        },
+        {
+          "case": "fraymus.workspace.ProceduralTest#exportRemainsInsideCanonicalProjectWithAnAliasedRoot",
+          "passed": true,
+          "seconds": 0.462
+        },
+        {
+          "case": "fraymus.workspace.ProceduralTest#editedReportsArePreservedAndCannotReuseOldReceipts",
+          "passed": true,
+          "seconds": 0.609
+        },
+        {
+          "case": "fraymus.workspace.ProceduralTest#invalidInputsDoNotInstallHandlersOrCaptureTheRunner",
+          "passed": true,
+          "seconds": 0.018
         }
       ]
     }
@@ -4724,5 +4795,20 @@
     "retained": "original/ui-attempts",
     "failure": "Repeated selection requests queued duplicate full trace audits; stale task text let the initial test reach a still-disabled frame slider. Calibration cells also needed wrapping.",
     "correction": "Coalesce identical in-flight reads, clear stale trace controls, identify the verified job/phase/index, wait for that identity, and wrap the calibration table. Completed physics, calibration and outcome records reused unchanged."
+  },
+  "sourceInventoryBaseline": "b95582eedfa516e333c5c62c6c994adea0f7a019",
+  "concurrentMainIntegration": {
+    "remoteCommit": "ec56d80b0a411ec33d1237ff8431aa57135694fc",
+    "mergeCommit": "b95582eedfa516e333c5c62c6c994adea0f7a019",
+    "changedFiles": [
+      ".github/workflows/build.yml",
+      "docs/DEVELOPMENT_LOG.md",
+      "docs/PROJECT_MEMORY.md",
+      "workspace-engine/src/test/java/fraymus/workspace/BrainPersistenceTest.java",
+      "workspace-engine/src/test/java/fraymus/workspace/ProceduralTest.java"
+    ],
+    "runtimeAndUiUnchanged": true,
+    "checks": "13 actual Windows Java tests, including GPU/CPU parity and aliased export roots; source isolation passed. No hosted Actions pass is inferred from local tests.",
+    "studyScope": "Earlier native study, model, app and screenshot provenance is unchanged. Only CI workflow, two test files and continuity notes arrived from main. No physics, model fit, task, policy, outcome or gate was altered."
   }
 }

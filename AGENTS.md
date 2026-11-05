@@ -1,5 +1,10 @@
 # Fraynix Studio collaboration and documentation
 
+## Edition071 · Concurrent main preserved before publication
+
+Merged ec56d80 at b95582eedfa516e333c5c62c6c994adea0f7a019 without runtime/UI changes. Incoming workflow, two tests and their notes preserved. Thirteen Windows tests and source isolation passed; combined distinct coverage is 110 Java tests/24 classes. Physics/model/app evidence retains its original source identity. The final canonical source inventory includes the two updated tests. Hosted Actions was not validated by this local run. Publication and fetched audit remain next.
+
+
 ## Edition071 · Validated locally; publication next
 
 Contract421fe87 and implementation07bd01e precede native outcomes. Isolated work/fraynix-workspace-edition071 from196fdce.24fit/36calibration actual clean blind trajectories, four cells, medians/MAD floor2mm, nine joint scores/cell, nominal90% rank9/9. Model frozen before48clean/60disturbed/12unsupported; six exact070 parity pairs.546slots/504executions. Four methods blind/fixed/adaptive/uncertain share unscreened initial behavior; uncertain preserves chosen windows or forces92 when a skipped calibrated union leaves the target. Same first recovery and .12individual/.24cumulative budget. Original hypothetical weights remain assumptions.
