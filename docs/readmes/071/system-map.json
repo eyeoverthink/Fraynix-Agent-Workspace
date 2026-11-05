@@ -1,0 +1,141 @@
+{
+  "edition": 71,
+  "modules": [
+    {
+      "id": "fit",
+      "name": "Learn where a forecast can be wrong",
+      "summary": "Separate fitting and calibration worlds produce four source-bound joint residual ranges. Held-out motion never enters the fit.",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/Uncertainty071.java",
+      "status": "Verified",
+      "note": "docs/obsidian/79-observation-uncertainty.md"
+    },
+    {
+      "id": "guard",
+      "name": "Reconsider a risky skip",
+      "summary": "Keep the original selected look. Override a skip only when the calibrated union leaves the target band.",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/UncertainTrial071.java",
+      "status": "Verified",
+      "note": "docs/obsidian/79-observation-uncertainty.md"
+    },
+    {
+      "id": "study",
+      "name": "Measure coverage and actual value",
+      "summary": "Four paired policies, separate blind truth, all costs and unchanged qualification gates.",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/UncertainStudy071.java",
+      "status": "Verified",
+      "note": "docs/obsidian/79-observation-uncertainty.md"
+    },
+    {
+      "id": "chat",
+      "name": "Checked Java-owned reports",
+      "summary": "Lossless tables retain fit identity, coverage, completion, sensing and training costs for local-model reporting.",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/UncertainContext071.java",
+      "status": "Actual model",
+      "note": "docs/obsidian/79-observation-uncertainty.md"
+    },
+    {
+      "id": "view",
+      "name": "Inspect the full evidence",
+      "summary": "Frozen calibration, risky skips, forced looks, all motion and contact checks in one integrated app.",
+      "source": "workspace-desktop/renderer/uncertain071.js",
+      "status": "Actual app",
+      "note": "docs/obsidian/79-observation-uncertainty.md"
+    },
+    {
+      "id": "storage",
+      "name": "Durable checkpoint generations",
+      "summary": "Bounded atomic retry survives temporary Windows readers, retaining old and pending bytes on failure.",
+      "source": "fraynix-modules/factory-runtime/src/main/java/fraymus/factory/WorldCheckpointStore.java",
+      "status": "Verified",
+      "note": "docs/obsidian/79-observation-uncertainty.md"
+    },
+    {
+      "id": "next",
+      "name": "Calibrate uncertainty under changes",
+      "summary": "Test richer residual conditions and uncertainty-aware check timing against fresh disturbances under a new prospective contract.",
+      "source": "docs/EDITION_071_CONTRACT.md",
+      "status": "Planned",
+      "note": "docs/obsidian/79-observation-uncertainty.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "docs/readmes/071/uncertain071-overview.png",
+      "title": "Integrated uncertainty study"
+    },
+    {
+      "path": "docs/readmes/071/uncertain071-calibration.png",
+      "title": "Separate fitting and calibration evidence"
+    },
+    {
+      "path": "docs/readmes/071/uncertain071-clean.png",
+      "title": "Clean outcomes and sensing costs"
+    },
+    {
+      "path": "docs/readmes/071/uncertain071-disturbed.png",
+      "title": "Unfamiliar disturbance results"
+    },
+    {
+      "path": "docs/readmes/071/uncertain071-brake.png",
+      "title": "Brake impulse and subsequent motion"
+    },
+    {
+      "path": "docs/readmes/071/uncertain071-lift.png",
+      "title": "Lift impulse and contact guard"
+    },
+    {
+      "path": "docs/readmes/071/uncertain071-push.png",
+      "title": "External push and bounded recovery"
+    },
+    {
+      "path": "docs/readmes/071/uncertain071-spin.png",
+      "title": "Torque and rotation guard"
+    },
+    {
+      "path": "docs/readmes/071/uncertain071-after-last.png",
+      "title": "Event after every candidate look"
+    },
+    {
+      "path": "docs/readmes/071/uncertain071-forced.png",
+      "title": "Uncertainty overrides an unsafe skip"
+    },
+    {
+      "path": "docs/readmes/071/uncertain071-skip.png",
+      "title": "A retained skip and its calibrated range"
+    },
+    {
+      "path": "docs/readmes/071/uncertain071-coverage.png",
+      "title": "Forecast intervals checked against blind future motion"
+    },
+    {
+      "path": "docs/readmes/071/uncertain071-paired.png",
+      "title": "All four policies and measured costs"
+    },
+    {
+      "path": "docs/readmes/071/uncertain071-domain.png",
+      "title": "Unsupported task refused without invented motion"
+    },
+    {
+      "path": "docs/readmes/071/uncertain071-narrow.png",
+      "title": "Integrated Brain at 1100 pixels"
+    },
+    {
+      "path": "docs/readmes/071/uncertain071-chat.png",
+      "title": "Actual local-model report with checked Java facts"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/readmes/071/verification.json",
+      "title": "Verification"
+    },
+    {
+      "path": "docs/readmes/071/original-evidence.json",
+      "title": "Exact originals"
+    },
+    {
+      "path": "docs/readmes/071/uncertain-data.json",
+      "title": "Audited Java motion, bounds and schedules"
+    }
+  ]
+}

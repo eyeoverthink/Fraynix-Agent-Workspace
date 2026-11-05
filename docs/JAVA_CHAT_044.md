@@ -1,5 +1,15 @@
 # Java chat and procedural ownership
 
+## Edition071: uncertainty before skipping a look
+
+Java Brain → edition071 runs24 fit and36 separate calibration examples, six exact070 parity pairs, then four policies on48 clean,60 disturbed and12 unsupported tasks. The frozen four-cell residual model guards skips without changing initial behavior or correction budgets. Inspect model scores, source identity, all-policy costs, forced looks, retained skips, blind-future coverage and full46-frame traces. Stop retains completed evidence; cold restart restores exact records.
+
+Chat: “Inspect the uncertainty study and create the verified Java report. Include coverage, risky skips, forced looks, training and sensing costs, and failures. Do not run experiments or move objects.” Actual CPU4gpt-oss20b reporting was checked against complete Java facts. Coverage uses the paired blind future, not a corrected endpoint. Nominal90% is not a guarantee under changed conditions.
+
+Clean adaptive→uncertain successes 39→39/48; extra readings 75→132. Disturbed successes 34→34/60; extra readings 120→177. Joint coverage clean 91.7%, disturbed 50.0%. Combined qualification: False. The active controller stays unchanged. This is native-ramp residual calibration, not webcam sampling or physical accuracy. [README071](../README-071.md) · [contract](EDITION_071_CONTRACT.md) · [evidence](readmes/071/verification.json).
+
+
+
 ## Edition070: choose when to look
 
 Java Brain → Choose when to look · edition070 runs48 clean,60 disturbed and12 unsupported tasks with four paired policies and eight parity slots. First behavior is unchanged. Adaptive variants choose skip or a three-sample window ending92,116 or140; fixed variants use exact069 tick108 behavior. A saved tick60 forecast uses only paid first evidence or a prediction for directly admitted tasks. Nine hypothetical weights are assumptions, not calibrated probabilities. No actual future event is supplied to scheduling.

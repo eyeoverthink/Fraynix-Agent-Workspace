@@ -1,5 +1,18 @@
 # Agent Workspace project memory
 
+## Edition071 · Validated locally; publication next
+
+Contract421fe87 and implementation07bd01e precede native outcomes. Isolated work/fraynix-workspace-edition071 from196fdce.24fit/36calibration actual clean blind trajectories, four cells, medians/MAD floor2mm, nine joint scores/cell, nominal90% rank9/9. Model frozen before48clean/60disturbed/12unsupported; six exact070 parity pairs.546slots/504executions. Four methods blind/fixed/adaptive/uncertain share unscreened initial behavior; uncertain preserves chosen windows or forces92 when a skipped calibrated union leaves the target. Same first recovery and .12individual/.24cumulative budget. Original hypothetical weights remain assumptions.
+
+Clean adaptive→uncertain successes 39→39/48; extra readings 75→132. Disturbed successes 34→34/60; extra readings 120→177. Joint coverage clean 91.7%, disturbed 50.0%. Combined qualification: False. Clean mean utility change -0.044583; disturbed -0.036667. Clean saved/harmed 0/0; disturbed 0/0. Full blind-future coverage, per-cell widths, failed cases, training cost and inference fee retained. No policy/case/gate tuning after results, controller promotion or LLM-weight training.
+
+102targeted Java checks/23classes,127desktop checks, actual app/restart/Stop/CPU4gpt-oss20b report and offline1440/390 interactions pass. Exact070 original restores. Native and app numeric fits, samples, plans, schedules and non-timing outcomes match. Independent source/model identities legitimately differ. First failed Windows checkpoint attempt retained;41a6a53 bounded atomic retry tested with real Windows deny-delete handles. Completed partial evidence matches rerun; monitor now shares delete. Interface follow-up a3eaa9c coalesces duplicate trace reads, clears stale controls and wraps calibration cells; its original timeout/captures are retained. Completed physics reused unchanged. FactoryRuntimeTest and WorldTransactionTest also pass.
+
+README071,16actual captures,2offline captures, complete source inventory, Obsidian79/canvas, exact original archives and continuity notes prepared. Publication/fresh fetched audit next, not yet claimed. Preserve normal045/qa046 installations, private worlds and frozen001–070. No subagents or overlapping heavy validators. No new physical accuracy, semantic perception, general intelligence or universal90%coverage claim.
+
+Next unused072: conditional uncertainty and uncertainty-aware timing, compared with simpler conservative control on freshly frozen cases. Use current failures to design the new contract, never to rewrite071 gates or evidence. Observation savings count controller-selected readings; all46diagnostic samples are still captured.
+
+
 ## Edition070 · Published and fetched back on2026-11-05
 
 Actual atomic push to Fraynix-Agent-Workspace main,edition070 and readme-070 succeeded. Release d449b0286f976d0eb18006acae3ea7cfd4ed3e45; annotated tag 38edf66fe3ad203024952f4c70810fdde8057a38. Fresh GitHub fetch verified 1024canonical sources,5916frozen hashes across70editions and63original archives including decompressed bytes. Documentation passed75canvases and7125references. [Publication receipt](PUBLICATION_070.json).

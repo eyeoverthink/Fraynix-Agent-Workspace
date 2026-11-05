@@ -1,0 +1,4728 @@
+{
+  "edition": 71,
+  "date": "2026-11-05T19:35:13.403Z",
+  "source": "a3eaa9ca3787049a2b393c308d231bc858d2a1ee",
+  "contractCommit": "421fe87",
+  "implementationBeforeFirstOutcome": "07bd01e",
+  "checkpointRepairCommit": "41a6a53",
+  "nativeExecutions": 504,
+  "progressSlots": 546,
+  "parityMaximumDeltas": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "javaDistinct": 102,
+  "javaClasses": 23,
+  "javaAllPassed": true,
+  "javaInvocations": [
+    {
+      "name": "fast071",
+      "cases": [
+        {
+          "case": "fraymus.workspace.Uncertainty071Test#partitionsAreFreshBalancedAndProspective",
+          "passed": true,
+          "seconds": 1.204
+        },
+        {
+          "case": "fraymus.workspace.Uncertainty071Test#guardNeverPostponesAnAlreadyChosenObservation",
+          "passed": true,
+          "seconds": 0.012
+        },
+        {
+          "case": "fraymus.workspace.Uncertainty071Test#qualificationRequiresCoverageValueAndSensingSavings",
+          "passed": true,
+          "seconds": 0.0
+        },
+        {
+          "case": "fraymus.workspace.Uncertainty071Test#riskySkipLanguageUsesEvidenceReadAndPreservesWebsiteCreation",
+          "passed": true,
+          "seconds": 0.005
+        },
+        {
+          "case": "fraymus.workspace.Uncertainty071Test#fittingAndSeparateCalibrationHaveExplicitJointMeaning",
+          "passed": true,
+          "seconds": 0.003
+        },
+        {
+          "case": "fraymus.workspace.Uncertainty071Test#riskySkipGetsEarlyLookAndSafeSkipRemains",
+          "passed": true,
+          "seconds": 0.004
+        },
+        {
+          "case": "fraymus.workspace.Uncertainty071Test#modelRecomputesScoresAndRejectsRehashedTampering",
+          "passed": true,
+          "seconds": 0.003
+        }
+      ]
+    },
+    {
+      "name": "checkpoint071",
+      "cases": [
+        {
+          "case": "fraymus.workspace.Uncertainty071Test#partitionsAreFreshBalancedAndProspective",
+          "passed": true,
+          "seconds": 1.072
+        },
+        {
+          "case": "fraymus.workspace.Uncertainty071Test#guardNeverPostponesAnAlreadyChosenObservation",
+          "passed": true,
+          "seconds": 0.01
+        },
+        {
+          "case": "fraymus.workspace.Uncertainty071Test#qualificationRequiresCoverageValueAndSensingSavings",
+          "passed": true,
+          "seconds": 0.0
+        },
+        {
+          "case": "fraymus.workspace.Uncertainty071Test#riskySkipLanguageUsesEvidenceReadAndPreservesWebsiteCreation",
+          "passed": true,
+          "seconds": 0.005
+        },
+        {
+          "case": "fraymus.workspace.Uncertainty071Test#fittingAndSeparateCalibrationHaveExplicitJointMeaning",
+          "passed": true,
+          "seconds": 0.002
+        },
+        {
+          "case": "fraymus.workspace.Uncertainty071Test#riskySkipGetsEarlyLookAndSafeSkipRemains",
+          "passed": true,
+          "seconds": 0.004
+        },
+        {
+          "case": "fraymus.workspace.Uncertainty071Test#modelRecomputesScoresAndRejectsRehashedTampering",
+          "passed": true,
+          "seconds": 0.003
+        },
+        {
+          "case": "fraymus.workspace.WorldCheckpoint071Test#interruptedRetryKeepsInterruptAndOldGeneration",
+          "passed": true,
+          "seconds": 1.919
+        },
+        {
+          "case": "fraymus.workspace.WorldCheckpoint071Test#prolongedLockKeepsCurrentPreviousAndRecoverablePending",
+          "passed": true,
+          "seconds": 2.55
+        },
+        {
+          "case": "fraymus.workspace.WorldCheckpoint071Test#transientReaderCommitsExactlyOnceAndKeepsPrevious",
+          "passed": true,
+          "seconds": 1.316
+        }
+      ]
+    },
+    {
+      "name": "native071",
+      "cases": [
+        {
+          "case": "fraymus.workspace.UncertainNative071Test#realNativeFitFreezeHeldOutOutcomesIntegrityRestartAndStop",
+          "passed": true,
+          "seconds": 1257.729
+        }
+      ]
+    },
+    {
+      "name": "regression071",
+      "cases": [
+        {
+          "case": "fraymus.workspace.Adaptive070Test#qualificationRequiresSensingSavingsAndPreservesLateMisses",
+          "passed": true,
+          "seconds": 0.004
+        },
+        {
+          "case": "fraymus.workspace.Adaptive070Test#signedPhysicsStopsSticksAndRestartsDownhill",
+          "passed": true,
+          "seconds": 0.002
+        },
+        {
+          "case": "fraymus.workspace.Adaptive070Test#selectedWindowsRejectFutureAndUnsafeEvidence",
+          "passed": true,
+          "seconds": 0.044
+        },
+        {
+          "case": "fraymus.workspace.Adaptive070Test#scheduleHasNoFutureInputAndUsesOnlyPaidFirstState",
+          "passed": true,
+          "seconds": 0.006
+        },
+        {
+          "case": "fraymus.workspace.Adaptive070Test#skipPaysSchedulerButNoExtraSensingAndFailureStillCounts",
+          "passed": true,
+          "seconds": 0.004
+        },
+        {
+          "case": "fraymus.workspace.Adaptive070Test#newCasesPreserveFirstChoicesAndBalanceTiming",
+          "passed": true,
+          "seconds": 1.313
+        },
+        {
+          "case": "fraymus.workspace.Adaptive070Test#eventBoundaryIsAppliedExactlyOnce",
+          "passed": true,
+          "seconds": 0.002
+        },
+        {
+          "case": "fraymus.workspace.AdaptiveCompatibility070Test#published069OriginalRestoresThroughCurrentOwnerWithoutChangedEvidence",
+          "passed": true,
+          "seconds": 15.082
+        },
+        {
+          "case": "fraymus.workspace.Agent042Test#actualSharedCortexCheckpointReplayLeaseAndRestart",
+          "passed": true,
+          "seconds": 1.224
+        },
+        {
+          "case": "fraymus.workspace.Agent042Test#acceptedCameraOutputsExpireAndReplayCannotRefreshThem",
+          "passed": true,
+          "seconds": 0.506
+        },
+        {
+          "case": "fraymus.workspace.Agent042Test#missingNeuralCheckpointDoesNotSilentlyResetBrain",
+          "passed": true,
+          "seconds": 0.407
+        },
+        {
+          "case": "fraymus.workspace.Agent042Test#clocksKeepWallRollbackAndBootDomainsSeparate",
+          "passed": true,
+          "seconds": 0.001
+        },
+        {
+          "case": "fraymus.workspace.Agent042Test#failedGoalsAreWitnessedOnceWithoutRewardingSuccess",
+          "passed": true,
+          "seconds": 0.061
+        },
+        {
+          "case": "fraymus.workspace.Agent042Test#checkedStateRejectsAlterationWithoutErasingOriginal",
+          "passed": true,
+          "seconds": 0.009
+        },
+        {
+          "case": "fraymus.workspace.Agent042Test#appraisalAblationsActuallyChangeWork",
+          "passed": true,
+          "seconds": 0.0
+        },
+        {
+          "case": "fraymus.workspace.Agent042Test#witnessSegmentsVerifyExactCheckpointPrefixAndRefuseDamage",
+          "passed": true,
+          "seconds": 3.149
+        },
+        {
+          "case": "fraymus.workspace.Agent042Test#reportEscapesSourceDataAndKeepsExactSnapshot",
+          "passed": true,
+          "seconds": 0.006
+        },
+        {
+          "case": "fraymus.workspace.BrainPayload064Test#exactTextRoundTripPreservesUnicodeNumbersAndWhitespace",
+          "passed": true,
+          "seconds": 0.026
+        },
+        {
+          "case": "fraymus.workspace.BrainPayload064Test#corruptedOrOversizedEnvelopesAreRefused",
+          "passed": true,
+          "seconds": 0.001
+        },
+        {
+          "case": "fraymus.workspace.BrainPayload064Test#oldAndSmallRecordsStayCompatible",
+          "passed": true,
+          "seconds": 0.016
+        },
+        {
+          "case": "fraymus.workspace.BrainPersistenceTest#cancelDoesNotPromoteAndSharedCortexCheckpointRestarts",
+          "passed": true,
+          "seconds": 0.646
+        },
+        {
+          "case": "fraymus.workspace.BrainPersistenceTest#checkpointRetainsActualWeightsRandomStateAndDynamicsAndRejectsCorruption",
+          "passed": true,
+          "seconds": 0.006
+        },
+        {
+          "case": "fraymus.workspace.BrainPersistenceTest#savedUnsettledJobIsMarkedInterruptedOnRestart",
+          "passed": true,
+          "seconds": 0.026
+        },
+        {
+          "case": "fraymus.workspace.BrainPersistenceTest#acceptedControllerUsesActualImpulseAndReplaysWithoutReferenceConfusion",
+          "passed": true,
+          "seconds": 5.656
+        },
+        {
+          "case": "fraymus.workspace.BrainPersistenceTest#immutableLocalMemorySurvivesRestartIsBoundedAndCannotInstallTools",
+          "passed": true,
+          "seconds": 0.124
+        },
+        {
+          "case": "fraymus.workspace.BrainServiceTest#physicalLearningIsEvaluatedPromotedRestartedAndRolledBack",
+          "passed": true,
+          "seconds": 5.557
+        },
+        {
+          "case": "fraymus.workspace.CalibrationChat068Test#actualSavedAgentSnapshotFitsPlanningAndKeepsFullReport",
+          "passed": true,
+          "seconds": 0.061
+        },
+        {
+          "case": "fraymus.workspace.CalibrationChat068Test#largeAgentReceiptRetainsOriginalEvidenceAndDoesNotTrustHostReplacement",
+          "passed": true,
+          "seconds": 0.015
+        },
+        {
+          "case": "fraymus.workspace.CalibrationCompatibility068Test#published067OriginalRestoresThroughCurrentOwnerWithoutChangedEvidence",
+          "passed": true,
+          "seconds": 5.976
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#duplicateWarningsKeepEveryOriginalOccurrenceBeyondRecentWindow",
+          "passed": true,
+          "seconds": 0.001
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#numericRefusalExplainsOriginalBoundsWithoutChangingThem",
+          "passed": true,
+          "seconds": 0.002
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#oversizedRequirementsRefuseRatherThanBeingSilentlyTruncated",
+          "passed": true,
+          "seconds": 0.002
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#legacyTaskDoesNotClaimCompleteTimingCoverage",
+          "passed": true,
+          "seconds": 0.0
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#summaryRetainsRejectedQualityAndDoesNotDumpMetrics",
+          "passed": true,
+          "seconds": 0.0
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#payloadHistoryProjectionRetainsPolicyRequirementsAndContraryOutcomes",
+          "passed": true,
+          "seconds": 0.005
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#discoverySummaryKeepsExactBindingsAndBothEndsWithoutBreakingJson",
+          "passed": true,
+          "seconds": 0.003
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#largeRecentObservationHasExplicitOmissionHashAndKeepsFailure",
+          "passed": true,
+          "seconds": 0.003
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#queuedObjectiveSealRefusesChangedRequest",
+          "passed": true,
+          "seconds": 0.0
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#providerMapMetadataIsRetainedWithoutUnrelatedFields",
+          "passed": true,
+          "seconds": 0.0
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#automaticCompletionRechecksCurrentArtifactInsteadOfTrustingOldSuccess",
+          "passed": true,
+          "seconds": 0.59
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#failedPlannerCallIsTimedAndDoesNotBecomeAnAction",
+          "passed": true,
+          "seconds": 0.107
+        },
+        {
+          "case": "fraymus.workspace.Contact064Test#wilsonAndRankHaveIndependentKnownValues",
+          "passed": true,
+          "seconds": 0.001
+        },
+        {
+          "case": "fraymus.workspace.Contact064Test#stressCannotQualifyAndWidthAndGroupsMatter",
+          "passed": true,
+          "seconds": 0.0
+        },
+        {
+          "case": "fraymus.workspace.Contact064Test#partitionsAreFreshAndStressIsOutsideCalibratedSupport",
+          "passed": true,
+          "seconds": 0.001
+        },
+        {
+          "case": "fraymus.workspace.Contact064Test#plannerProjectionKeepsEvidenceAndOriginalHistory",
+          "passed": true,
+          "seconds": 0.001
+        },
+        {
+          "case": "fraymus.workspace.Contact064Test#published063OriginalStillAudits",
+          "passed": true,
+          "seconds": 0.973
+        },
+        {
+          "case": "fraymus.workspace.Contact064Test#cachedImpulseOrientationAndGravityBalanceAreIndependent",
+          "passed": true,
+          "seconds": 0.0
+        },
+        {
+          "case": "fraymus.workspace.Contact064Test#nativeStudyParityUncertaintyColdRestoreAndStop",
+          "passed": true,
+          "seconds": 63.238
+        },
+        {
+          "case": "fraymus.workspace.Decision065Test#publishedCalibrationIsExactAndRecomputed",
+          "passed": true,
+          "seconds": 1.307
+        },
+        {
+          "case": "fraymus.workspace.Decision065Test#policyFitsIntervalsAndSharesDomainFence",
+          "passed": true,
+          "seconds": 0.001
+        },
+        {
+          "case": "fraymus.workspace.Decision065Test#utilityCountsMissesAndRefusalsWithoutInventingEndpoints",
+          "passed": true,
+          "seconds": 0.001
+        },
+        {
+          "case": "fraymus.workspace.Decision065Test#freshPartitionsHaveNoOldNativeDefinitions",
+          "passed": true,
+          "seconds": 0.002
+        },
+        {
+          "case": "fraymus.workspace.Decision065Test#gateRequiresBothComparisonsAndRealTaskSuccess",
+          "passed": true,
+          "seconds": 0.0
+        },
+        {
+          "case": "fraymus.workspace.Decision065Test#planningTablesRetainEveryMetricAndLeaveOriginalsUntouched",
+          "passed": true,
+          "seconds": 0.002
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#retainedAppearancePolicyCannotChangeCategoryOrInstallDetectorOptions",
+          "passed": true,
+          "seconds": 0.002
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#retainedSkillSourceAndForceDefaultsCannotBeSilentlyChanged",
+          "passed": true,
+          "seconds": 0.002
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#nativeWaitUsesActualChildAndRetainsItsIdentity",
+          "passed": true,
+          "seconds": 0.006
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#savedGraphChatSelectsExactVersionAndWorkflowBeforePlanning",
+          "passed": true,
+          "seconds": 0.009
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#sourceFreeHostSuccessAndForeignChildrenAreRejected",
+          "passed": true,
+          "seconds": 0.006
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#reportStageCannotSkipActualReads",
+          "passed": true,
+          "seconds": 0.0
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#typedOptionsPreserveExplicitValuesAndRejectContradictions",
+          "passed": true,
+          "seconds": 0.002
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#interruptedChildCannotProduceSuccessfulCompletion",
+          "passed": true,
+          "seconds": 0.007
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#inventedHostFactsDoNotReplaceActualJavaRead",
+          "passed": true,
+          "seconds": 0.005
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#retainedSkillSchemasKeepDefaultsOptionalAndHideBoundDetectorPolicy",
+          "passed": true,
+          "seconds": 0.0
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#javaRoutesEveryFormerDesktopFamilyWithoutChangingWebCreation",
+          "passed": true,
+          "seconds": 0.006
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#constructionReuseExposesOnlyExplicitChangesAndKeepsOriginalLimits",
+          "passed": true,
+          "seconds": 0.003
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#actualQueueCompletionRecordsTheVerifiedReportInTheSameLearningEpisode",
+          "passed": true,
+          "seconds": 0.356
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#workflowBootstrapBindsDatasetAndSceneInJavaBeforeAnyHostAction",
+          "passed": true,
+          "seconds": 0.005
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#reportMustHaveFrozenOriginalAssertionsAndExactSourceVersion",
+          "passed": true,
+          "seconds": 0.041
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#creationPromptsAreOwnedBoundedAndKeepSourceReserved",
+          "passed": true,
+          "seconds": 0.006
+        },
+        {
+          "case": "fraymus.workspace.Later069Test#gateRejectsAddedCostsHarmsAndLateFailures",
+          "passed": true,
+          "seconds": 0.0
+        },
+        {
+          "case": "fraymus.workspace.Later069Test#lateInverseHonorsBudgetGuardAndNoActionWhenAlreadyFits",
+          "passed": true,
+          "seconds": 0.001
+        },
+        {
+          "case": "fraymus.workspace.Later069Test#casesAreNewBalancedAndFrozenModelIsExact",
+          "passed": true,
+          "seconds": 0.594
+        },
+        {
+          "case": "fraymus.workspace.Later069Test#lateWindowChecksAllSamplesAndRejectsFuture",
+          "passed": true,
+          "seconds": 0.002
+        },
+        {
+          "case": "fraymus.workspace.Later069Test#feesIncludeFailedAttemptAndEveryLaterObservation",
+          "passed": true,
+          "seconds": 0.001
+        },
+        {
+          "case": "fraymus.workspace.LaterCompatibility069Test#published068OriginalRestoresThroughCurrentOwnerWithoutChangedEvidence",
+          "passed": true,
+          "seconds": 10.563
+        },
+        {
+          "case": "fraymus.workspace.Recovery066Test#freshTasksAndLosslessContextRetainSubgroupsAndNulls",
+          "passed": true,
+          "seconds": 0.009
+        },
+        {
+          "case": "fraymus.workspace.Recovery066Test#inverseAndBoundsUseOnlyTheSelectedState",
+          "passed": true,
+          "seconds": 0.001
+        },
+        {
+          "case": "fraymus.workspace.Recovery066Test#qualificationRequiresObservationBenefitCompletionAndRecovery",
+          "passed": true,
+          "seconds": 0.0
+        },
+        {
+          "case": "fraymus.workspace.Recovery066Test#attemptedRecoveryPaysForFailuresAndEveryUsedOperation",
+          "passed": true,
+          "seconds": 0.0
+        },
+        {
+          "case": "fraymus.workspace.Recovery066Test#initialPoliciesRetainOldChoicesAndRefusalDomain",
+          "passed": true,
+          "seconds": 0.007
+        },
+        {
+          "case": "fraymus.workspace.RecoveryCompatibility066Test#published065OriginalRestoresThroughCurrentOwnerWithoutChangedEvidence",
+          "passed": true,
+          "seconds": 1.372
+        },
+        {
+          "case": "fraymus.workspace.StoppingContext063Test#projectionPreservesFailuresExactMetricsAndOriginalEvidence",
+          "passed": true,
+          "seconds": 0.006
+        },
+        {
+          "case": "fraymus.workspace.StoppingContext063Test#ordinaryFactsAndEssentialTaskRequirementsAreNotReduced",
+          "passed": true,
+          "seconds": 0.001
+        },
+        {
+          "case": "fraymus.workspace.Temporal067Test#costsIncludeThreeObservationsAndDeclinedScreens",
+          "passed": true,
+          "seconds": 0.0
+        },
+        {
+          "case": "fraymus.workspace.Temporal067Test#initialChoicesAreCompatibleAndScreenIsProspective",
+          "passed": true,
+          "seconds": 0.021
+        },
+        {
+          "case": "fraymus.workspace.Temporal067Test#temporalEvidenceHandlesDropoutButRefusesLostOrUnsafeSupport",
+          "passed": true,
+          "seconds": 0.002
+        },
+        {
+          "case": "fraymus.workspace.Temporal067Test#contextIsLosslessAndFutureMotionCannotChangePlanning",
+          "passed": true,
+          "seconds": 0.018
+        },
+        {
+          "case": "fraymus.workspace.Temporal067Test#qualificationKeepsAllComparisonsAndFailureLimits",
+          "passed": true,
+          "seconds": 0.0
+        },
+        {
+          "case": "fraymus.workspace.TemporalCompatibility067Test#published066OriginalRestoresThroughCurrentOwnerWithoutChangedEvidence",
+          "passed": true,
+          "seconds": 3.396
+        },
+        {
+          "case": "fraymus.workspace.UncertainCompatibility071Test#published070OriginalRestoresThroughCurrentOwnerWithoutChangedEvidence",
+          "passed": true,
+          "seconds": 22.025
+        }
+      ]
+    }
+  ],
+  "desktopUnitTests": 127,
+  "actualApp": {
+    "source": "a3eaa9ca3787049a2b393c308d231bc858d2a1ee",
+    "physicsJobSource": "dddd720521d8796bdd5a8a0909b3fb9eb814ec6e",
+    "checks": [
+      "Visible 546-slot study completes 60 separate fit/calibration runs, six exact070 parity comparisons, and four policies on fresh cases",
+      "All five disturbance families show real impulse receipts, complete motion, frozen-model decisions and guarded or original observation times",
+      "Frozen fit and separate scores, calibrated bounds against the blind future, all-policy costs, and unsupported refusals are visible without invented motion",
+      "Cold Java/app restart restores exact model, bounds, schedules, impulse receipts, costs and samples; active controller stays v1",
+      "Visible Stop cancels new work and retains the completed uncertainty model and reserved outcomes",
+      "Actual CPU4 gpt-oss20b reads the Java study and completes a checked report whose metrics and frozen-model identity exactly equal original evidence"
+    ],
+    "original": "original/actual-app/uncertain071-live.json.gz",
+    "model": "gpt-oss:20b CPU-only/four threads",
+    "widths": [
+      1600,
+      1100
+    ],
+    "screenshotCount": 16
+  },
+  "comparison": {
+    "failedPartialMatchesRerun": {
+      "trainingRecords": 60,
+      "evaluationRecords": 157,
+      "refusals": 0
+    },
+    "nativeProject": "C:\\Users\\eyeka\\AppData\\Local\\Temp\\fraynix-uncertain071-782892205727571671",
+    "policyRulesUnchanged": true,
+    "physicalSamplesPlansAndNonTimingOutcomesMatch": true,
+    "frozenNumericalCalibrationMatches": true,
+    "identityScope": "Original training record IDs/hashes and model identities differ between independent runs; neither is substituted or discarded.",
+    "nativeMatchesActualApp": {
+      "trainingRecords": 60,
+      "evaluationRecords": 432,
+      "refusals": 48
+    }
+  },
+  "visualReview": {
+    "passed": true,
+    "pending": [],
+    "reviewedAtUtc": "2026-11-05T19:41:10.945823+00:00",
+    "reviewer": "Codex visual inspection of actual captures",
+    "images": [
+      {
+        "file": "uncertain071-overview.png",
+        "width": 1584,
+        "height": 1061,
+        "visuallyInspected": true
+      },
+      {
+        "file": "uncertain071-calibration.png",
+        "width": 1584,
+        "height": 1061,
+        "visuallyInspected": true
+      },
+      {
+        "file": "uncertain071-clean.png",
+        "width": 1584,
+        "height": 1061,
+        "visuallyInspected": true
+      },
+      {
+        "file": "uncertain071-disturbed.png",
+        "width": 1584,
+        "height": 1061,
+        "visuallyInspected": true
+      },
+      {
+        "file": "uncertain071-brake.png",
+        "width": 1584,
+        "height": 1061,
+        "visuallyInspected": true
+      },
+      {
+        "file": "uncertain071-lift.png",
+        "width": 1584,
+        "height": 1061,
+        "visuallyInspected": true
+      },
+      {
+        "file": "uncertain071-push.png",
+        "width": 1584,
+        "height": 1061,
+        "visuallyInspected": true
+      },
+      {
+        "file": "uncertain071-spin.png",
+        "width": 1584,
+        "height": 1061,
+        "visuallyInspected": true
+      },
+      {
+        "file": "uncertain071-after-last.png",
+        "width": 1584,
+        "height": 1061,
+        "visuallyInspected": true
+      },
+      {
+        "file": "uncertain071-forced.png",
+        "width": 1584,
+        "height": 1061,
+        "visuallyInspected": true
+      },
+      {
+        "file": "uncertain071-skip.png",
+        "width": 1584,
+        "height": 1061,
+        "visuallyInspected": true
+      },
+      {
+        "file": "uncertain071-coverage.png",
+        "width": 1584,
+        "height": 1061,
+        "visuallyInspected": true
+      },
+      {
+        "file": "uncertain071-paired.png",
+        "width": 1584,
+        "height": 1061,
+        "visuallyInspected": true
+      },
+      {
+        "file": "uncertain071-domain.png",
+        "width": 1584,
+        "height": 1061,
+        "visuallyInspected": true
+      },
+      {
+        "file": "uncertain071-narrow.png",
+        "width": 1084,
+        "height": 811,
+        "visuallyInspected": true
+      },
+      {
+        "file": "uncertain071-chat.png",
+        "width": 1584,
+        "height": 1061,
+        "visuallyInspected": true
+      }
+    ],
+    "observations": [
+      "Calibration columns now wrap fully within the integrated panel; original clipped capture retained.",
+      "Clean and disturbed metrics clearly show failed gates, unchanged completion and additional sensing cost.",
+      "Five disturbance captures show distinct actual impulse directions and immediate pose/velocity responses.",
+      "Forced and retained-skip views expose model identity, target band, envelope and the original timing choice.",
+      "Coverage chart and four-time table retain uncovered points and separate blind truth.",
+      "All-policy endpoint comparison and unsupported refusal show real outcomes without fabricated trajectories.",
+      "The 1100-pixel app view retains readable metrics without horizontal panel overflow.",
+      "Actual local-model report opens inside the same app; checked Java state and the source-bound uncertainty report remain visible."
+    ]
+  },
+  "model": {
+    "calibrationLabels": [
+      {
+        "recordId": "7d667016-9739-4ff2-8d67-2b19e02ee1e9",
+        "residualsM": [
+          3.510620756486116e-05,
+          6.101185832534106e-05,
+          8.759194882096422e-05,
+          -0.00189195686740945
+        ],
+        "cell": "accelerating-measured",
+        "recordSha256": "1b1eb819971478b0ae845e3f174ac4e01a7cd9c7613bd786034e69c1b6d3d9ea"
+      },
+      {
+        "recordId": "8a1697fb-2e72-41e8-8465-be123cf13c8e",
+        "residualsM": [
+          0.000122253545098025,
+          0.00021390330319906448,
+          0.0003066054651804373,
+          0.0004585838045276236
+        ],
+        "cell": "accelerating-measured",
+        "recordSha256": "37b69063b070d71d233581e97f26e4a67dc2c8c96943300d331c406474fe189e"
+      },
+      {
+        "recordId": "a4952caa-191b-44dd-8fd4-27b21d140d17",
+        "residualsM": [
+          0.0006160778700394776,
+          0.0006507126441109568,
+          0.0006889570132408429,
+          0.0007456859483213063
+        ],
+        "cell": "accelerating-predicted",
+        "recordSha256": "77428233e7d11f0acf984afad0b1c9f422cb4c94465795782cf24049b23cfc3c"
+      },
+      {
+        "recordId": "ad6a0289-ea60-4eab-8bcd-16edd9242f23",
+        "residualsM": [
+          0.00012941711292115132,
+          0.00022453095940061507,
+          0.0003205620206884474,
+          0.0004813185658997243
+        ],
+        "cell": "accelerating-measured",
+        "recordSha256": "730a0bf36894b931d47099062da7996dcab7b599ad9bbe7db193ea0076819fe2"
+      },
+      {
+        "recordId": "077f30fd-7c2c-4e8b-b358-4d42806dcd60",
+        "residualsM": [
+          2.9193337026407057e-05,
+          5.100361791997646e-05,
+          7.278758599900056e-05,
+          0.00010917978945640394
+        ],
+        "cell": "accelerating-measured",
+        "recordSha256": "0a6fb54d447650ab83426bf260fcaee825afe22fb31c051de5ab163a04a5efb4"
+      },
+      {
+        "recordId": "55457458-3045-433a-b438-153efe235fc8",
+        "residualsM": [
+          -0.0011061620315436296,
+          -0.004205139333848959,
+          -0.007302538589882578,
+          -0.012464467899741732
+        ],
+        "cell": "accelerating-predicted",
+        "recordSha256": "a4f691619d7d6277872bb6522bcac40017587b5cc723da25318d8404d7c36efb"
+      },
+      {
+        "recordId": "5160af27-be38-4cb4-b296-2b1b7207791d",
+        "residualsM": [
+          3.401975355758757e-05,
+          5.933659233858801e-05,
+          9.403641575894683e-05,
+          0.00012661319743811905
+        ],
+        "cell": "accelerating-measured",
+        "recordSha256": "23f5f722c384004127180d00533dab3e99496f28531912ba323131c78937ec69"
+      },
+      {
+        "recordId": "5143987f-70f6-4fb9-a53c-3769b631c67d",
+        "residualsM": [
+          2.5383962619918155e-05,
+          5.0022326144122387e-05,
+          6.443636017394727e-05,
+          0.00010360177678508942
+        ],
+        "cell": "accelerating-measured",
+        "recordSha256": "6b0c0811e654148273265342e7c863017cc2ad8d848bd478cfce335a6dada8c9"
+      },
+      {
+        "recordId": "20e864e0-f943-4694-9874-91bb6fe70e2c",
+        "residualsM": [
+          0.0006478679098045892,
+          0.000346228672713389,
+          -0.00016703159438907766,
+          -0.002043778078544445
+        ],
+        "cell": "accelerating-predicted",
+        "recordSha256": "f9b442d1e6362536768421c0c27eb67af1e22fe97211f417ab4e28dfffcbf8b2"
+      },
+      {
+        "recordId": "1c1b9cf9-05f7-4bef-88d4-b8cbfe643373",
+        "residualsM": [
+          9.729403324322539e-05,
+          0.00017048115979396983,
+          0.00024335273388195744,
+          0.00037298006219566027
+        ],
+        "cell": "accelerating-measured",
+        "recordSha256": "5c0b7221e16e88ad3ac6cd1b24e05f334307c13c4e6bcd8ef5e32fbbfb5dbb74"
+      },
+      {
+        "recordId": "c880a656-ee15-4398-95a1-a51c8f171df0",
+        "residualsM": [
+          0.00034997398958297454,
+          0.00038958963171345506,
+          0.00042938574549652997,
+          0.0005070526193044489
+        ],
+        "cell": "accelerating-predicted",
+        "recordSha256": "d17355cde6c8fb87882c83e8dffa396ead5c2bf6e243145ab8fdb5f4ea4e23e1"
+      },
+      {
+        "recordId": "804d4cc8-5a28-4e3c-a41f-c820778fd810",
+        "residualsM": [
+          -0.00018593427661722783,
+          -0.0014615082874634144,
+          -0.00391975371331571,
+          -0.008273884879991866
+        ],
+        "cell": "accelerating-predicted",
+        "recordSha256": "ace92f272baacb0878f8907b7926ebbfcee73e4e0d0455082b46d4412640d913"
+      },
+      {
+        "recordId": "641c558b-7496-4351-84d5-24c68ff8826d",
+        "residualsM": [
+          9.032395094339674e-05,
+          0.00015836366266995527,
+          0.00022620344239591972,
+          0.000347864810017251
+        ],
+        "cell": "accelerating-measured",
+        "recordSha256": "e07eef92b2aaafaa28313e23810a539a756cebc7db0ac5f1c64fc95fc06c9411"
+      },
+      {
+        "recordId": "93fa2bff-77eb-4ee2-b7b8-fbdca2567600",
+        "residualsM": [
+          7.146315869860365e-05,
+          0.00012035160980017334,
+          0.00017140416904437572,
+          0.0002785880325346657
+        ],
+        "cell": "accelerating-measured",
+        "recordSha256": "2028d6ec3c9f07525c29201b18455fa1c3d9bf656617ba785e8b1425090eeb2d"
+      },
+      {
+        "recordId": "5d2d6b2f-4b82-4a85-85f7-c27366977458",
+        "residualsM": [
+          0.0009005695452089651,
+          0.001024355567058391,
+          0.00033962886311061924,
+          -0.0012116671089522912
+        ],
+        "cell": "accelerating-predicted",
+        "recordSha256": "59cbd1fc7eab1594aa05bd70a9814bde88a52a6fe9ae3fcd62195e164c0d6ecb"
+      },
+      {
+        "recordId": "11abbba3-8c1e-4869-aa14-fd0fc8936f01",
+        "residualsM": [
+          0.00046635518493308437,
+          0.0005001563843647083,
+          0.0005622624752487648,
+          0.0006115349032846662
+        ],
+        "cell": "accelerating-predicted",
+        "recordSha256": "4db5fa71dfe641fd755bb00cb8c17f77a588231ad6f5a6ab6a502dc7778b12c4"
+      },
+      {
+        "recordId": "114bbfa3-d85a-4839-9b83-bcef691e8498",
+        "residualsM": [
+          0.0005903730229412096,
+          0.0006456054644998488,
+          0.0007265181853757796,
+          0.0008247796017146203
+        ],
+        "cell": "accelerating-predicted",
+        "recordSha256": "a59ae0e675b107491a9a2ebbc87108a12dd9b1bc75bee44457d924eca89e9567"
+      },
+      {
+        "recordId": "8d63e418-d479-43fc-8954-ad12c83e91ca",
+        "residualsM": [
+          0.0007375611629703849,
+          0.0007534805488426111,
+          0.0008096824977617822,
+          0.0009039398265505705
+        ],
+        "cell": "accelerating-predicted",
+        "recordSha256": "2c7b756c37fe9f8bc23054dd2d6e908b79079ba8b14636903a180f81254df20b"
+      },
+      {
+        "recordId": "4425d245-635c-4e8a-95a1-18f78f224f89",
+        "residualsM": [
+          -0.0035164440501302963,
+          -0.0064751252809024384,
+          -0.009432887861962141,
+          -0.014362670086638968
+        ],
+        "cell": "slowing-measured",
+        "recordSha256": "02899ee96b87e0af9ce912bf83234372d1333aedc684af019a2f3ab87f7a8523"
+      },
+      {
+        "recordId": "9c8212fd-d29f-470b-b1b4-d7898478f403",
+        "residualsM": [
+          -0.0027228201049790124,
+          -0.006162174461529599,
+          -0.009599097591325323,
+          -0.021987086616039708
+        ],
+        "cell": "slowing-measured",
+        "recordSha256": "dd6a2d60642ccaf006031b3ffab669ee8538a306ae34ce16ac4d09cb8fdec939"
+      },
+      {
+        "recordId": "1a469702-6a0a-4915-b8b4-0d11119195fe",
+        "residualsM": [
+          9.280947024085245e-05,
+          2.4116503557165825e-05,
+          2.351478455220324e-05,
+          2.351478455220324e-05
+        ],
+        "cell": "slowing-predicted",
+        "recordSha256": "eeefd072fbb3c8cc0226d99020d34e5d7b6ebf2bcd61dbb63456f6c22b8c10c4"
+      },
+      {
+        "recordId": "3ad12864-7d37-4567-8262-7a0835ade50f",
+        "residualsM": [
+          -0.00014162111685475653,
+          -0.00026283920070434286,
+          -0.00037174829923619646,
+          -0.0005059577134402804
+        ],
+        "cell": "slowing-measured",
+        "recordSha256": "0bc2ff7b4c0baddad05811b32d66be39f39c0a63a5c9cadab11df1907fd476ce"
+      },
+      {
+        "recordId": "442793b0-8ddc-4457-b5d7-376ba3daa246",
+        "residualsM": [
+          0.00014672853603411862,
+          -0.00040421630394987806,
+          -0.0015194296960765186,
+          -0.004175390946925817
+        ],
+        "cell": "slowing-measured",
+        "recordSha256": "6e8f2c6aafab6c17f12641d943e99561917907be67cd2c7deb8697aa6bd44ef4"
+      },
+      {
+        "recordId": "b1b37db1-e5c0-436f-a863-155ac788e95f",
+        "residualsM": [
+          7.304197426973719e-05,
+          -2.025368199723432e-05,
+          -6.868094578277306e-05,
+          -6.868094578277306e-05
+        ],
+        "cell": "slowing-predicted",
+        "recordSha256": "5d14f2c06924c3e96cd06f2c460853a366a85c122bc18f2a818d12480a699be7"
+      },
+      {
+        "recordId": "7fbbda91-d0f4-402b-82e6-f5b5bb2db8c3",
+        "residualsM": [
+          -4.7582859774575326e-05,
+          -7.470785737455354e-05,
+          -9.391102777203675e-05,
+          -0.000125493933848142
+        ],
+        "cell": "slowing-measured",
+        "recordSha256": "3bf6c5a5464dd37e0899e47e8ce3d34f28658bf696db0b520682897dca00130e"
+      },
+      {
+        "recordId": "805cde1c-ba87-4b01-98f2-591d0eea50b0",
+        "residualsM": [
+          1.3252134996477594e-05,
+          2.9027785412222284e-05,
+          4.030906853638716e-05,
+          6.277178545974205e-05
+        ],
+        "cell": "slowing-measured",
+        "recordSha256": "bec4d3688f45177311ebb4ac149353b47112c7b9c73eaa903ae6e83d8364cc25"
+      },
+      {
+        "recordId": "b20a04bb-c73a-41d2-9755-4cf923afe2f6",
+        "residualsM": [
+          -0.0015239357676450072,
+          -0.0029964522835531082,
+          -0.004457382977981789,
+          -0.006891539285193482
+        ],
+        "cell": "slowing-measured",
+        "recordSha256": "3933c1a02799b50de42b5c3071764043464fb6f798ab63c6c71453e9850d97a2"
+      },
+      {
+        "recordId": "c4a8bef6-1a8d-43ac-8330-9a93ab6706e3",
+        "residualsM": [
+          -0.003326309786550033,
+          -0.005599830135482625,
+          -0.00560111441522973,
+          -0.005601970601727818
+        ],
+        "cell": "slowing-measured",
+        "recordSha256": "83036f58bd9ef8a527d8a8d47060db0d486208bcc5c6f788c2a8c13e8b97a541"
+      },
+      {
+        "recordId": "5cbff673-7cca-41e8-b2d9-c51d8128d5df",
+        "residualsM": [
+          -9.862811916636072e-05,
+          -0.00017264426083027362,
+          -0.00024644411073218575,
+          -0.0002927829555220071
+        ],
+        "cell": "slowing-measured",
+        "recordSha256": "9e247bbed213021cef07658d53f3b66d4ed6f8e090f491ba229a5e0d89d5a8e0"
+      },
+      {
+        "recordId": "7788afda-bfe4-4b98-8248-05535dbe1b56",
+        "residualsM": [
+          -0.01567255411331149,
+          -0.02050243353135134,
+          -0.026074826654737288,
+          -0.0403533201662781
+        ],
+        "cell": "slowing-predicted",
+        "recordSha256": "90f88fe075a7d994f137713fd48a4bdf1fc6792e0ca1d25dd5bd4f6f4f2e1ada"
+      },
+      {
+        "recordId": "424fb83d-190b-4181-8d81-766ca21935e1",
+        "residualsM": [
+          0.00026244717897681846,
+          0.00020097376795331912,
+          0.00018453890239279735,
+          0.00015773722074211016
+        ],
+        "cell": "slowing-predicted",
+        "recordSha256": "dca2a8158b3b2b47953477f4030b98983d02a615002101379a0f07522162912f"
+      },
+      {
+        "recordId": "aa5d5da1-6e17-4c83-8e59-bd76a0d35b50",
+        "residualsM": [
+          0.0004553602339320596,
+          0.0004234457230991341,
+          0.00040268401284823674,
+          0.00036849999769310304
+        ],
+        "cell": "slowing-predicted",
+        "recordSha256": "44fd2c5d1422e371477014cef5ef4128084ada6d42dd93dbdcf2547a7c673fda"
+      },
+      {
+        "recordId": "d1151583-f082-463f-ba45-4eecdbed041a",
+        "residualsM": [
+          3.9797034234761997e-05,
+          -5.6691426808343215e-05,
+          -8.986615437404227e-05,
+          -8.986615437404227e-05
+        ],
+        "cell": "slowing-predicted",
+        "recordSha256": "0c6bd3ae59159a804caedd2a97b1237bdd8c34c224f89242fb5c9d64b7444e71"
+      },
+      {
+        "recordId": "e77b9f64-e54f-4a6b-b8a3-82a83799174a",
+        "residualsM": [
+          0.0001396791094751479,
+          9.034143146169349e-05,
+          9.034143146169349e-05,
+          9.034143146169349e-05
+        ],
+        "cell": "slowing-predicted",
+        "recordSha256": "3c7d351d90faaea15febf123b2eabf8c901bc5e72b377f74193a1eb162e67010"
+      },
+      {
+        "recordId": "6b1b5a81-447c-432f-a48f-68dd246c6b9e",
+        "residualsM": [
+          -7.218467576496079e-05,
+          -0.0001714638686721448,
+          -0.0002708079791213791,
+          -0.00043632138187318925
+        ],
+        "cell": "slowing-predicted",
+        "recordSha256": "61ad8a64778d85b4ff345b2a368ab26b073f900d334121b98cda85976db49f0d"
+      },
+      {
+        "recordId": "ec81dbe4-baac-4786-8657-4a8170f91296",
+        "residualsM": [
+          0.00013188584535482606,
+          7.104219297790482e-05,
+          1.0163820757302933e-05,
+          -8.994507429868626e-05
+        ],
+        "cell": "slowing-predicted",
+        "recordSha256": "3b6f8944c205a22464547c707ecd683454ada44783174f8eb38869237a49cffd"
+      }
+    ],
+    "protocol": "joint-residual-071-v1",
+    "cells": {
+      "accelerating-measured": {
+        "fitCount": 6,
+        "scores": [
+          {
+            "recordId": "7d667016-9739-4ff2-8d67-2b19e02ee1e9",
+            "score": 1.0707951020391577
+          },
+          {
+            "recordId": "8a1697fb-2e72-41e8-8465-be123cf13c8e",
+            "score": 0.10447523392937905
+          },
+          {
+            "recordId": "ad6a0289-ea60-4eab-8bcd-16edd9242f23",
+            "score": 0.11584261461542941
+          },
+          {
+            "recordId": "077f30fd-7c2c-4e8b-b358-4d42806dcd60",
+            "score": 0.07022677360623078
+          },
+          {
+            "recordId": "5160af27-be38-4cb4-b296-2b1b7207791d",
+            "score": 0.061510069615373225
+          },
+          {
+            "recordId": "5143987f-70f6-4fb9-a53c-3769b631c67d",
+            "score": 0.07301577994188804
+          },
+          {
+            "recordId": "1c1b9cf9-05f7-4bef-88d4-b8cbfe643373",
+            "score": 0.06167336276339738
+          },
+          {
+            "recordId": "641c558b-7496-4351-84d5-24c68ff8826d",
+            "score": 0.04911573667419275
+          },
+          {
+            "recordId": "93fa2bff-77eb-4ee2-b7b8-fbdca2567600",
+            "score": 0.014477347932900092
+          }
+        ],
+        "multiplier": 1.0707951020391577,
+        "calibrationCount": 9,
+        "rank": 9,
+        "scaleM": [
+          0.002,
+          0.002,
+          0.002,
+          0.002
+        ],
+        "centerM": [
+          6.650952542471e-05,
+          0.00011615730426020945,
+          0.0001660448463740305,
+          0.0002496333366688655
+        ]
+      },
+      "slowing-measured": {
+        "fitCount": 6,
+        "scores": [
+          {
+            "recordId": "4425d245-635c-4e8a-95a1-18f78f224f89",
+            "score": 7.078656181045858
+          },
+          {
+            "recordId": "9c8212fd-d29f-470b-b1b4-d7898478f403",
+            "score": 10.890864445746228
+          },
+          {
+            "recordId": "3ad12864-7d37-4567-8262-7a0835ade50f",
+            "score": 0.1502999944465143
+          },
+          {
+            "recordId": "442793b0-8ddc-4457-b5d7-376ba3daa246",
+            "score": 1.9850166111892824
+          },
+          {
+            "recordId": "7fbbda91-d0f4-402b-82e6-f5b5bb2db8c3",
+            "score": 0.05572106758653175
+          },
+          {
+            "recordId": "805cde1c-ba87-4b01-98f2-591d0eea50b0",
+            "score": 0.13406475500349693
+          },
+          {
+            "recordId": "b20a04bb-c73a-41d2-9755-4cf923afe2f6",
+            "score": 3.343090780323115
+          },
+          {
+            "recordId": "c4a8bef6-1a8d-43ac-8330-9a93ab6706e3",
+            "score": 2.728111745785584
+          },
+          {
+            "recordId": "5cbff673-7cca-41e8-b2d9-c51d8128d5df",
+            "score": 0.04371261548737765
+          }
+        ],
+        "multiplier": 10.890864445746228,
+        "calibrationCount": 9,
+        "rank": 9,
+        "scaleM": [
+          0.002,
+          0.002,
+          0.002,
+          0.002
+        ],
+        "centerM": [
+          -7.838933923630387e-05,
+          -0.0001436066439114564,
+          -0.00020535316294510025,
+          -0.00020535772454725182
+        ]
+      },
+      "slowing-predicted": {
+        "fitCount": 6,
+        "scores": [
+          {
+            "recordId": "1a469702-6a0a-4915-b8b4-0d11119195fe",
+            "score": 4.967856297153894
+          },
+          {
+            "recordId": "b1b37db1-e5c0-436f-a863-155ac788e95f",
+            "score": 4.959853157123344
+          },
+          {
+            "recordId": "7788afda-bfe4-4b98-8248-05535dbe1b56",
+            "score": 2.12849155644709
+          },
+          {
+            "recordId": "424fb83d-190b-4181-8d81-766ca21935e1",
+            "score": 5.0365364344590615
+          },
+          {
+            "recordId": "aa5d5da1-6e17-4c83-8e59-bd76a0d35b50",
+            "score": 5.114639912754135
+          },
+          {
+            "recordId": "d1151583-f082-463f-ba45-4eecdbed041a",
+            "score": 4.94639349026438
+          },
+          {
+            "recordId": "e77b9f64-e54f-4a6b-b8a3-82a83799174a",
+            "score": 4.986832109088877
+          },
+          {
+            "recordId": "6b1b5a81-447c-432f-a48f-68dd246c6b9e",
+            "score": 4.901056169477885
+          },
+          {
+            "recordId": "ec81dbe4-baac-4786-8657-4a8170f91296",
+            "score": 4.9836768999444745
+          }
+        ],
+        "multiplier": 5.114639912754135,
+        "calibrationCount": 9,
+        "rank": 9,
+        "scaleM": [
+          0.0024699675247038446,
+          0.006688116626026209,
+          0.011921102341461015,
+          0.012870849736578304
+        ],
+        "centerM": [
+          -0.012177634251124758,
+          -0.012957825177671927,
+          -0.012957825177671927,
+          -0.012957825177671927
+        ]
+      },
+      "accelerating-predicted": {
+        "fitCount": 6,
+        "scores": [
+          {
+            "recordId": "a4952caa-191b-44dd-8fd4-27b21d140d17",
+            "score": 0.11227025802497403
+          },
+          {
+            "recordId": "55457458-3045-433a-b438-153efe235fc8",
+            "score": 6.492806666006545
+          },
+          {
+            "recordId": "20e864e0-f943-4694-9874-91bb6fe70e2c",
+            "score": 1.2824617554079014
+          },
+          {
+            "recordId": "c880a656-ee15-4398-95a1-a51c8f171df0",
+            "score": 0.027860950380462907
+          },
+          {
+            "recordId": "804d4cc8-5a28-4e3c-a41f-c820778fd810",
+            "score": 4.397515156131612
+          },
+          {
+            "recordId": "5d2d6b2f-4b82-4a85-85f7-c27366977458",
+            "score": 0.8664062706118247
+          },
+          {
+            "recordId": "11abbba3-8c1e-4869-aa14-fd0fc8936f01",
+            "score": 0.04519473550665398
+          },
+          {
+            "recordId": "114bbfa3-d85a-4839-9b83-bcef691e8498",
+            "score": 0.15181708472163102
+          },
+          {
+            "recordId": "8d63e418-d479-43fc-8954-ad12c83e91ca",
+            "score": 0.19139719713960612
+          }
+        ],
+        "multiplier": 6.492806666006545,
+        "calibrationCount": 9,
+        "rank": 9,
+        "scaleM": [
+          0.002,
+          0.002,
+          0.002,
+          0.002
+        ],
+        "centerM": [
+          0.00040569589034390036,
+          0.00043803036575128934,
+          0.0004750901164683116,
+          0.0005211454322713582
+        ]
+      }
+    },
+    "sha256": "5d9401d2debea0e7b7c91bac9fe693949e0a172dd69e5ff4b82426d4b4988108",
+    "ticks": [
+      92,
+      116,
+      140,
+      180
+    ],
+    "scaleFloorM": 0.002,
+    "nominalCoverage": 0.9,
+    "fitLabels": [
+      {
+        "recordId": "4981ef3f-0b52-43c8-996c-d8f5aa6d7676",
+        "residualsM": [
+          0.0001725017593643685,
+          0.0002988011642650751,
+          0.0004745673601101452,
+          0.0006665485168804719
+        ],
+        "cell": "accelerating-measured",
+        "recordSha256": "cb74c8349c8c26173111c6588fde56513d613ab992023837e0cb7a114a24c0b2"
+      },
+      {
+        "recordId": "cc0cd9e4-b24c-44c6-adf1-2a8497f5ad92",
+        "residualsM": [
+          5.9044342441902375e-05,
+          0.00010332070632685514,
+          0.0001476153127309976,
+          0.00022148898843533937
+        ],
+        "cell": "accelerating-measured",
+        "recordSha256": "76a60ebba8dead93f9161380feb88cad6a61473d4df6f07b9dfde8f9e665efa1"
+      },
+      {
+        "recordId": "502655fa-9c8f-4350-a431-67f852fea417",
+        "residualsM": [
+          5.706939514860815e-05,
+          9.98890010214526e-05,
+          0.00014225426180597411,
+          0.00021338193884293255
+        ],
+        "cell": "accelerating-measured",
+        "recordSha256": "ff94c410a4f9ad373028042b788b6d54e460051186582a7816dff8d243d0e331"
+      },
+      {
+        "recordId": "c39a5497-a405-45b6-95e8-bd34d9d08c3f",
+        "residualsM": [
+          8.352549988961677e-05,
+          0.00014066251045755096,
+          0.0002017921054481009,
+          0.0003094628512815001
+        ],
+        "cell": "accelerating-measured",
+        "recordSha256": "f654db654150421068c6b10cf26af8a3bd6044c8fb1edee2a69f5e612d4fd6e1"
+      },
+      {
+        "recordId": "c8623b8c-b3d7-44eb-8c77-ecb71d279c2a",
+        "residualsM": [
+          7.397470840751763e-05,
+          0.00012899390219356377,
+          0.0001844743800170634,
+          0.00027777768490239163
+        ],
+        "cell": "accelerating-measured",
+        "recordSha256": "aad9474090e4b7a5b86942b9eb0e01648446490545222657b0b234edd53f1a64"
+      },
+      {
+        "recordId": "38c3d914-2c97-4e17-b921-6f7cb8ed5f19",
+        "residualsM": [
+          0.000393367799425115,
+          0.0004315369613065445,
+          0.00046964271575006267,
+          0.0005403127553594289
+        ],
+        "cell": "accelerating-predicted",
+        "recordSha256": "e09dbdda164cb29823f3ef143b8fceb0c02618e2366dcd9d3c6b22f537e75bea"
+      },
+      {
+        "recordId": "a4ea1122-2650-4c3c-a537-33e898404e7e",
+        "residualsM": [
+          2.1642744578678763e-05,
+          3.79759326605833e-05,
+          5.4054328603683754e-05,
+          8.093660639543754e-05
+        ],
+        "cell": "accelerating-measured",
+        "recordSha256": "8cce40061de6825ec6652698e2065485499ce62e1ba7fe124763870c288c2f8d"
+      },
+      {
+        "recordId": "8f8992f2-38a0-4549-a9cc-bf1b81cde6cf",
+        "residualsM": [
+          0.0004180239812626857,
+          0.0004445237701960342,
+          0.00048053751718656057,
+          0.0005177683850920434
+        ],
+        "cell": "accelerating-predicted",
+        "recordSha256": "fa8299e073195f13ca2a45f22590f63b2c020c5494154bfc18e816014eaf5c2a"
+      },
+      {
+        "recordId": "dde52e72-a9d7-49e3-8932-c4772dfad822",
+        "residualsM": [
+          0.0007790756477084188,
+          0.0008732584533501508,
+          0.0009594917224663435,
+          0.001110078317149099
+        ],
+        "cell": "accelerating-predicted",
+        "recordSha256": "181b82977aa8c56d6db9336cec8ca47775bddaa59bbed8776d542c52d1c6a78a"
+      },
+      {
+        "recordId": "3d5ab6f8-d965-40a0-9f73-76462840c601",
+        "residualsM": [
+          0.000457523674189525,
+          0.0004764969583834766,
+          0.0004939211985394709,
+          0.0005245224794506731
+        ],
+        "cell": "accelerating-predicted",
+        "recordSha256": "dc1af5359017c2ceba3b83a8587f7cc8556f26e27095c37d9233e741958ad293"
+      },
+      {
+        "recordId": "9fc38f61-f38e-48b3-a534-8ecbb1913cdd",
+        "residualsM": [
+          -0.010697476967932822,
+          -0.01460887632272842,
+          -0.01852018297590166,
+          -0.025038868329051
+        ],
+        "cell": "accelerating-predicted",
+        "recordSha256": "dfe790b6cdb931e8dd0b426e990ed42c194a99542ae7c0a563f0cdce7b91e043"
+      },
+      {
+        "recordId": "6a5c4557-c3a4-4d1c-a871-b3a01de76372",
+        "residualsM": [
+          -0.008873292174125358,
+          -0.014076177074785368,
+          -0.019259508545580284,
+          -0.029124077930353487
+        ],
+        "cell": "accelerating-predicted",
+        "recordSha256": "fae43a534faaa82837291528b536ceecd4e6d466e0ae7b81e8de6c1dc0869e6b"
+      },
+      {
+        "recordId": "3b19f61b-6a1c-4c03-bca5-9ddba3444e81",
+        "residualsM": [
+          -0.0002553251644463739,
+          -0.0002589640845158392,
+          -0.00025999230661574724,
+          -0.0002595810177757757
+        ],
+        "cell": "slowing-measured",
+        "recordSha256": "2c48274a4ad47fc3376b94efed62267a1209f693012bb6cc9eeb80b2bf47617c"
+      },
+      {
+        "recordId": "c11a33c6-5ab1-48ff-805e-b46bfb46f1d6",
+        "residualsM": [
+          -6.814988554731949e-05,
+          -0.00014131330171959777,
+          -0.0005529991887087415,
+          -0.0024029294949711733
+        ],
+        "cell": "slowing-measured",
+        "recordSha256": "e7de29ad6588250d0ecf4a8d51e63dbbad5ec8bb24139623cc046660d898e41f"
+      },
+      {
+        "recordId": "ae84a618-007f-420a-8fd1-50be1f6b5e72",
+        "residualsM": [
+          -0.013307101443419345,
+          -0.018656732270408732,
+          -0.0240068261513863,
+          -0.03292219499837601
+        ],
+        "cell": "slowing-predicted",
+        "recordSha256": "7ed5ec50bbdb4751fcc4ebb2163adb39ac04c2df32f59009679919ad46511224"
+      },
+      {
+        "recordId": "687ad801-d31c-47c5-88ba-63ef99434b8f",
+        "residualsM": [
+          2.1778036417563484e-06,
+          1.0174026037618189e-05,
+          1.392829560198372e-05,
+          3.071565586451608e-05
+        ],
+        "cell": "slowing-measured",
+        "recordSha256": "eff6c250cf0350aba58ceb214bd8a9a8d1a1059063d8f5a17d3fe7fb7daf64a2"
+      },
+      {
+        "recordId": "47c6b583-7f69-4584-9e7b-c15646efa9d8",
+        "residualsM": [
+          2.1711781678090958e-12,
+          2.1711781678090958e-12,
+          2.1711781678090958e-12,
+          2.1711781678090958e-12
+        ],
+        "cell": "slowing-measured",
+        "recordSha256": "9dcc2274c7e80e386fe42feffe2b9bf08f4bf998beb30055c18ad27ad721e9f8"
+      },
+      {
+        "recordId": "0c4d155e-da69-449d-b991-da66037aa509",
+        "residualsM": [
+          -0.002199911151534173,
+          -0.0055617002405581595,
+          -0.008917704964086337,
+          -0.014510394756507006
+        ],
+        "cell": "slowing-measured",
+        "recordSha256": "af083862ef4eab1c6126598dad7183448858a71538a2a8d29f1c6ae430f9cad8"
+      },
+      {
+        "recordId": "d75b6bec-8cd7-4c4a-a8de-ab953c61ae47",
+        "residualsM": [
+          -8.862879292528825e-05,
+          -0.000145899986103315,
+          -0.00015071401927445327,
+          -0.00015113443131872795
+        ],
+        "cell": "slowing-measured",
+        "recordSha256": "8554c12358908c2e857b2509ab63ca5613924cc617ee0cdcaa670b42d28bbf2f"
+      },
+      {
+        "recordId": "4c0cfb9e-a8be-4915-90da-2b30197c7602",
+        "residualsM": [
+          0.00012389950024513374,
+          9.545420013146177e-05,
+          7.58379107653473e-05,
+          2.1178156992790464e-05
+        ],
+        "cell": "slowing-predicted",
+        "recordSha256": "8c9b3236965b63b790acd427e2ff3c90295ecdde8fcb06da1f7ed52701046d70"
+      },
+      {
+        "recordId": "8fafddd6-19e5-4f6f-9e4f-077a9927a360",
+        "residualsM": [
+          -0.011048167058830171,
+          -0.011048167058830171,
+          -0.011048167058830171,
+          -0.011048167058830171
+        ],
+        "cell": "slowing-predicted",
+        "recordSha256": "aaafcde5a2158de8fae93c49a2580127296b18ffecc3ec624f88e0fbfe756727"
+      },
+      {
+        "recordId": "0ecd4058-a977-45d5-bc55-88301f69f1ad",
+        "residualsM": [
+          -0.014427720255143522,
+          -0.02063515133698754,
+          -0.026832759422006358,
+          -0.03822311729125097
+        ],
+        "cell": "slowing-predicted",
+        "recordSha256": "c38712be350014f2e2ec4319d8124b6835e540b3889990e5177cb89d0c52c957"
+      },
+      {
+        "recordId": "9fd74fa1-df35-4cf7-a46b-840a97edb109",
+        "residualsM": [
+          -3.9219308639038e-06,
+          -8.433887364822645e-05,
+          -0.00016462146846427106,
+          -0.00019512903918003643
+        ],
+        "cell": "slowing-predicted",
+        "recordSha256": "c8507a8e3bbb1ec0f263510bf43beb938839048486abd9c3091b0b2ba91005c1"
+      },
+      {
+        "recordId": "37f8c7f5-dc9a-425e-81ec-00bf4f4050b6",
+        "residualsM": [
+          -0.014867483296513682,
+          -0.014867483296513682,
+          -0.014867483296513682,
+          -0.014867483296513682
+        ],
+        "cell": "slowing-predicted",
+        "recordSha256": "74d13bb694f348cb936c0077962a8424b8debbac23b9c99b1b13bc7ad6a88cbf"
+      }
+    ],
+    "scope": "Separate native fitting/calibration; nominal joint residual envelope, not guaranteed coverage under changed conditions or physical measurement uncertainty"
+  },
+  "trainingCosts": {
+    "fitAndCalibrationMillis": 131.0599,
+    "misses": 11,
+    "observations": 330,
+    "scope": "All blind actions/misses plus four label readings and .005 residual fee each; .02 fit and .02 calibration. Separate from evaluation utility.",
+    "utility": 14.860000000000003,
+    "nativeWallMillis": 2889.8214999999996,
+    "runs": 60,
+    "actions": 80,
+    "logicalCost": 12.13999999999999
+  },
+  "clean": {
+    "coverage": {
+      "oldRangeCoverage": 0.9791666666666666,
+      "meanTerminalWidthM": 0.0399614996139866,
+      "terminalCovered": 44,
+      "cells": {
+        "accelerating-measured": {
+          "terminalCovered": 17,
+          "count": 21,
+          "jointCovered": 17
+        },
+        "slowing-measured": {
+          "terminalCovered": 16,
+          "count": 16,
+          "jointCovered": 16
+        },
+        "slowing-predicted": {
+          "terminalCovered": 8,
+          "count": 8,
+          "jointCovered": 8
+        },
+        "accelerating-predicted": {
+          "terminalCovered": 3,
+          "count": 3,
+          "jointCovered": 3
+        }
+      },
+      "truth": "Separate paired blind trajectory; no later observation or correction",
+      "count": 48,
+      "jointCoverage": 0.9166666666666666,
+      "terminalCoverage": 0.9166666666666666,
+      "maxTerminalWidthM": 0.1316595235475289,
+      "jointCovered": 44
+    },
+    "phase": "clean",
+    "qualified": false,
+    "pairedUncertainMinus": {
+      "adaptive": {
+        "wins": 0,
+        "ties": 0,
+        "meanDelta": -0.04458333333333331,
+        "losses": 48
+      },
+      "blind": {
+        "wins": 0,
+        "ties": 0,
+        "meanDelta": -0.10166666666666664,
+        "losses": 48
+      },
+      "fixed": {
+        "wins": 4,
+        "ties": 0,
+        "meanDelta": -0.0016666666666666358,
+        "losses": 44
+      }
+    },
+    "diagnostics": {
+      "retainedSkips": 4,
+      "prefixMaximumDelta": 0,
+      "forcedLooks": 19,
+      "choices": {
+        "92": 32,
+        "116": 12,
+        "140": 0,
+        "skip": 4
+      },
+      "goalsHarmed": 0,
+      "goalsSaved": 0
+    },
+    "subgroups": {
+      "measured": {
+        "coverage": {
+          "oldRangeCoverage": 1,
+          "meanTerminalWidthM": 0.021269246299974266,
+          "terminalCovered": 33,
+          "cells": {
+            "accelerating-measured": {
+              "terminalCovered": 17,
+              "count": 21,
+              "jointCovered": 17
+            },
+            "slowing-measured": {
+              "terminalCovered": 16,
+              "count": 16,
+              "jointCovered": 16
+            },
+            "slowing-predicted": {
+              "terminalCovered": 0,
+              "count": 0,
+              "jointCovered": 0
+            },
+            "accelerating-predicted": {
+              "terminalCovered": 0,
+              "count": 0,
+              "jointCovered": 0
+            }
+          },
+          "truth": "Separate paired blind trajectory; no later observation or correction",
+          "count": 37,
+          "jointCoverage": 0.8918918918918919,
+          "terminalCoverage": 0.8918918918918919,
+          "maxTerminalWidthM": 0.04356345778298493,
+          "jointCovered": 33
+        },
+        "pairedUncertainMinus": {
+          "adaptive": {
+            "wins": 0,
+            "ties": 0,
+            "meanDelta": -0.03472972972972972,
+            "losses": 37
+          },
+          "blind": {
+            "wins": 0,
+            "ties": 0,
+            "meanDelta": -0.09918918918918913,
+            "losses": 37
+          },
+          "fixed": {
+            "wins": 4,
+            "ties": 0,
+            "meanDelta": 0.0008108108108108535,
+            "losses": 33
+          }
+        },
+        "methods": {
+          "adaptive": {
+            "meanUtility": 0.07067567567567573,
+            "extraObservations": 66,
+            "initiallyRefusedAttempts": 37,
+            "allTaskMissRate": 0.24324324324324326,
+            "schedulerWallMillis": 14.156099999999999,
+            "refusals": 0,
+            "uncertaintyCalls": 0,
+            "scheduleCalls": 37,
+            "allTaskSuccessRate": 0.7567567567567568,
+            "successes": 28,
+            "misses": 9,
+            "meanLogicalCost": 0.1995945945945946,
+            "initiallyRefusedSuccesses": 28,
+            "extraActions": 0,
+            "tasks": 37
+          },
+          "blind": {
+            "meanUtility": 0.1351351351351353,
+            "extraObservations": 0,
+            "initiallyRefusedAttempts": 37,
+            "allTaskMissRate": 0.24324324324324326,
+            "schedulerWallMillis": 0,
+            "refusals": 0,
+            "uncertaintyCalls": 0,
+            "scheduleCalls": 0,
+            "allTaskSuccessRate": 0.7567567567567568,
+            "successes": 28,
+            "misses": 9,
+            "meanLogicalCost": 0.13513513513513517,
+            "initiallyRefusedSuccesses": 28,
+            "extraActions": 0,
+            "tasks": 37
+          },
+          "fixed": {
+            "meanUtility": 0.035135135135135165,
+            "extraObservations": 111,
+            "initiallyRefusedAttempts": 37,
+            "allTaskMissRate": 0.24324324324324326,
+            "schedulerWallMillis": 0,
+            "refusals": 0,
+            "uncertaintyCalls": 0,
+            "scheduleCalls": 0,
+            "allTaskSuccessRate": 0.7567567567567568,
+            "successes": 28,
+            "misses": 9,
+            "meanLogicalCost": 0.2351351351351352,
+            "initiallyRefusedSuccesses": 28,
+            "extraActions": 0,
+            "tasks": 37
+          },
+          "uncertain": {
+            "meanUtility": 0.03594594594594602,
+            "extraObservations": 99,
+            "initiallyRefusedAttempts": 37,
+            "allTaskMissRate": 0.24324324324324326,
+            "schedulerWallMillis": 42.077000000000005,
+            "refusals": 0,
+            "uncertaintyCalls": 37,
+            "scheduleCalls": 37,
+            "allTaskSuccessRate": 0.7567567567567568,
+            "successes": 28,
+            "misses": 9,
+            "meanLogicalCost": 0.23432432432432437,
+            "initiallyRefusedSuccesses": 28,
+            "extraActions": 0,
+            "tasks": 37
+          }
+        }
+      },
+      "slowing": {
+        "coverage": {
+          "oldRangeCoverage": 0.9583333333333334,
+          "meanTerminalWidthM": 0.07292881303783288,
+          "terminalCovered": 24,
+          "cells": {
+            "accelerating-measured": {
+              "terminalCovered": 0,
+              "count": 0,
+              "jointCovered": 0
+            },
+            "slowing-measured": {
+              "terminalCovered": 16,
+              "count": 16,
+              "jointCovered": 16
+            },
+            "slowing-predicted": {
+              "terminalCovered": 8,
+              "count": 8,
+              "jointCovered": 8
+            },
+            "accelerating-predicted": {
+              "terminalCovered": 0,
+              "count": 0,
+              "jointCovered": 0
+            }
+          },
+          "truth": "Separate paired blind trajectory; no later observation or correction",
+          "count": 24,
+          "jointCoverage": 1,
+          "terminalCoverage": 1,
+          "maxTerminalWidthM": 0.1316595235475289,
+          "jointCovered": 24
+        },
+        "pairedUncertainMinus": {
+          "adaptive": {
+            "wins": 0,
+            "ties": 0,
+            "meanDelta": -0.05499999999999999,
+            "losses": 24
+          },
+          "blind": {
+            "wins": 0,
+            "ties": 0,
+            "meanDelta": -0.10999999999999992,
+            "losses": 24
+          },
+          "fixed": {
+            "wins": 0,
+            "ties": 0,
+            "meanDelta": -0.009999999999999962,
+            "losses": 24
+          }
+        },
+        "methods": {
+          "adaptive": {
+            "meanUtility": 0.22416666666666665,
+            "extraObservations": 36,
+            "initiallyRefusedAttempts": 16,
+            "allTaskMissRate": 0.20833333333333334,
+            "schedulerWallMillis": 8.1116,
+            "refusals": 0,
+            "uncertaintyCalls": 0,
+            "scheduleCalls": 24,
+            "allTaskSuccessRate": 0.7916666666666666,
+            "successes": 19,
+            "misses": 5,
+            "meanLogicalCost": 0.15083333333333335,
+            "initiallyRefusedSuccesses": 11,
+            "extraActions": 0,
+            "tasks": 24
+          },
+          "blind": {
+            "meanUtility": 0.2791666666666668,
+            "extraObservations": 0,
+            "initiallyRefusedAttempts": 16,
+            "allTaskMissRate": 0.20833333333333334,
+            "schedulerWallMillis": 0,
+            "refusals": 0,
+            "uncertaintyCalls": 0,
+            "scheduleCalls": 0,
+            "allTaskSuccessRate": 0.7916666666666666,
+            "successes": 19,
+            "misses": 5,
+            "meanLogicalCost": 0.09583333333333338,
+            "initiallyRefusedSuccesses": 11,
+            "extraActions": 0,
+            "tasks": 24
+          },
+          "fixed": {
+            "meanUtility": 0.1791666666666667,
+            "extraObservations": 72,
+            "initiallyRefusedAttempts": 16,
+            "allTaskMissRate": 0.20833333333333334,
+            "schedulerWallMillis": 0,
+            "refusals": 0,
+            "uncertaintyCalls": 0,
+            "scheduleCalls": 0,
+            "allTaskSuccessRate": 0.7916666666666666,
+            "successes": 19,
+            "misses": 5,
+            "meanLogicalCost": 0.19583333333333344,
+            "initiallyRefusedSuccesses": 11,
+            "extraActions": 0,
+            "tasks": 24
+          },
+          "uncertain": {
+            "meanUtility": 0.16916666666666672,
+            "extraObservations": 72,
+            "initiallyRefusedAttempts": 16,
+            "allTaskMissRate": 0.20833333333333334,
+            "schedulerWallMillis": 25.0462,
+            "refusals": 0,
+            "uncertaintyCalls": 24,
+            "scheduleCalls": 24,
+            "allTaskSuccessRate": 0.7916666666666666,
+            "successes": 19,
+            "misses": 5,
+            "meanLogicalCost": 0.2058333333333333,
+            "initiallyRefusedSuccesses": 11,
+            "extraActions": 0,
+            "tasks": 24
+          }
+        }
+      },
+      "accelerating": {
+        "coverage": {
+          "oldRangeCoverage": 1,
+          "meanTerminalWidthM": 0.006994186190140329,
+          "terminalCovered": 20,
+          "cells": {
+            "accelerating-measured": {
+              "terminalCovered": 17,
+              "count": 21,
+              "jointCovered": 17
+            },
+            "slowing-measured": {
+              "terminalCovered": 0,
+              "count": 0,
+              "jointCovered": 0
+            },
+            "slowing-predicted": {
+              "terminalCovered": 0,
+              "count": 0,
+              "jointCovered": 0
+            },
+            "accelerating-predicted": {
+              "terminalCovered": 3,
+              "count": 3,
+              "jointCovered": 3
+            }
+          },
+          "truth": "Separate paired blind trajectory; no later observation or correction",
+          "count": 24,
+          "jointCoverage": 0.8333333333333334,
+          "terminalCoverage": 0.8333333333333334,
+          "maxTerminalWidthM": 0.02597122666402618,
+          "jointCovered": 20
+        },
+        "pairedUncertainMinus": {
+          "adaptive": {
+            "wins": 0,
+            "ties": 0,
+            "meanDelta": -0.034166666666666665,
+            "losses": 24
+          },
+          "blind": {
+            "wins": 0,
+            "ties": 0,
+            "meanDelta": -0.09333333333333327,
+            "losses": 24
+          },
+          "fixed": {
+            "wins": 4,
+            "ties": 0,
+            "meanDelta": 0.006666666666666691,
+            "losses": 20
+          }
+        },
+        "methods": {
+          "adaptive": {
+            "meanUtility": 0.31916666666666677,
+            "extraObservations": 39,
+            "initiallyRefusedAttempts": 21,
+            "allTaskMissRate": 0.16666666666666666,
+            "schedulerWallMillis": 9.248999999999999,
+            "refusals": 0,
+            "uncertaintyCalls": 0,
+            "scheduleCalls": 24,
+            "allTaskSuccessRate": 0.8333333333333334,
+            "successes": 20,
+            "misses": 4,
+            "meanLogicalCost": 0.18083333333333332,
+            "initiallyRefusedSuccesses": 17,
+            "extraActions": 0,
+            "tasks": 24
+          },
+          "blind": {
+            "meanUtility": 0.3783333333333334,
+            "extraObservations": 0,
+            "initiallyRefusedAttempts": 21,
+            "allTaskMissRate": 0.16666666666666666,
+            "schedulerWallMillis": 0,
+            "refusals": 0,
+            "uncertaintyCalls": 0,
+            "scheduleCalls": 0,
+            "allTaskSuccessRate": 0.8333333333333334,
+            "successes": 20,
+            "misses": 4,
+            "meanLogicalCost": 0.12166666666666674,
+            "initiallyRefusedSuccesses": 17,
+            "extraActions": 0,
+            "tasks": 24
+          },
+          "fixed": {
+            "meanUtility": 0.2783333333333333,
+            "extraObservations": 72,
+            "initiallyRefusedAttempts": 21,
+            "allTaskMissRate": 0.16666666666666666,
+            "schedulerWallMillis": 0,
+            "refusals": 0,
+            "uncertaintyCalls": 0,
+            "scheduleCalls": 0,
+            "allTaskSuccessRate": 0.8333333333333334,
+            "successes": 20,
+            "misses": 4,
+            "meanLogicalCost": 0.2216666666666668,
+            "initiallyRefusedSuccesses": 17,
+            "extraActions": 0,
+            "tasks": 24
+          },
+          "uncertain": {
+            "meanUtility": 0.2850000000000001,
+            "extraObservations": 60,
+            "initiallyRefusedAttempts": 21,
+            "allTaskMissRate": 0.16666666666666666,
+            "schedulerWallMillis": 27.0733,
+            "refusals": 0,
+            "uncertaintyCalls": 24,
+            "scheduleCalls": 24,
+            "allTaskSuccessRate": 0.8333333333333334,
+            "successes": 20,
+            "misses": 4,
+            "meanLogicalCost": 0.215,
+            "initiallyRefusedSuccesses": 17,
+            "extraActions": 0,
+            "tasks": 24
+          }
+        }
+      },
+      "predicted": {
+        "coverage": {
+          "oldRangeCoverage": 0.9090909090909091,
+          "meanTerminalWidthM": 0.10283544257930087,
+          "terminalCovered": 11,
+          "cells": {
+            "accelerating-measured": {
+              "terminalCovered": 0,
+              "count": 0,
+              "jointCovered": 0
+            },
+            "slowing-measured": {
+              "terminalCovered": 0,
+              "count": 0,
+              "jointCovered": 0
+            },
+            "slowing-predicted": {
+              "terminalCovered": 8,
+              "count": 8,
+              "jointCovered": 8
+            },
+            "accelerating-predicted": {
+              "terminalCovered": 3,
+              "count": 3,
+              "jointCovered": 3
+            }
+          },
+          "truth": "Separate paired blind trajectory; no later observation or correction",
+          "count": 11,
+          "jointCoverage": 1,
+          "terminalCoverage": 1,
+          "maxTerminalWidthM": 0.1316595235475289,
+          "jointCovered": 11
+        },
+        "pairedUncertainMinus": {
+          "adaptive": {
+            "wins": 0,
+            "ties": 0,
+            "meanDelta": -0.07772727272727271,
+            "losses": 11
+          },
+          "blind": {
+            "wins": 0,
+            "ties": 0,
+            "meanDelta": -0.11,
+            "losses": 11
+          },
+          "fixed": {
+            "wins": 0,
+            "ties": 0,
+            "meanDelta": -0.010000000000000009,
+            "losses": 11
+          }
+        },
+        "methods": {
+          "adaptive": {
+            "meanUtility": 0.9477272727272726,
+            "extraObservations": 9,
+            "initiallyRefusedAttempts": 0,
+            "allTaskMissRate": 0,
+            "schedulerWallMillis": 3.2045000000000003,
+            "refusals": 0,
+            "uncertaintyCalls": 0,
+            "scheduleCalls": 11,
+            "allTaskSuccessRate": 1,
+            "successes": 11,
+            "misses": 0,
+            "meanLogicalCost": 0.052272727272727276,
+            "initiallyRefusedSuccesses": 0,
+            "extraActions": 0,
+            "tasks": 11
+          },
+          "blind": {
+            "meanUtility": 0.9800000000000003,
+            "extraObservations": 0,
+            "initiallyRefusedAttempts": 0,
+            "allTaskMissRate": 0,
+            "schedulerWallMillis": 0,
+            "refusals": 0,
+            "uncertaintyCalls": 0,
+            "scheduleCalls": 0,
+            "allTaskSuccessRate": 1,
+            "successes": 11,
+            "misses": 0,
+            "meanLogicalCost": 0.019999999999999997,
+            "initiallyRefusedSuccesses": 0,
+            "extraActions": 0,
+            "tasks": 11
+          },
+          "fixed": {
+            "meanUtility": 0.8800000000000001,
+            "extraObservations": 33,
+            "initiallyRefusedAttempts": 0,
+            "allTaskMissRate": 0,
+            "schedulerWallMillis": 0,
+            "refusals": 0,
+            "uncertaintyCalls": 0,
+            "scheduleCalls": 0,
+            "allTaskSuccessRate": 1,
+            "successes": 11,
+            "misses": 0,
+            "meanLogicalCost": 0.12000000000000002,
+            "initiallyRefusedSuccesses": 0,
+            "extraActions": 0,
+            "tasks": 11
+          },
+          "uncertain": {
+            "meanUtility": 0.8699999999999999,
+            "extraObservations": 33,
+            "initiallyRefusedAttempts": 0,
+            "allTaskMissRate": 0,
+            "schedulerWallMillis": 10.0425,
+            "refusals": 0,
+            "uncertaintyCalls": 11,
+            "scheduleCalls": 11,
+            "allTaskSuccessRate": 1,
+            "successes": 11,
+            "misses": 0,
+            "meanLogicalCost": 0.12999999999999998,
+            "initiallyRefusedSuccesses": 0,
+            "extraActions": 0,
+            "tasks": 11
+          }
+        }
+      }
+    },
+    "methods": {
+      "adaptive": {
+        "meanUtility": 0.2716666666666668,
+        "allTaskMissRate": 0.1875,
+        "conditionalSuccessRate": 0.8125,
+        "refusals": 0,
+        "initialRefusals": 37,
+        "meanTargetErrorM": 0.03111258946585646,
+        "absoluteImpulseNs": 13.262648320052024,
+        "scheduleCalls": 48,
+        "successes": 39,
+        "screens": 0,
+        "misses": 9,
+        "observations": 186,
+        "meanLogicalCost": 0.16583333333333336,
+        "extraActions": 0,
+        "tasks": 48,
+        "nativeTicks": 8640,
+        "lookups": 0,
+        "extraObservations": 75,
+        "initiallyRefusedAttempts": 37,
+        "externalEvents": 0,
+        "schedulerWallMillis": 17.3606,
+        "nativeWallMillis": 58983.926999999996,
+        "replans": 62,
+        "executionRate": 1,
+        "uncertaintyCalls": 0,
+        "allTaskSuccessRate": 0.8125,
+        "executions": 48,
+        "recoveryRate": 0.7567567567567568,
+        "initiallyRefusedSuccesses": 28,
+        "actions": 76
+      },
+      "blind": {
+        "meanUtility": 0.3287499999999999,
+        "allTaskMissRate": 0.1875,
+        "conditionalSuccessRate": 0.8125,
+        "refusals": 0,
+        "initialRefusals": 37,
+        "meanTargetErrorM": 0.03111258946585646,
+        "absoluteImpulseNs": 13.262648320052024,
+        "scheduleCalls": 0,
+        "successes": 39,
+        "screens": 0,
+        "misses": 9,
+        "observations": 111,
+        "meanLogicalCost": 0.10875,
+        "extraActions": 0,
+        "tasks": 48,
+        "nativeTicks": 8640,
+        "lookups": 0,
+        "extraObservations": 0,
+        "initiallyRefusedAttempts": 37,
+        "externalEvents": 0,
+        "schedulerWallMillis": 0,
+        "nativeWallMillis": 20759.442,
+        "replans": 37,
+        "executionRate": 1,
+        "uncertaintyCalls": 0,
+        "allTaskSuccessRate": 0.8125,
+        "executions": 48,
+        "recoveryRate": 0.7567567567567568,
+        "initiallyRefusedSuccesses": 28,
+        "actions": 76
+      },
+      "fixed": {
+        "meanUtility": 0.22874999999999998,
+        "allTaskMissRate": 0.1875,
+        "conditionalSuccessRate": 0.8125,
+        "refusals": 0,
+        "initialRefusals": 37,
+        "meanTargetErrorM": 0.03111258946585646,
+        "absoluteImpulseNs": 13.262648320052024,
+        "scheduleCalls": 0,
+        "successes": 39,
+        "screens": 0,
+        "misses": 9,
+        "observations": 255,
+        "meanLogicalCost": 0.2087500000000001,
+        "extraActions": 0,
+        "tasks": 48,
+        "nativeTicks": 8640,
+        "lookups": 0,
+        "extraObservations": 144,
+        "initiallyRefusedAttempts": 37,
+        "externalEvents": 0,
+        "schedulerWallMillis": 0,
+        "nativeWallMillis": 43813.7296,
+        "replans": 85,
+        "executionRate": 1,
+        "uncertaintyCalls": 0,
+        "allTaskSuccessRate": 0.8125,
+        "executions": 48,
+        "recoveryRate": 0.7567567567567568,
+        "initiallyRefusedSuccesses": 28,
+        "actions": 76
+      },
+      "uncertain": {
+        "meanUtility": 0.22708333333333328,
+        "allTaskMissRate": 0.1875,
+        "conditionalSuccessRate": 0.8125,
+        "refusals": 0,
+        "initialRefusals": 37,
+        "meanTargetErrorM": 0.03111258946585646,
+        "absoluteImpulseNs": 13.262648320052024,
+        "scheduleCalls": 48,
+        "successes": 39,
+        "screens": 0,
+        "misses": 9,
+        "observations": 243,
+        "meanLogicalCost": 0.21041666666666672,
+        "extraActions": 0,
+        "tasks": 48,
+        "nativeTicks": 8640,
+        "lookups": 0,
+        "extraObservations": 132,
+        "initiallyRefusedAttempts": 37,
+        "externalEvents": 0,
+        "schedulerWallMillis": 52.1195,
+        "nativeWallMillis": 69563.15669999998,
+        "replans": 81,
+        "executionRate": 1,
+        "uncertaintyCalls": 48,
+        "allTaskSuccessRate": 0.8125,
+        "executions": 48,
+        "recoveryRate": 0.7567567567567568,
+        "initiallyRefusedSuccesses": 28,
+        "actions": 76
+      }
+    }
+  },
+  "disturbed": {
+    "coverage": {
+      "oldRangeCoverage": 0.85,
+      "meanTerminalWidthM": 0.034517864847663185,
+      "terminalCovered": 30,
+      "cells": {
+        "accelerating-measured": {
+          "terminalCovered": 4,
+          "count": 21,
+          "jointCovered": 4
+        },
+        "slowing-measured": {
+          "terminalCovered": 18,
+          "count": 25,
+          "jointCovered": 18
+        },
+        "slowing-predicted": {
+          "terminalCovered": 5,
+          "count": 5,
+          "jointCovered": 5
+        },
+        "accelerating-predicted": {
+          "terminalCovered": 3,
+          "count": 9,
+          "jointCovered": 3
+        }
+      },
+      "truth": "Separate paired blind trajectory; no later observation or correction",
+      "count": 60,
+      "jointCoverage": 0.5,
+      "terminalCoverage": 0.5,
+      "maxTerminalWidthM": 0.1316595235475289,
+      "jointCovered": 30
+    },
+    "phase": "disturbed",
+    "qualified": false,
+    "pairedUncertainMinus": {
+      "adaptive": {
+        "wins": 0,
+        "ties": 0,
+        "meanDelta": -0.036666666666666625,
+        "losses": 60
+      },
+      "blind": {
+        "wins": 6,
+        "ties": 0,
+        "meanDelta": 0.18933333333333377,
+        "losses": 54
+      },
+      "fixed": {
+        "wins": 2,
+        "ties": 0,
+        "meanDelta": -0.008333333333333226,
+        "losses": 58
+      }
+    },
+    "diagnostics": {
+      "retainedSkips": 1,
+      "prefixMaximumDelta": 0,
+      "forcedLooks": 19,
+      "choices": {
+        "92": 34,
+        "116": 21,
+        "140": 4,
+        "skip": 1
+      },
+      "goalsHarmed": 0,
+      "goalsSaved": 0
+    },
+    "subgroups": {
+      "measured": {
+        "coverage": {
+          "oldRangeCoverage": 0.8260869565217391,
+          "meanTerminalWidthM": 0.025631157242302423,
+          "terminalCovered": 22,
+          "cells": {
+            "accelerating-measured": {
+              "terminalCovered": 4,
+              "count": 21,
+              "jointCovered": 4
+            },
+            "slowing-measured": {
+              "terminalCovered": 18,
+              "count": 25,
+              "jointCovered": 18
+            },
+            "slowing-predicted": {
+              "terminalCovered": 0,
+              "count": 0,
+              "jointCovered": 0
+            },
+            "accelerating-predicted": {
+              "terminalCovered": 0,
+              "count": 0,
+              "jointCovered": 0
+            }
+          },
+          "truth": "Separate paired blind trajectory; no later observation or correction",
+          "count": 46,
+          "jointCoverage": 0.4782608695652174,
+          "terminalCoverage": 0.4782608695652174,
+          "maxTerminalWidthM": 0.04356345778298493,
+          "jointCovered": 22
+        },
+        "pairedUncertainMinus": {
+          "adaptive": {
+            "wins": 0,
+            "ties": 0,
+            "meanDelta": -0.03326086956521735,
+            "losses": 46
+          },
+          "blind": {
+            "wins": 6,
+            "ties": 0,
+            "meanDelta": 0.28043478260869614,
+            "losses": 40
+          },
+          "fixed": {
+            "wins": 2,
+            "ties": 0,
+            "meanDelta": 0.05695652173913057,
+            "losses": 44
+          }
+        },
+        "methods": {
+          "adaptive": {
+            "meanUtility": -0.7771739130434782,
+            "extraObservations": 96,
+            "initiallyRefusedAttempts": 46,
+            "allTaskMissRate": 0.5217391304347826,
+            "schedulerWallMillis": 18.3485,
+            "refusals": 0,
+            "uncertaintyCalls": 0,
+            "scheduleCalls": 46,
+            "allTaskSuccessRate": 0.4782608695652174,
+            "successes": 22,
+            "misses": 24,
+            "meanLogicalCost": 0.21195652173913035,
+            "initiallyRefusedSuccesses": 22,
+            "extraActions": 7,
+            "tasks": 46
+          },
+          "blind": {
+            "meanUtility": -1.0908695652173914,
+            "extraObservations": 0,
+            "initiallyRefusedAttempts": 46,
+            "allTaskMissRate": 0.6521739130434783,
+            "schedulerWallMillis": 0,
+            "refusals": 0,
+            "uncertaintyCalls": 0,
+            "scheduleCalls": 0,
+            "allTaskSuccessRate": 0.34782608695652173,
+            "successes": 16,
+            "misses": 30,
+            "meanLogicalCost": 0.13434782608695653,
+            "initiallyRefusedSuccesses": 16,
+            "extraActions": 0,
+            "tasks": 46
+          },
+          "fixed": {
+            "meanUtility": -0.8673913043478264,
+            "extraObservations": 138,
+            "initiallyRefusedAttempts": 46,
+            "allTaskMissRate": 0.5434782608695652,
+            "schedulerWallMillis": 0,
+            "refusals": 0,
+            "uncertaintyCalls": 0,
+            "scheduleCalls": 0,
+            "allTaskSuccessRate": 0.45652173913043476,
+            "successes": 21,
+            "misses": 25,
+            "meanLogicalCost": 0.2369565217391306,
+            "initiallyRefusedSuccesses": 21,
+            "extraActions": 6,
+            "tasks": 46
+          },
+          "uncertain": {
+            "meanUtility": -0.8104347826086955,
+            "extraObservations": 135,
+            "initiallyRefusedAttempts": 46,
+            "allTaskMissRate": 0.5217391304347826,
+            "schedulerWallMillis": 53.7167,
+            "refusals": 0,
+            "uncertaintyCalls": 46,
+            "scheduleCalls": 46,
+            "allTaskSuccessRate": 0.4782608695652174,
+            "successes": 22,
+            "misses": 24,
+            "meanLogicalCost": 0.2452173913043479,
+            "initiallyRefusedSuccesses": 22,
+            "extraActions": 7,
+            "tasks": 46
+          }
+        }
+      },
+      "brake": {
+        "coverage": {
+          "oldRangeCoverage": 0.75,
+          "meanTerminalWidthM": 0.025730656283559902,
+          "terminalCovered": 4,
+          "cells": {
+            "accelerating-measured": {
+              "terminalCovered": 0,
+              "count": 5,
+              "jointCovered": 0
+            },
+            "slowing-measured": {
+              "terminalCovered": 4,
+              "count": 6,
+              "jointCovered": 4
+            },
+            "slowing-predicted": {
+              "terminalCovered": 0,
+              "count": 0,
+              "jointCovered": 0
+            },
+            "accelerating-predicted": {
+              "terminalCovered": 0,
+              "count": 1,
+              "jointCovered": 0
+            }
+          },
+          "truth": "Separate paired blind trajectory; no later observation or correction",
+          "count": 12,
+          "jointCoverage": 0.3333333333333333,
+          "terminalCoverage": 0.3333333333333333,
+          "maxTerminalWidthM": 0.04356345778298493,
+          "jointCovered": 4
+        },
+        "pairedUncertainMinus": {
+          "adaptive": {
+            "wins": 0,
+            "ties": 0,
+            "meanDelta": -0.04666666666666663,
+            "losses": 12
+          },
+          "blind": {
+            "wins": 1,
+            "ties": 0,
+            "meanDelta": 0.13833333333333345,
+            "losses": 11
+          },
+          "fixed": {
+            "wins": 0,
+            "ties": 0,
+            "meanDelta": -0.009999999999999861,
+            "losses": 12
+          }
+        },
+        "methods": {
+          "adaptive": {
+            "meanUtility": -1.1866666666666668,
+            "extraObservations": 21,
+            "initiallyRefusedAttempts": 11,
+            "allTaskMissRate": 0.6666666666666666,
+            "schedulerWallMillis": 5.0123,
+            "refusals": 0,
+            "uncertaintyCalls": 0,
+            "scheduleCalls": 12,
+            "allTaskSuccessRate": 0.3333333333333333,
+            "successes": 4,
+            "misses": 8,
+            "meanLogicalCost": 0.18666666666666668,
+            "initiallyRefusedSuccesses": 3,
+            "extraActions": 1,
+            "tasks": 12
+          },
+          "blind": {
+            "meanUtility": -1.371666666666667,
+            "extraObservations": 0,
+            "initiallyRefusedAttempts": 11,
+            "allTaskMissRate": 0.75,
+            "schedulerWallMillis": 0,
+            "refusals": 0,
+            "uncertaintyCalls": 0,
+            "scheduleCalls": 0,
+            "allTaskSuccessRate": 0.25,
+            "successes": 3,
+            "misses": 9,
+            "meanLogicalCost": 0.1216666666666667,
+            "initiallyRefusedSuccesses": 2,
+            "extraActions": 0,
+            "tasks": 12
+          },
+          "fixed": {
+            "meanUtility": -1.2233333333333336,
+            "extraObservations": 36,
+            "initiallyRefusedAttempts": 11,
+            "allTaskMissRate": 0.6666666666666666,
+            "schedulerWallMillis": 0,
+            "refusals": 0,
+            "uncertaintyCalls": 0,
+            "scheduleCalls": 0,
+            "allTaskSuccessRate": 0.3333333333333333,
+            "successes": 4,
+            "misses": 8,
+            "meanLogicalCost": 0.22333333333333338,
+            "initiallyRefusedSuccesses": 3,
+            "extraActions": 1,
+            "tasks": 12
+          },
+          "uncertain": {
+            "meanUtility": -1.2333333333333334,
+            "extraObservations": 36,
+            "initiallyRefusedAttempts": 11,
+            "allTaskMissRate": 0.6666666666666666,
+            "schedulerWallMillis": 13.1952,
+            "refusals": 0,
+            "uncertaintyCalls": 12,
+            "scheduleCalls": 12,
+            "allTaskSuccessRate": 0.3333333333333333,
+            "successes": 4,
+            "misses": 8,
+            "meanLogicalCost": 0.2333333333333333,
+            "initiallyRefusedSuccesses": 3,
+            "extraActions": 1,
+            "tasks": 12
+          }
+        }
+      },
+      "spin": {
+        "coverage": {
+          "oldRangeCoverage": 1,
+          "meanTerminalWidthM": 0.034879332285261015,
+          "terminalCovered": 12,
+          "cells": {
+            "accelerating-measured": {
+              "terminalCovered": 4,
+              "count": 4,
+              "jointCovered": 4
+            },
+            "slowing-measured": {
+              "terminalCovered": 5,
+              "count": 5,
+              "jointCovered": 5
+            },
+            "slowing-predicted": {
+              "terminalCovered": 1,
+              "count": 1,
+              "jointCovered": 1
+            },
+            "accelerating-predicted": {
+              "terminalCovered": 2,
+              "count": 2,
+              "jointCovered": 2
+            }
+          },
+          "truth": "Separate paired blind trajectory; no later observation or correction",
+          "count": 12,
+          "jointCoverage": 1,
+          "terminalCoverage": 1,
+          "maxTerminalWidthM": 0.13165952354752886,
+          "jointCovered": 12
+        },
+        "pairedUncertainMinus": {
+          "adaptive": {
+            "wins": 0,
+            "ties": 0,
+            "meanDelta": -0.04666666666666666,
+            "losses": 12
+          },
+          "blind": {
+            "wins": 0,
+            "ties": 0,
+            "meanDelta": -0.10999999999999995,
+            "losses": 12
+          },
+          "fixed": {
+            "wins": 0,
+            "ties": 0,
+            "meanDelta": -0.009999999999999953,
+            "losses": 12
+          }
+        },
+        "methods": {
+          "adaptive": {
+            "meanUtility": 0.08166666666666675,
+            "extraObservations": 21,
+            "initiallyRefusedAttempts": 9,
+            "allTaskMissRate": 0.25,
+            "schedulerWallMillis": 4.1253,
+            "refusals": 0,
+            "uncertaintyCalls": 0,
+            "scheduleCalls": 12,
+            "allTaskSuccessRate": 0.75,
+            "successes": 9,
+            "misses": 3,
+            "meanLogicalCost": 0.16833333333333333,
+            "initiallyRefusedSuccesses": 6,
+            "extraActions": 0,
+            "tasks": 12
+          },
+          "blind": {
+            "meanUtility": 0.14500000000000005,
+            "extraObservations": 0,
+            "initiallyRefusedAttempts": 9,
+            "allTaskMissRate": 0.25,
+            "schedulerWallMillis": 0,
+            "refusals": 0,
+            "uncertaintyCalls": 0,
+            "scheduleCalls": 0,
+            "allTaskSuccessRate": 0.75,
+            "successes": 9,
+            "misses": 3,
+            "meanLogicalCost": 0.10500000000000002,
+            "initiallyRefusedSuccesses": 6,
+            "extraActions": 0,
+            "tasks": 12
+          },
+          "fixed": {
+            "meanUtility": 0.04500000000000004,
+            "extraObservations": 36,
+            "initiallyRefusedAttempts": 9,
+            "allTaskMissRate": 0.25,
+            "schedulerWallMillis": 0,
+            "refusals": 0,
+            "uncertaintyCalls": 0,
+            "scheduleCalls": 0,
+            "allTaskSuccessRate": 0.75,
+            "successes": 9,
+            "misses": 3,
+            "meanLogicalCost": 0.20500000000000004,
+            "initiallyRefusedSuccesses": 6,
+            "extraActions": 0,
+            "tasks": 12
+          },
+          "uncertain": {
+            "meanUtility": 0.03500000000000003,
+            "extraObservations": 36,
+            "initiallyRefusedAttempts": 9,
+            "allTaskMissRate": 0.25,
+            "schedulerWallMillis": 15.677599999999998,
+            "refusals": 0,
+            "uncertaintyCalls": 12,
+            "scheduleCalls": 12,
+            "allTaskSuccessRate": 0.75,
+            "successes": 9,
+            "misses": 3,
+            "meanLogicalCost": 0.215,
+            "initiallyRefusedSuccesses": 6,
+            "extraActions": 0,
+            "tasks": 12
+          }
+        }
+      },
+      "lift": {
+        "coverage": {
+          "oldRangeCoverage": 0.6666666666666666,
+          "meanTerminalWidthM": 0.04956200991268502,
+          "terminalCovered": 3,
+          "cells": {
+            "accelerating-measured": {
+              "terminalCovered": 0,
+              "count": 4,
+              "jointCovered": 0
+            },
+            "slowing-measured": {
+              "terminalCovered": 0,
+              "count": 3,
+              "jointCovered": 0
+            },
+            "slowing-predicted": {
+              "terminalCovered": 3,
+              "count": 3,
+              "jointCovered": 3
+            },
+            "accelerating-predicted": {
+              "terminalCovered": 0,
+              "count": 2,
+              "jointCovered": 0
+            }
+          },
+          "truth": "Separate paired blind trajectory; no later observation or correction",
+          "count": 12,
+          "jointCoverage": 0.25,
+          "terminalCoverage": 0.25,
+          "maxTerminalWidthM": 0.1316595235475289,
+          "jointCovered": 3
+        },
+        "pairedUncertainMinus": {
+          "adaptive": {
+            "wins": 0,
+            "ties": 0,
+            "meanDelta": -0.03833333333333328,
+            "losses": 12
+          },
+          "blind": {
+            "wins": 2,
+            "ties": 0,
+            "meanDelta": 0.3866666666666667,
+            "losses": 10
+          },
+          "fixed": {
+            "wins": 0,
+            "ties": 0,
+            "meanDelta": -0.25833333333333314,
+            "losses": 12
+          }
+        },
+        "methods": {
+          "adaptive": {
+            "meanUtility": -0.9133333333333334,
+            "extraObservations": 24,
+            "initiallyRefusedAttempts": 7,
+            "allTaskMissRate": 0.5833333333333334,
+            "schedulerWallMillis": 4.0871,
+            "refusals": 0,
+            "uncertaintyCalls": 0,
+            "scheduleCalls": 12,
+            "allTaskSuccessRate": 0.4166666666666667,
+            "successes": 5,
+            "misses": 7,
+            "meanLogicalCost": 0.16333333333333333,
+            "initiallyRefusedSuccesses": 2,
+            "extraActions": 2,
+            "tasks": 12
+          },
+          "blind": {
+            "meanUtility": -1.3383333333333336,
+            "extraObservations": 0,
+            "initiallyRefusedAttempts": 7,
+            "allTaskMissRate": 0.75,
+            "schedulerWallMillis": 0,
+            "refusals": 0,
+            "uncertaintyCalls": 0,
+            "scheduleCalls": 0,
+            "allTaskSuccessRate": 0.25,
+            "successes": 3,
+            "misses": 9,
+            "meanLogicalCost": 0.08833333333333333,
+            "initiallyRefusedSuccesses": 0,
+            "extraActions": 0,
+            "tasks": 12
+          },
+          "fixed": {
+            "meanUtility": -0.6933333333333334,
+            "extraObservations": 36,
+            "initiallyRefusedAttempts": 7,
+            "allTaskMissRate": 0.5,
+            "schedulerWallMillis": 0,
+            "refusals": 0,
+            "uncertaintyCalls": 0,
+            "scheduleCalls": 0,
+            "allTaskSuccessRate": 0.5,
+            "successes": 6,
+            "misses": 6,
+            "meanLogicalCost": 0.19333333333333338,
+            "initiallyRefusedSuccesses": 2,
+            "extraActions": 3,
+            "tasks": 12
+          },
+          "uncertain": {
+            "meanUtility": -0.9516666666666665,
+            "extraObservations": 36,
+            "initiallyRefusedAttempts": 7,
+            "allTaskMissRate": 0.5833333333333334,
+            "schedulerWallMillis": 11.799399999999999,
+            "refusals": 0,
+            "uncertaintyCalls": 12,
+            "scheduleCalls": 12,
+            "allTaskSuccessRate": 0.4166666666666667,
+            "successes": 5,
+            "misses": 7,
+            "meanLogicalCost": 0.20166666666666666,
+            "initiallyRefusedSuccesses": 2,
+            "extraActions": 2,
+            "tasks": 12
+          }
+        }
+      },
+      "slowing": {
+        "coverage": {
+          "oldRangeCoverage": 0.9666666666666667,
+          "meanTerminalWidthM": 0.058246135410408885,
+          "terminalCovered": 23,
+          "cells": {
+            "accelerating-measured": {
+              "terminalCovered": 0,
+              "count": 0,
+              "jointCovered": 0
+            },
+            "slowing-measured": {
+              "terminalCovered": 18,
+              "count": 25,
+              "jointCovered": 18
+            },
+            "slowing-predicted": {
+              "terminalCovered": 5,
+              "count": 5,
+              "jointCovered": 5
+            },
+            "accelerating-predicted": {
+              "terminalCovered": 0,
+              "count": 0,
+              "jointCovered": 0
+            }
+          },
+          "truth": "Separate paired blind trajectory; no later observation or correction",
+          "count": 30,
+          "jointCoverage": 0.7666666666666667,
+          "terminalCoverage": 0.7666666666666667,
+          "maxTerminalWidthM": 0.1316595235475289,
+          "jointCovered": 23
+        },
+        "pairedUncertainMinus": {
+          "adaptive": {
+            "wins": 0,
+            "ties": 0,
+            "meanDelta": -0.04833333333333328,
+            "losses": 30
+          },
+          "blind": {
+            "wins": 1,
+            "ties": 0,
+            "meanDelta": -0.011333333333333247,
+            "losses": 29
+          },
+          "fixed": {
+            "wins": 1,
+            "ties": 0,
+            "meanDelta": 0.0893333333333335,
+            "losses": 29
+          }
+        },
+        "methods": {
+          "adaptive": {
+            "meanUtility": -0.7770000000000002,
+            "extraObservations": 51,
+            "initiallyRefusedAttempts": 25,
+            "allTaskMissRate": 0.5333333333333333,
+            "schedulerWallMillis": 11.370799999999997,
+            "refusals": 0,
+            "uncertaintyCalls": 0,
+            "scheduleCalls": 30,
+            "allTaskSuccessRate": 0.4666666666666667,
+            "successes": 14,
+            "misses": 16,
+            "meanLogicalCost": 0.17700000000000005,
+            "initiallyRefusedSuccesses": 10,
+            "extraActions": 2,
+            "tasks": 30
+          },
+          "blind": {
+            "meanUtility": -0.8140000000000002,
+            "extraObservations": 0,
+            "initiallyRefusedAttempts": 25,
+            "allTaskMissRate": 0.5666666666666667,
+            "schedulerWallMillis": 0,
+            "refusals": 0,
+            "uncertaintyCalls": 0,
+            "scheduleCalls": 0,
+            "allTaskSuccessRate": 0.43333333333333335,
+            "successes": 13,
+            "misses": 17,
+            "meanLogicalCost": 0.11400000000000007,
+            "initiallyRefusedSuccesses": 9,
+            "extraActions": 0,
+            "tasks": 30
+          },
+          "fixed": {
+            "meanUtility": -0.9146666666666666,
+            "extraObservations": 90,
+            "initiallyRefusedAttempts": 25,
+            "allTaskMissRate": 0.5666666666666667,
+            "schedulerWallMillis": 0,
+            "refusals": 0,
+            "uncertaintyCalls": 0,
+            "scheduleCalls": 0,
+            "allTaskSuccessRate": 0.43333333333333335,
+            "successes": 13,
+            "misses": 17,
+            "meanLogicalCost": 0.21466666666666676,
+            "initiallyRefusedSuccesses": 9,
+            "extraActions": 1,
+            "tasks": 30
+          },
+          "uncertain": {
+            "meanUtility": -0.8253333333333333,
+            "extraObservations": 90,
+            "initiallyRefusedAttempts": 25,
+            "allTaskMissRate": 0.5333333333333333,
+            "schedulerWallMillis": 33.08050000000001,
+            "refusals": 0,
+            "uncertaintyCalls": 30,
+            "scheduleCalls": 30,
+            "allTaskSuccessRate": 0.4666666666666667,
+            "successes": 14,
+            "misses": 16,
+            "meanLogicalCost": 0.22533333333333336,
+            "initiallyRefusedSuccesses": 10,
+            "extraActions": 2,
+            "tasks": 30
+          }
+        }
+      },
+      "accelerating": {
+        "coverage": {
+          "oldRangeCoverage": 0.7333333333333333,
+          "meanTerminalWidthM": 0.010789594284917492,
+          "terminalCovered": 7,
+          "cells": {
+            "accelerating-measured": {
+              "terminalCovered": 4,
+              "count": 21,
+              "jointCovered": 4
+            },
+            "slowing-measured": {
+              "terminalCovered": 0,
+              "count": 0,
+              "jointCovered": 0
+            },
+            "slowing-predicted": {
+              "terminalCovered": 0,
+              "count": 0,
+              "jointCovered": 0
+            },
+            "accelerating-predicted": {
+              "terminalCovered": 3,
+              "count": 9,
+              "jointCovered": 3
+            }
+          },
+          "truth": "Separate paired blind trajectory; no later observation or correction",
+          "count": 30,
+          "jointCoverage": 0.23333333333333334,
+          "terminalCoverage": 0.23333333333333334,
+          "maxTerminalWidthM": 0.02597122666402618,
+          "jointCovered": 7
+        },
+        "pairedUncertainMinus": {
+          "adaptive": {
+            "wins": 0,
+            "ties": 0,
+            "meanDelta": -0.024999999999999977,
+            "losses": 30
+          },
+          "blind": {
+            "wins": 5,
+            "ties": 0,
+            "meanDelta": 0.39000000000000035,
+            "losses": 25
+          },
+          "fixed": {
+            "wins": 1,
+            "ties": 0,
+            "meanDelta": -0.10599999999999993,
+            "losses": 29
+          }
+        },
+        "methods": {
+          "adaptive": {
+            "meanUtility": -0.18633333333333332,
+            "extraObservations": 69,
+            "initiallyRefusedAttempts": 21,
+            "allTaskMissRate": 0.3333333333333333,
+            "schedulerWallMillis": 10.785399999999997,
+            "refusals": 0,
+            "uncertaintyCalls": 0,
+            "scheduleCalls": 30,
+            "allTaskSuccessRate": 0.6666666666666666,
+            "successes": 20,
+            "misses": 10,
+            "meanLogicalCost": 0.18633333333333338,
+            "initiallyRefusedSuccesses": 12,
+            "extraActions": 5,
+            "tasks": 30
+          },
+          "blind": {
+            "meanUtility": -0.6013333333333335,
+            "extraObservations": 0,
+            "initiallyRefusedAttempts": 21,
+            "allTaskMissRate": 0.5,
+            "schedulerWallMillis": 0,
+            "refusals": 0,
+            "uncertaintyCalls": 0,
+            "scheduleCalls": 0,
+            "allTaskSuccessRate": 0.5,
+            "successes": 15,
+            "misses": 15,
+            "meanLogicalCost": 0.1013333333333334,
+            "initiallyRefusedSuccesses": 7,
+            "extraActions": 0,
+            "tasks": 30
+          },
+          "fixed": {
+            "meanUtility": -0.10533333333333336,
+            "extraObservations": 90,
+            "initiallyRefusedAttempts": 21,
+            "allTaskMissRate": 0.3,
+            "schedulerWallMillis": 0,
+            "refusals": 0,
+            "uncertaintyCalls": 0,
+            "scheduleCalls": 0,
+            "allTaskSuccessRate": 0.7,
+            "successes": 21,
+            "misses": 9,
+            "meanLogicalCost": 0.2053333333333334,
+            "initiallyRefusedSuccesses": 12,
+            "extraActions": 6,
+            "tasks": 30
+          },
+          "uncertain": {
+            "meanUtility": -0.2113333333333333,
+            "extraObservations": 87,
+            "initiallyRefusedAttempts": 21,
+            "allTaskMissRate": 0.3333333333333333,
+            "schedulerWallMillis": 35.1334,
+            "refusals": 0,
+            "uncertaintyCalls": 30,
+            "scheduleCalls": 30,
+            "allTaskSuccessRate": 0.6666666666666666,
+            "successes": 20,
+            "misses": 10,
+            "meanLogicalCost": 0.21133333333333335,
+            "initiallyRefusedSuccesses": 12,
+            "extraActions": 5,
+            "tasks": 30
+          }
+        }
+      },
+      "after-last": {
+        "coverage": {
+          "oldRangeCoverage": 1,
+          "meanTerminalWidthM": 0.03487933228526103,
+          "terminalCovered": 7,
+          "cells": {
+            "accelerating-measured": {
+              "terminalCovered": 0,
+              "count": 4,
+              "jointCovered": 0
+            },
+            "slowing-measured": {
+              "terminalCovered": 5,
+              "count": 5,
+              "jointCovered": 5
+            },
+            "slowing-predicted": {
+              "terminalCovered": 1,
+              "count": 1,
+              "jointCovered": 1
+            },
+            "accelerating-predicted": {
+              "terminalCovered": 1,
+              "count": 2,
+              "jointCovered": 1
+            }
+          },
+          "truth": "Separate paired blind trajectory; no later observation or correction",
+          "count": 12,
+          "jointCoverage": 0.5833333333333334,
+          "terminalCoverage": 0.5833333333333334,
+          "maxTerminalWidthM": 0.1316595235475289,
+          "jointCovered": 7
+        },
+        "pairedUncertainMinus": {
+          "adaptive": {
+            "wins": 0,
+            "ties": 0,
+            "meanDelta": -0.02999999999999998,
+            "losses": 12
+          },
+          "blind": {
+            "wins": 0,
+            "ties": 0,
+            "meanDelta": -0.10166666666666661,
+            "losses": 12
+          },
+          "fixed": {
+            "wins": 1,
+            "ties": 0,
+            "meanDelta": -0.0016666666666666035,
+            "losses": 11
+          }
+        },
+        "methods": {
+          "adaptive": {
+            "meanUtility": -0.17833333333333332,
+            "extraObservations": 24,
+            "initiallyRefusedAttempts": 9,
+            "allTaskMissRate": 0.3333333333333333,
+            "schedulerWallMillis": 4.2604999999999995,
+            "refusals": 0,
+            "uncertaintyCalls": 0,
+            "scheduleCalls": 12,
+            "allTaskSuccessRate": 0.6666666666666666,
+            "successes": 8,
+            "misses": 4,
+            "meanLogicalCost": 0.17833333333333337,
+            "initiallyRefusedSuccesses": 5,
+            "extraActions": 0,
+            "tasks": 12
+          },
+          "blind": {
+            "meanUtility": -0.10666666666666665,
+            "extraObservations": 0,
+            "initiallyRefusedAttempts": 9,
+            "allTaskMissRate": 0.3333333333333333,
+            "schedulerWallMillis": 0,
+            "refusals": 0,
+            "uncertaintyCalls": 0,
+            "scheduleCalls": 0,
+            "allTaskSuccessRate": 0.6666666666666666,
+            "successes": 8,
+            "misses": 4,
+            "meanLogicalCost": 0.10666666666666669,
+            "initiallyRefusedSuccesses": 5,
+            "extraActions": 0,
+            "tasks": 12
+          },
+          "fixed": {
+            "meanUtility": -0.2066666666666667,
+            "extraObservations": 36,
+            "initiallyRefusedAttempts": 9,
+            "allTaskMissRate": 0.3333333333333333,
+            "schedulerWallMillis": 0,
+            "refusals": 0,
+            "uncertaintyCalls": 0,
+            "scheduleCalls": 0,
+            "allTaskSuccessRate": 0.6666666666666666,
+            "successes": 8,
+            "misses": 4,
+            "meanLogicalCost": 0.2066666666666667,
+            "initiallyRefusedSuccesses": 5,
+            "extraActions": 0,
+            "tasks": 12
+          },
+          "uncertain": {
+            "meanUtility": -0.2083333333333333,
+            "extraObservations": 33,
+            "initiallyRefusedAttempts": 9,
+            "allTaskMissRate": 0.3333333333333333,
+            "schedulerWallMillis": 14.6523,
+            "refusals": 0,
+            "uncertaintyCalls": 12,
+            "scheduleCalls": 12,
+            "allTaskSuccessRate": 0.6666666666666666,
+            "successes": 8,
+            "misses": 4,
+            "meanLogicalCost": 0.20833333333333334,
+            "initiallyRefusedSuccesses": 5,
+            "extraActions": 0,
+            "tasks": 12
+          }
+        }
+      },
+      "predicted": {
+        "coverage": {
+          "oldRangeCoverage": 0.9285714285714286,
+          "meanTerminalWidthM": 0.06371704697956285,
+          "terminalCovered": 8,
+          "cells": {
+            "accelerating-measured": {
+              "terminalCovered": 0,
+              "count": 0,
+              "jointCovered": 0
+            },
+            "slowing-measured": {
+              "terminalCovered": 0,
+              "count": 0,
+              "jointCovered": 0
+            },
+            "slowing-predicted": {
+              "terminalCovered": 5,
+              "count": 5,
+              "jointCovered": 5
+            },
+            "accelerating-predicted": {
+              "terminalCovered": 3,
+              "count": 9,
+              "jointCovered": 3
+            }
+          },
+          "truth": "Separate paired blind trajectory; no later observation or correction",
+          "count": 14,
+          "jointCoverage": 0.5714285714285714,
+          "terminalCoverage": 0.5714285714285714,
+          "maxTerminalWidthM": 0.1316595235475289,
+          "jointCovered": 8
+        },
+        "pairedUncertainMinus": {
+          "adaptive": {
+            "wins": 0,
+            "ties": 0,
+            "meanDelta": -0.04785714285714284,
+            "losses": 14
+          },
+          "blind": {
+            "wins": 0,
+            "ties": 0,
+            "meanDelta": -0.10999999999999995,
+            "losses": 14
+          },
+          "fixed": {
+            "wins": 0,
+            "ties": 0,
+            "meanDelta": -0.22285714285714273,
+            "losses": 14
+          }
+        },
+        "methods": {
+          "adaptive": {
+            "meanUtility": 0.48928571428571416,
+            "extraObservations": 24,
+            "initiallyRefusedAttempts": 0,
+            "allTaskMissRate": 0.14285714285714285,
+            "schedulerWallMillis": 3.8076999999999996,
+            "refusals": 0,
+            "uncertaintyCalls": 0,
+            "scheduleCalls": 14,
+            "allTaskSuccessRate": 0.8571428571428571,
+            "successes": 12,
+            "misses": 2,
+            "meanLogicalCost": 0.08214285714285716,
+            "initiallyRefusedSuccesses": 0,
+            "extraActions": 0,
+            "tasks": 14
+          },
+          "blind": {
+            "meanUtility": 0.5514285714285717,
+            "extraObservations": 0,
+            "initiallyRefusedAttempts": 0,
+            "allTaskMissRate": 0.14285714285714285,
+            "schedulerWallMillis": 0,
+            "refusals": 0,
+            "uncertaintyCalls": 0,
+            "scheduleCalls": 0,
+            "allTaskSuccessRate": 0.8571428571428571,
+            "successes": 12,
+            "misses": 2,
+            "meanLogicalCost": 0.019999999999999997,
+            "initiallyRefusedSuccesses": 0,
+            "extraActions": 0,
+            "tasks": 14
+          },
+          "fixed": {
+            "meanUtility": 0.6642857142857145,
+            "extraObservations": 42,
+            "initiallyRefusedAttempts": 0,
+            "allTaskMissRate": 0.07142857142857142,
+            "schedulerWallMillis": 0,
+            "refusals": 0,
+            "uncertaintyCalls": 0,
+            "scheduleCalls": 0,
+            "allTaskSuccessRate": 0.9285714285714286,
+            "successes": 13,
+            "misses": 1,
+            "meanLogicalCost": 0.12142857142857147,
+            "initiallyRefusedSuccesses": 0,
+            "extraActions": 1,
+            "tasks": 14
+          },
+          "uncertain": {
+            "meanUtility": 0.44142857142857145,
+            "extraObservations": 42,
+            "initiallyRefusedAttempts": 0,
+            "allTaskMissRate": 0.14285714285714285,
+            "schedulerWallMillis": 14.497199999999998,
+            "refusals": 0,
+            "uncertaintyCalls": 14,
+            "scheduleCalls": 14,
+            "allTaskSuccessRate": 0.8571428571428571,
+            "successes": 12,
+            "misses": 2,
+            "meanLogicalCost": 0.12999999999999995,
+            "initiallyRefusedSuccesses": 0,
+            "extraActions": 0,
+            "tasks": 14
+          }
+        }
+      },
+      "push": {
+        "coverage": {
+          "oldRangeCoverage": 0.8333333333333334,
+          "meanTerminalWidthM": 0.027537993471549036,
+          "terminalCovered": 4,
+          "cells": {
+            "accelerating-measured": {
+              "terminalCovered": 0,
+              "count": 4,
+              "jointCovered": 0
+            },
+            "slowing-measured": {
+              "terminalCovered": 4,
+              "count": 6,
+              "jointCovered": 4
+            },
+            "slowing-predicted": {
+              "terminalCovered": 0,
+              "count": 0,
+              "jointCovered": 0
+            },
+            "accelerating-predicted": {
+              "terminalCovered": 0,
+              "count": 2,
+              "jointCovered": 0
+            }
+          },
+          "truth": "Separate paired blind trajectory; no later observation or correction",
+          "count": 12,
+          "jointCoverage": 0.3333333333333333,
+          "terminalCoverage": 0.3333333333333333,
+          "maxTerminalWidthM": 0.04356345778298493,
+          "jointCovered": 4
+        },
+        "pairedUncertainMinus": {
+          "adaptive": {
+            "wins": 0,
+            "ties": 0,
+            "meanDelta": -0.02166666666666664,
+            "losses": 12
+          },
+          "blind": {
+            "wins": 3,
+            "ties": 0,
+            "meanDelta": 0.6333333333333333,
+            "losses": 9
+          },
+          "fixed": {
+            "wins": 1,
+            "ties": 0,
+            "meanDelta": 0.23833333333333342,
+            "losses": 11
+          }
+        },
+        "methods": {
+          "adaptive": {
+            "meanUtility": -0.21166666666666667,
+            "extraObservations": 30,
+            "initiallyRefusedAttempts": 10,
+            "allTaskMissRate": 0.3333333333333333,
+            "schedulerWallMillis": 4.670999999999999,
+            "refusals": 0,
+            "uncertaintyCalls": 0,
+            "scheduleCalls": 12,
+            "allTaskSuccessRate": 0.6666666666666666,
+            "successes": 8,
+            "misses": 4,
+            "meanLogicalCost": 0.2116666666666667,
+            "initiallyRefusedSuccesses": 6,
+            "extraActions": 4,
+            "tasks": 12
+          },
+          "blind": {
+            "meanUtility": -0.8666666666666668,
+            "extraObservations": 0,
+            "initiallyRefusedAttempts": 10,
+            "allTaskMissRate": 0.5833333333333334,
+            "schedulerWallMillis": 0,
+            "refusals": 0,
+            "uncertaintyCalls": 0,
+            "scheduleCalls": 0,
+            "allTaskSuccessRate": 0.4166666666666667,
+            "successes": 5,
+            "misses": 7,
+            "meanLogicalCost": 0.1166666666666667,
+            "initiallyRefusedSuccesses": 3,
+            "extraActions": 0,
+            "tasks": 12
+          },
+          "fixed": {
+            "meanUtility": -0.4716666666666667,
+            "extraObservations": 36,
+            "initiallyRefusedAttempts": 10,
+            "allTaskMissRate": 0.4166666666666667,
+            "schedulerWallMillis": 0,
+            "refusals": 0,
+            "uncertaintyCalls": 0,
+            "scheduleCalls": 0,
+            "allTaskSuccessRate": 0.5833333333333334,
+            "successes": 7,
+            "misses": 5,
+            "meanLogicalCost": 0.22166666666666668,
+            "initiallyRefusedSuccesses": 5,
+            "extraActions": 3,
+            "tasks": 12
+          },
+          "uncertain": {
+            "meanUtility": -0.23333333333333328,
+            "extraObservations": 36,
+            "initiallyRefusedAttempts": 10,
+            "allTaskMissRate": 0.3333333333333333,
+            "schedulerWallMillis": 12.889400000000002,
+            "refusals": 0,
+            "uncertaintyCalls": 12,
+            "scheduleCalls": 12,
+            "allTaskSuccessRate": 0.6666666666666666,
+            "successes": 8,
+            "misses": 4,
+            "meanLogicalCost": 0.23333333333333336,
+            "initiallyRefusedSuccesses": 6,
+            "extraActions": 4,
+            "tasks": 12
+          }
+        }
+      }
+    },
+    "methods": {
+      "adaptive": {
+        "meanUtility": -0.48166666666666674,
+        "allTaskMissRate": 0.43333333333333335,
+        "conditionalSuccessRate": 0.5666666666666667,
+        "refusals": 0,
+        "initialRefusals": 46,
+        "meanTargetErrorM": 0.04036570154829044,
+        "absoluteImpulseNs": 17.163597789147076,
+        "scheduleCalls": 60,
+        "successes": 34,
+        "screens": 0,
+        "misses": 26,
+        "observations": 258,
+        "meanLogicalCost": 0.18166666666666662,
+        "extraActions": 7,
+        "tasks": 60,
+        "nativeTicks": 10800,
+        "lookups": 0,
+        "extraObservations": 120,
+        "initiallyRefusedAttempts": 46,
+        "externalEvents": 60,
+        "schedulerWallMillis": 22.156200000000005,
+        "nativeWallMillis": 195620.3630999999,
+        "replans": 86,
+        "executionRate": 1,
+        "uncertaintyCalls": 0,
+        "allTaskSuccessRate": 0.5666666666666667,
+        "executions": 60,
+        "recoveryRate": 0.4782608695652174,
+        "initiallyRefusedSuccesses": 22,
+        "actions": 100
+      },
+      "blind": {
+        "meanUtility": -0.7076666666666669,
+        "allTaskMissRate": 0.5333333333333333,
+        "conditionalSuccessRate": 0.4666666666666667,
+        "refusals": 0,
+        "initialRefusals": 46,
+        "meanTargetErrorM": 0.04345629726975659,
+        "absoluteImpulseNs": 16.374174090714305,
+        "scheduleCalls": 0,
+        "successes": 28,
+        "screens": 0,
+        "misses": 32,
+        "observations": 138,
+        "meanLogicalCost": 0.10766666666666663,
+        "extraActions": 0,
+        "tasks": 60,
+        "nativeTicks": 10800,
+        "lookups": 0,
+        "extraObservations": 0,
+        "initiallyRefusedAttempts": 46,
+        "externalEvents": 60,
+        "schedulerWallMillis": 0,
+        "nativeWallMillis": 55185.253099999994,
+        "replans": 46,
+        "executionRate": 1,
+        "uncertaintyCalls": 0,
+        "allTaskSuccessRate": 0.4666666666666667,
+        "executions": 60,
+        "recoveryRate": 0.34782608695652173,
+        "initiallyRefusedSuccesses": 16,
+        "actions": 93
+      },
+      "fixed": {
+        "meanUtility": -0.51,
+        "allTaskMissRate": 0.43333333333333335,
+        "conditionalSuccessRate": 0.5666666666666667,
+        "refusals": 0,
+        "initialRefusals": 46,
+        "meanTargetErrorM": 0.040040220544476784,
+        "absoluteImpulseNs": 17.15317271756256,
+        "scheduleCalls": 0,
+        "successes": 34,
+        "screens": 0,
+        "misses": 26,
+        "observations": 318,
+        "meanLogicalCost": 0.21000000000000008,
+        "extraActions": 7,
+        "tasks": 60,
+        "nativeTicks": 10800,
+        "lookups": 0,
+        "extraObservations": 180,
+        "initiallyRefusedAttempts": 46,
+        "externalEvents": 60,
+        "schedulerWallMillis": 0,
+        "nativeWallMillis": 152505.9831,
+        "replans": 106,
+        "executionRate": 1,
+        "uncertaintyCalls": 0,
+        "allTaskSuccessRate": 0.5666666666666667,
+        "executions": 60,
+        "recoveryRate": 0.45652173913043476,
+        "initiallyRefusedSuccesses": 21,
+        "actions": 100
+      },
+      "uncertain": {
+        "meanUtility": -0.5183333333333333,
+        "allTaskMissRate": 0.43333333333333335,
+        "conditionalSuccessRate": 0.5666666666666667,
+        "refusals": 0,
+        "initialRefusals": 46,
+        "meanTargetErrorM": 0.04036570154829044,
+        "absoluteImpulseNs": 17.163597789147076,
+        "scheduleCalls": 60,
+        "successes": 34,
+        "screens": 0,
+        "misses": 26,
+        "observations": 315,
+        "meanLogicalCost": 0.21833333333333343,
+        "extraActions": 7,
+        "tasks": 60,
+        "nativeTicks": 10800,
+        "lookups": 0,
+        "extraObservations": 177,
+        "initiallyRefusedAttempts": 46,
+        "externalEvents": 60,
+        "schedulerWallMillis": 68.2139,
+        "nativeWallMillis": 220697.50750000004,
+        "replans": 105,
+        "executionRate": 1,
+        "uncertaintyCalls": 60,
+        "allTaskSuccessRate": 0.5666666666666667,
+        "executions": 60,
+        "recoveryRate": 0.4782608695652174,
+        "initiallyRefusedSuccesses": 22,
+        "actions": 100
+      }
+    }
+  },
+  "unsupported": {
+    "coverage": {
+      "oldRangeCoverage": null,
+      "meanTerminalWidthM": null,
+      "terminalCovered": 0,
+      "cells": {
+        "accelerating-measured": {
+          "terminalCovered": 0,
+          "count": 0,
+          "jointCovered": 0
+        },
+        "slowing-measured": {
+          "terminalCovered": 0,
+          "count": 0,
+          "jointCovered": 0
+        },
+        "slowing-predicted": {
+          "terminalCovered": 0,
+          "count": 0,
+          "jointCovered": 0
+        },
+        "accelerating-predicted": {
+          "terminalCovered": 0,
+          "count": 0,
+          "jointCovered": 0
+        }
+      },
+      "truth": "Separate paired blind trajectory; no later observation or correction",
+      "count": 0,
+      "jointCoverage": null,
+      "terminalCoverage": null,
+      "maxTerminalWidthM": 0,
+      "jointCovered": 0
+    },
+    "phase": "unsupported",
+    "qualified": false,
+    "pairedUncertainMinus": {
+      "adaptive": {
+        "wins": 0,
+        "ties": 12,
+        "meanDelta": 0,
+        "losses": 0
+      },
+      "blind": {
+        "wins": 0,
+        "ties": 12,
+        "meanDelta": 0,
+        "losses": 0
+      },
+      "fixed": {
+        "wins": 0,
+        "ties": 12,
+        "meanDelta": 0,
+        "losses": 0
+      }
+    },
+    "diagnostics": {
+      "retainedSkips": 0,
+      "prefixMaximumDelta": 0,
+      "forcedLooks": 0,
+      "choices": {
+        "92": 0,
+        "116": 0,
+        "140": 0,
+        "skip": 0
+      },
+      "goalsHarmed": 0,
+      "goalsSaved": 0
+    },
+    "subgroups": {
+      "slowing": {
+        "coverage": {
+          "oldRangeCoverage": null,
+          "meanTerminalWidthM": null,
+          "terminalCovered": 0,
+          "cells": {
+            "accelerating-measured": {
+              "terminalCovered": 0,
+              "count": 0,
+              "jointCovered": 0
+            },
+            "slowing-measured": {
+              "terminalCovered": 0,
+              "count": 0,
+              "jointCovered": 0
+            },
+            "slowing-predicted": {
+              "terminalCovered": 0,
+              "count": 0,
+              "jointCovered": 0
+            },
+            "accelerating-predicted": {
+              "terminalCovered": 0,
+              "count": 0,
+              "jointCovered": 0
+            }
+          },
+          "truth": "Separate paired blind trajectory; no later observation or correction",
+          "count": 0,
+          "jointCoverage": null,
+          "terminalCoverage": null,
+          "maxTerminalWidthM": 0,
+          "jointCovered": 0
+        },
+        "pairedUncertainMinus": {
+          "adaptive": {
+            "wins": 0,
+            "ties": 4,
+            "meanDelta": 0,
+            "losses": 0
+          },
+          "blind": {
+            "wins": 0,
+            "ties": 4,
+            "meanDelta": 0,
+            "losses": 0
+          },
+          "fixed": {
+            "wins": 0,
+            "ties": 4,
+            "meanDelta": 0,
+            "losses": 0
+          }
+        },
+        "methods": {
+          "adaptive": {
+            "meanUtility": -0.15,
+            "extraObservations": 0,
+            "initiallyRefusedAttempts": 0,
+            "allTaskMissRate": 0,
+            "schedulerWallMillis": 0,
+            "refusals": 4,
+            "uncertaintyCalls": 0,
+            "scheduleCalls": 0,
+            "allTaskSuccessRate": 0,
+            "successes": 0,
+            "misses": 0,
+            "meanLogicalCost": 0.15,
+            "initiallyRefusedSuccesses": 0,
+            "extraActions": 0,
+            "tasks": 4
+          },
+          "blind": {
+            "meanUtility": -0.15,
+            "extraObservations": 0,
+            "initiallyRefusedAttempts": 0,
+            "allTaskMissRate": 0,
+            "schedulerWallMillis": 0,
+            "refusals": 4,
+            "uncertaintyCalls": 0,
+            "scheduleCalls": 0,
+            "allTaskSuccessRate": 0,
+            "successes": 0,
+            "misses": 0,
+            "meanLogicalCost": 0.15,
+            "initiallyRefusedSuccesses": 0,
+            "extraActions": 0,
+            "tasks": 4
+          },
+          "fixed": {
+            "meanUtility": -0.15,
+            "extraObservations": 0,
+            "initiallyRefusedAttempts": 0,
+            "allTaskMissRate": 0,
+            "schedulerWallMillis": 0,
+            "refusals": 4,
+            "uncertaintyCalls": 0,
+            "scheduleCalls": 0,
+            "allTaskSuccessRate": 0,
+            "successes": 0,
+            "misses": 0,
+            "meanLogicalCost": 0.15,
+            "initiallyRefusedSuccesses": 0,
+            "extraActions": 0,
+            "tasks": 4
+          },
+          "uncertain": {
+            "meanUtility": -0.15,
+            "extraObservations": 0,
+            "initiallyRefusedAttempts": 0,
+            "allTaskMissRate": 0,
+            "schedulerWallMillis": 0,
+            "refusals": 4,
+            "uncertaintyCalls": 0,
+            "scheduleCalls": 0,
+            "allTaskSuccessRate": 0,
+            "successes": 0,
+            "misses": 0,
+            "meanLogicalCost": 0.15,
+            "initiallyRefusedSuccesses": 0,
+            "extraActions": 0,
+            "tasks": 4
+          }
+        }
+      },
+      "accelerating": {
+        "coverage": {
+          "oldRangeCoverage": null,
+          "meanTerminalWidthM": null,
+          "terminalCovered": 0,
+          "cells": {
+            "accelerating-measured": {
+              "terminalCovered": 0,
+              "count": 0,
+              "jointCovered": 0
+            },
+            "slowing-measured": {
+              "terminalCovered": 0,
+              "count": 0,
+              "jointCovered": 0
+            },
+            "slowing-predicted": {
+              "terminalCovered": 0,
+              "count": 0,
+              "jointCovered": 0
+            },
+            "accelerating-predicted": {
+              "terminalCovered": 0,
+              "count": 0,
+              "jointCovered": 0
+            }
+          },
+          "truth": "Separate paired blind trajectory; no later observation or correction",
+          "count": 0,
+          "jointCoverage": null,
+          "terminalCoverage": null,
+          "maxTerminalWidthM": 0,
+          "jointCovered": 0
+        },
+        "pairedUncertainMinus": {
+          "adaptive": {
+            "wins": 0,
+            "ties": 4,
+            "meanDelta": 0,
+            "losses": 0
+          },
+          "blind": {
+            "wins": 0,
+            "ties": 4,
+            "meanDelta": 0,
+            "losses": 0
+          },
+          "fixed": {
+            "wins": 0,
+            "ties": 4,
+            "meanDelta": 0,
+            "losses": 0
+          }
+        },
+        "methods": {
+          "adaptive": {
+            "meanUtility": -0.15,
+            "extraObservations": 0,
+            "initiallyRefusedAttempts": 0,
+            "allTaskMissRate": 0,
+            "schedulerWallMillis": 0,
+            "refusals": 4,
+            "uncertaintyCalls": 0,
+            "scheduleCalls": 0,
+            "allTaskSuccessRate": 0,
+            "successes": 0,
+            "misses": 0,
+            "meanLogicalCost": 0.15,
+            "initiallyRefusedSuccesses": 0,
+            "extraActions": 0,
+            "tasks": 4
+          },
+          "blind": {
+            "meanUtility": -0.15,
+            "extraObservations": 0,
+            "initiallyRefusedAttempts": 0,
+            "allTaskMissRate": 0,
+            "schedulerWallMillis": 0,
+            "refusals": 4,
+            "uncertaintyCalls": 0,
+            "scheduleCalls": 0,
+            "allTaskSuccessRate": 0,
+            "successes": 0,
+            "misses": 0,
+            "meanLogicalCost": 0.15,
+            "initiallyRefusedSuccesses": 0,
+            "extraActions": 0,
+            "tasks": 4
+          },
+          "fixed": {
+            "meanUtility": -0.15,
+            "extraObservations": 0,
+            "initiallyRefusedAttempts": 0,
+            "allTaskMissRate": 0,
+            "schedulerWallMillis": 0,
+            "refusals": 4,
+            "uncertaintyCalls": 0,
+            "scheduleCalls": 0,
+            "allTaskSuccessRate": 0,
+            "successes": 0,
+            "misses": 0,
+            "meanLogicalCost": 0.15,
+            "initiallyRefusedSuccesses": 0,
+            "extraActions": 0,
+            "tasks": 4
+          },
+          "uncertain": {
+            "meanUtility": -0.15,
+            "extraObservations": 0,
+            "initiallyRefusedAttempts": 0,
+            "allTaskMissRate": 0,
+            "schedulerWallMillis": 0,
+            "refusals": 4,
+            "uncertaintyCalls": 0,
+            "scheduleCalls": 0,
+            "allTaskSuccessRate": 0,
+            "successes": 0,
+            "misses": 0,
+            "meanLogicalCost": 0.15,
+            "initiallyRefusedSuccesses": 0,
+            "extraActions": 0,
+            "tasks": 4
+          }
+        }
+      },
+      "predicted": {
+        "coverage": {
+          "oldRangeCoverage": null,
+          "meanTerminalWidthM": null,
+          "terminalCovered": 0,
+          "cells": {
+            "accelerating-measured": {
+              "terminalCovered": 0,
+              "count": 0,
+              "jointCovered": 0
+            },
+            "slowing-measured": {
+              "terminalCovered": 0,
+              "count": 0,
+              "jointCovered": 0
+            },
+            "slowing-predicted": {
+              "terminalCovered": 0,
+              "count": 0,
+              "jointCovered": 0
+            },
+            "accelerating-predicted": {
+              "terminalCovered": 0,
+              "count": 0,
+              "jointCovered": 0
+            }
+          },
+          "truth": "Separate paired blind trajectory; no later observation or correction",
+          "count": 0,
+          "jointCoverage": null,
+          "terminalCoverage": null,
+          "maxTerminalWidthM": 0,
+          "jointCovered": 0
+        },
+        "pairedUncertainMinus": {
+          "adaptive": {
+            "wins": 0,
+            "ties": 12,
+            "meanDelta": 0,
+            "losses": 0
+          },
+          "blind": {
+            "wins": 0,
+            "ties": 12,
+            "meanDelta": 0,
+            "losses": 0
+          },
+          "fixed": {
+            "wins": 0,
+            "ties": 12,
+            "meanDelta": 0,
+            "losses": 0
+          }
+        },
+        "methods": {
+          "adaptive": {
+            "meanUtility": -0.14999999999999997,
+            "extraObservations": 0,
+            "initiallyRefusedAttempts": 0,
+            "allTaskMissRate": 0,
+            "schedulerWallMillis": 0,
+            "refusals": 12,
+            "uncertaintyCalls": 0,
+            "scheduleCalls": 0,
+            "allTaskSuccessRate": 0,
+            "successes": 0,
+            "misses": 0,
+            "meanLogicalCost": 0.14999999999999997,
+            "initiallyRefusedSuccesses": 0,
+            "extraActions": 0,
+            "tasks": 12
+          },
+          "blind": {
+            "meanUtility": -0.14999999999999997,
+            "extraObservations": 0,
+            "initiallyRefusedAttempts": 0,
+            "allTaskMissRate": 0,
+            "schedulerWallMillis": 0,
+            "refusals": 12,
+            "uncertaintyCalls": 0,
+            "scheduleCalls": 0,
+            "allTaskSuccessRate": 0,
+            "successes": 0,
+            "misses": 0,
+            "meanLogicalCost": 0.14999999999999997,
+            "initiallyRefusedSuccesses": 0,
+            "extraActions": 0,
+            "tasks": 12
+          },
+          "fixed": {
+            "meanUtility": -0.14999999999999997,
+            "extraObservations": 0,
+            "initiallyRefusedAttempts": 0,
+            "allTaskMissRate": 0,
+            "schedulerWallMillis": 0,
+            "refusals": 12,
+            "uncertaintyCalls": 0,
+            "scheduleCalls": 0,
+            "allTaskSuccessRate": 0,
+            "successes": 0,
+            "misses": 0,
+            "meanLogicalCost": 0.14999999999999997,
+            "initiallyRefusedSuccesses": 0,
+            "extraActions": 0,
+            "tasks": 12
+          },
+          "uncertain": {
+            "meanUtility": -0.14999999999999997,
+            "extraObservations": 0,
+            "initiallyRefusedAttempts": 0,
+            "allTaskMissRate": 0,
+            "schedulerWallMillis": 0,
+            "refusals": 12,
+            "uncertaintyCalls": 0,
+            "scheduleCalls": 0,
+            "allTaskSuccessRate": 0,
+            "successes": 0,
+            "misses": 0,
+            "meanLogicalCost": 0.14999999999999997,
+            "initiallyRefusedSuccesses": 0,
+            "extraActions": 0,
+            "tasks": 12
+          }
+        }
+      }
+    },
+    "methods": {
+      "adaptive": {
+        "meanUtility": -0.14999999999999997,
+        "allTaskMissRate": 0,
+        "conditionalSuccessRate": null,
+        "refusals": 12,
+        "initialRefusals": 0,
+        "meanTargetErrorM": null,
+        "absoluteImpulseNs": 0,
+        "scheduleCalls": 0,
+        "successes": 0,
+        "screens": 0,
+        "misses": 0,
+        "observations": 0,
+        "meanLogicalCost": 0.14999999999999997,
+        "extraActions": 0,
+        "tasks": 12,
+        "nativeTicks": 0,
+        "lookups": 0,
+        "extraObservations": 0,
+        "initiallyRefusedAttempts": 0,
+        "externalEvents": 0,
+        "schedulerWallMillis": 0,
+        "nativeWallMillis": 0,
+        "replans": 0,
+        "executionRate": 0,
+        "uncertaintyCalls": 0,
+        "allTaskSuccessRate": 0,
+        "executions": 0,
+        "recoveryRate": null,
+        "initiallyRefusedSuccesses": 0,
+        "actions": 0
+      },
+      "blind": {
+        "meanUtility": -0.14999999999999997,
+        "allTaskMissRate": 0,
+        "conditionalSuccessRate": null,
+        "refusals": 12,
+        "initialRefusals": 0,
+        "meanTargetErrorM": null,
+        "absoluteImpulseNs": 0,
+        "scheduleCalls": 0,
+        "successes": 0,
+        "screens": 0,
+        "misses": 0,
+        "observations": 0,
+        "meanLogicalCost": 0.14999999999999997,
+        "extraActions": 0,
+        "tasks": 12,
+        "nativeTicks": 0,
+        "lookups": 0,
+        "extraObservations": 0,
+        "initiallyRefusedAttempts": 0,
+        "externalEvents": 0,
+        "schedulerWallMillis": 0,
+        "nativeWallMillis": 0,
+        "replans": 0,
+        "executionRate": 0,
+        "uncertaintyCalls": 0,
+        "allTaskSuccessRate": 0,
+        "executions": 0,
+        "recoveryRate": null,
+        "initiallyRefusedSuccesses": 0,
+        "actions": 0
+      },
+      "fixed": {
+        "meanUtility": -0.14999999999999997,
+        "allTaskMissRate": 0,
+        "conditionalSuccessRate": null,
+        "refusals": 12,
+        "initialRefusals": 0,
+        "meanTargetErrorM": null,
+        "absoluteImpulseNs": 0,
+        "scheduleCalls": 0,
+        "successes": 0,
+        "screens": 0,
+        "misses": 0,
+        "observations": 0,
+        "meanLogicalCost": 0.14999999999999997,
+        "extraActions": 0,
+        "tasks": 12,
+        "nativeTicks": 0,
+        "lookups": 0,
+        "extraObservations": 0,
+        "initiallyRefusedAttempts": 0,
+        "externalEvents": 0,
+        "schedulerWallMillis": 0,
+        "nativeWallMillis": 0,
+        "replans": 0,
+        "executionRate": 0,
+        "uncertaintyCalls": 0,
+        "allTaskSuccessRate": 0,
+        "executions": 0,
+        "recoveryRate": null,
+        "initiallyRefusedSuccesses": 0,
+        "actions": 0
+      },
+      "uncertain": {
+        "meanUtility": -0.14999999999999997,
+        "allTaskMissRate": 0,
+        "conditionalSuccessRate": null,
+        "refusals": 12,
+        "initialRefusals": 0,
+        "meanTargetErrorM": null,
+        "absoluteImpulseNs": 0,
+        "scheduleCalls": 0,
+        "successes": 0,
+        "screens": 0,
+        "misses": 0,
+        "observations": 0,
+        "meanLogicalCost": 0.14999999999999997,
+        "extraActions": 0,
+        "tasks": 12,
+        "nativeTicks": 0,
+        "lookups": 0,
+        "extraObservations": 0,
+        "initiallyRefusedAttempts": 0,
+        "externalEvents": 0,
+        "schedulerWallMillis": 0,
+        "nativeWallMillis": 0,
+        "replans": 0,
+        "executionRate": 0,
+        "uncertaintyCalls": 0,
+        "allTaskSuccessRate": 0,
+        "executions": 0,
+        "recoveryRate": null,
+        "initiallyRefusedSuccesses": 0,
+        "actions": 0
+      }
+    }
+  },
+  "combinedQualified": false,
+  "studyWallSeconds": {
+    "native": 1222.105806,
+    "actualApp": 1492.462608
+  },
+  "initialCheckpointFailure": {
+    "retained": "original/first-checkpoint-failure",
+    "reason": "Windows atomic replacement AccessDenied; sharing-denying monitoring reader is a possible cause, not established.",
+    "repair": "Bounded interruptible retry of the same forced bytes with writer lock held; no non-atomic fallback. Read-only monitor now allows shared delete. Frozen rules/cases/gates unchanged."
+  },
+  "limitations": [
+    "Known native rigid-body ramp only; not physical webcam calibration or adaptive camera capture",
+    "Six fit and nine calibration examples per cell; 90% is nominal, not guaranteed coverage after distribution shift",
+    "Four-point joint residual envelope; not a continuous-time physical confidence region",
+    "Hypothetical disturbance weights remain assumptions, not learned probabilities",
+    "Training cost reported separately; does not disappear into held-out utility",
+    "Diagnostic capture still retains every one of 46 samples",
+    "No new model-weight training or automatic controller promotion",
+    "Fixed order and finite reserved tasks; app repetition tests reproducibility, not additional independent goals",
+    "Targeted regression scope, not a new full-history heavyweight run"
+  ],
+  "factoryRuntimeHarnesses": [
+    "FactoryRuntimeTest",
+    "WorldTransactionTest"
+  ],
+  "forecastErrorByPhaseAndCell": {
+    "clean": {
+      "all": {
+        "tasks": 48,
+        "points": 192,
+        "allFourTimes": {
+          "nominalM": {
+            "meanAbsoluteErrorM": 0.0018577731740017833,
+            "maxAbsoluteErrorM": 0.02670631972150067
+          },
+          "centerM": {
+            "meanAbsoluteErrorM": 0.001954903144076452,
+            "maxAbsoluteErrorM": 0.013748494543828732
+          }
+        },
+        "terminal": {
+          "nominalM": {
+            "meanAbsoluteErrorM": 0.0026378940352331146,
+            "maxAbsoluteErrorM": 0.02670631972150067
+          },
+          "centerM": {
+            "meanAbsoluteErrorM": 0.0025228119452124676,
+            "maxAbsoluteErrorM": 0.013748494543828732
+          }
+        }
+      },
+      "cells": {
+        "accelerating-measured": {
+          "tasks": 21,
+          "points": 84,
+          "allFourTimes": {
+            "nominalM": {
+              "meanAbsoluteErrorM": 0.000588931873259365,
+              "maxAbsoluteErrorM": 0.005865899319636464
+            },
+            "centerM": {
+              "meanAbsoluteErrorM": 0.0005460903010811932,
+              "maxAbsoluteErrorM": 0.0061155326563053225
+            }
+          },
+          "terminal": {
+            "nominalM": {
+              "meanAbsoluteErrorM": 0.0012215367933903292,
+              "maxAbsoluteErrorM": 0.005865899319636464
+            },
+            "centerM": {
+              "meanAbsoluteErrorM": 0.0011751469436176879,
+              "maxAbsoluteErrorM": 0.0061155326563053225
+            }
+          }
+        },
+        "slowing-measured": {
+          "tasks": 16,
+          "points": 64,
+          "allFourTimes": {
+            "nominalM": {
+              "meanAbsoluteErrorM": 0.0008131379374462099,
+              "maxAbsoluteErrorM": 0.00695318278549345
+            },
+            "centerM": {
+              "meanAbsoluteErrorM": 0.0007128180374231551,
+              "maxAbsoluteErrorM": 0.006775995880780122
+            }
+          },
+          "terminal": {
+            "nominalM": {
+              "meanAbsoluteErrorM": 0.0010395246975274425,
+              "maxAbsoluteErrorM": 0.00695318278549345
+            },
+            "centerM": {
+              "meanAbsoluteErrorM": 0.000887943747137479,
+              "maxAbsoluteErrorM": 0.006747825060946205
+            }
+          }
+        },
+        "slowing-predicted": {
+          "tasks": 8,
+          "points": 32,
+          "allFourTimes": {
+            "nominalM": {
+              "meanAbsoluteErrorM": 0.007696518522173233,
+              "maxAbsoluteErrorM": 0.02670631972150067
+            },
+            "centerM": {
+              "meanAbsoluteErrorM": 0.008764893688838324,
+              "maxAbsoluteErrorM": 0.013748494543828732
+            }
+          },
+          "terminal": {
+            "nominalM": {
+              "meanAbsoluteErrorM": 0.010256609135738927,
+              "maxAbsoluteErrorM": 0.02670631972150067
+            },
+            "centerM": {
+              "meanAbsoluteErrorM": 0.010186481389149913,
+              "maxAbsoluteErrorM": 0.013748494543828732
+            }
+          }
+        },
+        "accelerating-predicted": {
+          "tasks": 3,
+          "points": 12,
+          "allFourTimes": {
+            "nominalM": {
+              "meanAbsoluteErrorM": 0.0007410626123712365,
+              "maxAbsoluteErrorM": 0.0010133538347461557
+            },
+            "centerM": {
+              "meanAbsoluteErrorM": 0.0002810721611625234,
+              "maxAbsoluteErrorM": 0.000538263718277851
+            }
+          },
+          "terminal": {
+            "nominalM": {
+              "meanAbsoluteErrorM": 0.0007604575945473665,
+              "maxAbsoluteErrorM": 0.0008681866538198246
+            },
+            "centerM": {
+              "meanAbsoluteErrorM": 0.00023931216227600824,
+              "maxAbsoluteErrorM": 0.00034704122154843864
+            }
+          }
+        }
+      }
+    },
+    "disturbed": {
+      "all": {
+        "tasks": 60,
+        "points": 240,
+        "allFourTimes": {
+          "nominalM": {
+            "meanAbsoluteErrorM": 0.00839697834867158,
+            "maxAbsoluteErrorM": 0.062312106443526194
+          },
+          "centerM": {
+            "meanAbsoluteErrorM": 0.00884843237730213,
+            "maxAbsoluteErrorM": 0.06251746416807344
+          }
+        },
+        "terminal": {
+          "nominalM": {
+            "meanAbsoluteErrorM": 0.019208308555357725,
+            "maxAbsoluteErrorM": 0.062312106443526194
+          },
+          "centerM": {
+            "meanAbsoluteErrorM": 0.01982045487839267,
+            "maxAbsoluteErrorM": 0.06251746416807344
+          }
+        }
+      },
+      "cells": {
+        "accelerating-measured": {
+          "tasks": 21,
+          "points": 84,
+          "allFourTimes": {
+            "nominalM": {
+              "meanAbsoluteErrorM": 0.011122243803167783,
+              "maxAbsoluteErrorM": 0.05225439636314472
+            },
+            "centerM": {
+              "meanAbsoluteErrorM": 0.011061653798748973,
+              "maxAbsoluteErrorM": 0.05200476302647583
+            }
+          },
+          "terminal": {
+            "nominalM": {
+              "meanAbsoluteErrorM": 0.02478938981767769,
+              "maxAbsoluteErrorM": 0.05225439636314472
+            },
+            "centerM": {
+              "meanAbsoluteErrorM": 0.024673943086366706,
+              "maxAbsoluteErrorM": 0.05200476302647583
+            }
+          }
+        },
+        "slowing-measured": {
+          "tasks": 25,
+          "points": 100,
+          "allFourTimes": {
+            "nominalM": {
+              "meanAbsoluteErrorM": 0.0061566979108978424,
+              "maxAbsoluteErrorM": 0.062312106443526194
+            },
+            "centerM": {
+              "meanAbsoluteErrorM": 0.006143341838104272,
+              "maxAbsoluteErrorM": 0.06251746416807344
+            }
+          },
+          "terminal": {
+            "nominalM": {
+              "meanAbsoluteErrorM": 0.015082146778643987,
+              "maxAbsoluteErrorM": 0.062312106443526194
+            },
+            "centerM": {
+              "meanAbsoluteErrorM": 0.015113362696865749,
+              "maxAbsoluteErrorM": 0.06251746416807344
+            }
+          }
+        },
+        "slowing-predicted": {
+          "tasks": 5,
+          "points": 20,
+          "allFourTimes": {
+            "nominalM": {
+              "meanAbsoluteErrorM": 0.00760141939018648,
+              "maxAbsoluteErrorM": 0.034658346891328684
+            },
+            "centerM": {
+              "meanAbsoluteErrorM": 0.013980724735202793,
+              "maxAbsoluteErrorM": 0.04761617206900062
+            }
+          },
+          "terminal": {
+            "nominalM": {
+              "meanAbsoluteErrorM": 0.01461931998700097,
+              "maxAbsoluteErrorM": 0.034658346891328684
+            },
+            "centerM": {
+              "meanAbsoluteErrorM": 0.023023476148997517,
+              "maxAbsoluteErrorM": 0.04761617206900062
+            }
+          }
+        },
+        "accelerating-predicted": {
+          "tasks": 9,
+          "points": 36,
+          "allFourTimes": {
+            "nominalM": {
+              "meanAbsoluteErrorM": 0.008703004036710319,
+              "maxAbsoluteErrorM": 0.04867966583396849
+            },
+            "centerM": {
+              "meanAbsoluteErrorM": 0.008347115915086524,
+              "maxAbsoluteErrorM": 0.04815852040169716
+            }
+          },
+          "terminal": {
+            "nominalM": {
+              "meanAbsoluteErrorM": 0.0201967841943475,
+              "maxAbsoluteErrorM": 0.04867966583396849
+            },
+            "centerM": {
+              "meanAbsoluteErrorM": 0.019791448858136454,
+              "maxAbsoluteErrorM": 0.04815852040169716
+            }
+          }
+        }
+      }
+    },
+    "unsupported": {
+      "all": {
+        "tasks": 0,
+        "points": 0,
+        "allFourTimes": {
+          "nominalM": {
+            "meanAbsoluteErrorM": null,
+            "maxAbsoluteErrorM": null
+          },
+          "centerM": {
+            "meanAbsoluteErrorM": null,
+            "maxAbsoluteErrorM": null
+          }
+        },
+        "terminal": {
+          "nominalM": {
+            "meanAbsoluteErrorM": null,
+            "maxAbsoluteErrorM": null
+          },
+          "centerM": {
+            "meanAbsoluteErrorM": null,
+            "maxAbsoluteErrorM": null
+          }
+        }
+      },
+      "cells": {
+        "accelerating-measured": {
+          "tasks": 0,
+          "points": 0,
+          "allFourTimes": {
+            "nominalM": {
+              "meanAbsoluteErrorM": null,
+              "maxAbsoluteErrorM": null
+            },
+            "centerM": {
+              "meanAbsoluteErrorM": null,
+              "maxAbsoluteErrorM": null
+            }
+          },
+          "terminal": {
+            "nominalM": {
+              "meanAbsoluteErrorM": null,
+              "maxAbsoluteErrorM": null
+            },
+            "centerM": {
+              "meanAbsoluteErrorM": null,
+              "maxAbsoluteErrorM": null
+            }
+          }
+        },
+        "slowing-measured": {
+          "tasks": 0,
+          "points": 0,
+          "allFourTimes": {
+            "nominalM": {
+              "meanAbsoluteErrorM": null,
+              "maxAbsoluteErrorM": null
+            },
+            "centerM": {
+              "meanAbsoluteErrorM": null,
+              "maxAbsoluteErrorM": null
+            }
+          },
+          "terminal": {
+            "nominalM": {
+              "meanAbsoluteErrorM": null,
+              "maxAbsoluteErrorM": null
+            },
+            "centerM": {
+              "meanAbsoluteErrorM": null,
+              "maxAbsoluteErrorM": null
+            }
+          }
+        },
+        "slowing-predicted": {
+          "tasks": 0,
+          "points": 0,
+          "allFourTimes": {
+            "nominalM": {
+              "meanAbsoluteErrorM": null,
+              "maxAbsoluteErrorM": null
+            },
+            "centerM": {
+              "meanAbsoluteErrorM": null,
+              "maxAbsoluteErrorM": null
+            }
+          },
+          "terminal": {
+            "nominalM": {
+              "meanAbsoluteErrorM": null,
+              "maxAbsoluteErrorM": null
+            },
+            "centerM": {
+              "meanAbsoluteErrorM": null,
+              "maxAbsoluteErrorM": null
+            }
+          }
+        },
+        "accelerating-predicted": {
+          "tasks": 0,
+          "points": 0,
+          "allFourTimes": {
+            "nominalM": {
+              "meanAbsoluteErrorM": null,
+              "maxAbsoluteErrorM": null
+            },
+            "centerM": {
+              "meanAbsoluteErrorM": null,
+              "maxAbsoluteErrorM": null
+            }
+          },
+          "terminal": {
+            "nominalM": {
+              "meanAbsoluteErrorM": null,
+              "maxAbsoluteErrorM": null
+            },
+            "centerM": {
+              "meanAbsoluteErrorM": null,
+              "maxAbsoluteErrorM": null
+            }
+          }
+        }
+      }
+    }
+  },
+  "forcedLookReasons": {
+    "clean": {
+      "count": 19,
+      "reasons": {
+        "Target behind current state": 4,
+        "Current prediction already fits": 10,
+        "Remaining correction budget cannot reach goal": 4,
+        "Later contact or motion guard refused correction": 1
+      },
+      "corrections": 0,
+      "tasks": [
+        1,
+        3,
+        4,
+        6,
+        9,
+        12,
+        19,
+        26,
+        27,
+        29,
+        30,
+        35,
+        38,
+        39,
+        40,
+        42,
+        45,
+        47,
+        48
+      ]
+    },
+    "disturbed": {
+      "count": 19,
+      "reasons": {
+        "Target behind current state": 4,
+        "Current prediction already fits": 7,
+        "Later contact or motion guard refused correction": 2,
+        "Remaining correction budget cannot reach goal": 6
+      },
+      "corrections": 0,
+      "tasks": [
+        4,
+        9,
+        22,
+        26,
+        27,
+        30,
+        31,
+        32,
+        33,
+        36,
+        41,
+        42,
+        44,
+        45,
+        48,
+        49,
+        51,
+        54,
+        55
+      ]
+    }
+  },
+  "interfaceFollowup": {
+    "commit": "a3eaa9c",
+    "retained": "original/ui-attempts",
+    "failure": "Repeated selection requests queued duplicate full trace audits; stale task text let the initial test reach a still-disabled frame slider. Calibration cells also needed wrapping.",
+    "correction": "Coalesce identical in-flight reads, clear stale trace controls, identify the verified job/phase/index, wait for that identity, and wrap the calibration table. Completed physics, calibration and outcome records reused unchanged."
+  }
+}

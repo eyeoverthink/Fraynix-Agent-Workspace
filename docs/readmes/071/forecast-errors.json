@@ -1,0 +1,374 @@
+{
+  "clean": {
+    "all": {
+      "tasks": 48,
+      "points": 192,
+      "allFourTimes": {
+        "nominalM": {
+          "meanAbsoluteErrorM": 0.0018577731740017833,
+          "maxAbsoluteErrorM": 0.02670631972150067
+        },
+        "centerM": {
+          "meanAbsoluteErrorM": 0.001954903144076452,
+          "maxAbsoluteErrorM": 0.013748494543828732
+        }
+      },
+      "terminal": {
+        "nominalM": {
+          "meanAbsoluteErrorM": 0.0026378940352331146,
+          "maxAbsoluteErrorM": 0.02670631972150067
+        },
+        "centerM": {
+          "meanAbsoluteErrorM": 0.0025228119452124676,
+          "maxAbsoluteErrorM": 0.013748494543828732
+        }
+      }
+    },
+    "cells": {
+      "accelerating-measured": {
+        "tasks": 21,
+        "points": 84,
+        "allFourTimes": {
+          "nominalM": {
+            "meanAbsoluteErrorM": 0.000588931873259365,
+            "maxAbsoluteErrorM": 0.005865899319636464
+          },
+          "centerM": {
+            "meanAbsoluteErrorM": 0.0005460903010811932,
+            "maxAbsoluteErrorM": 0.0061155326563053225
+          }
+        },
+        "terminal": {
+          "nominalM": {
+            "meanAbsoluteErrorM": 0.0012215367933903292,
+            "maxAbsoluteErrorM": 0.005865899319636464
+          },
+          "centerM": {
+            "meanAbsoluteErrorM": 0.0011751469436176879,
+            "maxAbsoluteErrorM": 0.0061155326563053225
+          }
+        }
+      },
+      "slowing-measured": {
+        "tasks": 16,
+        "points": 64,
+        "allFourTimes": {
+          "nominalM": {
+            "meanAbsoluteErrorM": 0.0008131379374462099,
+            "maxAbsoluteErrorM": 0.00695318278549345
+          },
+          "centerM": {
+            "meanAbsoluteErrorM": 0.0007128180374231551,
+            "maxAbsoluteErrorM": 0.006775995880780122
+          }
+        },
+        "terminal": {
+          "nominalM": {
+            "meanAbsoluteErrorM": 0.0010395246975274425,
+            "maxAbsoluteErrorM": 0.00695318278549345
+          },
+          "centerM": {
+            "meanAbsoluteErrorM": 0.000887943747137479,
+            "maxAbsoluteErrorM": 0.006747825060946205
+          }
+        }
+      },
+      "slowing-predicted": {
+        "tasks": 8,
+        "points": 32,
+        "allFourTimes": {
+          "nominalM": {
+            "meanAbsoluteErrorM": 0.007696518522173233,
+            "maxAbsoluteErrorM": 0.02670631972150067
+          },
+          "centerM": {
+            "meanAbsoluteErrorM": 0.008764893688838324,
+            "maxAbsoluteErrorM": 0.013748494543828732
+          }
+        },
+        "terminal": {
+          "nominalM": {
+            "meanAbsoluteErrorM": 0.010256609135738927,
+            "maxAbsoluteErrorM": 0.02670631972150067
+          },
+          "centerM": {
+            "meanAbsoluteErrorM": 0.010186481389149913,
+            "maxAbsoluteErrorM": 0.013748494543828732
+          }
+        }
+      },
+      "accelerating-predicted": {
+        "tasks": 3,
+        "points": 12,
+        "allFourTimes": {
+          "nominalM": {
+            "meanAbsoluteErrorM": 0.0007410626123712365,
+            "maxAbsoluteErrorM": 0.0010133538347461557
+          },
+          "centerM": {
+            "meanAbsoluteErrorM": 0.0002810721611625234,
+            "maxAbsoluteErrorM": 0.000538263718277851
+          }
+        },
+        "terminal": {
+          "nominalM": {
+            "meanAbsoluteErrorM": 0.0007604575945473665,
+            "maxAbsoluteErrorM": 0.0008681866538198246
+          },
+          "centerM": {
+            "meanAbsoluteErrorM": 0.00023931216227600824,
+            "maxAbsoluteErrorM": 0.00034704122154843864
+          }
+        }
+      }
+    }
+  },
+  "disturbed": {
+    "all": {
+      "tasks": 60,
+      "points": 240,
+      "allFourTimes": {
+        "nominalM": {
+          "meanAbsoluteErrorM": 0.00839697834867158,
+          "maxAbsoluteErrorM": 0.062312106443526194
+        },
+        "centerM": {
+          "meanAbsoluteErrorM": 0.00884843237730213,
+          "maxAbsoluteErrorM": 0.06251746416807344
+        }
+      },
+      "terminal": {
+        "nominalM": {
+          "meanAbsoluteErrorM": 0.019208308555357725,
+          "maxAbsoluteErrorM": 0.062312106443526194
+        },
+        "centerM": {
+          "meanAbsoluteErrorM": 0.01982045487839267,
+          "maxAbsoluteErrorM": 0.06251746416807344
+        }
+      }
+    },
+    "cells": {
+      "accelerating-measured": {
+        "tasks": 21,
+        "points": 84,
+        "allFourTimes": {
+          "nominalM": {
+            "meanAbsoluteErrorM": 0.011122243803167783,
+            "maxAbsoluteErrorM": 0.05225439636314472
+          },
+          "centerM": {
+            "meanAbsoluteErrorM": 0.011061653798748973,
+            "maxAbsoluteErrorM": 0.05200476302647583
+          }
+        },
+        "terminal": {
+          "nominalM": {
+            "meanAbsoluteErrorM": 0.02478938981767769,
+            "maxAbsoluteErrorM": 0.05225439636314472
+          },
+          "centerM": {
+            "meanAbsoluteErrorM": 0.024673943086366706,
+            "maxAbsoluteErrorM": 0.05200476302647583
+          }
+        }
+      },
+      "slowing-measured": {
+        "tasks": 25,
+        "points": 100,
+        "allFourTimes": {
+          "nominalM": {
+            "meanAbsoluteErrorM": 0.0061566979108978424,
+            "maxAbsoluteErrorM": 0.062312106443526194
+          },
+          "centerM": {
+            "meanAbsoluteErrorM": 0.006143341838104272,
+            "maxAbsoluteErrorM": 0.06251746416807344
+          }
+        },
+        "terminal": {
+          "nominalM": {
+            "meanAbsoluteErrorM": 0.015082146778643987,
+            "maxAbsoluteErrorM": 0.062312106443526194
+          },
+          "centerM": {
+            "meanAbsoluteErrorM": 0.015113362696865749,
+            "maxAbsoluteErrorM": 0.06251746416807344
+          }
+        }
+      },
+      "slowing-predicted": {
+        "tasks": 5,
+        "points": 20,
+        "allFourTimes": {
+          "nominalM": {
+            "meanAbsoluteErrorM": 0.00760141939018648,
+            "maxAbsoluteErrorM": 0.034658346891328684
+          },
+          "centerM": {
+            "meanAbsoluteErrorM": 0.013980724735202793,
+            "maxAbsoluteErrorM": 0.04761617206900062
+          }
+        },
+        "terminal": {
+          "nominalM": {
+            "meanAbsoluteErrorM": 0.01461931998700097,
+            "maxAbsoluteErrorM": 0.034658346891328684
+          },
+          "centerM": {
+            "meanAbsoluteErrorM": 0.023023476148997517,
+            "maxAbsoluteErrorM": 0.04761617206900062
+          }
+        }
+      },
+      "accelerating-predicted": {
+        "tasks": 9,
+        "points": 36,
+        "allFourTimes": {
+          "nominalM": {
+            "meanAbsoluteErrorM": 0.008703004036710319,
+            "maxAbsoluteErrorM": 0.04867966583396849
+          },
+          "centerM": {
+            "meanAbsoluteErrorM": 0.008347115915086524,
+            "maxAbsoluteErrorM": 0.04815852040169716
+          }
+        },
+        "terminal": {
+          "nominalM": {
+            "meanAbsoluteErrorM": 0.0201967841943475,
+            "maxAbsoluteErrorM": 0.04867966583396849
+          },
+          "centerM": {
+            "meanAbsoluteErrorM": 0.019791448858136454,
+            "maxAbsoluteErrorM": 0.04815852040169716
+          }
+        }
+      }
+    }
+  },
+  "unsupported": {
+    "all": {
+      "tasks": 0,
+      "points": 0,
+      "allFourTimes": {
+        "nominalM": {
+          "meanAbsoluteErrorM": null,
+          "maxAbsoluteErrorM": null
+        },
+        "centerM": {
+          "meanAbsoluteErrorM": null,
+          "maxAbsoluteErrorM": null
+        }
+      },
+      "terminal": {
+        "nominalM": {
+          "meanAbsoluteErrorM": null,
+          "maxAbsoluteErrorM": null
+        },
+        "centerM": {
+          "meanAbsoluteErrorM": null,
+          "maxAbsoluteErrorM": null
+        }
+      }
+    },
+    "cells": {
+      "accelerating-measured": {
+        "tasks": 0,
+        "points": 0,
+        "allFourTimes": {
+          "nominalM": {
+            "meanAbsoluteErrorM": null,
+            "maxAbsoluteErrorM": null
+          },
+          "centerM": {
+            "meanAbsoluteErrorM": null,
+            "maxAbsoluteErrorM": null
+          }
+        },
+        "terminal": {
+          "nominalM": {
+            "meanAbsoluteErrorM": null,
+            "maxAbsoluteErrorM": null
+          },
+          "centerM": {
+            "meanAbsoluteErrorM": null,
+            "maxAbsoluteErrorM": null
+          }
+        }
+      },
+      "slowing-measured": {
+        "tasks": 0,
+        "points": 0,
+        "allFourTimes": {
+          "nominalM": {
+            "meanAbsoluteErrorM": null,
+            "maxAbsoluteErrorM": null
+          },
+          "centerM": {
+            "meanAbsoluteErrorM": null,
+            "maxAbsoluteErrorM": null
+          }
+        },
+        "terminal": {
+          "nominalM": {
+            "meanAbsoluteErrorM": null,
+            "maxAbsoluteErrorM": null
+          },
+          "centerM": {
+            "meanAbsoluteErrorM": null,
+            "maxAbsoluteErrorM": null
+          }
+        }
+      },
+      "slowing-predicted": {
+        "tasks": 0,
+        "points": 0,
+        "allFourTimes": {
+          "nominalM": {
+            "meanAbsoluteErrorM": null,
+            "maxAbsoluteErrorM": null
+          },
+          "centerM": {
+            "meanAbsoluteErrorM": null,
+            "maxAbsoluteErrorM": null
+          }
+        },
+        "terminal": {
+          "nominalM": {
+            "meanAbsoluteErrorM": null,
+            "maxAbsoluteErrorM": null
+          },
+          "centerM": {
+            "meanAbsoluteErrorM": null,
+            "maxAbsoluteErrorM": null
+          }
+        }
+      },
+      "accelerating-predicted": {
+        "tasks": 0,
+        "points": 0,
+        "allFourTimes": {
+          "nominalM": {
+            "meanAbsoluteErrorM": null,
+            "maxAbsoluteErrorM": null
+          },
+          "centerM": {
+            "meanAbsoluteErrorM": null,
+            "maxAbsoluteErrorM": null
+          }
+        },
+        "terminal": {
+          "nominalM": {
+            "meanAbsoluteErrorM": null,
+            "maxAbsoluteErrorM": null
+          },
+          "centerM": {
+            "meanAbsoluteErrorM": null,
+            "maxAbsoluteErrorM": null
+          }
+        }
+      }
+    }
+  }
+}

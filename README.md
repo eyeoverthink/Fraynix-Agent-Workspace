@@ -2,11 +2,11 @@
 
 **A local visual environment for agents to browse, create runnable artifacts, test behavior and reuse verified skills.**
 
-> **[Edition070 · Choose when to look](README-070.md)** · [Offline guide](docs/readmes/070/index.html) · [Operation](docs/JAVA_CHAT_044.md) · [Edition history](docs/readmes/INDEX.md)
+> **[Edition071 · When skipping a look is risky](README-071.md)** · [Offline guide](docs/readmes/071/index.html) · [Operation](docs/JAVA_CHAT_044.md) · [Edition history](docs/readmes/INDEX.md)
 
-Edition070 adds Java-owned adaptive observation timing: compare an earlier or later check with skipping it, preserving the first action and correction budgets. Clean successes 36→35/48; extra observations 144→78. Disturbed successes 33→32/60; extra observations 180→96. Primary combined qualification: False; screened secondary: False. All sensing and scheduling costs count; no automatic controller promotion. [Full evidence](docs/readmes/070/verification.json).
+Edition071 fits and separately calibrates source-bound Java prediction errors, then uses the frozen range to guard skipped observations. Clean adaptive→uncertain successes 39→39/48; extra readings 75→132. Disturbed successes 34→34/60; extra readings 120→177. Joint coverage clean 91.7%, disturbed 50.0%. Combined qualification: False. Training and inference costs remain visible; no automatic controller promotion. [Full evidence](docs/readmes/071/verification.json).
 
-Edition070 is published to main with full source, 17 actual app captures, exact original evidence and updated continuity notes. [Fetched GitHub verification](docs/PUBLICATION_070.json).
+Edition071 implementation, screenshots and original evidence are prepared for publication. [Previous fetched publication](docs/PUBLICATION_070.json).
 
 
 One integrated app, with Java-owned chat planning, creation, native skill scheduling, continuing identity, real clocks and checked outcomes. Mission connects the actual goal, source, child task, recovery and retained result. [Screenshots, typed skill graphs, new logic and production direction](README-046.md).
