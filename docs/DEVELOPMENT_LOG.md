@@ -1,5 +1,16 @@
 # Agent Workspace development log
 
+## Edition073 · Published and fetched back on 2026-11-05
+
+Atomic push to Fraynix-Agent-Workspace main, edition073 and readme-073 succeeded. Release d649ea965b3a68ee985523dc4d33a3b27ca643ce; annotated tag 84f4af076af83e304adc4a3666f160872ab750c2. Fresh GitHub fetch verified 1054 canonical sources, 6258 frozen hashes across 73 editions and 53 original archives, including decompressed bytes. Documentation passed 78 canvases/7426 references. [Publication receipt](PUBLICATION_073.json).
+
+78 targeted JUnit checks/11 classes;127 desktop checks; five separate runtime/transaction/journal/skills/kernel harnesses. Four actual app component variants plus final automatic retrieval, running-rebuild interruption, cold restart and explicit recovery. Review/stale refusal/Stop/source-world preservation/report/export checked. Independent arithmetic passes five originals and rejects six altered exports. No new LLM inference, physical-accuracy or memory-speedup claim. At-rest originals only.
+
+Rehearsal073 now retrieves and reconstructs a verified episode before one-component variation. Original native/controller identity, three alternatives, verification gates and report assertions remain. Verified fresh action advances a separate persistent variant and retains a linked child; the original source world stays unchanged. All four acceptance variants and fifth recovery case have full reconstruction coverage and zero maximum position residual; failed half-force alternatives remain. Final stopped reconstruction leaves revision zero and no child. Replay is read-only and carries native source/ticks/geometry.
+
+README073, actual app/offline screenshots, interactive guide, full inventory, original failure/pass evidence, Obsidian81/canvas and memories/logs published. Test app closed; normal045/qa046/private data and services preserved. No subagents or overlapping heavy validators. This receipt follows the immutable release tag. Next074 proposal: matched-budget retrieval/no-retrieval usefulness on unseen scenes, then broader restore contracts and typed skill-graph episode reuse. No speedup or policy promotion until held-out outcome/cost evidence supports it.
+
+
 ## Edition073 · Validated locally; publication next
 
 Source 37f16d80e6065df49c3415be959a2bf86d6b6391; prospective contract4a1168d and implementationc89b021 precede outcomes. Java-owned immutable experiment memory, exact owned-goal/report/commit checks, transparent compatible retrieval, at-rest reconstruction, one friction or dynamic-mass substitution, three preserved alternatives, fresh actual execution, original13 canvas assertions, world revision and linked child. New variant world preserves the original source. Integrated read-only pose/quaternion replay and exact JSON exports. No new dependencies or changed physics/controller identity.

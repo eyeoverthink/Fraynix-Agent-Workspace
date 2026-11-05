@@ -6,7 +6,7 @@
 
 Retrieve a verified experiment, reconstruct its original at-rest state, change friction or payload, compare three bounded alternatives, verify fresh motion and retain a linked child. Java owns the full workflow; the integrated replay shows original, rebuilt, predicted and actual samples. Four acceptance variants and a fifth interruption/recovery case passed. The original source world remains unchanged. [Full evidence](docs/readmes/073/verification.json).
 
-Edition073 implementation, screenshots and original evidence are prepared for publication. [Previous fetched publication](docs/PUBLICATION_072.json).
+Edition073 is published to main with full source, 14 actual app captures, 4 offline-guide captures, exact original evidence and updated continuity notes. [Fetched GitHub verification](docs/PUBLICATION_073.json).
 
 One integrated app, with Java-owned chat planning, creation, native skill scheduling, continuing identity, real clocks and checked outcomes. Mission connects the actual goal, source, child task, recovery and retained result. [Screenshots, typed skill graphs, new logic and production direction](README-046.md).
 
