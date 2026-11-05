@@ -57,6 +57,7 @@ public class Rehearsal073Test {
         r=WorldFrames.copy(original);r.getJSONObject("definition").getJSONObject("worldFrame").put("elapsedTicks",12);JSONObject moving=r;assertThrows(RuntimeException.class,()->Rehearsal073.rest(moving));
         var folder=Files.createTempDirectory("memory073-unowned-");try(var artifacts=new WorkspaceStore(folder);var scenes=new SceneStore(folder);var brain=new BrainService(folder);var goals=new GoalRunner(folder,scenes,brain,artifacts)){
             assertThrows(RuntimeException.class,()->goals.remember073(goal.getString("id")));
+            try(var memory=new Rehearsal073(folder)){String forged=memory.remember(goal,original).getString("id");assertThrows(RuntimeException.class,()->goals.readExperiment073(forged));assertFalse(goals.experiments073().getJSONObject(0).getBoolean("eligible"));}
             assertThrows(IllegalArgumentException.class,()->goals.startRehearsal073(new JSONObject().put("sourceId","a").put("property","friction").put("value",.2)));
         }
     }
