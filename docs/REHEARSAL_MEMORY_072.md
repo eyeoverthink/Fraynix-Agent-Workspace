@@ -49,6 +49,9 @@ flowchart LR
     V --> M[Versioned experimental memory]
     M --> R
     V --> P[Eligible procedure candidate]
+    V -->|Unexplained failure| I[Inspect source or bytecode]
+    I --> H[Testable code-level hypothesis]
+    H --> D
 ```
 
 ## What Akashic supplies
