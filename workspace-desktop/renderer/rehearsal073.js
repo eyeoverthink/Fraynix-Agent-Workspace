@@ -1,6 +1,6 @@
 const $=id=>document.getElementById(id);
 const option=(value,text)=>{const o=document.createElement('option');o.value=value;o.textContent=text;return o;};
-function corners(position,size,q){const out=[],cross=(a,b)=>[a[1]*b[2]-a[2]*b[1],a[2]*b[0]-a[0]*b[2],a[0]*b[1]-a[1]*b[0]],u=q.slice(0,3);for(let i=0;i<8;i++){const v=size.map((s,k)=>(i&(1<<k)?.5:-.5)*s),t=cross(u,v).map(n=>2*n),w=cross(u,t);out.push(v.map((n,k)=>n+q[3]*t[k]+w[k]+position[k]));}return out;}
+function corners(position,size,q){const out=[],cross=(a,b)=>[a[1]*b[2]-a[2]*b[1],a[2]*b[0]-a[0]*b[2],a[0]*b[1]-a[1]*b[0]],u=q.slice(0,3);for(let i=0;i<8;i++){const v=size.map((s,k)=>((i & (1 << k)) ? 0.5 : -0.5)*s),t=cross(u,v).map(n=>2*n),w=cross(u,t);out.push(v.map((n,k)=>n+q[3]*t[k]+w[k]+position[k]));}return out;}
 async function unpackRun(envelope){
  if(envelope.format!=='fraynix.native-world-run-gzip-v1'||envelope.rawBytes>32000000)throw Error('Unsupported original replay envelope');
  const compressed=Uint8Array.from(atob(envelope.gzipBase64),c=>c.charCodeAt(0));
@@ -18,12 +18,12 @@ export class Rehearsal073Panel {
    <div class="persistent-toolbar"><label>Completed arrangement<select id="re073-goals"></select></label><button id="re073-remember">Remember verified experiment</button><button id="re073-refresh">Refresh memories</button></div>
    <div class="persistent-toolbar"><label>Verified memory<select id="re073-episodes"></select></label><label>Object role<select id="re073-role"></select></label><label>Component<select id="re073-property"><option value="friction">Friction · coefficient</option><option value="massKg">Payload mass · kg</option></select></label><label>New value<input id="re073-value" type="number" step="0.1" value="0.2" min="0" max="2"></label></div>
    <p id="re073-source"></p><div class="persistent-toolbar"><label><input id="re073-review" type="checkbox"> Review alternatives before moving</label><button id="re073-start" class="primary">Rehearse through chat</button></div>
-   <p class="subtle">Starts at rest with the original controller. Friction0–2; dynamic mass within the existing planner's0.2–4kg range. Moving/contact checkpoints need a future restore contract. Stop and Resume use the existing Java goal controls.</p>
+   <p class="subtle">Starts at rest with the original controller. Friction 0–2; dynamic mass within the existing planner's 0.2–4 kg range. Moving/contact checkpoints need a future restore contract. Stop and Resume use the existing Java goal controls.</p>
    <label>Retained rehearsal<select id="re073-history"></select></label><div class="persistent-toolbar"><button id="re073-load">Load linked replay</button><button id="re073-world">Open variant world</button><button id="re073-export">Export episode &amp; original traces</button></div>
    <p id="re073-status" role="status">No experiment selected.</p><div id="re073-results"></div>
    <div id="re073-replay" hidden><div class="persistent-toolbar"><label>Recorded run<select id="re073-runs"></select></label><button id="re073-play">Play recorded motion</button><label>Frame<input id="re073-frame" type="range" min="0" max="0" value="0"></label></div>
     <p id="re073-frame-label"></p><div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px"><canvas id="re073-top" width="600" height="320" style="width:100%;background:#111827" aria-label="Recorded top X Z projection"></canvas><canvas id="re073-front" width="600" height="320" style="width:100%;background:#111827" aria-label="Recorded front X Y projection"></canvas></div>
-    <p>Solid boxes: selected original native frame. Dashed amber: selected forecast at the same tick when viewing actual execution. Metres,240physics ticks/s; recorded replay, not a new action.</p><pre id="re073-positions" style="max-height:160px;overflow:auto"></pre></div>`;
+    <p>Solid boxes: selected original native frame. Dashed amber: selected forecast at the same tick when viewing actual execution. Metres, 240 physics ticks/s; recorded replay, not a new action.</p><pre id="re073-positions" style="max-height:160px;overflow:auto"></pre></div>`;
   root.append(panel);this.root=panel;
   const action=fn=>async()=>{try{await fn();}catch(e){$('re073-status').textContent=e.message;this.notice(e.message);}};
   $('re073-refresh').onclick=action(()=>this.refresh());
