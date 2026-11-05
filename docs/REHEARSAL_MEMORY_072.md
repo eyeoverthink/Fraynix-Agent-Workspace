@@ -101,6 +101,7 @@ Extend the current Java goal runner with one concrete end-to-end rehearsal task:
 > Retrieve the closest verified block-moving experiment, fork its starting state, change the friction or payload, test a small set of actions, compare prediction with actual motion, and retain the new episode with a replayable visual witness.
 
 1. Define typed requests and results for observer, hypothesis proposer, experiment runner and verifier. They share one goal budget and source world identity. A role can be deterministic Java; separate models are optional.
+   Expose the registered experiment types, required inputs, restore guarantees, cost limits and success checks through the existing capability/context path. The planner needs an accurate account of its available methods; a prompt claiming unlimited abilities cannot supply missing handlers.
 2. Add an episode index over existing world records and branches. Store exact validity metadata and immutable parent/child lineage. Begin with deterministic metadata retrieval; compare HDC retrieval only after a baseline exists.
 3. Show the source state, changed components, predicted/actual trace and visual replay together inside the existing app. Label imagined, simulated, physically observed and verified data explicitly.
 4. Add a small owned Java class-file inspection tool for our compiled classes: headers, constant pool, method/code ranges and validated instruction boundaries. Unknown formats should be refused explicitly. Compare it with JDK tooling and known fixtures before expanding to control-flow graphs.
