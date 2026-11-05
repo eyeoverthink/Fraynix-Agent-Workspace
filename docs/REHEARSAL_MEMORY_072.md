@@ -85,6 +85,10 @@ The receipt chain preserves recorded content; it does not make the recorded clai
 
 ## Proposed next delivery
 
+Edition072 supplies a concrete motivation. Its completed native study retained612 executions: the new policy succeeded on39/48 clean and39/60 disturbed tasks, while the preserved adaptive baseline succeeded on39/48 and40/60. Joint state ranges covered46/48 clean trajectories but20/60 disturbed trajectories. The declared combined qualification failed. These are native simulator results, not physical-world calibration. The full study took about47minutes including evidence processing; it is not a real-time background-thinking benchmark.
+
+An episode library should retain those missed predictions, changed conditions and costs. Retrieval should identify relevant failures as well as successes. Bounded background rehearsal needs a scheduler with explicit time, memory and execution budgets, interruption, and priority for the user's active work. Measure whether retrieving a valid prior episode avoids unnecessary trials; do not assume that a growing memory automatically makes the system faster or more capable.
+
 Extend the current Java goal runner with one concrete end-to-end rehearsal task:
 
 > Retrieve the closest verified block-moving experiment, fork its starting state, change the friction or payload, test a small set of actions, compare prediction with actual motion, and retain the new episode with a replayable visual witness.
