@@ -1,5 +1,13 @@
 const $=id=>document.getElementById(id);
 const option=(value,text)=>{const o=document.createElement('option');o.value=value;o.textContent=text;return o;};
+async function unpackRun(envelope){
+ if(envelope.format!=='fraynix.native-world-run-gzip-v1'||envelope.rawBytes>32000000)throw Error('Unsupported original replay envelope');
+ const compressed=Uint8Array.from(atob(envelope.gzipBase64),c=>c.charCodeAt(0));
+ const bytes=new Uint8Array(await new Response(new Blob([compressed]).stream().pipeThrough(new DecompressionStream('gzip'))).arrayBuffer());
+ const sha=Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256',bytes)),n=>n.toString(16).padStart(2,'0')).join('');
+ if(bytes.length!==envelope.rawBytes||sha!==envelope.rawSha256)throw Error('Original replay bytes or hash changed');
+ return JSON.parse(new TextDecoder().decode(bytes));
+}
 /** Recorded native frames only. Drawing never writes poses back into the world. */
 export class Rehearsal073Panel {
  constructor({call,root,notice,selectWorld}){
@@ -42,7 +50,9 @@ export class Rehearsal073Panel {
  roles(){const e=this.episodes?.find(e=>e.id===$('re073-episodes').value);$('re073-role').replaceChildren(...(e?.roles||[]).map(r=>option(r.sourceId,r.sourceId+' · '+r.label)));this.component();}
  component(){const e=this.episodes?.find(e=>e.id===$('re073-episodes').value),r=e?.roles.find(r=>r.sourceId===$('re073-role').value),p=$('re073-property').value;$('re073-value').max=p==='friction'?2:20;$('re073-source').textContent=r?'Original '+p+'='+r[p]+' · parent '+e.id+' · '+e.ticks+' native ticks. '+(p==='massKg'&&r.massKg===0?'Static body: choose a dynamic role.':''):'';}
  async load(){
-  const id=$('re073-history').value;if(!id)throw Error('Run a rehearsal first');const data=await this.call('rehearsal-replay',{goalId:id});this.data=data;this.playing=false;this.runs=[{label:'Parent · verified original',run:data.parent.run},...data.rebuilds.map((r,i)=>({label:'Rebuild '+(i+1)+' · '+r.status,run:r})),...data.alternatives.originalAttempts.map(r=>({label:'Alternative · '+r.status+' · '+r.id.slice(0,8),run:r})),...(data.actual?[{label:'Actual · '+data.actual.status,run:data.actual}]:[])].filter(x=>x.run.samples?.length);
+  const id=$('re073-history').value;if(!id)throw Error('Run a rehearsal first');const data=await this.call('rehearsal-replay',{goalId:id});this.data=data;this.playing=false;
+  const alternatives=[];for(const item of data.alternatives.originalAttempts){const r=await unpackRun(item.run);alternatives.push({label:item.candidate+' · '+r.status,run:r});}
+  this.runs=[{label:'Parent · verified original',run:data.parent.run},...data.rebuilds.map((r,i)=>({label:'Rebuild '+(i+1)+' · '+r.status,run:r})),...alternatives,...(data.actual?[{label:'Actual · '+data.actual.status,run:data.actual}]:[])].filter(x=>x.run.samples?.length);
   $('re073-runs').replaceChildren(...this.runs.map((r,i)=>option(String(i),r.label)));$('re073-runs').value=String(Math.max(0,this.runs.length-1));$('re073-frame').value=0;$('re073-replay').hidden=!this.runs.length;
   const g=data.goal,m=g.rehearsal073,c=g.counterfactual045;this.forecast=this.runs.find(x=>x.run.id===c.comparison?.forecastRunId)?.run;
   $('re073-status').textContent=g.status+' · '+g.reason;
