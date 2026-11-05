@@ -1,0 +1,111 @@
+{
+  "nodes": [
+    {
+      "id": "schedule",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/ObservationSchedule070.java",
+      "x": 0,
+      "y": 0,
+      "width": 390,
+      "height": 200
+    },
+    {
+      "id": "guard",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/AdaptiveContact070.java",
+      "x": 420,
+      "y": 0,
+      "width": 390,
+      "height": 200
+    },
+    {
+      "id": "native",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/AdaptiveTrial070.java",
+      "x": 840,
+      "y": 0,
+      "width": 390,
+      "height": 200
+    },
+    {
+      "id": "study",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/AdaptiveStudy070.java",
+      "x": 0,
+      "y": 250,
+      "width": 390,
+      "height": 200
+    },
+    {
+      "id": "chat",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/AdaptiveContext070.java",
+      "x": 420,
+      "y": 250,
+      "width": 390,
+      "height": 200
+    },
+    {
+      "id": "view",
+      "type": "file",
+      "file": "workspace-desktop/renderer/adaptive070.js",
+      "x": 840,
+      "y": 250,
+      "width": 390,
+      "height": 200
+    },
+    {
+      "id": "next",
+      "type": "file",
+      "file": "docs/EDITION_070_CONTRACT.md",
+      "x": 0,
+      "y": 500,
+      "width": 390,
+      "height": 200
+    }
+  ],
+  "edges": [
+    {
+      "id": "e0",
+      "fromNode": "schedule",
+      "fromSide": "right",
+      "toNode": "guard",
+      "toSide": "left"
+    },
+    {
+      "id": "e1",
+      "fromNode": "guard",
+      "fromSide": "right",
+      "toNode": "native",
+      "toSide": "left"
+    },
+    {
+      "id": "e2",
+      "fromNode": "native",
+      "fromSide": "right",
+      "toNode": "study",
+      "toSide": "left"
+    },
+    {
+      "id": "e3",
+      "fromNode": "study",
+      "fromSide": "right",
+      "toNode": "chat",
+      "toSide": "left"
+    },
+    {
+      "id": "e4",
+      "fromNode": "chat",
+      "fromSide": "right",
+      "toNode": "view",
+      "toSide": "left"
+    },
+    {
+      "id": "e5",
+      "fromNode": "view",
+      "fromSide": "right",
+      "toNode": "next",
+      "toSide": "left"
+    }
+  ]
+}

@@ -2,11 +2,11 @@
 
 **A local visual environment for agents to browse, create runnable artifacts, test behavior and reuse verified skills.**
 
-> **[Edition 069 · A bounded later look](README-069.md)** · [Offline guide](docs/readmes/069/index.html) · [Operation](docs/JAVA_CHAT_044.md) · [Edition history](docs/readmes/INDEX.md)
+> **[Edition070 · Choose when to look](README-070.md)** · [Offline guide](docs/readmes/070/index.html) · [Operation](docs/JAVA_CHAT_044.md) · [Edition history](docs/readmes/INDEX.md)
 
-Edition 069 adds one measured later contact check and a bounded second correction in the same world. On60 unfamiliar-disturbance tasks, successes rise19→36 with no previously successful goal lost. Clean successes38→39, with a sensing-cost penalty. Both primary gates pass; no automatic controller promotion. [Full results and limitations](docs/readmes/069/verification.json).
+Edition070 adds Java-owned adaptive observation timing: compare an earlier or later check with skipping it, preserving the first action and correction budgets. Clean successes 36→35/48; extra observations 144→78. Disturbed successes 33→32/60; extra observations 180→96. Primary combined qualification: False; screened secondary: False. All sensing and scheduling costs count; no automatic controller promotion. [Full evidence](docs/readmes/070/verification.json).
 
-Edition 069 is published to main with full source, thirteen actual app captures, original evidence and updated continuity notes. [Fetched GitHub verification](docs/PUBLICATION_069.json).
+Edition070 is published to main with full source, 17 actual app captures, exact original evidence and updated continuity notes. [Fetched GitHub verification](docs/PUBLICATION_070.json).
 
 
 One integrated app, with Java-owned chat planning, creation, native skill scheduling, continuing identity, real clocks and checked outcomes. Mission connects the actual goal, source, child task, recovery and retained result. [Screenshots, typed skill graphs, new logic and production direction](README-046.md).

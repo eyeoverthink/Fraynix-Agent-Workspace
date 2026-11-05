@@ -1,5 +1,15 @@
 # Java chat and procedural ownership
 
+## Edition070: choose when to look
+
+Java Brain → Choose when to look · edition070 runs48 clean,60 disturbed and12 unsupported tasks with four paired policies and eight parity slots. First behavior is unchanged. Adaptive variants choose skip or a three-sample window ending92,116 or140; fixed variants use exact069 tick108 behavior. A saved tick60 forecast uses only paid first evidence or a prediction for directly admitted tasks. Nine hypothetical weights are assumptions, not calibrated probabilities. No actual future event is supplied to scheduling.
+
+Use saved study, dataset, task, policy and frame controls to inspect candidate values, all27 hypothetical outcomes, selected time or skip, actual contact, events, costs and endpoints. An extra check costs0.10 plus0.02 if it corrects; each adaptive execution pays0.005 for scheduling. Stop preserves completed evidence. Cold restart preserves exact traces and model identity. Chat: “Inspect the adaptive observation timing study and create the verified report. Include sensing costs, selected times, saved and harmed goals and both gates. Do not run experiments or move objects.” Actual CPU4gpt-oss20b reporting is tested.
+
+Clean successes 36→35/48; extra observations 144→78. Disturbed successes 33→32/60; extra observations 180→96. Primary combined qualification: False; screened secondary: False. The active controller is unchanged. This is native ramp scheduling, not adaptive camera capture or physical calibration. [README070](../README-070.md) · [contract](EDITION_070_CONTRACT.md) · [evidence](readmes/070/verification.json).
+
+
+
 ## Edition 069: a later look in the same world
 
 Java Brain → A later look · bounded recovery runs48 clean,60 disturbed and12 unsupported tasks with four paired policies. Tick60 behavior is unchanged. Later versions read ticks100/104/108 and may apply one second correction capped at0.12m/s and cumulative absolute correction0.24m/s. Every executed later attempt pays three observations and a replan, even when it refuses to correct. The published068 screen is reused exactly; it is not claimed calibrated for the two-stage policy.

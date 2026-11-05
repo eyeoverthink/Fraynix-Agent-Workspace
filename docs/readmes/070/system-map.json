@@ -1,0 +1,145 @@
+{
+  "edition": 70,
+  "modules": [
+    {
+      "id": "schedule",
+      "name": "Choose when another look helps",
+      "summary": "Three candidate times and skip are compared in owned Java against nine frozen assumptions; only paid first-state evidence is available.",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/ObservationSchedule070.java",
+      "status": "Verified",
+      "note": "docs/obsidian/78-adaptive-observation.md"
+    },
+    {
+      "id": "guard",
+      "name": "Contact at the selected time",
+      "summary": "Three selected samples govern geometry, velocity and rotation guards; remaining correction budget is explicit.",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/AdaptiveContact070.java",
+      "status": "Verified",
+      "note": "docs/obsidian/78-adaptive-observation.md"
+    },
+    {
+      "id": "native",
+      "name": "Continuous native world",
+      "summary": "Actual impulses retain immediate poses and velocity responses; saved schedule precedes its observation window.",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/AdaptiveTrial070.java",
+      "status": "Verified",
+      "note": "docs/obsidian/78-adaptive-observation.md"
+    },
+    {
+      "id": "study",
+      "name": "Prospective paired evaluation",
+      "summary": "Fresh seeds, amplitudes and timings; clean sensing savings and disturbed outcome costs remain separate.",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/AdaptiveStudy070.java",
+      "status": "Verified",
+      "note": "docs/obsidian/78-adaptive-observation.md"
+    },
+    {
+      "id": "chat",
+      "name": "Java-owned checked reporting",
+      "summary": "Lossless aggregate tables preserve all counts, sensing costs, schedule choices and gates; full originals stay in reports.",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/AdaptiveContext070.java",
+      "status": "Actual model",
+      "note": "docs/obsidian/78-adaptive-observation.md"
+    },
+    {
+      "id": "view",
+      "name": "Inspectable assumptions and outcomes",
+      "summary": "Compare all candidate values,27 hypothetical outcomes, chosen window or skip, and native motion in one app.",
+      "source": "workspace-desktop/renderer/adaptive070.js",
+      "status": "Actual app",
+      "note": "docs/obsidian/78-adaptive-observation.md"
+    },
+    {
+      "id": "next",
+      "name": "Better state uncertainty before scheduling",
+      "summary": "Prospectively improve the belief estimate, then test fresh unfamiliar cases without changing this evidence.",
+      "source": "docs/EDITION_070_CONTRACT.md",
+      "status": "Planned",
+      "note": "docs/obsidian/78-adaptive-observation.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "docs/readmes/070/adaptive070-overview.png",
+      "title": "Integrated adaptive observation study"
+    },
+    {
+      "path": "docs/readmes/070/adaptive070-clean.png",
+      "title": "Clean tasks and all sensing costs"
+    },
+    {
+      "path": "docs/readmes/070/adaptive070-disturbed.png",
+      "title": "Unfamiliar disturbances and paired results"
+    },
+    {
+      "path": "docs/readmes/070/adaptive070-brake.png",
+      "title": "Braking: real evidence and selected check"
+    },
+    {
+      "path": "docs/readmes/070/adaptive070-lift.png",
+      "title": "Lift: actual response and contact guard"
+    },
+    {
+      "path": "docs/readmes/070/adaptive070-push.png",
+      "title": "External push: measured response"
+    },
+    {
+      "path": "docs/readmes/070/adaptive070-spin.png",
+      "title": "Torque: measured rotation and guard"
+    },
+    {
+      "path": "docs/readmes/070/adaptive070-after-last.png",
+      "title": "An event after every candidate observation time"
+    },
+    {
+      "path": "docs/readmes/070/adaptive070-paired.png",
+      "title": "Fixed versus adaptive actual outcomes"
+    },
+    {
+      "path": "docs/readmes/070/adaptive070-decline.png",
+      "title": "Screened refusal without invented motion"
+    },
+    {
+      "path": "docs/readmes/070/adaptive070-domain.png",
+      "title": "Unsupported task remains refused"
+    },
+    {
+      "path": "docs/readmes/070/adaptive070-narrow.png",
+      "title": "Integrated Java Brain at1100pixels"
+    },
+    {
+      "path": "docs/readmes/070/adaptive070-chat.png",
+      "title": "Actual local-model checked report"
+    },
+    {
+      "path": "docs/readmes/070/adaptive070-skip.png",
+      "title": "Saved choice to skip the extra observation"
+    },
+    {
+      "path": "docs/readmes/070/adaptive070-schedule-92.png",
+      "title": "Earlier observation selected at tick92"
+    },
+    {
+      "path": "docs/readmes/070/adaptive070-schedule-116.png",
+      "title": "Intermediate observation selected at tick116"
+    },
+    {
+      "path": "docs/readmes/070/adaptive070-schedule-140.png",
+      "title": "Later observation selected at tick140"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/readmes/070/verification.json",
+      "title": "Verification"
+    },
+    {
+      "path": "docs/readmes/070/original-evidence.json",
+      "title": "Exact originals"
+    },
+    {
+      "path": "docs/readmes/070/adaptive-data.json",
+      "title": "Audited Java-projected motion and schedules"
+    }
+  ]
+}
