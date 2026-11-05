@@ -16,7 +16,7 @@ export class Adaptive070{
  }catch(e){this.notice(e.message)}finally{this.refreshing=false}}
 
  render(j){if(!j)return;const phase=$('a070-phase').value,e=j[phase+'Evaluation070'],rows=j[phase+'070'],d=$('a070-metrics');d.replaceChildren();d.dataset.qualified=String(j.accepted);
- $('a070-fit').textContent='Frozen068 model '+j.reusedModea070.sha256+'. Its probability refers to single-stage recovery. No new labels fit it; two-stage calibration is not claimed.';
+ $('a070-fit').textContent='Frozen068 model '+j.reusedModel070.sha256+'. Its probability refers to single-stage recovery. No new labels fit it; two-stage calibration is not claimed.';
  const p=document.createElement('p');p.textContent=`Primary combined gate ${j.accepted?'passed':'did not pass'} · clean ${j.cleanEvaluation070.qualified?'passed':'failed'} · disturbed ${j.disturbedEvaluation070.qualified?'passed':'failed'}. Showing ${phase}. Secondary screened gate: ${e.screenedQualified}. A selected check costs 0.10 plus 0.02 if it corrects; every adaptive execution also pays 0.005 for scheduling. Skips pay no extra observation fee. No automatic promotion.`;d.append(p);
  table(d,['Policy','Success','Miss','Refuse','Mean utility','Mean cost','Actions / observations'],methods.map(k=>{const x=e.methods[k];return[k,x.successes+'/'+x.tasks,x.misses,x.refusals,number(x.meanUtility),number(x.meanLogicalCost),x.actions+' / '+x.observations]}));
  table(d,['Paired against','Utility gain','Saved / harmed','Later actions','Unsafe windows','Unexpected motion','Prefix difference'],['fixed','fixedCalibrated'].map(k=>{const x=e.diagnostics[k];return[k,number(e.pairedAdaptiveMinus[k].meanDelta),x.goalsSaved+' / '+x.goalsHarmed,x.laterActions,x.ineligibleWindows,x.unexpectedMotion,x.prefixMaximumDelta]}));
