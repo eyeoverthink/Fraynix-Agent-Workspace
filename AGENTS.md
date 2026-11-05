@@ -1,5 +1,18 @@
 # Fraynix Studio collaboration and documentation
 
+## Edition070 · Validated locally; publication next
+
+Contract0a048d1 and implementationd4f13e8 precede all070native outcomes. Isolatedwork/fraynix-workspace-edition070, base20d723f. Four paired policies: fixed/fixedCalibrated/adaptive/adaptiveCalibrated. Exact published068 model reused without fitting. Adaptive schedule chooses skip or92/116/140 at tick60 from paid first state or original prediction; fixed calls exact069 tick108 planner. Nine frozen hypothetical assumptions; no actual future event supplied. Same first correction and .12second/.24cumulative limits.
+
+488slots/396native executions; four original and four exact069fixed parity comparisons retained. All complete paired prefixes through60 agree. Clean successes 36→35/48; extra observations 144→78. Disturbed successes 33→32/60; extra observations 180→96. Primary combined qualification: False; screened secondary: False. Clean mean utility difference -0.021250; disturbed -0.008000. Clean saved/harmed 0/1; disturbed 0/1. After-last events remain counted. No post-outcome case, policy, scenario, fee or gate tuning; no active-controller promotion or LLM-weight training.
+
+93targeted Java checks/20classes,127desktop checks, actual app/restart/Stop/local CPU4gpt-oss20b report and offline1440/390 interactions/visual checks pass. Native and actual-app outcomes, samples and schedules match. Original069 cold-restores unchanged. Source/plan/value/time/event/model tampering rejected. Exact original evidence retained; no claim of a fresh full-history heavyweight rerun.
+
+README070,17actual app captures,2offline captures, canonical source inventory, Obsidian78/canvas, operations and continuity notes prepared. Main/tag publication and fresh fetched audit are next, not yet claimed. Test app closed. Preserve normal045/qa046 installations, private worlds and frozen001–069. No subagents or overlapping heavy validators. Original 15-minute harness timeout, overlapping policy label captures and unrouted model attempt are retained. Extended test wait, corrected label spacing and Java study routing with regression checks; unchanged native outcomes. The model initially invented a report on the generic canvas route; that task was cancelled, then a fresh checked report read the actual saved study.
+
+Next unused071: improve the state uncertainty used in scheduling, prospectively evaluate fresh cases, and measure complete cost. Native contact is not physical camera calibration; hypothetical weights are not learned probabilities; saved activity alone does not establish useful intelligence.
+
+
 ## Edition 069 · Published and fetched back on 2026-11-05
 
 Actual atomic push to Fraynix-Agent-Workspace main, edition069 and readme-069 succeeded. Release 909726bcf571410572ab850bc2152189cb3e612e; annotated tag db97690e061bb4b2fd22e1be383c5a5436e30f50. Fresh GitHub fetch verified 1011 canonical sources, 5824 frozen hashes across 69 editions and 46 original archives including decompressed bytes. Documentation passed 74 canvases and 7031 references. [Publication receipt](docs/PUBLICATION_069.json).
