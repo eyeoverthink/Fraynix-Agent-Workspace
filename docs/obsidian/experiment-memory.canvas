@@ -1,0 +1,95 @@
+{
+  "nodes": [
+    {
+      "id": "memory",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/Rehearsal073.java",
+      "x": 0,
+      "y": 0,
+      "width": 390,
+      "height": 200
+    },
+    {
+      "id": "goals",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/GoalRunner.java",
+      "x": 420,
+      "y": 0,
+      "width": 390,
+      "height": 200
+    },
+    {
+      "id": "alternatives",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/Counterfactual045.java",
+      "x": 840,
+      "y": 0,
+      "width": 390,
+      "height": 200
+    },
+    {
+      "id": "world",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/WorldLedger.java",
+      "x": 0,
+      "y": 240,
+      "width": 390,
+      "height": 200
+    },
+    {
+      "id": "chat",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/Domain044.java",
+      "x": 420,
+      "y": 240,
+      "width": 390,
+      "height": 200
+    },
+    {
+      "id": "view",
+      "type": "file",
+      "file": "workspace-desktop/renderer/rehearsal073.js",
+      "x": 840,
+      "y": 240,
+      "width": 390,
+      "height": 200
+    }
+  ],
+  "edges": [
+    {
+      "id": "e0",
+      "fromNode": "memory",
+      "fromSide": "right",
+      "toNode": "goals",
+      "toSide": "left"
+    },
+    {
+      "id": "e1",
+      "fromNode": "goals",
+      "fromSide": "right",
+      "toNode": "alternatives",
+      "toSide": "left"
+    },
+    {
+      "id": "e2",
+      "fromNode": "alternatives",
+      "fromSide": "right",
+      "toNode": "world",
+      "toSide": "left"
+    },
+    {
+      "id": "e3",
+      "fromNode": "world",
+      "fromSide": "right",
+      "toNode": "chat",
+      "toSide": "left"
+    },
+    {
+      "id": "e4",
+      "fromNode": "chat",
+      "fromSide": "right",
+      "toNode": "view",
+      "toSide": "left"
+    }
+  ]
+}

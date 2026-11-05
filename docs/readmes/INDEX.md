@@ -76,5 +76,6 @@ Numbered editions preserve dated behavior and evidence. The root [README](../../
 | [070](../../README-070.md) | 2026-11-05 | Adaptive observation timing and measured sensing costs | [Viewer](070/index.html) · [tree](070/FILE_TREE.md) |
 | [071](../../README-071.md) | 2026-11-05 | Source-bound uncertainty and risky observation skips | [Viewer](071/index.html) · [tree](071/FILE_TREE.md) |
 | [072](../../README-072.md) | 2026-11-05 | Uncertainty, remaining correction and useful observations | [Viewer](072/index.html) · [tree](072/FILE_TREE.md) |
+| [073](../../README-073.md) | 2026-11-05 | Executable experiment memory, reconstruction and verified component alternatives | [Viewer](073/index.html) · [tree](073/FILE_TREE.md) |
 
-Latest implementation and documentation edition in this checkout is **072**. See [sequence policy](README_SEQUENCE.md) and [manifest](editions.json).
+Latest implementation and documentation edition in this checkout is **073**. See [sequence policy](README_SEQUENCE.md) and [manifest](editions.json).

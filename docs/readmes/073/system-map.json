@@ -1,0 +1,99 @@
+{
+  "edition": 73,
+  "modules": [
+    {
+      "id": "memory",
+      "name": "Verified episode memory",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/Rehearsal073.java",
+      "description": "Owned immutable source, native trace, report, commit and parent/child lineage.",
+      "note": "docs/obsidian/81-experiment-memory.md"
+    },
+    {
+      "id": "goals",
+      "name": "Reconstruct and execute",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/GoalRunner.java",
+      "description": "One goal owns reconstruction, alternatives, fresh action, original checks and final retention.",
+      "note": "docs/obsidian/81-experiment-memory.md"
+    },
+    {
+      "id": "alternatives",
+      "name": "Bounded physical alternatives",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/Counterfactual045.java",
+      "description": "Preserved existing controller-order, reverse-order and half-force candidates; failures retained.",
+      "note": "docs/obsidian/81-experiment-memory.md"
+    },
+    {
+      "id": "world",
+      "name": "Persistent verified world",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/WorldLedger.java",
+      "description": "Separate variant, exact revision ownership, stale refusal and verified commit.",
+      "note": "docs/obsidian/81-experiment-memory.md"
+    },
+    {
+      "id": "chat",
+      "name": "Java chat planning",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/Domain044.java",
+      "description": "Typed experiment.rehearse; exact requested role, component, value and review intent.",
+      "note": "docs/obsidian/81-experiment-memory.md"
+    },
+    {
+      "id": "view",
+      "name": "Integrated witness",
+      "source": "workspace-desktop/renderer/rehearsal073.js",
+      "description": "Original/rebuilt/forecast/actual native replay with byte-checked compressed traces.",
+      "note": "docs/obsidian/81-experiment-memory.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "docs/readmes/073/final-layout-1100.png"
+    },
+    {
+      "path": "docs/readmes/073/final-layout-1600.png"
+    },
+    {
+      "path": "docs/readmes/073/final-lineage.png"
+    },
+    {
+      "path": "docs/readmes/073/final-replay.png"
+    },
+    {
+      "path": "docs/readmes/073/friction-0.2-evidence.png"
+    },
+    {
+      "path": "docs/readmes/073/friction-0.2-replay.png"
+    },
+    {
+      "path": "docs/readmes/073/friction-1.2-evidence.png"
+    },
+    {
+      "path": "docs/readmes/073/friction-1.2-replay.png"
+    },
+    {
+      "path": "docs/readmes/073/layout-1100.png"
+    },
+    {
+      "path": "docs/readmes/073/layout-1600.png"
+    },
+    {
+      "path": "docs/readmes/073/massKg-0.7-evidence.png"
+    },
+    {
+      "path": "docs/readmes/073/massKg-0.7-replay.png"
+    },
+    {
+      "path": "docs/readmes/073/massKg-1.5-evidence.png"
+    },
+    {
+      "path": "docs/readmes/073/massKg-1.5-replay.png"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/readmes/073/verification.json"
+    },
+    {
+      "path": "docs/readmes/073/original-evidence.json"
+    }
+  ]
+}
