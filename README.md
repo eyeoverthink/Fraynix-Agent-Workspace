@@ -6,7 +6,7 @@
 
 Edition070 adds Java-owned adaptive observation timing: compare an earlier or later check with skipping it, preserving the first action and correction budgets. Clean successes 36→35/48; extra observations 144→78. Disturbed successes 33→32/60; extra observations 180→96. Primary combined qualification: False; screened secondary: False. All sensing and scheduling costs count; no automatic controller promotion. [Full evidence](docs/readmes/070/verification.json).
 
-Edition070 implementation, screenshots and exact original evidence are prepared for publication. [Previous fetched publication](docs/PUBLICATION_069.json).
+Edition070 is published to main with full source, 17 actual app captures, exact original evidence and updated continuity notes. [Fetched GitHub verification](docs/PUBLICATION_070.json).
 
 
 One integrated app, with Java-owned chat planning, creation, native skill scheduling, continuing identity, real clocks and checked outcomes. Mission connects the actual goal, source, child task, recovery and retained result. [Screenshots, typed skill graphs, new logic and production direction](README-046.md).

@@ -1,5 +1,18 @@
 # Agent Workspace development log
 
+## Edition070 · Published and fetched back on2026-11-05
+
+Actual atomic push to Fraynix-Agent-Workspace main,edition070 and readme-070 succeeded. Release d449b0286f976d0eb18006acae3ea7cfd4ed3e45; annotated tag 38edf66fe3ad203024952f4c70810fdde8057a38. Fresh GitHub fetch verified 1024canonical sources,5916frozen hashes across70editions and63original archives including decompressed bytes. Documentation passed75canvases and7125references. [Publication receipt](PUBLICATION_070.json).
+
+Java chooses skip or a three-sample observation window ending92/116/140 at tick60; fixed comparison calls exact069 tick108 planner. First behavior and .12second/.24cumulative correction limits unchanged. Published068 model reused without refitting; nine hypothetical scenario weights are not calibrated probabilities. 488slots/396native executions. Four original-runtime and four exact069fixed parity comparisons pass; complete prefixes through60 match. Actual app/native outcomes,samples,schedules match.
+
+Clean fixed→adaptive successes36→35/48, extra observations144→78, mean utility difference-0.021250. Disturbed successes33→32/60, extra observations180→96, utility difference-0.008000. Primary combined qualificationFalse; screened secondaryFalse. All saved/harmed goals, skipped windows, scheduler costs and after-last failures retained. No automatic promotion or LLM-weight training.
+
+93 targeted Java checks/20 classes,127 desktop checks, actual488-slot/396-execution app study, native samples/outcomes/schedules match, eight parity cases, source/value/chronology/budget guards, cold restore, Stop and CPU4gpt-oss20b report. Primary qualification False, screened secondary False. No controller promotion or policy/scenario/task/gate tuning after outcomes. Offline1440/390 interactions and actual screenshots visually checked. Original069 evidence cold-restores unchanged. README070,17actual app captures,2offline captures, complete source inventory, Obsidian78/canvas and exact originals published. Source implementationd4f13e8, contract0a048d1. Test app closed; preserve normal045/qa046 installations and private worlds. No subagents or overlapping heavy validators. Original 15-minute harness timeout, overlapping policy label captures and unrouted model attempt are retained. Extended test wait, corrected label spacing and Java study routing with regression checks; unchanged native outcomes. The model initially invented a report on the generic canvas route; that task was cancelled, then a fresh checked report read the actual saved study.
+
+Next unused071: improve the state uncertainty used for scheduling and test fresh conditions with explicit complete costs. Preserve070evidence; native known contact is not adaptive webcam sampling or physical calibration. This receipt follows the immutable release tag.
+
+
 ## Edition070 · Validated locally; publication next
 
 Contract0a048d1 and implementationd4f13e8 precede all070native outcomes. Isolatedwork/fraynix-workspace-edition070, base20d723f. Four paired policies: fixed/fixedCalibrated/adaptive/adaptiveCalibrated. Exact published068 model reused without fitting. Adaptive schedule chooses skip or92/116/140 at tick60 from paid first state or original prediction; fixed calls exact069 tick108 planner. Nine frozen hypothetical assumptions; no actual future event supplied. Same first correction and .12second/.24cumulative limits.
