@@ -47,9 +47,9 @@ public class Rehearsal073Test {
     }
     @Test public void rehashedTraceAndCodeTamperingAreRejected()throws Exception {
         Path folder=Files.createTempDirectory("memory073-tamper-");String id;try(var memory=new Rehearsal073(folder)){id=memory.remember(goal,original).getString("id");}
-        Path file=folder.resolve("experiments-073/episodes/"+id+".json");byte[] bytes=Files.readAllBytes(file);var e=AgentFiles042.loadChecked(file);e.put("nativeIdentity","0".repeat(64));AgentFiles042.saveChecked(file,e);
+        Path file=folder.resolve("experiments-073/episodes/"+id+".json");byte[] bytes=Files.readAllBytes(file);var e=AgentFiles042.read(file,32_000_000).getJSONObject("data");e.put("nativeIdentity","0".repeat(64));AgentFiles042.saveChecked(file,e);
         try(var memory=new Rehearsal073(folder)){assertThrows(IllegalStateException.class,()->memory.read(id));}Files.write(file,bytes);
-        e=AgentFiles042.loadChecked(file);e.getJSONObject("run").getJSONObject("final").getJSONArray("bodies").getJSONObject(0).getJSONArray("position").put(0,10);e.put("runSha256",WorldFrames.hash(e.getJSONObject("run")));AgentFiles042.saveChecked(file,e);
+        e=AgentFiles042.read(file,32_000_000).getJSONObject("data");e.getJSONObject("run").getJSONObject("final").getJSONArray("bodies").getJSONObject(0).getJSONArray("position").put(0,10);e.put("runSha256",WorldFrames.hash(e.getJSONObject("run")));AgentFiles042.saveChecked(file,e);
         try(var memory=new Rehearsal073(folder)){assertThrows(RuntimeException.class,()->memory.read(id));}
     }
     @Test public void arbitraryMovingStateAndUnownedMemoryAreRefused()throws Exception {
