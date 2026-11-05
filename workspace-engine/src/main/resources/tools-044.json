@@ -2604,9 +2604,54 @@
           },
           "asymmetricSupports059": {
             "type": "boolean"
-          }, "independentSupports060": {"type":"boolean","description":"Compare fixed independent support placements and rotations after measured baseline failure; requires payloadDesign058 and directFirst055."}
+          },
+          "independentSupports060": {
+            "type": "boolean",
+            "description": "Compare fixed independent support placements and rotations after measured baseline failure; requires payloadDesign058 and directFirst055."
+          }
         },
         "required": [],
+        "additionalProperties": false
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "experiment_rehearse",
+      "description": "Rebuild a verified initial-at-rest experiment, change one friction or dynamic mass, compare bounded alternatives and verify a separate persistent world. Review pauses before action.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "episodeId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "sourceId": {
+            "type": "string",
+            "pattern": "^[A-Za-z0-9_.-]{1,80}$"
+          },
+          "property": {
+            "type": "string",
+            "enum": [
+              "friction",
+              "massKg"
+            ]
+          },
+          "value": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 20
+          },
+          "review": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "sourceId",
+          "property",
+          "value"
+        ],
         "additionalProperties": false
       }
     }

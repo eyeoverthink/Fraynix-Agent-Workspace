@@ -1,6 +1,7 @@
 'use strict';
 const { randomUUID } = require('node:crypto');
 const catalog = [
+ ['experiment.rehearse','Rebuild a verified initial-at-rest experiment, change one friction or dynamic mass, compare bounded alternatives and verify a separate persistent world. Review pauses before action.','{episodeId?,sourceId,property,value,review?}'],
  ['construction.start','Assemble declared bridge stock with checked routes, optional direct-first comparison and independent load experiments. Optional dynamic payload tests drop actual bodies at declared positions and retain unstable cases. Measured load design optionally sweeps off-centre forces and widens supports only after actual failure. Native motion, released support and report verification precede world commit; overload failures are retained, not structural-strength certification.','{centerX?,centerZ?,forceLimitN?,torqueLimitNm?,saveSkillName?,design053?,directFirst055?,loadTests055?,payloadTests057?,payloadDesign058?,asymmetricSupports059?,independentSupports060?,allowPayloadRedesign058?,loadDesign056?,requiredLoadN?,allowRedesign056?,reviewCounterfactual045?}'],
  ['screen.read','Read dated app-surface screenshots, local visual estimates, original hashes and retained routine matches. No supplied facts or capture of other desktop apps.','{}'],
  ['screen.report','Open and verify the actual saved visual witness report for a recorded Java task. Pixel differences and captions are not task success.','{}'],
@@ -136,6 +137,7 @@ const perceptionOptions={mode:{type:'string',enum:['vision','appearance','dom']}
 const mapConstraints=object({connected:{type:'boolean'},minFloorFraction:{type:'number',minimum:.05,maximum:.95},maxFloorFraction:{type:'number',minimum:.05,maximum:.95},minRouteSteps:{type:'integer',minimum:0,maximum:128},maxRouteSteps:{type:'integer',minimum:0,maximum:128}},[]);
 const mapOptions={materials:{type:'array',minItems:1,maxItems:8,items:object({tile:{type:'integer',minimum:0,maximum:7},name:{type:'string',minLength:1,maxLength:60},friction:{type:'number',minimum:.05,maximum:1.2},restitution:{type:'number',minimum:0,maximum:.95},dragNsPerM:{type:'number',minimum:0,maximum:8}},['tile','name','friction'])},constraints:mapConstraints,seed:{type:'integer',minimum:0,maximum:1e9},width:{type:'integer',minimum:8,maximum:24},height:{type:'integer',minimum:8,maximum:24},cellSizeM:{type:'number',minimum:.6,maximum:1.2},friction:{type:'number',minimum:.05,maximum:1.2},disturbanceNs:{type:'number',minimum:-.5,maximum:.5},saveSkillName:text,pins:{type:'array',maxItems:64,items:object({x:{type:'integer',minimum:0,maximum:23},y:{type:'integer',minimum:0,maximum:23},tile:{type:'integer',minimum:0,maximum:7}},['x','y','tile'])}};
 const argumentSchemas={
+ 'experiment.rehearse':object({episodeId:{type:'string',format:'uuid'},sourceId:{type:'string',pattern:'^[A-Za-z0-9_.-]{1,80}$'},property:{type:'string',enum:['friction','massKg']},value:{type:'number',minimum:0,maximum:20},review:{type:'boolean'}},['sourceId','property','value']),
  'screen.read':empty,'screen.report':empty,
  'agent.read':empty,'agent.report':empty,
  'alignment.read':empty,'alignment.report':empty,
