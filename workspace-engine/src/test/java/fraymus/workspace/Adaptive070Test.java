@@ -5,6 +5,7 @@ import static org.junit.Assert.*;
 import java.nio.file.*;
 import java.util.*;
 public class Adaptive070Test {
+ static void await070(BrainService brain)throws Exception{long end=System.currentTimeMillis()+3600000;while(brain.state().getBoolean("busy")&&System.currentTimeMillis()<end)Thread.sleep(500);assertFalse("Adaptive validation exceeded one hour",brain.state().getBoolean("busy"));}
  static JSONObject task(double ratio,double center,double width){return new JSONObject().put("angleDeg",20).put("frictionRatio",ratio).put("centerM",center).put("halfWidthM",width);}
  @Test public void signedPhysicsStopsSticksAndRestartsDownhill(){
   var t=task(1.1,.1,.01);double g=9.81*Math.sin(Math.toRadians(20)),a=-.1*g,v=.1,z=-v/a;
@@ -58,7 +59,7 @@ public class Adaptive070Test {
   String resume=System.getenv("FRAYNIX070_NATIVE_RESUME");Path root=resume==null?Files.createTempDirectory("fraynix-adaptive070-"):Path.of(resume);
   System.out.println("EDITION070_NATIVE_ROOT="+root);String id,hash;JSONObject job;
   try(var brain=new BrainService(root)){
-   if(resume==null){id=brain.start(new JSONObject().put("kind","adaptive-observation").put("autoPromote",false)).getString("id");Recovery066Test.waitFor(brain);}else id=new JSONObject(Files.readString(root.resolve("original-experiment.json"))).getString("id");
+   if(resume==null){id=brain.start(new JSONObject().put("kind","adaptive-observation").put("autoPromote",false)).getString("id");await070(brain);}else id=new JSONObject(Files.readString(root.resolve("original-experiment.json"))).getString("id");
    job=brain.read(id);if(!Files.exists(root.resolve("original-attempt.json")))Files.writeString(root.resolve("original-attempt.json"),job.toString());
    assertEquals(job.optString("reason"),"completed",job.getString("status"));AdaptiveStudy070.audit(job);
    if(Files.exists(root.resolve("original-experiment.json")))assertTrue(new JSONObject(Files.readString(root.resolve("original-experiment.json"))).similar(job));else Files.writeString(root.resolve("original-experiment.json"),job.toString());
