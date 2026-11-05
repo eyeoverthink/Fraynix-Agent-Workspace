@@ -1,5 +1,13 @@
 # Agent Workspace development log
 
+## 2026-11-01 — Windows Actions graphics and canonical-path repair
+
+- Inspected run 41312376896/job 124865263742: `GlNeuralCompute` could not create OpenGL 4.3 contexts in two tests, the hidden original game exited, and the procedural export test failed its path assertion. `WorkspaceStore` resolves the project root with `toRealPath`, unlike the test's temporary-path spelling.
+- Added CI-only Mesa llvmpipe deployment beside the JDK, pinned to a verified release archive SHA-256; inspected the two deployed x64 DLLs and their Windows system dependencies. Kept shader execution, hidden rendering and numerical parity checks mandatory; accepted Mesa's renderer string in the existing prediction assertion. Included subproject HTML and JUnit XML in failure artifacts.
+- Canonicalized both sides of export containment assertions and added a dot-path alias regression. `JAVA_HOME=/usr/lib/jvm/temurin-21-jdk-amd64 ./gradlew --no-daemon --console=plain :workspace-engine:test --tests fraymus.workspace.ProceduralTest`: 8 tests passed, none skipped. `scripts/Verify-Documentation.ps1`: 34 editions, 39 canvases, 4474 references and 1352 frozen hashes passed.
+- Final targeted run also passed four non-graphics `BrainPersistenceTest` methods (12 total tests, zero failures/skips). Executed the exact workflow provisioning PowerShell block with temporary runner/JDK directories: download, checksum, extraction, both DLL copies and `GALLIUM_DRIVER` export passed; no installed JDK was modified.
+- Broader Java 21 validation passed `:test` (87 tests, zero failures/skips), `:verifySourceIsolation`, factory runtime/transactions, kernel journal/skills/integration, model verification and `:distZip`.
+- Remaining gate: Windows Actions must execute the native graphics tests with the provisioned driver. This Linux validation environment cannot execute the checkout's Windows-only LWJGL natives/embedded `java.exe`; no local model or live scene was used. No numbered edition, frozen evidence, application backend or personal runtime state changed.
 ## Edition070 · Published and fetched back on2026-11-05
 
 Actual atomic push to Fraynix-Agent-Workspace main,edition070 and readme-070 succeeded. Release d449b0286f976d0eb18006acae3ea7cfd4ed3e45; annotated tag 38edf66fe3ad203024952f4c70810fdde8057a38. Fresh GitHub fetch verified 1024canonical sources,5916frozen hashes across70editions and63original archives including decompressed bytes. Documentation passed75canvases and7125references. [Publication receipt](PUBLICATION_070.json).
