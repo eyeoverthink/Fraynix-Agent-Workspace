@@ -72,5 +72,6 @@ Numbered editions preserve dated behavior and evidence. The root [README](../../
 | [066](../../README-066.md) | 2026-11-04 | Bounded recovery, observation ablation and complete costs | [Viewer](066/index.html) · [tree](066/FILE_TREE.md) |
 | [067](../../README-067.md) | 2026-11-04 | Temporal contact, pre-push value and complete refusal tradeoffs | [Viewer](067/index.html) · [tree](067/FILE_TREE.md) |
 | [068](../../README-068.md) | 2026-11-04 | Frozen native recovery calibration and unfamiliar impulses | [Viewer](068/index.html) · [tree](068/FILE_TREE.md) |
+| [069](../../README-069.md) | 2026-11-05 | Bounded later observation and same-world recovery | [Viewer](069/index.html) · [tree](069/FILE_TREE.md) |
 
-Latest implementation and documentation edition in this checkout is **068**. See [sequence policy](README_SEQUENCE.md) and [manifest](editions.json).
+Latest implementation and documentation edition in this checkout is **069**. See [sequence policy](README_SEQUENCE.md) and [manifest](editions.json).

@@ -1,0 +1,129 @@
+{
+  "edition": 69,
+  "modules": [
+    {
+      "id": "observe",
+      "name": "Measured later contact",
+      "summary": "Three saved samples at100/104/108 identify eligible contact; actual prior-state prediction error remains diagnostic.",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/LaterContact069.java",
+      "status": "Verified",
+      "note": "docs/obsidian/77-later-recovery.md"
+    },
+    {
+      "id": "policy",
+      "name": "A bounded second action",
+      "summary": "Original choices and first correction remain; extra sensing costs and a cumulative correction budget are explicit.",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/LaterPolicy069.java",
+      "status": "Verified",
+      "note": "docs/obsidian/77-later-recovery.md"
+    },
+    {
+      "id": "native",
+      "name": "One continuous native world",
+      "summary": "Actual external and corrective impulses have before/after receipts; no teleport or world reset.",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/LaterTrial069.java",
+      "status": "Verified",
+      "note": "docs/obsidian/77-later-recovery.md"
+    },
+    {
+      "id": "study",
+      "name": "Paired clean and disturbed tests",
+      "summary": "New seeds, five disturbance families, both amplitudes, exact first-prefix parity and all-task gates.",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/LaterStudy069.java",
+      "status": "Verified",
+      "note": "docs/obsidian/77-later-recovery.md"
+    },
+    {
+      "id": "chat",
+      "name": "Java-owned checked reporting",
+      "summary": "Lossless aggregate tables keep full costs, paired metrics and gates; originals remain in the checked report.",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/LaterContext069.java",
+      "status": "Actual model",
+      "note": "docs/obsidian/77-later-recovery.md"
+    },
+    {
+      "id": "view",
+      "name": "Integrated motion inspection",
+      "summary": "Scrub native motion, compare both contact windows and inspect failures beside successes.",
+      "source": "workspace-desktop/renderer/later069.js",
+      "status": "Actual app",
+      "note": "docs/obsidian/77-later-recovery.md"
+    },
+    {
+      "id": "next",
+      "name": "Adaptive observation scheduling",
+      "summary": "Prospectively compare when to spend a sensing budget on entirely new cases; no automatic promotion.",
+      "source": "docs/EDITION_069_CONTRACT.md",
+      "status": "Planned",
+      "note": "docs/obsidian/77-later-recovery.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "docs/readmes/069/later069-overview.png",
+      "title": "A later look in the integrated Java Brain"
+    },
+    {
+      "path": "docs/readmes/069/later069-clean.png",
+      "title": "All clean task outcomes and added costs"
+    },
+    {
+      "path": "docs/readmes/069/later069-disturbed.png",
+      "title": "All unfamiliar disturbances and paired results"
+    },
+    {
+      "path": "docs/readmes/069/later069-brake.png",
+      "title": "Braking and measured second contact window"
+    },
+    {
+      "path": "docs/readmes/069/later069-lift.png",
+      "title": "Lift and measured later contact"
+    },
+    {
+      "path": "docs/readmes/069/later069-push.png",
+      "title": "External push and later decision"
+    },
+    {
+      "path": "docs/readmes/069/later069-spin.png",
+      "title": "Torque and measured rotation"
+    },
+    {
+      "path": "docs/readmes/069/later069-after-second.png",
+      "title": "A disturbance arriving after the last check"
+    },
+    {
+      "path": "docs/readmes/069/later069-paired.png",
+      "title": "Single versus later actual trajectories"
+    },
+    {
+      "path": "docs/readmes/069/later069-decline.png",
+      "title": "Screened refusal has no invented motion"
+    },
+    {
+      "path": "docs/readmes/069/later069-domain.png",
+      "title": "Unsupported requests retain the domain fence"
+    },
+    {
+      "path": "docs/readmes/069/later069-narrow.png",
+      "title": "Integrated Java Brain at 1100 pixels"
+    },
+    {
+      "path": "docs/readmes/069/later069-chat.png",
+      "title": "Actual local-model checked report"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/readmes/069/verification.json",
+      "title": "Verification"
+    },
+    {
+      "path": "docs/readmes/069/original-evidence.json",
+      "title": "Exact originals"
+    },
+    {
+      "path": "docs/readmes/069/later-data.json",
+      "title": "Audited Java-projected motion"
+    }
+  ]
+}

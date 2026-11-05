@@ -1,5 +1,18 @@
 # Fraynix Studio collaboration and documentation
 
+## Edition 069 · Validated locally; publication next
+
+Contract c857a97 and implementation f3c2f70 precede outcomes. New isolated worktree work/fraynix-workspace-edition069, base59478b3. Four paired policies reuse exact published068 model e63750b5cd55863d612f991f413a401d9e46db59b8ab55eed401d0de88702560. First behavior is unchanged; later policies read100/104/108 and have one extra bounded correction, .12individual/.24cumulative m/s. No new fitting or active-controller promotion.
+
+484slots,406native executions. Four old-runtime parity deltas zero; all paired prefixes through108 and first plans identical. Clean Single38/10/0, Later39/9/0; screen38/2/8, later-screen39/1/8. Disturbed Single19/41/0, Later36/24/0; screen19/32/9, later-screen36/15/9. Triples=success/miss/refusal. Clean later-minus-single utility-.0379167; disturbed+.7443333. Seventeen disturbed goals saved, zero harmed; clean one saved, zero harmed. Both primary and secondary gates PASS. Disturbed utilities remain negative. Family improvements brake3→7, lift1→8, push1→7; spin9→9 and after-second5→5 unchanged, each12tasks. No tuning after outcomes.
+
+Source/chronology/plan/event/model tampering, budget/contact/future-prefix fences, old068 cold compatibility, restart and Stop pass. 83 targeted Java checks/17 classes,127desktop checks, real app study/13captures, CPU4gpt-oss20b checked report and offline1440/390 interactions/visual checks pass. Native and actual-app outcomes/samples match. Initial test compilation loop and nonfinite-JSON assertion errors fixed before outcomes; originals retained. App harness old-field assertion corrected after completion; reused unchanged saved study. UI UTF-8 label conversion repaired after visual review; original bad captures and timeout retained, then recaptured from the same study. No fresh full-history heavyweight rerun claimed.
+
+README069, offline explorer, original exact archives, full source inventory, Obsidian77/canvas and current operations prepared. Main/tag push and fetched audit are next, not yet claimed. Preserve normal045/qa046 live installations, private worlds and frozen001–068. Test app closed. No subagents or concurrent heavy validators.
+
+Next unused070: prospectively compare adaptive observation scheduling against this fixed two-check policy on fresh cases, measuring sensing cost and late-event failures. Diagnostic novelty is not event recognition; known simulator contact is not camera or physical calibration; frozen068 probability is not two-stage calibration. No LLM-weight improvement claim.
+
+
 ## Edition 068 · Published and fetched back on 2026-11-04
 
 Actual atomic push to Fraynix-Agent-Workspace main, edition068 and readme-068 succeeded. Release adfedbf3efeb01e088fb3f949d0477eb5a396a8f; annotated tag 31c646cc615c9d8399bbe177bfd22129ba599131. Fresh GitHub fetch verified 999 canonical sources, 5753 frozen hashes across 68 editions and 53 original archives including decompressed bytes. Documentation passed 73 canvases and 6945 references. [Publication receipt](docs/PUBLICATION_068.json).

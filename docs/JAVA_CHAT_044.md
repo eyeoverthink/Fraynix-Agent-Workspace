@@ -1,5 +1,15 @@
 # Java chat and procedural ownership
 
+## Edition 069: a later look in the same world
+
+Java Brain → A later look · bounded recovery runs48 clean,60 disturbed and12 unsupported tasks with four paired policies. Tick60 behavior is unchanged. Later versions read ticks100/104/108 and may apply one second correction capped at0.12m/s and cumulative absolute correction0.24m/s. Every executed later attempt pays three observations and a replan, even when it refuses to correct. The published068 screen is reused exactly; it is not claimed calibrated for the two-stage policy.
+
+Use the saved study selector, dataset and task controls, policy selector and frame scrubber to inspect original and later contact windows, prediction error, actual external impulses, action receipts, costs and outcomes. Stop preserves completed evidence. Cold restart preserves exact traces and model identity. Chat: “Inspect the later observation recovery study and create the verified report. Do not run experiments or move objects.” Actual CPU4gpt-oss20b reporting is tested.
+
+Native disturbed success19→36/60, clean38→39/48, no paired goal harmed. Both primary and secondary gates pass; disturbed mean utility remains negative and late-after-check disturbances remain unresolved. The active controller is unchanged. [README069](../README-069.md) · [contract](EDITION_069_CONTRACT.md) · [evidence](readmes/069/verification.json).
+
+
+
 ## Edition 068: calibration and unfamiliar disturbances
 
 Java Brain → Calibrate recovery · test unfamiliar disturbances runs 48 native calibration attempts, freezes an owned Java monotonic model, then evaluates four policies on 48 clean, 48 disturbed and 12 unsupported tasks. The panel exposes training labels/fees, reliability bins, actual 46-sample trajectories, three-sample contact evidence, external linear/torque impulses and decisions before motion. Unsupported and screened refusals have no invented trajectory. Stop preserves completed studies; cold restore retains exact model and evidence.
