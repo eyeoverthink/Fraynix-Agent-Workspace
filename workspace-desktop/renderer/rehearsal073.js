@@ -1,5 +1,6 @@
 const $=id=>document.getElementById(id);
 const option=(value,text)=>{const o=document.createElement('option');o.value=value;o.textContent=text;return o;};
+function corners(position,size,q){const out=[],cross=(a,b)=>[a[1]*b[2]-a[2]*b[1],a[2]*b[0]-a[0]*b[2],a[0]*b[1]-a[1]*b[0]],u=q.slice(0,3);for(let i=0;i<8;i++){const v=size.map((s,k)=>(i&(1<<k)?.5:-.5)*s),t=cross(u,v).map(n=>2*n),w=cross(u,t);out.push(v.map((n,k)=>n+q[3]*t[k]+w[k]+position[k]));}return out;}
 async function unpackRun(envelope){
  if(envelope.format!=='fraynix.native-world-run-gzip-v1'||envelope.rawBytes>32000000)throw Error('Unsupported original replay envelope');
  const compressed=Uint8Array.from(atob(envelope.gzipBase64),c=>c.charCodeAt(0));
@@ -74,15 +75,15 @@ export class Rehearsal073Panel {
   for(const [id,axes,label] of [['re073-top',[0,2],'Top · X / Z · metres'],['re073-front',[0,1],'Front · X / Y · metres']]){
    const canvas=$(id),ctx=canvas.getContext('2d');ctx.clearRect(0,0,600,320);ctx.fillStyle='#cbd5e1';ctx.font='14px sans-serif';ctx.fillText(label,12,22);
    this.boundsCache??=new Map();if(!this.boundsCache.has(run.id)){
-    const box=[[Infinity,-Infinity],[Infinity,-Infinity],[Infinity,-Infinity]],include=(p,size)=>{const radius=Math.hypot(...size)/2;for(let k=0;k<3;k++){box[k][0]=Math.min(box[k][0],p[k]-radius);box[k][1]=Math.max(box[k][1],p[k]+radius);}};
-    for(const o of run.definition.objects)include(o.position,o.size);
-    for(const frame of run.samples)for(const b of frame.bodies)include(b.position,run.definition.objects.find(o=>o.id===b.id).size);
+    const box=[[Infinity,-Infinity],[Infinity,-Infinity],[Infinity,-Infinity]],include=(p,size,q)=>{for(const c of corners(p,size,q))for(let k=0;k<3;k++){box[k][0]=Math.min(box[k][0],c[k]);box[k][1]=Math.max(box[k][1],c[k]);}};
+    for(const o of run.definition.objects)include(o.position,o.size,o.rotation);
+    for(const frame of run.samples)for(const b of frame.bodies)include(b.position,run.definition.objects.find(o=>o.id===b.id).size,b.rotation);
     this.boundsCache.set(run.id,box);
    }
    const bounds=axes.map(k=>this.boundsCache.get(run.id)[k]),scale=Math.min(530/(bounds[0][1]-bounds[0][0]),245/(bounds[1][1]-bounds[1][0]))*.94;
    const mid=bounds.map(b=>(b[0]+b[1])/2),project=p=>[300+(p[axes[0]]-mid[0])*scale,170-(p[axes[1]]-mid[1])*scale];
    ctx.strokeStyle='#273449';ctx.lineWidth=1;for(let n=Math.ceil(bounds[0][0]);n<=Math.floor(bounds[0][1]);n++){const x=300+(n-mid[0])*scale;ctx.beginPath();ctx.moveTo(x,45);ctx.lineTo(x,295);ctx.stroke();ctx.fillText(String(n),x-3,313);}
-   const paint=(sample,ghost)=>{for(const o of run.definition.objects){const b=sample.bodies.find(b=>b.id===o.id)||o;const q=b.rotation,pts=[];for(let i=0;i<8;i++){const v=[(i&1?.5:-.5)*o.size[0],(i&2?.5:-.5)*o.size[1],(i&4?.5:-.5)*o.size[2]],u=q.slice(0,3),cross=(a,b)=>[a[1]*b[2]-a[2]*b[1],a[2]*b[0]-a[0]*b[2],a[0]*b[1]-a[1]*b[0]],t=cross(u,v).map(n=>2*n),w=cross(u,t);pts.push(project(v.map((n,k)=>n+q[3]*t[k]+w[k]+b.position[k])));}
+   const paint=(sample,ghost)=>{for(const o of run.definition.objects){const b=sample.bodies.find(b=>b.id===o.id)||o;const pts=corners(b.position,o.size,b.rotation).map(project);
      ctx.strokeStyle=ghost?'#fbbf24':o.massKg>0?'#67e8f9':'#64748b';ctx.setLineDash(ghost?[5,4]:[]);ctx.lineWidth=ghost?1:2;for(let i=0;i<8;i++)for(const bit of [1,2,4])if(!(i&bit)){ctx.beginPath();ctx.moveTo(...pts[i]);ctx.lineTo(...pts[i|bit]);ctx.stroke();}if(!ghost&&o.massKg>0){const p=project(b.position);ctx.fillStyle='#e2e8f0';ctx.fillText(o.sourceId,p[0]+5,p[1]-8);}}ctx.setLineDash([]);};
    if(forecast)paint(forecast,true);paint(f,false);canvas.dataset.runId=run.id;canvas.dataset.tick=f.tick;
   }
