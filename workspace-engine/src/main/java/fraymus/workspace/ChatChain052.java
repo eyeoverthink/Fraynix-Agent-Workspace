@@ -53,6 +53,7 @@ final class ChatChain052 {
         if(c.has("agent042Facts"))c.put("agent042Facts",TemporalContext067.project(RecoveryContext066.project(ContactContext064.project(StoppingContext063.project(c.getJSONObject("agent042Facts"))))));
         c.put("retainedDiagnostics052", diagnostics(g));
         TemporalContext067.fitPlanningBudget(c,12500);
+        CalibrationContext068.project(c);
         return c;
     }
 

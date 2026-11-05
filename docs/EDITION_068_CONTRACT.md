@@ -18,7 +18,7 @@ Use java.util.Random with seeds 68001 (48 calibration), 68002 (48 clean evaluati
 
 Run Temporal on every calibration task. Train only on supported, initially Pooled-refused tasks, including those the old Value screen would decline. Each label is the actual Temporal success, paired with that task's pre-push nine-scenario fraction. Direct Pooled admissions are retained but excluded from calibration because no screen is used there. No selected-attempt label bias, reserved label or disturbed outcome may enter fitting.
 
-Freeze the model, source record hashes, all calibration labels, bin counts and fit time before any evaluation result. No refitting, threshold change or posthoc choice after evaluation begins. Persist this boundary through restart. Report the calibration's native execution count, misses, actions, observations, replans, operation fees and instrumented wall time separately from per-task evaluation costs.
+Freeze the model, source record hashes, all calibration labels, bin counts and fit time before any evaluation result. No refitting, threshold change or posthoc choice after evaluation begins. Persist this boundary through restart. Report the calibration's native execution count, misses, actions, observations, replans, operation fees and instrumented wall time separately from per-task evaluation costs. Upfront operation fees also include .005 for each scenario score generated as a training feature; those computations are counted separately from the unscreened Temporal policy's action outcome.
 
 ## Handwritten Java calibration
 
