@@ -1,5 +1,18 @@
 # Agent Workspace project memory
 
+## Edition 068 · Published and fetched back on 2026-11-04
+
+Actual atomic push to Fraynix-Agent-Workspace main, edition068 and readme-068 succeeded. Release adfedbf3efeb01e088fb3f949d0477eb5a396a8f; annotated tag 31c646cc615c9d8399bbe177bfd22129ba599131. Fresh GitHub fetch verified 999 canonical sources, 5753 frozen hashes across 68 editions and 53 original archives including decompressed bytes. Documentation passed 73 canvases and 6945 references. [Publication receipt](PUBLICATION_068.json).
+
+Owned Java monotonic calibration uses37 eligible labels from48 native training attempts and freezes before48 clean/48 disturbed/12 unsupported tasks. Four policies,484 progress slots,384 native executions, four original-runtime parity deltas zero. Actual-app and native outcomes/samples match. Clean Calibrated38 success/3 miss/7 refusal, Brier0.168941→0.077991, utility gain over Value+0.168417: clean gate PASS. Disturbed Calibrated23/17/8, Brier0.289095→0.275497, utility difference−0.060250: gate FAIL on utility/miss rate. Combined NOT QUALIFIED; active controllerv1 unchanged. Training fees5.345,12 training misses; operation-fee-only clean break-even32tasks excludes miss penalties/fit compute/physical risk.
+
+Actual brake/lift/push/torque receipts and separate external-event counts audited. Planners never receive future event schedule. Source/model/chronology tampering rejected. 81 targeted Java checks/16 classes,127 desktop checks, actual app/restart/Stop/CPU4gpt-oss20b report, offline1440/390 interactions and visual review pass. Published067 original cold-restores unchanged. First chat lost planner facts at generic50K compaction; full report snapshot remained. Source preservation, tested lossless tables and explicit unrelated-history references repaired planning without weakening12500guard. Failed app assertion and oversized-projection replay retained; fresh chat uses same completed study. A second harness-only duplicate-title click failure was fixed by opening the exact checked artifact, without another model call. First fast-test compilation lambda issue corrected before native outcomes; exact failure retained. No task, physics, fit or gate tuning after outcomes.
+
+README068,12 actual app captures,2 offline captures, exact original evidence, full source inventory and Obsidian map published. Test app closed. Preserve normal045/qa046 installations, personal worlds and frozen001–068. Source worktree work/fraynix-workspace-edition068. No subagents or overlapping heavy validators.
+
+Next unused069: a prospective bounded later observation/disturbance detector, contact-aware abstention and fresh cases. Calibrated clean success does not imply disturbance robustness; one tick60 correction cannot respond to tick84 events. No LLM-weight training or physical-confidence claim. This publication receipt follows the immutable release tag.
+
+
 ## Edition 068 · Validated locally; publication next
 
 Contract19cd86e and implementation fd1fd52 precede new native outcomes. Own Java weighted PAV calibration:37 eligible native labels from48 attempts, model frozen before48 clean/48 disturbed/12 unsupported tasks. Four preserved/comparison policies,484 progress slots,384 actual native executions, four original-runtime parity deltas zero. Native and actual-app outcome and sample arrays match. No policy/physics/gate retuning after outcomes.

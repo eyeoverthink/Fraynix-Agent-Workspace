@@ -6,7 +6,7 @@
 
 Edition 068 learns a frozen Java recovery estimate from native outcomes, then tests clean and unfamiliar disturbances. Clean: 38/48 successes, 3 misses, 7 refusals; gate passed. Disturbed: 23/48 successes, 17 misses, 8 refusals; gate failed. Calibration helps clean decisions but is overconfident under disturbances. No automatic controller promotion. [Measured results](docs/readmes/068/verification.json).
 
-Edition 068 implementation, screenshots and original evidence are prepared for publication. [Previous fetched publication](docs/PUBLICATION_067.json).
+Edition 068 is published to main with source, twelve actual app captures, original evidence and updated continuity notes. [Fetched GitHub verification](docs/PUBLICATION_068.json).
 
 
 One integrated app, with Java-owned chat planning, creation, native skill scheduling, continuing identity, real clocks and checked outcomes. Mission connects the actual goal, source, child task, recovery and retained result. [Screenshots, typed skill graphs, new logic and production direction](README-046.md).
