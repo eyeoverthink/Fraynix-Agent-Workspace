@@ -1,5 +1,24 @@
 # Fraynix Studio collaboration and documentation
 
+## Edition072 · Validated locally; publication next
+
+Contract2e4a2e7 and cost clarificationf7c4220 precede implementation4e36547 and outcomes. Isolated work/fraynix-workspace-edition072 from622fdfb.24fit/36calibration trajectories freeze original071 distance model and new joint position/speed residual model. Five policies blind/adaptive/uncertain/simple/useful preserve first action and .12individual/.24cumulative correction authority. New useful policy compares243 hypothetical states at92/116/140; explicit weights are assumptions.666slots/612native executions; six exact071 parity pairs. All46 diagnostic samples retained.
+
+Clean old guard→useful successes 39→39/48; later readings 141→108; utility change +0.022917. Disturbed successes 40→39/60; readings 180→135; utility change -0.024667. Combined qualification: False. Joint state coverage clean 46/48, disturbed 20/60. Simple comparator and every saved/harmed goal, refusal, failed correction, scheduler time and training cost retained. No post-outcome rule/case/gate tuning, controller promotion or LLM-weight training.
+
+112targeted Java checks/25classes,127desktop checks, actual complete app study, identical native/app numeric outcomes, restart/Stop/CPU4gpt-oss20b report and offline1440/390 checks pass. Published071 cold-restores. Source/model/timing/event/plan tampering is rejected. Factory runtime/transaction harnesses pass. No fresh full-history heavyweight rerun claimed. README072,20actual app captures,2offline captures, complete source inventory, Obsidian80/canvas and exact originals prepared.
+
+Chandra e984a33685c0ed9e0c4f4c79e4cd1f094b4118de: inspected fleet/roles/harness/perspectives/Ouroboros/prediction/active inference/RSI. Four isolated inheritance tests pass; six controlled source probes reproduce false completion, false execution receipt, oversized output, no-action credit and random unchanged-genome improvement. Setup failure retained. Roles, contextual inheritance and budgets transfer as concepts; source status/labels are not new verified intelligence. No whole-app quality claim, external dependency, service or personal database changes.
+
+The targeted regression first ran under Windows PowerShell5, whose Stop preference treated the informational JAVA_TOOL_OPTIONS stderr line as a wrapper failure. Its111 passing XML checks are retained; a successful PowerShell7 invocation verifies the up-to-date test outputs, installation and source isolation.
+
+The first full native validation completed all612 executions and the study audit, then failed with a768MB heap error while the test retained multiple full tampered copies. Original XML/log/test source are archived. Harness-only769b366 scopes those copies before the next trace read; the completed original experiment is reused unchanged. Physics/model rules remain4e36547. The first resume then rejected an oversized chat context;6891627/c223cf4 tabulate repeated coverage/goal fields losslessly, with every value reconstructed in the real-study test. That original failure is retained too.
+
+The Game Lab follow-up is documented in docs/REHEARSAL_MEMORY_072.md: reusable experiments with complete restore contracts, immutable parent/child episodes, state/actions plus visual witnesses, component substitutions and an optional Java bytecode investigator. Pinned Akashic2e5a0f94 and RE4c04eee3 were reviewed; selected source identities and focused probes are archived. Akashic exact13 Java sources compiled; original19 RAM-mode checks pass and six additional counterexamples reproduce the identified gaps. Four RE-script counterexamples use mocked process/model/receipt boundaries; no native RE stack or whole external app validation is claimed. These are reviewed concepts, not newly installed rehearsal/RE capabilities.
+
+Publication/fetched audit next. Preserve normal045/qa046, private worlds and immutable001–071. No subagents/overlapping heavy validators. Next073 proposal: reusable experimental memory through typed specialist requests in the existing Java goal runner, complete checkpoints, one-component forks, shared source identity, one total budget, explicit partial failure and matched-budget retrieval/no-retrieval comparison. Do not retune072 against its test outcomes.
+
+
 
 ## Edition072 · In progress, not yet published
 

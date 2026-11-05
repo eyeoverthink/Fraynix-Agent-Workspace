@@ -1,0 +1,23 @@
+{
+  "passed": true,
+  "reviewedAtUtc": "2026-11-05T22:26:42.618448+00:00",
+  "method": "Assistant visual inspection of actual installed-Edge screenshots using the image viewer. Automated interaction results are in documentation-browser.json.",
+  "images": [
+    "guide-1440.png",
+    "guide-390.png",
+    "build/guide-fit072.png",
+    "build/guide-motion072.png",
+    "build/guide-map072.png"
+  ],
+  "findings": [
+    "Main title, navigation, failed qualification and limits are readable at1440 and390 pixels.",
+    "The calibrated terminal-range plot keeps four separately labelled cells and units. Detailed calibration rows use a horizontally scrollable table.",
+    "Blind measured motion, forecast range and numerical coverage are readable, with no false physical-world coverage claim.",
+    "Narrow module details wrap the descriptive text and long source path without page overflow.",
+    "Twenty real app captures load; automated checks exercise all five policies,60 disturbed cases and12 unsupported cases without fabricated motion."
+  ],
+  "limitations": [
+    "The page is a long, offline evidence explorer; individual screenshots show only the currently scrolled section.",
+    "Wide numerical tables retain their own horizontal scrolling on narrow displays."
+  ]
+}

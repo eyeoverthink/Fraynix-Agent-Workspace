@@ -1,0 +1,734 @@
+{
+  "clean": {
+    "all": {
+      "tasks": 48,
+      "points": 192,
+      "allFourTimes": {
+        "distance": {
+          "nominal": {
+            "meanAbsoluteError": 0.001055815037633328,
+            "maxAbsoluteError": 0.017497313829481664
+          },
+          "center": {
+            "meanAbsoluteError": 0.0016370140620604625,
+            "maxAbsoluteError": 0.014262804734450844
+          }
+        },
+        "speed": {
+          "nominal": {
+            "meanAbsoluteError": 0.002753838662660057,
+            "maxAbsoluteError": 0.04026190748504435
+          },
+          "center": {
+            "meanAbsoluteError": 0.004510851806014072,
+            "maxAbsoluteError": 0.04009666927050026
+          }
+        }
+      },
+      "terminal": {
+        "distance": {
+          "nominal": {
+            "meanAbsoluteError": 0.00163513531172077,
+            "maxAbsoluteError": 0.017497313829481664
+          },
+          "center": {
+            "meanAbsoluteError": 0.0021712893518723033,
+            "maxAbsoluteError": 0.014235818345455356
+          }
+        },
+        "speed": {
+          "nominal": {
+            "meanAbsoluteError": 0.0038560438207091937,
+            "maxAbsoluteError": 0.04026190748504435
+          },
+          "center": {
+            "meanAbsoluteError": 0.004109170679588076,
+            "maxAbsoluteError": 0.04009666927050026
+          }
+        }
+      }
+    },
+    "cells": {
+      "accelerating-measured": {
+        "tasks": 19,
+        "points": 76,
+        "allFourTimes": {
+          "distance": {
+            "nominal": {
+              "meanAbsoluteError": 0.0001742893908631147,
+              "maxAbsoluteError": 0.0007505645303149955
+            },
+            "center": {
+              "meanAbsoluteError": 0.00010028971502942742,
+              "maxAbsoluteError": 0.0008874350259076846
+            }
+          },
+          "speed": {
+            "nominal": {
+              "meanAbsoluteError": 0.00039563394270789655,
+              "maxAbsoluteError": 0.00970524261149358
+            },
+            "center": {
+              "meanAbsoluteError": 0.000525762750149989,
+              "maxAbsoluteError": 0.009620818422564514
+            }
+          }
+        },
+        "terminal": {
+          "distance": {
+            "nominal": {
+              "meanAbsoluteError": 0.00029965366180196033,
+              "maxAbsoluteError": 0.0007505645303149955
+            },
+            "center": {
+              "meanAbsoluteError": 0.0001917983496955141,
+              "maxAbsoluteError": 0.0008874350259076846
+            }
+          },
+          "speed": {
+            "nominal": {
+              "meanAbsoluteError": 0.0006122057178767589,
+              "maxAbsoluteError": 0.00970524261149358
+            },
+            "center": {
+              "meanAbsoluteError": 0.0006642535082796858,
+              "maxAbsoluteError": 0.009620818422564514
+            }
+          }
+        }
+      },
+      "slowing-measured": {
+        "tasks": 20,
+        "points": 80,
+        "allFourTimes": {
+          "distance": {
+            "nominal": {
+              "meanAbsoluteError": 0.0009998065253603286,
+              "maxAbsoluteError": 0.011018146335843998
+            },
+            "center": {
+              "meanAbsoluteError": 0.001873254468418276,
+              "maxAbsoluteError": 0.007720561126083769
+            }
+          },
+          "speed": {
+            "nominal": {
+              "meanAbsoluteError": 0.003605798821702386,
+              "maxAbsoluteError": 0.04026190748504435
+            },
+            "center": {
+              "meanAbsoluteError": 0.006836322245345359,
+              "maxAbsoluteError": 0.04009666927050026
+            }
+          }
+        },
+        "terminal": {
+          "distance": {
+            "nominal": {
+              "meanAbsoluteError": 0.0017951047684057115,
+              "maxAbsoluteError": 0.011018146335843998
+            },
+            "center": {
+              "meanAbsoluteError": 0.002478638096982097,
+              "maxAbsoluteError": 0.007720561126083769
+            }
+          },
+          "speed": {
+            "nominal": {
+              "meanAbsoluteError": 0.006159023378504667,
+              "maxAbsoluteError": 0.04026190748504435
+            },
+            "center": {
+              "meanAbsoluteError": 0.006223223208841002,
+              "maxAbsoluteError": 0.04009666927050026
+            }
+          }
+        }
+      },
+      "slowing-predicted": {
+        "tasks": 4,
+        "points": 16,
+        "allFourTimes": {
+          "distance": {
+            "nominal": {
+              "meanAbsoluteError": 0.0033406679641554008,
+              "maxAbsoluteError": 0.014249564775264921
+            },
+            "center": {
+              "meanAbsoluteError": 0.0033392278522946005,
+              "maxAbsoluteError": 0.014262804734450844
+            }
+          },
+          "speed": {
+            "nominal": {
+              "meanAbsoluteError": 0.0033877934145669975,
+              "maxAbsoluteError": 0.029421135260311072
+            },
+            "center": {
+              "meanAbsoluteError": 0.0034883218889661147,
+              "maxAbsoluteError": 0.028605760273971922
+            }
+          }
+        },
+        "terminal": {
+          "distance": {
+            "nominal": {
+              "meanAbsoluteError": 0.0036245848259054275,
+              "maxAbsoluteError": 0.014249564775264921
+            },
+            "center": {
+              "meanAbsoluteError": 0.003624584825905424,
+              "maxAbsoluteError": 0.014235818345455356
+            }
+          },
+          "speed": {
+            "nominal": {
+              "meanAbsoluteError": 4.536903428682008e-06,
+              "maxAbsoluteError": 1.1463547786527695e-05
+            },
+            "center": {
+              "meanAbsoluteError": 4.362667958939844e-06,
+              "maxAbsoluteError": 1.181201872600679e-05
+            }
+          }
+        }
+      },
+      "accelerating-predicted": {
+        "tasks": 5,
+        "points": 20,
+        "allFourTimes": {
+          "distance": {
+            "nominal": {
+              "meanAbsoluteError": 0.002801764203234477,
+              "maxAbsoluteError": 0.017497313829481664
+            },
+            "center": {
+              "meanAbsoluteError": 0.005169833923159832,
+              "maxAbsoluteError": 0.01113872198220961
+            }
+          },
+          "speed": {
+            "nominal": {
+              "meanAbsoluteError": 0.007800012160783393,
+              "maxAbsoluteError": 0.035505392862732243
+            },
+            "center": {
+              "meanAbsoluteError": 0.01117033239461081,
+              "maxAbsoluteError": 0.02499583032416225
+            }
+          }
+        },
+        "terminal": {
+          "distance": {
+            "nominal": {
+              "meanAbsoluteError": 0.0044785281433247556,
+              "maxAbsoluteError": 0.017497313829481664
+            },
+            "center": {
+              "meanAbsoluteError": 0.007301323800478432,
+              "maxAbsoluteError": 0.01113872198220961
+            }
+          },
+          "speed": {
+            "nominal": {
+              "meanAbsoluteError": 0.010051915914114962,
+              "maxAbsoluteError": 0.03452796976273975
+            },
+            "center": {
+              "meanAbsoluteError": 0.012027492222851566,
+              "maxAbsoluteError": 0.024620305926155106
+            }
+          }
+        }
+      }
+    }
+  },
+  "disturbed": {
+    "all": {
+      "tasks": 60,
+      "points": 240,
+      "allFourTimes": {
+        "distance": {
+          "nominal": {
+            "meanAbsoluteError": 0.008593821953261178,
+            "maxAbsoluteError": 0.06147307085255843
+          },
+          "center": {
+            "meanAbsoluteError": 0.00933604495924924,
+            "maxAbsoluteError": 0.06312527044388952
+          }
+        },
+        "speed": {
+          "nominal": {
+            "meanAbsoluteError": 0.04466624995797948,
+            "maxAbsoluteError": 0.2179879491388369
+          },
+          "center": {
+            "meanAbsoluteError": 0.046467928056266386,
+            "maxAbsoluteError": 0.21798435931289684
+          }
+        }
+      },
+      "terminal": {
+        "distance": {
+          "nominal": {
+            "meanAbsoluteError": 0.019077874965706152,
+            "maxAbsoluteError": 0.06147307085255843
+          },
+          "center": {
+            "meanAbsoluteError": 0.020214117401758568,
+            "maxAbsoluteError": 0.06312527044388952
+          }
+        },
+        "speed": {
+          "nominal": {
+            "meanAbsoluteError": 0.061704400529961914,
+            "maxAbsoluteError": 0.14452576996148736
+          },
+          "center": {
+            "meanAbsoluteError": 0.06242245173896285,
+            "maxAbsoluteError": 0.14469100817603145
+          }
+        }
+      }
+    },
+    "cells": {
+      "accelerating-measured": {
+        "tasks": 22,
+        "points": 88,
+        "allFourTimes": {
+          "distance": {
+            "nominal": {
+              "meanAbsoluteError": 0.010618373303644625,
+              "maxAbsoluteError": 0.06147307085255843
+            },
+            "center": {
+              "meanAbsoluteError": 0.010578498389199347,
+              "maxAbsoluteError": 0.06133620035696574
+            }
+          },
+          "speed": {
+            "nominal": {
+              "meanAbsoluteError": 0.056055198690543276,
+              "maxAbsoluteError": 0.2179879491388369
+            },
+            "center": {
+              "meanAbsoluteError": 0.056138727476385146,
+              "maxAbsoluteError": 0.21798435931289684
+            }
+          }
+        },
+        "terminal": {
+          "distance": {
+            "nominal": {
+              "meanAbsoluteError": 0.023018192326229713,
+              "maxAbsoluteError": 0.06147307085255843
+            },
+            "center": {
+              "meanAbsoluteError": 0.02298086400924989,
+              "maxAbsoluteError": 0.06133620035696574
+            }
+          },
+          "speed": {
+            "nominal": {
+              "meanAbsoluteError": 0.07497684389377243,
+              "maxAbsoluteError": 0.13929780602320874
+            },
+            "center": {
+              "meanAbsoluteError": 0.07499986867257126,
+              "maxAbsoluteError": 0.1393822302121378
+            }
+          }
+        }
+      },
+      "slowing-measured": {
+        "tasks": 22,
+        "points": 88,
+        "allFourTimes": {
+          "distance": {
+            "nominal": {
+              "meanAbsoluteError": 0.00700203238911536,
+              "maxAbsoluteError": 0.05982768523412929
+            },
+            "center": {
+              "meanAbsoluteError": 0.008232632370726026,
+              "maxAbsoluteError": 0.06312527044388952
+            }
+          },
+          "speed": {
+            "nominal": {
+              "meanAbsoluteError": 0.03795541545581197,
+              "maxAbsoluteError": 0.19485929192367862
+            },
+            "center": {
+              "meanAbsoluteError": 0.04096829640534469,
+              "maxAbsoluteError": 0.20444187458901467
+            }
+          }
+        },
+        "terminal": {
+          "distance": {
+            "nominal": {
+              "meanAbsoluteError": 0.0165549087986421,
+              "maxAbsoluteError": 0.05982768523412929
+            },
+            "center": {
+              "meanAbsoluteError": 0.01853497251444269,
+              "maxAbsoluteError": 0.06312527044388952
+            }
+          },
+          "speed": {
+            "nominal": {
+              "meanAbsoluteError": 0.052250411860408665,
+              "maxAbsoluteError": 0.14452576996148736
+            },
+            "center": {
+              "meanAbsoluteError": 0.052384283456693395,
+              "maxAbsoluteError": 0.14469100817603145
+            }
+          }
+        }
+      },
+      "slowing-predicted": {
+        "tasks": 8,
+        "points": 32,
+        "allFourTimes": {
+          "distance": {
+            "nominal": {
+              "meanAbsoluteError": 0.006977929606910805,
+              "maxAbsoluteError": 0.03811361572378762
+            },
+            "center": {
+              "meanAbsoluteError": 0.0069761660926465395,
+              "maxAbsoluteError": 0.03812736215359718
+            }
+          },
+          "speed": {
+            "nominal": {
+              "meanAbsoluteError": 0.02605559884460012,
+              "maxAbsoluteError": 0.13000956999275332
+            },
+            "center": {
+              "meanAbsoluteError": 0.02611939469411296,
+              "maxAbsoluteError": 0.13082494497909247
+            }
+          }
+        },
+        "terminal": {
+          "distance": {
+            "nominal": {
+              "meanAbsoluteError": 0.01294792712187797,
+              "maxAbsoluteError": 0.03811361572378762
+            },
+            "center": {
+              "meanAbsoluteError": 0.01294792712187797,
+              "maxAbsoluteError": 0.03812736215359718
+            }
+          },
+          "speed": {
+            "nominal": {
+              "meanAbsoluteError": 0.03203743721436308,
+              "maxAbsoluteError": 0.1295289203784675
+            },
+            "center": {
+              "meanAbsoluteError": 0.032037524332097944,
+              "maxAbsoluteError": 0.12952926884940696
+            }
+          }
+        }
+      },
+      "accelerating-predicted": {
+        "tasks": 8,
+        "points": 32,
+        "allFourTimes": {
+          "distance": {
+            "nominal": {
+              "meanAbsoluteError": 0.00901961938745807,
+              "maxAbsoluteError": 0.05088186906875297
+            },
+            "center": {
+              "meanAbsoluteError": 0.011313561511927986,
+              "maxAbsoluteError": 0.04452327722148092
+            }
+          },
+          "speed": {
+            "nominal": {
+              "meanAbsoluteError": 0.050412086937769045,
+              "maxAbsoluteError": 0.13064784487804496
+            },
+            "center": {
+              "meanAbsoluteError": 0.055345750053127855,
+              "maxAbsoluteError": 0.14050787367401585
+            }
+          }
+        },
+        "terminal": {
+          "distance": {
+            "nominal": {
+              "meanAbsoluteError": 0.021310107027520675,
+              "maxAbsoluteError": 0.05088186906875297
+            },
+            "center": {
+              "meanAbsoluteError": 0.024489402951156702,
+              "maxAbsoluteError": 0.04452327722148092
+            }
+          },
+          "speed": {
+            "nominal": {
+              "meanAbsoluteError": 0.08087061343635327,
+              "maxAbsoluteError": 0.1300078748136616
+            },
+            "center": {
+              "meanAbsoluteError": 0.0858244453546456,
+              "maxAbsoluteError": 0.1399000832948007
+            }
+          }
+        }
+      }
+    }
+  },
+  "unsupported": {
+    "all": {
+      "tasks": 0,
+      "points": 0,
+      "allFourTimes": {
+        "distance": {
+          "nominal": {
+            "meanAbsoluteError": null,
+            "maxAbsoluteError": null
+          },
+          "center": {
+            "meanAbsoluteError": null,
+            "maxAbsoluteError": null
+          }
+        },
+        "speed": {
+          "nominal": {
+            "meanAbsoluteError": null,
+            "maxAbsoluteError": null
+          },
+          "center": {
+            "meanAbsoluteError": null,
+            "maxAbsoluteError": null
+          }
+        }
+      },
+      "terminal": {
+        "distance": {
+          "nominal": {
+            "meanAbsoluteError": null,
+            "maxAbsoluteError": null
+          },
+          "center": {
+            "meanAbsoluteError": null,
+            "maxAbsoluteError": null
+          }
+        },
+        "speed": {
+          "nominal": {
+            "meanAbsoluteError": null,
+            "maxAbsoluteError": null
+          },
+          "center": {
+            "meanAbsoluteError": null,
+            "maxAbsoluteError": null
+          }
+        }
+      }
+    },
+    "cells": {
+      "accelerating-measured": {
+        "tasks": 0,
+        "points": 0,
+        "allFourTimes": {
+          "distance": {
+            "nominal": {
+              "meanAbsoluteError": null,
+              "maxAbsoluteError": null
+            },
+            "center": {
+              "meanAbsoluteError": null,
+              "maxAbsoluteError": null
+            }
+          },
+          "speed": {
+            "nominal": {
+              "meanAbsoluteError": null,
+              "maxAbsoluteError": null
+            },
+            "center": {
+              "meanAbsoluteError": null,
+              "maxAbsoluteError": null
+            }
+          }
+        },
+        "terminal": {
+          "distance": {
+            "nominal": {
+              "meanAbsoluteError": null,
+              "maxAbsoluteError": null
+            },
+            "center": {
+              "meanAbsoluteError": null,
+              "maxAbsoluteError": null
+            }
+          },
+          "speed": {
+            "nominal": {
+              "meanAbsoluteError": null,
+              "maxAbsoluteError": null
+            },
+            "center": {
+              "meanAbsoluteError": null,
+              "maxAbsoluteError": null
+            }
+          }
+        }
+      },
+      "slowing-measured": {
+        "tasks": 0,
+        "points": 0,
+        "allFourTimes": {
+          "distance": {
+            "nominal": {
+              "meanAbsoluteError": null,
+              "maxAbsoluteError": null
+            },
+            "center": {
+              "meanAbsoluteError": null,
+              "maxAbsoluteError": null
+            }
+          },
+          "speed": {
+            "nominal": {
+              "meanAbsoluteError": null,
+              "maxAbsoluteError": null
+            },
+            "center": {
+              "meanAbsoluteError": null,
+              "maxAbsoluteError": null
+            }
+          }
+        },
+        "terminal": {
+          "distance": {
+            "nominal": {
+              "meanAbsoluteError": null,
+              "maxAbsoluteError": null
+            },
+            "center": {
+              "meanAbsoluteError": null,
+              "maxAbsoluteError": null
+            }
+          },
+          "speed": {
+            "nominal": {
+              "meanAbsoluteError": null,
+              "maxAbsoluteError": null
+            },
+            "center": {
+              "meanAbsoluteError": null,
+              "maxAbsoluteError": null
+            }
+          }
+        }
+      },
+      "slowing-predicted": {
+        "tasks": 0,
+        "points": 0,
+        "allFourTimes": {
+          "distance": {
+            "nominal": {
+              "meanAbsoluteError": null,
+              "maxAbsoluteError": null
+            },
+            "center": {
+              "meanAbsoluteError": null,
+              "maxAbsoluteError": null
+            }
+          },
+          "speed": {
+            "nominal": {
+              "meanAbsoluteError": null,
+              "maxAbsoluteError": null
+            },
+            "center": {
+              "meanAbsoluteError": null,
+              "maxAbsoluteError": null
+            }
+          }
+        },
+        "terminal": {
+          "distance": {
+            "nominal": {
+              "meanAbsoluteError": null,
+              "maxAbsoluteError": null
+            },
+            "center": {
+              "meanAbsoluteError": null,
+              "maxAbsoluteError": null
+            }
+          },
+          "speed": {
+            "nominal": {
+              "meanAbsoluteError": null,
+              "maxAbsoluteError": null
+            },
+            "center": {
+              "meanAbsoluteError": null,
+              "maxAbsoluteError": null
+            }
+          }
+        }
+      },
+      "accelerating-predicted": {
+        "tasks": 0,
+        "points": 0,
+        "allFourTimes": {
+          "distance": {
+            "nominal": {
+              "meanAbsoluteError": null,
+              "maxAbsoluteError": null
+            },
+            "center": {
+              "meanAbsoluteError": null,
+              "maxAbsoluteError": null
+            }
+          },
+          "speed": {
+            "nominal": {
+              "meanAbsoluteError": null,
+              "maxAbsoluteError": null
+            },
+            "center": {
+              "meanAbsoluteError": null,
+              "maxAbsoluteError": null
+            }
+          }
+        },
+        "terminal": {
+          "distance": {
+            "nominal": {
+              "meanAbsoluteError": null,
+              "maxAbsoluteError": null
+            },
+            "center": {
+              "meanAbsoluteError": null,
+              "maxAbsoluteError": null
+            }
+          },
+          "speed": {
+            "nominal": {
+              "meanAbsoluteError": null,
+              "maxAbsoluteError": null
+            },
+            "center": {
+              "meanAbsoluteError": null,
+              "maxAbsoluteError": null
+            }
+          }
+        }
+      }
+    }
+  }
+}

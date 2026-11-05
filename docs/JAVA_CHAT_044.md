@@ -1,5 +1,15 @@
 # Java chat and procedural ownership
 
+## Edition072: when another look can still help
+
+Java Brain → When can another look help? runs24 fit and36 separate calibration trajectories, six exact071 parity pairs and five policies on48clean/60disturbed/12unsupported tasks. Inspect frozen position/speed ranges, selected/skipped observation times, remaining impulse budget, hypothetical saved/harmed fractions, actual native contact guards, all costs and full46-sample traces. Hypothetical fractions are assumptions, not calibrated probabilities. Stop retains completed evidence and cold restart restores exact records.
+
+Chat: “Inspect the useful observation study and create the verified Java report. Include state uncertainty, remaining correction ability, all five policies, costs and failures. Do not run experiments or move objects.” Actual CPU4gpt-oss20b reporting was checked against complete Java facts.
+
+Clean old guard→useful successes 39→39/48; later readings 141→108; utility change +0.022917. Disturbed successes 40→39/60; readings 180→135; utility change -0.024667. Combined qualification: False. Active controller stays unchanged. This is native ramp control, not physical camera calibration. Chandra contributes reviewed organization and inheritance ideas; its fleet is not installed into Java. [README072](../README-072.md) · [contract](EDITION_072_CONTRACT.md) · [review](CHANDRA_072_ASSESSMENT.md).
+
+
+
 ## Edition071: uncertainty before skipping a look
 
 Java Brain → edition071 runs24 fit and36 separate calibration examples, six exact070 parity pairs, then four policies on48 clean,60 disturbed and12 unsupported tasks. The frozen four-cell residual model guards skips without changing initial behavior or correction budgets. Inspect model scores, source identity, all-policy costs, forced looks, retained skips, blind-future coverage and full46-frame traces. Stop retains completed evidence; cold restart restores exact records.

@@ -1,0 +1,173 @@
+{
+  "edition": 72,
+  "modules": [
+    {
+      "id": "fit",
+      "name": "Separate fitting and joint calibration",
+      "summary": "Fit position/speed residuals, separately calibrate four source/regime cells and freeze before evaluation.",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/StateUncertainty072.java",
+      "status": "Verified",
+      "note": "docs/obsidian/80-useful-observation.md"
+    },
+    {
+      "id": "value",
+      "name": "Uncertainty and remaining correction",
+      "summary": "Compare243 hypothetical states across three windows using unchanged bounded inverse control and explicit cost.",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/ObservationValue072.java",
+      "status": "Verified",
+      "note": "docs/obsidian/80-useful-observation.md"
+    },
+    {
+      "id": "native",
+      "name": "Measured authority and outcomes",
+      "summary": "Actual contact, velocity and rotation guard each impulse; native samples and receipts are recomputed.",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/UsefulTrial072.java",
+      "status": "Verified",
+      "note": "docs/obsidian/80-useful-observation.md"
+    },
+    {
+      "id": "study",
+      "name": "Five paired policies and independent truth",
+      "summary": "Fresh fit/calibration/evaluation, exact071 parity, all costs, failures and blind-future coverage.",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/UsefulStudy072.java",
+      "status": "Verified",
+      "note": "docs/obsidian/80-useful-observation.md"
+    },
+    {
+      "id": "chat",
+      "name": "Checked Java-owned reports",
+      "summary": "Lossless aggregate tables preserve all policy metrics, paired deltas and costs in local model context.",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/UsefulContext072.java",
+      "status": "Actual model",
+      "note": "docs/obsidian/80-useful-observation.md"
+    },
+    {
+      "id": "view",
+      "name": "One integrated evidence view",
+      "summary": "Inspect calibration, choices, actual native motion and simple reachability without a second application.",
+      "source": "workspace-desktop/renderer/useful072.js",
+      "status": "Actual app",
+      "note": "docs/obsidian/80-useful-observation.md"
+    },
+    {
+      "id": "chandra",
+      "name": "Chandra roles and inheritance review",
+      "summary": "Pinned code, four existing inheritance checks and six controlled counterexamples inform stricter Java contracts.",
+      "source": "docs/CHANDRA_072_ASSESSMENT.md",
+      "status": "Reviewed",
+      "note": "docs/obsidian/80-useful-observation.md"
+    },
+    {
+      "id": "next",
+      "name": "Typed specialist requests",
+      "summary": "Extend the existing Java goal runner with bounded observer/planner/verifier requests and verified procedure inheritance.",
+      "source": "docs/EDITION_072_CONTRACT.md",
+      "status": "Planned",
+      "note": "docs/obsidian/80-useful-observation.md"
+    },
+    {
+      "id": "memory",
+      "name": "Game Lab as reusable experimental memory",
+      "summary": "Design assessment: fork saved state, substitute components, compare actual outcomes and investigate failures at source/bytecode level. Pinned Akashic and RE source reviewed; not installed.",
+      "source": "docs/REHEARSAL_MEMORY_072.md",
+      "status": "Reviewed concept",
+      "note": "docs/obsidian/80-useful-observation.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "docs/readmes/072/useful072-missed-window.png",
+      "title": "A later look misses the remaining correction window"
+    },
+    {
+      "path": "docs/readmes/072/useful072-early-recovery.png",
+      "title": "The earlier adaptive look recovers the same task"
+    },
+    {
+      "path": "docs/readmes/072/useful072-overview.png",
+      "title": "Integrated useful-observation study"
+    },
+    {
+      "path": "docs/readmes/072/useful072-calibration.png",
+      "title": "Frozen position and speed calibration"
+    },
+    {
+      "path": "docs/readmes/072/useful072-clean.png",
+      "title": "Clean outcomes, costs and comparisons"
+    },
+    {
+      "path": "docs/readmes/072/useful072-disturbed.png",
+      "title": "Unfamiliar disturbance results"
+    },
+    {
+      "path": "docs/readmes/072/useful072-brake.png",
+      "title": "Brake impulse and subsequent motion"
+    },
+    {
+      "path": "docs/readmes/072/useful072-lift.png",
+      "title": "Lift impulse and contact guard"
+    },
+    {
+      "path": "docs/readmes/072/useful072-push.png",
+      "title": "External push and bounded recovery"
+    },
+    {
+      "path": "docs/readmes/072/useful072-spin.png",
+      "title": "Torque and rotation guard"
+    },
+    {
+      "path": "docs/readmes/072/useful072-after-last.png",
+      "title": "Event after every candidate look"
+    },
+    {
+      "path": "docs/readmes/072/useful072-look.png",
+      "title": "A selected look and predicted correction value"
+    },
+    {
+      "path": "docs/readmes/072/useful072-skip.png",
+      "title": "A skipped look and remaining authority"
+    },
+    {
+      "path": "docs/readmes/072/useful072-simple.png",
+      "title": "Simpler nominal reachability comparison"
+    },
+    {
+      "path": "docs/readmes/072/useful072-prior-guard.png",
+      "title": "Preserved original071 uncertainty guard"
+    },
+    {
+      "path": "docs/readmes/072/useful072-coverage.png",
+      "title": "Position and speed intervals checked against blind motion"
+    },
+    {
+      "path": "docs/readmes/072/useful072-paired.png",
+      "title": "All five policies and measured costs"
+    },
+    {
+      "path": "docs/readmes/072/useful072-domain.png",
+      "title": "Unsupported task refused without invented motion"
+    },
+    {
+      "path": "docs/readmes/072/useful072-narrow.png",
+      "title": "Integrated Brain at 1100 pixels"
+    },
+    {
+      "path": "docs/readmes/072/useful072-chat.png",
+      "title": "Actual local-model report with checked Java facts"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/readmes/072/verification.json",
+      "title": "Verification"
+    },
+    {
+      "path": "docs/readmes/072/original-evidence.json",
+      "title": "Exact originals"
+    },
+    {
+      "path": "docs/readmes/072/useful-data.json",
+      "title": "Audited Java motion, bounds and schedules"
+    }
+  ]
+}

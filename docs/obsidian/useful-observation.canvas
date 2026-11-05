@@ -1,0 +1,143 @@
+{
+  "nodes": [
+    {
+      "id": "fit",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/StateUncertainty072.java",
+      "x": 0,
+      "y": 0,
+      "width": 390,
+      "height": 200
+    },
+    {
+      "id": "value",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/ObservationValue072.java",
+      "x": 420,
+      "y": 0,
+      "width": 390,
+      "height": 200
+    },
+    {
+      "id": "native",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/UsefulTrial072.java",
+      "x": 840,
+      "y": 0,
+      "width": 390,
+      "height": 200
+    },
+    {
+      "id": "study",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/UsefulStudy072.java",
+      "x": 0,
+      "y": 250,
+      "width": 390,
+      "height": 200
+    },
+    {
+      "id": "chat",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/UsefulContext072.java",
+      "x": 420,
+      "y": 250,
+      "width": 390,
+      "height": 200
+    },
+    {
+      "id": "view",
+      "type": "file",
+      "file": "workspace-desktop/renderer/useful072.js",
+      "x": 840,
+      "y": 250,
+      "width": 390,
+      "height": 200
+    },
+    {
+      "id": "chandra",
+      "type": "file",
+      "file": "docs/CHANDRA_072_ASSESSMENT.md",
+      "x": 0,
+      "y": 500,
+      "width": 390,
+      "height": 200
+    },
+    {
+      "id": "next",
+      "type": "file",
+      "file": "docs/EDITION_072_CONTRACT.md",
+      "x": 420,
+      "y": 500,
+      "width": 390,
+      "height": 200
+    },
+    {
+      "id": "memory",
+      "type": "file",
+      "file": "docs/REHEARSAL_MEMORY_072.md",
+      "x": 840,
+      "y": 500,
+      "width": 390,
+      "height": 200
+    }
+  ],
+  "edges": [
+    {
+      "id": "e0",
+      "fromNode": "fit",
+      "fromSide": "right",
+      "toNode": "value",
+      "toSide": "left"
+    },
+    {
+      "id": "e1",
+      "fromNode": "value",
+      "fromSide": "right",
+      "toNode": "native",
+      "toSide": "left"
+    },
+    {
+      "id": "e2",
+      "fromNode": "native",
+      "fromSide": "right",
+      "toNode": "study",
+      "toSide": "left"
+    },
+    {
+      "id": "e3",
+      "fromNode": "study",
+      "fromSide": "right",
+      "toNode": "chat",
+      "toSide": "left"
+    },
+    {
+      "id": "e4",
+      "fromNode": "chat",
+      "fromSide": "right",
+      "toNode": "view",
+      "toSide": "left"
+    },
+    {
+      "id": "e5",
+      "fromNode": "view",
+      "fromSide": "right",
+      "toNode": "chandra",
+      "toSide": "left"
+    },
+    {
+      "id": "e6",
+      "fromNode": "chandra",
+      "fromSide": "right",
+      "toNode": "next",
+      "toSide": "left"
+    },
+    {
+      "id": "e7",
+      "fromNode": "next",
+      "fromSide": "right",
+      "toNode": "memory",
+      "toSide": "left"
+    }
+  ]
+}

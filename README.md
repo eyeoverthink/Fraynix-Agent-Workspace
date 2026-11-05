@@ -2,11 +2,11 @@
 
 **A local visual environment for agents to browse, create runnable artifacts, test behavior and reuse verified skills.**
 
-> **[Edition071 · When skipping a look is risky](README-071.md)** · [Offline guide](docs/readmes/071/index.html) · [Operation](docs/JAVA_CHAT_044.md) · [Edition history](docs/readmes/INDEX.md)
+> **[Edition072 · When another look can still help](README-072.md)** · [Offline guide](docs/readmes/072/index.html) · [Chandra review](docs/CHANDRA_072_ASSESSMENT.md) · [Operation](docs/JAVA_CHAT_044.md) · [Edition history](docs/readmes/INDEX.md)
 
-Edition071 fits and separately calibrates source-bound Java prediction errors, then uses the frozen range to guard skipped observations. Clean adaptive→uncertain successes 39→39/48; extra readings 75→132. Disturbed successes 34→34/60; extra readings 120→177. Joint coverage clean 91.7%, disturbed 50.0%. Combined qualification: False. Training and inference costs remain visible; no automatic controller promotion. [Full evidence](docs/readmes/071/verification.json).
+Edition072 combines calibrated position/speed uncertainty, remaining correction authority and sensing cost, compared with a simple reachability rule and three preserved baselines. Clean old guard→useful successes 39→39/48; later readings 141→108; utility change +0.022917. Disturbed successes 40→39/60; readings 180→135; utility change -0.024667. Combined qualification: False. No automatic controller promotion. [Full evidence](docs/readmes/072/verification.json).
 
-Edition071 is published to main with full source, 16 actual app captures, exact original evidence and updated continuity notes. [Fetched GitHub verification](docs/PUBLICATION_071.json).
+Edition072 implementation, screenshots and original evidence are prepared for publication. [Previous fetched publication](docs/PUBLICATION_071.json).
 
 
 One integrated app, with Java-owned chat planning, creation, native skill scheduling, continuing identity, real clocks and checked outcomes. Mission connects the actual goal, source, child task, recovery and retained result. [Screenshots, typed skill graphs, new logic and production direction](README-046.md).
