@@ -89,6 +89,8 @@ Edition072 supplies a concrete motivation. Its completed native study retained61
 
 An episode library should retain those missed predictions, changed conditions and costs. Retrieval should identify relevant failures as well as successes. Bounded background rehearsal needs a scheduler with explicit time, memory and execution budgets, interruption, and priority for the user's active work. Measure whether retrieving a valid prior episode avoids unnecessary trials; do not assume that a growing memory automatically makes the system faster or more capable.
 
+One retained example makes this concrete. In disturbed case7, an external push arrived at tick84. The preserved adaptive policy observed at tick92 and corrected successfully. The new policy waited until tick116; by then its remaining correction budget could not reach the goal. That is an episode about a missed intervention window, with a paired successful alternative. It can inform a future hypothesis and training case, but the same case must not then be counted as fresh evidence that the revised policy generalizes.
+
 Extend the current Java goal runner with one concrete end-to-end rehearsal task:
 
 > Retrieve the closest verified block-moving experiment, fork its starting state, change the friction or payload, test a small set of actions, compare prediction with actual motion, and retain the new episode with a replayable visual witness.
