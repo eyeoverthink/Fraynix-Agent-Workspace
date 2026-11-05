@@ -6,7 +6,7 @@
 
 Edition072 combines calibrated position/speed uncertainty, remaining correction authority and sensing cost, compared with a simple reachability rule and three preserved baselines. Clean old guard→useful successes 39→39/48; later readings 141→108; utility change +0.022917. Disturbed successes 40→39/60; readings 180→135; utility change -0.024667. Combined qualification: False. No automatic controller promotion. [Full evidence](docs/readmes/072/verification.json).
 
-Edition072 implementation, screenshots and original evidence are prepared for publication. [Previous fetched publication](docs/PUBLICATION_071.json).
+Edition072 is published to main with full source, 20 actual app captures, exact original evidence and updated continuity notes. [Fetched GitHub verification](docs/PUBLICATION_072.json).
 
 
 One integrated app, with Java-owned chat planning, creation, native skill scheduling, continuing identity, real clocks and checked outcomes. Mission connects the actual goal, source, child task, recovery and retained result. [Screenshots, typed skill graphs, new logic and production direction](README-046.md).

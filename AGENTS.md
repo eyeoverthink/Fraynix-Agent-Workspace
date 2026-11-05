@@ -1,5 +1,16 @@
 # Fraynix Studio collaboration and documentation
 
+## Edition072 · Published and fetched back on2026-11-05
+
+Atomic push to Fraynix-Agent-Workspace main,edition072 and readme-072 succeeded. Release3c95006162609dee74abe07150a4dc3c6ed0f748; annotated tag032a8ef52e14ad17fa2f13e87f301a31c2c02322. Fresh GitHub fetch verified 1047canonical sources,6178frozen hashes across72editions and127original archives including decompressed bytes. Documentation passed77canvases/7341references. [Receipt](docs/PUBLICATION_072.json).
+
+112 targeted Java checks/25 classes;127desktop checks; actual666-slot/612-execution app study, numeric native/app parity, six exact071 parity pairs, source/value/time/budget/model guards, cold restore, Stop and CPU4gpt-oss20b report. Qualification False; no promotion or post-outcome tuning. Chandra pinned-source review, four inheritance tests and six controlled counterexamples. Game Lab rehearsal-memory design plus pinned Akashic/RE source and controlled checks; no new external engine installed.
+
+Clean old guard→useful success 39→39/48, later readings 141→108; utility delta +0.022917. Disturbed success 40→39/60, later readings 180→135; utility delta -0.024667. All costs/failures and simpler control retained. Hypothetical weights are not probabilities. Native state calibration is not webcam accuracy.
+
+README072,actual app/offline captures, full source inventory, Obsidian80/canvas, Chandra and experimental-memory/Akashic/RE assessments and raw proof published. Test app closed; normal045/qa046/private worlds preserved. No subagents or concurrent heavy validators. Next073 proposal: reusable experimental memory, complete restore contracts and component substitutions through typed bounded specialist requests in the existing Java goal runner. This receipt follows the immutable release tag.
+
+
 ## Edition072 · Validated locally; publication next
 
 Contract2e4a2e7 and cost clarificationf7c4220 precede implementation4e36547 and outcomes. Isolated work/fraynix-workspace-edition072 from622fdfb.24fit/36calibration trajectories freeze original071 distance model and new joint position/speed residual model. Five policies blind/adaptive/uncertain/simple/useful preserve first action and .12individual/.24cumulative correction authority. New useful policy compares243 hypothetical states at92/116/140; explicit weights are assumptions.666slots/612native executions; six exact071 parity pairs. All46 diagnostic samples retained.
