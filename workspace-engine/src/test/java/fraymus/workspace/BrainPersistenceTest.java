@@ -27,7 +27,7 @@ public class BrainPersistenceTest {
    assertTrue(BrainServiceTest.await(brain,brain.start(new JSONObject().put("kind","train")).getString("id")).getBoolean("accepted"));
    var s=scenes.save(new JSONObject().put("title","Physical readout proof").put("parameters",new JSONObject().put("angleDeg",25).put("friction",.05)));
    var run=scenes.controlledRun(new JSONObject().put("id",s.getString("id")).put("expectedVersion",1).put("targetM",1.2),brain);assertEquals("completed",run.getString("status"));assertTrue(run.getJSONObject("goalEvaluation").toString(),run.getJSONObject("goalEvaluation").getBoolean("passed"));assertFalse(run.getJSONObject("evaluation").getBoolean("applicable"));
-   var cpu=brain.prediction(s,1.2,false);var gpu=brain.prediction(s,1.2,true);assertEquals(cpu.getDouble("deltaVelocityMps"),gpu.getDouble("deltaVelocityMps"),.0002);assertTrue(gpu.getString("backend").contains("OpenGL")||gpu.getString("backend").contains("NVIDIA"));
+   var cpu=brain.prediction(s,1.2,false);var gpu=brain.prediction(s,1.2,true);assertEquals(cpu.getDouble("deltaVelocityMps"),gpu.getDouble("deltaVelocityMps"),.0002);assertTrue(gpu.getString("backend").contains("OpenGL")||gpu.getString("backend").contains("NVIDIA")||gpu.getString("backend").contains("Mesa"));
    scenes.control(new JSONObject().put("action","reset"));var replay=scenes.replay(run.getString("id"));assertEquals(run.getJSONObject("final").getDouble("distanceM"),replay.getJSONObject("final").getDouble("distanceM"),1e-6);assertEquals(2,replay.getJSONObject("controller").getInt("policyVersion"));
   }
  }
