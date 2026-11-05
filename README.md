@@ -6,7 +6,7 @@
 
 Edition071 fits and separately calibrates source-bound Java prediction errors, then uses the frozen range to guard skipped observations. Clean adaptive→uncertain successes 39→39/48; extra readings 75→132. Disturbed successes 34→34/60; extra readings 120→177. Joint coverage clean 91.7%, disturbed 50.0%. Combined qualification: False. Training and inference costs remain visible; no automatic controller promotion. [Full evidence](docs/readmes/071/verification.json).
 
-Edition071 implementation, screenshots and original evidence are prepared for publication. [Previous fetched publication](docs/PUBLICATION_070.json).
+Edition071 is published to main with full source, 16 actual app captures, exact original evidence and updated continuity notes. [Fetched GitHub verification](docs/PUBLICATION_071.json).
 
 
 One integrated app, with Java-owned chat planning, creation, native skill scheduling, continuing identity, real clocks and checked outcomes. Mission connects the actual goal, source, child task, recovery and retained result. [Screenshots, typed skill graphs, new logic and production direction](README-046.md).

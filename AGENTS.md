@@ -1,5 +1,18 @@
 # Fraynix Studio collaboration and documentation
 
+## Edition071 · Published and fetched back on 2026-11-05
+
+Atomic push to Fraynix-Agent-Workspace main,edition071 and readme-071 succeeded. Release 21f0ff54018ffb8400ca329a5550bb3b7819b934; annotated tag 645836af0d027257c05a711eaf7da301402d26c3. Fresh GitHub fetch verified 1035canonical sources,6018frozen hashes across71editions and73original archives including decompressed bytes. Documentation passed76canvases and7219references. [Publication receipt](docs/PUBLICATION_071.json).
+
+Java fits24 and separately calibrates36 native blind trajectories across4 cells; frozen joint residual model guards skipped looks. Original070 selected times remain; risky skips force92. Four paired methods,546slots/504native executions,six exact070 parity pairs. Original hypothetical weights remain assumptions. Calibration nominal90%, not a physical/general coverage guarantee. All diagnostic46samples still retained.
+
+Clean adaptive→uncertain success 39→39/48; extra readings 75→132; utility -0.044583; joint coverage 91.7%. Disturbed success 34→34/60; readings 120→177; utility -0.036667; joint coverage 50.0%. Combined qualification False. All failures/costs retained; active controller unchanged.
+
+110 targeted Java checks/24 classes,127 desktop checks, actual546-slot/504-execution app study, numerical calibration/samples/plans/non-timing outcomes match native, six exact070 parity comparisons, source/value/chronology/budget/model guards, cold restore, Stop and CPU4gpt-oss20b report. Combined qualification False. No controller promotion or post-outcome policy/case/gate tuning. Offline1440/390 interactions and actual screenshots visually checked. Original070 cold-restores. README071,16app captures,2offline captures, complete inventory, Obsidian79/canvas, source-bound original archives and notes published. Contract421fe87, implementation07bd01e precede outcomes. First checkpoint failure retained;41a6a53 bounded atomic retry tested with real deny-delete handles. Partial completed evidence matches unchanged rerun. UI repair a3eaa9c coalesces duplicate trace reads, clears stale controls and wraps calibration; original failed UI output/captures retained, physics unchanged. Factory runtime and transaction harnesses also pass. Concurrent main ec56d80 was preserved in merge b95582e; 13 merged Windows tests and source isolation pass, adding eight distinct procedural checks. Runtime/UI and study evidence are unchanged; hosted Actions is separate. No automatic promotion/LLM-weight training. Test app closed; preserve normal045/qa046 installations and private worlds. No subagents/overlapping heavy validators.
+
+Next unused072: conditional uncertainty and uncertainty-aware timing versus simpler conservative control, with new fit/calibration/held-out tasks and complete costs under a new prospective contract. Preserve071 as measured; do not retune its gates. Receipt follows immutable release tag.
+
+
 ## Edition071 · Concurrent main preserved before publication
 
 Merged ec56d80 at b95582eedfa516e333c5c62c6c994adea0f7a019 without runtime/UI changes. Incoming workflow, two tests and their notes preserved. Thirteen Windows tests and source isolation passed; combined distinct coverage is 110 Java tests/24 classes. Physics/model/app evidence retains its original source identity. The final canonical source inventory includes the two updated tests. Hosted Actions was not validated by this local run. Publication and fetched audit remain next.
