@@ -2,11 +2,11 @@
 
 **A local visual environment for agents to browse, create runnable artifacts, test behavior and reuse verified skills.**
 
-> **[Edition 067 · Contact history and value before the push](README-067.md)** · [Offline guide](docs/readmes/067/index.html) · [Operation](docs/JAVA_CHAT_044.md) · [Edition history](docs/readmes/INDEX.md)
+> **[Edition 068 · Calibrated recovery under unfamiliar disturbances](README-068.md)** · [Offline guide](docs/readmes/068/index.html) · [Operation](docs/JAVA_CHAT_044.md) · [Edition history](docs/readmes/INDEX.md)
 
-Edition 067 compares three recent contact samples and a pre-push value screen against five existing policies. Value completed 29/60 tasks, with 3 misses and 28 refusals. It avoided 13 Temporal misses but sacrificed 15 successes. It passed the declared usefulness test; no automatic promotion. [Measured results](docs/readmes/067/verification.json).
+Edition 068 learns a frozen Java recovery estimate from native outcomes, then tests clean and unfamiliar disturbances. Clean: 38/48 successes, 3 misses, 7 refusals; gate passed. Disturbed: 23/48 successes, 17 misses, 8 refusals; gate failed. Calibration helps clean decisions but is overconfident under disturbances. No automatic controller promotion. [Measured results](docs/readmes/068/verification.json).
 
-Edition 067 is published to main with source, ten actual app captures, original evidence and updated continuity notes. [Fetched GitHub verification](docs/PUBLICATION_067.json).
+Edition 068 implementation, screenshots and original evidence are prepared for publication. [Previous fetched publication](docs/PUBLICATION_067.json).
 
 
 One integrated app, with Java-owned chat planning, creation, native skill scheduling, continuing identity, real clocks and checked outcomes. Mission connects the actual goal, source, child task, recovery and retained result. [Screenshots, typed skill graphs, new logic and production direction](README-046.md).

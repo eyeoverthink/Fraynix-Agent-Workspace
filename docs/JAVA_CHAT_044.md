@@ -1,5 +1,14 @@
 # Java chat and procedural ownership
 
+## Edition 068: calibration and unfamiliar disturbances
+
+Java Brain → Calibrate recovery · test unfamiliar disturbances runs 48 native calibration attempts, freezes an owned Java monotonic model, then evaluates four policies on 48 clean, 48 disturbed and 12 unsupported tasks. The panel exposes training labels/fees, reliability bins, actual 46-sample trajectories, three-sample contact evidence, external linear/torque impulses and decisions before motion. Unsupported and screened refusals have no invented trajectory. Stop preserves completed studies; cold restore retains exact model and evidence.
+
+Chat phrases “recovery calibration”, “calibrated recovery” and “unfamiliar disturbances” use the existing continuing-agent evidence route. Ask for a checked report without running experiments. Large label/subgroup arrays become explicit references in planning, while full original facts and the report retain them. No weakened context guard or new arbitrary action handler. Actual CPU-only/four-thread gpt-oss:20b reporting is tested.
+
+Clean qualification passes, unfamiliar qualification fails; combined not qualified and no promotion. A clean-trained estimate is overconfident after novel impulses. See [README 068](../README-068.md), [contract](EDITION_068_CONTRACT.md), [verification](readmes/068/verification.json) and [offline guide](readmes/068/index.html).
+
+
 ## Edition 067: contact history and pre-push value
 
 Java Brain → Contact history and value before the push runs the seven-policy comparison. Temporal uses three recent native samples and oriented clearance. Value first saves nine analytical sensitivity scenarios and declines an attempt whose estimated utility does not justify its cost. Scenario fractions are not calibrated confidence. All real misses, sacrificed successes, costs and unsupported refusals remain visible.

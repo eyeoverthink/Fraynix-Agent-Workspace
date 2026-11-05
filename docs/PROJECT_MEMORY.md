@@ -1,5 +1,18 @@
 # Agent Workspace project memory
 
+## Edition 068 · Validated locally; publication next
+
+Contract19cd86e and implementation fd1fd52 precede new native outcomes. Own Java weighted PAV calibration:37 eligible native labels from48 attempts, model frozen before48 clean/48 disturbed/12 unsupported tasks. Four preserved/comparison policies,484 progress slots,384 actual native executions, four original-runtime parity deltas zero. Native and actual-app outcome and sample arrays match. No policy/physics/gate retuning after outcomes.
+
+Clean: Simple26 success/22 miss; Temporal38/10; Value26/1/21 refusals; Calibrated38/3/7. Clean Brier0.168941→0.077991, ECE0.204678→0.053509, calibrated-minus-Value utility+0.168417; clean gate PASSES. Disturbed: Simple13/35; Temporal23/25; Value16/12/20; Calibrated23/17/8. Brier0.289095→0.275497, ECE0.287037→0.278373, utility difference−0.060250; disturbed gate FAILS on utility and miss rate. Combined NOT QUALIFIED; active controllerv1 remains. No LLM-weight training or physical-confidence claim.
+
+Four exact external native impulses (brake/lift at40, push/torque at84), before/after receipts, current-pose continuity, source/timing/model boundaries, independent labels and full costs audited. Model sees no future event schedule. First chat exposed generic 50K source compaction dropping agent facts before planning; its report retained the full snapshot. Source-preservation plus lossless shared-value tables and explicit unrelated-history references repaired the actual path. The original failed app assertion and oversized-projection test are retained; fresh chat uses the same completed study. A harness-only duplicate-title click failure was corrected by exact artifact selection without another model call. First test compilation lambda issue corrected before native outcomes; original failure retained. 81 distinct targeted Java checks/16 classes,127 desktop checks, actual app/native/restart/Stop/CPU4 gpt-oss20b report, offline desktop/phone interaction and visual checks pass. Not a fresh all-history heavyweight suite.
+
+README068,12 actual app captures,2 offline captures, source inventory, exact original archives and Obsidian note/canvas prepared. Main push and fetched audit remain pending. Worktree work/fraynix-workspace-edition068. Preserve normal045/qa046 installations, personal worlds and frozen001–067. No subagents or concurrent heavy validators.
+
+Next unused069: prospectively test a bounded later observation/disturbance detector and contact-aware abstention on fresh cases, keeping068 held-out data frozen. Measure sensing cost, missed recoveries and reliability before promotion. Native geometry and calibrated empirical rate do not establish real-world physical precision.
+
+
 ## Edition 067 · Published and fetched back on 2026-11-04
 
 Actual atomic push to Fraynix-Agent-Workspace main, edition067 and readme-067 succeeded. Release 5d13d99553314e3f308a5a69701f7ef64f330aad; annotated tag df1600d9695e8633c4518b1ec6b5826916b67a24. Fresh GitHub fetch verified 988 canonical sources, 5676 frozen hashes across 67 editions and 49 original archives, including decompressed bytes. Documentation passed 72 canvases and 6846 references. [Publication receipt](PUBLICATION_067.json).

@@ -1,0 +1,125 @@
+{
+  "edition": 68,
+  "modules": [
+    {
+      "id": "fit",
+      "name": "Owned monotonic calibration",
+      "summary": "Weighted adjacent-block pooling learns empirical recovery rates from calibration-only native labels.",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/ValueCalibration068.java",
+      "status": "Verified",
+      "note": "docs/obsidian/76-calibrated-recovery.md"
+    },
+    {
+      "id": "policy",
+      "name": "Four retained policies",
+      "summary": "Replace only the pre-push probability; preserve earlier choices and all action, observation and lookup fees.",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/CalibratedPolicy068.java",
+      "status": "Verified",
+      "note": "docs/obsidian/76-calibrated-recovery.md"
+    },
+    {
+      "id": "native",
+      "name": "Real external impulses",
+      "summary": "Native braking, lift, later push and torque have exact before/after receipts; planners never receive future event schedules.",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/DisturbanceTrial068.java",
+      "status": "Verified",
+      "note": "docs/obsidian/76-calibrated-recovery.md"
+    },
+    {
+      "id": "study",
+      "name": "Frozen training and reserved tests",
+      "summary": "Fit once before reserved outcomes; audit parity, models, chronology, failures, costs and domain refusals.",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/CalibrationStudy068.java",
+      "status": "Verified",
+      "note": "docs/obsidian/76-calibrated-recovery.md"
+    },
+    {
+      "id": "chat",
+      "name": "Bounded evidence in chat",
+      "summary": "Preserve full facts and report; project large source arrays into explicit references for planning.",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/CalibrationContext068.java",
+      "status": "Actual model",
+      "note": "docs/obsidian/76-calibrated-recovery.md"
+    },
+    {
+      "id": "view",
+      "name": "Inspect calibration and motion",
+      "summary": "Actual native traces, reliability, contact evidence and external receipts in the integrated Java Brain view.",
+      "source": "workspace-desktop/renderer/calibration068.js",
+      "status": "Actual app",
+      "note": "docs/obsidian/76-calibrated-recovery.md"
+    },
+    {
+      "id": "next",
+      "name": "Disturbance-aware observation",
+      "summary": "Declare and test bounded later observation on fresh cases before changing controller authority.",
+      "source": "docs/EDITION_068_CONTRACT.md",
+      "status": "Planned",
+      "note": "docs/obsidian/76-calibrated-recovery.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "docs/readmes/068/calibration068-calibration.png",
+      "title": "Frozen native calibration and training cost"
+    },
+    {
+      "path": "docs/readmes/068/calibration068-clean.png",
+      "title": "Clean held-out task results"
+    },
+    {
+      "path": "docs/readmes/068/calibration068-disturbed.png",
+      "title": "Unfamiliar disturbances and failed qualification"
+    },
+    {
+      "path": "docs/readmes/068/calibration068-brake.png",
+      "title": "Actual braking impulse and contact history"
+    },
+    {
+      "path": "docs/readmes/068/calibration068-lift.png",
+      "title": "Actual normal lift impulse"
+    },
+    {
+      "path": "docs/readmes/068/calibration068-push.png",
+      "title": "External push after the observation window"
+    },
+    {
+      "path": "docs/readmes/068/calibration068-spin.png",
+      "title": "External torque and angular response"
+    },
+    {
+      "path": "docs/readmes/068/calibration068-decision.png",
+      "title": "Calibrated decision before the first push"
+    },
+    {
+      "path": "docs/readmes/068/calibration068-decline.png",
+      "title": "Declined attempt with no invented motion"
+    },
+    {
+      "path": "docs/readmes/068/calibration068-domain.png",
+      "title": "Unsupported request retains its domain fence"
+    },
+    {
+      "path": "docs/readmes/068/calibration068-narrow.png",
+      "title": "Integrated Java Brain at 1100 pixels"
+    },
+    {
+      "path": "docs/readmes/068/calibration068-chat.png",
+      "title": "Actual local-model checked report"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/readmes/068/verification.json",
+      "title": "Verification"
+    },
+    {
+      "path": "docs/readmes/068/original-evidence.json",
+      "title": "Exact originals"
+    },
+    {
+      "path": "docs/readmes/068/calibration-data.json",
+      "title": "Audited Java-projected motion"
+    }
+  ]
+}
