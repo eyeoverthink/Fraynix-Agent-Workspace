@@ -16,7 +16,7 @@ final class UsefulContext072 {
    table(e.getJSONObject("coverage"),"cells","coverageCells",columns);
    table(e.getJSONObject("diagnostics"),"goals","goalComparisons",columns);
   }
-  s.put("tableColumns072",columns).put("tableMeaning072","Each row is [policy, values in column order]. All aggregate metrics, paired comparisons, gates, costs and diagnostics retained. Subgroups referenced in original checked report.");
+  s.put("tableColumns072",columns).put("tableMeaning072","Each row is [policy or calibration-cell identity, values in column order]. All aggregate metrics, paired comparisons, gates, costs and diagnostics retained. Subgroups referenced in original checked report.");
   return true;
  }
  private static void table(JSONObject owner,String name,String ref,JSONObject columns){
