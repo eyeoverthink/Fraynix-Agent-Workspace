@@ -1,0 +1,2406 @@
+{
+  "edition": 57,
+  "date": "2026-11-03",
+  "source": "2aaddc64906b7a00b2fcae224ee6310a1b8621b2",
+  "runtimeComponents": {
+    "nativePayloadAndReport": "d9a6219",
+    "installedJava": "2aaddc6",
+    "firstActualApp": "179bbafd5028765132779eb240b867e67674aca7",
+    "chat": "2ee2c7525d535f3bd1972ba1a5773191065efaae",
+    "savedSkillReuse": "2aaddc64906b7a00b2fcae224ee6310a1b8621b2",
+    "finalSourceInventory": "2aaddc64906b7a00b2fcae224ee6310a1b8621b2"
+  },
+  "passed": true,
+  "javaCount": 50,
+  "javaSuites": 8,
+  "javaInvocations": [
+    {
+      "label": "native057-artifact",
+      "source": "792cf91",
+      "count": 5,
+      "failures": 0,
+      "cases": [
+        {
+          "case": "fraymus.workspace.WorkspaceStoreTest#ordinaryArtifactStillRefusesMoreThanTwentyChanges",
+          "passed": true,
+          "seconds": 0.065
+        },
+        {
+          "case": "fraymus.workspace.WorkspaceStoreTest#traversalAndExecutableHostFilesAreRejected",
+          "passed": true,
+          "seconds": 0.0
+        },
+        {
+          "case": "fraymus.workspace.WorkspaceStoreTest#interruptedUncommittedFilesArePreservedWhileTheNextEditSucceeds",
+          "passed": true,
+          "seconds": 0.062
+        },
+        {
+          "case": "fraymus.workspace.WorkspaceStoreTest#onlyCurrentPassingEvidenceCanBecomeReusableSkill",
+          "passed": true,
+          "seconds": 0.124
+        },
+        {
+          "case": "fraymus.workspace.WorkspaceStoreTest#versionedArtifactRestoresAndStaleEditsCannotOverwrite",
+          "passed": true,
+          "seconds": 0.045
+        }
+      ]
+    },
+    {
+      "label": "native057-chat-schema",
+      "source": "2ee2c7525d535f3bd1972ba1a5773191065efaae",
+      "count": 29,
+      "failures": 0,
+      "cases": [
+        {
+          "case": "fraymus.workspace.ChatChain052Test#duplicateWarningsKeepEveryOriginalOccurrenceBeyondRecentWindow",
+          "passed": true,
+          "seconds": 0.008
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#numericRefusalExplainsOriginalBoundsWithoutChangingThem",
+          "passed": true,
+          "seconds": 0.007
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#oversizedRequirementsRefuseRatherThanBeingSilentlyTruncated",
+          "passed": true,
+          "seconds": 0.006
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#legacyTaskDoesNotClaimCompleteTimingCoverage",
+          "passed": true,
+          "seconds": 0.001
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#summaryRetainsRejectedQualityAndDoesNotDumpMetrics",
+          "passed": true,
+          "seconds": 0.002
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#discoverySummaryKeepsExactBindingsAndBothEndsWithoutBreakingJson",
+          "passed": true,
+          "seconds": 0.021
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#largeRecentObservationHasExplicitOmissionHashAndKeepsFailure",
+          "passed": true,
+          "seconds": 0.006
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#queuedObjectiveSealRefusesChangedRequest",
+          "passed": true,
+          "seconds": 0.001
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#providerMapMetadataIsRetainedWithoutUnrelatedFields",
+          "passed": true,
+          "seconds": 0.0
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#automaticCompletionRechecksCurrentArtifactInsteadOfTrustingOldSuccess",
+          "passed": true,
+          "seconds": 6.082
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#failedPlannerCallIsTimedAndDoesNotBecomeAnAction",
+          "passed": true,
+          "seconds": 0.126
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#retainedAppearancePolicyCannotChangeCategoryOrInstallDetectorOptions",
+          "passed": true,
+          "seconds": 0.003
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#retainedSkillSourceAndForceDefaultsCannotBeSilentlyChanged",
+          "passed": true,
+          "seconds": 0.003
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#nativeWaitUsesActualChildAndRetainsItsIdentity",
+          "passed": true,
+          "seconds": 0.007
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#savedGraphChatSelectsExactVersionAndWorkflowBeforePlanning",
+          "passed": true,
+          "seconds": 0.01
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#sourceFreeHostSuccessAndForeignChildrenAreRejected",
+          "passed": true,
+          "seconds": 0.006
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#reportStageCannotSkipActualReads",
+          "passed": true,
+          "seconds": 0.0
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#typedOptionsPreserveExplicitValuesAndRejectContradictions",
+          "passed": true,
+          "seconds": 0.002
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#interruptedChildCannotProduceSuccessfulCompletion",
+          "passed": true,
+          "seconds": 0.026
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#inventedHostFactsDoNotReplaceActualJavaRead",
+          "passed": true,
+          "seconds": 0.015
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#retainedSkillSchemasKeepDefaultsOptionalAndHideBoundDetectorPolicy",
+          "passed": true,
+          "seconds": 0.001
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#javaRoutesEveryFormerDesktopFamilyWithoutChangingWebCreation",
+          "passed": true,
+          "seconds": 0.008
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#constructionReuseExposesOnlyExplicitChangesAndKeepsOriginalLimits",
+          "passed": true,
+          "seconds": 0.003
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#actualQueueCompletionRecordsTheVerifiedReportInTheSameLearningEpisode",
+          "passed": true,
+          "seconds": 0.977
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#workflowBootstrapBindsDatasetAndSceneInJavaBeforeAnyHostAction",
+          "passed": true,
+          "seconds": 0.009
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#reportMustHaveFrozenOriginalAssertionsAndExactSourceVersion",
+          "passed": true,
+          "seconds": 0.034
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#creationPromptsAreOwnedBoundedAndKeepSourceReserved",
+          "passed": true,
+          "seconds": 0.007
+        },
+        {
+          "case": "fraymus.workspace.Payload057Test#explicitChatPayloadRequestCannotBeDropped",
+          "passed": true,
+          "seconds": 0.008
+        },
+        {
+          "case": "fraymus.workspace.Payload057Test#payloadOnlyChatCannotInventUnrequestedRedesignSettings",
+          "passed": true,
+          "seconds": 0.001
+        }
+      ]
+    },
+    {
+      "label": "native057-compact",
+      "source": "cb0aa0c",
+      "count": 29,
+      "failures": 1,
+      "cases": [
+        {
+          "case": "fraymus.workspace.ChatChain052Test#duplicateWarningsKeepEveryOriginalOccurrenceBeyondRecentWindow",
+          "passed": true,
+          "seconds": 0.005
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#numericRefusalExplainsOriginalBoundsWithoutChangingThem",
+          "passed": true,
+          "seconds": 0.007
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#oversizedRequirementsRefuseRatherThanBeingSilentlyTruncated",
+          "passed": true,
+          "seconds": 0.002
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#legacyTaskDoesNotClaimCompleteTimingCoverage",
+          "passed": true,
+          "seconds": 0.0
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#summaryRetainsRejectedQualityAndDoesNotDumpMetrics",
+          "passed": true,
+          "seconds": 0.001
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#discoverySummaryKeepsExactBindingsAndBothEndsWithoutBreakingJson",
+          "passed": true,
+          "seconds": 0.004
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#largeRecentObservationHasExplicitOmissionHashAndKeepsFailure",
+          "passed": true,
+          "seconds": 0.003
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#queuedObjectiveSealRefusesChangedRequest",
+          "passed": true,
+          "seconds": 0.001
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#providerMapMetadataIsRetainedWithoutUnrelatedFields",
+          "passed": true,
+          "seconds": 0.0
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#automaticCompletionRechecksCurrentArtifactInsteadOfTrustingOldSuccess",
+          "passed": true,
+          "seconds": 0.856
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#failedPlannerCallIsTimedAndDoesNotBecomeAnAction",
+          "passed": true,
+          "seconds": 0.281
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#retainedAppearancePolicyCannotChangeCategoryOrInstallDetectorOptions",
+          "passed": true,
+          "seconds": 0.003
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#retainedSkillSourceAndForceDefaultsCannotBeSilentlyChanged",
+          "passed": true,
+          "seconds": 0.003
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#nativeWaitUsesActualChildAndRetainsItsIdentity",
+          "passed": true,
+          "seconds": 0.008
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#savedGraphChatSelectsExactVersionAndWorkflowBeforePlanning",
+          "passed": true,
+          "seconds": 0.01
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#sourceFreeHostSuccessAndForeignChildrenAreRejected",
+          "passed": true,
+          "seconds": 0.007
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#reportStageCannotSkipActualReads",
+          "passed": true,
+          "seconds": 0.0
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#typedOptionsPreserveExplicitValuesAndRejectContradictions",
+          "passed": true,
+          "seconds": 0.001
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#interruptedChildCannotProduceSuccessfulCompletion",
+          "passed": true,
+          "seconds": 0.006
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#inventedHostFactsDoNotReplaceActualJavaRead",
+          "passed": true,
+          "seconds": 0.007
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#retainedSkillSchemasKeepDefaultsOptionalAndHideBoundDetectorPolicy",
+          "passed": true,
+          "seconds": 0.001
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#javaRoutesEveryFormerDesktopFamilyWithoutChangingWebCreation",
+          "passed": true,
+          "seconds": 0.006
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#constructionReuseExposesOnlyExplicitChangesAndKeepsOriginalLimits",
+          "passed": true,
+          "seconds": 0.002
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#actualQueueCompletionRecordsTheVerifiedReportInTheSameLearningEpisode",
+          "passed": true,
+          "seconds": 0.344
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#workflowBootstrapBindsDatasetAndSceneInJavaBeforeAnyHostAction",
+          "passed": true,
+          "seconds": 0.009
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#reportMustHaveFrozenOriginalAssertionsAndExactSourceVersion",
+          "passed": true,
+          "seconds": 0.122
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#creationPromptsAreOwnedBoundedAndKeepSourceReserved",
+          "passed": true,
+          "seconds": 0.006
+        },
+        {
+          "case": "fraymus.workspace.Payload057Test#frozenNativePayloadsRetainImpactPositionsRecoveryAndOriginalFailures",
+          "passed": false,
+          "seconds": 194.159
+        },
+        {
+          "case": "fraymus.workspace.Payload057Test#protocolUsesSeparateRealMassesAndDeclaredPositions",
+          "passed": true,
+          "seconds": 0.005
+        }
+      ]
+    },
+    {
+      "label": "native057-final",
+      "source": "d9a6219",
+      "count": 3,
+      "failures": 0,
+      "cases": [
+        {
+          "case": "fraymus.workspace.Payload057Test#frozenNativePayloadsRetainImpactPositionsRecoveryAndOriginalFailures",
+          "passed": true,
+          "seconds": 158.42
+        },
+        {
+          "case": "fraymus.workspace.Payload057Test#protocolUsesSeparateRealMassesAndDeclaredPositions",
+          "passed": true,
+          "seconds": 0.001
+        },
+        {
+          "case": "fraymus.workspace.Payload057Test#explicitChatPayloadRequestCannotBeDropped",
+          "passed": true,
+          "seconds": 0.053
+        }
+      ]
+    },
+    {
+      "label": "native057-first",
+      "source": "b58c305",
+      "count": 2,
+      "failures": 1,
+      "cases": [
+        {
+          "case": "fraymus.workspace.Payload057Test#frozenNativePayloadsRetainImpactPositionsRecoveryAndOriginalFailures",
+          "passed": false,
+          "seconds": 281.433
+        },
+        {
+          "case": "fraymus.workspace.Payload057Test#protocolUsesSeparateRealMassesAndDeclaredPositions",
+          "passed": true,
+          "seconds": 0.004
+        }
+      ]
+    },
+    {
+      "label": "native057-goal-index",
+      "source": "5974cd52dc82f6d5a2946296bf4bcb1fea088431",
+      "count": 32,
+      "failures": 0,
+      "cases": [
+        {
+          "case": "fraymus.workspace.ChatChain052Test#duplicateWarningsKeepEveryOriginalOccurrenceBeyondRecentWindow",
+          "passed": true,
+          "seconds": 0.008
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#numericRefusalExplainsOriginalBoundsWithoutChangingThem",
+          "passed": true,
+          "seconds": 0.006
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#oversizedRequirementsRefuseRatherThanBeingSilentlyTruncated",
+          "passed": true,
+          "seconds": 0.005
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#legacyTaskDoesNotClaimCompleteTimingCoverage",
+          "passed": true,
+          "seconds": 0.001
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#summaryRetainsRejectedQualityAndDoesNotDumpMetrics",
+          "passed": true,
+          "seconds": 0.001
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#discoverySummaryKeepsExactBindingsAndBothEndsWithoutBreakingJson",
+          "passed": true,
+          "seconds": 0.022
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#largeRecentObservationHasExplicitOmissionHashAndKeepsFailure",
+          "passed": true,
+          "seconds": 0.005
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#queuedObjectiveSealRefusesChangedRequest",
+          "passed": true,
+          "seconds": 0.0
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#providerMapMetadataIsRetainedWithoutUnrelatedFields",
+          "passed": true,
+          "seconds": 0.001
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#automaticCompletionRechecksCurrentArtifactInsteadOfTrustingOldSuccess",
+          "passed": true,
+          "seconds": 5.31
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#failedPlannerCallIsTimedAndDoesNotBecomeAnAction",
+          "passed": true,
+          "seconds": 0.577
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#retainedAppearancePolicyCannotChangeCategoryOrInstallDetectorOptions",
+          "passed": true,
+          "seconds": 0.003
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#retainedSkillSourceAndForceDefaultsCannotBeSilentlyChanged",
+          "passed": true,
+          "seconds": 0.003
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#nativeWaitUsesActualChildAndRetainsItsIdentity",
+          "passed": true,
+          "seconds": 0.019
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#savedGraphChatSelectsExactVersionAndWorkflowBeforePlanning",
+          "passed": true,
+          "seconds": 0.044
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#sourceFreeHostSuccessAndForeignChildrenAreRejected",
+          "passed": true,
+          "seconds": 0.008
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#reportStageCannotSkipActualReads",
+          "passed": true,
+          "seconds": 0.0
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#typedOptionsPreserveExplicitValuesAndRejectContradictions",
+          "passed": true,
+          "seconds": 0.001
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#interruptedChildCannotProduceSuccessfulCompletion",
+          "passed": true,
+          "seconds": 0.014
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#inventedHostFactsDoNotReplaceActualJavaRead",
+          "passed": true,
+          "seconds": 0.041
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#retainedSkillSchemasKeepDefaultsOptionalAndHideBoundDetectorPolicy",
+          "passed": true,
+          "seconds": 0.002
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#javaRoutesEveryFormerDesktopFamilyWithoutChangingWebCreation",
+          "passed": true,
+          "seconds": 0.006
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#constructionReuseExposesOnlyExplicitChangesAndKeepsOriginalLimits",
+          "passed": true,
+          "seconds": 0.002
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#actualQueueCompletionRecordsTheVerifiedReportInTheSameLearningEpisode",
+          "passed": true,
+          "seconds": 0.612
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#workflowBootstrapBindsDatasetAndSceneInJavaBeforeAnyHostAction",
+          "passed": true,
+          "seconds": 0.006
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#reportMustHaveFrozenOriginalAssertionsAndExactSourceVersion",
+          "passed": true,
+          "seconds": 0.034
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#creationPromptsAreOwnedBoundedAndKeepSourceReserved",
+          "passed": true,
+          "seconds": 0.007
+        },
+        {
+          "case": "fraymus.workspace.GoalRunnerTest#cancelledIntentAndInventedHostReceiptsCannotBecomeSkills",
+          "passed": true,
+          "seconds": 0.065
+        },
+        {
+          "case": "fraymus.workspace.GoalRunnerTest#frozenSceneAndReportEffectsHaveStableIdentitiesAndRejectChangedContent",
+          "passed": true,
+          "seconds": 0.038
+        },
+        {
+          "case": "fraymus.workspace.GoalRunnerTest#intentSurvivesRestartRequiresExplicitResumeAndHasFiniteRecovery",
+          "passed": true,
+          "seconds": 0.991
+        },
+        {
+          "case": "fraymus.workspace.GoalRunnerTest#importedTextCannotInstallHandlersOrEscapePhysicalDomain",
+          "passed": true,
+          "seconds": 0.019
+        },
+        {
+          "case": "fraymus.workspace.GoalRunnerTest#aForeignNativeRunIsPreservedAndSourceVersionsAreRequired",
+          "passed": true,
+          "seconds": 0.268
+        }
+      ]
+    },
+    {
+      "label": "native057-regression",
+      "source": "0db57e8",
+      "count": 38,
+      "failures": 1,
+      "cases": [
+        {
+          "case": "fraymus.workspace.ChatChain052Test#duplicateWarningsKeepEveryOriginalOccurrenceBeyondRecentWindow",
+          "passed": true,
+          "seconds": 0.002
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#numericRefusalExplainsOriginalBoundsWithoutChangingThem",
+          "passed": true,
+          "seconds": 0.003
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#oversizedRequirementsRefuseRatherThanBeingSilentlyTruncated",
+          "passed": true,
+          "seconds": 0.001
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#legacyTaskDoesNotClaimCompleteTimingCoverage",
+          "passed": true,
+          "seconds": 0.0
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#summaryRetainsRejectedQualityAndDoesNotDumpMetrics",
+          "passed": true,
+          "seconds": 0.001
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#discoverySummaryKeepsExactBindingsAndBothEndsWithoutBreakingJson",
+          "passed": true,
+          "seconds": 0.004
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#largeRecentObservationHasExplicitOmissionHashAndKeepsFailure",
+          "passed": true,
+          "seconds": 0.002
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#queuedObjectiveSealRefusesChangedRequest",
+          "passed": true,
+          "seconds": 0.0
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#providerMapMetadataIsRetainedWithoutUnrelatedFields",
+          "passed": true,
+          "seconds": 0.001
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#automaticCompletionRechecksCurrentArtifactInsteadOfTrustingOldSuccess",
+          "passed": true,
+          "seconds": 0.474
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#failedPlannerCallIsTimedAndDoesNotBecomeAnAction",
+          "passed": true,
+          "seconds": 0.121
+        },
+        {
+          "case": "fraymus.workspace.Construction055Test#failedDirectTrialExpandsWithoutInventingSuccessfulFallback",
+          "passed": true,
+          "seconds": 1.324
+        },
+        {
+          "case": "fraymus.workspace.Construction055Test#frozenDirectFirstComparisonAndIndependentLoads",
+          "passed": true,
+          "seconds": 170.516
+        },
+        {
+          "case": "fraymus.workspace.Construction055Test#lateralRoutesUseNativeWaypointsAndSealedWallRefuses",
+          "passed": true,
+          "seconds": 6.866
+        },
+        {
+          "case": "fraymus.workspace.Design056Test#disabledRedesignNeverAdmitsWiderCandidates",
+          "passed": true,
+          "seconds": 0.065
+        },
+        {
+          "case": "fraymus.workspace.Design056Test#explicitChatLoadCannotBeDroppedOrChanged",
+          "passed": true,
+          "seconds": 0.007
+        },
+        {
+          "case": "fraymus.workspace.Design056Test#nativeBaselineLoadFailureAdmitsOnlyVerifiedRedesignAndColdReview",
+          "passed": true,
+          "seconds": 143.561
+        },
+        {
+          "case": "fraymus.workspace.Design056Test#originalLoadChartAndTableMustBothMatch",
+          "passed": true,
+          "seconds": 0.002
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#retainedAppearancePolicyCannotChangeCategoryOrInstallDetectorOptions",
+          "passed": true,
+          "seconds": 0.001
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#retainedSkillSourceAndForceDefaultsCannotBeSilentlyChanged",
+          "passed": true,
+          "seconds": 0.004
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#nativeWaitUsesActualChildAndRetainsItsIdentity",
+          "passed": true,
+          "seconds": 0.01
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#savedGraphChatSelectsExactVersionAndWorkflowBeforePlanning",
+          "passed": true,
+          "seconds": 0.009
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#sourceFreeHostSuccessAndForeignChildrenAreRejected",
+          "passed": true,
+          "seconds": 0.006
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#reportStageCannotSkipActualReads",
+          "passed": true,
+          "seconds": 0.0
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#typedOptionsPreserveExplicitValuesAndRejectContradictions",
+          "passed": true,
+          "seconds": 0.002
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#interruptedChildCannotProduceSuccessfulCompletion",
+          "passed": true,
+          "seconds": 0.007
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#inventedHostFactsDoNotReplaceActualJavaRead",
+          "passed": true,
+          "seconds": 0.006
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#retainedSkillSchemasKeepDefaultsOptionalAndHideBoundDetectorPolicy",
+          "passed": true,
+          "seconds": 0.001
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#javaRoutesEveryFormerDesktopFamilyWithoutChangingWebCreation",
+          "passed": true,
+          "seconds": 0.006
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#constructionReuseExposesOnlyExplicitChangesAndKeepsOriginalLimits",
+          "passed": true,
+          "seconds": 0.002
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#actualQueueCompletionRecordsTheVerifiedReportInTheSameLearningEpisode",
+          "passed": true,
+          "seconds": 0.186
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#workflowBootstrapBindsDatasetAndSceneInJavaBeforeAnyHostAction",
+          "passed": true,
+          "seconds": 0.006
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#reportMustHaveFrozenOriginalAssertionsAndExactSourceVersion",
+          "passed": true,
+          "seconds": 0.03
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#creationPromptsAreOwnedBoundedAndKeepSourceReserved",
+          "passed": true,
+          "seconds": 0.006
+        },
+        {
+          "case": "fraymus.workspace.Load055Test#stopPreservesPartialEvidenceThenExplicitRestartReevaluatesAndRejectsTampering",
+          "passed": true,
+          "seconds": 13.498
+        },
+        {
+          "case": "fraymus.workspace.Payload057Test#frozenNativePayloadsRetainImpactPositionsRecoveryAndOriginalFailures",
+          "passed": false,
+          "seconds": 191.701
+        },
+        {
+          "case": "fraymus.workspace.Payload057Test#protocolUsesSeparateRealMassesAndDeclaredPositions",
+          "passed": true,
+          "seconds": 0.003
+        },
+        {
+          "case": "fraymus.workspace.Payload057Test#explicitChatPayloadRequestCannotBeDropped",
+          "passed": true,
+          "seconds": 0.054
+        }
+      ]
+    },
+    {
+      "label": "native057-skill-context",
+      "source": "2aaddc64906b7a00b2fcae224ee6310a1b8621b2",
+      "count": 33,
+      "failures": 0,
+      "cases": [
+        {
+          "case": "fraymus.workspace.ChatChain052Test#duplicateWarningsKeepEveryOriginalOccurrenceBeyondRecentWindow",
+          "passed": true,
+          "seconds": 0.007
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#numericRefusalExplainsOriginalBoundsWithoutChangingThem",
+          "passed": true,
+          "seconds": 0.008
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#oversizedRequirementsRefuseRatherThanBeingSilentlyTruncated",
+          "passed": true,
+          "seconds": 0.007
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#legacyTaskDoesNotClaimCompleteTimingCoverage",
+          "passed": true,
+          "seconds": 0.0
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#summaryRetainsRejectedQualityAndDoesNotDumpMetrics",
+          "passed": true,
+          "seconds": 0.001
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#payloadHistoryProjectionRetainsPolicyRequirementsAndContraryOutcomes",
+          "passed": true,
+          "seconds": 0.027
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#discoverySummaryKeepsExactBindingsAndBothEndsWithoutBreakingJson",
+          "passed": true,
+          "seconds": 0.009
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#largeRecentObservationHasExplicitOmissionHashAndKeepsFailure",
+          "passed": true,
+          "seconds": 0.005
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#queuedObjectiveSealRefusesChangedRequest",
+          "passed": true,
+          "seconds": 0.001
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#providerMapMetadataIsRetainedWithoutUnrelatedFields",
+          "passed": true,
+          "seconds": 0.0
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#automaticCompletionRechecksCurrentArtifactInsteadOfTrustingOldSuccess",
+          "passed": true,
+          "seconds": 5.556
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#failedPlannerCallIsTimedAndDoesNotBecomeAnAction",
+          "passed": true,
+          "seconds": 1.285
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#retainedAppearancePolicyCannotChangeCategoryOrInstallDetectorOptions",
+          "passed": true,
+          "seconds": 0.002
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#retainedSkillSourceAndForceDefaultsCannotBeSilentlyChanged",
+          "passed": true,
+          "seconds": 0.003
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#nativeWaitUsesActualChildAndRetainsItsIdentity",
+          "passed": true,
+          "seconds": 0.007
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#savedGraphChatSelectsExactVersionAndWorkflowBeforePlanning",
+          "passed": true,
+          "seconds": 0.009
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#sourceFreeHostSuccessAndForeignChildrenAreRejected",
+          "passed": true,
+          "seconds": 0.007
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#reportStageCannotSkipActualReads",
+          "passed": true,
+          "seconds": 0.0
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#typedOptionsPreserveExplicitValuesAndRejectContradictions",
+          "passed": true,
+          "seconds": 0.001
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#interruptedChildCannotProduceSuccessfulCompletion",
+          "passed": true,
+          "seconds": 0.006
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#inventedHostFactsDoNotReplaceActualJavaRead",
+          "passed": true,
+          "seconds": 0.006
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#retainedSkillSchemasKeepDefaultsOptionalAndHideBoundDetectorPolicy",
+          "passed": true,
+          "seconds": 0.002
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#javaRoutesEveryFormerDesktopFamilyWithoutChangingWebCreation",
+          "passed": true,
+          "seconds": 0.007
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#constructionReuseExposesOnlyExplicitChangesAndKeepsOriginalLimits",
+          "passed": true,
+          "seconds": 0.003
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#actualQueueCompletionRecordsTheVerifiedReportInTheSameLearningEpisode",
+          "passed": true,
+          "seconds": 1.359
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#workflowBootstrapBindsDatasetAndSceneInJavaBeforeAnyHostAction",
+          "passed": true,
+          "seconds": 0.006
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#reportMustHaveFrozenOriginalAssertionsAndExactSourceVersion",
+          "passed": true,
+          "seconds": 0.035
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#creationPromptsAreOwnedBoundedAndKeepSourceReserved",
+          "passed": true,
+          "seconds": 0.007
+        },
+        {
+          "case": "fraymus.workspace.GoalRunnerTest#cancelledIntentAndInventedHostReceiptsCannotBecomeSkills",
+          "passed": true,
+          "seconds": 0.683
+        },
+        {
+          "case": "fraymus.workspace.GoalRunnerTest#frozenSceneAndReportEffectsHaveStableIdentitiesAndRejectChangedContent",
+          "passed": true,
+          "seconds": 0.027
+        },
+        {
+          "case": "fraymus.workspace.GoalRunnerTest#intentSurvivesRestartRequiresExplicitResumeAndHasFiniteRecovery",
+          "passed": true,
+          "seconds": 0.107
+        },
+        {
+          "case": "fraymus.workspace.GoalRunnerTest#importedTextCannotInstallHandlersOrEscapePhysicalDomain",
+          "passed": true,
+          "seconds": 0.018
+        },
+        {
+          "case": "fraymus.workspace.GoalRunnerTest#aForeignNativeRunIsPreservedAndSourceVersionsAreRequired",
+          "passed": true,
+          "seconds": 0.111
+        }
+      ]
+    },
+    {
+      "label": "native057-status",
+      "source": "a3f593e",
+      "count": 27,
+      "failures": 0,
+      "cases": [
+        {
+          "case": "fraymus.workspace.ChatChain052Test#duplicateWarningsKeepEveryOriginalOccurrenceBeyondRecentWindow",
+          "passed": true,
+          "seconds": 0.008
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#numericRefusalExplainsOriginalBoundsWithoutChangingThem",
+          "passed": true,
+          "seconds": 0.007
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#oversizedRequirementsRefuseRatherThanBeingSilentlyTruncated",
+          "passed": true,
+          "seconds": 0.006
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#legacyTaskDoesNotClaimCompleteTimingCoverage",
+          "passed": true,
+          "seconds": 0.0
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#summaryRetainsRejectedQualityAndDoesNotDumpMetrics",
+          "passed": true,
+          "seconds": 0.002
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#discoverySummaryKeepsExactBindingsAndBothEndsWithoutBreakingJson",
+          "passed": true,
+          "seconds": 0.021
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#largeRecentObservationHasExplicitOmissionHashAndKeepsFailure",
+          "passed": true,
+          "seconds": 0.005
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#queuedObjectiveSealRefusesChangedRequest",
+          "passed": true,
+          "seconds": 0.001
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#providerMapMetadataIsRetainedWithoutUnrelatedFields",
+          "passed": true,
+          "seconds": 0.0
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#automaticCompletionRechecksCurrentArtifactInsteadOfTrustingOldSuccess",
+          "passed": true,
+          "seconds": 0.668
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#failedPlannerCallIsTimedAndDoesNotBecomeAnAction",
+          "passed": true,
+          "seconds": 0.248
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#retainedAppearancePolicyCannotChangeCategoryOrInstallDetectorOptions",
+          "passed": true,
+          "seconds": 0.003
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#retainedSkillSourceAndForceDefaultsCannotBeSilentlyChanged",
+          "passed": true,
+          "seconds": 0.003
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#nativeWaitUsesActualChildAndRetainsItsIdentity",
+          "passed": true,
+          "seconds": 0.007
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#savedGraphChatSelectsExactVersionAndWorkflowBeforePlanning",
+          "passed": true,
+          "seconds": 0.01
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#sourceFreeHostSuccessAndForeignChildrenAreRejected",
+          "passed": true,
+          "seconds": 0.007
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#reportStageCannotSkipActualReads",
+          "passed": true,
+          "seconds": 0.0
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#typedOptionsPreserveExplicitValuesAndRejectContradictions",
+          "passed": true,
+          "seconds": 0.002
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#interruptedChildCannotProduceSuccessfulCompletion",
+          "passed": true,
+          "seconds": 0.006
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#inventedHostFactsDoNotReplaceActualJavaRead",
+          "passed": true,
+          "seconds": 0.007
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#retainedSkillSchemasKeepDefaultsOptionalAndHideBoundDetectorPolicy",
+          "passed": true,
+          "seconds": 0.001
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#javaRoutesEveryFormerDesktopFamilyWithoutChangingWebCreation",
+          "passed": true,
+          "seconds": 0.007
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#constructionReuseExposesOnlyExplicitChangesAndKeepsOriginalLimits",
+          "passed": true,
+          "seconds": 0.002
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#actualQueueCompletionRecordsTheVerifiedReportInTheSameLearningEpisode",
+          "passed": true,
+          "seconds": 0.218
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#workflowBootstrapBindsDatasetAndSceneInJavaBeforeAnyHostAction",
+          "passed": true,
+          "seconds": 0.007
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#reportMustHaveFrozenOriginalAssertionsAndExactSourceVersion",
+          "passed": true,
+          "seconds": 0.027
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#creationPromptsAreOwnedBoundedAndKeepSourceReserved",
+          "passed": true,
+          "seconds": 0.007
+        }
+      ]
+    },
+    {
+      "label": "native057-tamper-memory",
+      "source": "e48773c",
+      "count": 3,
+      "failures": 1,
+      "cases": [
+        {
+          "case": "fraymus.workspace.Payload057Test#frozenNativePayloadsRetainImpactPositionsRecoveryAndOriginalFailures",
+          "passed": false,
+          "seconds": 203.454
+        },
+        {
+          "case": "fraymus.workspace.Payload057Test#protocolUsesSeparateRealMassesAndDeclaredPositions",
+          "passed": true,
+          "seconds": 0.003
+        },
+        {
+          "case": "fraymus.workspace.Payload057Test#explicitChatPayloadRequestCannotBeDropped",
+          "passed": true,
+          "seconds": 0.15
+        }
+      ]
+    }
+  ],
+  "javaScope": "Distinct targeted passing cases across source-qualified invocations. Original storage/memory and integration failures retained; no full-suite or physical certification claim.",
+  "desktopUnitTests": 124,
+  "integration": [
+    "Continuation after report packaging failure retains original native attempts; cold restart and explicit resume skip completed cases and commit only after full visual verification",
+    "Visible file export bytes/SHA match receipt; actual native report rows,11curves and recorded replay verified; UI selects edge-impact finaltick1440",
+    "Visible file export bytes/SHA match receipt; actual native report rows,11curves and recorded replay verified; UI selects edge-impact finaltick1440",
+    "Visible file export bytes/SHA match receipt; actual native report rows,11curves and recorded replay verified; UI selects edge-impact finaltick1440",
+    "Actual local CPU/four-thread model schedules a typed request with any rejected proposals and repair retained; Java executes changedcentre and reports stable/unstable payload outcomes",
+    "Exact retained payload skill survives restart, refuses silent check removal, repeats allcases on compact stock and preserves earlierworld",
+    "Actual1100px app layout has no page overflow; compact results retain contrary outcomes",
+    "Visible Stop halts the new payload worker with nonempty original rows, no running attempt and no persistent-world commit"
+  ],
+  "timing": {
+    "chat": {
+      "wallSeconds": 415.090342,
+      "timing052": {
+        "modelMillis": 84192.8311,
+        "scope": "Measured Java planner-request wall time, including local admission and inference. Not simulated time or an estimate of time saved.",
+        "completeSinceAdmission": true,
+        "modelCalls": 1,
+        "failedModelCalls": 0,
+        "terminalChecksWithoutModel": 1
+      },
+      "planningCalls": 1,
+      "repairs": [],
+      "source": "2ee2c7525d535f3bd1972ba1a5773191065efaae"
+    },
+    "reused": {
+      "wallSeconds": 368.259184,
+      "timing052": {
+        "modelMillis": 129597.6524,
+        "scope": "Measured Java planner-request wall time, including local admission and inference. Not simulated time or an estimate of time saved.",
+        "completeSinceAdmission": true,
+        "modelCalls": 1,
+        "failedModelCalls": 0,
+        "terminalChecksWithoutModel": 1
+      },
+      "planningCalls": 1,
+      "repairs": [],
+      "source": "2aaddc64906b7a00b2fcae224ee6310a1b8621b2"
+    }
+  },
+  "developmentFailures": [
+    {
+      "record": "construction057-failed-1793762276848.json",
+      "source": "d0ab42368f9ec4b3bee43e64e46e15a6245a3e2b",
+      "error": "Error: Execution stopped: Supply 1..20 files. Review and Resume; no failed result is a saved skill.\n    at C:\\Users\\eyeka\\Documents\\Codex\\2026-10-26\\is\\work\\fraynix-workspace-edition057\\workspace-desktop\\test\\construction057-integration.cjs:19:132\n    at async until (C:\\Users\\eyeka\\Documents\\Codex\\2026-10-26\\is\\work\\fraynix-workspace-edition057\\workspace-desktop\\test\\construction057-integration.cjs:13:91)\n    at async main (C:\\Users\\eyeka\\Documents\\Codex\\2026-10-26\\is\\work\\fraynix-workspace-edition057\\workspace-desktop\\test\\construction057-integration.cjs:28:1087)",
+      "project": "C:\\Users\\eyeka\\AppData\\Local\\Temp\\fraynix-construction057-Solikr"
+    },
+    {
+      "record": "construction057-failed-1793762416549.json",
+      "source": "792cf911a0dc32231ccdd54fe08c739c37732d76",
+      "error": "Error: Execution stopped: Supply 1..20 files. Review and Resume; no failed result is a saved skill.\n    at C:\\Users\\eyeka\\Documents\\Codex\\2026-10-26\\is\\work\\fraynix-workspace-edition057\\workspace-desktop\\test\\construction057-integration.cjs:19:132\n    at async until (C:\\Users\\eyeka\\Documents\\Codex\\2026-10-26\\is\\work\\fraynix-workspace-edition057\\workspace-desktop\\test\\construction057-integration.cjs:13:91)\n    at async main (C:\\Users\\eyeka\\Documents\\Codex\\2026-10-26\\is\\work\\fraynix-workspace-edition057\\workspace-desktop\\test\\construction057-integration.cjs:26:508)",
+      "project": "C:\\Users\\eyeka\\AppData\\Local\\Temp\\fraynix-construction057-Solikr"
+    },
+    {
+      "record": "construction057-failed-1793762650748.json",
+      "source": "179bbafd5028765132779eb240b867e67674aca7",
+      "error": "locator.selectOption: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('#c051-world')\u001b[22m\n\u001b[2m    - locator resolved to <select id=\"c051-world\">…</select>\u001b[22m\n\u001b[2m  - attempting select option action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible and enabled\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying select option action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible and enabled\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying select option action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    58 × waiting for element to be visible and enabled\u001b[22m\n\u001b[2m       - element is not visible\u001b[22m\n\u001b[2m     - retrying select option action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n\n    at main (C:\\Users\\eyeka\\Documents\\Codex\\2026-10-26\\is\\work\\fraynix-workspace-edition057\\workspace-desktop\\test\\construction057-integration.cjs:32:37)",
+      "project": "C:\\Users\\eyeka\\AppData\\Local\\Temp\\fraynix-construction057-Solikr"
+    },
+    {
+      "record": "construction057-failed-1793763069143.json",
+      "source": "5470e2a8a253685236c8d32d123a08cb2247b006",
+      "error": "locator.textContent: Target page, context or browser has been closed\n    at C:\\Users\\eyeka\\Documents\\Codex\\2026-10-26\\is\\work\\fraynix-workspace-edition057\\workspace-desktop\\test\\construction057-integration.cjs:33:413\n    at until (C:\\Users\\eyeka\\Documents\\Codex\\2026-10-26\\is\\work\\fraynix-workspace-edition057\\workspace-desktop\\test\\construction057-integration.cjs:14:97)\n    at async main (C:\\Users\\eyeka\\Documents\\Codex\\2026-10-26\\is\\work\\fraynix-workspace-edition057\\workspace-desktop\\test\\construction057-integration.cjs:33:361)",
+      "project": "C:\\Users\\eyeka\\AppData\\Local\\Temp\\fraynix-construction057-Solikr"
+    },
+    {
+      "record": "construction057-failed-1793763143906.json",
+      "source": "2ed6884fbda5a214fba6c8d191fbebf47b29f556",
+      "error": "locator.textContent: Target page, context or browser has been closed\n    at C:\\Users\\eyeka\\Documents\\Codex\\2026-10-26\\is\\work\\fraynix-workspace-edition057\\workspace-desktop\\test\\construction057-integration.cjs:33:413\n    at until (C:\\Users\\eyeka\\Documents\\Codex\\2026-10-26\\is\\work\\fraynix-workspace-edition057\\workspace-desktop\\test\\construction057-integration.cjs:14:97)\n    at async main (C:\\Users\\eyeka\\Documents\\Codex\\2026-10-26\\is\\work\\fraynix-workspace-edition057\\workspace-desktop\\test\\construction057-integration.cjs:33:361)",
+      "project": "C:\\Users\\eyeka\\AppData\\Local\\Temp\\fraynix-construction057-Solikr"
+    },
+    {
+      "record": "construction057-failed-1793763196015.json",
+      "source": "7ea5ac6bd4b230ebd52d58b3b28d8a8a2c6d3b07",
+      "error": "electronApplication.evaluate: ReferenceError: require is not defined\n    at eval (eval at evaluate (:370:30), <anonymous>:1:234)\n    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at async <anonymous>:396:30\n    at main (C:\\Users\\eyeka\\Documents\\Codex\\2026-10-26\\is\\work\\fraynix-workspace-edition057\\workspace-desktop\\test\\construction057-integration.cjs:34:1258)",
+      "project": "C:\\Users\\eyeka\\AppData\\Local\\Temp\\fraynix-construction057-Solikr"
+    },
+    {
+      "record": "construction057-failed-1793763376578.json",
+      "source": "b5954b9b7053ee3bbec0c58280360047a5ad9bfc",
+      "error": "electronApplication.evaluate: Target page, context or browser has been closed\n    at api (C:\\Users\\eyeka\\Documents\\Codex\\2026-10-26\\is\\work\\fraynix-workspace-edition057\\workspace-desktop\\test\\construction057-integration.cjs:13:33)\n    at C:\\Users\\eyeka\\Documents\\Codex\\2026-10-26\\is\\work\\fraynix-workspace-edition057\\workspace-desktop\\test\\construction057-integration.cjs:24:71\n    at until (C:\\Users\\eyeka\\Documents\\Codex\\2026-10-26\\is\\work\\fraynix-workspace-edition057\\workspace-desktop\\test\\construction057-integration.cjs:14:97)\n    at async chat (C:\\Users\\eyeka\\Documents\\Codex\\2026-10-26\\is\\work\\fraynix-workspace-edition057\\workspace-desktop\\test\\construction057-integration.cjs:24:43)\n    at async main (C:\\Users\\eyeka\\Documents\\Codex\\2026-10-26\\is\\work\\fraynix-workspace-edition057\\workspace-desktop\\test\\construction057-integration.cjs:35:599)",
+      "project": "C:\\Users\\eyeka\\AppData\\Local\\Temp\\fraynix-construction057-Solikr"
+    },
+    {
+      "record": "construction057-failed-1793763691275.json",
+      "source": "e1aea50ebf315276ecce818dd67346683a5a65d6",
+      "error": "Error: Stopped by you\n    at C:\\Users\\eyeka\\Documents\\Codex\\2026-10-26\\is\\work\\fraynix-workspace-edition057\\workspace-desktop\\test\\construction057-integration.cjs:24:278\n    at async until (C:\\Users\\eyeka\\Documents\\Codex\\2026-10-26\\is\\work\\fraynix-workspace-edition057\\workspace-desktop\\test\\construction057-integration.cjs:14:91)\n    at async main (C:\\Users\\eyeka\\Documents\\Codex\\2026-10-26\\is\\work\\fraynix-workspace-edition057\\workspace-desktop\\test\\construction057-integration.cjs:35:599)",
+      "project": "C:\\Users\\eyeka\\AppData\\Local\\Temp\\fraynix-construction057-Solikr"
+    },
+    {
+      "record": "construction057-failed-1793764301849.json",
+      "source": "2ee2c7525d535f3bd1972ba1a5773191065efaae",
+      "error": "page.waitForFunction: Timeout 30000ms exceeded.\n    at open (C:\\Users\\eyeka\\Documents\\Codex\\2026-10-26\\is\\work\\fraynix-workspace-edition057\\workspace-desktop\\test\\construction057-integration.cjs:16:358)\n    at async main (C:\\Users\\eyeka\\Documents\\Codex\\2026-10-26\\is\\work\\fraynix-workspace-edition057\\workspace-desktop\\test\\construction057-integration.cjs:38:111)",
+      "project": "C:\\Users\\eyeka\\AppData\\Local\\Temp\\fraynix-construction057-Solikr"
+    },
+    {
+      "record": "construction057-failed-1793764611758.json",
+      "source": "6f29a8a396a5c9650bea896360e3280d9f553f78",
+      "error": "Error: Task context exceeds the checked 12500 character budget; narrow the task or source selection. No requirements were silently removed.\n    at C:\\Users\\eyeka\\Documents\\Codex\\2026-10-26\\is\\work\\fraynix-workspace-edition057\\workspace-desktop\\test\\construction057-integration.cjs:24:278\n    at async until (C:\\Users\\eyeka\\Documents\\Codex\\2026-10-26\\is\\work\\fraynix-workspace-edition057\\workspace-desktop\\test\\construction057-integration.cjs:14:91)\n    at async main (C:\\Users\\eyeka\\Documents\\Codex\\2026-10-26\\is\\work\\fraynix-workspace-edition057\\workspace-desktop\\test\\construction057-integration.cjs:40:516)",
+      "project": "C:\\Users\\eyeka\\AppData\\Local\\Temp\\fraynix-construction057-Solikr"
+    }
+  ],
+  "nativeDevelopmentFailures": "The final source-tampering test also retained multiple full histories and exhausted its512MB heap; it now releases prior references before re-reading without changing assertions. First run exceeded64MB. Compact contact indexes preserve all measurements. Next run hit512MB heap while hashing/re-reading full history. Streaming canonical hashing and releasing experiment state before reload preserve integrity with bounded memory. Physical gates unchanged.",
+  "results": {
+    "wide": [
+      {
+        "caseId": "force-centre",
+        "spec": {
+          "kind": "force",
+          "id": "force-centre",
+          "forceN": 16,
+          "halfLengthFraction": 0
+        },
+        "metrics": {
+          "payloadMinimumY": null,
+          "maxBeamTiltDeg": 0.0004054939487747831,
+          "maxSettledSpeedMps": 0.00021674450822388368,
+          "beamStable": true,
+          "payloadRetained": null,
+          "freeFallTicks": 0,
+          "payloadBeamImpulseNs": 0,
+          "maxBeamDisplacementM": 0.0003234841747866459,
+          "appliedWorkJ": -9.5367431640625e-06,
+          "payloadSupportedSamples": 0,
+          "settledSamples": 20,
+          "stable": true,
+          "firstPayloadBeamContactTick": 0,
+          "meanFreeFallAccelerationMps2": null,
+          "forceEffortNs": 31.999999999999908,
+          "payloadGravityWorkJ": 0,
+          "maxPayloadSettledSpeedMps": 0,
+          "nativeTicks": 1440,
+          "supportedSamples": 20
+        },
+        "repeatMetrics": {
+          "payloadMinimumY": null,
+          "maxBeamTiltDeg": 0.0004054939487747831,
+          "maxSettledSpeedMps": 0.00021674450822388368,
+          "beamStable": true,
+          "payloadRetained": null,
+          "freeFallTicks": 0,
+          "payloadBeamImpulseNs": 0,
+          "maxBeamDisplacementM": 0.0003234841747866459,
+          "appliedWorkJ": -9.5367431640625e-06,
+          "payloadSupportedSamples": 0,
+          "settledSamples": 20,
+          "stable": true,
+          "firstPayloadBeamContactTick": 0,
+          "meanFreeFallAccelerationMps2": null,
+          "forceEffortNs": 31.999999999999908,
+          "payloadGravityWorkJ": 0,
+          "maxPayloadSettledSpeedMps": 0,
+          "nativeTicks": 1440,
+          "supportedSamples": 20
+        },
+        "repeatAgrees": true
+      },
+      {
+        "caseId": "force-left",
+        "spec": {
+          "kind": "force",
+          "id": "force-left",
+          "forceN": 16,
+          "halfLengthFraction": -0.9
+        },
+        "metrics": {
+          "payloadMinimumY": null,
+          "maxBeamTiltDeg": 0.05414439111564908,
+          "maxSettledSpeedMps": 0.001273020268733779,
+          "beamStable": true,
+          "payloadRetained": null,
+          "freeFallTicks": 0,
+          "payloadBeamImpulseNs": 0,
+          "maxBeamDisplacementM": 0.03376038553771074,
+          "appliedWorkJ": -0.00016917810737915318,
+          "payloadSupportedSamples": 0,
+          "settledSamples": 20,
+          "stable": true,
+          "firstPayloadBeamContactTick": 0,
+          "meanFreeFallAccelerationMps2": null,
+          "forceEffortNs": 31.999999999999908,
+          "payloadGravityWorkJ": 0,
+          "maxPayloadSettledSpeedMps": 0,
+          "nativeTicks": 1440,
+          "supportedSamples": 20
+        },
+        "repeatMetrics": {
+          "payloadMinimumY": null,
+          "maxBeamTiltDeg": 0.05414439111564908,
+          "maxSettledSpeedMps": 0.001273020268733779,
+          "beamStable": true,
+          "payloadRetained": null,
+          "freeFallTicks": 0,
+          "payloadBeamImpulseNs": 0,
+          "maxBeamDisplacementM": 0.03376038553771074,
+          "appliedWorkJ": -0.00016917810737915318,
+          "payloadSupportedSamples": 0,
+          "settledSamples": 20,
+          "stable": true,
+          "firstPayloadBeamContactTick": 0,
+          "meanFreeFallAccelerationMps2": null,
+          "forceEffortNs": 31.999999999999908,
+          "payloadGravityWorkJ": 0,
+          "maxPayloadSettledSpeedMps": 0,
+          "nativeTicks": 1440,
+          "supportedSamples": 20
+        },
+        "repeatAgrees": true
+      },
+      {
+        "caseId": "force-right",
+        "spec": {
+          "kind": "force",
+          "id": "force-right",
+          "forceN": 16,
+          "halfLengthFraction": 0.9
+        },
+        "metrics": {
+          "payloadMinimumY": null,
+          "maxBeamTiltDeg": 0.0004203168502008527,
+          "maxSettledSpeedMps": 0.0006100583363446496,
+          "beamStable": true,
+          "payloadRetained": null,
+          "freeFallTicks": 0,
+          "payloadBeamImpulseNs": 0,
+          "maxBeamDisplacementM": 0.03423182548362425,
+          "appliedWorkJ": -4.887222127969437e-05,
+          "payloadSupportedSamples": 0,
+          "settledSamples": 20,
+          "stable": true,
+          "firstPayloadBeamContactTick": 0,
+          "meanFreeFallAccelerationMps2": null,
+          "forceEffortNs": 31.999999999999908,
+          "payloadGravityWorkJ": 0,
+          "maxPayloadSettledSpeedMps": 0,
+          "nativeTicks": 1440,
+          "supportedSamples": 20
+        },
+        "repeatMetrics": {
+          "payloadMinimumY": null,
+          "maxBeamTiltDeg": 0.0004203168502008527,
+          "maxSettledSpeedMps": 0.0006100583363446496,
+          "beamStable": true,
+          "payloadRetained": null,
+          "freeFallTicks": 0,
+          "payloadBeamImpulseNs": 0,
+          "maxBeamDisplacementM": 0.03423182548362425,
+          "appliedWorkJ": -4.887222127969437e-05,
+          "payloadSupportedSamples": 0,
+          "settledSamples": 20,
+          "stable": true,
+          "firstPayloadBeamContactTick": 0,
+          "meanFreeFallAccelerationMps2": null,
+          "forceEffortNs": 31.999999999999908,
+          "payloadGravityWorkJ": 0,
+          "maxPayloadSettledSpeedMps": 0,
+          "nativeTicks": 1440,
+          "supportedSamples": 20
+        },
+        "repeatAgrees": true
+      },
+      {
+        "caseId": "payload-centre",
+        "spec": {
+          "kind": "payload",
+          "id": "payload-centre",
+          "dropHeightM": 0.15,
+          "massKg": 1,
+          "halfLengthFraction": 0
+        },
+        "metrics": {
+          "payloadMinimumY": 1.1365633010864258,
+          "maxBeamTiltDeg": 0.0006753176842104027,
+          "maxSettledSpeedMps": 0.00031776835611389115,
+          "beamStable": true,
+          "payloadRetained": true,
+          "freeFallTicks": 24,
+          "payloadBeamImpulseNs": 58.85387693445955,
+          "maxBeamDisplacementM": 0.0015078042572451665,
+          "appliedWorkJ": 0,
+          "payloadSupportedSamples": 20,
+          "settledSamples": 20,
+          "stable": true,
+          "firstPayloadBeamContactTick": 43,
+          "meanFreeFallAccelerationMps2": -9.790841937065125,
+          "forceEffortNs": 0,
+          "payloadGravityWorkJ": 1.4714962577819861,
+          "maxPayloadSettledSpeedMps": 0.00031382252982778424,
+          "nativeTicks": 1440,
+          "supportedSamples": 20
+        },
+        "repeatMetrics": {
+          "payloadMinimumY": 1.1365633010864258,
+          "maxBeamTiltDeg": 0.0006753176842104027,
+          "maxSettledSpeedMps": 0.00031776835611389115,
+          "beamStable": true,
+          "payloadRetained": true,
+          "freeFallTicks": 24,
+          "payloadBeamImpulseNs": 58.85387693445955,
+          "maxBeamDisplacementM": 0.0015078042572451665,
+          "appliedWorkJ": 0,
+          "payloadSupportedSamples": 20,
+          "settledSamples": 20,
+          "stable": true,
+          "firstPayloadBeamContactTick": 43,
+          "meanFreeFallAccelerationMps2": -9.790841937065125,
+          "forceEffortNs": 0,
+          "payloadGravityWorkJ": 1.4714962577819861,
+          "maxPayloadSettledSpeedMps": 0.00031382252982778424,
+          "nativeTicks": 1440,
+          "supportedSamples": 20
+        },
+        "repeatAgrees": true
+      },
+      {
+        "caseId": "payload-left",
+        "spec": {
+          "kind": "payload",
+          "id": "payload-left",
+          "dropHeightM": 0.15,
+          "massKg": 1,
+          "halfLengthFraction": -0.65
+        },
+        "metrics": {
+          "payloadMinimumY": 1.136562466621399,
+          "maxBeamTiltDeg": 0.0016449187364824356,
+          "maxSettledSpeedMps": 0.00020792172115608726,
+          "beamStable": true,
+          "payloadRetained": true,
+          "freeFallTicks": 24,
+          "payloadBeamImpulseNs": 58.853875488915946,
+          "maxBeamDisplacementM": 0.00021577313400503731,
+          "appliedWorkJ": 0,
+          "payloadSupportedSamples": 20,
+          "settledSamples": 20,
+          "stable": true,
+          "firstPayloadBeamContactTick": 43,
+          "meanFreeFallAccelerationMps2": -9.790841937065125,
+          "forceEffortNs": 0,
+          "payloadGravityWorkJ": 1.4715523910522605,
+          "maxPayloadSettledSpeedMps": 0.00018170817337898997,
+          "nativeTicks": 1440,
+          "supportedSamples": 20
+        },
+        "repeatMetrics": {
+          "payloadMinimumY": 1.136562466621399,
+          "maxBeamTiltDeg": 0.0016449187364824356,
+          "maxSettledSpeedMps": 0.00020792172115608726,
+          "beamStable": true,
+          "payloadRetained": true,
+          "freeFallTicks": 24,
+          "payloadBeamImpulseNs": 58.853875488915946,
+          "maxBeamDisplacementM": 0.00021577313400503731,
+          "appliedWorkJ": 0,
+          "payloadSupportedSamples": 20,
+          "settledSamples": 20,
+          "stable": true,
+          "firstPayloadBeamContactTick": 43,
+          "meanFreeFallAccelerationMps2": -9.790841937065125,
+          "forceEffortNs": 0,
+          "payloadGravityWorkJ": 1.4715523910522605,
+          "maxPayloadSettledSpeedMps": 0.00018170817337898997,
+          "nativeTicks": 1440,
+          "supportedSamples": 20
+        },
+        "repeatAgrees": true
+      },
+      {
+        "caseId": "payload-right",
+        "spec": {
+          "kind": "payload",
+          "id": "payload-right",
+          "dropHeightM": 0.15,
+          "massKg": 1,
+          "halfLengthFraction": 0.65
+        },
+        "metrics": {
+          "payloadMinimumY": 1.1365641355514526,
+          "maxBeamTiltDeg": 0.003732722889903936,
+          "maxSettledSpeedMps": 0.0001938742368523549,
+          "beamStable": true,
+          "payloadRetained": true,
+          "freeFallTicks": 24,
+          "payloadBeamImpulseNs": 58.853867008409,
+          "maxBeamDisplacementM": 0.00088448731184061,
+          "appliedWorkJ": 0,
+          "payloadSupportedSamples": 20,
+          "settledSamples": 20,
+          "stable": true,
+          "firstPayloadBeamContactTick": 43,
+          "meanFreeFallAccelerationMps2": -9.790841937065125,
+          "forceEffortNs": 0,
+          "payloadGravityWorkJ": 1.4715746104717389,
+          "maxPayloadSettledSpeedMps": 0.00015670123101825078,
+          "nativeTicks": 1440,
+          "supportedSamples": 20
+        },
+        "repeatMetrics": {
+          "payloadMinimumY": 1.1365641355514526,
+          "maxBeamTiltDeg": 0.003732722889903936,
+          "maxSettledSpeedMps": 0.0001938742368523549,
+          "beamStable": true,
+          "payloadRetained": true,
+          "freeFallTicks": 24,
+          "payloadBeamImpulseNs": 58.853867008409,
+          "maxBeamDisplacementM": 0.00088448731184061,
+          "appliedWorkJ": 0,
+          "payloadSupportedSamples": 20,
+          "settledSamples": 20,
+          "stable": true,
+          "firstPayloadBeamContactTick": 43,
+          "meanFreeFallAccelerationMps2": -9.790841937065125,
+          "forceEffortNs": 0,
+          "payloadGravityWorkJ": 1.4715746104717389,
+          "maxPayloadSettledSpeedMps": 0.00015670123101825078,
+          "nativeTicks": 1440,
+          "supportedSamples": 20
+        },
+        "repeatAgrees": true
+      },
+      {
+        "caseId": "payload-edge-impact",
+        "spec": {
+          "kind": "payload",
+          "id": "payload-edge-impact",
+          "dropHeightM": 0.35,
+          "massKg": 2,
+          "halfLengthFraction": 0.9
+        },
+        "metrics": {
+          "payloadMinimumY": 1.1360057592391968,
+          "maxBeamTiltDeg": 0.09022508925084995,
+          "maxSettledSpeedMps": 0.0007140398737943899,
+          "beamStable": true,
+          "payloadRetained": true,
+          "freeFallTicks": 24,
+          "payloadBeamImpulseNs": 117.69171373255085,
+          "maxBeamDisplacementM": 0.0022654707976164554,
+          "appliedWorkJ": 0,
+          "payloadSupportedSamples": 20,
+          "settledSamples": 20,
+          "stable": true,
+          "firstPayloadBeamContactTick": 65,
+          "meanFreeFallAccelerationMps2": -9.790841937065125,
+          "forceEffortNs": 0,
+          "payloadGravityWorkJ": 6.86763430595395,
+          "maxPayloadSettledSpeedMps": 0.000587224463363288,
+          "nativeTicks": 1440,
+          "supportedSamples": 20
+        },
+        "repeatMetrics": {
+          "payloadMinimumY": 1.1360057592391968,
+          "maxBeamTiltDeg": 0.09022508925084995,
+          "maxSettledSpeedMps": 0.0007140398737943899,
+          "beamStable": true,
+          "payloadRetained": true,
+          "freeFallTicks": 24,
+          "payloadBeamImpulseNs": 117.69171373255085,
+          "maxBeamDisplacementM": 0.0022654707976164554,
+          "appliedWorkJ": 0,
+          "payloadSupportedSamples": 20,
+          "settledSamples": 20,
+          "stable": true,
+          "firstPayloadBeamContactTick": 65,
+          "meanFreeFallAccelerationMps2": -9.790841937065125,
+          "forceEffortNs": 0,
+          "payloadGravityWorkJ": 6.86763430595395,
+          "maxPayloadSettledSpeedMps": 0.000587224463363288,
+          "nativeTicks": 1440,
+          "supportedSamples": 20
+        },
+        "repeatAgrees": true
+      }
+    ],
+    "changedCentre": [
+      {
+        "caseId": "force-centre",
+        "spec": {
+          "kind": "force",
+          "id": "force-centre",
+          "forceN": 16,
+          "halfLengthFraction": 0
+        },
+        "metrics": {
+          "payloadMinimumY": null,
+          "maxBeamTiltDeg": 0.0004066410140603864,
+          "maxSettledSpeedMps": 7.418814940114559e-05,
+          "beamStable": true,
+          "payloadRetained": null,
+          "freeFallTicks": 0,
+          "payloadBeamImpulseNs": 0,
+          "maxBeamDisplacementM": 0.000310757921588859,
+          "appliedWorkJ": 2.002716064453125e-05,
+          "payloadSupportedSamples": 0,
+          "settledSamples": 20,
+          "stable": true,
+          "firstPayloadBeamContactTick": 0,
+          "meanFreeFallAccelerationMps2": null,
+          "forceEffortNs": 31.999999999999908,
+          "payloadGravityWorkJ": 0,
+          "maxPayloadSettledSpeedMps": 0,
+          "nativeTicks": 1440,
+          "supportedSamples": 20
+        },
+        "repeatMetrics": {
+          "payloadMinimumY": null,
+          "maxBeamTiltDeg": 0.0004066410140603864,
+          "maxSettledSpeedMps": 7.418814940114559e-05,
+          "beamStable": true,
+          "payloadRetained": null,
+          "freeFallTicks": 0,
+          "payloadBeamImpulseNs": 0,
+          "maxBeamDisplacementM": 0.000310757921588859,
+          "appliedWorkJ": 2.002716064453125e-05,
+          "payloadSupportedSamples": 0,
+          "settledSamples": 20,
+          "stable": true,
+          "firstPayloadBeamContactTick": 0,
+          "meanFreeFallAccelerationMps2": null,
+          "forceEffortNs": 31.999999999999908,
+          "payloadGravityWorkJ": 0,
+          "maxPayloadSettledSpeedMps": 0,
+          "nativeTicks": 1440,
+          "supportedSamples": 20
+        },
+        "repeatAgrees": true
+      },
+      {
+        "caseId": "force-left",
+        "spec": {
+          "kind": "force",
+          "id": "force-left",
+          "forceN": 16,
+          "halfLengthFraction": -0.9
+        },
+        "metrics": {
+          "payloadMinimumY": null,
+          "maxBeamTiltDeg": 0.0004432984833370906,
+          "maxSettledSpeedMps": 0.0006495898454664459,
+          "beamStable": true,
+          "payloadRetained": null,
+          "freeFallTicks": 0,
+          "payloadBeamImpulseNs": 0,
+          "maxBeamDisplacementM": 0.034067759911189585,
+          "appliedWorkJ": -2.5976657326509667e-05,
+          "payloadSupportedSamples": 0,
+          "settledSamples": 20,
+          "stable": true,
+          "firstPayloadBeamContactTick": 0,
+          "meanFreeFallAccelerationMps2": null,
+          "forceEffortNs": 31.999999999999908,
+          "payloadGravityWorkJ": 0,
+          "maxPayloadSettledSpeedMps": 0,
+          "nativeTicks": 1440,
+          "supportedSamples": 20
+        },
+        "repeatMetrics": {
+          "payloadMinimumY": null,
+          "maxBeamTiltDeg": 0.0004432984833370906,
+          "maxSettledSpeedMps": 0.0006495898454664459,
+          "beamStable": true,
+          "payloadRetained": null,
+          "freeFallTicks": 0,
+          "payloadBeamImpulseNs": 0,
+          "maxBeamDisplacementM": 0.034067759911189585,
+          "appliedWorkJ": -2.5976657326509667e-05,
+          "payloadSupportedSamples": 0,
+          "settledSamples": 20,
+          "stable": true,
+          "firstPayloadBeamContactTick": 0,
+          "meanFreeFallAccelerationMps2": null,
+          "forceEffortNs": 31.999999999999908,
+          "payloadGravityWorkJ": 0,
+          "maxPayloadSettledSpeedMps": 0,
+          "nativeTicks": 1440,
+          "supportedSamples": 20
+        },
+        "repeatAgrees": true
+      },
+      {
+        "caseId": "force-right",
+        "spec": {
+          "kind": "force",
+          "id": "force-right",
+          "forceN": 16,
+          "halfLengthFraction": 0.9
+        },
+        "metrics": {
+          "payloadMinimumY": null,
+          "maxBeamTiltDeg": 0.0006150110325843628,
+          "maxSettledSpeedMps": 0.0003131001031100041,
+          "beamStable": true,
+          "payloadRetained": null,
+          "freeFallTicks": 0,
+          "payloadBeamImpulseNs": 0,
+          "maxBeamDisplacementM": 0.03427342515445875,
+          "appliedWorkJ": -4.240195484150888e-05,
+          "payloadSupportedSamples": 0,
+          "settledSamples": 20,
+          "stable": true,
+          "firstPayloadBeamContactTick": 0,
+          "meanFreeFallAccelerationMps2": null,
+          "forceEffortNs": 31.999999999999908,
+          "payloadGravityWorkJ": 0,
+          "maxPayloadSettledSpeedMps": 0,
+          "nativeTicks": 1440,
+          "supportedSamples": 20
+        },
+        "repeatMetrics": {
+          "payloadMinimumY": null,
+          "maxBeamTiltDeg": 0.0006150110325843628,
+          "maxSettledSpeedMps": 0.0003131001031100041,
+          "beamStable": true,
+          "payloadRetained": null,
+          "freeFallTicks": 0,
+          "payloadBeamImpulseNs": 0,
+          "maxBeamDisplacementM": 0.03427342515445875,
+          "appliedWorkJ": -4.240195484150888e-05,
+          "payloadSupportedSamples": 0,
+          "settledSamples": 20,
+          "stable": true,
+          "firstPayloadBeamContactTick": 0,
+          "meanFreeFallAccelerationMps2": null,
+          "forceEffortNs": 31.999999999999908,
+          "payloadGravityWorkJ": 0,
+          "maxPayloadSettledSpeedMps": 0,
+          "nativeTicks": 1440,
+          "supportedSamples": 20
+        },
+        "repeatAgrees": true
+      },
+      {
+        "caseId": "payload-centre",
+        "spec": {
+          "kind": "payload",
+          "id": "payload-centre",
+          "dropHeightM": 0.15,
+          "massKg": 1,
+          "halfLengthFraction": 0
+        },
+        "metrics": {
+          "payloadMinimumY": 1.1365633010864258,
+          "maxBeamTiltDeg": 0.0006866569759585004,
+          "maxSettledSpeedMps": 0.00022262501402874326,
+          "beamStable": true,
+          "payloadRetained": true,
+          "freeFallTicks": 24,
+          "payloadBeamImpulseNs": 58.853882212235476,
+          "maxBeamDisplacementM": 0.0012708109019683325,
+          "appliedWorkJ": 0,
+          "payloadSupportedSamples": 20,
+          "settledSamples": 20,
+          "stable": true,
+          "firstPayloadBeamContactTick": 43,
+          "meanFreeFallAccelerationMps2": -9.790841937065125,
+          "forceEffortNs": 0,
+          "payloadGravityWorkJ": 1.471512629985814,
+          "maxPayloadSettledSpeedMps": 0.0002211281081772754,
+          "nativeTicks": 1440,
+          "supportedSamples": 20
+        },
+        "repeatMetrics": {
+          "payloadMinimumY": 1.1365633010864258,
+          "maxBeamTiltDeg": 0.0006866569759585004,
+          "maxSettledSpeedMps": 0.00022262501402874326,
+          "beamStable": true,
+          "payloadRetained": true,
+          "freeFallTicks": 24,
+          "payloadBeamImpulseNs": 58.853882212235476,
+          "maxBeamDisplacementM": 0.0012708109019683325,
+          "appliedWorkJ": 0,
+          "payloadSupportedSamples": 20,
+          "settledSamples": 20,
+          "stable": true,
+          "firstPayloadBeamContactTick": 43,
+          "meanFreeFallAccelerationMps2": -9.790841937065125,
+          "forceEffortNs": 0,
+          "payloadGravityWorkJ": 1.471512629985814,
+          "maxPayloadSettledSpeedMps": 0.0002211281081772754,
+          "nativeTicks": 1440,
+          "supportedSamples": 20
+        },
+        "repeatAgrees": true
+      },
+      {
+        "caseId": "payload-left",
+        "spec": {
+          "kind": "payload",
+          "id": "payload-left",
+          "dropHeightM": 0.15,
+          "massKg": 1,
+          "halfLengthFraction": -0.65
+        },
+        "metrics": {
+          "payloadMinimumY": 1.1365625858306885,
+          "maxBeamTiltDeg": 0.0008873756265610674,
+          "maxSettledSpeedMps": 0.00027663094962443257,
+          "beamStable": true,
+          "payloadRetained": true,
+          "freeFallTicks": 24,
+          "payloadBeamImpulseNs": 58.85388436215726,
+          "maxBeamDisplacementM": 0.0003541110544654103,
+          "appliedWorkJ": 0,
+          "payloadSupportedSamples": 20,
+          "settledSamples": 20,
+          "stable": true,
+          "firstPayloadBeamContactTick": 43,
+          "meanFreeFallAccelerationMps2": -9.790841937065125,
+          "forceEffortNs": 0,
+          "payloadGravityWorkJ": 1.4715418660640835,
+          "maxPayloadSettledSpeedMps": 0.00024933378334950947,
+          "nativeTicks": 1440,
+          "supportedSamples": 20
+        },
+        "repeatMetrics": {
+          "payloadMinimumY": 1.1365625858306885,
+          "maxBeamTiltDeg": 0.0008873756265610674,
+          "maxSettledSpeedMps": 0.00027663094962443257,
+          "beamStable": true,
+          "payloadRetained": true,
+          "freeFallTicks": 24,
+          "payloadBeamImpulseNs": 58.85388436215726,
+          "maxBeamDisplacementM": 0.0003541110544654103,
+          "appliedWorkJ": 0,
+          "payloadSupportedSamples": 20,
+          "settledSamples": 20,
+          "stable": true,
+          "firstPayloadBeamContactTick": 43,
+          "meanFreeFallAccelerationMps2": -9.790841937065125,
+          "forceEffortNs": 0,
+          "payloadGravityWorkJ": 1.4715418660640835,
+          "maxPayloadSettledSpeedMps": 0.00024933378334950947,
+          "nativeTicks": 1440,
+          "supportedSamples": 20
+        },
+        "repeatAgrees": true
+      },
+      {
+        "caseId": "payload-right",
+        "spec": {
+          "kind": "payload",
+          "id": "payload-right",
+          "dropHeightM": 0.15,
+          "massKg": 1,
+          "halfLengthFraction": 0.65
+        },
+        "metrics": {
+          "payloadMinimumY": 1.136564016342163,
+          "maxBeamTiltDeg": 0.003733654458774268,
+          "maxSettledSpeedMps": 7.486320510987489e-05,
+          "beamStable": true,
+          "payloadRetained": true,
+          "freeFallTicks": 24,
+          "payloadBeamImpulseNs": 58.85387057176558,
+          "maxBeamDisplacementM": 0.00044321765818887464,
+          "appliedWorkJ": 0,
+          "payloadSupportedSamples": 20,
+          "settledSamples": 20,
+          "stable": true,
+          "firstPayloadBeamContactTick": 43,
+          "meanFreeFallAccelerationMps2": -9.790841937065125,
+          "forceEffortNs": 0,
+          "payloadGravityWorkJ": 1.4715629160404309,
+          "maxPayloadSettledSpeedMps": 9.256450037857218e-05,
+          "nativeTicks": 1440,
+          "supportedSamples": 20
+        },
+        "repeatMetrics": {
+          "payloadMinimumY": 1.136564016342163,
+          "maxBeamTiltDeg": 0.003733654458774268,
+          "maxSettledSpeedMps": 7.486320510987489e-05,
+          "beamStable": true,
+          "payloadRetained": true,
+          "freeFallTicks": 24,
+          "payloadBeamImpulseNs": 58.85387057176558,
+          "maxBeamDisplacementM": 0.00044321765818887464,
+          "appliedWorkJ": 0,
+          "payloadSupportedSamples": 20,
+          "settledSamples": 20,
+          "stable": true,
+          "firstPayloadBeamContactTick": 43,
+          "meanFreeFallAccelerationMps2": -9.790841937065125,
+          "forceEffortNs": 0,
+          "payloadGravityWorkJ": 1.4715629160404309,
+          "maxPayloadSettledSpeedMps": 9.256450037857218e-05,
+          "nativeTicks": 1440,
+          "supportedSamples": 20
+        },
+        "repeatAgrees": true
+      },
+      {
+        "caseId": "payload-edge-impact",
+        "spec": {
+          "kind": "payload",
+          "id": "payload-edge-impact",
+          "dropHeightM": 0.35,
+          "massKg": 2,
+          "halfLengthFraction": 0.9
+        },
+        "metrics": {
+          "payloadMinimumY": 1.1360054016113281,
+          "maxBeamTiltDeg": 0.09031460267019288,
+          "maxSettledSpeedMps": 0.0002916202263168385,
+          "beamStable": true,
+          "payloadRetained": true,
+          "freeFallTicks": 24,
+          "payloadBeamImpulseNs": 117.69135339511558,
+          "maxBeamDisplacementM": 0.002235250561968706,
+          "appliedWorkJ": 0,
+          "payloadSupportedSamples": 20,
+          "settledSamples": 20,
+          "stable": true,
+          "firstPayloadBeamContactTick": 65,
+          "meanFreeFallAccelerationMps2": -9.790841937065125,
+          "forceEffortNs": 0,
+          "payloadGravityWorkJ": 6.867638983726407,
+          "maxPayloadSettledSpeedMps": 0.0007022064383626,
+          "nativeTicks": 1440,
+          "supportedSamples": 20
+        },
+        "repeatMetrics": {
+          "payloadMinimumY": 1.1360054016113281,
+          "maxBeamTiltDeg": 0.09031460267019288,
+          "maxSettledSpeedMps": 0.0002916202263168385,
+          "beamStable": true,
+          "payloadRetained": true,
+          "freeFallTicks": 24,
+          "payloadBeamImpulseNs": 117.69135339511558,
+          "maxBeamDisplacementM": 0.002235250561968706,
+          "appliedWorkJ": 0,
+          "payloadSupportedSamples": 20,
+          "settledSamples": 20,
+          "stable": true,
+          "firstPayloadBeamContactTick": 65,
+          "meanFreeFallAccelerationMps2": -9.790841937065125,
+          "forceEffortNs": 0,
+          "payloadGravityWorkJ": 6.867638983726407,
+          "maxPayloadSettledSpeedMps": 0.0007022064383626,
+          "nativeTicks": 1440,
+          "supportedSamples": 20
+        },
+        "repeatAgrees": true
+      }
+    ],
+    "compact": [
+      {
+        "caseId": "force-centre",
+        "spec": {
+          "kind": "force",
+          "id": "force-centre",
+          "forceN": 16,
+          "halfLengthFraction": 0
+        },
+        "metrics": {
+          "payloadMinimumY": null,
+          "maxBeamTiltDeg": 0.005717313695377211,
+          "maxSettledSpeedMps": 0.0007703939926624494,
+          "beamStable": true,
+          "payloadRetained": null,
+          "freeFallTicks": 0,
+          "payloadBeamImpulseNs": 0,
+          "maxBeamDisplacementM": 0.00036595727441516505,
+          "appliedWorkJ": 2.193450927734375e-05,
+          "payloadSupportedSamples": 0,
+          "settledSamples": 20,
+          "stable": true,
+          "firstPayloadBeamContactTick": 0,
+          "meanFreeFallAccelerationMps2": null,
+          "forceEffortNs": 31.999999999999908,
+          "payloadGravityWorkJ": 0,
+          "maxPayloadSettledSpeedMps": 0,
+          "nativeTicks": 1440,
+          "supportedSamples": 20
+        },
+        "repeatMetrics": {
+          "payloadMinimumY": null,
+          "maxBeamTiltDeg": 0.005717313695377211,
+          "maxSettledSpeedMps": 0.0007703939926624494,
+          "beamStable": true,
+          "payloadRetained": null,
+          "freeFallTicks": 0,
+          "payloadBeamImpulseNs": 0,
+          "maxBeamDisplacementM": 0.00036595727441516505,
+          "appliedWorkJ": 2.193450927734375e-05,
+          "payloadSupportedSamples": 0,
+          "settledSamples": 20,
+          "stable": true,
+          "firstPayloadBeamContactTick": 0,
+          "meanFreeFallAccelerationMps2": null,
+          "forceEffortNs": 31.999999999999908,
+          "payloadGravityWorkJ": 0,
+          "maxPayloadSettledSpeedMps": 0,
+          "nativeTicks": 1440,
+          "supportedSamples": 20
+        },
+        "repeatAgrees": true
+      },
+      {
+        "caseId": "force-left",
+        "spec": {
+          "kind": "force",
+          "id": "force-left",
+          "forceN": 16,
+          "halfLengthFraction": -0.9
+        },
+        "metrics": {
+          "payloadMinimumY": null,
+          "maxBeamTiltDeg": 0.02669072398281234,
+          "maxSettledSpeedMps": 0.0006679198333361669,
+          "beamStable": false,
+          "payloadRetained": null,
+          "freeFallTicks": 0,
+          "payloadBeamImpulseNs": 0,
+          "maxBeamDisplacementM": 0.06851711820686775,
+          "appliedWorkJ": -9.130295163473079e-05,
+          "payloadSupportedSamples": 0,
+          "settledSamples": 20,
+          "stable": false,
+          "firstPayloadBeamContactTick": 0,
+          "meanFreeFallAccelerationMps2": null,
+          "forceEffortNs": 31.999999999999908,
+          "payloadGravityWorkJ": 0,
+          "maxPayloadSettledSpeedMps": 0,
+          "nativeTicks": 1440,
+          "supportedSamples": 20
+        },
+        "repeatMetrics": {
+          "payloadMinimumY": null,
+          "maxBeamTiltDeg": 0.02669072398281234,
+          "maxSettledSpeedMps": 0.0006679198333361669,
+          "beamStable": false,
+          "payloadRetained": null,
+          "freeFallTicks": 0,
+          "payloadBeamImpulseNs": 0,
+          "maxBeamDisplacementM": 0.06851711820686775,
+          "appliedWorkJ": -9.130295163473079e-05,
+          "payloadSupportedSamples": 0,
+          "settledSamples": 20,
+          "stable": false,
+          "firstPayloadBeamContactTick": 0,
+          "meanFreeFallAccelerationMps2": null,
+          "forceEffortNs": 31.999999999999908,
+          "payloadGravityWorkJ": 0,
+          "maxPayloadSettledSpeedMps": 0,
+          "nativeTicks": 1440,
+          "supportedSamples": 20
+        },
+        "repeatAgrees": true
+      },
+      {
+        "caseId": "force-right",
+        "spec": {
+          "kind": "force",
+          "id": "force-right",
+          "forceN": 16,
+          "halfLengthFraction": 0.9
+        },
+        "metrics": {
+          "payloadMinimumY": null,
+          "maxBeamTiltDeg": 0.009631230663422686,
+          "maxSettledSpeedMps": 3.624256902076015e-05,
+          "beamStable": false,
+          "payloadRetained": null,
+          "freeFallTicks": 0,
+          "payloadBeamImpulseNs": 0,
+          "maxBeamDisplacementM": 0.06878930462464734,
+          "appliedWorkJ": -6.754045846335544e-05,
+          "payloadSupportedSamples": 0,
+          "settledSamples": 20,
+          "stable": false,
+          "firstPayloadBeamContactTick": 0,
+          "meanFreeFallAccelerationMps2": null,
+          "forceEffortNs": 31.999999999999908,
+          "payloadGravityWorkJ": 0,
+          "maxPayloadSettledSpeedMps": 0,
+          "nativeTicks": 1440,
+          "supportedSamples": 20
+        },
+        "repeatMetrics": {
+          "payloadMinimumY": null,
+          "maxBeamTiltDeg": 0.009631230663422686,
+          "maxSettledSpeedMps": 3.624256902076015e-05,
+          "beamStable": false,
+          "payloadRetained": null,
+          "freeFallTicks": 0,
+          "payloadBeamImpulseNs": 0,
+          "maxBeamDisplacementM": 0.06878930462464734,
+          "appliedWorkJ": -6.754045846335544e-05,
+          "payloadSupportedSamples": 0,
+          "settledSamples": 20,
+          "stable": false,
+          "firstPayloadBeamContactTick": 0,
+          "meanFreeFallAccelerationMps2": null,
+          "forceEffortNs": 31.999999999999908,
+          "payloadGravityWorkJ": 0,
+          "maxPayloadSettledSpeedMps": 0,
+          "nativeTicks": 1440,
+          "supportedSamples": 20
+        },
+        "repeatAgrees": true
+      },
+      {
+        "caseId": "payload-centre",
+        "spec": {
+          "kind": "payload",
+          "id": "payload-centre",
+          "dropHeightM": 0.15,
+          "massKg": 1,
+          "halfLengthFraction": 0
+        },
+        "metrics": {
+          "payloadMinimumY": 0.7865644693374634,
+          "maxBeamTiltDeg": 0.005717313695377211,
+          "maxSettledSpeedMps": 0.0006995473970562619,
+          "beamStable": true,
+          "payloadRetained": true,
+          "freeFallTicks": 24,
+          "payloadBeamImpulseNs": 58.85385305038653,
+          "maxBeamDisplacementM": 0.00046806799229860913,
+          "appliedWorkJ": 0,
+          "payloadSupportedSamples": 20,
+          "settledSamples": 20,
+          "stable": true,
+          "firstPayloadBeamContactTick": 43,
+          "meanFreeFallAccelerationMps2": -9.790841937065125,
+          "forceEffortNs": 0,
+          "payloadGravityWorkJ": 1.4716096937656247,
+          "maxPayloadSettledSpeedMps": 0.0006193316959776869,
+          "nativeTicks": 1440,
+          "supportedSamples": 20
+        },
+        "repeatMetrics": {
+          "payloadMinimumY": 0.7865644693374634,
+          "maxBeamTiltDeg": 0.005717313695377211,
+          "maxSettledSpeedMps": 0.0006995473970562619,
+          "beamStable": true,
+          "payloadRetained": true,
+          "freeFallTicks": 24,
+          "payloadBeamImpulseNs": 58.85385305038653,
+          "maxBeamDisplacementM": 0.00046806799229860913,
+          "appliedWorkJ": 0,
+          "payloadSupportedSamples": 20,
+          "settledSamples": 20,
+          "stable": true,
+          "firstPayloadBeamContactTick": 43,
+          "meanFreeFallAccelerationMps2": -9.790841937065125,
+          "forceEffortNs": 0,
+          "payloadGravityWorkJ": 1.4716096937656247,
+          "maxPayloadSettledSpeedMps": 0.0006193316959776869,
+          "nativeTicks": 1440,
+          "supportedSamples": 20
+        },
+        "repeatAgrees": true
+      },
+      {
+        "caseId": "payload-left",
+        "spec": {
+          "kind": "payload",
+          "id": "payload-left",
+          "dropHeightM": 0.15,
+          "massKg": 1,
+          "halfLengthFraction": -0.65
+        },
+        "metrics": {
+          "payloadMinimumY": 0.7865644693374634,
+          "maxBeamTiltDeg": 0.04457925689634037,
+          "maxSettledSpeedMps": 0.00048235475548867905,
+          "beamStable": true,
+          "payloadRetained": true,
+          "freeFallTicks": 24,
+          "payloadBeamImpulseNs": 58.8539740301203,
+          "maxBeamDisplacementM": 0.0006259267067438475,
+          "appliedWorkJ": 0,
+          "payloadSupportedSamples": 20,
+          "settledSamples": 20,
+          "stable": true,
+          "firstPayloadBeamContactTick": 43,
+          "meanFreeFallAccelerationMps2": -9.790841937065125,
+          "forceEffortNs": 0,
+          "payloadGravityWorkJ": 1.4716535478830453,
+          "maxPayloadSettledSpeedMps": 0.0005684682666469402,
+          "nativeTicks": 1440,
+          "supportedSamples": 20
+        },
+        "repeatMetrics": {
+          "payloadMinimumY": 0.7865644693374634,
+          "maxBeamTiltDeg": 0.04457925689634037,
+          "maxSettledSpeedMps": 0.00048235475548867905,
+          "beamStable": true,
+          "payloadRetained": true,
+          "freeFallTicks": 24,
+          "payloadBeamImpulseNs": 58.8539740301203,
+          "maxBeamDisplacementM": 0.0006259267067438475,
+          "appliedWorkJ": 0,
+          "payloadSupportedSamples": 20,
+          "settledSamples": 20,
+          "stable": true,
+          "firstPayloadBeamContactTick": 43,
+          "meanFreeFallAccelerationMps2": -9.790841937065125,
+          "forceEffortNs": 0,
+          "payloadGravityWorkJ": 1.4716535478830453,
+          "maxPayloadSettledSpeedMps": 0.0005684682666469402,
+          "nativeTicks": 1440,
+          "supportedSamples": 20
+        },
+        "repeatAgrees": true
+      },
+      {
+        "caseId": "payload-right",
+        "spec": {
+          "kind": "payload",
+          "id": "payload-right",
+          "dropHeightM": 0.15,
+          "massKg": 1,
+          "halfLengthFraction": 0.65
+        },
+        "metrics": {
+          "payloadMinimumY": 0.7865644693374634,
+          "maxBeamTiltDeg": 0.007501587735919877,
+          "maxSettledSpeedMps": 0.0011792178592510676,
+          "beamStable": true,
+          "payloadRetained": true,
+          "freeFallTicks": 24,
+          "payloadBeamImpulseNs": 58.85382012557238,
+          "maxBeamDisplacementM": 0.0007351812417739574,
+          "appliedWorkJ": 0,
+          "payloadSupportedSamples": 20,
+          "settledSamples": 20,
+          "stable": true,
+          "firstPayloadBeamContactTick": 43,
+          "meanFreeFallAccelerationMps2": -9.790841937065125,
+          "forceEffortNs": 0,
+          "payloadGravityWorkJ": 1.4717184519767355,
+          "maxPayloadSettledSpeedMps": 0.0004742517018538838,
+          "nativeTicks": 1440,
+          "supportedSamples": 20
+        },
+        "repeatMetrics": {
+          "payloadMinimumY": 0.7865644693374634,
+          "maxBeamTiltDeg": 0.007501587735919877,
+          "maxSettledSpeedMps": 0.0011792178592510676,
+          "beamStable": true,
+          "payloadRetained": true,
+          "freeFallTicks": 24,
+          "payloadBeamImpulseNs": 58.85382012557238,
+          "maxBeamDisplacementM": 0.0007351812417739574,
+          "appliedWorkJ": 0,
+          "payloadSupportedSamples": 20,
+          "settledSamples": 20,
+          "stable": true,
+          "firstPayloadBeamContactTick": 43,
+          "meanFreeFallAccelerationMps2": -9.790841937065125,
+          "forceEffortNs": 0,
+          "payloadGravityWorkJ": 1.4717184519767355,
+          "maxPayloadSettledSpeedMps": 0.0004742517018538838,
+          "nativeTicks": 1440,
+          "supportedSamples": 20
+        },
+        "repeatAgrees": true
+      },
+      {
+        "caseId": "payload-edge-impact",
+        "spec": {
+          "kind": "payload",
+          "id": "payload-edge-impact",
+          "dropHeightM": 0.35,
+          "massKg": 2,
+          "halfLengthFraction": 0.9
+        },
+        "metrics": {
+          "payloadMinimumY": 0.784233808517456,
+          "maxBeamTiltDeg": 1.3223252852308185,
+          "maxSettledSpeedMps": 0.00028364453860836743,
+          "beamStable": true,
+          "payloadRetained": true,
+          "freeFallTicks": 24,
+          "payloadBeamImpulseNs": 117.68799220302753,
+          "maxBeamDisplacementM": 0.017922817617137224,
+          "appliedWorkJ": 0,
+          "payloadSupportedSamples": 20,
+          "settledSamples": 20,
+          "stable": true,
+          "firstPayloadBeamContactTick": 65,
+          "meanFreeFallAccelerationMps2": -9.790841937065125,
+          "forceEffortNs": 0,
+          "payloadGravityWorkJ": 6.868534777164466,
+          "maxPayloadSettledSpeedMps": 0.000469565903227028,
+          "nativeTicks": 1440,
+          "supportedSamples": 20
+        },
+        "repeatMetrics": {
+          "payloadMinimumY": 0.784233808517456,
+          "maxBeamTiltDeg": 1.3223252852308185,
+          "maxSettledSpeedMps": 0.00028364453860836743,
+          "beamStable": true,
+          "payloadRetained": true,
+          "freeFallTicks": 24,
+          "payloadBeamImpulseNs": 117.68799220302753,
+          "maxBeamDisplacementM": 0.017922817617137224,
+          "appliedWorkJ": 0,
+          "payloadSupportedSamples": 20,
+          "settledSamples": 20,
+          "stable": true,
+          "firstPayloadBeamContactTick": 65,
+          "meanFreeFallAccelerationMps2": -9.790841937065125,
+          "forceEffortNs": 0,
+          "payloadGravityWorkJ": 6.868534777164466,
+          "maxPayloadSettledSpeedMps": 0.000469565903227028,
+          "nativeTicks": 1440,
+          "supportedSamples": 20
+        },
+        "repeatAgrees": true
+      }
+    ]
+  },
+  "costs": {
+    "wide": {
+      "attempts": 15,
+      "totalTicks": 21600,
+      "observedWallMillis": 96015.51590000001
+    },
+    "changedCentre": {
+      "attempts": 14,
+      "totalTicks": 20160,
+      "observedWallMillis": 96231.2888
+    },
+    "compact": {
+      "attempts": 14,
+      "totalTicks": 20160,
+      "observedWallMillis": 95584.9811
+    }
+  },
+  "scope": "Declared synthetic rigid bodies, native gravity and impacts, fixed repeated protocol. Not material strength, hardware capacity, model-weight learning or unseen-condition certification.",
+  "replay": "Actual report values,11curves and recorded X/Y body polygons checked against originals; actual UI scrub selects tick1440.",
+  "uiDevelopmentFindings": "The first completed native task was interrupted before promotion by the ordinary20-file artifact limit; a bounded payload-specific report path preserves every original attempt. The harness initially read an old interrupted status, addressed a hidden Spatial dropdown, used an unavailable require in Electron evaluation, and captured a still-hidden report. It now awaits resume acknowledgement and the visible completed report. Export clicks during selection and chat admission during a view operation exposed actual readiness races; controls now remain disabled during selection and chat waits up to20seconds before applying unchanged ownership guards. Diagnostic runs blocked on those UI races were explicitly closed; their original logs and failure records are retained. A local-model attempt repeatedly proposed requiredLoadN0 for an unrequested redesign; strict validation rejected it before actuation and the attempt was explicitly stopped. Payload-only tool schemas now omit unrelated redesign fields, while requested load limits retain their enum and physical checks. Planning calls and repairs are recorded rather than assuming one model call. Cold reopening with two large retained reports exposed repeated parsing of closed goal evidence during status polling. Java now derives committed summary/ownership metadata from the checkpoint, updates it only after successful saves, returns defensive copies and rebuilds it after restart; complete reports remain retrievable. Restart and cancellation checks exercise that index. Exact saved-skill reuse then hit the unchanged12500-character planning budget because it included every historical payload metric. The planner receives a clearly labelled hash-linked outcome summary; defaults, full policy, prerequisites, actions and recovery remain exact, and Java retains and rechecks the full original procedure. No native outcomes or thresholds were altered.",
+  "sourceProjects": [
+    "C:\\Users\\eyeka\\AppData\\Local\\Temp\\construction055-lowforce-3261600797816096135",
+    "C:\\Users\\eyeka\\AppData\\Local\\Temp\\construction055-matrix-12184577207231492826",
+    "C:\\Users\\eyeka\\AppData\\Local\\Temp\\construction055-routes-6790025433294059250",
+    "C:\\Users\\eyeka\\AppData\\Local\\Temp\\design056-selection-6290101181626508782",
+    "C:\\Users\\eyeka\\AppData\\Local\\Temp\\load055-recovery-4093931936493364335",
+    "C:\\Users\\eyeka\\AppData\\Local\\Temp\\payload057-native-11920390951928580737",
+    "C:\\Users\\eyeka\\AppData\\Local\\Temp\\payload057-native-1302903841784095007",
+    "C:\\Users\\eyeka\\AppData\\Local\\Temp\\payload057-native-13398254329230531442",
+    "C:\\Users\\eyeka\\AppData\\Local\\Temp\\payload057-native-13724333145977724694",
+    "C:\\Users\\eyeka\\AppData\\Local\\Temp\\payload057-native-18176324671820059362"
+  ],
+  "continuations": [
+    {
+      "source": "179bbafd5028765132779eb240b867e67674aca7",
+      "priorSource": "d0ab42368f9ec4b3bee43e64e46e15a6245a3e2b",
+      "record": "C:\\Users\\eyeka\\Documents\\Codex\\2026-10-26\\is\\work\\fraynix-workspace-edition057\\workspace-desktop\\test-output\\construction057-failed-1793762276848.json"
+    },
+    {
+      "source": "b5954b9b7053ee3bbec0c58280360047a5ad9bfc",
+      "priorSource": "179bbafd5028765132779eb240b867e67674aca7",
+      "record": "C:\\Users\\eyeka\\Documents\\Codex\\2026-10-26\\is\\work\\fraynix-workspace-edition057\\workspace-desktop\\test-output\\construction057-failed-1793762650748.json"
+    },
+    {
+      "source": "e1aea50ebf315276ecce818dd67346683a5a65d6",
+      "priorSource": "b5954b9b7053ee3bbec0c58280360047a5ad9bfc",
+      "record": "C:\\Users\\eyeka\\Documents\\Codex\\2026-10-26\\is\\work\\fraynix-workspace-edition057\\workspace-desktop\\test-output\\construction057-checkpoint.json"
+    },
+    {
+      "source": "2ee2c7525d535f3bd1972ba1a5773191065efaae",
+      "priorSource": "e1aea50ebf315276ecce818dd67346683a5a65d6",
+      "record": "C:\\Users\\eyeka\\Documents\\Codex\\2026-10-26\\is\\work\\fraynix-workspace-edition057\\workspace-desktop\\test-output\\construction057-checkpoint.json"
+    },
+    {
+      "source": "6f29a8a396a5c9650bea896360e3280d9f553f78",
+      "priorSource": "2ee2c7525d535f3bd1972ba1a5773191065efaae",
+      "record": "C:\\Users\\eyeka\\Documents\\Codex\\2026-10-26\\is\\work\\fraynix-workspace-edition057\\workspace-desktop\\test-output\\construction057-failed-1793764301849.json"
+    },
+    {
+      "source": "2aaddc64906b7a00b2fcae224ee6310a1b8621b2",
+      "priorSource": "6f29a8a396a5c9650bea896360e3280d9f553f78",
+      "record": "C:\\Users\\eyeka\\Documents\\Codex\\2026-10-26\\is\\work\\fraynix-workspace-edition057\\workspace-desktop\\test-output\\construction057-failed-1793764611758.json"
+    }
+  ],
+  "desktopReopenObservations": [
+    {
+      "source": "6f29a8a396a5c9650bea896360e3280d9f553f78",
+      "milliseconds": 3854,
+      "worldControlsReady": true
+    },
+    {
+      "source": "6f29a8a396a5c9650bea896360e3280d9f553f78",
+      "milliseconds": 4307,
+      "worldControlsReady": true
+    },
+    {
+      "source": "2aaddc64906b7a00b2fcae224ee6310a1b8621b2",
+      "milliseconds": 4036,
+      "worldControlsReady": true
+    },
+    {
+      "source": "2aaddc64906b7a00b2fcae224ee6310a1b8621b2",
+      "milliseconds": 4282,
+      "worldControlsReady": true
+    }
+  ]
+}

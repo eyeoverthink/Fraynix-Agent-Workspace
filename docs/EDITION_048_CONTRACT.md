@@ -1,0 +1,9 @@
+# Edition 048 · Java skill memory
+
+Start with verified native world procedures. Java checks the exact procedure ID, version, content hash, native implementation and original report before accepting a user-taught example. Recall compares normalized exact examples, token Jaccard similarity and packed binary HDC. It reads the same phrases for all methods. A result is a suggestion for review. Existing task authority and scheduling continue through the normal procedure route.
+
+The HDC encoder uses deterministic vectors for word features and padded character trigrams, projects feature votes to 8,192 bits, then accumulates signed votes per taught skill. Zero ties project to zero. The checkpoint stores the exact integer accumulators, the versioned procedure references and normalized examples in a bounded binary format. An integrity digest, semantic validation, and an atomic replace protect storage. Explicit teaching is the only write. Retain existing memory if a write fails. A malformed checkpoint fails closed in the skill memory panel.
+
+Freeze the labelled test before running it. Use exact control queries and separate untouched supported, unsupported and ambiguous requests. Compare correct suggestions, misses, wrong suggestions and unsafe suggestions on unsupported inputs. Predeclare exact matching with conflict abstention, token Jaccard threshold 0.28/margin 0.08, and HDC Hamming similarity threshold 0.56/margin 0.025. A candidate needs two more correct held-out suggestions than lexical lookup with no more wrong or unsupported suggestions before a larger study. This small evaluation never changes task routing.
+
+Verify checkpoint bytes and recall after a fresh JVM, rejection of malformed state and stale procedure evidence, explicit teaching through Java Brain and a real original saved skill. The project is isolated, with labelled synthetic cases for evaluation.

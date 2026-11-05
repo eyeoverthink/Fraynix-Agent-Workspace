@@ -1,0 +1,40 @@
+PROJECT C:\Users\eyeka\AppData\Local\Temp\fraynix-persistent035-hG9291
+NOTICE Connected. Your Studio baseline and personal state are separate.
+locator.selectOption: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator('#persistent-case')
+    - locator resolved to <select id="persistent-case">…</select>
+  - attempting select option action
+    2 × waiting for element to be visible and enabled
+      - element is not visible
+    - retrying select option action
+    - waiting 20ms
+    2 × waiting for element to be visible and enabled
+      - element is not visible
+    - retrying select option action
+      - waiting 100ms
+    59 × waiting for element to be visible and enabled
+       - element is not visible
+     - retrying select option action
+       - waiting 500ms
+
+    at main (C:\Users\eyeka\Documents\Codex\2026-10-26\is\work\fraynix-agent-workspace\workspace-desktop\test\persistent-world-integration.cjs:6:105) {
+  log: [
+    "  - waiting for locator('#persistent-case')",
+    '    - locator resolved to <select id="persistent-case">…</select>',
+    '  - attempting select option action',
+    '    2 × waiting for element to be visible and enabled',
+    '      - element is not visible',
+    '    - retrying select option action',
+    '    - waiting 20ms',
+    '    2 × waiting for element to be visible and enabled',
+    '      - element is not visible',
+    '    - retrying select option action',
+    '      - waiting 100ms',
+    '    59 × waiting for element to be visible and enabled',
+    '       - element is not visible',
+    '     - retrying select option action',
+    '       - waiting 500ms'
+  ],
+  name: 'TimeoutError'
+}

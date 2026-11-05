@@ -1,0 +1,72 @@
+{
+  "encoderCheck": {
+    "scope": "Independent enumeration of the exact supplied linear encoder, not certification of a different Golay implementation",
+    "messagesEnumerated": 4095,
+    "minimumNonzeroCodewordWeight": 7,
+    "message": 1025,
+    "codewordHex": "0x401592",
+    "rows": [
+      4094,
+      3811,
+      3525,
+      2955,
+      1815,
+      3629,
+      3163,
+      2231,
+      367,
+      733,
+      1465,
+      2929
+    ]
+  },
+  "files": [
+    {
+      "file": "agi-fraynix.txt",
+      "bytes": 71706,
+      "sha256": "38b2aa679a3ebf1f4805cea15adb00694dc5d7ba0eeb9924dee92345365eeb69",
+      "lines": 2044,
+      "commonPrefixLinesWithPrevious": 0
+    },
+    {
+      "file": "agi-fraynix-2.txt",
+      "bytes": 147977,
+      "sha256": "d65e441db48c0f97a56ba56ef73bd7f5d036678de86d6014b0448591a168f310",
+      "lines": 3516,
+      "commonPrefixLinesWithPrevious": 2044
+    },
+    {
+      "file": "agi-fraynix-3.txt",
+      "bytes": 179144,
+      "sha256": "8d23866b4235f48be3b7b8a68c1e2e9519c85eec20d7ae837ffcfb21d914aaa8",
+      "lines": 4053,
+      "commonPrefixLinesWithPrevious": 3516
+    },
+    {
+      "file": "agi-fraynix-4.txt",
+      "bytes": 469404,
+      "sha256": "72fa2afdb726246788760f431878a967097017f8a5ee5707da81844270592d87",
+      "lines": 10107,
+      "commonPrefixLinesWithPrevious": 0
+    },
+    {
+      "file": "system-update-1.txt",
+      "bytes": 6559,
+      "sha256": "4f6158ff99c622b98f38834e82637e3ebbd4e648d66afe32278ddb9237868292",
+      "lines": 472,
+      "commonPrefixLinesWithPrevious": 0
+    }
+  ],
+  "javaProbe": {
+    "source": "scripts/ProbeSuppliedEncoder060.java",
+    "command": "java scripts/ProbeSuppliedEncoder060.java",
+    "result": {
+      "messagesEnumerated": 4095,
+      "minimumNonzeroCodewordWeight": 7,
+      "message": 1025,
+      "codewordHex": "0x401592",
+      "scope": "Exact supplied linear encoder; not decoder or hardware certification"
+    },
+    "developmentCorrection": "Initial standalone transcription reversed matrix row bit order; expected-witness assertion failed. Corrected to the supplied most-significant-bit row order."
+  }
+}

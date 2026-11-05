@@ -1,0 +1,95 @@
+{
+  "nodes": [
+    {
+      "id": "payload",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/Payload057.java",
+      "x": 0,
+      "y": 0,
+      "width": 380,
+      "height": 190
+    },
+    {
+      "id": "protocol",
+      "type": "file",
+      "file": "workspace-engine/src/main/resources/construction057-protocol.json",
+      "x": 410,
+      "y": 0,
+      "width": 380,
+      "height": 190
+    },
+    {
+      "id": "goal",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/GoalRunner.java",
+      "x": 820,
+      "y": 0,
+      "width": 380,
+      "height": 190
+    },
+    {
+      "id": "replay",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/PayloadReport057.java",
+      "x": 0,
+      "y": 240,
+      "width": 380,
+      "height": 190
+    },
+    {
+      "id": "view",
+      "type": "file",
+      "file": "workspace-desktop/renderer/construction051.js",
+      "x": 410,
+      "y": 240,
+      "width": 380,
+      "height": 190
+    },
+    {
+      "id": "next",
+      "type": "file",
+      "file": "docs/EDITION_057_CONTRACT.md",
+      "x": 820,
+      "y": 240,
+      "width": 380,
+      "height": 190
+    }
+  ],
+  "edges": [
+    {
+      "id": "e0",
+      "fromNode": "payload",
+      "fromSide": "right",
+      "toNode": "protocol",
+      "toSide": "left"
+    },
+    {
+      "id": "e1",
+      "fromNode": "protocol",
+      "fromSide": "right",
+      "toNode": "goal",
+      "toSide": "left"
+    },
+    {
+      "id": "e2",
+      "fromNode": "goal",
+      "fromSide": "right",
+      "toNode": "replay",
+      "toSide": "left"
+    },
+    {
+      "id": "e3",
+      "fromNode": "replay",
+      "fromSide": "right",
+      "toNode": "view",
+      "toSide": "left"
+    },
+    {
+      "id": "e4",
+      "fromNode": "view",
+      "fromSide": "right",
+      "toNode": "next",
+      "toSide": "left"
+    }
+  ]
+}

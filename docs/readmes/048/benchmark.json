@@ -1,0 +1,354 @@
+{
+  "routing": "advisory",
+  "candidateGatePassed": false,
+  "cases": [
+    {
+      "lexical": null,
+      "phrase": "rotate the disply toward the entryway",
+      "hdc": {
+        "score": 0.685302734375,
+        "skill": "rotate-display",
+        "lead": 0.147705078125
+      },
+      "expected": "rotate-display",
+      "exact": null
+    },
+    {
+      "lexical": {
+        "score": 0.5,
+        "skill": "rotate-display",
+        "lead": 0.5
+      },
+      "phrase": "turn the display to face the doorway",
+      "hdc": {
+        "score": 0.7083740234375,
+        "skill": "rotate-display",
+        "lead": 0.18212890625
+      },
+      "expected": "rotate-display",
+      "exact": null
+    },
+    {
+      "lexical": null,
+      "phrase": "reorient the showroom fixtures to greet arrivals",
+      "hdc": null,
+      "expected": "rotate-display",
+      "exact": null
+    },
+    {
+      "lexical": null,
+      "phrase": "cleer the aisle for pedestrians",
+      "hdc": {
+        "score": 0.591552734375,
+        "skill": "clear-aisle",
+        "lead": 0.0577392578125
+      },
+      "expected": "clear-aisle",
+      "exact": null
+    },
+    {
+      "lexical": null,
+      "phrase": "move the boxes away from the walking passage",
+      "hdc": {
+        "score": 0.651611328125,
+        "skill": "clear-aisle",
+        "lead": 0.1109619140625
+      },
+      "expected": "clear-aisle",
+      "exact": null
+    },
+    {
+      "lexical": null,
+      "phrase": "give the visitors an unobstructed route through",
+      "hdc": {
+        "score": 0.5750732421875,
+        "skill": "move-round-obstacle",
+        "lead": 0.05517578125
+      },
+      "expected": "clear-aisle",
+      "exact": null
+    },
+    {
+      "lexical": {
+        "score": 0.42857142857142855,
+        "skill": "stage-blue-crate",
+        "lead": 0.42857142857142855
+      },
+      "phrase": "stage the blu crate at the loading station",
+      "hdc": {
+        "score": 0.7110595703125,
+        "skill": "stage-blue-crate",
+        "lead": 0.157470703125
+      },
+      "expected": "stage-blue-crate",
+      "exact": null
+    },
+    {
+      "lexical": {
+        "score": 0.42857142857142855,
+        "skill": "stage-blue-crate",
+        "lead": 0.3285714285714285
+      },
+      "phrase": "place the blue crate next to dispatch",
+      "hdc": {
+        "score": 0.66650390625,
+        "skill": "stage-blue-crate",
+        "lead": 0.097900390625
+      },
+      "expected": "stage-blue-crate",
+      "exact": null
+    },
+    {
+      "lexical": null,
+      "phrase": "get the azure container ready for shipment",
+      "hdc": null,
+      "expected": "stage-blue-crate",
+      "exact": null
+    },
+    {
+      "lexical": null,
+      "phrase": "keep the refernce marker fixed when arranging",
+      "hdc": {
+        "score": 0.6785888671875,
+        "skill": "protect-reference",
+        "lead": 0.1473388671875
+      },
+      "expected": "protect-reference",
+      "exact": null
+    },
+    {
+      "lexical": null,
+      "phrase": "leave the calibration marker where it is",
+      "hdc": {
+        "score": 0.639404296875,
+        "skill": "protect-reference",
+        "lead": 0.10546875
+      },
+      "expected": "protect-reference",
+      "exact": null
+    },
+    {
+      "lexical": null,
+      "phrase": "preserve the datum while rearranging everything else",
+      "hdc": {
+        "score": 0.5704345703125,
+        "skill": "protect-reference",
+        "lead": 0.0394287109375
+      },
+      "expected": "protect-reference",
+      "exact": null
+    },
+    {
+      "lexical": {
+        "score": 0.4,
+        "skill": "line-up-tools",
+        "lead": 0.4
+      },
+      "phrase": "allign the tools on the workbench",
+      "hdc": {
+        "score": 0.7083740234375,
+        "skill": "line-up-tools",
+        "lead": 0.1982421875
+      },
+      "expected": "line-up-tools",
+      "exact": null
+    },
+    {
+      "lexical": null,
+      "phrase": "set the tools out in one straight line",
+      "hdc": {
+        "score": 0.662353515625,
+        "skill": "line-up-tools",
+        "lead": 0.14404296875
+      },
+      "expected": "line-up-tools",
+      "exact": null
+    },
+    {
+      "lexical": null,
+      "phrase": "lay the implements out side by side in order",
+      "hdc": null,
+      "expected": "line-up-tools",
+      "exact": null
+    },
+    {
+      "lexical": {
+        "score": 0.3333333333333333,
+        "skill": "move-round-obstacle",
+        "lead": 0.3333333333333333
+      },
+      "phrase": "carry the pakage around the obstcle",
+      "hdc": {
+        "score": 0.686279296875,
+        "skill": "move-round-obstacle",
+        "lead": 0.1265869140625
+      },
+      "expected": "move-round-obstacle",
+      "exact": null
+    },
+    {
+      "lexical": {
+        "score": 0.3333333333333333,
+        "skill": "move-round-obstacle",
+        "lead": 0.3333333333333333
+      },
+      "phrase": "route the package past the barrier",
+      "hdc": {
+        "score": 0.650390625,
+        "skill": "move-round-obstacle",
+        "lead": 0.10595703125
+      },
+      "expected": "move-round-obstacle",
+      "exact": null
+    },
+    {
+      "lexical": null,
+      "phrase": "take a detour so the shipment avoids the blockage",
+      "hdc": null,
+      "expected": "move-round-obstacle",
+      "exact": null
+    },
+    {
+      "lexical": null,
+      "phrase": "tell me the weather in Seattle",
+      "hdc": null,
+      "expected": "-",
+      "exact": null
+    },
+    {
+      "lexical": null,
+      "phrase": "delete the project and restore yesterday's database",
+      "hdc": null,
+      "expected": "-",
+      "exact": null
+    },
+    {
+      "lexical": null,
+      "phrase": "book a delivery for tomorrow",
+      "hdc": null,
+      "expected": "-",
+      "exact": null
+    },
+    {
+      "lexical": {
+        "score": 0.2857142857142857,
+        "skill": "stage-blue-crate",
+        "lead": 0.2857142857142857
+      },
+      "phrase": "paint the blue crate red",
+      "hdc": {
+        "score": 0.653564453125,
+        "skill": "stage-blue-crate",
+        "lead": 0.1256103515625
+      },
+      "expected": "-",
+      "exact": null
+    },
+    {
+      "lexical": null,
+      "phrase": "tell me why the aisle is blocked",
+      "hdc": null,
+      "expected": "-",
+      "exact": null
+    },
+    {
+      "lexical": {
+        "score": 0.4,
+        "skill": "line-up-tools",
+        "lead": 0.4
+      },
+      "phrase": "photograph the tools on the workbench",
+      "hdc": {
+        "score": 0.6630859375,
+        "skill": "line-up-tools",
+        "lead": 0.156005859375
+      },
+      "expected": "-",
+      "exact": null
+    },
+    {
+      "lexical": null,
+      "phrase": "turn the display and clear the aisle",
+      "hdc": null,
+      "expected": "-",
+      "exact": null
+    },
+    {
+      "lexical": {
+        "score": 0.2857142857142857,
+        "skill": "protect-reference",
+        "lead": 0.2857142857142857
+      },
+      "phrase": "remove the reference marker",
+      "hdc": {
+        "score": 0.6837158203125,
+        "skill": "protect-reference",
+        "lead": 0.1658935546875
+      },
+      "expected": "-",
+      "exact": null
+    },
+    {
+      "lexical": null,
+      "phrase": "read the serial number on the package",
+      "hdc": null,
+      "expected": "-",
+      "exact": null
+    },
+    {
+      "lexical": {
+        "score": 0.6,
+        "skill": "move-round-obstacle",
+        "lead": 0.6
+      },
+      "phrase": "route the cable past the obstacle",
+      "hdc": {
+        "score": 0.6571044921875,
+        "skill": "move-round-obstacle",
+        "lead": 0.1141357421875
+      },
+      "expected": "-",
+      "exact": null
+    },
+    {
+      "lexical": null,
+      "phrase": "align a new telescope mount",
+      "hdc": null,
+      "expected": "-",
+      "exact": null
+    },
+    {
+      "lexical": null,
+      "phrase": "what does the word calibration mean",
+      "hdc": null,
+      "expected": "-",
+      "exact": null
+    }
+  ],
+  "trainingPhrases": 18,
+  "holdouts": 30,
+  "totals": {
+    "lexical": {
+      "correct": 6,
+      "unsupportedAbstentions": 8,
+      "missed": 12,
+      "unsupportedSuggestions": 4,
+      "wrong": 0
+    },
+    "hdc": {
+      "correct": 13,
+      "unsupportedAbstentions": 8,
+      "missed": 4,
+      "unsupportedSuggestions": 4,
+      "wrong": 1
+    },
+    "exact": {
+      "correct": 0,
+      "unsupportedAbstentions": 12,
+      "missed": 18,
+      "unsupportedSuggestions": 0,
+      "wrong": 0
+    }
+  },
+  "exactControlsPassed": 6
+}

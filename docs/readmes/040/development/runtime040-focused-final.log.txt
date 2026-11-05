@@ -1,0 +1,31 @@
+> Task :brain-core:compileJava UP-TO-DATE
+> Task :brain-gpu:compileJava UP-TO-DATE
+> Task :factory-runtime:compileJava UP-TO-DATE
+> Task :factory-kernel:compileJava UP-TO-DATE
+> Task :factory-models:compileJava UP-TO-DATE
+> Task :geometry-core:compileJava UP-TO-DATE
+
+> Task :workspace-engine:compileJava FAILED
+C:\Users\eyeka\Documents\Codex\2026-10-26\is\work\fraynix-workspace-edition040\workspace-engine\src\main\java\fraymus\workspace\SpatialRuntime040.java:75: error: unreported exception Exception; must be caught or declared to be thrown
+    synchronized JSONObject raster(String hash){cached(hash);var image=rasters.get(hash);if(image==null)throw new IllegalArgumentException("This source has no original game raster");if(!PerceptionStore.hash(Base64.getDecoder().decode(image.getString("pngBase64"))).equals(image.getString("pngSha256")))throw new IllegalStateException("Cached original raster checksum differs");return WorldFrames.copy(image);}
+                                                                                                                                                                                                              ^
+1 error
+
+[Incubating] Problems report is available at: file:///C:/Users/eyeka/Documents/Codex/2026-10-26/is/work/fraynix-workspace-edition040/build/reports/problems/problems-report.html
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':workspace-engine:compileJava'.
+> Compilation failed; see the compiler output below.
+  C:\Users\eyeka\Documents\Codex\2026-10-26\is\work\fraynix-workspace-edition040\workspace-engine\src\main\java\fraymus\workspace\SpatialRuntime040.java:75: error: unreported exception Exception; must be caught or declared to be thrown
+      synchronized JSONObject raster(String hash){cached(hash);var image=rasters.get(hash);if(image==null)throw new IllegalArgumentException("This source has no original game raster");if(!PerceptionStore.hash(Base64.getDecoder().decode(image.getString("pngBase64"))).equals(image.getString("pngSha256")))throw new IllegalStateException("Cached original raster checksum differs");return WorldFrames.copy(image);}
+                                                                                                                                                                                                                ^
+  1 error
+
+* Try:
+> Check your code and dependencies to fix the compilation error(s)
+> Run with --scan to get full insights from a Build Scan (powered by Develocity).
+
+BUILD FAILED in 940ms
+7 actionable tasks: 1 executed, 6 up-to-date

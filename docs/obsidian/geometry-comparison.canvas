@@ -1,0 +1,95 @@
+{
+  "nodes": [
+    {
+      "id": "geometry",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/Construction054.java",
+      "x": 0,
+      "y": 0,
+      "width": 380,
+      "height": 190
+    },
+    {
+      "id": "baseline",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/Baseline054.java",
+      "x": 410,
+      "y": 0,
+      "width": 380,
+      "height": 190
+    },
+    {
+      "id": "goal",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/GoalRunner.java",
+      "x": 820,
+      "y": 0,
+      "width": 380,
+      "height": 190
+    },
+    {
+      "id": "handoff",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/WorldLedger.java",
+      "x": 0,
+      "y": 240,
+      "width": 380,
+      "height": 190
+    },
+    {
+      "id": "view",
+      "type": "file",
+      "file": "workspace-desktop/renderer/construction051.js",
+      "x": 410,
+      "y": 240,
+      "width": 380,
+      "height": 190
+    },
+    {
+      "id": "next",
+      "type": "file",
+      "file": "docs/EDITION_054_CONTRACT.md",
+      "x": 820,
+      "y": 240,
+      "width": 380,
+      "height": 190
+    }
+  ],
+  "edges": [
+    {
+      "id": "e0",
+      "fromNode": "geometry",
+      "fromSide": "right",
+      "toNode": "baseline",
+      "toSide": "left"
+    },
+    {
+      "id": "e1",
+      "fromNode": "baseline",
+      "fromSide": "right",
+      "toNode": "goal",
+      "toSide": "left"
+    },
+    {
+      "id": "e2",
+      "fromNode": "goal",
+      "fromSide": "right",
+      "toNode": "handoff",
+      "toSide": "left"
+    },
+    {
+      "id": "e3",
+      "fromNode": "handoff",
+      "fromSide": "right",
+      "toNode": "view",
+      "toSide": "left"
+    },
+    {
+      "id": "e4",
+      "fromNode": "view",
+      "fromSide": "right",
+      "toNode": "next",
+      "toSide": "left"
+    }
+  ]
+}

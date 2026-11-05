@@ -1,0 +1,21 @@
+'use strict';
+const{randomUUID}=require('node:crypto');
+function asksSelf(goal){return /\b(?:what (?:can you|tools|skills)|your (?:capabilities|tools|state)|self[- ]model|capability (?:inventory|awareness)|internet (?:access|available))\b/i.test(goal)&&!(/\b(?:build|create)\b/i.test(goal));}
+function asksResearch(goal){return /\b(?:research|learn about|find references|look up|search (?:for|online))\b/i.test(goal)&&/\b(?:object|lighter|selected|category)\b/i.test(goal)&&!(/\b(?:build|create)\b.*\b(?:website|html)\b/i.test(goal));}
+function selfSummary(s){const h=s.host||{},net=h.offline===true?'offline':h.offline===false?'external browser requests allowed':'network mode unknown';return `${s.registeredToolCount} registered tools; ${s.persistentObjects} retained objects; ${s.activeResearch.length} unfinished research jobs. ${net}; ${s.lastExternalSource?'last successful external source '+s.lastExternalSource.observedAt:'no dated successful external-source receipt yet'}. Camera ${h.cameraActive?'active':'off or unavailable'}; browser ${h.browserReady?'ready':'unavailable'}. Host state ${s.hostFresh?'fresh':'stale/unavailable'}. This is operational self-knowledge; registered tools still have execution prerequisites.`;}
+function createKnowledge({api,execute,openArtifact,emit,activity,worker}){
+ let selected=null;
+ async function select(id){await api('/api/knowledge/select',{id});const object=await api('/api/knowledge/object',{id});selected={id:object.id,identityRevision:object.identityRevision};return object;}
+ async function action(tool,args={},context={}){
+  if(tool==='self.read'){if(Object.keys(args).some(k=>k!=='query')||args.query!==undefined&&typeof args.query!=='string')throw Error('Self discovery accepts a bounded query only');const value=await api('/api/self/read',{query:args.query||''});context.selfFacts=value;return value;}
+  if(Object.keys(args).length)throw Error('Object tools use selected real identities; no model-supplied source IDs, measurements or success flags');const choice=context.knowledgeSelection||selected;if(!choice)throw Error('Keep/select an observed object in Object knowledge first');if(!context.knowledgeSelection)context.knowledgeSelection=structuredClone(choice);
+  if(tool==='object.read'){const object=await api('/api/knowledge/object',{id:choice.id});context.objectFacts=object;return object;}
+  if(tool==='object.research'){const object=await api('/api/knowledge/object',{id:choice.id});const unfinished=object.research.find(j=>['queued','running','interrupted'].includes(j.status));let job;if(unfinished){job=unfinished.status==='interrupted'?await api('/api/knowledge/resume',{id:unfinished.id}):unfinished;}else{job=await api('/api/knowledge/start',{objectId:choice.id});context.ownedResearchId=job.id;}context.researchJobId=job.id;return job;}
+  if(tool==='object.wait'){if(!context.researchJobId)throw Error('Start or join this object research first');let job;const end=Date.now()+3000;do{job=await api('/api/knowledge/job',{id:context.researchJobId});if(!['queued','running'].includes(job.status))break;await new Promise(r=>setTimeout(r,200));}while(Date.now()<end);context.researchJob=job;return job;}
+  if(tool==='object.report'){if(!context.researchJobId)throw Error('No owned research job');const{artifact,receipt}=await api('/api/knowledge/report',{id:context.researchJobId});emit('view','preview');await openArtifact(artifact);const checked=await execute('canvas.test',{steps:[{selector:'#object-id',expectText:receipt.objectId},{selector:'#job-id',expectText:receipt.jobId},{selector:'.reference',expectCount:receipt.sources}]});if(!checked.passed)throw Error('Actual object report verification failed');context.knowledgeReport={id:artifact.id,version:artifact.version,passed:true};return{...context.knowledgeReport,sources:receipt.sources,scope:'Candidate references; no visual match or physical material measurement'};}
+  throw Error('Unknown knowledge tool');
+ }
+ async function cancelOwned(job){if(job?.ownedResearchId){try{await api('/api/knowledge/cancel',{id:job.ownedResearchId});}catch{}worker.abort(job.ownedResearchId);}}
+ return{select,selected:()=>selected,action,cancelOwned};
+}
+module.exports={createKnowledge,asksSelf,asksResearch,selfSummary};

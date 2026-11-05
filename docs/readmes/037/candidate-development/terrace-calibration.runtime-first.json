@@ -1,0 +1,6025 @@
+{
+  "reason": "All source frames processed; accepted estimates retained with full evidence",
+  "observationRevision": 0,
+  "completedAt": "2026-11-01T18:40:50.185384400Z",
+  "bindings": [{
+    "objectKey": "subject",
+    "bodyId": "c3fa04cf-a0ad-3400-91e4-533dd6edad5e"
+  }],
+  "baseObservationRevision": 0,
+  "nativeBinding": {
+    "worldId": "08d7f589-d794-437a-9511-9e11581f236b",
+    "expectedHash": "b36f00b16ae49c4219ec63f6ffd08cc192764528690426005004d2c3e86b5684",
+    "expectedRevision": 0
+  },
+  "resumes": 0,
+  "createdAt": "2026-11-01T18:40:38.340020800Z",
+  "codeSha256": "d199d7fc2722caeb5900b1637fd1d7dfc0c9eaf95a1412132316756002c65821",
+  "trace": [
+    {
+      "sourceFrame": 505,
+      "imageSha256": "015b1e83d57318040a023e654b1d5f4d57446b5dc875fa1e15f61758aefdeee8",
+      "objects": [{
+        "tracker": {
+          "matchScore": 0,
+          "scoreMeaning": "Local patch correlation and motion consistency, not calibrated semantic confidence",
+          "motion": {
+            "seedPoints": 42,
+            "inliers": 3,
+            "vectors": [],
+            "method": "pyramidal-flow",
+            "dxPixels": 0,
+            "dyPixels": 0,
+            "medianForwardBackwardPixels": 0,
+            "scale": 1,
+            "ambiguous": false,
+            "reliablePoints": 3
+          },
+          "lastKnownBox": [
+            0.5088301276132325,
+            0.149372876660825,
+            0.5767626497765881,
+            0.49314976062968824
+          ],
+          "appearanceUpdates": 0,
+          "box": null,
+          "id": "c3fa04cf-a0ad-3400-91e4-533dd6edad5e",
+          "label": "human-guided ground-contact subject",
+          "status": "lost"
+        },
+        "estimate": {
+          "reason": "Tracker supplied no accepted measurement; uncertainty grows",
+          "positionSigma": 0.2169101196348386,
+          "accepted": false,
+          "uncertaintyMeaning": "Model covariance under declared motion/noise assumptions; not calibrated probability or metric accuracy",
+          "covariance": [
+            [
+              0.023525,
+              0.00475,
+              0.00475,
+              0.001
+            ],
+            [
+              0.023525,
+              0.00475,
+              0.00475,
+              0.001
+            ]
+          ],
+          "velocity": [
+            0,
+            0
+          ],
+          "predictedVariance": [
+            0.023525,
+            0.023525
+          ],
+          "domain": "normalized image-plane; unknown depth, metric scale and capture FPS",
+          "time": 505,
+          "position": [
+            0.5427963886949103,
+            0.32126131864525664
+          ],
+          "predicted": [
+            0.5427963886949103,
+            0.32126131864525664
+          ],
+          "timeUnit": "source-frame",
+          "status": "predicted"
+        },
+        "bodyId": "c3fa04cf-a0ad-3400-91e4-533dd6edad5e"
+      }],
+      "ordinal": 1
+    },
+    {
+      "sourceFrame": 510,
+      "imageSha256": "e2b1d79b648be97b172587b3d27da16b8c5b86c79ee1d058f6ad1eb7f5db29a0",
+      "objects": [{
+        "tracker": {
+          "matchScore": 0,
+          "scoreMeaning": "Local patch correlation and motion consistency, not calibrated semantic confidence",
+          "motion": {
+            "seedPoints": 42,
+            "inliers": 0,
+            "vectors": [],
+            "method": "motion-recovery",
+            "dxPixels": 0,
+            "dyPixels": 0,
+            "medianForwardBackwardPixels": 0,
+            "scale": 1,
+            "ambiguous": false,
+            "reliablePoints": 0
+          },
+          "lastKnownBox": [
+            0.5088301276132325,
+            0.149372876660825,
+            0.5767626497765881,
+            0.49314976062968824
+          ],
+          "appearanceUpdates": 0,
+          "box": null,
+          "id": "c3fa04cf-a0ad-3400-91e4-533dd6edad5e",
+          "label": "human-guided ground-contact subject",
+          "status": "lost"
+        },
+        "estimate": {
+          "reason": "Tracker supplied no accepted measurement; uncertainty grows",
+          "positionSigma": 0.4396589587396122,
+          "accepted": false,
+          "uncertaintyMeaning": "Model covariance under declared motion/noise assumptions; not calibrated probability or metric accuracy",
+          "covariance": [
+            [
+              0.09665000000000001,
+              0.01,
+              0.01,
+              0.0011
+            ],
+            [
+              0.09665000000000001,
+              0.01,
+              0.01,
+              0.0011
+            ]
+          ],
+          "velocity": [
+            0,
+            0
+          ],
+          "predictedVariance": [
+            0.09665000000000001,
+            0.09665000000000001
+          ],
+          "domain": "normalized image-plane; unknown depth, metric scale and capture FPS",
+          "time": 510,
+          "position": [
+            0.5427963886949103,
+            0.32126131864525664
+          ],
+          "predicted": [
+            0.5427963886949103,
+            0.32126131864525664
+          ],
+          "timeUnit": "source-frame",
+          "status": "predicted"
+        },
+        "bodyId": "c3fa04cf-a0ad-3400-91e4-533dd6edad5e"
+      }],
+      "ordinal": 2
+    },
+    {
+      "sourceFrame": 515,
+      "imageSha256": "aafce683c2fc2896cb80d6b2ed4fefbed95f19bafd42136922bc4482669f635e",
+      "objects": [{
+        "tracker": {
+          "matchScore": 0,
+          "scoreMeaning": "Local patch correlation and motion consistency, not calibrated semantic confidence",
+          "motion": {
+            "seedPoints": 42,
+            "inliers": 0,
+            "vectors": [],
+            "method": "motion-recovery",
+            "dxPixels": 0,
+            "dyPixels": 0,
+            "medianForwardBackwardPixels": 0,
+            "scale": 1,
+            "ambiguous": false,
+            "reliablePoints": 0
+          },
+          "lastKnownBox": [
+            0.5088301276132325,
+            0.149372876660825,
+            0.5767626497765881,
+            0.49314976062968824
+          ],
+          "appearanceUpdates": 0,
+          "box": null,
+          "id": "c3fa04cf-a0ad-3400-91e4-533dd6edad5e",
+          "label": "human-guided ground-contact subject",
+          "status": "lost"
+        },
+        "estimate": {
+          "reason": "Tracker supplied no accepted measurement; uncertainty grows",
+          "positionSigma": 0.6704848991588103,
+          "accepted": false,
+          "uncertaintyMeaning": "Model covariance under declared motion/noise assumptions; not calibrated probability or metric accuracy",
+          "covariance": [
+            [
+              0.224775,
+              0.01575,
+              0.01575,
+              0.0012000000000000001
+            ],
+            [
+              0.224775,
+              0.01575,
+              0.01575,
+              0.0012000000000000001
+            ]
+          ],
+          "velocity": [
+            0,
+            0
+          ],
+          "predictedVariance": [
+            0.224775,
+            0.224775
+          ],
+          "domain": "normalized image-plane; unknown depth, metric scale and capture FPS",
+          "time": 515,
+          "position": [
+            0.5427963886949103,
+            0.32126131864525664
+          ],
+          "predicted": [
+            0.5427963886949103,
+            0.32126131864525664
+          ],
+          "timeUnit": "source-frame",
+          "status": "predicted"
+        },
+        "bodyId": "c3fa04cf-a0ad-3400-91e4-533dd6edad5e"
+      }],
+      "ordinal": 3
+    },
+    {
+      "sourceFrame": 520,
+      "imageSha256": "addb192b4e43468161cc0b6c3e469080fd4d04e0506a9952ff63f2d22038169f",
+      "objects": [{
+        "tracker": {
+          "matchScore": 0,
+          "scoreMeaning": "Local patch correlation and motion consistency, not calibrated semantic confidence",
+          "motion": {
+            "seedPoints": 42,
+            "inliers": 1,
+            "vectors": [],
+            "method": "motion-recovery",
+            "dxPixels": 0,
+            "dyPixels": 0,
+            "medianForwardBackwardPixels": 0,
+            "scale": 1,
+            "ambiguous": false,
+            "reliablePoints": 1
+          },
+          "lastKnownBox": [
+            0.5088301276132325,
+            0.149372876660825,
+            0.5767626497765881,
+            0.49314976062968824
+          ],
+          "appearanceUpdates": 0,
+          "box": null,
+          "id": "c3fa04cf-a0ad-3400-91e4-533dd6edad5e",
+          "label": "human-guided ground-contact subject",
+          "status": "lost"
+        },
+        "estimate": {
+          "reason": "Tracker supplied no accepted measurement; uncertainty grows",
+          "positionSigma": 0.9087353850269065,
+          "accepted": false,
+          "uncertaintyMeaning": "Model covariance under declared motion/noise assumptions; not calibrated probability or metric accuracy",
+          "covariance": [
+            [
+              0.4129,
+              0.022,
+              0.022,
+              0.0013000000000000002
+            ],
+            [
+              0.4129,
+              0.022,
+              0.022,
+              0.0013000000000000002
+            ]
+          ],
+          "velocity": [
+            0,
+            0
+          ],
+          "predictedVariance": [
+            0.4129,
+            0.4129
+          ],
+          "domain": "normalized image-plane; unknown depth, metric scale and capture FPS",
+          "time": 520,
+          "position": [
+            0.5427963886949103,
+            0.32126131864525664
+          ],
+          "predicted": [
+            0.5427963886949103,
+            0.32126131864525664
+          ],
+          "timeUnit": "source-frame",
+          "status": "predicted"
+        },
+        "bodyId": "c3fa04cf-a0ad-3400-91e4-533dd6edad5e"
+      }],
+      "ordinal": 4
+    },
+    {
+      "sourceFrame": 525,
+      "imageSha256": "8db3ca3d8f93da4799117daa22ec91e81bc1db434c741e2b3bb9534de05d5344",
+      "objects": [{
+        "tracker": {
+          "matchScore": 0,
+          "scoreMeaning": "Local patch correlation and motion consistency, not calibrated semantic confidence",
+          "motion": {
+            "seedPoints": 42,
+            "inliers": 2,
+            "vectors": [],
+            "method": "motion-recovery",
+            "dxPixels": 0,
+            "dyPixels": 0,
+            "medianForwardBackwardPixels": 0,
+            "scale": 1,
+            "ambiguous": false,
+            "reliablePoints": 2
+          },
+          "lastKnownBox": [
+            0.5088301276132325,
+            0.149372876660825,
+            0.5767626497765881,
+            0.49314976062968824
+          ],
+          "appearanceUpdates": 0,
+          "box": null,
+          "id": "c3fa04cf-a0ad-3400-91e4-533dd6edad5e",
+          "label": "human-guided ground-contact subject",
+          "status": "lost"
+        },
+        "estimate": {
+          "reason": "Tracker supplied no accepted measurement; uncertainty grows",
+          "positionSigma": 1.1541447049655427,
+          "accepted": false,
+          "uncertaintyMeaning": "Model covariance under declared motion/noise assumptions; not calibrated probability or metric accuracy",
+          "covariance": [
+            [
+              0.6660249999999999,
+              0.028749999999999998,
+              0.028749999999999998,
+              0.0014000000000000002
+            ],
+            [
+              0.6660249999999999,
+              0.028749999999999998,
+              0.028749999999999998,
+              0.0014000000000000002
+            ]
+          ],
+          "velocity": [
+            0,
+            0
+          ],
+          "predictedVariance": [
+            0.6660249999999999,
+            0.6660249999999999
+          ],
+          "domain": "normalized image-plane; unknown depth, metric scale and capture FPS",
+          "time": 525,
+          "position": [
+            0.5427963886949103,
+            0.32126131864525664
+          ],
+          "predicted": [
+            0.5427963886949103,
+            0.32126131864525664
+          ],
+          "timeUnit": "source-frame",
+          "status": "predicted"
+        },
+        "bodyId": "c3fa04cf-a0ad-3400-91e4-533dd6edad5e"
+      }],
+      "ordinal": 5
+    },
+    {
+      "sourceFrame": 530,
+      "imageSha256": "8c38005b1b22de9054c51134dc8910da95f1617e0fbfdbc0c72793909ba7c737",
+      "objects": [{
+        "tracker": {
+          "matchScore": 0,
+          "scoreMeaning": "Local patch correlation and motion consistency, not calibrated semantic confidence",
+          "motion": {
+            "seedPoints": 42,
+            "inliers": 1,
+            "vectors": [],
+            "method": "motion-recovery",
+            "dxPixels": 0,
+            "dyPixels": 0,
+            "medianForwardBackwardPixels": 0,
+            "scale": 1,
+            "ambiguous": false,
+            "reliablePoints": 1
+          },
+          "lastKnownBox": [
+            0.5088301276132325,
+            0.149372876660825,
+            0.5767626497765881,
+            0.49314976062968824
+          ],
+          "appearanceUpdates": 0,
+          "box": null,
+          "id": "c3fa04cf-a0ad-3400-91e4-533dd6edad5e",
+          "label": "human-guided ground-contact subject",
+          "status": "lost"
+        },
+        "estimate": {
+          "reason": "Tracker supplied no accepted measurement; uncertainty grows",
+          "positionSigma": 1.4065205295337853,
+          "accepted": false,
+          "uncertaintyMeaning": "Model covariance under declared motion/noise assumptions; not calibrated probability or metric accuracy",
+          "covariance": [
+            [
+              0.9891499999999999,
+              0.036,
+              0.036,
+              0.0015000000000000002
+            ],
+            [
+              0.9891499999999999,
+              0.036,
+              0.036,
+              0.0015000000000000002
+            ]
+          ],
+          "velocity": [
+            0,
+            0
+          ],
+          "predictedVariance": [
+            0.9891499999999999,
+            0.9891499999999999
+          ],
+          "domain": "normalized image-plane; unknown depth, metric scale and capture FPS",
+          "time": 530,
+          "position": [
+            0.5427963886949103,
+            0.32126131864525664
+          ],
+          "predicted": [
+            0.5427963886949103,
+            0.32126131864525664
+          ],
+          "timeUnit": "source-frame",
+          "status": "predicted"
+        },
+        "bodyId": "c3fa04cf-a0ad-3400-91e4-533dd6edad5e"
+      }],
+      "ordinal": 6
+    },
+    {
+      "sourceFrame": 535,
+      "imageSha256": "d14052e8c7c9d599529f5414bfbf24758c12e1bfb13f0ccce3d6f5ce9c62c0cf",
+      "objects": [{
+        "tracker": {
+          "matchScore": 0,
+          "scoreMeaning": "Local patch correlation and motion consistency, not calibrated semantic confidence",
+          "motion": {
+            "seedPoints": 42,
+            "inliers": 1,
+            "vectors": [],
+            "method": "motion-recovery",
+            "dxPixels": 0,
+            "dyPixels": 0,
+            "medianForwardBackwardPixels": 0,
+            "scale": 1,
+            "ambiguous": false,
+            "reliablePoints": 1
+          },
+          "lastKnownBox": [
+            0.5088301276132325,
+            0.149372876660825,
+            0.5767626497765881,
+            0.49314976062968824
+          ],
+          "appearanceUpdates": 0,
+          "box": null,
+          "id": "c3fa04cf-a0ad-3400-91e4-533dd6edad5e",
+          "label": "human-guided ground-contact subject",
+          "status": "lost"
+        },
+        "estimate": {
+          "reason": "Tracker supplied no accepted measurement; uncertainty grows",
+          "positionSigma": 1.6656980518689453,
+          "accepted": false,
+          "uncertaintyMeaning": "Model covariance under declared motion/noise assumptions; not calibrated probability or metric accuracy",
+          "covariance": [
+            [
+              1.3872749999999998,
+              0.04375,
+              0.04375,
+              0.0016000000000000003
+            ],
+            [
+              1.3872749999999998,
+              0.04375,
+              0.04375,
+              0.0016000000000000003
+            ]
+          ],
+          "velocity": [
+            0,
+            0
+          ],
+          "predictedVariance": [
+            1.3872749999999998,
+            1.3872749999999998
+          ],
+          "domain": "normalized image-plane; unknown depth, metric scale and capture FPS",
+          "time": 535,
+          "position": [
+            0.5427963886949103,
+            0.32126131864525664
+          ],
+          "predicted": [
+            0.5427963886949103,
+            0.32126131864525664
+          ],
+          "timeUnit": "source-frame",
+          "status": "predicted"
+        },
+        "bodyId": "c3fa04cf-a0ad-3400-91e4-533dd6edad5e"
+      }],
+      "ordinal": 7
+    },
+    {
+      "sourceFrame": 540,
+      "imageSha256": "6a2ce6ea639e67cab6936d3484624e1f2ba253692084493173dbd9330e022c4f",
+      "objects": [{
+        "tracker": {
+          "matchScore": 0,
+          "scoreMeaning": "Local patch correlation and motion consistency, not calibrated semantic confidence",
+          "motion": {
+            "seedPoints": 42,
+            "inliers": 2,
+            "vectors": [],
+            "method": "motion-recovery",
+            "dxPixels": 0,
+            "dyPixels": 0,
+            "medianForwardBackwardPixels": 0,
+            "scale": 1,
+            "ambiguous": false,
+            "reliablePoints": 2
+          },
+          "lastKnownBox": [
+            0.5088301276132325,
+            0.149372876660825,
+            0.5767626497765881,
+            0.49314976062968824
+          ],
+          "appearanceUpdates": 0,
+          "box": null,
+          "id": "c3fa04cf-a0ad-3400-91e4-533dd6edad5e",
+          "label": "human-guided ground-contact subject",
+          "status": "lost"
+        },
+        "estimate": {
+          "reason": "Tracker supplied no accepted measurement; uncertainty grows",
+          "positionSigma": 1.9315278926280095,
+          "accepted": false,
+          "uncertaintyMeaning": "Model covariance under declared motion/noise assumptions; not calibrated probability or metric accuracy",
+          "covariance": [
+            [
+              1.8653999999999997,
+              0.052,
+              0.052,
+              0.0017000000000000003
+            ],
+            [
+              1.8653999999999997,
+              0.052,
+              0.052,
+              0.0017000000000000003
+            ]
+          ],
+          "velocity": [
+            0,
+            0
+          ],
+          "predictedVariance": [
+            1.8653999999999997,
+            1.8653999999999997
+          ],
+          "domain": "normalized image-plane; unknown depth, metric scale and capture FPS",
+          "time": 540,
+          "position": [
+            0.5427963886949103,
+            0.32126131864525664
+          ],
+          "predicted": [
+            0.5427963886949103,
+            0.32126131864525664
+          ],
+          "timeUnit": "source-frame",
+          "status": "predicted"
+        },
+        "bodyId": "c3fa04cf-a0ad-3400-91e4-533dd6edad5e"
+      }],
+      "ordinal": 8
+    },
+    {
+      "sourceFrame": 545,
+      "imageSha256": "bec62190114e839437be118de1109b966e907111cbfb3352895ff6cf80d6019e",
+      "objects": [{
+        "tracker": {
+          "matchScore": 0,
+          "scoreMeaning": "Local patch correlation and motion consistency, not calibrated semantic confidence",
+          "motion": {
+            "seedPoints": 42,
+            "inliers": 1,
+            "vectors": [],
+            "method": "motion-recovery",
+            "dxPixels": 0,
+            "dyPixels": 0,
+            "medianForwardBackwardPixels": 0,
+            "scale": 1,
+            "ambiguous": false,
+            "reliablePoints": 1
+          },
+          "lastKnownBox": [
+            0.5088301276132325,
+            0.149372876660825,
+            0.5767626497765881,
+            0.49314976062968824
+          ],
+          "appearanceUpdates": 0,
+          "box": null,
+          "id": "c3fa04cf-a0ad-3400-91e4-533dd6edad5e",
+          "label": "human-guided ground-contact subject",
+          "status": "lost"
+        },
+        "estimate": {
+          "reason": "Tracker supplied no accepted measurement; uncertainty grows",
+          "positionSigma": 2.203871593355656,
+          "accepted": false,
+          "uncertaintyMeaning": "Model covariance under declared motion/noise assumptions; not calibrated probability or metric accuracy",
+          "covariance": [
+            [
+              2.4285249999999996,
+              0.06075,
+              0.06075,
+              0.0018000000000000004
+            ],
+            [
+              2.4285249999999996,
+              0.06075,
+              0.06075,
+              0.0018000000000000004
+            ]
+          ],
+          "velocity": [
+            0,
+            0
+          ],
+          "predictedVariance": [
+            2.4285249999999996,
+            2.4285249999999996
+          ],
+          "domain": "normalized image-plane; unknown depth, metric scale and capture FPS",
+          "time": 545,
+          "position": [
+            0.5427963886949103,
+            0.32126131864525664
+          ],
+          "predicted": [
+            0.5427963886949103,
+            0.32126131864525664
+          ],
+          "timeUnit": "source-frame",
+          "status": "predicted"
+        },
+        "bodyId": "c3fa04cf-a0ad-3400-91e4-533dd6edad5e"
+      }],
+      "ordinal": 9
+    },
+    {
+      "sourceFrame": 550,
+      "imageSha256": "2055d45c9e24f98548f40c78b6d4b2ea7ea7d21d0e9513dd0d75f009d766d767",
+      "objects": [{
+        "tracker": {
+          "matchScore": 0,
+          "scoreMeaning": "Local patch correlation and motion consistency, not calibrated semantic confidence",
+          "motion": {
+            "seedPoints": 42,
+            "inliers": 2,
+            "vectors": [],
+            "method": "motion-recovery",
+            "dxPixels": 0,
+            "dyPixels": 0,
+            "medianForwardBackwardPixels": 0,
+            "scale": 1,
+            "ambiguous": false,
+            "reliablePoints": 2
+          },
+          "lastKnownBox": [
+            0.5088301276132325,
+            0.149372876660825,
+            0.5767626497765881,
+            0.49314976062968824
+          ],
+          "appearanceUpdates": 0,
+          "box": null,
+          "id": "c3fa04cf-a0ad-3400-91e4-533dd6edad5e",
+          "label": "human-guided ground-contact subject",
+          "status": "lost"
+        },
+        "estimate": {
+          "reason": "Tracker supplied no accepted measurement; uncertainty grows",
+          "positionSigma": 2.4825994441310906,
+          "accepted": false,
+          "uncertaintyMeaning": "Model covariance under declared motion/noise assumptions; not calibrated probability or metric accuracy",
+          "covariance": [
+            [
+              3.08165,
+              0.07,
+              0.07,
+              0.0019000000000000004
+            ],
+            [
+              3.08165,
+              0.07,
+              0.07,
+              0.0019000000000000004
+            ]
+          ],
+          "velocity": [
+            0,
+            0
+          ],
+          "predictedVariance": [
+            3.08165,
+            3.08165
+          ],
+          "domain": "normalized image-plane; unknown depth, metric scale and capture FPS",
+          "time": 550,
+          "position": [
+            0.5427963886949103,
+            0.32126131864525664
+          ],
+          "predicted": [
+            0.5427963886949103,
+            0.32126131864525664
+          ],
+          "timeUnit": "source-frame",
+          "status": "predicted"
+        },
+        "bodyId": "c3fa04cf-a0ad-3400-91e4-533dd6edad5e"
+      }],
+      "ordinal": 10
+    },
+    {
+      "sourceFrame": 555,
+      "imageSha256": "43b0896ce0f38b8e09d338961d875e058d17e04fcb26bc97a03b1a7fe03ca13c",
+      "objects": [{
+        "tracker": {
+          "matchScore": 0,
+          "scoreMeaning": "Local patch correlation and motion consistency, not calibrated semantic confidence",
+          "motion": {
+            "seedPoints": 42,
+            "inliers": 2,
+            "vectors": [],
+            "method": "motion-recovery",
+            "dxPixels": 0,
+            "dyPixels": 0,
+            "medianForwardBackwardPixels": 0,
+            "scale": 1,
+            "ambiguous": false,
+            "reliablePoints": 2
+          },
+          "lastKnownBox": [
+            0.5088301276132325,
+            0.149372876660825,
+            0.5767626497765881,
+            0.49314976062968824
+          ],
+          "appearanceUpdates": 0,
+          "box": null,
+          "id": "c3fa04cf-a0ad-3400-91e4-533dd6edad5e",
+          "label": "human-guided ground-contact subject",
+          "status": "lost"
+        },
+        "estimate": {
+          "reason": "Tracker supplied no accepted measurement; uncertainty grows",
+          "positionSigma": 2.7675892036210863,
+          "accepted": false,
+          "uncertaintyMeaning": "Model covariance under declared motion/noise assumptions; not calibrated probability or metric accuracy",
+          "covariance": [
+            [
+              3.8297749999999997,
+              0.07975000000000002,
+              0.07975000000000002,
+              0.0020000000000000005
+            ],
+            [
+              3.8297749999999997,
+              0.07975000000000002,
+              0.07975000000000002,
+              0.0020000000000000005
+            ]
+          ],
+          "velocity": [
+            0,
+            0
+          ],
+          "predictedVariance": [
+            3.8297749999999997,
+            3.8297749999999997
+          ],
+          "domain": "normalized image-plane; unknown depth, metric scale and capture FPS",
+          "time": 555,
+          "position": [
+            0.5427963886949103,
+            0.32126131864525664
+          ],
+          "predicted": [
+            0.5427963886949103,
+            0.32126131864525664
+          ],
+          "timeUnit": "source-frame",
+          "status": "predicted"
+        },
+        "bodyId": "c3fa04cf-a0ad-3400-91e4-533dd6edad5e"
+      }],
+      "ordinal": 11
+    },
+    {
+      "sourceFrame": 560,
+      "imageSha256": "2e7b66a8ab24fe453afe7d516c23a144bdf131a4efa364d408e44f34e13ac3e3",
+      "objects": [{
+        "tracker": {
+          "matchScore": 0,
+          "scoreMeaning": "Local patch correlation and motion consistency, not calibrated semantic confidence",
+          "motion": {
+            "seedPoints": 42,
+            "inliers": 1,
+            "vectors": [],
+            "method": "motion-recovery",
+            "dxPixels": 0,
+            "dyPixels": 0,
+            "medianForwardBackwardPixels": 0,
+            "scale": 1,
+            "ambiguous": false,
+            "reliablePoints": 1
+          },
+          "lastKnownBox": [
+            0.5088301276132325,
+            0.149372876660825,
+            0.5767626497765881,
+            0.49314976062968824
+          ],
+          "appearanceUpdates": 0,
+          "box": null,
+          "id": "c3fa04cf-a0ad-3400-91e4-533dd6edad5e",
+          "label": "human-guided ground-contact subject",
+          "status": "lost"
+        },
+        "estimate": {
+          "reason": "Tracker supplied no accepted measurement; uncertainty grows",
+          "positionSigma": 3.0587252246646806,
+          "accepted": false,
+          "uncertaintyMeaning": "Model covariance under declared motion/noise assumptions; not calibrated probability or metric accuracy",
+          "covariance": [
+            [
+              4.6779,
+              0.09000000000000002,
+              0.09000000000000002,
+              0.0021000000000000003
+            ],
+            [
+              4.6779,
+              0.09000000000000002,
+              0.09000000000000002,
+              0.0021000000000000003
+            ]
+          ],
+          "velocity": [
+            0,
+            0
+          ],
+          "predictedVariance": [
+            4.6779,
+            4.6779
+          ],
+          "domain": "normalized image-plane; unknown depth, metric scale and capture FPS",
+          "time": 560,
+          "position": [
+            0.5427963886949103,
+            0.32126131864525664
+          ],
+          "predicted": [
+            0.5427963886949103,
+            0.32126131864525664
+          ],
+          "timeUnit": "source-frame",
+          "status": "predicted"
+        },
+        "bodyId": "c3fa04cf-a0ad-3400-91e4-533dd6edad5e"
+      }],
+      "ordinal": 12
+    },
+    {
+      "sourceFrame": 565,
+      "imageSha256": "2ca85a9cfd285ed36b305882214cfcbed4762b5e181239bbd90badaecb8eac0a",
+      "objects": [{
+        "tracker": {
+          "matchScore": 0,
+          "scoreMeaning": "Local patch correlation and motion consistency, not calibrated semantic confidence",
+          "motion": {
+            "seedPoints": 42,
+            "inliers": 0,
+            "vectors": [],
+            "method": "motion-recovery",
+            "dxPixels": 0,
+            "dyPixels": 0,
+            "medianForwardBackwardPixels": 0,
+            "scale": 1,
+            "ambiguous": false,
+            "reliablePoints": 0
+          },
+          "lastKnownBox": [
+            0.5088301276132325,
+            0.149372876660825,
+            0.5767626497765881,
+            0.49314976062968824
+          ],
+          "appearanceUpdates": 0,
+          "box": null,
+          "id": "c3fa04cf-a0ad-3400-91e4-533dd6edad5e",
+          "label": "human-guided ground-contact subject",
+          "status": "lost"
+        },
+        "estimate": {
+          "reason": "Tracker supplied no accepted measurement; uncertainty grows",
+          "positionSigma": 3.3558977934376966,
+          "accepted": false,
+          "uncertaintyMeaning": "Model covariance under declared motion/noise assumptions; not calibrated probability or metric accuracy",
+          "covariance": [
+            [
+              5.631025,
+              0.10075000000000003,
+              0.10075000000000003,
+              0.0022
+            ],
+            [
+              5.631025,
+              0.10075000000000003,
+              0.10075000000000003,
+              0.0022
+            ]
+          ],
+          "velocity": [
+            0,
+            0
+          ],
+          "predictedVariance": [
+            5.631025,
+            5.631025
+          ],
+          "domain": "normalized image-plane; unknown depth, metric scale and capture FPS",
+          "time": 565,
+          "position": [
+            0.5427963886949103,
+            0.32126131864525664
+          ],
+          "predicted": [
+            0.5427963886949103,
+            0.32126131864525664
+          ],
+          "timeUnit": "source-frame",
+          "status": "predicted"
+        },
+        "bodyId": "c3fa04cf-a0ad-3400-91e4-533dd6edad5e"
+      }],
+      "ordinal": 13
+    },
+    {
+      "sourceFrame": 570,
+      "imageSha256": "c6c1a45f4de078a1dd9a7b38a1d5cbf61b52fd40b90fb66141022ad8063bb837",
+      "objects": [{
+        "tracker": {
+          "matchScore": 0,
+          "scoreMeaning": "Local patch correlation and motion consistency, not calibrated semantic confidence",
+          "motion": {
+            "seedPoints": 42,
+            "inliers": 0,
+            "vectors": [],
+            "method": "motion-recovery",
+            "dxPixels": 0,
+            "dyPixels": 0,
+            "medianForwardBackwardPixels": 0,
+            "scale": 1,
+            "ambiguous": false,
+            "reliablePoints": 0
+          },
+          "lastKnownBox": [
+            0.5088301276132325,
+            0.149372876660825,
+            0.5767626497765881,
+            0.49314976062968824
+          ],
+          "appearanceUpdates": 0,
+          "box": null,
+          "id": "c3fa04cf-a0ad-3400-91e4-533dd6edad5e",
+          "label": "human-guided ground-contact subject",
+          "status": "lost"
+        },
+        "estimate": {
+          "reason": "Tracker supplied no accepted measurement; uncertainty grows",
+          "positionSigma": 3.6590025963368764,
+          "accepted": false,
+          "uncertaintyMeaning": "Model covariance under declared motion/noise assumptions; not calibrated probability or metric accuracy",
+          "covariance": [
+            [
+              6.6941500000000005,
+              0.11200000000000003,
+              0.11200000000000003,
+              0.0023
+            ],
+            [
+              6.6941500000000005,
+              0.11200000000000003,
+              0.11200000000000003,
+              0.0023
+            ]
+          ],
+          "velocity": [
+            0,
+            0
+          ],
+          "predictedVariance": [
+            6.6941500000000005,
+            6.6941500000000005
+          ],
+          "domain": "normalized image-plane; unknown depth, metric scale and capture FPS",
+          "time": 570,
+          "position": [
+            0.5427963886949103,
+            0.32126131864525664
+          ],
+          "predicted": [
+            0.5427963886949103,
+            0.32126131864525664
+          ],
+          "timeUnit": "source-frame",
+          "status": "predicted"
+        },
+        "bodyId": "c3fa04cf-a0ad-3400-91e4-533dd6edad5e"
+      }],
+      "ordinal": 14
+    },
+    {
+      "sourceFrame": 575,
+      "imageSha256": "8c93ee200f938a69c16e20c57488768eaa63fcc144175b817dfbbfec839838a1",
+      "objects": [{
+        "tracker": {
+          "matchScore": 0,
+          "scoreMeaning": "Local patch correlation and motion consistency, not calibrated semantic confidence",
+          "motion": {
+            "seedPoints": 42,
+            "inliers": 0,
+            "vectors": [],
+            "method": "motion-recovery",
+            "dxPixels": 0,
+            "dyPixels": 0,
+            "medianForwardBackwardPixels": 0,
+            "scale": 1,
+            "ambiguous": false,
+            "reliablePoints": 0
+          },
+          "lastKnownBox": [
+            0.5088301276132325,
+            0.149372876660825,
+            0.5767626497765881,
+            0.49314976062968824
+          ],
+          "appearanceUpdates": 0,
+          "box": null,
+          "id": "c3fa04cf-a0ad-3400-91e4-533dd6edad5e",
+          "label": "human-guided ground-contact subject",
+          "status": "lost"
+        },
+        "estimate": {
+          "reason": "Tracker supplied no accepted measurement; uncertainty grows",
+          "positionSigma": 3.96794027172789,
+          "accepted": false,
+          "uncertaintyMeaning": "Model covariance under declared motion/noise assumptions; not calibrated probability or metric accuracy",
+          "covariance": [
+            [
+              7.872275000000001,
+              0.12375000000000003,
+              0.12375000000000003,
+              0.0024
+            ],
+            [
+              7.872275000000001,
+              0.12375000000000003,
+              0.12375000000000003,
+              0.0024
+            ]
+          ],
+          "velocity": [
+            0,
+            0
+          ],
+          "predictedVariance": [
+            7.872275000000001,
+            7.872275000000001
+          ],
+          "domain": "normalized image-plane; unknown depth, metric scale and capture FPS",
+          "time": 575,
+          "position": [
+            0.5427963886949103,
+            0.32126131864525664
+          ],
+          "predicted": [
+            0.5427963886949103,
+            0.32126131864525664
+          ],
+          "timeUnit": "source-frame",
+          "status": "predicted"
+        },
+        "bodyId": "c3fa04cf-a0ad-3400-91e4-533dd6edad5e"
+      }],
+      "ordinal": 15
+    },
+    {
+      "sourceFrame": 580,
+      "imageSha256": "549b8d75bb3c39fa222848cb5e06cb84774607a05d505bb1d722584a78b70881",
+      "objects": [{
+        "tracker": {
+          "matchScore": 0,
+          "scoreMeaning": "Local patch correlation and motion consistency, not calibrated semantic confidence",
+          "motion": {
+            "seedPoints": 42,
+            "inliers": 0,
+            "vectors": [],
+            "method": "motion-recovery",
+            "dxPixels": 0,
+            "dyPixels": 0,
+            "medianForwardBackwardPixels": 0,
+            "scale": 1,
+            "ambiguous": false,
+            "reliablePoints": 0
+          },
+          "lastKnownBox": [
+            0.5088301276132325,
+            0.149372876660825,
+            0.5767626497765881,
+            0.49314976062968824
+          ],
+          "appearanceUpdates": 0,
+          "box": null,
+          "id": "c3fa04cf-a0ad-3400-91e4-533dd6edad5e",
+          "label": "human-guided ground-contact subject",
+          "status": "lost"
+        },
+        "estimate": {
+          "reason": "Tracker supplied no accepted measurement; uncertainty grows",
+          "positionSigma": 4.282616022946723,
+          "accepted": false,
+          "uncertaintyMeaning": "Model covariance under declared motion/noise assumptions; not calibrated probability or metric accuracy",
+          "covariance": [
+            [
+              9.1704,
+              0.13600000000000004,
+              0.13600000000000004,
+              0.0024999999999999996
+            ],
+            [
+              9.1704,
+              0.13600000000000004,
+              0.13600000000000004,
+              0.0024999999999999996
+            ]
+          ],
+          "velocity": [
+            0,
+            0
+          ],
+          "predictedVariance": [
+            9.1704,
+            9.1704
+          ],
+          "domain": "normalized image-plane; unknown depth, metric scale and capture FPS",
+          "time": 580,
+          "position": [
+            0.5427963886949103,
+            0.32126131864525664
+          ],
+          "predicted": [
+            0.5427963886949103,
+            0.32126131864525664
+          ],
+          "timeUnit": "source-frame",
+          "status": "predicted"
+        },
+        "bodyId": "c3fa04cf-a0ad-3400-91e4-533dd6edad5e"
+      }],
+      "ordinal": 16
+    },
+    {
+      "sourceFrame": 585,
+      "imageSha256": "4c8191d1ed84b552b7f486f664d2df5a17eaa1e12024f6d2693b09d7d3250e29",
+      "objects": [{
+        "tracker": {
+          "matchScore": 0,
+          "scoreMeaning": "Local patch correlation and motion consistency, not calibrated semantic confidence",
+          "motion": {
+            "seedPoints": 42,
+            "inliers": 0,
+            "vectors": [],
+            "method": "motion-recovery",
+            "dxPixels": 0,
+            "dyPixels": 0,
+            "medianForwardBackwardPixels": 0,
+            "scale": 1,
+            "ambiguous": false,
+            "reliablePoints": 0
+          },
+          "lastKnownBox": [
+            0.5088301276132325,
+            0.149372876660825,
+            0.5767626497765881,
+            0.49314976062968824
+          ],
+          "appearanceUpdates": 0,
+          "box": null,
+          "id": "c3fa04cf-a0ad-3400-91e4-533dd6edad5e",
+          "label": "human-guided ground-contact subject",
+          "status": "lost"
+        },
+        "estimate": {
+          "reason": "Tracker supplied no accepted measurement; uncertainty grows",
+          "positionSigma": 4.60293927833075,
+          "accepted": false,
+          "uncertaintyMeaning": "Model covariance under declared motion/noise assumptions; not calibrated probability or metric accuracy",
+          "covariance": [
+            [
+              10.593525000000001,
+              0.14875000000000005,
+              0.14875000000000005,
+              0.0025999999999999994
+            ],
+            [
+              10.593525000000001,
+              0.14875000000000005,
+              0.14875000000000005,
+              0.0025999999999999994
+            ]
+          ],
+          "velocity": [
+            0,
+            0
+          ],
+          "predictedVariance": [
+            10.593525000000001,
+            10.593525000000001
+          ],
+          "domain": "normalized image-plane; unknown depth, metric scale and capture FPS",
+          "time": 585,
+          "position": [
+            0.5427963886949103,
+            0.32126131864525664
+          ],
+          "predicted": [
+            0.5427963886949103,
+            0.32126131864525664
+          ],
+          "timeUnit": "source-frame",
+          "status": "predicted"
+        },
+        "bodyId": "c3fa04cf-a0ad-3400-91e4-533dd6edad5e"
+      }],
+      "ordinal": 17
+    },
+    {
+      "sourceFrame": 590,
+      "imageSha256": "e7dd39b9fd1051b64f32d37946272478c2b82a7fa6d895d92b98d6c4c0b8c250",
+      "objects": [{
+        "tracker": {
+          "matchScore": 0,
+          "scoreMeaning": "Local patch correlation and motion consistency, not calibrated semantic confidence",
+          "motion": {
+            "seedPoints": 42,
+            "inliers": 0,
+            "vectors": [],
+            "method": "motion-recovery",
+            "dxPixels": 0,
+            "dyPixels": 0,
+            "medianForwardBackwardPixels": 0,
+            "scale": 1,
+            "ambiguous": false,
+            "reliablePoints": 0
+          },
+          "lastKnownBox": [
+            0.5088301276132325,
+            0.149372876660825,
+            0.5767626497765881,
+            0.49314976062968824
+          ],
+          "appearanceUpdates": 0,
+          "box": null,
+          "id": "c3fa04cf-a0ad-3400-91e4-533dd6edad5e",
+          "label": "human-guided ground-contact subject",
+          "status": "lost"
+        },
+        "estimate": {
+          "reason": "Tracker supplied no accepted measurement; uncertainty grows",
+          "positionSigma": 4.928823389004723,
+          "accepted": false,
+          "uncertaintyMeaning": "Model covariance under declared motion/noise assumptions; not calibrated probability or metric accuracy",
+          "covariance": [
+            [
+              12.146650000000001,
+              0.16200000000000003,
+              0.16200000000000003,
+              0.0026999999999999993
+            ],
+            [
+              12.146650000000001,
+              0.16200000000000003,
+              0.16200000000000003,
+              0.0026999999999999993
+            ]
+          ],
+          "velocity": [
+            0,
+            0
+          ],
+          "predictedVariance": [
+            12.146650000000001,
+            12.146650000000001
+          ],
+          "domain": "normalized image-plane; unknown depth, metric scale and capture FPS",
+          "time": 590,
+          "position": [
+            0.5427963886949103,
+            0.32126131864525664
+          ],
+          "predicted": [
+            0.5427963886949103,
+            0.32126131864525664
+          ],
+          "timeUnit": "source-frame",
+          "status": "predicted"
+        },
+        "bodyId": "c3fa04cf-a0ad-3400-91e4-533dd6edad5e"
+      }],
+      "ordinal": 18
+    },
+    {
+      "sourceFrame": 595,
+      "imageSha256": "1f4ce0145c847a15fa8c5c9b21f3e8d8ebe253157c79c103f4652bcbbd077560",
+      "objects": [{
+        "tracker": {
+          "matchScore": 0,
+          "scoreMeaning": "Local patch correlation and motion consistency, not calibrated semantic confidence",
+          "motion": {
+            "seedPoints": 42,
+            "inliers": 0,
+            "vectors": [],
+            "method": "motion-recovery",
+            "dxPixels": 0,
+            "dyPixels": 0,
+            "medianForwardBackwardPixels": 0,
+            "scale": 1,
+            "ambiguous": false,
+            "reliablePoints": 0
+          },
+          "lastKnownBox": [
+            0.5088301276132325,
+            0.149372876660825,
+            0.5767626497765881,
+            0.49314976062968824
+          ],
+          "appearanceUpdates": 0,
+          "box": null,
+          "id": "c3fa04cf-a0ad-3400-91e4-533dd6edad5e",
+          "label": "human-guided ground-contact subject",
+          "status": "lost"
+        },
+        "estimate": {
+          "reason": "Tracker supplied no accepted measurement; uncertainty grows",
+          "positionSigma": 5.260185357950801,
+          "accepted": false,
+          "uncertaintyMeaning": "Model covariance under declared motion/noise assumptions; not calibrated probability or metric accuracy",
+          "covariance": [
+            [
+              13.834775,
+              0.17575000000000002,
+              0.17575000000000002,
+              0.002799999999999999
+            ],
+            [
+              13.834775,
+              0.17575000000000002,
+              0.17575000000000002,
+              0.002799999999999999
+            ]
+          ],
+          "velocity": [
+            0,
+            0
+          ],
+          "predictedVariance": [
+            13.834775,
+            13.834775
+          ],
+          "domain": "normalized image-plane; unknown depth, metric scale and capture FPS",
+          "time": 595,
+          "position": [
+            0.5427963886949103,
+            0.32126131864525664
+          ],
+          "predicted": [
+            0.5427963886949103,
+            0.32126131864525664
+          ],
+          "timeUnit": "source-frame",
+          "status": "predicted"
+        },
+        "bodyId": "c3fa04cf-a0ad-3400-91e4-533dd6edad5e"
+      }],
+      "ordinal": 19
+    },
+    {
+      "sourceFrame": 600,
+      "imageSha256": "01913aac1afbdd65cb4cf847f619c3759a233d4d071c56fd25444f2a9488d8af",
+      "objects": [{
+        "tracker": {
+          "matchScore": 0,
+          "scoreMeaning": "Local patch correlation and motion consistency, not calibrated semantic confidence",
+          "motion": {
+            "seedPoints": 42,
+            "inliers": 0,
+            "vectors": [],
+            "method": "motion-recovery",
+            "dxPixels": 0,
+            "dyPixels": 0,
+            "medianForwardBackwardPixels": 0,
+            "scale": 1,
+            "ambiguous": false,
+            "reliablePoints": 0
+          },
+          "lastKnownBox": [
+            0.5088301276132325,
+            0.149372876660825,
+            0.5767626497765881,
+            0.49314976062968824
+          ],
+          "appearanceUpdates": 0,
+          "box": null,
+          "id": "c3fa04cf-a0ad-3400-91e4-533dd6edad5e",
+          "label": "human-guided ground-contact subject",
+          "status": "lost"
+        },
+        "estimate": {
+          "reason": "Tracker supplied no accepted measurement; uncertainty grows",
+          "positionSigma": 5.596945595590509,
+          "accepted": false,
+          "uncertaintyMeaning": "Model covariance under declared motion/noise assumptions; not calibrated probability or metric accuracy",
+          "covariance": [
+            [
+              15.6629,
+              0.19,
+              0.19,
+              0.002899999999999999
+            ],
+            [
+              15.6629,
+              0.19,
+              0.19,
+              0.002899999999999999
+            ]
+          ],
+          "velocity": [
+            0,
+            0
+          ],
+          "predictedVariance": [
+            15.6629,
+            15.6629
+          ],
+          "domain": "normalized image-plane; unknown depth, metric scale and capture FPS",
+          "time": 600,
+          "position": [
+            0.5427963886949103,
+            0.32126131864525664
+          ],
+          "predicted": [
+            0.5427963886949103,
+            0.32126131864525664
+          ],
+          "timeUnit": "source-frame",
+          "status": "predicted"
+        },
+        "bodyId": "c3fa04cf-a0ad-3400-91e4-533dd6edad5e"
+      }],
+      "ordinal": 20
+    },
+    {
+      "sourceFrame": 605,
+      "imageSha256": "4a087854e5c9d6816c5e3f7315804b390ec546a5b6daad5cac596ffa2f90b388",
+      "objects": [{
+        "tracker": {
+          "matchScore": 0,
+          "scoreMeaning": "Local patch correlation and motion consistency, not calibrated semantic confidence",
+          "motion": {
+            "seedPoints": 42,
+            "inliers": 0,
+            "vectors": [],
+            "method": "motion-recovery",
+            "dxPixels": 0,
+            "dyPixels": 0,
+            "medianForwardBackwardPixels": 0,
+            "scale": 1,
+            "ambiguous": false,
+            "reliablePoints": 0
+          },
+          "lastKnownBox": [
+            0.5088301276132325,
+            0.149372876660825,
+            0.5767626497765881,
+            0.49314976062968824
+          ],
+          "appearanceUpdates": 0,
+          "box": null,
+          "id": "c3fa04cf-a0ad-3400-91e4-533dd6edad5e",
+          "label": "human-guided ground-contact subject",
+          "status": "lost"
+        },
+        "estimate": {
+          "reason": "Tracker supplied no accepted measurement; uncertainty grows",
+          "positionSigma": 5.939027698201112,
+          "accepted": false,
+          "uncertaintyMeaning": "Model covariance under declared motion/noise assumptions; not calibrated probability or metric accuracy",
+          "covariance": [
+            [
+              17.636025,
+              0.20475,
+              0.20475,
+              0.0029999999999999988
+            ],
+            [
+              17.636025,
+              0.20475,
+              0.20475,
+              0.0029999999999999988
+            ]
+          ],
+          "velocity": [
+            0,
+            0
+          ],
+          "predictedVariance": [
+            17.636025,
+            17.636025
+          ],
+          "domain": "normalized image-plane; unknown depth, metric scale and capture FPS",
+          "time": 605,
+          "position": [
+            0.5427963886949103,
+            0.32126131864525664
+          ],
+          "predicted": [
+            0.5427963886949103,
+            0.32126131864525664
+          ],
+          "timeUnit": "source-frame",
+          "status": "predicted"
+        },
+        "bodyId": "c3fa04cf-a0ad-3400-91e4-533dd6edad5e"
+      }],
+      "ordinal": 21
+    },
+    {
+      "sourceFrame": 610,
+      "imageSha256": "df506f2f8dd9ff0062b37e71971864b11a34127ff9df21e4f9393d129782f7ce",
+      "objects": [{
+        "tracker": {
+          "matchScore": 0,
+          "scoreMeaning": "Local patch correlation and motion consistency, not calibrated semantic confidence",
+          "motion": {
+            "seedPoints": 42,
+            "inliers": 0,
+            "vectors": [],
+            "method": "motion-recovery",
+            "dxPixels": 0,
+            "dyPixels": 0,
+            "medianForwardBackwardPixels": 0,
+            "scale": 1,
+            "ambiguous": false,
+            "reliablePoints": 0
+          },
+          "lastKnownBox": [
+            0.5088301276132325,
+            0.149372876660825,
+            0.5767626497765881,
+            0.49314976062968824
+          ],
+          "appearanceUpdates": 0,
+          "box": null,
+          "id": "c3fa04cf-a0ad-3400-91e4-533dd6edad5e",
+          "label": "human-guided ground-contact subject",
+          "status": "lost"
+        },
+        "estimate": {
+          "reason": "Tracker supplied no accepted measurement; uncertainty grows",
+          "positionSigma": 6.28635824623446,
+          "accepted": false,
+          "uncertaintyMeaning": "Model covariance under declared motion/noise assumptions; not calibrated probability or metric accuracy",
+          "covariance": [
+            [
+              19.759149999999998,
+              0.21999999999999997,
+              0.21999999999999997,
+              0.0030999999999999986
+            ],
+            [
+              19.759149999999998,
+              0.21999999999999997,
+              0.21999999999999997,
+              0.0030999999999999986
+            ]
+          ],
+          "velocity": [
+            0,
+            0
+          ],
+          "predictedVariance": [
+            19.759149999999998,
+            19.759149999999998
+          ],
+          "domain": "normalized image-plane; unknown depth, metric scale and capture FPS",
+          "time": 610,
+          "position": [
+            0.5427963886949103,
+            0.32126131864525664
+          ],
+          "predicted": [
+            0.5427963886949103,
+            0.32126131864525664
+          ],
+          "timeUnit": "source-frame",
+          "status": "predicted"
+        },
+        "bodyId": "c3fa04cf-a0ad-3400-91e4-533dd6edad5e"
+      }],
+      "ordinal": 22
+    },
+    {
+      "sourceFrame": 615,
+      "imageSha256": "66a7290be627e5df20e24059f143e4981ca92a38fad8071defeb3d711b6a668d",
+      "objects": [{
+        "tracker": {
+          "matchScore": 0,
+          "scoreMeaning": "Local patch correlation and motion consistency, not calibrated semantic confidence",
+          "motion": {
+            "seedPoints": 42,
+            "inliers": 0,
+            "vectors": [],
+            "method": "motion-recovery",
+            "dxPixels": 0,
+            "dyPixels": 0,
+            "medianForwardBackwardPixels": 0,
+            "scale": 1,
+            "ambiguous": false,
+            "reliablePoints": 0
+          },
+          "lastKnownBox": [
+            0.5088301276132325,
+            0.149372876660825,
+            0.5767626497765881,
+            0.49314976062968824
+          ],
+          "appearanceUpdates": 0,
+          "box": null,
+          "id": "c3fa04cf-a0ad-3400-91e4-533dd6edad5e",
+          "label": "human-guided ground-contact subject",
+          "status": "lost"
+        },
+        "estimate": {
+          "reason": "Tracker supplied no accepted measurement; uncertainty grows",
+          "positionSigma": 6.638866620139313,
+          "accepted": false,
+          "uncertaintyMeaning": "Model covariance under declared motion/noise assumptions; not calibrated probability or metric accuracy",
+          "covariance": [
+            [
+              22.037274999999998,
+              0.23574999999999996,
+              0.23574999999999996,
+              0.0031999999999999984
+            ],
+            [
+              22.037274999999998,
+              0.23574999999999996,
+              0.23574999999999996,
+              0.0031999999999999984
+            ]
+          ],
+          "velocity": [
+            0,
+            0
+          ],
+          "predictedVariance": [
+            22.037274999999998,
+            22.037274999999998
+          ],
+          "domain": "normalized image-plane; unknown depth, metric scale and capture FPS",
+          "time": 615,
+          "position": [
+            0.5427963886949103,
+            0.32126131864525664
+          ],
+          "predicted": [
+            0.5427963886949103,
+            0.32126131864525664
+          ],
+          "timeUnit": "source-frame",
+          "status": "predicted"
+        },
+        "bodyId": "c3fa04cf-a0ad-3400-91e4-533dd6edad5e"
+      }],
+      "ordinal": 23
+    },
+    {
+      "sourceFrame": 620,
+      "imageSha256": "23bb4c88570958221c299af374763c2a57809756a3dba5202a148d0a075dfd9c",
+      "objects": [{
+        "tracker": {
+          "matchScore": 0,
+          "scoreMeaning": "Local patch correlation and motion consistency, not calibrated semantic confidence",
+          "motion": {
+            "seedPoints": 42,
+            "inliers": 0,
+            "vectors": [],
+            "method": "motion-recovery",
+            "dxPixels": 0,
+            "dyPixels": 0,
+            "medianForwardBackwardPixels": 0,
+            "scale": 1,
+            "ambiguous": false,
+            "reliablePoints": 0
+          },
+          "lastKnownBox": [
+            0.5088301276132325,
+            0.149372876660825,
+            0.5767626497765881,
+            0.49314976062968824
+          ],
+          "appearanceUpdates": 0,
+          "box": null,
+          "id": "c3fa04cf-a0ad-3400-91e4-533dd6edad5e",
+          "label": "human-guided ground-contact subject",
+          "status": "lost"
+        },
+        "estimate": {
+          "reason": "Tracker supplied no accepted measurement; uncertainty grows",
+          "positionSigma": 6.996484831685122,
+          "accepted": false,
+          "uncertaintyMeaning": "Model covariance under declared motion/noise assumptions; not calibrated probability or metric accuracy",
+          "covariance": [
+            [
+              24.475399999999997,
+              0.25199999999999995,
+              0.25199999999999995,
+              0.0032999999999999982
+            ],
+            [
+              24.475399999999997,
+              0.25199999999999995,
+              0.25199999999999995,
+              0.0032999999999999982
+            ]
+          ],
+          "velocity": [
+            0,
+            0
+          ],
+          "predictedVariance": [
+            24.475399999999997,
+            24.475399999999997
+          ],
+          "domain": "normalized image-plane; unknown depth, metric scale and capture FPS",
+          "time": 620,
+          "position": [
+            0.5427963886949103,
+            0.32126131864525664
+          ],
+          "predicted": [
+            0.5427963886949103,
+            0.32126131864525664
+          ],
+          "timeUnit": "source-frame",
+          "status": "predicted"
+        },
+        "bodyId": "c3fa04cf-a0ad-3400-91e4-533dd6edad5e"
+      }],
+      "ordinal": 24
+    },
+    {
+      "sourceFrame": 625,
+      "imageSha256": "401df98caba0c6d75112de4fc8044dde5ae9392bb16ff039510c6c433103e039",
+      "objects": [{
+        "tracker": {
+          "matchScore": 0,
+          "scoreMeaning": "Local patch correlation and motion consistency, not calibrated semantic confidence",
+          "motion": {
+            "seedPoints": 42,
+            "inliers": 0,
+            "vectors": [],
+            "method": "motion-recovery",
+            "dxPixels": 0,
+            "dyPixels": 0,
+            "medianForwardBackwardPixels": 0,
+            "scale": 1,
+            "ambiguous": false,
+            "reliablePoints": 0
+          },
+          "lastKnownBox": [
+            0.5088301276132325,
+            0.149372876660825,
+            0.5767626497765881,
+            0.49314976062968824
+          ],
+          "appearanceUpdates": 0,
+          "box": null,
+          "id": "c3fa04cf-a0ad-3400-91e4-533dd6edad5e",
+          "label": "human-guided ground-contact subject",
+          "status": "lost"
+        },
+        "estimate": {
+          "reason": "Tracker supplied no accepted measurement; uncertainty grows",
+          "positionSigma": 7.359147369091068,
+          "accepted": false,
+          "uncertaintyMeaning": "Model covariance under declared motion/noise assumptions; not calibrated probability or metric accuracy",
+          "covariance": [
+            [
+              27.078524999999996,
+              0.26874999999999993,
+              0.26874999999999993,
+              0.003399999999999998
+            ],
+            [
+              27.078524999999996,
+              0.26874999999999993,
+              0.26874999999999993,
+              0.003399999999999998
+            ]
+          ],
+          "velocity": [
+            0,
+            0
+          ],
+          "predictedVariance": [
+            27.078524999999996,
+            27.078524999999996
+          ],
+          "domain": "normalized image-plane; unknown depth, metric scale and capture FPS",
+          "time": 625,
+          "position": [
+            0.5427963886949103,
+            0.32126131864525664
+          ],
+          "predicted": [
+            0.5427963886949103,
+            0.32126131864525664
+          ],
+          "timeUnit": "source-frame",
+          "status": "predicted"
+        },
+        "bodyId": "c3fa04cf-a0ad-3400-91e4-533dd6edad5e"
+      }],
+      "ordinal": 25
+    },
+    {
+      "sourceFrame": 630,
+      "imageSha256": "af02490d0fccd65149dd09d20f0bd7d29901c3621eaf6377af8eb2ee2f9dfcc4",
+      "objects": [{
+        "tracker": {
+          "matchScore": 0,
+          "scoreMeaning": "Local patch correlation and motion consistency, not calibrated semantic confidence",
+          "motion": {
+            "seedPoints": 42,
+            "inliers": 0,
+            "vectors": [],
+            "method": "motion-recovery",
+            "dxPixels": 0,
+            "dyPixels": 0,
+            "medianForwardBackwardPixels": 0,
+            "scale": 1,
+            "ambiguous": false,
+            "reliablePoints": 0
+          },
+          "lastKnownBox": [
+            0.5088301276132325,
+            0.149372876660825,
+            0.5767626497765881,
+            0.49314976062968824
+          ],
+          "appearanceUpdates": 0,
+          "box": null,
+          "id": "c3fa04cf-a0ad-3400-91e4-533dd6edad5e",
+          "label": "human-guided ground-contact subject",
+          "status": "lost"
+        },
+        "estimate": {
+          "reason": "Tracker supplied no accepted measurement; uncertainty grows",
+          "positionSigma": 7.726791054506392,
+          "accepted": false,
+          "uncertaintyMeaning": "Model covariance under declared motion/noise assumptions; not calibrated probability or metric accuracy",
+          "covariance": [
+            [
+              29.851649999999996,
+              0.2859999999999999,
+              0.2859999999999999,
+              0.003499999999999998
+            ],
+            [
+              29.851649999999996,
+              0.2859999999999999,
+              0.2859999999999999,
+              0.003499999999999998
+            ]
+          ],
+          "velocity": [
+            0,
+            0
+          ],
+          "predictedVariance": [
+            29.851649999999996,
+            29.851649999999996
+          ],
+          "domain": "normalized image-plane; unknown depth, metric scale and capture FPS",
+          "time": 630,
+          "position": [
+            0.5427963886949103,
+            0.32126131864525664
+          ],
+          "predicted": [
+            0.5427963886949103,
+            0.32126131864525664
+          ],
+          "timeUnit": "source-frame",
+          "status": "predicted"
+        },
+        "bodyId": "c3fa04cf-a0ad-3400-91e4-533dd6edad5e"
+      }],
+      "ordinal": 26
+    },
+    {
+      "sourceFrame": 635,
+      "imageSha256": "e132a2061ab44375246bffdf9682f49e76fb60802e170a3d07daba457a93f134",
+      "objects": [{
+        "tracker": {
+          "matchScore": 0,
+          "scoreMeaning": "Local patch correlation and motion consistency, not calibrated semantic confidence",
+          "motion": {
+            "seedPoints": 42,
+            "inliers": 0,
+            "vectors": [],
+            "method": "motion-recovery",
+            "dxPixels": 0,
+            "dyPixels": 0,
+            "medianForwardBackwardPixels": 0,
+            "scale": 1,
+            "ambiguous": false,
+            "reliablePoints": 0
+          },
+          "lastKnownBox": [
+            0.5088301276132325,
+            0.149372876660825,
+            0.5767626497765881,
+            0.49314976062968824
+          ],
+          "appearanceUpdates": 0,
+          "box": null,
+          "id": "c3fa04cf-a0ad-3400-91e4-533dd6edad5e",
+          "label": "human-guided ground-contact subject",
+          "status": "lost"
+        },
+        "estimate": {
+          "reason": "Tracker supplied no accepted measurement; uncertainty grows",
+          "positionSigma": 8.099354912584088,
+          "accepted": false,
+          "uncertaintyMeaning": "Model covariance under declared motion/noise assumptions; not calibrated probability or metric accuracy",
+          "covariance": [
+            [
+              32.799775,
+              0.3037499999999999,
+              0.3037499999999999,
+              0.0035999999999999977
+            ],
+            [
+              32.799775,
+              0.3037499999999999,
+              0.3037499999999999,
+              0.0035999999999999977
+            ]
+          ],
+          "velocity": [
+            0,
+            0
+          ],
+          "predictedVariance": [
+            32.799775,
+            32.799775
+          ],
+          "domain": "normalized image-plane; unknown depth, metric scale and capture FPS",
+          "time": 635,
+          "position": [
+            0.5427963886949103,
+            0.32126131864525664
+          ],
+          "predicted": [
+            0.5427963886949103,
+            0.32126131864525664
+          ],
+          "timeUnit": "source-frame",
+          "status": "predicted"
+        },
+        "bodyId": "c3fa04cf-a0ad-3400-91e4-533dd6edad5e"
+      }],
+      "ordinal": 27
+    },
+    {
+      "sourceFrame": 640,
+      "imageSha256": "fcadaf44c583008ddc85746a47a1fc41041fd7d11aa641ca14ad793351dfb57f",
+      "objects": [{
+        "tracker": {
+          "matchScore": 0,
+          "scoreMeaning": "Local patch correlation and motion consistency, not calibrated semantic confidence",
+          "motion": {
+            "seedPoints": 42,
+            "inliers": 0,
+            "vectors": [],
+            "method": "motion-recovery",
+            "dxPixels": 0,
+            "dyPixels": 0,
+            "medianForwardBackwardPixels": 0,
+            "scale": 1,
+            "ambiguous": false,
+            "reliablePoints": 0
+          },
+          "lastKnownBox": [
+            0.5088301276132325,
+            0.149372876660825,
+            0.5767626497765881,
+            0.49314976062968824
+          ],
+          "appearanceUpdates": 0,
+          "box": null,
+          "id": "c3fa04cf-a0ad-3400-91e4-533dd6edad5e",
+          "label": "human-guided ground-contact subject",
+          "status": "lost"
+        },
+        "estimate": {
+          "reason": "Tracker supplied no accepted measurement; uncertainty grows",
+          "positionSigma": 8.476780049051644,
+          "accepted": false,
+          "uncertaintyMeaning": "Model covariance under declared motion/noise assumptions; not calibrated probability or metric accuracy",
+          "covariance": [
+            [
+              35.927899999999994,
+              0.3219999999999999,
+              0.3219999999999999,
+              0.0036999999999999976
+            ],
+            [
+              35.927899999999994,
+              0.3219999999999999,
+              0.3219999999999999,
+              0.0036999999999999976
+            ]
+          ],
+          "velocity": [
+            0,
+            0
+          ],
+          "predictedVariance": [
+            35.927899999999994,
+            35.927899999999994
+          ],
+          "domain": "normalized image-plane; unknown depth, metric scale and capture FPS",
+          "time": 640,
+          "position": [
+            0.5427963886949103,
+            0.32126131864525664
+          ],
+          "predicted": [
+            0.5427963886949103,
+            0.32126131864525664
+          ],
+          "timeUnit": "source-frame",
+          "status": "predicted"
+        },
+        "bodyId": "c3fa04cf-a0ad-3400-91e4-533dd6edad5e"
+      }],
+      "ordinal": 28
+    },
+    {
+      "sourceFrame": 645,
+      "imageSha256": "5d95d42a8b515df3291eb013d612320115e58d73aaa047be2beef2f8c196ba3c",
+      "objects": [{
+        "tracker": {
+          "matchScore": 0,
+          "scoreMeaning": "Local patch correlation and motion consistency, not calibrated semantic confidence",
+          "motion": {
+            "seedPoints": 42,
+            "inliers": 0,
+            "vectors": [],
+            "method": "motion-recovery",
+            "dxPixels": 0,
+            "dyPixels": 0,
+            "medianForwardBackwardPixels": 0,
+            "scale": 1,
+            "ambiguous": false,
+            "reliablePoints": 0
+          },
+          "lastKnownBox": [
+            0.5088301276132325,
+            0.149372876660825,
+            0.5767626497765881,
+            0.49314976062968824
+          ],
+          "appearanceUpdates": 0,
+          "box": null,
+          "id": "c3fa04cf-a0ad-3400-91e4-533dd6edad5e",
+          "label": "human-guided ground-contact subject",
+          "status": "lost"
+        },
+        "estimate": {
+          "reason": "Tracker supplied no accepted measurement; uncertainty grows",
+          "positionSigma": 8.859009538317475,
+          "accepted": false,
+          "uncertaintyMeaning": "Model covariance under declared motion/noise assumptions; not calibrated probability or metric accuracy",
+          "covariance": [
+            [
+              39.24102499999999,
+              0.3407499999999999,
+              0.3407499999999999,
+              0.0037999999999999974
+            ],
+            [
+              39.24102499999999,
+              0.3407499999999999,
+              0.3407499999999999,
+              0.0037999999999999974
+            ]
+          ],
+          "velocity": [
+            0,
+            0
+          ],
+          "predictedVariance": [
+            39.24102499999999,
+            39.24102499999999
+          ],
+          "domain": "normalized image-plane; unknown depth, metric scale and capture FPS",
+          "time": 645,
+          "position": [
+            0.5427963886949103,
+            0.32126131864525664
+          ],
+          "predicted": [
+            0.5427963886949103,
+            0.32126131864525664
+          ],
+          "timeUnit": "source-frame",
+          "status": "predicted"
+        },
+        "bodyId": "c3fa04cf-a0ad-3400-91e4-533dd6edad5e"
+      }],
+      "ordinal": 29
+    },
+    {
+      "sourceFrame": 650,
+      "imageSha256": "5a82fa8d9dc86c0606a8759af9752413f88945a76f0ef6c876eb07b61541e11e",
+      "objects": [{
+        "tracker": {
+          "matchScore": 0,
+          "scoreMeaning": "Local patch correlation and motion consistency, not calibrated semantic confidence",
+          "motion": {
+            "seedPoints": 42,
+            "inliers": 1,
+            "vectors": [],
+            "method": "motion-recovery",
+            "dxPixels": 0,
+            "dyPixels": 0,
+            "medianForwardBackwardPixels": 0,
+            "scale": 1,
+            "ambiguous": false,
+            "reliablePoints": 1
+          },
+          "lastKnownBox": [
+            0.5088301276132325,
+            0.149372876660825,
+            0.5767626497765881,
+            0.49314976062968824
+          ],
+          "appearanceUpdates": 0,
+          "box": null,
+          "id": "c3fa04cf-a0ad-3400-91e4-533dd6edad5e",
+          "label": "human-guided ground-contact subject",
+          "status": "lost"
+        },
+        "estimate": {
+          "reason": "Tracker supplied no accepted measurement; uncertainty grows",
+          "positionSigma": 9.24598831926582,
+          "accepted": false,
+          "uncertaintyMeaning": "Model covariance under declared motion/noise assumptions; not calibrated probability or metric accuracy",
+          "covariance": [
+            [
+              42.74414999999999,
+              0.3599999999999999,
+              0.3599999999999999,
+              0.0038999999999999972
+            ],
+            [
+              42.74414999999999,
+              0.3599999999999999,
+              0.3599999999999999,
+              0.0038999999999999972
+            ]
+          ],
+          "velocity": [
+            0,
+            0
+          ],
+          "predictedVariance": [
+            42.74414999999999,
+            42.74414999999999
+          ],
+          "domain": "normalized image-plane; unknown depth, metric scale and capture FPS",
+          "time": 650,
+          "position": [
+            0.5427963886949103,
+            0.32126131864525664
+          ],
+          "predicted": [
+            0.5427963886949103,
+            0.32126131864525664
+          ],
+          "timeUnit": "source-frame",
+          "status": "predicted"
+        },
+        "bodyId": "c3fa04cf-a0ad-3400-91e4-533dd6edad5e"
+      }],
+      "ordinal": 30
+    },
+    {
+      "sourceFrame": 655,
+      "imageSha256": "e9cc0e3237ab445d23692e315684731f79885ff4c3b759132c2361b362864fd8",
+      "objects": [{
+        "tracker": {
+          "matchScore": 0,
+          "scoreMeaning": "Local patch correlation and motion consistency, not calibrated semantic confidence",
+          "motion": {
+            "seedPoints": 42,
+            "inliers": 1,
+            "vectors": [],
+            "method": "motion-recovery",
+            "dxPixels": 0,
+            "dyPixels": 0,
+            "medianForwardBackwardPixels": 0,
+            "scale": 1,
+            "ambiguous": false,
+            "reliablePoints": 1
+          },
+          "lastKnownBox": [
+            0.5088301276132325,
+            0.149372876660825,
+            0.5767626497765881,
+            0.49314976062968824
+          ],
+          "appearanceUpdates": 0,
+          "box": null,
+          "id": "c3fa04cf-a0ad-3400-91e4-533dd6edad5e",
+          "label": "human-guided ground-contact subject",
+          "status": "lost"
+        },
+        "estimate": {
+          "reason": "Tracker supplied no accepted measurement; uncertainty grows",
+          "positionSigma": 9.637663098490213,
+          "accepted": false,
+          "uncertaintyMeaning": "Model covariance under declared motion/noise assumptions; not calibrated probability or metric accuracy",
+          "covariance": [
+            [
+              46.44227499999999,
+              0.37974999999999987,
+              0.37974999999999987,
+              0.0039999999999999975
+            ],
+            [
+              46.44227499999999,
+              0.37974999999999987,
+              0.37974999999999987,
+              0.0039999999999999975
+            ]
+          ],
+          "velocity": [
+            0,
+            0
+          ],
+          "predictedVariance": [
+            46.44227499999999,
+            46.44227499999999
+          ],
+          "domain": "normalized image-plane; unknown depth, metric scale and capture FPS",
+          "time": 655,
+          "position": [
+            0.5427963886949103,
+            0.32126131864525664
+          ],
+          "predicted": [
+            0.5427963886949103,
+            0.32126131864525664
+          ],
+          "timeUnit": "source-frame",
+          "status": "predicted"
+        },
+        "bodyId": "c3fa04cf-a0ad-3400-91e4-533dd6edad5e"
+      }],
+      "ordinal": 31
+    },
+    {
+      "sourceFrame": 660,
+      "imageSha256": "272cfda10f976bafd724fd03ac3db6722a70655367c37bc9e434c876d85d8c25",
+      "objects": [{
+        "tracker": {
+          "matchScore": 0,
+          "scoreMeaning": "Local patch correlation and motion consistency, not calibrated semantic confidence",
+          "motion": {
+            "seedPoints": 42,
+            "inliers": 0,
+            "vectors": [],
+            "method": "motion-recovery",
+            "dxPixels": 0,
+            "dyPixels": 0,
+            "medianForwardBackwardPixels": 0,
+            "scale": 1,
+            "ambiguous": false,
+            "reliablePoints": 0
+          },
+          "lastKnownBox": [
+            0.5088301276132325,
+            0.149372876660825,
+            0.5767626497765881,
+            0.49314976062968824
+          ],
+          "appearanceUpdates": 0,
+          "box": null,
+          "id": "c3fa04cf-a0ad-3400-91e4-533dd6edad5e",
+          "label": "human-guided ground-contact subject",
+          "status": "lost"
+        },
+        "estimate": {
+          "reason": "Tracker supplied no accepted measurement; uncertainty grows",
+          "positionSigma": 10.033982260299247,
+          "accepted": false,
+          "uncertaintyMeaning": "Model covariance under declared motion/noise assumptions; not calibrated probability or metric accuracy",
+          "covariance": [
+            [
+              50.34039999999999,
+              0.39999999999999986,
+              0.39999999999999986,
+              0.004099999999999998
+            ],
+            [
+              50.34039999999999,
+              0.39999999999999986,
+              0.39999999999999986,
+              0.004099999999999998
+            ]
+          ],
+          "velocity": [
+            0,
+            0
+          ],
+          "predictedVariance": [
+            50.34039999999999,
+            50.34039999999999
+          ],
+          "domain": "normalized image-plane; unknown depth, metric scale and capture FPS",
+          "time": 660,
+          "position": [
+            0.5427963886949103,
+            0.32126131864525664
+          ],
+          "predicted": [
+            0.5427963886949103,
+            0.32126131864525664
+          ],
+          "timeUnit": "source-frame",
+          "status": "predicted"
+        },
+        "bodyId": "c3fa04cf-a0ad-3400-91e4-533dd6edad5e"
+      }],
+      "ordinal": 32
+    },
+    {
+      "sourceFrame": 665,
+      "imageSha256": "50a41293303e2b5fef84ef19c3fdb645ca75ddb9b0a90045da62db7f7fdcc40c",
+      "objects": [{
+        "tracker": {
+          "matchScore": 0,
+          "scoreMeaning": "Local patch correlation and motion consistency, not calibrated semantic confidence",
+          "motion": {
+            "seedPoints": 42,
+            "inliers": 1,
+            "vectors": [],
+            "method": "motion-recovery",
+            "dxPixels": 0,
+            "dyPixels": 0,
+            "medianForwardBackwardPixels": 0,
+            "scale": 1,
+            "ambiguous": false,
+            "reliablePoints": 1
+          },
+          "lastKnownBox": [
+            0.5088301276132325,
+            0.149372876660825,
+            0.5767626497765881,
+            0.49314976062968824
+          ],
+          "appearanceUpdates": 0,
+          "box": null,
+          "id": "c3fa04cf-a0ad-3400-91e4-533dd6edad5e",
+          "label": "human-guided ground-contact subject",
+          "status": "lost"
+        },
+        "estimate": {
+          "reason": "Tracker supplied no accepted measurement; uncertainty grows",
+          "positionSigma": 10.434895782900755,
+          "accepted": false,
+          "uncertaintyMeaning": "Model covariance under declared motion/noise assumptions; not calibrated probability or metric accuracy",
+          "covariance": [
+            [
+              54.44352499999999,
+              0.42074999999999985,
+              0.42074999999999985,
+              0.004199999999999998
+            ],
+            [
+              54.44352499999999,
+              0.42074999999999985,
+              0.42074999999999985,
+              0.004199999999999998
+            ]
+          ],
+          "velocity": [
+            0,
+            0
+          ],
+          "predictedVariance": [
+            54.44352499999999,
+            54.44352499999999
+          ],
+          "domain": "normalized image-plane; unknown depth, metric scale and capture FPS",
+          "time": 665,
+          "position": [
+            0.5427963886949103,
+            0.32126131864525664
+          ],
+          "predicted": [
+            0.5427963886949103,
+            0.32126131864525664
+          ],
+          "timeUnit": "source-frame",
+          "status": "predicted"
+        },
+        "bodyId": "c3fa04cf-a0ad-3400-91e4-533dd6edad5e"
+      }],
+      "ordinal": 33
+    },
+    {
+      "sourceFrame": 670,
+      "imageSha256": "14f51a1d60fae49a4163951ffde730fe49bacda04a4e92483f646699252ec3ab",
+      "objects": [{
+        "tracker": {
+          "matchScore": 0,
+          "scoreMeaning": "Local patch correlation and motion consistency, not calibrated semantic confidence",
+          "motion": {
+            "seedPoints": 42,
+            "inliers": 0,
+            "vectors": [],
+            "method": "motion-recovery",
+            "dxPixels": 0,
+            "dyPixels": 0,
+            "medianForwardBackwardPixels": 0,
+            "scale": 1,
+            "ambiguous": false,
+            "reliablePoints": 0
+          },
+          "lastKnownBox": [
+            0.5088301276132325,
+            0.149372876660825,
+            0.5767626497765881,
+            0.49314976062968824
+          ],
+          "appearanceUpdates": 0,
+          "box": null,
+          "id": "c3fa04cf-a0ad-3400-91e4-533dd6edad5e",
+          "label": "human-guided ground-contact subject",
+          "status": "lost"
+        },
+        "estimate": {
+          "reason": "Tracker supplied no accepted measurement; uncertainty grows",
+          "positionSigma": 10.840355160233448,
+          "accepted": false,
+          "uncertaintyMeaning": "Model covariance under declared motion/noise assumptions; not calibrated probability or metric accuracy",
+          "covariance": [
+            [
+              58.756649999999986,
+              0.44199999999999984,
+              0.44199999999999984,
+              0.004299999999999998
+            ],
+            [
+              58.756649999999986,
+              0.44199999999999984,
+              0.44199999999999984,
+              0.004299999999999998
+            ]
+          ],
+          "velocity": [
+            0,
+            0
+          ],
+          "predictedVariance": [
+            58.756649999999986,
+            58.756649999999986
+          ],
+          "domain": "normalized image-plane; unknown depth, metric scale and capture FPS",
+          "time": 670,
+          "position": [
+            0.5427963886949103,
+            0.32126131864525664
+          ],
+          "predicted": [
+            0.5427963886949103,
+            0.32126131864525664
+          ],
+          "timeUnit": "source-frame",
+          "status": "predicted"
+        },
+        "bodyId": "c3fa04cf-a0ad-3400-91e4-533dd6edad5e"
+      }],
+      "ordinal": 34
+    },
+    {
+      "sourceFrame": 675,
+      "imageSha256": "92a5f527190925d97688ef1f83a874efc7a0d2ee7fbdbcb66bf9f3f3fbacc21c",
+      "objects": [{
+        "tracker": {
+          "matchScore": 0,
+          "scoreMeaning": "Local patch correlation and motion consistency, not calibrated semantic confidence",
+          "motion": {
+            "seedPoints": 42,
+            "inliers": 0,
+            "vectors": [],
+            "method": "motion-recovery",
+            "dxPixels": 0,
+            "dyPixels": 0,
+            "medianForwardBackwardPixels": 0,
+            "scale": 1,
+            "ambiguous": false,
+            "reliablePoints": 0
+          },
+          "lastKnownBox": [
+            0.5088301276132325,
+            0.149372876660825,
+            0.5767626497765881,
+            0.49314976062968824
+          ],
+          "appearanceUpdates": 0,
+          "box": null,
+          "id": "c3fa04cf-a0ad-3400-91e4-533dd6edad5e",
+          "label": "human-guided ground-contact subject",
+          "status": "lost"
+        },
+        "estimate": {
+          "reason": "Tracker supplied no accepted measurement; uncertainty grows",
+          "positionSigma": 11.250313328969996,
+          "accepted": false,
+          "uncertaintyMeaning": "Model covariance under declared motion/noise assumptions; not calibrated probability or metric accuracy",
+          "covariance": [
+            [
+              63.28477499999998,
+              0.46374999999999983,
+              0.46374999999999983,
+              0.0043999999999999985
+            ],
+            [
+              63.28477499999998,
+              0.46374999999999983,
+              0.46374999999999983,
+              0.0043999999999999985
+            ]
+          ],
+          "velocity": [
+            0,
+            0
+          ],
+          "predictedVariance": [
+            63.28477499999998,
+            63.28477499999998
+          ],
+          "domain": "normalized image-plane; unknown depth, metric scale and capture FPS",
+          "time": 675,
+          "position": [
+            0.5427963886949103,
+            0.32126131864525664
+          ],
+          "predicted": [
+            0.5427963886949103,
+            0.32126131864525664
+          ],
+          "timeUnit": "source-frame",
+          "status": "predicted"
+        },
+        "bodyId": "c3fa04cf-a0ad-3400-91e4-533dd6edad5e"
+      }],
+      "ordinal": 35
+    },
+    {
+      "sourceFrame": 680,
+      "imageSha256": "4803d32658a24e1b8c92601e490053519d31e23c6bd6588b86448914762cce14",
+      "objects": [{
+        "tracker": {
+          "matchScore": 0,
+          "scoreMeaning": "Local patch correlation and motion consistency, not calibrated semantic confidence",
+          "motion": {
+            "seedPoints": 42,
+            "inliers": 0,
+            "vectors": [],
+            "method": "motion-recovery",
+            "dxPixels": 0,
+            "dyPixels": 0,
+            "medianForwardBackwardPixels": 0,
+            "scale": 1,
+            "ambiguous": false,
+            "reliablePoints": 0
+          },
+          "lastKnownBox": [
+            0.5088301276132325,
+            0.149372876660825,
+            0.5767626497765881,
+            0.49314976062968824
+          ],
+          "appearanceUpdates": 0,
+          "box": null,
+          "id": "c3fa04cf-a0ad-3400-91e4-533dd6edad5e",
+          "label": "human-guided ground-contact subject",
+          "status": "lost"
+        },
+        "estimate": {
+          "reason": "Tracker supplied no accepted measurement; uncertainty grows",
+          "positionSigma": 11.66472460026382,
+          "accepted": false,
+          "uncertaintyMeaning": "Model covariance under declared motion/noise assumptions; not calibrated probability or metric accuracy",
+          "covariance": [
+            [
+              68.03289999999998,
+              0.4859999999999998,
+              0.4859999999999998,
+              0.004499999999999999
+            ],
+            [
+              68.03289999999998,
+              0.4859999999999998,
+              0.4859999999999998,
+              0.004499999999999999
+            ]
+          ],
+          "velocity": [
+            0,
+            0
+          ],
+          "predictedVariance": [
+            68.03289999999998,
+            68.03289999999998
+          ],
+          "domain": "normalized image-plane; unknown depth, metric scale and capture FPS",
+          "time": 680,
+          "position": [
+            0.5427963886949103,
+            0.32126131864525664
+          ],
+          "predicted": [
+            0.5427963886949103,
+            0.32126131864525664
+          ],
+          "timeUnit": "source-frame",
+          "status": "predicted"
+        },
+        "bodyId": "c3fa04cf-a0ad-3400-91e4-533dd6edad5e"
+      }],
+      "ordinal": 36
+    },
+    {
+      "sourceFrame": 685,
+      "imageSha256": "d643ed8b6d4750aaf2e3b307ed6f0453241935e5bfdd8b3be799d850458a51e7",
+      "objects": [{
+        "tracker": {
+          "matchScore": 0,
+          "scoreMeaning": "Local patch correlation and motion consistency, not calibrated semantic confidence",
+          "motion": {
+            "seedPoints": 42,
+            "inliers": 0,
+            "vectors": [],
+            "method": "motion-recovery",
+            "dxPixels": 0,
+            "dyPixels": 0,
+            "medianForwardBackwardPixels": 0,
+            "scale": 1,
+            "ambiguous": false,
+            "reliablePoints": 0
+          },
+          "lastKnownBox": [
+            0.5088301276132325,
+            0.149372876660825,
+            0.5767626497765881,
+            0.49314976062968824
+          ],
+          "appearanceUpdates": 0,
+          "box": null,
+          "id": "c3fa04cf-a0ad-3400-91e4-533dd6edad5e",
+          "label": "human-guided ground-contact subject",
+          "status": "lost"
+        },
+        "estimate": {
+          "reason": "Tracker supplied no accepted measurement; uncertainty grows",
+          "positionSigma": 12.083544595854313,
+          "accepted": false,
+          "uncertaintyMeaning": "Model covariance under declared motion/noise assumptions; not calibrated probability or metric accuracy",
+          "covariance": [
+            [
+              73.00602499999998,
+              0.5087499999999998,
+              0.5087499999999998,
+              0.004599999999999999
+            ],
+            [
+              73.00602499999998,
+              0.5087499999999998,
+              0.5087499999999998,
+              0.004599999999999999
+            ]
+          ],
+          "velocity": [
+            0,
+            0
+          ],
+          "predictedVariance": [
+            73.00602499999998,
+            73.00602499999998
+          ],
+          "domain": "normalized image-plane; unknown depth, metric scale and capture FPS",
+          "time": 685,
+          "position": [
+            0.5427963886949103,
+            0.32126131864525664
+          ],
+          "predicted": [
+            0.5427963886949103,
+            0.32126131864525664
+          ],
+          "timeUnit": "source-frame",
+          "status": "predicted"
+        },
+        "bodyId": "c3fa04cf-a0ad-3400-91e4-533dd6edad5e"
+      }],
+      "ordinal": 37
+    },
+    {
+      "sourceFrame": 690,
+      "imageSha256": "42133a717952a1f20acb5f359ebda7e5e04bd1e77b14628f346a50d7dbfe195a",
+      "objects": [{
+        "tracker": {
+          "matchScore": 0,
+          "scoreMeaning": "Local patch correlation and motion consistency, not calibrated semantic confidence",
+          "motion": {
+            "seedPoints": 42,
+            "inliers": 0,
+            "vectors": [],
+            "method": "motion-recovery",
+            "dxPixels": 0,
+            "dyPixels": 0,
+            "medianForwardBackwardPixels": 0,
+            "scale": 1,
+            "ambiguous": false,
+            "reliablePoints": 0
+          },
+          "lastKnownBox": [
+            0.5088301276132325,
+            0.149372876660825,
+            0.5767626497765881,
+            0.49314976062968824
+          ],
+          "appearanceUpdates": 0,
+          "box": null,
+          "id": "c3fa04cf-a0ad-3400-91e4-533dd6edad5e",
+          "label": "human-guided ground-contact subject",
+          "status": "lost"
+        },
+        "estimate": {
+          "reason": "Tracker supplied no accepted measurement; uncertainty grows",
+          "positionSigma": 12.50673018818268,
+          "accepted": false,
+          "uncertaintyMeaning": "Model covariance under declared motion/noise assumptions; not calibrated probability or metric accuracy",
+          "covariance": [
+            [
+              78.20914999999998,
+              0.5319999999999998,
+              0.5319999999999998,
+              0.004699999999999999
+            ],
+            [
+              78.20914999999998,
+              0.5319999999999998,
+              0.5319999999999998,
+              0.004699999999999999
+            ]
+          ],
+          "velocity": [
+            0,
+            0
+          ],
+          "predictedVariance": [
+            78.20914999999998,
+            78.20914999999998
+          ],
+          "domain": "normalized image-plane; unknown depth, metric scale and capture FPS",
+          "time": 690,
+          "position": [
+            0.5427963886949103,
+            0.32126131864525664
+          ],
+          "predicted": [
+            0.5427963886949103,
+            0.32126131864525664
+          ],
+          "timeUnit": "source-frame",
+          "status": "predicted"
+        },
+        "bodyId": "c3fa04cf-a0ad-3400-91e4-533dd6edad5e"
+      }],
+      "ordinal": 38
+    },
+    {
+      "sourceFrame": 695,
+      "imageSha256": "9d21a1c9c8d471e47b699e4de809d366b7a91d977e32204b93ee5d122fbf01d3",
+      "objects": [{
+        "tracker": {
+          "matchScore": 0,
+          "scoreMeaning": "Local patch correlation and motion consistency, not calibrated semantic confidence",
+          "motion": {
+            "seedPoints": 42,
+            "inliers": 0,
+            "vectors": [],
+            "method": "motion-recovery",
+            "dxPixels": 0,
+            "dyPixels": 0,
+            "medianForwardBackwardPixels": 0,
+            "scale": 1,
+            "ambiguous": false,
+            "reliablePoints": 0
+          },
+          "lastKnownBox": [
+            0.5088301276132325,
+            0.149372876660825,
+            0.5767626497765881,
+            0.49314976062968824
+          ],
+          "appearanceUpdates": 0,
+          "box": null,
+          "id": "c3fa04cf-a0ad-3400-91e4-533dd6edad5e",
+          "label": "human-guided ground-contact subject",
+          "status": "lost"
+        },
+        "estimate": {
+          "reason": "Tracker supplied no accepted measurement; uncertainty grows",
+          "positionSigma": 12.934239444203898,
+          "accepted": false,
+          "uncertaintyMeaning": "Model covariance under declared motion/noise assumptions; not calibrated probability or metric accuracy",
+          "covariance": [
+            [
+              83.64727499999998,
+              0.5557499999999999,
+              0.5557499999999999,
+              0.0048
+            ],
+            [
+              83.64727499999998,
+              0.5557499999999999,
+              0.5557499999999999,
+              0.0048
+            ]
+          ],
+          "velocity": [
+            0,
+            0
+          ],
+          "predictedVariance": [
+            83.64727499999998,
+            83.64727499999998
+          ],
+          "domain": "normalized image-plane; unknown depth, metric scale and capture FPS",
+          "time": 695,
+          "position": [
+            0.5427963886949103,
+            0.32126131864525664
+          ],
+          "predicted": [
+            0.5427963886949103,
+            0.32126131864525664
+          ],
+          "timeUnit": "source-frame",
+          "status": "predicted"
+        },
+        "bodyId": "c3fa04cf-a0ad-3400-91e4-533dd6edad5e"
+      }],
+      "ordinal": 39
+    },
+    {
+      "sourceFrame": 700,
+      "imageSha256": "50891cbcac7bd44d33a9424553c08d283e5d6d76a0ed845de822de7f49aebe72",
+      "objects": [{
+        "tracker": {
+          "matchScore": 0,
+          "scoreMeaning": "Local patch correlation and motion consistency, not calibrated semantic confidence",
+          "motion": {
+            "seedPoints": 42,
+            "inliers": 0,
+            "vectors": [],
+            "method": "motion-recovery",
+            "dxPixels": 0,
+            "dyPixels": 0,
+            "medianForwardBackwardPixels": 0,
+            "scale": 1,
+            "ambiguous": false,
+            "reliablePoints": 0
+          },
+          "lastKnownBox": [
+            0.5088301276132325,
+            0.149372876660825,
+            0.5767626497765881,
+            0.49314976062968824
+          ],
+          "appearanceUpdates": 0,
+          "box": null,
+          "id": "c3fa04cf-a0ad-3400-91e4-533dd6edad5e",
+          "label": "human-guided ground-contact subject",
+          "status": "lost"
+        },
+        "estimate": {
+          "reason": "Tracker supplied no accepted measurement; uncertainty grows",
+          "positionSigma": 13.366031572609723,
+          "accepted": false,
+          "uncertaintyMeaning": "Model covariance under declared motion/noise assumptions; not calibrated probability or metric accuracy",
+          "covariance": [
+            [
+              89.32539999999997,
+              0.5799999999999998,
+              0.5799999999999998,
+              0.0049
+            ],
+            [
+              89.32539999999997,
+              0.5799999999999998,
+              0.5799999999999998,
+              0.0049
+            ]
+          ],
+          "velocity": [
+            0,
+            0
+          ],
+          "predictedVariance": [
+            89.32539999999997,
+            89.32539999999997
+          ],
+          "domain": "normalized image-plane; unknown depth, metric scale and capture FPS",
+          "time": 700,
+          "position": [
+            0.5427963886949103,
+            0.32126131864525664
+          ],
+          "predicted": [
+            0.5427963886949103,
+            0.32126131864525664
+          ],
+          "timeUnit": "source-frame",
+          "status": "predicted"
+        },
+        "bodyId": "c3fa04cf-a0ad-3400-91e4-533dd6edad5e"
+      }],
+      "ordinal": 40
+    },
+    {
+      "sourceFrame": 705,
+      "imageSha256": "3d7b0ca728dbac959d398ed96bef49285a52e6246e97ea96961aed29c53d069a",
+      "objects": [{
+        "tracker": {
+          "matchScore": 0,
+          "scoreMeaning": "Local patch correlation and motion consistency, not calibrated semantic confidence",
+          "motion": {
+            "seedPoints": 42,
+            "inliers": 0,
+            "vectors": [],
+            "method": "motion-recovery",
+            "dxPixels": 0,
+            "dyPixels": 0,
+            "medianForwardBackwardPixels": 0,
+            "scale": 1,
+            "ambiguous": false,
+            "reliablePoints": 0
+          },
+          "lastKnownBox": [
+            0.5088301276132325,
+            0.149372876660825,
+            0.5767626497765881,
+            0.49314976062968824
+          ],
+          "appearanceUpdates": 0,
+          "box": null,
+          "id": "c3fa04cf-a0ad-3400-91e4-533dd6edad5e",
+          "label": "human-guided ground-contact subject",
+          "status": "lost"
+        },
+        "estimate": {
+          "reason": "Tracker supplied no accepted measurement; uncertainty grows",
+          "positionSigma": 13.802066874204021,
+          "accepted": false,
+          "uncertaintyMeaning": "Model covariance under declared motion/noise assumptions; not calibrated probability or metric accuracy",
+          "covariance": [
+            [
+              95.24852499999997,
+              0.6047499999999999,
+              0.6047499999999999,
+              0.005
+            ],
+            [
+              95.24852499999997,
+              0.6047499999999999,
+              0.6047499999999999,
+              0.005
+            ]
+          ],
+          "velocity": [
+            0,
+            0
+          ],
+          "predictedVariance": [
+            95.24852499999997,
+            95.24852499999997
+          ],
+          "domain": "normalized image-plane; unknown depth, metric scale and capture FPS",
+          "time": 705,
+          "position": [
+            0.5427963886949103,
+            0.32126131864525664
+          ],
+          "predicted": [
+            0.5427963886949103,
+            0.32126131864525664
+          ],
+          "timeUnit": "source-frame",
+          "status": "predicted"
+        },
+        "bodyId": "c3fa04cf-a0ad-3400-91e4-533dd6edad5e"
+      }],
+      "ordinal": 41
+    },
+    {
+      "sourceFrame": 710,
+      "imageSha256": "cbacc833c70299dff3060066eaa34a135bc194c866c406682d31b6d0dec535ba",
+      "objects": [{
+        "tracker": {
+          "matchScore": 0,
+          "scoreMeaning": "Local patch correlation and motion consistency, not calibrated semantic confidence",
+          "motion": {
+            "seedPoints": 42,
+            "inliers": 0,
+            "vectors": [],
+            "method": "motion-recovery",
+            "dxPixels": 0,
+            "dyPixels": 0,
+            "medianForwardBackwardPixels": 0,
+            "scale": 1,
+            "ambiguous": false,
+            "reliablePoints": 0
+          },
+          "lastKnownBox": [
+            0.5088301276132325,
+            0.149372876660825,
+            0.5767626497765881,
+            0.49314976062968824
+          ],
+          "appearanceUpdates": 0,
+          "box": null,
+          "id": "c3fa04cf-a0ad-3400-91e4-533dd6edad5e",
+          "label": "human-guided ground-contact subject",
+          "status": "lost"
+        },
+        "estimate": {
+          "reason": "Tracker supplied no accepted measurement; uncertainty grows",
+          "positionSigma": 14.242306695195127,
+          "accepted": false,
+          "uncertaintyMeaning": "Model covariance under declared motion/noise assumptions; not calibrated probability or metric accuracy",
+          "covariance": [
+            [
+              101.42164999999997,
+              0.6299999999999999,
+              0.6299999999999999,
+              0.0051
+            ],
+            [
+              101.42164999999997,
+              0.6299999999999999,
+              0.6299999999999999,
+              0.0051
+            ]
+          ],
+          "velocity": [
+            0,
+            0
+          ],
+          "predictedVariance": [
+            101.42164999999997,
+            101.42164999999997
+          ],
+          "domain": "normalized image-plane; unknown depth, metric scale and capture FPS",
+          "time": 710,
+          "position": [
+            0.5427963886949103,
+            0.32126131864525664
+          ],
+          "predicted": [
+            0.5427963886949103,
+            0.32126131864525664
+          ],
+          "timeUnit": "source-frame",
+          "status": "predicted"
+        },
+        "bodyId": "c3fa04cf-a0ad-3400-91e4-533dd6edad5e"
+      }],
+      "ordinal": 42
+    },
+    {
+      "sourceFrame": 715,
+      "imageSha256": "d7a1d3975a2b3234dab062cff96f0db76274f2eea6ea3782ef17e57cb790bcbe",
+      "objects": [{
+        "tracker": {
+          "matchScore": 0,
+          "scoreMeaning": "Local patch correlation and motion consistency, not calibrated semantic confidence",
+          "motion": {
+            "seedPoints": 42,
+            "inliers": 0,
+            "vectors": [],
+            "method": "motion-recovery",
+            "dxPixels": 0,
+            "dyPixels": 0,
+            "medianForwardBackwardPixels": 0,
+            "scale": 1,
+            "ambiguous": false,
+            "reliablePoints": 0
+          },
+          "lastKnownBox": [
+            0.5088301276132325,
+            0.149372876660825,
+            0.5767626497765881,
+            0.49314976062968824
+          ],
+          "appearanceUpdates": 0,
+          "box": null,
+          "id": "c3fa04cf-a0ad-3400-91e4-533dd6edad5e",
+          "label": "human-guided ground-contact subject",
+          "status": "lost"
+        },
+        "estimate": {
+          "reason": "Tracker supplied no accepted measurement; uncertainty grows",
+          "positionSigma": 14.686713383190941,
+          "accepted": false,
+          "uncertaintyMeaning": "Model covariance under declared motion/noise assumptions; not calibrated probability or metric accuracy",
+          "covariance": [
+            [
+              107.84977499999997,
+              0.6557499999999999,
+              0.6557499999999999,
+              0.005200000000000001
+            ],
+            [
+              107.84977499999997,
+              0.6557499999999999,
+              0.6557499999999999,
+              0.005200000000000001
+            ]
+          ],
+          "velocity": [
+            0,
+            0
+          ],
+          "predictedVariance": [
+            107.84977499999997,
+            107.84977499999997
+          ],
+          "domain": "normalized image-plane; unknown depth, metric scale and capture FPS",
+          "time": 715,
+          "position": [
+            0.5427963886949103,
+            0.32126131864525664
+          ],
+          "predicted": [
+            0.5427963886949103,
+            0.32126131864525664
+          ],
+          "timeUnit": "source-frame",
+          "status": "predicted"
+        },
+        "bodyId": "c3fa04cf-a0ad-3400-91e4-533dd6edad5e"
+      }],
+      "ordinal": 43
+    },
+    {
+      "sourceFrame": 720,
+      "imageSha256": "73d8a8462d914c86972e595e3f2d1c6980b32c79805f2ec6c2443ed15501ec84",
+      "objects": [{
+        "tracker": {
+          "matchScore": 0,
+          "scoreMeaning": "Local patch correlation and motion consistency, not calibrated semantic confidence",
+          "motion": {
+            "seedPoints": 42,
+            "inliers": 0,
+            "vectors": [],
+            "method": "motion-recovery",
+            "dxPixels": 0,
+            "dyPixels": 0,
+            "medianForwardBackwardPixels": 0,
+            "scale": 1,
+            "ambiguous": false,
+            "reliablePoints": 0
+          },
+          "lastKnownBox": [
+            0.5088301276132325,
+            0.149372876660825,
+            0.5767626497765881,
+            0.49314976062968824
+          ],
+          "appearanceUpdates": 0,
+          "box": null,
+          "id": "c3fa04cf-a0ad-3400-91e4-533dd6edad5e",
+          "label": "human-guided ground-contact subject",
+          "status": "lost"
+        },
+        "estimate": {
+          "reason": "Tracker supplied no accepted measurement; uncertainty grows",
+          "positionSigma": 15.135250245701256,
+          "accepted": false,
+          "uncertaintyMeaning": "Model covariance under declared motion/noise assumptions; not calibrated probability or metric accuracy",
+          "covariance": [
+            [
+              114.53789999999996,
+              0.6819999999999999,
+              0.6819999999999999,
+              0.005300000000000001
+            ],
+            [
+              114.53789999999996,
+              0.6819999999999999,
+              0.6819999999999999,
+              0.005300000000000001
+            ]
+          ],
+          "velocity": [
+            0,
+            0
+          ],
+          "predictedVariance": [
+            114.53789999999996,
+            114.53789999999996
+          ],
+          "domain": "normalized image-plane; unknown depth, metric scale and capture FPS",
+          "time": 720,
+          "position": [
+            0.5427963886949103,
+            0.32126131864525664
+          ],
+          "predicted": [
+            0.5427963886949103,
+            0.32126131864525664
+          ],
+          "timeUnit": "source-frame",
+          "status": "predicted"
+        },
+        "bodyId": "c3fa04cf-a0ad-3400-91e4-533dd6edad5e"
+      }],
+      "ordinal": 44
+    },
+    {
+      "sourceFrame": 725,
+      "imageSha256": "6fba25923e8bcb422bdcd50aed7008890367acffd334b3e6139c4baa1b2d30c2",
+      "objects": [{
+        "tracker": {
+          "matchScore": 0,
+          "scoreMeaning": "Local patch correlation and motion consistency, not calibrated semantic confidence",
+          "motion": {
+            "seedPoints": 42,
+            "inliers": 0,
+            "vectors": [],
+            "method": "motion-recovery",
+            "dxPixels": 0,
+            "dyPixels": 0,
+            "medianForwardBackwardPixels": 0,
+            "scale": 1,
+            "ambiguous": false,
+            "reliablePoints": 0
+          },
+          "lastKnownBox": [
+            0.5088301276132325,
+            0.149372876660825,
+            0.5767626497765881,
+            0.49314976062968824
+          ],
+          "appearanceUpdates": 0,
+          "box": null,
+          "id": "c3fa04cf-a0ad-3400-91e4-533dd6edad5e",
+          "label": "human-guided ground-contact subject",
+          "status": "lost"
+        },
+        "estimate": {
+          "reason": "Tracker supplied no accepted measurement; uncertainty grows",
+          "positionSigma": 15.587881510968703,
+          "accepted": false,
+          "uncertaintyMeaning": "Model covariance under declared motion/noise assumptions; not calibrated probability or metric accuracy",
+          "covariance": [
+            [
+              121.49102499999996,
+              0.70875,
+              0.70875,
+              0.005400000000000001
+            ],
+            [
+              121.49102499999996,
+              0.70875,
+              0.70875,
+              0.005400000000000001
+            ]
+          ],
+          "velocity": [
+            0,
+            0
+          ],
+          "predictedVariance": [
+            121.49102499999996,
+            121.49102499999996
+          ],
+          "domain": "normalized image-plane; unknown depth, metric scale and capture FPS",
+          "time": 725,
+          "position": [
+            0.5427963886949103,
+            0.32126131864525664
+          ],
+          "predicted": [
+            0.5427963886949103,
+            0.32126131864525664
+          ],
+          "timeUnit": "source-frame",
+          "status": "predicted"
+        },
+        "bodyId": "c3fa04cf-a0ad-3400-91e4-533dd6edad5e"
+      }],
+      "ordinal": 45
+    },
+    {
+      "sourceFrame": 730,
+      "imageSha256": "078500e88864960bb67b730e46da806eef017253d4e26a9ab5082da399ec90a4",
+      "objects": [{
+        "tracker": {
+          "matchScore": 0,
+          "scoreMeaning": "Local patch correlation and motion consistency, not calibrated semantic confidence",
+          "motion": {
+            "seedPoints": 42,
+            "inliers": 0,
+            "vectors": [],
+            "method": "motion-recovery",
+            "dxPixels": 0,
+            "dyPixels": 0,
+            "medianForwardBackwardPixels": 0,
+            "scale": 1,
+            "ambiguous": false,
+            "reliablePoints": 0
+          },
+          "lastKnownBox": [
+            0.5088301276132325,
+            0.149372876660825,
+            0.5767626497765881,
+            0.49314976062968824
+          ],
+          "appearanceUpdates": 0,
+          "box": null,
+          "id": "c3fa04cf-a0ad-3400-91e4-533dd6edad5e",
+          "label": "human-guided ground-contact subject",
+          "status": "lost"
+        },
+        "estimate": {
+          "reason": "Tracker supplied no accepted measurement; uncertainty grows",
+          "positionSigma": 16.04457229096494,
+          "accepted": false,
+          "uncertaintyMeaning": "Model covariance under declared motion/noise assumptions; not calibrated probability or metric accuracy",
+          "covariance": [
+            [
+              128.71414999999996,
+              0.736,
+              0.736,
+              0.005500000000000001
+            ],
+            [
+              128.71414999999996,
+              0.736,
+              0.736,
+              0.005500000000000001
+            ]
+          ],
+          "velocity": [
+            0,
+            0
+          ],
+          "predictedVariance": [
+            128.71414999999996,
+            128.71414999999996
+          ],
+          "domain": "normalized image-plane; unknown depth, metric scale and capture FPS",
+          "time": 730,
+          "position": [
+            0.5427963886949103,
+            0.32126131864525664
+          ],
+          "predicted": [
+            0.5427963886949103,
+            0.32126131864525664
+          ],
+          "timeUnit": "source-frame",
+          "status": "predicted"
+        },
+        "bodyId": "c3fa04cf-a0ad-3400-91e4-533dd6edad5e"
+      }],
+      "ordinal": 46
+    },
+    {
+      "sourceFrame": 735,
+      "imageSha256": "c064607946a5f2932688ef4994e99550627d1999c145623aae8406f9e14ca863",
+      "objects": [{
+        "tracker": {
+          "matchScore": 0,
+          "scoreMeaning": "Local patch correlation and motion consistency, not calibrated semantic confidence",
+          "motion": {
+            "seedPoints": 42,
+            "inliers": 0,
+            "vectors": [],
+            "method": "motion-recovery",
+            "dxPixels": 0,
+            "dyPixels": 0,
+            "medianForwardBackwardPixels": 0,
+            "scale": 1,
+            "ambiguous": false,
+            "reliablePoints": 0
+          },
+          "lastKnownBox": [
+            0.5088301276132325,
+            0.149372876660825,
+            0.5767626497765881,
+            0.49314976062968824
+          ],
+          "appearanceUpdates": 0,
+          "box": null,
+          "id": "c3fa04cf-a0ad-3400-91e4-533dd6edad5e",
+          "label": "human-guided ground-contact subject",
+          "status": "lost"
+        },
+        "estimate": {
+          "reason": "Tracker supplied no accepted measurement; uncertainty grows",
+          "positionSigma": 16.50528854640233,
+          "accepted": false,
+          "uncertaintyMeaning": "Model covariance under declared motion/noise assumptions; not calibrated probability or metric accuracy",
+          "covariance": [
+            [
+              136.21227499999995,
+              0.76375,
+              0.76375,
+              0.005600000000000002
+            ],
+            [
+              136.21227499999995,
+              0.76375,
+              0.76375,
+              0.005600000000000002
+            ]
+          ],
+          "velocity": [
+            0,
+            0
+          ],
+          "predictedVariance": [
+            136.21227499999995,
+            136.21227499999995
+          ],
+          "domain": "normalized image-plane; unknown depth, metric scale and capture FPS",
+          "time": 735,
+          "position": [
+            0.5427963886949103,
+            0.32126131864525664
+          ],
+          "predicted": [
+            0.5427963886949103,
+            0.32126131864525664
+          ],
+          "timeUnit": "source-frame",
+          "status": "predicted"
+        },
+        "bodyId": "c3fa04cf-a0ad-3400-91e4-533dd6edad5e"
+      }],
+      "ordinal": 47
+    },
+    {
+      "sourceFrame": 740,
+      "imageSha256": "b884726070ce0dee3afb39f7e4a01180ea89ca2549e109db05fab1ec6a66e76d",
+      "objects": [{
+        "tracker": {
+          "matchScore": 0,
+          "scoreMeaning": "Local patch correlation and motion consistency, not calibrated semantic confidence",
+          "motion": {
+            "seedPoints": 42,
+            "inliers": 0,
+            "vectors": [],
+            "method": "motion-recovery",
+            "dxPixels": 0,
+            "dyPixels": 0,
+            "medianForwardBackwardPixels": 0,
+            "scale": 1,
+            "ambiguous": false,
+            "reliablePoints": 0
+          },
+          "lastKnownBox": [
+            0.5088301276132325,
+            0.149372876660825,
+            0.5767626497765881,
+            0.49314976062968824
+          ],
+          "appearanceUpdates": 0,
+          "box": null,
+          "id": "c3fa04cf-a0ad-3400-91e4-533dd6edad5e",
+          "label": "human-guided ground-contact subject",
+          "status": "lost"
+        },
+        "estimate": {
+          "reason": "Tracker supplied no accepted measurement; uncertainty grows",
+          "positionSigma": 16.969997053623782,
+          "accepted": false,
+          "uncertaintyMeaning": "Model covariance under declared motion/noise assumptions; not calibrated probability or metric accuracy",
+          "covariance": [
+            [
+              143.99039999999994,
+              0.792,
+              0.792,
+              0.005700000000000002
+            ],
+            [
+              143.99039999999994,
+              0.792,
+              0.792,
+              0.005700000000000002
+            ]
+          ],
+          "velocity": [
+            0,
+            0
+          ],
+          "predictedVariance": [
+            143.99039999999994,
+            143.99039999999994
+          ],
+          "domain": "normalized image-plane; unknown depth, metric scale and capture FPS",
+          "time": 740,
+          "position": [
+            0.5427963886949103,
+            0.32126131864525664
+          ],
+          "predicted": [
+            0.5427963886949103,
+            0.32126131864525664
+          ],
+          "timeUnit": "source-frame",
+          "status": "predicted"
+        },
+        "bodyId": "c3fa04cf-a0ad-3400-91e4-533dd6edad5e"
+      }],
+      "ordinal": 48
+    },
+    {
+      "sourceFrame": 745,
+      "imageSha256": "ec1d281c6a9a63ae9e4473d2966cddff1cc606e97d0251b833733ee51e6fdb47",
+      "objects": [{
+        "tracker": {
+          "matchScore": 0,
+          "scoreMeaning": "Local patch correlation and motion consistency, not calibrated semantic confidence",
+          "motion": {
+            "seedPoints": 42,
+            "inliers": 0,
+            "vectors": [],
+            "method": "motion-recovery",
+            "dxPixels": 0,
+            "dyPixels": 0,
+            "medianForwardBackwardPixels": 0,
+            "scale": 1,
+            "ambiguous": false,
+            "reliablePoints": 0
+          },
+          "lastKnownBox": [
+            0.5088301276132325,
+            0.149372876660825,
+            0.5767626497765881,
+            0.49314976062968824
+          ],
+          "appearanceUpdates": 0,
+          "box": null,
+          "id": "c3fa04cf-a0ad-3400-91e4-533dd6edad5e",
+          "label": "human-guided ground-contact subject",
+          "status": "lost"
+        },
+        "estimate": {
+          "reason": "Tracker supplied no accepted measurement; uncertainty grows",
+          "positionSigma": 17.43866537324459,
+          "accepted": false,
+          "uncertaintyMeaning": "Model covariance under declared motion/noise assumptions; not calibrated probability or metric accuracy",
+          "covariance": [
+            [
+              152.05352499999992,
+              0.8207500000000001,
+              0.8207500000000001,
+              0.005800000000000002
+            ],
+            [
+              152.05352499999992,
+              0.8207500000000001,
+              0.8207500000000001,
+              0.005800000000000002
+            ]
+          ],
+          "velocity": [
+            0,
+            0
+          ],
+          "predictedVariance": [
+            152.05352499999992,
+            152.05352499999992
+          ],
+          "domain": "normalized image-plane; unknown depth, metric scale and capture FPS",
+          "time": 745,
+          "position": [
+            0.5427963886949103,
+            0.32126131864525664
+          ],
+          "predicted": [
+            0.5427963886949103,
+            0.32126131864525664
+          ],
+          "timeUnit": "source-frame",
+          "status": "predicted"
+        },
+        "bodyId": "c3fa04cf-a0ad-3400-91e4-533dd6edad5e"
+      }],
+      "ordinal": 49
+    },
+    {
+      "sourceFrame": 750,
+      "imageSha256": "f8cdf2026387c45ab947e874d66735255164abc7eb9d53f86d9787ea4fa731a1",
+      "objects": [{
+        "tracker": {
+          "matchScore": 0,
+          "scoreMeaning": "Local patch correlation and motion consistency, not calibrated semantic confidence",
+          "motion": {
+            "seedPoints": 42,
+            "inliers": 0,
+            "vectors": [],
+            "method": "motion-recovery",
+            "dxPixels": 0,
+            "dyPixels": 0,
+            "medianForwardBackwardPixels": 0,
+            "scale": 1,
+            "ambiguous": false,
+            "reliablePoints": 0
+          },
+          "lastKnownBox": [
+            0.5088301276132325,
+            0.149372876660825,
+            0.5767626497765881,
+            0.49314976062968824
+          ],
+          "appearanceUpdates": 0,
+          "box": null,
+          "id": "c3fa04cf-a0ad-3400-91e4-533dd6edad5e",
+          "label": "human-guided ground-contact subject",
+          "status": "lost"
+        },
+        "estimate": {
+          "reason": "Tracker supplied no accepted measurement; uncertainty grows",
+          "positionSigma": 17.91126182043018,
+          "accepted": false,
+          "uncertaintyMeaning": "Model covariance under declared motion/noise assumptions; not calibrated probability or metric accuracy",
+          "covariance": [
+            [
+              160.40664999999993,
+              0.8500000000000001,
+              0.8500000000000001,
+              0.0059000000000000025
+            ],
+            [
+              160.40664999999993,
+              0.8500000000000001,
+              0.8500000000000001,
+              0.0059000000000000025
+            ]
+          ],
+          "velocity": [
+            0,
+            0
+          ],
+          "predictedVariance": [
+            160.40664999999993,
+            160.40664999999993
+          ],
+          "domain": "normalized image-plane; unknown depth, metric scale and capture FPS",
+          "time": 750,
+          "position": [
+            0.5427963886949103,
+            0.32126131864525664
+          ],
+          "predicted": [
+            0.5427963886949103,
+            0.32126131864525664
+          ],
+          "timeUnit": "source-frame",
+          "status": "predicted"
+        },
+        "bodyId": "c3fa04cf-a0ad-3400-91e4-533dd6edad5e"
+      }],
+      "ordinal": 50
+    },
+    {
+      "sourceFrame": 755,
+      "imageSha256": "aa6dc32bb23d4c5bad9c607ff567b227444715c475cad0c64520870355563961",
+      "objects": [{
+        "tracker": {
+          "matchScore": 0,
+          "scoreMeaning": "Local patch correlation and motion consistency, not calibrated semantic confidence",
+          "motion": {
+            "seedPoints": 42,
+            "inliers": 0,
+            "vectors": [],
+            "method": "motion-recovery",
+            "dxPixels": 0,
+            "dyPixels": 0,
+            "medianForwardBackwardPixels": 0,
+            "scale": 1,
+            "ambiguous": false,
+            "reliablePoints": 0
+          },
+          "lastKnownBox": [
+            0.5088301276132325,
+            0.149372876660825,
+            0.5767626497765881,
+            0.49314976062968824
+          ],
+          "appearanceUpdates": 0,
+          "box": null,
+          "id": "c3fa04cf-a0ad-3400-91e4-533dd6edad5e",
+          "label": "human-guided ground-contact subject",
+          "status": "lost"
+        },
+        "estimate": {
+          "reason": "Tracker supplied no accepted measurement; uncertainty grows",
+          "positionSigma": 18.387755436702975,
+          "accepted": false,
+          "uncertaintyMeaning": "Model covariance under declared motion/noise assumptions; not calibrated probability or metric accuracy",
+          "covariance": [
+            [
+              169.05477499999992,
+              0.8797500000000001,
+              0.8797500000000001,
+              0.006000000000000003
+            ],
+            [
+              169.05477499999992,
+              0.8797500000000001,
+              0.8797500000000001,
+              0.006000000000000003
+            ]
+          ],
+          "velocity": [
+            0,
+            0
+          ],
+          "predictedVariance": [
+            169.05477499999992,
+            169.05477499999992
+          ],
+          "domain": "normalized image-plane; unknown depth, metric scale and capture FPS",
+          "time": 755,
+          "position": [
+            0.5427963886949103,
+            0.32126131864525664
+          ],
+          "predicted": [
+            0.5427963886949103,
+            0.32126131864525664
+          ],
+          "timeUnit": "source-frame",
+          "status": "predicted"
+        },
+        "bodyId": "c3fa04cf-a0ad-3400-91e4-533dd6edad5e"
+      }],
+      "ordinal": 51
+    },
+    {
+      "sourceFrame": 760,
+      "imageSha256": "ac2f28e8b77d9719685ffde5749677b165a06f3dbe08f0ac470f62c14c554200",
+      "objects": [{
+        "tracker": {
+          "matchScore": 0,
+          "scoreMeaning": "Local patch correlation and motion consistency, not calibrated semantic confidence",
+          "motion": {
+            "seedPoints": 42,
+            "inliers": 0,
+            "vectors": [],
+            "method": "motion-recovery",
+            "dxPixels": 0,
+            "dyPixels": 0,
+            "medianForwardBackwardPixels": 0,
+            "scale": 1,
+            "ambiguous": false,
+            "reliablePoints": 0
+          },
+          "lastKnownBox": [
+            0.5088301276132325,
+            0.149372876660825,
+            0.5767626497765881,
+            0.49314976062968824
+          ],
+          "appearanceUpdates": 0,
+          "box": null,
+          "id": "c3fa04cf-a0ad-3400-91e4-533dd6edad5e",
+          "label": "human-guided ground-contact subject",
+          "status": "lost"
+        },
+        "estimate": {
+          "reason": "Tracker supplied no accepted measurement; uncertainty grows",
+          "positionSigma": 18.868115963179786,
+          "accepted": false,
+          "uncertaintyMeaning": "Model covariance under declared motion/noise assumptions; not calibrated probability or metric accuracy",
+          "covariance": [
+            [
+              178.00289999999993,
+              0.9100000000000001,
+              0.9100000000000001,
+              0.006100000000000003
+            ],
+            [
+              178.00289999999993,
+              0.9100000000000001,
+              0.9100000000000001,
+              0.006100000000000003
+            ]
+          ],
+          "velocity": [
+            0,
+            0
+          ],
+          "predictedVariance": [
+            178.00289999999993,
+            178.00289999999993
+          ],
+          "domain": "normalized image-plane; unknown depth, metric scale and capture FPS",
+          "time": 760,
+          "position": [
+            0.5427963886949103,
+            0.32126131864525664
+          ],
+          "predicted": [
+            0.5427963886949103,
+            0.32126131864525664
+          ],
+          "timeUnit": "source-frame",
+          "status": "predicted"
+        },
+        "bodyId": "c3fa04cf-a0ad-3400-91e4-533dd6edad5e"
+      }],
+      "ordinal": 52
+    },
+    {
+      "sourceFrame": 765,
+      "imageSha256": "c5c16d70a7c77ba236a8ff526dc562afc9f133988196d0854cc082d9facea073",
+      "objects": [{
+        "tracker": {
+          "matchScore": 0,
+          "scoreMeaning": "Local patch correlation and motion consistency, not calibrated semantic confidence",
+          "motion": {
+            "seedPoints": 42,
+            "inliers": 0,
+            "vectors": [],
+            "method": "motion-recovery",
+            "dxPixels": 0,
+            "dyPixels": 0,
+            "medianForwardBackwardPixels": 0,
+            "scale": 1,
+            "ambiguous": false,
+            "reliablePoints": 0
+          },
+          "lastKnownBox": [
+            0.5088301276132325,
+            0.149372876660825,
+            0.5767626497765881,
+            0.49314976062968824
+          ],
+          "appearanceUpdates": 0,
+          "box": null,
+          "id": "c3fa04cf-a0ad-3400-91e4-533dd6edad5e",
+          "label": "human-guided ground-contact subject",
+          "status": "lost"
+        },
+        "estimate": {
+          "reason": "Tracker supplied no accepted measurement; uncertainty grows",
+          "positionSigma": 19.35231381514882,
+          "accepted": false,
+          "uncertaintyMeaning": "Model covariance under declared motion/noise assumptions; not calibrated probability or metric accuracy",
+          "covariance": [
+            [
+              187.25602499999994,
+              0.9407500000000002,
+              0.9407500000000002,
+              0.006200000000000003
+            ],
+            [
+              187.25602499999994,
+              0.9407500000000002,
+              0.9407500000000002,
+              0.006200000000000003
+            ]
+          ],
+          "velocity": [
+            0,
+            0
+          ],
+          "predictedVariance": [
+            187.25602499999994,
+            187.25602499999994
+          ],
+          "domain": "normalized image-plane; unknown depth, metric scale and capture FPS",
+          "time": 765,
+          "position": [
+            0.5427963886949103,
+            0.32126131864525664
+          ],
+          "predicted": [
+            0.5427963886949103,
+            0.32126131864525664
+          ],
+          "timeUnit": "source-frame",
+          "status": "predicted"
+        },
+        "bodyId": "c3fa04cf-a0ad-3400-91e4-533dd6edad5e"
+      }],
+      "ordinal": 53
+    },
+    {
+      "sourceFrame": 770,
+      "imageSha256": "86aa148863784c52a796a3b18cf8a74f7d9898348e4ff5398339de89bf47b9f6",
+      "objects": [{
+        "tracker": {
+          "matchScore": 0,
+          "scoreMeaning": "Local patch correlation and motion consistency, not calibrated semantic confidence",
+          "motion": {
+            "seedPoints": 42,
+            "inliers": 0,
+            "vectors": [],
+            "method": "motion-recovery",
+            "dxPixels": 0,
+            "dyPixels": 0,
+            "medianForwardBackwardPixels": 0,
+            "scale": 1,
+            "ambiguous": false,
+            "reliablePoints": 0
+          },
+          "lastKnownBox": [
+            0.5088301276132325,
+            0.149372876660825,
+            0.5767626497765881,
+            0.49314976062968824
+          ],
+          "appearanceUpdates": 0,
+          "box": null,
+          "id": "c3fa04cf-a0ad-3400-91e4-533dd6edad5e",
+          "label": "human-guided ground-contact subject",
+          "status": "lost"
+        },
+        "estimate": {
+          "reason": "Tracker supplied no accepted measurement; uncertainty grows",
+          "positionSigma": 19.84032005790229,
+          "accepted": false,
+          "uncertaintyMeaning": "Model covariance under declared motion/noise assumptions; not calibrated probability or metric accuracy",
+          "covariance": [
+            [
+              196.81914999999995,
+              0.9720000000000002,
+              0.9720000000000002,
+              0.0063000000000000035
+            ],
+            [
+              196.81914999999995,
+              0.9720000000000002,
+              0.9720000000000002,
+              0.0063000000000000035
+            ]
+          ],
+          "velocity": [
+            0,
+            0
+          ],
+          "predictedVariance": [
+            196.81914999999995,
+            196.81914999999995
+          ],
+          "domain": "normalized image-plane; unknown depth, metric scale and capture FPS",
+          "time": 770,
+          "position": [
+            0.5427963886949103,
+            0.32126131864525664
+          ],
+          "predicted": [
+            0.5427963886949103,
+            0.32126131864525664
+          ],
+          "timeUnit": "source-frame",
+          "status": "predicted"
+        },
+        "bodyId": "c3fa04cf-a0ad-3400-91e4-533dd6edad5e"
+      }],
+      "ordinal": 54
+    },
+    {
+      "sourceFrame": 775,
+      "imageSha256": "6f80e2b5cc9a20834bb67033aab36a9e7eb5642bb146b820fb729fa8e4c9c72b",
+      "objects": [{
+        "tracker": {
+          "matchScore": 0,
+          "scoreMeaning": "Local patch correlation and motion consistency, not calibrated semantic confidence",
+          "motion": {
+            "seedPoints": 42,
+            "inliers": 0,
+            "vectors": [],
+            "method": "motion-recovery",
+            "dxPixels": 0,
+            "dyPixels": 0,
+            "medianForwardBackwardPixels": 0,
+            "scale": 1,
+            "ambiguous": false,
+            "reliablePoints": 0
+          },
+          "lastKnownBox": [
+            0.5088301276132325,
+            0.149372876660825,
+            0.5767626497765881,
+            0.49314976062968824
+          ],
+          "appearanceUpdates": 0,
+          "box": null,
+          "id": "c3fa04cf-a0ad-3400-91e4-533dd6edad5e",
+          "label": "human-guided ground-contact subject",
+          "status": "lost"
+        },
+        "estimate": {
+          "reason": "Tracker supplied no accepted measurement; uncertainty grows",
+          "positionSigma": 20.33210638374686,
+          "accepted": false,
+          "uncertaintyMeaning": "Model covariance under declared motion/noise assumptions; not calibrated probability or metric accuracy",
+          "covariance": [
+            [
+              206.69727499999996,
+              1.0037500000000001,
+              1.0037500000000001,
+              0.006400000000000004
+            ],
+            [
+              206.69727499999996,
+              1.0037500000000001,
+              1.0037500000000001,
+              0.006400000000000004
+            ]
+          ],
+          "velocity": [
+            0,
+            0
+          ],
+          "predictedVariance": [
+            206.69727499999996,
+            206.69727499999996
+          ],
+          "domain": "normalized image-plane; unknown depth, metric scale and capture FPS",
+          "time": 775,
+          "position": [
+            0.5427963886949103,
+            0.32126131864525664
+          ],
+          "predicted": [
+            0.5427963886949103,
+            0.32126131864525664
+          ],
+          "timeUnit": "source-frame",
+          "status": "predicted"
+        },
+        "bodyId": "c3fa04cf-a0ad-3400-91e4-533dd6edad5e"
+      }],
+      "ordinal": 55
+    },
+    {
+      "sourceFrame": 780,
+      "imageSha256": "7299c434199b1f1923edf5b27d57ff7eef8453b97531d4f5f6e36e3958f5ec46",
+      "objects": [{
+        "tracker": {
+          "matchScore": 0,
+          "scoreMeaning": "Local patch correlation and motion consistency, not calibrated semantic confidence",
+          "motion": {
+            "seedPoints": 42,
+            "inliers": 0,
+            "vectors": [],
+            "method": "motion-recovery",
+            "dxPixels": 0,
+            "dyPixels": 0,
+            "medianForwardBackwardPixels": 0,
+            "scale": 1,
+            "ambiguous": false,
+            "reliablePoints": 0
+          },
+          "lastKnownBox": [
+            0.5088301276132325,
+            0.149372876660825,
+            0.5767626497765881,
+            0.49314976062968824
+          ],
+          "appearanceUpdates": 0,
+          "box": null,
+          "id": "c3fa04cf-a0ad-3400-91e4-533dd6edad5e",
+          "label": "human-guided ground-contact subject",
+          "status": "lost"
+        },
+        "estimate": {
+          "reason": "Tracker supplied no accepted measurement; uncertainty grows",
+          "positionSigma": 20.827645090120004,
+          "accepted": false,
+          "uncertaintyMeaning": "Model covariance under declared motion/noise assumptions; not calibrated probability or metric accuracy",
+          "covariance": [
+            [
+              216.89539999999997,
+              1.0360000000000003,
+              1.0360000000000003,
+              0.006500000000000004
+            ],
+            [
+              216.89539999999997,
+              1.0360000000000003,
+              1.0360000000000003,
+              0.006500000000000004
+            ]
+          ],
+          "velocity": [
+            0,
+            0
+          ],
+          "predictedVariance": [
+            216.89539999999997,
+            216.89539999999997
+          ],
+          "domain": "normalized image-plane; unknown depth, metric scale and capture FPS",
+          "time": 780,
+          "position": [
+            0.5427963886949103,
+            0.32126131864525664
+          ],
+          "predicted": [
+            0.5427963886949103,
+            0.32126131864525664
+          ],
+          "timeUnit": "source-frame",
+          "status": "predicted"
+        },
+        "bodyId": "c3fa04cf-a0ad-3400-91e4-533dd6edad5e"
+      }],
+      "ordinal": 56
+    },
+    {
+      "sourceFrame": 785,
+      "imageSha256": "7814dbee13e8acc6f71cfe9e9c2c7504a6131770d57335aa82e443a9eb821d31",
+      "objects": [{
+        "tracker": {
+          "matchScore": 0,
+          "scoreMeaning": "Local patch correlation and motion consistency, not calibrated semantic confidence",
+          "motion": {
+            "seedPoints": 42,
+            "inliers": 0,
+            "vectors": [],
+            "method": "motion-recovery",
+            "dxPixels": 0,
+            "dyPixels": 0,
+            "medianForwardBackwardPixels": 0,
+            "scale": 1,
+            "ambiguous": false,
+            "reliablePoints": 0
+          },
+          "lastKnownBox": [
+            0.5088301276132325,
+            0.149372876660825,
+            0.5767626497765881,
+            0.49314976062968824
+          ],
+          "appearanceUpdates": 0,
+          "box": null,
+          "id": "c3fa04cf-a0ad-3400-91e4-533dd6edad5e",
+          "label": "human-guided ground-contact subject",
+          "status": "lost"
+        },
+        "estimate": {
+          "reason": "Tracker supplied no accepted measurement; uncertainty grows",
+          "positionSigma": 21.32690905874548,
+          "accepted": false,
+          "uncertaintyMeaning": "Model covariance under declared motion/noise assumptions; not calibrated probability or metric accuracy",
+          "covariance": [
+            [
+              227.41852499999996,
+              1.0687500000000003,
+              1.0687500000000003,
+              0.006600000000000004
+            ],
+            [
+              227.41852499999996,
+              1.0687500000000003,
+              1.0687500000000003,
+              0.006600000000000004
+            ]
+          ],
+          "velocity": [
+            0,
+            0
+          ],
+          "predictedVariance": [
+            227.41852499999996,
+            227.41852499999996
+          ],
+          "domain": "normalized image-plane; unknown depth, metric scale and capture FPS",
+          "time": 785,
+          "position": [
+            0.5427963886949103,
+            0.32126131864525664
+          ],
+          "predicted": [
+            0.5427963886949103,
+            0.32126131864525664
+          ],
+          "timeUnit": "source-frame",
+          "status": "predicted"
+        },
+        "bodyId": "c3fa04cf-a0ad-3400-91e4-533dd6edad5e"
+      }],
+      "ordinal": 57
+    },
+    {
+      "sourceFrame": 790,
+      "imageSha256": "ac04027e953954089c1a5f94b5ab5717c765e5a898ae69613e83688c678ff8cb",
+      "objects": [{
+        "tracker": {
+          "matchScore": 0,
+          "scoreMeaning": "Local patch correlation and motion consistency, not calibrated semantic confidence",
+          "motion": {
+            "seedPoints": 42,
+            "inliers": 0,
+            "vectors": [],
+            "method": "motion-recovery",
+            "dxPixels": 0,
+            "dyPixels": 0,
+            "medianForwardBackwardPixels": 0,
+            "scale": 1,
+            "ambiguous": false,
+            "reliablePoints": 0
+          },
+          "lastKnownBox": [
+            0.5088301276132325,
+            0.149372876660825,
+            0.5767626497765881,
+            0.49314976062968824
+          ],
+          "appearanceUpdates": 0,
+          "box": null,
+          "id": "c3fa04cf-a0ad-3400-91e4-533dd6edad5e",
+          "label": "human-guided ground-contact subject",
+          "status": "lost"
+        },
+        "estimate": {
+          "reason": "Tracker supplied no accepted measurement; uncertainty grows",
+          "positionSigma": 21.82987173576611,
+          "accepted": false,
+          "uncertaintyMeaning": "Model covariance under declared motion/noise assumptions; not calibrated probability or metric accuracy",
+          "covariance": [
+            [
+              238.27164999999997,
+              1.1020000000000003,
+              1.1020000000000003,
+              0.0067000000000000046
+            ],
+            [
+              238.27164999999997,
+              1.1020000000000003,
+              1.1020000000000003,
+              0.0067000000000000046
+            ]
+          ],
+          "velocity": [
+            0,
+            0
+          ],
+          "predictedVariance": [
+            238.27164999999997,
+            238.27164999999997
+          ],
+          "domain": "normalized image-plane; unknown depth, metric scale and capture FPS",
+          "time": 790,
+          "position": [
+            0.5427963886949103,
+            0.32126131864525664
+          ],
+          "predicted": [
+            0.5427963886949103,
+            0.32126131864525664
+          ],
+          "timeUnit": "source-frame",
+          "status": "predicted"
+        },
+        "bodyId": "c3fa04cf-a0ad-3400-91e4-533dd6edad5e"
+      }],
+      "ordinal": 58
+    },
+    {
+      "sourceFrame": 795,
+      "imageSha256": "4eb08483a2f0eb051119bc12c5a1fea5044fb3955489d5f57f2f7b8404d0b780",
+      "objects": [{
+        "tracker": {
+          "matchScore": 0,
+          "scoreMeaning": "Local patch correlation and motion consistency, not calibrated semantic confidence",
+          "motion": {
+            "seedPoints": 42,
+            "inliers": 0,
+            "vectors": [],
+            "method": "motion-recovery",
+            "dxPixels": 0,
+            "dyPixels": 0,
+            "medianForwardBackwardPixels": 0,
+            "scale": 1,
+            "ambiguous": false,
+            "reliablePoints": 0
+          },
+          "lastKnownBox": [
+            0.5088301276132325,
+            0.149372876660825,
+            0.5767626497765881,
+            0.49314976062968824
+          ],
+          "appearanceUpdates": 0,
+          "box": null,
+          "id": "c3fa04cf-a0ad-3400-91e4-533dd6edad5e",
+          "label": "human-guided ground-contact subject",
+          "status": "lost"
+        },
+        "estimate": {
+          "reason": "Tracker supplied no accepted measurement; uncertainty grows",
+          "positionSigma": 22.336507112796305,
+          "accepted": false,
+          "uncertaintyMeaning": "Model covariance under declared motion/noise assumptions; not calibrated probability or metric accuracy",
+          "covariance": [
+            [
+              249.45977499999998,
+              1.1357500000000003,
+              1.1357500000000003,
+              0.006800000000000005
+            ],
+            [
+              249.45977499999998,
+              1.1357500000000003,
+              1.1357500000000003,
+              0.006800000000000005
+            ]
+          ],
+          "velocity": [
+            0,
+            0
+          ],
+          "predictedVariance": [
+            249.45977499999998,
+            249.45977499999998
+          ],
+          "domain": "normalized image-plane; unknown depth, metric scale and capture FPS",
+          "time": 795,
+          "position": [
+            0.5427963886949103,
+            0.32126131864525664
+          ],
+          "predicted": [
+            0.5427963886949103,
+            0.32126131864525664
+          ],
+          "timeUnit": "source-frame",
+          "status": "predicted"
+        },
+        "bodyId": "c3fa04cf-a0ad-3400-91e4-533dd6edad5e"
+      }],
+      "ordinal": 59
+    },
+    {
+      "sourceFrame": 800,
+      "imageSha256": "173d10960a03ed05e886b4dac79da0f5fcdec5504dac1d3eda4da7b85b6224a7",
+      "objects": [{
+        "tracker": {
+          "matchScore": 0,
+          "scoreMeaning": "Local patch correlation and motion consistency, not calibrated semantic confidence",
+          "motion": {
+            "seedPoints": 42,
+            "inliers": 0,
+            "vectors": [],
+            "method": "motion-recovery",
+            "dxPixels": 0,
+            "dyPixels": 0,
+            "medianForwardBackwardPixels": 0,
+            "scale": 1,
+            "ambiguous": false,
+            "reliablePoints": 0
+          },
+          "lastKnownBox": [
+            0.5088301276132325,
+            0.149372876660825,
+            0.5767626497765881,
+            0.49314976062968824
+          ],
+          "appearanceUpdates": 0,
+          "box": null,
+          "id": "c3fa04cf-a0ad-3400-91e4-533dd6edad5e",
+          "label": "human-guided ground-contact subject",
+          "status": "lost"
+        },
+        "estimate": {
+          "reason": "Tracker supplied no accepted measurement; uncertainty grows",
+          "positionSigma": 22.846789708840934,
+          "accepted": false,
+          "uncertaintyMeaning": "Model covariance under declared motion/noise assumptions; not calibrated probability or metric accuracy",
+          "covariance": [
+            [
+              260.98789999999997,
+              1.1700000000000004,
+              1.1700000000000004,
+              0.006900000000000005
+            ],
+            [
+              260.98789999999997,
+              1.1700000000000004,
+              1.1700000000000004,
+              0.006900000000000005
+            ]
+          ],
+          "velocity": [
+            0,
+            0
+          ],
+          "predictedVariance": [
+            260.98789999999997,
+            260.98789999999997
+          ],
+          "domain": "normalized image-plane; unknown depth, metric scale and capture FPS",
+          "time": 800,
+          "position": [
+            0.5427963886949103,
+            0.32126131864525664
+          ],
+          "predicted": [
+            0.5427963886949103,
+            0.32126131864525664
+          ],
+          "timeUnit": "source-frame",
+          "status": "predicted"
+        },
+        "bodyId": "c3fa04cf-a0ad-3400-91e4-533dd6edad5e"
+      }],
+      "ordinal": 60
+    },
+    {
+      "sourceFrame": 805,
+      "imageSha256": "ba2e4f98c6ae155a25ed60051cb97dc2828859f5cf09847d87c6dd6c858ca08f",
+      "objects": [{
+        "tracker": {
+          "matchScore": 0,
+          "scoreMeaning": "Local patch correlation and motion consistency, not calibrated semantic confidence",
+          "motion": {
+            "seedPoints": 42,
+            "inliers": 0,
+            "vectors": [],
+            "method": "motion-recovery",
+            "dxPixels": 0,
+            "dyPixels": 0,
+            "medianForwardBackwardPixels": 0,
+            "scale": 1,
+            "ambiguous": false,
+            "reliablePoints": 0
+          },
+          "lastKnownBox": [
+            0.5088301276132325,
+            0.149372876660825,
+            0.5767626497765881,
+            0.49314976062968824
+          ],
+          "appearanceUpdates": 0,
+          "box": null,
+          "id": "c3fa04cf-a0ad-3400-91e4-533dd6edad5e",
+          "label": "human-guided ground-contact subject",
+          "status": "lost"
+        },
+        "estimate": {
+          "reason": "Tracker supplied no accepted measurement; uncertainty grows",
+          "positionSigma": 23.360694553030736,
+          "accepted": false,
+          "uncertaintyMeaning": "Model covariance under declared motion/noise assumptions; not calibrated probability or metric accuracy",
+          "covariance": [
+            [
+              272.861025,
+              1.2047500000000004,
+              1.2047500000000004,
+              0.007000000000000005
+            ],
+            [
+              272.861025,
+              1.2047500000000004,
+              1.2047500000000004,
+              0.007000000000000005
+            ]
+          ],
+          "velocity": [
+            0,
+            0
+          ],
+          "predictedVariance": [
+            272.861025,
+            272.861025
+          ],
+          "domain": "normalized image-plane; unknown depth, metric scale and capture FPS",
+          "time": 805,
+          "position": [
+            0.5427963886949103,
+            0.32126131864525664
+          ],
+          "predicted": [
+            0.5427963886949103,
+            0.32126131864525664
+          ],
+          "timeUnit": "source-frame",
+          "status": "predicted"
+        },
+        "bodyId": "c3fa04cf-a0ad-3400-91e4-533dd6edad5e"
+      }],
+      "ordinal": 61
+    },
+    {
+      "sourceFrame": 810,
+      "imageSha256": "4e505d115f278cf691a07d4274bf1f22c9d939bacb564e0197b81dd38220fcd6",
+      "objects": [{
+        "tracker": {
+          "matchScore": 0,
+          "scoreMeaning": "Local patch correlation and motion consistency, not calibrated semantic confidence",
+          "motion": {
+            "seedPoints": 42,
+            "inliers": 0,
+            "vectors": [],
+            "method": "motion-recovery",
+            "dxPixels": 0,
+            "dyPixels": 0,
+            "medianForwardBackwardPixels": 0,
+            "scale": 1,
+            "ambiguous": false,
+            "reliablePoints": 0
+          },
+          "lastKnownBox": [
+            0.5088301276132325,
+            0.149372876660825,
+            0.5767626497765881,
+            0.49314976062968824
+          ],
+          "appearanceUpdates": 0,
+          "box": null,
+          "id": "c3fa04cf-a0ad-3400-91e4-533dd6edad5e",
+          "label": "human-guided ground-contact subject",
+          "status": "lost"
+        },
+        "estimate": {
+          "reason": "Tracker supplied no accepted measurement; uncertainty grows",
+          "positionSigma": 23.878197168128082,
+          "accepted": false,
+          "uncertaintyMeaning": "Model covariance under declared motion/noise assumptions; not calibrated probability or metric accuracy",
+          "covariance": [
+            [
+              285.08414999999997,
+              1.2400000000000004,
+              1.2400000000000004,
+              0.007100000000000006
+            ],
+            [
+              285.08414999999997,
+              1.2400000000000004,
+              1.2400000000000004,
+              0.007100000000000006
+            ]
+          ],
+          "velocity": [
+            0,
+            0
+          ],
+          "predictedVariance": [
+            285.08414999999997,
+            285.08414999999997
+          ],
+          "domain": "normalized image-plane; unknown depth, metric scale and capture FPS",
+          "time": 810,
+          "position": [
+            0.5427963886949103,
+            0.32126131864525664
+          ],
+          "predicted": [
+            0.5427963886949103,
+            0.32126131864525664
+          ],
+          "timeUnit": "source-frame",
+          "status": "predicted"
+        },
+        "bodyId": "c3fa04cf-a0ad-3400-91e4-533dd6edad5e"
+      }],
+      "ordinal": 62
+    },
+    {
+      "sourceFrame": 815,
+      "imageSha256": "ba87d6d78328ca025a35b7acef4e88a6949272462181edbbedbf41c92f25b9c5",
+      "objects": [{
+        "tracker": {
+          "matchScore": 0,
+          "scoreMeaning": "Local patch correlation and motion consistency, not calibrated semantic confidence",
+          "motion": {
+            "seedPoints": 42,
+            "inliers": 0,
+            "vectors": [],
+            "method": "motion-recovery",
+            "dxPixels": 0,
+            "dyPixels": 0,
+            "medianForwardBackwardPixels": 0,
+            "scale": 1,
+            "ambiguous": false,
+            "reliablePoints": 0
+          },
+          "lastKnownBox": [
+            0.5088301276132325,
+            0.149372876660825,
+            0.5767626497765881,
+            0.49314976062968824
+          ],
+          "appearanceUpdates": 0,
+          "box": null,
+          "id": "c3fa04cf-a0ad-3400-91e4-533dd6edad5e",
+          "label": "human-guided ground-contact subject",
+          "status": "lost"
+        },
+        "estimate": {
+          "reason": "Tracker supplied no accepted measurement; uncertainty grows",
+          "positionSigma": 24.39927355475978,
+          "accepted": false,
+          "uncertaintyMeaning": "Model covariance under declared motion/noise assumptions; not calibrated probability or metric accuracy",
+          "covariance": [
+            [
+              297.66227499999997,
+              1.2757500000000004,
+              1.2757500000000004,
+              0.007200000000000006
+            ],
+            [
+              297.66227499999997,
+              1.2757500000000004,
+              1.2757500000000004,
+              0.007200000000000006
+            ]
+          ],
+          "velocity": [
+            0,
+            0
+          ],
+          "predictedVariance": [
+            297.66227499999997,
+            297.66227499999997
+          ],
+          "domain": "normalized image-plane; unknown depth, metric scale and capture FPS",
+          "time": 815,
+          "position": [
+            0.5427963886949103,
+            0.32126131864525664
+          ],
+          "predicted": [
+            0.5427963886949103,
+            0.32126131864525664
+          ],
+          "timeUnit": "source-frame",
+          "status": "predicted"
+        },
+        "bodyId": "c3fa04cf-a0ad-3400-91e4-533dd6edad5e"
+      }],
+      "ordinal": 63
+    },
+    {
+      "sourceFrame": 820,
+      "imageSha256": "6285391157dfa9eb3f9517737cbed5551c97be5807907f99fc2467fa5b469959",
+      "objects": [{
+        "tracker": {
+          "matchScore": 0,
+          "scoreMeaning": "Local patch correlation and motion consistency, not calibrated semantic confidence",
+          "motion": {
+            "seedPoints": 42,
+            "inliers": 0,
+            "vectors": [],
+            "method": "motion-recovery",
+            "dxPixels": 0,
+            "dyPixels": 0,
+            "medianForwardBackwardPixels": 0,
+            "scale": 1,
+            "ambiguous": false,
+            "reliablePoints": 0
+          },
+          "lastKnownBox": [
+            0.5088301276132325,
+            0.149372876660825,
+            0.5767626497765881,
+            0.49314976062968824
+          ],
+          "appearanceUpdates": 0,
+          "box": null,
+          "id": "c3fa04cf-a0ad-3400-91e4-533dd6edad5e",
+          "label": "human-guided ground-contact subject",
+          "status": "lost"
+        },
+        "estimate": {
+          "reason": "Tracker supplied no accepted measurement; uncertainty grows",
+          "positionSigma": 24.92390017633677,
+          "accepted": false,
+          "uncertaintyMeaning": "Model covariance under declared motion/noise assumptions; not calibrated probability or metric accuracy",
+          "covariance": [
+            [
+              310.6004,
+              1.3120000000000005,
+              1.3120000000000005,
+              0.007300000000000006
+            ],
+            [
+              310.6004,
+              1.3120000000000005,
+              1.3120000000000005,
+              0.007300000000000006
+            ]
+          ],
+          "velocity": [
+            0,
+            0
+          ],
+          "predictedVariance": [
+            310.6004,
+            310.6004
+          ],
+          "domain": "normalized image-plane; unknown depth, metric scale and capture FPS",
+          "time": 820,
+          "position": [
+            0.5427963886949103,
+            0.32126131864525664
+          ],
+          "predicted": [
+            0.5427963886949103,
+            0.32126131864525664
+          ],
+          "timeUnit": "source-frame",
+          "status": "predicted"
+        },
+        "bodyId": "c3fa04cf-a0ad-3400-91e4-533dd6edad5e"
+      }],
+      "ordinal": 64
+    },
+    {
+      "sourceFrame": 825,
+      "imageSha256": "44a065ac59260ba1a54bebb0883a4e77a1bccbd08978783d3a3475a84dd43169",
+      "objects": [{
+        "tracker": {
+          "matchScore": 0,
+          "scoreMeaning": "Local patch correlation and motion consistency, not calibrated semantic confidence",
+          "motion": {
+            "seedPoints": 42,
+            "inliers": 0,
+            "vectors": [],
+            "method": "motion-recovery",
+            "dxPixels": 0,
+            "dyPixels": 0,
+            "medianForwardBackwardPixels": 0,
+            "scale": 1,
+            "ambiguous": false,
+            "reliablePoints": 0
+          },
+          "lastKnownBox": [
+            0.5088301276132325,
+            0.149372876660825,
+            0.5767626497765881,
+            0.49314976062968824
+          ],
+          "appearanceUpdates": 0,
+          "box": null,
+          "id": "c3fa04cf-a0ad-3400-91e4-533dd6edad5e",
+          "label": "human-guided ground-contact subject",
+          "status": "lost"
+        },
+        "estimate": {
+          "reason": "Tracker supplied no accepted measurement; uncertainty grows",
+          "positionSigma": 25.452053944623014,
+          "accepted": false,
+          "uncertaintyMeaning": "Model covariance under declared motion/noise assumptions; not calibrated probability or metric accuracy",
+          "covariance": [
+            [
+              323.903525,
+              1.3487500000000006,
+              1.3487500000000006,
+              0.007400000000000006
+            ],
+            [
+              323.903525,
+              1.3487500000000006,
+              1.3487500000000006,
+              0.007400000000000006
+            ]
+          ],
+          "velocity": [
+            0,
+            0
+          ],
+          "predictedVariance": [
+            323.903525,
+            323.903525
+          ],
+          "domain": "normalized image-plane; unknown depth, metric scale and capture FPS",
+          "time": 825,
+          "position": [
+            0.5427963886949103,
+            0.32126131864525664
+          ],
+          "predicted": [
+            0.5427963886949103,
+            0.32126131864525664
+          ],
+          "timeUnit": "source-frame",
+          "status": "predicted"
+        },
+        "bodyId": "c3fa04cf-a0ad-3400-91e4-533dd6edad5e"
+      }],
+      "ordinal": 65
+    },
+    {
+      "sourceFrame": 830,
+      "imageSha256": "07df861e056c18453b85dbbbe3ae7ffcbfb4f2c7ee46943d84602b7b539f095a",
+      "objects": [{
+        "tracker": {
+          "matchScore": 0,
+          "scoreMeaning": "Local patch correlation and motion consistency, not calibrated semantic confidence",
+          "motion": {
+            "seedPoints": 42,
+            "inliers": 0,
+            "vectors": [],
+            "method": "motion-recovery",
+            "dxPixels": 0,
+            "dyPixels": 0,
+            "medianForwardBackwardPixels": 0,
+            "scale": 1,
+            "ambiguous": false,
+            "reliablePoints": 0
+          },
+          "lastKnownBox": [
+            0.5088301276132325,
+            0.149372876660825,
+            0.5767626497765881,
+            0.49314976062968824
+          ],
+          "appearanceUpdates": 0,
+          "box": null,
+          "id": "c3fa04cf-a0ad-3400-91e4-533dd6edad5e",
+          "label": "human-guided ground-contact subject",
+          "status": "lost"
+        },
+        "estimate": {
+          "reason": "Tracker supplied no accepted measurement; uncertainty grows",
+          "positionSigma": 25.98371220591854,
+          "accepted": false,
+          "uncertaintyMeaning": "Model covariance under declared motion/noise assumptions; not calibrated probability or metric accuracy",
+          "covariance": [
+            [
+              337.57665000000003,
+              1.3860000000000006,
+              1.3860000000000006,
+              0.007500000000000007
+            ],
+            [
+              337.57665000000003,
+              1.3860000000000006,
+              1.3860000000000006,
+              0.007500000000000007
+            ]
+          ],
+          "velocity": [
+            0,
+            0
+          ],
+          "predictedVariance": [
+            337.57665000000003,
+            337.57665000000003
+          ],
+          "domain": "normalized image-plane; unknown depth, metric scale and capture FPS",
+          "time": 830,
+          "position": [
+            0.5427963886949103,
+            0.32126131864525664
+          ],
+          "predicted": [
+            0.5427963886949103,
+            0.32126131864525664
+          ],
+          "timeUnit": "source-frame",
+          "status": "predicted"
+        },
+        "bodyId": "c3fa04cf-a0ad-3400-91e4-533dd6edad5e"
+      }],
+      "ordinal": 66
+    },
+    {
+      "sourceFrame": 835,
+      "imageSha256": "cd34eaf0b214212bccbec0adcc44eea32117c26c88a0fb10fe683d1ff2e31f23",
+      "objects": [{
+        "tracker": {
+          "matchScore": 0,
+          "scoreMeaning": "Local patch correlation and motion consistency, not calibrated semantic confidence",
+          "motion": {
+            "seedPoints": 42,
+            "inliers": 0,
+            "vectors": [],
+            "method": "motion-recovery",
+            "dxPixels": 0,
+            "dyPixels": 0,
+            "medianForwardBackwardPixels": 0,
+            "scale": 1,
+            "ambiguous": false,
+            "reliablePoints": 0
+          },
+          "lastKnownBox": [
+            0.5088301276132325,
+            0.149372876660825,
+            0.5767626497765881,
+            0.49314976062968824
+          ],
+          "appearanceUpdates": 0,
+          "box": null,
+          "id": "c3fa04cf-a0ad-3400-91e4-533dd6edad5e",
+          "label": "human-guided ground-contact subject",
+          "status": "lost"
+        },
+        "estimate": {
+          "reason": "Tracker supplied no accepted measurement; uncertainty grows",
+          "positionSigma": 26.518852727823656,
+          "accepted": false,
+          "uncertaintyMeaning": "Model covariance under declared motion/noise assumptions; not calibrated probability or metric accuracy",
+          "covariance": [
+            [
+              351.62477500000006,
+              1.4237500000000005,
+              1.4237500000000005,
+              0.007600000000000007
+            ],
+            [
+              351.62477500000006,
+              1.4237500000000005,
+              1.4237500000000005,
+              0.007600000000000007
+            ]
+          ],
+          "velocity": [
+            0,
+            0
+          ],
+          "predictedVariance": [
+            351.62477500000006,
+            351.62477500000006
+          ],
+          "domain": "normalized image-plane; unknown depth, metric scale and capture FPS",
+          "time": 835,
+          "position": [
+            0.5427963886949103,
+            0.32126131864525664
+          ],
+          "predicted": [
+            0.5427963886949103,
+            0.32126131864525664
+          ],
+          "timeUnit": "source-frame",
+          "status": "predicted"
+        },
+        "bodyId": "c3fa04cf-a0ad-3400-91e4-533dd6edad5e"
+      }],
+      "ordinal": 67
+    },
+    {
+      "sourceFrame": 840,
+      "imageSha256": "793896a05f69fa7c2d28de3298d86598dccb0365a379d57357a12dda2458385a",
+      "objects": [{
+        "tracker": {
+          "matchScore": 0,
+          "scoreMeaning": "Local patch correlation and motion consistency, not calibrated semantic confidence",
+          "motion": {
+            "seedPoints": 42,
+            "inliers": 0,
+            "vectors": [],
+            "method": "motion-recovery",
+            "dxPixels": 0,
+            "dyPixels": 0,
+            "medianForwardBackwardPixels": 0,
+            "scale": 1,
+            "ambiguous": false,
+            "reliablePoints": 0
+          },
+          "lastKnownBox": [
+            0.5088301276132325,
+            0.149372876660825,
+            0.5767626497765881,
+            0.49314976062968824
+          ],
+          "appearanceUpdates": 0,
+          "box": null,
+          "id": "c3fa04cf-a0ad-3400-91e4-533dd6edad5e",
+          "label": "human-guided ground-contact subject",
+          "status": "lost"
+        },
+        "estimate": {
+          "reason": "Tracker supplied no accepted measurement; uncertainty grows",
+          "positionSigma": 27.057453686553732,
+          "accepted": false,
+          "uncertaintyMeaning": "Model covariance under declared motion/noise assumptions; not calibrated probability or metric accuracy",
+          "covariance": [
+            [
+              366.0529000000001,
+              1.4620000000000006,
+              1.4620000000000006,
+              0.007700000000000007
+            ],
+            [
+              366.0529000000001,
+              1.4620000000000006,
+              1.4620000000000006,
+              0.007700000000000007
+            ]
+          ],
+          "velocity": [
+            0,
+            0
+          ],
+          "predictedVariance": [
+            366.0529000000001,
+            366.0529000000001
+          ],
+          "domain": "normalized image-plane; unknown depth, metric scale and capture FPS",
+          "time": 840,
+          "position": [
+            0.5427963886949103,
+            0.32126131864525664
+          ],
+          "predicted": [
+            0.5427963886949103,
+            0.32126131864525664
+          ],
+          "timeUnit": "source-frame",
+          "status": "predicted"
+        },
+        "bodyId": "c3fa04cf-a0ad-3400-91e4-533dd6edad5e"
+      }],
+      "ordinal": 68
+    },
+    {
+      "sourceFrame": 845,
+      "imageSha256": "7839f0e46bfee4bc59063f98e97a6fec4dc68ae970e6e066add944fa22aac1da",
+      "objects": [{
+        "tracker": {
+          "matchScore": 0,
+          "scoreMeaning": "Local patch correlation and motion consistency, not calibrated semantic confidence",
+          "motion": {
+            "seedPoints": 42,
+            "inliers": 1,
+            "vectors": [],
+            "method": "motion-recovery",
+            "dxPixels": 0,
+            "dyPixels": 0,
+            "medianForwardBackwardPixels": 0,
+            "scale": 1,
+            "ambiguous": false,
+            "reliablePoints": 1
+          },
+          "lastKnownBox": [
+            0.5088301276132325,
+            0.149372876660825,
+            0.5767626497765881,
+            0.49314976062968824
+          ],
+          "appearanceUpdates": 0,
+          "box": null,
+          "id": "c3fa04cf-a0ad-3400-91e4-533dd6edad5e",
+          "label": "human-guided ground-contact subject",
+          "status": "lost"
+        },
+        "estimate": {
+          "reason": "Tracker supplied no accepted measurement; uncertainty grows",
+          "positionSigma": 27.599493654775628,
+          "accepted": false,
+          "uncertaintyMeaning": "Model covariance under declared motion/noise assumptions; not calibrated probability or metric accuracy",
+          "covariance": [
+            [
+              380.8660250000001,
+              1.5007500000000007,
+              1.5007500000000007,
+              0.0078000000000000074
+            ],
+            [
+              380.8660250000001,
+              1.5007500000000007,
+              1.5007500000000007,
+              0.0078000000000000074
+            ]
+          ],
+          "velocity": [
+            0,
+            0
+          ],
+          "predictedVariance": [
+            380.8660250000001,
+            380.8660250000001
+          ],
+          "domain": "normalized image-plane; unknown depth, metric scale and capture FPS",
+          "time": 845,
+          "position": [
+            0.5427963886949103,
+            0.32126131864525664
+          ],
+          "predicted": [
+            0.5427963886949103,
+            0.32126131864525664
+          ],
+          "timeUnit": "source-frame",
+          "status": "predicted"
+        },
+        "bodyId": "c3fa04cf-a0ad-3400-91e4-533dd6edad5e"
+      }],
+      "ordinal": 69
+    },
+    {
+      "sourceFrame": 850,
+      "imageSha256": "2c39b1b234b3e997b210a378cc534edaae62175281b19c9f6c35356b5702885a",
+      "objects": [{
+        "tracker": {
+          "matchScore": 0,
+          "scoreMeaning": "Local patch correlation and motion consistency, not calibrated semantic confidence",
+          "motion": {
+            "seedPoints": 42,
+            "inliers": 2,
+            "vectors": [],
+            "method": "motion-recovery",
+            "dxPixels": 0,
+            "dyPixels": 0,
+            "medianForwardBackwardPixels": 0,
+            "scale": 1,
+            "ambiguous": false,
+            "reliablePoints": 2
+          },
+          "lastKnownBox": [
+            0.5088301276132325,
+            0.149372876660825,
+            0.5767626497765881,
+            0.49314976062968824
+          ],
+          "appearanceUpdates": 0,
+          "box": null,
+          "id": "c3fa04cf-a0ad-3400-91e4-533dd6edad5e",
+          "label": "human-guided ground-contact subject",
+          "status": "lost"
+        },
+        "estimate": {
+          "reason": "Tracker supplied no accepted measurement; uncertainty grows",
+          "positionSigma": 28.144951589938827,
+          "accepted": false,
+          "uncertaintyMeaning": "Model covariance under declared motion/noise assumptions; not calibrated probability or metric accuracy",
+          "covariance": [
+            [
+              396.0691500000001,
+              1.5400000000000007,
+              1.5400000000000007,
+              0.007900000000000008
+            ],
+            [
+              396.0691500000001,
+              1.5400000000000007,
+              1.5400000000000007,
+              0.007900000000000008
+            ]
+          ],
+          "velocity": [
+            0,
+            0
+          ],
+          "predictedVariance": [
+            396.0691500000001,
+            396.0691500000001
+          ],
+          "domain": "normalized image-plane; unknown depth, metric scale and capture FPS",
+          "time": 850,
+          "position": [
+            0.5427963886949103,
+            0.32126131864525664
+          ],
+          "predicted": [
+            0.5427963886949103,
+            0.32126131864525664
+          ],
+          "timeUnit": "source-frame",
+          "status": "predicted"
+        },
+        "bodyId": "c3fa04cf-a0ad-3400-91e4-533dd6edad5e"
+      }],
+      "ordinal": 70
+    },
+    {
+      "sourceFrame": 855,
+      "imageSha256": "5a16febbfa7f81ecaec981c7d2499719de4b05f2c8c661b5c9fcf643aebb2db2",
+      "objects": [{
+        "tracker": {
+          "matchScore": 0,
+          "scoreMeaning": "Local patch correlation and motion consistency, not calibrated semantic confidence",
+          "motion": {
+            "seedPoints": 42,
+            "inliers": 1,
+            "vectors": [],
+            "method": "motion-recovery",
+            "dxPixels": 0,
+            "dyPixels": 0,
+            "medianForwardBackwardPixels": 0,
+            "scale": 1,
+            "ambiguous": false,
+            "reliablePoints": 1
+          },
+          "lastKnownBox": [
+            0.5088301276132325,
+            0.149372876660825,
+            0.5767626497765881,
+            0.49314976062968824
+          ],
+          "appearanceUpdates": 0,
+          "box": null,
+          "id": "c3fa04cf-a0ad-3400-91e4-533dd6edad5e",
+          "label": "human-guided ground-contact subject",
+          "status": "lost"
+        },
+        "estimate": {
+          "reason": "Tracker supplied no accepted measurement; uncertainty grows",
+          "positionSigma": 28.693806823075953,
+          "accepted": false,
+          "uncertaintyMeaning": "Model covariance under declared motion/noise assumptions; not calibrated probability or metric accuracy",
+          "covariance": [
+            [
+              411.6672750000001,
+              1.5797500000000007,
+              1.5797500000000007,
+              0.008000000000000007
+            ],
+            [
+              411.6672750000001,
+              1.5797500000000007,
+              1.5797500000000007,
+              0.008000000000000007
+            ]
+          ],
+          "velocity": [
+            0,
+            0
+          ],
+          "predictedVariance": [
+            411.6672750000001,
+            411.6672750000001
+          ],
+          "domain": "normalized image-plane; unknown depth, metric scale and capture FPS",
+          "time": 855,
+          "position": [
+            0.5427963886949103,
+            0.32126131864525664
+          ],
+          "predicted": [
+            0.5427963886949103,
+            0.32126131864525664
+          ],
+          "timeUnit": "source-frame",
+          "status": "predicted"
+        },
+        "bodyId": "c3fa04cf-a0ad-3400-91e4-533dd6edad5e"
+      }],
+      "ordinal": 71
+    },
+    {
+      "sourceFrame": 860,
+      "imageSha256": "43254fea8bae8432adde5fecc8d02323aa6685dfce309535f72e6064092baa41",
+      "objects": [{
+        "tracker": {
+          "matchScore": 0,
+          "scoreMeaning": "Local patch correlation and motion consistency, not calibrated semantic confidence",
+          "motion": {
+            "seedPoints": 42,
+            "inliers": 1,
+            "vectors": [],
+            "method": "motion-recovery",
+            "dxPixels": 0,
+            "dyPixels": 0,
+            "medianForwardBackwardPixels": 0,
+            "scale": 1,
+            "ambiguous": false,
+            "reliablePoints": 1
+          },
+          "lastKnownBox": [
+            0.5088301276132325,
+            0.149372876660825,
+            0.5767626497765881,
+            0.49314976062968824
+          ],
+          "appearanceUpdates": 0,
+          "box": null,
+          "id": "c3fa04cf-a0ad-3400-91e4-533dd6edad5e",
+          "label": "human-guided ground-contact subject",
+          "status": "lost"
+        },
+        "estimate": {
+          "reason": "Tracker supplied no accepted measurement; uncertainty grows",
+          "positionSigma": 29.246039048048885,
+          "accepted": false,
+          "uncertaintyMeaning": "Model covariance under declared motion/noise assumptions; not calibrated probability or metric accuracy",
+          "covariance": [
+            [
+              427.6654000000001,
+              1.6200000000000008,
+              1.6200000000000008,
+              0.008100000000000007
+            ],
+            [
+              427.6654000000001,
+              1.6200000000000008,
+              1.6200000000000008,
+              0.008100000000000007
+            ]
+          ],
+          "velocity": [
+            0,
+            0
+          ],
+          "predictedVariance": [
+            427.6654000000001,
+            427.6654000000001
+          ],
+          "domain": "normalized image-plane; unknown depth, metric scale and capture FPS",
+          "time": 860,
+          "position": [
+            0.5427963886949103,
+            0.32126131864525664
+          ],
+          "predicted": [
+            0.5427963886949103,
+            0.32126131864525664
+          ],
+          "timeUnit": "source-frame",
+          "status": "predicted"
+        },
+        "bodyId": "c3fa04cf-a0ad-3400-91e4-533dd6edad5e"
+      }],
+      "ordinal": 72
+    },
+    {
+      "sourceFrame": 865,
+      "imageSha256": "468e52f54b341bb3a06e52353fcd5355d645b5fb1301313f8da2f424bd8661ac",
+      "objects": [{
+        "tracker": {
+          "matchScore": 0,
+          "scoreMeaning": "Local patch correlation and motion consistency, not calibrated semantic confidence",
+          "motion": {
+            "seedPoints": 42,
+            "inliers": 0,
+            "vectors": [],
+            "method": "motion-recovery",
+            "dxPixels": 0,
+            "dyPixels": 0,
+            "medianForwardBackwardPixels": 0,
+            "scale": 1,
+            "ambiguous": false,
+            "reliablePoints": 0
+          },
+          "lastKnownBox": [
+            0.5088301276132325,
+            0.149372876660825,
+            0.5767626497765881,
+            0.49314976062968824
+          ],
+          "appearanceUpdates": 0,
+          "box": null,
+          "id": "c3fa04cf-a0ad-3400-91e4-533dd6edad5e",
+          "label": "human-guided ground-contact subject",
+          "status": "lost"
+        },
+        "estimate": {
+          "reason": "Tracker supplied no accepted measurement; uncertainty grows",
+          "positionSigma": 29.801628311218167,
+          "accepted": false,
+          "uncertaintyMeaning": "Model covariance under declared motion/noise assumptions; not calibrated probability or metric accuracy",
+          "covariance": [
+            [
+              444.0685250000001,
+              1.6607500000000008,
+              1.6607500000000008,
+              0.008200000000000006
+            ],
+            [
+              444.0685250000001,
+              1.6607500000000008,
+              1.6607500000000008,
+              0.008200000000000006
+            ]
+          ],
+          "velocity": [
+            0,
+            0
+          ],
+          "predictedVariance": [
+            444.0685250000001,
+            444.0685250000001
+          ],
+          "domain": "normalized image-plane; unknown depth, metric scale and capture FPS",
+          "time": 865,
+          "position": [
+            0.5427963886949103,
+            0.32126131864525664
+          ],
+          "predicted": [
+            0.5427963886949103,
+            0.32126131864525664
+          ],
+          "timeUnit": "source-frame",
+          "status": "predicted"
+        },
+        "bodyId": "c3fa04cf-a0ad-3400-91e4-533dd6edad5e"
+      }],
+      "ordinal": 73
+    },
+    {
+      "sourceFrame": 870,
+      "imageSha256": "971ffabc9177713e4cb5fd80bd5dfb60dfb16eb63194551ac00dd168dd78b53e",
+      "objects": [{
+        "tracker": {
+          "matchScore": 0,
+          "scoreMeaning": "Local patch correlation and motion consistency, not calibrated semantic confidence",
+          "motion": {
+            "seedPoints": 42,
+            "inliers": 1,
+            "vectors": [],
+            "method": "motion-recovery",
+            "dxPixels": 0,
+            "dyPixels": 0,
+            "medianForwardBackwardPixels": 0,
+            "scale": 1,
+            "ambiguous": false,
+            "reliablePoints": 1
+          },
+          "lastKnownBox": [
+            0.5088301276132325,
+            0.149372876660825,
+            0.5767626497765881,
+            0.49314976062968824
+          ],
+          "appearanceUpdates": 0,
+          "box": null,
+          "id": "c3fa04cf-a0ad-3400-91e4-533dd6edad5e",
+          "label": "human-guided ground-contact subject",
+          "status": "lost"
+        },
+        "estimate": {
+          "reason": "Tracker supplied no accepted measurement; uncertainty grows",
+          "positionSigma": 30.360555001514715,
+          "accepted": false,
+          "uncertaintyMeaning": "Model covariance under declared motion/noise assumptions; not calibrated probability or metric accuracy",
+          "covariance": [
+            [
+              460.8816500000001,
+              1.7020000000000008,
+              1.7020000000000008,
+              0.008300000000000005
+            ],
+            [
+              460.8816500000001,
+              1.7020000000000008,
+              1.7020000000000008,
+              0.008300000000000005
+            ]
+          ],
+          "velocity": [
+            0,
+            0
+          ],
+          "predictedVariance": [
+            460.8816500000001,
+            460.8816500000001
+          ],
+          "domain": "normalized image-plane; unknown depth, metric scale and capture FPS",
+          "time": 870,
+          "position": [
+            0.5427963886949103,
+            0.32126131864525664
+          ],
+          "predicted": [
+            0.5427963886949103,
+            0.32126131864525664
+          ],
+          "timeUnit": "source-frame",
+          "status": "predicted"
+        },
+        "bodyId": "c3fa04cf-a0ad-3400-91e4-533dd6edad5e"
+      }],
+      "ordinal": 74
+    },
+    {
+      "sourceFrame": 875,
+      "imageSha256": "470485bb31d65e0a0a7cfad4a183baa3b4d6862bbd89b475de491945b9cc878f",
+      "objects": [{
+        "tracker": {
+          "matchScore": 0,
+          "scoreMeaning": "Local patch correlation and motion consistency, not calibrated semantic confidence",
+          "motion": {
+            "seedPoints": 42,
+            "inliers": 0,
+            "vectors": [],
+            "method": "motion-recovery",
+            "dxPixels": 0,
+            "dyPixels": 0,
+            "medianForwardBackwardPixels": 0,
+            "scale": 1,
+            "ambiguous": false,
+            "reliablePoints": 0
+          },
+          "lastKnownBox": [
+            0.5088301276132325,
+            0.149372876660825,
+            0.5767626497765881,
+            0.49314976062968824
+          ],
+          "appearanceUpdates": 0,
+          "box": null,
+          "id": "c3fa04cf-a0ad-3400-91e4-533dd6edad5e",
+          "label": "human-guided ground-contact subject",
+          "status": "lost"
+        },
+        "estimate": {
+          "reason": "Tracker supplied no accepted measurement; uncertainty grows",
+          "positionSigma": 30.9227998408941,
+          "accepted": false,
+          "uncertaintyMeaning": "Model covariance under declared motion/noise assumptions; not calibrated probability or metric accuracy",
+          "covariance": [
+            [
+              478.1097750000001,
+              1.7437500000000008,
+              1.7437500000000008,
+              0.008400000000000005
+            ],
+            [
+              478.1097750000001,
+              1.7437500000000008,
+              1.7437500000000008,
+              0.008400000000000005
+            ]
+          ],
+          "velocity": [
+            0,
+            0
+          ],
+          "predictedVariance": [
+            478.1097750000001,
+            478.1097750000001
+          ],
+          "domain": "normalized image-plane; unknown depth, metric scale and capture FPS",
+          "time": 875,
+          "position": [
+            0.5427963886949103,
+            0.32126131864525664
+          ],
+          "predicted": [
+            0.5427963886949103,
+            0.32126131864525664
+          ],
+          "timeUnit": "source-frame",
+          "status": "predicted"
+        },
+        "bodyId": "c3fa04cf-a0ad-3400-91e4-533dd6edad5e"
+      }],
+      "ordinal": 75
+    },
+    {
+      "sourceFrame": 880,
+      "imageSha256": "da72f21270d81dcadcc5fb5cde718dca9b860331af12ef62ddee0896dc806c32",
+      "objects": [{
+        "tracker": {
+          "matchScore": 0,
+          "scoreMeaning": "Local patch correlation and motion consistency, not calibrated semantic confidence",
+          "motion": {
+            "seedPoints": 42,
+            "inliers": 0,
+            "vectors": [],
+            "method": "motion-recovery",
+            "dxPixels": 0,
+            "dyPixels": 0,
+            "medianForwardBackwardPixels": 0,
+            "scale": 1,
+            "ambiguous": false,
+            "reliablePoints": 0
+          },
+          "lastKnownBox": [
+            0.5088301276132325,
+            0.149372876660825,
+            0.5767626497765881,
+            0.49314976062968824
+          ],
+          "appearanceUpdates": 0,
+          "box": null,
+          "id": "c3fa04cf-a0ad-3400-91e4-533dd6edad5e",
+          "label": "human-guided ground-contact subject",
+          "status": "lost"
+        },
+        "estimate": {
+          "reason": "Tracker supplied no accepted measurement; uncertainty grows",
+          "positionSigma": 31.488343875154822,
+          "accepted": false,
+          "uncertaintyMeaning": "Model covariance under declared motion/noise assumptions; not calibrated probability or metric accuracy",
+          "covariance": [
+            [
+              495.7579000000001,
+              1.786000000000001,
+              1.786000000000001,
+              0.008500000000000004
+            ],
+            [
+              495.7579000000001,
+              1.786000000000001,
+              1.786000000000001,
+              0.008500000000000004
+            ]
+          ],
+          "velocity": [
+            0,
+            0
+          ],
+          "predictedVariance": [
+            495.7579000000001,
+            495.7579000000001
+          ],
+          "domain": "normalized image-plane; unknown depth, metric scale and capture FPS",
+          "time": 880,
+          "position": [
+            0.5427963886949103,
+            0.32126131864525664
+          ],
+          "predicted": [
+            0.5427963886949103,
+            0.32126131864525664
+          ],
+          "timeUnit": "source-frame",
+          "status": "predicted"
+        },
+        "bodyId": "c3fa04cf-a0ad-3400-91e4-533dd6edad5e"
+      }],
+      "ordinal": 76
+    },
+    {
+      "sourceFrame": 885,
+      "imageSha256": "7b1e51ceae2fed3066255ca0fed26f24a4cbbd569441d7c2b7d03e7fe84faa02",
+      "objects": [{
+        "tracker": {
+          "matchScore": 0,
+          "scoreMeaning": "Local patch correlation and motion consistency, not calibrated semantic confidence",
+          "motion": {
+            "seedPoints": 42,
+            "inliers": 0,
+            "vectors": [],
+            "method": "motion-recovery",
+            "dxPixels": 0,
+            "dyPixels": 0,
+            "medianForwardBackwardPixels": 0,
+            "scale": 1,
+            "ambiguous": false,
+            "reliablePoints": 0
+          },
+          "lastKnownBox": [
+            0.5088301276132325,
+            0.149372876660825,
+            0.5767626497765881,
+            0.49314976062968824
+          ],
+          "appearanceUpdates": 0,
+          "box": null,
+          "id": "c3fa04cf-a0ad-3400-91e4-533dd6edad5e",
+          "label": "human-guided ground-contact subject",
+          "status": "lost"
+        },
+        "estimate": {
+          "reason": "Tracker supplied no accepted measurement; uncertainty grows",
+          "positionSigma": 32.057168465103096,
+          "accepted": false,
+          "uncertaintyMeaning": "Model covariance under declared motion/noise assumptions; not calibrated probability or metric accuracy",
+          "covariance": [
+            [
+              513.8310250000002,
+              1.828750000000001,
+              1.828750000000001,
+              0.008600000000000003
+            ],
+            [
+              513.8310250000002,
+              1.828750000000001,
+              1.828750000000001,
+              0.008600000000000003
+            ]
+          ],
+          "velocity": [
+            0,
+            0
+          ],
+          "predictedVariance": [
+            513.8310250000002,
+            513.8310250000002
+          ],
+          "domain": "normalized image-plane; unknown depth, metric scale and capture FPS",
+          "time": 885,
+          "position": [
+            0.5427963886949103,
+            0.32126131864525664
+          ],
+          "predicted": [
+            0.5427963886949103,
+            0.32126131864525664
+          ],
+          "timeUnit": "source-frame",
+          "status": "predicted"
+        },
+        "bodyId": "c3fa04cf-a0ad-3400-91e4-533dd6edad5e"
+      }],
+      "ordinal": 77
+    },
+    {
+      "sourceFrame": 890,
+      "imageSha256": "6ce87caeed0d9ff9c9cfeb04f5ffd957c3d36bdd7af6f49b5268118e622f2a37",
+      "objects": [{
+        "tracker": {
+          "matchScore": 0,
+          "scoreMeaning": "Local patch correlation and motion consistency, not calibrated semantic confidence",
+          "motion": {
+            "seedPoints": 42,
+            "inliers": 0,
+            "vectors": [],
+            "method": "motion-recovery",
+            "dxPixels": 0,
+            "dyPixels": 0,
+            "medianForwardBackwardPixels": 0,
+            "scale": 1,
+            "ambiguous": false,
+            "reliablePoints": 0
+          },
+          "lastKnownBox": [
+            0.5088301276132325,
+            0.149372876660825,
+            0.5767626497765881,
+            0.49314976062968824
+          ],
+          "appearanceUpdates": 0,
+          "box": null,
+          "id": "c3fa04cf-a0ad-3400-91e4-533dd6edad5e",
+          "label": "human-guided ground-contact subject",
+          "status": "lost"
+        },
+        "estimate": {
+          "reason": "Tracker supplied no accepted measurement; uncertainty grows",
+          "positionSigma": 32.629255278047644,
+          "accepted": false,
+          "uncertaintyMeaning": "Model covariance under declared motion/noise assumptions; not calibrated probability or metric accuracy",
+          "covariance": [
+            [
+              532.3341500000001,
+              1.872000000000001,
+              1.872000000000001,
+              0.008700000000000003
+            ],
+            [
+              532.3341500000001,
+              1.872000000000001,
+              1.872000000000001,
+              0.008700000000000003
+            ]
+          ],
+          "velocity": [
+            0,
+            0
+          ],
+          "predictedVariance": [
+            532.3341500000001,
+            532.3341500000001
+          ],
+          "domain": "normalized image-plane; unknown depth, metric scale and capture FPS",
+          "time": 890,
+          "position": [
+            0.5427963886949103,
+            0.32126131864525664
+          ],
+          "predicted": [
+            0.5427963886949103,
+            0.32126131864525664
+          ],
+          "timeUnit": "source-frame",
+          "status": "predicted"
+        },
+        "bodyId": "c3fa04cf-a0ad-3400-91e4-533dd6edad5e"
+      }],
+      "ordinal": 78
+    },
+    {
+      "sourceFrame": 895,
+      "imageSha256": "e67be09add9b1c661baba7eb6f95569a82e159941e855d08311fb5563761af5f",
+      "objects": [{
+        "tracker": {
+          "matchScore": 0,
+          "scoreMeaning": "Local patch correlation and motion consistency, not calibrated semantic confidence",
+          "motion": {
+            "seedPoints": 42,
+            "inliers": 0,
+            "vectors": [],
+            "method": "motion-recovery",
+            "dxPixels": 0,
+            "dyPixels": 0,
+            "medianForwardBackwardPixels": 0,
+            "scale": 1,
+            "ambiguous": false,
+            "reliablePoints": 0
+          },
+          "lastKnownBox": [
+            0.5088301276132325,
+            0.149372876660825,
+            0.5767626497765881,
+            0.49314976062968824
+          ],
+          "appearanceUpdates": 0,
+          "box": null,
+          "id": "c3fa04cf-a0ad-3400-91e4-533dd6edad5e",
+          "label": "human-guided ground-contact subject",
+          "status": "lost"
+        },
+        "estimate": {
+          "reason": "Tracker supplied no accepted measurement; uncertainty grows",
+          "positionSigma": 33.20458627960903,
+          "accepted": false,
+          "uncertaintyMeaning": "Model covariance under declared motion/noise assumptions; not calibrated probability or metric accuracy",
+          "covariance": [
+            [
+              551.2722750000001,
+              1.915750000000001,
+              1.915750000000001,
+              0.008800000000000002
+            ],
+            [
+              551.2722750000001,
+              1.915750000000001,
+              1.915750000000001,
+              0.008800000000000002
+            ]
+          ],
+          "velocity": [
+            0,
+            0
+          ],
+          "predictedVariance": [
+            551.2722750000001,
+            551.2722750000001
+          ],
+          "domain": "normalized image-plane; unknown depth, metric scale and capture FPS",
+          "time": 895,
+          "position": [
+            0.5427963886949103,
+            0.32126131864525664
+          ],
+          "predicted": [
+            0.5427963886949103,
+            0.32126131864525664
+          ],
+          "timeUnit": "source-frame",
+          "status": "predicted"
+        },
+        "bodyId": "c3fa04cf-a0ad-3400-91e4-533dd6edad5e"
+      }],
+      "ordinal": 79
+    },
+    {
+      "sourceFrame": 900,
+      "imageSha256": "09d5ce3d0d59388e349af8d67bcc7c76065b20afb0094b3ad99604637e16019b",
+      "objects": [{
+        "tracker": {
+          "matchScore": 0,
+          "scoreMeaning": "Local patch correlation and motion consistency, not calibrated semantic confidence",
+          "motion": {
+            "seedPoints": 42,
+            "inliers": 1,
+            "vectors": [],
+            "method": "motion-recovery",
+            "dxPixels": 0,
+            "dyPixels": 0,
+            "medianForwardBackwardPixels": 0,
+            "scale": 1,
+            "ambiguous": false,
+            "reliablePoints": 1
+          },
+          "lastKnownBox": [
+            0.5088301276132325,
+            0.149372876660825,
+            0.5767626497765881,
+            0.49314976062968824
+          ],
+          "appearanceUpdates": 0,
+          "box": null,
+          "id": "c3fa04cf-a0ad-3400-91e4-533dd6edad5e",
+          "label": "human-guided ground-contact subject",
+          "status": "lost"
+        },
+        "estimate": {
+          "reason": "Tracker supplied no accepted measurement; uncertainty grows",
+          "positionSigma": 33.783143725828715,
+          "accepted": false,
+          "uncertaintyMeaning": "Model covariance under declared motion/noise assumptions; not calibrated probability or metric accuracy",
+          "covariance": [
+            [
+              570.6504000000001,
+              1.9600000000000009,
+              1.9600000000000009,
+              0.008900000000000002
+            ],
+            [
+              570.6504000000001,
+              1.9600000000000009,
+              1.9600000000000009,
+              0.008900000000000002
+            ]
+          ],
+          "velocity": [
+            0,
+            0
+          ],
+          "predictedVariance": [
+            570.6504000000001,
+            570.6504000000001
+          ],
+          "domain": "normalized image-plane; unknown depth, metric scale and capture FPS",
+          "time": 900,
+          "position": [
+            0.5427963886949103,
+            0.32126131864525664
+          ],
+          "predicted": [
+            0.5427963886949103,
+            0.32126131864525664
+          ],
+          "timeUnit": "source-frame",
+          "status": "predicted"
+        },
+        "bodyId": "c3fa04cf-a0ad-3400-91e4-533dd6edad5e"
+      }],
+      "ordinal": 80
+    }
+  ],
+  "datasetId": "423cda5f-2824-4cca-995a-5a882fd935da",
+  "completedFrames": 80,
+  "id": "499784fd-e650-4734-ae3c-1bd45166ebcb",
+  "status": "completed",
+  "totalFrames": 80
+}

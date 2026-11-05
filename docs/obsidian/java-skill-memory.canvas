@@ -1,0 +1,47 @@
+{
+  "nodes": [
+    {
+      "id": "memory",
+      "type": "file",
+      "file": "README-048.md",
+      "x": 0,
+      "y": 0,
+      "width": 490,
+      "height": 320
+    },
+    {
+      "id": "proof",
+      "type": "file",
+      "file": "docs/readmes/048/benchmark.json",
+      "x": 560,
+      "y": 0,
+      "width": 490,
+      "height": 320
+    },
+    {
+      "id": "next",
+      "type": "file",
+      "file": "docs/EDITION_047_PLAN.md",
+      "x": 1120,
+      "y": 0,
+      "width": 490,
+      "height": 320
+    }
+  ],
+  "edges": [
+    {
+      "id": "compare",
+      "fromNode": "memory",
+      "fromSide": "right",
+      "toNode": "proof",
+      "toSide": "left"
+    },
+    {
+      "id": "follow",
+      "fromNode": "proof",
+      "fromSide": "right",
+      "toNode": "next",
+      "toSide": "left"
+    }
+  ]
+}

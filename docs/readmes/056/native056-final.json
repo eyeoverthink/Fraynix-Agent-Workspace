@@ -1,0 +1,93 @@
+{
+  "label": "native056-final",
+  "source": "b11ef7b52b03dbdd861c5439f1782eb87d92f4b3",
+  "count": 17,
+  "failures": 0,
+  "cases": [
+    {
+      "case": "fraymus.workspace.Construction051Test#nativeBridgeIsReleasedAndReassembledFromActualPriorFrame",
+      "passed": true,
+      "seconds": 0.934
+    },
+    {
+      "case": "fraymus.workspace.Construction051Test#sourceDesignAndTraceChangesAreRefused",
+      "passed": true,
+      "seconds": 0.423
+    },
+    {
+      "case": "fraymus.workspace.Construction051Test#heldNativeConstructionResumesFromAnExactCheckpoint",
+      "passed": true,
+      "seconds": 8.356
+    },
+    {
+      "case": "fraymus.workspace.Construction051Test#insufficientForceCannotEarnConstructionSuccess",
+      "passed": true,
+      "seconds": 0.046
+    },
+    {
+      "case": "fraymus.workspace.Construction051Test#chatConstructionIsTypedAndSelectedWorldBound",
+      "passed": true,
+      "seconds": 0.017
+    },
+    {
+      "case": "fraymus.workspace.Construction051Test#legacyWorldUpgradeIsExplicitExactAndSourceBound",
+      "passed": true,
+      "seconds": 0.078
+    },
+    {
+      "case": "fraymus.workspace.Counterfactual045Test#unfinishedForecastRetainsCompletedBytesAndOriginalAttemptsAcrossRestart",
+      "passed": true,
+      "seconds": 13.954
+    },
+    {
+      "case": "fraymus.workspace.Counterfactual045Test#codeAndSourceCorruptionAreRefusedWithoutChangingOriginalBytes",
+      "passed": true,
+      "seconds": 0.093
+    },
+    {
+      "case": "fraymus.workspace.Counterfactual045Test#ordinaryWorldRequestAndExplicitCounterfactualRequestStayDistinct",
+      "passed": true,
+      "seconds": 0.001
+    },
+    {
+      "case": "fraymus.workspace.Counterfactual045Test#nativeAlternativesKeepWorldExactAndSelectedExecutionMatchesOriginalTraces",
+      "passed": true,
+      "seconds": 31.499
+    },
+    {
+      "case": "fraymus.workspace.Counterfactual045Test#forecastOnlyAndExplicitNoMovementRequestsRequireReview",
+      "passed": true,
+      "seconds": 0.001
+    },
+    {
+      "case": "fraymus.workspace.Counterfactual045Test#cancellationCannotAdvanceOrReserveTheLiveWorld",
+      "passed": true,
+      "seconds": 0.06
+    },
+    {
+      "case": "fraymus.workspace.Design056Test#explicitChatLoadCannotBeDroppedOrChanged",
+      "passed": true,
+      "seconds": 0.096
+    },
+    {
+      "case": "fraymus.workspace.Load056RecoveryTest#actualInterruptedLoadRetainsOriginalsAndRejectsTampering",
+      "passed": true,
+      "seconds": 79.947
+    },
+    {
+      "case": "fraymus.workspace.Load056Test#declared16NNarrowSourceTestsRealImprovement",
+      "passed": true,
+      "seconds": 121.158
+    },
+    {
+      "case": "fraymus.workspace.Load056Test#frozen24NLayoutsRetainMeasuredFailure",
+      "passed": true,
+      "seconds": 183.388
+    },
+    {
+      "case": "fraymus.workspace.Load056Test#requestedLoadsAndSpanAreStrictlyBounded",
+      "passed": true,
+      "seconds": 0.051
+    }
+  ]
+}

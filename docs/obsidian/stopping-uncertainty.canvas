@@ -1,0 +1,95 @@
+{
+  "nodes": [
+    {
+      "id": "native",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/StoppingRamp063.java",
+      "x": 0,
+      "y": 0,
+      "width": 390,
+      "height": 200
+    },
+    {
+      "id": "study",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/Stopping063.java",
+      "x": 420,
+      "y": 0,
+      "width": 390,
+      "height": 200
+    },
+    {
+      "id": "owner",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/BrainService.java",
+      "x": 840,
+      "y": 0,
+      "width": 390,
+      "height": 200
+    },
+    {
+      "id": "view",
+      "type": "file",
+      "file": "workspace-desktop/renderer/stopping063.js",
+      "x": 0,
+      "y": 250,
+      "width": 390,
+      "height": 200
+    },
+    {
+      "id": "chat",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/AgentRuntime042.java",
+      "x": 420,
+      "y": 250,
+      "width": 390,
+      "height": 200
+    },
+    {
+      "id": "next",
+      "type": "file",
+      "file": "docs/EDITION_063_CONTRACT.md",
+      "x": 840,
+      "y": 250,
+      "width": 390,
+      "height": 200
+    }
+  ],
+  "edges": [
+    {
+      "id": "e0",
+      "fromNode": "native",
+      "fromSide": "right",
+      "toNode": "study",
+      "toSide": "left"
+    },
+    {
+      "id": "e1",
+      "fromNode": "study",
+      "fromSide": "right",
+      "toNode": "owner",
+      "toSide": "left"
+    },
+    {
+      "id": "e2",
+      "fromNode": "owner",
+      "fromSide": "right",
+      "toNode": "view",
+      "toSide": "left"
+    },
+    {
+      "id": "e3",
+      "fromNode": "view",
+      "fromSide": "right",
+      "toNode": "chat",
+      "toSide": "left"
+    },
+    {
+      "id": "e4",
+      "fromNode": "chat",
+      "fromSide": "right",
+      "toNode": "next",
+      "toSide": "left"
+    }
+  ]
+}

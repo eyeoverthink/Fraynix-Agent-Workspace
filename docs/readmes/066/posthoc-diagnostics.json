@@ -1,0 +1,339 @@
+{
+  "scope": "Descriptive analysis of retained outcomes only; no tuning or new validation claim",
+  "correctionReasons": {
+    "blind": {
+      "One bounded corrective impulse": {
+        "count": 35,
+        "successes": 29,
+        "cases": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          7,
+          8,
+          10,
+          11,
+          13,
+          15,
+          16,
+          17,
+          19,
+          20,
+          23,
+          25,
+          26,
+          29,
+          31,
+          32,
+          37,
+          38,
+          40,
+          41,
+          42,
+          43,
+          44,
+          49,
+          50,
+          52,
+          53,
+          54,
+          58,
+          59
+        ]
+      },
+      "Bounded correction cannot predict arrival inside goal": {
+        "count": 11,
+        "successes": 0,
+        "cases": [
+          14,
+          22,
+          28,
+          34,
+          46,
+          47,
+          48,
+          55,
+          56,
+          57,
+          60
+        ]
+      },
+      "Target behind current state": {
+        "count": 1,
+        "successes": 1,
+        "cases": [
+          35
+        ]
+      }
+    },
+    "observed": {
+      "One bounded corrective impulse": {
+        "count": 27,
+        "successes": 25,
+        "cases": [
+          1,
+          2,
+          4,
+          5,
+          7,
+          10,
+          11,
+          13,
+          17,
+          19,
+          20,
+          23,
+          25,
+          26,
+          29,
+          31,
+          32,
+          37,
+          40,
+          41,
+          42,
+          43,
+          49,
+          52,
+          53,
+          54,
+          58
+        ]
+      },
+      "Measured contact or motion guard refused correction": {
+        "count": 11,
+        "successes": 2,
+        "cases": [
+          3,
+          8,
+          15,
+          16,
+          28,
+          35,
+          44,
+          46,
+          50,
+          59,
+          60
+        ]
+      },
+      "Bounded correction cannot predict arrival inside goal": {
+        "count": 9,
+        "successes": 0,
+        "cases": [
+          14,
+          22,
+          34,
+          38,
+          47,
+          48,
+          55,
+          56,
+          57
+        ]
+      }
+    }
+  },
+  "guardedCases": [
+    {
+      "case": 3,
+      "reasons": [
+        "nearContact"
+      ],
+      "state": {
+        "normalMps": -1.5654222893513037e-05,
+        "nearPoints": 0,
+        "kind": "measured",
+        "sampleSha256": "31130288d6510d39b26c53e0e6df20cfae18550a041af6889d3d4c9d38c5e89a",
+        "distanceM": 0.06459052654688492,
+        "rotationDeg": 0.2333517537001297,
+        "angularSpeedRadps": 0.0012355952475516278,
+        "tangentMps": 0.2945990818544532
+      },
+      "observedSuccess": false,
+      "blindSuccess": true
+    },
+    {
+      "case": 8,
+      "reasons": [
+        "nearContact"
+      ],
+      "state": {
+        "normalMps": 1.2273639129950498e-05,
+        "nearPoints": 0,
+        "kind": "measured",
+        "sampleSha256": "93ed54ea905df7b54c65d2caf35f14ee7a1b7f3c1704d96aeb21d9f9226acf11",
+        "distanceM": 0.07463605805566195,
+        "rotationDeg": 7.82496472061276e-06,
+        "angularSpeedRadps": 2.17578691163275e-05,
+        "tangentMps": 0.35123978772376413
+      },
+      "observedSuccess": false,
+      "blindSuccess": true
+    },
+    {
+      "case": 15,
+      "reasons": [
+        "nearContact"
+      ],
+      "state": {
+        "normalMps": 4.927683504220293e-06,
+        "nearPoints": 0,
+        "kind": "measured",
+        "sampleSha256": "615acf2e5fbf24ce80f2e50b08a3fb550d386f9103a3dffe90a3beda21776f10",
+        "distanceM": 0.02858518091756071,
+        "rotationDeg": 1.6555285230907e-05,
+        "angularSpeedRadps": 6.053888318425002e-06,
+        "tangentMps": 0.14373704305357063
+      },
+      "observedSuccess": false,
+      "blindSuccess": true
+    },
+    {
+      "case": 16,
+      "reasons": [
+        "nearContact"
+      ],
+      "state": {
+        "normalMps": 1.4483330510489667e-05,
+        "nearPoints": 0,
+        "kind": "measured",
+        "sampleSha256": "e5f8c62d4daab368b9deff09d75e9c4ddd0226e1b8694bbd0aa9218f3ed212f1",
+        "distanceM": 0.03678689067644492,
+        "rotationDeg": 5.540984386560009e-05,
+        "angularSpeedRadps": 3.70722499022602e-05,
+        "tangentMps": 0.20823583819760885
+      },
+      "observedSuccess": false,
+      "blindSuccess": true
+    },
+    {
+      "case": 28,
+      "reasons": [
+        "nearContact"
+      ],
+      "state": {
+        "normalMps": -4.251925059185757e-05,
+        "nearPoints": 0,
+        "kind": "measured",
+        "sampleSha256": "0d22105512a533e6b71709a9aff91aa8677b4656f1a9f73f09120d93b0af0942",
+        "distanceM": 0.03868158590976892,
+        "rotationDeg": 4.670071607147995e-05,
+        "angularSpeedRadps": 8.827183166169151e-05,
+        "tangentMps": 0.22327245358652106
+      },
+      "observedSuccess": false,
+      "blindSuccess": false
+    },
+    {
+      "case": 35,
+      "reasons": [
+        "nearContact"
+      ],
+      "state": {
+        "normalMps": -5.120406464128799e-06,
+        "nearPoints": 0,
+        "kind": "measured",
+        "sampleSha256": "3670d1d8b8aad679fde27cfda5f8ea433aa1d44c0cf129b544153c5e9f252e4b",
+        "distanceM": 0.029832292832057784,
+        "rotationDeg": 0.18965171579812698,
+        "angularSpeedRadps": 5.051502886847666e-05,
+        "tangentMps": 0.03063234259470882
+      },
+      "observedSuccess": true,
+      "blindSuccess": true
+    },
+    {
+      "case": 44,
+      "reasons": [
+        "nearContact"
+      ],
+      "state": {
+        "normalMps": -1.8547489341047552e-06,
+        "nearPoints": 0,
+        "kind": "measured",
+        "sampleSha256": "6d531f2060d70bcea847a1398fcbe0165719e86d8e23e990e13172f3e12fc95e",
+        "distanceM": 0.07873952911204354,
+        "rotationDeg": 2.119010463505988e-05,
+        "angularSpeedRadps": 6.138039632166816e-06,
+        "tangentMps": 0.24931448431092254
+      },
+      "observedSuccess": false,
+      "blindSuccess": true
+    },
+    {
+      "case": 46,
+      "reasons": [
+        "nearContact"
+      ],
+      "state": {
+        "normalMps": -9.356618102224212e-06,
+        "nearPoints": 0,
+        "kind": "measured",
+        "sampleSha256": "bc07a9a743fc516996fc9fe2352d2ac502688a9f69b1f89c1668bbf3c7c13beb",
+        "distanceM": 0.08088021356697067,
+        "rotationDeg": 1.4286365630539068e-05,
+        "angularSpeedRadps": 3.88931041021173e-05,
+        "tangentMps": 0.26582252860737826
+      },
+      "observedSuccess": false,
+      "blindSuccess": false
+    },
+    {
+      "case": 50,
+      "reasons": [
+        "nearContact"
+      ],
+      "state": {
+        "normalMps": -8.003133659474637e-05,
+        "nearPoints": 0,
+        "kind": "measured",
+        "sampleSha256": "67b3d02ea84c540cbdbfb5db406ad9b830644676647a250beb32481f7a5e1f30",
+        "distanceM": 0.04417192745236531,
+        "rotationDeg": 2.2394272795855996e-05,
+        "angularSpeedRadps": 0.00011613703884423591,
+        "tangentMps": 0.11162792048711831
+      },
+      "observedSuccess": true,
+      "blindSuccess": true
+    },
+    {
+      "case": 59,
+      "reasons": [
+        "nearContact"
+      ],
+      "state": {
+        "normalMps": 8.801811276548666e-06,
+        "nearPoints": 0,
+        "kind": "measured",
+        "sampleSha256": "f918f0bf4ee25a0935022f4b6435222d95d901281a97bee246fc3a2be08a3105",
+        "distanceM": 0.04691330589410882,
+        "rotationDeg": 0.17345055968468526,
+        "angularSpeedRadps": 0.00015901648931395564,
+        "tangentMps": 0.14916177813576895
+      },
+      "observedSuccess": false,
+      "blindSuccess": false
+    },
+    {
+      "case": 60,
+      "reasons": [
+        "nearContact"
+      ],
+      "state": {
+        "normalMps": 8.17609508926842e-06,
+        "nearPoints": 0,
+        "kind": "measured",
+        "sampleSha256": "ab7c2dbe3f5b7d3a93df60c817a13d32a36046d566834bd549b99bb870669c80",
+        "distanceM": 0.06529818770513737,
+        "rotationDeg": 0.35452829650984197,
+        "angularSpeedRadps": 0.0014181524106595422,
+        "tangentMps": 0.17667810278766036
+      },
+      "observedSuccess": false,
+      "blindSuccess": false
+    }
+  ]
+}

@@ -1,0 +1,168 @@
+{
+  "edition": 46,
+  "date": "2026-11-02T22:01:15.692436+00:00",
+  "repository": "https://github.com/eyeoverthink/Fraynix-Agent-Workspace",
+  "releaseCommit": "dfd71bb8c2f6666f8f765da2d3fdbb9e90a032c7",
+  "annotatedTag": "readme-046",
+  "tagObject": "a2308cb133b3ea7edaeab5cffeefd289faf00177",
+  "publication": {
+    "atomicPushAccepted": true,
+    "refs": [
+      "refs/heads/main",
+      "refs/heads/edition046",
+      "refs/tags/readme-046"
+    ],
+    "freshFetchedRelease": "dfd71bb8c2f6666f8f765da2d3fdbb9e90a032c7",
+    "freshFetchedTagCommit": "dfd71bb8c2f6666f8f765da2d3fdbb9e90a032c7"
+  },
+  "sourceBaseline": "6b803299f1f0e2657b68b7918dbc6a6f223adb9d",
+  "remoteAudit": {
+    "passed": true,
+    "sourceFiles": 834,
+    "originalProofArchives": 1200,
+    "frozenHashes": 3166,
+    "editions": 46,
+    "scope": "Every canonical source, every frozen numbered README/snapshot blob and every supported top-level original gzip proof JSON is read from the selected fetched Git ref, rather than the working tree. Exact bytes/count/SHA256 are checked, including duplicate archive payloads. Counts are archive files, not distinct experiments."
+  },
+  "auditReportSha256": "b57c2a6447ea49100f0aa62b662cdb74a67aa48a086cf06f6d0a9f157a1d1c37",
+  "documentation": {
+    "passed": true,
+    "editions": 46,
+    "documents": 297,
+    "canvases": 51,
+    "references": 5362,
+    "frozenHashes": 3166,
+    "issues": []
+  },
+  "validation": {
+    "edition": 46,
+    "date": "2026-11-02",
+    "passed": true,
+    "sourceBaseline": "6b803299f1f0e2657b68b7918dbc6a6f223adb9d",
+    "java": {
+      "distinctChecksCovered": 421,
+      "fullChecks": 419,
+      "fullClasses": 87,
+      "fullSource": "36532d2a77794af0b86fa0a6a49bf7a5e930dac8",
+      "focusedChecks": 34,
+      "focusedClasses": 4,
+      "focusedSource": "d74fb2c7c5cc6ee1e9ba444083c41782835a967e",
+      "authorityChecks": 26,
+      "authorityClasses": 2,
+      "authoritySource": "6b803299f1f0e2657b68b7918dbc6a6f223adb9d",
+      "postFullJavaChanges": [
+        "workspace-engine/src/main/java/fraymus/workspace/Agency043.java",
+        "workspace-engine/src/main/java/fraymus/workspace/ChatPolicy044.java",
+        "workspace-engine/src/main/java/fraymus/workspace/Domain044.java",
+        "workspace-engine/src/main/java/fraymus/workspace/GoalRunner.java",
+        "workspace-engine/src/main/java/fraymus/workspace/GraphReport046.java",
+        "workspace-engine/src/main/java/fraymus/workspace/WorkflowRunner.java",
+        "workspace-engine/src/main/java/fraymus/workspace/WorkspaceServer.java",
+        "workspace-engine/src/test/java/fraymus/workspace/Agency043Test.java",
+        "workspace-engine/src/test/java/fraymus/workspace/Domain044Test.java",
+        "workspace-engine/src/test/java/fraymus/workspace/SkillGraph046Test.java"
+      ],
+      "failures": 0,
+      "errors": 0,
+      "skippedCases": 0,
+      "taskScope": "Actual root Gradle check. Existing factory-kernel/models/runtime Gradle test tasks are disabled/skipped by the existing build; all419 executed JUnit cases across87 suites have zero skips/failures/errors. Root/application/geometry tests retain their original scope."
+    },
+    "desktopUnits": 123,
+    "groups": {
+      "skill-graph046-integration": 9,
+      "workflow-integration": 8,
+      "agency043-integration": 10,
+      "agent042-integration": 15,
+      "integration": 12,
+      "domain044-integration": 6,
+      "mission044-integration": 6
+    },
+    "groupRuns": [
+      {
+        "name": "desktop-units",
+        "source": "6b803299f1f0e2657b68b7918dbc6a6f223adb9d",
+        "passed": true,
+        "exit": 0,
+        "elapsedMs": 1120
+      },
+      {
+        "name": "skill-graph046-integration",
+        "source": "6b803299f1f0e2657b68b7918dbc6a6f223adb9d",
+        "passed": true,
+        "exit": 0,
+        "elapsedMs": 374038
+      },
+      {
+        "name": "workflow-integration",
+        "source": "6b803299f1f0e2657b68b7918dbc6a6f223adb9d",
+        "passed": true,
+        "exit": 0,
+        "elapsedMs": 40338
+      },
+      {
+        "name": "agency043-integration",
+        "source": "6b803299f1f0e2657b68b7918dbc6a6f223adb9d",
+        "passed": true,
+        "exit": 0,
+        "elapsedMs": 19133
+      },
+      {
+        "name": "agent042-integration",
+        "source": "6b803299f1f0e2657b68b7918dbc6a6f223adb9d",
+        "passed": true,
+        "exit": 0,
+        "elapsedMs": 25300
+      },
+      {
+        "name": "integration",
+        "source": "6b803299f1f0e2657b68b7918dbc6a6f223adb9d",
+        "passed": true,
+        "exit": 0,
+        "elapsedMs": 26018
+      },
+      {
+        "name": "domain044-integration",
+        "source": "6b803299f1f0e2657b68b7918dbc6a6f223adb9d",
+        "passed": true,
+        "exit": 0,
+        "elapsedMs": 242440
+      },
+      {
+        "name": "mission044-integration",
+        "source": "6b803299f1f0e2657b68b7918dbc6a6f223adb9d",
+        "passed": true,
+        "exit": 0,
+        "elapsedMs": 11925
+      }
+    ],
+    "actualUIAssertions": 60,
+    "actualLocalModelAssertions": 6,
+    "models": [
+      "gpt-oss:20b"
+    ],
+    "sourceFiles": 834,
+    "referenceTests": {
+      "fraynix-gpt": {
+        "passed": 144,
+        "failed": 0
+      },
+      "dreamerReplay": "passed synthetic replay self-test",
+      "logicChain": {
+        "passed": 166,
+        "errors": 1,
+        "total": 167,
+        "error": "Windows10053 in local HTTP overlap test"
+      }
+    },
+    "appWidths": [
+      1600,
+      1100
+    ],
+    "newGraphVisibleNotices": 0,
+    "newGraphUnexpectedVisibleHostErrors": [],
+    "qualification": "Full419-case Gradle check on36532d2. The34-case focused native/legacy run covers admission, report encoding, completion summaries and saved-graph chat. A final26-case authority/domain run covers the later pure-definition read classification and missing-authority refusal; only Agency043, WorkspaceServer and their listed test changed after the34-case source. All other Java bytes are exact. Actual desktop/native/Chromium groups run serially in an independent source-matched checkout. Keep all original failed attempts. Reference suite results have their own scope; supplemental Needle/cortex code was inspected, not activated or trained here.",
+    "scope": "Declared-scale native worlds and actual Chromium. Not new private-camera accuracy, subjective consciousness, general LLM learning or a local120B model."
+  },
+  "normalReview": "Existing045 canonical source/installed runtime and private review project preserved.046 is verified in its independent worktree/projects. No camera activation, private database switch, new model worker or training run.",
+  "next": "Unique Java pre-action predictions and verified outcome witnesses, owned sparse cortex/decision records, complementary local nodes, fresh-task evaluation and rollback. Procedure graphs, synaptic updates, recorded search-policy replay and model-weight training remain distinct."
+}

@@ -1,0 +1,23 @@
+{
+  "edition": 50,
+  "reason": "The source inventory classified a mixed-encoding JavaScript label as binary and hashed Windows working-tree CRLF bytes. Git stored LF, so the original inventory did not match that fetched blob. One standalone Latin-1 middle-dot is now UTF-8; no Java or scheduling/physics logic changed. Published numbered snapshots and readme-050 remain unchanged.",
+  "originalSnapshotEntry": {
+    "path": "workspace-desktop/renderer/workshop050.js",
+    "bytes": 11935,
+    "hashKind": "binary",
+    "sha256": "5b887fc28d493ec505026c0be57cf0ae479602fa657636e5697341dfc63a5723"
+  },
+  "taggedGitBlob": {
+    "bytes": 11872,
+    "sha256": "5ae85b37f77aa33700de726a06cf79bf4a8b179b975a1308f7a7501c645a3732",
+    "workingTreeReconstruction": "Replace LF with CRLF to reproduce the original binary inventory entry."
+  },
+  "currentSourceOverrides": [
+    {
+      "path": "workspace-desktop/renderer/workshop050.js",
+      "bytes": 11873,
+      "hashKind": "utf8-lf",
+      "sha256": "8c7acf7c47789b9df240b95188fc0ea2172a930e95406627cd12796a554b652c"
+    }
+  ]
+}

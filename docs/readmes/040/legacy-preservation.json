@@ -1,0 +1,21 @@
+{
+  "passed": true,
+  "priorSources": 744,
+  "unchanged": 731,
+  "integrationChanges": [
+    "src/main/java/runtime/EmbeddedGameRuntime.java",
+    "workspace-desktop/main.cjs",
+    "workspace-desktop/package.json",
+    "workspace-desktop/policy.cjs",
+    "workspace-desktop/renderer/app.js",
+    "workspace-desktop/renderer/index.html",
+    "workspace-desktop/renderer/spatial-panel.js",
+    "workspace-desktop/source-integrity.cjs",
+    "workspace-desktop/test/live-knowledge.cjs",
+    "workspace-desktop/test/policy.test.cjs",
+    "workspace-engine/src/main/java/fraymus/workspace/EmbeddedGameClient.java",
+    "workspace-engine/src/main/java/fraymus/workspace/SelfModel.java",
+    "workspace-engine/src/main/java/fraymus/workspace/WorkspaceServer.java"
+  ],
+  "scope": "Existing physics solvers, controllers, neural math, tracker/filter/calibration and geometry math remain unchanged. Original game runtime adds an owner-thread read adapter and exception containment; Java server adds typed routes and CPU-only planning option."
+}

@@ -1,0 +1,832 @@
+{
+  "passed": true,
+  "date": "2026-11-02T13:50:58.383Z",
+  "project": "C:\\Users\\eyeka\\AppData\\Local\\Temp\\fraynix-data020-zIbyKf",
+  "contract": {
+    "edition": "020",
+    "procedure": "motion-data-report-v1",
+    "declaration": "Written before first execution; local development cases, not an external hidden benchmark",
+    "cases": [
+      {
+        "id": "units-forward",
+        "csv": "time_ms,distance_cm\n0,0\n100,2\n250,10\n500,40\n",
+        "timeUnit": "ms",
+        "distanceUnit": "cm",
+        "maxGapS": 0.3,
+        "speedLimitMps": 2,
+        "expected": {
+          "rowCount": 4,
+          "durationS": 0.5,
+          "netDisplacementM": 0.4,
+          "totalTravelM": 0.4,
+          "meanSpeedMps": 0.8,
+          "qualityPassed": true
+        }
+      },
+      {
+        "id": "new-source-reversals-and-gap",
+        "csv": "time_ms,distance_mm\n0,0\n100,50\n200,20\n800,100\n1000,80\n",
+        "timeUnit": "ms",
+        "distanceUnit": "mm",
+        "maxGapS": 0.25,
+        "speedLimitMps": 0.4,
+        "expected": {
+          "rowCount": 5,
+          "durationS": 1,
+          "netDisplacementM": 0.08,
+          "totalTravelM": 0.18,
+          "meanSpeedMps": 0.18,
+          "gapFlags": 1,
+          "speedFlags": 1,
+          "qualityPassed": false
+        }
+      }
+    ],
+    "requiredChecks": [
+      "Actual file import with explicit units/source labels",
+      "Original CSV and source hashes unchanged",
+      "Normalization reconstructed from original CSV and frozen mapping",
+      "Segment velocities and midpoint acceleration, no invented sensor data",
+      "Quality flags remain distinct from verified task completion",
+      "Real canvas chart assertions",
+      "Retained skill rebinds a new source after restart",
+      "Versioned source remains frozen when a later dataset version is imported",
+      "Interrupted host verification reuses analysis and report identity",
+      "Cancellation and stale host acknowledgment reject promotion",
+      "Data task does not acquire physics/model ownership",
+      "Cross-family skill names reject",
+      "Actual local model uses typed data task",
+      "Frozen recorded dataset remains unchanged and real-world action authority unchanged"
+    ]
+  },
+  "checks": [
+    "A chat/data task cannot silently invent or select a missing data source",
+    "Actual local file picker/import with explicit units runs the whole Java data procedure without a model, native world or source edits",
+    "Eight actual Chromium assertions bind two real charts and all normalized rows to original source/mapping hashes; audit exports contain actual computed values",
+    "A source-qualified data procedure, its report and source hashes survive a fresh desktop process",
+    "Actual saved-skill controls bind a different file/units and detect reversals, one speed exceedance and one gap without turning flagged data into passing quality",
+    "Verified new-source analysis can become immutable skill v2 while an identical save is idempotent",
+    "Actual frozen recorded-motion CSV analyzes all49 rows with unchanged source bytes; descriptive quality checks do not alter prior rejected physical forecasting or grant actuation",
+    "A data task neither acquires native/model ownership nor cancels or changes a foreign physics run; cancelled data work cannot promote a skill",
+    "Data-specific completion also rejects forged booleans and foreign host acknowledgments",
+    "Explicit resume reuses frozen dataset v1, analysis and stable report identity even after a later source version was imported",
+    "Both registered task families actually complete; cross-family skill names reject rather than changing a saved procedure’s meaning",
+    "Data import, actual reports, saved skill inspector, native coexistence and restart UI have no renderer errors"
+  ],
+  "first": {
+    "request": "Analyze the selected motion data, verify the report and retain a procedure",
+    "reason": "Data analysis and actual canvas report verified; quality flags retained without changing the source",
+    "procedure": "motion-data-report-v1",
+    "maxGapS": 0.3,
+    "history": [
+      {
+        "reason": "Data task accepted; exact dataset version, original CSV hash, mapping and quality thresholds frozen",
+        "at": "2026-11-02T13:50:43.699966600Z",
+        "step": "data-analyze",
+        "attempt": 1,
+        "status": "running"
+      },
+      {
+        "reason": "Original CSV normalization, segment motion and integration invariants verified; data quality is reported separately",
+        "at": "2026-11-02T13:50:43.776776400Z",
+        "step": "data-report",
+        "attempt": 1,
+        "status": "running"
+      },
+      {
+        "reason": "Waiting for registered desktop action: canvas.verify-report",
+        "at": "2026-11-02T13:50:43.977742100Z",
+        "step": "data-report",
+        "attempt": 1,
+        "status": "waiting-host"
+      },
+      {
+        "reason": "Actual Chromium canvas assertions passed for the pinned report version",
+        "at": "2026-11-02T13:50:44.242169500Z",
+        "step": "complete",
+        "attempt": 1,
+        "status": "running"
+      },
+      {
+        "reason": "Data analysis and actual canvas report verified; quality flags retained without changing the source",
+        "at": "2026-11-02T13:50:44.377234500Z",
+        "step": "completed",
+        "attempt": 1,
+        "status": "completed"
+      }
+    ],
+    "attempt": 1,
+    "resumes": 0,
+    "createdAt": "2026-11-02T13:50:43.699966600Z",
+    "speedLimitMps": 2,
+    "dataBinding": {
+      "sourceSha256": "f70552b59b123f38bffd6d68f1f7fd60a43c138133bed7f86e443cba2af515b3",
+      "datasetVersion": 1,
+      "mappingSha256": "5aa3b73a9d00d85dae57e4800999e48d977a6b162202b588aabf031a9d549682",
+      "sourceKind": "synthetic",
+      "versionSha256": "88609c38dbdbdedc5ead54c4204d03972db2feb3df3c30a15e4c60e10a203b39",
+      "datasetId": "c09823da-48a4-4065-bf9f-0c5cbc1749dd",
+      "title": "units-forward"
+    },
+    "report": {
+      "sha256": "0deadf7eb152d7e151cc23ea410f11d0c4c8c63c5b136851aa439c410c84daff",
+      "id": "676d7e43-3475-3e79-9b3b-262a788ab912",
+      "version": 1
+    },
+    "step": "completed",
+    "id": "94c2e4b0-40f7-47e5-9596-2de48aaadf99",
+    "metrics": {
+      "peakAbsAccelerationMps2": 3.333333333333334,
+      "meanSpeedMps": 0.8,
+      "meanVelocityMps": 0.8,
+      "qualityPassed": true,
+      "maxGapS": 0.25,
+      "speedFlags": 0,
+      "gapFlags": 0,
+      "netDisplacementM": 0.4,
+      "totalTravelM": 0.4,
+      "intervalCount": 3,
+      "peakAbsVelocityMps": 1.2000000000000002,
+      "skippedSourceRows": 0,
+      "durationS": 0.5,
+      "rowCount": 4,
+      "passed": true
+    },
+    "savedSkill": {
+      "name": "qa-motion-data",
+      "id": "2140b8e5-9764-325c-965e-06525b8bf7f4",
+      "version": 1
+    },
+    "status": "completed",
+    "updatedAt": "2026-11-02T13:50:44.377234500Z"
+  },
+  "changed": {
+    "request": "Reuse qa-motion-data v1 with a newly bound source and verified analysis",
+    "reason": "Data analysis and actual canvas report verified; quality flags retained without changing the source",
+    "procedure": "motion-data-report-v1",
+    "maxGapS": 0.25,
+    "history": [
+      {
+        "reason": "Data task accepted; exact dataset version, original CSV hash, mapping and quality thresholds frozen",
+        "at": "2026-11-02T13:50:46.615251Z",
+        "step": "data-analyze",
+        "attempt": 1,
+        "status": "running"
+      },
+      {
+        "reason": "Original CSV normalization, segment motion and integration invariants verified; data quality is reported separately",
+        "at": "2026-11-02T13:50:46.629214600Z",
+        "step": "data-report",
+        "attempt": 1,
+        "status": "running"
+      },
+      {
+        "reason": "Waiting for registered desktop action: canvas.verify-report",
+        "at": "2026-11-02T13:50:46.801671600Z",
+        "step": "data-report",
+        "attempt": 1,
+        "status": "waiting-host"
+      },
+      {
+        "reason": "Actual Chromium canvas assertions passed for the pinned report version",
+        "at": "2026-11-02T13:50:47.052231900Z",
+        "step": "complete",
+        "attempt": 1,
+        "status": "running"
+      },
+      {
+        "reason": "Data analysis and actual canvas report verified; quality flags retained without changing the source",
+        "at": "2026-11-02T13:50:47.153122800Z",
+        "step": "completed",
+        "attempt": 1,
+        "status": "completed"
+      }
+    ],
+    "attempt": 1,
+    "resumes": 0,
+    "createdAt": "2026-11-02T13:50:46.615251Z",
+    "speedLimitMps": 0.4,
+    "skill": {
+      "name": "qa-motion-data",
+      "id": "2140b8e5-9764-325c-965e-06525b8bf7f4",
+      "version": 1
+    },
+    "dataBinding": {
+      "sourceSha256": "3bf55a27858d38079e44c92768c2fbd7373b71861cbbbc3236010001b2ee2403",
+      "datasetVersion": 1,
+      "mappingSha256": "6ce1a9eb59dfb9e95b5a183993e520e273ab693ef8fbb519c9b232e43b62efe2",
+      "sourceKind": "synthetic",
+      "versionSha256": "eb6efad190142aac17c1be274c71fd76a4323942a3eab94a3279890065eaaf7f",
+      "datasetId": "81634661-356c-4f37-ae4e-16dff0d0e222",
+      "title": "new-source-reversals-and-gap"
+    },
+    "report": {
+      "sha256": "42e799a8a4b5a62faaa33c797405c98f014d31532f3b678a0210d3aab357cf69",
+      "id": "d4b57a62-ae74-3331-9359-05ecac44d6f3",
+      "version": 1
+    },
+    "step": "completed",
+    "id": "2e793d0d-00c8-4e75-a7bd-d29019bd8b33",
+    "metrics": {
+      "peakAbsAccelerationMps2": 7.999999999999999,
+      "meanSpeedMps": 0.18,
+      "meanVelocityMps": 0.08,
+      "qualityPassed": false,
+      "maxGapS": 0.6000000000000001,
+      "speedFlags": 1,
+      "gapFlags": 1,
+      "netDisplacementM": 0.08,
+      "totalTravelM": 0.18,
+      "intervalCount": 4,
+      "peakAbsVelocityMps": 0.5,
+      "skippedSourceRows": 0,
+      "durationS": 1,
+      "rowCount": 5,
+      "passed": true
+    },
+    "status": "completed",
+    "updatedAt": "2026-11-02T13:50:47.153122800Z"
+  },
+  "recorded": {
+    "request": "Analyze the selected motion data, verify the report and retain a procedure",
+    "reason": "Data analysis and actual canvas report verified; quality flags retained without changing the source",
+    "procedure": "motion-data-report-v1",
+    "maxGapS": 0.05,
+    "history": [
+      {
+        "reason": "Data task accepted; exact dataset version, original CSV hash, mapping and quality thresholds frozen",
+        "at": "2026-11-02T13:50:47.604784Z",
+        "step": "data-analyze",
+        "attempt": 1,
+        "status": "running"
+      },
+      {
+        "reason": "Original CSV normalization, segment motion and integration invariants verified; data quality is reported separately",
+        "at": "2026-11-02T13:50:47.699026400Z",
+        "step": "data-report",
+        "attempt": 1,
+        "status": "running"
+      },
+      {
+        "reason": "Waiting for registered desktop action: canvas.verify-report",
+        "at": "2026-11-02T13:50:47.855982600Z",
+        "step": "data-report",
+        "attempt": 1,
+        "status": "waiting-host"
+      },
+      {
+        "reason": "Actual Chromium canvas assertions passed for the pinned report version",
+        "at": "2026-11-02T13:50:48.047882700Z",
+        "step": "complete",
+        "attempt": 1,
+        "status": "running"
+      },
+      {
+        "reason": "Data analysis and actual canvas report verified; quality flags retained without changing the source",
+        "at": "2026-11-02T13:50:48.154026700Z",
+        "step": "completed",
+        "attempt": 1,
+        "status": "completed"
+      }
+    ],
+    "attempt": 1,
+    "resumes": 0,
+    "createdAt": "2026-11-02T13:50:47.604784Z",
+    "speedLimitMps": 5,
+    "dataBinding": {
+      "sourceSha256": "591c0cb5e7b1755dce0e9e415ed0766840a9e74021effca78a45c1ae9e59b4c8",
+      "datasetVersion": 1,
+      "mappingSha256": "af25dab9ecb6bcc1ee9b2662d8accf23ce4199c1ae5e3dc406c20d2bed8c7697",
+      "sourceKind": "measured",
+      "versionSha256": "af21dd800e12c8dca512b2ab88b6972d9d752752d6a714595895f25518523f24",
+      "datasetId": "1922b968-313a-4ab0-9317-dd4455cdcbba",
+      "title": "Recorded Delfys motion · unchanged source"
+    },
+    "report": {
+      "sha256": "ce5f6fd2d5ff54549fa306c96a231b21ebb0cda28fe42186235573fa3391686f",
+      "id": "23370f4c-2d23-3cd3-babc-16dc27e2f72d",
+      "version": 1
+    },
+    "step": "completed",
+    "id": "2014dbf1-cdad-461d-b032-91e3183ded5a",
+    "metrics": {
+      "peakAbsAccelerationMps2": 135.30891307729846,
+      "meanSpeedMps": 0.9698065952819892,
+      "meanVelocityMps": 0.9694481787882638,
+      "qualityPassed": true,
+      "maxGapS": 0.01666666666666672,
+      "speedFlags": 0,
+      "gapFlags": 0,
+      "netDisplacementM": 0.7755585430306111,
+      "totalTravelM": 0.7758452762255914,
+      "intervalCount": 48,
+      "peakAbsVelocityMps": 3.866609224437713,
+      "skippedSourceRows": 0,
+      "durationS": 0.8,
+      "rowCount": 49,
+      "passed": true
+    },
+    "status": "completed",
+    "updatedAt": "2026-11-02T13:50:48.154026700Z"
+  },
+  "recovered": {
+    "request": "Analyze the selected motion data, verify the report and retain a procedure",
+    "reason": "Data analysis and actual canvas report verified; quality flags retained without changing the source",
+    "procedure": "motion-data-report-v1",
+    "maxGapS": 0.25,
+    "history": [
+      {
+        "reason": "Data task accepted; exact dataset version, original CSV hash, mapping and quality thresholds frozen",
+        "at": "2026-11-02T13:50:48.795728300Z",
+        "step": "data-analyze",
+        "attempt": 1,
+        "status": "running"
+      },
+      {
+        "reason": "Original CSV normalization, segment motion and integration invariants verified; data quality is reported separately",
+        "at": "2026-11-02T13:50:48.814677400Z",
+        "step": "data-report",
+        "attempt": 1,
+        "status": "running"
+      },
+      {
+        "reason": "Waiting for registered desktop action: canvas.verify-report",
+        "at": "2026-11-02T13:50:48.970176600Z",
+        "step": "data-report",
+        "attempt": 1,
+        "status": "waiting-host"
+      },
+      {
+        "reason": "Explicit data-task resume reuses its frozen dataset version and stable report identity",
+        "at": "2026-11-02T13:50:50.638477500Z",
+        "step": "data-report",
+        "attempt": 1,
+        "status": "running"
+      },
+      {
+        "reason": "Waiting for registered desktop action: canvas.verify-report",
+        "at": "2026-11-02T13:50:50.688608700Z",
+        "step": "data-report",
+        "attempt": 1,
+        "status": "waiting-host"
+      },
+      {
+        "reason": "Actual Chromium canvas assertions passed for the pinned report version",
+        "at": "2026-11-02T13:50:50.833447800Z",
+        "step": "complete",
+        "attempt": 1,
+        "status": "running"
+      },
+      {
+        "reason": "Data analysis and actual canvas report verified; quality flags retained without changing the source",
+        "at": "2026-11-02T13:50:50.946196900Z",
+        "step": "completed",
+        "attempt": 1,
+        "status": "completed"
+      }
+    ],
+    "attempt": 1,
+    "resumes": 1,
+    "createdAt": "2026-11-02T13:50:48.795728300Z",
+    "speedLimitMps": 5,
+    "dataBinding": {
+      "sourceSha256": "f70552b59b123f38bffd6d68f1f7fd60a43c138133bed7f86e443cba2af515b3",
+      "datasetVersion": 1,
+      "mappingSha256": "5aa3b73a9d00d85dae57e4800999e48d977a6b162202b588aabf031a9d549682",
+      "sourceKind": "synthetic",
+      "versionSha256": "88609c38dbdbdedc5ead54c4204d03972db2feb3df3c30a15e4c60e10a203b39",
+      "datasetId": "c09823da-48a4-4065-bf9f-0c5cbc1749dd",
+      "title": "units-forward"
+    },
+    "report": {
+      "sha256": "2e5cd0f1b724826e9244d7e17cd0588106759a0826a05136d774e04921b1fd12",
+      "id": "18d50086-e0b0-3e2c-bef0-0d7bc7d478fb",
+      "version": 1
+    },
+    "step": "completed",
+    "id": "3c55f174-ec23-4c81-96c7-6b946e76a5b5",
+    "metrics": {
+      "peakAbsAccelerationMps2": 3.333333333333334,
+      "meanSpeedMps": 0.8,
+      "meanVelocityMps": 0.8,
+      "qualityPassed": true,
+      "maxGapS": 0.25,
+      "speedFlags": 0,
+      "gapFlags": 0,
+      "netDisplacementM": 0.4,
+      "totalTravelM": 0.4,
+      "intervalCount": 3,
+      "peakAbsVelocityMps": 1.2000000000000002,
+      "skippedSourceRows": 0,
+      "durationS": 0.5,
+      "rowCount": 4,
+      "passed": true
+    },
+    "savedSkill": {
+      "name": "recovered-data",
+      "id": "84dd1725-de5a-3512-bbf5-c80ddcf58a06",
+      "version": 1
+    },
+    "status": "completed",
+    "updatedAt": "2026-11-02T13:50:50.946196900Z"
+  },
+  "source": {
+    "first": {
+      "mapping": {
+        "timeColumn": "time_ms",
+        "distanceUnit": "cm",
+        "distanceOrigin": 0,
+        "timeOffsetS": 0,
+        "distanceColumn": "distance_cm",
+        "timeUnit": "ms",
+        "direction": 1
+      },
+      "schemaVersion": 1,
+      "columns": [
+        "time_ms",
+        "distance_cm"
+      ],
+      "csv": "time_ms,distance_cm\n0,0\n100,2\n250,10\n500,40\n",
+      "sourceLabelUserSupplied": true,
+      "uncertaintyM": null,
+      "title": "units-forward",
+      "rows": [
+        {
+          "timeS": 0,
+          "distanceM": 0,
+          "sourceRow": 2
+        },
+        {
+          "timeS": 0.1,
+          "distanceM": 0.02,
+          "sourceRow": 3
+        },
+        {
+          "timeS": 0.25,
+          "distanceM": 0.1,
+          "sourceRow": 4
+        },
+        {
+          "timeS": 0.5,
+          "distanceM": 0.4,
+          "sourceRow": 5
+        }
+      ],
+      "version": 1,
+      "sourceSha256": "f70552b59b123f38bffd6d68f1f7fd60a43c138133bed7f86e443cba2af515b3",
+      "createdAt": "2026-11-02T13:50:43.482931100Z",
+      "filename": "units-forward.csv",
+      "mappingSha256": "5aa3b73a9d00d85dae57e4800999e48d977a6b162202b588aabf031a9d549682",
+      "sourceKind": "synthetic",
+      "sourceNote": "Declared local numerical fixture; not instrument observations",
+      "skippedRows": [],
+      "datasetId": "c09823da-48a4-4065-bf9f-0c5cbc1749dd",
+      "id": "e0d18370-ae30-4df0-b14a-dd6939f10906",
+      "missingPolicy": "reject",
+      "frame": "signed downhill displacement from release, metres; elapsed simulation seconds"
+    },
+    "changed": {
+      "mapping": {
+        "timeColumn": "time_ms",
+        "distanceUnit": "mm",
+        "distanceOrigin": 0,
+        "timeOffsetS": 0,
+        "distanceColumn": "distance_mm",
+        "timeUnit": "ms",
+        "direction": 1
+      },
+      "schemaVersion": 1,
+      "columns": [
+        "time_ms",
+        "distance_mm"
+      ],
+      "csv": "time_ms,distance_mm\n0,0\n100,50\n200,20\n800,100\n1000,80\n",
+      "sourceLabelUserSupplied": true,
+      "uncertaintyM": null,
+      "title": "new-source-reversals-and-gap",
+      "rows": [
+        {
+          "timeS": 0,
+          "distanceM": 0,
+          "sourceRow": 2
+        },
+        {
+          "timeS": 0.1,
+          "distanceM": 0.05,
+          "sourceRow": 3
+        },
+        {
+          "timeS": 0.2,
+          "distanceM": 0.02,
+          "sourceRow": 4
+        },
+        {
+          "timeS": 0.8,
+          "distanceM": 0.1,
+          "sourceRow": 5
+        },
+        {
+          "timeS": 1,
+          "distanceM": 0.08,
+          "sourceRow": 6
+        }
+      ],
+      "version": 1,
+      "sourceSha256": "3bf55a27858d38079e44c92768c2fbd7373b71861cbbbc3236010001b2ee2403",
+      "createdAt": "2026-11-02T13:50:46.273818400Z",
+      "filename": "new-source-reversals-and-gap.csv",
+      "mappingSha256": "6ce1a9eb59dfb9e95b5a183993e520e273ab693ef8fbb519c9b232e43b62efe2",
+      "sourceKind": "synthetic",
+      "sourceNote": "Declared local numerical fixture; not instrument observations",
+      "skippedRows": [],
+      "datasetId": "81634661-356c-4f37-ae4e-16dff0d0e222",
+      "id": "56aae2de-8fc0-48e4-8808-9bf01df48c93",
+      "missingPolicy": "reject",
+      "frame": "signed downhill displacement from release, metres; elapsed simulation seconds"
+    },
+    "recorded": {
+      "mapping": {
+        "timeColumn": "time_s",
+        "distanceUnit": "m",
+        "distanceOrigin": 0,
+        "timeOffsetS": 0,
+        "distanceColumn": "displacement_m",
+        "timeUnit": "s",
+        "direction": 1
+      },
+      "schemaVersion": 1,
+      "columns": [
+        "time_s",
+        "displacement_m",
+        "source_frame",
+        "centroid_x_px",
+        "centroid_y_px",
+        "mask_area_px"
+      ],
+      "csv": "time_s,displacement_m,source_frame,centroid_x_px,centroid_y_px,mask_area_px\n0,0,0,401.05717740542406,346.23510105372259,11578\n0.016666666666666666,0.0002885407821130584,1,401.57366771159877,346.42658646106923,11803\n0.033333333333333333,0.0016906343706534085,2,404.04869418702611,347.447598989048,11870\n0.050000000000000003,0.0035047497333806853,3,407.26365715253661,348.73574997882611,11807\n0.066666666666666666,0.0092704672369332362,4,417.50330901069066,352.77329034447649,11786\n0.083333333333333329,0.01267120625613467,5,423.6499288643401,354.87563812871372,11949\n0.10000000000000001,0.022068265380239607,6,440.35651506101203,361.40959126205308,11719\n0.11666666666666667,0.027489619848994871,7,450.05878803551417,365.01258512197222,11601\n0.13333333333333333,0.04004685703155389,8,472.48616391123687,373.47679250287331,11311\n0.14999999999999999,0.05394719777450184,9,497.28516798688884,382.91714467813892,10983\n0.16666666666666666,0.061582387932065184,10,510.82529622485532,388.31496279966933,10887\n0.18333333333333332,0.069822488318171866,11,525.69409965821194,393.47328656233134,11118\n0.20000000000000001,0.078983232679133542,12,542.0409389150725,399.6855188984382,10821\n0.21666666666666667,0.088740469727271287,13,559.41168708765315,406.40782280867109,10610\n0.23333333333333334,0.098662525272415466,14,577.06385426653878,413.2749760306807,10430\n0.25,0.1100181635474265,15,597.31857294788745,420.99854974378809,10343\n0.26666666666666666,0.10997851846842079,16,597.2531240918338,420.95786108689333,10323\n0.28333333333333333,0.12138961362075727,17,617.56075874333135,428.83906342620037,10122\n0.29999999999999999,0.1342824822098404,18,640.5316633266533,437.67525050100198,9980\n0.31666666666666665,0.13433524015053586,19,640.62319131832794,437.71784565916397,9952\n0.33333333333333331,0.14727171938325323,20,663.69010921710731,446.53618454628969,9797\n0.34999999999999998,0.16133681431010158,21,688.86387701079207,455.87772347790673,9822\n0.36666666666666664,0.17586722659895826,22,714.79874148958118,465.71528780689084,9694\n0.38333333333333336,0.19058142155926358,23,740.93938135769156,475.99595183724307,9634\n0.40000000000000002,0.20528780085607284,24,767.2214368604283,485.86633611140417,9479\n0.41666666666666669,0.22102901723543766,25,795.1033299697275,497.08173562058528,9910\n0.43333333333333335,0.23714138090514561,26,823.79325066070339,508.16893677576741,9838\n0.45000000000000001,0.25373844568443654,27,853.26357313401843,519.80514896709224,9633\n0.46666666666666667,0.27063936462576088,28,883.35183527305287,531.4500149209191,10053\n0.48333333333333334,0.28876515972224626,29,915.72175875944652,543.67543429188345,10189\n0.5,0.30676317535942055,30,948.00687984496119,555.4408914728682,10320\n0.51666666666666672,0.34504777451679092,31,1016.2393796992482,581.62265037593988,10640\n0.53333333333333333,0.34574656448602259,32,1017.5824990730441,581.84584723767148,10788\n0.55000000000000004,0.36549850404837569,33,1052.5108990551034,596.06885583309941,10689\n0.56666666666666665,0.38746663965053729,34,1091.7899074074073,610.76268518518521,10800\n0.58333333333333337,0.38736291813205281,35,1091.5939668733229,610.72064402701949,10807\n0.59999999999999998,0.40922104267244541,36,1130.6224471353696,625.48120368696914,11066\n0.6166666666666667,0.4319189599154592,37,1170.9682780806004,641.28362076668748,11191\n0.6333333333333333,0.4566770447880289,38,1214.9318481993485,658.63564321563797,11357\n0.65000000000000002,0.48139361852742429,39,1259.0903181069602,675.25838606223454,11537\n0.66666666666666663,0.50669701558318536,40,1304.217649080598,692.48315861831929,11638\n0.68333333333333335,0.50674900776687315,41,1304.2908311910883,692.56949443016276,11670\n0.69999999999999996,0.53339891247705751,42,1351.5620837899351,711.38211245047626,11863\n0.71666666666666667,0.56180020031810141,43,1402.1938834870773,730.76905177428739,12033\n0.73333333333333328,0.58954984274233924,44,1451.9450012424418,748.97863000082828,12073\n0.75,0.62201219844328415,45,1509.7718747607746,771.25422950317693,13063\n0.76666666666666672,0.65070188038098653,46,1560.8593253198915,790.99046141915471,12895\n0.78333333333333333,0.71111505595664903,47,1668.3197855413352,832.85420269802842,11564\n0.80000000000000004,0.77555854303061111,48,1783.0636445758396,877.21244970025452,12177\n",
+      "sourceLabelUserSupplied": true,
+      "uncertaintyM": null,
+      "title": "Recorded Delfys motion · unchanged source",
+      "rows": [
+        {
+          "timeS": 0,
+          "distanceM": 0,
+          "sourceRow": 2
+        },
+        {
+          "timeS": 0.016666666666666666,
+          "distanceM": 0.0002885407821130584,
+          "sourceRow": 3
+        },
+        {
+          "timeS": 0.03333333333333333,
+          "distanceM": 0.0016906343706534085,
+          "sourceRow": 4
+        },
+        {
+          "timeS": 0.05,
+          "distanceM": 0.0035047497333806853,
+          "sourceRow": 5
+        },
+        {
+          "timeS": 0.06666666666666667,
+          "distanceM": 0.009270467236933236,
+          "sourceRow": 6
+        },
+        {
+          "timeS": 0.08333333333333333,
+          "distanceM": 0.01267120625613467,
+          "sourceRow": 7
+        },
+        {
+          "timeS": 0.1,
+          "distanceM": 0.022068265380239607,
+          "sourceRow": 8
+        },
+        {
+          "timeS": 0.11666666666666667,
+          "distanceM": 0.02748961984899487,
+          "sourceRow": 9
+        },
+        {
+          "timeS": 0.13333333333333333,
+          "distanceM": 0.04004685703155389,
+          "sourceRow": 10
+        },
+        {
+          "timeS": 0.15,
+          "distanceM": 0.05394719777450184,
+          "sourceRow": 11
+        },
+        {
+          "timeS": 0.16666666666666666,
+          "distanceM": 0.061582387932065184,
+          "sourceRow": 12
+        },
+        {
+          "timeS": 0.18333333333333332,
+          "distanceM": 0.06982248831817187,
+          "sourceRow": 13
+        },
+        {
+          "timeS": 0.2,
+          "distanceM": 0.07898323267913354,
+          "sourceRow": 14
+        },
+        {
+          "timeS": 0.21666666666666667,
+          "distanceM": 0.08874046972727129,
+          "sourceRow": 15
+        },
+        {
+          "timeS": 0.23333333333333334,
+          "distanceM": 0.09866252527241547,
+          "sourceRow": 16
+        },
+        {
+          "timeS": 0.25,
+          "distanceM": 0.1100181635474265,
+          "sourceRow": 17
+        },
+        {
+          "timeS": 0.26666666666666666,
+          "distanceM": 0.10997851846842079,
+          "sourceRow": 18
+        },
+        {
+          "timeS": 0.2833333333333333,
+          "distanceM": 0.12138961362075727,
+          "sourceRow": 19
+        },
+        {
+          "timeS": 0.3,
+          "distanceM": 0.1342824822098404,
+          "sourceRow": 20
+        },
+        {
+          "timeS": 0.31666666666666665,
+          "distanceM": 0.13433524015053586,
+          "sourceRow": 21
+        },
+        {
+          "timeS": 0.3333333333333333,
+          "distanceM": 0.14727171938325323,
+          "sourceRow": 22
+        },
+        {
+          "timeS": 0.35,
+          "distanceM": 0.16133681431010158,
+          "sourceRow": 23
+        },
+        {
+          "timeS": 0.36666666666666664,
+          "distanceM": 0.17586722659895826,
+          "sourceRow": 24
+        },
+        {
+          "timeS": 0.38333333333333336,
+          "distanceM": 0.19058142155926358,
+          "sourceRow": 25
+        },
+        {
+          "timeS": 0.4,
+          "distanceM": 0.20528780085607284,
+          "sourceRow": 26
+        },
+        {
+          "timeS": 0.4166666666666667,
+          "distanceM": 0.22102901723543766,
+          "sourceRow": 27
+        },
+        {
+          "timeS": 0.43333333333333335,
+          "distanceM": 0.2371413809051456,
+          "sourceRow": 28
+        },
+        {
+          "timeS": 0.45,
+          "distanceM": 0.25373844568443654,
+          "sourceRow": 29
+        },
+        {
+          "timeS": 0.4666666666666667,
+          "distanceM": 0.2706393646257609,
+          "sourceRow": 30
+        },
+        {
+          "timeS": 0.48333333333333334,
+          "distanceM": 0.28876515972224626,
+          "sourceRow": 31
+        },
+        {
+          "timeS": 0.5,
+          "distanceM": 0.30676317535942055,
+          "sourceRow": 32
+        },
+        {
+          "timeS": 0.5166666666666667,
+          "distanceM": 0.3450477745167909,
+          "sourceRow": 33
+        },
+        {
+          "timeS": 0.5333333333333333,
+          "distanceM": 0.3457465644860226,
+          "sourceRow": 34
+        },
+        {
+          "timeS": 0.55,
+          "distanceM": 0.3654985040483757,
+          "sourceRow": 35
+        },
+        {
+          "timeS": 0.5666666666666667,
+          "distanceM": 0.3874666396505373,
+          "sourceRow": 36
+        },
+        {
+          "timeS": 0.5833333333333334,
+          "distanceM": 0.3873629181320528,
+          "sourceRow": 37
+        },
+        {
+          "timeS": 0.6,
+          "distanceM": 0.4092210426724454,
+          "sourceRow": 38
+        },
+        {
+          "timeS": 0.6166666666666667,
+          "distanceM": 0.4319189599154592,
+          "sourceRow": 39
+        },
+        {
+          "timeS": 0.6333333333333333,
+          "distanceM": 0.4566770447880289,
+          "sourceRow": 40
+        },
+        {
+          "timeS": 0.65,
+          "distanceM": 0.4813936185274243,
+          "sourceRow": 41
+        },
+        {
+          "timeS": 0.6666666666666666,
+          "distanceM": 0.5066970155831854,
+          "sourceRow": 42
+        },
+        {
+          "timeS": 0.6833333333333333,
+          "distanceM": 0.5067490077668731,
+          "sourceRow": 43
+        },
+        {
+          "timeS": 0.7,
+          "distanceM": 0.5333989124770575,
+          "sourceRow": 44
+        },
+        {
+          "timeS": 0.7166666666666667,
+          "distanceM": 0.5618002003181014,
+          "sourceRow": 45
+        },
+        {
+          "timeS": 0.7333333333333333,
+          "distanceM": 0.5895498427423392,
+          "sourceRow": 46
+        },
+        {
+          "timeS": 0.75,
+          "distanceM": 0.6220121984432841,
+          "sourceRow": 47
+        },
+        {
+          "timeS": 0.7666666666666667,
+          "distanceM": 0.6507018803809865,
+          "sourceRow": 48
+        },
+        {
+          "timeS": 0.7833333333333333,
+          "distanceM": 0.711115055956649,
+          "sourceRow": 49
+        },
+        {
+          "timeS": 0.8,
+          "distanceM": 0.7755585430306111,
+          "sourceRow": 50
+        }
+      ],
+      "version": 1,
+      "sourceSha256": "591c0cb5e7b1755dce0e9e415ed0766840a9e74021effca78a45c1ae9e59b4c8",
+      "createdAt": "2026-11-02T13:50:47.512024700Z",
+      "filename": "delfys-recorded.csv",
+      "mappingSha256": "af25dab9ecb6bcc1ee9b2662d8accf23ce4199c1ae5e3dc406c20d2bed8c7697",
+      "sourceKind": "measured",
+      "sourceNote": "Existing frozen Delfys75 edition013 extracted observations. User-declared measured label; apparatus and causal action validity are not established.",
+      "skippedRows": [],
+      "datasetId": "1922b968-313a-4ab0-9317-dd4455cdcbba",
+      "id": "20920174-0652-4a2b-b9ca-00013de56ab1",
+      "missingPolicy": "reject",
+      "frame": "signed downhill displacement from release, metres; elapsed simulation seconds"
+    }
+  },
+  "recordedFileSha256": "591c0cb5e7b1755dce0e9e415ed0766840a9e74021effca78a45c1ae9e59b4c8"
+}

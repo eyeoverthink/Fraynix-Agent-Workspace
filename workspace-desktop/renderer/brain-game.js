@@ -1,10 +1,30 @@
+import {Later069} from './later069.js';
+import {Calibration068} from './calibration068.js';
+import {Temporal067} from './temporal067.js';
+import {Recovery066} from './recovery066.js';
+import {Decision065} from './decision065.js';
+import {Contact064} from './contact064.js';
+import {Stopping063} from './stopping063.js';
+import {Residual062} from './residual062.js';
+import {Cortex061} from './cortex061.js';
+import {EvidenceBench049} from './evidence049.js';
 const $=id=>document.getElementById(id);
 export class BrainGame {
+ async openIntegrated(){this.requireSaved();this.activate('game');if(!this.running)this.show(await this.call('gameRuntime','open'));}
  constructor({call,notice,activate,layout,lab,requireSaved}){Object.assign(this,{call,notice,activate,layout,lab,requireSaved});this.running=false;this.busy=false;this.polling=false;
   const safe=f=>async()=>{try{await f();}catch(e){this.notice(e.message);$('brain-status').textContent=e.message;}};
-  $('brain-open').onclick=safe(async()=>{$('brain-dialog').showModal();this.layout();await this.refresh();});
+  this.addSkillMemory();
+  this.cortex061=new Cortex061(call,notice);
+  this.residual062=new Residual062(call,notice);
+  this.stopping063=new Stopping063(call,notice);
+  this.contact064=new Contact064(call,notice);this.decision065=new Decision065(call,notice);this.recovery066=new Recovery066(call,notice);this.temporal067=new Temporal067(call,notice);this.calibration068=new Calibration068(call,notice);this.later069=new Later069(call,notice);
+  this.evidenceBench=new EvidenceBench049(call);
+  $('brain-open').onclick=safe(async()=>{
+   $('brain-dialog').showModal();this.layout();await this.refresh();
+   if($('skill-memory-panel').open)await this.skillMemoryAction('state');
+  });
   $('brain-close').onclick=()=>{$('brain-dialog').close();this.layout();};$('brain-dialog').addEventListener('close',this.layout);
-  $('game-tab').onclick=safe(async()=>{this.requireSaved();this.activate('game');if(!this.running)this.show(await this.call('gameRuntime','open'));});
+  $('game-tab').onclick=safe(()=>this.openIntegrated());
   for(const id of ['left','right','jump','step','play','pause','ai','reset'])$('game-'+id).onclick=safe(async()=>{const args=id==='left'||id==='right'||id==='jump'||id==='step'?{action:'step',ticks:30,horizontal:id==='left'?-1:id==='right'?1:0,jump:id==='jump'}:id==='ai'?{action:'ai',targetX:Number($('game-target').value)}:{action:id};this.show(await this.call('gameRuntime','command',args));});
   $('game-close').onclick=safe(async()=>{await this.call('gameRuntime','close');this.running=false;$('game-status').textContent='Runtime closed. Reopen with Start game.';});
   $('game-open').onclick=safe(async()=>this.show(await this.call('gameRuntime','open')));
@@ -21,11 +41,73 @@ export class BrainGame {
   $('memory-search').onclick=safe(async()=>{$('memory-result').textContent=JSON.stringify(await this.call('memory','context',{query:$('memory-text').value,maxChars:2400}),null,2);});
   setInterval(()=>this.poll().catch(e=>this.notice(e.message)),150);
  }
+ addSkillMemory(){
+  const panel=document.createElement('details');
+  panel.id='skill-memory-panel';
+  panel.innerHTML=`<summary>Skill recall · compare three methods</summary>
+   <p>Teach a phrase for a saved world skill. Compare suggestions for another phrase, then inspect the skill in Verified skills.</p>
+   <p id="skill-memory-state" role="status">Open to load saved world skills.</p>
+   <div class="skill-memory-fields">
+    <label>Verified world skill<select id="skill-memory-choice"></select></label>
+    <label>Teaching phrase or recall query
+     <input id="skill-memory-phrase" maxlength="240" placeholder="Arrange the objects beside the marker">
+    </label>
+   </div>
+   <div class="runtime-controls">
+    <button id="skill-memory-teach" disabled>Teach this phrase</button>
+    <button id="skill-memory-recall" disabled>Compare recall</button>
+   </div>
+   <div id="skill-memory-result" aria-live="polite"></div>`;
+  $('brain-state').after(panel);
+  panel.ontoggle=()=>{if(panel.open)this.skillMemoryAction('state');};
+  $('skill-memory-teach').onclick=()=>this.skillMemoryAction('teach');
+  $('skill-memory-recall').onclick=()=>this.skillMemoryAction('recall');
+ }
+ async skillMemoryAction(command){
+  if(this.skillMemoryBusy)return;
+  this.skillMemoryBusy=true;
+  const teach=$('skill-memory-teach'),recall=$('skill-memory-recall'),choice=$('skill-memory-choice');
+  teach.disabled=recall.disabled=true;
+  const result=$('skill-memory-result');
+  result.replaceChildren();
+  try{
+   const args=command==='state'?{}:{phrase:$('skill-memory-phrase').value};
+   if(command==='teach')args.skill=this.skillMemoryChoices[Number(choice.value)];
+   const response=await this.call('skillMemory',command,args);
+   if(command==='state'){
+    this.skillMemoryChoices=response.choices;
+    choice.replaceChildren(...response.choices.map((skill,index)=>new Option(skill.name+' · v'+skill.version,String(index))));
+   }
+   this.skillMemoryAvailable=response.available;
+   $('skill-memory-state').textContent=response.available
+    ? `${response.examples} taught phrase${response.examples===1?'':'s'} · ${response.skillCount} remembered skill${response.skillCount===1?'':'s'} · checkpoint ${response.sha256.slice(0,12)}`
+    : response.reason;
+   if(command==='teach')result.textContent=response.changed?'Phrase saved in Java skill memory.':'This phrase was already taught for that skill.';
+   if(command==='recall'){
+    const rows=document.createElement('ul');
+    for(const [key,label] of [['exact','Exact phrase'],['lexical','Keyword overlap'],['hdc','Packed HDC']]){
+     const match=response[key],row=document.createElement('li');
+     row.textContent=match.status==='suggestion'
+      ? `${label} · ${match.skill.name} v${match.skill.version} · score ${match.score.toFixed(3)}`
+      : `${label} · No suggestion${match.reason?' · '+match.reason:''}`;
+     rows.append(row);
+    }
+    result.append(rows);
+   }
+  }catch(error){
+   result.textContent=error.message;
+   if(command==='state')this.skillMemoryAvailable=false;
+  }finally{
+   this.skillMemoryBusy=false;
+   recall.disabled=!this.skillMemoryAvailable;
+   teach.disabled=recall.disabled||!this.skillMemoryChoices?.length;
+  }
+ }
  show(frame){this.running=true;$('game-frame').src='data:image/png;base64,'+frame.pngBase64;const s=frame.state,p=s.player;this.lastFrame=frame;$('game-status').textContent=`Original Java renderer · tick ${s.tick} · ${s.objects} objects\nPlayer X ${p.x.toFixed(3)} / Y ${p.y.toFixed(3)} · ${p.dead?'dead':p.won?'goal reached':p.onGround?'on ground':'airborne'}\nCapture ${Number(frame.captureMs).toFixed(1)} ms · bridge ${Number(frame.bridgeMs).toFixed(1)} ms · hidden runtime · no editor panels`;}
- async refresh(){const s=await this.call('brain','state');this.busy=s.busy;this.version=s.activePolicy.version;this.feedbackVersion=s.activeFeedback.version;$('brain-feedback-rollback').disabled=s.busy||this.feedbackVersion<2;$('brain-feedback-run').disabled=s.busy;const latest=s.jobs.at(-1);if(latest)this.jobId=latest.id;
+ async refresh(){const s=await this.call('brain','state');this.cortex061.refresh(s);this.residual062.refresh(s);this.stopping063.refresh(s);this.contact064.refresh(s);this.decision065.refresh(s);this.recovery066.refresh(s);this.temporal067.refresh(s);this.calibration068.refresh(s);this.later069.refresh(s);this.busy=s.busy;this.version=s.activePolicy.version;this.feedbackVersion=s.activeFeedback.version;$('brain-feedback-rollback').disabled=s.busy||this.feedbackVersion<2;$('brain-feedback-run').disabled=s.busy;const latest=s.jobs.at(-1);if(latest)this.jobId=latest.id;
   $('brain-state').textContent=`Java coordinator · policy v${this.version} (${s.activePolicy.kind}) · feedback v${this.feedbackVersion} (${s.activeFeedback.kind}) · ${s.journalEntries} journal entries · shared cortex ${s.cortex.ready?s.cortex.neurons+' neurons / '+s.cortex.synapses+' synapses / tick '+s.cortex.ticks:'ready to load on pulse'}`;
   for(const kind of ['pulse','gpu-check','train','feedback-train'])$('brain-'+kind).disabled=s.busy;$('brain-cancel').disabled=!s.busy;$('brain-rollback').disabled=s.busy||this.version<2;$('brain-run').disabled=s.busy;
-  if(latest){$('brain-status').textContent=`${latest.kind}: ${latest.status} · ${latest.phase} · ${latest.total?latest.progress+'/'+latest.total:''}`;$('brain-status').dataset.status=latest.status;const stamp=[latest.id,latest.status,latest.phase,latest.progress].join('/');const j=this.jobStamp===stamp?this.lastJob:await this.call('brain','read',{id:latest.id});this.jobStamp=stamp;this.lastJob=j;const e=j.evaluation,f=j.feedbackEvaluation;$('brain-result').textContent=f?`${f.accepted?'Feedback accepted':'Feedback rejected'} · score ${f.meanScores['analytical-feedback'].toFixed(4)} → ${f.meanScores.candidate.toFixed(4)} vs hand-designed feedback · worst endpoint ${(100*f.maxEndpointErrorM).toFixed(2)} cm · terminal speed ≤ ${f.maxTerminalSpeedMps.toFixed(3)} m/s · ${j.feedbackPromotion?'activated v'+j.feedbackPromotion.version:'candidate retained'}`:e?`${e.accepted?'Validation accepted':'Validation rejected'} · mean error ${e.baselineMeanErrorM.toFixed(3)} → ${e.trainedMeanErrorM.toFixed(3)} m · ${(e.relativeMeanGain*100).toFixed(1)}% improvement · worst ${e.maxTrainedErrorM.toFixed(3)} m · ${j.promotion?'activated as policy v'+j.promotion.version:'candidate retained without activation'}`:j.kind==='gpu-check'&&j.cases?`${j.device}\nCPU/GPU parity passed for ${j.cases.length} workloads. Timings include transfer overhead; open evidence for measured costs.`:j.kind==='pulse'&&j.ticks?`Cortex tick ${j.ticks} saved · ${j.neurons} neurons · ${j.synapses} synapses. Diagnostic computation; physical learning is measured separately.`:'';const compact={...j};for(const key of ['training','validation','trainingDefinitions','validationDefinitions','search','feedbackTrials','worldTraining','worldCalibration','worldTestEpisodes','worldPlanningTrials'])delete compact[key];$('brain-evidence').textContent=JSON.stringify(compact,null,2);}
+  if(latest){$('brain-status').textContent=`${latest.kind}: ${latest.status} · ${latest.phase} · ${latest.total?latest.progress+'/'+latest.total:''}`;$('brain-status').dataset.status=latest.status;const stamp=[latest.id,latest.status,latest.phase,latest.progress].join('/');const j=['contact-uncertainty','decision-value','bounded-recovery','temporal-recovery','calibrated-recovery','later-recovery'].includes(latest.kind)?latest:this.jobStamp===stamp?this.lastJob:await this.call('brain','read',{id:latest.id});this.jobStamp=stamp;this.lastJob=j;const e=j.evaluation,f=j.feedbackEvaluation;$('brain-result').textContent=f?`${f.accepted?'Feedback accepted':'Feedback rejected'} · score ${f.meanScores['analytical-feedback'].toFixed(4)} → ${f.meanScores.candidate.toFixed(4)} vs hand-designed feedback · worst endpoint ${(100*f.maxEndpointErrorM).toFixed(2)} cm · terminal speed ≤ ${f.maxTerminalSpeedMps.toFixed(3)} m/s · ${j.feedbackPromotion?'activated v'+j.feedbackPromotion.version:'candidate retained'}`:e?`${e.accepted?'Validation accepted':'Validation rejected'} · mean error ${e.baselineMeanErrorM.toFixed(3)} → ${e.trainedMeanErrorM.toFixed(3)} m · ${(e.relativeMeanGain*100).toFixed(1)}% improvement · worst ${e.maxTrainedErrorM.toFixed(3)} m · ${j.promotion?'activated as policy v'+j.promotion.version:'candidate retained without activation'}`:j.kind==='gpu-check'&&j.cases?`${j.device}\nCPU/GPU parity passed for ${j.cases.length} workloads. Timings include transfer overhead; open evidence for measured costs.`:j.kind==='pulse'&&j.ticks?`Cortex tick ${j.ticks} saved · ${j.neurons} neurons · ${j.synapses} synapses. Diagnostic computation; physical learning is measured separately.`:'';const compact={...j};for(const key of ['training','validation','trainingDefinitions','validationDefinitions','search','feedbackTrials','worldTraining','worldCalibration','worldTestEpisodes','worldPlanningTrials','diagnostics063','calibration063','reserved063','diagnostics064','calibration064','reserved064','stress064'])delete compact[key];$('brain-evidence').textContent=JSON.stringify(compact,null,2);}
  }
  feedback(value){const active=value.scope==='feedback-policy';$('feedback-live').hidden=!active;if(!active)return;this.feedbackRunId=value.id;const cur=value.current,p=value.feedbackProgress,m=value.feedbackEvaluation,v=cur.velocity,a=value.definition.parameters.angleDeg*Math.PI/180,speed=v[0]*Math.cos(a)-v[1]*Math.sin(a);$('feedback-live-status').dataset.status=value.status;$('feedback-live-status').textContent=`${value.status} · policy v${value.controller.version} · tick ${cur.tick}/360 · ${p?.actions||0} actual impulses · position ${cur.distanceM.toFixed(3)} / target ${value.controller.targetM.toFixed(3)} m · velocity ${speed.toFixed(3)} m/s · ${cur.contacts} contacts`+(m?` · endpoint error ${(m.endpointErrorM*100).toFixed(2)} cm · ${m.passed?'goal accepted':'goal not accepted'}`:'');for(const id of ['feedback-kick-forward','feedback-kick-back','feedback-stop'])$(id).disabled=!['running','paused'].includes(value.status);}
  async poll(){if(this.polling)return;this.polling=true;try{if(this.running&&!$('game-view').hidden)this.show(await this.call('gameRuntime','frame'));if($('brain-dialog').open)await this.refresh();}finally{this.polling=false;}}

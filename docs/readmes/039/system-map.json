@@ -1,0 +1,87 @@
+{
+  "edition": 39,
+  "modules": [
+    {
+      "id": "self",
+      "name": "Operational self-model",
+      "summary": "Actual host catalog, current host freshness, model discovery and typed tools.",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/SelfModel.java",
+      "note": "docs/OBJECT_KNOWLEDGE.md",
+      "status": "verified"
+    },
+    {
+      "id": "identity",
+      "name": "Persistent human-associated object",
+      "summary": "Stable UUID, explicit human category and exact source/world/body links.",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/KnowledgeStore.java",
+      "note": "docs/OBJECT_KNOWLEDGE.md",
+      "status": "verified"
+    },
+    {
+      "id": "worker",
+      "name": "Separate browser worker",
+      "summary": "Real searches, bounded pages, private-address checks and no visible browser takeover.",
+      "source": "workspace-desktop/research-worker.cjs",
+      "note": "docs/OBJECT_KNOWLEDGE.md",
+      "status": "verified"
+    },
+    {
+      "id": "chat",
+      "name": "Local-model task route",
+      "summary": "Typed self/read/research/wait/report stages; host pins selection.",
+      "source": "workspace-desktop/knowledge.cjs",
+      "note": "docs/OBJECT_KNOWLEDGE.md",
+      "status": "verified"
+    },
+    {
+      "id": "report",
+      "name": "Cached report and citations",
+      "summary": "Actual identity/source-count checks, escaped local text and source hashes.",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/KnowledgeReport.java",
+      "note": "docs/OBJECT_KNOWLEDGE.md",
+      "status": "verified"
+    },
+    {
+      "id": "ui",
+      "name": "Integrated knowledge panel",
+      "summary": "Visible tools, object association, research, cancellation and recovery.",
+      "source": "workspace-desktop/renderer/knowledge-panel.js",
+      "note": "docs/OBJECT_KNOWLEDGE.md",
+      "status": "verified"
+    },
+    {
+      "id": "perception",
+      "name": "New physical discrimination gates",
+      "summary": "New lighter/background and occlusion evidence before stronger physical claims.",
+      "source": "docs/OBJECT_KNOWLEDGE.md",
+      "note": "docs/OBJECT_KNOWLEDGE.md",
+      "status": "planned"
+    },
+    {
+      "id": "spatial",
+      "name": "Shared runtime spatial interface",
+      "summary": "Same identity across native simulation and orthographic/perspective views; source-qualified states.",
+      "source": "docs/OBJECT_KNOWLEDGE.md",
+      "note": "docs/OBJECT_KNOWLEDGE.md",
+      "status": "planned"
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "docs/readmes/039/images/knowledge039-tools-objects.png",
+      "caption": "Actual capability panel and human-associated analytic object ·2026-11-01"
+    },
+    {
+      "path": "docs/readmes/039/images/knowledge039-cached-report.png",
+      "caption": "Actual cached report on controlled local source pages ·2026-11-01"
+    },
+    {
+      "path": "docs/readmes/039/images/knowledge039-self-chat.png",
+      "caption": "Actual gpt-oss:20b offline capability chat ·2026-11-01"
+    },
+    {
+      "path": "docs/readmes/039/images/knowledge039-public-chat.png",
+      "caption": "Actual gpt-oss:20b public search/source/report workflow; category human supplied ·2026-11-01"
+    }
+  ]
+}

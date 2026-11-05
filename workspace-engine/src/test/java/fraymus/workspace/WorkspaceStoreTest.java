@@ -6,6 +6,7 @@ import java.nio.file.*;
 import static org.junit.Assert.*;
 
 public class WorkspaceStoreTest {
+    @Test public void ordinaryArtifactStillRefusesMoreThanTwentyChanges()throws Exception{try(var store=new WorkspaceStore(Files.createTempDirectory("payload057-file-bound-"))){var files=new JSONObject().put("index.html","<p>Software boundary fixture</p>");for(int i=0;i<20;i++)files.put("part"+i+".json","{}");assertThrows(IllegalArgumentException.class,()->store.write(new JSONObject().put("title","Bound fixture").put("files",files)));}}
     private JSONObject create(){return new JSONObject().put("title","Counter").put("files",new JSONObject().put("index.html","<h1 id='count'>0</h1>"));}
     @Test public void versionedArtifactRestoresAndStaleEditsCannotOverwrite() throws Exception {
         Path root=Files.createTempDirectory("fraynix-workspace-test");String id;

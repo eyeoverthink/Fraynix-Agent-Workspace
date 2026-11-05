@@ -1,0 +1,164 @@
+{
+  "nodes": [
+    {
+      "id": "edition",
+      "type": "file",
+      "file": "README-042.md",
+      "x": 0,
+      "y": 0,
+      "width": 430,
+      "height": 240
+    },
+    {
+      "id": "operation",
+      "type": "file",
+      "file": "docs/CONTINUING_JAVA_AGENT.md",
+      "x": 500,
+      "y": 0,
+      "width": 430,
+      "height": 240
+    },
+    {
+      "id": "owner",
+      "type": "text",
+      "text": "One Java owner\nProject lock, exact installed Java fingerprint and leased interface reconnect.\nverified\n[[workspace-engine/src/main/java/fraymus/workspace/AgentHost042.java]]",
+      "x": 0,
+      "y": 320,
+      "width": 420,
+      "height": 230
+    },
+    {
+      "id": "clock",
+      "type": "text",
+      "text": "Real clocks and heartbeat\nPer-boot elapsed time, wall receipts and retained active time; no invented downtime activity.\nverified\n[[workspace-engine/src/main/java/fraymus/workspace/AgentClock042.java]]",
+      "x": 470,
+      "y": 320,
+      "width": 420,
+      "height": 230
+    },
+    {
+      "id": "runtime",
+      "type": "text",
+      "text": "Continuing Java runtime\nSource collection, durable identity, bounded experiences, explicit interruption and checked recovery.\nverified\n[[workspace-engine/src/main/java/fraymus/workspace/AgentRuntime042.java]]",
+      "x": 940,
+      "y": 320,
+      "width": 420,
+      "height": 230
+    },
+    {
+      "id": "core",
+      "type": "text",
+      "text": "Shared owned nervous system\nExisting Java LIF and synaptic computation; no new neural library.\nverified\n[[fraynix-modules/brain-core/src/main/java/fraymus/neural/NeuromorphicCore.java]]",
+      "x": 1410,
+      "y": 320,
+      "width": 420,
+      "height": 230
+    },
+    {
+      "id": "appraisal",
+      "type": "text",
+      "text": "Causal resource appraisal\nMeasured pressure and latency suppress work; source novelty permits sensory integration.\nverified\n[[workspace-engine/src/main/java/fraymus/workspace/AgentAppraisal042.java]]",
+      "x": 0,
+      "y": 610,
+      "width": 420,
+      "height": 230
+    },
+    {
+      "id": "camera",
+      "type": "text",
+      "text": "Source-qualified camera receipts\nAccepted observer output, original hash/time, freshness expiry and duplicate refusal; no raw pixels.\nverified\n[[workspace-engine/src/main/java/fraymus/workspace/CameraReceipt042.java]]",
+      "x": 470,
+      "y": 610,
+      "width": 420,
+      "height": 230
+    },
+    {
+      "id": "witness",
+      "type": "text",
+      "text": "Witness and recovery\nOwned segmented integrity journal with exact record-count/root prefix anchors.\nverified\n[[workspace-engine/src/main/java/fraymus/workspace/Witness042.java]]",
+      "x": 940,
+      "y": 610,
+      "width": 420,
+      "height": 230
+    },
+    {
+      "id": "goals",
+      "type": "text",
+      "text": "Goals and reusable skills\nExisting Java tasks continue, await a host, verify outcomes and retain procedures.\nverified\n[[workspace-engine/src/main/java/fraymus/workspace/GoalRunner.java]]",
+      "x": 1410,
+      "y": 610,
+      "width": 420,
+      "height": 230
+    },
+    {
+      "id": "chat",
+      "type": "text",
+      "text": "Chat connected to the runtime\nTyped read/report tools use actual Java context and checked canvas results.\nverified\n[[workspace-desktop/agent042.cjs]]",
+      "x": 0,
+      "y": 900,
+      "width": 420,
+      "height": 230
+    },
+    {
+      "id": "next",
+      "type": "text",
+      "text": "Java skill scheduling\nMove more surface-independent planning into Java; evaluate candidates against frozen held-out tasks.\nplanned\n[[docs/CONTINUING_JAVA_AGENT.md]]",
+      "x": 470,
+      "y": 900,
+      "width": 420,
+      "height": 230
+    }
+  ],
+  "edges": [
+    {
+      "id": "operation-link",
+      "fromNode": "edition",
+      "toNode": "operation"
+    },
+    {
+      "id": "edge-0",
+      "fromNode": "owner",
+      "toNode": "runtime"
+    },
+    {
+      "id": "edge-1",
+      "fromNode": "clock",
+      "toNode": "runtime"
+    },
+    {
+      "id": "edge-2",
+      "fromNode": "camera",
+      "toNode": "runtime"
+    },
+    {
+      "id": "edge-3",
+      "fromNode": "runtime",
+      "toNode": "appraisal"
+    },
+    {
+      "id": "edge-4",
+      "fromNode": "appraisal",
+      "toNode": "core"
+    },
+    {
+      "id": "edge-5",
+      "fromNode": "runtime",
+      "toNode": "witness"
+    },
+    {
+      "id": "edge-6",
+      "fromNode": "runtime",
+      "toNode": "goals"
+    },
+    {
+      "id": "edge-7",
+      "fromNode": "chat",
+      "toNode": "goals"
+    },
+    {
+      "id": "edge-8",
+      "fromNode": "goals",
+      "toNode": "next"
+    }
+  ]
+}

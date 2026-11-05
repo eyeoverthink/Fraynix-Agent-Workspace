@@ -1,0 +1,136 @@
+{
+  "nodes": [
+    {
+      "id": "edition",
+      "type": "file",
+      "file": "README-039.md",
+      "x": 0,
+      "y": 0,
+      "width": 430,
+      "height": 240
+    },
+    {
+      "id": "operation",
+      "type": "file",
+      "file": "docs/OBJECT_KNOWLEDGE.md",
+      "x": 500,
+      "y": 0,
+      "width": 430,
+      "height": 240
+    },
+    {
+      "id": "self",
+      "type": "text",
+      "text": "Operational self-model\nActual host catalog, current host freshness, model discovery and typed tools.\nverified",
+      "x": 0,
+      "y": 320,
+      "width": 420,
+      "height": 230
+    },
+    {
+      "id": "identity",
+      "type": "text",
+      "text": "Persistent human-associated object\nStable UUID, explicit human category and exact source/world/body links.\nverified",
+      "x": 470,
+      "y": 320,
+      "width": 420,
+      "height": 230
+    },
+    {
+      "id": "worker",
+      "type": "text",
+      "text": "Separate browser worker\nReal searches, bounded pages, private-address checks and no visible browser takeover.\nverified",
+      "x": 940,
+      "y": 320,
+      "width": 420,
+      "height": 230
+    },
+    {
+      "id": "chat",
+      "type": "text",
+      "text": "Local-model task route\nTyped self/read/research/wait/report stages; host pins selection.\nverified",
+      "x": 1410,
+      "y": 320,
+      "width": 420,
+      "height": 230
+    },
+    {
+      "id": "report",
+      "type": "text",
+      "text": "Cached report and citations\nActual identity/source-count checks, escaped local text and source hashes.\nverified",
+      "x": 0,
+      "y": 610,
+      "width": 420,
+      "height": 230
+    },
+    {
+      "id": "ui",
+      "type": "text",
+      "text": "Integrated knowledge panel\nVisible tools, object association, research, cancellation and recovery.\nverified",
+      "x": 470,
+      "y": 610,
+      "width": 420,
+      "height": 230
+    },
+    {
+      "id": "perception",
+      "type": "text",
+      "text": "New physical discrimination gates\nNew lighter/background and occlusion evidence before stronger physical claims.\nplanned",
+      "x": 940,
+      "y": 610,
+      "width": 420,
+      "height": 230
+    },
+    {
+      "id": "spatial",
+      "type": "text",
+      "text": "Shared runtime spatial interface\nSame identity across native simulation and orthographic/perspective views; source-qualified states.\nplanned",
+      "x": 1410,
+      "y": 610,
+      "width": 420,
+      "height": 230
+    }
+  ],
+  "edges": [
+    {
+      "id": "operation-link",
+      "fromNode": "edition",
+      "toNode": "operation"
+    },
+    {
+      "id": "edge-0",
+      "fromNode": "self",
+      "toNode": "chat"
+    },
+    {
+      "id": "edge-1",
+      "fromNode": "identity",
+      "toNode": "chat"
+    },
+    {
+      "id": "edge-2",
+      "fromNode": "chat",
+      "toNode": "worker"
+    },
+    {
+      "id": "edge-3",
+      "fromNode": "worker",
+      "toNode": "report"
+    },
+    {
+      "id": "edge-4",
+      "fromNode": "report",
+      "toNode": "ui"
+    },
+    {
+      "id": "edge-5",
+      "fromNode": "identity",
+      "toNode": "spatial"
+    },
+    {
+      "id": "edge-6",
+      "fromNode": "identity",
+      "toNode": "perception"
+    }
+  ]
+}

@@ -1,0 +1,711 @@
+{
+  "passed": true,
+  "date": "2026-11-02T18:06:02.579Z",
+  "project": "C:\\Users\\eyeka\\AppData\\Local\\Temp\\fraynix-goals019-qDvJ7L",
+  "contract": {
+    "edition": "019",
+    "procedure": "world-reach-report-v1",
+    "declaredBeforeExecution": "2026-10-30",
+    "nativeBackend": "Existing Bullet native ramp and edition 018 learned model",
+    "fixedGates": {
+      "endpointM": 0.08,
+      "terminalSpeedMps": 0.25,
+      "settlingM": 0.15,
+      "minModelFraction": 0.8,
+      "actualDisturbances": 1,
+      "disturbanceTick": 108,
+      "controllerPlans": 30,
+      "forecastChecks": 29,
+      "passingActualCanvasChecks": 7
+    },
+    "cases": [
+      {
+        "id": "initial",
+        "parameters": {
+          "angleDeg": 24,
+          "friction": 0.18
+        },
+        "targetM": 1.2,
+        "disturbanceMps": 0.35
+      },
+      {
+        "id": "changed-condition",
+        "parameters": {
+          "angleDeg": 31,
+          "friction": 0.27
+        },
+        "targetM": 1.45,
+        "disturbanceMps": -0.35
+      }
+    ],
+    "requiredChecks": [
+      "Real local model tool calling selects a Java goal",
+      "Browser context is observed only when requested and never grants authority",
+      "Source scene unchanged",
+      "Preview leaves the body unchanged",
+      "Exactly one scheduled actual native disturbance",
+      "Independent reconstruction of outcome and forecast residuals",
+      "Actual canvas chart checks pass",
+      "Only completed verified goals become versioned skills",
+      "Skill survives desktop restart and runs under changed conditions",
+      "Process loss before physics completion requires explicit resume and a new recorded attempt",
+      "Completed physical effects and stable report identity are reused after host interruption",
+      "Cancellation halts native evolution",
+      "Foreign, stale and expired effect receipts reject",
+      "Concurrent native mutations reject",
+      "Finite recovery budget",
+      "Existing real-data rejection unchanged"
+    ]
+  },
+  "checks": [
+    "Active Java goal excludes concurrent native scene, physics and model mutations",
+    "Requested browser observation is real context with a source hash and no physical or executable authority",
+    "One request trains the prerequisite native world model, freezes a separate scene, predicts, acts and independently verifies actual disturbance/outcomes",
+    "Predicted-versus-actual chart and exported run JSON bind to the actual completed native run and seven real Chromium assertions",
+    "Native-only world model remains distinct from the rejected recorded real-world forecasting gate",
+    "Versioned procedure retains prerequisite/action/check/recovery definitions and evidence across a fresh desktop process",
+    "A newly verified condition creates immutable skill v2; repeating the same save is idempotent and retains v1",
+    "Actual skill-library controls rerun the procedure at a changed slope, friction, target and reverse disturbance; replanned commands differ and physical gates pass",
+    "Cancellation halts native evolution and cannot promote a procedural skill",
+    "Process loss during active physics retains the interrupted run and explicit Resume starts a distinct second attempt from frozen conditions",
+    "Foreign host nonces, invented passing booleans and premature skill saves reject without producing verified completion",
+    "Expired host acknowledgments reject and retry uses a fresh nonce for the same saved effect",
+    "Process loss after physics reuses the completed native run and stable report entity; fresh canvas verification completes without duplicate physical effects",
+    "Native scene, report, progress/recovery panel and procedural library render without renderer errors"
+  ],
+  "first": {
+    "request": "Predict, reach, chart and retain the verified procedure",
+    "reason": "Physical goal and actual canvas report verified; versioned procedural skill retained",
+    "procedure": "world-reach-report-v1",
+    "history": [
+      {
+        "reason": "Goal accepted; frozen physical conditions and finite recovery budget saved",
+        "at": "2026-11-02T18:05:01.706626800Z",
+        "step": "model",
+        "attempt": 1,
+        "status": "running"
+      },
+      {
+        "reason": "Waiting for registered desktop action: browser.observe",
+        "at": "2026-11-02T18:05:07.518459800Z",
+        "step": "model",
+        "attempt": 1,
+        "status": "waiting-host"
+      },
+      {
+        "reason": "Browser context retained as data; it grants no executable authority",
+        "at": "2026-11-02T18:05:07.545387800Z",
+        "step": "prepare",
+        "attempt": 1,
+        "status": "running"
+      },
+      {
+        "reason": "Owned native trial prepared; preview must leave the body unchanged",
+        "at": "2026-11-02T18:05:07.918794300Z",
+        "step": "preview",
+        "attempt": 1,
+        "status": "running"
+      },
+      {
+        "reason": "49 candidate plans previewed from the actual paused state; no preview actuation",
+        "at": "2026-11-02T18:05:08.086379700Z",
+        "step": "execute",
+        "attempt": 1,
+        "status": "running"
+      },
+      {
+        "reason": "20 Hz controller is executing through native physics; disturbance scheduled at tick 108",
+        "at": "2026-11-02T18:05:08.202661Z",
+        "step": "wait",
+        "attempt": 1,
+        "status": "running"
+      },
+      {
+        "reason": "Native trial settled; checking actual outcomes",
+        "at": "2026-11-02T18:05:09.977708800Z",
+        "step": "verify",
+        "attempt": 1,
+        "status": "running"
+      },
+      {
+        "reason": "Physical endpoint, speed, settling, model use and exactly one actual disturbance verified",
+        "at": "2026-11-02T18:05:10.101378Z",
+        "step": "report",
+        "attempt": 1,
+        "status": "running"
+      },
+      {
+        "reason": "Waiting for registered desktop action: canvas.verify-report",
+        "at": "2026-11-02T18:05:10.410572800Z",
+        "step": "report",
+        "attempt": 1,
+        "status": "waiting-host"
+      },
+      {
+        "reason": "Actual Chromium canvas assertions passed for the pinned report version",
+        "at": "2026-11-02T18:05:10.636968900Z",
+        "step": "complete",
+        "attempt": 1,
+        "status": "running"
+      },
+      {
+        "reason": "Physical goal and actual canvas report verified; versioned procedural skill retained",
+        "at": "2026-11-02T18:05:10.676861300Z",
+        "step": "completed",
+        "attempt": 1,
+        "status": "completed"
+      }
+    ],
+    "source": {
+      "sha256": "d541b5e1a099e62c7aa0e47af519810f1d8954e77e9fbdf714228acc5837a4f0",
+      "id": "2c60232c-1cc7-408d-bd1e-e9d39136df11",
+      "version": 1
+    },
+    "attempt": 1,
+    "resumes": 0,
+    "browserContext": {
+      "sha256": "11b0d8be51bc4c4f919c3d51cfa2d55aa104e4a8bc2e0646c40a0028b470818c",
+      "authority": "untrusted context only; not physical evidence",
+      "url": "http://127.0.0.1:61476/welcome"
+    },
+    "createdAt": "2026-11-02T18:05:01.706626800Z",
+    "targetM": 1.2,
+    "sceneId": "8aa3cff5-b266-3b2e-ab04-f4dca0af53fc",
+    "report": {
+      "sha256": "c8f1f951504fc89f9761836d530affb4b7f5ec010a50900bc86f1f68d758c7e4",
+      "id": "f91a273e-c5ed-319e-b6a7-f8d41ee31fb9",
+      "version": 1
+    },
+    "step": "completed",
+    "id": "f44d75d9-4644-41ab-a544-6757131fc30f",
+    "runId": "b3a6aeb9-b5b8-4c3c-a9db-18971f000c51",
+    "metrics": {
+      "rmseM": 0.0008112361237400156,
+      "score": 0.06851365961912681,
+      "endpointErrorM": 0.03969413484655537,
+      "modelActionFraction": 1,
+      "controlAbsoluteImpulseNs": 5.600000000000001,
+      "settlingMaxErrorM": 0.04040400273394584,
+      "terminalSpeedMps": 0.05745015603732344,
+      "passed": true
+    },
+    "disturbanceMps": 0.35,
+    "parameters": {
+      "angleDeg": 24,
+      "widthM": 3,
+      "offsetZ": 0,
+      "massKg": 1,
+      "lengthM": 12,
+      "friction": 0.18,
+      "gravityMps2": 9.81
+    },
+    "savedSkill": {
+      "name": "reach-chart-retain",
+      "id": "66edba72-d806-3fcd-8f30-347649794d33",
+      "version": 1
+    },
+    "status": "completed",
+    "updatedAt": "2026-11-02T18:05:10.676861300Z"
+  },
+  "changed": {
+    "request": "Reuse reach-chart-retain v1 with freshly verified physical outcomes",
+    "reason": "Physical goal and actual canvas report verified",
+    "procedure": "world-reach-report-v1",
+    "history": [
+      {
+        "reason": "Goal accepted; frozen physical conditions and finite recovery budget saved",
+        "at": "2026-11-02T18:05:13.505586900Z",
+        "step": "model",
+        "attempt": 1,
+        "status": "running"
+      },
+      {
+        "reason": "Accepted native model available; recorded real-data validation remains separate",
+        "at": "2026-11-02T18:05:13.525497600Z",
+        "step": "prepare",
+        "attempt": 1,
+        "status": "running"
+      },
+      {
+        "reason": "Owned native trial prepared; preview must leave the body unchanged",
+        "at": "2026-11-02T18:05:14.188980400Z",
+        "step": "preview",
+        "attempt": 1,
+        "status": "running"
+      },
+      {
+        "reason": "49 candidate plans previewed from the actual paused state; no preview actuation",
+        "at": "2026-11-02T18:05:14.372619500Z",
+        "step": "execute",
+        "attempt": 1,
+        "status": "running"
+      },
+      {
+        "reason": "20 Hz controller is executing through native physics; disturbance scheduled at tick 108",
+        "at": "2026-11-02T18:05:14.490306200Z",
+        "step": "wait",
+        "attempt": 1,
+        "status": "running"
+      },
+      {
+        "reason": "Native trial settled; checking actual outcomes",
+        "at": "2026-11-02T18:05:16.767136100Z",
+        "step": "verify",
+        "attempt": 1,
+        "status": "running"
+      },
+      {
+        "reason": "Physical endpoint, speed, settling, model use and exactly one actual disturbance verified",
+        "at": "2026-11-02T18:05:16.910439800Z",
+        "step": "report",
+        "attempt": 1,
+        "status": "running"
+      },
+      {
+        "reason": "Waiting for registered desktop action: canvas.verify-report",
+        "at": "2026-11-02T18:05:17.112900Z",
+        "step": "report",
+        "attempt": 1,
+        "status": "waiting-host"
+      },
+      {
+        "reason": "Actual Chromium canvas assertions passed for the pinned report version",
+        "at": "2026-11-02T18:05:17.398535300Z",
+        "step": "complete",
+        "attempt": 1,
+        "status": "running"
+      },
+      {
+        "reason": "Physical goal and actual canvas report verified",
+        "at": "2026-11-02T18:05:17.494503100Z",
+        "step": "completed",
+        "attempt": 1,
+        "status": "completed"
+      }
+    ],
+    "source": {},
+    "attempt": 1,
+    "resumes": 0,
+    "createdAt": "2026-11-02T18:05:13.505586900Z",
+    "targetM": 1.45,
+    "skill": {
+      "name": "reach-chart-retain",
+      "id": "66edba72-d806-3fcd-8f30-347649794d33",
+      "version": 1
+    },
+    "sceneId": "b590b80c-5189-3b46-8530-5a58926136c6",
+    "report": {
+      "sha256": "c417263f9a92c190f5b2dc63a5f41820747264a011b18f5bf95790c5912b2fa5",
+      "id": "6931a40d-dbca-3970-b736-5d750a373947",
+      "version": 1
+    },
+    "step": "completed",
+    "id": "7d3b5b36-055e-42b0-98ac-b12038f5c302",
+    "runId": "e5e67ac8-51f6-42bd-b5fd-c6951208d8a0",
+    "metrics": {
+      "rmseM": 0.0016888764724868816,
+      "score": 0.08006916297052545,
+      "endpointErrorM": 0.041604587587808606,
+      "modelActionFraction": 1,
+      "controlAbsoluteImpulseNs": 5.600000000000001,
+      "settlingMaxErrorM": 0.049101015643838286,
+      "terminalSpeedMps": 0.09276045040531802,
+      "passed": true
+    },
+    "disturbanceMps": -0.35,
+    "parameters": {
+      "angleDeg": 31,
+      "widthM": 3,
+      "offsetZ": 0,
+      "massKg": 1,
+      "lengthM": 12,
+      "friction": 0.27,
+      "gravityMps2": 9.81
+    },
+    "status": "completed",
+    "updatedAt": "2026-11-02T18:05:17.494503100Z"
+  },
+  "recovered": {
+    "request": "Predict, reach, chart and retain the verified procedure",
+    "reason": "Physical goal and actual canvas report verified; versioned procedural skill retained",
+    "procedure": "world-reach-report-v1",
+    "history": [
+      {
+        "reason": "Goal accepted; frozen physical conditions and finite recovery budget saved",
+        "at": "2026-11-02T18:05:18.816534800Z",
+        "step": "model",
+        "attempt": 1,
+        "status": "running"
+      },
+      {
+        "reason": "Accepted native model available; recorded real-data validation remains separate",
+        "at": "2026-11-02T18:05:18.835484300Z",
+        "step": "prepare",
+        "attempt": 1,
+        "status": "running"
+      },
+      {
+        "reason": "Owned native trial prepared; preview must leave the body unchanged",
+        "at": "2026-11-02T18:05:19.056890100Z",
+        "step": "preview",
+        "attempt": 1,
+        "status": "running"
+      },
+      {
+        "reason": "49 candidate plans previewed from the actual paused state; no preview actuation",
+        "at": "2026-11-02T18:05:19.274680400Z",
+        "step": "execute",
+        "attempt": 1,
+        "status": "running"
+      },
+      {
+        "reason": "20 Hz controller is executing through native physics; disturbance scheduled at tick 108",
+        "at": "2026-11-02T18:05:19.391305600Z",
+        "step": "wait",
+        "attempt": 1,
+        "status": "running"
+      },
+      {
+        "reason": "New separately recorded native attempt from frozen conditions; interrupted effects are not retried in place",
+        "at": "2026-11-02T18:05:21.979165900Z",
+        "step": "model",
+        "attempt": 2,
+        "status": "running"
+      },
+      {
+        "reason": "Accepted native model available; recorded real-data validation remains separate",
+        "at": "2026-11-02T18:05:22.012078100Z",
+        "step": "prepare",
+        "attempt": 2,
+        "status": "running"
+      },
+      {
+        "reason": "Owned native trial prepared; preview must leave the body unchanged",
+        "at": "2026-11-02T18:05:22.321249500Z",
+        "step": "preview",
+        "attempt": 2,
+        "status": "running"
+      },
+      {
+        "reason": "49 candidate plans previewed from the actual paused state; no preview actuation",
+        "at": "2026-11-02T18:05:22.472845700Z",
+        "step": "execute",
+        "attempt": 2,
+        "status": "running"
+      },
+      {
+        "reason": "20 Hz controller is executing through native physics; disturbance scheduled at tick 108",
+        "at": "2026-11-02T18:05:22.589533100Z",
+        "step": "wait",
+        "attempt": 2,
+        "status": "running"
+      },
+      {
+        "reason": "Native trial settled; checking actual outcomes",
+        "at": "2026-11-02T18:05:25.060167Z",
+        "step": "verify",
+        "attempt": 2,
+        "status": "running"
+      },
+      {
+        "reason": "Physical endpoint, speed, settling, model use and exactly one actual disturbance verified",
+        "at": "2026-11-02T18:05:25.225692200Z",
+        "step": "report",
+        "attempt": 2,
+        "status": "running"
+      },
+      {
+        "reason": "Waiting for registered desktop action: canvas.verify-report",
+        "at": "2026-11-02T18:05:25.512056800Z",
+        "step": "report",
+        "attempt": 2,
+        "status": "waiting-host"
+      },
+      {
+        "reason": "Actual Chromium canvas assertions passed for the pinned report version",
+        "at": "2026-11-02T18:05:25.739447600Z",
+        "step": "complete",
+        "attempt": 2,
+        "status": "running"
+      },
+      {
+        "reason": "Physical goal and actual canvas report verified; versioned procedural skill retained",
+        "at": "2026-11-02T18:05:25.808264Z",
+        "step": "completed",
+        "attempt": 2,
+        "status": "completed"
+      }
+    ],
+    "source": {},
+    "attempt": 2,
+    "resumes": 1,
+    "createdAt": "2026-11-02T18:05:18.816534800Z",
+    "targetM": 1.2,
+    "sceneId": "3b244fba-36aa-391c-bc58-7366a2031ae0",
+    "report": {
+      "sha256": "696dc9fcacb3eab3ba1211c1ba794ae8bcff02fe5584bd44c42b64921ac791e4",
+      "id": "72e5b31e-77ff-3222-861e-3095d1799cd8",
+      "version": 1
+    },
+    "step": "completed",
+    "id": "b2c420fd-8f51-43d8-ba8f-9e1ebe9eff73",
+    "runId": "9782914d-bdcf-4122-81ea-57f8fffc2b05",
+    "metrics": {
+      "score": 0.06851365961912681,
+      "endpointErrorM": 0.03969413484655537,
+      "modelActionFraction": 1,
+      "controlAbsoluteImpulseNs": 5.600000000000001,
+      "settlingMaxErrorM": 0.04040400273394584,
+      "terminalSpeedMps": 0.05745015603732344,
+      "passed": true
+    },
+    "disturbanceMps": 0.35,
+    "parameters": {
+      "angleDeg": 24,
+      "widthM": 3,
+      "offsetZ": 0,
+      "massKg": 1,
+      "lengthM": 12,
+      "friction": 0.18,
+      "gravityMps2": 9.81
+    },
+    "savedSkill": {
+      "name": "recovered-procedure",
+      "id": "c39eff9e-6f27-3b08-9580-3f49da23f1b8",
+      "version": 1
+    },
+    "status": "completed",
+    "updatedAt": "2026-11-02T18:05:25.808264Z"
+  },
+  "reportRecovered": {
+    "request": "Predict, reach, chart and retain the verified procedure",
+    "reason": "Physical goal and actual canvas report verified; versioned procedural skill retained",
+    "procedure": "world-reach-report-v1",
+    "history": [
+      {
+        "reason": "Goal accepted; frozen physical conditions and finite recovery budget saved",
+        "at": "2026-11-02T18:05:25.947890200Z",
+        "step": "model",
+        "attempt": 1,
+        "status": "running"
+      },
+      {
+        "reason": "Accepted native model available; recorded real-data validation remains separate",
+        "at": "2026-11-02T18:05:26.004814600Z",
+        "step": "prepare",
+        "attempt": 1,
+        "status": "running"
+      },
+      {
+        "reason": "Owned native trial prepared; preview must leave the body unchanged",
+        "at": "2026-11-02T18:05:26.340031Z",
+        "step": "preview",
+        "attempt": 1,
+        "status": "running"
+      },
+      {
+        "reason": "49 candidate plans previewed from the actual paused state; no preview actuation",
+        "at": "2026-11-02T18:05:26.492621700Z",
+        "step": "execute",
+        "attempt": 1,
+        "status": "running"
+      },
+      {
+        "reason": "20 Hz controller is executing through native physics; disturbance scheduled at tick 108",
+        "at": "2026-11-02T18:05:26.610405600Z",
+        "step": "wait",
+        "attempt": 1,
+        "status": "running"
+      },
+      {
+        "reason": "Native trial settled; checking actual outcomes",
+        "at": "2026-11-02T18:05:29.350011300Z",
+        "step": "verify",
+        "attempt": 1,
+        "status": "running"
+      },
+      {
+        "reason": "Physical endpoint, speed, settling, model use and exactly one actual disturbance verified",
+        "at": "2026-11-02T18:05:29.509418500Z",
+        "step": "report",
+        "attempt": 1,
+        "status": "running"
+      },
+      {
+        "reason": "Waiting for registered desktop action: canvas.verify-report",
+        "at": "2026-11-02T18:05:29.704220500Z",
+        "step": "report",
+        "attempt": 1,
+        "status": "waiting-host"
+      },
+      {
+        "reason": "Resuming report verification; completed physical actions will not repeat",
+        "at": "2026-11-02T18:06:02.022371900Z",
+        "step": "report",
+        "attempt": 1,
+        "status": "running"
+      },
+      {
+        "reason": "Waiting for registered desktop action: canvas.verify-report",
+        "at": "2026-11-02T18:06:02.186932100Z",
+        "step": "report",
+        "attempt": 1,
+        "status": "waiting-host"
+      },
+      {
+        "reason": "Actual Chromium canvas assertions passed for the pinned report version",
+        "at": "2026-11-02T18:06:02.500093900Z",
+        "step": "complete",
+        "attempt": 1,
+        "status": "running"
+      },
+      {
+        "reason": "Physical goal and actual canvas report verified; versioned procedural skill retained",
+        "at": "2026-11-02T18:06:02.550958200Z",
+        "step": "completed",
+        "attempt": 1,
+        "status": "completed"
+      }
+    ],
+    "source": {},
+    "attempt": 1,
+    "resumes": 1,
+    "createdAt": "2026-11-02T18:05:25.947890200Z",
+    "targetM": 1.2,
+    "sceneId": "b99c82f6-47c7-38ac-bcfe-b24bad9b425e",
+    "report": {
+      "sha256": "502ee7faea9bd969e3b1594d468b5e023aefa14cba96fc41f36a31aa4ff2ce01",
+      "id": "98b264b0-acee-3f3b-8e3e-828f91980cc2",
+      "version": 1
+    },
+    "step": "completed",
+    "id": "57138bb9-166a-4233-986e-b37f195f4a7c",
+    "runId": "2045a065-d8df-4e7a-85f3-5ab23891ea7b",
+    "metrics": {
+      "score": 0.06851365961912681,
+      "endpointErrorM": 0.03969413484655537,
+      "modelActionFraction": 1,
+      "controlAbsoluteImpulseNs": 5.600000000000001,
+      "settlingMaxErrorM": 0.04040400273394584,
+      "terminalSpeedMps": 0.05745015603732344,
+      "passed": true
+    },
+    "disturbanceMps": 0.35,
+    "parameters": {
+      "angleDeg": 24,
+      "widthM": 3,
+      "offsetZ": 0,
+      "massKg": 1,
+      "lengthM": 12,
+      "friction": 0.18,
+      "gravityMps2": 9.81
+    },
+    "savedSkill": {
+      "name": "host-recovered",
+      "id": "6f791bd9-4860-3bd9-a7da-d0f144f43bfb",
+      "version": 1
+    },
+    "status": "completed",
+    "updatedAt": "2026-11-02T18:06:02.550958200Z"
+  },
+  "source": {
+    "schemaVersion": 1,
+    "objects": [
+      {
+        "bodyType": "static",
+        "schemaVersion": 1,
+        "size": [
+          12,
+          0.2,
+          3
+        ],
+        "rotation": [
+          0,
+          0,
+          -0.20791169081775934,
+          0.9781476007338057
+        ],
+        "id": "2f59084c-fb37-4be7-9847-ec1951eecc31",
+        "label": "Ramp",
+        "position": [
+          0,
+          2.6404198584548015,
+          0
+        ],
+        "massKg": 0
+      },
+      {
+        "bodyType": "static",
+        "schemaVersion": 1,
+        "size": [
+          40,
+          0.4,
+          24
+        ],
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "id": "ec74622a-6439-4f91-a6df-494ed8f46f9f",
+        "label": "Ground",
+        "position": [
+          0,
+          -0.2,
+          0
+        ],
+        "massKg": 0
+      },
+      {
+        "bodyType": "dynamic",
+        "schemaVersion": 1,
+        "size": [
+          0.5,
+          0.5,
+          0.5
+        ],
+        "rotation": [
+          0,
+          0,
+          -0.20791169081775934,
+          0.9781476007338057
+        ],
+        "id": "d18daf35-f3ef-4057-ab5b-291dce26d40c",
+        "label": "Block",
+        "position": [
+          -3.1459990857937568,
+          4.425326229160236,
+          0
+        ],
+        "massKg": 1
+      }
+    ],
+    "id": "2c60232c-1cc7-408d-bd1e-e9d39136df11",
+    "units": "SI: metre, second, kilogram",
+    "title": "Edition 019 · original authored scene",
+    "version": 1,
+    "parameters": {
+      "angleDeg": 24,
+      "widthM": 3,
+      "offsetZ": 0,
+      "massKg": 1,
+      "lengthM": 12,
+      "friction": 0.18,
+      "gravityMps2": 9.81
+    },
+    "entityIds": {
+      "ramp": "2f59084c-fb37-4be7-9847-ec1951eecc31",
+      "block": "d18daf35-f3ef-4057-ab5b-291dce26d40c",
+      "ground": "ec74622a-6439-4f91-a6df-494ed8f46f9f"
+    },
+    "frame": "right-handed, +Y up, downhill +X, depth Z",
+    "updatedAt": "2026-11-02T18:05:01.634852100Z"
+  },
+  "chart": {
+    "actual": 91,
+    "predicted": 29,
+    "rows": 29,
+    "width": 682
+  }
+}

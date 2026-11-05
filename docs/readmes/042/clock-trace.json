@@ -1,0 +1,628 @@
+{
+  "meaning": "Recorded lifecycle checkpoints, not a live simulated clock. Boot elapsed resets while retained active time persists; downtime is not activity.",
+  "samples": [
+    {
+      "stage": "Before desktop close",
+      "state": {
+        "schema": "persistent-java-agent-042-v1",
+        "agentId": "9bcdee3d-3d53-463e-9494-b85d1588645a",
+        "recentWitnesses": [
+          {
+            "evidence": {
+              "previousSavedAt": "",
+              "agentId": "9bcdee3d-3d53-463e-9494-b85d1588645a",
+              "priorActiveMs": 0,
+              "bootId": "df4701fd-6f28-4654-9d3f-fbcf30feda09",
+              "logicalTick": 0,
+              "previousBootId": "",
+              "wallTime": "2026-11-02T07:50:06.033723400Z",
+              "recovery": "new agent",
+              "elapsedMs": 2
+            },
+            "kind": "boot",
+            "hash": "84108e040409626b67db1ea36aa0a8f9aff4bea83cd213b32ffef704d75ecb5e"
+          },
+          {
+            "evidence": {
+              "agentId": "9bcdee3d-3d53-463e-9494-b85d1588645a",
+              "bootId": "df4701fd-6f28-4654-9d3f-fbcf30feda09",
+              "logicalTick": 2,
+              "wallTime": "2026-11-02T07:50:06.416997800Z",
+              "sessionId": "9f1d0d7e-ced5-4088-9b15-03c2db086f10",
+              "elapsedMs": 394
+            },
+            "kind": "interface-attached",
+            "hash": "c53d24cd203b5696c13a3ab599e9330eff2f5f516e49da20f8f2e376cc0f85f0"
+          },
+          {
+            "evidence": {
+              "agentId": "9bcdee3d-3d53-463e-9494-b85d1588645a",
+              "bootId": "df4701fd-6f28-4654-9d3f-fbcf30feda09",
+              "logicalTick": 12,
+              "action": "pause",
+              "wallTime": "2026-11-02T07:50:09.088858600Z",
+              "elapsedMs": 3058
+            },
+            "kind": "background-control",
+            "hash": "0bb9c3041d16465e7e777a058a6ecf34225c34e0ad308bffd5475077ec4ecae8"
+          },
+          {
+            "evidence": {
+              "agentId": "9bcdee3d-3d53-463e-9494-b85d1588645a",
+              "bootId": "df4701fd-6f28-4654-9d3f-fbcf30feda09",
+              "logicalTick": 17,
+              "action": "resume",
+              "wallTime": "2026-11-02T07:50:10.382473600Z",
+              "elapsedMs": 4351
+            },
+            "kind": "background-control",
+            "hash": "ec159c3f7f5112a09ef62a7c27e8b052b1276e56946f802aa67d945994de4e88"
+          }
+        ],
+        "interfaceAgeMs": 417,
+        "decision": "consolidate",
+        "neural": {
+          "synapses": 1048576,
+          "processingMs": 21.0299,
+          "ticks": 1,
+          "spikes": 24,
+          "scope": "Actual sensory dynamics/plasticity. Task improvement still requires separate policy evaluation; no language-model weights are changed.",
+          "plasticity": 0,
+          "learningEnabled": true,
+          "updated": true,
+          "neurons": 32768,
+          "status": "shared-java-cortex"
+        },
+        "bootId": "df4701fd-6f28-4654-9d3f-fbcf30feda09",
+        "replayedExperiences": 0,
+        "fault": "",
+        "pid": 620,
+        "experienceCount": 1,
+        "clock": {
+          "elapsedThisBootMs": 4950,
+          "bootId": "df4701fd-6f28-4654-9d3f-fbcf30feda09",
+          "retainedActiveMs": 4950,
+          "domains": "Elapsed time is local to this boot. Source timestamps and native simulation ticks are separately qualified; downtime is not simulated activity.",
+          "wallTime": "2026-11-02T07:50:10.980536400Z",
+          "logicalTicks": 20
+        },
+        "interfaceAttached": true,
+        "witness": {
+          "head": "9bebf8a6a820f4ca82b5c6477f890c094bdb63ef4e477e5480c64fdc17fc1550",
+          "records": 5,
+          "meaning": "Hash/sequence integrity, not a signature or proof that a source claim is true",
+          "segments": 1
+        },
+        "lastHeartbeatElapsedMs": 4933,
+        "observations": {
+          "collectionMs": 0,
+          "collectedAt": "2026-11-02T07:50:10.463749100Z",
+          "observationFresh": false,
+          "cameraReceiptAgeMs": -1,
+          "collectedElapsedMs": 4432,
+          "source": {
+            "world": "No selected native world; no game or camera started",
+            "goals": []
+          },
+          "newCompletedGoal": false,
+          "hasRetainedEvidence": true,
+          "newFailedGoals": 0,
+          "sourceChanged": false,
+          "activeGoals": 0,
+          "physicalObservation": "No recent accepted measured camera sample. Retained source data is not a live physical observation.",
+          "heapFraction": 0.1689558525880178,
+          "goals": []
+        },
+        "appraisal": {
+          "reason": "Bounded maintenance of retained evidence",
+          "alertness": 0.35394238311387966,
+          "goalProgress": 0,
+          "decision": "consolidate",
+          "allowNeuralUpdate": false,
+          "meaning": "Computational appraisal changes work scheduling. It is not a claim of felt emotion, calibrated probability or improved task performance.",
+          "collectionLag": 0,
+          "uncertainty": 1,
+          "resourcePressure": 0.1689558525880178
+        },
+        "sharedCortexTicks": 1,
+        "limits": "Persistent operational agent and real shared Java sensory dynamics. Background work is not subjective awareness, new physical truth or proof of useful learning. No camera starts, browser actions or LLM calls occur on this heartbeat.",
+        "backgroundEnabled": true,
+        "status": "awake"
+      }
+    },
+    {
+      "stage": "Without desktop",
+      "state": {
+        "schema": "persistent-java-agent-042-v1",
+        "agentId": "9bcdee3d-3d53-463e-9494-b85d1588645a",
+        "recentWitnesses": [
+          {
+            "evidence": {
+              "previousSavedAt": "",
+              "agentId": "9bcdee3d-3d53-463e-9494-b85d1588645a",
+              "priorActiveMs": 0,
+              "bootId": "df4701fd-6f28-4654-9d3f-fbcf30feda09",
+              "logicalTick": 0,
+              "previousBootId": "",
+              "wallTime": "2026-11-02T07:50:06.033723400Z",
+              "recovery": "new agent",
+              "elapsedMs": 2
+            },
+            "kind": "boot",
+            "hash": "84108e040409626b67db1ea36aa0a8f9aff4bea83cd213b32ffef704d75ecb5e"
+          },
+          {
+            "evidence": {
+              "agentId": "9bcdee3d-3d53-463e-9494-b85d1588645a",
+              "bootId": "df4701fd-6f28-4654-9d3f-fbcf30feda09",
+              "logicalTick": 2,
+              "wallTime": "2026-11-02T07:50:06.416997800Z",
+              "sessionId": "9f1d0d7e-ced5-4088-9b15-03c2db086f10",
+              "elapsedMs": 394
+            },
+            "kind": "interface-attached",
+            "hash": "c53d24cd203b5696c13a3ab599e9330eff2f5f516e49da20f8f2e376cc0f85f0"
+          },
+          {
+            "evidence": {
+              "agentId": "9bcdee3d-3d53-463e-9494-b85d1588645a",
+              "bootId": "df4701fd-6f28-4654-9d3f-fbcf30feda09",
+              "logicalTick": 12,
+              "action": "pause",
+              "wallTime": "2026-11-02T07:50:09.088858600Z",
+              "elapsedMs": 3058
+            },
+            "kind": "background-control",
+            "hash": "0bb9c3041d16465e7e777a058a6ecf34225c34e0ad308bffd5475077ec4ecae8"
+          },
+          {
+            "evidence": {
+              "agentId": "9bcdee3d-3d53-463e-9494-b85d1588645a",
+              "bootId": "df4701fd-6f28-4654-9d3f-fbcf30feda09",
+              "logicalTick": 17,
+              "action": "resume",
+              "wallTime": "2026-11-02T07:50:10.382473600Z",
+              "elapsedMs": 4351
+            },
+            "kind": "background-control",
+            "hash": "ec159c3f7f5112a09ef62a7c27e8b052b1276e56946f802aa67d945994de4e88"
+          },
+          {
+            "evidence": {
+              "agentId": "9bcdee3d-3d53-463e-9494-b85d1588645a",
+              "bootId": "df4701fd-6f28-4654-9d3f-fbcf30feda09",
+              "logicalTick": 20,
+              "wallTime": "2026-11-02T07:50:10.980536400Z",
+              "sessionId": "9f1d0d7e-ced5-4088-9b15-03c2db086f10",
+              "elapsedMs": 4958
+            },
+            "kind": "interface-detached",
+            "hash": "1e18d5a6b1709b18e1c36c72a1bec8ad089d88be7a43cb28a054b4edf64a3aa0"
+          },
+          {
+            "evidence": {
+              "experienceId": "bd087274-855d-4053-ac70-655380805697",
+              "sourceSha256": "69f5d299ad762ec6da90f910c01a9eac5ff1583cf1fa17db86c7c66d5706a0a5",
+              "agentId": "9bcdee3d-3d53-463e-9494-b85d1588645a",
+              "meaning": "Retained sensory replay, not a new observation or demonstrated policy improvement",
+              "bootId": "df4701fd-6f28-4654-9d3f-fbcf30feda09",
+              "logicalTick": 45,
+              "wallTime": "2026-11-02T07:50:17.590526800Z",
+              "elapsedMs": 11559
+            },
+            "kind": "experience-replay",
+            "hash": "49ac8635943d16f2bff7d5d8b9f34e855cd0efc76adbf58975c3a3bec6faa99b"
+          }
+        ],
+        "interfaceAgeMs": null,
+        "decision": "consolidate",
+        "neural": {
+          "synapses": 1048576,
+          "processingMs": 16.8033,
+          "ticks": 2,
+          "spikes": 12,
+          "scope": "Actual sensory dynamics/plasticity. Task improvement still requires separate policy evaluation; no language-model weights are changed.",
+          "plasticity": 0,
+          "learningEnabled": true,
+          "updated": true,
+          "neurons": 32768,
+          "status": "shared-java-cortex"
+        },
+        "bootId": "df4701fd-6f28-4654-9d3f-fbcf30feda09",
+        "replayedExperiences": 1,
+        "fault": "",
+        "pid": 620,
+        "experienceCount": 2,
+        "clock": {
+          "elapsedThisBootMs": 11816,
+          "bootId": "df4701fd-6f28-4654-9d3f-fbcf30feda09",
+          "retainedActiveMs": 11816,
+          "domains": "Elapsed time is local to this boot. Source timestamps and native simulation ticks are separately qualified; downtime is not simulated activity.",
+          "wallTime": "2026-11-02T07:50:17.847748500Z",
+          "logicalTicks": 46
+        },
+        "interfaceAttached": false,
+        "witness": {
+          "head": "ede530771809f48f4e73ea64464b5177135018b7773d761f9d467fff44d6e154",
+          "records": 7,
+          "meaning": "Hash/sequence integrity, not a signature or proof that a source claim is true",
+          "segments": 1
+        },
+        "lastHeartbeatElapsedMs": 11586,
+        "observations": {
+          "collectionMs": 2,
+          "collectedAt": "2026-11-02T07:50:17.573579800Z",
+          "observationFresh": false,
+          "cameraReceiptAgeMs": -1,
+          "collectedElapsedMs": 11542,
+          "source": {
+            "world": "No selected native world; no game or camera started",
+            "goals": [
+              {
+                "id": "e52158cf-7427-43e7-8ca7-47590468f959",
+                "status": "running"
+              }
+            ]
+          },
+          "newCompletedGoal": false,
+          "hasRetainedEvidence": true,
+          "newFailedGoals": 0,
+          "sourceChanged": false,
+          "activeGoals": 1,
+          "physicalObservation": "No recent accepted measured camera sample. Retained source data is not a live physical observation.",
+          "heapFraction": 0.7110567390918732,
+          "goals": [
+            {
+              "id": "e52158cf-7427-43e7-8ca7-47590468f959",
+              "status": "running"
+            }
+          ]
+        },
+        "appraisal": {
+          "reason": "Bounded maintenance of retained evidence",
+          "alertness": 0.5622665160696839,
+          "goalProgress": 0,
+          "decision": "consolidate",
+          "allowNeuralUpdate": false,
+          "meaning": "Computational appraisal changes work scheduling. It is not a claim of felt emotion, calibrated probability or improved task performance.",
+          "collectionLag": 0.004,
+          "uncertainty": 1,
+          "resourcePressure": 0.7110567390918732
+        },
+        "sharedCortexTicks": 2,
+        "limits": "Persistent operational agent and real shared Java sensory dynamics. Background work is not subjective awareness, new physical truth or proof of useful learning. No camera starts, browser actions or LLM calls occur on this heartbeat.",
+        "backgroundEnabled": true,
+        "status": "awake"
+      }
+    },
+    {
+      "stage": "Restored Java boot",
+      "state": {
+        "schema": "persistent-java-agent-042-v1",
+        "agentId": "9bcdee3d-3d53-463e-9494-b85d1588645a",
+        "recentWitnesses": [
+          {
+            "evidence": {
+              "agentId": "9bcdee3d-3d53-463e-9494-b85d1588645a",
+              "bootId": "df4701fd-6f28-4654-9d3f-fbcf30feda09",
+              "logicalTick": 47,
+              "wallTime": "2026-11-02T07:50:18.079498200Z",
+              "sessionId": "0edcf9ba-89ba-45cd-8b97-13da320fbfdb",
+              "elapsedMs": 12048
+            },
+            "kind": "interface-attached",
+            "hash": "3407917d234744459a0c98a980148cc7b4d629a854265c6d4705014a8a181d5c"
+          },
+          {
+            "evidence": {
+              "agentId": "9bcdee3d-3d53-463e-9494-b85d1588645a",
+              "goal": {
+                "id": "e52158cf-7427-43e7-8ca7-47590468f959",
+                "status": "completed"
+              },
+              "meaning": "Actual Java goal status; independent task metrics remain separately qualified",
+              "bootId": "df4701fd-6f28-4654-9d3f-fbcf30feda09",
+              "logicalTick": 53,
+              "wallTime": "2026-11-02T07:50:19.608129700Z",
+              "elapsedMs": 13577
+            },
+            "kind": "goal-outcome",
+            "hash": "9e63cb99be431efa7a9f436584406227e9f3638bb8f5d197b00d0cbd3fc0e06d"
+          },
+          {
+            "evidence": {
+              "agentId": "9bcdee3d-3d53-463e-9494-b85d1588645a",
+              "bootId": "df4701fd-6f28-4654-9d3f-fbcf30feda09",
+              "logicalTick": 60,
+              "wallTime": "2026-11-02T07:50:21.446757600Z",
+              "sessionId": "0edcf9ba-89ba-45cd-8b97-13da320fbfdb",
+              "elapsedMs": 15416
+            },
+            "kind": "interface-detached",
+            "hash": "01596a992e8ed93abb52c607cefa2df52c23a96e143c747b5e5a47866dbd23d2"
+          },
+          {
+            "evidence": {
+              "sourceSha256": "c8c942d54504b0830b663ce01df10cea484c497ad281a5b17115292443c5a1c8",
+              "agentId": "9bcdee3d-3d53-463e-9494-b85d1588645a",
+              "neural": {
+                "synapses": 1048576,
+                "processingMs": 7.9195,
+                "ticks": 5,
+                "spikes": 37,
+                "scope": "Actual sensory dynamics/plasticity. Task improvement still requires separate policy evaluation; no language-model weights are changed.",
+                "plasticity": 0.23887879,
+                "learningEnabled": true,
+                "updated": true,
+                "neurons": 32768,
+                "status": "shared-java-cortex"
+              },
+              "bootId": "df4701fd-6f28-4654-9d3f-fbcf30feda09",
+              "logicalTick": 61,
+              "appraisal": {
+                "reason": "A changed source can update the shared sensory state",
+                "alertness": 0.7451252149502579,
+                "goalProgress": 0.9451777181994295,
+                "decision": "integrate-observation",
+                "allowNeuralUpdate": true,
+                "meaning": "Computational appraisal changes work scheduling. It is not a claim of felt emotion, calibrated probability or improved task performance.",
+                "collectionLag": 0.002,
+                "uncertainty": 1,
+                "resourcePressure": 0.5793727139631907
+              },
+              "wallTime": "2026-11-02T07:50:21.634360700Z",
+              "elapsedMs": 15603
+            },
+            "kind": "appraisal",
+            "hash": "65cf36fbb0e2c25adaaf86f9bbbde55e8de04e787fb477e2045b33f387828178"
+          },
+          {
+            "evidence": {
+              "agentId": "9bcdee3d-3d53-463e-9494-b85d1588645a",
+              "bootId": "df4701fd-6f28-4654-9d3f-fbcf30feda09",
+              "logicalTick": 62,
+              "wallTime": "2026-11-02T07:50:21.845795100Z",
+              "sessionId": "3f0ecaae-68c3-4f07-a986-b12561e2565c",
+              "elapsedMs": 15814
+            },
+            "kind": "interface-attached",
+            "hash": "5e6c60a98be485466aa07c151131b792ccce10436d133a4c231d7e5902cd73f8"
+          },
+          {
+            "evidence": {
+              "agentId": "9bcdee3d-3d53-463e-9494-b85d1588645a",
+              "bootId": "df4701fd-6f28-4654-9d3f-fbcf30feda09",
+              "logicalTick": 71,
+              "action": "checkpoint",
+              "wallTime": "2026-11-02T07:50:24.171811200Z",
+              "elapsedMs": 18140
+            },
+            "kind": "background-control",
+            "hash": "4695e3b6417dc1161891da1bc07a99d9df8e81bde00b2313d013d7c1d967da49"
+          },
+          {
+            "evidence": {
+              "agentId": "9bcdee3d-3d53-463e-9494-b85d1588645a",
+              "bootId": "df4701fd-6f28-4654-9d3f-fbcf30feda09",
+              "logicalTick": 73,
+              "wallTime": "2026-11-02T07:50:24.659031300Z",
+              "sessionId": "3f0ecaae-68c3-4f07-a986-b12561e2565c",
+              "elapsedMs": 18628
+            },
+            "kind": "interface-detached",
+            "hash": "ec7f670694ddb915f37a7d3e10b3719ada890791e74c873eb590d692395427f3"
+          },
+          {
+            "evidence": {
+              "agentId": "9bcdee3d-3d53-463e-9494-b85d1588645a",
+              "goal": {
+                "id": "e20fbd5c-e2ff-4611-951f-1a4c9df241f4",
+                "status": "completed"
+              },
+              "meaning": "Actual Java goal status; independent task metrics remain separately qualified",
+              "bootId": "df4701fd-6f28-4654-9d3f-fbcf30feda09",
+              "logicalTick": 73,
+              "wallTime": "2026-11-02T07:50:24.692625500Z",
+              "elapsedMs": 18661
+            },
+            "kind": "goal-outcome",
+            "hash": "4b6cb0f277aebc703206a64e76cc70d427f830c39d276e3ae7a2c9d35b4345e0"
+          },
+          {
+            "evidence": {
+              "previousSavedAt": "2026-11-02T07:50:24.666013900Z",
+              "agentId": "9bcdee3d-3d53-463e-9494-b85d1588645a",
+              "priorActiveMs": 18635,
+              "bootId": "46960568-c9d9-4580-be97-eb84a1a78b2a",
+              "logicalTick": 73,
+              "previousBootId": "df4701fd-6f28-4654-9d3f-fbcf30feda09",
+              "wallTime": "2026-11-02T07:50:25.866861700Z",
+              "recovery": "state restored; downtime is not activity",
+              "elapsedMs": 154
+            },
+            "kind": "boot",
+            "hash": "7f827d8a0bf4c816c240444d737758322c30da3d76dcb9040fe9ad1d57d3a67d"
+          },
+          {
+            "evidence": {
+              "agentId": "9bcdee3d-3d53-463e-9494-b85d1588645a",
+              "goal": {
+                "id": "e20fbd5c-e2ff-4611-951f-1a4c9df241f4",
+                "status": "completed"
+              },
+              "meaning": "Actual Java goal status; independent task metrics remain separately qualified",
+              "bootId": "46960568-c9d9-4580-be97-eb84a1a78b2a",
+              "logicalTick": 74,
+              "wallTime": "2026-11-02T07:50:26.040696800Z",
+              "elapsedMs": 318
+            },
+            "kind": "goal-outcome",
+            "hash": "358ef6316baac2de8dc5b3b151167334af3597a01215b04373775ac02c57fbad"
+          },
+          {
+            "evidence": {
+              "agentId": "9bcdee3d-3d53-463e-9494-b85d1588645a",
+              "bootId": "46960568-c9d9-4580-be97-eb84a1a78b2a",
+              "logicalTick": 75,
+              "wallTime": "2026-11-02T07:50:26.313695600Z",
+              "sessionId": "ad3dfdbb-3935-4eff-ae16-35ac59bb0996",
+              "elapsedMs": 591
+            },
+            "kind": "interface-attached",
+            "hash": "0422c82d837185422de0e12fe6994b6b21d772407ca0148ccf7a6dbe0d123afa"
+          },
+          {
+            "evidence": {
+              "agentId": "9bcdee3d-3d53-463e-9494-b85d1588645a",
+              "bootId": "46960568-c9d9-4580-be97-eb84a1a78b2a",
+              "logicalTick": 81,
+              "action": "checkpoint",
+              "wallTime": "2026-11-02T07:50:27.850071800Z",
+              "elapsedMs": 2136
+            },
+            "kind": "background-control",
+            "hash": "4d2a00ba4cdfba1e52d3c53707914791fd329b0ea20f71bd8e4aea4b5cf732f7"
+          },
+          {
+            "evidence": {
+              "agentId": "9bcdee3d-3d53-463e-9494-b85d1588645a",
+              "bootId": "46960568-c9d9-4580-be97-eb84a1a78b2a",
+              "logicalTick": 81,
+              "wallTime": "2026-11-02T07:50:27.988970500Z",
+              "sessionId": "ad3dfdbb-3935-4eff-ae16-35ac59bb0996",
+              "elapsedMs": 2268
+            },
+            "kind": "interface-detached",
+            "hash": "cbb8e2e7fe15e99c59bcc6ecfbf81d646a7ed5342865645c467096bacb9b4704"
+          },
+          {
+            "evidence": {
+              "reason": "Owned runtime stopped",
+              "agentId": "9bcdee3d-3d53-463e-9494-b85d1588645a",
+              "bootId": "46960568-c9d9-4580-be97-eb84a1a78b2a",
+              "logicalTick": 82,
+              "wallTime": "2026-11-02T07:50:28.122614200Z",
+              "elapsedMs": 2401
+            },
+            "kind": "shutdown",
+            "hash": "209552fb421568722783b2281d322bc1ffed3f498536d31375b92a52214124c6"
+          },
+          {
+            "evidence": {
+              "previousSavedAt": "2026-11-02T07:50:28.134625100Z",
+              "agentId": "9bcdee3d-3d53-463e-9494-b85d1588645a",
+              "priorActiveMs": 21048,
+              "bootId": "bb927490-edb6-40a0-ba7c-15a6077c5800",
+              "logicalTick": 82,
+              "previousBootId": "46960568-c9d9-4580-be97-eb84a1a78b2a",
+              "wallTime": "2026-11-02T07:50:29.683501700Z",
+              "recovery": "state restored; downtime is not activity",
+              "elapsedMs": 149
+            },
+            "kind": "boot",
+            "hash": "d3dce6734b21c7d6c1acabadd8e1f2db76be59472646c17697e228a45caf6fb6"
+          },
+          {
+            "evidence": {
+              "agentId": "9bcdee3d-3d53-463e-9494-b85d1588645a",
+              "bootId": "bb927490-edb6-40a0-ba7c-15a6077c5800",
+              "logicalTick": 83,
+              "wallTime": "2026-11-02T07:50:29.935472500Z",
+              "sessionId": "aa343338-8509-4a6d-9f47-7da6978046d9",
+              "elapsedMs": 392
+            },
+            "kind": "interface-attached",
+            "hash": "5c372f61dfce1c5935350f2ee1109e4d0af2d4ffc6cbe0a9843cacee4988f9bb"
+          }
+        ],
+        "interfaceAgeMs": 613,
+        "decision": "consolidate",
+        "neural": {
+          "synapses": 1048576,
+          "processingMs": 18.0688,
+          "ticks": 8,
+          "spikes": 5,
+          "scope": "Actual sensory dynamics/plasticity. Task improvement still requires separate policy evaluation; no language-model weights are changed.",
+          "plasticity": 0.028053343,
+          "learningEnabled": true,
+          "updated": true,
+          "neurons": 32768,
+          "status": "shared-java-cortex"
+        },
+        "bootId": "bb927490-edb6-40a0-ba7c-15a6077c5800",
+        "replayedExperiences": 1,
+        "fault": "",
+        "pid": 620,
+        "experienceCount": 8,
+        "clock": {
+          "elapsedThisBootMs": 1005,
+          "bootId": "bb927490-edb6-40a0-ba7c-15a6077c5800",
+          "retainedActiveMs": 22053,
+          "domains": "Elapsed time is local to this boot. Source timestamps and native simulation ticks are separately qualified; downtime is not simulated activity.",
+          "wallTime": "2026-11-02T07:50:30.548156700Z",
+          "logicalTicks": 86
+        },
+        "interfaceAttached": true,
+        "witness": {
+          "head": "202db31c4117ffac9ede720bed8f0d0e0930017acee8c29ffc7f5fceee9742cf",
+          "records": 23,
+          "meaning": "Hash/sequence integrity, not a signature or proof that a source claim is true",
+          "segments": 1
+        },
+        "lastHeartbeatElapsedMs": 925,
+        "observations": {
+          "collectionMs": 3,
+          "collectedAt": "2026-11-02T07:50:29.713619200Z",
+          "observationFresh": false,
+          "cameraReceiptAgeMs": -1,
+          "collectedElapsedMs": 171,
+          "source": {
+            "world": "No selected native world; no game or camera started",
+            "goals": [
+              {
+                "id": "e52158cf-7427-43e7-8ca7-47590468f959",
+                "status": "completed"
+              },
+              {
+                "id": "e20fbd5c-e2ff-4611-951f-1a4c9df241f4",
+                "status": "completed"
+              }
+            ]
+          },
+          "newCompletedGoal": false,
+          "hasRetainedEvidence": true,
+          "newFailedGoals": 0,
+          "sourceChanged": false,
+          "activeGoals": 0,
+          "physicalObservation": "No recent accepted measured camera sample. Retained source data is not a live physical observation.",
+          "heapFraction": 0.0846578578154246,
+          "goals": [
+            {
+              "id": "e52158cf-7427-43e7-8ca7-47590468f959",
+              "status": "completed"
+            },
+            {
+              "id": "e20fbd5c-e2ff-4611-951f-1a4c9df241f4",
+              "status": "completed"
+            }
+          ]
+        },
+        "appraisal": {
+          "reason": "Bounded maintenance of retained evidence",
+          "alertness": 0.7554290007746463,
+          "goalProgress": 0.9598447944912222,
+          "decision": "consolidate",
+          "allowNeuralUpdate": false,
+          "meaning": "Computational appraisal changes work scheduling. It is not a claim of felt emotion, calibrated probability or improved task performance.",
+          "collectionLag": 0.006,
+          "uncertainty": 1,
+          "resourcePressure": 0.0846578578154246
+        },
+        "sharedCortexTicks": 8,
+        "limits": "Persistent operational agent and real shared Java sensory dynamics. Background work is not subjective awareness, new physical truth or proof of useful learning. No camera starts, browser actions or LLM calls occur on this heartbeat.",
+        "backgroundEnabled": true,
+        "status": "awake"
+      }
+    }
+  ]
+}

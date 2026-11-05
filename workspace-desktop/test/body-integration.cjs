@@ -7,7 +7,7 @@ async function main(){
  const fileCheck=async receipt=>{const bytes=await fs.readFile(receipt.path);assert.equal(crypto.createHash('sha256').update(bytes).digest('hex'),receipt.sha256);assert.equal(bytes.length,receipt.bytes);assert.equal(path.dirname(receipt.path),path.join(project,'exports'));return bytes;};
  try{
   page.on('pageerror',e=>errors.push(e.message));await page.getByRole('button',{name:'3D Lab',exact:true}).click();
-  let state=await api('/api/state'),scene=state.scenes[0];await api('/api/scene/save',{id:scene.id,expectedVersion:1,parameters:{angleDeg:0}});scene=await execute('scene.read',{id:scene.id});
+  let state;for(let ready=0;ready<400;ready++){state=await api('/api/state');if(state.scenes.length)break;await new Promise(r=>setTimeout(r,50));}assert(state.scenes.length,'3D Lab must finish creating its scene before reading the fixture ID');let scene=state.scenes[0];await api('/api/scene/save',{id:scene.id,expectedVersion:1,parameters:{angleDeg:0}});scene=await execute('scene.read',{id:scene.id});
   await page.getByRole('button',{name:'First-person view',exact:true}).click();await page.waitForFunction(()=>!document.querySelector('#body-grab').disabled);
   const observer=(await api('/api/observer/list',{})).observers[0],authored=await api('/api/scene/read',{id:scene.id});
   await page.getByRole('button',{name:'Grab selected',exact:true}).click();await page.waitForFunction(()=>!document.querySelector('#body-lift').disabled);

@@ -1,0 +1,69 @@
+{
+  "edition": 37,
+  "modules": [
+    {
+      "id": "camera",
+      "name": "Local camera and cutting mat",
+      "summary": "Explicit private preview, bounded source-timestamped capture, four-point mat selection and Stop; software-camera and physical preview separately evidenced.",
+      "source": "workspace-desktop/renderer/metric-panel.js",
+      "note": "docs/METRIC_WORLDS.md",
+      "status": "verified"
+    },
+    {
+      "id": "geometry",
+      "name": "Pure Java planar geometry",
+      "summary": "Perspective homography, aspect-correct ruler and explicit Tsai camera-to-ground mapping; finite/convex/horizon gates.",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/PlaneCalibration.java",
+      "note": "docs/METRIC_WORLDS.md",
+      "status": "verified"
+    },
+    {
+      "id": "clocks",
+      "name": "Immutable source clocks",
+      "summary": "Every original image is bound to actual supplied seconds, camera key and source checksum.",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/MetricObservationStore.java",
+      "note": "docs/METRIC_WORLDS.md",
+      "status": "verified"
+    },
+    {
+      "id": "tracker",
+      "name": "Preserved pixel tracker",
+      "summary": "Unchanged036 FlowTracker, including lost small-pedestrian measurements; historical identity retained.",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/FlowTracker.java",
+      "note": "docs/METRIC_WORLDS.md",
+      "status": "verified"
+    },
+    {
+      "id": "uncertainty",
+      "name": "Fit and challenge uncertainty",
+      "summary": "First empirical90% quantile, separate immutable later-run evaluation, full residuals and width. First real-footage profile is REJECTED.",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/MetricObservationStore.java",
+      "note": "docs/METRIC_WORLDS.md",
+      "status": "verified"
+    },
+    {
+      "id": "chat",
+      "name": "Actual local-model retrieval",
+      "summary": "Host-bound measured read/report; no model-supplied measurements or camera authority.",
+      "source": "workspace-desktop/observations.cjs",
+      "note": "docs/METRIC_WORLDS.md",
+      "status": "verified"
+    },
+    {
+      "id": "export",
+      "name": "Complete export and independent reader",
+      "summary": "Original observation gzip/images plus metric records; independent projection/radius, clock/body/source-hash audit.",
+      "source": "scripts/Inspect-MetricWorld.cjs",
+      "note": "docs/METRIC_WORLDS.md",
+      "status": "verified"
+    },
+    {
+      "id": "future",
+      "name": "Calibrated tabletop performance",
+      "summary": "Actual mat placement/reference observations, tighter tolerances, stronger small-object recovery and camera-motion detection remain next gates.",
+      "source": "docs/METRIC_WORLDS.md",
+      "note": "docs/METRIC_WORLDS.md",
+      "status": "planned"
+    }
+  ]
+}

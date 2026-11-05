@@ -1,0 +1,68 @@
+> Task :brain-core:compileJava UP-TO-DATE
+> Task :factory-runtime:compileJava UP-TO-DATE
+> Task :factory-kernel:compileJava UP-TO-DATE
+> Task :factory-models:compileJava UP-TO-DATE
+
+> Task :compileJava
+
+> Task :processResources
+> Task :classes
+Note: Some input files use unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+> Task :jar
+> Task :brain-core:processResources NO-SOURCE
+> Task :brain-core:classes UP-TO-DATE
+> Task :brain-core:jar
+> Task :factory-kernel:processResources NO-SOURCE
+> Task :factory-kernel:classes UP-TO-DATE
+> Task :factory-kernel:jar
+> Task :factory-models:processResources NO-SOURCE
+> Task :factory-models:classes UP-TO-DATE
+> Task :factory-models:jar
+> Task :factory-runtime:processResources NO-SOURCE
+> Task :factory-runtime:classes UP-TO-DATE
+> Task :factory-runtime:jar
+> Task :startScripts
+> Task :installDist
+> Task :brain-gpu:compileJava UP-TO-DATE
+> Task :brain-gpu:processResources NO-SOURCE
+> Task :brain-gpu:classes UP-TO-DATE
+> Task :brain-gpu:jar
+> Task :geometry-core:compileJava UP-TO-DATE
+> Task :geometry-core:processResources NO-SOURCE
+> Task :geometry-core:classes UP-TO-DATE
+> Task :geometry-core:jar
+> Task :workspace-engine:compileJava UP-TO-DATE
+> Task :workspace-engine:processResources
+> Task :workspace-engine:classes
+> Task :workspace-engine:compileTestJava
+> Task :workspace-engine:processTestResources
+> Task :workspace-engine:testClasses
+Libbulletjme version 22.0.3 initializing
+
+> Task :workspace-engine:test
+
+Construction051Test > nativeBridgeIsReleasedAndReassembledFromActualPriorFrame FAILED
+    java.lang.AssertionError at Construction051Test.java:28
+
+Construction051Test > sourceDesignAndTraceChangesAreRefused FAILED
+    java.lang.AssertionError at Construction051Test.java:37
+        Caused by: java.lang.IllegalArgumentException at Construction051Test.java:37
+
+4 tests completed, 2 failed
+
+> Task :workspace-engine:test FAILED
+
+[Incubating] Problems report is available at: file:///C:/Users/eyeka/Documents/Codex/2026-10-26/is/work/fraynix-workspace-edition051/build/reports/problems/problems-report.html
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':workspace-engine:test'.
+> There were failing tests. See the report at: file:///C:/Users/eyeka/Documents/Codex/2026-10-26/is/work/fraynix-workspace-edition051/workspace-engine/build/reports/tests/test/index.html
+
+* Try:
+> Run with --scan to get full insights from a Build Scan (powered by Develocity).
+
+BUILD FAILED in 22s
+22 actionable tasks: 15 executed, 7 up-to-date

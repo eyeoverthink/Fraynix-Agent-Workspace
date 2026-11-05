@@ -1,0 +1,43 @@
+{
+  "label": "native059-first",
+  "source": "205b108",
+  "count": 7,
+  "failures": 1,
+  "cases": [
+    {
+      "case": "fraymus.workspace.Design059Test#actualAsymmetricComparisonNewPayloadsAndMeasuredEvidencePerformance",
+      "passed": false,
+      "seconds": 113.562
+    },
+    {
+      "case": "fraymus.workspace.Evidence059Test#failuresAreNeverCachedAndColdReadsReverify",
+      "passed": true,
+      "seconds": 0.016
+    },
+    {
+      "case": "fraymus.workspace.Evidence059Test#cacheIsBoundedAndReturnedOriginalsAreIsolated",
+      "passed": true,
+      "seconds": 0.72
+    },
+    {
+      "case": "fraymus.workspace.Evidence059Test#sameLengthSameTimestampEditsCannotReuseCheckedEvidence",
+      "passed": true,
+      "seconds": 0.025
+    },
+    {
+      "case": "fraymus.workspace.Support059Test#distinctNewReservedProtocolCannotBeMistakenForDesignOr058",
+      "passed": true,
+      "seconds": 0.009
+    },
+    {
+      "case": "fraymus.workspace.Support059Test#sameStockSpanAndBeamPositionArePreservedWithEndMargins",
+      "passed": true,
+      "seconds": 0.049
+    },
+    {
+      "case": "fraymus.workspace.Support059Test#nativeOptionsAreExplicitAndDisabledRedesignRefusesBothOffsets",
+      "passed": true,
+      "seconds": 0.144
+    }
+  ]
+}

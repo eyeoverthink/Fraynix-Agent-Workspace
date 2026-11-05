@@ -1,0 +1,55 @@
+✔ model cannot supply identities, fake measurements or custom observation gates (1.3289ms)
+✔ host pins both native and observation revisions and retains stale refusal (0.3227ms)
+✔ footage chat selects the typed observation workflow without changing ordinary world goals (0.4001ms)
+✔ agent readout separates last accepted world position from a later missing-observation prediction (0.7844ms)
+✔ native observer tools preserve ordinary web routing and expose bounded actions (4.0069ms)
+✔ observer completion requires a capture of the current pose version (1.0766ms)
+✔ calibration uses typed native tools without changing CSV application routing (0.9216ms)
+✔ CSV web creation stays in artifact mode while native measurement comparisons use physical tools (0.4309ms)
+✖ a corrupted theme or invalid UTF-8 stops startup before code is loaded (35.2396ms)
+✔ offline application policy permits loopback and rejects external navigation without dispatch (0.364ms)
+✔ browser cannot navigate to host files or executable protocols (0.2101ms)
+✔ model cannot invent tool handlers or smuggle extra executable fields (0.2059ms)
+✔ an old observation expires after navigation or action (0.4401ms)
+✔ native body stages retain physical progress and never repeat a completed movement (0.3248ms)
+✔ body and file task modes stay separate from ordinary web artifact requests (0.1814ms)
+✔ physical result reporting uses native target error rather than model travel-distance prose (0.9729ms)
+✔ physical result reporting refuses stale final frames or a remaining native grip (0.182ms)
+✔ world-goal routing keeps ordinary creation and direct body actions independent (0.598ms)
+✔ explicit physical and retention requirements cannot disappear into model defaults (3.4872ms)
+✔ motion data tasks use their registered family while CSV web creation and physics stay separate (0.7327ms)
+✔ spatial chat selects its own typed task family and retains exact vector intent (0.3026ms)
+✔ browser perception has a separate typed task family (0.4254ms)
+✔ perception procedural schema keeps native and dataset fields out (0.1136ms)
+✔ tracking evaluation is a distinct task with fixed host-bound options (0.2539ms)
+ℹ tests 24
+ℹ suites 0
+ℹ pass 23
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 131.2193
+
+✖ failing tests:
+
+test at test\policy.test.cjs:62:1
+✖ a corrupted theme or invalid UTF-8 stops startup before code is loaded (35.2396ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+
+  40 !== 39
+
+      at TestContext.<anonymous> (C:\Users\eyeka\Documents\Codex\2026-10-26\is\work\fraynix-agent-workspace\workspace-desktop\test\policy.test.cjs:65:10)
+      at Test.runInAsyncScope (node:async_hooks:228:14)
+      at Test.run (node:internal/test_runner/test:1118:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:787:18)
+      at Test.postRun (node:internal/test_runner/test:1247:19)
+      at Test.run (node:internal/test_runner/test:1175:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:787:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 40,
+    expected: 39,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

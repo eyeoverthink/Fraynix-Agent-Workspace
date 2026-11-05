@@ -1,0 +1,117 @@
+{
+  "date": "2026-11-02",
+  "source": "d587352bc238d79671601e8edf0d21cfebb4727b",
+  "scope": "Labelled synthetic scenes with actual native physics and real Chromium checks",
+  "desktopUnitTests": {
+    "passed": 123
+  },
+  "desktopIntegration": {
+    "command": "node test/first-world-skill-integration.cjs",
+    "openedGuideFrom": [
+      "Verified skills",
+      "empty graph composer"
+    ],
+    "stopped": {
+      "revision": 0,
+      "earnedSkill": false
+    },
+    "initial": {
+      "goalId": "590b3846-7ecb-417d-9ce7-ef5913807cd7",
+      "status": "completed",
+      "skill": {
+        "name": "first-world-skill",
+        "id": "712aec6a-87c0-377f-a9dd-6e0bc9140faf",
+        "version": 1
+      },
+      "worldId": "c284aacf-ff63-4d32-827a-f5d8023e479c",
+      "fromRevision": 0,
+      "toRevision": 1,
+      "metrics": {
+        "maxBoundaryPositionM": 9.61557973545745e-08,
+        "maxBystanderDriftM": 1.4901161193847656e-08,
+        "grabs": 3,
+        "contactPoints": 8664,
+        "maxRestoreAngleErrorDeg": 0,
+        "targets": [
+          {
+            "sourceId": "A",
+            "speedMps": 4.2935443280567744e-05,
+            "positionErrorM": 0.001737506452574343,
+            "angleErrorDeg": 0.000368490193562589,
+            "angularSpeedRadps": 1.8604142747204177e-06
+          },
+          {
+            "sourceId": "B",
+            "speedMps": 7.076050283842814e-05,
+            "positionErrorM": 0.0010111666558909578,
+            "angleErrorDeg": 8.769528416039162e-05,
+            "angularSpeedRadps": 1.0162742958749102e-06
+          },
+          {
+            "sourceId": "C",
+            "speedMps": 0.0001138795688500473,
+            "positionErrorM": 3.8528730538382996e-05,
+            "angleErrorDeg": 0.0005427617392779047,
+            "angularSpeedRadps": 3.89596166681474e-06
+          }
+        ],
+        "resumes": 0,
+        "maxRestoreVelocityError": 0,
+        "maxAngleErrorDeg": 0.0005427617392779047,
+        "maxRestorePositionErrorM": 0,
+        "scope": "Versioned persistent native box world, paused between goals; bounded virtual force/torque gripper and exact kinematic cold handoff, not contact-only pushing, a physical robot hand, photographic recognition or LLM-weight training.",
+        "maxTorqueNm": 0.5040000081062318,
+        "workJ": 1.073049854054795,
+        "passed": true,
+        "maxPositionErrorM": 0.001737506452574343,
+        "nativeTicks": 8542,
+        "maxForceN": 19.451995849609443,
+        "effortNs": 338.07973651336056,
+        "maxInactiveAngleDeg": 0.0007902664552750429,
+        "maxInactiveDriftM": 0.01489740702461621,
+        "maxBoundaryVelocity": 0,
+        "releases": 3,
+        "maxBoundaryAngleDeg": 0,
+        "timeS": 35.59166666666667,
+        "maxAngularSpeedRadps": 3.89596166681474e-06,
+        "maxSpeedMps": 0.0001138795688500473,
+        "nativePhysics": true,
+        "torqueEffortNms": 0.4746878730038368,
+        "maxBystanderAngleDeg": 0.0002608237665716736,
+        "angularWorkJ": 0.0598326014907678
+      },
+      "report": {
+        "sha256": "1a9006f9cf2192753850afb1a5ee6391c3790050e71ca3f793334268fabe0d09",
+        "id": "3af05de4-5c19-3e6f-81c4-88c979ba61d0",
+        "version": 1
+      }
+    },
+    "connected": {
+      "taskId": "aba14c31-34a7-4b70-b0ba-dc6edfbdab85",
+      "fromRevision": 1,
+      "toRevision": 3,
+      "finalHeadSha256": "0b346dd8707cb62f1a1e43b5378115d0de2df3a7622fb7fb5c3115f77ec17ddb",
+      "reopenedWithBothSkills": true
+    },
+    "earlierAttempts": [
+      "A broad toolbar selector hid the original graph button inside the new hidden guide. The selector now targets the original toolbar.",
+      "One test read the disabled state before the asynchronously opened composer became visible. It now waits for the actual dialog.",
+      "The successful goal switched the canvas to its verified report. The skills library now has a direct route back to the practice guide."
+    ]
+  },
+  "offlineGuide": {
+    "passed": true,
+    "widthsPx": [
+      1440,
+      390
+    ],
+    "checks": [
+      "section navigation",
+      "feature filter",
+      "source path filter",
+      "four actual image loads",
+      "no horizontal overflow",
+      "no browser errors"
+    ]
+  }
+}

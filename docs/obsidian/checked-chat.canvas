@@ -1,0 +1,95 @@
+{
+  "nodes": [
+    {
+      "id": "task",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/Agency043.java",
+      "x": 0,
+      "y": 0,
+      "width": 380,
+      "height": 190
+    },
+    {
+      "id": "chain",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/ChatChain052.java",
+      "x": 410,
+      "y": 0,
+      "width": 380,
+      "height": 190
+    },
+    {
+      "id": "checks",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/Domain044.java",
+      "x": 820,
+      "y": 0,
+      "width": 380,
+      "height": 190
+    },
+    {
+      "id": "view",
+      "type": "file",
+      "file": "workspace-desktop/renderer/agency043.js",
+      "x": 0,
+      "y": 240,
+      "width": 380,
+      "height": 190
+    },
+    {
+      "id": "reference",
+      "type": "file",
+      "file": "docs/REFERENCE_LOGIC_052.md",
+      "x": 410,
+      "y": 240,
+      "width": 380,
+      "height": 190
+    },
+    {
+      "id": "next",
+      "type": "file",
+      "file": "docs/EDITION_052_CONTRACT.md",
+      "x": 820,
+      "y": 240,
+      "width": 380,
+      "height": 190
+    }
+  ],
+  "edges": [
+    {
+      "id": "e0",
+      "fromNode": "task",
+      "fromSide": "right",
+      "toNode": "chain",
+      "toSide": "left"
+    },
+    {
+      "id": "e1",
+      "fromNode": "chain",
+      "fromSide": "right",
+      "toNode": "checks",
+      "toSide": "left"
+    },
+    {
+      "id": "e2",
+      "fromNode": "checks",
+      "fromSide": "right",
+      "toNode": "view",
+      "toSide": "left"
+    },
+    {
+      "id": "e3",
+      "fromNode": "view",
+      "fromSide": "right",
+      "toNode": "reference",
+      "toSide": "left"
+    },
+    {
+      "id": "e4",
+      "fromNode": "reference",
+      "fromSide": "right",
+      "toNode": "next",
+      "toSide": "left"
+    }
+  ]
+}

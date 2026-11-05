@@ -1,0 +1,779 @@
+{
+  "edition": 53,
+  "date": "2026-11-03",
+  "source": "5d201a6071d934508dbdb5d9531557695a203694",
+  "passed": true,
+  "javaCount": 80,
+  "javaSuites": 11,
+  "javaInvocations": [
+    {
+      "source": "da7c839",
+      "suites": [
+        {
+          "module": "workspace-engine/build/test-results/test",
+          "name": "fraymus.workspace.Agency043Test",
+          "tests": "11",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "module": "workspace-engine/build/test-results/test",
+          "name": "fraymus.workspace.ChatChain052Test",
+          "tests": "11",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "module": "workspace-engine/build/test-results/test",
+          "name": "fraymus.workspace.Construction051Test",
+          "tests": "6",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "module": "workspace-engine/build/test-results/test",
+          "name": "fraymus.workspace.Counterfactual045Test",
+          "tests": "6",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "module": "workspace-engine/build/test-results/test",
+          "name": "fraymus.workspace.Design053Test",
+          "tests": "5",
+          "failures": "3",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "module": "workspace-engine/build/test-results/test",
+          "name": "fraymus.workspace.Domain044Test",
+          "tests": "16",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        }
+      ],
+      "cases": [
+        {
+          "case": "fraymus.workspace.Agency043Test#inspectionReportRequiresActualStoredMatchingReportAssertions",
+          "passed": true,
+          "diagnostics": []
+        },
+        {
+          "case": "fraymus.workspace.Agency043Test#prematureModelFinishCannotCreateAnArtifactOrVisualRoutine",
+          "passed": true,
+          "diagnostics": []
+        },
+        {
+          "case": "fraymus.workspace.Agency043Test#explicitScreenQuestionUsesNativeInspectionAndCounterCreationUsesOnlyTheCreationStage",
+          "passed": true,
+          "diagnostics": []
+        },
+        {
+          "case": "fraymus.workspace.Agency043Test#actualStoredReceiptAndFrozenCounterStepsAreRequiredBeforeClaimIsConsumed",
+          "passed": true,
+          "diagnostics": []
+        },
+        {
+          "case": "fraymus.workspace.Agency043Test#missingActionAuthorityRefusesClearlyWhilePureDefinitionReadsRemainPassive",
+          "passed": true,
+          "diagnostics": []
+        },
+        {
+          "case": "fraymus.workspace.Agency043Test#registeredSchemasRejectInventedFieldsAndAssertionFreeTests",
+          "passed": true,
+          "diagnostics": []
+        },
+        {
+          "case": "fraymus.workspace.Agency043Test#commitFailureAfterConsumingHostClaimInterruptsInsteadOfWaitingForever",
+          "passed": true,
+          "diagnostics": []
+        },
+        {
+          "case": "fraymus.workspace.Agency043Test#queuedAndClaimedTasksRestoreAsInterruptedWithoutSilentReplay",
+          "passed": true,
+          "diagnostics": []
+        },
+        {
+          "case": "fraymus.workspace.Agency043Test#claimedHostInterruptionRejectsOldNonceAndExplicitResumeStartsFreshObservation",
+          "passed": true,
+          "diagnostics": []
+        },
+        {
+          "case": "fraymus.workspace.Agency043Test#unverifiedConversationIsNotPresentedAsVerifiedOutcomeToTheContinuingBrain",
+          "passed": true,
+          "diagnostics": []
+        },
+        {
+          "case": "fraymus.workspace.Agency043Test#rejectedNativeModelSyntaxRetriesWithinBudgetWithoutExecutingRejectedArguments",
+          "passed": true,
+          "diagnostics": []
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#duplicateWarningsKeepEveryOriginalOccurrenceBeyondRecentWindow",
+          "passed": true,
+          "diagnostics": []
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#numericRefusalExplainsOriginalBoundsWithoutChangingThem",
+          "passed": true,
+          "diagnostics": []
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#oversizedRequirementsRefuseRatherThanBeingSilentlyTruncated",
+          "passed": true,
+          "diagnostics": []
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#legacyTaskDoesNotClaimCompleteTimingCoverage",
+          "passed": true,
+          "diagnostics": []
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#summaryRetainsRejectedQualityAndDoesNotDumpMetrics",
+          "passed": true,
+          "diagnostics": []
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#discoverySummaryKeepsExactBindingsAndBothEndsWithoutBreakingJson",
+          "passed": true,
+          "diagnostics": []
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#largeRecentObservationHasExplicitOmissionHashAndKeepsFailure",
+          "passed": true,
+          "diagnostics": []
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#queuedObjectiveSealRefusesChangedRequest",
+          "passed": true,
+          "diagnostics": []
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#providerMapMetadataIsRetainedWithoutUnrelatedFields",
+          "passed": true,
+          "diagnostics": []
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#automaticCompletionRechecksCurrentArtifactInsteadOfTrustingOldSuccess",
+          "passed": true,
+          "diagnostics": []
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#failedPlannerCallIsTimedAndDoesNotBecomeAnAction",
+          "passed": true,
+          "diagnostics": []
+        },
+        {
+          "case": "fraymus.workspace.Construction051Test#nativeBridgeIsReleasedAndReassembledFromActualPriorFrame",
+          "passed": true,
+          "diagnostics": []
+        },
+        {
+          "case": "fraymus.workspace.Construction051Test#sourceDesignAndTraceChangesAreRefused",
+          "passed": true,
+          "diagnostics": []
+        },
+        {
+          "case": "fraymus.workspace.Construction051Test#heldNativeConstructionResumesFromAnExactCheckpoint",
+          "passed": true,
+          "diagnostics": []
+        },
+        {
+          "case": "fraymus.workspace.Construction051Test#insufficientForceCannotEarnConstructionSuccess",
+          "passed": true,
+          "diagnostics": []
+        },
+        {
+          "case": "fraymus.workspace.Construction051Test#chatConstructionIsTypedAndSelectedWorldBound",
+          "passed": true,
+          "diagnostics": []
+        },
+        {
+          "case": "fraymus.workspace.Construction051Test#legacyWorldUpgradeIsExplicitExactAndSourceBound",
+          "passed": true,
+          "diagnostics": []
+        },
+        {
+          "case": "fraymus.workspace.Counterfactual045Test#unfinishedForecastRetainsCompletedBytesAndOriginalAttemptsAcrossRestart",
+          "passed": true,
+          "diagnostics": []
+        },
+        {
+          "case": "fraymus.workspace.Counterfactual045Test#codeAndSourceCorruptionAreRefusedWithoutChangingOriginalBytes",
+          "passed": true,
+          "diagnostics": []
+        },
+        {
+          "case": "fraymus.workspace.Counterfactual045Test#ordinaryWorldRequestAndExplicitCounterfactualRequestStayDistinct",
+          "passed": true,
+          "diagnostics": []
+        },
+        {
+          "case": "fraymus.workspace.Counterfactual045Test#nativeAlternativesKeepWorldExactAndSelectedExecutionMatchesOriginalTraces",
+          "passed": true,
+          "diagnostics": []
+        },
+        {
+          "case": "fraymus.workspace.Counterfactual045Test#forecastOnlyAndExplicitNoMovementRequestsRequireReview",
+          "passed": true,
+          "diagnostics": []
+        },
+        {
+          "case": "fraymus.workspace.Counterfactual045Test#cancellationCannotAdvanceOrReserveTheLiveWorld",
+          "passed": true,
+          "diagnostics": []
+        },
+        {
+          "case": "fraymus.workspace.Design053Test#chatComparisonRequiresConstructionAndPreservesReviewIntent",
+          "passed": true,
+          "diagnostics": []
+        },
+        {
+          "case": "fraymus.workspace.Design053Test#minimalCeilingDeduplicatesWithoutExceedingAuthority",
+          "passed": false,
+          "diagnostics": [
+            [
+              "failure",
+              "java.lang.IllegalStateException: Original world geometry changed"
+            ]
+          ]
+        },
+        {
+          "case": "fraymus.workspace.Design053Test#actualTrialsPreserveSourceAndCheckBridgeBeforeSelectedExecution",
+          "passed": false,
+          "diagnostics": [
+            [
+              "failure",
+              "java.lang.IllegalStateException: Original world geometry changed"
+            ]
+          ]
+        },
+        {
+          "case": "fraymus.workspace.Design053Test#allFailedTrialsCannotEarnDecisionOrLiveOwnership",
+          "passed": false,
+          "diagnostics": [
+            [
+              "failure",
+              "java.lang.IllegalStateException: Original world geometry changed"
+            ]
+          ]
+        },
+        {
+          "case": "fraymus.workspace.Design053Test#aCompletedMotionWithoutSupportedBridgeIsIneligible",
+          "passed": true,
+          "diagnostics": []
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#retainedAppearancePolicyCannotChangeCategoryOrInstallDetectorOptions",
+          "passed": true,
+          "diagnostics": []
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#retainedSkillSourceAndForceDefaultsCannotBeSilentlyChanged",
+          "passed": true,
+          "diagnostics": []
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#nativeWaitUsesActualChildAndRetainsItsIdentity",
+          "passed": true,
+          "diagnostics": []
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#savedGraphChatSelectsExactVersionAndWorkflowBeforePlanning",
+          "passed": true,
+          "diagnostics": []
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#sourceFreeHostSuccessAndForeignChildrenAreRejected",
+          "passed": true,
+          "diagnostics": []
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#reportStageCannotSkipActualReads",
+          "passed": true,
+          "diagnostics": []
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#typedOptionsPreserveExplicitValuesAndRejectContradictions",
+          "passed": true,
+          "diagnostics": []
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#interruptedChildCannotProduceSuccessfulCompletion",
+          "passed": true,
+          "diagnostics": []
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#inventedHostFactsDoNotReplaceActualJavaRead",
+          "passed": true,
+          "diagnostics": []
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#retainedSkillSchemasKeepDefaultsOptionalAndHideBoundDetectorPolicy",
+          "passed": true,
+          "diagnostics": []
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#javaRoutesEveryFormerDesktopFamilyWithoutChangingWebCreation",
+          "passed": true,
+          "diagnostics": []
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#constructionReuseExposesOnlyExplicitChangesAndKeepsOriginalLimits",
+          "passed": true,
+          "diagnostics": []
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#actualQueueCompletionRecordsTheVerifiedReportInTheSameLearningEpisode",
+          "passed": true,
+          "diagnostics": []
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#workflowBootstrapBindsDatasetAndSceneInJavaBeforeAnyHostAction",
+          "passed": true,
+          "diagnostics": []
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#reportMustHaveFrozenOriginalAssertionsAndExactSourceVersion",
+          "passed": true,
+          "diagnostics": []
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#creationPromptsAreOwnedBoundedAndKeepSourceReserved",
+          "passed": true,
+          "diagnostics": []
+        }
+      ]
+    },
+    {
+      "source": "1385568",
+      "suites": [
+        {
+          "module": "workspace-engine/build/test-results/test",
+          "name": "fraymus.workspace.Design053Test",
+          "tests": "5",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "module": "workspace-engine/build/test-results/test",
+          "name": "fraymus.workspace.DesignPolicy053Test",
+          "tests": "2",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        }
+      ],
+      "cases": [
+        {
+          "case": "fraymus.workspace.Design053Test#chatComparisonRequiresConstructionAndPreservesReviewIntent",
+          "passed": true,
+          "diagnostics": []
+        },
+        {
+          "case": "fraymus.workspace.Design053Test#minimalCeilingDeduplicatesWithoutExceedingAuthority",
+          "passed": true,
+          "diagnostics": []
+        },
+        {
+          "case": "fraymus.workspace.Design053Test#actualTrialsPreserveSourceAndCheckBridgeBeforeSelectedExecution",
+          "passed": true,
+          "diagnostics": []
+        },
+        {
+          "case": "fraymus.workspace.Design053Test#allFailedTrialsCannotEarnDecisionOrLiveOwnership",
+          "passed": true,
+          "diagnostics": []
+        },
+        {
+          "case": "fraymus.workspace.Design053Test#aCompletedMotionWithoutSupportedBridgeIsIneligible",
+          "passed": true,
+          "diagnostics": []
+        },
+        {
+          "case": "fraymus.workspace.DesignPolicy053Test#javaPinsCompareReviewAndForceCeilingBeforeAnyAction",
+          "passed": true,
+          "diagnostics": []
+        },
+        {
+          "case": "fraymus.workspace.DesignPolicy053Test#retainedDesignRespectsExplicitReviewAndFreshSelectedWorld",
+          "passed": true,
+          "diagnostics": []
+        }
+      ]
+    },
+    {
+      "source": "ac9f3f0",
+      "suites": [
+        {
+          "module": "workspace-engine/build/test-results/test",
+          "name": "fraymus.workspace.DesignPolicy053Test",
+          "tests": "2",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "module": "workspace-engine/build/test-results/test",
+          "name": "fraymus.workspace.GoalRunnerTest",
+          "tests": "5",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "module": "workspace-engine/build/test-results/test",
+          "name": "fraymus.workspace.SkillGraph046Test",
+          "tests": "7",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "module": "workspace-engine/build/test-results/test",
+          "name": "fraymus.workspace.WorkflowTest",
+          "tests": "7",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "module": "workspace-engine/build/test-results/test",
+          "name": "fraymus.workspace.WorldLedgerTest",
+          "tests": "3",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        }
+      ],
+      "cases": [
+        {
+          "case": "fraymus.workspace.DesignPolicy053Test#javaPinsCompareReviewAndForceCeilingBeforeAnyAction",
+          "passed": true,
+          "diagnostics": []
+        },
+        {
+          "case": "fraymus.workspace.DesignPolicy053Test#retainedDesignRespectsExplicitReviewAndFreshSelectedWorld",
+          "passed": true,
+          "diagnostics": []
+        },
+        {
+          "case": "fraymus.workspace.GoalRunnerTest#cancelledIntentAndInventedHostReceiptsCannotBecomeSkills",
+          "passed": true,
+          "diagnostics": []
+        },
+        {
+          "case": "fraymus.workspace.GoalRunnerTest#frozenSceneAndReportEffectsHaveStableIdentitiesAndRejectChangedContent",
+          "passed": true,
+          "diagnostics": []
+        },
+        {
+          "case": "fraymus.workspace.GoalRunnerTest#intentSurvivesRestartRequiresExplicitResumeAndHasFiniteRecovery",
+          "passed": true,
+          "diagnostics": []
+        },
+        {
+          "case": "fraymus.workspace.GoalRunnerTest#importedTextCannotInstallHandlersOrEscapePhysicalDomain",
+          "passed": true,
+          "diagnostics": []
+        },
+        {
+          "case": "fraymus.workspace.GoalRunnerTest#aForeignNativeRunIsPreservedAndSourceVersionsAreRequired",
+          "passed": true,
+          "diagnostics": []
+        },
+        {
+          "case": "fraymus.workspace.SkillGraph046Test#losslessDiagnosticOriginsAndTamperedWitnessNeverBecomeSuccess",
+          "passed": true,
+          "diagnostics": []
+        },
+        {
+          "case": "fraymus.workspace.SkillGraph046Test#actualTwoNodeChainChecksOriginalReportsAndRetainsExactGraphAfterRestart",
+          "passed": true,
+          "diagnostics": []
+        },
+        {
+          "case": "fraymus.workspace.SkillGraph046Test#stopDuringActualMotionNeverStartsDependantsOrRetainsGraph",
+          "passed": true,
+          "diagnostics": []
+        },
+        {
+          "case": "fraymus.workspace.SkillGraph046Test#nativeInFlightRecoveryRetainsSameRunAndEveryCommittedPrefixSample",
+          "passed": true,
+          "diagnostics": []
+        },
+        {
+          "case": "fraymus.workspace.SkillGraph046Test#typeCyclesSkillChangesAndAuthorityAreRefusedBeforeAnyNewEffect",
+          "passed": true,
+          "diagnostics": []
+        },
+        {
+          "case": "fraymus.workspace.SkillGraph046Test#exactMemoAuditsCorruptionAndNeverHidesMissingOriginalEvidence",
+          "passed": true,
+          "diagnostics": []
+        },
+        {
+          "case": "fraymus.workspace.SkillGraph046Test#commitBeforeParentCheckpointReconcilesSameChildWithoutReplayingMovement",
+          "passed": true,
+          "diagnostics": []
+        },
+        {
+          "case": "fraymus.workspace.WorkflowTest#restartAfterCompletedPhysicsReusesNativeRunAndPassingIndependentAudit",
+          "passed": true,
+          "diagnostics": []
+        },
+        {
+          "case": "fraymus.workspace.WorkflowTest#geometryAndEveryCellAreVerifiedAgainstFrozenCoordinatesNotPassedFlags",
+          "passed": true,
+          "diagnostics": []
+        },
+        {
+          "case": "fraymus.workspace.WorkflowTest#stableChildIntentReconcilesAndStopFindsAnUncheckpointedChildPointer",
+          "passed": true,
+          "diagnostics": []
+        },
+        {
+          "case": "fraymus.workspace.WorkflowTest#originalNativeStagesAndIndependentFailureDriveBoundedRepairThenWorkflowSkill",
+          "passed": true,
+          "diagnostics": []
+        },
+        {
+          "case": "fraymus.workspace.WorkflowTest#sourceAndHandlerContractsRejectInvalidRequestsBeforeAnyGoal",
+          "passed": true,
+          "diagnostics": []
+        },
+        {
+          "case": "fraymus.workspace.WorkflowTest#bundleEditsArePreservedAndNeverSilentlyRebound",
+          "passed": true,
+          "diagnostics": []
+        },
+        {
+          "case": "fraymus.workspace.WorkflowTest#detachedControlCancellationAndForeignAuditCannotPromote",
+          "passed": true,
+          "diagnostics": []
+        },
+        {
+          "case": "fraymus.workspace.WorldLedgerTest#heldNativeMotionSurvivesColdContinuationWithoutLosingWorldOwnership",
+          "passed": true,
+          "diagnostics": []
+        },
+        {
+          "case": "fraymus.workspace.WorldLedgerTest#developmentSequencesPreserveNativeBodiesAndOnlyCommitVerifiedOutcomes",
+          "passed": true,
+          "diagnostics": []
+        },
+        {
+          "case": "fraymus.workspace.WorldLedgerTest#processIndependentCasCorruptionAndExplicitRestoreAreReal",
+          "passed": true,
+          "diagnostics": []
+        }
+      ]
+    },
+    {
+      "source": "7ccef97",
+      "suites": [
+        {
+          "module": "workspace-engine/build/test-results/test",
+          "name": "fraymus.workspace.ChatChain052Test",
+          "tests": "11",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "module": "workspace-engine/build/test-results/test",
+          "name": "fraymus.workspace.DesignPolicy053Test",
+          "tests": "3",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        }
+      ],
+      "cases": [
+        {
+          "case": "fraymus.workspace.ChatChain052Test#duplicateWarningsKeepEveryOriginalOccurrenceBeyondRecentWindow",
+          "passed": true,
+          "diagnostics": []
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#numericRefusalExplainsOriginalBoundsWithoutChangingThem",
+          "passed": true,
+          "diagnostics": []
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#oversizedRequirementsRefuseRatherThanBeingSilentlyTruncated",
+          "passed": true,
+          "diagnostics": []
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#legacyTaskDoesNotClaimCompleteTimingCoverage",
+          "passed": true,
+          "diagnostics": []
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#summaryRetainsRejectedQualityAndDoesNotDumpMetrics",
+          "passed": true,
+          "diagnostics": []
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#discoverySummaryKeepsExactBindingsAndBothEndsWithoutBreakingJson",
+          "passed": true,
+          "diagnostics": []
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#largeRecentObservationHasExplicitOmissionHashAndKeepsFailure",
+          "passed": true,
+          "diagnostics": []
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#queuedObjectiveSealRefusesChangedRequest",
+          "passed": true,
+          "diagnostics": []
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#providerMapMetadataIsRetainedWithoutUnrelatedFields",
+          "passed": true,
+          "diagnostics": []
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#automaticCompletionRechecksCurrentArtifactInsteadOfTrustingOldSuccess",
+          "passed": true,
+          "diagnostics": []
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#failedPlannerCallIsTimedAndDoesNotBecomeAnAction",
+          "passed": true,
+          "diagnostics": []
+        },
+        {
+          "case": "fraymus.workspace.DesignPolicy053Test#javaPinsCompareReviewAndForceCeilingBeforeAnyAction",
+          "passed": true,
+          "diagnostics": []
+        },
+        {
+          "case": "fraymus.workspace.DesignPolicy053Test#taskProjectionRetainsDesignPolicyAndOriginalComparisonWithoutFullTraces",
+          "passed": true,
+          "diagnostics": []
+        },
+        {
+          "case": "fraymus.workspace.DesignPolicy053Test#retainedDesignRespectsExplicitReviewAndFreshSelectedWorld",
+          "passed": true,
+          "diagnostics": []
+        }
+      ]
+    }
+  ],
+  "javaScope": "Distinct cases across four source-qualified targeted invocations; no full-suite053 claim. Three initial new test-fixture geometry failures corrected before the actual native7-case run. Final projection tests cover the only Java change after the24-case runner regression. Original logs and XML preserved.",
+  "desktopUnitTests": 123,
+  "integration": [
+    "Three actual native candidates retain a failed low-force trial; decision is ready while the source world remains exactly unowned and unchanged; original exported effort independently reconstructed",
+    "Cold Java restart retains the exact review decision; explicit Resume executes the selected plan, passes original native/support/chart checks, commits one revision and retains the design procedure",
+    "Actual local-model chat requests a new design comparison, preserves the requested centre and force ceiling, verifies all trials and selected execution, and commits revision2",
+    "Actual model reuses exact saved design-bridge v1 after restart; fresh independent trials use the changed current world frame and commit revision3 instead of copying a previous winner",
+    "Insufficient6N ceiling fails actual trials, retains reasons and complete original traces, and cannot reserve, move, commit or save the live world",
+    "Visible Stop cancels an active design forecast without changing the continuing world;1100-pixel app has no page overflow"
+  ],
+  "timing": {
+    "liveStart": {
+      "wallSeconds": 156.127366,
+      "timing052": {
+        "modelMillis": 69304.9742,
+        "scope": "Measured Java planner-request wall time, including local admission and inference. Not simulated time or an estimate of time saved.",
+        "completeSinceAdmission": true,
+        "modelCalls": 1,
+        "failedModelCalls": 0,
+        "terminalChecksWithoutModel": 1
+      },
+      "goal": "Compare assembly designs and build the bridge with the winning verified strategy in the selected construction world at centerX 0.35, centerZ -0.25. Verify support contacts and preserve the construction in this world. Maximum forceLimitN 40. Save skill as chat-design-bridge.",
+      "source": "5d201a6071d934508dbdb5d9531557695a203694"
+    },
+    "liveReuse": {
+      "wallSeconds": 179.128538,
+      "timing052": {
+        "modelMillis": 96064.9599,
+        "scope": "Measured Java planner-request wall time, including local admission and inference. Not simulated time or an estimate of time saved.",
+        "completeSinceAdmission": true,
+        "modelCalls": 1,
+        "failedModelCalls": 0,
+        "terminalChecksWithoutModel": 1
+      },
+      "goal": "Reuse the procedure design-bridge version 1 to rebuild the bridge in the selected construction world at centerX -0.25, centerZ 0.2. Verify support contacts and preserve the construction in this world.",
+      "source": "5d201a6071d934508dbdb5d9531557695a203694"
+    }
+  },
+  "initialCandidateResults": [
+    {
+      "id": "quarter-force",
+      "forceN": 10,
+      "status": "failed",
+      "ticks": 481,
+      "effortNs": 19.99999848604247,
+      "supportPassed": false
+    },
+    {
+      "id": "balanced-force",
+      "forceN": 26,
+      "status": "completed",
+      "ticks": 7587,
+      "effortNs": 298.8796929234222,
+      "supportPassed": true
+    },
+    {
+      "id": "maximum-force",
+      "forceN": 40,
+      "status": "completed",
+      "ticks": 7587,
+      "effortNs": 298.8796929234222,
+      "supportPassed": true
+    }
+  ],
+  "selectionQualification": "Balanced26N and maximum40N have equal measured effort and ticks in the initial case; declaration order selects26N. No energy or motion-performance improvement demonstrated.",
+  "originalAlgorithmsUnchangedFrom052": [
+    "WorldPhysics.java",
+    "WorldFrames.java",
+    "WorldPlan.java",
+    "WorldVerify.java",
+    "WorldLedger.java",
+    "WorldNativeStore.java",
+    "WorldNativeCheckpoint.java",
+    "WorldExport.java",
+    "Construction051.java"
+  ],
+  "developmentFailures": [
+    {
+      "record": "design053-failed-1793741233487.json",
+      "source": "ac9f3f0707b49079af64cb0ae8435be14f4e1f54",
+      "error": "AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:\n\n  assert(g.design053)\n\n    at checked (C:\\Users\\eyeka\\Documents\\Codex\\2026-10-26\\is\\work\\fraynix-workspace-edition053\\workspace-desktop\\test\\design053-integration.cjs:22:66)\n    at main (C:\\Users\\eyeka\\Documents\\Codex\\2026-10-26\\is\\work\\fraynix-workspace-edition053\\workspace-desktop\\test\\design053-integration.cjs:34:105)",
+      "project": "C:\\Users\\eyeka\\AppData\\Local\\Temp\\fraynix-design053-wn70X2"
+    },
+    {
+      "record": "design053-failed-1793741374762.json",
+      "source": "7ccef97d88280bfa1700a135586b7d184a221b1c",
+      "error": "electronApplication.evaluate: Error: Unknown operation\n    at Object.api (C:\\Users\\eyeka\\Documents\\Codex\\2026-10-26\\is\\work\\fraynix-workspace-edition053\\workspace-desktop\\main.cjs:58:58)\n    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at async <anonymous>:396:30\n    at api (C:\\Users\\eyeka\\Documents\\Codex\\2026-10-26\\is\\work\\fraynix-workspace-edition053\\workspace-desktop\\test\\design053-integration.cjs:15:33)\n    at main (C:\\Users\\eyeka\\Documents\\Codex\\2026-10-26\\is\\work\\fraynix-workspace-edition053\\workspace-desktop\\test\\design053-integration.cjs:34:193)",
+      "project": "C:\\Users\\eyeka\\AppData\\Local\\Temp\\fraynix-design053-ERtjCt"
+    },
+    {
+      "record": "design053-failed-1793741550960.json",
+      "source": "6b51ecd0b436185687edc356b654c7ee97603a97",
+      "error": "locator.scrollIntoViewIfNeeded: Timeout 29992.682ms exceeded.\nCall log:\n\u001b[2m  - attempting scroll into view action\u001b[22m\n\u001b[2m    2 × waiting for element to be stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying scroll into view action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying scroll into view action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    55 × waiting for element to be stable\u001b[22m\n\u001b[2m       - element is not visible\u001b[22m\n\u001b[2m     - retrying scroll into view action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n\u001b[2m    - waiting for element to be stable\u001b[22m\n\n    at main (C:\\Users\\eyeka\\Documents\\Codex\\2026-10-26\\is\\work\\fraynix-workspace-edition053\\workspace-desktop\\test\\design053-integration.cjs:35:37)",
+      "project": "C:\\Users\\eyeka\\AppData\\Local\\Temp\\fraynix-design053-q86vS4"
+    }
+  ],
+  "scope": "Known three-part bridge acceptance cases, native simulation, local gpt-oss:20b CPU/four threads. No arbitrary geometric design, real material strength, held-out learning or model-weight training claim.",
+  "finalUiReviewSource": "696191d48e8096735249872aaae4c1dbb884a0ea",
+  "finalUiReview": [
+    "Cold restart retains revision3 and all three exact report versions with15 original passing assertions each",
+    "Visible export button downloads the cancelled study and original attempted traces; compressed byte counts/hashes independently verified",
+    "Export changes no world state; no renderer errors or new model requests"
+  ],
+  "finalDesktopUnitSource": "696191d48e8096735249872aaae4c1dbb884a0ea",
+  "javaFinalProjectionSource": "7ccef97",
+  "uiScope": "Complete actual model/native workflow on5d201a6. Final UI-only cancelled-export enablement separately checked after cold restart on696191d48e8096735249872aaae4c1dbb884a0ea. Its first harness attempt queried revision on the history object; corrected to the original observed expectedRevision field. Original failure log retained."
+}

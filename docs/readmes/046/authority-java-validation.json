@@ -1,0 +1,60 @@
+{
+  "passed": true,
+  "source": "6b803299f1f0e2657b68b7918dbc6a6f223adb9d",
+  "checks": 26,
+  "classes": 2,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "cases": [
+    "fraymus.workspace.Agency043Test#actualStoredReceiptAndFrozenCounterStepsAreRequiredBeforeClaimIsConsumed",
+    "fraymus.workspace.Agency043Test#claimedHostInterruptionRejectsOldNonceAndExplicitResumeStartsFreshObservation",
+    "fraymus.workspace.Agency043Test#commitFailureAfterConsumingHostClaimInterruptsInsteadOfWaitingForever",
+    "fraymus.workspace.Agency043Test#explicitScreenQuestionUsesNativeInspectionAndCounterCreationUsesOnlyTheCreationStage",
+    "fraymus.workspace.Agency043Test#inspectionReportRequiresActualStoredMatchingReportAssertions",
+    "fraymus.workspace.Agency043Test#missingActionAuthorityRefusesClearlyWhilePureDefinitionReadsRemainPassive",
+    "fraymus.workspace.Agency043Test#prematureModelFinishCannotCreateAnArtifactOrVisualRoutine",
+    "fraymus.workspace.Agency043Test#queuedAndClaimedTasksRestoreAsInterruptedWithoutSilentReplay",
+    "fraymus.workspace.Agency043Test#registeredSchemasRejectInventedFieldsAndAssertionFreeTests",
+    "fraymus.workspace.Agency043Test#rejectedNativeModelSyntaxRetriesWithinBudgetWithoutExecutingRejectedArguments",
+    "fraymus.workspace.Agency043Test#unverifiedConversationIsNotPresentedAsVerifiedOutcomeToTheContinuingBrain",
+    "fraymus.workspace.Domain044Test#actualQueueCompletionRecordsTheVerifiedReportInTheSameLearningEpisode",
+    "fraymus.workspace.Domain044Test#creationPromptsAreOwnedBoundedAndKeepSourceReserved",
+    "fraymus.workspace.Domain044Test#interruptedChildCannotProduceSuccessfulCompletion",
+    "fraymus.workspace.Domain044Test#inventedHostFactsDoNotReplaceActualJavaRead",
+    "fraymus.workspace.Domain044Test#javaRoutesEveryFormerDesktopFamilyWithoutChangingWebCreation",
+    "fraymus.workspace.Domain044Test#nativeWaitUsesActualChildAndRetainsItsIdentity",
+    "fraymus.workspace.Domain044Test#reportMustHaveFrozenOriginalAssertionsAndExactSourceVersion",
+    "fraymus.workspace.Domain044Test#reportStageCannotSkipActualReads",
+    "fraymus.workspace.Domain044Test#retainedAppearancePolicyCannotChangeCategoryOrInstallDetectorOptions",
+    "fraymus.workspace.Domain044Test#retainedSkillSchemasKeepDefaultsOptionalAndHideBoundDetectorPolicy",
+    "fraymus.workspace.Domain044Test#retainedSkillSourceAndForceDefaultsCannotBeSilentlyChanged",
+    "fraymus.workspace.Domain044Test#savedGraphChatSelectsExactVersionAndWorkflowBeforePlanning",
+    "fraymus.workspace.Domain044Test#sourceFreeHostSuccessAndForeignChildrenAreRejected",
+    "fraymus.workspace.Domain044Test#typedOptionsPreserveExplicitValuesAndRejectContradictions",
+    "fraymus.workspace.Domain044Test#workflowBootstrapBindsDatasetAndSceneInJavaBeforeAnyHostAction"
+  ],
+  "suites": [
+    {
+      "module": "workspace-engine",
+      "name": "fraymus.workspace.Agency043Test",
+      "tests": 11,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "timeS": 5.499,
+      "sha256": "937965ad15202626b3c80c68d9263edc0388eef3c501f0a17466cf5e286d7a7c"
+    },
+    {
+      "module": "workspace-engine",
+      "name": "fraymus.workspace.Domain044Test",
+      "tests": 15,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "timeS": 0.319,
+      "sha256": "0163fb30bf312ce3753d11976839a8fc0cd56319d212482b5bf51fccfed9d758"
+    }
+  ],
+  "scope": "One actual serial Gradle invocation, with original XML copied before later focused checks overwrite the live test-output directory."
+}

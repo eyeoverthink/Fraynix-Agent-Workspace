@@ -1,0 +1,136 @@
+{
+  "nodes": [
+    {
+      "id": "edition",
+      "type": "file",
+      "file": "README-041.md",
+      "x": 0,
+      "y": 0,
+      "width": 430,
+      "height": 240
+    },
+    {
+      "id": "operation",
+      "type": "file",
+      "file": "docs/MEASURED_ALIGNMENT.md",
+      "x": 500,
+      "y": 0,
+      "width": 430,
+      "height": 240
+    },
+    {
+      "id": "registration",
+      "type": "text",
+      "text": "Measured frame alignment\nPlanar similarity, separate withheld grid and tape checks, explicit native basis.\nverified",
+      "x": 0,
+      "y": 320,
+      "width": 420,
+      "height": 230
+    },
+    {
+      "id": "appearance",
+      "type": "text",
+      "text": "Fixed appearance and negatives\nHuman-seeded colour/edge features and background margins; no semantic identity.\nverified",
+      "x": 470,
+      "y": 320,
+      "width": 420,
+      "height": 230
+    },
+    {
+      "id": "store",
+      "type": "text",
+      "text": "Originals and source fences\nPrivate originals, exact replay, generations, manual phase boundaries and native ownership checks.\nverified",
+      "x": 940,
+      "y": 320,
+      "width": 420,
+      "height": 230
+    },
+    {
+      "id": "windows",
+      "type": "text",
+      "text": "Independent physical evaluation\nFixed first windows and immutable first outcome; visibility must match originals.\nverified",
+      "x": 1410,
+      "y": 320,
+      "width": 420,
+      "height": 230
+    },
+    {
+      "id": "view",
+      "type": "text",
+      "text": "Integrated measured view\nCamera/reference setup, user-paced phases and four derived native diagnostics.\nverified",
+      "x": 0,
+      "y": 610,
+      "width": 420,
+      "height": 230
+    },
+    {
+      "id": "chat",
+      "type": "text",
+      "text": "Chat knows its current source\nTyped pinned numeric read/report, bounded model context, user-owned capture.\nverified",
+      "x": 470,
+      "y": 610,
+      "width": 420,
+      "height": 230
+    },
+    {
+      "id": "export",
+      "type": "text",
+      "text": "Reports and independent export\nReal checked report, CSV, compressed snapshot and standalone verifier.\nverified",
+      "x": 940,
+      "y": 610,
+      "width": 420,
+      "height": 230
+    },
+    {
+      "id": "next",
+      "type": "text",
+      "text": "Throughput and held-out cases\nProfile replay/guards/views, preserve exact results, then evaluate new motion and occlusion cases.\nplanned",
+      "x": 1410,
+      "y": 610,
+      "width": 420,
+      "height": 230
+    }
+  ],
+  "edges": [
+    {
+      "id": "operation-link",
+      "fromNode": "edition",
+      "toNode": "operation"
+    },
+    {
+      "id": "edge-0",
+      "fromNode": "registration",
+      "toNode": "store"
+    },
+    {
+      "id": "edge-1",
+      "fromNode": "appearance",
+      "toNode": "store"
+    },
+    {
+      "id": "edge-2",
+      "fromNode": "store",
+      "toNode": "windows"
+    },
+    {
+      "id": "edge-3",
+      "fromNode": "store",
+      "toNode": "view"
+    },
+    {
+      "id": "edge-4",
+      "fromNode": "store",
+      "toNode": "chat"
+    },
+    {
+      "id": "edge-5",
+      "fromNode": "chat",
+      "toNode": "export"
+    },
+    {
+      "id": "edge-6",
+      "fromNode": "windows",
+      "toNode": "next"
+    }
+  ]
+}

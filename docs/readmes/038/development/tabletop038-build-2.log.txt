@@ -1,0 +1,49 @@
+> Task :brain-core:compileJava UP-TO-DATE
+> Task :brain-gpu:compileJava UP-TO-DATE
+> Task :factory-runtime:compileJava UP-TO-DATE
+> Task :factory-kernel:compileJava UP-TO-DATE
+> Task :factory-models:compileJava UP-TO-DATE
+> Task :geometry-core:compileJava UP-TO-DATE
+
+> Task :workspace-engine:compileJava FAILED
+C:\Users\eyeka\Documents\Codex\2026-10-26\is\work\fraynix-agent-workspace\workspace-engine\src\main\java\fraymus\workspace\TabletopStore.java:62: error: reference to put is ambiguous
+    JSONObject export(String id)throws Exception{var r=read(id);var images=new JSONArray();for(int i=0;i<=r.getInt("completedFrames");i++)images.put(image(id,i));return new JSONObject().put("schema",VERSION).put("run",r).put("understanding",understanding(id)).put("images",images).put("analyses",access(false,state->{var a=new JSONArray();for(Object raw:state.getJSONArray("analyses")){var v=(JSONObject)raw;if(v.getString("runId").equals(id))a.put(v);}return a;})).put("checkImage",Base64.getEncoder().encodeToString(Files.readAllBytes(root.resolve("frames").resolve(r.getJSONObject("check").getString("id")).resolve("0.image")))).put("scope","Private original camera samples. Explicit local export only; do not publish personal images.");}
+                                                                                                                                                                                                                                                                                        ^
+  both method put(String,Collection<?>) in JSONObject and method put(String,Map<?,?>) in JSONObject match
+C:\Users\eyeka\Documents\Codex\2026-10-26\is\work\fraynix-agent-workspace\workspace-engine\src\main\java\fraymus\workspace\TabletopStore.java:62: error: incompatible types: inference variable T has incompatible bounds
+    JSONObject export(String id)throws Exception{var r=read(id);var images=new JSONArray();for(int i=0;i<=r.getInt("completedFrames");i++)images.put(image(id,i));return new JSONObject().put("schema",VERSION).put("run",r).put("understanding",understanding(id)).put("images",images).put("analyses",access(false,state->{var a=new JSONArray();for(Object raw:state.getJSONArray("analyses")){var v=(JSONObject)raw;if(v.getString("runId").equals(id))a.put(v);}return a;})).put("checkImage",Base64.getEncoder().encodeToString(Files.readAllBytes(root.resolve("frames").resolve(r.getJSONObject("check").getString("id")).resolve("0.image")))).put("scope","Private original camera samples. Explicit local export only; do not publish personal images.");}
+                                                                                                                                                                                                                                                                                                              ^
+    upper bounds: Collection<?>,Object
+    lower bounds: JSONArray
+  where T is a type-variable:
+    T extends Object declared in method <T>access(boolean,Tx<T>)
+Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
+2 errors
+
+[Incubating] Problems report is available at: file:///C:/Users/eyeka/Documents/Codex/2026-10-26/is/work/fraynix-agent-workspace/build/reports/problems/problems-report.html
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':workspace-engine:compileJava'.
+> Compilation failed; see the compiler output below.
+  C:\Users\eyeka\Documents\Codex\2026-10-26\is\work\fraynix-agent-workspace\workspace-engine\src\main\java\fraymus\workspace\TabletopStore.java:62: error: reference to put is ambiguous
+      JSONObject export(String id)throws Exception{var r=read(id);var images=new JSONArray();for(int i=0;i<=r.getInt("completedFrames");i++)images.put(image(id,i));return new JSONObject().put("schema",VERSION).put("run",r).put("understanding",understanding(id)).put("images",images).put("analyses",access(false,state->{var a=new JSONArray();for(Object raw:state.getJSONArray("analyses")){var v=(JSONObject)raw;if(v.getString("runId").equals(id))a.put(v);}return a;})).put("checkImage",Base64.getEncoder().encodeToString(Files.readAllBytes(root.resolve("frames").resolve(r.getJSONObject("check").getString("id")).resolve("0.image")))).put("scope","Private original camera samples. Explicit local export only; do not publish personal images.");}
+                                                                                                                                                                                                                                                                                          ^
+    both method put(String,Collection<?>) in JSONObject and method put(String,Map<?,?>) in JSONObject match
+  C:\Users\eyeka\Documents\Codex\2026-10-26\is\work\fraynix-agent-workspace\workspace-engine\src\main\java\fraymus\workspace\TabletopStore.java:62: error: incompatible types: inference variable T has incompatible bounds
+      JSONObject export(String id)throws Exception{var r=read(id);var images=new JSONArray();for(int i=0;i<=r.getInt("completedFrames");i++)images.put(image(id,i));return new JSONObject().put("schema",VERSION).put("run",r).put("understanding",understanding(id)).put("images",images).put("analyses",access(false,state->{var a=new JSONArray();for(Object raw:state.getJSONArray("analyses")){var v=(JSONObject)raw;if(v.getString("runId").equals(id))a.put(v);}return a;})).put("checkImage",Base64.getEncoder().encodeToString(Files.readAllBytes(root.resolve("frames").resolve(r.getJSONObject("check").getString("id")).resolve("0.image")))).put("scope","Private original camera samples. Explicit local export only; do not publish personal images.");}
+                                                                                                                                                                                                                                                                                                                ^
+      upper bounds: Collection<?>,Object
+      lower bounds: JSONArray
+    where T is a type-variable:
+      T extends Object declared in method <T>access(boolean,Tx<T>)
+  Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
+  2 errors
+
+* Try:
+> Check your code and dependencies to fix the compilation error(s)
+> Run with --scan to get full insights from a Build Scan (powered by Develocity).
+
+BUILD FAILED in 1s
+7 actionable tasks: 1 executed, 6 up-to-date

@@ -1,0 +1,101 @@
+{
+  "edition": 46,
+  "modules": [
+    {
+      "id": "owner",
+      "name": "One continuing Java owner",
+      "summary": "Existing WorkflowRunner keeps the graph cursor, child ownership, finite clocks and explicit recovery.",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/WorkflowRunner.java",
+      "status": "implemented",
+      "note": "docs/obsidian/54-typed-skill-graphs.md"
+    },
+    {
+      "id": "graphs",
+      "name": "Typed verified procedures",
+      "summary": "Exact retained skill references and source/output contracts connect two to four actual world tasks.",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/SkillGraph046.java",
+      "status": "implemented",
+      "note": "docs/obsidian/54-typed-skill-graphs.md"
+    },
+    {
+      "id": "report",
+      "name": "Checked outcome comparison",
+      "summary": "Reconstruct original metrics, verify actual table/SVG observations and store the real canvas receipt.",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/GraphReport046.java",
+      "status": "implemented",
+      "note": "docs/obsidian/54-typed-skill-graphs.md"
+    },
+    {
+      "id": "chat",
+      "name": "Chat reuses the exact graph",
+      "summary": "Java binds the freshly confirmed world and schedules the retained graph without regenerating every action.",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/Procedure044.java",
+      "status": "implemented",
+      "note": "docs/obsidian/54-typed-skill-graphs.md"
+    },
+    {
+      "id": "physics",
+      "name": "Original physical processing",
+      "summary": "Original native solver controller, all-body state, wrench constraints and outcome checks remain.",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/WorldPhysics.java",
+      "status": "preserved",
+      "note": "docs/obsidian/54-typed-skill-graphs.md"
+    },
+    {
+      "id": "brain",
+      "name": "Existing continuing nervous core",
+      "summary": "Retained identity, clocks, witness and shared owned neural core remain available with their original scope.",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/AgentRuntime042.java",
+      "status": "preserved",
+      "note": "docs/obsidian/54-typed-skill-graphs.md"
+    },
+    {
+      "id": "cortex",
+      "name": "Stacked learning processors",
+      "summary": "Next: outcome-bound decision records and measured complementary small local nodes, sparse cortex and isolated contexts.",
+      "source": "docs/STACKED_CORTEX_046.md",
+      "status": "planned",
+      "note": "docs/obsidian/54-typed-skill-graphs.md"
+    },
+    {
+      "id": "promotion",
+      "name": "Measured learning and rollback",
+      "summary": "Next: separate-task evaluation of connection/search/model updates before reversible promotion.",
+      "source": "docs/STACKED_CORTEX_046.md",
+      "status": "planned",
+      "note": "docs/obsidian/54-typed-skill-graphs.md"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/readmes/046/verification.json"
+    },
+    {
+      "path": "docs/readmes/046/source-match.json"
+    },
+    {
+      "path": "docs/readmes/046/paired-results.json"
+    },
+    {
+      "path": "docs/readmes/046/graph-outcomes.json"
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "docs/readmes/046/graph046-composer.png",
+      "caption": "Actual connected-skill composer, exact references and typed links. Labelled native test geometry, November2,2026."
+    },
+    {
+      "path": "docs/readmes/046/graph046-live-mission.png",
+      "caption": "Actual Mission follows the saved graph and committed sources. Labelled native test geometry, November2,2026."
+    },
+    {
+      "path": "docs/readmes/046/graph046-checked-comparison.png",
+      "caption": "Actual table/chart comparison checked against original outcomes. Labelled native test geometry, November2,2026."
+    },
+    {
+      "path": "docs/readmes/046/graph046-four-stage-recovery.png",
+      "caption": "Actual four-procedure result after modified-point refusal and explicit recovery. Labelled native test geometry, November2,2026."
+    }
+  ]
+}

@@ -1,0 +1,97 @@
+{
+  "edition": 38,
+  "modules": [
+    {
+      "id": "camera",
+      "name": "Explicit private camera",
+      "summary": "One frame in flight, host acquisition seconds, manual annotations and Stop.",
+      "source": "workspace-desktop/renderer/tabletop-panel.js",
+      "note": "docs/TABLETOP_OBSERVER.md",
+      "status": "verified"
+    },
+    {
+      "id": "geometry",
+      "name": "Measured mat and independent tape",
+      "summary": "Four known corners; separate tape check with fixed5mm gate.",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/PlaneCalibration.java",
+      "note": "docs/TABLETOP_OBSERVER.md",
+      "status": "verified"
+    },
+    {
+      "id": "appearance",
+      "name": "Original appearance anchor",
+      "summary": "Pure Java correlation, ambiguity margin and bounded searches; human label.",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/RigidTargetTracker.java",
+      "note": "docs/TABLETOP_OBSERVER.md",
+      "status": "verified"
+    },
+    {
+      "id": "reference",
+      "name": "Mat reference guard",
+      "summary": "Changed or covered anchors withhold metric updates; no silent rebase.",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/MatReferenceGuard.java",
+      "note": "docs/TABLETOP_OBSERVER.md",
+      "status": "verified"
+    },
+    {
+      "id": "journal",
+      "name": "Durable observations",
+      "summary": "Original sources, exact replay, pending-source preservation and world/body links.",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/TabletopStore.java",
+      "note": "docs/TABLETOP_OBSERVER.md",
+      "status": "verified"
+    },
+    {
+      "id": "chat",
+      "name": "Grounded questions and reports",
+      "summary": "Local model selects typed evidence tools; Java supplies timestamped answers.",
+      "source": "workspace-desktop/tabletop.cjs",
+      "note": "docs/TABLETOP_OBSERVER.md",
+      "status": "verified"
+    },
+    {
+      "id": "evaluation",
+      "name": "First-result analyses",
+      "summary": "Static/movement/occlusion checks; separate reference calibration/evaluation. Controls are distinct from physical performance.",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/TabletopAnalysis.java",
+      "note": "docs/TABLETOP_OBSERVER.md",
+      "status": "verified"
+    },
+    {
+      "id": "next",
+      "name": "New physical task evidence",
+      "summary": "New accurately performed movement/cover sequences and independent position references before physical authority.",
+      "source": "docs/TABLETOP_OBSERVER.md",
+      "note": "docs/TABLETOP_OBSERVER.md",
+      "status": "planned"
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "docs/readmes/038/images/tabletop-camera-hidden-038.png",
+      "caption": "Actual analytic software-camera UI; imposed geometry, not physical lighter footage ·2026-11-01"
+    },
+    {
+      "path": "docs/readmes/038/images/tabletop-numeric-report-038.png",
+      "caption": "Actual numeric report; no original camera pixels ·2026-11-01"
+    },
+    {
+      "path": "docs/readmes/038/images/tabletop-physical-failure-038.png",
+      "caption": "Actual first physical slide report: unmeasured endpoint refused, original failure retained ·2026-11-01"
+    },
+    {
+      "path": "docs/readmes/038/images/tabletop-chat-038.png",
+      "caption": "Actual local-model grounded question/report workflow on labelled analytic footage ·2026-11-01"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/readmes/038/tabletop-data.json",
+      "label": "Original numeric derivatives"
+    },
+    {
+      "path": "docs/TABLETOP_038_CANDIDATE_LOCK.json",
+      "label": "Pre-guided candidate lock"
+    }
+  ]
+}

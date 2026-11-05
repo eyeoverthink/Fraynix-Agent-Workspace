@@ -1,0 +1,33 @@
+{
+  "source": "a8e18880856fc58ba7137d9ffb4db0201e3e5c5b",
+  "project": "C:\\Users\\eyeka\\AppData\\Local\\Temp\\fraynix-startup055-h7F9nW",
+  "checks": [
+    "Actual infinite-script artifact hits the bounded renderer stop during cold startup; workspace and Java API stay available, and the original file/version are preserved",
+    "The same app opens and reads a new real canvas after the failed renderer; no restart, model request or native world mutation needed"
+  ],
+  "fault": {
+    "sources": [],
+    "contents": {
+      "index.html": "<!doctype html><html><body><h1>Deliberately unresponsive test artifact</h1><script>while(true){}</script></body></html>"
+    },
+    "created": "2026-11-04T00:12:23.375768200Z",
+    "files": [
+      "index.html"
+    ],
+    "id": "89806e96-ea65-49b8-9ebc-67dc8cc48ac4",
+    "title": "LABELLED renderer timeout fixture",
+    "version": 1
+  },
+  "recoveryWallMs": 16427,
+  "events": [
+    {
+      "at": "2026-11-04T00:12:39.841Z",
+      "kind": "error",
+      "text": "Saved artifact could not open; the workspace remains available. Select another artifact or revise its source.",
+      "data": {
+        "reason": "canvas navigation timed out; its renderer was stopped. Revise the artifact or navigate again."
+      }
+    }
+  ],
+  "passed": true
+}

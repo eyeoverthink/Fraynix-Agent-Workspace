@@ -1,0 +1,73 @@
+{
+  "edition": 48,
+  "modules": [
+    {
+      "id": "teach",
+      "name": "Verified skill teaching",
+      "summary": "Recheck the original procedure, implementation and passing report before storing a phrase.",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/SkillMemory048.java",
+      "status": "Implemented",
+      "note": "docs/obsidian/56-java-skill-memory.md"
+    },
+    {
+      "id": "votes",
+      "name": "Packed HDC and checkpoints",
+      "summary": "Keep all signed votes, verify the saved state, and compare immutable binary prototypes.",
+      "source": "fraynix-modules/brain-core/src/main/java/fraymus/neural/HdcSkillMemory.java",
+      "status": "Implemented",
+      "note": "docs/obsidian/56-java-skill-memory.md"
+    },
+    {
+      "id": "advisory",
+      "name": "Read-only recall",
+      "summary": "Display exact, keyword and HDC suggestions separately. The existing procedure scheduler retains authority.",
+      "source": "workspace-desktop/renderer/brain-game.js",
+      "status": "Implemented",
+      "note": "docs/obsidian/56-java-skill-memory.md"
+    },
+    {
+      "id": "test",
+      "name": "Frozen comparison",
+      "summary": "HDC finds 13 of 18 supported phrases and makes one wrong selection. The candidate stays advisory.",
+      "source": "docs/readmes/048/benchmark.json",
+      "status": "Verified",
+      "note": "docs/obsidian/56-java-skill-memory.md"
+    },
+    {
+      "id": "action",
+      "name": "Action-aware retrieval",
+      "summary": "Test a separate action check against fresh misleading or ambiguous requests.",
+      "source": "docs/EDITION_048_CONTRACT.md",
+      "status": "Planned",
+      "note": "docs/obsidian/56-java-skill-memory.md"
+    },
+    {
+      "id": "sensor",
+      "name": "Arduino evidence bench",
+      "summary": "Record an ESP32 camera and an independent sensor for the existing tabletop task.",
+      "source": "docs/EDITION_047_PLAN.md",
+      "status": "Planned",
+      "note": "docs/obsidian/56-java-skill-memory.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "docs/readmes/048/skill-memory-048-compare.png",
+      "title": "Actual suggestions for a misspelled request on a verified practice skill"
+    },
+    {
+      "path": "docs/readmes/048/skill-memory-048-restored.png",
+      "title": "The learned example count and checkpoint identity after a cold Java restart"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/readmes/048/verification.json",
+      "title": "Cold restart and evidence checks"
+    },
+    {
+      "path": "docs/readmes/048/benchmark.json",
+      "title": "Frozen per-case comparison"
+    }
+  ]
+}

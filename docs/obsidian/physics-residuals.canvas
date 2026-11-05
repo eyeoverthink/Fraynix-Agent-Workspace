@@ -1,0 +1,95 @@
+{
+  "nodes": [
+    {
+      "id": "physics",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/ResidualOutcome062.java",
+      "x": 0,
+      "y": 0,
+      "width": 390,
+      "height": 200
+    },
+    {
+      "id": "cortex",
+      "type": "file",
+      "file": "fraynix-modules/brain-core/src/main/java/fraymus/neural/FraynixCortex061.java",
+      "x": 420,
+      "y": 0,
+      "width": 390,
+      "height": 200
+    },
+    {
+      "id": "owner",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/BrainService.java",
+      "x": 840,
+      "y": 0,
+      "width": 390,
+      "height": 200
+    },
+    {
+      "id": "chat",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/AgentRuntime042.java",
+      "x": 0,
+      "y": 250,
+      "width": 390,
+      "height": 200
+    },
+    {
+      "id": "view",
+      "type": "file",
+      "file": "workspace-desktop/renderer/residual062.js",
+      "x": 420,
+      "y": 250,
+      "width": 390,
+      "height": 200
+    },
+    {
+      "id": "next",
+      "type": "file",
+      "file": "docs/EDITION_062_CONTRACT.md",
+      "x": 840,
+      "y": 250,
+      "width": 390,
+      "height": 200
+    }
+  ],
+  "edges": [
+    {
+      "id": "e0",
+      "fromNode": "physics",
+      "fromSide": "right",
+      "toNode": "cortex",
+      "toSide": "left"
+    },
+    {
+      "id": "e1",
+      "fromNode": "cortex",
+      "fromSide": "right",
+      "toNode": "owner",
+      "toSide": "left"
+    },
+    {
+      "id": "e2",
+      "fromNode": "owner",
+      "fromSide": "right",
+      "toNode": "chat",
+      "toSide": "left"
+    },
+    {
+      "id": "e3",
+      "fromNode": "chat",
+      "fromSide": "right",
+      "toNode": "view",
+      "toSide": "left"
+    },
+    {
+      "id": "e4",
+      "fromNode": "view",
+      "fromSide": "right",
+      "toNode": "next",
+      "toSide": "left"
+    }
+  ]
+}

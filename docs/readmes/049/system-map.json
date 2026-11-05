@@ -1,0 +1,81 @@
+{
+  "edition": 49,
+  "modules": [
+    {
+      "id": "clocks",
+      "name": "Java clock alignment",
+      "summary": "Keep device sequences, map supplied anchors and refuse resets or extrapolation.",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/EvidenceReplay049.java",
+      "status": "Implemented",
+      "note": "docs/obsidian/57-observation-evidence.md"
+    },
+    {
+      "id": "evidence",
+      "name": "Crossing evidence",
+      "summary": "Keep measurements, predictions and beam events distinct; ambiguous matches abstain.",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/EvidenceReplay049.java",
+      "status": "Verified on synthetic recordings",
+      "note": "docs/obsidian/57-observation-evidence.md"
+    },
+    {
+      "id": "store",
+      "name": "Retained observations",
+      "summary": "Content-addressed import, exact package export and changed-evidence refusal.",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/EvidenceStore049.java",
+      "status": "Implemented",
+      "note": "docs/obsidian/57-observation-evidence.md"
+    },
+    {
+      "id": "view",
+      "name": "Replay in Java Brain",
+      "summary": "Pause, seek and replay aligned evidence without advancing a native world.",
+      "source": "workspace-desktop/renderer/evidence049.js",
+      "status": "Verified in actual app",
+      "note": "docs/obsidian/57-observation-evidence.md"
+    },
+    {
+      "id": "tests",
+      "name": "Frozen recording cases",
+      "summary": "Visible and occluded crossings, shifted timing, gaps, ambiguous matches and blocked baseline.",
+      "source": "docs/readmes/049/cases.json",
+      "status": "Verified",
+      "note": "docs/obsidian/57-observation-evidence.md"
+    },
+    {
+      "id": "hardware",
+      "name": "Arduino and ESP32 acquisition",
+      "summary": "Identify actual boards, synchronize source clocks, then run fresh mat slides and occlusion tests.",
+      "source": "docs/EDITION_049_CONTRACT.md",
+      "status": "Planned hardware work",
+      "note": "docs/obsidian/57-observation-evidence.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "docs/readmes/049/evidence049-visible.png",
+      "title": "Actual visible-crossing replay · labelled synthetic data · November 2, 2026"
+    },
+    {
+      "path": "docs/readmes/049/evidence049-occluded.png",
+      "title": "Predicted positions remain distinct during occlusion · labelled synthetic data"
+    },
+    {
+      "path": "docs/readmes/049/evidence049-narrow.png",
+      "title": "Integrated evidence view at 1100 pixels"
+    },
+    {
+      "path": "docs/readmes/049/evidence049-restored.png",
+      "title": "Retained recording restored after a fresh Java process"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/readmes/049/verification.json",
+      "title": "Application and test receipt"
+    },
+    {
+      "path": "docs/readmes/049/cases.json",
+      "title": "Frozen case outputs"
+    }
+  ]
+}

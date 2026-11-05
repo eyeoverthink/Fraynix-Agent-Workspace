@@ -1,0 +1,36 @@
+{
+  "edition": "038",
+  "date": "2026-11-01",
+  "parentCommit": "d1ddb53aaf225bb0810b15d72bc4c234f079e308",
+  "firstCandidate": "6dd7f89",
+  "reason": "First real4to8inch slide: appearance tracker accepted17frames but latched onto tape housing outside plane; geometry correctly withheld coordinates, only6metric updates. Preserve raw first result and rejected displacement analysis.",
+  "changes": "Rigid-anchor-v2 uses denser global search and eight spatially distinct refinement candidates. Appearance threshold.72 and ambiguity margin.035 unchanged. Manual-paced slide button coaches eight measured start/end samples rather than a short countdown.",
+  "seenDevelopmentReplay": {
+    "frames": 19,
+    "originalMetricAccepted": 6,
+    "revisedMetricAccepted": 17,
+    "source": "First failed physical slide reused for development, not a new test; original times/images/geometry/filter/reference parameters retained."
+  },
+  "nextPhysicalProtocol": {
+    "direction": "8to4in",
+    "knownDistanceM": 0.1016,
+    "vectorToleranceM": 0.01,
+    "endpointSamples": 8,
+    "independence": "New footage after this lock; temporal same-camera/target test, not a new camera, object or certified metrology test.",
+    "instructions": "Leave lighter uncovered. Human starts manual button, holds until eight accepted start samples, slides same metal end from8to4inch tick, holds for eight measured stable end samples and explicitly finishes. No threshold retuning after new result."
+  },
+  "sources": {
+    "workspace-engine/src/main/java/fraymus/workspace/RigidTargetTracker.java": "3a4fc403f7fe849be69d9661fdcdce0315165a13e86481286f802f63c376fc44",
+    "workspace-desktop/renderer/tabletop-panel.js": "c2bd42c681f3c5fd7cc5dad5a50616d15c60fcf88e08c59c41b39b5e94bec49a",
+    "workspace-desktop/renderer/tabletop.css": "937506032dfc14a9b8d994e38ef24e72fe1421d69940796189c0d83338bd0b3d",
+    "workspace-engine/src/test/java/fraymus/workspace/TabletopTrackerReplay.java": "c09b52468851ae42347ac540382c1ecb48917867f6f30d1846b454ceacb62dfd"
+  },
+  "unchanged": [
+    "TabletopFilter",
+    "MatReferenceGuard",
+    "TabletopAnalysis",
+    "PlaneCalibration",
+    "native world authority"
+  ],
+  "remaining": "Real-scale uncertainty remains uncalibrated; no semantic recognition or model-weight training."
+}

@@ -1,0 +1,71 @@
+{
+  "edition": 44,
+  "repository": "https://github.com/eyeoverthink/Fraynix-Agent-Workspace",
+  "visibility": "private",
+  "releaseCommit": "b7546d28bdbdd29851a36b28219bd0a0a69d5219",
+  "annotatedTag": "readme-044",
+  "tagObject": "1f84b38f54f0720342e0e44b908f6f5692c6513d",
+  "sourceBaseline": "337c437b469136319130b74961c2b83d22d8a273",
+  "verifiedAtUtc": "2026-11-02T15:52:42.548889+00:00",
+  "directGithubFetchVerified": true,
+  "canonicalSources": 821,
+  "originalProofArchives": 830,
+  "archiveScope": "Every canonical source blob read through git cat-file at the selected actual ref. Every supported top-level gzip proof JSON, including duplicate payloads, independently decoded and checked by exact raw byte count/SHA256. Counts are archive files, not distinct experiments.",
+  "documentation": {
+    "editions": 44,
+    "canvases": 49,
+    "references": 5197,
+    "frozenHashes": 2710
+  },
+  "validation": {
+    "fullJavaBaseline": "73b67c0ae57f05412d77c367781ea062ec75a426",
+    "fullJavaCases": 404,
+    "fullJavaClasses": 84,
+    "finalFocusedJavaCases": 40,
+    "distinctJavaCasesCovered": 405,
+    "desktopCases": 117,
+    "actualUIWorkflowChecks": 238,
+    "actualLocalModelWorkflowChecks": 16,
+    "models": [
+      "gpt-oss:20b"
+    ],
+    "compute": "CPU-only/four threads",
+    "qualification": "Complete404-case run on73b67c0. Only WorkspaceServer and CreationPlanner044 plus its test changed afterward for ongoing camera ingestion and bounded wrong-stage/schema recovery; all other final Java bytes match.405 distinct Java cases covered, not a single405-case invocation. Final focused queue/domain/camera-store tests and actual final camera/model/Mission workflows cover that integration. Original19 native/UI groups and first real agent case preceded final reuse-schema/self-state amendments; final real-data, alignment, Java generation/reconnect and Mission checks cover those paths. All source-specific records and failed attempts are retained. Group check counts bundle multiple actual assertions, not every individual assert statement."
+  },
+  "productionReview": {
+    "projectName": "review-044-20261102",
+    "closedOriginalProject": "review-043-20261102",
+    "originalFiles": 1911,
+    "originalBytes": 102900814,
+    "copyExact": true,
+    "originalUnchangedAfterLaunch": true,
+    "agentId": "51a77b2e-0e46-4739-9d00-6b0c2b86cdce",
+    "bootId": "9839cffb-2e1c-49dc-8dda-abef89ca6abe",
+    "javaPid": 20340,
+    "status": "awake",
+    "cameraOff": true,
+    "physicalObservationFresh": false,
+    "worldId": "a2aed6a7-8d9f-4922-a717-a9dfa2026077",
+    "worldRevision": 0,
+    "worldHead": "41cd72facca05c5189e72ae459a51b4ab652bd874d202b329e95ce604f4d3c79",
+    "worldTick": 0,
+    "activeId": "",
+    "selectedModel": "gpt-oss:20b",
+    "promptUnsent": "Create and verify a local counter with Add and Reset. Save the skill as review-counter-044.",
+    "missionVisible": true,
+    "electronPid": 25264,
+    "testApiAbsent": true,
+    "visibleWindows": 1,
+    "selectedRegistrationId": "58d5a958-c6fe-41f5-9b59-4e5f81338709",
+    "nativeInspection": {
+      "taskId": "1a25d5bc-2e65-437b-bff3-c354fb65607a",
+      "outcome": "verified",
+      "frames": 6,
+      "visionRequested": false
+    },
+    "launcherReconnectSameBoot": true,
+    "launcherPid": 28600
+  },
+  "closureQualification": "Original Java11028 authenticated boot-checked stop/checkpoint completed; frozen original Electron11240 tree was terminated only after verifying exact executable/command and ended Java owner. UI/capture recovery failures retained. Copy made only after both ended.",
+  "next": "Bounded counterfactual-world trials with independently scored outcomes, stale-head refusal and forecast-versus-actual residuals; typed skill graphs and measured context/latency improvements remain planned gates."
+}

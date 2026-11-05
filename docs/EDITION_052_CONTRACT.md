@@ -1,0 +1,13 @@
+# Edition 052 · Faster, clearer checked chat
+
+2026-11-03. Extend the existing Java task owner, model gateway and integrated Mission view. Preserve the normal review045 runtime, its private project and all frozen editions001–051. No new scheduler, dependency, cloud service or synthetic model fallback.
+
+When the current Java stage allows only `finish`, Java may invoke the SAME completion routine without asking a model to select that sole action. Fresh native child reads, current artifact versions, stored assertion receipts, source bindings, witness writes, skill prerequisites and interruption/recovery checks remain mandatory. A terminal stage is permission to check completion, never proof of success. Conversational tasks with other actions available still require model interpretation.
+
+Chat context will retain the exact user objective, selected bindings, semantic constraints and repair diagnostics. Replace broken JSON substring truncation with valid, explicitly bounded observations where appropriate. Oversized essential context must refuse rather than silently remove requirements. Keep the original hashed history; distinguish a model proposal, admitted action and verified outcome. Measure actual model calls and monotonic request duration, including failed calls; do not invent time saved.
+
+Results lead with a concise source-qualified outcome and saved skill. Full original metrics remain accessible in Mission details. Show actual model time and Java completion decisions, not fabricated progress percentages. No verification, physics, world identity or export algorithm may be weakened for speed.
+
+Reference review: inspect FRAYMUS-Logic-Chain main at 7c15c783c784417977b0445eb086b2915025472d. Adapt its unchanged objective, retained diagnostics and traceable structured decisions into the existing Java task. Do not import its fixed sixteen-call pipeline, cloud providers, demo responses or agreement-as-proof. Retain the original reference test output, including worker errors even when unittest exits successfully.
+
+Acceptance: focused negative and recovery tests; broader Java and desktop regressions; real installed local-model construction/skill reuse in an isolated project; actual current receipt checks and Stop/restart; model call counts and source-qualified comparison with051; real dated wide/narrow screenshots; extensive README052, offline guide, Obsidian map, memories/logs; non-forced main publication and fresh remote verification. Speed claims must state task, hardware settings and comparison limitations. No model-weight-learning or general intelligence claim.

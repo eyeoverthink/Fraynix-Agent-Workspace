@@ -1,0 +1,39 @@
+{
+  "edition": 43,
+  "date": "2026-11-02",
+  "passed": true,
+  "sourceBaseline": "91f5f26abc36656dae9edd3ca7e7a83a238fe212",
+  "java": {
+    "checks": 386,
+    "fullChecks": 385,
+    "finalFocusedChecks": 26,
+    "classes": 82,
+    "qualification": "385 complete plus26 final focused;386 distinct, not one final386-case invocation"
+  },
+  "desktopUnits": 117,
+  "groups": {
+    "agency043-integration": 10,
+    "agent042-integration": 15,
+    "integration": 12,
+    "broader-validation": 45,
+    "knowledge-integration": 8,
+    "brain-game-integration": 10,
+    "spatial-runtime040-integration": 10,
+    "alignment041-integration": 9,
+    "live-agency043": 5,
+    "live-agent042": 3,
+    "live-alignment041": 3
+  },
+  "actualUIAssertions": 119,
+  "actualModelAssertions": 11,
+  "models": [
+    "gpt-oss:20b",
+    "gemma3:latest"
+  ],
+  "appWidths": [
+    1600,
+    1100
+  ],
+  "sourceFiles": 807,
+  "scope": "Actual local Java/Chromium tasks, original screenshots and local model inference on labelled software controls. No new physical measurement, semantic identity, trained temporal recognition, consciousness or LLM-weight learning."
+}

@@ -1,0 +1,56 @@
+{
+  "version": "independent-support-060-v1",
+  "maxGoalSeconds": 1200,
+  "designCases": [
+    {
+      "id": "force-centre",
+      "kind": "force",
+      "halfLengthFraction": 0,
+      "forceN": 16
+    },
+    {
+      "id": "force-right",
+      "kind": "force",
+      "halfLengthFraction": 0.9,
+      "forceN": 16
+    },
+    {
+      "id": "design060-right-drop",
+      "kind": "payload",
+      "massKg": 1.35,
+      "halfLengthFraction": 0.55,
+      "dropHeightM": 0.22
+    }
+  ],
+  "reservedCases": [
+    {
+      "id": "reserved060-left",
+      "kind": "payload",
+      "massKg": 0.7,
+      "halfLengthFraction": -0.55,
+      "dropHeightM": 0.18
+    },
+    {
+      "id": "reserved060-inner",
+      "kind": "payload",
+      "massKg": 1.1,
+      "halfLengthFraction": 0.1,
+      "dropHeightM": 0.2
+    },
+    {
+      "id": "reserved060-right",
+      "kind": "payload",
+      "massKg": 1.55,
+      "halfLengthFraction": 0.6,
+      "dropHeightM": 0.28
+    },
+    {
+      "id": "reserved060-edge",
+      "kind": "payload",
+      "massKg": 1.85,
+      "halfLengthFraction": 0.68,
+      "dropHeightM": 0.32
+    }
+  ],
+  "scope": "Fixed independent support positions and 0/90 degree bearings, admitted by measured baseline failure. Same stock and actuator; selection precedes fresh and paired reserved native tests. No material strength, physical certification or model-weight-learning claim."
+}

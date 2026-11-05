@@ -1,0 +1,45 @@
+package fraymus.workspace;
+import org.json.*;
+import org.junit.Test;
+import static org.junit.Assert.*;
+import java.nio.file.*;
+import java.util.*;
+
+/** Native experiments, with explicitly labelled software view fixtures; Chromium is tested separately. */
+public class Counterfactual045Test {
+    static JSONObject control(){return Counterfactual045.protocol().getJSONArray("cases").getJSONObject(0);}
+    static JSONObject source(JSONObject c){return SpatialScene.parse(c.getJSONObject("source").toString(),UUID.nameUUIDFromBytes(c.getString("id").getBytes(java.nio.charset.StandardCharsets.UTF_8)).toString());}
+    static JSONObject input(WorldLedger ledger,JSONObject c)throws Exception{var w=ledger.create(source(c),c.getString("id"));return WorldLedgerTest.args(ledger.observe(w.getString("id")),c.getJSONArray("steps").getJSONObject(0));}
+    static JSONObject ready(Counterfactual045 store,String id)throws Exception{for(int i=0;i<18000;i++){var s=store.read(id);if(!Set.of("queued","running").contains(s.getString("status"))){assertEquals(s.optString("reason"),"ready",s.getString("status"));return s;}Thread.sleep(10);}throw new AssertionError("Counterfactual native budget exceeded");}
+    static JSONObject actual(WorldLedger ledger,Path root,JSONObject binding,JSONObject plan)throws Exception{String goal=UUID.randomUUID().toString(),id=UUID.randomUUID().toString();ledger.reserve(binding,goal,id,plan);try(var nativeStore=new WorldNativeStore(root.resolve("actual"))){nativeStore.start(id,goal,ledger.source(binding),plan,false,true);var run=WorldLedgerTest.settled(nativeStore,id);assertEquals(run.optString("reason"),"completed",run.getString("status"));return run;}}
+    static JSONObject view(JSONObject d){return new JSONObject().put("visible",true).put("data",WorldFrames.copy(d)).put("rows",d.getJSONArray("rows")).put("forecast",d.getJSONObject("charts").getJSONArray("forecast")).put("actual",d.getJSONObject("charts").getJSONArray("actual"));}
+    @Test public void nativeAlternativesKeepWorldExactAndSelectedExecutionMatchesOriginalTraces()throws Exception{
+        Path root=Files.createTempDirectory("counter045-control-");var ledger=new WorldLedger(root);var args=input(ledger,control());var binding=ledger.observe(args.getString("worldId"));byte[] original=Files.readAllBytes(root.resolve("persistent-worlds/state.json"));
+        try(var store=new Counterfactual045(root,ledger)){
+            var s=store.prepare(binding,ledger.preview(args));store.begin(s.getString("id"));var done=ready(store,s.getString("id"));assertArrayEquals(original,Files.readAllBytes(root.resolve("persistent-worlds/state.json")));assertTrue(binding.similar(ledger.observe(args.getString("worldId"))));
+            assertEquals(3,done.getJSONArray("candidates").length());var half=done.getJSONArray("candidates").getJSONObject(2);assertEquals("failed",half.getString("status"));assertFalse(half.getJSONObject("metrics").getBoolean("passed"));
+            var audited=store.audit(s.getString("id"));var chosen=Counterfactual045.choose(audited.getJSONArray("candidates"));assertEquals(chosen.getString("id"),audited.getJSONObject("decision").getString("selectedCandidate"));
+            for(Object raw:done.getJSONArray("candidates")){var c=(JSONObject)raw;var run=store.run(s.getString("id"),c.getString("id"));assertTrue(WorldVerify.verify(run).similar(c.getJSONObject("metrics")));assertTrue(run.getJSONObject("definition").similar(ledger.source(binding)));assertEquals(c.getString("runSha256"),WorldFrames.hash(run));}
+            assertThrows(IllegalStateException.class,()->store.executePlan(s.getString("id"),"a".repeat(64)));var plan=store.executePlan(s.getString("id"),done.getString("decisionSha256"));var run=actual(ledger,root,binding,plan);var d=CounterfactualReport045.data(store,s.getString("id"),run);assertTrue(d.getJSONObject("comparison").toString(),d.getJSONObject("comparison").getBoolean("passed"));assertEquals(1,d.getJSONObject("comparison").getDouble("sampleCoverage"),0);assertTrue(CounterfactualReport045.verifyView(d,view(d)).getBoolean("passed"));
+            var bad=view(d);bad.put("forecast",new JSONArray(d.getJSONObject("charts").getJSONArray("forecast").toString()));bad.getJSONArray("forecast").getJSONArray(0).put(0,1000);assertThrows(IllegalStateException.class,()->CounterfactualReport045.verifyView(d,bad));
+            var changed=WorldFrames.copy(run);changed.getJSONObject("final").getJSONArray("bodies").getJSONObject(0).getJSONArray("position").put(0,12);assertThrows(IllegalStateException.class,()->store.compareActual(s.getString("id"),changed));
+            ledger.commit(binding,run.getString("goalId"),run,WorldLedgerTest.receipt(run),WorldLedgerTest.meta());assertThrows(IllegalStateException.class,()->store.executePlan(s.getString("id"),done.getString("decisionSha256")));
+            var packed=store.export(s.getString("id"));assertEquals(3,packed.getJSONArray("originalAttempts").length());Files.writeString(root.resolve("summary.json"),new JSONObject().put("study",store.read(s.getString("id"))).put("data",d).put("export",packed).toString());
+        }System.out.println("COUNTER045_CONTROL "+root);
+    }
+    @Test public void unfinishedForecastRetainsCompletedBytesAndOriginalAttemptsAcrossRestart()throws Exception{
+        Path root=Files.createTempDirectory("counter045-partial-");var ledger=new WorldLedger(root);var args=input(ledger,control());var before=ledger.observe(args.getString("worldId"));String id;JSONObject completed;
+        try(var store=new Counterfactual045(root,ledger)){
+            id=store.prepare(before,ledger.preview(args)).getString("id");store.begin(id);long end=System.nanoTime()+120_000_000_000L;JSONObject state;
+            do{state=store.read(id);if(state.getJSONArray("candidates").getJSONObject(0).getString("status").equals("completed")&&state.getJSONArray("candidates").getJSONObject(1).getString("status").equals("running"))break;Thread.sleep(2);}while(System.nanoTime()<end);
+            assertEquals("running",state.getJSONArray("candidates").getJSONObject(1).getString("status"));completed=WorldFrames.copy(state.getJSONArray("candidates").getJSONObject(0));
+        }
+        try(var store=new Counterfactual045(root,ledger)){
+            assertEquals("interrupted",store.read(id).getString("status"));store.resume(id);store.begin(id);var done=ready(store,id);var first=done.getJSONArray("candidates").getJSONObject(0);assertEquals(completed.getString("runId"),first.getString("runId"));assertEquals(completed.getString("runSha256"),first.getString("runSha256"));assertTrue(done.getJSONArray("candidates").getJSONObject(1).getJSONArray("attempts").length()>=2);assertTrue(store.attempts(id).length()>=4);assertTrue(before.similar(ledger.observe(args.getString("worldId"))));
+        }
+    }
+    @Test public void cancellationCannotAdvanceOrReserveTheLiveWorld()throws Exception{Path root=Files.createTempDirectory("counter045-cancel-");var ledger=new WorldLedger(root);var args=input(ledger,control());var before=ledger.observe(args.getString("worldId"));try(var store=new Counterfactual045(root,ledger)){var s=store.prepare(before,ledger.preview(args));store.begin(s.getString("id"));store.cancel(s.getString("id"));assertEquals("cancelled",store.read(s.getString("id")).getString("status"));assertThrows(IllegalStateException.class,()->store.executePlan(s.getString("id"),"x"));assertTrue(before.similar(ledger.observe(args.getString("worldId"))));}}
+    @Test public void codeAndSourceCorruptionAreRefusedWithoutChangingOriginalBytes()throws Exception{Path root=Files.createTempDirectory("counter045-corrupt-");var ledger=new WorldLedger(root);var args=input(ledger,control());String id;try(var store=new Counterfactual045(root,ledger)){id=store.prepare(ledger.observe(args.getString("worldId")),ledger.preview(args)).getString("id");}Path file=root.resolve("counterfactual-045/studies.json");var data=AgentFiles042.loadChecked(file);data.getJSONArray("studies").getJSONObject(0).put("codeSha256","a".repeat(64));AgentFiles042.saveChecked(file,data);byte[] changed=Files.readAllBytes(file);try(var store=new Counterfactual045(root,ledger)){assertThrows(IllegalStateException.class,()->store.begin(id));}assertArrayEquals(changed,Files.readAllBytes(file));}
+    @Test public void ordinaryWorldRequestAndExplicitCounterfactualRequestStayDistinct(){assertEquals("world",ChatPolicy044.route("Compare alternative plans in the confirmed world",new JSONObject(),false));assertEquals("workbench",ChatPolicy044.route("Build a web app about counterfactual physics",new JSONObject(),false));}
+    @Test public void forecastOnlyAndExplicitNoMovementRequestsRequireReview(){assertTrue(ChatPolicy044.counterReview045("Compare alternative plans only"));assertTrue(ChatPolicy044.counterReview045("Compare alternative plans; do not move anything"));assertTrue(ChatPolicy044.counterReview045("Compare alternatives and execute; review before executing"));assertFalse(ChatPolicy044.counterReview045("Compare alternative plans and execute the chosen plan"));assertFalse(ChatPolicy044.counterReview045("Reuse the saved counterfactual skill"));}
+}

@@ -1,0 +1,134 @@
+{
+  "nodes": [
+    {
+      "id": "camera",
+      "type": "file",
+      "file": "workspace-desktop/renderer/metric-panel.js",
+      "x": 0,
+      "y": 0,
+      "width": 390,
+      "height": 170
+    },
+    {
+      "id": "geometry",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/PlaneCalibration.java",
+      "x": 440,
+      "y": 0,
+      "width": 390,
+      "height": 170
+    },
+    {
+      "id": "clocks",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/MetricObservationStore.java",
+      "x": 880,
+      "y": 0,
+      "width": 390,
+      "height": 170
+    },
+    {
+      "id": "tracker",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/FlowTracker.java",
+      "x": 0,
+      "y": 220,
+      "width": 390,
+      "height": 170
+    },
+    {
+      "id": "uncertainty",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/MetricObservationStore.java",
+      "x": 440,
+      "y": 220,
+      "width": 390,
+      "height": 170
+    },
+    {
+      "id": "chat",
+      "type": "file",
+      "file": "workspace-desktop/observations.cjs",
+      "x": 880,
+      "y": 220,
+      "width": 390,
+      "height": 170
+    },
+    {
+      "id": "export",
+      "type": "file",
+      "file": "scripts/Inspect-MetricWorld.cjs",
+      "x": 0,
+      "y": 440,
+      "width": 390,
+      "height": 170
+    },
+    {
+      "id": "future",
+      "type": "file",
+      "file": "docs/METRIC_WORLDS.md",
+      "x": 440,
+      "y": 440,
+      "width": 390,
+      "height": 170
+    }
+  ],
+  "edges": [
+    {
+      "id": "e0",
+      "fromNode": "camera",
+      "fromSide": "right",
+      "toNode": "clocks",
+      "toSide": "left"
+    },
+    {
+      "id": "e1",
+      "fromNode": "camera",
+      "fromSide": "right",
+      "toNode": "geometry",
+      "toSide": "left"
+    },
+    {
+      "id": "e2",
+      "fromNode": "tracker",
+      "fromSide": "right",
+      "toNode": "uncertainty",
+      "toSide": "left"
+    },
+    {
+      "id": "e3",
+      "fromNode": "geometry",
+      "fromSide": "right",
+      "toNode": "uncertainty",
+      "toSide": "left"
+    },
+    {
+      "id": "e4",
+      "fromNode": "clocks",
+      "fromSide": "right",
+      "toNode": "uncertainty",
+      "toSide": "left"
+    },
+    {
+      "id": "e5",
+      "fromNode": "uncertainty",
+      "fromSide": "right",
+      "toNode": "chat",
+      "toSide": "left"
+    },
+    {
+      "id": "e6",
+      "fromNode": "chat",
+      "fromSide": "right",
+      "toNode": "export",
+      "toSide": "left"
+    },
+    {
+      "id": "e7",
+      "fromNode": "uncertainty",
+      "fromSide": "right",
+      "toNode": "future",
+      "toSide": "left"
+    }
+  ]
+}

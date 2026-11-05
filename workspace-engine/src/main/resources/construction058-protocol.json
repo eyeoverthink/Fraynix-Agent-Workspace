@@ -1,0 +1,41 @@
+{
+  "version": "failure-redesign-058-v1",
+  "maxGoalSeconds": 1200,
+  "trainingCaseIds": [
+    "force-centre",
+    "force-left",
+    "force-right",
+    "payload-centre"
+  ],
+  "reservedCases": [
+    {
+      "id": "reserved-light-left",
+      "kind": "payload",
+      "massKg": 0.65,
+      "halfLengthFraction": -0.3,
+      "dropHeightM": 0.1
+    },
+    {
+      "id": "reserved-medium-right",
+      "kind": "payload",
+      "massKg": 1.25,
+      "halfLengthFraction": 0.3,
+      "dropHeightM": 0.25
+    },
+    {
+      "id": "reserved-heavy-left",
+      "kind": "payload",
+      "massKg": 1.5,
+      "halfLengthFraction": -0.7,
+      "dropHeightM": 0.3
+    },
+    {
+      "id": "reserved-heavy-right",
+      "kind": "payload",
+      "massKg": 2.25,
+      "halfLengthFraction": 0.7,
+      "dropHeightM": 0.45
+    }
+  ],
+  "scope": "Fixed same-stock support redesign selected only from design cases; paired reserved payload evaluation follows a saved decision. Native rigid-body simulation, not material strength, physical certification or model-weight training."
+}

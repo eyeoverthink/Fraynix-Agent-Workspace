@@ -1,0 +1,28 @@
+{
+  "passed": true,
+  "source": "62824e9777b214e00ec8f114efe1f101d669f3ff",
+  "date": "2026-11-04T17:22:14.812Z",
+  "checks": [
+    "Visible Learn & compare collected all 36 actual native trials and retained the failed qualification",
+    "Real prediction operation audits original training/evaluation and rejects out-of-domain angle",
+    "Cold Java/app restart preserves exact checkpoint and prediction without retraining",
+    "Existing Brain view works at 1100 px with visible controls",
+    "Real prediction operation audits original training/evaluation and rejects out-of-domain angle",
+    "Cold Java/app restart preserves exact checkpoint and prediction without retraining",
+    "Existing Brain view works at 1100 px with visible controls",
+    "Actual local gpt-oss:20b CPU/four-thread chat reads the saved outcome facts and verifies a report",
+    "Visible Stop cancels fresh native learning; earlier original evidence remains"
+  ],
+  "model": "gpt-oss:20b; CPU-only/four threads",
+  "evaluation": {
+    "qualified": false,
+    "maxErrorM": 0.08261959057330781,
+    "evaluationCount": 12,
+    "meanAbsoluteErrorM": {
+      "cortex": 0.05288995233190515,
+      "linear": 0.06113537542810445,
+      "analytical": 0.004223910989020541,
+      "mean": 0.3952126950948924
+    }
+  }
+}

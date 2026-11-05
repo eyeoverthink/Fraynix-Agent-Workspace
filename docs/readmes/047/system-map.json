@@ -1,0 +1,77 @@
+{
+  "edition": 47,
+  "modules": [
+    {
+      "id": "guide",
+      "name": "First world skill",
+      "summary": "Open from the library or the empty composer. Start a labelled simulation and save its verified skill.",
+      "source": "workspace-desktop/renderer/persistent-world-panel.js",
+      "status": "Implemented",
+      "note": "docs/obsidian/55-first-world-skill.md"
+    },
+    {
+      "id": "java",
+      "name": "Native goal and report",
+      "summary": "Java owns motion, effect checks, report verification, revisions and skill saves.",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/GoalRunner.java",
+      "status": "Reused and verified",
+      "note": "docs/obsidian/55-first-world-skill.md"
+    },
+    {
+      "id": "compose",
+      "name": "Connect the saved procedure",
+      "summary": "Select the exact verified skill and world, then test two more targets.",
+      "source": "workspace-desktop/renderer/workflow-panel.js",
+      "status": "Implemented",
+      "note": "docs/obsidian/55-first-world-skill.md"
+    },
+    {
+      "id": "memory",
+      "name": "Persistent Java memory",
+      "summary": "Compare exact, lexical and HDC recall on untouched tasks and test lossless restart.",
+      "source": "docs/EDITION_047_PLAN.md",
+      "status": "Planned",
+      "note": "docs/obsidian/55-first-world-skill.md"
+    },
+    {
+      "id": "sensors",
+      "name": "Arduino observation bench",
+      "summary": "Use an ESP32 camera and independent sensor to test what happened during occlusion.",
+      "source": "docs/EDITION_047_PLAN.md",
+      "status": "Planned",
+      "note": "docs/obsidian/55-first-world-skill.md"
+    },
+    {
+      "id": "learning",
+      "name": "World forks and counterexamples",
+      "summary": "Freeze predictions and evaluate candidate procedures against untouched outcomes.",
+      "source": "docs/EDITION_047_PLAN.md",
+      "status": "Planned",
+      "note": "docs/obsidian/55-first-world-skill.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "docs/readmes/047/first-world-walkthrough.png",
+      "title": "Practice guide opened from the empty skill library"
+    },
+    {
+      "path": "docs/readmes/047/first-world-verified.png",
+      "title": "The verified revision and its saved skill"
+    },
+    {
+      "path": "docs/readmes/047/first-world-report.png",
+      "title": "The real Chromium report after the native run"
+    },
+    {
+      "path": "docs/readmes/047/first-world-connected.png",
+      "title": "The exact saved skill connected to two new practice targets"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/readmes/047/verification.json",
+      "title": "Edition 047 validation receipt"
+    }
+  ]
+}

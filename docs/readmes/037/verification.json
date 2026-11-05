@@ -1,0 +1,116 @@
+{
+  "sourceBaseline": "c07a468fc9f18b8b72d9ff3c7e4f76db0c32ba62",
+  "protocolCommit": "6faa54e",
+  "candidateCommit": "4d80927",
+  "firstReservedA": {
+    "coverage": 0.125,
+    "meanErrorM": 2.716537518151058,
+    "meanRadiusM": 1.6284671992348718,
+    "referenceCount": 16,
+    "unprojectable": 0
+  },
+  "firstReservedB": {
+    "stage": "original036 import validation",
+    "outcome": "refused; required case failed, not substituted"
+  },
+  "profileAccepted": false,
+  "sourceInventory": 709,
+  "hardwarePreview": {
+    "previewStarted": true,
+    "dimensions": [
+      640,
+      480
+    ],
+    "videoTracks": 1,
+    "audioTracks": 0,
+    "capturedSamples": 0,
+    "stopped": true,
+    "passed": true,
+    "date": "2026-11-01T18:48:21.953Z",
+    "scope": "Physical local camera preview only; no frames captured/exported, no device identifiers saved, no physical mat scale measurement or tracking accuracy validation."
+  },
+  "freshClone": {
+    "passed": true,
+    "sourceCommit": "c07a468fc9f18b8b72d9ff3c7e4f76db0c32ba62",
+    "javaTests": 324,
+    "javaClasses": 69,
+    "desktopUnits": 83,
+    "offline": true,
+    "privateStateCopied": false,
+    "checkout": "fraynix-workspace-qa037-release",
+    "recovery": "Previous concurrent full runs interrupted by Windows reboot. This completed run uses one Gradle worker and one fresh test process per class,512MiB heap, no skips/changed assertions."
+  },
+  "uiGroups": {
+    "metrics": {
+      "passed": true,
+      "checks": 8,
+      "sourceCommit": "c07a468fc9f18b8b72d9ff3c7e4f76db0c32ba62"
+    },
+    "camera-metrics": {
+      "passed": true,
+      "checks": 5,
+      "sourceCommit": "c07a468fc9f18b8b72d9ff3c7e4f76db0c32ba62"
+    },
+    "observations": {
+      "passed": true,
+      "checks": 8,
+      "sourceCommit": "c07a468fc9f18b8b72d9ff3c7e4f76db0c32ba62"
+    },
+    "observations-video": {
+      "passed": true,
+      "checks": 4,
+      "sourceCommit": "c07a468fc9f18b8b72d9ff3c7e4f76db0c32ba62"
+    },
+    "integration": {
+      "passed": true,
+      "checks": 12,
+      "sourceCommit": "c07a468fc9f18b8b72d9ff3c7e4f76db0c32ba62"
+    },
+    "broader-validation": {
+      "passed": true,
+      "checks": 45,
+      "sourceCommit": "c07a468fc9f18b8b72d9ff3c7e4f76db0c32ba62",
+      "bookkeepingNote": "Saved actual45/45 result recovered after helper len(integer) failure; no checks altered or rerun."
+    }
+  },
+  "scope": "Working metric/camera/evidence workflow, failed real-footage accuracy qualification. No native authority or model-weight training.",
+  "sourceMatch": {
+    "passed": true,
+    "files": 709,
+    "sourceCommit": "c07a468fc9f18b8b72d9ff3c7e4f76db0c32ba62",
+    "rootHead": "cae703388ea30fa0fc2613fc127096ffcd936545",
+    "scope": "Every709 canonical implementation source/asset matches independent checkout; docs-only changes may follow source baseline."
+  },
+  "actualModel": {
+    "model": "gpt-oss:20b",
+    "checks": 3,
+    "calls": [
+      "observations.read",
+      "canvas.test",
+      "observations.report"
+    ],
+    "source": "fresh checkout"
+  },
+  "recovery": "Original interrupted full runs are preserved separately; only completed single-process recovery is a full-suite pass.",
+  "documentationQa": {
+    "status": "passed",
+    "date": "2026-11-01T19:41:17.213Z",
+    "checks": [
+      "Offline eight-module map and all/verified/planned filters work",
+      "Map selection exposes actual source and current engineering scope",
+      "Canonical709-file source explorer searches and resets",
+      "All160 actual rows,1120 cells and four charts match original metric evidence exactly",
+      "All five dated actual screenshots load; software camera and public-footage attribution remain explicit",
+      "Offline section navigation works",
+      "390px guide layout keeps map, controls and tables usable without document overflow",
+      "Standalone actual artifact retains80 rows, four functioning charts and narrow readability",
+      "No renderer errors or required external network/CDN"
+    ],
+    "wide": 1280,
+    "narrow": 390,
+    "sourceFiles": 709,
+    "metricRows": 160,
+    "tableCells": 1120,
+    "images": 5
+  }
+}

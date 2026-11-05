@@ -1,0 +1,15 @@
+# Edition045 contract: bounded alternatives in the persistent Java world
+
+Recorded before implementation and before new045 native trials, November2,2026. Preserve normal044 Java20340 and its installed JARs/private data. Develop in this separate045 checkout. No new dependency, second editor or simulated success UI.
+
+Java will compare three declared candidates from one complete verified world frame: the existing controller's target order, reverse target order, and half-force use within the original authority ceiling. Preserve existing WorldPlan/WorldPhysics/WorldVerify mathematics and their original gates. The existing controller supports2–4 target boxes; other bodies remain protected. This is the initial bounded scope, rather than claiming arbitrary single-body/robot/reality planning.
+
+Each actual trial retains source/controller/plan hashes, original run/checkpoint/trace, final all-body poses, measured contacts, force/torque effort, duration and termination. Deduplicate identical plans explicitly. Keep rejected and failed candidates. Select using the precommitted policy in counterfactual045-protocol.json, without changing gates or parameters after the reserved configurations run. No assumed improvement over the baseline.
+
+Forecasting must not write the original world's revision, bodies or pending ownership. Integrate the forecast stage into the existing Java world goal. Stop cancels owned forecasts; interface close alone permits native computation to continue. Cold process interruption requires explicit compatible Resume; settled forecast results remain retained, partial attempts remain evidence. Resource budgets and cancellation are real.
+
+Before actual execution, recheck the original expected world revision/hash and reserve it through the existing ledger. Use the chosen verified plan and unchanged native controller. Existing all-body/release/Chromium-report gates still control the world commit and saved skill. Independently reconstruct forecast/actual pose and effort residuals and retain the comparison. A failed/stale/changed-source result never becomes a successful revision or skill.
+
+Expose actual alternatives and prediction-versus-execution in the current persistent-world panel, Mission and checked report. Chat requests use Java-owned routing and confirmed world/target bindings. No decorative progress, placeholder handlers, new autonomous camera/web calls or LLM-weight-learning claim. Pure native labelled simulation is explicitly distinct from reality observations.
+
+Acceptance: frozen control and changed-material/pose cases; independent raw-trace metrics and selection; negative low-force trial retained; source/frame unmodified by forecasts; stale execution refusal; cancellation and explicit restart/recovery; actual chosen run + report checks + world commit; saved-procedure continuation;1600/1100 UI; regressions; extensive README045/actual screenshots/offline guide/notes; actual main/readme-045 publication with fresh fetch verification. Preserve editions001–044.

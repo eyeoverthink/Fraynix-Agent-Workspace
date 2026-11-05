@@ -1,0 +1,93 @@
+{
+  "edition": 54,
+  "modules": [
+    {
+      "id": "geometry",
+      "name": "Declared Java geometry",
+      "summary": "Dimensions, fixed obstacles and conservative pickup/overhead/lowering clearance.",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/Construction054.java",
+      "status": "Verified",
+      "note": "docs/obsidian/62-geometry-comparison.md"
+    },
+    {
+      "id": "baseline",
+      "name": "Measured simpler control",
+      "summary": "Original maximum-force native result and all attempted trial costs.",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/Baseline054.java",
+      "status": "Verified",
+      "note": "docs/obsidian/62-geometry-comparison.md"
+    },
+    {
+      "id": "goal",
+      "name": "Continuing Java task",
+      "summary": "Review, source recheck, fresh actual execution, report gates and one commit.",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/GoalRunner.java",
+      "status": "Verified",
+      "note": "docs/obsidian/62-geometry-comparison.md"
+    },
+    {
+      "id": "handoff",
+      "name": "Explicit closed-world handoff",
+      "summary": "Exact published 053 world read-only until explicit compatible upgrade; history preserved.",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/WorldLedger.java",
+      "status": "Verified",
+      "note": "docs/obsidian/62-geometry-comparison.md"
+    },
+    {
+      "id": "view",
+      "name": "Integrated geometry and chat",
+      "summary": "Actual stock, obstacles, baseline report and saved-skill reuse in a new compact world.",
+      "source": "workspace-desktop/renderer/construction051.js",
+      "status": "Actual local model and UI verified",
+      "note": "docs/obsidian/62-geometry-comparison.md"
+    },
+    {
+      "id": "next",
+      "name": "Cost-aware routing and evaluation",
+      "summary": "Direct-first control comparison, lateral routes, independent load and diagnostic tests.",
+      "source": "docs/EDITION_054_CONTRACT.md",
+      "status": "Planned",
+      "note": "docs/obsidian/62-geometry-comparison.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "docs/readmes/054/geometry054-stock.png",
+      "title": "Declared wide stock and fixed barrier · November 3, 2026 · synthetic practice world"
+    },
+    {
+      "path": "docs/readmes/054/geometry054-review.png",
+      "title": "Actual native alternatives before live movement · November 3, 2026 · synthetic practice world"
+    },
+    {
+      "path": "docs/readmes/054/geometry054-built.png",
+      "title": "Released bridge after barrier clearance · November 3, 2026 · synthetic practice world"
+    },
+    {
+      "path": "docs/readmes/054/geometry054-report.png",
+      "title": "Verified comparison with the simpler controller · November 3, 2026 · synthetic practice world"
+    },
+    {
+      "path": "docs/readmes/054/geometry054-chat.png",
+      "title": "Actual local-model task and completion · November 3, 2026 · synthetic practice world"
+    },
+    {
+      "path": "docs/readmes/054/geometry054-narrow.png",
+      "title": "Integrated assembly controls at1100 pixels · November 3, 2026 · synthetic practice world"
+    },
+    {
+      "path": "docs/readmes/054/geometry054-blocked.png",
+      "title": "Occupied target refused before movement · November 3, 2026 · synthetic practice world"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/readmes/054/verification.json",
+      "title": "Source-qualified acceptance results"
+    },
+    {
+      "path": "docs/readmes/054/original-evidence.json",
+      "title": "Complete original attempts and failures"
+    }
+  ]
+}

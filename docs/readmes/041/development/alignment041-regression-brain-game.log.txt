@@ -1,0 +1,89 @@
+
+> fraynix-agent-workspace@0.1.0 test:brain-game
+> node test/brain-game-integration.cjs
+
+{
+  "passed": true,
+  "checks": 10,
+  "evaluation": {
+    "trainedMeanErrorM": 0.07436792929196029,
+    "baselineMeanErrorM": 0.7150511310663955,
+    "maxTrainedErrorM": 0.14779747981716884,
+    "relativeMeanGain": 0.8959963475883868,
+    "accepted": true
+  },
+  "latency": [
+    {
+      "roundTripMs": 8,
+      "bridgeMs": 2.1456,
+      "captureMs": 24.4707,
+      "frameSequence": 12
+    },
+    {
+      "roundTripMs": 7,
+      "bridgeMs": 2.3558,
+      "captureMs": 24.4707,
+      "frameSequence": 12
+    },
+    {
+      "roundTripMs": 7,
+      "bridgeMs": 2.1538,
+      "captureMs": 24.4707,
+      "frameSequence": 12
+    },
+    {
+      "roundTripMs": 7,
+      "bridgeMs": 2.2914,
+      "captureMs": 24.4707,
+      "frameSequence": 12
+    },
+    {
+      "roundTripMs": 7,
+      "bridgeMs": 2.2622,
+      "captureMs": 24.4707,
+      "frameSequence": 12
+    },
+    {
+      "roundTripMs": 7,
+      "bridgeMs": 2.1575,
+      "captureMs": 24.4707,
+      "frameSequence": 12
+    },
+    {
+      "roundTripMs": 7,
+      "bridgeMs": 2.1078,
+      "captureMs": 24.4707,
+      "frameSequence": 12
+    },
+    {
+      "roundTripMs": 6,
+      "bridgeMs": 2.246,
+      "captureMs": 24.4707,
+      "frameSequence": 12
+    },
+    {
+      "roundTripMs": 7,
+      "bridgeMs": 2.0298,
+      "captureMs": 24.4707,
+      "frameSequence": 12
+    },
+    {
+      "roundTripMs": 6,
+      "bridgeMs": 2.1171,
+      "captureMs": 24.4707,
+      "frameSequence": 12
+    },
+    {
+      "roundTripMs": 7,
+      "bridgeMs": 2.1101,
+      "captureMs": 24.8109,
+      "frameSequence": 16
+    },
+    {
+      "roundTripMs": 6,
+      "bridgeMs": 1.9978,
+      "captureMs": 24.8109,
+      "frameSequence": 16
+    }
+  ]
+}

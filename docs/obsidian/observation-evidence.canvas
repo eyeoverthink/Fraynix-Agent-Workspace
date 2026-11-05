@@ -1,0 +1,57 @@
+{
+  "nodes": [
+    {
+      "id": "readme",
+      "type": "file",
+      "file": "README-049.md",
+      "x": 0,
+      "y": 0,
+      "width": 420,
+      "height": 280
+    },
+    {
+      "id": "contract",
+      "type": "file",
+      "file": "docs/EDITION_049_CONTRACT.md",
+      "x": 500,
+      "y": 0,
+      "width": 420,
+      "height": 280
+    },
+    {
+      "id": "note",
+      "type": "file",
+      "file": "docs/obsidian/57-observation-evidence.md",
+      "x": 0,
+      "y": 360,
+      "width": 420,
+      "height": 280
+    },
+    {
+      "id": "prior",
+      "type": "file",
+      "file": "README-048.md",
+      "x": 500,
+      "y": 360,
+      "width": 420,
+      "height": 280
+    }
+  ],
+  "edges": [
+    {
+      "id": "e0",
+      "fromNode": "readme",
+      "toNode": "contract"
+    },
+    {
+      "id": "e1",
+      "fromNode": "readme",
+      "toNode": "note"
+    },
+    {
+      "id": "e2",
+      "fromNode": "prior",
+      "toNode": "readme"
+    }
+  ]
+}

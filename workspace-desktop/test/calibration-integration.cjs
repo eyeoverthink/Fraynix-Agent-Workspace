@@ -1,8 +1,8 @@
 'use strict';
 const {_electron}=require('playwright'),fs=require('node:fs/promises'),path=require('node:path'),os=require('node:os'),assert=require('node:assert/strict');
-async function launch(project){
+async function launch(project,extraArgs=[]){
  const env={...process.env,FRAYNIX_WORKSPACE_PROJECT:project,FRAYNIX_WORKSPACE_TEST:'1',FRAYNIX_WORKSPACE_OFFLINE:'1'};delete env.ELECTRON_RUN_AS_NODE;
- const app=await _electron.launch({args:[path.resolve(__dirname,'..','main.cjs')],env,timeout:60000});const page=await app.firstWindow();
+ const app=await _electron.launch({args:[...extraArgs,path.resolve(__dirname,'..','main.cjs')],env,timeout:60000});for(const stream of [app.process().stdout,app.process().stderr])stream.on('data',data=>require('node:fs').appendFileSync(path.join(project,'test-desktop-process.log'),data));const page=await app.firstWindow();
  await app.evaluate(async()=>{for(let i=0;i<200&&!global.workspaceTest;i++)await new Promise(r=>setTimeout(r,100));if(!global.workspaceTest)throw Error('Workspace not ready');});return {app,page};
 }
 async function fixtures(api){

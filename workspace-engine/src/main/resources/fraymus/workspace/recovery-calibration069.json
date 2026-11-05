@@ -1,0 +1,325 @@
+{
+  "trainingSha256": "f5b59431c599a3ab32bf45ad0e1acc9f78e3a2684745f58d2742b28c7ebd34c3",
+  "sha256": "e63750b5cd55863d612f991f413a401d9e46db59b8ab55eed401d0de88702560",
+  "blocks": [
+    {
+      "positiveWeight": 1,
+      "firstKnot": 0,
+      "lastKnot": 0,
+      "rate": 0.1,
+      "totalWeight": 10
+    },
+    {
+      "positiveWeight": 1,
+      "firstKnot": 1,
+      "lastKnot": 1,
+      "rate": 0.25,
+      "totalWeight": 4
+    },
+    {
+      "positiveWeight": 3,
+      "firstKnot": 2,
+      "lastKnot": 2,
+      "rate": 0.6,
+      "totalWeight": 5
+    },
+    {
+      "positiveWeight": 15,
+      "firstKnot": 3,
+      "lastKnot": 5,
+      "rate": 0.8333333333333334,
+      "totalWeight": 18
+    },
+    {
+      "positiveWeight": 13,
+      "firstKnot": 6,
+      "lastKnot": 6,
+      "rate": 0.9285714285714286,
+      "totalWeight": 14
+    }
+  ],
+  "scope": "Calibration-only native outcomes; finite-data monotonic estimate, not a confidence guarantee",
+  "format": "recovery-pav068-v1",
+  "knots": [
+    {
+      "hits": 0,
+      "successes": 0,
+      "rate": 0.1,
+      "count": 8,
+      "weight": 10,
+      "smoothedRate": 0.1
+    },
+    {
+      "hits": 1,
+      "successes": 0,
+      "rate": 0.25,
+      "count": 2,
+      "weight": 4,
+      "smoothedRate": 0.25
+    },
+    {
+      "hits": 2,
+      "successes": 2,
+      "rate": 0.6,
+      "count": 3,
+      "weight": 5,
+      "smoothedRate": 0.6
+    },
+    {
+      "hits": 3,
+      "successes": 8,
+      "rate": 0.8333333333333334,
+      "count": 8,
+      "weight": 10,
+      "smoothedRate": 0.9
+    },
+    {
+      "hits": 7,
+      "successes": 1,
+      "rate": 0.8333333333333334,
+      "count": 1,
+      "weight": 3,
+      "smoothedRate": 0.6666666666666666
+    },
+    {
+      "hits": 8,
+      "successes": 3,
+      "rate": 0.8333333333333334,
+      "count": 3,
+      "weight": 5,
+      "smoothedRate": 0.8
+    },
+    {
+      "hits": 9,
+      "successes": 12,
+      "rate": 0.9285714285714286,
+      "count": 12,
+      "weight": 14,
+      "smoothedRate": 0.9285714285714286
+    }
+  ],
+  "labels": [
+    {
+      "hits": 3,
+      "taskSha256": "774adfca7862344b13163fa5c1659b5a69694de46387b1d0956281b92c076a0a",
+      "success": true,
+      "recordSha256": "b56a529719d6e18f7f1b938569e8226ddeba5ccc37d589bf4dc9f4049826d59b"
+    },
+    {
+      "hits": 9,
+      "taskSha256": "fa16e8228306882b5e0887b5f911a5911abdce6ab6a243ab6913d568011f2f24",
+      "success": true,
+      "recordSha256": "6284aac770c294b5c8f220a81d14cbbbc98765e8a273ea7ba78716a14842778a"
+    },
+    {
+      "hits": 2,
+      "taskSha256": "a4a2c280ba8ff7583bc68f104b6b37080d5c9ca6b6daf6c37ff35ee7b286111f",
+      "success": true,
+      "recordSha256": "094a58927a918193e49c4d16c442943e9455585cc178cd4d7ab9d3579762a4a3"
+    },
+    {
+      "hits": 8,
+      "taskSha256": "6d3a14b3908575d5a39f283d422bbb99eae809eba9fd739f4cded16759edf063",
+      "success": true,
+      "recordSha256": "3f2caab9bfca5681fcc540190ad22ab26bbc39bd42f7ceeba51405ddd2c3b8c3"
+    },
+    {
+      "hits": 3,
+      "taskSha256": "2c296dd29d4e218a50ee13eb1ce87bf6c5f7700289bd2e7e9fc21d073137f1fd",
+      "success": true,
+      "recordSha256": "070dd280171643313296cd0cd9fa8de8111518598dd6d245455626553b899bfb"
+    },
+    {
+      "hits": 8,
+      "taskSha256": "04bd914e5107ea4b4bfdae844e135c1ce1cd77bf5d1548858608ca1b970be90f",
+      "success": true,
+      "recordSha256": "16c738060af604e87ea2767418f7e62fdeb5393325b4bfdfadf6dc250688f11e"
+    },
+    {
+      "hits": 0,
+      "taskSha256": "33aae150feead529cf7936fdd2885c984938dd1c2606c90e9c83b4fd60faf21a",
+      "success": false,
+      "recordSha256": "4712f0cc7bce742cfe98f4ffdb7eb033f103403d21f708f579eead3f4b5cd446"
+    },
+    {
+      "hits": 3,
+      "taskSha256": "6f9b9ed2ba8ba2e4abb5bfa23240d9aecce071bf7fb34319c96c0382857d2090",
+      "success": true,
+      "recordSha256": "ec720ea2100119880486dc3eb0b949b03bff2e344af831119f9e65ca13a89e38"
+    },
+    {
+      "hits": 9,
+      "taskSha256": "ac1f8ead652cb283d806462ce3cd4ad283d0d84839749df912d1eb59b3df678d",
+      "success": true,
+      "recordSha256": "bd47108fedf5d34ecd1c72faa1ec783d5a5ecc5fb10fe82209a918470fe3574e"
+    },
+    {
+      "hits": 9,
+      "taskSha256": "63b90c2ddf930059002252acc5273201688c432fec25a24ca6d25883d04f8b59",
+      "success": true,
+      "recordSha256": "8a810c576c2c4aef975e695d2a70dd8d67f2f6ce5b949b1f199f1e3fa41662cf"
+    },
+    {
+      "hits": 3,
+      "taskSha256": "f0a5f5652e55338bd9bd5ec6913f98d9e5a13e4dcebee6ed1b7ee83661ad5437",
+      "success": true,
+      "recordSha256": "26637f50a7e753d4d99d93f69e6c6f3ffa898451d632e8c3a022c42ab2fc4526"
+    },
+    {
+      "hits": 9,
+      "taskSha256": "b56c9982d176fcfa1db65bcddc65edabbf7cda7b6db613f5a44dd3be398e80c6",
+      "success": true,
+      "recordSha256": "82488e3e3757efbf3d91a13b550af727aa4e15eca0398393a708662dac7314dd"
+    },
+    {
+      "hits": 2,
+      "taskSha256": "40bd8257464e3c58052cf94545bdd7538b90cf189ed36a616ea537d19e6acc5d",
+      "success": false,
+      "recordSha256": "486abb5fb08ecd9093f492f073af4385799bf8d8f7de17c103d57a23ff2cf5e9"
+    },
+    {
+      "hits": 9,
+      "taskSha256": "67493926b1e339a8ca44200c9df555fd38a0dc1018b9cd169da4e278e194c29a",
+      "success": true,
+      "recordSha256": "b05bbd182dd20a5861fc91aca5524ee3e6e59ef2aab2f8221254308421619841"
+    },
+    {
+      "hits": 3,
+      "taskSha256": "0ebd4e2d3d5ec4a7487ee7230ea6edaf3f80aa90f889f488afbc400fa366da6b",
+      "success": true,
+      "recordSha256": "fa790ad65d4f268c4d57777c3cbe8226604b96ad723e78639c4bf9fa557b695c"
+    },
+    {
+      "hits": 9,
+      "taskSha256": "469f3f71698a5b789e8ef633ee68f2b300f342650f9881d54e32c8fbe8515cae",
+      "success": true,
+      "recordSha256": "9a0ca0fc61cfe72f8c329370edfaac8ae1e2966d71118a75fc6f1e883f2f8444"
+    },
+    {
+      "hits": 0,
+      "taskSha256": "d48f6592f85f7311ed6a655fa08b61397e9b43b7e145f2f55ac127499255a0f9",
+      "success": false,
+      "recordSha256": "e362667ec5e51f6ea942ce060e8bbc94b9ab1fe11f4611997fdf1ad2214a32fa"
+    },
+    {
+      "hits": 0,
+      "taskSha256": "7fb2d630c5f9c0606b9e2735f42604f6fc7e8020af47f3ead0005c8f0f494484",
+      "success": false,
+      "recordSha256": "164a472c8f49b54fd11d8fe04a053ef3ed8b062d7aef86341ba1f93aac291ad9"
+    },
+    {
+      "hits": 0,
+      "taskSha256": "f16f0be281c54e62a68cf092e84a1ee815a1ea052887c8deb656ac3adbb44372",
+      "success": false,
+      "recordSha256": "1076fc0da1d3daf5906dcbf8e28dc406ba0d61a15376306d07b22544386b49d5"
+    },
+    {
+      "hits": 3,
+      "taskSha256": "91e07a3c57a331ae12a02e2226472882e5adefd2c6e91994e54337a7926673d7",
+      "success": true,
+      "recordSha256": "bc5ead908586abce6efad56bda55429311dc55830af5d2c788855d68bb2eacd0"
+    },
+    {
+      "hits": 9,
+      "taskSha256": "99d5ee2b9ed1c9bef1167035bb86c13dab70f432edfb2934e719cb012bbd71c7",
+      "success": true,
+      "recordSha256": "550408515783c876796912170cc90c0ef13f423f044eb334fda7b03b9cd9df69"
+    },
+    {
+      "hits": 9,
+      "taskSha256": "d918a6b8d4f880bfa5768090b0d95c6806962239bea9584f551c91b00b80983f",
+      "success": true,
+      "recordSha256": "8a97489dec1cd154361e6f0030723a02fbc0b089a085131befaf1895c0727e81"
+    },
+    {
+      "hits": 3,
+      "taskSha256": "9286dab616773d80d06ef1571d8900307cc59bbbc12f78b8246fec1c0d4053ac",
+      "success": true,
+      "recordSha256": "5092e69acae1476506ec767a48fbe450f4ba793f9b2613e85f1f65f92585d9c9"
+    },
+    {
+      "hits": 0,
+      "taskSha256": "7b230c63ccc6dee2ee6af7b4eaec6a007728c20980af77b8283021de342ce92b",
+      "success": false,
+      "recordSha256": "d9def209c602f41e62fc180b3abb997ac714b1557e69a485d01224061c8c45dc"
+    },
+    {
+      "hits": 1,
+      "taskSha256": "389d1fda1bbca7155f83f959c1a5edbea7d46e099712dc8b5211b88592423406",
+      "success": false,
+      "recordSha256": "75630964d658fa015d4490c33114319e607f67da86eba7e86908c3fbfb72a5fd"
+    },
+    {
+      "hits": 9,
+      "taskSha256": "2748fa4ef37ec61099080c2b2195833d82744c590a24f6de1fcab1ee2d8b79d9",
+      "success": true,
+      "recordSha256": "12b21edc86b203539e068697276c54c8985f6c7c784a73ccc3e0f7c2d8d13fdd"
+    },
+    {
+      "hits": 0,
+      "taskSha256": "3631889f9a0f00f7eb988875846aa64f2df4c31bfa95e072dfe4ce2077081aa0",
+      "success": false,
+      "recordSha256": "ba47e02be89b2ab1bdefadc041350c60fa6cb4e51d4f93d9b44cab4c0b5902fe"
+    },
+    {
+      "hits": 0,
+      "taskSha256": "eac993d75fb79ed4678ad9a25f07eed0fd094451a55d5264921f81f71cc8392b",
+      "success": false,
+      "recordSha256": "0b45972fd921d16085ca0b945c61f9033b232afeb9e9c673757533c79ca2f9bc"
+    },
+    {
+      "hits": 0,
+      "taskSha256": "604cb6a81fe215b9f99bd17b420fc966e46368f86809dbde42bbf37270cc508f",
+      "success": false,
+      "recordSha256": "0cf7a1af3502fb9fc54d330371f33bbabefc981eaa5e0ddea0d75e566344c154"
+    },
+    {
+      "hits": 9,
+      "taskSha256": "e3a9c66ae97978951647eaf97463a4a519c9b4bfefe90d9a1ad7cc8ceb11746c",
+      "success": true,
+      "recordSha256": "d4bac58b73a5adadde04a9e18609a57fc11fe7a627595edb460175841ae16bcf"
+    },
+    {
+      "hits": 1,
+      "taskSha256": "99273e56a0bb78130fab8da6eff9013a24a9569f3e5e99aebc1a5716e6bb8590",
+      "success": false,
+      "recordSha256": "092f0495e53a7b901ae5d878c6033dcb3224e22885cf5465c9d94668aa10766b"
+    },
+    {
+      "hits": 8,
+      "taskSha256": "f93a5f3e7713035a529ae5d6dd4c31ec7f6958fb331e5971b32fb26d70870ce3",
+      "success": true,
+      "recordSha256": "78c78849343ef5ead25cd88c721d4d2cb03871d551b68a753d1341363b6d088c"
+    },
+    {
+      "hits": 9,
+      "taskSha256": "9b30fabe67291889607b474a7c605bdf33362fa9b70b8fc848886ec754d45896",
+      "success": true,
+      "recordSha256": "8cb6dcb492dbd3d301f6c621426eec42076b9cbac5d2fc86d209342abff925ab"
+    },
+    {
+      "hits": 2,
+      "taskSha256": "a7137986119cd6f05b9e7c4c9dceba6a821a68526074910b375ca15c3c4ea740",
+      "success": true,
+      "recordSha256": "835897168d761d60420e6f57cfd74c13a9f8e3ed2eac3a798cfa1ce71a295a8f"
+    },
+    {
+      "hits": 7,
+      "taskSha256": "390939b3c9bba7236f0bf497d73c5f87320f7adc74e971f211a03f372b00e27c",
+      "success": true,
+      "recordSha256": "ed56c4b9a6e7c726938d98772a39bb634ea1a799b55169880638c1a75164d8c0"
+    },
+    {
+      "hits": 3,
+      "taskSha256": "5383936005895bc988e7ae7442474030d5a28f03885070574b223fe51a2ad5ae",
+      "success": true,
+      "recordSha256": "af4a543bd3685a54a6a2e71315ef87379c08d0288eaa0f4724594c08ebdc14c3"
+    },
+    {
+      "hits": 9,
+      "taskSha256": "d22625394de1894451bddc4b30db553dcc69bc234b53e65c14b15693f21f20d5",
+      "success": true,
+      "recordSha256": "69d04c51f1624fbb3a1767f5bfd04198c6ea42515919f7b5aadbaa4835e81436"
+    }
+  ]
+}

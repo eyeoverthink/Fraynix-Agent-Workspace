@@ -1,0 +1,193 @@
+{
+  "label": "native056-regression",
+  "source": "52c93ad",
+  "count": 37,
+  "failures": 2,
+  "cases": [
+    {
+      "case": "fraymus.workspace.ChatChain052Test#duplicateWarningsKeepEveryOriginalOccurrenceBeyondRecentWindow",
+      "passed": true,
+      "seconds": 0.009
+    },
+    {
+      "case": "fraymus.workspace.ChatChain052Test#numericRefusalExplainsOriginalBoundsWithoutChangingThem",
+      "passed": true,
+      "seconds": 0.008
+    },
+    {
+      "case": "fraymus.workspace.ChatChain052Test#oversizedRequirementsRefuseRatherThanBeingSilentlyTruncated",
+      "passed": true,
+      "seconds": 0.005
+    },
+    {
+      "case": "fraymus.workspace.ChatChain052Test#legacyTaskDoesNotClaimCompleteTimingCoverage",
+      "passed": true,
+      "seconds": 0.001
+    },
+    {
+      "case": "fraymus.workspace.ChatChain052Test#summaryRetainsRejectedQualityAndDoesNotDumpMetrics",
+      "passed": true,
+      "seconds": 0.002
+    },
+    {
+      "case": "fraymus.workspace.ChatChain052Test#discoverySummaryKeepsExactBindingsAndBothEndsWithoutBreakingJson",
+      "passed": true,
+      "seconds": 0.022
+    },
+    {
+      "case": "fraymus.workspace.ChatChain052Test#largeRecentObservationHasExplicitOmissionHashAndKeepsFailure",
+      "passed": true,
+      "seconds": 0.005
+    },
+    {
+      "case": "fraymus.workspace.ChatChain052Test#queuedObjectiveSealRefusesChangedRequest",
+      "passed": true,
+      "seconds": 0.001
+    },
+    {
+      "case": "fraymus.workspace.ChatChain052Test#providerMapMetadataIsRetainedWithoutUnrelatedFields",
+      "passed": true,
+      "seconds": 0.0
+    },
+    {
+      "case": "fraymus.workspace.ChatChain052Test#automaticCompletionRechecksCurrentArtifactInsteadOfTrustingOldSuccess",
+      "passed": true,
+      "seconds": 2.202
+    },
+    {
+      "case": "fraymus.workspace.ChatChain052Test#failedPlannerCallIsTimedAndDoesNotBecomeAnAction",
+      "passed": true,
+      "seconds": 0.2
+    },
+    {
+      "case": "fraymus.workspace.Design056Test#disabledRedesignNeverAdmitsWiderCandidates",
+      "passed": true,
+      "seconds": 0.362
+    },
+    {
+      "case": "fraymus.workspace.Design056Test#explicitChatLoadCannotBeDroppedOrChanged",
+      "passed": false,
+      "seconds": 0.029
+    },
+    {
+      "case": "fraymus.workspace.Design056Test#nativeBaselineLoadFailureAdmitsOnlyVerifiedRedesignAndColdReview",
+      "passed": true,
+      "seconds": 151.802
+    },
+    {
+      "case": "fraymus.workspace.Design056Test#originalLoadChartAndTableMustBothMatch",
+      "passed": true,
+      "seconds": 0.002
+    },
+    {
+      "case": "fraymus.workspace.Domain044Test#retainedAppearancePolicyCannotChangeCategoryOrInstallDetectorOptions",
+      "passed": true,
+      "seconds": 0.002
+    },
+    {
+      "case": "fraymus.workspace.Domain044Test#retainedSkillSourceAndForceDefaultsCannotBeSilentlyChanged",
+      "passed": true,
+      "seconds": 0.004
+    },
+    {
+      "case": "fraymus.workspace.Domain044Test#nativeWaitUsesActualChildAndRetainsItsIdentity",
+      "passed": true,
+      "seconds": 0.007
+    },
+    {
+      "case": "fraymus.workspace.Domain044Test#savedGraphChatSelectsExactVersionAndWorkflowBeforePlanning",
+      "passed": true,
+      "seconds": 0.009
+    },
+    {
+      "case": "fraymus.workspace.Domain044Test#sourceFreeHostSuccessAndForeignChildrenAreRejected",
+      "passed": true,
+      "seconds": 0.006
+    },
+    {
+      "case": "fraymus.workspace.Domain044Test#reportStageCannotSkipActualReads",
+      "passed": true,
+      "seconds": 0.0
+    },
+    {
+      "case": "fraymus.workspace.Domain044Test#typedOptionsPreserveExplicitValuesAndRejectContradictions",
+      "passed": true,
+      "seconds": 0.0
+    },
+    {
+      "case": "fraymus.workspace.Domain044Test#interruptedChildCannotProduceSuccessfulCompletion",
+      "passed": true,
+      "seconds": 0.006
+    },
+    {
+      "case": "fraymus.workspace.Domain044Test#inventedHostFactsDoNotReplaceActualJavaRead",
+      "passed": true,
+      "seconds": 0.009
+    },
+    {
+      "case": "fraymus.workspace.Domain044Test#retainedSkillSchemasKeepDefaultsOptionalAndHideBoundDetectorPolicy",
+      "passed": true,
+      "seconds": 0.001
+    },
+    {
+      "case": "fraymus.workspace.Domain044Test#javaRoutesEveryFormerDesktopFamilyWithoutChangingWebCreation",
+      "passed": true,
+      "seconds": 0.009
+    },
+    {
+      "case": "fraymus.workspace.Domain044Test#constructionReuseExposesOnlyExplicitChangesAndKeepsOriginalLimits",
+      "passed": true,
+      "seconds": 0.006
+    },
+    {
+      "case": "fraymus.workspace.Domain044Test#actualQueueCompletionRecordsTheVerifiedReportInTheSameLearningEpisode",
+      "passed": true,
+      "seconds": 0.262
+    },
+    {
+      "case": "fraymus.workspace.Domain044Test#workflowBootstrapBindsDatasetAndSceneInJavaBeforeAnyHostAction",
+      "passed": true,
+      "seconds": 0.006
+    },
+    {
+      "case": "fraymus.workspace.Domain044Test#reportMustHaveFrozenOriginalAssertionsAndExactSourceVersion",
+      "passed": true,
+      "seconds": 0.032
+    },
+    {
+      "case": "fraymus.workspace.Domain044Test#creationPromptsAreOwnedBoundedAndKeepSourceReserved",
+      "passed": true,
+      "seconds": 0.006
+    },
+    {
+      "case": "fraymus.workspace.Load055Test#stopPreservesPartialEvidenceThenExplicitRestartReevaluatesAndRejectsTampering",
+      "passed": true,
+      "seconds": 14.611
+    },
+    {
+      "case": "fraymus.workspace.Load056RecoveryTest#actualInterruptedLoadRetainsOriginalsAndRejectsTampering",
+      "passed": false,
+      "seconds": 63.597
+    },
+    {
+      "case": "fraymus.workspace.Route055RecoveryTest#lateralWaypointRestoresAfterColdRestart",
+      "passed": true,
+      "seconds": 11.737
+    },
+    {
+      "case": "fraymus.workspace.WorldHandoff056Test#exactPublishedColdWorldNeedsExplicitUpgradeAndRetainsEveryFrame",
+      "passed": true,
+      "seconds": 0.114
+    },
+    {
+      "case": "fraymus.workspace.WorldHandoff056Test#pendingOwnersAndUnknownIdentitiesCannotBeUpgraded",
+      "passed": true,
+      "seconds": 0.043
+    },
+    {
+      "case": "fraymus.workspace.WorldReservedTest#differentFrozenSequencesKeepStateAcrossGoalsAndFailureNeverAdvancesHead",
+      "passed": true,
+      "seconds": 77.723
+    }
+  ]
+}

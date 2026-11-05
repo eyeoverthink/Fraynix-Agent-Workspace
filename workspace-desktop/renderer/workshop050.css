@@ -1,0 +1,10 @@
+#workshop050 { margin: 12px; padding: 14px; border: 1px solid #395b66; border-radius: 12px; background: #14262d; color: #e0edf1; }
+#workshop050 summary { cursor:pointer; font-weight:650; font-size:16px; }
+.workshop050-fields { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:12px; margin:12px 0; }
+#workshop050 label { display:grid; gap:5px; min-width:0; }
+#workshop050 input,#workshop050 select { min-width:0; max-width:none; width:100%; box-sizing:border-box; }
+#w050-viewport { height:330px; width:100%; overflow:hidden; border-radius:8px; margin-top:10px; }
+#w050-chart { display:block; width:100%; background:#102229; }
+#w050-status,#w050-inventory,#w050-results,#w050-log { overflow-wrap:anywhere; }
+.w050-legend { color:#abc5cd; font-size:12px; }
+@media(max-width:1200px){.workshop050-fields{grid-template-columns:1fr;}#workshop050 .runtime-controls{flex-wrap:wrap;}}

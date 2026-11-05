@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "C:\Users\eyeka\Documents\Codex\2026-10-26\is\work\fraynix-agent-workspace\build\clean035.py", line 23, in <module>
+    run(['node','workspace-desktop/test/'+name+'-integration.cjs']);data=json.loads((q/('workspace-desktop/test-output/'+name+'-integration.json')).read_text(encoding='utf-8'));assert data['passed'];done[name]={'checks':len(data['checks']),'passed':True};progress.write_text(json.dumps(done,indent=2)+'\n')
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\eyeka\Documents\Codex\2026-10-26\is\work\fraynix-agent-workspace\build\clean035.py", line 5, in run
+    if p.returncode:raise RuntimeError(str(args)+' failed: '+str(p.returncode))
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: ['node', 'workspace-desktop/test/poses-integration.cjs'] failed: 1

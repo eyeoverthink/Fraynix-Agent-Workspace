@@ -1,0 +1,18 @@
+{
+  "edition": "040",
+  "scope": "One Java-owned spatial snapshot interface for persistent native worlds, the actual hidden legacy game and separately qualified tabletop observations. Integrated perspective and orthographic views share exact entity identities, source clocks and selection. No physics solver or perception algorithm replacement.",
+  "frames": "Native world uses right-handed Y-up metres and source quaternions. Legacy game uses its actual XY game units, planar quads and explicit render layers; no conversion to metres or invented physical Z. Tabletop estimates stay in their declared 2D mat frame with unknown height/contact; a native-body association does not align the frames or authorize native motion.",
+  "authority": "Read adapters and projection/picking do not change simulation state. Existing bounded game and native controllers retain action authority. Selection and view configuration persist separately. Reads never open a camera or auto-launch/restart a game. Restarted game sessions require explicit rebind.",
+  "views": "Java computes camera bases, perspective/orthographic projections, clipping and identity-bound picking from cached source snapshots. The shell draws actual projected geometry and the source game's matching original raster when available. Native perspective/top/front/side views and game planar/perspective views expose the same source entities. Observation planes are separate, labelled overlays, not fabricated 3D reconstructions.",
+  "bounds": "At most4096 game entities,32 native entities,16 cached snapshots. Viewports160..4096 pixels; finite camera and source parameters. UI polling is bounded and pauses when linked views are hidden. Model observations are compact summaries, not full scene dumps. JSON exports contain source-qualified state without private camera images.",
+  "acceptance": [
+    "Analytic camera tests independently verify projection, quaternion transforms, near clipping, perspective scaling and orthographic depth invariance; malformed/nonfinite inputs are refused.",
+    "Actual native-world snapshots preserve source IDs, positions, rotations, units and committed-versus-live ownership. Four view picks select the same actual entity. View changes do not advance native ticks or rewrite the world ledger.",
+    "Actual hidden legacy game supplies all source spatial identities/component names and coherent transform/tick/raster evidence. A bounded real game step moves the same selected player ID in original raster and projected views; render layer never becomes physical depth.",
+    "Tabletop association retains exact recording/geometry/image hashes and measured-versus-predicted status in its own2D frame. Unknown depth remains unknown; native and recorded source histories remain unchanged.",
+    "Selection and view settings survive full app restart for a persistent native world. Stale source bindings, replaced game sessions and altered cached/exported evidence are refused or explicitly marked, never silently rebound.",
+    "Actual local-model tools read the selected spatial source, inspect a declared camera view and open a host-verified report with exact snapshot/entity identities. The self-model automatically includes the registered additions.",
+    "Actual visible app controls, real JSON export, linked selection, responsive layout and legacy game/browser/canvas/knowledge regressions are exercised. Published001-039 remain immutable; no private footage is published."
+  ],
+  "legacyLimits": "Edition038 physical displacement and uncertainty remain UNVALIDATED. Human categories, web references, observations and simulated state remain separate. No semantic recognition, 3D reconstruction, subjective awareness or neural-weight training claim."
+}

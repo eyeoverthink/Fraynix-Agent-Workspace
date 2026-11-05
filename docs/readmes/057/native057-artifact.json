@@ -1,0 +1,33 @@
+{
+  "label": "native057-artifact",
+  "source": "792cf91",
+  "count": 5,
+  "failures": 0,
+  "cases": [
+    {
+      "case": "fraymus.workspace.WorkspaceStoreTest#ordinaryArtifactStillRefusesMoreThanTwentyChanges",
+      "passed": true,
+      "seconds": 0.065
+    },
+    {
+      "case": "fraymus.workspace.WorkspaceStoreTest#traversalAndExecutableHostFilesAreRejected",
+      "passed": true,
+      "seconds": 0.0
+    },
+    {
+      "case": "fraymus.workspace.WorkspaceStoreTest#interruptedUncommittedFilesArePreservedWhileTheNextEditSucceeds",
+      "passed": true,
+      "seconds": 0.062
+    },
+    {
+      "case": "fraymus.workspace.WorkspaceStoreTest#onlyCurrentPassingEvidenceCanBecomeReusableSkill",
+      "passed": true,
+      "seconds": 0.124
+    },
+    {
+      "case": "fraymus.workspace.WorkspaceStoreTest#versionedArtifactRestoresAndStaleEditsCannotOverwrite",
+      "passed": true,
+      "seconds": 0.045
+    }
+  ]
+}

@@ -1,0 +1,64 @@
+{
+  "checks": [
+    {
+      "actual": {
+        "count": 59,
+        "text": "1\tdf7c4726-9de4-30a1-badc-d92ad1125600\ttracked\tobserved\t0.87881\t0.87673\t0.00281\t0.01959",
+        "value": null
+      },
+      "expected": {
+        "expectCount": 59,
+        "selector": "#rows tr"
+      },
+      "index": 0,
+      "selector": "#rows tr",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 1,
+        "text": "World 7deed0ca-1429-4399-becd-972028813037 · native revision 0 · observation run e3c2b08b-882a-4cbb-89ca-b6d294f1cb5c · completed",
+        "value": null
+      },
+      "expected": {
+        "expectText": "World 7deed0ca-1429-4399-becd-972028813037 · native revision 0 · observation run e3c2b08b-882a-4cbb-89ca-b6d294f1cb5c · completed",
+        "selector": "#identity"
+      },
+      "index": 1,
+      "selector": "#identity",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 5,
+        "text": "Horizontal position",
+        "value": "x"
+      },
+      "expected": {
+        "expectCount": 5,
+        "selector": "#metric option"
+      },
+      "index": 2,
+      "selector": "#metric option",
+      "passed": true
+    }
+  ],
+  "at": "2026-11-01T17:06:44.614523Z",
+  "id": "79a187a1-8c6e-3a89-8832-07b94e49cbee",
+  "passed": true,
+  "version": 1,
+  "steps": [
+    {
+      "expectCount": 59,
+      "selector": "#rows tr"
+    },
+    {
+      "expectText": "World 7deed0ca-1429-4399-becd-972028813037 · native revision 0 · observation run e3c2b08b-882a-4cbb-89ca-b6d294f1cb5c · completed",
+      "selector": "#identity"
+    },
+    {
+      "expectCount": 5,
+      "selector": "#metric option"
+    }
+  ]
+}

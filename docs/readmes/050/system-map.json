@@ -1,0 +1,69 @@
+{
+  "edition": 50,
+  "modules": [
+    {
+      "id": "scheduler",
+      "name": "Existing Java scheduler",
+      "summary": "Admission, durable progress, explicit restart recovery and checked skill retention.",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/GoalRunner.java",
+      "status": "Verified",
+      "note": "docs/obsidian/58-construction-workshop.md"
+    },
+    {
+      "id": "physics",
+      "name": "Native construction trials",
+      "summary": "Finite parts, pre-action predictions and three native bodies with outcome checks.",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/Workshop050.java",
+      "status": "Verified in simulation",
+      "note": "docs/obsidian/58-construction-workshop.md"
+    },
+    {
+      "id": "view",
+      "name": "Integrated workshop",
+      "summary": "Perspective/top views, native replay, chart, history and exact export.",
+      "source": "workspace-desktop/renderer/workshop050.js",
+      "status": "Verified in actual app",
+      "note": "docs/obsidian/58-construction-workshop.md"
+    },
+    {
+      "id": "tests",
+      "name": "Failures and changed conditions",
+      "summary": "Rough ramp stalls; revised design works; higher friction forces a different successful surface.",
+      "source": "workspace-engine/src/test/java/fraymus/workspace/Workshop050Test.java",
+      "status": "Verified development cases",
+      "note": "docs/obsidian/58-construction-workshop.md"
+    },
+    {
+      "id": "next",
+      "name": "Continuing-world assembly and cooperation",
+      "summary": "Add physically actuated construction and typed chat routing before measuring multiple agents.",
+      "source": "docs/EDITION_050_CONTRACT.md",
+      "status": "Planned",
+      "note": "docs/obsidian/58-construction-workshop.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "docs/readmes/050/workshop050-delivered.png",
+      "title": "Actual native delivery in the integrated app · November 2, 2026"
+    },
+    {
+      "path": "docs/readmes/050/workshop050-recovery.png",
+      "title": "Fresh conditions after a Java restart require a different design"
+    },
+    {
+      "path": "docs/readmes/050/workshop050-narrow.png",
+      "title": "Workshop at 1100 pixels"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/readmes/050/verification.json",
+      "title": "Validation receipt"
+    },
+    {
+      "path": "docs/readmes/050/case-results.json",
+      "title": "Original trials and changed-condition recovery"
+    }
+  ]
+}

@@ -1,0 +1,292 @@
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/9.3.1/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build 
+> Task :brain-core:compileJava UP-TO-DATE
+> Task :factory-runtime:compileJava UP-TO-DATE
+> Task :factory-kernel:compileJava UP-TO-DATE
+> Task :factory-models:compileJava UP-TO-DATE
+> Task :compileJava UP-TO-DATE
+> Task :processResources UP-TO-DATE
+> Task :classes UP-TO-DATE
+> Task :jar UP-TO-DATE
+> Task :compileTestJava
+> Task :processTestResources NO-SOURCE
+> Task :testClasses
+> Task :brain-core:processResources NO-SOURCE
+> Task :brain-core:classes UP-TO-DATE
+> Task :brain-core:jar UP-TO-DATE
+> Task :factory-kernel:processResources NO-SOURCE
+> Task :factory-kernel:classes UP-TO-DATE
+> Task :factory-kernel:jar UP-TO-DATE
+> Task :factory-models:processResources NO-SOURCE
+> Task :factory-models:classes UP-TO-DATE
+> Task :factory-models:jar UP-TO-DATE
+> Task :factory-runtime:processResources NO-SOURCE
+> Task :factory-runtime:classes UP-TO-DATE
+> Task :factory-runtime:jar UP-TO-DATE
+
+> Task :test
+
+ActorControlsTest > rejectsOldEpisodesDuplicateSequencesAndExpiredCommands PASSED
+
+MotorRecoveryTest > repeatedFailuresAndUnsafeBackoffStopInsteadOfLooping PASSED
+
+MotorRecoveryTest > ceilingPreventsTheForwardJumpUntilThereIsRoom PASSED
+
+MotorRecoveryTest > blockedMovementBacksUpThenJumpsThroughNormalInputs PASSED
+
+PlayMemoryTest > failedChoiceChangesNextRunAndSurvivesRestart PASSED
+
+PlayMemoryTest > corruptMemoryIsPreservedBeforeReplacement PASSED
+
+PlayMemoryTest > measuredRewardFavorsSuccessfulPolicyAfterExploration PASSED
+
+PlayMemoryTest > keepsUsefulKnownRouteInsteadOfRandomlyChangingEverySuccessfulAction PASSED
+
+PowerupPlannerTest > identifiesMushroomAndTimesOutUnreachablePickup PASSED
+
+PowerupPlannerTest > laterRunAvoidsPreviouslyUnreachableOptionalBlock PASSED
+
+PowerupPlannerTest > recognizesActivePowerupBlockAndStopsTargetingAfterUse PASSED
+
+EditorCorrectionsTest > assetSelectionDoesNotInsertAndPlacementRequiresExplicitMode PASSED
+
+EditorCorrectionsTest > exportedOriginalLevelCanBeImportedAndInvalidTypesAreRejected PASSED
+
+FraynixWorkspaceTest > chatSceneBridgeDeserializesGsonGameObjectAndMovesSquare PASSED
+
+FraynixWorkspaceTest > liveChatSeparatesAttachmentsUsesOwnIdentityAndRestoresEvidence PASSED
+
+ModelAvailabilityTest > advertisedDecisionAndEmbeddingModelsAreNotOfferedForChat PASSED
+
+ModelAvailabilityTest > driveDiscoveryReportsMissingBlobsWithoutClaimingTheyAreServed PASSED
+
+EditorPhysicsRegressionTest > dynamicBoxFallsAndLandsOnStaticBox PASSED
+
+EditorPhysicsRegressionTest > editorChangesRefreshFixtureAndDoNotShiftObjectByColliderOffset PASSED
+
+EditorPhysicsRegressionTest > repeatedInspectionKeepsOneStatusAndDoesNotAddSceneComponents PASSED
+
+EditorPhysicsRegressionTest > physicsValuesAndIdentitySurviveActualCheckpointDeserialization PASSED
+
+EditorPhysicsRegressionTest > visibleEditorCommandsAreIdempotentAndRegisterLateComponents PASSED
+
+FactorySceneIntegrationTest > circleBodyUsesCircleFixture PASSED
+
+FactorySceneIntegrationTest > jsonPreservesIdentityAndCloneAllocatesFreshIdentity PASSED
+
+FactorySceneIntegrationTest > legacyJsonWithoutUuidIsMigrated PASSED
+
+FactorySceneIntegrationTest > fixedStepConsumesElapsedTimeAndDoesNotAdvanceAtZero PASSED
+
+FactorySceneIntegrationTest > checkpointDoesNotPretendAnInterruptedWorkerIsStillRunning PASSED
+
+FactorySceneIntegrationTest > negativeAndNonFiniteElapsedTimesAreRejected PASSED
+
+FactorySceneIntegrationTest > typedWorldTransformEditsReachRestoredScene PASSED
+
+FactorySceneIntegrationTest > unregisteredClassesCannotBeLoadedAsComponents PASSED
+
+FactorySceneIntegrationTest > sharedWorldCloneRemapsSceneAndPickingHandles PASSED
+
+FactorySceneIntegrationTest > sceneAndActualKernelTaskSurviveSessionRestart PASSED
+
+FactorySceneIntegrationTest > localToolsUseTheLiveCapturedWorldWithoutAddingEntitiesAndRestoreReceipts PASSED
+
+FactorySceneIntegrationTest > legacySceneSaveIsAnIdentityPreservingRoundtrip PASSED
+
+FactorySceneIntegrationTest > legacyDuplicateEditorHandlesAreMigratedWithoutChangingPersistentIds PASSED
+
+FullMarioLevelTest > transformClonePreservesRotationAndLayer PASSED
+
+FullMarioLevelTest > importsEveryComponentAndRoundTripsTheOriginalLevel PASSED
+
+FullMarioLevelTest > originalAssetsResolveAndPillboxRegistersBothFixtures PASSED
+
+GridPlacementRegressionTest > duplicatePressAndReleaseDoNotLeavePlacementDragging PASSED
+
+GridPlacementRegressionTest > rectangularCellsUseTheirOwnAxisSpacing PASSED
+
+GridPlacementRegressionTest > tileEdgesMatchTheGridOnBothSidesOfZero PASSED
+
+GridPlacementRegressionTest > pickingTracksViewportMoveResizePanAndZoom PASSED
+
+SceneAgentIntegrationTest > applicationIsGuardedAndUndoSurvivesRestart PASSED
+
+SceneAgentIntegrationTest > observationIncludesCompleteComponentsRuntimeAndSelection PASSED
+
+SceneAgentIntegrationTest > stagedCreationSimulatesRealCollisionWithoutChangingLiveScene PASSED
+
+SceneAgentIntegrationTest > rotatedColliderBoundsAndSpatialQueriesMatchActualLocalOffsets PASSED
+
+SceneAgentIntegrationTest > invalidOrExecutablePropertiesRejectTheWholeDraft PASSED
+
+SceneAgentIntegrationTest > failedSceneInstallationRestoresTheCheckpointAndKeepsOriginalWorld PASSED
+
+SceneAgentIntegrationTest > modelQueriesFeedBackIntoARealAdapterProposalAndDetachedPreview PASSED
+
+SceneAgentIntegrationTest > backgroundPreviewIdentityAllocationIsUniqueAcrossThreads PASSED
+
+SceneModelBudgetTest > fullLevelProducesBoundedValidJsonAndRetainsSelectedEntity PASSED
+
+SolidRaycastTest > sensorsAndTheActorDoNotHideTheNearestSolidBlock PASSED
+
+NeuromorphicCoreTest > causalAndAnticausalSpikePairsChangeActualSynapsesInOppositeDirections PASSED
+
+NeuromorphicCoreTest > rejectsCorruptCheckpoint PASSED
+
+NeuromorphicCoreTest > bothTimingDirectionsChangeWeightsAndFrozenEvaluationDoesNot PASSED
+
+NeuromorphicCoreTest > seededCoreAndCheckpointContinueIdentically PASSED
+
+CollisionDetectorTests > pointOnLine2DShouldReturnTrueTest PASSED
+
+CollisionDetectorTests > pointOnLine2DShouldReturnTrueTestTwo PASSED
+
+CollisionDetectorTests > pointOnLineShouldReturnTrueTestThree PASSED
+
+CollisionDetectorTests > pointInCircleShouldReturnTrueTestFive PASSED
+
+CollisionDetectorTests > pointInCircleShouldReturnTrueTestFour PASSED
+
+CollisionDetectorTests > pointInRotatedShouldReturnFalseTestOne PASSED
+
+CollisionDetectorTests > pointInRotatedShouldReturnFalseTestTwo PASSED
+
+CollisionDetectorTests > pointInRotatedBox2DShouldReturnTrueTestOne PASSED
+
+CollisionDetectorTests > pointInBox2DShouldReturnTrueTestFour PASSED
+
+CollisionDetectorTests > pointOnVerticalLineShouldReturnTrue PASSED
+
+CollisionDetectorTests > pointOnLineShouldReturnTrueTestFour PASSED
+
+CollisionDetectorTests > pointInCircleShouldReturnTrueTestOne PASSED
+
+CollisionDetectorTests > pointInCircleShouldReturnTrueTestTwo PASSED
+
+CollisionDetectorTests > pointInRotatedBox2DShouldReturnTrueTestThree PASSED
+
+CollisionDetectorTests > pointInBox2DShouldReturnTrueTestOne PASSED
+
+CollisionDetectorTests > pointInBox2DShouldReturnTrueTestTwo PASSED
+
+CollisionDetectorTests > pointOnLineShouldReturnTrueTestOne PASSED
+
+CollisionDetectorTests > pointOnLineShouldReturnTrueTestTwo PASSED
+
+CollisionDetectorTests > pointInRotatedShouldReturnTrueTestTwo PASSED
+
+CollisionDetectorTests > pointInBox2DShouldReturnTrueTestThree PASSED
+
+CollisionDetectorTests > pointInCircleShouldReturnFalseTestOne PASSED
+
+CollisionDetectorTests > pointInCircleShouldReturnFalseTestTwo PASSED
+
+CollisionDetectorTests > pointInRotatedShouldReturnTrueTestFour PASSED
+
+CollisionDetectorTests > pointInBox2DShouldReturnFalseTestOne PASSED
+
+CollisionDetectorTests > pointInBox2DShouldReturnFalseTestTwo PASSED
+
+CollisionDetectorTests > pointOnLineShouldReturnFalseTestOne PASSED
+
+CollisionDetectorTests > pointOnLineShouldReturnFalseTestTwo PASSED
+
+AnimationTextureBatchTest > animationSwitchRegistersNewTextureBeforeDrawing PASSED
+
+AnimationTextureBatchTest > fullSamplerTableMovesAnimationInsteadOfUsingSlotZeroOrEight PASSED
+
+ShaderSourceTest > loadsCrLfShaderWithoutAnOpenGlContext PASSED
+
+ShaderSourceTest > loadsLfShaderWithoutAnOpenGlContext PASSED
+
+> Task :verifySourceIsolation
+Verified every project/source root belongs to Fraynix-Studio.
+
+> Task :factory-kernel:compileTestJava
+> Task :factory-kernel:processTestResources NO-SOURCE
+> Task :factory-kernel:testClasses
+
+> Task :factory-kernel:verifyJournal
+JournalContinuityTest passed: legacy/J2, every field tamper, Merkle prefixes, anchored tail recovery, staged crash, failed write, threads and JVM writers
+
+> Task :factory-kernel:verifySkills
+Symlink creation unavailable; traversal and absolute-path checks still exercised
+LocalSkillsTest passed: all five tools, real AST/errors, hash mismatch, reference-data isolation, capabilities, path boundaries and persisted receipts
+
+> Task :factory-kernel:verifyIntegration
+FactoryKernelIntegrationTest passed: real gateway, subprocess validator, trace persistence and restart
+
+> Task :factory-models:compileTestJava
+> Task :factory-models:processTestResources NO-SOURCE
+> Task :factory-models:testClasses
+
+> Task :factory-models:verifyModels
+FactoryModelsTest passed: health, exact routing, Unicode NDJSON streaming, partial rejection, live/pre-connect cancellation, model load/unload, profile restart, legacy attachment migration, evidence and thread/history budgets
+
+> Task :factory-runtime:compileTestJava
+> Task :factory-runtime:processTestResources NO-SOURCE
+> Task :factory-runtime:testClasses
+
+> Task :factory-runtime:verifyRuntime
+FactoryRuntimeTest passed: clone/remap, identity, revision guards, schema, atomic edit, save/restore, corruption recovery
+
+> Task :factory-runtime:verifyTransactions
+WorldTransactionTest passed: isolated staging, atomic rejection, revision guards and deterministic spatial queries
+
+> Task :brain-gpu:compileJava UP-TO-DATE
+> Task :geometry-core:compileJava UP-TO-DATE
+> Task :workspace-engine:compileJava UP-TO-DATE
+> Task :workspace-engine:processResources UP-TO-DATE
+> Task :workspace-engine:classes UP-TO-DATE
+> Task :workspace-engine:jar UP-TO-DATE
+> Task :startScripts UP-TO-DATE
+> Task :installDist UP-TO-DATE
+> Task :brain-gpu:processResources NO-SOURCE
+> Task :brain-gpu:classes UP-TO-DATE
+> Task :brain-gpu:jar UP-TO-DATE
+> Task :geometry-core:processResources NO-SOURCE
+> Task :geometry-core:classes UP-TO-DATE
+> Task :geometry-core:jar UP-TO-DATE
+> Task :workspace-engine:compileTestJava
+> Task :workspace-engine:processTestResources UP-TO-DATE
+> Task :workspace-engine:testClasses
+Libbulletjme version 22.0.3 initializing
+> Task :workspace-engine:test
+
+MetricObservationStoreTest > fitAndHeldEvaluationDoNotChangeTrackingAndCannotUseSameRun FAILED
+    java.lang.IllegalArgumentException at MetricObservationStoreTest.java:16
+
+MetricObservationStoreTest > immutableClocksCameraBindingsAndChecksumSurviveRestart FAILED
+    java.lang.IllegalArgumentException at MetricObservationStoreTest.java:10
+
+WorldObservationStoreTest > distinctObjectsRetainSeparateBodyIdentitiesAndOneAtomicFrameRevision FAILED
+    java.lang.IllegalArgumentException at WorldObservationStoreTest.java:44
+
+WorldObservationStoreTest > completeVisualLossKeepsPredictionAndZeroRevisionRatherThanInventingState FAILED
+    java.lang.IllegalArgumentException at WorldObservationStoreTest.java:39
+
+WorldObservationStoreTest > realProcessingRetainsSameWorldAndExactPixelsWithoutNativeCommit FAILED
+    java.lang.IllegalArgumentException at WorldObservationStoreTest.java:21
+
+WorldObservationStoreTest > stopResumeSameProcessCannotLetOldWorkerCommitOrLoseRelatedEvidence FAILED
+    java.lang.IllegalArgumentException at WorldObservationStoreTest.java:32
+
+WorldReservedTest > differentFrozenSequencesKeepStateAcrossGoalsAndFailureNeverAdvancesHead FAILED
+    org.junit.ComparisonFailure at WorldReservedTest.java:10
+
+349 tests completed, 7 failed
+
+> Task :workspace-engine:test FAILED
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':workspace-engine:test'.
+> There were failing tests. See the report at: file:///C:/Users/eyeka/Documents/Codex/2026-10-26/is/work/fraynix-workspace-edition052/workspace-engine/build/reports/tests/test/index.html
+
+* Try:
+> Run with --scan to get full insights from a Build Scan (powered by Develocity).
+
+BUILD FAILED in 20m 20s
+35 actionable tasks: 14 executed, 21 up-to-date

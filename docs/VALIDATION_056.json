@@ -1,0 +1,1183 @@
+{
+  "edition": 56,
+  "date": "2026-11-03",
+  "source": "9b17ba7cc0cffb6a92aaac9307521042ea8958a2",
+  "passed": true,
+  "javaCount": 52,
+  "javaSuites": 11,
+  "javaInvocations": [
+    {
+      "label": "native056-first",
+      "source": "bd79f029b8bee1f382001fdf5af9ae4844c971ac",
+      "count": 2,
+      "failures": 1,
+      "cases": [
+        {
+          "case": "fraymus.workspace.Load056Test#frozenOriginalAndWiderLayoutsEarnActualEccentricLoadEvidence",
+          "passed": false,
+          "seconds": 88.21
+        },
+        {
+          "case": "fraymus.workspace.Load056Test#requestedLoadsAndSpanAreStrictlyBounded",
+          "passed": true,
+          "seconds": 0.017
+        }
+      ]
+    },
+    {
+      "label": "native056-matrix24",
+      "source": "e5162e5cdcb321f45b1f99d2759cd07d290c5d3c",
+      "count": 2,
+      "failures": 1,
+      "cases": [
+        {
+          "case": "fraymus.workspace.Load056Test#frozenOriginalAndWiderLayoutsEarnActualEccentricLoadEvidence",
+          "passed": false,
+          "seconds": 183.642
+        },
+        {
+          "case": "fraymus.workspace.Load056Test#requestedLoadsAndSpanAreStrictlyBounded",
+          "passed": true,
+          "seconds": 0.031
+        }
+      ]
+    },
+    {
+      "label": "native056-redesign16",
+      "source": "c64dc0c874afe58a2568b57cc2533772b16bfb79",
+      "count": 1,
+      "failures": 0,
+      "cases": [
+        {
+          "case": "fraymus.workspace.Load056Test#declared16NNarrowSourceTestsRealImprovement",
+          "passed": true,
+          "seconds": 124.39
+        }
+      ]
+    },
+    {
+      "label": "native056-regression",
+      "source": "52c93ad",
+      "count": 37,
+      "failures": 2,
+      "cases": [
+        {
+          "case": "fraymus.workspace.ChatChain052Test#duplicateWarningsKeepEveryOriginalOccurrenceBeyondRecentWindow",
+          "passed": true,
+          "seconds": 0.009
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#numericRefusalExplainsOriginalBoundsWithoutChangingThem",
+          "passed": true,
+          "seconds": 0.008
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#oversizedRequirementsRefuseRatherThanBeingSilentlyTruncated",
+          "passed": true,
+          "seconds": 0.005
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#legacyTaskDoesNotClaimCompleteTimingCoverage",
+          "passed": true,
+          "seconds": 0.001
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#summaryRetainsRejectedQualityAndDoesNotDumpMetrics",
+          "passed": true,
+          "seconds": 0.002
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#discoverySummaryKeepsExactBindingsAndBothEndsWithoutBreakingJson",
+          "passed": true,
+          "seconds": 0.022
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#largeRecentObservationHasExplicitOmissionHashAndKeepsFailure",
+          "passed": true,
+          "seconds": 0.005
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#queuedObjectiveSealRefusesChangedRequest",
+          "passed": true,
+          "seconds": 0.001
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#providerMapMetadataIsRetainedWithoutUnrelatedFields",
+          "passed": true,
+          "seconds": 0.0
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#automaticCompletionRechecksCurrentArtifactInsteadOfTrustingOldSuccess",
+          "passed": true,
+          "seconds": 2.202
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#failedPlannerCallIsTimedAndDoesNotBecomeAnAction",
+          "passed": true,
+          "seconds": 0.2
+        },
+        {
+          "case": "fraymus.workspace.Design056Test#disabledRedesignNeverAdmitsWiderCandidates",
+          "passed": true,
+          "seconds": 0.362
+        },
+        {
+          "case": "fraymus.workspace.Design056Test#explicitChatLoadCannotBeDroppedOrChanged",
+          "passed": false,
+          "seconds": 0.029
+        },
+        {
+          "case": "fraymus.workspace.Design056Test#nativeBaselineLoadFailureAdmitsOnlyVerifiedRedesignAndColdReview",
+          "passed": true,
+          "seconds": 151.802
+        },
+        {
+          "case": "fraymus.workspace.Design056Test#originalLoadChartAndTableMustBothMatch",
+          "passed": true,
+          "seconds": 0.002
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#retainedAppearancePolicyCannotChangeCategoryOrInstallDetectorOptions",
+          "passed": true,
+          "seconds": 0.002
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#retainedSkillSourceAndForceDefaultsCannotBeSilentlyChanged",
+          "passed": true,
+          "seconds": 0.004
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#nativeWaitUsesActualChildAndRetainsItsIdentity",
+          "passed": true,
+          "seconds": 0.007
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#savedGraphChatSelectsExactVersionAndWorkflowBeforePlanning",
+          "passed": true,
+          "seconds": 0.009
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#sourceFreeHostSuccessAndForeignChildrenAreRejected",
+          "passed": true,
+          "seconds": 0.006
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#reportStageCannotSkipActualReads",
+          "passed": true,
+          "seconds": 0.0
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#typedOptionsPreserveExplicitValuesAndRejectContradictions",
+          "passed": true,
+          "seconds": 0.0
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#interruptedChildCannotProduceSuccessfulCompletion",
+          "passed": true,
+          "seconds": 0.006
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#inventedHostFactsDoNotReplaceActualJavaRead",
+          "passed": true,
+          "seconds": 0.009
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#retainedSkillSchemasKeepDefaultsOptionalAndHideBoundDetectorPolicy",
+          "passed": true,
+          "seconds": 0.001
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#javaRoutesEveryFormerDesktopFamilyWithoutChangingWebCreation",
+          "passed": true,
+          "seconds": 0.009
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#constructionReuseExposesOnlyExplicitChangesAndKeepsOriginalLimits",
+          "passed": true,
+          "seconds": 0.006
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#actualQueueCompletionRecordsTheVerifiedReportInTheSameLearningEpisode",
+          "passed": true,
+          "seconds": 0.262
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#workflowBootstrapBindsDatasetAndSceneInJavaBeforeAnyHostAction",
+          "passed": true,
+          "seconds": 0.006
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#reportMustHaveFrozenOriginalAssertionsAndExactSourceVersion",
+          "passed": true,
+          "seconds": 0.032
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#creationPromptsAreOwnedBoundedAndKeepSourceReserved",
+          "passed": true,
+          "seconds": 0.006
+        },
+        {
+          "case": "fraymus.workspace.Load055Test#stopPreservesPartialEvidenceThenExplicitRestartReevaluatesAndRejectsTampering",
+          "passed": true,
+          "seconds": 14.611
+        },
+        {
+          "case": "fraymus.workspace.Load056RecoveryTest#actualInterruptedLoadRetainsOriginalsAndRejectsTampering",
+          "passed": false,
+          "seconds": 63.597
+        },
+        {
+          "case": "fraymus.workspace.Route055RecoveryTest#lateralWaypointRestoresAfterColdRestart",
+          "passed": true,
+          "seconds": 11.737
+        },
+        {
+          "case": "fraymus.workspace.WorldHandoff056Test#exactPublishedColdWorldNeedsExplicitUpgradeAndRetainsEveryFrame",
+          "passed": true,
+          "seconds": 0.114
+        },
+        {
+          "case": "fraymus.workspace.WorldHandoff056Test#pendingOwnersAndUnknownIdentitiesCannotBeUpgraded",
+          "passed": true,
+          "seconds": 0.043
+        },
+        {
+          "case": "fraymus.workspace.WorldReservedTest#differentFrozenSequencesKeepStateAcrossGoalsAndFailureNeverAdvancesHead",
+          "passed": true,
+          "seconds": 77.723
+        }
+      ]
+    },
+    {
+      "label": "native056-final",
+      "source": "b11ef7b52b03dbdd861c5439f1782eb87d92f4b3",
+      "count": 17,
+      "failures": 0,
+      "cases": [
+        {
+          "case": "fraymus.workspace.Construction051Test#nativeBridgeIsReleasedAndReassembledFromActualPriorFrame",
+          "passed": true,
+          "seconds": 0.934
+        },
+        {
+          "case": "fraymus.workspace.Construction051Test#sourceDesignAndTraceChangesAreRefused",
+          "passed": true,
+          "seconds": 0.423
+        },
+        {
+          "case": "fraymus.workspace.Construction051Test#heldNativeConstructionResumesFromAnExactCheckpoint",
+          "passed": true,
+          "seconds": 8.356
+        },
+        {
+          "case": "fraymus.workspace.Construction051Test#insufficientForceCannotEarnConstructionSuccess",
+          "passed": true,
+          "seconds": 0.046
+        },
+        {
+          "case": "fraymus.workspace.Construction051Test#chatConstructionIsTypedAndSelectedWorldBound",
+          "passed": true,
+          "seconds": 0.017
+        },
+        {
+          "case": "fraymus.workspace.Construction051Test#legacyWorldUpgradeIsExplicitExactAndSourceBound",
+          "passed": true,
+          "seconds": 0.078
+        },
+        {
+          "case": "fraymus.workspace.Counterfactual045Test#unfinishedForecastRetainsCompletedBytesAndOriginalAttemptsAcrossRestart",
+          "passed": true,
+          "seconds": 13.954
+        },
+        {
+          "case": "fraymus.workspace.Counterfactual045Test#codeAndSourceCorruptionAreRefusedWithoutChangingOriginalBytes",
+          "passed": true,
+          "seconds": 0.093
+        },
+        {
+          "case": "fraymus.workspace.Counterfactual045Test#ordinaryWorldRequestAndExplicitCounterfactualRequestStayDistinct",
+          "passed": true,
+          "seconds": 0.001
+        },
+        {
+          "case": "fraymus.workspace.Counterfactual045Test#nativeAlternativesKeepWorldExactAndSelectedExecutionMatchesOriginalTraces",
+          "passed": true,
+          "seconds": 31.499
+        },
+        {
+          "case": "fraymus.workspace.Counterfactual045Test#forecastOnlyAndExplicitNoMovementRequestsRequireReview",
+          "passed": true,
+          "seconds": 0.001
+        },
+        {
+          "case": "fraymus.workspace.Counterfactual045Test#cancellationCannotAdvanceOrReserveTheLiveWorld",
+          "passed": true,
+          "seconds": 0.06
+        },
+        {
+          "case": "fraymus.workspace.Design056Test#explicitChatLoadCannotBeDroppedOrChanged",
+          "passed": true,
+          "seconds": 0.096
+        },
+        {
+          "case": "fraymus.workspace.Load056RecoveryTest#actualInterruptedLoadRetainsOriginalsAndRejectsTampering",
+          "passed": true,
+          "seconds": 79.947
+        },
+        {
+          "case": "fraymus.workspace.Load056Test#declared16NNarrowSourceTestsRealImprovement",
+          "passed": true,
+          "seconds": 121.158
+        },
+        {
+          "case": "fraymus.workspace.Load056Test#frozen24NLayoutsRetainMeasuredFailure",
+          "passed": true,
+          "seconds": 183.388
+        },
+        {
+          "case": "fraymus.workspace.Load056Test#requestedLoadsAndSpanAreStrictlyBounded",
+          "passed": true,
+          "seconds": 0.051
+        }
+      ]
+    }
+  ],
+  "javaScope": "Distinct passing targeted cases across source-qualified invocations. Original contrary24N hypothesis and development defects retained; no full-suite or held-out-generalization claim. Native acceptance thresholds unchanged.",
+  "desktopUnitTests": 123,
+  "integration": [
+    "The original16N layout fails; wider supports pass; third layout stays unexecuted. Cold review restart preserves source and decision; fresh assembly and repeated envelope precede one commit. Visible export retains all original bytes with receipt",
+    "Cold restart restores measured-load enablement, exact16N requirement, redesign permission and original skill name; completed first-phase physics evidence remains unchanged",
+    "Actual local CPU model selects the typed construction task once; Java retains direct-first and load requirements, executes a changed centre and explains stable versus unstable experiments",
+    "Saved procedure refuses a changed required force before scheduling",
+    "Cold restart restores measured-load enablement, exact16N requirement, redesign permission and original skill name; completed first-phase physics evidence remains unchanged",
+    "Exact saved procedure survives restart and reruns fresh direct-first and load experiments with fresh wide stock; earlier world remains byte-equivalent in its observed history",
+    "Full-width wall refuses before a goal or native effect; persistent visible reason, unchanged world and no invented route",
+    "Disabling redesign retains measured baseline failure and refuses live-world commit",
+    "Cold restart restores measured-load enablement, exact16N requirement, redesign permission and original skill name; completed first-phase physics evidence remains unchanged",
+    "Continuation retains previously verified reuse and refusal records; Stop is tested again in a new source world",
+    "Cold restart restores measured-load enablement, exact16N requirement, redesign permission and original skill name; completed first-phase physics evidence remains unchanged",
+    "Continuation retains previously verified reuse and refusal records; Stop is tested again in a new source world",
+    "Cold restart restores measured-load enablement, exact16N requirement, redesign permission and original skill name; completed first-phase physics evidence remains unchanged",
+    "Continuation retains previously verified reuse and refusal records; Stop is tested again in a new source world",
+    "Stop during load testing retains nonempty original measured rows and assembly proof without a world commit; actual stop phase: within-case",
+    "Cold restart restores measured-load enablement, exact16N requirement, redesign permission and original skill name; completed first-phase physics evidence remains unchanged",
+    "Cold readback of compact-stock comparison: all three completed native load envelopes fail16N; goal cleanup cancels the child study, originals remain verified, and bound source hash/revision are unchanged"
+  ],
+  "timing": {
+    "chat": {
+      "wallSeconds": 510.886274,
+      "timing052": {
+        "modelMillis": 84105.3522,
+        "scope": "Measured Java planner-request wall time, including local admission and inference. Not simulated time or an estimate of time saved.",
+        "completeSinceAdmission": true,
+        "modelCalls": 1,
+        "failedModelCalls": 0,
+        "terminalChecksWithoutModel": 1
+      },
+      "source": "ae68cf26c99745eda9505241978e81c28e49bf5e"
+    },
+    "reused": {
+      "wallSeconds": 405.50497,
+      "timing052": {
+        "modelMillis": 155169.5503,
+        "scope": "Measured Java planner-request wall time, including local admission and inference. Not simulated time or an estimate of time saved.",
+        "completeSinceAdmission": true,
+        "modelCalls": 1,
+        "failedModelCalls": 0,
+        "terminalChecksWithoutModel": 1
+      },
+      "source": "b3c5f59cc89e6c39c368fcec0ff1953306d3c2ac"
+    }
+  },
+  "developmentFailures": [
+    {
+      "record": "construction056-failed-1793755269972.json",
+      "source": "6323724437b2dcc8dbdf8c0dcd23276761177dc5",
+      "error": "Error: Stopped by you\n    at C:\\Users\\eyeka\\Documents\\Codex\\2026-10-26\\is\\work\\fraynix-workspace-edition056\\workspace-desktop\\test\\construction056-integration.cjs:34:278\n    at async until (C:\\Users\\eyeka\\Documents\\Codex\\2026-10-26\\is\\work\\fraynix-workspace-edition056\\workspace-desktop\\test\\construction056-integration.cjs:23:102)\n    at async main (C:\\Users\\eyeka\\Documents\\Codex\\2026-10-26\\is\\work\\fraynix-workspace-edition056\\workspace-desktop\\test\\construction056-integration.cjs:43:524)",
+      "project": "C:\\Users\\eyeka\\AppData\\Local\\Temp\\fraynix-construction056-HRMgkY"
+    },
+    {
+      "record": "construction056-failed-1793755413577.json",
+      "source": "c512da14d7ed61a9f2fd326637448f8cb0c3f3ca",
+      "error": "AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:\n\n  assert((await page.locator('#goal').inputValue()).includes('requiredLoadN 16'))\n\n    at main (C:\\Users\\eyeka\\Documents\\Codex\\2026-10-26\\is\\work\\fraynix-workspace-edition056\\workspace-desktop\\test\\construction056-integration.cjs:45:513)",
+      "project": "C:\\Users\\eyeka\\AppData\\Local\\Temp\\fraynix-construction056-HRMgkY"
+    },
+    {
+      "record": "construction056-failed-1793755624098.json",
+      "source": "4347d888e1a47654b7976093c1fca218ab277558",
+      "error": "electronApplication.evaluate: Target page, context or browser has been closed\nBrowser logs:\n\n<launching> \"C:\\Users\\eyeka\\Documents\\Codex\\2026-10-26\\is\\work\\fraynix-agent-workspace\\workspace-desktop\\node_modules\\electron\\dist\\electron.exe\" \"-r\" \"C:\\Users\\eyeka\\Documents\\Codex\\2026-10-26\\is\\work\\fraynix-agent-workspace\\workspace-desktop\\node_modules\\playwright-core\\lib\\server\\electron\\loader.js\" \"--inspect=0\" \"--remote-debugging-port=0\" \"C:\\Users\\eyeka\\Documents\\Codex\\2026-10-26\\is\\work\\fraynix-workspace-edition056\\workspace-desktop\\main.cjs\" \n<launched> pid=13348\n[pid=13348][out] \n[pid=13348][err] Debugger listening on ws://127.0.0.1:55536/7005fc8c-ddb2-4d0c-917f-a67ecf002505\n[pid=13348][err] For help, see: https://nodejs.org/learn/getting-started/debugging\n[pid=13348][err] Debugger attached.\n[pid=13348][err] \n[pid=13348][err] DevTools listening on ws://127.0.0.1:55538/devtools/browser/8e10e634-3993-4d07-ac5c-783a4977db93\n[pid=13348][err] Error occurred in handler for 'workspace:request': Error: Wait for the current operation, or take over from the agent first\n[pid=13348][err]     at C:\\Users\\eyeka\\Documents\\Codex\\2026-10-26\\is\\work\\fraynix-workspace-edition056\\workspace-desktop\\main.cjs:365:88\n[pid=13348][err] Error occurred in handler for 'workspace:request': Error: Wait for the current manual operation\n[pid=13348][err]     at C:\\Users\\eyeka\\Documents\\Codex\\2026-10-26\\is\\work\\fraynix-workspace-edition056\\workspace-desktop\\main.cjs:366:65\n[pid=13348][err] Debugger attached.\n[pid=13348][err] Debugger attached.\n[pid=13348][err] Error occurred in handler for 'workspace:request': [TypeError: fetch failed] {\n[pid=13348][err]   [cause]: Error: read ECONNRESET\n[pid=13348][err]       at TCP.onStreamRead (node:internal/stream_base_commons:221:20) {\n[pid=13348][err]     errno: -4077,\n[pid=13348][err]     code: 'ECONNRESET',\n[pid=13348][err]     syscall: 'read'\n[pid=13348][err]   }\n[pid=13348][err] }\n[pid=13348][err] Error occurred in handler for 'workspace:request': [TypeError: fetch failed] {\n[pid=13348][err]   [cause]: Error: read ECONNRESET\n[pid=13348][err]       at TCP.onStreamRead (node:internal/stream_base_commons:221:20) {\n[pid=13348][err]     errno: -4077,\n[pid=13348][err]     code: 'ECONNRESET',\n[pid=13348][err]     syscall: 'read'\n[pid=13348][err]   }\n[pid=13348][err] }\n[pid=13348][err] Waiting for the debugger to disconnect...\n    at api (C:\\Users\\eyeka\\Documents\\Codex\\2026-10-26\\is\\work\\fraynix-workspace-edition056\\workspace-desktop\\test\\construction056-integration.cjs:22:34)\n    at C:\\Users\\eyeka\\Documents\\Codex\\2026-10-26\\is\\work\\fraynix-workspace-edition056\\workspace-desktop\\test\\construction056-integration.cjs:34:80\n    at until (C:\\Users\\eyeka\\Documents\\Codex\\2026-10-26\\is\\work\\fraynix-workspace-edition056\\workspace-desktop\\test\\construction056-integration.cjs:23:108)\n    at async chatFinished (C:\\Users\\eyeka\\Documents\\Codex\\2026-10-26\\is\\work\\fraynix-workspace-edition056\\workspace-desktop\\test\\construction056-integration.cjs:34:52)\n    at async main (C:\\Users\\eyeka\\Documents\\Codex\\2026-10-26\\is\\work\\fraynix-workspace-edition056\\workspace-desktop\\test\\construction056-integration.cjs:45:623)",
+      "project": "C:\\Users\\eyeka\\AppData\\Local\\Temp\\fraynix-construction056-HRMgkY"
+    },
+    {
+      "record": "construction056-failed-1793756218139.json",
+      "source": "ae68cf26c99745eda9505241978e81c28e49bf5e",
+      "error": "Error: Stopped by you\n    at C:\\Users\\eyeka\\Documents\\Codex\\2026-10-26\\is\\work\\fraynix-workspace-edition056\\workspace-desktop\\test\\construction056-integration.cjs:34:278\n    at async until (C:\\Users\\eyeka\\Documents\\Codex\\2026-10-26\\is\\work\\fraynix-workspace-edition056\\workspace-desktop\\test\\construction056-integration.cjs:23:102)\n    at async main (C:\\Users\\eyeka\\Documents\\Codex\\2026-10-26\\is\\work\\fraynix-workspace-edition056\\workspace-desktop\\test\\construction056-integration.cjs:47:424)",
+      "project": "C:\\Users\\eyeka\\AppData\\Local\\Temp\\fraynix-construction056-HRMgkY"
+    },
+    {
+      "record": "construction056-failed-1793757496809.json",
+      "source": "b3c5f59cc89e6c39c368fcec0ff1953306d3c2ac",
+      "error": "Error: Expected actual edition056 state did not arrive\n    at until (C:\\Users\\eyeka\\Documents\\Codex\\2026-10-26\\is\\work\\fraynix-workspace-edition056\\workspace-desktop\\test\\construction056-integration.cjs:23:151)\n    at async main (C:\\Users\\eyeka\\Documents\\Codex\\2026-10-26\\is\\work\\fraynix-workspace-edition056\\workspace-desktop\\test\\construction056-integration.cjs:54:649)",
+      "project": "C:\\Users\\eyeka\\AppData\\Local\\Temp\\fraynix-construction056-HRMgkY"
+    },
+    {
+      "record": "construction056-failed-1793757532308.json",
+      "source": "b3b7a9643623265afd8f9ea9d5e3e3d18a7ad0f3",
+      "error": "ReferenceError: refusedWorld is not defined\n    at C:\\Users\\eyeka\\Documents\\Codex\\2026-10-26\\is\\work\\fraynix-workspace-edition056\\workspace-desktop\\test\\construction056-integration.cjs:56:157\n    at async until (C:\\Users\\eyeka\\Documents\\Codex\\2026-10-26\\is\\work\\fraynix-workspace-edition056\\workspace-desktop\\test\\construction056-integration.cjs:23:102)\n    at async main (C:\\Users\\eyeka\\Documents\\Codex\\2026-10-26\\is\\work\\fraynix-workspace-edition056\\workspace-desktop\\test\\construction056-integration.cjs:56:67)",
+      "project": "C:\\Users\\eyeka\\AppData\\Local\\Temp\\fraynix-construction056-HRMgkY"
+    },
+    {
+      "record": "construction056-failed-1793757585396.json",
+      "source": "94bd432ad2fa49266dcaf331a45359b264ac72f6",
+      "error": "TypeError: Cannot read properties of undefined (reading 'some')\n    at C:\\Users\\eyeka\\Documents\\Codex\\2026-10-26\\is\\work\\fraynix-workspace-edition056\\workspace-desktop\\test\\construction056-integration.cjs:56:482\n    at async until (C:\\Users\\eyeka\\Documents\\Codex\\2026-10-26\\is\\work\\fraynix-workspace-edition056\\workspace-desktop\\test\\construction056-integration.cjs:23:102)\n    at async main (C:\\Users\\eyeka\\Documents\\Codex\\2026-10-26\\is\\work\\fraynix-workspace-edition056\\workspace-desktop\\test\\construction056-integration.cjs:56:391)",
+      "project": "C:\\Users\\eyeka\\AppData\\Local\\Temp\\fraynix-construction056-HRMgkY"
+    },
+    {
+      "record": "construction056-failed-1793757937783.json",
+      "source": "e62dc071970882fe2e4f58b959e8cb71b8d60684",
+      "error": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n+ actual - expected\n\n+ 'cancelled'\n- 'failed'\n\n    at main (C:\\Users\\eyeka\\Documents\\Codex\\2026-10-26\\is\\work\\fraynix-workspace-edition056\\workspace-desktop\\test\\construction056-integration.cjs:57:769)",
+      "project": "C:\\Users\\eyeka\\AppData\\Local\\Temp\\fraynix-construction056-HRMgkY"
+    }
+  ],
+  "scope": "Synthetic rigid-body stability under the declared eccentric downward force, duration, stock and source. Not a continuous capacity rating, material strength, physical certification or model-weight training.",
+  "contrary24N": "All three original frozen 24 N layouts fail unchanged displacement/stability gates; retain original failed expectation.",
+  "development16N": "Separately declared before execution: original0.8m span fails16N;1.395m span passes; both have original repeated force evidence.",
+  "runtimeComponents": {
+    "desktopProductSource": "ae68cf2",
+    "installedJavaSource": "c512da1",
+    "nativeAlgorithmValidationSource": "b11ef7b",
+    "note": "Later commits only adjust actual-app test continuation; first-phase and local-model phase identities are recorded separately."
+  },
+  "firstPhaseSource": "6323724437b2dcc8dbdf8c0dcd23276761177dc5",
+  "chatPhaseSource": "ae68cf26c99745eda9505241978e81c28e49bf5e",
+  "continuations": [
+    {
+      "source": "b3c5f59cc89e6c39c368fcec0ff1953306d3c2ac",
+      "priorSource": "ae68cf26c99745eda9505241978e81c28e49bf5e",
+      "record": "C:\\Users\\eyeka\\Documents\\Codex\\2026-10-26\\is\\work\\fraynix-workspace-edition056\\workspace-desktop\\test-output\\construction056-failed-1793756218139.json"
+    },
+    {
+      "source": "b3b7a9643623265afd8f9ea9d5e3e3d18a7ad0f3",
+      "priorSource": "b3c5f59cc89e6c39c368fcec0ff1953306d3c2ac",
+      "record": "C:\\Users\\eyeka\\Documents\\Codex\\2026-10-26\\is\\work\\fraynix-workspace-edition056\\workspace-desktop\\test-output\\construction056-failed-1793757496809.json"
+    },
+    {
+      "source": "94bd432ad2fa49266dcaf331a45359b264ac72f6",
+      "priorSource": "b3b7a9643623265afd8f9ea9d5e3e3d18a7ad0f3",
+      "record": "C:\\Users\\eyeka\\Documents\\Codex\\2026-10-26\\is\\work\\fraynix-workspace-edition056\\workspace-desktop\\test-output\\construction056-failed-1793757532308.json"
+    },
+    {
+      "source": "e62dc071970882fe2e4f58b959e8cb71b8d60684",
+      "priorSource": "94bd432ad2fa49266dcaf331a45359b264ac72f6",
+      "record": "C:\\Users\\eyeka\\Documents\\Codex\\2026-10-26\\is\\work\\fraynix-workspace-edition056\\workspace-desktop\\test-output\\construction056-failed-1793757585396.json"
+    },
+    {
+      "source": "9b17ba7cc0cffb6a92aaac9307521042ea8958a2",
+      "priorSource": "e62dc071970882fe2e4f58b959e8cb71b8d60684",
+      "record": "C:\\Users\\eyeka\\Documents\\Codex\\2026-10-26\\is\\work\\fraynix-workspace-edition056\\workspace-desktop\\test-output\\construction056-failed-1793757937783.json"
+    }
+  ],
+  "initialFailures": "Actual cold restart originally reset UI load controls and omitted requiredLoadN from chat. Invalid model proposals were rejected before execution; task explicitly stopped. Controls now restore the retained requirement and skill name; verified first-phase originals preserved. A premature test read was corrected to wait for async request preparation. View activation briefly held manualBusy and refused an immediate chat; the real action now waits for readiness while keeping the backend guard. A harness history lookup initially selected an older cancelled task; it now waits for an unseen task ID and retains the already verified phases. The first Stop check assumed cancellation must land within a case; actual cancellation landed between cases and retained completed measurements. The check now distinguishes these valid timings, requires nonempty original rows and no running attempt, and records the observed phase. The native recovery test separately verifies 480 partial ticks and continuation. Resumed tests initially referenced a variable from a skipped phase and read a candidate list before initialization. They now bind the persisted identity, wait for a newly created world and await candidate observations. Unfinished synthetic validation tasks are explicitly cancelled before starting a new Stop case; originals remain retained. The compact-stock test originally expected the child status to remain failed, but the goal owner marks its failed child cancelled during cleanup. The corrected check requires every candidate to have completed actual load evidence that fails the requirement, and independently verifies unchanged source hash/revision on cold readback; it cannot accept an untested cancelled study. Final continuation uses a768MB Java heap; initial first phase used the default heap. Canonical persisted-number verification corrected without changing thresholds. Explicit no-space chat force syntax corrected. Recovery test reader changed to declared64MB load format instead of generic4MB checkpoint format.",
+  "sourceProjects": [
+    "C:\\Users\\eyeka\\AppData\\Local\\Temp\\counter045-control-4985612520851398049",
+    "C:\\Users\\eyeka\\AppData\\Local\\Temp\\design056-selection-14228255616137023071",
+    "C:\\Users\\eyeka\\AppData\\Local\\Temp\\load055-recovery-2054003035624103827",
+    "C:\\Users\\eyeka\\AppData\\Local\\Temp\\load056-matrix-11337769168150964321",
+    "C:\\Users\\eyeka\\AppData\\Local\\Temp\\load056-matrix-11536350868961319315",
+    "C:\\Users\\eyeka\\AppData\\Local\\Temp\\load056-matrix-496265551592163358",
+    "C:\\Users\\eyeka\\AppData\\Local\\Temp\\load056-recovery-17010623840736594786",
+    "C:\\Users\\eyeka\\AppData\\Local\\Temp\\load056-redesign16-3519748973132660123",
+    "C:\\Users\\eyeka\\AppData\\Local\\Temp\\load056-redesign16-6464958567513711506",
+    "C:\\Users\\eyeka\\AppData\\Local\\Temp\\route055-recovery-6061693359440873616",
+    "C:\\Users\\eyeka\\AppData\\Local\\Temp\\world035-reserved-12538836895792775997"
+  ],
+  "compactStockOutcome": {
+    "status": "cancelled",
+    "candidates": [
+      {
+        "id": "maximum-force",
+        "status": "completed",
+        "load056": {
+          "repeats": [
+            {
+              "stable": true,
+              "repeat": 1,
+              "metrics": {
+                "maxBeamTiltDeg": 0.0011395725953234617,
+                "maxSettledSpeedMps": 0.0005338778738835682,
+                "settledSamples": 20,
+                "stable": true,
+                "workJ": -2.6429035431263515e-06,
+                "forceEffortNs": 15.999999999999954,
+                "maxBeamDisplacementM": 0.03441356177488778,
+                "nativeTicks": 1440,
+                "supportedSamples": 20
+              },
+              "forceN": 8,
+              "attemptId": "91f06ca0-29e3-4f61-ad83-20121eb09f53"
+            },
+            {
+              "stable": true,
+              "repeat": 2,
+              "metrics": {
+                "maxBeamTiltDeg": 0.0011395725953234617,
+                "maxSettledSpeedMps": 0.0005338778738835682,
+                "settledSamples": 20,
+                "stable": true,
+                "workJ": -2.6429035431263515e-06,
+                "forceEffortNs": 15.999999999999954,
+                "maxBeamDisplacementM": 0.03441356177488778,
+                "nativeTicks": 1440,
+                "supportedSamples": 20
+              },
+              "forceN": 8,
+              "attemptId": "3a4de10e-5813-4e39-8a78-a67777a4dce2"
+            },
+            {
+              "stable": false,
+              "repeat": 1,
+              "metrics": {
+                "maxBeamTiltDeg": 0.02327468358371042,
+                "maxSettledSpeedMps": 0.0007775481626998244,
+                "settledSamples": 20,
+                "stable": false,
+                "workJ": -3.942676865342776e-05,
+                "forceEffortNs": 31.999999999999908,
+                "maxBeamDisplacementM": 0.06877031819022003,
+                "nativeTicks": 1440,
+                "supportedSamples": 20
+              },
+              "forceN": 16,
+              "attemptId": "9b826453-0cdf-4e95-9ce8-ca3b5648a70a"
+            },
+            {
+              "stable": false,
+              "repeat": 2,
+              "metrics": {
+                "maxBeamTiltDeg": 0.02327468358371042,
+                "maxSettledSpeedMps": 0.0007775481626998244,
+                "settledSamples": 20,
+                "stable": false,
+                "workJ": -3.942676865342776e-05,
+                "forceEffortNs": 31.999999999999908,
+                "maxBeamDisplacementM": 0.06877031819022003,
+                "nativeTicks": 1440,
+                "supportedSamples": 20
+              },
+              "forceN": 16,
+              "attemptId": "aad89c87-7da0-4967-b4ff-5d33ce31bd1e"
+            }
+          ],
+          "wallMillis": 35663.8988,
+          "totalTicks": 15840,
+          "applicationPointLocalM": [
+            0.7200000000000001,
+            0,
+            0
+          ],
+          "version": "measured-load-envelope-056-v1",
+          "stablePrefixN": 8,
+          "nonMonotonic": false,
+          "requiredLoadN": 16,
+          "codeSha256": "0d18ab9e1fa2b7864e091aa50f3013b1f7b2856dcc041c5dcc0c1ca132c1dac3",
+          "firstUnstableN": 16,
+          "qualifies": false,
+          "repeatable": true,
+          "scope": "Declared off-centre downward load stability in independent six-second native copies; tested brackets, not material strength or continuous safe limits.",
+          "sourceRunSha256": "fca6adcca9995c28a014c1f6bf2374ad58db81089078996897e00520ab884347",
+          "forceEffortNs": 480.00000000000796,
+          "complete": true,
+          "levels": [
+            {
+              "stable": true,
+              "metrics": {
+                "maxBeamTiltDeg": 0.0011395725953234617,
+                "maxSettledSpeedMps": 0.00017694223384789277,
+                "settledSamples": 20,
+                "stable": true,
+                "workJ": 0,
+                "forceEffortNs": 0,
+                "maxBeamDisplacementM": 0.0011729049070399872,
+                "nativeTicks": 1440,
+                "supportedSamples": 20
+              },
+              "forceN": 0,
+              "attemptId": "ad47e82d-b315-4afe-aaab-3fee5c29f925"
+            },
+            {
+              "stable": true,
+              "metrics": {
+                "maxBeamTiltDeg": 0.0011395725953234617,
+                "maxSettledSpeedMps": 0.0005338778738835682,
+                "settledSamples": 20,
+                "stable": true,
+                "workJ": -2.6429035431263515e-06,
+                "forceEffortNs": 15.999999999999954,
+                "maxBeamDisplacementM": 0.03441356177488778,
+                "nativeTicks": 1440,
+                "supportedSamples": 20
+              },
+              "forceN": 8,
+              "attemptId": "b6a7258d-3948-4427-8896-54286dc181ad"
+            },
+            {
+              "stable": false,
+              "metrics": {
+                "maxBeamTiltDeg": 0.02327468358371042,
+                "maxSettledSpeedMps": 0.0007775481626998244,
+                "settledSamples": 20,
+                "stable": false,
+                "workJ": -3.942676865342776e-05,
+                "forceEffortNs": 31.999999999999908,
+                "maxBeamDisplacementM": 0.06877031819022003,
+                "nativeTicks": 1440,
+                "supportedSamples": 20
+              },
+              "forceN": 16,
+              "attemptId": "adbb5e98-84c1-4716-b26e-0477417f9e37"
+            },
+            {
+              "stable": false,
+              "metrics": {
+                "maxBeamTiltDeg": 0.054859933112361106,
+                "maxSettledSpeedMps": 0.0009399435941835211,
+                "settledSamples": 20,
+                "stable": false,
+                "workJ": -2.38546086350766e-06,
+                "forceEffortNs": 48.00000000000041,
+                "maxBeamDisplacementM": 0.10307436423073865,
+                "nativeTicks": 1440,
+                "supportedSamples": 20
+              },
+              "forceN": 24,
+              "attemptId": "033371c7-bfd5-4e75-9580-c24eee14c5a8"
+            },
+            {
+              "stable": false,
+              "metrics": {
+                "maxBeamTiltDeg": 0.19988977901090163,
+                "maxSettledSpeedMps": 0.00012930378815158302,
+                "settledSamples": 20,
+                "stable": false,
+                "workJ": -3.7010139397608555e-05,
+                "forceEffortNs": 63.999999999999815,
+                "maxBeamDisplacementM": 0.13778236353771428,
+                "nativeTicks": 1440,
+                "supportedSamples": 20
+              },
+              "forceN": 32,
+              "attemptId": "a7c5ee6e-821e-447b-8eb6-3e590550922d"
+            },
+            {
+              "stable": false,
+              "metrics": {
+                "maxBeamTiltDeg": 0.34927349203909763,
+                "maxSettledSpeedMps": 0.00012792458427399433,
+                "settledSamples": 20,
+                "stable": false,
+                "workJ": 0.00010956753078694703,
+                "forceEffortNs": 96.00000000000082,
+                "maxBeamDisplacementM": 0.20598021171791658,
+                "nativeTicks": 1440,
+                "supportedSamples": 20
+              },
+              "forceN": 48,
+              "attemptId": "457dcbc0-7271-41c3-882b-8ca10982d3ae"
+            },
+            {
+              "stable": false,
+              "metrics": {
+                "maxBeamTiltDeg": 0.4507316400000889,
+                "maxSettledSpeedMps": 0.0002446042066997293,
+                "settledSamples": 20,
+                "stable": false,
+                "workJ": 5.2095940532126406e-05,
+                "forceEffortNs": 127.99999999999963,
+                "maxBeamDisplacementM": 0.27558994280058646,
+                "nativeTicks": 1440,
+                "supportedSamples": 20
+              },
+              "forceN": 64,
+              "attemptId": "e0b00c73-f906-49ad-ba87-c9aebe936c9d"
+            }
+          ],
+          "originalSha256": "b3d463d51cfec962c511850ffb8821150a2de7043cc479181e23b14850bc09df",
+          "attempts": 11
+        }
+      },
+      {
+        "id": "wider-supports",
+        "status": "completed",
+        "load056": {
+          "repeats": [
+            {
+              "stable": true,
+              "repeat": 1,
+              "metrics": {
+                "maxBeamTiltDeg": 0.001270527640103187,
+                "maxSettledSpeedMps": 0.0004031700239427857,
+                "settledSamples": 20,
+                "stable": true,
+                "workJ": 1.6635707409839995e-05,
+                "forceEffortNs": 15.999999999999954,
+                "maxBeamDisplacementM": 0.03424758888066998,
+                "nativeTicks": 1440,
+                "supportedSamples": 20
+              },
+              "forceN": 8,
+              "attemptId": "ca22b0eb-4162-4d84-97eb-e9729ac5eb4a"
+            },
+            {
+              "stable": true,
+              "repeat": 2,
+              "metrics": {
+                "maxBeamTiltDeg": 0.001270527640103187,
+                "maxSettledSpeedMps": 0.0004031700239427857,
+                "settledSamples": 20,
+                "stable": true,
+                "workJ": 1.6635707409839995e-05,
+                "forceEffortNs": 15.999999999999954,
+                "maxBeamDisplacementM": 0.03424758888066998,
+                "nativeTicks": 1440,
+                "supportedSamples": 20
+              },
+              "forceN": 8,
+              "attemptId": "d5c71569-ad8b-43f2-8687-869e409578c0"
+            },
+            {
+              "stable": false,
+              "repeat": 1,
+              "metrics": {
+                "maxBeamTiltDeg": 0.007892219540433773,
+                "maxSettledSpeedMps": 0.0007618673895799053,
+                "settledSamples": 20,
+                "stable": false,
+                "workJ": 0.00014941899927833902,
+                "forceEffortNs": 31.999999999999908,
+                "maxBeamDisplacementM": 0.06861694082142633,
+                "nativeTicks": 1440,
+                "supportedSamples": 20
+              },
+              "forceN": 16,
+              "attemptId": "3849d106-835b-4fbc-ad62-98624e74f3a3"
+            },
+            {
+              "stable": false,
+              "repeat": 2,
+              "metrics": {
+                "maxBeamTiltDeg": 0.007892219540433773,
+                "maxSettledSpeedMps": 0.0007618673895799053,
+                "settledSamples": 20,
+                "stable": false,
+                "workJ": 0.00014941899927833902,
+                "forceEffortNs": 31.999999999999908,
+                "maxBeamDisplacementM": 0.06861694082142633,
+                "nativeTicks": 1440,
+                "supportedSamples": 20
+              },
+              "forceN": 16,
+              "attemptId": "ee9db53c-7faf-4555-af48-ebb6e21870cf"
+            }
+          ],
+          "wallMillis": 30798.936400000002,
+          "totalTicks": 15840,
+          "applicationPointLocalM": [
+            0.7200000000000001,
+            0,
+            0
+          ],
+          "version": "measured-load-envelope-056-v1",
+          "stablePrefixN": 8,
+          "nonMonotonic": false,
+          "requiredLoadN": 16,
+          "codeSha256": "0d18ab9e1fa2b7864e091aa50f3013b1f7b2856dcc041c5dcc0c1ca132c1dac3",
+          "firstUnstableN": 16,
+          "qualifies": false,
+          "repeatable": true,
+          "scope": "Declared off-centre downward load stability in independent six-second native copies; tested brackets, not material strength or continuous safe limits.",
+          "sourceRunSha256": "ba2b1e22a8fae7b6132cfe2bda1b799a3799e1e6cbbefb10518392a68f8f5c89",
+          "forceEffortNs": 480.00000000000796,
+          "complete": true,
+          "levels": [
+            {
+              "stable": true,
+              "metrics": {
+                "maxBeamTiltDeg": 0.000470793270403981,
+                "maxSettledSpeedMps": 0.00015474619260375132,
+                "settledSamples": 20,
+                "stable": true,
+                "workJ": 0,
+                "forceEffortNs": 0,
+                "maxBeamDisplacementM": 0.0006525590460754475,
+                "nativeTicks": 1440,
+                "supportedSamples": 20
+              },
+              "forceN": 0,
+              "attemptId": "2e21ff1d-6d53-45a4-b963-ce6c89b7073d"
+            },
+            {
+              "stable": true,
+              "metrics": {
+                "maxBeamTiltDeg": 0.001270527640103187,
+                "maxSettledSpeedMps": 0.0004031700239427857,
+                "settledSamples": 20,
+                "stable": true,
+                "workJ": 1.6635707409839995e-05,
+                "forceEffortNs": 15.999999999999954,
+                "maxBeamDisplacementM": 0.03424758888066998,
+                "nativeTicks": 1440,
+                "supportedSamples": 20
+              },
+              "forceN": 8,
+              "attemptId": "e155bdfb-9125-449c-a046-c93941de2c27"
+            },
+            {
+              "stable": false,
+              "metrics": {
+                "maxBeamTiltDeg": 0.007892219540433773,
+                "maxSettledSpeedMps": 0.0007618673895799053,
+                "settledSamples": 20,
+                "stable": false,
+                "workJ": 0.00014941899927833902,
+                "forceEffortNs": 31.999999999999908,
+                "maxBeamDisplacementM": 0.06861694082142633,
+                "nativeTicks": 1440,
+                "supportedSamples": 20
+              },
+              "forceN": 16,
+              "attemptId": "2d226dbb-cfe0-4f7e-b5b4-6b88e4bc1b9d"
+            },
+            {
+              "stable": false,
+              "metrics": {
+                "maxBeamTiltDeg": 0.030821467915099807,
+                "maxSettledSpeedMps": 0.0006566810711414281,
+                "settledSamples": 20,
+                "stable": false,
+                "workJ": 8.898438890536653e-05,
+                "forceEffortNs": 48.00000000000041,
+                "maxBeamDisplacementM": 0.10309381723348575,
+                "nativeTicks": 1440,
+                "supportedSamples": 20
+              },
+              "forceN": 24,
+              "attemptId": "dbcdeb2d-1ea6-4916-a08c-f47f1245013e"
+            },
+            {
+              "stable": false,
+              "metrics": {
+                "maxBeamTiltDeg": 0.04123348671791716,
+                "maxSettledSpeedMps": 0.00042383131374873457,
+                "settledSamples": 20,
+                "stable": false,
+                "workJ": 8.157427525645744e-05,
+                "forceEffortNs": 63.999999999999815,
+                "maxBeamDisplacementM": 0.13759724296056922,
+                "nativeTicks": 1440,
+                "supportedSamples": 20
+              },
+              "forceN": 32,
+              "attemptId": "7e277eee-244b-4e38-9185-5d74a132cc67"
+            },
+            {
+              "stable": false,
+              "metrics": {
+                "maxBeamTiltDeg": 0.05233887643764359,
+                "maxSettledSpeedMps": 0.000451361227778197,
+                "settledSamples": 20,
+                "stable": false,
+                "workJ": 3.4364198302938576e-05,
+                "forceEffortNs": 96.00000000000082,
+                "maxBeamDisplacementM": 0.20661687236142365,
+                "nativeTicks": 1440,
+                "supportedSamples": 20
+              },
+              "forceN": 48,
+              "attemptId": "247fef06-da7c-49e5-8286-a12aa69f6311"
+            },
+            {
+              "stable": false,
+              "metrics": {
+                "maxBeamTiltDeg": 0.09339265158724186,
+                "maxSettledSpeedMps": 0.0003052940160810017,
+                "settledSamples": 20,
+                "stable": false,
+                "workJ": 0.0002938057284751494,
+                "forceEffortNs": 127.99999999999963,
+                "maxBeamDisplacementM": 0.27560874579819855,
+                "nativeTicks": 1440,
+                "supportedSamples": 20
+              },
+              "forceN": 64,
+              "attemptId": "3bfbb62a-8bbc-4dd1-884d-83777e41c255"
+            }
+          ],
+          "originalSha256": "b7cbb63270cad21bc6ebf3dcbb01b606fff37f71ef1e77de52b46bb4af7789df",
+          "attempts": 11
+        }
+      },
+      {
+        "id": "widest-supports",
+        "status": "completed",
+        "load056": {
+          "repeats": [
+            {
+              "stable": true,
+              "repeat": 1,
+              "metrics": {
+                "maxBeamTiltDeg": 0.001654737775401777,
+                "maxSettledSpeedMps": 0.00022414690535196513,
+                "settledSamples": 20,
+                "stable": true,
+                "workJ": 5.277352759236464e-07,
+                "forceEffortNs": 15.999999999999954,
+                "maxBeamDisplacementM": 0.03443410144142337,
+                "nativeTicks": 1440,
+                "supportedSamples": 20
+              },
+              "forceN": 8,
+              "attemptId": "91faf571-f74f-4f69-9754-630caa4cb085"
+            },
+            {
+              "stable": true,
+              "repeat": 2,
+              "metrics": {
+                "maxBeamTiltDeg": 0.001654737775401777,
+                "maxSettledSpeedMps": 0.00022414690535196513,
+                "settledSamples": 20,
+                "stable": true,
+                "workJ": 5.277352759236464e-07,
+                "forceEffortNs": 15.999999999999954,
+                "maxBeamDisplacementM": 0.03443410144142337,
+                "nativeTicks": 1440,
+                "supportedSamples": 20
+              },
+              "forceN": 8,
+              "attemptId": "def8089e-900f-487c-bef6-82713bc42e7d"
+            },
+            {
+              "stable": false,
+              "repeat": 1,
+              "metrics": {
+                "maxBeamTiltDeg": 0.016689247084061443,
+                "maxSettledSpeedMps": 2.8754476822162256e-05,
+                "settledSamples": 20,
+                "stable": false,
+                "workJ": -2.447949759165624e-05,
+                "forceEffortNs": 31.999999999999908,
+                "maxBeamDisplacementM": 0.06867953637633661,
+                "nativeTicks": 1440,
+                "supportedSamples": 20
+              },
+              "forceN": 16,
+              "attemptId": "fafdaec1-9615-4001-8770-44237fb9c630"
+            },
+            {
+              "stable": false,
+              "repeat": 2,
+              "metrics": {
+                "maxBeamTiltDeg": 0.016689247084061443,
+                "maxSettledSpeedMps": 2.8754476822162256e-05,
+                "settledSamples": 20,
+                "stable": false,
+                "workJ": -2.447949759165624e-05,
+                "forceEffortNs": 31.999999999999908,
+                "maxBeamDisplacementM": 0.06867953637633661,
+                "nativeTicks": 1440,
+                "supportedSamples": 20
+              },
+              "forceN": 16,
+              "attemptId": "b25aa53d-e23c-4c55-b0cd-a080b83f3f4c"
+            }
+          ],
+          "wallMillis": 35920.002499999995,
+          "totalTicks": 15840,
+          "applicationPointLocalM": [
+            0.7200000000000001,
+            0,
+            0
+          ],
+          "version": "measured-load-envelope-056-v1",
+          "stablePrefixN": 8,
+          "nonMonotonic": false,
+          "requiredLoadN": 16,
+          "codeSha256": "0d18ab9e1fa2b7864e091aa50f3013b1f7b2856dcc041c5dcc0c1ca132c1dac3",
+          "firstUnstableN": 16,
+          "qualifies": false,
+          "repeatable": true,
+          "scope": "Declared off-centre downward load stability in independent six-second native copies; tested brackets, not material strength or continuous safe limits.",
+          "sourceRunSha256": "7068ae02371d2e4f96ba01527788543deaee6f8f7ab7c4cab4569910f1042a35",
+          "forceEffortNs": 480.00000000000796,
+          "complete": true,
+          "levels": [
+            {
+              "stable": true,
+              "metrics": {
+                "maxBeamTiltDeg": 0.0009452342384876546,
+                "maxSettledSpeedMps": 9.480665213927966e-05,
+                "settledSamples": 20,
+                "stable": true,
+                "workJ": 0,
+                "forceEffortNs": 0,
+                "maxBeamDisplacementM": 0.00019128426944450927,
+                "nativeTicks": 1440,
+                "supportedSamples": 20
+              },
+              "forceN": 0,
+              "attemptId": "d38ab704-d20c-4b12-aa73-6ab545f7f5f3"
+            },
+            {
+              "stable": true,
+              "metrics": {
+                "maxBeamTiltDeg": 0.001654737775401777,
+                "maxSettledSpeedMps": 0.00022414690535196513,
+                "settledSamples": 20,
+                "stable": true,
+                "workJ": 5.277352759236464e-07,
+                "forceEffortNs": 15.999999999999954,
+                "maxBeamDisplacementM": 0.03443410144142337,
+                "nativeTicks": 1440,
+                "supportedSamples": 20
+              },
+              "forceN": 8,
+              "attemptId": "e4f6fef8-4f1f-4425-ba7d-992b29316258"
+            },
+            {
+              "stable": false,
+              "metrics": {
+                "maxBeamTiltDeg": 0.016689247084061443,
+                "maxSettledSpeedMps": 2.8754476822162256e-05,
+                "settledSamples": 20,
+                "stable": false,
+                "workJ": -2.447949759165624e-05,
+                "forceEffortNs": 31.999999999999908,
+                "maxBeamDisplacementM": 0.06867953637633661,
+                "nativeTicks": 1440,
+                "supportedSamples": 20
+              },
+              "forceN": 16,
+              "attemptId": "4b6ad77e-c22c-4eb5-95e1-4664cf7c826c"
+            },
+            {
+              "stable": false,
+              "metrics": {
+                "maxBeamTiltDeg": 0.03886244748592943,
+                "maxSettledSpeedMps": 0.0002790325593232907,
+                "settledSamples": 20,
+                "stable": false,
+                "workJ": -2.0816043816651586e-05,
+                "forceEffortNs": 48.00000000000041,
+                "maxBeamDisplacementM": 0.10307005285338262,
+                "nativeTicks": 1440,
+                "supportedSamples": 20
+              },
+              "forceN": 24,
+              "attemptId": "9bc11685-071f-4d54-86d4-69e959bf3a35"
+            },
+            {
+              "stable": false,
+              "metrics": {
+                "maxBeamTiltDeg": 0.22370835955250734,
+                "maxSettledSpeedMps": 0.00015531467912654773,
+                "settledSamples": 20,
+                "stable": false,
+                "workJ": -7.156310843470237e-06,
+                "forceEffortNs": 63.999999999999815,
+                "maxBeamDisplacementM": 0.13738706954637606,
+                "nativeTicks": 1440,
+                "supportedSamples": 20
+              },
+              "forceN": 32,
+              "attemptId": "e283311a-b5b7-4cde-8dab-722ca13fde9b"
+            },
+            {
+              "stable": false,
+              "metrics": {
+                "maxBeamTiltDeg": 0.32744642986658706,
+                "maxSettledSpeedMps": 0.0010849584875049707,
+                "settledSamples": 20,
+                "stable": false,
+                "workJ": 7.842640375521626e-05,
+                "forceEffortNs": 96.00000000000082,
+                "maxBeamDisplacementM": 0.20639357956294888,
+                "nativeTicks": 1440,
+                "supportedSamples": 20
+              },
+              "forceN": 48,
+              "attemptId": "277098d2-7550-48d0-8074-f86733acaef5"
+            },
+            {
+              "stable": false,
+              "metrics": {
+                "maxBeamTiltDeg": 0.4142785917186645,
+                "maxSettledSpeedMps": 0.0003281568519395979,
+                "settledSamples": 20,
+                "stable": false,
+                "workJ": 6.781541726752494e-05,
+                "forceEffortNs": 127.99999999999963,
+                "maxBeamDisplacementM": 0.27564784155673533,
+                "nativeTicks": 1440,
+                "supportedSamples": 20
+              },
+              "forceN": 64,
+              "attemptId": "fe1254df-fbe9-4336-bfa7-b4c4908322d5"
+            }
+          ],
+          "originalSha256": "901ffd570f0b68362cfd8d127cf4434975cd0ed2bd81ef794f8f468a69f8d521",
+          "attempts": 11
+        }
+      }
+    ]
+  },
+  "interruptedEnvelopeChecks": [
+    {
+      "sha256": "eae4a0aa3813b140b8841806852176a624a3cdbf8ab6385305af3686f1e26510",
+      "bytes": 4398016,
+      "attempts": [
+        {
+          "id": "366f00b9-9ae1-4222-b582-0e72fc46241a",
+          "force": 0,
+          "repeat": 0,
+          "status": "completed",
+          "ticks": 1440
+        },
+        {
+          "id": "b6092f6e-8ac6-417d-9c72-d6af355f300a",
+          "force": 8,
+          "repeat": 0,
+          "status": "completed",
+          "ticks": 1440
+        },
+        {
+          "id": "12a795dd-5df2-4073-b3a9-cc5743f43eb4",
+          "force": 16,
+          "repeat": 0,
+          "status": "completed",
+          "ticks": 1440
+        },
+        {
+          "id": "26f0b06b-02d0-427a-9417-612ad865a195",
+          "force": 24,
+          "repeat": 0,
+          "status": "interrupted",
+          "ticks": 1440
+        }
+      ],
+      "ticks": 5760
+    }
+  ],
+  "interruptedAttempts": [
+    {
+      "id": "26f0b06b-02d0-427a-9417-612ad865a195",
+      "force": 24,
+      "repeat": 0,
+      "status": "interrupted",
+      "ticks": 1440
+    }
+  ],
+  "actualUIStopPhase": "within-case",
+  "stopInterpretation": "An interrupted case can contain all1440integrationrows if Stop arrives during final checkpoint/verification; it is still not completed evidence. Native recovery separately covers480partialrows.",
+  "partialRecoveryScope": "Separate native Load056RecoveryTest retains480partialticks and resumes; actual UI Stop phase recorded separately.",
+  "reusePhaseSource": "b3c5f59cc89e6c39c368fcec0ff1953306d3c2ac",
+  "compactPhaseSource": "e62dc071970882fe2e4f58b959e8cb71b8d60684"
+}

@@ -14,61 +14,203 @@ public final class BrainService implements AutoCloseable {
     private final Path root;private final SchemaRegistry schemas=new SchemaRegistry();private final FactoryWorld world;private final WorldCheckpointStore checkpoint;
     private final MerkleAppendOnlyJournal journal;private final ExecutorService worker=Executors.newSingleThreadExecutor(r->{var t=new Thread(r,"java-brain-coordinator");t.setDaemon(true);return t;});
     private volatile boolean cancel,closed;private String busyId;private NeuromorphicCore cortex;
+    private final Map<String,JSONObject> jobHeaders=new LinkedHashMap<>(),contactViews=new LinkedHashMap<>(),decisionViews=new LinkedHashMap<>(),recoveryViews=new LinkedHashMap<>(),temporalViews=new LinkedHashMap<>(),calibrationViews=new LinkedHashMap<>(),laterViews=new LinkedHashMap<>();
     static final String PROTOCOL="native-push-readout-v1";
     public BrainService(Path project) throws Exception {
         root=project.resolve("brain");Files.createDirectories(root);
         for(String type:List.of("job","policy","feedback","worldmodel"))schemas.register(new ComponentSchema("workspace.brain."+type,1,Map.of("payload",ComponentSchema.Kind.TEXT),Set.of("payload")));
         world=new FactoryWorld(schemas);checkpoint=new WorldCheckpointStore(root.resolve("tasks.fworld"));if(Files.exists(checkpoint.path()))world.restore(checkpoint.load(schemas).snapshot());
         journal=new MerkleAppendOnlyJournal(root.resolve("journal"));
-        var recover=new ArrayList<JSONObject>();for(var e:world.snapshot().entities())if(e.components().get(0).type().endsWith(".job")){var job=value(e);if(Set.of("queued","running").contains(job.getString("status"))){job.put("status","interrupted").put("reason","Coordinator process ended; native trials are not silently resumed");recover.add(job);}}
+        var recover=new ArrayList<JSONObject>();for(var e:world.snapshot().entities())if(e.components().get(0).type().endsWith(".job")){var job=value(e);indexJob(job);if(Set.of("queued","running").contains(job.getString("status"))){job.put("status","interrupted").put("reason","Coordinator process ended; native trials are not silently resumed");recover.add(job);}}
         for(var job:recover)save("job",job);
     }
-    private static JSONObject value(EntityRecord e){return new JSONObject(e.components().get(0).values().get("payload"));}
+    private static JSONObject value(EntityRecord e){return new JSONObject(BrainPayload064.unpack(e.components().get(0).values().get("payload")));}
     private synchronized List<JSONObject> values(String type){var out=new ArrayList<JSONObject>();for(var e:world.snapshot().entities())if(e.components().get(0).type().equals("workspace.brain."+type))out.add(value(e));return out;}
     private synchronized void save(String type,JSONObject value) throws Exception {saveMany(Map.of(type,value));}
     private synchronized void saveMany(Map<String,JSONObject> records) throws Exception {
         var before=world.snapshot();var tx=new WorldTransaction(before);
         for(var entry:records.entrySet()){
             String type=entry.getKey();JSONObject value=entry.getValue();UUID id=UUID.fromString(value.getString("id"));var existing=before.entities().stream().filter(e->e.id().equals(id)).findFirst();
-            var component=new ComponentRecord(existing.map(e->e.components().get(0).id()).orElse(UUID.randomUUID()),"workspace.brain."+type,1,Map.of("payload",value.toString()));
+            var component=new ComponentRecord(existing.map(e->e.components().get(0).id()).orElse(UUID.randomUUID()),"workspace.brain."+type,1,Map.of("payload",BrainPayload064.encode(value)));
             if(existing.isEmpty())tx.add(new WorldTransaction.Create(new EntityRecord(id,type,List.of(component))));else tx.add(new WorldTransaction.Put(id,component));
         }
-        try{tx.commit(world,schemas);checkpoint.save(world.snapshot(),schemas);}catch(Exception error){world.restore(before);throw error;}
+        try{tx.commit(world,schemas);checkpoint.save(world.snapshot(),schemas);for(var entry:records.entrySet())if(entry.getKey().equals("job"))indexJob(entry.getValue());}catch(Exception error){world.restore(before);throw error;}
     }
     private synchronized void commitPromotion(JSONObject job,JSONObject policy,String type) throws Exception {
         checkCancel();journal.append(type+"-promotion-intent","Validated policy and completed job will commit together",Map.of("jobId",job.getString("id"),"policySha256",MeasurementStore.hash(policy.toString())));
         job.put("status","completed").put("phase","completed").put("endedAt",Instant.now());
         try{saveMany(Map.of("job",job,type,policy));}catch(Exception error){job.put("status","running");throw error;}
     }
-    public synchronized JSONObject read(String id){return values("job").stream().filter(j->j.getString("id").equals(id)).findFirst().orElseThrow(()->new IllegalArgumentException("Unknown brain job"));}
+    private void indexJob(JSONObject j){
+        var header=new JSONObject();for(String k:List.of("id","kind","status","createdAt","phase","progress","total","accepted","reason"))if(j.has(k))header.put(k,j.get(k));
+        jobHeaders.put(j.getString("id"),WorldFrames.copy(header));if(j.getString("kind").equals("later-recovery"))laterViews.put(j.getString("id"),WorldFrames.copy(LaterStudy069.summary(j)));if(j.getString("kind").equals("calibrated-recovery"))calibrationViews.put(j.getString("id"),WorldFrames.copy(CalibrationStudy068.summary(j)));if(j.getString("kind").equals("temporal-recovery"))temporalViews.put(j.getString("id"),WorldFrames.copy(TemporalStudy067.summary(j)));if(j.getString("kind").equals("bounded-recovery"))recoveryViews.put(j.getString("id"),WorldFrames.copy(RecoveryStudy066.summary(j)));if(j.getString("kind").equals("decision-value"))decisionViews.put(j.getString("id"),WorldFrames.copy(DecisionStudy065.summary(j)));if(j.getString("kind").equals("contact-uncertainty"))contactViews.put(j.getString("id"),WorldFrames.copy(contactSummary064(j)));
+    }
+    private List<JSONObject> jobValues(String kind){var out=new ArrayList<JSONObject>();for(var header:jobHeaders.values())if(header.getString("kind").equals(kind))out.add(read(header.getString("id")));return out;}
+    public synchronized JSONObject read(String id){UUID uuid=UUID.fromString(id);return world.snapshot().entities().stream().filter(e->e.id().equals(uuid)&&e.components().get(0).type().equals("workspace.brain.job")).findFirst().map(BrainService::value).orElseThrow(()->new IllegalArgumentException("Unknown brain job"));}
     public synchronized JSONObject activePolicy(){
         var policies=values("policy");return policies.stream().max(Comparator.comparingInt(p->p.getInt("version"))).orElseGet(()->new JSONObject().put("version",1).put("weights",new JSONArray(new float[4])).put("kind","zero-push baseline"));
     }
     public synchronized JSONObject state() throws Exception {
-        var jobs=new JSONArray();for(var j:values("job"))jobs.put(new JSONObject().put("id",j.getString("id")).put("kind",j.getString("kind")).put("status",j.getString("status")).put("phase",j.optString("phase")).put("progress",j.optInt("progress")).put("total",j.optInt("total")).put("accepted",j.optBoolean("accepted")).put("reason",j.optString("reason")));
+        var jobs=new JSONArray();for(var j:jobHeaders.values())jobs.put(new JSONObject().put("id",j.getString("id")).put("kind",j.getString("kind")).put("status",j.getString("status")).put("phase",j.optString("phase")).put("progress",j.optInt("progress")).put("total",j.optInt("total")).put("accepted",j.optBoolean("accepted")).put("reason",j.optString("reason")));
         var core=new JSONObject().put("module","shared brain-core").put("ready",cortex!=null).put("neurons",cortex==null?0:cortex.neurons()).put("synapses",cortex==null?0:cortex.synapses()).put("ticks",cortex==null?0:cortex.ticks()).put("spikingBackend","Java CPU");
-        return new JSONObject().put("jobs",jobs).put("busy",busyId!=null).put("activePolicy",activePolicy()).put("activeFeedback",activeFeedback()).put("activeWorldModel",activeWorldModel()).put("cortex",core).put("journalEntries",journal.verify().entries()).put("protocol",PROTOCOL);
+        return new JSONObject().put("jobs",jobs).put("busy",busyId!=null).put("activePolicy",activePolicy()).put("activeFeedback",activeFeedback()).put("activeWorldModel",activeWorldModel()).put("cortex",core).put("journalEntries",journal.verify().entries()).put("protocol",PROTOCOL).put("fraynixGPT061",outcomeState061()).put("residual062",outcomeState062()).put("stopping063",stoppingState063()).put("contact064",contactState064()).put("decision065",decisionState065()).put("recovery066",recoveryState066()).put("temporal067",temporalState067()).put("calibrated068",calibrationState068()).put("later069",laterState069());
     }
     public synchronized JSONObject start(JSONObject input) throws Exception { return start(input,UUID.randomUUID().toString()); }
     synchronized JSONObject startOwned(String id) throws Exception {
-        UUID.fromString(id);for(var j:values("job"))if(j.getString("id").equals(id))return j;
+        UUID.fromString(id);if(jobHeaders.containsKey(id))return read(id);
         return start(new JSONObject().put("kind","world-model-train").put("autoPromote",true),id);
     }
     private JSONObject start(JSONObject input,String id) throws Exception {
         if(closed)throw new IllegalStateException("Java coordinator is closed");if(!Set.of("kind","autoPromote").containsAll(input.keySet()))throw new IllegalArgumentException("Unsupported brain job field");
-        if(busyId!=null)throw new IllegalStateException("One Java brain job is active; cancel or wait");if(values("job").size()>=16)throw new IllegalStateException("Brain job history budget reached (16)");
-        String kind=input.getString("kind");if(!Set.of("train","gpu-check","pulse","feedback-train","world-model-train").contains(kind))throw new IllegalArgumentException("Unknown brain job kind");
+        if(busyId!=null)throw new IllegalStateException("One Java brain job is active; cancel or wait");if(jobHeaders.size()>=16)throw new IllegalStateException("Brain job history budget reached (16)");
+        String kind=input.getString("kind");if(!Set.of("train","gpu-check","pulse","feedback-train","world-model-train","fraynix-outcomes","physics-residuals","stopping-uncertainty","contact-uncertainty","decision-value","bounded-recovery","temporal-recovery","calibrated-recovery","later-recovery").contains(kind))throw new IllegalArgumentException("Unknown brain job kind");
         var job=new JSONObject().put("id",id).put("kind",kind).put("status","queued").put("phase","queued").put("createdAt",Instant.now()).put("activeVersionAtStart",activePolicy().getInt("version")).put("autoPromote",input.optBoolean("autoPromote",true)).put("protocol",PROTOCOL).put("feedbackVersionAtStart",activeFeedback().getInt("version")).put("worldVersionAtStart",activeWorldModel().getInt("version"));
         if(kind.equals("feedback-train"))job.put("protocol",FeedbackExperiment.PROTOCOL).put("feedbackProtocol",FeedbackExperiment.manifest());
         if(kind.equals("world-model-train"))job.put("protocol",WorldModelExperiment.PROTOCOL).put("worldProtocol",WorldModelExperiment.manifest());
         save("job",job);busyId=job.getString("id");cancel=false;
         var receipt=new JSONObject(job.toString());
         worker.submit(()->{
-            try{job.put("status","running");update(job,"started");switch(kind){case "train"->train(job);case "feedback-train"->trainFeedback(job);case "world-model-train"->trainWorldModel(job);case "gpu-check"->gpuCheck(job);case "pulse"->pulse(job);}synchronized(this){if(!job.getString("status").equals("completed")){checkCancel();job.put("status","completed").put("endedAt",Instant.now());update(job,"completed");}}}
+            try{job.put("status","running");update(job,"started");switch(kind){case "later-recovery"->LaterStudy069.run(job,root.resolve("native"),this::checkCancel,phase->update(job,phase));case "calibrated-recovery"->CalibrationStudy068.run(job,root.resolve("native"),this::checkCancel,phase->update(job,phase));case "temporal-recovery"->TemporalStudy067.run(job,root.resolve("native"),this::checkCancel,phase->update(job,phase));case "bounded-recovery"->RecoveryStudy066.run(job,root.resolve("native"),this::checkCancel,phase->update(job,phase));case "decision-value"->DecisionStudy065.run(job,root.resolve("native"),this::checkCancel,phase->update(job,phase));case "contact-uncertainty"->ContactStudy064.run(job,root.resolve("native"),this::checkCancel,phase->update(job,phase));case "stopping-uncertainty"->Stopping063.run(job,root.resolve("native"),this::checkCancel,phase->update(job,phase));case "physics-residuals"->ResidualOutcome062.train(job,root.resolve("native"),this::checkCancel,phase->update(job,phase));case "fraynix-outcomes"->FraynixOutcome061.train(job,root.resolve("native"),this::checkCancel,phase->update(job,phase));case "train"->train(job);case "feedback-train"->trainFeedback(job);case "world-model-train"->trainWorldModel(job);case "gpu-check"->gpuCheck(job);case "pulse"->pulse(job);}synchronized(this){if(!job.getString("status").equals("completed")){checkCancel();job.put("status","completed").put("endedAt",Instant.now());update(job,"completed");}}}
             catch(Throwable error){job.remove("promotion");job.remove("feedbackPromotion");job.remove("worldPromotion");job.put("status",cancel?"cancelled":"failed").put("reason",String.valueOf(error.getMessage())).put("endedAt",Instant.now());try{update(job,"settled");}catch(Exception ignored){}}
             finally{synchronized(this){busyId=null;}}
         });
         return receipt;
+    }
+    public synchronized JSONObject outcomeState061(){
+        var response=new JSONObject().put("available",false).put("advisory",true).put("protocol",FraynixOutcome061.PROTOCOL)
+            .put("meaning","FraynixGPT numerical cortex + native outcome readout; language-model weights unchanged; no controller authority");
+        var jobs=jobValues("fraynix-outcomes");for(int i=jobs.size()-1;i>=0;i--){var j=jobs.get(i);if(!j.optString("kind").equals("fraynix-outcomes"))continue;
+            response.put("jobId",j.getString("id")).put("status",j.getString("status")).put("progress",j.optInt("progress")).put("total",36).put("reason",j.optString("reason"));
+            if(j.has("outcomeEvaluation061"))response.put("evaluation",j.getJSONObject("outcomeEvaluation061")).put("modelSha256",j.getString("modelSha256061"));
+            response.put("available",j.getString("status").equals("completed"));break;
+        }return response;
+    }
+    public synchronized JSONObject outcomePredict061(JSONObject input)throws Exception{
+        SpatialScene.keys(input,"jobId","definition");if(busyId!=null)throw new IllegalStateException("Wait for the active Java brain job");
+        var j=read(input.getString("jobId"));if(!j.getString("kind").equals("fraynix-outcomes")||!j.getString("status").equals("completed"))throw new IllegalStateException("Choose a completed outcome experiment");
+        FraynixOutcome061.audit(j);return new JSONObject().put("advisory",true).put("qualified",j.getJSONObject("outcomeEvaluation061").getBoolean("qualified"))
+            .put("modelSha256",j.getString("modelSha256061")).put("predictionM",FraynixOutcome061.predictions(j.getJSONObject("outcomeModel061"),input.getJSONObject("definition")));
+    }
+    private JSONObject residualSummary062(JSONObject j){
+        var o=new JSONObject().put("available",j.getString("status").equals("completed")).put("advisory",true)
+            .put("jobId",j.getString("id")).put("status",j.getString("status")).put("progress",j.optInt("progress")).put("total",60).put("reason",j.optString("reason"));
+        if(j.has("decision062"))o.put("decision",j.getJSONObject("decision062"));
+        if(j.has("modelSha256062"))o.put("modelSha256",j.getString("modelSha256062"));
+        if(j.has("evaluation062"))o.put("evaluation",j.getJSONObject("evaluation062"));return o;
+    }
+    public synchronized JSONObject outcomeState062(){
+        var jobs=jobValues("physics-residuals").stream()
+            .sorted(Comparator.comparing(j->j.getString("createdAt"))).toList();
+        var o=jobs.isEmpty()?new JSONObject().put("available",false).put("advisory",true):residualSummary062(jobs.get(jobs.size()-1));
+        o.put("protocol",ResidualOutcome062.PROTOCOL).put("meaning","Analytical physics plus learned numerical residuals. No controller authority or language-model weight update.");
+        for(int i=jobs.size()-1;i>=0;i--)if(jobs.get(i).getString("status").equals("completed")){o.put("lastCompleted",residualSummary062(jobs.get(i)));break;}return o;
+    }
+    public synchronized JSONObject residualPredict062(JSONObject input)throws Exception{
+        SpatialScene.keys(input,"jobId","definition");if(busyId!=null)throw new IllegalStateException("Wait for the active Java brain job");
+        var j=read(input.getString("jobId"));if(!j.getString("kind").equals("physics-residuals")||!j.getString("status").equals("completed"))throw new IllegalStateException("Choose a completed residual experiment");
+        ResidualOutcome062.audit(j);var predictions=ResidualOutcome062.predictions(j.getJSONObject("model062"),input.getJSONObject("definition"));String selected=j.getJSONObject("decision062").getString("method");
+        return new JSONObject().put("advisory",true).put("qualified",j.getJSONObject("evaluation062").getBoolean("qualified"))
+            .put("selectedMethod",selected).put("selectedPredictionM",predictions.getDouble(selected)).put("predictionM",predictions)
+            .put("modelSha256",j.getString("modelSha256062")).put("decisionSha256",j.getString("decisionSha256062"));
+    }
+    private JSONObject stoppingSummary063(JSONObject j){
+        var o=new JSONObject().put("available",j.getString("status").equals("completed")).put("advisory",true).put("jobId",j.getString("id")).put("status",j.getString("status")).put("progress",j.optInt("progress")).put("total",Stopping063.TOTAL).put("reason",j.optString("reason"));
+        if(j.has("intervalModel063"))o.put("intervalModel",j.getJSONObject("intervalModel063")).put("modelSha256",j.getString("intervalModelSha256063"));
+        if(j.has("evaluation063"))o.put("evaluation",j.getJSONObject("evaluation063"));
+        if(j.has("diagnostics063")){var traces=new JSONArray();for(Object raw:j.getJSONArray("diagnostics063")){var row=(JSONObject)raw;if(row.has("record"))traces.put(new JSONObject().put("definition",row.getJSONObject("definition")).put("variant",row.getString("variant")).put("summary",row.getJSONObject("record").getJSONObject("summary")));}o.put("traces",traces);}return o;
+    }
+    public synchronized JSONObject stoppingState063(){
+        var jobs=jobValues("stopping-uncertainty").stream().sorted(Comparator.comparing(j->j.getString("createdAt"))).toList();
+        var o=jobs.isEmpty()?new JSONObject().put("available",false):stoppingSummary063(jobs.get(jobs.size()-1));o.put("protocol",Stopping063.PROTOCOL).put("meaning","Native stopping interventions and empirical uncertainty; no physical coverage guarantee or controller authority");
+        for(int i=jobs.size()-1;i>=0;i--)if(jobs.get(i).getString("status").equals("completed")){o.put("lastCompleted",stoppingSummary063(jobs.get(i)));break;}return o;
+    }
+    private JSONObject completedStopping063(String id){
+        if(busyId!=null)throw new IllegalStateException("Wait for the active Java brain job");var j=read(id);if(!j.getString("kind").equals("stopping-uncertainty")||!j.getString("status").equals("completed"))throw new IllegalStateException("Choose a completed stopping study");Stopping063.audit(j);return j;
+    }
+    public synchronized JSONObject stoppingPredict063(JSONObject input){
+        SpatialScene.keys(input,"jobId","definition");var j=completedStopping063(input.getString("jobId"));return new JSONObject().put("advisory",true).put("qualified",j.getJSONObject("evaluation063").getBoolean("qualified")).put("modelSha256",j.getString("intervalModelSha256063")).put("intervals",Stopping063.intervals(j.getJSONObject("intervalModel063").getJSONObject("radiiM"),input.getJSONObject("definition"))).put("meaning","Nominal90% calibrated intervals; finite simulation evaluation, not a real-world confidence guarantee");
+    }
+    public synchronized JSONObject stoppingTrace063(JSONObject input){
+        SpatialScene.keys(input,"jobId","traceIndex");int index=input.getInt("traceIndex");if(index<0||index>=18||input.getDouble("traceIndex")!=index)throw new IllegalArgumentException("Trace index must be0â€“17");var j=completedStopping063(input.getString("jobId"));var row=j.getJSONArray("diagnostics063").getJSONObject(index);var series=new JSONArray();for(Object raw:row.getJSONObject("record").getJSONArray("samples"))series.put(Stopping063.projected(row.getJSONObject("definition"),(JSONObject)raw));return new JSONObject().put("definition",row.getJSONObject("definition")).put("variant",row.getString("variant")).put("summary",row.getJSONObject("record").getJSONObject("summary")).put("series",series).put("recordSha256",row.getJSONObject("record").getString("sha256"));
+    }
+    private JSONObject contactSummary064(JSONObject j){
+        var out=new JSONObject().put("jobId",j.getString("id")).put("advisory",true).put("status",j.getString("status"));
+        if(j.has("intervalModel064"))out.put("intervalModel",j.getJSONObject("intervalModel064")).put("modelSha256",j.getString("intervalModelSha256064"));
+        if(j.has("evaluation064"))out.put("evaluation",j.getJSONObject("evaluation064")).put("stressEvaluation",j.getJSONObject("stressEvaluation064"));
+        var matrix=new JSONArray();for(Object raw:j.optJSONArray("diagnostics064",new JSONArray())){var row=(JSONObject)raw;if(!row.has("record"))continue;var c=row.getJSONObject("definition");var s=row.getJSONObject("record").getJSONObject("summary");matrix.put(new JSONArray().put(c.getDouble("angleDeg")).put(c.getDouble("pushMps")).put(row.getString("variant")).put(s.getDouble("endpointErrorM")).put(s.get("firstTouchS")).put(s.get("firstImpulseS")).put(s.getDouble("maximumRotationDeg")).put(s.getDouble("maximumMomentumResidualNs")));}
+        return out.put("comparison",new JSONObject().put("columns",new JSONArray(List.of("angleDeg","pushMps","variant","endpointErrorM","firstTouchS","firstImpulseS","maximumRotationDeg","maximumMomentumResidualNs"))).put("rows",matrix)).put("detailSource","/api/brain/read");
+    }
+    public synchronized JSONObject contactState064(){
+        var jobs=jobHeaders.values().stream().filter(j->j.optString("kind").equals("contact-uncertainty")).sorted(Comparator.comparing(j->j.getString("createdAt"))).toList();
+        var out=new JSONObject().put("available",false).put("advisory",true).put("protocol",ContactStudy064.PROTOCOL).put("meaning","Persistent contact cache and prospective pooled uncertainty; simulation evidence only; no controller authority");
+        if(!jobs.isEmpty()){var j=jobs.get(jobs.size()-1);out.put("jobId",j.getString("id")).put("status",j.getString("status")).put("progress",j.optInt("progress")).put("total",ContactStudy064.TOTAL).put("reason",j.optString("reason"));}
+        for(int i=jobs.size()-1;i>=0;i--)if(jobs.get(i).getString("status").equals("completed")){out.put("available",true).put("lastCompleted",WorldFrames.copy(contactViews.get(jobs.get(i).getString("id"))));break;}return out;
+    }
+    private JSONObject completedContact064(String id){if(busyId!=null)throw new IllegalStateException("Wait for the active Java brain job");var j=read(id);if(!j.getString("kind").equals("contact-uncertainty")||!j.getString("status").equals("completed"))throw new IllegalStateException("Choose a completed contact study");ContactStudy064.audit(j);return j;}
+    public synchronized JSONObject contactPredict064(JSONObject input){SpatialScene.keys(input,"jobId","definition");var j=completedContact064(input.getString("jobId"));return new JSONObject().put("advisory",true).put("qualified",j.getJSONObject("evaluation064").getBoolean("qualified")).put("modelSha256",j.getString("intervalModelSha256064")).put("intervals",ContactStudy064.intervals(j.getJSONObject("intervalModel064").getDouble("radiusM"),input.getJSONObject("definition"),false));}
+    public synchronized JSONObject contactTrace064(JSONObject input){SpatialScene.keys(input,"jobId","traceIndex");int i=input.getInt("traceIndex");if(i<0||i>=16||input.getDouble("traceIndex")!=i)throw new IllegalArgumentException("Trace index must be 0â€“15");var j=completedContact064(input.getString("jobId"));var row=j.getJSONArray("diagnostics064").getJSONObject(i);var r=row.getJSONObject("record");return new JSONObject().put("definition",row.getJSONObject("definition")).put("variant",row.getString("variant")).put("settings",r.getJSONObject("settings")).put("summary",r.getJSONObject("summary")).put("series",ContactMath064.series(r)).put("recordSha256",r.getString("sha256"));}
+    public synchronized JSONObject decisionState065(){
+        var out=new JSONObject().put("available",false).put("protocol",DecisionStudy065.PROTOCOL).put("controllerAuthority",false);
+        var jobs=jobHeaders.values().stream().filter(j->j.optString("kind").equals("decision-value")).sorted(Comparator.comparing(j->j.getString("createdAt"))).toList();
+        if(!jobs.isEmpty()){var j=jobs.get(jobs.size()-1);out.put("jobId",j.getString("id")).put("status",j.getString("status")).put("progress",j.optInt("progress")).put("total",DecisionStudy065.TOTAL).put("reason",j.optString("reason"));}
+        for(int i=jobs.size()-1;i>=0;i--)if(jobs.get(i).getString("status").equals("completed")){out.put("available",true).put("lastCompleted",WorldFrames.copy(decisionViews.get(jobs.get(i).getString("id"))));break;}return out;
+    }
+    public synchronized JSONObject decisionPlan065(JSONObject input){SpatialScene.keys(input,"task");return DecisionPolicy065.plan(input.getJSONObject("task"));}
+    public synchronized JSONObject decisionTrace065(JSONObject input){
+        SpatialScene.keys(input,"jobId","index","shifted");if(busyId!=null)throw new IllegalStateException("Wait for the active Java brain job");
+        var job=read(input.getString("jobId"));if(!job.getString("kind").equals("decision-value")||!job.getString("status").equals("completed"))throw new IllegalStateException("Choose a completed decision study");DecisionStudy065.audit(job);
+        var rows=job.getJSONArray(input.getBoolean("shifted")?"shifted065":"tasks065");int index=input.getInt("index");if(index<0||index>=rows.length()||input.getDouble("index")!=index)throw new IllegalArgumentException("Invalid task index");
+        var row=WorldFrames.copy(rows.getJSONObject(index));for(String method:DecisionPolicy065.METHODS){var result=row.getJSONObject("results").getJSONObject(method);var record=result.optJSONObject("record");if(record!=null){var series=new JSONArray();for(Object raw:record.getJSONArray("samples"))series.put(Stopping063.projected(record.getJSONObject("definition"),(JSONObject)raw));result.put("series",series);}}
+        return row;
+    }
+    public synchronized JSONObject recoveryState066(){
+        var out=new JSONObject().put("available",false).put("protocol",RecoveryStudy066.PROTOCOL).put("controllerAuthority",false);
+        var jobs=jobHeaders.values().stream().filter(j->j.optString("kind").equals("bounded-recovery")).sorted(Comparator.comparing(j->j.getString("createdAt"))).toList();
+        if(!jobs.isEmpty()){var j=jobs.get(jobs.size()-1);out.put("jobId",j.getString("id")).put("status",j.getString("status")).put("progress",j.optInt("progress")).put("total",RecoveryStudy066.TOTAL).put("reason",j.optString("reason"));}
+        for(int i=jobs.size()-1;i>=0;i--)if(jobs.get(i).getString("status").equals("completed")){out.put("available",true).put("lastCompleted",WorldFrames.copy(recoveryViews.get(jobs.get(i).getString("id"))));break;}return out;
+    }
+    public synchronized JSONObject recoveryTrace066(JSONObject input){
+        SpatialScene.keys(input,"jobId","index","shifted");if(busyId!=null)throw new IllegalStateException("Wait for the active Java brain job");var job=read(input.getString("jobId"));if(!job.getString("kind").equals("bounded-recovery")||!job.getString("status").equals("completed"))throw new IllegalStateException("Choose a completed recovery comparison");RecoveryStudy066.audit(job);
+        var rows=job.getJSONArray(input.getBoolean("shifted")?"shifted066":"tasks066");int index=input.getInt("index");if(index<0||index>=rows.length()||input.getDouble("index")!=index)throw new IllegalArgumentException("Invalid recovery task index");var row=WorldFrames.copy(rows.getJSONObject(index));for(String method:RecoveryPolicy066.METHODS){var result=row.getJSONObject("results").getJSONObject(method);var record=result.optJSONObject("record");if(record!=null){var series=new JSONArray();for(Object raw:record.getJSONArray("samples"))series.put(Stopping063.projected(record.getJSONObject("definition"),(JSONObject)raw));result.put("series",series);}}return row;
+    }
+
+    public synchronized JSONObject laterState069(){
+        var out=new JSONObject().put("available",false).put("protocol",LaterStudy069.PROTOCOL).put("controllerAuthority",false);
+        var jobs=jobHeaders.values().stream().filter(j->j.optString("kind").equals("later-recovery")).sorted(Comparator.comparing(j->j.getString("createdAt"))).toList();
+        if(!jobs.isEmpty()){var j=jobs.get(jobs.size()-1);out.put("jobId",j.getString("id")).put("status",j.getString("status")).put("progress",j.optInt("progress")).put("total",LaterStudy069.TOTAL).put("reason",j.optString("reason"));}
+        for(int i=jobs.size()-1;i>=0;i--)if(jobs.get(i).getString("status").equals("completed")){out.put("available",true).put("lastCompleted",WorldFrames.copy(laterViews.get(jobs.get(i).getString("id"))));break;}return out;
+    }
+    public synchronized JSONObject laterTrace069(JSONObject input){
+        SpatialScene.keys(input,"jobId","index","phase");if(busyId!=null)throw new IllegalStateException("Wait for the active Java brain job");
+        var job=read(input.getString("jobId"));if(!job.getString("kind").equals("later-recovery")||!job.getString("status").equals("completed"))throw new IllegalStateException("Choose a completed later-observation study");
+        LaterStudy069.audit(job);String phase=input.getString("phase");if(!Set.of("clean","disturbed","unsupported").contains(phase))throw new IllegalArgumentException("Unknown evaluation phase");
+        var rows=job.getJSONArray(phase+"069");int index=input.getInt("index");if(index<0||index>=rows.length()||input.getDouble("index")!=index)throw new IllegalArgumentException("Invalid evaluation index");
+        var row=WorldFrames.copy(rows.getJSONObject(index));for(String method:LaterPolicy069.METHODS){var result=row.getJSONObject("results").getJSONObject(method);var record=result.optJSONObject("record");if(record!=null){var series=new JSONArray();for(Object raw:record.getJSONArray("samples"))series.put(Stopping063.projected(record.getJSONObject("definition"),(JSONObject)raw));result.put("series",series);}}return row;
+    }
+
+    public synchronized JSONObject calibrationState068(){
+        var out=new JSONObject().put("available",false).put("protocol",CalibrationStudy068.PROTOCOL).put("controllerAuthority",false);
+        var jobs=jobHeaders.values().stream().filter(j->j.optString("kind").equals("calibrated-recovery")).sorted(Comparator.comparing(j->j.getString("createdAt"))).toList();
+        if(!jobs.isEmpty()){var j=jobs.get(jobs.size()-1);out.put("jobId",j.getString("id")).put("status",j.getString("status")).put("progress",j.optInt("progress")).put("total",CalibrationStudy068.TOTAL).put("reason",j.optString("reason"));}
+        for(int i=jobs.size()-1;i>=0;i--)if(jobs.get(i).getString("status").equals("completed")){out.put("available",true).put("lastCompleted",WorldFrames.copy(calibrationViews.get(jobs.get(i).getString("id"))));break;}return out;
+    }
+    public synchronized JSONObject calibrationTrace068(JSONObject input){
+        SpatialScene.keys(input,"jobId","index","phase");if(busyId!=null)throw new IllegalStateException("Wait for the active Java brain job");
+        var job=read(input.getString("jobId"));if(!job.getString("kind").equals("calibrated-recovery")||!job.getString("status").equals("completed"))throw new IllegalStateException("Choose a completed calibration study");
+        CalibrationStudy068.audit(job);String phase=input.getString("phase");if(!Set.of("clean","disturbed","unsupported").contains(phase))throw new IllegalArgumentException("Unknown evaluation phase");
+        var rows=job.getJSONArray(phase+"068");int index=input.getInt("index");if(index<0||index>=rows.length()||input.getDouble("index")!=index)throw new IllegalArgumentException("Invalid evaluation index");
+        var row=WorldFrames.copy(rows.getJSONObject(index));for(String method:CalibratedPolicy068.METHODS){var result=row.getJSONObject("results").getJSONObject(method);var record=result.optJSONObject("record");if(record!=null){var series=new JSONArray();for(Object raw:record.getJSONArray("samples"))series.put(Stopping063.projected(record.getJSONObject("definition"),(JSONObject)raw));result.put("series",series);}}return row;
+    }
+
+    public synchronized JSONObject temporalState067(){
+        var out=new JSONObject().put("available",false).put("protocol",TemporalStudy067.PROTOCOL).put("controllerAuthority",false);
+        var jobs=jobHeaders.values().stream().filter(j->j.optString("kind").equals("temporal-recovery")).sorted(Comparator.comparing(j->j.getString("createdAt"))).toList();
+        if(!jobs.isEmpty()){var j=jobs.get(jobs.size()-1);out.put("jobId",j.getString("id")).put("status",j.getString("status")).put("progress",j.optInt("progress")).put("total",TemporalStudy067.TOTAL).put("reason",j.optString("reason"));}
+        for(int i=jobs.size()-1;i>=0;i--)if(jobs.get(i).getString("status").equals("completed")){out.put("available",true).put("lastCompleted",WorldFrames.copy(temporalViews.get(jobs.get(i).getString("id"))));break;}return out;
+    }
+    public synchronized JSONObject temporalTrace067(JSONObject input){
+        SpatialScene.keys(input,"jobId","index","shifted");if(busyId!=null)throw new IllegalStateException("Wait for the active Java brain job");var job=read(input.getString("jobId"));if(!job.getString("kind").equals("temporal-recovery")||!job.getString("status").equals("completed"))throw new IllegalStateException("Choose a completed recovery comparison");TemporalStudy067.audit(job);
+        var rows=job.getJSONArray(input.getBoolean("shifted")?"shifted067":"tasks067");int index=input.getInt("index");if(index<0||index>=rows.length()||input.getDouble("index")!=index)throw new IllegalArgumentException("Invalid recovery task index");var row=WorldFrames.copy(rows.getJSONObject(index));for(String method:TemporalPolicy067.METHODS){var result=row.getJSONObject("results").getJSONObject(method);var record=result.optJSONObject("record");if(record!=null){var series=new JSONArray();for(Object raw:record.getJSONArray("samples"))series.put(Stopping063.projected(record.getJSONObject("definition"),(JSONObject)raw));result.put("series",series);}}return row;
     }
     private void checkCancel(){if(cancel||closed||Thread.currentThread().isInterrupted())throw new CancellationException("Java brain job cancelled");}
     private synchronized void update(JSONObject job,String phase) throws Exception {job.put("phase",phase);save("job",job);journal.append("brain-job",phase,Map.of("id",job.getString("id"),"status",job.getString("status"),"payloadSha256",MeasurementStore.hash(job.toString())));}
@@ -114,7 +256,7 @@ public final class BrainService implements AutoCloseable {
     public synchronized JSONObject prediction(JSONObject scene,double target,boolean gpu) throws Exception {
         RampDefinition.range(target,.4,1.8,"target distance");var params=scene.getJSONObject("parameters");
         RampDefinition.range(params.getDouble("angleDeg"),10,40,"policy angle");RampDefinition.range(params.getDouble("friction"),0,.3,"policy friction");RampDefinition.range(params.getDouble("gravityMps2"),8,12,"policy gravity");RampDefinition.range(params.getDouble("massKg"),.5,2,"policy mass");
-        if(params.getDouble("lengthM")!=12||params.getDouble("widthM")!=3||params.getDouble("offsetZ")!=0)throw new IllegalArgumentException("This policy was evaluated on the default 12 m × 3 m ramp at Z=0; use that geometry");
+        if(params.getDouble("lengthM")!=12||params.getDouble("widthM")!=3||params.getDouble("offsetZ")!=0)throw new IllegalArgumentException("This policy was evaluated on the default 12 m Ã— 3 m ramp at Z=0; use that geometry");
         if(busyId!=null)throw new IllegalStateException("Wait for the active brain job");var p=activePolicy();var weights=floats(p.getJSONArray("weights"));var c=new JSONObject(params.toString()).put("targetM",target);
         try(NeuralCompute compute=gpu?new GlNeuralCompute():new CpuNeuralCompute()){
             float raw=compute.matvec(weights,features(c),1,4)[0]*4;return new JSONObject().put("policyVersion",p.getInt("version")).put("deltaVelocityMps",Math.max(-4,Math.min(4,raw))).put("backend",compute.device()).put("features",new JSONArray(features(c)));
@@ -173,6 +315,23 @@ public final class BrainService implements AutoCloseable {
             float[] features={.5f,-.25f,.75f,0};cortex.inject(features);cortex.tick(false);String hash=NeuralCheckpoint.save(cortex,file);
             job.put("neurons",cortex.neurons()).put("synapses",cortex.synapses()).put("ticks",cortex.ticks()).put("spikes",cortex.spikeCount()).put("checkpointSha256",hash).put("accepted",true).put("scope","Synthetic diagnostic sensory pulse; no gameplay improvement claim and no physical-policy training");
         }
+    }
+    synchronized JSONObject background042(float[] sensory,boolean learning)throws Exception{
+        if(closed)throw new IllegalStateException("Brain is closed");
+        if(busyId!=null)return new JSONObject().put("status","foreground-brain-job").put("updated",false);
+        if(cortex==null)cortex=Files.exists(root.resolve("cortex.bin"))?NeuralCheckpoint.load(root.resolve("cortex.bin")):new NeuromorphicCore(32768,32,618033988L);
+        long begin=System.nanoTime();cortex.inject(sensory);cortex.tick(learning);
+        return new JSONObject().put("status","shared-java-cortex").put("updated",true).put("neurons",cortex.neurons()).put("synapses",cortex.synapses()).put("ticks",cortex.ticks()).put("spikes",cortex.spikeCount()).put("plasticity",cortex.plasticity()).put("learningEnabled",learning).put("processingMs",(System.nanoTime()-begin)/1e6).put("scope","Actual sensory dynamics/plasticity. Task improvement still requires separate policy evaluation; no language-model weights are changed.");
+    }
+    synchronized JSONObject checkpoint042(Path target)throws Exception{
+        if(cortex==null)return new JSONObject();String dataHash=NeuralCheckpoint.save(cortex,target);
+        return new JSONObject().put("file",target.getFileName().toString()).put("fileSha256",PerceptionStore.hash(Files.readAllBytes(target))).put("dataSha256",dataHash).put("ticks",cortex.ticks());
+    }
+    synchronized long cortexTicks042(){return cortex==null?-1:cortex.ticks();}
+    synchronized void restore042(Path file,JSONObject receipt)throws Exception{
+        if(busyId!=null)throw new IllegalStateException("Cannot replace an active brain");
+        if(!PerceptionStore.hash(Files.readAllBytes(file)).equals(receipt.getString("fileSha256")))throw new IllegalStateException("Agent neural checkpoint source differs");
+        cortex=NeuralCheckpoint.load(file);if(cortex.ticks()!=receipt.getLong("ticks"))throw new IllegalStateException("Agent neural checkpoint tick differs");
     }
     public void close(){closed=true;cancel=true;worker.shutdown();try{if(!worker.awaitTermination(5,TimeUnit.SECONDS))worker.shutdownNow();}catch(InterruptedException e){Thread.currentThread().interrupt();worker.shutdownNow();}}
 }

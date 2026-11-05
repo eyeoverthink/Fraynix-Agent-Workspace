@@ -1,3 +1,14 @@
+import {Construction051} from './construction051.js';
+import {Workshop050} from './workshop050.js';
+import {Agency043Panel} from './agency043.js';
+import {Agent042Panel} from './agent042.js';
+import {Alignment041Panel} from './alignment041.js';
+import {SharedSpatial040} from './spatial-runtime040.js';
+import {KnowledgePanel} from './knowledge-panel.js';
+import {TabletopPanel} from './tabletop-panel.js';
+import {MetricPanel} from './metric-panel.js';
+import {ObservationPanel} from './observation-panel.js';
+import {PersistentWorldPanel} from './persistent-world-panel.js';
 import {PosePanel} from './pose-panel.js';
 import {ContactStudyPanel} from './contact-study-panel.js';
 import {ForceLearningPanel} from './force-learning-panel.js';
@@ -34,17 +45,42 @@ lab.afterOpen=async()=>{observers.sceneChanged();bodies.packet=null;bodies.contr
 function notice(text){$('notice').textContent=text;}
 async function request(operation,data={}){try{return await host.request({operation,...data});}catch(error){notice(error.message);throw error;}}
 function requireSaved(){if(dirty||lab.dirty)throw Error('Save or revert your source or scene changes first');}
+const agent042Panel=new Agent042Panel(request);
+window.agency043View=new Agency043Panel(request);
 const brainGame=new BrainGame({call:(operation,command,args={})=>request(operation,{command,args}),notice,activate:setCanvasMode,layout:updateLayout,lab,requireSaved});
 const dataPanel=new DataPanel({call:(command,args)=>request('data',{command,args}),notice,requireSaved,layout:updateLayout});
 const goalsPanel=new GoalsPanel({getMapSources:()=>mapPanel.sources,onCompileMap:(id,layers)=>mapPanel.compile(id,layers),getCreationSources:()=>creationPanel.sources(),getDatasets:()=>state?.datasets||[],call:(command,args)=>request('javaGoal',{command,args}),notice,requireSaved,openReport:async id=>{requireSaved();setCanvasMode('preview');await request('tool',{tool:'canvas.open',args:{id}});}});
 const spatial=new SpatialPanel({call:(command,args={})=>request('spatial',{command,args}),pushCall:(command,args={})=>request('push',{command,args}),goalCall:(command,args={})=>request('javaGoal',{command,args}),notice,activate:setCanvasMode,goal:g=>goalsPanel.accept(g)});
+const workshop050=new Workshop050({call:(command,args={})=>request('workshop050',{command,args}),goal:g=>goalsPanel.accept(g),requireSaved});
+const construction051=new Construction051({call:(command,args={})=>request('construction051',{command,args}),goal:g=>goalsPanel.accept(g),requireSaved,notice});
 const forcePanel=new ForceLearningPanel({call:(command,args={})=>request('forceLearning',{command,args}),spatial,notice,goal:g=>goalsPanel.accept(g),openReport:async id=>{setCanvasMode('preview');await request('tool',{tool:'canvas.open',args:{id}});}});
 const contactPanel=new ContactStudyPanel({call:(command,args={})=>request('contactStudy',{command,args}),spatial,notice,goal:g=>goalsPanel.accept(g),openReport:async id=>{setCanvasMode('preview');await request('tool',{tool:'canvas.open',args:{id}});}});
 const posePanel=new PosePanel({call:(command,args={})=>request('pose',{command,args}),studyCall:(command,args={})=>request('poseStudy',{command,args}),goalCall:(command,args={})=>request('javaGoal',{command,args}),spatial,notice,goal:g=>goalsPanel.accept(g),openReport:async id=>{setCanvasMode('preview');await request('tool',{tool:'canvas.open',args:{id}});}});
+const persistentPanel=new PersistentWorldPanel({
+  call:(command,args={})=>request('persistentWorld',{command,args}),
+  spatial,notice,goal:g=>goalsPanel.accept(g),
+  openReport:async id=>{requireSaved();setCanvasMode('preview');await request('tool',{tool:'canvas.open',args:{id}});},
+  requireFirstSkillReady:()=>{
+    requireSaved();
+    if(running||creationBusy||state?.goals?.some(g=>['running','waiting-host'].includes(g.status))){
+      throw Error('Finish or stop the active task before running the practice skill');
+    }
+  },
+  connectFirstSkill:(goal,steps)=>workflowPanel.openGraph(null,{
+    worldId:goal.worldBinding.worldId,skill:goal.savedSkill,steps
+  })
+});
+const observationPanel=new ObservationPanel({call:(command,args={})=>request('observations',{command,args}),persistent:persistentPanel,notice});
+window.observationView=observationPanel;
+window.metricView=new MetricPanel({call:(command,args={})=>request('metrics',{command,args}),observation:observationPanel,notice});
+window.tabletopView=new TabletopPanel({call:(command,args={})=>request('tabletop',{command,args}),metricCall:(command,args={})=>request('metrics',{command,args}),persistent:persistentPanel,metric:window.metricView,notice});
+window.knowledgeView=new KnowledgePanel({call:(command,args={})=>request('knowledge',{command,args}),tabletop:window.tabletopView,notice,activate:mode=>{window.alignment041?.close();window.sharedSpatial040?.close();setCanvasMode(mode);}});
+window.sharedSpatial040=new SharedSpatial040({call:(command,args={})=>request('runtime040',{command,args}),spatial,persistent:persistentPanel,tabletop:window.tabletopView,notice,activate:mode=>{window.alignment041?.close();window.sharedSpatial040?.close();setCanvasMode(mode);}});
+window.alignment041=new Alignment041Panel({call:(command,args={})=>request('alignment041',{command,args}),runtime:(command,args={})=>request('runtime040',{command,args}),spatial,media:window.tabletopView,notice,activate:setCanvasMode});
 const perceptionPanel=new PerceptionPanel({call:(command,args={})=>request('perception',{command,args}),goalCall:(command,args={})=>request('javaGoal',{command,args}),notice,activate:setCanvasMode,goal:g=>goalsPanel.accept(g)});
 const trackingPanel=new TrackingPanel({call:(command,args={})=>request('tracking',{command,args}),notice,requireSaved,openPerception:()=>perceptionPanel.open()});
 const creationPanel=new CreationPanel({layout:updateLayout,call:(command,args,model)=>request('creation',{command,args,model}),getState:()=>state,getArtifact:()=>artifact,getModel:()=>$('model').value,requireSaved,notice,onGoal:g=>goalsPanel.accept(g)});
-const workflowPanel=new WorkflowPanel({layout:updateLayout,call:(command,args)=>request('workflow',{command,args}),getState:()=>state,getModel:()=>$('model').value,requireSaved,notice,onGoal:w=>goalsPanel.accept(w)});
+const workflowPanel=new WorkflowPanel({layout:updateLayout,call:(command,args)=>request('workflow',{command,args}),getState:()=>state,getModel:()=>$('model').value,requireSaved,notice,onGoal:w=>goalsPanel.accept(w),openFirstSkill:()=>persistentPanel.showFirstSkill()});
 const proceduralPanel=new ProceduralPanel({layout:updateLayout,call:(command,args)=>request('javaGoal',{command,args}),requireSaved,notice,onGoal:g=>goalsPanel.accept(g)});
 const mapPanel=new MapPanel({controlCall:args=>host.request({operation:'maps',command:'control',args}),call:(command,args={})=>request('maps',{command,args}),goalCall:(command,args={})=>request('javaGoal',{command,args}),notice,activate:setCanvasMode,goal:g=>goalsPanel.accept(g),requireSaved});
 window.nativeMap={snapshot:()=>({mapId:mapPanel.map?.id,avatar:mapPanel.avatar?.position.toArray(),trace:mapPanel.history.length}),open:id=>mapPanel.open().then(()=>id?mapPanel.selectWorld(id):undefined)};
@@ -58,11 +94,33 @@ function showLearningRecord(value,type){
   if(value.results){const table=document.createElement('table');const head=table.insertRow();for(const text of ['Independent fixture','Baseline','Candidate']){const th=document.createElement('th');th.textContent=text;head.append(th);}for(const result of value.results){const row=table.insertRow();for(const text of [result.id,result.baseline.passed?'Pass':'Fail',result.candidate.passed?'Pass':'Fail'])row.insertCell().textContent=text;}$('learning-cases').append(table);}
   $('learning-inspection').showModal();updateLayout();
 }
-function renderLibrary(){
+function renderLibrary(){window.agency043View?.recipes(state?.skills||[]);
   if(!state)return;$('library-items').replaceChildren();
   const items=libraryTab==='learning'?learningItems():libraryTab==='scenes'?(state.scenes||[]):libraryTab==='artifacts'?state.artifacts:[...state.skills,...(state.procedures||[])];
+  persistentPanel.updateFirstSkill(state.goals?.find(goal=>goal.id===persistentPanel.firstSkillGoalId));
+  if(libraryTab==='skills'){
+    const hasWorldSkill=items.some(item=>item.kind==='persistent-world-arrange-v1');
+    const entry=document.createElement('button');
+    entry.id='first-world-library';
+    entry.className='quiet';
+    entry.textContent=hasWorldSkill?'Connect verified world skills':'Create first world skill';
+    entry.onclick=()=>safe(async()=>{
+      requireSaved();
+      if(hasWorldSkill)await workflowPanel.openGraph();
+      else persistentPanel.showFirstSkill();
+    });
+    $('library-items').append(entry);
+    if(persistentPanel.firstSkillGoal?.savedSkill){
+      const practice=document.createElement('button');
+      practice.id='first-world-resume-guide';
+      practice.className='quiet';
+      practice.textContent='Continue practice world';
+      practice.onclick=()=>safe(()=>{requireSaved();persistentPanel.showFirstSkill();});
+      $('library-items').append(practice);
+    }
+  }
   for(const item of items){const button=document.createElement('button');button.className='object'+(item.id===(libraryTab==='scenes'?lab.scene?.id:artifact?.id)?' selected':'');const label=document.createElement('span');label.textContent=item.label||item.title||item.name;const version=document.createElement('small');version.textContent=libraryTab==='learning'?(item.status||item.recordType):'v'+item.version;button.append(label,version);button.disabled=running;
-    button.onclick=()=>safe(async()=>{requireSaved();if(libraryTab==='learning')showLearningRecord(await request('learningRead',{type:item.recordType,id:item.id}),item.recordType);else if(libraryTab==='scenes')await lab.select(item.id);else{setCanvasMode('preview');if(libraryTab==='artifacts')await request('tool',{tool:'canvas.open',args:{id:item.id}});else if(['world-reach-report-v1','motion-data-report-v1','spatial-manipulation-v1','spatial-push-v1','spatial-arrange-v1','browser-perception-v1','creation-web-v1','evidence-workflow-v1','procedural-space-v1','map-world-v1'].includes(item.kind)){goalsPanel.showProcedure(item);updateLayout();}else await request('tool',{tool:'skill.run',args:{name:item.name}});}});$('library-items').append(button);}
+    button.onclick=()=>safe(async()=>{requireSaved();if(libraryTab==='learning')showLearningRecord(await request('learningRead',{type:item.recordType,id:item.id}),item.recordType);else if(libraryTab==='scenes')await lab.select(item.id);else{setCanvasMode('preview');if(libraryTab==='artifacts')await request('tool',{tool:'canvas.open',args:{id:item.id}});else if(item.kind==='typed-skill-graph-v1'){await window.openSkillGraph046(item);updateLayout();}else if(['gripper-construction-051-v1','construction-workshop-050-v1','persistent-world-arrange-v1','world-reach-report-v1','motion-data-report-v1','spatial-manipulation-v1','spatial-push-v1','spatial-arrange-v1','browser-perception-v1','creation-web-v1','evidence-workflow-v1','procedural-space-v1','map-world-v1'].includes(item.kind)){goalsPanel.showProcedure(item);updateLayout();}else await request('tool',{tool:'skill.run',args:{name:item.name}});}});$('library-items').append(button);}
     if(!items.length){const empty=document.createElement('p');empty.className='muted';empty.textContent=libraryTab==='learning'?'Task episodes, candidates and measured replay results appear here.':libraryTab==='scenes'?'Open 3D Lab to create a real ramp scene.':libraryTab==='skills'?'Passing recipes appear here after you save them.':'Create your first artifact.';$('library-items').append(empty);}
 }
 function renderState(value){state=value;const workflow=value.workflows?.find(w=>!['completed','cancelled'].includes(w.status))||value.workflows?.at(-1),last=value.goals?.at(-1),selectedGoal=workflow&&(!last||last.workflowId===workflow.id||!['completed','cancelled'].includes(workflow.status)||workflow.updatedAt>=last.updatedAt)?workflow:last;if(selectedGoal){goalsPanel.accept(selectedGoal);creationBusy=(selectedGoal.workflow&&!['completed','cancelled'].includes(selectedGoal.status))||(selectedGoal.procedure==='creation-web-v1'&&['running','waiting-host'].includes(selectedGoal.status));$('creation-open').disabled=creationBusy||running;}$('engine-state').textContent=value.discovering?'Discovering models':'Java engine online · '+value.models.length+' local models';const selected=$('model').value;const options=value.models.map(m=>m.name);if([...$('model').options].map(o=>o.value).join()!==options.join()){$('model').replaceChildren(...options.map(name=>{const o=document.createElement('option');o.value=name;o.textContent=name;return o;}));if(options.includes(selected))$('model').value=selected;else if(options.includes(localStorage.getItem('selectedModel')))$('model').value=localStorage.getItem('selectedModel');else if(options.includes('gpt-oss:20b'))$('model').value='gpt-oss:20b';else if(options.includes('eyeoverthink/FRAYNIX-PROTOCOL:3b'))$('model').value='eyeoverthink/FRAYNIX-PROTOCOL:3b';}$('run').disabled=running||creationBusy||dirty||lab.dirty||!value.models.length||value.goals?.some(g=>['running','waiting-host'].includes(g.status));$('controller-version').textContent='Controller v'+(value.learning?.activePolicy.version||1);$('episode-count').textContent=(value.learning?.episodeCount||0)+' remembered '+((value.learning?.episodeCount||0)===1?'episode':'episodes');$('learning-rollback').disabled=running||(value.learning?.activePolicy.version||1)===1;renderLibrary();}
@@ -77,7 +135,7 @@ $('address').addEventListener('keydown',e=>{if(e.key==='Enter')$('navigate').cli
 $('back').onclick=()=>safe(()=>request('back'));$('forward').onclick=()=>safe(()=>request('forward'));
 $('new-artifact').onclick=()=>safe(()=>{requireSaved();setCanvasMode('preview');return request('new');});
 $('proof').onclick=()=>safe(async()=>{requireSaved();$('proof').disabled=true;notice('Running the real browser → artifact → test → skill proof');try{await request('proof');notice('Guided proof passed: browser, runnable app, tests and skill saved');}finally{$('proof').disabled=false;}});
-$('game').onclick=()=>safe(async()=>{await request('game');notice('Game Lab opened with separate successor project storage');});
+$('game').onclick=()=>safe(async()=>{await brainGame.openIntegrated();notice('Original Java game runtime is integrated here; no separate editor window');});
 $('run').onclick=()=>safe(async()=>{requireSaved();const goal=$('goal').value.trim();if(!goal)return;message(goal,'user');await request('agent',{goal,model:$('model').value});});
 $('goal').addEventListener('keydown',e=>{if(e.ctrlKey&&e.key==='Enter')$('run').click();});
 $('stop').onclick=()=>safe(()=>request('stop'));
@@ -104,8 +162,10 @@ host.onEvent(({type,value})=>{
   else if(type==='experiment')lab.accept(value);
   else if(type==='artifact')showArtifact(value);
   else if(type==='view'&&['preview','scene'].includes(value))setCanvasMode(value);
-  else if(type==='javaGoal'){goalsPanel.accept(value);forcePanel.accept(value);contactPanel.accept(value);posePanel.accept(value);mapPanel.onGoal(value);spatial.onPushGoal(value);creationBusy=(value.workflow&&!['completed','cancelled'].includes(value.status))||(value.procedure==='creation-web-v1'&&['running','waiting-host'].includes(value.status));$('creation-open').disabled=creationBusy||running;$('run').disabled=creationBusy||running||dirty||lab.dirty||!state?.models.length;}
+  else if(type==='javaGoal'){goalsPanel.accept(value);forcePanel.accept(value);contactPanel.accept(value);posePanel.accept(value);persistentPanel.accept(value);mapPanel.onGoal(value);spatial.onPushGoal(value);creationBusy=(value.workflow&&!['completed','cancelled'].includes(value.status))||(value.procedure==='creation-web-v1'&&['running','waiting-host'].includes(value.status));$('creation-open').disabled=creationBusy||running;$('run').disabled=creationBusy||running||dirty||lab.dirty||!state?.models.length;}
   else if(type==='dataset'){dataPanel.selected=value;dataPanel.binding();}
+  else if(type==='knowledgeResearch'&&window.knowledgeView.root.open)window.knowledgeView.refresh().catch(e=>notice(e.message));
+  else if(type==='agency043')window.agency043View.accept(value);
   else if(type==='activity')timeline(value);
   else if(type==='answer')message(value);
   else if(type==='error')notice(value);

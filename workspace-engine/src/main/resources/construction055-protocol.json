@@ -1,0 +1,20 @@
+{
+  "version": "construction-055-acceptance-v1",
+  "sourceBaseline": "138194dfb122bb6067624c21aeb3ee9e74afb5e3",
+  "legacy054": "4b42e70908cd1ba9a2447175f9f07c5fc1542283ae309a5cb50bb3736a0c3a4c",
+  "scope": "Declared rigid-box simulations; no physical strength, fracture or general learning claim",
+  "route": {"horizontalMarginM":0.12,"verticalMarginM":0.20,"maxCarryHeightM":2.0,"floorHalfM":4.0},
+  "cases": [
+    {"id":"detour055","preset":"detour","obstacle":"tall lateral wall","supportSize":[0.45,0.75,0.65],"beamSize":[2.6,0.3,0.5],"spanM":1.9,"obstacleHeightM":3.2,"wallWidthM":1.4,"expect":"verified-detour"},
+    {"id":"sealed055","preset":"sealed","obstacle":"wall across floor","supportSize":[0.45,0.75,0.65],"beamSize":[2.6,0.3,0.5],"spanM":1.9,"obstacleHeightM":3.2,"wallWidthM":7.8,"expect":"admission-refused"}
+  ],
+  "loads": {
+    "ticks":1440,"startTick":240,"endTickExclusive":720,"sampleEvery":12,
+    "maxDisplacementM":0.05,"maxTiltDeg":5.0,"maxSettledSpeedMps":0.08,"finalWindowTicks":240,
+    "cases":[
+      {"id":"unloaded","forceN":[0,0,0],"expectWide":"stable"},
+      {"id":"downward-2kg-equivalent","forceN":[0,-19.62,0],"expectWide":"stable"},
+      {"id":"horizontal-overload","forceN":[80,0,0],"expectWide":"unstable"}
+    ]
+  }
+}

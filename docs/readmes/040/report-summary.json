@@ -1,0 +1,64 @@
+{
+  "associations": [],
+  "entityCount": 2,
+  "selectedId": "430773d6-c169-3a55-a432-2c2f3c4a7647",
+  "entities": [{
+    "sourceId": "box",
+    "shape": "box",
+    "size": [
+      0.8,
+      0.8,
+      0.8
+    ],
+    "rotation": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "dynamic": true,
+    "id": "430773d6-c169-3a55-a432-2c2f3c4a7647",
+    "label": "Analytic identity box",
+    "position": [
+      0,
+      0.4,
+      0
+    ],
+    "velocity": [
+      0,
+      0,
+      0
+    ],
+    "properties": {
+      "source": {
+        "note": "Declared single box and floor for independent four-view selection checks, not real footage.",
+        "kind": "synthetic",
+        "physicalProperties": "declared"
+      },
+      "massKg": 1,
+      "friction": 0.5
+    },
+    "angularVelocity": [
+      0,
+      0,
+      0
+    ]
+  }],
+  "snapshotHash": "b34149fca9adcc691278f3555d5b71ccd9c55c73fe0e96eaef92adfaeadb4694",
+  "source": {
+    "phase": "committed-world-head",
+    "worldId": "6663e7cb-22f6-4a3d-bbf8-0efc53763740",
+    "kind": "world",
+    "pending": null,
+    "tick": 0,
+    "units": "m",
+    "revision": 0,
+    "coordinateFrame": "right-handed-y-up",
+    "livePendingAvailable": false,
+    "sourceSha256": "7eeab174e3acb337ff1f21eb41b72228b96d9750911f73416bd29bc198a5d027",
+    "headHash": "d7586c3c84dcd72d6f911b5db79c12c8291eed4aba9add1725056fe880ca6d75",
+    "pendingOwned": false,
+    "dimensions": 3
+  },
+  "limits": "Source-qualified native simulation. Declared properties are not physical observations; viewing/selecting cannot actuate this world."
+}

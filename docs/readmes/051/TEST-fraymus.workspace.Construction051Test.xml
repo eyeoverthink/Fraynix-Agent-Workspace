@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="fraymus.workspace.Construction051Test" tests="6" skipped="0" failures="0" errors="0" timestamp="2026-11-03T16:55:28.655Z" hostname="DESKTOP-RTO00K0" time="9.786">
+  <properties/>
+  <testcase name="nativeBridgeIsReleasedAndReassembledFromActualPriorFrame" classname="fraymus.workspace.Construction051Test" time="1.176"/>
+  <testcase name="sourceDesignAndTraceChangesAreRefused" classname="fraymus.workspace.Construction051Test" time="0.401"/>
+  <testcase name="heldNativeConstructionResumesFromAnExactCheckpoint" classname="fraymus.workspace.Construction051Test" time="8.106"/>
+  <testcase name="insufficientForceCannotEarnConstructionSuccess" classname="fraymus.workspace.Construction051Test" time="0.044"/>
+  <testcase name="chatConstructionIsTypedAndSelectedWorldBound" classname="fraymus.workspace.Construction051Test" time="0.022"/>
+  <testcase name="legacyWorldUpgradeIsExplicitExactAndSourceBound" classname="fraymus.workspace.Construction051Test" time="0.031"/>
+  <system-out><![CDATA[First assembly  {"maxBoundaryPositionM":1.1920928966180355E-8,"maxBystanderDriftM":0,"grabs":3,"contactPoints":5216,"maxRestoreAngleErrorDeg":0,"targets":[{"sourceId":"support-a","speedMps":5.621058383746295E-5,"positionErrorM":0.0015445717134854207,"angleErrorDeg":9.381375130718819E-4,"angularSpeedRadps":7.234534286400197E-5},{"sourceId":"support-b","speedMps":1.671181019748982E-4,"positionErrorM":0.0014369173677624546,"angleErrorDeg":8.328021689434248E-4,"angularSpeedRadps":5.8803491885136666E-5},{"sourceId":"beam","speedMps":9.406426396908952E-5,"positionErrorM":0.020003694510135575,"angleErrorDeg":0.06926733354024463,"angularSpeedRadps":1.9187502208221118E-4}],"resumes":0,"maxRestoreVelocityError":0,"maxAngleErrorDeg":0.06926733354024463,"maxRestorePositionErrorM":0,"scope":"Versioned persistent native box world, paused between goals; bounded virtual force/torque gripper and exact kinematic cold handoff, not contact-only pushing, a physical robot hand, photographic recognition or LLM-weight training.","maxTorqueNm":0.3360114991664929,"workJ":5.869284773798089,"passed":true,"maxPositionErrorM":0.020003694510135575,"nativeTicks":7587,"maxForceN":19.45202827459217,"effortNs":298.8796929234222,"maxInactiveAngleDeg":0.00960956831996836,"maxInactiveDriftM":0.03513938422709854,"maxBoundaryVelocity":0,"releases":3,"maxBoundaryAngleDeg":0,"timeS":31.6125,"maxAngularSpeedRadps":1.9187502208221118E-4,"maxSpeedMps":1.671181019748982E-4,"nativePhysics":true,"torqueEffortNms":0.7497957057631177,"maxBystanderAngleDeg":0,"angularWorkJ":0.08424227682963814}
+First support {"maxSettledSpeedMps":1.9056758202045152E-4,"supportContacts":2,"settledSamples":8,"design":{"centerZ":0,"centerX":0},"scope":"Three-part native bridge; bounded virtual force/torque gripper, gravity and contacts. No welded joints, real robot or material-strength claim.","beamCenterHeightM":0.7499963641166687,"passed":true,"released":true}
+Second assembly  {"maxBoundaryPositionM":0,"maxBystanderDriftM":0,"grabs":4,"contactPoints":5696,"maxRestoreAngleErrorDeg":0,"targets":[{"sourceId":"beam","speedMps":0.07977474878009656,"positionErrorM":0.013451164441009834,"angleErrorDeg":3.087255982250205E-4,"angularSpeedRadps":3.3347581781162014E-5},{"sourceId":"support-a","speedMps":2.8979376048770375E-5,"positionErrorM":8.590118407993138E-4,"angleErrorDeg":1.5782305256294304E-4,"angularSpeedRadps":6.358742914936173E-6},{"sourceId":"support-b","speedMps":1.4768984748979706E-4,"positionErrorM":6.31755662223559E-4,"angleErrorDeg":7.978413099632554E-5,"angularSpeedRadps":9.068742157057943E-6},{"sourceId":"beam","speedMps":5.743636427705622E-5,"positionErrorM":0.02000018637762202,"angleErrorDeg":1.1217768621914162E-4,"angularSpeedRadps":5.837428816797952E-6}],"resumes":0,"maxRestoreVelocityError":0,"maxAngleErrorDeg":3.087255982250205E-4,"maxRestorePositionErrorM":0,"scope":"Versioned persistent native box world, paused between goals; bounded virtual force/torque gripper and exact kinematic cold handoff, not contact-only pushing, a physical robot hand, photographic recognition or LLM-weight training.","maxTorqueNm":9.954397465627071E-4,"workJ":1.39397827686022,"passed":true,"maxPositionErrorM":0.02000018637762202,"nativeTicks":8245,"maxForceN":19.451984421374927,"effortNs":309.6961139990354,"maxInactiveAngleDeg":0.011313174322059513,"maxInactiveDriftM":0.03507489147625328,"maxBoundaryVelocity":0,"releases":4,"maxBoundaryAngleDeg":0,"timeS":34.354166666666664,"maxAngularSpeedRadps":3.3347581781162014E-5,"maxSpeedMps":0.07977474878009656,"nativePhysics":true,"torqueEffortNms":0.001275521846198221,"maxBystanderAngleDeg":0,"angularWorkJ":9.568597827724606E-8}
+]]></system-out>
+  <system-err><![CDATA[Nov 03, 2026 8:55:28 AM com.jme3.bullet.objects.PhysicsRigidBody rebuildRigidBody
+INFO: Created 17aff2a9820.
+Nov 03, 2026 8:55:28 AM com.jme3.bullet.objects.PhysicsRigidBody rebuildRigidBody
+INFO: Created 17aff2aa810.
+Nov 03, 2026 8:55:28 AM com.jme3.bullet.objects.PhysicsRigidBody rebuildRigidBody
+INFO: Created 17aff2aae70.
+Nov 03, 2026 8:55:28 AM com.jme3.bullet.objects.PhysicsRigidBody rebuildRigidBody
+INFO: Created 17aff2a9e80.
+Nov 03, 2026 8:55:29 AM com.jme3.bullet.objects.PhysicsRigidBody rebuildRigidBody
+INFO: Created 17aff2ac4c0.
+Nov 03, 2026 8:55:29 AM com.jme3.bullet.objects.PhysicsRigidBody rebuildRigidBody
+INFO: Created 17aff2a94f0.
+Nov 03, 2026 8:55:29 AM com.jme3.bullet.objects.PhysicsRigidBody rebuildRigidBody
+INFO: Created 17aff2a9b50.
+Nov 03, 2026 8:55:29 AM com.jme3.bullet.objects.PhysicsRigidBody rebuildRigidBody
+INFO: Created 17ac9d89530.
+Nov 03, 2026 8:55:29 AM com.jme3.bullet.objects.PhysicsRigidBody rebuildRigidBody
+INFO: Created 17ac9d87bb0.
+Nov 03, 2026 8:55:29 AM com.jme3.bullet.objects.PhysicsRigidBody rebuildRigidBody
+INFO: Created 17ac9d89200.
+Nov 03, 2026 8:55:29 AM com.jme3.bullet.objects.PhysicsRigidBody rebuildRigidBody
+INFO: Created 17ac9d88210.
+Nov 03, 2026 8:55:29 AM com.jme3.bullet.objects.PhysicsRigidBody rebuildRigidBody
+INFO: Created 17ac9d8a1f0.
+Nov 03, 2026 8:55:30 AM com.jme3.bullet.objects.PhysicsRigidBody rebuildRigidBody
+INFO: Created 17ac9d89860.
+Nov 03, 2026 8:55:30 AM com.jme3.bullet.objects.PhysicsRigidBody rebuildRigidBody
+INFO: Created 17ac9d88ed0.
+Nov 03, 2026 8:55:30 AM com.jme3.bullet.objects.PhysicsRigidBody rebuildRigidBody
+INFO: Created 17ac9d89b90.
+Nov 03, 2026 8:55:30 AM com.jme3.bullet.objects.PhysicsRigidBody rebuildRigidBody
+INFO: Created 17ac9d88540.
+Nov 03, 2026 8:55:31 AM com.jme3.bullet.objects.PhysicsRigidBody rebuildRigidBody
+INFO: Created 17ac9d89ec0.
+Nov 03, 2026 8:55:31 AM com.jme3.bullet.objects.PhysicsRigidBody rebuildRigidBody
+INFO: Created 17ac9d8a520.
+Nov 03, 2026 8:55:31 AM com.jme3.bullet.objects.PhysicsRigidBody rebuildRigidBody
+INFO: Created 17ac9d88870.
+Nov 03, 2026 8:55:31 AM com.jme3.bullet.objects.PhysicsRigidBody rebuildRigidBody
+INFO: Created 17ac9d87ee0.
+Nov 03, 2026 8:55:38 AM com.jme3.bullet.objects.PhysicsRigidBody rebuildRigidBody
+INFO: Created 17ac9d87bb0.
+Nov 03, 2026 8:55:38 AM com.jme3.bullet.objects.PhysicsRigidBody rebuildRigidBody
+INFO: Created 17ac9d8a1f0.
+Nov 03, 2026 8:55:38 AM com.jme3.bullet.objects.PhysicsRigidBody rebuildRigidBody
+INFO: Created 17ac9d8a850.
+Nov 03, 2026 8:55:38 AM com.jme3.bullet.objects.PhysicsRigidBody rebuildRigidBody
+INFO: Created 17ac9d88210.
+]]></system-err>
+</testsuite>

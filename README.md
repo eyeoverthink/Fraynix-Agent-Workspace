@@ -2,9 +2,16 @@
 
 **A local visual environment for agents to browse, create runnable artifacts, test behavior and reuse verified skills.**
 
-> **Latest implementation: [README034 — native multi-object poses](README-034.md)** · [Offline guide](docs/readmes/034/index.html) · [Runtime contract](docs/MULTI_OBJECT_POSES.md) · [Edition history](docs/readmes/INDEX.md)
+> **[Edition 069 · A bounded later look](README-069.md)** · [Offline guide](docs/readmes/069/index.html) · [Operation](docs/JAVA_CHAT_044.md) · [Edition history](docs/readmes/INDEX.md)
 
-Arrange multiple bodies and headings with bounded native force/torque, verify every body, recover the same run and retain a versioned procedure. [Functions, original evidence, actual screenshots and next steps](README-034.md).
+Edition 069 adds one measured later contact check and a bounded second correction in the same world. On60 unfamiliar-disturbance tasks, successes rise19→36 with no previously successful goal lost. Clean successes38→39, with a sensing-cost penalty. Both primary gates pass; no automatic controller promotion. [Full results and limitations](docs/readmes/069/verification.json).
+
+Edition 069 is published to main with full source, thirteen actual app captures, original evidence and updated continuity notes. [Fetched GitHub verification](docs/PUBLICATION_069.json).
+
+
+One integrated app, with Java-owned chat planning, creation, native skill scheduling, continuing identity, real clocks and checked outcomes. Mission connects the actual goal, source, child task, recovery and retained result. [Screenshots, typed skill graphs, new logic and production direction](README-046.md).
+
+The [edition 050 construction workshop](README-050.md) adds finite-stock ramp experiments, predictions saved before native physics execution, recorded failures, bounded design repair and procedures that are retested after restart. Its integrated replay and charts expose actual solver outcomes. The [edition 051 gripper assembly](README-051.md) now adds force/torque-driven bridge assembly, same-world reassembly after restart, typed chat and verified saved skills. The kit and actuator are virtual; construction remains subject to native verification. [Verified GitHub publication](docs/PUBLICATION_050.json) · [Final application validation](docs/publication050/validation.json).
 
 The spatial proof and next independent-capture gates are documented in the [spatial contract](docs/SPATIAL_WORLD.md) and the [world-model frontier assessment](docs/WORLD_MODEL_FRONTIERS.md), including Genie, persistent3D capture, physics-aware prediction and the source-qualified local scene/manipulation milestone.
 
@@ -14,13 +21,13 @@ Independent successor to [Fraynix Studio](https://github.com/eyeoverthink/Frayni
 
 Run **Launch-Agent-Workspace.bat** with JDK 21 and Node.js 22.12 or newer installed. First setup downloads pinned Electron/Chromium dependencies. Use an installed local Ollama model for agent tasks. Docker and WSL are not required.
 
-The app includes a real browser, live creation canvas, editable source, versioned artifact library, local-model agent, execution timeline and tested recipe library. **Run guided proof** demonstrates the complete local workflow. **Open Game Lab** launches the preserved Java editor in its own successor project directory.
+The app includes a real browser, live creation canvas, editable source, versioned artifact library, local-model agent, execution timeline and tested recipe library. **Run guided proof** demonstrates the complete local workflow. **Game Lab** opens the existing integrated original renderer with its native window hidden and editor uninitialized. Legacy editor sources are preserved.
 
 Local `gpt-oss:20b` is the verified default for the first agent fixture. The custom FRAYNIX 3B trial returned an Ollama native-format error; advertised tool capability alone does not establish task reliability. You can select other eligible installed models explicitly.
 
-![Actual native controller comparison inside the existing app](docs/readmes/034/images/pose-feature-comparison-034.png)
+![Actual edition040 integrated native views](docs/readmes/040/images/spatial040-linked-native.png)
 
-Actual edition034 pose-capability comparison shown above. Earlier October30 body/scene/file workflows remain preserved. Native actuation, decoded video, import/replication, Java/desktop regressions and local-agent evidence are recorded in [edition 015 verification](docs/readmes/015/verification.json). The previous [real-data fit](README-013.md) remains rejected.
+Actual edition040 linked views shown above, using an explicitly labelled analytic native control. Open **Spatial → Linked views** for shared selection, original-game inspection, separate observation planes, JSON export and checked local-model reports. Display checks and physical accuracy are separate; edition038 physical displacement/uncertainty remain unvalidated. Earlier observation/native behavior remains documented in [edition036](README-036.md). Earlier October30 body/scene/file workflows remain preserved. Native actuation, decoded video, import/replication, Java/desktop regressions and local-agent evidence are recorded in [edition015 verification](docs/readmes/015/verification.json). The previous [real-data fit](README-013.md) remains rejected.
 
 ## Verify
 
@@ -49,7 +56,7 @@ npm.cmd run test:live-broader
 
 Project files, test receipts, learned recipes, browser cookies and event history live under `%USERPROFILE%/.fraynix-agent-workspace/projects/default`, outside Git. `FRAYNIX_WORKSPACE_PROJECT` selects another independent project.
 
-The current skill type is a tested web-artifact recipe. A bounded adaptive controller now learns from recorded outcomes and activates only after independent replay. Whole-model training, general code workers and broader computer control remain separate milestones in the [design plan](docs/AGENT_WORKSPACE_DESIGN.md).
+Skills include tested web-artifact recipes and Java-owned physical procedures. Construction skills retain their versioned requirements and must pass fresh physics checks when reused. A bounded adaptive controller learns from recorded outcomes and activates only after independent replay. Whole-model training, general code workers and broader computer control remain separate milestones in the [design plan](docs/AGENT_WORKSPACE_DESIGN.md).
 
 ## Persistent learning in the working app
 

@@ -1,0 +1,41 @@
+{
+  "edition": 50,
+  "published": true,
+  "releaseCommit": "12bcadcabf6a8d139e61bbf5ea660a3bf3ded300",
+  "releaseTag": "readme-050",
+  "tagObject": "9c486d47656adcdcfabb8a03bc1754eaae0cf363",
+  "verifiedMain": "cb0e06808783336d4d9890743e71f02f1b0c23bc",
+  "implementationSource": "be4ec0c16480d66d3b40b24a700f4453753ddcd8",
+  "includedEarlierLocalEditions": [
+    47,
+    48,
+    49
+  ],
+  "remoteAudit": {
+    "passed": true,
+    "verifiedAtUtc": "2026-11-03T04:50:24.572119+00:00",
+    "remote": "https://github.com/eyeoverthink/Fraynix-Agent-Workspace.git",
+    "fetchedRef": "refs/verify/edition050-main",
+    "commit": "cb0e06808783336d4d9890743e71f02f1b0c23bc",
+    "canonicalSourceFiles": 856,
+    "sourceInventoryOverrides": "One declared UTF-8 label correction; original tagged LF blob and original Windows CRLF snapshot entry independently verified. See docs/PUBLICATION_050_SOURCE_CORRECTION.json.",
+    "editions": 50,
+    "frozenHashes": 3234,
+    "original050EvidenceFiles": 13,
+    "method": "Read every enumerated blob from the freshly fetched Git tree; compare canonical text or exact binary SHA-256 and source sizes with the explicit source correction.",
+    "postCorrectionOriginalEvidenceFiles": 13
+  },
+  "documentation": {
+    "passed": true,
+    "editions": 50,
+    "documents": 313,
+    "canvases": 55,
+    "references": 5578,
+    "frozenHashes": 3234,
+    "issues": []
+  },
+  "validation": "publication050/validation.json",
+  "sourceEncodingCorrection": "PUBLICATION_050_SOURCE_CORRECTION.json",
+  "continuity": "This receipt/notes-only commit follows the verified implementation and original evidence commit. The annotated release tag and all numbered snapshots remain unchanged.",
+  "preserved": "Original review045 runtime and private mat/camera project; separate edition050 worktree and isolated test projects."
+}

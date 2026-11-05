@@ -1,0 +1,30 @@
+{
+  "source": "32dbed5",
+  "suites": [
+    {
+      "module": "workspace-engine/build/test-results/test",
+      "name": "fraymus.workspace.AtomicCheckpoint054Test",
+      "tests": "3",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0"
+    }
+  ],
+  "cases": [
+    {
+      "case": "fraymus.workspace.AtomicCheckpoint054Test#interruptedRetryPreservesCheckpointAndInterruptFlag",
+      "passed": true,
+      "diagnostics": []
+    },
+    {
+      "case": "fraymus.workspace.AtomicCheckpoint054Test#prolongedWindowsLockPreservesPreviousAndForcedPendingBytes",
+      "passed": true,
+      "diagnostics": []
+    },
+    {
+      "case": "fraymus.workspace.AtomicCheckpoint054Test#temporaryWindowsReadHandleRetriesWithoutDroppingCheckpoint",
+      "passed": true,
+      "diagnostics": []
+    }
+  ]
+}

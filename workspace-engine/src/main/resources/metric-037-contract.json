@@ -1,0 +1,56 @@
+{
+  "edition": "037",
+  "version": "metric-plane-037-v1",
+  "source": "https://www.epfl.ch/labs/cvlab/data/data-pom-index-php/",
+  "footage": "https://documents.epfl.ch/groups/c/cv/cvlab-pom-video3/www/terrace1-c0.avi",
+  "calibration": "https://www.epfl.ch/labs/cvlab/wp-content/uploads/2018/08/terrace-tsai.zip",
+  "reference": "https://www.epfl.ch/labs/cvlab/wp-content/uploads/2018/08/gt_terrace1.txt",
+  "priorInspection": "Source HTML, calibration XML camera0 and reference header/initial undefined rows were read before protocol. No video frames or defined reference positions inspected. ETH downloads unavailable; source selected by published geometry and availability, not tracking scores.",
+  "cases": [
+    {
+      "name": "terrace-calibration",
+      "split": "calibration",
+      "startInclusive": 500,
+      "endExclusive": 2000
+    },
+    {
+      "name": "terrace-later-a",
+      "split": "reserved",
+      "startInclusive": 2500,
+      "endExclusive": 3500
+    },
+    {
+      "name": "terrace-later-b",
+      "split": "reserved",
+      "startInclusive": 3500,
+      "endExclusive": 4500
+    }
+  ],
+  "selection": "Within each interval, choose earliest annotated source frame aligned to25 with one person defined (>=0) for17 successive annotations (400source frames); ties lowest person column.81 frames every5 source frames including start. Later annotations scorer-only; first position initializes a projected1750mm tall/500mm wide human rectangle, clipped to image.",
+  "geometry": {
+    "sourceFps": 25,
+    "sourceCalibrationSize": [
+      720,
+      576
+    ],
+    "groundPlane": "z=0; EPFL top view origin(-500,-1500), extent7500x11000; grid30x44,250source units/cell",
+    "unitAssumption": "EPFL terrace/Tsai millimetre convention, multiply coordinates by0.001 for metres; annotation resolution0.25m. No instrument certification.",
+    "rotation": "Tsai R=Rz*Ry*Rx; image undistortion Xu=Xd*(1+kappa1*r^2), Y analogous; plane intersection; calibration metadata fixed before candidate.",
+    "point": "tracked box bottom centre (ground contact assumption), not body/face identity or depth reconstruction"
+  },
+  "uncertainty": {
+    "targetCoverage": 0.9,
+    "minimumCalibrationReferences": 12,
+    "score": "Euclidean metric residual divided by propagated model sigma floored at0.01m, excluding seed only. Quantile rank ceil((n+1)*0.9), capped at n. Radius=max(0.01m,q*sigma) plus declared reference/anchor scale terms; no fitting on reserved residuals.",
+    "qualification": "empirical, temporally correlated, same camera/plane only; no distribution-free guarantee",
+    "acceptance": {
+      "minimumReservedCoverage": 0.8,
+      "maximumMeanRadiusM": 1.0,
+      "allReservedCasesRequired": true,
+      "failurePolicy": "publish first results unchanged; mark profile experimental/rejected, never tune or drop cases"
+    }
+  },
+  "runtime": "Keep036 filter/tracker/native identity sources unchanged. Add a durable calibrated interpretation of immutable036 traces bound to dataset/run/code/camera geometry/timestamps and world/body IDs; native verified physics stays separate. New footage with explicit source-frame seconds; video/webcam monotonic timestamps. User anchors planar homography or frontoparallel ruler, explicit uncertainty.",
+  "webcam": "Local preview only on trusted app top frame after explicit click. Explicit bounded capture with timestamped original sampled frames. Stop releases tracks; navigation/unload stops. No personal camera images or device identifiers committed. Software-camera test uses public footage and is labelled; hardware preview reported separately.",
+  "evidence": "Protocol commit before implementation. Candidate lock before reserved pixel extraction/runtime/scoring. Preserve all first outputs and failures. Later reference positions never reach production tracker/metric derivation except explicit calibration-profile residual input. No silent native authority."
+}

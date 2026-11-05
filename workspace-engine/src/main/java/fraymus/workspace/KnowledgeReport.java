@@ -1,0 +1,17 @@
+package fraymus.workspace;
+import org.json.*;
+
+/** Host-built cached-source report. Untrusted page text is escaped; never executed. */
+final class KnowledgeReport {
+    static String escape(String v){return v.replace("&","&amp;").replace("<","&lt;").replace(">","&gt;").replace("\"","&quot;").replace("'","&#39;");}
+    static JSONObject build(JSONObject evidence){
+        var object=evidence.getJSONObject("object");var job=evidence.getJSONObject("job");var docs=evidence.getJSONArray("documents");var files=new JSONObject();var sources=new JSONArray();var list=new StringBuilder();int images=0;
+        for(int i=0;i<docs.length();i++){var d=docs.getJSONObject(i);var ref=job.getJSONArray("sources").getJSONObject(i);images+=d.getJSONArray("images").length();String filename="source-"+(i+1)+".html";list.append("<li class=reference><a href=\"").append(filename).append("\">").append(escape(d.getString("title"))).append("</a><p>").append(escape(d.getString("finalUrl"))).append("</p><small>Captured ").append(escape(d.getString("observedAt"))).append(" · SHA256 ").append(ref.getString("sha256")).append("</small></li>");
+            var imageList=new StringBuilder();for(Object raw:d.getJSONArray("images")){var image=(JSONObject)raw;imageList.append("<li>").append(escape(image.getString("alt"))).append("<p>").append(escape(image.getString("url"))).append("</p></li>");}
+            files.put(filename,page("Cached research source","<a href=\"index.html\">Back to object report</a><h1>"+escape(d.getString("title"))+"</h1><p>"+escape(d.getString("finalUrl"))+"</p><p>Untrusted source data captured "+escape(d.getString("observedAt"))+". Reference images below are URLs; no visual match was computed.</p><pre id=source-text>"+escape(d.getString("text"))+"</pre><h2>Image references</h2><ul>"+imageList+"</ul>"));sources.put(ref);
+        }
+        String body="<p>FRAYNIX / OBJECT KNOWLEDGE039</p><h1>"+escape(object.getString("label"))+"</h1><p id=object-id>"+object.getString("id")+"</p><p id=job-id>"+job.getString("id")+"</p><p id=status>"+escape(job.getString("status"))+"</p><p id=category>Category: "+escape(object.getString("category"))+" · human guidance</p><p>Source mode: "+escape(job.getString("mode"))+" · "+escape(job.getString("sourceKind"))+". Identity revision "+job.getInt("identityRevision")+".</p><p id=scope>"+escape(evidence.getString("scope"))+"</p><p id=image-count>"+images+" reference image URLs; visual matching not performed.</p><h2>Actual cached references</h2><ol id=sources>"+list+"</ol><h2>Original observation and failed attempts</h2><pre id=evidence>"+escape(evidence.toString(2))+"</pre>";
+        files.put("index.html",page("Object knowledge · "+object.getString("label"),body)).put("knowledge.json",evidence.toString(2));return new JSONObject().put("title","Object knowledge · "+object.getString("label")).put("files",files).put("sources",sources);
+    }
+    private static String page(String title,String body){return "<!doctype html><html lang=en><meta charset=utf-8><meta name=viewport content=\"width=device-width,initial-scale=1\"><title>"+escape(title)+"</title><style>*{box-sizing:border-box}body{margin:0;background:#10242b;color:#e4f1ed;font:16px/1.6 system-ui;padding:24px;max-width:1100px;overflow-wrap:anywhere}h1{font-size:34px}a{color:#a3e6cb}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#19383e;padding:18px;border-radius:10px;max-height:500px;overflow:auto}li{padding:12px;border-bottom:1px solid #52796e}small{color:#b3d0c4}</style>"+body+"</html>";}
+}

@@ -1,4 +1,28 @@
-# Fraynix Studio system architecture
+# Fraynix Agent Workspace system architecture
+
+
+## Current edition044: one Java owner, visible missions
+
+Every active chat route and native-procedure selection now uses the existing durable Java queue. Java owns semantic routing, selected sources, typed stages, child goal/workflow identities, model contracts/code generation, actual outcome checks, cancellation and recovery. The desktop hosts the real browser/canvas/camera and formats observations. It contains no active chat-planning model call. [Ownership and operating details](JAVA_CHAT_044.md).
+
+The existing timeline now switches between Activity and Mission. Mission reads actual Java goal, source/version, child status, history/hash, retained skill and result; its controls stop/resume the real task and refuse opening a later artifact revision as the original result. Normal Game Lab is already integrated using the original Java renderer with its native window hidden and editor uninitialized. Source-qualified screenshot/vision behavior from043 remains. [Concept and production sequence](EDITION_044_VISION.md). Earlier edition sections below retain their dated scope; the044 contract supersedes earlier ownership/window descriptions.
+
+## Edition043: Java workbench ownership and visual evidence
+
+Ordinary browser/canvas chat and saved-recipe scheduling now run through the durable Java Agency043 queue. The desktop executes authenticated surface claims. Original before/during/after PNGs retain source/version/time/hash metadata; owned JDK pixel descriptors and differences support tested visual references. Optional installed local vision is an untrusted estimate. Actual current artifact checks control completion. The earlier043 specialized-agent limitation is superseded by044 Java coordination; existing physical/perception controllers and surface adapters remain. [Operation and scope](JAVA_VISUAL_AGENCY.md).
+
+## Edition042: one continuing Java agent
+
+A project-owned headless Java process now holds identity, per-boot clocks, checked shared neural state, bounded sensory replay, observation freshness and a segmented integrity witness. The existing interface reconnects under a single renewable lease. Pure Java goals continue without it; unfinished claimed host actions require explicit Resume. The primary Game Lab button uses the integrated original renderer rather than a separate editor. Existing Electron/browser hosting and native Bullet dependencies remain; no new neural framework is introduced. See [operation and recovery](CONTINUING_JAVA_AGENT.md) and [README042](../README-042.md).
+
+## Edition040: shared Java spatial runtime and integrated views
+
+Java adapts actual source identities/poses from native ledger/live ownership, original game and separate recorded mat observations. It computes camera projection, clipping and picking; the shell draws integrated linked views and matching original game raster. Typed read/project/report tools pin one source and verify an actual saved artifact. Coordinate frames, action authority and unknown depth remain explicit. See [operation](SHARED_SPATIAL_RUNTIME.md) and [README040](../README-040.md).
+
+## Edition039: operational self-model and persistent object knowledge
+
+Java registers actual host capabilities and injects compact current state into every planning request. Durable human-associated object identities retain original observation/native provenance. A lease-fenced Java job coordinates one separate unprivileged browser worker for actual bounded public research, cached citations and checked reports. Human labels, observations, native state and untrusted web references remain distinct. See [operation and limits](OBJECT_KNOWLEDGE.md) and [README039](../README-039.md).
+
 
 ## Edition032: native experience with a reserved decision
 
@@ -69,7 +93,7 @@ flowchart LR
     Skill -->|fresh source and declared conditions| Parent
 ```
 
-Edition025 adds `creation-web-v1` to the same Java goal/procedure registry. The desktop supplies admitted local generation and actual canvas interactions through private leased effects; Java pins source/model/checks, owns artifact versions, validates observed receipts, bounds repairs and reconciles restart. Passing procedures can regenerate and verify on a fresh selected CSV. See [durable creation](DURABLE_CREATION.md). This extends the current layout and creation canvas; it does not install generated host handlers or train LLM weights.
+Edition025 adds `creation-web-v1` to the same Java goal/procedure registry. Edition025 initially supplied generation through the desktop;044 moves admitted generation into Java. The desktop still supplies actual canvas interactions through private leased effects; Java pins source/model/checks, owns artifact versions, validates observed receipts, bounds repairs and reconciles restart. Passing procedures can regenerate and verify on a fresh selected CSV. See [durable creation](DURABLE_CREATION.md). This extends the current layout and creation canvas; it does not install generated host handlers or train LLM weights.
 
 Edition024 adds pure Java temporal feature tracking, visible motion diagnostics and new reserved-footage evaluation. The candidate improves all three clips but fails the unchanged coverage/false-visible gates, so baseline remains active. Old profiles and pinned goals/skills remain installed; the new adapter retains the unchanged earlier scorer. See [temporal tracking](TEMPORAL_TRACKING.md) for actual computations, source freeze, results and limits.
 
@@ -169,3 +193,33 @@ currently start from that source; persistent world revisions across goals are
 planned. A registered64MBcomparison transport uses hashed10MBparts; ordinary
 exports retain20MB. No new libraries, models or cloud services are introduced.
 [Full scope, evidence and next gate](MULTI_OBJECT_POSES.md).
+
+## Edition035: persistent world revisions across goals
+
+WorldFrames/WorldLedger preserve stable IDs and all-body kinematics across
+completed goals, independently of immutable imported scenes. Separate035native
+classes restore positions/quaternions/linear and angular velocities; physics
+pauses between goals and solver caches are reconstructed. Pending goal/run
+ownership blocks replacements. Atomic forced ledger writes, head compare-and-set,
+idempotent verified commit and explicit labelled restore protect continuity.
+
+The existing Java runner, Spatial, chat, original reports and Skills use this
+same world. Real native and Chromium evidence precedes head advancement and
+retention. Full history export includes abandoned attempts.034and older native
+sources remain preserved. [Complete contract and next gate](PERSISTENT_WORLDS.md).
+
+
+## Edition036: observations attached to persistent world identities
+
+[Observed-world contract](OBSERVED_WORLDS.md) and [edition036](../README-036.md)
+describe the new Java observation store, separate from the unchanged035 native
+ledger. Imported real pixels and first-frame human rectangles drive unchanged
+flow-v3 tracking. A Java position/velocity covariance filter predicts before
+measurement and retains accepted image-plane estimates under the SAME world/body
+IDs. Native binding and observation revision CAS, exact-prefix replay, Stop
+execution generations and explicit stale state preserve provenance. Native
+verified frames are not overwritten. Missing depth/scale/FPS and uncalibrated
+uncertainty remain explicit. Chromium decodes actual local videos into bounded
+samples. Chat read/start/wait/report tools and standard world.observe consume
+this evidence; complete exports retain every related observation attempt and
+original imported pixel source. Original video containers stay separate.

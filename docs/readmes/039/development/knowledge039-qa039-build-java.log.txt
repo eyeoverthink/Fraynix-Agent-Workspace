@@ -1,0 +1,50 @@
+> Task :brain-core:compileJava
+> Task :brain-core:processResources NO-SOURCE
+> Task :brain-core:classes
+> Task :brain-core:jar
+> Task :brain-gpu:compileJava
+> Task :brain-gpu:processResources NO-SOURCE
+> Task :brain-gpu:classes
+> Task :brain-gpu:jar
+> Task :factory-runtime:compileJava
+> Task :factory-kernel:compileJava
+> Task :factory-kernel:processResources NO-SOURCE
+> Task :factory-kernel:classes
+> Task :factory-kernel:jar
+> Task :factory-models:compileJava
+> Task :factory-models:processResources NO-SOURCE
+> Task :factory-models:classes
+> Task :factory-models:jar
+> Task :factory-runtime:processResources NO-SOURCE
+> Task :factory-runtime:classes
+> Task :factory-runtime:jar
+> Task :geometry-core:compileJava
+> Task :geometry-core:processResources NO-SOURCE
+> Task :geometry-core:classes
+> Task :geometry-core:jar
+> Task :workspace-engine:compileJava
+> Task :workspace-engine:processResources
+> Task :workspace-engine:classes
+> Task :workspace-engine:jar
+> Task :workspace-engine:startScripts
+> Task :workspace-engine:installDist
+
+> Task :compileJava
+
+> Task :processResources
+Note: C:\Users\eyeka\Documents\Codex\2026-10-26\is\work\fraynix-workspace-qa039\src\main\java\components\Component.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+> Task :classes
+> Task :jar
+> Task :startScripts
+> Task :installDist
+> Task :workspace-engine:compileTestJava
+> Task :workspace-engine:processTestResources NO-SOURCE
+> Task :workspace-engine:testClasses
+> Task :workspace-engine:test
+
+[Incubating] Problems report is available at: file:///C:/Users/eyeka/Documents/Codex/2026-10-26/is/work/fraynix-workspace-qa039/build/reports/problems/problems-report.html
+
+BUILD SUCCESSFUL in 21s
+24 actionable tasks: 24 executed
+Consider enabling configuration cache to speed up this build: https://docs.gradle.org/9.3.1/userguide/configuration_cache_enabling.html

@@ -1,0 +1,48 @@
+{
+  "label": "native059-final",
+  "source": "111ddd0",
+  "count": 8,
+  "failures": 0,
+  "cases": [
+    {
+      "case": "fraymus.workspace.Design059Test#actualAsymmetricComparisonNewPayloadsAndMeasuredEvidencePerformance",
+      "passed": true,
+      "seconds": 367.64
+    },
+    {
+      "case": "fraymus.workspace.Evidence059Test#failuresAreNeverCachedAndColdReadsReverify",
+      "passed": true,
+      "seconds": 0.009
+    },
+    {
+      "case": "fraymus.workspace.Evidence059Test#cacheIsBoundedAndReturnedOriginalsAreIsolated",
+      "passed": true,
+      "seconds": 0.038
+    },
+    {
+      "case": "fraymus.workspace.Evidence059Test#numericSnapshotsPreserveExactOutputAndSignedZero",
+      "passed": true,
+      "seconds": 0.002
+    },
+    {
+      "case": "fraymus.workspace.Evidence059Test#sameLengthSameTimestampEditsCannotReuseCheckedEvidence",
+      "passed": true,
+      "seconds": 0.017
+    },
+    {
+      "case": "fraymus.workspace.Support059Test#distinctNewReservedProtocolCannotBeMistakenForDesignOr058",
+      "passed": true,
+      "seconds": 0.009
+    },
+    {
+      "case": "fraymus.workspace.Support059Test#sameStockSpanAndBeamPositionArePreservedWithEndMargins",
+      "passed": true,
+      "seconds": 0.063
+    },
+    {
+      "case": "fraymus.workspace.Support059Test#nativeOptionsAreExplicitAndDisabledRedesignRefusesBothOffsets",
+      "passed": true,
+      "seconds": 0.166
+    }
+  ]
+}

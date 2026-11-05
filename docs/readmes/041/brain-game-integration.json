@@ -1,0 +1,1545 @@
+{
+  "passed": true,
+  "date": "2026-11-02T05:04:07.948Z",
+  "project": "C:\\Users\\eyeka\\AppData\\Local\\Temp\\fraynix-brain-game-u6gtua",
+  "checks": [
+    "Actual original Java renderer appears in Game tab; native window hidden and editor never initialized",
+    "Visible 30-tick input changes actual player position and original-renderer pixels",
+    "Shared Java cortex diagnostic completes and saves a real checkpoint",
+    "Visible GPU job executes actual GLSL kernel and checks CPU parity with transfer-inclusive timing",
+    "Visible Train control executes 180 native operations and promotes only after separate validation passes",
+    "Remember and Retrieve use real Java memory with source provenance and journal hashes",
+    "Active Java policy applies actual impulse in embedded 3D Lab; native endpoint goal is measured independently",
+    "Closing shell stops owned hidden game process without leaving an orphan",
+    "Fresh desktop process retains policy, durable jobs and bounded retrieved memory",
+    "Visible rollback restores baseline weights as a new monotonic policy version"
+  ],
+  "latency": [
+    {
+      "roundTripMs": 8,
+      "bridgeMs": 2.1456,
+      "captureMs": 24.4707,
+      "frameSequence": 12
+    },
+    {
+      "roundTripMs": 7,
+      "bridgeMs": 2.3558,
+      "captureMs": 24.4707,
+      "frameSequence": 12
+    },
+    {
+      "roundTripMs": 7,
+      "bridgeMs": 2.1538,
+      "captureMs": 24.4707,
+      "frameSequence": 12
+    },
+    {
+      "roundTripMs": 7,
+      "bridgeMs": 2.2914,
+      "captureMs": 24.4707,
+      "frameSequence": 12
+    },
+    {
+      "roundTripMs": 7,
+      "bridgeMs": 2.2622,
+      "captureMs": 24.4707,
+      "frameSequence": 12
+    },
+    {
+      "roundTripMs": 7,
+      "bridgeMs": 2.1575,
+      "captureMs": 24.4707,
+      "frameSequence": 12
+    },
+    {
+      "roundTripMs": 7,
+      "bridgeMs": 2.1078,
+      "captureMs": 24.4707,
+      "frameSequence": 12
+    },
+    {
+      "roundTripMs": 6,
+      "bridgeMs": 2.246,
+      "captureMs": 24.4707,
+      "frameSequence": 12
+    },
+    {
+      "roundTripMs": 7,
+      "bridgeMs": 2.0298,
+      "captureMs": 24.4707,
+      "frameSequence": 12
+    },
+    {
+      "roundTripMs": 6,
+      "bridgeMs": 2.1171,
+      "captureMs": 24.4707,
+      "frameSequence": 12
+    },
+    {
+      "roundTripMs": 7,
+      "bridgeMs": 2.1101,
+      "captureMs": 24.8109,
+      "frameSequence": 16
+    },
+    {
+      "roundTripMs": 6,
+      "bridgeMs": 1.9978,
+      "captureMs": 24.8109,
+      "frameSequence": 16
+    }
+  ],
+  "gpu": {
+    "phase": "completed",
+    "cases": [
+      {
+        "maxDifference": 0,
+        "columns": 7,
+        "cpuMeanMs": 0.00441,
+        "gpuMeanIncludingTransfersMs": 0.20838,
+        "rows": 5,
+        "tolerance": 0.0002
+      },
+      {
+        "maxDifference": 0,
+        "columns": 33,
+        "cpuMeanMs": 0.0851,
+        "gpuMeanIncludingTransfersMs": 0.17682,
+        "rows": 65,
+        "tolerance": 0.0002
+      },
+      {
+        "maxDifference": 0,
+        "columns": 128,
+        "cpuMeanMs": 0.31122,
+        "gpuMeanIncludingTransfersMs": 0.82035,
+        "rows": 1024,
+        "tolerance": 0.0002
+      }
+    ],
+    "kind": "gpu-check",
+    "accepted": true,
+    "activeVersionAtStart": 1,
+    "createdAt": "2026-11-02T05:03:55.333617700Z",
+    "protocol": "native-push-readout-v1",
+    "autoPromote": true,
+    "worldVersionAtStart": 0,
+    "endedAt": "2026-11-02T05:03:55.684326400Z",
+    "scope": "Real dense readout kernel; full spiking cortex remains CPU. Transfer overhead included; no automatic speedup claim.",
+    "id": "172b75f4-6804-4971-998a-7b1a469d0daf",
+    "device": "NVIDIA GeForce GTX 1660 Ti/PCIe/SSE2 / 4.3.0 NVIDIA 560.94",
+    "status": "completed",
+    "feedbackVersionAtStart": 1
+  },
+  "training": {
+    "id": "500e7eca-0d76-496a-82c3-3e9991cddabb",
+    "weights": [
+      0.05070443,
+      0.7054402,
+      -1.2135701,
+      1.0955565
+    ],
+    "operations": 180,
+    "evaluation": {
+      "trainedMeanErrorM": 0.07436792929196029,
+      "baselineMeanErrorM": 0.7150511310663955,
+      "maxTrainedErrorM": 0.14779747981716884,
+      "relativeMeanGain": 0.8959963475883868,
+      "accepted": true
+    }
+  },
+  "run": {
+    "controller": {
+      "policyVersion": 2,
+      "deltaVelocityMps": 0.07815458,
+      "features": [
+        1,
+        0.6,
+        0.4145885,
+        0.044454396
+      ],
+      "targetM": 1.2,
+      "backend": "Java CPU reference"
+    },
+    "sceneVersion": 1,
+    "startedAt": "2026-11-02T05:04:02.847138100Z",
+    "title": "Readout • new conditions experiment",
+    "error": "",
+    "dt": 0.004166666666666667,
+    "evaluation": {
+      "reference": "frictionless incline: distance = 0.5*g*sin(angle)*t^2",
+      "applicable": false,
+      "expectedDistanceM": 1.1660301977839487,
+      "toleranceM": 0.046641207911357944,
+      "passed": false,
+      "measuredDistanceM": 1.1053971832015856,
+      "absoluteErrorM": 0.06063301458236303
+    },
+    "current": {
+      "speedMps": 2.853207,
+      "timeS": 0.75,
+      "grip": {
+        "held": false
+      },
+      "rotation": [
+        -0.000031522377,
+        0.00017941742,
+        -0.21630366,
+        0.9763261
+      ],
+      "distanceM": 1.1053971832015856,
+      "objects": [
+        {
+          "bodyType": "static",
+          "size": [
+            12,
+            0.2,
+            3
+          ],
+          "rotation": [
+            0,
+            0,
+            -0.21643961393810288,
+            0.9762960071199334
+          ],
+          "id": "64449a2c-9785-4969-95bd-7d2dce7189d7",
+          "label": "Ramp",
+          "position": [
+            0,
+            2.7357095704441967,
+            0
+          ],
+          "massKg": 0
+        },
+        {
+          "bodyType": "static",
+          "size": [
+            40,
+            0.4,
+            24
+          ],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "id": "f4455404-0011-4286-a273-9edfb70713bc",
+          "label": "Ground",
+          "position": [
+            0,
+            -0.2,
+            0
+          ],
+          "massKg": 0
+        },
+        {
+          "bodyType": "dynamic",
+          "size": [
+            0.5,
+            0.5,
+            0.5
+          ],
+          "rotation": [
+            -0.000031522377,
+            0.00017941742,
+            -0.21630366,
+            0.9763261
+          ],
+          "id": "52de23d6-5b4e-4f55-ba15-e3fa62883415",
+          "label": "Block",
+          "position": [
+            -2.1130147,
+            4.107068,
+            0.000006865651
+          ],
+          "massKg": 1
+        }
+      ],
+      "tick": 180,
+      "position": [
+        -2.1130147,
+        4.107068,
+        0.000006865651
+      ],
+      "velocity": [
+        2.5890627,
+        -1.1989765,
+        0.000022357206
+      ],
+      "contacts": 1
+    },
+    "trace": [
+      {
+        "speedMps": 0,
+        "timeS": 0,
+        "rotation": [
+          0,
+          0,
+          -0.2164396,
+          0.976296
+        ],
+        "distanceM": 1.6155032294565553e-7,
+        "tick": 0,
+        "position": [
+          -3.114369,
+          4.575249,
+          0
+        ],
+        "velocity": [
+          0,
+          0,
+          0
+        ],
+        "contacts": 0
+      },
+      {
+        "speedMps": 0.20890442,
+        "timeS": 0.016666666666666666,
+        "rotation": [
+          0,
+          0,
+          -0.21643955,
+          0.976296
+        ],
+        "distanceM": 0.00202257670463188,
+        "tick": 4,
+        "position": [
+          -3.1131883,
+          4.5729957,
+          0
+        ],
+        "velocity": [
+          0.0708321,
+          -0.19652957,
+          0
+        ],
+        "contacts": 1
+      },
+      {
+        "speedMps": 0.20130843,
+        "timeS": 0.03333333333333333,
+        "rotation": [
+          -5.575665e-12,
+          5.913868e-11,
+          -0.21643957,
+          0.976296
+        ],
+        "distanceM": 0.004979745668451367,
+        "tick": 8,
+        "position": [
+          -3.1103725,
+          4.5720367,
+          -2.9557506e-13
+        ],
+        "velocity": [
+          0.18769144,
+          -0.072780564,
+          -2.2682826e-11
+        ],
+        "contacts": 1
+      },
+      {
+        "speedMps": 0.2630051,
+        "timeS": 0.05,
+        "rotation": [
+          -1.9719495e-11,
+          1.1203424e-10,
+          -0.21643952,
+          0.97629607
+        ],
+        "distanceM": 0.008974896807619837,
+        "tick": 12,
+        "position": [
+          -3.1066964,
+          4.570467,
+          -8.559443e-13
+        ],
+        "velocity": [
+          0.24062264,
+          -0.1061717,
+          -3.7703677e-11
+        ],
+        "contacts": 1
+      },
+      {
+        "speedMps": 0.32480586,
+        "timeS": 0.06666666666666667,
+        "rotation": [
+          -4.0215834e-11,
+          1.3440597e-10,
+          -0.21643962,
+          0.976296
+        ],
+        "distanceM": 0.014001524370248314,
+        "tick": 16,
+        "position": [
+          -3.1021178,
+          4.568392,
+          -1.599744e-12
+        ],
+        "velocity": [
+          0.29531893,
+          -0.13522418,
+          -5.44376e-11
+        ],
+        "contacts": 1
+      },
+      {
+        "speedMps": 0.386555,
+        "timeS": 0.08333333333333333,
+        "rotation": [
+          -2.3982661e-11,
+          1.5495921e-10,
+          -0.21643977,
+          0.976296
+        ],
+        "distanceM": 0.020057869993307033,
+        "tick": 20,
+        "position": [
+          -3.0966194,
+          4.5658526,
+          -2.3191375e-12
+        ],
+        "velocity": [
+          0.35072395,
+          -0.16253453,
+          -3.771851e-11
+        ],
+        "contacts": 1
+      },
+      {
+        "speedMps": 0.4482698,
+        "timeS": 0.1,
+        "rotation": [
+          -2.232604e-11,
+          1.5223023e-10,
+          -0.21643963,
+          0.976296
+        ],
+        "distanceM": 0.027143362892057748,
+        "tick": 24,
+        "position": [
+          -3.090194,
+          4.562866,
+          -3.0338032e-12
+        ],
+        "velocity": [
+          0.4064314,
+          -0.1891014,
+          -4.4302798e-11
+        ],
+        "contacts": 1
+      },
+      {
+        "speedMps": 0.50997007,
+        "timeS": 0.11666666666666667,
+        "rotation": [
+          -4.096406e-11,
+          1.0673757e-10,
+          -0.2164395,
+          0.97629607
+        ],
+        "distanceM": 0.03525695411171755,
+        "tick": 28,
+        "position": [
+          -3.082839,
+          4.5594406,
+          -3.7273123e-12
+        ],
+        "velocity": [
+          0.4622547,
+          -0.21538357,
+          -4.6435536e-11
+        ],
+        "contacts": 1
+      },
+      {
+        "speedMps": 0.5716641,
+        "timeS": 0.13333333333333333,
+        "rotation": [
+          -5.4142205e-11,
+          5.927051e-11,
+          -0.21643946,
+          0.97629607
+        ],
+        "distanceM": 0.04439936469675028,
+        "tick": 32,
+        "position": [
+          -3.0745525,
+          4.555578,
+          -4.4961136e-12
+        ],
+        "velocity": [
+          0.51812625,
+          -0.24154717,
+          -4.669122e-11
+        ],
+        "contacts": 1
+      },
+      {
+        "speedMps": 0.6333533,
+        "timeS": 0.15,
+        "rotation": [
+          -5.7058386e-11,
+          1.1800014e-11,
+          -0.21643938,
+          0.97629607
+        ],
+        "distanceM": 0.05456997552635927,
+        "tick": 36,
+        "position": [
+          -3.0653348,
+          4.55128,
+          -5.2947638e-12
+        ],
+        "velocity": [
+          0.57403463,
+          -0.26762033,
+          -4.69607e-11
+        ],
+        "contacts": 1
+      },
+      {
+        "speedMps": 0.69504464,
+        "timeS": 0.16666666666666666,
+        "rotation": [
+          -6.767718e-11,
+          -2.0072471e-11,
+          -0.21643952,
+          0.97629607
+        ],
+        "distanceM": 0.0657684126814104,
+        "tick": 40,
+        "position": [
+          -3.0551853,
+          4.546548,
+          -6.0533696e-12
+        ],
+        "velocity": [
+          0.6299264,
+          -0.2937342,
+          -4.7567447e-11
+        ],
+        "contacts": 1
+      },
+      {
+        "speedMps": 0.75673294,
+        "timeS": 0.18333333333333332,
+        "rotation": [
+          -6.5298905e-11,
+          -3.147714e-11,
+          -0.21643966,
+          0.976296
+        ],
+        "distanceM": 0.07799507920208555,
+        "tick": 44,
+        "position": [
+          -3.044104,
+          4.541381,
+          -6.800379e-12
+        ],
+        "velocity": [
+          0.68584144,
+          -0.31979102,
+          -4.26877e-11
+        ],
+        "contacts": 1
+      },
+      {
+        "speedMps": 0.8184243,
+        "timeS": 0.2,
+        "rotation": [
+          -7.624922e-11,
+          -9.594906e-11,
+          -0.2164396,
+          0.976296
+        ],
+        "distanceM": 0.09124997508838471,
+        "tick": 48,
+        "position": [
+          -3.0320911,
+          4.535779,
+          -7.592276e-12
+        ],
+        "velocity": [
+          0.7417333,
+          -0.34590465,
+          -4.7016956e-11
+        ],
+        "contacts": 1
+      },
+      {
+        "speedMps": 0.88011384,
+        "timeS": 0.21666666666666667,
+        "rotation": [
+          -8.2940606e-11,
+          -1.7026479e-10,
+          -0.21643965,
+          0.976296
+        ],
+        "distanceM": 0.10553269730012602,
+        "tick": 52,
+        "position": [
+          -3.0191464,
+          4.529743,
+          -8.292687e-12
+        ],
+        "velocity": [
+          0.79763865,
+          -0.3719852,
+          -4.0802684e-11
+        ],
+        "contacts": 0
+      },
+      {
+        "speedMps": 0.94147116,
+        "timeS": 0.23333333333333334,
+        "rotation": [
+          -8.8703496e-11,
+          -2.4377578e-10,
+          -0.21639569,
+          0.9763057
+        ],
+        "distanceM": 0.12084977838300281,
+        "tick": 56,
+        "position": [
+          -3.0053148,
+          4.523162,
+          -8.956571e-12
+        ],
+        "velocity": [
+          0.8562554,
+          -0.39140087,
+          -3.945277e-11
+        ],
+        "contacts": 1
+      },
+      {
+        "speedMps": 1.0033475,
+        "timeS": 0.25,
+        "rotation": [
+          -1.0387898e-10,
+          -3.513854e-10,
+          -0.21642165,
+          0.9763
+        ],
+        "distanceM": 0.1371857681830083,
+        "tick": 60,
+        "position": [
+          -2.9904797,
+          4.5163217,
+          -9.591436e-12
+        ],
+        "velocity": [
+          0.91057855,
+          -0.4213704,
+          -4.020968e-11
+        ],
+        "contacts": 1
+      },
+      {
+        "speedMps": 1.0651191,
+        "timeS": 0.26666666666666666,
+        "rotation": [
+          -1.4235929e-10,
+          -4.613252e-10,
+          -0.2164323,
+          0.9762976
+        ],
+        "distanceM": 0.1545518476353347,
+        "tick": 64,
+        "position": [
+          -2.9747286,
+          4.5090084,
+          -1.0238304e-11
+        ],
+        "velocity": [
+          0.96583694,
+          -0.44904107,
+          -4.0871334e-11
+        ],
+        "contacts": 1
+      },
+      {
+        "speedMps": 1.1268433,
+        "timeS": 0.2833333333333333,
+        "rotation": [
+          -1.6811794e-10,
+          -6.097929e-10,
+          -0.21643649,
+          0.9762967
+        ],
+        "distanceM": 0.17294678548011888,
+        "tick": 68,
+        "position": [
+          -2.958052,
+          4.5012455,
+          -1.0904733e-11
+        ],
+        "velocity": [
+          1.0214776,
+          -0.47577244,
+          -4.0995474e-11
+        ],
+        "contacts": 1
+      },
+      {
+        "speedMps": 1.1885477,
+        "timeS": 0.3,
+        "rotation": [
+          -2.3566554e-10,
+          -7.7444606e-10,
+          -0.21643837,
+          0.9762963
+        ],
+        "distanceM": 0.19237039708503723,
+        "tick": 72,
+        "position": [
+          -2.9404461,
+          4.493041,
+          -1.164891e-11
+        ],
+        "velocity": [
+          1.0772691,
+          -0.5021325,
+          -4.761571e-11
+        ],
+        "contacts": 1
+      },
+      {
+        "speedMps": 1.250243,
+        "timeS": 0.31666666666666665,
+        "rotation": [
+          -2.8176994e-10,
+          -9.2304503e-10,
+          -0.21643905,
+          0.9762961
+        ],
+        "distanceM": 0.21282238133357495,
+        "tick": 76,
+        "position": [
+          -2.9219096,
+          4.4843993,
+          -1.2466339e-11
+        ],
+        "velocity": [
+          1.133132,
+          -0.5283175,
+          -5.063424e-11
+        ],
+        "contacts": 1
+      },
+      {
+        "speedMps": 1.3119332,
+        "timeS": 0.3333333333333333,
+        "rotation": [
+          -3.3006198e-10,
+          -1.0163953e-9,
+          -0.2164393,
+          0.97629607
+        ],
+        "distanceM": 0.23430256582668896,
+        "tick": 80,
+        "position": [
+          -2.9024417,
+          4.475322,
+          -1.3369767e-11
+        ],
+        "velocity": [
+          1.1890315,
+          -0.5544122,
+          -5.6257703e-11
+        ],
+        "contacts": 1
+      },
+      {
+        "speedMps": 1.3736233,
+        "timeS": 0.35,
+        "rotation": [
+          -3.455885e-10,
+          -1.0987434e-9,
+          -0.21643923,
+          0.9762961
+        ],
+        "distanceM": 0.25681077816533604,
+        "tick": 84,
+        "position": [
+          -2.8820422,
+          4.46581,
+          -1.430409e-11
+        ],
+        "velocity": [
+          1.2449329,
+          -0.58050233,
+          -5.5328e-11
+        ],
+        "contacts": 1
+      },
+      {
+        "speedMps": 1.4365659,
+        "timeS": 0.36666666666666664,
+        "rotation": [
+          -3.6984124e-10,
+          -1.2016913e-9,
+          -0.21626256,
+          0.9763352
+        ],
+        "distanceM": 0.28035135571646336,
+        "tick": 88,
+        "position": [
+          -2.8607454,
+          4.455779,
+          -1.5253725e-11
+        ],
+        "velocity": [
+          1.2926255,
+          -0.62677014,
+          -5.7880138e-11
+        ],
+        "contacts": 1
+      },
+      {
+        "speedMps": 1.4968915,
+        "timeS": 0.3833333333333333,
+        "rotation": [
+          -3.858308e-10,
+          -1.3096864e-9,
+          -0.21636735,
+          0.97631204
+        ],
+        "distanceM": 0.3049132340290696,
+        "tick": 92,
+        "position": [
+          -2.838462,
+          4.4454474,
+          -1.6225516e-11
+        ],
+        "velocity": [
+          1.3575929,
+          -0.6305756,
+          -5.791422e-11
+        ],
+        "contacts": 1
+      },
+      {
+        "speedMps": 1.5586458,
+        "timeS": 0.4,
+        "rotation": [
+          3.39464e-8,
+          -7.2652537e-9,
+          -0.21640989,
+          0.97630256
+        ],
+        "distanceM": 0.3305048304021062,
+        "tick": 96,
+        "position": [
+          -2.815259,
+          4.434652,
+          -1.719567e-11
+        ],
+        "velocity": [
+          1.4129995,
+          -0.6578824,
+          -5.918447e-11
+        ],
+        "contacts": 1
+      },
+      {
+        "speedMps": 1.6203619,
+        "timeS": 0.4166666666666667,
+        "rotation": [
+          3.3902122e-8,
+          -7.502064e-9,
+          -0.21642753,
+          0.9762987
+        ],
+        "distanceM": 0.35712495493003804,
+        "tick": 100,
+        "position": [
+          -2.791129,
+          4.42341,
+          6.337869e-11
+        ],
+        "velocity": [
+          1.4687036,
+          -0.68445766,
+          4.825582e-9
+        ],
+        "contacts": 1
+      },
+      {
+        "speedMps": 1.6820623,
+        "timeS": 0.43333333333333335,
+        "rotation": [
+          6.076153e-8,
+          -1.2306562e-8,
+          -0.21643467,
+          0.9762971
+        ],
+        "distanceM": 0.3847735953795848,
+        "tick": 104,
+        "position": [
+          -2.7660694,
+          4.4117284,
+          1.7941289e-10
+        ],
+        "velocity": [
+          1.5245272,
+          -0.7107393,
+          8.443222e-9
+        ],
+        "contacts": 1
+      },
+      {
+        "speedMps": 1.7437541,
+        "timeS": 0.45,
+        "rotation": [
+          6.952696e-8,
+          -1.3935889e-8,
+          -0.21643765,
+          0.9762964
+        ],
+        "distanceM": 0.4134508391138896,
+        "tick": 108,
+        "position": [
+          -2.7400784,
+          4.39961,
+          3.342186e-10
+        ],
+        "velocity": [
+          1.5804148,
+          -0.7368634,
+          9.561345e-9
+        ],
+        "contacts": 1
+      },
+      {
+        "speedMps": 1.8054478,
+        "timeS": 0.4666666666666667,
+        "rotation": [
+          6.95473e-8,
+          -1.398833e-8,
+          -0.21643907,
+          0.9762961
+        ],
+        "distanceM": 0.44315588005258877,
+        "tick": 112,
+        "position": [
+          -2.7131562,
+          4.387057,
+          4.932077e-10
+        ],
+        "velocity": [
+          1.6362897,
+          -0.7630187,
+          9.526189e-9
+        ],
+        "contacts": 1
+      },
+      {
+        "speedMps": 1.867136,
+        "timeS": 0.48333333333333334,
+        "rotation": [
+          9.7203944e-8,
+          -1.866702e-8,
+          -0.2164392,
+          0.9762961
+        ],
+        "distanceM": 0.473889150356912,
+        "tick": 116,
+        "position": [
+          -2.6853023,
+          4.3740687,
+          6.515489e-10
+        ],
+        "velocity": [
+          1.6922053,
+          -0.78907424,
+          9.48442e-9
+        ],
+        "contacts": 1
+      },
+      {
+        "speedMps": 1.9288248,
+        "timeS": 0.5,
+        "rotation": [
+          9.7206026e-8,
+          -1.8545139e-8,
+          -0.21643953,
+          0.976296
+        ],
+        "distanceM": 0.505650866107474,
+        "tick": 120,
+        "position": [
+          -2.6565163,
+          4.360646,
+          8.64413e-10
+        ],
+        "velocity": [
+          1.7481164,
+          -0.8151406,
+          1.2751123e-8
+        ],
+        "contacts": 1
+      },
+      {
+        "speedMps": 1.9902929,
+        "timeS": 0.5166666666666666,
+        "rotation": [
+          9.727023e-8,
+          -1.8299602e-8,
+          -0.21658713,
+          0.9762633
+        ],
+        "distanceM": 0.5384443034831586,
+        "tick": 124,
+        "position": [
+          -2.6268272,
+          4.3467183,
+          1.0765052e-9
+        ],
+        "velocity": [
+          1.8057323,
+          -0.83701664,
+          1.2706834e-8
+        ],
+        "contacts": 1
+      },
+      {
+        "speedMps": 2.0521111,
+        "timeS": 0.5333333333333333,
+        "rotation": [
+          7.6178654e-9,
+          -2.6940623e-9,
+          -0.21649994,
+          0.9762826
+        ],
+        "distanceM": 0.5722598698400035,
+        "tick": 128,
+        "position": [
+          -2.5961611,
+          4.3324676,
+          1.1653318e-9
+        ],
+        "velocity": [
+          1.8606354,
+          -0.865561,
+          2.871585e-9
+        ],
+        "contacts": 1
+      },
+      {
+        "speedMps": 2.1135132,
+        "timeS": 0.55,
+        "rotation": [
+          0.00011549979,
+          -0.000018603656,
+          -0.21639878,
+          0.97630507
+        ],
+        "distanceM": 0.6071092050682351,
+        "tick": 132,
+        "position": [
+          -2.5646079,
+          4.317673,
+          9.8110455e-8
+        ],
+        "velocity": [
+          1.9181314,
+          -0.8875302,
+          0.000023258226
+        ],
+        "contacts": 1
+      },
+      {
+        "speedMps": 2.1752093,
+        "timeS": 0.5666666666666667,
+        "rotation": [
+          -0.00011106098,
+          0.000023817167,
+          -0.21615541,
+          0.97635895
+        ],
+        "distanceM": 0.6429820828425703,
+        "tick": 136,
+        "position": [
+          -2.532094,
+          4.302517,
+          4.0507183e-7
+        ],
+        "velocity": [
+          1.973921,
+          -0.91387695,
+          0.000009036181
+        ],
+        "contacts": 1
+      },
+      {
+        "speedMps": 2.2369852,
+        "timeS": 0.5833333333333334,
+        "rotation": [
+          0.00006552799,
+          -5.1684714e-7,
+          -0.21643135,
+          0.97629786
+        ],
+        "distanceM": 0.6798793459432144,
+        "tick": 140,
+        "position": [
+          -2.4986289,
+          4.286977,
+          4.976378e-7
+        ],
+        "velocity": [
+          2.0284395,
+          -0.94315237,
+          0.000011861064
+        ],
+        "contacts": 1
+      },
+      {
+        "speedMps": 2.3002656,
+        "timeS": 0.6,
+        "rotation": [
+          0.00018790021,
+          -0.000013701805,
+          -0.21636975,
+          0.9763115
+        ],
+        "distanceM": 0.7178116505294365,
+        "tick": 144,
+        "position": [
+          -2.4642887,
+          4.270864,
+          8.744844e-7
+        ],
+        "velocity": [
+          2.073472,
+          -0.9959597,
+          0.000022764894
+        ],
+        "contacts": 1
+      },
+      {
+        "speedMps": 2.3601148,
+        "timeS": 0.6166666666666667,
+        "rotation": [
+          0.0000028436998,
+          0.000025764171,
+          -0.21619636,
+          0.9763499
+        ],
+        "distanceM": 0.7567667544779809,
+        "tick": 148,
+        "position": [
+          -2.4289804,
+          4.2544074,
+          0.0000014845921
+        ],
+        "velocity": [
+          2.1421206,
+          -0.99068713,
+          0.000032363707
+        ],
+        "contacts": 1
+      },
+      {
+        "speedMps": 2.4219306,
+        "timeS": 0.6333333333333333,
+        "rotation": [
+          0.000014280357,
+          0.000032659205,
+          -0.21634787,
+          0.97631633
+        ],
+        "distanceM": 0.7967465640843597,
+        "tick": 152,
+        "position": [
+          -2.3927155,
+          4.2375774,
+          0.0000017837718
+        ],
+        "velocity": [
+          2.1963027,
+          -1.0207853,
+          0.00001913531
+        ],
+        "contacts": 1
+      },
+      {
+        "speedMps": 2.483708,
+        "timeS": 0.65,
+        "rotation": [
+          0.00010220562,
+          0.00002953937,
+          -0.21649033,
+          0.97628474
+        ],
+        "distanceM": 0.8377557714196433,
+        "tick": 156,
+        "position": [
+          -2.355536,
+          4.220273,
+          0.0000022939703
+        ],
+        "velocity": [
+          2.2515366,
+          -1.0485168,
+          0.00003354886
+        ],
+        "contacts": 1
+      },
+      {
+        "speedMps": 2.5448487,
+        "timeS": 0.6666666666666666,
+        "rotation": [
+          0.00026940307,
+          0.000015265527,
+          -0.21639118,
+          0.97630674
+        ],
+        "distanceM": 0.8798004914288193,
+        "tick": 160,
+        "position": [
+          -2.317487,
+          4.202383,
+          0.0000031013567
+        ],
+        "velocity": [
+          2.310329,
+          -1.0670683,
+          0.00006414106
+        ],
+        "contacts": 1
+      },
+      {
+        "speedMps": 2.607972,
+        "timeS": 0.6833333333333333,
+        "rotation": [
+          0.000052598014,
+          0.00007244415,
+          -0.21603453,
+          0.9763857
+        ],
+        "distanceM": 0.9228681302088155,
+        "tick": 164,
+        "position": [
+          -2.2784843,
+          4.184118,
+          0.0000040788236
+        ],
+        "velocity": [
+          2.3557763,
+          -1.1188546,
+          0.000053206193
+        ],
+        "contacts": 1
+      },
+      {
+        "speedMps": 2.6684017,
+        "timeS": 0.7,
+        "rotation": [
+          -0.00005964456,
+          0.000111843496,
+          -0.216179,
+          0.97635376
+        ],
+        "distanceM": 0.9669537889169203,
+        "tick": 168,
+        "position": [
+          -2.238473,
+          4.165607,
+          0.0000047815493
+        ],
+        "velocity": [
+          2.4207418,
+          -1.1226648,
+          0.000038328933
+        ],
+        "contacts": 1
+      },
+      {
+        "speedMps": 2.7301972,
+        "timeS": 0.7166666666666667,
+        "rotation": [
+          0.0001519352,
+          0.00009868164,
+          -0.21648978,
+          0.97628486
+        ],
+        "distanceM": 1.0120708803669134,
+        "tick": 172,
+        "position": [
+          -2.1975598,
+          4.1465893,
+          0.0000056420254
+        ],
+        "velocity": [
+          2.4753573,
+          -1.1517737,
+          0.00006211865
+        ],
+        "contacts": 1
+      },
+      {
+        "speedMps": 2.791813,
+        "timeS": 0.7333333333333333,
+        "rotation": [
+          -0.000010869796,
+          0.00014897801,
+          -0.21645993,
+          0.9762915
+        ],
+        "distanceM": 1.058219576957838,
+        "tick": 176,
+        "position": [
+          -2.1557455,
+          4.1270633,
+          0.000006311985
+        ],
+        "velocity": [
+          2.5318308,
+          -1.1764575,
+          0.000034362638
+        ],
+        "contacts": 1
+      },
+      {
+        "speedMps": 2.853207,
+        "timeS": 0.75,
+        "rotation": [
+          -0.000031522377,
+          0.00017941742,
+          -0.21630366,
+          0.9763261
+        ],
+        "distanceM": 1.1053971832015856,
+        "tick": 180,
+        "position": [
+          -2.1130147,
+          4.107068,
+          0.000006865651
+        ],
+        "velocity": [
+          2.5890627,
+          -1.1989765,
+          0.000022357206
+        ],
+        "contacts": 1
+      }
+    ],
+    "endedAt": "2026-11-02T05:04:02.862136800Z",
+    "scope": "brain-policy",
+    "sceneId": "9acdee5a-b9df-4088-9a58-e5993444271e",
+    "final": {
+      "speedMps": 2.853207,
+      "timeS": 0.75,
+      "grip": {
+        "held": false
+      },
+      "rotation": [
+        -0.000031522377,
+        0.00017941742,
+        -0.21630366,
+        0.9763261
+      ],
+      "distanceM": 1.1053971832015856,
+      "objects": [
+        {
+          "bodyType": "static",
+          "size": [
+            12,
+            0.2,
+            3
+          ],
+          "rotation": [
+            0,
+            0,
+            -0.21643961393810288,
+            0.9762960071199334
+          ],
+          "id": "64449a2c-9785-4969-95bd-7d2dce7189d7",
+          "label": "Ramp",
+          "position": [
+            0,
+            2.7357095704441967,
+            0
+          ],
+          "massKg": 0
+        },
+        {
+          "bodyType": "static",
+          "size": [
+            40,
+            0.4,
+            24
+          ],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "id": "f4455404-0011-4286-a273-9edfb70713bc",
+          "label": "Ground",
+          "position": [
+            0,
+            -0.2,
+            0
+          ],
+          "massKg": 0
+        },
+        {
+          "bodyType": "dynamic",
+          "size": [
+            0.5,
+            0.5,
+            0.5
+          ],
+          "rotation": [
+            -0.000031522377,
+            0.00017941742,
+            -0.21630366,
+            0.9763261
+          ],
+          "id": "52de23d6-5b4e-4f55-ba15-e3fa62883415",
+          "label": "Block",
+          "position": [
+            -2.1130147,
+            4.107068,
+            0.000006865651
+          ],
+          "massKg": 1
+        }
+      ],
+      "tick": 180,
+      "position": [
+        -2.1130147,
+        4.107068,
+        0.000006865651
+      ],
+      "velocity": [
+        2.5890627,
+        -1.1989765,
+        0.000022357206
+      ],
+      "contacts": 1
+    },
+    "definition": {
+      "schemaVersion": 1,
+      "objects": [
+        {
+          "bodyType": "static",
+          "schemaVersion": 1,
+          "size": [
+            12,
+            0.2,
+            3
+          ],
+          "rotation": [
+            0,
+            0,
+            -0.21643961393810288,
+            0.9762960071199334
+          ],
+          "id": "64449a2c-9785-4969-95bd-7d2dce7189d7",
+          "label": "Ramp",
+          "position": [
+            0,
+            2.7357095704441967,
+            0
+          ],
+          "massKg": 0
+        },
+        {
+          "bodyType": "static",
+          "schemaVersion": 1,
+          "size": [
+            40,
+            0.4,
+            24
+          ],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "id": "f4455404-0011-4286-a273-9edfb70713bc",
+          "label": "Ground",
+          "position": [
+            0,
+            -0.2,
+            0
+          ],
+          "massKg": 0
+        },
+        {
+          "bodyType": "dynamic",
+          "schemaVersion": 1,
+          "size": [
+            0.5,
+            0.5,
+            0.5
+          ],
+          "rotation": [
+            0,
+            0,
+            -0.21643961393810288,
+            0.9762960071199334
+          ],
+          "id": "52de23d6-5b4e-4f55-ba15-e3fa62883415",
+          "label": "Block",
+          "position": [
+            -3.114369023460954,
+            4.575249345960578,
+            0
+          ],
+          "massKg": 1
+        }
+      ],
+      "id": "9acdee5a-b9df-4088-9a58-e5993444271e",
+      "units": "SI: metre, second, kilogram",
+      "title": "Readout • new conditions",
+      "version": 1,
+      "parameters": {
+        "angleDeg": 25,
+        "widthM": 3,
+        "offsetZ": 0,
+        "massKg": 1,
+        "lengthM": 12,
+        "friction": 0.05,
+        "gravityMps2": 9.81
+      },
+      "entityIds": {
+        "ramp": "64449a2c-9785-4969-95bd-7d2dce7189d7",
+        "block": "52de23d6-5b4e-4f55-ba15-e3fa62883415",
+        "ground": "f4455404-0011-4286-a273-9edfb70713bc"
+      },
+      "frame": "right-handed, +Y up, downhill +X, depth Z",
+      "updatedAt": "2026-11-02T05:04:02.648588300Z"
+    },
+    "backend": "Minie 9.0.3 / Libbulletjme 22.0.3 / single precision",
+    "targetTicks": 180,
+    "playing": false,
+    "id": "2212ac68-0eda-48de-9724-6b1bfea8f4d9",
+    "solverConfiguration": {
+      "restitution": 0,
+      "precision": "single",
+      "damping": 0,
+      "broadphase": "DBVT",
+      "stepMode": "external fixed dt; update(dt, 0)",
+      "iterations": 10,
+      "friction": "block coefficient multiplied by static-surface coefficient 1",
+      "solver": "SI"
+    },
+    "goalEvaluation": {
+      "targetM": 1.2,
+      "toleranceM": 0.25,
+      "passed": true,
+      "measuredDistanceM": 1.1053971832015856,
+      "absoluteErrorM": 0.09460281679841431
+    },
+    "status": "completed"
+  }
+}

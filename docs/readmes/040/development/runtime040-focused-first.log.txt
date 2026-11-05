@@ -1,0 +1,78 @@
+> Task :brain-core:compileJava UP-TO-DATE
+> Task :factory-runtime:compileJava UP-TO-DATE
+> Task :factory-kernel:compileJava UP-TO-DATE
+> Task :factory-models:compileJava UP-TO-DATE
+
+> Task :compileJava
+
+> Task :processResources
+> Task :classes
+Note: Some input files use unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+> Task :jar
+> Task :brain-core:processResources NO-SOURCE
+> Task :brain-core:classes UP-TO-DATE
+> Task :brain-core:jar UP-TO-DATE
+> Task :factory-kernel:processResources NO-SOURCE
+> Task :factory-kernel:classes UP-TO-DATE
+> Task :factory-kernel:jar UP-TO-DATE
+> Task :factory-models:processResources NO-SOURCE
+> Task :factory-models:classes UP-TO-DATE
+> Task :factory-models:jar UP-TO-DATE
+> Task :factory-runtime:processResources NO-SOURCE
+> Task :factory-runtime:classes UP-TO-DATE
+> Task :factory-runtime:jar UP-TO-DATE
+> Task :startScripts
+> Task :installDist
+> Task :brain-gpu:compileJava UP-TO-DATE
+> Task :brain-gpu:processResources NO-SOURCE
+> Task :brain-gpu:classes UP-TO-DATE
+> Task :brain-gpu:jar UP-TO-DATE
+> Task :geometry-core:compileJava UP-TO-DATE
+> Task :geometry-core:processResources NO-SOURCE
+> Task :geometry-core:classes UP-TO-DATE
+> Task :geometry-core:jar UP-TO-DATE
+> Task :workspace-engine:compileJava UP-TO-DATE
+> Task :workspace-engine:processResources UP-TO-DATE
+> Task :workspace-engine:classes UP-TO-DATE
+> Task :workspace-engine:compileTestJava
+> Task :workspace-engine:processTestResources NO-SOURCE
+> Task :workspace-engine:testClasses
+
+> Task :workspace-engine:test
+
+SpatialProjection040Test > fourViewsPickTheSameActualBoxAndUnknownModesAreRejected FAILED
+    org.json.JSONException at SpatialProjection040Test.java:16
+
+SpatialProjection040Test > perspectiveUsesActualDepthAndIndependentFortyFiveDegreeFormula FAILED
+    org.json.JSONException at SpatialProjection040Test.java:11
+
+SpatialProjection040Test > knownOrthographicCoordinatesAndDepthInvariance FAILED
+    org.json.JSONException at SpatialProjection040Test.java:10
+
+SpatialProjection040Test > quaternionCornersAndClippedFacesStayInsideViewport FAILED
+    org.json.JSONException at SpatialProjection040Test.java:12
+
+SpatialRuntime040Test > sourceIdentitySelectionAndCameraConfigurationSurviveRestartWithoutMutation FAILED
+    java.lang.IllegalStateException at SpatialRuntime040Test.java:11
+
+SpatialRuntime040Test > exportTamperAndExpiredSnapshotsCannotInventValidEvidence FAILED
+    java.lang.IllegalStateException at SpatialRuntime040Test.java:22
+
+9 tests completed, 6 failed
+
+> Task :workspace-engine:test FAILED
+
+[Incubating] Problems report is available at: file:///C:/Users/eyeka/Documents/Codex/2026-10-26/is/work/fraynix-workspace-edition040/build/reports/problems/problems-report.html
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':workspace-engine:test'.
+> There were failing tests. See the report at: file:///C:/Users/eyeka/Documents/Codex/2026-10-26/is/work/fraynix-workspace-edition040/workspace-engine/build/reports/tests/test/index.html
+
+* Try:
+> Run with --scan to get full insights from a Build Scan (powered by Develocity).
+
+BUILD FAILED in 16s
+21 actionable tasks: 7 executed, 14 up-to-date

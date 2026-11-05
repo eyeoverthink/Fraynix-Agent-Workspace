@@ -1,0 +1,927 @@
+{
+  "edition": 55,
+  "date": "2026-11-03",
+  "source": "a8e18880856fc58ba7137d9ffb4db0201e3e5c5b",
+  "passed": true,
+  "javaCount": 60,
+  "javaSuites": 14,
+  "javaInvocations": [
+    {
+      "label": "native055-first",
+      "source": "3045794",
+      "count": 5,
+      "failures": 1,
+      "cases": [
+        {
+          "case": "fraymus.workspace.Construction055Test#failedDirectTrialExpandsWithoutInventingSuccessfulFallback",
+          "passed": true,
+          "seconds": 2.181
+        },
+        {
+          "case": "fraymus.workspace.Construction055Test#frozenDirectFirstComparisonAndIndependentLoads",
+          "passed": false,
+          "seconds": 173.553
+        },
+        {
+          "case": "fraymus.workspace.Construction055Test#lateralRoutesUseNativeWaypointsAndSealedWallRefuses",
+          "passed": true,
+          "seconds": 7.225
+        },
+        {
+          "case": "fraymus.workspace.WorldHandoff055Test#exactPublishedColdWorldNeedsExplicitUpgradeAndRetainsEveryFrame",
+          "passed": true,
+          "seconds": 0.136
+        },
+        {
+          "case": "fraymus.workspace.WorldHandoff055Test#pendingOwnersAndUnknownIdentitiesCannotBeUpgraded",
+          "passed": true,
+          "seconds": 0.037
+        }
+      ]
+    },
+    {
+      "label": "native055-regression",
+      "source": "6084151",
+      "count": 45,
+      "failures": 0,
+      "cases": [
+        {
+          "case": "fraymus.workspace.ChatChain052Test#duplicateWarningsKeepEveryOriginalOccurrenceBeyondRecentWindow",
+          "passed": true,
+          "seconds": 0.003
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#numericRefusalExplainsOriginalBoundsWithoutChangingThem",
+          "passed": true,
+          "seconds": 0.004
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#oversizedRequirementsRefuseRatherThanBeingSilentlyTruncated",
+          "passed": true,
+          "seconds": 0.002
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#legacyTaskDoesNotClaimCompleteTimingCoverage",
+          "passed": true,
+          "seconds": 0.0
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#summaryRetainsRejectedQualityAndDoesNotDumpMetrics",
+          "passed": true,
+          "seconds": 0.0
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#discoverySummaryKeepsExactBindingsAndBothEndsWithoutBreakingJson",
+          "passed": true,
+          "seconds": 0.011
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#largeRecentObservationHasExplicitOmissionHashAndKeepsFailure",
+          "passed": true,
+          "seconds": 0.004
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#queuedObjectiveSealRefusesChangedRequest",
+          "passed": true,
+          "seconds": 0.001
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#providerMapMetadataIsRetainedWithoutUnrelatedFields",
+          "passed": true,
+          "seconds": 0.0
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#automaticCompletionRechecksCurrentArtifactInsteadOfTrustingOldSuccess",
+          "passed": true,
+          "seconds": 0.712
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#failedPlannerCallIsTimedAndDoesNotBecomeAnAction",
+          "passed": true,
+          "seconds": 0.273
+        },
+        {
+          "case": "fraymus.workspace.Construction055Test#failedDirectTrialExpandsWithoutInventingSuccessfulFallback",
+          "passed": true,
+          "seconds": 1.819
+        },
+        {
+          "case": "fraymus.workspace.Construction055Test#frozenDirectFirstComparisonAndIndependentLoads",
+          "passed": true,
+          "seconds": 172.421
+        },
+        {
+          "case": "fraymus.workspace.Construction055Test#lateralRoutesUseNativeWaypointsAndSealedWallRefuses",
+          "passed": true,
+          "seconds": 7.55
+        },
+        {
+          "case": "fraymus.workspace.CostAccounting054Test#resumedStudyChargesAllOriginalAttemptsAndNeverInventsWallTime",
+          "passed": true,
+          "seconds": 18.344
+        },
+        {
+          "case": "fraymus.workspace.DesignPolicy053Test#javaPinsCompareReviewAndForceCeilingBeforeAnyAction",
+          "passed": true,
+          "seconds": 0.013
+        },
+        {
+          "case": "fraymus.workspace.DesignPolicy053Test#taskProjectionRetainsDesignPolicyAndOriginalComparisonWithoutFullTraces",
+          "passed": true,
+          "seconds": 0.003
+        },
+        {
+          "case": "fraymus.workspace.DesignPolicy053Test#retainedDesignRespectsExplicitReviewAndFreshSelectedWorld",
+          "passed": true,
+          "seconds": 0.002
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#retainedAppearancePolicyCannotChangeCategoryOrInstallDetectorOptions",
+          "passed": true,
+          "seconds": 0.002
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#retainedSkillSourceAndForceDefaultsCannotBeSilentlyChanged",
+          "passed": true,
+          "seconds": 0.001
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#nativeWaitUsesActualChildAndRetainsItsIdentity",
+          "passed": true,
+          "seconds": 0.008
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#savedGraphChatSelectsExactVersionAndWorkflowBeforePlanning",
+          "passed": true,
+          "seconds": 0.01
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#sourceFreeHostSuccessAndForeignChildrenAreRejected",
+          "passed": true,
+          "seconds": 0.007
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#reportStageCannotSkipActualReads",
+          "passed": true,
+          "seconds": 0.0
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#typedOptionsPreserveExplicitValuesAndRejectContradictions",
+          "passed": true,
+          "seconds": 0.001
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#interruptedChildCannotProduceSuccessfulCompletion",
+          "passed": true,
+          "seconds": 0.006
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#inventedHostFactsDoNotReplaceActualJavaRead",
+          "passed": true,
+          "seconds": 0.006
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#retainedSkillSchemasKeepDefaultsOptionalAndHideBoundDetectorPolicy",
+          "passed": true,
+          "seconds": 0.001
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#javaRoutesEveryFormerDesktopFamilyWithoutChangingWebCreation",
+          "passed": true,
+          "seconds": 0.007
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#constructionReuseExposesOnlyExplicitChangesAndKeepsOriginalLimits",
+          "passed": true,
+          "seconds": 0.002
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#actualQueueCompletionRecordsTheVerifiedReportInTheSameLearningEpisode",
+          "passed": true,
+          "seconds": 0.2
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#workflowBootstrapBindsDatasetAndSceneInJavaBeforeAnyHostAction",
+          "passed": true,
+          "seconds": 0.007
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#reportMustHaveFrozenOriginalAssertionsAndExactSourceVersion",
+          "passed": true,
+          "seconds": 0.032
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#creationPromptsAreOwnedBoundedAndKeepSourceReserved",
+          "passed": true,
+          "seconds": 0.007
+        },
+        {
+          "case": "fraymus.workspace.GoalRunnerTest#cancelledIntentAndInventedHostReceiptsCannotBecomeSkills",
+          "passed": true,
+          "seconds": 0.055
+        },
+        {
+          "case": "fraymus.workspace.GoalRunnerTest#frozenSceneAndReportEffectsHaveStableIdentitiesAndRejectChangedContent",
+          "passed": true,
+          "seconds": 0.024
+        },
+        {
+          "case": "fraymus.workspace.GoalRunnerTest#intentSurvivesRestartRequiresExplicitResumeAndHasFiniteRecovery",
+          "passed": true,
+          "seconds": 0.215
+        },
+        {
+          "case": "fraymus.workspace.GoalRunnerTest#importedTextCannotInstallHandlersOrEscapePhysicalDomain",
+          "passed": true,
+          "seconds": 0.025
+        },
+        {
+          "case": "fraymus.workspace.GoalRunnerTest#aForeignNativeRunIsPreservedAndSourceVersionsAreRequired",
+          "passed": true,
+          "seconds": 0.05
+        },
+        {
+          "case": "fraymus.workspace.Load055Test#stopPreservesPartialEvidenceThenExplicitRestartReevaluatesAndRejectsTampering",
+          "passed": true,
+          "seconds": 12.843
+        },
+        {
+          "case": "fraymus.workspace.WorldHandoff055Test#exactPublishedColdWorldNeedsExplicitUpgradeAndRetainsEveryFrame",
+          "passed": true,
+          "seconds": 0.094
+        },
+        {
+          "case": "fraymus.workspace.WorldHandoff055Test#pendingOwnersAndUnknownIdentitiesCannotBeUpgraded",
+          "passed": true,
+          "seconds": 0.042
+        },
+        {
+          "case": "fraymus.workspace.WorldLedgerTest#heldNativeMotionSurvivesColdContinuationWithoutLosingWorldOwnership",
+          "passed": true,
+          "seconds": 14.054
+        },
+        {
+          "case": "fraymus.workspace.WorldLedgerTest#developmentSequencesPreserveNativeBodiesAndOnlyCommitVerifiedOutcomes",
+          "passed": true,
+          "seconds": 76.541
+        },
+        {
+          "case": "fraymus.workspace.WorldLedgerTest#processIndependentCasCorruptionAndExplicitRestoreAreReal",
+          "passed": true,
+          "seconds": 0.056
+        }
+      ]
+    },
+    {
+      "label": "native055-final",
+      "source": "1b4dd4b",
+      "count": 43,
+      "failures": 1,
+      "cases": [
+        {
+          "case": "fraymus.workspace.ChatChain052Test#duplicateWarningsKeepEveryOriginalOccurrenceBeyondRecentWindow",
+          "passed": true,
+          "seconds": 0.008
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#numericRefusalExplainsOriginalBoundsWithoutChangingThem",
+          "passed": true,
+          "seconds": 0.007
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#oversizedRequirementsRefuseRatherThanBeingSilentlyTruncated",
+          "passed": true,
+          "seconds": 0.007
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#legacyTaskDoesNotClaimCompleteTimingCoverage",
+          "passed": true,
+          "seconds": 0.0
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#summaryRetainsRejectedQualityAndDoesNotDumpMetrics",
+          "passed": true,
+          "seconds": 0.001
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#discoverySummaryKeepsExactBindingsAndBothEndsWithoutBreakingJson",
+          "passed": true,
+          "seconds": 0.03
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#largeRecentObservationHasExplicitOmissionHashAndKeepsFailure",
+          "passed": true,
+          "seconds": 0.007
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#queuedObjectiveSealRefusesChangedRequest",
+          "passed": true,
+          "seconds": 0.001
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#providerMapMetadataIsRetainedWithoutUnrelatedFields",
+          "passed": true,
+          "seconds": 0.0
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#automaticCompletionRechecksCurrentArtifactInsteadOfTrustingOldSuccess",
+          "passed": true,
+          "seconds": 5.108
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#failedPlannerCallIsTimedAndDoesNotBecomeAnAction",
+          "passed": true,
+          "seconds": 0.133
+        },
+        {
+          "case": "fraymus.workspace.Construction051Test#nativeBridgeIsReleasedAndReassembledFromActualPriorFrame",
+          "passed": true,
+          "seconds": 1.267
+        },
+        {
+          "case": "fraymus.workspace.Construction051Test#sourceDesignAndTraceChangesAreRefused",
+          "passed": true,
+          "seconds": 0.64
+        },
+        {
+          "case": "fraymus.workspace.Construction051Test#heldNativeConstructionResumesFromAnExactCheckpoint",
+          "passed": true,
+          "seconds": 9.673
+        },
+        {
+          "case": "fraymus.workspace.Construction051Test#insufficientForceCannotEarnConstructionSuccess",
+          "passed": true,
+          "seconds": 0.043
+        },
+        {
+          "case": "fraymus.workspace.Construction051Test#chatConstructionIsTypedAndSelectedWorldBound",
+          "passed": true,
+          "seconds": 0.01
+        },
+        {
+          "case": "fraymus.workspace.Construction051Test#legacyWorldUpgradeIsExplicitExactAndSourceBound",
+          "passed": true,
+          "seconds": 0.031
+        },
+        {
+          "case": "fraymus.workspace.Counterfactual045Test#unfinishedForecastRetainsCompletedBytesAndOriginalAttemptsAcrossRestart",
+          "passed": true,
+          "seconds": 15.698
+        },
+        {
+          "case": "fraymus.workspace.Counterfactual045Test#codeAndSourceCorruptionAreRefusedWithoutChangingOriginalBytes",
+          "passed": true,
+          "seconds": 0.067
+        },
+        {
+          "case": "fraymus.workspace.Counterfactual045Test#ordinaryWorldRequestAndExplicitCounterfactualRequestStayDistinct",
+          "passed": true,
+          "seconds": 0.001
+        },
+        {
+          "case": "fraymus.workspace.Counterfactual045Test#nativeAlternativesKeepWorldExactAndSelectedExecutionMatchesOriginalTraces",
+          "passed": true,
+          "seconds": 34.713
+        },
+        {
+          "case": "fraymus.workspace.Counterfactual045Test#forecastOnlyAndExplicitNoMovementRequestsRequireReview",
+          "passed": true,
+          "seconds": 0.001
+        },
+        {
+          "case": "fraymus.workspace.Counterfactual045Test#cancellationCannotAdvanceOrReserveTheLiveWorld",
+          "passed": true,
+          "seconds": 0.094
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#retainedAppearancePolicyCannotChangeCategoryOrInstallDetectorOptions",
+          "passed": true,
+          "seconds": 0.001
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#retainedSkillSourceAndForceDefaultsCannotBeSilentlyChanged",
+          "passed": true,
+          "seconds": 0.002
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#nativeWaitUsesActualChildAndRetainsItsIdentity",
+          "passed": true,
+          "seconds": 0.006
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#savedGraphChatSelectsExactVersionAndWorkflowBeforePlanning",
+          "passed": true,
+          "seconds": 0.011
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#sourceFreeHostSuccessAndForeignChildrenAreRejected",
+          "passed": true,
+          "seconds": 0.007
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#reportStageCannotSkipActualReads",
+          "passed": true,
+          "seconds": 0.0
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#typedOptionsPreserveExplicitValuesAndRejectContradictions",
+          "passed": true,
+          "seconds": 0.001
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#interruptedChildCannotProduceSuccessfulCompletion",
+          "passed": true,
+          "seconds": 0.007
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#inventedHostFactsDoNotReplaceActualJavaRead",
+          "passed": true,
+          "seconds": 0.007
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#retainedSkillSchemasKeepDefaultsOptionalAndHideBoundDetectorPolicy",
+          "passed": true,
+          "seconds": 0.001
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#javaRoutesEveryFormerDesktopFamilyWithoutChangingWebCreation",
+          "passed": true,
+          "seconds": 0.004
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#constructionReuseExposesOnlyExplicitChangesAndKeepsOriginalLimits",
+          "passed": true,
+          "seconds": 0.002
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#actualQueueCompletionRecordsTheVerifiedReportInTheSameLearningEpisode",
+          "passed": true,
+          "seconds": 0.605
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#workflowBootstrapBindsDatasetAndSceneInJavaBeforeAnyHostAction",
+          "passed": true,
+          "seconds": 0.007
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#reportMustHaveFrozenOriginalAssertionsAndExactSourceVersion",
+          "passed": true,
+          "seconds": 0.029
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#creationPromptsAreOwnedBoundedAndKeepSourceReserved",
+          "passed": true,
+          "seconds": 0.006
+        },
+        {
+          "case": "fraymus.workspace.Load055Test#stopPreservesPartialEvidenceThenExplicitRestartReevaluatesAndRejectsTampering",
+          "passed": true,
+          "seconds": 14.806
+        },
+        {
+          "case": "fraymus.workspace.Route055RecoveryTest#lateralWaypointRestoresAfterColdRestart",
+          "passed": true,
+          "seconds": 11.919
+        },
+        {
+          "case": "fraymus.workspace.WorldExportTest#completeSequentialNativeHistoryExportsLosslesslyAndAlteredOriginalsAreRefused",
+          "passed": true,
+          "seconds": 29.043
+        },
+        {
+          "case": "fraymus.workspace.WorldReservedTest#differentFrozenSequencesKeepStateAcrossGoalsAndFailureNeverAdvancesHead",
+          "passed": false,
+          "seconds": 0.009
+        }
+      ]
+    },
+    {
+      "label": "native055-historical",
+      "source": "1ae3725",
+      "count": 1,
+      "failures": 0,
+      "cases": [
+        {
+          "case": "fraymus.workspace.WorldReservedTest#differentFrozenSequencesKeepStateAcrossGoalsAndFailureNeverAdvancesHead",
+          "passed": true,
+          "seconds": 84.268
+        }
+      ]
+    },
+    {
+      "label": "native055-report",
+      "source": "561d12c",
+      "count": 19,
+      "failures": 0,
+      "cases": [
+        {
+          "case": "fraymus.workspace.ChatChain052Test#duplicateWarningsKeepEveryOriginalOccurrenceBeyondRecentWindow",
+          "passed": true,
+          "seconds": 0.008
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#numericRefusalExplainsOriginalBoundsWithoutChangingThem",
+          "passed": true,
+          "seconds": 0.007
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#oversizedRequirementsRefuseRatherThanBeingSilentlyTruncated",
+          "passed": true,
+          "seconds": 0.006
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#legacyTaskDoesNotClaimCompleteTimingCoverage",
+          "passed": true,
+          "seconds": 0.001
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#summaryRetainsRejectedQualityAndDoesNotDumpMetrics",
+          "passed": true,
+          "seconds": 0.001
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#discoverySummaryKeepsExactBindingsAndBothEndsWithoutBreakingJson",
+          "passed": true,
+          "seconds": 0.025
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#largeRecentObservationHasExplicitOmissionHashAndKeepsFailure",
+          "passed": true,
+          "seconds": 0.005
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#queuedObjectiveSealRefusesChangedRequest",
+          "passed": true,
+          "seconds": 0.001
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#providerMapMetadataIsRetainedWithoutUnrelatedFields",
+          "passed": true,
+          "seconds": 0.0
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#automaticCompletionRechecksCurrentArtifactInsteadOfTrustingOldSuccess",
+          "passed": true,
+          "seconds": 2.893
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#failedPlannerCallIsTimedAndDoesNotBecomeAnAction",
+          "passed": true,
+          "seconds": 0.903
+        },
+        {
+          "case": "fraymus.workspace.Counterfactual045Test#unfinishedForecastRetainsCompletedBytesAndOriginalAttemptsAcrossRestart",
+          "passed": true,
+          "seconds": 16.56
+        },
+        {
+          "case": "fraymus.workspace.Counterfactual045Test#codeAndSourceCorruptionAreRefusedWithoutChangingOriginalBytes",
+          "passed": true,
+          "seconds": 0.112
+        },
+        {
+          "case": "fraymus.workspace.Counterfactual045Test#ordinaryWorldRequestAndExplicitCounterfactualRequestStayDistinct",
+          "passed": true,
+          "seconds": 0.002
+        },
+        {
+          "case": "fraymus.workspace.Counterfactual045Test#nativeAlternativesKeepWorldExactAndSelectedExecutionMatchesOriginalTraces",
+          "passed": true,
+          "seconds": 35.545
+        },
+        {
+          "case": "fraymus.workspace.Counterfactual045Test#forecastOnlyAndExplicitNoMovementRequestsRequireReview",
+          "passed": true,
+          "seconds": 0.001
+        },
+        {
+          "case": "fraymus.workspace.Counterfactual045Test#cancellationCannotAdvanceOrReserveTheLiveWorld",
+          "passed": true,
+          "seconds": 0.051
+        },
+        {
+          "case": "fraymus.workspace.WorldHandoff055Test#exactPublishedColdWorldNeedsExplicitUpgradeAndRetainsEveryFrame",
+          "passed": true,
+          "seconds": 0.116
+        },
+        {
+          "case": "fraymus.workspace.WorldHandoff055Test#pendingOwnersAndUnknownIdentitiesCannotBeUpgraded",
+          "passed": true,
+          "seconds": 0.04
+        }
+      ]
+    },
+    {
+      "label": "native055-report-final",
+      "source": "6cf99a8",
+      "count": 19,
+      "failures": 0,
+      "cases": [
+        {
+          "case": "fraymus.workspace.ChatChain052Test#duplicateWarningsKeepEveryOriginalOccurrenceBeyondRecentWindow",
+          "passed": true,
+          "seconds": 0.007
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#numericRefusalExplainsOriginalBoundsWithoutChangingThem",
+          "passed": true,
+          "seconds": 0.008
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#oversizedRequirementsRefuseRatherThanBeingSilentlyTruncated",
+          "passed": true,
+          "seconds": 0.006
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#legacyTaskDoesNotClaimCompleteTimingCoverage",
+          "passed": true,
+          "seconds": 0.001
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#summaryRetainsRejectedQualityAndDoesNotDumpMetrics",
+          "passed": true,
+          "seconds": 0.001
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#discoverySummaryKeepsExactBindingsAndBothEndsWithoutBreakingJson",
+          "passed": true,
+          "seconds": 0.023
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#largeRecentObservationHasExplicitOmissionHashAndKeepsFailure",
+          "passed": true,
+          "seconds": 0.006
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#queuedObjectiveSealRefusesChangedRequest",
+          "passed": true,
+          "seconds": 0.0
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#providerMapMetadataIsRetainedWithoutUnrelatedFields",
+          "passed": true,
+          "seconds": 0.001
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#automaticCompletionRechecksCurrentArtifactInsteadOfTrustingOldSuccess",
+          "passed": true,
+          "seconds": 1.769
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#failedPlannerCallIsTimedAndDoesNotBecomeAnAction",
+          "passed": true,
+          "seconds": 0.136
+        },
+        {
+          "case": "fraymus.workspace.Counterfactual045Test#unfinishedForecastRetainsCompletedBytesAndOriginalAttemptsAcrossRestart",
+          "passed": true,
+          "seconds": 16.382
+        },
+        {
+          "case": "fraymus.workspace.Counterfactual045Test#codeAndSourceCorruptionAreRefusedWithoutChangingOriginalBytes",
+          "passed": true,
+          "seconds": 0.064
+        },
+        {
+          "case": "fraymus.workspace.Counterfactual045Test#ordinaryWorldRequestAndExplicitCounterfactualRequestStayDistinct",
+          "passed": true,
+          "seconds": 0.002
+        },
+        {
+          "case": "fraymus.workspace.Counterfactual045Test#nativeAlternativesKeepWorldExactAndSelectedExecutionMatchesOriginalTraces",
+          "passed": true,
+          "seconds": 35.573
+        },
+        {
+          "case": "fraymus.workspace.Counterfactual045Test#forecastOnlyAndExplicitNoMovementRequestsRequireReview",
+          "passed": true,
+          "seconds": 0.001
+        },
+        {
+          "case": "fraymus.workspace.Counterfactual045Test#cancellationCannotAdvanceOrReserveTheLiveWorld",
+          "passed": true,
+          "seconds": 0.069
+        },
+        {
+          "case": "fraymus.workspace.WorldHandoff055Test#exactPublishedColdWorldNeedsExplicitUpgradeAndRetainsEveryFrame",
+          "passed": true,
+          "seconds": 0.151
+        },
+        {
+          "case": "fraymus.workspace.WorldHandoff055Test#pendingOwnersAndUnknownIdentitiesCannotBeUpgraded",
+          "passed": true,
+          "seconds": 0.04
+        }
+      ]
+    }
+  ],
+  "javaScope": "Distinct targeted cases across source-qualified invocations, not one full Java suite. Matrix and core regressions passed on6084151. Final bounded-load/catalog/report refinements and lateral cold restart checked on1b4dd4b (42/43; old source-lock case blocked before execution). Historical035 cases rerun after explicit055 source lock on1ae3725; original thresholds unchanged. Final native/local-model app flow covers recorded source. Final structured/visible report separation checked on6cf99a8 after561d12c. Native controller/load algorithms unchanged. Actual unresponsive-artifact cold-start recovery and final normal report reopen are checked separately. A transient display simplification removed the verifier field; original receipt checks rejected it and the attempt budget stopped the goal without promotion. Full structured data is restored in a non-rendered JSON field; only the human-readable summary is shortened.",
+  "desktopUnitTests": 123,
+  "integration": [
+    "Actual direct-first trial clears a tall wall through native intermediate waypoints; two unexecuted alternatives stay labelled not-needed; cold review restart preserves source and decision; fresh execution, all load branches and report verification precede one world commit; visible load export writes original checked bytes and receipt",
+    "Actual local CPU model selects the typed construction task once; Java retains direct-first and load requirements, executes a changed centre and explains stable versus unstable experiments",
+    "Exact saved procedure survives restart and reruns fresh direct-first and load experiments with compact geometry; earlier world remains byte-equivalent in its observed history",
+    "Full-width wall refuses before a goal or native effect; persistent visible reason, unchanged world and no invented route",
+    "Stop retains the actual partial direct trial and its reconstructable original export without committing a world or skill"
+  ],
+  "timing": {
+    "chat": {
+      "wallSeconds": 172.44643,
+      "timing052": {
+        "modelMillis": 92225.6216,
+        "scope": "Measured Java planner-request wall time, including local admission and inference. Not simulated time or an estimate of time saved.",
+        "completeSinceAdmission": true,
+        "modelCalls": 1,
+        "failedModelCalls": 0,
+        "terminalChecksWithoutModel": 1
+      },
+      "source": "a8e18880856fc58ba7137d9ffb4db0201e3e5c5b"
+    },
+    "reused": {
+      "wallSeconds": 183.851563,
+      "timing052": {
+        "modelMillis": 112613.4957,
+        "scope": "Measured Java planner-request wall time, including local admission and inference. Not simulated time or an estimate of time saved.",
+        "completeSinceAdmission": true,
+        "modelCalls": 1,
+        "failedModelCalls": 0,
+        "terminalChecksWithoutModel": 1
+      },
+      "source": "a8e18880856fc58ba7137d9ffb4db0201e3e5c5b"
+    }
+  },
+  "frozenCases": [
+    {
+      "case": "compact",
+      "passed": true,
+      "directFirstTrials": 1,
+      "directFirstTotalTicks": 13292,
+      "exhaustiveTotalTicks": 27472,
+      "directFirstTotalEffortNs": 479.3443272195443,
+      "exhaustiveTotalEffortNs": 993.5401931727779
+    },
+    {
+      "case": "wide",
+      "passed": true,
+      "directFirstTrials": 1,
+      "directFirstTotalTicks": 15780,
+      "exhaustiveTotalTicks": 24151,
+      "directFirstTotalEffortNs": 861.5610208616423,
+      "exhaustiveTotalEffortNs": 1312.3415312924785
+    },
+    {
+      "case": "barrier",
+      "passed": true,
+      "directFirstTrials": 1,
+      "directFirstTotalTicks": 15780,
+      "exhaustiveTotalTicks": 24151,
+      "directFirstTotalEffortNs": 861.5610208616423,
+      "exhaustiveTotalEffortNs": 1312.3415312924785
+    }
+  ],
+  "loadCases": [
+    {
+      "caseId": "unloaded",
+      "forceN": [
+        0,
+        0,
+        0
+      ],
+      "metrics": {
+        "maxBeamTiltDeg": 0.0004800470921861242,
+        "maxSettledSpeedMps": 0.0008147479459450355,
+        "settledSamples": 20,
+        "stable": true,
+        "workJ": 0,
+        "forceEffortNs": 0,
+        "maxBeamDisplacementM": 0.00030405246800170246,
+        "nativeTicks": 1440,
+        "supportedSamples": 20
+      },
+      "wallMillis": 421.8169
+    },
+    {
+      "caseId": "downward-2kg-equivalent",
+      "forceN": [
+        0,
+        -19.62,
+        0
+      ],
+      "metrics": {
+        "maxBeamTiltDeg": 0.0004054939487747831,
+        "maxSettledSpeedMps": 0.0001178567445471977,
+        "settledSamples": 20,
+        "stable": true,
+        "workJ": -1.1694431805153727e-05,
+        "forceEffortNs": 39.240001678466655,
+        "maxBeamDisplacementM": 0.000320588123823605,
+        "nativeTicks": 1440,
+        "supportedSamples": 20
+      },
+      "wallMillis": 722.5946
+    },
+    {
+      "caseId": "horizontal-overload",
+      "forceN": [
+        80,
+        0,
+        0
+      ],
+      "metrics": {
+        "maxBeamTiltDeg": 40.98443350380028,
+        "maxSettledSpeedMps": 121.61944264066557,
+        "settledSamples": 20,
+        "stable": false,
+        "workJ": 10196.894786903722,
+        "forceEffortNs": 160.00000000000017,
+        "maxBeamDisplacementM": 496.4770944090847,
+        "nativeTicks": 1440,
+        "supportedSamples": 0
+      },
+      "wallMillis": 1311.19
+    }
+  ],
+  "developmentFailures": [
+    {
+      "record": "construction055-failed-1793749981241.json",
+      "source": "1ae37250ae1b72f725e9cbbade30deee8d5e4b2a",
+      "error": "Error: Expected actual edition055 state did not arrive\n    at until (C:\\Users\\eyeka\\Documents\\Codex\\2026-10-26\\is\\work\\fraynix-workspace-edition055\\workspace-desktop\\test\\construction055-integration.cjs:23:151)\n    at async chatFinished (C:\\Users\\eyeka\\Documents\\Codex\\2026-10-26\\is\\work\\fraynix-workspace-edition055\\workspace-desktop\\test\\construction055-integration.cjs:32:52)\n    at async main (C:\\Users\\eyeka\\Documents\\Codex\\2026-10-26\\is\\work\\fraynix-workspace-edition055\\workspace-desktop\\test\\construction055-integration.cjs:43:429)",
+      "project": "C:\\Users\\eyeka\\AppData\\Local\\Temp\\fraynix-construction055-BB66l2"
+    },
+    {
+      "record": "construction055-failed-1793750103197.json",
+      "source": "098faa305d0335862fcde56e9faa745cb4fb7af3",
+      "error": "locator.click: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('#d055-export')\u001b[22m\n\u001b[2m    - locator resolved to <button id=\"d055-export\">Export load attempts</button>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    55 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m       - element is not visible\u001b[22m\n\u001b[2m     - retrying click action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n\n    at main (C:\\Users\\eyeka\\Documents\\Codex\\2026-10-26\\is\\work\\fraynix-workspace-edition055\\workspace-desktop\\test\\construction055-integration.cjs:39:591)",
+      "project": "C:\\Users\\eyeka\\AppData\\Local\\Temp\\fraynix-construction055-qKJfFN"
+    },
+    {
+      "record": "construction055-failed-1793750399024.json",
+      "source": "5eb0ace89c72bec4ee3624ceb16ab001c00a626e",
+      "error": "electronApplication.evaluate: Execution context was destroyed, most likely because of a navigation.\n    at launch (C:\\Users\\eyeka\\Documents\\Codex\\2026-10-26\\is\\work\\fraynix-workspace-edition055\\workspace-desktop\\test\\calibration-integration.cjs:6:12)\n    at async open (C:\\Users\\eyeka\\Documents\\Codex\\2026-10-26\\is\\work\\fraynix-workspace-edition055\\workspace-desktop\\test\\construction055-integration.cjs:24:37)\n    at async main (C:\\Users\\eyeka\\Documents\\Codex\\2026-10-26\\is\\work\\fraynix-workspace-edition055\\workspace-desktop\\test\\construction055-integration.cjs:43:32)",
+      "project": "C:\\Users\\eyeka\\AppData\\Local\\Temp\\fraynix-construction055-OUAT7u"
+    },
+    {
+      "record": "construction055-failed-1793750968621.json",
+      "source": "e82f5caf723d5a30e098ba6e2f2194ed24296bb4",
+      "error": "Error: Execution stopped: Goal exceeded its saved attempt time budget. Review and Resume; no failed result is a saved skill.\n    at C:\\Users\\eyeka\\Documents\\Codex\\2026-10-26\\is\\work\\fraynix-workspace-edition055\\workspace-desktop\\test\\construction055-integration.cjs:29:142\n    at async until (C:\\Users\\eyeka\\Documents\\Codex\\2026-10-26\\is\\work\\fraynix-workspace-edition055\\workspace-desktop\\test\\construction055-integration.cjs:23:102)\n    at async main (C:\\Users\\eyeka\\Documents\\Codex\\2026-10-26\\is\\work\\fraynix-workspace-edition055\\workspace-desktop\\test\\construction055-integration.cjs:39:361)",
+      "project": "C:\\Users\\eyeka\\AppData\\Local\\Temp\\fraynix-construction055-JHxqfH"
+    }
+  ],
+  "selectionQualification": "Identical maximum-force outcome checks, fewer assembly forecast attempts. Totals include forecast plus fresh execution, exclude4320 new load ticks. Not measured machine energy or LLM latency improvement.",
+  "initialFailure": "3045794 native first:4/5 pass. Wide load metrics differed after JSON persistence.6084151 verifies exact persisted numeric representation; physical thresholds unchanged. Compile-first duplicate helper was corrected before native invocation. A historical regression initially stopped at obsolete052 source hashes; explicit055 source lock records the intentional extension before rerunning unchanged cases. Originals retained.",
+  "scope": "Declared synthetic box stock and fixed rectangular walls, Java visibility graph with2m carry cap and original native forces. Independent rigid-body load stability, not material strength, hardware validation or LLM-weight training.",
+  "startupRecovery": {
+    "source": "a8e18880856fc58ba7137d9ffb4db0201e3e5c5b",
+    "project": "C:\\Users\\eyeka\\AppData\\Local\\Temp\\fraynix-startup055-h7F9nW",
+    "checks": [
+      "Actual infinite-script artifact hits the bounded renderer stop during cold startup; workspace and Java API stay available, and the original file/version are preserved",
+      "The same app opens and reads a new real canvas after the failed renderer; no restart, model request or native world mutation needed"
+    ],
+    "fault": {
+      "sources": [],
+      "contents": {
+        "index.html": "<!doctype html><html><body><h1>Deliberately unresponsive test artifact</h1><script>while(true){}</script></body></html>"
+      },
+      "created": "2026-11-04T00:12:23.375768200Z",
+      "files": [
+        "index.html"
+      ],
+      "id": "89806e96-ea65-49b8-9ebc-67dc8cc48ac4",
+      "title": "LABELLED renderer timeout fixture",
+      "version": 1
+    },
+    "recoveryWallMs": 16427,
+    "events": [
+      {
+        "at": "2026-11-04T00:12:39.841Z",
+        "kind": "error",
+        "text": "Saved artifact could not open; the workspace remains available. Select another artifact or revise its source.",
+        "data": {
+          "reason": "canvas navigation timed out; its renderer was stopped. Revise the artifact or navigate again."
+        }
+      }
+    ],
+    "passed": true
+  },
+  "reportCapture": {
+    "passed": true,
+    "source": "09c749ec7ee1e91ee57670b8e940d3e9dd38ed79",
+    "project": "C:\\Users\\eyeka\\AppData\\Local\\Temp\\fraynix-construction055-aVgtoX",
+    "report": {
+      "sha256": "3f025993d7172600f492663a8d139df1d1d0f222be35dcf664af643b0e676f2e",
+      "id": "974923af-a47d-3ff2-89cf-43e507dd6913",
+      "version": 1
+    },
+    "observed": {
+      "curves": 3,
+      "structured": "native-counterfactual-045-v1",
+      "width": 795
+    },
+    "checks": [
+      "Actual saved verified report opens after cold restart without fallback",
+      "Live preview visibly selected before composite screenshot; three original load curves remain present"
+    ],
+    "errors": []
+  },
+  "screenshotQualification": "The initial report capture preceded the visible tab change; retained as development-report-before-visible.png. Final report screenshot reopens the original verified artifact and waits for Live preview visibility. Test-only wait added at09c749e; production source unchanged from the complete successful app run."
+}

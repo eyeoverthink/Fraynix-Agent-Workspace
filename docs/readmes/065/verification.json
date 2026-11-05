@@ -1,0 +1,935 @@
+{
+  "edition": 65,
+  "date": "2026-11-04T22:06:54.000Z",
+  "source": "abd1610c20ff7ed221ca2ab9381ed947902ca16c",
+  "contractCommit": "73ec4dc",
+  "nativeImplementation": "00bd43430f210c78359df5786772540cfb59389c",
+  "contextFix": "abd1610",
+  "nativeExecutions": 85,
+  "decisionSlots": 216,
+  "javaDistinct": 62,
+  "javaClasses": 9,
+  "javaAllPassed": true,
+  "javaInvocations": [
+    {
+      "name": "native065",
+      "source": "00bd43430f210c78359df5786772540cfb59389c",
+      "cases": [
+        {
+          "case": "fraymus.workspace.Decision065Test#publishedCalibrationIsExactAndRecomputed",
+          "passed": true,
+          "seconds": 2.088
+        },
+        {
+          "case": "fraymus.workspace.Decision065Test#policyFitsIntervalsAndSharesDomainFence",
+          "passed": true,
+          "seconds": 0.006
+        },
+        {
+          "case": "fraymus.workspace.Decision065Test#nativeDecisionsColdHistoryStopAndTampering",
+          "passed": true,
+          "seconds": 35.603
+        },
+        {
+          "case": "fraymus.workspace.Decision065Test#utilityCountsMissesAndRefusalsWithoutInventingEndpoints",
+          "passed": true,
+          "seconds": 0.001
+        },
+        {
+          "case": "fraymus.workspace.Decision065Test#freshPartitionsHaveNoOldNativeDefinitions",
+          "passed": true,
+          "seconds": 0.003
+        },
+        {
+          "case": "fraymus.workspace.Decision065Test#gateRequiresBothComparisonsAndRealTaskSuccess",
+          "passed": true,
+          "seconds": 0.002
+        }
+      ]
+    },
+    {
+      "name": "regression065",
+      "source": "7aa871e272d8075ae4c041f78717af377c7ced35",
+      "cases": [
+        {
+          "case": "fraymus.workspace.Agent042Test#actualSharedCortexCheckpointReplayLeaseAndRestart",
+          "passed": true,
+          "seconds": 1.581
+        },
+        {
+          "case": "fraymus.workspace.Agent042Test#acceptedCameraOutputsExpireAndReplayCannotRefreshThem",
+          "passed": true,
+          "seconds": 0.867
+        },
+        {
+          "case": "fraymus.workspace.Agent042Test#missingNeuralCheckpointDoesNotSilentlyResetBrain",
+          "passed": true,
+          "seconds": 0.295
+        },
+        {
+          "case": "fraymus.workspace.Agent042Test#clocksKeepWallRollbackAndBootDomainsSeparate",
+          "passed": true,
+          "seconds": 0.0
+        },
+        {
+          "case": "fraymus.workspace.Agent042Test#failedGoalsAreWitnessedOnceWithoutRewardingSuccess",
+          "passed": true,
+          "seconds": 0.031
+        },
+        {
+          "case": "fraymus.workspace.Agent042Test#checkedStateRejectsAlterationWithoutErasingOriginal",
+          "passed": true,
+          "seconds": 0.008
+        },
+        {
+          "case": "fraymus.workspace.Agent042Test#appraisalAblationsActuallyChangeWork",
+          "passed": true,
+          "seconds": 0.0
+        },
+        {
+          "case": "fraymus.workspace.Agent042Test#witnessSegmentsVerifyExactCheckpointPrefixAndRefuseDamage",
+          "passed": true,
+          "seconds": 4.055
+        },
+        {
+          "case": "fraymus.workspace.Agent042Test#reportEscapesSourceDataAndKeepsExactSnapshot",
+          "passed": true,
+          "seconds": 0.008
+        },
+        {
+          "case": "fraymus.workspace.BrainPayload064Test#exactTextRoundTripPreservesUnicodeNumbersAndWhitespace",
+          "passed": true,
+          "seconds": 0.024
+        },
+        {
+          "case": "fraymus.workspace.BrainPayload064Test#corruptedOrOversizedEnvelopesAreRefused",
+          "passed": true,
+          "seconds": 0.003
+        },
+        {
+          "case": "fraymus.workspace.BrainPayload064Test#oldAndSmallRecordsStayCompatible",
+          "passed": true,
+          "seconds": 0.012
+        },
+        {
+          "case": "fraymus.workspace.BrainPersistenceTest#cancelDoesNotPromoteAndSharedCortexCheckpointRestarts",
+          "passed": true,
+          "seconds": 0.641
+        },
+        {
+          "case": "fraymus.workspace.BrainPersistenceTest#checkpointRetainsActualWeightsRandomStateAndDynamicsAndRejectsCorruption",
+          "passed": true,
+          "seconds": 0.007
+        },
+        {
+          "case": "fraymus.workspace.BrainPersistenceTest#savedUnsettledJobIsMarkedInterruptedOnRestart",
+          "passed": true,
+          "seconds": 0.029
+        },
+        {
+          "case": "fraymus.workspace.BrainPersistenceTest#acceptedControllerUsesActualImpulseAndReplaysWithoutReferenceConfusion",
+          "passed": true,
+          "seconds": 6.247
+        },
+        {
+          "case": "fraymus.workspace.BrainPersistenceTest#immutableLocalMemorySurvivesRestartIsBoundedAndCannotInstallTools",
+          "passed": true,
+          "seconds": 0.116
+        },
+        {
+          "case": "fraymus.workspace.BrainServiceTest#physicalLearningIsEvaluatedPromotedRestartedAndRolledBack",
+          "passed": true,
+          "seconds": 5.656
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#duplicateWarningsKeepEveryOriginalOccurrenceBeyondRecentWindow",
+          "passed": true,
+          "seconds": 0.002
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#numericRefusalExplainsOriginalBoundsWithoutChangingThem",
+          "passed": true,
+          "seconds": 0.003
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#oversizedRequirementsRefuseRatherThanBeingSilentlyTruncated",
+          "passed": true,
+          "seconds": 0.001
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#legacyTaskDoesNotClaimCompleteTimingCoverage",
+          "passed": true,
+          "seconds": 0.0
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#summaryRetainsRejectedQualityAndDoesNotDumpMetrics",
+          "passed": true,
+          "seconds": 0.0
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#payloadHistoryProjectionRetainsPolicyRequirementsAndContraryOutcomes",
+          "passed": true,
+          "seconds": 0.005
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#discoverySummaryKeepsExactBindingsAndBothEndsWithoutBreakingJson",
+          "passed": true,
+          "seconds": 0.003
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#largeRecentObservationHasExplicitOmissionHashAndKeepsFailure",
+          "passed": true,
+          "seconds": 0.003
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#queuedObjectiveSealRefusesChangedRequest",
+          "passed": true,
+          "seconds": 0.0
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#providerMapMetadataIsRetainedWithoutUnrelatedFields",
+          "passed": true,
+          "seconds": 0.0
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#automaticCompletionRechecksCurrentArtifactInsteadOfTrustingOldSuccess",
+          "passed": true,
+          "seconds": 0.831
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#failedPlannerCallIsTimedAndDoesNotBecomeAnAction",
+          "passed": true,
+          "seconds": 0.324
+        },
+        {
+          "case": "fraymus.workspace.Contact064Test#wilsonAndRankHaveIndependentKnownValues",
+          "passed": true,
+          "seconds": 0.002
+        },
+        {
+          "case": "fraymus.workspace.Contact064Test#stressCannotQualifyAndWidthAndGroupsMatter",
+          "passed": true,
+          "seconds": 0.003
+        },
+        {
+          "case": "fraymus.workspace.Contact064Test#partitionsAreFreshAndStressIsOutsideCalibratedSupport",
+          "passed": true,
+          "seconds": 0.001
+        },
+        {
+          "case": "fraymus.workspace.Contact064Test#plannerProjectionKeepsEvidenceAndOriginalHistory",
+          "passed": true,
+          "seconds": 0.002
+        },
+        {
+          "case": "fraymus.workspace.Contact064Test#published063OriginalStillAudits",
+          "passed": true,
+          "seconds": 1.18
+        },
+        {
+          "case": "fraymus.workspace.Contact064Test#cachedImpulseOrientationAndGravityBalanceAreIndependent",
+          "passed": true,
+          "seconds": 0.001
+        },
+        {
+          "case": "fraymus.workspace.Contact064Test#nativeStudyParityUncertaintyColdRestoreAndStop",
+          "passed": true,
+          "seconds": 63.007
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#retainedAppearancePolicyCannotChangeCategoryOrInstallDetectorOptions",
+          "passed": true,
+          "seconds": 0.003
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#retainedSkillSourceAndForceDefaultsCannotBeSilentlyChanged",
+          "passed": true,
+          "seconds": 0.002
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#nativeWaitUsesActualChildAndRetainsItsIdentity",
+          "passed": true,
+          "seconds": 0.01
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#savedGraphChatSelectsExactVersionAndWorkflowBeforePlanning",
+          "passed": true,
+          "seconds": 0.014
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#sourceFreeHostSuccessAndForeignChildrenAreRejected",
+          "passed": true,
+          "seconds": 0.007
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#reportStageCannotSkipActualReads",
+          "passed": true,
+          "seconds": 0.0
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#typedOptionsPreserveExplicitValuesAndRejectContradictions",
+          "passed": true,
+          "seconds": 0.003
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#interruptedChildCannotProduceSuccessfulCompletion",
+          "passed": true,
+          "seconds": 0.007
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#inventedHostFactsDoNotReplaceActualJavaRead",
+          "passed": true,
+          "seconds": 0.005
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#retainedSkillSchemasKeepDefaultsOptionalAndHideBoundDetectorPolicy",
+          "passed": true,
+          "seconds": 0.001
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#javaRoutesEveryFormerDesktopFamilyWithoutChangingWebCreation",
+          "passed": true,
+          "seconds": 0.009
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#constructionReuseExposesOnlyExplicitChangesAndKeepsOriginalLimits",
+          "passed": true,
+          "seconds": 0.004
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#actualQueueCompletionRecordsTheVerifiedReportInTheSameLearningEpisode",
+          "passed": true,
+          "seconds": 0.301
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#workflowBootstrapBindsDatasetAndSceneInJavaBeforeAnyHostAction",
+          "passed": true,
+          "seconds": 0.006
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#reportMustHaveFrozenOriginalAssertionsAndExactSourceVersion",
+          "passed": true,
+          "seconds": 0.031
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#creationPromptsAreOwnedBoundedAndKeepSourceReserved",
+          "passed": true,
+          "seconds": 0.014
+        },
+        {
+          "case": "fraymus.workspace.StoppingContext063Test#projectionPreservesFailuresExactMetricsAndOriginalEvidence",
+          "passed": true,
+          "seconds": 0.013
+        },
+        {
+          "case": "fraymus.workspace.StoppingContext063Test#ordinaryFactsAndEssentialTaskRequirementsAreNotReduced",
+          "passed": true,
+          "seconds": 0.001
+        }
+      ]
+    },
+    {
+      "name": "context065",
+      "source": "abd1610c20ff7ed221ca2ab9381ed947902ca16c",
+      "cases": [
+        {
+          "case": "fraymus.workspace.ChatChain052Test#duplicateWarningsKeepEveryOriginalOccurrenceBeyondRecentWindow",
+          "passed": true,
+          "seconds": 0.007
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#numericRefusalExplainsOriginalBoundsWithoutChangingThem",
+          "passed": true,
+          "seconds": 0.007
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#oversizedRequirementsRefuseRatherThanBeingSilentlyTruncated",
+          "passed": true,
+          "seconds": 0.008
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#legacyTaskDoesNotClaimCompleteTimingCoverage",
+          "passed": true,
+          "seconds": 0.0
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#summaryRetainsRejectedQualityAndDoesNotDumpMetrics",
+          "passed": true,
+          "seconds": 0.002
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#payloadHistoryProjectionRetainsPolicyRequirementsAndContraryOutcomes",
+          "passed": true,
+          "seconds": 0.032
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#discoverySummaryKeepsExactBindingsAndBothEndsWithoutBreakingJson",
+          "passed": true,
+          "seconds": 0.01
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#largeRecentObservationHasExplicitOmissionHashAndKeepsFailure",
+          "passed": true,
+          "seconds": 0.006
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#queuedObjectiveSealRefusesChangedRequest",
+          "passed": true,
+          "seconds": 0.001
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#providerMapMetadataIsRetainedWithoutUnrelatedFields",
+          "passed": true,
+          "seconds": 0.0
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#automaticCompletionRechecksCurrentArtifactInsteadOfTrustingOldSuccess",
+          "passed": true,
+          "seconds": 3.837
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#failedPlannerCallIsTimedAndDoesNotBecomeAnAction",
+          "passed": true,
+          "seconds": 0.133
+        },
+        {
+          "case": "fraymus.workspace.Decision065Test#planningTablesRetainEveryMetricAndLeaveOriginalsUntouched",
+          "passed": true,
+          "seconds": 0.008
+        },
+        {
+          "case": "fraymus.workspace.StoppingContext063Test#projectionPreservesFailuresExactMetricsAndOriginalEvidence",
+          "passed": true,
+          "seconds": 0.012
+        },
+        {
+          "case": "fraymus.workspace.StoppingContext063Test#ordinaryFactsAndEssentialTaskRequirementsAreNotReduced",
+          "passed": true,
+          "seconds": 0.001
+        }
+      ]
+    }
+  ],
+  "desktopUnitTests": 127,
+  "actualApp": {
+    "source": "abd1610c20ff7ed221ca2ab9381ed947902ca16c",
+    "physicsJobSource": "7aa871e272d8075ae4c041f78717af377c7ced35",
+    "checks": [
+      "Visible comparison completes216decision slots; admitted policies execute separate native trajectories, refusals contain no fabricated motion",
+      "Paired score plot, real46-sample motion, target windows and explicit unsupported/refused tasks match retained Java records",
+      "Cold Java/app restart restores identical published-calibration decisions; active controller remains v1",
+      "Visible Stop retains the completed comparison and shared Java evidence",
+      "Actual CPU/four-thread gpt-oss20b reads decision evidence and completes its checked report"
+    ],
+    "original": "original/actual-app/decision065-live.json.gz",
+    "model": "gpt-oss:20b CPU-only/four threads",
+    "widths": [
+      1600,
+      1100
+    ],
+    "sameChatResumed": true
+  },
+  "visualReview": {
+    "passed": true,
+    "reviewedAtUtc": "2026-11-04T22:12:20.929612+00:00",
+    "method": "Visual inspection of seven actual app captures through image viewer, separately from automated DOM checks",
+    "images": [
+      "comparison",
+      "motion",
+      "refusal",
+      "domain",
+      "preview",
+      "narrow",
+      "chat"
+    ],
+    "findings": [
+      "Success/miss/refusal totals and failed gate are readable",
+      "Motion and requested target window correspond to inspected native task",
+      "Refusal rows show no invented endpoint; unsupported replay is disabled",
+      "Preview is labelled no motion and separate from selected recorded task",
+      "1100px panel retains readable table and paired plot",
+      "Checked local-model artifact and completed task are visible in existing workspace"
+    ],
+    "limitations": [
+      "Chat screenshot shows the report entry, not every evidence field; the complete report/task is archived",
+      "Scroll position intentionally shows different parts of the same integrated panel"
+    ]
+  },
+  "model": {
+    "modelSha256": "64dd2f4d50a6888651525d89535be92ae41a9085deef5263b764e8effb0df77d",
+    "radiusM": 0.021009609197235324,
+    "originalRawSha256": "b13ab33071294561d1203ba63840eb8e493938e802e2f323d9aa85ac3936dd2b",
+    "calibrationCount": 60,
+    "sourceRelease": "50be9a6568037915c4060804a247e6df60326062",
+    "sourceStudyId": "a51b6236-3363-486b-a09a-b099416d8971",
+    "calibrationSha256": "38f60aeba62c42d9419df466554fe559da79577f2c9db479422de6de9b4e54f3",
+    "resourceSha256": "bee148d4270d4e45c5c5777fd292fcc933f3993c2849760b706c93dc08503c4f",
+    "sourcePath": "docs/readmes/064/original/native064-final/original-experiment.json.gz"
+  },
+  "evaluation": {
+    "qualified": false,
+    "subgroups": {
+      "width24mm": {
+        "methods": {
+          "pooled": {
+            "meanUtility": -0.03699999999999999,
+            "allTaskMissRate": 0,
+            "conditionalSuccessRate": 1,
+            "refusals": 18,
+            "executionRate": 0.1,
+            "meanTargetErrorM": 0.0019113261001757961,
+            "selectedIntervalCoverage": 1,
+            "executions": 2,
+            "allTaskSuccessRate": 0.1,
+            "successes": 2,
+            "misses": 0,
+            "missedSimpleSuccesses": 7,
+            "tasks": 20
+          },
+          "simple": {
+            "meanUtility": -0.6699999999999997,
+            "allTaskMissRate": 0.55,
+            "conditionalSuccessRate": 0.45,
+            "refusals": 0,
+            "executionRate": 1,
+            "meanTargetErrorM": 0.0694774227045119,
+            "selectedIntervalCoverage": null,
+            "executions": 20,
+            "allTaskSuccessRate": 0.45,
+            "successes": 9,
+            "misses": 11,
+            "missedSimpleSuccesses": 0,
+            "tasks": 20
+          },
+          "fixed": {
+            "meanUtility": 0.0195,
+            "allTaskMissRate": 0,
+            "conditionalSuccessRate": 1,
+            "refusals": 17,
+            "executionRate": 0.15,
+            "meanTargetErrorM": 0.0016112414168087629,
+            "selectedIntervalCoverage": 1,
+            "executions": 3,
+            "allTaskSuccessRate": 0.15,
+            "successes": 3,
+            "misses": 0,
+            "missedSimpleSuccesses": 6,
+            "tasks": 20
+          }
+        },
+        "pairedPooledMinus": {
+          "simple": {
+            "wins": 11,
+            "ties": 2,
+            "meanDelta": 0.6330000000000002,
+            "losses": 7
+          },
+          "fixed": {
+            "wins": 0,
+            "ties": 19,
+            "meanDelta": -0.056499999999999995,
+            "losses": 1
+          }
+        }
+      },
+      "width45mm": {
+        "methods": {
+          "pooled": {
+            "meanUtility": 0.4149999999999999,
+            "allTaskMissRate": 0,
+            "conditionalSuccessRate": 1,
+            "refusals": 10,
+            "executionRate": 0.5,
+            "meanTargetErrorM": 0.011886614689235863,
+            "selectedIntervalCoverage": 0.9,
+            "executions": 10,
+            "allTaskSuccessRate": 0.5,
+            "successes": 10,
+            "misses": 0,
+            "missedSimpleSuccesses": 3,
+            "tasks": 20
+          },
+          "simple": {
+            "meanUtility": -0.0699999999999998,
+            "allTaskMissRate": 0.35,
+            "conditionalSuccessRate": 0.65,
+            "refusals": 0,
+            "executionRate": 1,
+            "meanTargetErrorM": 0.046424456173850506,
+            "selectedIntervalCoverage": null,
+            "executions": 20,
+            "allTaskSuccessRate": 0.65,
+            "successes": 13,
+            "misses": 7,
+            "missedSimpleSuccesses": 0,
+            "tasks": 20
+          },
+          "fixed": {
+            "meanUtility": 0.4149999999999999,
+            "allTaskMissRate": 0,
+            "conditionalSuccessRate": 1,
+            "refusals": 10,
+            "executionRate": 0.5,
+            "meanTargetErrorM": 0.011886614689235863,
+            "selectedIntervalCoverage": 0.9,
+            "executions": 10,
+            "allTaskSuccessRate": 0.5,
+            "successes": 10,
+            "misses": 0,
+            "missedSimpleSuccesses": 3,
+            "tasks": 20
+          }
+        },
+        "pairedPooledMinus": {
+          "simple": {
+            "wins": 7,
+            "ties": 10,
+            "meanDelta": 0.48500000000000004,
+            "losses": 3
+          },
+          "fixed": {
+            "wins": 0,
+            "ties": 20,
+            "meanDelta": 0,
+            "losses": 0
+          }
+        }
+      },
+      "slowing": {
+        "methods": {
+          "pooled": {
+            "meanUtility": 0.0006666666666666728,
+            "allTaskMissRate": 0,
+            "conditionalSuccessRate": 1,
+            "refusals": 26,
+            "executionRate": 0.13333333333333333,
+            "meanTargetErrorM": 0.011489040041869843,
+            "selectedIntervalCoverage": 1,
+            "executions": 4,
+            "allTaskSuccessRate": 0.13333333333333333,
+            "successes": 4,
+            "misses": 0,
+            "missedSimpleSuccesses": 7,
+            "tasks": 30
+          },
+          "simple": {
+            "meanUtility": -0.9199999999999997,
+            "allTaskMissRate": 0.6333333333333333,
+            "conditionalSuccessRate": 0.36666666666666664,
+            "refusals": 0,
+            "executionRate": 1,
+            "meanTargetErrorM": 0.06861313557678976,
+            "selectedIntervalCoverage": null,
+            "executions": 30,
+            "allTaskSuccessRate": 0.36666666666666664,
+            "successes": 11,
+            "misses": 19,
+            "missedSimpleSuccesses": 0,
+            "tasks": 30
+          },
+          "fixed": {
+            "meanUtility": 0.03833333333333339,
+            "allTaskMissRate": 0,
+            "conditionalSuccessRate": 1,
+            "refusals": 25,
+            "executionRate": 0.16666666666666666,
+            "meanTargetErrorM": 0.009393446443510815,
+            "selectedIntervalCoverage": 1,
+            "executions": 5,
+            "allTaskSuccessRate": 0.16666666666666666,
+            "successes": 5,
+            "misses": 0,
+            "missedSimpleSuccesses": 6,
+            "tasks": 30
+          }
+        },
+        "pairedPooledMinus": {
+          "simple": {
+            "wins": 19,
+            "ties": 4,
+            "meanDelta": 0.9206666666666673,
+            "losses": 7
+          },
+          "fixed": {
+            "wins": 0,
+            "ties": 29,
+            "meanDelta": -0.03766666666666666,
+            "losses": 1
+          }
+        }
+      },
+      "accelerating": {
+        "methods": {
+          "pooled": {
+            "meanUtility": 0.15133333333333335,
+            "allTaskMissRate": 0,
+            "conditionalSuccessRate": 1,
+            "refusals": 22,
+            "executionRate": 0.26666666666666666,
+            "meanTargetErrorM": 0.009591579865653857,
+            "selectedIntervalCoverage": 0.875,
+            "executions": 8,
+            "allTaskSuccessRate": 0.26666666666666666,
+            "successes": 8,
+            "misses": 0,
+            "missedSimpleSuccesses": 8,
+            "tasks": 30
+          },
+          "simple": {
+            "meanUtility": -0.4199999999999997,
+            "allTaskMissRate": 0.4666666666666667,
+            "conditionalSuccessRate": 0.5333333333333333,
+            "refusals": 0,
+            "executionRate": 1,
+            "meanTargetErrorM": 0.03699175125297314,
+            "selectedIntervalCoverage": null,
+            "executions": 30,
+            "allTaskSuccessRate": 0.5333333333333333,
+            "successes": 16,
+            "misses": 14,
+            "missedSimpleSuccesses": 0,
+            "tasks": 30
+          },
+          "fixed": {
+            "meanUtility": 0.15133333333333335,
+            "allTaskMissRate": 0,
+            "conditionalSuccessRate": 1,
+            "refusals": 22,
+            "executionRate": 0.26666666666666666,
+            "meanTargetErrorM": 0.009591579865653857,
+            "selectedIntervalCoverage": 0.875,
+            "executions": 8,
+            "allTaskSuccessRate": 0.26666666666666666,
+            "successes": 8,
+            "misses": 0,
+            "missedSimpleSuccesses": 8,
+            "tasks": 30
+          }
+        },
+        "pairedPooledMinus": {
+          "simple": {
+            "wins": 14,
+            "ties": 8,
+            "meanDelta": 0.5713333333333337,
+            "losses": 8
+          },
+          "fixed": {
+            "wins": 0,
+            "ties": 30,
+            "meanDelta": 0,
+            "losses": 0
+          }
+        }
+      },
+      "width12mm": {
+        "methods": {
+          "pooled": {
+            "meanUtility": -0.14999999999999997,
+            "allTaskMissRate": 0,
+            "conditionalSuccessRate": null,
+            "refusals": 20,
+            "executionRate": 0,
+            "meanTargetErrorM": null,
+            "selectedIntervalCoverage": null,
+            "executions": 0,
+            "allTaskSuccessRate": 0,
+            "successes": 0,
+            "misses": 0,
+            "missedSimpleSuccesses": 5,
+            "tasks": 20
+          },
+          "simple": {
+            "meanUtility": -1.2699999999999998,
+            "allTaskMissRate": 0.75,
+            "conditionalSuccessRate": 0.25,
+            "refusals": 0,
+            "executionRate": 1,
+            "meanTargetErrorM": 0.042505451366281935,
+            "selectedIntervalCoverage": null,
+            "executions": 20,
+            "allTaskSuccessRate": 0.25,
+            "successes": 5,
+            "misses": 15,
+            "missedSimpleSuccesses": 0,
+            "tasks": 20
+          },
+          "fixed": {
+            "meanUtility": -0.14999999999999997,
+            "allTaskMissRate": 0,
+            "conditionalSuccessRate": null,
+            "refusals": 20,
+            "executionRate": 0,
+            "meanTargetErrorM": null,
+            "selectedIntervalCoverage": null,
+            "executions": 0,
+            "allTaskSuccessRate": 0,
+            "successes": 0,
+            "misses": 0,
+            "missedSimpleSuccesses": 5,
+            "tasks": 20
+          }
+        },
+        "pairedPooledMinus": {
+          "simple": {
+            "wins": 15,
+            "ties": 0,
+            "meanDelta": 1.1200000000000006,
+            "losses": 5
+          },
+          "fixed": {
+            "wins": 0,
+            "ties": 20,
+            "meanDelta": 0,
+            "losses": 0
+          }
+        }
+      }
+    },
+    "proposed": "pooled",
+    "interpretation": "Declared empirical decision-value gate; no statistical or physical guarantee and no automatic promotion",
+    "methods": {
+      "pooled": {
+        "meanUtility": 0.07599999999999986,
+        "allTaskMissRate": 0,
+        "conditionalSuccessRate": 1,
+        "refusals": 48,
+        "executionRate": 0.2,
+        "meanTargetErrorM": 0.010224066591059186,
+        "selectedIntervalCoverage": 0.9166666666666666,
+        "executions": 12,
+        "allTaskSuccessRate": 0.2,
+        "successes": 12,
+        "misses": 0,
+        "missedSimpleSuccesses": 15,
+        "tasks": 60
+      },
+      "simple": {
+        "meanUtility": -0.6700000000000002,
+        "allTaskMissRate": 0.55,
+        "conditionalSuccessRate": 0.45,
+        "refusals": 0,
+        "executionRate": 1,
+        "meanTargetErrorM": 0.052802443414881446,
+        "selectedIntervalCoverage": null,
+        "executions": 60,
+        "allTaskSuccessRate": 0.45,
+        "successes": 27,
+        "misses": 33,
+        "missedSimpleSuccesses": 0,
+        "tasks": 60
+      },
+      "fixed": {
+        "meanUtility": 0.0948333333333332,
+        "allTaskMissRate": 0,
+        "conditionalSuccessRate": 1,
+        "refusals": 47,
+        "executionRate": 0.21666666666666667,
+        "meanTargetErrorM": 0.009515374703291148,
+        "selectedIntervalCoverage": 0.9230769230769231,
+        "executions": 13,
+        "allTaskSuccessRate": 0.21666666666666667,
+        "successes": 13,
+        "misses": 0,
+        "missedSimpleSuccesses": 14,
+        "tasks": 60
+      }
+    },
+    "pairedPooledMinus": {
+      "simple": {
+        "wins": 33,
+        "ties": 12,
+        "meanDelta": 0.7459999999999998,
+        "losses": 15
+      },
+      "fixed": {
+        "wins": 0,
+        "ties": 59,
+        "meanDelta": -0.01883333333333333,
+        "losses": 1
+      }
+    },
+    "controllerAuthority": false
+  },
+  "shiftedEvaluation": {
+    "methods": {
+      "pooled": {
+        "meanUtility": -0.14999999999999997,
+        "allTaskMissRate": 0,
+        "conditionalSuccessRate": null,
+        "refusals": 12,
+        "executionRate": 0,
+        "meanTargetErrorM": null,
+        "selectedIntervalCoverage": null,
+        "executions": 0,
+        "allTaskSuccessRate": 0,
+        "successes": 0,
+        "misses": 0,
+        "missedSimpleSuccesses": 0,
+        "tasks": 12
+      },
+      "simple": {
+        "meanUtility": -0.14999999999999997,
+        "allTaskMissRate": 0,
+        "conditionalSuccessRate": null,
+        "refusals": 12,
+        "executionRate": 0,
+        "meanTargetErrorM": null,
+        "selectedIntervalCoverage": null,
+        "executions": 0,
+        "allTaskSuccessRate": 0,
+        "successes": 0,
+        "misses": 0,
+        "missedSimpleSuccesses": 0,
+        "tasks": 12
+      },
+      "fixed": {
+        "meanUtility": -0.14999999999999997,
+        "allTaskMissRate": 0,
+        "conditionalSuccessRate": null,
+        "refusals": 12,
+        "executionRate": 0,
+        "meanTargetErrorM": null,
+        "selectedIntervalCoverage": null,
+        "executions": 0,
+        "allTaskSuccessRate": 0,
+        "successes": 0,
+        "misses": 0,
+        "missedSimpleSuccesses": 0,
+        "tasks": 12
+      }
+    },
+    "pairedPooledMinus": {
+      "simple": {
+        "wins": 0,
+        "ties": 12,
+        "meanDelta": 0,
+        "losses": 0
+      },
+      "fixed": {
+        "wins": 0,
+        "ties": 12,
+        "meanDelta": 0,
+        "losses": 0
+      }
+    }
+  },
+  "admissionFixComparison": {
+    "failedSource": "d543cf2bb10f1ed9d6f40c780740132c0ab10155327d7de521312a166e635324",
+    "meaning": "Admission fix preserves all completed supported-task plans; no outcome used for tuning",
+    "unchangedSupportedPlans": 60,
+    "passed": true,
+    "finalSource": "88aaec457a620a8f2566f76a08e52a1f206446f5bba4ed57179a539b6cf19531"
+  },
+  "limitations": [
+    "Bounded open-loop target at0.75s, not stopping at rest or closed-loop recovery",
+    "Native simulation, not physical-world calibration",
+    "Earlier064interval coverage does not guarantee selected-action coverage",
+    "Fixed candidate actions and random goals can include unreachable tasks",
+    "Declared utility costs are assumptions; no sensing/recovery in this phase",
+    "Fixed method order; paired descriptive metrics, not statistical superiority",
+    "Pooled gate failed; no posthoc winner switch, controller promotion or LLM-weight training",
+    "Initial34-degree admission error retained; corrected refusal handling leaves all60supported plans identical",
+    "First chat interrupted at context guard; lossless metric tables resume same task without changing requirements or evidence",
+    "Targeted tests, not a fresh full repository suite"
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "date": "2026-11-01",
+  "scope": "035core locked after successful development sequences, native all-body handoff/cold angular continuation, ownership/CAS/idempotent commit/explicit restore/corrupt ledger checks; before any reserved035native sequence.",
+  "reservedSequencesRun": 0,
+  "sources": [
+    {
+      "path": "workspace-engine/src/main/java/fraymus/workspace/WorldFrames.java",
+      "sha256": "0d1c346959a1a2ad47fb876dbfb2b5016dc5b3363fa7ab54dd944d0cf0062dc0"
+    },
+    {
+      "path": "workspace-engine/src/main/java/fraymus/workspace/WorldLedger.java",
+      "sha256": "67c013f74dbb530a25a9e014954fd86e5ea4c6a6676e0a962dacb7c8c778403c"
+    },
+    {
+      "path": "workspace-engine/src/main/java/fraymus/workspace/WorldPlan.java",
+      "sha256": "bd90514723d9bf3a926c6f850537f824c6b05beff5c73ec9cecb6a00aa2b4680"
+    },
+    {
+      "path": "workspace-engine/src/main/java/fraymus/workspace/WorldPhysics.java",
+      "sha256": "a60b0066821f63fb8ee50dd5323868f484238c8396bdab2ac4a7046e20d3e6e3"
+    },
+    {
+      "path": "workspace-engine/src/main/java/fraymus/workspace/WorldVerify.java",
+      "sha256": "95979090590c0501b438c81dd7bfd8742874204ad1e4d0adec5edfb324c3f6d7"
+    },
+    {
+      "path": "workspace-engine/src/main/java/fraymus/workspace/WorldNativeStore.java",
+      "sha256": "68db60de751cf14c8c3d139fc38bb41af5e0ad13309082f4b80958702b059de4"
+    },
+    {
+      "path": "workspace-engine/src/main/java/fraymus/workspace/WorldNativeCheckpoint.java",
+      "sha256": "32ecd041ea93db8fd10c3417f7f103d86370f8473412b2c3bf26782e80e53621"
+    },
+    {
+      "path": "workspace-engine/src/main/java/fraymus/workspace/WorldReport.java",
+      "sha256": "43d4e0d802e548d04ce72411c228ad499680d9809537f049029660d7c1793b4b"
+    }
+  ]
+}

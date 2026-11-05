@@ -38,7 +38,7 @@ async function main(){
     await app.close();({app,page}=await launch(project));
     const restored=await app.evaluate(()=>global.workspaceTest.api('/api/state'));assert(restored.artifacts.some(a=>a.id===artifact.id&&a.version===2));assert(restored.skills.some(s=>s.name==='repair-proof'));
     const replay=await app.evaluate(()=>global.workspaceTest.execute('skill.run',{name:'repair-proof'}));assert.equal(replay.passed,true);checks.push('Project restart restores saved artifacts and skills; verified recipe reruns and passes');
-    const takeover=await app.evaluate(async()=>{const before=(await global.workspaceTest.api('/api/state')).artifacts.length;const task=global.workspaceTest.startAgent('Create a new artifact','llama3.2:latest');await global.workspaceTest.stopAgent();await task;return {before,after:(await global.workspaceTest.api('/api/state')).artifacts.length};});assert.equal(takeover.after,takeover.before);checks.push('Immediate takeover prevents any subsequent agent mutation');
+    const takeover=await app.evaluate(async()=>{const before=(await global.workspaceTest.api('/api/state')).artifacts.length;const task=global.workspaceTest.startAgent('Create a new artifact','llama3.2:latest');await global.workspaceTest.stopAgent();await task;return {before,after:(await global.workspaceTest.api('/api/state')).artifacts.length,activeId:(await global.workspaceTest.api('/api/agency043/state',{})).activeId};});assert.equal(takeover.after,takeover.before);assert.equal(takeover.activeId,'');checks.push('Immediate takeover prevents any subsequent agent mutation');
     await app.evaluate(()=>global.workspaceTest.launchGame());
     for(let i=0;i<100;i++){try{await fs.access(path.join(project,'game-lab-start.png'));break;}catch{await new Promise(r=>setTimeout(r,250));}}
     await fs.copyFile(path.join(project,'game-lab-start.png'),path.join(output,'game-lab.png'));await app.evaluate(()=>global.workspaceTest.stopTestGame());checks.push('Preserved Game Lab renders using the successor project directory');
@@ -46,7 +46,7 @@ async function main(){
     const afterHang=await app.evaluate(()=>global.workspaceTest.api('/api/state')),hung=afterHang.artifacts.find(a=>a.title==='Bounded renderer fixture');assert(hung);
     await app.evaluate((_,id)=>global.workspaceTest.execute('canvas.write',{id,expectedVersion:1,title:'Bounded renderer fixture',files:{'index.html':'<h1 id="recovered">Recovered</h1>'}}),hung.id);
     const recovered=await app.evaluate(()=>global.workspaceTest.execute('canvas.test',{steps:[{selector:'#recovered',expectText:'Recovered'}]}));assert(recovered.passed);checks.push('An infinite-loop artifact times out; the host survives and a corrected version runs');
-    const result={date:'2026-10-29',passed:true,checks,project,artifact:artifact.id};await fs.writeFile(path.join(output,'integration.json'),JSON.stringify(result,null,2));console.log(JSON.stringify(result,null,2));
+    const result={date:new Date().toISOString(),passed:true,checks,project,artifact:artifact.id};await fs.writeFile(path.join(output,'integration.json'),JSON.stringify(result,null,2));console.log(JSON.stringify(result,null,2));
   }finally{await app.close();}
 }
 main().catch(error=>{console.error(error);process.exitCode=1;});

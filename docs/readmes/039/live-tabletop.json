@@ -1,0 +1,493 @@
+{
+  "passed": true,
+  "date": "2026-11-01T23:48:21.361Z",
+  "model": "gpt-oss:20b",
+  "project": "C:\\Users\\eyeka\\AppData\\Local\\Temp\\fraynix-live-tabletop038-rVb3Vo",
+  "checks": [
+    "Actual local gpt-oss:20b selected with an isolated labelled software-camera recording, no user camera data or model weights copied",
+    "Real model uses typed read/registered answer/report tools; host refreshes final facts and verifies same-run report, and episode retains verified workflow status",
+    "Report preserves every actual row without camera pixels; native and observed histories remain exact and stale evidence is not claimed as current"
+  ],
+  "calls": [
+    "tabletop.read",
+    "tabletop.answer",
+    "canvas.test",
+    "tabletop.report"
+  ],
+  "completion": {
+    "summary": "Recorded evidence; current physical state is unverified. Projected centre X 66.1mm, Y 59.3mm in the selected mat frame; measured estimate, model radius 10.8mm. Interpolated saved tape coordinate 3.53in. Target label was supplied by the user. LABELLED ANALYTIC SOFTWARE-CAMERA TARGET · measured estimate: (66.1, 59.3) mm in the selected mat frame; model radius 10.8 mm. Image side: right of saved tape reference. Interpolated tape coordinate 3.53 in. Latest saved sample is 5197.8s old; run completed. Independent tape error 0.00 mm. Target label is human guidance; match 1.000 is not a probability. Height/contact and empirical uncertainty remain unverified.",
+    "tabletopReport": {
+      "id": "e086eeb8-c79a-3526-962f-f41cc9915e48",
+      "passed": true,
+      "version": 1
+    },
+    "goal": "Where is the lighter in the saved tabletop recording relative to its tape measure? Read the measured evidence, explain its age and limitations, and open its actual numeric report. Do not capture the camera or move anything.",
+    "tabletopRunId": "8dd3c114-7494-4ced-9d39-93a835b45be0",
+    "tabletopProbe": {
+      "codeSha256": "b66756a2a6b1ba3e399d52b777dbd846b12f02d97d91cb4dd459386da66bcdf4",
+      "acceptedMeasurement": true,
+      "ageMs": 5197768,
+      "question": "position",
+      "answer": "Recorded evidence; current physical state is unverified. Projected centre X 66.1mm, Y 59.3mm in the selected mat frame; measured estimate, model radius 10.8mm. Interpolated saved tape coordinate 3.53in. Target label was supplied by the user.",
+      "sourceSeconds": 7.208300000000745,
+      "imageSha256": "39582344bf1421dc1138910e45443bc81f5245719e83a47cfbdaddbe54321bc4",
+      "runId": "8dd3c114-7494-4ced-9d39-93a835b45be0",
+      "recorded": true,
+      "receivedAt": "2026-11-01T22:21:43.309691200Z",
+      "nativeBinding": {
+        "worldId": "a751198e-f5fc-430c-9648-aad4d417fe24",
+        "expectedHash": "62cb4e018f0206a94399f1bcbb0498d8976c0aba092e7683a4942b161e125006",
+        "expectedRevision": 0
+      },
+      "facts": {
+        "labelSource": "Human-guided, not automatic semantic recognition",
+        "ageMs": 5197768,
+        "cameraKey": "tabletop-mat-1793571695989",
+        "geometrySha256": "d647603529a7bae170133344edf69ed38767812dc0480f10d1c9108d5b446273",
+        "nativeBinding": {
+          "worldId": "a751198e-f5fc-430c-9648-aad4d417fe24",
+          "expectedHash": "62cb4e018f0206a94399f1bcbb0498d8976c0aba092e7683a4942b161e125006",
+          "expectedRevision": 0
+        },
+        "tapeCheck": {
+          "cameraKey": "tabletop-mat-1793571695989",
+          "source": "Analytic software camera and imposed10x8in rectangle. NOT physical mat, tape or lighter footage.",
+          "createdAt": "2026-11-01T22:21:36.801029100Z",
+          "unit": "in",
+          "markB": 6.8,
+          "markA": 2,
+          "geometry": {
+            "createdAt": "2026-11-01T22:21:36.743278500Z",
+            "sha256": "d647603529a7bae170133344edf69ed38767812dc0480f10d1c9108d5b446273",
+            "definition": {
+              "mode": "homography",
+              "note": "Analytic software camera and imposed10x8in rectangle. NOT physical mat, tape or lighter footage.",
+              "anchorSigmaM": 0.003,
+              "cameraKey": "tabletop-mat-1793571695989",
+              "scaleRelativeSigma": 0.01,
+              "worldPoints": [
+                [
+                  0,
+                  0
+                ],
+                [
+                  0.254,
+                  0
+                ],
+                [
+                  0.254,
+                  0.2032
+                ],
+                [
+                  0,
+                  0.2032
+                ]
+              ],
+              "imagePoints": [
+                [
+                  0.2,
+                  0.25
+                ],
+                [
+                  0.8,
+                  0.25
+                ],
+                [
+                  0.8,
+                  0.75
+                ],
+                [
+                  0.2,
+                  0.75
+                ]
+              ]
+            },
+            "id": "c6095233-8a5b-43e0-b88d-78795b7e2ea0"
+          },
+          "toleranceM": 0.005,
+          "id": "0894a6c2-9475-4709-a84f-a4d972d02ef0",
+          "passed": true,
+          "expectedM": 0.12191999999999999,
+          "pointA": [
+            0.3,
+            0.3
+          ],
+          "pointB": [
+            0.3,
+            0.6
+          ],
+          "measuredM": 0.12192,
+          "frame": {
+            "seconds": 0.30240000000037254,
+            "imageSha256": "39582344bf1421dc1138910e45443bc81f5245719e83a47cfbdaddbe54321bc4",
+            "bytes": 12085
+          },
+          "absoluteErrorM": 1.3877787807814457e-17
+        },
+        "relation": {
+          "unit": "in",
+          "interpolatedTapeMark": 3.533333333333335,
+          "meaning": "Projected estimate relative to saved human-read tape marks; unchanged tape placement assumed, no automatic OCR or verified3D contact",
+          "perpendicularOffsetM": 0.023812499999999986,
+          "imageSideOfTape": "right"
+        },
+        "target": "LABELLED ANALYTIC SOFTWARE-CAMERA TARGET",
+        "codeSha256": "b66756a2a6b1ba3e399d52b777dbd846b12f02d97d91cb4dd459386da66bcdf4",
+        "nativeStale": false,
+        "sourceClock": "Host monotonic acquisition seconds at ImageCapture.grabFrame completion; not certified sensor exposure time",
+        "completedFrames": 20,
+        "runId": "8dd3c114-7494-4ced-9d39-93a835b45be0",
+        "limits": "Projected centre on declared mat plane; height/depth/contact unverified. Match score is not probability. Model uncertainty is not empirically calibrated. No native movement or physical action authority.",
+        "status": "completed",
+        "latest": {
+          "reference": {
+            "valid": true,
+            "corners": [
+              {
+                "score": 1,
+                "corner": 0,
+                "dxPixels": 0,
+                "dyPixels": 0
+              },
+              {
+                "score": 1,
+                "corner": 1,
+                "dxPixels": 0,
+                "dyPixels": 0
+              },
+              {
+                "score": 1,
+                "corner": 2,
+                "dxPixels": 0,
+                "dyPixels": 0
+              },
+              {
+                "score": 1,
+                "corner": 3,
+                "dxPixels": 0,
+                "dyPixels": 0
+              }
+            ],
+            "medianShiftPixels": 0,
+            "meaning": "Mat/camera reference-patch consistency, not a physical motion sensor. Movement, occlusion or lighting failure require re-observation.",
+            "matchedAnchors": 4,
+            "usableAnchors": 4,
+            "status": "reference-stable"
+          },
+          "processingMs": 88.9851,
+          "tracker": {
+            "angleDeg": 0,
+            "score": 1,
+            "scoreMeaning": "Original human-seeded appearance correlation and ambiguity margin; not semantic identity or calibrated probability",
+            "margin": 0.7914208652744176,
+            "lostFrames": 0,
+            "processingMs": 64.7347,
+            "anchorContrast": 0.051749474578648175,
+            "accepted": true,
+            "box": [
+              0.303125,
+              0.23750000000000002,
+              0.40937499999999993,
+              0.5541666666666667
+            ],
+            "point": [
+              0.35624999999999996,
+              0.39583333333333337
+            ],
+            "status": "observed"
+          },
+          "estimate": {
+            "dtS": 0.30259999999962695,
+            "predictedM": [
+              0.0661458333333333,
+              0.059266666666666676
+            ],
+            "positionM": [
+              0.0661458333333333,
+              0.059266666666666676
+            ],
+            "radiusM": 0.010756744006318972,
+            "innovationGateM": 0.06,
+            "velocityMps": [
+              0,
+              0
+            ],
+            "declaredScaleErrorM": 0.0008881333821639004,
+            "accepted": true,
+            "uncertaintyMeaning": "Declared motion/noise model plus anchor error; uncalibrated until separately evaluated. Appearance match is not probability.",
+            "seconds": 7.208300000000745,
+            "innovationM": 0,
+            "measurementM": [
+              0.0661458333333333,
+              0.059266666666666676
+            ],
+            "sigmaM": 0.002747444249662028,
+            "gapReset": false,
+            "status": "measured-estimate"
+          },
+          "bodyId": "c3b5717b-db39-3da2-a83a-cad17fd31317",
+          "receivedAt": "2026-11-01T22:21:43.309691200Z",
+          "ordinal": 20,
+          "frame": {
+            "seconds": 7.208300000000745,
+            "imageSha256": "39582344bf1421dc1138910e45443bc81f5245719e83a47cfbdaddbe54321bc4",
+            "bytes": 12085
+          }
+        }
+      }
+    },
+    "model": "gpt-oss:20b",
+    "episodeId": "5cd5d6f2-89a4-4a83-b2b9-8717052979dd",
+    "facts": {
+      "labelSource": "Human-guided, not automatic semantic recognition",
+      "ageMs": 5197768,
+      "cameraKey": "tabletop-mat-1793571695989",
+      "geometrySha256": "d647603529a7bae170133344edf69ed38767812dc0480f10d1c9108d5b446273",
+      "nativeBinding": {
+        "worldId": "a751198e-f5fc-430c-9648-aad4d417fe24",
+        "expectedHash": "62cb4e018f0206a94399f1bcbb0498d8976c0aba092e7683a4942b161e125006",
+        "expectedRevision": 0
+      },
+      "tapeCheck": {
+        "cameraKey": "tabletop-mat-1793571695989",
+        "source": "Analytic software camera and imposed10x8in rectangle. NOT physical mat, tape or lighter footage.",
+        "createdAt": "2026-11-01T22:21:36.801029100Z",
+        "unit": "in",
+        "markB": 6.8,
+        "markA": 2,
+        "geometry": {
+          "createdAt": "2026-11-01T22:21:36.743278500Z",
+          "sha256": "d647603529a7bae170133344edf69ed38767812dc0480f10d1c9108d5b446273",
+          "definition": {
+            "mode": "homography",
+            "note": "Analytic software camera and imposed10x8in rectangle. NOT physical mat, tape or lighter footage.",
+            "anchorSigmaM": 0.003,
+            "cameraKey": "tabletop-mat-1793571695989",
+            "scaleRelativeSigma": 0.01,
+            "worldPoints": [
+              [
+                0,
+                0
+              ],
+              [
+                0.254,
+                0
+              ],
+              [
+                0.254,
+                0.2032
+              ],
+              [
+                0,
+                0.2032
+              ]
+            ],
+            "imagePoints": [
+              [
+                0.2,
+                0.25
+              ],
+              [
+                0.8,
+                0.25
+              ],
+              [
+                0.8,
+                0.75
+              ],
+              [
+                0.2,
+                0.75
+              ]
+            ]
+          },
+          "id": "c6095233-8a5b-43e0-b88d-78795b7e2ea0"
+        },
+        "toleranceM": 0.005,
+        "id": "0894a6c2-9475-4709-a84f-a4d972d02ef0",
+        "passed": true,
+        "expectedM": 0.12191999999999999,
+        "pointA": [
+          0.3,
+          0.3
+        ],
+        "pointB": [
+          0.3,
+          0.6
+        ],
+        "measuredM": 0.12192,
+        "frame": {
+          "seconds": 0.30240000000037254,
+          "imageSha256": "39582344bf1421dc1138910e45443bc81f5245719e83a47cfbdaddbe54321bc4",
+          "bytes": 12085
+        },
+        "absoluteErrorM": 1.3877787807814457e-17
+      },
+      "relation": {
+        "unit": "in",
+        "interpolatedTapeMark": 3.533333333333335,
+        "meaning": "Projected estimate relative to saved human-read tape marks; unchanged tape placement assumed, no automatic OCR or verified3D contact",
+        "perpendicularOffsetM": 0.023812499999999986,
+        "imageSideOfTape": "right"
+      },
+      "target": "LABELLED ANALYTIC SOFTWARE-CAMERA TARGET",
+      "codeSha256": "b66756a2a6b1ba3e399d52b777dbd846b12f02d97d91cb4dd459386da66bcdf4",
+      "nativeStale": false,
+      "sourceClock": "Host monotonic acquisition seconds at ImageCapture.grabFrame completion; not certified sensor exposure time",
+      "completedFrames": 20,
+      "runId": "8dd3c114-7494-4ced-9d39-93a835b45be0",
+      "limits": "Projected centre on declared mat plane; height/depth/contact unverified. Match score is not probability. Model uncertainty is not empirically calibrated. No native movement or physical action authority.",
+      "status": "completed",
+      "latest": {
+        "reference": {
+          "valid": true,
+          "corners": [
+            {
+              "score": 1,
+              "corner": 0,
+              "dxPixels": 0,
+              "dyPixels": 0
+            },
+            {
+              "score": 1,
+              "corner": 1,
+              "dxPixels": 0,
+              "dyPixels": 0
+            },
+            {
+              "score": 1,
+              "corner": 2,
+              "dxPixels": 0,
+              "dyPixels": 0
+            },
+            {
+              "score": 1,
+              "corner": 3,
+              "dxPixels": 0,
+              "dyPixels": 0
+            }
+          ],
+          "medianShiftPixels": 0,
+          "meaning": "Mat/camera reference-patch consistency, not a physical motion sensor. Movement, occlusion or lighting failure require re-observation.",
+          "matchedAnchors": 4,
+          "usableAnchors": 4,
+          "status": "reference-stable"
+        },
+        "processingMs": 88.9851,
+        "tracker": {
+          "angleDeg": 0,
+          "score": 1,
+          "scoreMeaning": "Original human-seeded appearance correlation and ambiguity margin; not semantic identity or calibrated probability",
+          "margin": 0.7914208652744176,
+          "lostFrames": 0,
+          "processingMs": 64.7347,
+          "anchorContrast": 0.051749474578648175,
+          "accepted": true,
+          "box": [
+            0.303125,
+            0.23750000000000002,
+            0.40937499999999993,
+            0.5541666666666667
+          ],
+          "point": [
+            0.35624999999999996,
+            0.39583333333333337
+          ],
+          "status": "observed"
+        },
+        "estimate": {
+          "dtS": 0.30259999999962695,
+          "predictedM": [
+            0.0661458333333333,
+            0.059266666666666676
+          ],
+          "positionM": [
+            0.0661458333333333,
+            0.059266666666666676
+          ],
+          "radiusM": 0.010756744006318972,
+          "innovationGateM": 0.06,
+          "velocityMps": [
+            0,
+            0
+          ],
+          "declaredScaleErrorM": 0.0008881333821639004,
+          "accepted": true,
+          "uncertaintyMeaning": "Declared motion/noise model plus anchor error; uncalibrated until separately evaluated. Appearance match is not probability.",
+          "seconds": 7.208300000000745,
+          "innovationM": 0,
+          "measurementM": [
+            0.0661458333333333,
+            0.059266666666666676
+          ],
+          "sigmaM": 0.002747444249662028,
+          "gapReset": false,
+          "status": "measured-estimate"
+        },
+        "bodyId": "c3b5717b-db39-3da2-a83a-cad17fd31317",
+        "receivedAt": "2026-11-01T22:21:43.309691200Z",
+        "ordinal": 20,
+        "frame": {
+          "seconds": 7.208300000000745,
+          "imageSha256": "39582344bf1421dc1138910e45443bc81f5245719e83a47cfbdaddbe54321bc4",
+          "bytes": 12085
+        }
+      }
+    }
+  },
+  "episode": {
+    "taskKind": "experiment-task",
+    "runtimeContract": "browser-controller-v2",
+    "endedAt": "2026-11-01T23:48:21.099335300Z",
+    "startedAt": "2026-11-01T23:46:52.024071600Z",
+    "privacy": "No page text, typed values, source or raw goals in episodes",
+    "model": "gpt-oss:20b",
+    "goalDigest": "9c0ddb25799b06c9bab61431cdd5bc9e87430ac32a76c450f997c07b66d25c14",
+    "id": "5cd5d6f2-89a4-4a83-b2b9-8717052979dd",
+    "label": "experiment-task",
+    "steps": [
+      {
+        "at": "2026-11-01T23:47:01.041340600Z",
+        "failure": "none",
+        "index": 0,
+        "ok": true,
+        "tool": "tabletop.read",
+        "elapsedMs": 51
+      },
+      {
+        "at": "2026-11-01T23:47:19.157938900Z",
+        "failure": "none",
+        "index": 1,
+        "ok": true,
+        "tool": "tabletop.answer",
+        "elapsedMs": 40
+      },
+      {
+        "at": "2026-11-01T23:47:49.552990500Z",
+        "testPassed": true,
+        "artifactVersion": 1,
+        "failure": "none",
+        "index": 2,
+        "artifactId": "e086eeb8-c79a-3526-962f-f41cc9915e48",
+        "ok": true,
+        "tool": "canvas.test",
+        "elapsedMs": 58
+      },
+      {
+        "at": "2026-11-01T23:47:49.592244700Z",
+        "failure": "none",
+        "index": 3,
+        "ok": true,
+        "tool": "tabletop.report",
+        "elapsedMs": 211
+      }
+    ],
+    "policy": {
+      "refreshStale": false,
+      "version": 1,
+      "observationLimit": 2
+    },
+    "status": "verified"
+  },
+  "scope": "Actual local-model interpretation and report workflow on disclosed analytic software-camera data; not semantic recognition or certified physical accuracy."
+}

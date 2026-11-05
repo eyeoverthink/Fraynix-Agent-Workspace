@@ -1,6 +1,6 @@
 ---
 title: Fraynix Studio map of content
-edition_context: 034
+edition_context: 042
 updated: 2026-11-01
 tags: [fraynix, system-map]
 ---
@@ -9,9 +9,9 @@ tags: [fraynix, system-map]
 
 Open the repository root as an Obsidian vault. The numbered README is the edition snapshot; these notes are the working map.
 
-Current: [[README-034|Edition034 — native multi-object poses]] ·
-[[docs/obsidian/42-multi-object-poses|All-body verification and retained procedures]] ·
-[[docs/obsidian/multi-object-poses.canvas|Pose task and continuity map]].
+Current: [[README-042|Edition042 — continuing Java agent]] ·
+[[docs/obsidian/50-continuing-java-agent|Operation and recovery]] ·
+[[docs/obsidian/continuing-agent.canvas|System map]].
 
 Previous: [[README-031|Edition031 — native contact tasks]] ·
 [[docs/obsidian/39-native-pushing|Pushing contract and measured limits]] ·
@@ -115,3 +115,19 @@ The reserved real sequences reject the candidate. Baseline remains active; synth
 - [Runtime and evaluation contract](../TEMPORAL_TRACKING.md)
 
 All three new clips improve, but coverage and false-visible checks still reject the candidate. The first result, old profiles and saved implementation pins remain intact.
+
+## Java-owned workbench tasks and visual memory · edition043
+
+[README043](../../README-043.md) · [Operating guide](../JAVA_VISUAL_AGENCY.md) · [Visual agency note](51-java-visual-agency.md) · [System canvas](java-visual-agency.canvas)
+
+Original before/during/after screenshots connect actual work to source/version/time evidence. Java owns task stages and saved-recipe scheduling; optional local vision describes pixels. Tested visual references support retrieval, with no claim of trained temporal recognition or LLM-weight improvement.
+
+- [Edition044: Java missions and world plans](52-java-missions-and-world-plans.md) · [Canvas](java-missions-and-world-plans.canvas)
+
+- [Edition045: counterfactual worlds](53-counterfactual-worlds.md) · [Canvas](counterfactual-worlds.canvas)
+
+- [Edition046: verified skill graphs](54-typed-skill-graphs.md) · [Canvas](typed-skill-graphs.canvas)
+- [Edition 047 · First verified world skill](55-first-world-skill.md) · [Canvas](first-world-skill.canvas)
+- [Edition 048 · Java skill memory](56-java-skill-memory.md) · [Canvas](java-skill-memory.canvas)
+
+- [[docs/obsidian/57-observation-evidence]]

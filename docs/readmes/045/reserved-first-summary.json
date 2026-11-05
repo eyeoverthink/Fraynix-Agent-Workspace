@@ -1,0 +1,455 @@
+{
+  "sourceCommit": "782ab94b679f35b37905d43f4bb51f4eecfebc42",
+  "finalPresentationCommit": "ad3882a1aa76f229bd872226882cf3fcd4f8843b",
+  "protocolCommit": "1edfffc",
+  "implementationBeforeReserved": "99cf73f",
+  "cases": [
+    {
+      "caseId": "reserved045-material",
+      "selected": "reversed-target-order",
+      "candidates": [
+        {
+          "id": "existing-controller-order",
+          "status": "completed",
+          "metrics": {
+            "maxBoundaryPositionM": 4.7683715642676816e-08,
+            "maxBystanderDriftM": 1.4901161193847656e-08,
+            "grabs": 2,
+            "contactPoints": 4076,
+            "maxRestoreAngleErrorDeg": 0,
+            "targets": [
+              {
+                "sourceId": "A",
+                "speedMps": 6.631034838781917e-05,
+                "positionErrorM": 0.0011265617223104177,
+                "angleErrorDeg": 0.0003863356800609966,
+                "angularSpeedRadps": 3.911667030453092e-06
+              },
+              {
+                "sourceId": "B",
+                "speedMps": 0.0001091608852198645,
+                "positionErrorM": 3.962271035641628e-05,
+                "angleErrorDeg": 8.777419449989512e-05,
+                "angularSpeedRadps": 2.506437849528054e-06
+              }
+            ],
+            "resumes": 0,
+            "maxRestoreVelocityError": 0,
+            "maxAngleErrorDeg": 0.0003863356800609966,
+            "maxRestorePositionErrorM": 0,
+            "scope": "Versioned persistent native box world, paused between goals; bounded virtual force/torque gripper and exact kinematic cold handoff, not contact-only pushing, a physical robot hand, photographic recognition or LLM-weight training.",
+            "maxTorqueNm": 0.4620000123977662,
+            "workJ": 0.7401738497492081,
+            "passed": true,
+            "maxPositionErrorM": 0.0011265617223104177,
+            "nativeTicks": 5977,
+            "maxForceN": 18.000000000000057,
+            "effortNs": 243.94753321641676,
+            "maxInactiveAngleDeg": 0.0008415271996744394,
+            "maxInactiveDriftM": 0.015334353972261197,
+            "maxBoundaryVelocity": 0,
+            "releases": 2,
+            "maxBoundaryAngleDeg": 0,
+            "timeS": 24.904166666666665,
+            "maxAngularSpeedRadps": 3.911667030453092e-06,
+            "maxSpeedMps": 0.0001091608852198645,
+            "nativePhysics": true,
+            "torqueEffortNms": 0.3381130924605515,
+            "maxBystanderAngleDeg": 0.00018984937865375447,
+            "angularWorkJ": 0.04767633800581377
+          }
+        },
+        {
+          "id": "reversed-target-order",
+          "status": "completed",
+          "metrics": {
+            "maxBoundaryPositionM": 4.7683715642676816e-08,
+            "maxBystanderDriftM": 1.4901161193847656e-08,
+            "grabs": 2,
+            "contactPoints": 4072,
+            "maxRestoreAngleErrorDeg": 0,
+            "targets": [
+              {
+                "sourceId": "B",
+                "speedMps": 6.579867673362958e-05,
+                "positionErrorM": 0.0011058184902799815,
+                "angleErrorDeg": 8.779426676873835e-05,
+                "angularSpeedRadps": 1.2736430762023288e-06
+              },
+              {
+                "sourceId": "A",
+                "speedMps": 0.00011039994579336688,
+                "positionErrorM": 3.953240713346908e-05,
+                "angleErrorDeg": 0.00038628821582131447,
+                "angularSpeedRadps": 4.2508982745810296e-06
+              }
+            ],
+            "resumes": 0,
+            "maxRestoreVelocityError": 0,
+            "maxAngleErrorDeg": 0.00038628821582131447,
+            "maxRestorePositionErrorM": 0,
+            "scope": "Versioned persistent native box world, paused between goals; bounded virtual force/torque gripper and exact kinematic cold handoff, not contact-only pushing, a physical robot hand, photographic recognition or LLM-weight training.",
+            "maxTorqueNm": 0.4620000123977661,
+            "workJ": 0.7401740357402691,
+            "passed": true,
+            "maxPositionErrorM": 0.0011058184902799815,
+            "nativeTicks": 5977,
+            "maxForceN": 18,
+            "effortNs": 243.94753294819688,
+            "maxInactiveAngleDeg": 0.0008415271996792843,
+            "maxInactiveDriftM": 0.015334353972261197,
+            "maxBoundaryVelocity": 0,
+            "releases": 2,
+            "maxBoundaryAngleDeg": 0,
+            "timeS": 24.904166666666665,
+            "maxAngularSpeedRadps": 4.2508982745810296e-06,
+            "maxSpeedMps": 0.00011039994579336688,
+            "nativePhysics": true,
+            "torqueEffortNms": 0.33811195860518445,
+            "maxBystanderAngleDeg": 0.00018984937865375447,
+            "angularWorkJ": 0.04767714286101908
+          }
+        },
+        {
+          "id": "half-force",
+          "status": "failed",
+          "metrics": {
+            "maxBoundaryPositionM": 4.7683715642676816e-08,
+            "maxBystanderDriftM": 1.4901161193847656e-08,
+            "grabs": 1,
+            "contactPoints": 492,
+            "maxRestoreAngleErrorDeg": 0,
+            "targets": [
+              {
+                "sourceId": "A",
+                "speedMps": 2.65166710619765e-06,
+                "positionErrorM": 2.785677655436824,
+                "angleErrorDeg": 90.00000194132845,
+                "angularSpeedRadps": 8.468181229013898e-06
+              },
+              {
+                "sourceId": "B",
+                "speedMps": 1.3212237033464015e-07,
+                "positionErrorM": 2.785677655436824,
+                "angleErrorDeg": 89.9999916929886,
+                "angularSpeedRadps": 4.187465772391997e-07
+              }
+            ],
+            "resumes": 0,
+            "maxRestoreVelocityError": 0,
+            "maxAngleErrorDeg": 90.00000194132845,
+            "maxRestorePositionErrorM": 0,
+            "scope": "Versioned persistent native box world, paused between goals; bounded virtual force/torque gripper and exact kinematic cold handoff, not contact-only pushing, a physical robot hand, photographic recognition or LLM-weight training.",
+            "maxTorqueNm": 3.206018082825737e-07,
+            "workJ": 0,
+            "passed": false,
+            "maxPositionErrorM": 2.785677655436824,
+            "nativeTicks": 481,
+            "maxForceN": 9.000000000000071,
+            "effortNs": 17.999999999999968,
+            "maxInactiveAngleDeg": 1.6463895538559624e-05,
+            "maxInactiveDriftM": 1.4901161193847656e-08,
+            "maxBoundaryVelocity": 0,
+            "releases": 0,
+            "maxBoundaryAngleDeg": 0,
+            "timeS": 2.0041666666666664,
+            "maxAngularSpeedRadps": 8.468181229013898e-06,
+            "maxSpeedMps": 2.65166710619765e-06,
+            "nativePhysics": true,
+            "torqueEffortNms": 6.502922455335656e-08,
+            "maxBystanderAngleDeg": 1.6463895538559624e-05,
+            "angularWorkJ": -1.3267121195674928e-15
+          }
+        }
+      ],
+      "comparison": {
+        "actualRunSha256": "3dfe108bfc9a82df6a025cd8420c543bf7167cafb5447427cb6ec8ac185b0ddc",
+        "actualRunId": "c43837fc-0e2e-4833-8779-864b44ae88cd",
+        "sampleCoverage": 1,
+        "forecastRunId": "5f0ae1d3-e0d0-44cb-9ee6-ff81b66346f1",
+        "maxPositionResidualM": 0,
+        "bodies": [
+          {
+            "angleResidualDeg": 0,
+            "id": "e7519f54-0df5-3562-aa0c-cba8f40f9b50",
+            "actualPositionM": [
+              -1.000004768371582,
+              0.2999999225139618,
+              1.1000392436981201
+            ],
+            "forecastPositionM": [
+              -1.000004768371582,
+              0.2999999225139618,
+              1.1000392436981201
+            ],
+            "positionResidualM": 0
+          },
+          {
+            "angleResidualDeg": 0,
+            "id": "f84360e6-600d-3b57-9c26-bf7a87681639",
+            "actualPositionM": [
+              1.000004529953003,
+              0.2499999850988388,
+              -1.101105809211731
+            ],
+            "forecastPositionM": [
+              1.000004529953003,
+              0.2499999850988388,
+              -1.101105809211731
+            ],
+            "positionResidualM": 0
+          },
+          {
+            "angleResidualDeg": 0,
+            "id": "8f4fcebf-0493-347c-a323-9ebc7d3e3985",
+            "actualPositionM": [
+              3,
+              0.2499999850988388,
+              2.700000047683716
+            ],
+            "forecastPositionM": [
+              3,
+              0.2499999850988388,
+              2.700000047683716
+            ],
+            "positionResidualM": 0
+          }
+        ],
+        "timeResidualS": 0,
+        "matchedSamples": 499,
+        "selectedCandidate": "reversed-target-order",
+        "effortResidualNs": 0,
+        "scope": "Bounded native simulation alternatives using the unchanged virtual force/torque gripper. Simulation forecasts compared with simulation execution, not a learned model of reality or physical robot control.",
+        "forecastRunSha256": "9339b6f155c14bd1555ba9be607412103de0cf934eb3d3fd979592ff489f14c9",
+        "passed": true,
+        "maxAngleResidualDeg": 0,
+        "sourceFrameSha256": "71b8824a65d09461ee8091ae445ee312e1a525e73a9d8f037369c058e0f5b451",
+        "decisionSha256": "706761869604cc32341244f6ed178515fd0a21dc8e9af33d5b8843c205dbc630"
+      }
+    },
+    {
+      "caseId": "reserved045-pose",
+      "selected": "reversed-target-order",
+      "candidates": [
+        {
+          "id": "existing-controller-order",
+          "status": "completed",
+          "metrics": {
+            "maxBoundaryPositionM": 1.072883606956232e-07,
+            "maxBystanderDriftM": 1.4901161193847656e-08,
+            "grabs": 2,
+            "contactPoints": 4076,
+            "maxRestoreAngleErrorDeg": 0,
+            "targets": [
+              {
+                "sourceId": "A",
+                "speedMps": 6.651661346155094e-05,
+                "positionErrorM": 0.0011341718593373127,
+                "angleErrorDeg": 3.0175003302100616e-05,
+                "angularSpeedRadps": 2.5212254169052774e-06
+              },
+              {
+                "sourceId": "B",
+                "speedMps": 0.00011047792879856893,
+                "positionErrorM": 3.947927718812747e-05,
+                "angleErrorDeg": 0.0002979793331794421,
+                "angularSpeedRadps": 8.079178349766672e-06
+              }
+            ],
+            "resumes": 0,
+            "maxRestoreVelocityError": 0,
+            "maxAngleErrorDeg": 0.0002979793331794421,
+            "maxRestorePositionErrorM": 0,
+            "scope": "Versioned persistent native box world, paused between goals; bounded virtual force/torque gripper and exact kinematic cold handoff, not contact-only pushing, a physical robot hand, photographic recognition or LLM-weight training.",
+            "maxTorqueNm": 0.5040000081062321,
+            "workJ": 0.8480997624327412,
+            "passed": true,
+            "maxPositionErrorM": 0.0011341718593373127,
+            "nativeTicks": 5991,
+            "maxForceN": 18.000000000000018,
+            "effortNs": 258.73876332628294,
+            "maxInactiveAngleDeg": 0.00018299627165094224,
+            "maxInactiveDriftM": 0.014892132071612945,
+            "maxBoundaryVelocity": 0,
+            "releases": 2,
+            "maxBoundaryAngleDeg": 0,
+            "timeS": 24.9625,
+            "maxAngularSpeedRadps": 8.079178349766672e-06,
+            "maxSpeedMps": 0.00011047792879856893,
+            "nativePhysics": true,
+            "torqueEffortNms": 0.30175634767893017,
+            "maxBystanderAngleDeg": 0.00018299627165094224,
+            "angularWorkJ": 0.018510569043989525
+          }
+        },
+        {
+          "id": "reversed-target-order",
+          "status": "completed",
+          "metrics": {
+            "maxBoundaryPositionM": 1.072883606956232e-07,
+            "maxBystanderDriftM": 1.4901161193847656e-08,
+            "grabs": 2,
+            "contactPoints": 4076,
+            "maxRestoreAngleErrorDeg": 0,
+            "targets": [
+              {
+                "sourceId": "B",
+                "speedMps": 6.653933936587249e-05,
+                "positionErrorM": 0.001123533629921266,
+                "angleErrorDeg": 0.0002979795758738558,
+                "angularSpeedRadps": 1.1539143022818026e-06
+              },
+              {
+                "sourceId": "A",
+                "speedMps": 0.00011086593714739006,
+                "positionErrorM": 3.9524123995207835e-05,
+                "angleErrorDeg": 3.0169611950385133e-05,
+                "angularSpeedRadps": 2.5199078400945796e-06
+              }
+            ],
+            "resumes": 0,
+            "maxRestoreVelocityError": 0,
+            "maxAngleErrorDeg": 0.0002979795758738558,
+            "maxRestorePositionErrorM": 0,
+            "scope": "Versioned persistent native box world, paused between goals; bounded virtual force/torque gripper and exact kinematic cold handoff, not contact-only pushing, a physical robot hand, photographic recognition or LLM-weight training.",
+            "maxTorqueNm": 0.5040000081062317,
+            "workJ": 0.8480999697846149,
+            "passed": true,
+            "maxPositionErrorM": 0.001123533629921266,
+            "nativeTicks": 5991,
+            "maxForceN": 18,
+            "effortNs": 258.7387633143595,
+            "maxInactiveAngleDeg": 0.0003671097642580518,
+            "maxInactiveDriftM": 0.014892132071612945,
+            "maxBoundaryVelocity": 0,
+            "releases": 2,
+            "maxBoundaryAngleDeg": 0,
+            "timeS": 24.9625,
+            "maxAngularSpeedRadps": 2.5199078400945796e-06,
+            "maxSpeedMps": 0.00011086593714739006,
+            "nativePhysics": true,
+            "torqueEffortNms": 0.30175748654347534,
+            "maxBystanderAngleDeg": 0.00018299627165094224,
+            "angularWorkJ": 0.01851099778120466
+          }
+        },
+        {
+          "id": "half-force",
+          "status": "failed",
+          "metrics": {
+            "maxBoundaryPositionM": 1.072883606956232e-07,
+            "maxBystanderDriftM": 1.4901161193847656e-08,
+            "grabs": 1,
+            "contactPoints": 492,
+            "maxRestoreAngleErrorDeg": 0,
+            "targets": [
+              {
+                "sourceId": "A",
+                "speedMps": 2.417785324737365e-06,
+                "positionErrorM": 3.511409960994205,
+                "angleErrorDeg": 30.000005259660107,
+                "angularSpeedRadps": 7.719426360129163e-06
+              },
+              {
+                "sourceId": "B",
+                "speedMps": 4.774600396060434e-07,
+                "positionErrorM": 3.35261086311203,
+                "angleErrorDeg": 44.999991589964516,
+                "angularSpeedRadps": 8.024638061064098e-07
+              }
+            ],
+            "resumes": 0,
+            "maxRestoreVelocityError": 0,
+            "maxAngleErrorDeg": 44.999991589964516,
+            "maxRestorePositionErrorM": 0,
+            "scope": "Versioned persistent native box world, paused between goals; bounded virtual force/torque gripper and exact kinematic cold handoff, not contact-only pushing, a physical robot hand, photographic recognition or LLM-weight training.",
+            "maxTorqueNm": 3.4381221870698765e-07,
+            "workJ": 0,
+            "passed": false,
+            "maxPositionErrorM": 3.511409960994205,
+            "nativeTicks": 481,
+            "maxForceN": 9.000000000000064,
+            "effortNs": 17.99999999999998,
+            "maxInactiveAngleDeg": 1.5838420508793317e-05,
+            "maxInactiveDriftM": 1.4901161193847656e-08,
+            "maxBoundaryVelocity": 0,
+            "releases": 0,
+            "maxBoundaryAngleDeg": 0,
+            "timeS": 2.0041666666666664,
+            "maxAngularSpeedRadps": 7.719426360129163e-06,
+            "maxSpeedMps": 2.417785324737365e-06,
+            "nativePhysics": true,
+            "torqueEffortNms": 2.1615469627393104e-07,
+            "maxBystanderAngleDeg": 1.5838420508793317e-05,
+            "angularWorkJ": -2.764810376487228e-15
+          }
+        }
+      ],
+      "comparison": {
+        "actualRunSha256": "dcc98eb909db03a168753261d18e04f5094fba65b0e2bbe5bdf22a0b4125266f",
+        "actualRunId": "6bc05642-e186-4d0d-8e6a-0d1c004453a1",
+        "sampleCoverage": 1,
+        "forecastRunId": "8a3bd5dc-01a4-4bb1-9186-447dddd8be8c",
+        "maxPositionResidualM": 0,
+        "bodies": [
+          {
+            "angleResidualDeg": 0,
+            "id": "cd6dfc32-e757-3136-9e46-b9985e2a45a4",
+            "actualPositionM": [
+              -1.2000057697296143,
+              0.2999999225139618,
+              1.5000391006469727
+            ],
+            "forecastPositionM": [
+              -1.2000057697296143,
+              0.2999999225139618,
+              1.5000391006469727
+            ],
+            "positionResidualM": 0
+          },
+          {
+            "angleResidualDeg": 0,
+            "id": "73897107-ee00-3f34-bb35-75a6de5f384d",
+            "actualPositionM": [
+              1.3000047206878662,
+              0.2499999701976776,
+              -1.4011235237121582
+            ],
+            "forecastPositionM": [
+              1.3000047206878662,
+              0.2499999701976776,
+              -1.4011235237121582
+            ],
+            "positionResidualM": 0
+          },
+          {
+            "angleResidualDeg": 0,
+            "id": "5704826c-337f-3bad-82db-f4016d3bd3cc",
+            "actualPositionM": [
+              3,
+              0.2499999850988388,
+              2.700000047683716
+            ],
+            "forecastPositionM": [
+              3,
+              0.2499999850988388,
+              2.700000047683716
+            ],
+            "positionResidualM": 0
+          }
+        ],
+        "timeResidualS": 0,
+        "matchedSamples": 500,
+        "selectedCandidate": "reversed-target-order",
+        "effortResidualNs": 0,
+        "scope": "Bounded native simulation alternatives using the unchanged virtual force/torque gripper. Simulation forecasts compared with simulation execution, not a learned model of reality or physical robot control.",
+        "forecastRunSha256": "27857c0f649b095c5782f85751a26bd6668331ecac6c315e692a3029453c5868",
+        "passed": true,
+        "maxAngleResidualDeg": 0,
+        "sourceFrameSha256": "5b56a80f5915f2a703f55a6993314c488bc4b523e8bf637b1263cbc727ba3aee",
+        "decisionSha256": "c5b081c2a39a761ea752e8a36f6516e89c78d8c9ce78c075f4e28e16545db624"
+      }
+    }
+  ],
+  "scope": "Two frozen changed native configurations. Original first results retained without policy/gate tuning. Simulation configurations, not physical held-out observations or model learning."
+}

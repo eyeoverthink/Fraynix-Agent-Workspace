@@ -1,0 +1,111 @@
+{
+  "nodes": [
+    {
+      "id": "fit",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/ValueCalibration068.java",
+      "x": 0,
+      "y": 0,
+      "width": 390,
+      "height": 200
+    },
+    {
+      "id": "policy",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/CalibratedPolicy068.java",
+      "x": 420,
+      "y": 0,
+      "width": 390,
+      "height": 200
+    },
+    {
+      "id": "native",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/DisturbanceTrial068.java",
+      "x": 840,
+      "y": 0,
+      "width": 390,
+      "height": 200
+    },
+    {
+      "id": "study",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/CalibrationStudy068.java",
+      "x": 0,
+      "y": 250,
+      "width": 390,
+      "height": 200
+    },
+    {
+      "id": "chat",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/CalibrationContext068.java",
+      "x": 420,
+      "y": 250,
+      "width": 390,
+      "height": 200
+    },
+    {
+      "id": "view",
+      "type": "file",
+      "file": "workspace-desktop/renderer/calibration068.js",
+      "x": 840,
+      "y": 250,
+      "width": 390,
+      "height": 200
+    },
+    {
+      "id": "next",
+      "type": "file",
+      "file": "docs/EDITION_068_CONTRACT.md",
+      "x": 0,
+      "y": 500,
+      "width": 390,
+      "height": 200
+    }
+  ],
+  "edges": [
+    {
+      "id": "e0",
+      "fromNode": "fit",
+      "fromSide": "right",
+      "toNode": "policy",
+      "toSide": "left"
+    },
+    {
+      "id": "e1",
+      "fromNode": "policy",
+      "fromSide": "right",
+      "toNode": "native",
+      "toSide": "left"
+    },
+    {
+      "id": "e2",
+      "fromNode": "native",
+      "fromSide": "right",
+      "toNode": "study",
+      "toSide": "left"
+    },
+    {
+      "id": "e3",
+      "fromNode": "study",
+      "fromSide": "right",
+      "toNode": "chat",
+      "toSide": "left"
+    },
+    {
+      "id": "e4",
+      "fromNode": "chat",
+      "fromSide": "right",
+      "toNode": "view",
+      "toSide": "left"
+    },
+    {
+      "id": "e5",
+      "fromNode": "view",
+      "fromSide": "right",
+      "toNode": "next",
+      "toSide": "left"
+    }
+  ]
+}

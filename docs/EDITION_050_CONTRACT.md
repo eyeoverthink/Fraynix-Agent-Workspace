@@ -1,0 +1,11 @@
+# Edition 050 · Construction workshop acceptance contract
+
+2026-11-02. Extend the existing Java GoalRunner; preserve the original review project and all earlier edition evidence. No new model, dependency or daemon. This is a bounded construction experiment, not an unrestricted civilization simulation.
+
+One request assembles a resource-checked ramp/bin scene, releases three actual native rigid bodies, compares two declared contact coefficients, retains failed trials, and tries a steeper assembly when delivery stalls. Java records an analytic sliding prediction before executing each trial. The analytic prediction covers the ramp only; collision/landing trajectories are native observations, not analytic predictions.
+
+Assembly is an explicit scene construction transaction at initialization, not a claim of robotic grasping. Each candidate is a separately identified disposable world using the same finite stock; returns/reuse are explicit. Dynamic positions/velocities are not assigned after release. Success requires all three original block IDs settled inside the bin after the fixed observation horizon. No phrase in chat can establish that success.
+
+The existing durable goal scheduler owns progress, cancel, restart interruption and explicit resume. Completed trial files are checksummed and reused on resume; an unfinished disposable trial may restart with its immutable initial conditions. Only a verified successful result can become a versioned procedure. Reuse checks code/evidence identities and performs a fresh trial under changed conditions, then bounded repair if needed. Learning here is procedural retention and condition-aware search, not LLM weight training.
+
+Before acceptance: native delivery and friction-jam checks; insufficient resources and invalid values refused; independent trace/final-state verification; altered retained files refused; actual desktop start/progress/replay/chart/export; cancellation; fresh Java restoration and saved-procedure reuse on changed friction/start positions; existing runner regressions; dated real screenshots; README050/offline guide, source map, project memory/log and documentation verification. Keep failed outcomes and distinguish simulation from physical calibration. Do not activate webcam, sensors, Minecraft servers or outside model calls.

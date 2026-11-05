@@ -1,0 +1,13 @@
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/9.3.1/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build 
+> Task :brain-core:compileJava
+> Task :brain-gpu:compileJava
+> Task :factory-runtime:compileJava
+> Task :factory-kernel:compileJava
+> Task :factory-models:compileJava
+> Task :geometry-core:compileJava
+> Task :workspace-engine:compileJava
+
+BUILD SUCCESSFUL in 11s
+7 actionable tasks: 7 executed
+Consider enabling configuration cache to speed up this build: https://docs.gradle.org/9.3.1/userguide/configuration_cache_enabling.html

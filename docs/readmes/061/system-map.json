@@ -1,0 +1,73 @@
+{
+  "edition": 61,
+  "modules": [
+    {
+      "id": "cortex",
+      "name": "Complete numerical cortex",
+      "summary": "Fly selection, Chronos state, bounded history and strict continuation.",
+      "source": "fraynix-modules/brain-core/src/main/java/fraymus/neural/FraynixCortex061.java",
+      "status": "Implemented",
+      "note": "docs/obsidian/69-fraynix-outcomes.md"
+    },
+    {
+      "id": "evidence",
+      "name": "Verified native outcomes",
+      "summary": "Reconstruct predictions and learned state from original training-only observations.",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/FraynixOutcome061.java",
+      "status": "Verified",
+      "note": "docs/obsidian/69-fraynix-outcomes.md"
+    },
+    {
+      "id": "owner",
+      "name": "Java job owner",
+      "summary": "Existing durable coordinator owns progress, cancellation and cold readout.",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/BrainService.java",
+      "status": "Verified",
+      "note": "docs/obsidian/69-fraynix-outcomes.md"
+    },
+    {
+      "id": "view",
+      "name": "One integrated view",
+      "summary": "Controls and comparisons in Java Brain; chat reads actual agent facts.",
+      "source": "workspace-desktop/renderer/cortex061.js",
+      "status": "Actual app",
+      "note": "docs/obsidian/69-fraynix-outcomes.md"
+    },
+    {
+      "id": "next",
+      "name": "Residual learning",
+      "summary": "Keep analytical physics; test learned errors in a new declared domain.",
+      "source": "docs/EDITION_061_CONTRACT.md",
+      "status": "Planned",
+      "note": "docs/obsidian/69-fraynix-outcomes.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "docs/readmes/061/cortex061-chat.png",
+      "title": "Actual app screenshot"
+    },
+    {
+      "path": "docs/readmes/061/cortex061-narrow.png",
+      "title": "Actual app screenshot"
+    },
+    {
+      "path": "docs/readmes/061/cortex061-prediction.png",
+      "title": "Actual app screenshot"
+    },
+    {
+      "path": "docs/readmes/061/cortex061-results.png",
+      "title": "Actual app screenshot"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/readmes/061/verification.json",
+      "title": "Measured results"
+    },
+    {
+      "path": "docs/readmes/061/original-evidence.json",
+      "title": "Original evidence"
+    }
+  ]
+}
