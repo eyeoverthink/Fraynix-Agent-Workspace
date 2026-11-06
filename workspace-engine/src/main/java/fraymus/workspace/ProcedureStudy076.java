@@ -46,7 +46,7 @@ final class ProcedureStudy076 implements AutoCloseable {
     synchronized JSONObject cancel(String id)throws Exception {var j=job(id);if(!Set.of("running","interrupted","queued").contains(j.getString("status")))throw new IllegalStateException("Study already settled");stops.add(id);if(!id.equals(active)){j.remove("evaluation");j.put("status","cancelled").put("reason","Stopped; no qualification");save(j);}if(owner!=null&&!nativeId.isEmpty())owner.cancel(nativeId);return read(id).put("stopRequested",true);}
     private static JSONObject findRow(JSONArray rows,String id){for(Object x:rows)if(((JSONObject)x).getString("id").equals(id))return(JSONObject)x;throw new IllegalArgumentException("Unknown case");}
     private static JSONObject attempt(JSONObject arm,String id){for(Object a:arm.getJSONArray("attempts"))if(((JSONObject)a).getString("id").equals(id))return(JSONObject)a;throw new IllegalStateException("Unowned native attempt");}
-    private JSONObject compare(JSONObject j,JSONObject arm,String forecast,String actual)throws Exception {return MemoryPolicy075.comparison(raw(j,attempt(arm,forecast)),raw(j,attempt(arm,actual)));}
+    private JSONObject compare(JSONObject j,JSONObject arm,String forecast,String actual)throws Exception {return Procedure076.comparison(raw(j,attempt(arm,forecast)),raw(j,attempt(arm,actual)));}
     private void checkpoint(JSONObject j,String reason)throws Exception {j.put("reason",reason);save(j);guard(j);}
     private Path attemptDir(JSONObject j,String id){UUID.fromString(id);return dir(j.getString("id")).resolve("attempts").resolve(id);}
     private JSONObject raw(JSONObject j,JSONObject attempt)throws Exception {
