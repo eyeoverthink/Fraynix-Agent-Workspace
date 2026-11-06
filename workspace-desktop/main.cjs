@@ -419,6 +419,7 @@ ipcMain.handle('workspace:request',async(event,input)=>{
       if(!['state','read','frame','stop','resume'].includes(input.command))throw Error('Unknown observation operation');return api('/api/observations/'+input.command,input.args||{});
     }
     case 'persistentWorld':{
+      if(input.command==='upgrade')return api('/api/construction051/upgrade',input.args);
       if(input.command==='procedures077-export'){const data=await api('/api/procedures077/export',input.args);return nativeExports.save('verified-procedures-077','json',JSON.stringify(data),{studyId:input.args.id,caseId:input.args.caseId});}
       if(input.command==='procedures079-export'){const data=await api('/api/procedures079/export',input.args);return nativeExports.save('world-procedure-079','json',JSON.stringify(data),{goalId:input.args.id});}
       if(input.command==='procedures079-memories'||input.command==='procedures079-protocol')return api('/api/procedures079/'+input.command.slice(14),{});

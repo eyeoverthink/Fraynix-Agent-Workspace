@@ -301,7 +301,7 @@
     "type": "function",
     "function": {
       "name": "world_arrange",
-      "description": "Continue the current versioned world with bounded native forces/torques; verify all bodies and actual charts before advancing its head. Never reset the original source.",
+      "description": "Continue the current versioned world with bounded native forces/torques; verify all bodies and actual charts before advancing its head. Never reset the original source. Set selectiveMemory079 to use current-world procedures chosen by measured memory benefit, proof cost and uncertainty. Original checks remain mandatory.",
       "parameters": {
         "type": "object",
         "properties": {
@@ -351,6 +351,9 @@
           },
           "saveSkillName": {
             "type": "string"
+          },
+          "selectiveMemory079": {
+            "type": "boolean"
           }
         },
         "required": [],
@@ -838,7 +841,7 @@
     "type": "function",
     "function": {
       "name": "tracking_wait",
-      "description": "Wait for this chat\u2019s one saved tracking comparison; no duplicate starts.",
+      "description": "Wait for this chat’s one saved tracking comparison; no duplicate starts.",
       "parameters": {
         "type": "object",
         "properties": {},
@@ -1086,7 +1089,7 @@
     "type": "function",
     "function": {
       "name": "goal_read",
-      "description": "Wait briefly and read actual durable progress of this chat\u2019s owned Java goal. Never start duplicate physical actions.",
+      "description": "Wait briefly and read actual durable progress of this chat’s owned Java goal. Never start duplicate physical actions.",
       "parameters": {
         "type": "object",
         "properties": {},
@@ -1098,7 +1101,7 @@
     "type": "function",
     "function": {
       "name": "goal_cancel",
-      "description": "Stop this chat\u2019s owned Java goal and its actual motion.",
+      "description": "Stop this chat’s owned Java goal and its actual motion.",
       "parameters": {
         "type": "object",
         "properties": {},
@@ -1141,7 +1144,7 @@
     "type": "function",
     "function": {
       "name": "procedure_save",
-      "description": "Retain a procedure only from this chat\u2019s completed physically verified goal and exact tested report.",
+      "description": "Retain a procedure only from this chat’s completed physically verified goal and exact tested report.",
       "parameters": {
         "type": "object",
         "properties": {
@@ -1298,7 +1301,7 @@
     "type": "function",
     "function": {
       "name": "body_capture",
-      "description": "Capture the actual final view of this task\u2019s owned native body run. The host binds the observer and source.",
+      "description": "Capture the actual final view of this task’s owned native body run. The host binds the observer and source.",
       "parameters": {
         "type": "object",
         "properties": {},

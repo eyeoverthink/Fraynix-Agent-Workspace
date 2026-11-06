@@ -47,7 +47,7 @@ final class ChatPolicy044 {
   return "workbench";
  }
  static final Set<String> GOALS=Set.of("rehearsal","construction","world","pose","poseStudy","contact","force","push","map","space","perception","spatial","data","goal","creation");
- static boolean reuse(String goal){return has(goal,"\\b(reuse|run)\\b.*\\b(procedure|skill|routine|graph)\\b");}
+ static boolean reuse(String goal){return has(goal,"\\b(reuse|run)\\b");}
  static List<String> allowed(JSONObject task){
   String family=task.getString("family044"),goal=task.getString("goal");var c=task.getJSONObject("context044");
   return switch(family){
