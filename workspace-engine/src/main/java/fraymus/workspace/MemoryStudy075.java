@@ -112,6 +112,7 @@ final class MemoryStudy075 implements AutoCloseable {
         var results=row.getJSONObject("results");var arm=results.optJSONObject(method);
         if(arm!=null&&Set.of("completed","refused").contains(arm.getString("status")))return;
         if(arm==null){arm=new JSONObject().put("status","running").put("method",method).put("attempts",new JSONArray()).put("chargedTicks",0).put("observedTicks",0).put("activeWallMillis",0d).put("success",false);results.put(method,arm);}
+        arm.put("status","running"); // Explicit resume re-enters the durable interrupted arm.
         synchronized(this){clockArm=arm;clockBase=arm.getDouble("activeWallMillis");clockAt=System.nanoTime();}save(j);
         try {
             var spec=row.getJSONObject("spec");JSONObject scene;JSONArray candidates;long planning=System.nanoTime();
