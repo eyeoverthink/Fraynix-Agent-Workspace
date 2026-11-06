@@ -2,7 +2,7 @@
 
 **Latest: [edition 082 — resource budgets and continuing-world sequences](README-082.md).**
 
-Edition 082 is validated locally; publication verification is pending.
+Edition 082 is published to main with code, measurements, screenshots and original evidence. [Fetched GitHub verification](docs/PUBLICATION_082.json).
 
 
 **A local visual environment for agents to browse, create runnable artifacts, test behavior and reuse verified skills.**

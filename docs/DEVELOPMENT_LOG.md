@@ -1,5 +1,14 @@
 # Agent Workspace development log
 
+## Edition 082 · Published and fetched back on 2026-11-06
+
+Atomic no-thin push to Fraynix-Agent-Workspace main, edition082 and readme-082 succeeded. Release fa57f60fd41d982a57a7349154653956a199513f; annotated tag bf37c6c0e69547b5a3c24d520bbfe3ca40dcf115. Freshly fetched Git trees verified 1154 canonical sources, 13217 frozen hashes across82 editions, and 1963 exact original archives including decompressed bytes. Documentation passes 87 canvases and 9434 references. [Publication receipt](PUBLICATION_082.json).
+
+four-768: 6/6 reference, 6/6 parallel, complete-time change 0.70% lower, checking change 37.48% lower; two-512: 6/6 reference, 6/6 parallel, complete-time change 1.37% lower, checking change 8.07% lower; one-384: 6/6 reference, 6/6 parallel, complete-time change 1.05% lower, checking change 3.04% lower. One matched six-goal sequence pair per budget on D:; historical C: times are not a matched baseline. All original verification retained, no automatic policy promotion or model-weight learning claim. JVM heap is distinct from total process memory; actual affinity, CPU/GC and OS memory evidence retained. Fresh profile-specific setup costs and restart/retention boundaries reported separately.
+
+160 Java tests/25 classes and 133 desktop checks pass. Actual owner-budget mismatch refusal/reconnect, continuing-world/cold-restart/skill persistence, independent source/native/cost/commit inspection, tight-budget original-evidence refusal and actual app/offline visual checks recorded. Original physics/controllers/GoalRunner/ledger/proof/cost classes unchanged. README082, actual captures, source/original inventory, Obsidian90/map and notes published. Test apps closed; normal045/qa046/private data preserved. Next: repeated cold/retention calibration and longer-sequence simple-control comparisons before automatic resource policy. This receipt follows the immutable release tag.
+
+
 ## Edition 082 · Validated locally; publication next
 
 Three measured Java budgets, all on the isolated D:/Codex-Work/fraynix-workspace-edition082 checkout. Prospective contract f2db6ba; parent409afc5. four-768: reference 6/6, parallel 6/6, complete-time change 0.70% lower, checking change 37.48% lower; two-512: reference 6/6, parallel 6/6, complete-time change 1.37% lower, checking change 8.07% lower; one-384: reference 6/6, parallel 6/6, complete-time change 1.05% lower, checking change 3.04% lower. 36/36 planned evaluation goals; each sequence binds continuing world state, restarts after goal three and requests final experience/skill retention. One sequence pair per budget; no statistical generalization or automatic promotion. Historical C: times are not matched evidence. JVM heap limits exclude total native/Electron/OS memory; actual Windows affinity, JVM counters and process samples retained.
