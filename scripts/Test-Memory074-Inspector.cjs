@@ -14,6 +14,6 @@ const probes=[
  ['forecast reused as actual',x=>{x.row.results.simple.actualRunId=x.row.results.simple.forecastRunId;}],
  ['false outcome label',x=>{x.row.results.simple.success=!x.row.results.simple.success;}],
  ['changed candidate selection',x=>{x.row.results.search.selected='unverified-candidate';}],
- ['missing failed attempt',x=>{x.originals.splice(x.originals.findIndex(o=>o.attempt.stage==='forecast'&&o.attempt.status==='failed'),1);}]
+ ['missing recorded attempt',x=>{x.originals.splice(x.originals.findIndex(o=>o.attempt.stage==='forecast'),1);}]
 ].map(([name,change])=>{const x=read();change(x);assert.throws(()=>inspectCase(x,bank),undefined,name);return{name,refused:true};});
 console.log(JSON.stringify({passed:true,originalPassed:true,probes},null,2));
