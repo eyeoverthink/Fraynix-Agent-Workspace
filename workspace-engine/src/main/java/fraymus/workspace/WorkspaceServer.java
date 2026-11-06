@@ -35,6 +35,7 @@ public final class WorkspaceServer implements AutoCloseable {
     private final EvidenceStore049 evidence049;
     private final GoalRunner goals;
     private final MemoryStudy074 memory074;
+    private final MemoryStudy075 memory075;
     private final WorldObservationStore observations;
     private final MetricObservationStore metrics;
     private final TabletopStore tabletop;
@@ -55,7 +56,7 @@ public final class WorkspaceServer implements AutoCloseable {
     WorkspaceServer(Path project,String token,boolean persistentHost) throws IOException {
         if(token==null||token.length()<32)throw new IllegalArgumentException("A private session capability is required");
         this.token=token;this.persistentHost=persistentHost;store=new WorkspaceStore(project);learning=new LearningStore(project);
-        try{scenes=new SceneStore(project);spatial=new SpatialStore(project);maps=new MapStore(project);perception=new PerceptionStore(project);measurements=new MeasurementStore(project);calibrations=new CalibrationStore(project,scenes,measurements);observers=new ObserverStore(project,scenes);brain=new BrainService(project);goals=new GoalRunner(project,scenes,brain,store,measurements,spatial,perception,maps);memory074=new MemoryStudy074(project,goals::memoryBundle074);observations=new WorldObservationStore(project,goals.worlds());metrics=new MetricObservationStore(project,observations,goals.worlds());tabletop=new TabletopStore(project,goals.worlds(),metrics);knowledge=new KnowledgeStore(project,tabletop);selfModel=new SelfModel(knowledge);workflows=new WorkflowRunner(project,goals,measurements,scenes,store);game=new EmbeddedGameClient(Path.of(System.getProperty("user.dir")),project);runtime040=new SpatialRuntime040(project,goals.worlds(),goals.worldNative(),tabletop,knowledge,game);alignment041=new Alignment041Store(project,goals.worlds());}catch(Exception e){throw new IOException("Experiment stores could not start",e);}
+        try{scenes=new SceneStore(project);spatial=new SpatialStore(project);maps=new MapStore(project);perception=new PerceptionStore(project);measurements=new MeasurementStore(project);calibrations=new CalibrationStore(project,scenes,measurements);observers=new ObserverStore(project,scenes);brain=new BrainService(project);goals=new GoalRunner(project,scenes,brain,store,measurements,spatial,perception,maps);memory074=new MemoryStudy074(project,goals::memoryBundle074);memory075=new MemoryStudy075(project,goals::memoryBundle074);observations=new WorldObservationStore(project,goals.worlds());metrics=new MetricObservationStore(project,observations,goals.worlds());tabletop=new TabletopStore(project,goals.worlds(),metrics);knowledge=new KnowledgeStore(project,tabletop);selfModel=new SelfModel(knowledge);workflows=new WorkflowRunner(project,goals,measurements,scenes,store);game=new EmbeddedGameClient(Path.of(System.getProperty("user.dir")),project);runtime040=new SpatialRuntime040(project,goals.worlds(),goals.worldNative(),tabletop,knowledge,game);alignment041=new Alignment041Store(project,goals.worlds());}catch(Exception e){throw new IOException("Experiment stores could not start",e);}
         try{agentRuntime=new AgentRuntime042(project,brain,this::agentFacts042,this::detachHost042,persistentHost);agency=new Agency043(project,store,learning,request->{String id=request.getString("requestId");durableRequests043.add(id);try{return plan(request,true);}finally{durableRequests043.remove(id);}},id->{var c=requests.get(id);if(c!=null)c.cancel();},(kind,evidence)->agentRuntime.record043(kind,evidence),this::sharedBusy043,true);agency.install044(new Domain044(this::call044,store));creation044=new CreationPlanner044(project,goals,request->{String id=request.getString("requestId");durableRequests043.add(id);try{return plan(request,true);}finally{durableRequests043.remove(id);}},id->{var c=requests.get(id);if(c!=null)c.cancel();});}catch(Exception e){close();throw new IOException("Java agent state needs attention; originals retained",e);}
         skillMemory=new SkillMemory048(project,goals);
         evidence049=new EvidenceStore049(project);
@@ -115,6 +116,21 @@ public final class WorkspaceServer implements AutoCloseable {
                         default->throw new IllegalArgumentException("Unknown Java agent operation");
                     };send(exchange,200,result);return;
                 }
+                if(route.startsWith("/api/memory075/")){
+                    if(Set.of("/api/memory075/start","/api/memory075/resume").contains(route)&&(agency.busy()||sharedBusy043()||observations.busy()||tabletop.busy()||alignment041.busy()))throw new IllegalStateException("Finish active agent work/capture before the serial comparison");
+                    result=switch(route){
+                        case "/api/memory075/protocol"->{SpatialScene.keys(input);yield MemoryPolicy075.protocol();}
+                        case "/api/memory075/list"->{SpatialScene.keys(input);yield new JSONObject().put("studies",memory075.list());}
+                        case "/api/memory075/start"->memory075.start(input);
+                        case "/api/memory075/read"->{SpatialScene.keys(input,"id");yield memory075.read(input.getString("id"));}
+                        case "/api/memory075/resume"->{SpatialScene.keys(input,"id");yield memory075.resume(input.getString("id"));}
+                        case "/api/memory075/stop"->{SpatialScene.keys(input,"id");yield memory075.cancel(input.getString("id"));}
+                        case "/api/memory075/trace"->{SpatialScene.keys(input,"id","caseId","method");yield memory075.trace(input.getString("id"),input.getString("caseId"),input.getString("method"));}
+                        case "/api/memory075/export"->{SpatialScene.keys(input,"id","caseId");yield memory075.exportCase(input.getString("id"),input.getString("caseId"));}
+                        case "/api/memory075/audit"->{SpatialScene.keys(input,"id");if(memory075.busy())throw new IllegalStateException("Wait for the comparison before full audit");yield memory075.audit(input.getString("id"));}
+                        default->throw new IllegalArgumentException("Unknown memory comparison operation");
+                    };send(exchange,200,result);return;
+                }
                 if(route.startsWith("/api/memory074/")){
                     if(Set.of("/api/memory074/start","/api/memory074/resume").contains(route)&&(agency.busy()||sharedBusy043()||observations.busy()||tabletop.busy()||alignment041.busy()))throw new IllegalStateException("Finish active agent work/capture before the serial comparison");
                     result=switch(route){
@@ -130,7 +146,7 @@ public final class WorkspaceServer implements AutoCloseable {
                         default->throw new IllegalArgumentException("Unknown memory comparison operation");
                     };send(exchange,200,result);return;
                 }
-                if(memory074.busy()&&!passive043(route))throw new IllegalStateException("The serial memory comparison owns compute; Stop it before other mutations");
+                if((memory074.busy()||memory075.busy())&&!passive043(route))throw new IllegalStateException("The serial memory comparison owns compute; Stop it before other mutations");
                 if((observations.busy()||tabletop.busy()||alignment041.busy())&&Set.of("/api/workflows/start","/api/workflows/reuse","/api/world/start","/api/rehearsal073/start","/api/world/restore","/api/goals/start","/api/procedures/run","/api/observations/start","/api/observations/resume","/api/tabletop/start").contains(route))throw new IllegalStateException("The observation run owns this world binding; Stop it before native actions");
                 if(route.startsWith("/api/alignment041/")){
                     result=switch(route){
@@ -555,7 +571,7 @@ public final class WorkspaceServer implements AutoCloseable {
         }
         return agency.start(input);
     }
-    private boolean sharedBusy043(){try{return knowledge.state().getJSONArray("jobs").toList().stream().anyMatch(raw->"running".equals(((java.util.Map<?,?>)raw).get("status")))||goals.busy()||memory074.busy()||brain.state().getBoolean("busy")||!workflowsIdle042()||requests.keySet().stream().anyMatch(id->!durableRequests043.contains(id));}catch(Exception e){return true;}}
+    private boolean sharedBusy043(){try{return knowledge.state().getJSONArray("jobs").toList().stream().anyMatch(raw->"running".equals(((java.util.Map<?,?>)raw).get("status")))||goals.busy()||memory074.busy()||memory075.busy()||brain.state().getBoolean("busy")||!workflowsIdle042()||requests.keySet().stream().anyMatch(id->!durableRequests043.contains(id));}catch(Exception e){return true;}}
     // The authenticated interface may continue an already-started observation. Native stores
     // still require the exact running id, camera/generation, sequence and original pixel hash.
     // This grants no capture-start, annotation, evaluation or physical-action authority.
@@ -575,7 +591,7 @@ public final class WorkspaceServer implements AutoCloseable {
         requests.forEach((id,control)->{if(!durableRequests043.contains(id))control.cancel();});camera042.clear();game.close();selfModel.detach();
         try{if(agency!=null)agency.hostDetached();knowledge.hostDetached044();goals.hostDetached042(creation044==null?Set.of():creation044.retained());workflows.hostDetached042();learning.hostDetached042(agency==null?Set.of():agency.retainedEpisodes());for(Object raw:alignment041.state().getJSONArray("trials")){var t=(JSONObject)raw;if(t.optString("status").equals("running"))alignment041.finish(t.getString("id"),true);}for(Object raw:tabletop.state().getJSONArray("runs")){var t=(JSONObject)raw;if(t.optString("status").equals("running"))tabletop.stop(t.getString("id"));}}catch(Exception e){throw new IllegalStateException("Host detach needs attention",e);}
     }
-    @Override public synchronized void close(){if(closed)return;closed=true;requests.values().forEach(OllamaIntegration.RequestControl::cancel);scanner.shutdownNow();if(creation044!=null)creation044.close();if(agency!=null)agency.close();if(agentRuntime!=null)agentRuntime.close();memory074.close();observations.close();game.close();workflows.close();goals.close();perception.close();brain.close();if(agentRuntime!=null)try{agentRuntime.checkpoint();}catch(Exception e){System.err.println("Final shared cortex checkpoint needs attention: "+e.getMessage());}calibrations.close();scenes.close();if(httpServer!=null)httpServer.stop(0);try{store.close();}catch(IOException ignored){}}
+    @Override public synchronized void close(){if(closed)return;closed=true;requests.values().forEach(OllamaIntegration.RequestControl::cancel);scanner.shutdownNow();if(creation044!=null)creation044.close();if(agency!=null)agency.close();if(agentRuntime!=null)agentRuntime.close();memory075.close();memory074.close();observations.close();game.close();workflows.close();goals.close();perception.close();brain.close();if(agentRuntime!=null)try{agentRuntime.checkpoint();}catch(Exception e){System.err.println("Final shared cortex checkpoint needs attention: "+e.getMessage());}calibrations.close();scenes.close();if(httpServer!=null)httpServer.stop(0);try{store.close();}catch(IOException ignored){}}
     private JSONObject plan(JSONObject input)throws Exception{return plan(input,false);}
     private JSONObject plan(JSONObject input,boolean javaOwned) throws Exception {
         if(catalog==null)throw new IllegalStateException("Local models are still being discovered");
