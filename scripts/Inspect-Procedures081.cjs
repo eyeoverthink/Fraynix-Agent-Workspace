@@ -19,6 +19,8 @@ function aggregate(record){
  }
  const micro={};for(const mode of ['reference','parallel']){const xs=record.scanBenchmark.filter(x=>x.iteration>=0&&x.mode===mode);assert.equal(xs.length,6);micro[mode]={loads:sum(xs,x=>x.loads),verifiedBytes:sum(xs,x=>x.verifiedBytes),loadMillis:sum(xs,x=>x.loadMillis),hashMillis:sum(xs,x=>x.hashMillis),callerMillis:sum(xs,x=>x.callerMillis)};}
  assert.equal(micro.reference.verifiedBytes,micro.parallel.verifiedBytes);
+ const evidenceBytes=Object.values(record.model.evidence).flat().reduce((n,e)=>n+e.bytes,0);
+ for(const row of rows)for(const mode of ['reference','parallel']){const x=row.results[mode].scan;assert.equal(x.mode,mode);assert.equal(x.readers,mode==='parallel'?2:1);assert(x.loads>0);assert.equal(x.verifiedBytes,evidenceBytes*x.loads);assert(x.hashMillis>=0&&x.loadMillis>=x.hashMillis);}
  const a=methods.reference,b=methods.parallel;
  return {methods,micro,matchingDecisionsAndNativeWork:true,estimationImproved:b.estimationMillis<a.estimationMillis,
   estimationReductionPercent:100*(1-b.estimationMillis/a.estimationMillis),microReductionPercent:100*(1-micro.parallel.loadMillis/micro.reference.loadMillis),

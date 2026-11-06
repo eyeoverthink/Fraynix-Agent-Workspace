@@ -1,0 +1,35 @@
+'use strict';
+const fs=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict'),{inspectProcedure}=require('./Inspect-Procedures080.cjs'),{canonical}=require('./Inspect-Spatial040.cjs'),{createHash}=require('node:crypto'),{gunzipSync,gzipSync}=require('node:zlib');
+const clone=x=>JSON.parse(JSON.stringify(x)),hash=x=>createHash('sha256').update(canonical(x)).digest('hex');
+const dir=path.resolve(process.argv[2]),record=JSON.parse(fs.readFileSync(path.join(dir,'result.json'))),root=path.join(record.project,'world-procedures-079'),items=[...record.rows.filter(r=>r.split==='unseen').flatMap(r=>Object.values(r.results)),...record.calibration.flatMap(r=>Object.values(r.results))];
+const read=item=>JSON.parse(fs.readFileSync(path.join(dir,item.originalFile))),base=read(items.find(i=>i.status==='completed'&&i.job.decision.useMemory&&i.job.lookupProof?.mode==='hit')),simple=read(record.training[0]),probes=[];
+function probe(name,fn,source=base){const x=clone(source);fn(x);assert.throws(()=>inspectProcedure(x,root),undefined,name);probes.push(name);}
+probe('Changed claimed memory choice',x=>x.job.decision.useMemory=false);
+probe('Inflated avoided-work estimate',x=>x.job.decision.candidates[0].avoidedMillis+=10);
+probe('Erased uncertainty margin',x=>x.job.decision.candidates[0].uncertaintyMarginMillis=0);
+probe('Changed owned memory source',x=>x.job.bankSnapshot[0].spec.source.objects[0].friction+=.1);
+probe('Counterfeit warm proof origin',x=>x.job.lookupProof.originReceiptSha256='0'.repeat(64));
+probe('Proof source path redirected',x=>x.job.lookupProof.evidence[0].path='../outside.json');
+probe('Uncharged native work',x=>x.job.arm.chargedTicks--);
+probe('Underreported native attempt',x=>x.job.arm.attempts[0].observedTicks--);
+probe('Skipped budget reservation',x=>x.job.arm.attempts[0].admissionRemaining=0);
+probe('Changed starting frame',x=>x.job.initialFrame.bodies[0].position[0]+=.2);
+probe('Changed current goal targets',x=>x.job.args.targets[0].positionM[0]+=.2);
+probe('Removed actual motion',x=>x.originals.pop());
+probe('Duplicate native evidence',x=>x.originals.push(clone(x.originals[0])));
+probe('Damaged original bytes',x=>x.originals[0].rawSha256='0'.repeat(64));
+probe('Changed forecast versus actual residual',x=>x.job.arm.programs[x.job.arm.selected].comparisons[0].maxPositionResidualM+=.2);
+probe('Reused forecast as actual ID',x=>x.job.arm.programs[x.job.arm.selected].actual[0]=x.job.arm.programs[x.job.arm.selected].forecast[0]);
+probe('Changed final task result',x=>x.job.arm.programs[x.job.arm.selected].actualTask.positionM+=.2);
+probe('Simple control granted memory authority',x=>{x.job.bankSnapshot=clone(base.job.bankSnapshot);},simple);
+assert.throws(()=>inspectProcedure(base,path.join(root,'missing-owned-memory')));probes.push('Missing owned source memory is refused');
+// Re-seal an altered native record and outer attempt to exercise motion arithmetic, not only byte hashing.
+probe('Re-sealed pose inconsistent with integrated motion',x=>{const packet=x.originals[0],r=JSON.parse(gunzipSync(Buffer.from(packet.gzipBase64,'base64')));r.samples[1].bodies[0].position[0]+=.2;const bytes=Buffer.from(JSON.stringify(r));packet.gzipBase64=gzipSync(bytes).toString('base64');packet.rawBytes=bytes.length;packet.rawSha256=createHash('sha256').update(bytes).digest('hex');x.job.arm.attempts.find(a=>a.id===r.id).sha256=hash(r);});
+const calibrated=read(items.find(i=>i.job.mode==='calibrated'&&i.job.decision.cost080.available));
+probe('Altered complete-task expected saving',x=>x.job.decision.cost080.savingMillis+=1,calibrated);
+probe('Erased complete-task uncertainty',x=>x.job.decision.cost080.marginMillis=0,calibrated);
+probe('Wrong calibrated model identity',x=>x.job.calibration080.id='00000000-0000-0000-0000-000000000000',calibrated);
+probe('Changed paired completion time',x=>x.job.calibration080.pairs[0].simpleMillis+=1000,calibrated);
+probe('Foreign pair evidence path',x=>x.job.calibration080.evidence[Object.keys(x.job.calibration080.evidence)[0]][0].path='../foreign.json',calibrated);
+probe('Duplicated neighbors',x=>x.job.decision.cost080.neighbors[1]=clone(x.job.decision.cost080.neighbors[0]),calibrated);
+console.log(JSON.stringify({passed:true,probes,scope:'Controlled in-memory corruptions of retained originals; no production/source evidence files modified.'},null,2));
