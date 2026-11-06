@@ -119,6 +119,7 @@ public final class WorkspaceServer implements AutoCloseable {
                         default->throw new IllegalArgumentException("Unknown Java agent operation");
                     };send(exchange,200,result);return;
                 }
+                if(route.equals("/api/resources082/state")){SpatialScene.keys(input);send(exchange,200,Resources082.snapshot());return;}
                 if(route.startsWith("/api/procedures078/")){
                     if(Set.of("/api/procedures078/start","/api/procedures078/resume").contains(route)&&(agency.busy()||sharedBusy043()||observations.busy()||tabletop.busy()||alignment041.busy()))throw new IllegalStateException("Finish active work before the serial procedure study");
                     result=switch(route){

@@ -8,6 +8,7 @@ const {replay,rehearse}=require('./controller-replay.cjs');
 const {NetworkPolicy}=require('./network-policy.cjs');
 const {verifyRendererSources}=require('./source-integrity.cjs');
 const {connectRuntime042}=require('./runtime-connection042.cjs');
+const {budget:javaBudget082,checkEffective:checkJavaBudget082}=require('./java-budget082.cjs');
 const {createAgency043}=require('./agency043.cjs');const {AsyncLocalStorage}=require('node:async_hooks');const agencyScope043=new AsyncLocalStorage();let agency043;let pendingAgency043=0,agencyLaunchGeneration043=0;
 const {createAgent042}=require('./agent042.cjs');let agent042,runtimeConnection042;
 const {NativeExports}=require('./exports.cjs');
@@ -64,7 +65,8 @@ async function engineStart(){
   const java=process.env.JAVA_HOME?path.join(process.env.JAVA_HOME,'bin','java.exe'):'java';
   const lib=path.join(repo,'workspace-engine','build','install','workspace-engine','lib','*');
   const engineLog=fs.openSync(path.join(project,'engine.log'),'a');
-  engine=spawn(java,['-Xmx768m','-cp',lib,'fraymus.workspace.WorkspaceServer'],{cwd:repo,windowsHide:true,env:{...process.env,FRAYNIX_WORKSPACE_PROJECT:project,FRAYNIX_WORKSPACE_TOKEN:token},stdio:['pipe','pipe',engineLog]});
+  const budget082=javaBudget082();
+  engine=spawn(java,[...budget082.args,'-cp',lib,'fraymus.workspace.WorkspaceServer'],{cwd:repo,windowsHide:true,env:{...process.env,FRAYNIX_WORKSPACE_PROJECT:project,FRAYNIX_WORKSPACE_TOKEN:token},stdio:['pipe','pipe',engineLog]});
   engine.on('error',e=>activity('error',e.message));
   engine.on('exit',code=>{if(!closing)activity('error',`Java engine stopped (${code})`);});
   await new Promise((resolve,reject)=>{
@@ -72,6 +74,7 @@ async function engineStart(){
     const lines=readline.createInterface({input:engine.stdout});lines.on('line',line=>{fs.appendFileSync(path.join(project,'engine.log'),line+'\n');try{const event=JSON.parse(line);if(event.event==='workspace-ready'){origin=`http://127.0.0.1:${event.port}`;clearTimeout(deadline);resolve();}}catch{}});
     engine.once('error',reject);engine.once('exit',code=>{clearTimeout(deadline);reject(Error(`Engine exited before startup (${code})`));});
   });
+  if(budget082.explicit)checkJavaBudget082(budget082,await api('/api/resources082/state',{}));
 }
 async function openArtifact(artifact){currentArtifact=artifact;if(run)run.created=true;emit('artifact',artifact);await refresh();await canvas.navigate(`${origin}/artifact/${artifact.id}/${artifact.version}/index.html`);return {id:artifact.id,title:artifact.title,version:artifact.version,files:artifact.files,url:canvas.view.webContents.getURL()};}
 function calibrationView(job){

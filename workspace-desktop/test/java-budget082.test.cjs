@@ -1,0 +1,5 @@
+'use strict';
+const {test}=require('node:test'),assert=require('node:assert/strict'),{budget,checkEffective}=require('../java-budget082.cjs');
+test('Default launch keeps the existing heap and processor behavior',()=>assert.deepEqual(budget({}).args,['-Xmx768m']));
+test('Explicit bounded budgets produce literal Java arguments',()=>{assert.deepEqual(budget({FRAYNIX_WORKSPACE_JAVA_HEAP_MIB:'384',FRAYNIX_WORKSPACE_JAVA_PROCESSORS:'1'}).args,['-Xmx384m','-XX:ActiveProcessorCount=1']);for(const v of ['0','255','769','384m','384 -cp other','', '1.5'])assert.throws(()=>budget({FRAYNIX_WORKSPACE_JAVA_HEAP_MIB:v}));for(const v of ['0','5','-1','2;exit',''])assert.throws(()=>budget({FRAYNIX_WORKSPACE_JAVA_PROCESSORS:v}));});
+test('An already-running owner cannot silently satisfy a different requested budget',()=>{const b=budget({FRAYNIX_WORKSPACE_JAVA_HEAP_MIB:'512',FRAYNIX_WORKSPACE_JAVA_PROCESSORS:'2'});checkEffective(b,{profile:{maxHeap:512*1024*1024,cpus:2}});assert.throws(()=>checkEffective(b,{profile:{maxHeap:768*1024*1024,cpus:2}}));assert.throws(()=>checkEffective(b,{profile:{maxHeap:512*1024*1024,cpus:4}}));});
