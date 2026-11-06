@@ -1,5 +1,16 @@
 # Agent Workspace development log
 
+## Edition 078 · Validated locally; publication next
+
+Prospective contract d68de31; implementation 84e47ac. ProofMemo078 retains 16 compact boot-local full-check receipts, hashes exact source bytes at every reuse, refuses redirected/changed evidence and requires full checking after restart. Uncached control keeps its original path. Original native/controller/verifier/WorldFrames and 073–077 algorithms untouched. No primary-outcome tuning. Five recipes, 15 training arms and 48 evaluation arms. Clear targets are proposals; only measured native frames advance execution.
+
+simple: 8/8, 170590 ticks/31 native stages; geometry: 8/8, 191352 ticks/36 native stages; memory: 8/8, 160312 ticks/28 native stages; cached: 8/8, 160312 ticks/28 native stages. Proof-cache benefit: True; practical wall efficiency: False; first-batch efficiency with training: False. No automatic promotion. Training 219050 ticks includes all failures; bank 10 verified receipts across direct, two-stage, three-stage, clear-two, clear-three. Simple, geometry and memory have the same repertoire and 115,200-tick/1,200-active-second bounds. All four unsupported controls refuse without actuation. Whole forecast plus distinct actual execution, original checks and whole-task protected-body limits required. No active-world commits, evaluation ingestion or new LLM inference.
+
+133 distinct targeted Java checks/20 classes; 127 desktop checks. Real native proof reuse/cold-check/tamper test; complete integrated study, exports/replay, cold full audit, separate interruption/resume/Stop, damaged bank refusal and 29 altered-evidence probes. App1600/1100 and offline 1440/390 checked. Independent reader verifies native arithmetic, original evidence bytes, cache provenance, exact paired native observations, ranking and costs; Java reconstructs full search and geometric policy. Source originals preserved. Exact kinematic handoff does not restore continuous contact manifolds. Synthetic lifted box manipulation, not ground navigation or physical accuracy.
+
+README 078, actual screenshots, offline guide, full source inventory/original evidence and Obsidian 86/canvas prepared. Publish main/edition078/readme-078 and fetched verification next. Preserve frozen 001–077, live normal045/qa046/private projects/services. No subagents or overlapping heavy tests. Next: selective retrieval using measured costs, then typed durable-goal integration with fresh unfamiliar-task validation.
+
+
 ## Edition 077 · Published and fetched back on 2026-11-05
 
 Atomic push to Fraynix-Agent-Workspace main, edition077 and readme-077 succeeded. Release f0a417b742a30f3976b8cfc8ac430c47c9146d70; annotated tag 8d95816200195531fea0492805429385d2812c1c. Fresh GitHub fetch verified 1098 canonical sources, 7175 frozen hashes across77editions and 263 exact original archives including decompressed bytes. Documentation passed 82canvases/7818references. [Publication receipt](PUBLICATION_077.json).

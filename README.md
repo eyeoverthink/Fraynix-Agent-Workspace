@@ -2,11 +2,11 @@
 
 **A local visual environment for agents to browse, create runnable artifacts, test behavior and reuse verified skills.**
 
-> **[Edition 077 · Obstacle-aware procedures](README-077.md)** · [Offline guide](docs/readmes/077/index.html) · [Edition history](docs/readmes/INDEX.md)
+> **[Edition 078 · Proof reuse with measured costs](README-078.md)** · [Offline guide](docs/readmes/078/index.html) · [Edition history](docs/readmes/INDEX.md)
 
-Java searches clear intermediate landing targets, executes verified native stages and retains measured state. Three training sources feed a frozen bank; four controls compare eight unfamiliar tasks and four refusal controls. Task utility qualification: True; practical wall efficiency: False; first-batch efficiency with training: False. No automatic promotion. [Actual results, screenshots and complete evidence](README-077.md).
+Java reuses fully checked unchanged training evidence while retaining fresh native forecast and actual execution. Three training sources feed a frozen bank; four controls compare eight unfamiliar tasks and four refusal controls. Proof-cache benefit: True; practical wall efficiency: False; first-batch efficiency with training: False. No automatic promotion. [Actual results, screenshots and complete evidence](README-078.md).
 
-Edition 077 is published to main with source, actual screenshots, original evidence and continuity notes. [Fetched GitHub verification](docs/PUBLICATION_077.json).
+Edition 078 implementation, screenshots and original evidence are prepared for publication. [Previous fetched publication](docs/PUBLICATION_077.json).
 
 One integrated app, with Java-owned chat planning, creation, native skill scheduling, continuing identity, real clocks and checked outcomes. Mission connects the actual goal, source, child task, recovery and retained result. [Screenshots, typed skill graphs, new logic and production direction](README-046.md).
 
@@ -75,7 +75,7 @@ Use the new **Learning** tab inside Project objects to inspect episodes, candida
 4. Inspect the execution timeline, then open **Verified skills** to reuse the saved recipe.
 5. Select **gpt-oss:20b** and ask the agent to create a new small application with explicit tests. Click **Start task**.
 6. Switch to **Source** to inspect or edit files. **Save & run** saves another version. Rerun its tests before saving another verified recipe.
-7. Use **Take over** whenever you want to stop the task. **Open Game Lab** opens the preserved native game editor separately.
+7. Use **Take over** whenever you want to stop the task. **Open Game Lab** opens the integrated game view; the original renderer runs with its separate native window hidden.
 
 Example first request:
 

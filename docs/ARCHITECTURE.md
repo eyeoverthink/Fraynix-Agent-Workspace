@@ -1,6 +1,11 @@
 # Fraynix Agent Workspace system architecture
 
-## Current edition077: obstacle-aware verified procedures
+## Current edition078: verified proof reuse
+
+[Edition078](../README-078.md) adds a bounded Java proof cache and byte-verified proof receipts. `ProofMemo078` retains compact successful source-bound checks; `ProcedureStudy078` alone executes fresh native forecast/actual programs, carries measured frames and seals training-only receipts. `Procedure078` owns recipe, retrieval and claim rules. The integrated panel shows full/reused proof counts and lookup/audit/hash timings alongside actual native motion. Simple, geometry, uncached and cached memory share the same repertoire; the study does not promote a controller or mutate an active world. Existing controller, physics and verification remain authoritative. See the current README for measured utility, wall time and training-inclusive outcomes.
+
+
+## Edition077 foundation: obstacle-aware verified procedures
 
 [Edition077](../README-077.md) adds a bounded Java clear-landing search and source-bound waypoint receipts. `Waypoints077` proposes intermediate poses and previews geometry locally; `ProcedureStudy077` alone executes fresh native forecast/actual programs, carries measured frames and seals training-only receipts. `Procedure077` owns recipe, retrieval and claim rules. The integrated panel distinguishes planned targets from recorded native motion. Simple and geometry controls share the same repertoire as memory; the study does not promote a controller or mutate an active world. Existing controller, physics and verification remain authoritative. See the current README for measured utility, wall time and training-inclusive outcomes.
 
