@@ -2,11 +2,11 @@
 
 **A local visual environment for agents to browse, create runnable artifacts, test behavior and reuse verified skills.**
 
-> **[Edition073 · Executable experiment memory](README-073.md)** · [Offline guide](docs/readmes/073/index.html) · [Operation](docs/JAVA_CHAT_044.md) · [Edition history](docs/readmes/INDEX.md)
+> **[Edition 074 · Does experiment memory help?](README-074.md)** · [Offline guide](docs/readmes/074/index.html) · [Operation](docs/JAVA_CHAT_044.md) · [Edition history](docs/readmes/INDEX.md)
 
-Retrieve a verified experiment, reconstruct its original at-rest state, change friction or payload, compare three bounded alternatives, verify fresh motion and retain a linked child. Java owns the full workflow; the integrated replay shows original, rebuilt, predicted and actual samples. Four acceptance variants and a fifth interruption/recovery case passed. The original source world remains unchanged. [Full evidence](docs/readmes/073/verification.json).
+The frozen comparison completed twelve new supported scenes plus four unsupported controls. All three methods solved 12/12 supported tasks. Memory used 22.2% fewer native ticks than exhaustive search but 44.3% more than the simple first-success method. Reconstruction explains the extra work. No promotion: memory has not yet earned a benefit over the simpler control. The integrated panel retains original motion, complete costs, restart/recovery and exact exports. [Full evidence](docs/readmes/074/verification.json).
 
-Edition073 is published to main with full source, 14 actual app captures, 4 offline-guide captures, exact original evidence and updated continuity notes. [Fetched GitHub verification](docs/PUBLICATION_073.json).
+Edition 074 implementation, screenshots and original evidence are prepared for publication. [Previous fetched publication](docs/PUBLICATION_073.json).
 
 One integrated app, with Java-owned chat planning, creation, native skill scheduling, continuing identity, real clocks and checked outcomes. Mission connects the actual goal, source, child task, recovery and retained result. [Screenshots, typed skill graphs, new logic and production direction](README-046.md).
 

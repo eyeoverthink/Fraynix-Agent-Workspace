@@ -1,0 +1,95 @@
+{
+  "nodes": [
+    {
+      "id": "bank",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/Rehearsal073.java",
+      "x": 0,
+      "y": 0,
+      "width": 390,
+      "height": 200
+    },
+    {
+      "id": "policy",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/MemoryPolicy074.java",
+      "x": 420,
+      "y": 0,
+      "width": 390,
+      "height": 200
+    },
+    {
+      "id": "study",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/MemoryStudy074.java",
+      "x": 840,
+      "y": 0,
+      "width": 390,
+      "height": 200
+    },
+    {
+      "id": "verify",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/WorldVerify.java",
+      "x": 0,
+      "y": 240,
+      "width": 390,
+      "height": 200
+    },
+    {
+      "id": "view",
+      "type": "file",
+      "file": "workspace-desktop/renderer/memory074.js",
+      "x": 420,
+      "y": 240,
+      "width": 390,
+      "height": 200
+    },
+    {
+      "id": "inspect",
+      "type": "file",
+      "file": "scripts/Inspect-Memory074.cjs",
+      "x": 840,
+      "y": 240,
+      "width": 390,
+      "height": 200
+    }
+  ],
+  "edges": [
+    {
+      "id": "e0",
+      "fromNode": "bank",
+      "fromSide": "right",
+      "toNode": "policy",
+      "toSide": "left"
+    },
+    {
+      "id": "e1",
+      "fromNode": "policy",
+      "fromSide": "right",
+      "toNode": "study",
+      "toSide": "left"
+    },
+    {
+      "id": "e2",
+      "fromNode": "study",
+      "fromSide": "right",
+      "toNode": "verify",
+      "toSide": "left"
+    },
+    {
+      "id": "e3",
+      "fromNode": "verify",
+      "fromSide": "right",
+      "toNode": "view",
+      "toSide": "left"
+    },
+    {
+      "id": "e4",
+      "fromNode": "view",
+      "fromSide": "right",
+      "toNode": "inspect",
+      "toSide": "left"
+    }
+  ]
+}

@@ -1,0 +1,1027 @@
+{
+  "edition": 74,
+  "source": "b4932af776874f787251439bf255d02ce796d61f",
+  "contract": "49c82da",
+  "schemaCorrection": "e652acc",
+  "runtimeImplementation": "d38238a",
+  "javaDistinct": 84,
+  "javaClasses": 12,
+  "javaAllPassed": true,
+  "javaInvocations": [
+    {
+      "name": "policy074",
+      "cases": [
+        {
+          "case": "fraymus.workspace.MemoryPolicy074Test#worstCaseAdmissionAlwaysReservesFreshExecution",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.MemoryPolicy074Test#onlyMemoryMayReorderItsCandidateQueue",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.MemoryPolicy074Test#frozenCasesHaveDistinctNumericScenesAndSupportedSchema",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.MemoryPolicy074Test#qualificationCannotBeEarnedOnlyByBeatingExhaustiveSearch",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.MemoryPolicy074Test#unknownInputsAndUnownedEpisodesCannotStartAStudy",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.MemoryPolicy074Test#unchangedCounterfactualPlansAndOriginalRankAreTheComparator",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "name": "regression074",
+      "cases": [
+        {
+          "case": "fraymus.workspace.Agency043Test#inspectionReportRequiresActualStoredMatchingReportAssertions",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.Agency043Test#prematureModelFinishCannotCreateAnArtifactOrVisualRoutine",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.Agency043Test#explicitScreenQuestionUsesNativeInspectionAndCounterCreationUsesOnlyTheCreationStage",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.Agency043Test#actualStoredReceiptAndFrozenCounterStepsAreRequiredBeforeClaimIsConsumed",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.Agency043Test#missingActionAuthorityRefusesClearlyWhilePureDefinitionReadsRemainPassive",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.Agency043Test#registeredSchemasRejectInventedFieldsAndAssertionFreeTests",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.Agency043Test#commitFailureAfterConsumingHostClaimInterruptsInsteadOfWaitingForever",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.Agency043Test#queuedAndClaimedTasksRestoreAsInterruptedWithoutSilentReplay",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.Agency043Test#claimedHostInterruptionRejectsOldNonceAndExplicitResumeStartsFreshObservation",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.Agency043Test#unverifiedConversationIsNotPresentedAsVerifiedOutcomeToTheContinuingBrain",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.Agency043Test#rejectedNativeModelSyntaxRetriesWithinBudgetWithoutExecutingRejectedArguments",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.Agent042Test#actualSharedCortexCheckpointReplayLeaseAndRestart",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.Agent042Test#acceptedCameraOutputsExpireAndReplayCannotRefreshThem",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.Agent042Test#missingNeuralCheckpointDoesNotSilentlyResetBrain",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.Agent042Test#clocksKeepWallRollbackAndBootDomainsSeparate",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.Agent042Test#failedGoalsAreWitnessedOnceWithoutRewardingSuccess",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.Agent042Test#checkedStateRejectsAlterationWithoutErasingOriginal",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.Agent042Test#appraisalAblationsActuallyChangeWork",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.Agent042Test#witnessSegmentsVerifyExactCheckpointPrefixAndRefuseDamage",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.Agent042Test#reportEscapesSourceDataAndKeepsExactSnapshot",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#duplicateWarningsKeepEveryOriginalOccurrenceBeyondRecentWindow",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#numericRefusalExplainsOriginalBoundsWithoutChangingThem",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#oversizedRequirementsRefuseRatherThanBeingSilentlyTruncated",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#legacyTaskDoesNotClaimCompleteTimingCoverage",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#summaryRetainsRejectedQualityAndDoesNotDumpMetrics",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#payloadHistoryProjectionRetainsPolicyRequirementsAndContraryOutcomes",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#discoverySummaryKeepsExactBindingsAndBothEndsWithoutBreakingJson",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#largeRecentObservationHasExplicitOmissionHashAndKeepsFailure",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#queuedObjectiveSealRefusesChangedRequest",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#providerMapMetadataIsRetainedWithoutUnrelatedFields",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#automaticCompletionRechecksCurrentArtifactInsteadOfTrustingOldSuccess",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#failedPlannerCallIsTimedAndDoesNotBecomeAnAction",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.Counterfactual045Test#unfinishedForecastRetainsCompletedBytesAndOriginalAttemptsAcrossRestart",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.Counterfactual045Test#codeAndSourceCorruptionAreRefusedWithoutChangingOriginalBytes",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.Counterfactual045Test#ordinaryWorldRequestAndExplicitCounterfactualRequestStayDistinct",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.Counterfactual045Test#nativeAlternativesKeepWorldExactAndSelectedExecutionMatchesOriginalTraces",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.Counterfactual045Test#forecastOnlyAndExplicitNoMovementRequestsRequireReview",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.Counterfactual045Test#cancellationCannotAdvanceOrReserveTheLiveWorld",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#retainedAppearancePolicyCannotChangeCategoryOrInstallDetectorOptions",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#retainedSkillSourceAndForceDefaultsCannotBeSilentlyChanged",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#nativeWaitUsesActualChildAndRetainsItsIdentity",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#savedGraphChatSelectsExactVersionAndWorkflowBeforePlanning",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#sourceFreeHostSuccessAndForeignChildrenAreRejected",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#reportStageCannotSkipActualReads",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#typedOptionsPreserveExplicitValuesAndRejectContradictions",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#interruptedChildCannotProduceSuccessfulCompletion",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#inventedHostFactsDoNotReplaceActualJavaRead",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#retainedSkillSchemasKeepDefaultsOptionalAndHideBoundDetectorPolicy",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#javaRoutesEveryFormerDesktopFamilyWithoutChangingWebCreation",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#constructionReuseExposesOnlyExplicitChangesAndKeepsOriginalLimits",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#actualQueueCompletionRecordsTheVerifiedReportInTheSameLearningEpisode",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#workflowBootstrapBindsDatasetAndSceneInJavaBeforeAnyHostAction",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#reportMustHaveFrozenOriginalAssertionsAndExactSourceVersion",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#creationPromptsAreOwnedBoundedAndKeepSourceReserved",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.GoalRunnerTest#cancelledIntentAndInventedHostReceiptsCannotBecomeSkills",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.GoalRunnerTest#frozenSceneAndReportEffectsHaveStableIdentitiesAndRejectChangedContent",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.GoalRunnerTest#intentSurvivesRestartRequiresExplicitResumeAndHasFiniteRecovery",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.GoalRunnerTest#importedTextCannotInstallHandlersOrEscapePhysicalDomain",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.GoalRunnerTest#aForeignNativeRunIsPreservedAndSourceVersionsAreRequired",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.MemoryPolicy074Test#worstCaseAdmissionAlwaysReservesFreshExecution",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.MemoryPolicy074Test#onlyMemoryMayReorderItsCandidateQueue",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.MemoryPolicy074Test#frozenCasesHaveDistinctNumericScenesAndSupportedSchema",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.MemoryPolicy074Test#qualificationCannotBeEarnedOnlyByBeatingExhaustiveSearch",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.MemoryPolicy074Test#unknownInputsAndUnownedEpisodesCannotStartAStudy",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.MemoryPolicy074Test#unchangedCounterfactualPlansAndOriginalRankAreTheComparator",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.Rehearsal073Test#malformedChangesAndAmbiguousChatCannotGainActionAuthority",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.Rehearsal073Test#actualColdReconstructionAndImmutableMemorySurviveRestart",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.Rehearsal073Test#rehashedTraceAndCodeTamperingAreRejected",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.Rehearsal073Test#oneComponentChangesWithoutLosingRolesUnitsOrTargets",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.Rehearsal073Test#arbitraryMovingStateAndUnownedMemoryAreRefused",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.SkillGraph046Test#losslessDiagnosticOriginsAndTamperedWitnessNeverBecomeSuccess",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.SkillGraph046Test#actualTwoNodeChainChecksOriginalReportsAndRetainsExactGraphAfterRestart",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.SkillGraph046Test#stopDuringActualMotionNeverStartsDependantsOrRetainsGraph",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.SkillGraph046Test#nativeInFlightRecoveryRetainsSameRunAndEveryCommittedPrefixSample",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.SkillGraph046Test#typeCyclesSkillChangesAndAuthorityAreRefusedBeforeAnyNewEffect",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.SkillGraph046Test#exactMemoAuditsCorruptionAndNeverHidesMissingOriginalEvidence",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.SkillGraph046Test#commitBeforeParentCheckpointReconcilesSameChildWithoutReplayingMovement",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.WorldCheckpoint071Test#interruptedRetryKeepsInterruptAndOldGeneration",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.WorldCheckpoint071Test#prolongedLockKeepsCurrentPreviousAndRecoverablePending",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.WorldCheckpoint071Test#transientReaderCommitsExactlyOnceAndKeepsPrevious",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.WorldExportTest#completeSequentialNativeHistoryExportsLosslesslyAndAlteredOriginalsAreRefused",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.WorldLedgerTest#heldNativeMotionSurvivesColdContinuationWithoutLosingWorldOwnership",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.WorldLedgerTest#developmentSequencesPreserveNativeBodiesAndOnlyCommitVerifiedOutcomes",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.WorldLedgerTest#processIndependentCasCorruptionAndExplicitRestoreAreReal",
+          "passed": true
+        }
+      ]
+    }
+  ],
+  "desktop": {
+    "passed": true,
+    "tests": 127,
+    "passedTests": 127,
+    "failed": 0,
+    "skipped": 0,
+    "command": "npm test",
+    "log": "desktop074.log"
+  },
+  "actualApp": [
+    "Actual visible control freezes five owned073 memories; malformed/unowned bank refuses before study creation",
+    "All48 method/task cells retain actual outcomes and full budgets; fresh motion gates audited; active worlds unchanged; no promotion",
+    "Integrated summary, case-level costs, oriented native replay and actual file export work",
+    "Cold app/Java restart preserves the finished study, frozen bank and unchanged outcomes",
+    "Separate actual running-attempt interruption survives restart; explicit recovery retains and charges the old attempt; Stop cannot qualify incomplete work"
+  ],
+  "actualAppSource": "59acb13d6f9063148cb37979bf8e5df56a373f88",
+  "finalApp": {
+    "passed": true,
+    "source": "b4932af776874f787251439bf255d02ce796d61f",
+    "studyId": "3d5f4a11-33e7-4130-b8f8-c95af3b7f108",
+    "checks": [
+      "Finished outcome unchanged after presentation-only update",
+      "Saved comparison label updates to actual completed48/48",
+      "CSP-compatible table and full-width progress styles applied",
+      "Original oriented replay loads and scrubs",
+      "Changing to an unsupported case clears old native replay and source identity",
+      "No-actuation case leaves replay hidden",
+      "Actual1600/1100 presentation has no page overflow",
+      "Read-only inspection preserves all active world entries",
+      "No page errors"
+    ],
+    "errors": []
+  },
+  "audit": {
+    "code": "0ec9de4796a32760b1e4ed87747ff5ffbb992159cef7a55d58371115ff44e229",
+    "passed": true,
+    "attempts": 108
+  },
+  "analysis": {
+    "passed": true,
+    "rows": [
+      {
+        "id": "footprint-1",
+        "split": "unseen",
+        "methods": {
+          "search": {
+            "success": true,
+            "chargedTicks": 23458,
+            "observedTicks": 23458,
+            "runs": 4,
+            "utility": 0.9185486111111111,
+            "wallMillis": 31143.2677
+          },
+          "simple": {
+            "success": true,
+            "chargedTicks": 11708,
+            "observedTicks": 11708,
+            "runs": 2,
+            "utility": 0.9593472222222222,
+            "wallMillis": 13554.0822
+          },
+          "memory": {
+            "success": true,
+            "chargedTicks": 17686,
+            "observedTicks": 17686,
+            "runs": 3,
+            "utility": 0.9385902777777778,
+            "wallMillis": 26224.181
+          }
+        }
+      },
+      {
+        "id": "footprint-2",
+        "split": "unseen",
+        "methods": {
+          "search": {
+            "success": true,
+            "chargedTicks": 25537,
+            "observedTicks": 25537,
+            "runs": 4,
+            "utility": 0.9113298611111111,
+            "wallMillis": 30121.9584
+          },
+          "simple": {
+            "success": true,
+            "chargedTicks": 12540,
+            "observedTicks": 12540,
+            "runs": 2,
+            "utility": 0.9564583333333333,
+            "wallMillis": 14731.4019
+          },
+          "memory": {
+            "success": true,
+            "chargedTicks": 18518,
+            "observedTicks": 18518,
+            "runs": 3,
+            "utility": 0.9357013888888889,
+            "wallMillis": 29345.9191
+          }
+        }
+      },
+      {
+        "id": "yaw-1",
+        "split": "unseen",
+        "methods": {
+          "search": {
+            "success": true,
+            "chargedTicks": 24845,
+            "observedTicks": 24845,
+            "runs": 4,
+            "utility": 0.9137326388888889,
+            "wallMillis": 28071.868
+          },
+          "simple": {
+            "success": true,
+            "chargedTicks": 12394,
+            "observedTicks": 12394,
+            "runs": 2,
+            "utility": 0.9569652777777777,
+            "wallMillis": 14429.237
+          },
+          "memory": {
+            "success": true,
+            "chargedTicks": 18372,
+            "observedTicks": 18372,
+            "runs": 3,
+            "utility": 0.9362083333333333,
+            "wallMillis": 26536.5712
+          }
+        }
+      },
+      {
+        "id": "yaw-2",
+        "split": "unseen",
+        "methods": {
+          "search": {
+            "success": true,
+            "chargedTicks": 27235,
+            "observedTicks": 27235,
+            "runs": 4,
+            "utility": 0.9054340277777778,
+            "wallMillis": 31547.3368
+          },
+          "simple": {
+            "success": true,
+            "chargedTicks": 13398,
+            "observedTicks": 13398,
+            "runs": 2,
+            "utility": 0.9534791666666667,
+            "wallMillis": 15944.1738
+          },
+          "memory": {
+            "success": true,
+            "chargedTicks": 19396,
+            "observedTicks": 19396,
+            "runs": 3,
+            "utility": 0.9326527777777778,
+            "wallMillis": 28319.6785
+          }
+        }
+      },
+      {
+        "id": "route-1",
+        "split": "unseen",
+        "methods": {
+          "search": {
+            "success": true,
+            "chargedTicks": 26869,
+            "observedTicks": 26869,
+            "runs": 4,
+            "utility": 0.9067048611111111,
+            "wallMillis": 33173.4772
+          },
+          "simple": {
+            "success": true,
+            "chargedTicks": 13416,
+            "observedTicks": 13416,
+            "runs": 2,
+            "utility": 0.9534166666666667,
+            "wallMillis": 16772.6549
+          },
+          "memory": {
+            "success": true,
+            "chargedTicks": 19394,
+            "observedTicks": 19394,
+            "runs": 3,
+            "utility": 0.9326597222222223,
+            "wallMillis": 28826.1732
+          }
+        }
+      },
+      {
+        "id": "route-2",
+        "split": "unseen",
+        "methods": {
+          "search": {
+            "success": true,
+            "chargedTicks": 28553,
+            "observedTicks": 28553,
+            "runs": 4,
+            "utility": 0.9008576388888889,
+            "wallMillis": 36284.7845
+          },
+          "simple": {
+            "success": true,
+            "chargedTicks": 14040,
+            "observedTicks": 14040,
+            "runs": 2,
+            "utility": 0.95125,
+            "wallMillis": 18588.5169
+          },
+          "memory": {
+            "success": true,
+            "chargedTicks": 20018,
+            "observedTicks": 20018,
+            "runs": 3,
+            "utility": 0.9304930555555555,
+            "wallMillis": 31535.6605
+          }
+        }
+      },
+      {
+        "id": "obstacle-1",
+        "split": "unseen",
+        "methods": {
+          "search": {
+            "success": true,
+            "chargedTicks": 29912,
+            "observedTicks": 29912,
+            "runs": 4,
+            "utility": 0.8961388888888888,
+            "wallMillis": 38676.962
+          },
+          "simple": {
+            "success": true,
+            "chargedTicks": 14946,
+            "observedTicks": 14946,
+            "runs": 2,
+            "utility": 0.9481041666666666,
+            "wallMillis": 19758.9167
+          },
+          "memory": {
+            "success": true,
+            "chargedTicks": 20924,
+            "observedTicks": 20924,
+            "runs": 3,
+            "utility": 0.9273472222222222,
+            "wallMillis": 32139.0491
+          }
+        }
+      },
+      {
+        "id": "obstacle-2",
+        "split": "unseen",
+        "methods": {
+          "search": {
+            "success": true,
+            "chargedTicks": 30974,
+            "observedTicks": 30974,
+            "runs": 4,
+            "utility": 0.8924513888888889,
+            "wallMillis": 43667.4625
+          },
+          "simple": {
+            "success": true,
+            "chargedTicks": 15458,
+            "observedTicks": 15458,
+            "runs": 2,
+            "utility": 0.9463263888888889,
+            "wallMillis": 22647.7865
+          },
+          "memory": {
+            "success": true,
+            "chargedTicks": 21436,
+            "observedTicks": 21436,
+            "runs": 3,
+            "utility": 0.9255694444444444,
+            "wallMillis": 35566.7992
+          }
+        }
+      },
+      {
+        "id": "payload-1",
+        "split": "unseen",
+        "methods": {
+          "search": {
+            "success": true,
+            "chargedTicks": 20602,
+            "observedTicks": 20602,
+            "runs": 4,
+            "utility": 0.9284652777777778,
+            "wallMillis": 24804.0231
+          },
+          "simple": {
+            "success": true,
+            "chargedTicks": 13414,
+            "observedTicks": 13414,
+            "runs": 2,
+            "utility": 0.9534236111111111,
+            "wallMillis": 16516.0124
+          },
+          "memory": {
+            "success": true,
+            "chargedTicks": 19412,
+            "observedTicks": 19412,
+            "runs": 3,
+            "utility": 0.9325972222222222,
+            "wallMillis": 29156.7734
+          }
+        }
+      },
+      {
+        "id": "payload-2",
+        "split": "unseen",
+        "methods": {
+          "search": {
+            "success": true,
+            "chargedTicks": 21364,
+            "observedTicks": 21364,
+            "runs": 4,
+            "utility": 0.9258194444444444,
+            "wallMillis": 27073.5158
+          },
+          "simple": {
+            "success": true,
+            "chargedTicks": 13922,
+            "observedTicks": 13922,
+            "runs": 2,
+            "utility": 0.9516597222222222,
+            "wallMillis": 17752.4699
+          },
+          "memory": {
+            "success": true,
+            "chargedTicks": 19920,
+            "observedTicks": 19920,
+            "runs": 3,
+            "utility": 0.9308333333333333,
+            "wallMillis": 31562.1878
+          }
+        }
+      },
+      {
+        "id": "material-1",
+        "split": "unseen",
+        "methods": {
+          "search": {
+            "success": true,
+            "chargedTicks": 19048,
+            "observedTicks": 19048,
+            "runs": 4,
+            "utility": 0.9338611111111111,
+            "wallMillis": 20893.1116
+          },
+          "simple": {
+            "success": true,
+            "chargedTicks": 12378,
+            "observedTicks": 12378,
+            "runs": 2,
+            "utility": 0.9570208333333333,
+            "wallMillis": 14895.77
+          },
+          "memory": {
+            "success": true,
+            "chargedTicks": 18356,
+            "observedTicks": 18356,
+            "runs": 3,
+            "utility": 0.9362638888888889,
+            "wallMillis": 27733.8776
+          }
+        }
+      },
+      {
+        "id": "material-2",
+        "split": "unseen",
+        "methods": {
+          "search": {
+            "success": true,
+            "chargedTicks": 21940,
+            "observedTicks": 21940,
+            "runs": 4,
+            "utility": 0.9238194444444444,
+            "wallMillis": 28469.4232
+          },
+          "simple": {
+            "success": true,
+            "chargedTicks": 14306,
+            "observedTicks": 14306,
+            "runs": 2,
+            "utility": 0.9503263888888889,
+            "wallMillis": 19335.1174
+          },
+          "memory": {
+            "success": true,
+            "chargedTicks": 20284,
+            "observedTicks": 20284,
+            "runs": 3,
+            "utility": 0.9295694444444444,
+            "wallMillis": 33283.2037
+          }
+        }
+      },
+      {
+        "id": "excess-mass",
+        "split": "unsupported",
+        "methods": {
+          "search": {
+            "success": false,
+            "chargedTicks": 0,
+            "observedTicks": 0,
+            "runs": 0,
+            "utility": 0,
+            "wallMillis": 94.1492
+          },
+          "simple": {
+            "success": false,
+            "chargedTicks": 0,
+            "observedTicks": 0,
+            "runs": 0,
+            "utility": 0,
+            "wallMillis": 60.7159
+          },
+          "memory": {
+            "success": false,
+            "chargedTicks": 0,
+            "observedTicks": 0,
+            "runs": 0,
+            "utility": 0,
+            "wallMillis": 122.0368
+          }
+        }
+      },
+      {
+        "id": "oversize",
+        "split": "unsupported",
+        "methods": {
+          "search": {
+            "success": false,
+            "chargedTicks": 0,
+            "observedTicks": 0,
+            "runs": 0,
+            "utility": 0,
+            "wallMillis": 59.7435
+          },
+          "simple": {
+            "success": false,
+            "chargedTicks": 0,
+            "observedTicks": 0,
+            "runs": 0,
+            "utility": 0,
+            "wallMillis": 62.3269
+          },
+          "memory": {
+            "success": false,
+            "chargedTicks": 0,
+            "observedTicks": 0,
+            "runs": 0,
+            "utility": 0,
+            "wallMillis": 112.6232
+          }
+        }
+      },
+      {
+        "id": "no-floor",
+        "split": "unsupported",
+        "methods": {
+          "search": {
+            "success": false,
+            "chargedTicks": 0,
+            "observedTicks": 0,
+            "runs": 0,
+            "utility": 0,
+            "wallMillis": 121.3964
+          },
+          "simple": {
+            "success": false,
+            "chargedTicks": 0,
+            "observedTicks": 0,
+            "runs": 0,
+            "utility": 0,
+            "wallMillis": 58.7033
+          },
+          "memory": {
+            "success": false,
+            "chargedTicks": 0,
+            "observedTicks": 0,
+            "runs": 0,
+            "utility": 0,
+            "wallMillis": 96.1496
+          }
+        }
+      },
+      {
+        "id": "bad-height",
+        "split": "unsupported",
+        "methods": {
+          "search": {
+            "success": false,
+            "chargedTicks": 0,
+            "observedTicks": 0,
+            "runs": 0,
+            "utility": 0,
+            "wallMillis": 61.4615
+          },
+          "simple": {
+            "success": false,
+            "chargedTicks": 0,
+            "observedTicks": 0,
+            "runs": 0,
+            "utility": 0,
+            "wallMillis": 114.8231
+          },
+          "memory": {
+            "success": false,
+            "chargedTicks": 0,
+            "observedTicks": 0,
+            "runs": 0,
+            "utility": 0,
+            "wallMillis": 62.1329
+          }
+        }
+      }
+    ],
+    "summary": {
+      "supported": 12,
+      "unsupported": 4,
+      "methods": {
+        "search": {
+          "successes": 12,
+          "ticks": 300337,
+          "observedTicks": 300337,
+          "runs": 48,
+          "wallMillis": 373927.19080000004,
+          "utility": 10.957163194444444,
+          "meanTicks": 25028.083333333332,
+          "meanUtility": 0.9130969328703703
+        },
+        "simple": {
+          "successes": 12,
+          "ticks": 161920,
+          "observedTicks": 161920,
+          "runs": 24,
+          "wallMillis": 204926.1396,
+          "utility": 11.437777777777779,
+          "meanTicks": 13493.333333333334,
+          "meanUtility": 0.9531481481481482
+        },
+        "memory": {
+          "successes": 12,
+          "ticks": 233716,
+          "observedTicks": 233716,
+          "runs": 36,
+          "wallMillis": 360230.07430000004,
+          "utility": 11.18848611111111,
+          "meanTicks": 19476.333333333332,
+          "meanUtility": 0.9323738425925926
+        }
+      },
+      "paired": {
+        "search": {
+          "saved": 0,
+          "harmed": 0,
+          "meanTickDelta": -5551.75,
+          "meanUtilityDelta": 0.01927690972222229
+        },
+        "simple": {
+          "saved": 0,
+          "harmed": 0,
+          "meanTickDelta": 5982.999999999998,
+          "meanUtilityDelta": -0.020774305555555594
+        }
+      },
+      "qualified": false,
+      "bankConstructionTicksLowerBound": 106596,
+      "memoryAmortizedTicksPerTaskLowerBound": 28359.333333333332,
+      "scope": "Independent native trace arithmetic, frozen new-scene components/targets/authority, complete attempt costs, retrieval ordering and paired outcomes. Same simulator, not an independent physics solver or physical-world test."
+    }
+  },
+  "tamper": {
+    "passed": true,
+    "originalPassed": true,
+    "probes": [
+      {
+        "name": "hidden reconstruction cost",
+        "refused": true
+      },
+      {
+        "name": "changed held-out payload",
+        "refused": true
+      },
+      {
+        "name": "changed target goal",
+        "refused": true
+      },
+      {
+        "name": "changed remembered family",
+        "refused": true
+      },
+      {
+        "name": "forecast reused as actual",
+        "refused": true
+      },
+      {
+        "name": "false outcome label",
+        "refused": true
+      },
+      {
+        "name": "changed candidate selection",
+        "refused": true
+      },
+      {
+        "name": "missing recorded attempt",
+        "refused": true
+      }
+    ]
+  },
+  "scope": "Prospectively frozen new configurations in the existing deterministic native box/controller family; 12 supported cases and 4 unsupported controls. No new physical footage, independent solver, LLM inference/weight update or general intelligence test.",
+  "offlineBrowser": {
+    "passed": true,
+    "checks": [
+      {
+        "width": 1440,
+        "cases": 16,
+        "allMethodsAndAttempts": true,
+        "initialMiddleFinalPoses": true,
+        "playPause": true,
+        "bankCostToggle": true,
+        "noActuationClearsSource": true,
+        "mapFilterLinksImages": true,
+        "noHorizontalOverflow": true
+      },
+      {
+        "width": 390,
+        "cases": 16,
+        "allMethodsAndAttempts": true,
+        "initialMiddleFinalPoses": true,
+        "playPause": true,
+        "bankCostToggle": true,
+        "noActuationClearsSource": true,
+        "mapFilterLinksImages": true,
+        "noHorizontalOverflow": true
+      }
+    ],
+    "errors": []
+  }
+}
