@@ -344,6 +344,9 @@ public final class WorkspaceServer implements AutoCloseable {
                     case "/api/world/counter045/run" -> result=goals.counterfactual045().run(input.getString("id"),input.getString("candidate"));
                     case "/api/world/counter045/export" -> {result=goals.counterfactual045().export(input.getString("id"));var study=result.getJSONObject("study");if(study.has("comparison")){var run=goals.worldNative().run(study.getJSONObject("comparison").getString("actualRunId"));if(!WorldFrames.hash(run).equals(study.getJSONObject("comparison").getString("actualRunSha256")))throw new IllegalStateException("Original actual run changed");result.put("actualRun",WorldReport.packed(run));}}
                     case "/api/world/counter045/protocol" -> result=Counterfactual045.protocol();
+                    case "/api/procedures081/diagnostics" -> {SpatialScene.keys(input);result=goals.calibrationStats081();}
+                    case "/api/procedures081/test-mode" -> {SpatialScene.keys(input,"mode");result=goals.testCalibrationMode081(input.getString("mode"));}
+                    case "/api/procedures081/protocol" -> {SpatialScene.keys(input);try(var in=TaskCost080.class.getResourceAsStream("/procedures081-protocol.json")){result=new JSONObject(new String(in.readAllBytes(),java.nio.charset.StandardCharsets.UTF_8));}}
                     case "/api/procedures080/pairs" -> {SpatialScene.keys(input);result=goals.costPairs080();}
                     case "/api/procedures080/calibration" -> {SpatialScene.keys(input);result=goals.calibration080();}
                     case "/api/procedures080/fit" -> {SpatialScene.keys(input,"pairs");result=goals.fitCosts080(input.getJSONArray("pairs"));}

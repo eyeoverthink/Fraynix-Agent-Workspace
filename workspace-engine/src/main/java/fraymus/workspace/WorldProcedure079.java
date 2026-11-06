@@ -8,12 +8,12 @@ import java.util.concurrent.*;
 
 /** Durable, bounded native procedures for the existing Java goal runner. */
 final class WorldProcedure079 implements AutoCloseable {
- private final Path root;private final WorldLedger worlds;private final ProofMemo078 proofs;
+ private final Path root;private final WorldLedger worlds;private final ProofMemo078 proofs;private final CalibrationScan081 calibrationScan081;
  private final Map<String,JSONObject> jobs=new LinkedHashMap<>(),published=new LinkedHashMap<>(),warm=new HashMap<>();
  private final ExecutorService worker=Executors.newSingleThreadExecutor(r->{var t=new Thread(r,"world-procedure-079");t.setDaemon(true);return t;});
  private final Set<String> stops=ConcurrentHashMap.newKeySet();private volatile boolean closed;private volatile String active="";private volatile WorldNativeStore owner;private volatile String nativeId="",activePhase="";private volatile long stageStartTicks;private final Map<String,JSONObject> lastActual=new ConcurrentHashMap<>();private long began;private double prior;
- WorldProcedure079(Path project,WorldLedger worlds)throws Exception {this.worlds=worlds;root=project.resolve("world-procedures-079");proofs=new ProofMemo078(root);if(Files.exists(root))try(var dirs=Files.list(root)){for(Path d:dirs.filter(Files::isDirectory).toList())if(Files.exists(d.resolve("goal.json"))){var j=AgentFiles042.loadChecked(d.resolve("goal.json"));if(!d.getFileName().toString().equals(j.getString("id")))throw new IllegalStateException("Procedure identity changed");jobs.put(j.getString("id"),j);if(Set.of("running","interrupted").contains(j.getString("status"))){j.put("status","interrupted").put("reason","Process ended; explicit bounded same-run resume required");try{reconcileInterrupted(j);}catch(Exception e){j.put("recoveryError",String.valueOf(e.getMessage())).put("reason","Original state cannot be reconciled: "+e.getMessage());}save(j);}else published.put(j.getString("id"),WorldFrames.copy(j));}}}
- static String code(){var x=new JSONObject().put("native",WorldNativeCheckpoint.identity());for(Class<?> c:new Class<?>[]{WorldProcedure079.class,Procedure079.class,Waypoints079.class,Procedure078.class,Procedure077.class,Waypoints077.class,ProofMemo078.class,TaskCost080.class,GoalRunner.class})try(var in=c.getResourceAsStream(c.getSimpleName()+".class")){x.put(c.getSimpleName(),MapDefinition.sha(in.readAllBytes()));}catch(Exception e){throw new IllegalStateException(e);}return WorldFrames.hash(x);}
+ WorldProcedure079(Path project,WorldLedger worlds)throws Exception {this.worlds=worlds;root=project.resolve("world-procedures-079");proofs=new ProofMemo078(root);calibrationScan081=new CalibrationScan081(root);if(Files.exists(root))try(var dirs=Files.list(root)){for(Path d:dirs.filter(Files::isDirectory).toList())if(Files.exists(d.resolve("goal.json"))){var j=AgentFiles042.loadChecked(d.resolve("goal.json"));if(!d.getFileName().toString().equals(j.getString("id")))throw new IllegalStateException("Procedure identity changed");jobs.put(j.getString("id"),j);if(Set.of("running","interrupted").contains(j.getString("status"))){j.put("status","interrupted").put("reason","Process ended; explicit bounded same-run resume required");try{reconcileInterrupted(j);}catch(Exception e){j.put("recoveryError",String.valueOf(e.getMessage())).put("reason","Original state cannot be reconciled: "+e.getMessage());}save(j);}else published.put(j.getString("id"),WorldFrames.copy(j));}}}
+ static String code(){var x=new JSONObject().put("native",WorldNativeCheckpoint.identity());for(Class<?> c:new Class<?>[]{WorldProcedure079.class,Procedure079.class,Waypoints079.class,Procedure078.class,Procedure077.class,Waypoints077.class,ProofMemo078.class,TaskCost080.class,CalibrationScan081.class,GoalRunner.class})try(var in=c.getResourceAsStream(c.getSimpleName()+".class")){x.put(c.getSimpleName(),MapDefinition.sha(in.readAllBytes()));}catch(Exception e){throw new IllegalStateException(e);}return WorldFrames.hash(x);}
  private void reconcileInterrupted(JSONObject j)throws Exception {
   compatible(j);
   for(Object raw:j.getJSONObject("arm").getJSONArray("attempts")){
@@ -177,12 +177,35 @@ final class WorldProcedure079 implements AutoCloseable {
   Path history=root.resolve("cost-models080");if(Files.isDirectory(history))try(var files=Files.list(history)){if(files.count()>=16)throw new IllegalStateException("Calibration history limit16");}
   AgentFiles042.saveChecked(history.resolve(model.getString("id")+".json"),model);AgentFiles042.saveChecked(root.resolve("cost-model080.json"),new JSONObject().put("id",model.getString("id")));return model;
  }
- private JSONObject loadCalibration080(String id)throws Exception {
-  UUID.fromString(id);var model=AgentFiles042.loadChecked(root.resolve("cost-models080").resolve(id+".json"));
-  if(!model.getString("id").equals(id)||!model.getString("code").equals(code()))throw new IllegalStateException("Cost calibration implementation changed");
-  var pairs=new JSONArray();var seen=new HashSet<String>();for(Object raw:model.getJSONArray("pairs")){var p=(JSONObject)raw;String a=p.getString("simpleId"),b=p.getString("memoryId");if(!seen.add(a)||!seen.add(b))throw new IllegalStateException("Duplicate cost provenance");pairs.put(TaskCost080.pair(cost080(a),cost080(b)));for(String goal:List.of(a,b))if(!proofs.snapshot(costEvidence080(goal)).similar(model.getJSONObject("evidence").getJSONArray(goal)))throw new IllegalStateException("Calibration evidence bytes changed");}
-  if(!pairs.similar(model.getJSONArray("pairs")))throw new IllegalStateException("Calibration arithmetic changed");return model;
+ synchronized JSONObject calibrationStats081(){return calibrationScan081.stats();}
+ synchronized JSONObject testCalibrationMode081(String mode){if(!"1".equals(System.getenv("FRAYNIX_WORKSPACE_TEST"))||busy())throw new IllegalStateException("Idle isolated test runtime required");calibrationScan081.testMode(mode);return calibrationScan081.stats();}
+ private synchronized JSONObject loadCalibration080(String id)throws Exception {
+  long began=System.nanoTime();double hashing=0;long bytes=0;boolean success=false;
+  try{
+   UUID.fromString(id);var model=AgentFiles042.loadChecked(root.resolve("cost-models080").resolve(id+".json"));
+   if(!model.getString("id").equals(id)||!model.getString("code").equals(code()))throw new IllegalStateException("Cost calibration implementation changed");
+   var pairs=new JSONArray();var seen=new HashSet<String>();var groups=new LinkedHashMap<String,List<Path>>();
+   for(Object raw:model.getJSONArray("pairs")){
+    var p=(JSONObject)raw;String a=p.getString("simpleId"),b=p.getString("memoryId");if(!seen.add(a)||!seen.add(b))throw new IllegalStateException("Duplicate cost provenance");pairs.put(TaskCost080.pair(cost080(a),cost080(b)));
+    for(String goal:List.of(a,b)){
+     var paths=costEvidence080(goal);
+     if(calibrationScan081.reference()){
+      long at=System.nanoTime();JSONArray scan;try{scan=calibrationScan081.serial(paths);}finally{hashing+=(System.nanoTime()-at)/1e6;}
+      if(!scan.similar(model.getJSONObject("evidence").getJSONArray(goal)))throw new IllegalStateException("Calibration evidence bytes changed");
+      for(Object e:scan)bytes+=((JSONObject)e).getLong("bytes");
+     }else groups.put(goal,paths);
+    }
+   }
+   if(!calibrationScan081.reference()){
+    long at=System.nanoTime();Map<String,JSONArray> scanned;try{scanned=calibrationScan081.parallel(groups);}finally{hashing+=(System.nanoTime()-at)/1e6;}
+    for(var entry:scanned.entrySet()){
+     if(!entry.getValue().similar(model.getJSONObject("evidence").getJSONArray(entry.getKey())))throw new IllegalStateException("Calibration evidence bytes changed");
+     for(Object e:entry.getValue())bytes+=((JSONObject)e).getLong("bytes");
+    }
+   }
+   if(!pairs.similar(model.getJSONArray("pairs")))throw new IllegalStateException("Calibration arithmetic changed");success=true;return model;
+  }finally{calibrationScan081.record((System.nanoTime()-began)/1e6,hashing,bytes,success);}
  }
  synchronized JSONObject calibration080()throws Exception {var p=root.resolve("cost-model080.json");return Files.exists(p)?loadCalibration080(AgentFiles042.loadChecked(p).getString("id")):new JSONObject();}
- @Override public void close(){closed=true;worker.shutdown();try{worker.awaitTermination(10,TimeUnit.SECONDS);}catch(InterruptedException e){Thread.currentThread().interrupt();}}
+ @Override public void close(){closed=true;worker.shutdown();try{worker.awaitTermination(10,TimeUnit.SECONDS);}catch(InterruptedException e){Thread.currentThread().interrupt();}calibrationScan081.close();}
 }

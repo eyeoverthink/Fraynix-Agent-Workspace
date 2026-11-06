@@ -767,6 +767,8 @@ public final class GoalRunner implements AutoCloseable {
         for(var a:costs)for(var b:costs)if(a.optString("mode").equals("simple")&&b.optString("mode").equals("memory"))try{result.put(TaskCost080.pair(a,b));}catch(IllegalArgumentException incompatible){}
         return new JSONObject().put("pairs",result).put("calibration",procedures079.calibration080());
     }
+    public synchronized JSONObject calibrationStats081(){return procedures079.calibrationStats081();}
+    synchronized JSONObject testCalibrationMode081(String mode){return procedures079.testCalibrationMode081(mode);}
     public synchronized JSONObject calibration080()throws Exception{return procedures079.calibration080();}
     public synchronized JSONObject fitCosts080(JSONArray pairs)throws Exception{
         if(busy())throw new IllegalStateException("Finish the current task before fitting costs");
