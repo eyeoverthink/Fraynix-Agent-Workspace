@@ -1,5 +1,16 @@
 # Agent Workspace project memory
 
+## Edition 082 · Resource and sequence study in progress
+
+2026-11-06. Isolated D:/Codex-Work/fraynix-workspace-edition082, parent409afc5, prospective contractf2db6ba. D: avoids filling C: with another7.2GB tracked tree; normal045/qa046/private data and historical releases remain untouched. No subagents or overlapping heavy tests.
+
+New bounded launch settings support256–768MiB heap and1–4 Java processors in both Java lifetimes; default startup is unchanged. Existing persistent owners refuse a different requested budget without replacement. Read-only JVM counters distinguish heap, CPU, GC and total OS process memory. Measurement pins the isolated Java owner to actual Windows logical processors and records affinity throughout. No proof, cost arithmetic, physics, controller, goal or world-ledger change.
+
+Frozen comparison:4/768,2/512,1/384; fresh one learning goal and two simple/memory calibration pairs per profile; two byte-matched synthetic project copies; six continuing goals per reader, cold restart after three, final verified retention/skill and reopen. Six reader-only repetitions plus retained warm-up. All profiles/data on D:, so historical C: timings are not matched evidence. Bank/model remain frozen until final requested retention. Failed tasks stop dependent sequences and are retained. One sequence pair per budget is descriptive, not a general speed guarantee.
+
+Three focused desktop budget checks pass. Broader regression is running; no edition082 performance or completion claim yet. Next: actual owner/limit check, source/build receipt, serial native comparisons, original evidence inspection and tight-budget corruption refusal; then README082/screenshots/offline charts/Obsidian90, notes and verified main publication. Read build/HANDOFF082.md for live sessions and remaining work.
+
+
 ## Edition 081 · Published and fetched back on 2026-11-06
 
 Atomic push to Fraynix-Agent-Workspace main, edition081 and readme-081 succeeded. Release b6a0d384487b64167100fbcf84adf2ef78bb8ccf; annotated tag c1ec3ca359a116c9d92a48d75a7ce9f6cd1597ce. Fresh fetch verified 1141 canonical sources, 11202 frozen hashes across81 editions and 1248 exact original archives including decompressed bytes. Documentation passed 86 canvases / 8205 references. [Publication receipt](PUBLICATION_081.json).
