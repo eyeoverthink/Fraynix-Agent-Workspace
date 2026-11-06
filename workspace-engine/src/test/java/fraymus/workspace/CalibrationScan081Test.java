@@ -7,6 +7,15 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class CalibrationScan081Test {
+    @Test public void normalRuntimeCannotSelectTheDiagnosticReader()throws Exception{
+        assertNotEquals("1",System.getenv("FRAYNIX_WORKSPACE_TEST"));
+        Path root=Files.createTempDirectory("scan081-production-");
+        try(var procedures=new WorldProcedure079(root,new WorldLedger(root))){
+            assertEquals("parallel",procedures.calibrationStats081().getString("mode"));
+            assertThrows(IllegalStateException.class,()->procedures.testCalibrationMode081("reference"));
+            assertEquals("parallel",procedures.calibrationStats081().getString("mode"));
+        }
+    }
     private Map<String,List<Path>> files(Path root)throws Exception{
         var groups=new LinkedHashMap<String,List<Path>>();
         for(int i=0;i<8;i++){
