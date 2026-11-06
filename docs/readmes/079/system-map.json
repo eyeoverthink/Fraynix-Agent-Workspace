@@ -1,0 +1,106 @@
+{
+  "modules": [
+    {
+      "id": "decision",
+      "name": "Measured decision",
+      "note": "docs/obsidian/87-selective-world-goals.md",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/Procedure079.java",
+      "description": "Compare measured avoided work with proof cost and uncertainty."
+    },
+    {
+      "id": "targets",
+      "name": "Current-world targets",
+      "note": "docs/obsidian/87-selective-world-goals.md",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/Waypoints079.java",
+      "description": "Bounded targets proposed from the actual starting frame."
+    },
+    {
+      "id": "runner",
+      "name": "Durable procedure",
+      "note": "docs/obsidian/87-selective-world-goals.md",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/WorldProcedure079.java",
+      "description": "Own forecasts, distinct actual stages, bounded recovery and original evidence."
+    },
+    {
+      "id": "goal",
+      "name": "Chat and saved skills",
+      "note": "docs/obsidian/87-selective-world-goals.md",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/GoalRunner.java",
+      "description": "Existing durable goal/host workflow, report checks and versioned skill reuse."
+    },
+    {
+      "id": "commit",
+      "name": "Atomic world commit",
+      "note": "docs/obsidian/87-selective-world-goals.md",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/WorldLedger.java",
+      "description": "One verified revision per whole procedure; pending ownership on interruption."
+    },
+    {
+      "id": "export",
+      "name": "Complete world history",
+      "note": "docs/obsidian/87-selective-world-goals.md",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/WorldExport079.java",
+      "description": "All stages and failed forecasts in original mixed-world exports."
+    },
+    {
+      "id": "inspect",
+      "name": "Independent arithmetic",
+      "note": "docs/obsidian/87-selective-world-goals.md",
+      "source": "scripts/Inspect-Procedures079.cjs",
+      "description": "Recompute original motion, cost choice, handoffs and proof provenance."
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "docs/readmes/079/actual-before-interruption.png",
+      "label": "actual-before-interruption"
+    },
+    {
+      "path": "docs/readmes/079/actual-native-charts.png",
+      "label": "actual-native-charts"
+    },
+    {
+      "path": "docs/readmes/079/actual-procedure-report.png",
+      "label": "actual-procedure-report"
+    },
+    {
+      "path": "docs/readmes/079/chat-completed.png",
+      "label": "chat-completed"
+    },
+    {
+      "path": "docs/readmes/079/cold-skill-reuse.png",
+      "label": "cold-skill-reuse"
+    },
+    {
+      "path": "docs/readmes/079/layout-1100.png",
+      "label": "layout-1100"
+    },
+    {
+      "path": "docs/readmes/079/layout-1600.png",
+      "label": "layout-1600"
+    },
+    {
+      "path": "docs/readmes/079/resumed-verified.png",
+      "label": "resumed-verified"
+    },
+    {
+      "path": "docs/readmes/079/saved-experience.png",
+      "label": "saved-experience"
+    },
+    {
+      "path": "docs/readmes/079/stop-preserves-world.png",
+      "label": "stop-preserves-world"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/readmes/079/verification.json"
+    },
+    {
+      "path": "docs/readmes/079/original-evidence.json"
+    },
+    {
+      "path": "docs/EDITION_079_CONTRACT.md"
+    }
+  ]
+}

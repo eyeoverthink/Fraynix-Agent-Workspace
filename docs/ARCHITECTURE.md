@@ -1,6 +1,11 @@
 # Fraynix Agent Workspace system architecture
 
-## Current edition078: verified proof reuse
+## Current edition079: selective memory and durable world goals
+
+[Edition079](../README-079.md) connects chat and saved skills to the existing Java goal runner. `Procedure079` owns cost decisions/current-frame task checks; `Waypoints079` proposes bounded targets; `WorldProcedure079` owns staged native forecasts, distinct actual execution, evidence, bounded recovery and memory. Existing host checks verify the actual report. `WorldLedger` commits one measured final revision; `WorldExport079` preserves all stages. Owned exact-byte proof trust is boot-local; skills and verified worlds persist. The frozen unfamiliar-task comparison measures whole-task costs against simple and always-memory controls. See the current README for results and qualified limits.
+
+
+## Edition078 foundation: verified proof reuse
 
 [Edition078](../README-078.md) adds a bounded Java proof cache and byte-verified proof receipts. `ProofMemo078` retains compact successful source-bound checks; `ProcedureStudy078` alone executes fresh native forecast/actual programs, carries measured frames and seals training-only receipts. `Procedure078` owns recipe, retrieval and claim rules. The integrated panel shows full/reused proof counts and lookup/audit/hash timings alongside actual native motion. Simple, geometry, uncached and cached memory share the same repertoire; the study does not promote a controller or mutate an active world. Existing controller, physics and verification remain authoritative. See the current README for measured utility, wall time and training-inclusive outcomes.
 

@@ -2,11 +2,11 @@
 
 **A local visual environment for agents to browse, create runnable artifacts, test behavior and reuse verified skills.**
 
-> **[Edition 078 · Proof reuse with measured costs](README-078.md)** · [Offline guide](docs/readmes/078/index.html) · [Edition history](docs/readmes/INDEX.md)
+> **[Edition 079 · Selective memory in continuing worlds](README-079.md)** · [Offline guide](docs/readmes/079/index.html) · [Edition history](docs/readmes/INDEX.md)
 
-Java reuses fully checked unchanged training evidence while retaining fresh native forecast and actual execution. Three training sources feed a frozen bank; four controls compare eight unfamiliar tasks and four refusal controls. Proof-cache benefit: True; practical wall efficiency: False; first-batch efficiency with training: False. No automatic promotion. [Actual results, screenshots and complete evidence](README-078.md).
+Chat now connects cost-aware verified procedures to durable Java goals, actual native execution, persistent world commits and named saved skills. Selective-benefit qualification: **False**; training-inclusive efficiency: **False**. [Actual results, screenshots and complete evidence](README-079.md).
 
-Edition 078 is published to main with source, actual screenshots, original evidence and continuity notes. [Fetched GitHub verification](docs/PUBLICATION_078.json).
+Edition 079 implementation, screenshots and original evidence are prepared for publication. [Previous fetched publication](docs/PUBLICATION_078.json).
 
 One integrated app, with Java-owned chat planning, creation, native skill scheduling, continuing identity, real clocks and checked outcomes. Mission connects the actual goal, source, child task, recovery and retained result. [Screenshots, typed skill graphs, new logic and production direction](README-046.md).
 

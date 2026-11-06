@@ -1,0 +1,134 @@
+{
+  "nodes": [
+    {
+      "id": "readme",
+      "type": "file",
+      "file": "README-079.md",
+      "x": 0,
+      "y": 0,
+      "width": 380,
+      "height": 200
+    },
+    {
+      "id": "decision",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/Procedure079.java",
+      "x": 0,
+      "y": 270,
+      "width": 380,
+      "height": 210
+    },
+    {
+      "id": "targets",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/Waypoints079.java",
+      "x": 420,
+      "y": 270,
+      "width": 380,
+      "height": 210
+    },
+    {
+      "id": "runner",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/WorldProcedure079.java",
+      "x": 840,
+      "y": 270,
+      "width": 380,
+      "height": 210
+    },
+    {
+      "id": "goal",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/GoalRunner.java",
+      "x": 0,
+      "y": 530,
+      "width": 380,
+      "height": 210
+    },
+    {
+      "id": "commit",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/WorldLedger.java",
+      "x": 420,
+      "y": 530,
+      "width": 380,
+      "height": 210
+    },
+    {
+      "id": "export",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/WorldExport079.java",
+      "x": 840,
+      "y": 530,
+      "width": 380,
+      "height": 210
+    },
+    {
+      "id": "inspect",
+      "type": "file",
+      "file": "scripts/Inspect-Procedures079.cjs",
+      "x": 0,
+      "y": 790,
+      "width": 380,
+      "height": 210
+    }
+  ],
+  "edges": [
+    {
+      "id": "e0",
+      "fromNode": "readme",
+      "fromSide": "bottom",
+      "toNode": "decision",
+      "toSide": "top",
+      "label": "Measured decision"
+    },
+    {
+      "id": "e1",
+      "fromNode": "readme",
+      "fromSide": "bottom",
+      "toNode": "targets",
+      "toSide": "top",
+      "label": "Current-world targets"
+    },
+    {
+      "id": "e2",
+      "fromNode": "readme",
+      "fromSide": "bottom",
+      "toNode": "runner",
+      "toSide": "top",
+      "label": "Durable procedure"
+    },
+    {
+      "id": "e3",
+      "fromNode": "readme",
+      "fromSide": "bottom",
+      "toNode": "goal",
+      "toSide": "top",
+      "label": "Chat and saved skills"
+    },
+    {
+      "id": "e4",
+      "fromNode": "readme",
+      "fromSide": "bottom",
+      "toNode": "commit",
+      "toSide": "top",
+      "label": "Atomic world commit"
+    },
+    {
+      "id": "e5",
+      "fromNode": "readme",
+      "fromSide": "bottom",
+      "toNode": "export",
+      "toSide": "top",
+      "label": "Complete world history"
+    },
+    {
+      "id": "e6",
+      "fromNode": "readme",
+      "fromSide": "bottom",
+      "toNode": "inspect",
+      "toSide": "top",
+      "label": "Independent arithmetic"
+    }
+  ]
+}
