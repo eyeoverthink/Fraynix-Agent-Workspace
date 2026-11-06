@@ -7,6 +7,8 @@ const bank=study.bank.map(b=>JSON.parse(fs.readFileSync(path.join(bankDir,b.id+'
 const file=path.join(folder,'force-margin-1-originals.json'),read=()=>JSON.parse(fs.readFileSync(file,'utf8'));
 assert(inspectCase(read(),bank,study));
 const probes=[
+ ['changed certified bundle',x=>{x.row.results.cached.certificate.bundleSha256='different-source';}],
+ ['changed displayed reconstruction',x=>{x.row.results.cached.reconstruction.sampleCoverage=0;}],
  ['false certificate owner',x=>{x.row.results.cached.certificate.studyId='foreign';}],
  ['missing original certificate proof',x=>{x.certificateProofs=[];}],
  ['changed certificate result',x=>{x.row.results.cached.certificate.comparison.maxPositionResidualM=1;}],
