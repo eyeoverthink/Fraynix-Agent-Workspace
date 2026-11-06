@@ -1,0 +1,11 @@
+package fraymus.workspace;
+import org.json.*;
+import java.util.*;
+/** A complete mixed world history keeps procedure stages, including failed forecasts. */
+final class WorldExport079 {
+ static JSONObject pack(JSONObject world,WorldNativeStore nativeStore,WorldProcedure079 runner)throws Exception {
+  var goalIds=new LinkedHashSet<String>();var ids=new LinkedHashSet<String>();for(Object raw:world.getJSONArray("revisions")){var r=(JSONObject)raw;for(String k:List.of("goalId","abandonedGoalId"))if(r.has(k)&&runner.has(r.getString(k)))goalIds.add(r.getString(k));for(String k:List.of("runId","abandonedRunId"))if(r.has(k)){if(nativeStore.hasRun(r.getString(k)))ids.add(r.getString(k));else {String g=r.optString(k.equals("runId")?"goalId":"abandonedGoalId");if(!runner.has(g))throw new IllegalStateException("Referenced original attempt is missing");}}}if(world.has("pending")){var p=world.getJSONObject("pending");if(runner.has(p.getString("goalId")))goalIds.add(p.getString("goalId"));else ids.add(p.getString("runId"));}if(goalIds.isEmpty())return WorldExport.pack(world,nativeStore);
+  var procedures=new JSONArray();for(String id:goalIds){var p=runner.export(id);for(Object raw:world.getJSONArray("revisions")){var r=(JSONObject)raw;if(r.has("procedureCanonicalSha256")&&r.optString("goalId").equals(id)&&!r.getString("procedureCanonicalSha256").equals(WorldFrames.hash(p.getJSONObject("job"))))throw new IllegalStateException("Committed procedure changed");}procedures.put(p);}var nativeRuns=new JSONArray();for(String id:ids){var r=nativeStore.run(id);for(Object raw:world.getJSONArray("revisions")){var rev=(JSONObject)raw;if(rev.optString("runId").equals(id)&&(!WorldFrames.hash(r).equals(rev.getString("nativeCanonicalSha256"))||!WorldVerify.verify(r).getBoolean("passed")))throw new IllegalStateException("Committed native proof changed");}nativeRuns.put(WorldReport.packed(r));}
+  var result=new JSONObject().put("format","fraynix.persistent-world-procedures-079-v1").put("world",world).put("procedures",procedures).put("legacyNativeRuns",nativeRuns).put("scope","Every referenced owned procedure, all original failed/selected stages and world history; no trajectory replacement");if(result.toString().length()>20_000_000)throw new IllegalStateException("History exceeds transport bound; export individual complete procedures");return result;
+ }
+}

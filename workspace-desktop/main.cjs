@@ -420,6 +420,8 @@ ipcMain.handle('workspace:request',async(event,input)=>{
     }
     case 'persistentWorld':{
       if(input.command==='procedures077-export'){const data=await api('/api/procedures077/export',input.args);return nativeExports.save('verified-procedures-077','json',JSON.stringify(data),{studyId:input.args.id,caseId:input.args.caseId});}
+      if(input.command==='procedures079-export'){const data=await api('/api/procedures079/export',input.args);return nativeExports.save('world-procedure-079','json',JSON.stringify(data),{goalId:input.args.id});}
+      if(input.command==='procedures079-memories'||input.command==='procedures079-protocol')return api('/api/procedures079/'+input.command.slice(14),{});
       if(input.command==='procedures078-export'){const data=await api('/api/procedures078/export',input.args);return nativeExports.save('verified-procedures-078','json',JSON.stringify(data),{studyId:input.args.id,caseId:input.args.caseId});}
       if(input.command?.startsWith('procedures077-')){const op=input.command.slice(14);if(!['protocol','list','start','read','resume','stop','trace','audit'].includes(op))throw Error('Unknown procedure study operation');return api('/api/procedures077/'+op,input.args);}
       if(input.command?.startsWith('procedures078-')){const op=input.command.slice(14);if(!['protocol','list','start','read','resume','stop','trace','audit'].includes(op))throw Error('Unknown procedure study operation');return api('/api/procedures078/'+op,input.args);}
@@ -439,7 +441,7 @@ ipcMain.handle('workspace:request',async(event,input)=>{
 
       if(input.command==='counter-export'){const data=await api('/api/world/counter045/export',input.args);return nativeExports.save('counterfactual-world','json',JSON.stringify(data),{studyId:input.args.id});}
 
-      if(input.command==='select'){const args=input.args||{};const plan=await api('/api/world/preview',args);if(!plan.passed)throw Error(plan.reason);currentPersistentWorld={...args};return currentPersistentWorld;}
+      if(input.command==='select'){const args=input.args||{};const {selectiveMemory079,...preview}=args;const plan=await api('/api/world/preview',preview);if(!plan.passed)throw Error(plan.reason);currentPersistentWorld={...args};return currentPersistentWorld;}
       if(input.command==='start'){
         const {expectedWorldId,expectedHash,...options}=input.args||{};
         if((expectedWorldId!==undefined||expectedHash!==undefined)&&
