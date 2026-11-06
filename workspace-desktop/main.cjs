@@ -420,7 +420,9 @@ ipcMain.handle('workspace:request',async(event,input)=>{
     }
     case 'persistentWorld':{
       if(input.command==='procedures077-export'){const data=await api('/api/procedures077/export',input.args);return nativeExports.save('verified-procedures-077','json',JSON.stringify(data),{studyId:input.args.id,caseId:input.args.caseId});}
+      if(input.command==='procedures078-export'){const data=await api('/api/procedures078/export',input.args);return nativeExports.save('verified-procedures-078','json',JSON.stringify(data),{studyId:input.args.id,caseId:input.args.caseId});}
       if(input.command?.startsWith('procedures077-')){const op=input.command.slice(14);if(!['protocol','list','start','read','resume','stop','trace','audit'].includes(op))throw Error('Unknown procedure study operation');return api('/api/procedures077/'+op,input.args);}
+      if(input.command?.startsWith('procedures078-')){const op=input.command.slice(14);if(!['protocol','list','start','read','resume','stop','trace','audit'].includes(op))throw Error('Unknown procedure study operation');return api('/api/procedures078/'+op,input.args);}
       if(input.command==='procedures076-export'){const data=await api('/api/procedures076/export',input.args);return nativeExports.save('verified-procedures-076','json',JSON.stringify(data),{studyId:input.args.id,caseId:input.args.caseId});}
       if(input.command?.startsWith('procedures076-')){const op=input.command.slice(14);if(!['protocol','list','start','read','resume','stop','trace','audit'].includes(op))throw Error('Unknown procedure study operation');return api('/api/procedures076/'+op,input.args);}
       if(input.command==='memory075-export'){const data=await api('/api/memory075/export',input.args);return nativeExports.save('certified-memory-comparison','json',JSON.stringify(data),{studyId:input.args.id,caseId:input.args.caseId});}

@@ -1,4 +1,5 @@
 import {Procedure077Panel} from './procedures077.js';
+import {Procedure078Panel} from './procedures078.js';
 import {Procedure076Panel} from './procedures076.js';
 import {Memory075Panel} from './memory075.js';
 import {Memory074Panel} from './memory074.js';
@@ -36,6 +37,7 @@ export class PersistentWorldPanel {
    <p class="subtle">Restore is an explicit state revision, not physical movement. Failed or interrupted attempts keep ownership until resumed or explicitly abandoned and restored. Original history stays available.</p>`;
   $('pose-panel').before(root);this.root=root;
   this.procedures077=new Procedure077Panel({call:this.call,root,notice:this.notice});
+  this.procedures078=new Procedure078Panel({call:this.call,root,notice:this.notice});
   this.procedures076=new Procedure076Panel({call:this.call,root,notice:this.notice});
   this.memory075=new Memory075Panel({call:this.call,root,notice:this.notice});
   this.memory074=new Memory074Panel({call:this.call,root,notice:this.notice});
