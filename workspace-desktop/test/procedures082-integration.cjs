@@ -2,7 +2,7 @@
 const {launch}=require('./calibration-integration.cjs'),fs=require('node:fs/promises'),sync=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict'),crypto=require('node:crypto'),cp=require('node:child_process');
 const protocol=require('./fixtures/procedures082-protocol.json'),repo=path.resolve(__dirname,'../..'),sleep=ms=>new Promise(r=>setTimeout(r,ms)),sha=b=>crypto.createHash('sha256').update(b).digest('hex');
 async function main(){
- const buildReceipt=require('../../scripts/Study-Build081.cjs').verify(repo),budget=protocol.budgets.find(b=>b.id===process.argv[2]);assert(budget,'Name a frozen budget');
+ const buildReceipt=require('../../scripts/Study-Build082.cjs').verify(repo),budget=protocol.budgets.find(b=>b.id===process.argv[2]);assert(budget,'Name a frozen budget');
  process.env.FRAYNIX_WORKSPACE_PERSISTENT='0';process.env.FRAYNIX_WORKSPACE_PLAN_CPU_ONLY='1';process.env.FRAYNIX_WORKSPACE_JAVA_HEAP_MIB=String(budget.heapMiB);process.env.FRAYNIX_WORKSPACE_JAVA_PROCESSORS=String(budget.processors);
  const out=path.resolve(repo,'build/ui082-'+budget.id);await fs.mkdir(out,{recursive:true});assert(!sync.existsSync(path.join(out,'checkpoint.json')),'Use a fresh output; do not overwrite a run');
  const project=path.join(out,'preparation'),record={source:cp.execFileSync('git',['rev-parse','HEAD'],{cwd:repo,encoding:'utf8'}).trim(),budget,project,out,buildReceipt,startedAt:new Date().toISOString(),training:[],calibration:[],arms:[],boots:[],checks:[]};
@@ -21,6 +21,7 @@ async function main(){
  }
  async function close(){if(!app)return;boot.finalResources=await api('/api/resources082/state');boot.finalOS=osRead('read',boot.pid);await fs.writeFile(stopFile,'done');await monitorExit;await app.close();app=null;await save();}
  async function capture(name){await sleep(300);await fs.writeFile(path.join(out,name+'.png'),Buffer.from(await app.evaluate(()=>global.workspaceTest.capture()),'base64'));}
+ async function report(id){await app.evaluate((_,id)=>global.workspaceTest.goals.execute('goal.read',{id}),id);await page.waitForFunction(id=>document.querySelector('#java-goal').dataset.goalId===id&&document.querySelector('#java-goal-status').textContent==='completed',id);await page.locator('#java-goal-report').click();await sleep(500);}
  async function create(spec){const s=await api('/api/spatial/import',{text:JSON.stringify(spec.source)});return api('/api/world/create',{sceneId:s.id,title:'LABELLED082 '+spec.id});}
  async function binding(world){const o=await api('/api/world/observe',{worldId:world.id});return Object.fromEntries(['worldId','expectedRevision','expectedHash'].map(k=>[k,o[k]]));}
  async function run(spec,world,mode,policy,retain,skillName=''){
@@ -59,15 +60,15 @@ async function main(){
     last=row.observed;
     assert.equal(sha(await fs.readFile(path.join(armProject,'world-procedures-079/cost-models080',record.model.id+'.json'))),record.modelSha);
     if(!spec.retain)assert.equal(sha(await fs.readFile(path.join(armProject,'world-procedures-079/bank.json'))),record.frozenBankSha);
-    if(i===0||i===5){await page.locator('#java-goal-report').click();await sleep(500);await capture(mode+'-goal-'+(i+1)+'-report');}
+    if(i===0||i===5){await report(row.goalId);await capture(mode+'-goal-'+(i+1)+'-report');}
    }
    arm.executionEnvelopeMillis=performance.now()-armAt;arm.final=last;await viewWorld(world);await capture(mode+'-continuing-world');
    const reopenAt=performance.now();await close();await open(armProject,mode+'-verify');const final=await api('/api/world/observe',{worldId:world.id});assert.equal(final.expectedHash,last.expectedHash);assert.equal(final.expectedRevision,last.expectedRevision);arm.persistenceMillis=performance.now()-reopenAt;
-   if(!arm.failedAt){const g=await api('/api/goals/read',{id:arm.rows.at(-1).goalId});assert.equal(g.savedSkill.name,'resource-route-082');assert(g.savedSkill.version>=1);arm.savedSkill=g.savedSkill;await page.locator('#java-goal-report').click();await sleep(500);await capture(mode+'-saved-skill');}
+   if(!arm.failedAt){const g=await api('/api/goals/read',{id:arm.rows.at(-1).goalId});assert.equal(g.savedSkill.name,'resource-route-082');assert(g.savedSkill.version>=1);arm.savedSkill=g.savedSkill;await report(g.id);await capture(mode+'-saved-skill');}
    if(mode==='parallel'){await viewWorld(world);for(const width of [1600,1100]){await app.evaluate(({BrowserWindow},w)=>BrowserWindow.getAllWindows().find(x=>x.isVisible()).setSize(w,1000),width);assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));await capture(mode+'-layout-'+width);}}
    await close();arm.finishedAt=new Date().toISOString();await save();
   }
-  require('../../scripts/Study-Build081.cjs').verify(repo);assert.deepEqual(errors,[]);record.errors=errors;record.passed=true;record.finishedAt=new Date().toISOString();await fs.writeFile(path.join(out,'result.json'),JSON.stringify(record,null,2));console.log('COMPLETE',budget.id,out);
+  require('../../scripts/Study-Build082.cjs').verify(repo);assert.deepEqual(errors,[]);record.errors=errors;record.passed=true;record.finishedAt=new Date().toISOString();await fs.writeFile(path.join(out,'result.json'),JSON.stringify(record,null,2));console.log('COMPLETE',budget.id,out);
  }catch(e){record.error=e.stack;await save();if(app)await capture('failure').catch(()=>{});throw e;}finally{if(app)await close().catch(e=>console.error('Closing:',e));}
 }
 main().catch(e=>{console.error(e);process.exitCode=1;});
