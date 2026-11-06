@@ -45,7 +45,9 @@ public class RebuildCertificate075Test {
         Path p=Files.createTempDirectory("certificate075-invalid-");var j=job();var store=new RebuildCertificate075(p);var c=store.install(j,bundle,owned(j),a->run);
         assertEquals("invalid",store.lookup(j,bundle,a->{throw new IOException("Original proof missing");}).getString("status"));
         var altered=WorldFrames.copy(run).put("status","failed");assertEquals("invalid",store.lookup(j,bundle,a->altered).getString("status"));
-        Path file=p.resolve(c.getString("key")+".json");Files.writeString(file,"damaged certificate");assertEquals("invalid",store.lookup(j,bundle,a->run).getString("status"));
+        Path file=p.resolve(c.getString("key")+".json");
+        AgentFiles042.saveChecked(file,WorldFrames.copy(c).put("createdAt","2999-01-01T00:00:00Z"));assertEquals("invalid",store.lookup(j,bundle,a->run).getString("status"));
+        Files.writeString(file,"damaged certificate");assertEquals("invalid",store.lookup(j,bundle,a->run).getString("status"));
         store.install(j,bundle,owned(j),a->run);try(var xs=Files.list(p.resolve("superseded"))){assertEquals("damaged certificate",Files.readString(xs.findFirst().orElseThrow()));}
         assertEquals("hit",store.lookup(j,bundle,a->run).getString("status"));
     }

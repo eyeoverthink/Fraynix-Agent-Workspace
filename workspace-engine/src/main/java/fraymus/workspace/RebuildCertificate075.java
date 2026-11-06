@@ -38,7 +38,9 @@ final class RebuildCertificate075 {
         long began=System.nanoTime();String key=key(bundle);var out=new JSONObject().put("key",key).put("checkedAt",Instant.now().toString());
         try{
             if(!Files.exists(path(key)))return out.put("status","miss").put("reason","No verified certificate for the exact original source and native contract");
-            var c=AgentFiles042.loadChecked(path(key));var run=verify(job,bundle,c,originals);
+            var c=AgentFiles042.loadChecked(path(key));
+            if(Instant.parse(c.getString("createdAt")).isAfter(Instant.parse(out.getString("checkedAt"))))throw new IllegalStateException("Certificate is dated after this lookup");
+            var run=verify(job,bundle,c,originals);
             return out.put("status","hit").put("certificate",c).put("certificateSha256",WorldFrames.hash(c)).put("run",run).put("reason","Owned original reconstruction revalidated; new-task forecast and actual execution still required");
         }catch(Exception e){return out.put("status","invalid").put("reason",e.getMessage()==null?e.getClass().getSimpleName():e.getMessage());}
         finally{out.put("validationMillis",(System.nanoTime()-began)/1e6);}
