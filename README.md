@@ -6,7 +6,7 @@
 
 Java searches clear intermediate landing targets, executes verified native stages and retains measured state. Three training sources feed a frozen bank; four controls compare eight unfamiliar tasks and four refusal controls. Task utility qualification: True; practical wall efficiency: False; first-batch efficiency with training: False. No automatic promotion. [Actual results, screenshots and complete evidence](README-077.md).
 
-Edition 077 implementation, screenshots and original evidence are prepared for publication. [Previous fetched publication](docs/PUBLICATION_076.json).
+Edition 077 is published to main with source, actual screenshots, original evidence and continuity notes. [Fetched GitHub verification](docs/PUBLICATION_077.json).
 
 One integrated app, with Java-owned chat planning, creation, native skill scheduling, continuing identity, real clocks and checked outcomes. Mission connects the actual goal, source, child task, recovery and retained result. [Screenshots, typed skill graphs, new logic and production direction](README-046.md).
 

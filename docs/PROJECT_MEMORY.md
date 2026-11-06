@@ -1,5 +1,16 @@
 # Agent Workspace project memory
 
+## Edition 077 · Published and fetched back on 2026-11-05
+
+Atomic push to Fraynix-Agent-Workspace main, edition077 and readme-077 succeeded. Release f0a417b742a30f3976b8cfc8ac430c47c9146d70; annotated tag 8d95816200195531fea0492805429385d2812c1c. Fresh GitHub fetch verified 1098 canonical sources, 7175 frozen hashes across77editions and 263 exact original archives including decompressed bytes. Documentation passed 82canvases/7818references. [Publication receipt](PUBLICATION_077.json).
+
+119 distinct targeted Java checks/18classes; 127desktop checks. Real six-stage native handoff, integrated63-arm study, replay/exports, cold full audit, separate recovery/Stop, damaged bank refusal, 23 altered-evidence probes. Actual app1600/1100 and offline1440/390. No new LLM inference or physical accuracy claim.
+
+legacy: 6/8, 135498ticks/26native stages; simple: 8/8, 179934ticks/34native stages; geometry: 8/8, 191163ticks/36native stages; memory: 8/8, 160122ticks/28native stages. Task utility qualification True; practical efficiency False; first-batch efficiency with training False. Training219050ticks includes failures; bank10verified receipts. All controls keep original authority and native verification. Waypoint proposals/geometric previews are not measured motion; exact native kinematic handoffs remain distinct from contact-manifold restoration. No active-world commits, evaluation ingestion or automatic promotion. Independent inspection checks native arithmetic/candidate membership/ranking/costs; Java additionally reconstructs complete geometry search and baseline policy.
+
+Prospective contract73ebe37; schema correction4e9c72e before motion; runtime4bc8fd4. All native/WorldFrames/073–076 sources unchanged. No primary policy/case/gate tuning. README077, actual screenshots, offline guide, source tree, exact evidence, Obsidian85/canvas and memories/logs published. Test app closed; normal045/qa046/private data/services preserved. Next: selective memory use, source-bound proof reuse and typed durable-goal integration with fresh matched controls. Synthetic lifted box tasks; not arbitrary robot navigation or new physical-camera calibration. This publication receipt follows the immutable release tag.
+
+
 ## Edition 077 · Validated locally; publication next
 
 Prospective contract73ebe37; duplicate-obstacle-ID schema correction4e9c72e before native motion; runtime4bc8fd4. New Waypoints077 uses bounded clear-landing search, source-bound geometric receipts and a separate hypothetical geometry preview. Original native physics/controller/verifier/WorldFrames and073–076 untouched. No primary-outcome tuning. Five recipes,15training arms and48evaluation arms. Clear targets are proposals; only measured native frames advance execution.
