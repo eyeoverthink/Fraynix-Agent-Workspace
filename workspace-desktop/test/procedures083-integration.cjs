@@ -26,12 +26,14 @@ async function main(){
  async function create(spec){const s=await api('/api/spatial/import',{text:JSON.stringify(spec.source)});return api('/api/world/create',{sceneId:s.id,title:'LABELLED083 '+spec.id});}
  async function binding(world){const o=await api('/api/world/observe',{worldId:world.id});return Object.fromEntries(['worldId','expectedRevision','expectedHash'].map(k=>[k,o[k]]));}
  async function run(spec,world,mode,policy,retain,skillName=''){
+  const bankBefore=await fs.readFile(path.join(currentProject,'world-procedures-079/bank.json')).catch(()=>null);
   await api('/api/procedures081/test-mode',{mode});const b=await binding(world),before=await api('/api/resources082/state'),beforeOS=osRead('read',before.pid),at=performance.now(),samples=[];
   const goal=await api('/api/world/start',{...b,targets:spec.targets,forceLimitN:spec.forceLimitN,torqueLimitNm:spec.torqueLimitNm,selectiveMemory079:true,memoryMode079:policy,retainExperience079:retain,...(skillName?{saveSkillName:skillName}:{}),request:'083 continuing-world '+spec.id});
   let sampleAt=performance.now();const settled=await wait(async()=>{const g=await api('/api/goals/read',{id:goal.id});if(performance.now()-sampleAt>=2000){samples.push(await api('/api/resources082/state'));sampleAt=performance.now();}return ['completed','cancelled','interrupted'].includes(g.status)?g:null;});
   const callerMillis=performance.now()-at,after=await api('/api/resources082/state'),afterOS=osRead('read',before.pid),scan=await api('/api/procedures081/diagnostics'),observed=await api('/api/world/observe',{worldId:world.id});
   const exportAt=performance.now(),original=await api('/api/procedures079/export',{id:goal.id}),file=spec.id+'-'+mode+'-'+goal.id+'-originals.json';await fs.writeFile(path.join(out,file),JSON.stringify(original));
   const row={id:spec.id,goalId:goal.id,mode,policy,retain,skillName,project:currentProject,status:settled.status,reason:settled.reason,callerMillis,exportMillis:performance.now()-exportAt,scan,before,after,beforeOS,afterOS,samples,binding:b,observed,goal:settled,job:original.job,originalFile:file};
+  const bankAfter=await fs.readFile(path.join(currentProject,'world-procedures-079/bank.json')).catch(()=>null);row.bankBefore={sha256:bankBefore?sha(bankBefore):null,count:bankBefore?JSON.parse(bankBefore).data.entries.length:0};row.bankAfter={sha256:bankAfter?sha(bankAfter):null,count:bankAfter?JSON.parse(bankAfter).data.entries.length:0};
   console.log('RESULT',budget.id,spec.id,mode,settled.status,callerMillis.toFixed(1));
   assert.equal(beforeOS.affinity,afterOS.affinity);assert.equal(beforeOS.affinity,boot.pinned.affinity);assert.equal(before.pid,after.pid);assert(after.processCpuNanos>=before.processCpuNanos);
   if(settled.status==='completed'){
@@ -69,7 +71,7 @@ async function main(){
     const spec=protocol.cases[i],order=protocol.methods.map((_,k)=>protocol.methods[(k+i+protocol.groups.findIndex(x=>x.id===group.id))%protocol.methods.length]);
     for(const policy of order){
      const where=path.join(out,'evaluation-'+i+'-'+policy);await clone(project,where,record.preparedFiles);await start(where,'evaluate-'+i+'-'+policy);const world=await create(spec),skillName=group.skill?'route-083-'+i+'-'+policy:'';
-     const row=await run(spec,world,'parallel',policy,group.retain,skillName);row.caseIndex=i;row.order=order;row.initialCloneVerified=true;record.rows.push(row);await save();assert.equal(row.status,'completed');
+     const row=await run(spec,world,'parallel',policy,group.retain,skillName);row.caseIndex=i;row.order=order;row.initialCloneVerified=true;assert.equal(row.bankBefore.sha256,record.frozenBankSha);record.rows.push(row);await save();assert.equal(row.status,'completed');
      if(policy!=='simple'){assert.equal(row.job.decision.candidate.id,record.receiptId);assert.equal(row.job.decision.candidate.warm,group.warm);}if(policy==='calibrated')assert(row.job.decision.cost080.available,'Expected matching calibration must exist; do not retune outcomes');
      assert.equal(sha(await fs.readFile(path.join(where,'world-procedures-079/cost-models080',record.model.id+'.json'))),record.modelSha);if(!group.retain)assert.equal(sha(await fs.readFile(path.join(where,'world-procedures-079/bank.json'))),record.frozenBankSha);
      if(policy==='calibrated'){await report(row.goalId);await capture('case-'+i+'-estimated-report');await viewWorld(world);await capture('case-'+i+'-world');}
