@@ -694,6 +694,12 @@ public final class GoalRunner implements AutoCloseable {
         var out=new JSONArray();for(String id:rehearsal073.ids())try{out.put(Rehearsal073.summary(episode073(id)).put("eligible",true));}catch(Exception error){out.put(new JSONObject().put("id",id).put("eligible",false).put("reason",error.getMessage()));}return out;
     }
     public synchronized JSONObject readExperiment073(String id)throws Exception{return episode073(id);}
+    synchronized JSONObject memoryBundle074(String id)throws Exception {
+        var e=episode073(id);var g=read(e.getString("sourceGoalId"));verifiedCounter045(g,verifiedWorld(g));
+        String preferred=g.has("counterfactual045")?g.getJSONObject("counterfactual045").getString("selectedCandidate"):MemoryPolicy074.FAMILIES.get(0);
+        if(!MemoryPolicy074.FAMILIES.contains(preferred))throw new IllegalArgumentException("Memory uses another candidate family");
+        return new JSONObject().put("episode",e).put("preferred",preferred);
+    }
     public synchronized JSONObject rehearsalReplay073(String goalId)throws Exception {
         var g=read(goalId);var m=g.getJSONObject("rehearsal073");var e=episode073(m.getString("parentEpisodeId"));
         if(!WorldFrames.hash(e).equals(m.getString("parentEpisodeSha256")))throw new IllegalStateException("Parent episode changed");

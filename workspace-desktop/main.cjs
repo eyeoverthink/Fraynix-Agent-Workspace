@@ -419,6 +419,9 @@ ipcMain.handle('workspace:request',async(event,input)=>{
       if(!['state','read','frame','stop','resume'].includes(input.command))throw Error('Unknown observation operation');return api('/api/observations/'+input.command,input.args||{});
     }
     case 'persistentWorld':{
+      if(input.command==='memory074-export'){const data=await api('/api/memory074/export',input.args);return nativeExports.save('memory-comparison','json',JSON.stringify(data),{studyId:input.args.id,caseId:input.args.caseId});}
+      if(input.command?.startsWith('memory074-')){const op=input.command.slice(10);if(!['protocol','list','start','read','resume','stop','trace','audit'].includes(op))throw Error('Unknown memory comparison operation');return api('/api/memory074/'+op,input.args||{});}
+
       if(input.command==='rehearsal-goals')return api('/api/goals/list',{});
       if(input.command==='rehearsal-start'){const a=input.args||{};if(!/^[A-Za-z0-9_.-]{1,80}$/.test(a.sourceId)||!['friction','massKg'].includes(a.property)||!Number.isFinite(a.value)||a.episodeId&&!/^[0-9a-f-]{36}$/.test(a.episodeId))throw Error('Choose a source role and one numeric component change');return startAgent('Rehearse experiment '+(a.episodeId||'')+', change '+a.sourceId+' '+a.property+' to '+a.value+'. '+(a.review?'Review before executing.':'Execute and verify the variant world.'),await window.webContents.executeJavaScript('document.querySelector("#model").value'));}
       if(['rehearsal-list','rehearsal-read','rehearsal-remember','rehearsal-replay'].includes(input.command))return api('/api/rehearsal073/'+input.command.slice(10),input.args||{});

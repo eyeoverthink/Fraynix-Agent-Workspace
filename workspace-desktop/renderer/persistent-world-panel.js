@@ -1,3 +1,4 @@
+import {Memory074Panel} from './memory074.js';
 import {Rehearsal073Panel} from './rehearsal073.js';
 const $=id=>document.getElementById(id);
 const FIRST_SKILL_CASE='dev035-three-body-chain';
@@ -31,6 +32,7 @@ export class PersistentWorldPanel {
    <div class="persistent-toolbar"><label>Verified history<select id="persistent-revisions"></select></label><button id="persistent-restore">Restore selected verified revision</button><button id="persistent-export">Export world &amp; all attempts</button></div>
    <p class="subtle">Restore is an explicit state revision, not physical movement. Failed or interrupted attempts keep ownership until resumed or explicitly abandoned and restored. Original history stays available.</p>`;
   $('pose-panel').before(root);this.root=root;
+  this.memory074=new Memory074Panel({call:this.call,root,notice:this.notice});
   this.rehearsal073=new Rehearsal073Panel({call:this.call,root,notice:this.notice,selectWorld:id=>this.select(id)});
   $('first-world-start').onclick=async()=>{
    $('first-world-start').disabled=true;
