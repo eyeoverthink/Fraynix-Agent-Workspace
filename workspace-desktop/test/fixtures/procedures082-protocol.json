@@ -1,0 +1,981 @@
+{
+  "edition": 82,
+  "parent": "409afc56a86d70d851af58426c4caf8955beaa57",
+  "budgets": [
+    {
+      "id": "four-768",
+      "processors": 4,
+      "heapMiB": 768,
+      "order": [
+        "reference",
+        "parallel"
+      ]
+    },
+    {
+      "id": "two-512",
+      "processors": 2,
+      "heapMiB": 512,
+      "order": [
+        "parallel",
+        "reference"
+      ]
+    },
+    {
+      "id": "one-384",
+      "processors": 1,
+      "heapMiB": 384,
+      "order": [
+        "reference",
+        "parallel"
+      ]
+    }
+  ],
+  "training": [
+    {
+      "id": "train-occupied",
+      "group": "proof-reuse",
+      "split": "training",
+      "source": {
+        "format": "fraynix.spatial-scene",
+        "version": 1,
+        "title": "Edition079 learning goal train-occupied",
+        "units": "m",
+        "frame": "right-handed-y-up",
+        "source": {
+          "kind": "synthetic",
+          "physicalProperties": "declared",
+          "note": "Prospectively declared deterministic box experiment; not physical observations."
+        },
+        "scaleReference": {
+          "a": [
+            0,
+            0,
+            0
+          ],
+          "b": [
+            1,
+            0,
+            0
+          ],
+          "knownLengthM": 1,
+          "toleranceM": 0,
+          "basis": "declared-test"
+        },
+        "gravityMps2": 9.81,
+        "objects": [
+          {
+            "sourceId": "floor",
+            "label": "floor",
+            "shape": "box",
+            "position": [
+              0,
+              -0.25,
+              0
+            ],
+            "size": [
+              12,
+              0.5,
+              12
+            ],
+            "massKg": 0,
+            "friction": 0.5,
+            "restitution": 0,
+            "rotation": [
+              0,
+              0.0,
+              0,
+              1.0
+            ]
+          },
+          {
+            "sourceId": "A",
+            "label": "A",
+            "shape": "box",
+            "position": [
+              -3.65,
+              0.21,
+              -3.5
+            ],
+            "size": [
+              0.55,
+              0.42,
+              0.7
+            ],
+            "massKg": 0.6,
+            "friction": 0.25,
+            "restitution": 0,
+            "rotation": [
+              0,
+              0.0,
+              0,
+              1.0
+            ]
+          },
+          {
+            "sourceId": "B",
+            "label": "B",
+            "shape": "box",
+            "position": [
+              2.3,
+              0.16,
+              1.6
+            ],
+            "size": [
+              0.85,
+              0.32,
+              0.4
+            ],
+            "massKg": 0.8,
+            "friction": 0.25,
+            "restitution": 0,
+            "rotation": [
+              0,
+              0.0,
+              0,
+              1.0
+            ]
+          },
+          {
+            "sourceId": "bystander",
+            "label": "bystander",
+            "shape": "box",
+            "position": [
+              4.8,
+              0.25,
+              -3.5
+            ],
+            "size": [
+              0.5,
+              0.5,
+              0.6
+            ],
+            "massKg": 1,
+            "friction": 0.55,
+            "restitution": 0,
+            "rotation": [
+              0,
+              0.0,
+              0,
+              1.0
+            ]
+          },
+          {
+            "sourceId": "obstacle0",
+            "label": "Fixed obstacle 0",
+            "shape": "box",
+            "position": [
+              -1.2166666666666668,
+              0.35,
+              -1.166666666666667
+            ],
+            "size": [
+              0.6,
+              0.7,
+              0.65
+            ],
+            "massKg": 0,
+            "friction": 0.5,
+            "restitution": 0,
+            "rotation": [
+              0,
+              0.0,
+              0,
+              1.0
+            ]
+          },
+          {
+            "sourceId": "obstacle1",
+            "label": "Fixed obstacle 1",
+            "shape": "box",
+            "position": [
+              1.2166666666666663,
+              0.35,
+              1.166666666666666
+            ],
+            "size": [
+              0.6,
+              0.7,
+              0.65
+            ],
+            "massKg": 0,
+            "friction": 0.5,
+            "restitution": 0,
+            "rotation": [
+              0,
+              0.0,
+              0,
+              1.0
+            ]
+          }
+        ]
+      },
+      "targets": [
+        {
+          "sourceId": "A",
+          "positionM": [
+            3.65,
+            0.21,
+            3.5
+          ],
+          "yawDeg": 95
+        },
+        {
+          "sourceId": "B",
+          "positionM": [
+            1.4,
+            0.16,
+            -1.5
+          ],
+          "yawDeg": -100
+        }
+      ],
+      "forceLimitN": 40,
+      "torqueLimitNm": 2.5
+    }
+  ],
+  "calibration": [
+    {
+      "id": "080-fit-0-0",
+      "group": "proof-reuse",
+      "split": "training",
+      "source": {
+        "format": "fraynix.spatial-scene",
+        "version": 1,
+        "title": "LABELLED 080 080-fit-0-0",
+        "units": "m",
+        "frame": "right-handed-y-up",
+        "source": {
+          "kind": "synthetic",
+          "physicalProperties": "declared",
+          "note": "Prospectively declared deterministic box experiment; not physical observations."
+        },
+        "scaleReference": {
+          "a": [
+            0,
+            0,
+            0
+          ],
+          "b": [
+            1,
+            0,
+            0
+          ],
+          "knownLengthM": 1,
+          "toleranceM": 0,
+          "basis": "declared-test"
+        },
+        "gravityMps2": 9.81,
+        "objects": [
+          {
+            "sourceId": "floor",
+            "label": "floor",
+            "shape": "box",
+            "position": [
+              0,
+              -0.25,
+              0
+            ],
+            "size": [
+              12,
+              0.5,
+              12
+            ],
+            "massKg": 0,
+            "friction": 0.5,
+            "restitution": 0,
+            "rotation": [
+              0,
+              0.0,
+              0,
+              1.0
+            ]
+          },
+          {
+            "sourceId": "A",
+            "label": "A",
+            "shape": "box",
+            "position": [
+              -3.65,
+              0.21,
+              -3.5
+            ],
+            "size": [
+              0.55,
+              0.42,
+              0.7
+            ],
+            "massKg": 0.594,
+            "friction": 0.265,
+            "restitution": 0,
+            "rotation": [
+              0,
+              0.0,
+              0,
+              1.0
+            ]
+          },
+          {
+            "sourceId": "B",
+            "label": "B",
+            "shape": "box",
+            "position": [
+              2.3,
+              0.16,
+              1.6
+            ],
+            "size": [
+              0.85,
+              0.32,
+              0.4
+            ],
+            "massKg": 0.792,
+            "friction": 0.265,
+            "restitution": 0,
+            "rotation": [
+              0,
+              0.0,
+              0,
+              1.0
+            ]
+          },
+          {
+            "sourceId": "bystander",
+            "label": "bystander",
+            "shape": "box",
+            "position": [
+              4.8,
+              0.25,
+              -3.5
+            ],
+            "size": [
+              0.5,
+              0.5,
+              0.6
+            ],
+            "massKg": 0.99,
+            "friction": 0.5650000000000001,
+            "restitution": 0,
+            "rotation": [
+              0,
+              0.0,
+              0,
+              1.0
+            ]
+          },
+          {
+            "sourceId": "obstacle0",
+            "label": "Fixed obstacle 0",
+            "shape": "box",
+            "position": [
+              -1.2166666666666668,
+              0.35,
+              -1.166666666666667
+            ],
+            "size": [
+              0.6,
+              0.7,
+              0.65
+            ],
+            "massKg": 0,
+            "friction": 0.5,
+            "restitution": 0,
+            "rotation": [
+              0,
+              0.0,
+              0,
+              1.0
+            ]
+          },
+          {
+            "sourceId": "obstacle1",
+            "label": "Fixed obstacle 1",
+            "shape": "box",
+            "position": [
+              1.2166666666666663,
+              0.35,
+              1.166666666666666
+            ],
+            "size": [
+              0.6,
+              0.7,
+              0.65
+            ],
+            "massKg": 0,
+            "friction": 0.5,
+            "restitution": 0,
+            "rotation": [
+              0,
+              0.0,
+              0,
+              1.0
+            ]
+          }
+        ]
+      },
+      "targets": [
+        {
+          "sourceId": "A",
+          "positionM": [
+            3.6149999999999998,
+            0.21,
+            3.5
+          ],
+          "yawDeg": 95
+        },
+        {
+          "sourceId": "B",
+          "positionM": [
+            1.365,
+            0.16,
+            -1.5
+          ],
+          "yawDeg": -100
+        }
+      ],
+      "forceLimitN": 40,
+      "torqueLimitNm": 2.5
+    },
+    {
+      "id": "080-fit-0-1",
+      "group": "proof-reuse",
+      "split": "training",
+      "source": {
+        "format": "fraynix.spatial-scene",
+        "version": 1,
+        "title": "LABELLED 080 080-fit-0-1",
+        "units": "m",
+        "frame": "right-handed-y-up",
+        "source": {
+          "kind": "synthetic",
+          "physicalProperties": "declared",
+          "note": "Prospectively declared deterministic box experiment; not physical observations."
+        },
+        "scaleReference": {
+          "a": [
+            0,
+            0,
+            0
+          ],
+          "b": [
+            1,
+            0,
+            0
+          ],
+          "knownLengthM": 1,
+          "toleranceM": 0,
+          "basis": "declared-test"
+        },
+        "gravityMps2": 9.81,
+        "objects": [
+          {
+            "sourceId": "floor",
+            "label": "floor",
+            "shape": "box",
+            "position": [
+              0,
+              -0.25,
+              0
+            ],
+            "size": [
+              12,
+              0.5,
+              12
+            ],
+            "massKg": 0,
+            "friction": 0.5,
+            "restitution": 0,
+            "rotation": [
+              0,
+              0.0,
+              0,
+              1.0
+            ]
+          },
+          {
+            "sourceId": "A",
+            "label": "A",
+            "shape": "box",
+            "position": [
+              -3.65,
+              0.21,
+              -3.5
+            ],
+            "size": [
+              0.55,
+              0.42,
+              0.7
+            ],
+            "massKg": 0.6149999999999999,
+            "friction": 0.28,
+            "restitution": 0,
+            "rotation": [
+              0,
+              0.0,
+              0,
+              1.0
+            ]
+          },
+          {
+            "sourceId": "B",
+            "label": "B",
+            "shape": "box",
+            "position": [
+              2.3,
+              0.16,
+              1.6
+            ],
+            "size": [
+              0.85,
+              0.32,
+              0.4
+            ],
+            "massKg": 0.82,
+            "friction": 0.28,
+            "restitution": 0,
+            "rotation": [
+              0,
+              0.0,
+              0,
+              1.0
+            ]
+          },
+          {
+            "sourceId": "bystander",
+            "label": "bystander",
+            "shape": "box",
+            "position": [
+              4.8,
+              0.25,
+              -3.5
+            ],
+            "size": [
+              0.5,
+              0.5,
+              0.6
+            ],
+            "massKg": 1.025,
+            "friction": 0.5800000000000001,
+            "restitution": 0,
+            "rotation": [
+              0,
+              0.0,
+              0,
+              1.0
+            ]
+          },
+          {
+            "sourceId": "obstacle0",
+            "label": "Fixed obstacle 0",
+            "shape": "box",
+            "position": [
+              -1.2166666666666668,
+              0.35,
+              -1.166666666666667
+            ],
+            "size": [
+              0.6,
+              0.7,
+              0.65
+            ],
+            "massKg": 0,
+            "friction": 0.5,
+            "restitution": 0,
+            "rotation": [
+              0,
+              0.0,
+              0,
+              1.0
+            ]
+          },
+          {
+            "sourceId": "obstacle1",
+            "label": "Fixed obstacle 1",
+            "shape": "box",
+            "position": [
+              1.2166666666666663,
+              0.35,
+              1.166666666666666
+            ],
+            "size": [
+              0.6,
+              0.7,
+              0.65
+            ],
+            "massKg": 0,
+            "friction": 0.5,
+            "restitution": 0,
+            "rotation": [
+              0,
+              0.0,
+              0,
+              1.0
+            ]
+          }
+        ]
+      },
+      "targets": [
+        {
+          "sourceId": "A",
+          "positionM": [
+            3.685,
+            0.21,
+            3.5
+          ],
+          "yawDeg": 95
+        },
+        {
+          "sourceId": "B",
+          "positionM": [
+            1.4349999999999998,
+            0.16,
+            -1.5
+          ],
+          "yawDeg": -100
+        }
+      ],
+      "forceLimitN": 40,
+      "torqueLimitNm": 2.5
+    }
+  ],
+  "source": {
+    "format": "fraynix.spatial-scene",
+    "version": 1,
+    "title": "Edition079 learning goal train-occupied",
+    "units": "m",
+    "frame": "right-handed-y-up",
+    "source": {
+      "kind": "synthetic",
+      "physicalProperties": "declared",
+      "note": "Prospectively declared deterministic box experiment; not physical observations."
+    },
+    "scaleReference": {
+      "a": [
+        0,
+        0,
+        0
+      ],
+      "b": [
+        1,
+        0,
+        0
+      ],
+      "knownLengthM": 1,
+      "toleranceM": 0,
+      "basis": "declared-test"
+    },
+    "gravityMps2": 9.81,
+    "objects": [
+      {
+        "sourceId": "floor",
+        "label": "floor",
+        "shape": "box",
+        "position": [
+          0,
+          -0.25,
+          0
+        ],
+        "size": [
+          12,
+          0.5,
+          12
+        ],
+        "massKg": 0,
+        "friction": 0.5,
+        "restitution": 0,
+        "rotation": [
+          0,
+          0.0,
+          0,
+          1.0
+        ]
+      },
+      {
+        "sourceId": "A",
+        "label": "A",
+        "shape": "box",
+        "position": [
+          -3.65,
+          0.21,
+          -3.5
+        ],
+        "size": [
+          0.55,
+          0.42,
+          0.7
+        ],
+        "massKg": 0.6,
+        "friction": 0.25,
+        "restitution": 0,
+        "rotation": [
+          0,
+          0.0,
+          0,
+          1.0
+        ]
+      },
+      {
+        "sourceId": "B",
+        "label": "B",
+        "shape": "box",
+        "position": [
+          2.3,
+          0.16,
+          1.6
+        ],
+        "size": [
+          0.85,
+          0.32,
+          0.4
+        ],
+        "massKg": 0.8,
+        "friction": 0.25,
+        "restitution": 0,
+        "rotation": [
+          0,
+          0.0,
+          0,
+          1.0
+        ]
+      },
+      {
+        "sourceId": "bystander",
+        "label": "bystander",
+        "shape": "box",
+        "position": [
+          4.8,
+          0.25,
+          -3.5
+        ],
+        "size": [
+          0.5,
+          0.5,
+          0.6
+        ],
+        "massKg": 1,
+        "friction": 0.55,
+        "restitution": 0,
+        "rotation": [
+          0,
+          0.0,
+          0,
+          1.0
+        ]
+      },
+      {
+        "sourceId": "obstacle0",
+        "label": "Fixed obstacle 0",
+        "shape": "box",
+        "position": [
+          -1.2166666666666668,
+          0.35,
+          -1.166666666666667
+        ],
+        "size": [
+          0.6,
+          0.7,
+          0.65
+        ],
+        "massKg": 0,
+        "friction": 0.5,
+        "restitution": 0,
+        "rotation": [
+          0,
+          0.0,
+          0,
+          1.0
+        ]
+      },
+      {
+        "sourceId": "obstacle1",
+        "label": "Fixed obstacle 1",
+        "shape": "box",
+        "position": [
+          1.2166666666666663,
+          0.35,
+          1.166666666666666
+        ],
+        "size": [
+          0.6,
+          0.7,
+          0.65
+        ],
+        "massKg": 0,
+        "friction": 0.5,
+        "restitution": 0,
+        "rotation": [
+          0,
+          0.0,
+          0,
+          1.0
+        ]
+      }
+    ]
+  },
+  "sequence": [
+    {
+      "id": "sequence-1",
+      "targets": [
+        {
+          "sourceId": "A",
+          "positionM": [
+            3.65,
+            0.21,
+            3.5
+          ],
+          "yawDeg": 95
+        },
+        {
+          "sourceId": "B",
+          "positionM": [
+            1.4,
+            0.16,
+            -1.5
+          ],
+          "yawDeg": -100
+        }
+      ],
+      "forceLimitN": 40,
+      "torqueLimitNm": 2.5,
+      "retain": false,
+      "skillName": ""
+    },
+    {
+      "id": "sequence-2",
+      "targets": [
+        {
+          "sourceId": "A",
+          "positionM": [
+            -1.7,
+            0.21,
+            1.6
+          ],
+          "yawDeg": 70
+        },
+        {
+          "sourceId": "B",
+          "positionM": [
+            2.0,
+            0.16,
+            -1.6
+          ],
+          "yawDeg": -85
+        }
+      ],
+      "forceLimitN": 40,
+      "torqueLimitNm": 2.5,
+      "retain": false,
+      "skillName": ""
+    },
+    {
+      "id": "sequence-3",
+      "targets": [
+        {
+          "sourceId": "A",
+          "positionM": [
+            -2.4,
+            0.21,
+            -1.8
+          ],
+          "yawDeg": 0
+        },
+        {
+          "sourceId": "B",
+          "positionM": [
+            2.3,
+            0.16,
+            1.6
+          ],
+          "yawDeg": 0
+        }
+      ],
+      "forceLimitN": 40,
+      "torqueLimitNm": 2.5,
+      "retain": false,
+      "skillName": ""
+    },
+    {
+      "id": "sequence-4",
+      "targets": [
+        {
+          "sourceId": "A",
+          "positionM": [
+            3.45,
+            0.21,
+            3.6
+          ],
+          "yawDeg": 100
+        },
+        {
+          "sourceId": "B",
+          "positionM": [
+            1.6,
+            0.16,
+            -1.5
+          ],
+          "yawDeg": -100
+        }
+      ],
+      "forceLimitN": 40,
+      "torqueLimitNm": 2.5,
+      "retain": false,
+      "skillName": ""
+    },
+    {
+      "id": "sequence-5",
+      "targets": [
+        {
+          "sourceId": "A",
+          "positionM": [
+            -1.4,
+            0.21,
+            1.4
+          ],
+          "yawDeg": 50
+        },
+        {
+          "sourceId": "B",
+          "positionM": [
+            2.2,
+            0.16,
+            -1.4
+          ],
+          "yawDeg": -75
+        }
+      ],
+      "forceLimitN": 40,
+      "torqueLimitNm": 2.5,
+      "retain": false,
+      "skillName": ""
+    },
+    {
+      "id": "sequence-6",
+      "targets": [
+        {
+          "sourceId": "A",
+          "positionM": [
+            -2.4,
+            0.21,
+            -1.8
+          ],
+          "yawDeg": 0
+        },
+        {
+          "sourceId": "B",
+          "positionM": [
+            2.3,
+            0.16,
+            1.6
+          ],
+          "yawDeg": 0
+        }
+      ],
+      "forceLimitN": 40,
+      "torqueLimitNm": 2.5,
+      "retain": true,
+      "skillName": "resource-route-082"
+    }
+  ],
+  "restartAfter": 3,
+  "microRepeats": 6,
+  "note": "Prospective labelled continuing-world experiment, not physical observations. Goal one is a training-layout regression; the subsequent trajectory is new. One matched sequence pair per budget."
+}
