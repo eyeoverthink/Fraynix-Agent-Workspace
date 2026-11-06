@@ -1,5 +1,18 @@
 # Agent Workspace development log
 
+## Edition 075 · Published and fetched back on 2026-11-05
+
+Atomic push to Fraynix-Agent-Workspace main, edition075 and readme-075 succeeded. Release f6e121bd7423cfa806b87fa720fcd599629bf4fe; annotated tag a65cc40e3b0aa4925a160936600b20447a969d91. Fresh GitHub fetch verified 1076 canonical sources, 6614 frozen hashes across75 editions and 225 exact original archives including decompressed bytes. Documentation passed 80 canvases/7611 references. [Publication receipt](PUBLICATION_075.json).
+
+95 distinct targeted JUnit checks/14 classes; 127 desktop checks. Actual64-cell app study, complete native audit, exports/replay, cold restart, separate interruption/recovery/Stop and certificate restart/damaged-cache native fallback; unchanged source worlds. Independent arithmetic plus 16 altered-evidence probes. Offline1440/390 and app1600/1100. No new LLM inference, physical accuracy or general intelligence claim.
+
+search: 9/12, 277642 ticks/45 attempts; simple: 9/12, 168730 ticks/27 attempts; memory: 9/12, 228610 ticks/37 attempts; cached: 9/12, 186684 ticks/30 attempts. Cache-saving qualification True; procedural-memory qualification against both controls False. All failures/costs retained; no automatic promotion or post-outcome retuning. Fresh forecast/actual checks remain mandatory. Incompatible target roles fall back to simple control. No active-world commits or new successful skill ingestion in the study. Primary outcomes and lifecycle probes are separate.
+
+Audit worker failure after all64 cells is retained with memory-pressure diagnostics (underlying Error unknown). Repair231e980 bounds proof retention and records worker failures/progress. Explicit proof-only recheck preserved all139 original attempts and their hashes, with original code/checking code/evidence digest. Eleven focused tests after repair; actual Stop during recheck on a copied project removes qualification and changes no native evidence. Native outcomes were not rerun or tuned after this audit repair.
+
+README075, offline explorer, actual app captures, complete inventory, original evidence, Obsidian83/canvas, patient-chart source/review and notes published. Test app closed; normal045/qa046/private data/model services preserved. Serial Java21/fourCPUs/768MB, no subagents. Next: training-only diverse procedures with measured advantages, bounded repairs from harder-task traces and unseen tests against first-success control; complete moving-state restore contracts before broader reuse. Synthetic chart lineage and hardware claims remain qualified design input. This receipt follows the immutable release tag.
+
+
 ## Edition 075 · Validated locally; publication next
 
 Contract ae71bf2 precedes implementation e57902a and all new native outcomes. Resume-state correction 55310e0 precedes outcomes; future-date pre-use guard ab2ef1a follows a retained partial development run, with nine focused checks and the complete primary study rerun afterward. Four methods, 12 harder supported tasks and 4 unsupported controls; original native physics/controller/verifier identity unchanged. Exact five owned073 memories; empty study-local certificate store; no evaluation ingestion or promotion.
