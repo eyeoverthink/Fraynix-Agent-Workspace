@@ -348,7 +348,7 @@ public final class WorkspaceServer implements AutoCloseable {
                     case "/api/procedures081/diagnostics" -> {SpatialScene.keys(input);result=goals.calibrationStats081();}
                     case "/api/procedures081/test-mode" -> {SpatialScene.keys(input,"mode");result=goals.testCalibrationMode081(input.getString("mode"));}
                     case "/api/procedures081/protocol" -> {SpatialScene.keys(input);try(var in=TaskCost080.class.getResourceAsStream("/procedures081-protocol.json")){result=new JSONObject(new String(in.readAllBytes(),java.nio.charset.StandardCharsets.UTF_8));}}
-                    case "/api/procedures080/pairs" -> {SpatialScene.keys(input);result=goals.costPairs080();}
+                    case "/api/procedures080/pairs" -> {SpatialScene.keys(input);result=goals.costPairs080();result.put("coverage083",CalibrationCoverage083.describe(result.getJSONObject("calibration")));}
                     case "/api/procedures080/calibration" -> {SpatialScene.keys(input);result=goals.calibration080();}
                     case "/api/procedures080/fit" -> {SpatialScene.keys(input,"pairs");result=goals.fitCosts080(input.getJSONArray("pairs"));}
                     case "/api/procedures080/protocol" -> {SpatialScene.keys(input);try(var in=TaskCost080.class.getResourceAsStream("/procedures080-protocol.json")){result=new JSONObject(new String(in.readAllBytes(),java.nio.charset.StandardCharsets.UTF_8));}}
