@@ -1,5 +1,8 @@
 # Fraynix Agent Workspace system architecture
 
+Edition 083 adds read-only Java calibration coverage after original evidence checks. Runtime, restart and saving conditions stay separate; no action authority changes. See [measurements and boundaries](../README-083.md).
+
+
 Edition 082 adds validated Java launch limits and read-only resource counters. Existing native outcome and world-commit authority is unchanged. See [current measurements](../README-082.md).
 
 

@@ -1,0 +1,75 @@
+{
+  "modules": [
+    {
+      "id": "coverage",
+      "name": "Coverage in Java",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/CalibrationCoverage083.java",
+      "description": "Groups already verified examples by saved procedure, proof state and saving workload. Counts never authorize a task.",
+      "note": "docs/obsidian/91-restart-saving-calibration.md"
+    },
+    {
+      "id": "cost",
+      "name": "Existing cost decision",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/TaskCost080.java",
+      "description": "Unchanged task matching, empirical margins and simpler-control fallback.",
+      "note": "docs/obsidian/91-restart-saving-calibration.md"
+    },
+    {
+      "id": "execution",
+      "name": "Original verified execution",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/WorldProcedure079.java",
+      "description": "Original forecasts, distinct actual motion, evidence checks and verified commits remain unchanged.",
+      "note": "docs/obsidian/91-restart-saving-calibration.md"
+    },
+    {
+      "id": "interface",
+      "name": "Actual app display",
+      "source": "workspace-desktop/renderer/persistent-world-panel.js",
+      "description": "Shows what each comparison saved and which calibration conditions have enough distinct examples.",
+      "note": "docs/obsidian/91-restart-saving-calibration.md"
+    },
+    {
+      "id": "inspection",
+      "name": "Independent inspection",
+      "source": "scripts/Inspect-Calibrations083.cjs",
+      "description": "Rechecks original evidence, restart/warm-up conditions, matched costs and persisted results.",
+      "note": "docs/obsidian/91-restart-saving-calibration.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "docs/readmes/083/cold-run-actual-calibration-coverage.png",
+      "caption": "Actual calibration after restart"
+    },
+    {
+      "path": "docs/readmes/083/cold-save-coverage-layout-1100.png",
+      "caption": "Saving-workload coverage in the narrower app"
+    },
+    {
+      "path": "docs/readmes/083/warm-save-actual-calibration-coverage.png",
+      "caption": "Coverage after a real seed-procedure warm-up"
+    },
+    {
+      "path": "docs/readmes/083/warm-save-case-0-estimated-report.png",
+      "caption": "Actual warm case selecting verified memory"
+    },
+    {
+      "path": "docs/readmes/083/cold-save-case-0-estimated-report.png",
+      "caption": "Actual calibrated procedure report"
+    },
+    {
+      "path": "docs/readmes/083/cold-save-case-1-estimated-report.png",
+      "caption": "Actual changed-receipt fallback"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/readmes/083/verification.json",
+      "caption": "Validation and actual measurements"
+    },
+    {
+      "path": "docs/readmes/083/original-evidence.json",
+      "caption": "All exact original files"
+    }
+  ]
+}

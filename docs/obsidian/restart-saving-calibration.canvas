@@ -1,0 +1,71 @@
+{
+  "nodes": [
+    {
+      "id": "readme",
+      "type": "file",
+      "file": "README-083.md",
+      "x": 0,
+      "y": 0,
+      "width": 380,
+      "height": 250
+    },
+    {
+      "id": "note",
+      "type": "file",
+      "file": "docs/obsidian/91-restart-saving-calibration.md",
+      "x": 440,
+      "y": 0,
+      "width": 380,
+      "height": 250
+    },
+    {
+      "id": "coverage",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/CalibrationCoverage083.java",
+      "x": 880,
+      "y": 0,
+      "width": 380,
+      "height": 250
+    },
+    {
+      "id": "cost",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/TaskCost080.java",
+      "x": 0,
+      "y": 310,
+      "width": 380,
+      "height": 250
+    },
+    {
+      "id": "evidence",
+      "type": "file",
+      "file": "docs/readmes/083/verification.json",
+      "x": 440,
+      "y": 310,
+      "width": 380,
+      "height": 250
+    }
+  ],
+  "edges": [
+    {
+      "id": "edge0",
+      "fromNode": "readme",
+      "toNode": "note"
+    },
+    {
+      "id": "edge1",
+      "fromNode": "note",
+      "toNode": "coverage"
+    },
+    {
+      "id": "edge2",
+      "fromNode": "coverage",
+      "toNode": "cost"
+    },
+    {
+      "id": "edge3",
+      "fromNode": "cost",
+      "toNode": "evidence"
+    }
+  ]
+}

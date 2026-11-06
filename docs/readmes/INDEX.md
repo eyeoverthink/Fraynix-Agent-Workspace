@@ -1,5 +1,8 @@
 # Fraynix Studio and Agent Workspace README editions
 
+- [Edition 083: restart and skill-saving calibration](../../README-083.md) · [Offline results](083/index.html)
+
+
 - [Edition 082: resource budgets and continuing-world sequences](../../README-082.md) · [Offline results](082/index.html)
 
 

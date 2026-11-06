@@ -1,5 +1,10 @@
 # Fraynix Agent Workspace
 
+**Latest: [edition 083 — restart and skill-saving calibration](README-083.md).**
+
+Edition 083 is validated locally; publication verification is pending.
+
+
 **Latest: [edition 082 — resource budgets and continuing-world sequences](README-082.md).**
 
 Edition 082 is published to main with code, measurements, screenshots and original evidence. [Fetched GitHub verification](docs/PUBLICATION_082.json).
