@@ -6,7 +6,7 @@
 
 The frozen comparison completed twelve new supported scenes plus four unsupported controls. All three methods solved 12/12 supported tasks. Memory used 22.2% fewer native ticks than exhaustive search but 44.3% more than the simple first-success method. Reconstruction explains the extra work. No promotion: memory has not yet earned a benefit over the simpler control. The integrated panel retains original motion, complete costs, restart/recovery and exact exports. [Full evidence](docs/readmes/074/verification.json).
 
-Edition 074 implementation, screenshots and original evidence are prepared for publication. [Previous fetched publication](docs/PUBLICATION_073.json).
+Edition 074 is published to main with full source, actual app/offline screenshots, original evidence and continuity notes. [Fetched GitHub verification](docs/PUBLICATION_074.json).
 
 One integrated app, with Java-owned chat planning, creation, native skill scheduling, continuing identity, real clocks and checked outcomes. Mission connects the actual goal, source, child task, recovery and retained result. [Screenshots, typed skill graphs, new logic and production direction](README-046.md).
 

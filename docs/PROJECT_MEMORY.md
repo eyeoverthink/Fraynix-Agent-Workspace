@@ -1,5 +1,16 @@
 # Agent Workspace project memory
 
+## Edition 074 · Published and fetched back on 2026-11-05
+
+Atomic push to Fraynix-Agent-Workspace main, edition074 and readme-074 succeeded. Release 9c62ddba830632505e01870d71f29cf7c4a532ff; annotated tag 45b2657a89a9436fe965f37795cceb4ea639be2d. Fresh GitHub fetch verified 1063 canonical sources, 6359 frozen hashes across 74 editions and 74 exact original archives including decompressed bytes. Documentation passed 79 canvases/7512 references. [Publication receipt](PUBLICATION_074.json).
+
+84 distinct targeted JUnit checks/12 classes; 127 desktop checks. Actual 48-cell app study, original native audit, exports/replay, cold restart, separate interruption/recovery/Stop, unchanged source worlds. Independent native arithmetic plus 8 altered-evidence probes. Offline 1440/390 and app 1600/1100 layouts. No new LLM inference, physical accuracy or general memory-performance win.
+
+All methods solved 12/12 new supported scenes ; four unsupported controls refused without actuation. Search: 300337 ticks/48 attempts; simple: 161920/24; memory: 233716/36. Memory uses 22.2% less than exhaustive search but 44.3% more than simple. Twelve rebuilds account for 71796 extra ticks; earlier retained-bank construction: 106596 ticks lower bound. Qualification FALSE; no promotion or post-outcome policy/threshold/case tuning. Distinct fresh actual executions verified; no active-world commits/new memories from this study. Primary evidence and separate lifecycle probe remain distinct.
+
+README074, offline explorer, actual screenshots, complete inventory, original failure/pass evidence, Obsidian82/canvas and notes published. Test app closed; normal045/qa046/private data/model services preserved. Serial Java 21/four CPUs/768 MB; no subagents. Next 075: source-bound rebuild certificates/cache and genuinely discriminating procedural retrieval, prospectively frozen harder cases and simpler controls. A correct memory does not automatically constitute useful improvement. This publication receipt follows the immutable release tag.
+
+
 ## Edition 074 · Validated locally; publication next
 
 Frozen contract 49c82da/schema-only correction e652acc precede runtime d38238a and outcomes. Twelve new supported box/controller tasks plus four unsupported controls; matched targets/authority/57,600-tick/600s arm budgets. Search, first-success simple and reconstructed-memory-first. Existing native physics, verification and controller identity unchanged. Exact bank frozen from five owned073 episodes, no test ingestion or automatic promotion.
