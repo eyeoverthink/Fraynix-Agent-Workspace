@@ -165,10 +165,42 @@ final class MemoryStudy075 implements AutoCloseable {
     private void execute(String id){
         var j=job(id);try {
             compatible(j);for(Object raw:j.getJSONArray("rows")){var row=(JSONObject)raw;for(Object m:row.getJSONArray("methodOrder")){guard(j);arm(j,row,m.toString());int n=0;for(Object rr:j.getJSONArray("rows"))for(String key:((JSONObject)rr).getJSONObject("results").keySet())if(Set.of("completed","refused").contains(((JSONObject)rr).getJSONObject("results").getJSONObject(key).getString("status")))n++;j.put("progress",n);save(j);}}
-            guard(j);j.put("evaluation",MemoryPolicy075.evaluation(j.getJSONArray("rows")));save(j);long auditAt=System.nanoTime();audit(id);j.put("finalAuditMillis",(System.nanoTime()-auditAt)/1e6).put("status","completed").put("reason","All frozen comparisons retained; no automatic policy promotion");save(j);
-        }catch(Exception e){synchronized(this){try{j.put("status",stops.contains(id)?"cancelled":"interrupted").put("reason",String.valueOf(e.getMessage()));save(j);}catch(Exception failed){System.err.println(failed.getMessage());}}}
+            guard(j);beginAudit(j);long auditAt=System.nanoTime();audit(id);guard(j);j.put("evaluation",MemoryPolicy075.evaluation(j.getJSONArray("rows"))).put("finalAuditMillis",(System.nanoTime()-auditAt)/1e6).put("status","completed").put("reason","All frozen comparisons retained; no automatic policy promotion");save(j);
+        }catch(Throwable e){failed(j,e);}
         finally{synchronized(this){clockArm=null;active="";}}
     }
+    private synchronized void failed(JSONObject j,Throwable e){
+        clockArm=null;try{j.remove("evaluation");j.put("status",stops.contains(j.getString("id"))?"cancelled":"interrupted").put("reason",e.toString());save(j);}catch(Throwable persist){System.err.println("Comparison worker failed: "+e+"; persistence failed: "+persist);}
+    }
+    private void beginAudit(JSONObject j)throws Exception {
+        int total=0;for(Object r:j.getJSONArray("rows"))for(String m:((JSONObject)r).getJSONObject("results").keySet())for(Object a:((JSONObject)r).getJSONObject("results").getJSONObject(m).getJSONArray("attempts"))if(((JSONObject)a).has("sha256"))total++;
+        j.remove("evaluation");j.put("auditProgress",0).put("auditTotal",total).put("reason","Checking original traces and certificates");save(j);
+    }
+    static String evidenceDigest(JSONObject j){return WorldFrames.hash(new JSONObject().put("bank",j.getJSONArray("bank")).put("rows",j.getJSONArray("rows")).put("protocol",j.getJSONObject("protocol")));}
+    static void completeEvidence(JSONObject j){
+        if(j.getInt("progress")!=64||j.getJSONArray("rows").length()!=16||!j.getJSONObject("protocol").similar(MemoryPolicy075.protocol()))throw new IllegalStateException("Recheck requires every frozen cell to be settled");
+        for(Object r:j.getJSONArray("rows")){var results=((JSONObject)r).getJSONObject("results");if(results.length()!=4)throw new IllegalStateException("Missing method");for(String m:MemoryPolicy075.METHODS)if(!Set.of("completed","refused").contains(results.getJSONObject(m).getString("status")))throw new IllegalStateException("Recheck cannot execute an unfinished native task");}
+    }
+    private static void compatibleAudit(JSONObject j){
+        if(j.getString("code").equals(code())){compatible(j);return;}
+        completeEvidence(j);
+        if(!j.optString("auditCode").equals(code())||!j.optString("auditEvidence").equals(evidenceDigest(j)))throw new IllegalStateException("Changed implementation requires an explicit proof-only recheck; native attempts cannot resume");
+        var entries=j.getJSONArray("rechecks");var last=entries.getJSONObject(entries.length()-1);if(!last.getString("originalCode").equals(j.getString("code"))||!last.getString("checkingCode").equals(code())||!last.getString("evidenceSha256").equals(evidenceDigest(j)))throw new IllegalStateException("Recheck provenance changed");
+    }
+    synchronized JSONObject recheck(String id)throws Exception {
+        var j=job(id);if(closed||busy())throw new IllegalStateException("Finish active work before rechecking saved evidence");completeEvidence(j);
+        var history=j.optJSONArray("rechecks");if(history==null){history=new JSONArray();j.put("rechecks",history);}if(history.length()>=3)throw new IllegalStateException("Recheck history limit3");
+        for(Object raw:j.getJSONArray("bank")){var b=(JSONObject)raw;if(!WorldFrames.hash(episodes.read(b.getString("id"))).equals(b.getString("sha256")))throw new IllegalStateException("Owned bank changed; recheck refused");}
+        String revision=UUID.randomUUID().toString(),digest=evidenceDigest(j);AgentFiles042.saveChecked(dir(id).resolve("rechecks").resolve(revision+"-before.json"),j);
+        history.put(new JSONObject().put("id",revision).put("createdAt",Instant.now().toString()).put("originalCode",j.getString("code")).put("checkingCode",code()).put("evidenceSha256",digest).put("scope","Proof-only; no native execution, changed outcome, source, authority or memory ingestion").put("status","checking"));
+        j.put("auditCode",code()).put("auditEvidence",digest).put("status","running");stops.remove(id);active=id;beginAudit(j);
+        worker.submit(()->{try{long at=System.nanoTime();audit(id);guard(j);if(!evidenceDigest(j).equals(digest))throw new IllegalStateException("Recheck changed original evidence");j.getJSONArray("rechecks").getJSONObject(j.getJSONArray("rechecks").length()-1).put("status","passed");j.put("evaluation",MemoryPolicy075.evaluation(j.getJSONArray("rows"))).put("finalAuditMillis",(System.nanoTime()-at)/1e6).put("status","completed").put("reason","Original immutable attempts rechecked; no native tasks rerun");save(j);}catch(Throwable e){failed(j,e);}finally{synchronized(this){active="";}}});return read(id);
+    }
+    private JSONArray auditRank(JSONObject j,JSONObject spec,JSONObject scene)throws Exception {
+        var values=new ArrayList<JSONObject>();for(Object entry:j.getJSONArray("bank")){var one=MemoryPolicy075.rank(List.of(bank(j,((JSONObject)entry).getString("id"))),spec,scene);for(Object value:one)values.add((JSONObject)value);}
+        values.sort(Comparator.comparingDouble((JSONObject x)->x.getDouble("distance")).thenComparing(x->x.getString("id")));return new JSONArray(values);
+    }
+    private void auditCheckpoint(String id,int count)throws Exception {if(id.equals(active)){guard(job(id));job(id).put("auditProgress",count);save(job(id));}}
     JSONObject trace(String id,String caseId,String method)throws Exception {
         JSONObject j=read(id);var row=row(j,caseId);var a=row.getJSONObject("results").getJSONObject(method);var runs=new JSONArray();
         for(Object raw:a.getJSONArray("attempts")){var attempt=(JSONObject)raw;if(!attempt.has("sha256"))continue;var run=raw(j,attempt);var frames=new JSONArray();for(Object f:run.getJSONArray("samples")){var x=(JSONObject)f;frames.put(new JSONObject().put("tick",x.getInt("tick")).put("bodies",x.getJSONArray("bodies")));}runs.put(new JSONObject().put("id",run.getString("id")).put("stage",attempt.getString("stage")).put("family",attempt.getString("family")).put("status",run.getString("status")).put("definition",run.getJSONObject("definition")).put("samples",frames));}
@@ -180,58 +212,63 @@ final class MemoryStudy075 implements AutoCloseable {
         JSONObject j; synchronized(this){if(busy())throw new IllegalStateException("Wait for or Stop the study before exporting originals");j=read(id);}var row=row(j,caseId);var originals=new JSONArray();
         for(String method:row.getJSONObject("results").keySet())for(Object raw:row.getJSONObject("results").getJSONObject(method).getJSONArray("attempts")){var a=(JSONObject)raw;if(a.has("sha256"))originals.put(new JSONObject().put("method",method).put("attempt",a).put("run",packed(raw(j,a))));}
         var certificates=new JSONArray();for(String method:row.getJSONObject("results").keySet()){var arm=row.getJSONObject("results").getJSONObject(method);if(arm.has("certificate")){var c=arm.getJSONObject("certificate");var bundle=bank(j,arm.getJSONObject("retrieval").getJSONObject("selected").getString("id"));var proof=RebuildCertificate075.verify(j,bundle,c,a->raw(j,a));certificates.put(new JSONObject().put("certificate",c).put("run",packed(proof)));}}
-        return new JSONObject().put("certificateProofs",certificates).put("format","memory-study-case-075-v1").put("studyId",id).put("code",j.getString("code")).put("row",row).put("bank",j.getJSONArray("bank")).put("originals",originals);
+        return new JSONObject().put("certificateProofs",certificates).put("format","memory-study-case-075-v1").put("studyId",id).put("code",j.getString("code")).put("row",row).put("bank",j.getJSONArray("bank")).put("verificationCode",j.optString("auditCode",j.getString("code"))).put("rechecks",j.optJSONArray("rechecks")==null?new JSONArray():j.getJSONArray("rechecks")).put("originals",originals);
     }
     JSONObject audit(String id)throws Exception {
-        var j=read(id);compatible(j);var ids=new HashSet<String>();int count=0;
-        var auditBank=new ArrayList<JSONObject>();for(Object raw:j.getJSONArray("bank"))auditBank.add(bank(j,((JSONObject)raw).getString("id")));
+        var j=read(id);compatibleAudit(j);var ids=new HashSet<String>();int count=0;
         for(int i=0;i<j.getJSONArray("rows").length();i++){
             var row=j.getJSONArray("rows").getJSONObject(i);var spec=MemoryPolicy075.protocol().getJSONArray("cases").getJSONObject(i);
             if(!row.getJSONObject("spec").similar(spec)||!row.getString("specSha256").equals(WorldFrames.hash(spec)))throw new IllegalStateException("Held-out source changed");
             for(int k=0;k<4;k++)if(!row.getJSONArray("methodOrder").getString(k).equals(MemoryPolicy075.METHODS.get((i+k)%4)))throw new IllegalStateException("Counterbalanced method order changed");
             for(String method:row.getJSONObject("results").keySet()){
-                var arm=row.getJSONObject("results").getJSONObject(method);var cost=WorldFrames.copy(arm);recomputeCosts(cost);for(String k:List.of("chargedTicks","observedTicks"))if(cost.getInt(k)!=arm.getInt(k))throw new IllegalStateException("Attempt costs omitted");if(arm.getInt("chargedTicks")>MemoryPolicy075.BUDGET)throw new IllegalStateException("Native budget exceeded");
+                auditCheckpoint(id,count);var arm=row.getJSONObject("results").getJSONObject(method);var cost=WorldFrames.copy(arm);recomputeCosts(cost);for(String k:List.of("chargedTicks","observedTicks"))if(cost.getInt(k)!=arm.getInt(k))throw new IllegalStateException("Attempt costs omitted");if(arm.getInt("chargedTicks")>MemoryPolicy075.BUDGET)throw new IllegalStateException("Native budget exceeded");
                 if(!MemoryPolicy075.METHODS.contains(method)||!arm.getString("method").equals(method))throw new IllegalStateException("Unknown method");
                 JSONObject expectedScene=null;JSONArray expectedCandidates=null;String refusal="";
                 try{expectedScene=MemoryPolicy075.scene(spec);expectedCandidates=MemoryPolicy075.candidates(spec,expectedScene);if(expectedCandidates.toList().stream().noneMatch(o->"queued".equals(((Map<?,?>)o).get("status"))))throw new IllegalArgumentException("No original candidate has a clear admissible route");}catch(IllegalArgumentException e){refusal=e.getMessage();}
                 if(!refusal.isEmpty()){if(!arm.getString("status").equals("refused")||!arm.getJSONArray("attempts").isEmpty()||arm.optBoolean("success"))throw new IllegalStateException("Refused source gained native authority");continue;}
                 String preferred=MemoryPolicy075.FAMILIES.get(0);JSONObject originalMemory=null;
-                if(Set.of("memory","cached").contains(method)&&!arm.has("retrieval")&&(!arm.optBoolean("retrievalMissing")||!MemoryPolicy075.rank(auditBank,spec,expectedScene).isEmpty()))throw new IllegalStateException("Unjustified memory fallback");
+                if(Set.of("memory","cached").contains(method)&&!arm.has("retrieval")&&(!arm.optBoolean("retrievalMissing")||!auditRank(j,spec,expectedScene).isEmpty()))throw new IllegalStateException("Unjustified memory fallback");
                 if((method.equals("memory")||method.equals("cached"))&&arm.has("retrieval")){
-                    var ranked=MemoryPolicy075.rank(auditBank,spec,expectedScene);
+                    var ranked=auditRank(j,spec,expectedScene);
                     var retrieval=arm.getJSONObject("retrieval");if(!ranked.similar(retrieval.getJSONArray("ranked"))||!ranked.getJSONObject(0).similar(retrieval.getJSONObject("selected")))throw new IllegalStateException("Frozen retrieval choice changed");
                     preferred=ranked.getJSONObject(0).getString("preferred");originalMemory=bank(j,ranked.getJSONObject(0).getString("id")).getJSONObject("episode").getJSONObject("run");
                 }else if(!Set.of("memory","cached").contains(method)&&arm.has("retrieval"))throw new IllegalStateException("Baseline read the memory bank");
                 if(arm.has("candidateOrder")&&!arm.getJSONArray("candidateOrder").similar(new JSONArray(MemoryPolicy075.order(method,preferred))))throw new IllegalStateException("Candidate ordering changed");
-                int charged=0;var settledForecasts=new JSONArray();JSONObject rebuilt=null;
+                int charged=0;var settledForecasts=new JSONArray();JSONObject reconstruction=null;
                 if(arm.has("certificate")){
                     if(!method.equals("cached")||!arm.has("retrieval"))throw new IllegalStateException("Certificate on a non-cache arm");
-                    var bundle=bank(j,arm.getJSONObject("retrieval").getJSONObject("selected").getString("id"));var certificate=arm.getJSONObject("certificate");rebuilt=RebuildCertificate075.verify(j,bundle,certificate,a->raw(j,a));
+                    var bundle=bank(j,arm.getJSONObject("retrieval").getJSONObject("selected").getString("id"));var certificate=arm.getJSONObject("certificate");var certifiedRun=RebuildCertificate075.verify(j,bundle,certificate,a->raw(j,a));reconstruction=Rehearsal073.comparison(originalMemory,certifiedRun);
                     var receipt=arm.getJSONObject("cache");if(!receipt.getString("key").equals(RebuildCertificate075.key(bundle)))throw new IllegalStateException("Cache lookup source changed");
                     if(receipt.getString("status").equals("hit")&&(!receipt.getJSONObject("certificate").similar(certificate)||!receipt.getString("certificateSha256").equals(WorldFrames.hash(certificate))||Instant.parse(receipt.getString("checkedAt")).isBefore(Instant.parse(certificate.getString("createdAt")))))throw new IllegalStateException("Cache hit proof or chronology changed");
                     if(!receipt.getString("status").equals("hit")&&!arm.getJSONArray("attempts").toList().stream().anyMatch(t->certificate.getString("originAttemptId").equals(((Map<?,?>)t).get("id"))))throw new IllegalStateException("Cold certificate creation cost missing");
                 }
-                JSONObject actual=null,forecast=null;for(Object v:arm.getJSONArray("attempts")){var a=(JSONObject)v;if(!a.has("sha256"))continue;var run=raw(j,a);if(!ids.add(run.getString("id"))||Instant.parse(run.getString("createdAt")).isBefore(Instant.parse(a.getString("plannedAt"))))throw new IllegalStateException("Duplicate or future-leaking attempt");if(!WorldFrames.hash(run.getJSONObject("definition")).equals(a.getString("sourceSha256"))||!WorldFrames.hash(run.getJSONObject("plan")).equals(a.getString("planSha256")))throw new IllegalStateException("Attempt source/plan differs");
+                JSONObject actualAttempt=null,forecastAttempt=null;for(Object v:arm.getJSONArray("attempts")){var a=(JSONObject)v;if(!a.has("sha256"))continue;var run=raw(j,a);if(!ids.add(run.getString("id"))||Instant.parse(run.getString("createdAt")).isBefore(Instant.parse(a.getString("plannedAt"))))throw new IllegalStateException("Duplicate or future-leaking attempt");if(!WorldFrames.hash(run.getJSONObject("definition")).equals(a.getString("sourceSha256"))||!WorldFrames.hash(run.getJSONObject("plan")).equals(a.getString("planSha256")))throw new IllegalStateException("Attempt source/plan differs");
                     String stage=a.getString("stage");int reserve=stage.equals("actual")?0:WorldPhysics.MAX_TICKS;if(charged+WorldPhysics.MAX_TICKS+reserve>MemoryPolicy075.BUDGET)throw new IllegalStateException("Attempt exceeded worst-case admission budget");
                     int tick=run.has("final")?run.getJSONObject("final").getInt("tick"):run.getJSONArray("samples").isEmpty()?0:run.getJSONArray("samples").getJSONObject(run.getJSONArray("samples").length()-1).getInt("tick");
                     if(tick!=a.getInt("observedTicks")||a.getInt("chargedTicks")!=(a.getBoolean("unobservedTailCharged")?WorldPhysics.MAX_TICKS:tick))throw new IllegalStateException("Original attempt work changed");charged+=a.getInt("chargedTicks");
                     if(stage.equals("rebuild")){
                         if(originalMemory==null||!run.getJSONObject("definition").similar(originalMemory.getJSONObject("definition"))||!run.getJSONObject("plan").similar(originalMemory.getJSONObject("plan")))throw new IllegalStateException("Reconstruction substituted a different memory");
-                        if(passed(a))rebuilt=run;
+                        if(passed(a))reconstruction=Rehearsal073.comparison(originalMemory,run);
                     }else{
                         JSONObject candidate=null;for(Object c:expectedCandidates)if(((JSONObject)c).getString("id").equals(a.getString("family")))candidate=(JSONObject)c;
                         if(candidate==null||!Set.of("forecast","actual").contains(stage)||!run.getJSONObject("definition").similar(expectedScene)||!run.getJSONObject("plan").similar(candidate.getJSONObject("plan")))throw new IllegalStateException("New-scene source, targets or authority changed");
-                        if(Set.of("memory","cached").contains(method)&&arm.has("retrieval")&&(rebuilt==null||!Rehearsal073.comparison(originalMemory,rebuilt).getBoolean("passed")))throw new IllegalStateException("Memory acted without a verified prior reconstruction");
+                        if(Set.of("memory","cached").contains(method)&&arm.has("retrieval")&&(reconstruction==null||!reconstruction.getBoolean("passed")))throw new IllegalStateException("Memory acted without a verified prior reconstruction");
                         if(stage.equals("forecast")&&passed(a))settledForecasts.put(new JSONObject().put("id",a.getString("family")).put("ordinal",candidate.getInt("ordinal")).put("status","completed").put("metrics",a.getJSONObject("metrics")).put("runId",a.getString("id")));
                     }
-                    if(run.has("final")&&!WorldVerify.verify(run).similar(a.getJSONObject("metrics")))throw new IllegalStateException("Native metrics changed");if(a.getString("id").equals(arm.optString("actualRunId")))actual=run;if(a.getString("id").equals(arm.optString("forecastRunId")))forecast=run;count++;
+                    if(run.has("final")&&!WorldVerify.verify(run).similar(a.getJSONObject("metrics")))throw new IllegalStateException("Native metrics changed");if(a.getString("id").equals(arm.optString("actualRunId")))actualAttempt=a;if(a.getString("id").equals(arm.optString("forecastRunId")))forecastAttempt=a;count++;
                 }
-                if(arm.has("reconstruction")&&(rebuilt==null||!Rehearsal073.comparison(originalMemory,rebuilt).similar(arm.getJSONObject("reconstruction"))))throw new IllegalStateException("Reconstruction result changed");
+                if(arm.has("reconstruction")&&(reconstruction==null||!reconstruction.similar(arm.getJSONObject("reconstruction"))))throw new IllegalStateException("Reconstruction result changed");
                 if(arm.has("selected")){var chosen=Counterfactual045.choose(settledForecasts);if(chosen==null||!chosen.getString("id").equals(arm.getString("selected"))||!chosen.getString("runId").equals(arm.getString("forecastRunId")))throw new IllegalStateException("Chosen forecast differs from preserved ranking");}
-                if(arm.optBoolean("success")&&(actual==null||forecast==null||!MemoryPolicy075.comparison(forecast,actual).similar(arm.getJSONObject("comparison"))||!arm.getJSONObject("comparison").getBoolean("passed")))throw new IllegalStateException("Success lacks fresh native verification");
+                originalMemory=null; // Release large source proof before loading the fresh pair.
+                if(arm.optBoolean("success")){
+                    if(actualAttempt==null||forecastAttempt==null)throw new IllegalStateException("Success lacks fresh native verification");
+                    var forecast=raw(j,forecastAttempt);var actual=raw(j,actualAttempt);
+                    if(!WorldVerify.verify(actual).getBoolean("passed")||!WorldVerify.verify(forecast).getBoolean("passed")||!MemoryPolicy075.comparison(forecast,actual).similar(arm.getJSONObject("comparison"))||!arm.getJSONObject("comparison").getBoolean("passed"))throw new IllegalStateException("Success lacks fresh native verification");
+                }
                 if(row.getString("split").equals("unsupported")&&!arm.getJSONArray("attempts").isEmpty())throw new IllegalStateException("Unsupported control actuated");
             }
         }
+        auditCheckpoint(id,count);
         if(j.has("evaluation")&&!MemoryPolicy075.evaluation(j.getJSONArray("rows")).similar(j.getJSONObject("evaluation")))throw new IllegalStateException("Evaluation changed");
         return new JSONObject().put("passed",true).put("attempts",count).put("code",code());
     }

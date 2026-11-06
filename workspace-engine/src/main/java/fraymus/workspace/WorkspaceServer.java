@@ -117,12 +117,13 @@ public final class WorkspaceServer implements AutoCloseable {
                     };send(exchange,200,result);return;
                 }
                 if(route.startsWith("/api/memory075/")){
-                    if(Set.of("/api/memory075/start","/api/memory075/resume").contains(route)&&(agency.busy()||sharedBusy043()||observations.busy()||tabletop.busy()||alignment041.busy()))throw new IllegalStateException("Finish active agent work/capture before the serial comparison");
+                    if(Set.of("/api/memory075/start","/api/memory075/resume","/api/memory075/recheck").contains(route)&&(agency.busy()||sharedBusy043()||observations.busy()||tabletop.busy()||alignment041.busy()))throw new IllegalStateException("Finish active agent work/capture before the serial comparison");
                     result=switch(route){
                         case "/api/memory075/protocol"->{SpatialScene.keys(input);yield MemoryPolicy075.protocol();}
                         case "/api/memory075/list"->{SpatialScene.keys(input);yield new JSONObject().put("studies",memory075.list());}
                         case "/api/memory075/start"->memory075.start(input);
                         case "/api/memory075/read"->{SpatialScene.keys(input,"id");yield memory075.read(input.getString("id"));}
+                        case "/api/memory075/recheck"->{SpatialScene.keys(input,"id");yield memory075.recheck(input.getString("id"));}
                         case "/api/memory075/resume"->{SpatialScene.keys(input,"id");yield memory075.resume(input.getString("id"));}
                         case "/api/memory075/stop"->{SpatialScene.keys(input,"id");yield memory075.cancel(input.getString("id"));}
                         case "/api/memory075/trace"->{SpatialScene.keys(input,"id","caseId","method");yield memory075.trace(input.getString("id"),input.getString("caseId"),input.getString("method"));}

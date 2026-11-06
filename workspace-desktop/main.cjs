@@ -420,7 +420,7 @@ ipcMain.handle('workspace:request',async(event,input)=>{
     }
     case 'persistentWorld':{
       if(input.command==='memory075-export'){const data=await api('/api/memory075/export',input.args);return nativeExports.save('certified-memory-comparison','json',JSON.stringify(data),{studyId:input.args.id,caseId:input.args.caseId});}
-      if(input.command?.startsWith('memory075-')){const op=input.command.slice(10);if(!['protocol','list','start','read','resume','stop','trace','audit'].includes(op))throw Error('Unknown memory comparison operation');return api('/api/memory075/'+op,input.args||{});}
+      if(input.command?.startsWith('memory075-')){const op=input.command.slice(10);if(!['protocol','list','start','read','resume','recheck','stop','trace','audit'].includes(op))throw Error('Unknown memory comparison operation');return api('/api/memory075/'+op,input.args||{});}
       if(input.command==='memory074-export'){const data=await api('/api/memory074/export',input.args);return nativeExports.save('memory-comparison','json',JSON.stringify(data),{studyId:input.args.id,caseId:input.args.caseId});}
       if(input.command?.startsWith('memory074-')){const op=input.command.slice(10);if(!['protocol','list','start','read','resume','stop','trace','audit'].includes(op))throw Error('Unknown memory comparison operation');return api('/api/memory074/'+op,input.args||{});}
 

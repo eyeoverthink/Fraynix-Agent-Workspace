@@ -47,4 +47,22 @@ public class MemoryPolicy075Test {
             assertThrows(IllegalArgumentException.class,()->s.start(new JSONObject().put("episodeIds",new JSONArray().put(UUID.randomUUID().toString()))));assertEquals(0,s.list().length());
         }
     }
+    @Test public void proofOnlyRecheckRejectsAnyUnsettledOrMissingCell(){
+        var j=new JSONObject().put("progress",64).put("protocol",MemoryPolicy075.protocol()).put("bank",new JSONArray()).put("rows",new JSONArray());
+        for(int i=0;i<16;i++){var rs=new JSONObject();for(String m:MemoryPolicy075.METHODS)rs.put(m,new JSONObject().put("status","completed"));j.getJSONArray("rows").put(new JSONObject().put("results",rs));}
+        MemoryStudy075.completeEvidence(j);String digest=MemoryStudy075.evidenceDigest(j);j.put("auditProgress",4);assertEquals(digest,MemoryStudy075.evidenceDigest(j));
+        j.getJSONArray("rows").getJSONObject(0).getJSONObject("results").getJSONObject("cached").put("status","running");assertThrows(IllegalStateException.class,()->MemoryStudy075.completeEvidence(j));assertNotEquals(digest,MemoryStudy075.evidenceDigest(j));
+        j.getJSONArray("rows").getJSONObject(0).getJSONObject("results").remove("cached");assertThrows(IllegalStateException.class,()->MemoryStudy075.completeEvidence(j));
+    }
+    @Test public void fatalWorkerExitIsPersistedInsteadOfLeavingRunningForever()throws Exception {
+        Path p=Files.createTempDirectory("memory075-worker-error-");String id=UUID.randomUUID().toString();
+        try(var store=new MemoryStudy075(p,key->{throw new AssertionError("No episode should be read");})){
+            var j=new JSONObject(){@Override public JSONArray getJSONArray(String key){if(key.equals("rows"))throw new AssertionError("Controlled worker error fixture");return super.getJSONArray(key);}};
+            j.put("id",id).put("code",MemoryStudy075.code()).put("protocol",MemoryPolicy075.protocol()).put("status","running").put("progress",0).put("rows",new JSONArray()).put("evaluation",new JSONObject().put("qualified",true));
+            var f=MemoryStudy075.class.getDeclaredField("jobs");f.setAccessible(true);((Map<String,JSONObject>)f.get(store)).put(id,j);
+            var execute=MemoryStudy075.class.getDeclaredMethod("execute",String.class);execute.setAccessible(true);execute.invoke(store,id);
+            var saved=store.read(id);assertEquals("interrupted",saved.getString("status"));assertTrue(saved.getString("reason").contains("Controlled worker error fixture"));assertFalse(saved.has("evaluation"));assertFalse(store.busy());
+        }
+        try(var cold=new MemoryStudy075(p,key->{throw new AssertionError();})){assertEquals("interrupted",cold.read(id).getString("status"));}
+    }
 }
