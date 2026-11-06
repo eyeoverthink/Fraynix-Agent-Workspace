@@ -4,7 +4,7 @@ const protocol=require('./fixtures/procedures082-protocol.json'),repo=path.resol
 async function main(){
  const buildReceipt=require('../../scripts/Study-Build082.cjs').verify(repo),budget=protocol.budgets.find(b=>b.id===process.argv[2]);assert(budget,'Name a frozen budget');
  process.env.FRAYNIX_WORKSPACE_PERSISTENT='0';process.env.FRAYNIX_WORKSPACE_PLAN_CPU_ONLY='1';process.env.FRAYNIX_WORKSPACE_JAVA_HEAP_MIB=String(budget.heapMiB);process.env.FRAYNIX_WORKSPACE_JAVA_PROCESSORS=String(budget.processors);
- const out=path.resolve(repo,'build/ui082-'+budget.id);await fs.mkdir(out,{recursive:true});assert(!sync.existsSync(path.join(out,'checkpoint.json')),'Use a fresh output; do not overwrite a run');
+ const out=path.resolve(process.env.FRAYNIX082_OUTPUT||path.join(repo,'build/ui082-'+budget.id));await fs.mkdir(out,{recursive:true});assert(!sync.existsSync(path.join(out,'checkpoint.json')),'Use a fresh output; do not overwrite a run');
  const project=path.join(out,'preparation'),record={source:cp.execFileSync('git',['rev-parse','HEAD'],{cwd:repo,encoding:'utf8'}).trim(),budget,project,out,buildReceipt,startedAt:new Date().toISOString(),training:[],calibration:[],arms:[],boots:[],checks:[]};
  let app,page,currentProject,monitor,monitorExit,stopFile,boot,errors=[];
  const api=(route,args={})=>app.evaluate((_,x)=>global.workspaceTest.api(x.route,x.args),{route,args});const save=()=>fs.writeFile(path.join(out,'checkpoint.json'),JSON.stringify(record,null,2));
