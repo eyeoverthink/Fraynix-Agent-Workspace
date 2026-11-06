@@ -6,7 +6,7 @@
 
 Chat now connects cost-aware verified procedures to durable Java goals, actual native execution, persistent world commits and named saved skills. Selective-benefit qualification: **False**; training-inclusive efficiency: **False**. [Actual results, screenshots and complete evidence](README-079.md).
 
-Edition 079 implementation, screenshots and original evidence are prepared for publication. [Previous fetched publication](docs/PUBLICATION_078.json).
+Edition 079 is published to main with source, actual screenshots, original evidence and continuity notes. [Fetched GitHub verification](docs/PUBLICATION_079.json).
 
 One integrated app, with Java-owned chat planning, creation, native skill scheduling, continuing identity, real clocks and checked outcomes. Mission connects the actual goal, source, child task, recovery and retained result. [Screenshots, typed skill graphs, new logic and production direction](README-046.md).
 
