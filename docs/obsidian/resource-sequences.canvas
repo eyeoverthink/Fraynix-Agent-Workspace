@@ -1,0 +1,71 @@
+{
+  "nodes": [
+    {
+      "id": "readme",
+      "type": "file",
+      "file": "README-082.md",
+      "x": 0,
+      "y": 0,
+      "width": 380,
+      "height": 250
+    },
+    {
+      "id": "note",
+      "type": "file",
+      "file": "docs/obsidian/90-resource-sequences.md",
+      "x": 440,
+      "y": 0,
+      "width": 380,
+      "height": 250
+    },
+    {
+      "id": "limits",
+      "type": "file",
+      "file": "workspace-desktop/java-budget082.cjs",
+      "x": 0,
+      "y": 310,
+      "width": 380,
+      "height": 250
+    },
+    {
+      "id": "measure",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/Resources082.java",
+      "x": 440,
+      "y": 310,
+      "width": 380,
+      "height": 250
+    },
+    {
+      "id": "evidence",
+      "type": "file",
+      "file": "docs/readmes/082/verification.json",
+      "x": 880,
+      "y": 310,
+      "width": 380,
+      "height": 250
+    }
+  ],
+  "edges": [
+    {
+      "id": "edge0",
+      "fromNode": "readme",
+      "toNode": "note"
+    },
+    {
+      "id": "edge1",
+      "fromNode": "note",
+      "toNode": "limits"
+    },
+    {
+      "id": "edge2",
+      "fromNode": "limits",
+      "toNode": "measure"
+    },
+    {
+      "id": "edge3",
+      "fromNode": "measure",
+      "toNode": "evidence"
+    }
+  ]
+}

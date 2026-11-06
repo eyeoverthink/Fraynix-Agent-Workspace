@@ -1,5 +1,8 @@
 # Fraynix Studio and Agent Workspace README editions
 
+- [Edition 082: resource budgets and continuing-world sequences](../../README-082.md) · [Offline results](082/index.html)
+
+
 Numbered editions preserve dated behavior and evidence. The root [README](../../README.md) remains the entry point.
 
 | Edition | Date | Focus | Explore |

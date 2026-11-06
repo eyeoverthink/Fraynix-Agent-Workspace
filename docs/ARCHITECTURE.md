@@ -1,5 +1,8 @@
 # Fraynix Agent Workspace system architecture
 
+Edition 082 adds validated Java launch limits and read-only resource counters. Existing native outcome and world-commit authority is unchanged. See [current measurements](../README-082.md).
+
+
 ## Current edition081: bounded parallel calibration evidence
 
 [Edition081](../README-081.md) keeps the existing selection and outcome authority. `CalibrationScan081` uses two Java readers to run original `ProofMemo078.snapshot` checks; `WorldProcedure079` joins them before comparing ordered evidence, retaining implementation and paired-cost arithmetic checks at all existing boundaries. One batch in flight, no persistent trust or timestamp shortcut. Failed or interrupted reads cannot authorize an estimate. Operational diagnostics measure loads, elapsed loader/hash time, failures and successfully verified bytes; they do not replace physical evidence. Normal runtime uses two readers, with an isolated-test-only serial comparison. Complete-task timings and original physics/controller/verifier/WorldLedger behavior are unchanged.

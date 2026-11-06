@@ -1,5 +1,16 @@
 # Agent Workspace project memory
 
+## Edition 082 · Validated locally; publication next
+
+Three measured Java budgets, all on the isolated D:/Codex-Work/fraynix-workspace-edition082 checkout. Prospective contract f2db6ba; parent409afc5. four-768: reference 6/6, parallel 6/6, complete-time change 0.70% lower, checking change 37.48% lower; two-512: reference 6/6, parallel 6/6, complete-time change 1.37% lower, checking change 8.07% lower; one-384: reference 6/6, parallel 6/6, complete-time change 1.05% lower, checking change 3.04% lower. 36/36 planned evaluation goals; each sequence binds continuing world state, restarts after goal three and requests final experience/skill retention. One sequence pair per budget; no statistical generalization or automatic promotion. Historical C: times are not matched evidence. JVM heap limits exclude total native/Electron/OS memory; actual Windows affinity, JVM counters and process samples retained.
+
+**160 Java tests across 25 classes and 133 desktop checks passed**, with no failed or skipped checks. A real persistent Java owner refused a different requested budget and then reconnected under matching limits with the same PID and boot identity. All study launches checked the effective heap bound and CPU count; sampled OS affinity remained within the declared logical processors. Sixteen actual Java API evidence-corruption probes exercised both readers under the tightest study launch settings and restored exact original bytes.
+
+320 prior compiled engine classes remain byte-identical; the sole modified prior class is WorkspaceServer. Added read-only Resources082 and bounded launch settings. Physics/controllers/proof reader/cost math/GoalRunner/WorldLedger unchanged. Every original byte check, model profile, host report and world commit retained. 0 supported estimate decisions / 0 remembered executions; cold/retention mismatch fallback remains intact. Source/build receipt checked before and after all profiles. Failed attempts and original evidence retained.
+
+README082, actual screenshots, offline charts/motion replay, complete source/raw inventory and Obsidian90 map prepared. Memory/logs updated. Existing normal045/qa046/private data/services preserved. Push main/edition082/readme-082 and fresh Git verification remain; do not claim publication yet. No subagents or overlapping heavy work. Next: repeated cold/retention calibration and longer-sequence simple-control comparisons before automatic resource policy.
+
+
 ## Edition 082 · Resource and sequence study in progress
 
 2026-11-06. Isolated D:/Codex-Work/fraynix-workspace-edition082, parent409afc5, prospective contractf2db6ba. D: avoids filling C: with another7.2GB tracked tree; normal045/qa046/private data and historical releases remain untouched. No subagents or overlapping heavy tests.

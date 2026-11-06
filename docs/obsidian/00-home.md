@@ -1,4 +1,7 @@
 ---
+
+[[docs/obsidian/90-resource-sequences.md|Edition 082 resource measurements]] · [[docs/obsidian/resource-sequences.canvas|System map]]
+
 title: Fraynix Studio map of content
 edition_context: 081
 updated: 2026-11-06

@@ -1,0 +1,63 @@
+{
+  "modules": [
+    {
+      "id": "budget",
+      "name": "Resource limits",
+      "source": "workspace-desktop/java-budget082.cjs",
+      "description": "Strict startup limits in both Java lifetimes; a running owner is never silently replaced.",
+      "note": "docs/obsidian/90-resource-sequences.md"
+    },
+    {
+      "id": "measure",
+      "name": "Actual JVM counters",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/Resources082.java",
+      "description": "Read-only heap, process CPU and garbage collection measurements.",
+      "note": "docs/obsidian/90-resource-sequences.md"
+    },
+    {
+      "id": "reader",
+      "name": "Original evidence checks",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/CalibrationScan081.java",
+      "description": "One or two readers check the same original bytes, join and compare.",
+      "note": "docs/obsidian/90-resource-sequences.md"
+    },
+    {
+      "id": "world",
+      "name": "Continuing world",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/WorldProcedure079.java",
+      "description": "Unchanged native forecasts, actual motion, outcome checks and persistent commits.",
+      "note": "docs/obsidian/90-resource-sequences.md"
+    },
+    {
+      "id": "inspect",
+      "name": "Independent inspection",
+      "source": "scripts/Inspect-Procedures082.cjs",
+      "description": "Original-byte/native arithmetic/commit inspection and resource accounting.",
+      "note": "docs/obsidian/90-resource-sequences.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "docs/readmes/082/four-768-parallel-goal-6-report.png",
+      "caption": "Completed sixth goal, four-processor budget"
+    },
+    {
+      "path": "docs/readmes/082/one-384-parallel-continuing-world.png",
+      "caption": "Continuing world under the one-processor budget"
+    },
+    {
+      "path": "docs/readmes/082/one-384-parallel-saved-skill.png",
+      "caption": "Saved skill and verified report after reopening"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/readmes/082/verification.json",
+      "caption": "Validation and measurements"
+    },
+    {
+      "path": "docs/readmes/082/original-evidence.json",
+      "caption": "Exact original archives"
+    }
+  ]
+}

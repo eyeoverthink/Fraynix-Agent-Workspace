@@ -1,5 +1,10 @@
 # Fraynix Agent Workspace
 
+**Latest: [edition 082 — resource budgets and continuing-world sequences](README-082.md).**
+
+Edition 082 is validated locally; publication verification is pending.
+
+
 **A local visual environment for agents to browse, create runnable artifacts, test behavior and reuse verified skills.**
 
 > **[Edition 081 · Faster estimation with complete evidence checks](README-081.md)** · [Offline guide](docs/readmes/081/index.html) · [Edition history](docs/readmes/INDEX.md)
