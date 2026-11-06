@@ -1,6 +1,11 @@
 # Fraynix Agent Workspace system architecture
 
-## Current edition080: complete-task cost calibration
+## Current edition081: bounded parallel calibration evidence
+
+[Edition081](../README-081.md) keeps the existing selection and outcome authority. `CalibrationScan081` uses two Java readers to run original `ProofMemo078.snapshot` checks; `WorldProcedure079` joins them before comparing ordered evidence, retaining implementation and paired-cost arithmetic checks at all existing boundaries. One batch in flight, no persistent trust or timestamp shortcut. Failed or interrupted reads cannot authorize an estimate. Operational diagnostics measure loads, elapsed loader/hash time, failures and successfully verified bytes; they do not replace physical evidence. Normal runtime uses two readers, with an isolated-test-only serial comparison. Complete-task timings and original physics/controller/verifier/WorldLedger behavior are unchanged.
+
+
+## Edition080 foundation: complete-task cost calibration
 
 [Edition080](../README-080.md) measures the existing durable procedure's full Java completion interval. `TaskCost080` matches owned completed controls and estimates empirical savings; `WorldProcedure079` persists timing/model/source provenance; `GoalRunner` owns the monotonic lifecycle clock and saving workload. The existing persistent-world panel reviews explicit comparison pairs. Original physics, native controls/verifiers, WorldFrames and WorldLedger remain unchanged. A cost estimate cannot authorize motion. Interrupted timings are excluded; retained models cannot substitute warm measurements for cold proof work or a different saving workload. Evaluation stays outside calibration.
 

@@ -1,0 +1,93 @@
+{
+  "modules": [
+    {
+      "id": "reader",
+      "name": "Two evidence readers",
+      "note": "docs/obsidian/89-calibration-evidence.md",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/CalibrationScan081.java",
+      "description": "Two bounded readers run original byte/path checks, join, then compare; no cached trust."
+    },
+    {
+      "id": "runner",
+      "name": "Verified procedure",
+      "note": "docs/obsidian/89-calibration-evidence.md",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/WorldProcedure079.java",
+      "description": "Original native forecasts, actual stages, model identity, pair arithmetic and reports."
+    },
+    {
+      "id": "goal",
+      "name": "Durable goal and skill",
+      "note": "docs/obsidian/89-calibration-evidence.md",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/GoalRunner.java",
+      "description": "Original goal clock, real report checks, commit and requested retention."
+    },
+    {
+      "id": "proof",
+      "name": "Original byte checks",
+      "note": "docs/obsidian/89-calibration-evidence.md",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/ProofMemo078.java",
+      "description": "Unchanged owned-file checks, SHA-256 and bounded evidence reads."
+    },
+    {
+      "id": "inspect",
+      "name": "Independent reader",
+      "note": "docs/obsidian/89-calibration-evidence.md",
+      "source": "scripts/Inspect-Procedures081.cjs",
+      "description": "Original-byte, native arithmetic, cost provenance and paired-work comparison."
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "docs/readmes/081/actual-before-interruption.png",
+      "label": "actual-before-interruption"
+    },
+    {
+      "path": "docs/readmes/081/actual-procedure-report.png",
+      "label": "actual-procedure-report"
+    },
+    {
+      "path": "docs/readmes/081/chat-completed.png",
+      "label": "chat-completed"
+    },
+    {
+      "path": "docs/readmes/081/cold-skill-confirmed.png",
+      "label": "cold-skill-confirmed"
+    },
+    {
+      "path": "docs/readmes/081/cold-skill-reuse.png",
+      "label": "cold-skill-reuse"
+    },
+    {
+      "path": "docs/readmes/081/complete-task-calibration.png",
+      "label": "complete-task-calibration"
+    },
+    {
+      "path": "docs/readmes/081/estimated-task-report.png",
+      "label": "estimated-task-report"
+    },
+    {
+      "path": "docs/readmes/081/fitted-cost-comparisons.png",
+      "label": "fitted-cost-comparisons"
+    },
+    {
+      "path": "docs/readmes/081/layout-1100.png",
+      "label": "layout-1100"
+    },
+    {
+      "path": "docs/readmes/081/layout-1600.png",
+      "label": "layout-1600"
+    },
+    {
+      "path": "docs/readmes/081/resumed-verified.png",
+      "label": "resumed-verified"
+    },
+    {
+      "path": "docs/readmes/081/saved-experience.png",
+      "label": "saved-experience"
+    },
+    {
+      "path": "docs/readmes/081/stop-preserves-world.png",
+      "label": "stop-preserves-world"
+    }
+  ]
+}

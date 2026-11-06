@@ -2,11 +2,11 @@
 
 **A local visual environment for agents to browse, create runnable artifacts, test behavior and reuse verified skills.**
 
-> **[Edition 080 · Complete-task cost calibration](README-080.md)** · [Offline guide](docs/readmes/080/index.html) · [Edition history](docs/readmes/INDEX.md)
+> **[Edition 081 · Faster estimation with complete evidence checks](README-081.md)** · [Offline guide](docs/readmes/081/index.html) · [Edition history](docs/readmes/INDEX.md)
 
-Java measures execution, verification, world commit and requested saving before estimating whether memory is worth using. Estimation improvement: **True**; complete-task efficiency: **False**; first-batch efficiency including learning: **False**. [Actual results, screenshots and evidence](README-080.md).
+Two bounded Java readers check the same original calibration evidence. Estimation overhead reduction: **44.2%**; complete-task reduction: **1.18%** in eight controlled pairs. Identical decisions, native work and final states; original verification retained. [Actual results, screenshots and evidence](README-081.md).
 
-Edition 080 is published to main with source, actual screenshots, original evidence and continuity notes. [Fetched GitHub verification](docs/PUBLICATION_080.json).
+Edition 081 implementation, screenshots and original evidence are prepared for publication. [Previous fetched publication](docs/PUBLICATION_080.json).
 
 One integrated app, with Java-owned chat planning, creation, native skill scheduling, continuing identity, real clocks and checked outcomes. Mission connects the actual goal, source, child task, recovery and retained result. [Screenshots, typed skill graphs, new logic and production direction](README-046.md).
 

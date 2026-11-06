@@ -1,5 +1,16 @@
 # Agent Workspace project memory
 
+## Edition 081 · Validated locally; publication next
+
+Contracte825734, parentb121e65; primary sourcebf371e61252f7acc15e2dd97f1269676200792e3. Read-only080 profile:334–400ms hashing149743387bytes/load. Two bounded Java readers use original ProofMemo078 snapshots; one batch in flight, every byte reread, all readers joined before comparison or refusal, no timestamp shortcut or trust cache. Pair arithmetic, TaskCost080, physics/controller/native verification and WorldLedger unchanged. Current procedure identity includes CalibrationScan081; older proofs cannot authorize the new implementation. Serial reference is isolated-test-only.
+
+reference: 8/8, 173179 ticks/32 stages, 465.13s complete, 466.40s caller, 15.104s estimation, 40 evidence loads / 5989742440 verified bytes; parallel: 8/8, 173179 ticks/32 stages, 459.66s complete, 461.00s caller, 8.426s estimation, 40 evidence loads / 5989742440 verified bytes. Estimation reduction 44.21%; separate six-repeat reader reduction 44.58%; complete-task reduction 1.18% (faster=True). Decisions, native work and final frames identical. Three learning tasks, four calibration pairs, six regression and two prospective mass/friction cases x two counterbalanced readers; four unsupported controls. Bank/model frozen. Learning 161.19s; calibration+fit 493.62s. One machine, no retuning or general performance claim.
+
+159 Java checks/24 classes; 130 desktop checks; actual primary/chat/report/export/skill/cold restart, separate interruption/resume/Stop, 26 independent altered-evidence probes and sixteen actual Java API source faults across both readers. Actual app1600/1100 and offline1440/390. No new physical accuracy or model-weight learning claim.
+
+Java complete-task timing includes original native execution/checks, real host-report checks, world commit and requested retention; final timing write/caller transport outside, caller elapsed separate. Reader stats captured before export. Every successful load checks the same bytes. Interrupted/resumed clocks remain ineligible. Existing private normal045/qa046 and data/services preserved. README081, real captures, offline charts/replays, complete source/raw evidence, Obsidian89/map and notes prepared. Push and fetch main/edition081/readme-081 next; not yet claimed. Preserve numbered001–080. No subagents or heavy overlap. Next: repeated resource-budget measurements, cold/retention workloads, longer sequences and amortization.
+
+
 ## Edition 080 · Published and fetched back on 2026-11-06
 
 Atomic push to Fraynix-Agent-Workspace main, edition080 and readme-080 succeeded. Release c344a5b53d30cbbad1d5ec6f0e0765f5ca3301d5; annotated tag f6f6c199b44e6fe40c349a9223fe03fbaca0317d. Fresh fetch verified 1131 canonical sources, 9927 frozen hashes across80 editions and 1381 exact original archives including decompressed bytes. Documentation passed 85 canvases / 8106 references. [Publication receipt](PUBLICATION_080.json).
