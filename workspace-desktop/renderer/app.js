@@ -99,7 +99,7 @@ function renderLibrary(){window.agency043View?.recipes(state?.skills||[]);
   const items=libraryTab==='learning'?learningItems():libraryTab==='scenes'?(state.scenes||[]):libraryTab==='artifacts'?state.artifacts:[...state.skills,...(state.procedures||[])];
   persistentPanel.updateFirstSkill(state.goals?.find(goal=>goal.id===persistentPanel.firstSkillGoalId));
   if(libraryTab==='skills'){
-    const hasWorldSkill=items.some(item=>item.kind==='persistent-world-arrange-v1');
+    const hasWorldSkill=items.some(item=>['persistent-world-arrange-v1','selective-world-procedure-079-v1'].includes(item.kind));
     const entry=document.createElement('button');
     entry.id='first-world-library';
     entry.className='quiet';
