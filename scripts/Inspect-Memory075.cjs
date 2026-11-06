@@ -4,12 +4,15 @@ const {unpack,metrics}=require('./Inspect-Counterfactual045.cjs');
 const families=['existing-controller-order','reversed-target-order','half-force'];
 const methods=['search','simple','memory','cached'];
 const distance=(a,b)=>Math.hypot(...a.map((v,k)=>v-b[k]));
+// Ranking uses Java's specified sqrt(dot(delta, delta)) operation order.
+// Math.hypot rescales internally and can change the last bit, including ties.
+const rankingDistance=(a,b)=>{const d=a.map((v,k)=>v-b[k]);return Math.sqrt(d[0]*d[0]+d[1]*d[1]+d[2]*d[2]);};
 function angle(a,b){const[x,y,z,w]=a,[aa,bb,c,d]=[-b[0],-b[1],-b[2],b[3]];return Math.atan2(Math.hypot(w*aa+x*d+y*c-z*bb,w*bb-x*c+y*d+z*aa,w*c+x*bb-y*aa+z*d),Math.abs(w*d-x*aa-y*bb-z*c))*360/Math.PI;}
 function compare(a,b){assert.notEqual(a.id,b.id);assert.deepEqual(a.definition,b.definition);assert.deepEqual(a.plan,b.plan);const ticks=new Map(a.samples.map(s=>[s.tick,s]));let matched=0,position=0,rotation=0;for(const s of b.samples){const p=ticks.get(s.tick);if(!p)continue;matched++;for(const body of s.bodies){const prior=p.bodies.find(x=>x.id===body.id);assert(prior);position=Math.max(position,distance(body.position,prior.position));rotation=Math.max(rotation,angle(body.rotation,prior.rotation));}}return{coverage:matched/Math.max(a.samples.length,b.samples.length),position,rotation};}
 function close(a,b,t=1e-8){assert(Number.isFinite(a)&&Number.isFinite(b)&&Math.abs(a-b)<=t,`${a} differs from ${b}`);}
 function ranking(bank,spec){return bank.filter(b=>spec.targets.every(t=>b.episode.run.definition.objects.some(o=>o.sourceId===t.sourceId)&&b.episode.run.plan.intent.targets.some(o=>o.sourceId===t.sourceId))).map(b=>{
  const old=b.episode.run.definition,targets=b.episode.run.plan.intent.targets;let sum=0,count=0;
- for(const t of spec.targets){const a=old.objects.find(o=>o.sourceId===t.sourceId),v=spec.source.objects.find(o=>o.sourceId===t.sourceId),goal=targets.find(x=>x.sourceId===t.sourceId);assert(a&&v&&goal);sum+=Math.abs(a.massKg-v.massKg)/4+Math.abs(a.friction-v.friction)/2;count+=2;for(let k=0;k<3;k++){sum+=Math.abs(a.size[k]-v.size[k]);count++;}sum+=Math.abs(distance(a.position,goal.positionM)-distance(v.position,t.positionM))/10;count++;}
+ for(const t of spec.targets){const a=old.objects.find(o=>o.sourceId===t.sourceId),v=spec.source.objects.find(o=>o.sourceId===t.sourceId),goal=targets.find(x=>x.sourceId===t.sourceId);assert(a&&v&&goal);sum+=Math.abs(a.massKg-v.massKg)/4+Math.abs(a.friction-v.friction)/2;count+=2;for(let k=0;k<3;k++){sum+=Math.abs(a.size[k]-v.size[k]);count++;}sum+=Math.abs(rankingDistance(a.position,goal.positionM)-rankingDistance(v.position,t.positionM))/10;count++;}
  const oldRoles=new Set(old.objects.map(o=>o.sourceId));let unmatched=0;for(const o of spec.source.objects)if(!oldRoles.delete(o.sourceId))unmatched++;
  return{id:b.episode.id,distance:sum/count+.25*(unmatched+oldRoles.size),preferred:b.preferred};
 }).sort((a,b)=>a.distance-b.distance||a.id.localeCompare(b.id));}

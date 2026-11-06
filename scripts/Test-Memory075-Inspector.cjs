@@ -17,6 +17,8 @@ const probes=[
  ['changed held-out payload',x=>{x.row.spec.source.objects.find(o=>o.sourceId==='A').massKg+=.1;}],
  ['changed target goal',x=>{x.row.spec.targets[0].positionM[0]+=.2;}],
  ['changed remembered family',x=>{x.row.results.memory.retrieval.selected.id='00000000-0000-0000-0000-000000000000';}],
+ ['changed ranked distance',x=>{x.row.results.memory.retrieval.ranked[0].distance+=1e-12;}],
+ ['changed rank order',x=>{x.row.results.memory.retrieval.ranked.reverse();}],
  ['forecast reused as actual',x=>{x.row.results.simple.actualRunId=x.row.results.simple.forecastRunId;}],
  ['false outcome label',x=>{x.row.results.simple.success=!x.row.results.simple.success;}],
  ['changed candidate selection',x=>{x.row.results.search.selected='unverified-candidate';}],
