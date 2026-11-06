@@ -4,7 +4,7 @@ function table(root,headers,rows){root.replaceChildren();const t=document.create
 function corners(p,size,q){const cross=(a,b)=>[a[1]*b[2]-a[2]*b[1],a[2]*b[0]-a[0]*b[2],a[0]*b[1]-a[1]*b[0]],out=[];for(let i=0;i<8;i++){const v=size.map((n,k)=>((i & (1 << k)) ? .5 : -.5)*n),t=cross(q.slice(0,3),v).map(n=>2*n),w=cross(q.slice(0,3),t);out.push(v.map((n,k)=>p[k]+n+q[3]*t[k]+w[k]));}return out;}
 export class Procedure076Panel {
  constructor({call,root,notice}){
-  this.call=call;this.notice=notice;this.runs=[];this.busy=false;this.pending=false;
+  this.call=call;this.notice=notice;this.runs=[];this.busy=false;this.pending=0;
   const panel=document.createElement('details');panel.id='procedures076';panel.className='spatial-detail';panel.innerHTML=`<summary>Verified procedures · learn and compare</summary>
   <p>Train five procedures on three declared scenes, freeze their actual proofs, then compare eight unfamiliar tasks and four refusal controls. The simple and geometry controls have the same tools as memory.</p>
   <div class="persistent-toolbar"><button id="p076-refresh">Refresh</button><button id="p076-start" class="primary">Train procedures &amp; compare</button><label>Saved study<select id="p076-studies"></select></label><button id="p076-resume">Resume interrupted study</button><button id="p076-stop">Stop study</button></div>
@@ -13,7 +13,7 @@ export class Procedure076Panel {
   <div class="persistent-toolbar"><label>Training or test scene<select id="p076-case"></select></label><label>Procedure / control<select id="p076-method"></select></label><button id="p076-trace">Load recorded motion</button><button id="p076-export">Export case &amp; original traces</button></div>
   <div id="p076-cases" class="p076-scroll"></div><p id="p076-detail"></p>
   <div id="p076-replay" hidden><label>Native stage<select id="p076-runs"></select></label><label>Frame<input id="p076-frame" type="range" value="0" min="0"></label><p id="p076-frame-info"></p><canvas id="p076-canvas" width="700" height="320" aria-label="Actual native procedure stages"></canvas><p>Read-only X/Z paths in metres, with original body orientation. Stages carry measured kinematic state; this is not continuous contact-manifold restoration.</p></div>`;
-  root.append(panel);this.root=panel;const act=fn=>async()=>{if(this.pending)return;this.pending=true;try{await fn();}catch(e){$('p076-status').textContent=e.message;notice(e.message);}finally{this.pending=false;}};
+  root.append(panel);this.root=panel;const act=fn=>async()=>{this.pending++;try{await fn();}catch(e){$('p076-status').textContent=e.message;notice(e.message);}finally{this.pending--;}};
   $('p076-refresh').onclick=act(()=>this.refresh());$('p076-start').onclick=act(async()=>{const j=await call('procedures076-start',{});this.id=j.id;await this.refresh();this.show(j);});
   $('p076-studies').onchange=act(async()=>{this.id=$('p076-studies').value;await this.poll();});for(const op of ['resume','stop'])$('p076-'+op).onclick=act(async()=>{await call('procedures076-'+op,{id:this.id});await this.poll();});
   $('p076-case').onchange=()=>{this.methods();this.detail();};$('p076-method').onchange=()=>this.detail();
