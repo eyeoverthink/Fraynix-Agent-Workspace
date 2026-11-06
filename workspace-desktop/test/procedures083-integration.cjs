@@ -57,7 +57,8 @@ async function main(){
   }else{
    const seedRoot=path.resolve(process.env.FRAYNIX083_SEED||path.join(repo,'build/ui083-seed')),seed=JSON.parse(await fs.readFile(path.join(seedRoot,'result.json'),'utf8'));assert(seed.passed);record.receiptId=seed.receiptId;record.seedSource=seedRoot;await clone(seed.project,project,seed.preparedFiles);record.initialCloneVerified=true;
    for(const spec of protocol.calibration)record.calibration.push({id:spec.id,results:{}});
-   const worlds={};for(const policy of ['memory','simple'])for(const i of policy==='memory'?[0,1]:[1,0]){
+   record.collectionAmendment=group.retain?'docs/EDITION_083_COLLECTION_AMENDMENT.md':null;
+   const worlds={};for(const policy of ['memory','simple'])for(const i of policy==='memory'&&!group.retain?[0,1]:[1,0]){
     await start(project,'calibrate-'+policy+'-'+i);const spec=protocol.calibration[i];let world=worlds[i];if(!world){world=await create(spec);worlds[i]=world;}else await api('/api/world/restore',{...await binding(world),targetRevision:0});
     const skillName=group.skill?'calibrate-083-'+policy+'-'+i:'';const row=await run(spec,world,'parallel',policy,group.retain,skillName);record.calibration[i].results[policy]=row;await save();assert.equal(row.status,'completed');
     if(policy==='memory'){assert(row.job.decision.useMemory);assert.equal(row.job.decision.candidate.id,record.receiptId);assert.equal(row.job.decision.candidate.warm,group.warm);}if(group.skill)assert.equal(row.goal.savedSkill.name,skillName);await close();
@@ -74,7 +75,8 @@ async function main(){
     for(const policy of order){
      const where=path.join(out,'evaluation-'+i+'-'+policy);await clone(project,where,record.preparedFiles);await start(where,'evaluate-'+i+'-'+policy);const world=await create(spec),skillName=group.skill?'route-083-'+i+'-'+policy:'';
      const row=await run(spec,world,'parallel',policy,group.retain,skillName);row.caseIndex=i;row.order=order;row.initialCloneVerified=true;assert.equal(row.bankBefore.sha256,record.frozenBankSha);record.rows.push(row);await save();assert.equal(row.status,'completed');
-     if(policy!=='simple'){assert.equal(row.job.decision.candidate.id,record.receiptId);assert.equal(row.job.decision.candidate.warm,group.warm);}if(policy==='calibrated')assert(row.job.decision.cost080.available,'Expected matching calibration must exist; do not retune outcomes');
+     const drift=group.retain&&i===1,expectedReceipt=drift?record.calibration[0].results.memory.goalId:record.receiptId;row.receiptDrift=drift;
+     if(policy!=='simple'){assert.equal(row.job.decision.candidate.id,expectedReceipt);assert.equal(row.job.decision.candidate.warm,drift?false:group.warm);}if(policy==='calibrated'){assert.equal(row.job.decision.cost080.available,!drift,'Coverage must match the genuinely selected receipt');if(drift)assert.equal(row.job.decision.useMemory,false,'Unsupported changed receipt must fall back without borrowing calibration');}
      assert.equal(sha(await fs.readFile(path.join(where,'world-procedures-079/cost-models080',record.model.id+'.json'))),record.modelSha);if(!group.retain)assert.equal(sha(await fs.readFile(path.join(where,'world-procedures-079/bank.json'))),record.frozenBankSha);
      if(policy==='calibrated'){await report(row.goalId);await capture('case-'+i+'-estimated-report');await viewWorld(world);await capture('case-'+i+'-world');}
      await stopAndRemember(row,world,'case-'+i+'-'+policy);await save();
