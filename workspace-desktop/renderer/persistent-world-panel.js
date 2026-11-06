@@ -1,3 +1,4 @@
+import {Procedure076Panel} from './procedures076.js';
 import {Memory075Panel} from './memory075.js';
 import {Memory074Panel} from './memory074.js';
 import {Rehearsal073Panel} from './rehearsal073.js';
@@ -33,6 +34,7 @@ export class PersistentWorldPanel {
    <div class="persistent-toolbar"><label>Verified history<select id="persistent-revisions"></select></label><button id="persistent-restore">Restore selected verified revision</button><button id="persistent-export">Export world &amp; all attempts</button></div>
    <p class="subtle">Restore is an explicit state revision, not physical movement. Failed or interrupted attempts keep ownership until resumed or explicitly abandoned and restored. Original history stays available.</p>`;
   $('pose-panel').before(root);this.root=root;
+  this.procedures076=new Procedure076Panel({call:this.call,root,notice:this.notice});
   this.memory075=new Memory075Panel({call:this.call,root,notice:this.notice});
   this.memory074=new Memory074Panel({call:this.call,root,notice:this.notice});
   this.rehearsal073=new Rehearsal073Panel({call:this.call,root,notice:this.notice,selectWorld:id=>this.select(id)});
