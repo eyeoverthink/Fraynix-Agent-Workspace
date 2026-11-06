@@ -1,6 +1,6 @@
 ---
 title: Fraynix Studio map of content
-edition_context: 076
+edition_context: 077
 updated: 2026-11-05
 tags: [fraynix, system-map]
 ---
@@ -9,9 +9,9 @@ tags: [fraynix, system-map]
 
 Open the repository root as an Obsidian vault. The numbered README is the edition snapshot; these notes are the working map.
 
-Current: [[README-076|Edition 076 — varied verified procedures]] ·
-[[docs/obsidian/84-verified-procedures|Operation and next gates]] ·
-[[docs/obsidian/verified-procedures.canvas|System map]].
+Current: [[README-077|Edition 077 — obstacle-aware procedures]] ·
+[[docs/obsidian/85-obstacle-waypoints|Operation and next gates]] ·
+[[docs/obsidian/obstacle-waypoints.canvas|System map]].
 
 Previous: [[README-031|Edition031 — native contact tasks]] ·
 [[docs/obsidian/39-native-pushing|Pushing contract and measured limits]] ·

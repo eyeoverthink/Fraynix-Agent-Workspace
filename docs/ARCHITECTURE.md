@@ -1,6 +1,11 @@
 # Fraynix Agent Workspace system architecture
 
-## Current extension: verified procedures (edition076)
+## Current edition077: obstacle-aware verified procedures
+
+[Edition077](../README-077.md) adds a bounded Java clear-landing search and source-bound waypoint receipts. `Waypoints077` proposes intermediate poses and previews geometry locally; `ProcedureStudy077` alone executes fresh native forecast/actual programs, carries measured frames and seals training-only receipts. `Procedure077` owns recipe, retrieval and claim rules. The integrated panel distinguishes planned targets from recorded native motion. Simple and geometry controls share the same repertoire as memory; the study does not promote a controller or mutate an active world. Existing controller, physics and verification remain authoritative. See the current README for measured utility, wall time and training-inclusive outcomes.
+
+
+## Edition076 foundation: verified procedures
 
 The persistent-world panel now includes an isolated Java procedure study. `Procedure076` defines five typed recipes, component ranking and whole-task checks; `ProcedureStudy076` owns training, freezing receipts, matched evaluation, recovery and exact exports. Each staged handoff uses `WorldFrames` measured position, rotation, velocity and elapsed time. Original native controller and verifier code remain unchanged; hidden contact manifolds are not continuously restored.
 

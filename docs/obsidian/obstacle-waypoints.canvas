@@ -1,0 +1,134 @@
+{
+  "nodes": [
+    {
+      "id": "readme",
+      "type": "file",
+      "file": "README-077.md",
+      "x": 0,
+      "y": 0,
+      "width": 380,
+      "height": 200
+    },
+    {
+      "id": "waypoints",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/Waypoints077.java",
+      "x": 0,
+      "y": 270,
+      "width": 380,
+      "height": 210
+    },
+    {
+      "id": "procedure",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/Procedure077.java",
+      "x": 420,
+      "y": 270,
+      "width": 380,
+      "height": 210
+    },
+    {
+      "id": "study",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/ProcedureStudy077.java",
+      "x": 840,
+      "y": 270,
+      "width": 380,
+      "height": 210
+    },
+    {
+      "id": "frame",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/WorldFrames.java",
+      "x": 0,
+      "y": 530,
+      "width": 380,
+      "height": 210
+    },
+    {
+      "id": "verify",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/WorldVerify.java",
+      "x": 420,
+      "y": 530,
+      "width": 380,
+      "height": 210
+    },
+    {
+      "id": "view",
+      "type": "file",
+      "file": "workspace-desktop/renderer/procedures077.js",
+      "x": 840,
+      "y": 530,
+      "width": 380,
+      "height": 210
+    },
+    {
+      "id": "inspect",
+      "type": "file",
+      "file": "scripts/Inspect-Procedures077.cjs",
+      "x": 0,
+      "y": 790,
+      "width": 380,
+      "height": 210
+    }
+  ],
+  "edges": [
+    {
+      "id": "e0",
+      "fromNode": "readme",
+      "fromSide": "bottom",
+      "toNode": "waypoints",
+      "toSide": "top",
+      "label": "Clear landing search"
+    },
+    {
+      "id": "e1",
+      "fromNode": "readme",
+      "fromSide": "bottom",
+      "toNode": "procedure",
+      "toSide": "top",
+      "label": "Typed procedures"
+    },
+    {
+      "id": "e2",
+      "fromNode": "readme",
+      "fromSide": "bottom",
+      "toNode": "study",
+      "toSide": "top",
+      "label": "Durable Java study"
+    },
+    {
+      "id": "e3",
+      "fromNode": "readme",
+      "fromSide": "bottom",
+      "toNode": "frame",
+      "toSide": "top",
+      "label": "Measured world frames"
+    },
+    {
+      "id": "e4",
+      "fromNode": "readme",
+      "fromSide": "bottom",
+      "toNode": "verify",
+      "toSide": "top",
+      "label": "Original physics gates"
+    },
+    {
+      "id": "e5",
+      "fromNode": "readme",
+      "fromSide": "bottom",
+      "toNode": "view",
+      "toSide": "top",
+      "label": "Integrated evidence view"
+    },
+    {
+      "id": "e6",
+      "fromNode": "readme",
+      "fromSide": "bottom",
+      "toNode": "inspect",
+      "toSide": "top",
+      "label": "Independent arithmetic"
+    }
+  ]
+}

@@ -1,5 +1,16 @@
 # Agent Workspace project memory
 
+## Edition 077 · Validated locally; publication next
+
+Prospective contract73ebe37; duplicate-obstacle-ID schema correction4e9c72e before native motion; runtime4bc8fd4. New Waypoints077 uses bounded clear-landing search, source-bound geometric receipts and a separate hypothetical geometry preview. Original native physics/controller/verifier/WorldFrames and073–076 untouched. No primary-outcome tuning. Five recipes,15training arms and48evaluation arms. Clear targets are proposals; only measured native frames advance execution.
+
+legacy: 6/8, 135498 ticks/26 native stages; simple: 8/8, 179934 ticks/34 native stages; geometry: 8/8, 191163 ticks/36 native stages; memory: 8/8, 160122 ticks/28 native stages. Task utility qualification: True; practical wall efficiency: False; first-batch efficiency with training: False. No automatic promotion. Training219050ticks includes all failures; bank10verified receipts across direct, two-stage, three-stage, clear-two, clear-three. Simple, geometry and memory have the same repertoire and115200-tick/1200-active-second bounds. All4unsupported controls refuse without actuation. Whole forecast plus distinct actual execution, original checks and whole-task protected-body limits required. No active-world commits, evaluation ingestion or new LLM inference.
+
+119 distinct targeted Java checks/18classes; 127desktop checks. Real six-stage native handoff test; complete integrated study, exports/replay, cold full audit, separate interruption/resume/Stop, damaged bank refusal and 23 altered-evidence probes. App1600/1100 and offline1440/390 checked. Independent reader verifies native arithmetic/candidate membership/ranking/costs; Java reconstructs full search and geometric policy. Source originals preserved. Exact kinematic handoff does not restore continuous contact manifolds. Synthetic lifted box manipulation, not ground navigation or physical accuracy.
+
+README077, actual screenshots, offline guide, full source inventory/original evidence and Obsidian85/canvas prepared. Publish main/edition077/readme-077 and fetched verification next. Preserve frozen001–076, live normal045/qa046/private projects/services. No subagents or overlapping heavy tests. Next: selective retrieval, cheaper source-bound proof reuse, then typed durable-goal integration with fresh unfamiliar-task validation.
+
+
 ## Edition 076 · Published and fetched back on 2026-11-05
 
 Atomic push to Fraynix-Agent-Workspace main, edition076 and readme-076 succeeded. Release fa0af8fb06fdb45d14fdec898545fd66e99dd675; annotated tag 1ade207577d74412e7967f4c65edca2ea0ea72c6. Fresh GitHub fetch verified 1086 canonical sources, 6889 frozen hashes across76editions and 252 exact original archives including decompressed bytes. Documentation passed 81canvases/7713references. [Publication receipt](PUBLICATION_076.json).
