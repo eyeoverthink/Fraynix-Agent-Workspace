@@ -1,5 +1,18 @@
 # Agent Workspace development log
 
+## Edition 080 · Published and fetched back on 2026-11-06
+
+Atomic push to Fraynix-Agent-Workspace main, edition080 and readme-080 succeeded. Release c344a5b53d30cbbad1d5ec6f0e0765f5ca3301d5; annotated tag f6f6c199b44e6fe40c349a9223fe03fbaca0317d. Fresh fetch verified 1131 canonical sources, 9927 frozen hashes across80 editions and 1381 exact original archives including decompressed bytes. Documentation passed 85 canvases / 8106 references. [Publication receipt](PUBLICATION_080.json).
+
+152 distinct source-qualified Java checks/23 classes; 130 desktop checks; actual four-control study, calibration UI, chat/skill/cold restart/export, interruption/resume/Stop, 26 independent evidence probes, eight actual Java API source faults. Actual app1600/1100 and offline1440/390. Failed first smoke retained; its model repair requests are disclosed. No new physical accuracy or weight-training claim.
+
+simple: 8/8, 468.91s complete, 470.39s caller; memory: 8/8, 446.91s complete, 448.52s caller; adaptive: 8/8, 460.59s complete, 462.15s caller; calibrated: 8/8, 477.58s complete, 479.56s caller. Estimation improved True; 5/8 supported estimates, MAE 606.9830600000001ms versus old 1723.0867399999981ms. Complete-task efficiency False; first-batch efficiency False. Learning 157.86s; calibration plus fit 496.06s. Three learning goals, four matched calibration pairs and eight new cases x four controls plus four unsupported cases. Original model/bank frozen during evaluation, no outcome retuning or automatic promotion.
+
+Measured primary sourcefd2dfa4 retained. Final source4ec4d26 changes only the Java report heading, with separate UI timing wording; fresh native checks and final-source app smoke pass. No old calibration/proof identity relabelled. Java complete-task timing includes original native execution/checks, actual report checks, world commit and requested saving; final timing write/caller transport outside, caller elapsed separately reported. Explicit owned pairs and source hashes, at least two distinct neighbors, recipe/receipt/workload/runtime/warm-cold matching; empirical margin only. Interrupted/resumed cost excluded. Original physics/controller/verifier/WorldFrames/WorldLedger unchanged. Procedure code identity changes; no old proof relabelled. Cold chat/skill workloads fall back when unsupported. First smoke saved internal metadata and failed cold reuse; strip-internal-fields/mode-preservation fix passed fresh smoke and primary. Original failure and local repair requests preserved.
+
+README080, actual screenshots, offline charts/replays, complete source/raw evidence, Obsidian88/canvas and notes published. Test apps closed; normal045/qa046/private data/services preserved. No subagents or heavy overlap. Next: repeat timings, cold and retention calibration, longer-goal amortization and broader verified tasks. This publication receipt follows the immutable release tag.
+
+
 ## Edition 080 · Validated locally; publication next
 
 Prospective contract2789bed, parent0978fb6; primary sourcefd2dfa4bafc530cafe03595a3c5874db33e72438. Java measures admission through native execution, original audits, host report, world commit and requested retention. Final timing write and caller transport/polling excluded; caller elapsed separately measured. Explicit owned completed matched simple/memory pairs calibrate costs; original source hashes rechecked. At least two distinct compatible tasks, up to four neighbors, runtime/workload/receipt/recipe/warm-cold separation. Positive lower empirical saving required; no statistical coverage guarantee. Interrupted/resumed timing is ineligible. No original physics/controller/verifier/WorldLedger changes.
