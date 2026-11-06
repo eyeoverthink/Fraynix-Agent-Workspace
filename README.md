@@ -2,11 +2,11 @@
 
 **A local visual environment for agents to browse, create runnable artifacts, test behavior and reuse verified skills.**
 
-> **[Edition 075 · Certified reconstruction reuse](README-075.md)** · [Offline guide](docs/readmes/075/index.html) · [Patient-chart review](docs/PATIENT_CHART_REVIEW_075.md) · [Edition history](docs/readmes/INDEX.md)
+> **[Edition 076 · Varied verified procedures](README-076.md)** · [Offline guide](docs/readmes/076/index.html) · [Edition history](docs/readmes/INDEX.md)
 
-The integrated Java comparison reuses exact, revalidated reconstruction proofs while requiring a new forecast and actual execution for every changed task. Four methods compare twelve prospectively frozen harder tasks plus four unsupported controls. Cache-saving qualification: True; procedural-memory qualification against both controls: False. No automatic promotion. [Measured results and full evidence](README-075.md).
+Five typed Java procedures carry measured state between verified native stages. Three training sources produce a frozen receipt bank; four controls compare eight unfamiliar tasks plus four refusal controls. Learned-selection success qualification against both equally equipped controls: False. No automatic promotion. [Actual results, screenshots and full evidence](README-076.md).
 
-Edition 075 is published to main with source, actual screenshots, original evidence and continuity notes. [Fetched GitHub verification](docs/PUBLICATION_075.json).
+Edition 076 implementation, screenshots and original evidence are prepared for publication. [Previous fetched publication](docs/PUBLICATION_075.json).
 
 One integrated app, with Java-owned chat planning, creation, native skill scheduling, continuing identity, real clocks and checked outcomes. Mission connects the actual goal, source, child task, recovery and retained result. [Screenshots, typed skill graphs, new logic and production direction](README-046.md).
 

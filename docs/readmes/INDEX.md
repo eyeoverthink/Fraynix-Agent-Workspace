@@ -79,5 +79,6 @@ Numbered editions preserve dated behavior and evidence. The root [README](../../
 | [073](../../README-073.md) | 2026-11-05 | Executable experiment memory, reconstruction and verified component alternatives | [Viewer](073/index.html) · [tree](073/FILE_TREE.md) |
 | [074](../../README-074.md) | 2026-11-05 | Matched-budget memory usefulness on new native scenes | [Viewer](074/index.html) · [tree](074/FILE_TREE.md) |
 | [075](../../README-075.md) | 2026-11-05 | Certified reconstruction reuse and harder-task comparison | [Viewer](075/index.html) · [tree](075/FILE_TREE.md) |
+| [076](../../README-076.md) | 2026-11-05 | Varied verified procedures and matched controls | [Viewer](076/index.html) · [tree](076/FILE_TREE.md) |
 
-Latest implementation and documentation edition in this checkout is **075**. See [sequence policy](README_SEQUENCE.md) and [manifest](editions.json).
+Latest implementation and documentation edition in this checkout is **076**. See [sequence policy](README_SEQUENCE.md) and [manifest](editions.json).

@@ -1,7 +1,14 @@
 # Fraynix Agent Workspace system architecture
 
+## Current extension: verified procedures (edition076)
 
-## Current edition044: one Java owner, visible missions
+The persistent-world panel now includes an isolated Java procedure study. `Procedure076` defines five typed recipes, component ranking and whole-task checks; `ProcedureStudy076` owns training, freezing receipts, matched evaluation, recovery and exact exports. Each staged handoff uses `WorldFrames` measured position, rotation, velocity and elapsed time. Original native controller and verifier code remain unchanged; hidden contact manifolds are not continuously restored.
+
+The bank contains only complete, independently executed and verified training procedures. New-task use still requires a fresh forecast and actual execution. The fixed-order and geometry controls have the same procedure repertoire as memory. This study does not automatically publish a skill to the general registry, mutate an active world or grant arbitrary chat execution. See [edition076](../README-076.md), its [frozen contract](EDITION_076_CONTRACT.md) and [original evidence](readmes/076/original-evidence.json) for measured scope and next integration gates.
+
+
+
+## Ownership foundation from edition044: one Java owner, visible missions
 
 Every active chat route and native-procedure selection now uses the existing durable Java queue. Java owns semantic routing, selected sources, typed stages, child goal/workflow identities, model contracts/code generation, actual outcome checks, cancellation and recovery. The desktop hosts the real browser/canvas/camera and formats observations. It contains no active chat-planning model call. [Ownership and operating details](JAVA_CHAT_044.md).
 

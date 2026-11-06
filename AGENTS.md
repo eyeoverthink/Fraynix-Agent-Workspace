@@ -1,5 +1,23 @@
 # Fraynix Studio collaboration and documentation
 
+## Edition 076 · Validated locally; publication next
+
+Contract435e95c freezes cases, procedures, controls, authority and budgets before native outcomes. Initial implementationc0a36b8; first development study interrupted after three training arms because inherited073 comparison correctly refuses moving-stage starts. Correction6530e9b adds separate076 exact-frame comparison, original native verification and every-tick whole-task protected-body checks. Original073/075 and native physics/controller/verifier/frames unchanged. Eleven new focused checks include four real native handoff runs. Partial development work retained separately; primary63-arm study starts fresh after correction. No primary outcome retuning.
+
+legacy: 3/8, 102604 ticks/21 native stages; simple: 5/8, 146576 ticks/29 native stages; geometry: 8/8, 170656 ticks/32 native stages; memory: 8/8, 170656 ticks/32 native stages. Learned-selection success qualification against both equally equipped controls: False. No automatic promotion. Seven verified receipts from15training arms; all training work 164220ticks. 7receipts across direct, reverse, two-stage, three-stage. Whole forecasts need distinct actual executions and fresh native verification; exact measured kinematic handoffs include velocity/rotation/time, not continuous contact-manifold restoration. Source-bound frozen training only; incompatible roles fall back to simple control. No global skill/controller promotion, active-world commits or evaluation ingestion.
+
+106 distinct targeted JUnit checks/16classes; 127desktop checks. Actual integrated training/freeze/48evaluation cells, entire original audit/cold restart, case exports/read-only stage replay, separate interruption/resume/full-tail cost/Stop, damaged bank refusal, independent arithmetic and 20altered-evidence probes. Original active worlds unchanged. App1600/1100 and offline1440/390 checked. Serial Java21/fourCPUs/768MB, no subagents/new LLM inference or physical-accuracy claim.
+
+README076, actual screenshots, offline guide, complete canonical inventory, exact original evidence, Obsidian84/canvas and notes prepared. Push main/edition076/readme-076 and fetched verification next, not yet claimed. Preserve frozen001–075, normal045/qa046/private data/services. Next: obstacle-aware intermediate goals, measured selection value beyond simple geometry, cheaper source-bound proof checks and typed goal integration after new prospective validation. Current receipts remain an isolated verified-procedure study, not arbitrary chat actuation.
+
+
+## Edition 076 · Primary study verified; publication work in progress
+
+Worktree `work/fraynix-workspace-edition076`, private Fraynix-Agent-Workspace target. Contract435e95c; native implementation6530e9b. Primary study33190493 (full ID in ignored integration checkpoint) completed63arms and151native attempts. Memory8/8 and geometry8/8, each170656ticks; simple5/8/146576ticks; legacy3/8/102604ticks. Seven verified training receipts,164220trainingticks. Learned-selection superiority FALSE; geometry ties success/work and is faster. No automatic promotion, active-world commit or test ingestion. Original native/073/075 sources unchanged.
+
+Actual export/replay, cold full audit, separate interruption/resume/Stop passed. All151original bytes remain unchanged across interface-test continuation. Independent arithmetic and20altered-proof probes passed; damaged-bank copy refuses. Partial development failure and export-test timing/timestamp assumptions are retained in ignored build records and will be archived in076. Final Java/desktop regressions, corrected narrow-selector visual checks, README/offline guide/notes and main/tag push/fetched audit remain pending. Serial Java21/fourCPUs/768MB; no subagents. See ignored `build/HANDOFF076.md` for exact paths and current validation process. Preserve normal045/qa046/private data/services and all frozen001–075.
+
+
 ## Edition 075 · Published and fetched back on 2026-11-05
 
 Atomic push to Fraynix-Agent-Workspace main, edition075 and readme-075 succeeded. Release f6e121bd7423cfa806b87fa720fcd599629bf4fe; annotated tag a65cc40e3b0aa4925a160936600b20447a969d91. Fresh GitHub fetch verified 1076 canonical sources, 6614 frozen hashes across75 editions and 225 exact original archives including decompressed bytes. Documentation passed 80 canvases/7611 references. [Publication receipt](docs/PUBLICATION_075.json).
