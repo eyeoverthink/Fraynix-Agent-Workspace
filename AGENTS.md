@@ -1,5 +1,16 @@
 # Fraynix Studio collaboration and documentation
 
+## Edition 078 · Published and fetched back on 2026-11-06
+
+Atomic push to Fraynix-Agent-Workspace main, edition078 and readme-078 succeeded. Release be4cbe0536fb308377d99b3adf8a9628e29d9659; annotated tag a61489a88981bf94cd21bf806391b75f3a4eb8ba. Fresh GitHub fetch verified 1110 canonical sources, 7455 frozen hashes across 78 editions and 257 exact original archives including decompressed bytes. Documentation passed 83 canvases / 7921 references. [Publication receipt](docs/PUBLICATION_078.json).
+
+133 distinct targeted Java checks/20 classes; 127 desktop checks. Real native proof reuse/cold-check/tamper, integrated 63-arm study, replay/exports, cold full audit, separate recovery/Stop, damaged bank refusal, 29 altered-evidence probes. Actual app 1600/1100 and offline 1440/390. No new LLM inference or physical accuracy claim.
+
+simple: 8/8, 170590 ticks/31 native stages; geometry: 8/8, 191352 ticks/36 native stages; memory: 8/8, 160312 ticks/28 native stages; cached: 8/8, 160312 ticks/28 native stages. Proof-cache benefit True; practical efficiency False; first-batch efficiency with training False. Training 219050 ticks includes failures; bank 10 verified receipts. All controls keep original authority and native verification. Cache receipts cannot authorize new motion; exact native kinematic handoffs remain distinct from contact-manifold restoration. No active-world commits, evaluation ingestion or automatic promotion. Independent inspection checks native arithmetic, source bytes, cache provenance, exact paired motion, ranking and costs; Java additionally reconstructs complete geometry search and baseline policy.
+
+Prospective contract d68de31; implementation 84e47ac. All native/WorldFrames/073–077 sources unchanged. No primary policy/case/gate tuning. README 078, actual screenshots, offline guide, source tree, exact evidence, Obsidian 86/canvas and memories/logs published. Test app closed; normal045/qa046/private data/services preserved. Next: selective memory use informed by measured costs and typed durable-goal integration with fresh matched controls. Synthetic lifted box tasks; not arbitrary robot navigation or new physical-camera calibration. This publication receipt follows the immutable release tag.
+
+
 ## Edition 078 · Validated locally; publication next
 
 Prospective contract d68de31; implementation 84e47ac. ProofMemo078 retains 16 compact boot-local full-check receipts, hashes exact source bytes at every reuse, refuses redirected/changed evidence and requires full checking after restart. Uncached control keeps its original path. Original native/controller/verifier/WorldFrames and 073–077 algorithms untouched. No primary-outcome tuning. Five recipes, 15 training arms and 48 evaluation arms. Clear targets are proposals; only measured native frames advance execution.
