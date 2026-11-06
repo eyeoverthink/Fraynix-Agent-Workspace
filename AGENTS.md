@@ -1,5 +1,20 @@
 # Fraynix Studio collaboration and documentation
 
+## Edition 081 · Published and fetched back on 2026-11-06
+
+Atomic push to Fraynix-Agent-Workspace main, edition081 and readme-081 succeeded. Release b6a0d384487b64167100fbcf84adf2ef78bb8ccf; annotated tag c1ec3ca359a116c9d92a48d75a7ce9f6cd1597ce. Fresh fetch verified 1141 canonical sources, 11202 frozen hashes across81 editions and 1248 exact original archives including decompressed bytes. Documentation passed 86 canvases / 8205 references. [Publication receipt](docs/PUBLICATION_081.json).
+
+The first upload was rejected by GitHub with unresolved pack deltas; no requested ref changed. The successful retry used a self-contained Git pack (--no-thin), with unchanged release content. Both upload logs are retained in docs/publication081.
+
+159 Java checks/24 classes; 130 desktop checks; eight matched reader pairs, calibration UI, chat/skill/cold restart/export, interruption/resume/Stop, 26 independent evidence probes, sixteen Java API faults across both readers. Actual app1600/1100 and offline1440/390. No new physical accuracy or model-weight learning claim.
+
+reference: 8/8, 465.13s complete, 466.40s caller; parallel: 8/8, 459.66s complete, 461.00s caller. Estimation overhead reduction 44.21%; reader-only reduction 44.58%; complete-task reduction 1.18% (faster=True). Identical decisions, original verified bytes, native work and final frames. Three learning tasks/four calibration pairs; six regression plus two prospective variations, two counterbalanced readers and four unsupported controls. Frozen bank/model, no retuning. Learning 161.19s; calibration+fit 493.62s.
+
+Primary sourcebf371e61252f7acc15e2dd97f1269676200792e3. Two bounded Java readers retain original byte/path checks and join before comparison/refusal. One batch in flight, no timestamps/cache shortcut. Original selection arithmetic, native physics/controllers/verifiers and WorldLedger unchanged. Procedure identity changes; no old proof relabelled. All authority-boundary checks retained. Complete Java timing ends after native/report/commit/retention; final timing write/caller transport outside. Caller and reader measurements separate; export excluded from task reader counters. Interrupted clocks excluded from calibration.
+
+README081, real screenshots, offline charts/replays, complete source/original evidence, Obsidian89/map and notes published. Test apps closed; private normal045/qa046/data/services preserved. No subagents or heavy overlap. Next: repeat complete timings under resource budgets, cold/retention workloads and longer-goal amortization. This receipt follows the immutable release tag.
+
+
 ## Edition 081 · Validated locally; publication next
 
 Contracte825734, parentb121e65; primary sourcebf371e61252f7acc15e2dd97f1269676200792e3. Read-only080 profile:334–400ms hashing149743387bytes/load. Two bounded Java readers use original ProofMemo078 snapshots; one batch in flight, every byte reread, all readers joined before comparison or refusal, no timestamp shortcut or trust cache. Pair arithmetic, TaskCost080, physics/controller/native verification and WorldLedger unchanged. Current procedure identity includes CalibrationScan081; older proofs cannot authorize the new implementation. Serial reference is isolated-test-only.

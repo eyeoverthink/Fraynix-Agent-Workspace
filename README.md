@@ -6,7 +6,7 @@
 
 Two bounded Java readers check the same original calibration evidence. Estimation overhead reduction: **44.2%**; complete-task reduction: **1.18%** in eight controlled pairs. Identical decisions, native work and final states; original verification retained. [Actual results, screenshots and evidence](README-081.md).
 
-Edition 081 implementation, screenshots and original evidence are prepared for publication. [Previous fetched publication](docs/PUBLICATION_080.json).
+Edition 081 is published to main with source, actual screenshots, original evidence and continuity notes. [Fetched GitHub verification](docs/PUBLICATION_081.json).
 
 One integrated app, with Java-owned chat planning, creation, native skill scheduling, continuing identity, real clocks and checked outcomes. Mission connects the actual goal, source, child task, recovery and retained result. [Screenshots, typed skill graphs, new logic and production direction](README-046.md).
 
