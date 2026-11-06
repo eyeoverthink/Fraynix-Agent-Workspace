@@ -1,5 +1,16 @@
 # Agent Workspace development log
 
+## Edition 076 · Published and fetched back on 2026-11-05
+
+Atomic push to Fraynix-Agent-Workspace main, edition076 and readme-076 succeeded. Release fa0af8fb06fdb45d14fdec898545fd66e99dd675; annotated tag 1ade207577d74412e7967f4c65edca2ea0ea72c6. Fresh GitHub fetch verified 1086 canonical sources, 6889 frozen hashes across76editions and 252 exact original archives including decompressed bytes. Documentation passed 81canvases/7713references. [Publication receipt](PUBLICATION_076.json).
+
+106 distinct targeted Java checks/16classes; 127desktop checks. Actual63-arm training/evaluation, full original audit and cold restart, native replay/exports, separate interruption/resume/Stop, damaged bank refusal, independent arithmetic and 20 altered-evidence probes. App1600/1100 and offline1440/390. No new LLM inference or physical accuracy claim.
+
+legacy: 3/8, 102604ticks/21native stages; simple: 5/8, 146576ticks/29native stages; geometry: 8/8, 170656ticks/32native stages; memory: 8/8, 170656ticks/32native stages. Learned-selection success qualification: False; no automatic promotion. Training 164220ticks includes all15arms and failures; frozen bank 7receipts across direct, reverse, two-stage, three-stage. Simple and geometry have the same five procedures as memory. Measured kinematic state is retained between stages; continuous contact-manifold restore is not claimed. Fresh native forecast plus distinct actual execution required. No active-world commits or evaluation ingestion.
+
+First development run retained after inherited073 at-rest comparator refused moving-stage evidence. Separate076 comparison6530e9b and every-tick protected-body checks passed real four-run validation before a new primary study. All original native/073/075 sources unchanged. No tuning after primary outcomes. README076, actual screenshots, offline guide, full inventory, exact evidence, Obsidian84/canvas and notes published. Test app closed; normal045/qa046/private data/services preserved. Next: clear intermediate waypoints, useful selection beyond simple geometry, cheaper proof checking and typed durable-goal integration with new frozen tests. No arbitrary chat actuation from these study receipts. This receipt follows the immutable release tag.
+
+
 ## Edition 076 · Validated locally; publication next
 
 Contract435e95c freezes cases, procedures, controls, authority and budgets before native outcomes. Initial implementationc0a36b8; first development study interrupted after three training arms because inherited073 comparison correctly refuses moving-stage starts. Correction6530e9b adds separate076 exact-frame comparison, original native verification and every-tick whole-task protected-body checks. Original073/075 and native physics/controller/verifier/frames unchanged. Eleven new focused checks include four real native handoff runs. Partial development work retained separately; primary63-arm study starts fresh after correction. No primary outcome retuning.

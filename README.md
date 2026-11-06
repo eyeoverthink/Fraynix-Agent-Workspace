@@ -6,7 +6,7 @@
 
 Five typed Java procedures carry measured state between verified native stages. Three training sources produce a frozen receipt bank; four controls compare eight unfamiliar tasks plus four refusal controls. Learned-selection success qualification against both equally equipped controls: False. No automatic promotion. [Actual results, screenshots and full evidence](README-076.md).
 
-Edition 076 implementation, screenshots and original evidence are prepared for publication. [Previous fetched publication](docs/PUBLICATION_075.json).
+Edition 076 is published to main with source, actual screenshots, original evidence and continuity notes. [Fetched GitHub verification](docs/PUBLICATION_076.json).
 
 One integrated app, with Java-owned chat planning, creation, native skill scheduling, continuing identity, real clocks and checked outcomes. Mission connects the actual goal, source, child task, recovery and retained result. [Screenshots, typed skill graphs, new logic and production direction](README-046.md).
 
