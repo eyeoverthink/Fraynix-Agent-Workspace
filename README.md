@@ -2,11 +2,11 @@
 
 **A local visual environment for agents to browse, create runnable artifacts, test behavior and reuse verified skills.**
 
-> **[Edition 079 · Selective memory in continuing worlds](README-079.md)** · [Offline guide](docs/readmes/079/index.html) · [Edition history](docs/readmes/INDEX.md)
+> **[Edition 080 · Complete-task cost calibration](README-080.md)** · [Offline guide](docs/readmes/080/index.html) · [Edition history](docs/readmes/INDEX.md)
 
-Chat now connects cost-aware verified procedures to durable Java goals, actual native execution, persistent world commits and named saved skills. Selective-benefit qualification: **False**; training-inclusive efficiency: **False**. [Actual results, screenshots and complete evidence](README-079.md).
+Java measures execution, verification, world commit and requested saving before estimating whether memory is worth using. Estimation improvement: **True**; complete-task efficiency: **False**; first-batch efficiency including learning: **False**. [Actual results, screenshots and evidence](README-080.md).
 
-Edition 079 is published to main with source, actual screenshots, original evidence and continuity notes. [Fetched GitHub verification](docs/PUBLICATION_079.json).
+Edition 080 implementation, screenshots and original evidence are prepared for publication. [Previous fetched publication](docs/PUBLICATION_079.json).
 
 One integrated app, with Java-owned chat planning, creation, native skill scheduling, continuing identity, real clocks and checked outcomes. Mission connects the actual goal, source, child task, recovery and retained result. [Screenshots, typed skill graphs, new logic and production direction](README-046.md).
 

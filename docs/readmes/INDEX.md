@@ -83,5 +83,6 @@ Numbered editions preserve dated behavior and evidence. The root [README](../../
 | [077](../../README-077.md) | 2026-11-05 | Obstacle-aware waypoints and measured procedural reuse | [Viewer](077/index.html) · [tree](077/FILE_TREE.md) |
 | [078](../../README-078.md) | 2026-11-06 | Verified proof reuse and complete task costs | [Viewer](078/index.html) · [tree](078/FILE_TREE.md) |
 | [079](../../README-079.md) | 2026-11-06 | Selective memory in durable chat-driven world goals | [Viewer](079/index.html) · [tree](079/FILE_TREE.md) |
+| [080](../../README-080.md) | 2026-11-06 | Complete-task cost calibration for verified memory | [Viewer](080/index.html) · [tree](080/FILE_TREE.md) |
 
-Latest implementation and documentation edition in this checkout is **079**. See [sequence policy](README_SEQUENCE.md) and [manifest](editions.json).
+Latest implementation and documentation edition in this checkout is **080**. See [sequence policy](README_SEQUENCE.md) and [manifest](editions.json).

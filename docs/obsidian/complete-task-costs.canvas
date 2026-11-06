@@ -1,0 +1,100 @@
+{
+  "nodes": [
+    {
+      "id": "readme",
+      "type": "file",
+      "file": "README-080.md",
+      "x": 0,
+      "y": 0,
+      "width": 380,
+      "height": 200
+    },
+    {
+      "id": "timing",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/TaskCost080.java",
+      "x": 0,
+      "y": 270,
+      "width": 380,
+      "height": 210
+    },
+    {
+      "id": "runner",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/WorldProcedure079.java",
+      "x": 420,
+      "y": 270,
+      "width": 380,
+      "height": 210
+    },
+    {
+      "id": "goal",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/GoalRunner.java",
+      "x": 840,
+      "y": 270,
+      "width": 380,
+      "height": 210
+    },
+    {
+      "id": "commit",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/WorldLedger.java",
+      "x": 0,
+      "y": 530,
+      "width": 380,
+      "height": 210
+    },
+    {
+      "id": "inspect",
+      "type": "file",
+      "file": "scripts/Inspect-Procedures080.cjs",
+      "x": 420,
+      "y": 530,
+      "width": 380,
+      "height": 210
+    }
+  ],
+  "edges": [
+    {
+      "id": "e0",
+      "fromNode": "readme",
+      "fromSide": "bottom",
+      "toNode": "timing",
+      "toSide": "top",
+      "label": "Complete-task cost"
+    },
+    {
+      "id": "e1",
+      "fromNode": "readme",
+      "fromSide": "bottom",
+      "toNode": "runner",
+      "toSide": "top",
+      "label": "Verified procedure"
+    },
+    {
+      "id": "e2",
+      "fromNode": "readme",
+      "fromSide": "bottom",
+      "toNode": "goal",
+      "toSide": "top",
+      "label": "Durable goal and skill"
+    },
+    {
+      "id": "e3",
+      "fromNode": "readme",
+      "fromSide": "bottom",
+      "toNode": "commit",
+      "toSide": "top",
+      "label": "Persistent world"
+    },
+    {
+      "id": "e4",
+      "fromNode": "readme",
+      "fromSide": "bottom",
+      "toNode": "inspect",
+      "toSide": "top",
+      "label": "Independent reader"
+    }
+  ]
+}

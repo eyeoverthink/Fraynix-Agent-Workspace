@@ -1,5 +1,19 @@
 # Agent Workspace development log
 
+## Edition 080 · Validated locally; publication next
+
+Prospective contract2789bed, parent0978fb6; primary sourcefd2dfa4bafc530cafe03595a3c5874db33e72438. Java measures admission through native execution, original audits, host report, world commit and requested retention. Final timing write and caller transport/polling excluded; caller elapsed separately measured. Explicit owned completed matched simple/memory pairs calibrate costs; original source hashes rechecked. At least two distinct compatible tasks, up to four neighbors, runtime/workload/receipt/recipe/warm-cold separation. Positive lower empirical saving required; no statistical coverage guarantee. Interrupted/resumed timing is ineligible. No original physics/controller/verifier/WorldLedger changes.
+
+simple: 8/8, 181018 ticks/34 stages, 468.91s complete / 470.39s caller; memory: 8/8, 161200 ticks/28 stages, 446.91s complete / 448.52s caller; adaptive: 8/8, 173179 ticks/32 stages, 460.59s complete / 462.15s caller; calibrated: 8/8, 173179 ticks/32 stages, 477.58s complete / 479.56s caller. Estimation improved True, supported cases 5/8, MAE 606.9830600000001ms versus old 1723.0867399999981ms. Complete-task efficiency False; first-batch efficiency False. Training 157.86s; calibration plus fit 496.06s. Three actual learning goals, four paired calibrations and eight new cases x four controls plus four unsupported controls. Frozen model/bank throughout evaluation. No outcome retuning, automatic ingestion or controller promotion.
+
+152 distinct Java checks/23 classes; 130 desktop checks; actual primary/chat/report/export/skill/cold restart, separate interruption/resume/Stop, 26 independent altered-evidence probes and eight actual Java API source faults. Actual app1600/1100 and offline1440/390. Source-qualified invocations and failed first smoke preserved. Successful path uses deterministic Java planning; first smoke entered local-model repair. No new physical accuracy or weight-training claim.
+
+The primary comparison remains sourcefd2dfa4. Final source4ec4d26 changes only the Java report heading after that comparison, with a separate UI label correction; fresh native checks and final-source chat/skill/cold-restart smoke pass. Historical calibration keeps its original code identity. First smoke cold skill reuse refused internal workload metadata. Fixed saved defaults to strip internal fields and retain cost mode; corrected harness task-ID selection after restored ordering. Fresh smoke and primary passed. Original failure and repair/model-request logs retained. Existing review apps normal045/qa046, private data and services untouched. Procedure identity changes; old proof is never relabelled. Calibration with no saving does not cover chat retention/skills; cold restart requires cold-compatible evidence. Original kinematic reconstruction does not restore native contact manifolds.
+
+README080, original screenshots, offline charts/replays, complete source inventory/raw archives, Obsidian88/canvas, memory/logs prepared. Push and fetch main/edition080/readme-080 next; not yet claimed. Preserve frozen001–079. No subagents or overlapping heavy tests. Next: repeat complete measurements, cold/retention workloads, longer goal sequences and amortization, broader tasks through existing verified contracts.
+
+
+
 ## Edition 079 · Published and fetched back on 2026-11-06
 
 Atomic push to Fraynix-Agent-Workspace main, edition079 and readme-079 succeeded. Release b3485ba52938a19a3d7f93ce327e8dc753a3519b; annotated tag bdd4de215301a9432abc075836d154f344ad8c5f. Fresh GitHub fetch verified 1123 canonical sources, 8520 frozen hashes across79editions and 1043 exact original archives including decompressed bytes. Documentation passed 84 canvases / 8012 references. [Publication receipt](PUBLICATION_079.json).

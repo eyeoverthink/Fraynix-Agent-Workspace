@@ -1,0 +1,89 @@
+{
+  "modules": [
+    {
+      "id": "timing",
+      "name": "Complete-task cost",
+      "note": "docs/obsidian/88-complete-task-costs.md",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/TaskCost080.java",
+      "description": "Owned Java measurement, matching and conservative empirical estimates."
+    },
+    {
+      "id": "runner",
+      "name": "Verified procedure",
+      "note": "docs/obsidian/88-complete-task-costs.md",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/WorldProcedure079.java",
+      "description": "Original native forecasts, actual stages, evidence, calibration provenance and reports."
+    },
+    {
+      "id": "goal",
+      "name": "Durable goal and skill",
+      "note": "docs/obsidian/88-complete-task-costs.md",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/GoalRunner.java",
+      "description": "Lifecycle clock, actual host checks, commit and requested retention."
+    },
+    {
+      "id": "commit",
+      "name": "Persistent world",
+      "note": "docs/obsidian/88-complete-task-costs.md",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/WorldLedger.java",
+      "description": "Unchanged original authority and atomic world commit."
+    },
+    {
+      "id": "inspect",
+      "name": "Independent reader",
+      "note": "docs/obsidian/88-complete-task-costs.md",
+      "source": "scripts/Inspect-Procedures080.cjs",
+      "description": "Reconstruct original motion, paired source hashes and estimation arithmetic."
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "docs/readmes/080/actual-before-interruption.png",
+      "label": "actual-before-interruption"
+    },
+    {
+      "path": "docs/readmes/080/actual-procedure-report.png",
+      "label": "actual-procedure-report"
+    },
+    {
+      "path": "docs/readmes/080/chat-completed.png",
+      "label": "chat-completed"
+    },
+    {
+      "path": "docs/readmes/080/cold-skill-reuse.png",
+      "label": "cold-skill-reuse"
+    },
+    {
+      "path": "docs/readmes/080/complete-task-calibration.png",
+      "label": "complete-task-calibration"
+    },
+    {
+      "path": "docs/readmes/080/estimated-task-report.png",
+      "label": "estimated-task-report"
+    },
+    {
+      "path": "docs/readmes/080/fitted-cost-comparisons.png",
+      "label": "fitted-cost-comparisons"
+    },
+    {
+      "path": "docs/readmes/080/layout-1100.png",
+      "label": "layout-1100"
+    },
+    {
+      "path": "docs/readmes/080/layout-1600.png",
+      "label": "layout-1600"
+    },
+    {
+      "path": "docs/readmes/080/resumed-verified.png",
+      "label": "resumed-verified"
+    },
+    {
+      "path": "docs/readmes/080/saved-experience.png",
+      "label": "saved-experience"
+    },
+    {
+      "path": "docs/readmes/080/stop-preserves-world.png",
+      "label": "stop-preserves-world"
+    }
+  ]
+}

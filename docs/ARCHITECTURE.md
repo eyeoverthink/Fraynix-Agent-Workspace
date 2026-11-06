@@ -1,6 +1,11 @@
 # Fraynix Agent Workspace system architecture
 
-## Current edition079: selective memory and durable world goals
+## Current edition080: complete-task cost calibration
+
+[Edition080](../README-080.md) measures the existing durable procedure's full Java completion interval. `TaskCost080` matches owned completed controls and estimates empirical savings; `WorldProcedure079` persists timing/model/source provenance; `GoalRunner` owns the monotonic lifecycle clock and saving workload. The existing persistent-world panel reviews explicit comparison pairs. Original physics, native controls/verifiers, WorldFrames and WorldLedger remain unchanged. A cost estimate cannot authorize motion. Interrupted timings are excluded; retained models cannot substitute warm measurements for cold proof work or a different saving workload. Evaluation stays outside calibration.
+
+
+## Edition079 foundation: selective memory and durable world goals
 
 [Edition079](../README-079.md) connects chat and saved skills to the existing Java goal runner. `Procedure079` owns cost decisions/current-frame task checks; `Waypoints079` proposes bounded targets; `WorldProcedure079` owns staged native forecasts, distinct actual execution, evidence, bounded recovery and memory. Existing host checks verify the actual report. `WorldLedger` commits one measured final revision; `WorldExport079` preserves all stages. Owned exact-byte proof trust is boot-local; skills and verified worlds persist. The frozen unfamiliar-task comparison measures whole-task costs against simple and always-memory controls. See the current README for results and qualified limits.
 

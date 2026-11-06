@@ -1,0 +1,1778 @@
+{
+  "edition": 80,
+  "source": "4ec4d26dcbc9a624083bdc38d232421c212d973d",
+  "contract": "2789bed",
+  "primarySource": "fd2dfa4bafc530cafe03595a3c5874db33e72438",
+  "finalRuntimeSource": "4ec4d26dcbc9a624083bdc38d232421c212d973d",
+  "finalRuntimeSmoke": [
+    "Supplied success cannot create a world goal",
+    "Actual simple-control goals create verified committed experience; training costs retained",
+    "Visible chat completes a current-world procedure, verifies the actual canvas and retains a named skill",
+    "Actual report and full procedure file export are available",
+    "Cold restart retains the named skill and current world, clears proof trust and executes fresh measured stages"
+  ],
+  "reportWordingOnly": {
+    "passed": true,
+    "measuredSource": "fd2dfa4",
+    "file": "workspace-engine/src/main/java/fraymus/workspace/WorldProcedure079.java",
+    "onlyReplacement": [
+      "Memory chosen by measured cost",
+      "Memory decision from measured cost"
+    ],
+    "note": "Report wording only; no estimator, cases, margins, controller or native calculations changed. Compiled procedure identity changes; historical evidence keeps its original identity."
+  },
+  "javaDistinct": 152,
+  "javaClasses": 23,
+  "javaAllPassed": true,
+  "javaInvocations": [
+    {
+      "name": "unit080-first",
+      "source": "Initial implementation working tree before compact-view/report and saved-skill corrections; repeated by later checks",
+      "cases": [
+        {
+          "case": "fraymus.workspace.Procedure079Test#retainedKindRoutesToCurrentWorld",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.Procedure079Test#coldProofCostAndUncertaintyAreCharged",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.Procedure079Test#skipsCostlyDistantAndDirectExperience",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.Procedure079Test#currentFrameAndUnitsDriveWaypoints",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.Procedure079Test#positiveBoundedBenefitChangesOnlyOrder",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.Procedure079Test#closestCandidateControlsSelectionNotOptimisticDistantOne",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.Procedure079Test#simpleAndEmptyFallbackHaveNoMemoryAuthority",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.Procedure079Test#legacyPendingAndUnknownUpgradeCannotChangeLedger",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.Procedure079Test#namedReuseDoesNotRequireRedundantWordSkill",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.Procedure079Test#missingNativeCheckpointCannotSilentlyRestartOwnedMotion",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.Procedure079Test#compatibleClosedLegacyFrameIsPreservedAndPendingOrUnknownRefuses",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.TaskCost080Test#mismatchedOrUnverifiedPairsAreRejected",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.TaskCost080Test#uncertainOrNegativeSavingsDoNotSpendOnMemory",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.TaskCost080Test#completeDurationsDetermineSavingsIncludingPostExecutionWork",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.TaskCost080Test#directRecipeAndMissingRoleStaySimple",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.TaskCost080Test#coldProfileWorkloadAndReceiptMismatchHaveNoInventedEstimate",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.TaskCost080Test#noCalibrationFallsBackWithoutMintingProof",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.TaskCost080Test#duplicateTaskDoesNotSatisfyMinimumCoverage",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "name": "regression080",
+      "source": "88861b3",
+      "cases": [
+        {
+          "case": "fraymus.workspace.Agency043Test#inspectionReportRequiresActualStoredMatchingReportAssertions",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.Agency043Test#prematureModelFinishCannotCreateAnArtifactOrVisualRoutine",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.Agency043Test#explicitScreenQuestionUsesNativeInspectionAndCounterCreationUsesOnlyTheCreationStage",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.Agency043Test#actualStoredReceiptAndFrozenCounterStepsAreRequiredBeforeClaimIsConsumed",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.Agency043Test#missingActionAuthorityRefusesClearlyWhilePureDefinitionReadsRemainPassive",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.Agency043Test#registeredSchemasRejectInventedFieldsAndAssertionFreeTests",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.Agency043Test#commitFailureAfterConsumingHostClaimInterruptsInsteadOfWaitingForever",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.Agency043Test#queuedAndClaimedTasksRestoreAsInterruptedWithoutSilentReplay",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.Agency043Test#claimedHostInterruptionRejectsOldNonceAndExplicitResumeStartsFreshObservation",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.Agency043Test#unverifiedConversationIsNotPresentedAsVerifiedOutcomeToTheContinuingBrain",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.Agency043Test#rejectedNativeModelSyntaxRetriesWithinBudgetWithoutExecutingRejectedArguments",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.Agent042Test#actualSharedCortexCheckpointReplayLeaseAndRestart",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.Agent042Test#acceptedCameraOutputsExpireAndReplayCannotRefreshThem",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.Agent042Test#missingNeuralCheckpointDoesNotSilentlyResetBrain",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.Agent042Test#clocksKeepWallRollbackAndBootDomainsSeparate",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.Agent042Test#failedGoalsAreWitnessedOnceWithoutRewardingSuccess",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.Agent042Test#checkedStateRejectsAlterationWithoutErasingOriginal",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.Agent042Test#appraisalAblationsActuallyChangeWork",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.Agent042Test#witnessSegmentsVerifyExactCheckpointPrefixAndRefuseDamage",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.Agent042Test#reportEscapesSourceDataAndKeepsExactSnapshot",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#duplicateWarningsKeepEveryOriginalOccurrenceBeyondRecentWindow",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#numericRefusalExplainsOriginalBoundsWithoutChangingThem",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#oversizedRequirementsRefuseRatherThanBeingSilentlyTruncated",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#legacyTaskDoesNotClaimCompleteTimingCoverage",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#summaryRetainsRejectedQualityAndDoesNotDumpMetrics",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#payloadHistoryProjectionRetainsPolicyRequirementsAndContraryOutcomes",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#discoverySummaryKeepsExactBindingsAndBothEndsWithoutBreakingJson",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#largeRecentObservationHasExplicitOmissionHashAndKeepsFailure",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#queuedObjectiveSealRefusesChangedRequest",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#providerMapMetadataIsRetainedWithoutUnrelatedFields",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#automaticCompletionRechecksCurrentArtifactInsteadOfTrustingOldSuccess",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#failedPlannerCallIsTimedAndDoesNotBecomeAnAction",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.Counterfactual045Test#unfinishedForecastRetainsCompletedBytesAndOriginalAttemptsAcrossRestart",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.Counterfactual045Test#codeAndSourceCorruptionAreRefusedWithoutChangingOriginalBytes",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.Counterfactual045Test#ordinaryWorldRequestAndExplicitCounterfactualRequestStayDistinct",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.Counterfactual045Test#nativeAlternativesKeepWorldExactAndSelectedExecutionMatchesOriginalTraces",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.Counterfactual045Test#forecastOnlyAndExplicitNoMovementRequestsRequireReview",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.Counterfactual045Test#cancellationCannotAdvanceOrReserveTheLiveWorld",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#retainedAppearancePolicyCannotChangeCategoryOrInstallDetectorOptions",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#retainedSkillSourceAndForceDefaultsCannotBeSilentlyChanged",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#nativeWaitUsesActualChildAndRetainsItsIdentity",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#savedGraphChatSelectsExactVersionAndWorkflowBeforePlanning",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#sourceFreeHostSuccessAndForeignChildrenAreRejected",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#reportStageCannotSkipActualReads",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#typedOptionsPreserveExplicitValuesAndRejectContradictions",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#interruptedChildCannotProduceSuccessfulCompletion",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#inventedHostFactsDoNotReplaceActualJavaRead",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#retainedSkillSchemasKeepDefaultsOptionalAndHideBoundDetectorPolicy",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#javaRoutesEveryFormerDesktopFamilyWithoutChangingWebCreation",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#constructionReuseExposesOnlyExplicitChangesAndKeepsOriginalLimits",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#actualQueueCompletionRecordsTheVerifiedReportInTheSameLearningEpisode",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#workflowBootstrapBindsDatasetAndSceneInJavaBeforeAnyHostAction",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#reportMustHaveFrozenOriginalAssertionsAndExactSourceVersion",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#creationPromptsAreOwnedBoundedAndKeepSourceReserved",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.GoalRunnerTest#cancelledIntentAndInventedHostReceiptsCannotBecomeSkills",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.GoalRunnerTest#frozenSceneAndReportEffectsHaveStableIdentitiesAndRejectChangedContent",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.GoalRunnerTest#intentSurvivesRestartRequiresExplicitResumeAndHasFiniteRecovery",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.GoalRunnerTest#importedTextCannotInstallHandlersOrEscapePhysicalDomain",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.GoalRunnerTest#aForeignNativeRunIsPreservedAndSourceVersionsAreRequired",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.MemoryPolicy074Test#worstCaseAdmissionAlwaysReservesFreshExecution",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.MemoryPolicy074Test#onlyMemoryMayReorderItsCandidateQueue",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.MemoryPolicy074Test#frozenCasesHaveDistinctNumericScenesAndSupportedSchema",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.MemoryPolicy074Test#qualificationCannotBeEarnedOnlyByBeatingExhaustiveSearch",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.MemoryPolicy074Test#unknownInputsAndUnownedEpisodesCannotStartAStudy",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.MemoryPolicy074Test#unchangedCounterfactualPlansAndOriginalRankAreTheComparator",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.MemoryPolicy075Test#worstCaseAdmissionAlwaysReservesFreshExecution",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.MemoryPolicy075Test#onlyMemoryMayReorderItsCandidateQueue",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.MemoryPolicy075Test#frozenCasesHaveDistinctNumericScenesAndSupportedSchema",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.MemoryPolicy075Test#fatalWorkerExitIsPersistedInsteadOfLeavingRunningForever",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.MemoryPolicy075Test#qualificationCannotBeEarnedOnlyByBeatingExhaustiveSearch",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.MemoryPolicy075Test#proofOnlyRecheckRejectsAnyUnsettledOrMissingCell",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.MemoryPolicy075Test#unknownInputsAndUnownedEpisodesCannotStartAStudy",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.MemoryPolicy075Test#unchangedCounterfactualPlansAndOriginalRankAreTheComparator",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.Procedure076Test#protectedBodyExcursionBetweenSamplesCannotBeHidden",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.Procedure076Test#roleMismatchDoesNotInventVerifiedProcedure",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.Procedure076Test#rejectsChangedOriginalGeometryAndUnknownProcedures",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.Procedure076Test#finalStageKeepsExactRequestedTaskAndOriginalLimits",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.Procedure076Test#unsupportedControlsCannotBeDroppedOrActuate",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.Procedure076Test#untrustedPassedClaimsCannotStartTraining",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.Procedure076Test#geometryAndSimpleHaveSamePortfolioWithoutBankAccess",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.Procedure076Test#cheaperTiesOrLegacyOnlyWinsCannotClaimLearnedSuccessImprovement",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.Procedure076Test#completeFreshActualReserveIsNeverBorrowed",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.Procedure076Test#stagesAreAnchoredToOriginalSourceAndShortestYaw",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.Procedure077Test#unsupportedActuationCannotBeExcluded",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.Procedure077Test#untrustedSuccessCannotStartAStudy",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.Procedure077Test#trainingCostIsIncludedInFirstBatchGate",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.Procedure077Test#equalWorkAndLegacyOnlyBenefitDoNotQualify",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.Procedure077Test#cheaperNativeWorkDoesNotEraseWallCostOrHarm",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.Procedure077Test#missingRolesFallBackWithoutInventingTraining",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.Procedure078Test#trainingCostIsNotHidden",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.Procedure078Test#frozenCasesAndSharedGeometryStayWithinOriginalContract",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.Procedure078Test#changedNativeWorkOrHarmRefusesQualification",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.Procedure078Test#cacheTimeAndPracticalTimeAreSeparate",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.Procedure078Test#unsupportedActuationAndMissingHitsCannotQualify",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.Procedure078Test#cacheSpeedDoesNotClaimNewTaskSuccess",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.Procedure079Test#retainedKindRoutesToCurrentWorld",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.Procedure079Test#coldProofCostAndUncertaintyAreCharged",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.Procedure079Test#skipsCostlyDistantAndDirectExperience",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.Procedure079Test#currentFrameAndUnitsDriveWaypoints",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.Procedure079Test#positiveBoundedBenefitChangesOnlyOrder",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.Procedure079Test#closestCandidateControlsSelectionNotOptimisticDistantOne",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.Procedure079Test#simpleAndEmptyFallbackHaveNoMemoryAuthority",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.Procedure079Test#legacyPendingAndUnknownUpgradeCannotChangeLedger",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.Procedure079Test#namedReuseDoesNotRequireRedundantWordSkill",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.Procedure079Test#missingNativeCheckpointCannotSilentlyRestartOwnedMotion",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.Procedure079Test#compatibleClosedLegacyFrameIsPreservedAndPendingOrUnknownRefuses",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.ProofMemo078Test#uncachedControlNeitherPrimesNorEvictsMemo",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.ProofMemo078Test#missingDuplicateOutsideAndEmptyEvidenceRefuse",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.ProofMemo078Test#redirectedParentCannotSupplyOwnedEvidence",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.ProofMemo078Test#exactBytesReuseAndReturnedReceiptsCannotMutateTrust",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.ProofMemo078Test#restartedProcessIsColdAndCacheRemainsBounded",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.ProofMemo078Test#sameLengthAndRestoredTimestampCannotHideChangedEvidence",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.ProofMemo078Test#changedDuringAuditAndFailedAuditCannotInstall",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.ProofMemo078Test#changedCodeOrSourceRequiresACompleteCheck",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.RebuildCertificate075Test#alteredAuthorityAndChronologyCannotAuthorizeReuse",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.RebuildCertificate075Test#realProofCanBeRecheckedAfterColdStoreRestart",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.RebuildCertificate075Test#missingOrChangedOriginalAndDamagedCertificateAreInvalidAndPreserved",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.RebuildCompatibility079Test#archivedProofRemainsValidMathButCannotAuthorizeCurrentReuse",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.Rehearsal073Test#malformedChangesAndAmbiguousChatCannotGainActionAuthority",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.Rehearsal073Test#actualColdReconstructionAndImmutableMemorySurviveRestart",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.Rehearsal073Test#rehashedTraceAndCodeTamperingAreRejected",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.Rehearsal073Test#oneComponentChangesWithoutLosingRolesUnitsOrTargets",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.Rehearsal073Test#arbitraryMovingStateAndUnownedMemoryAreRefused",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.SkillGraph046Test#losslessDiagnosticOriginsAndTamperedWitnessNeverBecomeSuccess",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.SkillGraph046Test#actualTwoNodeChainChecksOriginalReportsAndRetainsExactGraphAfterRestart",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.SkillGraph046Test#stopDuringActualMotionNeverStartsDependantsOrRetainsGraph",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.SkillGraph046Test#nativeInFlightRecoveryRetainsSameRunAndEveryCommittedPrefixSample",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.SkillGraph046Test#typeCyclesSkillChangesAndAuthorityAreRefusedBeforeAnyNewEffect",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.SkillGraph046Test#exactMemoAuditsCorruptionAndNeverHidesMissingOriginalEvidence",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.SkillGraph046Test#commitBeforeParentCheckpointReconcilesSameChildWithoutReplayingMovement",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.TaskCost080Test#mismatchedOrUnverifiedPairsAreRejected",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.TaskCost080Test#uncertainOrNegativeSavingsDoNotSpendOnMemory",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.TaskCost080Test#completeDurationsDetermineSavingsIncludingPostExecutionWork",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.TaskCost080Test#directRecipeAndMissingRoleStaySimple",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.TaskCost080Test#coldProfileWorkloadAndReceiptMismatchHaveNoInventedEstimate",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.TaskCost080Test#noCalibrationFallsBackWithoutMintingProof",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.TaskCost080Test#duplicateTaskDoesNotSatisfyMinimumCoverage",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.Waypoints077Test#searchRefusesAnOccupiedGoalRatherThanMovingIt",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.Waypoints077Test#occupiedEqualWaypointsAreReplacedWithoutMutatingTheSource",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.Waypoints077Test#frozenCasesAndControlsRemainComplete",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.Waypoints077Test#changedSourceAndInvalidStageRefuse",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.Waypoints077Test#geometryPreviewDoesNotBecomeMeasuredState",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.Waypoints077Test#boundsAndObstacleFeatureAreExplicit",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.Waypoints077Test#finalGoalsAndAuthorityNeverChange",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.WorldCheckpoint071Test#interruptedRetryKeepsInterruptAndOldGeneration",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.WorldCheckpoint071Test#prolongedLockKeepsCurrentPreviousAndRecoverablePending",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.WorldCheckpoint071Test#transientReaderCommitsExactlyOnceAndKeepsPrevious",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.WorldExportTest#completeSequentialNativeHistoryExportsLosslesslyAndAlteredOriginalsAreRefused",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.WorldLedgerTest#heldNativeMotionSurvivesColdContinuationWithoutLosingWorldOwnership",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.WorldLedgerTest#developmentSequencesPreserveNativeBodiesAndOnlyCommitVerifiedOutcomes",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.WorldLedgerTest#processIndependentCasCorruptionAndExplicitRestoreAreReal",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.WorldProcedure079Test#actualProcedureCommitsOnceReusesCurrentWorldAndRejectsChangedEvidence",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "name": "final-native080",
+      "source": "5ee78b6",
+      "cases": [
+        {
+          "case": "fraymus.workspace.TaskCost080Test#mismatchedOrUnverifiedPairsAreRejected",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.TaskCost080Test#uncertainOrNegativeSavingsDoNotSpendOnMemory",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.TaskCost080Test#completeDurationsDetermineSavingsIncludingPostExecutionWork",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.TaskCost080Test#directRecipeAndMissingRoleStaySimple",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.TaskCost080Test#coldProfileWorkloadAndReceiptMismatchHaveNoInventedEstimate",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.TaskCost080Test#noCalibrationFallsBackWithoutMintingProof",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.TaskCost080Test#duplicateTaskDoesNotSatisfyMinimumCoverage",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.WorldProcedure079Test#actualProcedureCommitsOnceReusesCurrentWorldAndRejectsChangedEvidence",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "name": "reuse080-fix",
+      "source": "fd2dfa4",
+      "cases": [
+        {
+          "case": "fraymus.workspace.GoalRunnerTest#cancelledIntentAndInventedHostReceiptsCannotBecomeSkills",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.GoalRunnerTest#frozenSceneAndReportEffectsHaveStableIdentitiesAndRejectChangedContent",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.GoalRunnerTest#intentSurvivesRestartRequiresExplicitResumeAndHasFiniteRecovery",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.GoalRunnerTest#importedTextCannotInstallHandlersOrEscapePhysicalDomain",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.GoalRunnerTest#aForeignNativeRunIsPreservedAndSourceVersionsAreRequired",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.TaskCost080Test#mismatchedOrUnverifiedPairsAreRejected",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.TaskCost080Test#uncertainOrNegativeSavingsDoNotSpendOnMemory",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.TaskCost080Test#completeDurationsDetermineSavingsIncludingPostExecutionWork",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.TaskCost080Test#directRecipeAndMissingRoleStaySimple",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.TaskCost080Test#coldProfileWorkloadAndReceiptMismatchHaveNoInventedEstimate",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.TaskCost080Test#noCalibrationFallsBackWithoutMintingProof",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.TaskCost080Test#duplicateTaskDoesNotSatisfyMinimumCoverage",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.WorldProcedure079Test#actualProcedureCommitsOnceReusesCurrentWorldAndRejectsChangedEvidence",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "name": "final-report080",
+      "source": "4ec4d26",
+      "cases": [
+        {
+          "case": "fraymus.workspace.TaskCost080Test#mismatchedOrUnverifiedPairsAreRejected",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.TaskCost080Test#uncertainOrNegativeSavingsDoNotSpendOnMemory",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.TaskCost080Test#completeDurationsDetermineSavingsIncludingPostExecutionWork",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.TaskCost080Test#directRecipeAndMissingRoleStaySimple",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.TaskCost080Test#coldProfileWorkloadAndReceiptMismatchHaveNoInventedEstimate",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.TaskCost080Test#noCalibrationFallsBackWithoutMintingProof",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.TaskCost080Test#duplicateTaskDoesNotSatisfyMinimumCoverage",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.WorldProcedure079Test#actualProcedureCommitsOnceReusesCurrentWorldAndRejectsChangedEvidence",
+          "passed": true
+        }
+      ]
+    }
+  ],
+  "desktop": {
+    "passed": true,
+    "source": "4ec4d26dcbc9a624083bdc38d232421c212d973d",
+    "tests": 130,
+    "pass": 130,
+    "fail": 0,
+    "skipped": 0,
+    "cancelled": 0,
+    "todo": 0
+  },
+  "actualApp": [
+    "Supplied success cannot create a world goal",
+    "Actual simple-control goals create verified committed experience; training costs retained",
+    "Four matched complete-task pairs fitted from owned outcomes; duplicates, mismatched workloads and supplied times refused",
+    "All declared counterbalanced controls retain actual outcomes; evaluation never changes the frozen bank",
+    "Visible chat completes a current-world procedure, verifies the actual canvas and retains a named skill",
+    "Actual report and full procedure file export are available",
+    "Complete-task calibration survives a cold restart unchanged",
+    "Cold restart retains the named skill and current world, clears proof trust and executes fresh measured stages"
+  ],
+  "lifecycle": [
+    "World visibility observes moving actual procedure bodies, not the old committed head",
+    "Actual moving-stage closure preserves the old verified head and pending owner",
+    "Resumed verified task has no continuous timing, is explicitly ineligible and cannot calibrate cost",
+    "Explicit same-stage resume retains IDs, charges the unknown tail, passes original checks and commits once",
+    "Actual app labels interrupted timing unavailable rather than zero-cost",
+    "Stale pre-execution binding is refused",
+    "Cancelled motion has no completed timing sample",
+    "Visible Stop during actual motion neither commits nor retains success; ownership remains explicit",
+    "Explicit abandonment/restoration records a new revision and releases ownership"
+  ],
+  "lifecycleSource": "9a496593ef1383e84fa62ba42c3c7ac13fe7b5d5",
+  "faults": [
+    "Eight actual Java API probes refused changed timings, ineligible samples, original bytes, arithmetic, duplicate provenance and foreign code even when their envelopes were re-sealed",
+    "Every altered file restored byte-for-byte; calibration reloaded unchanged and world ledger unchanged after each refusal"
+  ],
+  "faultsSource": "9a496593ef1383e84fa62ba42c3c7ac13fe7b5d5",
+  "correctedSmoke": [
+    "Supplied success cannot create a world goal",
+    "Actual simple-control goals create verified committed experience; training costs retained",
+    "Visible chat completes a current-world procedure, verifies the actual canvas and retains a named skill",
+    "Actual report and full procedure file export are available",
+    "Cold restart retains the named skill and current world, clears proof trust and executes fresh measured stages"
+  ],
+  "firstSmokeFailure": "Stopped after cold saved-skill reuse rejected leaked internal workload080 argument and entered planner repair. Original traces and model requests retained; no reuse motion started.",
+  "primaryNativeAttempts": 174,
+  "analysis": {
+    "passed": true,
+    "checked": [
+      {
+        "id": "b370d358-9780-4cb6-a35e-d03e5bc96a68",
+        "success": true,
+        "selected": "direct",
+        "ticks": 11308,
+        "observed": 11308,
+        "stages": 2,
+        "usesMemory": false,
+        "lookupMillis": 0.0276,
+        "activeMillis": 16055.6495,
+        "auditMillis": 2824.3617
+      },
+      {
+        "id": "7973a409-b44f-4997-8ac1-2f2f02e54ded",
+        "success": true,
+        "selected": "two-stage",
+        "ticks": 24948,
+        "observed": 24948,
+        "stages": 5,
+        "usesMemory": false,
+        "lookupMillis": 0.0045,
+        "activeMillis": 32709.9581,
+        "auditMillis": 6071.5019
+      },
+      {
+        "id": "f08be902-8cf5-4fd9-a307-d90e404cb0ec",
+        "success": true,
+        "selected": "clear-two",
+        "ticks": 24118,
+        "observed": 24118,
+        "stages": 5,
+        "usesMemory": false,
+        "lookupMillis": 0.0067,
+        "activeMillis": 32560.9413,
+        "auditMillis": 5935.3472
+      },
+      {
+        "id": "c848b581-67b1-470d-8392-b00daf4104c5",
+        "success": true,
+        "selected": "two-stage",
+        "ticks": 24936,
+        "observed": 24936,
+        "stages": 5,
+        "usesMemory": false,
+        "lookupMillis": 0.0046,
+        "activeMillis": 31525.1346,
+        "auditMillis": 6057.3785
+      },
+      {
+        "id": "891425ea-0a5a-42ab-8f81-e20ef2288adb",
+        "success": true,
+        "selected": "two-stage",
+        "ticks": 21060,
+        "observed": 21060,
+        "stages": 4,
+        "usesMemory": true,
+        "lookupMillis": 196.7261,
+        "activeMillis": 27638.0332,
+        "auditMillis": 5641.0939
+      },
+      {
+        "id": "0779f188-357c-4107-be7b-7e421249d57e",
+        "success": true,
+        "selected": "two-stage",
+        "ticks": 21082,
+        "observed": 21082,
+        "stages": 4,
+        "usesMemory": true,
+        "lookupMillis": 196.2443,
+        "activeMillis": 28036.339,
+        "auditMillis": 5684.6645
+      },
+      {
+        "id": "13931f17-41e1-40a9-bd52-6aadb337c72e",
+        "success": true,
+        "selected": "two-stage",
+        "ticks": 24958,
+        "observed": 24958,
+        "stages": 5,
+        "usesMemory": false,
+        "lookupMillis": 0.006,
+        "activeMillis": 31637.0474,
+        "auditMillis": 6081.6686
+      },
+      {
+        "id": "2db672d0-0ee1-4115-9f70-86c5a5d2138f",
+        "success": true,
+        "selected": "clear-two",
+        "ticks": 24086,
+        "observed": 24086,
+        "stages": 5,
+        "usesMemory": false,
+        "lookupMillis": 0.0069,
+        "activeMillis": 31528.2253,
+        "auditMillis": 5966.6601
+      },
+      {
+        "id": "2298b657-3c91-4d51-a821-9a852bf53425",
+        "success": true,
+        "selected": "clear-two",
+        "ticks": 22110,
+        "observed": 22110,
+        "stages": 4,
+        "usesMemory": true,
+        "lookupMillis": 191.3638,
+        "activeMillis": 29918.4753,
+        "auditMillis": 5806.5028
+      },
+      {
+        "id": "0dd96882-e99d-466f-a236-a95602d5b5eb",
+        "success": true,
+        "selected": "clear-two",
+        "ticks": 22640,
+        "observed": 22640,
+        "stages": 4,
+        "usesMemory": true,
+        "lookupMillis": 194.6977,
+        "activeMillis": 32980.4064,
+        "auditMillis": 6107.402
+      },
+      {
+        "id": "49f73bac-08c2-46ab-86c0-1317b88d744b",
+        "success": true,
+        "selected": "clear-two",
+        "ticks": 24617,
+        "observed": 24617,
+        "stages": 5,
+        "usesMemory": false,
+        "lookupMillis": 0.0067,
+        "activeMillis": 35319.9084,
+        "auditMillis": 6183.9747
+      },
+      {
+        "id": "8cfa14a6-c8c1-40c6-80ad-3950dd9f2e66",
+        "success": true,
+        "selected": "two-stage",
+        "ticks": 25096,
+        "observed": 25096,
+        "stages": 5,
+        "usesMemory": false,
+        "lookupMillis": 0.0073,
+        "activeMillis": 34300.2637,
+        "auditMillis": 6149.0531
+      },
+      {
+        "id": "adddebc5-9d1a-4067-b892-a5338b3f393e",
+        "success": true,
+        "selected": "two-stage",
+        "ticks": 21220,
+        "observed": 21220,
+        "stages": 4,
+        "usesMemory": true,
+        "lookupMillis": 193.3188,
+        "activeMillis": 30683.6462,
+        "auditMillis": 5856.5229
+      },
+      {
+        "id": "f370ef5f-adc4-4478-ab61-be9aa1f20440",
+        "success": true,
+        "selected": "two-stage",
+        "ticks": 21220,
+        "observed": 21220,
+        "stages": 4,
+        "usesMemory": true,
+        "lookupMillis": 198.1376,
+        "activeMillis": 30929.1412,
+        "auditMillis": 5724.7003
+      },
+      {
+        "id": "f9adb41d-2295-4351-8d9b-000438c42db3",
+        "success": true,
+        "selected": "two-stage",
+        "ticks": 21220,
+        "observed": 21220,
+        "stages": 4,
+        "usesMemory": true,
+        "lookupMillis": 589.2441,
+        "activeMillis": 32041.5608,
+        "auditMillis": 6229.7569
+      },
+      {
+        "id": "b6cf66a4-c439-412d-a94a-5ca5cdfed8f1",
+        "success": true,
+        "selected": "two-stage",
+        "ticks": 21474,
+        "observed": 21474,
+        "stages": 4,
+        "usesMemory": true,
+        "lookupMillis": 209.7187,
+        "activeMillis": 30769.1425,
+        "auditMillis": 5791.6048
+      },
+      {
+        "id": "8206671d-d153-4248-99d5-b991e96967fb",
+        "success": true,
+        "selected": "two-stage",
+        "ticks": 21474,
+        "observed": 21474,
+        "stages": 4,
+        "usesMemory": true,
+        "lookupMillis": 196.8329,
+        "activeMillis": 31996.9631,
+        "auditMillis": 5894.1916
+      },
+      {
+        "id": "fba6295a-c37e-4dd7-b14f-7e4d1eeb8db1",
+        "success": true,
+        "selected": "two-stage",
+        "ticks": 21474,
+        "observed": 21474,
+        "stages": 4,
+        "usesMemory": true,
+        "lookupMillis": 588.9844,
+        "activeMillis": 33300.0241,
+        "auditMillis": 6294.3474
+      },
+      {
+        "id": "7f40c80b-81cd-4d9e-a0e5-85cd1ad68fe6",
+        "success": true,
+        "selected": "two-stage",
+        "ticks": 25437,
+        "observed": 25437,
+        "stages": 5,
+        "usesMemory": false,
+        "lookupMillis": 0.0079,
+        "activeMillis": 34758.3319,
+        "auditMillis": 6194.637
+      },
+      {
+        "id": "81735394-23e1-4606-a200-35bd7b1e040b",
+        "success": true,
+        "selected": "clear-two",
+        "ticks": 25717,
+        "observed": 25717,
+        "stages": 5,
+        "usesMemory": false,
+        "lookupMillis": 147.5102,
+        "activeMillis": 36087.739,
+        "auditMillis": 6453.4607
+      },
+      {
+        "id": "56cc0c4c-403c-448f-835f-1052da3a06eb",
+        "success": true,
+        "selected": "clear-two",
+        "ticks": 25717,
+        "observed": 25717,
+        "stages": 5,
+        "usesMemory": false,
+        "lookupMillis": 538.1247,
+        "activeMillis": 36792.4085,
+        "auditMillis": 6815.1965
+      },
+      {
+        "id": "bf30bed7-db88-40e8-b640-743479de53e5",
+        "success": true,
+        "selected": "clear-two",
+        "ticks": 25717,
+        "observed": 25717,
+        "stages": 5,
+        "usesMemory": false,
+        "lookupMillis": 0.0078,
+        "activeMillis": 36149.6397,
+        "auditMillis": 6431.0702
+      },
+      {
+        "id": "031ea692-a93a-41b9-9fa2-0c2179b3e9db",
+        "success": true,
+        "selected": "clear-two",
+        "ticks": 23738,
+        "observed": 23738,
+        "stages": 4,
+        "usesMemory": true,
+        "lookupMillis": 202.225,
+        "activeMillis": 35127.6183,
+        "auditMillis": 6278.8699
+      },
+      {
+        "id": "6f82798a-25d6-4447-95e7-e2e9a40f501c",
+        "success": true,
+        "selected": "clear-two",
+        "ticks": 23666,
+        "observed": 23666,
+        "stages": 5,
+        "usesMemory": false,
+        "lookupMillis": 550.3244,
+        "activeMillis": 34316.0981,
+        "auditMillis": 6476.5223
+      },
+      {
+        "id": "ae13c30f-bf7e-422e-96d7-50472c825a85",
+        "success": true,
+        "selected": "clear-two",
+        "ticks": 23666,
+        "observed": 23666,
+        "stages": 5,
+        "usesMemory": false,
+        "lookupMillis": 0.0074,
+        "activeMillis": 32842.8888,
+        "auditMillis": 5954.1148
+      },
+      {
+        "id": "19b2bc61-5a35-4063-ab4d-ae112953beb3",
+        "success": true,
+        "selected": "clear-two",
+        "ticks": 21692,
+        "observed": 21692,
+        "stages": 4,
+        "usesMemory": true,
+        "lookupMillis": 204.9832,
+        "activeMillis": 31172.9554,
+        "auditMillis": 5845.9879
+      },
+      {
+        "id": "a823a63c-85ac-4b17-b764-6ed361308876",
+        "success": true,
+        "selected": "clear-two",
+        "ticks": 23666,
+        "observed": 23666,
+        "stages": 5,
+        "usesMemory": false,
+        "lookupMillis": 153.7202,
+        "activeMillis": 33080.376,
+        "auditMillis": 6036.3174
+      },
+      {
+        "id": "9191941a-d0e9-4772-b79f-d60afc0b7771",
+        "success": true,
+        "selected": "two-stage",
+        "ticks": 25826,
+        "observed": 25826,
+        "stages": 5,
+        "usesMemory": false,
+        "lookupMillis": 0.0067,
+        "activeMillis": 35441.5326,
+        "auditMillis": 6441.7097
+      },
+      {
+        "id": "2fbb31e6-1a74-459d-ae1a-2a2dca9ec7ad",
+        "success": true,
+        "selected": "two-stage",
+        "ticks": 21676,
+        "observed": 21676,
+        "stages": 4,
+        "usesMemory": true,
+        "lookupMillis": 204.4701,
+        "activeMillis": 32496.4481,
+        "auditMillis": 5975.2253
+      },
+      {
+        "id": "96e6f079-f4b5-4dab-b351-0a0b4b1d1f44",
+        "success": true,
+        "selected": "two-stage",
+        "ticks": 25826,
+        "observed": 25826,
+        "stages": 5,
+        "usesMemory": false,
+        "lookupMillis": 156.2703,
+        "activeMillis": 35767.488,
+        "auditMillis": 6457.7006
+      },
+      {
+        "id": "2657e7f1-4978-41e1-b280-4a9541477182",
+        "success": true,
+        "selected": "two-stage",
+        "ticks": 25826,
+        "observed": 25826,
+        "stages": 5,
+        "usesMemory": false,
+        "lookupMillis": 559.5608,
+        "activeMillis": 37372.4178,
+        "auditMillis": 6924.0442
+      },
+      {
+        "id": "623ca594-6055-4df8-a50b-9fe3f1839dff",
+        "success": true,
+        "selected": "direct",
+        "ticks": 11442,
+        "observed": 11442,
+        "stages": 2,
+        "usesMemory": true,
+        "lookupMillis": 167.7318,
+        "activeMillis": 16048.4301,
+        "auditMillis": 2988.8257
+      },
+      {
+        "id": "7880e2e0-4a5f-4996-ab53-ac9cbcc93a17",
+        "success": true,
+        "selected": "direct",
+        "ticks": 11442,
+        "observed": 11442,
+        "stages": 2,
+        "usesMemory": false,
+        "lookupMillis": 151.0676,
+        "activeMillis": 16345.716,
+        "auditMillis": 3027.4316
+      },
+      {
+        "id": "54911d4c-c6df-4f8a-b899-99c2ece00b4c",
+        "success": true,
+        "selected": "direct",
+        "ticks": 11442,
+        "observed": 11442,
+        "stages": 2,
+        "usesMemory": false,
+        "lookupMillis": 536.2297,
+        "activeMillis": 17031.1247,
+        "auditMillis": 3379.42
+      },
+      {
+        "id": "4d2fe466-2b2d-49ba-8dda-f37e81434e50",
+        "success": true,
+        "selected": "direct",
+        "ticks": 11442,
+        "observed": 11442,
+        "stages": 2,
+        "usesMemory": false,
+        "lookupMillis": 0.007,
+        "activeMillis": 15597.4666,
+        "auditMillis": 3019.9649
+      },
+      {
+        "id": "a4f3f0b5-5bde-415f-8879-2e6f57c20c2d",
+        "success": true,
+        "selected": "two-stage",
+        "ticks": 24968,
+        "observed": 24968,
+        "stages": 5,
+        "usesMemory": false,
+        "lookupMillis": 156.7219,
+        "activeMillis": 34036.6429,
+        "auditMillis": 6459.7832
+      },
+      {
+        "id": "ed4d7e77-0a9b-4dae-bf3b-4ffa749e1827",
+        "success": true,
+        "selected": "two-stage",
+        "ticks": 24968,
+        "observed": 24968,
+        "stages": 5,
+        "usesMemory": false,
+        "lookupMillis": 533.1545,
+        "activeMillis": 33756.4163,
+        "auditMillis": 6776.3496
+      },
+      {
+        "id": "214fd965-853c-45df-8e5d-801f2e0902dc",
+        "success": true,
+        "selected": "two-stage",
+        "ticks": 24968,
+        "observed": 24968,
+        "stages": 5,
+        "usesMemory": false,
+        "lookupMillis": 0.0057,
+        "activeMillis": 32410.8787,
+        "auditMillis": 6326.7624
+      },
+      {
+        "id": "8fa7f4f0-9206-4f76-bceb-501deb9e18fd",
+        "success": true,
+        "selected": "two-stage",
+        "ticks": 21092,
+        "observed": 21092,
+        "stages": 4,
+        "usesMemory": true,
+        "lookupMillis": 203.3488,
+        "activeMillis": 29073.1994,
+        "auditMillis": 5893.5353
+      },
+      {
+        "id": "37e4a939-5aa8-41aa-8052-7d458769ac51",
+        "success": true,
+        "selected": "direct",
+        "ticks": 18866,
+        "observed": 18866,
+        "stages": 2,
+        "usesMemory": false,
+        "lookupMillis": 521.1209,
+        "activeMillis": 41871.5545,
+        "auditMillis": 6547.9598
+      },
+      {
+        "id": "275d0add-905c-4be7-b2f2-9f9246c48454",
+        "success": true,
+        "selected": "direct",
+        "ticks": 18866,
+        "observed": 18866,
+        "stages": 2,
+        "usesMemory": false,
+        "lookupMillis": 0.0063,
+        "activeMillis": 41863.6444,
+        "auditMillis": 6281.3655
+      },
+      {
+        "id": "7390c745-404f-46e5-8344-f6e5c4abadb0",
+        "success": true,
+        "selected": "direct",
+        "ticks": 18866,
+        "observed": 18866,
+        "stages": 2,
+        "usesMemory": false,
+        "lookupMillis": 126.5638,
+        "activeMillis": 42061.2073,
+        "auditMillis": 6141.2181
+      },
+      {
+        "id": "d86d51d6-e802-4e5c-bdaf-d0d6d4538942",
+        "success": true,
+        "selected": "direct",
+        "ticks": 18866,
+        "observed": 18866,
+        "stages": 2,
+        "usesMemory": false,
+        "lookupMillis": 127.5607,
+        "activeMillis": 41210.821,
+        "auditMillis": 6456.9403
+      }
+    ],
+    "summary": {
+      "methods": {
+        "simple": {
+          "successes": 8,
+          "callerMillis": 470385.36040000024,
+          "completeMillis": 468912.8433,
+          "ticks": 181018,
+          "stages": 34,
+          "lookups": 0
+        },
+        "memory": {
+          "successes": 8,
+          "callerMillis": 448519.60159999994,
+          "completeMillis": 446913.81059999997,
+          "ticks": 161200,
+          "stages": 28,
+          "lookups": 7
+        },
+        "adaptive": {
+          "successes": 8,
+          "callerMillis": 462151.20750000025,
+          "completeMillis": 460589.33900000004,
+          "ticks": 173179,
+          "stages": 32,
+          "lookups": 2
+        },
+        "calibrated": {
+          "successes": 8,
+          "callerMillis": 479564.9299000001,
+          "completeMillis": 477577.1761,
+          "ticks": 173179,
+          "stages": 32,
+          "lookups": 2
+        }
+      },
+      "estimates": [
+        {
+          "id": "080-offset-payload",
+          "available": true,
+          "observedSavingMillis": 4499.246900000006,
+          "chosen": true,
+          "regretMillis": 2621.9437000000034,
+          "predictedSavingMillis": 4798.730199999998,
+          "lowerSavingMillis": 2393.279081441505,
+          "upperSavingMillis": 7204.1813185584915,
+          "errorMillis": 299.4832999999926,
+          "oldErrorMillis": 1999.3072000000057,
+          "covered": true
+        },
+        {
+          "id": "080-rotated-blockers",
+          "available": true,
+          "observedSavingMillis": 5769.602099999996,
+          "chosen": true,
+          "regretMillis": 3877.404699999999,
+          "predictedSavingMillis": 4798.730199999998,
+          "lowerSavingMillis": 1569.3755514413701,
+          "upperSavingMillis": 8028.084848558627,
+          "errorMillis": 970.8718999999983,
+          "oldErrorMillis": 3269.6623999999965,
+          "covered": true
+        },
+        {
+          "id": "080-heavy-turn",
+          "available": true,
+          "observedSavingMillis": 1537.015499999994,
+          "chosen": false,
+          "regretMillis": 3231.364299999994,
+          "predictedSavingMillis": 2127.78585,
+          "lowerSavingMillis": -1091.7108447549626,
+          "upperSavingMillis": 5347.282544754963,
+          "errorMillis": 590.7703500000061,
+          "oldErrorMillis": 815.3464999999941,
+          "covered": true
+        },
+        {
+          "id": "080-shifted-turn",
+          "available": true,
+          "observedSavingMillis": 1948.9611000000004,
+          "chosen": false,
+          "regretMillis": 4493.154699999999,
+          "predictedSavingMillis": 2127.78585,
+          "lowerSavingMillis": -327.56983703044625,
+          "upperSavingMillis": 4583.141537030447,
+          "errorMillis": 178.82474999999977,
+          "oldErrorMillis": 1227.2921000000006,
+          "covered": true
+        },
+        {
+          "id": "080-combined-load",
+          "available": false,
+          "observedSavingMillis": 3921.4842000000062,
+          "chosen": false,
+          "regretMillis": 7369.212900000006
+        },
+        {
+          "id": "080-open-control",
+          "available": false,
+          "observedSavingMillis": -794.5053999999946,
+          "chosen": false,
+          "regretMillis": 2670.915399999998
+        },
+        {
+          "id": "080-protected-neighbor",
+          "available": true,
+          "observedSavingMillis": 3803.7651999999944,
+          "chosen": false,
+          "regretMillis": 6745.291999999994,
+          "predictedSavingMillis": 4798.730199999998,
+          "lowerSavingMillis": -1851.0416283200848,
+          "upperSavingMillis": 11448.502028320081,
+          "errorMillis": 994.9650000000038,
+          "oldErrorMillis": 1303.8254999999945,
+          "covered": true
+        },
+        {
+          "id": "080-novel-role",
+          "available": false,
+          "observedSavingMillis": 1313.4631000000081,
+          "chosen": false,
+          "regretMillis": 448.5832000000082
+        }
+      ],
+      "trainingMillis": 157857.0893,
+      "calibrationMillis": 496057.6436999999,
+      "automaticPromotion": false,
+      "coveredCases": 5,
+      "maeMillis": 606.9830600000001,
+      "oldMaeMillis": 1723.0867399999981,
+      "estimationImproved": true,
+      "efficient": false,
+      "firstBatchEfficient": false
+    },
+    "scope": "Independent original-byte, native arithmetic, whole-task motion, cost-pair provenance and calibrated estimate checks. Empirical timing from one serial machine batch, not an independent physics solver."
+  },
+  "tamper": {
+    "passed": true,
+    "probes": [
+      "Changed claimed memory choice",
+      "Inflated avoided-work estimate",
+      "Erased uncertainty margin",
+      "Changed owned memory source",
+      "Counterfeit warm proof origin",
+      "Proof source path redirected",
+      "Uncharged native work",
+      "Underreported native attempt",
+      "Skipped budget reservation",
+      "Changed starting frame",
+      "Changed current goal targets",
+      "Removed actual motion",
+      "Duplicate native evidence",
+      "Damaged original bytes",
+      "Changed forecast versus actual residual",
+      "Reused forecast as actual ID",
+      "Changed final task result",
+      "Simple control granted memory authority",
+      "Missing owned source memory is refused",
+      "Re-sealed pose inconsistent with integrated motion",
+      "Altered complete-task expected saving",
+      "Erased complete-task uncertainty",
+      "Wrong calibrated model identity",
+      "Changed paired completion time",
+      "Foreign pair evidence path",
+      "Duplicated neighbors"
+    ],
+    "scope": "Controlled in-memory corruptions of retained originals; no production/source evidence files modified."
+  },
+  "sourceIsolation": {
+    "passed": true,
+    "baseline": "0978fb6",
+    "files": [
+      {
+        "path": "workspace-engine/src/main/java/fraymus/workspace/Construction051.java",
+        "sha256": "fd73802f5184f754c2b3bd9cafacde8d90d9eb1794014006b5b2d5ce8826faf5"
+      },
+      {
+        "path": "workspace-engine/src/main/java/fraymus/workspace/Construction054.java",
+        "sha256": "0583c52267ab1f48aada3252d3d68c62ee4bca4842d09343c672853008a83466"
+      },
+      {
+        "path": "workspace-engine/src/main/java/fraymus/workspace/Construction055.java",
+        "sha256": "991c2fb27f5a3236c37d36c67c5ce3428f2fc37b73dacf6ae97985cf5224a76f"
+      },
+      {
+        "path": "workspace-engine/src/main/java/fraymus/workspace/MemoryPolicy074.java",
+        "sha256": "0394ee4476f23aa88050ac185ddf25dcdfe4df5e3c35df6236b190ac3b9fd5e4"
+      },
+      {
+        "path": "workspace-engine/src/main/java/fraymus/workspace/MemoryPolicy075.java",
+        "sha256": "61853ed60587f7e933824609d25d3bf5923da8ec2dfff5f66ac99670addd8b77"
+      },
+      {
+        "path": "workspace-engine/src/main/java/fraymus/workspace/PosePhysics.java",
+        "sha256": "a8ba990c2ed1734a0f9edd0ac1b386c45845b429305eca62ccab56ffee85a9ef"
+      },
+      {
+        "path": "workspace-engine/src/main/java/fraymus/workspace/PoseVerify.java",
+        "sha256": "4ac219e30d888f72b1bccf137d2d1e6291aba15407b2d3168551a6589b4b4ff3"
+      },
+      {
+        "path": "workspace-engine/src/main/java/fraymus/workspace/Procedure076.java",
+        "sha256": "78c5facfdf82d9bb7e02768bfce68048b6adddee0d61a12ddf2d714fae9cc448"
+      },
+      {
+        "path": "workspace-engine/src/main/java/fraymus/workspace/Procedure077.java",
+        "sha256": "c1d12e86ff89e541b64544f48637080529b8a650a7823c8a2409a77a72f01b25"
+      },
+      {
+        "path": "workspace-engine/src/main/java/fraymus/workspace/Procedure078.java",
+        "sha256": "031b4be1a4b1119ccd734b04bdb270f3751f4738d877023990ba8f952267666e"
+      },
+      {
+        "path": "workspace-engine/src/main/java/fraymus/workspace/Procedure079.java",
+        "sha256": "0901f4e66545acaf27fd016395c8f91a5fbc000b5a23cd7c2313bcf9a4716033"
+      },
+      {
+        "path": "workspace-engine/src/main/java/fraymus/workspace/ProcedureStudy076.java",
+        "sha256": "426b20b21ecd8f20adca898d4a14e3123f1cfc2a5fc6e840f5dc9febe739b9b3"
+      },
+      {
+        "path": "workspace-engine/src/main/java/fraymus/workspace/ProcedureStudy077.java",
+        "sha256": "d01daf18baf5b3751bf5e8cac9ccf11602228797cc36e584b743bf9e536de14c"
+      },
+      {
+        "path": "workspace-engine/src/main/java/fraymus/workspace/ProcedureStudy078.java",
+        "sha256": "c5b7bf9a515f103e2969785d50f5019d418c90572d63d2145845586a41f3f8f4"
+      },
+      {
+        "path": "workspace-engine/src/main/java/fraymus/workspace/ProofMemo078.java",
+        "sha256": "d15a524d2af6d47f4852283926d2d2089ff47e90f30f1560e91ef70e71305ad0"
+      },
+      {
+        "path": "workspace-engine/src/main/java/fraymus/workspace/Rehearsal073.java",
+        "sha256": "d2ba2c7ac06096d7744acf5d5583bd0de03883ea1bd5cdd92ff8b56595d91eaa"
+      },
+      {
+        "path": "workspace-engine/src/main/java/fraymus/workspace/SupportRepair060.java",
+        "sha256": "cafed0cc5d1a1d23040a99706637acf377a7cb5941fbd304669b3b4630cce8ae"
+      },
+      {
+        "path": "workspace-engine/src/main/java/fraymus/workspace/Waypoints077.java",
+        "sha256": "9af425681cf233a5145b2e560e44644052103572b4aac9339dc2b35928e7b691"
+      },
+      {
+        "path": "workspace-engine/src/main/java/fraymus/workspace/Waypoints079.java",
+        "sha256": "64f4d9d92ccae0de655f76d28d201d1f6f4930d40c050238f554b088e381f1c7"
+      },
+      {
+        "path": "workspace-engine/src/main/java/fraymus/workspace/WorldFrames.java",
+        "sha256": "0d1c346959a1a2ad47fb876dbfb2b5016dc5b3363fa7ab54dd944d0cf0062dc0"
+      },
+      {
+        "path": "workspace-engine/src/main/java/fraymus/workspace/WorldLedger.java",
+        "sha256": "11201abd7512770f8491667da9bdb5aee771f89c688242dd1c681fc516d32947"
+      },
+      {
+        "path": "workspace-engine/src/main/java/fraymus/workspace/WorldNativeCheckpoint.java",
+        "sha256": "ab07c6102f790425c943483a517913fcb1e78054f4a9f1e3eef3e12fc02a873f"
+      },
+      {
+        "path": "workspace-engine/src/main/java/fraymus/workspace/WorldNativeStore.java",
+        "sha256": "68db60de751cf14c8c3d139fc38bb41af5e0ad13309082f4b80958702b059de4"
+      },
+      {
+        "path": "workspace-engine/src/main/java/fraymus/workspace/WorldPhysics.java",
+        "sha256": "2f260fdc4be00f703f87dc83e6dfafb281b270784bf570c4b117d62527df16f5"
+      },
+      {
+        "path": "workspace-engine/src/main/java/fraymus/workspace/WorldPlan.java",
+        "sha256": "86668d4fb164c5393de695599246ecfb47da151754750d470362b5850a21e54d"
+      },
+      {
+        "path": "workspace-engine/src/main/java/fraymus/workspace/WorldVerify.java",
+        "sha256": "0b8f63185c581ae1745636c1cd699904eb5accbaaa3f7129b5a981ef7e79ed89"
+      }
+    ]
+  },
+  "scope": "One serial counterbalanced labelled native-box study. Original physics and verifiers remain authoritative; independent original-byte arithmetic and cost provenance inspection is not an independent physics solver. Successful acceptance uses deterministic Java planning; the preserved failed first smoke entered local-model repair. No new physical accuracy or LLM weight-training claim.",
+  "visualReview": {
+    "passed": true,
+    "reviewedAtUtc": "2026-11-06T15:30:01.322814+00:00",
+    "method": "Viewed actual PNG captures with the image viewer; unchanged HTML captures were aligned to section tops for clear headings.",
+    "reviewed": [
+      "fitted-cost-comparisons.png",
+      "estimated-task-report.png",
+      "cold-skill-reuse.png",
+      "layout-1100.png",
+      "resumed-verified.png",
+      "offline-results-1440.png",
+      "offline-estimates-390.png",
+      "offline-replay-390.png"
+    ],
+    "findings": [
+      "Actual fitted comparisons and estimated saving are legible",
+      "Final report uses a neutral decision heading and states unsupported estimates explicitly",
+      "Interrupted timing is unavailable rather than zero-cost",
+      "Narrow app keeps the cost selector, goal status and chat available",
+      "Offline costs, empirical margins and recorded motion are readable at tested widths",
+      "Tables scroll within their container on narrow screens; whole page has no horizontal overflow"
+    ],
+    "browserCapture": {
+      "passed": true,
+      "widths": [
+        1440,
+        390
+      ],
+      "sections": [
+        "results",
+        "estimates",
+        "replay"
+      ],
+      "method": "Actual unchanged offline guide, section top aligned before screenshot; no image edits."
+    }
+  },
+  "offlineBrowser": {
+    "passed": true,
+    "checks": [
+      {
+        "width": 1440,
+        "cases": 15,
+        "stages": 174,
+        "allMethodsAndAttempts": true,
+        "initialMiddleFinalOriginalPoses": true,
+        "playPause": true,
+        "trainingToggle": true,
+        "allCostMetrics": true,
+        "estimates": true,
+        "mapFilterLinksImages": true,
+        "noHorizontalOverflow": true,
+        "minimumChartText12Pixels": true
+      },
+      {
+        "width": 390,
+        "cases": 15,
+        "stages": 174,
+        "allMethodsAndAttempts": true,
+        "initialMiddleFinalOriginalPoses": true,
+        "playPause": true,
+        "trainingToggle": true,
+        "allCostMetrics": true,
+        "estimates": true,
+        "mapFilterLinksImages": true,
+        "noHorizontalOverflow": true,
+        "minimumChartText12Pixels": true
+      }
+    ],
+    "errors": []
+  },
+  "documentationCorrection": {
+    "firstCheckPassed": false,
+    "issues": [
+      "Missing embedded dataset system-data",
+      "Missing embedded dataset inventory-data"
+    ],
+    "correction": "Use established data IDs and the exact system-map object, with modules read from its modules property. Original motion and costs unchanged. Rerun browser and full documentation checks before publication.",
+    "browserRerunPassed": true
+  }
+}

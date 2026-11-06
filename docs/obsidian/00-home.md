@@ -1,6 +1,6 @@
 ---
 title: Fraynix Studio map of content
-edition_context: 079
+edition_context: 080
 updated: 2026-11-06
 tags: [fraynix, system-map]
 ---
@@ -9,9 +9,9 @@ tags: [fraynix, system-map]
 
 Open the repository root as an Obsidian vault. The numbered README is the edition snapshot; these notes are the working map.
 
-Current: [[README-079|Edition 079 — selective memory and durable world goals]] ·
-[[docs/obsidian/87-selective-world-goals|Operation and next gates]] ·
-[[docs/obsidian/selective-world-goals.canvas|System map]].
+Current: [[README-080|Edition 080 — complete-task cost calibration]] ·
+[[docs/obsidian/88-complete-task-costs|Operation and next gates]] ·
+[[docs/obsidian/complete-task-costs.canvas|System map]].
 
 Previous: [[README-031|Edition031 — native contact tasks]] ·
 [[docs/obsidian/39-native-pushing|Pushing contract and measured limits]] ·
