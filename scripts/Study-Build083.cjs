@@ -3,7 +3,7 @@
 const fs=require('node:fs'),path=require('node:path'),cp=require('node:child_process'),crypto=require('node:crypto'),assert=require('node:assert/strict');
 const sha=b=>crypto.createHash('sha256').update(b).digest('hex');
 function files(root){
- const tracked=cp.execFileSync('git',['ls-files'],{cwd:root,encoding:'utf8'}).trim().split(/\r?\n/);
+ const tracked=cp.execFileSync('git',['ls-files'],{cwd:root,encoding:'utf8',maxBuffer:16*1024*1024}).trim().split(/\r?\n/);
  const inputs=tracked.filter(p=>p.endsWith('.gradle')||p.endsWith('.lockfile')||p.includes('src/main/')||p.startsWith('workspace-desktop/renderer/')||(p.startsWith('workspace-desktop/') && (p.endsWith('.cjs') && !p.includes('/test/') || p.endsWith('/package.json'))));
  const lib='workspace-engine/build/install/workspace-engine/lib',jars=fs.readdirSync(path.join(root,lib)).filter(p=>p.endsWith('.jar')).map(p=>lib+'/'+p);
  return {inputs:inputs.sort(),artifacts:jars.sort()};
