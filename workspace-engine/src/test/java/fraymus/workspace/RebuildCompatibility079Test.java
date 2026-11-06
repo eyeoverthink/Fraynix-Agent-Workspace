@@ -6,7 +6,7 @@ import java.nio.file.*;
 /** The immutable074 fixture is historical evidence, not current-engine authority. */
 public class RebuildCompatibility079Test {
  @Test public void archivedProofRemainsValidMathButCannotAuthorizeCurrentReuse()throws Exception {
-  RebuildCertificate075Test.actualPriorProof();var b=RebuildCertificate075Test.bundle;var run=RebuildCertificate075Test.run;var job=RebuildCertificate075Test.job();String before=WorldFrames.hash(b);
+  RebuildCertificate075Test.loadArchivedProof();var b=RebuildCertificate075Test.bundle;var run=RebuildCertificate075Test.run;var job=RebuildCertificate075Test.job();String before=WorldFrames.hash(b);
   assertNotEquals(WorldNativeCheckpoint.identity(),b.getJSONObject("episode").getString("nativeIdentity"));assertTrue(WorldVerify.verify(run).getBoolean("passed"));var store=new RebuildCertificate075(Files.createTempDirectory("old-certificate079-"));
   var e=assertThrows(IllegalStateException.class,()->store.install(job,b,RebuildCertificate075Test.owned(job),a->run));assertTrue(e.getMessage().contains("native identity"));assertEquals("miss",store.lookup(job,b,a->run).getString("status"));assertEquals(before,WorldFrames.hash(b));
  }
