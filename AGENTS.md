@@ -1,5 +1,12 @@
 # Fraynix Studio collaboration and documentation
 
+## Edition 083 · Calibration collection and coverage implementation in progress
+
+2026-11-06. Isolated D:/Codex-Work/fraynix-workspace-edition083 on edition083, parent8e6ed7ae. Prospective contract119ef378 freezes three proof-state/saving groups, two calibration pairs each, and eighteen new evaluation goals across simple/memory/calibrated controls. Fixed4CPU/768MiB budget and actual affinity; private projects/closed byte-checked copies; all native checks retained. Cold means new owner before an uninterrupted task, not resumed timing or cleared disk cache. Warm-up and startup costs retained separately. Memory calibration controls precede saving simple controls to avoid learning their own answer; order limitation explicit. Fresh evaluation clones prevent retention leakage.
+
+Implementation69fbe5c7 adds read-only CalibrationCoverage083 to the existing checked pairs response and visible workload/coverage details. TaskCost080/GoalRunner/WorldProcedure079/WorldLedger and native physics/proofs unchanged. Regression is running; no new measurement or completion claim yet. Existing082/past releases and normal045/qa046/private data preserved. No subagents or overlapping heavy checks. Next: source/build receipt, serial seed/group runs, original inspection/refusal, actual UI/offline screenshots, README083/Obsidian91/memory/logs, verified publication. Read build/HANDOFF083.md for active sessions.
+
+
 ## Edition 082 · Published and fetched back on 2026-11-06
 
 Atomic no-thin push to Fraynix-Agent-Workspace main, edition082 and readme-082 succeeded. Release fa57f60fd41d982a57a7349154653956a199513f; annotated tag bf37c6c0e69547b5a3c24d520bbfe3ca40dcf115. Freshly fetched Git trees verified 1154 canonical sources, 13217 frozen hashes across82 editions, and 1963 exact original archives including decompressed bytes. Documentation passes 87 canvases and 9434 references. [Publication receipt](docs/PUBLICATION_082.json).
