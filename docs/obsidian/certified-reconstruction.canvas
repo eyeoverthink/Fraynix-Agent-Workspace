@@ -1,0 +1,111 @@
+{
+  "nodes": [
+    {
+      "id": "bank",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/Rehearsal073.java",
+      "x": 0,
+      "y": 0,
+      "width": 390,
+      "height": 200
+    },
+    {
+      "id": "policy",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/MemoryPolicy075.java",
+      "x": 420,
+      "y": 0,
+      "width": 390,
+      "height": 200
+    },
+    {
+      "id": "study",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/MemoryStudy075.java",
+      "x": 840,
+      "y": 0,
+      "width": 390,
+      "height": 200
+    },
+    {
+      "id": "certificate",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/RebuildCertificate075.java",
+      "x": 0,
+      "y": 240,
+      "width": 390,
+      "height": 200
+    },
+    {
+      "id": "verify",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/WorldVerify.java",
+      "x": 420,
+      "y": 240,
+      "width": 390,
+      "height": 200
+    },
+    {
+      "id": "view",
+      "type": "file",
+      "file": "workspace-desktop/renderer/memory075.js",
+      "x": 840,
+      "y": 240,
+      "width": 390,
+      "height": 200
+    },
+    {
+      "id": "inspect",
+      "type": "file",
+      "file": "scripts/Inspect-Memory075.cjs",
+      "x": 0,
+      "y": 480,
+      "width": 390,
+      "height": 200
+    }
+  ],
+  "edges": [
+    {
+      "id": "e0",
+      "fromNode": "bank",
+      "fromSide": "right",
+      "toNode": "policy",
+      "toSide": "left"
+    },
+    {
+      "id": "e1",
+      "fromNode": "policy",
+      "fromSide": "right",
+      "toNode": "study",
+      "toSide": "left"
+    },
+    {
+      "id": "e2",
+      "fromNode": "study",
+      "fromSide": "right",
+      "toNode": "certificate",
+      "toSide": "left"
+    },
+    {
+      "id": "e3",
+      "fromNode": "certificate",
+      "fromSide": "right",
+      "toNode": "verify",
+      "toSide": "left"
+    },
+    {
+      "id": "e4",
+      "fromNode": "verify",
+      "fromSide": "right",
+      "toNode": "view",
+      "toSide": "left"
+    },
+    {
+      "id": "e5",
+      "fromNode": "view",
+      "fromSide": "right",
+      "toNode": "inspect",
+      "toSide": "left"
+    }
+  ]
+}

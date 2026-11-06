@@ -2,11 +2,11 @@
 
 **A local visual environment for agents to browse, create runnable artifacts, test behavior and reuse verified skills.**
 
-> **[Edition 074 · Does experiment memory help?](README-074.md)** · [Offline guide](docs/readmes/074/index.html) · [Operation](docs/JAVA_CHAT_044.md) · [Edition history](docs/readmes/INDEX.md)
+> **[Edition 075 · Certified reconstruction reuse](README-075.md)** · [Offline guide](docs/readmes/075/index.html) · [Patient-chart review](docs/PATIENT_CHART_REVIEW_075.md) · [Edition history](docs/readmes/INDEX.md)
 
-The frozen comparison completed twelve new supported scenes plus four unsupported controls. All three methods solved 12/12 supported tasks. Memory used 22.2% fewer native ticks than exhaustive search but 44.3% more than the simple first-success method. Reconstruction explains the extra work. No promotion: memory has not yet earned a benefit over the simpler control. The integrated panel retains original motion, complete costs, restart/recovery and exact exports. [Full evidence](docs/readmes/074/verification.json).
+The integrated Java comparison reuses exact, revalidated reconstruction proofs while requiring a new forecast and actual execution for every changed task. Four methods complete twelve prospectively frozen harder tasks plus four unsupported controls. Cache-saving qualification: True; procedural-memory qualification against both controls: False. No automatic promotion. [Measured results and full evidence](README-075.md).
 
-Edition 074 is published to main with full source, actual app/offline screenshots, original evidence and continuity notes. [Fetched GitHub verification](docs/PUBLICATION_074.json).
+Edition 075 implementation, screenshots and original evidence are prepared for publication. [Previous fetched publication](docs/PUBLICATION_074.json).
 
 One integrated app, with Java-owned chat planning, creation, native skill scheduling, continuing identity, real clocks and checked outcomes. Mission connects the actual goal, source, child task, recovery and retained result. [Screenshots, typed skill graphs, new logic and production direction](README-046.md).
 

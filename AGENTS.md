@@ -1,5 +1,18 @@
 # Fraynix Studio collaboration and documentation
 
+## Edition 075 · Validated locally; publication next
+
+Contract ae71bf2 precedes implementation e57902a and all new native outcomes. Resume-state correction 55310e0 precedes outcomes; future-date pre-use guard ab2ef1a follows a retained partial development run, with nine focused checks and the complete primary study rerun afterward. Four methods, 12 harder supported tasks and 4 unsupported controls; original native physics/controller/verifier identity unchanged. Exact five owned073 memories; empty study-local certificate store; no evaluation ingestion or promotion.
+
+All64 primary cells completed before an audit worker exited silently. Heavy memory pressure observed; underlying Error not logged. User closing another window did not interrupt native motion. 231e980 bounds proof retention, persists worker errors, reports progress and adds explicit proof-only recheck. All139 original attempts and frozen native rows/files preserved byte-for-byte; no primary native rerun or policy retuning. Original native code and checking code/digest/prior-state archive retained. Eleven final focused Java checks pass; actual cold reinspection and separate Stop-during-audit copy pass with no qualification or native changes. The95 distinct checks combine scoped invocations; not a fresh full-history test run.
+
+search: 9/12, 277642 ticks/45 attempts; simple: 9/12, 168730 ticks/27 attempts; memory: 9/12, 228610 ticks/37 attempts; cached: 9/12, 186684 ticks/30 attempts. Cache-saving qualification: True; procedural-memory qualification against both controls: False. No automatic promotion. Retain all failures and costs. Every new success needs distinct fresh native forecast/actual motion. Cache hits reference an owned charged original reconstruction, recheck source/native/verifier/restore/proof. Incompatible target roles fall back to simple control. No active-world commits, new skill promotion, physical accuracy or LLM-weight learning claim. Bank construction remains 106596 earlier ticks lower bound.
+
+95 distinct targeted Java checks/14 classes; 127 desktop checks. Actual64-cell app study, complete native audit, all-case original exports/inspector, 16 altered-evidence probes, cold restart, separate running-attempt recovery/Stop and real certificate hit after restart/damaged-certificate fresh-rebuild fallback. Original synthetic source tree and active worlds preserved. App1600/1100 and offline1440/390 interactions/screenshots verified. No concurrent heavy validators or subagents; Java21/fourCPUs/768MB.
+
+README075, actual captures, offline viewer, complete source inventory, original evidence, patient-chart source/review, Obsidian83/canvas and notes prepared. Main/tag push/fetched audit next, not yet claimed. Preserve frozen001–074, normal045/qa046/private data/model services. Next: diverse procedures with measured training-only advantages, bounded repairs from hard-task traces, unseen tests against first-success control, and complete moving-state restore contracts. Synthetic chart lineage remains design input, not established capability or hardware history.
+
+
 ## Edition 074 · Published and fetched back on 2026-11-05
 
 Atomic push to Fraynix-Agent-Workspace main, edition074 and readme-074 succeeded. Release 9c62ddba830632505e01870d71f29cf7c4a532ff; annotated tag 45b2657a89a9436fe965f37795cceb4ea639be2d. Fresh GitHub fetch verified 1063 canonical sources, 6359 frozen hashes across 74 editions and 74 exact original archives including decompressed bytes. Documentation passed 79 canvases/7512 references. [Publication receipt](docs/PUBLICATION_074.json).

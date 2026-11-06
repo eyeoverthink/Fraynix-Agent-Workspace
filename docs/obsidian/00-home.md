@@ -1,6 +1,6 @@
 ---
 title: Fraynix Studio map of content
-edition_context: 074
+edition_context: 075
 updated: 2026-11-05
 tags: [fraynix, system-map]
 ---
@@ -9,9 +9,9 @@ tags: [fraynix, system-map]
 
 Open the repository root as an Obsidian vault. The numbered README is the edition snapshot; these notes are the working map.
 
-Current: [[README-074|Edition 074 — measured experiment memory]] ·
-[[docs/obsidian/82-memory-usefulness|Operation and next gates]] ·
-[[docs/obsidian/memory-usefulness.canvas|System map]].
+Current: [[README-075|Edition 075 — certified reconstruction reuse]] ·
+[[docs/obsidian/83-certified-reconstruction|Operation and next gates]] ·
+[[docs/obsidian/certified-reconstruction.canvas|System map]].
 
 Previous: [[README-031|Edition031 — native contact tasks]] ·
 [[docs/obsidian/39-native-pushing|Pushing contract and measured limits]] ·

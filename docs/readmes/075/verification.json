@@ -1,0 +1,1431 @@
+{
+  "developmentPartial": {
+    "project": "C:/Users/eyeka/AppData/Local/Temp/fraynix-memory075-ui-KTfztW",
+    "studyId": "d5246ba8-3895-4a66-9aab-3c6dcfaf4962",
+    "settledCells": 9,
+    "chargedTicksWithUnknownTails": 165333,
+    "attempts": 28,
+    "reason": "Developer stopped isolated partial run after9settled cells to move future-dated certificate rejection before reuse. No native policy, cases, thresholds or outcomes retuned. Original partial project and all attempts retained."
+  },
+  "cacheCounts": {
+    "miss": 3,
+    "hit": 7,
+    "no-compatible-memory": 6
+  },
+  "edition": 75,
+  "source": "6359c96149e01f3a33b415204f2e5aa4f158627c",
+  "contract": "ae71bf2",
+  "runtimeImplementation": "e57902a",
+  "javaDistinct": 95,
+  "javaClasses": 14,
+  "javaAllPassed": true,
+  "javaInvocations": [
+    {
+      "name": "policy075",
+      "cases": [
+        {
+          "case": "fraymus.workspace.MemoryPolicy075Test#worstCaseAdmissionAlwaysReservesFreshExecution",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.MemoryPolicy075Test#onlyMemoryMayReorderItsCandidateQueue",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.MemoryPolicy075Test#frozenCasesHaveDistinctNumericScenesAndSupportedSchema",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.MemoryPolicy075Test#qualificationCannotBeEarnedOnlyByBeatingExhaustiveSearch",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.MemoryPolicy075Test#unknownInputsAndUnownedEpisodesCannotStartAStudy",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.MemoryPolicy075Test#unchangedCounterfactualPlansAndOriginalRankAreTheComparator",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.RebuildCertificate075Test#alteredAuthorityAndChronologyCannotAuthorizeReuse",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.RebuildCertificate075Test#realProofCanBeRecheckedAfterColdStoreRestart",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.RebuildCertificate075Test#missingOrChangedOriginalAndDamagedCertificateAreInvalidAndPreserved",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "name": "regression075",
+      "cases": [
+        {
+          "case": "fraymus.workspace.Agency043Test#inspectionReportRequiresActualStoredMatchingReportAssertions",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.Agency043Test#prematureModelFinishCannotCreateAnArtifactOrVisualRoutine",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.Agency043Test#explicitScreenQuestionUsesNativeInspectionAndCounterCreationUsesOnlyTheCreationStage",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.Agency043Test#actualStoredReceiptAndFrozenCounterStepsAreRequiredBeforeClaimIsConsumed",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.Agency043Test#missingActionAuthorityRefusesClearlyWhilePureDefinitionReadsRemainPassive",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.Agency043Test#registeredSchemasRejectInventedFieldsAndAssertionFreeTests",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.Agency043Test#commitFailureAfterConsumingHostClaimInterruptsInsteadOfWaitingForever",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.Agency043Test#queuedAndClaimedTasksRestoreAsInterruptedWithoutSilentReplay",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.Agency043Test#claimedHostInterruptionRejectsOldNonceAndExplicitResumeStartsFreshObservation",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.Agency043Test#unverifiedConversationIsNotPresentedAsVerifiedOutcomeToTheContinuingBrain",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.Agency043Test#rejectedNativeModelSyntaxRetriesWithinBudgetWithoutExecutingRejectedArguments",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.Agent042Test#actualSharedCortexCheckpointReplayLeaseAndRestart",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.Agent042Test#acceptedCameraOutputsExpireAndReplayCannotRefreshThem",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.Agent042Test#missingNeuralCheckpointDoesNotSilentlyResetBrain",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.Agent042Test#clocksKeepWallRollbackAndBootDomainsSeparate",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.Agent042Test#failedGoalsAreWitnessedOnceWithoutRewardingSuccess",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.Agent042Test#checkedStateRejectsAlterationWithoutErasingOriginal",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.Agent042Test#appraisalAblationsActuallyChangeWork",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.Agent042Test#witnessSegmentsVerifyExactCheckpointPrefixAndRefuseDamage",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.Agent042Test#reportEscapesSourceDataAndKeepsExactSnapshot",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#duplicateWarningsKeepEveryOriginalOccurrenceBeyondRecentWindow",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#numericRefusalExplainsOriginalBoundsWithoutChangingThem",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#oversizedRequirementsRefuseRatherThanBeingSilentlyTruncated",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#legacyTaskDoesNotClaimCompleteTimingCoverage",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#summaryRetainsRejectedQualityAndDoesNotDumpMetrics",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#payloadHistoryProjectionRetainsPolicyRequirementsAndContraryOutcomes",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#discoverySummaryKeepsExactBindingsAndBothEndsWithoutBreakingJson",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#largeRecentObservationHasExplicitOmissionHashAndKeepsFailure",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#queuedObjectiveSealRefusesChangedRequest",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#providerMapMetadataIsRetainedWithoutUnrelatedFields",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#automaticCompletionRechecksCurrentArtifactInsteadOfTrustingOldSuccess",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.ChatChain052Test#failedPlannerCallIsTimedAndDoesNotBecomeAnAction",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.Counterfactual045Test#unfinishedForecastRetainsCompletedBytesAndOriginalAttemptsAcrossRestart",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.Counterfactual045Test#codeAndSourceCorruptionAreRefusedWithoutChangingOriginalBytes",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.Counterfactual045Test#ordinaryWorldRequestAndExplicitCounterfactualRequestStayDistinct",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.Counterfactual045Test#nativeAlternativesKeepWorldExactAndSelectedExecutionMatchesOriginalTraces",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.Counterfactual045Test#forecastOnlyAndExplicitNoMovementRequestsRequireReview",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.Counterfactual045Test#cancellationCannotAdvanceOrReserveTheLiveWorld",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#retainedAppearancePolicyCannotChangeCategoryOrInstallDetectorOptions",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#retainedSkillSourceAndForceDefaultsCannotBeSilentlyChanged",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#nativeWaitUsesActualChildAndRetainsItsIdentity",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#savedGraphChatSelectsExactVersionAndWorkflowBeforePlanning",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#sourceFreeHostSuccessAndForeignChildrenAreRejected",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#reportStageCannotSkipActualReads",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#typedOptionsPreserveExplicitValuesAndRejectContradictions",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#interruptedChildCannotProduceSuccessfulCompletion",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#inventedHostFactsDoNotReplaceActualJavaRead",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#retainedSkillSchemasKeepDefaultsOptionalAndHideBoundDetectorPolicy",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#javaRoutesEveryFormerDesktopFamilyWithoutChangingWebCreation",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#constructionReuseExposesOnlyExplicitChangesAndKeepsOriginalLimits",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#actualQueueCompletionRecordsTheVerifiedReportInTheSameLearningEpisode",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#workflowBootstrapBindsDatasetAndSceneInJavaBeforeAnyHostAction",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#reportMustHaveFrozenOriginalAssertionsAndExactSourceVersion",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.Domain044Test#creationPromptsAreOwnedBoundedAndKeepSourceReserved",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.GoalRunnerTest#cancelledIntentAndInventedHostReceiptsCannotBecomeSkills",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.GoalRunnerTest#frozenSceneAndReportEffectsHaveStableIdentitiesAndRejectChangedContent",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.GoalRunnerTest#intentSurvivesRestartRequiresExplicitResumeAndHasFiniteRecovery",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.GoalRunnerTest#importedTextCannotInstallHandlersOrEscapePhysicalDomain",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.GoalRunnerTest#aForeignNativeRunIsPreservedAndSourceVersionsAreRequired",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.MemoryPolicy074Test#worstCaseAdmissionAlwaysReservesFreshExecution",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.MemoryPolicy074Test#onlyMemoryMayReorderItsCandidateQueue",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.MemoryPolicy074Test#frozenCasesHaveDistinctNumericScenesAndSupportedSchema",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.MemoryPolicy074Test#qualificationCannotBeEarnedOnlyByBeatingExhaustiveSearch",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.MemoryPolicy074Test#unknownInputsAndUnownedEpisodesCannotStartAStudy",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.MemoryPolicy074Test#unchangedCounterfactualPlansAndOriginalRankAreTheComparator",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.MemoryPolicy075Test#worstCaseAdmissionAlwaysReservesFreshExecution",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.MemoryPolicy075Test#onlyMemoryMayReorderItsCandidateQueue",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.MemoryPolicy075Test#frozenCasesHaveDistinctNumericScenesAndSupportedSchema",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.MemoryPolicy075Test#qualificationCannotBeEarnedOnlyByBeatingExhaustiveSearch",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.MemoryPolicy075Test#unknownInputsAndUnownedEpisodesCannotStartAStudy",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.MemoryPolicy075Test#unchangedCounterfactualPlansAndOriginalRankAreTheComparator",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.RebuildCertificate075Test#alteredAuthorityAndChronologyCannotAuthorizeReuse",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.RebuildCertificate075Test#realProofCanBeRecheckedAfterColdStoreRestart",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.RebuildCertificate075Test#missingOrChangedOriginalAndDamagedCertificateAreInvalidAndPreserved",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.Rehearsal073Test#malformedChangesAndAmbiguousChatCannotGainActionAuthority",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.Rehearsal073Test#actualColdReconstructionAndImmutableMemorySurviveRestart",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.Rehearsal073Test#rehashedTraceAndCodeTamperingAreRejected",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.Rehearsal073Test#oneComponentChangesWithoutLosingRolesUnitsOrTargets",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.Rehearsal073Test#arbitraryMovingStateAndUnownedMemoryAreRefused",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.SkillGraph046Test#losslessDiagnosticOriginsAndTamperedWitnessNeverBecomeSuccess",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.SkillGraph046Test#actualTwoNodeChainChecksOriginalReportsAndRetainsExactGraphAfterRestart",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.SkillGraph046Test#stopDuringActualMotionNeverStartsDependantsOrRetainsGraph",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.SkillGraph046Test#nativeInFlightRecoveryRetainsSameRunAndEveryCommittedPrefixSample",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.SkillGraph046Test#typeCyclesSkillChangesAndAuthorityAreRefusedBeforeAnyNewEffect",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.SkillGraph046Test#exactMemoAuditsCorruptionAndNeverHidesMissingOriginalEvidence",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.SkillGraph046Test#commitBeforeParentCheckpointReconcilesSameChildWithoutReplayingMovement",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.WorldCheckpoint071Test#interruptedRetryKeepsInterruptAndOldGeneration",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.WorldCheckpoint071Test#prolongedLockKeepsCurrentPreviousAndRecoverablePending",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.WorldCheckpoint071Test#transientReaderCommitsExactlyOnceAndKeepsPrevious",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.WorldExportTest#completeSequentialNativeHistoryExportsLosslesslyAndAlteredOriginalsAreRefused",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.WorldLedgerTest#heldNativeMotionSurvivesColdContinuationWithoutLosingWorldOwnership",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.WorldLedgerTest#developmentSequencesPreserveNativeBodiesAndOnlyCommitVerifiedOutcomes",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.WorldLedgerTest#processIndependentCasCorruptionAndExplicitRestoreAreReal",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "name": "policy075-final",
+      "cases": [
+        {
+          "case": "fraymus.workspace.MemoryPolicy075Test#worstCaseAdmissionAlwaysReservesFreshExecution",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.MemoryPolicy075Test#onlyMemoryMayReorderItsCandidateQueue",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.MemoryPolicy075Test#frozenCasesHaveDistinctNumericScenesAndSupportedSchema",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.MemoryPolicy075Test#qualificationCannotBeEarnedOnlyByBeatingExhaustiveSearch",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.MemoryPolicy075Test#unknownInputsAndUnownedEpisodesCannotStartAStudy",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.MemoryPolicy075Test#unchangedCounterfactualPlansAndOriginalRankAreTheComparator",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.RebuildCertificate075Test#alteredAuthorityAndChronologyCannotAuthorizeReuse",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.RebuildCertificate075Test#realProofCanBeRecheckedAfterColdStoreRestart",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.RebuildCertificate075Test#missingOrChangedOriginalAndDamagedCertificateAreInvalidAndPreserved",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "name": "audit-fix075-first",
+      "cases": [
+        {
+          "case": "fraymus.workspace.MemoryPolicy075Test#worstCaseAdmissionAlwaysReservesFreshExecution",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.MemoryPolicy075Test#onlyMemoryMayReorderItsCandidateQueue",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.MemoryPolicy075Test#frozenCasesHaveDistinctNumericScenesAndSupportedSchema",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.MemoryPolicy075Test#fatalWorkerExitIsPersistedInsteadOfLeavingRunningForever",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.MemoryPolicy075Test#qualificationCannotBeEarnedOnlyByBeatingExhaustiveSearch",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.MemoryPolicy075Test#proofOnlyRecheckRejectsAnyUnsettledOrMissingCell",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.MemoryPolicy075Test#unknownInputsAndUnownedEpisodesCannotStartAStudy",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.MemoryPolicy075Test#unchangedCounterfactualPlansAndOriginalRankAreTheComparator",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.RebuildCertificate075Test#alteredAuthorityAndChronologyCannotAuthorizeReuse",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.RebuildCertificate075Test#realProofCanBeRecheckedAfterColdStoreRestart",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.RebuildCertificate075Test#missingOrChangedOriginalAndDamagedCertificateAreInvalidAndPreserved",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "name": "audit-fix075",
+      "cases": [
+        {
+          "case": "fraymus.workspace.MemoryPolicy075Test#worstCaseAdmissionAlwaysReservesFreshExecution",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.MemoryPolicy075Test#onlyMemoryMayReorderItsCandidateQueue",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.MemoryPolicy075Test#frozenCasesHaveDistinctNumericScenesAndSupportedSchema",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.MemoryPolicy075Test#fatalWorkerExitIsPersistedInsteadOfLeavingRunningForever",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.MemoryPolicy075Test#qualificationCannotBeEarnedOnlyByBeatingExhaustiveSearch",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.MemoryPolicy075Test#proofOnlyRecheckRejectsAnyUnsettledOrMissingCell",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.MemoryPolicy075Test#unknownInputsAndUnownedEpisodesCannotStartAStudy",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.MemoryPolicy075Test#unchangedCounterfactualPlansAndOriginalRankAreTheComparator",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.RebuildCertificate075Test#alteredAuthorityAndChronologyCannotAuthorizeReuse",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.RebuildCertificate075Test#realProofCanBeRecheckedAfterColdStoreRestart",
+          "passed": true
+        },
+        {
+          "case": "fraymus.workspace.RebuildCertificate075Test#missingOrChangedOriginalAndDamagedCertificateAreInvalidAndPreserved",
+          "passed": true
+        }
+      ]
+    }
+  ],
+  "desktop": {
+    "passed": true,
+    "tests": 127,
+    "pass": 127,
+    "fail": 0
+  },
+  "actualApp": [
+    "Actual visible control freezes five owned073 memories; malformed/unowned bank refuses before study creation",
+    "Explicit proof-only recheck retains all original139native attempts and frozen rows byte-for-byte; changed source cannot resume native tasks",
+    "All64 method/task cells retain actual outcomes and full budgets; fresh motion gates audited; active worlds unchanged; no promotion",
+    "Integrated summary, case-level costs, oriented native replay and actual file export work",
+    "Cold app/Java restart preserves the finished study, frozen bank and unchanged outcomes",
+    "Separate actual running-attempt interruption survives restart; explicit recovery retains and charges the old attempt; Stop cannot qualify incomplete work",
+    "Separate real native cache hit survives Java restart; damaged certificate falls back to a charged fresh rebuild, preserves damaged bytes, and Stop retains the probe outside the primary score"
+  ],
+  "actualAppSource": "ab2ef1aa2d486acd5165ffa651aeb5a6d873c861",
+  "finalApp": {
+    "passed": true,
+    "source": "6359c96149e01f3a33b415204f2e5aa4f158627c",
+    "studyId": "3daeaedc-3b1e-4d3c-939d-d5033f11fd1f",
+    "checks": [
+      "Finished outcome unchanged after presentation-only update",
+      "Saved comparison label updates to actual completed64/64",
+      "CSP-compatible table and full-width progress styles applied",
+      "Original oriented replay loads and scrubs",
+      "Changing to an unsupported case clears old native replay and source identity",
+      "No-actuation case leaves replay hidden",
+      "Actual1600/1100 presentation has no page overflow",
+      "Read-only inspection preserves all active world entries",
+      "No page errors"
+    ],
+    "errors": []
+  },
+  "audit": {
+    "code": "03962a149eda5b79ac80dbaf683c826ed917ebfc766e2327fa2b104afa3ca3bb",
+    "passed": true,
+    "attempts": 139
+  },
+  "analysis": {
+    "passed": true,
+    "rows": [
+      {
+        "id": "force-margin-1",
+        "split": "unseen",
+        "methods": {
+          "search": {
+            "success": true,
+            "chargedTicks": 18301,
+            "observedTicks": 18301,
+            "runs": 4,
+            "utility": 0.9364548611111111,
+            "wallMillis": 24985.5545
+          },
+          "simple": {
+            "success": true,
+            "chargedTicks": 11880,
+            "observedTicks": 11880,
+            "runs": 2,
+            "utility": 0.95875,
+            "wallMillis": 13771.8152
+          },
+          "memory": {
+            "success": true,
+            "chargedTicks": 17878,
+            "observedTicks": 17878,
+            "runs": 3,
+            "utility": 0.9379236111111111,
+            "wallMillis": 26683.3596
+          },
+          "cached": {
+            "success": true,
+            "chargedTicks": 17878,
+            "observedTicks": 17878,
+            "runs": 3,
+            "utility": 0.9379236111111111,
+            "wallMillis": 29687.1803
+          }
+        }
+      },
+      {
+        "id": "force-margin-2",
+        "split": "unseen",
+        "methods": {
+          "search": {
+            "success": true,
+            "chargedTicks": 18304,
+            "observedTicks": 18304,
+            "runs": 4,
+            "utility": 0.9364444444444444,
+            "wallMillis": 21063.5647
+          },
+          "simple": {
+            "success": true,
+            "chargedTicks": 11882,
+            "observedTicks": 11882,
+            "runs": 2,
+            "utility": 0.9587430555555556,
+            "wallMillis": 12458.0419
+          },
+          "memory": {
+            "success": true,
+            "chargedTicks": 17880,
+            "observedTicks": 17880,
+            "runs": 3,
+            "utility": 0.9379166666666666,
+            "wallMillis": 25544.4996
+          },
+          "cached": {
+            "success": true,
+            "chargedTicks": 11882,
+            "observedTicks": 11882,
+            "runs": 2,
+            "utility": 0.9587430555555556,
+            "wallMillis": 21427.749
+          }
+        }
+      },
+      {
+        "id": "rotation-1",
+        "split": "unseen",
+        "methods": {
+          "search": {
+            "success": true,
+            "chargedTicks": 25455,
+            "observedTicks": 25455,
+            "runs": 4,
+            "utility": 0.9116145833333333,
+            "wallMillis": 31462.4639
+          },
+          "simple": {
+            "success": true,
+            "chargedTicks": 12700,
+            "observedTicks": 12700,
+            "runs": 2,
+            "utility": 0.9559027777777778,
+            "wallMillis": 16799.7991
+          },
+          "memory": {
+            "success": true,
+            "chargedTicks": 18698,
+            "observedTicks": 18698,
+            "runs": 3,
+            "utility": 0.9350763888888889,
+            "wallMillis": 30158.4553
+          },
+          "cached": {
+            "success": true,
+            "chargedTicks": 12700,
+            "observedTicks": 12700,
+            "runs": 2,
+            "utility": 0.9559027777777778,
+            "wallMillis": 24374.822
+          }
+        }
+      },
+      {
+        "id": "rotation-2",
+        "split": "unseen",
+        "methods": {
+          "search": {
+            "success": false,
+            "chargedTicks": 8414,
+            "observedTicks": 8414,
+            "runs": 3,
+            "utility": -0.02921527777777778,
+            "wallMillis": 7757.1177
+          },
+          "simple": {
+            "success": false,
+            "chargedTicks": 8414,
+            "observedTicks": 8414,
+            "runs": 3,
+            "utility": -0.02921527777777778,
+            "wallMillis": 8229.0568
+          },
+          "memory": {
+            "success": false,
+            "chargedTicks": 14412,
+            "observedTicks": 14412,
+            "runs": 4,
+            "utility": -0.050041666666666665,
+            "wallMillis": 19956.6418
+          },
+          "cached": {
+            "success": false,
+            "chargedTicks": 8414,
+            "observedTicks": 8414,
+            "runs": 3,
+            "utility": -0.02921527777777778,
+            "wallMillis": 16128.0015
+          }
+        }
+      },
+      {
+        "id": "clearance-1",
+        "split": "unseen",
+        "methods": {
+          "search": {
+            "success": true,
+            "chargedTicks": 31340,
+            "observedTicks": 31340,
+            "runs": 4,
+            "utility": 0.8911805555555555,
+            "wallMillis": 39713.6545
+          },
+          "simple": {
+            "success": true,
+            "chargedTicks": 15670,
+            "observedTicks": 15670,
+            "runs": 2,
+            "utility": 0.9455902777777778,
+            "wallMillis": 22133.2183
+          },
+          "memory": {
+            "success": true,
+            "chargedTicks": 21648,
+            "observedTicks": 21648,
+            "runs": 3,
+            "utility": 0.9248333333333333,
+            "wallMillis": 33963.9181
+          },
+          "cached": {
+            "success": true,
+            "chargedTicks": 21648,
+            "observedTicks": 21648,
+            "runs": 3,
+            "utility": 0.9248333333333333,
+            "wallMillis": 39972.027
+          }
+        }
+      },
+      {
+        "id": "clearance-2",
+        "split": "unseen",
+        "methods": {
+          "search": {
+            "success": true,
+            "chargedTicks": 33472,
+            "observedTicks": 33472,
+            "runs": 4,
+            "utility": 0.8837777777777778,
+            "wallMillis": 47826.1124
+          },
+          "simple": {
+            "success": true,
+            "chargedTicks": 16736,
+            "observedTicks": 16736,
+            "runs": 2,
+            "utility": 0.9418888888888889,
+            "wallMillis": 24167.1288
+          },
+          "memory": {
+            "success": true,
+            "chargedTicks": 22714,
+            "observedTicks": 22714,
+            "runs": 3,
+            "utility": 0.9211319444444445,
+            "wallMillis": 37295.2876
+          },
+          "cached": {
+            "success": true,
+            "chargedTicks": 16736,
+            "observedTicks": 16736,
+            "runs": 2,
+            "utility": 0.9418888888888889,
+            "wallMillis": 33831.3914
+          }
+        }
+      },
+      {
+        "id": "long-route-1",
+        "split": "unseen",
+        "methods": {
+          "search": {
+            "success": false,
+            "chargedTicks": 14876,
+            "observedTicks": 14876,
+            "runs": 3,
+            "utility": -0.051652777777777784,
+            "wallMillis": 14305.6252
+          },
+          "simple": {
+            "success": false,
+            "chargedTicks": 14876,
+            "observedTicks": 14876,
+            "runs": 3,
+            "utility": -0.051652777777777784,
+            "wallMillis": 14887.0672
+          },
+          "memory": {
+            "success": false,
+            "chargedTicks": 20854,
+            "observedTicks": 20854,
+            "runs": 4,
+            "utility": -0.07240972222222222,
+            "wallMillis": 27546.9159
+          },
+          "cached": {
+            "success": false,
+            "chargedTicks": 14876,
+            "observedTicks": 14876,
+            "runs": 3,
+            "utility": -0.051652777777777784,
+            "wallMillis": 22987.9079
+          }
+        }
+      },
+      {
+        "id": "long-route-2",
+        "split": "unseen",
+        "methods": {
+          "search": {
+            "success": false,
+            "chargedTicks": 14876,
+            "observedTicks": 14876,
+            "runs": 3,
+            "utility": -0.051652777777777784,
+            "wallMillis": 16144.9329
+          },
+          "simple": {
+            "success": false,
+            "chargedTicks": 14876,
+            "observedTicks": 14876,
+            "runs": 3,
+            "utility": -0.051652777777777784,
+            "wallMillis": 15906.4976
+          },
+          "memory": {
+            "success": false,
+            "chargedTicks": 20854,
+            "observedTicks": 20854,
+            "runs": 4,
+            "utility": -0.07240972222222222,
+            "wallMillis": 28949.2487
+          },
+          "cached": {
+            "success": false,
+            "chargedTicks": 14876,
+            "observedTicks": 14876,
+            "runs": 3,
+            "utility": -0.051652777777777784,
+            "wallMillis": 23003.3309
+          }
+        }
+      },
+      {
+        "id": "material-load-1",
+        "split": "unseen",
+        "methods": {
+          "search": {
+            "success": true,
+            "chargedTicks": 18067,
+            "observedTicks": 18067,
+            "runs": 4,
+            "utility": 0.9372673611111111,
+            "wallMillis": 22685.4024
+          },
+          "simple": {
+            "success": true,
+            "chargedTicks": 11724,
+            "observedTicks": 11724,
+            "runs": 2,
+            "utility": 0.9592916666666667,
+            "wallMillis": 15345.0297
+          },
+          "memory": {
+            "success": true,
+            "chargedTicks": 17722,
+            "observedTicks": 17722,
+            "runs": 3,
+            "utility": 0.9384652777777778,
+            "wallMillis": 28069.339
+          },
+          "cached": {
+            "success": true,
+            "chargedTicks": 11724,
+            "observedTicks": 11724,
+            "runs": 2,
+            "utility": 0.9592916666666667,
+            "wallMillis": 23463.0071
+          }
+        }
+      },
+      {
+        "id": "material-load-2",
+        "split": "unseen",
+        "methods": {
+          "search": {
+            "success": true,
+            "chargedTicks": 18229,
+            "observedTicks": 18229,
+            "runs": 4,
+            "utility": 0.9367048611111111,
+            "wallMillis": 20836.1585
+          },
+          "simple": {
+            "success": true,
+            "chargedTicks": 11832,
+            "observedTicks": 11832,
+            "runs": 2,
+            "utility": 0.9589166666666666,
+            "wallMillis": 15088.5246
+          },
+          "memory": {
+            "success": true,
+            "chargedTicks": 17810,
+            "observedTicks": 17810,
+            "runs": 3,
+            "utility": 0.9381597222222222,
+            "wallMillis": 27725.0491
+          },
+          "cached": {
+            "success": true,
+            "chargedTicks": 17810,
+            "observedTicks": 17810,
+            "runs": 3,
+            "utility": 0.9381597222222222,
+            "wallMillis": 30791.1743
+          }
+        }
+      },
+      {
+        "id": "novel-role-1",
+        "split": "unseen",
+        "methods": {
+          "search": {
+            "success": true,
+            "chargedTicks": 37026,
+            "observedTicks": 37026,
+            "runs": 4,
+            "utility": 0.8714375,
+            "wallMillis": 75470.0739
+          },
+          "simple": {
+            "success": true,
+            "chargedTicks": 18506,
+            "observedTicks": 18506,
+            "runs": 2,
+            "utility": 0.9357430555555556,
+            "wallMillis": 38787.7379
+          },
+          "memory": {
+            "success": true,
+            "chargedTicks": 18506,
+            "observedTicks": 18506,
+            "runs": 2,
+            "utility": 0.9357430555555556,
+            "wallMillis": 40390.7298
+          },
+          "cached": {
+            "success": true,
+            "chargedTicks": 18506,
+            "observedTicks": 18506,
+            "runs": 2,
+            "utility": 0.9357430555555556,
+            "wallMillis": 41761.1849
+          }
+        }
+      },
+      {
+        "id": "novel-role-2",
+        "split": "unseen",
+        "methods": {
+          "search": {
+            "success": true,
+            "chargedTicks": 39282,
+            "observedTicks": 39282,
+            "runs": 4,
+            "utility": 0.8636041666666666,
+            "wallMillis": 78504.2068
+          },
+          "simple": {
+            "success": true,
+            "chargedTicks": 19634,
+            "observedTicks": 19634,
+            "runs": 2,
+            "utility": 0.9318263888888889,
+            "wallMillis": 41559.5961
+          },
+          "memory": {
+            "success": true,
+            "chargedTicks": 19634,
+            "observedTicks": 19634,
+            "runs": 2,
+            "utility": 0.9318263888888889,
+            "wallMillis": 48070.369
+          },
+          "cached": {
+            "success": true,
+            "chargedTicks": 19634,
+            "observedTicks": 19634,
+            "runs": 2,
+            "utility": 0.9318263888888889,
+            "wallMillis": 46688.6179
+          }
+        }
+      },
+      {
+        "id": "excess-mass",
+        "split": "unsupported",
+        "methods": {
+          "search": {
+            "success": false,
+            "chargedTicks": 0,
+            "observedTicks": 0,
+            "runs": 0,
+            "utility": 0,
+            "wallMillis": 271.9085
+          },
+          "simple": {
+            "success": false,
+            "chargedTicks": 0,
+            "observedTicks": 0,
+            "runs": 0,
+            "utility": 0,
+            "wallMillis": 112.2212
+          },
+          "memory": {
+            "success": false,
+            "chargedTicks": 0,
+            "observedTicks": 0,
+            "runs": 0,
+            "utility": 0,
+            "wallMillis": 187.9183
+          },
+          "cached": {
+            "success": false,
+            "chargedTicks": 0,
+            "observedTicks": 0,
+            "runs": 0,
+            "utility": 0,
+            "wallMillis": 127.6228
+          }
+        }
+      },
+      {
+        "id": "oversize",
+        "split": "unsupported",
+        "methods": {
+          "search": {
+            "success": false,
+            "chargedTicks": 0,
+            "observedTicks": 0,
+            "runs": 0,
+            "utility": 0,
+            "wallMillis": 92.4821
+          },
+          "simple": {
+            "success": false,
+            "chargedTicks": 0,
+            "observedTicks": 0,
+            "runs": 0,
+            "utility": 0,
+            "wallMillis": 86.6974
+          },
+          "memory": {
+            "success": false,
+            "chargedTicks": 0,
+            "observedTicks": 0,
+            "runs": 0,
+            "utility": 0,
+            "wallMillis": 80.0386
+          },
+          "cached": {
+            "success": false,
+            "chargedTicks": 0,
+            "observedTicks": 0,
+            "runs": 0,
+            "utility": 0,
+            "wallMillis": 86.0837
+          }
+        }
+      },
+      {
+        "id": "no-floor",
+        "split": "unsupported",
+        "methods": {
+          "search": {
+            "success": false,
+            "chargedTicks": 0,
+            "observedTicks": 0,
+            "runs": 0,
+            "utility": 0,
+            "wallMillis": 166.3199
+          },
+          "simple": {
+            "success": false,
+            "chargedTicks": 0,
+            "observedTicks": 0,
+            "runs": 0,
+            "utility": 0,
+            "wallMillis": 78.1786
+          },
+          "memory": {
+            "success": false,
+            "chargedTicks": 0,
+            "observedTicks": 0,
+            "runs": 0,
+            "utility": 0,
+            "wallMillis": 112.7583
+          },
+          "cached": {
+            "success": false,
+            "chargedTicks": 0,
+            "observedTicks": 0,
+            "runs": 0,
+            "utility": 0,
+            "wallMillis": 78.9324
+          }
+        }
+      },
+      {
+        "id": "bad-height",
+        "split": "unsupported",
+        "methods": {
+          "search": {
+            "success": false,
+            "chargedTicks": 0,
+            "observedTicks": 0,
+            "runs": 0,
+            "utility": 0,
+            "wallMillis": 184.8189
+          },
+          "simple": {
+            "success": false,
+            "chargedTicks": 0,
+            "observedTicks": 0,
+            "runs": 0,
+            "utility": 0,
+            "wallMillis": 148.6218
+          },
+          "memory": {
+            "success": false,
+            "chargedTicks": 0,
+            "observedTicks": 0,
+            "runs": 0,
+            "utility": 0,
+            "wallMillis": 83.3666
+          },
+          "cached": {
+            "success": false,
+            "chargedTicks": 0,
+            "observedTicks": 0,
+            "runs": 0,
+            "utility": 0,
+            "wallMillis": 198.902
+          }
+        }
+      }
+    ],
+    "summary": {
+      "cacheQualified": true,
+      "supported": 12,
+      "unsupported": 4,
+      "methods": {
+        "search": {
+          "successes": 9,
+          "ticks": 277642,
+          "observedTicks": 277642,
+          "runs": 45,
+          "wallMillis": 400754.8674,
+          "utility": 8.035965277777777,
+          "meanTicks": 23136.833333333332,
+          "meanUtility": 0.6696637731481481
+        },
+        "simple": {
+          "successes": 9,
+          "ticks": 168730,
+          "observedTicks": 168730,
+          "runs": 27,
+          "wallMillis": 239133.51320000002,
+          "utility": 8.414131944444444,
+          "meanTicks": 14060.833333333334,
+          "meanUtility": 0.701177662037037
+        },
+        "memory": {
+          "successes": 9,
+          "ticks": 228610,
+          "observedTicks": 228610,
+          "runs": 37,
+          "wallMillis": 374353.8135,
+          "utility": 8.206215277777778,
+          "meanTicks": 19050.833333333332,
+          "meanUtility": 0.6838512731481482
+        },
+        "cached": {
+          "successes": 9,
+          "ticks": 186684,
+          "observedTicks": 186684,
+          "runs": 30,
+          "wallMillis": 354116.3942,
+          "utility": 8.351791666666665,
+          "meanTicks": 15557,
+          "meanUtility": 0.6959826388888888
+        }
+      },
+      "paired": {
+        "search": {
+          "saved": 0,
+          "harmed": 0,
+          "meanTickDelta": -7579.833333333332,
+          "meanUtilityDelta": 0.026318865740740716
+        },
+        "simple": {
+          "saved": 0,
+          "harmed": 0,
+          "meanTickDelta": 1496.166666666666,
+          "meanUtilityDelta": -0.005195023148148237
+        }
+      },
+      "qualified": false,
+      "bankConstructionTicksLowerBound": 106596,
+      "memoryAmortizedTicksPerTaskLowerBound": 24440,
+      "scope": "Independent native trace arithmetic, frozen new-scene components/targets/authority, complete attempt costs, retrieval ordering and paired outcomes. Same simulator, not an independent physics solver or physical-world test."
+    }
+  },
+  "tamper": {
+    "passed": true,
+    "originalPassed": true,
+    "probes": [
+      {
+        "name": "changed certified bundle",
+        "refused": true
+      },
+      {
+        "name": "changed displayed reconstruction",
+        "refused": true
+      },
+      {
+        "name": "false certificate owner",
+        "refused": true
+      },
+      {
+        "name": "missing original certificate proof",
+        "refused": true
+      },
+      {
+        "name": "changed certificate result",
+        "refused": true
+      },
+      {
+        "name": "uncharged original reconstruction",
+        "refused": true
+      },
+      {
+        "name": "hidden reconstruction cost",
+        "refused": true
+      },
+      {
+        "name": "changed held-out payload",
+        "refused": true
+      },
+      {
+        "name": "changed target goal",
+        "refused": true
+      },
+      {
+        "name": "changed remembered family",
+        "refused": true
+      },
+      {
+        "name": "changed ranked distance",
+        "refused": true
+      },
+      {
+        "name": "changed rank order",
+        "refused": true
+      },
+      {
+        "name": "forecast reused as actual",
+        "refused": true
+      },
+      {
+        "name": "false outcome label",
+        "refused": true
+      },
+      {
+        "name": "changed candidate selection",
+        "refused": true
+      },
+      {
+        "name": "missing recorded attempt",
+        "refused": true
+      }
+    ]
+  },
+  "scope": "Prospectively frozen new configurations in the existing deterministic native box/controller family; 12 supported cases and 4 unsupported controls. No new physical footage, independent solver, LLM inference/weight update or general intelligence test.",
+  "primaryRecheck": {
+    "createdAt": "2026-11-06T04:17:24.922108800Z",
+    "evidenceSha256": "1e3835e1e2b64b3b8afd55262d05c004b2b0ceb5488da7c90a525e44b82ce017",
+    "scope": "Proof-only; no native execution, changed outcome, source, authority or memory ingestion",
+    "originalCode": "cdbf7401d3e361cd86d78b9d89ee23013f32ffe766fb8a2bb3bc35acf68506b4",
+    "id": "5d1f1211-3020-42cb-a8f5-90f3c811be23",
+    "checkingCode": "03962a149eda5b79ac80dbaf683c826ed917ebfc766e2327fa2b104afa3ca3bb",
+    "status": "passed"
+  },
+  "validationSource": "231e9807b848fd2b672135c0dabfc1a34e83bc19",
+  "auditStop": {
+    "project": "C:\\Users\\eyeka\\AppData\\Local\\Temp\\fraynix-audit075-stop-Y3TKLJ",
+    "sourceProject": "C:\\Users\\eyeka\\AppData\\Local\\Temp\\fraynix-memory075-ui-YSpxpH",
+    "studyId": "3daeaedc-3b1e-4d3c-939d-d5033f11fd1f",
+    "source": "6359c96149e01f3a33b415204f2e5aa4f158627c",
+    "scope": "Actual Stop during proof-only audit on a closed copied project; no new native motion is claimed.",
+    "checkedBeforeStop": 4,
+    "passed": true,
+    "originalFilesUnchanged": 425,
+    "nativeRowsUnchanged": true,
+    "qualificationRemoved": true
+  },
+  "originalNativeFilesUnchanged": 425,
+  "auditFailure": "All 64 native cells settled; old audit worker exited without recording the underlying Error. Heavy garbage collection and memory pressure observed; memory exhaustion suspected, not directly logged. Proof-only recheck after 231e980 preserved every original attempt and frozen row.",
+  "visualReview": {
+    "passed": true,
+    "review": "Actual captures viewed directly after automated checks; labels, measured results, wrapped controls, retained motion and desktop/table scrolling are legible without page overflow.",
+    "images": [
+      "build/final-captures075/final-cache-replay.png",
+      "build/final-captures075/final-layout-1100.png",
+      "workspace-desktop/test-output/memory075-1793935649286/comparison-results.png",
+      "docs/readmes/075/offline-1440.png",
+      "docs/readmes/075/offline-replay-390.png"
+    ]
+  },
+  "offlineBrowser": {
+    "passed": true,
+    "checks": [
+      {
+        "width": 1440,
+        "cases": 16,
+        "allMethodsAndAttempts": true,
+        "initialMiddleFinalPoses": true,
+        "playPause": true,
+        "bankCostToggle": true,
+        "noActuationClearsSource": true,
+        "mapFilterLinksImages": true,
+        "noHorizontalOverflow": true
+      },
+      {
+        "width": 390,
+        "cases": 16,
+        "allMethodsAndAttempts": true,
+        "initialMiddleFinalPoses": true,
+        "playPause": true,
+        "bankCostToggle": true,
+        "noActuationClearsSource": true,
+        "mapFilterLinksImages": true,
+        "noHorizontalOverflow": true
+      }
+    ],
+    "errors": []
+  }
+}
