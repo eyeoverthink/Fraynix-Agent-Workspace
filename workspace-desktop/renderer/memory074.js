@@ -6,16 +6,16 @@ function corners(p,size,q){const cross=(a,b)=>[a[1]*b[2]-a[2]*b[1],a[2]*b[0]-a[0
 export class Memory074Panel {
  constructor({call,root,notice}){
   this.call=call;this.notice=notice;this.runs=[];this.busy=false;
-  const panel=document.createElement('details');panel.id='memory074';panel.className='spatial-detail';panel.innerHTML=`<summary>Does memory help? · new-scene comparison</summary><style>#memory074 table{border-collapse:collapse;width:100%;min-width:650px}#memory074 th,#memory074 td{padding:8px 7px;text-align:left;border-bottom:1px solid #304650}#memory074 th{white-space:normal;color:#a5d4cd}#memory074 td{vertical-align:top}#memory074 progress{display:block;flex:0 0 100%;min-width:100%;height:10px;margin:12px 0}</style>
+  const panel=document.createElement('details');panel.id='memory074';panel.className='spatial-detail';panel.innerHTML=`<summary>Does memory help? · new-scene comparison</summary>
    <p>Compare remembered procedures with planning from scratch and a simpler first-success control. Twelve unfamiliar box scenes, four unsupported controls, equal budgets. Rebuilds, failures and recovery count.</p>
    <div class="persistent-toolbar"><button id="m074-refresh">Refresh</button><label>Verified memories<select id="m074-bank" multiple size="5" aria-label="Verified memories for fixed comparison bank"></select></label><button id="m074-start" class="primary">Freeze bank &amp; run comparison</button></div>
    <p class="subtle">Uses isolated simulated worlds; keeps your active world intact. The bank stays fixed throughout evaluation. No automatic controller promotion.</p>
    <div class="persistent-toolbar"><label>Saved comparison<select id="m074-studies"></select></label><button id="m074-resume">Resume interrupted study</button><button id="m074-stop">Stop comparison</button></div>
-   <p id="m074-status" role="status">Choose verified memories, then run the comparison.</p><progress id="m074-progress" max="48" value="0" style="width:100%"></progress>
-   <p id="m074-verdict"></p><div id="m074-summary" style="overflow:auto"></div><p id="m074-bank-cost"></p>
+   <p id="m074-status" role="status">Choose verified memories, then run the comparison.</p><progress id="m074-progress" max="48" value="0"></progress>
+   <p id="m074-verdict"></p><div id="m074-summary" class="m074-scroll"></div><p id="m074-bank-cost"></p>
    <div class="persistent-toolbar"><label>Unfamiliar scene<select id="m074-case"></select></label><label>Method<select id="m074-method"><option value="search">Three-alternative search</option><option value="simple">First verified success</option><option value="memory">Remembered procedure first</option></select></label><button id="m074-trace">Load recorded motion</button><button id="m074-export">Export case &amp; original traces</button></div>
-   <div id="m074-cases" style="overflow:auto"></div><p id="m074-detail"></p>
-   <div id="m074-replay" hidden><label>Retained attempt<select id="m074-runs"></select></label><label>Frame<input id="m074-frame" type="range" value="0" min="0"></label><p id="m074-frame-info"></p><canvas id="m074-canvas" width="700" height="320" style="width:100%;background:#10212b" aria-label="Actual recorded native object trajectories"></canvas><p>Recorded X/Z paths in metres; ticks at 240 Hz. Every failed attempt remains selectable. Replay cannot move the active world.</p></div>`;
+   <div id="m074-cases" class="m074-scroll"></div><p id="m074-detail"></p>
+   <div id="m074-replay" hidden><label>Retained attempt<select id="m074-runs"></select></label><label>Frame<input id="m074-frame" type="range" value="0" min="0"></label><p id="m074-frame-info"></p><canvas id="m074-canvas" width="700" height="320" aria-label="Actual recorded native object trajectories"></canvas><p>Recorded X/Z paths in metres; ticks at 240 Hz. Every failed attempt remains selectable. Replay cannot move the active world.</p></div>`;
   root.append(panel);this.root=panel;
   const act=fn=>async()=>{try{await fn();}catch(e){$('m074-status').textContent=e.message;notice(e.message);}};
   $('m074-refresh').onclick=act(()=>this.refresh());
