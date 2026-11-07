@@ -6,7 +6,7 @@ const {canonical}=require('../../scripts/Inspect-Spatial040.cjs');
 const sha=b=>crypto.createHash('sha256').update(b).digest('hex');
 async function main(){
  process.env.FRAYNIX_WORKSPACE_PERSISTENT='0';process.env.FRAYNIX_WORKSPACE_PLAN_CPU_ONLY='1';
- const input=path.resolve(process.env.FRAYNIX084_PRIMARY||'../build/ui084-cold-skill'),primary=JSON.parse(await fs.readFile(path.join(input,'result.json'),'utf8'));assert(primary.passed);
+ const input=path.resolve(process.env.FRAYNIX084_PRIMARY||'../build/ui084-cold-skill-v2'),primary=JSON.parse(await fs.readFile(path.join(input,'result.json'),'utf8'));assert(primary.passed);
  const project=primary.project,out=path.resolve(process.env.FRAYNIX084_FAULTS_OUTPUT||'../build/ui084-faults');await fs.mkdir(out,{recursive:true});
  const record={project,out,source:require('node:child_process').execFileSync('git',['rev-parse','HEAD'],{encoding:'utf8'}).trim(),checks:[],probes:[],startedAt:new Date().toISOString()},root=path.join(project,'world-procedures-079'),ledger=path.join(project,'persistent-worlds/state.json'),before=await fs.readFile(ledger),bankBefore=await fs.readFile(path.join(root,'bank.json'));let app;
  const api=(route,args={})=>app.evaluate((_,x)=>global.workspaceTest.api(x.route,x.args),{route,args}),save=()=>fs.writeFile(path.join(out,'checkpoint.json'),JSON.stringify(record,null,2));

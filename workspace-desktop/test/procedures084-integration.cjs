@@ -56,7 +56,7 @@ async function main(){
   for(let repeat=0;repeat<protocol.calibrationRepeats;repeat++)for(let i=0;i<group.calibration.length;i++){
    const spec={...group.calibration[i],id:group.calibration[i].id+'-r'+repeat},pair={id:spec.id,taskIndex:i,repeat,results:{}};record.calibration.push(pair);
    const order=(repeat+i)%2?['memory','simple']:['simple','memory'];pair.order=order;
-   for(const policy of order){await start(project,'fit-'+repeat+'-'+i+'-'+policy);const world=await create(spec),skillName=group.skill?'084-fit-'+repeat+'-'+i+'-'+policy:'';
+   for(const policy of order){await start(project,'fit-'+repeat+'-'+i+'-'+policy);const world=await create(spec),skillName=group.skill?'fit-084-'+repeat+'-'+i+'-'+policy:'';
     const row=await run(spec,world,'parallel',policy,false,skillName);pair.results[policy]=row;await save();assert.equal(row.status,'completed');assert.equal(row.bankBefore.sha256,row.bankAfter.sha256);
     if(policy==='memory'){assert(row.job.decision.useMemory);assert.equal(row.job.decision.candidate.id,record.receiptId);assert.equal(row.job.decision.candidate.warm,false);}
     if(group.skill)assert.equal(row.goal.savedSkill.name,skillName);await close();
@@ -74,7 +74,7 @@ async function main(){
   for(let repeat=0;repeat<protocol.evaluationRepeats;repeat++)for(let i=0;i<group.cases.length;i++){
    const spec={...group.cases[i],id:group.cases[i].id+'-r'+repeat},order=protocol.methods.map((_,k)=>protocol.methods[(k+i+repeat+protocol.groups.findIndex(g=>g.id===group.id))%protocol.methods.length]);
    for(const policy of order){const where=path.join(out,'evaluation-'+repeat+'-'+i+'-'+policy);await clone(project,where,record.preparedFiles);await start(where,'evaluate-'+repeat+'-'+i+'-'+policy);
-    const world=await create(spec),skillName=group.skill?'084-held-'+repeat+'-'+i+'-'+policy:'',row=await run(spec,world,'parallel',policy,false,skillName);
+    const world=await create(spec),skillName=group.skill?'route-084-'+repeat+'-'+i+'-'+policy:'',row=await run(spec,world,'parallel',policy,false,skillName);
     row.caseIndex=i;row.repeat=repeat;row.order=order;row.initialCloneVerified=true;record.rows.push(row);await save();assert.equal(row.status,'completed');assert.equal(row.bankBefore.sha256,record.frozenBankSha);assert.equal(row.bankAfter.sha256,record.frozenBankSha);
     if(policy!=='simple'){assert.equal(row.job.decision.candidate.id,record.receiptId);assert.equal(row.job.decision.candidate.warm,false);}
     if(policy==='calibrated'){assert(row.job.decision.cost080.available);assert.deepEqual(row.job.decision.cost080.repeatCounts,[3,3]);await report(row.goalId);await capture('case-'+repeat+'-'+i+'-report');await viewWorld(world);await capture('case-'+repeat+'-'+i+'-world');}
