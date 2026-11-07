@@ -2,7 +2,7 @@
 
 ## Edition087 — implementation and validation in progress
 
-Isolated D:/Codex-Work/fraynix-workspace-edition087 from82dfd254; prospective contractd57a5988. Read docs/EDITION_087_CONTRACT.md. Java learns fit/check allowances from owned actual timings, with matched workload/profile/volume and explicit fallback. Original motion/proof authority preserved. Initial24 focused tests passed; broader tests and frozen25-goal study are next, no measured payoff claim yet. Preserve normal045/qa046 and001–086. No subagents. README087/screenshots/notes and actual main/edition087/readme-087 push remain.
+Isolated D:/Codex-Work/fraynix-workspace-edition087 from82dfd254; prospective contractd57a5988. Read docs/EDITION_087_CONTRACT.md. Java learns fit/check allowances from owned actual timings, with matched workload/profile/volume and explicit fallback. Original motion/proof authority preserved. Initial24 focused tests plus211 Java checks/30 classes and135 desktop checks passed.326 prior runtime classes except WorkspaceServer are byte-identical to086. The frozen25-goal/3fit study is running serially; build/study087.log and build/ui087-study/checkpoint.json hold resumable progress. No payoff claim yet. Preserve normal045/qa046 and001–086. No subagents. README087/screenshots/notes and actual main/edition087/readme-087 push remain.
 
 
 ## Edition086 — published and fetched back

@@ -45,9 +45,11 @@ final class CalibrationCosts087 {
         var identity=preview.getJSONObject("identity");return new JSONObject().put("code",WorldProcedure079.code()).put("profile",TaskCost080.profile())
             .put("pairs",q.getJSONArray("pairs").length()).put("bytes",bytes).put("family",identity.getString("family")).put("warm",identity.getBoolean("warm")).put("workload",identity.getJSONObject("workload"));
     }
+    static boolean normalReader(String mode){return "parallel".equals(mode);}
+    private static boolean normalObservation(JSONObject s){return s.getString("kind").equals("fit")?normalReader(s.optString("readerMode","parallel")):normalReader(s.getJSONObject("before").getString("mode"))&&normalReader(s.getJSONObject("after").getString("mode"));}
     JSONObject measuredFit(JSONArray pairs)throws Exception {
-        synchronized(goals){synchronized(this){long began=System.nanoTime();var m=goals.fitCosts080(pairs);double elapsed=(System.nanoTime()-began)/1e6;
-            try{record(new JSONObject().put("id","fit:"+m.getString("id")).put("kind","fit").put("millis",elapsed).put("shape",modelShape(m))
+        synchronized(goals){synchronized(this){String readerMode=goals.calibrationStats081().getString("mode");long began=System.nanoTime();var m=goals.fitCosts080(pairs);double elapsed=(System.nanoTime()-began)/1e6;
+            if(normalReader(readerMode))try{record(new JSONObject().put("readerMode",readerMode).put("id","fit:"+m.getString("id")).put("kind","fit").put("millis",elapsed).put("shape",modelShape(m))
                 .put("modelId",m.getString("id")).put("modelSha256",WorldFrames.hash(m)));}catch(Exception recordingFailure){recordingWarning="Verified model saved, but allowance observation was not saved: "+recordingFailure.getMessage();System.err.println(recordingWarning);}
             return m;
         }}
@@ -84,7 +86,7 @@ final class CalibrationCosts087 {
     static JSONObject delta(JSONObject before,JSONObject after) {
         long loads=after.getLong("loads")-before.getLong("loads"),failures=after.getLong("failures")-before.getLong("failures"),bytes=after.getLong("verifiedBytes")-before.getLong("verifiedBytes");
         double millis=after.getDouble("loadMillis")-before.getDouble("loadMillis");
-        boolean eligible=before.getString("mode").equals(after.getString("mode"))&&loads>0&&failures==0&&bytes>0&&Double.isFinite(millis)&&millis>0;
+        boolean eligible=normalReader(before.getString("mode"))&&before.getString("mode").equals(after.getString("mode"))&&loads>0&&failures==0&&bytes>0&&Double.isFinite(millis)&&millis>0;
         return new JSONObject().put("eligible",eligible).put("loads",loads).put("verifiedBytes",bytes).put("millis",millis);
     }
     private boolean sourceUnchanged(JSONObject s)throws Exception {
@@ -103,12 +105,12 @@ final class CalibrationCosts087 {
             double scaled=cost*Math.max(1,ratio);values.get(kind).add(scaled);used.put(new JSONObject().put("id",s.getString("id")).put("kind",kind).put("observedMillis",cost).put("scaledMillis",scaled));
         }catch(RuntimeException invalid){/* Invalid observations are excluded, never made into cheap timings. */}}
         var out=new JSONObject().put("supported",values.get("fit").size()>=3&&values.get("check").size()>=3).put("fitSamples",values.get("fit").size()).put("checkSamples",values.get("check").size()).put("used",used).put("shape",target)
-            .put("reason","Need three compatible successful fits and three uninterrupted completed calibrated tasks within14days")
+            .put("reason","Need three compatible successful fits and three uninterrupted completed calibrated tasks within 14 days")
             .put("scope","Empirical spending reserve, not a probability or execution authority. Upward byte scaling only; nearby evidence volume and matching workload required.");
         if(out.getBoolean("supported")){
             for(String kind:List.of("fit","check")){var v=values.get(kind);double max=Collections.max(v),min=Collections.min(v),allowance=Math.max(kind.equals("fit")?1000:10,max+Math.max(max-min,.1*max));out.put(kind+"BudgetMillis",allowance);}
             if(out.getDouble("fitBudgetMillis")>3_600_000||out.getDouble("checkBudgetMillis")>600_000)return out.put("supported",false).put("reason","Measured allowance exceeds supported bounds; explicit review required");
-            out.put("reason","Using measured maxima plus observed spread or10% reserve, whichever is larger");
+            out.put("reason","Using measured maxima plus observed spread or 10% reserve, whichever is larger");
         }return out;
     }
     private JSONObject prepared(JSONObject request)throws Exception {
@@ -116,8 +118,9 @@ final class CalibrationCosts087 {
         if(!Set.of("manual","measured").contains(mode))throw new IllegalArgumentException("Unknown allowance mode");
         var q=new JSONObject().put("pairs",request.getJSONArray("pairs")).put("budget",request.has("budget")?WorldFrames.copy(request.getJSONObject("budget")):CalibrationAdmission086.defaults());
         long began=System.nanoTime();var preview=admission.preview(q);var learned=new JSONObject().put("supported",false).put("mode",mode).put("reason",mode.equals("manual")?"Explicit manual allowances":"Comparison cohort is not supported");
-        if(mode.equals("measured")&&preview.getBoolean("supported")){
-            var valid=new JSONArray();var excluded=new JSONArray();for(Object raw:history().getJSONArray("samples")){var s=(JSONObject)raw;try{if(sourceUnchanged(s))valid.put(s);else excluded.put(s.getString("id"));}catch(Exception changed){excluded.put(s.optString("id","invalid"));}}
+        if(mode.equals("measured")&&!normalReader(goals.calibrationStats081().getString("mode")))learned.put("reason","Measured allowances support the normal two-reader mode only; using declared allowances");
+        if(mode.equals("measured")&&preview.getBoolean("supported")&&normalReader(goals.calibrationStats081().getString("mode"))){
+            var valid=new JSONArray();var excluded=new JSONArray();for(Object raw:history().getJSONArray("samples")){var s=(JSONObject)raw;try{if(normalObservation(s)&&sourceUnchanged(s))valid.put(s);else excluded.put(s.getString("id"));}catch(Exception changed){excluded.put(s.optString("id","invalid"));}}
             learned=estimate(valid,proposalShape(q,preview),Instant.now()).put("mode",mode).put("excludedSources",excluded);
             if(learned.getBoolean("supported")){var b=q.getJSONObject("budget");b.put("fitBudgetMillis",learned.getDouble("fitBudgetMillis")).put("checkBudgetMillis",learned.getDouble("checkBudgetMillis"));preview=admission.preview(q);}
         }

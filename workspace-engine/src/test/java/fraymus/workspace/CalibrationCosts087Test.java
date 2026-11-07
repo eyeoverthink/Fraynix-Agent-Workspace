@@ -22,4 +22,5 @@ public class CalibrationCosts087Test {
     static JSONObject stats(long n,long fail,long b,double ms){return new JSONObject().put("mode","parallel").put("loads",n).put("failures",fail).put("verifiedBytes",b).put("loadMillis",ms);}
     @Test public void completeCounterIntervalIncludesEveryLoad(){var r=CalibrationCosts087.delta(stats(2,0,1000,10),stats(9,0,8000,100));assertTrue(r.getBoolean("eligible"));assertEquals(7,r.getInt("loads"));assertEquals(90,r.getDouble("millis"),0);}
     @Test public void failureResetAndNoLoadsCannotTeach(){var b=stats(2,0,1000,10);for(var a:new JSONObject[]{stats(3,1,2000,20),stats(1,0,500,5),stats(2,0,1000,10),stats(3,0,2000,20).put("mode","reference")})assertFalse(CalibrationCosts087.delta(b,a).getBoolean("eligible"));}
+    @Test public void referenceReaderCannotTeachOrUseNormalAllowances(){assertTrue(CalibrationCosts087.normalReader("parallel"));assertFalse(CalibrationCosts087.normalReader("reference"));assertFalse(CalibrationCosts087.normalReader("unknown"));assertFalse(CalibrationCosts087.delta(stats(0,0,0,0).put("mode","reference"),stats(5,0,5000,50).put("mode","reference")).getBoolean("eligible"));}
 }
