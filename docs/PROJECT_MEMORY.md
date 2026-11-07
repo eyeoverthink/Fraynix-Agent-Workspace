@@ -1,5 +1,16 @@
 # Agent Workspace project memory
 
+## Edition087 — published and fetched back
+
+Release f4a55976e862206375fe6cbfe2da248db2727c6e; readme-087 tag object 88c7f9911fb041a94563d6b372e72a9aaf3272e2. Atomic main/edition087/readme-087 publication to Fraynix-Agent-Workspace fetched and audited. 1199 canonical sources, 19101 frozen hashes across87 editions, 1065 logical original archives verified including decompressed bytes. Documentation: 92 canvases/13289 references. [Publication receipt](PUBLICATION_087.json).
+
+Java records whole successful original fit costs and calibration-reader intervals on directly owned uninterrupted completed tasks. Bounded matched empirical allowances, minimum3fits/3tasks, current code/profile/pair-count/family/proof-state/workload, nearby bytes,14day age, maximum12samples per kind. Declared fallback remains explicit; original fitter/native/report/commit/skill checks unchanged. Prior runtime classes except WorkspaceServer are byte-identical to086; new service outside motion identity.
+
+212 Java checks/30 classes and 135 desktop checks pass.25new actual native goals:1seed,12comparisons,3pilots,9evaluations;3real fits.9/9held-out outcomes succeed. Learned fitting allowance 90.09s, checking 1.92s. Full learning investment 1085.46s. First-batch payoff against both controls: False. Net vs simple -1078.12s; vs fixed memory -1033.20s. Warm fixed one-receipt bank/no timed retention or saving; no transfer claim to cold/skill workloads. Compatible085negative cohort reused and labelled, still declines. Original-source refusal, repeated-read deduplication, journal/world restart, actual app1600/1100 and offline1440/390 verified.
+
+README087, screenshots, source map/inventory, offline data/replay, exact originals and Obsidian95 published. Test apps closed; normal045/qa046/private data preserved. No new LLM inference, weight training, physical-camera or long-horizon payback claim. Next: resource drift, false declines and comparison against continuing an existing useful procedure; separate matching observations for restarted/saving work. Preserve001–087; next088. No subagents. Receipt follows immutable release tag.
+
+
 ## Edition087 — validated locally; publication next
 
 **9/9 held-out native goals completed across simple, fixed-memory and calibrated control.** Three actual fits and three completed pilot tasks produced a fitting allowance of 90.09s and a checking allowance of 1.92s per comparable task. First-batch calibration repayment against both controls: **no**. These are descriptive results from one machine and one warm, fixed-bank workload.

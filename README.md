@@ -2,7 +2,7 @@
 
 **Latest: [edition087 — learned calibration allowances](README-087.md).**
 
-Edition087 is validated locally; publication verification follows.
+Edition087 is published to main with code, measurements, screenshots and exact original evidence. [Fetched GitHub verification](docs/PUBLICATION_087.json).
 
 
 **Earlier edition: [edition086 — calibration admission before spending](README-086.md).**
