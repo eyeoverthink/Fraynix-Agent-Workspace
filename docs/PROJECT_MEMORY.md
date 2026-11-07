@@ -1,5 +1,10 @@
 # Agent Workspace project memory
 
+## Edition 085 · Implementation in progress
+
+Isolated D:/Codex-Work/fraynix-workspace-edition085, parentd71097a9. Read docs/EDITION_085_CONTRACT.md. Explicit compatible procedure selection while retaining real new memories; bank-growth sensitivity and full calibration payback accounting.31 planned serial native goals,4CPU/768MiB, fresh current-code evidence. No outcomes yet. Preserve normal045/qa046/private data and frozen001–084. No subagents. Next implementation/regression/frozen study/independent checks/README085/screenshots/notes and verified main push.
+
+
 ## Edition 084 · Published and fetched back on 2026-11-06
 
 Atomic no-thin push to Fraynix-Agent-Workspace main, edition084 and readme-084 succeeded. Release 8764feb126ba7ee4731df3b1dcccdc556d86700c; annotated tag ba37021c3b41c07442bdfdf00d386c897c610bfe. Freshly fetched Git trees verified 1174 canonical sources, 16408 frozen hashes across84 editions, and 8422 logical exact originals including decompressed bytes. Documentation passes 89 canvases and 11919 references. [Publication receipt](PUBLICATION_084.json).
