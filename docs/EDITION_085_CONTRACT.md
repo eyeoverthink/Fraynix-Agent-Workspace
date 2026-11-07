@@ -69,3 +69,16 @@ corruption refusals and exact restoration. Publish extensive README085, actual a
 screenshots, offline cost/sequence explorer, exact originals/source inventory,
 Obsidian map, notes/logs, main/edition085/readme-085. Fetch and audit Git bytes before
 claiming publication.
+
+## Collection amendment: world capacity found during first attempt
+
+The first attempt completed all13 preparation goals and9 evaluation goals, then
+refused creation of world17 because the ledger still had a16-world bound. No
+outcome failed or unverified action was committed. Preserve that attempt and its
+build receipt. Raise the ledger bound to32 to match the memory bank, retaining the
+16MB ledger and64 revisions per world. Test32 worlds/reopen and atomic refusal of
+world33. Known closed079–084 worlds need an explicit frame-preserving upgrade;
+pending owners remain refused and old motion/procedure proofs stay historical.
+The ledger change alters engine identity: rebuild and restart all31 measurements
+from new empty projects, with unchanged cases, formulas and method order. Report
+the failed attempt and development cost separately from successful-study payback.
