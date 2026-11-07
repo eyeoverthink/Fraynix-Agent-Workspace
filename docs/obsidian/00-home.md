@@ -1,5 +1,8 @@
 ---
 
+[[docs/obsidian/92-repeated-cost-calibration.md|Edition 084 repeated timings]] · [[docs/obsidian/repeated-cost-calibration.canvas|System map]]
+
+
 [[docs/obsidian/91-restart-saving-calibration.md|Edition 083 calibration]] · [[docs/obsidian/restart-saving-calibration.canvas|System map]]
 
 

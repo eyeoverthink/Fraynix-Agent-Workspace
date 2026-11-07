@@ -1,5 +1,8 @@
 # Fraynix Studio and Agent Workspace README editions
 
+- [Edition 084: repeated complete-task calibration](../../README-084.md) · [Offline results](084/index.html)
+
+
 - [Edition 083: restart and skill-saving calibration](../../README-083.md) · [Offline results](083/index.html)
 
 

@@ -1,5 +1,8 @@
 # Fraynix Agent Workspace system architecture
 
+Edition 084 adds grouped repeated complete-cost estimates to Java procedure selection, with unchanged motion/commit checks. Two nearby distinct tasks require three independent comparisons each; workload, receipt, proof-state and implementation identity remain exact. See [results and limits](../README-084.md).
+
+
 Edition 083 adds read-only Java calibration coverage after original evidence checks. Runtime, restart and saving conditions stay separate; no action authority changes. See [measurements and boundaries](../README-083.md).
 
 

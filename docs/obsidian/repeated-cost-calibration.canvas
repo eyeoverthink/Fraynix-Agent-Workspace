@@ -1,0 +1,71 @@
+{
+  "nodes": [
+    {
+      "id": "readme",
+      "type": "file",
+      "file": "README-084.md",
+      "x": 0,
+      "y": 0,
+      "width": 380,
+      "height": 250
+    },
+    {
+      "id": "note",
+      "type": "file",
+      "file": "docs/obsidian/92-repeated-cost-calibration.md",
+      "x": 440,
+      "y": 0,
+      "width": 380,
+      "height": 250
+    },
+    {
+      "id": "cost",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/TaskCost084.java",
+      "x": 880,
+      "y": 0,
+      "width": 380,
+      "height": 250
+    },
+    {
+      "id": "execution",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/WorldProcedure079.java",
+      "x": 0,
+      "y": 310,
+      "width": 380,
+      "height": 250
+    },
+    {
+      "id": "evidence",
+      "type": "file",
+      "file": "docs/readmes/084/verification.json",
+      "x": 440,
+      "y": 310,
+      "width": 380,
+      "height": 250
+    }
+  ],
+  "edges": [
+    {
+      "id": "edge0",
+      "fromNode": "readme",
+      "toNode": "note"
+    },
+    {
+      "id": "edge1",
+      "fromNode": "note",
+      "toNode": "cost"
+    },
+    {
+      "id": "edge2",
+      "fromNode": "cost",
+      "toNode": "execution"
+    },
+    {
+      "id": "edge3",
+      "fromNode": "execution",
+      "toNode": "evidence"
+    }
+  ]
+}

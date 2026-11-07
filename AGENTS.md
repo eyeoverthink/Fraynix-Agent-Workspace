@@ -1,6 +1,29 @@
 # Fraynix Studio collaboration and documentation
 
-## Edition 084 · Implementation and validation in progress
+## Edition 084 Â· Validated locally; publication next
+
+2026-11-06. Prospective contractc73b64f1; fresh current-code procedures and repeated timings.
+24/24 held-out goals; 8/8 supported estimates; 0/8 memory selections.
+New empirical range hits 8/8; old arithmetic 6/8 on the same fitted
+pairs. Mean new/old widths 9.965/2.477s; mean absolute saving errors
+0.729/0.840s. Full condition totals in README084. No general speed or probability guarantee.
+
+**173 Java tests across 27 classes and 133 desktop checks passed.** The fifty planned native goals include two learning goals, twenty-four calibration goals and twenty-four held-out evaluations. Independent native-motion, original-byte, cost-arithmetic and commit inspection passed. Sixteen actual API corruption probes across both evidence readers were refused and restored byte-for-byte. Actual app views were checked at 1600 and 1100 pixels; the offline guide is checked at 1440 and 390 pixels before publication.
+
+TaskCost084 groups tasks before limiting neighbours; minimum2 tasks x3 separately executed
+comparisons, equal task weights, within/between/distance uncertainty. Code identity changed;
+old receipts not relabelled. Native/controllers/proof checks and Java goal ownership retained.
+Two cold conditions: no saving and real skill saving, experience retention explicitly OFF.
+This does not calibrate growing-bank retention. Six fitted pairs per project; exact closed
+prepared clones for held-out runs; actual4CPU/768MiB and affinity; D: storage, serial validation.
+All original evidence retained, including failed compilation/test attempts. Normal045/qa046
+and private projects untouched. No subagents. README084/screenshots/offline guide/source and
+original inventories/Obsidian92/map prepared. Push main/edition084/readme-084 and fetched audit
+remain; do not claim publication yet. Next: growing-bank receipt calibration, then explicit
+recovery workload and bounded admission before expensive estimation.
+
+
+## Edition 084 Â· Implementation and validation in progress
 
 Isolated checkout D:/Codex-Work/fraynix-workspace-edition084, parent1f088108.
 Prospective contract c73b64f1; implementation4b32dbc8. TaskCost084 groups repeated
@@ -11,7 +34,7 @@ Two cold conditions: run-only and skill-only; retainExperience explicitly false
 during timing so selected receipt stays fixed. This does NOT calibrate growing-bank
 retention workloads. Fifty planned native goals, serial, four CPU/768MiB, D: storage;
 held-out evaluation copies keep the fitted evidence fixed. No new result claim yet.
-Preserve normal045/qa046/private data and frozen001–083. No subagents. Read
+Preserve normal045/qa046/private data and frozen001â€“083. No subagents. Read
 build/HANDOFF084.md for progress; next: finish regression, build receipt, fresh studies,
 independent inspection/refusal, README084/screenshots/offline/notes, main/tag push
 and fresh Git-byte audit. Publication target Fraynix-Agent-Workspace unchanged.

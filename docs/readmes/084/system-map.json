@@ -1,0 +1,67 @@
+{
+  "modules": [
+    {
+      "id": "cost",
+      "name": "Repeated cost estimate",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/TaskCost084.java",
+      "description": "Groups distinct tasks before limiting neighbours; repeated costs bound future-task variability.",
+      "note": "docs/obsidian/92-repeated-cost-calibration.md"
+    },
+    {
+      "id": "coverage",
+      "name": "Calibration coverage",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/CalibrationCoverage083.java",
+      "description": "Shows actual repeats and saving/restart coverage after original checks.",
+      "note": "docs/obsidian/92-repeated-cost-calibration.md"
+    },
+    {
+      "id": "execution",
+      "name": "Verified Java execution",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/WorldProcedure079.java",
+      "description": "Original native forecasts, actual outcomes and commit checks remain mandatory.",
+      "note": "docs/obsidian/92-repeated-cost-calibration.md"
+    },
+    {
+      "id": "interface",
+      "name": "Actual app display",
+      "source": "workspace-desktop/renderer/persistent-world-panel.js",
+      "description": "Repeat counts and evidence scope beside calibration controls.",
+      "note": "docs/obsidian/92-repeated-cost-calibration.md"
+    },
+    {
+      "id": "inspection",
+      "name": "Independent inspection",
+      "source": "scripts/Inspect-Calibrations084.cjs",
+      "description": "Reconstructs original native motion, provenance and new/baseline empirical estimates.",
+      "note": "docs/obsidian/92-repeated-cost-calibration.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "docs/readmes/084/cold-run-calibration-1600.png",
+      "caption": "Actual repeated calibration after restart"
+    },
+    {
+      "path": "docs/readmes/084/cold-skill-calibration-1100.png",
+      "caption": "Actual skill-saving calibration at 1100 pixels"
+    },
+    {
+      "path": "docs/readmes/084/cold-run-case-0-0-report.png",
+      "caption": "Actual verified complete-task report"
+    },
+    {
+      "path": "docs/readmes/084/cold-skill-case-1-1-world.png",
+      "caption": "Actual verified world after skill-saving task"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/readmes/084/verification.json",
+      "caption": "Validation and actual measurements"
+    },
+    {
+      "path": "docs/readmes/084/original-evidence.json",
+      "caption": "All exact original files"
+    }
+  ]
+}
