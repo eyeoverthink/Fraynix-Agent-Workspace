@@ -1,5 +1,8 @@
 # Fraynix Agent Workspace system architecture
 
+Edition085 binds an optional exact compatible procedure through Java, confirmed world controls, chat transport and saved skills. Calibration retains real outcomes, records bank size and fitting cost, widens uncertainty beyond measured bank sizes, and reports conditional repayment. Original native verification remains. [Results and limitations](../README-085.md).
+
+
 Edition 084 adds grouped repeated complete-cost estimates to Java procedure selection, with unchanged motion/commit checks. Two nearby distinct tasks require three independent comparisons each; workload, receipt, proof-state and implementation identity remain exact. See [results and limits](../README-084.md).
 
 

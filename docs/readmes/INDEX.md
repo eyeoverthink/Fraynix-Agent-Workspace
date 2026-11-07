@@ -1,5 +1,8 @@
 # Fraynix Studio and Agent Workspace README editions
 
+- [Edition085: growing memory and calibration payback](../../README-085.md) · [Offline results](085/index.html)
+
+
 - [Edition 084: repeated complete-task calibration](../../README-084.md) · [Offline results](084/index.html)
 
 

@@ -1,5 +1,8 @@
 ---
 
+[[docs/obsidian/93-growing-memory-payback.md|Edition085 growing memory]] · [[docs/obsidian/growing-memory-payback.canvas|System map]]
+
+
 [[docs/obsidian/92-repeated-cost-calibration.md|Edition 084 repeated timings]] · [[docs/obsidian/repeated-cost-calibration.canvas|System map]]
 
 

@@ -1,0 +1,78 @@
+{
+  "modules": [
+    {
+      "id": "cost",
+      "name": "Growing-bank cost estimate",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/TaskCost085.java",
+      "description": "Exact receipt choice, repeated-task uncertainty, bank-growth sensitivity and conditional setup repayment.",
+      "note": "docs/obsidian/93-growing-memory-payback.md"
+    },
+    {
+      "id": "coverage",
+      "name": "Calibration coverage",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/CalibrationCoverage083.java",
+      "description": "Shows actual repeats and saving/restart coverage after original checks.",
+      "note": "docs/obsidian/93-growing-memory-payback.md"
+    },
+    {
+      "id": "execution",
+      "name": "Verified Java execution",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/WorldProcedure079.java",
+      "description": "Original native forecasts, actual outcomes and commit checks remain mandatory.",
+      "note": "docs/obsidian/93-growing-memory-payback.md"
+    },
+    {
+      "id": "storage",
+      "name": "Bounded world continuity",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/WorldLedger.java",
+      "description": "Retains up to32 worlds and requires an explicit frame-preserving upgrade for known older engine identities.",
+      "note": "docs/obsidian/93-growing-memory-payback.md"
+    },
+    {
+      "id": "interface",
+      "name": "Actual app display",
+      "source": "workspace-desktop/renderer/persistent-world-panel.js",
+      "description": "Repeat counts and evidence scope beside calibration controls.",
+      "note": "docs/obsidian/93-growing-memory-payback.md"
+    },
+    {
+      "id": "inspection",
+      "name": "Independent inspection",
+      "source": "scripts/Inspect-Growth085.cjs",
+      "description": "Reconstructs original native motion, provenance and new/baseline empirical estimates.",
+      "note": "docs/obsidian/93-growing-memory-payback.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "docs/readmes/085/calibration-1600.png",
+      "caption": "Actual calibration investment and repeat counts"
+    },
+    {
+      "path": "docs/readmes/085/calibrated-1100.png",
+      "caption": "Actual retained-experience and skill coverage"
+    },
+    {
+      "path": "docs/readmes/085/confirmed-procedure.png",
+      "caption": "Exact procedure confirmed before evaluation in the 13-memory bank"
+    },
+    {
+      "path": "docs/readmes/085/committed-world.png",
+      "caption": "Actual verified world after the sequence"
+    },
+    {
+      "path": "docs/readmes/085/case-5-report.png",
+      "caption": "Actual final measured task report"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/readmes/085/verification.json",
+      "caption": "Validation and actual measurements"
+    },
+    {
+      "path": "docs/readmes/085/original-evidence.json",
+      "caption": "All exact original files"
+    }
+  ]
+}

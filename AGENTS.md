@@ -1,5 +1,14 @@
 # Fraynix Studio collaboration and documentation
 
+## Edition 085 · Validated locally; publication next
+
+2026-11-06. Contractc68c7c0a; implementationeb5de6e6; corrected study build28f919b1. Explicit compatible procedure selection in Java/UI/chat/skills while retaining real new outcomes. Bank and world bounds16→32; explicit closed legacy frame upgrade; capacity-failed first attempt preserved and fresh measurements after correction28f919b1; exact original checks retained. 18/18 held-out goals; three banks13→19;30 reopened skills; 0/6 memory choices; empirical range hits6/6 vs6/6 for 084, with widths reported. Calibration investment885.35s; evaluation saving-29.04s; net after calibration-914.39s; repaid=False. No longer-horizon or probability guarantee.
+
+**187 Java tests across 28 classes and 135 desktop checks passed.** The actual 31-goal study, independent native/proof/commit/cost reconstruction, 20 corruption-refusal probes across both readers, 30 reopened skill records, and real app wide/narrow views all passed. The offline guide is exercised at 1440 and 390 pixels before publication. 320 prior compiled engine classes are byte-identical; the changed prior classes are GoalRunner, WorldProcedure079, CalibrationCoverage083 and WorldLedger, plus new TaskCost085. The original native solver/controllers, proof reader and 080/084 arithmetic are unchanged.
+
+Fresh owner per measured goal,4CPU/768MiB/actual affinity/Dstorage, serial. All calibration/evaluation goals retain experience and save skills; one seed learning goal does not save a skill. Method order rotates; model frozen after six pairs; exact prepared copies, then genuine bank growth. The first calibrated task traversed confirmed UI and chat tool transport, without new LLM inference claim. Sensitivity mixes task/machine/growth effects and is not causal. No physical-camera or model-weight-training claim. README085/screenshots/offline guide/exact originals/source inventory/Obsidian93/map prepared. Normal045/qa046/private data preserved. No subagents. Main/edition085/readme-085 push and fetched audit remain; do not claim publication yet. Next bounded calibration admission and separate recovery workloads.
+
+
 ## Edition 085 · Implementation in progress
 
 Isolated D:/Codex-Work/fraynix-workspace-edition085, parentd71097a9. Read docs/EDITION_085_CONTRACT.md. Explicit compatible procedure selection while retaining real new memories; bank-growth sensitivity and full calibration payback accounting.31 planned serial native goals,4CPU/768MiB, fresh current-code evidence. No outcomes yet. Preserve normal045/qa046/private data and frozen001–084. No subagents. Next implementation/regression/frozen study/independent checks/README085/screenshots/notes and verified main push.

@@ -1,0 +1,85 @@
+{
+  "nodes": [
+    {
+      "id": "readme",
+      "type": "file",
+      "file": "README-085.md",
+      "x": 0,
+      "y": 0,
+      "width": 380,
+      "height": 250
+    },
+    {
+      "id": "note",
+      "type": "file",
+      "file": "docs/obsidian/93-growing-memory-payback.md",
+      "x": 440,
+      "y": 0,
+      "width": 380,
+      "height": 250
+    },
+    {
+      "id": "cost",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/TaskCost085.java",
+      "x": 880,
+      "y": 0,
+      "width": 380,
+      "height": 250
+    },
+    {
+      "id": "goals",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/GoalRunner.java",
+      "x": 0,
+      "y": 310,
+      "width": 380,
+      "height": 250
+    },
+    {
+      "id": "execution",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/WorldProcedure079.java",
+      "x": 440,
+      "y": 310,
+      "width": 380,
+      "height": 250
+    },
+    {
+      "id": "evidence",
+      "type": "file",
+      "file": "docs/readmes/085/verification.json",
+      "x": 880,
+      "y": 310,
+      "width": 380,
+      "height": 250
+    }
+  ],
+  "edges": [
+    {
+      "id": "edge0",
+      "fromNode": "readme",
+      "toNode": "note"
+    },
+    {
+      "id": "edge1",
+      "fromNode": "note",
+      "toNode": "cost"
+    },
+    {
+      "id": "edge2",
+      "fromNode": "cost",
+      "toNode": "goals"
+    },
+    {
+      "id": "edge3",
+      "fromNode": "goals",
+      "toNode": "execution"
+    },
+    {
+      "id": "edge4",
+      "fromNode": "execution",
+      "toNode": "evidence"
+    }
+  ]
+}
