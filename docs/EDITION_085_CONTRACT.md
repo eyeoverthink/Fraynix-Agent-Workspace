@@ -13,6 +13,8 @@ new successful episodes continue to accumulate. Unknown, malformed, missing or
 distant selections are refused; simple control never selects memory. Every original
 receipt, native forecast, actual trace, report and world-commit check remains.
 Retaining a new receipt does not relabel earlier timings for that new receipt.
+Raise the bounded memory bank from16 to32 entries so the declared31-goal study
+can retain its outcomes; keep the existing64-goal execution-history bound.
 
 Keep the 084 repeat arithmetic and exact receipt/workload/runtime/proof-state gates.
 Add checked memory-bank entry counts to fitted pairs. For a larger bank than any

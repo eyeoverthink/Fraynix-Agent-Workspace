@@ -446,7 +446,7 @@ ipcMain.handle('workspace:request',async(event,input)=>{
 
       if(input.command==='counter-export'){const data=await api('/api/world/counter045/export',input.args);return nativeExports.save('counterfactual-world','json',JSON.stringify(data),{studyId:input.args.id});}
 
-      if(input.command==='select'){const args=input.args||{};const {selectiveMemory079,memoryMode079,...preview}=args;const plan=await api('/api/world/preview',preview);if(!plan.passed)throw Error(plan.reason);currentPersistentWorld={...args};return currentPersistentWorld;}
+      if(input.command==='select'){const args=input.args||{};const {selectiveMemory079,memoryMode079,procedureReceipt085,...preview}=args;const plan=await api('/api/world/preview',preview);if(!plan.passed)throw Error(plan.reason);currentPersistentWorld={...args};return currentPersistentWorld;}
       if(input.command==='start'){
         const {expectedWorldId,expectedHash,...options}=input.args||{};
         if((expectedWorldId!==undefined||expectedHash!==undefined)&&
