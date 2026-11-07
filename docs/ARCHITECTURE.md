@@ -1,5 +1,8 @@
 # Fraynix Agent Workspace system architecture
 
+Edition088 adds read-only resource compatibility visibility to cost review, with actual CPU/heap-change and counterfactual payoff tests. The original gate and all outcome checks remain unchanged. [Measured scope and results](../README-088.md).
+
+
 Edition087 adds owned actual fit/task-check observations and bounded workload-matched empirical allowances before new fitting. Existing original verification remains authoritative; missing or changed observations fall back explicitly. [Results and limits](../README-087.md).
 
 

@@ -1,5 +1,8 @@
 ---
 
+[Edition088: resources and value](96-resource-changes-and-calibration-value.md) · [Working map](96-resource-changes-and-calibration-value.canvas)
+
+
 [Edition087: measured costs](95-measured-calibration-costs.md) · [Working map](95-measured-calibration-costs.canvas)
 
 

@@ -1,5 +1,14 @@
 # Agent Workspace project memory
 
+## Edition088 — validated locally; publication next
+
+**12/12 held-out native goals completed across two resource cohorts.** All 44 newly executed goals and six actual fitting calls were inspected. four-768: gate declined; false decline versus simple **False**, versus fixed memory **False**. two-512: gate declined; false decline versus simple **False**, versus fixed memory **False**. These findings cover two measured tasks per method and resource budget, not long-horizon or population guarantees.
+
+**222 Java checks across 31 classes, 135 desktop checks and eight accounting checks passed.** 328 prior engine classes are byte-identical to 087; only CalibrationCosts087 adds resource metadata to review, plus the new summary class. Original admission, goal, native, proof, cost and ledger classes are unchanged. All 44 new native goals, six actual fits,12 held-out outcomes and original commits/costs were inspected. Actual resource changes, byte-preserving restore, repeated reads, original-source refusal and genuine positive-proposal/full-verifier refusal were exercised. Real app at 1600/1100 and offline at 1440/390 checks retain source-linked screenshots and exact-coordinate replays.
+
+Two serial resource bundles4CPU/768MiB and2CPU/512MiB; warm fixed one-receipt bank and no timed retention/skills. No resource-causality, long-horizon, physical-camera or LLM-training claim. No subagents. Normal045/qa046/private data preserved. Next: longer observed sequences and matched workload drift, then examine any useful fits the gate misses without weakening verification. Main/edition088/readme-088 push and fresh fetched audit remain.
+
+
 ## Edition088 — implementation and validation in progress
 
 Isolated D:/Codex-Work/fraynix-workspace-edition088 from5a8a6918; contracta3ec910d. Read docs/EDITION_088_CONTRACT.md. Two fresh serial resource cohorts4CPU/768MiB and2CPU/512MiB,44planned native goals/six actual fits. Resource metadata visibility only; original gate, native and all outcome checks retained. No results or payoff claim yet. Preserve normal045/qa046/private data and001–087. No subagents. Next: regression, frozen build, actual study/independent checks, README088/screenshots/notes and verified main publication.

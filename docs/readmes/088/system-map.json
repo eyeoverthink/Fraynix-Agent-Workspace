@@ -1,0 +1,56 @@
+{
+  "modules": [
+    {
+      "id": "resources",
+      "name": "Resource compatibility",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/CalibrationResources088.java",
+      "description": "Bounded read-only journal metadata, actual current profile and explicit exclusions; no new action authority.",
+      "note": "docs/obsidian/96-resource-changes-and-calibration-value.md"
+    },
+    {
+      "id": "gate",
+      "name": "Original spending gate",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/CalibrationAdmission086.java",
+      "description": "Unchanged cost/reserve decision and original fitter delegation.",
+      "note": "docs/obsidian/96-resource-changes-and-calibration-value.md"
+    },
+    {
+      "id": "verification",
+      "name": "Native outcome checks",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/WorldProcedure079.java",
+      "description": "Unchanged motion, original proof, model verification, forecast and actual execution checks.",
+      "note": "docs/obsidian/96-resource-changes-and-calibration-value.md"
+    },
+    {
+      "id": "ui",
+      "name": "Integrated review",
+      "source": "workspace-desktop/renderer/persistent-world-panel.js",
+      "description": "Current resource profile shown alongside learned allowances and verified procedure controls.",
+      "note": "docs/obsidian/96-resource-changes-and-calibration-value.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "docs/readmes/088/four-768-resource-review-1600.png",
+      "caption": "Actual088 application capture"
+    },
+    {
+      "path": "docs/readmes/088/two-512-resource-review-1600.png",
+      "caption": "Actual088 application capture"
+    },
+    {
+      "path": "docs/readmes/088/four-768-verified-world.png",
+      "caption": "Actual088 application capture"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/readmes/088/verification.json",
+      "caption": "Measured verification"
+    },
+    {
+      "path": "docs/readmes/088/original-evidence.json",
+      "caption": "Exact logical originals"
+    }
+  ]
+}

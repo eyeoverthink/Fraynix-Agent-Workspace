@@ -1,0 +1,71 @@
+{
+  "nodes": [
+    {
+      "id": "resources",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/CalibrationResources088.java",
+      "x": 0,
+      "y": 0,
+      "width": 380,
+      "height": 200
+    },
+    {
+      "id": "gate",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/CalibrationAdmission086.java",
+      "x": 420,
+      "y": 0,
+      "width": 380,
+      "height": 200
+    },
+    {
+      "id": "verification",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/WorldProcedure079.java",
+      "x": 840,
+      "y": 0,
+      "width": 380,
+      "height": 200
+    },
+    {
+      "id": "ui",
+      "type": "file",
+      "file": "workspace-desktop/renderer/persistent-world-panel.js",
+      "x": 1260,
+      "y": 0,
+      "width": 380,
+      "height": 200
+    },
+    {
+      "id": "edition",
+      "type": "file",
+      "file": "README-088.md",
+      "x": 420,
+      "y": 300,
+      "width": 380,
+      "height": 240
+    }
+  ],
+  "edges": [
+    {
+      "id": "r-g",
+      "fromNode": "resources",
+      "toNode": "gate"
+    },
+    {
+      "id": "g-v",
+      "fromNode": "gate",
+      "toNode": "verification"
+    },
+    {
+      "id": "u-r",
+      "fromNode": "ui",
+      "toNode": "resources"
+    },
+    {
+      "id": "v-e",
+      "fromNode": "verification",
+      "toNode": "edition"
+    }
+  ]
+}
