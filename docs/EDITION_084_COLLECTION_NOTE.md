@@ -5,7 +5,8 @@ Recorded before restarting the skill-saving condition, November 6, 2026.
 The first cold-skill attempt completed its fresh learning goal, then the normal
 Java input validator refused the first calibration request: generated names began
 with `084-`, but saved skill names must begin with a lowercase letter. No
-calibration or evaluation goal was accepted from this attempt. Its checkpoint,+learning trace, resource records, failure capture and original console log remain
+calibration or evaluation goal was accepted from this attempt. Its checkpoint,
+learning trace, resource records, failure capture and original console log remain
 under `build/ui084-cold-skill` and in the edition's exact-original archive.
 
 The harness now generates `fit-084-...` and `route-084-...` names. The fresh retry
