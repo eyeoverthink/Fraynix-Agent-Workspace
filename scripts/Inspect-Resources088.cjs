@@ -7,7 +7,7 @@ for(const name of ['four-768','two-512']){
  const r=load(path.join(root,'build/ui088-'+name+'/result.json')),a=load(path.join(root,'build/analysis088-'+name+'.json'));assert(r.passed&&a.passed);
  const rows=[...r.training,...r.calibration.flatMap(x=>Object.values(x.results)),...r.pilots,...r.rows],details=[];
  for(const x of rows){assert.equal(x.before.pid,x.after.pid);assert.deepEqual(x.before.profile,x.after.profile);assert.equal(x.beforeOS.affinity,x.afterOS.affinity);
-  const cpu=x.after.processCpuNanos-x.before.processCpuNanos;assert(cpu>=0);
+  assert(x.before.processCpuNanos>=0&&x.after.processCpuNanos>=0,'CPU counters unavailable');const cpu=x.after.processCpuNanos-x.before.processCpuNanos;assert(cpu>=0);
   const gcBefore=new Map(x.before.gc.map(g=>[g.name,g]));let gc=0,collections=0,available=true;
   for(const g of x.after.gc){const b=gcBefore.get(g.name);if(!b||[b.millis,b.count,g.millis,g.count].some(v=>v<0)){available=false;continue;}assert(g.millis>=b.millis&&g.count>=b.count);gc+=g.millis-b.millis;collections+=g.count-b.count;}
   const samples=[x.before,...x.samples,x.after];assert(samples.every(s=>s.heapUsedBytes>=0&&s.heapUsedBytes<=s.heapMaxBytes));
