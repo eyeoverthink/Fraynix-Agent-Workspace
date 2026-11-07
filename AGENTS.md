@@ -1,5 +1,22 @@
 # Fraynix Studio collaboration and documentation
 
+## Edition 084 · Implementation and validation in progress
+
+Isolated checkout D:/Codex-Work/fraynix-workspace-edition084, parent1f088108.
+Prospective contract c73b64f1; implementation4b32dbc8. TaskCost084 groups repeated
+complete costs by task, requires two nearby tasks with three independent pairs,
+and keeps within-task, between-task and scene-distance uncertainty separate.
+New procedure identity; no old proof relabelled. All native verification remains.
+Two cold conditions: run-only and skill-only; retainExperience explicitly false
+during timing so selected receipt stays fixed. This does NOT calibrate growing-bank
+retention workloads. Fifty planned native goals, serial, four CPU/768MiB, D: storage;
+held-out evaluation copies keep the fitted evidence fixed. No new result claim yet.
+Preserve normal045/qa046/private data and frozen001–083. No subagents. Read
+build/HANDOFF084.md for progress; next: finish regression, build receipt, fresh studies,
+independent inspection/refusal, README084/screenshots/offline/notes, main/tag push
+and fresh Git-byte audit. Publication target Fraynix-Agent-Workspace unchanged.
+
+
 ## Edition 083 Â· Published and fetched back on 2026-11-06
 
 Atomic no-thin push to Fraynix-Agent-Workspace main, edition083 and readme-083 succeeded. Release 907fe904722de6254053d9066256471ee916e6aa; annotated tag a50210c858f33935faef451d6a0bcc503540bf19. Freshly fetched Git trees verified 1163 canonical sources, 14672 frozen hashes across83 editions, and 4401 logical exact originals including decompressed bytes. Documentation passes 88 canvases and 10675 references. [Publication receipt](docs/PUBLICATION_083.json).
