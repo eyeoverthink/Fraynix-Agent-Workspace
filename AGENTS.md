@@ -1,5 +1,10 @@
 # Fraynix Studio collaboration and documentation
 
+## Edition089 - implementation in progress
+
+Isolated D:/Codex-Work/fraynix-workspace-edition089 from ba5d3f51; prospective contract e97a531e. Add same-owner adjacent paired cost uncertainty with both execution orders, retain 085 fallback and all original outcome checks. Frozen 64-goal/three-fit study:2CPU/512MiB,12 held-out tasks per four policies, three rotated blocks, explicit restart/warmup accounting. Read docs/EDITION_089_CONTRACT.md. Preserve normal045/qa046 and001-088; no subagents. Next: regression, actual study, independent evidence inspection, README089/screenshots/notes and verified publication. No results or payoff claim yet.
+
+
 ## Edition088 — published and fetched back
 
 Release c14bfbed0b16fdc739e23ce70a01b6946add2b70; readme-088 tag object a7a5ef957b368357dbf06c9e8a75cf2ccd32c3c2. Atomic main/edition088/readme-088 publication to Fraynix-Agent-Workspace fetched and audited. 1209 canonical sources, 20279 frozen hashes across 88 editions and 1219 logical original archives including decompressed bytes. Documentation: 93 canvases/13345 references. [Publication receipt](docs/PUBLICATION_088.json).

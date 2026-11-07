@@ -29,7 +29,7 @@ final class CalibrationCoverage083 {
                 .put("state",group.getBoolean("warm")?"Already checked this session":"After restart")
                 .put("work",group.getBoolean("skill")?(group.getBoolean("retain")?"Save experience and skill":"Save skill"):(group.getBoolean("retain")?"Save experience":"Run without saving"))
                 .put("reason",!matches?"Runtime differs from calibration":count<2?"Needs two distinct matched tasks":"Minimum count met; task distance and current receipt still checked when running");
-            if(TaskCost084.VERSION.equals(model.optString("version"))||TaskCost085.VERSION.equals(model.optString("version"))) {
+            if(TaskCost084.VERSION.equals(model.optString("version"))||TaskCost085.VERSION.equals(model.optString("version"))||TaskCost089.VERSION.equals(model.optString("version"))) {
                 var counts=repeats.get(entry.getKey());int repeated=(int)counts.values().stream().filter(n->n>=TaskCost084.REPEATS).count();
                 group.put("repeatCounts",new JSONArray(counts.values())).put("repeatedTasks",repeated).put("minimumRepeats",TaskCost084.REPEATS)
                     .put("repeatCountMet",repeated>=TaskCost084.TASKS).put("reason",!matches?"Runtime differs from calibration":repeated<TaskCost084.TASKS?"Needs two nearby tasks with three independent comparisons each":"Repeat counts met; current receipt, task distance and original evidence still checked");
