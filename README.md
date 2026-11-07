@@ -1,6 +1,11 @@
 # Fraynix Agent Workspace
 
-**Latest: [edition086 — calibration admission before spending](README-086.md).**
+**Latest: [edition087 — learned calibration allowances](README-087.md).**
+
+Edition087 is validated locally; publication verification follows.
+
+
+**Earlier edition: [edition086 — calibration admission before spending](README-086.md).**
 
 Edition086 is published to main with code, measurements, screenshots and exact original evidence. [Fetched GitHub verification](docs/PUBLICATION_086.json).
 

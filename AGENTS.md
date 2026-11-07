@@ -1,5 +1,14 @@
 # Fraynix Studio collaboration and documentation
 
+## Edition087 — validated locally; publication next
+
+**9/9 held-out native goals completed across simple, fixed-memory and calibrated control.** Three actual fits and three completed pilot tasks produced a fitting allowance of 90.09s and a checking allowance of 1.92s per comparable task. First-batch calibration repayment against both controls: **no**. These are descriptive results from one machine and one warm, fixed-bank workload.
+
+**212 unique Java checks across 30 classes and 135 desktop checks passed.** The broad measured-build run had 211 checks; after the reader-mode exclusion, all 13 cost tests and 12 unchanged admission tests were repeated. All other measured runtime classes are unchanged. All 326 prior engine classes except the HTTP entry point remain byte-identical to086. All 25 newly executed native goals, the three actual original fits, nine held-out outcomes and their commits/costs were independently inspected. The journal and final world survive reopen; positive-path original-verifier refusal remains enforced. Actual app 1600/1100 and offline 1440/390 layouts, interaction and exact replay coordinates are checked.
+
+Warm fixed one-receipt bank, no timed retention/skill saving. Four logical CPUs/768MiB and actual affinity, serial. Original checks retained, no claimed long-horizon payback or new LLM/physical-camera evidence. Private normal045/qa046 unchanged. No subagents. Next: resource drift, false declines and comparison with continuing an existing useful procedure. Main/edition087/readme-087 publication still pending.
+
+
 ## Edition087 — implementation and validation in progress
 
 Isolated D:/Codex-Work/fraynix-workspace-edition087 from82dfd254; prospective contractd57a5988. Read docs/EDITION_087_CONTRACT.md. Java learns fit/check allowances from owned actual timings, with matched workload/profile/volume and explicit fallback. Original motion/proof authority preserved. Initial24 focused tests plus211 Java checks/30 classes and135 desktop checks passed.326 prior runtime classes except WorkspaceServer are byte-identical to086. The frozen25-goal/3fit study is running serially; build/study087.log and build/ui087-study/checkpoint.json hold resumable progress. No payoff claim yet. Preserve normal045/qa046 and001–086. No subagents. README087/screenshots/notes and actual main/edition087/readme-087 push remain.

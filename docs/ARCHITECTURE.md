@@ -1,5 +1,8 @@
 # Fraynix Agent Workspace system architecture
 
+Edition087 adds owned actual fit/task-check observations and bounded workload-matched empirical allowances before new fitting. Existing original verification remains authoritative; missing or changed observations fall back explicitly. [Results and limits](../README-087.md).
+
+
 Edition086 adds a Java cost gate before new calibration fitting. Bounded summary proposals may decline spending; positive proposals still enter the unchanged authoritative verifier. Explicit horizon/cost allowances, durable decision receipts and a simple-control recommendation are integrated in the world controls. [Results and limits](../README-086.md).
 
 

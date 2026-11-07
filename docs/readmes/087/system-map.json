@@ -1,0 +1,49 @@
+{
+  "modules": [
+    {
+      "id": "admission",
+      "name": "Java measured allowances",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/CalibrationCosts087.java",
+      "description": "Owned actual fitting/task-check observations, bounded compatible allowances and original-verifier integration.",
+      "note": "docs/obsidian/95-measured-calibration-costs.md"
+    },
+    {
+      "id": "verification",
+      "name": "Original procedure checks",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/WorldProcedure079.java",
+      "description": "Unchanged native, proof, calibration, outcome and commit checks.",
+      "note": "docs/obsidian/95-measured-calibration-costs.md"
+    },
+    {
+      "id": "ui",
+      "name": "Integrated world controls",
+      "source": "workspace-desktop/renderer/persistent-world-panel.js",
+      "description": "Readable forecasts and simple-control fallback requiring new target confirmation.",
+      "note": "docs/obsidian/95-measured-calibration-costs.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "docs/readmes/087/review-allowances-1600.png",
+      "caption": "Actual087 application capture"
+    },
+    {
+      "path": "docs/readmes/087/verified-report.png",
+      "caption": "Actual087 application capture"
+    },
+    {
+      "path": "docs/readmes/087/review-world.png",
+      "caption": "Actual087 application capture"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/readmes/087/verification.json",
+      "caption": "Measured verification"
+    },
+    {
+      "path": "docs/readmes/087/original-evidence.json",
+      "caption": "Exact logical originals"
+    }
+  ]
+}

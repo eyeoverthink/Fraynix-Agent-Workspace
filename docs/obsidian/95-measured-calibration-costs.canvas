@@ -1,0 +1,57 @@
+{
+  "nodes": [
+    {
+      "id": "admission",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/CalibrationCosts087.java",
+      "x": 0,
+      "y": 0,
+      "width": 380,
+      "height": 200
+    },
+    {
+      "id": "verification",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/WorldProcedure079.java",
+      "x": 420,
+      "y": 0,
+      "width": 380,
+      "height": 200
+    },
+    {
+      "id": "ui",
+      "type": "file",
+      "file": "workspace-desktop/renderer/persistent-world-panel.js",
+      "x": 840,
+      "y": 0,
+      "width": 380,
+      "height": 200
+    },
+    {
+      "id": "edition",
+      "type": "file",
+      "file": "README-087.md",
+      "x": 420,
+      "y": 300,
+      "width": 380,
+      "height": 240
+    }
+  ],
+  "edges": [
+    {
+      "id": "a-v",
+      "fromNode": "admission",
+      "toNode": "verification"
+    },
+    {
+      "id": "u-a",
+      "fromNode": "ui",
+      "toNode": "admission"
+    },
+    {
+      "id": "v-e",
+      "fromNode": "verification",
+      "toNode": "edition"
+    }
+  ]
+}

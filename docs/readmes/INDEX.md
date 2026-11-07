@@ -1,5 +1,8 @@
 # Fraynix Studio and Agent Workspace README editions
 
+- [Edition087: learned calibration allowances](../../README-087.md) · [Offline results](087/index.html)
+
+
 - [Edition086: calibration admission before spending](../../README-086.md) · [Offline results](086/index.html)
 
 

@@ -1,5 +1,8 @@
 ---
 
+[Edition087: measured costs](95-measured-calibration-costs.md) · [Working map](95-measured-calibration-costs.canvas)
+
+
 [Edition086: calibration admission](94-calibration-admission.md) · [Working map](94-calibration-admission.canvas)
 
 
