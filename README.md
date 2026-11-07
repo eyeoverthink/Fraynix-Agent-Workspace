@@ -2,7 +2,7 @@
 
 **Latest: [edition088 — resources and calibration value](README-088.md).**
 
-Edition088 is validated locally; publication verification follows.
+Edition088 is published to main with code, measurements, screenshots and exact original evidence. [Fetched GitHub verification](docs/PUBLICATION_088.json).
 
 
 **Earlier edition: [edition087 — learned calibration allowances](README-087.md).**

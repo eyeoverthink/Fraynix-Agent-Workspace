@@ -1,5 +1,18 @@
 # Agent Workspace project memory
 
+## Edition088 — published and fetched back
+
+Release c14bfbed0b16fdc739e23ce70a01b6946add2b70; readme-088 tag object a7a5ef957b368357dbf06c9e8a75cf2ccd32c3c2. Atomic main/edition088/readme-088 publication to Fraynix-Agent-Workspace fetched and audited. 1209 canonical sources, 20279 frozen hashes across 88 editions and 1219 logical original archives including decompressed bytes. Documentation: 93 canvases/13345 references. [Publication receipt](PUBLICATION_088.json).
+
+Java comparison review now exposes current resource profile, matching/foreign journal metadata and age/code/reader exclusions. Metadata is not source or workload verification. Original spending and allowance formulas, fitter, native/proof/report/commit/skill checks unchanged. Only CalibrationCosts087 adds read-only review metadata; all other prior engine classes byte-identical to 087.
+
+222 Java checks/31 classes, 135 desktop checks and eight accounting checks pass. 44 new native goals, six actual fits and12/12 held-out outcomes across4CPU/768MiB then2CPU/512MiB. Each fresh project uses a warm fixed one-receipt bank; no timed retention/saving. Actual CPU affinity and resources recorded. four-768: gate declined, marginal net vs simple -79.13s and fixed memory -87.69s; false declines simple=False, memory=False. Learning investment 1085.92s. two-512: gate declined, marginal net vs simple -124.89s and fixed memory -144.12s; false declines simple=False, memory=False. Learning investment 1605.79s.
+
+Calibrated memory choices were2/2 at4CPU and0/2 at2CPU; fixed memory completed both tasks with lower observed caller totals in each cohort. The low-budget memory-selection uncertainty is a separate next question from fitting admission. CPU/GC counters are descriptive and sampled memory peaks are not true maxima. Resource-change refusal and restored compatibility passed without altering model, journal or world. Repeated reads, source tampering and admitted forged-summary/full-verifier refusal retained. Actual app at 1600/1100 and offline at 1440/390 screenshots/charts/original-coordinate replays verified. Sequential CPU+heap bundles do not isolate causality; two-task payoff is not a long-horizon guarantee. No new LLM inference, weight training or physical-camera claim.
+
+README088, original evidence/source inventories, offline guide, Obsidian96 and continuity notes published. Test apps closed; normal045/qa046/private data preserved. Next: longer measured sequences and matched drift, compare with fixed verified memory, quantify missed useful fits without weakening verification. Preserve001–088; next089. No subagents. Receipt follows immutable release tag.
+
+
 ## Edition088 — validated locally; publication next
 
 **12/12 held-out native goals completed across two resource cohorts.** All 44 newly executed goals and six actual fitting calls were inspected. four-768: gate declined; false decline versus simple **False**, versus fixed memory **False**. two-512: gate declined; false decline versus simple **False**, versus fixed memory **False**. These findings cover two measured tasks per method and resource budget, not long-horizon or population guarantees.
