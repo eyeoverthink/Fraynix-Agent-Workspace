@@ -1,0 +1,21 @@
+# Edition 087 prospective contract
+
+Parent: 82dfd2547e7718898b734d1b2ea3dbdad50d0ba4. Publication: private eyeoverthink/Fraynix-Agent-Workspace. Isolated D checkout; normal045/qa046 and personal data remain untouched. No subagents, overlapping heavy tests, new dependencies or invented results.
+
+## Implementation
+
+Java records whole successful original fitting time and calibration-reader counter deltas across directly admitted, uninterrupted completed world/procedure goals. Server owns clocks and source identities; callers cannot submit durations. Repeated reads cannot create duplicate samples. Restart, failed goals, failed checks, reset counters, foreign implementation/profile or missing sources exclude observations. Unwrapped scheduler starts do not gain fabricated measurements. All old native, original-byte, report, commit, skill and goal checks remain authoritative.
+
+A bounded journal retains up to64 observations, with boot/source identities. At most12 newest matching samples per cost kind, at most14 days old, are considered. Matching requires current code/runtime profile, pair count, family, proof-warmth and retain/skill workload; evidence bytes must be within0.8..1.25 of the measured cohort. Scale costs upward only by max(1,targetBytes/sourceBytes). Three successful fit observations and three completed calibrated-task observations are required. Allowance = maximum scaled observation + max(observed range,10% of maximum); minima1000ms fitting and10ms checking. These are empirical reserves, not calibrated probabilities. Unsupported estimates retain explicit defaults (120s fit,3s per-task checks) and explain why. Explicit manual mode remains available. No automatic expensive fitting merely to learn an allowance. Preserve the086 benefit/reserve rule. Positive admission still calls the full original fitter; learned allowances grant no motion authority.
+
+## Frozen study
+
+Use the labelled occupied-route fixture from080 with freshly measured current-code outcomes, not080 timing reuse. One actual retained seed, two nearby calibration tasks each executed three times by simple and memory control (12 goals); alternate order. No retention or skill saving in the timed cohort, fixed one-receipt bank. Three real diagnostic unconditional fits of those originals and three distinct pilot calibrated goals supply allowance samples. Diagnostic collection/fitting/pilot costs are real investment, separately reported, never hidden as free training. Their manual test-only route must remain unavailable in normal app mode.
+
+Then freeze learned allowances. Three fresh held-out nearby cases, rotating simple/fixed-memory/calibrated order in an uninterrupted owner;9 evaluation goals. All model checks remain enabled. The decision gate is tested at horizons1,12,64,256; no forced positive admission. The calibrated arm is a labelled counterfactual even when the gate declines. Compare complete caller and Java costs, ticks, checks and setup-plus-task totals against both controls. Full first-batch payback includes seed, comparisons, diagnostic fits and pilots; marginal repeat-use accounting is also shown and never substituted for measured repayment. No claim of long-horizon payback from a short run. Growing-bank/skill-saving085 is a separate negative cohort with unchanged-source identity checked before reuse, never presented as new timing evidence.
+
+Four logical CPUs,768MiB Java, Windows affinity measured, D storage, serial native work. Every newly executed attempt, original bytes, world commit and cost must be independently inspected. Reopen journals/worlds; reject malformed budgets and changed sources; ensure positive synthetic proposals cannot bypass full verification. Freeze runtime source/JAR hashes before measurement; changes require fresh affected measurements. Preserve failed development attempts. Do not retune rules/cases after outcomes.
+
+## Delivery
+
+Appropriate Java/native/desktop regressions, actual UI at1600/1100, dated screenshots, README087, offline guide at1440/390 with real chart/replay data, full source inventory, Obsidian note/map, continuity memory/logs. Immutable001–086. Verify documentation. Commit and atomic push main/edition087/readme-087, freshly fetch and audit source/frozen/original hashes, then publish receipt and recheck clean state. Report measured failures or non-payback plainly.
