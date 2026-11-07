@@ -1,5 +1,10 @@
 # Agent Workspace development log
 
+## Edition088 — implementation and validation in progress
+
+Isolated D:/Codex-Work/fraynix-workspace-edition088 from5a8a6918; contracta3ec910d. Read docs/EDITION_088_CONTRACT.md. Two fresh serial resource cohorts4CPU/768MiB and2CPU/512MiB,44planned native goals/six actual fits. Resource metadata visibility only; original gate, native and all outcome checks retained. No results or payoff claim yet. Preserve normal045/qa046/private data and001–087. No subagents. Next: regression, frozen build, actual study/independent checks, README088/screenshots/notes and verified main publication.
+
+
 ## Edition087 — published and fetched back
 
 Release f4a55976e862206375fe6cbfe2da248db2727c6e; readme-087 tag object 88c7f9911fb041a94563d6b372e72a9aaf3272e2. Atomic main/edition087/readme-087 publication to Fraynix-Agent-Workspace fetched and audited. 1199 canonical sources, 19101 frozen hashes across87 editions, 1065 logical original archives verified including decompressed bytes. Documentation: 92 canvases/13289 references. [Publication receipt](PUBLICATION_087.json).
