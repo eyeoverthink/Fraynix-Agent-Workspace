@@ -1,5 +1,14 @@
 # Agent Workspace development log
 
+## Edition086 — validated locally; publication next
+
+**Four of four new native goals completed, and all four saved skills survived restart.** The gate declined the real negative-saving cohort. Three preflights took 510.93, 368.78, 308.83 ms; each read 256,435 bytes of summaries and zero native trace bytes. The measured new fitting cost avoided, including the guarded click, was 85.11 s. Net caller saving across fitting plus the two-task sequence was 94.13 s. These are measured single-machine results, not a general speed guarantee.
+
+**199 unique Java regression tests across 29 classes and 135 desktop checks passed.** The 12 new admission tests were repeated after the final bounded-reader refinement. All 324 prior engine classes other than the HTTP entry point remain byte-identical to085. Actual API, UI, native-trace, report, commit, saved-skill, restart and positive-path refusal checks passed. The offline guide is exercised at 1440 and 390 pixels and its replay coordinates are compared to the original extracted samples.
+
+Original085 evidence reused only after compiled equality. No movement authority from proposals, no naturally profitable cohort invented. Four serial native goals,4CPU/768MiB, retained experience and saved skills. Normal045/qa046 and private data untouched. No subagents. Next: measured allowance updates, profitable held-out cohorts and drift/false-decline evaluation. Main/edition086/readme-086 publication still pending.
+
+
 ## Edition 085 · Published and fetched back on 2026-11-06
 
 Atomic no-thin push to Fraynix-Agent-Workspace main, edition085 and readme-085 succeeded. Release 5d58293a3f41c293ed30c260c263019906e1bc53; annotated tag 7444036304906d6b16af413a96f2bf05c208c7c1. Freshly fetched Git trees verified 1184 canonical sources, 18126 frozen hashes across 85 editions, and 3706 logical exact originals including decompressed bytes. Documentation passes 90 canvases and 13184 references. [Publication receipt](PUBLICATION_085.json).

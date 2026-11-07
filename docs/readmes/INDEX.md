@@ -1,5 +1,8 @@
 # Fraynix Studio and Agent Workspace README editions
 
+- [Edition086: calibration admission before spending](../../README-086.md) · [Offline results](086/index.html)
+
+
 - [Edition085: growing memory and calibration payback](../../README-085.md) · [Offline results](085/index.html)
 
 

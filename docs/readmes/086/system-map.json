@@ -1,0 +1,49 @@
+{
+  "modules": [
+    {
+      "id": "admission",
+      "name": "Java spending gate",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/CalibrationAdmission086.java",
+      "description": "Bounded proposal review, horizon/cost forecast, original fitter invocation and durable decisions.",
+      "note": "docs/obsidian/94-calibration-admission.md"
+    },
+    {
+      "id": "verification",
+      "name": "Original procedure checks",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/WorldProcedure079.java",
+      "description": "Unchanged native, proof, calibration, outcome and commit checks.",
+      "note": "docs/obsidian/94-calibration-admission.md"
+    },
+    {
+      "id": "ui",
+      "name": "Integrated world controls",
+      "source": "workspace-desktop/renderer/persistent-world-panel.js",
+      "description": "Readable forecasts and simple-control fallback requiring new target confirmation.",
+      "note": "docs/obsidian/94-calibration-admission.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "docs/readmes/086/admission-1600.png",
+      "caption": "Actual086 application capture"
+    },
+    {
+      "path": "docs/readmes/086/case-1-gated-saved.png",
+      "caption": "Actual086 application capture"
+    },
+    {
+      "path": "docs/readmes/086/verified-world.png",
+      "caption": "Actual086 application capture"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/readmes/086/verification.json",
+      "caption": "Measured verification"
+    },
+    {
+      "path": "docs/readmes/086/original-evidence.json",
+      "caption": "Exact logical originals"
+    }
+  ]
+}

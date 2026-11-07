@@ -1,21 +1,26 @@
 # Fraynix Agent Workspace
 
-**Latest: [edition085 — growing memory and calibration payback](README-085.md).**
+**Latest: [edition086 — calibration admission before spending](README-086.md).**
+
+Edition086 is validated locally; publication verification follows.
+
+
+**Earlier edition: [edition085 — growing memory and calibration payback](README-085.md).**
 
 Edition 085 is published to main with code, measurements, screenshots and original evidence. [Fetched GitHub verification](docs/PUBLICATION_085.json).
 
 
-**Latest: [edition 084 — repeated complete-task calibration](README-084.md).**
+**Earlier edition: [edition 084 — repeated complete-task calibration](README-084.md).**
 
 Edition 084 is published to main with code, measurements, screenshots and original evidence. [Fetched GitHub verification](docs/PUBLICATION_084.json).
 
 
-**Latest: [edition 083 — restart and skill-saving calibration](README-083.md).**
+**Earlier edition: [edition 083 — restart and skill-saving calibration](README-083.md).**
 
 Edition 083 is published to main with code, measurements, screenshots and original evidence. [Fetched GitHub verification](docs/PUBLICATION_083.json).
 
 
-**Latest: [edition 082 — resource budgets and continuing-world sequences](README-082.md).**
+**Earlier edition: [edition 082 — resource budgets and continuing-world sequences](README-082.md).**
 
 Edition 082 is published to main with code, measurements, screenshots and original evidence. [Fetched GitHub verification](docs/PUBLICATION_082.json).
 

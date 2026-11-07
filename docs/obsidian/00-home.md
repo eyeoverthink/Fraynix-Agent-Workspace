@@ -1,5 +1,8 @@
 ---
 
+[Edition086: calibration admission](94-calibration-admission.md) · [Working map](94-calibration-admission.canvas)
+
+
 [[docs/obsidian/93-growing-memory-payback.md|Edition085 growing memory]] · [[docs/obsidian/growing-memory-payback.canvas|System map]]
 
 

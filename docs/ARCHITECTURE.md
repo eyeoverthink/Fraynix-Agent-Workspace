@@ -1,5 +1,8 @@
 # Fraynix Agent Workspace system architecture
 
+Edition086 adds a Java cost gate before new calibration fitting. Bounded summary proposals may decline spending; positive proposals still enter the unchanged authoritative verifier. Explicit horizon/cost allowances, durable decision receipts and a simple-control recommendation are integrated in the world controls. [Results and limits](../README-086.md).
+
+
 Edition085 binds an optional exact compatible procedure through Java, confirmed world controls, chat transport and saved skills. Calibration retains real outcomes, records bank size and fitting cost, widens uncertainty beyond measured bank sizes, and reports conditional repayment. Original native verification remains. [Results and limitations](../README-085.md).
 
 
