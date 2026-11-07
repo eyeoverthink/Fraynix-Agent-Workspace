@@ -2,7 +2,7 @@
 
 **Latest: [edition085 — growing memory and calibration payback](README-085.md).**
 
-Edition085 is validated locally; publication verification is pending.
+Edition 085 is published to main with code, measurements, screenshots and original evidence. [Fetched GitHub verification](docs/PUBLICATION_085.json).
 
 
 **Latest: [edition 084 — repeated complete-task calibration](README-084.md).**

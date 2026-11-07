@@ -1,5 +1,16 @@
 # Agent Workspace project memory
 
+## Edition 085 · Published and fetched back on 2026-11-06
+
+Atomic no-thin push to Fraynix-Agent-Workspace main, edition085 and readme-085 succeeded. Release 5d58293a3f41c293ed30c260c263019906e1bc53; annotated tag 7444036304906d6b16af413a96f2bf05c208c7c1. Freshly fetched Git trees verified 1184 canonical sources, 18126 frozen hashes across 85 editions, and 3706 logical exact originals including decompressed bytes. Documentation passes 90 canvases and 13184 references. [Publication receipt](PUBLICATION_085.json).
+
+18/18 evaluation goals, 6/6 supported estimates, 0/6 selected memory, 6/6 empirical interval hits versus 6/6 for unchanged 084 arithmetic. Six-task totals: simple: 401.24s; memory: 419.05s; calibrated: 430.29s. Actual calibration investment 885.35s; execution saving -29.04s; net after setup -914.39s; repaid=False. All three evaluation banks grew 13 to 19, and 30 saved skills matched after reopening. Original compatible receipt selection stayed stable. No positive result forced, no longer-horizon or probability guarantee.
+
+187 Java tests/28 classes and 135 desktop checks pass. Actual native/report/commit/cost inspection,20 original-evidence API refusal probes, app1600/1100 and offline1440/390 checks retained. New TaskCost085 and its checked execution integration change procedure identity; older proof is never relabelled. Original native physics/controllers/proof-reader and080/084 math remain byte-identical. WorldLedger capacity now32 with explicit frame-preserving legacy upgrade; failed16-world-capacity development attempt preserved and excluded from the fresh corrected study. Each measured goal uses a fresh owner, four logical CPUs/768MiB with measured affinity. One current-code seed,12 calibration goals and18 evaluations; frozen fit and parameter cases, rotating method order, genuine retention and skill saving. Growth sensitivity mixes scene/machine/bank effects, not causal. Complete Java costs, caller costs, learning/startup/reopen and actual fitting are distinct. First calibrated evaluation used confirmed UI and chat tool transport, not a new LLM-inference test.
+
+README085, actual screenshots, offline charts/replays, exact originals, source inventory, Obsidian93/map and continuity notes published. Test apps closed; normal045/qa046/private data preserved. No physical-camera or model-weight-training claim. Next: bounded calibration admission before spending, longer sequences and multiple useful procedures; interrupted recovery remains a separate workload. This receipt follows the immutable release tag.
+
+
 ## Edition 085 · Validated locally; publication next
 
 2026-11-06. Contractc68c7c0a; implementationeb5de6e6; corrected study build28f919b1. Explicit compatible procedure selection in Java/UI/chat/skills while retaining real new outcomes. Bank and world bounds16→32; explicit closed legacy frame upgrade; capacity-failed first attempt preserved and fresh measurements after correction28f919b1; exact original checks retained. 18/18 held-out goals; three banks13→19;30 reopened skills; 0/6 memory choices; empirical range hits6/6 vs6/6 for 084, with widths reported. Calibration investment885.35s; evaluation saving-29.04s; net after calibration-914.39s; repaid=False. No longer-horizon or probability guarantee.
