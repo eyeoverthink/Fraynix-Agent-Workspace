@@ -32,6 +32,7 @@ for(const row of r.rows.filter(x=>x.policy==='paired089')){
  const reference=r.rows.find(x=>x.id===row.id&&x.policy==='reference085');assert.equal(reference.job.decision.useMemory,Boolean(old.available&&old.lowerSavingMillis>0));
  decisions.push({id:row.id,index:row.sequenceIndex,estimator:e.estimator089,useMemory:j.decision.useMemory,referenceUse:old.available&&old.lowerSavingMillis>0,referenceLower:old.lowerSavingMillis,lower:e.lowerSavingMillis,upper:e.upperSavingMillis,margin:e.marginMillis,referenceMargin:old.marginMillis,pairedRange:e.pairedRangeMillis??null,orderMargin:e.orderMarginMillis??null,observedSavingMillis:observed,intervalHit:e.available&&observed>=e.lowerSavingMillis&&observed<=e.upperSavingMillis,referenceIntervalHit:old.available&&observed>=old.lowerSavingMillis&&observed<=old.upperSavingMillis});
  assert.equal(paired.estimator089,e.estimator089);
+ Object.assign(decisions.at(-1),{belowLower:observed<e.lowerSavingMillis,aboveUpper:observed>e.upperSavingMillis,referenceBelowLower:observed<old.lowerSavingMillis,referenceAboveUpper:observed>old.upperSavingMillis});
 }
 for(const horizon of [2,4,8,12]){
  const forecast=r.previews.find(x=>x.budget.horizon===horizon),ms={};for(const policy of policies)ms[policy]=totals(r.rows.filter(x=>x.policy===policy&&x.sequenceIndex<horizon));
