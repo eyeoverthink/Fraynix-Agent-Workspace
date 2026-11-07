@@ -2,7 +2,7 @@
 
 **Latest: [edition 084 — repeated complete-task calibration](README-084.md).**
 
-Edition 084 is validated locally; publication verification is pending.
+Edition 084 is published to main with code, measurements, screenshots and original evidence. [Fetched GitHub verification](docs/PUBLICATION_084.json).
 
 
 **Latest: [edition 083 — restart and skill-saving calibration](README-083.md).**

@@ -1,5 +1,14 @@
 # Agent Workspace development log
 
+## Edition 084 · Published and fetched back on 2026-11-06
+
+Atomic no-thin push to Fraynix-Agent-Workspace main, edition084 and readme-084 succeeded. Release 8764feb126ba7ee4731df3b1dcccdc556d86700c; annotated tag ba37021c3b41c07442bdfdf00d386c897c610bfe. Freshly fetched Git trees verified 1174 canonical sources, 16408 frozen hashes across84 editions, and 8422 logical exact originals including decompressed bytes. Documentation passes 89 canvases and 11919 references. [Publication receipt](PUBLICATION_084.json).
+
+24/24 evaluation goals, 8/8 supported estimates, 0/8 selected memory, 8/8 supported empirical interval hits. cold-run: simple 212.35s, memory 225.15s, calibrated 223.78s; cold-skill: simple 240.28s, memory 250.60s, calibrated 250.33s. Each total covers four executions: two held-out tasks repeated twice. Descriptive single-machine study; frozen formula and cases, no outcome retuning. Two conditions separately test after-restart run-only and real skill saving. Experience retention is explicitly off during timing; its different workload remains unsupported. New ranges cover 8/8 actual savings; unchanged080 arithmetic covers 6/8 on the same fitted pairs. Widths, errors and setup costs are reported. Each project owns one fresh current-code receipt and six pairs (two distinct tasks x three repetitions). Exact closed-project clones prevent evaluation leakage; saved skills and world hashes survive reopen. New-owner timing is distinct from interrupted recovery.
+
+173 Java tests/27 classes and 133 desktop checks pass. Actual native/report/commit/cost inspection,16 original-evidence API refusal probes, app1600/1100 and offline1440/390 checks retained. New TaskCost084 and its checked execution integration change procedure identity; older proof is never relabelled. Original native physics/controllers/GoalRunner/ledger/proof-reader classes remain byte-identical. Cost estimates and coverage do not replace action checks. README084, actual screenshots, exact originals, source inventory, Obsidian92/map and continuity notes published. Test apps closed; normal045/qa046/private data preserved. No new model-weight or physical-camera claim. Next: matched calibration with a growing bank, bounded admission before costly estimation, then separately measured recovery workloads and longer sequences. This receipt follows the immutable release tag.
+
+
 ## Edition 084 · Validated locally; publication next
 
 2026-11-06. Prospective contractc73b64f1; fresh current-code procedures and repeated timings.
