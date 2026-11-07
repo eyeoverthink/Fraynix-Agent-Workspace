@@ -424,6 +424,7 @@ ipcMain.handle('workspace:request',async(event,input)=>{
     case 'persistentWorld':{
       if(input.command==='upgrade')return api('/api/construction051/upgrade',input.args);
       if(input.command==='procedures077-export'){const data=await api('/api/procedures077/export',input.args);return nativeExports.save('verified-procedures-077','json',JSON.stringify(data),{studyId:input.args.id,caseId:input.args.caseId});}
+      if(input.command==='procedures087-history')return api('/api/procedures087/history',input.args||{});
       if(['procedures086-preview','procedures086-review','procedures086-history'].includes(input.command))return api('/api/procedures086/'+input.command.slice(14),input.args||{});
       if(['procedures080-calibration','procedures080-pairs','procedures080-fit'].includes(input.command))return api('/api/procedures080/'+input.command.slice(14),input.args||{});
       if(input.command==='procedures079-export'){const data=await api('/api/procedures079/export',input.args);return nativeExports.save('world-procedure-079','json',JSON.stringify(data),{goalId:input.args.id});}

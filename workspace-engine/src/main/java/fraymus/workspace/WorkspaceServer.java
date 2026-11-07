@@ -34,7 +34,7 @@ public final class WorkspaceServer implements AutoCloseable {
     private final SkillMemory048 skillMemory;
     private final EvidenceStore049 evidence049;
     private final GoalRunner goals;
-    private final CalibrationAdmission086 admission086;
+    private final CalibrationCosts087 costs087;
     private final MemoryStudy074 memory074;
     private final MemoryStudy075 memory075;
     private final ProcedureStudy076 procedures076;
@@ -62,7 +62,7 @@ public final class WorkspaceServer implements AutoCloseable {
         this.token=token;this.persistentHost=persistentHost;store=new WorkspaceStore(project);learning=new LearningStore(project);
         try{scenes=new SceneStore(project);spatial=new SpatialStore(project);maps=new MapStore(project);perception=new PerceptionStore(project);measurements=new MeasurementStore(project);calibrations=new CalibrationStore(project,scenes,measurements);observers=new ObserverStore(project,scenes);brain=new BrainService(project);goals=new GoalRunner(project,scenes,brain,store,measurements,spatial,perception,maps);memory074=new MemoryStudy074(project,goals::memoryBundle074);memory075=new MemoryStudy075(project,goals::memoryBundle074);procedures076=new ProcedureStudy076(project);procedures077=new ProcedureStudy077(project);procedures078=new ProcedureStudy078(project);observations=new WorldObservationStore(project,goals.worlds());metrics=new MetricObservationStore(project,observations,goals.worlds());tabletop=new TabletopStore(project,goals.worlds(),metrics);knowledge=new KnowledgeStore(project,tabletop);selfModel=new SelfModel(knowledge);workflows=new WorkflowRunner(project,goals,measurements,scenes,store);game=new EmbeddedGameClient(Path.of(System.getProperty("user.dir")),project);runtime040=new SpatialRuntime040(project,goals.worlds(),goals.worldNative(),tabletop,knowledge,game);alignment041=new Alignment041Store(project,goals.worlds());}catch(Exception e){throw new IOException("Experiment stores could not start",e);}
         try{agentRuntime=new AgentRuntime042(project,brain,this::agentFacts042,this::detachHost042,persistentHost);agency=new Agency043(project,store,learning,request->{String id=request.getString("requestId");durableRequests043.add(id);try{return plan(request,true);}finally{durableRequests043.remove(id);}},id->{var c=requests.get(id);if(c!=null)c.cancel();},(kind,evidence)->agentRuntime.record043(kind,evidence),this::sharedBusy043,true);agency.install044(new Domain044(this::call044,store));creation044=new CreationPlanner044(project,goals,request->{String id=request.getString("requestId");durableRequests043.add(id);try{return plan(request,true);}finally{durableRequests043.remove(id);}},id->{var c=requests.get(id);if(c!=null)c.cancel();});}catch(Exception e){close();throw new IOException("Java agent state needs attention; originals retained",e);}
-        admission086=new CalibrationAdmission086(project,goals,goals::fitCosts080);
+        costs087=new CalibrationCosts087(project,goals);
         skillMemory=new SkillMemory048(project,goals);
         evidence049=new EvidenceStore049(project);
         scanner.scheduleWithFixedDelay(()->{try{catalog=models.observe();}catch(Exception e){System.err.println("Model discovery: "+e.getMessage());}},0,45,TimeUnit.SECONDS);
@@ -348,20 +348,21 @@ public final class WorkspaceServer implements AutoCloseable {
                     case "/api/world/counter045/export" -> {result=goals.counterfactual045().export(input.getString("id"));var study=result.getJSONObject("study");if(study.has("comparison")){var run=goals.worldNative().run(study.getJSONObject("comparison").getString("actualRunId"));if(!WorldFrames.hash(run).equals(study.getJSONObject("comparison").getString("actualRunSha256")))throw new IllegalStateException("Original actual run changed");result.put("actualRun",WorldReport.packed(run));}}
                     case "/api/world/counter045/protocol" -> result=Counterfactual045.protocol();
                     case "/api/procedures081/diagnostics" -> {SpatialScene.keys(input);result=goals.calibrationStats081();}
-                    case "/api/procedures081/test-mode" -> {SpatialScene.keys(input,"mode");result=goals.testCalibrationMode081(input.getString("mode"));}
+                    case "/api/procedures081/test-mode" -> {SpatialScene.keys(input,"mode");result=goals.testCalibrationMode081(input.getString("mode"));costs087.invalidate();}
                     case "/api/procedures081/protocol" -> {SpatialScene.keys(input);try(var in=TaskCost080.class.getResourceAsStream("/procedures081-protocol.json")){result=new JSONObject(new String(in.readAllBytes(),java.nio.charset.StandardCharsets.UTF_8));}}
                     case "/api/procedures080/pairs" -> {SpatialScene.keys(input);result=goals.costPairs080();result.put("coverage083",CalibrationCoverage083.describe(result.getJSONObject("calibration")));}
                     case "/api/procedures080/calibration" -> {SpatialScene.keys(input);result=goals.calibration080();}
-                    case "/api/procedures080/fit" -> result=admission086.fit(input);
-                    case "/api/procedures086/review" -> {SpatialScene.keys(input);result=admission086.review();}
-                    case "/api/procedures086/preview" -> result=admission086.preview(input);
-                    case "/api/procedures086/history" -> {SpatialScene.keys(input);result=admission086.history();}
-                    case "/api/procedures086/test-unconditional-fit" -> {if(!"1".equals(System.getenv("FRAYNIX_WORKSPACE_TEST")))throw new IllegalStateException("Isolated test runtime required");SpatialScene.keys(input,"pairs");result=goals.fitCosts080(input.getJSONArray("pairs"));}
+                    case "/api/procedures080/fit" -> result=costs087.fit(input);
+                    case "/api/procedures086/review" -> {SpatialScene.keys(input);result=costs087.review();}
+                    case "/api/procedures086/preview" -> result=costs087.preview(input);
+                    case "/api/procedures087/history" -> {SpatialScene.keys(input);result=costs087.history();}
+                    case "/api/procedures086/history" -> {SpatialScene.keys(input);result=costs087.decisions();}
+                    case "/api/procedures086/test-unconditional-fit" -> {if(!"1".equals(System.getenv("FRAYNIX_WORKSPACE_TEST")))throw new IllegalStateException("Isolated test runtime required");SpatialScene.keys(input,"pairs");result=costs087.measuredFit(input.getJSONArray("pairs"));}
                     case "/api/procedures080/protocol" -> {SpatialScene.keys(input);try(var in=TaskCost080.class.getResourceAsStream("/procedures080-protocol.json")){result=new JSONObject(new String(in.readAllBytes(),java.nio.charset.StandardCharsets.UTF_8));}}
                     case "/api/procedures079/memories" -> {SpatialScene.keys(input);result=new JSONObject().put("memories",goals.memories079());}
                     case "/api/procedures079/export" -> {SpatialScene.keys(input,"id");result=goals.exportProcedure079(input.getString("id"));}
                     case "/api/procedures079/protocol" -> {SpatialScene.keys(input);try(var in=Procedure079.class.getResourceAsStream("/procedures079-protocol.json")){result=new JSONObject(new String(in.readAllBytes(),java.nio.charset.StandardCharsets.UTF_8));}}
-                    case "/api/world/start" -> result=goals.startWorld(input);
+                    case "/api/world/start" -> {var args087=input;result=costs087.start(()->goals.startWorld(args087));}
                     case "/api/rehearsal073/list" -> result=new JSONObject().put("episodes",goals.experiments073());
                     case "/api/rehearsal073/remember" -> {SpatialScene.keys(input,"goalId");result=goals.remember073(input.getString("goalId"));}
                     case "/api/rehearsal073/read" -> {SpatialScene.keys(input,"id");result=goals.readExperiment073(input.getString("id"));}
@@ -450,13 +451,13 @@ public final class WorkspaceServer implements AutoCloseable {
                     case "/api/goals/spatial-start" -> result=goals.startSpatial(input);
                     case "/api/goals/data-start" -> result=goals.startData(input);
                     case "/api/goals/start" -> result=goals.start(input);
-                    case "/api/goals/read" -> result=GoalRunner.view(goals.read(input.getString("id")));
+                    case "/api/goals/read" -> result=costs087.read(input.getString("id"));
                     // Never acquire the workflow monitor while holding goals: the supervisor owns that lock order.
                     case "/api/goals/list" -> result=new JSONObject().put("goals",goals.list()).put("procedures",goals.procedures());
                                         case "/api/goals/resume" -> result=goals.resume(input.getString("id"));
                                         case "/api/goals/ack" -> result=goals.acknowledge(input);
                     case "/api/procedures/save" -> result=goals.saveProcedure(input.getString("goalId"),input.getString("name"));
-                    case "/api/procedures/run" -> result=goals.runProcedure(input);
+                    case "/api/procedures/run" -> {var args087=input;result=costs087.start(()->goals.runProcedure(args087));}
                     case "/api/brain/calibration-trace" -> result=brain.calibrationTrace068(input);
                     case "/api/brain/useful-trace" -> result=brain.usefulTrace072(input);
                     case "/api/brain/uncertain-trace" -> result=brain.uncertainTrace071(input);
@@ -599,7 +600,7 @@ public final class WorkspaceServer implements AutoCloseable {
         return switch(route){
             case "/api/state"->state();
             case "/api/alignment041/state"->alignment041.state();
-            case "/api/goals/read"->GoalRunner.view(goals.read(args.getString("id")));
+            case "/api/goals/read"->costs087.read(args.getString("id"));
             case "/api/workflows/read"->workflows.read(args.getString("id"));
             case "/api/calibration/read"->calibrations.read(args.getString("id"));
             case "/api/calibration/resume"->calibrations.resume(args.getString("id"));
@@ -621,7 +622,7 @@ public final class WorkspaceServer implements AutoCloseable {
             case "/api/knowledge/cancel"->knowledge.control(args.getString("id"),"cancel");
             case "/api/calibration/cancel"->calibrations.cancel(args.getString("id"));
             case "/api/body/cancel"->scenes.cancelOwnedBody(args.getString("id"),args.getString("runId"));
-            case "/api/procedures/run"->{if(observations.busy()||tabletop.busy()||alignment041.busy()||goals.workflowReserved())throw new IllegalStateException("Stop the owning observation or workflow before starting a different procedure");yield goals.runProcedure(args);}
+            case "/api/procedures/run"->{if(observations.busy()||tabletop.busy()||alignment041.busy()||goals.workflowReserved())throw new IllegalStateException("Stop the owning observation or workflow before starting a different procedure");yield costs087.start(()->goals.runProcedure(args));}
             case "/api/workflows/reuse"->{if(observations.busy()||tabletop.busy()||alignment041.busy())throw new IllegalStateException("Stop the owning observation before starting a workflow");yield workflows.reuse(args);}
             default->throw new IllegalArgumentException("Java internal operation not registered");
         };

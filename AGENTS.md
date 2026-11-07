@@ -1,5 +1,10 @@
 # Fraynix Studio collaboration and documentation
 
+## Edition087 — implementation and validation in progress
+
+Isolated D:/Codex-Work/fraynix-workspace-edition087 from82dfd254; prospective contractd57a5988. Read docs/EDITION_087_CONTRACT.md. Java learns fit/check allowances from owned actual timings, with matched workload/profile/volume and explicit fallback. Original motion/proof authority preserved. Initial24 focused tests passed; broader tests and frozen25-goal study are next, no measured payoff claim yet. Preserve normal045/qa046 and001–086. No subagents. README087/screenshots/notes and actual main/edition087/readme-087 push remain.
+
+
 ## Edition086 — published and fetched back
 
 Release 048f7d50f1ce4c2e1907875aec64c0ba6aa77418; readme-086 tag object 6e030ce070e2b760084882c654f1b9f223eeb444. Atomic publication to Fraynix-Agent-Workspace main and edition086 succeeded and was fetched back. Verified 1191 canonical sources, 18390 frozen hashes across86 editions, and 920 logical original archives including decompressed bytes. Documentation: 91 canvases, 13231 references. [Publication receipt](docs/PUBLICATION_086.json).
