@@ -132,6 +132,6 @@ final class CalibrationCosts087 {
             result.put("allowances087",p.getJSONObject("preview").getJSONObject("allowances087"));result.getJSONObject("admission").put("allowances087",result.getJSONObject("allowances087"));AgentFiles042.saveChecked(project.resolve("calibration-costs-087/last-decision.json"),result);return result;
         }}
     }
-    JSONObject review()throws Exception {synchronized(goals){synchronized(this){return admission.review().put("allowanceSamples087",history().getJSONArray("samples").length()).put("allowanceMode087","measured").put("recordingWarning087",recordingWarning);}}}
+    JSONObject review()throws Exception {synchronized(goals){synchronized(this){return admission.review().put("resources088",CalibrationResources088.summarize(history().getJSONArray("samples"),TaskCost080.profile(),WorldProcedure079.code(),Instant.now())).put("allowanceSamples087",history().getJSONArray("samples").length()).put("allowanceMode087","measured").put("recordingWarning087",recordingWarning);}}}
     JSONObject decisions()throws Exception{return admission.history();}
 }
