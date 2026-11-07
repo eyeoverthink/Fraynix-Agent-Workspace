@@ -17,6 +17,9 @@ function inspect(folder){
   if(row.skillName){assert.equal(row.savedProcedure.sourceGoalId,row.goalId);assert.equal(row.savedProcedure.id,row.goal.savedSkill.id);assert.deepEqual(row.savedProcedure.defaults.targets,row.job.args.targets);if(row.policy!=='simple')assert.equal(row.savedProcedure.defaults.procedureReceipt085,r.receiptId);}
   console.error('VERIFIED',row.id,row.policy,'bank',row.bankBefore.count,'->',row.bankAfter.count);
  }
+ let preparedPrevious=r.training[0].bankAfter.sha256;assert.equal(r.training[0].bankAfter.count,1);
+ for(let i=0;i<fitRows.length;i++){const row=fitRows[i];assert.equal(row.bankBefore.sha256,preparedPrevious);assert.equal(row.bankBefore.count,i+1);assert.equal(row.bankAfter.count,i+2);preparedPrevious=row.bankAfter.sha256;}
+ const preparationBank=fs.readFileSync(path.join(r.project,'world-procedures-079/bank.json'));assert.equal(sha(preparationBank),preparedPrevious);assert.equal(preparedPrevious,r.frozenBankSha);const preparedEntries=JSON.parse(preparationBank).data.entries;assert.equal(preparedEntries.length,13);for(const row of [...r.training,...fitRows])assert(preparedEntries.some(x=>x.id===row.goalId));
  const calibrationGoals=new Set(fitRows.map(x=>x.goalId));assert.equal(calibrationGoals.size,12);const repeats=new Map();
  for(const p of r.model.pairs){const row=fitRows.find(x=>x.goalId===p.memoryId);assert(row);assert.equal(p.memoryBankEntries,row.bankBefore.count);repeats.set(p.taskSha256,(repeats.get(p.taskSha256)||0)+1);assert.equal(p.receiptId,r.receiptId);assert.deepEqual(p.workload,{retain:true,skill:true});}
  assert.deepEqual([...repeats.values()],[3,3]);assert.equal(r.model.version,'growing-bank-complete-task-cost-085-v1');assert(r.fitMillis>=r.model.setup085.fitMillis);
