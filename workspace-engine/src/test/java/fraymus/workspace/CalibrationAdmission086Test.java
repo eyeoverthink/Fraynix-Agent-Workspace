@@ -21,8 +21,8 @@ public class CalibrationAdmission086Test {
     static JSONObject seed(Path root,boolean positive)throws Exception {
         var selected=new JSONArray();for(int i=0;i<6;i++){
             String a=UUID.randomUUID().toString(),b=UUID.randomUUID().toString();
-            var s=TaskCost080Test.measured(a,"simple",10000,i%2*.01).put("code",WorldProcedure079.code());
-            var m=TaskCost080Test.measured(b,"memory",positive?1000:12000,i%2*.01).put("code",WorldProcedure079.code());
+            var s=TaskCost080Test.measured(a,"simple",10000,i%2).put("code",WorldProcedure079.code());
+            var m=TaskCost080Test.measured(b,"memory",positive?1000:12000,i%2).put("code",WorldProcedure079.code());
             for(var c:List.of(s,m))AgentFiles042.saveChecked(root.resolve("world-procedures-079").resolve(c.getString("id")).resolve("cost080.json"),c);
             selected.put(new JSONObject().put("simpleId",a).put("memoryId",b));
         }return new JSONObject().put("pairs",selected).put("budget",budget());

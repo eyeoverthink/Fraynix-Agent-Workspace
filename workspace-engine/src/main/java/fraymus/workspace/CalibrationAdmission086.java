@@ -62,38 +62,39 @@ final class CalibrationAdmission086 {
             .put("assumption","Future tasks resemble this cohort. Budgets are planning assumptions, not deadlines. Historical work is already spent; future bank changes and drift can invalidate the forecast.");
     }
     private Path costPath(String id){if(!UUID.fromString(id).toString().equals(id))throw new IllegalArgumentException("Canonical goal ID required");return root.resolve(id).resolve("cost080.json");}
-    private JSONObject cost(String id)throws Exception {
+    private JSONObject cost(String id,String code)throws Exception {
         var c=AgentFiles042.loadChecked(costPath(id));
-        if(!c.getString("id").equals(id)||!c.getString("code").equals(WorldProcedure079.code())||!c.getJSONObject("profile").similar(TaskCost080.profile()))
+        if(!c.getString("id").equals(id)||!c.getString("code").equals(code)||!c.getJSONObject("profile").similar(TaskCost080.profile()))
             throw new IllegalStateException("Cost proposal belongs to a different goal, implementation or runtime");
         return c;
     }
     synchronized JSONObject preview(JSONObject request)throws Exception {
         long began=System.nanoTime();SpatialScene.keys(request,"pairs","budget");var selected=request.getJSONArray("pairs");
         if(selected.length()>8)throw new IllegalArgumentException("At most eight comparison pairs");
-        var pairs=new JSONArray();var inputs=new JSONArray();long bytes=0;var seen=new HashSet<String>();
-        for(Object raw:selected){var p=(JSONObject)raw;SpatialScene.keys(p,"simpleId","memoryId");
-            for(String key:List.of("simpleId","memoryId")){String id=p.getString(key);if(!seen.add(id))throw new IllegalArgumentException("Duplicate original goal");var c=cost(id);long n=Files.size(costPath(id));bytes+=n;inputs.put(new JSONObject().put("id",id).put("sha256",WorldFrames.hash(c)).put("bytes",n));}
-            pairs.put(TaskCost080.pair(cost(p.getString("simpleId")),cost(p.getString("memoryId"))));
+        var pairs=new JSONArray();var inputs=new JSONArray();long bytes=0;var seen=new HashSet<String>();String code=WorldProcedure079.code();
+        for(Object raw:selected){var p=(JSONObject)raw;SpatialScene.keys(p,"simpleId","memoryId");var costs=new ArrayList<JSONObject>();
+            for(String key:List.of("simpleId","memoryId")){String id=p.getString(key);if(!seen.add(id))throw new IllegalArgumentException("Duplicate original goal");var c=cost(id,code);costs.add(c);long n=Files.size(costPath(id));bytes+=n;inputs.put(new JSONObject().put("id",id).put("sha256",WorldFrames.hash(c)).put("bytes",n));}
+            pairs.put(TaskCost080.pair(costs.get(0),costs.get(1)));
         }
         var out=assess(pairs,request.optJSONObject("budget",defaults()));
-        return out.put("inputs",inputs).put("selected",WorldFrames.copy(request)).put("proposalSha256",WorldFrames.hash(pairs))
+        return out.put("inputs",inputs).put("selected",WorldFrames.copy(request)).put("proposalSha256",WorldFrames.hash(new JSONObject().put("pairs",pairs)))
             .put("summaryBytes",bytes).put("originalTraceBytes",0).put("preflightMillis",(System.nanoTime()-began)/1e6);
     }
     synchronized JSONObject review()throws Exception {
-        var costs=new ArrayList<JSONObject>();var skipped=new JSONArray();
+        var costs=new ArrayList<JSONObject>();var skipped=new JSONArray();String code=WorldProcedure079.code();
         if(Files.isDirectory(root))try(var dirs=Files.list(root)){
             var paths=dirs.filter(p->Files.isRegularFile(p.resolve("cost080.json"))).sorted().limit(65).toList();
             if(paths.size()>64)throw new IllegalStateException("Bounded review supports at most64 completed goals");
-            for(var p:paths)try{costs.add(cost(p.getFileName().toString()));}catch(Exception e){skipped.put(new JSONObject().put("id",p.getFileName().toString()).put("reason",e.getMessage()));}
+            for(var p:paths)try{costs.add(cost(p.getFileName().toString(),code));}catch(Exception e){skipped.put(new JSONObject().put("id",p.getFileName().toString()).put("reason",e.getMessage()));}
         }
         var pairs=new JSONArray();for(var a:costs)for(var b:costs)if(a.optString("mode").equals("simple")&&b.optString("mode").equals("memory"))try{pairs.put(TaskCost080.pair(a,b));}catch(IllegalArgumentException incompatible){}
-        return new JSONObject().put("pairs",pairs).put("calibration",new JSONObject()).put("skipped",skipped).put("defaults",defaults())
+        var entries=history().getJSONArray("entries");
+        return new JSONObject().put("lastDecision",entries.isEmpty()?new JSONObject():entries.getJSONObject(entries.length()-1)).put("pairs",pairs).put("calibration",new JSONObject()).put("skipped",skipped).put("defaults",defaults())
             .put("scope","Cheap proposal review only; existing models and native evidence have not been loaded.");
     }
     synchronized JSONObject history()throws Exception{return Files.exists(journal)?AgentFiles042.loadChecked(journal):new JSONObject().put("entries",new JSONArray());}
     private void record(JSONObject receipt)throws Exception {
-        var entries=history().getJSONArray("entries"),next=new JSONArray();
+        var entries=history().getJSONArray("entries");var next=new JSONArray();
         for(Object raw:entries)if(!((JSONObject)raw).getString("id").equals(receipt.getString("id")))next.put(raw);
         if(next.length()>=64)next.remove(0);next.put(receipt);AgentFiles042.saveChecked(journal,new JSONObject().put("entries",next));
     }
