@@ -90,7 +90,7 @@ public class TaskCost089Test {
     }
     @Test public void simpleAndFixedMemoryKeepTheirExistingChoices() {
         for(String mode:new String[]{"simple","memory","adaptive"}){
-            var cs=new JSONArray().put(TaskCost085Test.candidate());
+            var cs=new JSONArray().put(TaskCost085Test.candidate().put("lowerSavingMillis",1000));
             assertTrue(TaskCost085.choose(TaskCost080Test.spec(0),mode,cs,TaskCost080Test.workload(),new JSONObject(),"",1).similar(TaskCost089.choose(TaskCost080Test.spec(0),mode,cs,TaskCost080Test.workload(),model(),"",1,"paired089")));
         }
     }
