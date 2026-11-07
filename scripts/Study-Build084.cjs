@@ -18,7 +18,9 @@ if(require.main===module){
  const root=path.resolve(__dirname,'..');
  if(process.argv.includes('--stamp')){
   const own=path.join(root,'workspace-engine/build/install/workspace-engine/lib/workspace-engine.jar'),built=fs.statSync(own).mtimeMs;
-  for(const file of files(root).inputs)assert(fs.statSync(path.join(root,file)).mtimeMs<=built,'Input newer than installed engine: '+file);
+  // Desktop sources are loaded directly by Electron and are hashed in the receipt.
+  // Compiled Java/build inputs must predate the installed engine artifact.
+  for(const file of files(root).inputs)if(!file.startsWith('workspace-desktop/'))assert(fs.statSync(path.join(root,file)).mtimeMs<=built,'Compiled input newer than installed engine: '+file);
   const receipt={source:cp.execFileSync('git',['rev-parse','HEAD'],{cwd:root,encoding:'utf8'}).trim(),createdAt:new Date().toISOString(),files:current(root),scope:'Input/artifact receipt after successful Gradle build; verify again before launch and after the study. Not a replacement for original outcome verification.'};
   fs.writeFileSync(path.join(root,'build/study084-build.json'),JSON.stringify(receipt,null,2)+'\n');console.log('Prepared study build receipt');
  }else{verify(root);console.log('Current inputs and installed artifacts match the study build receipt');}
