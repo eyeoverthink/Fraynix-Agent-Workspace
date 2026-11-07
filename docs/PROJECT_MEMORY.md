@@ -2,7 +2,7 @@
 
 ## Edition089 - implementation in progress
 
-Isolated D:/Codex-Work/fraynix-workspace-edition089 from ba5d3f51; prospective contract e97a531e. Add same-owner adjacent paired cost uncertainty with both execution orders, retain 085 fallback and all original outcome checks. Frozen 64-goal/three-fit study:2CPU/512MiB,12 held-out tasks per four policies, three rotated blocks, explicit restart/warmup accounting. Read docs/EDITION_089_CONTRACT.md. Preserve normal045/qa046 and001-088; no subagents. Next: regression, actual study, independent evidence inspection, README089/screenshots/notes and verified publication. No results or payoff claim yet.
+Isolated D:/Codex-Work/fraynix-workspace-edition089 from ba5d3f51; prospective contract e97a531e. Add same-owner adjacent paired cost uncertainty with both execution orders, retain 085 fallback and all original outcome checks. Frozen 76-goal/three-fit study (including12actual block warmups):2CPU/512MiB,12 held-out tasks per four policies, three rotated blocks, explicit restart/warmup accounting. Read docs/EDITION_089_CONTRACT.md. Preserve normal045/qa046 and001-088; no subagents. Next: regression, actual study, independent evidence inspection, README089/screenshots/notes and verified publication. No results or payoff claim yet.
 
 
 ## Edition088 — published and fetched back
