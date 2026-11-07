@@ -11,6 +11,7 @@ for(const row of all){
  const root=path.join(row.project,'world-procedures-079'),x=read(path.join(folder,row.originalFile));tasks.set(row.goalId,x.cost080.task);clocks.set(row.goalId,x.cost080.clock089);
  const c=inspectProcedure(x,root);assert(c.success);inspectCommit(x,root,row.goal);inspectCost(x,root,row.goal);checked.push(c);
  assert.equal(row.status,'completed');assert.equal(row.before.profile.cpus,2);assert.equal(row.before.configuredMaxHeapBytes,512*1024*1024);assert.equal(row.beforeOS.affinity,row.afterOS.affinity);assert.equal(BigInt(row.beforeOS.affinity).toString(2).split('1').length-1,2);
+ assert.deepEqual(row.goal.taskCost080.profile,row.before.profile);assert(row.callerMillis>=row.goal.taskCost080.totalMillis);
  if(row!==r.training[0]){assert.equal(row.bankBefore.count,1);assert.equal(row.bankAfter.sha256,row.bankBefore.sha256);assert(!row.goal.taskCost080.workload.retain);assert(!row.goal.taskCost080.workload.skill);}
  console.error('VERIFIED',row.id,row.policy);
 }
@@ -28,6 +29,7 @@ const decisions=[];
 for(const row of r.rows.filter(x=>x.policy==='paired089')){
  const j=row.job,e=j.decision.cost080,old=estimate089(r.model,j.decision.candidate,j.spec,j.args.workload080,j.bankSnapshot.length,true),simple=r.rows.find(x=>x.id===row.id&&x.policy==='simple'),memory=r.rows.find(x=>x.id===row.id&&x.policy==='memory');
  const observed=simple.goal.taskCost080.totalMillis-memory.goal.taskCost080.totalMillis,paired=estimate089(r.model,j.decision.candidate,j.spec,j.args.workload080,j.bankSnapshot.length,false);
+ const reference=r.rows.find(x=>x.id===row.id&&x.policy==='reference085');assert.equal(reference.job.decision.useMemory,Boolean(old.available&&old.lowerSavingMillis>0));
  decisions.push({id:row.id,index:row.sequenceIndex,estimator:e.estimator089,useMemory:j.decision.useMemory,referenceUse:old.available&&old.lowerSavingMillis>0,referenceLower:old.lowerSavingMillis,lower:e.lowerSavingMillis,upper:e.upperSavingMillis,margin:e.marginMillis,referenceMargin:old.marginMillis,pairedRange:e.pairedRangeMillis??null,orderMargin:e.orderMarginMillis??null,observedSavingMillis:observed,intervalHit:e.available&&observed>=e.lowerSavingMillis&&observed<=e.upperSavingMillis,referenceIntervalHit:old.available&&observed>=old.lowerSavingMillis&&observed<=old.upperSavingMillis});
  assert.equal(paired.estimator089,e.estimator089);
 }
