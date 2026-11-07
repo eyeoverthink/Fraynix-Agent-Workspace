@@ -2,7 +2,7 @@
 
 **Latest: [edition086 — calibration admission before spending](README-086.md).**
 
-Edition086 is validated locally; publication verification follows.
+Edition086 is published to main with code, measurements, screenshots and exact original evidence. [Fetched GitHub verification](docs/PUBLICATION_086.json).
 
 
 **Earlier edition: [edition085 — growing memory and calibration payback](README-085.md).**

@@ -1,5 +1,16 @@
 # Agent Workspace development log
 
+## Edition086 — published and fetched back
+
+Release 048f7d50f1ce4c2e1907875aec64c0ba6aa77418; readme-086 tag object 6e030ce070e2b760084882c654f1b9f223eeb444. Atomic publication to Fraynix-Agent-Workspace main and edition086 succeeded and was fetched back. Verified 1191 canonical sources, 18390 frozen hashes across86 editions, and 920 logical original archives including decompressed bytes. Documentation: 91 canvases, 13231 references. [Publication receipt](PUBLICATION_086.json).
+
+The new Java gate declines unprofitable new calibration before reading original traces. A positive proposal still enters the original full verifier. Explicit horizon/allowances, future collection budget, durable receipts, cheap UI review and simple-control recommendation with fresh confirmation. Existing models/worlds are preserved on decline; executed world and skill verification remains mandatory. Only WorkspaceServer among prior compiled engine classes changed;324 prior classes are byte-identical to085. New admission classes are outside motion proof identity. Original085 comparisons are reused and labelled, not recollected or relabelled.
+
+199 unique Java tests/29 classes and 135 desktop checks pass. The audit caught an omitted11-test class in the adapted test script; those11 and the final12 admission tests passed before the benchmark. Four of four new native goals succeeded on two repeated085 scene definitions, all four saved skills/worlds survived reopening, both banks13→15. Actual positive-path forged-summary attempt reached unchanged verification and was refused; exact restoration and no new model/world. New fitting saved 85.11s including the guarded click; setup-plus-two-task caller saving 94.13s. Small single-machine descriptive comparison, not a future or profitable-cohort guarantee. Preflight timings, native checks, complete task costs, model-check bytes, and scope exclusions retained in exact evidence. App1600/1100 and offline1440/390 checks and screenshots pass.
+
+README086, screenshots, source inventory, offline explorer, original evidence and Obsidian94/map published. Test apps closed; normal045/qa046/private data preserved. No new LLM inference, weight training or physical camera claim. Next: update allowances from measured fit/check costs, then test profitable held-out cohorts, drift, repeated decisions and useful fits wrongly declined. Preserve001–086; next unused087. No subagents. This publication receipt follows the immutable release tag.
+
+
 ## Edition086 — validated locally; publication next
 
 **Four of four new native goals completed, and all four saved skills survived restart.** The gate declined the real negative-saving cohort. Three preflights took 510.93, 368.78, 308.83 ms; each read 256,435 bytes of summaries and zero native trace bytes. The measured new fitting cost avoided, including the guarded click, was 85.11 s. Net caller saving across fitting plus the two-task sequence was 94.13 s. These are measured single-machine results, not a general speed guarantee.
