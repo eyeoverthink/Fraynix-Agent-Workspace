@@ -19,8 +19,9 @@ const {launch}=require('./calibration-integration.cjs'),fs=require('node:fs/prom
    await page.waitForFunction(id=>document.querySelector('#object-detail').textContent.includes(id),s.row.goal.report.id);
    await page.locator('#preview-tab').click();await page.waitForTimeout(600);
    assert(await page.locator('#preview-tab').evaluate(e=>e.classList.contains('selected')));
-   const text=await app.evaluate(()=>global.workspaceTest.canvasRead('document.body.innerText'));
-   assert(typeof text==='string'&&text.includes('Verified world procedure'));
+   const text=await app.evaluate(()=>global.workspaceTest.canvasRead('document.querySelector("#procedure079-decision").innerText'));
+   assert(typeof text==='string'&&text.includes('Memory decision from measured cost'));
+   if(s.row.policy==='guarded090')assert(text.includes('Cost freshness: '+s.row.job.decision.freshness090.status));
    for(const width of s.widths){
     await app.evaluate(({BrowserWindow},w)=>BrowserWindow.getAllWindows().find(x=>x.isVisible()).setSize(w,1100),width);await page.waitForTimeout(400);
     assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));
