@@ -46,54 +46,6 @@ async function main(){
   return row;
  }
 
-
- try{
-  await open(project,'mixed-study');
-  const seed=await run(protocol.training,await create(protocol.training),'parallel','simple',true);
-  record.training.push(seed);assert.equal(seed.status,'completed');record.receiptId=seed.goalId;await save();
-  for(let repeat=0;repeat<3;repeat++)for(let i=0;i<2;i++){
-   const spec={...protocol.calibration[i],id:`090-fit-${i}-${repeat}`},results={};
-   for(const policy of ((repeat+i)%2?['memory','simple']:['simple','memory'])){
-    const row=await run(spec,await create(spec),'parallel',policy,false);results[policy]=row;assert.equal(row.status,'completed');
-   }
-   record.calibration.push({id:spec.id,repeat,results});await save();
-  }
-  const pairs=record.calibration.map(x=>({simpleId:x.results.simple.goalId,memoryId:x.results.memory.goalId}));record.selected=pairs;
-  const fitAt=performance.now();record.model=await api('/api/procedures086/test-unconditional-fit',{pairs});record.fits.push({model:record.model,callerMillis:performance.now()-fitAt});
-  record.frozenModelSha=sha(JSON.stringify(record.model));await check('Fresh original comparison pairs and one full fit frozen before mixed evaluation; production spending gate unchanged');
-  for(let i=0;i<protocol.cases.length;i++){
-   const spec=protocol.cases[i],order=[...protocol.policies];order.push(...order.splice(0,i%3));
-   for(const policy of order){const row=await run(spec,await create(spec),'parallel',policy,false);row.sequenceIndex=i;row.condition=spec.condition;record.rows.push(row);await save();assert.equal(row.status,'completed');
-    if(policy==='guarded090'){assert(row.job.decision.freshness090);assert.deepEqual(row.job.calibration080,record.model);}
-   }
-   await check(`Mixed task ${i+1}: three actual verified outcomes (${spec.condition})`);
-  }
-  const covered=record.rows.filter(x=>x.policy==='guarded090'&&x.condition==='occupied').at(-1),uncovered=record.rows.filter(x=>x.policy==='guarded090'&&x.condition==='relocated-obstacles').at(-1);
-  for(const [label,row] of [['covered',covered],['changed-scene',uncovered]]){await report(row.goalId);for(const w of [1600,1100]){await app.evaluate(({BrowserWindow},w)=>BrowserWindow.getAllWindows().find(x=>x.isVisible()).setSize(w,1100),w);await sleep(300);assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));await capture(label+'-report-'+w);}}
-  // Rechecking a completed goal must refuse changed supporting evidence without changing the world.
-  const recent=covered.job.freshnessEvidence090?.[0];
-  if(recent){
-   const id=recent.observation.id,root=path.join(project,'world-procedures-079'),file=path.join(root,id,'cost080.json'),original=await fs.readFile(file),v=JSON.parse(original),{canonical}=require('../../scripts/Inspect-Spatial040.cjs');
-   const previous=await api('/api/world/observe',{worldId:covered.binding.worldId});
-   try{v.data.totalMillis+=1;v.sha256=sha(canonical(v.data));await fs.writeFile(file,JSON.stringify(v));
-    let error='';try{await api('/api/procedures090/verify',{id:covered.goalId});}catch(e){error=e.message;}
-    assert(error.includes('Freshness')||error.includes('freshness'));record.changedRecentCostRefusal=error;
-   }finally{await fs.writeFile(file,original);}
-   const trace=recent.anchor.evidence.find(x=>x.path.endsWith('/original.json'));assert(trace);
-   const traceFile=path.resolve(root,trace.path);assert(traceFile.startsWith(root+path.sep));const traceBytes=await fs.readFile(traceFile);
-   try{await fs.writeFile(traceFile,Buffer.concat([traceBytes,Buffer.from(' ')]));let error='';try{await api('/api/procedures090/verify',{id:covered.goalId});}catch(e){error=e.message;}assert(error.includes('freshness')||error.includes('Freshness'));record.changedTraceRefusal=error;}finally{await fs.writeFile(traceFile,traceBytes);}
-   assert.equal((await api('/api/world/observe',{worldId:covered.binding.worldId})).expectedHash,previous.expectedHash);
-  }
-  record.finalVerification=[];for(const row of record.rows){const at=performance.now(),v=await api('/api/procedures090/verify',{id:row.goalId});assert(v.passed);record.finalVerification.push({id:row.goalId,callerMillis:performance.now()-at,result:v});await save();}
-  record.finalReview={covered:covered.goalId,uncovered:uncovered.goalId,world:uncovered.observed};await close();await open(project,'cold-review');
-  const restored=await api('/api/world/observe',{worldId:uncovered.binding.worldId});assert.equal(restored.expectedHash,uncovered.observed.expectedHash);assert.equal(restored.expectedRevision,uncovered.observed.expectedRevision);
-  for(const row of [covered,uncovered]){const exported=await api('/api/procedures079/export',{id:row.goalId}),original=JSON.parse(await fs.readFile(path.join(out,row.originalFile),'utf8'));assert.deepEqual(exported.job,row.job);assert.deepEqual(exported.cost080,original.cost080);}
-  for(const row of [covered,uncovered])assert((await api('/api/procedures090/verify',{id:row.goalId})).passed);
-  await report(uncovered.goalId);await capture('cold-restart-report');
-  record.errors=errors;assert.deepEqual(errors,[]);record.passed=true;record.finishedAt=new Date().toISOString();await close();require('../../scripts/Study-Build090.cjs').verify(repo);await fs.writeFile(path.join(out,'result.json'),JSON.stringify(record,null,2));console.log('PASS edition090 actual mixed-task study');
- }finally{if(app)await close();await save();}
-}
-main().catch(e=>{console.error(e);process.exitCode=1;});
  async function inventory(dir){const rows=[];async function walk(base){for(const e of await fs.readdir(base,{withFileTypes:true})){if(['desktop-profile','engine.log','test-desktop-process.log','host.json'].includes(e.name))continue;const p=path.join(base,e.name);assert(!e.isSymbolicLink());if(e.isDirectory())await walk(p);else{const b=await fs.readFile(p);rows.push({path:path.relative(dir,p).split(path.sep).join('/'),bytes:b.length,sha256:sha(b)});}}}await walk(dir);return rows.sort((a,b)=>a.path.localeCompare(b.path));}
  async function clone(from,to,expected){assert(!sync.existsSync(to));await fs.cp(from,to,{recursive:true,filter:p=>!['desktop-profile','engine.log','test-desktop-process.log','host.json'].includes(path.basename(p))});assert.deepEqual(await inventory(to),expected);}
 
