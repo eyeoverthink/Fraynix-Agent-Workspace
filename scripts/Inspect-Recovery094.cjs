@@ -1,0 +1,29 @@
+'use strict';
+const fs=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict'),crypto=require('node:crypto');
+const {inspectProcedure,inspectCommit,inspectCost}=require('./Inspect-Procedures093.cjs'),{canonical}=require('./Inspect-Spatial040.cjs'),{unpack,metrics}=require('./Inspect-Counterfactual045.cjs');
+const hash=x=>crypto.createHash('sha256').update(canonical(x)).digest('hex'),read=p=>JSON.parse(fs.readFileSync(p,'utf8'));
+const repo=path.resolve(__dirname,'..'),out=path.join(repo,'build/ui094-study'),r=read(path.join(out,'result.json')),root=path.join(r.project,'world-procedures-079');assert(r.passed);assert.equal(r.rows.length,7);
+function owned(p){const e=read(p);assert.equal(hash(e.data),e.sha256);return e.data;}
+const checks=[];
+for(const row of r.rows){
+ const x=read(path.join(out,row.originalFile)),j=x.job;assert.deepEqual(j,row.job);assert.deepEqual(owned(path.join(root,j.id,'goal.json')),j);inspectCommit(x,root,row.goal);
+ const runs=new Map(x.originals.map(p=>{const z=unpack(p);return[z.id,z];}));
+ for(const p of row.prefixes){const prefix=read(path.join(out,p.file));assert.equal(p.goal.status,'interrupted');assert(prefix.job.arm.attempts.some(a=>a.stage===p.stage&&a.status==='interrupted'));for(const packed of prefix.originals){const prior=unpack(packed),current=runs.get(prior.id);assert.deepEqual(current.samples.slice(0,prior.samples.length),prior.samples);if(prior.status==='completed')assert.deepEqual(current,prior);}}
+ const extra=j.arm.attempts.filter(a=>a.stage.startsWith('reforecast/'));let result;
+ {
+  result=inspectProcedure(x,root);assert(result.success);assert(row.fullVerify.passed);assert.equal(row.goal.worldCommit.revision,1);assert.equal(row.goal.resumes,row.prefixes.length);assert.equal(extra.length,row.prefixes.length?(row.kind==='crash-middle'?1:2):0);
+  if(!row.prefixes.length)inspectCost(x,root,row.goal);else{
+   const c=x.cost080;assert.deepEqual(c,owned(path.join(root,j.id,'cost080.json')));const summary={...c};delete summary.goal;delete summary.spec;delete summary.task;assert.deepEqual(summary,row.goal.taskCost080);assert.equal(c.jobSha256,hash(j));assert.equal(c.code,j.code);assert.equal(c.id,j.id);assert.equal(c.completed,true);assert.equal(c.eligible,false);assert.equal(c.totalMillis,0);assert(!c.clock089);assert.equal(c.executionMillis,j.activeMillis);assert.equal(j.resumes,row.prefixes.length);assert.deepEqual(c.goal.worldCommit,row.goal.worldCommit);assert(c.goal.poseView.passed);assert.deepEqual(c.spec,j.spec);assert(Math.abs(c.nativeStageMillis-j.arm.attempts.reduce((n,a)=>n+a.wallMillis,0))<1e-6);
+   for(const a of extra){assert(a.metrics.passed);const interrupted=row.interruptions.some(i=>i.stage===a.stage);assert.equal(runs.get(a.id).resumes||0,interrupted?1:0);assert.equal(a.unknownTail||false,interrupted);}
+  }
+ }
+ assert.equal(j.arm.programs[j.arm.selected].forecast.length,3);assert.equal(j.arm.programs[j.arm.selected].actual.length,3);
+ for(const i of row.interruptions){
+  assert(i.durablePrefixPreserved);for(const p of i.persisted){const b=fs.readFileSync(path.join(out,p.file));assert.equal(b.length,p.bytes);assert.equal(crypto.createHash('sha256').update(b).digest('hex'),p.sha256);}
+  const e=read(path.join(out,i.persisted.find(x=>x.kind==='checkpoint').file));assert.equal(hash(e.payload),e.sha256);const n=e.payload.run,final=runs.get(n.id);assert.equal(n.id,i.before.attempt.id);assert.equal(e.payload.physics.tick,i.committedTick);assert.deepEqual(final.samples.slice(0,n.samples.length),n.samples);assert(final.events.some(x=>x.kind==='resume'&&x.checkpointSha256===e.sha256));
+  if(i.method==='kill'){const p=i.process,b=r.boots[i.boot];assert(p.exited);assert.equal(p.gracefulShutdownRequested,false);assert.equal(p.pid,b.resources.pid);assert.equal(p.parentPid,b.parentPid);assert.equal(Date.parse(p.startUtc),Date.parse(b.pinned.startUtc));assert(Date.parse(p.afterKillUtc)>=Date.parse(p.beforeKillUtc));assert.equal(path.resolve(p.project),path.resolve(r.project));assert(p.commandLine.includes('fraymus.workspace.WorkspaceServer'));assert.equal(n.status,'running');}
+ }
+ assert(row.prefixPreserved);checks.push({kind:row.kind,id:j.id,success:result.success,ticks:result.ticks,stages:result.stages,callerMillis:row.callerMillis,restartMillis:row.restartMillis,reforecasts:extra.length,forecastChargedTicks:extra.reduce((n,a)=>n+a.chargedTicks,0),forecastObservedTicks:extra.reduce((n,a)=>n+a.observedTicks,0),forecastWallMillis:extra.reduce((n,a)=>n+a.wallMillis,0),resumes:j.resumes,costEligible:x.cost080?.eligible||false});console.log('PASS094 original source, motion, provenance and commit',row.kind);
+}
+assert.equal(r.boots.length,13);for(const b of r.boots){assert.equal(b.resources.profile.cpus,2);assert.equal(b.resources.configuredMaxHeapBytes,512*1024*1024);assert.equal(BigInt(b.pinned.affinity).toString(2).split('1').length-1,2);}assert.equal(r.captures.length,6);assert.deepEqual(r.errors,[]);
+const result={passed:true,source:r.source,verifiedAt:new Date().toISOString(),checks,completed:checks.filter(x=>x.success).length,cancelled:0,abruptTerminations:r.rows.reduce((n,x)=>n+x.interruptions.filter(i=>i.method==='kill').length,0),boots:r.boots.length,scope:'Fresh labelled synthetic three-stage native experiments on two actual CPUs/512MiB; one seed and six declared cases. Exact-owned-PID termination and one graceful close, not power loss. Persisted committed bytes captured before reopening and every resume prefix independently checked. Complete caller times include restarts; resumed monotonic totals unavailable and excluded from calibration. Independent arithmetic is not a second physics solver. No physical accuracy or LLM-training claim.'};fs.writeFileSync(path.join(repo,'build/analysis094.json'),JSON.stringify(result,null,2)+'\n');console.log(JSON.stringify(result,null,2));

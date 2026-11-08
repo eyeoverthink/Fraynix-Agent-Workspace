@@ -22,7 +22,8 @@ async function main(){
  }
  const sha=b=>crypto.createHash('sha256').update(b).digest('hex');
  async function stageRunning(row,stage){return wait(async()=>{
-  const e=JSON.parse(await fs.readFile(path.join(project,'world-procedures-079',row.goalId,'goal.json'),'utf8')),a=e.data.arm.attempts.find(a=>a.stage===stage&&a.status==='running');
+  const goalFile=path.join(project,'world-procedures-079',row.goalId,'goal.json');if(!sync.existsSync(goalFile))return null;
+  const e=JSON.parse(await fs.readFile(goalFile,'utf8')),a=e.data.arm.attempts.find(a=>a.stage===stage&&a.status==='running');
   if(!a){const goal=await api('/api/goals/read',{id:row.goalId});if(['completed','interrupted','cancelled','failed'].includes(goal.status))throw Error('Goal ended before '+stage+': '+JSON.stringify(goal));return null;}
   const file=path.join(project,'world-procedures-079',row.goalId,'attempts',a.id,'world-native/checkpoints',a.id+'.json');if(!sync.existsSync(file))return null;
   const checkpoint=JSON.parse(await fs.readFile(file,'utf8'));return checkpoint.payload.physics.tick>=protocol.interruptTick?{attempt:a,checkpoint}:null;
