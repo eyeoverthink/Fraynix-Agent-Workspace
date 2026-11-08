@@ -1,0 +1,75 @@
+# Contributor entry point — preserve the Fraynix direction
+
+**Updated 2026-11-08, America/Los_Angeles.** Read this before changing the app. This is the current engineering contract, not a new project or a replacement UI. [Current release](README.md) · [Dated repository review](docs/TRAJECTORY_REVIEW_094.md) · [Project memory](docs/PROJECT_MEMORY.md) · [Development log](docs/DEVELOPMENT_LOG.md).
+
+## What the user is building
+
+One local visual agent workspace: natural requests become typed work in an environment the agent can observe, act in, predict, test and remember. The game/runtime is an experimental environment, not decorative content behind a chatbot. Browser, creation canvas, original game, native physics, spatial observations and retained procedures are parts of that same application. Preserve its integrated layout and Java ownership.
+
+A tool performs an action. A skill completes a task using actions, checks and recovery. A memory can suggest a procedure; it cannot certify a new outcome. A continuing clock and neural state provide computation and continuity, not proof of consciousness or general intelligence. Useful improvement means better measured results or lower complete cost on appropriate new tasks.
+
+The user prefers owned Java algorithms and transparent processing over outsourcing the brain. Build on the existing modules. The current system still uses native Bullet/Minie, graphics bindings, Electron/Chromium, JBox2D and optional Ollama models. Do not describe it as dependency-free, replace those working boundaries without evidence, or introduce a framework merely to duplicate existing logic.
+
+## Correct checkout and publication identity
+
+The Java successor is [eyeoverthink/Fraynix-Agent-Workspace](https://github.com/eyeoverthink/Fraynix-Agent-Workspace), derived from the separate Studio. The old Chandra-workspace publication instruction belongs to another application. Do not relocate this system into Chandra or push it to a former component repository.
+
+For edition094, the isolated source checkout is `D:/Codex-Work/fraynix-workspace-edition094`, branch `edition094`, based on verified093 main `24052edef70eba152858dd15f93425c106db39df`. Confirm the current remote and working state rather than assuming this path remains the newest forever. GitHub reported **public** visibility on 2026-11-08; older entries calling it private are historical. This work does not change visibility. Keep credentials, personal webcam footage, model weights and live project state outside Git.
+
+Do not overwrite the user's live045/qa046 installations, private project data or a running engine's JARs. A build/test checkout needs its own explicitly named project. Never silently open another installation's database. Never stop Java/Electron by process name. Validate exact process identity, start time, parent and owned project before ending an isolated test process.
+
+## Ownership map
+
+| Owner | Responsibility and authoritative files |
+|---|---|
+| Continuing Java runtime | Identity, clock, shared brain state, bounded replay, witnessed history: `workspace-engine/.../AgentHost042.java`, `AgentRuntime042.java` and the associated042 stores. |
+| Java chat and scheduling | `Agency043`, `ChatPolicy044`, `ChatChain052`, typed tools and capability context. The language model proposes; Java validates, schedules, records and verifies. |
+| Java goals and skills | `GoalRunner`, retained procedure/graph stores and domain adapters. Resume/cancel/retention use actual durable child identities and results. A prompt is not a registered handler. |
+| Native world execution | `WorldProcedure079`, `Waypoints079`, `WorldPhysics`, `WorldNativeStore`, `WorldNativeCheckpoint`, `RecoveryForecast093`. Controllers own physical timing; forecasts and actual actions are separate native runs. |
+| World and evidence authority | `WorldFrames`, `WorldVerify`, `WorldLedger`, report checks and source-bound originals. One reserved goal owns an uncommitted world; only checked actual outcomes advance it. |
+| Memory and cost decisions | `ProofMemo078`, `NativeEnvelope091`, `TaskCost080`–`TaskCost090`, calibration stores. Similarity and estimates choose work; they never bypass source, motion or commit checks. |
+| Shared owned computation | `fraynix-modules/brain-core`, `brain-gpu`, `geometry-core`, `factory-runtime`, `factory-kernel`, `factory-models`. CPU references, bounded GPU work and persistent knowledge have distinct contracts. |
+| Presentation and host surfaces | `workspace-desktop/main.cjs`, preload, surface adapters and renderer. Electron hosts actual browser/canvas/camera and displays Java state. Untrusted pages cannot reach the privileged dispatcher. |
+| Original game | `src/main/java`, `EmbeddedGameRuntime`, original renderer/player/JBox2D. Its hidden child context is a rendering/runtime boundary, not a second user-facing application to reinvent. |
+
+Paths abbreviated with `...` above mean `src/main/java/fraymus/workspace` under `workspace-engine`; use the [canonical source inventory](docs/readmes/094/file-inventory.json) and source search for exact names. Source files and included modules must resolve inside this checkout. Existing source-isolation checks are mandatory.
+
+## Evidence rules that must survive every improvement
+
+1. Declare sources, conditions, comparison arms, limits and acceptance checks before the new experiment. Label synthetic scenes, real observations, estimates, predictions and actual execution separately. Retain initial failures and follow-up changes.
+2. Original bytes, code identity, source frame, plan, native IDs, sample prefixes and outcome arithmetic are authoritative. A screenshot illustrates; a hash detects changes; neither establishes physical truth by itself.
+3. Do not replace actual measurements with generated arrays, set success flags, re-label old engine proofs, remove failing tests, relax thresholds to obtain a green result, or hide a failed candidate. Compilation alone is not functional repair.
+4. Reuse may avoid repeated parsing/hash work only within its tested contract. Keep complete-byte checks and every original source/outcome/report/commit check. Never trust timestamps or cached summaries as action authority.
+5. Recovery is explicit and bounded. Restore the same owned task and committed prefix. A changed later starting state needs a fresh verified forecast before its distinct actual stage. Keep the old forecast, bind the new one to its measured predecessor and resumed ancestor, and charge the work.
+6. The current procedure limits remain two execution resumes,115200 charged ticks,20 minutes active time and90 seconds per attempt. Missing execution tails are charged conservatively. Cross-boot whole-task timing is unavailable/ineligible unless a new validated clock contract is implemented; zero is not a free task.
+7. A successful world task needs actual rendered report checks and exactly one matching atomic world commit. Retention requires verified current results. Cancelled/refused tasks cannot earn successful skills.
+8. Compare learning and memory against equally equipped simple controls. Separate training, calibration and evaluation. Include startup, verification, fitting, restart and saving costs when the claim covers them. Preserve rollback and report unsuccessful promotion gates.
+
+## Working method
+
+Read the latest release, this guide, the relevant runtime contract, project memory and active prospective contract. Inspect `git status`, worktrees, remote heads and running owners. Review actual files rather than relying on conversation memory. Do not spawn subagents for this project; run heavy/native/model checks serially and keep the user's computer responsive.
+
+Implement a complete narrow path through the existing interfaces. Use real native/runtime outcomes and actual UI screenshots. Test relevant unit boundaries, native integration, altered evidence/refusal, interruption and restoration. Identify fixtures and exactly which local model, if any, was exercised. Do not claim a fresh LLM test when only deterministic tools ran.
+
+Keep numbered README editions and `docs/readmes/NNN/` immutable once published. Add the next unused edition, link its predecessor and update the entry README, edition index/manifest, offline HTML explorer, source inventory, Obsidian map, memories and logs. Put later corrections in the new edition. Verify local links, frozen hashes, real screenshots and desktop/narrow guide layouts. No CDN or private runtime dependencies in the offline guide.
+
+Publication is complete only after a non-force push to the intended `main`, edition branch and annotated `readme-NNN` tag, followed by fetching those refs and checking actual Git contents. Preserve unrelated remote commits; never reset or force-push main. Save a publication receipt with release/tag hashes, verification scope and evidence counts; publish the receipt too. Local commits and screenshots alone are not “pushed.”
+
+## Dated progress and next direction
+
+| Date | Editions | Durable progress |
+|---|---|---|
+| Oct23–29,2026 |001–008| Original Java game/editor, retained practice, independent browser/canvas workspace and checked creation recipes. |
+| Oct29–31 |009–032| Native3D, measurements, learned transition models, Java goals, spatial imports, browser tracking, procedural image maps and measured contact tasks. Rejected candidates remain in history. |
+| Nov1 |033–041| Contact/multi-object tasks, persistent worlds, recorded/webcam observations, shared projections and a measured mat-alignment test. Physical validity remains tied to the recorded setup. |
+| Nov1–2 |042–050| Continuing Java owner, visual witness, Java chat scheduling, counterfactuals, typed skills, skill recall, sensor evidence and construction workshop. |
+| Nov3–4 |051–068| Persistent gripper assemblies, faster checked chat, geometry/load repairs, Java learned residuals, contact traces and bounded recovery. |
+| Nov5–6 |069–081| Adaptive sensing, retained experiment reconstruction, varied procedures, obstacle-aware targets, proof reuse and complete-task cost estimates. |
+| Nov6–8 |082–093| Resource/restart/saving calibration, longer memory workloads, stale-estimate checks, less repeated verification and fresh forecasts from recovered state. |
+| Nov8 |094| Three-stage abrupt-interruption study and repository trajectory review. See the edition094 release for actual outcomes and limits; this table is not independent proof. |
+
+The immediate priority is reliable continuation with evidence, then complete mixed-task cost comparisons that show when memory earns its overhead. Keep the larger destination visible: a user requests a useful task, Java plans and executes within the shared world, the interface shows consequences, and verified experience improves later work. Broaden geometry, observations, creation and real-world validation through that same path. Do not turn the product into disconnected benchmark windows or move the brain back into the renderer.
+
+## Handoff every session
+
+Record exact checkout/branch/commit, live process/project ownership, completed changes, commands and source-qualified results, retained failures, publication status and one concrete next acceptance gate. Clearly label pending work. Read the newest dated entry first; an old “pending” paragraph or private-repository label is not current authority. If another contributor changes direction, inspect its actual diff and test evidence before merging; Git author names alone do not identify individual AI sessions.

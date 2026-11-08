@@ -1,5 +1,7 @@
 # Fraynix Agent Workspace
 
+**Contributors and future agents:** read the [current project direction and engineering contract](README-CONTRIBUTORS.md), including the [dated repository review](docs/TRAJECTORY_REVIEW_094.md). Historical release records remain preserved.
+
 **Latest: [edition093 — forecast from recovered state](README-093.md).**
 
 Published to main with original evidence and screenshots. [Fetched GitHub verification](docs/PUBLICATION_093.json).

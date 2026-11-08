@@ -1,3 +1,7 @@
+# Current contributor entry point — 2026-11-08
+
+Read [README-CONTRIBUTORS.md](README-CONTRIBUTORS.md) and the [dated trajectory review](docs/TRAJECTORY_REVIEW_094.md) first. This is the Java **Fraynix-Agent-Workspace**, not Chandra. GitHub currently reports public visibility; older private/pending/ownership statements below are historical. Preserve frozen editions and private live data. Java retains planning, goals, physics and verification ownership. No subagents; heavy validation serial. Edition094 is in progress in its isolated D: checkout; its prospective contract and original evidence govern actual results.
+
 ## Edition093 — published and fetched back
 
 Published release e82c9380e2a90738b4db350288b79d680d0efaa6; annotated readme-093 tag object e653eeda640f558b095e6a81f9da7fee9cf3d784. Actual main/edition093/tag push fetched and verified: 1251 canonical sources, 25000 frozen hashes across 93 editions and 386 logical original archive entries. [Publication receipt](docs/PUBLICATION_093.json).
