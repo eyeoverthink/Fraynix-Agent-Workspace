@@ -761,6 +761,13 @@ public final class GoalRunner implements AutoCloseable {
 
     private JSONObject last079(JSONObject g){try{return procedures079.last(g.getString("id"));}catch(Exception e){throw new IllegalStateException("Original final-stage proof unavailable",e);}}
     public synchronized JSONObject exportProcedure079(String id)throws Exception{return procedures079.export(id);}
+    public synchronized JSONObject verifyProcedure090(String id)throws Exception {
+        var g=read(id);if(!procedure079(g)||!g.getString("status").equals("completed"))throw new IllegalArgumentException("Completed world procedure required");
+        verifiedReport(g);var audit=procedures079.audit(id);var cost=procedures079.cost080(id);
+        if(!cost.similar(g.getJSONObject("taskCost080"))||!worlds.committed(g.getJSONObject("worldBinding").getString("worldId"),id).similar(g.getJSONObject("worldCommit")))throw new IllegalStateException("Owned goal cost or commit changed");
+        return new JSONObject().put("id",id).put("passed",true).put("audit",audit).put("decision",procedures079.read(id).getJSONObject("decision"));
+    }
+
     public synchronized JSONObject snapshot079(String id)throws Exception{return procedures079.snapshot(id);}
     public synchronized JSONObject costPairs080()throws Exception{
         var result=new JSONArray();var costs=new ArrayList<JSONObject>();for(var g:values("goal"))if(procedure079(g)&&g.getString("status").equals("completed")&&g.has("taskCost080"))costs.add(g.getJSONObject("taskCost080"));

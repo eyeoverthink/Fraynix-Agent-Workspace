@@ -224,6 +224,18 @@ final class WorldProcedure079 implements AutoCloseable {
   var d=TaskCost089.choose(j.getJSONObject("spec"),"calibrated",candidates,j.getJSONObject("args").getJSONObject("workload080"),model,j.getJSONObject("args").optString("procedureReceipt085",""),j.getJSONArray("bankSnapshot").length(),j.getString("selector089"));
   var candidate=d.optJSONObject("candidate");if(candidate==null||!d.optJSONObject("cost080",new JSONObject()).optBoolean("available"))return result;
   if(TaskCost090.guard(j.getJSONObject("spec"),d,new JSONArray()).getBoolean("blocked"))return result;
+  // A verified warning remains attached to this model and scene neighborhood until a new fit.
+  for(var priorJob:new ArrayList<>(jobs.values())) {
+   var priorDecision=priorJob.optJSONObject("decision",new JSONObject());var f=priorDecision.optJSONObject("freshness090",new JSONObject());
+   var c=priorDecision.optJSONObject("candidate",new JSONObject());var m=priorJob.optJSONObject("calibration080",new JSONObject());
+   if(!priorJob.getString("id").equals(j.getString("id"))&&f.optString("status").equals("suspect")&&m.optString("id").equals(model.getString("id"))
+      &&c.optString("id").equals(candidate.getString("id"))&&c.optBoolean("warm")==candidate.getBoolean("warm")
+      &&priorJob.getJSONObject("args").getJSONObject("workload080").similar(j.getJSONObject("args").getJSONObject("workload080"))&&TaskCost090.nearby(priorJob.getJSONObject("spec"),j.getJSONObject("spec"))) {
+    checkFreshness090(priorJob);var saved=priorJob.getJSONArray("freshnessEvidence090");boolean matched=true;
+    for(Object raw:saved){var cost=cost080(((JSONObject)raw).getJSONObject("observation").getString("id"));matched&=TaskCost090.eligible(cost,candidate,j.getJSONObject("spec"),j.getJSONObject("args").getJSONObject("workload080"),model);}
+    if(matched)return new JSONArray(saved.toString());
+   }
+  }
   var relevant=new ArrayList<JSONObject>();
   for(String id:new ArrayList<>(jobs.keySet())){if(id.equals(j.getString("id")))continue;var c=cost080(id);if(!c.isEmpty()&&TaskCost090.eligible(c,candidate,j.getJSONObject("spec"),j.getJSONObject("args").getJSONObject("workload080"),model))relevant.add(c);}
   relevant.sort(Comparator.comparing((JSONObject c)->Instant.parse(c.getString("recordedAt"))).thenComparing(c->c.getString("id")).reversed());

@@ -360,6 +360,7 @@ public final class WorkspaceServer implements AutoCloseable {
                     case "/api/procedures086/test-unconditional-fit" -> {if(!"1".equals(System.getenv("FRAYNIX_WORKSPACE_TEST")))throw new IllegalStateException("Isolated test runtime required");SpatialScene.keys(input,"pairs");result=costs087.measuredFit(input.getJSONArray("pairs"));}
                     case "/api/procedures080/protocol" -> {SpatialScene.keys(input);try(var in=TaskCost080.class.getResourceAsStream("/procedures080-protocol.json")){result=new JSONObject(new String(in.readAllBytes(),java.nio.charset.StandardCharsets.UTF_8));}}
                     case "/api/procedures079/memories" -> {SpatialScene.keys(input);result=new JSONObject().put("memories",goals.memories079());}
+                    case "/api/procedures090/verify" -> {SpatialScene.keys(input,"id");result=goals.verifyProcedure090(input.getString("id"));}
                     case "/api/procedures079/export" -> {SpatialScene.keys(input,"id");result=goals.exportProcedure079(input.getString("id"));}
                     case "/api/procedures079/protocol" -> {SpatialScene.keys(input);try(var in=Procedure079.class.getResourceAsStream("/procedures079-protocol.json")){result=new JSONObject(new String(in.readAllBytes(),java.nio.charset.StandardCharsets.UTF_8));}}
                     case "/api/world/start" -> {var args087=input;result=costs087.start(()->goals.startWorld(args087));}

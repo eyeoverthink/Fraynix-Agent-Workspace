@@ -77,16 +77,16 @@ async function main(){
    const id=recent.observation.id,root=path.join(project,'world-procedures-079'),file=path.join(root,id,'cost080.json'),original=await fs.readFile(file),v=JSON.parse(original),{canonical}=require('../../scripts/Inspect-Spatial040.cjs');
    const previous=await api('/api/world/observe',{worldId:covered.binding.worldId});
    try{v.data.totalMillis+=1;v.sha256=sha(canonical(v.data));await fs.writeFile(file,JSON.stringify(v));
-    // Fitting still requires original owned goal timing; this is a real refusal, not a forged benchmark.
-    let error='';try{await api('/api/procedures080/calibration');}catch(e){error=e.message;}
-    // The changed cost is post-fit, so calibration itself correctly ignores it.
-    assert.equal(error,'');record.postFitIndependent=true;
+    let error='';try{await api('/api/procedures090/verify',{id:covered.goalId});}catch(e){error=e.message;}
+    assert(error.includes('Freshness')||error.includes('freshness'));record.changedRecentCostRefusal=error;
    }finally{await fs.writeFile(file,original);}
    assert.equal((await api('/api/world/observe',{worldId:covered.binding.worldId})).expectedHash,previous.expectedHash);
   }
+  record.finalVerification=[];for(const row of record.rows){const at=performance.now(),v=await api('/api/procedures090/verify',{id:row.goalId});assert(v.passed);record.finalVerification.push({id:row.goalId,callerMillis:performance.now()-at,result:v});await save();}
   record.finalReview={covered:covered.goalId,uncovered:uncovered.goalId,world:uncovered.observed};await close();await open(project,'cold-review');
   const restored=await api('/api/world/observe',{worldId:uncovered.binding.worldId});assert.equal(restored.expectedHash,uncovered.observed.expectedHash);assert.equal(restored.expectedRevision,uncovered.observed.expectedRevision);
   for(const row of [covered,uncovered]){const exported=await api('/api/procedures079/export',{id:row.goalId});assert.deepEqual(exported.job,row.job);assert.deepEqual(exported.cost080,row.goal.taskCost080);}
+  for(const row of [covered,uncovered])assert((await api('/api/procedures090/verify',{id:row.goalId})).passed);
   await report(uncovered.goalId);await capture('cold-restart-report');
   record.errors=errors;assert.deepEqual(errors,[]);record.passed=true;record.finishedAt=new Date().toISOString();await close();require('../../scripts/Study-Build090.cjs').verify(repo);await fs.writeFile(path.join(out,'result.json'),JSON.stringify(record,null,2));console.log('PASS edition090 actual mixed-task study');
  }finally{if(app)await close();await save();}
