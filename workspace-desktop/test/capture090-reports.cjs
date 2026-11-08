@@ -15,7 +15,9 @@ const {launch}=require('./calibration-integration.cjs'),fs=require('node:fs/prom
    // transition before requesting its report, so a late restore cannot hide it.
    await page.waitForFunction(id=>document.querySelector('#spatial-source').textContent.includes(id),s.row.id);
    await page.waitForTimeout(600);
-   await page.locator('#java-goal-report').click();
+   // Open the exact saved artifact through the application's real canvas tool.
+   // A restored latest-goal panel may otherwise point at a different report.
+   await app.evaluate((_,id)=>global.workspaceTest.execute('canvas.open',{id}),s.row.goal.report.id);
    await page.waitForFunction(id=>document.querySelector('#object-detail').textContent.includes(id),s.row.goal.report.id);
    await page.locator('#preview-tab').click();await page.waitForTimeout(600);
    assert(await page.locator('#preview-tab').evaluate(e=>e.classList.contains('selected')));
