@@ -122,6 +122,19 @@ function freshness090(j,c,root){
   const e=estimate089(model,c,cost.spec,cost.workload,job.bankSnapshot.length,false);assert.equal(o.available,e.available);if(e.available){const tolerance=Math.max(1000,.20*e.memoryMillis,e.marginMillis),residual=cost.totalMillis-e.memoryMillis;close(o.predictedMillis,e.memoryMillis);close(o.actualMillis,cost.totalMillis);close(o.toleranceMillis,tolerance);close(o.residualMillis,residual);assert.equal(o.direction,residual>tolerance?'slower':residual< -tolerance?'faster':'within');}observations.push(o);
  }
  assert.deepEqual(given.observations,observations);let status,blocked=true;const e=j.decision.cost080;
+ if(e.available&&e.neighbors.every(n=>nearby090(n.pair.spec,j.spec))){
+  const model=j.calibration080,prior=[];let retainedWarning=false;
+  for(const entry of fs.readdirSync(root,{withFileTypes:true})){if(!entry.isDirectory())continue;const id=entry.name;
+   if(fs.existsSync(path.join(root,id,'cost080.json'))){const x=owned(root,id+'/cost080.json');
+    if(x.eligible&&x.completed&&x.usedMemory&&x.code===model.code&&canonical(x.profile)===canonical(model.profile)&&canonical(x.workload)===canonical(j.args.workload080)&&x.receiptId===c.id&&x.preferred===c.family&&x.warm===c.warm&&nearby090(x.spec,j.spec)&&Date.parse(x.recordedAt)>Date.parse(model.createdAt)&&Date.parse(x.recordedAt)<Date.parse(j.createdAt)&&!model.pairs.some(p=>[p.simpleId,p.memoryId].includes(id)))prior.push(x);
+   }
+   if(fs.existsSync(path.join(root,id,'goal.json'))){const p=owned(root,id+'/goal.json');
+    if(p.id!==j.id&&Date.parse(p.createdAt)<Date.parse(j.createdAt)&&p.decision?.freshness090?.status==='suspect'&&p.calibration080?.id===model.id&&p.decision.candidate?.id===c.id&&p.decision.candidate?.warm===c.warm&&canonical(p.args.workload080)===canonical(j.args.workload080)&&nearby090(p.spec,j.spec)&&canonical(p.freshnessEvidence090)===canonical(items))retainedWarning=true;
+   }
+  }
+  prior.sort((a,b)=>Date.parse(b.recordedAt)-Date.parse(a.recordedAt)||b.id.localeCompare(a.id));
+  if(!retainedWarning)assert.deepEqual(items.map(x=>x.observation.id),prior.slice(0,3).map(x=>x.id),'Freshness must use the latest eligible original outcomes or an earlier verified warning');
+ }
  if(!e.available)status='unavailable';else if(e.neighbors.some(n=>!nearby090(n.pair.spec,j.spec)))status='outside-coverage';else{const slower=observations.filter(o=>o.available&&o.direction==='slower').length,faster=observations.filter(o=>o.available&&o.direction==='faster').length;blocked=slower>=2||faster>=2;status=blocked?'suspect':observations.length?'consistent-so-far':'unobserved';assert.equal(given.slower,slower);assert.equal(given.faster,faster);}
  assert.equal(given.status,status);assert.equal(given.blocked,blocked);return {status,blocked};
 }
