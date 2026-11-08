@@ -88,7 +88,7 @@ async function main(){
   record.finalVerification=[];for(const row of record.rows){const at=performance.now(),v=await api('/api/procedures090/verify',{id:row.goalId});assert(v.passed);record.finalVerification.push({id:row.goalId,callerMillis:performance.now()-at,result:v});await save();}
   record.finalReview={covered:covered.goalId,uncovered:uncovered.goalId,world:uncovered.observed};await close();await open(project,'cold-review');
   const restored=await api('/api/world/observe',{worldId:uncovered.binding.worldId});assert.equal(restored.expectedHash,uncovered.observed.expectedHash);assert.equal(restored.expectedRevision,uncovered.observed.expectedRevision);
-  for(const row of [covered,uncovered]){const exported=await api('/api/procedures079/export',{id:row.goalId});assert.deepEqual(exported.job,row.job);assert.deepEqual(exported.cost080,row.goal.taskCost080);}
+  for(const row of [covered,uncovered]){const exported=await api('/api/procedures079/export',{id:row.goalId}),original=JSON.parse(await fs.readFile(path.join(out,row.originalFile),'utf8'));assert.deepEqual(exported.job,row.job);assert.deepEqual(exported.cost080,original.cost080);}
   for(const row of [covered,uncovered])assert((await api('/api/procedures090/verify',{id:row.goalId})).passed);
   await report(uncovered.goalId);await capture('cold-restart-report');
   record.errors=errors;assert.deepEqual(errors,[]);record.passed=true;record.finishedAt=new Date().toISOString();await close();require('../../scripts/Study-Build090.cjs').verify(repo);await fs.writeFile(path.join(out,'result.json'),JSON.stringify(record,null,2));console.log('PASS edition090 actual mixed-task study');

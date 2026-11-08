@@ -110,7 +110,7 @@ module.exports={freshness090,nearby090,estimate089,pairing089,clock089,estimate0
 function nearby090(older,current){
  if(similarity(older,current)===null||similarity(older,current)>.10)return false;
  const a=normalized(older),b=normalized(current);if(a.source.objects.length!==b.source.objects.length||Math.abs(a.source.gravityMps2-b.source.gravityMps2)>.01)return false;
- for(const x of a.source.objects){const y=b.source.objects.find(o=>o.sourceId===x.sourceId);if(!y||x.shape!==y.shape||dist(x.position,y.position)>.25||angle(x.rotation,y.rotation)>5||dist(x.size,y.size)>.05||Math.abs(x.friction-y.friction)>.05||Math.abs(x.restitution-y.restitution)>.05||Math.abs(x.massKg-y.massKg)>Math.max(.01,.25*x.massKg))return false;}
+ for(const x of a.source.objects){const y=b.source.objects.find(o=>o.sourceId===x.sourceId);if(!y||x.shape!==y.shape||(x.massKg>0)!==(y.massKg>0)||dist(x.position,y.position)>.25||angle(x.rotation,y.rotation)>5||dist(x.size,y.size)>.05||Math.abs(x.friction-y.friction)>.05||Math.abs(x.restitution-y.restitution)>.05||Math.abs(x.massKg-y.massKg)>Math.max(.01,.25*x.massKg))return false;}
  if(older.targets.length!==current.targets.length)return false;for(const x of older.targets){const y=current.targets.find(t=>t.sourceId===x.sourceId);if(!y||dist(x.positionM,y.positionM)>.25||Math.abs(delta(x.yawDeg,y.yawDeg))>5)return false;}
  return ['forceLimitN','torqueLimitNm'].every(k=>Math.abs(older[k]-current[k])<=.25*older[k]);
 }
