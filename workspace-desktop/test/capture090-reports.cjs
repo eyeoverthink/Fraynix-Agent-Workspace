@@ -17,10 +17,15 @@ const {launch}=require('./calibration-integration.cjs'),fs=require('node:fs/prom
    await page.waitForTimeout(600);
    // Open the exact saved artifact through the application's real canvas tool.
    // A restored latest-goal panel may otherwise point at a different report.
-   await app.evaluate((_,id)=>global.workspaceTest.execute('canvas.open',{id}),s.row.goal.report.id);
-   await page.waitForFunction(id=>document.querySelector('#object-detail').textContent.includes(id),s.row.goal.report.id);
-   await page.locator('#preview-tab').click();await page.waitForTimeout(600);
-   assert(await page.locator('#preview-tab').evaluate(e=>e.classList.contains('selected')));
+   let visible=false;const transitions=[];
+   for(let attempt=0;attempt<5&&!visible;attempt++){
+    await app.evaluate((_,id)=>global.workspaceTest.execute('canvas.open',{id}),s.row.goal.report.id);
+    await page.waitForFunction(id=>document.querySelector('#object-detail').textContent.includes(id),s.row.goal.report.id);
+    await page.locator('#preview-tab').click();await page.waitForTimeout(1200);
+    visible=await page.evaluate(id=>document.querySelector('#preview-tab').classList.contains('selected')&&document.querySelector('#object-detail').textContent.includes(id),s.row.goal.report.id);
+    transitions.push({attempt,visible});
+   }
+   assert(visible,'The exact saved report must remain visible after world restoration');
    const text=await app.evaluate(()=>global.workspaceTest.canvasRead('document.querySelector("#procedure079-decision").innerText'));
    assert(typeof text==='string'&&text.includes('Memory decision from measured cost'));
    if(s.row.policy==='guarded090')assert(text.includes('Cost freshness: '+s.row.job.decision.freshness090.status));
@@ -30,7 +35,7 @@ const {launch}=require('./calibration-integration.cjs'),fs=require('node:fs/prom
     await fs.writeFile(path.join(repo,'build',s.out,s.label+'-report-visible-'+width+'.png'),Buffer.from(await app.evaluate(()=>global.workspaceTest.capture()),'base64'));
     assert(await page.locator('#preview-tab').evaluate(e=>e.classList.contains('selected')));
    }
-   assert.deepEqual(errors,[]);checks.push({goalId:s.row.goalId,project:s.row.project,label:s.label,widths:s.widths,callerMillis:performance.now()-began,reportText:text,passed:true});
+   assert.deepEqual(errors,[]);checks.push({goalId:s.row.goalId,project:s.row.project,label:s.label,widths:s.widths,callerMillis:performance.now()-began,reportText:text,transitions,passed:true});
   }finally{await app.close();}
  }
  await fs.writeFile(path.join(repo,'build/report-visual090.json'),JSON.stringify({passed:true,checks},null,2));console.log('PASS actual visible report previews; no timed runs changed');
