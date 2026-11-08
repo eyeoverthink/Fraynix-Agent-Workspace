@@ -2,6 +2,8 @@
 
 **Latest: [edition095 — complete mixed-task costs](README-095.md).**
 
+Published to main with original evidence and screenshots. [Fetched GitHub verification](docs/PUBLICATION_095.json).
+
 24 of 24 mixed tasks completed. Fixed memory took 60.94 s more time across complete goal calls and 49.33 s more across whole study iterations than simple control. Charging preparation once, the first batch took 155.79 s more time. [Offline evidence](docs/readmes/095/index.html).
 
 **Earlier edition: [edition094 — three-stage crash recovery](README-094.md).**

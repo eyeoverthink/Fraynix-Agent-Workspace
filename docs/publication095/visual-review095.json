@@ -1,0 +1,33 @@
+{
+  "passed": true,
+  "reviewedAtUtc": "2026-11-08T23:01:22.706461+00:00",
+  "actualApp": {
+    "viewed": [
+      "short-plain-1600.png",
+      "short-plain-1100.png",
+      "long-save-1600.png",
+      "long-save-1100.png",
+      "long-recover-save-1600.png",
+      "long-recover-save-1100.png"
+    ],
+    "observed": "Actual Java/Electron report, completed task, saved-skill timeline and recovery forecasts visible. Main app root fits both sizes; the welcome browser has an existing inner horizontal scrollbar at1100. Reports remain vertically scrollable. Canvas Tests passed refers to report checks, not full CI; generic sidebar recovery count does not enumerate nested native resumes. Selected model is not an inference claim."
+  },
+  "offlineGuide": {
+    "viewed": [
+      "offline095-top-1440.png",
+      "offline095-top-390.png",
+      "offline095-results-1440.png",
+      "offline095-results-390.png",
+      "offline095-phases-1440.png",
+      "offline095-phases-390.png",
+      "offline095-replay-1440.png",
+      "offline095-replay-390.png"
+    ],
+    "observed": "Desktop comparison rows and narrow cards are readable. Complete phase values remain legible on narrow screens. Higher costs say more in orange. Replay controls and sample clocks are visible; readable body position values replace tiny mobile labels. Final guide passed both widths, all filters,24 tasks and first/middle/final frames for all24 replays without errors or network requests.",
+    "retainedCorrection": "A newly added checker incorrectly expected five bodies for every scene; one has four. Its failed log is retained. The corrected check compares each frame against that recorded scene body list; it passes for all144 checked frames. No native evidence changed."
+  },
+  "limits": [
+    "Reviewed screenshots illustrate actual reports and recorded motion; independent native inspection establishes outcomes.",
+    "Prior full CI still has four documented failures. This review does not claim a green full suite."
+  ]
+}

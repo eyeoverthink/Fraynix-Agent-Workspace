@@ -1,4 +1,6 @@
-## Edition095 — locally verified; publication pending
+## Edition095 — published and fetched back
+
+Published release 54ea84ca4674f355ffaba087f0faa62570256915; annotated readme-095 tag object 67b287df963c8dbcc20bea039e7d624b2c125312. Actual main/edition095/tag push fetched and verified: 1270 canonical sources, 27147 frozen hashes across 95 editions and 2482 logical original archive entries. [Publication receipt](PUBLICATION_095.json).
 
 24 of 24 mixed tasks completed. Fixed memory took 60.94 s more time across complete goal calls and 49.33 s more across whole study iterations than simple control. Charging preparation once, the first batch took 155.79 s more time.
 

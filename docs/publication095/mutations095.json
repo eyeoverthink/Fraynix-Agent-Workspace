@@ -1,0 +1,30 @@
+{
+  "passed": true,
+  "refusals": 22,
+  "checks": [
+    "different external clock owner",
+    "missing saving phase evidence",
+    "changed saved skill targets",
+    "changed saved skill code",
+    "changed cold world hash",
+    "unavailable recovered clock claimed eligible",
+    "fabricated recovered total",
+    "mismatched declared source",
+    "changed original world commit",
+    "wrong process parent",
+    "changed persisted checkpoint digest",
+    "overlapping phase",
+    "omitted shutdown",
+    "restart counted outside task",
+    "false caller duration",
+    "different workload",
+    "different source",
+    "different CPU profile",
+    "changed order",
+    "different paired clock owner",
+    "incomplete opposite-order replication",
+    "duplicate evaluated arm"
+  ],
+  "source": "9033d46bb95834922a13105520e68fcd9797c59f",
+  "scope": "Copied metadata mutations only. Original records remain untouched; independent verification is recomputed before changed metadata can pass."
+}
