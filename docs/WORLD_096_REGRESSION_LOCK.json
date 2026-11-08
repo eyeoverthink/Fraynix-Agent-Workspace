@@ -1,0 +1,37 @@
+{
+  "version": "historical-world-regression096-v1",
+  "sourceBaseline": "55d95f472133ff412a1940613e5bc0f9c179ad59",
+  "scope": "Historical035 sequences newly executed against explicitly reviewed later source. Original contracts, cases, outcomes and thresholds unchanged; no old proof relabelled.",
+  "lockedInputs": [
+    {
+      "path": "docs/WORLD_035_CANDIDATE_LOCK.json",
+      "sha256": "3c0506e6e1cf61a0982d8952c27348f05ca44f3329e297da29f9436409953d71"
+    },
+    {
+      "path": "docs/WORLD_035_FROZEN_CONTRACT.json",
+      "sha256": "6bd8dcb983eaf00125dcb60f0305c0c30981530621b16aa620c10b55c89d2737"
+    },
+    {
+      "path": "docs/WORLD_056_REGRESSION_LOCK.json",
+      "sha256": "f79ace89fc0fe1ca5c4cbf165f00dd2f0b280e565e510c2e65da613c344093d6"
+    },
+    {
+      "path": "workspace-engine/src/main/resources/world-sequences035.json",
+      "sha256": "e2ec7a096b1f764afce45a7d0e715eed30616eefdb0a5d3c3a5771976a08bb9c"
+    }
+  ],
+  "extensions": [
+    {
+      "path": "workspace-engine/src/main/java/fraymus/workspace/WorldLedger.java",
+      "previous056Sha256": "ed391c7e8087e8e7deedfd8e360317edc408e93aa40817d542ed1b3035b86443",
+      "current096Sha256": "81e89483bb3badbc99c1fd2a6ea715cb905b7f8a65036dd2a32c4a4f27dd5035",
+      "review": "Explicit closed-world engine upgrades, bounded capacity32 and retained frame/pending-owner/commit checks."
+    },
+    {
+      "path": "workspace-engine/src/main/java/fraymus/workspace/WorldNativeCheckpoint.java",
+      "previous056Sha256": "85c892c527bb0e17ef9743a7f7a622d21d07ff6e234c8abb8c2278b1122e4620",
+      "current096Sha256": "67de58daabf7537add402144e142db6dce1e4a74abf3ec4b23ba3e8c980562a9",
+      "review": "Source identity includes AgentFiles042 and SupportRepair060; bounded atomic Windows replacement retry retains exact native prefix/version/body checks."
+    }
+  ]
+}

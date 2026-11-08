@@ -15,4 +15,13 @@ dependencies {
 java { sourceCompatibility = JavaVersion.VERSION_21; targetCompatibility = JavaVersion.VERSION_21 }
 application { mainClass = 'fraymus.workspace.WorkspaceServer'; applicationName = 'workspace-engine' }
 tasks.withType(JavaCompile).configureEach { options.encoding = 'UTF-8' }
+// Large integrity studies retain originals plus forged copies and full verification.
+// Measured096: unchanged checks exhaust512MiB; isolated1024MiB checks pass.
+// Test limits only: production heaps and native budgets are unchanged.
+tasks.withType(Test).configureEach {
+    maxHeapSize = '1024m'
+    maxParallelForks = 1
+    forkEvery = 1
+    jvmArgs '-XX:ActiveProcessorCount=4'
+}
 tasks.named('test') { useJUnit(); dependsOn rootProject.tasks.named('installDist') }
