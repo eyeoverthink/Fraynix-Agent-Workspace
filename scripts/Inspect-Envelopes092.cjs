@@ -15,7 +15,7 @@ function resumedCost(x,row){
  const prefix=read(path.join(out,row.prefixFile)),runs=new Map(x.originals.map(p=>{const n=unpack(p);return[n.id,n];}));
  for(const p of prefix.originals){const prior=unpack(p);assert.deepEqual(runs.get(prior.id).samples.slice(0,prior.samples.length),prior.samples);}
  for(const a of prefix.job.arm.attempts)assert(j.arm.attempts.some(b=>b.id===a.id&&b.stage===a.stage));
- assert(j.arm.attempts.some(a=>a.unknownTail&&a.chargedTicks===14400));assert.equal(row.interrupted.status,'interrupted');assert.equal(row.restartBoot.initial.entries,0);assert(row.prefixPreserved);assert.equal(row.segments.length,2);assert(row.restartMillis>=row.restartBoot.callerMillis);
+ assert(j.arm.attempts.some(a=>a.unknownTail&&a.chargedTicks===14400));assert.equal(row.interrupted.status,'interrupted');assert(row.restartBoot.initial.entries<=row.restartBoot.initial.canonicalChecks);assert(row.prefixPreserved);assert.equal(row.segments.length,2);assert(row.restartMillis>=row.restartBoot.callerMillis);
  return c;
 }
 const checks=[];for(const row of r.rows){

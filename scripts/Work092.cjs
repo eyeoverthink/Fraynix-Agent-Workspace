@@ -14,7 +14,7 @@ function taskWork(row){
   const segments=[...row.segments];
   // Reopening and exporting the interrupted prefix can read originals before
   // the second timed segment. Counter snapshots retain that work as well.
-  if(row.restartBoot)segments.push({before:row.restartBoot.initial,after:row.segments[1].before});
+  if(row.restartBoot)segments.push({before:Object.fromEntries(keys.map(k=>[k,0])),after:row.segments[1].before});
   return work(segments);
 }
 function pair(reference,reuse){
