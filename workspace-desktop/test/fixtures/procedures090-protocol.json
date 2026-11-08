@@ -1,0 +1,1862 @@
+{
+  "version": "mixed-stale-cost-090-v1",
+  "budget": {
+    "id": "two-512",
+    "processors": 2,
+    "heapMiB": 512
+  },
+  "training": {
+    "id": "090-training",
+    "group": "proof-reuse",
+    "split": "training",
+    "source": {
+      "format": "fraynix.spatial-scene",
+      "version": 1,
+      "title": "LABELLED089 preparation",
+      "units": "m",
+      "frame": "right-handed-y-up",
+      "source": {
+        "kind": "synthetic",
+        "physicalProperties": "declared",
+        "note": "Prospectively declared deterministic box experiment; not physical observations."
+      },
+      "scaleReference": {
+        "a": [
+          0,
+          0,
+          0
+        ],
+        "b": [
+          1,
+          0,
+          0
+        ],
+        "knownLengthM": 1,
+        "toleranceM": 0,
+        "basis": "declared-test"
+      },
+      "gravityMps2": 9.81,
+      "objects": [
+        {
+          "sourceId": "floor",
+          "label": "floor",
+          "shape": "box",
+          "position": [
+            0,
+            -0.25,
+            0
+          ],
+          "size": [
+            12,
+            0.5,
+            12
+          ],
+          "massKg": 0,
+          "friction": 0.5,
+          "restitution": 0,
+          "rotation": [
+            0,
+            0.0,
+            0,
+            1.0
+          ]
+        },
+        {
+          "sourceId": "A",
+          "label": "A",
+          "shape": "box",
+          "position": [
+            -3.65,
+            0.21,
+            -3.5
+          ],
+          "size": [
+            0.55,
+            0.42,
+            0.7
+          ],
+          "massKg": 0.6,
+          "friction": 0.25,
+          "restitution": 0,
+          "rotation": [
+            0,
+            0.0,
+            0,
+            1.0
+          ]
+        },
+        {
+          "sourceId": "B",
+          "label": "B",
+          "shape": "box",
+          "position": [
+            2.3,
+            0.16,
+            1.6
+          ],
+          "size": [
+            0.85,
+            0.32,
+            0.4
+          ],
+          "massKg": 0.8,
+          "friction": 0.25,
+          "restitution": 0,
+          "rotation": [
+            0,
+            0.0,
+            0,
+            1.0
+          ]
+        },
+        {
+          "sourceId": "bystander",
+          "label": "bystander",
+          "shape": "box",
+          "position": [
+            4.8,
+            0.25,
+            -3.5
+          ],
+          "size": [
+            0.5,
+            0.5,
+            0.6
+          ],
+          "massKg": 1,
+          "friction": 0.55,
+          "restitution": 0,
+          "rotation": [
+            0,
+            0.0,
+            0,
+            1.0
+          ]
+        },
+        {
+          "sourceId": "obstacle0",
+          "label": "Fixed obstacle 0",
+          "shape": "box",
+          "position": [
+            -1.2166666666666668,
+            0.35,
+            -1.166666666666667
+          ],
+          "size": [
+            0.6,
+            0.7,
+            0.65
+          ],
+          "massKg": 0,
+          "friction": 0.5,
+          "restitution": 0,
+          "rotation": [
+            0,
+            0.0,
+            0,
+            1.0
+          ]
+        },
+        {
+          "sourceId": "obstacle1",
+          "label": "Fixed obstacle 1",
+          "shape": "box",
+          "position": [
+            1.2166666666666663,
+            0.35,
+            1.166666666666666
+          ],
+          "size": [
+            0.6,
+            0.7,
+            0.65
+          ],
+          "massKg": 0,
+          "friction": 0.5,
+          "restitution": 0,
+          "rotation": [
+            0,
+            0.0,
+            0,
+            1.0
+          ]
+        }
+      ]
+    },
+    "targets": [
+      {
+        "sourceId": "A",
+        "positionM": [
+          3.65,
+          0.21,
+          3.5
+        ],
+        "yawDeg": 95
+      },
+      {
+        "sourceId": "B",
+        "positionM": [
+          1.4,
+          0.16,
+          -1.5
+        ],
+        "yawDeg": -100
+      }
+    ],
+    "forceLimitN": 40,
+    "torqueLimitNm": 2.5
+  },
+  "calibration": [
+    {
+      "id": "089-calibration-0",
+      "group": "proof-reuse",
+      "split": "training",
+      "source": {
+        "format": "fraynix.spatial-scene",
+        "version": 1,
+        "title": "LABELLED089 calibration 0",
+        "units": "m",
+        "frame": "right-handed-y-up",
+        "source": {
+          "kind": "synthetic",
+          "physicalProperties": "declared",
+          "note": "Prospectively declared deterministic box experiment; not physical observations."
+        },
+        "scaleReference": {
+          "a": [
+            0,
+            0,
+            0
+          ],
+          "b": [
+            1,
+            0,
+            0
+          ],
+          "knownLengthM": 1,
+          "toleranceM": 0,
+          "basis": "declared-test"
+        },
+        "gravityMps2": 9.81,
+        "objects": [
+          {
+            "sourceId": "floor",
+            "label": "floor",
+            "shape": "box",
+            "position": [
+              0,
+              -0.25,
+              0
+            ],
+            "size": [
+              12,
+              0.5,
+              12
+            ],
+            "massKg": 0,
+            "friction": 0.5,
+            "restitution": 0,
+            "rotation": [
+              0,
+              0.0,
+              0,
+              1.0
+            ]
+          },
+          {
+            "sourceId": "A",
+            "label": "A",
+            "shape": "box",
+            "position": [
+              -3.65,
+              0.21,
+              -3.5
+            ],
+            "size": [
+              0.55,
+              0.42,
+              0.7
+            ],
+            "massKg": 0.594,
+            "friction": 0.265,
+            "restitution": 0,
+            "rotation": [
+              0,
+              0.0,
+              0,
+              1.0
+            ]
+          },
+          {
+            "sourceId": "B",
+            "label": "B",
+            "shape": "box",
+            "position": [
+              2.3,
+              0.16,
+              1.6
+            ],
+            "size": [
+              0.85,
+              0.32,
+              0.4
+            ],
+            "massKg": 0.792,
+            "friction": 0.265,
+            "restitution": 0,
+            "rotation": [
+              0,
+              0.0,
+              0,
+              1.0
+            ]
+          },
+          {
+            "sourceId": "bystander",
+            "label": "bystander",
+            "shape": "box",
+            "position": [
+              4.8,
+              0.25,
+              -3.5
+            ],
+            "size": [
+              0.5,
+              0.5,
+              0.6
+            ],
+            "massKg": 0.99,
+            "friction": 0.5650000000000001,
+            "restitution": 0,
+            "rotation": [
+              0,
+              0.0,
+              0,
+              1.0
+            ]
+          },
+          {
+            "sourceId": "obstacle0",
+            "label": "Fixed obstacle 0",
+            "shape": "box",
+            "position": [
+              -1.2166666666666668,
+              0.35,
+              -1.166666666666667
+            ],
+            "size": [
+              0.6,
+              0.7,
+              0.65
+            ],
+            "massKg": 0,
+            "friction": 0.5,
+            "restitution": 0,
+            "rotation": [
+              0,
+              0.0,
+              0,
+              1.0
+            ]
+          },
+          {
+            "sourceId": "obstacle1",
+            "label": "Fixed obstacle 1",
+            "shape": "box",
+            "position": [
+              1.2166666666666663,
+              0.35,
+              1.166666666666666
+            ],
+            "size": [
+              0.6,
+              0.7,
+              0.65
+            ],
+            "massKg": 0,
+            "friction": 0.5,
+            "restitution": 0,
+            "rotation": [
+              0,
+              0.0,
+              0,
+              1.0
+            ]
+          }
+        ]
+      },
+      "targets": [
+        {
+          "sourceId": "A",
+          "positionM": [
+            3.6149999999999998,
+            0.21,
+            3.5
+          ],
+          "yawDeg": 95
+        },
+        {
+          "sourceId": "B",
+          "positionM": [
+            1.365,
+            0.16,
+            -1.5
+          ],
+          "yawDeg": -100
+        }
+      ],
+      "forceLimitN": 40,
+      "torqueLimitNm": 2.5
+    },
+    {
+      "id": "089-calibration-1",
+      "group": "proof-reuse",
+      "split": "training",
+      "source": {
+        "format": "fraynix.spatial-scene",
+        "version": 1,
+        "title": "LABELLED089 calibration 1",
+        "units": "m",
+        "frame": "right-handed-y-up",
+        "source": {
+          "kind": "synthetic",
+          "physicalProperties": "declared",
+          "note": "Prospectively declared deterministic box experiment; not physical observations."
+        },
+        "scaleReference": {
+          "a": [
+            0,
+            0,
+            0
+          ],
+          "b": [
+            1,
+            0,
+            0
+          ],
+          "knownLengthM": 1,
+          "toleranceM": 0,
+          "basis": "declared-test"
+        },
+        "gravityMps2": 9.81,
+        "objects": [
+          {
+            "sourceId": "floor",
+            "label": "floor",
+            "shape": "box",
+            "position": [
+              0,
+              -0.25,
+              0
+            ],
+            "size": [
+              12,
+              0.5,
+              12
+            ],
+            "massKg": 0,
+            "friction": 0.5,
+            "restitution": 0,
+            "rotation": [
+              0,
+              0.0,
+              0,
+              1.0
+            ]
+          },
+          {
+            "sourceId": "A",
+            "label": "A",
+            "shape": "box",
+            "position": [
+              -3.65,
+              0.21,
+              -3.5
+            ],
+            "size": [
+              0.55,
+              0.42,
+              0.7
+            ],
+            "massKg": 0.6149999999999999,
+            "friction": 0.28,
+            "restitution": 0,
+            "rotation": [
+              0,
+              0.0,
+              0,
+              1.0
+            ]
+          },
+          {
+            "sourceId": "B",
+            "label": "B",
+            "shape": "box",
+            "position": [
+              2.3,
+              0.16,
+              1.6
+            ],
+            "size": [
+              0.85,
+              0.32,
+              0.4
+            ],
+            "massKg": 0.82,
+            "friction": 0.28,
+            "restitution": 0,
+            "rotation": [
+              0,
+              0.0,
+              0,
+              1.0
+            ]
+          },
+          {
+            "sourceId": "bystander",
+            "label": "bystander",
+            "shape": "box",
+            "position": [
+              4.8,
+              0.25,
+              -3.5
+            ],
+            "size": [
+              0.5,
+              0.5,
+              0.6
+            ],
+            "massKg": 1.025,
+            "friction": 0.5800000000000001,
+            "restitution": 0,
+            "rotation": [
+              0,
+              0.0,
+              0,
+              1.0
+            ]
+          },
+          {
+            "sourceId": "obstacle0",
+            "label": "Fixed obstacle 0",
+            "shape": "box",
+            "position": [
+              -1.2166666666666668,
+              0.35,
+              -1.166666666666667
+            ],
+            "size": [
+              0.6,
+              0.7,
+              0.65
+            ],
+            "massKg": 0,
+            "friction": 0.5,
+            "restitution": 0,
+            "rotation": [
+              0,
+              0.0,
+              0,
+              1.0
+            ]
+          },
+          {
+            "sourceId": "obstacle1",
+            "label": "Fixed obstacle 1",
+            "shape": "box",
+            "position": [
+              1.2166666666666663,
+              0.35,
+              1.166666666666666
+            ],
+            "size": [
+              0.6,
+              0.7,
+              0.65
+            ],
+            "massKg": 0,
+            "friction": 0.5,
+            "restitution": 0,
+            "rotation": [
+              0,
+              0.0,
+              0,
+              1.0
+            ]
+          }
+        ]
+      },
+      "targets": [
+        {
+          "sourceId": "A",
+          "positionM": [
+            3.685,
+            0.21,
+            3.5
+          ],
+          "yawDeg": 95
+        },
+        {
+          "sourceId": "B",
+          "positionM": [
+            1.4349999999999998,
+            0.16,
+            -1.5
+          ],
+          "yawDeg": -100
+        }
+      ],
+      "forceLimitN": 40,
+      "torqueLimitNm": 2.5
+    }
+  ],
+  "policies": [
+    "simple",
+    "memory",
+    "guarded090"
+  ],
+  "cases": [
+    {
+      "id": "090-mixed-1",
+      "group": "proof-reuse",
+      "split": "heldout",
+      "source": {
+        "format": "fraynix.spatial-scene",
+        "version": 1,
+        "title": "LABELLED090 occupied",
+        "units": "m",
+        "frame": "right-handed-y-up",
+        "source": {
+          "kind": "synthetic",
+          "physicalProperties": "declared",
+          "note": "Prospectively declared deterministic box experiment; not physical observations."
+        },
+        "scaleReference": {
+          "a": [
+            0,
+            0,
+            0
+          ],
+          "b": [
+            1,
+            0,
+            0
+          ],
+          "knownLengthM": 1,
+          "toleranceM": 0,
+          "basis": "declared-test"
+        },
+        "gravityMps2": 9.81,
+        "objects": [
+          {
+            "sourceId": "floor",
+            "label": "floor",
+            "shape": "box",
+            "position": [
+              0,
+              -0.25,
+              0
+            ],
+            "size": [
+              12,
+              0.5,
+              12
+            ],
+            "massKg": 0,
+            "friction": 0.5,
+            "restitution": 0,
+            "rotation": [
+              0,
+              0.0,
+              0,
+              1.0
+            ]
+          },
+          {
+            "sourceId": "A",
+            "label": "A",
+            "shape": "box",
+            "position": [
+              -3.65,
+              0.21,
+              -3.5
+            ],
+            "size": [
+              0.55,
+              0.42,
+              0.7
+            ],
+            "massKg": 0.6023999999999999,
+            "friction": 0.248,
+            "restitution": 0,
+            "rotation": [
+              0,
+              0.0,
+              0,
+              1.0
+            ]
+          },
+          {
+            "sourceId": "B",
+            "label": "B",
+            "shape": "box",
+            "position": [
+              2.3,
+              0.16,
+              1.6
+            ],
+            "size": [
+              0.85,
+              0.32,
+              0.4
+            ],
+            "massKg": 0.8032,
+            "friction": 0.248,
+            "restitution": 0,
+            "rotation": [
+              0,
+              0.0,
+              0,
+              1.0
+            ]
+          },
+          {
+            "sourceId": "bystander",
+            "label": "bystander",
+            "shape": "box",
+            "position": [
+              4.8,
+              0.25,
+              -3.5
+            ],
+            "size": [
+              0.5,
+              0.5,
+              0.6
+            ],
+            "massKg": 1.004,
+            "friction": 0.548,
+            "restitution": 0,
+            "rotation": [
+              0,
+              0.0,
+              0,
+              1.0
+            ]
+          },
+          {
+            "sourceId": "obstacle0",
+            "label": "Fixed obstacle 0",
+            "shape": "box",
+            "position": [
+              -1.2166666666666668,
+              0.35,
+              -1.166666666666667
+            ],
+            "size": [
+              0.6,
+              0.7,
+              0.65
+            ],
+            "massKg": 0,
+            "friction": 0.5,
+            "restitution": 0,
+            "rotation": [
+              0,
+              0.0,
+              0,
+              1.0
+            ]
+          },
+          {
+            "sourceId": "obstacle1",
+            "label": "Fixed obstacle 1",
+            "shape": "box",
+            "position": [
+              1.2166666666666663,
+              0.35,
+              1.166666666666666
+            ],
+            "size": [
+              0.6,
+              0.7,
+              0.65
+            ],
+            "massKg": 0,
+            "friction": 0.5,
+            "restitution": 0,
+            "rotation": [
+              0,
+              0.0,
+              0,
+              1.0
+            ]
+          }
+        ]
+      },
+      "targets": [
+        {
+          "sourceId": "A",
+          "positionM": [
+            3.662,
+            0.21,
+            3.5
+          ],
+          "yawDeg": 95
+        },
+        {
+          "sourceId": "B",
+          "positionM": [
+            1.412,
+            0.16,
+            -1.5
+          ],
+          "yawDeg": -100
+        }
+      ],
+      "forceLimitN": 40,
+      "torqueLimitNm": 2.5,
+      "declaredChanges089": {
+        "targetXOffsetM": 0.012,
+        "dynamicMassFactor": 1.004,
+        "frictionDelta": -0.002
+      },
+      "condition": "occupied"
+    },
+    {
+      "id": "090-mixed-2",
+      "group": "proof-reuse",
+      "split": "heldout",
+      "source": {
+        "format": "fraynix.spatial-scene",
+        "version": 1,
+        "title": "LABELLED090 relocated-obstacles",
+        "units": "m",
+        "frame": "right-handed-y-up",
+        "source": {
+          "kind": "synthetic",
+          "physicalProperties": "declared",
+          "note": "Prospectively declared deterministic box experiment; not physical observations."
+        },
+        "scaleReference": {
+          "a": [
+            0,
+            0,
+            0
+          ],
+          "b": [
+            1,
+            0,
+            0
+          ],
+          "knownLengthM": 1,
+          "toleranceM": 0,
+          "basis": "declared-test"
+        },
+        "gravityMps2": 9.81,
+        "objects": [
+          {
+            "sourceId": "floor",
+            "label": "floor",
+            "shape": "box",
+            "position": [
+              0,
+              -0.25,
+              0
+            ],
+            "size": [
+              12,
+              0.5,
+              12
+            ],
+            "massKg": 0,
+            "friction": 0.5,
+            "restitution": 0,
+            "rotation": [
+              0,
+              0.0,
+              0,
+              1.0
+            ]
+          },
+          {
+            "sourceId": "A",
+            "label": "A",
+            "shape": "box",
+            "position": [
+              -3.65,
+              0.21,
+              -3.5
+            ],
+            "size": [
+              0.55,
+              0.42,
+              0.7
+            ],
+            "massKg": 0.6048,
+            "friction": 0.25,
+            "restitution": 0,
+            "rotation": [
+              0,
+              0.0,
+              0,
+              1.0
+            ]
+          },
+          {
+            "sourceId": "B",
+            "label": "B",
+            "shape": "box",
+            "position": [
+              2.3,
+              0.16,
+              1.6
+            ],
+            "size": [
+              0.85,
+              0.32,
+              0.4
+            ],
+            "massKg": 0.8064,
+            "friction": 0.25,
+            "restitution": 0,
+            "rotation": [
+              0,
+              0.0,
+              0,
+              1.0
+            ]
+          },
+          {
+            "sourceId": "bystander",
+            "label": "bystander",
+            "shape": "box",
+            "position": [
+              4.8,
+              0.25,
+              -3.5
+            ],
+            "size": [
+              0.5,
+              0.5,
+              0.6
+            ],
+            "massKg": 1.008,
+            "friction": 0.55,
+            "restitution": 0,
+            "rotation": [
+              0,
+              0.0,
+              0,
+              1.0
+            ]
+          },
+          {
+            "sourceId": "obstacle0",
+            "label": "Fixed obstacle 0",
+            "shape": "box",
+            "position": [
+              -3.0,
+              0.35,
+              3.0
+            ],
+            "size": [
+              0.6,
+              0.7,
+              0.65
+            ],
+            "massKg": 0,
+            "friction": 0.5,
+            "restitution": 0,
+            "rotation": [
+              0,
+              0.0,
+              0,
+              1.0
+            ]
+          },
+          {
+            "sourceId": "obstacle1",
+            "label": "Fixed obstacle 1",
+            "shape": "box",
+            "position": [
+              3.0,
+              0.35,
+              -3.0
+            ],
+            "size": [
+              0.6,
+              0.7,
+              0.65
+            ],
+            "massKg": 0,
+            "friction": 0.5,
+            "restitution": 0,
+            "rotation": [
+              0,
+              0.0,
+              0,
+              1.0
+            ]
+          }
+        ]
+      },
+      "targets": [
+        {
+          "sourceId": "A",
+          "positionM": [
+            3.638,
+            0.21,
+            3.5
+          ],
+          "yawDeg": 95
+        },
+        {
+          "sourceId": "B",
+          "positionM": [
+            1.388,
+            0.16,
+            -1.5
+          ],
+          "yawDeg": -100
+        }
+      ],
+      "forceLimitN": 40,
+      "torqueLimitNm": 2.5,
+      "declaredChanges089": {
+        "targetXOffsetM": -0.012,
+        "dynamicMassFactor": 1.008,
+        "frictionDelta": 0.0
+      },
+      "condition": "relocated-obstacles"
+    },
+    {
+      "id": "090-mixed-3",
+      "group": "proof-reuse",
+      "split": "heldout",
+      "source": {
+        "format": "fraynix.spatial-scene",
+        "version": 1,
+        "title": "LABELLED090 occupied",
+        "units": "m",
+        "frame": "right-handed-y-up",
+        "source": {
+          "kind": "synthetic",
+          "physicalProperties": "declared",
+          "note": "Prospectively declared deterministic box experiment; not physical observations."
+        },
+        "scaleReference": {
+          "a": [
+            0,
+            0,
+            0
+          ],
+          "b": [
+            1,
+            0,
+            0
+          ],
+          "knownLengthM": 1,
+          "toleranceM": 0,
+          "basis": "declared-test"
+        },
+        "gravityMps2": 9.81,
+        "objects": [
+          {
+            "sourceId": "floor",
+            "label": "floor",
+            "shape": "box",
+            "position": [
+              0,
+              -0.25,
+              0
+            ],
+            "size": [
+              12,
+              0.5,
+              12
+            ],
+            "massKg": 0,
+            "friction": 0.5,
+            "restitution": 0,
+            "rotation": [
+              0,
+              0.0,
+              0,
+              1.0
+            ]
+          },
+          {
+            "sourceId": "A",
+            "label": "A",
+            "shape": "box",
+            "position": [
+              -3.65,
+              0.21,
+              -3.5
+            ],
+            "size": [
+              0.55,
+              0.42,
+              0.7
+            ],
+            "massKg": 0.6072,
+            "friction": 0.252,
+            "restitution": 0,
+            "rotation": [
+              0,
+              0.0,
+              0,
+              1.0
+            ]
+          },
+          {
+            "sourceId": "B",
+            "label": "B",
+            "shape": "box",
+            "position": [
+              2.3,
+              0.16,
+              1.6
+            ],
+            "size": [
+              0.85,
+              0.32,
+              0.4
+            ],
+            "massKg": 0.8096000000000001,
+            "friction": 0.252,
+            "restitution": 0,
+            "rotation": [
+              0,
+              0.0,
+              0,
+              1.0
+            ]
+          },
+          {
+            "sourceId": "bystander",
+            "label": "bystander",
+            "shape": "box",
+            "position": [
+              4.8,
+              0.25,
+              -3.5
+            ],
+            "size": [
+              0.5,
+              0.5,
+              0.6
+            ],
+            "massKg": 1.012,
+            "friction": 0.552,
+            "restitution": 0,
+            "rotation": [
+              0,
+              0.0,
+              0,
+              1.0
+            ]
+          },
+          {
+            "sourceId": "obstacle0",
+            "label": "Fixed obstacle 0",
+            "shape": "box",
+            "position": [
+              -1.2166666666666668,
+              0.35,
+              -1.166666666666667
+            ],
+            "size": [
+              0.6,
+              0.7,
+              0.65
+            ],
+            "massKg": 0,
+            "friction": 0.5,
+            "restitution": 0,
+            "rotation": [
+              0,
+              0.0,
+              0,
+              1.0
+            ]
+          },
+          {
+            "sourceId": "obstacle1",
+            "label": "Fixed obstacle 1",
+            "shape": "box",
+            "position": [
+              1.2166666666666663,
+              0.35,
+              1.166666666666666
+            ],
+            "size": [
+              0.6,
+              0.7,
+              0.65
+            ],
+            "massKg": 0,
+            "friction": 0.5,
+            "restitution": 0,
+            "rotation": [
+              0,
+              0.0,
+              0,
+              1.0
+            ]
+          }
+        ]
+      },
+      "targets": [
+        {
+          "sourceId": "A",
+          "positionM": [
+            3.674,
+            0.21,
+            3.5
+          ],
+          "yawDeg": 95
+        },
+        {
+          "sourceId": "B",
+          "positionM": [
+            1.424,
+            0.16,
+            -1.5
+          ],
+          "yawDeg": -100
+        }
+      ],
+      "forceLimitN": 40,
+      "torqueLimitNm": 2.5,
+      "declaredChanges089": {
+        "targetXOffsetM": 0.024,
+        "dynamicMassFactor": 1.012,
+        "frictionDelta": 0.002
+      },
+      "condition": "occupied"
+    },
+    {
+      "id": "090-mixed-4",
+      "group": "proof-reuse",
+      "split": "heldout",
+      "source": {
+        "format": "fraynix.spatial-scene",
+        "version": 1,
+        "title": "LABELLED090 relocated-obstacles",
+        "units": "m",
+        "frame": "right-handed-y-up",
+        "source": {
+          "kind": "synthetic",
+          "physicalProperties": "declared",
+          "note": "Prospectively declared deterministic box experiment; not physical observations."
+        },
+        "scaleReference": {
+          "a": [
+            0,
+            0,
+            0
+          ],
+          "b": [
+            1,
+            0,
+            0
+          ],
+          "knownLengthM": 1,
+          "toleranceM": 0,
+          "basis": "declared-test"
+        },
+        "gravityMps2": 9.81,
+        "objects": [
+          {
+            "sourceId": "floor",
+            "label": "floor",
+            "shape": "box",
+            "position": [
+              0,
+              -0.25,
+              0
+            ],
+            "size": [
+              12,
+              0.5,
+              12
+            ],
+            "massKg": 0,
+            "friction": 0.5,
+            "restitution": 0,
+            "rotation": [
+              0,
+              0.0,
+              0,
+              1.0
+            ]
+          },
+          {
+            "sourceId": "A",
+            "label": "A",
+            "shape": "box",
+            "position": [
+              -3.65,
+              0.21,
+              -3.5
+            ],
+            "size": [
+              0.55,
+              0.42,
+              0.7
+            ],
+            "massKg": 0.6096,
+            "friction": 0.248,
+            "restitution": 0,
+            "rotation": [
+              0,
+              0.0,
+              0,
+              1.0
+            ]
+          },
+          {
+            "sourceId": "B",
+            "label": "B",
+            "shape": "box",
+            "position": [
+              2.3,
+              0.16,
+              1.6
+            ],
+            "size": [
+              0.85,
+              0.32,
+              0.4
+            ],
+            "massKg": 0.8128000000000001,
+            "friction": 0.248,
+            "restitution": 0,
+            "rotation": [
+              0,
+              0.0,
+              0,
+              1.0
+            ]
+          },
+          {
+            "sourceId": "bystander",
+            "label": "bystander",
+            "shape": "box",
+            "position": [
+              4.8,
+              0.25,
+              -3.5
+            ],
+            "size": [
+              0.5,
+              0.5,
+              0.6
+            ],
+            "massKg": 1.016,
+            "friction": 0.548,
+            "restitution": 0,
+            "rotation": [
+              0,
+              0.0,
+              0,
+              1.0
+            ]
+          },
+          {
+            "sourceId": "obstacle0",
+            "label": "Fixed obstacle 0",
+            "shape": "box",
+            "position": [
+              -3.0,
+              0.35,
+              3.0
+            ],
+            "size": [
+              0.6,
+              0.7,
+              0.65
+            ],
+            "massKg": 0,
+            "friction": 0.5,
+            "restitution": 0,
+            "rotation": [
+              0,
+              0.0,
+              0,
+              1.0
+            ]
+          },
+          {
+            "sourceId": "obstacle1",
+            "label": "Fixed obstacle 1",
+            "shape": "box",
+            "position": [
+              3.0,
+              0.35,
+              -3.0
+            ],
+            "size": [
+              0.6,
+              0.7,
+              0.65
+            ],
+            "massKg": 0,
+            "friction": 0.5,
+            "restitution": 0,
+            "rotation": [
+              0,
+              0.0,
+              0,
+              1.0
+            ]
+          }
+        ]
+      },
+      "targets": [
+        {
+          "sourceId": "A",
+          "positionM": [
+            3.626,
+            0.21,
+            3.5
+          ],
+          "yawDeg": 95
+        },
+        {
+          "sourceId": "B",
+          "positionM": [
+            1.376,
+            0.16,
+            -1.5
+          ],
+          "yawDeg": -100
+        }
+      ],
+      "forceLimitN": 40,
+      "torqueLimitNm": 2.5,
+      "declaredChanges089": {
+        "targetXOffsetM": -0.024,
+        "dynamicMassFactor": 1.016,
+        "frictionDelta": -0.002
+      },
+      "condition": "relocated-obstacles"
+    },
+    {
+      "id": "090-mixed-5",
+      "group": "proof-reuse",
+      "split": "heldout",
+      "source": {
+        "format": "fraynix.spatial-scene",
+        "version": 1,
+        "title": "LABELLED090 occupied",
+        "units": "m",
+        "frame": "right-handed-y-up",
+        "source": {
+          "kind": "synthetic",
+          "physicalProperties": "declared",
+          "note": "Prospectively declared deterministic box experiment; not physical observations."
+        },
+        "scaleReference": {
+          "a": [
+            0,
+            0,
+            0
+          ],
+          "b": [
+            1,
+            0,
+            0
+          ],
+          "knownLengthM": 1,
+          "toleranceM": 0,
+          "basis": "declared-test"
+        },
+        "gravityMps2": 9.81,
+        "objects": [
+          {
+            "sourceId": "floor",
+            "label": "floor",
+            "shape": "box",
+            "position": [
+              0,
+              -0.25,
+              0
+            ],
+            "size": [
+              12,
+              0.5,
+              12
+            ],
+            "massKg": 0,
+            "friction": 0.5,
+            "restitution": 0,
+            "rotation": [
+              0,
+              0.0,
+              0,
+              1.0
+            ]
+          },
+          {
+            "sourceId": "A",
+            "label": "A",
+            "shape": "box",
+            "position": [
+              -3.65,
+              0.21,
+              -3.5
+            ],
+            "size": [
+              0.55,
+              0.42,
+              0.7
+            ],
+            "massKg": 0.612,
+            "friction": 0.25,
+            "restitution": 0,
+            "rotation": [
+              0,
+              0.0,
+              0,
+              1.0
+            ]
+          },
+          {
+            "sourceId": "B",
+            "label": "B",
+            "shape": "box",
+            "position": [
+              2.3,
+              0.16,
+              1.6
+            ],
+            "size": [
+              0.85,
+              0.32,
+              0.4
+            ],
+            "massKg": 0.8160000000000001,
+            "friction": 0.25,
+            "restitution": 0,
+            "rotation": [
+              0,
+              0.0,
+              0,
+              1.0
+            ]
+          },
+          {
+            "sourceId": "bystander",
+            "label": "bystander",
+            "shape": "box",
+            "position": [
+              4.8,
+              0.25,
+              -3.5
+            ],
+            "size": [
+              0.5,
+              0.5,
+              0.6
+            ],
+            "massKg": 1.02,
+            "friction": 0.55,
+            "restitution": 0,
+            "rotation": [
+              0,
+              0.0,
+              0,
+              1.0
+            ]
+          },
+          {
+            "sourceId": "obstacle0",
+            "label": "Fixed obstacle 0",
+            "shape": "box",
+            "position": [
+              -1.2166666666666668,
+              0.35,
+              -1.166666666666667
+            ],
+            "size": [
+              0.6,
+              0.7,
+              0.65
+            ],
+            "massKg": 0,
+            "friction": 0.5,
+            "restitution": 0,
+            "rotation": [
+              0,
+              0.0,
+              0,
+              1.0
+            ]
+          },
+          {
+            "sourceId": "obstacle1",
+            "label": "Fixed obstacle 1",
+            "shape": "box",
+            "position": [
+              1.2166666666666663,
+              0.35,
+              1.166666666666666
+            ],
+            "size": [
+              0.6,
+              0.7,
+              0.65
+            ],
+            "massKg": 0,
+            "friction": 0.5,
+            "restitution": 0,
+            "rotation": [
+              0,
+              0.0,
+              0,
+              1.0
+            ]
+          }
+        ]
+      },
+      "targets": [
+        {
+          "sourceId": "A",
+          "positionM": [
+            3.682,
+            0.21,
+            3.5
+          ],
+          "yawDeg": 95
+        },
+        {
+          "sourceId": "B",
+          "positionM": [
+            1.432,
+            0.16,
+            -1.5
+          ],
+          "yawDeg": -100
+        }
+      ],
+      "forceLimitN": 40,
+      "torqueLimitNm": 2.5,
+      "declaredChanges089": {
+        "targetXOffsetM": 0.032,
+        "dynamicMassFactor": 1.02,
+        "frictionDelta": 0.0
+      },
+      "condition": "occupied"
+    },
+    {
+      "id": "090-mixed-6",
+      "group": "proof-reuse",
+      "split": "heldout",
+      "source": {
+        "format": "fraynix.spatial-scene",
+        "version": 1,
+        "title": "LABELLED090 relocated-obstacles",
+        "units": "m",
+        "frame": "right-handed-y-up",
+        "source": {
+          "kind": "synthetic",
+          "physicalProperties": "declared",
+          "note": "Prospectively declared deterministic box experiment; not physical observations."
+        },
+        "scaleReference": {
+          "a": [
+            0,
+            0,
+            0
+          ],
+          "b": [
+            1,
+            0,
+            0
+          ],
+          "knownLengthM": 1,
+          "toleranceM": 0,
+          "basis": "declared-test"
+        },
+        "gravityMps2": 9.81,
+        "objects": [
+          {
+            "sourceId": "floor",
+            "label": "floor",
+            "shape": "box",
+            "position": [
+              0,
+              -0.25,
+              0
+            ],
+            "size": [
+              12,
+              0.5,
+              12
+            ],
+            "massKg": 0,
+            "friction": 0.5,
+            "restitution": 0,
+            "rotation": [
+              0,
+              0.0,
+              0,
+              1.0
+            ]
+          },
+          {
+            "sourceId": "A",
+            "label": "A",
+            "shape": "box",
+            "position": [
+              -3.65,
+              0.21,
+              -3.5
+            ],
+            "size": [
+              0.55,
+              0.42,
+              0.7
+            ],
+            "massKg": 0.6144,
+            "friction": 0.252,
+            "restitution": 0,
+            "rotation": [
+              0,
+              0.0,
+              0,
+              1.0
+            ]
+          },
+          {
+            "sourceId": "B",
+            "label": "B",
+            "shape": "box",
+            "position": [
+              2.3,
+              0.16,
+              1.6
+            ],
+            "size": [
+              0.85,
+              0.32,
+              0.4
+            ],
+            "massKg": 0.8192,
+            "friction": 0.252,
+            "restitution": 0,
+            "rotation": [
+              0,
+              0.0,
+              0,
+              1.0
+            ]
+          },
+          {
+            "sourceId": "bystander",
+            "label": "bystander",
+            "shape": "box",
+            "position": [
+              4.8,
+              0.25,
+              -3.5
+            ],
+            "size": [
+              0.5,
+              0.5,
+              0.6
+            ],
+            "massKg": 1.024,
+            "friction": 0.552,
+            "restitution": 0,
+            "rotation": [
+              0,
+              0.0,
+              0,
+              1.0
+            ]
+          },
+          {
+            "sourceId": "obstacle0",
+            "label": "Fixed obstacle 0",
+            "shape": "box",
+            "position": [
+              -3.0,
+              0.35,
+              3.0
+            ],
+            "size": [
+              0.6,
+              0.7,
+              0.65
+            ],
+            "massKg": 0,
+            "friction": 0.5,
+            "restitution": 0,
+            "rotation": [
+              0,
+              0.0,
+              0,
+              1.0
+            ]
+          },
+          {
+            "sourceId": "obstacle1",
+            "label": "Fixed obstacle 1",
+            "shape": "box",
+            "position": [
+              3.0,
+              0.35,
+              -3.0
+            ],
+            "size": [
+              0.6,
+              0.7,
+              0.65
+            ],
+            "massKg": 0,
+            "friction": 0.5,
+            "restitution": 0,
+            "rotation": [
+              0,
+              0.0,
+              0,
+              1.0
+            ]
+          }
+        ]
+      },
+      "targets": [
+        {
+          "sourceId": "A",
+          "positionM": [
+            3.618,
+            0.21,
+            3.5
+          ],
+          "yawDeg": 95
+        },
+        {
+          "sourceId": "B",
+          "positionM": [
+            1.3679999999999999,
+            0.16,
+            -1.5
+          ],
+          "yawDeg": -100
+        }
+      ],
+      "forceLimitN": 40,
+      "torqueLimitNm": 2.5,
+      "declaredChanges089": {
+        "targetXOffsetM": -0.032,
+        "dynamicMassFactor": 1.024,
+        "frictionDelta": 0.002
+      },
+      "condition": "relocated-obstacles"
+    }
+  ]
+}
