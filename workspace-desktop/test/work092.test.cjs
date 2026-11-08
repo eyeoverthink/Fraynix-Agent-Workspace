@@ -14,7 +14,7 @@ test('Accounting rejects missing reads and non-finite elapsed work',()=>{
 test('Prefix export after reopening is charged before the resumed segment',()=>{
  const prefix={...zero,reads:2,canonicalChecks:2,bytes:30,readMillis:4};
  const after={...prefix,reads:3,hits:1,bytes:45,readMillis:5};
- assert.deepEqual(taskWork({restartBoot:{initial:zero},segments:[{before:zero,after:zero},{before:prefix,after}]}),after);
+ assert.deepEqual(taskWork({restartBoot:{initial:{...zero,reads:1,canonicalChecks:1,bytes:15,readMillis:2}},segments:[{before:zero,after:zero},{before:prefix,after}]}),after);
 });
 test('Restart pair rejects calibration eligibility and changed task',()=>{
  const row={bank:4,lifecycle:'restarted',callerMillis:10,segments:[],goal:{taskCost080:{task:{x:1},eligible:false},worldCommit:{revision:1}},job:{arm:{selected:'two-stage',chargedTicks:14400}}};
