@@ -775,6 +775,8 @@ public final class GoalRunner implements AutoCloseable {
         return new JSONObject().put("pairs",result).put("calibration",procedures079.calibration080());
     }
     public synchronized JSONObject calibrationStats081(){return procedures079.calibrationStats081();}
+    public synchronized JSONObject envelopeStats091(){return procedures079.envelopeStats091();}
+    synchronized JSONObject testEnvelopeMode091(String mode){return procedures079.testEnvelopeMode091(mode);}
     synchronized JSONObject testCalibrationMode081(String mode){return procedures079.testCalibrationMode081(mode);}
     public synchronized JSONObject calibration080()throws Exception{return procedures079.calibration080();}
     public synchronized JSONObject fitCosts080(JSONArray pairs)throws Exception{
