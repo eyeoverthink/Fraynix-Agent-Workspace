@@ -1,3 +1,11 @@
+## Edition091 — locally verified; publication pending
+
+Digest reuse reduced canonical verification passes by 94.2% and took 40.07 s less across the eight task calls (four paired comparisons). All nine new native goals completed and verified. Every original outcome check remains active.
+
+268 Java cases passed across 35 classes; 1 host-dependent case skipped; 135 desktop checks passed. A separate Windows directory-junction refusal probe passed. Nine fresh native goals and eight full post-task audits were independently inspected. 329 prior engine classes are byte-identical to090; only WorldProcedure079, GoalRunner and WorkspaceServer integrate the new bounded NativeEnvelope091. Complete bytes and current identities are checked on each read; every original outcome check remains. Old proofs/cost fits are not relabelled.
+
+Isolated D:/Codex-Work/fraynix-workspace-edition091, private eyeoverthink/Fraynix-Agent-Workspace. Source a242f35029dccd9f61d28e69d48bd46140d7bc2c. Actual2CPU/512MiB study: one seed, eight task comparisons, four full audits per mode, restored tamper probe and cold restart. No calibration fit, growing-bank timing, weight training or hardware-accuracy claim. Preserve original live045/qa046/private data and frozen001–090. No subagents. Next: longer mixed/restarted and calibrated workloads, with all checks retained.
+
 ## Edition090 — published and fetched back
 
 Release e0c3c38a0030b69fa4dd7099477645ba6df3d574; annotated readme-090 tag object 2428d0a40ef37315d2d076b49564ba76ede1a95e. Actual atomic main/edition090/tag publication to private eyeoverthink/Fraynix-Agent-Workspace fetched and audited: 1229 canonical sources, 23566 frozen hashes across90 editions, 8162 logical originals with compressed and raw hashes verified. [Publication receipt](PUBLICATION_090.json).

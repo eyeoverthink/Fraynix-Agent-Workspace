@@ -1,3 +1,5 @@
+[[README-091.md|Edition091 — less repeated verification]] · [[docs/obsidian/99-native-envelope-verification.md]]
+
 ---
 
 - [[README-090.md|Edition090 — cost freshness and mixed tasks]] · [[docs/obsidian/98-cost-freshness-and-mixed-tasks.md]]

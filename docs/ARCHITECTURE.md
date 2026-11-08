@@ -1,3 +1,5 @@
+Edition091 reuses only canonical fingerprints of identical authenticated native envelopes. Every read retains full-byte checking and fresh JSON; all existing motion/outcome/report/commit checks run. [Measured results and limits](../README-091.md).
+
 # Fraynix Agent Workspace system architecture
 
 Edition089 integrates source-verified owned paired timing into Java memory selection, with conservative original085 fallback and measured twelve-task sequences. The original fitting gate and all outcome checks remain active. [Measured results and limits](../README-089.md).

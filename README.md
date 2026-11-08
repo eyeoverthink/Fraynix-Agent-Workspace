@@ -1,6 +1,10 @@
 # Fraynix Agent Workspace
 
-**Latest: [edition090 — cost freshness and mixed tasks](README-090.md).**
+**Latest: [edition091 — less repeated verification work](README-091.md).**
+
+Digest reuse reduced canonical verification passes by 94.2% and took 40.07 s less across the eight task calls (four paired comparisons). All nine new native goals completed and verified. Every original outcome check remains active. [Offline evidence](docs/readmes/091/index.html).
+
+**Earlier edition: [edition090 — cost freshness and mixed tasks](README-090.md).**
 
 Edition090 is published to main with code, measured outcomes, screenshots and exact original evidence. [Fetched GitHub verification](docs/PUBLICATION_090.json).
 

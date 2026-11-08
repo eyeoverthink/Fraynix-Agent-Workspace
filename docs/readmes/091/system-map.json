@@ -1,0 +1,60 @@
+{
+  "modules": [
+    {
+      "id": "digest",
+      "name": "Bounded digest reuse",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/NativeEnvelope091.java",
+      "description": "Every-byte SHA-256 and fresh JSON; canonical digest reuse only for previously authenticated identical envelopes.",
+      "note": "docs/obsidian/99-native-envelope-verification.md"
+    },
+    {
+      "id": "procedure",
+      "name": "Source and outcome authority",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/WorldProcedure079.java",
+      "description": "Current identities, native chronology, motion, forecast comparison, protected bodies and whole-task success.",
+      "note": "docs/obsidian/99-native-envelope-verification.md"
+    },
+    {
+      "id": "goal",
+      "name": "Report and commit",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/GoalRunner.java",
+      "description": "Durable goal, original saved report, measured costs and committed world must agree.",
+      "note": "docs/obsidian/99-native-envelope-verification.md"
+    },
+    {
+      "id": "inspect",
+      "name": "Independent accounting",
+      "source": "scripts/Inspect-Envelopes091.cjs",
+      "description": "Original native/commit arithmetic and measured fingerprint work for both modes.",
+      "note": "docs/obsidian/99-native-envelope-verification.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "docs/readmes/091/verified-memory-1600.png",
+      "caption": "Actual091 saved report capture"
+    },
+    {
+      "path": "docs/readmes/091/verified-memory-1100.png",
+      "caption": "Actual091 saved report capture"
+    },
+    {
+      "path": "docs/readmes/091/verified-short-1600.png",
+      "caption": "Actual091 saved report capture"
+    },
+    {
+      "path": "docs/readmes/091/verified-short-1100.png",
+      "caption": "Actual091 saved report capture"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/readmes/091/verification.json",
+      "caption": "Checks and complete measurements"
+    },
+    {
+      "path": "docs/readmes/091/original-evidence.json",
+      "caption": "Exact original archive"
+    }
+  ]
+}

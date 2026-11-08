@@ -1,0 +1,13 @@
+{
+  "passed": true,
+  "method": "Manual inspection of actual app report captures and rendered offline guide screenshots, following automated filters, navigation and 108 retained-sample checks at 1440 and 390 pixels.",
+  "actualApp": ["ui091-study/verified-memory-1600.png", "ui091-study/verified-short-1100.png"],
+  "offline": ["offline091-top-1440.png", "offline091-results-1440.png", "offline091-top-390.png", "offline091-results-390.png"],
+  "findings": [
+    "The exact saved reports show the requested memory/simple modes, completed goals, evidence and integrated browser/canvas/chat controls.",
+    "Wide guide headings, metric cards, table and audit bars are readable without overlap.",
+    "First narrow guide table required horizontal scrolling and clipped the native-tick column in the initial view. Replaced its narrow layout with labelled cards, retaining all fields and table data.",
+    "Final narrow cards display task, reference, reuse, saving and native ticks clearly. Rechecked filters, navigation, no page overflow and every retained stage at first/middle/last samples.",
+    "Initial guide screenshots and checks are retained alongside final captures. Runtime source and timed results were not changed."
+  ]
+}
