@@ -1,3 +1,5 @@
+[[README-095.md|Edition095 — complete mixed-task costs]] · [[docs/obsidian/103-mixed-task-costs.md]]
+
 [[README-094.md|Edition094 — three-stage crash recovery]] · [[docs/obsidian/102-three-stage-recovery.md]]
 
 [[README-093.md|Edition093 — recovered-state forecasting]] · [[docs/obsidian/101-recovered-state-forecast.md]]

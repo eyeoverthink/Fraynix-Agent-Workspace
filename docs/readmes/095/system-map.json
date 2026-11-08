@@ -1,0 +1,64 @@
+{
+  "modules": [
+    {
+      "id": "runner",
+      "name": "Java goal, verification, commit and skill saving",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/GoalRunner.java",
+      "note": "docs/obsidian/103-mixed-task-costs.md"
+    },
+    {
+      "id": "world",
+      "name": "Original native procedure and recovery",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/WorldProcedure079.java",
+      "note": "docs/obsidian/103-mixed-task-costs.md"
+    },
+    {
+      "id": "accounting",
+      "name": "Disjoint complete-cost arithmetic",
+      "source": "scripts/Costs095.cjs",
+      "note": "docs/obsidian/103-mixed-task-costs.md"
+    },
+    {
+      "id": "inspection",
+      "name": "Independent native/provenance/cost inspection",
+      "source": "scripts/Inspect-Mixed095.cjs",
+      "note": "docs/obsidian/103-mixed-task-costs.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "docs/readmes/095/short-plain-1600.png",
+      "caption": "Actual095 integrated app capture · 2026-11-08"
+    },
+    {
+      "path": "docs/readmes/095/short-plain-1100.png",
+      "caption": "Actual095 integrated app capture · 2026-11-08"
+    },
+    {
+      "path": "docs/readmes/095/long-save-1600.png",
+      "caption": "Actual095 integrated app capture · 2026-11-08"
+    },
+    {
+      "path": "docs/readmes/095/long-save-1100.png",
+      "caption": "Actual095 integrated app capture · 2026-11-08"
+    },
+    {
+      "path": "docs/readmes/095/long-recover-save-1600.png",
+      "caption": "Actual095 integrated app capture · 2026-11-08"
+    },
+    {
+      "path": "docs/readmes/095/long-recover-save-1100.png",
+      "caption": "Actual095 integrated app capture · 2026-11-08"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/readmes/095/verification.json",
+      "caption": "Results and limits"
+    },
+    {
+      "path": "docs/readmes/095/original-evidence.json",
+      "caption": "Original bytes"
+    }
+  ]
+}

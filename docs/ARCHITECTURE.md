@@ -1,3 +1,5 @@
+Edition095 measures complete mixed tasks, recovery and saved skills without changing production Java classes. [Results](../README-095.md) · [Contributor contract](../README-CONTRIBUTORS.md).
+
 Edition094 verifies three-stage recovery under abrupt owned-process termination, fixes native atomic replacement retries and adds an explicit closed093 frame handoff. All outcome checks remain. [Results](../README-094.md) · [Current contributor contract](../README-CONTRIBUTORS.md).
 
 Edition093 verifies a new forecast from recovered state before later actual motion. Original predictions and all source/outcome checks remain. [Results and limits](../README-093.md).

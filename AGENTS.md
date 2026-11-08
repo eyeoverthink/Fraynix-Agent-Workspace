@@ -1,3 +1,11 @@
+## Edition095 — locally verified; publication pending
+
+24 of 24 mixed tasks completed. Fixed memory took 60.94 s more time across complete goal calls and 49.33 s more across whole study iterations than simple control. Charging preparation once, the first batch took 155.79 s more time.
+
+110 Java checks passed across 19 focused classes; 1 optional host-dependent case skipped. 135 desktop checks and 7 new interval/accounting tests passed. The independent inspector verified 24 evaluated goals, preparation, eight abrupt interruptions and two saved-skill executions, with 22 altered-accounting/provenance refusals. The unchanged recovery regression also reused source-identical 094 originals; those are not counted as new motion. All 334 production engine classes match 094. Source 5676bc1adda5cb71156425583381deca593fdf25. Fixed one-memory cold copies, six conditions, two opposite orders. No new fit or runtime policy. Parent full GitHub CI still has four failures (construction schema, historical WorldLedger lock and two heap exhaustions); original failed XML retained separately. Focused095 checks do not establish full-suite health. Saved skill executions are separate from the 24 comparison goals. Resumed Java clocks stay unavailable/ineligible; external interval accounting never grants motion authority.
+
+Isolated D:/Codex-Work/fraynix-workspace-edition095; public eyeoverthink/Fraynix-Agent-Workspace. Preserve live045/qa046/private projects and frozen001–094. No subagents. Resolve the inherited full-CI schema/source-lock and long-test resource failures with explicit contracts and preserved originals. Then repeat complete mixed sequences in a continuing warm workspace with changing bank contents, keeping cold-start costs visible separately. Compare a cost-aware selector against these fixed controls only after matched calibration coverage exists. Cross-boot timing needs its own durable clock contract before recovered tasks can train cost estimates. Keep useful browser/creation/game goals in view; a faster failed task or an unverified saved skill is not progress.
+
 ## Edition095 — measurement in progress
 
 Work in D:/Codex-Work/fraynix-workspace-edition095, branch edition095, from verified main88b60a6d. Read docs/EDITION_095_CONTRACT.md and build/HANDOFF095.md. Actual mixed-cost study is running serially in build/ui095-study; preserve its originals and any failure. No095 publication yet. All334 production classes match094. No builds while this study's Java owner is active; preserve live045/qa046/private projects and frozen001–094. No subagents. Completion still requires independent inspection, regressions, screenshots/docs and fetched main publication.
@@ -14,7 +22,7 @@ Isolated D:/Codex-Work/fraynix-workspace-edition094; public eyeoverthink/Fraynix
 
 # Current contributor entry point — 2026-11-08
 
-Read [README-CONTRIBUTORS.md](README-CONTRIBUTORS.md) and the [dated trajectory review](docs/TRAJECTORY_REVIEW_094.md) first. This is the Java **Fraynix-Agent-Workspace**, not Chandra. GitHub currently reports public visibility; older private/pending/ownership statements below are historical. Preserve frozen editions and private live data. Java retains planning, goals, physics and verification ownership. No subagents; heavy validation serial. Edition094 is published and fetched back from its isolated D: checkout; the release, contract and original evidence record actual results.
+Read [README-CONTRIBUTORS.md](README-CONTRIBUTORS.md) and the [dated trajectory review](docs/TRAJECTORY_REVIEW_094.md) first. This is the Java **Fraynix-Agent-Workspace**, not Chandra. GitHub currently reports public visibility; older private/pending/ownership statements below are historical. Preserve frozen editions and private live data. Java retains planning, goals, physics and verification ownership. No subagents; heavy validation serial. Use the newest edition entry above for current status; each release, contract and original evidence records its actual results.
 
 ## Edition093 — published and fetched back
 

@@ -1,0 +1,1775 @@
+{
+  "passed": true,
+  "analysis": {
+    "passed": true,
+    "source": "5676bc1adda5cb71156425583381deca593fdf25",
+    "verifiedAt": "2026-11-08T22:47:43.317Z",
+    "preparation": {
+      "id": "c1251a69-cb7b-42b5-b719-1b51db28ba86",
+      "success": true,
+      "selected": "three-stage",
+      "ticks": 31624,
+      "observed": 31624,
+      "stages": 7,
+      "usesMemory": false,
+      "lookupMillis": 0.3992,
+      "activeMillis": 50271.5671,
+      "auditMillis": 6211.6835,
+      "row": "preparation",
+      "condition": "preparation",
+      "mode": "simple",
+      "block": 0,
+      "totalMillis": 106223.5941,
+      "phases": {
+        "copy": 0.05389999999999873,
+        "startup": 3778.5454000000004,
+        "setup": 159.9398000000001,
+        "goal": 77685.0385,
+        "audit": 8859.993900000001,
+        "shutdown": 336.5631999999896,
+        "reopen": 15257.209700000007,
+        "close": 140.0220999999874
+      },
+      "unattributedMillis": 6.227600000027451,
+      "restartMillis": 0,
+      "taskMillis": 77685.0385,
+      "completed": true,
+      "resumes": 0,
+      "savedSkill": null,
+      "forecastTicks": 0
+    },
+    "results": [
+      {
+        "id": "556a8896-fbfc-4751-8949-9a86b3abbae7",
+        "success": true,
+        "selected": "direct",
+        "ticks": 11218,
+        "observed": 11218,
+        "stages": 2,
+        "usesMemory": false,
+        "lookupMillis": 0.3873,
+        "activeMillis": 20734.3435,
+        "auditMillis": 2289.3048,
+        "row": "task-00",
+        "condition": "short-plain",
+        "mode": "simple",
+        "block": 0,
+        "totalMillis": 45657.95989999999,
+        "phases": {
+          "copy": 311.2795999999944,
+          "startup": 2040.6403000000137,
+          "setup": 108.25899999999092,
+          "goal": 32141.930099999983,
+          "audit": 3411.928199999995,
+          "shutdown": 158.625,
+          "reopen": 7319.552100000001,
+          "close": 163.72450000001118
+        },
+        "unattributedMillis": 2.021099999998114,
+        "restartMillis": 0,
+        "taskMillis": 32141.930099999983,
+        "completed": true,
+        "resumes": 0,
+        "savedSkill": null,
+        "forecastTicks": 0
+      },
+      {
+        "id": "e02c436d-28f8-4564-a97c-7584f40ca01b",
+        "success": true,
+        "selected": "direct",
+        "ticks": 11218,
+        "observed": 11218,
+        "stages": 2,
+        "usesMemory": true,
+        "lookupMillis": 10562.3851,
+        "activeMillis": 23903.061,
+        "auditMillis": 2042.102,
+        "row": "task-01",
+        "condition": "short-plain",
+        "mode": "memory",
+        "block": 0,
+        "totalMillis": 51630.801600000006,
+        "phases": {
+          "copy": 323.04200000001583,
+          "startup": 2043.8968999999925,
+          "setup": 492.9009000000078,
+          "goal": 35746.86859999999,
+          "audit": 3027.3677000000025,
+          "shutdown": 131.67329999999492,
+          "reopen": 9713.486200000014,
+          "close": 148.71590000001015
+        },
+        "unattributedMillis": 2.8500999999814667,
+        "restartMillis": 0,
+        "taskMillis": 35746.86859999999,
+        "completed": true,
+        "resumes": 0,
+        "savedSkill": null,
+        "forecastTicks": 0
+      },
+      {
+        "id": "ceeb7af0-47a7-41b6-9aa0-8d815641ce02",
+        "success": true,
+        "selected": "three-stage",
+        "ticks": 27676,
+        "observed": 27676,
+        "stages": 6,
+        "usesMemory": true,
+        "lookupMillis": 14640.6374,
+        "activeMillis": 54811.0359,
+        "auditMillis": 5819.9949,
+        "row": "task-02",
+        "condition": "long-save",
+        "mode": "memory",
+        "block": 0,
+        "totalMillis": 110712.9172,
+        "phases": {
+          "copy": 350.77270000000135,
+          "startup": 2153.0273999999918,
+          "setup": 544.1508999999787,
+          "goal": 87415.74920000002,
+          "audit": 8817.874599999981,
+          "shutdown": 167.65140000003157,
+          "reopen": 11043.188900000008,
+          "close": 216.92619999998715
+        },
+        "unattributedMillis": 3.5758999999961816,
+        "restartMillis": 0,
+        "taskMillis": 87415.74920000002,
+        "completed": true,
+        "resumes": 0,
+        "savedSkill": {
+          "name": "saved-095-task-02",
+          "id": "34bc98f7-973c-3e69-8d3b-99ca820413ab",
+          "version": 1
+        },
+        "forecastTicks": 0
+      },
+      {
+        "id": "d176f869-c550-4a34-9791-5e33336f24fc",
+        "success": true,
+        "selected": "three-stage",
+        "ticks": 31600,
+        "observed": 31600,
+        "stages": 7,
+        "usesMemory": false,
+        "lookupMillis": 0.3908,
+        "activeMillis": 47045.1989,
+        "auditMillis": 6139.2981,
+        "row": "task-03",
+        "condition": "long-save",
+        "mode": "simple",
+        "block": 0,
+        "totalMillis": 106259.15409999999,
+        "phases": {
+          "copy": 364.6901000000071,
+          "startup": 2060.26390000002,
+          "setup": 108.57550000003539,
+          "goal": 79865.01790000004,
+          "audit": 7920.197999999975,
+          "shutdown": 148.01699999999255,
+          "reopen": 15663.956000000006,
+          "close": 123.62040000001434
+        },
+        "unattributedMillis": 4.815299999900162,
+        "restartMillis": 0,
+        "taskMillis": 79865.01790000004,
+        "completed": true,
+        "resumes": 0,
+        "savedSkill": {
+          "name": "saved-095-task-03",
+          "id": "dbd1e02b-fa36-3852-b3b4-d687f340dad5",
+          "version": 1
+        },
+        "forecastTicks": 0
+      },
+      {
+        "id": "5b0cf134-bf83-44bf-8982-f71ccd27bf45",
+        "success": true,
+        "selected": "direct",
+        "ticks": 20009,
+        "observed": 11218,
+        "stages": 2,
+        "usesMemory": false,
+        "lookupMillis": 0.4902,
+        "activeMillis": 21845.4983,
+        "auditMillis": 3371.3278,
+        "row": "task-04",
+        "condition": "short-recover-save",
+        "mode": "simple",
+        "block": 0,
+        "totalMillis": 58254.45630000002,
+        "phases": {
+          "copy": 371.48320000001695,
+          "startup": 2013.1671000000206,
+          "setup": 92.37760000000708,
+          "goal": 42662.20429999998,
+          "audit": 3569.3807999999844,
+          "shutdown": 143.34459999995306,
+          "reopen": 9233.618499999982,
+          "close": 162.686699999962
+        },
+        "unattributedMillis": 6.193500000110362,
+        "restartMillis": 5108.041700000002,
+        "taskMillis": 42662.20429999998,
+        "completed": true,
+        "resumes": 1,
+        "savedSkill": {
+          "name": "saved-095-task-04",
+          "id": "c239c28b-f54f-369d-a11c-256ec5eace77",
+          "version": 1
+        },
+        "forecastTicks": 0
+      },
+      {
+        "id": "071136c2-b984-4391-b3f5-7a537186cc3a",
+        "success": true,
+        "selected": "direct",
+        "ticks": 20009,
+        "observed": 11218,
+        "stages": 2,
+        "usesMemory": true,
+        "lookupMillis": 12485.7517,
+        "activeMillis": 34578.9762,
+        "auditMillis": 2199.7345,
+        "row": "task-05",
+        "condition": "short-recover-save",
+        "mode": "memory",
+        "block": 0,
+        "totalMillis": 70828.00319999992,
+        "phases": {
+          "copy": 355.16950000001816,
+          "startup": 1985.9902000000002,
+          "setup": 488.9311999999918,
+          "goal": 54901.08369999996,
+          "audit": 3373.035799999954,
+          "shutdown": 144.625400000019,
+          "reopen": 9338.003400000045,
+          "close": 235.21569999994244
+        },
+        "unattributedMillis": 5.9482999999891035,
+        "restartMillis": 5121.816399999952,
+        "taskMillis": 54901.08369999996,
+        "completed": true,
+        "resumes": 1,
+        "savedSkill": {
+          "name": "saved-095-task-05",
+          "id": "f4cff922-1db3-30bd-acbc-ac057e78c5f2",
+          "version": 1
+        },
+        "forecastTicks": 0
+      },
+      {
+        "id": "674fca48-d41c-4d7b-a104-471958b629cf",
+        "success": true,
+        "selected": "three-stage",
+        "ticks": 27676,
+        "observed": 27676,
+        "stages": 6,
+        "usesMemory": true,
+        "lookupMillis": 10346.2681,
+        "activeMillis": 51848.0656,
+        "auditMillis": 5438.4597,
+        "row": "task-06",
+        "condition": "long-plain",
+        "mode": "memory",
+        "block": 0,
+        "totalMillis": 95820.94670000009,
+        "phases": {
+          "copy": 360.34860000002664,
+          "startup": 2022.6321000000462,
+          "setup": 149.38769999996293,
+          "goal": 72720.57319999998,
+          "audit": 8734.197999999975,
+          "shutdown": 134.59199999994598,
+          "reopen": 11537.547299999977,
+          "close": 153.07180000003427
+        },
+        "unattributedMillis": 8.596000000135973,
+        "restartMillis": 0,
+        "taskMillis": 72720.57319999998,
+        "completed": true,
+        "resumes": 0,
+        "savedSkill": null,
+        "forecastTicks": 0
+      },
+      {
+        "id": "9ad3d173-b57a-4142-9f1f-84c243eeb407",
+        "success": true,
+        "selected": "three-stage",
+        "ticks": 31600,
+        "observed": 31600,
+        "stages": 7,
+        "usesMemory": false,
+        "lookupMillis": 0.4006,
+        "activeMillis": 44580.5045,
+        "auditMillis": 5807.5844,
+        "row": "task-07",
+        "condition": "long-plain",
+        "mode": "simple",
+        "block": 0,
+        "totalMillis": 91446.92710000009,
+        "phases": {
+          "copy": 389.42070000001695,
+          "startup": 1973.732900000061,
+          "setup": 83.66830000001937,
+          "goal": 64963.27359999996,
+          "audit": 8607.481900000013,
+          "shutdown": 147.4578999999212,
+          "reopen": 15135.979799999972,
+          "close": 137.83129999996163
+        },
+        "unattributedMillis": 8.080700000165962,
+        "restartMillis": 0,
+        "taskMillis": 64963.27359999996,
+        "completed": true,
+        "resumes": 0,
+        "savedSkill": null,
+        "forecastTicks": 0
+      },
+      {
+        "id": "91532d8c-d580-4d28-8133-6334881823f7",
+        "success": true,
+        "selected": "direct",
+        "ticks": 11218,
+        "observed": 11218,
+        "stages": 2,
+        "usesMemory": false,
+        "lookupMillis": 0.508,
+        "activeMillis": 20728.0005,
+        "auditMillis": 2690.0802,
+        "row": "task-08",
+        "condition": "short-save",
+        "mode": "simple",
+        "block": 0,
+        "totalMillis": 49076.87469999993,
+        "phases": {
+          "copy": 367.77840000006836,
+          "startup": 2005.998799999943,
+          "setup": 451.7367999999551,
+          "goal": 35458.1764,
+          "audit": 3260.725600000005,
+          "shutdown": 155.34550000005402,
+          "reopen": 7118.200199999963,
+          "close": 245.20589999994263
+        },
+        "unattributedMillis": 13.707099999999627,
+        "restartMillis": 0,
+        "taskMillis": 35458.1764,
+        "completed": true,
+        "resumes": 0,
+        "savedSkill": {
+          "name": "saved-095-task-08",
+          "id": "861c73c6-87a4-34d3-b552-c466d37f30f1",
+          "version": 1
+        },
+        "forecastTicks": 0
+      },
+      {
+        "id": "15e45d04-3ec7-4a77-acdc-1a9865e2df85",
+        "success": true,
+        "selected": "direct",
+        "ticks": 11218,
+        "observed": 11218,
+        "stages": 2,
+        "usesMemory": true,
+        "lookupMillis": 9693.437,
+        "activeMillis": 25729.7955,
+        "auditMillis": 2238.4047,
+        "row": "task-09",
+        "condition": "short-save",
+        "mode": "memory",
+        "block": 0,
+        "totalMillis": 57979.422699999996,
+        "phases": {
+          "copy": 360.9918000000762,
+          "startup": 2015.4320000000298,
+          "setup": 550.2208000000101,
+          "goal": 41625.21340000001,
+          "audit": 3101.1387000000104,
+          "shutdown": 160.83600000001024,
+          "reopen": 9931.793800000101,
+          "close": 219.76500000001397
+        },
+        "unattributedMillis": 14.03119999973569,
+        "restartMillis": 0,
+        "taskMillis": 41625.21340000001,
+        "completed": true,
+        "resumes": 0,
+        "savedSkill": {
+          "name": "saved-095-task-09",
+          "id": "7f77e0a8-6e84-3e25-8e0f-20127c608a36",
+          "version": 1
+        },
+        "forecastTicks": 0
+      },
+      {
+        "id": "409b773e-77ef-40e1-a449-d7019469346c",
+        "success": true,
+        "selected": "three-stage",
+        "ticks": 46688,
+        "observed": 36901,
+        "stages": 8,
+        "usesMemory": true,
+        "lookupMillis": 15547.6832,
+        "activeMillis": 83524.558,
+        "auditMillis": 8806.6997,
+        "row": "task-10",
+        "condition": "long-recover-save",
+        "mode": "memory",
+        "block": 0,
+        "totalMillis": 168663.46519999998,
+        "phases": {
+          "copy": 361.64469999994617,
+          "startup": 2011.2404000000097,
+          "setup": 186.19070000003558,
+          "goal": 138530.174,
+          "audit": 12565.036700000055,
+          "shutdown": 124.11980000010226,
+          "reopen": 14711.893799999962,
+          "close": 160.59029999992345
+        },
+        "unattributedMillis": 12.574799999943934,
+        "restartMillis": 6478.3129999999655,
+        "taskMillis": 138530.174,
+        "completed": true,
+        "resumes": 1,
+        "savedSkill": {
+          "name": "saved-095-task-10",
+          "id": "ba1f2ee6-39f8-326d-adb8-34e75b1fa591",
+          "version": 1
+        },
+        "forecastTicks": 9225
+      },
+      {
+        "id": "9c8cd452-a6e0-43d1-8d8c-acb8a134932b",
+        "success": true,
+        "selected": "three-stage",
+        "ticks": 50612,
+        "observed": 40825,
+        "stages": 9,
+        "usesMemory": false,
+        "lookupMillis": 0.4073,
+        "activeMillis": 86012.5082,
+        "auditMillis": 14424.6117,
+        "row": "task-11",
+        "condition": "long-recover-save",
+        "mode": "simple",
+        "block": 0,
+        "totalMillis": 182734.72580000001,
+        "phases": {
+          "copy": 354.56200000003446,
+          "startup": 2021.903799999971,
+          "setup": 125.43579999997746,
+          "goal": 142487.2982999999,
+          "audit": 13755.82939999993,
+          "shutdown": 123.0113999999594,
+          "reopen": 23686.435599999968,
+          "close": 168.6186999999918
+        },
+        "unattributedMillis": 11.630800000275485,
+        "restartMillis": 8311.819600000046,
+        "taskMillis": 142487.2982999999,
+        "completed": true,
+        "resumes": 1,
+        "savedSkill": {
+          "name": "saved-095-task-11",
+          "id": "5cc306da-2ddc-3c65-b353-d9f29b759949",
+          "version": 1
+        },
+        "forecastTicks": 9225
+      },
+      {
+        "id": "44660ad3-dccc-4393-b47d-8e6b31e75209",
+        "success": true,
+        "selected": "three-stage",
+        "ticks": 50612,
+        "observed": 40825,
+        "stages": 9,
+        "usesMemory": false,
+        "lookupMillis": 0.4651,
+        "activeMillis": 80804.3483,
+        "auditMillis": 11346.4518,
+        "row": "task-12",
+        "condition": "long-recover-save",
+        "mode": "simple",
+        "block": 1,
+        "totalMillis": 172005.5573,
+        "phases": {
+          "copy": 367.2827999999281,
+          "startup": 2069.373499999987,
+          "setup": 118.33279999997467,
+          "goal": 136250.66079999995,
+          "audit": 13524.41650000005,
+          "shutdown": 192.9824999999255,
+          "reopen": 19317.820599999977,
+          "close": 150.91639999998733
+        },
+        "unattributedMillis": 13.771400000201538,
+        "restartMillis": 7199.083799999906,
+        "taskMillis": 136250.66079999995,
+        "completed": true,
+        "resumes": 1,
+        "savedSkill": {
+          "name": "saved-095-task-12",
+          "id": "1037a136-d900-3d3e-81f5-e60f5a0b3873",
+          "version": 1
+        },
+        "forecastTicks": 9225
+      },
+      {
+        "id": "829ad354-e0ee-4c0b-badf-fee55ba8ac11",
+        "success": true,
+        "selected": "three-stage",
+        "ticks": 46688,
+        "observed": 36901,
+        "stages": 8,
+        "usesMemory": true,
+        "lookupMillis": 10549.882,
+        "activeMillis": 72998.3544,
+        "auditMillis": 8331.1743,
+        "row": "task-13",
+        "condition": "long-recover-save",
+        "mode": "memory",
+        "block": 1,
+        "totalMillis": 160017.39020000002,
+        "phases": {
+          "copy": 369.3325000000186,
+          "startup": 2007.6115999999456,
+          "setup": 406.17740000016056,
+          "goal": 125846.08140000002,
+          "audit": 10908.425499999896,
+          "shutdown": 128.10630000010133,
+          "reopen": 20170.975400000112,
+          "close": 165.873399999924
+        },
+        "unattributedMillis": 14.80669999984093,
+        "restartMillis": 6493.414000000106,
+        "taskMillis": 125846.08140000002,
+        "completed": true,
+        "resumes": 1,
+        "savedSkill": {
+          "name": "saved-095-task-13",
+          "id": "5667931e-ff82-3072-bd2f-cf33884f6682",
+          "version": 1
+        },
+        "forecastTicks": 9225
+      },
+      {
+        "id": "afcfa6a8-0597-4988-a465-9d412bb55ecf",
+        "success": true,
+        "selected": "direct",
+        "ticks": 11218,
+        "observed": 11218,
+        "stages": 2,
+        "usesMemory": true,
+        "lookupMillis": 12575.6135,
+        "activeMillis": 28562.4114,
+        "auditMillis": 2183.6633,
+        "row": "task-14",
+        "condition": "short-save",
+        "mode": "memory",
+        "block": 1,
+        "totalMillis": 59461.03059999994,
+        "phases": {
+          "copy": 348.26949999993667,
+          "startup": 2114.749300000025,
+          "setup": 115.35980000020936,
+          "goal": 44617.21959999995,
+          "audit": 3457.8799999998882,
+          "shutdown": 159.5742999999784,
+          "reopen": 8454.58850000007,
+          "close": 177.77719999989495
+        },
+        "unattributedMillis": 15.612399999983609,
+        "restartMillis": 0,
+        "taskMillis": 44617.21959999995,
+        "completed": true,
+        "resumes": 0,
+        "savedSkill": {
+          "name": "saved-095-task-14",
+          "id": "39a3463a-78c8-3170-9b25-6825da3057de",
+          "version": 1
+        },
+        "forecastTicks": 0
+      },
+      {
+        "id": "c47d07cf-8f28-490c-b73e-766326897306",
+        "success": true,
+        "selected": "direct",
+        "ticks": 11218,
+        "observed": 11218,
+        "stages": 2,
+        "usesMemory": false,
+        "lookupMillis": 0.4146,
+        "activeMillis": 19444.7289,
+        "auditMillis": 2074.6311,
+        "row": "task-15",
+        "condition": "short-save",
+        "mode": "simple",
+        "block": 1,
+        "totalMillis": 51160.59309999994,
+        "phases": {
+          "copy": 353.779399999883,
+          "startup": 2002.189000000013,
+          "setup": 573.3728000000119,
+          "goal": 34137.95160000003,
+          "audit": 3614.875,
+          "shutdown": 132.60679999995045,
+          "reopen": 10174.082699999912,
+          "close": 155.43770000012591
+        },
+        "unattributedMillis": 16.29810000001453,
+        "restartMillis": 0,
+        "taskMillis": 34137.95160000003,
+        "completed": true,
+        "resumes": 0,
+        "savedSkill": {
+          "name": "saved-095-task-15",
+          "id": "fb7e41ab-b58a-35ec-8aa4-6085491e9029",
+          "version": 1
+        },
+        "forecastTicks": 0
+      },
+      {
+        "id": "4bcc2386-8457-4f33-8143-06beea3e8dda",
+        "success": true,
+        "selected": "three-stage",
+        "ticks": 31600,
+        "observed": 31600,
+        "stages": 7,
+        "usesMemory": false,
+        "lookupMillis": 0.4292,
+        "activeMillis": 40202.3708,
+        "auditMillis": 6368.1811,
+        "row": "task-16",
+        "condition": "long-plain",
+        "mode": "simple",
+        "block": 1,
+        "totalMillis": 86518.28099999996,
+        "phases": {
+          "copy": 380.4983000000939,
+          "startup": 2018.7345000000205,
+          "setup": 187.5431999999564,
+          "goal": 60978.97809999995,
+          "audit": 8399.13730000006,
+          "shutdown": 188.60019999998622,
+          "reopen": 14204.880800000159,
+          "close": 143.4560000000056
+        },
+        "unattributedMillis": 16.45259999972768,
+        "restartMillis": 0,
+        "taskMillis": 60978.97809999995,
+        "completed": true,
+        "resumes": 0,
+        "savedSkill": null,
+        "forecastTicks": 0
+      },
+      {
+        "id": "2aafd41b-c733-4c6b-bcee-f819bd467458",
+        "success": true,
+        "selected": "three-stage",
+        "ticks": 27676,
+        "observed": 27676,
+        "stages": 6,
+        "usesMemory": true,
+        "lookupMillis": 12115.332,
+        "activeMillis": 48093.6836,
+        "auditMillis": 5693.3933,
+        "row": "task-17",
+        "condition": "long-plain",
+        "mode": "memory",
+        "block": 1,
+        "totalMillis": 90719.04590000003,
+        "phases": {
+          "copy": 356.31359999999404,
+          "startup": 2010.375999999931,
+          "setup": 377.3703999998979,
+          "goal": 68697.71760000009,
+          "audit": 8636.227399999974,
+          "shutdown": 144.22389999986626,
+          "reopen": 10172.200800000224,
+          "close": 307.04799999995157
+        },
+        "unattributedMillis": 17.568200000096112,
+        "restartMillis": 0,
+        "taskMillis": 68697.71760000009,
+        "completed": true,
+        "resumes": 0,
+        "savedSkill": null,
+        "forecastTicks": 0
+      },
+      {
+        "id": "01f95021-069b-493a-a5d0-d1af46c3fe3f",
+        "success": true,
+        "selected": "direct",
+        "ticks": 20009,
+        "observed": 11218,
+        "stages": 2,
+        "usesMemory": true,
+        "lookupMillis": 8149.0108,
+        "activeMillis": 29293.6779,
+        "auditMillis": 5518.8625,
+        "row": "task-18",
+        "condition": "short-recover-save",
+        "mode": "memory",
+        "block": 1,
+        "totalMillis": 67611.72129999986,
+        "phases": {
+          "copy": 395.94000000017695,
+          "startup": 2026.9727999998722,
+          "setup": 136.32990000001155,
+          "goal": 50013.89430000004,
+          "audit": 3804.3297999999486,
+          "shutdown": 132.36639999994077,
+          "reopen": 10941.079799999949,
+          "close": 138.79360000020824
+        },
+        "unattributedMillis": 22.014699999708682,
+        "restartMillis": 5368.454499999993,
+        "taskMillis": 50013.89430000004,
+        "completed": true,
+        "resumes": 1,
+        "savedSkill": {
+          "name": "saved-095-task-18",
+          "id": "9ce809eb-03e7-394b-a6c7-dfb6bb1e5eaf",
+          "version": 1
+        },
+        "forecastTicks": 0
+      },
+      {
+        "id": "5c746c98-f884-474e-bd88-72d28fc383dd",
+        "success": true,
+        "selected": "direct",
+        "ticks": 20009,
+        "observed": 11218,
+        "stages": 2,
+        "usesMemory": false,
+        "lookupMillis": 0.4229,
+        "activeMillis": 20856.2088,
+        "auditMillis": 2309.9974,
+        "row": "task-19",
+        "condition": "short-recover-save",
+        "mode": "simple",
+        "block": 1,
+        "totalMillis": 60952.95130000007,
+        "phases": {
+          "copy": 355.8342999999877,
+          "startup": 2048.1462000000756,
+          "setup": 536.6199999998789,
+          "goal": 44607.23270000005,
+          "audit": 3748.8274000000674,
+          "shutdown": 163.435499999905,
+          "reopen": 9305.558299999917,
+          "close": 167.33580000000075
+        },
+        "unattributedMillis": 19.961100000189617,
+        "restartMillis": 5386.003600000171,
+        "taskMillis": 44607.23270000005,
+        "completed": true,
+        "resumes": 1,
+        "savedSkill": {
+          "name": "saved-095-task-19",
+          "id": "53e2e1bd-67dd-3f27-9a53-bb8b64dc7288",
+          "version": 1
+        },
+        "forecastTicks": 0
+      },
+      {
+        "id": "05359e6f-2235-4786-a581-b99c0eaff14e",
+        "success": true,
+        "selected": "three-stage",
+        "ticks": 31600,
+        "observed": 31600,
+        "stages": 7,
+        "usesMemory": false,
+        "lookupMillis": 0.4,
+        "activeMillis": 40142.8917,
+        "auditMillis": 6075.7852,
+        "row": "task-20",
+        "condition": "long-save",
+        "mode": "simple",
+        "block": 1,
+        "totalMillis": 96480.53040000005,
+        "phases": {
+          "copy": 396.7420999999158,
+          "startup": 2009.6435000000056,
+          "setup": 82.53179999999702,
+          "goal": 72764.3284,
+          "audit": 8615.34759999998,
+          "shutdown": 139.30560000007972,
+          "reopen": 12288.82380000013,
+          "close": 159.43470000009984
+        },
+        "unattributedMillis": 24.372899999842048,
+        "restartMillis": 0,
+        "taskMillis": 72764.3284,
+        "completed": true,
+        "resumes": 0,
+        "savedSkill": {
+          "name": "saved-095-task-20",
+          "id": "e3cda28d-ee6c-3128-a18a-65a029b66f6a",
+          "version": 1
+        },
+        "forecastTicks": 0
+      },
+      {
+        "id": "b76fbaa7-793f-4ec4-9105-3a798d4af0ac",
+        "success": true,
+        "selected": "three-stage",
+        "ticks": 27676,
+        "observed": 27676,
+        "stages": 6,
+        "usesMemory": true,
+        "lookupMillis": 8898.1117,
+        "activeMillis": 45693.2987,
+        "auditMillis": 5890.3984,
+        "row": "task-21",
+        "condition": "long-save",
+        "mode": "memory",
+        "block": 1,
+        "totalMillis": 103185.3067999999,
+        "phases": {
+          "copy": 367.41639999998733,
+          "startup": 2055.6132000000216,
+          "setup": 459.093200000003,
+          "goal": 77437.41679999977,
+          "audit": 8333.67109999992,
+          "shutdown": 150.162400000263,
+          "reopen": 14146.49049999984,
+          "close": 212.04540000017732
+        },
+        "unattributedMillis": 23.39779999991879,
+        "restartMillis": 0,
+        "taskMillis": 77437.41679999977,
+        "completed": true,
+        "resumes": 0,
+        "savedSkill": {
+          "name": "saved-095-task-21",
+          "id": "c55af1fa-8146-30a6-a6f2-c8bad4732d93",
+          "version": 1
+        },
+        "forecastTicks": 0
+      },
+      {
+        "id": "f7fcb306-e7dc-408e-a33a-b872943f4496",
+        "success": true,
+        "selected": "direct",
+        "ticks": 11218,
+        "observed": 11218,
+        "stages": 2,
+        "usesMemory": true,
+        "lookupMillis": 13054.0574,
+        "activeMillis": 29566.1887,
+        "auditMillis": 2385.5179,
+        "row": "task-22",
+        "condition": "short-plain",
+        "mode": "memory",
+        "block": 1,
+        "totalMillis": 57384.691399999894,
+        "phases": {
+          "copy": 388.7481999997981,
+          "startup": 2123.685200000182,
+          "setup": 81.83669999986887,
+          "goal": 40480.58069999982,
+          "audit": 3356.770199999679,
+          "shutdown": 135.6364999995567,
+          "reopen": 10654.013300000224,
+          "close": 131.90789999999106
+        },
+        "unattributedMillis": 31.51270000077784,
+        "restartMillis": 0,
+        "taskMillis": 40480.58069999982,
+        "completed": true,
+        "resumes": 0,
+        "savedSkill": null,
+        "forecastTicks": 0
+      },
+      {
+        "id": "1b46f0b5-49e5-43e0-b3f6-93fd07bbf62d",
+        "success": true,
+        "selected": "direct",
+        "ticks": 11218,
+        "observed": 11218,
+        "stages": 2,
+        "usesMemory": false,
+        "lookupMillis": 0.3522,
+        "activeMillis": 19857.9134,
+        "auditMillis": 2226.0863,
+        "row": "task-23",
+        "condition": "short-plain",
+        "mode": "simple",
+        "block": 1,
+        "totalMillis": 44139.03429999994,
+        "phases": {
+          "copy": 402.40720000024885,
+          "startup": 2169.7023000000045,
+          "setup": 464.31279999995604,
+          "goal": 30778.215400000103,
+          "audit": 3387.3832999998704,
+          "shutdown": 148.21430000010878,
+          "reopen": 6528.538100000005,
+          "close": 223.49130000034347
+        },
+        "unattributedMillis": 36.769599999301136,
+        "restartMillis": 0,
+        "taskMillis": 30778.215400000103,
+        "completed": true,
+        "resumes": 0,
+        "savedSkill": null,
+        "forecastTicks": 0
+      }
+    ],
+    "summary": {
+      "pairs": [
+        {
+          "condition": "short-plain",
+          "block": 0,
+          "order": [
+            "simple",
+            "memory"
+          ],
+          "comparable": true,
+          "simple": {
+            "totalMillis": 45657.95989999999,
+            "phases": {
+              "copy": 311.2795999999944,
+              "startup": 2040.6403000000137,
+              "setup": 108.25899999999092,
+              "goal": 32141.930099999983,
+              "audit": 3411.928199999995,
+              "shutdown": 158.625,
+              "reopen": 7319.552100000001,
+              "close": 163.72450000001118
+            },
+            "unattributedMillis": 2.021099999998114,
+            "restartMillis": 0,
+            "taskMillis": 32141.930099999983,
+            "completed": true
+          },
+          "memory": {
+            "totalMillis": 51630.801600000006,
+            "phases": {
+              "copy": 323.04200000001583,
+              "startup": 2043.8968999999925,
+              "setup": 492.9009000000078,
+              "goal": 35746.86859999999,
+              "audit": 3027.3677000000025,
+              "shutdown": 131.67329999999492,
+              "reopen": 9713.486200000014,
+              "close": 148.71590000001015
+            },
+            "unattributedMillis": 2.8500999999814667,
+            "restartMillis": 0,
+            "taskMillis": 35746.86859999999,
+            "completed": true
+          },
+          "taskSavingMillis": -3604.938500000004,
+          "totalSavingMillis": -5972.841700000019
+        },
+        {
+          "condition": "long-save",
+          "block": 0,
+          "order": [
+            "memory",
+            "simple"
+          ],
+          "comparable": true,
+          "simple": {
+            "totalMillis": 106259.15409999999,
+            "phases": {
+              "copy": 364.6901000000071,
+              "startup": 2060.26390000002,
+              "setup": 108.57550000003539,
+              "goal": 79865.01790000004,
+              "audit": 7920.197999999975,
+              "shutdown": 148.01699999999255,
+              "reopen": 15663.956000000006,
+              "close": 123.62040000001434
+            },
+            "unattributedMillis": 4.815299999900162,
+            "restartMillis": 0,
+            "taskMillis": 79865.01790000004,
+            "completed": true
+          },
+          "memory": {
+            "totalMillis": 110712.9172,
+            "phases": {
+              "copy": 350.77270000000135,
+              "startup": 2153.0273999999918,
+              "setup": 544.1508999999787,
+              "goal": 87415.74920000002,
+              "audit": 8817.874599999981,
+              "shutdown": 167.65140000003157,
+              "reopen": 11043.188900000008,
+              "close": 216.92619999998715
+            },
+            "unattributedMillis": 3.5758999999961816,
+            "restartMillis": 0,
+            "taskMillis": 87415.74920000002,
+            "completed": true
+          },
+          "taskSavingMillis": -7550.731299999985,
+          "totalSavingMillis": -4453.763100000011
+        },
+        {
+          "condition": "short-recover-save",
+          "block": 0,
+          "order": [
+            "simple",
+            "memory"
+          ],
+          "comparable": true,
+          "simple": {
+            "totalMillis": 58254.45630000002,
+            "phases": {
+              "copy": 371.48320000001695,
+              "startup": 2013.1671000000206,
+              "setup": 92.37760000000708,
+              "goal": 42662.20429999998,
+              "audit": 3569.3807999999844,
+              "shutdown": 143.34459999995306,
+              "reopen": 9233.618499999982,
+              "close": 162.686699999962
+            },
+            "unattributedMillis": 6.193500000110362,
+            "restartMillis": 5108.041700000002,
+            "taskMillis": 42662.20429999998,
+            "completed": true
+          },
+          "memory": {
+            "totalMillis": 70828.00319999992,
+            "phases": {
+              "copy": 355.16950000001816,
+              "startup": 1985.9902000000002,
+              "setup": 488.9311999999918,
+              "goal": 54901.08369999996,
+              "audit": 3373.035799999954,
+              "shutdown": 144.625400000019,
+              "reopen": 9338.003400000045,
+              "close": 235.21569999994244
+            },
+            "unattributedMillis": 5.9482999999891035,
+            "restartMillis": 5121.816399999952,
+            "taskMillis": 54901.08369999996,
+            "completed": true
+          },
+          "taskSavingMillis": -12238.879399999976,
+          "totalSavingMillis": -12573.5468999999
+        },
+        {
+          "condition": "long-plain",
+          "block": 0,
+          "order": [
+            "memory",
+            "simple"
+          ],
+          "comparable": true,
+          "simple": {
+            "totalMillis": 91446.92710000009,
+            "phases": {
+              "copy": 389.42070000001695,
+              "startup": 1973.732900000061,
+              "setup": 83.66830000001937,
+              "goal": 64963.27359999996,
+              "audit": 8607.481900000013,
+              "shutdown": 147.4578999999212,
+              "reopen": 15135.979799999972,
+              "close": 137.83129999996163
+            },
+            "unattributedMillis": 8.080700000165962,
+            "restartMillis": 0,
+            "taskMillis": 64963.27359999996,
+            "completed": true
+          },
+          "memory": {
+            "totalMillis": 95820.94670000009,
+            "phases": {
+              "copy": 360.34860000002664,
+              "startup": 2022.6321000000462,
+              "setup": 149.38769999996293,
+              "goal": 72720.57319999998,
+              "audit": 8734.197999999975,
+              "shutdown": 134.59199999994598,
+              "reopen": 11537.547299999977,
+              "close": 153.07180000003427
+            },
+            "unattributedMillis": 8.596000000135973,
+            "restartMillis": 0,
+            "taskMillis": 72720.57319999998,
+            "completed": true
+          },
+          "taskSavingMillis": -7757.299600000028,
+          "totalSavingMillis": -4374.0196
+        },
+        {
+          "condition": "short-save",
+          "block": 0,
+          "order": [
+            "simple",
+            "memory"
+          ],
+          "comparable": true,
+          "simple": {
+            "totalMillis": 49076.87469999993,
+            "phases": {
+              "copy": 367.77840000006836,
+              "startup": 2005.998799999943,
+              "setup": 451.7367999999551,
+              "goal": 35458.1764,
+              "audit": 3260.725600000005,
+              "shutdown": 155.34550000005402,
+              "reopen": 7118.200199999963,
+              "close": 245.20589999994263
+            },
+            "unattributedMillis": 13.707099999999627,
+            "restartMillis": 0,
+            "taskMillis": 35458.1764,
+            "completed": true
+          },
+          "memory": {
+            "totalMillis": 57979.422699999996,
+            "phases": {
+              "copy": 360.9918000000762,
+              "startup": 2015.4320000000298,
+              "setup": 550.2208000000101,
+              "goal": 41625.21340000001,
+              "audit": 3101.1387000000104,
+              "shutdown": 160.83600000001024,
+              "reopen": 9931.793800000101,
+              "close": 219.76500000001397
+            },
+            "unattributedMillis": 14.03119999973569,
+            "restartMillis": 0,
+            "taskMillis": 41625.21340000001,
+            "completed": true
+          },
+          "taskSavingMillis": -6167.037000000011,
+          "totalSavingMillis": -8902.548000000068
+        },
+        {
+          "condition": "long-recover-save",
+          "block": 0,
+          "order": [
+            "memory",
+            "simple"
+          ],
+          "comparable": true,
+          "simple": {
+            "totalMillis": 182734.72580000001,
+            "phases": {
+              "copy": 354.56200000003446,
+              "startup": 2021.903799999971,
+              "setup": 125.43579999997746,
+              "goal": 142487.2982999999,
+              "audit": 13755.82939999993,
+              "shutdown": 123.0113999999594,
+              "reopen": 23686.435599999968,
+              "close": 168.6186999999918
+            },
+            "unattributedMillis": 11.630800000275485,
+            "restartMillis": 8311.819600000046,
+            "taskMillis": 142487.2982999999,
+            "completed": true
+          },
+          "memory": {
+            "totalMillis": 168663.46519999998,
+            "phases": {
+              "copy": 361.64469999994617,
+              "startup": 2011.2404000000097,
+              "setup": 186.19070000003558,
+              "goal": 138530.174,
+              "audit": 12565.036700000055,
+              "shutdown": 124.11980000010226,
+              "reopen": 14711.893799999962,
+              "close": 160.59029999992345
+            },
+            "unattributedMillis": 12.574799999943934,
+            "restartMillis": 6478.3129999999655,
+            "taskMillis": 138530.174,
+            "completed": true
+          },
+          "taskSavingMillis": 3957.1242999999085,
+          "totalSavingMillis": 14071.260600000038
+        },
+        {
+          "condition": "long-recover-save",
+          "block": 1,
+          "order": [
+            "simple",
+            "memory"
+          ],
+          "comparable": true,
+          "simple": {
+            "totalMillis": 172005.5573,
+            "phases": {
+              "copy": 367.2827999999281,
+              "startup": 2069.373499999987,
+              "setup": 118.33279999997467,
+              "goal": 136250.66079999995,
+              "audit": 13524.41650000005,
+              "shutdown": 192.9824999999255,
+              "reopen": 19317.820599999977,
+              "close": 150.91639999998733
+            },
+            "unattributedMillis": 13.771400000201538,
+            "restartMillis": 7199.083799999906,
+            "taskMillis": 136250.66079999995,
+            "completed": true
+          },
+          "memory": {
+            "totalMillis": 160017.39020000002,
+            "phases": {
+              "copy": 369.3325000000186,
+              "startup": 2007.6115999999456,
+              "setup": 406.17740000016056,
+              "goal": 125846.08140000002,
+              "audit": 10908.425499999896,
+              "shutdown": 128.10630000010133,
+              "reopen": 20170.975400000112,
+              "close": 165.873399999924
+            },
+            "unattributedMillis": 14.80669999984093,
+            "restartMillis": 6493.414000000106,
+            "taskMillis": 125846.08140000002,
+            "completed": true
+          },
+          "taskSavingMillis": 10404.57939999993,
+          "totalSavingMillis": 11988.167099999962
+        },
+        {
+          "condition": "short-save",
+          "block": 1,
+          "order": [
+            "memory",
+            "simple"
+          ],
+          "comparable": true,
+          "simple": {
+            "totalMillis": 51160.59309999994,
+            "phases": {
+              "copy": 353.779399999883,
+              "startup": 2002.189000000013,
+              "setup": 573.3728000000119,
+              "goal": 34137.95160000003,
+              "audit": 3614.875,
+              "shutdown": 132.60679999995045,
+              "reopen": 10174.082699999912,
+              "close": 155.43770000012591
+            },
+            "unattributedMillis": 16.29810000001453,
+            "restartMillis": 0,
+            "taskMillis": 34137.95160000003,
+            "completed": true
+          },
+          "memory": {
+            "totalMillis": 59461.03059999994,
+            "phases": {
+              "copy": 348.26949999993667,
+              "startup": 2114.749300000025,
+              "setup": 115.35980000020936,
+              "goal": 44617.21959999995,
+              "audit": 3457.8799999998882,
+              "shutdown": 159.5742999999784,
+              "reopen": 8454.58850000007,
+              "close": 177.77719999989495
+            },
+            "unattributedMillis": 15.612399999983609,
+            "restartMillis": 0,
+            "taskMillis": 44617.21959999995,
+            "completed": true
+          },
+          "taskSavingMillis": -10479.267999999924,
+          "totalSavingMillis": -8300.4375
+        },
+        {
+          "condition": "long-plain",
+          "block": 1,
+          "order": [
+            "simple",
+            "memory"
+          ],
+          "comparable": true,
+          "simple": {
+            "totalMillis": 86518.28099999996,
+            "phases": {
+              "copy": 380.4983000000939,
+              "startup": 2018.7345000000205,
+              "setup": 187.5431999999564,
+              "goal": 60978.97809999995,
+              "audit": 8399.13730000006,
+              "shutdown": 188.60019999998622,
+              "reopen": 14204.880800000159,
+              "close": 143.4560000000056
+            },
+            "unattributedMillis": 16.45259999972768,
+            "restartMillis": 0,
+            "taskMillis": 60978.97809999995,
+            "completed": true
+          },
+          "memory": {
+            "totalMillis": 90719.04590000003,
+            "phases": {
+              "copy": 356.31359999999404,
+              "startup": 2010.375999999931,
+              "setup": 377.3703999998979,
+              "goal": 68697.71760000009,
+              "audit": 8636.227399999974,
+              "shutdown": 144.22389999986626,
+              "reopen": 10172.200800000224,
+              "close": 307.04799999995157
+            },
+            "unattributedMillis": 17.568200000096112,
+            "restartMillis": 0,
+            "taskMillis": 68697.71760000009,
+            "completed": true
+          },
+          "taskSavingMillis": -7718.739500000142,
+          "totalSavingMillis": -4200.764900000067
+        },
+        {
+          "condition": "short-recover-save",
+          "block": 1,
+          "order": [
+            "memory",
+            "simple"
+          ],
+          "comparable": true,
+          "simple": {
+            "totalMillis": 60952.95130000007,
+            "phases": {
+              "copy": 355.8342999999877,
+              "startup": 2048.1462000000756,
+              "setup": 536.6199999998789,
+              "goal": 44607.23270000005,
+              "audit": 3748.8274000000674,
+              "shutdown": 163.435499999905,
+              "reopen": 9305.558299999917,
+              "close": 167.33580000000075
+            },
+            "unattributedMillis": 19.961100000189617,
+            "restartMillis": 5386.003600000171,
+            "taskMillis": 44607.23270000005,
+            "completed": true
+          },
+          "memory": {
+            "totalMillis": 67611.72129999986,
+            "phases": {
+              "copy": 395.94000000017695,
+              "startup": 2026.9727999998722,
+              "setup": 136.32990000001155,
+              "goal": 50013.89430000004,
+              "audit": 3804.3297999999486,
+              "shutdown": 132.36639999994077,
+              "reopen": 10941.079799999949,
+              "close": 138.79360000020824
+            },
+            "unattributedMillis": 22.014699999708682,
+            "restartMillis": 5368.454499999993,
+            "taskMillis": 50013.89430000004,
+            "completed": true
+          },
+          "taskSavingMillis": -5406.661599999992,
+          "totalSavingMillis": -6658.769999999786
+        },
+        {
+          "condition": "long-save",
+          "block": 1,
+          "order": [
+            "simple",
+            "memory"
+          ],
+          "comparable": true,
+          "simple": {
+            "totalMillis": 96480.53040000005,
+            "phases": {
+              "copy": 396.7420999999158,
+              "startup": 2009.6435000000056,
+              "setup": 82.53179999999702,
+              "goal": 72764.3284,
+              "audit": 8615.34759999998,
+              "shutdown": 139.30560000007972,
+              "reopen": 12288.82380000013,
+              "close": 159.43470000009984
+            },
+            "unattributedMillis": 24.372899999842048,
+            "restartMillis": 0,
+            "taskMillis": 72764.3284,
+            "completed": true
+          },
+          "memory": {
+            "totalMillis": 103185.3067999999,
+            "phases": {
+              "copy": 367.41639999998733,
+              "startup": 2055.6132000000216,
+              "setup": 459.093200000003,
+              "goal": 77437.41679999977,
+              "audit": 8333.67109999992,
+              "shutdown": 150.162400000263,
+              "reopen": 14146.49049999984,
+              "close": 212.04540000017732
+            },
+            "unattributedMillis": 23.39779999991879,
+            "restartMillis": 0,
+            "taskMillis": 77437.41679999977,
+            "completed": true
+          },
+          "taskSavingMillis": -4673.088399999775,
+          "totalSavingMillis": -6704.776399999857
+        },
+        {
+          "condition": "short-plain",
+          "block": 1,
+          "order": [
+            "memory",
+            "simple"
+          ],
+          "comparable": true,
+          "simple": {
+            "totalMillis": 44139.03429999994,
+            "phases": {
+              "copy": 402.40720000024885,
+              "startup": 2169.7023000000045,
+              "setup": 464.31279999995604,
+              "goal": 30778.215400000103,
+              "audit": 3387.3832999998704,
+              "shutdown": 148.21430000010878,
+              "reopen": 6528.538100000005,
+              "close": 223.49130000034347
+            },
+            "unattributedMillis": 36.769599999301136,
+            "restartMillis": 0,
+            "taskMillis": 30778.215400000103,
+            "completed": true
+          },
+          "memory": {
+            "totalMillis": 57384.691399999894,
+            "phases": {
+              "copy": 388.7481999997981,
+              "startup": 2123.685200000182,
+              "setup": 81.83669999986887,
+              "goal": 40480.58069999982,
+              "audit": 3356.770199999679,
+              "shutdown": 135.6364999995567,
+              "reopen": 10654.013300000224,
+              "close": 131.90789999999106
+            },
+            "unattributedMillis": 31.51270000077784,
+            "restartMillis": 0,
+            "taskMillis": 40480.58069999982,
+            "completed": true
+          },
+          "taskSavingMillis": -9702.365299999714,
+          "totalSavingMillis": -13245.657099999953
+        }
+      ],
+      "completed": 24,
+      "goals": 24,
+      "allComparable": true,
+      "preparationMillis": 106460.41100000001,
+      "taskSavingMillis": -60937.30489999971,
+      "totalSavingMillis": -49327.69749999966,
+      "firstBatchNetMillis": -155788.10849999968,
+      "scope": "Two counterbalanced orders, cold copies, external surviving clock. Nested restart costs are included once. Failed outcomes cannot claim speed benefit."
+    },
+    "effects": [
+      {
+        "geometry": "long",
+        "block": 0,
+        "mode": "simple",
+        "savingAddedTaskMillis": 14901.744300000079,
+        "recoveryAddedTaskMillis": 62622.28039999987,
+        "savingAddedIterationMillis": 14812.226999999897,
+        "recoveryAddedIterationMillis": 76475.57170000003,
+        "comparable": true
+      },
+      {
+        "geometry": "long",
+        "block": 0,
+        "mode": "memory",
+        "savingAddedTaskMillis": 14695.176000000036,
+        "recoveryAddedTaskMillis": 51114.42479999998,
+        "savingAddedIterationMillis": 14891.970499999908,
+        "recoveryAddedIterationMillis": 57950.54799999998,
+        "comparable": true
+      },
+      {
+        "geometry": "long",
+        "block": 1,
+        "mode": "simple",
+        "savingAddedTaskMillis": 11785.35030000005,
+        "recoveryAddedTaskMillis": 63486.332399999956,
+        "savingAddedIterationMillis": 9962.249400000088,
+        "recoveryAddedIterationMillis": 75525.02689999994,
+        "comparable": true
+      },
+      {
+        "geometry": "long",
+        "block": 1,
+        "mode": "memory",
+        "savingAddedTaskMillis": 8739.699199999683,
+        "recoveryAddedTaskMillis": 48408.66460000025,
+        "savingAddedIterationMillis": 12466.260899999877,
+        "recoveryAddedIterationMillis": 56832.08340000012,
+        "comparable": true
+      },
+      {
+        "geometry": "short",
+        "block": 0,
+        "mode": "simple",
+        "savingAddedTaskMillis": 3316.2463000000134,
+        "recoveryAddedTaskMillis": 7204.027899999986,
+        "savingAddedIterationMillis": 3418.9147999999404,
+        "recoveryAddedIterationMillis": 9177.581600000092,
+        "comparable": true
+      },
+      {
+        "geometry": "short",
+        "block": 0,
+        "mode": "memory",
+        "savingAddedTaskMillis": 5878.344800000021,
+        "recoveryAddedTaskMillis": 13275.870299999951,
+        "savingAddedIterationMillis": 6348.621099999989,
+        "recoveryAddedIterationMillis": 12848.580499999924,
+        "comparable": true
+      },
+      {
+        "geometry": "short",
+        "block": 1,
+        "mode": "simple",
+        "savingAddedTaskMillis": 3359.7361999999266,
+        "recoveryAddedTaskMillis": 10469.281100000022,
+        "savingAddedIterationMillis": 7021.558799999999,
+        "recoveryAddedIterationMillis": 9792.358200000133,
+        "comparable": true
+      },
+      {
+        "geometry": "short",
+        "block": 1,
+        "mode": "memory",
+        "savingAddedTaskMillis": 4136.638900000136,
+        "recoveryAddedTaskMillis": 5396.6747000000905,
+        "savingAddedIterationMillis": 2076.339200000046,
+        "recoveryAddedIterationMillis": 8150.690699999919,
+        "comparable": true
+      }
+    ],
+    "prefixes": [
+      {
+        "condition": "short-plain",
+        "block": 0,
+        "cumulativeSavingMillis": -5972.841700000019,
+        "netAfterPreparationMillis": -112433.25270000003
+      },
+      {
+        "condition": "long-save",
+        "block": 0,
+        "cumulativeSavingMillis": -10426.60480000003,
+        "netAfterPreparationMillis": -116887.01580000004
+      },
+      {
+        "condition": "short-recover-save",
+        "block": 0,
+        "cumulativeSavingMillis": -23000.15169999993,
+        "netAfterPreparationMillis": -129460.56269999994
+      },
+      {
+        "condition": "long-plain",
+        "block": 0,
+        "cumulativeSavingMillis": -27374.17129999993,
+        "netAfterPreparationMillis": -133834.58229999995
+      },
+      {
+        "condition": "short-save",
+        "block": 0,
+        "cumulativeSavingMillis": -36276.7193,
+        "netAfterPreparationMillis": -142737.13030000002
+      },
+      {
+        "condition": "long-recover-save",
+        "block": 0,
+        "cumulativeSavingMillis": -22205.45869999996,
+        "netAfterPreparationMillis": -128665.86969999997
+      },
+      {
+        "condition": "long-recover-save",
+        "block": 1,
+        "cumulativeSavingMillis": -10217.291599999997,
+        "netAfterPreparationMillis": -116677.7026
+      },
+      {
+        "condition": "short-save",
+        "block": 1,
+        "cumulativeSavingMillis": -18517.729099999997,
+        "netAfterPreparationMillis": -124978.1401
+      },
+      {
+        "condition": "long-plain",
+        "block": 1,
+        "cumulativeSavingMillis": -22718.494000000064,
+        "netAfterPreparationMillis": -129178.90500000007
+      },
+      {
+        "condition": "short-recover-save",
+        "block": 1,
+        "cumulativeSavingMillis": -29377.26399999985,
+        "netAfterPreparationMillis": -135837.67499999987
+      },
+      {
+        "condition": "long-save",
+        "block": 1,
+        "cumulativeSavingMillis": -36082.04039999971,
+        "netAfterPreparationMillis": -142542.45139999973
+      },
+      {
+        "condition": "short-plain",
+        "block": 1,
+        "cumulativeSavingMillis": -49327.69749999966,
+        "netAfterPreparationMillis": -155788.10849999968
+      }
+    ],
+    "demonstrations": [
+      {
+        "sourceGoal": "409b773e-77ef-40e1-a449-d7019469346c",
+        "goal": "1d20589f-e7ea-4661-b473-52f7458e1217",
+        "skill": {
+          "name": "saved-095-task-10",
+          "id": "ba1f2ee6-39f8-326d-adb8-34e75b1fa591",
+          "version": 1
+        },
+        "millis": 84894.82260000007
+      },
+      {
+        "sourceGoal": "071136c2-b984-4391-b3f5-7a537186cc3a",
+        "goal": "a33efbad-b216-4bad-b357-56b15ba83b73",
+        "skill": {
+          "name": "saved-095-task-05",
+          "id": "f4cff922-1db3-30bd-acbc-ac057e78c5f2",
+          "version": 1
+        },
+        "millis": 45454.139899999835
+      }
+    ],
+    "boots": 63,
+    "abruptTerminations": 8,
+    "scope": "Related declared synthetic variants; fixed cold bank, two opposite orders, no fit, no learned model promotion. Complete external task and cold verification intervals; two observations per condition, descriptive differences only. Study copies/audits separate from production task costs. No calibration or weight training."
+  },
+  "java": {
+    "cases": 111,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 1,
+    "classes": 19,
+    "skips": [
+      {
+        "name": "symbolicLinkCannotRedirectOwnerWhenSupported",
+        "classname": "fraymus.workspace.NativeEnvelope091Test",
+        "time": "0.008"
+      }
+    ]
+  },
+  "desktopPassed": 135,
+  "accountingTestsPassed": 7,
+  "mutationChecks": {
+    "passed": true,
+    "refusals": 22,
+    "checks": [
+      "different external clock owner",
+      "missing saving phase evidence",
+      "changed saved skill targets",
+      "changed saved skill code",
+      "changed cold world hash",
+      "unavailable recovered clock claimed eligible",
+      "fabricated recovered total",
+      "mismatched declared source",
+      "changed original world commit",
+      "wrong process parent",
+      "changed persisted checkpoint digest",
+      "overlapping phase",
+      "omitted shutdown",
+      "restart counted outside task",
+      "false caller duration",
+      "different workload",
+      "different source",
+      "different CPU profile",
+      "changed order",
+      "different paired clock owner",
+      "incomplete opposite-order replication",
+      "duplicate evaluated arm"
+    ],
+    "source": "9033d46bb95834922a13105520e68fcd9797c59f",
+    "scope": "Copied metadata mutations only. Original records remain untouched; independent verification is recomputed before changed metadata can pass."
+  },
+  "classes": {
+    "parent": "88b60a6dd6865c0e9d83115401f93a03d6c4ac14",
+    "previousClasses": 334,
+    "currentClasses": 334,
+    "identical": 334,
+    "changed": [],
+    "added": [],
+    "removed": []
+  },
+  "screenshots": [
+    {
+      "file": "short-plain-1600.png",
+      "width": 1600,
+      "goalId": "e02c436d-28f8-4564-a97c-7584f40ca01b",
+      "report": "58b0257c-8990-3f20-9359-8d2b8346c983",
+      "condition": "short-plain",
+      "mode": "memory"
+    },
+    {
+      "file": "short-plain-1100.png",
+      "width": 1100,
+      "goalId": "e02c436d-28f8-4564-a97c-7584f40ca01b",
+      "report": "58b0257c-8990-3f20-9359-8d2b8346c983",
+      "condition": "short-plain",
+      "mode": "memory"
+    },
+    {
+      "file": "long-save-1600.png",
+      "width": 1600,
+      "goalId": "ceeb7af0-47a7-41b6-9aa0-8d815641ce02",
+      "report": "97bd0796-6a44-36fc-af57-6f0a53e271e4",
+      "condition": "long-save",
+      "mode": "memory"
+    },
+    {
+      "file": "long-save-1100.png",
+      "width": 1100,
+      "goalId": "ceeb7af0-47a7-41b6-9aa0-8d815641ce02",
+      "report": "97bd0796-6a44-36fc-af57-6f0a53e271e4",
+      "condition": "long-save",
+      "mode": "memory"
+    },
+    {
+      "file": "long-recover-save-1600.png",
+      "width": 1600,
+      "goalId": "409b773e-77ef-40e1-a449-d7019469346c",
+      "report": "dd7b7971-30b8-3fff-b585-f446259d3c28",
+      "condition": "long-recover-save",
+      "mode": "memory"
+    },
+    {
+      "file": "long-recover-save-1100.png",
+      "width": 1100,
+      "goalId": "409b773e-77ef-40e1-a449-d7019469346c",
+      "report": "dd7b7971-30b8-3fff-b585-f446259d3c28",
+      "condition": "long-recover-save",
+      "mode": "memory"
+    }
+  ],
+  "parentFullCi": {
+    "commit": "88b60a6dd6865c0e9d83115401f93a03d6c4ac14",
+    "url": "https://github.com/eyeoverthink/Fraynix-Agent-Workspace/actions/runs/42512948198/job/128829759943",
+    "unresolvedFailures": 4,
+    "source": "validation/parent-ci095.json"
+  },
+  "finding": "24 of 24 mixed tasks completed. Fixed memory took 60.94 s more time across complete goal calls and 49.33 s more across whole study iterations than simple control. Charging preparation once, the first batch took 155.79 s more time.",
+  "source": "5676bc1adda5cb71156425583381deca593fdf25",
+  "limits": [
+    "Related declared synthetic variants; fixed cold bank, two opposite orders, no fit, no learned model promotion. Complete external task and cold verification intervals; two observations per condition, descriptive differences only. Study copies/audits separate from production task costs. No calibration or weight training.",
+    "Saving comparisons combine memory retention and procedural skill creation. Counterbalanced two-observation differences do not isolate individual writes or establish confidence intervals.",
+    "Resumed totalMillis=0 remains unavailable and excluded from calibration. The whole external iteration includes experimental copying and additional audits, shown separately from the app call."
+  ]
+}

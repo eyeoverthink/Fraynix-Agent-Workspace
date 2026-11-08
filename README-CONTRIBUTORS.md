@@ -14,7 +14,7 @@ The user prefers owned Java algorithms and transparent processing over outsourci
 
 The Java successor is [eyeoverthink/Fraynix-Agent-Workspace](https://github.com/eyeoverthink/Fraynix-Agent-Workspace), derived from the separate Studio. The old Chandra-workspace publication instruction belongs to another application. Do not relocate this system into Chandra or push it to a former component repository.
 
-For edition094, the isolated source checkout is `D:/Codex-Work/fraynix-workspace-edition094`, branch `edition094`, based on verified093 main `24052edef70eba152858dd15f93425c106db39df`. Confirm the current remote and working state rather than assuming this path remains the newest forever. GitHub reported **public** visibility on 2026-11-08; older entries calling it private are historical. This work does not change visibility. Keep credentials, personal webcam footage, model weights and live project state outside Git.
+For edition095, the isolated source checkout is `D:/Codex-Work/fraynix-workspace-edition095`, branch `edition095`, based on verified094 main `88b60a6dd6865c0e9d83115401f93a03d6c4ac14`. Confirm the current remote and working state rather than assuming this path remains the newest forever. GitHub reported **public** visibility on 2026-11-08; older entries calling it private are historical. This work does not change visibility. Keep credentials, personal webcam footage, model weights and live project state outside Git.
 
 Do not overwrite the user's live045/qa046 installations, private project data or a running engine's JARs. A build/test checkout needs its own explicitly named project. Never silently open another installation's database. Never stop Java/Electron by process name. Validate exact process identity, start time, parent and owned project before ending an isolated test process.
 
@@ -32,7 +32,7 @@ Do not overwrite the user's live045/qa046 installations, private project data or
 | Presentation and host surfaces | `workspace-desktop/main.cjs`, preload, surface adapters and renderer. Electron hosts actual browser/canvas/camera and displays Java state. Untrusted pages cannot reach the privileged dispatcher. |
 | Original game | `src/main/java`, `EmbeddedGameRuntime`, original renderer/player/JBox2D. Its hidden child context is a rendering/runtime boundary, not a second user-facing application to reinvent. |
 
-Paths abbreviated with `...` above mean `src/main/java/fraymus/workspace` under `workspace-engine`; use the [canonical source inventory](docs/readmes/094/file-inventory.json) and source search for exact names. Source files and included modules must resolve inside this checkout. Existing source-isolation checks are mandatory.
+Paths abbreviated with `...` above mean `src/main/java/fraymus/workspace` under `workspace-engine`; use the [canonical source inventory](docs/readmes/095/file-inventory.json) and source search for exact names. Source files and included modules must resolve inside this checkout. Existing source-isolation checks are mandatory.
 
 ## Evidence rules that must survive every improvement
 
@@ -66,9 +66,10 @@ Publication is complete only after a non-force push to the intended `main`, edit
 | Nov3–4 | 051–068| Persistent gripper assemblies, faster checked chat, geometry/load repairs, Java learned residuals, contact traces and bounded recovery. |
 | Nov5–6 | 069–081| Adaptive sensing, retained experiment reconstruction, varied procedures, obstacle-aware targets, proof reuse and complete-task cost estimates. |
 | Nov6–8 | 082–093| Resource/restart/saving calibration, longer memory workloads, stale-estimate checks, less repeated verification and fresh forecasts from recovered state. |
+| Nov 8 | 095 | Complete mixed-task cost comparison, recovery, skill saving and fresh execution of saved procedures. See README095 for observed results and limitations. |
 | Nov 8 | 094| Three-stage abrupt-interruption study and repository trajectory review. See the edition094 release for actual outcomes and limits; this table is not independent proof. |
 
-The immediate priority is reliable continuation with evidence, then complete mixed-task cost comparisons that show when memory earns its overhead. Keep the larger destination visible: a user requests a useful task, Java plans and executes within the shared world, the interface shows consequences, and verified experience improves later work. Broaden geometry, observations, creation and real-world validation through that same path. Do not turn the product into disconnected benchmark windows or move the brain back into the renderer.
+Edition095 measures complete mixed-task costs, recovery and skill saving. The next priorities are resolving the four inherited full-CI failures with evidence, then continuing warm-workspace sequences with changing memory contents and matched cost coverage. Keep the larger destination visible: a user requests a useful task, Java plans and executes within the shared world, the interface shows consequences, and verified experience improves later work. Broaden geometry, observations, creation and real-world validation through that same path. Do not turn the product into disconnected benchmark windows or move the brain back into the renderer.
 
 ## Handoff every session
 

@@ -1,3 +1,5 @@
+[Edition095 — complete mixed-task costs](../../README-095.md) · [Offline evidence](095/index.html)
+
 [Edition094 — three-stage crash recovery](../../README-094.md) · [Offline evidence](094/index.html)
 
 [Edition093 — forecast from recovered state](../../README-093.md) · [Offline evidence](093/index.html)
