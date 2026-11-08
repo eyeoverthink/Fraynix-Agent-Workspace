@@ -80,6 +80,9 @@ async function main(){
     let error='';try{await api('/api/procedures090/verify',{id:covered.goalId});}catch(e){error=e.message;}
     assert(error.includes('Freshness')||error.includes('freshness'));record.changedRecentCostRefusal=error;
    }finally{await fs.writeFile(file,original);}
+   const trace=recent.anchor.evidence.find(x=>x.path.endsWith('/original.json'));assert(trace);
+   const traceFile=path.resolve(root,trace.path);assert(traceFile.startsWith(root+path.sep));const traceBytes=await fs.readFile(traceFile);
+   try{await fs.writeFile(traceFile,Buffer.concat([traceBytes,Buffer.from(' ')]));let error='';try{await api('/api/procedures090/verify',{id:covered.goalId});}catch(e){error=e.message;}assert(error.includes('freshness')||error.includes('Freshness'));record.changedTraceRefusal=error;}finally{await fs.writeFile(traceFile,traceBytes);}
    assert.equal((await api('/api/world/observe',{worldId:covered.binding.worldId})).expectedHash,previous.expectedHash);
   }
   record.finalVerification=[];for(const row of record.rows){const at=performance.now(),v=await api('/api/procedures090/verify',{id:row.goalId});assert(v.passed);record.finalVerification.push({id:row.goalId,callerMillis:performance.now()-at,result:v});await save();}
