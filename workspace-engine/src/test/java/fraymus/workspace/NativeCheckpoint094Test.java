@@ -13,7 +13,7 @@ public class NativeCheckpoint094Test {
  static Path file() throws Exception {
   Assume.assumeTrue(System.getProperty("os.name").startsWith("Windows"));
   Path p=Files.createTempDirectory("native-checkpoint094-").resolve("native.json");
-  WorldNativeCheckpoint.write(p,new JSONObject().put("revision",1));return p;
+  WorldNativeCheckpoint.write(p,new JSONObject().put("revision",1));System.out.println("NATIVE094_CHECKPOINT "+p.getParent());return p;
  }
  static JSONObject payload(Path p) throws Exception {
   var e=new JSONObject(Files.readString(p));assertEquals(WorldNativeCheckpoint.VERSION,e.getString("version"));
