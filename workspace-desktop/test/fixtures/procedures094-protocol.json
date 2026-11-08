@@ -1,0 +1,601 @@
+{
+  "version": "three-stage-abrupt-094-v1",
+  "declaredBeforeTrials": true,
+  "sourceFixture": "workspace-engine/src/main/resources/procedures076-protocol.json",
+  "sourceSha256": "337be8e9a25f0f5ab3c8f74c2942de59fee0f680316fee1ff8ca113aeca7b411",
+  "seed": {
+    "id": "094-seed-three",
+    "group": "long-route",
+    "split": "training",
+    "source": {
+      "format": "fraynix.spatial-scene",
+      "version": 1,
+      "title": "LABELLED094 fresh three-stage source derived from076 train-distance",
+      "units": "m",
+      "frame": "right-handed-y-up",
+      "source": {
+        "kind": "synthetic",
+        "physicalProperties": "declared",
+        "note": "Prospectively declared deterministic box experiment; not physical observations."
+      },
+      "scaleReference": {
+        "a": [
+          0,
+          0,
+          0
+        ],
+        "b": [
+          1,
+          0,
+          0
+        ],
+        "knownLengthM": 1,
+        "toleranceM": 0,
+        "basis": "declared-test"
+      },
+      "gravityMps2": 9.81,
+      "objects": [
+        {
+          "sourceId": "floor",
+          "label": "floor",
+          "shape": "box",
+          "position": [
+            0,
+            -0.25,
+            0
+          ],
+          "size": [
+            12,
+            0.5,
+            12
+          ],
+          "massKg": 0,
+          "friction": 0.5,
+          "restitution": 0,
+          "rotation": [
+            0,
+            0.0,
+            0,
+            1.0
+          ]
+        },
+        {
+          "sourceId": "A",
+          "label": "A",
+          "shape": "box",
+          "position": [
+            -3.65,
+            0.21,
+            -3.5
+          ],
+          "size": [
+            0.55,
+            0.42,
+            0.7
+          ],
+          "massKg": 0.6,
+          "friction": 0.25,
+          "restitution": 0,
+          "rotation": [
+            0,
+            0.0,
+            0,
+            1.0
+          ]
+        },
+        {
+          "sourceId": "B",
+          "label": "B",
+          "shape": "box",
+          "position": [
+            2.3,
+            0.16,
+            1.6
+          ],
+          "size": [
+            0.85,
+            0.32,
+            0.4
+          ],
+          "massKg": 0.8,
+          "friction": 0.25,
+          "restitution": 0,
+          "rotation": [
+            0,
+            0.0,
+            0,
+            1.0
+          ]
+        },
+        {
+          "sourceId": "bystander",
+          "label": "bystander",
+          "shape": "box",
+          "position": [
+            4.8,
+            0.25,
+            -3.5
+          ],
+          "size": [
+            0.5,
+            0.5,
+            0.6
+          ],
+          "massKg": 1,
+          "friction": 0.55,
+          "restitution": 0,
+          "rotation": [
+            0,
+            0.0,
+            0,
+            1.0
+          ]
+        },
+        {
+          "sourceId": "obstacle",
+          "label": "obstacle",
+          "shape": "box",
+          "position": [
+            0,
+            0.4,
+            0
+          ],
+          "size": [
+            0.65,
+            0.8,
+            0.7
+          ],
+          "massKg": 0,
+          "friction": 0.5,
+          "restitution": 0,
+          "rotation": [
+            0,
+            0.0,
+            0,
+            1.0
+          ]
+        }
+      ]
+    },
+    "targets": [
+      {
+        "sourceId": "A",
+        "positionM": [
+          3.65,
+          0.21,
+          3.5
+        ],
+        "yawDeg": 95
+      },
+      {
+        "sourceId": "B",
+        "positionM": [
+          1.4,
+          0.16,
+          -1.5
+        ],
+        "yawDeg": -100
+      }
+    ],
+    "forceLimitN": 40,
+    "torqueLimitNm": 2.5
+  },
+  "task": {
+    "id": "094-three",
+    "group": "long-route",
+    "split": "recovery",
+    "source": {
+      "format": "fraynix.spatial-scene",
+      "version": 1,
+      "title": "LABELLED094 fresh three-stage source derived from076 train-distance",
+      "units": "m",
+      "frame": "right-handed-y-up",
+      "source": {
+        "kind": "synthetic",
+        "physicalProperties": "declared",
+        "note": "Prospectively declared deterministic box experiment; not physical observations."
+      },
+      "scaleReference": {
+        "a": [
+          0,
+          0,
+          0
+        ],
+        "b": [
+          1,
+          0,
+          0
+        ],
+        "knownLengthM": 1,
+        "toleranceM": 0,
+        "basis": "declared-test"
+      },
+      "gravityMps2": 9.81,
+      "objects": [
+        {
+          "sourceId": "floor",
+          "label": "floor",
+          "shape": "box",
+          "position": [
+            0,
+            -0.25,
+            0
+          ],
+          "size": [
+            12,
+            0.5,
+            12
+          ],
+          "massKg": 0,
+          "friction": 0.5,
+          "restitution": 0,
+          "rotation": [
+            0,
+            0.0,
+            0,
+            1.0
+          ]
+        },
+        {
+          "sourceId": "A",
+          "label": "A",
+          "shape": "box",
+          "position": [
+            -3.65,
+            0.21,
+            -3.5
+          ],
+          "size": [
+            0.55,
+            0.42,
+            0.7
+          ],
+          "massKg": 0.6,
+          "friction": 0.25,
+          "restitution": 0,
+          "rotation": [
+            0,
+            0.0,
+            0,
+            1.0
+          ]
+        },
+        {
+          "sourceId": "B",
+          "label": "B",
+          "shape": "box",
+          "position": [
+            2.3,
+            0.16,
+            1.6
+          ],
+          "size": [
+            0.85,
+            0.32,
+            0.4
+          ],
+          "massKg": 0.8,
+          "friction": 0.25,
+          "restitution": 0,
+          "rotation": [
+            0,
+            0.0,
+            0,
+            1.0
+          ]
+        },
+        {
+          "sourceId": "bystander",
+          "label": "bystander",
+          "shape": "box",
+          "position": [
+            4.8,
+            0.25,
+            -3.5
+          ],
+          "size": [
+            0.5,
+            0.5,
+            0.6
+          ],
+          "massKg": 1,
+          "friction": 0.55,
+          "restitution": 0,
+          "rotation": [
+            0,
+            0.0,
+            0,
+            1.0
+          ]
+        },
+        {
+          "sourceId": "obstacle",
+          "label": "obstacle",
+          "shape": "box",
+          "position": [
+            0,
+            0.4,
+            0
+          ],
+          "size": [
+            0.65,
+            0.8,
+            0.7
+          ],
+          "massKg": 0,
+          "friction": 0.5,
+          "restitution": 0,
+          "rotation": [
+            0,
+            0.0,
+            0,
+            1.0
+          ]
+        }
+      ]
+    },
+    "targets": [
+      {
+        "sourceId": "A",
+        "positionM": [
+          3.65,
+          0.21,
+          3.5
+        ],
+        "yawDeg": 95
+      },
+      {
+        "sourceId": "B",
+        "positionM": [
+          1.4,
+          0.16,
+          -1.5
+        ],
+        "yawDeg": -100
+      }
+    ],
+    "forceLimitN": 40,
+    "torqueLimitNm": 2.5
+  },
+  "variant": {
+    "id": "094-varied",
+    "group": "long-route",
+    "split": "recovery",
+    "source": {
+      "format": "fraynix.spatial-scene",
+      "version": 1,
+      "title": "LABELLED094 fresh three-stage source derived from076 train-distance",
+      "units": "m",
+      "frame": "right-handed-y-up",
+      "source": {
+        "kind": "synthetic",
+        "physicalProperties": "declared",
+        "note": "Prospectively declared deterministic box experiment; not physical observations."
+      },
+      "scaleReference": {
+        "a": [
+          0,
+          0,
+          0
+        ],
+        "b": [
+          1,
+          0,
+          0
+        ],
+        "knownLengthM": 1,
+        "toleranceM": 0,
+        "basis": "declared-test"
+      },
+      "gravityMps2": 9.81,
+      "objects": [
+        {
+          "sourceId": "floor",
+          "label": "floor",
+          "shape": "box",
+          "position": [
+            0,
+            -0.25,
+            0
+          ],
+          "size": [
+            12,
+            0.5,
+            12
+          ],
+          "massKg": 0,
+          "friction": 0.5,
+          "restitution": 0,
+          "rotation": [
+            0,
+            0.0,
+            0,
+            1.0
+          ]
+        },
+        {
+          "sourceId": "A",
+          "label": "A",
+          "shape": "box",
+          "position": [
+            -3.65,
+            0.21,
+            -3.5
+          ],
+          "size": [
+            0.55,
+            0.42,
+            0.7
+          ],
+          "massKg": 0.63,
+          "friction": 0.27,
+          "restitution": 0,
+          "rotation": [
+            0,
+            0.0,
+            0,
+            1.0
+          ]
+        },
+        {
+          "sourceId": "B",
+          "label": "B",
+          "shape": "box",
+          "position": [
+            2.3,
+            0.16,
+            1.6
+          ],
+          "size": [
+            0.85,
+            0.32,
+            0.4
+          ],
+          "massKg": 0.8,
+          "friction": 0.25,
+          "restitution": 0,
+          "rotation": [
+            0,
+            0.0,
+            0,
+            1.0
+          ]
+        },
+        {
+          "sourceId": "bystander",
+          "label": "bystander",
+          "shape": "box",
+          "position": [
+            4.8,
+            0.25,
+            -3.5
+          ],
+          "size": [
+            0.5,
+            0.5,
+            0.6
+          ],
+          "massKg": 1,
+          "friction": 0.55,
+          "restitution": 0,
+          "rotation": [
+            0,
+            0.0,
+            0,
+            1.0
+          ]
+        },
+        {
+          "sourceId": "obstacle",
+          "label": "obstacle",
+          "shape": "box",
+          "position": [
+            0,
+            0.4,
+            0
+          ],
+          "size": [
+            0.65,
+            0.8,
+            0.7
+          ],
+          "massKg": 0,
+          "friction": 0.5,
+          "restitution": 0,
+          "rotation": [
+            0,
+            0.0,
+            0,
+            1.0
+          ]
+        }
+      ]
+    },
+    "targets": [
+      {
+        "sourceId": "A",
+        "positionM": [
+          3.6,
+          0.21,
+          3.5
+        ],
+        "yawDeg": 95
+      },
+      {
+        "sourceId": "B",
+        "positionM": [
+          1.4,
+          0.16,
+          -1.5
+        ],
+        "yawDeg": -100
+      }
+    ],
+    "forceLimitN": 40,
+    "torqueLimitNm": 2.5
+  },
+  "cases": [
+    {
+      "kind": "baseline",
+      "interruptions": []
+    },
+    {
+      "kind": "graceful-first",
+      "interruptions": [
+        {
+          "stage": "actual/0",
+          "method": "close"
+        }
+      ]
+    },
+    {
+      "kind": "crash-first",
+      "interruptions": [
+        {
+          "stage": "actual/0",
+          "method": "kill"
+        }
+      ]
+    },
+    {
+      "kind": "crash-middle",
+      "interruptions": [
+        {
+          "stage": "actual/1",
+          "method": "kill"
+        }
+      ]
+    },
+    {
+      "kind": "crash-reforecast",
+      "interruptions": [
+        {
+          "stage": "actual/0",
+          "method": "kill"
+        },
+        {
+          "stage": "reforecast/1",
+          "method": "kill"
+        }
+      ]
+    },
+    {
+      "kind": "varied-crash",
+      "variant": true,
+      "interruptions": [
+        {
+          "stage": "actual/0",
+          "method": "kill"
+        }
+      ]
+    }
+  ],
+  "budget": {
+    "processors": 2,
+    "heapMiB": 512,
+    "resumes": 2,
+    "ticks": 115200
+  },
+  "interruptTick": 1200,
+  "scope": "Fresh labelled synthetic three-stage executions, actual graceful and exact-owned-PID abrupt termination. No power-loss or disk-durability claim."
+}
