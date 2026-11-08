@@ -1,3 +1,7 @@
+## Edition095 — measurement in progress
+
+Isolated D:/Codex-Work/fraynix-workspace-edition095, parent88b60a6d. Prospective contract: ../docs/EDITION_095_CONTRACT.md. Study source5676bc1a; all334 production engine classes unchanged. One freshly earned memory, six mixed conditions, both control orders, actual interruption/saving and two later saved-skill executions. No095 publication yet. Read build/HANDOFF095.md in that checkout before resuming; retain raw costs, failed alternatives and all original verification.
+
 ## Edition094 — published and fetched back
 
 Published release 3f65be1450649bf0dd991d3a750f87fc426fef95; annotated readme-094 tag object 296c3fe7746942645426151c39475ff249ea30b8. Actual main/edition094/tag push fetched and verified: 1262 canonical sources, 25783 frozen hashes across 94 editions and 1387 logical original archive entries. [Publication receipt](PUBLICATION_094.json).

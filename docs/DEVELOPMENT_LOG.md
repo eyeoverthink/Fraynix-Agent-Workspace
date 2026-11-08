@@ -1,3 +1,7 @@
+## Edition095 — measurement in progress
+
+2026-11-08: declared mixed-cost contract and24 evaluated tasks plus fresh preparation/two later saved-skill executions. Source5676bc1a. Actual native runs active in isolated D:/Codex-Work/fraynix-workspace-edition095; all334 production classes identical to094. New external interval accounting, matched opposite orders, cold-copy/skill/recovery verification and independent evidence inspectors. No runtime policy changes and no095 publication yet; full results and release remain pending.
+
 ## Edition094 — published and fetched back
 
 Published release 3f65be1450649bf0dd991d3a750f87fc426fef95; annotated readme-094 tag object 296c3fe7746942645426151c39475ff249ea30b8. Actual main/edition094/tag push fetched and verified: 1262 canonical sources, 25783 frozen hashes across 94 editions and 1387 logical original archive entries. [Publication receipt](PUBLICATION_094.json).

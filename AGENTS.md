@@ -1,3 +1,7 @@
+## Edition095 — measurement in progress
+
+Work in D:/Codex-Work/fraynix-workspace-edition095, branch edition095, from verified main88b60a6d. Read docs/EDITION_095_CONTRACT.md and build/HANDOFF095.md. Actual mixed-cost study is running serially in build/ui095-study; preserve its originals and any failure. No095 publication yet. All334 production classes match094. No builds while this study's Java owner is active; preserve live045/qa046/private projects and frozen001–094. No subagents. Completion still requires independent inspection, regressions, screenshots/docs and fetched main publication.
+
 ## Edition094 — published and fetched back
 
 Published release 3f65be1450649bf0dd991d3a750f87fc426fef95; annotated readme-094 tag object 296c3fe7746942645426151c39475ff249ea30b8. Actual main/edition094/tag push fetched and verified: 1262 canonical sources, 25783 frozen hashes across 94 editions and 1387 logical original archive entries. [Publication receipt](docs/PUBLICATION_094.json).
