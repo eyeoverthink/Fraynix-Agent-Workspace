@@ -1,5 +1,8 @@
 # Fraynix Agent Workspace system architecture
 
+Edition089 integrates source-verified owned paired timing into Java memory selection, with conservative original085 fallback and measured twelve-task sequences. The original fitting gate and all outcome checks remain active. [Measured results and limits](../README-089.md).
+
+
 Edition088 adds read-only resource compatibility visibility to cost review, with actual CPU/heap-change and counterfactual payoff tests. The original gate and all outcome checks remain unchanged. [Measured scope and results](../README-088.md).
 
 

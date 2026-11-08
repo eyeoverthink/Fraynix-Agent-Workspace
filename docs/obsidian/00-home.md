@@ -1,5 +1,8 @@
 ---
 
+[Edition089: paired memory and sequences](97-paired-memory-and-longer-sequences.md) · [Working map](97-paired-memory-and-longer-sequences.canvas)
+
+
 [Edition088: resources and value](96-resource-changes-and-calibration-value.md) · [Working map](96-resource-changes-and-calibration-value.canvas)
 
 

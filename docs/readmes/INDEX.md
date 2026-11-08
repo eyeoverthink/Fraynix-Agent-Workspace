@@ -1,5 +1,8 @@
 # Fraynix Studio and Agent Workspace README editions
 
+- [Edition089: paired memory and longer sequences](../../README-089.md) · [Offline results](089/index.html)
+
+
 - [Edition088: resources and calibration value](../../README-088.md) · [Offline results](088/index.html)
 
 

@@ -1,0 +1,80 @@
+{
+  "nodes": [
+    {
+      "id": "selection",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/TaskCost089.java",
+      "x": 0,
+      "y": 0,
+      "width": 380,
+      "height": 200
+    },
+    {
+      "id": "goals",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/WorldProcedure079.java",
+      "x": 420,
+      "y": 0,
+      "width": 380,
+      "height": 200
+    },
+    {
+      "id": "gate",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/CalibrationAdmission086.java",
+      "x": 840,
+      "y": 0,
+      "width": 380,
+      "height": 200
+    },
+    {
+      "id": "ui",
+      "type": "file",
+      "file": "workspace-desktop/renderer/persistent-world-panel.js",
+      "x": 1260,
+      "y": 0,
+      "width": 380,
+      "height": 200
+    },
+    {
+      "id": "inspection",
+      "type": "file",
+      "file": "scripts/Inspect-Costs089.cjs",
+      "x": 1680,
+      "y": 0,
+      "width": 380,
+      "height": 200
+    },
+    {
+      "id": "edition",
+      "type": "file",
+      "file": "README-089.md",
+      "x": 420,
+      "y": 300,
+      "width": 380,
+      "height": 240
+    }
+  ],
+  "edges": [
+    {
+      "id": "s-g",
+      "fromNode": "selection",
+      "toNode": "goals"
+    },
+    {
+      "id": "g-v",
+      "fromNode": "gate",
+      "toNode": "goals"
+    },
+    {
+      "id": "u-s",
+      "fromNode": "ui",
+      "toNode": "selection"
+    },
+    {
+      "id": "i-e",
+      "fromNode": "inspection",
+      "toNode": "edition"
+    }
+  ]
+}
