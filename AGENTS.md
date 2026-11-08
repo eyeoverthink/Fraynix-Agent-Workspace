@@ -1,3 +1,7 @@
+## Edition096 — implementation in progress
+
+Work in D:/Codex-Work/fraynix-workspace-edition096, branch edition096, from verified main55d95f47. Read docs/EDITION_096_CONTRACT.md. First gate: four inherited CI failures (construction schema, historical world source lock, two large integrity-test heap exhaustions). Original assertion baseline reproduced:4 tests,2 failures, originals in build/baseline096-assertions. Keep all checks, original sources/failures, live045/qa046/private data and frozen001–095. No subagents; heavy validation serial. No096 publication yet. Warm continuing-workspace measurements follow only after this gate and a prospective protocol.
+
 ## Edition095 — published and fetched back
 
 Published release 54ea84ca4674f355ffaba087f0faa62570256915; annotated readme-095 tag object 67b287df963c8dbcc20bea039e7d624b2c125312. Actual main/edition095/tag push fetched and verified: 1270 canonical sources, 27147 frozen hashes across 95 editions and 2482 logical original archive entries. [Publication receipt](docs/PUBLICATION_095.json).
