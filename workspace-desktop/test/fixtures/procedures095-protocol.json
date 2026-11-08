@@ -1,0 +1,837 @@
+{
+  "version": "mixed-complete-cost-095-v1",
+  "declaredBeforeTrials": true,
+  "budget": {
+    "processors": 2,
+    "heapMiB": 512,
+    "resumes": 2,
+    "ticks": 115200
+  },
+  "interruptTick": 1200,
+  "seed": {
+    "id": "095-seed",
+    "group": "long-route",
+    "split": "preparation",
+    "source": {
+      "format": "fraynix.spatial-scene",
+      "version": 1,
+      "title": "LABELLED095 seed synthetic source",
+      "units": "m",
+      "frame": "right-handed-y-up",
+      "source": {
+        "kind": "synthetic",
+        "physicalProperties": "declared",
+        "note": "Prospectively declared deterministic box experiment; not physical observations."
+      },
+      "scaleReference": {
+        "a": [
+          0,
+          0,
+          0
+        ],
+        "b": [
+          1,
+          0,
+          0
+        ],
+        "knownLengthM": 1,
+        "toleranceM": 0,
+        "basis": "declared-test"
+      },
+      "gravityMps2": 9.81,
+      "objects": [
+        {
+          "sourceId": "floor",
+          "label": "floor",
+          "shape": "box",
+          "position": [
+            0,
+            -0.25,
+            0
+          ],
+          "size": [
+            12,
+            0.5,
+            12
+          ],
+          "massKg": 0,
+          "friction": 0.5,
+          "restitution": 0,
+          "rotation": [
+            0,
+            0.0,
+            0,
+            1.0
+          ]
+        },
+        {
+          "sourceId": "A",
+          "label": "A",
+          "shape": "box",
+          "position": [
+            -3.65,
+            0.21,
+            -3.5
+          ],
+          "size": [
+            0.55,
+            0.42,
+            0.7
+          ],
+          "massKg": 0.6,
+          "friction": 0.25,
+          "restitution": 0,
+          "rotation": [
+            0,
+            0.0,
+            0,
+            1.0
+          ]
+        },
+        {
+          "sourceId": "B",
+          "label": "B",
+          "shape": "box",
+          "position": [
+            2.3,
+            0.16,
+            1.6
+          ],
+          "size": [
+            0.85,
+            0.32,
+            0.4
+          ],
+          "massKg": 0.8,
+          "friction": 0.25,
+          "restitution": 0,
+          "rotation": [
+            0,
+            0.0,
+            0,
+            1.0
+          ]
+        },
+        {
+          "sourceId": "bystander",
+          "label": "bystander",
+          "shape": "box",
+          "position": [
+            4.8,
+            0.25,
+            -3.5
+          ],
+          "size": [
+            0.5,
+            0.5,
+            0.6
+          ],
+          "massKg": 1,
+          "friction": 0.55,
+          "restitution": 0,
+          "rotation": [
+            0,
+            0.0,
+            0,
+            1.0
+          ]
+        },
+        {
+          "sourceId": "obstacle",
+          "label": "obstacle",
+          "shape": "box",
+          "position": [
+            0,
+            0.4,
+            0
+          ],
+          "size": [
+            0.65,
+            0.8,
+            0.7
+          ],
+          "massKg": 0,
+          "friction": 0.5,
+          "restitution": 0,
+          "rotation": [
+            0,
+            0.0,
+            0,
+            1.0
+          ]
+        }
+      ]
+    },
+    "targets": [
+      {
+        "sourceId": "A",
+        "positionM": [
+          3.65,
+          0.21,
+          3.5
+        ],
+        "yawDeg": 95
+      },
+      {
+        "sourceId": "B",
+        "positionM": [
+          1.4,
+          0.16,
+          -1.5
+        ],
+        "yawDeg": -100
+      }
+    ],
+    "forceLimitN": 40,
+    "torqueLimitNm": 2.5
+  },
+  "geometries": {
+    "long": {
+      "id": "095-long",
+      "group": "long-route",
+      "split": "evaluation",
+      "source": {
+        "format": "fraynix.spatial-scene",
+        "version": 1,
+        "title": "LABELLED095 long synthetic source",
+        "units": "m",
+        "frame": "right-handed-y-up",
+        "source": {
+          "kind": "synthetic",
+          "physicalProperties": "declared",
+          "note": "Prospectively declared deterministic box experiment; not physical observations."
+        },
+        "scaleReference": {
+          "a": [
+            0,
+            0,
+            0
+          ],
+          "b": [
+            1,
+            0,
+            0
+          ],
+          "knownLengthM": 1,
+          "toleranceM": 0,
+          "basis": "declared-test"
+        },
+        "gravityMps2": 9.81,
+        "objects": [
+          {
+            "sourceId": "floor",
+            "label": "floor",
+            "shape": "box",
+            "position": [
+              0,
+              -0.25,
+              0
+            ],
+            "size": [
+              12,
+              0.5,
+              12
+            ],
+            "massKg": 0,
+            "friction": 0.5,
+            "restitution": 0,
+            "rotation": [
+              0,
+              0.0,
+              0,
+              1.0
+            ]
+          },
+          {
+            "sourceId": "A",
+            "label": "A",
+            "shape": "box",
+            "position": [
+              -3.65,
+              0.21,
+              -3.5
+            ],
+            "size": [
+              0.55,
+              0.42,
+              0.7
+            ],
+            "massKg": 0.63,
+            "friction": 0.27,
+            "restitution": 0,
+            "rotation": [
+              0,
+              0.0,
+              0,
+              1.0
+            ]
+          },
+          {
+            "sourceId": "B",
+            "label": "B",
+            "shape": "box",
+            "position": [
+              2.3,
+              0.16,
+              1.6
+            ],
+            "size": [
+              0.85,
+              0.32,
+              0.4
+            ],
+            "massKg": 0.8,
+            "friction": 0.25,
+            "restitution": 0,
+            "rotation": [
+              0,
+              0.0,
+              0,
+              1.0
+            ]
+          },
+          {
+            "sourceId": "bystander",
+            "label": "bystander",
+            "shape": "box",
+            "position": [
+              4.8,
+              0.25,
+              -3.5
+            ],
+            "size": [
+              0.5,
+              0.5,
+              0.6
+            ],
+            "massKg": 1,
+            "friction": 0.55,
+            "restitution": 0,
+            "rotation": [
+              0,
+              0.0,
+              0,
+              1.0
+            ]
+          },
+          {
+            "sourceId": "obstacle",
+            "label": "obstacle",
+            "shape": "box",
+            "position": [
+              0,
+              0.4,
+              0
+            ],
+            "size": [
+              0.65,
+              0.8,
+              0.7
+            ],
+            "massKg": 0,
+            "friction": 0.5,
+            "restitution": 0,
+            "rotation": [
+              0,
+              0.0,
+              0,
+              1.0
+            ]
+          }
+        ]
+      },
+      "targets": [
+        {
+          "sourceId": "A",
+          "positionM": [
+            3.6,
+            0.21,
+            3.5
+          ],
+          "yawDeg": 95
+        },
+        {
+          "sourceId": "B",
+          "positionM": [
+            1.4,
+            0.16,
+            -1.5
+          ],
+          "yawDeg": -100
+        }
+      ],
+      "forceLimitN": 40,
+      "torqueLimitNm": 2.5
+    },
+    "short": {
+      "id": "095-short",
+      "group": "proof-reuse",
+      "split": "evaluation",
+      "source": {
+        "format": "fraynix.spatial-scene",
+        "version": 1,
+        "title": "LABELLED095 short synthetic source",
+        "units": "m",
+        "frame": "right-handed-y-up",
+        "source": {
+          "kind": "synthetic",
+          "physicalProperties": "declared",
+          "note": "Prospectively declared deterministic box experiment; not physical observations."
+        },
+        "scaleReference": {
+          "a": [
+            0,
+            0,
+            0
+          ],
+          "b": [
+            1,
+            0,
+            0
+          ],
+          "knownLengthM": 1,
+          "toleranceM": 0,
+          "basis": "declared-test"
+        },
+        "gravityMps2": 9.81,
+        "objects": [
+          {
+            "sourceId": "floor",
+            "label": "floor",
+            "shape": "box",
+            "position": [
+              0,
+              -0.25,
+              0
+            ],
+            "size": [
+              12,
+              0.5,
+              12
+            ],
+            "massKg": 0,
+            "friction": 0.5,
+            "restitution": 0,
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ]
+          },
+          {
+            "sourceId": "A",
+            "label": "A",
+            "shape": "box",
+            "position": [
+              -2.4,
+              0.21,
+              -1.8
+            ],
+            "size": [
+              0.55,
+              0.42,
+              0.7
+            ],
+            "massKg": 0.6,
+            "friction": 0.25,
+            "restitution": 0,
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ]
+          },
+          {
+            "sourceId": "B",
+            "label": "B",
+            "shape": "box",
+            "position": [
+              2.3,
+              0.16,
+              1.6
+            ],
+            "size": [
+              0.85,
+              0.32,
+              0.4
+            ],
+            "massKg": 0.8400000000000001,
+            "friction": 0.27,
+            "restitution": 0,
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ]
+          },
+          {
+            "sourceId": "bystander",
+            "label": "bystander",
+            "shape": "box",
+            "position": [
+              4.8,
+              0.25,
+              -3.5
+            ],
+            "size": [
+              0.5,
+              0.5,
+              0.6
+            ],
+            "massKg": 1,
+            "friction": 0.55,
+            "restitution": 0,
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ]
+          },
+          {
+            "sourceId": "obstacle0",
+            "label": "Fixed obstacle 0",
+            "shape": "box",
+            "position": [
+              -2.1,
+              0.35,
+              -0.7166666666666668
+            ],
+            "size": [
+              0.6,
+              0.7,
+              0.65
+            ],
+            "massKg": 0,
+            "friction": 0.5,
+            "restitution": 0,
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ]
+          },
+          {
+            "sourceId": "obstacle1",
+            "label": "Fixed obstacle 1",
+            "shape": "box",
+            "position": [
+              3,
+              0.35,
+              -3
+            ],
+            "size": [
+              0.6,
+              0.7,
+              0.65
+            ],
+            "massKg": 0,
+            "friction": 0.5,
+            "restitution": 0,
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ]
+          }
+        ]
+      },
+      "targets": [
+        {
+          "sourceId": "A",
+          "positionM": [
+            -1.49,
+            0.21,
+            1.45
+          ],
+          "yawDeg": 95
+        },
+        {
+          "sourceId": "B",
+          "positionM": [
+            1.4,
+            0.16,
+            -1.5
+          ],
+          "yawDeg": -100
+        }
+      ],
+      "forceLimitN": 40,
+      "torqueLimitNm": 2.5,
+      "condition": "shorter-trip-diagnostic",
+      "declaredReceiptDistance": 0.0421346133850217
+    }
+  },
+  "conditions": [
+    {
+      "id": "short-plain",
+      "geometry": "short",
+      "retain": false,
+      "skill": false,
+      "recovery": false
+    },
+    {
+      "id": "long-save",
+      "geometry": "long",
+      "retain": true,
+      "skill": true,
+      "recovery": false
+    },
+    {
+      "id": "short-recover-save",
+      "geometry": "short",
+      "retain": true,
+      "skill": true,
+      "recovery": true
+    },
+    {
+      "id": "long-plain",
+      "geometry": "long",
+      "retain": false,
+      "skill": false,
+      "recovery": false
+    },
+    {
+      "id": "short-save",
+      "geometry": "short",
+      "retain": true,
+      "skill": true,
+      "recovery": false
+    },
+    {
+      "id": "long-recover-save",
+      "geometry": "long",
+      "retain": true,
+      "skill": true,
+      "recovery": true
+    }
+  ],
+  "schedule": [
+    {
+      "block": 0,
+      "condition": "short-plain",
+      "mode": "simple",
+      "order": [
+        "simple",
+        "memory"
+      ]
+    },
+    {
+      "block": 0,
+      "condition": "short-plain",
+      "mode": "memory",
+      "order": [
+        "simple",
+        "memory"
+      ]
+    },
+    {
+      "block": 0,
+      "condition": "long-save",
+      "mode": "memory",
+      "order": [
+        "memory",
+        "simple"
+      ]
+    },
+    {
+      "block": 0,
+      "condition": "long-save",
+      "mode": "simple",
+      "order": [
+        "memory",
+        "simple"
+      ]
+    },
+    {
+      "block": 0,
+      "condition": "short-recover-save",
+      "mode": "simple",
+      "order": [
+        "simple",
+        "memory"
+      ]
+    },
+    {
+      "block": 0,
+      "condition": "short-recover-save",
+      "mode": "memory",
+      "order": [
+        "simple",
+        "memory"
+      ]
+    },
+    {
+      "block": 0,
+      "condition": "long-plain",
+      "mode": "memory",
+      "order": [
+        "memory",
+        "simple"
+      ]
+    },
+    {
+      "block": 0,
+      "condition": "long-plain",
+      "mode": "simple",
+      "order": [
+        "memory",
+        "simple"
+      ]
+    },
+    {
+      "block": 0,
+      "condition": "short-save",
+      "mode": "simple",
+      "order": [
+        "simple",
+        "memory"
+      ]
+    },
+    {
+      "block": 0,
+      "condition": "short-save",
+      "mode": "memory",
+      "order": [
+        "simple",
+        "memory"
+      ]
+    },
+    {
+      "block": 0,
+      "condition": "long-recover-save",
+      "mode": "memory",
+      "order": [
+        "memory",
+        "simple"
+      ]
+    },
+    {
+      "block": 0,
+      "condition": "long-recover-save",
+      "mode": "simple",
+      "order": [
+        "memory",
+        "simple"
+      ]
+    },
+    {
+      "block": 1,
+      "condition": "long-recover-save",
+      "mode": "simple",
+      "order": [
+        "simple",
+        "memory"
+      ]
+    },
+    {
+      "block": 1,
+      "condition": "long-recover-save",
+      "mode": "memory",
+      "order": [
+        "simple",
+        "memory"
+      ]
+    },
+    {
+      "block": 1,
+      "condition": "short-save",
+      "mode": "memory",
+      "order": [
+        "memory",
+        "simple"
+      ]
+    },
+    {
+      "block": 1,
+      "condition": "short-save",
+      "mode": "simple",
+      "order": [
+        "memory",
+        "simple"
+      ]
+    },
+    {
+      "block": 1,
+      "condition": "long-plain",
+      "mode": "simple",
+      "order": [
+        "simple",
+        "memory"
+      ]
+    },
+    {
+      "block": 1,
+      "condition": "long-plain",
+      "mode": "memory",
+      "order": [
+        "simple",
+        "memory"
+      ]
+    },
+    {
+      "block": 1,
+      "condition": "short-recover-save",
+      "mode": "memory",
+      "order": [
+        "memory",
+        "simple"
+      ]
+    },
+    {
+      "block": 1,
+      "condition": "short-recover-save",
+      "mode": "simple",
+      "order": [
+        "memory",
+        "simple"
+      ]
+    },
+    {
+      "block": 1,
+      "condition": "long-save",
+      "mode": "simple",
+      "order": [
+        "simple",
+        "memory"
+      ]
+    },
+    {
+      "block": 1,
+      "condition": "long-save",
+      "mode": "memory",
+      "order": [
+        "simple",
+        "memory"
+      ]
+    },
+    {
+      "block": 1,
+      "condition": "short-plain",
+      "mode": "memory",
+      "order": [
+        "memory",
+        "simple"
+      ]
+    },
+    {
+      "block": 1,
+      "condition": "short-plain",
+      "mode": "simple",
+      "order": [
+        "memory",
+        "simple"
+      ]
+    }
+  ],
+  "skillDemonstrations": [
+    "long-recover-save",
+    "short-recover-save"
+  ],
+  "scope": "Related declared synthetic variants; fixed cold bank, two opposite orders, no fit, no learned model promotion."
+}
