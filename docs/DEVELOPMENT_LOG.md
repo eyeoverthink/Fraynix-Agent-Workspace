@@ -1,3 +1,11 @@
+## Edition093 — locally verified; publication pending
+
+Java now creates and verifies a distinct forecast from recovered state before later actual motion. Both declared early-restart cases completed; a second interruption during forecasting also recovered. Stopping during forecasting prevented the next actual stage and any world commit.
+
+61 Java checks passed across 11 focused classes; 1 optional host-dependent case skipped. 135 desktop checks passed. Five new native goals completed and one was deliberately cancelled. Original sources, sample prefixes, provenance, budgets, forecast comparisons and single commits independently inspected. Resumed clocks remain excluded from calibration. New forecast work is charged; stopping it prevents later actual motion. Native study source2bb4407623425e22bad9ac3d57bcb6c44852ad3c.
+
+Isolated D:/Codex-Work/fraynix-workspace-edition093; private eyeoverthink/Fraynix-Agent-Workspace. Preserve live045/qa046/private data and frozen001–092. No subagents. No physical accuracy, LLM training or general recovery claim. Next: native three-stage and abrupt-termination recovery, then complete mixed-task cost comparisons.
+
 ## Edition092 — published and fetched back
 
 Published release cce04dedeea68d4fe0696b38d4a99e018c08e393; annotated readme-092 tag object ce13eec3cb00d3113f744cdb4493953bd98899ac. Actual main/edition092/tag push fetched and verified: 1243 canonical sources, 24715 frozen hashes across92 editions and 836 logical original archive entries. [Publication receipt](PUBLICATION_092.json).

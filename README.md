@@ -1,6 +1,10 @@
 # Fraynix Agent Workspace
 
-**Latest: [edition092 — growing banks and restarted tasks](README-092.md).**
+**Latest: [edition093 — forecast from recovered state](README-093.md).**
+
+Java now creates and verifies a distinct forecast from recovered state before later actual motion. Both declared early-restart cases completed; a second interruption during forecasting also recovered. Stopping during forecasting prevented the next actual stage and any world commit. [Offline evidence](docs/readmes/093/index.html).
+
+**Earlier edition: [edition092 — growing banks and restarted tasks](README-092.md).**
 
 Published to main with original evidence and screenshots. [Fetched GitHub verification](docs/PUBLICATION_092.json).
 

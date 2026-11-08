@@ -1,3 +1,5 @@
+[Edition093 — forecast from recovered state](../../README-093.md) · [Offline evidence](093/index.html)
+
 [Edition092 — growing banks and restarted tasks](../../README-092.md) · [Offline evidence](092/index.html)
 
 [Edition091 — less repeated verification work](../../README-091.md) · [Offline evidence](091/index.html)
