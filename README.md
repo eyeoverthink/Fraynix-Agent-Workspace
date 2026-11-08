@@ -2,7 +2,7 @@
 
 **Latest: [edition089 — paired memory and longer sequences](README-089.md).**
 
-Edition089 is validated locally; publication verification follows.
+Edition089 is published to main with code, measurements, screenshots and exact original evidence. [Fetched GitHub verification](docs/PUBLICATION_089.json).
 
 
 **Earlier edition: [edition088 — resources and calibration value](README-088.md).**
