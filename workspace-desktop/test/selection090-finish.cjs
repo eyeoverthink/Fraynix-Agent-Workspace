@@ -18,7 +18,20 @@ const {launch}=require('./calibration-integration.cjs'),fs=require('node:fs/prom
    assert.deepEqual(exported.job,original.job);assert.deepEqual(exported.cost080,original.cost080);
    const verified=await api('/api/procedures090/verify',{id}),world=await api('/api/world/observe',{worldId:row.binding.worldId});assert(verified.passed);assert.equal(world.expectedHash,row.observed.expectedHash);assert.equal(world.expectedRevision,row.observed.expectedRevision);checks.push({id,passed:true,worldHash:world.expectedHash});
   }
-  const id=record.finalReview.uncovered;await app.evaluate((_,id)=>global.workspaceTest.goals.execute('goal.read',{id}),id);await page.waitForFunction(id=>document.querySelector('#java-goal').dataset.goalId===id&&document.querySelector('#java-goal-status').textContent==='completed',id);await page.locator('#java-goal-report').click();
+  for(const [label,id] of [['covered',record.finalReview.covered],['changed-scene',record.finalReview.uncovered]]){
+   const row=record.rows.find(r=>r.goalId===id);
+   await app.evaluate((_,id)=>global.workspaceTest.goals.execute('goal.read',{id}),id);
+   await page.waitForFunction(id=>document.querySelector('#java-goal').dataset.goalId===id&&document.querySelector('#java-goal-status').textContent==='completed',id);
+   await page.locator('#java-goal-report').click();
+   await page.waitForFunction(id=>document.querySelector('#object-detail').textContent.includes(id),row.goal.report.id);
+   await page.locator('#preview-tab').click();
+   for(const width of [1600,1100]){
+    await app.evaluate(({BrowserWindow},w)=>BrowserWindow.getAllWindows().find(x=>x.isVisible()).setSize(w,1100),width);
+    await page.waitForTimeout(500);assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));
+    await fs.writeFile(path.join(out,label+'-report-detail-'+width+'.png'),Buffer.from(await app.evaluate(()=>global.workspaceTest.capture()),'base64'));
+   }
+  }
+  const id=record.finalReview.uncovered;
   for(const w of [1600,1100]){await app.evaluate(({BrowserWindow},w)=>BrowserWindow.getAllWindows().find(x=>x.isVisible()).setSize(w,1100),w);await page.waitForTimeout(400);assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));await fs.writeFile(path.join(out,w===1600?'cold-restart-report.png':'cold-restart-report-1100.png'),Buffer.from(await app.evaluate(()=>global.workspaceTest.capture()),'base64'));}
   await app.evaluate(({BrowserWindow})=>BrowserWindow.getAllWindows().find(x=>x.isVisible()).setSize(1600,1100));await page.locator('#spatial-tab').click();await page.locator('#persistent-world-panel').evaluate(e=>e.open=true);await page.locator('#cost080-panel').evaluate(e=>e.open=true);await page.locator('#cost089-explanation').scrollIntoViewIfNeeded();await page.waitForTimeout(400);assert((await page.locator('#cost080-mode').innerText()).includes('freshness (090)'));await fs.writeFile(path.join(out,'freshness-controls-1600.png'),Buffer.from(await app.evaluate(()=>global.workspaceTest.capture()),'base64'));
   assert.deepEqual(errors,[]);record.completionRecovery={source:cp.execFileSync('git',['rev-parse','HEAD'],{cwd:repo,encoding:'utf8'}).trim(),reason:'The original cold check compared a complete exported cost with the abbreviated UI summary. Original timed outcomes unchanged; complete exports now compared with their original saved exports, then full goal audits and world hashes rechecked.',startupMillis,pid:res.pid,pinned,checks,errors,callerMillis:performance.now()-at};
