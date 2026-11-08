@@ -70,8 +70,7 @@ async function main(){
   }
   const covered=record.rows.filter(x=>x.policy==='guarded090'&&x.condition==='occupied').at(-1),uncovered=record.rows.filter(x=>x.policy==='guarded090'&&x.condition==='relocated-obstacles').at(-1);
   for(const [label,row] of [['covered',covered],['changed-scene',uncovered]]){await report(row.goalId);for(const w of [1600,1100]){await app.evaluate(({BrowserWindow},w)=>BrowserWindow.getAllWindows().find(x=>x.isVisible()).setSize(w,1100),w);await sleep(300);assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));await capture(label+'-report-'+w);}}
-  // A changed original must refuse a calibrated action before any native attempt.
-  // Use an existing final world and unchanged targets, so no extra scene slot is spent.
+  // Rechecking a completed goal must refuse changed supporting evidence without changing the world.
   const recent=covered.job.freshnessEvidence090?.[0];
   if(recent){
    const id=recent.observation.id,root=path.join(project,'world-procedures-079'),file=path.join(root,id,'cost080.json'),original=await fs.readFile(file),v=JSON.parse(original),{canonical}=require('../../scripts/Inspect-Spatial040.cjs');
