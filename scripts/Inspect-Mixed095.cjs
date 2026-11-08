@@ -8,7 +8,7 @@ function verifyRow(row,r,out,seed=false){
  const root=path.join(row.project,'world-procedures-079'),x=read(path.join(out,row.originalFile)),j=x.job;
  assert.deepEqual(j,row.job);assert.deepEqual(j,checked(path.join(root,j.id,'goal.json')));
  const result=inspectProcedure(x,root);inspectCommit(x,root,row.goal);assert.equal(result.success,row.goal.status==='completed');assert.equal(row.clockOwner,r.clock.id);assert.deepEqual(account(row),row.account);
- const spec=seed?r.protocol.seed:r.protocol.geometries[r.protocol.conditions.find(c=>c.id===row.condition).geometry];assert.equal(row.sourceSpecSha256,hash(spec));assert.deepEqual(j.spec.targets,spec.targets);assert.equal(j.mode,row.mode);
+ const spec=seed?r.protocol.seed:r.protocol.geometries[r.protocol.conditions.find(c=>c.id===row.condition).geometry];assert.equal(row.sourceSpecSha256,hash(spec));assert.deepEqual(JSON.parse(j.initialFrame.originalScene.sourceText),spec.source);assert.deepEqual(j.spec.targets,spec.targets);assert.equal(j.mode,row.mode);
  if(!seed){assert.equal(row.preparedSha256,r.preparedSha256);assert(row.copyVerified);assert.equal(row.bankBefore.length,1);assert.equal(row.bankBefore[0].id,r.receiptId);}
  const condition=seed?{retain:true,skill:false,recovery:false}:r.protocol.conditions.find(c=>c.id===row.condition);assert.deepEqual(row.workload,{retain:condition.retain,skill:condition.skill});assert.equal(row.restarts.length,condition.recovery?1:0);
  assert.equal(row.goal.retainExperience079,condition.retain);assert.equal(row.goal.saveSkillName,row.skillName);
