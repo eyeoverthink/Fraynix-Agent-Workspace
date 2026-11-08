@@ -2,6 +2,8 @@
 
 **Latest: [edition092 — growing banks and restarted tasks](README-092.md).**
 
+Published to main with original evidence and screenshots. [Fetched GitHub verification](docs/PUBLICATION_092.json).
+
 Across six paired comparisons, digest reuse took 103.08 s less total caller time, with 86.1% fewer canonical checks in the observed counter windows. All twenty goals in the final-stage follow-up verified, including six final-stage interrupted and resumed tasks. An earlier-stage restart was correctly refused after its next source state changed; that remains an unresolved recovery limit. [Offline evidence](docs/readmes/092/index.html).
 
 **Earlier edition: [edition091 — less repeated verification work](README-091.md).**

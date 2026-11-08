@@ -9,3 +9,5 @@ Across six paired comparisons, digest reuse took 103.08 s less total caller time
 Scope: small similar synthetic bank, one host and existing scene family. Common reopen/prefix recovery uses production reuse in both arms. No new weights, physical observations or calibrated-selection claim. Known gap: early-stage restart changes the next source state and is refused. Next: bounded fresh forecast from recovered state before later actual motion, then calibrated-selection comparisons.
 
 [[workspace-engine/src/main/java/fraymus/workspace/NativeEnvelope091.java]] → [[workspace-engine/src/main/java/fraymus/workspace/WorldProcedure079.java]] → [[scripts/Inspect-Envelopes092.cjs]]
+
+Published release cce04dedeea68d4fe0696b38d4a99e018c08e393; annotated readme-092 tag object ce13eec3cb00d3113f744cdb4493953bd98899ac. Actual main/edition092/tag push fetched and verified: 1243 canonical sources, 24715 frozen hashes across92 editions and 836 logical original archive entries. [[docs/PUBLICATION_092.json|Publication receipt]]

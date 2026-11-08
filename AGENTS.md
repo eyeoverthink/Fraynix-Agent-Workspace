@@ -1,4 +1,6 @@
-## Edition092 — locally verified; publication pending
+## Edition092 — published and fetched back
+
+Published release cce04dedeea68d4fe0696b38d4a99e018c08e393; annotated readme-092 tag object ce13eec3cb00d3113f744cdb4493953bd98899ac. Actual main/edition092/tag push fetched and verified: 1243 canonical sources, 24715 frozen hashes across92 editions and 836 logical original archive entries. [Publication receipt](docs/PUBLICATION_092.json).
 
 Across six paired comparisons, digest reuse took 103.08 s less total caller time, with 86.1% fewer canonical checks in the observed counter windows. All twenty goals in the final-stage follow-up verified, including six final-stage interrupted and resumed tasks. An earlier-stage restart was correctly refused after its next source state changed; that remains an unresolved recovery limit.
 

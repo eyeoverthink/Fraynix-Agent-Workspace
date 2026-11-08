@@ -1,0 +1,2 @@
+const {chromium}=require('../workspace-desktop/node_modules/playwright');const {pathToFileURL}=require('node:url');const path=require('node:path');
+(async()=>{const b=await chromium.launch({channel:'msedge',headless:true});try{const p=await b.newPage({viewport:{width:390,height:1100}});await p.goto(pathToFileURL(path.resolve('docs/readmes/092/index.html')).href);await p.evaluate(()=>document.fonts.ready);await p.waitForTimeout(500);console.log(await p.locator('#summary').innerText());await p.screenshot({path:'build/offline092-review-390.png'});}finally{await b.close();}})();
