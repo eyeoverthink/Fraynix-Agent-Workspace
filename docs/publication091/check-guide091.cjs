@@ -1,0 +1,13 @@
+'use strict';
+const {chromium}=require('../workspace-desktop/node_modules/playwright'),fs=require('node:fs/promises'),path=require('node:path'),assert=require('node:assert/strict'),{pathToFileURL}=require('node:url');
+(async()=>{const root=path.resolve(__dirname,'..'),browser=await chromium.launch({channel:'msedge',headless:true}),checks=[],errors=[];
+ try{for(const width of [1440,390]){const page=await browser.newPage({viewport:{width,height:1100}});page.on('pageerror',e=>errors.push(e.message));page.on('request',req=>assert(!/^https?:/.test(req.url()),'Offline guide requested network'));
+  await page.goto(pathToFileURL(path.join(root,'docs/readmes/091/index.html')).href);await page.waitForSelector('#rows tr');assert.equal(await page.locator('#rows tr').count(),4);assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));
+  for(const policy of ['simple','memory']){await page.locator('#policy').selectOption(policy);assert.equal(await page.locator('#rows tr').count(),2);}await page.locator('#policy').selectOption('all');
+  const stages=await page.locator('#stage option').count();assert(stages>0);let frames=0;for(let i=0;i<stages;i++){await page.locator('#stage').selectOption(String(i));const max=+(await page.locator('#sample').getAttribute('max'));for(const n of [0,Math.floor(max/2),max]){await page.locator('#sample').evaluate((el,n)=>{el.value=n;el.dispatchEvent(new Event('input',{bubbles:true}));},n);assert((await page.locator('#sampleinfo').innerText()).includes('Sample '+(n+1)));frames++;}}
+  await page.locator('#stage').selectOption('0');await page.locator('#next').click();assert((await page.locator('#sampleinfo').innerText()).startsWith('Sample 2'));await page.locator('#back').click();assert((await page.locator('#sampleinfo').innerText()).startsWith('Sample 1'));
+  for(const hash of ['#results','#checks','#replay','#app']){await page.locator('nav a[href="'+hash+'"]').click();assert(new URL(page.url()).hash===hash);}await page.evaluate(()=>scrollTo(0,0));
+  const name='offline091-'+width+'.png';await page.screenshot({path:path.join(root,'build',name),fullPage:true});await page.screenshot({path:path.join(root,'build','offline091-top-'+width+'.png')});await page.locator('#results').scrollIntoViewIfNeeded();await page.screenshot({path:path.join(root,'build','offline091-results-'+width+'.png')});checks.push({width,tableRows:4,stages,frames,filters:true,navigation:true,overflow:false,screenshot:name});await page.close();}
+ assert.deepEqual(errors,[]);await fs.writeFile(path.join(root,'build/visual091.json'),JSON.stringify({passed:true,checks,errors},null,2));console.log(JSON.stringify({passed:true,checks}));
+ }finally{await browser.close();}
+})().catch(e=>{console.error(e);process.exitCode=1;});

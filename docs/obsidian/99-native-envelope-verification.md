@@ -11,3 +11,5 @@ Only canonical content fingerprints are reused. Every source read hashes all byt
 Next: longer mixed/restarted/growing-bank and calibrated-policy measurements. Preserve original evidence and every outcome check. This is measured engineering improvement, not model training or physical accuracy.
 
 [[workspace-engine/src/main/java/fraymus/workspace/NativeEnvelope091.java]] → [[workspace-engine/src/main/java/fraymus/workspace/WorldProcedure079.java]] → [[workspace-engine/src/main/java/fraymus/workspace/GoalRunner.java]]
+
+Published release 519054d3d3757c292fe1a47077c0490a8460a17d; annotated readme-091 tag object c874c059e05b3698738f86a7430e38dd0c526809. Actual main/edition091/tag push fetched and verified: 1236 canonical sources, 23897 frozen hashes across91 editions and 320 logical original archive entries. [[docs/PUBLICATION_091.json|Publication receipt]]

@@ -1,4 +1,6 @@
-## Edition091 — locally verified; publication pending
+## Edition091 — published and fetched back
+
+Published release 519054d3d3757c292fe1a47077c0490a8460a17d; annotated readme-091 tag object c874c059e05b3698738f86a7430e38dd0c526809. Actual main/edition091/tag push fetched and verified: 1236 canonical sources, 23897 frozen hashes across91 editions and 320 logical original archive entries. [Publication receipt](PUBLICATION_091.json).
 
 Digest reuse reduced canonical verification passes by 94.2% and took 40.07 s less across the eight task calls (four paired comparisons). All nine new native goals completed and verified. Every original outcome check remains active.
 
