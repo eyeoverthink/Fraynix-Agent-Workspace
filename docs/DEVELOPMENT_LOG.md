@@ -1,4 +1,6 @@
-## Edition093 — locally verified; publication pending
+## Edition093 — published and fetched back
+
+Published release e82c9380e2a90738b4db350288b79d680d0efaa6; annotated readme-093 tag object e653eeda640f558b095e6a81f9da7fee9cf3d784. Actual main/edition093/tag push fetched and verified: 1251 canonical sources, 25000 frozen hashes across 93 editions and 386 logical original archive entries. [Publication receipt](PUBLICATION_093.json).
 
 Java now creates and verifies a distinct forecast from recovered state before later actual motion. Both declared early-restart cases completed; a second interruption during forecasting also recovered. Stopping during forecasting prevented the next actual stage and any world commit.
 

@@ -9,3 +9,5 @@ Java now creates and verifies a distinct forecast from recovered state before la
 One replacement per later stage; original budgets and all proof gates retained. Two-stage synthetic recovery and controlled shutdown tested; abrupt crash, three-stage native recovery and general accuracy remain unvalidated. Resumed cost clocks remain ineligible.
 
 [[workspace-engine/src/main/java/fraymus/workspace/RecoveryForecast093.java]] → [[workspace-engine/src/main/java/fraymus/workspace/WorldProcedure079.java]] → [[scripts/Inspect-Recovery093.cjs]]
+
+Published release e82c9380e2a90738b4db350288b79d680d0efaa6; annotated readme-093 tag object e653eeda640f558b095e6a81f9da7fee9cf3d784. Actual main/edition093/tag push fetched and verified: 1251 canonical sources, 25000 frozen hashes across 93 editions and 386 logical original archive entries. [[docs/PUBLICATION_093.json|Publication receipt]]
