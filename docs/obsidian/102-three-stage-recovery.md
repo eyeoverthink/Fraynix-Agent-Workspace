@@ -7,3 +7,5 @@ Seven fresh three-stage goals completed and verified, including five recovered m
 72 Java checks passed across 15 focused classes; 1 optional host-dependent case skipped. 135 desktop checks passed. Seven fresh native goals and the separate full-backup restoration completed. Three initial lock tests failed before the fix; all five new locking/compatibility checks passed afterward.
 
 Native atomic retry correction; explicit closed093 frame upgrade, pending owners refused.332/334 prior classes identical. Five exact-owned-PID terminations, one graceful interruption, committed prefixes and both downstream forecast bindings. Checkpoint-only restoration stays quarantined; full stopped backup resumes explicitly. No power-loss, physical-accuracy or LLM inference claim.
+
+Published release 3f65be1450649bf0dd991d3a750f87fc426fef95; annotated readme-094 tag object 296c3fe7746942645426151c39475ff249ea30b8. Actual main/edition094/tag push fetched and verified: 1262 canonical sources, 25783 frozen hashes across 94 editions and 1387 logical original archive entries. [[docs/PUBLICATION_094.json|Publication receipt]]

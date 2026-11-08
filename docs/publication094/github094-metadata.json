@@ -1,0 +1,101 @@
+{
+  "observedAt": "2026-11-08T18:13:13.053Z",
+  "results": [
+    {
+      "status": "fulfilled",
+      "value": {
+        "content": [
+          {
+            "type": "text",
+            "text": "Action completed."
+          }
+        ],
+        "structuredContent": {
+          "id": "1439091671",
+          "name": "Fraynix-Agent-Workspace",
+          "owner": {
+            "login": "eyeoverthink",
+            "id": 44189993,
+            "type": "User",
+            "avatar_url": "https://avatars.githubusercontent.com/u/44189993?v=4",
+            "url": "https://api.github.com/users/eyeoverthink"
+          },
+          "repository_full_name": "eyeoverthink/Fraynix-Agent-Workspace",
+          "permissions": {
+            "admin": true,
+            "maintain": true,
+            "pull": true,
+            "push": true,
+            "triage": true
+          },
+          "allow_auto_merge": false,
+          "allow_merge_commit": true,
+          "allow_rebase_merge": true,
+          "allow_squash_merge": true,
+          "allow_update_branch": false,
+          "clone_url": "https://github.com/eyeoverthink/Fraynix-Agent-Workspace.git",
+          "size": 11850792,
+          "default_branch": "main",
+          "git_commits_url": "https://api.github.com/repos/eyeoverthink/Fraynix-Agent-Workspace/git/commits{/sha}",
+          "git_refs_url": "https://api.github.com/repos/eyeoverthink/Fraynix-Agent-Workspace/git/refs{/sha}",
+          "git_url": "git://github.com/eyeoverthink/Fraynix-Agent-Workspace.git",
+          "master_branch": null,
+          "visibility": "public",
+          "archived": false,
+          "is_code_search_indexed": null
+        },
+        "isError": false
+      }
+    },
+    {
+      "status": "fulfilled",
+      "value": {
+        "content": [
+          {
+            "type": "text",
+            "text": "Action completed."
+          }
+        ],
+        "structuredContent": {
+          "url": "https://github.com/eyeoverthink/Fraynix-Agent-Workspace/pull/1",
+          "number": 1,
+          "state": "closed",
+          "merged": true,
+          "mergeable": false,
+          "draft": false,
+          "body": "The `windows` job failed because native tests could not create OpenGL contexts and a procedural export assertion compared aliased and canonical project paths.\n\n- **Graphics:** Provision checksum-pinned Mesa llvmpipe beside Java for both test and embedded-game JVMs. Accept Mesa device strings without skipping graphics tests or changing numerical tolerances.\n- **Path assertions:** Compare resolved paths and add an aliased-root regression.\n- **Diagnostics:** Upload subproject HTML and JUnit XML reports; record outcomes and the remaining Windows execution gate in engineering continuity.",
+          "title": "Fix Windows CI graphics provisioning and export-path assertions",
+          "base": "main",
+          "base_sha": "196fdce78ae5cb1937477266acc25b3385a4cb27",
+          "head": "copilot/fix-windows-github-actions-job",
+          "head_sha": "5eb2024d9f317ea751c6e8ed4e0fbc9e06f42f6f",
+          "head_repo_id": 1439091671,
+          "head_repo_full_name": "eyeoverthink/Fraynix-Agent-Workspace",
+          "merge_commit_sha": "ec56d80b0a411ec33d1237ff8431aa57135694fc",
+          "user": {
+            "login": "Copilot",
+            "name": "Copilot",
+            "email": null,
+            "avatar_url": "https://avatars.githubusercontent.com/in/1143301?v=4",
+            "id": 198982749
+          },
+          "requested_reviewers": null,
+          "requested_team_reviewers": null,
+          "diff": null,
+          "comments": null,
+          "created_at": "2026-11-01T14:16:38Z",
+          "updated_at": "2026-11-05T19:47:43Z",
+          "closed_at": "2026-11-05T19:47:43Z",
+          "merged_at": "2026-11-05T19:47:42Z",
+          "commits": 4,
+          "changed_files": 5,
+          "additions": 37,
+          "deletions": 3,
+          "display_url": "https://github.com/eyeoverthink/Fraynix-Agent-Workspace/pull/1",
+          "display_title": "Fix Windows CI graphics provisioning and export-path assertions"
+        },
+        "isError": false
+      }
+    }
+  ]
+}

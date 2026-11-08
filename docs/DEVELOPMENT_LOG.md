@@ -1,4 +1,6 @@
-## Edition094 — locally verified; publication pending
+## Edition094 — published and fetched back
+
+Published release 3f65be1450649bf0dd991d3a750f87fc426fef95; annotated readme-094 tag object 296c3fe7746942645426151c39475ff249ea30b8. Actual main/edition094/tag push fetched and verified: 1262 canonical sources, 25783 frozen hashes across 94 editions and 1387 logical original archive entries. [Publication receipt](PUBLICATION_094.json).
 
 Seven fresh three-stage goals completed and verified, including five recovered matrix tasks. Five abrupt Java terminations preserved committed progress; fresh downstream forecasts and actual report checks preceded each single world commit.
 

@@ -1,4 +1,6 @@
-## Edition094 — locally verified; publication pending
+## Edition094 — published and fetched back
+
+Published release 3f65be1450649bf0dd991d3a750f87fc426fef95; annotated readme-094 tag object 296c3fe7746942645426151c39475ff249ea30b8. Actual main/edition094/tag push fetched and verified: 1262 canonical sources, 25783 frozen hashes across 94 editions and 1387 logical original archive entries. [Publication receipt](docs/PUBLICATION_094.json).
 
 Seven fresh three-stage goals completed and verified, including five recovered matrix tasks. Five abrupt Java terminations preserved committed progress; fresh downstream forecasts and actual report checks preceded each single world commit.
 
@@ -8,7 +10,7 @@ Isolated D:/Codex-Work/fraynix-workspace-edition094; public eyeoverthink/Fraynix
 
 # Current contributor entry point — 2026-11-08
 
-Read [README-CONTRIBUTORS.md](README-CONTRIBUTORS.md) and the [dated trajectory review](docs/TRAJECTORY_REVIEW_094.md) first. This is the Java **Fraynix-Agent-Workspace**, not Chandra. GitHub currently reports public visibility; older private/pending/ownership statements below are historical. Preserve frozen editions and private live data. Java retains planning, goals, physics and verification ownership. No subagents; heavy validation serial. Edition094 is in progress in its isolated D: checkout; its prospective contract and original evidence govern actual results.
+Read [README-CONTRIBUTORS.md](README-CONTRIBUTORS.md) and the [dated trajectory review](docs/TRAJECTORY_REVIEW_094.md) first. This is the Java **Fraynix-Agent-Workspace**, not Chandra. GitHub currently reports public visibility; older private/pending/ownership statements below are historical. Preserve frozen editions and private live data. Java retains planning, goals, physics and verification ownership. No subagents; heavy validation serial. Edition094 is published and fetched back from its isolated D: checkout; the release, contract and original evidence record actual results.
 
 ## Edition093 — published and fetched back
 

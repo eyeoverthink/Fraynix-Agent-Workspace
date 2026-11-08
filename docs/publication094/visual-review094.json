@@ -1,0 +1,22 @@
+{
+  "passed": true,
+  "reviewedAt": "2026-11-08 America/Los_Angeles",
+  "files": [
+    "build/offline094-top-1440.png",
+    "build/offline094-results-1440.png",
+    "build/offline094-top-390.png",
+    "build/offline094-results-390.png",
+    "docs/readmes/094/crash-first-1600.png",
+    "docs/readmes/094/crash-reforecast-1100.png"
+  ],
+  "checks": [
+    "Actual native app captures identify completed goals and recovery forecast cost inside the integrated workspace.",
+    "Offline wide and narrow views have readable headings, distinct outcome rows/cards and no root horizontal overflow.",
+    "Automated 1440/390 checks exercise all seven rows, filters, navigation and first/middle/final samples for all 52 recorded native stages.",
+    "Original-coordinate diagram is labelled as recorded center/box replay, not a new native rendering."
+  ],
+  "limits": [
+    "Narrow app embedded browser/canvas retain their own scrolling. No claim that every embedded page is fluid.",
+    "Actual screenshots illustrate recorded UI state; native source and outcome records provide the completion evidence."
+  ]
+}
