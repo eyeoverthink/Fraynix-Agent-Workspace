@@ -283,6 +283,6 @@ original imported pixel source. Original video containers stay separate.
 
 ## Edition090 cost freshness
 
-Edition090 implemented and locally validated. Forced memory was faster on 6 of six tasks and slower on 0. The guard marked 3 tasks outside scene coverage and 1 tasks with repeated cost disagreement. These are observed results, not predetermined success labels. Guarded selection took 104.08 s longer than simple control across these six task calls, before charging the shared fit. 31 actual native goals / 18 mixed goals; 256 distinct Java cases with explicit source-qualified invocation records. No weight training or physical accuracy claim. Publication remains pending fetched verification.
+Edition090 implemented, validated and published to main. Forced memory was faster on 6 of six tasks and slower on 0. The guard marked 3 tasks outside scene coverage and 1 tasks with repeated cost disagreement. These are observed results, not predetermined success labels. Guarded selection took 104.08 s longer than simple control across these six task calls, before charging the shared fit. 31 actual native goals / 18 mixed goals; 256 distinct Java cases with explicit source-qualified invocation records. No weight training or physical accuracy claim. Fetched release verification is recorded in docs/PUBLICATION_090.json.
 
 TaskCost090 guards the existing089 estimate; WorldProcedure079 freezes checked source outcomes and persists warnings. GoalRunner rechecks original report, timing and world commit. No physics authority or fitting gate was replaced.

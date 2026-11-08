@@ -1,3 +1,13 @@
+## Edition090 — published and fetched back
+
+Release e0c3c38a0030b69fa4dd7099477645ba6df3d574; annotated readme-090 tag object 2428d0a40ef37315d2d076b49564ba76ede1a95e. Actual atomic main/edition090/tag publication to private eyeoverthink/Fraynix-Agent-Workspace fetched and audited: 1229 canonical sources, 23566 frozen hashes across90 editions, 8162 logical originals with compressed and raw hashes verified. [Publication receipt](PUBLICATION_090.json).
+
+Java now detects scene coverage changes and bounded recent memory-cost disagreement. It rechecks original cost/job/native/commit evidence and retains warnings for a model until verified replacement. Original controller, model fitting/admission, proof, report and outcome checks remain.328 prior engine classes are byte-identical to089; GoalRunner, WorkspaceServer and WorldProcedure079 integrate the guard; TaskCost090 is new.
+
+256 distinct Java checks across source-qualified invocations,135 desktop checks and49 newly executed native goals pass. The initial normalized-shape coverage bug produced eight failed new tests; the fix passed all16 freshness tests plus29 affected checks. Other240 checks passed in the initial run; original failures retained.18/18 original mixed tasks completed on2CPU/512MiB with one fresh receipt/fit. Forced memory was faster on6/6 tasks and slower on0/6. The separate shorter-trip diagnostic follow-up completed nine actual warmups and9/9 task comparisons; memory was faster on0/3 and slower on3/3. The original obstacle change did not remove direct control's timeout; follow-up cases were declared afterward and are not independent held-out confirmation. Use README090 for full guarded totals, overhead and limitations. No population confidence, physical accuracy or LLM-weight training claim.
+
+README090/screenshots/offline results, all original evidence, Obsidian98, source inventory and continuity notes published. Original live045/qa046/private data and localmain045 preserved. No subagents. Next: measure whether freshness checking repays its own cost and broaden independently held-out families; preserve001–090 and use091 next.
+
 ## Edition090 diagnostic completion
 
 Separately declared shorter-trip diagnostics: forced memory was faster on 0/3 and slower on 3/3. These cases follow the observed long-trip timeout; they are not independent held-out confirmation. Warmup, copying and startup costs are separate. Total49 new native goals /27 task comparisons, with original and diagnostic series distinguished. Original controller and verification unchanged.

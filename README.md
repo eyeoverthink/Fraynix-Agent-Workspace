@@ -2,7 +2,7 @@
 
 **Latest: [edition090 — cost freshness and mixed tasks](README-090.md).**
 
-Edition090 is locally verified; publication receipt follows actual fetched verification.
+Edition090 is published to main with code, measured outcomes, screenshots and exact original evidence. [Fetched GitHub verification](docs/PUBLICATION_090.json).
 
 **Earlier edition: [edition089 — paired memory and longer sequences](README-089.md).**
 

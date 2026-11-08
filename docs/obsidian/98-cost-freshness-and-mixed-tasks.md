@@ -1,6 +1,6 @@
 # Cost freshness and mixed tasks
 
-Edition090 implemented and locally validated. Forced memory was faster on 6 of six tasks and slower on 0. The guard marked 3 tasks outside scene coverage and 1 tasks with repeated cost disagreement. These are observed results, not predetermined success labels. Guarded selection took 104.08 s longer than simple control across these six task calls, before charging the shared fit. 31 actual native goals / 18 mixed goals; 256 distinct Java cases with explicit source-qualified invocation records. No weight training or physical accuracy claim. Publication remains pending fetched verification.
+Edition090 implemented, validated and published to main. Forced memory was faster on 6 of six tasks and slower on 0. The guard marked 3 tasks outside scene coverage and 1 tasks with repeated cost disagreement. These are observed results, not predetermined success labels. Guarded selection took 104.08 s longer than simple control across these six task calls, before charging the shared fit. 31 actual native goals / 18 mixed goals; 256 distinct Java cases with explicit source-qualified invocation records. No weight training or physical accuracy claim. Fetched release verification is recorded in docs/PUBLICATION_090.json.
 
 [[README-090.md]] · [[README-089.md]]
 

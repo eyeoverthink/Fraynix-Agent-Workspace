@@ -1,0 +1,15 @@
+from pathlib import Path
+import subprocess
+r=Path.cwd()
+def run(*a,**kw):return subprocess.run(a,check=True,**kw)
+def git(*a):return subprocess.check_output(['git',*a],text=True).strip()
+run('python','build/publication090.py')
+with (r/'build/documentation090-publication.log').open('wb') as f:run('pwsh','-NoProfile','-File','scripts/Verify-Documentation.ps1',stdout=f,stderr=subprocess.STDOUT)
+run('git','add','AGENTS.md','README.md','docs/PROJECT_MEMORY.md','docs/DEVELOPMENT_LOG.md','docs/ARCHITECTURE.md','docs/obsidian/98-cost-freshness-and-mixed-tasks.md','docs/PUBLICATION_090.json','docs/publication090')
+run('git','diff','--cached','--check');run('git','-c','gc.auto=0','commit','-m','Record fetched GitHub publication verification for edition 090')
+with (r/'build/push090-receipt.log').open('wb') as f:run('git','-c','pack.threads=4','push','--no-thin','--atomic','origin','HEAD:refs/heads/main','HEAD:refs/heads/edition090',stdout=f,stderr=subprocess.STDOUT)
+print((r/'build/push090-receipt.log').read_text(encoding='utf8'),flush=True)
+run('git','-c','gc.auto=0','fetch','origin','refs/heads/main:refs/verify/edition090-main','refs/heads/edition090:refs/verify/edition090-branch','refs/tags/readme-090:refs/verify/edition090-tag')
+assert git('rev-parse','refs/verify/edition090-branch')==git('rev-parse','HEAD')
+run('python','build/audit-publication090.py','refs/verify/edition090-main',git('rev-parse','HEAD'));assert not git('status','--porcelain')
+print('Main, edition branch, clean checkout and immutable release tag verified',flush=True)
