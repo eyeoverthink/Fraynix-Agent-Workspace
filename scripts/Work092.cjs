@@ -6,8 +6,16 @@ function work(segments){
   for(const {before,after} of segments)for(const k of keys){
     const n=after[k]-before[k];assert(Number.isFinite(n)&&n>=0,'Counter reset within segment: '+k);result[k]+=n;
   }
-  assert.equal(result.reads,result.canonicalChecks+result.hits+result.failures);
+  // A failed canonical check can also increment failures; these are not disjoint.
+  if(result.failures===0)assert.equal(result.reads,result.canonicalChecks+result.hits);
   return result;
+}
+function taskWork(row){
+  const segments=[...row.segments];
+  // Reopening and exporting the interrupted prefix can read originals before
+  // the second timed segment. Counter snapshots retain that work as well.
+  if(row.restartBoot)segments.push({before:row.restartBoot.initial,after:row.segments[1].before});
+  return work(segments);
 }
 function pair(reference,reuse){
   assert.equal(reference.bank,reuse.bank);assert.equal(reference.lifecycle,reuse.lifecycle);
@@ -23,6 +31,6 @@ function pair(reference,reuse){
     assert.equal(row.goal.taskCost080.eligible,row.lifecycle==='uninterrupted');
     assert(row.callerMillis>0);assert.equal(row.goal.worldCommit.revision,1);
   }
-  return {bank:reference.bank,lifecycle:reference.lifecycle,selected:reuse.job.arm.selected,referenceMillis:reference.callerMillis,reuseMillis:reuse.callerMillis,savingMillis:reference.callerMillis-reuse.callerMillis,referenceWork:work(reference.segments),reuseWork:work(reuse.segments),referenceTicks:reference.job.arm.chargedTicks,reuseTicks:reuse.job.arm.chargedTicks};
+  return {bank:reference.bank,lifecycle:reference.lifecycle,selected:reuse.job.arm.selected,referenceMillis:reference.callerMillis,reuseMillis:reuse.callerMillis,savingMillis:reference.callerMillis-reuse.callerMillis,referenceWork:taskWork(reference),reuseWork:taskWork(reuse),referenceTicks:reference.job.arm.chargedTicks,reuseTicks:reuse.job.arm.chargedTicks};
 }
-module.exports={work,pair};
+module.exports={work,taskWork,pair};

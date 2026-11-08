@@ -1,5 +1,5 @@
 'use strict';
-const {test}=require('node:test'),assert=require('node:assert/strict'),{work,pair}=require('../../scripts/Work092.cjs');
+const {test}=require('node:test'),assert=require('node:assert/strict'),{work,taskWork,pair}=require('../../scripts/Work092.cjs');
 const zero={reads:0,bytes:0,canonicalChecks:0,hits:0,failures:0,readMillis:0};
 test('Cross-boot work sums segments, never subtracts reset counters',()=>{
  const a={reads:10,bytes:100,canonicalChecks:3,hits:7,failures:0,readMillis:5};
@@ -10,6 +10,11 @@ test('Cross-boot work sums segments, never subtracts reset counters',()=>{
 test('Accounting rejects missing reads and non-finite elapsed work',()=>{
  assert.throws(()=>work([{before:zero,after:{...zero,reads:1}}]));
  assert.throws(()=>work([{before:zero,after:{...zero,readMillis:NaN}}]));
+});
+test('Prefix export after reopening is charged before the resumed segment',()=>{
+ const prefix={...zero,reads:2,canonicalChecks:2,bytes:30,readMillis:4};
+ const after={...prefix,reads:3,hits:1,bytes:45,readMillis:5};
+ assert.deepEqual(taskWork({restartBoot:{initial:zero},segments:[{before:zero,after:zero},{before:prefix,after}]}),after);
 });
 test('Restart pair rejects calibration eligibility and changed task',()=>{
  const row={bank:4,lifecycle:'restarted',callerMillis:10,segments:[],goal:{taskCost080:{task:{x:1},eligible:false},worldCommit:{revision:1}},job:{arm:{selected:'two-stage',chargedTicks:14400}}};
