@@ -20,7 +20,7 @@ function account(row){
 }
 function paired(simple,memory){
  assert.equal(simple.mode,'simple');assert.equal(memory.mode,'memory');
- for(const k of ['condition','block','sourceSpecSha256','preparedSha256'])assert.deepEqual(simple[k],memory[k],'Mismatched '+k);
+ for(const k of ['condition','block','sourceSpecSha256','preparedSha256','clockOwner'])assert.deepEqual(simple[k],memory[k],'Mismatched '+k);
  assert.deepEqual(simple.workload,memory.workload);assert.deepEqual(simple.profile,memory.profile);
  assert.deepEqual(simple.order,memory.order);assert.deepEqual([...simple.order].sort(),['memory','simple']);
  assert(simple.interval.end<=memory.interval.start||memory.interval.end<=simple.interval.start,'Controls overlapped');

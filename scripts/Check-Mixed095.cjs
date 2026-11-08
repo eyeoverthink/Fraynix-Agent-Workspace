@@ -24,7 +24,7 @@ for(const [name,mutate]of [
  ['false caller duration',x=>x.callerMillis+=100]
 ]){const x=copy(sample);mutate(x);refuse(name,()=>account(x));}
 const first=r.summary.pairs[0],rows=r.rows.filter(x=>x.block===first.block&&x.condition===first.condition),simple=rows.find(x=>x.mode==='simple'),memory=rows.find(x=>x.mode==='memory');
-for(const [name,mutate]of [['different workload',x=>x.workload.skill=!x.workload.skill],['different source',x=>x.sourceSpecSha256='other'],['different CPU profile',x=>x.profile.cpus=4],['changed order',x=>x.order.reverse()]]){const x=copy(memory);mutate(x);refuse(name,()=>paired(simple,x));}
+for(const [name,mutate]of [['different workload',x=>x.workload.skill=!x.workload.skill],['different source',x=>x.sourceSpecSha256='other'],['different CPU profile',x=>x.profile.cpus=4],['changed order',x=>x.order.reverse()],['different paired clock owner',x=>x.clockOwner='other']]){const x=copy(memory);mutate(x);refuse(name,()=>paired(simple,x));}
 refuse('incomplete opposite-order replication',()=>aggregate(r.rows.filter(x=>x.block===0),r.preparationMillis));
 refuse('duplicate evaluated arm',()=>aggregate([...r.rows,r.rows[0]],r.preparationMillis));
 assert.deepEqual(aggregate(r.rows,r.preparationMillis),r.summary);
