@@ -17,6 +17,11 @@ function taskWork(row){
   if(row.restartBoot)segments.push({before:Object.fromEntries(keys.map(k=>[k,0])),after:row.segments[1].before});
   return work(segments);
 }
+function recoveredClock(cost,job){
+  assert.equal(cost.eligible,false);assert.equal(cost.totalMillis,0);
+  assert(!cost.clock089);assert.equal(cost.executionMillis,job.activeMillis);
+  assert.equal(job.resumes,1);assert(cost.reason.includes('excluded from calibration'));
+}
 function pair(reference,reuse){
   assert.equal(reference.bank,reuse.bank);assert.equal(reference.lifecycle,reuse.lifecycle);
   assert.deepEqual(reference.goal.taskCost080.task,reuse.goal.taskCost080.task);
@@ -33,4 +38,4 @@ function pair(reference,reuse){
   }
   return {bank:reference.bank,lifecycle:reference.lifecycle,selected:reuse.job.arm.selected,referenceMillis:reference.callerMillis,reuseMillis:reuse.callerMillis,savingMillis:reference.callerMillis-reuse.callerMillis,referenceWork:taskWork(reference),reuseWork:taskWork(reuse),referenceTicks:reference.job.arm.chargedTicks,reuseTicks:reuse.job.arm.chargedTicks};
 }
-module.exports={work,taskWork,pair};
+module.exports={work,taskWork,pair,recoveredClock};

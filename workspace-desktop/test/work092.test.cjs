@@ -1,5 +1,5 @@
 'use strict';
-const {test}=require('node:test'),assert=require('node:assert/strict'),{work,taskWork,pair}=require('../../scripts/Work092.cjs');
+const {test}=require('node:test'),assert=require('node:assert/strict'),{work,taskWork,pair,recoveredClock}=require('../../scripts/Work092.cjs');
 const zero={reads:0,bytes:0,canonicalChecks:0,hits:0,failures:0,readMillis:0};
 test('Cross-boot work sums segments, never subtracts reset counters',()=>{
  const a={reads:10,bytes:100,canonicalChecks:3,hits:7,failures:0,readMillis:5};
@@ -21,4 +21,8 @@ test('Restart pair rejects calibration eligibility and changed task',()=>{
  assert.equal(pair(row,structuredClone(row)).savingMillis,0);
  const bad=structuredClone(row);bad.goal.taskCost080.eligible=true;assert.throws(()=>pair(row,bad));
  bad.goal.taskCost080.eligible=false;bad.goal.taskCost080.task.x=2;assert.throws(()=>pair(row,bad));
+});
+test('Process restart retains an unavailable complete clock, never a partial fit',()=>{
+ const cost={eligible:false,totalMillis:0,executionMillis:25,reason:'Interrupted; excluded from calibration'},job={activeMillis:25,resumes:1};recoveredClock(cost,job);
+ for(const patch of [{eligible:true},{totalMillis:10},{clock089:{}},{executionMillis:24}])assert.throws(()=>recoveredClock({...cost,...patch},job));
 });

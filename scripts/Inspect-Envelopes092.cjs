@@ -2,15 +2,15 @@
 // Reuses the established independent native arithmetic, then verifies new
 // cross-boot accounting without making interrupted costs eligible for fitting.
 const fs=require('node:fs'),path=require('node:path'),crypto=require('node:crypto'),assert=require('node:assert/strict');
-const {inspectProcedure,inspectCommit,inspectCost}=require('./Inspect-Procedures090.cjs'),{canonical}=require('./Inspect-Spatial040.cjs'),{unpack}=require('./Inspect-Counterfactual045.cjs'),{work,taskWork,pair}=require('./Work092.cjs');
+const {inspectProcedure,inspectCommit,inspectCost}=require('./Inspect-Procedures090.cjs'),{canonical}=require('./Inspect-Spatial040.cjs'),{unpack}=require('./Inspect-Counterfactual045.cjs'),{work,taskWork,pair,recoveredClock}=require('./Work092.cjs');
 const hash=x=>crypto.createHash('sha256').update(canonical(x)).digest('hex'),read=p=>JSON.parse(fs.readFileSync(p,'utf8'));
 const repo=path.resolve(__dirname,'..'),out=path.join(repo,'build/ui092-study'),r=read(path.join(out,'result.json')),root=path.join(r.project,'world-procedures-079');assert(r.passed);assert.equal(r.rows.length,20);
 function owned(file){const e=read(file);assert.equal(e.format,'java-agent-042-v1');assert.equal(hash(e.data),e.sha256);return e.data;}
 function resumedCost(x,row){
- const c=x.cost080,j=x.job;assert.deepEqual(c,owned(path.join(root,j.id,'cost080.json')));assert.deepEqual(c,row.goal.taskCost080);
+ const c=x.cost080,j=x.job;assert.deepEqual(c,owned(path.join(root,j.id,'cost080.json')));const summary={...c};delete summary.goal;delete summary.spec;delete summary.task;assert.deepEqual(summary,row.goal.taskCost080);
  assert.equal(c.id,j.id);assert.equal(c.code,j.code);assert.equal(c.jobSha256,hash(j));assert.equal(c.mode,j.mode);assert.equal(c.usedMemory,j.decision.useMemory);assert.equal(c.preferred,j.decision.preferred);assert.equal(c.receiptId,j.decision.candidate.id);assert.equal(c.warm,j.decision.candidate.warm);
  assert.deepEqual(c.goal.worldCommit,row.goal.worldCommit);assert(c.goal.poseView.passed);assert.equal(c.completed,true);assert.equal(c.eligible,false);assert(!c.clock089);assert.equal(j.resumes,1);assert.equal(row.goal.resumes,1);
- assert(c.totalMillis>0&&c.totalMillis<row.callerMillis);assert(c.executionMillis<=c.totalMillis);assert.deepEqual(c.spec,j.spec);
+ recoveredClock(c,j);assert(row.callerMillis>c.executionMillis);assert.deepEqual(c.spec,j.spec);
  assert(Math.abs(c.nativeStageMillis-j.arm.attempts.reduce((n,a)=>n+a.wallMillis,0))<1e-6);
  const prefix=read(path.join(out,row.prefixFile)),runs=new Map(x.originals.map(p=>{const n=unpack(p);return[n.id,n];}));
  for(const p of prefix.originals){const prior=unpack(p);assert.deepEqual(runs.get(prior.id).samples.slice(0,prior.samples.length),prior.samples);}
