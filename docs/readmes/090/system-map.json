@@ -1,0 +1,84 @@
+{
+  "modules": [
+    {
+      "id": "freshness",
+      "name": "Cost freshness",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/TaskCost090.java",
+      "description": "Geometry coverage and two same-direction residuals among at most three verified recent memory costs.",
+      "note": "docs/obsidian/98-cost-freshness-and-mixed-tasks.md"
+    },
+    {
+      "id": "goals",
+      "name": "Durable outcomes",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/WorldProcedure079.java",
+      "description": "Owned cost snapshots, bounded original reads, persistent warnings and original native audits.",
+      "note": "docs/obsidian/98-cost-freshness-and-mixed-tasks.md"
+    },
+    {
+      "id": "runner",
+      "name": "Goal recheck",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/GoalRunner.java",
+      "description": "Completed goal timing, report and committed world checked against the original procedure.",
+      "note": "docs/obsidian/98-cost-freshness-and-mixed-tasks.md"
+    },
+    {
+      "id": "inspection",
+      "name": "Independent inspection",
+      "source": "scripts/Inspect-Procedures090.cjs",
+      "description": "Independent JavaScript reconstruction of freshness decisions and existing native verification arithmetic.",
+      "note": "docs/obsidian/98-cost-freshness-and-mixed-tasks.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "docs/readmes/090/covered-report-visible-1600.png",
+      "caption": "Actual090 application capture"
+    },
+    {
+      "path": "docs/readmes/090/changed-scene-report-visible-1600.png",
+      "caption": "Actual090 application capture"
+    },
+    {
+      "path": "docs/readmes/090/covered-report-visible-1100.png",
+      "caption": "Actual090 application capture"
+    },
+    {
+      "path": "docs/readmes/090/changed-scene-report-visible-1100.png",
+      "caption": "Actual090 application capture"
+    },
+    {
+      "path": "docs/readmes/090/cold-restart-report.png",
+      "caption": "Actual090 application capture"
+    },
+    {
+      "path": "docs/readmes/090/freshness-controls-1600.png",
+      "caption": "Actual090 application capture"
+    },
+    {
+      "path": "docs/readmes/090/cold-restart-report-1100.png",
+      "caption": "Actual090 application capture"
+    },
+    {
+      "path": "docs/readmes/090/short-simple-report-visible-1600.png",
+      "caption": "Actual090 application capture"
+    },
+    {
+      "path": "docs/readmes/090/short-memory-report-visible-1600.png",
+      "caption": "Actual090 application capture"
+    },
+    {
+      "path": "docs/readmes/090/short-guarded090-report-visible-1600.png",
+      "caption": "Actual090 application capture"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/readmes/090/verification.json",
+      "caption": "Measured checks"
+    },
+    {
+      "path": "docs/readmes/090/original-evidence.json",
+      "caption": "Exact originals"
+    }
+  ]
+}

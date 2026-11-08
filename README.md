@@ -1,6 +1,10 @@
 # Fraynix Agent Workspace
 
-**Latest: [edition089 — paired memory and longer sequences](README-089.md).**
+**Latest: [edition090 — cost freshness and mixed tasks](README-090.md).**
+
+Edition090 is locally verified; publication receipt follows actual fetched verification.
+
+**Earlier edition: [edition089 — paired memory and longer sequences](README-089.md).**
 
 Edition089 is published to main with code, measurements, screenshots and exact original evidence. [Fetched GitHub verification](docs/PUBLICATION_089.json).
 

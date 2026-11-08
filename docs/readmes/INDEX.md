@@ -1,5 +1,7 @@
 # Fraynix Studio and Agent Workspace README editions
 
+- [Edition090: cost freshness and mixed tasks](../../README-090.md) · [Offline results](090/index.html)
+
 - [Edition089: paired memory and longer sequences](../../README-089.md) · [Offline results](089/index.html)
 
 

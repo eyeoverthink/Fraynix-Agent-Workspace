@@ -1,5 +1,7 @@
 ---
 
+- [[README-090.md|Edition090 — cost freshness and mixed tasks]] · [[docs/obsidian/98-cost-freshness-and-mixed-tasks.md]]
+
 [Edition089: paired memory and sequences](97-paired-memory-and-longer-sequences.md) · [Working map](97-paired-memory-and-longer-sequences.canvas)
 
 
