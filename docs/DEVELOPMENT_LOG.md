@@ -1,3 +1,13 @@
+## Edition092 in progress — final-stage recovery study
+
+Worktree D:/Codex-Work/fraynix-workspace-edition092; private eyeoverthink/Fraynix-Agent-Workspace. No push yet. Production Java333 classes exactly match091. Study source c823d5e5; later independent inspector0f46aa38. Current native study is build/ui092-study (20-goal final-stage matrix); do not launch a duplicate. Read checkpoint.json and study092.log before continuing.
+
+Important observed limit: build/ui092-early-restart contains a first-stage restart whose next actual source differs slightly from its forecast. Exact identity check refused completion; zero world commits. Independent scripts/Inspect-EarlyRestart092.cjs passed; build/early-restart092.json records41 field differences. Do not weaken verification or call it successful. Immediate next implementation: bounded fresh forecast from recovered state before later actual motion. Final-stage matrix was selected after this observation and is diagnostic, not held-out general restart validation.
+
+build/ui092-first retains the earlier harness-only failure: constructor recovery populated one fingerprint before a mistaken post-boot empty-table assertion. Corrected accounting charges startup and prefix export from zero; reference/reuse test mode restored before resume. Production reopen/prefix work is common to both arms. All first attempts retained.
+
+Current checkpoints show12 final-matrix goals completed; banks1/4 comparisons passed. Remaining: finish bank8,60 original audits, tamper restore, app screenshots; run independent inspector, build/regress092.ps1 serially, build/document092.py, offline visual checks, freeze and Verify-Documentation, then actual main/edition092/readme-092 publication with fetched Git-tree audit. No subagents. Preserve original live045/qa046/private apps. See build/HANDOFF092.md. Do not claim push before fetch audit.
+
 ## Edition091 — published and fetched back
 
 Published release 519054d3d3757c292fe1a47077c0490a8460a17d; annotated readme-091 tag object c874c059e05b3698738f86a7430e38dd0c526809. Actual main/edition091/tag push fetched and verified: 1236 canonical sources, 23897 frozen hashes across91 editions and 320 logical original archive entries. [Publication receipt](PUBLICATION_091.json).
