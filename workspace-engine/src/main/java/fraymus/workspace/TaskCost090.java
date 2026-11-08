@@ -18,7 +18,8 @@ final class TaskCost090 {
                 ||Math.abs(a.getDouble("gravityMps2")-b.getDouble("gravityMps2"))>.01)return false;
             for(Object raw:a.getJSONArray("objects")) {
                 var x=(JSONObject)raw;var y=WorldPlan.sourceObject(b,x.getString("sourceId"));
-                if(!x.getString("shape").equals(y.getString("shape"))
+                // SpatialScene already requires boxes; normalized bodies retain bodyType, not shape.
+                if(!x.getString("bodyType").equals(y.getString("bodyType"))
                     ||WorldVerify.distance(x.getJSONArray("position"),y.getJSONArray("position"))>.25
                     ||WorldPlan.angle(x.getJSONArray("rotation"),y.getJSONArray("rotation"))>5
                     ||WorldVerify.distance(x.getJSONArray("size"),y.getJSONArray("size"))>.05
