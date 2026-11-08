@@ -29,10 +29,10 @@ async function main(){
   const at=performance.now(),g=await api('/api/world/start',{...binding,targets:spec.targets,forceLimitN:spec.forceLimitN,torqueLimitNm:spec.torqueLimitNm,selectiveMemory079:true,memoryMode079:retain?'simple':'memory',retainExperience079:retain,...(!retain?{procedureReceipt085:record.rows[0].goalId}:{}),request:'Edition092 measured growing bank '+bank+' '+lifecycle});row.goalId=g.id;await save();
   let prefix;
   if(lifecycle==='restarted'){
-   row.beforeInterruption=await wait(async()=>{const o=await api('/api/world/observe',{worldId:world.id});return o.pending&&o.nativeObservation?.sample?.tick>=1200&&o.nativeObservation.status==='running'?o:null;});assert.equal(row.beforeInterruption.expectedRevision,0);
+   row.beforeInterruption=await wait(async()=>{const o=await api('/api/world/observe',{worldId:world.id});return o.pending&&o.nativeObservation?.elapsedTicksBeforeStage>0&&o.nativeObservation?.sample?.tick>=1200&&o.nativeObservation.status==='running'?o:null;});assert.equal(row.beforeInterruption.expectedRevision,0);
    row.segments.push({before,after:await api('/api/procedures091/diagnostics')});const restartAt=performance.now();await close();await open(true);row.restartBoot=record.boots.at(-1);
    row.interrupted=await api('/api/goals/read',{id:g.id});assert.equal(row.interrupted.status,'interrupted');prefix=await api('/api/procedures079/export',{id:g.id});
-   row.prefixFile=g.id+'-prefix.json';await fs.writeFile(path.join(out,row.prefixFile),JSON.stringify(prefix));assert(prefix.job.arm.attempts.some(a=>a.stage.startsWith('actual/')&&a.status==='interrupted'));assert.equal((await api('/api/world/observe',{worldId:world.id})).pending.goalId,g.id);
+   row.prefixFile=g.id+'-prefix.json';await fs.writeFile(path.join(out,row.prefixFile),JSON.stringify(prefix));assert(prefix.job.arm.attempts.some(a=>a.stage==='actual/1'&&a.status==='interrupted'));assert.equal((await api('/api/world/observe',{worldId:world.id})).pending.goalId,g.id);
    await api('/api/procedures091/test-mode',{mode});before=await api('/api/procedures091/diagnostics');assert.equal(before.entries,0);await api('/api/goals/resume',{id:g.id});row.restartMillis=performance.now()-restartAt;
   }
   row.goal=await wait(async()=>{const x=await api('/api/goals/read',{id:g.id});return ['completed','interrupted','cancelled'].includes(x.status)?x:null;});row.callerMillis=performance.now()-at;
