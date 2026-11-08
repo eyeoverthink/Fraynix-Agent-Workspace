@@ -17,4 +17,9 @@ const tasks=[];for(const spec of record.group.cases){const rows=Object.fromEntri
 assert.equal(new Set(all.map(x=>x.goalId)).size,31);assert.equal(record.finalVerification.length,18);
 const preparation={seedMillis:record.training.reduce((n,x)=>n+x.callerMillis,0),comparisonMillis:record.calibration.flatMap(x=>Object.values(x.results)).reduce((n,x)=>n+x.callerMillis,0),fitMillis:record.fits.reduce((n,x)=>n+x.callerMillis,0)};
 const result={passed:true,verifiedAt:new Date().toISOString(),source:record.source,buildReceipt:record.buildReceipt.source,goals:all.length,heldoutGoals:record.rows.length,methods,tasks,preparation,checks,changedRecentCostRefusal:record.changedRecentCostRefusal||null,postRunFullVerificationMillis:record.finalVerification.reduce((n,x)=>n+x.callerMillis,0),startupMillis:record.boots.reduce((n,x)=>n+x.startupMillis,0),scope:'New synthetic native tasks, one frozen fit and one shared growing evidence history. Three orders repeated twice, not randomized. Costs include original verification and commit; setup/export/post-run audit separate. No physical accuracy, model weight training or population confidence claim.'};
+assert(record.completionRecovery && record.completionRecovery.checks.length===2);
+result.readOnlyRecoveryMillis=record.completionRecovery.callerMillis;
+result.readOnlyRecoveryStartupMillis=record.completionRecovery.startupMillis;
+result.startupMillis+=record.completionRecovery.startupMillis;
+result.changedTraceRefusal=record.changedTraceRefusal;
 fs.writeFileSync(path.join(root,'build/analysis090.json'),JSON.stringify(result,null,2)+'\n');console.log(JSON.stringify({goals:result.goals,methods,tasks:tasks.map(t=>({id:t.id,condition:t.condition,memorySavingMillis:t.memorySavingMillis,guardedSavingMillis:t.guardedSavingMillis,status:t.status}))},null,2));
