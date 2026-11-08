@@ -1,3 +1,5 @@
+[[README-092.md|Edition092 — growing banks and restarts]] · [[docs/obsidian/100-growing-bank-restarts.md]]
+
 [[README-091.md|Edition091 — less repeated verification]] · [[docs/obsidian/99-native-envelope-verification.md]]
 
 ---

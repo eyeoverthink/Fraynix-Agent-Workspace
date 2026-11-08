@@ -1,0 +1,281 @@
+{
+  "passed": true,
+  "scope": "Evidence inspection of an observed REFUSAL, not a successful recovery. No checks relaxed or original data repaired.",
+  "source": "41b8c3873182cd3cd92a5eac150cf59f9f5302b1",
+  "goalId": "0948cf43-a031-4ab4-85d6-8abaa4cad8b8",
+  "status": "interrupted",
+  "reason": "Execution stopped: IllegalStateException: Fresh stage source/plan identity differs. Review and Resume; no failed result is a saved skill.",
+  "commits": 0,
+  "completedBeforeFailure": 3,
+  "definitionDifferences": [
+    {
+      "path": "definition/objects/1/rotation/0",
+      "forecast": -8.943623e-09,
+      "actual": -2.8842262e-09,
+      "absoluteDifference": 6.059396799999999e-09
+    },
+    {
+      "path": "definition/objects/1/rotation/1",
+      "forecast": 0.4027472,
+      "actual": 0.40274727,
+      "absoluteDifference": 6.999999996315509e-08
+    },
+    {
+      "path": "definition/objects/1/rotation/2",
+      "forecast": 1.44488315e-08,
+      "actual": 1.6954921e-08,
+      "absoluteDifference": 2.5060895e-09
+    },
+    {
+      "path": "definition/objects/1/position/0",
+      "forecast": 0.00598535779863596,
+      "actual": 0.005985356867313385,
+      "absoluteDifference": 9.313225746154785e-10
+    },
+    {
+      "path": "definition/objects/1/velocity/0",
+      "forecast": 9.408154255652335e-09,
+      "actual": -9.521668431489161e-08,
+      "absoluteDifference": 1.0462483857054394e-07
+    },
+    {
+      "path": "definition/objects/1/velocity/1",
+      "forecast": 1.519918441772461e-06,
+      "actual": 1.516193151473999e-06,
+      "absoluteDifference": 3.725290298461914e-09
+    },
+    {
+      "path": "definition/objects/1/angularVelocity/0",
+      "forecast": -3.4835884434869513e-06,
+      "actual": 3.1243544071912766e-06,
+      "absoluteDifference": 6.607942850678228e-06
+    },
+    {
+      "path": "definition/objects/1/angularVelocity/1",
+      "forecast": -4.9453099393304e-08,
+      "actual": -4.941969322658224e-08,
+      "absoluteDifference": 3.340616672176111e-11
+    },
+    {
+      "path": "definition/objects/1/angularVelocity/2",
+      "forecast": -1.4823103811067995e-07,
+      "actual": 3.5005325571546564e-07,
+      "absoluteDifference": 4.982842938261456e-07
+    },
+    {
+      "path": "definition/objects/3/rotation/0",
+      "forecast": 7.0737544e-10,
+      "actual": 1.0954815e-08,
+      "absoluteDifference": 1.0247439560000001e-08
+    },
+    {
+      "path": "definition/objects/3/rotation/1",
+      "forecast": -1.4039344e-06,
+      "actual": -1.4089102e-06,
+      "absoluteDifference": 4.975799999999835e-09
+    },
+    {
+      "path": "definition/objects/3/rotation/2",
+      "forecast": 4.613732e-08,
+      "actual": 4.8873158e-08,
+      "absoluteDifference": 2.735838e-09
+    },
+    {
+      "path": "definition/objects/3/position/0",
+      "forecast": 4.800000190734863,
+      "actual": 4.799934387207031,
+      "absoluteDifference": 6.580352783203125e-05
+    },
+    {
+      "path": "definition/objects/3/position/1",
+      "forecast": 0.2499999850988388,
+      "actual": 0.2499999701976776,
+      "absoluteDifference": 1.4901161193847656e-08
+    },
+    {
+      "path": "definition/objects/3/velocity/0",
+      "forecast": -4.887139652964834e-07,
+      "actual": 4.352733640189399e-08,
+      "absoluteDifference": 5.322413016983774e-07
+    },
+    {
+      "path": "definition/objects/3/velocity/1",
+      "forecast": -4.209578037261963e-07,
+      "actual": 1.6987323760986328e-06,
+      "absoluteDifference": 2.119690179824829e-06
+    },
+    {
+      "path": "definition/objects/3/velocity/2",
+      "forecast": 0,
+      "actual": -1.3992232261728077e-08,
+      "absoluteDifference": 1.3992232261728077e-08
+    },
+    {
+      "path": "definition/objects/3/angularVelocity/0",
+      "forecast": -5.97745838604169e-06,
+      "actual": 6.702703103655949e-07,
+      "absoluteDifference": 6.647728696407285e-06
+    },
+    {
+      "path": "definition/objects/3/angularVelocity/1",
+      "forecast": -1.2778708935456962e-07,
+      "actual": -1.277341539207555e-07,
+      "absoluteDifference": 5.2935433814127464e-11
+    },
+    {
+      "path": "definition/objects/3/angularVelocity/2",
+      "forecast": 1.8015114164882107e-06,
+      "actual": -3.2738992672420864e-07,
+      "absoluteDifference": 2.1289013432124193e-06
+    },
+    {
+      "path": "definition/worldFrame/bodies/0/rotation/0",
+      "forecast": -8.943623e-09,
+      "actual": -2.8842262e-09,
+      "absoluteDifference": 6.059396799999999e-09
+    },
+    {
+      "path": "definition/worldFrame/bodies/0/rotation/1",
+      "forecast": 0.4027472,
+      "actual": 0.40274727,
+      "absoluteDifference": 6.999999996315509e-08
+    },
+    {
+      "path": "definition/worldFrame/bodies/0/rotation/2",
+      "forecast": 1.44488315e-08,
+      "actual": 1.6954921e-08,
+      "absoluteDifference": 2.5060895e-09
+    },
+    {
+      "path": "definition/worldFrame/bodies/0/position/0",
+      "forecast": 0.00598535779863596,
+      "actual": 0.005985356867313385,
+      "absoluteDifference": 9.313225746154785e-10
+    },
+    {
+      "path": "definition/worldFrame/bodies/0/velocity/0",
+      "forecast": 9.408154255652335e-09,
+      "actual": -9.521668431489161e-08,
+      "absoluteDifference": 1.0462483857054394e-07
+    },
+    {
+      "path": "definition/worldFrame/bodies/0/velocity/1",
+      "forecast": 1.519918441772461e-06,
+      "actual": 1.516193151473999e-06,
+      "absoluteDifference": 3.725290298461914e-09
+    },
+    {
+      "path": "definition/worldFrame/bodies/0/angularVelocity/0",
+      "forecast": -3.4835884434869513e-06,
+      "actual": 3.1243544071912766e-06,
+      "absoluteDifference": 6.607942850678228e-06
+    },
+    {
+      "path": "definition/worldFrame/bodies/0/angularVelocity/1",
+      "forecast": -4.9453099393304e-08,
+      "actual": -4.941969322658224e-08,
+      "absoluteDifference": 3.340616672176111e-11
+    },
+    {
+      "path": "definition/worldFrame/bodies/0/angularVelocity/2",
+      "forecast": -1.4823103811067995e-07,
+      "actual": 3.5005325571546564e-07,
+      "absoluteDifference": 4.982842938261456e-07
+    },
+    {
+      "path": "definition/worldFrame/bodies/2/rotation/0",
+      "forecast": 7.0737544e-10,
+      "actual": 1.0954815e-08,
+      "absoluteDifference": 1.0247439560000001e-08
+    },
+    {
+      "path": "definition/worldFrame/bodies/2/rotation/1",
+      "forecast": -1.4039344e-06,
+      "actual": -1.4089102e-06,
+      "absoluteDifference": 4.975799999999835e-09
+    },
+    {
+      "path": "definition/worldFrame/bodies/2/rotation/2",
+      "forecast": 4.613732e-08,
+      "actual": 4.8873158e-08,
+      "absoluteDifference": 2.735838e-09
+    },
+    {
+      "path": "definition/worldFrame/bodies/2/position/0",
+      "forecast": 4.800000190734863,
+      "actual": 4.799934387207031,
+      "absoluteDifference": 6.580352783203125e-05
+    },
+    {
+      "path": "definition/worldFrame/bodies/2/position/1",
+      "forecast": 0.2499999850988388,
+      "actual": 0.2499999701976776,
+      "absoluteDifference": 1.4901161193847656e-08
+    },
+    {
+      "path": "definition/worldFrame/bodies/2/velocity/0",
+      "forecast": -4.887139652964834e-07,
+      "actual": 4.352733640189399e-08,
+      "absoluteDifference": 5.322413016983774e-07
+    },
+    {
+      "path": "definition/worldFrame/bodies/2/velocity/1",
+      "forecast": -4.209578037261963e-07,
+      "actual": 1.6987323760986328e-06,
+      "absoluteDifference": 2.119690179824829e-06
+    },
+    {
+      "path": "definition/worldFrame/bodies/2/velocity/2",
+      "forecast": 0,
+      "actual": -1.3992232261728077e-08,
+      "absoluteDifference": 1.3992232261728077e-08
+    },
+    {
+      "path": "definition/worldFrame/bodies/2/angularVelocity/0",
+      "forecast": -5.97745838604169e-06,
+      "actual": 6.702703103655949e-07,
+      "absoluteDifference": 6.647728696407285e-06
+    },
+    {
+      "path": "definition/worldFrame/bodies/2/angularVelocity/1",
+      "forecast": -1.2778708935456962e-07,
+      "actual": -1.277341539207555e-07,
+      "absoluteDifference": 5.2935433814127464e-11
+    },
+    {
+      "path": "definition/worldFrame/bodies/2/angularVelocity/2",
+      "forecast": 1.8015114164882107e-06,
+      "actual": -3.2738992672420864e-07,
+      "absoluteDifference": 2.1289013432124193e-06
+    },
+    {
+      "path": "plan/intent/binding/definitionSha256",
+      "forecast": "e63eab698d7ae0c7414c87328bc661c8914dd1cdc4e033d058cef6d651bc6e39",
+      "actual": "5235248124d5c23c28812a0d40a406185352410ced92637a416bb26d255718a4"
+    }
+  ],
+  "actualFirstStageResumes": 1,
+  "originalEnvelopeHashes": [
+    {
+      "stage": "forecast/0",
+      "id": "89e8dfd2-b2bf-475e-b48d-c84b7ba48a5c",
+      "sha256": "a51fc3ccbe611fe57a3509a4788175526ccc683905bd7b4d7a59c4a31f06dfdb"
+    },
+    {
+      "stage": "forecast/1",
+      "id": "593184c7-06fb-4fe7-8e9a-3a35f4f670c7",
+      "sha256": "815f1c29dd7f09872e46b7d9506e91a9a3dfd576da80af109180a92bc8117313"
+    },
+    {
+      "stage": "actual/0",
+      "id": "653d7572-0942-49df-8375-cac9283885f0",
+      "sha256": "ffacafd29e2ab8b5ab5e84ac4e9936eb4749ec1406c9550a02c647a89949bc7a"
+    },
+    {
+      "stage": "actual/1",
+      "id": "e4dab7e9-2c70-4d56-9c52-f7ebf99a6c4b",
+      "sha256": "f892e80d9ce1ae3fde7044d6cb87f10bd721fdd8fc98633d875cccf8b2fc39ed"
+    }
+  ],
+  "next": "Generate and verify a fresh bounded forecast from the recovered measured state before a later actual stage; preserve the original forecast and all source/outcome checks."
+}

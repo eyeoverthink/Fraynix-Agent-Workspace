@@ -1,3 +1,5 @@
+Edition092 validates the unchanged091 runtime against growing verified banks and actual interrupted tasks. Whole caller time includes restart; partial resumed costs remain excluded from calibration. [Results and limits](../README-092.md).
+
 Edition091 reuses only canonical fingerprints of identical authenticated native envelopes. Every read retains full-byte checking and fresh JSON; all existing motion/outcome/report/commit checks run. [Measured results and limits](../README-091.md).
 
 # Fraynix Agent Workspace system architecture

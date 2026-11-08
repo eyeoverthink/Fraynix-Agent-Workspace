@@ -1,3 +1,5 @@
+[Edition092 — growing banks and restarted tasks](../../README-092.md) · [Offline evidence](092/index.html)
+
 [Edition091 — less repeated verification work](../../README-091.md) · [Offline evidence](091/index.html)
 
 # Fraynix Studio and Agent Workspace README editions

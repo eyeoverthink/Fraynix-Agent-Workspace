@@ -1,3 +1,11 @@
+## Edition092 — locally verified; publication pending
+
+Across six paired comparisons, digest reuse took 103.08 s less total caller time, with 86.1% fewer canonical checks in the observed counter windows. All twenty goals in the final-stage follow-up verified, including six final-stage interrupted and resumed tasks. An earlier-stage restart was correctly refused after its next source state changed; that remains an unresolved recovery limit.
+
+56 Java checks passed across 9 focused classes; 1 optional host-dependent test skipped. 135 desktop checks and five new cross-boot accounting checks passed. Twenty fresh native goals and sixty repeated full goal audits passed. All333 compiled production classes exactly match091. No runtime policy/controller/verifier change. Actual2CPU/512MiB; eight fresh preparations, twelve comparisons at banks1/4/8, six in-flight graceful interruptions,60 full repeated audits, restored mutation probe. Native IDs/prefixes and single commits verified. Resumed clocks remain ineligible for calibration. Working set88 envelopes exceeds64. Reopen/prefix recovery uses production reuse in both arms and is charged; counter windows exclude any post-snapshot shutdown reads.
+
+Isolated D:/Codex-Work/fraynix-workspace-edition092; private eyeoverthink/Fraynix-Agent-Workspace. Study sourcec823d5e5f4855f2e890f14664ae17dabac784412; inspector/README contain later accounting clarification. Preserve live045/qa046/private data and frozen001–091. No subagents. No calibrated selection, LLM weight training or physical accuracy claim. Next: bounded fresh forecasting from recovered state before later actual motion; then fixed-snapshot randomized calibrated-selection workloads including setup cost.
+
 ## Edition091 — published and fetched back
 
 Published release 519054d3d3757c292fe1a47077c0490a8460a17d; annotated readme-091 tag object c874c059e05b3698738f86a7430e38dd0c526809. Actual main/edition091/tag push fetched and verified: 1236 canonical sources, 23897 frozen hashes across91 editions and 320 logical original archive entries. [Publication receipt](docs/PUBLICATION_091.json).

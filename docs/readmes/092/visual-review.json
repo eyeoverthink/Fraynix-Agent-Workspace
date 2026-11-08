@@ -1,0 +1,53 @@
+{
+  "passed": true,
+  "app": {
+    "passed": true,
+    "manuallyViewed": [
+      "bank-eight-resumed-1600.png",
+      "bank-eight-uninterrupted-1100.png"
+    ],
+    "captures": [
+      {
+        "file": "bank-eight-resumed-1100.png",
+        "contentWidth": 1084,
+        "contentHeight": 1061,
+        "sha256": "e47b72d75b3e97cb83304255bd12bae7fbfe5f11de41415b1d8c68b8ae2f5615"
+      },
+      {
+        "file": "bank-eight-resumed-1600.png",
+        "contentWidth": 1584,
+        "contentHeight": 1061,
+        "sha256": "f2b50dd020c0a8cee1562df7c4b4204810a36ae95227db28cf898cca33c267f0"
+      },
+      {
+        "file": "bank-eight-uninterrupted-1100.png",
+        "contentWidth": 1084,
+        "contentHeight": 1061,
+        "sha256": "dff59a11df2408edc90455d4d1791ae8aa6c7819f481fd97da697492a80ffd08"
+      },
+      {
+        "file": "bank-eight-uninterrupted-1600.png",
+        "contentWidth": 1584,
+        "contentHeight": 1061,
+        "sha256": "a5a8c06082f26a8854e6985482711c233f7a224a87b60888a837b43d5ed20858"
+      }
+    ],
+    "findings": [
+      "Selected verified report is readable in center canvas at both requested window widths.",
+      "Right goal panel/timeline show the most recent goal, separately from the selected report.",
+      "Controller v1 episode counter is not the world-procedure bank count.",
+      "Narrow embedded welcome page retains its own horizontal scrollbar; outer app controls fit. No production UI change in092."
+    ]
+  },
+  "offlineManuallyViewed": [
+    "offline092-top-1440.png",
+    "offline092-results-390.png",
+    "offline092-top-390.png"
+  ],
+  "findings": [
+    "Wide and narrow layouts have readable summaries, cards and result rows without clipping.",
+    "Early-stage refusal is prominent in the opening summary and its own section.",
+    "Navigation/filter/replay controls passed automated checks at both widths.",
+    "Follow-up wording distinguishes the twenty-goal matrix from earlier failed attempts."
+  ]
+}

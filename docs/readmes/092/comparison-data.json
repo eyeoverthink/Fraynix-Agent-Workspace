@@ -1,0 +1,652 @@
+{
+  "passed": true,
+  "verifiedAt": "2026-11-08T16:39:58.423Z",
+  "source": "c823d5e5f4855f2e890f14664ae17dabac784412",
+  "goals": 20,
+  "measuredGoals": 12,
+  "checks": [
+    {
+      "goalId": "c48c66ee-0fb2-4e85-ae96-7e78c1229a46",
+      "id": "092-seed-1",
+      "bank": 1,
+      "lifecycle": "preparation",
+      "mode": "reuse",
+      "ticks": 24948,
+      "work": {
+        "reads": 94,
+        "bytes": 393051394,
+        "canonicalChecks": 5,
+        "hits": 89,
+        "failures": 0,
+        "readMillis": 16102.8925
+      },
+      "callerMillis": 61090.0052,
+      "costEligible": true,
+      "partialOrCompleteCostMillis": 61011.8369,
+      "restartMillis": 0
+    },
+    {
+      "goalId": "28659918-4605-4adb-b685-b2232fa18fe6",
+      "id": "092-long",
+      "bank": 1,
+      "lifecycle": "uninterrupted",
+      "mode": "reference",
+      "ticks": 21072,
+      "work": {
+        "reads": 86,
+        "bytes": 369987500,
+        "canonicalChecks": 86,
+        "hits": 0,
+        "failures": 0,
+        "readMillis": 35360.0776
+      },
+      "callerMillis": 70404.3469,
+      "costEligible": true,
+      "partialOrCompleteCostMillis": 70307.529,
+      "restartMillis": 0
+    },
+    {
+      "goalId": "dce0cad4-a9d4-464a-b89f-c81dcbf65b41",
+      "id": "092-long",
+      "bank": 1,
+      "lifecycle": "uninterrupted",
+      "mode": "reuse",
+      "ticks": 21072,
+      "work": {
+        "reads": 86,
+        "bytes": 369987437,
+        "canonicalChecks": 9,
+        "hits": 77,
+        "failures": 0,
+        "readMillis": 19423.0999
+      },
+      "callerMillis": 59437.05109999998,
+      "costEligible": true,
+      "partialOrCompleteCostMillis": 59344.2211,
+      "restartMillis": 0
+    },
+    {
+      "goalId": "6d6256a9-45f8-4db8-aca4-eb905b1b73be",
+      "id": "092-long",
+      "bank": 1,
+      "lifecycle": "restarted",
+      "mode": "reuse",
+      "ticks": 30204,
+      "work": {
+        "reads": 95,
+        "bytes": 403946401,
+        "canonicalChecks": 16,
+        "hits": 79,
+        "failures": 0,
+        "readMillis": 20025.911500000002
+      },
+      "callerMillis": 70723.92179999998,
+      "costEligible": false,
+      "partialOrCompleteCostMillis": 0,
+      "restartMillis": 5385.2381999999925
+    },
+    {
+      "goalId": "cbf2eabf-9058-4ffd-bdca-ed19448b54cc",
+      "id": "092-long",
+      "bank": 1,
+      "lifecycle": "restarted",
+      "mode": "reference",
+      "ticks": 30204,
+      "work": {
+        "reads": 95,
+        "bytes": 403128715,
+        "canonicalChecks": 94,
+        "hits": 1,
+        "failures": 0,
+        "readMillis": 44628.349799999996
+      },
+      "callerMillis": 92394.77100000001,
+      "costEligible": false,
+      "partialOrCompleteCostMillis": 0,
+      "restartMillis": 5334.2027000000235
+    },
+    {
+      "goalId": "56de8265-d9d6-46b6-b427-d71ff857b288",
+      "id": "092-seed-2",
+      "bank": 2,
+      "lifecycle": "preparation",
+      "mode": "reuse",
+      "ticks": 24946,
+      "work": {
+        "reads": 94,
+        "bytes": 393040730,
+        "canonicalChecks": 5,
+        "hits": 89,
+        "failures": 0,
+        "readMillis": 15730.5678
+      },
+      "callerMillis": 58715.744400000025,
+      "costEligible": true,
+      "partialOrCompleteCostMillis": 58633.9378,
+      "restartMillis": 0
+    },
+    {
+      "goalId": "d4bce5a7-7362-4886-8a33-3bf5970ddea4",
+      "id": "092-seed-3",
+      "bank": 3,
+      "lifecycle": "preparation",
+      "mode": "reuse",
+      "ticks": 24948,
+      "work": {
+        "reads": 94,
+        "bytes": 392427220,
+        "canonicalChecks": 5,
+        "hits": 89,
+        "failures": 0,
+        "readMillis": 16442.2727
+      },
+      "callerMillis": 60822.29019999999,
+      "costEligible": true,
+      "partialOrCompleteCostMillis": 60713.5042,
+      "restartMillis": 0
+    },
+    {
+      "goalId": "73ded8c0-0a00-4ba4-b758-e2495ddcb7c1",
+      "id": "092-seed-4",
+      "bank": 4,
+      "lifecycle": "preparation",
+      "mode": "reuse",
+      "ticks": 24950,
+      "work": {
+        "reads": 94,
+        "bytes": 392933472,
+        "canonicalChecks": 5,
+        "hits": 89,
+        "failures": 0,
+        "readMillis": 16019.8391
+      },
+      "callerMillis": 64175.05989999999,
+      "costEligible": true,
+      "partialOrCompleteCostMillis": 64091.5589,
+      "restartMillis": 0
+    },
+    {
+      "goalId": "9d5ff8c5-bda3-4eac-a9ed-ea4cf1ed2963",
+      "id": "092-long",
+      "bank": 4,
+      "lifecycle": "uninterrupted",
+      "mode": "reuse",
+      "ticks": 21072,
+      "work": {
+        "reads": 86,
+        "bytes": 369987500,
+        "canonicalChecks": 9,
+        "hits": 77,
+        "failures": 0,
+        "readMillis": 18166.078
+      },
+      "callerMillis": 57996.29540000006,
+      "costEligible": true,
+      "partialOrCompleteCostMillis": 57904.6963,
+      "restartMillis": 0
+    },
+    {
+      "goalId": "e1c6e2a5-b9fe-4d58-8512-08133c5a5aab",
+      "id": "092-long",
+      "bank": 4,
+      "lifecycle": "uninterrupted",
+      "mode": "reference",
+      "ticks": 21072,
+      "work": {
+        "reads": 86,
+        "bytes": 369987500,
+        "canonicalChecks": 86,
+        "hits": 0,
+        "failures": 0,
+        "readMillis": 38384.5552
+      },
+      "callerMillis": 78903.87230000005,
+      "costEligible": true,
+      "partialOrCompleteCostMillis": 78809.5359,
+      "restartMillis": 0
+    },
+    {
+      "goalId": "e8694791-4772-4ac8-9cc8-5d0fa358e65e",
+      "id": "092-long",
+      "bank": 4,
+      "lifecycle": "restarted",
+      "mode": "reference",
+      "ticks": 30204,
+      "work": {
+        "reads": 95,
+        "bytes": 403946425,
+        "canonicalChecks": 94,
+        "hits": 1,
+        "failures": 0,
+        "readMillis": 43813.2194
+      },
+      "callerMillis": 99765.89240000001,
+      "costEligible": false,
+      "partialOrCompleteCostMillis": 0,
+      "restartMillis": 5438.100800000015
+    },
+    {
+      "goalId": "cbffec5c-b4cb-4cdc-a57d-ce832311f3b3",
+      "id": "092-long",
+      "bank": 4,
+      "lifecycle": "restarted",
+      "mode": "reuse",
+      "ticks": 30204,
+      "work": {
+        "reads": 95,
+        "bytes": 403128715,
+        "canonicalChecks": 16,
+        "hits": 79,
+        "failures": 0,
+        "readMillis": 29295.0962
+      },
+      "callerMillis": 84926.07869999995,
+      "costEligible": false,
+      "partialOrCompleteCostMillis": 0,
+      "restartMillis": 5529.972899999935
+    },
+    {
+      "goalId": "552fb4ee-91a2-48d0-b33b-9a5136c252f4",
+      "id": "092-seed-5",
+      "bank": 5,
+      "lifecycle": "preparation",
+      "mode": "reuse",
+      "ticks": 24950,
+      "work": {
+        "reads": 94,
+        "bytes": 392466902,
+        "canonicalChecks": 5,
+        "hits": 89,
+        "failures": 0,
+        "readMillis": 17959.3123
+      },
+      "callerMillis": 63329.44600000011,
+      "costEligible": true,
+      "partialOrCompleteCostMillis": 63214.3284,
+      "restartMillis": 0
+    },
+    {
+      "goalId": "da6d92b1-f823-4d13-8aa2-edb59167bf8f",
+      "id": "092-seed-6",
+      "bank": 6,
+      "lifecycle": "preparation",
+      "mode": "reuse",
+      "ticks": 24950,
+      "work": {
+        "reads": 94,
+        "bytes": 392451822,
+        "canonicalChecks": 5,
+        "hits": 89,
+        "failures": 0,
+        "readMillis": 16667.0721
+      },
+      "callerMillis": 61527.256199999945,
+      "costEligible": true,
+      "partialOrCompleteCostMillis": 61447.1428,
+      "restartMillis": 0
+    },
+    {
+      "goalId": "dfecdd8a-43ef-4f8c-b29a-cdd6ca359211",
+      "id": "092-seed-7",
+      "bank": 7,
+      "lifecycle": "preparation",
+      "mode": "reuse",
+      "ticks": 24948,
+      "work": {
+        "reads": 94,
+        "bytes": 392273562,
+        "canonicalChecks": 5,
+        "hits": 89,
+        "failures": 0,
+        "readMillis": 16556.2933
+      },
+      "callerMillis": 66053.07370000007,
+      "costEligible": true,
+      "partialOrCompleteCostMillis": 65896.1704,
+      "restartMillis": 0
+    },
+    {
+      "goalId": "1e8efca8-edfb-461b-b5f2-1648f61b05c7",
+      "id": "092-seed-8",
+      "bank": 8,
+      "lifecycle": "preparation",
+      "mode": "reuse",
+      "ticks": 24952,
+      "work": {
+        "reads": 94,
+        "bytes": 392822660,
+        "canonicalChecks": 5,
+        "hits": 89,
+        "failures": 0,
+        "readMillis": 17509.584
+      },
+      "callerMillis": 68137.94720000005,
+      "costEligible": true,
+      "partialOrCompleteCostMillis": 67936.408,
+      "restartMillis": 0
+    },
+    {
+      "goalId": "bce0a53e-48cd-4b17-a813-0c3f362fc7fc",
+      "id": "092-long",
+      "bank": 8,
+      "lifecycle": "uninterrupted",
+      "mode": "reference",
+      "ticks": 21072,
+      "work": {
+        "reads": 86,
+        "bytes": 369987446,
+        "canonicalChecks": 86,
+        "hits": 0,
+        "failures": 0,
+        "readMillis": 36522.4821
+      },
+      "callerMillis": 77247.93570000003,
+      "costEligible": true,
+      "partialOrCompleteCostMillis": 77153.7338,
+      "restartMillis": 0
+    },
+    {
+      "goalId": "5f03a4d8-e1d6-41d5-8614-54c52163d40e",
+      "id": "092-long",
+      "bank": 8,
+      "lifecycle": "uninterrupted",
+      "mode": "reuse",
+      "ticks": 21072,
+      "work": {
+        "reads": 86,
+        "bytes": 369987500,
+        "canonicalChecks": 9,
+        "hits": 77,
+        "failures": 0,
+        "readMillis": 20247.917
+      },
+      "callerMillis": 59726.356099999975,
+      "costEligible": true,
+      "partialOrCompleteCostMillis": 59576.2395,
+      "restartMillis": 0
+    },
+    {
+      "goalId": "12ab6b95-f7d7-4ddc-8c8a-1a38a6073f46",
+      "id": "092-long",
+      "bank": 8,
+      "lifecycle": "restarted",
+      "mode": "reuse",
+      "ticks": 30204,
+      "work": {
+        "reads": 95,
+        "bytes": 403946365,
+        "canonicalChecks": 16,
+        "hits": 79,
+        "failures": 0,
+        "readMillis": 25111.686400000002
+      },
+      "callerMillis": 90226.02590000001,
+      "costEligible": false,
+      "partialOrCompleteCostMillis": 0,
+      "restartMillis": 6534.274399999995
+    },
+    {
+      "goalId": "eefb786d-ad60-4a2e-b953-7d5d5096f056",
+      "id": "092-long",
+      "bank": 8,
+      "lifecycle": "restarted",
+      "mode": "reference",
+      "ticks": 30204,
+      "work": {
+        "reads": 95,
+        "bytes": 404772416,
+        "canonicalChecks": 94,
+        "hits": 1,
+        "failures": 0,
+        "readMillis": 48408.657
+      },
+      "callerMillis": 107394.80999999982,
+      "costEligible": false,
+      "partialOrCompleteCostMillis": 0,
+      "restartMillis": 7414.466400000034
+    }
+  ],
+  "pairs": [
+    {
+      "bank": 1,
+      "lifecycle": "uninterrupted",
+      "selected": "two-stage",
+      "referenceMillis": 70404.3469,
+      "reuseMillis": 59437.05109999998,
+      "savingMillis": 10967.295800000022,
+      "referenceWork": {
+        "reads": 86,
+        "bytes": 369987500,
+        "canonicalChecks": 86,
+        "hits": 0,
+        "failures": 0,
+        "readMillis": 35360.0776
+      },
+      "reuseWork": {
+        "reads": 86,
+        "bytes": 369987437,
+        "canonicalChecks": 9,
+        "hits": 77,
+        "failures": 0,
+        "readMillis": 19423.0999
+      },
+      "referenceTicks": 21072,
+      "reuseTicks": 21072,
+      "order": [
+        "reference",
+        "reuse"
+      ]
+    },
+    {
+      "bank": 1,
+      "lifecycle": "restarted",
+      "selected": "two-stage",
+      "referenceMillis": 92394.77100000001,
+      "reuseMillis": 70723.92179999998,
+      "savingMillis": 21670.849200000026,
+      "referenceWork": {
+        "reads": 95,
+        "bytes": 403128715,
+        "canonicalChecks": 94,
+        "hits": 1,
+        "failures": 0,
+        "readMillis": 44628.349799999996
+      },
+      "reuseWork": {
+        "reads": 95,
+        "bytes": 403946401,
+        "canonicalChecks": 16,
+        "hits": 79,
+        "failures": 0,
+        "readMillis": 20025.911500000002
+      },
+      "referenceTicks": 30204,
+      "reuseTicks": 30204,
+      "order": [
+        "reuse",
+        "reference"
+      ]
+    },
+    {
+      "bank": 4,
+      "lifecycle": "uninterrupted",
+      "selected": "two-stage",
+      "referenceMillis": 78903.87230000005,
+      "reuseMillis": 57996.29540000006,
+      "savingMillis": 20907.576899999985,
+      "referenceWork": {
+        "reads": 86,
+        "bytes": 369987500,
+        "canonicalChecks": 86,
+        "hits": 0,
+        "failures": 0,
+        "readMillis": 38384.5552
+      },
+      "reuseWork": {
+        "reads": 86,
+        "bytes": 369987500,
+        "canonicalChecks": 9,
+        "hits": 77,
+        "failures": 0,
+        "readMillis": 18166.078
+      },
+      "referenceTicks": 21072,
+      "reuseTicks": 21072,
+      "order": [
+        "reuse",
+        "reference"
+      ]
+    },
+    {
+      "bank": 4,
+      "lifecycle": "restarted",
+      "selected": "two-stage",
+      "referenceMillis": 99765.89240000001,
+      "reuseMillis": 84926.07869999995,
+      "savingMillis": 14839.813700000057,
+      "referenceWork": {
+        "reads": 95,
+        "bytes": 403946425,
+        "canonicalChecks": 94,
+        "hits": 1,
+        "failures": 0,
+        "readMillis": 43813.2194
+      },
+      "reuseWork": {
+        "reads": 95,
+        "bytes": 403128715,
+        "canonicalChecks": 16,
+        "hits": 79,
+        "failures": 0,
+        "readMillis": 29295.0962
+      },
+      "referenceTicks": 30204,
+      "reuseTicks": 30204,
+      "order": [
+        "reference",
+        "reuse"
+      ]
+    },
+    {
+      "bank": 8,
+      "lifecycle": "uninterrupted",
+      "selected": "two-stage",
+      "referenceMillis": 77247.93570000003,
+      "reuseMillis": 59726.356099999975,
+      "savingMillis": 17521.579600000056,
+      "referenceWork": {
+        "reads": 86,
+        "bytes": 369987446,
+        "canonicalChecks": 86,
+        "hits": 0,
+        "failures": 0,
+        "readMillis": 36522.4821
+      },
+      "reuseWork": {
+        "reads": 86,
+        "bytes": 369987500,
+        "canonicalChecks": 9,
+        "hits": 77,
+        "failures": 0,
+        "readMillis": 20247.917
+      },
+      "referenceTicks": 21072,
+      "reuseTicks": 21072,
+      "order": [
+        "reference",
+        "reuse"
+      ]
+    },
+    {
+      "bank": 8,
+      "lifecycle": "restarted",
+      "selected": "two-stage",
+      "referenceMillis": 107394.80999999982,
+      "reuseMillis": 90226.02590000001,
+      "savingMillis": 17168.784099999815,
+      "referenceWork": {
+        "reads": 95,
+        "bytes": 404772416,
+        "canonicalChecks": 94,
+        "hits": 1,
+        "failures": 0,
+        "readMillis": 48408.657
+      },
+      "reuseWork": {
+        "reads": 95,
+        "bytes": 403946365,
+        "canonicalChecks": 16,
+        "hits": 79,
+        "failures": 0,
+        "readMillis": 25111.686400000002
+      },
+      "referenceTicks": 30204,
+      "reuseTicks": 30204,
+      "order": [
+        "reuse",
+        "reference"
+      ]
+    }
+  ],
+  "totals": {
+    "reference": {
+      "callerMillis": 526111.6283,
+      "reads": 543,
+      "bytes": 2321810002,
+      "canonicalChecks": 540,
+      "hits": 3,
+      "readMillis": 247117.3411
+    },
+    "reuse": {
+      "callerMillis": 423035.72899999993,
+      "reads": 543,
+      "bytes": 2320983918,
+      "canonicalChecks": 75,
+      "hits": 468,
+      "readMillis": 132269.789
+    }
+  },
+  "auditPasses": [
+    {
+      "pass": "reference",
+      "goals": 20,
+      "callerMillis": 153390.96519999974,
+      "reads": 336,
+      "bytes": 1435542206,
+      "canonicalChecks": 336,
+      "hits": 0,
+      "readMillis": 124056.39849999998,
+      "lastEntries": 0
+    },
+    {
+      "pass": "cold-table",
+      "goals": 20,
+      "callerMillis": 109107.92959999968,
+      "reads": 336,
+      "bytes": 1435542206,
+      "canonicalChecks": 88,
+      "hits": 248,
+      "readMillis": 72147.6325,
+      "lastEntries": 64
+    },
+    {
+      "pass": "second-pass",
+      "goals": 20,
+      "callerMillis": 107891.1819999998,
+      "reads": 336,
+      "bytes": 1435542206,
+      "canonicalChecks": 88,
+      "hits": 248,
+      "readMillis": 71444.24740000002,
+      "lastEntries": 64
+    }
+  ],
+  "distinctOriginalEnvelopes": 88,
+  "preparationMillis": 503850.8228000002,
+  "allBootMillis": 71354.12690000073,
+  "initialBootMillisOutsideTasks": 51396.116500000644,
+  "restartBootMillisAlreadyIncludedInTaskTimes": 19958.010400000087,
+  "exportMillis": 45340.518199999504,
+  "postTaskVerifyMillis": 108159.58959999935,
+  "scope": "Same compiled production runtime. Fresh synthetic executions of one existing scene family, eight similar preparation variants, alternating mode order. Six paired comparisons, not population confidence. Bank growth covaries with project history. Restart caller time includes close/startup/prefix export/resume and OS pinning; post-resume cost080 remains calibration-ineligible. Every original read/outcome check remains active. Independent arithmetic is not a second physics solver."
+}

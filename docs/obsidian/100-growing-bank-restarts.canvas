@@ -1,0 +1,72 @@
+{
+  "nodes": [
+    {
+      "id": "digest",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/NativeEnvelope091.java",
+      "x": 0,
+      "y": 0,
+      "width": 350,
+      "height": 260
+    },
+    {
+      "id": "procedure",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/WorldProcedure079.java",
+      "x": 390,
+      "y": 0,
+      "width": 350,
+      "height": 260
+    },
+    {
+      "id": "study",
+      "type": "file",
+      "file": "workspace-desktop/test/envelopes092-integration.cjs",
+      "x": 780,
+      "y": 0,
+      "width": 350,
+      "height": 260
+    },
+    {
+      "id": "inspect",
+      "type": "file",
+      "file": "scripts/Inspect-Envelopes092.cjs",
+      "x": 1170,
+      "y": 0,
+      "width": 350,
+      "height": 260
+    },
+    {
+      "id": "evidence",
+      "type": "file",
+      "file": "README-092.md",
+      "x": 390,
+      "y": 330,
+      "width": 740,
+      "height": 340
+    }
+  ],
+  "edges": [
+    {
+      "id": "e0",
+      "fromNode": "digest",
+      "fromSide": "right",
+      "toNode": "procedure",
+      "toSide": "left"
+    },
+    {
+      "id": "e1",
+      "fromNode": "procedure",
+      "fromSide": "right",
+      "toNode": "study",
+      "toSide": "left"
+    },
+    {
+      "id": "e2",
+      "fromNode": "study",
+      "fromSide": "right",
+      "toNode": "inspect",
+      "toSide": "left"
+    }
+  ]
+}
