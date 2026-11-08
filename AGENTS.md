@@ -1,3 +1,7 @@
+## Edition090 implementation checkpoint — measurement in progress
+
+Isolated D:/Codex-Work/fraynix-workspace-edition090, branch edition090, private Fraynix-Agent-Workspace. Runtime frozen; actual native study running in build/ui090-study. Read build/HANDOFF090.md before resuming.256 distinct Java cases across source-qualified runs and135 desktop checks; eight initial new coverage failures fixed. No090 publication yet. Preserve original live045/private data and frozen001–089. No subagents.
+
 # Fraynix Studio collaboration and documentation
 
 ## Edition089 — published and fetched back
