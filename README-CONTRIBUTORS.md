@@ -41,7 +41,7 @@ Paths abbreviated with `...` above mean `src/main/java/fraymus/workspace` under 
 3. Do not replace actual measurements with generated arrays, set success flags, re-label old engine proofs, remove failing tests, relax thresholds to obtain a green result, or hide a failed candidate. Compilation alone is not functional repair.
 4. Reuse may avoid repeated parsing/hash work only within its tested contract. Keep complete-byte checks and every original source/outcome/report/commit check. Never trust timestamps or cached summaries as action authority.
 5. Recovery is explicit and bounded. Restore the same owned task and committed prefix. A changed later starting state needs a fresh verified forecast before its distinct actual stage. Keep the old forecast, bind the new one to its measured predecessor and resumed ancestor, and charge the work.
-6. The current procedure limits remain two execution resumes,115200 charged ticks,20 minutes active time and90 seconds per attempt. Missing execution tails are charged conservatively. Cross-boot whole-task timing is unavailable/ineligible unless a new validated clock contract is implemented; zero is not a free task.
+6. The current procedure limits remain two execution resumes, 115200 charged ticks, 20 minutes active time and 90 seconds per attempt. Missing execution tails are charged conservatively. Cross-boot whole-task timing is unavailable/ineligible unless a new validated clock contract is implemented; zero is not a free task.
 7. A successful world task needs actual rendered report checks and exactly one matching atomic world commit. Retention requires verified current results. Cancelled/refused tasks cannot earn successful skills.
 8. Compare learning and memory against equally equipped simple controls. Separate training, calibration and evaluation. Include startup, verification, fitting, restart and saving costs when the claim covers them. Preserve rollback and report unsuccessful promotion gates.
 
@@ -59,14 +59,14 @@ Publication is complete only after a non-force push to the intended `main`, edit
 
 | Date | Editions | Durable progress |
 |---|---|---|
-| Oct23–29,2026 |001–008| Original Java game/editor, retained practice, independent browser/canvas workspace and checked creation recipes. |
-| Oct29–31 |009–032| Native3D, measurements, learned transition models, Java goals, spatial imports, browser tracking, procedural image maps and measured contact tasks. Rejected candidates remain in history. |
-| Nov1 |033–041| Contact/multi-object tasks, persistent worlds, recorded/webcam observations, shared projections and a measured mat-alignment test. Physical validity remains tied to the recorded setup. |
-| Nov1–2 |042–050| Continuing Java owner, visual witness, Java chat scheduling, counterfactuals, typed skills, skill recall, sensor evidence and construction workshop. |
-| Nov3–4 |051–068| Persistent gripper assemblies, faster checked chat, geometry/load repairs, Java learned residuals, contact traces and bounded recovery. |
-| Nov5–6 |069–081| Adaptive sensing, retained experiment reconstruction, varied procedures, obstacle-aware targets, proof reuse and complete-task cost estimates. |
-| Nov6–8 |082–093| Resource/restart/saving calibration, longer memory workloads, stale-estimate checks, less repeated verification and fresh forecasts from recovered state. |
-| Nov8 |094| Three-stage abrupt-interruption study and repository trajectory review. See the edition094 release for actual outcomes and limits; this table is not independent proof. |
+| Oct 23–29,2026 | 001–008| Original Java game/editor, retained practice, independent browser/canvas workspace and checked creation recipes. |
+| Oct29–31 | 009–032| Native 3D, measurements, learned transition models, Java goals, spatial imports, browser tracking, procedural image maps and measured contact tasks. Rejected candidates remain in history. |
+| Nov1 | 033–041| Contact/multi-object tasks, persistent worlds, recorded/webcam observations, shared projections and a measured mat-alignment test. Physical validity remains tied to the recorded setup. |
+| Nov1–2 | 042–050| Continuing Java owner, visual witness, Java chat scheduling, counterfactuals, typed skills, skill recall, sensor evidence and construction workshop. |
+| Nov3–4 | 051–068| Persistent gripper assemblies, faster checked chat, geometry/load repairs, Java learned residuals, contact traces and bounded recovery. |
+| Nov5–6 | 069–081| Adaptive sensing, retained experiment reconstruction, varied procedures, obstacle-aware targets, proof reuse and complete-task cost estimates. |
+| Nov6–8 | 082–093| Resource/restart/saving calibration, longer memory workloads, stale-estimate checks, less repeated verification and fresh forecasts from recovered state. |
+| Nov 8 | 094| Three-stage abrupt-interruption study and repository trajectory review. See the edition094 release for actual outcomes and limits; this table is not independent proof. |
 
 The immediate priority is reliable continuation with evidence, then complete mixed-task cost comparisons that show when memory earns its overhead. Keep the larger destination visible: a user requests a useful task, Java plans and executes within the shared world, the interface shows consequences, and verified experience improves later work. Broaden geometry, observations, creation and real-world validation through that same path. Do not turn the product into disconnected benchmark windows or move the brain back into the renderer.
 

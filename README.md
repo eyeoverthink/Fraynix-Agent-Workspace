@@ -1,8 +1,12 @@
 # Fraynix Agent Workspace
 
+**Latest: [edition094 — three-stage crash recovery](README-094.md).**
+
+Seven fresh three-stage goals completed and verified, including five recovered matrix tasks. Five abrupt Java terminations preserved committed progress; fresh downstream forecasts and actual report checks preceded each single world commit. [Offline evidence](docs/readmes/094/index.html).
+
 **Contributors and future agents:** read the [current project direction and engineering contract](README-CONTRIBUTORS.md), including the [dated repository review](docs/TRAJECTORY_REVIEW_094.md). Historical release records remain preserved.
 
-**Latest: [edition093 — forecast from recovered state](README-093.md).**
+**Earlier edition: [edition093 — forecast from recovered state](README-093.md).**
 
 Published to main with original evidence and screenshots. [Fetched GitHub verification](docs/PUBLICATION_093.json).
 

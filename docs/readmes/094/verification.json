@@ -1,0 +1,286 @@
+{
+  "passed": true,
+  "analysis": {
+    "passed": true,
+    "source": "2fac93f282e9bf836e0756ea272ef84460cedfaa",
+    "verifiedAt": "2026-11-08T18:38:47.152Z",
+    "checks": [
+      {
+        "kind": "seed",
+        "id": "e1507087-e601-4ea2-99ac-f2694dc5938e",
+        "success": true,
+        "ticks": 31624,
+        "stages": 7,
+        "callerMillis": 72630.4653,
+        "restartMillis": 0,
+        "reforecasts": 0,
+        "forecastChargedTicks": 0,
+        "forecastObservedTicks": 0,
+        "forecastWallMillis": 0,
+        "resumes": 0,
+        "costEligible": true
+      },
+      {
+        "kind": "baseline",
+        "id": "c8fcd708-17e1-4299-9d26-c84c4747605d",
+        "success": true,
+        "ticks": 27700,
+        "stages": 6,
+        "callerMillis": 71324.21530000001,
+        "restartMillis": 0,
+        "reforecasts": 0,
+        "forecastChargedTicks": 0,
+        "forecastObservedTicks": 0,
+        "forecastWallMillis": 0,
+        "resumes": 0,
+        "costEligible": true
+      },
+      {
+        "kind": "graceful-first",
+        "id": "1cfa6c3a-5039-45a2-840b-22c5b7f9d0ab",
+        "success": true,
+        "ticks": 46716,
+        "stages": 8,
+        "callerMillis": 124430.47230000002,
+        "restartMillis": 39607.42109999998,
+        "reforecasts": 2,
+        "forecastChargedTicks": 9233,
+        "forecastObservedTicks": 9233,
+        "forecastWallMillis": 10400.967400000001,
+        "resumes": 1,
+        "costEligible": false
+      },
+      {
+        "kind": "crash-first",
+        "id": "a7869fd7-b383-4d57-8594-fbd69498dadf",
+        "success": true,
+        "ticks": 46716,
+        "stages": 8,
+        "callerMillis": 126658.80900000001,
+        "restartMillis": 41589.857499999984,
+        "reforecasts": 2,
+        "forecastChargedTicks": 9233,
+        "forecastObservedTicks": 9233,
+        "forecastWallMillis": 10396.9971,
+        "resumes": 1,
+        "costEligible": false
+      },
+      {
+        "kind": "crash-middle",
+        "id": "9433f29b-b057-489e-83ca-0aa53f62ca61",
+        "success": true,
+        "ticks": 42099,
+        "stages": 7,
+        "callerMillis": 109202.60119999998,
+        "restartMillis": 41550.62319999997,
+        "reforecasts": 1,
+        "forecastChargedTicks": 4616,
+        "forecastObservedTicks": 4616,
+        "forecastWallMillis": 5654.438,
+        "resumes": 1,
+        "costEligible": false
+      },
+      {
+        "kind": "crash-reforecast",
+        "id": "65caccba-708e-4d79-af71-2fdb77f9903e",
+        "success": true,
+        "ticks": 56499,
+        "stages": 8,
+        "callerMillis": 133947.40080000006,
+        "restartMillis": 56668.14599999995,
+        "reforecasts": 2,
+        "forecastChargedTicks": 19016,
+        "forecastObservedTicks": 9233,
+        "forecastWallMillis": 14725.8482,
+        "resumes": 2,
+        "costEligible": false
+      },
+      {
+        "kind": "varied-crash",
+        "id": "1d03beb2-83c0-4948-9dfb-e07da433d557",
+        "success": true,
+        "ticks": 46688,
+        "stages": 8,
+        "callerMillis": 120135.93709999998,
+        "restartMillis": 36629.755200000014,
+        "reforecasts": 2,
+        "forecastChargedTicks": 9225,
+        "forecastObservedTicks": 9225,
+        "forecastWallMillis": 11676.4148,
+        "resumes": 1,
+        "costEligible": false
+      }
+    ],
+    "completed": 7,
+    "cancelled": 0,
+    "rawForecastFilesUnchanged": 3,
+    "abruptTerminations": 5,
+    "boots": 13,
+    "scope": "Fresh labelled synthetic three-stage native experiments on two actual CPUs/512MiB; one seed and six declared cases. Exact-owned-PID termination and one graceful close, not power loss. Persisted committed bytes captured before reopening and every resume prefix independently checked. Complete caller times include restarts; resumed monotonic totals unavailable and excluded from calibration. Independent arithmetic is not a second physics solver. No physical accuracy or LLM-training claim."
+  },
+  "java": {
+    "cases": 73,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 1,
+    "classes": 15,
+    "skips": [
+      {
+        "name": "symbolicLinkCannotRedirectOwnerWhenSupported",
+        "classname": "fraymus.workspace.NativeEnvelope091Test",
+        "time": "0.009"
+      }
+    ]
+  },
+  "desktopPassed": 135,
+  "classes": {
+    "parent": "24052edef70eba152858dd15f93425c106db39df",
+    "previousClasses": 334,
+    "currentClasses": 334,
+    "identical": 332,
+    "changed": [
+      "fraymus/workspace/WorldLedger.class",
+      "fraymus/workspace/WorldNativeCheckpoint.class"
+    ],
+    "added": [],
+    "removed": []
+  },
+  "checkpointRestoration": {
+    "passed": true,
+    "goal": "a7869fd7-b383-4d57-8594-fbd69498dadf",
+    "phases": [
+      "corrupt",
+      "checkpoint-restored-quarantine"
+    ]
+  },
+  "review": {
+    "reviewedAt": "2026-11-08T18:00:14.041560+00:00",
+    "source": "8d8525c8ec16b140c447f26815162a71b94fb41a",
+    "remoteMain": "24052edef70eba152858dd15f93425c106db39df",
+    "files": 26849,
+    "bytes": 14008757865,
+    "textIndexed": 1754,
+    "groups": {
+      "(root)": 108,
+      ".github": 1,
+      "assets": 40,
+      "docs": 25495,
+      "examples": 6,
+      "fraynix-modules": 153,
+      "gradle": 2,
+      "levels": 1,
+      "libs": 1,
+      "licenses": 5,
+      "models": 2,
+      "scripts": 87,
+      "src": 147,
+      "workspace-desktop": 322,
+      "workspace-engine": 479
+    },
+    "remoteRefs": [
+      "origin 24052edef70eba152858dd15f93425c106db39df 2026-11-08 09:49:44 -0800",
+      "origin/copilot/fix-windows-github-actions-job 5eb2024d9f317ea751c6e8ed4e0fbc9e06f42f6f 2026-11-05 11:47:32 -0800",
+      "origin/edition043 1f076bbd10c34b5f6fe03ce8cbc8a0873b69f9da 2026-11-02 03:31:26 -0800",
+      "origin/edition044 a2dcf00c39d39e2e7ba0e9ac1ea2af986f092d88 2026-11-02 07:55:33 -0800",
+      "origin/edition045 9d984a71f138b23fdb44d450603b02274be46bcd 2026-11-02 11:46:39 -0800",
+      "origin/edition046 64e6c629595b53a4be34a05c1486342956ee5562 2026-11-02 14:02:05 -0800",
+      "origin/edition050 79d903c01bb253cc2bf3ce6c194fa8ca32e004ef 2026-11-02 20:50:55 -0800",
+      "origin/edition051 ebe3794b49c5cd0b5d83a7897476c54e8d1cf243 2026-11-03 09:34:05 -0800",
+      "origin/edition052 6d9e9aa6a47896d5beed1a250118535a45a5d008 2026-11-03 10:56:41 -0800",
+      "origin/edition053 121f22ea4479843f30ed9a11e82c4a131ce3501e 2026-11-03 13:52:58 -0800",
+      "origin/edition054 138194dfb122bb6067624c21aeb3ee9e74afb5e3 2026-11-03 15:02:58 -0800",
+      "origin/edition055 781fb85f792a570e4b974feb4094b1202e8d724a 2026-11-03 16:30:55 -0800",
+      "origin/edition056 ca57e27bd70b3044bfdbab8831eb661a01058ad5 2026-11-03 18:27:38 -0800",
+      "origin/edition057 38854e976ff53dafb4b52570a968102aed773e49 2026-11-03 20:22:20 -0800",
+      "origin/edition058 d872b1fe810d0ec56934f69a7d9c6f4f41565bc8 2026-11-03 23:00:46 -0800",
+      "origin/edition059 e029c4d354cd81abf37b3441a3cf1a32ff5b0b6d 2026-11-04 00:42:50 -0800",
+      "origin/edition060 a3ad26e9396e4b55ec2ecd2e730a7f1d71cd444b 2026-11-04 02:38:57 -0800",
+      "origin/edition061 3c665c0d6442da9bded2f513fb4ed4cf342f4a3a 2026-11-04 09:40:19 -0800",
+      "origin/edition062 aeb4bac07f3182a51f99e97798d2a0a4ddc0f50b 2026-11-04 10:12:52 -0800",
+      "origin/edition063 347b933faca9a806c4d1c1d17f82b152fd671958 2026-11-04 11:03:02 -0800",
+      "origin/edition064 3915d756a0b027a927172d6ec3b23580ec4f10a2 2026-11-04 13:45:24 -0800",
+      "origin/edition065 2de7abddc2ff9acf54606fb0062ca3a77472bb26 2026-11-04 14:18:30 -0800",
+      "origin/edition066 6dc14e666428a526563c5fc42e14735be3ad849a 2026-11-04 14:54:18 -0800",
+      "origin/edition067 7ae984c89445dc6b2f74e98c15e770e35e6092aa 2026-11-04 15:45:40 -0800",
+      "origin/edition068 59478b388f6eb093c0ffa310231c645317ccbbf9 2026-11-04 20:55:54 -0800",
+      "origin/edition069 20d723f6957343aeac9d19125bd83ec4c14a2893 2026-11-05 07:29:40 -0800",
+      "origin/edition070 196fdce78ae5cb1937477266acc25b3385a4cb27 2026-11-05 10:04:15 -0800",
+      "origin/edition071 622fdfb4d84d3a11e6cadf6daaa69778dde3449d 2026-11-05 11:57:14 -0800",
+      "origin/edition072 3aace0702df8e73d180c5441e2b2fa8eabad8455 2026-11-05 14:31:15 -0800",
+      "origin/edition073 e87a038e41df9c9f72eb53c5b7dbf2f600e61327 2026-11-05 15:36:36 -0800",
+      "origin/edition074 c40a12579e6d92aea9d157de979164a60d2602db 2026-11-05 18:51:28 -0800",
+      "origin/edition075 d7e2ca930fd1c2844690c451df21097fdfc8d757 2026-11-05 20:51:38 -0800",
+      "origin/edition076 a94f8b9e0ed5074573514fefdc43f58d68802091 2026-11-05 22:31:16 -0800",
+      "origin/edition077 7cb6071f77a97567e8d045a2c657a0468c4279ce 2026-11-05 23:38:35 -0800",
+      "origin/edition078 06036bcc56b55f3052e9e5f9ffad29499d249ea3 2026-11-06 02:24:26 -0800",
+      "origin/edition079 0978fb64c2dbc016a48ee93dbf139be0474ea0a7 2026-11-06 05:30:50 -0800",
+      "origin/edition080 b121e65accf4446f43976c85e55d9da3f38c944a 2026-11-06 07:46:01 -0800",
+      "origin/edition081 409afc56a86d70d851af58426c4caf8955beaa57 2026-11-06 09:30:24 -0800",
+      "origin/edition082 8e6ed7aeb37174e387e2461d7cd832ca52f6075a 2026-11-06 11:41:15 -0800",
+      "origin/edition083 1f0881080fcf595d9978f2f3361a04c64519f114 2026-11-06 13:18:11 -0800",
+      "origin/edition084 d71097a9e49dd5f4cda6548dfd0a87f324bcfc6c 2026-11-06 18:08:00 -0800",
+      "origin/edition085 1da3c195d4273e85c0268f02ec159e7521331d6d 2026-11-06 20:50:13 -0800",
+      "origin/edition086 82dfd2547e7718898b734d1b2ea3dbdad50d0ba4 2026-11-06 21:43:35 -0800",
+      "origin/edition087 5a8a6918eb0d12a4afe78fd1e2b7ad8d6f8a4a04 2026-11-06 23:11:00 -0800",
+      "origin/edition088 ba5d3f5172cce924eecfba608af9463fd150fd70 2026-11-07 11:19:11 -0800",
+      "origin/edition089 33f5c6090f4207fb3d2dacc8e539ca7a9520f98a 2026-11-07 16:27:58 -0800",
+      "origin/edition090 6d1ef698c44ca0e3bcdedf419b8f4b41dfc8238a 2026-11-07 18:31:48 -0800",
+      "origin/edition091 087266c2c764a25b313739a1a53c02e310f5f52c 2026-11-07 20:10:37 -0800",
+      "origin/edition092 726ac0c30a2b9815c9ec91f681f2eab6460fadfb 2026-11-08 09:00:09 -0800",
+      "origin/edition093 24052edef70eba152858dd15f93425c106db39df 2026-11-08 09:49:44 -0800",
+      "origin/main 24052edef70eba152858dd15f93425c106db39df 2026-11-08 09:49:44 -0800"
+    ],
+    "scope": "Every tracked file read and SHA-256 indexed. Source declarations/markers and all numbered README text indexed. Detailed human/agent semantic review is recorded separately; binary hashing is not visual/semantic inspection."
+  },
+  "screenshots": [
+    {
+      "file": "baseline-1600.png",
+      "width": 1600,
+      "goalId": "c8fcd708-17e1-4299-9d26-c84c4747605d",
+      "report": "4917fb68-7dd7-35b3-aca3-31b04a0a8eb2",
+      "text": "Baseline: original forecasts"
+    },
+    {
+      "file": "baseline-1100.png",
+      "width": 1100,
+      "goalId": "c8fcd708-17e1-4299-9d26-c84c4747605d",
+      "report": "4917fb68-7dd7-35b3-aca3-31b04a0a8eb2",
+      "text": "Baseline: original forecasts"
+    },
+    {
+      "file": "crash-first-1600.png",
+      "width": 1600,
+      "goalId": "a7869fd7-b383-4d57-8594-fbd69498dadf",
+      "report": "6e7961ab-c2a3-3529-b8bf-14c3146db2d0",
+      "text": "Recovery forecasts: 2 · 9233 extra charged ticks · 10.397 s native work. Verified from recovered state before later actual motion; original forecasts preserved."
+    },
+    {
+      "file": "crash-first-1100.png",
+      "width": 1100,
+      "goalId": "a7869fd7-b383-4d57-8594-fbd69498dadf",
+      "report": "6e7961ab-c2a3-3529-b8bf-14c3146db2d0",
+      "text": "Recovery forecasts: 2 · 9233 extra charged ticks · 10.397 s native work. Verified from recovered state before later actual motion; original forecasts preserved."
+    },
+    {
+      "file": "crash-reforecast-1600.png",
+      "width": 1600,
+      "goalId": "65caccba-708e-4d79-af71-2fdb77f9903e",
+      "report": "02986eff-9bdb-3227-b51e-c265a126f433",
+      "text": "Recovery forecasts: 2 · 19016 extra charged ticks · 14.726 s native work. Verified from recovered state before later actual motion; original forecasts preserved."
+    },
+    {
+      "file": "crash-reforecast-1100.png",
+      "width": 1100,
+      "goalId": "65caccba-708e-4d79-af71-2fdb77f9903e",
+      "report": "02986eff-9bdb-3227-b51e-c265a126f433",
+      "text": "Recovery forecasts: 2 · 19016 extra charged ticks · 14.726 s native work. Verified from recovered state before later actual motion; original forecasts preserved."
+    }
+  ],
+  "finding": "Seven fresh three-stage goals completed and verified, including five recovered matrix tasks. Five abrupt Java terminations preserved committed progress; fresh downstream forecasts and actual report checks preceded each single world commit.",
+  "source": "2fac93f282e9bf836e0756ea272ef84460cedfaa",
+  "limits": [
+    "Fresh labelled synthetic three-stage native experiments on two actual CPUs/512MiB; one seed and six declared cases. Exact-owned-PID termination and one graceful close, not power loss. Persisted committed bytes captured before reopening and every resume prefix independently checked. Complete caller times include restarts; resumed monotonic totals unavailable and excluded from calibration. Independent arithmetic is not a second physics solver. No physical accuracy or LLM-training claim.",
+    "Three-stage recovery and abrupt isolated Java termination tested. No power-loss, storage-device failure, general recovery or physical-accuracy claim. Checkpoint-only restoration retains quarantine; complete stopped-state restoration is required in the tested corruption workflow.",
+    "Resumed totalMillis=0 means unavailable; it is excluded from calibration. Caller times include controlled restarts and test observations, so are not pure engine throughput."
+  ]
+}

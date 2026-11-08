@@ -1,3 +1,5 @@
+Edition094 verifies three-stage recovery under abrupt owned-process termination, fixes native atomic replacement retries and adds an explicit closed093 frame handoff. All outcome checks remain. [Results](../README-094.md) · [Current contributor contract](../README-CONTRIBUTORS.md).
+
 Edition093 verifies a new forecast from recovered state before later actual motion. Original predictions and all source/outcome checks remain. [Results and limits](../README-093.md).
 
 Edition092 validates the unchanged091 runtime against growing verified banks and actual interrupted tasks. Whole caller time includes restart; partial resumed costs remain excluded from calibration. [Results and limits](../README-092.md).

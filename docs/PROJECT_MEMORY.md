@@ -1,3 +1,11 @@
+## Edition094 — locally verified; publication pending
+
+Seven fresh three-stage goals completed and verified, including five recovered matrix tasks. Five abrupt Java terminations preserved committed progress; fresh downstream forecasts and actual report checks preceded each single world commit.
+
+72 Java checks passed across 15 focused classes; 1 optional host-dependent case skipped. 135 desktop checks passed. Seven fresh native goals and the separate full-backup restoration completed. Three initial lock tests failed before the fix; all five new locking/compatibility checks passed afterward. Original committed bytes, prefixes, chronology, provenance, charges and single commits independently inspected. Source2fac93f282e9bf836e0756ea272ef84460cedfaa;332/334 engine classes identical to093. Initial harness race and actual Windows native-checkpoint replacement failure retained. New bounded atomic writer and explicit closed093 world upgrade; no old-proof relabelling. Corrupt checkpoint copy refuses motion; checkpoint-only restoration keeps quarantine, full stopped backup explicitly resumes.
+
+Isolated D:/Codex-Work/fraynix-workspace-edition094; public eyeoverthink/Fraynix-Agent-Workspace as verified2026-11-08. Read README-CONTRIBUTORS.md and dated TRAJECTORY_REVIEW_094.md. Copilot CI/path repair already merged, no production redesign. Preserve live045/qa046/private data and frozen001–093. No subagents. Next: complete mixed-task recovery/saving cost comparisons, then broader end-to-end tasks; no power-loss, physical-accuracy, new LLM inference or general intelligence claim.
+
 ## Edition093 — published and fetched back
 
 Published release e82c9380e2a90738b4db350288b79d680d0efaa6; annotated readme-093 tag object e653eeda640f558b095e6a81f9da7fee9cf3d784. Actual main/edition093/tag push fetched and verified: 1251 canonical sources, 25000 frozen hashes across 93 editions and 386 logical original archive entries. [Publication receipt](PUBLICATION_093.json).

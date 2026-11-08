@@ -1,0 +1,64 @@
+{
+  "modules": [
+    {
+      "id": "runner",
+      "name": "Durable goal and actual stages",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/WorldProcedure079.java",
+      "note": "docs/obsidian/102-three-stage-recovery.md"
+    },
+    {
+      "id": "recovery",
+      "name": "Exact recovered forecast binding",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/RecoveryForecast093.java",
+      "note": "docs/obsidian/102-three-stage-recovery.md"
+    },
+    {
+      "id": "native",
+      "name": "Forced atomic checkpoint and bounded retry",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/WorldNativeCheckpoint.java",
+      "note": "docs/obsidian/102-three-stage-recovery.md"
+    },
+    {
+      "id": "inspection",
+      "name": "Independent source and outcome arithmetic",
+      "source": "scripts/Inspect-Recovery094.cjs",
+      "note": "docs/obsidian/102-three-stage-recovery.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "docs/readmes/094/baseline-1600.png",
+      "caption": "Actual094 report capture · 2026-11-08 America/Los_Angeles"
+    },
+    {
+      "path": "docs/readmes/094/baseline-1100.png",
+      "caption": "Actual094 report capture · 2026-11-08 America/Los_Angeles"
+    },
+    {
+      "path": "docs/readmes/094/crash-first-1600.png",
+      "caption": "Actual094 report capture · 2026-11-08 America/Los_Angeles"
+    },
+    {
+      "path": "docs/readmes/094/crash-first-1100.png",
+      "caption": "Actual094 report capture · 2026-11-08 America/Los_Angeles"
+    },
+    {
+      "path": "docs/readmes/094/crash-reforecast-1600.png",
+      "caption": "Actual094 report capture · 2026-11-08 America/Los_Angeles"
+    },
+    {
+      "path": "docs/readmes/094/crash-reforecast-1100.png",
+      "caption": "Actual094 report capture · 2026-11-08 America/Los_Angeles"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/readmes/094/verification.json",
+      "caption": "Results and limits"
+    },
+    {
+      "path": "docs/readmes/094/original-evidence.json",
+      "caption": "Original bytes"
+    }
+  ]
+}
