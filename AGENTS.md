@@ -1,3 +1,7 @@
+## Edition099 — implementation in progress
+
+Work only in S:/Codex-Work/fraynix-workspace-edition099, branch edition099, from fetched main c1114050. Read docs/EDITION_099_CONTRACT.md. Improve the existing layout/chat and test world, recorded data and creation through actual local-model requests. Parent CI42582181920 initially remains in progress; no099 results or publication yet. Keep all Java/runtime verification, private live045/qa046 and frozen001–098. No subagents; heavy/model/native work serial. Do not rebuild any running installation. Finish actual UI/model/restart tests, documentation, source/frozen audits and main/tag publication.
+
 ## Edition098 — published and fetched back
 
 Published release 3bf91945547bf1a07c8f6264a5dc4d928a2b030d; annotated readme-098 tag object aa10685de747e592f5f946e07d72b94c06ede299. Actual main/edition098/tag push fetched and verified: 1297 canonical sources, 29710 frozen hashes across98 editions and 4974 logical original archive entries. [Publication receipt](docs/PUBLICATION_098.json).
