@@ -51,7 +51,11 @@ final class TaskCost098 {
                              JSONObject timing,JSONArray observations) {
         TaskCost085.validateSelection(mode,receipt);
         if(!automatic(mode))return TaskCost089.choose(spec,mode,candidates,workload,model,receipt,bankEntries,selector);
-        double spent=millis(timing),reserve=Math.max(500,spent*.25);
+        double spent=millis(timing);
+        // Initial choice plus runner, goal and commit audits. Retention and skill saving each audit again.
+        // Charge each using the observed first pass; this is a conservative allowance, not a measured future cost.
+        int passes=4+(workload.optBoolean("retain")?1:0)+(workload.optBoolean("skill")?1:0);
+        double allowance=spent*passes,reserve=Math.max(500,allowance*.25);
         var d=TaskCost089.choose(spec,"calibrated",candidates,workload,model,receipt,bankEntries,selector);
         d=TaskCost090.apply(spec,d,observations);
         var e=d.getJSONObject("cost080");boolean covered=false;
@@ -60,9 +64,10 @@ final class TaskCost098 {
             for(Object raw:e.getJSONArray("neighbors"))
                 covered&=movementCovered(((JSONObject)raw).getJSONObject("pair").getJSONObject("spec"),spec);
         }
-        var gate=new JSONObject().put("version",VERSION).put("decisionMillis",spent).put("reserveMillis",reserve)
-            .put("movementCovered",covered).put("scope","Complete-task empirical lower saving less measured decision work and max(500ms,25%) reserve; not a probability guarantee");
-        if(e.optBoolean("available"))gate.put("netLowerSavingMillis",e.getDouble("lowerSavingMillis")-spent-reserve);
+        var gate=new JSONObject().put("version",VERSION).put("decisionMillis",spent).put("verificationPasses",passes)
+            .put("decisionAllowanceMillis",allowance).put("reserveMillis",reserve).put("movementCovered",covered)
+            .put("scope","Complete-task empirical lower saving less first-pass time for each scheduled decision/audit pass and max(500ms,25%) reserve; future checks are allowances, not measured durations or a probability guarantee");
+        if(e.optBoolean("available"))gate.put("netLowerSavingMillis",e.getDouble("lowerSavingMillis")-allowance-reserve);
         if(d.getBoolean("useMemory")) {
             if(!covered)d.put("useMemory",false).put("preferred","direct").put("reason","Remaining movement differs from measured tasks; simple control first");
             else if(gate.getDouble("netLowerSavingMillis")<=0)d.put("useMemory",false).put("preferred","direct").put("reason","Expected benefit does not cover decision work and uncertainty; simple control first");

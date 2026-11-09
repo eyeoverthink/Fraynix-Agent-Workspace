@@ -30,10 +30,10 @@ function memoryDecision(j,root){const d=j.decision,cs=[];assert.equal(d.mode,j.m
  assert.deepEqual(d.candidates,cs);const requested=j.args.procedureReceipt085;const nearest=requested?cs.find(c=>c.id===requested):[...cs].sort((a,b)=>a.distance-b.distance)[0];if(requested){assert(nearest);assert.equal(d.requestedReceipt085,requested);assert(nearest.distance<=.10);}let use=j.mode!=='simple'&&Boolean(nearest)&&(j.mode==='memory'||nearest.distance<=.10&&nearest.family!=='direct'&&nearest.lowerSavingMillis>0);if(['adaptive','calibrated'].includes(j.mode)){
  use=calibrated(j,nearest,root);use=use&&!freshness090(j,nearest,root).blocked;
  const t=j.selectionTiming098;assert.deepEqual(t,owned(root,j.id+'/selection-clock098.json'));clock089(t);
- const b=d.benefit098,e=d.cost080,reserve=Math.max(500,t.totalMillis*.25);
- assert.equal(b.version,'current-task-benefit-098-v1');close(b.decisionMillis,t.totalMillis);close(b.reserveMillis,reserve);
+ const b=d.benefit098,e=d.cost080,passes=4+(j.args.workload080.retain?1:0)+(j.args.workload080.skill?1:0),allowance=t.totalMillis*passes,reserve=Math.max(500,allowance*.25);
+ assert.equal(b.version,'current-task-benefit-098-v1');close(b.decisionMillis,t.totalMillis);assert.equal(b.verificationPasses,passes);close(b.decisionAllowanceMillis,allowance);close(b.reserveMillis,reserve);
  const covered=!!e.available&&e.neighbors.every(n=>movement098(n.pair.spec,j.spec));assert.equal(b.movementCovered,covered);
- if(e.available)close(b.netLowerSavingMillis,e.lowerSavingMillis-t.totalMillis-reserve);else assert(!('netLowerSavingMillis' in b));
+ if(e.available)close(b.netLowerSavingMillis,e.lowerSavingMillis-allowance-reserve);else assert(!('netLowerSavingMillis' in b));
  use=use&&covered&&b.netLowerSavingMillis>0;
  }else{assert.equal((j.freshnessEvidence090||[]).length,0);assert(!j.selectionTiming098);assert(!d.benefit098);} assert.equal(d.useMemory,use);if(nearest)assert.deepEqual(d.candidate,nearest);else assert(!d.candidate);assert.equal(d.preferred,use?nearest.family:'direct');const order=use?[nearest.family,...families.filter(f=>f!==nearest.family)]:families;assert.deepEqual(j.arm.candidateOrder,order);
  if(use){const p=j.lookupProof,b=j.bankSnapshot.find(b=>b.id===nearest.id);assert.deepEqual(p.binding,{code:j.code,receipt:b});proofFiles(p,root);assert(p.totalMillis<=j.lookupMillis+.02);if(p.mode==='hit'){const origin=owned(root,'proof-history/'+p.originReceiptSha256+'.json');assert.equal(origin.mode,'full');assert.deepEqual(origin.binding,p.binding);assert.deepEqual(origin.evidence,p.evidence);assert.equal(origin.checkedAt,p.originCheckedAt);assert.equal(p.auditMillis,0);}else assert.equal(p.mode,'full');}else assert(!j.lookupProof);return order;
