@@ -49,4 +49,7 @@ function summarize(r){
  }
  const comparable=pairs.every(p=>p.comparable),sum=k=>pairs.reduce((n,p)=>n+p[k],0);return {pairs,comparable,taskSavingMillis:comparable?sum('taskSavingMillis'):null,streamSavingMillis:comparable?sum('streamSavingMillis'):null,preparationMillis:r.preparationMillis,netAfterPreparationMillis:comparable?sum('streamSavingMillis')-r.preparationMillis:null,scope:'Continuing-world descriptive comparison; later source states, bank contents and cache state may differ. No calibration or bank-size causal claim.'};
 }
-module.exports={intervals,task,continuity,stream,summarize};
+function inside(owner,phaseName,child){
+ assert.equal(child.clockOwner,owner.clockOwner,'Child clock owner changed');const phase=owner.phases.find(p=>p.name===phaseName);assert(phase,'Missing owning phase');duration(child.interval);assert(child.interval.start>=phase.start&&child.interval.end<=phase.end,'Child interval escaped owning phase');
+}
+module.exports={intervals,task,continuity,stream,summarize,inside};
