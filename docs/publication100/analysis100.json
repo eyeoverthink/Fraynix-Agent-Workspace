@@ -1,0 +1,54 @@
+{
+  "passed": true,
+  "results": [
+    {
+      "input": "validation",
+      "rows": 49,
+      "travelM": 0.7758452762255914,
+      "gapFlags": 0,
+      "speedFlags": 0,
+      "sourceSha256": "591c0cb5e7b1755dce0e9e415ed0766840a9e74021effca78a45c1ae9e59b4c8",
+      "normalizedSha256": "7dac1360ae77b2060fa294a1ec571b2d8522855dbe1061b7a3464aaaa3b3ab7c",
+      "dataMillis": 62346.0652,
+      "creationMillis": 226558.72739999997,
+      "routerCalls": 1,
+      "generationJobs": 1
+    },
+    {
+      "input": "training",
+      "rows": 52,
+      "travelM": 0.7264764813766893,
+      "gapFlags": 0,
+      "speedFlags": 37,
+      "sourceSha256": "c3d95c6a8ee4e002ec490cb6e2239dbd53ba5e194ea6b89ccba418b0e5ac59da",
+      "normalizedSha256": "b96712b333e5fe7347f7727325bd6191004b5f1ea255f3df58c2bc4a5a0768ab",
+      "dataMillis": 80720.072,
+      "creationMillis": 400788.0283,
+      "routerCalls": 1,
+      "generationJobs": 2
+    }
+  ],
+  "scope": "Independent original CSV arithmetic, exact linked inputs, actual model receipts and rendered rows/count/filter/reset checks. No causal physics or speedup claim.",
+  "refusals": [
+    {
+      "name": "changed source CSV",
+      "refused": true
+    },
+    {
+      "name": "substituted lineage",
+      "refused": true
+    },
+    {
+      "name": "changed generated input",
+      "refused": true
+    },
+    {
+      "name": "invented displayed value",
+      "refused": true
+    },
+    {
+      "name": "incorrect displayed unit",
+      "refused": true
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+'use strict';
+const {launch}=require('../workspace-desktop/test/calibration-integration.cjs'),fs=require('node:fs/promises'),path=require('node:path'),assert=require('node:assert/strict');
+(async()=>{
+ const repo=path.resolve(__dirname,'..'),source=path.join(repo,'build/ui100-handoff-attempt3'),out=path.join(repo,'build/review100'),r=JSON.parse(await fs.readFile(path.join(source,'result-final.json'),'utf8'));assert(r.passed);await fs.mkdir(out,{recursive:true});
+ Object.assign(process.env,{FRAYNIX_WORKSPACE_PERSISTENT:'0',FRAYNIX_WORKSPACE_PLAN_CPU_ONLY:'1',FRAYNIX_WORKSPACE_JAVA_HEAP_MIB:'512',FRAYNIX_WORKSPACE_JAVA_PROCESSORS:'2'});
+ const {app,page}=await launch(path.join(source,'project')),errors=[],result={captures:[],checks:[],scope:'Read and display retained actual edition100 results. No new inference or substituted content.'};page.on('pageerror',e=>errors.push(e.message));
+ const request=(operation,command,args={})=>page.evaluate(x=>window.workspace.request(x),{operation,command,args});
+ const capture=async(file,caption)=>{await page.waitForTimeout(450);await fs.writeFile(path.join(out,file),Buffer.from(await app.evaluate(()=>global.workspaceTest.capture()),'base64'));result.captures.push({file,caption,at:new Date().toISOString()});};
+ async function bounds(){
+   const box=await page.evaluate(()=>Object.fromEntries(['.agent-panel','#model','#goal','#run','#messages'].map(s=>{const b=document.querySelector(s).getBoundingClientRect();return[s,{top:b.top,bottom:b.bottom,left:b.left,right:b.right,height:b.height}];})));
+   for(const s of ['#model','#goal','#run']){assert(box[s].top>=box['.agent-panel'].top);assert(box[s].bottom<=box['.agent-panel'].bottom+1);}assert(box['#messages'].height>=120);return box;
+ }
+ try{
+   await app.evaluate(({BrowserWindow})=>BrowserWindow.getAllWindows().find(w=>w.isVisible()).setSize(1600,1100));await page.waitForFunction(()=>window.inputs100?.state&&document.querySelector('#inputs100-results').options.length===3);assert.deepEqual((await request('inputs100','state')).selection,r.changedSelection);
+   await request('agency043','mission-open',{id:r.tasks[3].task.id});result.wide=await bounds();await capture('workspace100-wide.png','Actual generated explorer reused on the52-row recorded input, with a freshly verified pinned source.');
+   await page.locator('#inputs100-toggle').focus();await page.keyboard.press('Enter');assert(await page.locator('#inputs100-controls').isVisible());await page.locator('#inputs100-results').selectOption(r.tasks[2].goal.id);await capture('inputs100-chooser.png','Keyboard-accessible chooser beside the same app; exact source remains pinned while browsing.');await page.locator('#inputs100-toggle').click();
+   await request('agency043','mission-open',{id:r.tasks[2].task.id});assert.deepEqual((await request('inputs100','state')).selection,r.changedSelection);await capture('quality100-report.png','Actual changed-input data report. Verification preserves quality flags instead of relabelling them as passing.');
+   await page.locator('#inputs100-toggle').click();await page.locator('#inputs100-files').selectOption('original.csv');await page.locator('#inputs100-pin').click();await page.waitForFunction(()=>window.inputs100.state?.selection?.source.sourceFile==='original.csv');assert.equal((await request('inputs100','state')).selection.handoff,undefined);
+   await page.locator('#inputs100-clear').click();await page.waitForFunction(()=>!window.inputs100.state?.selection);assert.equal((await request('inputs100','state')).selection,null);
+   await request('inputs100','select',{dataGoalId100:r.tasks[2].goal.id});await page.locator('#inputs100-toggle').click();assert.deepEqual((await request('inputs100','state')).selection,r.changedSelection);result.checks.push('Explicit generic CSV selection, clear and Java-verified data source restoration all work; no automatic first-file selection.');
+   await request('agency043','mission-open',{id:r.tasks[3].task.id});await app.evaluate(({BrowserWindow})=>BrowserWindow.getAllWindows().find(w=>w.isVisible()).setSize(1100,1100));await page.waitForTimeout(300);result.narrow=await bounds();await capture('workspace100-narrow.png','Actual1100-pixel app view: model, selected source, conversation and composer remain visible.');
+   await app.evaluate(({BrowserWindow})=>BrowserWindow.getAllWindows().find(w=>w.isVisible()).setSize(1600,1100));await page.locator('#task099-evidence').click();await page.waitForTimeout(300);result.mission=await bounds();await capture('mission100-evidence.png','Java Mission evidence for the fresh-source saved procedure, alongside its actual generated artifact.');
+   assert.deepEqual(errors,[]);result.checks.push('Actual wide/narrow panel bounds, keyboard chooser, cold source restoration and saved Mission result access pass.');result.passed=true;
+ }finally{result.errors=errors;await fs.writeFile(path.join(out,'result.json'),JSON.stringify(result,null,2));await app.close();}
+})().catch(e=>{console.error(e);process.exitCode=1;});

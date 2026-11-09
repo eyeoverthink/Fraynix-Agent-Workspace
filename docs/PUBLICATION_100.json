@@ -1,0 +1,88 @@
+{
+  "edition": 100,
+  "releaseCommit": "e2ba11fdcdbd3929bbc9c57d929911e4c0588296",
+  "annotatedTag": "readme-100",
+  "tagObject": "566d4c2cb2c7904d207c87dbb042d75972991f66",
+  "audit": {
+    "passed": true,
+    "verifiedAtUtc": "2026-11-09T10:49:48.158345+00:00",
+    "remote": "https://github.com/eyeoverthink/Fraynix-Agent-Workspace.git",
+    "fetchedRef": "refs/verify/edition100-main",
+    "remoteFetched": true,
+    "commit": "e2ba11fdcdbd3929bbc9c57d929911e4c0588296",
+    "canonicalSourceFiles": 1312,
+    "editions": 100,
+    "frozenHashes": 30120,
+    "original100EvidenceFiles": 209,
+    "distinctOriginalPayloads": 149,
+    "method": "Every enumerated blob read from the specified Git tree; remoteFetched identifies a fresh verification ref. Source byte counts and canonical UTF-8 LF/binary hashes checked. All frozen edition hashes checked. Each unique immutable Git archive blob is decompressed once; every logical original entry is compared to its verified compressed/raw byte counts and SHA-256. No mutable-file timestamp or runtime-proof shortcut."
+  },
+  "scope": "Actual non-force atomic main/edition100/tag push, fetched and independently audited from Git blobs. Actual local-model data and creation workflows, source-derived checks, independent source and rendered-outcome inspection, layout and restart checks passed. Retained initial failures are part of the original evidence. Post-push CI is separate.",
+  "analysis": {
+    "passed": true,
+    "results": [
+      {
+        "input": "validation",
+        "rows": 49,
+        "travelM": 0.7758452762255914,
+        "gapFlags": 0,
+        "speedFlags": 0,
+        "sourceSha256": "591c0cb5e7b1755dce0e9e415ed0766840a9e74021effca78a45c1ae9e59b4c8",
+        "normalizedSha256": "7dac1360ae77b2060fa294a1ec571b2d8522855dbe1061b7a3464aaaa3b3ab7c",
+        "dataMillis": 62346.0652,
+        "creationMillis": 226558.72739999997,
+        "routerCalls": 1,
+        "generationJobs": 1
+      },
+      {
+        "input": "training",
+        "rows": 52,
+        "travelM": 0.7264764813766893,
+        "gapFlags": 0,
+        "speedFlags": 37,
+        "sourceSha256": "c3d95c6a8ee4e002ec490cb6e2239dbd53ba5e194ea6b89ccba418b0e5ac59da",
+        "normalizedSha256": "b96712b333e5fe7347f7727325bd6191004b5f1ea255f3df58c2bc4a5a0768ab",
+        "dataMillis": 80720.072,
+        "creationMillis": 400788.0283,
+        "routerCalls": 1,
+        "generationJobs": 2
+      }
+    ],
+    "scope": "Independent original CSV arithmetic, exact linked inputs, actual model receipts and rendered rows/count/filter/reset checks. No causal physics or speedup claim.",
+    "refusals": [
+      {
+        "name": "changed source CSV",
+        "refused": true
+      },
+      {
+        "name": "substituted lineage",
+        "refused": true
+      },
+      {
+        "name": "changed generated input",
+        "refused": true
+      },
+      {
+        "name": "invented displayed value",
+        "refused": true
+      },
+      {
+        "name": "incorrect displayed unit",
+        "refused": true
+      }
+    ]
+  },
+  "releaseCI": {
+    "checkedAt": "2026-11-09T10:48:32.463Z",
+    "runs": [
+      {
+        "id": 42603863816,
+        "head_sha": "e2ba11fdcdbd3929bbc9c57d929911e4c0588296",
+        "status": "in_progress",
+        "conclusion": null,
+        "html_url": "https://github.com/eyeoverthink/Fraynix-Agent-Workspace/actions/runs/42603863816"
+      }
+    ],
+    "scope": "Actual GitHub response after edition100 release push. Local validation is separate from this in-progress workflow."
+  }
+}
