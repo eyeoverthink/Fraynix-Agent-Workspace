@@ -37,7 +37,7 @@ export class Workspace099 {
     this.latest=document.createElement('button');this.latest.id='latest099';this.latest.hidden=true;this.latest.className='quiet';this.messages.after(this.latest);
     this.latest.onclick=()=>this.toLatest();this.messages.onscroll=()=>{if(this.nearEnd()){this.unread=0;this.latest.hidden=true;}};
     const saved=this.read('fraynix.chat099',[]);this.transcript=[];
-    if(Array.isArray(saved)&&saved.length&&saved.length<=40&&saved.every(v=>['user','assistant'].includes(v.role)&&typeof v.text==='string'&&v.text.length<=100000)){
+    if(Array.isArray(saved)&&saved.length&&saved.length<=40&&saved.every(v=>v&&typeof v==='object'&&['user','assistant'].includes(v.role)&&typeof v.text==='string'&&v.text.length<=100000)&&saved.reduce((n,v)=>n+v.text.length,0)<=100000){
       this.messages.replaceChildren();for(const row of saved)this.message(row.text,row.role,false);this.toLatest();
     }
     document.querySelector('#goal').placeholder='Describe what you want to make, measure or change. Include the result you want checked.';
