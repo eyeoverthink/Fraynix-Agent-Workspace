@@ -1,3 +1,9 @@
+## Edition098 — automatic benefit gate; native validation running
+
+Work only in S:/Codex-Work/fraynix-workspace-edition098, branch edition098. Parent29129e6f; native cohort sourcef2fe9868. TaskCost098 and WorldProcedure079 connect default adaptive selection to verified complete-task calibration, current translation/rotation coverage and decision/audit cost allowances. Explicit simple/memory controls and every native/report/commit check remain. Final focused Java run passed90 methods. Source isolation passed. Current build receipt: build/study095-build.json. Native test process is running serially; read build/native098.log and build/ui098-study/checkpoint.json. Do not rebuild or change production sources while it runs. No098 publication yet. Preserve live045/qa046/private data and frozen001–097; no subagents.
+
+Parent097 CI42571456884 attempt1 failed at the pinned Mesa download with HTTP504 before tests. Original log retained in build/ci098-parent.log. Attempt2 was requested and is running; do not call it passed. The098 workflow adds three transport retries without changing checksum or extraction checks. Next: finish fresh calibration/evaluation, independent original/outcome/decision inspection, refusal tests, screenshots, docs and verified main publication.
+
 ## Edition097 — published and fetched back
 
 Published release ea96b4de40961cd0fea6123b3dcb5ae7b14986c0; annotated readme-097 tag object c7d239f600981c70f357c681387387d56683e4ef. Actual main/edition097/tag push fetched and verified: 1288 canonical sources, 28611 frozen hashes across97 editions and 1244 logical original archive entries. [Publication receipt](docs/PUBLICATION_097.json).

@@ -17,3 +17,9 @@ Parent097 workflow42571456884 failed before compilation: the pinned Mesa archive
 ## Publication
 
 Actual app screenshots; new README098 linked to097, offline guide, inventories, notes and logs. Non-force main/edition098/annotated readme-098 publication; fetch refs and inspect actual contents, then publish receipt. Native figures are synthetic experiment results, not physical validation or LLM training.
+
+## Continuation after fit-admission response handling
+
+Before evaluation, the existing086/087 cost gate declined the six comparison pairs. All13 native preparation/calibration goals completed. The harness incorrectly assumed the response contained an installed model and stopped; its exact checkpoint, script and log are retained as attempt1. The correction accepts a genuine decline, reads the actual installed calibration and continues from the same verified closed preparation. It does not force fitting, change admission limits or relabel old motion. Every preparation goal is reverified before copies are made. Current automatic evaluation will therefore test the no-calibration fallback; positive calibrated admission remains covered by Java boundary tests, not claimed as a new native result.
+
+The original whole-preparation timer was lost with that harness process. Retain its measured task intervals, first launch and declined-fit API interval plus the new continuation interval as a clearly labelled component subtotal. Unmeasured original gaps/shutdown remain unavailable. Evaluation uses a new owned outer clock, with complete per-evaluation accounting unaffected. No amortized setup-payoff claim is permitted from this resumed cohort.

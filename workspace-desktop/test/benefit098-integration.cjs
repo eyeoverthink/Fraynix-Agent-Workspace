@@ -4,9 +4,10 @@ const {unpack}=require('../../scripts/Inspect-Counterfactual045.cjs'),{canonical
 const sha=b=>crypto.createHash('sha256').update(b).digest('hex'),sleep=ms=>new Promise(r=>setTimeout(r,ms));
 async function main(){
  const repo=path.resolve(__dirname,'../..'),out=path.join(repo,'build/ui098-study'),prepared=path.join(out,'preparation');
- assert(!sync.existsSync(path.join(out,'checkpoint.json')),'Preserve prior cohort');await fs.mkdir(prepared,{recursive:true});
+ const continuing=process.argv.includes('--continue-declined');assert(continuing||!sync.existsSync(path.join(out,'checkpoint.json')),'Preserve prior cohort');await fs.mkdir(prepared,{recursive:true});
  const protocol=JSON.parse(await fs.readFile(path.join(__dirname,'fixtures/procedures098-protocol.json'),'utf8'));
- const record={protocol,source:cp.execFileSync('git',['rev-parse','HEAD'],{cwd:repo,encoding:'utf8'}).trim(),buildReceipt:require('../../scripts/Study-Build095.cjs').verify(repo),clock:{id:crypto.randomUUID(),pid:process.pid,origin:performance.timeOrigin},startedAt:new Date().toISOString(),rows:[],calibration:[],boots:[],captures:[],errors:[]};
+ let record={protocol,source:cp.execFileSync('git',['rev-parse','HEAD'],{cwd:repo,encoding:'utf8'}).trim(),buildReceipt:require('../../scripts/Study-Build095.cjs').verify(repo),clock:{id:crypto.randomUUID(),pid:process.pid,origin:performance.timeOrigin},startedAt:new Date().toISOString(),rows:[],calibration:[],boots:[],captures:[],errors:[]};
+ if(continuing){const freshClock=record.clock;record=JSON.parse(await fs.readFile(path.join(out,'checkpoint-attempt1.json'),'utf8'));assert.equal(record.rows.length,13);assert(!record.evaluations);assert(record.rows.every(r=>r.goal.status==='completed'));assert.equal(record.model.status,'declined');assert.equal(record.model.fitted,false);record.originalHarnessError=record.error;delete record.error;record.fitReceipt=record.model;record.preparationClock=record.clock;record.clock=freshClock;record.continuation={source:cp.execFileSync('git',['rev-parse','HEAD'],{cwd:repo,encoding:'utf8'}).trim(),startedAt:new Date().toISOString(),reason:'Continue verified native preparation after correcting fit-decline response handling; originals preserved'};for(const r of record.rows)r.clockOwner=record.preparationClock.id;}
  Object.assign(process.env,{FRAYNIX_WORKSPACE_PERSISTENT:'0',FRAYNIX_WORKSPACE_PLAN_CPU_ONLY:'1',FRAYNIX_WORKSPACE_JAVA_HEAP_MIB:'512',FRAYNIX_WORKSPACE_JAVA_PROCESSORS:'2'});
  let app,page,project,boot;const now=()=>performance.now(),save=()=>fs.writeFile(path.join(out,'checkpoint.json'),JSON.stringify(record,null,2));
  const api=(route,args={})=>app.evaluate((_,x)=>global.workspaceTest.api(x.route,x.args),{route,args});
@@ -24,7 +25,7 @@ async function main(){
   await close();await open(project);assert.equal((await api('/api/goals/read',{id:row.goalId})).status,'interrupted');const p=await api('/api/procedures079/export',{id:row.goalId});x.prefixFile=row.id+'-prefix.json';await fs.writeFile(path.join(out,x.prefixFile),JSON.stringify(p));const w=await api('/api/world/observe',{worldId:row.binding.worldId});assert.equal(w.expectedRevision,row.binding.expectedRevision);assert.equal(w.pending.goalId,row.goalId);await api('/api/goals/resume',{id:row.goalId});x.end=now();
  }
  async function run(id,spec,mode,retain=false,options={}){
-  const row={id,project,mode,spec,retain,options,start:now()};record.rows.push(row);const w=await world(spec);row.binding=Object.fromEntries(['worldId','expectedRevision','expectedHash'].map(k=>[k,w[k]]));row.initialFrame=w.frame;row.bankBefore=(await api('/api/procedures079/memories')).memories;row.goalStart=now();
+  const row={id,project,mode,spec,retain,options,clockOwner:record.clock.id,start:now()};record.rows.push(row);const w=await world(spec);row.binding=Object.fromEntries(['worldId','expectedRevision','expectedHash'].map(k=>[k,w[k]]));row.initialFrame=w.frame;row.bankBefore=(await api('/api/procedures079/memories')).memories;row.goalStart=now();
   const args={...row.binding,targets:spec.targets,forceLimitN:spec.forceLimitN,torqueLimitNm:spec.torqueLimitNm,selectiveMemory079:true,memoryMode079:mode,retainExperience079:retain,saveSkillName:options.skill?'saved-098-'+id:'',request:'Edition098 '+id};const g=await api('/api/world/start',args);row.goalId=g.id;if(options.recovery)await restart(row);
   row.goal=await wait(async()=>{const x=await api('/api/goals/read',{id:g.id});return ['completed','interrupted','cancelled'].includes(x.status)?x:null;});row.goalEnd=now();row.callerMillis=row.goalEnd-row.goalStart;
   const x=await api('/api/procedures079/export',{id:g.id});row.originalFile=id+'-originals.json';await fs.writeFile(path.join(out,row.originalFile),JSON.stringify(x));row.job=x.job;row.cost=x.cost080;row.observed=await api('/api/world/observe',{worldId:w.worldId});row.bankAfter=(await api('/api/procedures079/memories')).memories;
@@ -34,12 +35,22 @@ async function main(){
  }
  async function capture(row){await app.evaluate((_,id)=>global.workspaceTest.goals.execute('goal.read',{id}),row.goalId);await app.evaluate((_,id)=>global.workspaceTest.execute('canvas.open',{id}),row.goal.report.id);await page.waitForFunction(id=>document.querySelector('#object-detail').textContent.includes(id),row.goal.report.id);await page.locator('#preview-tab').click();await sleep(800);for(const width of [1600,1100]){await app.evaluate(({BrowserWindow},w)=>BrowserWindow.getAllWindows().find(x=>x.isVisible()).setSize(w,1100),width);await sleep(400);assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));const file=row.id+'-'+width+'.png';await fs.writeFile(path.join(out,file),Buffer.from(await app.evaluate(()=>global.workspaceTest.capture()),'base64'));record.captures.push({file,width,goalId:row.goalId});}}
  try{
-  const preparationStart=now();await open(prepared);const seed=await run('seed',protocol.training,'simple',true);record.receiptId=seed.goalId;
-  for(let repeat=0;repeat<protocol.calibrationRepeats;repeat++)for(let i=0;i<protocol.calibration.length;i++){
-   const pair={repeat,index:i,order:(repeat+i)%2?['memory','simple']:['simple','memory'],rows:{}};record.calibration.push(pair);
-   for(const mode of pair.order)pair.rows[mode]=await run('calibration-'+repeat+'-'+i+'-'+mode,protocol.calibration[i],mode);
-  }
-  const fitStart=now();record.model=await api('/api/procedures080/fit',{pairs:record.calibration.map(p=>({simpleId:p.rows.simple.goalId,memoryId:p.rows.memory.goalId}))});record.fitMillis=now()-fitStart;assert.equal(record.model.pairs.length,6);assert.equal(record.model.version,'paired-complete-task-cost-089-v1');assert(record.model.pairs.every(p=>p.pairing089.eligible&&p.warm));await close();record.preparationMillis=now()-preparationStart;record.preparedFiles=await inventory(prepared);record.preparedSha256=sha(canonical(record.preparedFiles));await save();
+  const preparationStart=now();record.preparationStart098=preparationStart;await open(prepared);
+  if(!continuing){
+   const seed=await run('seed',protocol.training,'simple',true);record.receiptId=seed.goalId;
+   for(let repeat=0;repeat<protocol.calibrationRepeats;repeat++)for(let i=0;i<protocol.calibration.length;i++){
+    const pair={repeat,index:i,order:(repeat+i)%2?['memory','simple']:['simple','memory'],rows:{}};record.calibration.push(pair);
+    for(const mode of pair.order)pair.rows[mode]=await run('calibration-'+repeat+'-'+i+'-'+mode,protocol.calibration[i],mode);
+   }
+   const fitStart=now();record.fitReceipt=await api('/api/procedures080/fit',{pairs:record.calibration.map(p=>({simpleId:p.rows.simple.goalId,memoryId:p.rows.memory.goalId}))});record.fitMillis=now()-fitStart;
+  }else{for(const r of record.rows)assert((await api('/api/procedures090/verify',{id:r.goalId})).passed);}
+  record.model=await api('/api/procedures080/calibration');
+  if(record.fitReceipt.fitted){assert.equal(record.model.pairs.length,6);assert.equal(record.model.version,'paired-complete-task-cost-089-v1');assert(record.model.pairs.every(p=>p.pairing089.eligible&&p.warm));}
+  else{assert.equal(record.fitReceipt.status,'declined');assert.deepEqual(record.model,{});}
+  await close();record.preparedFiles=await inventory(prepared);record.preparedSha256=sha(canonical(record.preparedFiles));
+  if(continuing){record.preparationMillis=null;record.preparationContinuationMillis=now()-preparationStart;record.measuredPreparationComponentsMillis=record.rows.reduce((n,r)=>n+r.end-r.start,0)+(record.boots[0].end-record.boots[0].start)+record.fitMillis+record.preparationContinuationMillis;record.preparationScope='Component subtotal only: original whole preparation clock ended with the harness error. Includes measured rows, first launch, declined fit request and continuation verification; intervening gaps and first shutdown are unavailable. No amortized payoff claim.';}
+  else{record.preparationMillis=now()-preparationStart;record.measuredPreparationComponentsMillis=record.preparationMillis;record.preparationScope='Complete preparation including launch, calibration calls, fitting admission, shutdown and frozen inventory.';}
+  await save();
   record.evaluations=[];
   for(const spec of protocol.cases)for(const mode of spec.order){
    const start=now(),id='eval-'+spec.id+'-'+mode,where=path.join(out,id,'project');assert(!sync.existsSync(where));await fs.cp(prepared,where,{recursive:true,filter:p=>!['desktop-profile','host.json','engine.log','test-desktop-process.log'].includes(path.basename(p))});assert.deepEqual(await inventory(where),record.preparedFiles);await open(where);
