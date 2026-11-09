@@ -1,11 +1,11 @@
 'use strict';
 
 // Read the real isolated canvas after each action. Generated code cannot submit proof.
-async function auditData101(canvas,effect){
+async function auditData101(canvas,effect,extra){
   const ready=await canvas.test([{selector:'#row-count',expectText:String(effect.rowCount)}]);
   if(ready.some(x=>!x.passed))throw Error('Data explorer did not initialize before independent audit');
   const frames=[];
-  const snapshot=()=>canvas.isolated(`(()=>{
+  const snapshot=async()=>{const frame=await canvas.isolated(`(()=>{
     const one=s=>{const all=document.querySelectorAll(s);if(all.length!==1)throw Error('Expected one '+s);return all[0];};
     const table=one('table#data-table'),head=[...table.querySelectorAll('thead th')],rows=[...table.querySelectorAll('tbody tr')];
     if(rows.length>1000||head.length>3)throw Error('Audit table exceeds declared bounds');
@@ -14,7 +14,7 @@ async function auditData101(canvas,effect){
     let shown=[table,...head,filter,count,reset,scope,quality].every(visible);
     const cells=rows.map(r=>{const c=[...r.querySelectorAll('td')];if(c.length!==3)throw Error('Expected three source cells');shown=shown&&visible(r)&&c.every(visible);return c.map(e=>e.textContent.trim());});
     return {rows:cells,headers:head.map(e=>e.textContent.trim()),filter:String(filter.value),count:count.textContent.trim(),scope:scope.textContent.trim(),quality:quality.textContent.trim(),visible:shown};
-  })()`);
+  })()`);if(extra)await extra();return frame;};
   frames.push(await snapshot());
   for(const value of [effect.filter,'__no_match_101__']){
     const checks=await canvas.test([{selector:'#filter',action:'fill',value,expectValue:value}]);if(checks.some(x=>!x.passed))throw Error('Actual filter action failed');frames.push(await snapshot());

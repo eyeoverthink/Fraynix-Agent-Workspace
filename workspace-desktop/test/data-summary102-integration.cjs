@@ -1,0 +1,48 @@
+'use strict';
+// Real local model: new summary contract and cold-restarted fresh-input reuse.
+const {launch}=require('./calibration-integration.cjs'),fs=require('node:fs/promises'),sync=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict'),cp=require('node:child_process');
+const repo=path.resolve(__dirname,'../..'),out=path.resolve(repo,process.env.EDITION102_SUMMARY_OUT||'build/summary102-attempt1'),project=path.join(out,'project'),sleep=ms=>new Promise(r=>setTimeout(r,ms));
+async function main(){
+ assert(!sync.existsSync(project),'Keep original attempts; choose a fresh output');await fs.mkdir(project,{recursive:true});
+ Object.assign(process.env,{FRAYNIX_WORKSPACE_PERSISTENT:'0',FRAYNIX_WORKSPACE_PLAN_CPU_ONLY:'1',FRAYNIX_WORKSPACE_JAVA_HEAP_MIB:'512',FRAYNIX_WORKSPACE_JAVA_PROCESSORS:'2'});
+ require('../../scripts/Study-Build095.cjs').verify(repo);
+ let record={source:cp.execFileSync('git',['rev-parse','HEAD'],{cwd:repo,encoding:'utf8'}).trim(),startedAt:new Date().toISOString(),project,tasks:[],hostSpans:[],injections:[],errors:[],captures:[],scope:'Actual local-model motion-summary creation and fresh-input skill reuse. Recorded and synthetic sources remain distinct; no deliberate DOM fault in these two trials. Timings include instrumentation and polling.'};
+ let app,page,session=0;const save=()=>fs.writeFile(path.join(out,'result.json'),JSON.stringify(record,null,2));
+ const api=(route,args={})=>app.evaluate((_,x)=>global.workspaceTest.api(x.route,x.args),{route,args});
+ const request=(operation,command,args={})=>page.evaluate(x=>window.workspace.request(x),{operation,command,args});
+ async function open(){({app,page}=await launch(project));session++;page.on('pageerror',e=>record.errors.push(e.message));await app.evaluate(({BrowserWindow},{session,surfacePath})=>{
+  const w=BrowserWindow.getAllWindows().find(x=>x.isVisible());w.setTitle('Fraynix Workspace · edition 102 measured workflows');w.setSize(1600,1100);
+  global.cost102={session,spans:[],injections:[]};const Surface=global.workspaceTest.surfaceClass102;
+  for(const name of ['test','isolated']){const original=Surface.prototype[name];Surface.prototype[name]=async function(...args){
+   if(this.kind!=='canvas')return original.apply(this,args);const start=Date.now(),clock=process.hrtime.bigint();let ok=false;
+   try{const value=await original.apply(this,args);ok=true;return value;
+   }finally{global.cost102.spans.push({kind:name==='test'?'browser-test':'browser-observation',session,start,end:Date.now(),nanos:String(process.hrtime.bigint()-clock),ok});}
+  };}
+ },{session,surfacePath:path.join(repo,'workspace-desktop/surfaces.cjs')});await page.waitForFunction(()=>window.inputs100&&[...document.querySelector('#model').options].some(o=>o.value==='gpt-oss:20b'),{},{timeout:65000});await page.locator('#model').selectOption('gpt-oss:20b');}
+ async function flush(){if(!app)return;const v=await app.evaluate(()=>{const x={spans:global.cost102.spans,injections:global.cost102.injections};global.cost102.spans=[];global.cost102.injections=[];return x;});record.hostSpans.push(...v.spans);record.injections.push(...v.injections);await save();}
+ async function capture(file){await fs.writeFile(path.join(out,file),Buffer.from(await app.evaluate(()=>global.workspaceTest.capture()),'base64'));record.captures.push(file);}
+ async function importData(label,csv,synthetic=false){const selected=await request('data','import',{title:label,filename:label+'.csv',csv,sourceKind:synthetic?'synthetic':'measured',sourceNote:synthetic?'Declared test sequence; not instrument or physics measurements.':'Unchanged frozen edition013 Delfys source; no new measurement.',missingPolicy:'reject',mapping:{timeColumn:'time_s',distanceColumn:'displacement_m',timeUnit:'s',distanceUnit:'m'}});const d=await api('/api/measurement/read',{id:selected.datasetId,version:selected.version});assert.equal(d.csv,csv);return d;}
+ async function submit(row){row.start=Date.now();row.submittedAt=new Date(row.start).toISOString();record.tasks.push(row);await save();const before=new Set((await api('/api/agency043/state')).tasks.map(t=>t.id));await page.waitForFunction(()=>!document.querySelector('#run').disabled,{},{timeout:45000});await page.locator('#goal').fill(row.prompt);await page.locator('#run').click();for(let i=0;i<100;i++){const t=(await api('/api/agency043/state')).tasks.find(t=>!before.has(t.id)&&t.goal===row.prompt);if(t){row.id=t.id;return;}await sleep(300);}throw Error('No new chat task');}
+ async function wait(row,target='completed'){const until=Date.now()+21*60000;let last='';while(Date.now()<until){row.task=await api('/api/agency043/read',{id:row.id});const state=row.task.status+' '+row.task.reason;if(state!==last){console.log(row.name+': '+state);last=state;}if(row.task.status===target)return;if(['interrupted','cancelled'].includes(row.task.status))throw Error(state);await flush();await sleep(700);}throw Error('Harness deadline exceeded');}
+ async function workflow(row){return api('/api/workflows/read',{id:row.task.completion044?.javaWorkflow?.id||row.task.context044?.ownedWorkflowId});}
+ async function run(row){await submit(row);
+  await wait(row);row.end=Date.now();row.workflow=await workflow(row);assert.equal(row.workflow.status,'completed');row.children=[];row.artifacts=[];for(const stage of row.workflow.stages){const child=await api('/api/goals/read',{id:stage.goalId});assert.equal(child.status,'completed');row.children.push(child);row.artifacts.push(await api('/api/artifact/read',{id:child.report.id}));}
+  assert.equal(row.children.length,2);assert.equal(row.artifacts[1].contents['inputs/source.csv'],row.artifacts[0].contents['normalized.csv']);assert(row.workflow.audit.passed);assert.equal(row.workflow.audit.frames.length,4);
+  const jobs=JSON.parse(await fs.readFile(path.join(project,'creation-044/requests.json'),'utf8')).data.jobs;row.generation=jobs.filter(j=>j.goalId===row.children[1].id);assert(row.generation.length);assert(row.generation.every(j=>j.timings102?.length&&(j.status==='completed'?j.model?.digest&&j.compute?.cpuOnly:row.generationStops102?.some(s=>s.jobId===j.id))));
+  await flush();
+  await page.waitForFunction(()=>!document.querySelector('#run').disabled,{},{timeout:45000});await request('agency043','mission-open',{id:row.id});await sleep(300);await capture(row.name+'.png');await save();
+ }
+ try{record.model=(await(await fetch('http://127.0.0.1:11434/api/tags')).json()).models.find(x=>x.name==='gpt-oss:20b');assert(record.model);await open();
+  const validation=await importData('Recorded summary validation102',await fs.readFile(path.join(repo,'docs/datasets/delfys75-013/validation.csv'),'utf8'));
+  if(!await page.locator('#inputs100-controls').isVisible())await page.locator('#inputs100-toggle').click();await page.locator('#inputs102-kind').selectOption('summary');await page.locator('#inputs101-workflow').click();assert((await page.locator('#goal').inputValue()).includes('motion summary'));record.preparedSummary=true;
+  await run({name:'summary49',source:validation,prompt:'Analyze the selected dataset, create a verified motion summary report and save the whole workflow as summary-cost102. Use gap limit 0.05 seconds and speed limit 5 m/s.'});
+  assert.equal(record.tasks[0].workflow.profile101,'motion-summary-workflow-102-v1');assert.equal(record.tasks[0].workflow.audit.summaries102.length,4);
+  await flush();await app.close();app=null;await open();const saved=(await app.evaluate(()=>global.workspaceTest.api('/api/state'))).procedures;assert(saved.some(p=>p.id===record.tasks[0].workflow.savedSkill.id));record.coldSkillRestored=true;
+  const rows=['time_s,displacement_m'];let time=0;for(let i=0;i<16;i++){if(i)time+=i===9?.45:.15;const x=i<4?i*.03:i<8?.09:i<12?.09-(i-7)*.04:-.07+(i-11)*.015;rows.push(time.toFixed(5)+','+x.toFixed(5));}
+  const synthetic=await importData('Synthetic16 summary reversal102',rows.join('\n')+'\n',true);
+  await run({name:'summary16-reuse',source:synthetic,prompt:'Reuse summary-cost102 version 1 on the selected dataset with gap limit 0.2 seconds and speed limit 0.2 m/s. Verify the whole motion summary procedure with fresh source checks.'});
+  assert.equal(record.tasks[1].workflow.profile101,'motion-summary-workflow-102-v1');assert.equal(record.tasks[1].workflow.audit.summaries102.length,4);assert.equal(record.tasks[1].workflow.skill.id,record.tasks[0].workflow.savedSkill.id);
+  await flush();await app.close();app=null;const restartStart=Date.now();await open();const state=await app.evaluate(()=>global.workspaceTest.api('/api/state'));assert.equal(state.procedures.filter(p=>p.id===record.tasks[0].workflow.savedSkill.id).length,1);record.finalReopen={start:restartStart,end:Date.now(),savedSkill:record.tasks[0].workflow.savedSkill,verified:true};record.passed=true;
+ }catch(e){record.error=e.stack;if(app)await capture('failure102.png').catch(()=>{});throw e;}finally{await flush().catch(()=>{});record.finishedAt=new Date().toISOString();await save();if(app)await app.close();require('../../scripts/Study-Build095.cjs').verify(repo);}
+}
+main().catch(e=>{console.error(e);process.exitCode=1;});

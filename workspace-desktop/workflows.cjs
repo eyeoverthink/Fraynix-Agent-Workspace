@@ -1,6 +1,7 @@
 'use strict';
 const {measureResponsive}=require('./responsive.cjs');
 const {auditData101}=require('./data-creation101.cjs');
+const {auditSummary102}=require('./data-summary102.cjs');
 const sleep=ms=>new Promise(r=>setTimeout(r,ms));
 const unsettled=w=>w&&!['completed','cancelled'].includes(w.status);
 function requestedWorkflow(goal,procedures){
@@ -11,7 +12,7 @@ function createWorkflows({api,canvas,openArtifact,emit,refresh,activity,getDatas
  let latest=null,timer,busy=false,stopped=false;
  async function update(w){latest=w;emit('javaGoal',w);return w;}
  async function audit(effect){
-  if(effect.kind==='workflow.data-creation-audit101'){const a=await api('/api/artifact/read',{id:effect.report.id});if(a.version!==effect.report.version)throw Error('Data explorer version changed');emit('view','preview');await openArtifact(a);return auditData101(canvas,effect);}
+  if(['workflow.data-creation-audit101','workflow.data-summary-audit102'].includes(effect.kind)){const a=await api('/api/artifact/read',{id:effect.report.id});if(a.version!==effect.report.version)throw Error('Data explorer version changed');emit('view','preview');await openArtifact(a);return effect.kind==='workflow.data-summary-audit102'?auditSummary102(canvas,effect):auditData101(canvas,effect);}
   if(effect.kind==='workflow.graph-audit'){
    const a=await api('/api/artifact/read',{id:effect.report.id});if(a.version!==effect.report.version)throw Error('Graph report version changed');emit('view','preview');await openArtifact(a);
    const steps=[{selector:'#graph-table tbody tr',expectCount:effect.rowCount},{selector:'#graph-line',expectCount:1}],checks=await canvas.test(steps);const receipt=await api('/api/artifact/test',{id:a.id,version:a.version,steps,checks});if(!receipt.passed)throw Error('Graph report failed its actual canvas checks');

@@ -542,7 +542,7 @@ public final class GoalRunner implements AutoCloseable {
     }
     synchronized void publishWorkflow101(JSONObject expected,JSONObject ref) throws Exception {
         var p=values("procedure").stream().filter(v->v.getString("id").equals(ref.getString("id"))).findFirst().orElseThrow();
-        if(!p.getString("kind").equals(DataCreation101.KIND)||!p.getString("name").equals(ref.getString("name"))||p.getInt("version")!=ref.getInt("version"))throw new IllegalStateException("Foreign pending procedure");
+        if(!DataSummary102.supported(p.getString("kind"))||!p.getString("kind").equals(expected.getString("kind"))||!p.getString("name").equals(ref.getString("name"))||p.getInt("version")!=ref.getInt("version"))throw new IllegalStateException("Foreign pending procedure");
         for(String k:expected.keySet())if(!k.equals("publication101")&&!new JSONObject().put("v",expected.get(k)).similar(new JSONObject().put("v",p.get(k))))throw new IllegalStateException("Pending procedure contract changed");
         if(!Set.of("pending","published").contains(p.optString("publication101")))throw new IllegalStateException("Unknown publication phase");
         if(p.getString("publication101").equals("published"))return;p.put("publication101","published");save("procedure",p);

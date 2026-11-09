@@ -11,7 +11,7 @@ final class ChatPolicy044 {
  static boolean design053(String s){return !webCreation(s)&&has(s,"\\b(compare|design|evaluate)\\b")&&has(s,"\\b(assembly|bridge|construction)\\b");}
  static boolean designReview053(String s){return has(s,"\\b(review|inspect) before\\b|\\b(do not|don['’]t|never)\\s+(move|execute|actuate|run|build|assemble)\\b")||!has(s,"\\b(execute|executing|run|reuse|move|actuate|build|assemble)\\b");}
  static String route(String s,JSONObject b,boolean measured){
-  if(DataCreation101.requested(s))return "workflow";
+  if(DataCreation101.requested(s)||DataSummary102.requested(s))return "workflow";
   if(!webCreation(s)&&has(s,"(?i)rehearse (?:a |the |verified )?experiment"))return "rehearsal";
   if(!webCreation(s)&&has(s,"(?i)fraynixgpt|fraynix gpt|cortex outcome|physics residual|residual learning|stopping study|stopping traces|stopping uncertainty|contact study|contact impulses|pooled uncertainty|useful observation|observation value|remaining ability to correct|remaining correction|uncertainty study|uncertainty estimates|risky skip|skipping a look|calibrated residual|observation uncertainty|adaptive observation|observation timing|observation schedule|sensing effort|later observation|later recovery|second correction|recovery calibration|calibrated recovery|unfamiliar disturbances|temporal contact|temporal recovery|pre-push|recovery value|bounded recovery|recovery study|replanning costs|decision value|decision study|target window|uncertainty policy"))return "agent";
   if(design053(s)||Design058.requested(s))return "construction";
