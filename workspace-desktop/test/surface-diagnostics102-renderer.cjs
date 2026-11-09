@@ -2,7 +2,7 @@
 const {launch}=require('./calibration-integration.cjs');
 const fs=require('node:fs/promises'),path=require('node:path'),assert=require('node:assert/strict');
 (async()=>{
- const out=path.resolve('build/diagnostics102'),project=path.join(out,'project');await fs.mkdir(project,{recursive:true});
+ const out=path.resolve(process.env.EDITION102_DIAGNOSTICS_OUT||'build/diagnostics102-final'),project=path.join(out,'project');await fs.mkdir(project,{recursive:true});
  Object.assign(process.env,{FRAYNIX_WORKSPACE_PERSISTENT:'0',FRAYNIX_WORKSPACE_PLAN_CPU_ONLY:'1',FRAYNIX_WORKSPACE_JAVA_HEAP_MIB:'512',FRAYNIX_WORKSPACE_JAVA_PROCESSORS:'2'});
  const {app}=await launch(project),results=[];
  const execute=(tool,args)=>app.evaluate((_,x)=>global.workspaceTest.execute(x.tool,x.args),{tool,args});
