@@ -129,3 +129,6 @@ tasks.named('wrapper', Wrapper) {
     gradleVersion = '9.3.1'
     distributionType = Wrapper.DistributionType.BIN
 }
+
+// Preserve the full evidence history when the distribution exceeds ZIP32 limits.
+tasks.named('distZip', Zip) { zip64 = true }
