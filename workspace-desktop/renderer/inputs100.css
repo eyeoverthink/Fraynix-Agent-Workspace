@@ -1,0 +1,8 @@
+#inputs100{margin:5px 0 8px;padding:9px 11px;border:1px solid #34504b;border-radius:10px;background:#132523;font-size:12px}
+.inputs100-heading,.inputs100-actions{display:flex;align-items:center;gap:8px;justify-content:space-between}
+#inputs100 p{margin:5px 0;overflow-wrap:anywhere;line-height:1.35}
+#inputs100-status:empty{display:none}#inputs100-status{color:#efc68a}
+#inputs100-controls{margin-top:8px;max-height:220px;overflow:auto}
+#inputs100-controls[hidden]{display:none}
+#inputs100 label{display:block;margin:8px 0 5px}#inputs100 select{display:block;width:100%;margin-top:4px}
+#inputs100 button{font-size:12px;padding:5px 9px}#inputs100 small{display:block;line-height:1.4;margin-top:7px;color:#a6c0b9}

@@ -299,6 +299,7 @@ public final class WorkspaceServer implements AutoCloseable {
                     case "/api/tracking/report" -> {var j=perception.lab().read(input.getString("id"));j.remove("activation");var artifact=store.writeOnce("tracking-report:"+j.getString("id"),TrackingPresentation.report(j,perception.lab()));result=new JSONObject().put("artifact",artifact).put("checks",TrackingPresentation.checks(j));}
 
                     case "/api/creation/source" -> result=Creation.preview(store,input);
+                    case "/api/goals/creation-source100" -> result=goals.creationSource100(input);
                     case "/api/tabletop/state" -> result=tabletop.state();
                     case "/api/tabletop/check" -> result=tabletop.check(input);
                     case "/api/tabletop/start" -> {if(goals.busy())throw new IllegalStateException("Finish the shared goal first");result=tabletop.start(input);}
