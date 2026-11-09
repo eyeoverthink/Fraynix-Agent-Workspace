@@ -1,3 +1,9 @@
+## Edition102 — measurement verified; summary contract under test
+
+2026-11-09 05:02 PST. Baseline cost inspector passed all three completed tasks and15 altered evidence/accounting refusals. Recorded49:201.268s; recorded52:1367.292s including explicit developer-assisted correction after genuine failure; synthetic96 injected display-fault repair:439.746s. Originals, interrupted call and uncertain window retained. Do not describe the second baseline as an unmodified autonomous success.
+
+The separate motion-summary/trace contract is implemented in Java and actual browser observations; source7379e3f3. Final77-method focused Java/install build is running in build/java102-final.log (session12293), desktop135+9 already passed. Templates are now installed, no model summary result yet. Next: actual browser fixtures, two real local-model summary/reuse trials, independent inspection, app screenshots/review, extensive README102/guide, notes/logs and main/edition102/readme102 publication+fetch audit. No runtime changes while a model trial runs. Preserve live data/frozen001–101; no delegation; heavy work serial.
+
 ## Edition102 — genuine failed baseline, assisted recovery verified; control still running
 
 2026-11-09 04:46 PST. Isolated S:/Codex-Work/fraynix-workspace-edition102. First recorded49 task completed201.268s with one actual model draft. Recorded52 preserved data across abrupt restart, then two real drafts failed the frozen text-counter checks; the unchanged600s child budget interrupted a third call. Originals remain in build/baseline102-failure; that call has no completed duration receipt and is an uncertain interval.
