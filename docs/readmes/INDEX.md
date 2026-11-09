@@ -1,3 +1,5 @@
+[Edition 103 — verified implementations with fresh data](../../README-103.md) · [Offline guide](103/index.html)
+
 [Edition102 — measured content procedures](../../README-102.md) · [Offline guide](102/index.html)
 
 [Edition101 — durable data-to-creation](../../README-101.md) · [Offline guide](101/index.html)

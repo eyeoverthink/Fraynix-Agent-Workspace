@@ -1,11 +1,11 @@
 # Fraynix Agent Workspace
 
-Edition102 measures complete local-agent workflows, keeps failures and recovery visible, and adds a verified motion-summary report with source-checked charts and retained procedures. Four of seven measured requests completed; three exhausted their drafts, including changed-input summary reuse. Generation reliability remains a measured limitation.
+Edition103 reuses verified implementations with fresh data and every original source/outcome check. Three requests completed; three incompatible or corrupted candidates were correctly refused. No new content-generation calls were needed in the six measured reuse trials.
 
-[Edition102: measurements, functions, results and next steps](README-102.md) · [Offline guide](docs/readmes/102/index.html) · [Previous edition](README-101.md) · [Contributor direction](README-CONTRIBUTORS.md)
+[Edition103: functions, measurements and next steps](README-103.md) · [Interactive offline guide](docs/readmes/103/index.html) · [Previous edition](README-102.md) · [Contributor direction](README-CONTRIBUTORS.md)
 
 Java owns durable goals, physics, tools, verification and retained procedures. Chat, browser, creation canvas, Game Lab and spatial views share those capabilities.
 
-![Actual motion summary](docs/readmes/102/summary102-1600.png)
+![Actual retained implementation with fresh recorded input](docs/readmes/103/recorded52-restarted-1600.png)
 
-Published to main. [Fetched GitHub verification](docs/PUBLICATION_102.json).
+Publication receipt is added after the actual main/tag push and fetched verification.

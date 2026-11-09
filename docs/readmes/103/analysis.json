@@ -1,0 +1,156 @@
+{
+  "passed": true,
+  "results": [
+    {
+      "name": "recorded52-restarted",
+      "rows": 52,
+      "outcome": "completed",
+      "totalMs": 8877,
+      "browserMs": 1168,
+      "restartMs": 3178,
+      "otherMs": 4531,
+      "generationCalls": 0,
+      "travelM": 0.7264764813766893,
+      "gaps": 0,
+      "speeds": 0,
+      "implementation": "97bd91c320bab679ada51f1b41d9220a8622f3028148099dfb42a9ef49dacc79"
+    },
+    {
+      "name": "synthetic96-descendant",
+      "rows": 96,
+      "outcome": "completed",
+      "totalMs": 7502,
+      "browserMs": 1355,
+      "restartMs": 0,
+      "otherMs": 6147,
+      "generationCalls": 0,
+      "travelM": 0.19000000000000014,
+      "gaps": 0,
+      "speeds": 0,
+      "implementation": "97bd91c320bab679ada51f1b41d9220a8622f3028148099dfb42a9ef49dacc79"
+    },
+    {
+      "name": "synthetic32-flat",
+      "rows": 32,
+      "outcome": "completed",
+      "totalMs": 7113,
+      "browserMs": 1266,
+      "restartMs": 0,
+      "otherMs": 5847,
+      "generationCalls": 0,
+      "travelM": 0,
+      "gaps": 0,
+      "speeds": 0,
+      "implementation": "97bd91c320bab679ada51f1b41d9220a8622f3028148099dfb42a9ef49dacc79"
+    },
+    {
+      "name": "quality-refused",
+      "rows": 32,
+      "outcome": "interrupted",
+      "totalMs": 6140,
+      "browserMs": 1649,
+      "restartMs": 0,
+      "otherMs": 4491,
+      "generationCalls": 0,
+      "travelM": 0,
+      "gaps": 31,
+      "speeds": 0,
+      "implementation": "97bd91c320bab679ada51f1b41d9220a8622f3028148099dfb42a9ef49dacc79"
+    },
+    {
+      "name": "display-fault-refused",
+      "rows": 32,
+      "outcome": "interrupted",
+      "totalMs": 5434,
+      "browserMs": 1261,
+      "restartMs": 0,
+      "otherMs": 4173,
+      "generationCalls": 0,
+      "travelM": 0,
+      "gaps": 0,
+      "speeds": 0,
+      "implementation": "97bd91c320bab679ada51f1b41d9220a8622f3028148099dfb42a9ef49dacc79"
+    },
+    {
+      "name": "summary16-refused",
+      "rows": 16,
+      "outcome": "interrupted",
+      "totalMs": 11680,
+      "browserMs": 7872,
+      "restartMs": 0,
+      "otherMs": 3808,
+      "generationCalls": 0,
+      "travelM": 0.31000000000000005,
+      "gaps": 1,
+      "speeds": 3,
+      "implementation": "42f7b694d78656d103f49e8a0d78c73bd0b7c8e9a32183391b3e4b09783d4a98"
+    }
+  ],
+  "scope": "Recomputed original arithmetic, provenance, exact code, fresh inputs, actual behavior observations, complete table states, refusal causes and cost partition. No model call during reuse. Three verified outputs and three correctly refused candidates, not six successful outputs.",
+  "refusals": [
+    {
+      "name": "source bytes",
+      "refused": true
+    },
+    {
+      "name": "input binding",
+      "refused": true
+    },
+    {
+      "name": "code bytes",
+      "refused": true
+    },
+    {
+      "name": "original receipt",
+      "refused": true
+    },
+    {
+      "name": "missing generation",
+      "refused": true
+    },
+    {
+      "name": "wrong filter",
+      "refused": true
+    },
+    {
+      "name": "hidden table",
+      "refused": true
+    },
+    {
+      "name": "changed data metrics",
+      "refused": true
+    },
+    {
+      "name": "false quality",
+      "refused": true
+    },
+    {
+      "name": "false behavior",
+      "refused": true
+    },
+    {
+      "name": "erased display fault",
+      "refused": true
+    },
+    {
+      "name": "false success",
+      "refused": true
+    },
+    {
+      "name": "missing restart",
+      "refused": true
+    },
+    {
+      "name": "foreign saved skill",
+      "refused": true
+    },
+    {
+      "name": "unlinked descendant",
+      "refused": true
+    },
+    {
+      "name": "erased costs",
+      "refused": true
+    }
+  ]
+}

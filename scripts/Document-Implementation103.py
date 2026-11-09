@@ -23,7 +23,7 @@ for name,count in [('renderer101-103',5),('renderer102-103',11),('diagnostics103
     proof=load('build/'+name+'/result.json');assert proof['passed'] and len(proof['results'])==count
 d.mkdir(parents=True,exist_ok=True)
 js(d/'analysis.json',analysis)
-js(d/'verification.json',{'passed':True,'java':tests,'independentRefusals':analysis['refusals'],'visual':visual,'sourceIdentity':load('build/source-identity103.json'),'build':load('build/study095-build.json'),'parentCI':load('build/ci103-parent.json')})
+js(d/'verification.json',{'passed':True,'java':tests,'independentRefusals':analysis['refusals'],'visual':visual,'sourceIdentity':load('build/source-identity103.json'),'presentationBuild':load('build/study095-build.json'),'presentationComparison':load('build/presentation103-comparison.json'),'measuredSource':'1e2cb6e7','buildScope':'The current build receipt describes the post-cohort presentation review. The measured source is retained in the original trial. Compiled Java artifacts are unchanged; no timing claim is derived from the presentation review.','parentCI':load('build/ci103-parent.json')})
 captions={
  'recorded52-restarted-1600.png':'Actual recorded52 result after abrupt Java interruption, explicit Resume and fresh checks; the saved implementation is unchanged.',
  'synthetic96-descendant-1600.png':'A saved descendant reuses the same code on a new, explicitly synthetic reversal sequence.',
@@ -31,13 +31,17 @@ captions={
  'quality-refused-1600.png':'Fresh stricter criteria reject the old implementation’s fixed quality label.',
  'display-fault-refused-1600.png':'The independent audit refuses a deliberately corrupted displayed cell, despite passing earlier behavior checks.',
  'summary16-refused-1600.png':'The original summary code contains fixed numbers; the changed input is correctly refused.',
- 'reuse103-1100.png':'The actual workspace at1100pixels; the reuse mode remains visible.',
+ 'reuse103-1100.png':'The actual workspace at 1100 pixels; the reuse mode remains visible.',
+ 'refusal103-current.png':'Separate post-cohort UI check: stricter quality criteria refuse reuse; Resume is disabled and Stop remains available. This is outside the six timed trials.',
  'restart103.png':'The actual paused task before deliberate interruption; completed data remains bound.'}
-for name in captions: shutil.copyfile(r/'build/reuse103'/name,d/name)
+for name in captions:
+    current=name in {'recorded52-restarted-1600.png','synthetic96-descendant-1600.png','synthetic32-flat-1600.png','reuse103-1100.png','refusal103-current.png'}
+    shutil.copyfile(r/('build/review103' if current else 'build/reuse103')/name,d/name)
 archive=[]
-roots=['build/reuse103','build/renderer101-103','build/renderer102-103','build/diagnostics103','build/junit103-initial','build/junit103-second','workspace-engine/build/test-results/test']
+roots=['build/reuse103','build/review103','build/renderer101-103','build/renderer102-103','build/diagnostics103','build/junit103-initial','build/junit103-second','workspace-engine/build/test-results/test']
 extras=['build/reuse103-continuation.log','build/reuse103-harness-failure.log','build/reuse103-result-before-harness-fix.json','build/reuse103.log','build/desktop103-additional.log','build/renderer101-103-encoding-failure.log','build/before-encoding103-build.json','build/java103-initial.log','build/java103-final.log','build/java103-verified.log','build/desktop103.log','build/renderer101-103.log','build/renderer102-103.log','build/diagnostics103.log','build/source-identity103.json','build/ci103-parent.json','build/study095-build.json','build/analysis103.json','build/visual-review103.json']
 paths=[]
+extras.extend(['build/review103.cjs','build/review103.log','build/presentation103-comparison.json','build/desktop103-presentation.log'])
 for folder in roots:
     for p in (r/folder).rglob('*'):
         if p.is_file() and not any(k in {'desktop-profile','runtime-042','.northstar-kernel','binary'} for k in p.parts) and not p.name.endswith('.lock'):paths.append(p)
@@ -124,6 +128,10 @@ The16-row summary control reuses the exact hardcoded49-row implementation. It co
 
 A reused candidate receives one checked attempt. A failed behavior or independent audit is retained and interrupts the request. Resume cannot recycle its earlier passing behavior receipt or trigger silent regeneration. Stop the refused task, then explicitly start a separate regeneration request if wanted. The original successful artifact and skill remain unchanged.
 
+The original refusal screenshots above preserve the measured cohort before a later presentation correction. Their enabled Resume button and generic recovery wording did not bypass the Java refusal, but were misleading. The current Mission view now disables Resume for refused reuse and clearly offers Stop followed by a separate regeneration request. The completed-result screenshots were reopened with the current presentation, and this additional stricter-quality UI check confirms the corrected controls. All compiled Java artifacts remain byte-identical; this review is separate from the six timed requests.
+
+![Current refusal controls after the presentation correction](docs/readmes/103/refusal103-current.png)
+
 ## Try it in the application
 
 Use a published data procedure in your own project; the test procedure names below exist in the restored review project, not automatically in unrelated private worlds.
@@ -155,6 +163,8 @@ The next useful step is a genuinely input-driven summary implementation, with a 
 
 The direction remains a local agent that remembers useful verified work, acts through owned tools, observes the result and keeps its evidence across restarts.103 makes that practical for existing creation code. It contributes persistent procedural competence without claiming that changing weights, general intelligence or reliable self-improvement have already been demonstrated.
 '''
+for old,new in [('Edition103','Edition 103'),('Edition102','Edition 102'),('edition103','edition 103'),('the101/102','the 101/102'),('registered101/102','registered 101/102'),('separate103','separate 103'),('into103','into 103'),('the49-row','the 49-row'),('the16-row','the 16-row'),('a96-row','a 96-row'),('a32-row','a 32-row'),('a16-row','a 16-row'),('The recorded52 request','The recorded 52-row request'),('successful49','successful 49'),('hardcoded49','hardcoded 49'),('declared0.05','declared 0.05'),('and5m/s','and 5 m/s'),('stricter0.01','stricter 0.01'),('has0.310000m','has 0.310000 m'),('contains0.775845m','contains 0.775845 m'),('successful regenerated summary.103','successful regenerated summary. Edition 103'),('Java21','Java 21'),('subsequent56-file','subsequent 56-file'),('contains88','contains 88'),('with102','with 102'),('archive.103','archive. Edition 103'),('restarts.103','restarts. Edition 103')]:
+    readme=readme.replace(old,new)
 write(r/'README-103.md',readme)
 write(r/'README.md','# Fraynix Agent Workspace\n\nEdition103 reuses verified implementations with fresh data and every original source/outcome check. Three requests completed; three incompatible or corrupted candidates were correctly refused. No new content-generation calls were needed in the six measured reuse trials.\n\n[Edition103: functions, measurements and next steps](README-103.md) · [Interactive offline guide](docs/readmes/103/index.html) · [Previous edition](README-102.md) · [Contributor direction](README-CONTRIBUTORS.md)\n\nJava owns durable goals, physics, tools, verification and retained procedures. Chat, browser, creation canvas, Game Lab and spatial views share those capabilities.\n\n![Actual retained implementation with fresh recorded input](docs/readmes/103/recorded52-restarted-1600.png)\n\nPublication receipt is added after the actual main/tag push and fetched verification.\n')
 note_text='''# Edition103 — exact code reuse with fresh evidence

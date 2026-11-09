@@ -1,0 +1,32 @@
+{
+  "nodes": [
+    {
+      "id": "request",
+      "type": "file",
+      "file": "README-103.md",
+      "x": 0,
+      "y": 0,
+      "width": 500,
+      "height": 320
+    },
+    {
+      "id": "memory",
+      "type": "file",
+      "file": "docs/obsidian/111-verified-implementation-reuse.md",
+      "x": 580,
+      "y": 0,
+      "width": 500,
+      "height": 320
+    }
+  ],
+  "edges": [
+    {
+      "id": "verified-link",
+      "fromNode": "request",
+      "fromSide": "right",
+      "toNode": "memory",
+      "toSide": "left",
+      "label": "retain exact implementation, verify new outcomes"
+    }
+  ]
+}

@@ -1,0 +1,92 @@
+{
+  "modules": [
+    {
+      "id": "chat",
+      "name": "Request and selected input",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/Domain044.java",
+      "note": "docs/obsidian/111-verified-implementation-reuse.md"
+    },
+    {
+      "id": "parent",
+      "name": "Durable workflow and ancestry",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/WorkflowRunner.java",
+      "note": "docs/obsidian/111-verified-implementation-reuse.md"
+    },
+    {
+      "id": "binding",
+      "name": "Exact implementation identity",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/Implementation103.java",
+      "note": "docs/obsidian/111-verified-implementation-reuse.md"
+    },
+    {
+      "id": "child",
+      "name": "Fresh content task",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/GoalRunner.java",
+      "note": "docs/obsidian/111-verified-implementation-reuse.md"
+    },
+    {
+      "id": "audit",
+      "name": "Unchanged source/outcome verifier",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/DataSummary102.java",
+      "note": "docs/obsidian/111-verified-implementation-reuse.md"
+    },
+    {
+      "id": "inspection",
+      "name": "Independent complete measurements",
+      "source": "scripts/Inspect-Implementation103.cjs",
+      "note": "docs/obsidian/111-verified-implementation-reuse.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "docs/readmes/103/recorded52-restarted-1600.png",
+      "caption": "Actual recorded52 result after abrupt Java interruption, explicit Resume and fresh checks; the saved implementation is unchanged."
+    },
+    {
+      "path": "docs/readmes/103/synthetic96-descendant-1600.png",
+      "caption": "A saved descendant reuses the same code on a new, explicitly synthetic reversal sequence."
+    },
+    {
+      "path": "docs/readmes/103/synthetic32-flat-1600.png",
+      "caption": "A new flat synthetic sequence passes with all source rows checked."
+    },
+    {
+      "path": "docs/readmes/103/quality-refused-1600.png",
+      "caption": "Fresh stricter criteria reject the old implementation’s fixed quality label."
+    },
+    {
+      "path": "docs/readmes/103/display-fault-refused-1600.png",
+      "caption": "The independent audit refuses a deliberately corrupted displayed cell, despite passing earlier behavior checks."
+    },
+    {
+      "path": "docs/readmes/103/summary16-refused-1600.png",
+      "caption": "The original summary code contains fixed numbers; the changed input is correctly refused."
+    },
+    {
+      "path": "docs/readmes/103/reuse103-1100.png",
+      "caption": "The actual workspace at 1100 pixels; the reuse mode remains visible."
+    },
+    {
+      "path": "docs/readmes/103/refusal103-current.png",
+      "caption": "Separate post-cohort UI check: stricter quality criteria refuse reuse; Resume is disabled and Stop remains available. This is outside the six timed trials."
+    },
+    {
+      "path": "docs/readmes/103/restart103.png",
+      "caption": "The actual paused task before deliberate interruption; completed data remains bound."
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/readmes/103/analysis.json",
+      "caption": "analysis.json"
+    },
+    {
+      "path": "docs/readmes/103/verification.json",
+      "caption": "verification.json"
+    },
+    {
+      "path": "docs/readmes/103/original-evidence.json",
+      "caption": "original-evidence.json"
+    }
+  ]
+}
