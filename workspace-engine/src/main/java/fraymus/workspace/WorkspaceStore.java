@@ -141,8 +141,8 @@ public final class WorkspaceStore implements AutoCloseable {
         JSONObject proof=new JSONObject(args.toString()).put("at",Instant.now().toString());
         if(proof.getJSONArray("checks").isEmpty())throw new IllegalArgumentException("A test needs actual assertions");
         boolean passed=proof.getJSONArray("checks").toList().stream().allMatch(x->Boolean.TRUE.equals(((Map<?,?>)x).get("passed")));
-        proof.put("passed",passed);String key=artifact.getString("id")+":"+artifact.getInt("version");tests.put(key,proof);
-        atomic(root.resolve("receipts").resolve(key.replace(':','-')+".json"),proof.toString(2));event("artifact_tested",proof);return proof;
+        proof.put("passed",passed);String key=artifact.getString("id")+":"+artifact.getInt("version");
+        atomic(root.resolve("receipts").resolve(key.replace(':','-')+".json"),proof.toString(2));tests.put(key,proof);event("artifact_tested",proof);return proof;
     }
     public synchronized JSONObject saveSkill(JSONObject args) throws IOException {
         JSONObject artifact=read(args.getString("id"));JSONObject proof=artifact.optJSONObject("test");
