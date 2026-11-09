@@ -501,6 +501,7 @@ public final class GoalRunner implements AutoCloseable {
     }
     synchronized void releaseWorkflow(String id){if(workflowReservation.equals(id))workflowReservation="";}
     synchronized JSONObject findOwned(String owner,String stage){for(var g:values("goal"))if(g.optString("workflowId").equals(owner)&&g.optString("workflowStage").equals(stage))return view(g);return null;}
+    synchronized boolean busyExceptWorkflow101(String owner){return activeSummary()!=null||procedures079.busy()||counterfactual045.busy()||(!workflowReservation.isEmpty()&&!workflowReservation.equals(owner));}
     public synchronized boolean workflowReserved(){return !workflowReservation.isEmpty();}
     synchronized void workflowCapacity(){if(closed||busy()||values("goal").size()>61)throw new IllegalStateException("A workflow needs an idle runner and room for three goals");}
     synchronized JSONObject startOwned(String owner,String stage,JSONObject input) throws Exception {

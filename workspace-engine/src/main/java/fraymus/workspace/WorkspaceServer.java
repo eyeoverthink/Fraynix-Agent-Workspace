@@ -98,7 +98,7 @@ public final class WorkspaceServer implements AutoCloseable {
                         case "/api/agency043/frame"->agency.frame(input);
                         case "/api/agency043/ack"->agency.acknowledge(input);
                         case "/api/agency043/abort"->agency.abort(input);
-                        case "/api/agency043/control"->agency.control(input.getString("id"),input.getString("action"));
+                        case "/api/agency043/control"->{String taskId=input.getString("id");yield agency.control(taskId,input.getString("action"),()->resumeBusy101(taskId));}
                         case "/api/agency043/models"->visionModels043();
                         case "/api/agency043/image"->new JSONObject().put("id",input.getString("id")).put("jpeg",agency.visual.thumbnail(input.getString("id"),960));
                         case "/api/agency043/report"->new JSONObject().put("artifact",agency.report(input.getString("id")));
@@ -642,7 +642,9 @@ public final class WorkspaceServer implements AutoCloseable {
         }
         return agency.start(input);
     }
-    private boolean sharedBusy043(){try{return knowledge.state().getJSONArray("jobs").toList().stream().anyMatch(raw->"running".equals(((java.util.Map<?,?>)raw).get("status")))||goals.busy()||memory074.busy()||memory075.busy()||procedures076.busy()||procedures077.busy()||procedures078.busy()||brain.state().getBoolean("busy")||!workflowsIdle042()||requests.keySet().stream().anyMatch(id->!durableRequests043.contains(id));}catch(Exception e){return true;}}
+    private boolean sharedBusy043(){return sharedBusy043("");}
+    private boolean resumeBusy101(String taskId){try{String owner=agency.resumeWorkflow101(taskId);if(!owner.isEmpty()&&workflows.read(owner).getString("status").equals("interrupted"))return sharedBusy043(owner);return sharedBusy043();}catch(Exception e){return true;}}
+    private boolean sharedBusy043(String resumeOwner){try{return knowledge.state().getJSONArray("jobs").toList().stream().anyMatch(raw->"running".equals(((java.util.Map<?,?>)raw).get("status")))||(resumeOwner.isEmpty()?goals.busy():goals.busyExceptWorkflow101(resumeOwner))||memory074.busy()||memory075.busy()||procedures076.busy()||procedures077.busy()||procedures078.busy()||brain.state().getBoolean("busy")||!workflowsIdle042()||requests.keySet().stream().anyMatch(id->!durableRequests043.contains(id));}catch(Exception e){return true;}}
     // The authenticated interface may continue an already-started observation. Native stores
     // still require the exact running id, camera/generation, sequence and original pixel hash.
     // This grants no capture-start, annotation, evaluation or physical-action authority.

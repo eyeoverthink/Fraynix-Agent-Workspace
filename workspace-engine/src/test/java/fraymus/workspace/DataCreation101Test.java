@@ -8,6 +8,18 @@ import java.util.*;
 
 /** Software lifecycle controls. Host receipts are fixtures; real Chromium/model trials are separate. */
 public class DataCreation101Test {
+    @Test public void ownPausedReservationDoesNotHideOtherWorkAndChatStopCancelsIt()throws Exception {
+        try(var f=new WorkflowTest.Fixture(Files.createTempDirectory("data101-owned-resume"))){var id=f.workflows.start(input(f,f.source("t,x\n0,0\n1,2\n")).put("reviewAfterData101",true)).getString("id");
+            for(int i=0;i<300;i++){var e=f.goals.claim();if(e.has("id"))WorkflowTest.hostFixture(f,e);if(f.workflows.read(id).getString("status").equals("interrupted"))break;Thread.sleep(20);}
+            assertEquals("interrupted",f.workflows.read(id).getString("status"));assertTrue(f.goals.busy());assertFalse(f.goals.busyExceptWorkflow101(id));assertTrue(f.goals.busyExceptWorkflow101(UUID.randomUUID().toString()));
+            try(var chat=new Agency043Test.Fixture(request->{throw new AssertionError("No model needed for control fixture");})){
+                var task=chat.start("Explicit paused ownership boundary fixture","workbench");chat.agency.install044(new Domain044((route,args)->{if(route.equals("/api/workflows/cancel"))return f.workflows.cancel(args.getString("id"));return new JSONObject();},chat.store));
+                var method=Agency043.class.getDeclaredMethod("task",String.class);method.setAccessible(true);var raw=(JSONObject)method.invoke(chat.agency,task.getString("id"));raw.put("status","interrupted").put("family044","workflow").put("context044",new JSONObject().put("ownedWorkflowId",id));
+                assertEquals(id,chat.agency.resumeWorkflow101(task.getString("id")));assertThrows(IllegalStateException.class,()->chat.agency.control(task.getString("id"),"resume",()->true));assertEquals("interrupted",chat.agency.read(task.getString("id")).getString("status"));
+                chat.agency.control(task.getString("id"),"cancel");assertEquals("cancelled",f.workflows.read(id).getString("status"));assertFalse(f.goals.workflowReserved());assertEquals(0,f.goals.procedures().length());
+            }
+        }
+    }
     @Test public void chatBootstrapBindsFreshInputCriteriaAndWholeSkill()throws Exception {
         try(var s=new WorkspaceStore(Files.createTempDirectory("data101-chat"))){
             var g=Domain044Test.task("workflow").put("goal","Analyze data and create an explorer with gap limit 0.02 seconds and speed limit 0.4 m/s; save workflow as whole-one; review after data")

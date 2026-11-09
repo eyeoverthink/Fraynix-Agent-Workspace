@@ -13,6 +13,8 @@
 
 The reviewer confirmed the overall separation: existing Java supervisor, stable owned children, immutable input lineage, actual browser observations, Java verdicts and fresh-input checks on reuse. The final test/readme records identify which executions actually passed and retain failed attempts.
 
+The subsequent real app run reached the requested data/creation pause and preserved the completed data child across an abrupt Java restart. It then exposed a separate integration defect: the chat resume guard treated its own workflow reservation as unrelated busy work. The correction exempts only the interrupted workflow recorded in the task's trusted Java context; other goals, workflows, studies, inference and brain work remain blocking. Stopping an interrupted chat task now also cancels its owned workflow. This finding came from execution, not from the independent reviewer. The original failed recording is retained alongside recovery results.
+
 ## Boundaries and follow-up
 
 The visibility check uses DOM geometry and ancestor styles. It is not pixel-level proof against opaque overlays, clipped ancestors, deceptive contrast or every accessibility defect. Screenshots receive a separate human-readable review. This release does not claim unrestricted visual verification.
