@@ -3,11 +3,11 @@
 const {launch}=require('./calibration-integration.cjs'),fs=require('node:fs/promises'),sync=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict'),cp=require('node:child_process');
 const repo=path.resolve(__dirname,'../..'),out=path.resolve(repo,process.env.EDITION102_OUT||'build/cost102-baseline'),project=path.join(out,'project'),sleep=ms=>new Promise(r=>setTimeout(r,ms));
 async function main(){
- assert(!sync.existsSync(project),'Keep original attempts; choose a fresh output');await fs.mkdir(project,{recursive:true});
+ const continued=process.env.EDITION102_CONTINUE==='1';assert(continued?sync.existsSync(path.join(out,'result.json')):!sync.existsSync(project),'Keep original attempts; choose a fresh output');await fs.mkdir(project,{recursive:true});
  Object.assign(process.env,{FRAYNIX_WORKSPACE_PERSISTENT:'0',FRAYNIX_WORKSPACE_PLAN_CPU_ONLY:'1',FRAYNIX_WORKSPACE_JAVA_HEAP_MIB:'512',FRAYNIX_WORKSPACE_JAVA_PROCESSORS:'2'});
  require('../../scripts/Study-Build095.cjs').verify(repo);
- const record={source:cp.execFileSync('git',['rev-parse','HEAD'],{cwd:repo,encoding:'utf8'}).trim(),startedAt:new Date().toISOString(),project,tasks:[],hostSpans:[],injections:[],errors:[],captures:[],scope:'Actual serial local-model workflows. Recorded and synthetic inputs identified separately. Rendered-cell corruption is an explicit test intervention, not a spontaneous model error. Timings include instrumentation and polling.'};
- let app,page,session=0;const save=()=>fs.writeFile(path.join(out,'result.json'),JSON.stringify(record,null,2));
+ let record={source:cp.execFileSync('git',['rev-parse','HEAD'],{cwd:repo,encoding:'utf8'}).trim(),startedAt:new Date().toISOString(),project,tasks:[],hostSpans:[],injections:[],errors:[],captures:[],scope:'Actual serial local-model workflows. Recorded and synthetic inputs identified separately. Rendered-cell corruption is an explicit test intervention, not a spontaneous model error. Timings include instrumentation and polling.'};
+ if(continued){const source=record.source;record=JSON.parse(await fs.readFile(path.join(out,'result.json'),'utf8'));assert.equal(record.tasks.length,1);assert.equal(record.tasks[0].workflow.status,'completed');record.previousFailure={file:'result.json',error:record.error};delete record.error;record.resumeSource=source;}let app,page,session=continued?Math.max(0,...record.hostSpans.map(s=>s.session))+1:0;const save=()=>fs.writeFile(path.join(out,continued?'result-resumed.json':'result.json'),JSON.stringify(record,null,2));
  const api=(route,args={})=>app.evaluate((_,x)=>global.workspaceTest.api(x.route,x.args),{route,args});
  const request=(operation,command,args={})=>page.evaluate(x=>window.workspace.request(x),{operation,command,args});
  async function open(){({app,page}=await launch(project));session++;page.on('pageerror',e=>record.errors.push(e.message));await app.evaluate(({BrowserWindow},{session,surfacePath})=>{
@@ -34,11 +34,12 @@ async function main(){
   const jobs=JSON.parse(await fs.readFile(path.join(project,'creation-044/requests.json'),'utf8')).data.jobs;row.generation=jobs.filter(j=>j.goalId===row.children[1].id);assert(row.generation.length);assert(row.generation.every(j=>j.model?.digest&&j.compute?.cpuOnly&&j.timings102?.length));
   if(row.restart)assert.equal(row.children[0].id,row.boundary.stages[0].goalId);
   await flush();if(row.corruption){assert(record.injections.some(x=>x.at>=row.start&&x.at<=row.end));assert(row.workflow.auditHistory.some(x=>!x.passed));assert(row.children[1].draftNumber>=2);}
-  await request('agency043','mission-open',{id:row.id});await sleep(300);await capture(row.name+'.png');await save();
+  await page.waitForFunction(()=>!document.querySelector('#run').disabled,{},{timeout:45000});await request('agency043','mission-open',{id:row.id});await sleep(300);await capture(row.name+'.png');await save();
  }
  try{record.model=(await(await fetch('http://127.0.0.1:11434/api/tags')).json()).models.find(x=>x.name==='gpt-oss:20b');assert(record.model);await open();
-  const validation=await importData('Recorded validation102',await fs.readFile(path.join(repo,'docs/datasets/delfys75-013/validation.csv'),'utf8'));
+  if(!continued){const validation=await importData('Recorded validation102',await fs.readFile(path.join(repo,'docs/datasets/delfys75-013/validation.csv'),'utf8'));
   await run({name:'recorded49',source:validation,prompt:'Analyze the selected dataset, create a verified data explorer and save the whole workflow as cost-explorer102. Use gap limit 0.05 seconds and speed limit 5 m/s.'});
+  }else{const saved=await api('/api/workflows/read',{id:record.tasks[0].workflow.id});assert.equal(saved.status,'completed');assert.deepEqual(saved.savedSkill,record.tasks[0].workflow.savedSkill);await capture('recorded49-reopened.png');}
   const training=await importData('Recorded training102',await fs.readFile(path.join(repo,'docs/datasets/delfys75-013/training.csv'),'utf8'));
   await run({name:'recorded52-restart',source:training,restart:true,prompt:'Reuse cost-explorer102 version 1 on the selected dataset with gap limit 0.02 seconds and speed limit 0.4 m/s. Verify the whole data-to-creation workflow. Review after data.'});
   let time=0,x=0;const rows=['time_s,displacement_m'];for(let i=0;i<96;i++){if(i){time+=i%17===0?.65:.05;x+=i%24<8?.008:i%24<16?0:-.013;}rows.push(time.toFixed(5)+','+x.toFixed(5));}
