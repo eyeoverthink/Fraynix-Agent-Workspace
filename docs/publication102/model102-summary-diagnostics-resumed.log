@@ -1,0 +1,13 @@
+AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+
+0 !== 1
+
+    at run (S:\Codex-Work\fraynix-workspace-edition102\workspace-desktop\test\data-summary102-integration.cjs:31:434)
+    at async main (S:\Codex-Work\fraynix-workspace-edition102\workspace-desktop\test\data-summary102-integration.cjs:42:15) {
+  generatedMessage: true,
+  code: 'ERR_ASSERTION',
+  actual: 0,
+  expected: 1,
+  operator: 'strictEqual',
+  diff: 'simple'
+}

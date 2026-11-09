@@ -1,0 +1,12 @@
+summary49: queued Owned native task interrupted: Owned creation stage stopped: Execution stopped: Goal exceeded its saved attempt time budget. Review and Resume; no failed result is a saved skill.. Review and explicitly Resume or Stop the workflow.
+summary49: waiting-native Explicit resume reuses verified completed stages and the same owned child intent
+summary49: waiting-native Generated behavior passed; independent visible rows and filter-state audit is next
+summary49: completed Java completion gates passed
+summary16-reuse: waiting-host Waiting for actual surface: workflow.reuse
+summary16-reuse: waiting-native Saved data intent before starting its stable owned child
+summary16-reuse: waiting-native Saved creation intent before starting its stable owned child
+summary16-reuse: interrupted Owned native task interrupted: Owned creation stage stopped: Execution stopped: Goal exceeded its saved attempt time budget. Review and Resume; no failed result is a saved skill.. Review and explicitly Resume or Stop the workflow.
+Error: interrupted Owned native task interrupted: Owned creation stage stopped: Execution stopped: Goal exceeded its saved attempt time budget. Review and Resume; no failed result is a saved skill.. Review and explicitly Resume or Stop the workflow.
+    at wait (S:\Codex-Work\fraynix-workspace-edition102\workspace-desktop\test\data-summary102-integration.cjs:27:376)
+    at async run (S:\Codex-Work\fraynix-workspace-edition102\workspace-desktop\test\data-summary102-integration.cjs:35:3)
+    at async main (S:\Codex-Work\fraynix-workspace-edition102\workspace-desktop\test\data-summary102-integration.cjs:51:3)

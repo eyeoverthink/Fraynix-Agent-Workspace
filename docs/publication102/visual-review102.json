@@ -1,0 +1,17 @@
+{
+  "passed": true,
+  "scope": "Human-visible inspection of actual local app captures, separate from numerical verification. Passing this review does not mean every measured workflow succeeded.",
+  "checked": [
+    "1600px and1100px verified49-row report: all six metrics, complete plotted line and both units labels are readable after ordinary scrolling; matching completed Mission and chat controls remain visible.",
+    "Refused16-row report: TESTS FAILED badge, actual wrong0.160000m travel, quality flags and interrupted Mission explaining three failed drafts are visible. It is not captioned as successful reuse.",
+    "Input chooser: both registered output options remain available; selected summary prepares the composer without submitting a task. The expanded chooser temporarily occupies the chat area and can be closed.",
+    "96-row explorer: displayed source rows, quality flags, matching completed Mission, two content drafts and actual model completion message are visible. The earlier mismatched Mission capture is retained separately."
+  ],
+  "limits": [
+    "The narrow view uses wrapping controls and scrollable content. Not all source rows or every panel is simultaneously visible.",
+    "Summary frames are intentionally scrolled to show the complete trace and axes; the report header and filter may lie above the viewport.",
+    "A separate copied project was used to stop the exhausted task for reviewing older output. Original measured project and failure results remain unchanged.",
+    "No pixel-visibility guarantee for arbitrary generated overlays or clipping is inferred."
+  ],
+  "files": ["review102/summary102-1600.png", "review102/summary102-1100.png", "review102/refused102-1600.png", "review102/inputs102-1600.png", "review-baseline102/repaired102-1600.png"]
+}

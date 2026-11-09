@@ -1,0 +1,246 @@
+{
+  "passed": true,
+  "results": [
+    {
+      "input": "summary49",
+      "rows": 49,
+      "cost": {
+        "elapsedMs": 1139873,
+        "exclusiveMs": {
+          "pause-restart": 161536,
+          "generation": 964388,
+          "unfinished-generation-window": 0,
+          "browser-verification": 5152,
+          "coordination-and-other": 8797
+        },
+        "crossCategoryOverlapMs": 0,
+        "scope": "Priority pause/restart, then generation, then browser verification; remaining time includes Java computation, persistence, scheduling and harness polling. Stage durations overlap these categories and are not added.",
+        "attempts": [
+          {
+            "jobId": "8531926f-dbfd-4b1e-b7f6-cedc588c9bc9",
+            "draft": 1,
+            "attempt": 1,
+            "status": "failed",
+            "elapsedMs": 312813.9348,
+            "rejected": true
+          },
+          {
+            "jobId": "8531926f-dbfd-4b1e-b7f6-cedc588c9bc9",
+            "draft": 1,
+            "attempt": 2,
+            "status": "returned",
+            "elapsedMs": 283677.4668,
+            "rejected": false
+          },
+          {
+            "jobId": "9887eff1-c1e3-4ee8-81ec-ae1e3aa9e430",
+            "draft": 2,
+            "attempt": 1,
+            "status": "returned",
+            "elapsedMs": 367888.9131,
+            "rejected": false
+          }
+        ],
+        "stageWall": {
+          "data": {
+            "wallMs": 487,
+            "scope": "Includes waits, generation, checks and recovery within this child; overlaps exclusive task costs."
+          },
+          "creation": {
+            "wallMs": 1136712,
+            "scope": "Includes waits, generation, checks and recovery within this child; overlaps exclusive task costs."
+          }
+        },
+        "drafts": 2,
+        "failedBehaviorDrafts": 1,
+        "failedAudits": 0,
+        "knownFailedDraftGenerationMs": 596491.4016,
+        "failedDraftUnfinishedWindowMs": 0,
+        "failedCostScope": "Known failed calls are a subset of known generation, not an extra charge. Unfinished windows are separately labelled and are not completed compute. Browser category includes actual canvas checks and reads. Wall generation intervals include their start-checkpoint write; monotonic call durations are shown separately.",
+        "resumes": 1
+      },
+      "completeMillis": 1139873,
+      "gapFlags": 0,
+      "speedFlags": 0,
+      "travelM": 0.7758452762255914,
+      "modelGenerationJobs": 2,
+      "drafts": 2,
+      "sourceSha256": "591c0cb5e7b1755dce0e9e415ed0766840a9e74021effca78a45c1ae9e59b4c8"
+    },
+    {
+      "input": "summary16-reuse",
+      "outcome": "failed-exhausted / assisted",
+      "rows": 16,
+      "cost": {
+        "elapsedMs": 3927334,
+        "exclusiveMs": {
+          "pause-restart": 1692506,
+          "generation": 1542157,
+          "unfinished-generation-window": 679765,
+          "browser-verification": 5054,
+          "coordination-and-other": 7852
+        },
+        "crossCategoryOverlapMs": 0,
+        "scope": "Priority pause/restart, then generation, then browser verification; remaining time includes Java computation, persistence, scheduling and harness polling. Stage durations overlap these categories and are not added.",
+        "attempts": [
+          {
+            "jobId": "628726ea-8281-46b7-a50c-2dcebdcf33ea",
+            "draft": 1,
+            "attempt": 1,
+            "status": "failed",
+            "elapsedMs": 322459.5973,
+            "rejected": true
+          },
+          {
+            "jobId": "628726ea-8281-46b7-a50c-2dcebdcf33ea",
+            "draft": 1,
+            "attempt": 2,
+            "status": "unfinished",
+            "elapsedMs": null,
+            "observedWindowMs": 276557,
+            "scope": "Original budget failure ended this owned process; incomplete generation has no known duration."
+          },
+          {
+            "jobId": "990a286f-8653-4dc6-a99e-6989a58d0b8d",
+            "draft": 1,
+            "attempt": 1,
+            "status": "returned",
+            "elapsedMs": 377167.2168,
+            "rejected": false
+          },
+          {
+            "jobId": "66db67f6-6e21-4269-997e-8207da3faac9",
+            "draft": 2,
+            "attempt": 1,
+            "status": "unfinished",
+            "elapsedMs": null,
+            "observedWindowMs": 220425,
+            "scope": "Second reuse attempt reached the unchanged child deadline; unfinished repair remains unknown."
+          },
+          {
+            "jobId": "884ecd67-814d-4b32-b99c-87ca108b83f5",
+            "draft": 2,
+            "attempt": 1,
+            "status": "returned",
+            "elapsedMs": 414787.0885,
+            "rejected": false
+          },
+          {
+            "jobId": "96614b5c-6b0a-44b4-80c1-250ab8c3d371",
+            "draft": 3,
+            "attempt": 1,
+            "status": "unfinished",
+            "elapsedMs": null,
+            "observedWindowMs": 182783,
+            "scope": "Third reuse attempt reached the unchanged child deadline; unfinished repair remains unknown."
+          },
+          {
+            "jobId": "e121ebc2-52cf-4a31-bc87-f41cf9789a32",
+            "draft": 3,
+            "attempt": 1,
+            "status": "returned",
+            "elapsedMs": 427724.8663,
+            "rejected": false
+          }
+        ],
+        "stageWall": {
+          "data": {
+            "wallMs": 679,
+            "scope": "Includes waits, generation, checks and recovery within this child; overlaps exclusive task costs."
+          },
+          "creation": {
+            "wallMs": 3925099,
+            "scope": "Includes waits, generation, checks and recovery within this child; overlaps exclusive task costs."
+          }
+        },
+        "drafts": 3,
+        "failedBehaviorDrafts": 3,
+        "failedAudits": 0,
+        "knownFailedDraftGenerationMs": 1542138.7689,
+        "failedDraftUnfinishedWindowMs": 679765,
+        "failedCostScope": "Known failed calls are a subset of known generation, not an extra charge. Unfinished windows are separately labelled and are not completed compute. Browser category includes actual canvas checks and reads. Wall generation intervals include their start-checkpoint write; monotonic call durations are shown separately.",
+        "resumes": 3
+      },
+      "completeMillis": 3927334,
+      "drafts": 3,
+      "modelGenerationJobs": 6,
+      "sourceSha256": "3b108ef4bc62a5d4c3a30b18d736b5b03cedffc4c658205ed21a4907dc9e9700"
+    }
+  ],
+  "firstScope": "ONLY the first completed49-row request is verified here. The second request remains exhausted and is inspected separately. Independent original recorded CSV arithmetic, full source lineage, actual browser cells in four states, model compute receipts and restart/reuse identities. Exclusive costs cover every caller millisecond, union nested spans and retain rejected attempts. Full-source summary and actual SVG points independently reconstructed in all four filter states. Not a matched speed comparison.",
+  "refusals": [
+    {
+      "name": "source changed",
+      "refused": true
+    },
+    {
+      "name": "wrong summary",
+      "refused": true
+    },
+    {
+      "name": "wrong point",
+      "refused": true
+    },
+    {
+      "name": "wrong units",
+      "refused": true
+    },
+    {
+      "name": "hidden trace",
+      "refused": true
+    },
+    {
+      "name": "missing point",
+      "refused": true
+    },
+    {
+      "name": "filtered summary",
+      "refused": true
+    },
+    {
+      "name": "wrong table",
+      "refused": true
+    },
+    {
+      "name": "omitted generation",
+      "refused": true
+    },
+    {
+      "name": "foreign retained skill",
+      "refused": true
+    },
+    {
+      "name": "invented reuse success",
+      "refused": true
+    },
+    {
+      "name": "new skill invented",
+      "refused": true
+    },
+    {
+      "name": "generation omitted",
+      "refused": true
+    },
+    {
+      "name": "unfinished call erased",
+      "refused": true
+    },
+    {
+      "name": "passing draft invented",
+      "refused": true
+    },
+    {
+      "name": "final code replaced",
+      "refused": true
+    },
+    {
+      "name": "source changed",
+      "refused": true
+    },
+    {
+      "name": "recovery cost shortened",
+      "refused": true
+    }
+  ],
+  "scope": "Independent validation of one completed report and one exhausted changed-source reuse. Passing this inspection does NOT mean the reuse succeeded. All original sources, failed outputs, jobs, pauses and unknown windows are checked."
+}
