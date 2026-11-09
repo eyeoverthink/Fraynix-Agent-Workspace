@@ -1,0 +1,80 @@
+{
+  "modules": [
+    {
+      "id": "policy",
+      "name": "Current task benefit",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/TaskCost098.java",
+      "note": "docs/obsidian/106-benefit-selection.md"
+    },
+    {
+      "id": "runtime",
+      "name": "Java execution and original verification",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/WorldProcedure079.java",
+      "note": "docs/obsidian/106-benefit-selection.md"
+    },
+    {
+      "id": "study",
+      "name": "Matched app tasks",
+      "source": "workspace-desktop/test/benefit098-integration.cjs",
+      "note": "docs/obsidian/106-benefit-selection.md"
+    },
+    {
+      "id": "inspect",
+      "name": "Independent original checks",
+      "source": "scripts/Inspect-Procedures098.cjs",
+      "note": "docs/obsidian/106-benefit-selection.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "docs/readmes/098/eval-short-adaptive-1600.png",
+      "caption": "Actual098 eval-short-adaptive-1600.png"
+    },
+    {
+      "path": "docs/readmes/098/eval-short-adaptive-1100.png",
+      "caption": "Actual098 eval-short-adaptive-1100.png"
+    },
+    {
+      "path": "docs/readmes/098/eval-long-adaptive-1600.png",
+      "caption": "Actual098 eval-long-adaptive-1600.png"
+    },
+    {
+      "path": "docs/readmes/098/eval-long-adaptive-1100.png",
+      "caption": "Actual098 eval-long-adaptive-1100.png"
+    },
+    {
+      "path": "docs/readmes/098/eval-short-save-adaptive-1600.png",
+      "caption": "Actual098 eval-short-save-adaptive-1600.png"
+    },
+    {
+      "path": "docs/readmes/098/eval-short-save-adaptive-1100.png",
+      "caption": "Actual098 eval-short-save-adaptive-1100.png"
+    },
+    {
+      "path": "docs/readmes/098/eval-long-recover-adaptive-1600.png",
+      "caption": "Actual098 eval-long-recover-adaptive-1600.png"
+    },
+    {
+      "path": "docs/readmes/098/eval-long-recover-adaptive-1100.png",
+      "caption": "Actual098 eval-long-recover-adaptive-1100.png"
+    },
+    {
+      "path": "docs/readmes/098/motion-detail-1600.png",
+      "caption": "Actual098 motion-detail-1600.png"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/readmes/098/analysis.json",
+      "caption": "analysis.json"
+    },
+    {
+      "path": "docs/readmes/098/verification.json",
+      "caption": "verification.json"
+    },
+    {
+      "path": "docs/readmes/098/original-evidence.json",
+      "caption": "original-evidence.json"
+    }
+  ]
+}

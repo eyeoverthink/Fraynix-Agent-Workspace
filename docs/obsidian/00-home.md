@@ -1,3 +1,5 @@
+[[README-098.md|Edition098 — benefit-aware memory]] · [[docs/obsidian/106-benefit-selection.md]]
+
 [[README-097.md|Edition097 — continuing-world costs]] · [[docs/obsidian/105-continuing-costs.md]]
 
 [[README-096.md|Edition096 — full verification]] · [[docs/obsidian/104-full-verification.md]]

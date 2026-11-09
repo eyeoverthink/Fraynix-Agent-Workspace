@@ -1,3 +1,9 @@
+## Edition098 — locally verified; publication pending
+
+Default adaptive requests now require evidence that remembered procedures repay their extra work. 12/12 fresh evaluation tasks completed, with 3 explicit recoveries and 3 saved skills.
+
+Native sourcef2fe986842242d238b9674a197c3b4385149c262; isolated S:/Codex-Work/fraynix-workspace-edition098. 38 original tasks independently inspected; 11 altered-evidence refusals. See README098 for actual comparative costs, conservative allowances and limits. Current parent CI attempt 2: in_progress/None; original HTTP504 failure retained. Keep Java ownership, every source/outcome check, private live data and frozen001–097. No subagents; heavy work serial. Main/tag publication and fetched receipt still pending.
+
 ## Edition098 — automatic benefit gate; native validation running
 
 Work only in S:/Codex-Work/fraynix-workspace-edition098, branch edition098. Parent29129e6f; native cohort sourcef2fe9868. TaskCost098 and WorldProcedure079 connect default adaptive selection to verified complete-task calibration, current translation/rotation coverage and decision/audit cost allowances. Explicit simple/memory controls and every native/report/commit check remain. Final focused Java run passed90 methods. Source isolation passed. Current build receipt: build/study095-build.json. Native test process is running serially; read build/native098.log and build/ui098-study/checkpoint.json. Do not rebuild or change production sources while it runs. No098 publication yet. Preserve live045/qa046/private data and frozen001–097; no subagents.

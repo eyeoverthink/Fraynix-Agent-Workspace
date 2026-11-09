@@ -1,3 +1,9 @@
+## Edition098 — locally verified; publication pending
+
+Default adaptive requests now require evidence that remembered procedures repay their extra work. 12/12 fresh evaluation tasks completed, with 3 explicit recoveries and 3 saved skills.
+
+Native sourcef2fe986842242d238b9674a197c3b4385149c262; isolated S:/Codex-Work/fraynix-workspace-edition098. 38 original tasks independently inspected; 11 altered-evidence refusals. See README098 for actual comparative costs, conservative allowances and limits. Current parent CI attempt 2: in_progress/None; original HTTP504 failure retained. Keep Java ownership, every source/outcome check, private live data and frozen001–097. No subagents; heavy work serial. Main/tag publication and fetched receipt still pending.
+
 ## Edition097 — published and fetched back
 
 Published release ea96b4de40961cd0fea6123b3dcb5ae7b14986c0; annotated readme-097 tag object c7d239f600981c70f357c681387387d56683e4ef. Actual main/edition097/tag push fetched and verified: 1288 canonical sources, 28611 frozen hashes across97 editions and 1244 logical original archive entries. [Publication receipt](docs/PUBLICATION_097.json).
@@ -22,7 +28,7 @@ The user prefers owned Java algorithms and transparent processing over outsourci
 
 The Java successor is [eyeoverthink/Fraynix-Agent-Workspace](https://github.com/eyeoverthink/Fraynix-Agent-Workspace), derived from the separate Studio. The old Chandra-workspace publication instruction belongs to another application. Do not relocate this system into Chandra or push it to a former component repository.
 
-For edition097, the isolated source checkout is `S:/Codex-Work/fraynix-workspace-edition097`, branch `edition097`, based on verified096 main `453e8708ab9353d86ed666f3d059d28563372530`. Confirm the current remote and working state rather than assuming this path remains the newest forever. GitHub reported **public** visibility on 2026-11-08; older entries calling it private are historical. This work does not change visibility. Keep credentials, personal webcam footage, model weights and live project state outside Git.
+For edition098, the isolated source checkout is `S:/Codex-Work/fraynix-workspace-edition098`, branch `edition098`, based on verified097 main `29129e6f085441ba860ec42f99c98fe4af0ce0eb`. Confirm the current remote and working state rather than assuming this path remains the newest forever. GitHub reported **public** visibility on 2026-11-08; older entries calling it private are historical. This work does not change visibility. Keep credentials, personal webcam footage, model weights and live project state outside Git.
 
 Do not overwrite the user's live045/qa046 installations, private project data or a running engine's JARs. A build/test checkout needs its own explicitly named project. Never silently open another installation's database. Never stop Java/Electron by process name. Validate exact process identity, start time, parent and owned project before ending an isolated test process.
 
@@ -40,7 +46,7 @@ Do not overwrite the user's live045/qa046 installations, private project data or
 | Presentation and host surfaces | `workspace-desktop/main.cjs`, preload, surface adapters and renderer. Electron hosts actual browser/canvas/camera and displays Java state. Untrusted pages cannot reach the privileged dispatcher. |
 | Original game | `src/main/java`, `EmbeddedGameRuntime`, original renderer/player/JBox2D. Its hidden child context is a rendering/runtime boundary, not a second user-facing application to reinvent. |
 
-Paths abbreviated with `...` above mean `src/main/java/fraymus/workspace` under `workspace-engine`; use the [canonical source inventory](docs/readmes/097/file-inventory.json) and source search for exact names. Source files and included modules must resolve inside this checkout. Existing source-isolation checks are mandatory.
+Paths abbreviated with `...` above mean `src/main/java/fraymus/workspace` under `workspace-engine`; use the [canonical source inventory](docs/readmes/098/file-inventory.json) and source search for exact names. Source files and included modules must resolve inside this checkout. Existing source-isolation checks are mandatory.
 
 ## Evidence rules that must survive every improvement
 

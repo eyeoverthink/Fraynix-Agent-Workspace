@@ -1,0 +1,63 @@
+{
+  "nodes": [
+    {
+      "id": "policy",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/TaskCost098.java",
+      "x": 0,
+      "y": 0,
+      "width": 350,
+      "height": 240
+    },
+    {
+      "id": "runtime",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/WorldProcedure079.java",
+      "x": 380,
+      "y": 0,
+      "width": 350,
+      "height": 240
+    },
+    {
+      "id": "study",
+      "type": "file",
+      "file": "workspace-desktop/test/benefit098-integration.cjs",
+      "x": 760,
+      "y": 0,
+      "width": 350,
+      "height": 240
+    },
+    {
+      "id": "inspect",
+      "type": "file",
+      "file": "scripts/Inspect-Procedures098.cjs",
+      "x": 1140,
+      "y": 0,
+      "width": 350,
+      "height": 240
+    }
+  ],
+  "edges": [
+    {
+      "id": "e0",
+      "fromNode": "policy",
+      "fromSide": "right",
+      "toNode": "runtime",
+      "toSide": "left"
+    },
+    {
+      "id": "e1",
+      "fromNode": "runtime",
+      "fromSide": "right",
+      "toNode": "study",
+      "toSide": "left"
+    },
+    {
+      "id": "e2",
+      "fromNode": "study",
+      "fromSide": "right",
+      "toNode": "inspect",
+      "toSide": "left"
+    }
+  ]
+}

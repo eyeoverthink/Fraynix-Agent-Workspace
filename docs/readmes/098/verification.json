@@ -1,0 +1,1153 @@
+{
+  "passed": true,
+  "studySource": "f2fe986842242d238b9674a197c3b4385149c262",
+  "java": [
+    {
+      "name": "fraymus.workspace.Procedure079Test",
+      "tests": "11",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0",
+      "time": "0.322"
+    },
+    {
+      "name": "fraymus.workspace.RecoveryForecast093Test",
+      "tests": "4",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0",
+      "time": "0.015"
+    },
+    {
+      "name": "fraymus.workspace.TaskCost080Test",
+      "tests": "7",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0",
+      "time": "0.351"
+    },
+    {
+      "name": "fraymus.workspace.TaskCost084Test",
+      "tests": "9",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0",
+      "time": "1.154"
+    },
+    {
+      "name": "fraymus.workspace.TaskCost085Test",
+      "tests": "11",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0",
+      "time": "0.783"
+    },
+    {
+      "name": "fraymus.workspace.TaskCost089Test",
+      "tests": "18",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0",
+      "time": "1.692"
+    },
+    {
+      "name": "fraymus.workspace.TaskCost090Test",
+      "tests": "16",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0",
+      "time": "5.27"
+    },
+    {
+      "name": "fraymus.workspace.TaskCost098Test",
+      "tests": "14",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0",
+      "time": "1.332"
+    }
+  ],
+  "productionClasses": {
+    "prior": "S:\\Codex-Work\\fraynix-workspace-edition097\\workspace-engine\\build\\classes\\java\\main",
+    "current": "S:\\Codex-Work\\fraynix-workspace-edition098\\workspace-engine\\build\\classes\\java\\main",
+    "priorCount": 334,
+    "currentCount": 335,
+    "identical": 333,
+    "changed": [
+      "fraymus/workspace/WorldProcedure079.class"
+    ],
+    "new": [
+      "fraymus/workspace/TaskCost098.class"
+    ],
+    "removed": []
+  },
+  "detailCapture": {
+    "passed": true,
+    "capturedAt": "2026-11-09T07:39:22.059Z",
+    "source": "4ecf50f4861ffa88827007c189604174cccf2df1",
+    "checks": {
+      "title": "Native multi-object poses",
+      "headings": [
+        "Memory decision from measured cost",
+        "Native multi-object pose task verified",
+        "Original world frame, target poses, release, checkpoint and audit"
+      ],
+      "svgCount": 1
+    },
+    "captures": [
+      {
+        "file": "motion-detail-1600.png",
+        "width": 1600,
+        "goalId": "6e0d9fa1-77f0-4025-a4fb-75f4600a5984",
+        "report": "36470824-291f-3e85-bcfd-37d67d53187f",
+        "stream": "eval-long-recover-adaptive",
+        "scope": "Expanded actual recovered098 report; outside timed study. Viewport scrolling only; no report content or world state edits."
+      }
+    ],
+    "worldUnchanged": true
+  },
+  "regressions": {
+    "passed": true,
+    "checkedAt": "2026-11-09T07:39:17.509035+00:00",
+    "java": [
+      {
+        "name": "fraymus.workspace.CalibrationScan081Test",
+        "tests": "7",
+        "failures": "0",
+        "errors": "0",
+        "skipped": "0",
+        "time": "0.579"
+      },
+      {
+        "name": "fraymus.workspace.NativeEnvelope091Test",
+        "tests": "12",
+        "failures": "0",
+        "errors": "0",
+        "skipped": "1",
+        "time": "0.604"
+      },
+      {
+        "name": "fraymus.workspace.ProofMemo078Test",
+        "tests": "8",
+        "failures": "0",
+        "errors": "0",
+        "skipped": "0",
+        "time": "0.352"
+      },
+      {
+        "name": "fraymus.workspace.RebuildCompatibility079Test",
+        "tests": "1",
+        "failures": "0",
+        "errors": "0",
+        "skipped": "0",
+        "time": "2.199"
+      },
+      {
+        "name": "fraymus.workspace.WorldProcedure079Test",
+        "tests": "1",
+        "failures": "0",
+        "errors": "0",
+        "skipped": "0",
+        "time": "40.662"
+      },
+      {
+        "name": "fraymus.workspace.WorldProcedure098Test",
+        "tests": "1",
+        "failures": "0",
+        "errors": "0",
+        "skipped": "0",
+        "time": "19.872"
+      }
+    ],
+    "javaPassed": 29,
+    "javaSkipped": 1,
+    "desktop": {
+      "tests": 135,
+      "pass": 135,
+      "fail": 0,
+      "skipped": 0
+    },
+    "scope": "Six focused Java native/integrity classes and existing135 desktop tests; separate from earlier90 focused Java cases, not the full repository suite.",
+    "logs": [
+      "build/regression098.log",
+      "build/desktop098.log"
+    ]
+  },
+  "parentCI": {
+    "id": 42571456884,
+    "head_sha": "29129e6f085441ba860ec42f99c98fe4af0ce0eb",
+    "status": "in_progress",
+    "conclusion": null,
+    "run_attempt": 2,
+    "html_url": "https://github.com/eyeoverthink/Fraynix-Agent-Workspace/actions/runs/42571456884",
+    "updated_at": "2026-11-09T06:35:53Z",
+    "checked_at": "2026-11-09 07:37:04 UTC"
+  },
+  "analysis": {
+    "passed": true,
+    "source": "f2fe986842242d238b9674a197c3b4385149c262",
+    "goals": 37,
+    "verified": 38,
+    "diagnosticOriginals": 1,
+    "abandonedAttempts": [
+      {
+        "id": "eval-long-recover-simple-warmup",
+        "callerMillis": 61778.39770000009,
+        "completed": true,
+        "scope": "Excluded failed-harness preparation; originals retained, no complete abandoned whole-attempt timing"
+      },
+      {
+        "id": "eval-long-recover-simple",
+        "callerMillis": null,
+        "completed": false,
+        "scope": "Excluded failed-harness preparation; originals retained, no complete abandoned whole-attempt timing"
+      }
+    ],
+    "interruptionHarnessError": "Error: Command failed: pwsh -NoProfile -File S:\\Codex-Work\\fraynix-workspace-edition098\\scripts\\Interrupt-Study097.ps1 -TargetPid 102308 -ExpectedParentPid 110588 -ExpectedStartUtc 2026-11-09T07:19:40.4106330Z -Checkout S:\\Codex-Work\\fraynix-workspace-edition098 -Project S:\\Codex-Work\\fraynix-workspace-edition098\\build\\ui098-study\\eval-long-recover-simple\\project\nException: S:\\Codex-Work\\fraynix-workspace-edition098\\scripts\\Interrupt-Study097.ps1:7\r\nLine |\r\n   7 |  . ]project$'){throw 'Only an isolated097 numbered study project is allo .\r\n     |                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\r\n     | Only an isolated097 numbered study project is allowed.\r\n\n    at genericNodeError (node:internal/errors:985:15)\n    at wrappedFn (node:internal/errors:539:14)\n    at checkExecSyncError (node:child_process:925:11)\n    at Object.execFileSync (node:child_process:961:15)\n    at restart (S:\\Codex-Work\\fraynix-workspace-edition098\\workspace-desktop\\test\\benefit098-integration.cjs:22:27)\n    at async run (S:\\Codex-Work\\fraynix-workspace-edition098\\workspace-desktop\\test\\benefit098-integration.cjs:29:335)\n    at async main (S:\\Codex-Work\\fraynix-workspace-edition098\\workspace-desktop\\test\\benefit098-integration.cjs:57:112)",
+    "recoveryContinuation": {
+      "source": "be05f64a28c8696788c32c4be4c57be05a6dde30",
+      "startedAt": "2026-11-09T07:24:11.489Z",
+      "priorClock": {
+        "id": "d1493c33-f48d-4de7-a09a-715a695b090e",
+        "pid": 90324,
+        "origin": 1794207584891.991
+      },
+      "reason": "Original097 process guard correctly refused098 path; preserve abandoned attempt and rerun all three restart cases with owned098 guard"
+    },
+    "refusals": [
+      {
+        "label": "decision authority",
+        "error": "Expected values to be strictly equal:\n\ntrue !== false\n"
+      },
+      {
+        "label": "decision time",
+        "error": "Expected values to be strictly deep-equal:\n+ actual - expected\n\n  {\n    clock089: {\n      end: '626998158020600',\n      owner: '57c3cb50-c2e1-4a61-a7e7-b823c930e268',\n      start: '626998100397300'\n    },\n+   totalMillis: 58.6233\n-   totalMillis: 57.6233\n  }\n"
+      },
+      {
+        "label": "missing clock",
+        "error": "Expected values to be strictly deep-equal:\n+ actual - expected\n\n  {\n-   clock089: {\n-     end: '626998158020600',\n-     owner: '57c3cb50-c2e1-4a61-a7e7-b823c930e268',\n-     start: '626998100397300'\n-   },\n    totalMillis: 57.6233\n  }\n"
+      },
+      {
+        "label": "reserve",
+        "error": "0 differs from 500"
+      },
+      {
+        "label": "audit allowance",
+        "error": "0 differs from 230.4932"
+      },
+      {
+        "label": "pass count",
+        "error": "Expected values to be strictly equal:\n\n1 !== 4\n"
+      },
+      {
+        "label": "coverage",
+        "error": "Expected values to be strictly equal:\n\ntrue !== false\n"
+      },
+      {
+        "label": "source position",
+        "error": "Expected values to be strictly deep-equal:\n+ actual - expected\n... Skipped lines\n\n  {\n    format: 'fraynix.spatial-scene',\n    frame: 'right-handed-y-up',\n    gravityMps2: 9.81,\n    objects: [\n...\n        position: [\n+         -2.65,\n-         -3.65,\n          0.21,\n          -3.5\n        ],\n        restitution: 0,\n        rotation: [\n"
+      },
+      {
+        "label": "plan target",
+        "error": "0.23255325645229613 differs from 0.23130325645229616"
+      },
+      {
+        "label": "native charged cost",
+        "error": "Expected values to be strictly equal:\n\n5409 !== 5410\n"
+      },
+      {
+        "label": "single commit",
+        "error": "Expected values to be strictly equal:\n+ actual - expected\n\n+ '864c747951ef28e9db2843a13df3089d3028ef0c4a39f4667ed927300d9d333e'\n- '2719f39eac1231ed912f90a717950740ae63527f8595ad5d0c7d73799d7686d1'\n"
+      }
+    ],
+    "rows": [
+      {
+        "id": "seed",
+        "mode": "simple",
+        "usedMemory": false,
+        "family": "two-stage",
+        "completed": true,
+        "callerMillis": 63052.086200000005,
+        "javaMillis": 62963.9586,
+        "lookupMillis": 0.2765,
+        "chargedTicks": 24948,
+        "resumes": 0,
+        "savedSkill": false,
+        "reason": "Simple control requested"
+      },
+      {
+        "id": "calibration-0-0-simple",
+        "mode": "simple",
+        "usedMemory": false,
+        "family": "two-stage",
+        "completed": true,
+        "callerMillis": 50476.873600000006,
+        "javaMillis": 50397.5809,
+        "lookupMillis": 0.0161,
+        "chargedTicks": 24936,
+        "resumes": 0,
+        "savedSkill": false,
+        "reason": "Simple control requested"
+      },
+      {
+        "id": "calibration-0-0-memory",
+        "mode": "memory",
+        "usedMemory": true,
+        "family": "two-stage",
+        "completed": true,
+        "callerMillis": 46060.36070000002,
+        "javaMillis": 45927.3976,
+        "lookupMillis": 115.3488,
+        "chargedTicks": 21060,
+        "resumes": 0,
+        "savedSkill": false,
+        "reason": "Explicit remembered-procedure control"
+      },
+      {
+        "id": "calibration-0-1-memory",
+        "mode": "memory",
+        "usedMemory": true,
+        "family": "two-stage",
+        "completed": true,
+        "callerMillis": 46488.19939999998,
+        "javaMillis": 46351.618,
+        "lookupMillis": 129.1924,
+        "chargedTicks": 21082,
+        "resumes": 0,
+        "savedSkill": false,
+        "reason": "Explicit remembered-procedure control"
+      },
+      {
+        "id": "calibration-0-1-simple",
+        "mode": "simple",
+        "usedMemory": false,
+        "family": "two-stage",
+        "completed": true,
+        "callerMillis": 52945.99530000001,
+        "javaMillis": 52859.2397,
+        "lookupMillis": 0.0204,
+        "chargedTicks": 24958,
+        "resumes": 0,
+        "savedSkill": false,
+        "reason": "Simple control requested"
+      },
+      {
+        "id": "calibration-1-0-memory",
+        "mode": "memory",
+        "usedMemory": true,
+        "family": "two-stage",
+        "completed": true,
+        "callerMillis": 47634.84110000002,
+        "javaMillis": 47533.5111,
+        "lookupMillis": 106.1077,
+        "chargedTicks": 21060,
+        "resumes": 0,
+        "savedSkill": false,
+        "reason": "Explicit remembered-procedure control"
+      },
+      {
+        "id": "calibration-1-0-simple",
+        "mode": "simple",
+        "usedMemory": false,
+        "family": "two-stage",
+        "completed": true,
+        "callerMillis": 52952.549499999965,
+        "javaMillis": 52808.2988,
+        "lookupMillis": 0.0177,
+        "chargedTicks": 24936,
+        "resumes": 0,
+        "savedSkill": false,
+        "reason": "Simple control requested"
+      },
+      {
+        "id": "calibration-1-1-simple",
+        "mode": "simple",
+        "usedMemory": false,
+        "family": "two-stage",
+        "completed": true,
+        "callerMillis": 52982.03610000003,
+        "javaMillis": 52894.8458,
+        "lookupMillis": 0.0156,
+        "chargedTicks": 24958,
+        "resumes": 0,
+        "savedSkill": false,
+        "reason": "Simple control requested"
+      },
+      {
+        "id": "calibration-1-1-memory",
+        "mode": "memory",
+        "usedMemory": true,
+        "family": "two-stage",
+        "completed": true,
+        "callerMillis": 48963.303599999985,
+        "javaMillis": 48858.2246,
+        "lookupMillis": 151.4426,
+        "chargedTicks": 21082,
+        "resumes": 0,
+        "savedSkill": false,
+        "reason": "Explicit remembered-procedure control"
+      },
+      {
+        "id": "calibration-2-0-simple",
+        "mode": "simple",
+        "usedMemory": false,
+        "family": "two-stage",
+        "completed": true,
+        "callerMillis": 53090.06509999995,
+        "javaMillis": 53002.2251,
+        "lookupMillis": 0.0151,
+        "chargedTicks": 24936,
+        "resumes": 0,
+        "savedSkill": false,
+        "reason": "Simple control requested"
+      },
+      {
+        "id": "calibration-2-0-memory",
+        "mode": "memory",
+        "usedMemory": true,
+        "family": "two-stage",
+        "completed": true,
+        "callerMillis": 49964.791800000006,
+        "javaMillis": 49706.1035,
+        "lookupMillis": 109.0698,
+        "chargedTicks": 21060,
+        "resumes": 0,
+        "savedSkill": false,
+        "reason": "Explicit remembered-procedure control"
+      },
+      {
+        "id": "calibration-2-1-memory",
+        "mode": "memory",
+        "usedMemory": true,
+        "family": "two-stage",
+        "completed": true,
+        "callerMillis": 50794.783999999985,
+        "javaMillis": 50694.0586,
+        "lookupMillis": 124.0458,
+        "chargedTicks": 21082,
+        "resumes": 0,
+        "savedSkill": false,
+        "reason": "Explicit remembered-procedure control"
+      },
+      {
+        "id": "calibration-2-1-simple",
+        "mode": "simple",
+        "usedMemory": false,
+        "family": "two-stage",
+        "completed": true,
+        "callerMillis": 55344.07949999999,
+        "javaMillis": 55248.0257,
+        "lookupMillis": 0.0278,
+        "chargedTicks": 24958,
+        "resumes": 0,
+        "savedSkill": false,
+        "reason": "Simple control requested"
+      },
+      {
+        "id": "eval-short-simple-warmup",
+        "mode": "memory",
+        "usedMemory": true,
+        "family": "two-stage",
+        "completed": true,
+        "callerMillis": 67704.30540000001,
+        "javaMillis": 67539.842,
+        "lookupMillis": 15422.2603,
+        "chargedTicks": 21072,
+        "resumes": 0,
+        "savedSkill": false,
+        "reason": "Explicit remembered-procedure control"
+      },
+      {
+        "id": "eval-short-simple",
+        "mode": "simple",
+        "usedMemory": false,
+        "family": "direct",
+        "completed": true,
+        "callerMillis": 13206.580600000016,
+        "javaMillis": 13131.5519,
+        "lookupMillis": 0.0213,
+        "chargedTicks": 5410,
+        "resumes": 0,
+        "savedSkill": false,
+        "reason": "Simple control requested"
+      },
+      {
+        "id": "eval-short-adaptive-warmup",
+        "mode": "memory",
+        "usedMemory": true,
+        "family": "two-stage",
+        "completed": true,
+        "callerMillis": 64902.51430000001,
+        "javaMillis": 64808.8628,
+        "lookupMillis": 9516.7367,
+        "chargedTicks": 21072,
+        "resumes": 0,
+        "savedSkill": false,
+        "reason": "Explicit remembered-procedure control"
+      },
+      {
+        "id": "eval-short-adaptive",
+        "mode": "adaptive",
+        "usedMemory": false,
+        "family": "direct",
+        "completed": true,
+        "callerMillis": 13588.657099999982,
+        "javaMillis": 13504.793,
+        "lookupMillis": 60.7995,
+        "chargedTicks": 5410,
+        "resumes": 0,
+        "savedSkill": false,
+        "benefit": {
+          "decisionMillis": 57.6233,
+          "movementCovered": false,
+          "decisionAllowanceMillis": 230.4932,
+          "scope": "Complete-task empirical lower saving less first-pass time for each scheduled decision/audit pass and max(500ms,25%) reserve; future checks are allowances, not measured durations or a probability guarantee",
+          "verificationPasses": 4,
+          "reserveMillis": 500,
+          "version": "current-task-benefit-098-v1"
+        },
+        "reason": "No matching complete-task calibration; simple control"
+      },
+      {
+        "id": "eval-short-memory-warmup",
+        "mode": "memory",
+        "usedMemory": true,
+        "family": "two-stage",
+        "completed": true,
+        "callerMillis": 60949.7144,
+        "javaMillis": 60854.1145,
+        "lookupMillis": 10305.158,
+        "chargedTicks": 21072,
+        "resumes": 0,
+        "savedSkill": false,
+        "reason": "Explicit remembered-procedure control"
+      },
+      {
+        "id": "eval-short-memory",
+        "mode": "memory",
+        "usedMemory": true,
+        "family": "two-stage",
+        "completed": true,
+        "callerMillis": 24600.14419999998,
+        "javaMillis": 24508.471,
+        "lookupMillis": 111.5979,
+        "chargedTicks": 10380,
+        "resumes": 0,
+        "savedSkill": false,
+        "reason": "Explicit remembered-procedure control"
+      },
+      {
+        "id": "eval-long-memory-warmup",
+        "mode": "memory",
+        "usedMemory": true,
+        "family": "two-stage",
+        "completed": true,
+        "callerMillis": 62386.57320000004,
+        "javaMillis": 62294.9292,
+        "lookupMillis": 8894.122,
+        "chargedTicks": 21072,
+        "resumes": 0,
+        "savedSkill": false,
+        "reason": "Explicit remembered-procedure control"
+      },
+      {
+        "id": "eval-long-memory",
+        "mode": "memory",
+        "usedMemory": true,
+        "family": "two-stage",
+        "completed": true,
+        "callerMillis": 55602.06540000002,
+        "javaMillis": 55468.3803,
+        "lookupMillis": 202.8027,
+        "chargedTicks": 21072,
+        "resumes": 0,
+        "savedSkill": false,
+        "reason": "Explicit remembered-procedure control"
+      },
+      {
+        "id": "eval-long-adaptive-warmup",
+        "mode": "memory",
+        "usedMemory": true,
+        "family": "two-stage",
+        "completed": true,
+        "callerMillis": 59441.81930000009,
+        "javaMillis": 59350.5886,
+        "lookupMillis": 9673.7128,
+        "chargedTicks": 21072,
+        "resumes": 0,
+        "savedSkill": false,
+        "reason": "Explicit remembered-procedure control"
+      },
+      {
+        "id": "eval-long-adaptive",
+        "mode": "adaptive",
+        "usedMemory": false,
+        "family": "two-stage",
+        "completed": true,
+        "callerMillis": 55716.02359999996,
+        "javaMillis": 55597.377,
+        "lookupMillis": 60.6543,
+        "chargedTicks": 24948,
+        "resumes": 0,
+        "savedSkill": false,
+        "benefit": {
+          "decisionMillis": 56.576,
+          "movementCovered": false,
+          "decisionAllowanceMillis": 226.304,
+          "scope": "Complete-task empirical lower saving less first-pass time for each scheduled decision/audit pass and max(500ms,25%) reserve; future checks are allowances, not measured durations or a probability guarantee",
+          "verificationPasses": 4,
+          "reserveMillis": 500,
+          "version": "current-task-benefit-098-v1"
+        },
+        "reason": "No matching complete-task calibration; simple control"
+      },
+      {
+        "id": "eval-long-simple-warmup",
+        "mode": "memory",
+        "usedMemory": true,
+        "family": "two-stage",
+        "completed": true,
+        "callerMillis": 62102.53200000001,
+        "javaMillis": 61780.4596,
+        "lookupMillis": 9220.47,
+        "chargedTicks": 21072,
+        "resumes": 0,
+        "savedSkill": false,
+        "reason": "Explicit remembered-procedure control"
+      },
+      {
+        "id": "eval-long-simple",
+        "mode": "simple",
+        "usedMemory": false,
+        "family": "two-stage",
+        "completed": true,
+        "callerMillis": 61670.83250000002,
+        "javaMillis": 61475.8324,
+        "lookupMillis": 0.0146,
+        "chargedTicks": 24948,
+        "resumes": 0,
+        "savedSkill": false,
+        "reason": "Simple control requested"
+      },
+      {
+        "id": "eval-short-save-adaptive-warmup",
+        "mode": "memory",
+        "usedMemory": true,
+        "family": "two-stage",
+        "completed": true,
+        "callerMillis": 63423.02350000001,
+        "javaMillis": 63317.4779,
+        "lookupMillis": 9313.3939,
+        "chargedTicks": 21072,
+        "resumes": 0,
+        "savedSkill": false,
+        "reason": "Explicit remembered-procedure control"
+      },
+      {
+        "id": "eval-short-save-adaptive",
+        "mode": "adaptive",
+        "usedMemory": false,
+        "family": "direct",
+        "completed": true,
+        "callerMillis": 15881.535700000008,
+        "javaMillis": 15712.8735,
+        "lookupMillis": 62.5071,
+        "chargedTicks": 5584,
+        "resumes": 0,
+        "savedSkill": true,
+        "benefit": {
+          "decisionMillis": 57.7199,
+          "movementCovered": false,
+          "decisionAllowanceMillis": 288.59950000000003,
+          "scope": "Complete-task empirical lower saving less first-pass time for each scheduled decision/audit pass and max(500ms,25%) reserve; future checks are allowances, not measured durations or a probability guarantee",
+          "verificationPasses": 5,
+          "reserveMillis": 500,
+          "version": "current-task-benefit-098-v1"
+        },
+        "reason": "No matching complete-task calibration; simple control"
+      },
+      {
+        "id": "eval-short-save-simple-warmup",
+        "mode": "memory",
+        "usedMemory": true,
+        "family": "two-stage",
+        "completed": true,
+        "callerMillis": 60298.47160000005,
+        "javaMillis": 60136.7254,
+        "lookupMillis": 9553.2093,
+        "chargedTicks": 21072,
+        "resumes": 0,
+        "savedSkill": false,
+        "reason": "Explicit remembered-procedure control"
+      },
+      {
+        "id": "eval-short-save-simple",
+        "mode": "simple",
+        "usedMemory": false,
+        "family": "direct",
+        "completed": true,
+        "callerMillis": 14456.0652999999,
+        "javaMillis": 14368.3717,
+        "lookupMillis": 0.0144,
+        "chargedTicks": 5584,
+        "resumes": 0,
+        "savedSkill": true,
+        "reason": "Simple control requested"
+      },
+      {
+        "id": "eval-short-save-memory-warmup",
+        "mode": "memory",
+        "usedMemory": true,
+        "family": "two-stage",
+        "completed": true,
+        "callerMillis": 67012.1939999999,
+        "javaMillis": 66819.5179,
+        "lookupMillis": 8893.4961,
+        "chargedTicks": 21072,
+        "resumes": 0,
+        "savedSkill": false,
+        "reason": "Explicit remembered-procedure control"
+      },
+      {
+        "id": "eval-short-save-memory",
+        "mode": "memory",
+        "usedMemory": true,
+        "family": "two-stage",
+        "completed": true,
+        "callerMillis": 28041.08809999982,
+        "javaMillis": 27879.0358,
+        "lookupMillis": 110.5955,
+        "chargedTicks": 10820,
+        "resumes": 0,
+        "savedSkill": true,
+        "reason": "Explicit remembered-procedure control"
+      },
+      {
+        "id": "eval-long-recover-simple-warmup",
+        "mode": "memory",
+        "usedMemory": true,
+        "family": "two-stage",
+        "completed": true,
+        "callerMillis": 62736.36869999999,
+        "javaMillis": 62639.4817,
+        "lookupMillis": 12260.7317,
+        "chargedTicks": 21072,
+        "resumes": 0,
+        "savedSkill": false,
+        "reason": "Explicit remembered-procedure control"
+      },
+      {
+        "id": "eval-long-recover-simple",
+        "mode": "simple",
+        "usedMemory": false,
+        "family": "two-stage",
+        "completed": true,
+        "callerMillis": 96524.227,
+        "javaMillis": null,
+        "lookupMillis": 0.0271,
+        "chargedTicks": 39353,
+        "resumes": 1,
+        "savedSkill": false,
+        "reason": "Simple control requested"
+      },
+      {
+        "id": "eval-long-recover-memory-warmup",
+        "mode": "memory",
+        "usedMemory": true,
+        "family": "two-stage",
+        "completed": true,
+        "callerMillis": 69291.75970000002,
+        "javaMillis": 69195.2033,
+        "lookupMillis": 17627.8117,
+        "chargedTicks": 21072,
+        "resumes": 0,
+        "savedSkill": false,
+        "reason": "Explicit remembered-procedure control"
+      },
+      {
+        "id": "eval-long-recover-memory",
+        "mode": "memory",
+        "usedMemory": true,
+        "family": "two-stage",
+        "completed": true,
+        "callerMillis": 90516.11949999997,
+        "javaMillis": null,
+        "lookupMillis": 110.6429,
+        "chargedTicks": 35477,
+        "resumes": 1,
+        "savedSkill": false,
+        "reason": "Explicit remembered-procedure control"
+      },
+      {
+        "id": "eval-long-recover-adaptive-warmup",
+        "mode": "memory",
+        "usedMemory": true,
+        "family": "two-stage",
+        "completed": true,
+        "callerMillis": 60283.62670000002,
+        "javaMillis": 60155.4535,
+        "lookupMillis": 9955.4032,
+        "chargedTicks": 21072,
+        "resumes": 0,
+        "savedSkill": false,
+        "reason": "Explicit remembered-procedure control"
+      },
+      {
+        "id": "eval-long-recover-adaptive",
+        "mode": "adaptive",
+        "usedMemory": false,
+        "family": "two-stage",
+        "completed": true,
+        "callerMillis": 96215.17960000003,
+        "javaMillis": null,
+        "lookupMillis": 125.9616,
+        "chargedTicks": 39353,
+        "resumes": 1,
+        "savedSkill": false,
+        "benefit": {
+          "decisionMillis": 119.2492,
+          "movementCovered": false,
+          "decisionAllowanceMillis": 476.9968,
+          "scope": "Complete-task empirical lower saving less first-pass time for each scheduled decision/audit pass and max(500ms,25%) reserve; future checks are allowances, not measured durations or a probability guarantee",
+          "verificationPasses": 4,
+          "reserveMillis": 500,
+          "version": "current-task-benefit-098-v1"
+        },
+        "reason": "No matching complete-task calibration; simple control"
+      }
+    ],
+    "comparisons": [
+      {
+        "case": "short",
+        "order": [
+          "simple",
+          "adaptive",
+          "memory"
+        ],
+        "simpleMillis": 13206.580600000016,
+        "adaptiveMillis": 13588.657099999982,
+        "memoryMillis": 24600.14419999998,
+        "adaptiveSavingVsSimple": -382.0764999999665,
+        "adaptiveSavingVsMemory": 11011.487099999998,
+        "wholeSimple": 103140.46359999999,
+        "wholeAdaptive": 104277.3773,
+        "wholeMemory": 114671.266,
+        "selectedMemory": false,
+        "reason": "No matching complete-task calibration; simple control",
+        "recovery": false,
+        "skill": false
+      },
+      {
+        "case": "long",
+        "order": [
+          "memory",
+          "adaptive",
+          "simple"
+        ],
+        "simpleMillis": 61670.83250000002,
+        "adaptiveMillis": 55716.02359999996,
+        "memoryMillis": 55602.06540000002,
+        "adaptiveSavingVsSimple": 5954.808900000062,
+        "adaptiveSavingVsMemory": -113.95819999993546,
+        "wholeSimple": 156210.03130000003,
+        "wholeAdaptive": 146892.43169999996,
+        "wholeMemory": 154014.0431,
+        "selectedMemory": false,
+        "reason": "No matching complete-task calibration; simple control",
+        "recovery": false,
+        "skill": false
+      },
+      {
+        "case": "short-save",
+        "order": [
+          "adaptive",
+          "simple",
+          "memory"
+        ],
+        "simpleMillis": 14456.0652999999,
+        "adaptiveMillis": 15881.535700000008,
+        "memoryMillis": 28041.08809999982,
+        "adaptiveSavingVsSimple": -1425.4704000001075,
+        "adaptiveSavingVsMemory": 12159.552399999811,
+        "wholeSimple": 97119.60320000001,
+        "wholeAdaptive": 100218.43610000005,
+        "wholeMemory": 119643.12520000013,
+        "selectedMemory": false,
+        "reason": "No matching complete-task calibration; simple control",
+        "recovery": false,
+        "skill": true
+      },
+      {
+        "case": "long-recover",
+        "order": [
+          "simple",
+          "memory",
+          "adaptive"
+        ],
+        "simpleMillis": 96524.227,
+        "adaptiveMillis": 96215.17960000003,
+        "memoryMillis": 90516.11949999997,
+        "adaptiveSavingVsSimple": 309.04739999996673,
+        "adaptiveSavingVsMemory": -5699.060100000061,
+        "wholeSimple": 201892.85700000002,
+        "wholeAdaptive": 206176.88859999995,
+        "wholeMemory": 196899.86199999996,
+        "selectedMemory": false,
+        "reason": "No matching complete-task calibration; simple control",
+        "recovery": true,
+        "skill": false
+      }
+    ],
+    "preparationMillis": null,
+    "measuredPreparationComponentsMillis": 835711.2238999999,
+    "preparationScope": "Component subtotal only: original whole preparation clock ended with the harness error. Includes measured rows, first launch, declined fit request and continuation verification; intervening gaps and first shutdown are unavailable. No amortized payoff claim.",
+    "fitReceipt": {
+      "at": "2026-11-09T06:55:48.100911300Z",
+      "allowances087": {
+        "mode": "measured",
+        "reason": "Need three compatible successful fits and three uninterrupted completed calibrated tasks within 14 days",
+        "fitSamples": 0,
+        "shape": {
+          "warm": true,
+          "code": "a62830b59441af143316ec744be2dd0ee02593414e0ca864aa1d0fc21a040789",
+          "bytes": 224598815,
+          "profile": {
+            "java": "21.0.10+7-LTS",
+            "os": "Windows 10",
+            "cpus": 2,
+            "maxHeap": 536870912,
+            "arch": "amd64",
+            "processor": "Intel64 Family 6 Model 158 Stepping 13, GenuineIntel"
+          },
+          "workload": {
+            "skill": false,
+            "retain": false
+          },
+          "family": "two-stage",
+          "pairs": 6
+        },
+        "scope": "Empirical spending reserve, not a probability or execution authority. Upward byte scaling only; nearby evidence volume and matching workload required.",
+        "checkSamples": 0,
+        "used": [],
+        "excludedSources": [],
+        "supported": false
+      },
+      "id": "527fa40f-d661-4c82-ae74-1036671f1153",
+      "admission": {
+        "reason": "Calibration is not justified for this horizon and cost allowance; use simple control",
+        "historicalComparisonMillis": 606281.1294,
+        "requiredBenefitMillis": 150000,
+        "inputs": [
+          {
+            "sha256": "12d422b5ca0b4bbcf42390127cfb33b7d4cdb6bc21efcf1612526d0e17fc123e",
+            "bytes": 13509,
+            "id": "ef4f294e-ea4e-47f1-8c3a-205d66ad6757"
+          },
+          {
+            "sha256": "0c7feedf2a10fdaf8819eba548f6b37d5412e8a52e91f5a2241ca001d5e89b82",
+            "bytes": 37495,
+            "id": "6e43d9cb-6abc-41d1-ade6-f100ee6bf3f4"
+          },
+          {
+            "sha256": "351fe3a93fb0eba50a0132ea2906fca375f4edc428b5ffa1c241bd75057fcb6a",
+            "bytes": 13547,
+            "id": "975b3534-88d2-4d42-898a-e1b5cf8a9a0d"
+          },
+          {
+            "sha256": "175fb321940e136559dd6be8c5aa06a4979abbd1de705a67e80a28209676e949",
+            "bytes": 37519,
+            "id": "d3d4e084-1ded-4613-aa5f-2820e29e2de5"
+          },
+          {
+            "sha256": "c5f44cbca78821a2e8ede2e90aaae8f5eba3166d7b10e29c0760799b468057d0",
+            "bytes": 13512,
+            "id": "c5479350-e850-4e1d-abc5-fbe0f1cdbf36"
+          },
+          {
+            "sha256": "bd70f31d64bf5c4e6c918814bfddabf0e945156ebc5d3836408d59306fc25ef9",
+            "bytes": 37495,
+            "id": "49c58e1d-c9fb-49ff-8b22-c52a25055e10"
+          },
+          {
+            "sha256": "c36f119ca863fbe4824e21e2a99108517259b6c4f8a1526ab5dbcafb4fabe427",
+            "bytes": 13547,
+            "id": "7dfc4763-ab6d-477f-9afc-5850cacd91d5"
+          },
+          {
+            "sha256": "878bd09393b8101f3d0983b0276f2c0c9609440e2e628dcf2002b7729d860404",
+            "bytes": 37523,
+            "id": "a3987ef8-1f60-4c78-aee6-e013fc6fa834"
+          },
+          {
+            "sha256": "58a865747b4f38376339181c0d42df718b47e2dead283bc976b21c1a00785694",
+            "bytes": 13512,
+            "id": "89f5621a-25ce-4e27-bf91-fa703f4600ea"
+          },
+          {
+            "sha256": "a8d10f6c1a27720e991707d8bdaabc51fd721e89253c12e27511f44342478dcf",
+            "bytes": 37501,
+            "id": "4aff6527-a25b-4155-b2ac-08a13cdbf11e"
+          },
+          {
+            "sha256": "235cf3c350e076cf1b900de9248a4bd9c6779f4bc9ada7b56e3383644f0170b2",
+            "bytes": 13547,
+            "id": "67ed10a1-4526-4610-8402-2b28270c8907"
+          },
+          {
+            "sha256": "647c372fa23eec74610c2c66794f1fc2847f8167e79729d1b810fd72fdb7ecab",
+            "bytes": 37517,
+            "id": "2c8ec729-10ca-4fc8-b388-a1029716a432"
+          }
+        ],
+        "summaryBytes": 306224,
+        "forecastNetMillis": -152305.17439999996,
+        "futureInvestmentMillis": 120000,
+        "admit": false,
+        "identity": {
+          "warm": true,
+          "workload": {
+            "skill": false,
+            "retain": false
+          },
+          "family": "two-stage",
+          "receiptId": "772343b9-7b02-4ac3-8e91-f2101fd0c901"
+        },
+        "scope": "Unverified summary proposals and explicit planning allowances; admission only. Original evidence is required before a model is saved or used. No probability or future payoff guarantee.",
+        "distinctTasks": 2,
+        "assumption": "Future tasks resemble this cohort. Budgets are planning assumptions, not deadlines. Historical work is already spent; future bank changes and drift can invalidate the forecast.",
+        "allowances087": {
+          "mode": "measured",
+          "reason": "Need three compatible successful fits and three uninterrupted completed calibrated tasks within 14 days",
+          "fitSamples": 0,
+          "shape": {
+            "warm": true,
+            "code": "a62830b59441af143316ec744be2dd0ee02593414e0ca864aa1d0fc21a040789",
+            "bytes": 224598815,
+            "profile": {
+              "java": "21.0.10+7-LTS",
+              "os": "Windows 10",
+              "cpus": 2,
+              "maxHeap": 536870912,
+              "arch": "amd64",
+              "processor": "Intel64 Family 6 Model 158 Stepping 13, GenuineIntel"
+            },
+            "workload": {
+              "skill": false,
+              "retain": false
+            },
+            "family": "two-stage",
+            "pairs": 6
+          },
+          "scope": "Empirical spending reserve, not a probability or execution authority. Upward byte scaling only; nearby evidence volume and matching workload required.",
+          "checkSamples": 0,
+          "used": [],
+          "excludedSources": [],
+          "supported": false
+        },
+        "selected": {
+          "pairs": [
+            {
+              "memoryId": "6e43d9cb-6abc-41d1-ade6-f100ee6bf3f4",
+              "simpleId": "ef4f294e-ea4e-47f1-8c3a-205d66ad6757"
+            },
+            {
+              "memoryId": "d3d4e084-1ded-4613-aa5f-2820e29e2de5",
+              "simpleId": "975b3534-88d2-4d42-898a-e1b5cf8a9a0d"
+            },
+            {
+              "memoryId": "49c58e1d-c9fb-49ff-8b22-c52a25055e10",
+              "simpleId": "c5479350-e850-4e1d-abc5-fbe0f1cdbf36"
+            },
+            {
+              "memoryId": "a3987ef8-1f60-4c78-aee6-e013fc6fa834",
+              "simpleId": "7dfc4763-ab6d-477f-9afc-5850cacd91d5"
+            },
+            {
+              "memoryId": "4aff6527-a25b-4155-b2ac-08a13cdbf11e",
+              "simpleId": "89f5621a-25ce-4e27-bf91-fa703f4600ea"
+            },
+            {
+              "memoryId": "2c8ec729-10ca-4fc8-b388-a1029716a432",
+              "simpleId": "67ed10a1-4526-4610-8402-2b28270c8907"
+            }
+          ],
+          "budget": {
+            "horizon": 6,
+            "checkBudgetMillis": 3000,
+            "fitBudgetMillis": 120000,
+            "additionalRuns": 0
+          }
+        },
+        "budget": {
+          "horizon": 6,
+          "checkBudgetMillis": 3000,
+          "fitBudgetMillis": 120000,
+          "additionalRuns": 0
+        },
+        "originalTraceBytes": 0,
+        "version": "calibration-admission-086-v1",
+        "netPerTaskMillis": -5384.195733333327,
+        "lowerSavingMillis": -2384.1957333333266,
+        "variabilityAllowanceMillis": 6731.2265999999945,
+        "preflightMillis": 357.1199,
+        "minimumGroupSavingMillis": 4347.030866666668,
+        "forecastBenefitMillis": -32305.17439999996,
+        "proposalSha256": "03ff76d7983fa595fb34cfdfa40126f017f385b26ef3ed10e910c87c9aab2aaf",
+        "supported": true
+      },
+      "fitted": false,
+      "status": "declined"
+    },
+    "originalHarnessError": "TypeError: Cannot read properties of undefined (reading 'length')\n    at main (S:\\Codex-Work\\fraynix-workspace-edition098\\workspace-desktop\\test\\benefit098-integration.cjs:42:236)",
+    "continuation": {
+      "source": "14f7645fe15eaede853d594ec8c31a631765b0d7",
+      "startedAt": "2026-11-09T06:59:45.520Z",
+      "reason": "Continue verified native preparation after correcting fit-decline response handling; originals preserved"
+    },
+    "fitMillis": 756.3263999999035,
+    "captures": [
+      {
+        "file": "eval-short-adaptive-1600.png",
+        "width": 1600,
+        "goalId": "88679b05-6dc5-4fb1-9da6-c0fb25e350d0"
+      },
+      {
+        "file": "eval-short-adaptive-1100.png",
+        "width": 1100,
+        "goalId": "88679b05-6dc5-4fb1-9da6-c0fb25e350d0"
+      },
+      {
+        "file": "eval-long-adaptive-1600.png",
+        "width": 1600,
+        "goalId": "77bf81fb-5be3-48d9-aba1-ddb016400b4b"
+      },
+      {
+        "file": "eval-long-adaptive-1100.png",
+        "width": 1100,
+        "goalId": "77bf81fb-5be3-48d9-aba1-ddb016400b4b"
+      },
+      {
+        "file": "eval-short-save-adaptive-1600.png",
+        "width": 1600,
+        "goalId": "7ee3465f-a9f7-4838-b307-743434adc034"
+      },
+      {
+        "file": "eval-short-save-adaptive-1100.png",
+        "width": 1100,
+        "goalId": "7ee3465f-a9f7-4838-b307-743434adc034"
+      },
+      {
+        "file": "eval-long-recover-adaptive-1600.png",
+        "width": 1600,
+        "goalId": "6e0d9fa1-77f0-4025-a4fb-75f4600a5984"
+      },
+      {
+        "file": "eval-long-recover-adaptive-1100.png",
+        "width": 1100,
+        "goalId": "6e0d9fa1-77f0-4025-a4fb-75f4600a5984"
+      }
+    ],
+    "scope": "One declared block, matching scenes and frozen preparation. Whole evaluation includes copy, startup, warmup, task, additional audit, shutdown and reopened verification. Captures are separate. Recovered external durations are not calibration inputs. No population confidence or amortized payoff claim."
+  },
+  "scope": "Local original/outcome verification; CI status is separate. Synthetic native tasks, no LLM inference or physical accuracy claim."
+}
