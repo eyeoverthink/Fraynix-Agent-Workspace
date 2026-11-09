@@ -31,3 +31,4 @@ header{height:64px;min-height:64px;padding:0 18px}.header-actions{gap:7px}.editi
 /* Compact actual-task chrome leaves the transcript room to breathe. */
 #goal-controls099{flex-shrink:0;font-size:12px;margin:4px 0 7px}#goal-controls099>summary{cursor:pointer;color:#b7d0c6}#goal-controls099[hidden]{display:none}#goal-controls099 #java-goal{max-height:190px;margin:8px 0}
 #task099{max-height:190px;padding:9px 11px}#task099-request{max-height:3.2em;margin:5px 0}#task099-progress{max-height:2.9em;overflow:auto;font-size:11px;margin:4px 0}#task099-details{font-size:11px;margin:5px 0}#task099-details>summary{cursor:pointer;color:#c6dcd4}#task099-details[hidden]{display:none}#task099-open{margin-top:5px}.task099-heading{position:sticky;top:-9px;background:#172e2b;padding:3px 0}
+#task099-request{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-height:1.7em}#task099[data-status=completed] #task099-progress{display:none}
