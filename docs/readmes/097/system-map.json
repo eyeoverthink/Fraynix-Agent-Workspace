@@ -1,0 +1,70 @@
+{
+  "modules": [
+    {
+      "id": "world",
+      "name": "Continuing Java world",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/WorldLedger.java",
+      "note": "docs/obsidian/105-continuing-costs.md"
+    },
+    {
+      "id": "memory",
+      "name": "Verified procedures and memory",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/WorldProcedure079.java",
+      "note": "docs/obsidian/105-continuing-costs.md"
+    },
+    {
+      "id": "cost",
+      "name": "Complete external accounting",
+      "source": "scripts/Costs097.cjs",
+      "note": "docs/obsidian/105-continuing-costs.md"
+    },
+    {
+      "id": "inspector",
+      "name": "Independent source and outcome inspection",
+      "source": "scripts/Inspect-Continuing097.cjs",
+      "note": "docs/obsidian/105-continuing-costs.md"
+    },
+    {
+      "id": "study",
+      "name": "Actual app sequence and recovery",
+      "source": "workspace-desktop/test/continuing097-integration.cjs",
+      "note": "docs/obsidian/105-continuing-costs.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "docs/readmes/097/stream-01-report-1600.png",
+      "caption": "Actual continuing-world report stream-01"
+    },
+    {
+      "path": "docs/readmes/097/stream-01-report-1100.png",
+      "caption": "Actual continuing-world report stream-01"
+    },
+    {
+      "path": "docs/readmes/097/stream-02-report-1600.png",
+      "caption": "Actual continuing-world report stream-02"
+    },
+    {
+      "path": "docs/readmes/097/stream-02-report-1100.png",
+      "caption": "Actual continuing-world report stream-02"
+    },
+    {
+      "path": "docs/readmes/097/motion-detail-1600.png",
+      "caption": "Actual continuing-world report stream-01"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/readmes/097/verification.json",
+      "caption": "Verification and CI"
+    },
+    {
+      "path": "docs/readmes/097/analysis.json",
+      "caption": "Original task measurements"
+    },
+    {
+      "path": "docs/readmes/097/original-evidence.json",
+      "caption": "Original byte archives"
+    }
+  ]
+}

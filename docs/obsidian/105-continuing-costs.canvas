@@ -1,0 +1,79 @@
+{
+  "nodes": [
+    {
+      "id": "world",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/WorldLedger.java",
+      "x": 0,
+      "y": 0,
+      "width": 350,
+      "height": 240
+    },
+    {
+      "id": "memory",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/WorldProcedure079.java",
+      "x": 380,
+      "y": 0,
+      "width": 350,
+      "height": 240
+    },
+    {
+      "id": "cost",
+      "type": "file",
+      "file": "scripts/Costs097.cjs",
+      "x": 760,
+      "y": 0,
+      "width": 350,
+      "height": 240
+    },
+    {
+      "id": "inspector",
+      "type": "file",
+      "file": "scripts/Inspect-Continuing097.cjs",
+      "x": 1140,
+      "y": 0,
+      "width": 350,
+      "height": 240
+    },
+    {
+      "id": "study",
+      "type": "file",
+      "file": "workspace-desktop/test/continuing097-integration.cjs",
+      "x": 1520,
+      "y": 0,
+      "width": 350,
+      "height": 240
+    }
+  ],
+  "edges": [
+    {
+      "id": "e0",
+      "fromNode": "world",
+      "fromSide": "right",
+      "toNode": "memory",
+      "toSide": "left"
+    },
+    {
+      "id": "e1",
+      "fromNode": "memory",
+      "fromSide": "right",
+      "toNode": "cost",
+      "toSide": "left"
+    },
+    {
+      "id": "e2",
+      "fromNode": "cost",
+      "fromSide": "right",
+      "toNode": "inspector",
+      "toSide": "left"
+    },
+    {
+      "id": "e3",
+      "fromNode": "inspector",
+      "fromSide": "right",
+      "toNode": "study",
+      "toSide": "left"
+    }
+  ]
+}

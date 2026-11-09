@@ -1,186 +1,19 @@
 # Fraynix Agent Workspace
 
-**Latest: [edition096 — restoring the full verification path](README-096.md).**
+**Draft release — CI and publication pending.** **24/24 sequence goals completed; 8 interruptions were explicitly recovered. 4 saved procedures executed after reopening.** Across both blocks, memory took 200.53 s longer over complete streams and 291.14 s longer after charging preparation once.
 
-Published to main with original evidence and screenshots. [Fetched GitHub verification](docs/PUBLICATION_096.json).
+[Edition097: continuing-world costs](README-097.md) · [Interactive offline results](docs/readmes/097/index.html) · [Previous edition](README-096.md) · [Contributor direction](README-CONTRIBUTORS.md)
 
-Combined Java method coverage: 824 passed, 3 skipped, no remaining failures across 177 JUnit classes. The original complete invocation failed four test-boundary assertions; corrected checks passed separately with all500 compared engine/Studio classes unchanged. This is not a single clean full invocation. Factory custom verification and separate source-isolation/distribution checks passed. Fresh071/072 native studies are distinct from copied512/1024MiB diagnostics.25 initial focused methods and135 desktop tests pass. Actual app reviews three declared alternatives; one direct-first trial succeeds and two are not needed, then it explicitly executes one verified construction, retains a skill and survives two cold restarts. [Offline verification explorer](docs/readmes/096/index.html).
+One local visual workspace with Java-owned goals, physics, browser and creation tools, retained skills and verified world outcomes. Read the edition for current functions, evidence, limits and next steps.
 
-**Earlier edition: [edition095 — complete mixed-task costs](README-095.md).**
+## What the application does
 
-Published to main with original evidence and screenshots. [Fetched GitHub verification](docs/PUBLICATION_095.json).
+- Java maintains durable goals, typed tools, original evidence, explicit recovery and retained procedures.
+- The integrated workspace includes chat, browser and creation surfaces, the original game/runtime and native 3D world tools. Their earlier validation remains linked in the edition history.
+- Edition097 measures continuing world history and growing verified memory. It preserves current controllers and every source/outcome check; it does not add a new language model or claim physical accuracy.
 
-24 of 24 mixed tasks completed. Fixed memory took 60.94 s more time across complete goal calls and 49.33 s more across whole study iterations than simple control. Charging preparation once, the first batch took 155.79 s more time. [Offline evidence](docs/readmes/095/index.html).
+![Actual edition097 integrated task report](docs/readmes/097/stream-01-report-1600.png)
 
-**Earlier edition: [edition094 — three-stage crash recovery](README-094.md).**
+The canvas displays the recovered sixth-goal report (world revision 6). The right goal panel and timeline show the later saved-skill demonstration (revision 7); they are different tasks. Controller v1 is a separate legacy episode bank, not the seven-entry procedural bank. A selected model name does not imply model inference ran.
 
-Published to main with original evidence and screenshots. [Fetched GitHub verification](docs/PUBLICATION_094.json).
-
-Seven fresh three-stage goals completed and verified, including five recovered matrix tasks. Five abrupt Java terminations preserved committed progress; fresh downstream forecasts and actual report checks preceded each single world commit. [Offline evidence](docs/readmes/094/index.html).
-
-**Contributors and future agents:** read the [current project direction and engineering contract](README-CONTRIBUTORS.md), including the [dated repository review](docs/TRAJECTORY_REVIEW_094.md). Historical release records remain preserved.
-
-**Earlier edition: [edition093 — forecast from recovered state](README-093.md).**
-
-Published to main with original evidence and screenshots. [Fetched GitHub verification](docs/PUBLICATION_093.json).
-
-Java now creates and verifies a distinct forecast from recovered state before later actual motion. Both declared early-restart cases completed; a second interruption during forecasting also recovered. Stopping during forecasting prevented the next actual stage and any world commit. [Offline evidence](docs/readmes/093/index.html).
-
-**Earlier edition: [edition092 — growing banks and restarted tasks](README-092.md).**
-
-Published to main with original evidence and screenshots. [Fetched GitHub verification](docs/PUBLICATION_092.json).
-
-Across six paired comparisons, digest reuse took 103.08 s less total caller time, with 86.1% fewer canonical checks in the observed counter windows. All twenty goals in the final-stage follow-up verified, including six final-stage interrupted and resumed tasks. An earlier-stage restart was correctly refused after its next source state changed; that remains an unresolved recovery limit. [Offline evidence](docs/readmes/092/index.html).
-
-**Earlier edition: [edition091 — less repeated verification work](README-091.md).**
-
-Published to main with original evidence and screenshots. [Fetched GitHub verification](docs/PUBLICATION_091.json).
-
-Digest reuse reduced canonical verification passes by 94.2% and took 40.07 s less across the eight task calls (four paired comparisons). All nine new native goals completed and verified. Every original outcome check remains active. [Offline evidence](docs/readmes/091/index.html).
-
-**Earlier edition: [edition090 — cost freshness and mixed tasks](README-090.md).**
-
-Edition090 is published to main with code, measured outcomes, screenshots and exact original evidence. [Fetched GitHub verification](docs/PUBLICATION_090.json).
-
-**Earlier edition: [edition089 — paired memory and longer sequences](README-089.md).**
-
-Edition089 is published to main with code, measurements, screenshots and exact original evidence. [Fetched GitHub verification](docs/PUBLICATION_089.json).
-
-
-**Earlier edition: [edition088 — resources and calibration value](README-088.md).**
-
-Edition088 is published to main with code, measurements, screenshots and exact original evidence. [Fetched GitHub verification](docs/PUBLICATION_088.json).
-
-
-**Earlier edition: [edition087 — learned calibration allowances](README-087.md).**
-
-Edition087 is published to main with code, measurements, screenshots and exact original evidence. [Fetched GitHub verification](docs/PUBLICATION_087.json).
-
-
-**Earlier edition: [edition086 — calibration admission before spending](README-086.md).**
-
-Edition086 is published to main with code, measurements, screenshots and exact original evidence. [Fetched GitHub verification](docs/PUBLICATION_086.json).
-
-
-**Earlier edition: [edition085 — growing memory and calibration payback](README-085.md).**
-
-Edition 085 is published to main with code, measurements, screenshots and original evidence. [Fetched GitHub verification](docs/PUBLICATION_085.json).
-
-
-**Earlier edition: [edition 084 — repeated complete-task calibration](README-084.md).**
-
-Edition 084 is published to main with code, measurements, screenshots and original evidence. [Fetched GitHub verification](docs/PUBLICATION_084.json).
-
-
-**Earlier edition: [edition 083 — restart and skill-saving calibration](README-083.md).**
-
-Edition 083 is published to main with code, measurements, screenshots and original evidence. [Fetched GitHub verification](docs/PUBLICATION_083.json).
-
-
-**Earlier edition: [edition 082 — resource budgets and continuing-world sequences](README-082.md).**
-
-Edition 082 is published to main with code, measurements, screenshots and original evidence. [Fetched GitHub verification](docs/PUBLICATION_082.json).
-
-
-**A local visual environment for agents to browse, create runnable artifacts, test behavior and reuse verified skills.**
-
-> **[Edition 081 · Faster estimation with complete evidence checks](README-081.md)** · [Offline guide](docs/readmes/081/index.html) · [Edition history](docs/readmes/INDEX.md)
-
-Two bounded Java readers check the same original calibration evidence. Estimation overhead reduction: **44.2%**; complete-task reduction: **1.18%** in eight controlled pairs. Identical decisions, native work and final states; original verification retained. [Actual results, screenshots and evidence](README-081.md).
-
-Edition 081 is published to main with source, actual screenshots, original evidence and continuity notes. [Fetched GitHub verification](docs/PUBLICATION_081.json).
-
-One integrated app, with Java-owned chat planning, creation, native skill scheduling, continuing identity, real clocks and checked outcomes. Mission connects the actual goal, source, child task, recovery and retained result. [Screenshots, typed skill graphs, new logic and production direction](README-046.md).
-
-The [edition 050 construction workshop](README-050.md) adds finite-stock ramp experiments, predictions saved before native physics execution, recorded failures, bounded design repair and procedures that are retested after restart. Its integrated replay and charts expose actual solver outcomes. The [edition 051 gripper assembly](README-051.md) now adds force/torque-driven bridge assembly, same-world reassembly after restart, typed chat and verified saved skills. The kit and actuator are virtual; construction remains subject to native verification. [Verified GitHub publication](docs/PUBLICATION_050.json) · [Final application validation](docs/publication050/validation.json).
-
-The spatial proof and next independent-capture gates are documented in the [spatial contract](docs/SPATIAL_WORLD.md) and the [world-model frontier assessment](docs/WORLD_MODEL_FRONTIERS.md), including Genie, persistent3D capture, physics-aware prediction and the source-qualified local scene/manipulation milestone.
-
-Independent successor to [Fraynix Studio](https://github.com/eyeoverthink/Fraynix-Studio), starting from verified commit `6341404`. The original application and personal project state remain separate. Full game sources, assets, licenses and earlier editions are preserved here.
-
-## Start
-
-Run **Launch-Agent-Workspace.bat** with JDK 21 and Node.js 22.12 or newer installed. First setup downloads pinned Electron/Chromium dependencies. Use an installed local Ollama model for agent tasks. Docker and WSL are not required.
-
-The app includes a real browser, live creation canvas, editable source, versioned artifact library, local-model agent, execution timeline and tested recipe library. **Run guided proof** demonstrates the complete local workflow. **Game Lab** opens the existing integrated original renderer with its native window hidden and editor uninitialized. Legacy editor sources are preserved.
-
-Local `gpt-oss:20b` is the verified default for the first agent fixture. The custom FRAYNIX 3B trial returned an Ollama native-format error; advertised tool capability alone does not establish task reliability. You can select other eligible installed models explicitly.
-
-![Actual edition040 integrated native views](docs/readmes/040/images/spatial040-linked-native.png)
-
-Actual edition040 linked views shown above, using an explicitly labelled analytic native control. Open **Spatial → Linked views** for shared selection, original-game inspection, separate observation planes, JSON export and checked local-model reports. Display checks and physical accuracy are separate; edition038 physical displacement/uncertainty remain unvalidated. Earlier observation/native behavior remains documented in [edition036](README-036.md). Earlier October30 body/scene/file workflows remain preserved. Native actuation, decoded video, import/replication, Java/desktop regressions and local-agent evidence are recorded in [edition015 verification](docs/readmes/015/verification.json). The previous [real-data fit](README-013.md) remains rejected.
-
-## Verify
-
-```powershell
-.\gradlew.bat check installDist :workspace-engine:installDist
-cd workspace-desktop
-npm.cmd ci --no-audit --no-fund
-npm.cmd test
-npm.cmd run test:scene
-npm.cmd run test:calibration
-npm.cmd run test:real-data
-npm.cmd run test:observer
-npm.cmd run test:body
-npm.cmd run test:measurement
-npm.cmd run test:integration
-npm.cmd run test:learning
-npm.cmd run test:broader
-# Optional actual local-model fixture:
-$env:FRAYNIX_LIVE_MODEL='gpt-oss:20b'
-npm.cmd run test:live
-npm.cmd run test:live-scene
-npm.cmd run test:live-measurement
-npm.cmd run test:live-calibration
-npm.cmd run test:live-broader
-```
-
-Project files, test receipts, learned recipes, browser cookies and event history live under `%USERPROFILE%/.fraynix-agent-workspace/projects/default`, outside Git. `FRAYNIX_WORKSPACE_PROJECT` selects another independent project.
-
-Skills include tested web-artifact recipes and Java-owned physical procedures. Construction skills retain their versioned requirements and must pass fresh physics checks when reused. A bounded adaptive controller learns from recorded outcomes and activates only after independent replay. Whole-model training, general code workers and broader computer control remain separate milestones in the [design plan](docs/AGENT_WORKSPACE_DESIGN.md).
-
-## Persistent learning in the working app
-
-Task episodes now retain the actual policy version, typed actions, failures, artifact revisions and test outcomes. A separate worker uses pinned Fraymus prototype-learning code to propose two bounded strategy changes: refresh stale observations and reduce repeated reads. Candidate policies cannot add tools or bypass tests.
-
-Expand **Learning controls** and choose **Run learning proof**. Its separate fixtures leave your browser untouched. The first verified candidate improved **5/8 → 8/8** cases. A later candidate retained **8/8** while reducing repeated reads. A harmful candidate was rejected. Restart, rollback, cancellation and retry pass.
-
-Use the new **Learning** tab inside Project objects to inspect episodes, candidates and replay evidence. The left browser, center canvas, right agent and bottom timeline keep their existing design. The actual local `gpt-oss:20b` workflow also passes with the learned policy and a retained verified episode.
-
-[README 007](README-007.md) records the first learning mechanism. [README 008](README-008.md) adds broader checks, research-preserving read limits, changed-control recovery and reliable field replacement. The 45 release checks remain separate from the eight-case automatic promotion gate. [Project memory](docs/PROJECT_MEMORY.md) and the [development log](docs/DEVELOPMENT_LOG.md) provide engineering continuity. These changes adapt a small controller; they do not update Ollama language-model weights.
-
-## First session step by step
-
-1. Launch the app and wait for **Java engine online**.
-2. Click **Run guided proof**. Watch the actual lower-left browser fill and submit the local practice form.
-3. Use the counter that opens in the creation canvas. Its passing badge follows real Add/Reset assertions.
-4. Inspect the execution timeline, then open **Verified skills** to reuse the saved recipe.
-5. Select **gpt-oss:20b** and ask the agent to create a new small application with explicit tests. Click **Start task**.
-6. Switch to **Source** to inspect or edit files. **Save & run** saves another version. Rerun its tests before saving another verified recipe.
-7. Use **Take over** whenever you want to stop the task. **Open Game Lab** opens the integrated game view; the original renderer runs with its separate native window hidden.
-
-Example first request:
-
-> Create a counter with count initially 0, an Add button and a Reset button. Test that Add changes 0 to 1 and Reset restores 0. Correct failures, retest and save a verified recipe.
-
-[Full setup, walkthrough and troubleshooting](README-006.md) explains each control, project persistence and the local-model requirements. The current launcher incrementally refreshes the Java distributions and checks locked desktop dependencies before opening the app.
-
-## What the app brings together
-
-The left side contains saved project objects and a real browser. The center runs generated HTML/CSS/JavaScript and exposes its saved source. The right side holds model selection, the goal, result and takeover. The bottom records actual actions and measured outcomes. The same visible page is available to both human browsing and supported agent actions.
-
-Java reuses the existing model catalog, entity/component runtime, transactions, checkpoints and kernel memory. Electron hosts isolated browser and artifact renderers. Source versions and test receipts stay bound together, so a passing old version cannot certify a later edit. [Edition 008 inventories 372 implementation source/assets](docs/readmes/008/file-inventory.json); earlier inventories remain in their published editions.
-
-![Actual local model created and tested this application](docs/readmes/006/images/live-agent.png)
-
-October 29, 2026 live-model fixture, reused from edition 005. Actual application frame export; the source, tests and independent acceptance results are in the [verification record](docs/readmes/005/live-model.json).
-
-## Development and next direction
-
-The [Chandra assessment and offline creation plan](docs/CHANDRA_ASSESSMENT.md) reviews pinned source `f96eae6`, records **652 passing / 24 failing** fixture tests and independent behavioral probes, and maps document/OCR evidence, local retrieval and durable jobs into the present Java-owned design. Its six-stage plan starts with verified offline operation and real measurement binding. This is an assessment, with no imported Chandra runtime or new executable release; edition 010 and its historical assets remain intact.
-
-The project grew from the full Mario game editor and sensory/nervous-system integration, through reliable placement, level persistence, power-up rendering and gameplay practice, into this independent browser/canvas workspace. [README 006](README-006.md) traces those steps and the [earlier editions](docs/readmes/INDEX.md) retain their original evidence.
-
-The [Fraymus-OS-One assessment](docs/FRAYMUS_OS_ONE_ASSESSMENT.md) maps its actual Think rule revisions, synaptic adaptation, continuity, creator tools and related **fraymus-brain** weight-training kernel to this workspace. Durable episodes, a bounded adaptive controller and evaluated promotion/rollback are now implemented. Next: broader end-to-end task replay, more failure classes, Game Lab episode alignment and evaluated small-model training. Browser adapters, artifact types and isolated general-code workers follow their own gates. The current app design remains the foundation.
-
-Recipe reuse, retrieval memory, nervous-system adaptation and actual model-weight training are tracked separately. The related kernel's small neuron example measurably lowers training loss; its saved Qwen layer experiment is a representation-training checkpoint, not a newly deployed Ollama model. A training integration should record data provenance, checkpoint identity, independent task results and rollback. [Read the complete findings and implementation order](docs/FRAYMUS_OS_ONE_ASSESSMENT.md).
+See the full [README097](README-097.md) for setup, step-by-step reproduction, results, current limits and the next acceptance gate.
