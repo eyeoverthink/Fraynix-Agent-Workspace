@@ -1,6 +1,6 @@
-# Edition 097 prospective contract â€” 2026-11-08
+# Edition 097 prospective contract — 2026-11-08
 
-Parent: fetched main `453e8708ab9353d86ed666f3d059d28563372530`. Work only in `S:/Codex-Work/fraynix-workspace-edition097`, branch edition097. Preserve live045/qa046, private data and frozen001â€“096. No subagents; heavy work serial. The new drive has room for the complete evidence history. No production source, proof threshold, controller or calibration admission change is planned.
+Parent: fetched main `453e8708ab9353d86ed666f3d059d28563372530`. Work only in `S:/Codex-Work/fraynix-workspace-edition097`, branch edition097. Preserve live045/qa046, private data and frozen001–096. No subagents; heavy work serial. The new drive has room for the complete evidence history. No production source, proof threshold, controller or calibration admission change is planned.
 
 ## First gate
 

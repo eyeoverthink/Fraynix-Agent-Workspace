@@ -1,6 +1,6 @@
 ## Edition097 — preparation, CI gate pending
 
-Work in S:/Codex-Work/fraynix-workspace-edition097, branch edition097, from fetched main453e8708. Read docs/EDITION_097_CONTRACT.md. Parent CI42554061175 was still checking out at first inspection. No native097 results yet. Prepare growing-bank continuing-world accounting; run only after the recorded CI gate passes. Preserve live045/qa046/private data and frozen001–096. No subagents; heavy work serial.
+Work in S:/Codex-Work/fraynix-workspace-edition097, branch edition097, from fetched main453e8708. Read docs/EDITION_097_CONTRACT.md. Parent CI42554061175 was still checking out at first inspection. No native097 results yet. Prepare growing-bank continuing-world accounting; See the dated pre-trial scheduling amendment: recorded pending CI permits the isolated cohort after local/source checks; successful final parent CI is mandatory before publication. Preserve live045/qa046/private data and frozen001–096. No subagents; heavy work serial.
 
 ## Edition096 — published and fetched back
 
