@@ -1,0 +1,19 @@
+{
+  "passed": true,
+  "reviewedAtUtc": "2026-11-09T09:20:23.913166+00:00",
+  "scope": "Direct visual inspection of actual current app and rendered offline-guide screenshots, supplemented by actual DOM/native bounds/control checks. Screenshot inspection is not outcome authority.",
+  "images": [
+    "build/ui099-review/reuse099-1600.png",
+    "build/ui099-review/creation099-1100.png",
+    "build/ui099-review/creation099-1600.png",
+    "build/guide099-1440.png",
+    "build/guide099-390.png"
+  ],
+  "findings": [
+    "Normal completed-task layout retains readable transcript and composer",
+    "Expanded Mission uses the lower pane without clipping the composer or task buttons",
+    "Live preview correctly identifies the displayed saved artifact",
+    "Offline guide wraps its navigation, cards and source map at390px and its screenshots link to full-size originals",
+    "History captions distinguish older selected artifacts from the latest conversation"
+  ]
+}

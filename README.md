@@ -8,4 +8,4 @@ Java owns durable goals, physics, tools, verification and retained procedures. C
 
 ![Actual099 creation](docs/readmes/099/creation099-1600.png)
 
-Publication receipt follows the actual push and fetched-content audit.
+Published to main. [Fetched GitHub verification](docs/PUBLICATION_099.json).

@@ -1,0 +1,114 @@
+{
+  "edition": 99,
+  "releaseCommit": "1bd6522383c9a564652c6ca23ddb379913bbd71a",
+  "annotatedTag": "readme-099",
+  "tagObject": "21eef9881762fbfc45a208c7d6d76f04b124d48c",
+  "audit": {
+    "passed": true,
+    "verifiedAtUtc": "2026-11-09T09:27:18.460661+00:00",
+    "remote": "https://github.com/eyeoverthink/Fraynix-Agent-Workspace.git",
+    "fetchedRef": "refs/verify/edition099-main",
+    "remoteFetched": true,
+    "commit": "1bd6522383c9a564652c6ca23ddb379913bbd71a",
+    "canonicalSourceFiles": 1304,
+    "editions": 99,
+    "frozenHashes": 29955,
+    "original099EvidenceFiles": 321,
+    "distinctOriginalPayloads": 227,
+    "method": "Every enumerated blob read from the specified Git tree; remoteFetched identifies a fresh verification ref. Source byte counts and canonical UTF-8 LF/binary hashes checked. All frozen edition hashes checked. Each unique immutable Git archive blob is decompressed once; every logical original entry is compared to its verified compressed/raw byte counts and SHA-256. No mutable-file timestamp or runtime-proof shortcut."
+  },
+  "scope": "Actual non-force atomic main/edition099/tag push, fetched and independently audited from Git blobs. Local model/native/data/creation/layout/restart tests passed. Retained initial failures are part of the original evidence. Post-push CI is separate.",
+  "analysis": {
+    "passed": true,
+    "source": "71712af35f6572103de2614b5baa01a86adb569d",
+    "at": "2026-11-09T09:12:08.150Z",
+    "world": {
+      "id": "ad605dfd-380f-431b-80d9-94c63922fa7e",
+      "success": true,
+      "selected": "two-stage",
+      "ticks": 24948,
+      "observed": 24948,
+      "stages": 5,
+      "usesMemory": false,
+      "lookupMillis": 3.5257,
+      "activeMillis": 25106.243,
+      "auditMillis": 3263.0442
+    },
+    "refusals": [
+      "changed target",
+      "changed charged work",
+      "missing actual original",
+      "forged world commit"
+    ],
+    "tasks": [
+      {
+        "kind": "world",
+        "taskId": "2377c825-2ebc-4a5b-b2ea-13a8ebabe949",
+        "goalId": "ad605dfd-380f-431b-80d9-94c63922fa7e",
+        "callerMillis": 156616.5572,
+        "routerCalls": 1,
+        "routerMillis": 110597.9265,
+        "failedRouterCalls": 0,
+        "generationCalls": 0,
+        "modelDigest": "f38aa0c53da5f8c49d08c43a99df24ff53167fe68e24664a7777288e7656fdfe",
+        "savedSkill": "studio099-arrangement",
+        "reusedSkill": null
+      },
+      {
+        "kind": "data",
+        "taskId": "71f7b7a8-ec02-4371-8732-0c342b6734bb",
+        "goalId": "324c24a9-a7d2-458d-86a3-d56ff7d41a53",
+        "callerMillis": 69103.18460000001,
+        "routerCalls": 1,
+        "routerMillis": 67122.0262,
+        "failedRouterCalls": 0,
+        "generationCalls": 0,
+        "modelDigest": "f38aa0c53da5f8c49d08c43a99df24ff53167fe68e24664a7777288e7656fdfe",
+        "savedSkill": "studio099-motion",
+        "reusedSkill": null
+      },
+      {
+        "kind": "creation",
+        "taskId": "857384e3-8335-48c6-a965-e56033b75557",
+        "goalId": "38d734cd-9c03-4e99-b58d-c840349ba51d",
+        "callerMillis": 378211.5138,
+        "routerCalls": 0,
+        "routerMillis": 0,
+        "failedRouterCalls": 0,
+        "generationCalls": 3,
+        "modelDigest": "f38aa0c53da5f8c49d08c43a99df24ff53167fe68e24664a7777288e7656fdfe",
+        "savedSkill": "studio099-tally",
+        "reusedSkill": null
+      },
+      {
+        "kind": "reuse",
+        "taskId": "99913ba1-5fc4-4358-a4f7-6069287dad96",
+        "goalId": "a79215e9-b781-46bf-a51d-ce09f9c0f60d",
+        "callerMillis": 86236.52410000004,
+        "routerCalls": 1,
+        "routerMillis": 84259.5814,
+        "failedRouterCalls": 0,
+        "generationCalls": 0,
+        "modelDigest": "f38aa0c53da5f8c49d08c43a99df24ff53167fe68e24664a7777288e7656fdfe",
+        "savedSkill": null,
+        "reusedSkill": {
+          "name": "studio099-motion",
+          "id": "e0c99082-c6ac-3213-bafe-60b32a701aa7",
+          "version": 1
+        }
+      }
+    ],
+    "scope": "Fresh local-model and native originals. Full inherited procedure source, forecast, actual motion, metrics and single-commit inspection retained. Four altered evidence cases refused. Data arithmetic and actual creation controls checked in the app harness. Caller times include inference and checks; no performance comparison or generalization claim."
+  },
+  "releaseCI": {
+    "id": 42593353537,
+    "head_sha": "1bd6522383c9a564652c6ca23ddb379913bbd71a",
+    "status": "in_progress",
+    "conclusion": null,
+    "run_attempt": 1,
+    "html_url": "https://github.com/eyeoverthink/Fraynix-Agent-Workspace/actions/runs/42593353537",
+    "created_at": "2026-11-09T09:25:46Z",
+    "updated_at": "2026-11-09T09:25:50Z",
+    "fetchedAt": "2026-11-09T09:26:54.430Z"
+  }
+}
