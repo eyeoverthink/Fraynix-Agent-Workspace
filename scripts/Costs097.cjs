@@ -40,7 +40,7 @@ function stream(s,expected){
  return {...a,completed,goals:s.rows.length,successfulGoals:s.rows.filter(r=>r.goal.status==='completed').length,taskMillis:s.rows.reduce((n,r)=>n+task(r).taskMillis,0),bankEntries:state.bank.length,revision:state.world.expectedRevision,nativeTicks:s.rows.reduce((n,r)=>n+r.job.arm.chargedTicks,0)};
 }
 function summarize(r){
- assert.equal(r.streams.length,4);const pairs=[];let previous=-1;
+ assert(Number.isFinite(r.preparationMillis)&&r.preparationMillis>0,'Measured preparation cost required');assert.equal(r.streams.length,4);const pairs=[];let previous=-1;
  for(const s of r.streams){assert.equal(s.clockOwner,r.clock.id);assert(s.interval.start>=previous,'Streams overlapped');previous=s.interval.end;assert.equal(s.preparedSha256,r.preparedSha256);}
  for(let block=0;block<2;block++){
   const xs=r.streams.filter(s=>s.block===block);assert.equal(xs.length,2);assert.deepEqual(xs.map(s=>s.mode),block?['memory','simple']:['simple','memory']);const simple=xs.find(s=>s.mode==='simple'),memory=xs.find(s=>s.mode==='memory');assert.deepEqual(simple.profile,memory.profile);assert.deepEqual(simple.initialWorld.frame,memory.initialWorld.frame,'Initial copied world must match');
