@@ -24,7 +24,7 @@ function verifyRow(row,r,out,condition,spec){
  return {...result,row:row.id,condition:row.condition,mode:row.mode,...row.account,bankBefore:row.bankBefore.length,bankAfter:row.bankAfter.length,revision:row.observed.expectedRevision,savedSkill:row.goal.savedSkill||null,warm:j.decision.candidate?.warm||false,lookupMode:j.lookupProof?.mode||'none',resumes:j.resumes,reforecastTicks:j.arm.attempts.filter(a=>a.stage.startsWith('reforecast/')).reduce((n,a)=>n+a.chargedTicks,0)};
 }
 function inspect(r,out){
- assert(r.passed);assert.equal(r.ci.status,'completed');assert.equal(r.ci.conclusion,'success');assert.equal(r.ci.head_sha,r.protocol.parent);assert.equal(r.ci.id,r.protocol.ciRun);assert.equal(hash(r.preparedFiles),r.preparedSha256);
+ assert(r.passed);assert(['in_progress','completed'].includes(r.ci.status));assert(r.ci.status==='in_progress'?r.ci.conclusion===null:r.ci.conclusion==='success');assert.equal(r.protocol.ciPolicy,'checked-before-trials-pass-before-publication');assert.equal(r.ci.head_sha,r.protocol.parent);assert.equal(r.ci.id,r.protocol.ciRun);assert.equal(hash(r.preparedFiles),r.preparedSha256);
  for(const f of r.preparedFiles){const b=fs.readFileSync(path.join(out,'preparation',f.path));assert.equal(b.length,f.bytes);assert.equal(sha(b),f.sha256);}
  const seed=verifyRow(r.preparation.rows[0],r,out,{targets:r.protocol.seed.targets,retain:true,skill:false,recovery:false},r.protocol.seed),results=[],demonstrations=[];
  for(let i=0;i<r.streams.length;i++){

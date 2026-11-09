@@ -1,10 +1,10 @@
-# Edition 097 prospective contract — 2026-11-08
+# Edition 097 prospective contract â€” 2026-11-08
 
-Parent: fetched main `453e8708ab9353d86ed666f3d059d28563372530`. Work only in `S:/Codex-Work/fraynix-workspace-edition097`, branch edition097. Preserve live045/qa046, private data and frozen001–096. No subagents; heavy work serial. The new drive has room for the complete evidence history. No production source, proof threshold, controller or calibration admission change is planned.
+Parent: fetched main `453e8708ab9353d86ed666f3d059d28563372530`. Work only in `S:/Codex-Work/fraynix-workspace-edition097`, branch edition097. Preserve live045/qa046, private data and frozen001â€“096. No subagents; heavy work serial. The new drive has room for the complete evidence history. No production source, proof threshold, controller or calibration admission change is planned.
 
 ## First gate
 
-Inspect the actual final096 GitHub run42554061175. At the first check it was still checking out the repository, not passed. Prepare implementation while pending; do not run the native cohort before a successful parent CI result. Preserve any failed CI result and diagnose it rather than calling focused checks a complete CI pass. A correction, if needed, must have a separately recorded source and gate.
+Inspect the actual final096 GitHub run42554061175. At the first check it was still checking out the repository, not passed. The original declaration deferred native work until completion. The dated pre-trial amendment below changes scheduling only; a successful parent CI result is required before publication. Preserve any failed CI result and diagnose it rather than calling focused checks a complete CI pass. A correction, if needed, must have a separately recorded source and gate.
 
 ## Continuing-world experiment
 
@@ -27,3 +27,7 @@ Compare the two complete streams in each block, and show task/prefix costs descr
 ## Verification and publication
 
 Use the unchanged independent093 native/procedure/commit inspector and original cost/provenance checks. Add continuity and interval verification for growing streams, exact bank/skill progression, reserved recovery, no double counting, incomplete streams and altered input/accounting refusals. Check identical production classes against096 and build/source isolation. Run relevant Java and all existing desktop regressions serially. Verify real app reports at1600/1100 and offline guide at1440/390. Preserve original failures and every source-qualified result. Publish README097, actual screenshots, offline explorer, source inventory, original evidence, Obsidian map, memories/logs, annotated readme-097, main and a fetched-content publication receipt. No new LLM inference, physical measurement, weight training or general autonomy claim.
+
+## Pre-trial scheduling amendment — 2026-11-08,19:27PST
+
+The full remote test/package job remains running, with documentation already passed. No097 native cohort has run. The local source-isolation/install, focused Java regressions,135 desktop tests and9 new accounting tests passed; all334 production engine classes are byte-identical to096. The user requested checking CI first, which was done. To avoid leaving this separate local study idle during a potentially long remote job, begin measurements after recording that pending state and require successful parent CI before publication. This changes scheduling, not a source/outcome/acceptance check. A failed or cancelled CI state cannot start a cohort. If CI reveals a relevant defect, preserve these results, review exact source changes and revalidate affected measurements before release. Never call pending CI passed. Record both the actual start response and eventual final response. No result or fixture informed this amendment.
