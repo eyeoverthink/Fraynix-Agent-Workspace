@@ -157,7 +157,7 @@ $('test-canvas').onclick=()=>safe(async()=>{requireSaved();const result=await re
 $('save-skill').onclick=()=>safe(async()=>{requireSaved();const name=artifact.title.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'').slice(0,50)||'web-artifact';await request('tool',{tool:'skill.save',args:{name:name.length<3?'web-'+name:name,description:artifact.title+' — verified interactive web artifact'}});notice('Verified recipe saved in the project skill library');});
 for(const kind of ['browser','canvas'])$('expand-'+kind).onclick=()=>{const className=kind+'-focus';const active=document.body.classList.contains(className);document.body.classList.remove('browser-focus','canvas-focus');if(!active)document.body.classList.add(className);$('expand-browser').textContent=!active&&kind==='browser'?'Restore':'Expand';$('expand-canvas').textContent=!active&&kind==='canvas'?'Restore':'Expand';updateLayout();};
 window.workbench099=new Workspace099(request,updateLayout);
-window.inputs100=new Inputs100Panel(request);
+window.inputs100=new Inputs100Panel(request,source=>creationPanel.open(source));
 host.onEvent(({type,value})=>{
   window.inputs100.event(type,value);
   if(type==='state')document.querySelector('.edition').textContent=value.network?.enabled?'OFFLINE / GUARDED':'LOCAL / 01';
