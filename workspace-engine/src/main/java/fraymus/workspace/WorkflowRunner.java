@@ -29,7 +29,7 @@ public final class WorkflowRunner implements AutoCloseable {
     private JSONObject active(){return values().stream().filter(w->!settled(w)).findFirst().orElse(null);}
     private void change(JSONObject w,String reason) throws Exception {w.put("reason",reason).put("updatedAt",Instant.now());w.getJSONArray("history").put(new JSONObject().put("at",Instant.now()).put("reason",reason).put("step",w.getString("step")).put("status",w.getString("status")));save(w);}
     private JSONObject raw(String id){UUID.fromString(id);return values().stream().filter(w->w.getString("id").equals(id)).findFirst().orElseThrow(()->new IllegalArgumentException("Unknown workflow"));}
-    private static JSONObject view(JSONObject w){var out=new JSONObject().put("workflow",true).put("procedure",graph(w)?SkillGraph046.KIND:dataCreation101(w)?w.getString("profile101"):PROCEDURE).put("attempt",w.getInt("resumes")+1);for(String k:List.of("id","title","request","modelName","status","step","resumes","createdAt","updatedAt","reason","history","stages","currentChild","bundle","audit","auditHistory","report","metrics","savedSkill","skill","dataBinding","graph","graphSha256","graphCodeSha256","worldBinding","graphRemainingMs","diagnostics","memo","reviewEachNode","profile101","code101","pendingSkill101"))if(w.has(k))out.put(k,w.get(k));return out;}
+    private static JSONObject view(JSONObject w){var out=new JSONObject().put("workflow",true).put("procedure",graph(w)?SkillGraph046.KIND:dataCreation101(w)?w.getString("profile101"):PROCEDURE).put("attempt",w.getInt("resumes")+1);for(String k:List.of("id","title","request","modelName","status","step","resumes","createdAt","updatedAt","reason","history","stages","currentChild","bundle","audit","auditHistory","report","metrics","savedSkill","skill","dataBinding","graph","graphSha256","graphCodeSha256","worldBinding","graphRemainingMs","diagnostics","memo","reviewEachNode","profile101","code101","pendingSkill101","implementation103"))if(w.has(k))out.put(k,w.get(k));return out;}
     public synchronized JSONObject read(String id){return view(raw(id));}
     public synchronized JSONArray list(){var all=new JSONArray();for(var w:values())all.put(view(w));return all;}
     private JSONObject definition(JSONObject input) throws Exception {
@@ -45,22 +45,24 @@ public final class WorkflowRunner implements AutoCloseable {
         return new JSONObject().put("request",request).put("title",title).put("modelName",model).put("datasetId",data.getString("datasetId")).put("datasetVersion",data.getInt("version")).put("maxGapS",gap).put("speedLimitMps",speed).put("physics",physics).put("saveSkillName",name).put("responsive",input.optBoolean("responsive",false));
     }
     public synchronized JSONObject start(JSONObject input) throws Exception {return start(input,null);}
-    private JSONObject start(JSONObject input,JSONObject skill) throws Exception {
+    private JSONObject start(JSONObject input,JSONObject skill) throws Exception {return start(input,skill,null);}
+    private JSONObject start(JSONObject input,JSONObject skill,JSONObject implementation) throws Exception {
         if(input.has("graph"))return startGraph(input,skill);
         if(closed||active()!=null||values().size()>=20)throw new IllegalStateException("Finish/resume/stop the current workflow; history limit20");goals.workflowCapacity();var def=definition(input);String id=UUID.randomUUID().toString();var stages=new JSONArray();for(String stage:def.has("profile101")?DataCreation101.STAGES:STAGES)stages.put(new JSONObject().put("name",stage).put("status","pending"));
         var w=new JSONObject().put("id",id).put("definition",def).put("title",def.getString("title")).put("request",def.getString("request")).put("modelName",def.getString("modelName")).put("dataBinding",MotionData.binding(measurements.read(def.getString("datasetId"),def.getInt("datasetVersion")))).put("status","running").put("step","data").put("stages",stages).put("stageIndex",0).put("resumes",0).put("deadline",System.currentTimeMillis()+1_200_000).put("createdAt",Instant.now()).put("history",new JSONArray()).put("auditHistory",new JSONArray());if(skill!=null)w.put("skill",new JSONObject().put("name",skill.getString("name")).put("version",skill.getInt("version")).put("id",skill.getString("id")));
         if(def.has("profile101"))w.put("profile101",def.getString("profile101")).put("code101",DataSummary102.code(def.getString("profile101")));
+        if(implementation!=null)w.put("implementation103",WorldFrames.copy(implementation));
         goals.reserveWorkflow(id);try{change(w,"Request, source, conditions and registered stages frozen before execution");}catch(Exception e){goals.releaseWorkflow(id);throw e;}return view(w);
     }
-    private JSONObject source(JSONObject w){var d=w.getJSONObject("definition");var data=measurements.read(d.getString("datasetId"),d.getInt("datasetVersion"));if(!MotionData.binding(data).similar(w.getJSONObject("dataBinding")))throw new IllegalStateException("Frozen observation source or mapping changed");MotionData.originalRows(data);if(dataCreation101(w)){if(!w.getString("code101").equals(DataSummary102.code(w.getString("profile101"))))throw new IllegalStateException("Data-creation verifier changed; start a newly reviewed workflow");return data;}var p=d.getJSONObject("physics");if(p.has("sceneId")&&!MeasurementStore.hash(scenes.read(p.getString("sceneId")).toString()).equals(p.getString("sourceSceneSha256")))throw new IllegalStateException("Frozen authored simulation scene changed");return data;}
+    private JSONObject source(JSONObject w) throws Exception {if(w.has("implementation103"))verifyImplementation103(w);var d=w.getJSONObject("definition");var data=measurements.read(d.getString("datasetId"),d.getInt("datasetVersion"));if(!MotionData.binding(data).similar(w.getJSONObject("dataBinding")))throw new IllegalStateException("Frozen observation source or mapping changed");MotionData.originalRows(data);if(dataCreation101(w)){if(!w.getString("code101").equals(DataSummary102.code(w.getString("profile101"))))throw new IllegalStateException("Data-creation verifier changed; start a newly reviewed workflow");return data;}var p=d.getJSONObject("physics");if(p.has("sceneId")&&!MeasurementStore.hash(scenes.read(p.getString("sceneId")).toString()).equals(p.getString("sourceSceneSha256")))throw new IllegalStateException("Frozen authored simulation scene changed");return data;}
     private JSONObject stage(JSONObject w,int index){return w.getJSONArray("stages").getJSONObject(index);}
-    private JSONObject verifiedStage(JSONObject w,int index) throws Exception {var s=stage(w,index);var g=goals.verifiedOwned(w.getString("id"),s.getString("goalId"));if(!g.getString("workflowStage").equals(stageNames(w).get(index)))throw new IllegalStateException("Owned stage family changed");if(s.has("artifact")&&!Creation.reference(artifacts.read(g.getJSONObject("report").getString("id"))).similar(s.getJSONObject("artifact")))throw new IllegalStateException("Verified stage artifact changed");return g;}
+    private JSONObject verifiedStage(JSONObject w,int index) throws Exception {var s=stage(w,index);var g=goals.verifiedOwned(w.getString("id"),s.getString("goalId"));if(index==1&&w.has("implementation103")&&!w.getJSONObject("implementation103").similar(g.optJSONObject("implementation103")))throw new IllegalStateException("Owned creation implementation lineage changed");if(!g.getString("workflowStage").equals(stageNames(w).get(index)))throw new IllegalStateException("Owned stage family changed");if(s.has("artifact")&&!Creation.reference(artifacts.read(g.getJSONObject("report").getString("id"))).similar(s.getJSONObject("artifact")))throw new IllegalStateException("Verified stage artifact changed");return g;}
     private JSONObject bundle(JSONObject w) throws Exception {
         var data=source(w);var dg=verifiedStage(w,0);var pg=verifiedStage(w,1);var run=goals.ownedNativeRun(w.getString("id"),pg.getString("id"));var args=WorkflowEvidence.bundle(w,data,dg,pg,run);var a=artifacts.writeOnce("workflow-bundle:"+w.getString("id"),args);if(a.getInt("version")!=1)throw new IllegalStateException("Evidence bundle was externally edited");if(w.has("bundle")&&!Creation.reference(a).similar(w.getJSONObject("bundle")))throw new IllegalStateException("Evidence bundle identity changed");return a;
     }
     private JSONObject intent(JSONObject w,int index) throws Exception {
         var d=w.getJSONObject("definition");if(index==0)return new JSONObject().put("request",d.getString("request")).put("datasetId",d.getString("datasetId")).put("datasetVersion",d.getInt("datasetVersion")).put("maxGapS",d.getDouble("maxGapS")).put("speedLimitMps",d.getDouble("speedLimitMps"));
-        if(dataCreation101(w))return DataSummary102.creation(w,handoff101(w));
+        if(dataCreation101(w)){var in=DataSummary102.creation(w,handoff101(w));if(w.has("implementation103"))in.put("implementation103",w.getJSONObject("implementation103"));return in;}
         if(index==1){var p=new JSONObject(d.getJSONObject("physics").toString());p.remove("sourceSceneSha256");return p.put("request",d.getString("request"));}
         var a=bundle(w);w.put("bundle",Creation.reference(a));return WorkflowEvidence.creation(w,a);
     }
@@ -71,12 +73,13 @@ public final class WorkflowRunner implements AutoCloseable {
             if(System.currentTimeMillis()>w.getLong("deadline"))throw new IllegalStateException("Workflow attempt exceeded1200seconds");
             if(w.getString("step").equals("audit"))return;
             if(w.getString("step").equals("complete")){complete(w);return;}
+            if(w.has("implementation103"))verifyImplementation103(w);
             int index=w.getInt("stageIndex");var s=stage(w,index);if(!s.has("input")){source(w);s.put("input",intent(w,index));change(w,"Saved "+s.getString("name")+" intent before starting its stable owned child");return;}
             var g=goals.startOwned(w.getString("id"),s.getString("name"),s.getJSONObject("input"));s.put("goalId",g.getString("id"));
             if(!g.getString("status").equals("completed")){if(!s.optString("childUpdatedAt").equals(g.optString("updatedAt"))){s.put("status",g.getString("status")).put("childUpdatedAt",g.optString("updatedAt"));w.put("currentChild",g);save(w);}if(Set.of("interrupted","cancelled").contains(g.getString("status")))throw new IllegalStateException("Owned "+s.getString("name")+" stage stopped: "+g.getString("reason"));return;}
             var raw=goals.verifiedOwned(w.getString("id"),g.getString("id"));s.put("status","completed").put("artifact",Creation.reference(artifacts.read(raw.getJSONObject("report").getString("id")))).put("metrics",raw.getJSONObject("metrics"));if(raw.has("runId"))s.put("runId",raw.getString("runId"));w.put("currentChild",g);
             if(index<stageNames(w).size()-1){w.put("stageIndex",index+1).put("step",stageNames(w).get(index+1));if(dataCreation101(w)&&w.getJSONObject("definition").optBoolean("reviewAfterData101"))w.put("status","interrupted");change(w,"Verified "+s.getString("name")+" stage; retained outcome will not be repeated"+(w.getString("status").equals("interrupted")?". Requested review before creation; explicitly Resume.":""));}
-            else{w.put("step","audit").put("report",s.getJSONObject("artifact"));w.remove("claim");change(w,dataCreation101(w)?"Generated behavior passed; independent visible rows and filter-state audit is next":"Generated behavior passed; independent source-cell and native SVG geometry audit is next");}
+            else{w.put("step","audit").put("report",s.getJSONObject("artifact"));w.remove("claim");change(w,dataCreation101(w)?"Artifact behavior passed; independent visible rows and filter-state audit is next":"Generated behavior passed; independent source-cell and native SVG geometry audit is next");}
         }catch(Throwable e){try{var durable=raw(w.getString("id"));if(dataCreation101(durable)&&durable.getString("status").equals("completed")){goals.releaseWorkflow(w.getString("id"));System.err.println("Completed workflow publication/logging needs reconciliation on restart: "+e);}else interrupt(w,e.getMessage());}catch(Exception failed){System.err.println("Workflow checkpoint: "+failed);}}
     }
     private void interrupt(JSONObject w,String reason) throws Exception {var s=stage(w,w.getInt("stageIndex"));recoverPointer(w,s);if(s.has("goalId"))goals.interruptOwned(w.getString("id"),s.getString("goalId"),"Parent workflow interrupted: "+reason);if(graph(w))SkillGraph046.diagnostic(w,s.getString("name"),String.valueOf(reason));w.put("status","interrupted");w.remove("claim");change(w,reason+". Review and explicitly Resume or Stop the workflow.");}
@@ -146,8 +149,8 @@ public final class WorkflowRunner implements AutoCloseable {
     }
     private void complete101(JSONObject w) throws Exception {
         var audit=verified101(w);w.put("metrics",new JSONObject().put("stages",2).put("observationRows",audit.getInt("rowCount")).put("auditedFrames",4).put("qualityPassed",stage(w,0).getJSONObject("metrics").getBoolean("qualityPassed")));
-        String name=w.getJSONObject("definition").getString("saveSkillName");if(!name.isEmpty())w.put("pendingSkill101",goals.retainWorkflow(DataSummary102.procedure(w),name));
-        w.put("status","completed");change(w,"Data, generated content and independent audit completed; skill publication follows durable parent completion");
+        String name=w.getJSONObject("definition").getString("saveSkillName");if(!name.isEmpty())w.put("pendingSkill101",goals.retainWorkflow(procedure103(w),name));
+        w.put("status","completed");change(w,"Data, content and independent audit completed; skill publication follows durable parent completion");
         if(w.has("pendingSkill101"))publish101(w);goals.releaseWorkflow(w.getString("id"));artifacts.event("java_workflow_completed",view(w));
     }
     private void publish101(JSONObject w) throws Exception {
@@ -155,14 +158,31 @@ public final class WorkflowRunner implements AutoCloseable {
         var ref=w.getJSONObject("pendingSkill101");
         // Save the exact parent linkage before exposing the skill. Keep pending until cleanup is durable.
         w.put("savedSkill",ref);change(w,"Completed parent and exact skill linkage persisted; publication pending");
-        goals.publishWorkflow101(DataSummary102.procedure(w),ref);w.remove("pendingSkill101");change(w,"Completed parent and original evidence verified; whole data-creation procedure published");
+        goals.publishWorkflow101(procedure103(w),ref);w.remove("pendingSkill101");change(w,"Completed parent and original evidence verified; whole data-creation procedure published");
     }
     private JSONObject reuse101(JSONObject input,JSONObject chosen) throws Exception {
-        SpatialScene.keys(input,"name","version","request","title","modelName","datasetId","datasetVersion","maxGapS","speedLimitMps","saveSkillName","reviewAfterData101");
+        SpatialScene.keys(input,"name","version","request","title","modelName","datasetId","datasetVersion","maxGapS","speedLimitMps","saveSkillName","reviewAfterData101","reuseImplementation103");
+        if(input.has("reuseImplementation103")&&!(input.get("reuseImplementation103") instanceof Boolean))throw new IllegalArgumentException("Implementation reuse requires a boolean");
         if(!chosen.optString("publication101").equals("published"))throw new IllegalStateException("Whole procedure is pending publication");var parent=raw(chosen.getString("sourceWorkflowId"));
         if(!dataCreation101(parent)||!parent.getString("status").equals("completed")||!parent.has("savedSkill")||!parent.getJSONObject("savedSkill").getString("id").equals(chosen.getString("id")))throw new IllegalStateException("Procedure lacks a completed published parent");
-        verified101(parent);var expected=DataSummary102.procedure(parent);for(String k:expected.keySet())if(!k.equals("publication101")&&!new JSONObject().put("v",expected.get(k)).similar(new JSONObject().put("v",chosen.get(k))))throw new IllegalStateException("Original whole-procedure contract changed");
-        var args=WorldFrames.copy(chosen.getJSONObject("defaults"));for(String k:input.keySet())if(!Set.of("name","version").contains(k))args.put(k,input.get(k));args.put("saveSkillName",input.optString("saveSkillName",""));return start(args,chosen);
+        verified101(parent);var expected=procedure103(parent);for(String k:expected.keySet())if(!k.equals("publication101")&&!new JSONObject().put("v",expected.get(k)).similar(new JSONObject().put("v",chosen.get(k))))throw new IllegalStateException("Original whole-procedure contract changed");
+        var args=WorldFrames.copy(chosen.getJSONObject("defaults"));for(String k:input.keySet())if(!Set.of("name","version","reuseImplementation103").contains(k))args.put(k,input.get(k));args.put("saveSkillName",input.optString("saveSkillName",""));
+        JSONObject implementation=null;if(input.optBoolean("reuseImplementation103")){var child=verifiedStage(parent,1);implementation=Implementation103.binding(parent,child,artifacts.read(child.getJSONObject("report").getString("id")));}
+        return start(args,chosen,implementation);
+    }
+    private static JSONObject procedure103(JSONObject w){var p=DataSummary102.procedure(w);if(w.has("implementation103"))p.put("implementation103",WorldFrames.copy(w.getJSONObject("implementation103")));return p;}
+    private final Set<String> checkingImplementations103=new HashSet<>();
+    private void verifyImplementation103(JSONObject w) throws Exception {
+        if(checkingImplementations103.size()>=8||!checkingImplementations103.add(w.getString("id")))throw new IllegalStateException("Implementation ancestry is cyclic or exceeds eight links");
+        try{
+            var binding=w.getJSONObject("implementation103");Implementation103.current(binding);var parent=raw(binding.getString("sourceWorkflowId"));
+            if(!parent.getString("status").equals("completed")||!parent.has("savedSkill"))throw new IllegalStateException("Implementation parent is not a published completion");
+            verified101(parent);var child=verifiedStage(parent,1);var expected=Implementation103.binding(parent,child,artifacts.read(child.getJSONObject("report").getString("id")));
+            if(!binding.similar(expected)||!binding.getJSONObject("skill").similar(w.getJSONObject("skill"))||!binding.getString("profile").equals(w.getString("profile101")))throw new IllegalStateException("Frozen implementation lineage changed");
+            var skill=goals.procedures().toList().stream().map(x->new JSONObject((Map<?,?>)x)).filter(p->p.getString("id").equals(parent.getJSONObject("savedSkill").getString("id"))).findFirst().orElseThrow(()->new IllegalStateException("Original published skill missing"));
+            for(String k:procedure103(parent).keySet())if(!k.equals("publication101")&&!new JSONObject().put("v",procedure103(parent).get(k)).similar(new JSONObject().put("v",skill.get(k))))throw new IllegalStateException("Original procedure contract changed");
+            if(!skill.optString("publication101").equals("published"))throw new IllegalStateException("Original skill is unpublished");
+        }finally{checkingImplementations103.remove(w.getString("id"));}
     }
     private static boolean graph(JSONObject w){return w.has("graph");}
     private JSONObject startGraph(JSONObject input,JSONObject skill) throws Exception {

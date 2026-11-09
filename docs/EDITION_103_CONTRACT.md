@@ -1,0 +1,11 @@
+# Edition 103 — verified implementation reuse on fresh data
+
+Declared 2026-11-09 before implementation trials. Parent main aa404a80f8b4fdbb0f0c2c35c13e667bd1542fad. Isolated S:/Codex-Work/fraynix-workspace-edition103. Preserve private live045/qa046, all older worktrees and frozen editions001–102. No delegation; heavy work serial. Parent102 CI is still running; parent101 passed.
+
+Reuse an exact implementation from a published, completed data→creation workflow. Java revalidates the original source, handoff, artifact, behavior receipt, independent audit and skill linkage before admission and at subsequent boundaries. Persist versioned implementation provenance and a current code identity separately from old101/102 verifier identities. Replace only Java-owned inputs/source.csv and inputs/source.json with the freshly verified data handoff. Never copy a passing receipt onto a new artifact.
+
+Run every original behavior and independent source/outcome check on the new artifact. A reused candidate gets one attempt: a mismatch is retained and refused without silently regenerating or extending budgets. Explicitly starting a new regeneration task remains available. Recovery reconciles the same saved intent, exact implementation and new source; source/provenance mutation refuses continuation. Saved descendants retain linked provenance with bounded ancestry. Chat clearly exposes reuse versus generation.
+
+Test real retained local-model artifacts from102 in isolated copies. The49-row summary contains fixed summary numbers: changed-data reuse must refuse it. The source explorer reads data dynamically: test fresh recorded and synthetic inputs, cold restart and a pause/restart between stages. Test wrong cells, summaries, inputs, code/receipt identity and original-source mutations without weakening any old checks. Unit host fixtures remain labelled fixtures; actual Electron observations establish rendered outcomes. Account complete workflow time, including restarts and refused candidates. No matched speedup or model-training claim from unmatched trials.
+
+Publish actual results, failures, screenshots, an extensive README103, updated memories/logs, frozen evidence, source inventory and an actual non-force main/tag push with fetched verification. CI is reported separately. Do not resume the exhausted102 request or edit its evidence.

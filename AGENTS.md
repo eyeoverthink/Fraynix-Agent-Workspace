@@ -1,3 +1,7 @@
+## Edition103 — in progress
+
+Work only in S:/Codex-Work/fraynix-workspace-edition103. Read docs/EDITION_103_CONTRACT.md. Exact implementation reuse must retain original provenance and fresh source/outcome checks. Hardcoded102 summary is a refusal control, never silently corrected. No new delegation; heavy work serial. Preserve private worlds and frozen001–102. Tests/publication pending.
+
 ## Edition102 — published and fetched back
 
 Published release 8754da63bbb5f76625d99605138955ca9f782862; annotated readme-102 tag object 565692f87275d2dbc257da631673e0f41662aa53. Actual main/edition102/tag push fetched and verified: 1339 canonical sources, 30711 frozen hashes across102 editions and 844 logical original archive entries. [Publication receipt](docs/PUBLICATION_102.json).

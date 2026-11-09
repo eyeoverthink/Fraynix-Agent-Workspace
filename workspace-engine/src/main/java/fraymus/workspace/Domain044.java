@@ -37,7 +37,7 @@ final class Domain044 {
   if(DataCreation101.requested(g.getString("goal"))||DataSummary102.requested(g.getString("goal"))||DataSummary102.supported(c.optJSONObject("procedureBinding",new JSONObject()).optString("kind"))){
    var selected=Procedure044.binding(b,"dataset");var requested=Requested044.fields(g.getString("goal"),"data");merge(args,requested);args.put("datasetId",selected.getString("datasetId")).put("datasetVersion",selected.getInt("version"));
    boolean review=ChatPolicy044.has(g.getString("goal"),"review after data|pause after data|review before creation");args.put("reviewAfterData101",review);
-   if(c.has("procedureBinding")){args.remove("title");merge(args,c.getJSONObject("procedureBinding"),false);return new JSONObject().put("tool","workflow.reuse").put("args",args);}
+   if(c.has("procedureBinding")){args.remove("title");args.put("reuseImplementation103",!ChatPolicy044.has(g.getString("goal"),"\\bregenerat(e|ion|ing)\\b"));merge(args,c.getJSONObject("procedureBinding"),false);return new JSONObject().put("tool","workflow.reuse").put("args",args);}
    args.put("profile101",DataSummary102.requested(g.getString("goal"))?DataSummary102.KIND:DataCreation101.KIND).put("title",DataSummary102.requested(g.getString("goal"))?"Verified motion summary":"Verified motion-data explorer");return new JSONObject().put("tool","workflow.start").put("args",args);
   }
   if(g.getJSONObject("options044").has("graph")){merge(args,g.getJSONObject("options044"));return new JSONObject().put("tool","workflow.start").put("args",args);}
