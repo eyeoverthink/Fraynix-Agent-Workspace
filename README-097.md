@@ -8,7 +8,7 @@ Recorded November 8–9, 2026. This edition asks what repeated work costs when t
 
 ## CI was checked first
 
-**Publication pending: parent CI is still running.** The parent main build [42554061175](https://github.com/eyeoverthink/Fraynix-Agent-Workspace/actions/runs/42554061175) was checked on `453e8708ab9353d86ed666f3d059d28563372530` and must complete successfully before publication. It was checked before the native cohort and still running then. A dated pre-trial scheduling amendment allowed isolated measurements after local regression/source checks passed; the pending response is retained; the final response is still awaited. Local checks below are separate from that complete remote result, and the new edition's own post-push CI status must be checked separately.
+The parent main build [42554061175](https://github.com/eyeoverthink/Fraynix-Agent-Workspace/actions/runs/42554061175) completed successfully on `453e8708ab9353d86ed666f3d059d28563372530` before publication. It was checked before the native cohort and still running then. A dated pre-trial scheduling amendment allowed isolated measurements after local regression/source checks passed; both the pending and final responses are retained. Local checks below are separate from that complete remote result, and the new edition's own post-push CI status must be checked separately.
 
 ## What changed
 
@@ -41,30 +41,30 @@ Recovery time is included in goal time and shown separately only for explanation
 
 | Stream | Request | Bank before | Bank after | Revision | Complete goal | Recovery, included | Lookup | Saved skill |
 | --- | --- | ---: | ---: | ---: | ---: | ---: | --- | --- |
-| stream-00 | outward | 1 | 2 | 1 | 71.35 s | 0.00 s | none | False |
-| stream-00 | outward-adjust | 2 | 3 | 2 | 17.30 s | 0.00 s | none | True |
-| stream-00 | return | 3 | 4 | 3 | 129.08 s | 8.08 s | none | False |
-| stream-00 | return-adjust | 4 | 5 | 4 | 17.14 s | 0.00 s | none | True |
-| stream-00 | outward-again | 5 | 6 | 5 | 73.58 s | 0.00 s | none | False |
-| stream-00 | return-again | 6 | 7 | 6 | 131.63 s | 7.96 s | none | True |
-| stream-01 | outward | 1 | 2 | 1 | 79.54 s | 0.00 s | full | False |
-| stream-01 | outward-adjust | 2 | 3 | 2 | 42.45 s | 0.00 s | hit | True |
-| stream-01 | return | 3 | 4 | 3 | 119.84 s | 7.75 s | hit | False |
-| stream-01 | return-adjust | 4 | 5 | 4 | 45.57 s | 0.00 s | full | True |
-| stream-01 | outward-again | 5 | 6 | 5 | 69.53 s | 0.00 s | hit | False |
-| stream-01 | return-again | 6 | 7 | 6 | 146.81 s | 7.39 s | full | True |
-| stream-02 | outward | 1 | 2 | 1 | 72.99 s | 0.00 s | full | False |
-| stream-02 | outward-adjust | 2 | 3 | 2 | 42.39 s | 0.00 s | hit | True |
-| stream-02 | return | 3 | 4 | 3 | 120.19 s | 6.95 s | hit | False |
-| stream-02 | return-adjust | 4 | 5 | 4 | 46.79 s | 0.00 s | full | True |
-| stream-02 | outward-again | 5 | 6 | 5 | 71.56 s | 0.00 s | hit | False |
-| stream-02 | return-again | 6 | 7 | 6 | 144.95 s | 7.90 s | full | True |
-| stream-03 | outward | 1 | 2 | 1 | 70.38 s | 0.00 s | none | False |
-| stream-03 | outward-adjust | 2 | 3 | 2 | 16.60 s | 0.00 s | none | True |
-| stream-03 | return | 3 | 4 | 3 | 127.79 s | 8.52 s | none | False |
-| stream-03 | return-adjust | 4 | 5 | 4 | 15.86 s | 0.00 s | none | True |
-| stream-03 | outward-again | 5 | 6 | 5 | 68.86 s | 0.00 s | none | False |
-| stream-03 | return-again | 6 | 7 | 6 | 137.51 s | 7.80 s | none | True |
+| stream-00 | outward | 1 | 2 | 1 | 71.35 s | 0.00 s | none | no |
+| stream-00 | outward-adjust | 2 | 3 | 2 | 17.30 s | 0.00 s | none | yes |
+| stream-00 | return | 3 | 4 | 3 | 129.08 s | 8.08 s | none | no |
+| stream-00 | return-adjust | 4 | 5 | 4 | 17.14 s | 0.00 s | none | yes |
+| stream-00 | outward-again | 5 | 6 | 5 | 73.58 s | 0.00 s | none | no |
+| stream-00 | return-again | 6 | 7 | 6 | 131.63 s | 7.96 s | none | yes |
+| stream-01 | outward | 1 | 2 | 1 | 79.54 s | 0.00 s | full | no |
+| stream-01 | outward-adjust | 2 | 3 | 2 | 42.45 s | 0.00 s | hit | yes |
+| stream-01 | return | 3 | 4 | 3 | 119.84 s | 7.75 s | hit | no |
+| stream-01 | return-adjust | 4 | 5 | 4 | 45.57 s | 0.00 s | full | yes |
+| stream-01 | outward-again | 5 | 6 | 5 | 69.53 s | 0.00 s | hit | no |
+| stream-01 | return-again | 6 | 7 | 6 | 146.81 s | 7.39 s | full | yes |
+| stream-02 | outward | 1 | 2 | 1 | 72.99 s | 0.00 s | full | no |
+| stream-02 | outward-adjust | 2 | 3 | 2 | 42.39 s | 0.00 s | hit | yes |
+| stream-02 | return | 3 | 4 | 3 | 120.19 s | 6.95 s | hit | no |
+| stream-02 | return-adjust | 4 | 5 | 4 | 46.79 s | 0.00 s | full | yes |
+| stream-02 | outward-again | 5 | 6 | 5 | 71.56 s | 0.00 s | hit | no |
+| stream-02 | return-again | 6 | 7 | 6 | 144.95 s | 7.90 s | full | yes |
+| stream-03 | outward | 1 | 2 | 1 | 70.38 s | 0.00 s | none | no |
+| stream-03 | outward-adjust | 2 | 3 | 2 | 16.60 s | 0.00 s | none | yes |
+| stream-03 | return | 3 | 4 | 3 | 127.79 s | 8.52 s | none | no |
+| stream-03 | return-adjust | 4 | 5 | 4 | 15.86 s | 0.00 s | none | yes |
+| stream-03 | outward-again | 5 | 6 | 5 | 68.86 s | 0.00 s | none | no |
+| stream-03 | return-again | 6 | 7 | 6 | 137.51 s | 7.80 s | none | yes |
 
 Use the offline explorer to compare blocks and filter tasks. Its charts derive from the retained measurements, not illustrative performance numbers. Full original native ticks, failed alternatives, lookup status and later starting-state differences are in the [independent analysis](docs/readmes/097/analysis.json).
 
@@ -96,9 +96,10 @@ Initial sources, requests, resources and preparation match. Later actual frames,
 
 ## Verification retained
 
-- Parent complete GitHub CI is still pending; its state was recorded before the cohort.
+- Parent complete GitHub CI passed before publication; its pending state was recorded before the cohort.
 - 90 focused Java methods passed across 13 classes; 1 conditional methods skipped. Original XML and logs are retained.
 - 135 existing desktop checks and 11 new interval/continuity checks passed.
+- The offline guide passed filters, charts, image loading and overflow checks at1440/390 pixels; all five app captures and both guide layouts were visually reviewed. The first guide preview could not find the bundled browser; the existing Edge installation was used, with the original environment failure retained.
 - 29 altered metadata/accounting cases were refused using copied inputs; measured native originals were not rewritten.
 - The unchanged edition 093 independent inspector recomputes source identity, full native traces, protected-object motion, forecast/actual comparisons, recovery provenance, budget charges and one matching world commit.
 - The new edition 097 inspector adds exact continuing-state and memory/skill progression, complete costs, same-project cold persistence and retained-procedure execution.
@@ -107,7 +108,7 @@ Read the [verification record](docs/readmes/097/verification.json) for exact sou
 
 ## Actual application views
 
-The expanded motion plot shows the final actual stage; complete exports retain every earlier stage and recovery forecast. These are screenshots of the existing integrated application after actual native execution. The report is the one verified before the associated world commit; it is not a generated mockup.
+Requested window widths are 1600/1100 pixels; the captured client areas are 1584×1061 and1084×1061. The expanded motion plot shows the final actual stage; complete exports retain every earlier stage and recovery forecast. These are screenshots of the existing integrated application after actual native execution. The report is the one verified before the associated world commit; it is not a generated mockup.
 
 The canvas displays the recovered sixth-goal report (world revision 6). The right goal panel and timeline show the later saved-skill demonstration (revision 7); they are different tasks. Controller v1 is a separate legacy episode bank, not the seven-entry procedural bank. A selected model name does not imply model inference ran.
 
@@ -141,7 +142,7 @@ To review without a model, open the actual reports and saved procedures in the p
 
 ## Reproduce and inspect
 
-Use JDK21, the repository's Gradle wrapper and already installed desktop dependencies. Build the Java engine and source-isolation checks; run the focused Java and existing desktop tests. The study uses a fresh `build/ui097-study` and refuses to overwrite an existing cohort. Save the genuine parent CI response as `build/ci097-gate.json`; the runner checks the exact commit/run identity and refuses a failed or cancelled run. Publication additionally requires a successful final response in `build/ci097-final.json`. Do not fabricate that receipt or point the study at a live project.
+For historical reproduction, use the annotated `readme-097` tag. Use JDK 21, the repository's Gradle wrapper and already installed desktop dependencies. Build the Java engine and source-isolation checks; run the focused Java and existing desktop tests. The study uses a fresh `build/ui097-study` and refuses to overwrite an existing cohort. Save the genuine parent CI response as `build/ci097-gate.json`; the runner checks the exact commit/run identity and refuses a failed or cancelled run. Publication additionally requires a successful final response in `build/ci097-final.json`. Do not fabricate that receipt or point the study at a live project.
 
 ```powershell
 .\gradlew.bat :verifySourceIsolation :workspace-engine:installDist --no-daemon --max-workers=1 --console=plain

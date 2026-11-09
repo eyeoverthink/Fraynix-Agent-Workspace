@@ -1,6 +1,6 @@
 # Fraynix Agent Workspace
 
-**Draft release — CI and publication pending.** **24/24 sequence goals completed; 8 interruptions were explicitly recovered. 4 saved procedures executed after reopening.** Across both blocks, memory took 200.53 s longer over complete streams and 291.14 s longer after charging preparation once.
+**24/24 sequence goals completed; 8 interruptions were explicitly recovered. 4 saved procedures executed after reopening.** Across both blocks, memory took 200.53 s longer over complete streams and 291.14 s longer after charging preparation once.
 
 [Edition097: continuing-world costs](README-097.md) · [Interactive offline results](docs/readmes/097/index.html) · [Previous edition](README-096.md) · [Contributor direction](README-CONTRIBUTORS.md)
 

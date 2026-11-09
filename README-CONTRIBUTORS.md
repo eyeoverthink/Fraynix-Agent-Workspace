@@ -1,3 +1,9 @@
+## Edition097 — locally measured, publication pending
+
+**24/24 sequence goals completed; 8 interruptions were explicitly recovered. 4 saved procedures executed after reopening.** Across both blocks, memory took 200.53 s longer over complete streams and 291.14 s longer after charging preparation once.
+
+Study source 32915b05745f5663c45bcf6ef914d9f17e3ef1af; parent CI42554061175 passed. 90 Java methods passed, 1 skipped;135 desktop,11 accounting and29 altered-evidence checks pass. All 334 production engine classes match096. Work in S:/Codex-Work/fraynix-workspace-edition097. Preserve live045/qa046/private data and frozen001–096. No subagents; heavy checks serial. No new fit or model inference. Next: measured bottleneck improvement with matched coverage; recovered external times remain ineligible for training. Actual main publication and fetched receipt still required.
+
 # Contributor entry point — preserve the Fraynix direction
 
 **Updated 2026-11-08, America/Los_Angeles.** Read this before changing the app. This is the current engineering contract, not a new project or a replacement UI. [Current release](README.md) · [Dated repository review](docs/TRAJECTORY_REVIEW_094.md) · [Project memory](docs/PROJECT_MEMORY.md) · [Development log](docs/DEVELOPMENT_LOG.md).
@@ -14,7 +20,7 @@ The user prefers owned Java algorithms and transparent processing over outsourci
 
 The Java successor is [eyeoverthink/Fraynix-Agent-Workspace](https://github.com/eyeoverthink/Fraynix-Agent-Workspace), derived from the separate Studio. The old Chandra-workspace publication instruction belongs to another application. Do not relocate this system into Chandra or push it to a former component repository.
 
-For edition096, the isolated source checkout is `D:/Codex-Work/fraynix-workspace-edition096`, branch `edition096`, based on verified095 main `55d95f472133ff412a1940613e5bc0f9c179ad59`. Confirm the current remote and working state rather than assuming this path remains the newest forever. GitHub reported **public** visibility on 2026-11-08; older entries calling it private are historical. This work does not change visibility. Keep credentials, personal webcam footage, model weights and live project state outside Git.
+For edition097, the isolated source checkout is `S:/Codex-Work/fraynix-workspace-edition097`, branch `edition097`, based on verified096 main `453e8708ab9353d86ed666f3d059d28563372530`. Confirm the current remote and working state rather than assuming this path remains the newest forever. GitHub reported **public** visibility on 2026-11-08; older entries calling it private are historical. This work does not change visibility. Keep credentials, personal webcam footage, model weights and live project state outside Git.
 
 Do not overwrite the user's live045/qa046 installations, private project data or a running engine's JARs. A build/test checkout needs its own explicitly named project. Never silently open another installation's database. Never stop Java/Electron by process name. Validate exact process identity, start time, parent and owned project before ending an isolated test process.
 
@@ -32,7 +38,7 @@ Do not overwrite the user's live045/qa046 installations, private project data or
 | Presentation and host surfaces | `workspace-desktop/main.cjs`, preload, surface adapters and renderer. Electron hosts actual browser/canvas/camera and displays Java state. Untrusted pages cannot reach the privileged dispatcher. |
 | Original game | `src/main/java`, `EmbeddedGameRuntime`, original renderer/player/JBox2D. Its hidden child context is a rendering/runtime boundary, not a second user-facing application to reinvent. |
 
-Paths abbreviated with `...` above mean `src/main/java/fraymus/workspace` under `workspace-engine`; use the [canonical source inventory](docs/readmes/096/file-inventory.json) and source search for exact names. Source files and included modules must resolve inside this checkout. Existing source-isolation checks are mandatory.
+Paths abbreviated with `...` above mean `src/main/java/fraymus/workspace` under `workspace-engine`; use the [canonical source inventory](docs/readmes/097/file-inventory.json) and source search for exact names. Source files and included modules must resolve inside this checkout. Existing source-isolation checks are mandatory.
 
 ## Evidence rules that must survive every improvement
 
@@ -66,11 +72,12 @@ Publication is complete only after a non-force push to the intended `main`, edit
 | Nov3–4 | 051–068| Persistent gripper assemblies, faster checked chat, geometry/load repairs, Java learned residuals, contact traces and bounded recovery. |
 | Nov5–6 | 069–081| Adaptive sensing, retained experiment reconstruction, varied procedures, obstacle-aware targets, proof reuse and complete-task cost estimates. |
 | Nov6–8 | 082–093| Resource/restart/saving calibration, longer memory workloads, stale-estimate checks, less repeated verification and fresh forecasts from recovered state. |
+| Nov 8–9 | 097 | Four continuing-world sequences, growing verified banks, eight abrupt recoveries and saved-skill execution. Complete memory-control cost was higher; no selector was promoted. |
 | Nov 8 | 096 | Source-qualified complete method coverage, explicit historical source chain, bounded test resources and actual construction restart. |
 | Nov 8 | 095 | Complete mixed-task cost comparison, recovery, skill saving and fresh execution of saved procedures. See README095 for observed results and limitations. |
 | Nov 8 | 094| Three-stage abrupt-interruption study and repository trajectory review. See the edition094 release for actual outcomes and limits; this table is not independent proof. |
 
-Edition095 measures complete mixed-task costs, recovery and skill saving. Edition096 repairs four inherited CI failures. The original full invocation found four test-boundary assertions, corrected separately with all production classes unchanged; combined method coverage has no remaining failures. Next are continuing warm-workspace sequences with changing memory contents and matched cost coverage; a local pass does not predeclare a remote CI result. Keep the larger destination visible: a user requests a useful task, Java plans and executes within the shared world, the interface shows consequences, and verified experience improves later work. Broaden geometry, observations, creation and real-world validation through that same path. Do not turn the product into disconnected benchmark windows or move the brain back into the renderer.
+Edition095 measured cold mixed-task costs. Edition096 repaired inherited CI failures; its final main workflow42554061175 has now passed in full. Edition097 measured continuing worlds and banks growing from1to7 verified memories. All24 main goals,8 recoveries and4 saved-skill executions verified, but explicit memory control took200.53seconds longer across complete streams. Next, compare cost-aware procedure choices on separately declared short, long and recovered tasks. Charge selection work and keep equally equipped simple controls, original evidence and every outcome check. The new097 head CI is a separate result; do not infer it from the parent pass. Keep the larger destination visible: a user requests a useful task, Java plans and executes within the shared world, the interface shows consequences, and verified experience improves later work. Broaden geometry, observations, creation and real-world validation through that same path. Do not turn the product into disconnected benchmark windows or move the brain back into the renderer.
 
 ## Handoff every session
 

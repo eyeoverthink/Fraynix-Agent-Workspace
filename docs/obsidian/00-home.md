@@ -1,3 +1,5 @@
+[[README-097.md|Edition097 — continuing-world costs]] · [[docs/obsidian/105-continuing-costs.md]]
+
 [[README-096.md|Edition096 — full verification]] · [[docs/obsidian/104-full-verification.md]]
 
 [[README-095.md|Edition095 — complete mixed-task costs]] · [[docs/obsidian/103-mixed-task-costs.md]]

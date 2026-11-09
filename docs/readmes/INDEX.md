@@ -1,3 +1,5 @@
+[Edition097 — continuing-world costs](../../README-097.md) · [Offline evidence](097/index.html)
+
 [Edition096 — full verification](../../README-096.md) · [Offline evidence](096/index.html)
 
 [Edition095 — complete mixed-task costs](../../README-095.md) · [Offline evidence](095/index.html)

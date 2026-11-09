@@ -1,3 +1,9 @@
+## Edition097 — locally measured, publication pending
+
+**24/24 sequence goals completed; 8 interruptions were explicitly recovered. 4 saved procedures executed after reopening.** Across both blocks, memory took 200.53 s longer over complete streams and 291.14 s longer after charging preparation once.
+
+Study source 32915b05745f5663c45bcf6ef914d9f17e3ef1af; parent CI42554061175 passed. 90 Java methods passed, 1 skipped;135 desktop,11 accounting and29 altered-evidence checks pass. All 334 production engine classes match096. Work in S:/Codex-Work/fraynix-workspace-edition097. Preserve live045/qa046/private data and frozen001–096. No subagents; heavy checks serial. No new fit or model inference. Next: measured bottleneck improvement with matched coverage; recovered external times remain ineligible for training. Actual main publication and fetched receipt still required.
+
 Edition096 restores the full verification path; production motion and original outcomes are unchanged. [Results](../README-096.md).
 
 Edition095 measures complete mixed tasks, recovery and saved skills without changing production Java classes. [Results](../README-095.md) · [Contributor contract](../README-CONTRIBUTORS.md).

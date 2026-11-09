@@ -1,16 +1,15 @@
 {
-  "passed": false,
+  "passed": true,
   "localChecksPassed": true,
-  "publicationPending": true,
   "studySource": "32915b05745f5663c45bcf6ef914d9f17e3ef1af",
   "ci": {
     "id": 42554061175,
     "head_sha": "453e8708ab9353d86ed666f3d059d28563372530",
-    "status": "in_progress",
-    "conclusion": null,
+    "status": "completed",
+    "conclusion": "success",
     "html_url": "https://github.com/eyeoverthink/Fraynix-Agent-Workspace/actions/runs/42554061175",
     "created_at": "2026-11-09T03:01:23Z",
-    "updated_at": "2026-11-09T03:01:28Z"
+    "updated_at": "2026-11-09T05:51:07Z"
   },
   "java": {
     "source": "78e7d79b829e23092cb640ee81b9c64a911ac914",
@@ -3167,5 +3166,8 @@
     "worldUnchanged": true
   },
   "captureCaption": "The canvas displays the recovered sixth-goal report (world revision 6). The right goal panel and timeline show the later saved-skill demonstration (revision 7); they are different tasks. Controller v1 is a separate legacy episode bank, not the seven-entry procedural bank. A selected model name does not imply model inference ran.",
-  "scope": "Actual continuing synthetic worlds with unchanged production Java. Explicit external recovered timings remain outside calibration. No new model inference or physical observation."
+  "scope": "Actual continuing synthetic worlds with unchanged production Java. Explicit external recovered timings remain outside calibration. No new model inference or physical observation.",
+  "visualChecks": "docs/readmes/097/visual-checks.json",
+  "visualReview": "docs/readmes/097/visual-review.json",
+  "draft": false
 }

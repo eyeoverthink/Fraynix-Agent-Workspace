@@ -1,3 +1,9 @@
+## Edition097 — locally measured, publication pending
+
+**24/24 sequence goals completed; 8 interruptions were explicitly recovered. 4 saved procedures executed after reopening.** Across both blocks, memory took 200.53 s longer over complete streams and 291.14 s longer after charging preparation once.
+
+Study source 32915b05745f5663c45bcf6ef914d9f17e3ef1af; parent CI42554061175 passed. 90 Java methods passed, 1 skipped;135 desktop,11 accounting and29 altered-evidence checks pass. All 334 production engine classes match096. Work in S:/Codex-Work/fraynix-workspace-edition097. Preserve live045/qa046/private data and frozen001–096. No subagents; heavy checks serial. No new fit or model inference. Next: measured bottleneck improvement with matched coverage; recovered external times remain ineligible for training. Actual main publication and fetched receipt still required.
+
 ## Edition096 — published and fetched back
 
 Published release 7224dde9b537fa5ab4e00c31b3f4b57b57fbc84e; annotated readme-096 tag object c6a0aa9350d132d2855dfd0d26c685176593b063. Actual main/edition096/tag push fetched and verified: 1280 canonical sources, 27565 frozen hashes across96 editions and 442 logical original archive entries. Inspect the new remote CI result before starting the warm-workspace study. [Publication receipt](PUBLICATION_096.json).

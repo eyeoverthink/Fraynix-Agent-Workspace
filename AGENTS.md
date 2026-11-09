@@ -1,3 +1,9 @@
+## Edition097 — locally measured, publication pending
+
+**24/24 sequence goals completed; 8 interruptions were explicitly recovered. 4 saved procedures executed after reopening.** Across both blocks, memory took 200.53 s longer over complete streams and 291.14 s longer after charging preparation once.
+
+Study source 32915b05745f5663c45bcf6ef914d9f17e3ef1af; parent CI42554061175 passed. 90 Java methods passed, 1 skipped;135 desktop,11 accounting and29 altered-evidence checks pass. All 334 production engine classes match096. Work in S:/Codex-Work/fraynix-workspace-edition097. Preserve live045/qa046/private data and frozen001–096. No subagents; heavy checks serial. No new fit or model inference. Next: measured bottleneck improvement with matched coverage; recovered external times remain ineligible for training. Actual main publication and fetched receipt still required.
+
 ## Edition097 — study and inspection complete; CI/publication pending
 
 2026-11-08 (handoff commit5aae0a5c at20:20:10PST). Isolated S:/Codex-Work/fraynix-workspace-edition097; native cohort source32915b05745f5663c45bcf6ef914d9f17e3ef1af, validator f8b8fe8eeb0384a733094b53faf79ae6ef3501fa.24/24 main goals,8/8 abrupt recoveries and4/4 saved-skill executions verified. Independent original/procedure/commit inspection passed;29 altered-accounting/evidence refusals passed;11 final accounting units passed. Prior90 focused Java methods pass,1conditional skip;135 existing desktop tests pass;334/334 production engine classes match096. All owned097 apps/tests are closed; live045/qa046 remain untouched.
