@@ -1,0 +1,348 @@
+{
+  "passed": true,
+  "modelCohortSource": "480f71d23fe2c25b3024204b1ee68b48b15b3a59",
+  "finalSource": "2e36b49354dc8c2c248101abc1eac08fcdede19c",
+  "java": [
+    {
+      "name": "fraymus.workspace.Chat099Test",
+      "tests": "3",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0",
+      "time": "0.116"
+    },
+    {
+      "name": "fraymus.workspace.CreationTest",
+      "tests": "8",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0",
+      "time": "4.412"
+    },
+    {
+      "name": "fraymus.workspace.DataHandoff100Test",
+      "tests": "3",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0",
+      "time": "1.076"
+    },
+    {
+      "name": "fraymus.workspace.Domain044Test",
+      "tests": "16",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0",
+      "time": "0.536"
+    },
+    {
+      "name": "fraymus.workspace.MotionDataTest",
+      "tests": "10",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0",
+      "time": "0.828"
+    }
+  ],
+  "existingDesktopChecks": 135,
+  "selectionChecks": 4,
+  "independent": {
+    "passed": true,
+    "results": [
+      {
+        "input": "validation",
+        "rows": 49,
+        "travelM": 0.7758452762255914,
+        "gapFlags": 0,
+        "speedFlags": 0,
+        "sourceSha256": "591c0cb5e7b1755dce0e9e415ed0766840a9e74021effca78a45c1ae9e59b4c8",
+        "normalizedSha256": "7dac1360ae77b2060fa294a1ec571b2d8522855dbe1061b7a3464aaaa3b3ab7c",
+        "dataMillis": 62346.0652,
+        "creationMillis": 226558.72739999997,
+        "routerCalls": 1,
+        "generationJobs": 1
+      },
+      {
+        "input": "training",
+        "rows": 52,
+        "travelM": 0.7264764813766893,
+        "gapFlags": 0,
+        "speedFlags": 37,
+        "sourceSha256": "c3d95c6a8ee4e002ec490cb6e2239dbd53ba5e194ea6b89ccba418b0e5ac59da",
+        "normalizedSha256": "b96712b333e5fe7347f7727325bd6191004b5f1ea255f3df58c2bc4a5a0768ab",
+        "dataMillis": 80720.072,
+        "creationMillis": 400788.0283,
+        "routerCalls": 1,
+        "generationJobs": 2
+      }
+    ],
+    "scope": "Independent original CSV arithmetic, exact linked inputs, actual model receipts and rendered rows/count/filter/reset checks. No causal physics or speedup claim.",
+    "refusals": [
+      {
+        "name": "changed source CSV",
+        "refused": true
+      },
+      {
+        "name": "substituted lineage",
+        "refused": true
+      },
+      {
+        "name": "changed generated input",
+        "refused": true
+      },
+      {
+        "name": "invented displayed value",
+        "refused": true
+      },
+      {
+        "name": "incorrect displayed unit",
+        "refused": true
+      }
+    ]
+  },
+  "review": {
+    "captures": [
+      {
+        "file": "workspace100-wide.png",
+        "caption": "Actual generated explorer reused on the52-row recorded input, with a freshly verified pinned source.",
+        "at": "2026-11-09T10:38:42.045Z"
+      },
+      {
+        "file": "inputs100-chooser.png",
+        "caption": "Keyboard-accessible chooser beside the same app; exact source remains pinned while browsing.",
+        "at": "2026-11-09T10:38:42.727Z"
+      },
+      {
+        "file": "quality100-report.png",
+        "caption": "Actual changed-input data report. Verification preserves quality flags instead of relabelling them as passing.",
+        "at": "2026-11-09T10:38:43.441Z"
+      },
+      {
+        "file": "workspace100-narrow.png",
+        "caption": "Actual1100-pixel app view: model, selected source, conversation and composer remain visible.",
+        "at": "2026-11-09T10:38:44.665Z"
+      },
+      {
+        "file": "mission100-evidence.png",
+        "caption": "Java Mission evidence for the fresh-source saved procedure, alongside its actual generated artifact.",
+        "at": "2026-11-09T10:38:45.618Z"
+      }
+    ],
+    "checks": [
+      "Explicit generic CSV selection, clear and Java-verified data source restoration all work; no automatic first-file selection.",
+      "Actual wide/narrow panel bounds, keyboard chooser, cold source restoration and saved Mission result access pass."
+    ],
+    "scope": "Read and display retained actual edition100 results. No new inference or substituted content.",
+    "wide": {
+      ".agent-panel": {
+        "top": 76,
+        "bottom": 995,
+        "left": 1142,
+        "right": 1572,
+        "height": 919
+      },
+      "#model": {
+        "top": 158,
+        "bottom": 197,
+        "left": 1159,
+        "right": 1555,
+        "height": 39
+      },
+      "#goal": {
+        "top": 817.203125,
+        "bottom": 907.203125,
+        "left": 1159,
+        "right": 1555,
+        "height": 90
+      },
+      "#run": {
+        "top": 916.203125,
+        "bottom": 958.5,
+        "left": 1159,
+        "right": 1462.890625,
+        "height": 42.296875
+      },
+      "#messages": {
+        "top": 605.8125,
+        "bottom": 785.8125,
+        "left": 1159,
+        "right": 1555,
+        "height": 180
+      }
+    },
+    "narrow": {
+      ".agent-panel": {
+        "top": 74,
+        "bottom": 999,
+        "left": 644,
+        "right": 1074,
+        "height": 925
+      },
+      "#model": {
+        "top": 162.890625,
+        "bottom": 201.890625,
+        "left": 657,
+        "right": 1061,
+        "height": 39
+      },
+      "#goal": {
+        "top": 823.203125,
+        "bottom": 913.203125,
+        "left": 657,
+        "right": 1061,
+        "height": 90
+      },
+      "#run": {
+        "top": 922.203125,
+        "bottom": 964.5,
+        "left": 657,
+        "right": 968.890625,
+        "height": 42.296875
+      },
+      "#messages": {
+        "top": 610.703125,
+        "bottom": 791.8125,
+        "left": 657,
+        "right": 1061,
+        "height": 181.109375
+      }
+    },
+    "mission": {
+      ".agent-panel": {
+        "top": 76,
+        "bottom": 697.484375,
+        "left": 1142,
+        "right": 1572,
+        "height": 621.484375
+      },
+      "#model": {
+        "top": 166.890625,
+        "bottom": 205.890625,
+        "left": 1159,
+        "right": 1555,
+        "height": 39
+      },
+      "#goal": {
+        "top": 549.1875,
+        "bottom": 623.1875,
+        "left": 1159,
+        "right": 1555,
+        "height": 74
+      },
+      "#run": {
+        "top": 637.1875,
+        "bottom": 679.484375,
+        "left": 1159,
+        "right": 1462.890625,
+        "height": 42.296875
+      },
+      "#messages": {
+        "top": 386.984375,
+        "bottom": 517.796875,
+        "left": 1159,
+        "right": 1555,
+        "height": 130.8125
+      }
+    },
+    "passed": true,
+    "errors": []
+  },
+  "layoutRegression": {
+    "scope": "Actual app layout and native surface tests. Long chat text is explicitly labelled synthetic layout fixture, not model output.",
+    "checks": [
+      "Keyboard separator resizing increases readable chat width",
+      "Drag resize updates real browser/canvas host bounds and persists its bounded preference",
+      "Browser focus opens and restores the actual native surface layout",
+      "Original guided browser action and actual canvas Add/Reset checks still work after resizing",
+      "New responses preserve reading position, expose a jump-to-latest control and render text without HTML execution",
+      "Activity and full mission/evidence remain accessible",
+      "1100px integrated layout has usable chat height and no outer horizontal overflow",
+      "Cold restart restores actual conversation text and saved width",
+      "Malformed saved conversation cannot prevent the workspace from opening"
+    ],
+    "errors": [],
+    "wideBounds": {
+      "actual": {
+        "browser": {
+          "x": 13,
+          "y": 454,
+          "width": 228,
+          "height": 502
+        },
+        "canvas": {
+          "x": 253,
+          "y": 192,
+          "width": 771,
+          "height": 772
+        }
+      },
+      "expected": {
+        "browser": {
+          "x": 13,
+          "y": 453.53125,
+          "width": 228,
+          "height": 501.96875
+        },
+        "canvas": {
+          "x": 253,
+          "y": 192.171875,
+          "width": 771,
+          "height": 771.828125
+        }
+      }
+    },
+    "narrowBounds": {
+      "actual": {
+        "browser": {
+          "x": 11,
+          "y": 438,
+          "width": 188,
+          "height": 403
+        },
+        "canvas": {
+          "x": 209,
+          "y": 262,
+          "width": 321,
+          "height": 588
+        }
+      },
+      "expected": {
+        "browser": {
+          "x": 11,
+          "y": 438.078125,
+          "width": 188,
+          "height": 403.421875
+        },
+        "canvas": {
+          "x": 209,
+          "y": 262.046875,
+          "width": 321,
+          "height": 587.953125
+        }
+      }
+    },
+    "passed": true,
+    "finishedAt": "2026-11-09T10:39:03.042Z"
+  },
+  "sourceComparison": {
+    "passed": true,
+    "cohortSource": "480f71d23fe2c25b3024204b1ee68b48b15b3a59",
+    "finalSource": "2e36b49354dc8c2c248101abc1eac08fcdede19c",
+    "changes": {
+      "inputs": [
+        "workspace-desktop/renderer/inputs100.css"
+      ],
+      "artifacts": []
+    },
+    "scope": "Only the Mission layout CSS changed after the actual model cohort. Compiled Java inputs and installed runtime JARs are byte-identical; final actual layout checks reran."
+  },
+  "parentCI": {
+    "id": 42593795811,
+    "head_sha": "dd2ca77e633144fcbe9653a0ec07f18be0a79221",
+    "status": "in_progress",
+    "conclusion": null,
+    "html_url": "https://github.com/eyeoverthink/Fraynix-Agent-Workspace/actions/runs/42593795811",
+    "checkedAt": "2026-11-09T10:31:55.277Z"
+  },
+  "scope": "Real recorded-data analysis and local-model generated creation through the existing app. Explicit supplied reusable checks, native source and receipt validation, actual rendered controls, cold source restoration. No speedup or physical generalization claim."
+}

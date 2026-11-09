@@ -1,0 +1,76 @@
+{
+  "modules": [
+    {
+      "id": "inputs",
+      "name": "Visible pinned inputs",
+      "source": "workspace-desktop/renderer/inputs100.js",
+      "note": "docs/obsidian/108-verified-data-handoffs.md"
+    },
+    {
+      "id": "selection",
+      "name": "Source restoration and recheck",
+      "source": "workspace-desktop/inputs100.cjs",
+      "note": "docs/obsidian/108-verified-data-handoffs.md"
+    },
+    {
+      "id": "java",
+      "name": "Java data and creation ownership",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/GoalRunner.java",
+      "note": "docs/obsidian/108-verified-data-handoffs.md"
+    },
+    {
+      "id": "creation",
+      "name": "Source-derived behavior checks",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/Creation.java",
+      "note": "docs/obsidian/108-verified-data-handoffs.md"
+    },
+    {
+      "id": "generation",
+      "name": "Actual local-model generation",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/CreationPlanner044.java",
+      "note": "docs/obsidian/108-verified-data-handoffs.md"
+    },
+    {
+      "id": "audit",
+      "name": "Independent source and outcome inspection",
+      "source": "scripts/Inspect-Handoff100.cjs",
+      "note": "docs/obsidian/108-verified-data-handoffs.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "docs/readmes/100/workspace100-wide.png",
+      "caption": "Actual generated explorer reused on the52-row recorded input, with a freshly verified pinned source."
+    },
+    {
+      "path": "docs/readmes/100/inputs100-chooser.png",
+      "caption": "Keyboard-accessible chooser beside the same app; exact source remains pinned while browsing."
+    },
+    {
+      "path": "docs/readmes/100/quality100-report.png",
+      "caption": "Actual changed-input data report. Verification preserves quality flags instead of relabelling them as passing."
+    },
+    {
+      "path": "docs/readmes/100/workspace100-narrow.png",
+      "caption": "Actual1100-pixel app view: model, selected source, conversation and composer remain visible."
+    },
+    {
+      "path": "docs/readmes/100/mission100-evidence.png",
+      "caption": "Java Mission evidence for the fresh-source saved procedure, alongside its actual generated artifact."
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/readmes/100/analysis.json",
+      "caption": "analysis.json"
+    },
+    {
+      "path": "docs/readmes/100/verification.json",
+      "caption": "verification.json"
+    },
+    {
+      "path": "docs/readmes/100/original-evidence.json",
+      "caption": "original-evidence.json"
+    }
+  ]
+}

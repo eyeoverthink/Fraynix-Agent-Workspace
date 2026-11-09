@@ -1,3 +1,5 @@
+[[README-100.md|Edition100 — verified data handoffs]] · [[docs/obsidian/108-verified-data-handoffs.md]]
+
 [[README-099.md|Edition099 — real local-model workflows]] · [[docs/obsidian/107-local-model-workflows.md]]
 
 [[README-098.md|Edition098 — benefit-aware memory]] · [[docs/obsidian/106-benefit-selection.md]]

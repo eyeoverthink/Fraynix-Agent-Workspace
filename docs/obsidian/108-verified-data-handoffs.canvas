@@ -1,0 +1,95 @@
+{
+  "nodes": [
+    {
+      "id": "inputs",
+      "type": "file",
+      "file": "workspace-desktop/renderer/inputs100.js",
+      "x": 0,
+      "y": 0,
+      "width": 320,
+      "height": 180
+    },
+    {
+      "id": "selection",
+      "type": "file",
+      "file": "workspace-desktop/inputs100.cjs",
+      "x": 360,
+      "y": 0,
+      "width": 320,
+      "height": 180
+    },
+    {
+      "id": "java",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/GoalRunner.java",
+      "x": 720,
+      "y": 0,
+      "width": 320,
+      "height": 180
+    },
+    {
+      "id": "creation",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/Creation.java",
+      "x": 0,
+      "y": 230,
+      "width": 320,
+      "height": 180
+    },
+    {
+      "id": "generation",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/CreationPlanner044.java",
+      "x": 360,
+      "y": 230,
+      "width": 320,
+      "height": 180
+    },
+    {
+      "id": "audit",
+      "type": "file",
+      "file": "scripts/Inspect-Handoff100.cjs",
+      "x": 720,
+      "y": 230,
+      "width": 320,
+      "height": 180
+    }
+  ],
+  "edges": [
+    {
+      "id": "e0",
+      "fromNode": "inputs",
+      "fromSide": "right",
+      "toNode": "selection",
+      "toSide": "left"
+    },
+    {
+      "id": "e1",
+      "fromNode": "selection",
+      "fromSide": "right",
+      "toNode": "java",
+      "toSide": "left"
+    },
+    {
+      "id": "e2",
+      "fromNode": "java",
+      "fromSide": "right",
+      "toNode": "creation",
+      "toSide": "left"
+    },
+    {
+      "id": "e3",
+      "fromNode": "creation",
+      "fromSide": "right",
+      "toNode": "generation",
+      "toSide": "left"
+    },
+    {
+      "id": "e4",
+      "fromNode": "generation",
+      "fromSide": "right",
+      "toNode": "audit",
+      "toSide": "left"
+    }
+  ]
+}

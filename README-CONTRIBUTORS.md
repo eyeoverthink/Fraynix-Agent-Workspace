@@ -1,3 +1,13 @@
+## Edition100 — locally verified; publication pending
+
+2026-11-09, America/Los_Angeles. Isolated S:/Codex-Work/fraynix-workspace-edition100, branch edition100. Edition100 adds explicit visible CSV selection and Java-verified data-to-creation lineage. Pinned input survives browsing and is reverified on restart. The completed local gpt-oss:20b cohort analyzes 49 recorded rows, creates a real filter/reset explorer, restarts, then reuses both saved procedures with 52 rows and tighter quality limits. The source-derived behavior contract is supplied through the existing creation dialog; it is not model-authored verification. All quality flags remain attached.
+
+40 focused Java methods, 135 existing desktop checks, four new selection checks and independent original/source/rendered-outcome inspection pass. Five altered-evidence variants are refused. Actual wide/narrow views, source clearing/replacement, keyboard access and restart restoration are captured. Final UI source2e36b493 compacts the source summary with Mission open, preserving all chat controls; layout was rechecked and all compiled inputs/JARs match the actual model cohort. The initial model generation exceeded its unchanged budget and saved no skill; it remains archived. Independent inspection assumptions and a restored-view navigation race were corrected, with original failures retained. No efficiency, weight-training or physical generalization claim.
+
+All owned100 test apps are closed; original live045/qa046 projects and model GPU policy remain unchanged. Canonical publication target remains eyeoverthink/Fraynix-Agent-Workspace. Main/tag publication and fetched receipt still pending. Parent CI42593795811 is recorded separately and was still in progress at the last check; do not call it green. Preserve prior001–099 releases. No subagents; native/model work serial. Do not rebuild a running installation. New-computer setup on fraymus-home is separate.
+
+Next: durable multi-stage chat goals for supported analysis → creation → inspection → skill saving, with explicit contracts and fresh-input checks. Test restart between stages and changed sources, then complete task costs. Keep Java authority, integrated views, all source/outcome checks and retained failures.
+
 ## Edition099 — published and fetched back
 
 Published release 1bd6522383c9a564652c6ca23ddb379913bbd71a; annotated readme-099 tag object 21eef9881762fbfc45a208c7d6d76f04b124d48c. Actual main/edition099/tag push fetched and verified: 1304 canonical sources, 29955 frozen hashes across99 editions and 321 logical original archive entries. [Publication receipt](docs/PUBLICATION_099.json).

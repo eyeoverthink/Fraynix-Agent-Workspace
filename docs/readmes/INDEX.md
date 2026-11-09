@@ -1,3 +1,5 @@
+[Edition100 — verified data handoffs](../../README-100.md) · [Offline guide](100/index.html)
+
 [Edition099 — real local-model workflows](../../README-099.md) · [Offline guide](099/index.html)
 
 [Edition098 — benefit-aware memory](../../README-098.md) · [Offline evidence](098/index.html)
