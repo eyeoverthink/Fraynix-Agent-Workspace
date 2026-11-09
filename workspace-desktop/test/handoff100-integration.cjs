@@ -41,7 +41,7 @@ const creationPrompt='Create a compact working data explorer, using plain HTML, 
   }
   async function inspectCreation(row,source){
     assert.deepEqual(row.goal.dataHandoff100,source.handoff);assert.equal(row.artifact.contents['inputs/source.csv'],sourceArtifact.contents['normalized.csv']);
-    await page.waitForFunction(id=>document.querySelector('#task099').dataset.taskId===id&&document.querySelector('#task099-phase').textContent==='Verified result',row.task.id);await page.locator('#task099-open').click();
+    await page.waitForFunction(id=>document.querySelector('#task099').dataset.taskId===id&&document.querySelector('#task099-phase').textContent==='Verified result',row.task.id);await page.locator('#task099-open').click();await page.waitForTimeout(1500);
     const steps=[{selector:'tbody#data-table tr, #data-table tbody tr',expectCount:source.preview.rowCount},{selector:'#row-count',expectText:String(source.preview.rowCount)},
       {selector:'#filter',action:'fill',value:'2'},{selector:'tbody#data-table tr, #data-table tbody tr',expectCount:1},{selector:'#row-count',expectText:'1'},
       {selector:'#filter',action:'fill',value:'999999'},{selector:'tbody#data-table tr, #data-table tbody tr',expectCount:0},{selector:'#row-count',expectText:'0'},
