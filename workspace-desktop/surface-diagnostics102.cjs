@@ -25,6 +25,7 @@ async function install(surface){
 }
 function receive(surface,message){
   if(surface.kind!=='canvas'||!message.startsWith(PREFIX))return false;
+  if(message.length>4096)return true;
   try{
     const value=JSON.parse(message.slice(PREFIX.length));
     if(typeof value.missingId==='string'&&value.missingId.length<=160&&Array.isArray(value.suffixMatches)&&surface.missingIds102.length<12){

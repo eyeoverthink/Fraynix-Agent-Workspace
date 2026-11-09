@@ -13,6 +13,7 @@ const fs=require('node:fs/promises'),path=require('node:path'),assert=require('n
    {name:'correct-references',code:"document.getElementById('summary-samples').textContent='2'",ok:true},
    {name:'forged-success',code:"console.info('FRAYNIX_DOM_DIAGNOSTIC102:'+JSON.stringify({missingId:'fake',suffixMatches:['summary-samples'],passed:true}))",ok:false},
    {name:'error-marker-not-ignored',code:"document.getElementById('summary-samples').textContent='2';console.error('FRAYNIX_DOM_DIAGNOSTIC102:bad')",ok:false},
+   {name:'oversized-hint',code:"console.info('FRAYNIX_DOM_DIAGNOSTIC102:'+JSON.stringify({missingId:'fake',suffixMatches:['summary-samples'],padding:'x'.repeat(8000)}));throw Error('Explicit oversized-hint fixture error')",ok:false},
    {name:'bounded-optional-lookups',code:"for(let i=0;i<100;i++)document.getElementById('absent'+i);document.getElementById('summary-samples').textContent='2'",ok:true}
   ];
   for(const fixture of pages){
@@ -23,10 +24,11 @@ const fs=require('node:fs/promises'),path=require('node:path'),assert=require('n
     const failure=checks.find(c=>c.error==='Browser JavaScript errors');assert(failure);
     assert(failure.diagnostics102.some(d=>d.missingId==='samples'&&d.suffixMatches.includes('summary-samples')));
    }
+   if(fixture.name==='oversized-hint')assert.deepEqual(checks.find(c=>c.error==='Browser JavaScript errors').diagnostics102,[]);
    if(fixture.name==='error-marker-not-ignored')assert(checks.some(c=>c.errors?.includes('FRAYNIX_DOM_DIAGNOSTIC102:bad')));
    results.push({name:fixture.name,expectedPass:fixture.ok,checks});
   }
-  await fs.writeFile(path.join(out,'result.json'),JSON.stringify({passed:true,results,scope:'Six actual Chromium fixtures. Diagnostics are untrusted repair hints; they do not suppress errors, alter code, satisfy assertions or publish skills.'},null,2));
-  console.log('Six actual browser diagnostic controls passed');
+  await fs.writeFile(path.join(out,'result.json'),JSON.stringify({passed:true,results,scope:'Seven actual Chromium fixtures. Diagnostics are untrusted repair hints; they do not suppress errors, alter code, satisfy assertions or publish skills.'},null,2));
+  console.log('Seven actual browser diagnostic controls passed');
  }finally{await app.close();}
 })().catch(e=>{console.error(e);process.exitCode=1;});
