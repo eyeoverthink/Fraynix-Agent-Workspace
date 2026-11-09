@@ -18,3 +18,5 @@ Preserve private live045/qa046, previous worktrees and frozen001–100. The user
 - [[workspace-engine/src/main/java/fraymus/workspace/DataCreation101.java|Independent source contract]]
 - [[workspace-desktop/data-creation101.cjs|Actual browser observations]]
 - [[scripts/Inspect-DataCreation101.cjs|Original evidence inspection]]
+
+Published release a80bf42a6e7659d40ae4a3f0e375779e62eab005; annotated readme-101 tag object 29104d2c9844673aeb933b9c16d4c54ed001caa2. Actual main/edition101/tag push fetched and verified: 1321 canonical sources, 30283 frozen hashes across101 editions and 167 logical original archive entries. [[docs/PUBLICATION_101.json|Publication receipt]]

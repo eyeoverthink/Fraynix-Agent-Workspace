@@ -1,0 +1,7 @@
+first: waiting-native Saved data intent before starting its stable owned child
+first: interrupted Owned native task interrupted: Verified data stage; retained outcome will not be repeated. Requested review before creation; explicitly Resume.
+page.evaluate: Error: Error invoking remote method 'workspace:request': Error: Resume an interrupted task while the workspace is idle, at most3 times
+    at request (S:\Codex-Work\fraynix-workspace-edition101\workspace-desktop\test\data-creation101-integration.cjs:13:50)
+    at S:\Codex-Work\fraynix-workspace-edition101\workspace-desktop\test\data-creation101-integration.cjs:31:9 {
+  log: []
+}

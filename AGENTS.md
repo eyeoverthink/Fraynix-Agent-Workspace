@@ -1,10 +1,12 @@
-## Edition101 — locally verified; publication pending
+## Edition101 — published and fetched back
+
+Published release a80bf42a6e7659d40ae4a3f0e375779e62eab005; annotated readme-101 tag object 29104d2c9844673aeb933b9c16d4c54ed001caa2. Actual main/edition101/tag push fetched and verified: 1321 canonical sources, 30283 frozen hashes across101 editions and 167 logical original archive entries. [Publication receipt](docs/PUBLICATION_101.json).
 
 2026-11-09, America/Los_Angeles. Isolated S:/Codex-Work/fraynix-workspace-edition101; cohort source cbe941e65835d7e02cdcfed63f061b0d7c4e94fa. One registered Java data→creation workflow now binds selected recorded input, verifies analysis, generates content with actual local gpt-oss:20b and independently checks four table states before saving the whole procedure. Abrupt Java interruption after data, explicit resume, cold restart and fresh52-row reuse are verified. All quality flags remain. CPU-only/four-thread model policy preserved.
 
 60 final focused Java methods pass, plus7 prior typed-graph regressions;135 existing desktop and7 selection/new checks pass;5 real Chromium fixture controls and8 altered-evidence refusals pass. The expanded earlier run failed one pending-repair restart check; its original failure is retained. Independent read-only review found and helped fix action-only audit calls, receipt cache ordering, skill-publication ordering and old-receipt repair bypass. No generic visibility, efficiency, weight-training or physical-generalization claim.
 
-Preserve private live045/qa046, previous worktrees and frozen001–100. The user authorized the single independent reviewer; no other delegation. Heavy/native/model work serial. Main/tag publication and fetched receipt still pending. Parent CI42604303817 is recorded separately as in_progress/None. Next: complete-task cost cohorts, additional explicit contracts, clipping/overlay checks and bounded history archives.
+Preserve private live045/qa046, previous worktrees and frozen001–100. The user authorized the single independent reviewer; no other delegation. Heavy/native/model work serial. Main/tag publication and fetched-content audit completed. Post-push CI is separate. Parent CI42604303817 is recorded separately as in_progress/None. Next: complete-task cost cohorts, additional explicit contracts, clipping/overlay checks and bounded history archives.
 
 ## Edition101 — actual model workflow running
 

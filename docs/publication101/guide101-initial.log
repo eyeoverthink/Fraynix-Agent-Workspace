@@ -1,0 +1,12 @@
+AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+
+  assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth))
+
+    at S:\Codex-Work\fraynix-workspace-edition101\build\check-guide101.cjs:3:516 {
+  generatedMessage: true,
+  code: 'ERR_ASSERTION',
+  actual: false,
+  expected: true,
+  operator: '==',
+  diff: 'simple'
+}

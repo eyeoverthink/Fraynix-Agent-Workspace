@@ -1,0 +1,35 @@
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/9.3.1/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build 
+> Task :brain-core:compileJava UP-TO-DATE
+> Task :brain-gpu:compileJava UP-TO-DATE
+> Task :factory-runtime:compileJava UP-TO-DATE
+> Task :factory-kernel:compileJava UP-TO-DATE
+> Task :factory-models:compileJava UP-TO-DATE
+> Task :geometry-core:compileJava UP-TO-DATE
+
+> Task :workspace-engine:compileJava
+S:\Codex-Work\fraynix-workspace-edition101\workspace-engine\src\main\java\fraymus\workspace\WorkspaceServer.java:101: error: local variables referenced from a lambda expression must be final or effectively final
+                        case "/api/agency043/control"->agency.control(input.getString("id"),input.getString("action"),()->resumeBusy101(input.getString("id")));
+                                                                                                                                        ^
+1 error
+
+> Task :workspace-engine:compileJava FAILED
+
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':workspace-engine:compileJava'.
+[Incubating] Problems report is available at: file:///S:/Codex-Work/fraynix-workspace-edition101/build/reports/problems/problems-report.html
+> Compilation failed; see the compiler output below.
+  S:\Codex-Work\fraynix-workspace-edition101\workspace-engine\src\main\java\fraymus\workspace\WorkspaceServer.java:101: error: local variables referenced from a lambda expression must be final or effectively final
+                          case "/api/agency043/control"->agency.control(input.getString("id"),input.getString("action"),()->resumeBusy101(input.getString("id")));
+                                                                                                                                          ^
+  1 error
+
+* Try:
+> Check your code and dependencies to fix the compilation error(s)
+> Run with --scan to get full insights from a Build Scan (powered by Develocity).
+
+BUILD FAILED in 7s
+7 actionable tasks: 1 executed, 6 up-to-date
