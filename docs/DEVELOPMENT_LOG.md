@@ -1,3 +1,9 @@
+## Edition102 — measurement first, then a second creation contract
+
+2026-11-09, America/Los_Angeles. Work only in S:/Codex-Work/fraynix-workspace-edition102, branch edition102, parent1f2dad93. Read docs/EDITION_102_CONTRACT.md before changing or running it. Measure actual complete chat workflows across recorded and labelled synthetic inputs, abrupt recovery and one explicitly injected rendered-cell failure. Keep real model generations and all original checks. Add per-attempt monotonic generation timing, including failures; do not mistake overlapping timings for additive costs or incomplete calls for zero.
+
+After measurements, implement and prove a separately identified motion-summary/trace procedure, retaining exact source table checks and all existing101 verifier semantics. No102 results or publication yet. Parent CI42613246058 remains in_progress. No new delegation; serial native/model work, CPU-only/four inference threads. Preserve live045/qa046, prior worktrees and frozen001–101. Do not rebuild a running installation. Finish real trials, actual screenshots, independent arithmetic/outcome/accounting checks, README102/guide, memories/logs and fetched main/tag publication receipt.
+
 ## Edition101 — published and fetched back
 
 Published release a80bf42a6e7659d40ae4a3f0e375779e62eab005; annotated readme-101 tag object 29104d2c9844673aeb933b9c16d4c54ed001caa2. Actual main/edition101/tag push fetched and verified: 1321 canonical sources, 30283 frozen hashes across101 editions and 167 logical original archive entries. [Publication receipt](PUBLICATION_101.json).
