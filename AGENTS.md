@@ -1,3 +1,9 @@
+## Edition102 — fresh contract recovery running
+
+2026-11-09 06:01 PST. Fresh attempt2 draft1 had invalid JavaScript (missing parenthesis). Axis-label checks passed; functional/summary values failed. Its draft2 call then exceeded the unchanged600s budget before returning. Originals copied to build/summary102-attempt2-failure. Explicit same-contract application Resume is running session25420, log build/model102-summary-fresh-resumed.log; result-resumed.json is the current target. No runtime/build changes. Same parent/data child, remaining draft2, CPU4threads. Harness/inspector paths generalized for this retained fresh failure; sourcecc271771. Both unsuccessful old summary and fresh initial failure remain separate; no success yet. Subsequent16-row reuse starts only after verified completion.
+
+Prepared document102.py/review102.cjs/Inspect-DataSummary102.cjs now use attempt2/result-resumed.json. Archive includes attempt2-failure and fresh-resumed log. Keep every interval, unknown unfinished call and Resume delay. Need actual inspector pass, screenshots/review, docs/guide/freeze/source audits and real main/edition102/readme102 publication. Source installation remains2c1e4fae and78 focused Java methods passed; do not rebuild during cohort. Prior notes below retained.
+
 ## Edition102 — stronger contract built; fresh actual-model cohort running
 
 2026-11-09 05:50 PST. Current source2c1e4fae (before this note); actual fresh session68499, build/model102-summary-fresh.log, project/result under build/summary102-attempt2. Source/build receipt stamped2c1e4fae and copied build/summary102-final-build.json.78 focused Java tests passed after adding exact axis-label assertions and full summary DOM IDs in DataSummary102 creation instructions. Independent summary audit source unchanged; legacy101 verifier bytes unchanged.135 desktop+10 selection/accounting and5 legacy+11 actual summary browser fixtures pass. Do not rebuild/change runtime during model cohort.
