@@ -11,7 +11,7 @@ const creationPrompt='Create and verify a working local explorer of the selected
   let app,page;const errors=[],record={source:cp.execFileSync('git',['rev-parse','HEAD'],{cwd:repo,encoding:'utf8'}).trim(),startedAt:new Date().toISOString(),project,tasks:[],checks:[],captures:[],setupScope:'Harness imports existing recorded CSV and explicitly selects completed data results. Actual chat and installed model generate and verify artifacts. Unit fixture receipts are not used here.'};
   const save=()=>fs.writeFile(path.join(out,'result.json'),JSON.stringify(record,null,2));
   const api=(route,args={})=>app.evaluate((_,x)=>global.workspaceTest.api(x.route,x.args),{route,args});
-  const request=(operation,command,args={})=>page.evaluate(x=>window.fraynix.request(x),{operation,command,args});
+  const request=(operation,command,args={})=>page.evaluate(x=>window.workspace.request(x),{operation,command,args});
   async function open(){({app,page}=await launch(project));page.on('pageerror',e=>errors.push(e.message));await app.evaluate(({BrowserWindow})=>{const w=BrowserWindow.getAllWindows().find(x=>x.isVisible());w.setTitle('Fraynix Workspace · edition 100 verification');w.setSize(1600,1100);});await page.waitForFunction(()=>window.inputs100&&[...document.querySelector('#model').options].some(o=>o.value==='gpt-oss:20b'),{},{timeout:65000});await page.locator('#model').selectOption('gpt-oss:20b');}
   async function capture(file){await page.waitForTimeout(400);await fs.writeFile(path.join(out,file),Buffer.from(await app.evaluate(()=>global.workspaceTest.capture()),'base64'));record.captures.push(file);await save();}
   async function chat(kind,prompt){
@@ -50,7 +50,7 @@ const creationPrompt='Create and verify a working local explorer of the selected
     record.validation=await data('validation');const analyzed=await chat('data-validation','Analyze the selected motion dataset with gap limit 0.05 seconds and speed limit 5 m/s. Chart it, preserve its source and save the successful procedure as motion100.');
     sourceArtifact=analyzed.artifact;const pinned=await pin(analyzed);record.firstSelection=pinned;await capture('source100-1600.png');
     // Looking at another artifact cannot change the pinned source.
-    await page.evaluate(()=>window.fraynix.request({operation:'new'}));assert.deepEqual((await request('inputs100','state')).selection,pinned);
+    await page.evaluate(()=>window.workspace.request({operation:'new'}));assert.deepEqual((await request('inputs100','state')).selection,pinned);
     const created=await chat('creation-validation',creationPrompt);await inspectCreation(created,pinned);await capture('explorer100-1600.png');
     await app.evaluate(({BrowserWindow})=>BrowserWindow.getAllWindows().find(x=>x.isVisible()).setSize(1100,1100));await capture('explorer100-1100.png');assert(await page.locator('#goal').isVisible());assert(await page.locator('#run').isVisible());
     await app.close();app=null;const restart=performance.now();await open();record.restartMillis=performance.now()-restart;await page.waitForTimeout(250);assert.deepEqual((await request('inputs100','state')).selection,pinned);record.checks.push('Pinned source and verified lineage restored by Java after cold restart');await capture('restored100-1600.png');
