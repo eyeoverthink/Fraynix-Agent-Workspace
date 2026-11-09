@@ -1,3 +1,7 @@
+## Edition101 — implementation and independent review in progress
+
+2026-11-09. Work only in S:/Codex-Work/fraynix-workspace-edition101, branch edition101, parent6671e3d2. Read docs/EDITION_101_CONTRACT.md. Extend the existing Java WorkflowRunner for a single chat-driven data→creation→audit→skill workflow, preserving all source and outcome checks. Add explicit boundary recovery and pending skill publication until durable parent completion. No101 result or release yet. Parent CI42604303817 remains in_progress. User explicitly approved one read-only independent agent reviewer; no other delegation. Heavy/native/model work serial, CPU-only. Preserve live045/qa046/private state, frozen001–100 and previous checkouts. New-PC setup remains separate.
+
 ## Edition100 — published and fetched back
 
 Published release e2ba11fdcdbd3929bbc9c57d929911e4c0588296; annotated readme-100 tag object 566d4c2cb2c7904d207c87dbb042d75972991f66. Actual main/edition100/tag push fetched and verified: 1312 canonical sources, 30120 frozen hashes across100 editions and 209 logical original archive entries. [Publication receipt](docs/PUBLICATION_100.json).
