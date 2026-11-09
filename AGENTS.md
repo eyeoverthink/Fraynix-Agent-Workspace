@@ -1,3 +1,7 @@
+## Edition097 — preparation, CI gate pending
+
+Work in S:/Codex-Work/fraynix-workspace-edition097, branch edition097, from fetched main453e8708. Read docs/EDITION_097_CONTRACT.md. Parent CI42554061175 was still checking out at first inspection. No native097 results yet. Prepare growing-bank continuing-world accounting; run only after the recorded CI gate passes. Preserve live045/qa046/private data and frozen001–096. No subagents; heavy work serial.
+
 ## Edition096 — published and fetched back
 
 Published release 7224dde9b537fa5ab4e00c31b3f4b57b57fbc84e; annotated readme-096 tag object c6a0aa9350d132d2855dfd0d26c685176593b063. Actual main/edition096/tag push fetched and verified: 1280 canonical sources, 27565 frozen hashes across96 editions and 442 logical original archive entries. Inspect the new remote CI result before starting the warm-workspace study. [Publication receipt](docs/PUBLICATION_096.json).

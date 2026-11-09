@@ -1,0 +1,29 @@
+# Edition 097 prospective contract — 2026-11-08
+
+Parent: fetched main `453e8708ab9353d86ed666f3d059d28563372530`. Work only in `S:/Codex-Work/fraynix-workspace-edition097`, branch edition097. Preserve live045/qa046, private data and frozen001–096. No subagents; heavy work serial. The new drive has room for the complete evidence history. No production source, proof threshold, controller or calibration admission change is planned.
+
+## First gate
+
+Inspect the actual final096 GitHub run42554061175. At the first check it was still checking out the repository, not passed. Prepare implementation while pending; do not run the native cohort before a successful parent CI result. Preserve any failed CI result and diagnose it rather than calling focused checks a complete CI pass. A correction, if needed, must have a separately recorded source and gate.
+
+## Continuing-world experiment
+
+Earn one fresh three-stage memory with ordinary simple control using the existing095 seed. Verify and freeze its closed project. Create four independent copies, with original-byte inventories checked before launch. Two blocks use opposite arm orders: simple then memory, then memory then simple. Each arm uses one new world throughout six successive goals; never reset, teleport or replace its state between goals. Start each later task from the preceding actual committed frame. Both arms retain every successful experience, and every second task also saves a named skill. Memory control uses the existing nearest compatible verified receipt, not an externally chosen favorable memory. Simple control remains equally equipped but does not consult the bank. No fit or runtime policy promotion occurs.
+
+The declared source is the095 long synthetic scene, including both dynamic targets, protected bystander and fixed obstacle. Six absolute target sets are committed in the fixture before trials: long outward, short outward adjustment, return, short return adjustment, outward, return. Rotation targets alternate with position. Tasks3 and6 receive one exact-owned-Java-process termination after actual stage0 has committed at least1200 ticks, followed by explicit bounded recovery. Record actual stop ticks and all saved prefixes. Recovery bounds, conservative tail charging and fresh downstream forecasts stay unchanged.
+
+After each arm's six tasks, close and reopen the same project; verify exact world revision/hash, retained bank, every saved skill/default/source and complete goal proofs. Execute the last saved procedure through its registered Java handler against the continuing world, as a separately timed seventh task with retention disabled. This is useful even when the current target is close: preserve its actual movement and timing, do not present it as an equivalent full-distance task. Keep the UI open within a stream except for the declared recoveries and final persistence test. Record actual cache warm/cold flags rather than calling every later lookup warm.
+
+If a controller refuses or fails, retain its full costs, world state and original evidence. Stop that stream when continuing would require an unverified reset; record remaining goals as not reached. Do not change fixtures after seeing outcomes without a dated follow-up contract. Harness failures stop the cohort and are preserved; a corrected cohort is separately identified.
+
+## Complete accounting and comparison
+
+One surviving external monotonic clock records preparation, each stream and each task. Task phases are setup/observation, complete goal call and original export/full audit; setup never includes a new world after the first task. Restart is nested within the goal and counted once. Stream phases also include initial copy/startup/world creation, final shutdown/reopening/persistence audit, saved-skill execution and final closure. Small orchestration gaps remain visible. UI screenshots and independent offline inspection occur after timing. Report wall-clock costs, native ticks, world revisions, bank/skill counts, lookup/cache status, distinct forecasts and executions, and retained failures.
+
+Keep Java cross-boot totals unavailable/ineligible. External timing is study evidence, not calibration training or motion authority. Startup, original verification, evidence export and skill writes are never silently omitted. Saving plus retention is a workload, not an isolated write-speed measurement.
+
+Compare the two complete streams in each block, and show task/prefix costs descriptively. Initial copied state, absolute requests, resources and workload match. Later actual states and bank contents can diverge through real execution; record that divergence rather than claiming exact paired calibration or a causal effect of bank size alone. Bank size, world history, direction and warmup change together. Two blocks do not establish population uncertainty. Charge preparation once in the first-batch memory adoption comparison; provide task-only and whole-stream figures with experimental copy/audit costs distinguished. A faster failed stream earns no speed-benefit label.
+
+## Verification and publication
+
+Use the unchanged independent093 native/procedure/commit inspector and original cost/provenance checks. Add continuity and interval verification for growing streams, exact bank/skill progression, reserved recovery, no double counting, incomplete streams and altered input/accounting refusals. Check identical production classes against096 and build/source isolation. Run relevant Java and all existing desktop regressions serially. Verify real app reports at1600/1100 and offline guide at1440/390. Preserve original failures and every source-qualified result. Publish README097, actual screenshots, offline explorer, source inventory, original evidence, Obsidian map, memories/logs, annotated readme-097, main and a fetched-content publication receipt. No new LLM inference, physical measurement, weight training or general autonomy claim.
