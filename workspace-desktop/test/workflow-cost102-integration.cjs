@@ -12,7 +12,7 @@ async function main(){
  const request=(operation,command,args={})=>page.evaluate(x=>window.workspace.request(x),{operation,command,args});
  async function open(){({app,page}=await launch(project));session++;page.on('pageerror',e=>record.errors.push(e.message));await app.evaluate(({BrowserWindow},{session,surfacePath})=>{
   const w=BrowserWindow.getAllWindows().find(x=>x.isVisible());w.setTitle('Fraynix Workspace · edition 102 measured workflows');w.setSize(1600,1100);
-  global.cost102={session,spans:[],injections:[],corrupt:false};const {Surface}=require(surfacePath);
+  global.cost102={session,spans:[],injections:[],corrupt:false};const Surface=global.workspaceTest.surfaceClass102;
   for(const name of ['test','isolated']){const original=Surface.prototype[name];Surface.prototype[name]=async function(...args){
    if(this.kind!=='canvas')return original.apply(this,args);const start=Date.now(),clock=process.hrtime.bigint();let ok=false;
    try{if(name==='isolated'&&global.cost102.corrupt&&String(args[0]).includes("one('table#data-table')")){
