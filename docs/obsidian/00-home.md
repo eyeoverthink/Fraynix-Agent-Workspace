@@ -1,3 +1,5 @@
+[[docs/obsidian/109-durable-data-creation.md|Edition101 durable data-to-creation]]
+
 [[README-100.md|Edition100 — verified data handoffs]] · [[docs/obsidian/108-verified-data-handoffs.md]]
 
 [[README-099.md|Edition099 — real local-model workflows]] · [[docs/obsidian/107-local-model-workflows.md]]

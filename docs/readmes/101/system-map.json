@@ -1,0 +1,72 @@
+{
+  "modules": [
+    {
+      "id": "chat",
+      "name": "Chat and fresh selected data",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/Domain044.java",
+      "note": "docs/obsidian/109-durable-data-creation.md"
+    },
+    {
+      "id": "parent",
+      "name": "Durable Java supervisor",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/WorkflowRunner.java",
+      "note": "docs/obsidian/109-durable-data-creation.md"
+    },
+    {
+      "id": "children",
+      "name": "Owned analysis and creation",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/GoalRunner.java",
+      "note": "docs/obsidian/109-durable-data-creation.md"
+    },
+    {
+      "id": "contract",
+      "name": "Independent source contract",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/DataCreation101.java",
+      "note": "docs/obsidian/109-durable-data-creation.md"
+    },
+    {
+      "id": "browser",
+      "name": "Actual browser observations",
+      "source": "workspace-desktop/data-creation101.cjs",
+      "note": "docs/obsidian/109-durable-data-creation.md"
+    },
+    {
+      "id": "inspector",
+      "name": "Original evidence inspection",
+      "source": "scripts/Inspect-DataCreation101.cjs",
+      "note": "docs/obsidian/109-durable-data-creation.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "docs/readmes/101/boundary101-1600.png",
+      "caption": "Actual app paused after verified analysis, before content generation."
+    },
+    {
+      "path": "docs/readmes/101/explorer101-1600.png",
+      "caption": "Actual local-model explorer after interrupted restart and full verification."
+    },
+    {
+      "path": "docs/readmes/101/explorer101-1100.png",
+      "caption": "Same actual explorer and chat at 1100-pixel app width."
+    },
+    {
+      "path": "docs/readmes/101/changed101-1600.png",
+      "caption": "Saved whole workflow reused with new 52-row recorded input; quality flags retained."
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/readmes/101/verification.json",
+      "caption": "verification.json"
+    },
+    {
+      "path": "docs/readmes/101/analysis.json",
+      "caption": "analysis.json"
+    },
+    {
+      "path": "docs/readmes/101/original-evidence.json",
+      "caption": "original-evidence.json"
+    }
+  ]
+}

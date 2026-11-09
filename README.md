@@ -1,11 +1,11 @@
 # Fraynix Agent Workspace
 
-Edition100 connects verified data analysis to real, model-created content in the same application. Select a checked result, review its behavior checks, build a working explorer and reuse the saved procedure with fresh data.
+Edition101 completes a supported data-to-content task from one durable chat request: analyze selected data, generate a working explorer, independently verify it and retain the whole procedure. Restart preserves verified stages.
 
-[Edition100: verified data becomes working content](README-100.md) · [Offline guide](docs/readmes/100/index.html) · [Previous edition](README-099.md) · [Contributor direction](README-CONTRIBUTORS.md)
+[Edition101: one request, verified data, working content](README-101.md) · [Offline guide](docs/readmes/101/index.html) · [Previous edition](README-100.md) · [Contributor direction](README-CONTRIBUTORS.md)
 
-Java owns durable goals, physics, tools, verification and retained procedures. Chat, browser, creation canvas, original Game Lab and spatial views share those capabilities.
+Java owns durable goals, physics, tools, verification and retained procedures. Chat, browser, creation canvas, Game Lab and spatial views share those capabilities.
 
-![Actual100 fresh-source explorer](docs/readmes/100/workspace100-wide.png)
+![Actual101 source-bound explorer](docs/readmes/101/explorer101-1600.png)
 
-Published to main. [Fetched GitHub verification](docs/PUBLICATION_100.json).
+Publication receipt follows the actual push and fetched-content audit.

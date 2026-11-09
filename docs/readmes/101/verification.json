@@ -1,0 +1,265 @@
+{
+  "passed": true,
+  "source": "cbe941e65835d7e02cdcfed63f061b0d7c4e94fa",
+  "presentationReview": {
+    "source": "af1a08c7ecb807f94b0078dcdb246a56de10212e",
+    "captures": [
+      {
+        "file": "explorer101-1600.png",
+        "caption": "Actual49-row generated explorer; planning requests and content drafts are now distinct.",
+        "at": "2026-11-09T11:48:17.382Z"
+      },
+      {
+        "file": "explorer101-1100.png",
+        "caption": "Actual1100-pixel app: chat, composer, content controls and Mission remain accessible.",
+        "at": "2026-11-09T11:48:18.050Z"
+      },
+      {
+        "file": "changed101-1600.png",
+        "caption": "Actual saved whole workflow reused on52 rows; stricter quality flags remain.",
+        "at": "2026-11-09T11:48:19.399Z"
+      }
+    ],
+    "checks": [
+      "Keyboard chooser, current/past task distinction, saved results, planning/content counters and wide/narrow chat bounds"
+    ],
+    "scope": "Reopened actual completed workflows; presentation labels clarified. No new inference, code generation or weakened checks.",
+    "wide": {
+      ".agent-panel": {
+        "top": 76,
+        "bottom": 697.484375,
+        "height": 621.484375
+      },
+      "#model": {
+        "top": 166.890625,
+        "bottom": 205.890625,
+        "height": 39
+      },
+      "#goal": {
+        "top": 549.1875,
+        "bottom": 623.1875,
+        "height": 74
+      },
+      "#run": {
+        "top": 637.1875,
+        "bottom": 679.484375,
+        "height": 42.296875
+      },
+      "#messages": {
+        "top": 339.453125,
+        "bottom": 517.796875,
+        "height": 178.34375
+      }
+    },
+    "narrow": {
+      ".agent-panel": {
+        "top": 74,
+        "bottom": 701.484375,
+        "height": 627.484375
+      },
+      "#model": {
+        "top": 162.890625,
+        "bottom": 201.890625,
+        "height": 39
+      },
+      "#goal": {
+        "top": 555.1875,
+        "bottom": 629.1875,
+        "height": 74
+      },
+      "#run": {
+        "top": 643.1875,
+        "bottom": 685.484375,
+        "height": 42.296875
+      },
+      "#messages": {
+        "top": 335.453125,
+        "bottom": 523.796875,
+        "height": 188.34375
+      }
+    },
+    "changed": {
+      ".agent-panel": {
+        "top": 76,
+        "bottom": 697.484375,
+        "height": 621.484375
+      },
+      "#model": {
+        "top": 166.890625,
+        "bottom": 205.890625,
+        "height": 39
+      },
+      "#goal": {
+        "top": 549.1875,
+        "bottom": 623.1875,
+        "height": 74
+      },
+      "#run": {
+        "top": 637.1875,
+        "bottom": 679.484375,
+        "height": 42.296875
+      },
+      "#messages": {
+        "top": 339.453125,
+        "bottom": 517.796875,
+        "height": 178.34375
+      }
+    },
+    "passed": true,
+    "errors": []
+  },
+  "sourceComparison": {
+    "passed": true,
+    "cohortReceiptSource": "0cf48f05f5f9fd7b4aa5135d7f388d6fdb86d0b0",
+    "finalPresentationSource": "af1a08c7ecb807f94b0078dcdb246a56de10212e",
+    "changedInputs": [
+      "workspace-desktop/renderer/agency043.js",
+      "workspace-desktop/renderer/inputs100.js"
+    ],
+    "identicalInstalledJars": 27,
+    "identicalOtherInputs": 700,
+    "scope": "Only display labels/content-draft display changed after successful real-model cohort; compiled Java and every other runtime input match. Reopened actual outcome/layout checks follow without new inference."
+  },
+  "java": [
+    {
+      "name": "fraymus.workspace.Agency043Test",
+      "tests": "11",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0",
+      "time": "2.57"
+    },
+    {
+      "name": "fraymus.workspace.CreationTest",
+      "tests": "8",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0",
+      "time": "4.438"
+    },
+    {
+      "name": "fraymus.workspace.DataCreation101Test",
+      "tests": "10",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0",
+      "time": "13.839"
+    },
+    {
+      "name": "fraymus.workspace.DataHandoff100Test",
+      "tests": "3",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0",
+      "time": "1.045"
+    },
+    {
+      "name": "fraymus.workspace.Domain044Test",
+      "tests": "16",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0",
+      "time": "0.484"
+    },
+    {
+      "name": "fraymus.workspace.WorkflowTest",
+      "tests": "7",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0",
+      "time": "38.883"
+    },
+    {
+      "name": "fraymus.workspace.WorkspaceStoreTest",
+      "tests": "5",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0",
+      "time": "0.3"
+    }
+  ],
+  "priorGraphRegression": {
+    "name": "fraymus.workspace.SkillGraph046Test",
+    "tests": "7",
+    "skipped": "0",
+    "failures": "0",
+    "errors": "0",
+    "timestamp": "2026-11-09T11:17:39.376Z",
+    "hostname": "DESKTOP-RTO00K0",
+    "time": "198.442"
+  },
+  "existingDesktop": 135,
+  "newAndSelectionDesktop": 7,
+  "actualChromiumControls": 5,
+  "independent": {
+    "passed": true,
+    "results": [
+      {
+        "input": "validation",
+        "rows": 49,
+        "completeMillis": 881814,
+        "gapFlags": 0,
+        "speedFlags": 0,
+        "travelM": 0.7758452762255914,
+        "modelGenerationJobs": 1,
+        "drafts": 1,
+        "sourceSha256": "591c0cb5e7b1755dce0e9e415ed0766840a9e74021effca78a45c1ae9e59b4c8"
+      },
+      {
+        "input": "training",
+        "rows": 52,
+        "completeMillis": 181315,
+        "gapFlags": 0,
+        "speedFlags": 37,
+        "travelM": 0.7264764813766893,
+        "modelGenerationJobs": 1,
+        "drafts": 1,
+        "sourceSha256": "c3d95c6a8ee4e002ec490cb6e2239dbd53ba5e194ea6b89ccba418b0e5ac59da"
+      }
+    ],
+    "scope": "Independent original recorded CSV arithmetic, full source lineage, actual browser cells in four states, model compute receipts and restart/reuse identities. Complete elapsed time includes deliberate pause/restart; not a speed comparison.",
+    "refusals": [
+      {
+        "name": "changed original",
+        "refused": true
+      },
+      {
+        "name": "foreign data child",
+        "refused": true
+      },
+      {
+        "name": "changed normalized input",
+        "refused": true
+      },
+      {
+        "name": "counter-only filter",
+        "refused": true
+      },
+      {
+        "name": "wrong units",
+        "refused": true
+      },
+      {
+        "name": "hidden table",
+        "refused": true
+      },
+      {
+        "name": "false quality",
+        "refused": true
+      },
+      {
+        "name": "foreign saved skill",
+        "refused": true
+      }
+    ]
+  },
+  "parentCI": {
+    "id": 42604303817,
+    "head_sha": "6671e3d2052b0352052e3f7c6a8f7f3f3b86d90a",
+    "status": "in_progress",
+    "conclusion": null,
+    "html_url": "https://github.com/eyeoverthink/Fraynix-Agent-Workspace/actions/runs/42604303817",
+    "checkedAt": "2026-11-09T11:38:16.741Z"
+  },
+  "scope": "Supported data-to-creation workflow; actual local generation, bounded audit/repair, interruption, restart, changed-input reuse. Java fixture receipts and renderer adversaries are distinct from actual model outcomes."
+}
