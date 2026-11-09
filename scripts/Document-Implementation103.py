@@ -19,6 +19,8 @@ for f in sorted((r/'workspace-engine/build/test-results/test').glob('TEST-*.xml'
 assert sum(int(x['tests']) for x in tests)>=88
 assert 'fail 0' in (r/'build/desktop103.log').read_text(encoding='utf-8-sig')
 assert load('build/source-identity103.json')['passed']
+for name,count in [('renderer101-103',5),('renderer102-103',11),('diagnostics103',7)]:
+    proof=load('build/'+name+'/result.json');assert proof['passed'] and len(proof['results'])==count
 d.mkdir(parents=True,exist_ok=True)
 js(d/'analysis.json',analysis)
 js(d/'verification.json',{'passed':True,'java':tests,'independentRefusals':analysis['refusals'],'visual':visual,'sourceIdentity':load('build/source-identity103.json'),'build':load('build/study095-build.json'),'parentCI':load('build/ci103-parent.json')})
@@ -33,8 +35,8 @@ captions={
  'restart103.png':'The actual paused task before deliberate interruption; completed data remains bound.'}
 for name in captions: shutil.copyfile(r/'build/reuse103'/name,d/name)
 archive=[]
-roots=['build/reuse103','build/junit103-initial','build/junit103-second','workspace-engine/build/test-results/test']
-extras=['build/java103-initial.log','build/java103-final.log','build/java103-verified.log','build/desktop103.log','build/renderer101-103.log','build/renderer102-103.log','build/diagnostics103.log','build/source-identity103.json','build/ci103-parent.json','build/study095-build.json','build/analysis103.json','build/visual-review103.json']
+roots=['build/reuse103','build/renderer101-103','build/renderer102-103','build/diagnostics103','build/junit103-initial','build/junit103-second','workspace-engine/build/test-results/test']
+extras=['build/reuse103-continuation.log','build/reuse103-harness-failure.log','build/reuse103-result-before-harness-fix.json','build/reuse103.log','build/desktop103-additional.log','build/renderer101-103-encoding-failure.log','build/before-encoding103-build.json','build/java103-initial.log','build/java103-final.log','build/java103-verified.log','build/desktop103.log','build/renderer101-103.log','build/renderer102-103.log','build/diagnostics103.log','build/source-identity103.json','build/ci103-parent.json','build/study095-build.json','build/analysis103.json','build/visual-review103.json']
 paths=[]
 for folder in roots:
     for p in (r/folder).rglob('*'):
@@ -141,7 +143,7 @@ The repository keeps the Java21/Gradle and existing desktop dependencies. No new
 
 `node scripts/Prepare-Implementation103.cjs` restores original102 evidence into a new `build/reuse103` folder and refuses an existing destination. It verifies both compressed and decompressed bytes against the frozen archive. It never launches the old live projects. The integration harness is `workspace-desktop/test/implementation103-integration.cjs`; it uses the real app and existing model catalog, without a new content inference. The recorded102 model artifacts are inputs, not invented model responses.
 
-`scripts/Inspect-Implementation103.cjs` independently recomputes original source arithmetic, quality flags, normalized rows, exact implementation and artifact hashes, handoff lineage, actual browser assertions, four table states, refusal causes and complete cost accounting. Sixteen altered evidence records are refused. It checks the actual generation journal for omitted calls. The initial test harness mistakes are archived as failures: it first omitted the required data report host check, then expected one narrower exception class than the legitimate file validator returned. Those were corrected without weakening production checks.
+`scripts/Inspect-Implementation103.cjs` independently recomputes original source arithmetic, quality flags, normalized rows, exact implementation and artifact hashes, handoff lineage, actual browser assertions, four table states, refusal causes and complete cost accounting. Sixteen altered evidence records are refused. It checks the actual generation journal for omitted calls. The initial test harness mistakes are archived as failures: it first omitted the required data report host check, then expected one narrower exception class than the legitimate file validator returned. Those were corrected without weakening production checks. The first app launch also caught an invalid text encoding in the new status label. That production text was corrected; the original failure log is retained, and the subsequent56-file source integrity check and real browser trials passed. After the first request completed, the integration harness used POST for the GET-only state endpoint. The method was corrected and the remaining trials continued; the completed request was not repeated. This assistance is outside the six request intervals and remains in the full cohort timestamps and original failure record.
 
 The final focused Java suite contains{sum(int(x['tests']) for x in tests)} methods. Existing desktop tests and actual legacy/summary/diagnostic browser controls also pass. The source comparison confirms that the101/102 verifier class bytes are unchanged. Full originals, failures and receipts are retained in the [lossless evidence manifest](docs/readmes/103/original-evidence.json). The source inventory and all frozen editions are checked before publication. Remote CI is reported separately in the publication receipt; local validation is not described as CI success.
 

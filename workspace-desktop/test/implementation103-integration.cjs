@@ -6,9 +6,11 @@ const repo=path.resolve(__dirname,'../..'),out=path.join(repo,'build/reuse103'),
 async function main(){
  Object.assign(process.env,{FRAYNIX_WORKSPACE_PERSISTENT:'0',FRAYNIX_WORKSPACE_PLAN_CPU_ONLY:'1',FRAYNIX_WORKSPACE_JAVA_HEAP_MIB:'512',FRAYNIX_WORKSPACE_JAVA_PROCESSORS:'2'});
  require('../../scripts/Study-Build095.cjs').verify(repo);
- const record={source:cp.execFileSync('git',['rev-parse','HEAD'],{cwd:repo,encoding:'utf8'}).trim(),startedAt:new Date().toISOString(),tasks:[],hostSpans:[],injections:[],captures:[],projects:[],errors:[],scope:'Actual retained102 local-model code; no generated replacement or model output fixture. Fresh original Java source and outcome checks. Deliberate DOM fault separately labelled. Complete caller wall time includes restart, host checks and polling; not a matched speed comparison.'};
- let app,page,project,session=0;const save=()=>fs.writeFile(path.join(out,'result.json'),JSON.stringify(record,null,2));
- const api=(route,args={})=>app.evaluate((_,x)=>global.workspaceTest.api(x.route,x.args),{route,args});
+ const continuing=process.env.EDITION103_CONTINUE==='1';
+ let record={source:cp.execFileSync('git',['rev-parse','HEAD'],{cwd:repo,encoding:'utf8'}).trim(),startedAt:new Date().toISOString(),tasks:[],hostSpans:[],injections:[],captures:[],projects:[],errors:[],scope:'Actual retained102 local-model code; no generated replacement or model output fixture. Fresh original Java source and outcome checks. Deliberate DOM fault separately labelled. Complete caller wall time includes restart, host checks and polling; not a matched speed comparison.'};
+ if(continuing){record=JSON.parse(await fs.readFile(path.join(out,'result.json'),'utf8'));assert.equal(record.tasks.length,1);assert.equal(record.tasks[0].workflow.status,'completed');record.harnessRecovery={error:record.error,finishedAt:record.finishedAt,scope:'Harness used POST for GET-only state after completed first task. Corrected request method; no runtime or outcome change and no repeated task.'};delete record.error;delete record.finishedAt;}
+ let app,page,project,session=continuing?Math.max(...record.hostSpans.map(s=>s.session)):0;const save=()=>fs.writeFile(path.join(out,'result.json'),JSON.stringify(record,null,2));
+ const api=(route,args={})=>app.evaluate((_,x)=>global.workspaceTest.api(x.route,x.args),{route,args:route==='/api/state'?undefined:args});
  const request=(operation,command,args={})=>page.evaluate(x=>window.workspace.request(x),{operation,command,args});
  async function open(name){project=path.join(out,name,'project');({app,page}=await launch(project));session++;
   await app.evaluate(({BrowserWindow},session)=>{const w=BrowserWindow.getAllWindows().find(w=>w.isVisible());w.setSize(1600,1100);w.setTitle('Fraynix · edition 103 · verified code, fresh data');global.reuse103={spans:[],injections:[],corrupt:false};const Surface=global.workspaceTest.surfaceClass102;
@@ -44,9 +46,9 @@ async function main(){
  }
  try{
   await open('explorer');const original=JSON.parse(await fs.readFile(path.join(out,'explorer/original102.json'),'utf8'));record.projects.push({name:'explorer',project,originalSkill:original.tasks[0].workflow.savedSkill});
-  const fresh=await importData('Recorded52 fresh input103',await fs.readFile(path.join(repo,'docs/datasets/delfys75-013/training.csv'),'utf8'),true);
+  if(!continuing){const fresh=await importData('Recorded52 fresh input103',await fs.readFile(path.join(repo,'docs/datasets/delfys75-013/training.csv'),'utf8'),true);
   await run({name:'recorded52-restarted',source:fresh,expected:'completed',prompt:'Reuse cost-explorer102 version 1 on the selected dataset with gap limit 0.05 seconds and speed limit 5 m/s. Save the whole workflow as retained-explorer103. Review after data.'},{restart:true});
-  assert(record.tasks[0].workflow.savedSkill);await close();await open('explorer');record.coldSavedSkill=(await api('/api/state')).procedures.find(p=>p.id===record.tasks[0].workflow.savedSkill.id);assert(record.coldSavedSkill);
+  assert(record.tasks[0].workflow.savedSkill);await close();await open('explorer');}record.coldSavedSkill=(await api('/api/state')).procedures.find(p=>p.id===record.tasks[0].workflow.savedSkill.id);assert(record.coldSavedSkill);
   const csv96='time_s,displacement_m\n'+Array.from({length:96},(_,i)=>(i*.02).toFixed(5)+','+((i%24<12?i%12:12-i%12)*.002-.01).toFixed(5)).join('\n')+'\n';
   await run({name:'synthetic96-descendant',source:await importData('Synthetic96 reversal103',csv96),expected:'completed',prompt:'Reuse retained-explorer103 version 1 on the selected dataset with gap limit 0.05 seconds and speed limit 5 m/s.'});
   const flat='time_s,displacement_m\n'+Array.from({length:32},(_,i)=>(i*.02).toFixed(5)+',-0.02000').join('\n')+'\n';
