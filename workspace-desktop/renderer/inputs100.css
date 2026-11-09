@@ -10,3 +10,9 @@
 #inputs100{position:relative;flex-shrink:0}
 #inputs100-controls{position:absolute;top:100%;left:0;right:0;z-index:30;max-height:280px;margin-top:4px;padding:12px;background:#132523;border:1px solid #55796e;border-radius:10px;box-shadow:0 12px 30px #0009}
 #inputs100-source{max-height:3.9em;overflow:auto}
+
+/* Keep the composer visible when Mission evidence shares the vertical space. */
+body:has(.mission-open044) #inputs100{margin:2px 0;padding:6px 8px;font-size:11px}
+body:has(.mission-open044) #inputs100 p{margin:3px 0}
+body:has(.mission-open044) #inputs100-data{display:none}
+body:has(.mission-open044) #inputs100-source,body:has(.mission-open044) #inputs100-status{max-height:2.7em;overflow:auto}
