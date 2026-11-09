@@ -1,3 +1,5 @@
+[Edition096 — full verification](../../README-096.md) · [Offline evidence](096/index.html)
+
 [Edition095 — complete mixed-task costs](../../README-095.md) · [Offline evidence](095/index.html)
 
 [Edition094 — three-stage crash recovery](../../README-094.md) · [Offline evidence](094/index.html)

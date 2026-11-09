@@ -1,3 +1,5 @@
+Edition096 restores the full verification path; production motion and original outcomes are unchanged. [Results](../README-096.md).
+
 Edition095 measures complete mixed tasks, recovery and saved skills without changing production Java classes. [Results](../README-095.md) · [Contributor contract](../README-CONTRIBUTORS.md).
 
 Edition094 verifies three-stage recovery under abrupt owned-process termination, fixes native atomic replacement retries and adds an explicit closed093 frame handoff. All outcome checks remain. [Results](../README-094.md) · [Current contributor contract](../README-CONTRIBUTORS.md).

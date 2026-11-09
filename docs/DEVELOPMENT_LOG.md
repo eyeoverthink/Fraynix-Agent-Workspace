@@ -1,3 +1,15 @@
+## Edition096 — locally verified; publication pending
+
+Combined Java method coverage: 824 passed, 3 skipped, no remaining failures across 177 JUnit classes. The original complete invocation failed four test-boundary assertions; corrected checks passed separately with all500 compared engine/Studio classes unchanged. This is not a single clean full invocation. Factory custom verification and separate source-isolation/distribution checks passed. Fresh071/072 native studies are distinct from copied512/1024MiB diagnostics.25 initial focused methods and135 desktop tests pass. Actual app reviews three declared alternatives; one direct-first trial succeeds and two are not needed, then it explicitly executes one verified construction, retains a skill and survives two cold restarts.
+
+Source 06d6d33ad4b46349603a053d4078494cd93ccb4a. Only Tools044 production Java source changed: Java-owned design/review fields are hidden from model arguments. The full distribution uses ZIP64 to retain its growing evidence history without exclusions. Explicit096 source extension preserves original035/056 contracts and outcome assertions. Test JVMs1024MiB, one class per fork and one fork at a time; production limits unchanged. Original failures retained. Frozen001–095, live045/qa046 and private data preserved; no subagents. Next: declare a continuing warm-workspace mixed-task protocol with a growing verified bank, matched controls and complete costs. No warm payoff or new LLM result is claimed here.
+
+## Edition096 — full validation running, not yet published
+
+2026-11-08,15:59PST. Isolated D:/Codex-Work/fraynix-workspace-edition096. Contract9686c333; fixes06d6d33ad4b46349603a053d4078494cd93ccb4a.25 focused Java methods pass, including four historical native scenarios. Copied071/072 integrity diagnostics both fail at512MiB and pass at1024MiB; originals retained.333/334 production classes match095; only Tools044 changes.
+
+Complete default :check :distZip is RUNNING serially with fresh build/full096-native data; no resume variables or exclusions. Read build/HANDOFF096.md, build/full096-run.json, build/full096.log and the actual completion file before claiming results. Adaptive070 finished; calibration068 started. Future app walkthrough, screenshots, docs, publication and fetched receipt remain pending. Do not overlap native/model work or alter tested Java/build sources while running. No subagents; preserve live045/qa046/private data and frozen001–095.
+
 ## Edition095 — published and fetched back
 
 Published release 54ea84ca4674f355ffaba087f0faa62570256915; annotated readme-095 tag object 67b287df963c8dbcc20bea039e7d624b2c125312. Actual main/edition095/tag push fetched and verified: 1270 canonical sources, 27147 frozen hashes across 95 editions and 2482 logical original archive entries. [Publication receipt](PUBLICATION_095.json).

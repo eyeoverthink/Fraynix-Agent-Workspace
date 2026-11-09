@@ -1,3 +1,5 @@
+[[README-096.md|Edition096 — full verification]] · [[docs/obsidian/104-full-verification.md]]
+
 [[README-095.md|Edition095 — complete mixed-task costs]] · [[docs/obsidian/103-mixed-task-costs.md]]
 
 [[README-094.md|Edition094 — three-stage crash recovery]] · [[docs/obsidian/102-three-stage-recovery.md]]

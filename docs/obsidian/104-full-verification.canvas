@@ -1,0 +1,72 @@
+{
+  "nodes": [
+    {
+      "id": "schema",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/Tools044.java",
+      "x": 0,
+      "y": 0,
+      "width": 350,
+      "height": 260
+    },
+    {
+      "id": "lock",
+      "type": "file",
+      "file": "workspace-engine/src/test/java/fraymus/workspace/WorldRegression096.java",
+      "x": 390,
+      "y": 0,
+      "width": 350,
+      "height": 260
+    },
+    {
+      "id": "resources",
+      "type": "file",
+      "file": "workspace-engine/build.gradle",
+      "x": 780,
+      "y": 0,
+      "width": 350,
+      "height": 260
+    },
+    {
+      "id": "app",
+      "type": "file",
+      "file": "workspace-desktop/test/verification096-integration.cjs",
+      "x": 1170,
+      "y": 0,
+      "width": 350,
+      "height": 260
+    },
+    {
+      "id": "evidence",
+      "type": "file",
+      "file": "README-096.md",
+      "x": 390,
+      "y": 330,
+      "width": 740,
+      "height": 340
+    }
+  ],
+  "edges": [
+    {
+      "id": "e0",
+      "fromNode": "schema",
+      "fromSide": "right",
+      "toNode": "lock",
+      "toSide": "left"
+    },
+    {
+      "id": "e1",
+      "fromNode": "lock",
+      "fromSide": "right",
+      "toNode": "resources",
+      "toSide": "left"
+    },
+    {
+      "id": "e2",
+      "fromNode": "resources",
+      "fromSide": "right",
+      "toNode": "app",
+      "toSide": "left"
+    }
+  ]
+}

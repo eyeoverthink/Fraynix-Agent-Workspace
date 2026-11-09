@@ -1,0 +1,56 @@
+{
+  "modules": [
+    {
+      "id": "schema",
+      "name": "Java-owned construction tool choices",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/Tools044.java",
+      "note": "docs/obsidian/104-full-verification.md"
+    },
+    {
+      "id": "lock",
+      "name": "Explicit historical source chain",
+      "source": "workspace-engine/src/test/java/fraymus/workspace/WorldRegression096.java",
+      "note": "docs/obsidian/104-full-verification.md"
+    },
+    {
+      "id": "resources",
+      "name": "Bounded test processes",
+      "source": "workspace-engine/build.gradle",
+      "note": "docs/obsidian/104-full-verification.md"
+    },
+    {
+      "id": "app",
+      "name": "Actual review, execution and restart",
+      "source": "workspace-desktop/test/verification096-integration.cjs",
+      "note": "docs/obsidian/104-full-verification.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "docs/readmes/096/review-1600.png",
+      "caption": "Actual isolated096 app: review"
+    },
+    {
+      "path": "docs/readmes/096/review-1100.png",
+      "caption": "Actual isolated096 app: review"
+    },
+    {
+      "path": "docs/readmes/096/verified-report-1600.png",
+      "caption": "Actual isolated096 app: verified-report"
+    },
+    {
+      "path": "docs/readmes/096/verified-report-1100.png",
+      "caption": "Actual isolated096 app: verified-report"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/readmes/096/verification.json",
+      "caption": "Results and limits"
+    },
+    {
+      "path": "docs/readmes/096/original-evidence.json",
+      "caption": "Retained original bytes"
+    }
+  ]
+}
