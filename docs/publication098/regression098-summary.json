@@ -1,0 +1,67 @@
+{
+  "passed": true,
+  "checkedAt": "2026-11-09T07:39:17.509035+00:00",
+  "java": [
+    {
+      "name": "fraymus.workspace.CalibrationScan081Test",
+      "tests": "7",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0",
+      "time": "0.579"
+    },
+    {
+      "name": "fraymus.workspace.NativeEnvelope091Test",
+      "tests": "12",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "1",
+      "time": "0.604"
+    },
+    {
+      "name": "fraymus.workspace.ProofMemo078Test",
+      "tests": "8",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0",
+      "time": "0.352"
+    },
+    {
+      "name": "fraymus.workspace.RebuildCompatibility079Test",
+      "tests": "1",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0",
+      "time": "2.199"
+    },
+    {
+      "name": "fraymus.workspace.WorldProcedure079Test",
+      "tests": "1",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0",
+      "time": "40.662"
+    },
+    {
+      "name": "fraymus.workspace.WorldProcedure098Test",
+      "tests": "1",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0",
+      "time": "19.872"
+    }
+  ],
+  "javaPassed": 29,
+  "javaSkipped": 1,
+  "desktop": {
+    "tests": 135,
+    "pass": 135,
+    "fail": 0,
+    "skipped": 0
+  },
+  "scope": "Six focused Java native/integrity classes and existing135 desktop tests; separate from earlier90 focused Java cases, not the full repository suite.",
+  "logs": [
+    "build/regression098.log",
+    "build/desktop098.log"
+  ]
+}

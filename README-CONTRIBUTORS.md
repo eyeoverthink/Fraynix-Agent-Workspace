@@ -1,8 +1,10 @@
-## Edition098 — locally verified; publication pending
+## Edition098 — published and fetched back
+
+Published release 3bf91945547bf1a07c8f6264a5dc4d928a2b030d; annotated readme-098 tag object aa10685de747e592f5f946e07d72b94c06ede299. Actual main/edition098/tag push fetched and verified: 1297 canonical sources, 29710 frozen hashes across98 editions and 4974 logical original archive entries. [Publication receipt](docs/PUBLICATION_098.json).
 
 Default adaptive requests now require evidence that remembered procedures repay their extra work. 12/12 fresh evaluation tasks completed, with 3 explicit recoveries and 3 saved skills.
 
-Native sourcef2fe986842242d238b9674a197c3b4385149c262; isolated S:/Codex-Work/fraynix-workspace-edition098. 38 original tasks independently inspected; 11 altered-evidence refusals. See README098 for actual comparative costs, conservative allowances and limits. Current parent CI attempt 2: in_progress/None; original HTTP504 failure retained. Keep Java ownership, every source/outcome check, private live data and frozen001–097. No subagents; heavy work serial. Main/tag publication and fetched receipt still pending.
+Native sourcef2fe986842242d238b9674a197c3b4385149c262; isolated S:/Codex-Work/fraynix-workspace-edition098. 38 original tasks independently inspected; 11 altered-evidence refusals. See README098 for actual comparative costs, conservative allowances and limits. Current parent CI attempt 2: in_progress/None; original HTTP504 failure retained. Keep Java ownership, every source/outcome check, private live data and frozen001–097. No subagents; heavy work serial. Main/tag publication and fetched-content audit completed. Post-push CI is separate.
 
 ## Edition097 — published and fetched back
 

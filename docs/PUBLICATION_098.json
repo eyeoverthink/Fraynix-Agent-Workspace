@@ -1,0 +1,111 @@
+{
+  "edition": 98,
+  "releaseCommit": "3bf91945547bf1a07c8f6264a5dc4d928a2b030d",
+  "annotatedTag": "readme-098",
+  "tagObject": "aa10685de747e592f5f946e07d72b94c06ede299",
+  "audit": {
+    "passed": true,
+    "verifiedAtUtc": "2026-11-09T07:53:03.178219+00:00",
+    "remote": "https://github.com/eyeoverthink/Fraynix-Agent-Workspace.git",
+    "fetchedRef": "refs/verify/edition098-main",
+    "remoteFetched": true,
+    "commit": "3bf91945547bf1a07c8f6264a5dc4d928a2b030d",
+    "canonicalSourceFiles": 1297,
+    "editions": 98,
+    "frozenHashes": 29710,
+    "original098EvidenceFiles": 4974,
+    "distinctOriginalPayloads": 1083,
+    "method": "Every enumerated blob read from the specified Git tree; remoteFetched identifies a fresh verification ref. Source byte counts and canonical UTF-8 LF/binary hashes checked. All frozen edition hashes checked. Each unique immutable Git archive blob is decompressed once; every logical original entry is compared to its verified compressed/raw byte counts and SHA-256. No mutable-file timestamp or runtime-proof shortcut."
+  },
+  "scope": "Actual non-force atomic main/edition098/tag push, fetched and audited from Git blobs. Local native and original checks passed. Existing calibration gate genuinely declined; no fit forced. Original harness failure retained and whole original preparation time unavailable. No amortized payoff claim. Post-push CI is separate.",
+  "comparisons": [
+    {
+      "case": "short",
+      "order": [
+        "simple",
+        "adaptive",
+        "memory"
+      ],
+      "simpleMillis": 13206.580600000016,
+      "adaptiveMillis": 13588.657099999982,
+      "memoryMillis": 24600.14419999998,
+      "adaptiveSavingVsSimple": -382.0764999999665,
+      "adaptiveSavingVsMemory": 11011.487099999998,
+      "wholeSimple": 103140.46359999999,
+      "wholeAdaptive": 104277.3773,
+      "wholeMemory": 114671.266,
+      "selectedMemory": false,
+      "reason": "No matching complete-task calibration; simple control",
+      "recovery": false,
+      "skill": false
+    },
+    {
+      "case": "long",
+      "order": [
+        "memory",
+        "adaptive",
+        "simple"
+      ],
+      "simpleMillis": 61670.83250000002,
+      "adaptiveMillis": 55716.02359999996,
+      "memoryMillis": 55602.06540000002,
+      "adaptiveSavingVsSimple": 5954.808900000062,
+      "adaptiveSavingVsMemory": -113.95819999993546,
+      "wholeSimple": 156210.03130000003,
+      "wholeAdaptive": 146892.43169999996,
+      "wholeMemory": 154014.0431,
+      "selectedMemory": false,
+      "reason": "No matching complete-task calibration; simple control",
+      "recovery": false,
+      "skill": false
+    },
+    {
+      "case": "short-save",
+      "order": [
+        "adaptive",
+        "simple",
+        "memory"
+      ],
+      "simpleMillis": 14456.0652999999,
+      "adaptiveMillis": 15881.535700000008,
+      "memoryMillis": 28041.08809999982,
+      "adaptiveSavingVsSimple": -1425.4704000001075,
+      "adaptiveSavingVsMemory": 12159.552399999811,
+      "wholeSimple": 97119.60320000001,
+      "wholeAdaptive": 100218.43610000005,
+      "wholeMemory": 119643.12520000013,
+      "selectedMemory": false,
+      "reason": "No matching complete-task calibration; simple control",
+      "recovery": false,
+      "skill": true
+    },
+    {
+      "case": "long-recover",
+      "order": [
+        "simple",
+        "memory",
+        "adaptive"
+      ],
+      "simpleMillis": 96524.227,
+      "adaptiveMillis": 96215.17960000003,
+      "memoryMillis": 90516.11949999997,
+      "adaptiveSavingVsSimple": 309.04739999996673,
+      "adaptiveSavingVsMemory": -5699.060100000061,
+      "wholeSimple": 201892.85700000002,
+      "wholeAdaptive": 206176.88859999995,
+      "wholeMemory": 196899.86199999996,
+      "selectedMemory": false,
+      "reason": "No matching complete-task calibration; simple control",
+      "recovery": true,
+      "skill": false
+    }
+  ],
+  "releaseCI": {
+    "id": 42581936492,
+    "head_sha": "3bf91945547bf1a07c8f6264a5dc4d928a2b030d",
+    "status": "in_progress",
+    "conclusion": null,
+    "html_url": "https://github.com/eyeoverthink/Fraynix-Agent-Workspace/actions/runs/42581936492",
+    "checked_at": "2026-11-09 07:52:20 UTC"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "passed": true,
+  "reviewedAt": "2026-11-09T07:43:19.377033+00:00",
+  "files": [
+    "build/guide098-1440.png",
+    "build/guide098-390.png",
+    "build/ui098-study/eval-short-save-adaptive-1600.png",
+    "build/ui098-study/eval-long-recover-adaptive-1100.png",
+    "build/ui098-study/motion-detail-1600.png"
+  ],
+  "findings": [
+    "Wide and narrow guide layouts readable with intact navigation, cards and linked screenshots. Tables/chart intentionally scroll within their containers; instruction added after review. No outer horizontal overflow.",
+    "Actual app wide/narrow reports show decision reason, recovery, allowances and completed goal; expanded native position-error trace visible.",
+    "Actual narrow browser content has its own horizontal scroll; no claim that every embedded surface reflows.",
+    "Guide explicitly identifies declined calibration and native fallback coverage."
+  ],
+  "scope": "Manual visual review plus existing guide filter/image/chart checks. Screenshots are actual app and documentation renders."
+}
