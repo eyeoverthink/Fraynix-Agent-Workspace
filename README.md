@@ -17,3 +17,5 @@ One local visual workspace with Java-owned goals, physics, browser and creation 
 The canvas displays the recovered sixth-goal report (world revision 6). The right goal panel and timeline show the later saved-skill demonstration (revision 7); they are different tasks. Controller v1 is a separate legacy episode bank, not the seven-entry procedural bank. A selected model name does not imply model inference ran.
 
 See the full [README097](README-097.md) for setup, step-by-step reproduction, results, current limits and the next acceptance gate.
+
+Published to main with original evidence and screenshots. [Fetched GitHub verification](docs/PUBLICATION_097.json).

@@ -1,8 +1,10 @@
-## Edition097 — locally measured, publication pending
+## Edition097 — published and fetched back
+
+Published release ea96b4de40961cd0fea6123b3dcb5ae7b14986c0; annotated readme-097 tag object c7d239f600981c70f357c681387387d56683e4ef. Actual main/edition097/tag push fetched and verified: 1288 canonical sources, 28611 frozen hashes across97 editions and 1244 logical original archive entries. [Publication receipt](docs/PUBLICATION_097.json).
 
 **24/24 sequence goals completed; 8 interruptions were explicitly recovered. 4 saved procedures executed after reopening.** Across both blocks, memory took 200.53 s longer over complete streams and 291.14 s longer after charging preparation once.
 
-Study source 32915b05745f5663c45bcf6ef914d9f17e3ef1af; parent CI42554061175 passed. 90 Java methods passed, 1 skipped;135 desktop,11 accounting and29 altered-evidence checks pass. All 334 production engine classes match096. Work in S:/Codex-Work/fraynix-workspace-edition097. Preserve live045/qa046/private data and frozen001–096. No subagents; heavy checks serial. No new fit or model inference. Next: measured bottleneck improvement with matched coverage; recovered external times remain ineligible for training. Actual main publication and fetched receipt still required.
+Study source 32915b05745f5663c45bcf6ef914d9f17e3ef1af; parent CI42554061175 passed. 90 Java methods passed, 1 skipped;135 desktop,11 accounting and29 altered-evidence checks pass. All 334 production engine classes match096. Work in S:/Codex-Work/fraynix-workspace-edition097. Preserve live045/qa046/private data and frozen001–096. No subagents; heavy checks serial. No new fit or model inference. Next: measured bottleneck improvement with matched coverage; recovered external times remain ineligible for training. Actual main publication and fetched-content audit completed. New-head CI is separate.
 
 ## Edition097 — study and inspection complete; CI/publication pending
 
