@@ -2,6 +2,8 @@
 
 **Latest: [edition096 — restoring the full verification path](README-096.md).**
 
+Published to main with original evidence and screenshots. [Fetched GitHub verification](docs/PUBLICATION_096.json).
+
 Combined Java method coverage: 824 passed, 3 skipped, no remaining failures across 177 JUnit classes. The original complete invocation failed four test-boundary assertions; corrected checks passed separately with all500 compared engine/Studio classes unchanged. This is not a single clean full invocation. Factory custom verification and separate source-isolation/distribution checks passed. Fresh071/072 native studies are distinct from copied512/1024MiB diagnostics.25 initial focused methods and135 desktop tests pass. Actual app reviews three declared alternatives; one direct-first trial succeeds and two are not needed, then it explicitly executes one verified construction, retains a skill and survives two cold restarts. [Offline verification explorer](docs/readmes/096/index.html).
 
 **Earlier edition: [edition095 — complete mixed-task costs](README-095.md).**

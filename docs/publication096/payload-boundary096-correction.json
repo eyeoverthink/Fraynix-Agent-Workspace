@@ -1,0 +1,45 @@
+[
+  {
+    "path": "workspace-engine/src/test/java/fraymus/workspace/Payload057Test.java",
+    "unchangedNativePrefixSha256": "dda04589c05913804014e7ac48b4025e65cf30e6e0cf8c8b9c11bf6f3d13813e",
+    "oldMethod": "throws Exception{try(var store=new WorkspaceStore(Files.createTempDirectory(\"payload057-chat-\"))){var task=Domain044Test.task(\"construction\").put(\"goal\",\"Compare bridge designs; test dynamic payloads and new load positions\");task.getJSONObject(\"context044\").put(\"designRequested053\",true);var args=Domain044Test.domain(store).prepare(task,\"construction.start\",new JSONObject().put(\"payloadTests057\",false));assertTrue(args.getBoolean(\"payloadTests057\"));assertTrue(args.getBoolean(\"design053\"));ToolSchema043.validate(Tools044.schema(\"construction.start\",task),args);assertThrows(IllegalArgumentException.class,()->ToolSchema043.validate(Tools044.schema(\"construction.start\",task),new JSONObject().put(\"payloadTests057\",\"yes\")));}}\n",
+    "newMethod": "throws Exception{try(var store=new WorkspaceStore(Files.createTempDirectory(\"payload057-chat-\"))){var task=Domain044Test.task(\"construction\").put(\"goal\",\"Compare bridge designs; test dynamic payloads and new load positions\");task.getJSONObject(\"context044\").put(\"designRequested053\",true);var proposal=new JSONObject().put(\"payloadTests057\",false);ToolSchema043.validate(Tools044.schema(\"construction.start\",task),proposal);var args=Domain044Test.domain(store).prepare(task,\"construction.start\",proposal);assertTrue(args.getBoolean(\"payloadTests057\"));assertTrue(args.getBoolean(\"design053\"));ToolSchema043.validate(Tools044.definition(\"construction.start\").getJSONObject(\"function\").getJSONObject(\"parameters\"),args);assertThrows(IllegalArgumentException.class,()->ToolSchema043.validate(Tools044.schema(\"construction.start\",task),args));assertThrows(IllegalArgumentException.class,()->ToolSchema043.validate(Tools044.schema(\"construction.start\",task),new JSONObject().put(\"payloadTests057\",\"yes\")));}}\n"
+  },
+  {
+    "path": "workspace-engine/src/test/java/fraymus/workspace/Payload058PolicyTest.java",
+    "unchangedOtherChecksSha256": "f5e465bb9c97241c9ea347b4a108379d9e4a992ff27351930b0f5b345a92fce2",
+    "change": "Validate the original model proposal first, then Java-enriched arguments against the unchanged full typed catalog; explicitly refuse enriched flags at model-input boundary. All original policy, conflicting-protocol, invalid-type and projection assertions retained."
+  },
+  {
+    "path": "workspace-engine/src/test/java/fraymus/workspace/Support059Test.java",
+    "originalSourceSha256": "2991e339d0e931fd2e6ecb07460feb6279aa43d1a63ed6ca362e4ba637bc235e",
+    "unchangedOutsideDeclaredReplacements": true,
+    "replacements": [
+      {
+        "old": "var args=Domain044Test.domain(artifacts).prepare(task,\"construction.start\",new JSONObject().put(\"asymmetricSupports059\",false));",
+        "new": "var proposal=new JSONObject().put(\"asymmetricSupports059\",false);ToolSchema043.validate(Tools044.schema(\"construction.start\",task),proposal);var args=Domain044Test.domain(artifacts).prepare(task,\"construction.start\",proposal);"
+      },
+      {
+        "old": "ToolSchema043.validate(Tools044.schema(\"construction.start\",task),args);",
+        "new": "ToolSchema043.validate(Tools044.definition(\"construction.start\").getJSONObject(\"function\").getJSONObject(\"parameters\"),args);assertThrows(IllegalArgumentException.class,()->ToolSchema043.validate(Tools044.schema(\"construction.start\",task),args));"
+      }
+    ],
+    "scope": "Only chat command validation stages change. All geometry, force, rejected candidates, policy and reserved-protocol assertions are unchanged."
+  },
+  {
+    "path": "workspace-engine/src/test/java/fraymus/workspace/Support060Test.java",
+    "originalSourceSha256": "4a136c1f8b9a6d6a61ff457f96e8ca793c2b96dfa682e0be36f53f8d24d7bf11",
+    "unchangedOutsideDeclaredReplacements": true,
+    "replacements": [
+      {
+        "old": "var args=Domain044Test.domain(artifacts).prepare(task,\"construction.start\",new JSONObject());",
+        "new": "var proposal=new JSONObject();ToolSchema043.validate(Tools044.schema(\"construction.start\",task),proposal);var args=Domain044Test.domain(artifacts).prepare(task,\"construction.start\",proposal);"
+      },
+      {
+        "old": "ToolSchema043.validate(Tools044.schema(\"construction.start\",task),args);",
+        "new": "ToolSchema043.validate(Tools044.definition(\"construction.start\").getJSONObject(\"function\").getJSONObject(\"parameters\"),args);assertThrows(IllegalArgumentException.class,()->ToolSchema043.validate(Tools044.schema(\"construction.start\",task),args));"
+      }
+    ],
+    "scope": "Only chat command validation stages change. All geometry, force, rejected candidates, policy and reserved-protocol assertions are unchanged."
+  }
+]

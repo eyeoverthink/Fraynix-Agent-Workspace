@@ -1,0 +1,46 @@
+{
+  "heapMiB": 512,
+  "scope": "Copied completed original071/072 native studies; unchanged integrity, tamper, restart, trace and cancellation checks. Diagnostic reuse, not fresh native study.",
+  "tests": [
+    {
+      "name": "fraymus.workspace.UncertainNative071Test",
+      "tests": "1",
+      "skipped": "0",
+      "failures": "1",
+      "errors": "0",
+      "timestamp": "2026-11-08T23:30:36.111Z",
+      "hostname": "DESKTOP-RTO00K0",
+      "time": "19.039",
+      "failureTypes": [
+        "java.lang.OutOfMemoryError"
+      ]
+    },
+    {
+      "name": "fraymus.workspace.UsefulNative072Test",
+      "tests": "1",
+      "skipped": "0",
+      "failures": "1",
+      "errors": "0",
+      "timestamp": "2026-11-08T23:30:55.677Z",
+      "hostname": "DESKTOP-RTO00K0",
+      "time": "22.54",
+      "failureTypes": [
+        "java.lang.OutOfMemoryError"
+      ]
+    }
+  ],
+  "gc": [
+    {
+      "file": "heap096-512-105280.log",
+      "maxGcSnapshotUsedMiB": 512.0,
+      "gcEvents": 119,
+      "note": "Largest logged GC heap snapshot, not true instantaneous peak or process RSS."
+    },
+    {
+      "file": "heap096-512-91996.log",
+      "maxGcSnapshotUsedMiB": 512.0,
+      "gcEvents": 123,
+      "note": "Largest logged GC heap snapshot, not true instantaneous peak or process RSS."
+    }
+  ]
+}

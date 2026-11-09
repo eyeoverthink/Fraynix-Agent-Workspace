@@ -1,0 +1,22 @@
+{
+  "attempts": [
+    {
+      "directory": "build/ui096",
+      "source": "71bea585880015433ffa3e98759ac5eb1e2dc9e5",
+      "passed": false,
+      "failure": "Harness attempted to click the design report button after the app switched views. Actual construction completed with verified revision1 and saved skill; entire attempt retained."
+    },
+    {
+      "directory": "build/ui096-report-panel",
+      "plannedCorrection": "Explicitly return to the spatial construction panel before clicking its report button. Run the entire workflow in a fresh project; no product Java or verification change.",
+      "source": "ae843f5b8fc948e4e4a696b2dc8f54e6ee6ccc95",
+      "passed": false,
+      "failure": "Native construction and report succeeded. A read-only inspection found that the harness expected old053policy text while the current directFirst055report correctly showed its newer policy. Only this owned test window was then closed; interruption error and inspection evidence retained."
+    },
+    {
+      "directory": "build/ui096-current-policy",
+      "plannedCorrection": "Require the declared directFirst055intent and its current report text, with a30second view wait. Run complete workflow fresh; no runtime or physics change."
+    }
+  ],
+  "accepted": "build/ui096-current-policy"
+}

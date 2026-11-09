@@ -1,0 +1,40 @@
+{
+  "passed": true,
+  "source": "194644ccc5cb87702845586934540948cfa7a018",
+  "scope": "Independent audit of the accepted fresh app run; no source or outcome substitution.",
+  "descriptionCorrection": "The original harness first-check sentence retained older three-actual-trial wording. Its own native records show one successful direct-first trial and two not-needed alternatives. The sentence is corrected for future runs; original result.json remains unchanged.",
+  "declaredCandidates": 3,
+  "executedReviewCandidates": 1,
+  "notNeededCandidates": 2,
+  "nativeRecords": [
+    {
+      "file": "review-originals.json",
+      "kind": "forecast",
+      "id": "eba6edb2-51c5-4a0e-895e-816b5460ef19",
+      "ticks": 7587,
+      "effortNs": 298.8796929234222,
+      "rawSha256": "817de1b6d55aff5730f5c193822d760567482ef8d921bf169cda58e8de99077c"
+    },
+    {
+      "file": "built-originals.json",
+      "kind": "forecast",
+      "id": "eba6edb2-51c5-4a0e-895e-816b5460ef19",
+      "ticks": 7587,
+      "effortNs": 298.8796929234222,
+      "rawSha256": "817de1b6d55aff5730f5c193822d760567482ef8d921bf169cda58e8de99077c"
+    },
+    {
+      "file": "built-originals.json",
+      "kind": "actual",
+      "id": "743226bf-bb01-3a5b-8f16-67fb82c16265",
+      "ticks": 7587,
+      "effortNs": 298.8796929234222,
+      "rawSha256": "69b9a45f2929951052be560ec1ea652a71e36f4a7a32b17b2743c59abadfb910"
+    }
+  ],
+  "checks": [
+    "Three declared alternatives; one actual direct-first trial succeeded, two explicitly not needed. Original source bytes and integration rows independently reconstructed. Review leaves the world unchanged.",
+    "Cold restart preserves the exact reviewed decision; explicit resume verifies native motion, bridge support and rendered report before one commit and saved skill.",
+    "Second cold restart retains revision1, exact world hash and the complete verified procedure including its original defaults."
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "heapMiB": 1024,
+  "scope": "Copied completed original071/072 native studies; unchanged integrity, tamper, restart, trace and cancellation checks. Diagnostic reuse, not fresh native study.",
+  "tests": [
+    {
+      "name": "fraymus.workspace.UncertainNative071Test",
+      "tests": "1",
+      "skipped": "0",
+      "failures": "0",
+      "errors": "0",
+      "timestamp": "2026-11-08T23:31:56.690Z",
+      "hostname": "DESKTOP-RTO00K0",
+      "time": "34.938",
+      "failureTypes": []
+    },
+    {
+      "name": "fraymus.workspace.UsefulNative072Test",
+      "tests": "1",
+      "skipped": "0",
+      "failures": "0",
+      "errors": "0",
+      "timestamp": "2026-11-08T23:32:32.152Z",
+      "hostname": "DESKTOP-RTO00K0",
+      "time": "60.85",
+      "failureTypes": []
+    }
+  ],
+  "gc": [
+    {
+      "file": "heap096-1024-105604.log",
+      "maxGcSnapshotUsedMiB": 1024.0,
+      "gcEvents": 189,
+      "note": "Largest logged GC heap snapshot, not true instantaneous peak or process RSS."
+    },
+    {
+      "file": "heap096-1024-106404.log",
+      "maxGcSnapshotUsedMiB": 1024.0,
+      "gcEvents": 129,
+      "note": "Largest logged GC heap snapshot, not true instantaneous peak or process RSS."
+    }
+  ]
+}
