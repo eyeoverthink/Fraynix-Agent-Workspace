@@ -1,3 +1,9 @@
+## Edition099 — locally verified; publication pending
+
+2026-11-09. Isolated S:/Codex-Work/fraynix-workspace-edition099, branch edition099; actual cohort source 71712af35f6572103de2614b5baa01a86adb569d. Edition099 makes the same integrated workspace easier to use and tests complete world, recorded-data and creation requests through the installed local gpt-oss:20b model. A fourth request reuses a saved data procedure after a cold restart. 55 focused Java methods and 135 desktop checks pass; layout/restart and four actual-model tasks pass. Independent native originals and four altered-evidence refusals pass. Three saved skills survive restart; one is reused on changed recorded input. Larger resizable chat, retained display transcript and actual task summaries preserve the integrated app. Optional sealed model planning is off by default. Initial harness failures and zero-model direct world result retained. Parent CI 42582181920: in_progress/None; no false CI success. Final UI source5177d38f preserves the composer during Mission and selects the matching preview tab. All owned099 test apps are closed; original live projects remain untouched. Main/tag publication and fetched receipt still pending.
+
+Keep Java authority, all original/outcome checks, live045/qa046 private data and frozen001–098. No subagents; heavy/model/native work serial. No physical generalization or weight-training claim. Next: clearer selected inputs and connected data-to-creation workflows, tested with real requests and changed inputs.
+
 ## Edition098 — published and fetched back
 
 Published release 3bf91945547bf1a07c8f6264a5dc4d928a2b030d; annotated readme-098 tag object aa10685de747e592f5f946e07d72b94c06ede299. Actual main/edition098/tag push fetched and verified: 1297 canonical sources, 29710 frozen hashes across98 editions and 4974 logical original archive entries. [Publication receipt](docs/PUBLICATION_098.json).

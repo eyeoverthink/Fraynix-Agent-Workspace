@@ -1,0 +1,365 @@
+{
+  "passed": true,
+  "source": "71712af35f6572103de2614b5baa01a86adb569d",
+  "java": [
+    {
+      "name": "fraymus.workspace.Agency043Test",
+      "tests": "11",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0",
+      "time": "2.514"
+    },
+    {
+      "name": "fraymus.workspace.Chat099Test",
+      "tests": "3",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0",
+      "time": "0.107"
+    },
+    {
+      "name": "fraymus.workspace.ChatChain052Test",
+      "tests": "12",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0",
+      "time": "0.74"
+    },
+    {
+      "name": "fraymus.workspace.CreationPlanner044Test",
+      "tests": "5",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0",
+      "time": "1.378"
+    },
+    {
+      "name": "fraymus.workspace.CreationTest",
+      "tests": "8",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0",
+      "time": "4.351"
+    },
+    {
+      "name": "fraymus.workspace.Domain044Test",
+      "tests": "16",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0",
+      "time": "0.427"
+    }
+  ],
+  "desktop": {
+    "tests": 135,
+    "pass": 135,
+    "fail": 0,
+    "skipped": 0,
+    "passed": true
+  },
+  "layout": {
+    "scope": "Actual app layout and native surface tests. Long chat text is explicitly labelled synthetic layout fixture, not model output.",
+    "checks": [
+      "Keyboard separator resizing increases readable chat width",
+      "Drag resize updates real browser/canvas host bounds and persists its bounded preference",
+      "Browser focus opens and restores the actual native surface layout",
+      "Original guided browser action and actual canvas Add/Reset checks still work after resizing",
+      "New responses preserve reading position, expose a jump-to-latest control and render text without HTML execution",
+      "Activity and full mission/evidence remain accessible",
+      "1100px integrated layout has usable chat height and no outer horizontal overflow",
+      "Cold restart restores actual conversation text and saved width",
+      "Malformed saved conversation cannot prevent the workspace from opening"
+    ],
+    "errors": [],
+    "wideBounds": {
+      "actual": {
+        "browser": {
+          "x": 13,
+          "y": 454,
+          "width": 228,
+          "height": 502
+        },
+        "canvas": {
+          "x": 253,
+          "y": 192,
+          "width": 771,
+          "height": 772
+        }
+      },
+      "expected": {
+        "browser": {
+          "x": 13,
+          "y": 453.53125,
+          "width": 228,
+          "height": 501.96875
+        },
+        "canvas": {
+          "x": 253,
+          "y": 192.171875,
+          "width": 771,
+          "height": 771.828125
+        }
+      }
+    },
+    "narrowBounds": {
+      "actual": {
+        "browser": {
+          "x": 11,
+          "y": 438,
+          "width": 188,
+          "height": 403
+        },
+        "canvas": {
+          "x": 209,
+          "y": 262,
+          "width": 321,
+          "height": 588
+        }
+      },
+      "expected": {
+        "browser": {
+          "x": 11,
+          "y": 438.078125,
+          "width": 188,
+          "height": 403.421875
+        },
+        "canvas": {
+          "x": 209,
+          "y": 262.046875,
+          "width": 321,
+          "height": 587.953125
+        }
+      }
+    },
+    "passed": true,
+    "finishedAt": "2026-11-09T09:13:52.227Z"
+  },
+  "finalInterfaceReview": {
+    "source": "5177d38f4e5eea64e57c0c550d0589c9333a477d",
+    "captures": [
+      {
+        "file": "reuse099-1600.png",
+        "caption": "Current task and actual reused recorded-data report after restart",
+        "at": "2026-11-09T09:17:31.753Z"
+      },
+      {
+        "file": "reuse099-1100.png",
+        "caption": "Same actual completed task at1100px",
+        "at": "2026-11-09T09:17:32.294Z"
+      },
+      {
+        "file": "evidence099-1600.png",
+        "caption": "Original task evidence remains accessible",
+        "at": "2026-11-09T09:17:33.127Z"
+      },
+      {
+        "file": "world099-1600.png",
+        "caption": "Retained world result selected through Mission history; compact card follows the latest task",
+        "at": "2026-11-09T09:17:33.871Z"
+      },
+      {
+        "file": "data099-1600.png",
+        "caption": "Retained data result selected through Mission history; compact card follows the latest task",
+        "at": "2026-11-09T09:17:34.537Z"
+      },
+      {
+        "file": "creation099-1600.png",
+        "caption": "Retained creation result selected through Mission history; compact card follows the latest task",
+        "at": "2026-11-09T09:17:35.258Z"
+      },
+      {
+        "file": "creation099-1100.png",
+        "caption": "Retained actual model-created tally, current compact layout",
+        "at": "2026-11-09T09:17:36.351Z"
+      }
+    ],
+    "checks": [
+      "Actual completed tasks leave at least300px transcript height; original goal controls remain reachable and resize preserves latest-reading position",
+      "Expanded Mission keeps the composer and task buttons inside the visible agent panel",
+      "Mission history opens all three actual saved reports; five additional real creation controls work; browsing history leaves the world unchanged"
+    ],
+    "scope": "Current compact layout showing the retained actual model tasks. No new inference, generated state or native motion. Earlier cohort screenshots remain original evidence.",
+    "restoredMissionOpen": false,
+    "creationChecks": [
+      {
+        "index": 0,
+        "selector": "#reset",
+        "passed": true,
+        "actual": {
+          "count": 1,
+          "text": "Reset",
+          "value": ""
+        },
+        "expected": {
+          "selector": "#reset",
+          "action": "click"
+        }
+      },
+      {
+        "index": 1,
+        "selector": "#add-two",
+        "passed": true,
+        "actual": {
+          "count": 1,
+          "text": "Add 2",
+          "value": ""
+        },
+        "expected": {
+          "selector": "#add-two",
+          "action": "click"
+        }
+      },
+      {
+        "index": 2,
+        "selector": "#total",
+        "passed": true,
+        "actual": {
+          "count": 1,
+          "text": "2",
+          "value": null
+        },
+        "expected": {
+          "selector": "#total",
+          "expectText": "2"
+        }
+      },
+      {
+        "index": 3,
+        "selector": "#undo",
+        "passed": true,
+        "actual": {
+          "count": 1,
+          "text": "Undo",
+          "value": ""
+        },
+        "expected": {
+          "selector": "#undo",
+          "action": "click"
+        }
+      },
+      {
+        "index": 4,
+        "selector": "#total",
+        "passed": true,
+        "actual": {
+          "count": 1,
+          "text": "0",
+          "value": null
+        },
+        "expected": {
+          "selector": "#total",
+          "expectText": "0"
+        }
+      }
+    ],
+    "worldUnchanged": true,
+    "passed": true,
+    "errors": []
+  },
+  "productionClasses": {
+    "baseline": "edition098",
+    "same": 332,
+    "changed": [
+      "fraymus/workspace/Agency043.class",
+      "fraymus/workspace/ChatChain052.class",
+      "fraymus/workspace/Domain044.class"
+    ],
+    "new": [],
+    "removed": []
+  },
+  "parentCI": {
+    "id": 42582181920,
+    "head_sha": "c1114050c3b6aa069ba5455e462c311a4743b66c",
+    "status": "in_progress",
+    "conclusion": null,
+    "run_attempt": 1,
+    "html_url": "https://github.com/eyeoverthink/Fraynix-Agent-Workspace/actions/runs/42582181920",
+    "created_at": "2026-11-09T07:53:44Z",
+    "updated_at": "2026-11-09T07:53:48Z",
+    "fetchedAt": "2026-11-09T09:15:38.981Z"
+  },
+  "analysis": {
+    "passed": true,
+    "source": "71712af35f6572103de2614b5baa01a86adb569d",
+    "at": "2026-11-09T09:12:08.150Z",
+    "world": {
+      "id": "ad605dfd-380f-431b-80d9-94c63922fa7e",
+      "success": true,
+      "selected": "two-stage",
+      "ticks": 24948,
+      "observed": 24948,
+      "stages": 5,
+      "usesMemory": false,
+      "lookupMillis": 3.5257,
+      "activeMillis": 25106.243,
+      "auditMillis": 3263.0442
+    },
+    "refusals": [
+      "changed target",
+      "changed charged work",
+      "missing actual original",
+      "forged world commit"
+    ],
+    "tasks": [
+      {
+        "kind": "world",
+        "taskId": "2377c825-2ebc-4a5b-b2ea-13a8ebabe949",
+        "goalId": "ad605dfd-380f-431b-80d9-94c63922fa7e",
+        "callerMillis": 156616.5572,
+        "routerCalls": 1,
+        "routerMillis": 110597.9265,
+        "failedRouterCalls": 0,
+        "generationCalls": 0,
+        "modelDigest": "f38aa0c53da5f8c49d08c43a99df24ff53167fe68e24664a7777288e7656fdfe",
+        "savedSkill": "studio099-arrangement",
+        "reusedSkill": null
+      },
+      {
+        "kind": "data",
+        "taskId": "71f7b7a8-ec02-4371-8732-0c342b6734bb",
+        "goalId": "324c24a9-a7d2-458d-86a3-d56ff7d41a53",
+        "callerMillis": 69103.18460000001,
+        "routerCalls": 1,
+        "routerMillis": 67122.0262,
+        "failedRouterCalls": 0,
+        "generationCalls": 0,
+        "modelDigest": "f38aa0c53da5f8c49d08c43a99df24ff53167fe68e24664a7777288e7656fdfe",
+        "savedSkill": "studio099-motion",
+        "reusedSkill": null
+      },
+      {
+        "kind": "creation",
+        "taskId": "857384e3-8335-48c6-a965-e56033b75557",
+        "goalId": "38d734cd-9c03-4e99-b58d-c840349ba51d",
+        "callerMillis": 378211.5138,
+        "routerCalls": 0,
+        "routerMillis": 0,
+        "failedRouterCalls": 0,
+        "generationCalls": 3,
+        "modelDigest": "f38aa0c53da5f8c49d08c43a99df24ff53167fe68e24664a7777288e7656fdfe",
+        "savedSkill": "studio099-tally",
+        "reusedSkill": null
+      },
+      {
+        "kind": "reuse",
+        "taskId": "99913ba1-5fc4-4358-a4f7-6069287dad96",
+        "goalId": "a79215e9-b781-46bf-a51d-ce09f9c0f60d",
+        "callerMillis": 86236.52410000004,
+        "routerCalls": 1,
+        "routerMillis": 84259.5814,
+        "failedRouterCalls": 0,
+        "generationCalls": 0,
+        "modelDigest": "f38aa0c53da5f8c49d08c43a99df24ff53167fe68e24664a7777288e7656fdfe",
+        "savedSkill": null,
+        "reusedSkill": {
+          "name": "studio099-motion",
+          "id": "e0c99082-c6ac-3213-bafe-60b32a701aa7",
+          "version": 1
+        }
+      }
+    ],
+    "scope": "Fresh local-model and native originals. Full inherited procedure source, forecast, actual motion, metrics and single-commit inspection retained. Four altered evidence cases refused. Data arithmetic and actual creation controls checked in the app harness. Caller times include inference and checks; no performance comparison or generalization claim."
+  },
+  "scope": "Local model requests, actual native motion, recorded-data arithmetic and actual Chromium behavior. CI is separate; no physical accuracy, weight training or general intelligence claim."
+}

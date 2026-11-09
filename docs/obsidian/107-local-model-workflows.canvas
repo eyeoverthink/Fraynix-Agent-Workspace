@@ -1,0 +1,95 @@
+{
+  "nodes": [
+    {
+      "id": "chat",
+      "type": "file",
+      "file": "workspace-desktop/renderer/workspace099.js",
+      "x": 0,
+      "y": 0,
+      "width": 360,
+      "height": 240
+    },
+    {
+      "id": "java",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/Agency043.java",
+      "x": 390,
+      "y": 0,
+      "width": 360,
+      "height": 240
+    },
+    {
+      "id": "world",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/WorldProcedure079.java",
+      "x": 780,
+      "y": 0,
+      "width": 360,
+      "height": 240
+    },
+    {
+      "id": "model",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/CreationPlanner044.java",
+      "x": 0,
+      "y": 300,
+      "width": 360,
+      "height": 240
+    },
+    {
+      "id": "test",
+      "type": "file",
+      "file": "workspace-desktop/test/chat099-integration.cjs",
+      "x": 390,
+      "y": 300,
+      "width": 360,
+      "height": 240
+    },
+    {
+      "id": "audit",
+      "type": "file",
+      "file": "scripts/Inspect-Chat099.cjs",
+      "x": 780,
+      "y": 300,
+      "width": 360,
+      "height": 240
+    }
+  ],
+  "edges": [
+    {
+      "id": "e1",
+      "fromNode": "chat",
+      "fromSide": "right",
+      "toNode": "java",
+      "toSide": "left"
+    },
+    {
+      "id": "e2",
+      "fromNode": "java",
+      "fromSide": "right",
+      "toNode": "world",
+      "toSide": "left"
+    },
+    {
+      "id": "e3",
+      "fromNode": "world",
+      "fromSide": "right",
+      "toNode": "model",
+      "toSide": "left"
+    },
+    {
+      "id": "e4",
+      "fromNode": "model",
+      "fromSide": "right",
+      "toNode": "test",
+      "toSide": "left"
+    },
+    {
+      "id": "e5",
+      "fromNode": "test",
+      "fromSide": "right",
+      "toNode": "audit",
+      "toSide": "left"
+    }
+  ]
+}

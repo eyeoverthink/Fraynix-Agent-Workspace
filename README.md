@@ -1,11 +1,11 @@
 # Fraynix Agent Workspace
 
-Default adaptive requests now require evidence that remembered procedures repay their extra work. 12/12 fresh evaluation tasks completed, with 3 explicit recoveries and 3 saved skills.
+Edition099 makes the same integrated workspace easier to use and tests complete world, recorded-data and creation requests through the installed local gpt-oss:20b model. A fourth request reuses a saved data procedure after a cold restart.
 
-[Edition098: benefit-aware memory](README-098.md) · [Interactive offline results](docs/readmes/098/index.html) · [Previous edition](README-097.md) · [Contributor direction](README-CONTRIBUTORS.md)
+[Edition099: layout and real local-model workflows](README-099.md) · [Offline guide](docs/readmes/099/index.html) · [Previous edition](README-098.md) · [Contributor direction](README-CONTRIBUTORS.md)
 
-One integrated local workspace: Java owns durable goals, physics, tools, verification and remembered procedures. Chat, browser, creation canvas, original Game Lab and native spatial views share those capabilities.
+Java owns durable goals, physics, tools, verification and retained procedures. Chat, browser, creation canvas, original Game Lab and spatial views share those capabilities.
 
-![Actual098 report](docs/readmes/098/eval-short-adaptive-1600.png)
+![Actual099 creation](docs/readmes/099/creation099-1600.png)
 
-Published to main with original evidence and screenshots. [Fetched GitHub verification](docs/PUBLICATION_098.json).
+Publication receipt follows the actual push and fetched-content audit.

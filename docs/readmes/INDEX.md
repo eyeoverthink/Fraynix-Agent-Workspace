@@ -1,3 +1,5 @@
+[Edition099 — real local-model workflows](../../README-099.md) · [Offline guide](099/index.html)
+
 [Edition098 — benefit-aware memory](../../README-098.md) · [Offline evidence](098/index.html)
 
 [Edition097 — continuing-world costs](../../README-097.md) · [Offline evidence](097/index.html)

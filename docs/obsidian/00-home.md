@@ -1,3 +1,5 @@
+[[README-099.md|Edition099 — real local-model workflows]] · [[docs/obsidian/107-local-model-workflows.md]]
+
 [[README-098.md|Edition098 — benefit-aware memory]] · [[docs/obsidian/106-benefit-selection.md]]
 
 [[README-097.md|Edition097 — continuing-world costs]] · [[docs/obsidian/105-continuing-costs.md]]
