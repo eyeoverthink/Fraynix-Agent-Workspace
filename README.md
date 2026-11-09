@@ -8,4 +8,4 @@ Java owns durable goals, physics, tools, verification and retained procedures. C
 
 ![Actual retained implementation with fresh recorded input](docs/readmes/103/recorded52-restarted-1600.png)
 
-Publication receipt is added after the actual main/tag push and fetched verification.
+Published to main. [Fetched GitHub verification](docs/PUBLICATION_103.json).

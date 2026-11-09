@@ -1,0 +1,19 @@
+{
+  "passed": true,
+  "reviewedAtUtc": "2026-11-09T17:13:07.702154+00:00",
+  "method": "Actual app captures inspected with view_image; independent actual app review checks retained separately.",
+  "visuallyInspected": [
+    "build/review103/recorded52-restarted-1600.png",
+    "build/review103/synthetic96-descendant-1600.png",
+    "build/review103/refusal103-current.png",
+    "build/review103/reuse103-1100.png",
+    "build/reuse103/summary16-refused-1600.png",
+    "build/reuse103/display-fault-refused-1600.png",
+    "build/reuse103/restart103.png"
+  ],
+  "checks": [
+    "Reopened all three completed results; actual reuse indicator visible, same exact implementation hashes; composer visible at1100px",
+    "Fresh actual quality refusal: Resume disabled, Stop enabled, clear instruction; original Java refusal retained"
+  ],
+  "scope": "Completed result and Mission match; reuse provenance visible; new post-cohort refusal disables Resume and offers Stop; 1100px composer remains accessible. Original cohort refusal captures retain the pre-correction controls and are explicitly labelled. Review is outside measured intervals."
+}
