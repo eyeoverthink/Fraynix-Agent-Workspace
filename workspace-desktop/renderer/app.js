@@ -137,7 +137,7 @@ $('back').onclick=()=>safe(()=>request('back'));$('forward').onclick=()=>safe(()
 $('new-artifact').onclick=()=>safe(()=>{requireSaved();setCanvasMode('preview');return request('new');});
 $('proof').onclick=()=>safe(async()=>{requireSaved();$('proof').disabled=true;notice('Running the real browser → artifact → test → skill proof');try{await request('proof');notice('Guided proof passed: browser, runnable app, tests and skill saved');}finally{$('proof').disabled=false;}});
 $('game').onclick=()=>safe(async()=>{await brainGame.openIntegrated();notice('Original Java game runtime is integrated here; no separate editor window');});
-$('run').onclick=()=>safe(async()=>{requireSaved();const goal=$('goal').value.trim();if(!goal)return;message(goal,'user');await request('agent',{goal,model:$('model').value});});
+$('run').onclick=()=>safe(async()=>{requireSaved();const goal=$('goal').value.trim();if(!goal)return;message(goal,'user');await request('agent',{goal,model:$('model').value,planWorld099:document.querySelector('#plan-world099').checked});});
 $('goal').addEventListener('keydown',e=>{if(e.ctrlKey&&e.key==='Enter')$('run').click();});
 $('stop').onclick=()=>safe(()=>request('stop'));
 $('observe-browser').onclick=()=>safe(async()=>{const result=await request('tool',{tool:'browser.observe',args:{}});$('observation').textContent=JSON.stringify(result,null,2);$('inspection').showModal();updateLayout();});

@@ -8,7 +8,9 @@ final class ChatChain052 {
     private ChatChain052() {}
 
     static String objectiveHash(JSONObject g) {
-        return WorldFrames.hash(new JSONObject().put("goal", g.getString("goal")));
+        var objective=new JSONObject().put("goal", g.getString("goal"));
+        if(g.has("planWorld099"))objective.put("planWorld099",g.getBoolean("planWorld099"));
+        return WorldFrames.hash(objective);
     }
 
     static void verifyObjective(JSONObject g) {

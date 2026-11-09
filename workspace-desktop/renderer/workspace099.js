@@ -8,8 +8,10 @@ export class Workspace099 {
     this.width=Number.isFinite(this.preferences.width)?this.preferences.width:430;
     this.timeline.classList.toggle('activity-collapsed099',this.preferences.collapsed!==false);
     this.settings=document.createElement('details'); this.settings.id='settings099';
-    this.settings.innerHTML='<summary>Skills, memory &amp; settings <small id="memory099">Loading saved state</small></summary><div class="settings099-body"><p>Saved skills are checked procedures. Task episodes and controller versions are separate records.</p><label>Conversation width <input id="width099" type="range" min="320" max="720" step="10" aria-label="Conversation width"></label><button id="layout-reset099">Reset layout</button></div>';
+    this.settings.innerHTML='<summary>Skills, memory &amp; settings <small id="memory099">Loading saved state</small></summary><div class="settings099-body"><p>Saved skills are checked procedures. Task episodes and controller versions are separate records.</p><label title="Optional model planning before a verified world procedure. Java still validates every action and outcome."><span>Model planning for world procedures</span><input id="plan-world099" type="checkbox"></label><label>Conversation width <input id="width099" type="range" min="320" max="720" step="10" aria-label="Conversation width"></label><button id="layout-reset099">Reset layout</button></div>';
     document.querySelector('#model').after(this.settings);
+    this.settings.querySelector('#plan-world099').checked=this.preferences.planWorld===true;
+    this.settings.querySelector('#plan-world099').onchange=()=>this.persist();
     for(const element of [document.querySelector('.learning-strip'),document.querySelector('#agent042-panel')]) if(element)this.settings.lastElementChild.append(element);
     this.settings.querySelector('#width099').oninput=e=>this.setWidth(Number(e.target.value),true);
     this.settings.querySelector('#layout-reset099').onclick=()=>{this.width=430;this.timeline.classList.add('activity-collapsed099');this.setWidth(430,true);this.activityLabel();};
@@ -43,7 +45,7 @@ export class Workspace099 {
     this.setWidth(this.width,false);
   }
   read(key,fallback){try{return JSON.parse(localStorage.getItem(key))??fallback;}catch{return fallback;}}
-  persist(){try{localStorage.setItem('fraynix.layout099',JSON.stringify({width:this.width,collapsed:this.timeline.classList.contains('activity-collapsed099')}));}catch{document.querySelector('#notice').textContent='Layout could not be saved in this profile.';}}
+  persist(){try{localStorage.setItem('fraynix.layout099',JSON.stringify({width:this.width,planWorld:this.settings.querySelector("#plan-world099").checked,collapsed:this.timeline.classList.contains('activity-collapsed099')}));}catch{document.querySelector('#notice').textContent='Layout could not be saved in this profile.';}}
   activityLabel(){const open=!this.timeline.classList.contains('activity-collapsed099');this.activityButton.textContent=open?'Collapse':'Expand';this.activityButton.setAttribute('aria-expanded',String(open));this.activityButton.setAttribute('aria-label',open?'Collapse activity':'Expand activity');}
   setWidth(value,save){
     const focused=document.body.classList.contains('browser-focus')||document.body.classList.contains('canvas-focus');

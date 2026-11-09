@@ -14,3 +14,7 @@ Measure each chat task from submission through verified completion, recording ac
 
 ## Validation and publication
 Test wide and narrow layouts, mouse/keyboard resizing, scroll behavior, restoration and evidence access in the actual app. Run relevant existing desktop/Java checks and source isolation. Preserve prior native verifier/physics code unless a demonstrated bug requires a scoped correction and new evidence. Publish a new README099, actual screenshots, offline guide, source inventory, dated memories/logs and originals; non-force main/edition099/readme-099 tag push, fetch and audit, then publish the receipt too.
+
+## Recorded amendment before the second cohort
+
+The first world request actually completed through the existing Java direct bootstrap (zero model calls) and is retained as an initial test mismatch, not a model success. Add an explicit optional world-procedure model-planning setting, off by default. Java seals that choice with the request, keeps the review-only refusal before planning, and retains every tool/schema/binding/native/outcome gate. Creation has a separate Java generation worker; verify its actual plan/code receipts rather than wrongly requiring parent-router inference. The second cohort uses a fresh project and rebuild.
