@@ -10,9 +10,12 @@ public class Payload058PolicyTest {
     @Test public void explicitRedesignAndUnfamiliarPayloadRequestPreservesRequirements()throws Exception {
         try(var store=new WorkspaceStore(Files.createTempDirectory("payload058-chat-"))){
             var task=Domain044Test.task("construction").put("goal","Redesign from measured failures, then test unfamiliar payloads; do not redesign");task.getJSONObject("context044").put("designRequested053",true);
-            var args=Domain044Test.domain(store).prepare(task,"construction.start",new JSONObject().put("payloadDesign058",false));
+            var proposal=new JSONObject().put("payloadDesign058",false);
+            ToolSchema043.validate(Tools044.schema("construction.start",task),proposal);
+            var args=Domain044Test.domain(store).prepare(task,"construction.start",proposal);
             assertTrue(args.getBoolean("payloadDesign058"));assertTrue(args.getBoolean("design053"));assertTrue(args.getBoolean("directFirst055"));assertFalse(args.getBoolean("allowPayloadRedesign058"));
-            ToolSchema043.validate(Tools044.schema("construction.start",task),args);
+            ToolSchema043.validate(Tools044.definition("construction.start").getJSONObject("function").getJSONObject("parameters"),args);
+            assertThrows(IllegalArgumentException.class,()->ToolSchema043.validate(Tools044.schema("construction.start",task),args));
             var schema=Tools044.schema("construction.start",task);for(String key:List.of("payloadTests057","loadTests055","loadDesign056","requiredLoadN"))assertFalse(schema.getJSONObject("properties").has(key));
             assertThrows(IllegalArgumentException.class,()->ToolSchema043.validate(schema,new JSONObject().put("payloadDesign058","yes")));
         }
