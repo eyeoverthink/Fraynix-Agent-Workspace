@@ -1,7 +1,7 @@
 /** Presentation only. Java remains the source of task state and verified outcomes. */
 export class Workspace099 {
   constructor(request, relayout) {
-    this.request=request; this.relayout=relayout; this.unread=0;
+    this.request=request; this.relayout=relayout; this.unread=0; this.followLatest=true; this.userScrollUntil=0;
     this.layout=document.querySelector('.layout'); this.agent=document.querySelector('.agent-panel');
     this.messages=document.querySelector('#messages'); this.timeline=document.querySelector('.timeline');
     this.preferences=this.read('fraynix.layout099',{});
@@ -30,12 +30,17 @@ export class Workspace099 {
     this.timeline.querySelector('.timeline-head').prepend(this.activityButton);this.activityLabel();
     const files=document.createElement('button');files.id='files099';files.textContent='Browser & files';files.onclick=()=>document.querySelector('#expand-browser').click();document.querySelector('.header-actions').prepend(files);
     this.card=document.createElement('section');this.card.id='task099';this.card.hidden=true;
-    this.card.innerHTML='<div class="task099-heading"><strong id="task099-phase"></strong><button id="task099-evidence" class="quiet">Evidence &amp; recovery</button></div><p id="task099-request"></p><p id="task099-progress" role="status"></p><p id="task099-result"></p><button id="task099-open" hidden>Open verified result</button>';
+    this.card.innerHTML='<div class="task099-heading"><strong id="task099-phase"></strong><button id="task099-evidence" class="quiet">Evidence &amp; recovery</button></div><p id="task099-request"></p><p id="task099-progress" role="status"></p><details id="task099-details"><summary>Outcome details</summary><p id="task099-result"></p></details><button id="task099-open" hidden>Open verified result</button>';
     this.messages.before(this.card);
+    const native=document.querySelector('#java-goal');this.nativeControls=document.createElement('details');this.nativeControls.id='goal-controls099';const nativeLabel=document.createElement('summary');nativeLabel.textContent='Goal controls & recovery';native.before(this.nativeControls);this.nativeControls.append(nativeLabel,native);const syncNative=()=>{this.nativeControls.hidden=native.hidden;};new MutationObserver(syncNative).observe(native,{attributes:true,attributeFilter:['hidden']});syncNative();
     this.card.querySelector('#task099-evidence').onclick=()=>document.querySelector('#mission044-open').click();
     this.card.querySelector('#task099-open').onclick=async()=>{try{await this.request('agency043',{command:'mission-open',args:{id:this.task.id}});}catch(e){document.querySelector('#notice').textContent=e.message;}};
     this.latest=document.createElement('button');this.latest.id='latest099';this.latest.hidden=true;this.latest.className='quiet';this.messages.after(this.latest);
-    this.latest.onclick=()=>this.toLatest();this.messages.onscroll=()=>{if(this.nearEnd()){this.unread=0;this.latest.hidden=true;}};
+    this.latest.onclick=()=>this.toLatest();
+    const intent=()=>{this.userScrollUntil=performance.now()+2000;this.followLatest=false;};
+    this.messages.addEventListener('wheel',intent,{passive:true});this.messages.addEventListener('touchstart',intent,{passive:true});this.messages.addEventListener('pointerdown',intent);this.messages.addEventListener('pointermove',e=>{if(e.buttons)intent();});this.messages.addEventListener('keydown',e=>{if(['ArrowUp','ArrowDown','PageUp','PageDown','Home','End'].includes(e.key))intent();});
+    this.messages.onscroll=()=>{if(this.nearEnd()){this.followLatest=true;this.unread=0;this.latest.hidden=true;}else if(performance.now()<this.userScrollUntil)this.followLatest=false;};
+    new ResizeObserver(()=>{if(this.followLatest)this.toLatest();}).observe(this.messages);
     const saved=this.read('fraynix.chat099',[]);this.transcript=[];
     if(Array.isArray(saved)&&saved.length&&saved.length<=40&&saved.every(v=>v&&typeof v==='object'&&['user','assistant'].includes(v.role)&&typeof v.text==='string'&&v.text.length<=100000)&&saved.reduce((n,v)=>n+v.text.length,0)<=100000){
       this.messages.replaceChildren();for(const row of saved)this.message(row.text,row.role,false);this.toLatest();
@@ -58,9 +63,9 @@ export class Workspace099 {
     if(save){this.width=this.applied;this.persist();}this.relayout();
   }
   nearEnd(){return this.messages.scrollHeight-this.messages.scrollTop-this.messages.clientHeight<60;}
-  toLatest(){this.messages.scrollTop=this.messages.scrollHeight;this.unread=0;this.latest.hidden=true;}
+  toLatest(){this.followLatest=true;this.messages.scrollTop=this.messages.scrollHeight;this.unread=0;this.latest.hidden=true;}
   message(text,role='assistant',persist=true){
-    text=String(text);const follow=role==='user'||this.nearEnd();const item=document.createElement('div');item.className='message '+role;
+    text=String(text);const follow=role==='user'||this.nearEnd();this.followLatest=follow;const item=document.createElement('div');item.className='message '+role;
     const label=document.createElement('strong');label.className='message099-label';label.textContent=role==='user'?'You':'Fraynix';const body=document.createElement('div');body.textContent=text;item.append(label,body);this.messages.append(item);
     this.transcript.push({role,text});while(this.transcript.length>40||this.transcript.length>1&&this.transcript.reduce((n,r)=>n+r.text.length,0)>100000)this.transcript.shift();
     if(persist){try{const saved=this.transcript.map(r=>({...r,text:r.text.length>100000?r.text.slice(0,99900)+'\n[Saved excerpt. Full task evidence remains in Mission.]':r.text}));localStorage.setItem('fraynix.chat099',JSON.stringify(saved));}catch{document.querySelector('#notice').textContent='Conversation could not be saved in this profile; Java task records remain available.';}}
@@ -77,7 +82,7 @@ export class Workspace099 {
     this.card.querySelector('#task099-phase').textContent=phase[task.status]||task.status;
     this.card.querySelector('#task099-request').textContent=task.goal;this.card.querySelector('#task099-request').title=task.goal;
     this.card.querySelector('#task099-progress').textContent=task.reason||'';
-    this.card.querySelector('#task099-result').textContent=task.summary||'';
+    this.card.querySelector('#task099-result').textContent=task.summary||'';this.card.querySelector('#task099-details').hidden=!task.summary;
     this.card.querySelector('#task099-open').hidden=task.status!=='completed'||task.outcome!=='verified';
   }
 }
