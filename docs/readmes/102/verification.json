@@ -1,0 +1,348 @@
+{
+  "passed": true,
+  "source": "87bf1ff67d6c98f210ccd8a1099afc4924a8212d",
+  "lastHarnessSource": "4d0f2a2c42b98686fb8fa83694fa3354f62d49cc",
+  "finalRuntimeReceiptSource": "4d0f2a2c42b98686fb8fa83694fa3354f62d49cc",
+  "java": [
+    {
+      "name": "fraymus.workspace.Agency043Test",
+      "tests": "11",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0",
+      "time": "3.239"
+    },
+    {
+      "name": "fraymus.workspace.CreationPlanner044Test",
+      "tests": "5",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0",
+      "time": "1.561"
+    },
+    {
+      "name": "fraymus.workspace.CreationRetry102Test",
+      "tests": "2",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0",
+      "time": "1.246"
+    },
+    {
+      "name": "fraymus.workspace.CreationTest",
+      "tests": "8",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0",
+      "time": "4.637"
+    },
+    {
+      "name": "fraymus.workspace.CreationTiming102Test",
+      "tests": "2",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0",
+      "time": "1.045"
+    },
+    {
+      "name": "fraymus.workspace.DataCreation101Test",
+      "tests": "10",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0",
+      "time": "14.287"
+    },
+    {
+      "name": "fraymus.workspace.DataHandoff100Test",
+      "tests": "3",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0",
+      "time": "1.096"
+    },
+    {
+      "name": "fraymus.workspace.DataSummary102Test",
+      "tests": "4",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0",
+      "time": "7.592"
+    },
+    {
+      "name": "fraymus.workspace.Domain044Test",
+      "tests": "16",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0",
+      "time": "0.663"
+    },
+    {
+      "name": "fraymus.workspace.SkillGraph046Test",
+      "tests": "7",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0",
+      "time": "198.193"
+    },
+    {
+      "name": "fraymus.workspace.WorkflowTest",
+      "tests": "7",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0",
+      "time": "40.229"
+    },
+    {
+      "name": "fraymus.workspace.WorkspaceStoreTest",
+      "tests": "5",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0",
+      "time": "0.352"
+    }
+  ],
+  "existingDesktop": 135,
+  "additionalDesktop": 10,
+  "actualBrowserFixtures": {
+    "legacy": 5,
+    "summary": 11,
+    "diagnostics": 7
+  },
+  "independentRefusals": {
+    "baseline": 15,
+    "summary": 18,
+    "exhausted": 6,
+    "domFailure": 7
+  },
+  "retrySourceComparison": {
+    "passed": true,
+    "beforeSource": "87bf1ff67d6c98f210ccd8a1099afc4924a8212d",
+    "afterSource": "4d0f2a2c42b98686fb8fa83694fa3354f62d49cc",
+    "changedInputs": [
+      "workspace-desktop/surface-diagnostics102.cjs",
+      "workspace-engine/src/main/java/fraymus/workspace/CreationPlanner044.java"
+    ],
+    "changedArtifacts": [
+      "workspace-engine/build/install/workspace-engine/lib/workspace-engine.jar"
+    ],
+    "changedClasses": [
+      "fraymus/workspace/CreationPlanner044.class"
+    ],
+    "identicalClasses": 336,
+    "originalJarAuthenticated": true,
+    "scope": "Only Java native-rejection retry guidance, explicit motion-metric definitions and bounded browser hint parsing changed. All source/outcome verifier production classes and other installed JARs are byte-identical. Full pre-change task costs and developer recovery pause remain separate."
+  },
+  "diagnosticSourceComparison": {
+    "passed": true,
+    "source": "87bf1ff67d6c98f210ccd8a1099afc4924a8212d",
+    "changedInputs": [
+      "workspace-desktop/surfaces.cjs",
+      "workspace-desktop/surface-diagnostics102.cjs"
+    ],
+    "installedJarsIdentical": true,
+    "javaInputsIdentical": true,
+    "scope": "Only actual canvas diagnostics changed; original checks, Java code identities, model limits and installed JARs remain unchanged."
+  },
+  "sourceComparison": {
+    "passed": true,
+    "source": "2c1e4faebe06c2c1f034e3dc6bca71987a73158e",
+    "legacyVerifier": {
+      "class": "fraymus/workspace/DataCreation101.class",
+      "sha256": "868f62a48c85e75cfb897aa3434da5a3f0fe57b2990527124589edc68edd9296",
+      "byteIdenticalToEdition101": true
+    },
+    "scope": "Original edition101 verifier class unchanged; new summary contract has its own code identity. This is not a claim that the entire engine is unchanged."
+  },
+  "presentationReview": {
+    "source": "4d0f2a2c42b98686fb8fa83694fa3354f62d49cc",
+    "captures": [
+      {
+        "file": "refused102-1600.png",
+        "caption": "Changed-input reuse REFUSED: 16 synthetic samples, wrong travel0.16 instead of0.31m, all three drafts exhausted; original verified skill retained.",
+        "at": "2026-11-09T15:56:23.680Z"
+      },
+      {
+        "file": "summary102-1600.png",
+        "caption": "Actual 49-row recorded motion summary and local-model content, independently verified.",
+        "at": "2026-11-09T15:56:25.478Z"
+      },
+      {
+        "file": "summary102-1100.png",
+        "caption": "Same actual summary at 1100-pixel app width; chat and controls remain accessible.",
+        "at": "2026-11-09T15:56:26.449Z"
+      },
+      {
+        "file": "inputs102-1600.png",
+        "caption": "Output chooser prepares a summary request without sending it.",
+        "at": "2026-11-09T15:56:27.280Z"
+      }
+    ],
+    "checks": [
+      "Cold-reopened verified and refused results, wide/narrow chat bounds, keyboard output chooser, preparation without sending"
+    ],
+    "scope": "Reopened one actual completed summary and one exhausted changed-input reuse. Failed output remains explicitly failed; no new inference or replacement content.",
+    "changed": {
+      ".agent-panel": {
+        "top": 76,
+        "bottom": 697.484375,
+        "height": 621.484375
+      },
+      "#model": {
+        "top": 166.890625,
+        "bottom": 205.890625,
+        "height": 39
+      },
+      "#goal": {
+        "top": 549.1875,
+        "bottom": 623.1875,
+        "height": 74
+      },
+      "#run": {
+        "top": 637.1875,
+        "bottom": 679.484375,
+        "height": 42.296875
+      },
+      "#messages": {
+        "top": 339.453125,
+        "bottom": 517.796875,
+        "height": 178.34375
+      }
+    },
+    "refusedValue": "0.160000",
+    "reviewCopyStop": {
+      "id": "ab6d2c86-0ffb-4ce6-9d49-14f0a75700bc",
+      "status": "cancelled",
+      "scope": "Stopped only the exhausted review copy to open the older completed report; original test project and result remain unchanged."
+    },
+    "wide": {
+      ".agent-panel": {
+        "top": 76,
+        "bottom": 697.484375,
+        "height": 621.484375
+      },
+      "#model": {
+        "top": 166.890625,
+        "bottom": 205.890625,
+        "height": 39
+      },
+      "#goal": {
+        "top": 549.1875,
+        "bottom": 623.1875,
+        "height": 74
+      },
+      "#run": {
+        "top": 637.1875,
+        "bottom": 679.484375,
+        "height": 42.296875
+      },
+      "#messages": {
+        "top": 339.453125,
+        "bottom": 517.796875,
+        "height": 178.34375
+      }
+    },
+    "traceWide": {
+      "top": 151.03125,
+      "bottom": 457.90625,
+      "viewport": 474,
+      "scrolledY": 58
+    },
+    "narrow": {
+      ".agent-panel": {
+        "top": 74,
+        "bottom": 701.484375,
+        "height": 627.484375
+      },
+      "#model": {
+        "top": 162.890625,
+        "bottom": 201.890625,
+        "height": 39
+      },
+      "#goal": {
+        "top": 555.1875,
+        "bottom": 629.1875,
+        "height": 74
+      },
+      "#run": {
+        "top": 643.1875,
+        "bottom": 685.484375,
+        "height": 42.296875
+      },
+      "#messages": {
+        "top": 335.453125,
+        "bottom": 523.796875,
+        "height": 188.34375
+      }
+    },
+    "traceNarrow": {
+      "top": 251.03125,
+      "bottom": 389.15625,
+      "viewport": 408,
+      "scrolledY": 58
+    },
+    "preparationDoesNotSend": true,
+    "passed": true,
+    "errors": [],
+    "axisReframing102": [
+      {
+        "width": 1600,
+        "bounds": [
+          {
+            "id": "motion-plot",
+            "top": 113.03125,
+            "bottom": 419.90625,
+            "viewport": 474
+          },
+          {
+            "id": "time-axis",
+            "top": 423.90625,
+            "bottom": 441.90625,
+            "viewport": 474
+          },
+          {
+            "id": "distance-axis",
+            "top": 441.90625,
+            "bottom": 459.90625,
+            "viewport": 474
+          }
+        ],
+        "at": "2026-11-09T15:57:58.704Z",
+        "scope": "Only scrolled the actual verified artifact to include full trace and both axis labels; no content changes."
+      },
+      {
+        "width": 1100,
+        "bounds": [
+          {
+            "id": "motion-plot",
+            "top": 213.03125,
+            "bottom": 351.15625,
+            "viewport": 408
+          },
+          {
+            "id": "time-axis",
+            "top": 355.15625,
+            "bottom": 373.15625,
+            "viewport": 408
+          },
+          {
+            "id": "distance-axis",
+            "top": 373.15625,
+            "bottom": 391.15625,
+            "viewport": 408
+          }
+        ],
+        "at": "2026-11-09T15:57:59.131Z",
+        "scope": "Only scrolled the actual verified artifact to include full trace and both axis labels; no content changes."
+      }
+    ]
+  },
+  "parentCI": {
+    "checkedAt": "2026-11-09T16:00:08.771Z",
+    "id": 42613246058,
+    "head_sha": "1f2dad93528362e9428cb22190b87191e612d2e5",
+    "status": "completed",
+    "conclusion": "success",
+    "html_url": "https://github.com/eyeoverthink/Fraynix-Agent-Workspace/actions/runs/42613246058"
+  },
+  "scope": "Focused tests and actual local-model workflows. Unit and renderer fixtures are distinct from model output. Initial genuine failure and assisted recovery remain explicit."
+}

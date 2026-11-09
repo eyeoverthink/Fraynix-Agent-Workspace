@@ -1,0 +1,85 @@
+{
+  "nodes": [
+    {
+      "id": "chat",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/Domain044.java",
+      "x": 0,
+      "y": 0,
+      "width": 380,
+      "height": 210
+    },
+    {
+      "id": "parent",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/WorkflowRunner.java",
+      "x": 420,
+      "y": 0,
+      "width": 380,
+      "height": 210
+    },
+    {
+      "id": "generation",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/CreationPlanner044.java",
+      "x": 840,
+      "y": 0,
+      "width": 380,
+      "height": 210
+    },
+    {
+      "id": "contract",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/DataSummary102.java",
+      "x": 0,
+      "y": 260,
+      "width": 380,
+      "height": 210
+    },
+    {
+      "id": "browser",
+      "type": "file",
+      "file": "workspace-desktop/data-summary102.cjs",
+      "x": 420,
+      "y": 260,
+      "width": 380,
+      "height": 210
+    },
+    {
+      "id": "cost",
+      "type": "file",
+      "file": "scripts/WorkflowCost102.cjs",
+      "x": 840,
+      "y": 260,
+      "width": 380,
+      "height": 210
+    }
+  ],
+  "edges": [
+    {
+      "id": "e0",
+      "fromNode": "chat",
+      "toNode": "parent"
+    },
+    {
+      "id": "e1",
+      "fromNode": "parent",
+      "toNode": "generation"
+    },
+    {
+      "id": "e2",
+      "fromNode": "generation",
+      "toNode": "contract"
+    },
+    {
+      "id": "e3",
+      "fromNode": "contract",
+      "toNode": "browser"
+    },
+    {
+      "id": "e4",
+      "fromNode": "browser",
+      "toNode": "cost"
+    }
+  ]
+}
