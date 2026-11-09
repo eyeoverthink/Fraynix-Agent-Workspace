@@ -1,10 +1,11 @@
 'use strict';
 const {WebContentsView,session}=require('electron');
 const {ObservationLease,webURL}=require('./policy.cjs');
+const diagnostics102=require('./surface-diagnostics102.cjs');
 
 class Surface {
   constructor(kind,window,notify,options={}){
-    this.kind=kind;this.notify=notify;this.lease=new ObservationLease();this.errors=[];this.allowedPrefix='';
+    this.kind=kind;this.notify=notify;this.lease=new ObservationLease();this.errors=[];this.missingIds102=[];this.allowedPrefix='';
     const profile=options.partition||(kind==='browser'?'persist:workspace-browser':'workspace-canvas');
     const partition=session.fromPartition(profile);
     this.networkPolicy=options.networkPolicy;
@@ -23,7 +24,7 @@ class Surface {
     wc.on('did-start-navigation',()=>this.lease.invalidate());
     wc.on('did-navigate',()=>notify('surface',{kind,url:wc.getURL(),title:wc.getTitle()}));
     wc.on('page-title-updated',()=>notify('surface',{kind,url:wc.getURL(),title:wc.getTitle()}));
-    wc.on('console-message',(...args)=>{const data=typeof args[1]==='object'?args[1]:{level:args[1],message:args[2]};if(data.level==='error'||data.level===3||data.level===2)this.errors.push(String(data.message).slice(0,600));});
+    wc.on('console-message',(...args)=>{const data=typeof args[1]==='object'?args[1]:{level:args[1],message:args[2]};if((data.level==='info'||data.level===1)&&diagnostics102.receive(this,String(data.message)))return;if(data.level==='error'||data.level===3||data.level===2)this.errors.push(String(data.message).slice(0,600));});
     wc.on('render-process-gone',(_event,details)=>notify('error',`${kind} renderer stopped: ${details.reason}`));
   }
   async bounded(promise,label,milliseconds=8000){
@@ -32,7 +33,7 @@ class Surface {
     finally{clearTimeout(timer);this.pending=false;}
   }
   cancelPending(){if(this.pending)this.view.webContents.forcefullyCrashRenderer();else this.view.webContents.stop();this.lease.invalidate();}
-  async navigate(url){url=webURL(url);this.networkPolicy?.require(url);if(this.kind==='canvas')this.allowedPrefix=url.slice(0,url.lastIndexOf('/')+1);this.errors=[];this.lease.invalidate();await this.bounded(this.view.webContents.loadURL(url),'navigation',15000);return this.observe();}
+  async navigate(url){url=webURL(url);await diagnostics102.install(this);this.networkPolicy?.require(url);if(this.kind==='canvas')this.allowedPrefix=url.slice(0,url.lastIndexOf('/')+1);this.errors=[];this.missingIds102=[];this.lease.invalidate();await this.bounded(this.view.webContents.loadURL(url),'navigation',15000);return this.observe();}
   async isolated(code){return this.bounded(this.view.webContents.executeJavaScriptInIsolatedWorld(1001,[{code}],true),'script operation');}
   async observe(){
     const observation=this.lease.create();
@@ -84,7 +85,7 @@ class Surface {
       }
       const check={index,selector:step.selector,passed,actual,expected:step};checks.push(check);if(onStep)await onStep(check,steps.length);
     }
-    if(this.errors.length)checks.push({index:checks.length,passed:false,error:'Browser JavaScript errors',errors:this.errors.slice(-5)});
+    if(this.errors.length)checks.push({index:checks.length,passed:false,error:'Browser JavaScript errors',diagnostics102:this.missingIds102.slice(-6),errors:this.errors.slice(-5)});
     return checks;
   }
   close(){if(!this.view.webContents.isDestroyed())this.view.webContents.close();}
