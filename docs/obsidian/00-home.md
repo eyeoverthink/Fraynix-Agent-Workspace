@@ -1,3 +1,5 @@
+[[docs/obsidian/113-automatic-qualification.md|Edition 105 — automatic qualification]]
+
 [[docs/obsidian/112-input-driven-summaries.md|Edition 104 — input-driven summaries]]
 
 [[docs/obsidian/111-verified-implementation-reuse.md|Edition 103 — verified implementations with fresh data]]

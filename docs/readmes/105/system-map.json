@@ -1,0 +1,142 @@
+{
+  "modules": [
+    {
+      "id": "chat",
+      "name": "Explicit qualification request",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/Domain044.java",
+      "note": "docs/obsidian/113-automatic-qualification.md"
+    },
+    {
+      "id": "cases",
+      "name": "Owned labelled test cases and identity",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/Qualification105.java",
+      "note": "docs/obsidian/113-automatic-qualification.md"
+    },
+    {
+      "id": "supervisor",
+      "name": "Durable sequencing, ownership and recovery",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/WorkflowRunner.java",
+      "note": "docs/obsidian/113-automatic-qualification.md"
+    },
+    {
+      "id": "producer",
+      "name": "Unchanged input-driven producer",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/DataSummary104.java",
+      "note": "docs/obsidian/113-automatic-qualification.md"
+    },
+    {
+      "id": "audit",
+      "name": "Unchanged independent outcome verifier",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/DataSummary102.java",
+      "note": "docs/obsidian/113-automatic-qualification.md"
+    },
+    {
+      "id": "host",
+      "name": "Actual browser audit delegation",
+      "source": "workspace-desktop/workflows.cjs",
+      "note": "docs/obsidian/113-automatic-qualification.md"
+    },
+    {
+      "id": "inspection",
+      "name": "Independent originals and complete costs",
+      "source": "scripts/Inspect-Qualification105.cjs",
+      "note": "docs/obsidian/113-automatic-qualification.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "docs/readmes/105/qualified105-1-1600.png",
+      "caption": "qualified105-1: preparation, starting with 0 published procedures; completed. Actual application capture."
+    },
+    {
+      "path": "docs/readmes/105/qualified105-2-1600.png",
+      "caption": "qualified105-2: preparation, starting with 1 published procedures; completed. Actual application capture."
+    },
+    {
+      "path": "docs/readmes/105/qualified105-3-1600.png",
+      "caption": "qualified105-3: preparation, starting with 2 published procedures; completed. Actual application capture."
+    },
+    {
+      "path": "docs/readmes/105/qualified105-4-1600.png",
+      "caption": "qualified105-4: preparation, starting with 3 published procedures; completed. Actual application capture."
+    },
+    {
+      "path": "docs/readmes/105/qualified105-5-1600.png",
+      "caption": "qualified105-5: preparation, starting with 4 published procedures; completed. Actual application capture."
+    },
+    {
+      "path": "docs/readmes/105/qualified105-6-1600.png",
+      "caption": "qualified105-6: preparation, starting with 5 published procedures; completed. Actual application capture."
+    },
+    {
+      "path": "docs/readmes/105/qualified105-7-1600.png",
+      "caption": "qualified105-7: preparation, starting with 6 published procedures; completed. Actual application capture."
+    },
+    {
+      "path": "docs/readmes/105/qualified105-8-1600.png",
+      "caption": "qualified105-8: preparation, starting with 7 published procedures; completed. Actual application capture."
+    },
+    {
+      "path": "docs/readmes/105/probe-0-1-1600.png",
+      "caption": "growth-probe105: probe, starting with 0 published procedures; completed. Actual application capture."
+    },
+    {
+      "path": "docs/readmes/105/probe-0-2-1600.png",
+      "caption": "growth-probe105: probe, starting with 0 published procedures; completed. Actual application capture."
+    },
+    {
+      "path": "docs/readmes/105/probe-4-1-1600.png",
+      "caption": "growth-probe105: probe, starting with 4 published procedures; completed. Actual application capture."
+    },
+    {
+      "path": "docs/readmes/105/probe-4-2-1600.png",
+      "caption": "growth-probe105: probe, starting with 4 published procedures; completed. Actual application capture."
+    },
+    {
+      "path": "docs/readmes/105/probe-8-1-1600.png",
+      "caption": "growth-probe105: probe, starting with 8 published procedures; completed. Actual application capture."
+    },
+    {
+      "path": "docs/readmes/105/probe-8-2-1600.png",
+      "caption": "growth-probe105: probe, starting with 8 published procedures; completed. Actual application capture."
+    },
+    {
+      "path": "docs/readmes/105/recovery-summary105-1600.png",
+      "caption": "recovery-summary105: recovery, starting with 0 published procedures; completed. Actual application capture."
+    },
+    {
+      "path": "docs/readmes/105/fault-summary105-1600.png",
+      "caption": "fault-summary105: rendered-refusal, starting with 0 published procedures; interrupted. Actual application capture."
+    },
+    {
+      "path": "docs/readmes/105/altered-proof105-1600.png",
+      "caption": "altered-proof105: source-refusal, starting with 8 published procedures; interrupted. Actual application capture."
+    },
+    {
+      "path": "docs/readmes/105/qualification105-1100.png",
+      "caption": "Actual 1100-pixel workspace after cold reopening the verified collection-eight result."
+    },
+    {
+      "path": "docs/readmes/105/recovery-summary105-interrupted.png",
+      "caption": "Actual request after two verified examples, immediately before abrupt Java interruption."
+    },
+    {
+      "path": "docs/readmes/105/recovery105-initial-refusal.png",
+      "caption": "Original cohort: interrupted child reservation incorrectly blocked parent Resume. Preserved failed request, later corrected and retested separately."
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/readmes/105/analysis.json",
+      "caption": "analysis.json"
+    },
+    {
+      "path": "docs/readmes/105/verification.json",
+      "caption": "verification.json"
+    },
+    {
+      "path": "docs/readmes/105/original-evidence.json",
+      "caption": "original-evidence.json"
+    }
+  ]
+}

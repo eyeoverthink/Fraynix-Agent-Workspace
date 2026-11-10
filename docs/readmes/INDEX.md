@@ -1,3 +1,5 @@
+[Edition 105 — automatic qualification](../../README-105.md) · [Offline guide](105/index.html)
+
 [Edition 104 — input-driven summaries](../../README-104.md) · [Offline guide](104/index.html)
 
 [Edition 103 — verified implementations with fresh data](../../README-103.md) · [Offline guide](103/index.html)
