@@ -10,4 +10,4 @@ Edition106 preserves the original Java refusal in chat without planner retries a
 
 Java owns durable goals, tools, verification, recovery and memory. Chat, browser/canvas, spatial views and Game Lab remain integrated.
 
-Publication receipt follows the actual main/tag push and fetched verification.
+Published to main. [Fetched GitHub verification](docs/PUBLICATION_106.json).

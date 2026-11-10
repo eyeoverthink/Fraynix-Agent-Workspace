@@ -1,0 +1,49 @@
+{
+  "prior": {
+    "passed": true,
+    "source": "ba51d4367ba5f9c0917a7400d05c970aebc864be",
+    "completedRequests": 7,
+    "failedRequests": 1,
+    "successfulRequestMs": 95931,
+    "failedRequestCost": {
+      "elapsedMs": 6228,
+      "exclusiveMs": {
+        "pause-restart": 0,
+        "generation": 0,
+        "unfinished-generation-window": 0,
+        "browser-verification": 31,
+        "coordination-and-other": 6197
+      },
+      "crossCategoryOverlapMs": 0,
+      "scope": "Priority pause/restart, then generation, then browser verification; remaining time includes Java computation, persistence, scheduling and harness polling. Stage durations overlap these categories and are not added."
+    },
+    "cohortWallMs": 127982,
+    "scope": "Original tiny-scale refusal retained. Numeric criteria were serialized as Double exponent text in reserved input but parsed as BigDecimal decimal text in durable sourceData. Numeric values agree; exact bytes do not. Native verifier correctly refused. Producer now freezes the persisted representation before generating reserved inputs; verifier unchanged. Final fresh cohort is separate."
+  },
+  "refusals": [
+    {
+      "name": "failure erased",
+      "refused": true
+    },
+    {
+      "name": "cost erased",
+      "refused": true
+    },
+    {
+      "name": "earlier success removed",
+      "refused": true
+    },
+    {
+      "name": "failed interval erased",
+      "refused": true
+    },
+    {
+      "name": "planner invented",
+      "refused": true
+    },
+    {
+      "name": "failed result relabelled",
+      "refused": true
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "passed": true,
+  "reviewedAtUtc": "2026-11-10T17:19:00.149488+00:00",
+  "files": [
+    {
+      "path": "build/numerical106-final/refusal106-cold.png",
+      "sha256": "c3432dafda571b40b04f0076139117e20125f08cf035624ffde673387c3db289"
+    },
+    {
+      "path": "build/numerical106-final/tiny-scale-1600.png",
+      "sha256": "9426da449d14a70c2cf8b2c990af0ee1750d80d9e3725f36704fff17502701c3"
+    },
+    {
+      "path": "build/numerical106-final/threshold-just-over-1600.png",
+      "sha256": "2a43bb11e0929a7e8819d8be148c3bffd6106e0835937f22651129ea708e62d3"
+    },
+    {
+      "path": "build/numerical106-final/numerical106-1100.png",
+      "sha256": "c979ca8a7adc9a0852d6918ea69629cd1820c0b2782005cef3d93c0619d84043"
+    }
+  ],
+  "checks": [
+    "Cold restart shows original refusal in chat and mission history, zero planning requests, disabled Resume and available Stop. Prior verified canvas remains visible; it is not a new result for the refused request.",
+    "Tiny-scale result displays six-decimal zeros consistently while keeping nonzero original input and criteria.",
+    "Just-over thresholds retain one gap and one speed flag despite rounded display; quality message is visible.",
+    "1100-pixel app wraps controls and summary cards; task result and input remain readable. Internal content scroll is intentional."
+  ],
+  "scope": "Direct visual review of selected actual application captures; full source/value/chart/filter correctness is established separately by independent actual-browser evidence. No image generation or reconstructed application screenshot."
+}
