@@ -39,8 +39,8 @@ function journal(g){let previous='GENESIS';for(const item of g.history){const ro
 
 const capacityReason='Insufficient original workflow/goal capacity for all examples and selected-source verification; nothing started';
 function inspect(r){
- assert(r.passed&&!r.error);assert.equal(r.tasks.length,36);assert.equal(r.injections.length,0);assert.equal(r.checkpoints.length,5);assert.equal(r.copies.length,26);
- const expected=[];for(let n=1;n<=15;n++)expected.push('growth-'+n);for(const n of [1,8,9,14])for(const [rep,modes]of [[1,['recheck','refresh']],[2,['refresh','recheck']]])for(const mode of modes)expected.push(`bank-${n}-pair-${rep}-${mode}`);expected.push('near-capacity-restart','full-bank-recheck','full-bank-refresh','refused-artifact','refused-dataset');assert.deepEqual(r.tasks.map(t=>t.name),expected);
+ assert(r.passed&&!r.error);assert.deepEqual(r.resources,{javaHeapMiB:512,javaProcessors:2,plannerCpuOnly:true,offline:true,heavyWorkSerial:true});assert.equal(r.tasks.length,36);assert.equal(r.injections.length,0);assert.equal(r.checkpoints.length,5);assert.equal(r.copies.length,26);
+ for(const session of r.sessions){assert.equal(session.profile.maxHeap,512*1024*1024);assert.equal(session.profile.cpus,2);assert(session.ready>=session.start);}const expected=[];for(let n=1;n<=15;n++)expected.push('growth-'+n);for(const n of [1,8,9,14])for(const [rep,modes]of [[1,['recheck','refresh']],[2,['refresh','recheck']]])for(const mode of modes)expected.push(`bank-${n}-pair-${rep}-${mode}`);expected.push('near-capacity-restart','full-bank-recheck','full-bank-refresh','refused-artifact','refused-dataset');assert.deepEqual(r.tasks.map(t=>t.name),expected);
  const known=new Map(),prep=r.tasks[0],results=[],limits={workflows:20,goals:64,procedures:32,supervisors:16,versions:8,awakeSeconds:1200};
  for(const [i,t]of r.tasks.entries()){
   journal(t.task);assert.equal(t.task.status,t.expected);assert.equal(t.generation.length,0);for(const key of ['modelCalls','modelMillis','failedModelCalls'])assert.equal(t.task.timing052[key],0);assert.equal(t.task.failures,0);

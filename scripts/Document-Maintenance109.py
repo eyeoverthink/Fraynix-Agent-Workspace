@@ -13,18 +13,27 @@ identity=load('build/source-identity109.json');assert identity['passed'] and ide
 tests=[]
 for f in sorted((r/'workspace-engine/build/test-results/test').glob('TEST-*.xml')):
  e=ET.parse(f).getroot();assert all(e.attrib[k]=='0' for k in ['failures','errors','skipped']);tests.append(dict(e.attrib))
-assert sum(int(x['tests']) for x in tests)==126
+assert sum(int(x['tests']) for x in tests)==23
+initial=[];failures=[]
+for f in sorted((r/'build/before-driver109/test-results').glob('TEST-*.xml')):
+ e=ET.parse(f).getroot();initial.append(dict(e.attrib))
+ for c in e.findall('testcase'):
+  for fail in c.findall('failure'):failures.append({'class':e.attrib['name'],'method':c.attrib['name'],'message':fail.attrib['message']})
+assert sum(int(x['tests']) for x in initial)==126 and sum(int(x['failures']) for x in initial)==1
+assert len(failures)==1 and failures[0]['method']=='oldProofIsRecheckedBeforePublishingNewSelectedSource'
+assert 'expected:<[running]> but was:<[completed]>' in failures[0]['message']
+assert load('build/test-driver109.json')['passed']
 for name in ['desktop109.log','desktop109-additional.log']:assert 'fail 0' in (r/'build'/name).read_text(encoding='utf-8-sig')
 d.mkdir(parents=True,exist_ok=True)
 for row,t in zip(analysis['results'],trial['tasks']):row['screenshot']=t['captureKey']+'-1600.png'
 js(d/'analysis.json',analysis)
-js(d/'verification.json',{'passed':True,'java':tests,'javaScope':'126 methods on final unchanged production bytecode,20 classes. Full originals retained.','desktopChecks':148,'independentRefusals':analysis['refusals'],'sourceIdentity':identity,'build':load('build/study095-build.json'),'visual':visual,'parentCI':load('build/ci109-parent.json'),'actualRequests':36,'completions':30,'requiredRefusals':6,'abruptRecoveries':1})
+js(d/'verification.json',{'passed':True,'initialJava':initial,'initialFailure':failures,'finalAffectedJava':tests,'testDriverCorrection':load('build/test-driver109.json'),'javaScope':'126 distinct methods covered on unchanged production bytecode. Initial125 passed and one test-driver timing failure retained. All23 affected methods in three suites pass after atomic stop/claim correction. Other test classes unchanged.','desktopChecks':148,'independentRefusals':analysis['refusals'],'sourceIdentity':identity,'build':load('build/study095-build.json'),'visual':visual,'parentCI':load('build/ci109-parent.json'),'actualRequests':36,'completions':30,'requiredRefusals':6,'abruptRecoveries':1})
 captions={}
 for row in analysis['results']:
  name=row['screenshot'];shutil.copyfile(r/'build/maintenance109'/name,d/name);captions[name]=row['name']+': '+row['kind']+', bank '+str(row['bankBefore'])+', '+row['outcome']+'. Actual application.'
 for name,caption in [('maintenance109-1100.png','Actual narrower workspace after recovered bank9 refresh.'),('near-capacity-restart-interrupted.png','Third fresh example before its actual audit and abrupt process interruption.')]:
  shutil.copyfile(r/'build/maintenance109'/name,d/name);captions[name]=caption
-roots=['build/maintenance109','workspace-engine/build/test-results/test'];extras=['build/java109.log','build/desktop109.log','build/desktop109-additional.log','build/source-identity109.json','build/ci109-parent.json','build/study095-build.json','build/analysis109.json','build/inspect109.log','build/visual-review109.json','build/maintenance109.log']
+roots=['build/maintenance109','workspace-engine/build/test-results/test','build/before-driver109'];extras=['build/java109-final.log','build/test-driver109.json','build/test-driver109.diff','build/repair-driver109.py','build/java109.log','build/desktop109.log','build/desktop109-additional.log','build/source-identity109.json','build/ci109-parent.json','build/study095-build.json','build/analysis109.json','build/inspect109.log','build/visual-review109.json','build/maintenance109.log']
 paths=[]
 for folder in roots:
  for p in (r/folder).rglob('*'):
@@ -128,7 +137,9 @@ Complete cohort: **{analysis['cohortWallMs']/1000:.3f}s**. All request intervals
 
 ## Verification and boundaries
 
--126 Java methods across20 classes pass on the final unchanged runtime.
+The initial regression found a timing error in a lifecycle test: its polling driver acknowledged the selected-source audit before noticing the intended stop point, returning completed instead of running. The test had not yet revised the source. The driver now checks its stop condition and claims the audit under the same runner lock; the original test also asserts the exact stage before mutation. No production rule changed. All23 methods in the three suites using this helper were rerun. The initial126-method run, its one failure, final results and exact test-only difference are preserved.
+
+-126 distinct Java methods across20 classes are covered on unchanged production bytecode:125 passed initially; all23 affected methods passed after correcting the test driver. The original timing failure and correction are retained.
 -148 desktop checks pass.
 -Thirty actual complete chat workflows, six required refusals and one abrupt recovery pass.
 -Thirty altered-record controls refuse; every saved entry has checked original lineage.
@@ -176,7 +187,7 @@ After that, measure maintenance again on genuinely larger banks, test whether ar
 for a,b in [('\n-126','\n- 126'),('\n-148','\n- 148'),('\n-Thirty','\n- Thirty'),('\n-All342','\n- All342'),('\n-Actual','\n- Actual')]:readme=readme.replace(a,b)
 write(r/'README-109.md',readme)
 write(r/'README.md','# Fraynix Agent Workspace\n\nEdition109 measures maintenance as genuine saved procedures fill the existing workflow capacity, preserving every source and outcome check.\n\n[Edition109: measurements, functions and next steps](README-109.md) | [Interactive offline guide](docs/readmes/109/index.html) | [Previous edition](README-108.md) | [Contributor direction](README-CONTRIBUTORS.md)\n\nThirty actual workflows complete, including abrupt recovery; six refuse correctly. All342 Java engine classes remain unchanged.\n\n![Actual fifteen-procedure bank](docs/readmes/109/growth-15-1600.png)\n\nJava owns durable goals, tools, worlds, verification, recovery and memory. Chat, browser/canvas, spatial views and Game Lab remain integrated.\n')
-summary='2026-11-10. Isolated S:/Codex-Work/fraynix-workspace-edition109; parent028e2451. Actual36-request maintenance study:30 completions, six native refusals, one abrupt bank9 refresh recovery. Genuine growth to15 saved procedures reaches20 executable workflows before32 procedure slots. Cold paired recheck/full refresh at banks1/8/9/14, two reversed-order repetitions; full preparation/copy/refusal/restart costs retained. No padding, history deletion or raised limits. Every source/outcome check preserved. All342 engine classes and two resources byte-identical to108;126 Java,148 desktop and30 altered-record refusals pass. Private worlds and frozen001-108 preserved; no delegation; heavy work serial. Next: explicit evidence-preserving archival before larger active history. Publication pending actual push/fetch; CI separate.\n'
+summary='2026-11-10. Isolated S:/Codex-Work/fraynix-workspace-edition109; parent028e2451. Actual36-request maintenance study:30 completions, six native refusals, one abrupt bank9 refresh recovery. Genuine growth to15 saved procedures reaches20 executable workflows before32 procedure slots. Cold paired recheck/full refresh at banks1/8/9/14, two reversed-order repetitions; full preparation/copy/refusal/restart costs retained. No padding, history deletion or raised limits. Every source/outcome check preserved. All342 engine classes and two resources byte-identical to108;126 distinct Java methods covered, with23 affected passing after an initial test-driver timing correction;148 desktop and30 altered-record refusals pass. Original failure retained. Private worlds and frozen001-108 preserved; no delegation; heavy work serial. Next: explicit evidence-preserving archival before larger active history. Publication pending actual push/fetch; CI separate.\n'
 write(r/note,'# Edition109 - maintenance at capacity\n\n'+summary+'\n[[README-109.md|Full edition]] | [[docs/obsidian/116-explicit-qualification-upgrades.md|Previous qualification upgrades]]\n')
 for name in ['AGENTS.md','README-CONTRIBUTORS.md','docs/PROJECT_MEMORY.md','docs/DEVELOPMENT_LOG.md','docs/ARCHITECTURE.md']:
  p=r/name;old=p.read_text(encoding='utf-8');header='## Edition109 - validated maintenance at capacity\n\n'

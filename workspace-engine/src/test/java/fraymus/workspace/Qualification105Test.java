@@ -15,7 +15,14 @@ public class Qualification105Test {
         while(System.currentTimeMillis()<deadline){
             var w=f.workflows.read(id);if(stop.test(w)||!w.getString("status").equals("running"))return w;
             var e=f.goals.claim();if(e.has("id")){assertFalse(e.getString("kind").startsWith("creation.generate"));WorkflowTest.hostFixture(f,e);}
-            var audit=f.workflows.claim();if(audit.has("id")){
+            JSONObject audit;
+            synchronized(f.workflows){
+                // Stop and claim share the runner lock: never acknowledge the boundary being inspected.
+                var current=f.workflows.read(id);
+                if(stop.test(current)||!current.getString("status").equals("running"))return current;
+                audit=f.workflows.claim();
+            }
+            if(audit.has("id")){
                 assertEquals(id,f.workflows.authorityOwner105(audit.getString("workflowId")));
                 var b=f.workflows.read(audit.getString("workflowId")).getJSONObject("dataBinding");var data=f.data.read(b.getString("datasetId"),b.getInt("datasetVersion"));
                 var observed=DataSummary102Test.observed(f,audit,data);if(corrupt&&!changed){observed.getJSONArray("summaries102").getJSONObject(0).getJSONObject("values").put("travel","999.000000");changed=true;}

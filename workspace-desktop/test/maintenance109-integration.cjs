@@ -10,7 +10,7 @@ async function main(){
  Object.assign(process.env,{FRAYNIX_WORKSPACE_PERSISTENT:'0',FRAYNIX_WORKSPACE_PLAN_CPU_ONLY:'1',FRAYNIX_WORKSPACE_JAVA_HEAP_MIB:'512',FRAYNIX_WORKSPACE_JAVA_PROCESSORS:'2'});
  require('../../scripts/Study-Build095.cjs').verify(repo);assert(!sync.existsSync(out),'Preserve original trials; choose a fresh output directory');await fs.mkdir(out,{recursive:true});
 
- const record={source:cp.execFileSync('git',['rev-parse','HEAD'],{cwd:repo,encoding:'utf8'}).trim(),startedAt:new Date().toISOString(),tasks:[],invalidInputs:[],checkpoints:[],hostSpans:[],injections:[],captures:[],sessions:[],scope:'Actual Java/Electron maintenance as a genuine saved-procedure bank grows to the first original capacity limit. Paired cold recheck/full-refresh, abrupt near-capacity recovery and native admission refusals. Original verifiers unchanged. Declared synthetic inputs, not real footage; no model-weight training. All caller/refusal costs retained.'};
+ const record={source:cp.execFileSync('git',['rev-parse','HEAD'],{cwd:repo,encoding:'utf8'}).trim(),startedAt:new Date().toISOString(),resources:{javaHeapMiB:512,javaProcessors:2,plannerCpuOnly:true,offline:true,heavyWorkSerial:true},tasks:[],invalidInputs:[],checkpoints:[],hostSpans:[],injections:[],captures:[],sessions:[],scope:'Actual Java/Electron maintenance as a genuine saved-procedure bank grows to the first original capacity limit. Paired cold recheck/full-refresh, abrupt near-capacity recovery and native admission refusals. Original verifiers unchanged. Declared synthetic inputs, not real footage; no model-weight training. All caller/refusal costs retained.'};
  let app,page,project,session=0;const save=()=>fs.writeFile(path.join(out,'result.json'),JSON.stringify(record,null,2));
  const api=(route,args={})=>app.evaluate((_,x)=>global.workspaceTest.api(x.route,x.args),{route,args:route==='/api/state'?undefined:args});
  const request=(operation,command,args={})=>page.evaluate(x=>window.workspace.request(x),{operation,command,args});
@@ -23,7 +23,7 @@ async function main(){
     const v=await original.apply(this,args);ok=true;return v;
    }finally{global.numerical109.spans.push({kind:method==='test'?'browser-test':'browser-observation',session,start,end:Date.now(),nanos:String(process.hrtime.bigint()-clock),ok});}};}
   },session);
-  await page.waitForFunction(()=>window.inputs100&&[...document.querySelector('#model').options].some(o=>o.value==='gpt-oss:20b'),{},{timeout:65000});await page.locator('#model').selectOption('gpt-oss:20b');record.sessions.push({session,project,start,ready:Date.now()});await save();
+  await page.waitForFunction(()=>window.inputs100&&[...document.querySelector('#model').options].some(o=>o.value==='gpt-oss:20b'),{},{timeout:65000});await page.locator('#model').selectOption('gpt-oss:20b');const resource=await api('/api/resources082/state',{});assert.equal(resource.profile.maxHeap,512*1024*1024);assert.equal(resource.profile.cpus,2);record.sessions.push({session,project,start,ready:Date.now(),profile:resource.profile});await save();
  }
  async function flush(){if(!app)return;const x=await app.evaluate(()=>{const s=global.numerical109,v={spans:s.spans,injections:s.injections};s.spans=[];s.injections=[];return v;});record.hostSpans.push(...x.spans);record.injections.push(...x.injections);await save();}
  async function close(){if(!app)return;await flush();await app.close();app=null;}
@@ -62,9 +62,9 @@ async function main(){
  async function inventory(){
   const workflows=(await api('/api/workflows/list',{})).workflows,goals=(await api('/api/goals/list',{})).goals;
   const file=path.join(project,'workflows/tasks.fworld');let b;try{b=await fs.readFile(file);}catch(e){if(e.code!=='ENOENT')throw e;b=Buffer.alloc(0);}
-  const paths=await fs.readdir(project,{recursive:true,withFileTypes:true});let bytes=0,files=0;
-  for(const p of paths)if(p.isFile()){const f=path.join(p.parentPath||p.path,p.name);if(!f.endsWith('.log')){bytes+=(await fs.stat(f)).size;files++;}}
-  return{workflows:workflows.length,executables:workflows.filter(w=>!w.qualification105).length,supervisors:workflows.filter(w=>w.qualification105).length,goals:goals.length,files,bytes,workflowStore:{bytes:b.length,sha256:sha(b)},limits:{workflows:20,goals:64,procedures:32,supervisors:16,versions:8,awakeSeconds:1200}};
+  let bytes=0,files=0;const excluded=new Set(['desktop-profile','runtime-042','.northstar-kernel','binary']);
+  async function count(dir){for(const p of await fs.readdir(dir,{withFileTypes:true})){if(excluded.has(p.name))continue;const f=path.join(dir,p.name);if(p.isDirectory())await count(f);else if(p.isFile()&&!/\.(log|lock|tmp)$/.test(p.name)){try{bytes+=(await fs.stat(f)).size;files++;}catch(e){if(e.code!=='ENOENT')throw e;}}}}await count(project);
+  return{storageScope:"Native project files; browser profiles, runtime caches, logs, locks and temporary files excluded",workflows:workflows.length,executables:workflows.filter(w=>!w.qualification105).length,supervisors:workflows.filter(w=>w.qualification105).length,goals:goals.length,files,bytes,workflowStore:{bytes:b.length,sha256:sha(b)},limits:{workflows:20,goals:64,procedures:32,supervisors:16,versions:8,awakeSeconds:1200}};
  }
  async function checkedCopy(source,destination){
   assert(!sync.existsSync(destination),'Preserve earlier copies');const start=Date.now();await fs.cp(source,destination,{recursive:true});const files=[];
