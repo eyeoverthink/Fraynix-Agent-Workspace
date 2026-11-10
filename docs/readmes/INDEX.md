@@ -1,3 +1,5 @@
+[Edition106 — original refusals and numerical edges](../../README-106.md) · [Offline guide](106/index.html)
+
 [Edition 105 — automatic qualification](../../README-105.md) · [Offline guide](105/index.html)
 
 [Edition 104 — input-driven summaries](../../README-104.md) · [Offline guide](104/index.html)

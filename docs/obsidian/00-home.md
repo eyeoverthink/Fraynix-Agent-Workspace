@@ -1,3 +1,5 @@
+[[docs/obsidian/114-original-refusals.md|Edition106 — original refusals]]
+
 [[docs/obsidian/113-automatic-qualification.md|Edition 105 — automatic qualification]]
 
 [[docs/obsidian/112-input-driven-summaries.md|Edition 104 — input-driven summaries]]

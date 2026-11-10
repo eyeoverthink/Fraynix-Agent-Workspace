@@ -1,13 +1,13 @@
 # Fraynix Agent Workspace
 
-Edition 105 automates five qualification examples, verifies fresh selected data and retains the successful procedure. Java preserves progress across interruption and rechecks original evidence before reuse.
+Edition106 preserves the original Java refusal in chat without planner retries and tests fresh numerical boundaries through verified saved procedures.
 
-[Edition 105: functions, measurements and next steps](README-105.md) · [Interactive offline guide](docs/readmes/105/index.html) · [Previous edition](README-104.md) · [Contributor direction](README-CONTRIBUTORS.md)
+[Edition106: functions, evidence and next steps](README-106.md) · [Interactive offline guide](docs/readmes/106/index.html) · [Previous edition](README-105.md) · [Contributor direction](README-CONTRIBUTORS.md)
 
-15 actual requests completed; corrupted output and altered proof controls refused. Collection growth uses genuine published procedures at 0, 4 and 8 entries, with complete preparation and recovery costs retained.
+11 actual requests complete; three request refusals and five invalid imports behave as required. Existing source/outcome checks remain unchanged.
 
-![Automatic qualification](docs/readmes/105/qualified105-1-1600.png)
+![Original refusal after restart](docs/readmes/106/refusal106-cold.png)
 
-Java owns durable goals, tools, verification and memory. Chat, browser/canvas, spatial views and Game Lab remain integrated.
+Java owns durable goals, tools, verification, recovery and memory. Chat, browser/canvas, spatial views and Game Lab remain integrated.
 
-Published to main. [Fetched GitHub verification](docs/PUBLICATION_105.json).
+Publication receipt follows the actual main/tag push and fetched verification.
