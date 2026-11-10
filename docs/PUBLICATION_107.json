@@ -1,0 +1,430 @@
+{
+  "edition": 107,
+  "releaseCommit": "5058a6ca4d5b0165f1cb100c9679a4eba56b25d3",
+  "annotatedTag": "readme-107",
+  "tagObject": "ca692291a9f5611e20b7d0bf098a881be256449e",
+  "audit": {
+    "passed": true,
+    "verifiedAtUtc": "2026-11-10T18:41:29.431902+00:00",
+    "remote": "https://github.com/eyeoverthink/Fraynix-Agent-Workspace.git",
+    "fetchedRef": "refs/verify/edition107-main",
+    "remoteFetched": true,
+    "commit": "5058a6ca4d5b0165f1cb100c9679a4eba56b25d3",
+    "canonicalSourceFiles": 1380,
+    "editions": 107,
+    "frozenHashes": 33323,
+    "original107EvidenceFiles": 2178,
+    "distinctOriginalPayloads": 510,
+    "method": "Every enumerated blob read from the specified Git tree; remoteFetched identifies a fresh verification ref. Source byte counts and canonical UTF-8 LF/binary hashes checked. All frozen edition hashes checked. Each unique immutable Git archive blob is decompressed once; every logical original entry is compared to its verified compressed/raw byte counts and SHA-256. No mutable-file timestamp or runtime-proof shortcut."
+  },
+  "scope": "Actual non-force atomic main/edition107/tag push, fetched and audited from Git blobs. Explicit full refresh preserves original proof references and dependencies. Eight abrupt numerical recoveries retain exact report inputs and identities. Thirteen completions and two required source refusals. Two paired cold recheck/refresh repetitions at genuine bank1, every source/outcome check retained. Full preparation/caller/browser/restart/refusal costs. No content generation, selective migration or training claim. Parent/post-push CI separate.",
+  "analysis": {
+    "passed": true,
+    "source": "5afcbb4c381796c5a178ec4aad8c6022b06a3102",
+    "completedRequests": 13,
+    "requiredRefusals": 2,
+    "restarts": 8,
+    "requestMs": 245877,
+    "cohortWallMs": 302615,
+    "setupAndBetweenMs": 56738,
+    "pairs": [
+      {
+        "rep": "1",
+        "recheckMs": 9361,
+        "refreshMs": 36649,
+        "extraRefreshMs": 27288
+      },
+      {
+        "rep": "2",
+        "recheckMs": 9149,
+        "refreshMs": 36422,
+        "extraRefreshMs": 27273
+      }
+    ],
+    "results": [
+      {
+        "name": "qualified107-seed",
+        "kind": "preparation",
+        "outcome": "completed",
+        "reason": "Java completion gates passed",
+        "bankBefore": 0,
+        "totalMs": 32931,
+        "browserMs": 7392,
+        "restartMs": 0,
+        "otherMs": 25539,
+        "admissionMs": 5.1346,
+        "finalVerificationMs": 529.5108,
+        "createdExamples": 5,
+        "reusedExamples": 0
+      },
+      {
+        "name": "pair-1-recheck",
+        "kind": "recheck",
+        "outcome": "completed",
+        "reason": "Java completion gates passed",
+        "bankBefore": 1,
+        "totalMs": 9361,
+        "browserMs": 1226,
+        "restartMs": 0,
+        "otherMs": 8135,
+        "admissionMs": 387.2848,
+        "finalVerificationMs": 699.0835,
+        "createdExamples": 0,
+        "reusedExamples": 5
+      },
+      {
+        "name": "pair-1-refresh",
+        "kind": "refresh",
+        "outcome": "completed",
+        "reason": "Java completion gates passed",
+        "bankBefore": 1,
+        "totalMs": 36649,
+        "browserMs": 7382,
+        "restartMs": 0,
+        "otherMs": 29267,
+        "admissionMs": 375.3985,
+        "finalVerificationMs": 1186.5642,
+        "createdExamples": 5,
+        "reusedExamples": 0
+      },
+      {
+        "name": "pair-2-refresh",
+        "kind": "refresh",
+        "outcome": "completed",
+        "reason": "Java completion gates passed",
+        "bankBefore": 1,
+        "totalMs": 36422,
+        "browserMs": 7487,
+        "restartMs": 0,
+        "otherMs": 28935,
+        "admissionMs": 313.5747,
+        "finalVerificationMs": 1171.8751,
+        "createdExamples": 5,
+        "reusedExamples": 0
+      },
+      {
+        "name": "pair-2-recheck",
+        "kind": "recheck",
+        "outcome": "completed",
+        "reason": "Java completion gates passed",
+        "bankBefore": 1,
+        "totalMs": 9149,
+        "browserMs": 1250,
+        "restartMs": 0,
+        "otherMs": 7899,
+        "admissionMs": 318.883,
+        "finalVerificationMs": 691.9873,
+        "createdExamples": 0,
+        "reusedExamples": 5
+      },
+      {
+        "name": "mapped-inversion",
+        "kind": "numeric",
+        "outcome": "completed",
+        "reason": "Java completion gates passed",
+        "bankBefore": 1,
+        "totalMs": 14754,
+        "browserMs": 1155,
+        "restartMs": 3433,
+        "otherMs": 10166,
+        "admissionMs": null,
+        "finalVerificationMs": null,
+        "createdExamples": 0,
+        "reusedExamples": 0
+      },
+      {
+        "name": "tiny-scale",
+        "kind": "numeric",
+        "outcome": "completed",
+        "reason": "Java completion gates passed",
+        "bankBefore": 1,
+        "totalMs": 14538,
+        "browserMs": 1315,
+        "restartMs": 3211,
+        "otherMs": 10012,
+        "admissionMs": null,
+        "finalVerificationMs": null,
+        "createdExamples": 0,
+        "reusedExamples": 0
+      },
+      {
+        "name": "large-valid-scale",
+        "kind": "numeric",
+        "outcome": "completed",
+        "reason": "Java completion gates passed",
+        "bankBefore": 1,
+        "totalMs": 15138,
+        "browserMs": 1201,
+        "restartMs": 3425,
+        "otherMs": 10512,
+        "admissionMs": null,
+        "finalVerificationMs": null,
+        "createdExamples": 0,
+        "reusedExamples": 0
+      },
+      {
+        "name": "threshold-just-over",
+        "kind": "numeric",
+        "outcome": "completed",
+        "reason": "Java completion gates passed",
+        "bankBefore": 1,
+        "totalMs": 14788,
+        "browserMs": 1336,
+        "restartMs": 3238,
+        "otherMs": 10214,
+        "admissionMs": null,
+        "finalVerificationMs": null,
+        "createdExamples": 0,
+        "reusedExamples": 0
+      },
+      {
+        "name": "exponent-threshold",
+        "kind": "numeric",
+        "outcome": "completed",
+        "reason": "Java completion gates passed",
+        "bankBefore": 1,
+        "totalMs": 14705,
+        "browserMs": 1231,
+        "restartMs": 3610,
+        "otherMs": 9864,
+        "admissionMs": null,
+        "finalVerificationMs": null,
+        "createdExamples": 0,
+        "reusedExamples": 0
+      },
+      {
+        "name": "large-exponent-criterion",
+        "kind": "numeric",
+        "outcome": "completed",
+        "reason": "Java completion gates passed",
+        "bankBefore": 1,
+        "totalMs": 14532,
+        "browserMs": 1303,
+        "restartMs": 3334,
+        "otherMs": 9895,
+        "admissionMs": null,
+        "finalVerificationMs": null,
+        "createdExamples": 0,
+        "reusedExamples": 0
+      },
+      {
+        "name": "mapped-skipped-gap",
+        "kind": "numeric",
+        "outcome": "completed",
+        "reason": "Java completion gates passed",
+        "bankBefore": 1,
+        "totalMs": 15853,
+        "browserMs": 1274,
+        "restartMs": 3850,
+        "otherMs": 10729,
+        "admissionMs": null,
+        "finalVerificationMs": null,
+        "createdExamples": 0,
+        "reusedExamples": 0
+      },
+      {
+        "name": "negative-large-origin",
+        "kind": "numeric",
+        "outcome": "completed",
+        "reason": "Java completion gates passed",
+        "bankBefore": 1,
+        "totalMs": 15991,
+        "browserMs": 1331,
+        "restartMs": 3369,
+        "otherMs": 11291,
+        "admissionMs": null,
+        "finalVerificationMs": null,
+        "createdExamples": 0,
+        "reusedExamples": 0
+      },
+      {
+        "name": "altered-artifact107",
+        "kind": "source-refusal",
+        "outcome": "interrupted",
+        "reason": "Created artifact was changed outside its owned revision",
+        "bankBefore": 1,
+        "totalMs": 568,
+        "browserMs": 0,
+        "restartMs": 0,
+        "otherMs": 568,
+        "admissionMs": null,
+        "finalVerificationMs": null,
+        "createdExamples": 0,
+        "reusedExamples": 0
+      },
+      {
+        "name": "altered-dataset107",
+        "kind": "source-refusal",
+        "outcome": "interrupted",
+        "reason": "Original qualification dataset was revised",
+        "bankBefore": 1,
+        "totalMs": 498,
+        "browserMs": 0,
+        "restartMs": 0,
+        "otherMs": 498,
+        "admissionMs": null,
+        "finalVerificationMs": null,
+        "createdExamples": 0,
+        "reusedExamples": 0
+      }
+    ],
+    "scope": "Actual software examples, full fresh-source/outcome verification. Two paired cold repetitions at the same real bank1. Explicit current-code full refresh, not changed-implementation selective refresh. All preparation, failed admissions and restart costs retained. Qualification-only timing fields are null for other workflows/refused admission, not measured zero. No causal speedup or training claim.",
+    "refusals": [
+      {
+        "name": "original CSV",
+        "refused": true
+      },
+      {
+        "name": "mapping",
+        "refused": true
+      },
+      {
+        "name": "summary",
+        "refused": true
+      },
+      {
+        "name": "point",
+        "refused": true
+      },
+      {
+        "name": "filter",
+        "refused": true
+      },
+      {
+        "name": "quality",
+        "refused": true
+      },
+      {
+        "name": "browser receipt",
+        "refused": true
+      },
+      {
+        "name": "native cost",
+        "refused": true
+      },
+      {
+        "name": "caller cost",
+        "refused": true
+      },
+      {
+        "name": "restart cost",
+        "refused": true
+      },
+      {
+        "name": "restart child",
+        "refused": true
+      },
+      {
+        "name": "reserved bytes",
+        "refused": true
+      },
+      {
+        "name": "artifact revision",
+        "refused": true
+      },
+      {
+        "name": "source identity",
+        "refused": true
+      },
+      {
+        "name": "mode",
+        "refused": true
+      },
+      {
+        "name": "manifest",
+        "refused": true
+      },
+      {
+        "name": "dependency",
+        "refused": true
+      },
+      {
+        "name": "baseline proof",
+        "refused": true
+      },
+      {
+        "name": "old proof omitted",
+        "refused": true
+      },
+      {
+        "name": "fresh count",
+        "refused": true
+      },
+      {
+        "name": "recheck count",
+        "refused": true
+      },
+      {
+        "name": "padded skill",
+        "refused": true
+      },
+      {
+        "name": "code lineage",
+        "refused": true
+      },
+      {
+        "name": "changed renderer",
+        "refused": true
+      },
+      {
+        "name": "planner retry",
+        "refused": true
+      },
+      {
+        "name": "original refusal",
+        "refused": true
+      },
+      {
+        "name": "resume refusal",
+        "refused": true
+      },
+      {
+        "name": "missing source revision",
+        "refused": true
+      },
+      {
+        "name": "generation",
+        "refused": true
+      },
+      {
+        "name": "completion",
+        "refused": true
+      }
+    ]
+  },
+  "releaseCI": {
+    "checkedAtUtc": "2026-11-10T18:40:23.313Z",
+    "release": "5058a6ca4d5b0165f1cb100c9679a4eba56b25d3",
+    "runs": [
+      {
+        "id": 42877472936,
+        "head": "5058a6ca4d5b0165f1cb100c9679a4eba56b25d3",
+        "status": "in_progress",
+        "conclusion": null,
+        "url": "https://github.com/eyeoverthink/Fraynix-Agent-Workspace/actions/runs/42877472936"
+      },
+      {
+        "id": 42865049989,
+        "head": "44171eb7399dbb2b27ef5f2a4b827d75ca59e639",
+        "status": "in_progress",
+        "conclusion": null,
+        "url": "https://github.com/eyeoverthink/Fraynix-Agent-Workspace/actions/runs/42865049989"
+      },
+      {
+        "id": 42864658054,
+        "head": "6b4967d4a64a2e9dd025ab5b5589bc839bcff9f9",
+        "status": "in_progress",
+        "conclusion": null,
+        "url": "https://github.com/eyeoverthink/Fraynix-Agent-Workspace/actions/runs/42864658054"
+      },
+      {
+        "id": 42770563726,
+        "head": "16feb55f7c7439b5d284817ae68682a198cd66b2",
+        "status": "completed",
+        "conclusion": "success",
+        "url": "https://github.com/eyeoverthink/Fraynix-Agent-Workspace/actions/runs/42770563726"
+      }
+    ],
+    "scope": "Observed remote CI after the actual release push. In-progress or queued runs are not passed. Local validation and fetched publication audit are separate."
+  }
+}

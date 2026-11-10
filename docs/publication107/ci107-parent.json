@@ -1,0 +1,139 @@
+{
+  "checkedAtUtc": "2026-11-10T17:55:28.726Z",
+  "runs": [
+    {
+      "id": 42865049989,
+      "head": "44171eb7399dbb2b27ef5f2a4b827d75ca59e639",
+      "status": "in_progress",
+      "conclusion": null,
+      "url": "https://github.com/eyeoverthink/Fraynix-Agent-Workspace/actions/runs/42865049989"
+    },
+    {
+      "id": 42864658054,
+      "head": "6b4967d4a64a2e9dd025ab5b5589bc839bcff9f9",
+      "status": "in_progress",
+      "conclusion": null,
+      "url": "https://github.com/eyeoverthink/Fraynix-Agent-Workspace/actions/runs/42864658054"
+    },
+    {
+      "id": 42770563726,
+      "head": "16feb55f7c7439b5d284817ae68682a198cd66b2",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/eyeoverthink/Fraynix-Agent-Workspace/actions/runs/42770563726"
+    }
+  ],
+  "jobs": [
+    {
+      "name": "windows",
+      "status": "in_progress",
+      "conclusion": null,
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-11-10T17:26:59Z",
+          "completed_at": "2026-11-10T17:27:01Z"
+        },
+        {
+          "name": "Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-11-10T17:27:01Z",
+          "completed_at": "2026-11-10T17:34:41Z"
+        },
+        {
+          "name": "Run actions/setup-java@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-11-10T17:34:41Z",
+          "completed_at": "2026-11-10T17:34:42Z"
+        },
+        {
+          "name": "Run gradle/actions/setup-gradle@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-11-10T17:34:42Z",
+          "completed_at": "2026-11-10T17:34:54Z"
+        },
+        {
+          "name": "Provision software OpenGL for native tests",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-11-10T17:34:54Z",
+          "completed_at": "2026-11-10T17:35:02Z"
+        },
+        {
+          "name": "Verify README editions, maps and links",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-11-10T17:35:02Z",
+          "completed_at": "2026-11-10T17:42:34Z"
+        },
+        {
+          "name": "Compile, test and package",
+          "status": "in_progress",
+          "conclusion": null,
+          "number": 7,
+          "started_at": "2026-11-10T17:42:34Z",
+          "completed_at": null
+        },
+        {
+          "name": "Run actions/upload-artifact@v4",
+          "status": "pending",
+          "conclusion": null,
+          "number": 8,
+          "started_at": null,
+          "completed_at": null
+        },
+        {
+          "name": "Run actions/upload-artifact@v4",
+          "status": "pending",
+          "conclusion": null,
+          "number": 9,
+          "started_at": null,
+          "completed_at": null
+        },
+        {
+          "name": "Post Run gradle/actions/setup-gradle@v4",
+          "status": "pending",
+          "conclusion": null,
+          "number": 16,
+          "started_at": null,
+          "completed_at": null
+        },
+        {
+          "name": "Post Run actions/setup-java@v4",
+          "status": "pending",
+          "conclusion": null,
+          "number": 17,
+          "started_at": null,
+          "completed_at": null
+        },
+        {
+          "name": "Post Run actions/checkout@v4",
+          "status": "pending",
+          "conclusion": null,
+          "number": 18,
+          "started_at": null,
+          "completed_at": null
+        }
+      ]
+    }
+  ],
+  "scope": "Checked before edition107 work. Edition106 documentation passed; build/test/package in progress, not reported as passed.",
+  "laterCheck": {
+    "checkedAtUtc": "2026-11-10T18:25:16.036Z",
+    "id": 42865049989,
+    "status": "in_progress",
+    "conclusion": null,
+    "url": "https://github.com/eyeoverthink/Fraynix-Agent-Workspace/actions/runs/42865049989"
+  }
+}

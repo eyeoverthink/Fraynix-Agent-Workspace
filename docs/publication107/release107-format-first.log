@@ -1,0 +1,18 @@
+From https://github.com/eyeoverthink/Fraynix-Agent-Workspace
+ * branch              main       -> FETCH_HEAD
+Current inputs and installed artifacts match the study build receipt
+warning: in the working copy of 'docs/readmes/editions.json', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'scripts/Document-Restart107.py', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'scripts/Inspect-Restart107.cjs', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'scripts/restart107-guide.html', CRLF will be replaced by LF the next time Git touches it
+scripts/Document-Restart107.py:181: new blank line at EOF.
+Traceback (most recent call last):
+  File "S:\Codex-Work\fraynix-workspace-edition107\build\release107.py", line 13, in <module>
+    run('git','add',*files);run('git','add','-f','docs/readmes/107/original');run('git','diff','--cached','--check')
+                                                                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "S:\Codex-Work\fraynix-workspace-edition107\build\release107.py", line 4, in run
+    def run(*a,**kw):return subprocess.run(a,check=True,**kw)
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\eyeka\AppData\Local\Programs\Python\Python312\Lib\subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '('git', 'diff', '--cached', '--check')' returned non-zero exit status 2.
