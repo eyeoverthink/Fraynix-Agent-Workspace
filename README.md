@@ -8,4 +8,4 @@ Java owns durable goals, tools, verification and memory. The browser displays ac
 
 ![Qualified input-driven summary](docs/readmes/104/heldout37-saved-1600.png)
 
-Publication receipt follows the actual main/tag push and fetched verification.
+Published to main. [Fetched GitHub verification](docs/PUBLICATION_104.json).
