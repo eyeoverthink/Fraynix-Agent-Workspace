@@ -1,3 +1,13 @@
+## Edition105 — recovery admission corrected; final validation running
+
+2026-11-09 22:23 PST. Initial source52f69da4 cohort build/qualification105 has14 completed requests and one FAILED abrupt recovery: host resume gate recognized parent only, while its interrupted child held reservation. All original files remain untouched; build/preliminary105 retains original build/test receipt. Independent preliminary inspection passes and six altered-record refusals pass; failed request26.608s, total preliminary cohort321.620s. No final success claimed.
+
+WorkspaceServer.resumeOwner105 now recognizes only the exact interrupted qualification child; non-interrupted native workflows retain the ordinary no-exemption busy check. Foreign child refused. Nine105 tests now (102total focused). Final regression/install session94547, build/java105-final.log; no cohort currently running. Next: verify all102, commit fixed source, stamp build; run SAME full17-request cohort fresh with EDITION105_OUTPUT=build/qualification105-final and log build/qualification105-final.log. Never overwrite preliminary. Then independent inspector defaults final+preliminary, expect28final+6prior refusals. Document-Qualification105.py prepared for final path and original failure retention. Need actual screenshots/review, docs/guide/freeze/source audits and non-force main/edition105/readme105 push/fetch. NO105 push yet. Parent104 CI still compile/test/package in progress, docs passed. No delegation; heavy work serial, preserve private live worlds and frozen001–104.
+
+## Edition105 — measured cohort running
+
+2026-11-09 22:04 PST. Runtime source52f69da4, installed build receipt build/study095-build.json. 101 focused Java methods,148 desktop checks and23 actual browser controls pass; five verifier class/resource identities unchanged. Serial cohort session1494, build/qualification105.log, build/qualification105/result.json. Do not change production runtime or rebuild during measurement. Explicit five-case qualification, genuine bank0/4/8 growth, cold probes, abrupt recovery and refused controls. Preserve all trial originals. New doc/inspection scripts prepared but not yet validated/published. No105 remote push yet; parent104 CI still running. No delegation.
+
 ## Edition105 — in progress
 
 Work only in S:/Codex-Work/fraynix-workspace-edition105; parent main59d68df1. Read docs/EDITION_105_CONTRACT.md. No delegation; heavy work serial. Preserve private worlds, old worktrees and frozen001–104. Automate explicitly labelled qualification through existing104 child workflows; no bypass of source/outcome checks. Measure full caller costs at growing, genuinely published skill counts. Parent104 CI is still in progress, not passed.

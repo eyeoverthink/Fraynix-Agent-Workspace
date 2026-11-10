@@ -643,7 +643,17 @@ public final class WorkspaceServer implements AutoCloseable {
         return agency.start(input);
     }
     private boolean sharedBusy043(){return sharedBusy043("");}
-    private boolean resumeBusy101(String taskId){try{String owner=agency.resumeWorkflow101(taskId);if(!owner.isEmpty()&&workflows.read(owner).getString("status").equals("interrupted"))return sharedBusy043(owner);return sharedBusy043();}catch(Exception e){return true;}}
+    static String resumeOwner105(JSONObject workflow){
+        // Completed/native-running workflows retain the ordinary busy check with no reservation exemption.
+        if(!workflow.getString("status").equals("interrupted"))return "";
+        String owner=workflow.getString("id");var child=workflow.optJSONObject("activeWorkflow105");
+        if(workflow.has("qualification105")&&child!=null&&!Set.of("completed","cancelled").contains(child.getString("status"))){
+            if(!owner.equals(child.optString("qualificationOwner105")))throw new IllegalStateException("Qualification resume child has a different owner");
+            return child.getString("id");
+        }
+        return owner;
+    }
+    private boolean resumeBusy101(String taskId){try{String owner=agency.resumeWorkflow101(taskId);if(!owner.isEmpty())return sharedBusy043(resumeOwner105(workflows.read(owner)));return sharedBusy043();}catch(Exception e){return true;}}
     private boolean sharedBusy043(String resumeOwner){try{return knowledge.state().getJSONArray("jobs").toList().stream().anyMatch(raw->"running".equals(((java.util.Map<?,?>)raw).get("status")))||(resumeOwner.isEmpty()?goals.busy():goals.busyExceptWorkflow101(resumeOwner))||memory074.busy()||memory075.busy()||procedures076.busy()||procedures077.busy()||procedures078.busy()||brain.state().getBoolean("busy")||!workflowsIdle042()||requests.keySet().stream().anyMatch(id->!durableRequests043.contains(id));}catch(Exception e){return true;}}
     // The authenticated interface may continue an already-started observation. Native stores
     // still require the exact running id, camera/generation, sequence and original pixel hash.

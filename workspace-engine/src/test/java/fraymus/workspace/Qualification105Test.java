@@ -60,4 +60,17 @@ public class Qualification105Test {
         assertEquals("workflow",ChatPolicy044.route("Qualify the input-driven summary and save workflow as qualified-report",new JSONObject(),false));
         try(var f=new WorkflowTest.Fixture(Files.createTempDirectory("qualification105-chat"))){var g=Domain044Test.task("workflow").put("goal","Qualify the input-driven summary, analyze selected data and save workflow as qualified-report").put("bindings044",new JSONObject().put("dataset",new JSONObject().put("datasetId","selected").put("version",1))).put("options044",new JSONObject());var a=Domain044Test.domain(f.artifacts).bootstrap(g).getJSONObject("args");assertTrue(a.getBoolean("qualify105"));assertEquals("qualified-report",a.getString("saveSkillName"));assertEquals(DataSummary104.KIND,a.getString("profile101"));assertEquals("selected",a.getString("datasetId"));}
     }
+    @Test public void hostResumeRecognizesOnlyTheInterruptedParentsActualChildReservation()throws Exception{
+        Path root=Files.createTempDirectory("qualification105-host-resume");String id;
+        try(var f=new WorkflowTest.Fixture(root)){id=start(f,"host-resume").getString("id");drive(f,id,w->w.has("activeWorkflow105"),false);}
+        try(var f=new WorkflowTest.Fixture(root)){
+            var w=f.workflows.read(id);assertEquals("interrupted",w.getString("status"));String child=w.getJSONObject("activeWorkflow105").getString("id");
+            assertTrue(f.goals.busyExceptWorkflow101(id));assertEquals(child,WorkspaceServer.resumeOwner105(w));assertFalse(f.goals.busyExceptWorkflow101(WorkspaceServer.resumeOwner105(w)));
+            var forged=WorldFrames.copy(w);forged.getJSONObject("activeWorkflow105").put("qualificationOwner105",UUID.randomUUID().toString());assertThrows(IllegalStateException.class,()->WorkspaceServer.resumeOwner105(forged));
+            assertEquals("",WorkspaceServer.resumeOwner105(WorldFrames.copy(w).put("status","running")));
+            assertEquals("",WorkspaceServer.resumeOwner105(WorldFrames.copy(w).put("status","completed")));
+            assertEquals(id,WorkspaceServer.resumeOwner105(new JSONObject().put("id",id).put("status","interrupted")));
+            f.workflows.cancel(id);assertFalse(f.goals.busy());
+        }
+    }
 }
