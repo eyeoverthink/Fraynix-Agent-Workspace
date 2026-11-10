@@ -1,3 +1,7 @@
+## Edition109 - in progress
+
+2026-11-10. Isolated S:/Codex-Work/fraynix-workspace-edition109; parent 028e2451. Read docs/EDITION_109_CONTRACT.md. CI checked first: documentation passed, build/test/package running. Measure genuine growth to the first capacity ceiling with unchanged runtime and all original checks. Declared36 requests:30 completions, six refusals, one abrupt recovery. No padding or relaxed limits. Preserve private worlds and frozen001-108; no delegation; heavy work sequential. Publication pending actual push/fetch.
+
 ## Edition108 - published and fetched back
 
 Published release 0f9a399285bb071ca72d2fb55543b5448261dbdc; annotated readme-108 tag object 76fb8008e083d740b6899437b1cd4f62fd2099f6. Actual main/edition108/tag push fetched and verified: 1388 canonical sources, 34186 frozen hashes across108 editions and 3464 logical original archive entries. 126 distinct Java checks plus22 final affected rechecks,148 desktop checks,23 browser controls and28 altered-record refusals pass. Twelve actual expectations pass: seven completions including two abrupt recoveries and five required refusals. Prior recorder-boundary refusal and full331.632s costs retained separately; corrected fresh trial passes declared boundaries. Two cold clean/upgrade pairs retain all costs. Every original source/outcome gate retained. Actual images reviewed at1600/1100; guide at1440/390. Preserve private worlds and frozen editions; no delegation. [Publication receipt](docs/PUBLICATION_108.json).
