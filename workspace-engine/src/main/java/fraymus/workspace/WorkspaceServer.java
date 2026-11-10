@@ -268,6 +268,10 @@ public final class WorkspaceServer implements AutoCloseable {
                 }
                 if(route.equals("/api/plan")){send(exchange,200,plan(input));return;}
                 if(route.startsWith("/api/workflows/")){
+                    if(route.equals("/api/workflows/child-history")){SpatialScene.keys(input);send(exchange,200,workflows.childHistory111());return;}
+                    if(route.equals("/api/workflows/child-read")){SpatialScene.keys(input,"id");send(exchange,200,workflows.readChild111(input.getString("id")));return;}
+                    if(route.equals("/api/workflows/verify-child")){SpatialScene.keys(input,"id");send(exchange,200,workflows.verifyChild111(input.getString("id")));return;}
+                    if(route.equals("/api/workflows/archive-children")){if(agency.busy()||sharedBusy043()||observations.busy()||tabletop.busy()||alignment041.busy())throw new IllegalStateException("Finish active work before archiving child goals");send(exchange,200,workflows.archiveChildren111(input));return;}
                     if(route.equals("/api/workflows/history")){SpatialScene.keys(input);send(exchange,200,workflows.history110());return;}
                     if(route.equals("/api/workflows/verify-archive")){SpatialScene.keys(input,"id");send(exchange,200,workflows.verifyArchive110(input.getString("id")));return;}
                     if(route.equals("/api/workflows/archive")){if(agency.busy()||sharedBusy043()||observations.busy()||tabletop.busy()||alignment041.busy())throw new IllegalStateException("Finish active work before archiving history");send(exchange,200,workflows.archive110(input));return;}

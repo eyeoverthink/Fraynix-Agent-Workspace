@@ -180,7 +180,7 @@ public final class WorkflowRunner implements AutoCloseable {
         if(parent.has("qualificationOwner105")&&!raw(parent.getString("qualificationOwner105")).getJSONObject("qualification105").getString("codeSha256").equals(Qualification105.code()))throw new IllegalStateException("Saved procedure qualification uses earlier coordination code; explicitly request upgrade summary qualification before reuse");
         if(parent.has("qualificationOwner105"))checked108(raw(parent.getString("qualificationOwner105")));
         if(!dataCreation101(parent)||!parent.getString("status").equals("completed")||!parent.has("savedSkill")||!parent.getJSONObject("savedSkill").getString("id").equals(chosen.getString("id")))throw new IllegalStateException("Procedure lacks a completed published parent");
-        verified101(parent);var expected=procedure103(parent);for(String k:expected.keySet())if(!k.equals("publication101")&&!new JSONObject().put("v",expected.get(k)).similar(new JSONObject().put("v",chosen.get(k))))throw new IllegalStateException("Original whole-procedure contract changed");
+        if(parent.has("implementation103"))Implementation103.current(parent.getJSONObject("implementation103"));verified101(parent);var expected=procedure103(parent);for(String k:expected.keySet())if(!k.equals("publication101")&&!new JSONObject().put("v",expected.get(k)).similar(new JSONObject().put("v",chosen.get(k))))throw new IllegalStateException("Original whole-procedure contract changed");
         var args=WorldFrames.copy(chosen.getJSONObject("defaults"));for(String k:input.keySet())if(!Set.of("name","version","reuseImplementation103").contains(k))args.put(k,input.get(k));args.put("saveSkillName",input.optString("saveSkillName",""));
         JSONObject implementation=null;if(input.optBoolean("reuseImplementation103")){var child=verifiedStage(parent,1);implementation=Implementation103.binding(parent,child,artifacts.read(child.getJSONObject("report").getString("id")));}
         return start(args,chosen,implementation);
@@ -190,10 +190,10 @@ public final class WorkflowRunner implements AutoCloseable {
     private void verifyImplementation103(JSONObject w) throws Exception {
         if(checkingImplementations103.size()>=8||!checkingImplementations103.add(w.getString("id")))throw new IllegalStateException("Implementation ancestry is cyclic or exceeds eight links");
         try{
-            var binding=w.getJSONObject("implementation103");Implementation103.current(binding);var parent=raw(binding.getString("sourceWorkflowId"));
+            var binding=w.getJSONObject("implementation103");boolean historical=Qualification111.historicalProtocol(binding,w);if(!historical)Implementation103.current(binding);var parent=raw(binding.getString("sourceWorkflowId"));
             if(parent.has("qualificationOwner105"))checked108(raw(parent.getString("qualificationOwner105")));
             if(!parent.getString("status").equals("completed")||!parent.has("savedSkill"))throw new IllegalStateException("Implementation parent is not a published completion");
-            verified101(parent);var child=verifiedStage(parent,1);var expected=Implementation103.binding(parent,child,artifacts.read(child.getJSONObject("report").getString("id")));
+            verified101(parent);var child=verifiedStage(parent,1);var expected=Implementation103.binding(parent,child,artifacts.read(child.getJSONObject("report").getString("id")));if(historical)expected.put("codeSha256",binding.getString("codeSha256"));
             if(!binding.similar(expected)||!binding.getJSONObject("skill").similar(w.getJSONObject("skill"))||!binding.getString("profile").equals(w.getString("profile101")))throw new IllegalStateException("Frozen implementation lineage changed");
             var skill=goals.procedures().toList().stream().map(x->new JSONObject((Map<?,?>)x)).filter(p->p.getString("id").equals(parent.getJSONObject("savedSkill").getString("id"))).findFirst().orElseThrow(()->new IllegalStateException("Original published skill missing"));
             for(String k:procedure103(parent).keySet())if(!k.equals("publication101")&&!new JSONObject().put("v",procedure103(parent).get(k)).similar(new JSONObject().put("v",skill.get(k))))throw new IllegalStateException("Original procedure contract changed");
@@ -258,7 +258,7 @@ public final class WorkflowRunner implements AutoCloseable {
         var historical=values().stream().filter(w->Qualification105.own(w)&&w.getString("status").equals("completed")&&!w.getJSONObject("qualification105").getString("codeSha256").equals(Qualification105.code())).sorted(Comparator.comparing((JSONObject w)->w.getString("updatedAt")).reversed()).toList();
         boolean current=values().stream().anyMatch(w->Qualification105.own(w)&&w.getString("status").equals("completed")&&w.getJSONObject("qualification105").getString("codeSha256").equals(Qualification105.code()));
         JSONObject transition108=null;
-        if(transition){if(historical.isEmpty())throw new IllegalStateException("No completed earlier qualification exists to upgrade");var original=historical.getFirst();transition108=Qualification108.manifest(original,original108(original));}
+        if(transition){if(historical.isEmpty())throw new IllegalStateException("No completed earlier qualification exists to upgrade");var original=historical.getFirst();transition108=Qualification111.supported(original)?Qualification111.manifest(original,original111(original)):Qualification108.manifest(original,original108(original));}
         else if(!historical.isEmpty()&&!current)throw new IllegalStateException("Qualification dependencies changed; explicitly request upgrade summary qualification before reuse");
         for(var example:Qualification105.cases()){
             if(selected.getString("sourceSha256").equals(MeasurementStore.hash(example.getJSONObject("input").getString("csv")))&&selected.getJSONObject("mapping").similar(example.getJSONObject("input").getJSONObject("mapping")))throw new IllegalArgumentException("Select a source distinct from the generated qualification examples");
@@ -273,11 +273,12 @@ public final class WorkflowRunner implements AutoCloseable {
         stages.put(new JSONObject().put("name","selected-data").put("status","pending").put("reused",false));
         var q=new JSONObject().put("schema",Qualification105.KIND).put("codeSha256",Qualification105.code()).put("definitionSha256",WorldFrames.hash(def)).put("bankBefore",bank.length()).put("missingExamples",missing).put("reviewAfterExamples",review).put("sourceKind","synthetic software qualification; selected source retains its own provenance");
         var maintenance107=Qualification107.manifest(refresh,baseline107);q.put("maintenance107",maintenance107).put("maintenanceSha256",WorldFrames.hash(maintenance107));
-        if(transition108!=null)q.put(Qualification108.KEY,transition108).put("transitionSha256",WorldFrames.hash(transition108));
+        if(transition108!=null)q.put(transition108.getString("schema").equals(Qualification111.SCHEMA)?Qualification111.KEY:Qualification108.KEY,transition108).put("transitionSha256",WorldFrames.hash(transition108));
         var w=new JSONObject().put("id",UUID.randomUUID().toString()).put("qualification105",q).put("definition",def).put("dataBinding",MotionData.binding(selected)).put("title","Qualify and save motion summary").put("request",def.getString("request")).put("modelName",def.getString("modelName")).put("status","running").put("step","qualification:monotonic").put("stageIndex",0).put("stages",stages).put("resumes",0).put("remainingMs105",1_200_000L).put("createdAt",Instant.ofEpochMilli(wall)).put("history",new JSONArray()).put("cost105",new JSONObject().put("admittedAtMillis",wall).put("admissionNanos",Long.toString(System.nanoTime()-begin)).put("scope","Admission/final verification use monotonic time; phase wall intervals include interruption and explicit review. External caller timing includes chat/bootstrap and polling."));
         goals.reserveWorkflow(w.getString("id"));try{change(w,"Five labelled qualification examples and selected-source intent frozen; matching proofs will be rechecked");qualificationClocks105.put(w.getString("id"),System.nanoTime());}catch(Exception e){goals.releaseWorkflow(w.getString("id"));throw e;}return view(w);
     }
     private void source105(JSONObject w){
+        if(w.getJSONObject("qualification105").has(Qualification111.KEY))Qualification111.verify(w.getJSONObject("qualification105"));
         if(w.getJSONObject("qualification105").has(Qualification108.KEY))Qualification108.verify(w.getJSONObject("qualification105"));
         var q=w.getJSONObject("qualification105");Qualification107.verify(q);if(!q.getString("codeSha256").equals(Qualification105.code())||!q.getString("definitionSha256").equals(WorldFrames.hash(w.getJSONObject("definition"))))throw new IllegalStateException("Qualification supervisor or selected-source intent changed");
         var d=w.getJSONObject("definition");var data=measurements.read(d.getString("datasetId"),d.getInt("datasetVersion"));if(!MotionData.binding(data).similar(w.getJSONObject("dataBinding")))throw new IllegalStateException("Selected source or mapping changed during qualification");MotionData.originalRows(data);
@@ -295,6 +296,7 @@ public final class WorkflowRunner implements AutoCloseable {
         return qualificationProof104(candidate);
     }
     private JSONArray original108(JSONObject parent)throws Exception{
+        if(Qualification111.supported(parent))return original111(parent);
         var m=Qualification108.original(parent);var q=parent.getJSONObject("qualification105");if(q.has(Qualification108.KEY))throw new IllegalStateException("Chained runtime transitions require separate review; originals retained");
         if(!q.getString("schema").equals(Qualification105.KIND)||parent.getJSONArray("stages").length()!=6||!stage(parent,5).getString("name").equals("selected-data")||!stage(parent,5).getString("status").equals("completed"))throw new IllegalStateException("Original qualification structure changed");
         String oldCode=q.getString("codeSha256");var proofs=new JSONArray();var names=new HashSet<String>();
@@ -309,7 +311,35 @@ public final class WorkflowRunner implements AutoCloseable {
         var ref=selected.getJSONObject("savedSkill");var saved=goals.procedures().toList().stream().map(x->new JSONObject((Map<?,?>)x)).filter(p->p.getString("id").equals(ref.getString("id"))).findFirst().orElseThrow(()->new IllegalStateException("Original published procedure missing"));
         var expected=procedure103(selected);if(!saved.optString("publication101").equals("published"))throw new IllegalStateException("Original procedure not published");for(String k:expected.keySet())if(!k.equals("publication101")&&!new JSONObject().put("v",expected.get(k)).similar(new JSONObject().put("v",saved.get(k))))throw new IllegalStateException("Original procedure contract changed");return proofs;
     }
+    private final Set<String> checkingHistory111=new HashSet<>();
+    private void historicalLink111(JSONObject parent,JSONObject maintenance)throws Exception{
+        var q=parent.getJSONObject("qualification105");if(q.has(Qualification111.KEY))throw new IllegalStateException("Unreviewed historical111 transition");if(!q.has(Qualification108.KEY))return;
+        var t=q.getJSONObject(Qualification108.KEY);SpatialScene.keys(t,"schema","codeSha256","fromWorkflowId","fromRecordSha256","fromDependencies","toDependencies","changes","originalProofs","policy");
+        var source=raw(t.getString("fromWorkflowId"));var before=Qualification111.original(source);var proofs=original111(source);
+        if(!Qualification108.SCHEMA.equals(t.getString("schema"))||!Qualification108.code().equals(t.getString("codeSha256"))||!q.getString("transitionSha256").equals(WorldFrames.hash(t))||!WorldFrames.hash(source).equals(t.getString("fromRecordSha256"))||!before.getJSONObject("dependencies").similar(t.getJSONObject("fromDependencies"))||!maintenance.getJSONObject("dependencies").similar(t.getJSONObject("toDependencies"))||!Qualification111.changes(t.getJSONObject("fromDependencies"),t.getJSONObject("toDependencies")).similar(t.getJSONArray("changes"))||t.getJSONArray("changes").length()!=2||!proofs.similar(t.getJSONArray("originalProofs"))||!t.getString("policy").equals("Verify originals; execute all five fresh cases; never relabel old evidence")||!maintenance.getString("mode").equals("refresh"))throw new IllegalStateException("Original108 historical transition changed");
+        for(Object item:t.getJSONArray("changes"))if(!Set.of("WorkflowRunner","suite105").contains(((JSONObject)item).getString("name")))throw new IllegalStateException("Unsupported historical108 change");
+    }
+    private JSONArray original111(JSONObject parent)throws Exception{
+        if(checkingHistory111.size()>=8||!checkingHistory111.add(parent.getString("id")))throw new IllegalStateException("Historical qualification lineage is cyclic or too deep");
+        try{var m=Qualification111.original(parent);var q=parent.getJSONObject("qualification105");historicalLink111(parent,m);
+        if(!q.getString("schema").equals(Qualification105.KIND)||parent.getJSONArray("stages").length()!=6||!stage(parent,5).getString("name").equals("selected-data")||!stage(parent,5).getString("status").equals("completed"))throw new IllegalStateException("Original qualification structure changed");
+        String oldCode=q.getString("codeSha256");var proofs=new JSONArray();var names=new HashSet<String>();
+        for(int i=0;i<5;i++){var s=stage(parent,i);String name=s.getString("name");if(!names.add(name)||!s.getString("status").equals("completed")||!Qualification108.oldBinding(name,oldCode).similar(s.getJSONObject("case105")))throw new IllegalStateException("Original qualification stage changed");
+            var proof=oldProof108(raw(s.getString("workflowId")),name,oldCode);if(!proof.similar(s.getJSONObject("proof")))throw new IllegalStateException("Original qualification proof changed");proofs.put(proof);
+        }
+        var baselineNames=new HashSet<String>();for(Object row:m.getJSONArray("baseline")){var b=(JSONObject)row;SpatialScene.keys(b,"name","workflowId","proof");if(!baselineNames.add(b.getString("name"))||!b.getJSONObject("proof").similar(oldProof108(raw(b.getString("workflowId")),b.getString("name"),oldCode)))throw new IllegalStateException("Original maintenance baseline proof changed");}
+        var audit=parent.getJSONObject("audit");if(!audit.getString("proofsSha256").equals(WorldFrames.hash(new JSONObject().put("proofs",proofs))))throw new IllegalStateException("Original qualification audit changed");
+        var selected=raw(stage(parent,5).getString("workflowId"));var checked=verified101(selected);verifyQualification104(selected);
+        if(!parent.getJSONObject("definition").similar(selected.getJSONObject("definition"))||!parent.getJSONObject("dataBinding").similar(selected.getJSONObject("dataBinding"))||!selected.getString("qualificationOwner105").equals(parent.getString("id")))throw new IllegalStateException("Original selected-source handoff changed");
+        if(!selected.getString("status").equals("completed")||selected.has("pendingSkill101")||!audit.getString("selectedWorkflowId").equals(selected.getString("id"))||!audit.getString("selectedAuditSha256").equals(WorldFrames.hash(checked))||!parent.getJSONObject("savedSkill").similar(selected.getJSONObject("savedSkill"))||!parent.getJSONObject("report").similar(selected.getJSONObject("report")))throw new IllegalStateException("Original selected-source publication changed");
+        var ref=selected.getJSONObject("savedSkill");var saved=goals.procedures().toList().stream().map(x->new JSONObject((Map<?,?>)x)).filter(p->p.getString("id").equals(ref.getString("id"))).findFirst().orElseThrow(()->new IllegalStateException("Original published procedure missing"));
+        var expected=procedure103(selected);if(!saved.optString("publication101").equals("published"))throw new IllegalStateException("Original procedure not published");for(String k:expected.keySet())if(!k.equals("publication101")&&!new JSONObject().put("v",expected.get(k)).similar(new JSONObject().put("v",saved.get(k))))throw new IllegalStateException("Original procedure contract changed");return proofs;
+        }finally{checkingHistory111.remove(parent.getString("id"));}
+    }
     private void checked108(JSONObject w)throws Exception{
+        if(w.getString("status").equals("completed")&&Qualification111.supported(w)){original111(w);return;}
+        if(w.getJSONObject("qualification105").has(Qualification111.KEY)){var q=w.getJSONObject("qualification105");Qualification111.verify(q);var t=q.getJSONObject(Qualification111.KEY);var parent=raw(t.getString("fromWorkflowId"));if(!t.similar(Qualification111.manifest(parent,original111(parent))))throw new IllegalStateException("Original111 qualification history changed");return;}
+
         var q=w.getJSONObject("qualification105");if(!q.has(Qualification108.KEY))return;Qualification108.verify(q);var t=q.getJSONObject(Qualification108.KEY);var parent=raw(t.getString("fromWorkflowId"));
         if(!WorldFrames.hash(parent).equals(t.getString("fromRecordSha256"))||!t.similar(Qualification108.manifest(parent,original108(parent))))throw new IllegalStateException("Original qualification transition record changed");
     }
@@ -550,6 +580,21 @@ public final class WorkflowRunner implements AutoCloseable {
         // Until this single atomic commit, original active payloads remain authoritative, even after a crash.
         var after=tx.stage(schemas);checkpoint.save(after,schemas);world.restore(after);
         return history110().put("archivedNow",refs).put("archiveNanos",Long.toString(System.nanoTime()-start)).put("previousPlanSha256",input.getString("planSha256"));
+    }
+    public synchronized JSONObject childHistory111(){
+        var h=goals.history111();int eligible=0;for(Object item:h.getJSONArray("records")){var row=(JSONObject)item;if(!row.getBoolean("eligible"))continue;JSONObject owner;try{owner=raw(row.getString("workflowId"));}catch(IllegalArgumentException e){row.put("eligible",false);continue;}boolean can=dataCreation101(owner)&&owner.getString("status").equals("completed")&&!owner.has("pendingSkill101");row.put("eligible",can);if(can)eligible++;}
+        return h.put("eligible",eligible).put("goalPlanSha256",h.getString("planSha256")).put("planSha256",WorldFrames.hash(new JSONObject().put("goals",h.getString("planSha256")).put("workflows",history110().getString("planSha256")))).put("scope","Completed data/creation child goals with completed verified parents; active limit64 unchanged. Sources, reports, workflows and procedures remain in place.");
+    }
+    public synchronized JSONObject verifyChild111(String id)throws Exception{
+        long begin=System.nanoTime();var g=goals.read(id);var w=raw(g.getString("workflowId"));verifiedArchive110(w);var original=verifiedStage(w,g.getString("workflowStage").equals("data")?0:1);if(!original.getString("id").equals(id)||!WorldFrames.hash(original).equals(WorldFrames.hash(g)))throw new IllegalStateException("Child stage identity changed");
+        return new JSONObject().put("id",id).put("workflowId",w.getString("id")).put("stage",g.getString("workflowStage")).put("recordSha256",WorldFrames.hash(g)).put("passed",true).put("verificationNanos",Long.toString(System.nanoTime()-begin)).put("scope","Fresh original source, owned stage, completed parent, outcome and publication verification; not a new observation");
+    }
+    public synchronized JSONObject readChild111(String id){var out=goals.read(id);for(Object item:goals.history111().getJSONArray("records")){var row=(JSONObject)item;if(row.getString("id").equals(id)&&row.has(GoalArchive111.KEY))out.put(GoalArchive111.KEY,row.getJSONObject(GoalArchive111.KEY));}return out;}
+    public synchronized JSONObject archiveChildren111(JSONObject input)throws Exception{
+        SpatialScene.keys(input,"planSha256","ids");long begin=System.nanoTime();if(closed||active()!=null||goals.busy()||goals.workflowReserved())throw new IllegalStateException("Finish active work before archiving child goals");var h=childHistory111();if(!h.getString("planSha256").equals(input.getString("planSha256")))throw new IllegalStateException("Child history changed; refresh preview");
+        var ids=new LinkedHashSet<String>();for(Object value:input.getJSONArray("ids")){if(!(value instanceof String id)||!ids.add(UUID.fromString(id).toString()))throw new IllegalArgumentException("Choose distinct child-goal IDs");}if(ids.isEmpty()||ids.size()>64)throw new IllegalArgumentException("Choose one to64 child goals");
+        var owners=new HashSet<String>();var verified=new JSONArray();for(String id:ids){var row=h.getJSONArray("records").toList().stream().map(v->new JSONObject((Map<?,?>)v)).filter(v->v.getString("id").equals(id)&&v.getBoolean("eligible")).findFirst().orElseThrow(()->new IllegalStateException("Child goal is not eligible for archival"));var w=raw(row.getString("workflowId"));if(owners.add(w.getString("id")))verifiedArchive110(w);var g=verifiedStage(w,row.getString("stage").equals("data")?0:1);if(!g.getString("id").equals(id))throw new IllegalStateException("Original child ID differs from its owning stage");verified.put(new JSONObject().put("id",id).put("workflowId",w.getString("id")).put("stage",row.getString("stage")).put("recordSha256",WorldFrames.hash(g)));}
+        var receipt=goals.archiveOwned111(h.getString("goalPlanSha256"),verified);return childHistory111().put("archivedNow",receipt.getJSONArray("archivedNow")).put("archiveNanos",Long.toString(System.nanoTime()-begin));
     }
     @Override public synchronized void close(){closed=true;worker.shutdownNow();}
 }

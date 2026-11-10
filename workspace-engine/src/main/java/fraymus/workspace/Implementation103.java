@@ -9,8 +9,9 @@ final class Implementation103 {
     static final String SCHEMA="verified-implementation-103-v1";
     static String code() throws Exception {
         var hash=MessageDigest.getInstance("SHA-256");
-        for(Class<?> c:List.of(Implementation103.class,WorkflowRunner.class,GoalRunner.class,Creation.class))
+        for(Class<?> c:List.of(Implementation103.class,WorkflowRunner.class,GoalRunner.class,Creation.class,GoalArchive111.class,Qualification111.class))
             try(var in=c.getResourceAsStream(c.getSimpleName()+".class")){hash.update(in.readAllBytes());}
+        hash.update(Qualification111.code().getBytes(java.nio.charset.StandardCharsets.UTF_8));
         return HexFormat.of().formatHex(hash.digest());
     }
     static JSONObject files(JSONObject artifact) {

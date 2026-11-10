@@ -14,8 +14,8 @@ final class Qualification107 {
     private static final JSONObject DEPENDENCIES=identity();
     static JSONObject dependencies(){return WorldFrames.copy(DEPENDENCIES);}
     private static JSONObject identity(){try{
-        var hashes=new JSONObject();for(Class<?> type:List.of(Qualification107.class,WorkflowRunner.class,GoalRunner.class,MotionData.class,Creation.class,DataCreation101.class,DataSummary102.class,DataSummary104.class))try(var in=type.getResourceAsStream(type.getSimpleName()+".class")){hashes.put(type.getSimpleName(),HexFormat.of().formatHex(MessageDigest.getInstance("SHA-256").digest(in.readAllBytes())));}
-        return hashes.put("suite105",Qualification105.code()).put("summary104",DataSummary104.code(DataSummary104.KIND));
+        var hashes=new JSONObject();for(Class<?> type:List.of(Qualification107.class,WorkflowRunner.class,GoalRunner.class,MotionData.class,Creation.class,DataCreation101.class,DataSummary102.class,DataSummary104.class,Implementation103.class,GoalArchive111.class,Qualification111.class))try(var in=type.getResourceAsStream(type.getSimpleName()+".class")){hashes.put(type.getSimpleName(),HexFormat.of().formatHex(MessageDigest.getInstance("SHA-256").digest(in.readAllBytes())));}
+        return hashes.put("history111",Qualification111.code()).put("suite105",Qualification105.code()).put("summary104",DataSummary104.code(DataSummary104.KIND));
     }catch(Exception e){throw new IllegalStateException(e);}}
     static JSONObject manifest(boolean refresh,JSONArray baseline){return new JSONObject().put("schema","qualification-maintenance-107-v1").put("mode",refresh?"refresh":"recheck").put("dependencies",dependencies()).put("baseline",baseline);}
     static JSONArray verify(JSONObject q){

@@ -1,3 +1,11 @@
+## Edition111 — compatibility correction under test
+
+2026-11-10. Broad150 regression completed:145 passed, five107 upgrade cases refused new dependency identity. Originals/logs retained in build/java111-initial-results and java111-initial.log. Exact published107 manifest/protocol now joins109/110 explicit historical audit; original-source/fresh-case gates remain. Existing108 test expects transition111/eight declared changes. Display encoding restored. Final24 affected methods running in build/java111-final.log; then coverage union,148 desktop checks, runtime commit/stamp, real17-request trial, independent24-mutant inspection, screenshots/docs/freeze and actual push/fetch. Source identity must be regenerated after final install. No publication yet; preserve private worlds, frozen001–110 and all failed attempts. No delegation; heavy checks serial.
+
+## Edition111 — implementation in progress
+
+2026-11-10. Isolated S:/Codex-Work/fraynix-workspace-edition111; parent706a015b. CI checked first:110 main running. Read docs/EDITION_111_CONTRACT.md. Exact completed data/creation child-goal archives; active64 limit unchanged. Explicit pinned109/110 historical review and fresh qualification transition, no identity relabelling. Actual closed110 bank62/21 planned; all original checks, abrupt recovery, corruption and capacity tests. No publication yet. Preserve private worlds/frozen001–110; no delegation; heavy work serial.
+
 ## Edition110 — published and fetched back
 
 Published release 60295dad7272e377f2eee724f1eb64e31ecc0034; annotated readme-110 tag object 292310c26b205886444950547f6391c6e6a2dced. Actual main/edition110/tag push fetched and verified: 1399 canonical sources, 35506 frozen hashes across110 editions and 2276 original archive entries. 134 Java methods,148 desktop checks and20 altered-evidence refusals pass. Actual35 old plus7 new records archived, six fresh completions, five required refusals, one abrupt recovery and21 retained procedures. Original child goals retained; admission refuses at62 under the unchanged64-goal budget. Exact archived bytes and original source/outcome/publication checks verified. Actual History controls and screenshots; explicit old-runtime transition, no proof relabelling. Preserve private worlds and frozen editions; no delegation. [Publication receipt](docs/PUBLICATION_110.json).
