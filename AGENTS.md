@@ -1,3 +1,7 @@
+## Edition104 — validated input-driven summaries
+
+2026-11-09, America/Los_Angeles. Isolated S:/Codex-Work/fraynix-workspace-edition104. Nine actual chat workflows completed; early retention and injected displayed corruption refused. Java-owned input-driven summary: all six values, quality and chart from fresh normalized input/criteria; no expected metric answers supplied to renderer, zero content-generation calls. Not model-generated or trained. Five original varied-data proofs checked before held-out37 retention; cold mapped reuse and abrupt109-row recovery verified. Preserve original verifier class bytes, private worlds and frozen001–103. Old103 runner-bound identities are not relabelled. No delegation; heavy work serial. Read README104 and contract. Next: broader numeric cases and measured qualification cost, then explicit automatic qualification with provenance. Main/tag publication pending actual push/fetch; CI separate.
+
 ## Edition104 — in progress
 
 Work only in S:/Codex-Work/fraynix-workspace-edition104. Parent main eb3cf3cb. Read docs/EDITION_104_CONTRACT.md. Preserve old verifier bytes, private live worlds and frozen001–103. No delegation; heavy work serial. Java-owned input-driven summary; varied verified datasets required before skill retention. Parent103 CI42663836173 completed/success.

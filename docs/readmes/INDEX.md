@@ -1,3 +1,5 @@
+[Edition 104 — input-driven summaries](../../README-104.md) · [Offline guide](104/index.html)
+
 [Edition 103 — verified implementations with fresh data](../../README-103.md) · [Offline guide](103/index.html)
 
 [Edition102 — measured content procedures](../../README-102.md) · [Offline guide](102/index.html)

@@ -1,0 +1,98 @@
+{
+  "modules": [
+    {
+      "id": "chat",
+      "name": "Explicit input-driven summary intent",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/Domain044.java",
+      "note": "docs/obsidian/112-input-driven-summaries.md"
+    },
+    {
+      "id": "producer",
+      "name": "Java-owned implementation and contract",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/DataSummary104.java",
+      "note": "docs/obsidian/112-input-driven-summaries.md"
+    },
+    {
+      "id": "calculation",
+      "name": "Fresh input calculations and UI",
+      "source": "workspace-engine/src/main/resources/summary104.js",
+      "note": "docs/obsidian/112-input-driven-summaries.md"
+    },
+    {
+      "id": "workflow",
+      "name": "Qualification and durable execution",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/WorkflowRunner.java",
+      "note": "docs/obsidian/112-input-driven-summaries.md"
+    },
+    {
+      "id": "child",
+      "name": "Pinned fresh criteria and code",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/GoalRunner.java",
+      "note": "docs/obsidian/112-input-driven-summaries.md"
+    },
+    {
+      "id": "audit",
+      "name": "Unchanged independent outcome verifier",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/DataSummary102.java",
+      "note": "docs/obsidian/112-input-driven-summaries.md"
+    },
+    {
+      "id": "inspection",
+      "name": "Independent source and timing analysis",
+      "source": "scripts/Inspect-Summary104.cjs",
+      "note": "docs/obsidian/112-input-driven-summaries.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "docs/readmes/104/heldout37-saved-1600.png",
+      "caption": "A new held-out source passes every check and is retained only after five earlier varied-data proofs are reverified."
+    },
+    {
+      "path": "docs/readmes/104/units-flags16-1600.png",
+      "caption": "Milliseconds and centimetres mapped to SI; new gap and speed criteria produce visible flags."
+    },
+    {
+      "path": "docs/readmes/104/reused27-mapped-1600.png",
+      "caption": "The cold-reopened saved implementation calculates a different mapped source with new thresholds."
+    },
+    {
+      "path": "docs/readmes/104/reused109-restarted-1600.png",
+      "caption": "A fresh 109-row reuse resumes after abrupt Java interruption and retains the verified data child."
+    },
+    {
+      "path": "docs/readmes/104/rendered-fault-refused-1600.png",
+      "caption": "A deliberately corrupted displayed travel value is refused by the independent audit after behavior checks passed."
+    },
+    {
+      "path": "docs/readmes/104/early-retention-refused-1600.png",
+      "caption": "The report passes, but Java refuses premature skill retention because varied-data qualification is missing."
+    },
+    {
+      "path": "docs/readmes/104/precision2-1600.png",
+      "caption": "A half-micro-metre decimal boundary is recalculated and checked against the unchanged Java formatter."
+    },
+    {
+      "path": "docs/readmes/104/summary104-1100.png",
+      "caption": "Actual responsive workspace at 1100 pixels."
+    },
+    {
+      "path": "docs/readmes/104/restart104.png",
+      "caption": "Actual 109-row data report at the review pause before interruption; the lower Mission still shows the preceding 27-row task. The later recovered109 screenshot shows its matching completed Mission."
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/readmes/104/analysis.json",
+      "caption": "analysis.json"
+    },
+    {
+      "path": "docs/readmes/104/verification.json",
+      "caption": "verification.json"
+    },
+    {
+      "path": "docs/readmes/104/original-evidence.json",
+      "caption": "original-evidence.json"
+    }
+  ]
+}

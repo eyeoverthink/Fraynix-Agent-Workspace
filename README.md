@@ -1,11 +1,11 @@
 # Fraynix Agent Workspace
 
-Edition103 reuses verified implementations with fresh data and every original source/outcome check. Three requests completed; three incompatible or corrupted candidates were correctly refused. No new content-generation calls were needed in the six measured reuse trials.
+Edition 104 calculates fresh motion summaries and qualifies them on varied data before saving reusable procedures. Nine requests completed; premature retention and a corrupted displayed result were correctly refused.
 
-[Edition103: functions, measurements and next steps](README-103.md) · [Interactive offline guide](docs/readmes/103/index.html) · [Previous edition](README-102.md) · [Contributor direction](README-CONTRIBUTORS.md)
+[Edition 104: functions, results and next steps](README-104.md) · [Interactive offline guide](docs/readmes/104/index.html) · [Previous edition](README-103.md) · [Contributor direction](README-CONTRIBUTORS.md)
 
-Java owns durable goals, physics, tools, verification and retained procedures. Chat, browser, creation canvas, Game Lab and spatial views share those capabilities.
+Java owns durable goals, tools, verification and memory. The browser displays actual calculated results alongside chat, Game Lab and spatial views.
 
-![Actual retained implementation with fresh recorded input](docs/readmes/103/recorded52-restarted-1600.png)
+![Qualified input-driven summary](docs/readmes/104/heldout37-saved-1600.png)
 
-Published to main. [Fetched GitHub verification](docs/PUBLICATION_103.json).
+Publication receipt follows the actual main/tag push and fetched verification.

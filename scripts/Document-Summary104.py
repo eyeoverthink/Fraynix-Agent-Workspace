@@ -29,12 +29,12 @@ captions={
  'early-retention-refused-1600.png':'The report passes, but Java refuses premature skill retention because varied-data qualification is missing.',
  'precision2-1600.png':'A half-micro-metre decimal boundary is recalculated and checked against the unchanged Java formatter.',
  'summary104-1100.png':'Actual responsive workspace at 1100 pixels.',
- 'restart104.png':'Verified data paused before the deliberate process interruption.'}
+ 'restart104.png':'Actual 109-row data report at the review pause before interruption; the lower Mission still shows the preceding 27-row task. The later recovered109 screenshot shows its matching completed Mission.'}
 for name in captions:shutil.copyfile(r/'build/summary104'/name,d/name)
 for row in analysis['results']:
  name=row['name']+'-1600.png';shutil.copyfile(r/'build/summary104'/name,d/name)
-roots=['build/summary104','build/renderer101-104','build/renderer102-104','build/diagnostics104','workspace-engine/build/test-results/test']
-extras=['build/java104-initial.log','build/desktop104.log','build/desktop104-additional.log','build/renderer101-104.log','build/renderer102-104.log','build/diagnostics104.log','build/source-identity104.json','build/ci104-parent.json','build/study095-build.json','build/analysis104.json','build/visual-review104.json','build/summary104.log']
+roots=['build/summary104','build/summary104-harness-failure','build/renderer101-104','build/renderer102-104','build/diagnostics104','workspace-engine/build/test-results/test']
+extras=['build/java104-initial.log','build/desktop104.log','build/desktop104-additional.log','build/renderer101-104.log','build/renderer102-104.log','build/diagnostics104.log','build/source-identity104.json','build/ci104-parent.json','build/study095-build.json','build/analysis104.json','build/visual-review104.json','build/summary104.log','build/summary104-harness-failure.log','build/summary104-continuation.log']
 paths=[]
 for folder in roots:
  for p in (r/folder).rglob('*'):
@@ -119,11 +119,13 @@ A successful behavior check does not bypass the independent source audit. In the
 
 These requests ran through the real local chat, Java runner and Electron canvas in an isolated fresh project. One unchanged Delfys recording is reused as recorded data. All other sequences are explicitly synthetic arithmetic fixtures, not new camera observations. The original project, requests, artifacts, source strings and observations are in the lossless evidence archive.
 
-Times below are seconds. Total is the full request interval from submission to completion or refusal. Browser intervals are unioned to avoid double counting. Restart includes deliberate interruption and reopening. Other includes Java computation, persistence, original evidence checks, qualification, scheduling and harness polling. Startup and gaps between requests remain in the full cohort timestamps. Skill qualification and retention are charged inside their request.
+Times below are seconds. Total is the full caller interval from submission to collected completion or refusal. Browser intervals are unioned to avoid double counting. Restart includes deliberate interruption and reopening, plus the explicitly labelled harness recovery below. Other includes Java computation, persistence, original evidence checks, qualification, scheduling and harness polling. Startup and gaps between requests remain in the full cohort timestamps. Skill qualification and retention are charged inside their request.
 
 | Request | Rows | Outcome | Total s | Browser s | Restart s | Other s |
 |---|---:|---|---:|---:|---:|---:|
 {table}
+
+The first harness run failed while collecting the already completed 96-row reversal request: it compared an untrimmed prompt against the application's trimmed text. The harness alone was corrected, and the same completed task was collected after reopening; neither its runtime nor its result was regenerated. Its full 142.440-second caller interval includes 101.855 seconds of developer-assisted harness recovery and the earlier failed polling. Original failure records and screenshots are retained alongside the continuation. This is distinct from the deliberate 109-row Java restart test and is not an autonomous recovery claim.
 
 These are complete observed costs, not a matched speedup comparison with previous model-generation runs. Zero content inference here means the authored implementation did the calculation; it does not show improved model weights. Reuse still pays for source, ancestry and outcome checks.
 
@@ -146,7 +148,7 @@ If retention is refused for missing coverage, Stop that request, complete the mi
 
 ## Validation, evidence and compatibility
 
-The focused Java suite contains {sum(int(x['tests']) for x in tests)} methods, including qualification, cold reuse, changed original evidence, forbidden public injection, independent failure and legacy behavior. Existing desktop checks and the legacy/summary/diagnostic actual Chromium controls pass. Twenty altered-record controls are independently refused by the source and timing inspector. Unit host receipts are explicitly software fixtures; the eleven app requests supply actual browser observations.
+The focused Java suite contains {sum(int(x['tests']) for x in tests)} methods, including qualification, cold reuse, changed original evidence, forbidden public injection, independent failure and legacy behavior. All 141 desktop checks and 23 legacy/summary/diagnostic actual Chromium controls pass. Twenty altered-record controls are independently refused by the source and timing inspector. Unit host receipts are explicitly software fixtures; the eleven app requests supply actual browser observations. Screenshots were reviewed at 1600 and 1100 pixels. The refusal capture shows the actual failed task with Resume disabled; its cards are above the visible table scroll position.
 
 The source identity comparison preserves the original verifier classes. Older 103 implementation bindings include the runner identity and remain conservatively refused if that identity changes after upgrading; they are not relabelled as 104 proof. Start a new reviewed 104 procedure rather than modifying an old checkpoint. Existing private worlds and frozen editions remain untouched.
 
@@ -156,7 +158,7 @@ Build with Java 21 and the checked-in Gradle wrapper, then use `Launch-Agent-Wor
 
 Measure how qualification and ancestry verification costs grow with more retained procedures. Test wider numeric ranges, additional missing-data patterns and threshold boundary cases before widening the input contract. Then add an explicit workflow that prepares and runs qualification examples with clear provenance, so a user can request qualification without manually selecting each case. Each new creation family should have its own input contract and independent outcome checks.
 
-This advances the original direction: a local agent can choose a useful procedure, calculate from current reality-linked data, observe the rendered result and retain verified ways of working across sessions. The verified capability here is reusable motion-data reporting; it is not general scientific reasoning or an unrestricted self-improvement system.
+This advances the original direction: a local agent can choose a useful procedure, calculate from current reality-linked data, observe the rendered result and retain verified ways of working across sessions. The verified capability here is reusable motion-data reporting; it is not general scientific reasoning or an unrestricted self-improvement system. One UI wording limitation remains: inherited completion text calls the output “generated”; the new producer chip identifies it as a Java summary. A missing-qualification refusal still exposes the generic Resume control, but its verification gate continues to refuse; follow the stated Stop-and-start-fresh instructions.
 '''
 write(r/'README-104.md',readme)
 write(r/'README.md','# Fraynix Agent Workspace\n\nEdition 104 calculates fresh motion summaries and qualifies them on varied data before saving reusable procedures. Nine requests completed; premature retention and a corrupted displayed result were correctly refused.\n\n[Edition 104: functions, results and next steps](README-104.md) · [Interactive offline guide](docs/readmes/104/index.html) · [Previous edition](README-103.md) · [Contributor direction](README-CONTRIBUTORS.md)\n\nJava owns durable goals, tools, verification and memory. The browser displays actual calculated results alongside chat, Game Lab and spatial views.\n\n![Qualified input-driven summary](docs/readmes/104/heldout37-saved-1600.png)\n\nPublication receipt follows the actual main/tag push and fetched verification.\n')

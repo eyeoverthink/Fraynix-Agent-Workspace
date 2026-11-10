@@ -1,3 +1,5 @@
+[[docs/obsidian/112-input-driven-summaries.md|Edition 104 — input-driven summaries]]
+
 [[docs/obsidian/111-verified-implementation-reuse.md|Edition 103 — verified implementations with fresh data]]
 
 [[docs/obsidian/110-measured-content-procedures.md|Edition102 measured content procedures]]

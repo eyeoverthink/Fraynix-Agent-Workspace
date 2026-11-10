@@ -1,0 +1,32 @@
+{
+  "nodes": [
+    {
+      "id": "request",
+      "type": "file",
+      "file": "README-104.md",
+      "x": 0,
+      "y": 0,
+      "width": 500,
+      "height": 320
+    },
+    {
+      "id": "memory",
+      "type": "file",
+      "file": "docs/obsidian/112-input-driven-summaries.md",
+      "x": 580,
+      "y": 0,
+      "width": 500,
+      "height": 320
+    }
+  ],
+  "edges": [
+    {
+      "id": "qualification",
+      "fromNode": "request",
+      "fromSide": "right",
+      "toNode": "memory",
+      "toSide": "left",
+      "label": "fresh calculations, linked qualification, fresh outcome checks"
+    }
+  ]
+}
