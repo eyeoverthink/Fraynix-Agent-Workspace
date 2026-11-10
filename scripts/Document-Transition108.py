@@ -7,7 +7,9 @@ def write(p,s):p.parent.mkdir(parents=True,exist_ok=True);p.write_text(s,encodin
 def js(p,v):write(p,json.dumps(v,indent=2,ensure_ascii=False)+'\n')
 def sha(b):return hashlib.sha256(b).hexdigest()
 assert subprocess.run(['git','show-ref','--verify','--quiet','refs/tags/readme-108'],cwd=r).returncode==1
-analysis=load('build/analysis108.json');trial=load('build/transition108/result.json');visual=load('build/visual-review108.json')
+analysis=load('build/analysis108.json');trial=load('build/transition108-final/result.json');visual=load('build/visual-review108.json')
+prior=load('build/analysis108-prior.json');assert prior['passed'] and not prior['declaredRestartBoundaries'] and load('build/prior-boundary108.json')['refused']
+assert analysis['declaredRestartBoundaries']
 assert analysis['passed'] and len(analysis['refusals'])==28 and trial['passed'] and visual['passed']
 tests=[]
 for f in sorted((r/'build/before-lineage108/test-results').glob('TEST-*.xml')):
@@ -25,14 +27,15 @@ for name,count in [('renderer101-108',5),('renderer102-108',11),('diagnostics108
 d.mkdir(parents=True,exist_ok=True)
 for row,t in zip(analysis['results'],trial['tasks']):row['screenshot']=t['captureKey']+'-1600.png'
 js(d/'analysis.json',analysis)
-js(d/'verification.json',{'passed':True,'java':tests,'finalAffectedJava':final_tests,'finalRuntimeDelta':load('build/lineage-change108.json'),'javaScope':'126-method broad regression passed before three final lineage guards. All22 affected transition, refresh and reuse methods rerun on final runtime; other341 production classes unchanged. Both original runs retained.','desktopChecks':148,'actualBrowserControls':23,'independentRefusals':analysis['refusals'],'visual':visual,'sourceIdentity':load('build/source-identity108.json'),'build':load('build/study095-build.json'),'parentCI':load('build/ci108-parent.json')})
+js(d/'prior-analysis.json',prior)
+js(d/'verification.json',{'passed':True,'priorContractRefusal':load('build/prior-boundary108.json'),'priorIntegrityInspection':prior,'java':tests,'finalAffectedJava':final_tests,'finalRuntimeDelta':load('build/lineage-change108.json'),'javaScope':'126-method broad regression passed before three final lineage guards. All22 affected transition, refresh and reuse methods rerun on final runtime; other341 production classes unchanged. Both original runs retained.','desktopChecks':148,'actualBrowserControls':23,'independentRefusals':analysis['refusals'],'visual':visual,'sourceIdentity':load('build/source-identity108.json'),'build':load('build/study095-build.json'),'parentCI':load('build/ci108-parent.json')})
 captions={}
 for row in analysis['results']:
- name=row['screenshot'];shutil.copyfile(r/'build/transition108'/name,d/name);captions[name]=row['name']+': '+row['kind']+', starting with '+str(row['bankBefore'])+' published procedures; '+row['outcome']+'. Actual application capture.'
+ name=row['screenshot'];shutil.copyfile(r/'build/transition108-final'/name,d/name);captions[name]=row['name']+': '+row['kind']+', starting with '+str(row['bankBefore'])+' published procedures; '+row['outcome']+'. Actual application capture.'
 for name,caption in [('transition108-1100.png','Actual narrower workspace after new procedure reuse.'),('partial-restart108-interrupted.png','Third fresh example held before its actual audit; no passing observation supplied.'),('selected-restart108-interrupted.png','Five fresh examples complete; selected-source audit held before abrupt interruption.')]:
- shutil.copyfile(r/'build/transition108'/name,d/name);captions[name]=caption
-roots=['build/transition108','build/renderer101-108','build/renderer102-108','build/diagnostics108','workspace-engine/build/test-results/test','build/java108-new-tests','build/before-lineage108']
-extras=['build/lineage-change108.json','build/restore-check108.json','build/java108-full.log','build/java108-command-refusal.log','build/java108-new.log','build/java108-final.log','build/desktop108.log','build/desktop108-additional.log','build/renderer101-108.log','build/renderer102-108.log','build/diagnostics108.log','build/source-identity108.json','build/ci108-parent.json','build/study095-build.json','build/analysis108.json','build/inspect108.log','build/visual-review108.json','build/transition108.log']
+ shutil.copyfile(r/'build/transition108-final'/name,d/name);captions[name]=caption
+roots=['build/transition108','build/transition108-final','build/renderer101-108','build/renderer102-108','build/diagnostics108','workspace-engine/build/test-results/test','build/java108-new-tests','build/before-lineage108']
+extras=['build/initial108-build.json','build/analysis108-prior.json','build/prior-boundary108.json','build/inspect108-original-contract.log','build/transition108.log','build/lineage-change108.json','build/restore-check108.json','build/java108-full.log','build/java108-command-refusal.log','build/java108-new.log','build/java108-final.log','build/desktop108.log','build/desktop108-additional.log','build/renderer101-108.log','build/renderer102-108.log','build/diagnostics108.log','build/source-identity108.json','build/ci108-parent.json','build/study095-build.json','build/analysis108.json','build/inspect108.log','build/visual-review108.json','build/transition108-final.log']
 paths=[]
 for folder in roots:
  for p in (r/folder).rglob('*'):
@@ -132,13 +135,19 @@ Additional Java tests check unsupported dependency changes, manifest edits, an o
 
 Full cohort: **{analysis['cohortWallMs']/1000:.3f}s**. Request intervals: **{analysis['requestMs']/1000:.3f}s**. Restoration, cold copies, imports, captures, launch and shutdown outside requests: **{analysis['setupAndBetweenMs']/1000:.3f}s**. The earlier107 qualification preparation remains linked historical evidence, not a new108 cost measurement. Component intervals are not added twice.
 
+## Original recorder attempt retained
+
+The initial recorder counted browser frames and interrupted the first and second examples, rather than the declared third example and selected-source audit. The independent contract check refused those boundaries. Its twelve requests and full **{prior['cohortWallMs']/1000:.3f}s** cohort cost (**{prior['requestMs']/1000:.3f}s** in requests) remain in the [prior integrity analysis](docs/readmes/108/prior-analysis.json) and lossless originals. Those early recoveries are additional evidence, not substitutes for the required tests.
+
+The recorder was corrected to use Java's actual completed-example count and immediately assert the exact boundary. The full twelve-request study then ran again in fresh projects with unchanged application inputs and JARs. The final results above belong to that separate trial. Preparation, rejected timing, restart and refusal costs were not discarded. Twenty-eight altered-record controls also check the separately labelled prior analysis.
+
 ## Verification and honest boundaries
 
 The first regression invocation placed its test filter after the packaging task; Gradle refused the command before running tests. The argument order was corrected and the full126-method regression passed. Three final lineage guards then bound the old selected-source handoff and preserved original checks during later reuse. All22 affected transition, refresh and implementation-reuse methods were rerun on that final runtime; the other341 compiled production classes were unchanged. Both original test runs and the command refusal are retained. This is not a claim of one126-method invocation on the final bytecode.
 
 -126 distinct focused Java methods across20 classes, including eight new transition cases;22 affected methods rerun after the final lineage guards.
 -148 desktop checks and23 actual browser controls.
--Seven actual workflow completions, including two abrupt recoveries, and five required refusals.
+-Seven final actual workflow completions, including two declared abrupt recoveries, and five required refusals. The earlier mistimed trial and its costs are retained separately.
 -Independent reconstruction from original CSV, every required summary value and SVG point, four filter states, exact lineage and complete cost partitions;28 deliberately altered evidence records rejected.
 -Eight existing compiled producer/verifier/helper classes and both summary104 resources remain byte-identical to107. WorkflowRunner and Domain044 change explicitly; Qualification108 is new. The derived suite identity changes legitimately.
 -Real application captures at1600 and1100 pixels; the offline guide checked at1440 and390 pixels.
@@ -191,7 +200,7 @@ The larger direction remains a local agent that observes, predicts, acts, checks
 '''.replace('\n-126','\n- 126').replace('\n-148','\n- 148').replace('\n-Seven','\n- Seven').replace('\n-Independent','\n- Independent').replace('\n-Eight','\n- Eight').replace('\n-Real','\n- Real')
 write(r/'README-108.md',readme)
 write(r/'README.md','# Fraynix Agent Workspace\n\nEdition108 adds explicit, verified qualification upgrades across Java coordination changes. It retains old evidence, runs every fresh example, survives interruption and verifies before saving.\n\n[Edition108: functions, evidence and next steps](README-108.md) | [Offline guide](docs/readmes/108/index.html) | [Previous edition](README-107.md) | [Contributor direction](README-CONTRIBUTORS.md)\n\nSeven actual requests complete; five refuse correctly. Every source and outcome check remains.\n\n![Actual completed upgrade](docs/readmes/108/pair-1-transition-1600.png)\n\nJava owns durable goals, tools, verification, recovery and memory. Chat, browser/canvas, spatial views and Game Lab remain integrated.\n')
-summary='2026-11-10. Isolated S:/Codex-Work/fraynix-workspace-edition108; parent c294d77f. Explicit orchestration-only qualification transition from genuine107 browser-qualified originals. Exact old supervisor/dependency/proof/publication lineage rechecked at admission, recovery, handoff and before saving. Five fresh examples and selected report pass original gates. Silent qualification, refresh and old-procedure reuse refuse; unsupported dependencies and chained transitions refuse. Actual12 requests: seven completions, two abrupt recoveries, five required refusals; zero planner/generation calls.126 distinct Java checks plus22 final affected rechecks,148 desktop,23 browser controls and28 altered-record refusals pass. Two cold clean/upgrade pairs retain all costs; no equal-bank speedup or training claim. Eight compiled helpers and two104 resources unchanged. Private worlds/frozen001-107 preserved; no delegation; heavy work serial. Next: growing-bank capacity/maintenance and explicitly versioned changed-verifier transitions. Publication pending actual push/fetch; CI separate.\n'
+summary='2026-11-10. Isolated S:/Codex-Work/fraynix-workspace-edition108; parent c294d77f. Explicit orchestration-only qualification transition from genuine107 browser-qualified originals. Exact old supervisor/dependency/proof/publication lineage rechecked at admission, recovery, handoff and before saving. Five fresh examples and selected report pass original gates. Silent qualification, refresh and old-procedure reuse refuse; unsupported dependencies and chained transitions refuse. Actual12 requests: seven completions, two abrupt recoveries, five required refusals; zero planner/generation calls.126 distinct Java checks plus22 final affected rechecks,148 desktop,23 browser controls and28 altered-record refusals pass. Initial recorder-boundary refusal retained with full costs; corrected actual-state recorder reruns all12 requests fresh. Two cold clean/upgrade pairs retain all costs; no equal-bank speedup or training claim. Eight compiled helpers and two104 resources unchanged. Private worlds/frozen001-107 preserved; no delegation; heavy work serial. Next: growing-bank capacity/maintenance and explicitly versioned changed-verifier transitions. Publication pending actual push/fetch; CI separate.\n'
 write(r/note,'# Edition108 - explicit qualification upgrades\n\n'+summary+'\n[[README-108.md|Full edition]] | [[docs/obsidian/115-measured-qualification-refresh.md|Prior refresh measurements]]\n')
 for name in ['AGENTS.md','README-CONTRIBUTORS.md','docs/PROJECT_MEMORY.md','docs/DEVELOPMENT_LOG.md','docs/ARCHITECTURE.md']:
  p=r/name;old=p.read_text(encoding='utf8');header='## Edition108 - validated explicit qualification upgrades\n\n'
