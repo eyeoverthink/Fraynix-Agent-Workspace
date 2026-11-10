@@ -1,0 +1,19 @@
+from pathlib import Path
+import subprocess,json,shutil
+r=Path.cwd()
+def git(*a):return subprocess.check_output(['git',*a],text=True).strip()
+audit=json.loads((r/'build/publication-audit110.json').read_text(encoding='utf8'));assert audit['passed'] and audit['remoteFetched']
+release=git('rev-parse','readme-110^{commit}');assert release==audit['commit']==git('rev-parse','HEAD');tag=git('rev-parse','readme-110')
+analysis=json.loads((r/'build/analysis110.json').read_text(encoding='utf8'));assert analysis['passed']
+data={'edition':110,'releaseCommit':release,'annotatedTag':'readme-110','tagObject':tag,'audit':audit,'analysis':analysis,'releaseCI':json.loads((r/'build/ci110-release.json').read_text(encoding='utf8')),'scope':'Actual non-force main/edition110/tag push, fetched and audited. Exact completed data workflow archival, preserved source/outcome checks, explicit runtime transition, fresh reuse and recovery. Child goals retained under original capacity; CI separate.'}
+(r/'docs/PUBLICATION_110.json').write_text(json.dumps(data,indent=2)+'\n',encoding='utf8')
+folder=r/'docs/publication110';folder.mkdir(exist_ok=True)
+names=['ci110-release.json','publication-audit110.json','push110.log','release110.log','release110.py','audit-publication110.py','publication110.py','finish-publication110.py','freeze110.py','check-guide110.cjs','visual110.json','visual-review110.json','documentation-check.json','doc-check110.log','guide110.log','guide110-1440.png','guide110-390.png','ci110-parent.json','analysis110.json','compile110.log','java110-command.log','java110-archive.log','java110.log','archive110.log','inspect110.log','desktop110.log','desktop110-additional.log','source-identity110.json']
+for name in names:assert (r/'build'/name).is_file(),name;shutil.copyfile(r/'build'/name,folder/name)
+notice=f"Published release {release}; annotated readme-110 tag object {tag}. Actual main/edition110/tag push fetched and verified: {audit['canonicalSourceFiles']} canonical sources, {audit['frozenHashes']} frozen hashes across110 editions and {audit['original110EvidenceFiles']} original archive entries. "
+validation='134 Java methods,148 desktop checks and20 altered-evidence refusals pass. Actual35 old plus7 new records archived, six fresh completions, five required refusals, one abrupt recovery and21 retained procedures. Original child goals retained; admission refuses at62 under the unchanged64-goal budget. Exact archived bytes and original source/outcome/publication checks verified. Actual History controls and screenshots; explicit old-runtime transition, no proof relabelling. Preserve private worlds and frozen editions; no delegation. '
+for name,link in [('AGENTS.md','docs/PUBLICATION_110.json'),('README-CONTRIBUTORS.md','docs/PUBLICATION_110.json'),('docs/PROJECT_MEMORY.md','PUBLICATION_110.json'),('docs/DEVELOPMENT_LOG.md','PUBLICATION_110.json'),('docs/ARCHITECTURE.md','PUBLICATION_110.json')]:
+ p=r/name;s=p.read_text(encoding='utf8');assert '## Edition110 — validated workflow archival' in s;s=s.replace('## Edition110 — validated workflow archival','## Edition110 — published and fetched back\n\n'+notice+validation+'[Publication receipt]('+link+').',1).replace('Publication pending actual push/fetch; CI separate.','Main/tag publication and fetched verification completed; remote CI is recorded separately.',1);p.write_text(s,encoding='utf8',newline='\n')
+p=r/'README.md';p.write_text(p.read_text(encoding='utf8')+'\nPublished to main. [Edition110 fetched GitHub verification](docs/PUBLICATION_110.json).\n',encoding='utf8',newline='\n')
+p=r/'docs/obsidian/118-verifiable-workflow-archives.md';p.write_text(p.read_text(encoding='utf8').replace('Publication pending actual push/fetch; CI separate.','Publication and fetched verification completed; CI separate.')+'\n'+notice+validation+'[[docs/PUBLICATION_110.json|Publication receipt]]\n',encoding='utf8',newline='\n')
+print(notice)

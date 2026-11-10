@@ -11,3 +11,5 @@ Use **History** to preview completed work, verify and archive it, inspect origin
 Java owns durable goals, tools, worlds, verification, recovery and memory. Chat, browser/canvas, spatial views and Game Lab remain integrated. This release archives completed data/creation workflows and qualification supervisors; other workflow families and child goals remain in their original stores.
 
 **Next:** preserve completed child-goal evidence outside active scheduling. The unchanged 64-goal limit remains visible; this edition does not claim unlimited memory or model training.
+
+Published to main. [Edition110 fetched GitHub verification](docs/PUBLICATION_110.json).

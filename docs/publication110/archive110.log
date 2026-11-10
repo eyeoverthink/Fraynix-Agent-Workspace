@@ -1,0 +1,51 @@
+old-runtime-refusal: waiting-host Waiting for actual surface: workflow.start
+old-runtime-refusal: interrupted Qualification dependencies changed; explicitly request upgrade summary qualification before reuse
+full-history-refusal: waiting-host Waiting for actual surface: workflow.start
+full-history-refusal: interrupted Insufficient original workflow/goal capacity for all examples and selected-source verification; nothing started
+upgraded110: waiting-host Waiting for actual surface: workflow.start
+upgraded110: waiting-host qualification:monotonic 0/5
+upgraded110: waiting-native qualification:monotonic 0/5
+upgraded110: waiting-native qualification:reversal 1/5
+upgraded110: waiting-native qualification:flat 2/5
+upgraded110: waiting-native qualification:units-flags 3/5
+upgraded110: waiting-native qualification:skipped 4/5
+upgraded110: waiting-native selected-data 5/5
+upgraded110: waiting-native complete 5/5
+upgraded110: completed complete 5/5
+recovered110: waiting-host Waiting for actual surface: workflow.start
+recovered110: waiting-host qualification:reversal 1/5
+recovered110: waiting-native qualification:skipped 4/5
+recovered110: waiting-native selected-data 5/5
+recovered110: waiting-native complete 5/5
+recovered110: completed complete 5/5
+reused110: waiting-host Waiting for actual surface: workflow.reuse
+reused110: waiting-host data undefined/5
+reused110: waiting-native data undefined/5
+reused110: waiting-native creation undefined/5
+reused110: waiting-native audit undefined/5
+reused110: waiting-native complete undefined/5
+reused110: completed complete undefined/5
+continued-0: waiting-host Waiting for actual surface: workflow.start
+continued-0: waiting-host qualification:flat 2/5
+continued-0: waiting-host selected-data 5/5
+continued-0: waiting-native selected-data 5/5
+continued-0: waiting-native complete 5/5
+continued-0: completed complete 5/5
+continued-1: waiting-host Waiting for actual surface: workflow.start
+continued-1: waiting-host qualification:reversal 1/5
+continued-1: waiting-host qualification:flat 2/5
+continued-1: waiting-native selected-data 5/5
+continued-1: waiting-native complete 5/5
+continued-1: completed complete 5/5
+continued-2: waiting-host Waiting for actual surface: workflow.start
+continued-2: waiting-host qualification:reversal 1/5
+continued-2: waiting-host qualification:units-flags 3/5
+continued-2: waiting-native selected-data 5/5
+continued-2: waiting-native complete 5/5
+continued-2: completed complete 5/5
+goal-capacity-refusal: waiting-host Waiting for actual surface: workflow.start
+goal-capacity-refusal: interrupted A workflow needs an idle runner and room for three goals
+changed-artifact: waiting-host Waiting for actual surface: workflow.start
+changed-artifact: interrupted Created artifact was changed outside its owned revision
+changed-dataset: waiting-host Waiting for actual surface: workflow.start
+changed-dataset: interrupted Original qualification dataset was revised

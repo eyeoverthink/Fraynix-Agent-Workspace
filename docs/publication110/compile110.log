@@ -1,0 +1,36 @@
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/9.3.1/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build 
+> Task :brain-core:compileJava
+> Task :brain-gpu:compileJava
+> Task :factory-runtime:compileJava
+> Task :factory-kernel:compileJava
+> Task :factory-models:compileJava
+> Task :geometry-core:compileJava
+> Task :workspace-engine:compileJava
+> Task :workspace-engine:processResources
+> Task :workspace-engine:classes
+
+> Task :workspace-engine:compileTestJava FAILED
+S:\Codex-Work\fraynix-workspace-edition110\workspace-engine\src\test\java\fraymus\workspace\Archive110Test.java:62: error: 'var' is not allowed in a compound declaration
+            completed(f);originals=payloads(root);var previous=root.resolve("workflows/tasks.fworld.previous"),backup=root.resolve("workflows/pre-archive.backup");Files.move(previous,backup);Files.createDirectory(previous);Files.writeString(previous.resolve("prevent-replacement"),"Explicit filesystem-failure fixture");byte[] before=Files.readAllBytes(root.resolve("workflows/tasks.fworld"));
+                                                  ^
+1 error
+
+
+[Incubating] Problems report is available at: file:///S:/Codex-Work/fraynix-workspace-edition110/build/reports/problems/problems-report.html
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':workspace-engine:compileTestJava'.
+> Compilation failed; see the compiler output below.
+  S:\Codex-Work\fraynix-workspace-edition110\workspace-engine\src\test\java\fraymus\workspace\Archive110Test.java:62: error: 'var' is not allowed in a compound declaration
+              completed(f);originals=payloads(root);var previous=root.resolve("workflows/tasks.fworld.previous"),backup=root.resolve("workflows/pre-archive.backup");Files.move(previous,backup);Files.createDirectory(previous);Files.writeString(previous.resolve("prevent-replacement"),"Explicit filesystem-failure fixture");byte[] before=Files.readAllBytes(root.resolve("workflows/tasks.fworld"));
+                                                    ^
+  1 error
+
+* Try:
+> Check your code and dependencies to fix the compilation error(s)
+> Run with --scan to get full insights from a Build Scan (powered by Develocity).
+
+BUILD FAILED in 14s
+9 actionable tasks: 9 executed

@@ -1,0 +1,20 @@
+{
+  "passed": true,
+  "checks": [
+    "1440px: all11 cases and actual images, exact cost partitions, both archive costs,9 module links, all local links and no horizontal overflow",
+    "390px: all11 cases and actual images, exact cost partitions, both archive costs,9 module links, all local links and no horizontal overflow"
+  ],
+  "errors": [],
+  "manualReview": {
+    "passed": true,
+    "images": [
+      "guide110-1440.png",
+      "guide110-390.png"
+    ],
+    "observations": [
+      "Readable hierarchy and costs at both widths; cards and source links wrap within the viewport.",
+      "Actual app screenshots remain proportional; full-size originals are linked from the edition documentation.",
+      "Outcome selector, refusal explanation and measured-cost display match the independently inspected results."
+    ]
+  }
+}
