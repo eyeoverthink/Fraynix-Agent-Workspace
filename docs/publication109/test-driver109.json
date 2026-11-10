@@ -1,0 +1,15 @@
+{
+  "passed": true,
+  "initialMethods": 126,
+  "initialPassed": 125,
+  "initialFailures": 1,
+  "initialFailure": "Test driver acknowledged selected audit before observing its stop predicate; expected running, observed completed, before source mutation.",
+  "affectedMethodsPassed": 23,
+  "affectedClasses": [
+    "fraymus.workspace.Qualification105Test",
+    "fraymus.workspace.Qualification107Test",
+    "fraymus.workspace.Qualification108Test"
+  ],
+  "unchangedProductionClasses": 342,
+  "scope": "Only lifecycle test driver and exact-stage assertions changed. Stop check and audit claim share the existing runner lock; original refusal expectations unchanged. All three helper consumers rerun. Original full run and test sources retained."
+}

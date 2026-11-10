@@ -1,0 +1,2440 @@
+{
+  "edition": 109,
+  "releaseCommit": "53b9655807e2230a1e73f9e22a01da0f2a6d30c1",
+  "annotatedTag": "readme-109",
+  "tagObject": "a060fd4f978ce38cffe5e90d2475b4955e0f1ca9",
+  "audit": {
+    "passed": true,
+    "verifiedAtUtc": "2026-11-10T21:18:54.007826+00:00",
+    "remote": "https://github.com/eyeoverthink/Fraynix-Agent-Workspace.git",
+    "fetchedRef": "refs/verify/edition109-main",
+    "remoteFetched": true,
+    "commit": "53b9655807e2230a1e73f9e22a01da0f2a6d30c1",
+    "canonicalSourceFiles": 1393,
+    "editions": 109,
+    "frozenHashes": 35048,
+    "original109EvidenceFiles": 6921,
+    "distinctOriginalPayloads": 817,
+    "method": "Every enumerated blob read from the specified Git tree; remoteFetched identifies a fresh verification ref. Source byte counts and canonical UTF-8 LF/binary hashes checked. All frozen edition hashes checked. Each unique immutable Git archive blob is decompressed once; every logical original entry is compared to its verified compressed/raw byte counts and SHA-256. No mutable-file timestamp or runtime-proof shortcut."
+  },
+  "analysis": {
+    "passed": true,
+    "source": "e06fd9997c6d84d987fb1edc646f06b542291958",
+    "completedRequests": 30,
+    "requiredRefusals": 6,
+    "restarts": 1,
+    "requestMs": 766660,
+    "cohortWallMs": 1090757,
+    "setupAndBetweenMs": 324097,
+    "growthMs": 231880,
+    "pairs": [
+      {
+        "bank": 1,
+        "rep": 1,
+        "recheckMs": 9902,
+        "refreshMs": 36618,
+        "refreshCompleted": true,
+        "extraRefreshMs": 26716
+      },
+      {
+        "bank": 1,
+        "rep": 2,
+        "recheckMs": 10179,
+        "refreshMs": 37244,
+        "refreshCompleted": true,
+        "extraRefreshMs": 27065
+      },
+      {
+        "bank": 8,
+        "rep": 1,
+        "recheckMs": 14857,
+        "refreshMs": 58183,
+        "refreshCompleted": true,
+        "extraRefreshMs": 43326
+      },
+      {
+        "bank": 8,
+        "rep": 2,
+        "recheckMs": 14782,
+        "refreshMs": 58527,
+        "refreshCompleted": true,
+        "extraRefreshMs": 43745
+      },
+      {
+        "bank": 9,
+        "rep": 1,
+        "recheckMs": 14985,
+        "refreshMs": 61648,
+        "refreshCompleted": true,
+        "extraRefreshMs": 46663
+      },
+      {
+        "bank": 9,
+        "rep": 2,
+        "recheckMs": 15076,
+        "refreshMs": 63223,
+        "refreshCompleted": true,
+        "extraRefreshMs": 48147
+      },
+      {
+        "bank": 14,
+        "rep": 1,
+        "recheckMs": 22499,
+        "refreshMs": 3032,
+        "refreshCompleted": false,
+        "extraRefreshMs": null
+      },
+      {
+        "bank": 14,
+        "rep": 2,
+        "recheckMs": 22175,
+        "refreshMs": 3582,
+        "refreshCompleted": false,
+        "extraRefreshMs": null
+      }
+    ],
+    "results": [
+      {
+        "nativeWorkflowWallMs": 32413,
+        "outerCallerMs": 817,
+        "name": "growth-1",
+        "kind": "growth",
+        "rep": null,
+        "outcome": "completed",
+        "reason": "Java completion gates passed",
+        "bankBefore": 0,
+        "bankAfter": 1,
+        "totalMs": 33230,
+        "browserMs": 7408,
+        "restartMs": 0,
+        "otherMs": 25822,
+        "admissionMs": 5.2161,
+        "finalVerificationMs": 528.9381,
+        "createdExamples": 5,
+        "reusedExamples": 0,
+        "before": {
+          "storageScope": "Native project files; browser profiles, runtime caches, logs, locks and temporary files excluded",
+          "workflows": 0,
+          "executables": 0,
+          "supervisors": 0,
+          "goals": 0,
+          "files": 15,
+          "bytes": 48612,
+          "workflowStore": {
+            "bytes": 0,
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          "limits": {
+            "workflows": 20,
+            "goals": 64,
+            "procedures": 32,
+            "supervisors": 16,
+            "versions": 8,
+            "awakeSeconds": 1200
+          }
+        },
+        "after": {
+          "storageScope": "Native project files; browser profiles, runtime caches, logs, locks and temporary files excluded",
+          "workflows": 7,
+          "executables": 6,
+          "supervisors": 1,
+          "goals": 12,
+          "files": 106,
+          "bytes": 1491636,
+          "workflowStore": {
+            "bytes": 185151,
+            "sha256": "ad83c55d3bec84840d7d027058a2d36a4cbb4fc26e5b8451406a9632214434ec"
+          },
+          "limits": {
+            "workflows": 20,
+            "goals": 64,
+            "procedures": 32,
+            "supervisors": 16,
+            "versions": 8,
+            "awakeSeconds": 1200
+          }
+        }
+      },
+      {
+        "nativeWorkflowWallMs": 9575,
+        "outerCallerMs": 532,
+        "name": "growth-2",
+        "kind": "growth",
+        "rep": null,
+        "outcome": "completed",
+        "reason": "Java completion gates passed",
+        "bankBefore": 1,
+        "bankAfter": 2,
+        "totalMs": 10107,
+        "browserMs": 1240,
+        "restartMs": 0,
+        "otherMs": 8867,
+        "admissionMs": 545.9609,
+        "finalVerificationMs": 675.3746,
+        "createdExamples": 0,
+        "reusedExamples": 5,
+        "before": {
+          "storageScope": "Native project files; browser profiles, runtime caches, logs, locks and temporary files excluded",
+          "workflows": 7,
+          "executables": 6,
+          "supervisors": 1,
+          "goals": 12,
+          "files": 106,
+          "bytes": 1495227,
+          "workflowStore": {
+            "bytes": 185151,
+            "sha256": "ad83c55d3bec84840d7d027058a2d36a4cbb4fc26e5b8451406a9632214434ec"
+          },
+          "limits": {
+            "workflows": 20,
+            "goals": 64,
+            "procedures": 32,
+            "supervisors": 16,
+            "versions": 8,
+            "awakeSeconds": 1200
+          }
+        },
+        "after": {
+          "storageScope": "Native project files; browser profiles, runtime caches, logs, locks and temporary files excluded",
+          "workflows": 9,
+          "executables": 7,
+          "supervisors": 2,
+          "goals": 14,
+          "files": 120,
+          "bytes": 1975970,
+          "workflowStore": {
+            "bytes": 229607,
+            "sha256": "fe734abf942b0213f71c8c8efef6ffc49af306955580ef7685b4ea1e9131b51f"
+          },
+          "limits": {
+            "workflows": 20,
+            "goals": 64,
+            "procedures": 32,
+            "supervisors": 16,
+            "versions": 8,
+            "awakeSeconds": 1200
+          }
+        }
+      },
+      {
+        "nativeWorkflowWallMs": 8495,
+        "outerCallerMs": 882,
+        "name": "growth-3",
+        "kind": "growth",
+        "rep": null,
+        "outcome": "completed",
+        "reason": "Java completion gates passed",
+        "bankBefore": 2,
+        "bankAfter": 3,
+        "totalMs": 9377,
+        "browserMs": 1208,
+        "restartMs": 0,
+        "otherMs": 8169,
+        "admissionMs": 172.4437,
+        "finalVerificationMs": 692.7593,
+        "createdExamples": 0,
+        "reusedExamples": 5,
+        "before": {
+          "storageScope": "Native project files; browser profiles, runtime caches, logs, locks and temporary files excluded",
+          "workflows": 9,
+          "executables": 7,
+          "supervisors": 2,
+          "goals": 14,
+          "files": 120,
+          "bytes": 1979302,
+          "workflowStore": {
+            "bytes": 229607,
+            "sha256": "fe734abf942b0213f71c8c8efef6ffc49af306955580ef7685b4ea1e9131b51f"
+          },
+          "limits": {
+            "workflows": 20,
+            "goals": 64,
+            "procedures": 32,
+            "supervisors": 16,
+            "versions": 8,
+            "awakeSeconds": 1200
+          }
+        },
+        "after": {
+          "storageScope": "Native project files; browser profiles, runtime caches, logs, locks and temporary files excluded",
+          "workflows": 11,
+          "executables": 8,
+          "supervisors": 3,
+          "goals": 16,
+          "files": 134,
+          "bytes": 2467803,
+          "workflowStore": {
+            "bytes": 274237,
+            "sha256": "b384c17f84f4b753ccd7aa176fbef66bef2b432436a8ddfe341e442b3d87207c"
+          },
+          "limits": {
+            "workflows": 20,
+            "goals": 64,
+            "procedures": 32,
+            "supervisors": 16,
+            "versions": 8,
+            "awakeSeconds": 1200
+          }
+        }
+      },
+      {
+        "nativeWorkflowWallMs": 8882,
+        "outerCallerMs": 838,
+        "name": "growth-4",
+        "kind": "growth",
+        "rep": null,
+        "outcome": "completed",
+        "reason": "Java completion gates passed",
+        "bankBefore": 3,
+        "bankAfter": 4,
+        "totalMs": 9720,
+        "browserMs": 1222,
+        "restartMs": 0,
+        "otherMs": 8498,
+        "admissionMs": 166.3765,
+        "finalVerificationMs": 701.2985,
+        "createdExamples": 0,
+        "reusedExamples": 5,
+        "before": {
+          "storageScope": "Native project files; browser profiles, runtime caches, logs, locks and temporary files excluded",
+          "workflows": 11,
+          "executables": 8,
+          "supervisors": 3,
+          "goals": 16,
+          "files": 134,
+          "bytes": 2471135,
+          "workflowStore": {
+            "bytes": 274237,
+            "sha256": "b384c17f84f4b753ccd7aa176fbef66bef2b432436a8ddfe341e442b3d87207c"
+          },
+          "limits": {
+            "workflows": 20,
+            "goals": 64,
+            "procedures": 32,
+            "supervisors": 16,
+            "versions": 8,
+            "awakeSeconds": 1200
+          }
+        },
+        "after": {
+          "storageScope": "Native project files; browser profiles, runtime caches, logs, locks and temporary files excluded",
+          "workflows": 13,
+          "executables": 9,
+          "supervisors": 4,
+          "goals": 18,
+          "files": 148,
+          "bytes": 2974555,
+          "workflowStore": {
+            "bytes": 318702,
+            "sha256": "f66ca433762022de6e095e22d820d46278f7c9187811af3496962d66c058017d"
+          },
+          "limits": {
+            "workflows": 20,
+            "goals": 64,
+            "procedures": 32,
+            "supervisors": 16,
+            "versions": 8,
+            "awakeSeconds": 1200
+          }
+        }
+      },
+      {
+        "nativeWorkflowWallMs": 9471,
+        "outerCallerMs": 1114,
+        "name": "growth-5",
+        "kind": "growth",
+        "rep": null,
+        "outcome": "completed",
+        "reason": "Java completion gates passed",
+        "bankBefore": 4,
+        "bankAfter": 5,
+        "totalMs": 10585,
+        "browserMs": 1205,
+        "restartMs": 0,
+        "otherMs": 9380,
+        "admissionMs": 174.1936,
+        "finalVerificationMs": 724.4626,
+        "createdExamples": 0,
+        "reusedExamples": 5,
+        "before": {
+          "storageScope": "Native project files; browser profiles, runtime caches, logs, locks and temporary files excluded",
+          "workflows": 13,
+          "executables": 9,
+          "supervisors": 4,
+          "goals": 18,
+          "files": 148,
+          "bytes": 2977855,
+          "workflowStore": {
+            "bytes": 318702,
+            "sha256": "f66ca433762022de6e095e22d820d46278f7c9187811af3496962d66c058017d"
+          },
+          "limits": {
+            "workflows": 20,
+            "goals": 64,
+            "procedures": 32,
+            "supervisors": 16,
+            "versions": 8,
+            "awakeSeconds": 1200
+          }
+        },
+        "after": {
+          "storageScope": "Native project files; browser profiles, runtime caches, logs, locks and temporary files excluded",
+          "workflows": 15,
+          "executables": 10,
+          "supervisors": 5,
+          "goals": 20,
+          "files": 162,
+          "bytes": 3487968,
+          "workflowStore": {
+            "bytes": 363259,
+            "sha256": "196416caeda3d9fd11221eb719a25fc9aa67cc66a0e7b2101fedb9e844c12cad"
+          },
+          "limits": {
+            "workflows": 20,
+            "goals": 64,
+            "procedures": 32,
+            "supervisors": 16,
+            "versions": 8,
+            "awakeSeconds": 1200
+          }
+        }
+      },
+      {
+        "nativeWorkflowWallMs": 9684,
+        "outerCallerMs": 1291,
+        "name": "growth-6",
+        "kind": "growth",
+        "rep": null,
+        "outcome": "completed",
+        "reason": "Java completion gates passed",
+        "bankBefore": 5,
+        "bankAfter": 6,
+        "totalMs": 10975,
+        "browserMs": 1235,
+        "restartMs": 0,
+        "otherMs": 9740,
+        "admissionMs": 185.9362,
+        "finalVerificationMs": 741.9374,
+        "createdExamples": 0,
+        "reusedExamples": 5,
+        "before": {
+          "storageScope": "Native project files; browser profiles, runtime caches, logs, locks and temporary files excluded",
+          "workflows": 15,
+          "executables": 10,
+          "supervisors": 5,
+          "goals": 20,
+          "files": 162,
+          "bytes": 3491295,
+          "workflowStore": {
+            "bytes": 363259,
+            "sha256": "196416caeda3d9fd11221eb719a25fc9aa67cc66a0e7b2101fedb9e844c12cad"
+          },
+          "limits": {
+            "workflows": 20,
+            "goals": 64,
+            "procedures": 32,
+            "supervisors": 16,
+            "versions": 8,
+            "awakeSeconds": 1200
+          }
+        },
+        "after": {
+          "storageScope": "Native project files; browser profiles, runtime caches, logs, locks and temporary files excluded",
+          "workflows": 17,
+          "executables": 11,
+          "supervisors": 6,
+          "goals": 22,
+          "files": 176,
+          "bytes": 3996282,
+          "workflowStore": {
+            "bytes": 407884,
+            "sha256": "5d332040167eeb1952f703ee4e68ed202cddda0f64f10ca6154036a33c930fad"
+          },
+          "limits": {
+            "workflows": 20,
+            "goals": 64,
+            "procedures": 32,
+            "supervisors": 16,
+            "versions": 8,
+            "awakeSeconds": 1200
+          }
+        }
+      },
+      {
+        "nativeWorkflowWallMs": 9963,
+        "outerCallerMs": 1204,
+        "name": "growth-7",
+        "kind": "growth",
+        "rep": null,
+        "outcome": "completed",
+        "reason": "Java completion gates passed",
+        "bankBefore": 6,
+        "bankAfter": 7,
+        "totalMs": 11167,
+        "browserMs": 1201,
+        "restartMs": 0,
+        "otherMs": 9966,
+        "admissionMs": 197.9969,
+        "finalVerificationMs": 765.1716,
+        "createdExamples": 0,
+        "reusedExamples": 5,
+        "before": {
+          "storageScope": "Native project files; browser profiles, runtime caches, logs, locks and temporary files excluded",
+          "workflows": 17,
+          "executables": 11,
+          "supervisors": 6,
+          "goals": 22,
+          "files": 176,
+          "bytes": 3999611,
+          "workflowStore": {
+            "bytes": 407884,
+            "sha256": "5d332040167eeb1952f703ee4e68ed202cddda0f64f10ca6154036a33c930fad"
+          },
+          "limits": {
+            "workflows": 20,
+            "goals": 64,
+            "procedures": 32,
+            "supervisors": 16,
+            "versions": 8,
+            "awakeSeconds": 1200
+          }
+        },
+        "after": {
+          "storageScope": "Native project files; browser profiles, runtime caches, logs, locks and temporary files excluded",
+          "workflows": 19,
+          "executables": 12,
+          "supervisors": 7,
+          "goals": 24,
+          "files": 190,
+          "bytes": 4509895,
+          "workflowStore": {
+            "bytes": 452489,
+            "sha256": "3d349661a9a0502bb3f1085ba4a53407dced50a17ff399b6e81417955642807a"
+          },
+          "limits": {
+            "workflows": 20,
+            "goals": 64,
+            "procedures": 32,
+            "supervisors": 16,
+            "versions": 8,
+            "awakeSeconds": 1200
+          }
+        }
+      },
+      {
+        "nativeWorkflowWallMs": 10833,
+        "outerCallerMs": 1461,
+        "name": "growth-8",
+        "kind": "growth",
+        "rep": null,
+        "outcome": "completed",
+        "reason": "Java completion gates passed",
+        "bankBefore": 7,
+        "bankAfter": 8,
+        "totalMs": 12294,
+        "browserMs": 1249,
+        "restartMs": 0,
+        "otherMs": 11045,
+        "admissionMs": 201.7571,
+        "finalVerificationMs": 779.2709,
+        "createdExamples": 0,
+        "reusedExamples": 5,
+        "before": {
+          "storageScope": "Native project files; browser profiles, runtime caches, logs, locks and temporary files excluded",
+          "workflows": 19,
+          "executables": 12,
+          "supervisors": 7,
+          "goals": 24,
+          "files": 190,
+          "bytes": 4513197,
+          "workflowStore": {
+            "bytes": 452489,
+            "sha256": "3d349661a9a0502bb3f1085ba4a53407dced50a17ff399b6e81417955642807a"
+          },
+          "limits": {
+            "workflows": 20,
+            "goals": 64,
+            "procedures": 32,
+            "supervisors": 16,
+            "versions": 8,
+            "awakeSeconds": 1200
+          }
+        },
+        "after": {
+          "storageScope": "Native project files; browser profiles, runtime caches, logs, locks and temporary files excluded",
+          "workflows": 21,
+          "executables": 13,
+          "supervisors": 8,
+          "goals": 26,
+          "files": 204,
+          "bytes": 5027462,
+          "workflowStore": {
+            "bytes": 496954,
+            "sha256": "d7226e154412d2883d1e78d6cdd8a0d77259e3dd8100194830e6f61fa29e9e55"
+          },
+          "limits": {
+            "workflows": 20,
+            "goals": 64,
+            "procedures": 32,
+            "supervisors": 16,
+            "versions": 8,
+            "awakeSeconds": 1200
+          }
+        }
+      },
+      {
+        "nativeWorkflowWallMs": 12030,
+        "outerCallerMs": 1597,
+        "name": "growth-9",
+        "kind": "growth",
+        "rep": null,
+        "outcome": "completed",
+        "reason": "Java completion gates passed",
+        "bankBefore": 8,
+        "bankAfter": 9,
+        "totalMs": 13627,
+        "browserMs": 1259,
+        "restartMs": 0,
+        "otherMs": 12368,
+        "admissionMs": 323.2079,
+        "finalVerificationMs": 828.8499,
+        "createdExamples": 0,
+        "reusedExamples": 5,
+        "before": {
+          "storageScope": "Native project files; browser profiles, runtime caches, logs, locks and temporary files excluded",
+          "workflows": 21,
+          "executables": 13,
+          "supervisors": 8,
+          "goals": 26,
+          "files": 204,
+          "bytes": 5030824,
+          "workflowStore": {
+            "bytes": 496954,
+            "sha256": "d7226e154412d2883d1e78d6cdd8a0d77259e3dd8100194830e6f61fa29e9e55"
+          },
+          "limits": {
+            "workflows": 20,
+            "goals": 64,
+            "procedures": 32,
+            "supervisors": 16,
+            "versions": 8,
+            "awakeSeconds": 1200
+          }
+        },
+        "after": {
+          "storageScope": "Native project files; browser profiles, runtime caches, logs, locks and temporary files excluded",
+          "workflows": 23,
+          "executables": 14,
+          "supervisors": 9,
+          "goals": 28,
+          "files": 218,
+          "bytes": 5553439,
+          "workflowStore": {
+            "bytes": 541720,
+            "sha256": "0988088fdabbbfc91bd1c1cac20c51ce63ab0f63135de88913deace444989320"
+          },
+          "limits": {
+            "workflows": 20,
+            "goals": 64,
+            "procedures": 32,
+            "supervisors": 16,
+            "versions": 8,
+            "awakeSeconds": 1200
+          }
+        }
+      },
+      {
+        "nativeWorkflowWallMs": 13790,
+        "outerCallerMs": 2057,
+        "name": "growth-10",
+        "kind": "growth",
+        "rep": null,
+        "outcome": "completed",
+        "reason": "Java completion gates passed",
+        "bankBefore": 9,
+        "bankAfter": 10,
+        "totalMs": 15847,
+        "browserMs": 1221,
+        "restartMs": 0,
+        "otherMs": 14626,
+        "admissionMs": 334.9721,
+        "finalVerificationMs": 848.4282,
+        "createdExamples": 0,
+        "reusedExamples": 5,
+        "before": {
+          "storageScope": "Native project files; browser profiles, runtime caches, logs, locks and temporary files excluded",
+          "workflows": 23,
+          "executables": 14,
+          "supervisors": 9,
+          "goals": 28,
+          "files": 218,
+          "bytes": 5556800,
+          "workflowStore": {
+            "bytes": 541720,
+            "sha256": "0988088fdabbbfc91bd1c1cac20c51ce63ab0f63135de88913deace444989320"
+          },
+          "limits": {
+            "workflows": 20,
+            "goals": 64,
+            "procedures": 32,
+            "supervisors": 16,
+            "versions": 8,
+            "awakeSeconds": 1200
+          }
+        },
+        "after": {
+          "storageScope": "Native project files; browser profiles, runtime caches, logs, locks and temporary files excluded",
+          "workflows": 25,
+          "executables": 15,
+          "supervisors": 10,
+          "goals": 30,
+          "files": 232,
+          "bytes": 6082622,
+          "workflowStore": {
+            "bytes": 586281,
+            "sha256": "1b02b6bd261129aae4578d4ee912b47abe8ca8539f90c3dc0398b0e9d7f54d03"
+          },
+          "limits": {
+            "workflows": 20,
+            "goals": 64,
+            "procedures": 32,
+            "supervisors": 16,
+            "versions": 8,
+            "awakeSeconds": 1200
+          }
+        }
+      },
+      {
+        "nativeWorkflowWallMs": 14327,
+        "outerCallerMs": 2057,
+        "name": "growth-11",
+        "kind": "growth",
+        "rep": null,
+        "outcome": "completed",
+        "reason": "Java completion gates passed",
+        "bankBefore": 10,
+        "bankAfter": 11,
+        "totalMs": 16384,
+        "browserMs": 1257,
+        "restartMs": 0,
+        "otherMs": 15127,
+        "admissionMs": 240.1489,
+        "finalVerificationMs": 857.3106,
+        "createdExamples": 0,
+        "reusedExamples": 5,
+        "before": {
+          "storageScope": "Native project files; browser profiles, runtime caches, logs, locks and temporary files excluded",
+          "workflows": 25,
+          "executables": 15,
+          "supervisors": 10,
+          "goals": 30,
+          "files": 232,
+          "bytes": 6085928,
+          "workflowStore": {
+            "bytes": 586281,
+            "sha256": "1b02b6bd261129aae4578d4ee912b47abe8ca8539f90c3dc0398b0e9d7f54d03"
+          },
+          "limits": {
+            "workflows": 20,
+            "goals": 64,
+            "procedures": 32,
+            "supervisors": 16,
+            "versions": 8,
+            "awakeSeconds": 1200
+          }
+        },
+        "after": {
+          "storageScope": "Native project files; browser profiles, runtime caches, logs, locks and temporary files excluded",
+          "workflows": 27,
+          "executables": 16,
+          "supervisors": 11,
+          "goals": 32,
+          "files": 246,
+          "bytes": 6629219,
+          "workflowStore": {
+            "bytes": 630821,
+            "sha256": "aa0b10b37a9261ff5f80cdde732e9938244db8d8c9ffd3acc308a946d9418afe"
+          },
+          "limits": {
+            "workflows": 20,
+            "goals": 64,
+            "procedures": 32,
+            "supervisors": 16,
+            "versions": 8,
+            "awakeSeconds": 1200
+          }
+        }
+      },
+      {
+        "nativeWorkflowWallMs": 16170,
+        "outerCallerMs": 2597,
+        "name": "growth-12",
+        "kind": "growth",
+        "rep": null,
+        "outcome": "completed",
+        "reason": "Java completion gates passed",
+        "bankBefore": 11,
+        "bankAfter": 12,
+        "totalMs": 18767,
+        "browserMs": 1309,
+        "restartMs": 0,
+        "otherMs": 17458,
+        "admissionMs": 236.5082,
+        "finalVerificationMs": 861.12,
+        "createdExamples": 0,
+        "reusedExamples": 5,
+        "before": {
+          "storageScope": "Native project files; browser profiles, runtime caches, logs, locks and temporary files excluded",
+          "workflows": 27,
+          "executables": 16,
+          "supervisors": 11,
+          "goals": 32,
+          "files": 246,
+          "bytes": 6632561,
+          "workflowStore": {
+            "bytes": 630821,
+            "sha256": "aa0b10b37a9261ff5f80cdde732e9938244db8d8c9ffd3acc308a946d9418afe"
+          },
+          "limits": {
+            "workflows": 20,
+            "goals": 64,
+            "procedures": 32,
+            "supervisors": 16,
+            "versions": 8,
+            "awakeSeconds": 1200
+          }
+        },
+        "after": {
+          "storageScope": "Native project files; browser profiles, runtime caches, logs, locks and temporary files excluded",
+          "workflows": 29,
+          "executables": 17,
+          "supervisors": 12,
+          "goals": 34,
+          "files": 260,
+          "bytes": 7170732,
+          "workflowStore": {
+            "bytes": 675466,
+            "sha256": "e706d015e0bcbb454211697399d51ac592804913dbdcfb5d4ffd78e8d7e031d4"
+          },
+          "limits": {
+            "workflows": 20,
+            "goals": 64,
+            "procedures": 32,
+            "supervisors": 16,
+            "versions": 8,
+            "awakeSeconds": 1200
+          }
+        }
+      },
+      {
+        "nativeWorkflowWallMs": 16529,
+        "outerCallerMs": 2324,
+        "name": "growth-13",
+        "kind": "growth",
+        "rep": null,
+        "outcome": "completed",
+        "reason": "Java completion gates passed",
+        "bankBefore": 12,
+        "bankAfter": 13,
+        "totalMs": 18853,
+        "browserMs": 1230,
+        "restartMs": 0,
+        "otherMs": 17623,
+        "admissionMs": 253.9076,
+        "finalVerificationMs": 900.8905,
+        "createdExamples": 0,
+        "reusedExamples": 5,
+        "before": {
+          "storageScope": "Native project files; browser profiles, runtime caches, logs, locks and temporary files excluded",
+          "workflows": 29,
+          "executables": 17,
+          "supervisors": 12,
+          "goals": 34,
+          "files": 260,
+          "bytes": 7174134,
+          "workflowStore": {
+            "bytes": 675466,
+            "sha256": "e706d015e0bcbb454211697399d51ac592804913dbdcfb5d4ffd78e8d7e031d4"
+          },
+          "limits": {
+            "workflows": 20,
+            "goals": 64,
+            "procedures": 32,
+            "supervisors": 16,
+            "versions": 8,
+            "awakeSeconds": 1200
+          }
+        },
+        "after": {
+          "storageScope": "Native project files; browser profiles, runtime caches, logs, locks and temporary files excluded",
+          "workflows": 31,
+          "executables": 18,
+          "supervisors": 13,
+          "goals": 36,
+          "files": 274,
+          "bytes": 7718886,
+          "workflowStore": {
+            "bytes": 720241,
+            "sha256": "09ab4b896b7351400989d0f1b441909738d0728bec70ba0edc47beeecfe669c6"
+          },
+          "limits": {
+            "workflows": 20,
+            "goals": 64,
+            "procedures": 32,
+            "supervisors": 16,
+            "versions": 8,
+            "awakeSeconds": 1200
+          }
+        }
+      },
+      {
+        "nativeWorkflowWallMs": 16672,
+        "outerCallerMs": 3006,
+        "name": "growth-14",
+        "kind": "growth",
+        "rep": null,
+        "outcome": "completed",
+        "reason": "Java completion gates passed",
+        "bankBefore": 13,
+        "bankAfter": 14,
+        "totalMs": 19678,
+        "browserMs": 1268,
+        "restartMs": 0,
+        "otherMs": 18410,
+        "admissionMs": 258.491,
+        "finalVerificationMs": 917.4811,
+        "createdExamples": 0,
+        "reusedExamples": 5,
+        "before": {
+          "storageScope": "Native project files; browser profiles, runtime caches, logs, locks and temporary files excluded",
+          "workflows": 31,
+          "executables": 18,
+          "supervisors": 13,
+          "goals": 36,
+          "files": 274,
+          "bytes": 7722255,
+          "workflowStore": {
+            "bytes": 720241,
+            "sha256": "09ab4b896b7351400989d0f1b441909738d0728bec70ba0edc47beeecfe669c6"
+          },
+          "limits": {
+            "workflows": 20,
+            "goals": 64,
+            "procedures": 32,
+            "supervisors": 16,
+            "versions": 8,
+            "awakeSeconds": 1200
+          }
+        },
+        "after": {
+          "storageScope": "Native project files; browser profiles, runtime caches, logs, locks and temporary files excluded",
+          "workflows": 33,
+          "executables": 19,
+          "supervisors": 14,
+          "goals": 38,
+          "files": 288,
+          "bytes": 8271288,
+          "workflowStore": {
+            "bytes": 764870,
+            "sha256": "98206ce89e9b332eccd57d2ba038b4da393b7210d96dc96ac22aefd0a940861a"
+          },
+          "limits": {
+            "workflows": 20,
+            "goals": 64,
+            "procedures": 32,
+            "supervisors": 16,
+            "versions": 8,
+            "awakeSeconds": 1200
+          }
+        }
+      },
+      {
+        "nativeWorkflowWallMs": 17874,
+        "outerCallerMs": 3395,
+        "name": "growth-15",
+        "kind": "growth",
+        "rep": null,
+        "outcome": "completed",
+        "reason": "Java completion gates passed",
+        "bankBefore": 14,
+        "bankAfter": 15,
+        "totalMs": 21269,
+        "browserMs": 1252,
+        "restartMs": 0,
+        "otherMs": 20017,
+        "admissionMs": 376.2956,
+        "finalVerificationMs": 981.8903,
+        "createdExamples": 0,
+        "reusedExamples": 5,
+        "before": {
+          "storageScope": "Native project files; browser profiles, runtime caches, logs, locks and temporary files excluded",
+          "workflows": 33,
+          "executables": 19,
+          "supervisors": 14,
+          "goals": 38,
+          "files": 288,
+          "bytes": 8274595,
+          "workflowStore": {
+            "bytes": 764870,
+            "sha256": "98206ce89e9b332eccd57d2ba038b4da393b7210d96dc96ac22aefd0a940861a"
+          },
+          "limits": {
+            "workflows": 20,
+            "goals": 64,
+            "procedures": 32,
+            "supervisors": 16,
+            "versions": 8,
+            "awakeSeconds": 1200
+          }
+        },
+        "after": {
+          "storageScope": "Native project files; browser profiles, runtime caches, logs, locks and temporary files excluded",
+          "workflows": 35,
+          "executables": 20,
+          "supervisors": 15,
+          "goals": 40,
+          "files": 302,
+          "bytes": 8826866,
+          "workflowStore": {
+            "bytes": 809329,
+            "sha256": "6cad47c37a4d6aaca49761f0c6b2f5b7ef5f467df0a773fcb98a92722ffdf830"
+          },
+          "limits": {
+            "workflows": 20,
+            "goals": 64,
+            "procedures": 32,
+            "supervisors": 16,
+            "versions": 8,
+            "awakeSeconds": 1200
+          }
+        }
+      },
+      {
+        "nativeWorkflowWallMs": 8873,
+        "outerCallerMs": 1029,
+        "name": "bank-1-pair-1-recheck",
+        "kind": "recheck",
+        "rep": 1,
+        "outcome": "completed",
+        "reason": "Java completion gates passed",
+        "bankBefore": 1,
+        "bankAfter": 2,
+        "totalMs": 9902,
+        "browserMs": 1256,
+        "restartMs": 0,
+        "otherMs": 8646,
+        "admissionMs": 363.0009,
+        "finalVerificationMs": 691.1527,
+        "createdExamples": 0,
+        "reusedExamples": 5,
+        "before": {
+          "storageScope": "Native project files; browser profiles, runtime caches, logs, locks and temporary files excluded",
+          "workflows": 7,
+          "executables": 6,
+          "supervisors": 1,
+          "goals": 12,
+          "files": 106,
+          "bytes": 1495286,
+          "workflowStore": {
+            "bytes": 185151,
+            "sha256": "ad83c55d3bec84840d7d027058a2d36a4cbb4fc26e5b8451406a9632214434ec"
+          },
+          "limits": {
+            "workflows": 20,
+            "goals": 64,
+            "procedures": 32,
+            "supervisors": 16,
+            "versions": 8,
+            "awakeSeconds": 1200
+          }
+        },
+        "after": {
+          "storageScope": "Native project files; browser profiles, runtime caches, logs, locks and temporary files excluded",
+          "workflows": 9,
+          "executables": 7,
+          "supervisors": 2,
+          "goals": 14,
+          "files": 120,
+          "bytes": 1977173,
+          "workflowStore": {
+            "bytes": 229706,
+            "sha256": "5361843e99dd666ecc540770b996aa805c3165a0ba65637607193df4309738ad"
+          },
+          "limits": {
+            "workflows": 20,
+            "goals": 64,
+            "procedures": 32,
+            "supervisors": 16,
+            "versions": 8,
+            "awakeSeconds": 1200
+          }
+        }
+      },
+      {
+        "nativeWorkflowWallMs": 35590,
+        "outerCallerMs": 1028,
+        "name": "bank-1-pair-1-refresh",
+        "kind": "refresh",
+        "rep": 1,
+        "outcome": "completed",
+        "reason": "Java completion gates passed",
+        "bankBefore": 1,
+        "bankAfter": 2,
+        "totalMs": 36618,
+        "browserMs": 7309,
+        "restartMs": 0,
+        "otherMs": 29309,
+        "admissionMs": 342.4574,
+        "finalVerificationMs": 1184.0848,
+        "createdExamples": 5,
+        "reusedExamples": 0,
+        "before": {
+          "storageScope": "Native project files; browser profiles, runtime caches, logs, locks and temporary files excluded",
+          "workflows": 7,
+          "executables": 6,
+          "supervisors": 1,
+          "goals": 12,
+          "files": 106,
+          "bytes": 1495286,
+          "workflowStore": {
+            "bytes": 185151,
+            "sha256": "ad83c55d3bec84840d7d027058a2d36a4cbb4fc26e5b8451406a9632214434ec"
+          },
+          "limits": {
+            "workflows": 20,
+            "goals": 64,
+            "procedures": 32,
+            "supervisors": 16,
+            "versions": 8,
+            "awakeSeconds": 1200
+          }
+        },
+        "after": {
+          "storageScope": "Native project files; browser profiles, runtime caches, logs, locks and temporary files excluded",
+          "workflows": 14,
+          "executables": 12,
+          "supervisors": 2,
+          "goals": 24,
+          "files": 190,
+          "bytes": 2969242,
+          "workflowStore": {
+            "bytes": 377212,
+            "sha256": "cead574ad35af66bf1b172d5cc46aab0cf0bf33b427cca3b3435f0a5f182c074"
+          },
+          "limits": {
+            "workflows": 20,
+            "goals": 64,
+            "procedures": 32,
+            "supervisors": 16,
+            "versions": 8,
+            "awakeSeconds": 1200
+          }
+        }
+      },
+      {
+        "nativeWorkflowWallMs": 36174,
+        "outerCallerMs": 1070,
+        "name": "bank-1-pair-2-refresh",
+        "kind": "refresh",
+        "rep": 2,
+        "outcome": "completed",
+        "reason": "Java completion gates passed",
+        "bankBefore": 1,
+        "bankAfter": 2,
+        "totalMs": 37244,
+        "browserMs": 7376,
+        "restartMs": 0,
+        "otherMs": 29868,
+        "admissionMs": 337.6872,
+        "finalVerificationMs": 1176.9213,
+        "createdExamples": 5,
+        "reusedExamples": 0,
+        "before": {
+          "storageScope": "Native project files; browser profiles, runtime caches, logs, locks and temporary files excluded",
+          "workflows": 7,
+          "executables": 6,
+          "supervisors": 1,
+          "goals": 12,
+          "files": 106,
+          "bytes": 1495286,
+          "workflowStore": {
+            "bytes": 185151,
+            "sha256": "ad83c55d3bec84840d7d027058a2d36a4cbb4fc26e5b8451406a9632214434ec"
+          },
+          "limits": {
+            "workflows": 20,
+            "goals": 64,
+            "procedures": 32,
+            "supervisors": 16,
+            "versions": 8,
+            "awakeSeconds": 1200
+          }
+        },
+        "after": {
+          "storageScope": "Native project files; browser profiles, runtime caches, logs, locks and temporary files excluded",
+          "workflows": 14,
+          "executables": 12,
+          "supervisors": 2,
+          "goals": 24,
+          "files": 190,
+          "bytes": 2969183,
+          "workflowStore": {
+            "bytes": 377202,
+            "sha256": "2eab64dc3bdc58d82100102164f48bfb2f38b5219b368c29fe53d55d238df10e"
+          },
+          "limits": {
+            "workflows": 20,
+            "goals": 64,
+            "procedures": 32,
+            "supervisors": 16,
+            "versions": 8,
+            "awakeSeconds": 1200
+          }
+        }
+      },
+      {
+        "nativeWorkflowWallMs": 9318,
+        "outerCallerMs": 861,
+        "name": "bank-1-pair-2-recheck",
+        "kind": "recheck",
+        "rep": 2,
+        "outcome": "completed",
+        "reason": "Java completion gates passed",
+        "bankBefore": 1,
+        "bankAfter": 2,
+        "totalMs": 10179,
+        "browserMs": 1283,
+        "restartMs": 0,
+        "otherMs": 8896,
+        "admissionMs": 329.6905,
+        "finalVerificationMs": 692.3061,
+        "createdExamples": 0,
+        "reusedExamples": 5,
+        "before": {
+          "storageScope": "Native project files; browser profiles, runtime caches, logs, locks and temporary files excluded",
+          "workflows": 7,
+          "executables": 6,
+          "supervisors": 1,
+          "goals": 12,
+          "files": 106,
+          "bytes": 1495286,
+          "workflowStore": {
+            "bytes": 185151,
+            "sha256": "ad83c55d3bec84840d7d027058a2d36a4cbb4fc26e5b8451406a9632214434ec"
+          },
+          "limits": {
+            "workflows": 20,
+            "goals": 64,
+            "procedures": 32,
+            "supervisors": 16,
+            "versions": 8,
+            "awakeSeconds": 1200
+          }
+        },
+        "after": {
+          "storageScope": "Native project files; browser profiles, runtime caches, logs, locks and temporary files excluded",
+          "workflows": 9,
+          "executables": 7,
+          "supervisors": 2,
+          "goals": 14,
+          "files": 120,
+          "bytes": 2006634,
+          "workflowStore": {
+            "bytes": 229709,
+            "sha256": "de58453dcc1c2178af0fdbe2733a672f7cd4d4932af6e96b17ef71b37926bf2f"
+          },
+          "limits": {
+            "workflows": 20,
+            "goals": 64,
+            "procedures": 32,
+            "supervisors": 16,
+            "versions": 8,
+            "awakeSeconds": 1200
+          }
+        }
+      },
+      {
+        "nativeWorkflowWallMs": 12712,
+        "outerCallerMs": 2145,
+        "name": "bank-8-pair-1-recheck",
+        "kind": "recheck",
+        "rep": 1,
+        "outcome": "completed",
+        "reason": "Java completion gates passed",
+        "bankBefore": 8,
+        "bankAfter": 9,
+        "totalMs": 14857,
+        "browserMs": 1295,
+        "restartMs": 0,
+        "otherMs": 13562,
+        "admissionMs": 377.8593,
+        "finalVerificationMs": 843.4716,
+        "createdExamples": 0,
+        "reusedExamples": 5,
+        "before": {
+          "storageScope": "Native project files; browser profiles, runtime caches, logs, locks and temporary files excluded",
+          "workflows": 21,
+          "executables": 13,
+          "supervisors": 8,
+          "goals": 26,
+          "files": 204,
+          "bytes": 5030823,
+          "workflowStore": {
+            "bytes": 496954,
+            "sha256": "d7226e154412d2883d1e78d6cdd8a0d77259e3dd8100194830e6f61fa29e9e55"
+          },
+          "limits": {
+            "workflows": 20,
+            "goals": 64,
+            "procedures": 32,
+            "supervisors": 16,
+            "versions": 8,
+            "awakeSeconds": 1200
+          }
+        },
+        "after": {
+          "storageScope": "Native project files; browser profiles, runtime caches, logs, locks and temporary files excluded",
+          "workflows": 23,
+          "executables": 14,
+          "supervisors": 9,
+          "goals": 28,
+          "files": 218,
+          "bytes": 5551208,
+          "workflowStore": {
+            "bytes": 541500,
+            "sha256": "62d7d3209f2f0b9ac50d7d6411385d575f61f4fdfdc1013e2b631e88786320b9"
+          },
+          "limits": {
+            "workflows": 20,
+            "goals": 64,
+            "procedures": 32,
+            "supervisors": 16,
+            "versions": 8,
+            "awakeSeconds": 1200
+          }
+        }
+      },
+      {
+        "nativeWorkflowWallMs": 56216,
+        "outerCallerMs": 1967,
+        "name": "bank-8-pair-1-refresh",
+        "kind": "refresh",
+        "rep": 1,
+        "outcome": "completed",
+        "reason": "Java completion gates passed",
+        "bankBefore": 8,
+        "bankAfter": 9,
+        "totalMs": 58183,
+        "browserMs": 7398,
+        "restartMs": 0,
+        "otherMs": 50785,
+        "admissionMs": 375.7712,
+        "finalVerificationMs": 1407.0418,
+        "createdExamples": 5,
+        "reusedExamples": 0,
+        "before": {
+          "storageScope": "Native project files; browser profiles, runtime caches, logs, locks and temporary files excluded",
+          "workflows": 21,
+          "executables": 13,
+          "supervisors": 8,
+          "goals": 26,
+          "files": 204,
+          "bytes": 5030823,
+          "workflowStore": {
+            "bytes": 496954,
+            "sha256": "d7226e154412d2883d1e78d6cdd8a0d77259e3dd8100194830e6f61fa29e9e55"
+          },
+          "limits": {
+            "workflows": 20,
+            "goals": 64,
+            "procedures": 32,
+            "supervisors": 16,
+            "versions": 8,
+            "awakeSeconds": 1200
+          }
+        },
+        "after": {
+          "storageScope": "Native project files; browser profiles, runtime caches, logs, locks and temporary files excluded",
+          "workflows": 28,
+          "executables": 19,
+          "supervisors": 9,
+          "goals": 38,
+          "files": 288,
+          "bytes": 6543277,
+          "workflowStore": {
+            "bytes": 689022,
+            "sha256": "ae287faad6949d51e5ad8989138d049b079e4e489bf759116c2c9d86d65e123e"
+          },
+          "limits": {
+            "workflows": 20,
+            "goals": 64,
+            "procedures": 32,
+            "supervisors": 16,
+            "versions": 8,
+            "awakeSeconds": 1200
+          }
+        }
+      },
+      {
+        "nativeWorkflowWallMs": 56714,
+        "outerCallerMs": 1813,
+        "name": "bank-8-pair-2-refresh",
+        "kind": "refresh",
+        "rep": 2,
+        "outcome": "completed",
+        "reason": "Java completion gates passed",
+        "bankBefore": 8,
+        "bankAfter": 9,
+        "totalMs": 58527,
+        "browserMs": 7415,
+        "restartMs": 0,
+        "otherMs": 51112,
+        "admissionMs": 377.1275,
+        "finalVerificationMs": 1422.6448,
+        "createdExamples": 5,
+        "reusedExamples": 0,
+        "before": {
+          "storageScope": "Native project files; browser profiles, runtime caches, logs, locks and temporary files excluded",
+          "workflows": 21,
+          "executables": 13,
+          "supervisors": 8,
+          "goals": 26,
+          "files": 204,
+          "bytes": 5030823,
+          "workflowStore": {
+            "bytes": 496954,
+            "sha256": "d7226e154412d2883d1e78d6cdd8a0d77259e3dd8100194830e6f61fa29e9e55"
+          },
+          "limits": {
+            "workflows": 20,
+            "goals": 64,
+            "procedures": 32,
+            "supervisors": 16,
+            "versions": 8,
+            "awakeSeconds": 1200
+          }
+        },
+        "after": {
+          "storageScope": "Native project files; browser profiles, runtime caches, logs, locks and temporary files excluded",
+          "workflows": 28,
+          "executables": 19,
+          "supervisors": 9,
+          "goals": 38,
+          "files": 288,
+          "bytes": 6543373,
+          "workflowStore": {
+            "bytes": 689028,
+            "sha256": "447a478d94ce7adf1e9500b2724c83853f85de33d17f7c2a9f803e96c76e2d33"
+          },
+          "limits": {
+            "workflows": 20,
+            "goals": 64,
+            "procedures": 32,
+            "supervisors": 16,
+            "versions": 8,
+            "awakeSeconds": 1200
+          }
+        }
+      },
+      {
+        "nativeWorkflowWallMs": 12785,
+        "outerCallerMs": 1997,
+        "name": "bank-8-pair-2-recheck",
+        "kind": "recheck",
+        "rep": 2,
+        "outcome": "completed",
+        "reason": "Java completion gates passed",
+        "bankBefore": 8,
+        "bankAfter": 9,
+        "totalMs": 14782,
+        "browserMs": 1232,
+        "restartMs": 0,
+        "otherMs": 13550,
+        "admissionMs": 355.2657,
+        "finalVerificationMs": 833.5054,
+        "createdExamples": 0,
+        "reusedExamples": 5,
+        "before": {
+          "storageScope": "Native project files; browser profiles, runtime caches, logs, locks and temporary files excluded",
+          "workflows": 21,
+          "executables": 13,
+          "supervisors": 8,
+          "goals": 26,
+          "files": 204,
+          "bytes": 5030823,
+          "workflowStore": {
+            "bytes": 496954,
+            "sha256": "d7226e154412d2883d1e78d6cdd8a0d77259e3dd8100194830e6f61fa29e9e55"
+          },
+          "limits": {
+            "workflows": 20,
+            "goals": 64,
+            "procedures": 32,
+            "supervisors": 16,
+            "versions": 8,
+            "awakeSeconds": 1200
+          }
+        },
+        "after": {
+          "storageScope": "Native project files; browser profiles, runtime caches, logs, locks and temporary files excluded",
+          "workflows": 23,
+          "executables": 14,
+          "supervisors": 9,
+          "goals": 28,
+          "files": 218,
+          "bytes": 5551262,
+          "workflowStore": {
+            "bytes": 541509,
+            "sha256": "44b547e59c35a645cf36f5e0cea4c823a7c6525f13fdf0d55ab3294f8935edb8"
+          },
+          "limits": {
+            "workflows": 20,
+            "goals": 64,
+            "procedures": 32,
+            "supervisors": 16,
+            "versions": 8,
+            "awakeSeconds": 1200
+          }
+        }
+      },
+      {
+        "nativeWorkflowWallMs": 12639,
+        "outerCallerMs": 2346,
+        "name": "bank-9-pair-1-recheck",
+        "kind": "recheck",
+        "rep": 1,
+        "outcome": "completed",
+        "reason": "Java completion gates passed",
+        "bankBefore": 9,
+        "bankAfter": 10,
+        "totalMs": 14985,
+        "browserMs": 1374,
+        "restartMs": 0,
+        "otherMs": 13611,
+        "admissionMs": 370.224,
+        "finalVerificationMs": 845.396,
+        "createdExamples": 0,
+        "reusedExamples": 5,
+        "before": {
+          "storageScope": "Native project files; browser profiles, runtime caches, logs, locks and temporary files excluded",
+          "workflows": 23,
+          "executables": 14,
+          "supervisors": 9,
+          "goals": 28,
+          "files": 218,
+          "bytes": 5556860,
+          "workflowStore": {
+            "bytes": 541720,
+            "sha256": "0988088fdabbbfc91bd1c1cac20c51ce63ab0f63135de88913deace444989320"
+          },
+          "limits": {
+            "workflows": 20,
+            "goals": 64,
+            "procedures": 32,
+            "supervisors": 16,
+            "versions": 8,
+            "awakeSeconds": 1200
+          }
+        },
+        "after": {
+          "storageScope": "Native project files; browser profiles, runtime caches, logs, locks and temporary files excluded",
+          "workflows": 25,
+          "executables": 15,
+          "supervisors": 10,
+          "goals": 30,
+          "files": 232,
+          "bytes": 6082755,
+          "workflowStore": {
+            "bytes": 586273,
+            "sha256": "83f6832756d4b49fc1dd28c021f9f221c4c9230e1da03ad8d62be6b134291d2d"
+          },
+          "limits": {
+            "workflows": 20,
+            "goals": 64,
+            "procedures": 32,
+            "supervisors": 16,
+            "versions": 8,
+            "awakeSeconds": 1200
+          }
+        }
+      },
+      {
+        "nativeWorkflowWallMs": 59327,
+        "outerCallerMs": 2321,
+        "name": "bank-9-pair-1-refresh",
+        "kind": "refresh",
+        "rep": 1,
+        "outcome": "completed",
+        "reason": "Java completion gates passed",
+        "bankBefore": 9,
+        "bankAfter": 10,
+        "totalMs": 61648,
+        "browserMs": 7436,
+        "restartMs": 0,
+        "otherMs": 54212,
+        "admissionMs": 377.4422,
+        "finalVerificationMs": 1464.4918,
+        "createdExamples": 5,
+        "reusedExamples": 0,
+        "before": {
+          "storageScope": "Native project files; browser profiles, runtime caches, logs, locks and temporary files excluded",
+          "workflows": 23,
+          "executables": 14,
+          "supervisors": 9,
+          "goals": 28,
+          "files": 218,
+          "bytes": 5556860,
+          "workflowStore": {
+            "bytes": 541720,
+            "sha256": "0988088fdabbbfc91bd1c1cac20c51ce63ab0f63135de88913deace444989320"
+          },
+          "limits": {
+            "workflows": 20,
+            "goals": 64,
+            "procedures": 32,
+            "supervisors": 16,
+            "versions": 8,
+            "awakeSeconds": 1200
+          }
+        },
+        "after": {
+          "storageScope": "Native project files; browser profiles, runtime caches, logs, locks and temporary files excluded",
+          "workflows": 30,
+          "executables": 20,
+          "supervisors": 10,
+          "goals": 40,
+          "files": 302,
+          "bytes": 7083682,
+          "workflowStore": {
+            "bytes": 733786,
+            "sha256": "b2efb946a926e4c4ba2697d831c3a80f1bf5c5f74a88f2be93051b08ceae2dcb"
+          },
+          "limits": {
+            "workflows": 20,
+            "goals": 64,
+            "procedures": 32,
+            "supervisors": 16,
+            "versions": 8,
+            "awakeSeconds": 1200
+          }
+        }
+      },
+      {
+        "nativeWorkflowWallMs": 60916,
+        "outerCallerMs": 2307,
+        "name": "bank-9-pair-2-refresh",
+        "kind": "refresh",
+        "rep": 2,
+        "outcome": "completed",
+        "reason": "Java completion gates passed",
+        "bankBefore": 9,
+        "bankAfter": 10,
+        "totalMs": 63223,
+        "browserMs": 7806,
+        "restartMs": 0,
+        "otherMs": 55417,
+        "admissionMs": 381.8755,
+        "finalVerificationMs": 1457.6782,
+        "createdExamples": 5,
+        "reusedExamples": 0,
+        "before": {
+          "storageScope": "Native project files; browser profiles, runtime caches, logs, locks and temporary files excluded",
+          "workflows": 23,
+          "executables": 14,
+          "supervisors": 9,
+          "goals": 28,
+          "files": 218,
+          "bytes": 5556860,
+          "workflowStore": {
+            "bytes": 541720,
+            "sha256": "0988088fdabbbfc91bd1c1cac20c51ce63ab0f63135de88913deace444989320"
+          },
+          "limits": {
+            "workflows": 20,
+            "goals": 64,
+            "procedures": 32,
+            "supervisors": 16,
+            "versions": 8,
+            "awakeSeconds": 1200
+          }
+        },
+        "after": {
+          "storageScope": "Native project files; browser profiles, runtime caches, logs, locks and temporary files excluded",
+          "workflows": 30,
+          "executables": 20,
+          "supervisors": 10,
+          "goals": 40,
+          "files": 302,
+          "bytes": 7074785,
+          "workflowStore": {
+            "bytes": 733783,
+            "sha256": "7ad66545143ea3c349c0e570216e18f222bc5d2c28db906d970a26e9a5ca7c8c"
+          },
+          "limits": {
+            "workflows": 20,
+            "goals": 64,
+            "procedures": 32,
+            "supervisors": 16,
+            "versions": 8,
+            "awakeSeconds": 1200
+          }
+        }
+      },
+      {
+        "nativeWorkflowWallMs": 12821,
+        "outerCallerMs": 2255,
+        "name": "bank-9-pair-2-recheck",
+        "kind": "recheck",
+        "rep": 2,
+        "outcome": "completed",
+        "reason": "Java completion gates passed",
+        "bankBefore": 9,
+        "bankAfter": 10,
+        "totalMs": 15076,
+        "browserMs": 1259,
+        "restartMs": 0,
+        "otherMs": 13817,
+        "admissionMs": 374.8492,
+        "finalVerificationMs": 857.1396,
+        "createdExamples": 0,
+        "reusedExamples": 5,
+        "before": {
+          "storageScope": "Native project files; browser profiles, runtime caches, logs, locks and temporary files excluded",
+          "workflows": 23,
+          "executables": 14,
+          "supervisors": 9,
+          "goals": 28,
+          "files": 218,
+          "bytes": 5556860,
+          "workflowStore": {
+            "bytes": 541720,
+            "sha256": "0988088fdabbbfc91bd1c1cac20c51ce63ab0f63135de88913deace444989320"
+          },
+          "limits": {
+            "workflows": 20,
+            "goals": 64,
+            "procedures": 32,
+            "supervisors": 16,
+            "versions": 8,
+            "awakeSeconds": 1200
+          }
+        },
+        "after": {
+          "storageScope": "Native project files; browser profiles, runtime caches, logs, locks and temporary files excluded",
+          "workflows": 25,
+          "executables": 15,
+          "supervisors": 10,
+          "goals": 30,
+          "files": 232,
+          "bytes": 6082701,
+          "workflowStore": {
+            "bytes": 586261,
+            "sha256": "ef911b1160133326f848da5d90df740bf47eb55b3d565c31a48243ad4681fead"
+          },
+          "limits": {
+            "workflows": 20,
+            "goals": 64,
+            "procedures": 32,
+            "supervisors": 16,
+            "versions": 8,
+            "awakeSeconds": 1200
+          }
+        }
+      },
+      {
+        "nativeWorkflowWallMs": 19007,
+        "outerCallerMs": 3492,
+        "name": "bank-14-pair-1-recheck",
+        "kind": "recheck",
+        "rep": 1,
+        "outcome": "completed",
+        "reason": "Java completion gates passed",
+        "bankBefore": 14,
+        "bankAfter": 15,
+        "totalMs": 22499,
+        "browserMs": 1267,
+        "restartMs": 0,
+        "otherMs": 21232,
+        "admissionMs": 429.757,
+        "finalVerificationMs": 968.7646,
+        "createdExamples": 0,
+        "reusedExamples": 5,
+        "before": {
+          "storageScope": "Native project files; browser profiles, runtime caches, logs, locks and temporary files excluded",
+          "workflows": 33,
+          "executables": 19,
+          "supervisors": 14,
+          "goals": 38,
+          "files": 288,
+          "bytes": 8274651,
+          "workflowStore": {
+            "bytes": 764870,
+            "sha256": "98206ce89e9b332eccd57d2ba038b4da393b7210d96dc96ac22aefd0a940861a"
+          },
+          "limits": {
+            "workflows": 20,
+            "goals": 64,
+            "procedures": 32,
+            "supervisors": 16,
+            "versions": 8,
+            "awakeSeconds": 1200
+          }
+        },
+        "after": {
+          "storageScope": "Native project files; browser profiles, runtime caches, logs, locks and temporary files excluded",
+          "workflows": 35,
+          "executables": 20,
+          "supervisors": 15,
+          "goals": 40,
+          "files": 302,
+          "bytes": 8828124,
+          "workflowStore": {
+            "bytes": 809417,
+            "sha256": "94562dad6cec6a95866a420ad82140e87467108629a53dacbcc6abdce6217bd9"
+          },
+          "limits": {
+            "workflows": 20,
+            "goals": 64,
+            "procedures": 32,
+            "supervisors": 16,
+            "versions": 8,
+            "awakeSeconds": 1200
+          }
+        }
+      },
+      {
+        "nativeWorkflowWallMs": null,
+        "outerCallerMs": null,
+        "name": "bank-14-pair-1-refresh",
+        "kind": "refresh",
+        "rep": 1,
+        "outcome": "interrupted",
+        "reason": "Insufficient original workflow/goal capacity for all examples and selected-source verification; nothing started",
+        "bankBefore": 14,
+        "bankAfter": 14,
+        "totalMs": 3032,
+        "browserMs": 0,
+        "restartMs": 0,
+        "otherMs": 3032,
+        "admissionMs": null,
+        "finalVerificationMs": null,
+        "createdExamples": null,
+        "reusedExamples": null,
+        "before": {
+          "storageScope": "Native project files; browser profiles, runtime caches, logs, locks and temporary files excluded",
+          "workflows": 33,
+          "executables": 19,
+          "supervisors": 14,
+          "goals": 38,
+          "files": 288,
+          "bytes": 8274651,
+          "workflowStore": {
+            "bytes": 764870,
+            "sha256": "98206ce89e9b332eccd57d2ba038b4da393b7210d96dc96ac22aefd0a940861a"
+          },
+          "limits": {
+            "workflows": 20,
+            "goals": 64,
+            "procedures": 32,
+            "supervisors": 16,
+            "versions": 8,
+            "awakeSeconds": 1200
+          }
+        },
+        "after": {
+          "storageScope": "Native project files; browser profiles, runtime caches, logs, locks and temporary files excluded",
+          "workflows": 33,
+          "executables": 19,
+          "supervisors": 14,
+          "goals": 38,
+          "files": 288,
+          "bytes": 8438466,
+          "workflowStore": {
+            "bytes": 764870,
+            "sha256": "98206ce89e9b332eccd57d2ba038b4da393b7210d96dc96ac22aefd0a940861a"
+          },
+          "limits": {
+            "workflows": 20,
+            "goals": 64,
+            "procedures": 32,
+            "supervisors": 16,
+            "versions": 8,
+            "awakeSeconds": 1200
+          }
+        }
+      },
+      {
+        "nativeWorkflowWallMs": null,
+        "outerCallerMs": null,
+        "name": "bank-14-pair-2-refresh",
+        "kind": "refresh",
+        "rep": 2,
+        "outcome": "interrupted",
+        "reason": "Insufficient original workflow/goal capacity for all examples and selected-source verification; nothing started",
+        "bankBefore": 14,
+        "bankAfter": 14,
+        "totalMs": 3582,
+        "browserMs": 0,
+        "restartMs": 0,
+        "otherMs": 3582,
+        "admissionMs": null,
+        "finalVerificationMs": null,
+        "createdExamples": null,
+        "reusedExamples": null,
+        "before": {
+          "storageScope": "Native project files; browser profiles, runtime caches, logs, locks and temporary files excluded",
+          "workflows": 33,
+          "executables": 19,
+          "supervisors": 14,
+          "goals": 38,
+          "files": 288,
+          "bytes": 8274651,
+          "workflowStore": {
+            "bytes": 764870,
+            "sha256": "98206ce89e9b332eccd57d2ba038b4da393b7210d96dc96ac22aefd0a940861a"
+          },
+          "limits": {
+            "workflows": 20,
+            "goals": 64,
+            "procedures": 32,
+            "supervisors": 16,
+            "versions": 8,
+            "awakeSeconds": 1200
+          }
+        },
+        "after": {
+          "storageScope": "Native project files; browser profiles, runtime caches, logs, locks and temporary files excluded",
+          "workflows": 33,
+          "executables": 19,
+          "supervisors": 14,
+          "goals": 38,
+          "files": 288,
+          "bytes": 8438469,
+          "workflowStore": {
+            "bytes": 764870,
+            "sha256": "98206ce89e9b332eccd57d2ba038b4da393b7210d96dc96ac22aefd0a940861a"
+          },
+          "limits": {
+            "workflows": 20,
+            "goals": 64,
+            "procedures": 32,
+            "supervisors": 16,
+            "versions": 8,
+            "awakeSeconds": 1200
+          }
+        }
+      },
+      {
+        "nativeWorkflowWallMs": 18281,
+        "outerCallerMs": 3894,
+        "name": "bank-14-pair-2-recheck",
+        "kind": "recheck",
+        "rep": 2,
+        "outcome": "completed",
+        "reason": "Java completion gates passed",
+        "bankBefore": 14,
+        "bankAfter": 15,
+        "totalMs": 22175,
+        "browserMs": 1241,
+        "restartMs": 0,
+        "otherMs": 20934,
+        "admissionMs": 468.1481,
+        "finalVerificationMs": 952.5131,
+        "createdExamples": 0,
+        "reusedExamples": 5,
+        "before": {
+          "storageScope": "Native project files; browser profiles, runtime caches, logs, locks and temporary files excluded",
+          "workflows": 33,
+          "executables": 19,
+          "supervisors": 14,
+          "goals": 38,
+          "files": 288,
+          "bytes": 8274651,
+          "workflowStore": {
+            "bytes": 764870,
+            "sha256": "98206ce89e9b332eccd57d2ba038b4da393b7210d96dc96ac22aefd0a940861a"
+          },
+          "limits": {
+            "workflows": 20,
+            "goals": 64,
+            "procedures": 32,
+            "supervisors": 16,
+            "versions": 8,
+            "awakeSeconds": 1200
+          }
+        },
+        "after": {
+          "storageScope": "Native project files; browser profiles, runtime caches, logs, locks and temporary files excluded",
+          "workflows": 35,
+          "executables": 20,
+          "supervisors": 15,
+          "goals": 40,
+          "files": 302,
+          "bytes": 8840059,
+          "workflowStore": {
+            "bytes": 809432,
+            "sha256": "4e6e6de339453a2d9eff29228bab3eb6d65bafad26869b40bf5f38e3adee302d"
+          },
+          "limits": {
+            "workflows": 20,
+            "goals": 64,
+            "procedures": 32,
+            "supervisors": 16,
+            "versions": 8,
+            "awakeSeconds": 1200
+          }
+        }
+      },
+      {
+        "nativeWorkflowWallMs": 72183,
+        "outerCallerMs": 2938,
+        "name": "near-capacity-restart",
+        "kind": "refresh",
+        "rep": null,
+        "outcome": "completed",
+        "reason": "Java completion gates passed",
+        "bankBefore": 9,
+        "bankAfter": 10,
+        "totalMs": 75121,
+        "browserMs": 7458,
+        "restartMs": 6570,
+        "otherMs": 61093,
+        "admissionMs": 376.5946,
+        "finalVerificationMs": 1473.3845,
+        "createdExamples": 5,
+        "reusedExamples": 0,
+        "before": {
+          "storageScope": "Native project files; browser profiles, runtime caches, logs, locks and temporary files excluded",
+          "workflows": 23,
+          "executables": 14,
+          "supervisors": 9,
+          "goals": 28,
+          "files": 218,
+          "bytes": 5556795,
+          "workflowStore": {
+            "bytes": 541720,
+            "sha256": "0988088fdabbbfc91bd1c1cac20c51ce63ab0f63135de88913deace444989320"
+          },
+          "limits": {
+            "workflows": 20,
+            "goals": 64,
+            "procedures": 32,
+            "supervisors": 16,
+            "versions": 8,
+            "awakeSeconds": 1200
+          }
+        },
+        "after": {
+          "storageScope": "Native project files; browser profiles, runtime caches, logs, locks and temporary files excluded",
+          "workflows": 30,
+          "executables": 20,
+          "supervisors": 10,
+          "goals": 40,
+          "files": 302,
+          "bytes": 7082169,
+          "workflowStore": {
+            "bytes": 734761,
+            "sha256": "76258e54dc49b90973fea8220d481bf0ed374d7bc0e4d7b098a00a5074b08316"
+          },
+          "limits": {
+            "workflows": 20,
+            "goals": 64,
+            "procedures": 32,
+            "supervisors": 16,
+            "versions": 8,
+            "awakeSeconds": 1200
+          }
+        }
+      },
+      {
+        "nativeWorkflowWallMs": null,
+        "outerCallerMs": null,
+        "name": "full-bank-recheck",
+        "kind": "recheck",
+        "rep": null,
+        "outcome": "interrupted",
+        "reason": "Insufficient original workflow/goal capacity for all examples and selected-source verification; nothing started",
+        "bankBefore": 15,
+        "bankAfter": 15,
+        "totalMs": 3502,
+        "browserMs": 0,
+        "restartMs": 0,
+        "otherMs": 3502,
+        "admissionMs": null,
+        "finalVerificationMs": null,
+        "createdExamples": null,
+        "reusedExamples": null,
+        "before": {
+          "storageScope": "Native project files; browser profiles, runtime caches, logs, locks and temporary files excluded",
+          "workflows": 35,
+          "executables": 20,
+          "supervisors": 15,
+          "goals": 40,
+          "files": 302,
+          "bytes": 8830082,
+          "workflowStore": {
+            "bytes": 809329,
+            "sha256": "6cad47c37a4d6aaca49761f0c6b2f5b7ef5f467df0a773fcb98a92722ffdf830"
+          },
+          "limits": {
+            "workflows": 20,
+            "goals": 64,
+            "procedures": 32,
+            "supervisors": 16,
+            "versions": 8,
+            "awakeSeconds": 1200
+          }
+        },
+        "after": {
+          "storageScope": "Native project files; browser profiles, runtime caches, logs, locks and temporary files excluded",
+          "workflows": 35,
+          "executables": 20,
+          "supervisors": 15,
+          "goals": 40,
+          "files": 302,
+          "bytes": 9004708,
+          "workflowStore": {
+            "bytes": 809329,
+            "sha256": "6cad47c37a4d6aaca49761f0c6b2f5b7ef5f467df0a773fcb98a92722ffdf830"
+          },
+          "limits": {
+            "workflows": 20,
+            "goals": 64,
+            "procedures": 32,
+            "supervisors": 16,
+            "versions": 8,
+            "awakeSeconds": 1200
+          }
+        }
+      },
+      {
+        "nativeWorkflowWallMs": null,
+        "outerCallerMs": null,
+        "name": "full-bank-refresh",
+        "kind": "refresh",
+        "rep": null,
+        "outcome": "interrupted",
+        "reason": "Insufficient original workflow/goal capacity for all examples and selected-source verification; nothing started",
+        "bankBefore": 15,
+        "bankAfter": 15,
+        "totalMs": 3442,
+        "browserMs": 0,
+        "restartMs": 0,
+        "otherMs": 3442,
+        "admissionMs": null,
+        "finalVerificationMs": null,
+        "createdExamples": null,
+        "reusedExamples": null,
+        "before": {
+          "storageScope": "Native project files; browser profiles, runtime caches, logs, locks and temporary files excluded",
+          "workflows": 35,
+          "executables": 20,
+          "supervisors": 15,
+          "goals": 40,
+          "files": 302,
+          "bytes": 8830082,
+          "workflowStore": {
+            "bytes": 809329,
+            "sha256": "6cad47c37a4d6aaca49761f0c6b2f5b7ef5f467df0a773fcb98a92722ffdf830"
+          },
+          "limits": {
+            "workflows": 20,
+            "goals": 64,
+            "procedures": 32,
+            "supervisors": 16,
+            "versions": 8,
+            "awakeSeconds": 1200
+          }
+        },
+        "after": {
+          "storageScope": "Native project files; browser profiles, runtime caches, logs, locks and temporary files excluded",
+          "workflows": 35,
+          "executables": 20,
+          "supervisors": 15,
+          "goals": 40,
+          "files": 302,
+          "bytes": 9004782,
+          "workflowStore": {
+            "bytes": 809329,
+            "sha256": "6cad47c37a4d6aaca49761f0c6b2f5b7ef5f467df0a773fcb98a92722ffdf830"
+          },
+          "limits": {
+            "workflows": 20,
+            "goals": 64,
+            "procedures": 32,
+            "supervisors": 16,
+            "versions": 8,
+            "awakeSeconds": 1200
+          }
+        }
+      },
+      {
+        "nativeWorkflowWallMs": null,
+        "outerCallerMs": null,
+        "name": "refused-artifact",
+        "kind": "source-refusal",
+        "rep": null,
+        "outcome": "interrupted",
+        "reason": "Created artifact was changed outside its owned revision",
+        "bankBefore": 14,
+        "bankAfter": 14,
+        "totalMs": 3159,
+        "browserMs": 0,
+        "restartMs": 0,
+        "otherMs": 3159,
+        "admissionMs": null,
+        "finalVerificationMs": null,
+        "createdExamples": null,
+        "reusedExamples": null,
+        "before": {
+          "storageScope": "Native project files; browser profiles, runtime caches, logs, locks and temporary files excluded",
+          "workflows": 33,
+          "executables": 19,
+          "supervisors": 14,
+          "goals": 38,
+          "files": 292,
+          "bytes": 8280556,
+          "workflowStore": {
+            "bytes": 764870,
+            "sha256": "98206ce89e9b332eccd57d2ba038b4da393b7210d96dc96ac22aefd0a940861a"
+          },
+          "limits": {
+            "workflows": 20,
+            "goals": 64,
+            "procedures": 32,
+            "supervisors": 16,
+            "versions": 8,
+            "awakeSeconds": 1200
+          }
+        },
+        "after": {
+          "storageScope": "Native project files; browser profiles, runtime caches, logs, locks and temporary files excluded",
+          "workflows": 33,
+          "executables": 19,
+          "supervisors": 14,
+          "goals": 38,
+          "files": 292,
+          "bytes": 8443898,
+          "workflowStore": {
+            "bytes": 764870,
+            "sha256": "98206ce89e9b332eccd57d2ba038b4da393b7210d96dc96ac22aefd0a940861a"
+          },
+          "limits": {
+            "workflows": 20,
+            "goals": 64,
+            "procedures": 32,
+            "supervisors": 16,
+            "versions": 8,
+            "awakeSeconds": 1200
+          }
+        }
+      },
+      {
+        "nativeWorkflowWallMs": null,
+        "outerCallerMs": null,
+        "name": "refused-dataset",
+        "kind": "source-refusal",
+        "rep": null,
+        "outcome": "interrupted",
+        "reason": "Original qualification dataset was revised",
+        "bankBefore": 14,
+        "bankAfter": 14,
+        "totalMs": 3044,
+        "browserMs": 0,
+        "restartMs": 0,
+        "otherMs": 3044,
+        "admissionMs": null,
+        "finalVerificationMs": null,
+        "createdExamples": null,
+        "reusedExamples": null,
+        "before": {
+          "storageScope": "Native project files; browser profiles, runtime caches, logs, locks and temporary files excluded",
+          "workflows": 33,
+          "executables": 19,
+          "supervisors": 14,
+          "goals": 38,
+          "files": 288,
+          "bytes": 8279305,
+          "workflowStore": {
+            "bytes": 764870,
+            "sha256": "98206ce89e9b332eccd57d2ba038b4da393b7210d96dc96ac22aefd0a940861a"
+          },
+          "limits": {
+            "workflows": 20,
+            "goals": 64,
+            "procedures": 32,
+            "supervisors": 16,
+            "versions": 8,
+            "awakeSeconds": 1200
+          }
+        },
+        "after": {
+          "storageScope": "Native project files; browser profiles, runtime caches, logs, locks and temporary files excluded",
+          "workflows": 33,
+          "executables": 19,
+          "supervisors": 14,
+          "goals": 38,
+          "files": 288,
+          "bytes": 8442588,
+          "workflowStore": {
+            "bytes": 764870,
+            "sha256": "98206ce89e9b332eccd57d2ba038b4da393b7210d96dc96ac22aefd0a940861a"
+          },
+          "limits": {
+            "workflows": 20,
+            "goals": 64,
+            "procedures": 32,
+            "supervisors": 16,
+            "versions": 8,
+            "awakeSeconds": 1200
+          }
+        }
+      }
+    ],
+    "limits": {
+      "workflows": 20,
+      "goals": 64,
+      "procedures": 32,
+      "supervisors": 16,
+      "versions": 8,
+      "awakeSeconds": 1200
+    },
+    "scope": "Actual same-runtime growth and maintenance to the first binding capacity: 15 genuinely verified saved procedures plus five case workflows exhaust20 executable workflows. Two cold reversed-order repetitions per bank. Full refresh completes at tested bank9 and refuses at tested banks14/15; recheck admits bank14 and refuses bank15. Not a test of32 qualified procedures, different procedural algorithms, or generalized performance. All original checks, preparation, copies, refusal and restart costs retained.",
+    "refusals": [
+      {
+        "name": "source",
+        "refused": true
+      },
+      {
+        "name": "metric",
+        "refused": true
+      },
+      {
+        "name": "plot",
+        "refused": true
+      },
+      {
+        "name": "filter",
+        "refused": true
+      },
+      {
+        "name": "browser",
+        "refused": true
+      },
+      {
+        "name": "renderer",
+        "refused": true
+      },
+      {
+        "name": "padded skill",
+        "refused": true
+      },
+      {
+        "name": "growth count",
+        "refused": true
+      },
+      {
+        "name": "limits",
+        "refused": true
+      },
+      {
+        "name": "native count",
+        "refused": true
+      },
+      {
+        "name": "bank checkpoint",
+        "refused": true
+      },
+      {
+        "name": "closed copy",
+        "refused": true
+      },
+      {
+        "name": "manifest",
+        "refused": true
+      },
+      {
+        "name": "dependency",
+        "refused": true
+      },
+      {
+        "name": "baseline",
+        "refused": true
+      },
+      {
+        "name": "fresh count",
+        "refused": true
+      },
+      {
+        "name": "old proof",
+        "refused": true
+      },
+      {
+        "name": "native time",
+        "refused": true
+      },
+      {
+        "name": "caller time",
+        "refused": true
+      },
+      {
+        "name": "restart boundary",
+        "refused": true
+      },
+      {
+        "name": "restart bytes",
+        "refused": true
+      },
+      {
+        "name": "restart child",
+        "refused": true
+      },
+      {
+        "name": "restart cost",
+        "refused": true
+      },
+      {
+        "name": "capacity refusal",
+        "refused": true
+      },
+      {
+        "name": "refusal mutated history",
+        "refused": true
+      },
+      {
+        "name": "planner retry",
+        "refused": true
+      },
+      {
+        "name": "resume",
+        "refused": true
+      },
+      {
+        "name": "generation",
+        "refused": true
+      },
+      {
+        "name": "source revision",
+        "refused": true
+      },
+      {
+        "name": "completion",
+        "refused": true
+      }
+    ]
+  },
+  "releaseCI": {
+    "checkedAtUtc": "2026-11-10T21:17:51.008Z",
+    "head": "53b9655807e2230a1e73f9e22a01da0f2a6d30c1",
+    "workflowRuns": [
+      {
+        "id": 42903543291,
+        "head": "53b9655807e2230a1e73f9e22a01da0f2a6d30c1",
+        "status": "in_progress",
+        "conclusion": null,
+        "url": "https://github.com/eyeoverthink/Fraynix-Agent-Workspace/actions/runs/42903543291"
+      }
+    ]
+  },
+  "scope": "Actual non-force atomic main/edition109/tag push, fetched and audited. Genuine bank growth, same-bank cold maintenance pairs, unchanged verification, source refusals and abrupt near-capacity recovery. No padding, history deletion or raised limits. All342 Java engine classes unchanged. CI separate."
+}

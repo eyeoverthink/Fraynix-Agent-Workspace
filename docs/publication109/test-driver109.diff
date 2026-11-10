@@ -1,0 +1,33 @@
+diff --git a/workspace-engine/src/test/java/fraymus/workspace/Qualification105Test.java b/workspace-engine/src/test/java/fraymus/workspace/Qualification105Test.java
+index c92f4a20..5b988255 100644
+--- a/workspace-engine/src/test/java/fraymus/workspace/Qualification105Test.java
++++ b/workspace-engine/src/test/java/fraymus/workspace/Qualification105Test.java
+@@ -15,7 +15,14 @@ public class Qualification105Test {
+         while(System.currentTimeMillis()<deadline){
+             var w=f.workflows.read(id);if(stop.test(w)||!w.getString("status").equals("running"))return w;
+             var e=f.goals.claim();if(e.has("id")){assertFalse(e.getString("kind").startsWith("creation.generate"));WorkflowTest.hostFixture(f,e);}
+-            var audit=f.workflows.claim();if(audit.has("id")){
++            JSONObject audit;
++            synchronized(f.workflows){
++                // Stop and claim share the runner lock: never acknowledge the boundary being inspected.
++                var current=f.workflows.read(id);
++                if(stop.test(current)||!current.getString("status").equals("running"))return current;
++                audit=f.workflows.claim();
++            }
++            if(audit.has("id")){
+                 assertEquals(id,f.workflows.authorityOwner105(audit.getString("workflowId")));
+                 var b=f.workflows.read(audit.getString("workflowId")).getJSONObject("dataBinding");var data=f.data.read(b.getString("datasetId"),b.getInt("datasetVersion"));
+                 var observed=DataSummary102Test.observed(f,audit,data);if(corrupt&&!changed){observed.getJSONArray("summaries102").getJSONObject(0).getJSONObject("values").put("travel","999.000000");changed=true;}
+diff --git a/workspace-engine/src/test/java/fraymus/workspace/Qualification108Test.java b/workspace-engine/src/test/java/fraymus/workspace/Qualification108Test.java
+index 62ae88ad..776edf9b 100644
+--- a/workspace-engine/src/test/java/fraymus/workspace/Qualification108Test.java
++++ b/workspace-engine/src/test/java/fraymus/workspace/Qualification108Test.java
+@@ -38,7 +38,7 @@ public class Qualification108Test {
+         try(var f=new WorkflowTest.Fixture(original())){reviseSource(f);int count=f.workflows.list().length();var e=assertThrows(IllegalStateException.class,()->f.workflows.start(input(f)));assertTrue(e.getMessage().contains("revised"));assertEquals(count,f.workflows.list().length());}
+     }
+     @Test public void oldProofIsRecheckedBeforePublishingNewSelectedSource()throws Exception{
+-        try(var f=new WorkflowTest.Fixture(original())){String id=f.workflows.start(input(f)).getString("id");var w=Qualification105Test.drive(f,id,x->x.has("activeWorkflow105")&&x.getJSONObject("qualification105").getInt("checked")==5&&x.getJSONObject("activeWorkflow105").getString("step").equals("audit"),false);assertEquals("running",w.getString("status"));reviseSource(f);w=Qualification105Test.finish(f,id);assertEquals("interrupted",w.getString("status"));assertEquals(1,f.goals.procedures().length());assertThrows(IllegalStateException.class,()->f.workflows.resume(id));f.workflows.cancel(id);}
++        try(var f=new WorkflowTest.Fixture(original())){String id=f.workflows.start(input(f)).getString("id");var w=Qualification105Test.drive(f,id,x->x.has("activeWorkflow105")&&x.getJSONObject("qualification105").getInt("checked")==5&&x.getJSONObject("activeWorkflow105").getString("step").equals("audit"),false);assertEquals("running",w.getString("status"));assertEquals(5,w.getJSONObject("qualification105").getInt("checked"));assertEquals("audit",w.getJSONObject("activeWorkflow105").getString("step"));reviseSource(f);w=Qualification105Test.finish(f,id);assertEquals("interrupted",w.getString("status"));assertEquals(1,f.goals.procedures().length());assertThrows(IllegalStateException.class,()->f.workflows.resume(id));f.workflows.cancel(id);}
+     }
+     @Test public void strictArgumentsAndChatRequireExplicitTransition()throws Exception{
+         assertTrue(Qualification108.requested("Upgrade summary qualification and save workflow as upgraded"));assertFalse(Qualification108.requested("Refresh summary qualification"));assertFalse(Qualification108.requested("Upgrade browser"));

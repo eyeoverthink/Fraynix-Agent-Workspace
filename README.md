@@ -9,3 +9,5 @@ Thirty actual workflows complete, including abrupt recovery; six refuse correctl
 ![Actual fifteen-procedure bank](docs/readmes/109/growth-15-1600.png)
 
 Java owns durable goals, tools, worlds, verification, recovery and memory. Chat, browser/canvas, spatial views and Game Lab remain integrated.
+
+Published to main. [Fetched GitHub verification](docs/PUBLICATION_109.json).
