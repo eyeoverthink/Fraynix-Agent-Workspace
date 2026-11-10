@@ -1,6 +1,6 @@
 """Generate edition109 documentation from independently verified real execution only."""
 from pathlib import Path
-import json,hashlib,gzip,shutil,subprocess,xml.etree.ElementTree as ET
+import json,hashlib,gzip,shutil,subprocess,re,xml.etree.ElementTree as ET
 r=Path(__file__).resolve().parent.parent;d=r/'docs/readmes/109'
 def load(p):return json.loads((r/p).read_text(encoding='utf-8-sig'))
 def write(p,s):p.parent.mkdir(parents=True,exist_ok=True);p.write_text(s,encoding='utf-8',newline='\n')
@@ -27,13 +27,13 @@ for name in ['desktop109.log','desktop109-additional.log']:assert 'fail 0' in (r
 d.mkdir(parents=True,exist_ok=True)
 for row,t in zip(analysis['results'],trial['tasks']):row['screenshot']=t['captureKey']+'-1600.png'
 js(d/'analysis.json',analysis)
-js(d/'verification.json',{'passed':True,'initialJava':initial,'initialFailure':failures,'finalAffectedJava':tests,'testDriverCorrection':load('build/test-driver109.json'),'javaScope':'126 distinct methods covered on unchanged production bytecode. Initial125 passed and one test-driver timing failure retained. All23 affected methods in three suites pass after atomic stop/claim correction. Other test classes unchanged.','desktopChecks':148,'independentRefusals':analysis['refusals'],'sourceIdentity':identity,'build':load('build/study095-build.json'),'visual':visual,'parentCI':load('build/ci109-parent.json'),'actualRequests':36,'completions':30,'requiredRefusals':6,'abruptRecoveries':1})
+js(d/'verification.json',{'passed':True,'initialJava':initial,'initialFailure':failures,'finalAffectedJava':tests,'testDriverCorrection':load('build/test-driver109.json'),'javaScope':'126 distinct methods covered on unchanged production bytecode. Initial125 passed and one test-driver timing failure retained. All23 affected methods in three suites pass after atomic stop/claim correction. Remaining test sources unchanged.','desktopChecks':148,'independentRefusals':analysis['refusals'],'sourceIdentity':identity,'build':load('build/study095-build.json'),'visual':visual,'parentCI':load('build/ci109-parent.json'),'actualRequests':36,'completions':30,'requiredRefusals':6,'abruptRecoveries':1})
 captions={}
 for row in analysis['results']:
  name=row['screenshot'];shutil.copyfile(r/'build/maintenance109'/name,d/name);captions[name]=row['name']+': '+row['kind']+', bank '+str(row['bankBefore'])+', '+row['outcome']+'. Actual application.'
 for name,caption in [('maintenance109-1100.png','Actual narrower workspace after recovered bank9 refresh.'),('near-capacity-restart-interrupted.png','Third fresh example before its actual audit and abrupt process interruption.')]:
  shutil.copyfile(r/'build/maintenance109'/name,d/name);captions[name]=caption
-roots=['build/maintenance109','workspace-engine/build/test-results/test','build/before-driver109'];extras=['build/java109-final.log','build/test-driver109.json','build/test-driver109.diff','build/repair-driver109.py','build/java109.log','build/desktop109.log','build/desktop109-additional.log','build/source-identity109.json','build/ci109-parent.json','build/study095-build.json','build/analysis109.json','build/inspect109.log','build/visual-review109.json','build/maintenance109.log']
+roots=['build/maintenance109','workspace-engine/build/test-results/test','build/before-driver109'];extras=['build/record-driver109.py','build/java109-final.log','build/test-driver109.json','build/test-driver109.diff','build/repair-driver109.py','build/java109.log','build/desktop109.log','build/desktop109-additional.log','build/source-identity109.json','build/ci109-parent.json','build/study095-build.json','build/analysis109.json','build/inspect109.log','build/visual-review109.json','build/maintenance109.log']
 paths=[]
 for folder in roots:
  for p in (r/folder).rglob('*'):
@@ -55,6 +55,8 @@ modules=[('chat','Native chat routing','workspace-engine/src/main/java/fraymus/w
 system={'modules':[{'id':i,'name':n,'source':p,'note':note} for i,n,p in modules],'screenshots':[{'path':'docs/readmes/109/'+n,'caption':c} for n,c in captions.items()],'evidence':[{'path':'docs/readmes/109/'+n,'caption':n} for n in ['analysis.json','verification.json','original-evidence.json']]};js(d/'system-map.json',system)
 pairs='\n'.join('| '+str(x['bank'])+' | '+str(x['rep'])+' | '+f"{x['recheckMs']/1000:.3f} | {x['refreshMs']/1000:.3f} | "+('completed' if x['refreshCompleted'] else 'capacity refusal')+' |' for x in analysis['pairs'])
 table='\n'.join('| '+x['name']+' | '+str(x['bankBefore'])+' | '+x['outcome']+' | '+' | '.join(f'{x[k]/1000:.3f}' for k in ['totalMs','browserMs','restartMs','otherMs'])+' |' for x in analysis['results'])
+recheck_times=[p['recheckMs']/1000 for p in analysis['pairs']]
+refresh_times=[p['refreshMs']/1000 for p in analysis['pairs'] if p['refreshCompleted']]
 readme=f'''# Fraynix Agent Workspace - edition 109
 
 ## What it costs to maintain a real growing memory bank
@@ -89,15 +91,19 @@ The fifteen growth requests cost **{analysis['growthMs']/1000:.3f}seconds**, inc
 
 ## Recheck versus full refresh
 
-At banks1,8,9 and14, two repetitions compare ordinary qualification with explicit full refresh. The second pair reverses order. Both members use identical selected CSV and criteria and the same closed original bank. Full refresh rechecks the baseline, then runs all five examples anew and verifies the selected source. Recheck verifies each original and then completes the selected-source workflow.
+At banks1,8,9 and14, two repetitions compare ordinary qualification with explicit full refresh. The second pair reverses order. Both members use identical selected CSV and criteria and the same closed original bank. Full refresh rechecks the baseline, then runs all five examples anew and verifies the selected source. Recheck verifies each original and then completes the selected-source workflow. The UI example counter describes reused case workflows: a refresh shows zero reused/rechecked examples, while its separate baseline proof verification still runs. That counter is not a count of all original-source checks.
 
 | Starting bank | Repetition | Recheck seconds | Refresh seconds | Refresh outcome |
 | ---: | ---: | ---: | ---: | --- |
 {pairs}
 
+Every session reports a512MiB maximum Java heap and two available Java processors; the recorder asserts those actual values. Requests run sequentially. Cold means a newly launched application on a closed project copy, not an emptied operating-system disk cache.
+
+Across the completed paired requests, recheck took **{min(recheck_times):.3f}-{max(recheck_times):.3f}s**, while full refresh took **{min(refresh_times):.3f}-{max(refresh_times):.3f}s**. Both retained every original check and completed the selected report where capacity allowed. This study demonstrates the cost difference; it does not demonstrate improved success from rerunning unchanged examples.
+
 These two observations per point describe this machine and workload. They do not establish a universal latency curve, a confidence interval, a causal effect of procedure count alone, or an equal-work speedup. Bank size grows together with history, stored proofs and data. Full refresh performs more work. Refused refreshes are reported as refusals, never as fast successful maintenance.
 
-The offline chart plots only completed requests and explicitly identifies capacity refusals. Detailed evidence includes request wall time, actual browser spans, recovery pauses, Java admission and final-verification times, retained store bytes and all workflow/goal/supervisor counts. A missing admission/final time for a refused request is null, not a measured zero.
+The offline chart plots only completed requests and explicitly identifies capacity refusals. Detailed evidence includes request wall time, actual browser spans, recovery pauses, Java admission and final-verification times, retained store bytes and all workflow/goal/supervisor counts. A missing admission/final time for a refused request is null, not a measured zero. Native qualification wall time is also reconstructed from Java admission and completion timestamps, and bounded inside the full caller interval. Their difference includes chat/bootstrap, recorder persistence and caller observation latency. The instrumented caller times therefore describe this complete test path, not a pure Java microbenchmark; the native spans and admission/final-check timings remain available separately. These nested native spans are alternative views of the same request, not extra time to add to the browser/restart/other partition.
 
 ## Capacity is a combined budget
 
@@ -185,6 +191,8 @@ The next useful improvement is a bounded active history whose immutable source a
 After that, measure maintenance again on genuinely larger banks, test whether archival/retrieval earns its cost, and consider selective refresh only with a versioned contract and fresh outcome evidence. The larger direction remains a Java-owned agent that observes, acts, checks, remembers and recovers; scaling its memory requires preserving what made that memory trustworthy.
 '''
 for a,b in [('\n-126','\n- 126'),('\n-148','\n- 148'),('\n-Thirty','\n- Thirty'),('\n-All342','\n- All342'),('\n-Actual','\n- Actual')]:readme=readme.replace(a,b)
+readme=re.sub(r'\b(Edition|edition|bank|banks|All|all|across|of|in|at)(?=\d)',r'\1 ',readme)
+readme=re.sub(r'(?<=\d)(?=seconds\b|MiB\b)', ' ',readme)
 write(r/'README-109.md',readme)
 write(r/'README.md','# Fraynix Agent Workspace\n\nEdition109 measures maintenance as genuine saved procedures fill the existing workflow capacity, preserving every source and outcome check.\n\n[Edition109: measurements, functions and next steps](README-109.md) | [Interactive offline guide](docs/readmes/109/index.html) | [Previous edition](README-108.md) | [Contributor direction](README-CONTRIBUTORS.md)\n\nThirty actual workflows complete, including abrupt recovery; six refuse correctly. All342 Java engine classes remain unchanged.\n\n![Actual fifteen-procedure bank](docs/readmes/109/growth-15-1600.png)\n\nJava owns durable goals, tools, worlds, verification, recovery and memory. Chat, browser/canvas, spatial views and Game Lab remain integrated.\n')
 summary='2026-11-10. Isolated S:/Codex-Work/fraynix-workspace-edition109; parent028e2451. Actual36-request maintenance study:30 completions, six native refusals, one abrupt bank9 refresh recovery. Genuine growth to15 saved procedures reaches20 executable workflows before32 procedure slots. Cold paired recheck/full refresh at banks1/8/9/14, two reversed-order repetitions; full preparation/copy/refusal/restart costs retained. No padding, history deletion or raised limits. Every source/outcome check preserved. All342 engine classes and two resources byte-identical to108;126 distinct Java methods covered, with23 affected passing after an initial test-driver timing correction;148 desktop and30 altered-record refusals pass. Original failure retained. Private worlds and frozen001-108 preserved; no delegation; heavy work serial. Next: explicit evidence-preserving archival before larger active history. Publication pending actual push/fetch; CI separate.\n'

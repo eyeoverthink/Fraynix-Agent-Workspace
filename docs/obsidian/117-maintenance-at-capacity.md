@@ -1,0 +1,5 @@
+# Edition109 - maintenance at capacity
+
+2026-11-10. Isolated S:/Codex-Work/fraynix-workspace-edition109; parent028e2451. Actual36-request maintenance study:30 completions, six native refusals, one abrupt bank9 refresh recovery. Genuine growth to15 saved procedures reaches20 executable workflows before32 procedure slots. Cold paired recheck/full refresh at banks1/8/9/14, two reversed-order repetitions; full preparation/copy/refusal/restart costs retained. No padding, history deletion or raised limits. Every source/outcome check preserved. All342 engine classes and two resources byte-identical to108;126 distinct Java methods covered, with23 affected passing after an initial test-driver timing correction;148 desktop and30 altered-record refusals pass. Original failure retained. Private worlds and frozen001-108 preserved; no delegation; heavy work serial. Next: explicit evidence-preserving archival before larger active history. Publication pending actual push/fetch; CI separate.
+
+[[README-109.md|Full edition]] | [[docs/obsidian/116-explicit-qualification-upgrades.md|Previous qualification upgrades]]

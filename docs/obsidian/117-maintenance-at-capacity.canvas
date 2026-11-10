@@ -1,0 +1,32 @@
+{
+  "nodes": [
+    {
+      "id": "study",
+      "type": "file",
+      "file": "README-109.md",
+      "x": 0,
+      "y": 0,
+      "width": 500,
+      "height": 340
+    },
+    {
+      "id": "continuity",
+      "type": "file",
+      "file": "docs/obsidian/117-maintenance-at-capacity.md",
+      "x": 580,
+      "y": 0,
+      "width": 500,
+      "height": 340
+    }
+  ],
+  "edges": [
+    {
+      "id": "maintenance",
+      "fromNode": "study",
+      "fromSide": "right",
+      "toNode": "continuity",
+      "toSide": "left",
+      "label": "genuine growth, unchanged checks, cost and capacity"
+    }
+  ]
+}
