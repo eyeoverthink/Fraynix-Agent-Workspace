@@ -1,0 +1,310 @@
+{
+  "passed": true,
+  "declaredRestartBoundaries": false,
+  "source": "6c54114a8550f3a4a53915e4a3fa4f67a598fcdb",
+  "completedRequests": 7,
+  "requiredRefusals": 5,
+  "restarts": 2,
+  "requestMs": 280610,
+  "cohortWallMs": 331632,
+  "setupAndBetweenMs": 51022,
+  "pairs": [
+    {
+      "rep": "1",
+      "cleanMs": 32573,
+      "transitionMs": 40554,
+      "extraTransitionMs": 7981
+    },
+    {
+      "rep": "2",
+      "cleanMs": 33265,
+      "transitionMs": 43413,
+      "extraTransitionMs": 10148
+    }
+  ],
+  "results": [
+    {
+      "name": "pair-1-clean",
+      "kind": "clean",
+      "outcome": "completed",
+      "reason": "Java completion gates passed",
+      "bankBefore": 0,
+      "totalMs": 32573,
+      "browserMs": 7366,
+      "restartMs": 0,
+      "otherMs": 25207,
+      "admissionMs": 5.1444,
+      "finalVerificationMs": 532.2474,
+      "createdExamples": 5
+    },
+    {
+      "name": "pair-1-transition",
+      "kind": "transition",
+      "outcome": "completed",
+      "reason": "Java completion gates passed",
+      "bankBefore": 1,
+      "totalMs": 40554,
+      "browserMs": 7332,
+      "restartMs": 0,
+      "otherMs": 33222,
+      "admissionMs": 1007.8223,
+      "finalVerificationMs": 1687.3823,
+      "createdExamples": 5
+    },
+    {
+      "name": "pair-2-transition",
+      "kind": "transition",
+      "outcome": "completed",
+      "reason": "Java completion gates passed",
+      "bankBefore": 1,
+      "totalMs": 43413,
+      "browserMs": 7417,
+      "restartMs": 0,
+      "otherMs": 35996,
+      "admissionMs": 923.5769,
+      "finalVerificationMs": 1652.3382,
+      "createdExamples": 5
+    },
+    {
+      "name": "pair-2-clean",
+      "kind": "clean",
+      "outcome": "completed",
+      "reason": "Java completion gates passed",
+      "bankBefore": 0,
+      "totalMs": 33265,
+      "browserMs": 7285,
+      "restartMs": 0,
+      "otherMs": 25980,
+      "admissionMs": 5.1503,
+      "finalVerificationMs": 526.9545,
+      "createdExamples": 5
+    },
+    {
+      "name": "partial-restart108",
+      "kind": "transition",
+      "outcome": "completed",
+      "reason": "Java completion gates passed",
+      "bankBefore": 1,
+      "totalMs": 47885,
+      "browserMs": 7932,
+      "restartMs": 4615,
+      "otherMs": 35338,
+      "admissionMs": 922.7691,
+      "finalVerificationMs": 1657.7013,
+      "createdExamples": 5
+    },
+    {
+      "name": "selected-restart108",
+      "kind": "transition",
+      "outcome": "completed",
+      "reason": "Java completion gates passed",
+      "bankBefore": 1,
+      "totalMs": 48321,
+      "browserMs": 7746,
+      "restartMs": 3481,
+      "otherMs": 37094,
+      "admissionMs": 994.952,
+      "finalVerificationMs": 1752.9663,
+      "createdExamples": 5
+    },
+    {
+      "name": "fresh-reuse108",
+      "kind": "reuse",
+      "outcome": "completed",
+      "reason": "Java completion gates passed",
+      "bankBefore": 2,
+      "totalMs": 30928,
+      "browserMs": 1243,
+      "restartMs": 0,
+      "otherMs": 29685,
+      "admissionMs": null,
+      "finalVerificationMs": null,
+      "createdExamples": 0
+    },
+    {
+      "name": "refused-silent108",
+      "kind": "source-refusal",
+      "outcome": "interrupted",
+      "reason": "Qualification dependencies changed; explicitly request upgrade summary qualification before reuse",
+      "bankBefore": 1,
+      "totalMs": 765,
+      "browserMs": 0,
+      "restartMs": 0,
+      "otherMs": 765,
+      "admissionMs": null,
+      "finalVerificationMs": null,
+      "createdExamples": 0
+    },
+    {
+      "name": "refused-refresh108",
+      "kind": "source-refusal",
+      "outcome": "interrupted",
+      "reason": "Qualification dependencies changed; explicitly request upgrade summary qualification before reuse",
+      "bankBefore": 1,
+      "totalMs": 598,
+      "browserMs": 0,
+      "restartMs": 0,
+      "otherMs": 598,
+      "admissionMs": null,
+      "finalVerificationMs": null,
+      "createdExamples": 0
+    },
+    {
+      "name": "refused-old-reuse108",
+      "kind": "source-refusal",
+      "outcome": "interrupted",
+      "reason": "Saved procedure qualification uses earlier coordination code; explicitly request upgrade summary qualification before reuse",
+      "bankBefore": 1,
+      "totalMs": 773,
+      "browserMs": 0,
+      "restartMs": 0,
+      "otherMs": 773,
+      "admissionMs": null,
+      "finalVerificationMs": null,
+      "createdExamples": 0
+    },
+    {
+      "name": "refused-artifact108",
+      "kind": "source-refusal",
+      "outcome": "interrupted",
+      "reason": "Created artifact was changed outside its owned revision",
+      "bankBefore": 1,
+      "totalMs": 773,
+      "browserMs": 0,
+      "restartMs": 0,
+      "otherMs": 773,
+      "admissionMs": null,
+      "finalVerificationMs": null,
+      "createdExamples": 0
+    },
+    {
+      "name": "refused-dataset108",
+      "kind": "source-refusal",
+      "outcome": "interrupted",
+      "reason": "Original qualification dataset was revised",
+      "bankBefore": 1,
+      "totalMs": 762,
+      "browserMs": 0,
+      "restartMs": 0,
+      "otherMs": 762,
+      "admissionMs": null,
+      "finalVerificationMs": null,
+      "createdExamples": 0
+    }
+  ],
+  "scope": "Prior trial integrity only: interruptions after zero/one completed examples; declared boundary contract refused. Actual orchestration-only upgrade from immutable107 originals. Every original and fresh source/outcome gate retained. Two paired cold repetitions compare fresh qualification at bank0 with full upgrade at genuine bank1, not equal-bank causal speedup. Full costs including original restoration and refusal retained. Qualification-only durations null outside that workflow. No arbitrary-verifier migration, selective refresh or training claim.",
+  "refusals": [
+    {
+      "name": "old source",
+      "refused": true
+    },
+    {
+      "name": "old metric",
+      "refused": true
+    },
+    {
+      "name": "old parent",
+      "refused": true
+    },
+    {
+      "name": "old archive",
+      "refused": true
+    },
+    {
+      "name": "fresh metric",
+      "refused": true
+    },
+    {
+      "name": "plot",
+      "refused": true
+    },
+    {
+      "name": "filter",
+      "refused": true
+    },
+    {
+      "name": "old identity",
+      "refused": true
+    },
+    {
+      "name": "changed set",
+      "refused": true
+    },
+    {
+      "name": "dependency",
+      "refused": true
+    },
+    {
+      "name": "manifest",
+      "refused": true
+    },
+    {
+      "name": "old proof",
+      "refused": true
+    },
+    {
+      "name": "fresh count",
+      "refused": true
+    },
+    {
+      "name": "original relabel",
+      "refused": true
+    },
+    {
+      "name": "rendered bytes",
+      "refused": true
+    },
+    {
+      "name": "browser proof",
+      "refused": true
+    },
+    {
+      "name": "native cost",
+      "refused": true
+    },
+    {
+      "name": "caller cost",
+      "refused": true
+    },
+    {
+      "name": "restart child",
+      "refused": true
+    },
+    {
+      "name": "restart bytes",
+      "refused": true
+    },
+    {
+      "name": "restart cost",
+      "refused": true
+    },
+    {
+      "name": "padded skill",
+      "refused": true
+    },
+    {
+      "name": "reuse input",
+      "refused": true
+    },
+    {
+      "name": "planner retry",
+      "refused": true
+    },
+    {
+      "name": "original refusal",
+      "refused": true
+    },
+    {
+      "name": "resume refusal",
+      "refused": true
+    },
+    {
+      "name": "generation",
+      "refused": true
+    },
+    {
+      "name": "completion",
+      "refused": true
+    }
+  ]
+}

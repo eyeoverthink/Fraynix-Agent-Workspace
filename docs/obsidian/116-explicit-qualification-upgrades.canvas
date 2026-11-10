@@ -1,0 +1,32 @@
+{
+  "nodes": [
+    {
+      "id": "request",
+      "type": "file",
+      "file": "README-108.md",
+      "x": 0,
+      "y": 0,
+      "width": 500,
+      "height": 320
+    },
+    {
+      "id": "memory",
+      "type": "file",
+      "file": "docs/obsidian/116-explicit-qualification-upgrades.md",
+      "x": 580,
+      "y": 0,
+      "width": 500,
+      "height": 320
+    }
+  ],
+  "edges": [
+    {
+      "id": "upgrade",
+      "fromNode": "request",
+      "fromSide": "right",
+      "toNode": "memory",
+      "toSide": "left",
+      "label": "old identity, fresh qualification, recovery, measured cost"
+    }
+  ]
+}

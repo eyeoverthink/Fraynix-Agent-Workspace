@@ -9,7 +9,7 @@ def sha(b):return hashlib.sha256(b).hexdigest()
 assert subprocess.run(['git','show-ref','--verify','--quiet','refs/tags/readme-108'],cwd=r).returncode==1
 analysis=load('build/analysis108.json');trial=load('build/transition108-final/result.json');visual=load('build/visual-review108.json')
 prior=load('build/analysis108-prior.json');assert prior['passed'] and not prior['declaredRestartBoundaries'] and load('build/prior-boundary108.json')['refused']
-assert analysis['declaredRestartBoundaries']
+assert analysis['declaredRestartBoundaries'] and load('build/recorder-only108.json')['sameApplicationInputsAndJars']
 assert analysis['passed'] and len(analysis['refusals'])==28 and trial['passed'] and visual['passed']
 tests=[]
 for f in sorted((r/'build/before-lineage108/test-results').glob('TEST-*.xml')):
@@ -35,7 +35,7 @@ for row in analysis['results']:
 for name,caption in [('transition108-1100.png','Actual narrower workspace after new procedure reuse.'),('partial-restart108-interrupted.png','Third fresh example held before its actual audit; no passing observation supplied.'),('selected-restart108-interrupted.png','Five fresh examples complete; selected-source audit held before abrupt interruption.')]:
  shutil.copyfile(r/'build/transition108-final'/name,d/name);captions[name]=caption
 roots=['build/transition108','build/transition108-final','build/renderer101-108','build/renderer102-108','build/diagnostics108','workspace-engine/build/test-results/test','build/java108-new-tests','build/before-lineage108']
-extras=['build/initial108-build.json','build/analysis108-prior.json','build/prior-boundary108.json','build/inspect108-original-contract.log','build/transition108.log','build/lineage-change108.json','build/restore-check108.json','build/java108-full.log','build/java108-command-refusal.log','build/java108-new.log','build/java108-final.log','build/desktop108.log','build/desktop108-additional.log','build/renderer101-108.log','build/renderer102-108.log','build/diagnostics108.log','build/source-identity108.json','build/ci108-parent.json','build/study095-build.json','build/analysis108.json','build/inspect108.log','build/visual-review108.json','build/transition108-final.log']
+extras=['build/recorder-only108.json','build/lineage-change108.diff','build/correct-recorder108.py','build/initial108-build.json','build/analysis108-prior.json','build/prior-boundary108.json','build/inspect108-original-contract.log','build/transition108.log','build/lineage-change108.json','build/restore-check108.json','build/java108-full.log','build/java108-command-refusal.log','build/java108-new.log','build/java108-final.log','build/desktop108.log','build/desktop108-additional.log','build/renderer101-108.log','build/renderer102-108.log','build/diagnostics108.log','build/source-identity108.json','build/ci108-parent.json','build/study095-build.json','build/analysis108.json','build/inspect108.log','build/visual-review108.json','build/transition108-final.log']
 paths=[]
 for folder in roots:
  for p in (r/folder).rglob('*'):
@@ -103,7 +103,7 @@ flowchart LR
   V --> E
 ```
 
-The UI identifies an upgrade as **All fresh cases; originals retained**. Detailed dependency hashes and lineage remain inspectable in Mission evidence. Plain refresh cannot stand in for an upgrade.
+The UI identifies an upgrade as **All fresh cases; originals retained**. Detailed dependency hashes and lineage remain inspectable in Mission evidence. Plain refresh cannot stand in for an upgrade. Example progress counts refer to the new five-case suite: old baseline verification is mandatory and separate from the reused-example count.
 
 ## Genuine earlier evidence, fresh execution
 

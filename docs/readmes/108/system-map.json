@@ -1,0 +1,134 @@
+{
+  "modules": [
+    {
+      "id": "chat",
+      "name": "Explicit upgrade request",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/Domain044.java",
+      "note": "docs/obsidian/116-explicit-qualification-upgrades.md"
+    },
+    {
+      "id": "policy",
+      "name": "Dependency differences and transition identity",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/Qualification108.java",
+      "note": "docs/obsidian/116-explicit-qualification-upgrades.md"
+    },
+    {
+      "id": "supervisor",
+      "name": "Original checks, fresh cases, recovery and publication",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/WorkflowRunner.java",
+      "note": "docs/obsidian/116-explicit-qualification-upgrades.md"
+    },
+    {
+      "id": "cases",
+      "name": "Unchanged five qualification cases",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/Qualification105.java",
+      "note": "docs/obsidian/116-explicit-qualification-upgrades.md"
+    },
+    {
+      "id": "persistence",
+      "name": "Unchanged durable goals and reserved inputs",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/GoalRunner.java",
+      "note": "docs/obsidian/116-explicit-qualification-upgrades.md"
+    },
+    {
+      "id": "producer",
+      "name": "Unchanged input-driven producer",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/DataSummary104.java",
+      "note": "docs/obsidian/116-explicit-qualification-upgrades.md"
+    },
+    {
+      "id": "audit",
+      "name": "Unchanged outcome verifier",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/DataSummary102.java",
+      "note": "docs/obsidian/116-explicit-qualification-upgrades.md"
+    },
+    {
+      "id": "restore",
+      "name": "Checked original107 archive restoration",
+      "source": "scripts/Restore-Qualification107.cjs",
+      "note": "docs/obsidian/116-explicit-qualification-upgrades.md"
+    },
+    {
+      "id": "inspection",
+      "name": "Independent CSV, lineage and cost checks",
+      "source": "scripts/Inspect-Transition108.cjs",
+      "note": "docs/obsidian/116-explicit-qualification-upgrades.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "docs/readmes/108/pair-1-clean-1600.png",
+      "caption": "pair-1-clean: clean, starting with 0 published procedures; completed. Actual application capture."
+    },
+    {
+      "path": "docs/readmes/108/pair-1-transition-1600.png",
+      "caption": "pair-1-transition: transition, starting with 1 published procedures; completed. Actual application capture."
+    },
+    {
+      "path": "docs/readmes/108/pair-2-transition-1600.png",
+      "caption": "pair-2-transition: transition, starting with 1 published procedures; completed. Actual application capture."
+    },
+    {
+      "path": "docs/readmes/108/pair-2-clean-1600.png",
+      "caption": "pair-2-clean: clean, starting with 0 published procedures; completed. Actual application capture."
+    },
+    {
+      "path": "docs/readmes/108/partial-restart108-1600.png",
+      "caption": "partial-restart108: transition, starting with 1 published procedures; completed. Actual application capture."
+    },
+    {
+      "path": "docs/readmes/108/selected-restart108-1600.png",
+      "caption": "selected-restart108: transition, starting with 1 published procedures; completed. Actual application capture."
+    },
+    {
+      "path": "docs/readmes/108/fresh-reuse108-1600.png",
+      "caption": "fresh-reuse108: reuse, starting with 2 published procedures; completed. Actual application capture."
+    },
+    {
+      "path": "docs/readmes/108/refused-silent108-1600.png",
+      "caption": "refused-silent108: source-refusal, starting with 1 published procedures; interrupted. Actual application capture."
+    },
+    {
+      "path": "docs/readmes/108/refused-refresh108-1600.png",
+      "caption": "refused-refresh108: source-refusal, starting with 1 published procedures; interrupted. Actual application capture."
+    },
+    {
+      "path": "docs/readmes/108/refused-old-reuse108-1600.png",
+      "caption": "refused-old-reuse108: source-refusal, starting with 1 published procedures; interrupted. Actual application capture."
+    },
+    {
+      "path": "docs/readmes/108/refused-artifact108-1600.png",
+      "caption": "refused-artifact108: source-refusal, starting with 1 published procedures; interrupted. Actual application capture."
+    },
+    {
+      "path": "docs/readmes/108/refused-dataset108-1600.png",
+      "caption": "refused-dataset108: source-refusal, starting with 1 published procedures; interrupted. Actual application capture."
+    },
+    {
+      "path": "docs/readmes/108/transition108-1100.png",
+      "caption": "Actual narrower workspace after new procedure reuse."
+    },
+    {
+      "path": "docs/readmes/108/partial-restart108-interrupted.png",
+      "caption": "Third fresh example held before its actual audit; no passing observation supplied."
+    },
+    {
+      "path": "docs/readmes/108/selected-restart108-interrupted.png",
+      "caption": "Five fresh examples complete; selected-source audit held before abrupt interruption."
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/readmes/108/analysis.json",
+      "caption": "analysis.json"
+    },
+    {
+      "path": "docs/readmes/108/verification.json",
+      "caption": "verification.json"
+    },
+    {
+      "path": "docs/readmes/108/original-evidence.json",
+      "caption": "original-evidence.json"
+    }
+  ]
+}

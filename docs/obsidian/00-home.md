@@ -1,3 +1,5 @@
+[[docs/obsidian/116-explicit-qualification-upgrades.md|Edition108 - qualification upgrades]]
+
 [[docs/obsidian/115-measured-qualification-refresh.md|Edition107 — measured refresh]]
 
 [[docs/obsidian/114-original-refusals.md|Edition106 — original refusals]]

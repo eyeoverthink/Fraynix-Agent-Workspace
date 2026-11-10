@@ -1,0 +1,322 @@
+{
+  "passed": true,
+  "declaredRestartBoundaries": true,
+  "source": "6f51538bb40ca23c116e70c39a9f850ed6b8b7dc",
+  "completedRequests": 7,
+  "requiredRefusals": 5,
+  "restarts": 2,
+  "requestMs": 285677,
+  "cohortWallMs": 335224,
+  "setupAndBetweenMs": 49547,
+  "pairs": [
+    {
+      "rep": "1",
+      "cleanMs": 31649,
+      "transitionMs": 42618,
+      "extraTransitionMs": 10969
+    },
+    {
+      "rep": "2",
+      "cleanMs": 33288,
+      "transitionMs": 43548,
+      "extraTransitionMs": 10260
+    }
+  ],
+  "results": [
+    {
+      "name": "pair-1-clean",
+      "kind": "clean",
+      "outcome": "completed",
+      "reason": "Java completion gates passed",
+      "bankBefore": 0,
+      "totalMs": 31649,
+      "browserMs": 7282,
+      "restartMs": 0,
+      "otherMs": 24367,
+      "admissionMs": 5.3338,
+      "finalVerificationMs": 533.1326,
+      "createdExamples": 5,
+      "screenshot": "pair-1-clean-1600.png"
+    },
+    {
+      "name": "pair-1-transition",
+      "kind": "transition",
+      "outcome": "completed",
+      "reason": "Java completion gates passed",
+      "bankBefore": 1,
+      "totalMs": 42618,
+      "browserMs": 7469,
+      "restartMs": 0,
+      "otherMs": 35149,
+      "admissionMs": 921.151,
+      "finalVerificationMs": 1727.9042,
+      "createdExamples": 5,
+      "screenshot": "pair-1-transition-1600.png"
+    },
+    {
+      "name": "pair-2-transition",
+      "kind": "transition",
+      "outcome": "completed",
+      "reason": "Java completion gates passed",
+      "bankBefore": 1,
+      "totalMs": 43548,
+      "browserMs": 7353,
+      "restartMs": 0,
+      "otherMs": 36195,
+      "admissionMs": 929.1169,
+      "finalVerificationMs": 1663.9836,
+      "createdExamples": 5,
+      "screenshot": "pair-2-transition-1600.png"
+    },
+    {
+      "name": "pair-2-clean",
+      "kind": "clean",
+      "outcome": "completed",
+      "reason": "Java completion gates passed",
+      "bankBefore": 0,
+      "totalMs": 33288,
+      "browserMs": 7401,
+      "restartMs": 0,
+      "otherMs": 25887,
+      "admissionMs": 5.6547,
+      "finalVerificationMs": 551.3076,
+      "createdExamples": 5,
+      "screenshot": "pair-2-clean-1600.png"
+    },
+    {
+      "name": "partial-restart108",
+      "kind": "transition",
+      "outcome": "completed",
+      "reason": "Java completion gates passed",
+      "bankBefore": 1,
+      "totalMs": 50861,
+      "browserMs": 7519,
+      "restartMs": 5037,
+      "otherMs": 38305,
+      "admissionMs": 901.3418,
+      "finalVerificationMs": 1684.9975,
+      "createdExamples": 5,
+      "screenshot": "partial-restart108-1600.png"
+    },
+    {
+      "name": "selected-restart108",
+      "kind": "transition",
+      "outcome": "completed",
+      "reason": "Java completion gates passed",
+      "bankBefore": 1,
+      "totalMs": 48118,
+      "browserMs": 7402,
+      "restartMs": 3621,
+      "otherMs": 37095,
+      "admissionMs": 924.1919,
+      "finalVerificationMs": 1700.4123,
+      "createdExamples": 5,
+      "screenshot": "selected-restart108-1600.png"
+    },
+    {
+      "name": "fresh-reuse108",
+      "kind": "reuse",
+      "outcome": "completed",
+      "reason": "Java completion gates passed",
+      "bankBefore": 2,
+      "totalMs": 31843,
+      "browserMs": 1229,
+      "restartMs": 0,
+      "otherMs": 30614,
+      "admissionMs": null,
+      "finalVerificationMs": null,
+      "createdExamples": 0,
+      "screenshot": "fresh-reuse108-1600.png"
+    },
+    {
+      "name": "refused-silent108",
+      "kind": "source-refusal",
+      "outcome": "interrupted",
+      "reason": "Qualification dependencies changed; explicitly request upgrade summary qualification before reuse",
+      "bankBefore": 1,
+      "totalMs": 721,
+      "browserMs": 0,
+      "restartMs": 0,
+      "otherMs": 721,
+      "admissionMs": null,
+      "finalVerificationMs": null,
+      "createdExamples": 0,
+      "screenshot": "refused-silent108-1600.png"
+    },
+    {
+      "name": "refused-refresh108",
+      "kind": "source-refusal",
+      "outcome": "interrupted",
+      "reason": "Qualification dependencies changed; explicitly request upgrade summary qualification before reuse",
+      "bankBefore": 1,
+      "totalMs": 868,
+      "browserMs": 0,
+      "restartMs": 0,
+      "otherMs": 868,
+      "admissionMs": null,
+      "finalVerificationMs": null,
+      "createdExamples": 0,
+      "screenshot": "refused-refresh108-1600.png"
+    },
+    {
+      "name": "refused-old-reuse108",
+      "kind": "source-refusal",
+      "outcome": "interrupted",
+      "reason": "Saved procedure qualification uses earlier coordination code; explicitly request upgrade summary qualification before reuse",
+      "bankBefore": 1,
+      "totalMs": 753,
+      "browserMs": 0,
+      "restartMs": 0,
+      "otherMs": 753,
+      "admissionMs": null,
+      "finalVerificationMs": null,
+      "createdExamples": 0,
+      "screenshot": "refused-old-reuse108-1600.png"
+    },
+    {
+      "name": "refused-artifact108",
+      "kind": "source-refusal",
+      "outcome": "interrupted",
+      "reason": "Created artifact was changed outside its owned revision",
+      "bankBefore": 1,
+      "totalMs": 602,
+      "browserMs": 0,
+      "restartMs": 0,
+      "otherMs": 602,
+      "admissionMs": null,
+      "finalVerificationMs": null,
+      "createdExamples": 0,
+      "screenshot": "refused-artifact108-1600.png"
+    },
+    {
+      "name": "refused-dataset108",
+      "kind": "source-refusal",
+      "outcome": "interrupted",
+      "reason": "Original qualification dataset was revised",
+      "bankBefore": 1,
+      "totalMs": 808,
+      "browserMs": 0,
+      "restartMs": 0,
+      "otherMs": 808,
+      "admissionMs": null,
+      "finalVerificationMs": null,
+      "createdExamples": 0,
+      "screenshot": "refused-dataset108-1600.png"
+    }
+  ],
+  "scope": "Actual orchestration-only upgrade from immutable107 originals. Every original and fresh source/outcome gate retained. Two paired cold repetitions compare fresh qualification at bank0 with full upgrade at genuine bank1, not equal-bank causal speedup. Full costs including original restoration and refusal retained. Qualification-only durations null outside that workflow. No arbitrary-verifier migration, selective refresh or training claim.",
+  "refusals": [
+    {
+      "name": "old source",
+      "refused": true
+    },
+    {
+      "name": "old metric",
+      "refused": true
+    },
+    {
+      "name": "old parent",
+      "refused": true
+    },
+    {
+      "name": "old archive",
+      "refused": true
+    },
+    {
+      "name": "fresh metric",
+      "refused": true
+    },
+    {
+      "name": "plot",
+      "refused": true
+    },
+    {
+      "name": "filter",
+      "refused": true
+    },
+    {
+      "name": "old identity",
+      "refused": true
+    },
+    {
+      "name": "changed set",
+      "refused": true
+    },
+    {
+      "name": "dependency",
+      "refused": true
+    },
+    {
+      "name": "manifest",
+      "refused": true
+    },
+    {
+      "name": "old proof",
+      "refused": true
+    },
+    {
+      "name": "fresh count",
+      "refused": true
+    },
+    {
+      "name": "original relabel",
+      "refused": true
+    },
+    {
+      "name": "rendered bytes",
+      "refused": true
+    },
+    {
+      "name": "browser proof",
+      "refused": true
+    },
+    {
+      "name": "native cost",
+      "refused": true
+    },
+    {
+      "name": "caller cost",
+      "refused": true
+    },
+    {
+      "name": "restart child",
+      "refused": true
+    },
+    {
+      "name": "restart bytes",
+      "refused": true
+    },
+    {
+      "name": "restart cost",
+      "refused": true
+    },
+    {
+      "name": "padded skill",
+      "refused": true
+    },
+    {
+      "name": "reuse input",
+      "refused": true
+    },
+    {
+      "name": "planner retry",
+      "refused": true
+    },
+    {
+      "name": "original refusal",
+      "refused": true
+    },
+    {
+      "name": "resume refusal",
+      "refused": true
+    },
+    {
+      "name": "generation",
+      "refused": true
+    },
+    {
+      "name": "completion",
+      "refused": true
+    }
+  ]
+}
