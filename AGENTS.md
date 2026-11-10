@@ -1,3 +1,7 @@
+## Edition105 — in progress
+
+Work only in S:/Codex-Work/fraynix-workspace-edition105; parent main59d68df1. Read docs/EDITION_105_CONTRACT.md. No delegation; heavy work serial. Preserve private worlds, old worktrees and frozen001–104. Automate explicitly labelled qualification through existing104 child workflows; no bypass of source/outcome checks. Measure full caller costs at growing, genuinely published skill counts. Parent104 CI is still in progress, not passed.
+
 ## Edition104 — published and fetched back
 
 Published release 80d27cf6271bc2497c74ea3190517897d9a79a26; annotated readme-104 tag object 848c134e8ed3edc7bbda07c232b958fc4829f71f. Actual main/edition104/tag push fetched and verified: 1356 canonical sources, 31268 frozen hashes across 104 editions and 368 logical original archive entries. 93 Java methods, 141 desktop checks, 23 actual browser fixture controls and 20 altered-evidence refusals pass. All eleven measured trial expectations pass: nine completions and two required refusals. Actual application captures reviewed at 1600 and 1100 pixels; offline guide checked at 1440 and 390 pixels. Harness collection failure and developer-assisted reopen remain in measured costs. No new delegation; preserve private worlds and frozen prior editions. [Publication receipt](docs/PUBLICATION_104.json).
