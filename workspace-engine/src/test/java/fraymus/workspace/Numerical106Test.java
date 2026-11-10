@@ -23,4 +23,15 @@ public class Numerical106Test {
         var store=new MeasurementStore(Files.createTempDirectory("numerical106-overflow"));var c=new JSONObject(cases().getJSONObject(0).toString()).put("csv","t,x\n0,0\n5e-324,1\n").put("mapping",new JSONObject().put("timeColumn","t").put("distanceColumn","x").put("timeUnit","s").put("distanceUnit","m"));var d=store.importCsv(input(c));
         var error=assertThrows(IllegalArgumentException.class,()->MotionData.analyze(d,.000001,1));assertTrue(error.getMessage().contains("finite numerical range"));assertEquals(1,store.datasets().length());assertEquals("t,x\n0,0\n5e-324,1\n",d.getString("csv"));
     }
+    @Test public void exponentCriteriaKeepExactReservedInputsAcrossNativeCheckpoint()throws Exception{
+        for(Object raw:cases()){
+            var c=(JSONObject)raw;if(!java.util.Set.of("tiny-scale","large-valid-scale").contains(c.getString("name")))continue;
+            try(var f=new WorkflowTest.Fixture(Files.createTempDirectory("numeric106-persist"))){
+                var d=f.data.importCsv(input(c));var w=f.workflows.start(DataSummary104Test.input(f,d).put("maxGapS",c.getDouble("maxGapS")).put("speedLimitMps",c.getDouble("speedLimitMps")));
+                var effect=DataSummary104Test.audit(f,w.getString("id"));DataCreation101Test.ack(f,effect,DataSummary102Test.observed(f,effect,d));var done=DataCreation101Test.finish(f,w.getString("id"));assertEquals("completed",done.getString("status"));
+                var a=f.artifacts.read(done.getJSONObject("report").getString("id"));String original=a.getJSONObject("contents").getString("inputs/source.json");var parsed=new JSONObject(original);
+                assertEquals(original,WorldFrames.copy(parsed).toString());assertEquals(c.getDouble("maxGapS"),parsed.getJSONObject("criteria104").getDouble("maxGapS"),0);assertEquals(c.getDouble("speedLimitMps"),parsed.getJSONObject("criteria104").getDouble("speedLimitMps"),0);assertFalse(parsed.has("summary"));
+            }
+        }
+    }
 }

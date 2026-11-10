@@ -2,7 +2,7 @@
 // Isolated, actual Electron/Java qualification. Browser checks are observed, never supplied as passing fixtures.
 const {launch}=require('./calibration-integration.cjs'),fs=require('node:fs/promises'),sync=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict'),cp=require('node:child_process');
 const {partition}=require('../../scripts/WorkflowCost102.cjs');
-const repo=path.resolve(__dirname,'../..'),out=path.resolve(process.env.EDITION106_OUTPUT||path.join(repo,'build/numerical106')),sleep=ms=>new Promise(r=>setTimeout(r,ms));
+const repo=path.resolve(__dirname,'../..'),out=path.resolve(process.env.EDITION106_OUTPUT||path.join(repo,'build/numerical106-final')),sleep=ms=>new Promise(r=>setTimeout(r,ms));
 const sequence=(n,fn,dt=.1)=>'time_s,displacement_m\n'+Array.from({length:n},(_,i)=>(i*dt).toFixed(8)+','+fn(i).toFixed(8)).join('\n')+'\n';
 async function main(){
  Object.assign(process.env,{FRAYNIX_WORKSPACE_PERSISTENT:'0',FRAYNIX_WORKSPACE_PLAN_CPU_ONLY:'1',FRAYNIX_WORKSPACE_JAVA_HEAP_MIB:'512',FRAYNIX_WORKSPACE_JAVA_PROCESSORS:'2'});
