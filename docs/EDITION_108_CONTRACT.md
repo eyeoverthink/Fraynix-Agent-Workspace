@@ -1,0 +1,13 @@
+# Edition108 â€” explicit qualification transitions
+
+Declared2026-11-10, before code or measured trials. Parent main c294d77f. CI checked first:107 main and release still running; no success claimed. Work only in isolated S:/Codex-Work/fraynix-workspace-edition108. No delegation; heavy validation serial. Preserve live private worlds and frozen001â€“107.
+
+Add an explicit Java/chat qualification upgrade. Support only a changed orchestration identity while every producer, numerical verifier, goal runner and qualification-case definition remains byte-identical. Refuse unsupported dependencies. Identify the original completed supervisor, retain its full record hash, dependency differences, case/source/report proofs and publication lineage. Reverify original sources and outcomes at admission, recovery, selected-source handoff and completion. Never relabel old evidence or silently repair it.
+
+Run all five fresh qualification examples under the new identity, then the selected-source report and original publication gate. Default requests must not silently start an upgrade. Existing capacity, time, ownership, refusal and resume limits remain. A later runtime change refuses an in-flight transition. Full refresh only; selective refresh and arbitrary verifier migration remain planned.
+
+Use genuine edition107 archived browser-qualified bank1, not forged compatible receipts. Measure cold copies against clean qualification with identical fresh input; two repetitions in reversed order. Test abrupt interruption after partial qualification and before selected-source audit, keeping stable child and original identities. Deliberately change original reports, raw-source revisions and dependencies; require refusal with no planner retry or promotion. Reuse a newly qualified procedure on fresh data, retain all caller/browser/restart/refusal/setup costs and original failed attempts. Numerical outcomes are independently checked from original CSV and real Chromium observations.
+
+Update extensive README108, real screenshots, offline guide, Obsidian map, source/evidence inventory, memories and logs. Run documentation and relevant regression checks. Non-force push main/edition108/readme-108, fetch and verify published bytes. Report CI separately. No new external library, model-weight training or broader migration claim.
+
+Before measured trials: direct reuse of a procedure qualified under the earlier coordination code must also refuse with the original reason. Declared cohort12 requests: seven completions (four paired qualifications, two abruptly recovered upgrades, one fresh reuse) and five required refusals (ordinary qualification, refresh, old procedure reuse, altered artifact, revised raw source). No selective evidence reuse.

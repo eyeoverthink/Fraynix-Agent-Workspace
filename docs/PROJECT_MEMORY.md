@@ -1,3 +1,7 @@
+## Edition108 — in progress
+
+2026-11-10. Isolated S:/Codex-Work/fraynix-workspace-edition108; parent c294d77f. Read docs/EDITION_108_CONTRACT.md. Explicit orchestration-only qualification transition, all five fresh cases, old evidence and publication rechecked. Refuse unsupported changes and silent upgrade. Actual107 archived originals, bounded restart trials and full cost comparison planned. No108 push yet. Preserve private worlds and frozen001–107; no delegation; heavy work serial. Parent107 CI running, not passed.
+
 ## Edition107 — published and fetched back
 
 Published release 5058a6ca4d5b0165f1cb100c9679a4eba56b25d3; annotated readme-107 tag object ca692291a9f5611e20b7d0bf098a881be256449e. Actual main/edition107/tag push fetched and verified: 1380 canonical sources, 33323 frozen hashes across107 editions and 2178 logical original archive entries. 118 Java methods,148 desktop checks,23 browser controls and30 altered-record refusals pass. Fifteen actual request expectations pass:13 completions including eight abrupt numerical recoveries and two required source refusals. Two paired cold refresh/recheck repetitions retain full costs. Every original source/outcome gate retained. Actual screenshots reviewed at1600/1100 pixels and offline guide at1440/390. No delegation; preserve private worlds and frozen earlier editions. [Publication receipt](PUBLICATION_107.json).
