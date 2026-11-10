@@ -24,17 +24,20 @@ public final class WorkflowRunner implements AutoCloseable {
         for(var w:values())if(dataCreation101(w)&&w.getString("status").equals("completed")&&w.has("pendingSkill101"))try{publish101(w);}catch(Exception e){System.err.println("Completed workflow has pending skill publication; retry on restart: "+e.getMessage());}
         worker.scheduleWithFixedDelay(this::tick,70,100,TimeUnit.MILLISECONDS);
     }
-    private List<JSONObject> values(){var all=new ArrayList<JSONObject>();for(var e:world.snapshot().entities())all.add(new JSONObject(e.components().getFirst().values().get("payload")));all.sort(Comparator.comparing(w->w.getString("createdAt")));return all;}
+    private List<JSONObject> records110(){var all=new ArrayList<JSONObject>();for(var e:world.snapshot().entities())all.add(new JSONObject(e.components().getFirst().values().get("payload")));all.sort(Comparator.comparing(w->w.getString("createdAt")));return all;}
+    private List<JSONObject> activeRecords110(){return records110().stream().filter(w->!w.has("archive110")).toList();}
+    private List<JSONObject> values(){var all=new ArrayList<JSONObject>();for(var w:records110())all.add(resolve110(w));return all;}
     private void save(JSONObject w) throws Exception {
+        if(records110().stream().anyMatch(r->r.getString("id").equals(w.getString("id"))&&r.has("archive110")))throw new IllegalStateException("Archived workflows are immutable; start a fresh verified task");
         var before=world.snapshot();var id=UUID.fromString(w.getString("id"));var prior=before.entities().stream().filter(e->e.id().equals(id)).findFirst();var c=new ComponentRecord(prior.map(e->e.components().getFirst().id()).orElse(UUID.randomUUID()),"workspace.workflow",1,Map.of("payload",w.toString()));var tx=new WorldTransaction(before);if(prior.isPresent())tx.add(new WorldTransaction.Put(id,c));else tx.add(new WorldTransaction.Create(new EntityRecord(id,"workflow",List.of(c))));try{tx.commit(world,schemas);checkpoint.save(world.snapshot(),schemas);}catch(Exception e){world.restore(before);throw e;}
     }
     private static boolean settled(JSONObject w){return Set.of("completed","cancelled").contains(w.getString("status"));}
-    private JSONObject active(){return values().stream().filter(w->!settled(w)).findFirst().orElse(null);}
+    private JSONObject active(){return activeRecords110().stream().filter(w->!settled(w)).findFirst().orElse(null);}
     private void change(JSONObject w,String reason) throws Exception {w.put("reason",reason).put("updatedAt",Instant.now());w.getJSONArray("history").put(new JSONObject().put("at",Instant.now()).put("reason",reason).put("step",w.getString("step")).put("status",w.getString("status")));save(w);}
-    private JSONObject raw(String id){UUID.fromString(id);return values().stream().filter(w->w.getString("id").equals(id)).findFirst().orElseThrow(()->new IllegalArgumentException("Unknown workflow"));}
+    private JSONObject raw(String id){UUID.fromString(id);return resolve110(records110().stream().filter(w->w.getString("id").equals(id)).findFirst().orElseThrow(()->new IllegalArgumentException("Unknown workflow")));}
     private JSONObject view(JSONObject w){if(Qualification105.own(w))return view105(w);var out=new JSONObject().put("workflow",true).put("procedure",graph(w)?SkillGraph046.KIND:dataCreation101(w)?w.getString("profile101"):PROCEDURE).put("attempt",w.getInt("resumes")+1);for(String k:List.of("id","title","request","modelName","status","step","resumes","createdAt","updatedAt","reason","history","stages","currentChild","bundle","audit","auditHistory","report","metrics","savedSkill","skill","dataBinding","graph","graphSha256","graphCodeSha256","worldBinding","graphRemainingMs","diagnostics","memo","reviewEachNode","profile101","code101","pendingSkill101","implementation103","qualification104","qualificationOwner105","qualificationCase105"))if(w.has(k))out.put(k,w.get(k));return out;}
-    public synchronized JSONObject read(String id){return view(raw(id));}
-    public synchronized JSONArray list(){var all=new JSONArray();for(var w:values())all.put(view(w));return all;}
+    public synchronized JSONObject read(String id){var out=view(raw(id));for(var r:records110())if(r.getString("id").equals(id)&&r.has("archive110"))out.put("archive110",WorldFrames.copy(r.getJSONObject("archive110")));return out;}
+    public synchronized JSONArray list(){var all=new JSONArray();for(var w:activeRecords110())all.put(view(w));return all;}
     private JSONObject definition(JSONObject input) throws Exception {
         if(input.has("profile101"))return DataSummary104.definition(input,measurements);
         SpatialScene.keys(input,"request","title","modelName","datasetId","datasetVersion","maxGapS","speedLimitMps","parameters","targetM","disturbanceMps","sceneId","expectedVersion","saveSkillName","responsive");
@@ -215,7 +218,7 @@ public final class WorkflowRunner implements AutoCloseable {
         var q=w.getJSONObject("qualification104");SpatialScene.keys(q,"schema","codeSha256","proofs");if(!DataSummary104.own(w)||!q.getString("schema").equals("summary-qualification-104-v1")||!q.getString("codeSha256").equals(DataSummary104.code(DataSummary104.KIND)))throw new IllegalStateException("Summary qualification identity changed");
         for(Object row:q.getJSONArray("proofs")){var p=(JSONObject)row;if(p.getString("workflowId").equals(w.getString("id"))||!p.similar(qualificationProof104(raw(p.getString("workflowId")))))throw new IllegalStateException("Original qualification proof changed");}checkCoverage104(q);
     }
-    private long executableCount105(){return values().stream().filter(w->!Qualification105.own(w)).count();}
+    private long executableCount105(){return activeRecords110().stream().filter(w->!Qualification105.own(w)).count();}
     private JSONObject leaf105(JSONObject w){
         if(!Qualification105.own(w))return w;var s=stage(w,w.getInt("stageIndex"));
         if(s.optBoolean("reused")||!s.has("workflowId"))return null;
@@ -250,7 +253,7 @@ public final class WorkflowRunner implements AutoCloseable {
         var args=WorldFrames.copy(input);args.remove("qualify105");boolean refresh=Qualification107.take(args);boolean transition=Qualification108.take(args);if(refresh&&transition)throw new IllegalArgumentException("Choose refresh or an explicit qualification transition");refresh|=transition;boolean review=args.optBoolean("reviewQualification105");
         if(args.has("reviewQualification105")&&!(args.get("reviewQualification105") instanceof Boolean))throw new IllegalArgumentException("Qualification review must be boolean");args.remove("reviewQualification105");
         var def=definition(args);if(!DataSummary104.KIND.equals(def.optString("profile101"))||def.getString("saveSkillName").isEmpty())throw new IllegalArgumentException("Qualification requires an input-driven summary, a selected dataset and a skill name");
-        if(closed||active()!=null||values().stream().filter(Qualification105::own).count()>=Qualification105.MAX_SUPERVISORS)throw new IllegalStateException("Finish the active request; qualification supervisor history limit16");
+        if(closed||active()!=null||activeRecords110().stream().filter(Qualification105::own).count()>=Qualification105.MAX_SUPERVISORS)throw new IllegalStateException("Finish the active request; qualification supervisor history limit16");
         goals.workflowCapacity();var selected=measurements.read(def.getString("datasetId"),def.getInt("datasetVersion"));var stages=new JSONArray();var baseline107=new JSONArray();int missing=0;
         var historical=values().stream().filter(w->Qualification105.own(w)&&w.getString("status").equals("completed")&&!w.getJSONObject("qualification105").getString("codeSha256").equals(Qualification105.code())).sorted(Comparator.comparing((JSONObject w)->w.getString("updatedAt")).reversed()).toList();
         boolean current=values().stream().anyMatch(w->Qualification105.own(w)&&w.getString("status").equals("completed")&&w.getJSONObject("qualification105").getString("codeSha256").equals(Qualification105.code()));
@@ -460,6 +463,93 @@ public final class WorkflowRunner implements AutoCloseable {
         if(chosen==null||!chosen.getString("kind").equals(SkillGraph046.KIND)||!chosen.getString("graphCodeSha256").equals(SkillGraph046.code())||!chosen.getString("graphSha256").equals(WorldFrames.hash(chosen.getJSONObject("graph"))))throw new IllegalStateException("Unknown or incompatible retained graph version");
         var source=raw(chosen.getString("sourceWorkflowId"));if(!source.getString("status").equals("completed"))throw new IllegalStateException("Retained graph lost its completed source");graphVerified(source);graphArtifact(source);if(!source.getJSONObject("graph").similar(chosen.getJSONObject("graph"))||!source.getJSONObject("report").similar(chosen.getJSONObject("report"))||!source.getJSONObject("audit").getBoolean("passed")||!source.getJSONObject("audit").getString("dataSha256").equals(WorldFrames.hash(GraphReport046.data(source))))throw new IllegalStateException("Retained graph differs from its original verified procedure graph");
         var args=WorldFrames.copy(chosen.getJSONObject("defaults")).put("graph",chosen.getJSONObject("graph"));for(String k:input.keySet())if(!Set.of("name","version").contains(k))args.put(k,input.get(k));args.put("saveSkillName",input.optString("saveSkillName",""));return startGraph(args,chosen);
+    }
+    // Archive pointers live in the same atomic checkpoint as active records. No second mutable index.
+    private Path archiveDirectory110(){
+        Path directory=checkpoint.path().getParent().resolve("archive110");
+        if(Files.isSymbolicLink(checkpoint.path().getParent())||Files.isSymbolicLink(directory))throw new IllegalStateException("Archive directory must not be a symbolic link");
+        return directory;
+    }
+    private JSONObject resolve110(JSONObject record){
+        if(!record.has("archive110"))return record;
+        try{
+            SpatialScene.keys(record,"id","createdAt","archive110");var ref=record.getJSONObject("archive110");
+            SpatialScene.keys(ref,"schema","sha256","bytes","archivedAt");String hash=ref.getString("sha256");long size=ref.getLong("bytes");
+            if(!ref.getString("schema").equals("workflow-archive-110-v1")||!hash.matches("[0-9a-f]{64}")||size<2||size>8*1024*1024)throw new IllegalStateException("Invalid archive reference");
+            var path=archiveDirectory110().resolve(hash+".json");
+            if(!Files.isRegularFile(path,LinkOption.NOFOLLOW_LINKS)||Files.size(path)!=size)throw new IllegalStateException("Missing or changed archive bytes: "+record.getString("id"));
+            String payload=Files.readString(path,java.nio.charset.StandardCharsets.UTF_8);
+            if(!MeasurementStore.hash(payload).equals(hash))throw new IllegalStateException("Archive checksum mismatch: "+record.getString("id"));
+            var original=new JSONObject(payload);
+            if(original.has("archive110")||!original.getString("id").equals(record.getString("id"))||!original.getString("createdAt").equals(record.getString("createdAt"))||!original.getString("status").equals("completed")||original.has("pendingSkill101"))throw new IllegalStateException("Archive identity or completion changed");
+            return original;
+        }catch(Exception error){throw new IllegalStateException("Archived evidence unavailable; preserve files and inspect: "+error.getMessage(),error);}
+    }
+    private boolean archiveFamily110(JSONObject w){return dataCreation101(w)||Qualification105.own(w);}
+    private void verifiedArchive110(JSONObject w)throws Exception{
+        if(!archiveFamily110(w)||!w.getString("status").equals("completed")||w.has("pendingSkill101")||w.has("claim"))throw new IllegalStateException("Archive only completed, published data workflows and qualifications; preserve other history");
+        if(Qualification105.own(w)){
+            if(!w.getJSONObject("qualification105").getString("codeSha256").equals(Qualification105.code())){original108(w);return;}
+            checked105(w);var child=leaf105(w);if(child==null)throw new IllegalStateException("Original selected-source child missing");verifiedArchive110(child);
+            var proofs=new JSONArray();for(int i=0;i<5;i++)proofs.put(stage(w,i).getJSONObject("proof"));
+            var expected=new JSONObject().put("passed",true).put("schema",Qualification105.KIND).put("proofsSha256",WorldFrames.hash(new JSONObject().put("proofs",proofs))).put("selectedWorkflowId",child.getString("id")).put("selectedAuditSha256",WorldFrames.hash(verified101(child)));
+            if(!expected.similar(w.getJSONObject("audit"))||!w.getJSONObject("report").similar(child.getJSONObject("report"))||!w.getJSONObject("savedSkill").similar(child.getJSONObject("savedSkill")))throw new IllegalStateException("Completed qualification publication changed");
+            return;
+        }
+        verified101(w);
+        if(w.has("qualificationOwner105")){
+            var owner=raw(w.getString("qualificationOwner105"));if(!owner.getString("status").equals("completed"))throw new IllegalStateException("Qualification owner is not completed");
+            if(owner.getJSONObject("qualification105").getString("codeSha256").equals(Qualification105.code()))checked105(owner);else original108(owner);
+        }
+        if(w.has("savedSkill")){
+            var ref=w.getJSONObject("savedSkill");var saved=goals.procedures().toList().stream().map(x->new JSONObject((Map<?,?>)x)).filter(p->p.getString("id").equals(ref.getString("id"))).findFirst().orElseThrow(()->new IllegalStateException("Original saved procedure missing"));
+            var expected=procedure103(w);if(!saved.optString("publication101").equals("published")||!saved.getString("name").equals(ref.getString("name"))||saved.getInt("version")!=ref.getInt("version"))throw new IllegalStateException("Original procedure publication changed");
+            for(String key:expected.keySet())if(!key.equals("publication101")&&!new JSONObject().put("v",expected.get(key)).similar(new JSONObject().put("v",saved.get(key))))throw new IllegalStateException("Original procedure contract changed");
+        }else if(!w.getJSONObject("definition").getString("saveSkillName").isEmpty())throw new IllegalStateException("Requested procedure was never published");
+    }
+    public synchronized JSONObject history110(){
+        var rows=new JSONArray();var binding=new JSONArray();int active=0,supervisors=0,archived=0,eligible=0;
+        for(var record:records110()){
+            binding.put(new JSONObject().put("id",record.getString("id")).put("sha256",WorldFrames.hash(record)));
+            var w=resolve110(record);boolean old=record.has("archive110");boolean can=!old&&archiveFamily110(w)&&w.getString("status").equals("completed")&&!w.has("pendingSkill101");
+            if(old)archived++;else if(Qualification105.own(w))supervisors++;else active++;if(can)eligible++;
+            var row=new JSONObject().put("id",w.getString("id")).put("title",w.getString("title")).put("status",w.getString("status")).put("archived",old).put("eligible",can).put("qualification",Qualification105.own(w));
+            if(old)row.put("archive110",record.getJSONObject("archive110"));rows.put(row);
+        }
+        return new JSONObject().put("records",rows).put("planSha256",WorldFrames.hash(new JSONObject().put("records",binding))).put("activeWorkflows",active).put("activeSupervisors",supervisors).put("archived",archived).put("eligible",eligible).put("goals",goals.list().length()).put("limits",new JSONObject().put("workflows",20).put("supervisors",16).put("goals",64).put("procedures",32).put("archivedRecords",256).put("archiveBytes",128*1024*1024)).put("scope","Completed data/creation workflows and qualification supervisors; child goals, source data, reports and procedures remain in their original stores. Every reuse still rechecks evidence.");
+    }
+    public synchronized JSONObject verifyArchive110(String id)throws Exception{
+        long start=System.nanoTime();var w=raw(id);verifiedArchive110(w);
+        return new JSONObject().put("id",id).put("passed",true).put("recordSha256",WorldFrames.hash(w)).put("verificationNanos",Long.toString(System.nanoTime()-start)).put("scope","Fresh original-source, owned-stage, outcome and publication verification; not a new physical or browser observation");
+    }
+    public synchronized JSONObject archive110(JSONObject input)throws Exception{
+        SpatialScene.keys(input,"planSha256","ids");long start=System.nanoTime();
+        if(closed||active()!=null||goals.busy())throw new IllegalStateException("Finish or stop active work before archiving history");
+        var history=history110();if(!history.getString("planSha256").equals(input.getString("planSha256")))throw new IllegalStateException("History changed; refresh the archive preview");
+        var ids=new LinkedHashSet<String>();for(Object item:input.getJSONArray("ids")){if(!(item instanceof String id)||!ids.add(UUID.fromString(id).toString()))throw new IllegalArgumentException("Choose distinct workflow IDs");}
+        if(ids.isEmpty()||ids.size()>36||history.getInt("archived")+ids.size()>256)throw new IllegalArgumentException("Archive one to36 records within the256-record budget");
+        var before=world.snapshot();var selected=new ArrayList<EntityRecord>();
+        for(String id:ids){var entity=before.entities().stream().filter(e->e.id().toString().equals(id)).findFirst().orElseThrow(()->new IllegalArgumentException("Unknown workflow"));var w=new JSONObject(entity.components().getFirst().values().get("payload"));if(w.has("archive110"))throw new IllegalStateException("Workflow is already archived");verifiedArchive110(w);selected.add(entity);}
+        var directory=archiveDirectory110();Files.createDirectories(directory);long bytes=0;
+        try(var files=Files.list(directory)){for(Path file:files.toList()){if(!Files.isRegularFile(file,LinkOption.NOFOLLOW_LINKS))throw new IllegalStateException("Unexpected archive path");bytes=Math.addExact(bytes,Files.size(file));}}
+        long additional=0;for(var entity:selected){String payload=entity.components().getFirst().values().get("payload");int size=payload.getBytes(java.nio.charset.StandardCharsets.UTF_8).length;if(size>8*1024*1024)throw new IllegalStateException("Archive record exceeds8MiB");if(!Files.exists(directory.resolve(MeasurementStore.hash(payload)+".json"),LinkOption.NOFOLLOW_LINKS))additional+=size;}
+        if(bytes+additional>128*1024*1024)throw new IllegalStateException("Archive byte budget reached; originals retained");
+        var tx=new WorldTransaction(before);var refs=new JSONArray();String at=Instant.now().toString();
+        for(var entity:selected){
+            var component=entity.components().getFirst();String payload=component.values().get("payload"),hash=MeasurementStore.hash(payload);byte[] data=payload.getBytes(java.nio.charset.StandardCharsets.UTF_8);var target=directory.resolve(hash+".json");
+            if(Files.exists(target,LinkOption.NOFOLLOW_LINKS)){if(!Files.isRegularFile(target,LinkOption.NOFOLLOW_LINKS)||!Arrays.equals(data,Files.readAllBytes(target)))throw new IllegalStateException("Existing archive bytes differ; originals retained");}
+            else{
+                var temporary=Files.createTempFile(directory,"archive-",".pending");
+                try(var channel=java.nio.channels.FileChannel.open(temporary,StandardOpenOption.WRITE)){var buffer=java.nio.ByteBuffer.wrap(data);while(buffer.hasRemaining())channel.write(buffer);channel.force(true);}
+                Files.move(temporary,target,StandardCopyOption.ATOMIC_MOVE);
+            }
+            var original=new JSONObject(payload);var ref=new JSONObject().put("schema","workflow-archive-110-v1").put("sha256",hash).put("bytes",data.length).put("archivedAt",at);
+            var pointer=new JSONObject().put("id",original.getString("id")).put("createdAt",original.getString("createdAt")).put("archive110",ref);resolve110(pointer);
+            tx.add(new WorldTransaction.Put(entity.id(),new ComponentRecord(component.id(),component.type(),component.version(),Map.of("payload",pointer.toString()))));refs.put(new JSONObject().put("id",original.getString("id")).put("archive110",ref));
+        }
+        // Until this single atomic commit, original active payloads remain authoritative, even after a crash.
+        var after=tx.stage(schemas);checkpoint.save(after,schemas);world.restore(after);
+        return history110().put("archivedNow",refs).put("archiveNanos",Long.toString(System.nanoTime()-start)).put("previousPlanSha256",input.getString("planSha256"));
     }
     @Override public synchronized void close(){closed=true;worker.shutdownNow();}
 }

@@ -268,6 +268,9 @@ public final class WorkspaceServer implements AutoCloseable {
                 }
                 if(route.equals("/api/plan")){send(exchange,200,plan(input));return;}
                 if(route.startsWith("/api/workflows/")){
+                    if(route.equals("/api/workflows/history")){SpatialScene.keys(input);send(exchange,200,workflows.history110());return;}
+                    if(route.equals("/api/workflows/verify-archive")){SpatialScene.keys(input,"id");send(exchange,200,workflows.verifyArchive110(input.getString("id")));return;}
+                    if(route.equals("/api/workflows/archive")){if(agency.busy()||sharedBusy043()||observations.busy()||tabletop.busy()||alignment041.busy())throw new IllegalStateException("Finish active work before archiving history");send(exchange,200,workflows.archive110(input));return;}
                     result=switch(route){case "/api/workflows/catalog"->workflows.graphCatalog();case "/api/workflows/start"->workflows.start(input);case "/api/workflows/read"->workflows.read(input.getString("id"));case "/api/workflows/list"->new JSONObject().put("workflows",workflows.list());case "/api/workflows/resume"->workflows.resume(input.getString("id"));case "/api/workflows/cancel"->workflows.cancel(input.getString("id"));case "/api/workflows/reuse"->workflows.reuse(input);case "/api/workflows/claim"->claimWorkflow044(exchange.getRequestHeaders().getFirst("X-Fraynix-Interface"));case "/api/workflows/ack"->workflows.acknowledge(input);default->throw new IllegalArgumentException("Unknown workflow operation");};admission106=false;send(exchange,200,result);return;
                 }
                 // Task ownership is acquired before the native-goal monitor, never from inside it.

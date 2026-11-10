@@ -1,0 +1,13 @@
+# Edition 110 — verified workflow archival
+
+Declared 2026-11-10 before implementation and measurements. Parent fc3b27b3740ad7b647613b1d9c3a5ff658c1ba73. CI checked first: main109 run42903859183 remains in progress, not a pass. Work only in the isolated edition110 checkout; preserve private worlds and frozen editions001–109. No delegation; heavy checks sequential.
+
+Explicitly archive completed workflow records. Preserve their exact serialized payloads under SHA-256 content addresses and keep checked references in the existing atomic workflow checkpoint. Validate original sources, owned stages, outcome audits and publication before archival. Never archive active, interrupted, cancelled or unpublished work. Reject stale previews and unknown input fields. Keep stable IDs and reference resolution; hashes supplement rather than replace outcome verification.
+
+Prepare and force all archive bytes before one atomic checkpoint replacement. An interruption before that replacement leaves original active records; after it, exact archived records resolve. No record deletion or untrusted archive import. Missing, corrupted, swapped or linked files must refuse; no fallback to older evidence. Original checkpoint recovery remains explicit in its existing store. Prevent modifications to archived records. Bound archive records and bytes.
+
+Keep original active workflow20/supervisor16 limits, goals64, skills32 and versions8. Archival releases workflow and supervisor slots only; child-goal evidence is not migrated or deleted. State this remaining capacity boundary clearly. Archived records remain discoverable to qualification and saved-procedure reuse, and are reverified on each request. Runtime changes retain explicit108 upgrade requirements; do not relabel109 receipts as110.
+
+Provide an actual in-app history view with preview, explicit archive, archived-record inspection and fresh verification. Test transaction failures on both sides of commit, closed/reopened projects, stale requests, active/pending records, missing/corrupt archives, changed source/report, real reuse and near-capacity continuation. Use genuinely completed109 history and fresh110 requests, no fabricated passing browser observations. Retain all costs and failed attempts. Exercise real Chromium outcomes and screenshots.
+
+Update linked README110, offline guide, screenshots, memories and logs. Verify source and frozen documentation inventories; non-force push main/edition110/readme-110, fetch and compare. Report CI separately. Next work must be guided by measured remaining goal capacity and archival overhead, not claims of unlimited memory or model training.
