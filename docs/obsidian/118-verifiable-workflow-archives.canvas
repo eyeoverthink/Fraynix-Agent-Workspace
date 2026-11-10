@@ -1,0 +1,47 @@
+{
+  "nodes": [
+    {
+      "id": "edition",
+      "type": "file",
+      "file": "README-110.md",
+      "x": 0,
+      "y": 0,
+      "width": 430,
+      "height": 330
+    },
+    {
+      "id": "archive",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/WorkflowRunner.java",
+      "x": 490,
+      "y": 0,
+      "width": 430,
+      "height": 330
+    },
+    {
+      "id": "proof",
+      "type": "file",
+      "file": "docs/readmes/110/analysis.json",
+      "x": 490,
+      "y": 400,
+      "width": 430,
+      "height": 330
+    }
+  ],
+  "edges": [
+    {
+      "id": "implements",
+      "fromNode": "edition",
+      "fromSide": "right",
+      "toNode": "archive",
+      "toSide": "left"
+    },
+    {
+      "id": "measures",
+      "fromNode": "archive",
+      "fromSide": "bottom",
+      "toNode": "proof",
+      "toSide": "top"
+    }
+  ]
+}

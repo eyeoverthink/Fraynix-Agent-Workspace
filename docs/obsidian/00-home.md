@@ -1,3 +1,5 @@
+[[docs/obsidian/118-verifiable-workflow-archives|Edition110: verifiable workflow archives]]
+
 [[docs/obsidian/117-maintenance-at-capacity.md|Edition109 - maintenance at capacity]]
 
 [[docs/obsidian/116-explicit-qualification-upgrades.md|Edition108 - qualification upgrades]]

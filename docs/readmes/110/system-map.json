@@ -1,0 +1,134 @@
+{
+  "modules": [
+    {
+      "id": "archive",
+      "name": "Atomic archival and original verification",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/WorkflowRunner.java",
+      "note": "docs/obsidian/118-verifiable-workflow-archives.md"
+    },
+    {
+      "id": "checkpoint",
+      "name": "Checked atomic checkpoint generations",
+      "source": "fraynix-modules/factory-runtime/src/main/java/fraymus/factory/WorldCheckpointStore.java",
+      "note": "docs/obsidian/118-verifiable-workflow-archives.md"
+    },
+    {
+      "id": "api",
+      "name": "Owned Java archive endpoints",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/WorkspaceServer.java",
+      "note": "docs/obsidian/118-verifiable-workflow-archives.md"
+    },
+    {
+      "id": "view",
+      "name": "History preview, archive and recheck",
+      "source": "workspace-desktop/renderer/workflow-panel.js",
+      "note": "docs/obsidian/118-verifiable-workflow-archives.md"
+    },
+    {
+      "id": "goals",
+      "name": "Unchanged original goal and procedure store",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/GoalRunner.java",
+      "note": "docs/obsidian/118-verifiable-workflow-archives.md"
+    },
+    {
+      "id": "transition",
+      "name": "Explicit runtime qualification transition",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/Qualification108.java",
+      "note": "docs/obsidian/118-verifiable-workflow-archives.md"
+    },
+    {
+      "id": "audit",
+      "name": "Original source and actual outcome verifier",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/DataSummary102.java",
+      "note": "docs/obsidian/118-verifiable-workflow-archives.md"
+    },
+    {
+      "id": "study",
+      "name": "Actual archive, reuse and recovery study",
+      "source": "workspace-desktop/test/archive110-integration.cjs",
+      "note": "docs/obsidian/118-verifiable-workflow-archives.md"
+    },
+    {
+      "id": "inspection",
+      "name": "Independent archive and outcome reconstruction",
+      "source": "scripts/Inspect-Archive110.cjs",
+      "note": "docs/obsidian/118-verifiable-workflow-archives.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "docs/readmes/110/archive110-1100.png",
+      "caption": "Actual edition110 app capture: archive110-1100"
+    },
+    {
+      "path": "docs/readmes/110/changed-artifact-1600.png",
+      "caption": "Actual edition110 app capture: changed-artifact-1600"
+    },
+    {
+      "path": "docs/readmes/110/changed-dataset-1600.png",
+      "caption": "Actual edition110 app capture: changed-dataset-1600"
+    },
+    {
+      "path": "docs/readmes/110/continued-0-1600.png",
+      "caption": "Actual edition110 app capture: continued-0-1600"
+    },
+    {
+      "path": "docs/readmes/110/continued-1-1600.png",
+      "caption": "Actual edition110 app capture: continued-1-1600"
+    },
+    {
+      "path": "docs/readmes/110/continued-2-1600.png",
+      "caption": "Actual edition110 app capture: continued-2-1600"
+    },
+    {
+      "path": "docs/readmes/110/current110-archived-1600.png",
+      "caption": "Actual edition110 app capture: current110-archived-1600"
+    },
+    {
+      "path": "docs/readmes/110/full-history-refusal-1600.png",
+      "caption": "Actual edition110 app capture: full-history-refusal-1600"
+    },
+    {
+      "path": "docs/readmes/110/goal-capacity-refusal-1600.png",
+      "caption": "Actual edition110 app capture: goal-capacity-refusal-1600"
+    },
+    {
+      "path": "docs/readmes/110/old-runtime-refusal-1600.png",
+      "caption": "Actual edition110 app capture: old-runtime-refusal-1600"
+    },
+    {
+      "path": "docs/readmes/110/original109-archived-1600.png",
+      "caption": "Actual edition110 app capture: original109-archived-1600"
+    },
+    {
+      "path": "docs/readmes/110/recovered110-1600.png",
+      "caption": "Actual edition110 app capture: recovered110-1600"
+    },
+    {
+      "path": "docs/readmes/110/recovered110-interrupted.png",
+      "caption": "Actual edition110 app capture: recovered110-interrupted"
+    },
+    {
+      "path": "docs/readmes/110/reused110-1600.png",
+      "caption": "Actual edition110 app capture: reused110-1600"
+    },
+    {
+      "path": "docs/readmes/110/upgraded110-1600.png",
+      "caption": "Actual edition110 app capture: upgraded110-1600"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/readmes/110/analysis.json",
+      "caption": "analysis.json"
+    },
+    {
+      "path": "docs/readmes/110/verification.json",
+      "caption": "verification.json"
+    },
+    {
+      "path": "docs/readmes/110/original-evidence.json",
+      "caption": "original-evidence.json"
+    }
+  ]
+}
