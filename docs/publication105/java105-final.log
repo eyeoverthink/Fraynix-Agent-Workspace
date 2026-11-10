@@ -1,0 +1,53 @@
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/9.3.1/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build 
+> Task :brain-core:compileJava UP-TO-DATE
+> Task :brain-gpu:compileJava UP-TO-DATE
+> Task :factory-runtime:compileJava UP-TO-DATE
+> Task :factory-kernel:compileJava UP-TO-DATE
+> Task :factory-models:compileJava UP-TO-DATE
+> Task :geometry-core:compileJava UP-TO-DATE
+> Task :workspace-engine:compileJava
+> Task :workspace-engine:processResources UP-TO-DATE
+> Task :workspace-engine:classes
+> Task :workspace-engine:jar
+> Task :compileJava UP-TO-DATE
+> Task :processResources UP-TO-DATE
+> Task :classes UP-TO-DATE
+> Task :jar UP-TO-DATE
+> Task :brain-core:processResources NO-SOURCE
+> Task :brain-core:classes UP-TO-DATE
+> Task :brain-core:jar UP-TO-DATE
+> Task :factory-kernel:processResources NO-SOURCE
+> Task :factory-kernel:classes UP-TO-DATE
+> Task :factory-kernel:jar UP-TO-DATE
+> Task :factory-models:processResources NO-SOURCE
+> Task :factory-models:classes UP-TO-DATE
+> Task :factory-models:jar UP-TO-DATE
+> Task :factory-runtime:processResources NO-SOURCE
+> Task :factory-runtime:classes UP-TO-DATE
+> Task :factory-runtime:jar UP-TO-DATE
+> Task :startScripts UP-TO-DATE
+> Task :installDist UP-TO-DATE
+> Task :brain-gpu:processResources NO-SOURCE
+> Task :brain-gpu:classes UP-TO-DATE
+> Task :brain-gpu:jar UP-TO-DATE
+> Task :geometry-core:processResources NO-SOURCE
+> Task :geometry-core:classes UP-TO-DATE
+> Task :geometry-core:jar UP-TO-DATE
+> Task :workspace-engine:compileTestJava
+> Task :workspace-engine:processTestResources UP-TO-DATE
+> Task :workspace-engine:testClasses
+> Task :workspace-engine:test
+
+Libbulletjme version 22.0.3 initializing
+Libbulletjme version 22.0.3 initializing
+
+> Task :workspace-engine:startScripts
+> Task :workspace-engine:installDist
+
+> Task :verifySourceIsolation
+Verified every project/source root belongs to Fraynix-Studio.
+
+BUILD SUCCESSFUL in 6m 53s
+26 actionable tasks: 7 executed, 19 up-to-date
+Consider enabling configuration cache to speed up this build: https://docs.gradle.org/9.3.1/userguide/configuration_cache_enabling.html

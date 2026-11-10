@@ -1,0 +1,33 @@
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/9.3.1/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build 
+> Task :brain-core:compileJava
+> Task :brain-gpu:compileJava
+> Task :factory-runtime:compileJava
+> Task :factory-kernel:compileJava
+> Task :factory-models:compileJava
+> Task :geometry-core:compileJava
+
+> Task :workspace-engine:compileJava FAILED
+
+[Incubating] Problems report is available at: file:///S:/Codex-Work/fraynix-workspace-edition105/build/reports/problems/problems-report.html
+S:\Codex-Work\fraynix-workspace-edition105\workspace-engine\src\main\java\fraymus\workspace\Qualification105.java:24: error: 'var' is not allowed in a compound declaration
+        var monotonic=new StringBuilder("t,x\n"),reversal=new StringBuilder("t,x\n"),flat=new StringBuilder("t,x\n");
+        ^
+1 error
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':workspace-engine:compileJava'.
+> Compilation failed; see the compiler output below.
+  S:\Codex-Work\fraynix-workspace-edition105\workspace-engine\src\main\java\fraymus\workspace\Qualification105.java:24: error: 'var' is not allowed in a compound declaration
+          var monotonic=new StringBuilder("t,x\n"),reversal=new StringBuilder("t,x\n"),flat=new StringBuilder("t,x\n");
+          ^
+  1 error
+
+* Try:
+> Check your code and dependencies to fix the compilation error(s)
+> Run with --scan to get full insights from a Build Scan (powered by Develocity).
+
+BUILD FAILED in 10s
+7 actionable tasks: 7 executed

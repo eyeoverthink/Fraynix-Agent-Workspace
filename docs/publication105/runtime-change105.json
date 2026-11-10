@@ -1,0 +1,20 @@
+{
+  "passed": true,
+  "before": "52f69da4a14e17776464dd5e259d4c3500d11b93",
+  "after": "0eb0552cfd005946a09f4d2feee2bbd483f3dbd0",
+  "changedInputs": [
+    {
+      "path": "workspace-engine/src/main/java/fraymus/workspace/WorkspaceServer.java",
+      "bytes": 102743,
+      "sha256": "4be984ca8eb81a8780ad5fb8bb4087bd0eec642f74e71c979b1e2e2010dfed6d"
+    }
+  ],
+  "changedArtifacts": [
+    {
+      "path": "workspace-engine/build/install/workspace-engine/lib/workspace-engine.jar",
+      "bytes": 3247441,
+      "sha256": "22ed0eea7a00c4fc072d3478008000c289fdcb97e326e5a41f56d155feabfbeb"
+    }
+  ],
+  "scope": "Only production input changed after the blocked recovery is host ownership admission. Final study uses a new fixed build and fresh projects; earlier evidence is preserved separately."
+}

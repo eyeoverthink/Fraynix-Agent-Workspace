@@ -10,4 +10,4 @@ Edition 105 automates five qualification examples, verifies fresh selected data 
 
 Java owns durable goals, tools, verification and memory. Chat, browser/canvas, spatial views and Game Lab remain integrated.
 
-Publication receipt follows the actual main/tag push and fetched verification.
+Published to main. [Fetched GitHub verification](docs/PUBLICATION_105.json).

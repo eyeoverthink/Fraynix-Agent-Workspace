@@ -1,0 +1,49 @@
+{
+  "passed": true,
+  "source": "52f69da4a14e17776464dd5e259d4c3500d11b93",
+  "completedRequests": 14,
+  "failedRecoveryRequests": 1,
+  "savedAfterFailedRecovery": 0,
+  "successfulRequestMs": 229582,
+  "failedRecoveryCost": {
+    "elapsedMs": 26608,
+    "exclusiveMs": {
+      "pause-restart": 14977,
+      "generation": 0,
+      "unfinished-generation-window": 0,
+      "browser-verification": 2469,
+      "coordination-and-other": 9162
+    },
+    "crossCategoryOverlapMs": 0,
+    "scope": "Priority pause/restart, then generation, then browser verification; remaining time includes Java computation, persistence, scheduling and harness polling. Stage durations overlap these categories and are not added."
+  },
+  "requestMs": 256190,
+  "cohortWallMs": 321620,
+  "scope": "Earlier separate cohort found a real host resume-admission bug: interrupted child reservation was not recognized as the parent task's own work. Originals, failed request and all timings retained. The fix changes WorkspaceServer ownership admission only; all final comparisons are rerun in a fresh separate cohort. This unsuccessful recovery is not relabelled as a success.",
+  "refusals": [
+    {
+      "name": "omitted prior cost",
+      "refused": true
+    },
+    {
+      "name": "omitted prior request",
+      "refused": true
+    },
+    {
+      "name": "failed recovery relabelled",
+      "refused": true
+    },
+    {
+      "name": "invented resume",
+      "refused": true
+    },
+    {
+      "name": "lost verified boundary",
+      "refused": true
+    },
+    {
+      "name": "omitted interruption cost",
+      "refused": true
+    }
+  ]
+}

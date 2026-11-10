@@ -1,0 +1,95 @@
+{
+  "checkedAtUtc": "2026-11-10T06:20:01.157Z",
+  "runs": [
+    {
+      "id": 42755425633,
+      "head_sha": "59d68df1b876f796bf9d895de62350f4a369e764",
+      "status": "in_progress",
+      "conclusion": null,
+      "html_url": "https://github.com/eyeoverthink/Fraynix-Agent-Workspace/actions/runs/42755425633"
+    },
+    {
+      "id": 42755227628,
+      "head_sha": "80d27cf6271bc2497c74ea3190517897d9a79a26",
+      "status": "in_progress",
+      "conclusion": null,
+      "html_url": "https://github.com/eyeoverthink/Fraynix-Agent-Workspace/actions/runs/42755227628"
+    },
+    {
+      "id": 42663836173,
+      "head_sha": "eb3cf3cb509a5a574652388b3994409e39bdfce9",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/eyeoverthink/Fraynix-Agent-Workspace/actions/runs/42663836173"
+    }
+  ],
+  "main104Jobs": [
+    {
+      "name": "windows",
+      "status": "in_progress",
+      "conclusion": null,
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/setup-java@v4",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run gradle/actions/setup-gradle@v4",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Provision software OpenGL for native tests",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Verify README editions, maps and links",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Compile, test and package",
+          "status": "in_progress",
+          "conclusion": null
+        },
+        {
+          "name": "Run actions/upload-artifact@v4",
+          "status": "pending",
+          "conclusion": null
+        },
+        {
+          "name": "Run actions/upload-artifact@v4",
+          "status": "pending",
+          "conclusion": null
+        },
+        {
+          "name": "Post Run gradle/actions/setup-gradle@v4",
+          "status": "pending",
+          "conclusion": null
+        },
+        {
+          "name": "Post Run actions/setup-java@v4",
+          "status": "pending",
+          "conclusion": null
+        },
+        {
+          "name": "Post Run actions/checkout@v4",
+          "status": "pending",
+          "conclusion": null
+        }
+      ]
+    }
+  ]
+}

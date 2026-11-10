@@ -1,0 +1,23 @@
+from pathlib import Path
+import subprocess,json,shutil
+r=Path.cwd()
+def git(*a):return subprocess.check_output(['git',*a],text=True).strip()
+audit=json.loads((r/'build/publication-audit105.json').read_text(encoding='utf8'));assert audit['passed'] and audit['remoteFetched']
+release=git('rev-parse','readme-105^{commit}');assert release==audit['commit']==git('rev-parse','HEAD');tag=git('rev-parse','readme-105')
+data={'edition':105,'releaseCommit':release,'annotatedTag':'readme-105','tagObject':tag,'audit':audit,'scope':'Actual non-force atomic main/edition105/tag push, fetched and audited from Git blobs. Durable Java automatic five-case qualification through unchanged104 child workflows, fresh selected-source outcome checks and original104 publication gate. Genuine bank0/4/8 collections; fifteen completions and two expected refusals. All preparation, cold probes, abrupt recovery and changed-evidence costs retained. No padded procedures, content-generation or weight-training claim. Two cold repetitions per size; not a causal/universal speedup. An earlier separate cohort found and retains a host recovery-admission failure; corrected ownership passed a fresh final cohort. Parent/post-push CI separate.','analysis':json.loads((r/'build/analysis105.json').read_text(encoding='utf8')),'releaseCI':json.loads((r/'build/ci105-release.json').read_text(encoding='utf8'))}
+(r/'docs/PUBLICATION_105.json').write_text(json.dumps(data,indent=2)+'\n',encoding='utf8',newline='\n')
+folder=r/'docs/publication105';folder.mkdir(exist_ok=True)
+names=['ci105-release.json','publication-audit105.json','push105.log','release105.log','release105.py','audit-publication105.py','publication105.py','finish-publication105.py','freeze105.py','check-guide105.cjs','visual105.json','visual-review105.json','documentation-check.json','doc-check105.log','guide105.log','guide105-1440.png','guide105-390.png','ci105-parent.json','analysis105.json','compile105.log','java105-qualification.log','java105-regression.log','java105-final.log','analysis105-preliminary.json','inspect105-preliminary.log','inspect105-final.log','inspect105-final-second.log','desktop105-first.log','desktop105-fixture-events.log','desktop105.log','desktop105-additional.log','renderer101-105.log','renderer102-105.log','diagnostics105.log','source-identity105.json','runtime-change105.json','qualification105.log','qualification105-final.log']
+for name in names:
+ assert (r/'build'/name).is_file(),name
+ shutil.copyfile(r/'build'/name,folder/name)
+notice=f"Published release {release}; annotated readme-105 tag object {tag}. Actual main/edition105/tag push fetched and verified: {audit['canonicalSourceFiles']} canonical sources, {audit['frozenHashes']} frozen hashes across105 editions and {audit['original105EvidenceFiles']} logical original archive entries. "
+validation='102 Java methods,148 desktop checks,23 actual browser fixture controls and30 final plus6 prior-failure altered-evidence refusals pass. Seventeen actual request expectations pass: fifteen completions and two required refusals. Genuine collection preparation and cold bank0/4/8 probes retain full costs; abrupt recovery retains original child identities. Application captures reviewed at1600/1100 pixels; offline guide at1440/390 pixels. No new delegation; preserve private worlds and frozen prior editions. '
+for name,link in [('AGENTS.md','docs/PUBLICATION_105.json'),('docs/PROJECT_MEMORY.md','PUBLICATION_105.json'),('docs/DEVELOPMENT_LOG.md','PUBLICATION_105.json'),('docs/ARCHITECTURE.md','PUBLICATION_105.json'),('README-CONTRIBUTORS.md','docs/PUBLICATION_105.json')]:
+ p=r/name;s=p.read_text(encoding='utf8');assert '## Edition105 — validated automatic qualification' in s
+ s=s.replace('## Edition105 — validated automatic qualification','## Edition105 — published and fetched back\n\n'+notice+validation+'[Publication receipt]('+link+').',1)
+ s=s.replace('Main/tag publication pending actual push/fetch; CI separate.','Main/tag publication and fetched verification completed; remote CI status is recorded separately in the receipt.',1)
+ p.write_text(s,encoding='utf8',newline='\n')
+p=r/'README.md';p.write_text(p.read_text(encoding='utf8').replace('Publication receipt follows the actual main/tag push and fetched verification.','Published to main. [Fetched GitHub verification](docs/PUBLICATION_105.json).'),encoding='utf8',newline='\n')
+p=r/'docs/obsidian/113-automatic-qualification.md';p.write_text(p.read_text(encoding='utf8').replace('Main/tag publication pending actual push/fetch; CI separate.','Main/tag publication and fetched verification completed; remote CI separate.')+'\n'+notice+validation+'[[docs/PUBLICATION_105.json|Publication receipt]]\n',encoding='utf8',newline='\n')
+print(notice)
