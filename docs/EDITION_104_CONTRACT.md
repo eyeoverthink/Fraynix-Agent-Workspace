@@ -1,0 +1,9 @@
+# Edition 104 — input-driven summaries, qualified before retention
+
+Declared 2026-11-09 before implementation trials. Parent eb3cf3cb; edition103 CI42663836173 passed. Isolated S:/Codex-Work/fraynix-workspace-edition104. Preserve private worlds and frozen001–103; heavy work serial, no delegation.
+
+Introduce a separately identified Java-owned motion-summary procedure. Java supplies the exact shipped HTML/JavaScript implementation, normalized source and freshly verified thresholds/missing-row metadata. The browser calculates all six summary values, quality label and trace from that fresh input. No expected summary values are supplied to the renderer. This is authored software, not a model-generated or trained implementation. Keep Creation, MotionData, DataCreation101 and DataSummary102 verifier bytes unchanged; use their full source and rendered-outcome checks.
+
+Before retaining a104 procedure, require at least four distinct, already completed, fully verified104 datasets collectively covering monotonic motion, reversal, flat motion, gap plus speed flags, and nonidentity units. Save exact linked proof references; recheck their original sources, implementation and outcomes before reuse/publication. A current task must independently pass as well. Qualification is bounded empirical coverage, not universal correctness. Keep prior failures and do not relabel old model artifacts.
+
+Test actual Electron/Java workflows on recorded and labelled synthetic data: varied row counts, reversal, negative/flat values, changed SI mapping, gap/speed flags, skipped rows, cold reuse, abrupt recovery and deliberately corrupted rendered values. Recheck failure behavior and qualification/source mutations. Measure complete intervals without claiming a matched speedup. Keep no-generation provenance explicit. Update README, actual screenshots, memories/logs and main/tag publication with fetched verification.

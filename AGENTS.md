@@ -1,3 +1,7 @@
+## Edition104 — in progress
+
+Work only in S:/Codex-Work/fraynix-workspace-edition104. Parent main eb3cf3cb. Read docs/EDITION_104_CONTRACT.md. Preserve old verifier bytes, private live worlds and frozen001–103. No delegation; heavy work serial. Java-owned input-driven summary; varied verified datasets required before skill retention. Parent103 CI42663836173 completed/success.
+
 ## Edition103 — published and fetched back
 
 Published release b9de5241fbb551c57f33e81364ec2a3a950dbba9; annotated readme-103 tag object 9d5eb7a1cb14eac5d74dccd09591794760b4bbef. Actual main/edition103/tag push fetched and verified: 1347 canonical sources, 31009 frozen hashes across 103 editions and 517 logical original archive entries. 88 Java methods, 141 desktop checks, 23 actual browser fixture controls and 16 altered-evidence refusals pass. All six measured trial expectations pass: three completions and three required refusals. Presentation reviewed separately at 1600 and 1100 pixels; offline guide checked at 1440 and 390 pixels. No new delegation; preserve private worlds and frozen prior editions. [Publication receipt](docs/PUBLICATION_103.json).
