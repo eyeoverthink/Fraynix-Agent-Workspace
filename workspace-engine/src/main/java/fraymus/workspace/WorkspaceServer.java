@@ -78,6 +78,7 @@ public final class WorkspaceServer implements AutoCloseable {
         HttpServer server=HttpServer.create(new InetSocketAddress("127.0.0.1",0),0);server.setExecutor(Executors.newVirtualThreadPerTaskExecutor());
         httpServer=server;
         server.createContext("/api/",exchange->{
+            boolean admission106=false;
             try {
                 if(!("Bearer "+token).equals(exchange.getRequestHeaders().getFirst("Authorization"))){send(exchange,403,new JSONObject().put("error","Not authorized"));return;}
                 if(exchange.getRequestMethod().equals("GET")&&exchange.getRequestURI().getPath().equals("/api/state")){send(exchange,200,state());return;}
@@ -106,7 +107,8 @@ public final class WorkspaceServer implements AutoCloseable {
                     };send(exchange,200,result);return;
                 }
                 if(agency.busy()&&!passive043(route)&&!continuingCamera044(route,input))agency.requireExecution044(exchange.getRequestHeaders().getFirst("X-Fraynix-Task"),exchange.getRequestHeaders().getFirst("X-Fraynix-Effect"),route,exchange.getRequestHeaders().getFirst("X-Fraynix-Interface"));
-                if(route.startsWith("/api/procedures044/")){var scheduler=new Procedure044(this::call044);String task=exchange.getRequestHeaders().getFirst("X-Fraynix-Task");if(task!=null)input=agency.procedureInput044(task,exchange.getRequestHeaders().getFirst("X-Fraynix-Effect"),input);result=route.equals("/api/procedures044/prepare")?scheduler.prepare(input):route.equals("/api/procedures044/run")?scheduler.run(input):null;if(result==null)throw new IllegalArgumentException("Unknown Java procedure operation");send(exchange,200,result);return;}
+                admission106=agency.admissionClaim106(exchange.getRequestHeaders().getFirst("X-Fraynix-Task"),exchange.getRequestHeaders().getFirst("X-Fraynix-Effect"),route,exchange.getRequestHeaders().getFirst("X-Fraynix-Interface"));
+                if(route.startsWith("/api/procedures044/")){var scheduler=new Procedure044(this::call044);String task=exchange.getRequestHeaders().getFirst("X-Fraynix-Task");if(task!=null)input=agency.procedureInput044(task,exchange.getRequestHeaders().getFirst("X-Fraynix-Effect"),input);result=route.equals("/api/procedures044/prepare")?scheduler.prepare(input):route.equals("/api/procedures044/run")?scheduler.run(input):null;if(result==null)throw new IllegalArgumentException("Unknown Java procedure operation");admission106=false;send(exchange,200,result);return;}
                 if(route.startsWith("/api/creation044/")){result=switch(route){case "/api/creation044/start"->creation044.start(input);case "/api/creation044/read"->creation044.read(input.getString("id"));case "/api/creation044/cancel"->creation044.cancel(input.getString("goalId"));default->throw new IllegalArgumentException("Unknown Java creation operation");};send(exchange,200,result);return;}
                 if(route.startsWith("/api/agent042/")){
                     result=switch(route){
@@ -266,7 +268,7 @@ public final class WorkspaceServer implements AutoCloseable {
                 }
                 if(route.equals("/api/plan")){send(exchange,200,plan(input));return;}
                 if(route.startsWith("/api/workflows/")){
-                    result=switch(route){case "/api/workflows/catalog"->workflows.graphCatalog();case "/api/workflows/start"->workflows.start(input);case "/api/workflows/read"->workflows.read(input.getString("id"));case "/api/workflows/list"->new JSONObject().put("workflows",workflows.list());case "/api/workflows/resume"->workflows.resume(input.getString("id"));case "/api/workflows/cancel"->workflows.cancel(input.getString("id"));case "/api/workflows/reuse"->workflows.reuse(input);case "/api/workflows/claim"->claimWorkflow044(exchange.getRequestHeaders().getFirst("X-Fraynix-Interface"));case "/api/workflows/ack"->workflows.acknowledge(input);default->throw new IllegalArgumentException("Unknown workflow operation");};send(exchange,200,result);return;
+                    result=switch(route){case "/api/workflows/catalog"->workflows.graphCatalog();case "/api/workflows/start"->workflows.start(input);case "/api/workflows/read"->workflows.read(input.getString("id"));case "/api/workflows/list"->new JSONObject().put("workflows",workflows.list());case "/api/workflows/resume"->workflows.resume(input.getString("id"));case "/api/workflows/cancel"->workflows.cancel(input.getString("id"));case "/api/workflows/reuse"->workflows.reuse(input);case "/api/workflows/claim"->claimWorkflow044(exchange.getRequestHeaders().getFirst("X-Fraynix-Interface"));case "/api/workflows/ack"->workflows.acknowledge(input);default->throw new IllegalArgumentException("Unknown workflow operation");};admission106=false;send(exchange,200,result);return;
                 }
                 // Task ownership is acquired before the native-goal monitor, never from inside it.
                 if(route.equals("/api/goals/claim")){result=claimGoal044(exchange.getRequestHeaders().getFirst("X-Fraynix-Interface"));send(exchange,200,result);return;}
@@ -580,7 +582,7 @@ public final class WorkspaceServer implements AutoCloseable {
                 }
                 }
                 send(exchange,200,result);
-            } catch(Exception error) {try{send(exchange,400,new JSONObject().put("error",String.valueOf(error.getMessage())));}catch(Exception ignored){exchange.close();}}
+            } catch(Exception error) {try{if(admission106)agency.refuseAdmission106(exchange.getRequestHeaders().getFirst("X-Fraynix-Task"),exchange.getRequestHeaders().getFirst("X-Fraynix-Effect"),exchange.getRequestURI().getPath(),exchange.getRequestHeaders().getFirst("X-Fraynix-Interface"),error);send(exchange,400,new JSONObject().put("error",String.valueOf(error.getMessage())));}catch(Exception ignored){exchange.close();}}
         });
         server.createContext("/artifact/",exchange->{
             try {

@@ -300,7 +300,7 @@ async function learnFromEpisodes({proof=false,automatic=false}={}){
 // Presentation of Java-owned facts only. Never selects a tool, goal stage or skill.
 async function mission044(id){
  const g=await api('/api/agency043/read',{id}),c=g.context044||{},task={};
- for(const k of ['id','goal','model','mode','family044','status','reason','turn','failures','resumes','generation','createdAt','finishedAt','outcome','savedRecipe','usedRecipe','summary','timing052','diagnostics052'])if(g[k]!==undefined)task[k]=g[k];
+ for(const k of ['id','goal','model','mode','family044','status','reason','turn','failures','resumes','generation','createdAt','finishedAt','outcome','savedRecipe','usedRecipe','summary','timing052','diagnostics052','refusal106'])if(g[k]!==undefined)task[k]=g[k];
  task.frames=g.frames?.length||0;task.history=(g.history||[]).slice(-12).map(r=>({kind:r.kind,at:r.at,sha256:r.sha256,tool:r.detail?.tool,reason:r.detail?.reason,verified:r.detail?.verified}));
  const sources=Object.entries(g.bindings044||{}).map(([kind,b])=>({kind,...(Array.isArray(b)?{ids:b}:{...Object.fromEntries(['id','datasetId','sceneId','worldId','objectId','pusherId','mapId','referenceId','sourceArtifactId','sourceVersion','sourceFile','version','expectedVersion','expectedRevision','expectedHash','sourceSha256','title','sourceKind'].filter(k=>b?.[k]!==undefined).map(k=>[k,b[k]]))})}));
  if(g.initialArtifact)sources.push({kind:'initial artifact',...g.initialArtifact});

@@ -1,0 +1,235 @@
+{
+  "scope": "Declared numerical software cases; explicit expected six-decimal summaries are test assertions, never report inputs. Independent source reconstruction and actual browser audits remain mandatory.",
+  "cases": [
+    {
+      "name": "mapped-inversion",
+      "csv": "t,x\n-2000,1000\n-1000,1050\n0,975\n1000,1100\n",
+      "expected": {
+        "samples": "4",
+        "duration": "3.000000",
+        "travel": "0.250000",
+        "peak": "0.125000",
+        "gaps": "0",
+        "speeds": "0"
+      },
+      "mapping": {
+        "timeColumn": "t",
+        "distanceColumn": "x",
+        "timeUnit": "ms",
+        "distanceUnit": "mm",
+        "timeOffsetS": 2,
+        "distanceOrigin": 1000,
+        "direction": -1
+      },
+      "maxGapS": 1,
+      "speedLimitMps": 0.125
+    },
+    {
+      "name": "negative-reversal",
+      "csv": "t,x\n0,-0.125\n0.125,0.125\n0.25,-0.25\n0.5,0.375\n",
+      "expected": {
+        "samples": "4",
+        "duration": "0.500000",
+        "travel": "1.250000",
+        "peak": "3.000000",
+        "gaps": "0",
+        "speeds": "0"
+      },
+      "maxGapS": 0.25,
+      "speedLimitMps": 3,
+      "mapping": {
+        "timeColumn": "t",
+        "distanceColumn": "x",
+        "timeUnit": "s",
+        "distanceUnit": "m",
+        "timeOffsetS": 0,
+        "distanceOrigin": 0,
+        "direction": 1
+      }
+    },
+    {
+      "name": "rounding-half",
+      "csv": "t,x\n0,0\n1,0.0000005\n",
+      "expected": {
+        "samples": "2",
+        "duration": "1.000000",
+        "travel": "0.000001",
+        "peak": "0.000001",
+        "gaps": "0",
+        "speeds": "0"
+      },
+      "maxGapS": 1,
+      "speedLimitMps": 1,
+      "mapping": {
+        "timeColumn": "t",
+        "distanceColumn": "x",
+        "timeUnit": "s",
+        "distanceUnit": "m",
+        "timeOffsetS": 0,
+        "distanceOrigin": 0,
+        "direction": 1
+      }
+    },
+    {
+      "name": "rounding-below",
+      "csv": "t,x\n0,0\n1,0.000000499999\n",
+      "expected": {
+        "samples": "2",
+        "duration": "1.000000",
+        "travel": "0.000000",
+        "peak": "0.000000",
+        "gaps": "0",
+        "speeds": "0"
+      },
+      "maxGapS": 1,
+      "speedLimitMps": 1,
+      "mapping": {
+        "timeColumn": "t",
+        "distanceColumn": "x",
+        "timeUnit": "s",
+        "distanceUnit": "m",
+        "timeOffsetS": 0,
+        "distanceOrigin": 0,
+        "direction": 1
+      }
+    },
+    {
+      "name": "rounding-above",
+      "csv": "t,x\n0,0\n1,0.000000500001\n",
+      "expected": {
+        "samples": "2",
+        "duration": "1.000000",
+        "travel": "0.000001",
+        "peak": "0.000001",
+        "gaps": "0",
+        "speeds": "0"
+      },
+      "maxGapS": 1,
+      "speedLimitMps": 1,
+      "mapping": {
+        "timeColumn": "t",
+        "distanceColumn": "x",
+        "timeUnit": "s",
+        "distanceUnit": "m",
+        "timeOffsetS": 0,
+        "distanceOrigin": 0,
+        "direction": 1
+      }
+    },
+    {
+      "name": "flat-signed-zero",
+      "csv": "t,x\n0,-0.0\n0.125,0\n0.25,-0\n",
+      "expected": {
+        "samples": "3",
+        "duration": "0.250000",
+        "travel": "0.000000",
+        "peak": "0.000000",
+        "gaps": "0",
+        "speeds": "0"
+      },
+      "maxGapS": 0.125,
+      "speedLimitMps": 1,
+      "mapping": {
+        "timeColumn": "t",
+        "distanceColumn": "x",
+        "timeUnit": "s",
+        "distanceUnit": "m",
+        "timeOffsetS": 0,
+        "distanceOrigin": 0,
+        "direction": 1
+      }
+    },
+    {
+      "name": "tiny-scale",
+      "csv": "t,x\n0,0\n0.0000000001,0.00000000000000001\n",
+      "expected": {
+        "samples": "2",
+        "duration": "0.000000",
+        "travel": "0.000000",
+        "peak": "0.000000",
+        "gaps": "0",
+        "speeds": "0"
+      },
+      "maxGapS": 1e-06,
+      "speedLimitMps": 1e-06,
+      "mapping": {
+        "timeColumn": "t",
+        "distanceColumn": "x",
+        "timeUnit": "s",
+        "distanceUnit": "m",
+        "timeOffsetS": 0,
+        "distanceOrigin": 0,
+        "direction": 1
+      }
+    },
+    {
+      "name": "large-valid-scale",
+      "csv": "t,x\n0,-1000000\n86400,1000000\n",
+      "expected": {
+        "samples": "2",
+        "duration": "86400.000000",
+        "travel": "2000000.000000",
+        "peak": "23.148148",
+        "gaps": "0",
+        "speeds": "0"
+      },
+      "maxGapS": 86400,
+      "speedLimitMps": 1000000000,
+      "mapping": {
+        "timeColumn": "t",
+        "distanceColumn": "x",
+        "timeUnit": "s",
+        "distanceUnit": "m",
+        "timeOffsetS": 0,
+        "distanceOrigin": 0,
+        "direction": 1
+      }
+    },
+    {
+      "name": "large-origin-small-motion",
+      "csv": "t,x\n-0.25,999999999.875\n0,1000000000\n0.25,1000000000.125\n",
+      "expected": {
+        "samples": "3",
+        "duration": "0.500000",
+        "travel": "0.250000",
+        "peak": "0.500000",
+        "gaps": "0",
+        "speeds": "0"
+      },
+      "mapping": {
+        "timeColumn": "t",
+        "distanceColumn": "x",
+        "timeUnit": "s",
+        "distanceUnit": "m",
+        "timeOffsetS": 0.25,
+        "distanceOrigin": 1000000000,
+        "direction": 1
+      },
+      "maxGapS": 0.25,
+      "speedLimitMps": 0.5
+    },
+    {
+      "name": "threshold-just-over",
+      "csv": "t,x\n0,0\n0.125,0.125\n0.25000000000000006,0.2500000000000001\n",
+      "expected": {
+        "samples": "3",
+        "duration": "0.250000",
+        "travel": "0.250000",
+        "peak": "1.000000",
+        "gaps": "1",
+        "speeds": "1"
+      },
+      "maxGapS": 0.125,
+      "speedLimitMps": 1,
+      "mapping": {
+        "timeColumn": "t",
+        "distanceColumn": "x",
+        "timeUnit": "s",
+        "distanceUnit": "m",
+        "timeOffsetS": 0,
+        "distanceOrigin": 0,
+        "direction": 1
+      }
+    }
+  ]
+}
