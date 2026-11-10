@@ -1,0 +1,76 @@
+pair-1-clean: waiting-host Waiting for actual surface: workflow.start
+pair-1-clean: waiting-native qualification:monotonic 0/5
+pair-1-clean: waiting-native qualification:reversal 1/5
+pair-1-clean: waiting-native qualification:flat 2/5
+pair-1-clean: waiting-native qualification:units-flags 3/5
+pair-1-clean: waiting-native qualification:skipped 4/5
+pair-1-clean: waiting-native selected-data 5/5
+pair-1-clean: waiting-native complete 5/5
+pair-1-clean: completed complete 5/5
+pair-1-transition: waiting-host Waiting for actual surface: workflow.start
+pair-1-transition: waiting-native qualification:monotonic 0/5
+pair-1-transition: waiting-native qualification:reversal 1/5
+pair-1-transition: waiting-native qualification:flat 2/5
+pair-1-transition: waiting-native qualification:units-flags 3/5
+pair-1-transition: waiting-native qualification:skipped 4/5
+pair-1-transition: waiting-native selected-data 5/5
+pair-1-transition: waiting-native complete 5/5
+pair-1-transition: completed complete 5/5
+pair-2-transition: queued Queued in Java
+pair-2-transition: waiting-host Waiting for actual surface: workflow.start
+pair-2-transition: waiting-native qualification:monotonic 0/5
+pair-2-transition: waiting-native qualification:reversal 1/5
+pair-2-transition: waiting-native qualification:flat 2/5
+pair-2-transition: waiting-native qualification:units-flags 3/5
+pair-2-transition: waiting-native qualification:skipped 4/5
+pair-2-transition: waiting-native selected-data 5/5
+pair-2-transition: waiting-native complete 5/5
+pair-2-transition: completed complete 5/5
+pair-2-clean: waiting-host Waiting for actual surface: workflow.start
+pair-2-clean: waiting-native qualification:monotonic 0/5
+pair-2-clean: waiting-native qualification:reversal 1/5
+pair-2-clean: waiting-native qualification:flat 2/5
+pair-2-clean: waiting-native qualification:units-flags 3/5
+pair-2-clean: waiting-native qualification:skipped 4/5
+pair-2-clean: waiting-native selected-data 5/5
+pair-2-clean: waiting-native complete 5/5
+pair-2-clean: completed complete 5/5
+partial-restart108: waiting-host Waiting for actual surface: workflow.start
+partial-restart108: waiting-native qualification:monotonic 0/5
+partial-restart108: waiting-native qualification:reversal 1/5
+partial-restart108: waiting-native qualification:flat 2/5
+partial-restart108: waiting-native qualification:units-flags 3/5
+partial-restart108: waiting-native qualification:skipped 4/5
+partial-restart108: waiting-native selected-data 5/5
+partial-restart108: waiting-native complete 5/5
+partial-restart108: completed complete 5/5
+selected-restart108: queued Queued in Java
+selected-restart108: waiting-host Waiting for actual surface: workflow.start
+selected-restart108: waiting-host qualification:monotonic 0/5
+selected-restart108: waiting-native qualification:monotonic 0/5
+selected-restart108: waiting-native qualification:reversal 1/5
+selected-restart108: waiting-native qualification:flat 2/5
+selected-restart108: waiting-native qualification:units-flags 3/5
+selected-restart108: waiting-native qualification:skipped 4/5
+selected-restart108: waiting-native selected-data 5/5
+selected-restart108: queued selected-data 5/5
+selected-restart108: waiting-native selected-data 5/5
+selected-restart108: waiting-native complete 5/5
+selected-restart108: completed complete 5/5
+fresh-reuse108: waiting-host Waiting for actual surface: workflow.reuse
+fresh-reuse108: waiting-host data undefined/5
+fresh-reuse108: waiting-native data undefined/5
+fresh-reuse108: waiting-native creation undefined/5
+fresh-reuse108: waiting-native audit undefined/5
+fresh-reuse108: waiting-native complete undefined/5
+fresh-reuse108: completed complete undefined/5
+refused-silent108: waiting-host Waiting for actual surface: workflow.start
+refused-silent108: interrupted Qualification dependencies changed; explicitly request upgrade summary qualification before reuse
+refused-refresh108: queued Queued in Java
+refused-refresh108: waiting-host Waiting for actual surface: workflow.start
+refused-refresh108: interrupted Qualification dependencies changed; explicitly request upgrade summary qualification before reuse
+refused-old-reuse108: waiting-host Waiting for actual surface: workflow.reuse
+refused-old-reuse108: interrupted Saved procedure qualification uses earlier coordination code; explicitly request upgrade summary qualification before reuse
+refused-artifact108: interrupted Created artifact was changed outside its owned revision
+refused-dataset108: waiting-host Waiting for actual surface: workflow.start
+refused-dataset108: interrupted Original qualification dataset was revised

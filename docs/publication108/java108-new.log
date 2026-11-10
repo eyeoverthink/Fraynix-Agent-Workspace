@@ -1,0 +1,56 @@
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/9.3.1/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build 
+> Task :brain-core:compileJava
+> Task :brain-gpu:compileJava
+> Task :factory-runtime:compileJava
+> Task :factory-kernel:compileJava
+> Task :factory-models:compileJava
+> Task :geometry-core:compileJava
+> Task :workspace-engine:compileJava
+> Task :workspace-engine:processResources
+> Task :workspace-engine:classes
+> Task :workspace-engine:jar
+
+> Task :compileJava
+
+> Task :processResources
+Note: Some input files use unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+> Task :classes
+> Task :jar
+> Task :brain-core:processResources NO-SOURCE
+> Task :brain-core:classes
+> Task :brain-core:jar
+> Task :factory-kernel:processResources NO-SOURCE
+> Task :factory-kernel:classes
+> Task :factory-kernel:jar
+> Task :factory-models:processResources NO-SOURCE
+> Task :factory-models:classes
+> Task :factory-models:jar
+> Task :factory-runtime:processResources NO-SOURCE
+> Task :factory-runtime:classes
+> Task :factory-runtime:jar
+> Task :startScripts
+> Task :installDist
+> Task :brain-gpu:processResources NO-SOURCE
+> Task :brain-gpu:classes
+> Task :brain-gpu:jar
+> Task :geometry-core:processResources NO-SOURCE
+> Task :geometry-core:classes
+> Task :geometry-core:jar
+
+> Task :workspace-engine:compileTestJava
+Note: S:\Codex-Work\fraynix-workspace-edition108\workspace-engine\src\test\java\fraymus\workspace\MemoryPolicy075Test.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+
+> Task :workspace-engine:processTestResources
+> Task :workspace-engine:testClasses
+> Task :workspace-engine:test
+> Task :workspace-engine:startScripts
+> Task :workspace-engine:installDist
+
+[Incubating] Problems report is available at: file:///S:/Codex-Work/fraynix-workspace-edition108/build/reports/problems/problems-report.html
+
+BUILD SUCCESSFUL in 8m 6s
+25 actionable tasks: 25 executed
+Consider enabling configuration cache to speed up this build: https://docs.gradle.org/9.3.1/userguide/configuration_cache_enabling.html
