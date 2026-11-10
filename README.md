@@ -1,13 +1,13 @@
 # Fraynix Agent Workspace
 
-Edition106 preserves the original Java refusal in chat without planner retries and tests fresh numerical boundaries through verified saved procedures.
+Edition107 adds explicit verified qualification refresh and tests exact numerical recovery after report inputs are saved.
 
-[Edition106: functions, evidence and next steps](README-106.md) · [Interactive offline guide](docs/readmes/106/index.html) · [Previous edition](README-105.md) · [Contributor direction](README-CONTRIBUTORS.md)
+[Edition107: functions, evidence and next steps](README-107.md) · [Interactive offline guide](docs/readmes/107/index.html) · [Previous edition](README-106.md) · [Contributor direction](README-CONTRIBUTORS.md)
 
-11 actual requests complete; three request refusals and five invalid imports behave as required. Existing source/outcome checks remain unchanged.
+13 actual requests complete, including eight abrupt recoveries; two changed-source requests refuse correctly. Every source and outcome check remains.
 
-![Original refusal after restart](docs/readmes/106/refusal106-cold.png)
+![Actual refreshed qualification](docs/readmes/107/pair-1-refresh-1600.png)
 
 Java owns durable goals, tools, verification, recovery and memory. Chat, browser/canvas, spatial views and Game Lab remain integrated.
 
-Published to main. [Fetched GitHub verification](docs/PUBLICATION_106.json).
+Publication receipt follows the actual main/tag push and fetched verification.

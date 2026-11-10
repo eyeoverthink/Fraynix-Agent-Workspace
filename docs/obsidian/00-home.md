@@ -1,3 +1,5 @@
+[[docs/obsidian/115-measured-qualification-refresh.md|Edition107 — measured refresh]]
+
 [[docs/obsidian/114-original-refusals.md|Edition106 — original refusals]]
 
 [[docs/obsidian/113-automatic-qualification.md|Edition 105 — automatic qualification]]

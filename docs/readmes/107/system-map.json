@@ -1,0 +1,146 @@
+{
+  "modules": [
+    {
+      "id": "chat",
+      "name": "Explicit qualification request",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/Domain044.java",
+      "note": "docs/obsidian/115-measured-qualification-refresh.md"
+    },
+    {
+      "id": "cases",
+      "name": "Explicit numerical boundaries",
+      "source": "workspace-engine/src/test/resources/restart107/cases.json",
+      "note": "docs/obsidian/115-measured-qualification-refresh.md"
+    },
+    {
+      "id": "supervisor",
+      "name": "Durable refresh and original proof checks",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/WorkflowRunner.java",
+      "note": "docs/obsidian/115-measured-qualification-refresh.md"
+    },
+    {
+      "id": "maintenance",
+      "name": "Frozen mode, dependencies and baseline proofs",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/Qualification107.java",
+      "note": "docs/obsidian/115-measured-qualification-refresh.md"
+    },
+    {
+      "id": "persistence",
+      "name": "Stable reserved input before checkpoint",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/GoalRunner.java",
+      "note": "docs/obsidian/115-measured-qualification-refresh.md"
+    },
+    {
+      "id": "producer",
+      "name": "Unchanged input-driven producer",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/DataSummary104.java",
+      "note": "docs/obsidian/115-measured-qualification-refresh.md"
+    },
+    {
+      "id": "audit",
+      "name": "Unchanged independent outcome verifier",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/DataSummary102.java",
+      "note": "docs/obsidian/115-measured-qualification-refresh.md"
+    },
+    {
+      "id": "host",
+      "name": "Actual browser audit delegation",
+      "source": "workspace-desktop/workflows.cjs",
+      "note": "docs/obsidian/115-measured-qualification-refresh.md"
+    },
+    {
+      "id": "inspection",
+      "name": "Independent originals and complete costs",
+      "source": "scripts/Inspect-Restart107.cjs",
+      "note": "docs/obsidian/115-measured-qualification-refresh.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "docs/readmes/107/qualified107-seed-1600.png",
+      "caption": "qualified107-seed: preparation, starting with 0 published procedures; completed. Actual application capture."
+    },
+    {
+      "path": "docs/readmes/107/pair-1-recheck-1600.png",
+      "caption": "pair-1-recheck: recheck, starting with 1 published procedures; completed. Actual application capture."
+    },
+    {
+      "path": "docs/readmes/107/pair-1-refresh-1600.png",
+      "caption": "pair-1-refresh: refresh, starting with 1 published procedures; completed. Actual application capture."
+    },
+    {
+      "path": "docs/readmes/107/pair-2-refresh-1600.png",
+      "caption": "pair-2-refresh: refresh, starting with 1 published procedures; completed. Actual application capture."
+    },
+    {
+      "path": "docs/readmes/107/pair-2-recheck-1600.png",
+      "caption": "pair-2-recheck: recheck, starting with 1 published procedures; completed. Actual application capture."
+    },
+    {
+      "path": "docs/readmes/107/mapped-inversion-1600.png",
+      "caption": "mapped-inversion: numeric, starting with 1 published procedures; completed. Actual application capture."
+    },
+    {
+      "path": "docs/readmes/107/tiny-scale-1600.png",
+      "caption": "tiny-scale: numeric, starting with 1 published procedures; completed. Actual application capture."
+    },
+    {
+      "path": "docs/readmes/107/large-valid-scale-1600.png",
+      "caption": "large-valid-scale: numeric, starting with 1 published procedures; completed. Actual application capture."
+    },
+    {
+      "path": "docs/readmes/107/threshold-just-over-1600.png",
+      "caption": "threshold-just-over: numeric, starting with 1 published procedures; completed. Actual application capture."
+    },
+    {
+      "path": "docs/readmes/107/exponent-threshold-1600.png",
+      "caption": "exponent-threshold: numeric, starting with 1 published procedures; completed. Actual application capture."
+    },
+    {
+      "path": "docs/readmes/107/large-exponent-criterion-1600.png",
+      "caption": "large-exponent-criterion: numeric, starting with 1 published procedures; completed. Actual application capture."
+    },
+    {
+      "path": "docs/readmes/107/mapped-skipped-gap-1600.png",
+      "caption": "mapped-skipped-gap: numeric, starting with 1 published procedures; completed. Actual application capture."
+    },
+    {
+      "path": "docs/readmes/107/negative-large-origin-1600.png",
+      "caption": "negative-large-origin: numeric, starting with 1 published procedures; completed. Actual application capture."
+    },
+    {
+      "path": "docs/readmes/107/altered-artifact107-1600.png",
+      "caption": "altered-artifact107: source-refusal, starting with 1 published procedures; interrupted. Actual application capture."
+    },
+    {
+      "path": "docs/readmes/107/altered-dataset107-1600.png",
+      "caption": "altered-dataset107: source-refusal, starting with 1 published procedures; interrupted. Actual application capture."
+    },
+    {
+      "path": "docs/readmes/107/restart107-1100.png",
+      "caption": "Actual narrower workspace after mapped numerical recovery."
+    },
+    {
+      "path": "docs/readmes/107/mapped-inversion-interrupted.png",
+      "caption": "Persisted report before behavior checks and abrupt interruption."
+    },
+    {
+      "path": "docs/readmes/107/tiny-scale-interrupted.png",
+      "caption": "Persisted tiny-scale report before independent audit."
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/readmes/107/analysis.json",
+      "caption": "analysis.json"
+    },
+    {
+      "path": "docs/readmes/107/verification.json",
+      "caption": "verification.json"
+    },
+    {
+      "path": "docs/readmes/107/original-evidence.json",
+      "caption": "original-evidence.json"
+    }
+  ]
+}

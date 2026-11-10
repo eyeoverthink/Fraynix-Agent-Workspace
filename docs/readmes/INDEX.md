@@ -1,3 +1,5 @@
+[Edition107 — recovery and qualification refresh](../../README-107.md) · [Offline guide](107/index.html)
+
 [Edition106 — original refusals and numerical edges](../../README-106.md) · [Offline guide](106/index.html)
 
 [Edition 105 — automatic qualification](../../README-105.md) · [Offline guide](105/index.html)

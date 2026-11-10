@@ -1,0 +1,32 @@
+{
+  "nodes": [
+    {
+      "id": "request",
+      "type": "file",
+      "file": "README-107.md",
+      "x": 0,
+      "y": 0,
+      "width": 500,
+      "height": 320
+    },
+    {
+      "id": "memory",
+      "type": "file",
+      "file": "docs/obsidian/115-measured-qualification-refresh.md",
+      "x": 580,
+      "y": 0,
+      "width": 500,
+      "height": 320
+    }
+  ],
+  "edges": [
+    {
+      "id": "refresh",
+      "fromNode": "request",
+      "fromSide": "right",
+      "toNode": "memory",
+      "toSide": "left",
+      "label": "exact recovery, original references, measured refresh, retained evidence"
+    }
+  ]
+}

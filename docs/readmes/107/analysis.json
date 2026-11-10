@@ -1,0 +1,389 @@
+{
+  "passed": true,
+  "source": "5afcbb4c381796c5a178ec4aad8c6022b06a3102",
+  "completedRequests": 13,
+  "requiredRefusals": 2,
+  "restarts": 8,
+  "requestMs": 245877,
+  "cohortWallMs": 302615,
+  "setupAndBetweenMs": 56738,
+  "pairs": [
+    {
+      "rep": "1",
+      "recheckMs": 9361,
+      "refreshMs": 36649,
+      "extraRefreshMs": 27288
+    },
+    {
+      "rep": "2",
+      "recheckMs": 9149,
+      "refreshMs": 36422,
+      "extraRefreshMs": 27273
+    }
+  ],
+  "results": [
+    {
+      "name": "qualified107-seed",
+      "kind": "preparation",
+      "outcome": "completed",
+      "reason": "Java completion gates passed",
+      "bankBefore": 0,
+      "totalMs": 32931,
+      "browserMs": 7392,
+      "restartMs": 0,
+      "otherMs": 25539,
+      "admissionMs": 5.1346,
+      "finalVerificationMs": 529.5108,
+      "createdExamples": 5,
+      "reusedExamples": 0,
+      "screenshot": "qualified107-seed-1600.png"
+    },
+    {
+      "name": "pair-1-recheck",
+      "kind": "recheck",
+      "outcome": "completed",
+      "reason": "Java completion gates passed",
+      "bankBefore": 1,
+      "totalMs": 9361,
+      "browserMs": 1226,
+      "restartMs": 0,
+      "otherMs": 8135,
+      "admissionMs": 387.2848,
+      "finalVerificationMs": 699.0835,
+      "createdExamples": 0,
+      "reusedExamples": 5,
+      "screenshot": "pair-1-recheck-1600.png"
+    },
+    {
+      "name": "pair-1-refresh",
+      "kind": "refresh",
+      "outcome": "completed",
+      "reason": "Java completion gates passed",
+      "bankBefore": 1,
+      "totalMs": 36649,
+      "browserMs": 7382,
+      "restartMs": 0,
+      "otherMs": 29267,
+      "admissionMs": 375.3985,
+      "finalVerificationMs": 1186.5642,
+      "createdExamples": 5,
+      "reusedExamples": 0,
+      "screenshot": "pair-1-refresh-1600.png"
+    },
+    {
+      "name": "pair-2-refresh",
+      "kind": "refresh",
+      "outcome": "completed",
+      "reason": "Java completion gates passed",
+      "bankBefore": 1,
+      "totalMs": 36422,
+      "browserMs": 7487,
+      "restartMs": 0,
+      "otherMs": 28935,
+      "admissionMs": 313.5747,
+      "finalVerificationMs": 1171.8751,
+      "createdExamples": 5,
+      "reusedExamples": 0,
+      "screenshot": "pair-2-refresh-1600.png"
+    },
+    {
+      "name": "pair-2-recheck",
+      "kind": "recheck",
+      "outcome": "completed",
+      "reason": "Java completion gates passed",
+      "bankBefore": 1,
+      "totalMs": 9149,
+      "browserMs": 1250,
+      "restartMs": 0,
+      "otherMs": 7899,
+      "admissionMs": 318.883,
+      "finalVerificationMs": 691.9873,
+      "createdExamples": 0,
+      "reusedExamples": 5,
+      "screenshot": "pair-2-recheck-1600.png"
+    },
+    {
+      "name": "mapped-inversion",
+      "kind": "numeric",
+      "outcome": "completed",
+      "reason": "Java completion gates passed",
+      "bankBefore": 1,
+      "totalMs": 14754,
+      "browserMs": 1155,
+      "restartMs": 3433,
+      "otherMs": 10166,
+      "admissionMs": null,
+      "finalVerificationMs": null,
+      "createdExamples": 0,
+      "reusedExamples": 0,
+      "screenshot": "mapped-inversion-1600.png"
+    },
+    {
+      "name": "tiny-scale",
+      "kind": "numeric",
+      "outcome": "completed",
+      "reason": "Java completion gates passed",
+      "bankBefore": 1,
+      "totalMs": 14538,
+      "browserMs": 1315,
+      "restartMs": 3211,
+      "otherMs": 10012,
+      "admissionMs": null,
+      "finalVerificationMs": null,
+      "createdExamples": 0,
+      "reusedExamples": 0,
+      "screenshot": "tiny-scale-1600.png"
+    },
+    {
+      "name": "large-valid-scale",
+      "kind": "numeric",
+      "outcome": "completed",
+      "reason": "Java completion gates passed",
+      "bankBefore": 1,
+      "totalMs": 15138,
+      "browserMs": 1201,
+      "restartMs": 3425,
+      "otherMs": 10512,
+      "admissionMs": null,
+      "finalVerificationMs": null,
+      "createdExamples": 0,
+      "reusedExamples": 0,
+      "screenshot": "large-valid-scale-1600.png"
+    },
+    {
+      "name": "threshold-just-over",
+      "kind": "numeric",
+      "outcome": "completed",
+      "reason": "Java completion gates passed",
+      "bankBefore": 1,
+      "totalMs": 14788,
+      "browserMs": 1336,
+      "restartMs": 3238,
+      "otherMs": 10214,
+      "admissionMs": null,
+      "finalVerificationMs": null,
+      "createdExamples": 0,
+      "reusedExamples": 0,
+      "screenshot": "threshold-just-over-1600.png"
+    },
+    {
+      "name": "exponent-threshold",
+      "kind": "numeric",
+      "outcome": "completed",
+      "reason": "Java completion gates passed",
+      "bankBefore": 1,
+      "totalMs": 14705,
+      "browserMs": 1231,
+      "restartMs": 3610,
+      "otherMs": 9864,
+      "admissionMs": null,
+      "finalVerificationMs": null,
+      "createdExamples": 0,
+      "reusedExamples": 0,
+      "screenshot": "exponent-threshold-1600.png"
+    },
+    {
+      "name": "large-exponent-criterion",
+      "kind": "numeric",
+      "outcome": "completed",
+      "reason": "Java completion gates passed",
+      "bankBefore": 1,
+      "totalMs": 14532,
+      "browserMs": 1303,
+      "restartMs": 3334,
+      "otherMs": 9895,
+      "admissionMs": null,
+      "finalVerificationMs": null,
+      "createdExamples": 0,
+      "reusedExamples": 0,
+      "screenshot": "large-exponent-criterion-1600.png"
+    },
+    {
+      "name": "mapped-skipped-gap",
+      "kind": "numeric",
+      "outcome": "completed",
+      "reason": "Java completion gates passed",
+      "bankBefore": 1,
+      "totalMs": 15853,
+      "browserMs": 1274,
+      "restartMs": 3850,
+      "otherMs": 10729,
+      "admissionMs": null,
+      "finalVerificationMs": null,
+      "createdExamples": 0,
+      "reusedExamples": 0,
+      "screenshot": "mapped-skipped-gap-1600.png"
+    },
+    {
+      "name": "negative-large-origin",
+      "kind": "numeric",
+      "outcome": "completed",
+      "reason": "Java completion gates passed",
+      "bankBefore": 1,
+      "totalMs": 15991,
+      "browserMs": 1331,
+      "restartMs": 3369,
+      "otherMs": 11291,
+      "admissionMs": null,
+      "finalVerificationMs": null,
+      "createdExamples": 0,
+      "reusedExamples": 0,
+      "screenshot": "negative-large-origin-1600.png"
+    },
+    {
+      "name": "altered-artifact107",
+      "kind": "source-refusal",
+      "outcome": "interrupted",
+      "reason": "Created artifact was changed outside its owned revision",
+      "bankBefore": 1,
+      "totalMs": 568,
+      "browserMs": 0,
+      "restartMs": 0,
+      "otherMs": 568,
+      "admissionMs": null,
+      "finalVerificationMs": null,
+      "createdExamples": 0,
+      "reusedExamples": 0,
+      "screenshot": "altered-artifact107-1600.png"
+    },
+    {
+      "name": "altered-dataset107",
+      "kind": "source-refusal",
+      "outcome": "interrupted",
+      "reason": "Original qualification dataset was revised",
+      "bankBefore": 1,
+      "totalMs": 498,
+      "browserMs": 0,
+      "restartMs": 0,
+      "otherMs": 498,
+      "admissionMs": null,
+      "finalVerificationMs": null,
+      "createdExamples": 0,
+      "reusedExamples": 0,
+      "screenshot": "altered-dataset107-1600.png"
+    }
+  ],
+  "scope": "Actual software examples, full fresh-source/outcome verification. Two paired cold repetitions at the same real bank1. Explicit current-code full refresh, not changed-implementation selective refresh. All preparation, failed admissions and restart costs retained. Qualification-only timing fields are null for other workflows/refused admission, not measured zero. No causal speedup or training claim.",
+  "refusals": [
+    {
+      "name": "original CSV",
+      "refused": true
+    },
+    {
+      "name": "mapping",
+      "refused": true
+    },
+    {
+      "name": "summary",
+      "refused": true
+    },
+    {
+      "name": "point",
+      "refused": true
+    },
+    {
+      "name": "filter",
+      "refused": true
+    },
+    {
+      "name": "quality",
+      "refused": true
+    },
+    {
+      "name": "browser receipt",
+      "refused": true
+    },
+    {
+      "name": "native cost",
+      "refused": true
+    },
+    {
+      "name": "caller cost",
+      "refused": true
+    },
+    {
+      "name": "restart cost",
+      "refused": true
+    },
+    {
+      "name": "restart child",
+      "refused": true
+    },
+    {
+      "name": "reserved bytes",
+      "refused": true
+    },
+    {
+      "name": "artifact revision",
+      "refused": true
+    },
+    {
+      "name": "source identity",
+      "refused": true
+    },
+    {
+      "name": "mode",
+      "refused": true
+    },
+    {
+      "name": "manifest",
+      "refused": true
+    },
+    {
+      "name": "dependency",
+      "refused": true
+    },
+    {
+      "name": "baseline proof",
+      "refused": true
+    },
+    {
+      "name": "old proof omitted",
+      "refused": true
+    },
+    {
+      "name": "fresh count",
+      "refused": true
+    },
+    {
+      "name": "recheck count",
+      "refused": true
+    },
+    {
+      "name": "padded skill",
+      "refused": true
+    },
+    {
+      "name": "code lineage",
+      "refused": true
+    },
+    {
+      "name": "changed renderer",
+      "refused": true
+    },
+    {
+      "name": "planner retry",
+      "refused": true
+    },
+    {
+      "name": "original refusal",
+      "refused": true
+    },
+    {
+      "name": "resume refusal",
+      "refused": true
+    },
+    {
+      "name": "missing source revision",
+      "refused": true
+    },
+    {
+      "name": "generation",
+      "refused": true
+    },
+    {
+      "name": "completion",
+      "refused": true
+    }
+  ]
+}
