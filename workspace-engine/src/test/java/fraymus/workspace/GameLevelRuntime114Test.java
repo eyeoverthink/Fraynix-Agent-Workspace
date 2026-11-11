@@ -14,7 +14,7 @@ public class GameLevelRuntime114Test {
             var first=store.launch(game,m.getString("id"));assertEquals(m.getString("id"),first.getString("levelId"));var initial=first.getJSONObject("state");assertFalse(initial.getBoolean("visibleWindow"));assertFalse(initial.getBoolean("editorInitialized"));assertEquals(m.getInt("objects")+1,initial.getInt("objects"));
             Files.write(out.resolve("start.png"),Base64.getDecoder().decode(first.getString("pngBase64")));JSONObject frame=first;
             for(int n=0;n<180;n++){
-                var state=frame.getJSONObject("state"),p=state.getJSONObject("player");trace.put(state);
+                var state=frame.getJSONObject("state");var p=state.getJSONObject("player");trace.put(state);
                 if(p.getBoolean("won")||p.getBoolean("dead"))break;
                 double x=p.getDouble("x");boolean jump=false;
                 for(Object g:m.getJSONArray("gaps")){var gap=(JSONObject)g;if(x>gap.getDouble("startX")-.7&&x<gap.getDouble("endX")+.1)jump=true;}
