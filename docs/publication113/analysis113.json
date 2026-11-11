@@ -1,0 +1,412 @@
+{
+  "passed": true,
+  "completedChats": 8,
+  "qualificationEvidenceChecks": 40,
+  "checkedDataCreationWorkflowReferences": 48,
+  "newSelectedDataWorkflows": 8,
+  "recoveries": 1,
+  "bankInitial": 24,
+  "bankFinal": 32,
+  "finalCounts": {
+    "chats": 31,
+    "workflows": 78,
+    "children": 94,
+    "cancelled": 3
+  },
+  "results": [
+    {
+      "name": "history113-1",
+      "rows": 3,
+      "bankBefore": 24,
+      "bankAfter": 25,
+      "totalMs": 16806,
+      "cost": {
+        "elapsedMs": 16806,
+        "exclusiveMs": {
+          "pause-restart": 0,
+          "generation": 0,
+          "unfinished-generation-window": 0,
+          "browser-verification": 1255,
+          "coordination-and-other": 15551
+        },
+        "crossCategoryOverlapMs": 0,
+        "scope": "Priority pause/restart, then generation, then browser verification; remaining time includes Java computation, persistence, scheduling and harness polling. Stage durations overlap these categories and are not added."
+      }
+    },
+    {
+      "name": "history113-2",
+      "rows": 17,
+      "bankBefore": 25,
+      "bankAfter": 26,
+      "totalMs": 19538,
+      "cost": {
+        "elapsedMs": 19538,
+        "exclusiveMs": {
+          "pause-restart": 0,
+          "generation": 0,
+          "unfinished-generation-window": 0,
+          "browser-verification": 1277,
+          "coordination-and-other": 18261
+        },
+        "crossCategoryOverlapMs": 0,
+        "scope": "Priority pause/restart, then generation, then browser verification; remaining time includes Java computation, persistence, scheduling and harness polling. Stage durations overlap these categories and are not added."
+      }
+    },
+    {
+      "name": "history113-3",
+      "rows": 23,
+      "bankBefore": 26,
+      "bankAfter": 27,
+      "totalMs": 22877,
+      "cost": {
+        "elapsedMs": 22877,
+        "exclusiveMs": {
+          "pause-restart": 0,
+          "generation": 0,
+          "unfinished-generation-window": 0,
+          "browser-verification": 1324,
+          "coordination-and-other": 21553
+        },
+        "crossCategoryOverlapMs": 0,
+        "scope": "Priority pause/restart, then generation, then browser verification; remaining time includes Java computation, persistence, scheduling and harness polling. Stage durations overlap these categories and are not added."
+      }
+    },
+    {
+      "name": "history113-4",
+      "rows": 31,
+      "bankBefore": 27,
+      "bankAfter": 28,
+      "totalMs": 29684,
+      "cost": {
+        "elapsedMs": 29684,
+        "exclusiveMs": {
+          "pause-restart": 0,
+          "generation": 0,
+          "unfinished-generation-window": 0,
+          "browser-verification": 1309,
+          "coordination-and-other": 28375
+        },
+        "crossCategoryOverlapMs": 0,
+        "scope": "Priority pause/restart, then generation, then browser verification; remaining time includes Java computation, persistence, scheduling and harness polling. Stage durations overlap these categories and are not added."
+      }
+    },
+    {
+      "name": "history113-5",
+      "rows": 41,
+      "bankBefore": 28,
+      "bankAfter": 29,
+      "totalMs": 27731,
+      "cost": {
+        "elapsedMs": 27731,
+        "exclusiveMs": {
+          "pause-restart": 6393,
+          "generation": 0,
+          "unfinished-generation-window": 0,
+          "browser-verification": 1396,
+          "coordination-and-other": 19942
+        },
+        "crossCategoryOverlapMs": 0,
+        "scope": "Priority pause/restart, then generation, then browser verification; remaining time includes Java computation, persistence, scheduling and harness polling. Stage durations overlap these categories and are not added."
+      }
+    },
+    {
+      "name": "history113-6",
+      "rows": 61,
+      "bankBefore": 29,
+      "bankAfter": 30,
+      "totalMs": 24843,
+      "cost": {
+        "elapsedMs": 24843,
+        "exclusiveMs": {
+          "pause-restart": 0,
+          "generation": 0,
+          "unfinished-generation-window": 0,
+          "browser-verification": 1302,
+          "coordination-and-other": 23541
+        },
+        "crossCategoryOverlapMs": 0,
+        "scope": "Priority pause/restart, then generation, then browser verification; remaining time includes Java computation, persistence, scheduling and harness polling. Stage durations overlap these categories and are not added."
+      }
+    },
+    {
+      "name": "history113-7",
+      "rows": 83,
+      "bankBefore": 30,
+      "bankAfter": 31,
+      "totalMs": 28020,
+      "cost": {
+        "elapsedMs": 28020,
+        "exclusiveMs": {
+          "pause-restart": 0,
+          "generation": 0,
+          "unfinished-generation-window": 0,
+          "browser-verification": 1386,
+          "coordination-and-other": 26634
+        },
+        "crossCategoryOverlapMs": 0,
+        "scope": "Priority pause/restart, then generation, then browser verification; remaining time includes Java computation, persistence, scheduling and harness polling. Stage durations overlap these categories and are not added."
+      }
+    },
+    {
+      "name": "history113-8",
+      "rows": 109,
+      "bankBefore": 31,
+      "bankAfter": 32,
+      "totalMs": 34858,
+      "cost": {
+        "elapsedMs": 34858,
+        "exclusiveMs": {
+          "pause-restart": 0,
+          "generation": 0,
+          "unfinished-generation-window": 0,
+          "browser-verification": 1362,
+          "coordination-and-other": 33496
+        },
+        "crossCategoryOverlapMs": 0,
+        "scope": "Priority pause/restart, then generation, then browser verification; remaining time includes Java computation, persistence, scheduling and harness polling. Stage durations overlap these categories and are not added."
+      }
+    }
+  ],
+  "cold": [
+    {
+      "label": "bank24-chat23",
+      "repeat": 0,
+      "records": 166,
+      "startupMs": 3205,
+      "previewMs": 542,
+      "operations": [
+        {
+          "kind": "chat",
+          "lookupMs": 316,
+          "verifyMs": 3280
+        },
+        {
+          "kind": "workflow",
+          "lookupMs": 401,
+          "verifyMs": 2809
+        },
+        {
+          "kind": "child",
+          "lookupMs": 240,
+          "verifyMs": 1403
+        }
+      ],
+      "openResultMs": 3259,
+      "totalMs": 21236
+    },
+    {
+      "label": "bank24-chat23",
+      "repeat": 1,
+      "records": 166,
+      "startupMs": 2929,
+      "previewMs": 535,
+      "operations": [
+        {
+          "kind": "child",
+          "lookupMs": 270,
+          "verifyMs": 1985
+        },
+        {
+          "kind": "workflow",
+          "lookupMs": 255,
+          "verifyMs": 2754
+        },
+        {
+          "kind": "chat",
+          "lookupMs": 278,
+          "verifyMs": 3016
+        }
+      ],
+      "openResultMs": 3164,
+      "totalMs": 20896
+    },
+    {
+      "label": "bank28-chat27",
+      "repeat": 0,
+      "records": 186,
+      "startupMs": 3402,
+      "previewMs": 1124,
+      "operations": [
+        {
+          "kind": "chat",
+          "lookupMs": 373,
+          "verifyMs": 3230
+        },
+        {
+          "kind": "workflow",
+          "lookupMs": 565,
+          "verifyMs": 2912
+        },
+        {
+          "kind": "child",
+          "lookupMs": 285,
+          "verifyMs": 1457
+        }
+      ],
+      "openResultMs": 3507,
+      "totalMs": 23122
+    },
+    {
+      "label": "bank28-chat27",
+      "repeat": 1,
+      "records": 186,
+      "startupMs": 3392,
+      "previewMs": 1122,
+      "operations": [
+        {
+          "kind": "child",
+          "lookupMs": 277,
+          "verifyMs": 1768
+        },
+        {
+          "kind": "workflow",
+          "lookupMs": 323,
+          "verifyMs": 2887
+        },
+        {
+          "kind": "chat",
+          "lookupMs": 641,
+          "verifyMs": 2864
+        }
+      ],
+      "openResultMs": 3454,
+      "totalMs": 23037
+    },
+    {
+      "label": "bank32-chat31",
+      "repeat": 0,
+      "records": 206,
+      "startupMs": 4236,
+      "previewMs": 1408,
+      "operations": [
+        {
+          "kind": "chat",
+          "lookupMs": 473,
+          "verifyMs": 3706
+        },
+        {
+          "kind": "workflow",
+          "lookupMs": 687,
+          "verifyMs": 2956
+        },
+        {
+          "kind": "child",
+          "lookupMs": 356,
+          "verifyMs": 1505
+        }
+      ],
+      "openResultMs": 4049,
+      "totalMs": 26473
+    },
+    {
+      "label": "bank32-chat31",
+      "repeat": 1,
+      "records": 206,
+      "startupMs": 3822,
+      "previewMs": 1482,
+      "operations": [
+        {
+          "kind": "child",
+          "lookupMs": 333,
+          "verifyMs": 2330
+        },
+        {
+          "kind": "workflow",
+          "lookupMs": 353,
+          "verifyMs": 3057
+        },
+        {
+          "kind": "chat",
+          "lookupMs": 402,
+          "verifyMs": 2972
+        }
+      ],
+      "openResultMs": 3733,
+      "totalMs": 25678
+    }
+  ],
+  "archives": [
+    {
+      "name": "initial-workflows",
+      "kind": "workflow",
+      "records": 4,
+      "totalMs": 10658
+    },
+    {
+      "name": "initial-steps",
+      "kind": "child",
+      "records": 4,
+      "totalMs": 3780
+    },
+    {
+      "name": "group4-workflows",
+      "kind": "workflow",
+      "records": 8,
+      "totalMs": 20382
+    },
+    {
+      "name": "group4-steps",
+      "kind": "child",
+      "records": 8,
+      "totalMs": 6927
+    },
+    {
+      "name": "group4-chats",
+      "kind": "chat",
+      "records": 4,
+      "totalMs": 13852
+    },
+    {
+      "name": "group8-workflows",
+      "kind": "workflow",
+      "records": 8,
+      "totalMs": 21864
+    },
+    {
+      "name": "group8-steps",
+      "kind": "child",
+      "records": 8,
+      "totalMs": 7863
+    },
+    {
+      "name": "group8-chats",
+      "kind": "chat",
+      "records": 4,
+      "totalMs": 14927
+    }
+  ],
+  "requestMs": 204357,
+  "archiveMs": 100253,
+  "coldMs": 140442,
+  "cohortMs": 622837,
+  "otherMs": 177785,
+  "scope": "Independent arithmetic, source bytes, original browser outcomes, archive identity and same-ID recovery. UI timings include caller overhead; cold means new process, not cleared OS cache. Deterministic native workflows used zero model calls; no new weight training or speedup claim.",
+  "refusals": [
+    "task bytes",
+    "source bytes",
+    "original outcome",
+    "browser outcome",
+    "chart point",
+    "procedure source",
+    "procedure report",
+    "bank capacity",
+    "archive original",
+    "archive task index",
+    "chat limit",
+    "cancelled retention",
+    "recovery ID",
+    "recovery bytes",
+    "recovery boundary",
+    "hidden cost",
+    "cold proof",
+    "result version",
+    "missing refusal",
+    "source version"
+  ],
+  "finalUI": {
+    "source": "1411035a40fb12b57c345db4ce0c345ab5b0b6c3",
+    "totalMs": 22287,
+    "passed": true,
+    "scope": "Separate final UI correction: actual changed-report refusal during close/reopen, followed by fresh original recheck and exact saved report opening. Eight-request cohort and all its costs retained separately."
+  }
+}

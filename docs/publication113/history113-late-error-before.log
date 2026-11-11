@@ -1,0 +1,33 @@
+✔ actual history component paginates, filters and renders source titles as text (932.3123ms)
+✔ late reads cannot replace the subsequently selected record (346.5339ms)
+✔ closing during a read clears evidence and prevents late detail rendering (331.8233ms)
+✔ closing and reopening during a slow refresh schedules a fresh view (323.0769ms)
+✔ related links come from original IDs and rechecks show a separate original-evidence receipt (283.616ms)
+✖ a failed recheck from a closed view cannot overwrite the reopened history status (349.2836ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 5
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 3097.8184
+
+✖ failing tests:
+
+test at workspace-desktop\test\history113-ui.test.cjs:17:1
+✖ a failed recheck from a closed view cannot overwrite the reopened history status (349.2836ms)
+  AssertionError [ERR_ASSERTION]: The input did not match the regular expression /15 retained records/. Input:
+  
+  'Delayed old-view refusal'
+  
+      at TestContext.<anonymous> (S:\Codex-Work\fraynix-workspace-edition113\workspace-desktop\test\history113-ui.test.cjs:17:834)
+      at async Test.run (node:internal/test_runner/test:1125:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:787:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'Delayed old-view refusal',
+    expected: /15 retained records/,
+    operator: 'match',
+    diff: 'simple'
+  }
