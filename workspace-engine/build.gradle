@@ -24,4 +24,15 @@ tasks.withType(Test).configureEach {
     forkEvery = 1
     jvmArgs '-XX:ActiveProcessorCount=4'
 }
-tasks.named('test') { useJUnit(); dependsOn rootProject.tasks.named('prepareGameRuntime115') }
+tasks.named('test') {
+    useJUnit()
+    dependsOn rootProject.tasks.named('prepareGameRuntime115')
+    // These tests launch a separate native game JVM. Its code/assets are test
+    // inputs too; changing only the controller must invalidate an old result.
+    inputs.file(rootProject.tasks.named('jar').flatMap { it.archiveFile }).withPropertyName('nativeGameJar')
+    inputs.files(rootProject.configurations.runtimeClasspath).withPropertyName('nativeGameClasspath')
+    inputs.files(rootProject.fileTree('assets'), rootProject.fileTree('levels'), rootProject.file('level.txt')).withPropertyName('nativeGameAssets')
+    inputs.property('nativeStudyOptions', providers.environmentVariable('JAVA_TOOL_OPTIONS').map { options ->
+        options.split('\\s+').findAll { it.startsWith('-Dstudy116.') || it.startsWith('-Dstudy117.') || it.startsWith('-Dreference116.') || it.startsWith('-Dreference117.') }.join(' ')
+    }.orElse(''))
+}
