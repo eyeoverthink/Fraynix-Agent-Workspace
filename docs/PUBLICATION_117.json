@@ -1,0 +1,222 @@
+{
+  "edition": 117,
+  "releaseCommit": "faf795ff3c9f24521c7c61c5f4c9ac634c752b4d",
+  "annotatedTag": "readme-117",
+  "tagObject": "eaba27017b0f33edc5a468f696e8a9c535f2a235",
+  "audit": {
+    "passed": true,
+    "verifiedAtUtc": "2026-11-11T17:57:40.150057+00:00",
+    "remote": "https://github.com/eyeoverthink/Fraynix-Agent-Workspace.git",
+    "fetchedRef": "refs/verify/edition117-main",
+    "remoteFetched": true,
+    "commit": "faf795ff3c9f24521c7c61c5f4c9ac634c752b4d",
+    "canonicalSourceFiles": 1455,
+    "editions": 117,
+    "frozenHashes": 38636,
+    "original117EvidenceFiles": 719,
+    "distinctOriginalPayloads": 455,
+    "method": "Every enumerated blob read from the specified Git tree; remoteFetched identifies a fresh verification ref. Source byte counts and canonical UTF-8 LF/binary hashes checked. All frozen edition hashes checked. Each unique immutable Git archive blob is decompressed once; every logical original entry is compared to its verified compressed/raw byte counts and SHA-256. No mutable-file timestamp or runtime-proof shortcut."
+  },
+  "validation": {
+    "javaMethods": 144,
+    "desktopChecks": 165,
+    "actualRequests": [
+      {
+        "request": "Create a playable Mario level gapTiles=10 repairLimit=2; construct, playtest and repair it.",
+        "status": "completed",
+        "elapsedMs": 63804,
+        "trialOutcomes": [
+          "failed",
+          "failed",
+          "won",
+          "won"
+        ],
+        "audit": {
+          "wins": 2,
+          "aiPickups": 1,
+          "failures": 2,
+          "aiDamage": 0,
+          "repairCount": 2,
+          "existingAI": "won",
+          "trials": 4,
+          "simpleControl": "won",
+          "scope": "Actual finish contact on this candidate; comparison is not a guarantee for unfamiliar levels. No procedure-bank admission or model training.",
+          "traceSha256": "a139751ea8f52a21ce81daddadf96dce1f652fe3d22342345b0e6cb069123e9d",
+          "passed": true,
+          "candidateId": "94d68861-5c2d-3c69-8276-4dda43aec111",
+          "inputChunks": 111
+        }
+      },
+      {
+        "request": "Create a playable Mario level seed=15 gapTiles=5.",
+        "status": "completed",
+        "elapsedMs": 43375,
+        "trialOutcomes": [
+          "interrupted",
+          "won",
+          "won"
+        ],
+        "audit": {
+          "wins": 2,
+          "aiPickups": 1,
+          "failures": 0,
+          "aiDamage": 0,
+          "repairCount": 0,
+          "existingAI": "won",
+          "trials": 3,
+          "simpleControl": "won",
+          "scope": "Actual finish contact on this candidate; comparison is not a guarantee for unfamiliar levels. No procedure-bank admission or model training.",
+          "traceSha256": "e3e22ed7f609967ee627ad452ba82703be52ae1ebb01b259e919c86421934028",
+          "passed": true,
+          "candidateId": "311b0e53-7125-323f-8d77-58fb93f21d26",
+          "inputChunks": 68
+        }
+      },
+      {
+        "request": "Create a playable Mario level gapTiles=10 without repairs.",
+        "status": "interrupted",
+        "elapsedMs": 10117,
+        "trialOutcomes": [
+          "failed"
+        ],
+        "audit": null
+      },
+      {
+        "request": "Reconstruct a playable Mario level from reference=b16510fc-5af6-4cd4-a4ef-0cb7a57ea4d2; playtest and repair with repairLimit=2.",
+        "status": "completed",
+        "elapsedMs": 41767,
+        "trialOutcomes": [
+          "won",
+          "won"
+        ],
+        "audit": {
+          "wins": 2,
+          "aiPickups": 1,
+          "failures": 0,
+          "aiDamage": 0,
+          "repairCount": 0,
+          "existingAI": "won",
+          "trials": 2,
+          "simpleControl": "won",
+          "scope": "Actual finish contact on this candidate; comparison is not a guarantee for unfamiliar levels. No procedure-bank admission or model training.",
+          "traceSha256": "9469ca422b39215eb7416dcf232bf4fc0d2ddaefa7d9ec5bd60c2a39ff4f4cac",
+          "passed": true,
+          "candidateId": "602bbff6-2e61-3d1d-a85b-aec03bf79238",
+          "inputChunks": 66
+        }
+      }
+    ],
+    "actualAbruptRecovery": true,
+    "referenceChecks": {
+      "freshNativeImagesPerRenderer": 6,
+      "freshRefusalsPerRenderer": 4,
+      "original115ReferenceRegression": true
+    },
+    "controllerCases": {
+      "simple": {
+        "cases": 24,
+        "wins": 24,
+        "pickups": null,
+        "damage": null,
+        "deaths": 0,
+        "belowCourse": 0
+      },
+      "legacy115": {
+        "cases": 24,
+        "wins": 11,
+        "pickups": 11,
+        "damage": 0,
+        "deaths": 0,
+        "belowCourse": 10
+      },
+      "landing116": {
+        "cases": 24,
+        "wins": 22,
+        "pickups": 5,
+        "damage": 0,
+        "deaths": 0,
+        "belowCourse": 1
+      },
+      "safe117": {
+        "cases": 24,
+        "wins": 24,
+        "pickups": 24,
+        "damage": 0,
+        "deaths": 0,
+        "belowCourse": 0
+      }
+    },
+    "referenceControllerResults": {
+      "hardware": {
+        "cases": 6,
+        "simpleWins": 6,
+        "revisedWins": 6,
+        "pickups": 6,
+        "damage": 0,
+        "refusals": 4
+      },
+      "software": {
+        "cases": 6,
+        "simpleWins": 6,
+        "revisedWins": 6,
+        "pickups": 6,
+        "damage": 0,
+        "refusals": 4
+      }
+    },
+    "modelCalls": 0,
+    "guideWidths": [
+      1440,
+      390
+    ],
+    "scope": "Input-only approach correction and measured collection in declared original-sprite two-gap courses. No added enemies; no general jam-escape, image recognition, model-training or universal playability claim."
+  },
+  "ci": {
+    "scope": "CI checked before implementation. Prior116 main was running; local verification and fetched publication do not establish remote CI success.",
+    "releaseCheck": {
+      "checkedAtUtc": "2026-11-11T17:57:05.344195+00:00",
+      "runs": [
+        {
+          "id": 43072872528,
+          "head_sha": "faf795ff3c9f24521c7c61c5f4c9ac634c752b4d",
+          "event": "push",
+          "status": "in_progress",
+          "conclusion": null,
+          "html_url": "https://github.com/eyeoverthink/Fraynix-Agent-Workspace/actions/runs/43072872528",
+          "created_at": "2026-11-11T17:55:55Z",
+          "updated_at": "2026-11-11T17:55:59Z"
+        },
+        {
+          "id": 43056641370,
+          "head_sha": "e015b692e1a2e324bd525c26c831017df479b3b8",
+          "event": "push",
+          "status": "in_progress",
+          "conclusion": null,
+          "html_url": "https://github.com/eyeoverthink/Fraynix-Agent-Workspace/actions/runs/43056641370",
+          "created_at": "2026-11-11T16:16:13Z",
+          "updated_at": "2026-11-11T16:16:17Z"
+        },
+        {
+          "id": 43056315420,
+          "head_sha": "8ce5ad752e6dc42bc73af5af37ec3970a9d35c26",
+          "event": "push",
+          "status": "in_progress",
+          "conclusion": null,
+          "html_url": "https://github.com/eyeoverthink/Fraynix-Agent-Workspace/actions/runs/43056315420",
+          "created_at": "2026-11-11T16:14:21Z",
+          "updated_at": "2026-11-11T16:14:26Z"
+        },
+        {
+          "id": 42956804562,
+          "head_sha": "2eae6260488d243ba8d1de825c1a3e751c1a7d22",
+          "event": "push",
+          "status": "completed",
+          "conclusion": "failure",
+          "html_url": "https://github.com/eyeoverthink/Fraynix-Agent-Workspace/actions/runs/42956804562",
+          "created_at": "2026-11-11T04:04:15Z",
+          "updated_at": "2026-11-11T07:08:21Z"
+        }
+      ]
+    }
+  }
+}

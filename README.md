@@ -1,5 +1,7 @@
 # Fraynix Agent Workspace — edition 117
 
+[Published and fetched verification receipt](docs/PUBLICATION_117.json) · [Release tag](https://github.com/eyeoverthink/Fraynix-Agent-Workspace/tree/readme-117)
+
 ## Collect the mushroom. Cross the gap. Verify both.
 
 Edition117 fixes the wider-gap failure retained in [edition116](README-116.md) by changing the approach to a falling power-up. Owned Java control estimates a short intercept, defers the optional chase jump while the mushroom descends, then uses the existing edge and landing checks to continue. Original physics and actual collision outcomes remain the authority.
