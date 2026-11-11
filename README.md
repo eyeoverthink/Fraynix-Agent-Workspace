@@ -1,5 +1,7 @@
 # Fraynix Agent Workspace — edition 115
 
+[Published and fetched verification receipt](docs/PUBLICATION_115.json) · [Release tag](https://github.com/eyeoverthink/Fraynix-Agent-Workspace/tree/readme-115)
+
 ## One request, a real level, retained evidence
 
 Edition115 connects the existing Game Lab to the durable Java chat scheduler. A request constructs a separate component-based level, runs real physics, inspects the result, makes at most two justified gap repairs and checks the outcome again. A new reference-image importer reconstructs a supported course from its original sprite appearances and sends it through the same playtests.

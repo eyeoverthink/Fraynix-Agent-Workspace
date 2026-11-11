@@ -1,0 +1,137 @@
+{
+  "edition": 115,
+  "releaseCommit": "8e17a75267dae287cf08a6ae3a0c7ef30e43e717",
+  "annotatedTag": "readme-115",
+  "tagObject": "6e31780bf1513ef30913582871808b9fd6ca78b9",
+  "audit": {
+    "passed": true,
+    "verifiedAtUtc": "2026-11-11T04:04:05.669449+00:00",
+    "remote": "https://github.com/eyeoverthink/Fraynix-Agent-Workspace.git",
+    "fetchedRef": "refs/verify/edition115-main",
+    "remoteFetched": true,
+    "commit": "8e17a75267dae287cf08a6ae3a0c7ef30e43e717",
+    "canonicalSourceFiles": 1441,
+    "editions": 115,
+    "frozenHashes": 37904,
+    "original115EvidenceFiles": 294,
+    "distinctOriginalPayloads": 182,
+    "method": "Every enumerated blob read from the specified Git tree; remoteFetched identifies a fresh verification ref. Source byte counts and canonical UTF-8 LF/binary hashes checked. All frozen edition hashes checked. Each unique immutable Git archive blob is decompressed once; every logical original entry is compared to its verified compressed/raw byte counts and SHA-256. No mutable-file timestamp or runtime-proof shortcut."
+  },
+  "validation": {
+    "javaMethods": 79,
+    "desktopChecks": 165,
+    "actualRequests": [
+      {
+        "request": "Create a playable Mario level gapTiles=10 repairLimit=2; construct, playtest and repair it.",
+        "status": "completed",
+        "elapsedMs": 54542,
+        "trialOutcomes": [
+          "failed",
+          "failed",
+          "won",
+          "failed"
+        ],
+        "audit": {
+          "wins": 1,
+          "existingAI": "failed",
+          "failures": 3,
+          "trials": 4,
+          "simpleControl": "won",
+          "scope": "Actual finish contact on this candidate; comparison is not a guarantee for unfamiliar levels. No procedure-bank admission or model training.",
+          "traceSha256": "b635050c3d1b9e4bbb16cb4abc961340991069e9a65cc77a1555525f7a1eb950",
+          "passed": true,
+          "candidateId": "9e1e2a33-1c70-34ba-b830-1a1bcb36b1cb",
+          "repairCount": 2,
+          "inputChunks": 95
+        }
+      },
+      {
+        "request": "Create a playable Mario level seed=3.",
+        "status": "completed",
+        "elapsedMs": 43553,
+        "trialOutcomes": [
+          "interrupted",
+          "won",
+          "won"
+        ],
+        "audit": {
+          "wins": 2,
+          "existingAI": "won",
+          "failures": 0,
+          "trials": 3,
+          "simpleControl": "won",
+          "scope": "Actual finish contact on this candidate; comparison is not a guarantee for unfamiliar levels. No procedure-bank admission or model training.",
+          "traceSha256": "13869e84832392c48e980f6e43111fa440839b277b724730895dc6b3934ade64",
+          "passed": true,
+          "candidateId": "880fed09-fad9-3b32-82c3-e7f13f7277fd",
+          "repairCount": 0,
+          "inputChunks": 70
+        }
+      },
+      {
+        "request": "Create a playable Mario level gapTiles=10 without repairs.",
+        "status": "interrupted",
+        "elapsedMs": 10003,
+        "trialOutcomes": [
+          "failed"
+        ],
+        "audit": null
+      },
+      {
+        "request": "Reconstruct a playable Mario level from reference=9070424f-4a9d-4886-be6f-3b116a2ca986; playtest and repair with repairLimit=2.",
+        "status": "completed",
+        "elapsedMs": 40415,
+        "trialOutcomes": [
+          "won",
+          "won"
+        ],
+        "audit": {
+          "wins": 2,
+          "existingAI": "won",
+          "failures": 0,
+          "trials": 2,
+          "simpleControl": "won",
+          "scope": "Actual finish contact on this candidate; comparison is not a guarantee for unfamiliar levels. No procedure-bank admission or model training.",
+          "traceSha256": "d4639c3db7eef0590b8745990b6743bff009f40654434ee3e94187eb16cb84f3",
+          "passed": true,
+          "candidateId": "8cb2dedd-e62e-3710-a5c4-3ce9124d9289",
+          "repairCount": 0,
+          "inputChunks": 68
+        }
+      }
+    ],
+    "actualAbruptRecovery": true,
+    "referenceChecks": {
+      "native": true,
+      "resized": true,
+      "skyCrop": true,
+      "coveredPlayerRefused": true,
+      "distractorRefused": true,
+      "changedImageRefused": true
+    },
+    "modelCalls": 0,
+    "guideWidths": [
+      1440,
+      390
+    ],
+    "scope": "Known two-gap recipe and original sprite assets. Actual native simulation and observed finish contact. Existing AI fails on seed0, succeeds on seed3; no universal playability or model-training claim."
+  },
+  "ci": {
+    "scope": "Local verification and fetched publication do not establish remote CI success.",
+    "releaseCheck": {
+      "checkedAt": "2026-11-11T04:02:37.536690+00:00",
+      "head": "8e17a75267dae287cf08a6ae3a0c7ef30e43e717",
+      "runs": [
+        {
+          "id": 42956600357,
+          "head_sha": "8e17a75267dae287cf08a6ae3a0c7ef30e43e717",
+          "status": "in_progress",
+          "conclusion": null,
+          "html_url": "https://github.com/eyeoverthink/Fraynix-Agent-Workspace/actions/runs/42956600357",
+          "created_at": "2026-11-11T04:02:23Z",
+          "updated_at": "2026-11-11T04:02:27Z"
+        }
+      ]
+    }
+  }
+}
