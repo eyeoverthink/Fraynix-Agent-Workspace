@@ -1,15 +1,15 @@
 # Fraynix Agent Workspace
 
-Edition 110 archives completed workflow history while keeping its original evidence verifiable. Java retains exact records, checks their sources and outcomes before reuse, and frees active workflow slots without deleting child goals or saved procedures.
+Edition111 archives completed child goals while preserving exact original evidence. Java verifies parent ownership, sources and outcomes before archival and reuse. **The 64-active-goal limit remains unchanged.**
 
-[Edition 110: functions, measurements and next steps](README-110.md) | [Interactive offline guide](docs/readmes/110/index.html) | [Previous edition 109](README-109.md) | [Contributor direction](README-CONTRIBUTORS.md)
+[Edition111: functions, evidence and next steps](README-111.md) · [Interactive offline guide](docs/readmes/111/index.html) · [Previous edition110](README-110.md) · [Contributor direction](README-CONTRIBUTORS.md)
 
-![Actual History view with 42 archived records](docs/readmes/110/current110-archived-1600.png)
+![Actual child-goal History controls](docs/readmes/111/current111-children-1600.png)
 
-Use **History** to preview completed work, verify and archive it, inspect original records, and recheck their evidence. The actual study archived 42 records, completed six fresh requests, recovered an abruptly interrupted task and retained 21 procedures. Five requests correctly refused invalid evidence or insufficient capacity. All 134 Java tests, 148 desktop checks and 20 altered-evidence controls passed.
+Use **History** to preview, verify and archive completed data/creation children, inspect retained originals and recheck evidence. The actual app retained 74 archived children and 58 archived workflows, completed 11 fresh native workflow requests and recovered an abruptly interrupted task. It reached 32 genuine saved procedures with 20 active child goals. Six requests correctly refused capacity or invalid evidence/runtime identity. 150 distinct Java checks are covered, with 24 final affected rechecks after a retained compatibility correction. 148 desktop checks and 24 altered-evidence controls passed.
 
-Java owns durable goals, tools, worlds, verification, recovery and memory. Chat, browser/canvas, spatial views and Game Lab remain integrated. This release archives completed data/creation workflows and qualification supervisors; other workflow families and child goals remain in their original stores.
+Java owns durable tasks, tools, worlds, memory, verification and recovery. Chat, browser/canvas, spatial views and Game Lab remain integrated. Active, incomplete, standalone, physical and graph children remain in their existing lifecycle. Old receipts retain their original runtime identity; fresh execution needs current verification.
 
-**Next:** preserve completed child-goal evidence outside active scheduling. The unchanged 64-goal limit remains visible; this edition does not claim unlimited memory or model training.
+The separate 24-task chat history remains full and unchanged: this study continues through existing native workflow controls, not fresh chat admission.
 
-Published to main. [Edition110 fetched GitHub verification](docs/PUBLICATION_110.json).
+**Next:** archive completed chat-task history with its evidence, then measure retrieval costs and define a saved-procedure lifecycle. No raised limits or model-training claim.

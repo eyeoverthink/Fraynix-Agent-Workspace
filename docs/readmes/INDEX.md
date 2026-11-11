@@ -1,3 +1,5 @@
+[Edition111 — completed child-goal archives](../../README-111.md) · [Offline guide](111/index.html)
+
 [Edition 110 — verifiable workflow archives](../../README-110.md) · [Offline guide](110/index.html)
 
 [Edition109 - maintenance at capacity](../../README-109.md) | [Offline guide](109/index.html)

@@ -1,3 +1,5 @@
+[[docs/obsidian/119-completed-child-goal-archives|Edition111: completed child-goal archives]]
+
 [[docs/obsidian/118-verifiable-workflow-archives|Edition110: verifiable workflow archives]]
 
 [[docs/obsidian/117-maintenance-at-capacity.md|Edition109 - maintenance at capacity]]

@@ -1,0 +1,166 @@
+{
+  "modules": [
+    {
+      "id": "archive",
+      "name": "Exact child-goal archive transaction",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/GoalArchive111.java",
+      "note": "docs/obsidian/119-completed-child-goal-archives.md"
+    },
+    {
+      "id": "checkpoint",
+      "name": "Checked atomic checkpoint generations",
+      "source": "fraynix-modules/factory-runtime/src/main/java/fraymus/factory/WorldCheckpointStore.java",
+      "note": "docs/obsidian/119-completed-child-goal-archives.md"
+    },
+    {
+      "id": "api",
+      "name": "Owned Java archive endpoints",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/WorkspaceServer.java",
+      "note": "docs/obsidian/119-completed-child-goal-archives.md"
+    },
+    {
+      "id": "view",
+      "name": "History preview, archive and recheck",
+      "source": "workspace-desktop/renderer/workflow-panel.js",
+      "note": "docs/obsidian/119-completed-child-goal-archives.md"
+    },
+    {
+      "id": "goals",
+      "name": "Active goal lifecycle and retained procedures",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/GoalRunner.java",
+      "note": "docs/obsidian/119-completed-child-goal-archives.md"
+    },
+    {
+      "id": "transition",
+      "name": "Explicit runtime qualification transition",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/Qualification111.java",
+      "note": "docs/obsidian/119-completed-child-goal-archives.md"
+    },
+    {
+      "id": "audit",
+      "name": "Original source and actual outcome verifier",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/DataSummary102.java",
+      "note": "docs/obsidian/119-completed-child-goal-archives.md"
+    },
+    {
+      "id": "study",
+      "name": "Actual archive, reuse and recovery study",
+      "source": "workspace-desktop/test/archive111-integration.cjs",
+      "note": "docs/obsidian/119-completed-child-goal-archives.md"
+    },
+    {
+      "id": "inspection",
+      "name": "Independent archive and outcome reconstruction",
+      "source": "scripts/Inspect-GoalArchive111.cjs",
+      "note": "docs/obsidian/119-completed-child-goal-archives.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "docs/readmes/111/archive111-1100.png",
+      "caption": "Actual edition111 app capture: archive111-1100"
+    },
+    {
+      "path": "docs/readmes/111/changed-artifact-1600.png",
+      "caption": "Actual edition111 app capture: changed-artifact-1600"
+    },
+    {
+      "path": "docs/readmes/111/changed-dataset-1600.png",
+      "caption": "Actual edition111 app capture: changed-dataset-1600"
+    },
+    {
+      "path": "docs/readmes/111/continued-0-1600.png",
+      "caption": "Actual edition111 app capture: continued-0-1600"
+    },
+    {
+      "path": "docs/readmes/111/continued-1-1600.png",
+      "caption": "Actual edition111 app capture: continued-1-1600"
+    },
+    {
+      "path": "docs/readmes/111/continued-2-1600.png",
+      "caption": "Actual edition111 app capture: continued-2-1600"
+    },
+    {
+      "path": "docs/readmes/111/continued-3-1600.png",
+      "caption": "Actual edition111 app capture: continued-3-1600"
+    },
+    {
+      "path": "docs/readmes/111/continued-4-1600.png",
+      "caption": "Actual edition111 app capture: continued-4-1600"
+    },
+    {
+      "path": "docs/readmes/111/continued-5-1600.png",
+      "caption": "Actual edition111 app capture: continued-5-1600"
+    },
+    {
+      "path": "docs/readmes/111/continued-6-1600.png",
+      "caption": "Actual edition111 app capture: continued-6-1600"
+    },
+    {
+      "path": "docs/readmes/111/continued-7-1600.png",
+      "caption": "Actual edition111 app capture: continued-7-1600"
+    },
+    {
+      "path": "docs/readmes/111/current111-children-1600.png",
+      "caption": "Actual edition111 app capture: current111-children-1600"
+    },
+    {
+      "path": "docs/readmes/111/current111-workflows-1600.png",
+      "caption": "Actual edition111 app capture: current111-workflows-1600"
+    },
+    {
+      "path": "docs/readmes/111/goal-capacity-refusal-1600.png",
+      "caption": "Actual edition111 app capture: goal-capacity-refusal-1600"
+    },
+    {
+      "path": "docs/readmes/111/old-protocol-refusal-1600.png",
+      "caption": "Actual edition111 app capture: old-protocol-refusal-1600"
+    },
+    {
+      "path": "docs/readmes/111/old-runtime-refusal-1600.png",
+      "caption": "Actual edition111 app capture: old-runtime-refusal-1600"
+    },
+    {
+      "path": "docs/readmes/111/original110-children-1600.png",
+      "caption": "Actual edition111 app capture: original110-children-1600"
+    },
+    {
+      "path": "docs/readmes/111/procedure-capacity-refusal-1600.png",
+      "caption": "Actual edition111 app capture: procedure-capacity-refusal-1600"
+    },
+    {
+      "path": "docs/readmes/111/recovered111-1600.png",
+      "caption": "Actual edition111 app capture: recovered111-1600"
+    },
+    {
+      "path": "docs/readmes/111/recovered111-interrupted.png",
+      "caption": "Actual edition111 app capture: recovered111-interrupted"
+    },
+    {
+      "path": "docs/readmes/111/remaining110-workflows-1600.png",
+      "caption": "Actual edition111 app capture: remaining110-workflows-1600"
+    },
+    {
+      "path": "docs/readmes/111/reused111-1600.png",
+      "caption": "Actual edition111 app capture: reused111-1600"
+    },
+    {
+      "path": "docs/readmes/111/upgraded111-1600.png",
+      "caption": "Actual edition111 app capture: upgraded111-1600"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/readmes/111/analysis.json",
+      "caption": "analysis.json"
+    },
+    {
+      "path": "docs/readmes/111/verification.json",
+      "caption": "verification.json"
+    },
+    {
+      "path": "docs/readmes/111/original-evidence.json",
+      "caption": "original-evidence.json"
+    }
+  ]
+}
