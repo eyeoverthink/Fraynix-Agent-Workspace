@@ -9,9 +9,10 @@ async function main(){
  const save=()=>fs.writeFile(path.join(out,'result.json'),JSON.stringify(record,null,2));
  const api=(route,args={})=>app.evaluate((_,x)=>global.workspaceTest.api(x.route,x.args),{route,args});
  const request=(operation,command,args={})=>page.evaluate(x=>window.workspace.request(x),{operation,command,args});
+ const shot=async name=>{await page.evaluate(()=>new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r))));await sleep(250);await fs.writeFile(path.join(out,name),Buffer.from(await app.evaluate(()=>global.workspaceTest.capture()),'base64'));};
  const capture=async name=>{
   await page.waitForFunction(()=>{const image=document.querySelector('#game-frame');return image.complete&&image.naturalWidth>0&&image.src.startsWith('data:image/png;base64,')&&document.querySelector('#game-status').textContent.includes('tick 0');},{},{timeout:15000});
-  await fs.writeFile(path.join(out,name),Buffer.from(await app.evaluate(()=>global.workspaceTest.capture()),'base64'));
+  await shot(name);
  };
  async function open(){({app,page}=await launch(project));page.on('pageerror',e=>record.errors.push(e.message));await app.evaluate(({BrowserWindow})=>{const w=BrowserWindow.getAllWindows().find(w=>w.isVisible());w.setSize(1600,1100);w.setTitle('Fraynix - edition 120 - durable level tasks');});await page.waitForFunction(()=>[...document.querySelector('#model').options].some(o=>o.value==='gpt-oss:20b'),{},{timeout:65000});await page.locator('#model').selectOption('gpt-oss:20b');}
  async function run(prompt,{restart=false,failed=false}={}){
@@ -23,10 +24,10 @@ async function main(){
     const observed=await api('/api/game/frame');
     const co=observed.state?.controller;
     if(!record.waitFrame&&co?.opportunity120?.phase==='WAIT'){
-     record.waitFrame={state:observed.state};await fs.writeFile(path.join(out,'waiting-native.png'),Buffer.from(observed.pngBase64,'base64'));await page.waitForFunction(()=>document.querySelector('#game-status').textContent.includes('Pickup wait'),{},{timeout:15000});await fs.writeFile(path.join(out,'waiting-live.png'),Buffer.from(await app.evaluate(()=>global.workspaceTest.capture()),'base64'));
+     record.waitFrame={state:observed.state};await fs.writeFile(path.join(out,'waiting-native.png'),Buffer.from(observed.pngBase64,'base64'));await page.waitForFunction(()=>document.querySelector('#game-status').textContent.includes('Pickup wait'),{},{timeout:15000});await shot('waiting-live.png');
     }
-    if(!record.collectionFrame&&co?.opportunity120?.waitClears>0&&co?.pickups>0){record.collectionFrame={state:observed.state};await fs.writeFile(path.join(out,'collected-native.png'),Buffer.from(observed.pngBase64,'base64'));await fs.writeFile(path.join(out,'collected-after-wait.png'),Buffer.from(await app.evaluate(()=>global.workspaceTest.capture()),'base64'));}
-    if(!record.riskFrame&&co?.pickupSkips>0){record.riskFrame={state:observed.state};await page.waitForFunction(()=>document.querySelector('#game-status').textContent.includes('Skipped 1'),{},{timeout:15000});await fs.writeFile(path.join(out,'declined-pickup.png'),Buffer.from(await app.evaluate(()=>global.workspaceTest.capture()),'base64'));}
+    if(!record.collectionFrame&&co?.opportunity120?.waitClears>0&&co?.pickups>0){record.collectionFrame={state:observed.state};await fs.writeFile(path.join(out,'collected-native.png'),Buffer.from(observed.pngBase64,'base64'));await shot('collected-after-wait.png');}
+    if(!record.riskFrame&&co?.pickupSkips>0){record.riskFrame={state:observed.state};await page.waitForFunction(()=>document.querySelector('#game-status').textContent.includes('Skipped 1'),{},{timeout:15000});await shot('declined-pickup.png');}
    }
    if(['completed','interrupted','cancelled'].includes(row.task.status)){row.elapsedMs=Date.now()-row.started;if(failed){assert.equal(row.child.status,'failed');assert.equal(row.task.status,'interrupted');assert.equal(row.task.timing052.modelCalls,0);await request('agency043','control',{id:row.id,action:'cancel'});}else{assert.equal(row.task.status,'completed',row.task.reason);row.checked=await request('gameTasks115','verify',{id:row.id});assert(row.checked.audit.passed);assert(row.task.summary.includes(row.checked.audit.aiPickups+' power-ups collected, '+row.checked.audit.aiDamage+' damage events'));assert.equal(row.checked.review.state.tick,0);assert.equal(row.checked.review.state.player.won,false);assert(['won','failed'].includes(row.checked.audit.existingAI));assert.equal(row.task.timing052.modelCalls,0);}break;}
    await sleep(100);

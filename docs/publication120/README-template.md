@@ -4,7 +4,7 @@
 
 Three reserved courses in [edition119](README-119.md) finished without their optional item. Two had supported power-up blocks guarded by moving enemies. The third placed the power-up above a gap. Edition120 adds a small owned Java policy that can wait for a temporary threat, observe again, and pursue only after the actual approach clears. The unsupported gap remains a refusal.
 
-**Both supported missed items are now collected, with a finish and zero damage.** Across seven declared development courses, the previous `recover119` controller finishes all seven with zero pickups. `opportunity120` also finishes all seven, collects three items and records zero damage. All54 older courses still finish without damage; the original24 pickup courses retain24 pickups. These observations describe this finite test set, not general mastery.
+**Both supported missed items are now collected, with a finish and zero damage.** Across seven declared development courses, the previous `recover119` controller finishes all seven with zero pickups. `opportunity120` also finishes all seven, collects three items and records zero damage. All 54 older courses still finish without damage; the original 24 pickup courses retain 24 pickups. These observations describe this finite test set, not general mastery.
 
 {{RESERVED_RESULT}}
 
@@ -26,7 +26,7 @@ Example request:
 Create a playable Mario level seed=41 lengthTiles=72 gapTiles=3 secondGapTiles=4 goombaTile=15 turtleTile=28 obstacleTile=25 obstacleHeight=2 repairLimit=0; compare controls and report skipped pickups.
 ```
 
-The task creates a separate candidate. It retains the simple controller's failure, runs the AI in a fresh native session and reports collision-based collection and actual finish contact. The reviewed candidate opens at tick0; the displayed starting frame is not a new victory. An interrupted task requires explicit resume and a fresh incomplete trial. Completed evidence stays attached.
+The task creates a separate candidate. It retains the simple controller's failure, runs the AI in a fresh native session and reports collision-based collection and actual finish contact. The reviewed candidate opens at tick 0; the displayed starting frame is not a new victory. An interrupted task requires explicit resume and a fresh incomplete trial. Completed evidence stays attached.
 
 {{DEFAULT_SCOPE}}
 
@@ -34,11 +34,11 @@ The task creates a separate candidate. It retains the simple controller's failur
 
 `OpportunityTiming120` estimates when a moving enemy will leave the existing pickup-risk window. It uses the observed position and velocity, rejects unknown or effectively stationary motion, checks that the enemy will not cross the holding position, and refuses estimates beyond three simulated seconds. This is a bounded linear spending estimate. Enemies can reverse; its answer is never accepted as proof that the route is safe.
 
-`PickupOpportunity120` checks actual support, grounded state, velocity and incoming threats each tick. It holds ordinary input at zero while waiting. Fresh risk assessment must confirm clearance before pursuit resumes. A changed support, position, threat or deadline releases the wait. There are at most180 ticks per wait,360 total, and three starts, once per object. Controller timing remains the original60Hz; desktop capture and model inference do not set physical timing.
+`PickupOpportunity120` checks actual support, grounded state, velocity and incoming threats each tick. It holds ordinary input at zero while waiting. Fresh risk assessment must confirm clearance before pursuit resumes. A changed support, position, threat or deadline releases the wait. There are at most 180 ticks per wait, 360 total, and three starts, once per object. Controller timing remains the original 60 Hz; desktop capture and model inference do not set physical timing.
 
-The same class can propose a nearby return to a remembered deferred block. It requires a grounded player, backward distance at most1.75 original units, continuous observed floor, clear approach, and enough observed floor for braking plus the existing edge buffer. A return gets at most240 ticks and there are at most three starts, once per object. A permanent refusal remains authoritative even when that object was previously waited for. The existing contact, gap, obstacle and damage handling stays active.
+The same class can propose a nearby return to a remembered deferred block. It requires a grounded player, backward distance at most1.75 original units, continuous observed floor, clear approach, and enough observed floor for braking plus the existing edge buffer. A return gets at most 240 ticks and there are at most three starts, once per object. A permanent refusal remains authoritative even when that object was previously waited for. The existing contact, gap, obstacle and damage handling stays active.
 
-**Useful collection through revisiting remains unproven.** An early development probe admitted a return, spent28 ticks and collected nothing when the original edge guard took over. That evidence is retained. The added braking-support check refuses this return. Four declared early-pickup probes all finish without damage, but neither the old nor new controller collects their item. This is a remaining gap, not a successful return demonstration.
+**Useful collection through revisiting remains unproven.** An early development probe admitted a return, spent 28 ticks and collected nothing when the original edge guard took over. That evidence is retained. The added braking-support check refuses this return. Four declared early-pickup probes all finish without damage, but neither the old nor new controller collects their item. This is a remaining gap, not a successful return demonstration.
 
 ![Actual waiting, with visible counters](docs/readmes/120/waiting-live.png)
 
@@ -70,7 +70,7 @@ Java owns the task, controller and evidence. The existing desktop presents the e
 | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: |
 {{CONTROLLER_ROWS}}
 
-Simple control does not have instrumented pickup/damage callbacks; those cells are `n/a`. A failed trial is retained. Hardware and software repetitions use the same reserved cases and do not count as additional unseen examples. Development corrections were completed before the first reserved run. The original failed fixture and prototype diagnostics remain linked in the raw evidence archive.
+Simple control does not have instrumented pickup/damage callbacks; those cells are `n/a`. A failed trial is retained. Each candidate launch has a distinct runtime directory and fresh play-memory state, so compared policies do not inherit one another's practice. Hardware and software repetitions use the same reserved cases and do not count as additional unseen examples. Controller corrections were completed before the first reserved run. Default promotion, task integration and additional receipt bounds followed; the software repeat checks the final integrated version. The original failed fixture and prototype diagnostics remain linked in the raw evidence archive.
 
 {{COST_RESULT}}
 
@@ -87,11 +87,11 @@ Five real visible requests cover the old gap-repair recipe, both newly collected
 ## Validation and boundaries
 
 - {{JAVA_COUNT}} distinct passing Java methods, including real native floor-loss, wait expiry, permanent-refusal, braking and return-deadline fixtures, forged-evidence refusal, actual task completion and restart.
-- 165 desktop checks, five visible requests, normal and1100-pixel layouts, actual native waiting/collection screenshots, and1440/390-pixel offline guide checks.
-- Seven development courses, four extra return probes, six reserved courses, all54 older course regressions, plus independent hardware/software repetitions within the documented scope.
+- 165 desktop checks, five visible requests, normal and 1100-pixel layouts, actual native waiting/collection screenshots, and 1440/390-pixel offline guide checks.
+- Seven development courses, four extra return probes, six reserved courses, all 54 older course regressions, plus independent hardware/software repetitions within the documented scope.
 - Six transformed reference images and four refusals per renderer retain the earlier known-component reconstruction scope. Arbitrary web-image understanding is not added here.
 
-The controller still misses some optional items. Three successful development cases outside the corrected pair leave their item behind, and the unsupported-gap case intentionally declines its item. Linear enemy motion prediction is narrow and can be wrong; every wait has a deadline and fresh checks. A return admission is not a guarantee of eventual collection. The small fixed policy is not neural weight training or autonomous recursive self-improvement. No new procedure-bank admission is claimed.
+The controller still misses some optional items. In the reserved set, `new-late-guard` finishes without its item; the gap and cramped cases also leave their items. No tuning was performed against those results. Three successful development cases outside the corrected pair leave their item behind, and the unsupported-gap case intentionally declines its item. Linear enemy motion prediction is narrow and can be wrong; every wait has a deadline and fresh checks. A return admission is not a guarantee of eventual collection. The small fixed policy is not neural weight training or autonomous recursive self-improvement. No new procedure-bank admission is claimed.
 
 ![Retained waiting decisions and checked outcome](docs/readmes/120/verified-waiting.png)
 
@@ -108,7 +108,7 @@ The controller still misses some optional items. Three successful development ca
 | Actual visible review | [game120 integration](workspace-desktop/test/game120-integration.cjs) |
 | Serial validation and publication | [publication120](docs/publication120) |
 
-[Complete measurements](docs/readmes/120/measurements.json), [actual chat receipts](docs/readmes/120/actual-ui.json), [original evidence index](docs/readmes/120/original-evidence.json), [source map](docs/readmes/120/system-map.json) and [Obsidian map](docs/obsidian/128-pickup-waiting-and-return-cost.canvas) preserve the implementation and its limits. Each archived original has raw and compressed SHA-256 checks. Private live worlds, credentials, model weights and installed runtimes are excluded. Historical numbered READMEs and snapshots001–119 remain unchanged.
+[Complete measurements](docs/readmes/120/measurements.json), [actual chat receipts](docs/readmes/120/actual-ui.json), [original evidence index](docs/readmes/120/original-evidence.json), [source map](docs/readmes/120/system-map.json) and [Obsidian map](docs/obsidian/128-pickup-waiting-and-return-cost.canvas) preserve the implementation and its limits. Each archived original has raw and compressed SHA-256 checks. Private live worlds, credentials, model weights and installed runtimes are excluded. Historical numbered READMEs and snapshots 001–119 remain unchanged.
 
 CI was checked first; hosted results are recorded separately from local validation. Publication is only claimed after actual main/edition120/tag push and a fresh fetched-tree audit. The rolling README will link the publication receipt once that audit completes.
 

@@ -6,7 +6,7 @@ def read(p):return json.loads((r/p).read_text(encoding='utf8'))
 def write(p,v):p.parent.mkdir(parents=True,exist_ok=True);p.write_bytes((json.dumps(v,indent=2,ensure_ascii=False)+'\n').encode())
 def text(p,s):p.parent.mkdir(parents=True,exist_ok=True);p.write_bytes(s.encode())
 def sha(b):return hashlib.sha256(b).hexdigest()
-uiroot=r/'build/game120-ui';ui=read(uiroot/'result.json');assert ui['passed'] and all(ui[k] for k in ['waitFrame','collectionFrame','riskFrame']);scope=read('build/edition120-scope.json')
+uiroot=r/'build/game120-ui-final';ui=read(uiroot/'result.json');assert ui['passed'] and all(ui[k] for k in ['waitFrame','collectionFrame','riskFrame']);scope=read('build/edition120-scope.json')
 paths={'development':'controller120-development-final','reserved':'controller120-reserved','software-reserved':'controller120-mesa-reserved','early-probes':'controller120-early-probes-final'}
 for group in ['old119-development','old119-reserved','old118-development','old118-reserved']:paths[group]='controller120-'+group+'-final'
 for group in ['regression','wider','reserved']:paths['old117-'+group]='controller117-120-'+group+'-final'
@@ -73,7 +73,7 @@ for uiFolder in sorted((r/'build').glob('game120-ui*')):
 for pattern in ['*120*.log','ci120*.json','policy120*.json','edition120-scope.json']:
  for p in sorted((r/'build').glob(pattern)):preserve(p,p.relative_to(r).as_posix())
 preserve(r/'build/study095-build.json','build/study095-build.json')
-write(out/'original-evidence.json',{'files':originals,'scope':'Exact isolated baseline, failed first prototype, successful development, reserved hardware/software, regressions, source/outcome checks and actual UI/recovery. Raw and compressed SHA-256; private projects and runtime binaries excluded.'})
+write(out/'original-evidence.json',{'files':originals,'scope':'Exact isolated baseline, original prototype and unhelpful return, successful development, reserved hardware/software, regressions, source/outcome checks and actual UI/recovery. Raw and compressed SHA-256; private projects and runtime binaries excluded.'})
 sourcePaths={x['path'] for x in read('docs/readmes/119/file-inventory.json')}
 for n in subprocess.check_output(['git','diff','--name-only','483acb44','HEAD'],text=True).splitlines():
  if n.startswith(('workspace-engine/','workspace-desktop/','src/','assets/','.github/')) or n=='build.gradle':sourcePaths.add(n)
