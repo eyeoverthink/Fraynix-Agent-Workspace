@@ -1,3 +1,7 @@
+## Edition120 — investigation started
+
+2026-11-11. Work in S:/Codex-Work/fraynix-workspace-edition120 from483acb44. CI119 main/release still running. Read docs/EDITION_120_CONTRACT.md. Two supported pickups are lost while moving during threat deferral; unsupported gap pickup must stay refused. Implement and measure bounded observation-based waiting/nearby revisiting, preserve old policies and every verification gate. No delegation; heavy checks serial. Preserve private worlds and frozen001–119. Not implemented or published yet.
+
 ## Edition119 — published and fetched back
 
 2026-11-11, America/Los_Angeles. Isolated S:/Codex-Work/fraynix-workspace-edition119, parent b154e9ea. Source ea9644e0cf0540a75ee4764302de49cae69896a3. CI checked first:118 main43095307410 queued, release43095071023 running; final hosted CI remains separate. Release 97501130526e84f944d2458ebde3e30d0c96cdb1; annotated readme-119. Main, edition119 and tag pushed atomically and fetched. Verified 1475 canonical sources, 40211 frozen hashes across119 editions and 1138 original evidence entries. See docs/PUBLICATION_119.json.

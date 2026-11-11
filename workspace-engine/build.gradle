@@ -33,6 +33,6 @@ tasks.named('test') {
     inputs.files(rootProject.configurations.runtimeClasspath).withPropertyName('nativeGameClasspath')
     inputs.files(rootProject.fileTree('assets'), rootProject.fileTree('levels'), rootProject.file('level.txt')).withPropertyName('nativeGameAssets')
     inputs.property('nativeStudyOptions', providers.environmentVariable('JAVA_TOOL_OPTIONS').map { options ->
-        options.split('\\s+').findAll { it.startsWith('-Dstudy116.') || it.startsWith('-Dstudy117.') || it.startsWith('-Dstudy118.') || it.startsWith('-Dstudy119.') || it.startsWith('-Dreference116.') || it.startsWith('-Dreference117.') }.join(' ')
+        options.split('\\s+').findAll { it.startsWith('-Dstudy116.') || it.startsWith('-Dstudy117.') || it.startsWith('-Dstudy118.') || it.startsWith('-Dstudy119.') || it.startsWith('-Dstudy120.') || it.startsWith('-Dreference116.') || it.startsWith('-Dreference117.') }.join(' ')
     }.orElse(''))
 }
