@@ -9,7 +9,10 @@ async function main(){
  const save=()=>fs.writeFile(path.join(out,'result.json'),JSON.stringify(record,null,2));
  const api=(route,args={})=>app.evaluate((_,x)=>global.workspaceTest.api(x.route,x.args),{route,args});
  const request=(operation,command,args={})=>page.evaluate(x=>window.workspace.request(x),{operation,command,args});
- const capture=async name=>{await fs.writeFile(path.join(out,name),Buffer.from(await app.evaluate(()=>global.workspaceTest.capture()),'base64'));};
+ const capture=async name=>{
+  await page.waitForFunction(()=>{const image=document.querySelector('#game-frame');return image.complete&&image.naturalWidth>0&&image.src.startsWith('data:image/png;base64,')&&document.querySelector('#game-status').textContent.includes('tick 0');},{},{timeout:15000});
+  await fs.writeFile(path.join(out,name),Buffer.from(await app.evaluate(()=>global.workspaceTest.capture()),'base64'));
+ };
  async function open(){({app,page}=await launch(project));page.on('pageerror',e=>record.errors.push(e.message));await app.evaluate(({BrowserWindow})=>{const w=BrowserWindow.getAllWindows().find(w=>w.isVisible());w.setSize(1600,1100);w.setTitle('Fraynix · edition 115 · durable level tasks');});await page.waitForFunction(()=>[...document.querySelector('#model').options].some(o=>o.value==='gpt-oss:20b'),{},{timeout:65000});await page.locator('#model').selectOption('gpt-oss:20b');}
  async function run(prompt,{restart=false,failed=false}={}){
   const previous=new Set((await api('/api/agency043/state')).tasks.map(t=>t.id)),row={prompt,started:Date.now()};record.requests.push(row);await page.waitForFunction(()=>!document.querySelector('#run').disabled,{},{timeout:30000});await page.locator('#goal').fill(prompt);await page.locator('#run').click();
