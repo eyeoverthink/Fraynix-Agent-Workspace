@@ -7,7 +7,7 @@ def write(p,s):p.parent.mkdir(parents=True,exist_ok=True);p.write_text(s,encodin
 def js(p,v):write(p,json.dumps(v,ensure_ascii=False,indent=2)+'\n')
 def sha(b):return hashlib.sha256(b).hexdigest()
 assert subprocess.run(['git','show-ref','--verify','--quiet','refs/tags/readme-112'],cwd=r).returncode==1
-a=load('build/analysis112.json');trial=load('build/archive112/result.json');visual=load('build/visual-review112.json');identity=load('build/source-identity112.json')
+a=load('build/analysis112.json');trial=load('build/archive112-final/result.json');visual=load('build/visual-review112.json');identity=load('build/source-identity112.json')
 assert a['passed'] and len(a['refusals'])==20 and trial['passed'] and visual['passed'] and identity['passed']
 tests=[]
 for f in sorted((r/'workspace-engine/build/test-results/test').glob('TEST-*.xml')):
@@ -15,14 +15,14 @@ for f in sorted((r/'workspace-engine/build/test-results/test').glob('TEST-*.xml'
 methods=sum(int(t['tests']) for t in tests);assert len(tests)>=17 and methods>=100
 for log in ['desktop112.log','desktop112-additional.log']:assert 'fail 0' in (r/'build'/log).read_text(encoding='utf-8-sig')
 d.mkdir(parents=True,exist_ok=True);js(d/'analysis.json',a)
-js(d/'verification.json',{'passed':True,'java':tests,'javaMethods':methods,'desktopChecks':148,'originalIntegrityControls':a['refusals'],'initialCorrection':load('build/correction112.json'),'build':load('build/study095-build.json'),'unchangedDependencies':identity,'actualStudy':{'completedChats':2,'archivedChats':23,'retainedCancelledChats':3,'activeLimit':24,'abruptRecoveries':1},'visual':visual,'parentCI':load('build/ci112-parent.json'),'scope':'Exact chat checkpoint snapshots, full original journals and current evidence checks. No raised limits, source deletion, proof relabelling, model-inference or training claim.'})
+js(d/'verification.json',{'passed':True,'java':tests,'javaMethods':methods,'desktopChecks':148,'originalIntegrityControls':a['refusals'],'initialCorrection':load('build/correction112.json'),'recorderCorrection':load('build/recorder-correction112.json'),'build':load('build/study095-build.json'),'unchangedDependencies':identity,'actualStudy':{'completedChats':2,'archivedChats':23,'retainedCancelledChats':3,'activeLimit':24,'abruptRecoveries':1},'visual':visual,'parentCI':load('build/ci112-parent.json'),'scope':'Exact chat checkpoint snapshots, full original journals and current evidence checks. No raised limits, source deletion, proof relabelling, model-inference or training claim.'})
 captions={}
-for p in sorted((r/'build/archive112').glob('*.png')):shutil.copyfile(p,d/p.name);captions[p.name]='Actual edition112 app capture: '+p.stem
+for p in sorted((r/'build/archive112-final').glob('*.png')):shutil.copyfile(p,d/p.name);captions[p.name]='Actual edition112 app capture: '+p.stem
 paths=[]
-for root in ['build/archive112','workspace-engine/build/test-results/test','build/java112-initial-results','build/before-correction112']:
+for root in ['build/archive112-final','build/archive112','workspace-engine/build/test-results/test','build/java112-initial-results','build/before-correction112']:
  for p in (r/root).rglob('*'):
   if p.is_file() and not any(x in {'desktop-profile','runtime-042','.northstar-kernel','binary'} for x in p.parts) and not p.name.endswith('.lock'):paths.append(p)
-for name in ['java112-initial.log','java112-final.log','correction112.json','compile112.log','desktop112.log','desktop112-additional.log','source-identity112.json','ci112-parent.json','study095-build.json','analysis112.json','archive112.log','inspect112.log','visual-review112.json']:paths.append(r/'build'/name)
+for name in ['java112-initial.log','java112-final.log','correction112.json','compile112.log','desktop112.log','desktop112-additional.log','source-identity112.json','ci112-parent.json','study095-build.json','analysis112.json','archive112.log','archive112-final.log','recorder-correction112.json','inspect112.log','visual-review112.json']:paths.append(r/'build'/name)
 originals=[]
 for p in sorted(set(paths)):
  raw=p.read_bytes();compressed=gzip.compress(raw,mtime=0);target=d/'original'/(sha(raw)+'.gz');target.parent.mkdir(exist_ok=True)
@@ -127,7 +127,9 @@ Separate copies test same-length snapshot corruption, a missing snapshot, a revi
 | --- | ---: | ---: |
 {table}
 
-The complete cohort took **{a['cohortMs']/1000:.3f} seconds**: requests **{a['requestMs']/1000:.3f} s**, archival **{a['archiveMs']/1000:.3f} s**, and setup, copies, restart preparation, rechecks, refusals, screenshots and other work **{a['otherMs']/1000:.3f} s**. Request measurements include their actual browser checks and recovery pauses. Categories do not overlap. These measurements describe this host and workload; they do not establish a universal speedup.
+The final complete cohort took **{a['cohortMs']/1000:.3f} seconds**: requests **{a['requestMs']/1000:.3f} s**, archival **{a['archiveMs']/1000:.3f} s**, and setup, copies, restart preparation, rechecks, refusals, screenshots and other work **{a['otherMs']/1000:.3f} s**. Request measurements include their actual browser checks and recovery pauses. Categories do not overlap. These measurements describe this host and workload; they do not establish a universal speedup.
+
+The first app attempt took **{a['preliminary']['totalMs']/1000:.3f} seconds**, preserved 21 chats and completed one fresh request. Its recovery recorder then requested a protected child endpoint while the live chat owned execution; Java correctly refused. Only the recorder changed, using the existing passive goal read to retain boundary IDs and report contents. The final cohort started from a fresh copy. Both attempts total **{a['totalAttemptMs']/1000:.3f} seconds**; the original refused attempt and all its files remain in the evidence.
 
 The Java process uses a 512 MiB heap and two reported processors. Heavy work is serial. Cold reopen means a new app process on a closed project, not a cleared operating-system cache.
 
