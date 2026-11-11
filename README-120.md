@@ -1,0 +1,145 @@
+# Fraynix Agent Workspace — edition 120
+
+## Wait when another observation can make the pickup worthwhile
+
+Three reserved courses in [edition119](README-119.md) finished without their optional item. Two had supported power-up blocks guarded by moving enemies. The third placed the power-up above a gap. Edition120 adds a small owned Java policy that can wait for a temporary threat, observe again, and pursue only after the actual approach clears. The unsupported gap remains a refusal.
+
+**Both supported missed items are now collected, with a finish and zero damage.** Across seven declared development courses, the previous `recover119` controller finishes all seven with zero pickups. `opportunity120` also finishes all seven, collects three items and records zero damage. All 54 older courses still finish without damage; the original 24 pickup courses retain 24 pickups. These observations describe this finite test set, not general mastery.
+
+The six reserved courses finish 6/6 with 3 pickups, 0 damage and 0 deaths under opportunity120. The previous recover119 finishes 6/6 with 0 pickups and 0 damage. Software repeat: 6/6, 3 pickups, 0 damage. These are the same reserved examples repeated on another renderer.
+
+[Previous119](README-119.md) · [Acceptance contract](docs/EDITION_120_CONTRACT.md) · [Full phased plan](docs/PLAYABLE_LEVEL_CREATION_PLAN.md) · [Offline guide](docs/readmes/120/index.html) · [Verification](docs/readmes/120/verification.json) · [Source inventory](docs/readmes/120/file-inventory.json)
+
+![Actual supported pickup task completed](docs/readmes/120/wait-completed.png)
+
+## Try it
+
+1. Open **Game Lab → Create a level from the original components**.
+2. Choose **Wait for moving threat** or **Turtle and pickup**.
+3. Press **Prepare challenge request**, then start the task in chat.
+4. Watch the simple comparison and the actual AI trial. The Game view reports waiting time, confirmed clearance and any aborted wait.
+5. Open **Level task history** to inspect the original trials, decisions and verified outcome. **Recheck evidence** checks the retained source and outcome chain again.
+
+Example request:
+
+```text
+Create a playable Mario level seed=41 lengthTiles=72 gapTiles=3 secondGapTiles=4 goombaTile=15 turtleTile=28 obstacleTile=25 obstacleHeight=2 repairLimit=0; compare controls and report skipped pickups.
+```
+
+The task creates a separate candidate. It retains the simple controller's failure, runs the AI in a fresh native session and reports collision-based collection and actual finish contact. The reviewed candidate opens at tick 0; the displayed starting frame is not a new victory. An interrupted task requires explicit resume and a fresh incomplete trial. Completed evidence stays attached.
+
+General AI Play and declared challenge tasks now use opportunity120 after development, all 54 regressions and the six reserved-course gates passed. Old non-challenge tasks retain their explicit safe117 comparison. Explicit historical policies remain available.
+
+## What changed inside Java
+
+`OpportunityTiming120` estimates when a moving enemy will leave the existing pickup-risk window. It uses the observed position and velocity, rejects unknown or effectively stationary motion, checks that the enemy will not cross the holding position, and refuses estimates beyond three simulated seconds. This is a bounded linear spending estimate. Enemies can reverse; its answer is never accepted as proof that the route is safe.
+
+`PickupOpportunity120` checks actual support, grounded state, velocity and incoming threats each tick. It holds ordinary input at zero while waiting. Fresh risk assessment must confirm clearance before pursuit resumes. A changed support, position, threat or deadline releases the wait. There are at most 180 ticks per wait, 360 total, and three starts, once per object. Controller timing remains the original 60 Hz; desktop capture and model inference do not set physical timing.
+
+The same class can propose a nearby return to a remembered deferred block. It requires a grounded player, backward distance at most1.75 original units, continuous observed floor, clear approach, and enough observed floor for braking plus the existing edge buffer. A return gets at most 240 ticks and there are at most three starts, once per object. A permanent refusal remains authoritative even when that object was previously waited for. The existing contact, gap, obstacle and damage handling stays active.
+
+**Useful collection through revisiting remains unproven.** An early development probe admitted a return, spent 28 ticks and collected nothing when the original edge guard took over. That evidence is retained. The added braking-support check refuses this return. Four declared early-pickup probes all finish without damage, but neither the old nor new controller collects their item. This is a remaining gap, not a successful return demonstration.
+
+![Actual waiting, with visible counters](docs/readmes/120/waiting-live.png)
+
+![Collection after observed clearance](docs/readmes/120/collected-after-wait.png)
+
+## How the pieces work together
+
+```mermaid
+flowchart LR
+    Request[Chat request] --> Task[Durable Java level task]
+    Task --> Native[Original native game and physics]
+    Native --> Observe[Positions, support, threats and contact]
+    Observe --> Estimate[Bounded wait estimate]
+    Estimate --> Guard[Fresh risk and support checks]
+    Guard --> Input[Ordinary movement and jump inputs]
+    Input --> Native
+    Native --> Outcome[Actual collision and finish evidence]
+    Outcome --> Verify[Source, session, action and outcome verifier]
+    Verify --> History[Saved trials and visible summary]
+```
+
+Java owns the task, controller and evidence. The existing desktop presents the embedded renderer and chat. No new external package or separate editor window is introduced. No teleport, collider edit, hidden terrain repair, synthetic collision or scripted success substitutes for native play. Old explicit controller names remain available for comparisons. Physics and rendering implementations stay unchanged.
+
+`GameEvidence120` adds bounded wait/return counter and decision checks to the existing119 checks. The task recomputes the audit from retained actions and native observations. Its engine identity also binds the verifier implementations. Altered audit totals, invented starts, repeated waits and expired opportunities are refused. These checks complement the existing source, asset, candidate, engine, owner, session, input, image and outcome checks; none are replaced by a cached success label.
+
+## Results and costs
+
+| Group | Controller | Finishes | Pickups | Damage | Wait ticks | Return ticks | Median complete trial |
+| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| development | opportunity120 | 7/7 | 3 | 0 | 449 | 0 | 3.711 s |
+| development | recover119 | 7/7 | 0 | 0 | 0 | 0 | 3.153 s |
+| development | safe117 | 4/7 | 4 | 0 | 0 | 0 | 3.643 s |
+| development | simple | 0/7 | n/a | n/a | 0 | 0 | 1.512 s |
+| reserved | opportunity120 | 6/6 | 3 | 0 | 501 | 0 | 3.747 s |
+| reserved | recover119 | 6/6 | 0 | 0 | 0 | 0 | 3.389 s |
+| reserved | safe117 | 5/6 | 4 | 1 | 0 | 0 | 3.560 s |
+| reserved | simple | 0/6 | n/a | n/a | 0 | 0 | 1.553 s |
+| software-reserved | opportunity120 | 6/6 | 3 | 0 | 501 | 0 | 3.929 s |
+| software-reserved | recover119 | 6/6 | 0 | 0 | 0 | 0 | 3.573 s |
+| software-reserved | safe117 | 5/6 | 4 | 1 | 0 | 0 | 3.814 s |
+| software-reserved | simple | 0/6 | n/a | n/a | 0 | 0 | 1.753 s |
+| early-probes | opportunity120 | 4/4 | 0 | 0 | 0 | 0 | 2.862 s |
+| old119-development | opportunity120 | 6/6 | 6 | 0 | 371 | 0 | 3.571 s |
+| old119-reserved | opportunity120 | 6/6 | 5 | 0 | 397 | 0 | 3.686 s |
+| old118-development | opportunity120 | 12/12 | 5 | 0 | 0 | 0 | 2.941 s |
+| old118-reserved | opportunity120 | 6/6 | 4 | 0 | 256 | 0 | 3.581 s |
+| old117-regression | opportunity120 | 12/12 | 12 | 0 | 0 | 0 | 3.120 s |
+| old117-regression | safe117 | 12/12 | 12 | 0 | 0 | 0 | 3.048 s |
+| old117-wider | opportunity120 | 6/6 | 6 | 0 | 0 | 0 | 3.004 s |
+| old117-wider | safe117 | 6/6 | 6 | 0 | 0 | 0 | 2.995 s |
+| old117-reserved | opportunity120 | 6/6 | 6 | 0 | 0 | 0 | 3.078 s |
+| old117-reserved | safe117 | 6/6 | 6 | 0 | 0 | 0 | 3.134 s |
+
+Simple control does not have instrumented pickup/damage callbacks; those cells are `n/a`. A failed trial is retained. Each candidate launch has a distinct runtime directory and fresh play-memory state, so compared policies do not inherit one another's practice. Hardware and software repetitions use the same reserved cases and do not count as additional unseen examples. Controller corrections were completed before the first reserved run. Default promotion, task integration and additional receipt bounds followed; the software repeat checks the final integrated version. The original failed fixture and prototype diagnostics remain linked in the raw evidence archive.
+
+Across seven final development trials, the new opportunity checks ran 4033 times and used 39.205 ms total. Complete revised trials had median 3.711 s. Total waiting consumed 449 simulation ticks. Native trial wall times include original rendering, physics and bridge work; they are single-run measurements on this machine.
+
+The initial supported waits estimate138 ticks and clear after141 observed ticks. The shifted goomba example estimates163 and clears after167. Fresh observation, rather than the estimate, ends each wait. Perception/check time and full native trial time are reported separately. A slower finish that safely gains a pickup is a tradeoff; no whole-app speedup is claimed.
+
+![Native motion and measured waiting](docs/readmes/120/controller-motion.png)
+
+| Actual visible request | Wall time | Simple result | AI result | Repairs |
+| --- | ---: | --- | --- | ---: |
+| Old two-gap repair | 63.958 s | won | won | 2 |
+| Wait for supported pickup with abrupt restart | 49.178 s | failed | won | 0 |
+| Turtle and pickup | 37.223 s | failed | won | 0 |
+| Unsupported gap refusal | 40.344 s | failed | won | 0 |
+| Unfinishable challenge | 19.608 s | failed | failed | 0 |
+
+The final five-request visible review covers the old gap-repair recipe, both newly collected pickups, an unsupported gap refusal and a deliberately unfinishable challenge. One request survives an abrupt owned Java process interruption and resumes with a new trial. The first five-request run also passed its functional checks, but visual inspection caught an older frame in its waiting screenshot. That entire attempt is retained. The second review exposed a harmless but confusing ownership message while the task reopened its runtime. Game Lab now explains that handover as waiting, and a frame arriving between trials also waits for the next runtime. Unexpected errors still propagate. Three focused UI tests preserve these boundaries. The final review repeats all five requests with this display correction and unchanged Java control/verification. All five selected requests use the existing explicit Java route with zero model calls. The local `gpt-oss:20b` catalog entry is checked; that does not establish a new model inference or learning result.
+
+## Validation and boundaries
+
+- 174 distinct passing Java methods, including real native floor-loss, wait expiry, permanent-refusal, braking and return-deadline fixtures, forged-evidence refusal, actual task completion and restart.
+- 168 desktop checks, five visible requests, normal and 1100-pixel layouts, actual native waiting/collection screenshots, and 1440/390-pixel offline guide checks.
+- Seven development courses, four extra return probes, six reserved courses, all 54 older course regressions, plus independent hardware/software repetitions within the documented scope.
+- Six transformed reference images and four refusals per renderer retain the earlier known-component reconstruction scope. Arbitrary web-image understanding is not added here.
+
+The controller still misses some optional items. In the reserved set, `new-late-guard` finishes without its item; the gap and cramped cases also leave their items. No tuning was performed against those results. Three successful development cases outside the corrected pair leave their item behind, and the unsupported-gap case intentionally declines its item. Linear enemy motion prediction is narrow and can be wrong; every wait has a deadline and fresh checks. A return admission is not a guarantee of eventual collection. The small fixed policy is not neural weight training or autonomous recursive self-improvement. No new procedure-bank admission is claimed.
+
+![Retained waiting decisions and checked outcome](docs/readmes/120/verified-waiting.png)
+
+## Files and reproducibility
+
+| Responsibility | Source |
+| --- | --- |
+| Clearance spending estimate | [OpportunityTiming120](src/main/java/agent/OpportunityTiming120.java) |
+| Bounded waiting and return admission | [PickupOpportunity120](src/main/java/agent/PickupOpportunity120.java) |
+| Ordinary controller composition | [GameInput](src/main/java/agent/GameInput.java) |
+| Original embedded runtime | [EmbeddedGameRuntime](src/main/java/runtime/EmbeddedGameRuntime.java) |
+| Durable task and evidence | [GameTask115](workspace-engine/src/main/java/fraymus/workspace/GameTask115.java), [GameEvidence120](workspace-engine/src/main/java/fraymus/workspace/GameEvidence120.java) |
+| Fresh native controller study | [GameController120Test](workspace-engine/src/test/java/fraymus/workspace/GameController120Test.java) |
+| Actual visible review | [game120 integration](workspace-desktop/test/game120-integration.cjs) |
+| Serial validation and publication | [publication120](docs/publication120) |
+
+[Complete measurements](docs/readmes/120/measurements.json), [actual chat receipts](docs/readmes/120/actual-ui.json), [original evidence index](docs/readmes/120/original-evidence.json), [source map](docs/readmes/120/system-map.json) and [Obsidian map](docs/obsidian/128-pickup-waiting-and-return-cost.canvas) preserve the implementation and its limits. Each archived original has raw and compressed SHA-256 checks. Private live worlds, credentials, model weights and installed runtimes are excluded. Historical numbered READMEs and snapshots 001–119 remain unchanged.
+
+CI was checked first; hosted results are recorded separately from local validation. Publication is only claimed after actual main/edition120/tag push and a fresh fetched-tree audit. The rolling README will link the publication receipt once that audit completes.
+
+## Next steps
+
+Edition121: test enemy reversals, moving pickups and constrained platforms, and create fresh tasks where returning could actually help. Reserve new courses before development; compare optional collection, survival, observation cost and complete task cost. Useful return collection must be demonstrated before claiming it. Then expand explicit image components and procedure retirement/reactivation under existing source and admission checks.
+
+The larger direction remains one local Java-owned agent system: observations, world state, actions, persistent tasks and verifiable outcomes connected to the same app. This edition improves one small decision—whether to wait—in that system. The next improvements should earn their place through safer completion, useful collection and measured total cost on new cases.

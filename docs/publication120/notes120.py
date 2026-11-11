@@ -20,7 +20,7 @@ if __name__=='__main__':
  s=status('implemented and locally validated; publication preparation')
  for name in ['AGENTS.md','README-CONTRIBUTORS.md','docs/PROJECT_MEMORY.md','docs/DEVELOPMENT_LOG.md','docs/ARCHITECTURE.md']:
   p=r/name;old=p.read_text(encoding='utf-8-sig')
-  if not old.startswith('## Edition120 — implemented and locally validated; publication preparation'):p.write_bytes((s+old).encode())
+  if not old.startswith(s):p.write_bytes((s+old).encode())
  p=r/'docs/PLAYABLE_LEVEL_CREATION_PLAN.md';old=p.read_text(encoding='utf-8-sig');plan='''## Progress through edition120 — 2026-11-11
 
 Two retained supported pickups are collected after bounded waiting and actual clearance. The unsupported gap stays refused. Seven development finishes/three pickups/zero damage and all54 older finishes preserved. [Edition120](../README-120.md) records six reserved hardware/software outcomes, complete costs, original unsuccessful returns and actual chat/restart evidence. [Contract](EDITION_120_CONTRACT.md).

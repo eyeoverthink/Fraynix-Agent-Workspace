@@ -73,6 +73,7 @@ for uiFolder in sorted((r/'build').glob('game120-ui*')):
 for pattern in ['*120*.log','ci120*.json','policy120*.json','edition120-scope.json']:
  for p in sorted((r/'build').glob(pattern)):preserve(p,p.relative_to(r).as_posix())
 preserve(r/'build/study095-build.json','build/study095-build.json')
+preserve(r/'build/study095-build-before-ui120.json','build/study095-build-before-ui120.json')
 write(out/'original-evidence.json',{'files':originals,'scope':'Exact isolated baseline, original prototype and unhelpful return, successful development, reserved hardware/software, regressions, source/outcome checks and actual UI/recovery. Raw and compressed SHA-256; private projects and runtime binaries excluded.'})
 sourcePaths={x['path'] for x in read('docs/readmes/119/file-inventory.json')}
 for n in subprocess.check_output(['git','diff','--name-only','483acb44','HEAD'],text=True).splitlines():

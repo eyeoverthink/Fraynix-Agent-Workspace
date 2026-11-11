@@ -1,0 +1,116 @@
+{
+  "modules": [
+    {
+      "id": "estimate",
+      "name": "Clearance spending estimate",
+      "source": "src/main/java/agent/OpportunityTiming120.java",
+      "note": "docs/obsidian/128-pickup-waiting-and-return-cost.md"
+    },
+    {
+      "id": "opportunity",
+      "name": "Bounded wait and return",
+      "source": "src/main/java/agent/PickupOpportunity120.java",
+      "note": "docs/obsidian/128-pickup-waiting-and-return-cost.md"
+    },
+    {
+      "id": "control",
+      "name": "Ordinary controller input",
+      "source": "src/main/java/agent/GameInput.java",
+      "note": "docs/obsidian/128-pickup-waiting-and-return-cost.md"
+    },
+    {
+      "id": "runtime",
+      "name": "Original native simulation",
+      "source": "src/main/java/runtime/EmbeddedGameRuntime.java",
+      "note": "docs/obsidian/128-pickup-waiting-and-return-cost.md"
+    },
+    {
+      "id": "task",
+      "name": "Durable checked task",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/GameTask115.java",
+      "note": "docs/obsidian/128-pickup-waiting-and-return-cost.md"
+    },
+    {
+      "id": "verify",
+      "name": "Bounded receipt verifier",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/GameEvidence120.java",
+      "note": "docs/obsidian/128-pickup-waiting-and-return-cost.md"
+    },
+    {
+      "id": "proof",
+      "name": "Actual visible review",
+      "source": "workspace-desktop/test/game120-integration.cjs",
+      "note": "docs/obsidian/128-pickup-waiting-and-return-cost.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "docs/readmes/120/old-repair-regression.png",
+      "title": "old-repair-regression.png"
+    },
+    {
+      "path": "docs/readmes/120/challenge-controls.png",
+      "title": "challenge-controls.png"
+    },
+    {
+      "path": "docs/readmes/120/waiting-native.png",
+      "title": "waiting-native.png"
+    },
+    {
+      "path": "docs/readmes/120/waiting-live.png",
+      "title": "waiting-live.png"
+    },
+    {
+      "path": "docs/readmes/120/collected-native.png",
+      "title": "collected-native.png"
+    },
+    {
+      "path": "docs/readmes/120/collected-after-wait.png",
+      "title": "collected-after-wait.png"
+    },
+    {
+      "path": "docs/readmes/120/wait-completed.png",
+      "title": "wait-completed.png"
+    },
+    {
+      "path": "docs/readmes/120/turtle-completed.png",
+      "title": "turtle-completed.png"
+    },
+    {
+      "path": "docs/readmes/120/verified-waiting.png",
+      "title": "verified-waiting.png"
+    },
+    {
+      "path": "docs/readmes/120/declined-pickup.png",
+      "title": "declined-pickup.png"
+    },
+    {
+      "path": "docs/readmes/120/gap-refused.png",
+      "title": "gap-refused.png"
+    },
+    {
+      "path": "docs/readmes/120/challenge-1100.png",
+      "title": "challenge-1100.png"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/readmes/120/actual-ui.json"
+    },
+    {
+      "path": "docs/readmes/120/reference-hardware.json"
+    },
+    {
+      "path": "docs/readmes/120/reference-software.json"
+    },
+    {
+      "path": "docs/readmes/120/measurements.json"
+    },
+    {
+      "path": "docs/readmes/120/verification.json"
+    },
+    {
+      "path": "docs/readmes/120/original-evidence.json"
+    }
+  ]
+}

@@ -1,3 +1,11 @@
+## Progress through edition120 — 2026-11-11
+
+Two retained supported pickups are collected after bounded waiting and actual clearance. The unsupported gap stays refused. Seven development finishes/three pickups/zero damage and all54 older finishes preserved. [Edition120](../README-120.md) records six reserved hardware/software outcomes, complete costs, original unsuccessful returns and actual chat/restart evidence. [Contract](EDITION_120_CONTRACT.md).
+
+General AI Play and declared challenge tasks use opportunity120; old non-challenge tasks keep safe117. Nearby returns are implemented with continuous support and braking checks but useful collection remains unproven. No original physics or verification gate is removed. No neural training or new saved-procedure admission is claimed.
+
+Next121: enemy reversals, moving pickups, constrained platforms and useful return opportunities. Compare observation timing, safe finishes, optional collection and complete work on a newly reserved set. Then expand declared image components and procedure retirement/reactivation under the unchanged32 active slots. Historical roadmap entries below remain dated plans.
+
 ## Progress through edition119 — 2026-11-11
 
 Both retained118 failures are corrected through measured native contact/displacement and bounded input-only recovery. Temporary moving-threat deferrals can be reconsidered without false learning; passed enemies are not chased backward for a stomp. Six development finishes, all18 prior challenge finishes and all24 older finishes/pickups preserved. See [edition119](../README-119.md) for fresh reserved hardware/software comparisons, pickup tradeoffs, complete costs and counterexamples.

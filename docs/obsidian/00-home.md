@@ -1,3 +1,5 @@
+Current: [[docs/obsidian/128-pickup-waiting-and-return-cost.md]] · [[README-120.md]]
+
 Current: [[docs/obsidian/127-contact-recovery-and-reconsideration.md]] · [[README-119.md]]
 
 Current: [[docs/obsidian/126-risk-aware-game-control.md]] · [[README-118.md]]

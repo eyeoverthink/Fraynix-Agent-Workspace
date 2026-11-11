@@ -1,3 +1,5 @@
+[Edition120 — bounded pickup waiting and return cost](../../README-120.md) · [Offline guide](120/index.html)
+
 [Edition119 — contact recovery and pickup reconsideration](../../README-119.md) · [Offline guide](119/index.html)
 
 [Edition118 — enemies, obstacles and pickup decisions](../../README-118.md) · [Offline guide](118/index.html)
