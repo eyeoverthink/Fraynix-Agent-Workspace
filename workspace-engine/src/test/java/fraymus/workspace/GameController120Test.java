@@ -35,6 +35,7 @@ public class GameController120Test {
             if(Boolean.parseBoolean(System.getProperty("study120.requireWins","false")))for(Object raw:result.getJSONArray("cases"))for(Object value:((JSONObject)raw).getJSONArray("trials")){
                 var trial=(JSONObject)value;if(!trial.getString("policy").equals("opportunity120"))continue;
                 assertTrue("Recovery regression: "+((JSONObject)raw).getString("name"),trial.getBoolean("won"));assertEquals(0,trial.getJSONObject("final").getJSONObject("controller").getInt("damage"));
+                String name=((JSONObject)raw).getString("name");if(Set.of("retained-two-enemies","retained-turtle").contains(name))assertEquals(1,trial.getJSONObject("final").getJSONObject("controller").getInt("pickups"));if(name.equals("retained-gap-refusal"))assertEquals(0,trial.getJSONObject("final").getJSONObject("controller").getInt("pickups"));
             }
             assertTrue(result.getJSONArray("cases").length()>0);result.put("passed",true).put("scope","Native input-only trials; explicit requireWins gate for final development; reserved cases retain all outcomes.");
         }finally{Files.writeString(out.resolve("result.json"),result.toString(2));}

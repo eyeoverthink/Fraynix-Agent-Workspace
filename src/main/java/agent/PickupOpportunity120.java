@@ -39,8 +39,8 @@ public final class PickupOpportunity120 {
    else if(tick>=until){record(tick,revisiting,"return-ended","Return time budget exhausted");planner.declineForRun(goal(revisiting,reason));revisiting=null;}
    else {revisitTicks++;return goal(revisiting,"Return to a supported remembered pickup");}}
   if(normal.kind()!=PowerupPlanner.Kind.TRAVEL||revisitStarts>=3)return normal;
-  for(var o:scene.getGameObjects())if(eligible(o)&&(planner.remembered(o.getPersistentId(),tick)||waited.contains(o.getPersistentId()))&&!returned.contains(o.getPersistentId())&&(o.transform.position.x-player.transform.position.x)*Math.signum(destination-player.transform.position.x)<-.6f&&o.transform.position.y-player.transform.position.y>.25f&&o.transform.position.y-player.transform.position.y<1.6f&&returnSafe(scene,player,o)){
-   returned.add(o.getPersistentId());revisiting=o;until=tick+240;revisitStarts++;record(tick,o,"return-started","Nearby remembered pickup has continuous observed support and clear route");return goal(o,reason);
+  for(var o:scene.getGameObjects())if(eligible(o)&&planner.remembered(o.getPersistentId(),tick)&&!returned.contains(o.getPersistentId())&&(o.transform.position.x-player.transform.position.x)*Math.signum(destination-player.transform.position.x)<-.6f&&o.transform.position.y-player.transform.position.y>.25f&&o.transform.position.y-player.transform.position.y<1.6f&&returnSafe(scene,player,o)){
+   returned.add(o.getPersistentId());revisiting=o;until=tick+240;revisitStarts++;plannedTicks=0;record(tick,o,"return-started","Nearby remembered pickup has continuous observed support and clear route");return goal(o,reason);
   }
   return normal;
  }

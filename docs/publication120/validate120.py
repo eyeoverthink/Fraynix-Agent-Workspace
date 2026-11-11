@@ -2,6 +2,7 @@ from pathlib import Path
 import os,subprocess,shutil,json,time,sys
 r=Path.cwd();v=r/'build/validation120';v.mkdir(parents=True,exist_ok=True);env=os.environ.copy();env['JAVA_HOME']='C:/Program Files/Eclipse Adoptium/jdk-21.0.10.7-hotspot';env.pop('GALLIUM_DRIVER',None)
 def run(name,args,opts=''):
+ suffix='-final' if len(sys.argv)>2 and sys.argv[2]=='final' else '';name+=suffix;opts=opts.replace(' -Dstudy120.requireWins',suffix+' -Dstudy120.requireWins') if sys.argv[1]=='development' else opts+suffix if suffix else opts
  env['JAVA_TOOL_OPTIONS']=opts;start=time.time()
  with (r/'build'/f'{name}.log').open('wb') as f:p=subprocess.run(['cmd','/c','gradlew.bat',*args,'--console=plain','--max-workers=2'],env=env,stdout=f,stderr=subprocess.STDOUT)
  for prefix in (['','workspace-engine/'] if ':test' in args else ['workspace-engine/']):
