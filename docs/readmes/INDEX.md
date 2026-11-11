@@ -1,3 +1,5 @@
+[Edition118 — enemies, obstacles and pickup decisions](../../README-118.md) · [Offline guide](118/index.html)
+
 [Edition117 — wider-gap control and safe collection](../../README-117.md) · [Offline guide](117/index.html)
 
 [Edition116 — measured control and fresh reference images](../../README-116.md) · [Offline guide](116/index.html)

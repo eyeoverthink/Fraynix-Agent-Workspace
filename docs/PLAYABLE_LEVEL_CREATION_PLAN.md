@@ -1,3 +1,11 @@
+## Progress through edition118 — 2026-11-11
+
+Declared enemies and obstacles now use original source components and normal inputs in the integrated Game Lab. Optional pickup decisions read actual support, clearance, obstruction and enemy motion; skipped opportunities do not become false failed-learning events. Development12/12 finishes versus9/12 prior policy, with five pickups/seven declined/zero damage; original24 regressions retain finishes and collection. See [edition118](../README-118.md) for separately reserved hardware/software results, actual costs and counterexamples.
+
+One existing Java chat task constructs challenges, retains the fresh simple comparison, requires AI finish, survives interruption in a fresh trial, and reports verified reasons. Old measured-gap repairs remain for old recipes; challenge terrain repairs are refused. Original source/outcome gates remain. [Contract](EDITION_118_CONTRACT.md).
+
+Next119: use contact/displacement observations for the retained seed8 gap-to-step stall. Compare bounded recovery inputs on fresh reserved cases; do not rewrite this failure. Then reconsider deferred opportunities after threats pass, with capped retries and measured benefit. Then broaden multiple-enemy/obstacle/height scenarios and already-wedged recovery. Broader explicit image-component support needs independent images, unknown-region review and refusal measurements. Reusable level procedures still require retirement/reactivation and fresh qualification before unchanged32-slot admission. The historical roadmap below remains planning, not a claim that every step is delivered.
+
 ## Progress through edition117 — 2026-11-11
 
 The wider seed15 failure is corrected at its approach: bounded observed-item interception defers the optional chase jump while preserving the existing gap-safety jump. The original stalled contact/displacement trace remains. No physics, transform, collider or finish rule changed; generic escape from an already-wedged character is a separate future task.

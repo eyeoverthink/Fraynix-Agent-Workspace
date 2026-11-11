@@ -1,0 +1,113 @@
+{
+  "nodes": [
+    {
+      "id": "construct",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/GameChallenge118.java",
+      "x": 0,
+      "y": 0,
+      "width": 390,
+      "height": 190
+    },
+    {
+      "id": "observe",
+      "type": "file",
+      "file": "src/main/java/agent/PickupObserver118.java",
+      "x": 430,
+      "y": 0,
+      "width": 390,
+      "height": 190
+    },
+    {
+      "id": "decide",
+      "type": "file",
+      "file": "src/main/java/agent/PickupSafety118.java",
+      "x": 860,
+      "y": 0,
+      "width": 390,
+      "height": 190
+    },
+    {
+      "id": "control",
+      "type": "file",
+      "file": "src/main/java/agent/GameInput.java",
+      "x": 0,
+      "y": 250,
+      "width": 390,
+      "height": 190
+    },
+    {
+      "id": "runtime",
+      "type": "file",
+      "file": "src/main/java/runtime/EmbeddedGameRuntime.java",
+      "x": 430,
+      "y": 250,
+      "width": 390,
+      "height": 190
+    },
+    {
+      "id": "task",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/GameTask115.java",
+      "x": 860,
+      "y": 250,
+      "width": 390,
+      "height": 190
+    },
+    {
+      "id": "chat",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/GameSummary118.java",
+      "x": 0,
+      "y": 500,
+      "width": 390,
+      "height": 190
+    },
+    {
+      "id": "proof",
+      "type": "file",
+      "file": "workspace-desktop/test/game118-integration.cjs",
+      "x": 430,
+      "y": 500,
+      "width": 390,
+      "height": 190
+    }
+  ],
+  "edges": [
+    {
+      "id": "0",
+      "fromNode": "construct",
+      "toNode": "observe"
+    },
+    {
+      "id": "1",
+      "fromNode": "observe",
+      "toNode": "decide"
+    },
+    {
+      "id": "2",
+      "fromNode": "decide",
+      "toNode": "control"
+    },
+    {
+      "id": "3",
+      "fromNode": "control",
+      "toNode": "runtime"
+    },
+    {
+      "id": "4",
+      "fromNode": "runtime",
+      "toNode": "task"
+    },
+    {
+      "id": "5",
+      "fromNode": "task",
+      "toNode": "chat"
+    },
+    {
+      "id": "6",
+      "fromNode": "chat",
+      "toNode": "proof"
+    }
+  ]
+}

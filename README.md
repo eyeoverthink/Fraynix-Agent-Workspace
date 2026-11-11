@@ -1,181 +1,177 @@
-# Fraynix Agent Workspace — edition 117
+# Fraynix Agent Workspace — edition 118
 
-[Published and fetched verification receipt](docs/PUBLICATION_117.json) · [Release tag](https://github.com/eyeoverthink/Fraynix-Agent-Workspace/tree/readme-117)
+## Enemies, obstacles, and knowing when to pass up a pickup
 
-## Collect the mushroom. Cross the gap. Verify both.
+The Game Lab now constructs declared challenges using the original Goomba, Turtle, terrain and power-up components. The owned Java controller examines ground support, clearance, an obstructed approach and nearby enemy motion before pursuing an optional pickup. It uses ordinary direction and jump inputs; original physics still decides contact, damage and completion.
 
-Edition117 fixes the wider-gap failure retained in [edition116](README-116.md) by changing the approach to a falling power-up. Owned Java control estimates a short intercept, defers the optional chase jump while the mushroom descends, then uses the existing edge and landing checks to continue. Original physics and actual collision outcomes remain the authority.
+**Development comparison: risk118 finishes 12/12, safe117 finishes 9/12, simple gap-aware control finishes 2/12.** The new controller collects five power-ups, declines seven optional targets and records zero damage events on these twelve courses. The previous controller collects seven and records zero damage, but fails three courses. These are measured tradeoffs, not a universal safety claim. The original twenty-four courses still require all finishes, twenty-four pickups and zero damage. **The reserved result is worse for risk118 (4/6 versus 5/6); it is therefore not promoted as the general AI Play default.** General play and existing tasks retain safe117. Explicit challenge tasks use risk118, retain every failure, and require a real AI finish before completion.
 
-**24/24 declared hardware layouts finish, with 24 power-ups collected and 0 damage events.** This includes all twelve previous regression layouts, six wider development layouts and six layouts reserved until the controller was fixed. The previous landing116 policy's result on exactly these layouts is 22/24, with 5 pickups. These are controlled two-gap courses with one intended mushroom; zero damage here does not establish safety among enemies.
+[Previous edition117](README-117.md) · [Full phased plan](docs/PLAYABLE_LEVEL_CREATION_PLAN.md) · [Declared contract](docs/EDITION_118_CONTRACT.md) · [Offline interactive guide](docs/readmes/118/index.html) · [Validation](docs/readmes/118/verification.json)
 
-[Previous edition116](README-116.md) · [Full phased plan](docs/PLAYABLE_LEVEL_CREATION_PLAN.md) · [Declared acceptance contract](docs/EDITION_117_CONTRACT.md) · [Offline interactive guide](docs/readmes/117/index.html) · [Validation](docs/readmes/117/verification.json)
+![Actual challenge completion in the integrated app](docs/readmes/118/enemy-completed.png)
 
-![Actual app after a verified repair and power-up collection](docs/readmes/117/chat-level-completed.png)
+## Use it in the existing app
 
-## What you can do
+1. Open **Game Lab → Create a level from the original components**.
+2. Choose **Enemy and steps**, **Cramped power-up**, or **Pickup above a gap**.
+3. Click **Prepare challenge request**, then **Start task** in chat.
+4. Java constructs a separate candidate, runs a fresh simple-controller comparison, then runs the AI in another fresh session.
+5. A challenge completes only when the AI actually reaches the flag. A simple-controller failure stays visible. Challenge geometry is not repaired to manufacture a successful result.
+6. Read the summary for pickups, damage, and reasons for declining optional targets. Open **Level task history → Recheck evidence** to verify the retained trials and original images.
+7. If interrupted, use **Mission → Resume**. Completed trials remain; the unfinished simulation restarts from its checked initial state in a new native session. The final review level opens at tick zero, separately from its recorded finish.
 
-1. Ask chat to construct and playtest a supported Mario level. Java creates separate candidates from the original component definitions.
-2. Watch the integrated Game Lab. Simple control tests first; game AI runs in a separate fresh session. Chat now reports the AI's verified pickups and damage alongside its finish result.
-3. Allow at most two repairs to observed gap failures. Failed candidates, inputs and outcomes remain inspectable.
-4. Resume an interrupted request from **Mission → Resume**. Java checks the original evidence and restarts the unfinished trial in a new native session.
-5. Import a supported reference PNG, inspect its component outlines, and prepare a reconstruction request. The separate new candidate must undergo actual playtesting.
-6. Inspect **Level task history**, **Recheck evidence** and **Open verified result**. The review level reopens at its beginning; completed trials remain separate evidence.
-
-Try the previously failing course:
-
-```text
-Create a playable Mario level seed=15 gapTiles=5.
-```
-
-Or request a deliberately difficult gap with a repair allowance:
+Example requests:
 
 ```text
-Create a playable Mario level gapTiles=10 repairLimit=2; construct, playtest and repair it.
+Create a playable Mario level goombaTile=26 obstacleTile=24 obstacleHeight=2 repairLimit=0.
+Create a playable Mario level pickupTile=12 obstacleTile=12 obstacleHeight=2.
+Create a playable Mario level pickupTile=17 goombaTile=27 obstacleTile=24 obstacleHeight=2.
 ```
 
-Supported fields remain `seed=0..9999`, `lengthTiles=48..72`, `gapTiles=1..10`, `secondGapTiles=1..10`, and `repairLimit=0..2`. `without repairs` disables repair. This is a bounded two-gap construction recipe, not unrestricted level design. Image requests cannot also override inferred geometry.
+The presets prepare real requests; they do not replace playtesting with scripted outcomes. A request that merely asks for unspecified enemies is refused with the supported fields and examples, rather than silently omitting them.
 
-For reconstruction, save the [actual native reference](docs/readmes/117/actual-reference.png). In **Create a level**, choose that PNG, **Analyze reference**, inspect the outlines, then **Prepare reconstruction request → Start task**. Appearance identifies a supported component; its original code supplies behavior. The image alone is not a physics proof.
+![Actual challenge controls](docs/readmes/118/challenge-controls.png)
 
-## Run the current app
+### Construction fields and limits
 
-Use Java 21 and Node.js. Existing rendering, physics and desktop dependencies remain. New pursuit, diagnostics and orchestration logic are owned Java.
+| Field | Accepted values / meaning |
+| --- | --- |
+| `seed` | 0–9999; controls the original two gap positions |
+| `lengthTiles` | 48–72 |
+| `gapTiles`, `secondGapTiles` | 1–10; one tile is 0.25 original world units |
+| `goombaTile`, `turtleTile` | 0 disables; otherwise 6 through length minus 8; original floor required |
+| `obstacleTile`, `obstacleHeight` | Both zero, or a supported tile with height 1–3 original terrain cells |
+| `pickupTile` | 0 preserves the original position; otherwise a declared tile. The original block height remains 1.375 |
+| `repairLimit` | Challenge requests require 0. Existing non-challenge requests retain their 0–2 measured-gap repair allowance |
+
+Initial enemy and obstacle bodies cannot overlap or start over a gap. The optional block may deliberately sit over a gap to test refusal. Candidates preserve original component behavior, assets and identity lineage. Every launch reconstructs and compares the declared scene. Manually changing a candidate and updating its hash still fails reconstruction verification.
+
+Existing known-sprite PNG reconstruction remains available. This edition does **not** add image recognition for enemies, arbitrary pictures or new components. Reference-derived geometry cannot be combined with manual challenge fields. Unsupported images remain refused.
+
+## Run the app
+
+Use Java 21 and Node.js with the repository's existing dependencies:
 
 ```powershell
 .\gradlew.bat prepareGameRuntime115 :workspace-engine:installDist
 .\scripts\Start-Agent-Workspace.ps1
 ```
 
-Stop this installation's Java owner before replacing its files. Closing the desktop does not necessarily stop Java. Choose the intended project explicitly; do not silently point a new checkout at a private active database. Current isolated tests preserve the user's original projects and private Java owners.
+Use a separate saved project for evaluation. Preserve the existing private project and its Java owner when switching installations. The older `prepareGameRuntime115` task name prepares the current native game runtime and assets. It avoids recopying the entire historical documentation archive for each test.
 
-The historical `prepareGameRuntime115` name prepares current game code/assets without copying the documentation archive for every test. Full distribution packaging retains that history. New controller bytes change the engine identity: old trials remain old evidence and must not be relabelled as current outcomes.
+New logic in this edition is owned Java. The project still uses its established JBox2D, LWJGL/OpenGL and desktop dependencies; this is not a claim of a dependency-free engine. No new model download, paid API or neural training is needed for these Java-routed tasks.
 
-## What caused the stall
+## What changed in the controller
 
-The retained seed15 course has a five-tile first gap. With landing116, the player starts jumping toward a falling mushroom around tick144. At tick156 the player is ascending near y1.239 while the mushroom has fallen to about y0.645. The player passes above it, approaches the gap without sufficient momentum, and catches the far corner around x5.142/y0.539.
+The first risk prototype declined unsafe approaches but jumped too early when an approaching enemy was still distant. It fixed the obstructed pickups and regressed two previously successful encounters. Those trials are retained. The second prototype finished all twelve courses but took damage once.
 
-The original 25-second no-progress stop remains in the archived baseline. Read-only contacts show an upward contact and a diagonal side contact on the same ground object. The grounding ray does not report supported standing. Reported body velocity continues to change even when position does not: the player controller writes requested velocity after the physics step. **Before/after displacement, contact normals and the requested velocity must be distinguished.** The new trace preserves all three.
+The final controller times small-player enemy jumps using observed separation and relative closing speed, bounded to a 0.7–1.7-unit trigger distance. Powered-up players retain the existing behavior because their collision dimensions differ. Nearby threats are observed from actual native bodies, not inferred from a name in the prompt. Original enemy activation remains camera-dependent. Four reserved trial/enemy records show no movement of the distant turtle before the player dies; those are retained as stationary observations, not counted as moving enemies. Each enemy trial still contains an actually moving enemy.
 
-The new policy has collected the mushroom and begun an edge crossing by tick144. It defers an optional chase jump; it does not suppress the safety jump at an edge.
+Before an optional pursuit, ground rays and enemy observations check:
 
-![Measured native player and item positions on the wider-gap course](docs/readmes/117/controller-motion.png)
+- Is there observed terrain below the approach?
+- Is there enough clearance below the block?
+- Does a structural obstacle block the approach?
+- Does an enemy's bounded 0.75-second motion projection intersect it?
 
-The plot uses original observations every 12 ticks at 60 ticks/second; this is simulation time, not wall-clock performance. The first panel shows the initial 8 seconds; the retained old-policy trial remains stalled through 36 seconds.
+A declined opportunity is skipped for the current run. A separate bookkeeping check prevents an unrelated later item failure from being attributed to that declined block. It is **not** entered into persistent motor-failure learning. At most four candidates are assessed per tick; an unassessed candidate is not pursued when that budget is exhausted. At most sixteen decision details are retained, while the total counter remains explicit. The original edge, landing, collision, timeout and control-budget checks continue.
 
-The fix prevents this failed approach; it does not claim to free every already-wedged character. Source geometry, gravity, collider dimensions, transforms and finish criteria are unchanged.
+![Actual native gameplay with an enemy](docs/readmes/118/enemy-native.png)
 
-![Live actual powered-up player during the new controller trial](docs/readmes/117/collect-powerup.png)
+This is a conservative controller for declared game geometry. A ray or forecast can justify caution; only the real simulation can establish a finish. It does not prove general intelligence, real-world safety or a learned policy improvement. Requested body velocity can differ from actual displacement; contact normals and positions remain available in the traces.
 
-## Owned Java control and evidence
+## Architecture and verification
 
 ```mermaid
 flowchart LR
-    O[Observe player and item motion] --> I[Bounded item intercept]
-    I --> J[Defer optional jump while mushroom falls]
-    J --> E[Existing edge and landing checks]
-    E --> A[Ordinary direction and jump input]
-    A --> P[Original native physics]
+    C[Chat request] --> J[Java durable task]
+    J --> B[Source-verified challenge construction]
+    B --> S[Fresh simple comparison]
+    S --> A[Fresh risk-aware AI trial]
+    A --> O[Observe support, clearance and enemy motion]
+    O --> I[Direction and jump inputs]
+    I --> P[Original native physics]
     P --> O
-    P --> V[Actual pickup damage and finish]
-    V --> T[Durable trace and verified chat summary]
+    P --> V[Verify actual finish and original evidence]
+    V --> R[Chat summary and separate review state]
 ```
 
-`Pursuit117` projects the observed item's horizontal velocity for 0.2 seconds, capped to ±0.25 world units. For a mushroom descending faster than 0.1 units/second, it defers the optional collection jump. Flowers and non-descending objects keep the existing jump conditions. Inputs must be finite. The existing recovery, edge-crossing commitment and bounded landing forecast still apply; an unsafe chase may be abandoned.
-
-`safe117` is the new default AI policy. Explicit `legacy115` and `landing116` remain comparison options. A policy cannot change midway through a bounded trial. The old boolean entry point retains its original policy mapping. There is no teleport, synthetic pickup or forced finish.
-
-`GameContact117` adds read-only native positions and up to 32 contact edges, including normal direction, point count and other-object identity. It does not modify collisions. Observations also expose pursuit target/reason, item position/velocity, landing checks, collection waiting ticks and actual collision counters. Chat derives collection/damage counts from the verified final AI trial, alongside its original trace hash and source checks.
-
-## Declared comparison and costs
-
-| Partition | Controller | Finish contact | Pickups | Damage events | Median complete trial |
-| --- | --- | ---: | ---: | ---: | ---: |
-| regression | simple | 12/12 | n/a | n/a | 2.590 s |
-| regression | legacy115 | 5/12 | 7 | 0 | 2.822 s |
-| regression | landing116 | 12/12 | 2 | 0 | 3.367 s |
-| regression | safe117 | 12/12 | 12 | 0 | 3.088 s |
-| wider | simple | 6/6 | n/a | n/a | 2.502 s |
-| wider | legacy115 | 3/6 | 1 | 0 | 2.817 s |
-| wider | landing116 | 5/6 | 1 | 0 | 3.103 s |
-| wider | safe117 | 6/6 | 6 | 0 | 2.872 s |
-| reserved | simple | 6/6 | n/a | n/a | 2.662 s |
-| reserved | legacy115 | 3/6 | 3 | 0 | 2.481 s |
-| reserved | landing116 | 5/6 | 2 | 0 | 3.230 s |
-| reserved | safe117 | 6/6 | 6 | 0 | 2.942 s |
-| software-reserved | simple | 6/6 | n/a | n/a | 2.725 s |
-| software-reserved | legacy115 | 3/6 | 3 | 0 | 2.535 s |
-| software-reserved | landing116 | 5/6 | 2 | 0 | 3.318 s |
-| software-reserved | safe117 | 6/6 | 6 | 0 | 3.219 s |
-
-All cases and acceptance gates were declared before controller results. The twelve edition116 regressions retain seeds 0,1,4,8,11,17,2,5,6,10,13,16. Wider development uses 15,9,20,23,27,30. Reserved wider uses 22,26,29,31,35,38. Lengths 48–72 and gap widths up to 6 are independently varied; exact tuples are in the contract and raw results. Each policy starts a fresh native session. The simple baseline knows the declared gap positions; it is a lower-cost comparator, not general visual reasoning.
-
-Pickup/damage counters cover automatic AI policies. Simple control has no corresponding event counters, so its cells are marked n/a; its final player remains small in every case. Its actual finish, death, position and timing are still observed.
-
-The software-renderer run repeats the six reserved layouts. Those are the same geometries on another renderer, not six more unfamiliar cases. Every trial retains before/input/after observations, contacts, final outcomes and PNGs. Complete trial time includes launch/reset, input chunks and the final observation, excluding subsequent archive writing. One run per case/policy is not a repeated latency benchmark. [Exact measurements](docs/readmes/117/measurements.json).
-
-The original failing baseline, first successful probes, development runs and final results are retained separately. A test-invalidation defect was also caught: Gradle initially reused an older native test result after game code changed. Test inputs now include the root game JAR, runtime dependencies, assets, level sources and study selection properties. The skipped run and subsequent actual rerun both remain; a missing new output was never accepted as a new success.
-
-## Reference reconstruction and durable chat
-
-The six existing reference cases are regenerated in fresh native sessions on each renderer. They retain declared sky crops, horizontal shifts and nearest-neighbor scales. Recognized geometry must equal the independent source candidate. Each image creates a distinct candidate, and both simple control and safe117 now must finish all six. Pickup and damage assertions strengthen that gate. Missing finish, incomplete floor, covered player and blank images must still refuse. Original changed-source and unknown-foreground refusals remain.
-
-![Actual imported reference with component outlines](docs/readmes/117/reference-analysis.png)
-
-These are known original sprites and the supported two-gap layout. They do not establish arbitrary web-image recognition, hidden geometry or general game understanding. [Hardware evidence](docs/readmes/117/reference-hardware.json) · [Software evidence](docs/readmes/117/reference-software.json).
-
-The installed app was exercised through four visible chat requests:
-
-| Actual request | Complete elapsed | Simple control | Safe117 | Repairs |
-| --- | ---: | --- | --- | ---: |
-| Two observed gap repairs | 63.804 s | won | won | 2 |
-| Wider gap with abrupt restart | 43.375 s | won | won | 0 |
-| Repairs disabled | 10.117 s | failed | not run | 0 |
-| Image reconstruction | 41.767 s | won | won | 0 |
-
-The wider-gap request includes an abrupt termination of its own Java owner, reopening the same isolated test project, and visible explicit resume. Its partial trial remains and the new session differs. The no-repair failure is retained and cancelled after the expected refusal; it is not a completion. Whole-request costs include orchestration, checking, persistence, recovery and capture overhead. [Exact UI record](docs/readmes/117/actual-ui.json).
-
-![Recovered wider-gap request and review state](docs/readmes/117/recovered-level.png)
-
-## Validation and CI status
-
-**144 distinct Java methods, 165 desktop checks, four visible requests and the desktop/mobile offline guide pass locally.** Root checks, relevant Java owners/routing, constructor, image refusals, source/outcome checks, repairs, restart, shaders and actual native cohorts are included. The app is captured at 1600 and 1100 pixels; guide widths 1440/390 are a documentation check, not phone-app support.
-
-CI was checked before work: edition116 main [run43056641370](https://github.com/eyeoverthink/Fraynix-Agent-Workspace/actions/runs/43056641370) was still running. Setup, software renderer and documentation had passed; compile/test/package was pending. Local software verification reuses the checksum-verified Mesa26.2.5 package in a private Java installation, leaving system Java unchanged. Current remote CI status is reported separately in the publication receipt. Local success is not remote CI success.
-
-Run serially from the root:
-
-```powershell
-.\gradlew.bat :test :workspace-engine:test --tests 'fraymus.workspace.Game*Test' --console=plain --max-workers=2
-npm --prefix workspace-desktop test
-```
-
-`GameController117Test` accepts JVM property `study117.partition=regression|wider|reserved|probe`; select a fresh `study117.output` directory to preserve earlier outputs. `reference116.output` remains the property for the strengthened six-image test. The [actual UI recorder](workspace-desktop/test/game117-integration.cjs) requires a current build receipt, a fresh output directory and the declared local model catalog option. These supported requests make **zero model calls**. Catalog availability is not inference or training evidence.
-
-## Boundaries and source map
-
-The original 1248-object scene remains unchanged; root `level.txt` is still a small example. Existing 24 chat slots, 24 level-task records, 32 candidates, three explicit resumes and 32 active procedures remain. Level-task records do not automatically enter the reusable skill bank. Data imports are not executable tools.
+The new challenge gate requires a completed simple comparison **and an AI finish** without repairs. Existing recipes keep their original gate: a simple-controller finish plus a bounded AI comparison. Neither gate is replaced by a predicted success. Engine implementation, source scene, asset, candidate, session, input sequence, player identity, tick budget, repair lineage, final contact and image-hash checks remain. Old runtime proofs are refused when their engine identity changes.
 
 ```text
-src/main/java/agent/Pursuit117.java               bounded item intercept
-src/main/java/agent/GameContact117.java           read-only contact diagnostics
-src/main/java/agent/GameInput.java                owned control and retained baselines
-src/main/java/agent/LandingGuard116.java          existing bounded landing model
-src/main/java/runtime/EmbeddedGameRuntime.java    native state and ordinary inputs
-workspace-engine/src/main/java/fraymus/workspace/GameTask115.java  checked outcomes
-workspace-engine/src/main/java/fraymus/workspace/Domain044.java    chat summary
-workspace-engine/src/test/java/                  declared native and refusal checks
-workspace-desktop/test/game117-integration.cjs    actual app/recovery/screenshots
-docs/readmes/117/                                evidence, guide and original archive
-docs/publication117/                             reproducible publication checks
+src/main/java/agent/
+  GameInput.java             normal input controller and bounded decision log
+  PickupObserver118.java    read-only native rays and moving enemy bodies
+  PickupSafety118.java      support, clearance, obstruction and threat decisions
+  EnemyApproach118.java     small-player jump timing
+  GameThreat118.java        bounded native enemy observations
+workspace-engine/src/main/java/fraymus/workspace/
+  GameChallenge118.java     declared source-component construction
+  GameTask115.java          durable ownership, recovery and completion gates
+  GameSummary118.java       concise reports from verified outcomes
+workspace-desktop/renderer/brain-game.js
+  existing integrated Game Lab, challenge presets and visible decisions
 ```
 
-Java continues to own tasks, world state, controls, checks and retained memory. The desktop presents chat, browser, canvas and game surfaces. This release improves a measured action-selection failure inside that system. It is hand-written control informed by observed outcomes, not a newly trained LLM or evidence of unrestricted self-improvement.
+See the complete [source inventory](docs/readmes/118/file-inventory.json), [system map](docs/readmes/118/system-map.json), and [Obsidian map](docs/obsidian/126-risk-aware-game-control.md).
 
-## Next phases
+## Measurements, including limitations
 
-1. **Obstacle and enemy variation:** declare unreachable and risky pickups, alternate heights and enemy placements. Compare survival, collection and completion against simple control; test when the agent should decline a pickup. Investigate escape from an already-wedged state separately from prevention.
-2. **Broader image components:** add explicitly supported sprites/layouts, independent images, unknown-region review and measured false accepts/refusals. Preserve actual playtesting.
-3. **Procedure lifecycle:** retire/reactivate with original provenance before admission under the unchanged 32 active slots. Qualify game procedures before reuse and keep old runtime proofs distinct.
-4. **Shared world experiments:** carry the observe/predict/act/check/retain pattern into supported 3D components and calibrated observations, preserving units, uncertainty and physical outcomes.
+The twelve development and six reserved challenge layouts were declared before tuning. The policy was fixed before the reserved layouts ran. Reserved software rendering repeats those same six layouts; it is a portability check, not six additional unfamiliar cases. The previous twenty-four layouts are regressions, not new development cases.
 
-[Original evidence](docs/readmes/117/original-evidence.json) · [Project memory](docs/PROJECT_MEMORY.md) · [Development log](docs/DEVELOPMENT_LOG.md) · [Obsidian map](docs/obsidian/125-safe-game-pursuit.md) · [All editions](docs/readmes/INDEX.md)
+| Partition | Controller | Finishes | Pickups | Damage | Deaths | Falls below course | Declined | Median trial time |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| development | risk118 | 12/12 | 5 | 0 | 0 | 0 | 7 | 2.953 s |
+| development | safe117 | 9/12 | 7 | 0 | 1 | 0 | 0 | 3.057 s |
+| development | simple | 2/12 | n/a | n/a | 4 | 0 | n/a | 5.405 s |
+| reserved | risk118 | 4/6 | 2 | 0 | 1 | 0 | 4 | 3.402 s |
+| reserved | safe117 | 5/6 | 4 | 0 | 0 | 0 | 0 | 3.394 s |
+| reserved | simple | 0/6 | n/a | n/a | 3 | 0 | n/a | 5.006 s |
+| software-reserved | risk118 | 4/6 | 2 | 0 | 1 | 0 | 4 | 3.407 s |
+| software-reserved | safe117 | 5/6 | 4 | 0 | 0 | 0 | 0 | 3.538 s |
+| software-reserved | simple | 0/6 | n/a | n/a | 3 | 0 | n/a | 4.974 s |
+| old-regression | risk118 | 12/12 | 12 | 0 | 0 | 0 | 0 | 3.037 s |
+| old-regression | safe117 | 12/12 | 12 | 0 | 0 | 0 | 0 | 3.136 s |
+| old-wider | risk118 | 6/6 | 6 | 0 | 0 | 0 | 0 | 2.989 s |
+| old-wider | safe117 | 6/6 | 6 | 0 | 0 | 0 | 0 | 3.044 s |
+| old-reserved | risk118 | 6/6 | 6 | 0 | 0 | 0 | 0 | 3.309 s |
+| old-reserved | safe117 | 6/6 | 6 | 0 | 0 | 0 | 0 | 3.145 s |
+
+Reserved hardware: risk118 finishes 4/6 with 0 damage events and 1 death; safe117 finishes 5/6. Software repeat: risk118 4/6 with 0 damage events. Retained new-controller failures: reserved-step-enemy, reserved-two-enemies.
+
+Simple-control pickup and damage callbacks are not instrumented, so those values are **n/a**, rather than being reported as zero. Its actual death, fall and finish observations are still retained. AI collision counters come from the original callbacks. Trial time measures fresh native launch through the final observation, including communication and rendering. Decision time measures only the added risk checks. These single trials are scoped observations, not repeated performance benchmarks.
+
+Across twelve development trials, the added risk checks ran 687 times and used 37.492 ms total; complete risk118 trials had median 2.953 s. These are separate scopes and must not be treated as whole-app speedups.
+
+![Measured controller trajectories from retained observations](docs/readmes/118/controller-motion.png)
+
+Complete visible chat requests include construction, native trials, checks, saving and reopening:
+
+| Request | Wall time | Simple | AI | Repairs |
+| --- | --- | --- | --- | --- |
+| Existing two-gap repair | 64.358 s | won | won | 2 |
+| Enemy and steps | 121.216 s | failed | won | 0 |
+| Cramped pickup with abrupt restart | 119.843 s | failed | won | 0 |
+| Unfinishable challenge | 19.694 s | failed | failed | 0 |
+
+**154 distinct Java test methods and 165 desktop checks passed.** New checks cover invalid and overlapping placements, retained original component behavior, altered candidates, fresh-session recovery, refusal of an actual AI failure, and forged completion rejection. Prior source/asset/image/action checks remain. Six transformed known-sprite references and four unsupported references are tested per renderer. An actual desktop process interruption, visible Resume, task-history decisions and 1100-pixel app view are retained. The offline guide is checked at 1440 and 390 pixels.
+
+![Original decisions and checked outcomes in task history](docs/readmes/118/verified-decisions.png)
+
+[Validation](docs/readmes/118/verification.json) · [Measurements](docs/readmes/118/measurements.json) · [Actual UI records](docs/readmes/118/actual-ui.json) · [Exact original evidence](docs/readmes/118/original-evidence.json)
+
+The first desktop walkthrough completed its tasks but exposed a blank live view after restart: it tried to open a runtime before the task owner was ready. The view now waits and attaches through read-only state/frame calls. The complete walkthrough was repeated with an assertion for a decoded visible frame and the actual skip reason. Ownership checks were not relaxed. [Original display gap](docs/readmes/118/first-recovery-display-gap.png).
+
+The original baseline, both prototypes, failed test-import compilation, final measurements and native trial files are archived with compressed and raw SHA-256 hashes. Private projects, credentials, model weights and Java/Mesa binaries are excluded. CI was checked first; the prior edition's jobs were still running. Local checks and fetched publication do not establish remote CI success; the publication receipt reports it separately.
+
+## Expectations and next steps
+
+This advances the unified local agent by connecting observations, optional goals, actions, physical outcomes, explanations and durable recovery inside the existing app. It broadens one bounded game task, while leaving the world model, browser, canvas, data workflows, persistent memory and Java coordination intact.
+
+1. **Next119: recover the measured gap-to-step stall.** Reserved seed8 reaches an obstacle around X5.885/Y0.870 after a four-tile gap and stops making progress. Both controllers fail. The separate reserved seed23 two-enemy course kills the new controller after it declines a pickup, while safe117 finishes. Investigate that regression as well. Use contact normals and actual displacement to detect the lodged state, then test bounded back-off/jump alternatives without changing geometry. Keep these results frozen; use new reserved cases for the next change.
+2. **Fresh observations and broader challenge coverage.** Reconsider a deferred pickup only after a moving threat leaves, with a retry budget and measured benefit over permanent skipping. Vary enemy motion, multiple obstacles, high/low passages and conflicting safe landing options. Hold out cases and measure collection, damage, failure and total work. Already-wedged recovery remains a distinct problem.
+3. **Explicit image components.** Add only declared enemy/obstacle visual support, unknown-region review and false-accept/refusal tests before claiming broader reconstruction.
+4. **Procedure lifecycle.** Preserve provenance while retiring/reactivating and qualifying reusable level procedures. No level procedure is admitted to the existing 32-slot bank by this release; the 24-task history and three-restart limits remain.
+5. **Cross-domain continuity.** Transfer verified procedure structure to manipulation and creation only after fresh source/outcome checks in those domains. The game result alone is not proof of real-world capability.
+
+The LLM can request and explain; Java owns execution and evidence. These four tested chat requests make zero model calls. This edition improves hand-written control; it does not silently claim model self-training, consciousness or universal playability.

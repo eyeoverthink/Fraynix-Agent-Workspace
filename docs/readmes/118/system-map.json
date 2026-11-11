@@ -1,0 +1,114 @@
+{
+  "modules": [
+    {
+      "id": "construct",
+      "name": "Verified enemy and obstacle construction",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/GameChallenge118.java",
+      "note": "docs/obsidian/126-risk-aware-game-control.md"
+    },
+    {
+      "id": "observe",
+      "name": "Native support and threat observations",
+      "source": "src/main/java/agent/PickupObserver118.java",
+      "note": "docs/obsidian/126-risk-aware-game-control.md"
+    },
+    {
+      "id": "decide",
+      "name": "Bounded optional pickup decisions",
+      "source": "src/main/java/agent/PickupSafety118.java",
+      "note": "docs/obsidian/126-risk-aware-game-control.md"
+    },
+    {
+      "id": "control",
+      "name": "Ordinary game input",
+      "source": "src/main/java/agent/GameInput.java",
+      "note": "docs/obsidian/126-risk-aware-game-control.md"
+    },
+    {
+      "id": "runtime",
+      "name": "Original native simulation",
+      "source": "src/main/java/runtime/EmbeddedGameRuntime.java",
+      "note": "docs/obsidian/126-risk-aware-game-control.md"
+    },
+    {
+      "id": "task",
+      "name": "Durable verified challenge task",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/GameTask115.java",
+      "note": "docs/obsidian/126-risk-aware-game-control.md"
+    },
+    {
+      "id": "chat",
+      "name": "Verified chat summary",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/GameSummary118.java",
+      "note": "docs/obsidian/126-risk-aware-game-control.md"
+    },
+    {
+      "id": "proof",
+      "name": "Actual app and restart",
+      "source": "workspace-desktop/test/game118-integration.cjs",
+      "note": "docs/obsidian/126-risk-aware-game-control.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "docs/readmes/118/enemy-completed.png",
+      "title": "enemy-completed.png"
+    },
+    {
+      "path": "docs/readmes/118/challenge-controls.png",
+      "title": "challenge-controls.png"
+    },
+    {
+      "path": "docs/readmes/118/enemy-play.png",
+      "title": "enemy-play.png"
+    },
+    {
+      "path": "docs/readmes/118/enemy-native.png",
+      "title": "enemy-native.png"
+    },
+    {
+      "path": "docs/readmes/118/declined-pickup.png",
+      "title": "declined-pickup.png"
+    },
+    {
+      "path": "docs/readmes/118/declined-native.png",
+      "title": "declined-native.png"
+    },
+    {
+      "path": "docs/readmes/118/recovered-challenge.png",
+      "title": "recovered-challenge.png"
+    },
+    {
+      "path": "docs/readmes/118/verified-decisions.png",
+      "title": "verified-decisions.png"
+    },
+    {
+      "path": "docs/readmes/118/old-repair-regression.png",
+      "title": "old-repair-regression.png"
+    },
+    {
+      "path": "docs/readmes/118/challenge-1100.png",
+      "title": "challenge-1100.png"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/readmes/118/actual-ui.json"
+    },
+    {
+      "path": "docs/readmes/118/reference-hardware.json"
+    },
+    {
+      "path": "docs/readmes/118/reference-software.json"
+    },
+    {
+      "path": "docs/readmes/118/measurements.json"
+    },
+    {
+      "path": "docs/readmes/118/verification.json"
+    },
+    {
+      "path": "docs/readmes/118/original-evidence.json"
+    }
+  ]
+}
