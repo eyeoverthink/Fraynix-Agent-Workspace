@@ -49,6 +49,7 @@ public class GameChallenge118Test {
             var levels=new GameLevels114(repo,project);var m=levels.create115(UUID.randomUUID().toString(),new JSONObject().put("goombaTile",24));levels.launch(game,m.getString("id"));var frame=game.command(new JSONObject().put("action","overview"));
             var refs=new GameReference115(repo,project);var ref=refs.importImage(new JSONObject().put("pngBase64",frame.getString("pngBase64")));Files.write(out.resolve("enemy-reference.png"),Base64.getDecoder().decode(frame.getString("pngBase64")));Files.writeString(out.resolve("result.json"),new JSONObject().put("project",project.toString()).put("reference",ref).toString(2));
             assertFalse("Unsupported enemy image must not be silently simplified",ref.getBoolean("accepted"));assertThrows(IllegalArgumentException.class,()->refs.verify(ref.getString("id")));
+            assertEquals("safe117",game.command(new JSONObject().put("action","ai-step").put("ticks",12).put("targetX",m.getDouble("finishX")+1)).getJSONObject("state").getJSONObject("controller").getString("policy"));
         }
     }
 }
