@@ -6,7 +6,7 @@ def read(p):return json.loads((r/p).read_text(encoding='utf8'))
 def write(p,v):p.parent.mkdir(parents=True,exist_ok=True);p.write_bytes((json.dumps(v,indent=2,ensure_ascii=False)+'\n').encode())
 def text(p,s):p.parent.mkdir(parents=True,exist_ok=True);p.write_bytes(s.encode())
 def sha(b):return hashlib.sha256(b).hexdigest()
-uiroot=r/'build/game120-ui-final';ui=read(uiroot/'result.json');assert ui['passed'] and all(ui[k] for k in ['waitFrame','collectionFrame','riskFrame']);scope=read('build/edition120-scope.json')
+uiroot=r/'build/game120-ui-reviewed';ui=read(uiroot/'result.json');assert ui['passed'] and all(ui[k] for k in ['waitFrame','collectionFrame','riskFrame']);scope=read('build/edition120-scope.json')
 paths={'development':'controller120-development-final','reserved':'controller120-reserved','software-reserved':'controller120-mesa-reserved','early-probes':'controller120-early-probes-final'}
 for group in ['old119-development','old119-reserved','old118-development','old118-reserved']:paths[group]='controller120-'+group+'-final'
 for group in ['regression','wider','reserved']:paths['old117-'+group]='controller117-120-'+group+'-final'
@@ -27,7 +27,7 @@ for folder in sorted((r/'build/validation120').iterdir()):
    if c.find('skipped') is None:checks.add(c.get('classname')+'.'+c.get('name'));total+=1
  if total:suites.append({'folder':folder.relative_to(r).as_posix(),'testMethods':total})
 assert len(checks)>164
-for n,count in [('desktop120.log',155),('desktop120-extra.log',10)]:
+for n,count in [('desktop120-final.log',158),('desktop120-extra.log',10)]:
  s=(r/'build'/n).read_text(encoding='utf8');assert f'tests {count}' in s and 'fail 0' in s
 metrics=[]
 for label,d in datasets.items():
@@ -39,7 +39,7 @@ old117=[m for m in old if m['partition'].startswith('old117')];assert sum(m['pic
 dev=next(m for m in metrics if m['partition']=='development' and m['policy']=='opportunity120');assert dev['wins']==7 and dev['pickups']==3 and dev['damage']==0
 refs={label:{'cases':len(d['cases']),'simpleWins':sum(c['task']['audit']['simpleControl']=='won' for c in d['cases']),'revisedWins':sum(c['task']['audit']['existingAI']=='won' for c in d['cases']),'refusals':len(d['refusals'])} for label,d in [('hardware',hardware),('software',software)]};assert all(v=={'cases':6,'simpleWins':6,'revisedWins':6,'refusals':4} for v in refs.values())
 write(out/'measurements.json',{'controllers':metrics,'scope':'Fresh native sessions; old groups are regressions; software repeats the six originally reserved cases. Opportunity cost and complete trial cost are separate, single-run measurements.'})
-v={'passed':True,'javaChecks':sorted(checks),'javaSuites':suites,'desktopChecks':165,'actualChatRequests':len(ui['requests']),'actualAbruptRecovery':True,'actualAiFailureRefused':True,'referenceControllerResults':refs,'referenceCases':{'freshNativeImagesPerRenderer':6,'freshRefusalsPerRenderer':4,'original115ReferenceRegression':True},'controllerCases':metrics,'policyScope':scope['defaultScope'],'modelCalls':sum(x['task']['timing052']['modelCalls'] for x in ui['requests']),'sourceCommit':ui['source'],'scope':'Bounded predicted waiting with fresh actual clearance checks and support-checked return admission. No useful return-collection proof, physics edits, arbitrary recognition, LLM training or procedure admission.'};assert len(ui['requests'])==5 and v['modelCalls']==0;write(out/'verification.json',v)
+v={'passed':True,'javaChecks':sorted(checks),'javaSuites':suites,'desktopChecks':168,'actualChatRequests':len(ui['requests']),'actualAbruptRecovery':True,'actualAiFailureRefused':True,'referenceControllerResults':refs,'referenceCases':{'freshNativeImagesPerRenderer':6,'freshRefusalsPerRenderer':4,'original115ReferenceRegression':True},'controllerCases':metrics,'policyScope':scope['defaultScope'],'modelCalls':sum(x['task']['timing052']['modelCalls'] for x in ui['requests']),'sourceCommit':ui['source'],'scope':'Bounded predicted waiting with fresh actual clearance checks and support-checked return admission. No useful return-collection proof, physics edits, arbitrary recognition, LLM training or procedure admission.'};assert len(ui['requests'])==5 and v['modelCalls']==0;write(out/'verification.json',v)
 
 originals=[]
 def preserve(p,logical):

@@ -9,7 +9,7 @@ async function main(){
  const save=()=>fs.writeFile(path.join(out,'result.json'),JSON.stringify(record,null,2));
  const api=(route,args={})=>app.evaluate((_,x)=>global.workspaceTest.api(x.route,x.args),{route,args});
  const request=(operation,command,args={})=>page.evaluate(x=>window.workspace.request(x),{operation,command,args});
- const shot=async name=>{await page.evaluate(()=>new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r))));await sleep(250);await fs.writeFile(path.join(out,name),Buffer.from(await app.evaluate(()=>global.workspaceTest.capture()),'base64'));};
+ const shot=async name=>{await page.evaluate(()=>new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r))));await sleep(250);assert(!(await page.locator('#notice').textContent()).includes('current action authority'),'Ownership transition should be explained as waiting');await fs.writeFile(path.join(out,name),Buffer.from(await app.evaluate(()=>global.workspaceTest.capture()),'base64'));};
  const capture=async name=>{
   await page.waitForFunction(()=>{const image=document.querySelector('#game-frame');return image.complete&&image.naturalWidth>0&&image.src.startsWith('data:image/png;base64,')&&document.querySelector('#game-status').textContent.includes('tick 0');},{},{timeout:15000});
   await shot(name);
@@ -44,7 +44,7 @@ async function main(){
   await run('Create a playable Mario level gapTiles=10 pickupTile=17 goombaTile=45.',{failed:true});
   await request('gameRuntime','open-level',{id:recovered.checked.audit.candidateId});await app.evaluate(({BrowserWindow})=>BrowserWindow.getAllWindows().find(w=>w.isVisible()).setSize(1100,1000));await sleep(250);await capture('challenge-1100.png');assert(await page.locator('#game-frame').isVisible());
   await page.locator('#game-ai').click();await sleep(250);record.manualPlay=await api('/api/game/frame');delete record.manualPlay.pngBase64;assert.equal(record.manualPlay.state.controller.policy,'opportunity120');await page.locator('#game-pause').click();
-  assert(record.waitFrame,'Actual waiting captured');assert(record.collectionFrame,'Actual collection after clearance captured');assert(record.riskFrame,'Actual unsupported pickup refusal captured');assert.deepEqual(record.errors,[]);record.passed=true;await save();
+  assert(record.waitFrame,'Actual waiting captured');assert(record.collectionFrame,'Actual collection after clearance captured');assert(record.riskFrame,'Actual unsupported pickup refusal captured');record.footer=await page.locator('#notice').textContent();assert(!String(record.footer).includes('current action authority'));assert.deepEqual(record.errors,[]);record.passed=true;await save();
  }finally{if(app)await app.close().catch(()=>{});record.finishedAt=new Date().toISOString();await save();}
  console.log(JSON.stringify({passed:true,requests:record.requests.map(r=>({id:r.id,status:r.task.status,elapsedMs:r.elapsedMs}))}));
 }

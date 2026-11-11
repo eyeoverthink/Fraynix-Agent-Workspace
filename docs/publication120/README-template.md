@@ -82,12 +82,12 @@ The initial supported waits estimate138 ticks and clear after141 observed ticks.
 | --- | ---: | --- | --- | ---: |
 {{CHAT_ROWS}}
 
-Five real visible requests cover the old gap-repair recipe, both newly collected pickups, an unsupported gap refusal and a deliberately unfinishable challenge. One request survives an abrupt owned Java process interruption and resumes with a new trial. All five use the existing explicit Java route with zero model calls. The local `gpt-oss:20b` catalog entry is checked; that does not establish a new model inference or learning result.
+The final five-request visible review covers the old gap-repair recipe, both newly collected pickups, an unsupported gap refusal and a deliberately unfinishable challenge. One request survives an abrupt owned Java process interruption and resumes with a new trial. The first five-request run also passed its functional checks, but visual inspection caught an older frame in its waiting screenshot. That entire attempt is retained. The second review exposed a harmless but confusing ownership message while the task reopened its runtime. Game Lab now explains that handover as waiting, and a frame arriving between trials also waits for the next runtime. Unexpected errors still propagate. Three focused UI tests preserve these boundaries. The final review repeats all five requests with this display correction and unchanged Java control/verification. All five selected requests use the existing explicit Java route with zero model calls. The local `gpt-oss:20b` catalog entry is checked; that does not establish a new model inference or learning result.
 
 ## Validation and boundaries
 
 - {{JAVA_COUNT}} distinct passing Java methods, including real native floor-loss, wait expiry, permanent-refusal, braking and return-deadline fixtures, forged-evidence refusal, actual task completion and restart.
-- 165 desktop checks, five visible requests, normal and 1100-pixel layouts, actual native waiting/collection screenshots, and 1440/390-pixel offline guide checks.
+- 168 desktop checks, five visible requests, normal and 1100-pixel layouts, actual native waiting/collection screenshots, and 1440/390-pixel offline guide checks.
 - Seven development courses, four extra return probes, six reserved courses, all 54 older course regressions, plus independent hardware/software repetitions within the documented scope.
 - Six transformed reference images and four refusals per renderer retain the earlier known-component reconstruction scope. Arbitrary web-image understanding is not added here.
 
