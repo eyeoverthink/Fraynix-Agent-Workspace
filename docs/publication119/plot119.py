@@ -5,7 +5,7 @@ matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 r=Path.cwd()
 baseline=json.loads((r/'workspace-engine/build/controller119-baseline/result.json').read_text(encoding='utf8'))
-final=json.loads((r/'workspace-engine/build/controller119-development/result.json').read_text(encoding='utf8'))
+final=json.loads((r/'workspace-engine/build/controller119-final-development/result.json').read_text(encoding='utf8'))
 def trial(d,name,policy):return next(t for c in d['cases'] if c['name']==name for t in c['trials'] if t['policy']==policy)
 def states(t):return [t['initial']]+[s['after'] for s in t['steps']]
 fig,ax=plt.subplots(2,2,figsize=(13,8),layout='constrained')

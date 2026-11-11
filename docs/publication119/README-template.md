@@ -2,7 +2,7 @@
 
 ## Recover from the contact. Reconsider the opportunity. Verify the result.
 
-The integrated Game Lab now corrects both failures retained in [edition118](README-118.md): the player lodged against a block after crossing a gap, and the player died after permanently skipping a power-up. The new owned Java policy, `recover119`, reads actual displacement and solid contact before choosing bounded retreat and jump inputs. It can defer an enemy-threatened pickup and inspect it again after the threat moves. It no longer reverses toward an enemy behind the player to attempt a stomp.
+The integrated Game Lab now corrects both failures retained in [edition 118](README-118.md): the player lodged against a block after crossing a gap, and the player died after permanently skipping a power-up. The new owned Java policy, `recover119`, reads actual displacement and solid contact before choosing bounded retreat and jump inputs. It can defer an enemy-threatened pickup and inspect it again after the threat moves. It no longer reverses toward an enemy behind the player to attempt a stomp.
 
 **Both retained failures now finish, each with one collected power-up and zero damage.** In the pickup case, two temporary deferrals precede actual collection. Six declared development courses finish with five total pickups and zero damage. One successful course still leaves its pickup uncollected. These are scoped measurements, not a claim of universal play or new neural training.
 
@@ -35,7 +35,7 @@ The existing enemy/steps, cramped power-up and pickup-above-gap presets remain. 
 
 ### Run locally
 
-Use Java21 and Node.js with the repository's existing dependencies:
+Use Java 21 and Node.js with the repository's existing dependencies:
 
 ```powershell
 .\gradlew.bat prepareGameRuntime115 :workspace-engine:installDist
@@ -50,17 +50,17 @@ Choose a separate saved project for evaluation. Existing private projects and li
 
 The retained seed8 run reaches approximately X5.885/Y0.870. The controller reports downward velocity while native contacts keep the body stationary. Its older recovery check used near-zero vertical velocity, so it failed to recognize this lodged state.
 
-`ContactObserver119` reads up to32 native contacts, rejects sensors and non-terrain contacts, and determines whether the player has support plus an opposing side contact. `ContactRecovery119` detects24 ticks without more than0.008 original units of displacement. It checks an observed retreat landing within a bounded1.25-unit drop, waits if an enemy is close behind, then requests ordinary retreat and jump inputs. The original player controller must still detect the ground and permit the jump. If a pickup goal changes mid-escape, support and threat observations remain bound to the committed retreat direction. A real physics-fixture test removes that side’s support while retaining opposite-side floor and requires refusal.
+`ContactObserver119` reads up to 32 native contacts, rejects sensors and non-terrain contacts, and determines whether the player has support plus an opposing side contact. `ContactRecovery119` detects 24 ticks without more than 0.008 original units of displacement. It checks an observed retreat landing within a bounded 1.25-unit drop, waits if an enemy is close behind, then requests ordinary retreat and jump inputs. The original player controller must still detect the ground and permit the jump. If a pickup goal changes mid-escape, support and threat observations remain bound to the committed retreat direction. A real physics-fixture test removes that side’s support while retaining opposite-side floor and requires refusal.
 
 | Bound | Actual rule |
 | --- | --- |
-| Contact attempts | At most3 per automatic run; successful motion does not reset this budget |
-| Rear-threat wait | At most180 ticks |
-| Retreat | At most90 ticks; refuse if support is lost or a rear threat appears |
-| Forward jump phase | At most90 ticks, with up to28 ticks of held jump input |
-| Opportunity deferral | At most3 per object,60 ticks apart |
-| Pickup checks | Existing maximum4 candidate assessments per tick |
-| Retained decision details | Existing maximum16 rows; total counters remain explicit |
+| Contact attempts | At most 3 per automatic run; successful motion does not reset this budget |
+| Rear-threat wait | At most 180 ticks |
+| Retreat | At most 90 ticks; refuse if support is lost or a rear threat appears |
+| Forward jump phase | At most 90 ticks, with up to 28 ticks of held jump input |
+| Opportunity deferral | At most 3 per object, 60 ticks apart |
+| Pickup checks | Existing maximum 4 candidate assessments per tick |
+| Retained decision details | Existing maximum 16 rows; total counters remain explicit |
 
 All distances use the Game Lab's original units, not metres. Bounds apply to this controller, not to the separate SI-unit 3D Lab. No transform, velocity, collider, enemy behavior, physics parameter or victory condition is changed by recovery.
 
@@ -96,7 +96,7 @@ The rest of the workspace remains intact: persistent world goals, measured world
 
 ## Results and complete costs
 
-Each native trial uses a fresh process/session. The table preserves every measured comparison, including failures. The six edition119 reserved courses were declared before tuning and first evaluated after the policy was fixed. A subsequent code-review correction bound observations to a committed escape direction; both the original reserved evaluation and the final repeat are retained. The repeat is regression evidence, not a new unseen cohort. The software repetition uses those same courses, not six additional unseen cases. The18 previous challenge courses and24 earlier courses are regressions.
+Each native trial uses a fresh process/session. The table preserves every measured comparison, including failures. The six edition 119 reserved courses were declared before tuning and first evaluated after the policy was fixed. A subsequent code-review correction bound observations to a committed escape direction; both the original reserved evaluation and the final repeat are retained. The repeat is regression evidence, not a new unseen cohort. The software repetition uses those same courses, not six additional unseen cases. The 18 previous challenge courses and 24 earlier courses are regressions.
 
 | Cohort | Policy | Finishes | Pickups | Damage | Deaths | Skips | Deferrals | Contact attempts | Median full native trial |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -112,13 +112,13 @@ Actual visible chat requests include construction, retained comparisons, saving,
 | --- | --- | --- | --- | --- |
 {{CHAT_ROWS}}
 
-**{{JAVA_COUNT}} distinct Java test methods and165 desktop checks passed.** Actual UI testing covers both corrected failures, abrupt Java interruption and visible Resume, retained low-clearance refusal, an unfinishable challenge and narrow layout. Six transformed known-sprite references and four unsupported references per renderer preserve image checks. Original source/candidate corruption, engine identity, owner/session/action/image/repair/outcome checks remain. All five actual chat requests use the existing Java route and make zero model calls; the local model selector's availability is not an inference benchmark.
+**{{JAVA_COUNT}} distinct Java test methods and 165 desktop checks passed.** Actual UI testing covers both corrected failures, abrupt Java interruption and visible Resume, retained low-clearance refusal, an unfinishable challenge and narrow layout. Six transformed known-sprite references and four unsupported references per renderer preserve image checks. Original source/candidate corruption, engine identity, owner/session/action/image/repair/outcome checks remain. All five actual chat requests use the existing Java route and make zero model calls; the local model selector's availability is not an inference benchmark.
 
 ![Verified decisions retained after abrupt recovery](docs/readmes/119/verified-decisions.png)
 
 [Measurements](docs/readmes/119/measurements.json) · [Actual UI records](docs/readmes/119/actual-ui.json) · [Validation](docs/readmes/119/verification.json) · [Original evidence](docs/readmes/119/original-evidence.json)
 
-The original baseline and first unsuccessful prototype are retained alongside the successful development candidate. Raw and compressed SHA-256 hashes preserve original logs, traces, screenshots and isolated test projects. Private projects, credentials, model weights and Java/Mesa binaries are excluded. CI was checked first; its118 runs were pending. Hosted CI status is reported separately from local checks and fetched publication.
+The original baseline and first unsuccessful prototype are retained alongside the successful development candidate. Raw and compressed SHA-256 hashes preserve original logs, traces, screenshots and isolated test projects. Private projects, credentials, model weights and Java/Mesa binaries are excluded. CI was checked first; its 118 runs were pending. Hosted CI status is reported separately from local checks and fetched publication.
 
 ## Source map
 
@@ -143,4 +143,4 @@ docs/publication119/           reproducible validation and publication helpers
 
 {{NEXT_STEPS}}
 
-Keep the original evidence, budgets and counterexamples. Broader image components need independent examples and explicit unknown-region refusals. Reusable level skills still need retirement/reactivation and fresh qualification before admission under the unchanged32-slot limit. The24-task history and three-restart limits remain. Cross-domain transfer to manipulation or creation requires fresh verification in that domain.
+Keep the original evidence, budgets and counterexamples. Broader image components need independent examples and explicit unknown-region refusals. Reusable level skills still need retirement/reactivation and fresh qualification before admission under the unchanged 32-slot limit. The 24-task history and three-restart limits remain. Cross-domain transfer to manipulation or creation requires fresh verification in that domain.
