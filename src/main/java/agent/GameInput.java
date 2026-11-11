@@ -192,6 +192,7 @@ public final class GameInput {
     }
     public static java.util.Map<String,Object> observation116() {
         var result=new java.util.LinkedHashMap<String,Object>();result.put("policy",landingGuard?"landing116":"legacy115");result.put("automatic",automatic);result.put("status",status);result.put("horizontal",current.horizontal());result.put("jump",current.jump());result.put("goal",goal==null?"none":goal.kind().name());result.put("pickups",pickups);result.put("edgeCrossings",edgeCrossings);result.put("landingChecks",landingChecks);result.put("landingOverrides",landingOverrides);result.put("landingNanos",landingNanos);
+        if(goal!=null){result.put("goalX",goal.x());result.put("goalY",goal.y());if(goal.object()!=null){var rb=goal.object().getComponent(physics2d.components.Rigidbody2D.class);if(rb!=null){result.put("goalVx",rb.getVelocity().x);result.put("goalVy",rb.getVelocity().y);}}}
         if(landingDecision!=null){result.put("landingReason",landingDecision.reason());result.put("predictedLandingX",landingDecision.planned().x());result.put("predictedLandingY",landingDecision.planned().y());result.put("predictedLandingTicks",landingDecision.planned().ticks());}
         return result;
     }

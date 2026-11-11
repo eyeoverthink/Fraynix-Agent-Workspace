@@ -1,0 +1,11 @@
+# Edition117 — wider-gap recovery and safe collection
+
+2026-11-11, America/Los_Angeles. Parent e015b692; isolated S:/Codex-Work/fraynix-workspace-edition117. Java app target remains eyeoverthink/Fraynix-Agent-Workspace. Preserve private runtimes33224/37676, original projects, source physics, assets and frozen001–116. No delegation; expensive checks serial.
+
+CI first:116 main43056641370 and release43056315420 still in progress; setup, software OpenGL and documentation passed. Compile/test/package still running. Do not report CI success until its result exists.
+
+Reproduce seed15, length56, first gap5, second gap2 with landing116 before changing controls. Observe actual positions, displacement, contacts and requested velocity; distinguish corner contact from supported grounding. Fix input selection, not physics, transforms, finish criteria or proof checks. Preserve explicit legacy115 and landing116 controls for comparisons. Retain failed trials and keep old proofs bound to old runtime identity.
+
+Retain all twelve116 regression layouts. Development wider layouts: (seed,length,gap1,gap2)=(15,56,5,2),(9,48,4,3),(20,64,6,2),(23,72,5,4),(27,64,3,5),(30,56,4,4). Reserved wider layouts, declared before results: (22,48,3,3),(26,64,5,2),(29,72,4,5),(31,56,6,2),(35,64,5,4),(38,72,3,6). Run the reserved set only after the controller is fixed. Compare simple control, legacy115, landing116 and safe117 from separate fresh sessions. No lost116 regression finish is acceptable. Require the original wider-gap failure to finish and improved collected-power-up count without sacrificing those finishes. Measure time, bounded attempts and damage/deaths as well as success. Report remaining misses, including simple-control limits. No model-training claim.
+
+Test new logic in actual native runtime on hardware and CI-style software rendering. Preserve source/candidate/image/engine/outcome checks, durable chat ownership, repair budgets, explicit restart and unchanged procedure limits. Verify actual visible chat requests, image reconstruction, restart and refusal, with dated screenshots. Publish linked README117, offline guide, notes/logs and original evidence; check immutable history; push main/edition117/readme117 and fetch/verify before claiming publication.
