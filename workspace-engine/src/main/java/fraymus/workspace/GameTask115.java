@@ -67,7 +67,7 @@ final class GameTask115 implements AutoCloseable {
                 case "open-simple"->openTrial(t,"simple");
                 case "open-ai"->openTrial(t,"existing-ai");
                 case "trial"->step(t);
-                case "finish"->{var proof=verifyTrials(t);t.put("audit",proof).put("status","completed").put("reason","Level verified by actual finish contact; controller comparison and failed attempts retained").put("completedAt",java.time.Instant.now().toString());game.command(new JSONObject().put("action","pause"));}
+                case "finish"->{var proof=verifyTrials(t);var review=levels.launch(game,candidateId(t));t.put("review",new JSONObject().put("state",review.getJSONObject("state")).put("candidateId",candidateId(t)).put("scope","Verified candidate reopened at its starting state; completed trial outcomes remain separate")).put("audit",proof).put("status","completed").put("reason","Level verified by actual finish contact; controller comparison and failed attempts retained").put("completedAt",java.time.Instant.now().toString());game.command(new JSONObject().put("action","pause"));}
                 default->throw new IllegalStateException("Unknown level stage");
             }
         }catch(Exception e){interruptTrial(t,e.getMessage());t.put("status","interrupted").put("reason",String.valueOf(e.getMessage()));try{game.command(new JSONObject().put("action","pause"));}catch(Exception ignored){}}
@@ -92,7 +92,7 @@ final class GameTask115 implements AutoCloseable {
         t.getJSONArray("repairs").put(new JSONObject().put("trial",t.getJSONArray("trials").length()-1).put("field",field).put("before",params.getInt(field)).put("after",2).put("reason","Observed fall within this gap").put("observed",end));params.put(field,2);t.put("attempt",t.getInt("attempt")+1).put("stage","construct").put("reason","Repairing the observed gap; retaining failed candidate and trace");
     }
     private JSONObject verifyTrials(JSONObject t)throws Exception{
-        sources(t);if(t.has("reference"))references.verify(t.getJSONObject("reference").getString("id"));int wins=0,failed=0,steps=0;boolean simpleFinal=false,aiFinal=false;var sessions=new HashSet<String>();
+        sources(t);if(t.has("reference"))references.verify(t.getJSONObject("reference").getString("id"));int wins=0,failed=0,steps=0;boolean simpleFinal=false,aiFinal=false;String aiOutcome="not-run";var sessions=new HashSet<String>();
         for(Object raw:t.getJSONArray("trials")){
             var trial=(JSONObject)raw;var m=levels.verify(trial.getJSONObject("candidate").getString("id"));if(!m.similar(trial.getJSONObject("candidate")))throw new IllegalStateException("Original candidate binding changed");
             String session=trial.getString("sessionId");if(!sessions.add(session))throw new IllegalStateException("Repeated trial session");var previous=trial.getJSONObject("initial");if(previous.getInt("tick")!=0||previous.getJSONObject("player").getBoolean("won"))throw new IllegalStateException("Trial did not start at the original state");
@@ -100,11 +100,11 @@ final class GameTask115 implements AutoCloseable {
             for(String when:List.of("start","finish"))if(trial.has(when+"Image")){var image=trial.getJSONObject(when+"Image");String file=image.getString("file");if(!file.matches(Pattern.quote(t.getString("id"))+"-[0-9]+-(start|finish)-[0-9a-f-]{36}\\.png")||!image.getString("sha256").equals(GameLevels114.hash(root.resolve(file))))throw new IllegalStateException("Original trial image changed");}
             if(trial.getJSONArray("steps").length()>180)throw new IllegalStateException("Trial step budget exceeded");if(trial.has("final")&&!trial.getJSONObject("final").similar(previous))throw new IllegalStateException("Final state differs from original last input observation");
             boolean won=trial.getString("status").equals("won");if(won){if(!previous.getJSONObject("player").getBoolean("won")||previous.getJSONObject("player").getBoolean("dead"))throw new IllegalStateException("Missing actual finish contact");wins++;}else if(trial.getString("status").equals("failed"))failed++;
-            if(m.getString("id").equals(candidateId(t))){if(won&&trial.getString("control").equals("simple"))simpleFinal=true;if(Set.of("won","failed").contains(trial.getString("status"))&&trial.getString("control").equals("existing-ai"))aiFinal=true;}
+            if(m.getString("id").equals(candidateId(t))){if(won&&trial.getString("control").equals("simple"))simpleFinal=true;if(Set.of("won","failed").contains(trial.getString("status"))&&trial.getString("control").equals("existing-ai")){aiFinal=true;aiOutcome=trial.getString("status");}}
         }
         verifyRepairs(t);if(!simpleFinal||!aiFinal)throw new IllegalStateException("Final candidate requires simple-control finish and a bounded AI comparison");
         if(t.getJSONArray("repairs").length()>t.getJSONObject("definition").getInt("repairLimit"))throw new IllegalStateException("Repair budget exceeded");
-        return new JSONObject().put("passed",true).put("candidateId",candidateId(t)).put("wins",wins).put("failures",failed).put("trials",t.getJSONArray("trials").length()).put("inputChunks",steps).put("repairCount",t.getJSONArray("repairs").length()).put("traceSha256",WorldFrames.hash(new JSONObject().put("trials",t.getJSONArray("trials")))).put("scope","Actual finish contact on this candidate; comparison is not a guarantee for unfamiliar levels. No procedure-bank admission or model training.");
+        return new JSONObject().put("passed",true).put("candidateId",candidateId(t)).put("wins",wins).put("failures",failed).put("trials",t.getJSONArray("trials").length()).put("inputChunks",steps).put("repairCount",t.getJSONArray("repairs").length()).put("simpleControl","won").put("existingAI",aiOutcome).put("traceSha256",WorldFrames.hash(new JSONObject().put("trials",t.getJSONArray("trials")))).put("scope","Actual finish contact on this candidate; comparison is not a guarantee for unfamiliar levels. No procedure-bank admission or model training.");
     }
     private void verifyRepairs(JSONObject t)throws Exception{
         var parameters=WorldFrames.copy(t.getJSONObject("definition").getJSONObject("parameters"));int attempt=0;
