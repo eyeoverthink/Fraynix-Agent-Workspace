@@ -1,3 +1,5 @@
+[Edition115 — durable level tasks and checked references](../../README-115.md) · [Offline guide](115/index.html)
+
 [Edition114 — source-based playable level creation](../../README-114.md) · [Offline guide](114/index.html)
 
 [Edition113 — usable experience history](../../README-113.md) · [Offline guide](113/index.html)

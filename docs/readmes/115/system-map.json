@@ -1,0 +1,90 @@
+{
+  "modules": [
+    {
+      "id": "task",
+      "name": "Durable Java task",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/GameTask115.java",
+      "note": "docs/obsidian/123-durable-level-tasks.md"
+    },
+    {
+      "id": "image",
+      "name": "Known-sprite reconstruction",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/GameReference115.java",
+      "note": "docs/obsidian/123-durable-level-tasks.md"
+    },
+    {
+      "id": "scene",
+      "name": "Source-derived candidates",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/GameLevels114.java",
+      "note": "docs/obsidian/123-durable-level-tasks.md"
+    },
+    {
+      "id": "chat",
+      "name": "Existing chat scheduler integration",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/Domain044.java",
+      "note": "docs/obsidian/123-durable-level-tasks.md"
+    },
+    {
+      "id": "runtime",
+      "name": "Actual renderer and bounded AI input",
+      "source": "src/main/java/runtime/EmbeddedGameRuntime.java",
+      "note": "docs/obsidian/123-durable-level-tasks.md"
+    },
+    {
+      "id": "view",
+      "name": "Integrated Game Lab",
+      "source": "workspace-desktop/renderer/brain-game.js",
+      "note": "docs/obsidian/123-durable-level-tasks.md"
+    },
+    {
+      "id": "proof",
+      "name": "Actual visible-chat trial",
+      "source": "workspace-desktop/test/game115-integration.cjs",
+      "note": "docs/obsidian/123-durable-level-tasks.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "docs/readmes/115/chat-level-completed.png",
+      "title": "chat-level-completed.png"
+    },
+    {
+      "path": "docs/readmes/115/retained-repairs.png",
+      "title": "retained-repairs.png"
+    },
+    {
+      "path": "docs/readmes/115/recovered-level.png",
+      "title": "recovered-level.png"
+    },
+    {
+      "path": "docs/readmes/115/reference-analysis.png",
+      "title": "reference-analysis.png"
+    },
+    {
+      "path": "docs/readmes/115/reference-playtested.png",
+      "title": "reference-playtested.png"
+    },
+    {
+      "path": "docs/readmes/115/level-1100.png",
+      "title": "level-1100.png"
+    },
+    {
+      "path": "docs/readmes/115/actual-reference.png",
+      "title": "actual-reference.png"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/readmes/115/actual-ui.json"
+    },
+    {
+      "path": "docs/readmes/115/reference-validation.json"
+    },
+    {
+      "path": "docs/readmes/115/verification.json"
+    },
+    {
+      "path": "docs/readmes/115/original-evidence.json"
+    }
+  ]
+}

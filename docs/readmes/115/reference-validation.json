@@ -1,0 +1,5203 @@
+{
+  "reference": {
+    "width": 960,
+    "accepted": true,
+    "id": "6f65afe2-4100-4126-b602-b5f504667307",
+    "source": {
+      "sourceSha256": "08b10ab7c8c14a049b02c49a792bfa62219cd30918377cf0a55e9cd06b51bb20",
+      "components": 6085,
+      "rootExampleObjects": 2,
+      "assets": {
+        "assets/images/bigSpritesheet.png": "dd6f095c07e98006d572306d00556169be4f6d256d7459a48cacf39d685c264b",
+        "assets/images/pipes.png": "502e477279252b5d90afe0b6a70e4f4032d52022e5bde533fdd2e7990c560835",
+        "assets/images/items.png": "bbcffd46cd41e4bffdc2b7ceeb108ae19621c46b9784109a2b1c1e8d6d676d06",
+        "assets/images/spritesheet.png": "74f5592bd41952d6e9e4cda4aae2914944a762bf83bab183673397fccd14e96c",
+        "assets/images/spritesheets/decorationsAndBlocks.png": "9a26bca9505d31968c0af1ec6a8095a978728f83463ae547c5b3c3b47be70a17",
+        "assets/images/turtle.png": "26a625c9e1524c02ed87f49cf6dc4cbb9f4f68aeeb1919ba9ec0ebfeff003666"
+      },
+      "objects": 1248,
+      "scope": "Full serialized source; behavior is implemented by Java components, not by JSON alone",
+      "componentTypes": {
+        "components.Ground": 1110,
+        "jade.Transform": 1248,
+        "components.GoombaAI": 16,
+        "components.StateMachine": 50,
+        "components.QuestionBlock": 13,
+        "components.Coin": 19,
+        "components.SpriteRenderer": 1248,
+        "physics2d.components.Rigidbody2D": 1156,
+        "components.BreakableBrick": 54,
+        "components.Pipe": 4,
+        "components.TurtleAI": 1,
+        "components.PlayerController": 1,
+        "physics2d.components.CircleCollider": 36,
+        "physics2d.components.PillboxCollider": 1,
+        "physics2d.components.Box2DCollider": 1119,
+        "components.Flagpole": 9
+      },
+      "source": "levels/mario-original.json"
+    },
+    "pngSha256": "eaa3ae3a6d7407ec75b7578b9d376155c2fedbb78ca317a7e5e4f85819a121cf",
+    "analysis": {
+      "analysisNanos": 1112714800,
+      "meanTerrainError": 5.108796296296302,
+      "grid": {
+        "originX": 0,
+        "worldBottomY": 540,
+        "tilePx": 12
+      },
+      "scope": "Known original sprites and two-gap recipe only. Seed is a canonical matching layout, not the author's original seed. Hidden question-block contents use declared original Powerup behavior; offscreen geometry is not inferred.",
+      "unexplainedPixels": 0,
+      "parameters": {
+        "seed": 7,
+        "gapTiles": 2,
+        "secondGapTiles": 2,
+        "lengthTiles": 64
+      },
+      "detections": [
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 0,
+          "y": 528,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 0,
+          "y": 516,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 12,
+          "y": 528,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 12,
+          "y": 516,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 24,
+          "y": 528,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 24,
+          "y": 516,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 36,
+          "y": 528,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 36,
+          "y": 516,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 48,
+          "y": 528,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 48,
+          "y": 516,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 60,
+          "y": 528,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 60,
+          "y": 516,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 72,
+          "y": 528,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 72,
+          "y": 516,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 84,
+          "y": 528,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 84,
+          "y": 516,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 96,
+          "y": 528,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 96,
+          "y": 516,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 108,
+          "y": 528,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 108,
+          "y": 516,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 120,
+          "y": 528,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 120,
+          "y": 516,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 132,
+          "y": 528,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 132,
+          "y": 516,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 144,
+          "y": 528,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 144,
+          "y": 516,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 156,
+          "y": 528,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 156,
+          "y": 516,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 168,
+          "y": 528,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 168,
+          "y": 516,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 180,
+          "y": 528,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 180,
+          "y": 516,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 192,
+          "y": 528,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 192,
+          "y": 516,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 228,
+          "y": 528,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 228,
+          "y": 516,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 240,
+          "y": 528,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 240,
+          "y": 516,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 252,
+          "y": 528,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 252,
+          "y": 516,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 264,
+          "y": 528,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 264,
+          "y": 516,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 276,
+          "y": 528,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 276,
+          "y": 516,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 288,
+          "y": 528,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 288,
+          "y": 516,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 300,
+          "y": 528,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 300,
+          "y": 516,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 312,
+          "y": 528,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 312,
+          "y": 516,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 324,
+          "y": 528,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 324,
+          "y": 516,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 336,
+          "y": 528,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 336,
+          "y": 516,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 348,
+          "y": 528,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 348,
+          "y": 516,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 360,
+          "y": 528,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 360,
+          "y": 516,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 372,
+          "y": 528,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 372,
+          "y": 516,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 384,
+          "y": 528,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 384,
+          "y": 516,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 396,
+          "y": 528,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 396,
+          "y": 516,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 432,
+          "y": 528,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 432,
+          "y": 516,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 444,
+          "y": 528,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 444,
+          "y": 516,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 456,
+          "y": 528,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 456,
+          "y": 516,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 468,
+          "y": 528,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 468,
+          "y": 516,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 480,
+          "y": 528,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 480,
+          "y": 516,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 492,
+          "y": 528,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 492,
+          "y": 516,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 504,
+          "y": 528,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 504,
+          "y": 516,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 516,
+          "y": 528,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 516,
+          "y": 516,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 528,
+          "y": 528,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 528,
+          "y": 516,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 540,
+          "y": 528,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 540,
+          "y": 516,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 552,
+          "y": 528,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 552,
+          "y": 516,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 564,
+          "y": 528,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 564,
+          "y": 516,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 576,
+          "y": 528,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 576,
+          "y": 516,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 588,
+          "y": 528,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 588,
+          "y": 516,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 600,
+          "y": 528,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 600,
+          "y": 516,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 612,
+          "y": 528,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 612,
+          "y": 516,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 624,
+          "y": 528,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 624,
+          "y": 516,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 636,
+          "y": 528,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 636,
+          "y": 516,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 648,
+          "y": 528,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 648,
+          "y": 516,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 660,
+          "y": 528,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 660,
+          "y": 516,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 672,
+          "y": 528,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 672,
+          "y": 516,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 684,
+          "y": 528,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 684,
+          "y": 516,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 696,
+          "y": 528,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 696,
+          "y": 516,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 708,
+          "y": 528,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 708,
+          "y": 516,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 720,
+          "y": 528,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 720,
+          "y": 516,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 732,
+          "y": 528,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 732,
+          "y": 516,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 744,
+          "y": 528,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 744,
+          "y": 516,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 756,
+          "y": 528,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 756,
+          "y": 516,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 0,
+          "role": "player",
+          "sizePx": 12,
+          "similarity": 1,
+          "x": 36,
+          "y": 504,
+          "backgroundContrast": 65.4074074074074
+        },
+        {
+          "meanChannelError": 0.7986111111111112,
+          "role": "question block",
+          "sizePx": 12,
+          "similarity": 0.996868191721133,
+          "x": 156,
+          "y": 468,
+          "backgroundContrast": 133.84953703703704
+        },
+        {
+          "meanChannelError": 0,
+          "role": "finish",
+          "sizePx": 12,
+          "similarity": 1,
+          "x": 702,
+          "y": 504,
+          "backgroundContrast": 11.972222222222221
+        },
+        {
+          "meanChannelError": 0,
+          "role": "finish",
+          "sizePx": 12,
+          "similarity": 1,
+          "x": 702,
+          "y": 492,
+          "backgroundContrast": 11.972222222222221
+        },
+        {
+          "meanChannelError": 0,
+          "role": "finish",
+          "sizePx": 12,
+          "similarity": 1,
+          "x": 702,
+          "y": 480,
+          "backgroundContrast": 11.972222222222221
+        },
+        {
+          "meanChannelError": 0,
+          "role": "finish",
+          "sizePx": 12,
+          "similarity": 1,
+          "x": 702,
+          "y": 468,
+          "backgroundContrast": 11.972222222222221
+        },
+        {
+          "meanChannelError": 0,
+          "role": "finish",
+          "sizePx": 12,
+          "similarity": 1,
+          "x": 702,
+          "y": 456,
+          "backgroundContrast": 11.972222222222221
+        },
+        {
+          "meanChannelError": 0,
+          "role": "finish",
+          "sizePx": 12,
+          "similarity": 1,
+          "x": 702,
+          "y": 444,
+          "backgroundContrast": 11.972222222222221
+        },
+        {
+          "meanChannelError": 0,
+          "role": "finish",
+          "sizePx": 12,
+          "similarity": 1,
+          "x": 702,
+          "y": 432,
+          "backgroundContrast": 11.972222222222221
+        },
+        {
+          "meanChannelError": 0,
+          "role": "finish",
+          "sizePx": 12,
+          "similarity": 1,
+          "x": 702,
+          "y": 420,
+          "backgroundContrast": 11.972222222222221
+        }
+      ]
+    },
+    "height": 540
+  },
+  "distractor": {
+    "reason": "Reference contains 625 unexplained pixels outside supported components; crop browser chrome or choose a supported clear overview",
+    "width": 960,
+    "accepted": false,
+    "id": "8d3d2d35-8f19-4dc4-af2a-5e3e9f2ec1ec",
+    "source": {
+      "sourceSha256": "08b10ab7c8c14a049b02c49a792bfa62219cd30918377cf0a55e9cd06b51bb20",
+      "components": 6085,
+      "rootExampleObjects": 2,
+      "assets": {
+        "assets/images/bigSpritesheet.png": "dd6f095c07e98006d572306d00556169be4f6d256d7459a48cacf39d685c264b",
+        "assets/images/pipes.png": "502e477279252b5d90afe0b6a70e4f4032d52022e5bde533fdd2e7990c560835",
+        "assets/images/items.png": "bbcffd46cd41e4bffdc2b7ceeb108ae19621c46b9784109a2b1c1e8d6d676d06",
+        "assets/images/spritesheet.png": "74f5592bd41952d6e9e4cda4aae2914944a762bf83bab183673397fccd14e96c",
+        "assets/images/spritesheets/decorationsAndBlocks.png": "9a26bca9505d31968c0af1ec6a8095a978728f83463ae547c5b3c3b47be70a17",
+        "assets/images/turtle.png": "26a625c9e1524c02ed87f49cf6dc4cbb9f4f68aeeb1919ba9ec0ebfeff003666"
+      },
+      "objects": 1248,
+      "scope": "Full serialized source; behavior is implemented by Java components, not by JSON alone",
+      "componentTypes": {
+        "components.Ground": 1110,
+        "jade.Transform": 1248,
+        "components.GoombaAI": 16,
+        "components.StateMachine": 50,
+        "components.QuestionBlock": 13,
+        "components.Coin": 19,
+        "components.SpriteRenderer": 1248,
+        "physics2d.components.Rigidbody2D": 1156,
+        "components.BreakableBrick": 54,
+        "components.Pipe": 4,
+        "components.TurtleAI": 1,
+        "components.PlayerController": 1,
+        "physics2d.components.CircleCollider": 36,
+        "physics2d.components.PillboxCollider": 1,
+        "physics2d.components.Box2DCollider": 1119,
+        "components.Flagpole": 9
+      },
+      "source": "levels/mario-original.json"
+    },
+    "pngSha256": "1a00506ed68d7268c957dec913679f5dcf1b90d97aacc028bee7c3b47d9b10eb",
+    "height": 540
+  },
+  "task": {
+    "request": "Reconstruct a playable Mario level from reference=6f65afe2-4100-4126-b602-b5f504667307",
+    "reason": "Level verified by actual finish contact; controller comparison and failed attempts retained",
+    "completedAt": "2026-11-11T03:40:44.624696700Z",
+    "workNanos": 27883535100,
+    "startedAt": "2026-11-11T03:40:12.528652100Z",
+    "attempt": 0,
+    "restarts": 0,
+    "reference": {
+      "width": 960,
+      "accepted": true,
+      "id": "6f65afe2-4100-4126-b602-b5f504667307",
+      "source": {
+        "sourceSha256": "08b10ab7c8c14a049b02c49a792bfa62219cd30918377cf0a55e9cd06b51bb20",
+        "components": 6085,
+        "rootExampleObjects": 2,
+        "assets": {
+          "assets/images/bigSpritesheet.png": "dd6f095c07e98006d572306d00556169be4f6d256d7459a48cacf39d685c264b",
+          "assets/images/pipes.png": "502e477279252b5d90afe0b6a70e4f4032d52022e5bde533fdd2e7990c560835",
+          "assets/images/items.png": "bbcffd46cd41e4bffdc2b7ceeb108ae19621c46b9784109a2b1c1e8d6d676d06",
+          "assets/images/spritesheet.png": "74f5592bd41952d6e9e4cda4aae2914944a762bf83bab183673397fccd14e96c",
+          "assets/images/spritesheets/decorationsAndBlocks.png": "9a26bca9505d31968c0af1ec6a8095a978728f83463ae547c5b3c3b47be70a17",
+          "assets/images/turtle.png": "26a625c9e1524c02ed87f49cf6dc4cbb9f4f68aeeb1919ba9ec0ebfeff003666"
+        },
+        "objects": 1248,
+        "scope": "Full serialized source; behavior is implemented by Java components, not by JSON alone",
+        "componentTypes": {
+          "components.Ground": 1110,
+          "jade.Transform": 1248,
+          "components.GoombaAI": 16,
+          "components.StateMachine": 50,
+          "components.QuestionBlock": 13,
+          "components.Coin": 19,
+          "components.SpriteRenderer": 1248,
+          "physics2d.components.Rigidbody2D": 1156,
+          "components.BreakableBrick": 54,
+          "components.Pipe": 4,
+          "components.TurtleAI": 1,
+          "components.PlayerController": 1,
+          "physics2d.components.CircleCollider": 36,
+          "physics2d.components.PillboxCollider": 1,
+          "physics2d.components.Box2DCollider": 1119,
+          "components.Flagpole": 9
+        },
+        "source": "levels/mario-original.json"
+      },
+      "pngSha256": "eaa3ae3a6d7407ec75b7578b9d376155c2fedbb78ca317a7e5e4f85819a121cf",
+      "analysis": {
+        "analysisNanos": 1112714800,
+        "meanTerrainError": 5.108796296296302,
+        "grid": {
+          "originX": 0,
+          "worldBottomY": 540,
+          "tilePx": 12
+        },
+        "scope": "Known original sprites and two-gap recipe only. Seed is a canonical matching layout, not the author's original seed. Hidden question-block contents use declared original Powerup behavior; offscreen geometry is not inferred.",
+        "unexplainedPixels": 0,
+        "parameters": {
+          "seed": 7,
+          "gapTiles": 2,
+          "secondGapTiles": 2,
+          "lengthTiles": 64
+        },
+        "detections": [
+          {
+            "meanChannelError": 5.108796296296297,
+            "role": "terrain",
+            "sizePx": 12,
+            "similarity": 0.9799655047204067,
+            "x": 0,
+            "y": 528,
+            "backgroundContrast": 130.7962962962963
+          },
+          {
+            "meanChannelError": 5.108796296296297,
+            "role": "terrain",
+            "sizePx": 12,
+            "similarity": 0.9799655047204067,
+            "x": 0,
+            "y": 516,
+            "backgroundContrast": 130.7962962962963
+          },
+          {
+            "meanChannelError": 5.108796296296297,
+            "role": "terrain",
+            "sizePx": 12,
+            "similarity": 0.9799655047204067,
+            "x": 12,
+            "y": 528,
+            "backgroundContrast": 130.7962962962963
+          },
+          {
+            "meanChannelError": 5.108796296296297,
+            "role": "terrain",
+            "sizePx": 12,
+            "similarity": 0.9799655047204067,
+            "x": 12,
+            "y": 516,
+            "backgroundContrast": 130.7962962962963
+          },
+          {
+            "meanChannelError": 5.108796296296297,
+            "role": "terrain",
+            "sizePx": 12,
+            "similarity": 0.9799655047204067,
+            "x": 24,
+            "y": 528,
+            "backgroundContrast": 130.7962962962963
+          },
+          {
+            "meanChannelError": 5.108796296296297,
+            "role": "terrain",
+            "sizePx": 12,
+            "similarity": 0.9799655047204067,
+            "x": 24,
+            "y": 516,
+            "backgroundContrast": 130.7962962962963
+          },
+          {
+            "meanChannelError": 5.108796296296297,
+            "role": "terrain",
+            "sizePx": 12,
+            "similarity": 0.9799655047204067,
+            "x": 36,
+            "y": 528,
+            "backgroundContrast": 130.7962962962963
+          },
+          {
+            "meanChannelError": 5.108796296296297,
+            "role": "terrain",
+            "sizePx": 12,
+            "similarity": 0.9799655047204067,
+            "x": 36,
+            "y": 516,
+            "backgroundContrast": 130.7962962962963
+          },
+          {
+            "meanChannelError": 5.108796296296297,
+            "role": "terrain",
+            "sizePx": 12,
+            "similarity": 0.9799655047204067,
+            "x": 48,
+            "y": 528,
+            "backgroundContrast": 130.7962962962963
+          },
+          {
+            "meanChannelError": 5.108796296296297,
+            "role": "terrain",
+            "sizePx": 12,
+            "similarity": 0.9799655047204067,
+            "x": 48,
+            "y": 516,
+            "backgroundContrast": 130.7962962962963
+          },
+          {
+            "meanChannelError": 5.108796296296297,
+            "role": "terrain",
+            "sizePx": 12,
+            "similarity": 0.9799655047204067,
+            "x": 60,
+            "y": 528,
+            "backgroundContrast": 130.7962962962963
+          },
+          {
+            "meanChannelError": 5.108796296296297,
+            "role": "terrain",
+            "sizePx": 12,
+            "similarity": 0.9799655047204067,
+            "x": 60,
+            "y": 516,
+            "backgroundContrast": 130.7962962962963
+          },
+          {
+            "meanChannelError": 5.108796296296297,
+            "role": "terrain",
+            "sizePx": 12,
+            "similarity": 0.9799655047204067,
+            "x": 72,
+            "y": 528,
+            "backgroundContrast": 130.7962962962963
+          },
+          {
+            "meanChannelError": 5.108796296296297,
+            "role": "terrain",
+            "sizePx": 12,
+            "similarity": 0.9799655047204067,
+            "x": 72,
+            "y": 516,
+            "backgroundContrast": 130.7962962962963
+          },
+          {
+            "meanChannelError": 5.108796296296297,
+            "role": "terrain",
+            "sizePx": 12,
+            "similarity": 0.9799655047204067,
+            "x": 84,
+            "y": 528,
+            "backgroundContrast": 130.7962962962963
+          },
+          {
+            "meanChannelError": 5.108796296296297,
+            "role": "terrain",
+            "sizePx": 12,
+            "similarity": 0.9799655047204067,
+            "x": 84,
+            "y": 516,
+            "backgroundContrast": 130.7962962962963
+          },
+          {
+            "meanChannelError": 5.108796296296297,
+            "role": "terrain",
+            "sizePx": 12,
+            "similarity": 0.9799655047204067,
+            "x": 96,
+            "y": 528,
+            "backgroundContrast": 130.7962962962963
+          },
+          {
+            "meanChannelError": 5.108796296296297,
+            "role": "terrain",
+            "sizePx": 12,
+            "similarity": 0.9799655047204067,
+            "x": 96,
+            "y": 516,
+            "backgroundContrast": 130.7962962962963
+          },
+          {
+            "meanChannelError": 5.108796296296297,
+            "role": "terrain",
+            "sizePx": 12,
+            "similarity": 0.9799655047204067,
+            "x": 108,
+            "y": 528,
+            "backgroundContrast": 130.7962962962963
+          },
+          {
+            "meanChannelError": 5.108796296296297,
+            "role": "terrain",
+            "sizePx": 12,
+            "similarity": 0.9799655047204067,
+            "x": 108,
+            "y": 516,
+            "backgroundContrast": 130.7962962962963
+          },
+          {
+            "meanChannelError": 5.108796296296297,
+            "role": "terrain",
+            "sizePx": 12,
+            "similarity": 0.9799655047204067,
+            "x": 120,
+            "y": 528,
+            "backgroundContrast": 130.7962962962963
+          },
+          {
+            "meanChannelError": 5.108796296296297,
+            "role": "terrain",
+            "sizePx": 12,
+            "similarity": 0.9799655047204067,
+            "x": 120,
+            "y": 516,
+            "backgroundContrast": 130.7962962962963
+          },
+          {
+            "meanChannelError": 5.108796296296297,
+            "role": "terrain",
+            "sizePx": 12,
+            "similarity": 0.9799655047204067,
+            "x": 132,
+            "y": 528,
+            "backgroundContrast": 130.7962962962963
+          },
+          {
+            "meanChannelError": 5.108796296296297,
+            "role": "terrain",
+            "sizePx": 12,
+            "similarity": 0.9799655047204067,
+            "x": 132,
+            "y": 516,
+            "backgroundContrast": 130.7962962962963
+          },
+          {
+            "meanChannelError": 5.108796296296297,
+            "role": "terrain",
+            "sizePx": 12,
+            "similarity": 0.9799655047204067,
+            "x": 144,
+            "y": 528,
+            "backgroundContrast": 130.7962962962963
+          },
+          {
+            "meanChannelError": 5.108796296296297,
+            "role": "terrain",
+            "sizePx": 12,
+            "similarity": 0.9799655047204067,
+            "x": 144,
+            "y": 516,
+            "backgroundContrast": 130.7962962962963
+          },
+          {
+            "meanChannelError": 5.108796296296297,
+            "role": "terrain",
+            "sizePx": 12,
+            "similarity": 0.9799655047204067,
+            "x": 156,
+            "y": 528,
+            "backgroundContrast": 130.7962962962963
+          },
+          {
+            "meanChannelError": 5.108796296296297,
+            "role": "terrain",
+            "sizePx": 12,
+            "similarity": 0.9799655047204067,
+            "x": 156,
+            "y": 516,
+            "backgroundContrast": 130.7962962962963
+          },
+          {
+            "meanChannelError": 5.108796296296297,
+            "role": "terrain",
+            "sizePx": 12,
+            "similarity": 0.9799655047204067,
+            "x": 168,
+            "y": 528,
+            "backgroundContrast": 130.7962962962963
+          },
+          {
+            "meanChannelError": 5.108796296296297,
+            "role": "terrain",
+            "sizePx": 12,
+            "similarity": 0.9799655047204067,
+            "x": 168,
+            "y": 516,
+            "backgroundContrast": 130.7962962962963
+          },
+          {
+            "meanChannelError": 5.108796296296297,
+            "role": "terrain",
+            "sizePx": 12,
+            "similarity": 0.9799655047204067,
+            "x": 180,
+            "y": 528,
+            "backgroundContrast": 130.7962962962963
+          },
+          {
+            "meanChannelError": 5.108796296296297,
+            "role": "terrain",
+            "sizePx": 12,
+            "similarity": 0.9799655047204067,
+            "x": 180,
+            "y": 516,
+            "backgroundContrast": 130.7962962962963
+          },
+          {
+            "meanChannelError": 5.108796296296297,
+            "role": "terrain",
+            "sizePx": 12,
+            "similarity": 0.9799655047204067,
+            "x": 192,
+            "y": 528,
+            "backgroundContrast": 130.7962962962963
+          },
+          {
+            "meanChannelError": 5.108796296296297,
+            "role": "terrain",
+            "sizePx": 12,
+            "similarity": 0.9799655047204067,
+            "x": 192,
+            "y": 516,
+            "backgroundContrast": 130.7962962962963
+          },
+          {
+            "meanChannelError": 5.108796296296297,
+            "role": "terrain",
+            "sizePx": 12,
+            "similarity": 0.9799655047204067,
+            "x": 228,
+            "y": 528,
+            "backgroundContrast": 130.7962962962963
+          },
+          {
+            "meanChannelError": 5.108796296296297,
+            "role": "terrain",
+            "sizePx": 12,
+            "similarity": 0.9799655047204067,
+            "x": 228,
+            "y": 516,
+            "backgroundContrast": 130.7962962962963
+          },
+          {
+            "meanChannelError": 5.108796296296297,
+            "role": "terrain",
+            "sizePx": 12,
+            "similarity": 0.9799655047204067,
+            "x": 240,
+            "y": 528,
+            "backgroundContrast": 130.7962962962963
+          },
+          {
+            "meanChannelError": 5.108796296296297,
+            "role": "terrain",
+            "sizePx": 12,
+            "similarity": 0.9799655047204067,
+            "x": 240,
+            "y": 516,
+            "backgroundContrast": 130.7962962962963
+          },
+          {
+            "meanChannelError": 5.108796296296297,
+            "role": "terrain",
+            "sizePx": 12,
+            "similarity": 0.9799655047204067,
+            "x": 252,
+            "y": 528,
+            "backgroundContrast": 130.7962962962963
+          },
+          {
+            "meanChannelError": 5.108796296296297,
+            "role": "terrain",
+            "sizePx": 12,
+            "similarity": 0.9799655047204067,
+            "x": 252,
+            "y": 516,
+            "backgroundContrast": 130.7962962962963
+          },
+          {
+            "meanChannelError": 5.108796296296297,
+            "role": "terrain",
+            "sizePx": 12,
+            "similarity": 0.9799655047204067,
+            "x": 264,
+            "y": 528,
+            "backgroundContrast": 130.7962962962963
+          },
+          {
+            "meanChannelError": 5.108796296296297,
+            "role": "terrain",
+            "sizePx": 12,
+            "similarity": 0.9799655047204067,
+            "x": 264,
+            "y": 516,
+            "backgroundContrast": 130.7962962962963
+          },
+          {
+            "meanChannelError": 5.108796296296297,
+            "role": "terrain",
+            "sizePx": 12,
+            "similarity": 0.9799655047204067,
+            "x": 276,
+            "y": 528,
+            "backgroundContrast": 130.7962962962963
+          },
+          {
+            "meanChannelError": 5.108796296296297,
+            "role": "terrain",
+            "sizePx": 12,
+            "similarity": 0.9799655047204067,
+            "x": 276,
+            "y": 516,
+            "backgroundContrast": 130.7962962962963
+          },
+          {
+            "meanChannelError": 5.108796296296297,
+            "role": "terrain",
+            "sizePx": 12,
+            "similarity": 0.9799655047204067,
+            "x": 288,
+            "y": 528,
+            "backgroundContrast": 130.7962962962963
+          },
+          {
+            "meanChannelError": 5.108796296296297,
+            "role": "terrain",
+            "sizePx": 12,
+            "similarity": 0.9799655047204067,
+            "x": 288,
+            "y": 516,
+            "backgroundContrast": 130.7962962962963
+          },
+          {
+            "meanChannelError": 5.108796296296297,
+            "role": "terrain",
+            "sizePx": 12,
+            "similarity": 0.9799655047204067,
+            "x": 300,
+            "y": 528,
+            "backgroundContrast": 130.7962962962963
+          },
+          {
+            "meanChannelError": 5.108796296296297,
+            "role": "terrain",
+            "sizePx": 12,
+            "similarity": 0.9799655047204067,
+            "x": 300,
+            "y": 516,
+            "backgroundContrast": 130.7962962962963
+          },
+          {
+            "meanChannelError": 5.108796296296297,
+            "role": "terrain",
+            "sizePx": 12,
+            "similarity": 0.9799655047204067,
+            "x": 312,
+            "y": 528,
+            "backgroundContrast": 130.7962962962963
+          },
+          {
+            "meanChannelError": 5.108796296296297,
+            "role": "terrain",
+            "sizePx": 12,
+            "similarity": 0.9799655047204067,
+            "x": 312,
+            "y": 516,
+            "backgroundContrast": 130.7962962962963
+          },
+          {
+            "meanChannelError": 5.108796296296297,
+            "role": "terrain",
+            "sizePx": 12,
+            "similarity": 0.9799655047204067,
+            "x": 324,
+            "y": 528,
+            "backgroundContrast": 130.7962962962963
+          },
+          {
+            "meanChannelError": 5.108796296296297,
+            "role": "terrain",
+            "sizePx": 12,
+            "similarity": 0.9799655047204067,
+            "x": 324,
+            "y": 516,
+            "backgroundContrast": 130.7962962962963
+          },
+          {
+            "meanChannelError": 5.108796296296297,
+            "role": "terrain",
+            "sizePx": 12,
+            "similarity": 0.9799655047204067,
+            "x": 336,
+            "y": 528,
+            "backgroundContrast": 130.7962962962963
+          },
+          {
+            "meanChannelError": 5.108796296296297,
+            "role": "terrain",
+            "sizePx": 12,
+            "similarity": 0.9799655047204067,
+            "x": 336,
+            "y": 516,
+            "backgroundContrast": 130.7962962962963
+          },
+          {
+            "meanChannelError": 5.108796296296297,
+            "role": "terrain",
+            "sizePx": 12,
+            "similarity": 0.9799655047204067,
+            "x": 348,
+            "y": 528,
+            "backgroundContrast": 130.7962962962963
+          },
+          {
+            "meanChannelError": 5.108796296296297,
+            "role": "terrain",
+            "sizePx": 12,
+            "similarity": 0.9799655047204067,
+            "x": 348,
+            "y": 516,
+            "backgroundContrast": 130.7962962962963
+          },
+          {
+            "meanChannelError": 5.108796296296297,
+            "role": "terrain",
+            "sizePx": 12,
+            "similarity": 0.9799655047204067,
+            "x": 360,
+            "y": 528,
+            "backgroundContrast": 130.7962962962963
+          },
+          {
+            "meanChannelError": 5.108796296296297,
+            "role": "terrain",
+            "sizePx": 12,
+            "similarity": 0.9799655047204067,
+            "x": 360,
+            "y": 516,
+            "backgroundContrast": 130.7962962962963
+          },
+          {
+            "meanChannelError": 5.108796296296297,
+            "role": "terrain",
+            "sizePx": 12,
+            "similarity": 0.9799655047204067,
+            "x": 372,
+            "y": 528,
+            "backgroundContrast": 130.7962962962963
+          },
+          {
+            "meanChannelError": 5.108796296296297,
+            "role": "terrain",
+            "sizePx": 12,
+            "similarity": 0.9799655047204067,
+            "x": 372,
+            "y": 516,
+            "backgroundContrast": 130.7962962962963
+          },
+          {
+            "meanChannelError": 5.108796296296297,
+            "role": "terrain",
+            "sizePx": 12,
+            "similarity": 0.9799655047204067,
+            "x": 384,
+            "y": 528,
+            "backgroundContrast": 130.7962962962963
+          },
+          {
+            "meanChannelError": 5.108796296296297,
+            "role": "terrain",
+            "sizePx": 12,
+            "similarity": 0.9799655047204067,
+            "x": 384,
+            "y": 516,
+            "backgroundContrast": 130.7962962962963
+          },
+          {
+            "meanChannelError": 5.108796296296297,
+            "role": "terrain",
+            "sizePx": 12,
+            "similarity": 0.9799655047204067,
+            "x": 396,
+            "y": 528,
+            "backgroundContrast": 130.7962962962963
+          },
+          {
+            "meanChannelError": 5.108796296296297,
+            "role": "terrain",
+            "sizePx": 12,
+            "similarity": 0.9799655047204067,
+            "x": 396,
+            "y": 516,
+            "backgroundContrast": 130.7962962962963
+          },
+          {
+            "meanChannelError": 5.108796296296297,
+            "role": "terrain",
+            "sizePx": 12,
+            "similarity": 0.9799655047204067,
+            "x": 432,
+            "y": 528,
+            "backgroundContrast": 130.7962962962963
+          },
+          {
+            "meanChannelError": 5.108796296296297,
+            "role": "terrain",
+            "sizePx": 12,
+            "similarity": 0.9799655047204067,
+            "x": 432,
+            "y": 516,
+            "backgroundContrast": 130.7962962962963
+          },
+          {
+            "meanChannelError": 5.108796296296297,
+            "role": "terrain",
+            "sizePx": 12,
+            "similarity": 0.9799655047204067,
+            "x": 444,
+            "y": 528,
+            "backgroundContrast": 130.7962962962963
+          },
+          {
+            "meanChannelError": 5.108796296296297,
+            "role": "terrain",
+            "sizePx": 12,
+            "similarity": 0.9799655047204067,
+            "x": 444,
+            "y": 516,
+            "backgroundContrast": 130.7962962962963
+          },
+          {
+            "meanChannelError": 5.108796296296297,
+            "role": "terrain",
+            "sizePx": 12,
+            "similarity": 0.9799655047204067,
+            "x": 456,
+            "y": 528,
+            "backgroundContrast": 130.7962962962963
+          },
+          {
+            "meanChannelError": 5.108796296296297,
+            "role": "terrain",
+            "sizePx": 12,
+            "similarity": 0.9799655047204067,
+            "x": 456,
+            "y": 516,
+            "backgroundContrast": 130.7962962962963
+          },
+          {
+            "meanChannelError": 5.108796296296297,
+            "role": "terrain",
+            "sizePx": 12,
+            "similarity": 0.9799655047204067,
+            "x": 468,
+            "y": 528,
+            "backgroundContrast": 130.7962962962963
+          },
+          {
+            "meanChannelError": 5.108796296296297,
+            "role": "terrain",
+            "sizePx": 12,
+            "similarity": 0.9799655047204067,
+            "x": 468,
+            "y": 516,
+            "backgroundContrast": 130.7962962962963
+          },
+          {
+            "meanChannelError": 5.108796296296297,
+            "role": "terrain",
+            "sizePx": 12,
+            "similarity": 0.9799655047204067,
+            "x": 480,
+            "y": 528,
+            "backgroundContrast": 130.7962962962963
+          },
+          {
+            "meanChannelError": 5.108796296296297,
+            "role": "terrain",
+            "sizePx": 12,
+            "similarity": 0.9799655047204067,
+            "x": 480,
+            "y": 516,
+            "backgroundContrast": 130.7962962962963
+          },
+          {
+            "meanChannelError": 5.108796296296297,
+            "role": "terrain",
+            "sizePx": 12,
+            "similarity": 0.9799655047204067,
+            "x": 492,
+            "y": 528,
+            "backgroundContrast": 130.7962962962963
+          },
+          {
+            "meanChannelError": 5.108796296296297,
+            "role": "terrain",
+            "sizePx": 12,
+            "similarity": 0.9799655047204067,
+            "x": 492,
+            "y": 516,
+            "backgroundContrast": 130.7962962962963
+          },
+          {
+            "meanChannelError": 5.108796296296297,
+            "role": "terrain",
+            "sizePx": 12,
+            "similarity": 0.9799655047204067,
+            "x": 504,
+            "y": 528,
+            "backgroundContrast": 130.7962962962963
+          },
+          {
+            "meanChannelError": 5.108796296296297,
+            "role": "terrain",
+            "sizePx": 12,
+            "similarity": 0.9799655047204067,
+            "x": 504,
+            "y": 516,
+            "backgroundContrast": 130.7962962962963
+          },
+          {
+            "meanChannelError": 5.108796296296297,
+            "role": "terrain",
+            "sizePx": 12,
+            "similarity": 0.9799655047204067,
+            "x": 516,
+            "y": 528,
+            "backgroundContrast": 130.7962962962963
+          },
+          {
+            "meanChannelError": 5.108796296296297,
+            "role": "terrain",
+            "sizePx": 12,
+            "similarity": 0.9799655047204067,
+            "x": 516,
+            "y": 516,
+            "backgroundContrast": 130.7962962962963
+          },
+          {
+            "meanChannelError": 5.108796296296297,
+            "role": "terrain",
+            "sizePx": 12,
+            "similarity": 0.9799655047204067,
+            "x": 528,
+            "y": 528,
+            "backgroundContrast": 130.7962962962963
+          },
+          {
+            "meanChannelError": 5.108796296296297,
+            "role": "terrain",
+            "sizePx": 12,
+            "similarity": 0.9799655047204067,
+            "x": 528,
+            "y": 516,
+            "backgroundContrast": 130.7962962962963
+          },
+          {
+            "meanChannelError": 5.108796296296297,
+            "role": "terrain",
+            "sizePx": 12,
+            "similarity": 0.9799655047204067,
+            "x": 540,
+            "y": 528,
+            "backgroundContrast": 130.7962962962963
+          },
+          {
+            "meanChannelError": 5.108796296296297,
+            "role": "terrain",
+            "sizePx": 12,
+            "similarity": 0.9799655047204067,
+            "x": 540,
+            "y": 516,
+            "backgroundContrast": 130.7962962962963
+          },
+          {
+            "meanChannelError": 5.108796296296297,
+            "role": "terrain",
+            "sizePx": 12,
+            "similarity": 0.9799655047204067,
+            "x": 552,
+            "y": 528,
+            "backgroundContrast": 130.7962962962963
+          },
+          {
+            "meanChannelError": 5.108796296296297,
+            "role": "terrain",
+            "sizePx": 12,
+            "similarity": 0.9799655047204067,
+            "x": 552,
+            "y": 516,
+            "backgroundContrast": 130.7962962962963
+          },
+          {
+            "meanChannelError": 5.108796296296297,
+            "role": "terrain",
+            "sizePx": 12,
+            "similarity": 0.9799655047204067,
+            "x": 564,
+            "y": 528,
+            "backgroundContrast": 130.7962962962963
+          },
+          {
+            "meanChannelError": 5.108796296296297,
+            "role": "terrain",
+            "sizePx": 12,
+            "similarity": 0.9799655047204067,
+            "x": 564,
+            "y": 516,
+            "backgroundContrast": 130.7962962962963
+          },
+          {
+            "meanChannelError": 5.108796296296297,
+            "role": "terrain",
+            "sizePx": 12,
+            "similarity": 0.9799655047204067,
+            "x": 576,
+            "y": 528,
+            "backgroundContrast": 130.7962962962963
+          },
+          {
+            "meanChannelError": 5.108796296296297,
+            "role": "terrain",
+            "sizePx": 12,
+            "similarity": 0.9799655047204067,
+            "x": 576,
+            "y": 516,
+            "backgroundContrast": 130.7962962962963
+          },
+          {
+            "meanChannelError": 5.108796296296297,
+            "role": "terrain",
+            "sizePx": 12,
+            "similarity": 0.9799655047204067,
+            "x": 588,
+            "y": 528,
+            "backgroundContrast": 130.7962962962963
+          },
+          {
+            "meanChannelError": 5.108796296296297,
+            "role": "terrain",
+            "sizePx": 12,
+            "similarity": 0.9799655047204067,
+            "x": 588,
+            "y": 516,
+            "backgroundContrast": 130.7962962962963
+          },
+          {
+            "meanChannelError": 5.108796296296297,
+            "role": "terrain",
+            "sizePx": 12,
+            "similarity": 0.9799655047204067,
+            "x": 600,
+            "y": 528,
+            "backgroundContrast": 130.7962962962963
+          },
+          {
+            "meanChannelError": 5.108796296296297,
+            "role": "terrain",
+            "sizePx": 12,
+            "similarity": 0.9799655047204067,
+            "x": 600,
+            "y": 516,
+            "backgroundContrast": 130.7962962962963
+          },
+          {
+            "meanChannelError": 5.108796296296297,
+            "role": "terrain",
+            "sizePx": 12,
+            "similarity": 0.9799655047204067,
+            "x": 612,
+            "y": 528,
+            "backgroundContrast": 130.7962962962963
+          },
+          {
+            "meanChannelError": 5.108796296296297,
+            "role": "terrain",
+            "sizePx": 12,
+            "similarity": 0.9799655047204067,
+            "x": 612,
+            "y": 516,
+            "backgroundContrast": 130.7962962962963
+          },
+          {
+            "meanChannelError": 5.108796296296297,
+            "role": "terrain",
+            "sizePx": 12,
+            "similarity": 0.9799655047204067,
+            "x": 624,
+            "y": 528,
+            "backgroundContrast": 130.7962962962963
+          },
+          {
+            "meanChannelError": 5.108796296296297,
+            "role": "terrain",
+            "sizePx": 12,
+            "similarity": 0.9799655047204067,
+            "x": 624,
+            "y": 516,
+            "backgroundContrast": 130.7962962962963
+          },
+          {
+            "meanChannelError": 5.108796296296297,
+            "role": "terrain",
+            "sizePx": 12,
+            "similarity": 0.9799655047204067,
+            "x": 636,
+            "y": 528,
+            "backgroundContrast": 130.7962962962963
+          },
+          {
+            "meanChannelError": 5.108796296296297,
+            "role": "terrain",
+            "sizePx": 12,
+            "similarity": 0.9799655047204067,
+            "x": 636,
+            "y": 516,
+            "backgroundContrast": 130.7962962962963
+          },
+          {
+            "meanChannelError": 5.108796296296297,
+            "role": "terrain",
+            "sizePx": 12,
+            "similarity": 0.9799655047204067,
+            "x": 648,
+            "y": 528,
+            "backgroundContrast": 130.7962962962963
+          },
+          {
+            "meanChannelError": 5.108796296296297,
+            "role": "terrain",
+            "sizePx": 12,
+            "similarity": 0.9799655047204067,
+            "x": 648,
+            "y": 516,
+            "backgroundContrast": 130.7962962962963
+          },
+          {
+            "meanChannelError": 5.108796296296297,
+            "role": "terrain",
+            "sizePx": 12,
+            "similarity": 0.9799655047204067,
+            "x": 660,
+            "y": 528,
+            "backgroundContrast": 130.7962962962963
+          },
+          {
+            "meanChannelError": 5.108796296296297,
+            "role": "terrain",
+            "sizePx": 12,
+            "similarity": 0.9799655047204067,
+            "x": 660,
+            "y": 516,
+            "backgroundContrast": 130.7962962962963
+          },
+          {
+            "meanChannelError": 5.108796296296297,
+            "role": "terrain",
+            "sizePx": 12,
+            "similarity": 0.9799655047204067,
+            "x": 672,
+            "y": 528,
+            "backgroundContrast": 130.7962962962963
+          },
+          {
+            "meanChannelError": 5.108796296296297,
+            "role": "terrain",
+            "sizePx": 12,
+            "similarity": 0.9799655047204067,
+            "x": 672,
+            "y": 516,
+            "backgroundContrast": 130.7962962962963
+          },
+          {
+            "meanChannelError": 5.108796296296297,
+            "role": "terrain",
+            "sizePx": 12,
+            "similarity": 0.9799655047204067,
+            "x": 684,
+            "y": 528,
+            "backgroundContrast": 130.7962962962963
+          },
+          {
+            "meanChannelError": 5.108796296296297,
+            "role": "terrain",
+            "sizePx": 12,
+            "similarity": 0.9799655047204067,
+            "x": 684,
+            "y": 516,
+            "backgroundContrast": 130.7962962962963
+          },
+          {
+            "meanChannelError": 5.108796296296297,
+            "role": "terrain",
+            "sizePx": 12,
+            "similarity": 0.9799655047204067,
+            "x": 696,
+            "y": 528,
+            "backgroundContrast": 130.7962962962963
+          },
+          {
+            "meanChannelError": 5.108796296296297,
+            "role": "terrain",
+            "sizePx": 12,
+            "similarity": 0.9799655047204067,
+            "x": 696,
+            "y": 516,
+            "backgroundContrast": 130.7962962962963
+          },
+          {
+            "meanChannelError": 5.108796296296297,
+            "role": "terrain",
+            "sizePx": 12,
+            "similarity": 0.9799655047204067,
+            "x": 708,
+            "y": 528,
+            "backgroundContrast": 130.7962962962963
+          },
+          {
+            "meanChannelError": 5.108796296296297,
+            "role": "terrain",
+            "sizePx": 12,
+            "similarity": 0.9799655047204067,
+            "x": 708,
+            "y": 516,
+            "backgroundContrast": 130.7962962962963
+          },
+          {
+            "meanChannelError": 5.108796296296297,
+            "role": "terrain",
+            "sizePx": 12,
+            "similarity": 0.9799655047204067,
+            "x": 720,
+            "y": 528,
+            "backgroundContrast": 130.7962962962963
+          },
+          {
+            "meanChannelError": 5.108796296296297,
+            "role": "terrain",
+            "sizePx": 12,
+            "similarity": 0.9799655047204067,
+            "x": 720,
+            "y": 516,
+            "backgroundContrast": 130.7962962962963
+          },
+          {
+            "meanChannelError": 5.108796296296297,
+            "role": "terrain",
+            "sizePx": 12,
+            "similarity": 0.9799655047204067,
+            "x": 732,
+            "y": 528,
+            "backgroundContrast": 130.7962962962963
+          },
+          {
+            "meanChannelError": 5.108796296296297,
+            "role": "terrain",
+            "sizePx": 12,
+            "similarity": 0.9799655047204067,
+            "x": 732,
+            "y": 516,
+            "backgroundContrast": 130.7962962962963
+          },
+          {
+            "meanChannelError": 5.108796296296297,
+            "role": "terrain",
+            "sizePx": 12,
+            "similarity": 0.9799655047204067,
+            "x": 744,
+            "y": 528,
+            "backgroundContrast": 130.7962962962963
+          },
+          {
+            "meanChannelError": 5.108796296296297,
+            "role": "terrain",
+            "sizePx": 12,
+            "similarity": 0.9799655047204067,
+            "x": 744,
+            "y": 516,
+            "backgroundContrast": 130.7962962962963
+          },
+          {
+            "meanChannelError": 5.108796296296297,
+            "role": "terrain",
+            "sizePx": 12,
+            "similarity": 0.9799655047204067,
+            "x": 756,
+            "y": 528,
+            "backgroundContrast": 130.7962962962963
+          },
+          {
+            "meanChannelError": 5.108796296296297,
+            "role": "terrain",
+            "sizePx": 12,
+            "similarity": 0.9799655047204067,
+            "x": 756,
+            "y": 516,
+            "backgroundContrast": 130.7962962962963
+          },
+          {
+            "meanChannelError": 0,
+            "role": "player",
+            "sizePx": 12,
+            "similarity": 1,
+            "x": 36,
+            "y": 504,
+            "backgroundContrast": 65.4074074074074
+          },
+          {
+            "meanChannelError": 0.7986111111111112,
+            "role": "question block",
+            "sizePx": 12,
+            "similarity": 0.996868191721133,
+            "x": 156,
+            "y": 468,
+            "backgroundContrast": 133.84953703703704
+          },
+          {
+            "meanChannelError": 0,
+            "role": "finish",
+            "sizePx": 12,
+            "similarity": 1,
+            "x": 702,
+            "y": 504,
+            "backgroundContrast": 11.972222222222221
+          },
+          {
+            "meanChannelError": 0,
+            "role": "finish",
+            "sizePx": 12,
+            "similarity": 1,
+            "x": 702,
+            "y": 492,
+            "backgroundContrast": 11.972222222222221
+          },
+          {
+            "meanChannelError": 0,
+            "role": "finish",
+            "sizePx": 12,
+            "similarity": 1,
+            "x": 702,
+            "y": 480,
+            "backgroundContrast": 11.972222222222221
+          },
+          {
+            "meanChannelError": 0,
+            "role": "finish",
+            "sizePx": 12,
+            "similarity": 1,
+            "x": 702,
+            "y": 468,
+            "backgroundContrast": 11.972222222222221
+          },
+          {
+            "meanChannelError": 0,
+            "role": "finish",
+            "sizePx": 12,
+            "similarity": 1,
+            "x": 702,
+            "y": 456,
+            "backgroundContrast": 11.972222222222221
+          },
+          {
+            "meanChannelError": 0,
+            "role": "finish",
+            "sizePx": 12,
+            "similarity": 1,
+            "x": 702,
+            "y": 444,
+            "backgroundContrast": 11.972222222222221
+          },
+          {
+            "meanChannelError": 0,
+            "role": "finish",
+            "sizePx": 12,
+            "similarity": 1,
+            "x": 702,
+            "y": 432,
+            "backgroundContrast": 11.972222222222221
+          },
+          {
+            "meanChannelError": 0,
+            "role": "finish",
+            "sizePx": 12,
+            "similarity": 1,
+            "x": 702,
+            "y": 420,
+            "backgroundContrast": 11.972222222222221
+          }
+        ]
+      },
+      "height": 540
+    },
+    "repairs": [],
+    "stage": "finish",
+    "trials": [
+      {
+        "initial": {
+          "neural": {
+            "ticks": 0,
+            "ready": false,
+            "sharedCore": true
+          },
+          "objects": 131,
+          "visibleWindow": false,
+          "continuous": false,
+          "editorInitialized": false,
+          "frameSequence": 0,
+          "sessionId": "32d0d631-723b-4f81-b402-69b7a3679374",
+          "tick": 0,
+          "units": "legacy game units; XY plane; render layer is not physical Z",
+          "player": {
+            "small": true,
+            "onGround": false,
+            "won": false,
+            "x": 0.875,
+            "y": 0.625,
+            "dead": false,
+            "id": "4a3cca7e-650b-3ad5-8ff8-f89d74934e87"
+          }
+        },
+        "finishImage": {
+          "file": "4eed7324-ca18-4e6c-abac-c684c0fb3b9f-0-finish-92ec1149-6328-4e29-95be-bb7f91f6243d.png",
+          "sha256": "962b047fb26ea7d3e5ac015a76b519cc9a50dfc006382c4447332923bb3790a9"
+        },
+        "final": {
+          "neural": {
+            "ticks": 0,
+            "ready": false,
+            "sharedCore": true
+          },
+          "objects": 131,
+          "visibleWindow": false,
+          "continuous": false,
+          "editorInitialized": false,
+          "frameSequence": 373,
+          "sessionId": "32d0d631-723b-4f81-b402-69b7a3679374",
+          "tick": 432,
+          "units": "legacy game units; XY plane; render layer is not physical Z",
+          "player": {
+            "small": true,
+            "onGround": true,
+            "won": true,
+            "x": 14.783333,
+            "y": 0.6385611,
+            "dead": false,
+            "id": "4a3cca7e-650b-3ad5-8ff8-f89d74934e87"
+          }
+        },
+        "control": "simple",
+        "sessionId": "32d0d631-723b-4f81-b402-69b7a3679374",
+        "startImage": {
+          "file": "4eed7324-ca18-4e6c-abac-c684c0fb3b9f-0-start-3cff1006-b657-4717-a608-c4ead02fd39c.png",
+          "sha256": "4cb8454ba8f074074bd6f2d2201de20d2e4abd118763322ea510847b109747bc"
+        },
+        "inputChunks": 36,
+        "status": "won"
+      },
+      {
+        "initial": {
+          "neural": {
+            "ticks": 0,
+            "ready": false,
+            "sharedCore": true
+          },
+          "objects": 131,
+          "visibleWindow": false,
+          "continuous": false,
+          "editorInitialized": false,
+          "frameSequence": 0,
+          "sessionId": "4127508c-c266-4b31-803c-be2f3e911072",
+          "tick": 0,
+          "units": "legacy game units; XY plane; render layer is not physical Z",
+          "player": {
+            "small": true,
+            "onGround": false,
+            "won": false,
+            "x": 0.875,
+            "y": 0.625,
+            "dead": false,
+            "id": "4a3cca7e-650b-3ad5-8ff8-f89d74934e87"
+          }
+        },
+        "finishImage": {
+          "file": "4eed7324-ca18-4e6c-abac-c684c0fb3b9f-1-finish-e51af8e5-1b63-4a52-a60d-2fa3820afb3c.png",
+          "sha256": "8f230ca25e6afdb4751e1ea7621b9f8fc7b6668817ea47b0348c07a92b20e573"
+        },
+        "final": {
+          "neural": {
+            "ticks": 216,
+            "ready": true,
+            "sharedCore": true
+          },
+          "objects": 132,
+          "visibleWindow": false,
+          "continuous": false,
+          "editorInitialized": false,
+          "frameSequence": 181,
+          "sessionId": "4127508c-c266-4b31-803c-be2f3e911072",
+          "tick": 240,
+          "units": "legacy game units; XY plane; render layer is not physical Z",
+          "player": {
+            "small": true,
+            "onGround": false,
+            "won": false,
+            "x": 4.726771,
+            "y": -0.8356652,
+            "dead": false,
+            "id": "4a3cca7e-650b-3ad5-8ff8-f89d74934e87"
+          }
+        },
+        "control": "existing-ai",
+        "sessionId": "4127508c-c266-4b31-803c-be2f3e911072",
+        "startImage": {
+          "file": "4eed7324-ca18-4e6c-abac-c684c0fb3b9f-1-start-055a358e-4cfb-4d76-8807-68509e6fd301.png",
+          "sha256": "4cb8454ba8f074074bd6f2d2201de20d2e4abd118763322ea510847b109747bc"
+        },
+        "inputChunks": 20,
+        "status": "failed"
+      }
+    ],
+    "review": {
+      "scope": "Verified candidate reopened at its starting state; completed trial outcomes remain separate",
+      "state": {
+        "neural": {
+          "ticks": 0,
+          "ready": false,
+          "sharedCore": true
+        },
+        "objects": 131,
+        "visibleWindow": false,
+        "continuous": false,
+        "editorInitialized": false,
+        "frameSequence": 0,
+        "sessionId": "c42a2f4f-d08c-48fd-9fff-9b20050abafa",
+        "tick": 0,
+        "units": "legacy game units; XY plane; render layer is not physical Z",
+        "player": {
+          "small": true,
+          "onGround": false,
+          "won": false,
+          "x": 0.875,
+          "y": 0.625,
+          "dead": false,
+          "id": "4a3cca7e-650b-3ad5-8ff8-f89d74934e87"
+        }
+      },
+      "candidateId": "a2fa6f96-9204-3772-b285-f6158b9000d2"
+    },
+    "audit": {
+      "wins": 1,
+      "existingAI": "failed",
+      "failures": 1,
+      "trials": 2,
+      "simpleControl": "won",
+      "scope": "Actual finish contact on this candidate; comparison is not a guarantee for unfamiliar levels. No procedure-bank admission or model training.",
+      "traceSha256": "89048a8b6fd94b780af53e6ecb5fe302600379af7fa2f7201ada0fb8190cd1b8",
+      "passed": true,
+      "candidateId": "a2fa6f96-9204-3772-b285-f6158b9000d2",
+      "repairCount": 0,
+      "inputChunks": 56
+    },
+    "definition": {
+      "repairLimit": 2,
+      "parameters": {
+        "seed": 7,
+        "gapTiles": 2,
+        "secondGapTiles": 2,
+        "lengthTiles": 64
+      }
+    },
+    "id": "4eed7324-ca18-4e6c-abac-c684c0fb3b9f",
+    "parameters": {
+      "seed": 7,
+      "gapTiles": 2,
+      "secondGapTiles": 2,
+      "lengthTiles": 64
+    },
+    "status": "completed"
+  },
+  "scaled": {
+    "width": 1440,
+    "accepted": true,
+    "id": "7db0b6c0-7c03-427e-bcba-68bd7b48a7d5",
+    "source": {
+      "sourceSha256": "08b10ab7c8c14a049b02c49a792bfa62219cd30918377cf0a55e9cd06b51bb20",
+      "components": 6085,
+      "rootExampleObjects": 2,
+      "assets": {
+        "assets/images/bigSpritesheet.png": "dd6f095c07e98006d572306d00556169be4f6d256d7459a48cacf39d685c264b",
+        "assets/images/pipes.png": "502e477279252b5d90afe0b6a70e4f4032d52022e5bde533fdd2e7990c560835",
+        "assets/images/items.png": "bbcffd46cd41e4bffdc2b7ceeb108ae19621c46b9784109a2b1c1e8d6d676d06",
+        "assets/images/spritesheet.png": "74f5592bd41952d6e9e4cda4aae2914944a762bf83bab183673397fccd14e96c",
+        "assets/images/spritesheets/decorationsAndBlocks.png": "9a26bca9505d31968c0af1ec6a8095a978728f83463ae547c5b3c3b47be70a17",
+        "assets/images/turtle.png": "26a625c9e1524c02ed87f49cf6dc4cbb9f4f68aeeb1919ba9ec0ebfeff003666"
+      },
+      "objects": 1248,
+      "scope": "Full serialized source; behavior is implemented by Java components, not by JSON alone",
+      "componentTypes": {
+        "components.Ground": 1110,
+        "jade.Transform": 1248,
+        "components.GoombaAI": 16,
+        "components.StateMachine": 50,
+        "components.QuestionBlock": 13,
+        "components.Coin": 19,
+        "components.SpriteRenderer": 1248,
+        "physics2d.components.Rigidbody2D": 1156,
+        "components.BreakableBrick": 54,
+        "components.Pipe": 4,
+        "components.TurtleAI": 1,
+        "components.PlayerController": 1,
+        "physics2d.components.CircleCollider": 36,
+        "physics2d.components.PillboxCollider": 1,
+        "physics2d.components.Box2DCollider": 1119,
+        "components.Flagpole": 9
+      },
+      "source": "levels/mario-original.json"
+    },
+    "pngSha256": "93d0f3ac2b2336db4a4c8224c72aee863ae5ee3ae46a5d0994a6a4b94f90027a",
+    "analysis": {
+      "analysisNanos": 4146736800,
+      "meanTerrainError": 5.391975308641987,
+      "grid": {
+        "originX": 0,
+        "worldBottomY": 810,
+        "tilePx": 18
+      },
+      "scope": "Known original sprites and two-gap recipe only. Seed is a canonical matching layout, not the author's original seed. Hidden question-block contents use declared original Powerup behavior; offscreen geometry is not inferred.",
+      "unexplainedPixels": 0,
+      "parameters": {
+        "seed": 7,
+        "gapTiles": 2,
+        "secondGapTiles": 2,
+        "lengthTiles": 64
+      },
+      "detections": [
+        {
+          "meanChannelError": 5.3919753086419755,
+          "role": "terrain",
+          "sizePx": 18,
+          "similarity": 0.9788549987896393,
+          "x": 0,
+          "y": 792,
+          "backgroundContrast": 129.92592592592592
+        },
+        {
+          "meanChannelError": 5.3919753086419755,
+          "role": "terrain",
+          "sizePx": 18,
+          "similarity": 0.9788549987896393,
+          "x": 0,
+          "y": 774,
+          "backgroundContrast": 129.92592592592592
+        },
+        {
+          "meanChannelError": 5.3919753086419755,
+          "role": "terrain",
+          "sizePx": 18,
+          "similarity": 0.9788549987896393,
+          "x": 18,
+          "y": 792,
+          "backgroundContrast": 129.92592592592592
+        },
+        {
+          "meanChannelError": 5.3919753086419755,
+          "role": "terrain",
+          "sizePx": 18,
+          "similarity": 0.9788549987896393,
+          "x": 18,
+          "y": 774,
+          "backgroundContrast": 129.92592592592592
+        },
+        {
+          "meanChannelError": 5.3919753086419755,
+          "role": "terrain",
+          "sizePx": 18,
+          "similarity": 0.9788549987896393,
+          "x": 36,
+          "y": 792,
+          "backgroundContrast": 129.92592592592592
+        },
+        {
+          "meanChannelError": 5.3919753086419755,
+          "role": "terrain",
+          "sizePx": 18,
+          "similarity": 0.9788549987896393,
+          "x": 36,
+          "y": 774,
+          "backgroundContrast": 129.92592592592592
+        },
+        {
+          "meanChannelError": 5.3919753086419755,
+          "role": "terrain",
+          "sizePx": 18,
+          "similarity": 0.9788549987896393,
+          "x": 54,
+          "y": 792,
+          "backgroundContrast": 129.92592592592592
+        },
+        {
+          "meanChannelError": 5.3919753086419755,
+          "role": "terrain",
+          "sizePx": 18,
+          "similarity": 0.9788549987896393,
+          "x": 54,
+          "y": 774,
+          "backgroundContrast": 129.92592592592592
+        },
+        {
+          "meanChannelError": 5.3919753086419755,
+          "role": "terrain",
+          "sizePx": 18,
+          "similarity": 0.9788549987896393,
+          "x": 72,
+          "y": 792,
+          "backgroundContrast": 129.92592592592592
+        },
+        {
+          "meanChannelError": 5.3919753086419755,
+          "role": "terrain",
+          "sizePx": 18,
+          "similarity": 0.9788549987896393,
+          "x": 72,
+          "y": 774,
+          "backgroundContrast": 129.92592592592592
+        },
+        {
+          "meanChannelError": 5.3919753086419755,
+          "role": "terrain",
+          "sizePx": 18,
+          "similarity": 0.9788549987896393,
+          "x": 90,
+          "y": 792,
+          "backgroundContrast": 129.92592592592592
+        },
+        {
+          "meanChannelError": 5.3919753086419755,
+          "role": "terrain",
+          "sizePx": 18,
+          "similarity": 0.9788549987896393,
+          "x": 90,
+          "y": 774,
+          "backgroundContrast": 129.92592592592592
+        },
+        {
+          "meanChannelError": 5.3919753086419755,
+          "role": "terrain",
+          "sizePx": 18,
+          "similarity": 0.9788549987896393,
+          "x": 108,
+          "y": 792,
+          "backgroundContrast": 129.92592592592592
+        },
+        {
+          "meanChannelError": 5.3919753086419755,
+          "role": "terrain",
+          "sizePx": 18,
+          "similarity": 0.9788549987896393,
+          "x": 108,
+          "y": 774,
+          "backgroundContrast": 129.92592592592592
+        },
+        {
+          "meanChannelError": 5.3919753086419755,
+          "role": "terrain",
+          "sizePx": 18,
+          "similarity": 0.9788549987896393,
+          "x": 126,
+          "y": 792,
+          "backgroundContrast": 129.92592592592592
+        },
+        {
+          "meanChannelError": 5.3919753086419755,
+          "role": "terrain",
+          "sizePx": 18,
+          "similarity": 0.9788549987896393,
+          "x": 126,
+          "y": 774,
+          "backgroundContrast": 129.92592592592592
+        },
+        {
+          "meanChannelError": 5.3919753086419755,
+          "role": "terrain",
+          "sizePx": 18,
+          "similarity": 0.9788549987896393,
+          "x": 144,
+          "y": 792,
+          "backgroundContrast": 129.92592592592592
+        },
+        {
+          "meanChannelError": 5.3919753086419755,
+          "role": "terrain",
+          "sizePx": 18,
+          "similarity": 0.9788549987896393,
+          "x": 144,
+          "y": 774,
+          "backgroundContrast": 129.92592592592592
+        },
+        {
+          "meanChannelError": 5.3919753086419755,
+          "role": "terrain",
+          "sizePx": 18,
+          "similarity": 0.9788549987896393,
+          "x": 162,
+          "y": 792,
+          "backgroundContrast": 129.92592592592592
+        },
+        {
+          "meanChannelError": 5.3919753086419755,
+          "role": "terrain",
+          "sizePx": 18,
+          "similarity": 0.9788549987896393,
+          "x": 162,
+          "y": 774,
+          "backgroundContrast": 129.92592592592592
+        },
+        {
+          "meanChannelError": 5.3919753086419755,
+          "role": "terrain",
+          "sizePx": 18,
+          "similarity": 0.9788549987896393,
+          "x": 180,
+          "y": 792,
+          "backgroundContrast": 129.92592592592592
+        },
+        {
+          "meanChannelError": 5.3919753086419755,
+          "role": "terrain",
+          "sizePx": 18,
+          "similarity": 0.9788549987896393,
+          "x": 180,
+          "y": 774,
+          "backgroundContrast": 129.92592592592592
+        },
+        {
+          "meanChannelError": 5.3919753086419755,
+          "role": "terrain",
+          "sizePx": 18,
+          "similarity": 0.9788549987896393,
+          "x": 198,
+          "y": 792,
+          "backgroundContrast": 129.92592592592592
+        },
+        {
+          "meanChannelError": 5.3919753086419755,
+          "role": "terrain",
+          "sizePx": 18,
+          "similarity": 0.9788549987896393,
+          "x": 198,
+          "y": 774,
+          "backgroundContrast": 129.92592592592592
+        },
+        {
+          "meanChannelError": 5.3919753086419755,
+          "role": "terrain",
+          "sizePx": 18,
+          "similarity": 0.9788549987896393,
+          "x": 216,
+          "y": 792,
+          "backgroundContrast": 129.92592592592592
+        },
+        {
+          "meanChannelError": 5.3919753086419755,
+          "role": "terrain",
+          "sizePx": 18,
+          "similarity": 0.9788549987896393,
+          "x": 216,
+          "y": 774,
+          "backgroundContrast": 129.92592592592592
+        },
+        {
+          "meanChannelError": 5.3919753086419755,
+          "role": "terrain",
+          "sizePx": 18,
+          "similarity": 0.9788549987896393,
+          "x": 234,
+          "y": 792,
+          "backgroundContrast": 129.92592592592592
+        },
+        {
+          "meanChannelError": 5.3919753086419755,
+          "role": "terrain",
+          "sizePx": 18,
+          "similarity": 0.9788549987896393,
+          "x": 234,
+          "y": 774,
+          "backgroundContrast": 129.92592592592592
+        },
+        {
+          "meanChannelError": 5.3919753086419755,
+          "role": "terrain",
+          "sizePx": 18,
+          "similarity": 0.9788549987896393,
+          "x": 252,
+          "y": 792,
+          "backgroundContrast": 129.92592592592592
+        },
+        {
+          "meanChannelError": 5.3919753086419755,
+          "role": "terrain",
+          "sizePx": 18,
+          "similarity": 0.9788549987896393,
+          "x": 252,
+          "y": 774,
+          "backgroundContrast": 129.92592592592592
+        },
+        {
+          "meanChannelError": 5.3919753086419755,
+          "role": "terrain",
+          "sizePx": 18,
+          "similarity": 0.9788549987896393,
+          "x": 270,
+          "y": 792,
+          "backgroundContrast": 129.92592592592592
+        },
+        {
+          "meanChannelError": 5.3919753086419755,
+          "role": "terrain",
+          "sizePx": 18,
+          "similarity": 0.9788549987896393,
+          "x": 270,
+          "y": 774,
+          "backgroundContrast": 129.92592592592592
+        },
+        {
+          "meanChannelError": 5.3919753086419755,
+          "role": "terrain",
+          "sizePx": 18,
+          "similarity": 0.9788549987896393,
+          "x": 288,
+          "y": 792,
+          "backgroundContrast": 129.92592592592592
+        },
+        {
+          "meanChannelError": 5.3919753086419755,
+          "role": "terrain",
+          "sizePx": 18,
+          "similarity": 0.9788549987896393,
+          "x": 288,
+          "y": 774,
+          "backgroundContrast": 129.92592592592592
+        },
+        {
+          "meanChannelError": 5.3919753086419755,
+          "role": "terrain",
+          "sizePx": 18,
+          "similarity": 0.9788549987896393,
+          "x": 342,
+          "y": 792,
+          "backgroundContrast": 129.92592592592592
+        },
+        {
+          "meanChannelError": 5.3919753086419755,
+          "role": "terrain",
+          "sizePx": 18,
+          "similarity": 0.9788549987896393,
+          "x": 342,
+          "y": 774,
+          "backgroundContrast": 129.92592592592592
+        },
+        {
+          "meanChannelError": 5.3919753086419755,
+          "role": "terrain",
+          "sizePx": 18,
+          "similarity": 0.9788549987896393,
+          "x": 360,
+          "y": 792,
+          "backgroundContrast": 129.92592592592592
+        },
+        {
+          "meanChannelError": 5.3919753086419755,
+          "role": "terrain",
+          "sizePx": 18,
+          "similarity": 0.9788549987896393,
+          "x": 360,
+          "y": 774,
+          "backgroundContrast": 129.92592592592592
+        },
+        {
+          "meanChannelError": 5.3919753086419755,
+          "role": "terrain",
+          "sizePx": 18,
+          "similarity": 0.9788549987896393,
+          "x": 378,
+          "y": 792,
+          "backgroundContrast": 129.92592592592592
+        },
+        {
+          "meanChannelError": 5.3919753086419755,
+          "role": "terrain",
+          "sizePx": 18,
+          "similarity": 0.9788549987896393,
+          "x": 378,
+          "y": 774,
+          "backgroundContrast": 129.92592592592592
+        },
+        {
+          "meanChannelError": 5.3919753086419755,
+          "role": "terrain",
+          "sizePx": 18,
+          "similarity": 0.9788549987896393,
+          "x": 396,
+          "y": 792,
+          "backgroundContrast": 129.92592592592592
+        },
+        {
+          "meanChannelError": 5.3919753086419755,
+          "role": "terrain",
+          "sizePx": 18,
+          "similarity": 0.9788549987896393,
+          "x": 396,
+          "y": 774,
+          "backgroundContrast": 129.92592592592592
+        },
+        {
+          "meanChannelError": 5.3919753086419755,
+          "role": "terrain",
+          "sizePx": 18,
+          "similarity": 0.9788549987896393,
+          "x": 414,
+          "y": 792,
+          "backgroundContrast": 129.92592592592592
+        },
+        {
+          "meanChannelError": 5.3919753086419755,
+          "role": "terrain",
+          "sizePx": 18,
+          "similarity": 0.9788549987896393,
+          "x": 414,
+          "y": 774,
+          "backgroundContrast": 129.92592592592592
+        },
+        {
+          "meanChannelError": 5.3919753086419755,
+          "role": "terrain",
+          "sizePx": 18,
+          "similarity": 0.9788549987896393,
+          "x": 432,
+          "y": 792,
+          "backgroundContrast": 129.92592592592592
+        },
+        {
+          "meanChannelError": 5.3919753086419755,
+          "role": "terrain",
+          "sizePx": 18,
+          "similarity": 0.9788549987896393,
+          "x": 432,
+          "y": 774,
+          "backgroundContrast": 129.92592592592592
+        },
+        {
+          "meanChannelError": 5.3919753086419755,
+          "role": "terrain",
+          "sizePx": 18,
+          "similarity": 0.9788549987896393,
+          "x": 450,
+          "y": 792,
+          "backgroundContrast": 129.92592592592592
+        },
+        {
+          "meanChannelError": 5.3919753086419755,
+          "role": "terrain",
+          "sizePx": 18,
+          "similarity": 0.9788549987896393,
+          "x": 450,
+          "y": 774,
+          "backgroundContrast": 129.92592592592592
+        },
+        {
+          "meanChannelError": 5.3919753086419755,
+          "role": "terrain",
+          "sizePx": 18,
+          "similarity": 0.9788549987896393,
+          "x": 468,
+          "y": 792,
+          "backgroundContrast": 129.92592592592592
+        },
+        {
+          "meanChannelError": 5.3919753086419755,
+          "role": "terrain",
+          "sizePx": 18,
+          "similarity": 0.9788549987896393,
+          "x": 468,
+          "y": 774,
+          "backgroundContrast": 129.92592592592592
+        },
+        {
+          "meanChannelError": 5.3919753086419755,
+          "role": "terrain",
+          "sizePx": 18,
+          "similarity": 0.9788549987896393,
+          "x": 486,
+          "y": 792,
+          "backgroundContrast": 129.92592592592592
+        },
+        {
+          "meanChannelError": 5.3919753086419755,
+          "role": "terrain",
+          "sizePx": 18,
+          "similarity": 0.9788549987896393,
+          "x": 486,
+          "y": 774,
+          "backgroundContrast": 129.92592592592592
+        },
+        {
+          "meanChannelError": 5.3919753086419755,
+          "role": "terrain",
+          "sizePx": 18,
+          "similarity": 0.9788549987896393,
+          "x": 504,
+          "y": 792,
+          "backgroundContrast": 129.92592592592592
+        },
+        {
+          "meanChannelError": 5.3919753086419755,
+          "role": "terrain",
+          "sizePx": 18,
+          "similarity": 0.9788549987896393,
+          "x": 504,
+          "y": 774,
+          "backgroundContrast": 129.92592592592592
+        },
+        {
+          "meanChannelError": 5.3919753086419755,
+          "role": "terrain",
+          "sizePx": 18,
+          "similarity": 0.9788549987896393,
+          "x": 522,
+          "y": 792,
+          "backgroundContrast": 129.92592592592592
+        },
+        {
+          "meanChannelError": 5.3919753086419755,
+          "role": "terrain",
+          "sizePx": 18,
+          "similarity": 0.9788549987896393,
+          "x": 522,
+          "y": 774,
+          "backgroundContrast": 129.92592592592592
+        },
+        {
+          "meanChannelError": 5.3919753086419755,
+          "role": "terrain",
+          "sizePx": 18,
+          "similarity": 0.9788549987896393,
+          "x": 540,
+          "y": 792,
+          "backgroundContrast": 129.92592592592592
+        },
+        {
+          "meanChannelError": 5.3919753086419755,
+          "role": "terrain",
+          "sizePx": 18,
+          "similarity": 0.9788549987896393,
+          "x": 540,
+          "y": 774,
+          "backgroundContrast": 129.92592592592592
+        },
+        {
+          "meanChannelError": 5.3919753086419755,
+          "role": "terrain",
+          "sizePx": 18,
+          "similarity": 0.9788549987896393,
+          "x": 558,
+          "y": 792,
+          "backgroundContrast": 129.92592592592592
+        },
+        {
+          "meanChannelError": 5.3919753086419755,
+          "role": "terrain",
+          "sizePx": 18,
+          "similarity": 0.9788549987896393,
+          "x": 558,
+          "y": 774,
+          "backgroundContrast": 129.92592592592592
+        },
+        {
+          "meanChannelError": 5.3919753086419755,
+          "role": "terrain",
+          "sizePx": 18,
+          "similarity": 0.9788549987896393,
+          "x": 576,
+          "y": 792,
+          "backgroundContrast": 129.92592592592592
+        },
+        {
+          "meanChannelError": 5.3919753086419755,
+          "role": "terrain",
+          "sizePx": 18,
+          "similarity": 0.9788549987896393,
+          "x": 576,
+          "y": 774,
+          "backgroundContrast": 129.92592592592592
+        },
+        {
+          "meanChannelError": 5.3919753086419755,
+          "role": "terrain",
+          "sizePx": 18,
+          "similarity": 0.9788549987896393,
+          "x": 594,
+          "y": 792,
+          "backgroundContrast": 129.92592592592592
+        },
+        {
+          "meanChannelError": 5.3919753086419755,
+          "role": "terrain",
+          "sizePx": 18,
+          "similarity": 0.9788549987896393,
+          "x": 594,
+          "y": 774,
+          "backgroundContrast": 129.92592592592592
+        },
+        {
+          "meanChannelError": 5.3919753086419755,
+          "role": "terrain",
+          "sizePx": 18,
+          "similarity": 0.9788549987896393,
+          "x": 648,
+          "y": 792,
+          "backgroundContrast": 129.92592592592592
+        },
+        {
+          "meanChannelError": 5.3919753086419755,
+          "role": "terrain",
+          "sizePx": 18,
+          "similarity": 0.9788549987896393,
+          "x": 648,
+          "y": 774,
+          "backgroundContrast": 129.92592592592592
+        },
+        {
+          "meanChannelError": 5.3919753086419755,
+          "role": "terrain",
+          "sizePx": 18,
+          "similarity": 0.9788549987896393,
+          "x": 666,
+          "y": 792,
+          "backgroundContrast": 129.92592592592592
+        },
+        {
+          "meanChannelError": 5.3919753086419755,
+          "role": "terrain",
+          "sizePx": 18,
+          "similarity": 0.9788549987896393,
+          "x": 666,
+          "y": 774,
+          "backgroundContrast": 129.92592592592592
+        },
+        {
+          "meanChannelError": 5.3919753086419755,
+          "role": "terrain",
+          "sizePx": 18,
+          "similarity": 0.9788549987896393,
+          "x": 684,
+          "y": 792,
+          "backgroundContrast": 129.92592592592592
+        },
+        {
+          "meanChannelError": 5.3919753086419755,
+          "role": "terrain",
+          "sizePx": 18,
+          "similarity": 0.9788549987896393,
+          "x": 684,
+          "y": 774,
+          "backgroundContrast": 129.92592592592592
+        },
+        {
+          "meanChannelError": 5.3919753086419755,
+          "role": "terrain",
+          "sizePx": 18,
+          "similarity": 0.9788549987896393,
+          "x": 702,
+          "y": 792,
+          "backgroundContrast": 129.92592592592592
+        },
+        {
+          "meanChannelError": 5.3919753086419755,
+          "role": "terrain",
+          "sizePx": 18,
+          "similarity": 0.9788549987896393,
+          "x": 702,
+          "y": 774,
+          "backgroundContrast": 129.92592592592592
+        },
+        {
+          "meanChannelError": 5.3919753086419755,
+          "role": "terrain",
+          "sizePx": 18,
+          "similarity": 0.9788549987896393,
+          "x": 720,
+          "y": 792,
+          "backgroundContrast": 129.92592592592592
+        },
+        {
+          "meanChannelError": 5.3919753086419755,
+          "role": "terrain",
+          "sizePx": 18,
+          "similarity": 0.9788549987896393,
+          "x": 720,
+          "y": 774,
+          "backgroundContrast": 129.92592592592592
+        },
+        {
+          "meanChannelError": 5.3919753086419755,
+          "role": "terrain",
+          "sizePx": 18,
+          "similarity": 0.9788549987896393,
+          "x": 738,
+          "y": 792,
+          "backgroundContrast": 129.92592592592592
+        },
+        {
+          "meanChannelError": 5.3919753086419755,
+          "role": "terrain",
+          "sizePx": 18,
+          "similarity": 0.9788549987896393,
+          "x": 738,
+          "y": 774,
+          "backgroundContrast": 129.92592592592592
+        },
+        {
+          "meanChannelError": 5.3919753086419755,
+          "role": "terrain",
+          "sizePx": 18,
+          "similarity": 0.9788549987896393,
+          "x": 756,
+          "y": 792,
+          "backgroundContrast": 129.92592592592592
+        },
+        {
+          "meanChannelError": 5.3919753086419755,
+          "role": "terrain",
+          "sizePx": 18,
+          "similarity": 0.9788549987896393,
+          "x": 756,
+          "y": 774,
+          "backgroundContrast": 129.92592592592592
+        },
+        {
+          "meanChannelError": 5.3919753086419755,
+          "role": "terrain",
+          "sizePx": 18,
+          "similarity": 0.9788549987896393,
+          "x": 774,
+          "y": 792,
+          "backgroundContrast": 129.92592592592592
+        },
+        {
+          "meanChannelError": 5.3919753086419755,
+          "role": "terrain",
+          "sizePx": 18,
+          "similarity": 0.9788549987896393,
+          "x": 774,
+          "y": 774,
+          "backgroundContrast": 129.92592592592592
+        },
+        {
+          "meanChannelError": 5.3919753086419755,
+          "role": "terrain",
+          "sizePx": 18,
+          "similarity": 0.9788549987896393,
+          "x": 792,
+          "y": 792,
+          "backgroundContrast": 129.92592592592592
+        },
+        {
+          "meanChannelError": 5.3919753086419755,
+          "role": "terrain",
+          "sizePx": 18,
+          "similarity": 0.9788549987896393,
+          "x": 792,
+          "y": 774,
+          "backgroundContrast": 129.92592592592592
+        },
+        {
+          "meanChannelError": 5.3919753086419755,
+          "role": "terrain",
+          "sizePx": 18,
+          "similarity": 0.9788549987896393,
+          "x": 810,
+          "y": 792,
+          "backgroundContrast": 129.92592592592592
+        },
+        {
+          "meanChannelError": 5.3919753086419755,
+          "role": "terrain",
+          "sizePx": 18,
+          "similarity": 0.9788549987896393,
+          "x": 810,
+          "y": 774,
+          "backgroundContrast": 129.92592592592592
+        },
+        {
+          "meanChannelError": 5.3919753086419755,
+          "role": "terrain",
+          "sizePx": 18,
+          "similarity": 0.9788549987896393,
+          "x": 828,
+          "y": 792,
+          "backgroundContrast": 129.92592592592592
+        },
+        {
+          "meanChannelError": 5.3919753086419755,
+          "role": "terrain",
+          "sizePx": 18,
+          "similarity": 0.9788549987896393,
+          "x": 828,
+          "y": 774,
+          "backgroundContrast": 129.92592592592592
+        },
+        {
+          "meanChannelError": 5.3919753086419755,
+          "role": "terrain",
+          "sizePx": 18,
+          "similarity": 0.9788549987896393,
+          "x": 846,
+          "y": 792,
+          "backgroundContrast": 129.92592592592592
+        },
+        {
+          "meanChannelError": 5.3919753086419755,
+          "role": "terrain",
+          "sizePx": 18,
+          "similarity": 0.9788549987896393,
+          "x": 846,
+          "y": 774,
+          "backgroundContrast": 129.92592592592592
+        },
+        {
+          "meanChannelError": 5.3919753086419755,
+          "role": "terrain",
+          "sizePx": 18,
+          "similarity": 0.9788549987896393,
+          "x": 864,
+          "y": 792,
+          "backgroundContrast": 129.92592592592592
+        },
+        {
+          "meanChannelError": 5.3919753086419755,
+          "role": "terrain",
+          "sizePx": 18,
+          "similarity": 0.9788549987896393,
+          "x": 864,
+          "y": 774,
+          "backgroundContrast": 129.92592592592592
+        },
+        {
+          "meanChannelError": 5.3919753086419755,
+          "role": "terrain",
+          "sizePx": 18,
+          "similarity": 0.9788549987896393,
+          "x": 882,
+          "y": 792,
+          "backgroundContrast": 129.92592592592592
+        },
+        {
+          "meanChannelError": 5.3919753086419755,
+          "role": "terrain",
+          "sizePx": 18,
+          "similarity": 0.9788549987896393,
+          "x": 882,
+          "y": 774,
+          "backgroundContrast": 129.92592592592592
+        },
+        {
+          "meanChannelError": 5.3919753086419755,
+          "role": "terrain",
+          "sizePx": 18,
+          "similarity": 0.9788549987896393,
+          "x": 900,
+          "y": 792,
+          "backgroundContrast": 129.92592592592592
+        },
+        {
+          "meanChannelError": 5.3919753086419755,
+          "role": "terrain",
+          "sizePx": 18,
+          "similarity": 0.9788549987896393,
+          "x": 900,
+          "y": 774,
+          "backgroundContrast": 129.92592592592592
+        },
+        {
+          "meanChannelError": 5.3919753086419755,
+          "role": "terrain",
+          "sizePx": 18,
+          "similarity": 0.9788549987896393,
+          "x": 918,
+          "y": 792,
+          "backgroundContrast": 129.92592592592592
+        },
+        {
+          "meanChannelError": 5.3919753086419755,
+          "role": "terrain",
+          "sizePx": 18,
+          "similarity": 0.9788549987896393,
+          "x": 918,
+          "y": 774,
+          "backgroundContrast": 129.92592592592592
+        },
+        {
+          "meanChannelError": 5.3919753086419755,
+          "role": "terrain",
+          "sizePx": 18,
+          "similarity": 0.9788549987896393,
+          "x": 936,
+          "y": 792,
+          "backgroundContrast": 129.92592592592592
+        },
+        {
+          "meanChannelError": 5.3919753086419755,
+          "role": "terrain",
+          "sizePx": 18,
+          "similarity": 0.9788549987896393,
+          "x": 936,
+          "y": 774,
+          "backgroundContrast": 129.92592592592592
+        },
+        {
+          "meanChannelError": 5.3919753086419755,
+          "role": "terrain",
+          "sizePx": 18,
+          "similarity": 0.9788549987896393,
+          "x": 954,
+          "y": 792,
+          "backgroundContrast": 129.92592592592592
+        },
+        {
+          "meanChannelError": 5.3919753086419755,
+          "role": "terrain",
+          "sizePx": 18,
+          "similarity": 0.9788549987896393,
+          "x": 954,
+          "y": 774,
+          "backgroundContrast": 129.92592592592592
+        },
+        {
+          "meanChannelError": 5.3919753086419755,
+          "role": "terrain",
+          "sizePx": 18,
+          "similarity": 0.9788549987896393,
+          "x": 972,
+          "y": 792,
+          "backgroundContrast": 129.92592592592592
+        },
+        {
+          "meanChannelError": 5.3919753086419755,
+          "role": "terrain",
+          "sizePx": 18,
+          "similarity": 0.9788549987896393,
+          "x": 972,
+          "y": 774,
+          "backgroundContrast": 129.92592592592592
+        },
+        {
+          "meanChannelError": 5.3919753086419755,
+          "role": "terrain",
+          "sizePx": 18,
+          "similarity": 0.9788549987896393,
+          "x": 990,
+          "y": 792,
+          "backgroundContrast": 129.92592592592592
+        },
+        {
+          "meanChannelError": 5.3919753086419755,
+          "role": "terrain",
+          "sizePx": 18,
+          "similarity": 0.9788549987896393,
+          "x": 990,
+          "y": 774,
+          "backgroundContrast": 129.92592592592592
+        },
+        {
+          "meanChannelError": 5.3919753086419755,
+          "role": "terrain",
+          "sizePx": 18,
+          "similarity": 0.9788549987896393,
+          "x": 1008,
+          "y": 792,
+          "backgroundContrast": 129.92592592592592
+        },
+        {
+          "meanChannelError": 5.3919753086419755,
+          "role": "terrain",
+          "sizePx": 18,
+          "similarity": 0.9788549987896393,
+          "x": 1008,
+          "y": 774,
+          "backgroundContrast": 129.92592592592592
+        },
+        {
+          "meanChannelError": 5.3919753086419755,
+          "role": "terrain",
+          "sizePx": 18,
+          "similarity": 0.9788549987896393,
+          "x": 1026,
+          "y": 792,
+          "backgroundContrast": 129.92592592592592
+        },
+        {
+          "meanChannelError": 5.3919753086419755,
+          "role": "terrain",
+          "sizePx": 18,
+          "similarity": 0.9788549987896393,
+          "x": 1026,
+          "y": 774,
+          "backgroundContrast": 129.92592592592592
+        },
+        {
+          "meanChannelError": 5.3919753086419755,
+          "role": "terrain",
+          "sizePx": 18,
+          "similarity": 0.9788549987896393,
+          "x": 1044,
+          "y": 792,
+          "backgroundContrast": 129.92592592592592
+        },
+        {
+          "meanChannelError": 5.3919753086419755,
+          "role": "terrain",
+          "sizePx": 18,
+          "similarity": 0.9788549987896393,
+          "x": 1044,
+          "y": 774,
+          "backgroundContrast": 129.92592592592592
+        },
+        {
+          "meanChannelError": 5.3919753086419755,
+          "role": "terrain",
+          "sizePx": 18,
+          "similarity": 0.9788549987896393,
+          "x": 1062,
+          "y": 792,
+          "backgroundContrast": 129.92592592592592
+        },
+        {
+          "meanChannelError": 5.3919753086419755,
+          "role": "terrain",
+          "sizePx": 18,
+          "similarity": 0.9788549987896393,
+          "x": 1062,
+          "y": 774,
+          "backgroundContrast": 129.92592592592592
+        },
+        {
+          "meanChannelError": 5.3919753086419755,
+          "role": "terrain",
+          "sizePx": 18,
+          "similarity": 0.9788549987896393,
+          "x": 1080,
+          "y": 792,
+          "backgroundContrast": 129.92592592592592
+        },
+        {
+          "meanChannelError": 5.3919753086419755,
+          "role": "terrain",
+          "sizePx": 18,
+          "similarity": 0.9788549987896393,
+          "x": 1080,
+          "y": 774,
+          "backgroundContrast": 129.92592592592592
+        },
+        {
+          "meanChannelError": 5.3919753086419755,
+          "role": "terrain",
+          "sizePx": 18,
+          "similarity": 0.9788549987896393,
+          "x": 1098,
+          "y": 792,
+          "backgroundContrast": 129.92592592592592
+        },
+        {
+          "meanChannelError": 5.3919753086419755,
+          "role": "terrain",
+          "sizePx": 18,
+          "similarity": 0.9788549987896393,
+          "x": 1098,
+          "y": 774,
+          "backgroundContrast": 129.92592592592592
+        },
+        {
+          "meanChannelError": 5.3919753086419755,
+          "role": "terrain",
+          "sizePx": 18,
+          "similarity": 0.9788549987896393,
+          "x": 1116,
+          "y": 792,
+          "backgroundContrast": 129.92592592592592
+        },
+        {
+          "meanChannelError": 5.3919753086419755,
+          "role": "terrain",
+          "sizePx": 18,
+          "similarity": 0.9788549987896393,
+          "x": 1116,
+          "y": 774,
+          "backgroundContrast": 129.92592592592592
+        },
+        {
+          "meanChannelError": 5.3919753086419755,
+          "role": "terrain",
+          "sizePx": 18,
+          "similarity": 0.9788549987896393,
+          "x": 1134,
+          "y": 792,
+          "backgroundContrast": 129.92592592592592
+        },
+        {
+          "meanChannelError": 5.3919753086419755,
+          "role": "terrain",
+          "sizePx": 18,
+          "similarity": 0.9788549987896393,
+          "x": 1134,
+          "y": 774,
+          "backgroundContrast": 129.92592592592592
+        },
+        {
+          "meanChannelError": 0,
+          "role": "player",
+          "sizePx": 18,
+          "similarity": 1,
+          "x": 54,
+          "y": 756,
+          "backgroundContrast": 69.3045267489712
+        },
+        {
+          "meanChannelError": 0.4732510288065844,
+          "role": "question block",
+          "sizePx": 18,
+          "similarity": 0.9981441136125232,
+          "x": 234,
+          "y": 702,
+          "backgroundContrast": 133.46399176954733
+        },
+        {
+          "meanChannelError": 0,
+          "role": "finish",
+          "sizePx": 18,
+          "similarity": 1,
+          "x": 1053,
+          "y": 756,
+          "backgroundContrast": 19.462962962962962
+        },
+        {
+          "meanChannelError": 0,
+          "role": "finish",
+          "sizePx": 18,
+          "similarity": 1,
+          "x": 1053,
+          "y": 738,
+          "backgroundContrast": 19.462962962962962
+        },
+        {
+          "meanChannelError": 0,
+          "role": "finish",
+          "sizePx": 18,
+          "similarity": 1,
+          "x": 1053,
+          "y": 720,
+          "backgroundContrast": 19.462962962962962
+        },
+        {
+          "meanChannelError": 0,
+          "role": "finish",
+          "sizePx": 18,
+          "similarity": 1,
+          "x": 1053,
+          "y": 702,
+          "backgroundContrast": 19.462962962962962
+        },
+        {
+          "meanChannelError": 0,
+          "role": "finish",
+          "sizePx": 18,
+          "similarity": 1,
+          "x": 1053,
+          "y": 684,
+          "backgroundContrast": 19.462962962962962
+        },
+        {
+          "meanChannelError": 0,
+          "role": "finish",
+          "sizePx": 18,
+          "similarity": 1,
+          "x": 1053,
+          "y": 666,
+          "backgroundContrast": 19.462962962962962
+        },
+        {
+          "meanChannelError": 0,
+          "role": "finish",
+          "sizePx": 18,
+          "similarity": 1,
+          "x": 1053,
+          "y": 648,
+          "backgroundContrast": 19.462962962962962
+        },
+        {
+          "meanChannelError": 0,
+          "role": "finish",
+          "sizePx": 18,
+          "similarity": 1,
+          "x": 1053,
+          "y": 630,
+          "backgroundContrast": 19.462962962962962
+        }
+      ]
+    },
+    "height": 810
+  },
+  "occluded": {
+    "reason": "Reference does not clearly show the supported player at its expected position (pixel error 52.98)",
+    "width": 960,
+    "accepted": false,
+    "id": "60bf9b5b-26e9-4984-a47c-035b6199f487",
+    "source": {
+      "sourceSha256": "08b10ab7c8c14a049b02c49a792bfa62219cd30918377cf0a55e9cd06b51bb20",
+      "components": 6085,
+      "rootExampleObjects": 2,
+      "assets": {
+        "assets/images/bigSpritesheet.png": "dd6f095c07e98006d572306d00556169be4f6d256d7459a48cacf39d685c264b",
+        "assets/images/pipes.png": "502e477279252b5d90afe0b6a70e4f4032d52022e5bde533fdd2e7990c560835",
+        "assets/images/items.png": "bbcffd46cd41e4bffdc2b7ceeb108ae19621c46b9784109a2b1c1e8d6d676d06",
+        "assets/images/spritesheet.png": "74f5592bd41952d6e9e4cda4aae2914944a762bf83bab183673397fccd14e96c",
+        "assets/images/spritesheets/decorationsAndBlocks.png": "9a26bca9505d31968c0af1ec6a8095a978728f83463ae547c5b3c3b47be70a17",
+        "assets/images/turtle.png": "26a625c9e1524c02ed87f49cf6dc4cbb9f4f68aeeb1919ba9ec0ebfeff003666"
+      },
+      "objects": 1248,
+      "scope": "Full serialized source; behavior is implemented by Java components, not by JSON alone",
+      "componentTypes": {
+        "components.Ground": 1110,
+        "jade.Transform": 1248,
+        "components.GoombaAI": 16,
+        "components.StateMachine": 50,
+        "components.QuestionBlock": 13,
+        "components.Coin": 19,
+        "components.SpriteRenderer": 1248,
+        "physics2d.components.Rigidbody2D": 1156,
+        "components.BreakableBrick": 54,
+        "components.Pipe": 4,
+        "components.TurtleAI": 1,
+        "components.PlayerController": 1,
+        "physics2d.components.CircleCollider": 36,
+        "physics2d.components.PillboxCollider": 1,
+        "physics2d.components.Box2DCollider": 1119,
+        "components.Flagpole": 9
+      },
+      "source": "levels/mario-original.json"
+    },
+    "pngSha256": "f60f8f1059703bb9e559cbfcc9995d41271a079a9e706053fe7ae487a00f0639",
+    "height": 540
+  },
+  "project": "C:\\Users\\eyeka\\AppData\\Local\\Temp\\reference11511316304973634634084",
+  "passed": true,
+  "skyCrop": {
+    "width": 960,
+    "accepted": true,
+    "id": "78c8e75c-bb56-4138-a394-406624e5bc89",
+    "source": {
+      "sourceSha256": "08b10ab7c8c14a049b02c49a792bfa62219cd30918377cf0a55e9cd06b51bb20",
+      "components": 6085,
+      "rootExampleObjects": 2,
+      "assets": {
+        "assets/images/bigSpritesheet.png": "dd6f095c07e98006d572306d00556169be4f6d256d7459a48cacf39d685c264b",
+        "assets/images/pipes.png": "502e477279252b5d90afe0b6a70e4f4032d52022e5bde533fdd2e7990c560835",
+        "assets/images/items.png": "bbcffd46cd41e4bffdc2b7ceeb108ae19621c46b9784109a2b1c1e8d6d676d06",
+        "assets/images/spritesheet.png": "74f5592bd41952d6e9e4cda4aae2914944a762bf83bab183673397fccd14e96c",
+        "assets/images/spritesheets/decorationsAndBlocks.png": "9a26bca9505d31968c0af1ec6a8095a978728f83463ae547c5b3c3b47be70a17",
+        "assets/images/turtle.png": "26a625c9e1524c02ed87f49cf6dc4cbb9f4f68aeeb1919ba9ec0ebfeff003666"
+      },
+      "objects": 1248,
+      "scope": "Full serialized source; behavior is implemented by Java components, not by JSON alone",
+      "componentTypes": {
+        "components.Ground": 1110,
+        "jade.Transform": 1248,
+        "components.GoombaAI": 16,
+        "components.StateMachine": 50,
+        "components.QuestionBlock": 13,
+        "components.Coin": 19,
+        "components.SpriteRenderer": 1248,
+        "physics2d.components.Rigidbody2D": 1156,
+        "components.BreakableBrick": 54,
+        "components.Pipe": 4,
+        "components.TurtleAI": 1,
+        "components.PlayerController": 1,
+        "physics2d.components.CircleCollider": 36,
+        "physics2d.components.PillboxCollider": 1,
+        "physics2d.components.Box2DCollider": 1119,
+        "components.Flagpole": 9
+      },
+      "source": "levels/mario-original.json"
+    },
+    "pngSha256": "b1af50e1d8ecaad45e0cb12b748e4e7e69973dc544e593344565867a429e5e02",
+    "analysis": {
+      "analysisNanos": 850507800,
+      "meanTerrainError": 5.108796296296302,
+      "grid": {
+        "originX": 0,
+        "worldBottomY": 340,
+        "tilePx": 12
+      },
+      "scope": "Known original sprites and two-gap recipe only. Seed is a canonical matching layout, not the author's original seed. Hidden question-block contents use declared original Powerup behavior; offscreen geometry is not inferred.",
+      "unexplainedPixels": 0,
+      "parameters": {
+        "seed": 7,
+        "gapTiles": 2,
+        "secondGapTiles": 2,
+        "lengthTiles": 64
+      },
+      "detections": [
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 0,
+          "y": 328,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 0,
+          "y": 316,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 12,
+          "y": 328,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 12,
+          "y": 316,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 24,
+          "y": 328,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 24,
+          "y": 316,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 36,
+          "y": 328,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 36,
+          "y": 316,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 48,
+          "y": 328,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 48,
+          "y": 316,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 60,
+          "y": 328,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 60,
+          "y": 316,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 72,
+          "y": 328,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 72,
+          "y": 316,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 84,
+          "y": 328,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 84,
+          "y": 316,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 96,
+          "y": 328,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 96,
+          "y": 316,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 108,
+          "y": 328,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 108,
+          "y": 316,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 120,
+          "y": 328,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 120,
+          "y": 316,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 132,
+          "y": 328,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 132,
+          "y": 316,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 144,
+          "y": 328,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 144,
+          "y": 316,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 156,
+          "y": 328,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 156,
+          "y": 316,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 168,
+          "y": 328,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 168,
+          "y": 316,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 180,
+          "y": 328,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 180,
+          "y": 316,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 192,
+          "y": 328,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 192,
+          "y": 316,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 228,
+          "y": 328,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 228,
+          "y": 316,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 240,
+          "y": 328,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 240,
+          "y": 316,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 252,
+          "y": 328,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 252,
+          "y": 316,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 264,
+          "y": 328,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 264,
+          "y": 316,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 276,
+          "y": 328,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 276,
+          "y": 316,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 288,
+          "y": 328,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 288,
+          "y": 316,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 300,
+          "y": 328,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 300,
+          "y": 316,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 312,
+          "y": 328,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 312,
+          "y": 316,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 324,
+          "y": 328,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 324,
+          "y": 316,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 336,
+          "y": 328,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 336,
+          "y": 316,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 348,
+          "y": 328,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 348,
+          "y": 316,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 360,
+          "y": 328,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 360,
+          "y": 316,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 372,
+          "y": 328,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 372,
+          "y": 316,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 384,
+          "y": 328,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 384,
+          "y": 316,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 396,
+          "y": 328,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 396,
+          "y": 316,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 432,
+          "y": 328,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 432,
+          "y": 316,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 444,
+          "y": 328,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 444,
+          "y": 316,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 456,
+          "y": 328,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 456,
+          "y": 316,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 468,
+          "y": 328,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 468,
+          "y": 316,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 480,
+          "y": 328,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 480,
+          "y": 316,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 492,
+          "y": 328,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 492,
+          "y": 316,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 504,
+          "y": 328,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 504,
+          "y": 316,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 516,
+          "y": 328,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 516,
+          "y": 316,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 528,
+          "y": 328,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 528,
+          "y": 316,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 540,
+          "y": 328,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 540,
+          "y": 316,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 552,
+          "y": 328,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 552,
+          "y": 316,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 564,
+          "y": 328,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 564,
+          "y": 316,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 576,
+          "y": 328,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 576,
+          "y": 316,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 588,
+          "y": 328,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 588,
+          "y": 316,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 600,
+          "y": 328,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 600,
+          "y": 316,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 612,
+          "y": 328,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 612,
+          "y": 316,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 624,
+          "y": 328,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 624,
+          "y": 316,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 636,
+          "y": 328,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 636,
+          "y": 316,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 648,
+          "y": 328,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 648,
+          "y": 316,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 660,
+          "y": 328,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 660,
+          "y": 316,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 672,
+          "y": 328,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 672,
+          "y": 316,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 684,
+          "y": 328,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 684,
+          "y": 316,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 696,
+          "y": 328,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 696,
+          "y": 316,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 708,
+          "y": 328,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 708,
+          "y": 316,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 720,
+          "y": 328,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 720,
+          "y": 316,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 732,
+          "y": 328,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 732,
+          "y": 316,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 744,
+          "y": 328,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 744,
+          "y": 316,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 756,
+          "y": 328,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 5.108796296296297,
+          "role": "terrain",
+          "sizePx": 12,
+          "similarity": 0.9799655047204067,
+          "x": 756,
+          "y": 316,
+          "backgroundContrast": 130.7962962962963
+        },
+        {
+          "meanChannelError": 0,
+          "role": "player",
+          "sizePx": 12,
+          "similarity": 1,
+          "x": 36,
+          "y": 304,
+          "backgroundContrast": 65.4074074074074
+        },
+        {
+          "meanChannelError": 0.7986111111111112,
+          "role": "question block",
+          "sizePx": 12,
+          "similarity": 0.996868191721133,
+          "x": 156,
+          "y": 268,
+          "backgroundContrast": 133.84953703703704
+        },
+        {
+          "meanChannelError": 0,
+          "role": "finish",
+          "sizePx": 12,
+          "similarity": 1,
+          "x": 702,
+          "y": 304,
+          "backgroundContrast": 11.972222222222221
+        },
+        {
+          "meanChannelError": 0,
+          "role": "finish",
+          "sizePx": 12,
+          "similarity": 1,
+          "x": 702,
+          "y": 292,
+          "backgroundContrast": 11.972222222222221
+        },
+        {
+          "meanChannelError": 0,
+          "role": "finish",
+          "sizePx": 12,
+          "similarity": 1,
+          "x": 702,
+          "y": 280,
+          "backgroundContrast": 11.972222222222221
+        },
+        {
+          "meanChannelError": 0,
+          "role": "finish",
+          "sizePx": 12,
+          "similarity": 1,
+          "x": 702,
+          "y": 268,
+          "backgroundContrast": 11.972222222222221
+        },
+        {
+          "meanChannelError": 0,
+          "role": "finish",
+          "sizePx": 12,
+          "similarity": 1,
+          "x": 702,
+          "y": 256,
+          "backgroundContrast": 11.972222222222221
+        },
+        {
+          "meanChannelError": 0,
+          "role": "finish",
+          "sizePx": 12,
+          "similarity": 1,
+          "x": 702,
+          "y": 244,
+          "backgroundContrast": 11.972222222222221
+        },
+        {
+          "meanChannelError": 0,
+          "role": "finish",
+          "sizePx": 12,
+          "similarity": 1,
+          "x": 702,
+          "y": 232,
+          "backgroundContrast": 11.972222222222221
+        },
+        {
+          "meanChannelError": 0,
+          "role": "finish",
+          "sizePx": 12,
+          "similarity": 1,
+          "x": 702,
+          "y": 220,
+          "backgroundContrast": 11.972222222222221
+        }
+      ]
+    },
+    "height": 340
+  }
+}

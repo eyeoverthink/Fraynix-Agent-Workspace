@@ -1,0 +1,352 @@
+{
+  "request": "Create a playable Mario level gapTiles=10 repairLimit=2",
+  "reason": "Level verified by actual finish contact; controller comparison and failed attempts retained",
+  "completedAt": "2026-11-11T03:41:44.807045700Z",
+  "workNanos": 28488920000,
+  "startedAt": "2026-11-11T03:41:13.917009400Z",
+  "attempt": 2,
+  "restarts": 0,
+  "repairs": [
+    {
+      "reason": "Observed fall within this gap",
+      "field": "gapTiles",
+      "before": 10,
+      "after": 2,
+      "trial": 0,
+      "observed": {
+        "small": true,
+        "onGround": false,
+        "won": false,
+        "x": 6.745839,
+        "y": -0.797016,
+        "dead": false,
+        "id": "2b5c4915-0172-3a59-bd77-9f90f82c9435"
+      }
+    },
+    {
+      "reason": "Observed fall within this gap",
+      "field": "secondGapTiles",
+      "before": 10,
+      "after": 2,
+      "trial": 1,
+      "observed": {
+        "small": true,
+        "onGround": false,
+        "won": false,
+        "x": 10.438041,
+        "y": -0.7978307,
+        "dead": false,
+        "id": "0b220372-a22e-3dc9-bafb-04ad9a3a6908"
+      }
+    }
+  ],
+  "stage": "finish",
+  "trials": [
+    {
+      "initial": {
+        "neural": {
+          "ticks": 0,
+          "ready": false,
+          "sharedCore": true
+        },
+        "objects": 83,
+        "visibleWindow": false,
+        "continuous": false,
+        "editorInitialized": false,
+        "frameSequence": 0,
+        "sessionId": "8dd10a18-ad44-4c18-9eb4-7beab5d6c046",
+        "tick": 0,
+        "units": "legacy game units; XY plane; render layer is not physical Z",
+        "player": {
+          "small": true,
+          "onGround": false,
+          "won": false,
+          "x": 0.875,
+          "y": 0.625,
+          "dead": false,
+          "id": "2b5c4915-0172-3a59-bd77-9f90f82c9435"
+        }
+      },
+      "finishImage": {
+        "file": "a1c28779-ed48-4ac3-a2c9-260b5795520b-0-finish-72139a0f-c1ca-4f23-a971-5760f21520d0.png",
+        "sha256": "1d732a97d842004b253b50809ffb69612406394ef5a2e2a5dabe8e2dbade7fa3"
+      },
+      "final": {
+        "neural": {
+          "ticks": 0,
+          "ready": false,
+          "sharedCore": true
+        },
+        "objects": 83,
+        "visibleWindow": false,
+        "continuous": false,
+        "editorInitialized": false,
+        "frameSequence": 145,
+        "sessionId": "8dd10a18-ad44-4c18-9eb4-7beab5d6c046",
+        "tick": 204,
+        "units": "legacy game units; XY plane; render layer is not physical Z",
+        "player": {
+          "small": true,
+          "onGround": false,
+          "won": false,
+          "x": 6.745839,
+          "y": -0.797016,
+          "dead": false,
+          "id": "2b5c4915-0172-3a59-bd77-9f90f82c9435"
+        }
+      },
+      "control": "simple",
+      "sessionId": "8dd10a18-ad44-4c18-9eb4-7beab5d6c046",
+      "startImage": {
+        "file": "a1c28779-ed48-4ac3-a2c9-260b5795520b-0-start-ab14a3d4-476a-4c2a-bde8-69bf8b59a95b.png",
+        "sha256": "4b3bc51e8191877f6fdfea0f4148eeacf40fada5b71dd05b8387e365c892c40b"
+      },
+      "inputChunks": 17,
+      "status": "failed"
+    },
+    {
+      "initial": {
+        "neural": {
+          "ticks": 0,
+          "ready": false,
+          "sharedCore": true
+        },
+        "objects": 99,
+        "visibleWindow": false,
+        "continuous": false,
+        "editorInitialized": false,
+        "frameSequence": 0,
+        "sessionId": "f3bf928f-0656-4a67-bd23-93c315c41ca6",
+        "tick": 0,
+        "units": "legacy game units; XY plane; render layer is not physical Z",
+        "player": {
+          "small": true,
+          "onGround": false,
+          "won": false,
+          "x": 0.875,
+          "y": 0.625,
+          "dead": false,
+          "id": "0b220372-a22e-3dc9-bafb-04ad9a3a6908"
+        }
+      },
+      "finishImage": {
+        "file": "a1c28779-ed48-4ac3-a2c9-260b5795520b-1-finish-029acae0-017a-4db8-b324-5f9155b142df.png",
+        "sha256": "1d732a97d842004b253b50809ffb69612406394ef5a2e2a5dabe8e2dbade7fa3"
+      },
+      "final": {
+        "neural": {
+          "ticks": 0,
+          "ready": false,
+          "sharedCore": true
+        },
+        "objects": 99,
+        "visibleWindow": false,
+        "continuous": false,
+        "editorInitialized": false,
+        "frameSequence": 239,
+        "sessionId": "f3bf928f-0656-4a67-bd23-93c315c41ca6",
+        "tick": 324,
+        "units": "legacy game units; XY plane; render layer is not physical Z",
+        "player": {
+          "small": true,
+          "onGround": false,
+          "won": false,
+          "x": 10.438041,
+          "y": -0.7978307,
+          "dead": false,
+          "id": "0b220372-a22e-3dc9-bafb-04ad9a3a6908"
+        }
+      },
+      "control": "simple",
+      "sessionId": "f3bf928f-0656-4a67-bd23-93c315c41ca6",
+      "startImage": {
+        "file": "a1c28779-ed48-4ac3-a2c9-260b5795520b-1-start-614a595b-701b-443d-943a-90df628a16cb.png",
+        "sha256": "862d31d0b76601aa4e8a577dfb0861ad47bcc675003d7faa3857683e67db0972"
+      },
+      "inputChunks": 27,
+      "status": "failed"
+    },
+    {
+      "initial": {
+        "neural": {
+          "ticks": 0,
+          "ready": false,
+          "sharedCore": true
+        },
+        "objects": 115,
+        "visibleWindow": false,
+        "continuous": false,
+        "editorInitialized": false,
+        "frameSequence": 0,
+        "sessionId": "1767eb32-e477-483c-ac7c-ea4eaf7f23a0",
+        "tick": 0,
+        "units": "legacy game units; XY plane; render layer is not physical Z",
+        "player": {
+          "small": true,
+          "onGround": false,
+          "won": false,
+          "x": 0.875,
+          "y": 0.625,
+          "dead": false,
+          "id": "4028663e-4dfe-3b25-ab12-a2df59bb9368"
+        }
+      },
+      "finishImage": {
+        "file": "a1c28779-ed48-4ac3-a2c9-260b5795520b-2-finish-bed4052c-0b7e-41b3-9a29-aef2dcc65340.png",
+        "sha256": "f66d15e8bdad58b55dabf6c5126d9cd06325e448a3046bc6920a50c0999843cd"
+      },
+      "final": {
+        "neural": {
+          "ticks": 0,
+          "ready": false,
+          "sharedCore": true
+        },
+        "objects": 115,
+        "visibleWindow": false,
+        "continuous": false,
+        "editorInitialized": false,
+        "frameSequence": 303,
+        "sessionId": "1767eb32-e477-483c-ac7c-ea4eaf7f23a0",
+        "tick": 384,
+        "units": "legacy game units; XY plane; render layer is not physical Z",
+        "player": {
+          "small": true,
+          "onGround": true,
+          "won": true,
+          "x": 12.949997,
+          "y": 0.6347398,
+          "dead": false,
+          "id": "4028663e-4dfe-3b25-ab12-a2df59bb9368"
+        }
+      },
+      "control": "simple",
+      "sessionId": "1767eb32-e477-483c-ac7c-ea4eaf7f23a0",
+      "startImage": {
+        "file": "a1c28779-ed48-4ac3-a2c9-260b5795520b-2-start-1106c548-10e7-42c5-85a5-e485ec71a653.png",
+        "sha256": "862d31d0b76601aa4e8a577dfb0861ad47bcc675003d7faa3857683e67db0972"
+      },
+      "inputChunks": 32,
+      "status": "won"
+    },
+    {
+      "initial": {
+        "neural": {
+          "ticks": 0,
+          "ready": false,
+          "sharedCore": true
+        },
+        "objects": 115,
+        "visibleWindow": false,
+        "continuous": false,
+        "editorInitialized": false,
+        "frameSequence": 0,
+        "sessionId": "299a6021-38a6-4fd3-a49a-143bbe1a073a",
+        "tick": 0,
+        "units": "legacy game units; XY plane; render layer is not physical Z",
+        "player": {
+          "small": true,
+          "onGround": false,
+          "won": false,
+          "x": 0.875,
+          "y": 0.625,
+          "dead": false,
+          "id": "4028663e-4dfe-3b25-ab12-a2df59bb9368"
+        }
+      },
+      "finishImage": {
+        "file": "a1c28779-ed48-4ac3-a2c9-260b5795520b-3-finish-ead181af-00fa-410d-95ef-554c1d4ed4ea.png",
+        "sha256": "24c30e1fc715ab57e50c3972105c85f6fe7bb942b42cf3020af27e44dd2b7cfb"
+      },
+      "final": {
+        "neural": {
+          "ticks": 216,
+          "ready": true,
+          "sharedCore": true
+        },
+        "objects": 116,
+        "visibleWindow": false,
+        "continuous": false,
+        "editorInitialized": false,
+        "frameSequence": 191,
+        "sessionId": "299a6021-38a6-4fd3-a49a-143bbe1a073a",
+        "tick": 228,
+        "units": "legacy game units; XY plane; render layer is not physical Z",
+        "player": {
+          "small": true,
+          "onGround": false,
+          "won": false,
+          "x": 4.4078574,
+          "y": -0.98827946,
+          "dead": false,
+          "id": "4028663e-4dfe-3b25-ab12-a2df59bb9368"
+        }
+      },
+      "control": "existing-ai",
+      "sessionId": "299a6021-38a6-4fd3-a49a-143bbe1a073a",
+      "startImage": {
+        "file": "a1c28779-ed48-4ac3-a2c9-260b5795520b-3-start-120a59d6-d018-49bf-a60b-209a8b217f90.png",
+        "sha256": "862d31d0b76601aa4e8a577dfb0861ad47bcc675003d7faa3857683e67db0972"
+      },
+      "inputChunks": 19,
+      "status": "failed"
+    }
+  ],
+  "review": {
+    "scope": "Verified candidate reopened at its starting state; completed trial outcomes remain separate",
+    "state": {
+      "neural": {
+        "ticks": 0,
+        "ready": false,
+        "sharedCore": true
+      },
+      "objects": 115,
+      "visibleWindow": false,
+      "continuous": false,
+      "editorInitialized": false,
+      "frameSequence": 0,
+      "sessionId": "e8080956-2385-4890-bc56-ae145b8a753f",
+      "tick": 0,
+      "units": "legacy game units; XY plane; render layer is not physical Z",
+      "player": {
+        "small": true,
+        "onGround": false,
+        "won": false,
+        "x": 0.875,
+        "y": 0.625,
+        "dead": false,
+        "id": "4028663e-4dfe-3b25-ab12-a2df59bb9368"
+      }
+    },
+    "candidateId": "3dbc41ba-1d0e-3b94-98f1-06df61cc85d9"
+  },
+  "audit": {
+    "wins": 1,
+    "existingAI": "failed",
+    "failures": 3,
+    "trials": 4,
+    "simpleControl": "won",
+    "scope": "Actual finish contact on this candidate; comparison is not a guarantee for unfamiliar levels. No procedure-bank admission or model training.",
+    "traceSha256": "9688deff8fd65b0db282d0309c7f550242367a1e7cf11c477eb25b9b763f53e7",
+    "passed": true,
+    "candidateId": "3dbc41ba-1d0e-3b94-98f1-06df61cc85d9",
+    "repairCount": 2,
+    "inputChunks": 95
+  },
+  "definition": {
+    "repairLimit": 2,
+    "parameters": {
+      "seed": 0,
+      "gapTiles": 10,
+      "secondGapTiles": 10,
+      "lengthTiles": 56
+    }
+  },
+  "id": "a1c28779-ed48-4ac3-a2c9-260b5795520b",
+  "parameters": {
+    "seed": 0,
+    "gapTiles": 2,
+    "secondGapTiles": 2,
+    "lengthTiles": 56
+  },
+  "status": "completed"
+}

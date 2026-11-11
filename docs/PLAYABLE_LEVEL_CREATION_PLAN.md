@@ -1,3 +1,9 @@
+## Progress through edition115 — 2026-11-10
+
+The durable source-construction task is implemented in the existing Java chat owner: original component checks, actual simple-control playtests, at most two observed-gap repairs, existing-AI comparison and explicit fresh-session recovery. The first bounded reference front end is also implemented for known original sprites and the two-gap recipe. Images retain original bytes, grid/match measurements and explicit Powerup behavior; unsupported foreground and occluded actors refuse. This is the first bounded slice of phase116, not general screenshot reconstruction.
+
+[Edition115 contract](EDITION_115_CONTRACT.md) records the acceptance gates. The final README and actual evidence distinguish simple-control success from the existing AI failure on seed0. No new procedure-bank admission or model training. Next: broaden image evidence/layout support, improve the measured AI controller failure, and implement explicit procedure retirement/reactivation before retaining new skills into the full32-slot bank. Preserve all earlier contracts and frozen evidence.
+
 # From an existing level to a newly tested playable world
 
 Declared 2026-11-10, following edition 113. This is a development plan, not a statement that every phase is implemented. The first implementation is edition 114. Original sources, saved worlds, published README editions and verification rules remain intact.

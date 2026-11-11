@@ -1,0 +1,99 @@
+{
+  "nodes": [
+    {
+      "id": "task",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/GameTask115.java",
+      "x": 0,
+      "y": 0,
+      "width": 390,
+      "height": 190
+    },
+    {
+      "id": "image",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/GameReference115.java",
+      "x": 430,
+      "y": 0,
+      "width": 390,
+      "height": 190
+    },
+    {
+      "id": "scene",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/GameLevels114.java",
+      "x": 860,
+      "y": 0,
+      "width": 390,
+      "height": 190
+    },
+    {
+      "id": "chat",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/Domain044.java",
+      "x": 0,
+      "y": 250,
+      "width": 390,
+      "height": 190
+    },
+    {
+      "id": "runtime",
+      "type": "file",
+      "file": "src/main/java/runtime/EmbeddedGameRuntime.java",
+      "x": 430,
+      "y": 250,
+      "width": 390,
+      "height": 190
+    },
+    {
+      "id": "view",
+      "type": "file",
+      "file": "workspace-desktop/renderer/brain-game.js",
+      "x": 860,
+      "y": 250,
+      "width": 390,
+      "height": 190
+    },
+    {
+      "id": "proof",
+      "type": "file",
+      "file": "workspace-desktop/test/game115-integration.cjs",
+      "x": 0,
+      "y": 500,
+      "width": 390,
+      "height": 190
+    }
+  ],
+  "edges": [
+    {
+      "id": "0",
+      "fromNode": "task",
+      "toNode": "image"
+    },
+    {
+      "id": "1",
+      "fromNode": "image",
+      "toNode": "scene"
+    },
+    {
+      "id": "2",
+      "fromNode": "scene",
+      "toNode": "chat"
+    },
+    {
+      "id": "3",
+      "fromNode": "chat",
+      "toNode": "runtime"
+    },
+    {
+      "id": "4",
+      "fromNode": "runtime",
+      "toNode": "view"
+    },
+    {
+      "id": "5",
+      "fromNode": "view",
+      "toNode": "proof"
+    }
+  ]
+}

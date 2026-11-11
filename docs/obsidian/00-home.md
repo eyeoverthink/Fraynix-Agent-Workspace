@@ -1,3 +1,5 @@
+Current: [[docs/obsidian/123-durable-level-tasks.md]] · [[README-115.md]]
+
 [[docs/obsidian/122-playable-level-creation|Edition114: playable level creation]]
 
 [[docs/obsidian/120-completed-chat-history|Edition112: completed chat history]]
