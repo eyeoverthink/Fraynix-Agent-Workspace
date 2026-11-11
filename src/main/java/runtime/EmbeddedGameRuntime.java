@@ -55,7 +55,7 @@ public final class EmbeddedGameRuntime implements ControlledRuntime,AutoCloseabl
         var player=scene.getGameObjectWith(PlayerController.class);
         if(player!=null){var controller=player.getComponent(PlayerController.class);value.put("player",Map.of("id",player.getPersistentId().toString(),"x",player.transform.position.x,"y",player.transform.position.y,"small",controller.isSmall(),"dead",controller.isDead(),"won",controller.hasWon(),"onGround",controller.onGround,"vx",player.getComponent(physics2d.components.Rigidbody2D.class).getVelocity().x,"vy",player.getComponent(physics2d.components.Rigidbody2D.class).getVelocity().y));}
         if(player!=null)value.put("contact117",agent.GameContact117.observe(player));
-        value.put("controller",agent.GameInput.observation116());value.put("renderer",Map.of("vendor",glGetString(GL_VENDOR),"name",glGetString(GL_RENDERER),"version",glGetString(GL_VERSION)));
+        value.put("threats118",agent.GameThreat118.observe(scene));value.put("controller",agent.GameInput.observation116());value.put("renderer",Map.of("vendor",glGetString(GL_VENDOR),"name",glGetString(GL_RENDERER),"version",glGetString(GL_VERSION)));
         value.put("neural",Map.of("sharedCore",true,"ready",nervous.BrainRuntime.core()!=null,"ticks",nervous.BrainRuntime.core()==null?0:nervous.BrainRuntime.core().ticks()));
         return value;
     }

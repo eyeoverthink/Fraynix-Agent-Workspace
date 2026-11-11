@@ -10,7 +10,7 @@ import java.util.*;
 public final class GameLevels114 {
     private final Path repo, root;
     private static final String SOURCE="levels/mario-original.json", RECIPE="mario-beginner114-v1";
-    private static final Set<String> TYPES=Set.of("jade.Transform","components.SpriteRenderer","components.StateMachine","components.PlayerController","components.QuestionBlock","components.Ground","components.Flagpole","physics2d.components.Rigidbody2D","physics2d.components.Box2DCollider","physics2d.components.PillboxCollider");
+    private static final Set<String> TYPES=Set.of("jade.Transform","components.SpriteRenderer","components.StateMachine","components.PlayerController","components.QuestionBlock","components.GoombaAI","components.TurtleAI","physics2d.components.CircleCollider","components.Ground","components.Flagpole","physics2d.components.Rigidbody2D","physics2d.components.Box2DCollider","physics2d.components.PillboxCollider");
     public GameLevels114(Path repo,Path project){this.repo=repo.toAbsolutePath().normalize();root=project.toAbsolutePath().normalize().resolve("game-levels114");}
     JSONArray source() throws Exception {return new JSONArray(read(repo.resolve(SOURCE),8_000_000));}
     static String read(Path path,long max) throws Exception {if(!Files.isRegularFile(path)||Files.size(path)>max)throw new IllegalArgumentException("Missing or oversized level file: "+path.getFileName());return Files.readString(path);}
@@ -30,7 +30,7 @@ public final class GameLevels114 {
     static int integer(JSONObject input,String name,int fallback,int min,int max){Object v=input.opt(name);if(v==null)return fallback;if(!(v instanceof Number n)||!Double.isFinite(n.doubleValue())||n.doubleValue()!=n.intValue()||n.intValue()<min||n.intValue()>max)throw new IllegalArgumentException(name+" must be an integer from "+min+" to "+max);return n.intValue();}
     static JSONObject parameters(JSONObject input){SpatialScene.keys(input,"seed","lengthTiles","gapTiles");return new JSONObject().put("seed",integer(input,"seed",0,0,9999)).put("lengthTiles",integer(input,"lengthTiles",56,48,72)).put("gapTiles",integer(input,"gapTiles",2,1,2));}
     private static String identity(String id,String suffix){return UUID.nameUUIDFromBytes((id+":"+suffix).getBytes(StandardCharsets.UTF_8)).toString();}
-    private static JSONObject clone(JSONArray output,JSONArray lineage,JSONObject template,String id,String name,double x,double y){
+    static JSONObject clone(JSONArray output,JSONArray lineage,JSONObject template,String id,String name,double x,double y){
         int index=output.length();var o=new JSONObject(template.toString());o.put("uid",index).put("persistentId",identity(id,"object"+index)).put("name",name).put("isDead",false).put("doSerialization",true);
         int cindex=0;for(Object item:o.getJSONArray("components")){var c=(JSONObject)item;if(!TYPES.contains(c.getString("type")))throw new IllegalArgumentException("Unsupported generator component: "+c.getString("type"));c.getJSONObject("properties").put("uid",index*16+cindex).put("persistentId",identity(id,"component"+index+":"+cindex));cindex++;}
         var t=prop(o,"jade.Transform");t.getJSONObject("position").put("x",x).put("y",y);
@@ -44,13 +44,14 @@ public final class GameLevels114 {
         var question=clone(objects,lineage,first(source,"components.QuestionBlock"),id,"Power-up block",2.875+(seed%2)*.5,1.375);prop(question,"components.QuestionBlock").put("blockType","Powerup");
         var flag=first(source,"components.Flagpole");double finish=(length-5)*.25;
         for(int i=0;i<8;i++){var part=clone(objects,lineage,flag,id,"Finish "+i,finish,.625+i*.25);prop(part,"physics2d.components.Rigidbody2D").put("bodyType","Static").put("isSensor",true).put("gravityScale",0);}
+        GameChallenge118.append(source,objects,lineage,id,params);
         return new JSONObject().put("objects",objects).put("lineage",lineage).put("finishX",finish).put("gaps",new JSONArray().put(new JSONObject().put("startX",a*.25).put("endX",(a+width)*.25)).put(new JSONObject().put("startX",b*.25).put("endX",(b+width2)*.25)));
     }
     public synchronized JSONObject create(JSONObject input) throws Exception {
         return createOwned(UUID.randomUUID().toString(),parameters(input),RECIPE);
     }
-    static JSONObject parameters115(JSONObject input){SpatialScene.keys(input,"seed","lengthTiles","gapTiles","secondGapTiles");return new JSONObject().put("seed",integer(input,"seed",0,0,9999)).put("lengthTiles",integer(input,"lengthTiles",56,48,72)).put("gapTiles",integer(input,"gapTiles",2,1,10)).put("secondGapTiles",integer(input,"secondGapTiles",input.optInt("gapTiles",2),1,10));}
-    synchronized JSONObject create115(String id,JSONObject input)throws Exception{return createOwned(id,parameters115(input),"mario-repair115-v1");}
+    static JSONObject parameters115(JSONObject input){if(GameChallenge118.active(input))return GameChallenge118.parameters(input);SpatialScene.keys(input,"seed","lengthTiles","gapTiles","secondGapTiles");return new JSONObject().put("seed",integer(input,"seed",0,0,9999)).put("lengthTiles",integer(input,"lengthTiles",56,48,72)).put("gapTiles",integer(input,"gapTiles",2,1,10)).put("secondGapTiles",integer(input,"secondGapTiles",input.optInt("gapTiles",2),1,10));}
+    synchronized JSONObject create115(String id,JSONObject input)throws Exception{var p=parameters115(input);return createOwned(id,p,GameChallenge118.active(p)?GameChallenge118.RECIPE:"mario-repair115-v1");}
     private JSONObject createOwned(String id,JSONObject params,String recipe)throws Exception{
         directory(id);if(Files.exists(root.resolve(id))){var existing=verify(id);if(!existing.getString("recipe").equals(recipe)||!existing.getJSONObject("parameters").similar(params))throw new IllegalStateException("Candidate operation identity reused with different parameters");return existing;}Files.createDirectories(root);
         try(var dirs=Files.list(root)){if(dirs.filter(Files::isDirectory).count()>=32)throw new IllegalStateException("Candidate collection is full (32); export/manage candidates before creating more");}
@@ -64,7 +65,8 @@ public final class GameLevels114 {
     private Path directory(String id){if(!id.matches("[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}"))throw new IllegalArgumentException("Choose a saved candidate ID");return root.resolve(id);}
     public synchronized JSONObject verify(String id) throws Exception {
         Path dir=directory(id);var m=new JSONObject(read(dir.resolve("manifest.json"),1_000_000));
-        if(!id.equals(m.getString("id"))||!Set.of(RECIPE,"mario-repair115-v1").contains(m.getString("recipe"))||!SOURCE.equals(m.getString("source")))throw new IllegalArgumentException("Unsupported level manifest");
+        if(!id.equals(m.getString("id"))||!Set.of(RECIPE,"mario-repair115-v1",GameChallenge118.RECIPE).contains(m.getString("recipe"))||!SOURCE.equals(m.getString("source")))throw new IllegalArgumentException("Unsupported level manifest");
+        if(m.getString("recipe").equals(GameChallenge118.RECIPE)!=GameChallenge118.active(m.getJSONObject("parameters")))throw new IllegalStateException("Challenge recipe and parameters differ");
         if(!m.getString("sourceSha256").equals(hash(repo.resolve(SOURCE))))throw new IllegalStateException("Original level changed; reconstruct a new candidate");
         if(!m.getString("levelSha256").equals(hash(dir.resolve("level.json"))))throw new IllegalStateException("Saved candidate bytes changed");
         var built=construct(source(),id,m.getString("recipe").equals(RECIPE)?parameters(m.getJSONObject("parameters")):parameters115(m.getJSONObject("parameters")));var candidate=new JSONArray(read(dir.resolve("level.json"),2_000_000));
