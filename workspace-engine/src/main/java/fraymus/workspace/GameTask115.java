@@ -32,6 +32,9 @@ final class GameTask115 implements AutoCloseable {
     }
     private JSONObject identity()throws Exception{
         var result=new JSONObject();for(Class<?> type:List.of(GameTask115.class,GameLevels114.class,EmbeddedGameClient.class,GameReference115.class))try(var in=type.getResourceAsStream(type.getSimpleName()+".class")){if(in==null)throw new IllegalStateException("Compiled implementation missing");result.put(type.getSimpleName(),HexFormat.of().formatHex(MessageDigest.getInstance("SHA-256").digest(in.readAllBytes())));}
+        for(String asset:List.of("assets/shaders/default.glsl","assets/shaders/pickingShader.glsl")){
+            String hash=GameLevels114.hash(repo.resolve(asset));if(!hash.equals(GameLevels114.hash(repo.resolve("build/install/Fraynix-Studio").resolve(asset))))throw new IllegalStateException("Installed shader differs from source");result.put(asset,hash);
+        }
         Path lib=repo.resolve("build/install/Fraynix-Studio/lib");try(var files=Files.list(lib)){for(Path p:files.filter(x->x.toString().endsWith(".jar")).sorted().toList())result.put(p.getFileName().toString(),GameLevels114.hash(p));}return result;
     }
     private void sources(JSONObject t)throws Exception{if(t.has("reference"))references.checkBytes(t.getJSONObject("reference"));if(!t.getJSONObject("engine").similar(identity()))throw new IllegalStateException("Game engine identity changed; old trials are not new evidence");if(!t.getJSONObject("source").similar(levels.analyze()))throw new IllegalStateException("Original scene or assets changed; old task retained");}

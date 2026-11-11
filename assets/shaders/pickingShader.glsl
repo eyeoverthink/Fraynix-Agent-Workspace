@@ -36,12 +36,27 @@ uniform sampler2D uTextures[8];
 
 out vec3 color;
 
+vec4 sampleSprite(int id, vec2 uv) {
+    // GLSL 3.30 requires constant sampler-array indices (including Mesa).
+    switch (id) {
+        case 0: return texture(uTextures[0], uv);
+        case 1: return texture(uTextures[1], uv);
+        case 2: return texture(uTextures[2], uv);
+        case 3: return texture(uTextures[3], uv);
+        case 4: return texture(uTextures[4], uv);
+        case 5: return texture(uTextures[5], uv);
+        case 6: return texture(uTextures[6], uv);
+        case 7: return texture(uTextures[7], uv);
+        default: return vec4(0.0);
+    }
+}
+
 void main()
 {
     vec4 texColor = vec4(1, 1, 1, 1);
     if (fTexId > 0) {
         int id = int(fTexId);
-        texColor = fColor * texture(uTextures[id], fTexCoords);
+        texColor = fColor * sampleSprite(id, fTexCoords);
     }
 
     if (texColor.a < 0.5) {

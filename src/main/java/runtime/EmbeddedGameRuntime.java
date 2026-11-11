@@ -21,7 +21,7 @@ public final class EmbeddedGameRuntime implements ControlledRuntime,AutoCloseabl
     private final ArrayBlockingQueue<Request> requests=new ArrayBlockingQueue<>(4);
     private final String session=UUID.randomUUID().toString(),token=System.getenv("FRAYNIX_GAME_TOKEN");
     private volatile Frame last;
-    private HttpServer server;private boolean continuous,closing,aiBounded;private long sequence;
+    private HttpServer server;private boolean continuous,closing,aiBounded;private long sequence;private String boundedPolicy;
     private record Request(JsonObject args,CompletableFuture<Map<String,Object>> result){}
     private record Frame(Map<String,Object> state,byte[] png,long captureNs){}
     public EmbeddedGameRuntime() throws IOException {
@@ -53,7 +53,8 @@ public final class EmbeddedGameRuntime implements ControlledRuntime,AutoCloseabl
         value.put("sessionId",session);value.put("tick",scene.tick());value.put("frameSequence",sequence);value.put("objects",scene.getGameObjects().size());value.put("units","legacy game units; XY plane; render layer is not physical Z");
         value.put("visibleWindow",org.lwjgl.glfw.GLFW.glfwGetWindowAttrib(Window.get().nativeWindow(),org.lwjgl.glfw.GLFW.GLFW_VISIBLE)!=0);value.put("editorInitialized",Window.getImguiLayer()!=null);value.put("continuous",continuous);
         var player=scene.getGameObjectWith(PlayerController.class);
-        if(player!=null){var controller=player.getComponent(PlayerController.class);value.put("player",Map.of("id",player.getPersistentId().toString(),"x",player.transform.position.x,"y",player.transform.position.y,"small",controller.isSmall(),"dead",controller.isDead(),"won",controller.hasWon(),"onGround",controller.onGround));}
+        if(player!=null){var controller=player.getComponent(PlayerController.class);value.put("player",Map.of("id",player.getPersistentId().toString(),"x",player.transform.position.x,"y",player.transform.position.y,"small",controller.isSmall(),"dead",controller.isDead(),"won",controller.hasWon(),"onGround",controller.onGround,"vx",player.getComponent(physics2d.components.Rigidbody2D.class).getVelocity().x,"vy",player.getComponent(physics2d.components.Rigidbody2D.class).getVelocity().y));}
+        value.put("controller",agent.GameInput.observation116());value.put("renderer",Map.of("vendor",glGetString(GL_VENDOR),"name",glGetString(GL_RENDERER),"version",glGetString(GL_VERSION)));
         value.put("neural",Map.of("sharedCore",true,"ready",nervous.BrainRuntime.core()!=null,"ticks",nervous.BrainRuntime.core()==null?0:nervous.BrainRuntime.core().ticks()));
         return value;
     }
@@ -69,13 +70,13 @@ public final class EmbeddedGameRuntime implements ControlledRuntime,AutoCloseabl
         Request pending=requests.poll();Object outcome=null;Exception failure=null;boolean spatialRead=false,overview=false;
         if(pending!=null)try{
             var args=pending.args;String action=args.get("action").getAsString();
-            var allowed=new HashSet<>(Set.of("action"));if(action.equals("step"))allowed.addAll(Set.of("ticks","horizontal","jump"));if(action.equals("ai")||action.equals("ai-step"))allowed.add("targetX");if(action.equals("ai-step"))allowed.add("ticks");
+            var allowed=new HashSet<>(Set.of("action"));if(action.equals("step"))allowed.addAll(Set.of("ticks","horizontal","jump"));if(action.equals("ai")||action.equals("ai-step"))allowed.add("targetX");if(action.equals("ai-step"))allowed.add("ticks");if(action.equals("ai")||action.equals("ai-step"))allowed.add("policy");
             if(!allowed.containsAll(args.keySet()))throw new IllegalArgumentException("Unsupported game command field");
             switch(action){
                 case "spatial"->spatialRead=true;
                 case "overview"->{if(continuous)throw new IllegalStateException("Pause before capturing a reference overview");overview=true;}
                 case "step"->step(args.get("ticks").getAsInt(),args.has("horizontal")?args.get("horizontal").getAsFloat():0,args.has("jump")&&args.get("jump").getAsBoolean());
-                case "ai-step"->{int ticks=args.get("ticks").getAsInt();float target=args.get("targetX").getAsFloat();if(ticks<1||ticks>120||!Float.isFinite(target)||Math.abs(target)>200)throw new IllegalArgumentException("Bounded AI input required");continuous=false;if(!aiBounded){agent.GameInput.start(Window.getScene(),target);aiBounded=true;}for(int i=0;i<ticks;i++)Window.get().stepEmbedded();}
+                case "ai-step"->{int ticks=args.get("ticks").getAsInt();float target=args.get("targetX").getAsFloat();if(ticks<1||ticks>120||!Float.isFinite(target)||Math.abs(target)>200)throw new IllegalArgumentException("Bounded AI input required");continuous=false;String policy=args.has("policy")?args.get("policy").getAsString():"landing116";if(!Set.of("legacy115","landing116").contains(policy))throw new IllegalArgumentException("Unknown game policy");if(aiBounded&&!policy.equals(boundedPolicy))throw new IllegalArgumentException("Start a fresh trial to compare policies");if(!aiBounded){agent.GameInput.start(Window.getScene(),target,policy.equals("landing116"));boundedPolicy=policy;aiBounded=true;}for(int i=0;i<ticks;i++)Window.get().stepEmbedded();}
                 case "play"->continuous=true;
                 case "pause"->{continuous=false;aiBounded=false;agent.GameInput.stop("Embedded pause");agent.GameInput.externalOff();}
                 case "ai"->{float target=args.get("targetX").getAsFloat();if(!Float.isFinite(target)||Math.abs(target)>200)throw new IllegalArgumentException("Invalid game target");agent.GameInput.start(Window.getScene(),target);continuous=true;}

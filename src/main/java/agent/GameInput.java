@@ -13,6 +13,9 @@ public final class GameInput {
     private static final ActorControls controls = new ActorControls();
     private static UUID episode, actor;
     private static boolean automatic;
+    private static boolean landingGuard = true;
+    private static long landingChecks, landingOverrides, landingNanos;
+    private static LandingGuard116.Decision landingDecision;
     private static long sequence, tick, jumpUntil, lastJump=-100;
     private static float startX, maxX, goalX;
     private static String status="Human control";
@@ -52,7 +55,9 @@ public final class GameInput {
     public static void neuralJump(boolean value) { neuralJump=value; }
     public static float[] sensory() { return lastSensory.clone(); }
     public static void requestJump() { if (automatic) { jumpUntil=tick+27; lastJump=tick; } }
-    public static void start(Scene scene, float targetX) {
+    public static void start(Scene scene, float targetX) { start(scene,targetX,true); }
+    public static void start(Scene scene, float targetX, boolean guarded) {
+        landingGuard=guarded;landingChecks=landingOverrides=landingNanos=0;landingDecision=null;
         GameObject player=scene.getGameObjectWith(PlayerController.class);
         if (player==null || !Float.isFinite(targetX)) throw new IllegalArgumentException("A live player and finite target are required");
         if(automatic) stop("Previous AI segment ended for a new target");
@@ -145,9 +150,27 @@ public final class GameInput {
             float error=target-(x+body.getVelocity().x*landingTime);
             horizontal=Math.abs(error)<.04f?0:Math.signum(error);status+=" | lining up landing";
         }
-        ActorControls.Input input=new ActorControls.Input(horizontal,0,decision.jump()||objectiveJump||tick<jumpUntil,tick%30==0);
+        boolean landingCorrection=false;
+        if (landingGuard && !controller.onGround && body.getVelocity().y < -.05f) {
+            long forecastStarted=System.nanoTime();
+            landingDecision=LandingGuard116.choose(x,y,body.getVelocity().x,body.getVelocity().y,
+                controller.isSmall()?.13f:.21f,controller.walkSpeed,scene.physics().getGravity().y*.7f,
+                controller.terminalVelocity.x,controller.terminalVelocity.y,controller.slowDownForce,
+                horizontal,goalX,(px,top,bottom)->{
+                    var hit=scene.physics().raycastSolid(player,new Vector2f(px,top),new Vector2f(px,bottom));
+                    return hit.hit&&hit.normal.y>.5f?hit.point.y:Float.NaN;
+                });
+            landingChecks++;landingNanos+=System.nanoTime()-forecastStarted;
+            if(landingDecision.override()){landingCorrection=true;horizontal=landingDecision.horizontal();jumpUntil=0;objectiveJump=false;landingOverrides++;status+=" | landing correction";}
+        }
+        ActorControls.Input input=new ActorControls.Input(horizontal,0,!landingCorrection&&(decision.jump()||objectiveJump||tick<jumpUntil),tick%30==0);
         controls.accept(new ActorControls.Lease(episode,actor,sequence++,tick,tick+1,input),tick);
         current=controls.at(tick);
+    }
+    public static java.util.Map<String,Object> observation116() {
+        var result=new java.util.LinkedHashMap<String,Object>();result.put("policy",landingGuard?"landing116":"legacy115");result.put("automatic",automatic);result.put("status",status);result.put("horizontal",current.horizontal());result.put("jump",current.jump());result.put("goal",goal==null?"none":goal.kind().name());result.put("pickups",pickups);result.put("landingChecks",landingChecks);result.put("landingOverrides",landingOverrides);result.put("landingNanos",landingNanos);
+        if(landingDecision!=null){result.put("landingReason",landingDecision.reason());result.put("predictedLandingX",landingDecision.planned().x());result.put("predictedLandingY",landingDecision.planned().y());result.put("predictedLandingTicks",landingDecision.planned().ticks());}
+        return result;
     }
     public static boolean isKeyPressed(int key) {
         if (!automatic&&externalInput==null) return KeyListener.isKeyPressed(key);

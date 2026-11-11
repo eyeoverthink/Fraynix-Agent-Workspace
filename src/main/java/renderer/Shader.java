@@ -25,7 +25,7 @@ public class Shader {
     public Shader(String filepath) {
         this.filepath = filepath;
         try {
-            String source = new String(Files.readAllBytes(Paths.get(filepath)));
+            String source = Files.readString(Paths.get(filepath), java.nio.charset.StandardCharsets.UTF_8);
             String[] splitString = source.split("(#type)( )+([a-zA-Z]+)");
 
             // Find the first pattern after #type 'pattern'
@@ -54,8 +54,7 @@ public class Shader {
                 throw new IOException("Unexpected token '" + secondPattern + "'");
             }
         } catch(IOException e) {
-            e.printStackTrace();
-            assert false : "Error: Could not open file for shader: '" + filepath + "'";
+            throw new IllegalStateException("Could not open shader: " + filepath, e);
         }
     }
 
@@ -77,7 +76,7 @@ public class Shader {
             int len = glGetShaderi(vertexID, GL_INFO_LOG_LENGTH);
             System.out.println("ERROR: '" + filepath + "'\n\tVertex shader compilation failed.");
             System.out.println(glGetShaderInfoLog(vertexID, len));
-            assert false : "";
+            throw new IllegalStateException("Vertex shader compilation failed: " + filepath + "\n" + glGetShaderInfoLog(vertexID, len));
         }
 
         // First load and compile the vertex shader
@@ -92,7 +91,7 @@ public class Shader {
             int len = glGetShaderi(fragmentID, GL_INFO_LOG_LENGTH);
             System.out.println("ERROR: '" + filepath + "'\n\tFragment shader compilation failed.");
             System.out.println(glGetShaderInfoLog(fragmentID, len));
-            assert false : "";
+            throw new IllegalStateException("Fragment shader compilation failed: " + filepath + "\n" + glGetShaderInfoLog(fragmentID, len));
         }
 
         // Link shaders and check for errors
@@ -107,7 +106,7 @@ public class Shader {
             int len = glGetProgrami(shaderProgramID, GL_INFO_LOG_LENGTH);
             System.out.println("ERROR: '" + filepath + "'\n\tLinking of shaders failed.");
             System.out.println(glGetProgramInfoLog(shaderProgramID, len));
-            assert false : "";
+            throw new IllegalStateException("Shader linking failed: " + filepath + "\n" + glGetProgramInfoLog(shaderProgramID, len));
         }
     }
 
