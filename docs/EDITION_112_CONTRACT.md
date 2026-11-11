@@ -1,0 +1,11 @@
+# Edition 112 — preserve completed chat history
+
+Declared 2026-11-10 before implementation. Parent 35d31790; CI checked first, still running. Isolated edition112 checkout. Preserve private running worlds and frozen editions001–111. No delegation; heavy checks serial.
+
+Keep the existing 24 retained active-chat-task admission limit and queue4 limit unchanged. Explicitly archive completed tasks with supported, recheckable workflow, artifact, inspection or unverified-conversation outcomes. Cancelled, interrupted and unfinished tasks remain active. Unsupported native families remain active rather than receiving incomplete verification.
+
+Preserve exact original checked chat-checkpoint bytes before committing archive pointers and the remaining task list in one atomic checkpoint. Preserve stable task IDs, entire hash-linked task histories, original outcome labels, closed learning episodes, screenshots, sources, native proofs and procedure references. Never promote an unverified conversation to verified success. Archived tasks are read-only and cannot resume, cancel, claim effects or consume stale acknowledgements. Recheck current original evidence separately from archive byte integrity. Missing/revised evidence refuses; do not replace it.
+
+Bound archive storage at512 task references and128MiB with4MiB checkpoint blobs. Prepared files count toward the budget. Failed commits leave original active tasks unchanged and prepared evidence available for checked retry. A new cold session must retrieve originals by ID and admit a fresh chat request after archival. All existing source/outcome/qualification verifiers remain unchanged; no new model-training claim or raised limits.
+
+Test actual closed edition111 history with24 real chat tasks, including21 completed workflows and three cancelled tasks. Test unchanged-limit refusal, exact checkpoint and nonselected-task preservation, real History controls, fresh chat completion, recovery, corrupt/missing archives and revised original evidence. Retain failed attempts and full costs. Update README112, actual screenshots, offline guide, memories and logs. Non-force main/edition112/readme-112 publication requires actual push, fetch and source/evidence comparison; remote CI remains separate.
