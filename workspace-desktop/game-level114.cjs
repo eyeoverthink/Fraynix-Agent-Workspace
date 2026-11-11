@@ -1,30 +1,32 @@
 const fs=require('node:fs/promises'),path=require('node:path'),assert=require('node:assert/strict');
 const {launch}=require('./test/calibration-integration.cjs');
+const cp=require('node:child_process'),crypto=require('node:crypto');
 async function main(){
  const out=path.resolve('../build/game-level114-ui'),project=path.join(out,'project');await fs.mkdir(project,{recursive:true});const started=performance.now(),errors=[],trace=[];let app,page;
- const result={date:new Date().toISOString(),scope:'Actual Electron/Java/original game renderer, source-based candidate. No model calls or chat-generation claim.',passed:false};
+ const result={date:new Date().toISOString(),scope:'Actual Electron/Java/original game renderer, source-based candidate. No model calls or chat-generation claim.',passed:false,sourceCommit:cp.execFileSync('git',['rev-parse','HEAD'],{encoding:'utf8'}).trim(),inputs:[]};
  try{
-  ({app,page}=await launch(project));page.on('pageerror',e=>errors.push(e.message));await page.setViewportSize({width:1600,height:1000});
+  ({app,page}=await launch(project));page.on('pageerror',e=>errors.push(e.message));await app.evaluate(({BrowserWindow})=>{const w=BrowserWindow.getAllWindows().find(w=>w.isVisible());w.setSize(1600,1100);w.setTitle('Fraynix · edition 114 · source-based level creation');});
   const api=(route,args={})=>app.evaluate((_,x)=>global.workspaceTest.api(x.route,x.args),{route,args});
   const request=(command,args={})=>page.evaluate(x=>window.workspace.request({operation:'gameRuntime',command:x.command,args:x.args}),{command,args});
   const capture=async name=>fs.writeFile(path.join(out,name),Buffer.from(await app.evaluate(()=>global.workspaceTest.capture()),'base64'));
   await page.locator('#game-tab').click();await page.waitForFunction(()=>document.querySelector('#game-status').textContent.includes('tick'));
   await page.locator('#game-level-builder > summary').click();await page.locator('#game-level-analyze').click();await page.waitForFunction(()=>document.querySelector('#game-level-status').textContent.includes('1248 objects'));
+  result.runtimeJars={};for(const lib of ['../workspace-engine/build/install/workspace-engine/lib','../build/install/Fraynix-Studio/lib'])for(const file of await fs.readdir(lib)){if(file.endsWith('.jar'))result.runtimeJars[lib+'/'+file]=crypto.createHash('sha256').update(await fs.readFile(path.join(lib,file))).digest('hex');}
   result.analysis=await api('/api/game/analyze-levels');await capture('source-analysis.png');
   await page.locator('#game-level-create').click();await page.waitForFunction(()=>document.querySelector('#game-level-status').textContent.includes('Playtest still required'));
   const candidates=await api('/api/game/levels');result.candidate=candidates.candidates.at(-1);const id=result.candidate.id;
-  await page.locator('#game-level-open').click();await page.waitForFunction(()=>document.querySelector('#game-level-status').textContent.startsWith('Opened saved candidate'),{timeout:60000});
+  await page.locator('#game-level-open').click();await page.waitForFunction(()=>document.querySelector('#game-level-status').textContent.startsWith('Opened saved candidate'),{},{timeout:60000});
   const first=await request('frame');assert.equal(first.levelId,id);assert.equal(first.state.visibleWindow,false);assert.equal(first.state.editorInitialized,false);result.initial=first.state;await capture('candidate-start.png');
   await page.locator('#game-right').click();await page.waitForFunction(x=>Number(document.querySelector('#game-status').textContent.match(/Player X ([\d.]+)/)?.[1])>x+.1,first.state.player.x);result.manual=await request('frame');delete result.manual.pngBase64;
   await page.locator('#game-reset').click();await page.waitForTimeout(250);
   let frame=await request('frame');for(let n=0;n<180;n++){
    const state=frame.state,p=state.player;trace.push(state);if(p.won||p.dead)break;
-   const jump=result.candidate.gaps.some(g=>p.x>g.startX-.7&&p.x<g.endX+.1);frame=await request('command',{action:'step',ticks:12,horizontal:1,jump});
+   const jump=result.candidate.gaps.some(g=>p.x>g.startX-.7&&p.x<g.endX+.1);const input={action:'step',ticks:12,horizontal:1,jump};result.inputs.push(input);frame=await request('command',input);
   }
-  result.final=frame.state;result.trace=trace;assert.equal(frame.state.player.won,true,'Actual flag-contact outcome');await capture('candidate-finish.png');
-  await page.setViewportSize({width:1100,height:800});await capture('candidate-1100.png');assert.equal(await page.locator('#game-level-create').isVisible(),true);
-  await app.close();({app,page}=await launch(project));await page.setViewportSize({width:1600,height:1000});
-  await page.locator('#game-tab').click();await page.locator('#game-level-builder > summary').click();await page.locator('#game-level-refresh').click();await page.waitForFunction(()=>document.querySelector('#game-level-choice').options.length>0);await page.locator('#game-level-choice').selectOption(id);await page.locator('#game-level-open').click();await page.waitForFunction(()=>document.querySelector('#game-level-status').textContent.startsWith('Opened saved candidate'),{timeout:60000});
+  result.final=frame.state;result.trace=trace;assert.equal(frame.state.player.won,true,'Actual flag-contact outcome');await page.waitForFunction(()=>document.querySelector('#game-status').textContent.includes('goal reached'));await capture('candidate-finish.png');
+  await app.evaluate(({BrowserWindow})=>BrowserWindow.getAllWindows().find(w=>w.isVisible()).setSize(1100,1000));await page.waitForTimeout(200);await capture('candidate-1100.png');assert.equal(await page.locator('#game-level-create').isVisible(),true);
+  await app.close();({app,page}=await launch(project));await app.evaluate(({BrowserWindow})=>{const w=BrowserWindow.getAllWindows().find(w=>w.isVisible());w.setSize(1600,1100);w.setTitle('Fraynix · edition 114 · source-based level creation');});
+  await page.locator('#game-tab').click();await page.locator('#game-level-builder > summary').click();await page.locator('#game-level-refresh').click();await page.waitForFunction(()=>document.querySelector('#game-level-choice').options.length>0);await page.locator('#game-level-choice').selectOption(id);await page.locator('#game-level-open').click();await page.waitForFunction(()=>document.querySelector('#game-level-status').textContent.startsWith('Opened saved candidate'),{},{timeout:60000});
   result.reopened=(await request('frame')).state;assert.notEqual(result.reopened.sessionId,result.initial.sessionId);assert.equal(result.reopened.player.won,false);assert.equal(result.reopened.player.id,result.initial.player.id);assert.equal(result.reopened.player.x,result.initial.player.x);
   await capture('candidate-reopened.png');await request('close');
   const level=path.join(project,'game-levels114',id,'level.json'),original=await fs.readFile(level);await fs.appendFile(level,' ');
