@@ -1,17 +1,13 @@
 # Fraynix Agent Workspace
 
-Edition111 archives completed child goals while preserving exact original evidence. Java verifies parent ownership, sources and outcomes before archival and reuse. **The 64-active-goal limit remains unchanged.**
+Edition112 preserves completed chat-task history and frees eligible completed-task slots. **The 24-active-chat-task limit remains unchanged.** Exact checked snapshots retain full journals, outcomes and links to original evidence.
 
-[Edition111: functions, evidence and next steps](README-111.md) · [Interactive offline guide](docs/readmes/111/index.html) · [Previous edition110](README-110.md) · [Contributor direction](README-CONTRIBUTORS.md)
+[Edition112: functions, evidence and next steps](README-112.md) · [Interactive offline guide](docs/readmes/112/index.html) · [Previous edition111](README-111.md) · [Contributor direction](README-CONTRIBUTORS.md)
 
-![Actual child-goal History controls](docs/readmes/111/current111-children-1600.png)
+![Actual completed-chat History controls](docs/readmes/112/original111-chats-1600.png)
 
-Use **History** to preview, verify and archive completed data/creation children, inspect retained originals and recheck evidence. The actual app retained 74 archived children and 58 archived workflows, completed 11 fresh native workflow requests and recovered an abruptly interrupted task. It reached 32 genuine saved procedures with 20 active child goals. Six requests correctly refused capacity or invalid evidence/runtime identity. 150 distinct Java checks are covered, with 24 final affected rechecks after a retained compatibility correction. 148 desktop checks and 24 altered-evidence controls passed.
+Use **History** to preview, verify and archive completed chats, inspect original records and recheck evidence. The actual app retained23 archived chats and three unchanged cancelled tasks. Two fresh chat requests completed, including one abrupt recovery. Revised reports and corrupt/missing snapshots refused; a new dataset version preserved the original immutable source. 127 relevant Java tests,148 desktop checks and20 independent altered-evidence controls passed; initial failures are retained with their correction.
 
-Java owns durable tasks, tools, worlds, memory, verification and recovery. Chat, browser/canvas, spatial views and Game Lab remain integrated. Active, incomplete, standalone, physical and graph children remain in their existing lifecycle. Old receipts retain their original runtime identity; fresh execution needs current verification.
+Java owns tasks, worlds, tools, verification, memory and recovery. Browser, canvas, spatial views and Game Lab remain integrated. Archived tasks are read-only; unfinished tasks retain explicit recovery. Unverified outcomes stay unverified. All original goal/workflow/qualification verifiers remain unchanged; no raised limits or model-training claim.
 
-The separate 24-task chat history remains full and unchanged: this study continues through existing native workflow controls, not fresh chat admission.
-
-**Next:** archive completed chat-task history with its evidence, then measure retrieval costs and define a saved-procedure lifecycle. No raised limits or model-training claim.
-
-Published to main. [Edition 111 fetched GitHub verification](docs/PUBLICATION_111.json).
+**Next:** measure archive retrieval and verification costs as histories grow together, then define the separate saved-procedure lifecycle.

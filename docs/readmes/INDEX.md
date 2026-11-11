@@ -1,3 +1,5 @@
+[Edition112 — completed chat history](../../README-112.md) · [Offline guide](112/index.html)
+
 [Edition111 — completed child-goal archives](../../README-111.md) · [Offline guide](111/index.html)
 
 [Edition 110 — verifiable workflow archives](../../README-110.md) · [Offline guide](110/index.html)

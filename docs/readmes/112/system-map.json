@@ -1,0 +1,94 @@
+{
+  "modules": [
+    {
+      "id": "archive",
+      "name": "Exact checked chat snapshots",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/ChatArchive112.java",
+      "note": "docs/obsidian/120-completed-chat-history.md"
+    },
+    {
+      "id": "agency",
+      "name": "Chat admission, action authority and recovery",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/Agency043.java",
+      "note": "docs/obsidian/120-completed-chat-history.md"
+    },
+    {
+      "id": "api",
+      "name": "Owned Java history endpoints",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/WorkspaceServer.java",
+      "note": "docs/obsidian/120-completed-chat-history.md"
+    },
+    {
+      "id": "view",
+      "name": "History controls and retained originals",
+      "source": "workspace-desktop/renderer/workflow-panel.js",
+      "note": "docs/obsidian/120-completed-chat-history.md"
+    },
+    {
+      "id": "workflow",
+      "name": "Unchanged original workflow verifier",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/WorkflowRunner.java",
+      "note": "docs/obsidian/120-completed-chat-history.md"
+    },
+    {
+      "id": "study",
+      "name": "Actual chat archival and recovery study",
+      "source": "workspace-desktop/test/archive112-integration.cjs",
+      "note": "docs/obsidian/120-completed-chat-history.md"
+    },
+    {
+      "id": "inspection",
+      "name": "Independent source/outcome and archive reconstruction",
+      "source": "scripts/Inspect-ChatArchive112.cjs",
+      "note": "docs/obsidian/120-completed-chat-history.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "docs/readmes/112/changed-artifact-1600.png",
+      "caption": "Actual edition112 app capture: changed-artifact-1600"
+    },
+    {
+      "path": "docs/readmes/112/changed-dataset-1600.png",
+      "caption": "Actual edition112 app capture: changed-dataset-1600"
+    },
+    {
+      "path": "docs/readmes/112/chat-history112-1100.png",
+      "caption": "Actual edition112 app capture: chat-history112-1100"
+    },
+    {
+      "path": "docs/readmes/112/current112-chats-1600.png",
+      "caption": "Actual edition112 app capture: current112-chats-1600"
+    },
+    {
+      "path": "docs/readmes/112/fresh112-1600.png",
+      "caption": "Actual edition112 app capture: fresh112-1600"
+    },
+    {
+      "path": "docs/readmes/112/original111-chats-1600.png",
+      "caption": "Actual edition112 app capture: original111-chats-1600"
+    },
+    {
+      "path": "docs/readmes/112/recovered112-1600.png",
+      "caption": "Actual edition112 app capture: recovered112-1600"
+    },
+    {
+      "path": "docs/readmes/112/recovered112-interrupted.png",
+      "caption": "Actual edition112 app capture: recovered112-interrupted"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/readmes/112/analysis.json",
+      "caption": "analysis.json"
+    },
+    {
+      "path": "docs/readmes/112/verification.json",
+      "caption": "verification.json"
+    },
+    {
+      "path": "docs/readmes/112/original-evidence.json",
+      "caption": "original-evidence.json"
+    }
+  ]
+}

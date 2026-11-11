@@ -1,3 +1,5 @@
+[[docs/obsidian/120-completed-chat-history|Edition112: completed chat history]]
+
 [[docs/obsidian/119-completed-child-goal-archives|Edition111: completed child-goal archives]]
 
 [[docs/obsidian/118-verifiable-workflow-archives|Edition110: verifiable workflow archives]]

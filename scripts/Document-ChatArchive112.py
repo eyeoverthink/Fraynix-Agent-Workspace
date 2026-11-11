@@ -7,7 +7,7 @@ def write(p,s):p.parent.mkdir(parents=True,exist_ok=True);p.write_text(s,encodin
 def js(p,v):write(p,json.dumps(v,ensure_ascii=False,indent=2)+'\n')
 def sha(b):return hashlib.sha256(b).hexdigest()
 assert subprocess.run(['git','show-ref','--verify','--quiet','refs/tags/readme-112'],cwd=r).returncode==1
-a=load('build/analysis112.json');trial=load('build/archive112-final/result.json');visual=load('build/visual-review112.json');identity=load('build/source-identity112.json')
+a=load('build/analysis112.json');trial=load('build/archive112-verified/result.json');visual=load('build/visual-review112.json');identity=load('build/source-identity112.json')
 assert a['passed'] and len(a['refusals'])==20 and trial['passed'] and visual['passed'] and identity['passed']
 tests=[]
 for f in sorted((r/'workspace-engine/build/test-results/test').glob('TEST-*.xml')):
@@ -17,12 +17,12 @@ for log in ['desktop112.log','desktop112-additional.log']:assert 'fail 0' in (r/
 d.mkdir(parents=True,exist_ok=True);js(d/'analysis.json',a)
 js(d/'verification.json',{'passed':True,'java':tests,'javaMethods':methods,'desktopChecks':148,'originalIntegrityControls':a['refusals'],'initialCorrection':load('build/correction112.json'),'recorderCorrection':load('build/recorder-correction112.json'),'build':load('build/study095-build.json'),'unchangedDependencies':identity,'actualStudy':{'completedChats':2,'archivedChats':23,'retainedCancelledChats':3,'activeLimit':24,'abruptRecoveries':1},'visual':visual,'parentCI':load('build/ci112-parent.json'),'scope':'Exact chat checkpoint snapshots, full original journals and current evidence checks. No raised limits, source deletion, proof relabelling, model-inference or training claim.'})
 captions={}
-for p in sorted((r/'build/archive112-final').glob('*.png')):shutil.copyfile(p,d/p.name);captions[p.name]='Actual edition112 app capture: '+p.stem
+for p in sorted((r/'build/archive112-verified').glob('*.png')):shutil.copyfile(p,d/p.name);captions[p.name]='Actual edition112 app capture: '+p.stem
 paths=[]
-for root in ['build/archive112-final','build/archive112','workspace-engine/build/test-results/test','build/java112-initial-results','build/before-correction112']:
+for root in ['build/archive112-verified','build/archive112-final','build/archive112','workspace-engine/build/test-results/test','build/java112-initial-results','build/before-correction112']:
  for p in (r/root).rglob('*'):
   if p.is_file() and not any(x in {'desktop-profile','runtime-042','.northstar-kernel','binary'} for x in p.parts) and not p.name.endswith('.lock'):paths.append(p)
-for name in ['java112-initial.log','java112-final.log','correction112.json','compile112.log','desktop112.log','desktop112-additional.log','source-identity112.json','ci112-parent.json','study095-build.json','analysis112.json','archive112.log','archive112-final.log','recorder-correction112.json','inspect112.log','visual-review112.json']:paths.append(r/'build'/name)
+for name in ['java112-initial.log','java112-final.log','correction112.json','compile112.log','desktop112.log','desktop112-additional.log','source-identity112.json','ci112-parent.json','study095-build.json','analysis112.json','archive112.log','archive112-final.log','archive112-verified.log','study095-build-initial112.json','recorder-correction112.json','inspect112.log','visual-review112.json']:paths.append(r/'build'/name)
 originals=[]
 for p in sorted(set(paths)):
  raw=p.read_bytes();compressed=gzip.compress(raw,mtime=0);target=d/'original'/(sha(raw)+'.gz');target.parent.mkdir(exist_ok=True)
@@ -115,7 +115,7 @@ The second request was interrupted immediately before the selected-source browse
 
 The local model remains selectable, but these supported summary requests follow the existing deterministic Java route and invoke **zero model-planning calls**. The result demonstrates actual chat-to-workflow continuity, not a new measure of LLM intelligence or training.
 
-Separate copies test same-length snapshot corruption, a missing snapshot, a revised original report and a revised source dataset. Reads or verification refuse as appropriate; restoring the exact snapshot restores verification. Historical task journals remain unchanged. Archived Resume and Cancel requests refuse. No passing browser observations are supplied by the recorder.
+Separate copies test same-length snapshot corruption, a missing snapshot, a revised original report and a new version of an original dataset. Corrupt or missing snapshots and revised reports refuse. A new dataset version preserves immutable version 1: the original source bytes and proof still match; restoring the exact snapshot restores verification. Historical task journals remain unchanged. Archived Resume and Cancel requests refuse. No passing browser observations are supplied by the recorder.
 
 ## Complete measured costs
 
@@ -129,7 +129,7 @@ Separate copies test same-length snapshot corruption, a missing snapshot, a revi
 
 The final complete cohort took **{a['cohortMs']/1000:.3f} seconds**: requests **{a['requestMs']/1000:.3f} s**, archival **{a['archiveMs']/1000:.3f} s**, and setup, copies, restart preparation, rechecks, refusals, screenshots and other work **{a['otherMs']/1000:.3f} s**. Request measurements include their actual browser checks and recovery pauses. Categories do not overlap. These measurements describe this host and workload; they do not establish a universal speedup.
 
-The first app attempt took **{a['preliminary']['totalMs']/1000:.3f} seconds**, preserved 21 chats and completed one fresh request. Its recovery recorder then requested a protected child endpoint while the live chat owned execution; Java correctly refused. Only the recorder changed, using the existing passive goal read to retain boundary IDs and report contents. The final cohort started from a fresh copy. Both attempts total **{a['totalAttemptMs']/1000:.3f} seconds**; the original refused attempt and all its files remain in the evidence.
+The first app attempt took **{a['preliminary']['totalMs']/1000:.3f} seconds**, preserved 21 chats and completed one fresh request. Its recovery recorder then requested a protected child endpoint while the live chat owned execution; Java correctly refused. Only the recorder changed, using the existing passive goal read to retain boundary IDs and report contents. The next attempt took **{a['intermediate']['cohortMs']/1000:.3f} seconds** and completed both chats and recovery. Its final test incorrectly expected dataset version 2 to invalidate the unchanged, immutable version 1. The original verifier correctly passed version 1. The final test explicitly checks that original source and proof, while confirming version 2 exists. Screenshot review also corrected History selection: refresh preserves the chosen record, changing selection clears old details, and late reads only render for the same selected record. The final cohort started from another fresh copy. All three attempts total **{a['totalAttemptMs']/1000:.3f} seconds**; both earlier attempts and all their files remain in the evidence.
 
 The Java process uses a 512 MiB heap and two reported processors. Heavy work is serial. Cold reopen means a new app process on a closed project, not a cleared operating-system cache.
 
@@ -161,7 +161,7 @@ for marker,value in [('__SYSTEM__',system),('__INVENTORY__',inventory),('__RESUL
 write(d/'index.html',html)
 status=f'''## Edition112 — validated chat archival
 
-2026-11-10. Isolated edition112; parent35d31790. Actual closed111 history24:21 completed chats archived, three cancelled retained unchanged. Two fresh visible-chat requests completed, one abrupt recovery, two more chats archived;23 archived/3 active, active24 limit unchanged, bank22→24. Exact original checked checkpoint bytes + full original journals + evidence bindings preserved. Prepared files precede one atomic active-checkpoint save; archived tasks read-only, source/outcome checks fresh.512 archive refs/128MiB/4MB blobs; other limits unchanged. Existing342 class files and original goal/workflow/qualification/verifier identities unchanged. Only Agency043/WorkspaceServer changed plus new helper. {methods} final Java,148 desktop and20 altered-evidence checks pass. Initial35/36 test result retained; explicit revised-report refusal corrected, no weaker check. Actual screenshots/guide, original bytes, complete costs, source inventory and logs retained. Preserve private Java33224/37676 and frozen001–111; no delegation; heavy work serial. Publication pending actual push/fetch; CI separate. Next: growing archive retrieval/evidence costs and separately defined saved-procedure lifecycle.
+2026-11-10. Isolated edition112; parent35d31790. Actual closed111 history24:21 completed chats archived, three cancelled retained unchanged. Two fresh visible-chat requests completed, one abrupt recovery, two more chats archived;23 archived/3 active, active24 limit unchanged, bank22→24. Exact original checked checkpoint bytes + full original journals + evidence bindings preserved. Prepared files precede one atomic active-checkpoint save; archived tasks read-only, source/outcome checks fresh.512 archive refs/128MiB/4MB blobs; other limits unchanged. Existing342 class files and original goal/workflow/qualification/verifier identities unchanged. Only Agency043/WorkspaceServer changed plus new helper. {methods} final Java,148 desktop and20 altered-evidence checks pass. Initial35/36 test result retained; explicit revised-report refusal corrected, no weaker check. Actual screenshots/guide, original bytes, complete costs, source inventory and logs retained. Both prior recorder attempts retained: protected active read refused, then immutable-source version control corrected; Java verifier unchanged. History refresh/selection details corrected and actual UI rerun. Preserve private Java33224/37676 and frozen001–111; no delegation; heavy work serial. Publication pending actual push/fetch; CI separate. Next: growing archive retrieval/evidence costs and separately defined saved-procedure lifecycle.
 
 '''
 for n in ['AGENTS.md','README-CONTRIBUTORS.md','docs/PROJECT_MEMORY.md','docs/DEVELOPMENT_LOG.md','docs/ARCHITECTURE.md']:
@@ -177,7 +177,7 @@ Edition112 preserves completed chat-task history and frees eligible completed-ta
 
 ![Actual completed-chat History controls](docs/readmes/112/original111-chats-1600.png)
 
-Use **History** to preview, verify and archive completed chats, inspect original records and recheck evidence. The actual app retained23 archived chats and three unchanged cancelled tasks. Two fresh chat requests completed, including one abrupt recovery. Revised sources and corrupt/missing snapshots refused. {methods} relevant Java tests,148 desktop checks and20 independent altered-evidence controls passed; initial failures are retained with their correction.
+Use **History** to preview, verify and archive completed chats, inspect original records and recheck evidence. The actual app retained23 archived chats and three unchanged cancelled tasks. Two fresh chat requests completed, including one abrupt recovery. Revised reports and corrupt/missing snapshots refused; a new dataset version preserved the original immutable source. {methods} relevant Java tests,148 desktop checks and20 independent altered-evidence controls passed; initial failures are retained with their correction.
 
 Java owns tasks, worlds, tools, verification, memory and recovery. Browser, canvas, spatial views and Game Lab remain integrated. Archived tasks are read-only; unfinished tasks retain explicit recovery. Unverified outcomes stay unverified. All original goal/workflow/qualification verifiers remain unchanged; no raised limits or model-training claim.
 
