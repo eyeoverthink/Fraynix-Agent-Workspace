@@ -202,8 +202,8 @@ public class Scene {
     public void load() {
         Path path = Paths.get(System.getProperty("fraynix.level", "level.txt"));
         Path authored=WindowSavePath.path();
-        if (Files.isRegularFile(authored)) path=authored;
-        if (!Files.exists(path)) return;
+        if (System.getProperty("fraynix.level.sha256") == null && Files.isRegularFile(authored)) path=authored;
+        if (!Files.exists(path) && System.getProperty("fraynix.level.sha256") == null) return;
         try { load(path); }
         catch (IOException error) { throw new java.io.UncheckedIOException("Scene load failed", error); }
     }
@@ -216,7 +216,15 @@ public class Scene {
                 .registerTypeAdapter(GameObject.class, new GameObjectDeserializer())
                 .create();
 
-        String inFile = Files.readString(path, StandardCharsets.UTF_8);
+        byte[] sourceBytes = Files.readAllBytes(path);
+        String expected = System.getProperty("fraynix.level.sha256");
+        if (expected != null) {
+            try {
+                String actual = java.util.HexFormat.of().formatHex(java.security.MessageDigest.getInstance("SHA-256").digest(sourceBytes));
+                if (!expected.equals(actual)) throw new IOException("Checked game candidate changed; launch refused");
+            } catch (java.security.NoSuchAlgorithmException e) { throw new IOException(e); }
+        }
+        String inFile = new String(sourceBytes, StandardCharsets.UTF_8);
 
         if (!inFile.equals("")) {
             int maxGoId = -1;

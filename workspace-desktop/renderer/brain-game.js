@@ -17,6 +17,7 @@ export class BrainGame {
  constructor({call,notice,activate,layout,lab,requireSaved}){Object.assign(this,{call,notice,activate,layout,lab,requireSaved});this.running=false;this.busy=false;this.polling=false;
   const safe=f=>async()=>{try{await f();}catch(e){this.notice(e.message);$('brain-status').textContent=e.message;}};
   this.addSkillMemory();
+  this.addLevelBuilder();
   this.cortex061=new Cortex061(call,notice);
   this.residual062=new Residual062(call,notice);
   this.stopping063=new Stopping063(call,notice);
@@ -43,6 +44,33 @@ export class BrainGame {
   $('memory-save').onclick=safe(async()=>{const receipt=await this.call('memory','remember',{text:$('memory-text').value});$('memory-result').textContent=JSON.stringify(receipt,null,2);});
   $('memory-search').onclick=safe(async()=>{$('memory-result').textContent=JSON.stringify(await this.call('memory','context',{query:$('memory-text').value,maxChars:2400}),null,2);});
   setInterval(()=>this.poll().catch(e=>this.notice(e.message)),150);
+ }
+ addLevelBuilder(){
+  const box=document.createElement('details');box.id='game-level-builder';
+  box.innerHTML=`<summary>Create a level from the original components</summary>
+   <p>Java reuses the original player, terrain and power-up logic. Saved candidates are separate from your authored level. Construction checks do not certify playability.</p>
+   <div class="runtime-controls"><button id="game-level-analyze">Analyze original</button><label>Layout seed <input id="game-level-seed" type="number" min="0" max="9999" value="0"></label><label>Length (tiles) <input id="game-level-length" type="number" min="48" max="72" value="56"></label><label>Gap (tiles) <input id="game-level-gap" type="number" min="1" max="2" value="2"></label><button id="game-level-create">Create separate level</button></div>
+   <div class="runtime-controls"><select id="game-level-choice" aria-label="Saved level candidate"></select><button id="game-level-refresh">Refresh saved levels</button><button id="game-level-open" disabled>Open selected level</button></div><p id="game-level-status" role="status">No new level created. Image reconstruction is a later phase.</p>`;
+  $('game-view').prepend(box);
+  const action=async command=>{if(this.levelBusy)return;this.levelBusy=true;for(const b of box.querySelectorAll('button'))b.disabled=true;
+   try{
+    let result;
+    if(command==='create-level')result=await this.call('gameRuntime',command,{seed:Number($('game-level-seed').value),lengthTiles:Number($('game-level-length').value),gapTiles:Number($('game-level-gap').value)});
+    else if(command==='open-level'){
+     const id=$('game-level-choice').value,candidate=this.levelCandidates.find(x=>x.id===id);if(!candidate?.checked)throw Error('Select a checked saved level');
+     this.show(await this.call('gameRuntime',command,{id}));$('game-target').value=String(candidate.finishX+1);$('game-level-status').textContent='Opened saved candidate '+id+'. Use controls or AI play to test it. Finish contact is reported separately.';return;
+    }else if(command==='analyze-levels'){
+     result=await this.call('gameRuntime',command,{});$('game-level-status').textContent=`Original: ${result.objects} objects, ${result.components} components, ${Object.keys(result.componentTypes).length} types. Root level.txt: ${result.rootExampleObjects} example objects. Source ${result.sourceSha256.slice(0,12)}.`;return;
+    }
+    const list=await this.call('gameRuntime','levels',{});this.levelCandidates=list.candidates;const selected=result?.id||$('game-level-choice').value;
+    $('game-level-choice').replaceChildren(...list.candidates.map(c=>new Option(c.checked?`Seed ${c.parameters.seed} · ${c.objects} objects · ${c.id.slice(0,8)}`:`Needs attention · ${c.error}`,c.id)));
+    if(list.candidates.some(c=>c.id===selected))$('game-level-choice').value=selected;
+    $('game-level-status').textContent=result?`Saved ${result.objects} objects as ${result.id}. Source, asset and construction checks passed. Playtest still required.`:`${list.candidates.length} saved candidates. Each was freshly checked; invalid originals remain listed.`;
+   }catch(e){$('game-level-status').textContent=e.message;this.notice(e.message);}
+   finally{this.levelBusy=false;for(const b of box.querySelectorAll('button'))b.disabled=false;$('game-level-open').disabled=!this.levelCandidates?.some(c=>c.id===$('game-level-choice').value&&c.checked);}
+  };
+  for(const [id,command] of [['analyze','analyze-levels'],['create','create-level'],['refresh','levels'],['open','open-level']])$('game-level-'+id).onclick=()=>action(command);
+  $('game-level-choice').onchange=()=>{$('game-level-open').disabled=!this.levelCandidates?.some(c=>c.id===$('game-level-choice').value&&c.checked);};
  }
  addSkillMemory(){
   const panel=document.createElement('details');
