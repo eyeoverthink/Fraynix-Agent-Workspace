@@ -58,7 +58,7 @@ export class BrainGame {
     if(command==='create-level')result=await this.call('gameRuntime',command,{seed:Number($('game-level-seed').value),lengthTiles:Number($('game-level-length').value),gapTiles:Number($('game-level-gap').value)});
     else if(command==='open-level'){
      const id=$('game-level-choice').value,candidate=this.levelCandidates.find(x=>x.id===id);if(!candidate?.checked)throw Error('Select a checked saved level');
-     this.show(await this.call('gameRuntime',command,{id}));$('game-target').value=String(candidate.finishX+1);$('game-level-status').textContent='Opened saved candidate '+id+'. Use controls or AI play to test it. Finish contact is reported separately.';return;
+     this.show(await this.call('gameRuntime',command,{id}));$('game-target').value=String(candidate.finishX+1);box.open=false;$('game-level-status').textContent='Opened saved candidate '+id+'. Use controls or AI play to test it. Finish contact is reported separately.';return;
     }else if(command==='analyze-levels'){
      result=await this.call('gameRuntime',command,{});$('game-level-status').textContent=`Original: ${result.objects} objects, ${result.components} components, ${Object.keys(result.componentTypes).length} types. Root level.txt: ${result.rootExampleObjects} example objects. Source ${result.sourceSha256.slice(0,12)}.`;return;
     }
