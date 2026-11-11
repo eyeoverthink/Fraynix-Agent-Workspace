@@ -30,7 +30,7 @@ public class GameReference116Test {
                 assertTrue(reference.optString("reason"),reference.getBoolean("accepted"));lastAnalysis=reference.getJSONObject("analysis");assertTrue(params.similar(lastAnalysis.getJSONObject("parameters")));refs.verify(reference.getString("id"));
                 String id=UUID.randomUUID().toString();var t=tasks.start(new JSONObject().put("id",id).put("request","Reconstruct a playable Mario level from reference="+reference.getString("id")));
                 for(int i=0;i<650&&t.getString("status").equals("running");i++)t=tasks.advance(id);
-                row.put("task",t);Files.writeString(out.resolve("result.json"),result.toString(2));assertEquals(t.optString("reason"),"completed",t.getString("status"));tasks.verify(id);assertNotEquals(original.getString("id"),t.getJSONObject("audit").getString("candidateId"));
+                row.put("task",t);Files.writeString(out.resolve("result.json"),result.toString(2));assertEquals(t.optString("reason"),"completed",t.getString("status"));tasks.verify(id);assertEquals("won",t.getJSONObject("audit").getString("existingAI"));assertEquals(1,t.getJSONObject("audit").getInt("aiPickups"));assertEquals(0,t.getJSONObject("audit").getInt("aiDamage"));assertNotEquals(original.getString("id"),t.getJSONObject("audit").getString("candidateId"));
             }
             for(String change:List.of("missing-finish","incomplete-floor","covered-player","blank")){
                 var image=GameReference115.decode(lastNative);int bg=image.getRGB(0,0),n=12;
