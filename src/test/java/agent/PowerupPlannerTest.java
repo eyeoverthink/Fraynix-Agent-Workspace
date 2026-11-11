@@ -31,4 +31,13 @@ public class PowerupPlannerTest {
         var next=new PowerupPlanner(failed::contains,failed::add);
         assertEquals(PowerupPlanner.Kind.TRAVEL,next.step(scene,player,20,1).kind());
     }
+    @Test public void declinedBlockDoesNotInheritAnotherItemsFailure() {
+        var scene=new Scene(null);var player=scene.createGameObject("Mario");player.addComponent(new PlayerController());scene.addGameObjectToScene(player);
+        var block=scene.createGameObject("Block");block.addComponent(new com.google.gson.Gson().fromJson("{\"blockType\":\"Powerup\"}",QuestionBlock.class));block.transform.position.set(1,.8f);scene.addGameObjectToScene(block);
+        java.util.Set<java.util.UUID> failures=new java.util.HashSet<>();var planner=new PowerupPlanner(failures::contains,failures::add);
+        planner.declineForRun(planner.step(scene,player,20,1));assertTrue(failures.isEmpty());
+        var item=scene.createGameObject("Unrelated item");item.addComponent(new MushroomAI());item.transform.position.set(1,.25f);scene.addGameObjectToScene(item);
+        var goal=planner.step(scene,player,20,2);assertEquals(PowerupPlanner.Kind.COLLECT,goal.kind());planner.abandon(goal);
+        assertTrue(failures.contains(item.getPersistentId()));assertFalse(failures.contains(block.getPersistentId()));
+    }
 }

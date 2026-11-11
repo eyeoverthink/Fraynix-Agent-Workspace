@@ -19,7 +19,7 @@ public final class PowerupPlanner {
     public PowerupPlanner(java.util.function.Predicate<UUID> avoided,java.util.function.Consumer<UUID> failed) {this.avoided=avoided;this.failed=failed;}
     private void skip(UUID id) {skipped.add(id);failed.accept(lastBlock!=null?lastBlock:id);target=null;}
     /** Declining an opportunity is not a failed motor episode and does not poison saved learning. */
-    public void declineForRun(Goal goal) {if(goal.object()!=null){skipped.add(goal.object().getPersistentId());target=null;}}
+    public void declineForRun(Goal goal) {if(goal.object()!=null){var id=goal.object().getPersistentId();skipped.add(id);if(id.equals(lastBlock))lastBlock=null;target=null;}}
     public void abandon(Goal goal) {if(goal.object()!=null)skip(goal.object().getPersistentId());}
     public Goal step(Scene scene,GameObject player,float destination,long tick) {
         float x=player.transform.position.x,y=player.transform.position.y;
