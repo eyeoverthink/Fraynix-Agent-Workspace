@@ -1,5 +1,7 @@
 # Fraynix Agent Workspace — edition 113
 
+**Next implementation:** [Full playable-level creation plan and phases](docs/PLAYABLE_LEVEL_CREATION_PLAN.md). Source-based construction comes first; image reconstruction and durable chat playtesting follow separate acceptance gates.
+
 ## Find the agent's experience, inspect the original, open the checked result
 
 Edition113 brings retained chats, workflows and child steps into **one searchable History view**. It shows the original request and outcome, follows explicit connected-work IDs, exposes full original records and offers a fresh evidence recheck. **Open checked result** verifies the original evidence and exact saved report version and contents before displaying it in the existing canvas.
