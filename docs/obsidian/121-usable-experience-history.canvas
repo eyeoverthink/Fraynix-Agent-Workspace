@@ -1,0 +1,85 @@
+{
+  "nodes": [
+    {
+      "id": "view",
+      "type": "file",
+      "file": "workspace-desktop/renderer/history-panel113.mjs",
+      "x": 0,
+      "y": 0,
+      "width": 400,
+      "height": 180
+    },
+    {
+      "id": "model",
+      "type": "file",
+      "file": "workspace-desktop/renderer/history-model113.mjs",
+      "x": 440,
+      "y": 0,
+      "width": 400,
+      "height": 180
+    },
+    {
+      "id": "result",
+      "type": "file",
+      "file": "workspace-desktop/history113.cjs",
+      "x": 880,
+      "y": 0,
+      "width": 400,
+      "height": 180
+    },
+    {
+      "id": "java",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/Agency043.java",
+      "x": 0,
+      "y": 240,
+      "width": 400,
+      "height": 180
+    },
+    {
+      "id": "workflow",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/WorkflowRunner.java",
+      "x": 440,
+      "y": 240,
+      "width": 400,
+      "height": 180
+    },
+    {
+      "id": "study",
+      "type": "file",
+      "file": "workspace-desktop/test/history113-integration.cjs",
+      "x": 880,
+      "y": 240,
+      "width": 400,
+      "height": 180
+    },
+    {
+      "id": "inspection",
+      "type": "file",
+      "file": "scripts/Inspect-History113.cjs",
+      "x": 0,
+      "y": 480,
+      "width": 400,
+      "height": 180
+    }
+  ],
+  "edges": [
+    {
+      "id": "view-result",
+      "fromNode": "view",
+      "fromSide": "right",
+      "toNode": "result",
+      "toSide": "left",
+      "label": "original evidence before open"
+    },
+    {
+      "id": "result-java",
+      "fromNode": "result",
+      "fromSide": "bottom",
+      "toNode": "java",
+      "toSide": "top",
+      "label": "existing authority"
+    }
+  ]
+}

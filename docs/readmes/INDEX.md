@@ -157,3 +157,5 @@ Numbered editions preserve dated behavior and evidence. The root [README](../../
 | [081](../../README-081.md) | 2026-11-06 | Faster estimation with complete evidence checks | [Viewer](081/index.html) · [tree](081/FILE_TREE.md) |
 
 Latest implementation and documentation edition in this checkout is **081**. See [sequence policy](README_SEQUENCE.md) and [manifest](editions.json).
+
+- [113 — usable experience history](../../README-113.md) · [guide](113/index.html)

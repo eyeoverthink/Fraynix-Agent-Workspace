@@ -1,0 +1,214 @@
+{
+  "modules": [
+    {
+      "id": "view",
+      "name": "Unified history view",
+      "source": "workspace-desktop/renderer/history-panel113.mjs",
+      "note": "docs/obsidian/121-usable-experience-history.md"
+    },
+    {
+      "id": "model",
+      "name": "Read-only filtering and linked IDs",
+      "source": "workspace-desktop/renderer/history-model113.mjs",
+      "note": "docs/obsidian/121-usable-experience-history.md"
+    },
+    {
+      "id": "result",
+      "name": "Original evidence and exact saved result",
+      "source": "workspace-desktop/history113.cjs",
+      "note": "docs/obsidian/121-usable-experience-history.md"
+    },
+    {
+      "id": "java",
+      "name": "Unchanged Java chat authority",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/Agency043.java",
+      "note": "docs/obsidian/121-usable-experience-history.md"
+    },
+    {
+      "id": "workflow",
+      "name": "Unchanged Java workflow verifier",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/WorkflowRunner.java",
+      "note": "docs/obsidian/121-usable-experience-history.md"
+    },
+    {
+      "id": "study",
+      "name": "Actual growing-bank study",
+      "source": "workspace-desktop/test/history113-integration.cjs",
+      "note": "docs/obsidian/121-usable-experience-history.md"
+    },
+    {
+      "id": "inspection",
+      "name": "Independent source and outcome reconstruction",
+      "source": "scripts/Inspect-History113.cjs",
+      "note": "docs/obsidian/121-usable-experience-history.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "docs/readmes/113/bank24-chat23-0-history1600.png",
+      "caption": "Actual app capture: bank24-chat23-0-history1600"
+    },
+    {
+      "path": "docs/readmes/113/bank24-chat23-0-result1600.png",
+      "caption": "Actual app capture: bank24-chat23-0-result1600"
+    },
+    {
+      "path": "docs/readmes/113/bank24-chat23-1-history1600.png",
+      "caption": "Actual app capture: bank24-chat23-1-history1600"
+    },
+    {
+      "path": "docs/readmes/113/bank24-chat23-1-result1600.png",
+      "caption": "Actual app capture: bank24-chat23-1-result1600"
+    },
+    {
+      "path": "docs/readmes/113/bank24-chat23-history1100.png",
+      "caption": "Actual app capture: bank24-chat23-history1100"
+    },
+    {
+      "path": "docs/readmes/113/bank28-chat27-0-history1600.png",
+      "caption": "Actual app capture: bank28-chat27-0-history1600"
+    },
+    {
+      "path": "docs/readmes/113/bank28-chat27-0-result1600.png",
+      "caption": "Actual app capture: bank28-chat27-0-result1600"
+    },
+    {
+      "path": "docs/readmes/113/bank28-chat27-1-history1600.png",
+      "caption": "Actual app capture: bank28-chat27-1-history1600"
+    },
+    {
+      "path": "docs/readmes/113/bank28-chat27-1-result1600.png",
+      "caption": "Actual app capture: bank28-chat27-1-result1600"
+    },
+    {
+      "path": "docs/readmes/113/bank28-chat27-history1100.png",
+      "caption": "Actual app capture: bank28-chat27-history1100"
+    },
+    {
+      "path": "docs/readmes/113/bank32-chat31-0-history1600.png",
+      "caption": "Actual app capture: bank32-chat31-0-history1600"
+    },
+    {
+      "path": "docs/readmes/113/bank32-chat31-0-result1600.png",
+      "caption": "Actual app capture: bank32-chat31-0-result1600"
+    },
+    {
+      "path": "docs/readmes/113/bank32-chat31-1-history1600.png",
+      "caption": "Actual app capture: bank32-chat31-1-history1600"
+    },
+    {
+      "path": "docs/readmes/113/bank32-chat31-1-result1600.png",
+      "caption": "Actual app capture: bank32-chat31-1-result1600"
+    },
+    {
+      "path": "docs/readmes/113/bank32-chat31-history1100.png",
+      "caption": "Actual app capture: bank32-chat31-history1100"
+    },
+    {
+      "path": "docs/readmes/113/changed-artifact-1600.png",
+      "caption": "Actual app capture: changed-artifact-1600"
+    },
+    {
+      "path": "docs/readmes/113/changed-dataset-1600.png",
+      "caption": "Actual app capture: changed-dataset-1600"
+    },
+    {
+      "path": "docs/readmes/113/group4-chats-1600.png",
+      "caption": "Actual app capture: group4-chats-1600"
+    },
+    {
+      "path": "docs/readmes/113/group4-steps-1600.png",
+      "caption": "Actual app capture: group4-steps-1600"
+    },
+    {
+      "path": "docs/readmes/113/group4-workflows-1600.png",
+      "caption": "Actual app capture: group4-workflows-1600"
+    },
+    {
+      "path": "docs/readmes/113/group8-chats-1600.png",
+      "caption": "Actual app capture: group8-chats-1600"
+    },
+    {
+      "path": "docs/readmes/113/group8-steps-1600.png",
+      "caption": "Actual app capture: group8-steps-1600"
+    },
+    {
+      "path": "docs/readmes/113/group8-workflows-1600.png",
+      "caption": "Actual app capture: group8-workflows-1600"
+    },
+    {
+      "path": "docs/readmes/113/history113-1-1600.png",
+      "caption": "Actual app capture: history113-1-1600"
+    },
+    {
+      "path": "docs/readmes/113/history113-2-1600.png",
+      "caption": "Actual app capture: history113-2-1600"
+    },
+    {
+      "path": "docs/readmes/113/history113-3-1600.png",
+      "caption": "Actual app capture: history113-3-1600"
+    },
+    {
+      "path": "docs/readmes/113/history113-4-1600.png",
+      "caption": "Actual app capture: history113-4-1600"
+    },
+    {
+      "path": "docs/readmes/113/history113-5-1600.png",
+      "caption": "Actual app capture: history113-5-1600"
+    },
+    {
+      "path": "docs/readmes/113/history113-5-interrupted.png",
+      "caption": "Actual app capture: history113-5-interrupted"
+    },
+    {
+      "path": "docs/readmes/113/history113-6-1600.png",
+      "caption": "Actual app capture: history113-6-1600"
+    },
+    {
+      "path": "docs/readmes/113/history113-7-1600.png",
+      "caption": "Actual app capture: history113-7-1600"
+    },
+    {
+      "path": "docs/readmes/113/history113-8-1600.png",
+      "caption": "Actual app capture: history113-8-1600"
+    },
+    {
+      "path": "docs/readmes/113/initial-steps-1600.png",
+      "caption": "Actual app capture: initial-steps-1600"
+    },
+    {
+      "path": "docs/readmes/113/initial-workflows-1600.png",
+      "caption": "Actual app capture: initial-workflows-1600"
+    },
+    {
+      "path": "docs/readmes/113/before-history-1600.png",
+      "caption": "Actual app capture: before-history-1600"
+    },
+    {
+      "path": "docs/readmes/113/before-main-1600.png",
+      "caption": "Actual app capture: before-main-1600"
+    },
+    {
+      "path": "docs/readmes/113/checked-result1600.png",
+      "caption": "Actual app capture: checked-result1600"
+    },
+    {
+      "path": "docs/readmes/113/reopened-history1600.png",
+      "caption": "Actual app capture: reopened-history1600"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/readmes/113/analysis.json",
+      "caption": "analysis.json"
+    },
+    {
+      "path": "docs/readmes/113/verification.json",
+      "caption": "verification.json"
+    },
+    {
+      "path": "docs/readmes/113/original-evidence.json",
+      "caption": "original-evidence.json"
+    }
+  ]
+}
