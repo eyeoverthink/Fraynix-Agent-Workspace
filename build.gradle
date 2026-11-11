@@ -114,7 +114,8 @@ distributions {
             from('docs') { into 'docs' }
             from('README.md')
             from('AGENTS.md')
-            from(fileTree(rootDir) { include 'README-*.md' })
+            // Enumerate only the intended top-level documents; do not snapshot build output or node_modules.
+            from(providers.provider { rootDir.listFiles().findAll { it.isFile() && it.name ==~ /README-.*\.md/ }.sort { it.name } })
             from('models') { into 'models'; include '*.Modelfile' }
             from('THIRD_PARTY_NOTICES.md')
         }
@@ -132,3 +133,16 @@ tasks.named('wrapper', Wrapper) {
 
 // Preserve the full evidence history when the distribution exceeds ZIP32 limits.
 tasks.named('distZip', Zip) { zip64 = true }
+
+// Native runtime checks need the exact game code and assets, not a second 16 GB copy
+// of historical documentation. The release installDist still packages that history.
+tasks.register('prepareGameRuntime115', Copy) {
+    dependsOn tasks.named('jar'), tasks.named('startScripts')
+    into layout.buildDirectory.dir('install/Fraynix-Studio')
+    from(tasks.named('jar')) { into 'lib' }
+    from(configurations.runtimeClasspath) { into 'lib' }
+    from('assets') { into 'assets' }
+    from('levels') { into 'levels' }
+    from('level.txt')
+    from(tasks.named('startScripts')) { into 'bin' }
+}

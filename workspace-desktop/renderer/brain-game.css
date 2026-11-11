@@ -24,3 +24,7 @@
 @media(max-width: 700px) { .evidence049-fields { grid-template-columns: 1fr; } }
 
 #game-level-builder{margin-bottom:12px;padding:12px;background:#182f34;border:1px solid #43776d;border-radius:10px}#game-level-builder summary{cursor:pointer;font-weight:600}#game-level-builder p{font-size:13px;line-height:1.5;overflow-wrap:anywhere}#game-level-choice{max-width:100%;min-width:0}#game-level-builder label{font-size:12px}#game-frame{max-height:none}
+
+#game-task-detail{max-height:220px;overflow:auto;white-space:pre-wrap;overflow-wrap:anywhere}#game-task-choice{max-width:380px}
+
+#game-reference-preview{width:100%;max-height:200px;object-fit:contain;image-rendering:pixelated;background:#152b31}

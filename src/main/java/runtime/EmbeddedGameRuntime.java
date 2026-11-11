@@ -21,7 +21,7 @@ public final class EmbeddedGameRuntime implements ControlledRuntime,AutoCloseabl
     private final ArrayBlockingQueue<Request> requests=new ArrayBlockingQueue<>(4);
     private final String session=UUID.randomUUID().toString(),token=System.getenv("FRAYNIX_GAME_TOKEN");
     private volatile Frame last;
-    private HttpServer server;private boolean continuous,closing;private long sequence;
+    private HttpServer server;private boolean continuous,closing,aiBounded;private long sequence;
     private record Request(JsonObject args,CompletableFuture<Map<String,Object>> result){}
     private record Frame(Map<String,Object> state,byte[] png,long captureNs){}
     public EmbeddedGameRuntime() throws IOException {
@@ -59,25 +59,27 @@ public final class EmbeddedGameRuntime implements ControlledRuntime,AutoCloseabl
     }
     public Map<String,Object> step(int ticks,float horizontal,boolean jump){
         check();if(ticks<1||ticks>120||!Float.isFinite(horizontal)||Math.abs(horizontal)>1)throw new IllegalArgumentException("Bounded game input required");
-        continuous=false;agent.GameInput.stop("Embedded manual step");
+        continuous=false;aiBounded=false;agent.GameInput.stop("Embedded manual step");
         try{agent.GameInput.external(horizontal,jump);for(int i=0;i<ticks;i++)Window.get().stepEmbedded();}
         finally{agent.GameInput.externalOff();}
         return observe();
     }
     public void frame(){
         check();String parent=System.getenv("FRAYNIX_GAME_PARENT_PID");if(parent!=null&&!ProcessHandle.of(Long.parseLong(parent)).map(ProcessHandle::isAlive).orElse(false))closing=true;
-        Request pending=requests.poll();Object outcome=null;Exception failure=null;boolean spatialRead=false;
+        Request pending=requests.poll();Object outcome=null;Exception failure=null;boolean spatialRead=false,overview=false;
         if(pending!=null)try{
             var args=pending.args;String action=args.get("action").getAsString();
-            var allowed=new HashSet<>(Set.of("action"));if(action.equals("step"))allowed.addAll(Set.of("ticks","horizontal","jump"));if(action.equals("ai"))allowed.add("targetX");
+            var allowed=new HashSet<>(Set.of("action"));if(action.equals("step"))allowed.addAll(Set.of("ticks","horizontal","jump"));if(action.equals("ai")||action.equals("ai-step"))allowed.add("targetX");if(action.equals("ai-step"))allowed.add("ticks");
             if(!allowed.containsAll(args.keySet()))throw new IllegalArgumentException("Unsupported game command field");
             switch(action){
                 case "spatial"->spatialRead=true;
+                case "overview"->{if(continuous)throw new IllegalStateException("Pause before capturing a reference overview");overview=true;}
                 case "step"->step(args.get("ticks").getAsInt(),args.has("horizontal")?args.get("horizontal").getAsFloat():0,args.has("jump")&&args.get("jump").getAsBoolean());
+                case "ai-step"->{int ticks=args.get("ticks").getAsInt();float target=args.get("targetX").getAsFloat();if(ticks<1||ticks>120||!Float.isFinite(target)||Math.abs(target)>200)throw new IllegalArgumentException("Bounded AI input required");continuous=false;if(!aiBounded){agent.GameInput.start(Window.getScene(),target);aiBounded=true;}for(int i=0;i<ticks;i++)Window.get().stepEmbedded();}
                 case "play"->continuous=true;
-                case "pause"->{continuous=false;agent.GameInput.stop("Embedded pause");agent.GameInput.externalOff();}
+                case "pause"->{continuous=false;aiBounded=false;agent.GameInput.stop("Embedded pause");agent.GameInput.externalOff();}
                 case "ai"->{float target=args.get("targetX").getAsFloat();if(!Float.isFinite(target)||Math.abs(target)>200)throw new IllegalArgumentException("Invalid game target");agent.GameInput.start(Window.getScene(),target);continuous=true;}
-                case "reset"->{continuous=false;agent.GameInput.stop("Embedded reset");agent.GameInput.externalOff();Window.changeScene(new scenes.LevelSceneInitializer());}
+                case "reset"->{continuous=false;aiBounded=false;agent.GameInput.stop("Embedded reset");agent.GameInput.externalOff();Window.changeScene(new scenes.LevelSceneInitializer());}
                 case "close"->{continuous=false;closing=true;}
                 default->throw new IllegalArgumentException("Unknown game action");
             }
@@ -85,15 +87,16 @@ public final class EmbeddedGameRuntime implements ControlledRuntime,AutoCloseabl
         if(continuous)Window.get().stepEmbedded();
         nervous.BrainRuntime.poll();
         if(pending!=null||sequence%4==0||last==null){
-            long started=System.nanoTime();var framebuffer=Window.getFramebuffer();framebuffer.bind();
+            long started=System.nanoTime();var camera=Window.getScene().camera();var savedPosition=new org.joml.Vector2f(camera.position);var savedSize=new org.joml.Vector2f(camera.getProjectionSize());float savedZoom=camera.getZoom();if(overview){camera.position.set(0,0);camera.getProjectionSize().set(20,11.25f);camera.setZoom(1);camera.adjustProjection();}var framebuffer=Window.getFramebuffer();framebuffer.bind();
             glViewport(0,0,960,540);var clear=Window.getScene().camera().clearColor;glClearColor(clear.x,clear.y,clear.z,clear.w);glClear(GL_COLOR_BUFFER_BIT);
             renderer.Renderer.bindShader(util.AssetPool.getShader("assets/shaders/default.glsl"));Window.getScene().render();
             ByteBuffer buffer=BufferUtils.createByteBuffer(960*540*4);glReadPixels(0,0,960,540,GL_RGBA,GL_UNSIGNED_BYTE,buffer);framebuffer.unbind();
             var image=new BufferedImage(960,540,BufferedImage.TYPE_INT_RGB);
             for(int y=0;y<540;y++)for(int x=0;x<960;x++){int p=((539-y)*960+x)*4;image.setRGB(x,y,(buffer.get(p)&255)<<16|(buffer.get(p+1)&255)<<8|(buffer.get(p+2)&255));}
-            try(var out=new ByteArrayOutputStream()){ImageIO.write(image,"png",out);last=new Frame(observe(),out.toByteArray(),System.nanoTime()-started);}catch(IOException error){failure=error;}
+            try(var out=new ByteArrayOutputStream()){ImageIO.write(image,"png",out);last=new Frame(observe(),out.toByteArray(),System.nanoTime()-started);}catch(IOException error){failure=error;}finally{if(overview){camera.position.set(savedPosition);camera.getProjectionSize().set(savedSize);camera.setZoom(savedZoom);camera.adjustProjection();}}
         }
         if(spatialRead&&failure==null)try{var data=new LinkedHashMap<String,Object>(SpatialGameSnapshot.capture());data.put("state",last.state);data.put("pngBase64",Base64.getEncoder().encodeToString(last.png));data.put("pngSha256",hash(last.png));outcome=data;}catch(Exception error){failure=error;}
+        if(overview&&failure==null)outcome=Map.of("state",last.state,"pngBase64",Base64.getEncoder().encodeToString(last.png),"pngSha256",hash(last.png),"captureMs",last.captureNs/1e6,"projection",Map.of("width",20,"height",11.25,"originX",0,"originY",0));
         sequence++;
         if(pending!=null){if(failure!=null)pending.result.completeExceptionally(failure);else pending.result.complete(outcome==null?last.state:(Map<String,Object>)outcome);}
         if(closing)org.lwjgl.glfw.GLFW.glfwSetWindowShouldClose(Window.get().nativeWindow(),true);

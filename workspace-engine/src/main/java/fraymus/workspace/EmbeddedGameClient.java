@@ -50,7 +50,7 @@ public final class EmbeddedGameClient implements AutoCloseable {
     }
     public synchronized JSONObject frame() throws Exception {long t=System.nanoTime();var result=request("/frame",null);result.put("bridgeMs",(System.nanoTime()-t)/1e6).put("pid",process.pid()).put("levelId",levelId==null?"original":levelId);return result;}
     public synchronized JSONObject spatial() throws Exception {return request("/command",new JSONObject().put("action","spatial"));}
-    public synchronized JSONObject command(JSONObject input) throws Exception {if(levelId!=null&&"reset".equals(input.optString("action")))levels.verify(levelId);request("/command",input);return frame();}
+    public synchronized JSONObject command(JSONObject input) throws Exception {if(levelId!=null&&"reset".equals(input.optString("action")))levels.verify(levelId);var result=request("/command",input);if(input.optString("action").equals("overview"))return result.put("levelId",levelId==null?"original":levelId);return frame();}
     public synchronized JSONObject status(){return new JSONObject().put("running",process!=null&&process.isAlive()).put("project",activeProject.toString()).put("levelId",levelId==null?"original":levelId);}
     public synchronized void close(){
         if(process!=null){try{if(process.isAlive()&&origin!=null)request("/command",new JSONObject().put("action","close"));if(!process.waitFor(4,TimeUnit.SECONDS))process.destroy();}catch(Exception error){process.destroy();}finally{process=null;origin=null;}}

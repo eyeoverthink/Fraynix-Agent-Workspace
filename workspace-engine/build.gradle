@@ -24,4 +24,4 @@ tasks.withType(Test).configureEach {
     forkEvery = 1
     jvmArgs '-XX:ActiveProcessorCount=4'
 }
-tasks.named('test') { useJUnit(); dependsOn rootProject.tasks.named('installDist') }
+tasks.named('test') { useJUnit(); dependsOn rootProject.tasks.named('prepareGameRuntime115') }
