@@ -161,9 +161,9 @@ public final class GameInput {
         status="AI "+decision.phase()+" | "+goal.reason()+" | "+strategy+" | recovery "+decision.attempts()+"/3";
         ContactRecovery119.Decision contactDecision=null;
         if(contactAware){
-            long began=System.nanoTime();var observed=ContactObserver119.read(player,direction);
-            boolean rearThreat=enemy!=null&&(enemy.transform.position.x-x)*direction<0&&Math.abs(enemy.transform.position.x-x)<.9f;
-            contactDecision=contactRecovery.step(tick,x,y,direction,observed.support(),observed.opposing(),controller.onGround,ContactObserver119.retreatSupported(player,direction),ceiling,rearThreat);contactChecks++;contactNanos+=System.nanoTime()-began;
+            long began=System.nanoTime();float recoveryDirection=contactRecovery.observationDirection(direction);var observed=ContactObserver119.read(player,recoveryDirection);
+            boolean rearThreat=enemy!=null&&(enemy.transform.position.x-x)*recoveryDirection<0&&Math.abs(enemy.transform.position.x-x)<.9f;
+            contactDecision=contactRecovery.step(tick,x,y,recoveryDirection,observed.support(),observed.opposing(),controller.onGround,ContactObserver119.retreatSupported(player,recoveryDirection),ceiling,rearThreat);contactChecks++;contactNanos+=System.nanoTime()-began;
         }
         if(decision.phase()==MotorRecovery.Phase.BLOCKED && (contactDecision==null||!contactDecision.override())) {
             reward(-5);

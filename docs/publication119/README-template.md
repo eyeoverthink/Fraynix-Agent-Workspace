@@ -50,7 +50,7 @@ Choose a separate saved project for evaluation. Existing private projects and li
 
 The retained seed8 run reaches approximately X5.885/Y0.870. The controller reports downward velocity while native contacts keep the body stationary. Its older recovery check used near-zero vertical velocity, so it failed to recognize this lodged state.
 
-`ContactObserver119` reads up to32 native contacts, rejects sensors and non-terrain contacts, and determines whether the player has support plus an opposing side contact. `ContactRecovery119` detects24 ticks without more than0.008 original units of displacement. It checks an observed retreat landing within a bounded1.25-unit drop, waits if an enemy is close behind, then requests ordinary retreat and jump inputs. The original player controller must still detect the ground and permit the jump.
+`ContactObserver119` reads up to32 native contacts, rejects sensors and non-terrain contacts, and determines whether the player has support plus an opposing side contact. `ContactRecovery119` detects24 ticks without more than0.008 original units of displacement. It checks an observed retreat landing within a bounded1.25-unit drop, waits if an enemy is close behind, then requests ordinary retreat and jump inputs. The original player controller must still detect the ground and permit the jump. If a pickup goal changes mid-escape, support and threat observations remain bound to the committed retreat direction. A real physics-fixture test removes that side’s support while retaining opposite-side floor and requires refusal.
 
 | Bound | Actual rule |
 | --- | --- |
@@ -92,11 +92,11 @@ flowchart LR
     Verify --> History[Saved trials, chat summary and replay]
 ```
 
-The rest of the workspace remains intact: persistent world goals, measured world-model experiments, browser interaction, canvas creation, data workflows, local models, memory and verified procedures. A successful game trial does not establish real-world control accuracy. Known-sprite image reconstruction retains its previous scope and refusals; no enemy-image recognition expansion or procedure-bank admission is claimed.
+The rest of the workspace remains intact: persistent world goals, measured world-model experiments, browser interaction, canvas creation, data workflows, local models, memory and verified procedures. A successful game trial does not establish real-world control accuracy. Reference-derived tasks retain their explicit safe117 comparison. Known-sprite image reconstruction retains its previous scope and refusals; no enemy-image recognition expansion or procedure-bank admission is claimed.
 
 ## Results and complete costs
 
-Each native trial uses a fresh process/session. The table preserves every measured comparison, including failures. The six edition119 reserved courses were declared before tuning and first evaluated after the policy was fixed. The software repetition uses those same courses, not six additional unseen cases. The18 previous challenge courses and24 earlier courses are regressions.
+Each native trial uses a fresh process/session. The table preserves every measured comparison, including failures. The six edition119 reserved courses were declared before tuning and first evaluated after the policy was fixed. A subsequent code-review correction bound observations to a committed escape direction; both the original reserved evaluation and the final repeat are retained. The repeat is regression evidence, not a new unseen cohort. The software repetition uses those same courses, not six additional unseen cases. The18 previous challenge courses and24 earlier courses are regressions.
 
 | Cohort | Policy | Finishes | Pickups | Damage | Deaths | Skips | Deferrals | Contact attempts | Median full native trial |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |

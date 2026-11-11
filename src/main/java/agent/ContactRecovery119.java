@@ -11,6 +11,11 @@ public final class ContactRecovery119 {
     private boolean supported,blocked;
     public Phase phase(){return phase;}
     public int attempts(){return attempts;}
+    /** Safety observations must describe the committed escape even when an optional goal changes. */
+    public float observationDirection(float desired){
+        if(!Float.isFinite(desired)||desired==0)throw new IllegalArgumentException("Finite direction required");
+        return phase==Phase.WAIT||phase==Phase.RELEASE||phase==Phase.JUMP?direction:Math.signum(desired);
+    }
     public Decision step(long tick,float x,float y,float travel,boolean supportContact,boolean opposingContact,
                          boolean grounded,boolean floorBehind,boolean ceiling,boolean rearThreat){
         if(!Float.isFinite(x)||!Float.isFinite(y)||!Float.isFinite(travel)||travel==0||tick<0||tick<=lastTick)

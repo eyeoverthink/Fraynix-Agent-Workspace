@@ -15,6 +15,13 @@ if sys.argv[1]=='regression':
   run('hardware119-'+partition,[':workspace-engine:test','--tests','fraymus.workspace.GameController119Test'],f'-Dstudy119.partition={partition} -Dstudy119.policies=recover119 -Dstudy119.requireWins=true -Dstudy119.output=build/controller119-{partition}')
  for partition in ['regression','wider','reserved']:
   run('hardware119-old-'+partition,[':workspace-engine:test','--tests','fraymus.workspace.GameController117Test'],f'-Dstudy117.policies=safe117,recover119 -Dstudy117.partition={partition} -Dstudy117.output=build/controller117-119-{partition}')
+elif sys.argv[1]=='final':
+ run('hardware119-final-development',[':workspace-engine:test','--tests','fraymus.workspace.GameController119Test'],'-Dstudy119.policies=recover119 -Dstudy119.requireWins=true -Dstudy119.output=build/controller119-final-development')
+ run('hardware119-final-reserved',[':workspace-engine:test','--tests','fraymus.workspace.GameController119Test'],'-Dstudy119.reserved=true -Dstudy119.policies=simple,safe117,risk118,recover119 -Dstudy119.output=build/controller119-final-reserved')
+ for partition in ['old-development','old-reserved']:
+  run('hardware119-final-'+partition,[':workspace-engine:test','--tests','fraymus.workspace.GameController119Test'],f'-Dstudy119.partition={partition} -Dstudy119.policies=recover119 -Dstudy119.requireWins=true -Dstudy119.output=build/controller119-final-{partition}')
+ for partition in ['regression','wider','reserved']:
+  run('hardware119-final-old-'+partition,[':workspace-engine:test','--tests','fraymus.workspace.GameController117Test'],f'-Dstudy117.policies=safe117,recover119 -Dstudy117.partition={partition} -Dstudy117.output=build/controller117-119-final-{partition}')
 elif sys.argv[1]=='reserved':
  run('hardware119-reserved',[':workspace-engine:test','--tests','fraymus.workspace.GameController119Test'],'-Dstudy119.reserved=true -Dstudy119.policies=simple,safe117,risk118,recover119 -Dstudy119.output=build/controller119-reserved')
 elif sys.argv[1]=='full':
