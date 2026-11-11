@@ -12,7 +12,7 @@ public class GameController119Test {
         List.of(c("retained-step",8,72,4,2,26,0,24,2,0),c("retained-two-enemies",23,64,2,3,14,27,24,2,0),c("step-shift",2,64,4,2,26,0,24,2,0),c("unguarded-step",14,56,4,2,0,0,24,2,0),c("two-enemies-shift",29,72,3,2,15,28,24,2,0),c("two-enemies-short",3,56,2,3,14,27,24,2,0));}
     static List<JSONObject> partitionCases(boolean reserved){return switch(System.getProperty("study119.partition","new")){case "old-development"->GameController118Test.cases(false);case "old-reserved"->GameController118Test.cases(true);case "new"->cases(reserved);default->throw new IllegalArgumentException("Unknown partition");};}
     @Test public void compareContactRecoveryAndPickupDecisions()throws Exception{
-        boolean reserved=Boolean.getBoolean("study119.reserved");String policies=System.getProperty("study119.policies","simple,safe117,risk118"),only=System.getProperty("study119.only","");
+        boolean reserved=Boolean.getBoolean("study119.reserved");String policies=System.getProperty("study119.policies","simple,safe117,risk118,recover119"),only=System.getProperty("study119.only","");
         Path repo=Path.of("..").toAbsolutePath().normalize(),project=Files.createTempDirectory("controller119"),out=Path.of(System.getProperty("study119.output","build/controller119"));Files.createDirectories(out);
         var result=new JSONObject().put("passed",false).put("partition",System.getProperty("study119.partition",reserved?"reserved":"development")).put("project",project.toString()).put("cases",new JSONArray());
         try(var game=new EmbeddedGameClient(repo,project)){
@@ -32,7 +32,7 @@ public class GameController119Test {
                     Files.write(out.resolve(row.getString("name")+"-"+policy+".png"),Base64.getDecoder().decode(frame.getString("pngBase64")));Files.writeString(out.resolve("result.json"),result.toString(2));game.close();
                 }
             }
-            if(Boolean.getBoolean("study119.requireWins"))for(Object raw:result.getJSONArray("cases"))for(Object value:((JSONObject)raw).getJSONArray("trials")){
+            if(Boolean.parseBoolean(System.getProperty("study119.requireWins",reserved?"false":"true")))for(Object raw:result.getJSONArray("cases"))for(Object value:((JSONObject)raw).getJSONArray("trials")){
                 var trial=(JSONObject)value;if(!trial.getString("policy").equals("recover119"))continue;
                 assertTrue("Recovery regression: "+((JSONObject)raw).getString("name"),trial.getBoolean("won"));assertEquals(0,trial.getJSONObject("final").getJSONObject("controller").getInt("damage"));
             }

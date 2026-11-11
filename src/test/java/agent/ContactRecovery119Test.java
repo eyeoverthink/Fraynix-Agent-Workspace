@@ -37,4 +37,14 @@ public class ContactRecovery119Test {
         assertThrows(IllegalArgumentException.class,()->policy.step(1,0,1,1,false,false,false,true,false,false));
         assertThrows(IllegalArgumentException.class,()->new ContactRecovery119().step(0,Float.NaN,1,1,true,true,true,true,false,false));
     }
+    @Test public void successfulEscapesDoNotResetTheTotalAttemptBudget(){
+        var policy=new ContactRecovery119();long tick=0;float x=6;
+        for(int attempt=0;attempt<3;attempt++){
+            for(int t=0;t<25;t++)policy.step(tick++,x,1,1,true,true,false,true,false,false);
+            var jump=policy.step(tick++,x-.1f,.72f,1,true,false,true,true,false,false);assertTrue(jump.jump());
+            tick+=29;x+=1;policy.step(tick++,x,.72f,1,true,false,true,true,false,false);
+        }
+        ContactRecovery119.Decision d=null;for(int t=0;t<26;t++)d=policy.step(tick++,x,1,1,true,true,false,true,false,false);
+        assertFalse(d.override());assertEquals(3,policy.attempts());assertEquals(ContactRecovery119.Phase.REFUSED,policy.phase());
+    }
 }
