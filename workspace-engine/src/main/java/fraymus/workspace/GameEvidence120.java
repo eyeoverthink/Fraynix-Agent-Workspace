@@ -18,6 +18,7 @@ final class GameEvidence120 {
    }
   }
   if(w!=waits||v!=returns||clear!=clears||abort!=aborts||held>waits*180||returnTicks>returns*240)throw new IllegalStateException("Opportunity totals disagree with decisions");
+  if(!activeWait.isEmpty()&&!activeReturn.isEmpty()||activeWait.values().stream().anyMatch(t->tick-t>180)||activeReturn.values().stream().anyMatch(t->tick-t>240))throw new IllegalStateException("Overlapping or expired opportunity");
   if(o.getString("phase").equals("WAIT")&&activeWait.size()!=1||o.getString("phase").equals("REVISIT")&&activeReturn.size()!=1)throw new IllegalStateException("Opportunity phase lacks its source");
  }
 }

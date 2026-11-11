@@ -31,7 +31,7 @@ public class GameChallenge118Test {
         try(var game=new EmbeddedGameClient(repo,project);var tasks=new GameTask115(repo,project,game)){
             assertEquals("interrupted",tasks.read(id).getString("status"));tasks.control(id,"resume");var t=done(tasks,id);Files.writeString(out.resolve("result.json"),t.toString(2));Files.writeString(out.resolve("project.txt"),project.toString());
             assertEquals(t.optString("reason"),"completed",t.getString("status"));assertNotEquals(session,t.getJSONArray("trials").getJSONObject(1).getString("sessionId"));
-            var audit=tasks.verify(id).getJSONObject("audit");assertEquals("failed",audit.getString("simpleControl"));assertEquals("won",audit.getString("existingAI"));assertEquals("recover119",audit.getString("completionControl"));assertEquals("recover119",t.getJSONArray("trials").getJSONObject(t.getJSONArray("trials").length()-1).getJSONObject("final").getJSONObject("controller").getString("policy"));assertEquals(1,audit.getInt("aiPickupSkips"));assertEquals(0,audit.getInt("repairCount"));assertTrue(audit.getJSONArray("pickupDecisions").getJSONObject(0).getString("reason").contains("clearance"));
+            var audit=tasks.verify(id).getJSONObject("audit");assertEquals("failed",audit.getString("simpleControl"));assertEquals("won",audit.getString("existingAI"));assertEquals("opportunity120",audit.getString("completionControl"));assertEquals("opportunity120",t.getJSONArray("trials").getJSONObject(t.getJSONArray("trials").length()-1).getJSONObject("final").getJSONObject("controller").getString("policy"));assertEquals(1,audit.getInt("aiPickupSkips"));assertEquals(0,audit.getInt("repairCount"));assertTrue(audit.getJSONArray("pickupDecisions").getJSONObject(0).getString("reason").contains("clearance"));
             Path checkpoint=project.resolve("game-tasks115/"+id+".json");String original=Files.readString(checkpoint);var forged=AgentFiles042.loadChecked(checkpoint);forged.getJSONObject("audit").put("aiPickupSkips",0);AgentFiles042.saveChecked(checkpoint,forged);assertThrows(IllegalStateException.class,()->tasks.verify(id));Files.writeString(checkpoint,original);
         }
     }
@@ -49,7 +49,7 @@ public class GameChallenge118Test {
             var levels=new GameLevels114(repo,project);var m=levels.create115(UUID.randomUUID().toString(),new JSONObject().put("goombaTile",24));levels.launch(game,m.getString("id"));var frame=game.command(new JSONObject().put("action","overview"));
             var refs=new GameReference115(repo,project);var ref=refs.importImage(new JSONObject().put("pngBase64",frame.getString("pngBase64")));Files.write(out.resolve("enemy-reference.png"),Base64.getDecoder().decode(frame.getString("pngBase64")));Files.writeString(out.resolve("result.json"),new JSONObject().put("project",project.toString()).put("reference",ref).toString(2));
             assertFalse("Unsupported enemy image must not be silently simplified",ref.getBoolean("accepted"));assertThrows(IllegalArgumentException.class,()->refs.verify(ref.getString("id")));
-            assertEquals("recover119",game.command(new JSONObject().put("action","ai-step").put("ticks",12).put("targetX",m.getDouble("finishX")+1)).getJSONObject("state").getJSONObject("controller").getString("policy"));
+            assertEquals("opportunity120",game.command(new JSONObject().put("action","ai-step").put("ticks",12).put("targetX",m.getDouble("finishX")+1)).getJSONObject("state").getJSONObject("controller").getString("policy"));
         }
     }
 }

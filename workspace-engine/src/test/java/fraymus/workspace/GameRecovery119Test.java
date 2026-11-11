@@ -24,9 +24,9 @@ public class GameRecovery119Test {
             }
             try(var game=new EmbeddedGameClient(repo,project);var tasks=new GameTask115(repo,project,game)){
                 assertEquals("interrupted",tasks.read(id).getString("status"));tasks.control(id,"resume");var t=GameChallenge118Test.done(tasks,id);records.put(t);Files.writeString(out.resolve("result.json"),new JSONObject().put("project",project.toString()).put("tasks",records).toString(2));
-                assertEquals(t.optString("reason"),"completed",t.getString("status"));var audit=tasks.verify(id).getJSONObject("audit");assertEquals("recover119",audit.getString("completionControl"));assertEquals("won",audit.getString("existingAI"));assertEquals("failed",audit.getString("simpleControl"));assertEquals(1,audit.getInt("aiPickups"));assertEquals(0,audit.getInt("aiDamage"));assertTrue(audit.getInt("aiContactAttempts")>0);
-                if(request.contains("seed=23"))assertTrue(audit.getInt("aiPickupDeferrals")>0);
-                Path checkpoint=project.resolve("game-tasks115/"+id+".json");String original=Files.readString(checkpoint);var forged=AgentFiles042.loadChecked(checkpoint);forged.getJSONObject("audit").put("aiContactAttempts",0);AgentFiles042.saveChecked(checkpoint,forged);assertThrows(IllegalStateException.class,()->tasks.verify(id));Files.writeString(checkpoint,original);
+                assertEquals(t.optString("reason"),"completed",t.getString("status"));var audit=tasks.verify(id).getJSONObject("audit");assertEquals("opportunity120",audit.getString("completionControl"));assertEquals("won",audit.getString("existingAI"));assertEquals("failed",audit.getString("simpleControl"));assertEquals(1,audit.getInt("aiPickups"));assertEquals(0,audit.getInt("aiDamage"));if(request.contains("seed=8"))assertTrue(audit.getInt("aiContactAttempts")>0);
+                if(request.contains("seed=23"))assertEquals(1,audit.getJSONObject("aiOpportunity").getInt("waitClears"));
+                Path checkpoint=project.resolve("game-tasks115/"+id+".json");String original=Files.readString(checkpoint);var forged=AgentFiles042.loadChecked(checkpoint);forged.getJSONObject("audit").put("aiDamage",1);AgentFiles042.saveChecked(checkpoint,forged);assertThrows(IllegalStateException.class,()->tasks.verify(id));Files.writeString(checkpoint,original);
             }
         }
     }
