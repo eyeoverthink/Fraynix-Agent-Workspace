@@ -19,4 +19,6 @@ elif sys.argv[1]=='regression':
   run('hardware120-old-'+partition,[':workspace-engine:test','--tests','fraymus.workspace.GameController117Test'],f'-Dstudy117.policies=safe117,opportunity120 -Dstudy117.partition={partition} -Dstudy117.output=build/controller117-120-{partition}')
 elif sys.argv[1]=='reserved':
  run('hardware120-reserved',[':workspace-engine:test','--tests','fraymus.workspace.GameController120Test'],'-Dstudy120.reserved=true -Dstudy120.output=build/controller120-reserved')
+elif sys.argv[1]=='full':
+ run('hardware120-main',[':test',':workspace-engine:test','--tests','agent.*','--tests','runtime.*','--tests','components.*','--tests','renderer.*','--tests','fraymus.workspace.GameOpportunity120Test','--tests','fraymus.workspace.GameRecovery119Test','--tests','fraymus.workspace.GameChallenge118Test','--tests','fraymus.workspace.GameLevels114Test','--tests','fraymus.workspace.GameTask115Test','--tests','fraymus.workspace.GameReference115Test','--tests','fraymus.workspace.GameReference116Test','--tests','fraymus.workspace.EmbeddedGame*','--tests','fraymus.workspace.SpatialGame040Test','--tests','fraymus.workspace.Domain044Test','--tests','fraymus.workspace.ChatChain052Test','--tests','fraymus.workspace.Agency043Test'],'-Dreference116.output=build/reference120-final')
 else:raise ValueError('Unknown group')

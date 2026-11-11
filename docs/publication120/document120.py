@@ -1,0 +1,107 @@
+from pathlib import Path
+import json,hashlib,subprocess,shutil,gzip,statistics,xml.etree.ElementTree as ET
+r=Path.cwd();out=r/'docs/readmes/120';out.mkdir(parents=True,exist_ok=True)
+assert subprocess.run(['git','show-ref','--verify','--quiet','refs/tags/readme-120']).returncode==1,'Never rewrite a published edition'
+def read(p):return json.loads((r/p).read_text(encoding='utf8'))
+def write(p,v):p.parent.mkdir(parents=True,exist_ok=True);p.write_bytes((json.dumps(v,indent=2,ensure_ascii=False)+'\n').encode())
+def text(p,s):p.parent.mkdir(parents=True,exist_ok=True);p.write_bytes(s.encode())
+def sha(b):return hashlib.sha256(b).hexdigest()
+uiroot=r/'build/game120-ui';ui=read(uiroot/'result.json');assert ui['passed'] and all(ui[k] for k in ['waitFrame','collectionFrame','riskFrame']);scope=read('build/edition120-scope.json')
+paths={'development':'controller120-development-final','reserved':'controller120-reserved','software-reserved':'controller120-mesa-reserved','early-probes':'controller120-early-probes-final'}
+for group in ['old119-development','old119-reserved','old118-development','old118-reserved']:paths[group]='controller120-'+group+'-final'
+for group in ['regression','wider','reserved']:paths['old117-'+group]='controller117-120-'+group+'-final'
+datasets={k:read('workspace-engine/build/'+v+'/result.json') for k,v in paths.items()};assert all(x['passed'] for x in datasets.values())
+hardware=read('workspace-engine/build/reference120-final/result.json');software=read('workspace-engine/build/reference120-mesa/result.json');assert hardware['passed'] and software['passed']
+shots=['old-repair-regression.png','challenge-controls.png','waiting-native.png','waiting-live.png','collected-native.png','collected-after-wait.png','wait-completed.png','turtle-completed.png','verified-waiting.png','declined-pickup.png','gap-refused.png','challenge-1100.png']
+for n in shots:shutil.copy2(uiroot/n,out/n)
+shutil.copy2(r/'build/controller120-motion.png',out/'controller-motion.png')
+for n,d in datasets.items():write(out/('controller-'+n+'.json'),d)
+write(out/'actual-ui.json',ui);write(out/'reference-hardware.json',hardware);write(out/'reference-software.json',software)
+checks=set();suites=[]
+for folder in sorted((r/'build/validation120').iterdir()):
+ if not folder.is_dir():continue
+ total=0
+ for p in folder.glob('*.xml'):
+  e=ET.parse(p).getroot();assert int(e.get('failures','0'))+int(e.get('errors','0'))==0,p
+  for c in e.findall('testcase'):
+   if c.find('skipped') is None:checks.add(c.get('classname')+'.'+c.get('name'));total+=1
+ if total:suites.append({'folder':folder.relative_to(r).as_posix(),'testMethods':total})
+assert len(checks)>164
+for n,count in [('desktop120.log',155),('desktop120-extra.log',10)]:
+ s=(r/'build'/n).read_text(encoding='utf8');assert f'tests {count}' in s and 'fail 0' in s
+metrics=[]
+for label,d in datasets.items():
+ for policy in sorted({t['policy'] for c in d['cases'] for t in c['trials']}):
+  ts=[t for c in d['cases'] for t in c['trials'] if t['policy']==policy];cs=[t['final']['controller'] for t in ts];ops=[c.get('opportunity120',{}) for c in cs]
+  metrics.append({'partition':label,'policy':policy,'cases':len(ts),'wins':sum(t['won'] for t in ts),'pickups':None if policy=='simple' else sum(c['pickups'] for c in cs),'damage':None if policy=='simple' else sum(c['damage'] for c in cs),'deaths':sum(t['final']['player']['dead'] for t in ts),'waitTicks':sum(o.get('waitTicks',0) for o in ops),'waitStarts':sum(o.get('waitStarts',0) for o in ops),'waitClears':sum(o.get('waitClears',0) for o in ops),'waitAborts':sum(o.get('waitAborts',0) for o in ops),'revisitTicks':sum(o.get('revisitTicks',0) for o in ops),'revisitStarts':sum(o.get('revisitStarts',0) for o in ops),'opportunityChecks':sum(c.get('opportunityChecks',0) for c in cs),'opportunityMilliseconds':sum(c.get('opportunityNanos',0) for c in cs)/1e6,'trialSeconds':[t['elapsedNanos']/1e9 for t in ts],'medianSeconds':statistics.median(t['elapsedNanos']/1e9 for t in ts)})
+old=[m for m in metrics if m['partition'].startswith('old') and m['policy']=='opportunity120'];assert sum(m['wins'] for m in old)==54 and sum(m['damage'] for m in old)==0
+old117=[m for m in old if m['partition'].startswith('old117')];assert sum(m['pickups'] for m in old117)==24
+dev=next(m for m in metrics if m['partition']=='development' and m['policy']=='opportunity120');assert dev['wins']==7 and dev['pickups']==3 and dev['damage']==0
+refs={label:{'cases':len(d['cases']),'simpleWins':sum(c['task']['audit']['simpleControl']=='won' for c in d['cases']),'revisedWins':sum(c['task']['audit']['existingAI']=='won' for c in d['cases']),'refusals':len(d['refusals'])} for label,d in [('hardware',hardware),('software',software)]};assert all(v=={'cases':6,'simpleWins':6,'revisedWins':6,'refusals':4} for v in refs.values())
+write(out/'measurements.json',{'controllers':metrics,'scope':'Fresh native sessions; old groups are regressions; software repeats the six originally reserved cases. Opportunity cost and complete trial cost are separate, single-run measurements.'})
+v={'passed':True,'javaChecks':sorted(checks),'javaSuites':suites,'desktopChecks':165,'actualChatRequests':len(ui['requests']),'actualAbruptRecovery':True,'actualAiFailureRefused':True,'referenceControllerResults':refs,'referenceCases':{'freshNativeImagesPerRenderer':6,'freshRefusalsPerRenderer':4,'original115ReferenceRegression':True},'controllerCases':metrics,'policyScope':scope['defaultScope'],'modelCalls':sum(x['task']['timing052']['modelCalls'] for x in ui['requests']),'sourceCommit':ui['source'],'scope':'Bounded predicted waiting with fresh actual clearance checks and support-checked return admission. No useful return-collection proof, physics edits, arbitrary recognition, LLM training or procedure admission.'};assert len(ui['requests'])==5 and v['modelCalls']==0;write(out/'verification.json',v)
+
+originals=[]
+def preserve(p,logical):
+ if not p.is_file():return
+ b=p.read_bytes();raw=sha(b);dest=out/'originals'/(raw+'.gz');packed=gzip.compress(b,mtime=0);dest.parent.mkdir(exist_ok=True)
+ if not dest.exists():dest.write_bytes(packed)
+ originals.append({'logicalPath':logical,'path':dest.relative_to(r).as_posix(),'bytes':len(packed),'sha256':sha(packed),'rawBytes':len(b),'rawSha256':raw})
+folders=['build/validation120','build/diagnostics120']+['workspace-engine/build/'+n for n in [*paths.values(),'controller120-baseline','controller120-prototype-a','controller120-early-probes','controller120-early-probes-b','controller120-development','controller120-old119-development','controller120-old119-reserved','controller120-old118-development','controller120-old118-reserved','controller117-120-regression','controller117-120-wider','controller117-120-reserved','reference120-final','reference120-mesa','reference115','game115-repair','game115-restart','challenge118-task','challenge118-failed','challenge118-image','recovery119-task','opportunity120-task']]
+
+projects={}
+for folder in folders:
+ for p in sorted((r/folder).rglob('*')):
+  if p.is_file() and p.suffix in ['.json','.jsonl','.xml','.png','.txt','.log']:
+   preserve(p,p.relative_to(r).as_posix())
+   if p.name=='result.json':
+    report=json.loads(p.read_text(encoding='utf8'));project=report.get('project')
+    if not project and p.with_name('project.txt').exists():project=p.with_name('project.txt').read_text(encoding='utf8').strip()
+    if project:projects[p.relative_to(r).as_posix()]=Path(project)
+for logical,project in projects.items():
+ assert project.is_dir(),project
+ for sub in ['game-levels114','game-tasks115','game-references115']:
+  for p in sorted((project/sub).rglob('*')):
+   if p.is_file() and p.suffix in ['.json','.jsonl','.png']:preserve(p,logical+'/original-project/'+p.relative_to(project).as_posix())
+for uiFolder in sorted((r/'build').glob('game120-ui*')):
+ if not uiFolder.is_dir():continue
+ for p in sorted(uiFolder.iterdir()):
+  if p.is_file():preserve(p,p.relative_to(r).as_posix())
+ for sub in ['game-tasks115','game-levels114','game-references115','agency-043','embedded-game']:
+  for p in sorted((uiFolder/'project'/sub).rglob('*')):
+   if p.is_file() and p.suffix in ['.json','.jsonl','.png','.log']:preserve(p,p.relative_to(r).as_posix())
+for pattern in ['*120*.log','ci120*.json','policy120*.json','edition120-scope.json']:
+ for p in sorted((r/'build').glob(pattern)):preserve(p,p.relative_to(r).as_posix())
+preserve(r/'build/study095-build.json','build/study095-build.json')
+write(out/'original-evidence.json',{'files':originals,'scope':'Exact isolated baseline, failed first prototype, successful development, reserved hardware/software, regressions, source/outcome checks and actual UI/recovery. Raw and compressed SHA-256; private projects and runtime binaries excluded.'})
+sourcePaths={x['path'] for x in read('docs/readmes/119/file-inventory.json')}
+for n in subprocess.check_output(['git','diff','--name-only','483acb44','HEAD'],text=True).splitlines():
+ if n.startswith(('workspace-engine/','workspace-desktop/','src/','assets/','.github/')) or n=='build.gradle':sourcePaths.add(n)
+sourcePaths.update(['docs/EDITION_120_CONTRACT.md','docs/PLAYABLE_LEVEL_CREATION_PLAN.md']);inventory=[]
+for n in sorted(sourcePaths):
+ b=(r/n).read_bytes()
+ try:b=b.decode('utf-8-sig').replace('\r\n','\n').encode();kind='utf8-lf'
+ except UnicodeDecodeError:kind='binary'
+ inventory.append({'path':n,'bytes':len(b),'sha256':sha(b),'hashKind':kind})
+write(out/'file-inventory.json',inventory)
+
+note='docs/obsidian/128-pickup-waiting-and-return-cost.md'
+modules=[{'id':i,'name':n,'source':s,'note':note} for i,n,s in [('estimate','Clearance spending estimate','src/main/java/agent/OpportunityTiming120.java'),('opportunity','Bounded wait and return','src/main/java/agent/PickupOpportunity120.java'),('control','Ordinary controller input','src/main/java/agent/GameInput.java'),('runtime','Original native simulation','src/main/java/runtime/EmbeddedGameRuntime.java'),('task','Durable checked task','workspace-engine/src/main/java/fraymus/workspace/GameTask115.java'),('verify','Bounded receipt verifier','workspace-engine/src/main/java/fraymus/workspace/GameEvidence120.java'),('proof','Actual visible review','workspace-desktop/test/game120-integration.cjs')]]
+system={'modules':modules,'screenshots':[{'path':'docs/readmes/120/'+n,'title':n} for n in shots],'evidence':[{'path':'docs/readmes/120/'+n} for n in ['actual-ui.json','reference-hardware.json','reference-software.json','measurements.json','verification.json','original-evidence.json']]};write(out/'system-map.json',system)
+labels=['Old two-gap repair','Wait for supported pickup with abrupt restart','Turtle and pickup','Unsupported gap refusal','Unfinishable challenge'];rows=[]
+for label,x in zip(labels,ui['requests']):
+ a=x['child'].get('audit',{});rows.append(f"| {label} | {x['elapsedMs']/1000:.3f} s | {a.get('simpleControl','failed')} | {a.get('existingAI','failed')} | {a.get('repairCount',0)} |")
+controllers=[f"| {x['partition']} | {x['policy']} | {x['wins']}/{x['cases']} | {x['pickups'] if x['pickups'] is not None else 'n/a'} | {x['damage'] if x['damage'] is not None else 'n/a'} | {x['waitTicks']} | {x['revisitTicks']} | {x['medianSeconds']:.3f} s |" for x in metrics]
+rr=next(x for x in metrics if x['partition']=='reserved' and x['policy']=='opportunity120');pr=next(x for x in metrics if x['partition']=='reserved' and x['policy']=='recover119');sw=next(x for x in metrics if x['partition']=='software-reserved' and x['policy']=='opportunity120')
+reservedText=f"The six reserved courses finish {rr['wins']}/6 with {rr['pickups']} pickups, {rr['damage']} damage and {rr['deaths']} deaths under opportunity120. The previous recover119 finishes {pr['wins']}/6 with {pr['pickups']} pickups and {pr['damage']} damage. Software repeat: {sw['wins']}/6, {sw['pickups']} pickups, {sw['damage']} damage. These are the same reserved examples repeated on another renderer."
+values={'JAVA_COUNT':str(len(checks)),'CHAT_ROWS':'\n'.join(rows),'CONTROLLER_ROWS':'\n'.join(controllers),'RESERVED_RESULT':reservedText,'DEFAULT_SCOPE':scope['defaultScope'],'NEXT_STEPS':scope['nextSteps'],'COST_RESULT':f"Across seven final development trials, the new opportunity checks ran {dev['opportunityChecks']} times and used {dev['opportunityMilliseconds']:.3f} ms total. Complete revised trials had median {dev['medianSeconds']:.3f} s. Total waiting consumed {dev['waitTicks']} simulation ticks. Native trial wall times include original rendering, physics and bridge work; they are single-run measurements on this machine."}
+def fill(s):
+ for k,v in values.items():s=s.replace('{{'+k+'}}',v)
+ assert '{{' not in s;return s
+md=fill((r/'docs/publication120/README-template.md').read_text(encoding='utf8'));text(r/'README-120.md',md);text(r/'README.md',md)
+text(r/note,'# Bounded pickup waiting and return cost — edition120\n\n[[README-120.md]] records two retained supported pickups collected through waiting and fresh actual clearance. Seven development finishes/three pickups/zero damage; all54 older courses finish without damage and original24 pickups preserved. '+reservedText+'\n\n'+scope['defaultScope']+'\n\nUseful return collection remains unproven. Four development probes collect zero items; original unhelpful return evidence retained. Original physics and source/ownership/session/action/image/outcome checks remain. No new training or procedure admission.\n\n'+scope['nextSteps']+'\n\n[[docs/PLAYABLE_LEVEL_CREATION_PLAN.md]]\n')
+write(r/'docs/obsidian/128-pickup-waiting-and-return-cost.canvas',{'nodes':[{'id':m['id'],'type':'file','file':m['source'],'x':i%3*430,'y':i//3*250,'width':390,'height':190} for i,m in enumerate(modules)],'edges':[{'id':str(i),'fromNode':modules[i]['id'],'toNode':modules[i+1]['id']} for i in range(len(modules)-1)]})
+html=fill((r/'docs/publication120/guide-template.html').read_text(encoding='utf8'))+'<script id="system-data" type="application/json">'+json.dumps(system)+'</script><script id="inventory-data" type="application/json">'+json.dumps(inventory)+'</script></html>';text(out/'index.html',html)
+for name,link in [('docs/readmes/INDEX.md','[Edition120 — bounded pickup waiting and return cost](../../README-120.md) · [Offline guide](120/index.html)'),('docs/obsidian/00-home.md','Current: [[docs/obsidian/128-pickup-waiting-and-return-cost.md]] · [[README-120.md]]')]:
+ p=r/name;s=p.read_text(encoding='utf-8-sig');text(p,link+'\n\n'+s if not s.startswith(link) else s)
+print(json.dumps({'passed':True,'javaChecks':len(checks),'sources':len(inventory),'originalEntries':len(originals),'reserved':reservedText}))
