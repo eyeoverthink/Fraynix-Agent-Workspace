@@ -1,0 +1,130 @@
+{
+  "modules": [
+    {
+      "id": "observe",
+      "name": "Native contact observation",
+      "source": "src/main/java/agent/ContactObserver119.java",
+      "note": "docs/obsidian/127-contact-recovery-and-reconsideration.md"
+    },
+    {
+      "id": "recover",
+      "name": "Bounded input recovery",
+      "source": "src/main/java/agent/ContactRecovery119.java",
+      "note": "docs/obsidian/127-contact-recovery-and-reconsideration.md"
+    },
+    {
+      "id": "opportunity",
+      "name": "Finite pickup reconsideration",
+      "source": "src/main/java/agent/PowerupPlanner.java",
+      "note": "docs/obsidian/127-contact-recovery-and-reconsideration.md"
+    },
+    {
+      "id": "control",
+      "name": "Composed normal input",
+      "source": "src/main/java/agent/GameInput.java",
+      "note": "docs/obsidian/127-contact-recovery-and-reconsideration.md"
+    },
+    {
+      "id": "runtime",
+      "name": "Original native simulation",
+      "source": "src/main/java/runtime/EmbeddedGameRuntime.java",
+      "note": "docs/obsidian/127-contact-recovery-and-reconsideration.md"
+    },
+    {
+      "id": "task",
+      "name": "Durable checked task",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/GameTask115.java",
+      "note": "docs/obsidian/127-contact-recovery-and-reconsideration.md"
+    },
+    {
+      "id": "verify",
+      "name": "Recovery evidence bounds",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/GameEvidence119.java",
+      "note": "docs/obsidian/127-contact-recovery-and-reconsideration.md"
+    },
+    {
+      "id": "proof",
+      "name": "Actual visible recovery",
+      "source": "workspace-desktop/test/game119-integration.cjs",
+      "note": "docs/obsidian/127-contact-recovery-and-reconsideration.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "docs/readmes/119/old-repair-regression.png",
+      "title": "old-repair-regression.png"
+    },
+    {
+      "path": "docs/readmes/119/challenge-controls.png",
+      "title": "challenge-controls.png"
+    },
+    {
+      "path": "docs/readmes/119/corner-completed.png",
+      "title": "corner-completed.png"
+    },
+    {
+      "path": "docs/readmes/119/contact-recovery.png",
+      "title": "contact-recovery.png"
+    },
+    {
+      "path": "docs/readmes/119/contact-native.png",
+      "title": "contact-native.png"
+    },
+    {
+      "path": "docs/readmes/119/pickup-deferred.png",
+      "title": "pickup-deferred.png"
+    },
+    {
+      "path": "docs/readmes/119/deferral-native.png",
+      "title": "deferral-native.png"
+    },
+    {
+      "path": "docs/readmes/119/pickup-reconsidered.png",
+      "title": "pickup-reconsidered.png"
+    },
+    {
+      "path": "docs/readmes/119/collected-native.png",
+      "title": "collected-native.png"
+    },
+    {
+      "path": "docs/readmes/119/recovered-challenge.png",
+      "title": "recovered-challenge.png"
+    },
+    {
+      "path": "docs/readmes/119/verified-decisions.png",
+      "title": "verified-decisions.png"
+    },
+    {
+      "path": "docs/readmes/119/declined-pickup.png",
+      "title": "declined-pickup.png"
+    },
+    {
+      "path": "docs/readmes/119/clearance-completed.png",
+      "title": "clearance-completed.png"
+    },
+    {
+      "path": "docs/readmes/119/challenge-1100.png",
+      "title": "challenge-1100.png"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/readmes/119/actual-ui.json"
+    },
+    {
+      "path": "docs/readmes/119/reference-hardware.json"
+    },
+    {
+      "path": "docs/readmes/119/reference-software.json"
+    },
+    {
+      "path": "docs/readmes/119/measurements.json"
+    },
+    {
+      "path": "docs/readmes/119/verification.json"
+    },
+    {
+      "path": "docs/readmes/119/original-evidence.json"
+    }
+  ]
+}

@@ -1,3 +1,5 @@
+[Edition119 — contact recovery and pickup reconsideration](../../README-119.md) · [Offline guide](119/index.html)
+
 [Edition118 — enemies, obstacles and pickup decisions](../../README-118.md) · [Offline guide](118/index.html)
 
 [Edition117 — wider-gap control and safe collection](../../README-117.md) · [Offline guide](117/index.html)

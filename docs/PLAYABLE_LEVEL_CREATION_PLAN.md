@@ -1,3 +1,11 @@
+## Progress through edition119 — 2026-11-11
+
+Both retained118 failures are corrected through measured native contact/displacement and bounded input-only recovery. Temporary moving-threat deferrals can be reconsidered without false learning; passed enemies are not chased backward for a stomp. Six development finishes, all18 prior challenge finishes and all24 older finishes/pickups preserved. See [edition119](../README-119.md) for fresh reserved hardware/software comparisons, pickup tradeoffs, complete costs and counterexamples.
+
+General AI Play and explicit challenge tasks use the qualified recover119 policy; old non-challenge task recipes retain their explicit safe117 comparison. Source/outcome checks, ownership, limits and old policy names remain. Actual chat reports verified recovery/deferral counters and resumes through a fresh trial. [Contract](EDITION_119_CONTRACT.md).
+
+Next120: measure useful waiting and revisiting under changing enemy motion, multiple obstacles and constrained retreat. Compare survival, collection, failures and full task costs on newly reserved courses. Preserve refusal when no safe retreat is observed. Explicit image-component support and procedure retirement/reactivation follow; no new32-slot procedure admission is claimed. Historical roadmap entries below are planning, not statements that every phase has shipped.
+
 ## Progress through edition118 — 2026-11-11
 
 Declared enemies and obstacles now use original source components and normal inputs in the integrated Game Lab. Optional pickup decisions read actual support, clearance, obstruction and enemy motion; skipped opportunities do not become false failed-learning events. Development12/12 finishes versus9/12 prior policy, with five pickups/seven declined/zero damage; original24 regressions retain finishes and collection. See [edition118](../README-118.md) for separately reserved hardware/software results, actual costs and counterexamples.
