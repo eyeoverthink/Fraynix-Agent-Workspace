@@ -29,7 +29,14 @@ public class GameController118Test {
                     Files.write(out.resolve(row.getString("name")+"-"+policy+".png"),Base64.getDecoder().decode(frame.getString("pngBase64")));Files.writeString(out.resolve("result.json"),result.toString(2));game.close();
                 }
             }
-            assertTrue(result.getJSONArray("cases").length()>0);result.put("passed",true).put("scope","Measurement completion; each actual win/failure remains separate. Promotion gates evaluated across original regression and challenge cohorts.");
+            if(!reserved&&only.isEmpty()&&Arrays.asList(policies.split(",")).contains("risk118")){
+                assertEquals(12,result.getJSONArray("cases").length());
+                for(Object raw:result.getJSONArray("cases")){var row=(JSONObject)raw;for(Object value:row.getJSONArray("trials")){
+                    var trial=(JSONObject)value;if(!trial.getString("policy").equals("risk118"))continue;
+                    assertTrue("Development regression: "+row.getString("name"),trial.getBoolean("won"));assertEquals(0,trial.getJSONObject("final").getJSONObject("controller").getInt("damage"));
+                }}
+            }
+            assertTrue(result.getJSONArray("cases").length()>0);result.put("passed",true).put("scope","Development risk118 finish/damage regression gates apply when the full development cohort is requested; reserved outcomes remain measured, including retained failures.");
         }finally{Files.writeString(out.resolve("result.json"),result.toString(2));}
     }
 }
