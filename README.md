@@ -1,5 +1,7 @@
 # Fraynix Agent Workspace — edition 118
 
+[Published and fetched verification receipt](docs/PUBLICATION_118.json) · [Release tag](https://github.com/eyeoverthink/Fraynix-Agent-Workspace/tree/readme-118)
+
 ## Enemies, obstacles, and knowing when to pass up a pickup
 
 The Game Lab now constructs declared challenges using the original Goomba, Turtle, terrain and power-up components. The owned Java controller examines ground support, clearance, an obstructed approach and nearby enemy motion before pursuing an optional pickup. It uses ordinary direction and jump inputs; original physics still decides contact, damage and completion.
