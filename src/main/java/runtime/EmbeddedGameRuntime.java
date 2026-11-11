@@ -70,7 +70,7 @@ public final class EmbeddedGameRuntime implements ControlledRuntime,AutoCloseabl
         Request pending=requests.poll();Object outcome=null;Exception failure=null;boolean spatialRead=false,overview=false;
         if(pending!=null)try{
             var args=pending.args;String action=args.get("action").getAsString();
-            var allowed=new HashSet<>(Set.of("action"));if(action.equals("step"))allowed.addAll(Set.of("ticks","horizontal","jump"));if(action.equals("ai")||action.equals("ai-step"))allowed.add("targetX");if(action.equals("ai-step"))allowed.add("ticks");if(action.equals("ai")||action.equals("ai-step"))allowed.add("policy");
+            var allowed=new HashSet<>(Set.of("action"));if(action.equals("step"))allowed.addAll(Set.of("ticks","horizontal","jump"));if(action.equals("ai")||action.equals("ai-step"))allowed.add("targetX");if(action.equals("ai-step"))allowed.add("ticks");if(action.equals("ai-step"))allowed.add("policy");
             if(!allowed.containsAll(args.keySet()))throw new IllegalArgumentException("Unsupported game command field");
             switch(action){
                 case "spatial"->spatialRead=true;

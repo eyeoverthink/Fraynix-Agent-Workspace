@@ -11,7 +11,8 @@ public class GameController116Test {
         Path repo=Path.of("..").toAbsolutePath().normalize(), project=Files.createTempDirectory("controller116");
         Path out=Path.of(System.getProperty("study116.output","build/controller116"));Files.createDirectories(out);
         var result=new JSONObject().put("project",project.toString()).put("passed",false).put("cases",new JSONArray());
-        int[][] cases=Boolean.getBoolean("study116.probe")?new int[][]{{0,56,2,2}}:new int[][]{{0,56,2,2},{1,48,2,2},{4,64,2,2},{8,72,2,2},{11,56,1,2},{17,64,2,1}};
+        boolean validation=Boolean.getBoolean("study116.validation");result.put("partition",validation?"reserved-validation":"development");
+        int[][] cases=validation?new int[][]{{2,48,2,1},{5,64,1,2},{6,72,2,2},{10,56,2,2},{13,64,2,1},{16,72,1,2}}:Boolean.getBoolean("study116.probe")?new int[][]{{0,56,2,2}}:new int[][]{{0,56,2,2},{1,48,2,2},{4,64,2,2},{8,72,2,2},{11,56,1,2},{17,64,2,1}};
         try(var game=new EmbeddedGameClient(repo,project)) {
             var levels=new GameLevels114(repo,project);
             for(int[] c:cases){
@@ -34,12 +35,12 @@ public class GameController116Test {
                     Files.writeString(out.resolve("result.json"),result.toString(2));game.close();
                 }
             }
-            var failure=result.getJSONArray("cases").getJSONObject(0).getJSONArray("trials");
+            if(!validation){var failure=result.getJSONArray("cases").getJSONObject(0).getJSONArray("trials");
             assertTrue("Simple baseline must finish",failure.getJSONObject(0).getBoolean("won"));
             assertFalse("Retain the original seed0 counterexample",failure.getJSONObject(1).getBoolean("won"));
-            assertTrue("Revised controller must finish the retained failure",failure.getJSONObject(2).getBoolean("won"));
-            int original=0,revised=0;for(Object value:result.getJSONArray("cases")){var trials=((JSONObject)value).getJSONArray("trials");if(trials.getJSONObject(1).getBoolean("won"))original++;if(trials.getJSONObject(2).getBoolean("won"))revised++;}
-            assertTrue("Revised control must improve measured completion",revised>original);result.put("originalWins",original).put("revisedWins",revised).put("passed",true);
+            assertTrue("Revised controller must finish the retained failure",failure.getJSONObject(2).getBoolean("won"));}
+            int original=0,revised=0;for(Object value:result.getJSONArray("cases")){var trials=((JSONObject)value).getJSONArray("trials");if(trials.getJSONObject(1).getBoolean("won")){original++;assertTrue("No lost baseline success on this cohort",trials.getJSONObject(2).getBoolean("won"));}if(trials.getJSONObject(2).getBoolean("won"))revised++;}
+            assertTrue("Revised control must improve measured completion",validation?revised>=original:revised>original);result.put("originalWins",original).put("revisedWins",revised).put("passed",true);
         } finally {Files.writeString(out.resolve("result.json"),result.toString(2));}
     }
 }

@@ -16,6 +16,9 @@ public final class GameInput {
     private static boolean landingGuard = true;
     private static long landingChecks, landingOverrides, landingNanos;
     private static LandingGuard116.Decision landingDecision;
+    private static long edgeUntil, edgeCrossings;
+    private static float edgeDirection;
+    private static boolean edgeLeftGround;
     private static long sequence, tick, jumpUntil, lastJump=-100;
     private static float startX, maxX, goalX;
     private static String status="Human control";
@@ -57,7 +60,7 @@ public final class GameInput {
     public static void requestJump() { if (automatic) { jumpUntil=tick+27; lastJump=tick; } }
     public static void start(Scene scene, float targetX) { start(scene,targetX,true); }
     public static void start(Scene scene, float targetX, boolean guarded) {
-        landingGuard=guarded;landingChecks=landingOverrides=landingNanos=0;landingDecision=null;
+        landingGuard=guarded;landingChecks=landingOverrides=landingNanos=0;landingDecision=null;edgeUntil=edgeCrossings=0;edgeLeftGround=false;
         GameObject player=scene.getGameObjectWith(PlayerController.class);
         if (player==null || !Float.isFinite(targetX)) throw new IllegalArgumentException("A live player and finite target are required");
         if(automatic) stop("Previous AI segment ended for a new target");
@@ -118,8 +121,9 @@ public final class GameInput {
         lastSensory=new float[]{Math.max(-1,Math.min(1,(goalX-x)/5)),body.getVelocity().x/3,body.getVelocity().y/3,
             controller.onGround?1:-1,floor.hit?1:-1,obstacle?1:-1,hazard?1:-1};
         nervous.BrainRuntime.observe(lastSensory);
+        boolean ceiling=head.hit && (!landingGuard || head.hitObject==null || (head.hitObject.getComponent(MushroomAI.class)==null && head.hitObject.getComponent(Flower.class)==null));
         boolean wedged=stalledTicks>45 && Math.abs(body.getVelocity().y)<.05f;
-        var decision=recovery.step(tick-startedTick,Math.abs(localTarget-x),direction,controller.onGround,obstacle,!floor.hit,hazard,head.hit,behind.hit,wedged);
+        var decision=recovery.step(tick-startedTick,Math.abs(localTarget-x),direction,controller.onGround,obstacle,!floor.hit,hazard,ceiling,behind.hit,wedged);
         status="AI "+decision.phase()+" | "+goal.reason()+" | "+strategy+" | recovery "+decision.attempts()+"/3";
         if(decision.phase()==MotorRecovery.Phase.BLOCKED) {
             reward(-5);
@@ -139,7 +143,7 @@ public final class GameInput {
             if(goal.kind()==PowerupPlanner.Kind.BUMP_BLOCK && Math.abs(localTarget-x)<.19f && controller.onGround
                 && tick-lastJump>40) {jumpUntil=tick+22;lastJump=tick;}
             if(goal.kind()==PowerupPlanner.Kind.COLLECT && goal.y()>y+.25f && Math.abs(localTarget-x)<1.2f
-                && controller.onGround && tick-lastJump>40 && !head.hit) {jumpUntil=tick+strategy.jumpTicks;lastJump=tick;}
+                && controller.onGround && tick-lastJump>40 && !ceiling) {jumpUntil=tick+strategy.jumpTicks;lastJump=tick;}
             objectiveJump=tick<jumpUntil;
         }
         if(goal.kind()==PowerupPlanner.Kind.TRAVEL && enemy!=null && !controller.onGround && body.getVelocity().y<-.1f && y>enemy.transform.position.y+.25f
@@ -149,6 +153,25 @@ public final class GameInput {
             float target=enemy.transform.position.x+enemy.getComponent(physics2d.components.Rigidbody2D.class).getVelocity().x*landingTime;
             float error=target-(x+body.getVelocity().x*landingTime);
             horizontal=Math.abs(error)<.04f?0:Math.signum(error);status+=" | lining up landing";
+        }
+        if(landingGuard){
+            if(edgeUntil>tick){
+                if(!controller.onGround)edgeLeftGround=true;
+                if(edgeLeftGround&&controller.onGround)edgeUntil=0;
+            }
+            if(controller.onGround&&edgeUntil<=tick&&!ceiling){
+                float travel=Math.abs(body.getVelocity().x)>.15f?Math.signum(body.getVelocity().x):Math.signum(goalX-x);
+                float stopping=body.getVelocity().x*body.getVelocity().x/(2*(controller.walkSpeed+60*controller.slowDownForce));
+                float look=x+travel*Math.max(.4f,stopping+.15f);
+                var support=scene.physics().raycastSolid(player,new Vector2f(look,y+.04f),new Vector2f(look,y-.55f));
+                if(!support.hit){
+                    edgeDirection=travel;edgeUntil=tick+90;edgeLeftGround=false;edgeCrossings++;
+                    jumpUntil=tick+28;lastJump=tick;
+                    if(goal.kind()!=PowerupPlanner.Kind.TRAVEL){planner.abandon(goal);goal=null;recovery=new MotorRecovery();}
+                    status+=" | defer unsafe chase; cross observed edge";
+                }
+            }
+            if(edgeUntil>tick)horizontal=edgeDirection;
         }
         boolean landingCorrection=false;
         if (landingGuard && !controller.onGround && body.getVelocity().y < -.05f) {
@@ -168,7 +191,7 @@ public final class GameInput {
         current=controls.at(tick);
     }
     public static java.util.Map<String,Object> observation116() {
-        var result=new java.util.LinkedHashMap<String,Object>();result.put("policy",landingGuard?"landing116":"legacy115");result.put("automatic",automatic);result.put("status",status);result.put("horizontal",current.horizontal());result.put("jump",current.jump());result.put("goal",goal==null?"none":goal.kind().name());result.put("pickups",pickups);result.put("landingChecks",landingChecks);result.put("landingOverrides",landingOverrides);result.put("landingNanos",landingNanos);
+        var result=new java.util.LinkedHashMap<String,Object>();result.put("policy",landingGuard?"landing116":"legacy115");result.put("automatic",automatic);result.put("status",status);result.put("horizontal",current.horizontal());result.put("jump",current.jump());result.put("goal",goal==null?"none":goal.kind().name());result.put("pickups",pickups);result.put("edgeCrossings",edgeCrossings);result.put("landingChecks",landingChecks);result.put("landingOverrides",landingOverrides);result.put("landingNanos",landingNanos);
         if(landingDecision!=null){result.put("landingReason",landingDecision.reason());result.put("predictedLandingX",landingDecision.planned().x());result.put("predictedLandingY",landingDecision.planned().y());result.put("predictedLandingTicks",landingDecision.planned().ticks());}
         return result;
     }
