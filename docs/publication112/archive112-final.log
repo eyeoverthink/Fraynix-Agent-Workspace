@@ -1,0 +1,26 @@
+fresh112: waiting-host Waiting for actual surface: workflow.start
+fresh112: waiting-host qualification:reversal
+fresh112: waiting-native qualification:flat
+fresh112: waiting-native qualification:skipped
+fresh112: waiting-native selected-data
+fresh112: waiting-native complete
+fresh112: completed complete
+recovered112: waiting-host Waiting for actual surface: workflow.start
+recovered112: waiting-host qualification:reversal
+recovered112: waiting-host qualification:units-flags
+recovered112: waiting-native qualification:skipped
+recovered112: waiting-native selected-data
+recovered112: waiting-native complete
+recovered112: completed complete
+AssertionError [ERR_ASSERTION]: Expected "actual" to be strictly unequal to:
+
+'Expected refusal did not occur'
+    at rejected (S:\Codex-Work\fraynix-workspace-edition112\workspace-desktop\test\archive112-integration.cjs:34:108)
+    at async main (S:\Codex-Work\fraynix-workspace-edition112\workspace-desktop\test\archive112-integration.cjs:65:18) {
+  generatedMessage: true,
+  code: 'ERR_ASSERTION',
+  actual: 'Expected refusal did not occur',
+  expected: 'Expected refusal did not occur',
+  operator: 'notStrictEqual',
+  diff: 'simple'
+}

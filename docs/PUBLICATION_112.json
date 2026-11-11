@@ -1,0 +1,229 @@
+{
+  "edition": 112,
+  "releaseCommit": "586d9dbdd297f0d8859ac4a6340ccaae7ac0bf88",
+  "annotatedTag": "readme-112",
+  "tagObject": "506fa67eaac61caddef6554276008b62f1e3962b",
+  "audit": {
+    "passed": true,
+    "verifiedAtUtc": "2026-11-11T01:05:10.745416+00:00",
+    "remote": "https://github.com/eyeoverthink/Fraynix-Agent-Workspace.git",
+    "fetchedRef": "refs/verify/edition112-main",
+    "remoteFetched": true,
+    "commit": "586d9dbdd297f0d8859ac4a6340ccaae7ac0bf88",
+    "canonicalSourceFiles": 1416,
+    "editions": 112,
+    "frozenHashes": 36871,
+    "original112EvidenceFiles": 8265,
+    "distinctOriginalPayloads": 643,
+    "method": "Every enumerated blob read from the specified Git tree; remoteFetched identifies a fresh verification ref. Source byte counts and canonical UTF-8 LF/binary hashes checked. All frozen edition hashes checked. Each unique immutable Git archive blob is decompressed once; every logical original entry is compared to its verified compressed/raw byte counts and SHA-256. No mutable-file timestamp or runtime-proof shortcut."
+  },
+  "analysis": {
+    "passed": true,
+    "completedChats": 2,
+    "archivedChats": 23,
+    "retainedCancelledChats": 3,
+    "activeLimit": 24,
+    "recoveries": 1,
+    "requestMs": 43944,
+    "archiveMs": 32987,
+    "cohortMs": 224093,
+    "otherMs": 147162,
+    "results": [
+      {
+        "name": "fresh112",
+        "outcome": "completed",
+        "bankBefore": 22,
+        "bankAfter": 23,
+        "active": 4,
+        "archived": 21,
+        "totalMs": 15846,
+        "browserMs": 1189,
+        "restartMs": 0,
+        "otherMs": 14657,
+        "cost": {
+          "elapsedMs": 15846,
+          "exclusiveMs": {
+            "pause-restart": 0,
+            "generation": 0,
+            "unfinished-generation-window": 0,
+            "browser-verification": 1189,
+            "coordination-and-other": 14657
+          },
+          "crossCategoryOverlapMs": 0,
+          "scope": "Priority pause/restart, then generation, then browser verification; remaining time includes Java computation, persistence, scheduling and harness polling. Stage durations overlap these categories and are not added."
+        },
+        "screenshot": "fresh112-1600.png"
+      },
+      {
+        "name": "recovered112",
+        "outcome": "completed",
+        "bankBefore": 23,
+        "bankAfter": 24,
+        "active": 5,
+        "archived": 21,
+        "totalMs": 28098,
+        "browserMs": 1368,
+        "restartMs": 6664,
+        "otherMs": 20066,
+        "cost": {
+          "elapsedMs": 28098,
+          "exclusiveMs": {
+            "pause-restart": 6664,
+            "generation": 0,
+            "unfinished-generation-window": 0,
+            "browser-verification": 1368,
+            "coordination-and-other": 20066
+          },
+          "crossCategoryOverlapMs": 0,
+          "scope": "Priority pause/restart, then generation, then browser verification; remaining time includes Java computation, persistence, scheduling and harness polling. Stage durations overlap these categories and are not added."
+        },
+        "screenshot": "recovered112-1600.png"
+      }
+    ],
+    "archives": [
+      {
+        "name": "original111-chats",
+        "records": 21,
+        "before": 24,
+        "after": 3,
+        "totalMs": 25415,
+        "screenshot": "original111-chats-1600.png"
+      },
+      {
+        "name": "current112-chats",
+        "records": 2,
+        "before": 5,
+        "after": 3,
+        "totalMs": 7572,
+        "screenshot": "current112-chats-1600.png"
+      }
+    ],
+    "scope": "Exact completed chat history and original evidence preserved.24 active-chat limit unchanged; three cancelled tasks remain. Two actual new chat completions, one abrupt recovery. Java routes supported workflow requests without model inference. No model-training or speedup claim.",
+    "refusals": [
+      "snapshot bytes",
+      "task bytes",
+      "task identity",
+      "source index",
+      "archive size",
+      "evidence binding",
+      "active limit",
+      "cancelled loss",
+      "outcome promotion",
+      "journal",
+      "original source",
+      "outcome value",
+      "chart",
+      "recovery identity",
+      "recovery bytes",
+      "recovery boundary",
+      "hidden cost",
+      "missing refusal",
+      "source revision",
+      "cold record"
+    ],
+    "preliminary": {
+      "passed": true,
+      "outcome": "recorder-refused",
+      "completedChats": 1,
+      "archivedChats": 21,
+      "totalMs": 146783,
+      "completedRequestMs": 16280,
+      "failedRequestThroughShutdownMs": 13455,
+      "reason": "electronApplication.evaluate: Error: The active Java task owns execution; this request has no current action authority\n    at Object.api (S:\\Codex-Work\\fraynix-workspace-edition112\\workspace-desktop\\main.cjs:61:58)\n    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at async <anonymous>:396:30\n    at api (S:\\Codex-Work\\fraynix-workspace-edition112\\workspace-desktop\\test\\archive112-integration.cjs:15:33)\n    at collectChild (S:\\Codex-Work\\fraynix-workspace-edition112\\workspace-desktop\\test\\archive112-integration.cjs:33:180)\n    at async run (S:\\Codex-Work\\fraynix-workspace-edition112\\workspace-desktop\\test\\archive112-integration.cjs:49:159)\n    at async main (S:\\Codex-Work\\fraynix-workspace-edition112\\workspace-desktop\\test\\archive112-integration.cjs:59:106)",
+      "scope": "Original attempted cohort retained. Protected child-read API refused recorder while live chat owned execution. Recorder now uses existing passive goal read for boundary IDs and report contents. Production runtime unchanged."
+    },
+    "intermediate": {
+      "passed": true,
+      "completedChats": 2,
+      "archivedChats": 23,
+      "retainedCancelledChats": 3,
+      "activeLimit": 24,
+      "recoveries": 1,
+      "requestMs": 44119,
+      "archiveMs": 33291,
+      "cohortMs": 217462,
+      "otherMs": 140052,
+      "results": [
+        {
+          "name": "fresh112",
+          "outcome": "completed",
+          "bankBefore": 22,
+          "bankAfter": 23,
+          "active": 4,
+          "archived": 21,
+          "totalMs": 15787,
+          "browserMs": 1307,
+          "restartMs": 0,
+          "otherMs": 14480,
+          "cost": {
+            "elapsedMs": 15787,
+            "exclusiveMs": {
+              "pause-restart": 0,
+              "generation": 0,
+              "unfinished-generation-window": 0,
+              "browser-verification": 1307,
+              "coordination-and-other": 14480
+            },
+            "crossCategoryOverlapMs": 0,
+            "scope": "Priority pause/restart, then generation, then browser verification; remaining time includes Java computation, persistence, scheduling and harness polling. Stage durations overlap these categories and are not added."
+          },
+          "screenshot": "fresh112-1600.png"
+        },
+        {
+          "name": "recovered112",
+          "outcome": "completed",
+          "bankBefore": 23,
+          "bankAfter": 24,
+          "active": 5,
+          "archived": 21,
+          "totalMs": 28332,
+          "browserMs": 1484,
+          "restartMs": 6837,
+          "otherMs": 20011,
+          "cost": {
+            "elapsedMs": 28332,
+            "exclusiveMs": {
+              "pause-restart": 6837,
+              "generation": 0,
+              "unfinished-generation-window": 0,
+              "browser-verification": 1484,
+              "coordination-and-other": 20011
+            },
+            "crossCategoryOverlapMs": 0,
+            "scope": "Priority pause/restart, then generation, then browser verification; remaining time includes Java computation, persistence, scheduling and harness polling. Stage durations overlap these categories and are not added."
+          },
+          "screenshot": "recovered112-1600.png"
+        }
+      ],
+      "archives": [
+        {
+          "name": "original111-chats",
+          "records": 21,
+          "before": 24,
+          "after": 3,
+          "totalMs": 25685,
+          "screenshot": "original111-chats-1600.png"
+        },
+        {
+          "name": "current112-chats",
+          "records": 2,
+          "before": 5,
+          "after": 3,
+          "totalMs": 7606,
+          "screenshot": "current112-chats-1600.png"
+        }
+      ],
+      "scope": "Second original cohort: both chats and abrupt recovery passed; final recorder expected a dataset revision to invalidate immutable original version1, but original verifier correctly retained version1. Original records and complete costs preserved."
+    },
+    "totalAttemptMs": 588338
+  },
+  "releaseCI": {
+    "checkedAt": "2026-11-11T01:04:27.773Z",
+    "id": 42936099346,
+    "head": "586d9dbdd297f0d8859ac4a6340ccaae7ac0bf88",
+    "status": "in_progress",
+    "conclusion": null,
+    "url": "https://github.com/eyeoverthink/Fraynix-Agent-Workspace/actions/runs/42936099346"
+  },
+  "scope": "Actual non-force main/edition112/tag push, fetched and audited. Exact completed-chat snapshots with stable read-only IDs and original source/outcome checks. Active24 chat limit unchanged; unfinished tasks retained. CI separate."
+}

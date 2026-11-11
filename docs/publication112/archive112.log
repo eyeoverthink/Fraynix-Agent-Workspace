@@ -1,0 +1,21 @@
+fresh112: waiting-host Waiting for actual surface: workflow.start
+fresh112: waiting-native qualification:flat
+fresh112: waiting-native qualification:skipped
+fresh112: waiting-native selected-data
+fresh112: waiting-native complete
+fresh112: completed complete
+recovered112: waiting-host Waiting for actual surface: workflow.start
+recovered112: waiting-host qualification:reversal
+recovered112: waiting-native qualification:units-flags
+recovered112: waiting-native qualification:skipped
+recovered112: waiting-native selected-data
+electronApplication.evaluate: Error: The active Java task owns execution; this request has no current action authority
+    at Object.api (S:\Codex-Work\fraynix-workspace-edition112\workspace-desktop\main.cjs:61:58)
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at async <anonymous>:396:30
+    at api (S:\Codex-Work\fraynix-workspace-edition112\workspace-desktop\test\archive112-integration.cjs:15:33)
+    at collectChild (S:\Codex-Work\fraynix-workspace-edition112\workspace-desktop\test\archive112-integration.cjs:33:180)
+    at async run (S:\Codex-Work\fraynix-workspace-edition112\workspace-desktop\test\archive112-integration.cjs:49:159)
+    at async main (S:\Codex-Work\fraynix-workspace-edition112\workspace-desktop\test\archive112-integration.cjs:59:106) {
+  log: []
+}

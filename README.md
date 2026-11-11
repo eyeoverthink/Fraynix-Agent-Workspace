@@ -11,3 +11,5 @@ Use **History** to preview, verify and archive completed chats, inspect original
 Java owns tasks, worlds, tools, verification, memory and recovery. Browser, canvas, spatial views and Game Lab remain integrated. Archived tasks are read-only; unfinished tasks retain explicit recovery. Unverified outcomes stay unverified. All original goal/workflow/qualification verifiers remain unchanged; no raised limits or model-training claim.
 
 **Next:** measure archive retrieval and verification costs as histories grow together, then define the separate saved-procedure lifecycle.
+
+Published to main. [Edition112 fetched GitHub verification](docs/PUBLICATION_112.json).

@@ -1,0 +1,15 @@
+{
+  "passed": true,
+  "runtime": "8693261f",
+  "initialMs": 146783,
+  "reason": "electronApplication.evaluate: Error: The active Java task owns execution; this request has no current action authority\n    at Object.api (S:\\Codex-Work\\fraynix-workspace-edition112\\workspace-desktop\\main.cjs:61:58)\n    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at async <anonymous>:396:30\n    at api (S:\\Codex-Work\\fraynix-workspace-edition112\\workspace-desktop\\test\\archive112-integration.cjs:15:33)\n    at collectChild (S:\\Codex-Work\\fraynix-workspace-edition112\\workspace-desktop\\test\\archive112-integration.cjs:33:180)\n    at async run (S:\\Codex-Work\\fraynix-workspace-edition112\\workspace-desktop\\test\\archive112-integration.cjs:49:159)\n    at async main (S:\\Codex-Work\\fraynix-workspace-edition112\\workspace-desktop\\test\\archive112-integration.cjs:59:106)",
+  "change": "Boundary collection uses the existing passive /api/goals/read projection for stable goal IDs and report contents. Full child originals are still collected through /api/workflows/child-read after completion. No Java, renderer, host or verification changes.",
+  "original": "build/archive112",
+  "final": "build/archive112-verified",
+  "scope": "Retain original failure and full costs. Rerun complete cohort on a fresh exact copy.",
+  "secondAttempt": {
+    "path": "build/archive112-final",
+    "reason": "Dataset version2 does not overwrite bound immutable version1; original workflow verifier correctly passes unchanged original version1. Final control asserts exact original source/proof and confirms new version2. No Java verifier changed."
+  },
+  "uiCorrection": "History refresh retains the selected task and clears old details; changing selection clears details and late responses only render for the same selection."
+}

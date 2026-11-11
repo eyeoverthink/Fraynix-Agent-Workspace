@@ -1,0 +1,50 @@
+{
+  "passed": true,
+  "review": "Viewed every actual app screenshot at native size after final trial.",
+  "images": [
+    {
+      "path": "build/archive112-verified/changed-artifact-1600.png",
+      "sha256": "3ef1c3e5e4cda364c5533facc57e4a2da909f66009782b48265f27932cad6854"
+    },
+    {
+      "path": "build/archive112-verified/changed-dataset-1600.png",
+      "sha256": "d25fe29bbd54ea859eb62aec4cef57699c9b5373241cd04d7be82ea76d4e84ba"
+    },
+    {
+      "path": "build/archive112-verified/chat-history112-1100.png",
+      "sha256": "f45533b4e67b3bf82e570dee1af4bafac73d2c376184aa31c2307e033fa7fd1b"
+    },
+    {
+      "path": "build/archive112-verified/current112-chats-1600.png",
+      "sha256": "32c0aa55d354c8184df66cd7f60329307a60691e103237a145c73930b294dc8a"
+    },
+    {
+      "path": "build/archive112-verified/fresh112-1600.png",
+      "sha256": "6c72dd9c7b8ef634edcadd4454a23779a8aaf678ccfd91c0fa34e20621a1f520"
+    },
+    {
+      "path": "build/archive112-verified/original111-chats-1600.png",
+      "sha256": "168dc791989deb6bd9d390d17ee151d1aa2f6f968d02e44e694bb815677a501a"
+    },
+    {
+      "path": "build/archive112-verified/recovered112-1600.png",
+      "sha256": "6f8e404d541b766d9dace3d2fdd4cd2a5f514db2ad43aceb06d2429b03538228"
+    },
+    {
+      "path": "build/archive112-verified/recovered112-interrupted.png",
+      "sha256": "a140cb85924afb9b9f1cc410ca98821c6a5fef17a7ceea24f1276999a1e88cd4"
+    }
+  ],
+  "checks": [
+    "1600px History: counts21 then23 archived, active3/24, original record controls readable; full JSON stays in bounded scrolling detail.",
+    "1100px History retains chosen archived task after refresh and clears old details; buttons and explanatory text fit the dialog.",
+    "Fresh and recovered reports display source-derived summary values; actual chat completion and Recovery1 visible.",
+    "Revised report shows original source refusal. Dataset version2 leaves immutable version1 proof verifiable and UI shows successful original recheck.",
+    "Interrupted capture taken before Java termination; Mission remains pinned to prior completed task while live chat shows work. Recovery evidence is in actual persisted records and final completed capture."
+  ],
+  "limitations": [
+    "Existing modal has nested vertical scrolling; native browser/canvas surfaces are hidden behind History.",
+    "The 1100px capture is the History dialog; no claim that every app panel is optimized for a phone-width window.",
+    "Screenshots are UI evidence, not substitutes for byte/source/outcome verification."
+  ]
+}

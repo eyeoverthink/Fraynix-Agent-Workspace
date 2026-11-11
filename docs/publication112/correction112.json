@@ -1,0 +1,22 @@
+{
+  "passed": true,
+  "initial": {
+    "tests": 36,
+    "passed": 35,
+    "failed": 1,
+    "log": "build/java112-initial.log",
+    "xml": "build/java112-initial-results",
+    "source": "build/before-correction112/ChatArchive112.java"
+  },
+  "failure": "Revised original report correctly lost its test receipt, but getJSONObject raised JSONException instead of the explicit archival refusal expected by the unchanged test.",
+  "correction": "Read the optional receipt and explicitly refuse when absent. No evidence check or test assertion removed. Per-operation snapshot grouping also avoids repeated parsing of shared exact snapshots while rereading every distinct file on every new operation.",
+  "initialSourceSha256": "f09bc655db4c63bb492a22d31f2d62b2412afaf6468830d5064a744ed70bc86d",
+  "finalSourceSha256": "7f968a20043667a1cf2e19f1f38446f426e3e3e45de91b0967b363505dcca85b",
+  "final": {
+    "classes": 17,
+    "tests": 127,
+    "failures": 0,
+    "log": "build/java112-final.log"
+  },
+  "scope": "Original goal, workflow, qualification and outcome verifier class bytes remain unchanged; no compatibility relabelling."
+}
