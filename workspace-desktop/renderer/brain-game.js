@@ -13,7 +13,7 @@ import {Cortex061} from './cortex061.js';
 import {EvidenceBench049} from './evidence049.js';
 const $=id=>document.getElementById(id);
 export class BrainGame {
- async openIntegrated(){this.requireSaved();this.activate('game');if(!this.running)this.show(await this.call('gameRuntime','open'));}
+ async openIntegrated(){this.requireSaved();this.activate('game');if(!this.running){const state=await this.call('gameRuntime','state');this.show(await this.call('gameRuntime',state.running?'frame':'open'));}}
  constructor({call,notice,activate,layout,lab,requireSaved}){Object.assign(this,{call,notice,activate,layout,lab,requireSaved});this.running=false;this.busy=false;this.polling=false;
   const safe=f=>async()=>{try{await f();}catch(e){this.notice(e.message);$('brain-status').textContent=e.message;}};
   this.addSkillMemory();
