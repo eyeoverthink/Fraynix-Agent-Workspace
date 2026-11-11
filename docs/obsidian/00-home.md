@@ -1,3 +1,5 @@
+[[docs/obsidian/122-playable-level-creation|Edition114: playable level creation]]
+
 [[docs/obsidian/120-completed-chat-history|Edition112: completed chat history]]
 
 [[docs/obsidian/119-completed-child-goal-archives|Edition111: completed child-goal archives]]

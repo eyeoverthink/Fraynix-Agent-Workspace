@@ -1,0 +1,85 @@
+{
+  "nodes": [
+    {
+      "id": "plan",
+      "type": "file",
+      "file": "docs/PLAYABLE_LEVEL_CREATION_PLAN.md",
+      "x": 0,
+      "y": 0,
+      "width": 390,
+      "height": 190
+    },
+    {
+      "id": "construct",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/GameLevels114.java",
+      "x": 430,
+      "y": 0,
+      "width": 390,
+      "height": 190
+    },
+    {
+      "id": "runtime",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/EmbeddedGameClient.java",
+      "x": 860,
+      "y": 0,
+      "width": 390,
+      "height": 190
+    },
+    {
+      "id": "scene",
+      "type": "file",
+      "file": "src/main/java/scenes/Scene.java",
+      "x": 0,
+      "y": 250,
+      "width": 390,
+      "height": 190
+    },
+    {
+      "id": "view",
+      "type": "file",
+      "file": "workspace-desktop/renderer/brain-game.js",
+      "x": 430,
+      "y": 250,
+      "width": 390,
+      "height": 190
+    },
+    {
+      "id": "trial",
+      "type": "file",
+      "file": "workspace-desktop/game-level114.cjs",
+      "x": 860,
+      "y": 250,
+      "width": 390,
+      "height": 190
+    }
+  ],
+  "edges": [
+    {
+      "id": "0",
+      "fromNode": "plan",
+      "toNode": "construct"
+    },
+    {
+      "id": "1",
+      "fromNode": "construct",
+      "toNode": "runtime"
+    },
+    {
+      "id": "2",
+      "fromNode": "runtime",
+      "toNode": "scene"
+    },
+    {
+      "id": "3",
+      "fromNode": "scene",
+      "toNode": "view"
+    },
+    {
+      "id": "4",
+      "fromNode": "view",
+      "toNode": "trial"
+    }
+  ]
+}

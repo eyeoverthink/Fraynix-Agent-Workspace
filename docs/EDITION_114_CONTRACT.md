@@ -1,6 +1,6 @@
 # Edition 114 — source-based level construction
 
-Prospective contract, 2026-11-10. Parent `c133fbd3bd6a409e31644adf458ab42465b3753f`. Isolated checkout `S:/Codex-Work/fraynix-workspace-edition114`. Follow [the full phased plan](PLAYABLE_LEVEL_CREATION_PLAN.md). Repository publication target is being reconciled with the user because the supplied legacy workspace instructions name the separate Chandra application.
+Prospective contract, 2026-11-10. Parent `c133fbd3bd6a409e31644adf458ab42465b3753f`. Isolated checkout `S:/Codex-Work/fraynix-workspace-edition114`. Follow [the full phased plan](PLAYABLE_LEVEL_CREATION_PLAN.md). Repository identity was checked against both checkouts: this Java Game Lab and editions001–113 belong to `eyeoverthink/Fraynix-Agent-Workspace`. Chandra is the separate React application; it is unchanged. The prospective plan was pushed first at `d2a40b674f830f728ab06cec071deb851d749f97` and both plan files were fetched and compared.
 
 Implement Java-owned source analysis and bounded creation of a separate Mario-component scene, with source/candidate/asset identity checks and explicit selection in the existing embedded Game Lab. Preserve the original source, private authored levels, historical evidence and all current capacities. No new library, stub behavior, screenshot recognition, generic creation skill or training claim.
 

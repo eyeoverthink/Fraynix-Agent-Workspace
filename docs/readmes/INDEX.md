@@ -1,3 +1,11 @@
+[Edition114 — source-based playable level creation](../../README-114.md) · [Offline guide](114/index.html)
+
+[Edition113 — usable experience history](../../README-113.md) · [Offline guide](113/index.html)
+
+[Edition114 — source-based playable level creation](../../README-114.md) · [Offline guide](114/index.html)
+
+[Edition113 — usable experience history](../../README-113.md) · [Offline guide](113/index.html)
+
 [Edition112 — completed chat history](../../README-112.md) · [Offline guide](112/index.html)
 
 [Edition111 — completed child-goal archives](../../README-111.md) · [Offline guide](111/index.html)

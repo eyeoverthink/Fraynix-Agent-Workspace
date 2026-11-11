@@ -1,0 +1,75 @@
+{
+  "modules": [
+    {
+      "id": "plan",
+      "name": "Phased task and acceptance gates",
+      "source": "docs/PLAYABLE_LEVEL_CREATION_PLAN.md",
+      "note": "docs/obsidian/122-playable-level-creation.md"
+    },
+    {
+      "id": "construct",
+      "name": "Java source analysis and construction",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/GameLevels114.java",
+      "note": "docs/obsidian/122-playable-level-creation.md"
+    },
+    {
+      "id": "runtime",
+      "name": "Owned embedded game lifecycle",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/EmbeddedGameClient.java",
+      "note": "docs/obsidian/122-playable-level-creation.md"
+    },
+    {
+      "id": "scene",
+      "name": "Checked original scene loading",
+      "source": "src/main/java/scenes/Scene.java",
+      "note": "docs/obsidian/122-playable-level-creation.md"
+    },
+    {
+      "id": "view",
+      "name": "Integrated Game Lab controls",
+      "source": "workspace-desktop/renderer/brain-game.js",
+      "note": "docs/obsidian/122-playable-level-creation.md"
+    },
+    {
+      "id": "trial",
+      "name": "Actual desktop trial",
+      "source": "workspace-desktop/game-level114.cjs",
+      "note": "docs/obsidian/122-playable-level-creation.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "docs/readmes/114/source-analysis.png",
+      "title": "source-analysis.png"
+    },
+    {
+      "path": "docs/readmes/114/candidate-start.png",
+      "title": "candidate-start.png"
+    },
+    {
+      "path": "docs/readmes/114/candidate-finish.png",
+      "title": "candidate-finish.png"
+    },
+    {
+      "path": "docs/readmes/114/candidate-reopened.png",
+      "title": "candidate-reopened.png"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/readmes/114/actual-ui.json"
+    },
+    {
+      "path": "docs/readmes/114/actual-runtime.json"
+    },
+    {
+      "path": "docs/readmes/114/verification.json"
+    },
+    {
+      "path": "docs/readmes/114/candidate-level.json"
+    },
+    {
+      "path": "docs/readmes/114/candidate-manifest.json"
+    }
+  ]
+}

@@ -1,0 +1,1794 @@
+{
+  "date": "2026-11-11T02:38:55.002Z",
+  "scope": "Actual Electron/Java/original game renderer, source-based candidate. No model calls or chat-generation claim.",
+  "passed": true,
+  "sourceCommit": "3a51b719c3f61246e28d8ac07b0225a7fd60f7a0",
+  "inputs": [
+    {
+      "action": "step",
+      "ticks": 12,
+      "horizontal": 1,
+      "jump": false
+    },
+    {
+      "action": "step",
+      "ticks": 12,
+      "horizontal": 1,
+      "jump": false
+    },
+    {
+      "action": "step",
+      "ticks": 12,
+      "horizontal": 1,
+      "jump": false
+    },
+    {
+      "action": "step",
+      "ticks": 12,
+      "horizontal": 1,
+      "jump": false
+    },
+    {
+      "action": "step",
+      "ticks": 12,
+      "horizontal": 1,
+      "jump": false
+    },
+    {
+      "action": "step",
+      "ticks": 12,
+      "horizontal": 1,
+      "jump": false
+    },
+    {
+      "action": "step",
+      "ticks": 12,
+      "horizontal": 1,
+      "jump": false
+    },
+    {
+      "action": "step",
+      "ticks": 12,
+      "horizontal": 1,
+      "jump": false
+    },
+    {
+      "action": "step",
+      "ticks": 12,
+      "horizontal": 1,
+      "jump": false
+    },
+    {
+      "action": "step",
+      "ticks": 12,
+      "horizontal": 1,
+      "jump": true
+    },
+    {
+      "action": "step",
+      "ticks": 12,
+      "horizontal": 1,
+      "jump": true
+    },
+    {
+      "action": "step",
+      "ticks": 12,
+      "horizontal": 1,
+      "jump": true
+    },
+    {
+      "action": "step",
+      "ticks": 12,
+      "horizontal": 1,
+      "jump": false
+    },
+    {
+      "action": "step",
+      "ticks": 12,
+      "horizontal": 1,
+      "jump": false
+    },
+    {
+      "action": "step",
+      "ticks": 12,
+      "horizontal": 1,
+      "jump": false
+    },
+    {
+      "action": "step",
+      "ticks": 12,
+      "horizontal": 1,
+      "jump": false
+    },
+    {
+      "action": "step",
+      "ticks": 12,
+      "horizontal": 1,
+      "jump": false
+    },
+    {
+      "action": "step",
+      "ticks": 12,
+      "horizontal": 1,
+      "jump": false
+    },
+    {
+      "action": "step",
+      "ticks": 12,
+      "horizontal": 1,
+      "jump": false
+    },
+    {
+      "action": "step",
+      "ticks": 12,
+      "horizontal": 1,
+      "jump": true
+    },
+    {
+      "action": "step",
+      "ticks": 12,
+      "horizontal": 1,
+      "jump": true
+    },
+    {
+      "action": "step",
+      "ticks": 12,
+      "horizontal": 1,
+      "jump": true
+    },
+    {
+      "action": "step",
+      "ticks": 12,
+      "horizontal": 1,
+      "jump": false
+    },
+    {
+      "action": "step",
+      "ticks": 12,
+      "horizontal": 1,
+      "jump": false
+    },
+    {
+      "action": "step",
+      "ticks": 12,
+      "horizontal": 1,
+      "jump": false
+    },
+    {
+      "action": "step",
+      "ticks": 12,
+      "horizontal": 1,
+      "jump": false
+    },
+    {
+      "action": "step",
+      "ticks": 12,
+      "horizontal": 1,
+      "jump": false
+    },
+    {
+      "action": "step",
+      "ticks": 12,
+      "horizontal": 1,
+      "jump": false
+    },
+    {
+      "action": "step",
+      "ticks": 12,
+      "horizontal": 1,
+      "jump": false
+    },
+    {
+      "action": "step",
+      "ticks": 12,
+      "horizontal": 1,
+      "jump": false
+    },
+    {
+      "action": "step",
+      "ticks": 12,
+      "horizontal": 1,
+      "jump": false
+    },
+    {
+      "action": "step",
+      "ticks": 12,
+      "horizontal": 1,
+      "jump": false
+    }
+  ],
+  "runtimeJars": {
+    "../workspace-engine/build/install/workspace-engine/lib/brain-core.jar": "043766bebc155741f98dd01bfbd95984998a21cb4ac74dcde11db095cb45ba39",
+    "../workspace-engine/build/install/workspace-engine/lib/brain-gpu.jar": "0dc09d37f0ebf129b2254d90f6a8dc4fe61ab12f1003c8337db6db390cf8aca2",
+    "../workspace-engine/build/install/workspace-engine/lib/factory-kernel-0.1.0.jar": "3768bdf8cb391613ed5ff570515f6278492873b04d589458ae5d83b034e7a1ec",
+    "../workspace-engine/build/install/workspace-engine/lib/factory-models-0.1.0.jar": "8258bcba42600de7aebda292b80aa2e29943881eda1c1098ed17fceecd806014",
+    "../workspace-engine/build/install/workspace-engine/lib/factory-runtime-0.1.0.jar": "fa37bd944651823216595be0b66751de1d4adeeb43ff12b1608f84632c92d9fe",
+    "../workspace-engine/build/install/workspace-engine/lib/geometry-core.jar": "dd5b90aba489e6bf6b1487b135962902a83914f0cb2013a8a55c1c69d3a84c58",
+    "../workspace-engine/build/install/workspace-engine/lib/Heart-9.2.0.jar": "26049707e963831c0253f8fda7582da5a5eb49a8ea3c464f72a79c9bd663c8c1",
+    "../workspace-engine/build/install/workspace-engine/lib/jme3-core-3.8.1-stable.jar": "ec14e9171484392e4c0268edfbdfdaa85ff492bd295ac753ebd83c3e5640c3bb",
+    "../workspace-engine/build/install/workspace-engine/lib/jme3-desktop-3.8.1-stable.jar": "357badf7c858edcd1b73770b3d62d92d2dc47559fbe97e9ae907033681666094",
+    "../workspace-engine/build/install/workspace-engine/lib/jme3-terrain-3.8.1-stable.jar": "baf24669d045e6f468414de7cdbda5eb9c5eff8734ae3b85dc09fc9de5076410",
+    "../workspace-engine/build/install/workspace-engine/lib/json-20231013.jar": "0f18192df289114e17aa1a0d0a7f8372cc9f5c7e4f7e39adcf8906fe714fa7d3",
+    "../workspace-engine/build/install/workspace-engine/lib/Libbulletjme-Linux64-22.0.3-SpRelease.jar": "f98f69ab89f999814b0a0cfc062ed210da720628cb80c3dc49f1399c55b5800d",
+    "../workspace-engine/build/install/workspace-engine/lib/Libbulletjme-Linux_ARM32hf-22.0.3-SpRelease.jar": "d04a674b9f600f625eb75ff8913870e1e3605caa5e4192d3c40ee4f884908c02",
+    "../workspace-engine/build/install/workspace-engine/lib/Libbulletjme-Linux_ARM64-22.0.3-SpRelease.jar": "f7d1bef5157a03677ccd17191711f4724045b6578cf3f18d6bdea8a719787b1b",
+    "../workspace-engine/build/install/workspace-engine/lib/Libbulletjme-MacOSX64-22.0.3-SpRelease.jar": "e8d9e5d3710742fdd7e97bfc77d35365033fbac85a19fd5ab09965d3b7316215",
+    "../workspace-engine/build/install/workspace-engine/lib/Libbulletjme-MacOSX_ARM64-22.0.3-SpRelease.jar": "6dd3e23d9a6c416611e8f87c77b20570d80fe90c3002c800c313dda5b8ba0624",
+    "../workspace-engine/build/install/workspace-engine/lib/Libbulletjme-Windows64-22.0.3-SpRelease.jar": "014ff2c1678e8f31a43232769a1fce410d6a6dd772ceeca33bc8d37bf1c0fe80",
+    "../workspace-engine/build/install/workspace-engine/lib/lwjgl-3.3.3-natives-windows.jar": "5ee63a19187efe5bb8747fd24f7b13257db348df5ad641113a3695e43f213959",
+    "../workspace-engine/build/install/workspace-engine/lib/lwjgl-3.3.3.jar": "dc9c7b2d48e8396d68895f8902ffa01e46253de44dfe927533ff09457ebfeec4",
+    "../workspace-engine/build/install/workspace-engine/lib/lwjgl-glfw-3.3.3-natives-windows.jar": "98155b451dfc6f585089dec77a12f9c05789c4dceb8da472f9d308160101a70d",
+    "../workspace-engine/build/install/workspace-engine/lib/lwjgl-glfw-3.3.3.jar": "bedc757fd2b1b255146db26b74b9cbd1fcf5644b89b47b104fa721c741604259",
+    "../workspace-engine/build/install/workspace-engine/lib/lwjgl-opengl-3.3.3-natives-windows.jar": "f45e5f60596b03b2e3d8b98a123c855ebd0b5154c8155dc2a56b890ccc907477",
+    "../workspace-engine/build/install/workspace-engine/lib/lwjgl-opengl-3.3.3.jar": "5062da750e5f7ec89e27e8b67b7d40fa8c4b16890159e35f828116ce6c8eca1e",
+    "../workspace-engine/build/install/workspace-engine/lib/Minie-9.0.3.jar": "5be4008a804f4a1fea5aa1437fa2c913a23fa29a381f0f31702ec1f57936e205",
+    "../workspace-engine/build/install/workspace-engine/lib/sim-math-1.6.0.jar": "b5aed033ea39b075ec0d51e380c1138effcace24bf6657e9101f16f1654450f8",
+    "../workspace-engine/build/install/workspace-engine/lib/slf4j-api-1.7.32.jar": "3624f8474c1af46d75f98bc097d7864a323c81b3808aa43689a6e1c601c027be",
+    "../workspace-engine/build/install/workspace-engine/lib/workspace-engine.jar": "8296945dbca41d5f21bede312acdb1264391de3c945798f5d3b20db62d4e431c",
+    "../build/install/Fraynix-Studio/lib/brain-core.jar": "043766bebc155741f98dd01bfbd95984998a21cb4ac74dcde11db095cb45ba39",
+    "../build/install/Fraynix-Studio/lib/factory-kernel-0.1.0.jar": "3768bdf8cb391613ed5ff570515f6278492873b04d589458ae5d83b034e7a1ec",
+    "../build/install/Fraynix-Studio/lib/factory-models-0.1.0.jar": "8258bcba42600de7aebda292b80aa2e29943881eda1c1098ed17fceecd806014",
+    "../build/install/Fraynix-Studio/lib/factory-runtime-0.1.0.jar": "fa37bd944651823216595be0b66751de1d4adeeb43ff12b1608f84632c92d9fe",
+    "../build/install/Fraynix-Studio/lib/Fraynix-Agent-Workspace-0.1.0.jar": "a1cdc3a23428f38321d31e173ac6cb69deb0d23c41ef58630dbf58d2e975c056",
+    "../build/install/Fraynix-Studio/lib/gson-2.8.6.jar": "c8fb4839054d280b3033f800d1f5a97de2f028eb8ba2eb458ad287e536f3f25f",
+    "../build/install/Fraynix-Studio/lib/imgui-java-binding-1.86.11.jar": "cae0960cbd2784b6ab92d5ae13c9356db99eb7a35df9a6171669d64ab6f94b88",
+    "../build/install/Fraynix-Studio/lib/imgui-java-lwjgl3-1.86.11.jar": "076b8ad542e630e2b906d67c46540137b3cd6e0e5e9e1cfefc2f55994d446b42",
+    "../build/install/Fraynix-Studio/lib/imgui-java-natives-windows-1.86.11.jar": "5d7909d011d6d5485090b247813c8f68a98cedad972b535cd78341ccc91f0a29",
+    "../build/install/Fraynix-Studio/lib/jbox2d-library.jar": "8d6d78431b0403a4236b7e266cf6c62aee63332d8381433150a16f202c574350",
+    "../build/install/Fraynix-Studio/lib/joml-1.9.23.jar": "da93bb3a5eb3aa77fc541d648d24eaae616f0c1f032229d6ddc8f39062b7168f",
+    "../build/install/Fraynix-Studio/lib/json-20231013.jar": "0f18192df289114e17aa1a0d0a7f8372cc9f5c7e4f7e39adcf8906fe714fa7d3",
+    "../build/install/Fraynix-Studio/lib/lwjgl-3.3.3-natives-windows.jar": "5ee63a19187efe5bb8747fd24f7b13257db348df5ad641113a3695e43f213959",
+    "../build/install/Fraynix-Studio/lib/lwjgl-3.3.3.jar": "dc9c7b2d48e8396d68895f8902ffa01e46253de44dfe927533ff09457ebfeec4",
+    "../build/install/Fraynix-Studio/lib/lwjgl-glfw-3.3.3-natives-windows.jar": "98155b451dfc6f585089dec77a12f9c05789c4dceb8da472f9d308160101a70d",
+    "../build/install/Fraynix-Studio/lib/lwjgl-glfw-3.3.3.jar": "bedc757fd2b1b255146db26b74b9cbd1fcf5644b89b47b104fa721c741604259",
+    "../build/install/Fraynix-Studio/lib/lwjgl-openal-3.3.3-natives-windows.jar": "e3da7c3db25c81db8d425ef1e3dbfa15000b040d669f008b0813c94333ac96c8",
+    "../build/install/Fraynix-Studio/lib/lwjgl-openal-3.3.3.jar": "ae0e82767cacf08921f578fba9d84753ddeb00ceada0510a2b4a882be28fbf95",
+    "../build/install/Fraynix-Studio/lib/lwjgl-opengl-3.3.3-natives-windows.jar": "f45e5f60596b03b2e3d8b98a123c855ebd0b5154c8155dc2a56b890ccc907477",
+    "../build/install/Fraynix-Studio/lib/lwjgl-opengl-3.3.3.jar": "5062da750e5f7ec89e27e8b67b7d40fa8c4b16890159e35f828116ce6c8eca1e",
+    "../build/install/Fraynix-Studio/lib/lwjgl-stb-3.3.3-natives-windows.jar": "d12ab866fe1169e924ac5b4d6bb7767ae7842a9fc8652798682c0069bb73fcf2",
+    "../build/install/Fraynix-Studio/lib/lwjgl-stb-3.3.3.jar": "0cff7aa46ea9d70fcc20857015293ea80fbf21adcac34600c84da9b81a44ca93"
+  },
+  "analysis": {
+    "sourceSha256": "08b10ab7c8c14a049b02c49a792bfa62219cd30918377cf0a55e9cd06b51bb20",
+    "components": 6085,
+    "rootExampleObjects": 2,
+    "assets": {
+      "assets/images/bigSpritesheet.png": "dd6f095c07e98006d572306d00556169be4f6d256d7459a48cacf39d685c264b",
+      "assets/images/pipes.png": "502e477279252b5d90afe0b6a70e4f4032d52022e5bde533fdd2e7990c560835",
+      "assets/images/items.png": "bbcffd46cd41e4bffdc2b7ceeb108ae19621c46b9784109a2b1c1e8d6d676d06",
+      "assets/images/spritesheet.png": "74f5592bd41952d6e9e4cda4aae2914944a762bf83bab183673397fccd14e96c",
+      "assets/images/spritesheets/decorationsAndBlocks.png": "9a26bca9505d31968c0af1ec6a8095a978728f83463ae547c5b3c3b47be70a17",
+      "assets/images/turtle.png": "26a625c9e1524c02ed87f49cf6dc4cbb9f4f68aeeb1919ba9ec0ebfeff003666"
+    },
+    "objects": 1248,
+    "scope": "Full serialized source; behavior is implemented by Java components, not by JSON alone",
+    "componentTypes": {
+      "components.Ground": 1110,
+      "jade.Transform": 1248,
+      "components.GoombaAI": 16,
+      "components.StateMachine": 50,
+      "components.QuestionBlock": 13,
+      "components.Coin": 19,
+      "components.SpriteRenderer": 1248,
+      "physics2d.components.Rigidbody2D": 1156,
+      "components.BreakableBrick": 54,
+      "components.Pipe": 4,
+      "components.TurtleAI": 1,
+      "components.PlayerController": 1,
+      "physics2d.components.CircleCollider": 36,
+      "physics2d.components.PillboxCollider": 1,
+      "physics2d.components.Box2DCollider": 1119,
+      "components.Flagpole": 9
+    },
+    "source": "levels/mario-original.json"
+  },
+  "candidate": {
+    "lineage": [
+      {
+        "sourceUid": 0,
+        "role": "Ground 0/0",
+        "id": "df70baa8-1490-37dc-8b16-4d87f5acf894"
+      },
+      {
+        "sourceUid": 0,
+        "role": "Ground 0/1",
+        "id": "62686bb8-29b6-3326-9a4e-4dd3afe3d1e8"
+      },
+      {
+        "sourceUid": 0,
+        "role": "Ground 1/0",
+        "id": "cdf0fb0d-450a-3efd-9553-4a67abd2074d"
+      },
+      {
+        "sourceUid": 0,
+        "role": "Ground 1/1",
+        "id": "1bb212a2-a56f-3cb2-985d-8a4e34dc9e6f"
+      },
+      {
+        "sourceUid": 0,
+        "role": "Ground 2/0",
+        "id": "d143f5c2-7ed4-3389-b0c8-a68eaff159cb"
+      },
+      {
+        "sourceUid": 0,
+        "role": "Ground 2/1",
+        "id": "7e2d4fcf-8692-38f3-a832-ed93845cd7ba"
+      },
+      {
+        "sourceUid": 0,
+        "role": "Ground 3/0",
+        "id": "474e9571-c27c-3a3b-af9a-3dd31949436c"
+      },
+      {
+        "sourceUid": 0,
+        "role": "Ground 3/1",
+        "id": "8a2bbe74-3714-3d5f-8455-82a2e00a9a46"
+      },
+      {
+        "sourceUid": 0,
+        "role": "Ground 4/0",
+        "id": "9c8ac940-41ac-3d14-b98b-a819fd577614"
+      },
+      {
+        "sourceUid": 0,
+        "role": "Ground 4/1",
+        "id": "cd5e8090-3cc8-3948-9e45-3fecdb4c903a"
+      },
+      {
+        "sourceUid": 0,
+        "role": "Ground 5/0",
+        "id": "42f496f8-8cb5-3c90-a3ff-2ae62d728b3d"
+      },
+      {
+        "sourceUid": 0,
+        "role": "Ground 5/1",
+        "id": "15d16aa4-7677-3deb-9118-3d0ea427d224"
+      },
+      {
+        "sourceUid": 0,
+        "role": "Ground 6/0",
+        "id": "241e9eb5-f59a-329c-9a2a-88544f6c1d10"
+      },
+      {
+        "sourceUid": 0,
+        "role": "Ground 6/1",
+        "id": "35c9ca87-d896-3934-9c38-3a4f2f090b28"
+      },
+      {
+        "sourceUid": 0,
+        "role": "Ground 7/0",
+        "id": "8b521020-74d2-3f1c-b572-4da821b572e4"
+      },
+      {
+        "sourceUid": 0,
+        "role": "Ground 7/1",
+        "id": "891d9626-a1f9-3b75-8a2e-e89506a982a4"
+      },
+      {
+        "sourceUid": 0,
+        "role": "Ground 8/0",
+        "id": "c3d01495-2fa7-34c5-8414-fc56892cdad9"
+      },
+      {
+        "sourceUid": 0,
+        "role": "Ground 8/1",
+        "id": "65021760-3b4f-3430-8e36-dde219647cb6"
+      },
+      {
+        "sourceUid": 0,
+        "role": "Ground 9/0",
+        "id": "80d139cd-a209-3bc0-a2a5-d57404ab9999"
+      },
+      {
+        "sourceUid": 0,
+        "role": "Ground 9/1",
+        "id": "fd9a9049-0898-3c66-bb9b-5f04c7c60939"
+      },
+      {
+        "sourceUid": 0,
+        "role": "Ground 10/0",
+        "id": "eed264eb-e95f-3b62-ad7f-a75e06c64280"
+      },
+      {
+        "sourceUid": 0,
+        "role": "Ground 10/1",
+        "id": "171f8392-ae81-37d7-a648-9d12f8592c50"
+      },
+      {
+        "sourceUid": 0,
+        "role": "Ground 11/0",
+        "id": "3b24d36b-730d-3ede-8b2b-7a4e44ae4895"
+      },
+      {
+        "sourceUid": 0,
+        "role": "Ground 11/1",
+        "id": "e1f8fbde-6303-3c54-9b7b-92a3099191d1"
+      },
+      {
+        "sourceUid": 0,
+        "role": "Ground 12/0",
+        "id": "d3387b47-ecd7-3312-bc33-a16d1b1e8ccd"
+      },
+      {
+        "sourceUid": 0,
+        "role": "Ground 12/1",
+        "id": "c9e353e7-c11a-3ea1-a9ff-cf9951f10d5a"
+      },
+      {
+        "sourceUid": 0,
+        "role": "Ground 13/0",
+        "id": "63e9e910-71c1-3a47-a73b-3d6e901f7991"
+      },
+      {
+        "sourceUid": 0,
+        "role": "Ground 13/1",
+        "id": "54467b83-3dfe-3eb7-a0ca-7a0eef9c5b59"
+      },
+      {
+        "sourceUid": 0,
+        "role": "Ground 14/0",
+        "id": "408aa5a2-1d3b-332b-8a7a-c0e360b01691"
+      },
+      {
+        "sourceUid": 0,
+        "role": "Ground 14/1",
+        "id": "9c41f49d-4bf5-377e-8d21-88ad8c3c9eba"
+      },
+      {
+        "sourceUid": 0,
+        "role": "Ground 15/0",
+        "id": "3b80d072-a7f7-3d50-a55a-51dbfe4737a4"
+      },
+      {
+        "sourceUid": 0,
+        "role": "Ground 15/1",
+        "id": "110a5679-d7a3-3e19-8e3c-84894891f428"
+      },
+      {
+        "sourceUid": 0,
+        "role": "Ground 18/0",
+        "id": "ada188e6-dcb4-323d-b618-7aee20fd56e5"
+      },
+      {
+        "sourceUid": 0,
+        "role": "Ground 18/1",
+        "id": "3a2456ea-c6fa-3fa7-8432-a21dacefbab3"
+      },
+      {
+        "sourceUid": 0,
+        "role": "Ground 19/0",
+        "id": "fca3aaeb-f95d-378c-9252-a6f0175751c9"
+      },
+      {
+        "sourceUid": 0,
+        "role": "Ground 19/1",
+        "id": "0169bb60-d620-3404-92ce-e2c775ca34c3"
+      },
+      {
+        "sourceUid": 0,
+        "role": "Ground 20/0",
+        "id": "c6c81cf8-e779-32a3-958e-e3a9848a4410"
+      },
+      {
+        "sourceUid": 0,
+        "role": "Ground 20/1",
+        "id": "a35c9e8a-fe30-3771-8afd-97a40c60b0c8"
+      },
+      {
+        "sourceUid": 0,
+        "role": "Ground 21/0",
+        "id": "642e117c-bfc3-318c-993d-25a0c0fa5f79"
+      },
+      {
+        "sourceUid": 0,
+        "role": "Ground 21/1",
+        "id": "2cdd359e-ffd9-3cac-b872-ea91e1072020"
+      },
+      {
+        "sourceUid": 0,
+        "role": "Ground 22/0",
+        "id": "0e541ab8-f632-32c2-9ad9-1bebf8228749"
+      },
+      {
+        "sourceUid": 0,
+        "role": "Ground 22/1",
+        "id": "3b6dd857-4bee-38be-974e-d03e9d4607f2"
+      },
+      {
+        "sourceUid": 0,
+        "role": "Ground 23/0",
+        "id": "e496c6db-142a-3eab-b399-400f4c0289b7"
+      },
+      {
+        "sourceUid": 0,
+        "role": "Ground 23/1",
+        "id": "ab3566f5-d622-3b08-a768-9e5f90e0184d"
+      },
+      {
+        "sourceUid": 0,
+        "role": "Ground 24/0",
+        "id": "956fc6a9-a6c1-3e0b-afd1-63f2b633d4ac"
+      },
+      {
+        "sourceUid": 0,
+        "role": "Ground 24/1",
+        "id": "c1177b7c-25eb-3a4e-ab65-4898067b6c81"
+      },
+      {
+        "sourceUid": 0,
+        "role": "Ground 25/0",
+        "id": "b5240fb9-73f5-3a6a-af92-110ed9ece82f"
+      },
+      {
+        "sourceUid": 0,
+        "role": "Ground 25/1",
+        "id": "c8df42d6-f5fe-36ec-abb3-44cb4d1b8dd0"
+      },
+      {
+        "sourceUid": 0,
+        "role": "Ground 26/0",
+        "id": "d1eed1cf-e14d-30e3-b945-7435ebbcea3b"
+      },
+      {
+        "sourceUid": 0,
+        "role": "Ground 26/1",
+        "id": "6a10f8e6-9ea0-3c65-b395-a1fa4b78169f"
+      },
+      {
+        "sourceUid": 0,
+        "role": "Ground 27/0",
+        "id": "11301245-019f-31ab-b24c-00ce44da9bfa"
+      },
+      {
+        "sourceUid": 0,
+        "role": "Ground 27/1",
+        "id": "5b073bf4-91cd-3f48-b8ec-36e1d2362a55"
+      },
+      {
+        "sourceUid": 0,
+        "role": "Ground 28/0",
+        "id": "f11f59ad-d193-31ef-9b5c-9fb989deaedf"
+      },
+      {
+        "sourceUid": 0,
+        "role": "Ground 28/1",
+        "id": "ab72f2ab-8dbf-3f3d-b830-d0e38f96b2ac"
+      },
+      {
+        "sourceUid": 0,
+        "role": "Ground 29/0",
+        "id": "36913a0e-f5b7-31dc-b21b-34795760928e"
+      },
+      {
+        "sourceUid": 0,
+        "role": "Ground 29/1",
+        "id": "0403eb79-4761-383f-b7f1-dc5bb54d862a"
+      },
+      {
+        "sourceUid": 0,
+        "role": "Ground 30/0",
+        "id": "dc211151-756e-32bf-bc9a-311211d8d521"
+      },
+      {
+        "sourceUid": 0,
+        "role": "Ground 30/1",
+        "id": "733fa983-d1c0-3d01-951b-ad0b5e47a48e"
+      },
+      {
+        "sourceUid": 0,
+        "role": "Ground 31/0",
+        "id": "2e268f91-f591-348f-9dd5-a5f12090a792"
+      },
+      {
+        "sourceUid": 0,
+        "role": "Ground 31/1",
+        "id": "62ff6c6e-5f66-369e-860c-5ed2c7b9e618"
+      },
+      {
+        "sourceUid": 0,
+        "role": "Ground 34/0",
+        "id": "ec7b020b-e4d4-3a34-af16-71094c272552"
+      },
+      {
+        "sourceUid": 0,
+        "role": "Ground 34/1",
+        "id": "2511974e-22c3-38d2-9d51-b5a2156fddf3"
+      },
+      {
+        "sourceUid": 0,
+        "role": "Ground 35/0",
+        "id": "0518963f-cbe9-313d-b3d2-9f3176577952"
+      },
+      {
+        "sourceUid": 0,
+        "role": "Ground 35/1",
+        "id": "aee18aae-d8f8-3e21-aaa2-0021bb0ecceb"
+      },
+      {
+        "sourceUid": 0,
+        "role": "Ground 36/0",
+        "id": "9bec035d-1147-3a11-8476-e14b61145572"
+      },
+      {
+        "sourceUid": 0,
+        "role": "Ground 36/1",
+        "id": "0daa4651-efd1-3c15-86bc-6bb2b2ef5481"
+      },
+      {
+        "sourceUid": 0,
+        "role": "Ground 37/0",
+        "id": "2c3b917f-710e-35de-9f87-c9542412ac23"
+      },
+      {
+        "sourceUid": 0,
+        "role": "Ground 37/1",
+        "id": "427aa575-e07a-318c-836f-5cf9e6210e7d"
+      },
+      {
+        "sourceUid": 0,
+        "role": "Ground 38/0",
+        "id": "833c0af2-bd46-3169-823b-16d86ccbb784"
+      },
+      {
+        "sourceUid": 0,
+        "role": "Ground 38/1",
+        "id": "7a4fce7e-9f54-3056-b6c3-56bd10f76d8b"
+      },
+      {
+        "sourceUid": 0,
+        "role": "Ground 39/0",
+        "id": "5e04b0c5-dfc6-30cf-bc55-deaa79c9ba07"
+      },
+      {
+        "sourceUid": 0,
+        "role": "Ground 39/1",
+        "id": "908f7043-d363-39ca-9ce2-d80483d09359"
+      },
+      {
+        "sourceUid": 0,
+        "role": "Ground 40/0",
+        "id": "df6d0bb6-9512-3fb8-bc20-5da2adae6a82"
+      },
+      {
+        "sourceUid": 0,
+        "role": "Ground 40/1",
+        "id": "f44fe7ac-a43f-3454-a538-180ab8372c88"
+      },
+      {
+        "sourceUid": 0,
+        "role": "Ground 41/0",
+        "id": "92c626b1-8003-3a73-b577-e7eeef9f0e27"
+      },
+      {
+        "sourceUid": 0,
+        "role": "Ground 41/1",
+        "id": "8a8571bd-40f9-3f6d-a379-9c189cd71b52"
+      },
+      {
+        "sourceUid": 0,
+        "role": "Ground 42/0",
+        "id": "65259a23-a1c2-3455-aeef-3184261011d8"
+      },
+      {
+        "sourceUid": 0,
+        "role": "Ground 42/1",
+        "id": "4000c62e-2c86-37ec-82bc-b271730d2bde"
+      },
+      {
+        "sourceUid": 0,
+        "role": "Ground 43/0",
+        "id": "2cb7f6a9-3003-3d76-8e5f-687bf96d98c4"
+      },
+      {
+        "sourceUid": 0,
+        "role": "Ground 43/1",
+        "id": "1a688a80-eede-3193-a896-d769fca538d4"
+      },
+      {
+        "sourceUid": 0,
+        "role": "Ground 44/0",
+        "id": "62c341aa-af9a-3244-8000-8ff7469cdfab"
+      },
+      {
+        "sourceUid": 0,
+        "role": "Ground 44/1",
+        "id": "a73448e7-c279-338f-be25-1e488fdf81f3"
+      },
+      {
+        "sourceUid": 0,
+        "role": "Ground 45/0",
+        "id": "f74e3e36-bc4b-31fa-84fc-92fd74481187"
+      },
+      {
+        "sourceUid": 0,
+        "role": "Ground 45/1",
+        "id": "cf647375-5daf-33d6-9078-4055cc6ade5c"
+      },
+      {
+        "sourceUid": 0,
+        "role": "Ground 46/0",
+        "id": "27ca5dba-395e-336f-b7bd-51b3c1557cbf"
+      },
+      {
+        "sourceUid": 0,
+        "role": "Ground 46/1",
+        "id": "d748a1bc-4384-3158-9265-e6ba7e8091f0"
+      },
+      {
+        "sourceUid": 0,
+        "role": "Ground 47/0",
+        "id": "ad5fb340-cb68-3795-a36d-e16aa47e244e"
+      },
+      {
+        "sourceUid": 0,
+        "role": "Ground 47/1",
+        "id": "067553fe-ad62-3539-80ef-022159dccdca"
+      },
+      {
+        "sourceUid": 0,
+        "role": "Ground 48/0",
+        "id": "604308de-9388-3968-a09f-7e386a1d466e"
+      },
+      {
+        "sourceUid": 0,
+        "role": "Ground 48/1",
+        "id": "756fe9de-0c11-313a-b762-24b17ce66d12"
+      },
+      {
+        "sourceUid": 0,
+        "role": "Ground 49/0",
+        "id": "cbef370b-f2ed-3dc7-8749-f895131513a0"
+      },
+      {
+        "sourceUid": 0,
+        "role": "Ground 49/1",
+        "id": "9a602375-035a-37c2-abd0-0c4dad4adfd1"
+      },
+      {
+        "sourceUid": 0,
+        "role": "Ground 50/0",
+        "id": "d8081270-60ca-3faf-a24d-9227b270c736"
+      },
+      {
+        "sourceUid": 0,
+        "role": "Ground 50/1",
+        "id": "803afbc7-0a0f-3b75-a728-926f5f1fc6ea"
+      },
+      {
+        "sourceUid": 0,
+        "role": "Ground 51/0",
+        "id": "a7506110-6dd9-3acd-a7ef-18c2f68a61ab"
+      },
+      {
+        "sourceUid": 0,
+        "role": "Ground 51/1",
+        "id": "5211080a-ea05-32c0-9cdc-2829610c8851"
+      },
+      {
+        "sourceUid": 0,
+        "role": "Ground 52/0",
+        "id": "ce59d57e-c747-35e3-9a5e-542914c6396e"
+      },
+      {
+        "sourceUid": 0,
+        "role": "Ground 52/1",
+        "id": "1125c977-00a9-354d-890a-128d6fe5b67a"
+      },
+      {
+        "sourceUid": 0,
+        "role": "Ground 53/0",
+        "id": "401141f9-24f6-35a9-a5e5-08a009909b95"
+      },
+      {
+        "sourceUid": 0,
+        "role": "Ground 53/1",
+        "id": "5219cd7f-d159-3235-9653-bcc47b14976e"
+      },
+      {
+        "sourceUid": 0,
+        "role": "Ground 54/0",
+        "id": "85e2b44b-d87f-35aa-bcc4-4e468a4dc580"
+      },
+      {
+        "sourceUid": 0,
+        "role": "Ground 54/1",
+        "id": "0f95880d-0902-322c-9f29-6738bfcbd3c4"
+      },
+      {
+        "sourceUid": 0,
+        "role": "Ground 55/0",
+        "id": "1201e4ae-9f2a-37bd-b1b8-43e1f64dddaf"
+      },
+      {
+        "sourceUid": 0,
+        "role": "Ground 55/1",
+        "id": "07b7c1c6-bd14-3c3e-90fe-20ed917a4fa9"
+      },
+      {
+        "sourceUid": 20,
+        "role": "Player",
+        "id": "c1ea2924-422f-3d89-9d54-3952d4b77c16"
+      },
+      {
+        "sourceUid": 67,
+        "role": "Power-up block",
+        "id": "4e1a0e36-9185-378a-9a84-4d7a83da78fe"
+      },
+      {
+        "sourceUid": 1199,
+        "role": "Finish 0",
+        "id": "6c938098-5f69-367c-ac83-87fbb401c793"
+      },
+      {
+        "sourceUid": 1199,
+        "role": "Finish 1",
+        "id": "5ae1682c-a8f1-3242-a7c8-81133d2a08f9"
+      },
+      {
+        "sourceUid": 1199,
+        "role": "Finish 2",
+        "id": "ce4d79ea-5fc7-35b5-ae59-dec1a104bbd6"
+      },
+      {
+        "sourceUid": 1199,
+        "role": "Finish 3",
+        "id": "ce22414e-3a3c-304d-8de8-54388d8c47a3"
+      },
+      {
+        "sourceUid": 1199,
+        "role": "Finish 4",
+        "id": "ce679e29-00a0-31af-8dd9-7603f79b8db6"
+      },
+      {
+        "sourceUid": 1199,
+        "role": "Finish 5",
+        "id": "a1542379-5e52-3fd2-8dc2-9707ae705b48"
+      },
+      {
+        "sourceUid": 1199,
+        "role": "Finish 6",
+        "id": "675640a0-34a6-3a28-b069-6e0e1c51fa19"
+      },
+      {
+        "sourceUid": 1199,
+        "role": "Finish 7",
+        "id": "0ea1b2f8-ae3b-3bd0-bf22-303dad047ed6"
+      }
+    ],
+    "objects": 114,
+    "recipe": "mario-beginner114-v1",
+    "source": "levels/mario-original.json",
+    "levelSha256": "d9c867fc30d9508130581d7071519f71453680080267a6818023adf699919028",
+    "gaps": [
+      {
+        "endX": 4.5,
+        "startX": 4
+      },
+      {
+        "endX": 8.5,
+        "startX": 8
+      }
+    ],
+    "finishX": 12.75,
+    "levelPath": "S:\\Codex-Work\\fraynix-workspace-edition114\\build\\game-level114-ui\\project\\game-levels114\\f7a94d70-2d01-4ac0-b327-d3c3a9b42c88\\level.json",
+    "sourceSha256": "08b10ab7c8c14a049b02c49a792bfa62219cd30918377cf0a55e9cd06b51bb20",
+    "assets": {
+      "assets/images/bigSpritesheet.png": "dd6f095c07e98006d572306d00556169be4f6d256d7459a48cacf39d685c264b",
+      "assets/images/items.png": "bbcffd46cd41e4bffdc2b7ceeb108ae19621c46b9784109a2b1c1e8d6d676d06",
+      "assets/images/spritesheet.png": "74f5592bd41952d6e9e4cda4aae2914944a762bf83bab183673397fccd14e96c",
+      "assets/images/spritesheets/decorationsAndBlocks.png": "9a26bca9505d31968c0af1ec6a8095a978728f83463ae547c5b3c3b47be70a17"
+    },
+    "checked": true,
+    "id": "f7a94d70-2d01-4ac0-b327-d3c3a9b42c88",
+    "parameters": {
+      "seed": 0,
+      "gapTiles": 2,
+      "lengthTiles": 56
+    },
+    "status": "constructed; playtest required"
+  },
+  "initial": {
+    "neural": {
+      "ticks": 0,
+      "ready": false,
+      "sharedCore": true
+    },
+    "objects": 115,
+    "visibleWindow": false,
+    "continuous": false,
+    "editorInitialized": false,
+    "frameSequence": 0,
+    "sessionId": "8c884089-f62b-4901-8261-82952b6ce02e",
+    "tick": 0,
+    "units": "legacy game units; XY plane; render layer is not physical Z",
+    "player": {
+      "small": true,
+      "onGround": false,
+      "won": false,
+      "x": 0.875,
+      "y": 0.625,
+      "dead": false,
+      "id": "c1ea2924-422f-3d89-9d54-3952d4b77c16"
+    }
+  },
+  "manual": {
+    "captureMs": 61.4734,
+    "levelId": "f7a94d70-2d01-4ac0-b327-d3c3a9b42c88",
+    "bridgeMs": 1.9078,
+    "pid": 131188,
+    "state": {
+      "neural": {
+        "ticks": 0,
+        "ready": false,
+        "sharedCore": true
+      },
+      "objects": 115,
+      "visibleWindow": false,
+      "continuous": false,
+      "editorInitialized": false,
+      "frameSequence": 11,
+      "sessionId": "8c884089-f62b-4901-8261-82952b6ce02e",
+      "tick": 30,
+      "units": "legacy game units; XY plane; render layer is not physical Z",
+      "player": {
+        "small": true,
+        "onGround": true,
+        "won": false,
+        "x": 1.0998588,
+        "y": 0.63439983,
+        "dead": false,
+        "id": "c1ea2924-422f-3d89-9d54-3952d4b77c16"
+      }
+    },
+    "pngSha256": "cc56ef814cae5000a3844738ba1595890ae7028107934bceb77521a0886fdffe"
+  },
+  "final": {
+    "neural": {
+      "ticks": 0,
+      "ready": false,
+      "sharedCore": true
+    },
+    "objects": 115,
+    "visibleWindow": false,
+    "continuous": false,
+    "editorInitialized": false,
+    "frameSequence": 62,
+    "sessionId": "8c884089-f62b-4901-8261-82952b6ce02e",
+    "tick": 384,
+    "units": "legacy game units; XY plane; render layer is not physical Z",
+    "player": {
+      "small": true,
+      "onGround": true,
+      "won": true,
+      "x": 12.949997,
+      "y": 0.6347398,
+      "dead": false,
+      "id": "c1ea2924-422f-3d89-9d54-3952d4b77c16"
+    }
+  },
+  "trace": [
+    {
+      "neural": {
+        "ticks": 0,
+        "ready": false,
+        "sharedCore": true
+      },
+      "objects": 115,
+      "visibleWindow": false,
+      "continuous": false,
+      "editorInitialized": false,
+      "frameSequence": 20,
+      "sessionId": "8c884089-f62b-4901-8261-82952b6ce02e",
+      "tick": 0,
+      "units": "legacy game units; XY plane; render layer is not physical Z",
+      "player": {
+        "small": true,
+        "onGround": false,
+        "won": false,
+        "x": 0.875,
+        "y": 0.625,
+        "dead": false,
+        "id": "c1ea2924-422f-3d89-9d54-3952d4b77c16"
+      }
+    },
+    {
+      "neural": {
+        "ticks": 0,
+        "ready": false,
+        "sharedCore": true
+      },
+      "objects": 115,
+      "visibleWindow": false,
+      "continuous": false,
+      "editorInitialized": false,
+      "frameSequence": 25,
+      "sessionId": "8c884089-f62b-4901-8261-82952b6ce02e",
+      "tick": 12,
+      "units": "legacy game units; XY plane; render layer is not physical Z",
+      "player": {
+        "small": true,
+        "onGround": true,
+        "won": false,
+        "x": 0.9093108,
+        "y": 0.6296564,
+        "dead": false,
+        "id": "c1ea2924-422f-3d89-9d54-3952d4b77c16"
+      }
+    },
+    {
+      "neural": {
+        "ticks": 0,
+        "ready": false,
+        "sharedCore": true
+      },
+      "objects": 115,
+      "visibleWindow": false,
+      "continuous": false,
+      "editorInitialized": false,
+      "frameSequence": 27,
+      "sessionId": "8c884089-f62b-4901-8261-82952b6ce02e",
+      "tick": 24,
+      "units": "legacy game units; XY plane; render layer is not physical Z",
+      "player": {
+        "small": true,
+        "onGround": true,
+        "won": false,
+        "x": 1.0172008,
+        "y": 0.63439983,
+        "dead": false,
+        "id": "c1ea2924-422f-3d89-9d54-3952d4b77c16"
+      }
+    },
+    {
+      "neural": {
+        "ticks": 0,
+        "ready": false,
+        "sharedCore": true
+      },
+      "objects": 115,
+      "visibleWindow": false,
+      "continuous": false,
+      "editorInitialized": false,
+      "frameSequence": 28,
+      "sessionId": "8c884089-f62b-4901-8261-82952b6ce02e",
+      "tick": 36,
+      "units": "legacy game units; XY plane; render layer is not physical Z",
+      "player": {
+        "small": true,
+        "onGround": true,
+        "won": false,
+        "x": 1.2012316,
+        "y": 0.63439983,
+        "dead": false,
+        "id": "c1ea2924-422f-3d89-9d54-3952d4b77c16"
+      }
+    },
+    {
+      "neural": {
+        "ticks": 0,
+        "ready": false,
+        "sharedCore": true
+      },
+      "objects": 115,
+      "visibleWindow": false,
+      "continuous": false,
+      "editorInitialized": false,
+      "frameSequence": 29,
+      "sessionId": "8c884089-f62b-4901-8261-82952b6ce02e",
+      "tick": 48,
+      "units": "legacy game units; XY plane; render layer is not physical Z",
+      "player": {
+        "small": true,
+        "onGround": true,
+        "won": false,
+        "x": 1.459762,
+        "y": 0.6362339,
+        "dead": false,
+        "id": "c1ea2924-422f-3d89-9d54-3952d4b77c16"
+      }
+    },
+    {
+      "neural": {
+        "ticks": 0,
+        "ready": false,
+        "sharedCore": true
+      },
+      "objects": 115,
+      "visibleWindow": false,
+      "continuous": false,
+      "editorInitialized": false,
+      "frameSequence": 30,
+      "sessionId": "8c884089-f62b-4901-8261-82952b6ce02e",
+      "tick": 60,
+      "units": "legacy game units; XY plane; render layer is not physical Z",
+      "player": {
+        "small": true,
+        "onGround": true,
+        "won": false,
+        "x": 1.7935127,
+        "y": 0.6362339,
+        "dead": false,
+        "id": "c1ea2924-422f-3d89-9d54-3952d4b77c16"
+      }
+    },
+    {
+      "neural": {
+        "ticks": 0,
+        "ready": false,
+        "sharedCore": true
+      },
+      "objects": 115,
+      "visibleWindow": false,
+      "continuous": false,
+      "editorInitialized": false,
+      "frameSequence": 31,
+      "sessionId": "8c884089-f62b-4901-8261-82952b6ce02e",
+      "tick": 72,
+      "units": "legacy game units; XY plane; render layer is not physical Z",
+      "player": {
+        "small": true,
+        "onGround": true,
+        "won": false,
+        "x": 2.1951466,
+        "y": 0.6362339,
+        "dead": false,
+        "id": "c1ea2924-422f-3d89-9d54-3952d4b77c16"
+      }
+    },
+    {
+      "neural": {
+        "ticks": 0,
+        "ready": false,
+        "sharedCore": true
+      },
+      "objects": 115,
+      "visibleWindow": false,
+      "continuous": false,
+      "editorInitialized": false,
+      "frameSequence": 33,
+      "sessionId": "8c884089-f62b-4901-8261-82952b6ce02e",
+      "tick": 84,
+      "units": "legacy game units; XY plane; render layer is not physical Z",
+      "player": {
+        "small": true,
+        "onGround": true,
+        "won": false,
+        "x": 2.6088476,
+        "y": 0.6362339,
+        "dead": false,
+        "id": "c1ea2924-422f-3d89-9d54-3952d4b77c16"
+      }
+    },
+    {
+      "neural": {
+        "ticks": 0,
+        "ready": false,
+        "sharedCore": true
+      },
+      "objects": 115,
+      "visibleWindow": false,
+      "continuous": false,
+      "editorInitialized": false,
+      "frameSequence": 34,
+      "sessionId": "8c884089-f62b-4901-8261-82952b6ce02e",
+      "tick": 96,
+      "units": "legacy game units; XY plane; render layer is not physical Z",
+      "player": {
+        "small": true,
+        "onGround": true,
+        "won": false,
+        "x": 3.0225487,
+        "y": 0.6362339,
+        "dead": false,
+        "id": "c1ea2924-422f-3d89-9d54-3952d4b77c16"
+      }
+    },
+    {
+      "neural": {
+        "ticks": 0,
+        "ready": false,
+        "sharedCore": true
+      },
+      "objects": 115,
+      "visibleWindow": false,
+      "continuous": false,
+      "editorInitialized": false,
+      "frameSequence": 35,
+      "sessionId": "8c884089-f62b-4901-8261-82952b6ce02e",
+      "tick": 108,
+      "units": "legacy game units; XY plane; render layer is not physical Z",
+      "player": {
+        "small": true,
+        "onGround": true,
+        "won": false,
+        "x": 3.4362497,
+        "y": 0.6362339,
+        "dead": false,
+        "id": "c1ea2924-422f-3d89-9d54-3952d4b77c16"
+      }
+    },
+    {
+      "neural": {
+        "ticks": 0,
+        "ready": false,
+        "sharedCore": true
+      },
+      "objects": 115,
+      "visibleWindow": false,
+      "continuous": false,
+      "editorInitialized": false,
+      "frameSequence": 36,
+      "sessionId": "8c884089-f62b-4901-8261-82952b6ce02e",
+      "tick": 120,
+      "units": "legacy game units; XY plane; render layer is not physical Z",
+      "player": {
+        "small": true,
+        "onGround": false,
+        "won": false,
+        "x": 3.8499508,
+        "y": 1.1944003,
+        "dead": false,
+        "id": "c1ea2924-422f-3d89-9d54-3952d4b77c16"
+      }
+    },
+    {
+      "neural": {
+        "ticks": 0,
+        "ready": false,
+        "sharedCore": true
+      },
+      "objects": 115,
+      "visibleWindow": false,
+      "continuous": false,
+      "editorInitialized": false,
+      "frameSequence": 38,
+      "sessionId": "8c884089-f62b-4901-8261-82952b6ce02e",
+      "tick": 132,
+      "units": "legacy game units; XY plane; render layer is not physical Z",
+      "player": {
+        "small": true,
+        "onGround": false,
+        "won": false,
+        "x": 4.26365,
+        "y": 1.7989811,
+        "dead": false,
+        "id": "c1ea2924-422f-3d89-9d54-3952d4b77c16"
+      }
+    },
+    {
+      "neural": {
+        "ticks": 0,
+        "ready": false,
+        "sharedCore": true
+      },
+      "objects": 115,
+      "visibleWindow": false,
+      "continuous": false,
+      "editorInitialized": false,
+      "frameSequence": 39,
+      "sessionId": "8c884089-f62b-4901-8261-82952b6ce02e",
+      "tick": 144,
+      "units": "legacy game units; XY plane; render layer is not physical Z",
+      "player": {
+        "small": true,
+        "onGround": false,
+        "won": false,
+        "x": 4.677348,
+        "y": 1.8706919,
+        "dead": false,
+        "id": "c1ea2924-422f-3d89-9d54-3952d4b77c16"
+      }
+    },
+    {
+      "neural": {
+        "ticks": 0,
+        "ready": false,
+        "sharedCore": true
+      },
+      "objects": 115,
+      "visibleWindow": false,
+      "continuous": false,
+      "editorInitialized": false,
+      "frameSequence": 40,
+      "sessionId": "8c884089-f62b-4901-8261-82952b6ce02e",
+      "tick": 156,
+      "units": "legacy game units; XY plane; render layer is not physical Z",
+      "player": {
+        "small": true,
+        "onGround": false,
+        "won": false,
+        "x": 5.0910463,
+        "y": 1.5834001,
+        "dead": false,
+        "id": "c1ea2924-422f-3d89-9d54-3952d4b77c16"
+      }
+    },
+    {
+      "neural": {
+        "ticks": 0,
+        "ready": false,
+        "sharedCore": true
+      },
+      "objects": 115,
+      "visibleWindow": false,
+      "continuous": false,
+      "editorInitialized": false,
+      "frameSequence": 41,
+      "sessionId": "8c884089-f62b-4901-8261-82952b6ce02e",
+      "tick": 168,
+      "units": "legacy game units; XY plane; render layer is not physical Z",
+      "player": {
+        "small": true,
+        "onGround": false,
+        "won": false,
+        "x": 5.5047445,
+        "y": 1.0350835,
+        "dead": false,
+        "id": "c1ea2924-422f-3d89-9d54-3952d4b77c16"
+      }
+    },
+    {
+      "neural": {
+        "ticks": 0,
+        "ready": false,
+        "sharedCore": true
+      },
+      "objects": 115,
+      "visibleWindow": false,
+      "continuous": false,
+      "editorInitialized": false,
+      "frameSequence": 43,
+      "sessionId": "8c884089-f62b-4901-8261-82952b6ce02e",
+      "tick": 180,
+      "units": "legacy game units; XY plane; render layer is not physical Z",
+      "player": {
+        "small": true,
+        "onGround": true,
+        "won": false,
+        "x": 5.9184427,
+        "y": 0.62916046,
+        "dead": false,
+        "id": "c1ea2924-422f-3d89-9d54-3952d4b77c16"
+      }
+    },
+    {
+      "neural": {
+        "ticks": 0,
+        "ready": false,
+        "sharedCore": true
+      },
+      "objects": 115,
+      "visibleWindow": false,
+      "continuous": false,
+      "editorInitialized": false,
+      "frameSequence": 44,
+      "sessionId": "8c884089-f62b-4901-8261-82952b6ce02e",
+      "tick": 192,
+      "units": "legacy game units; XY plane; render layer is not physical Z",
+      "player": {
+        "small": true,
+        "onGround": true,
+        "won": false,
+        "x": 6.331298,
+        "y": 0.6333363,
+        "dead": false,
+        "id": "c1ea2924-422f-3d89-9d54-3952d4b77c16"
+      }
+    },
+    {
+      "neural": {
+        "ticks": 0,
+        "ready": false,
+        "sharedCore": true
+      },
+      "objects": 115,
+      "visibleWindow": false,
+      "continuous": false,
+      "editorInitialized": false,
+      "frameSequence": 45,
+      "sessionId": "8c884089-f62b-4901-8261-82952b6ce02e",
+      "tick": 204,
+      "units": "legacy game units; XY plane; render layer is not physical Z",
+      "player": {
+        "small": true,
+        "onGround": true,
+        "won": false,
+        "x": 6.744996,
+        "y": 0.6333363,
+        "dead": false,
+        "id": "c1ea2924-422f-3d89-9d54-3952d4b77c16"
+      }
+    },
+    {
+      "neural": {
+        "ticks": 0,
+        "ready": false,
+        "sharedCore": true
+      },
+      "objects": 115,
+      "visibleWindow": false,
+      "continuous": false,
+      "editorInitialized": false,
+      "frameSequence": 46,
+      "sessionId": "8c884089-f62b-4901-8261-82952b6ce02e",
+      "tick": 216,
+      "units": "legacy game units; XY plane; render layer is not physical Z",
+      "player": {
+        "small": true,
+        "onGround": true,
+        "won": false,
+        "x": 7.1584754,
+        "y": 0.6348488,
+        "dead": false,
+        "id": "c1ea2924-422f-3d89-9d54-3952d4b77c16"
+      }
+    },
+    {
+      "neural": {
+        "ticks": 0,
+        "ready": false,
+        "sharedCore": true
+      },
+      "objects": 115,
+      "visibleWindow": false,
+      "continuous": false,
+      "editorInitialized": false,
+      "frameSequence": 47,
+      "sessionId": "8c884089-f62b-4901-8261-82952b6ce02e",
+      "tick": 228,
+      "units": "legacy game units; XY plane; render layer is not physical Z",
+      "player": {
+        "small": true,
+        "onGround": true,
+        "won": false,
+        "x": 7.5721736,
+        "y": 0.6348488,
+        "dead": false,
+        "id": "c1ea2924-422f-3d89-9d54-3952d4b77c16"
+      }
+    },
+    {
+      "neural": {
+        "ticks": 0,
+        "ready": false,
+        "sharedCore": true
+      },
+      "objects": 115,
+      "visibleWindow": false,
+      "continuous": false,
+      "editorInitialized": false,
+      "frameSequence": 48,
+      "sessionId": "8c884089-f62b-4901-8261-82952b6ce02e",
+      "tick": 240,
+      "units": "legacy game units; XY plane; render layer is not physical Z",
+      "player": {
+        "small": true,
+        "onGround": false,
+        "won": false,
+        "x": 7.985872,
+        "y": 1.1930152,
+        "dead": false,
+        "id": "c1ea2924-422f-3d89-9d54-3952d4b77c16"
+      }
+    },
+    {
+      "neural": {
+        "ticks": 0,
+        "ready": false,
+        "sharedCore": true
+      },
+      "objects": 115,
+      "visibleWindow": false,
+      "continuous": false,
+      "editorInitialized": false,
+      "frameSequence": 49,
+      "sessionId": "8c884089-f62b-4901-8261-82952b6ce02e",
+      "tick": 252,
+      "units": "legacy game units; XY plane; render layer is not physical Z",
+      "player": {
+        "small": true,
+        "onGround": false,
+        "won": false,
+        "x": 8.399575,
+        "y": 1.797596,
+        "dead": false,
+        "id": "c1ea2924-422f-3d89-9d54-3952d4b77c16"
+      }
+    },
+    {
+      "neural": {
+        "ticks": 0,
+        "ready": false,
+        "sharedCore": true
+      },
+      "objects": 115,
+      "visibleWindow": false,
+      "continuous": false,
+      "editorInitialized": false,
+      "frameSequence": 50,
+      "sessionId": "8c884089-f62b-4901-8261-82952b6ce02e",
+      "tick": 264,
+      "units": "legacy game units; XY plane; render layer is not physical Z",
+      "player": {
+        "small": true,
+        "onGround": false,
+        "won": false,
+        "x": 8.813279,
+        "y": 1.8693068,
+        "dead": false,
+        "id": "c1ea2924-422f-3d89-9d54-3952d4b77c16"
+      }
+    },
+    {
+      "neural": {
+        "ticks": 0,
+        "ready": false,
+        "sharedCore": true
+      },
+      "objects": 115,
+      "visibleWindow": false,
+      "continuous": false,
+      "editorInitialized": false,
+      "frameSequence": 52,
+      "sessionId": "8c884089-f62b-4901-8261-82952b6ce02e",
+      "tick": 276,
+      "units": "legacy game units; XY plane; render layer is not physical Z",
+      "player": {
+        "small": true,
+        "onGround": false,
+        "won": false,
+        "x": 9.226983,
+        "y": 1.582015,
+        "dead": false,
+        "id": "c1ea2924-422f-3d89-9d54-3952d4b77c16"
+      }
+    },
+    {
+      "neural": {
+        "ticks": 0,
+        "ready": false,
+        "sharedCore": true
+      },
+      "objects": 115,
+      "visibleWindow": false,
+      "continuous": false,
+      "editorInitialized": false,
+      "frameSequence": 53,
+      "sessionId": "8c884089-f62b-4901-8261-82952b6ce02e",
+      "tick": 288,
+      "units": "legacy game units; XY plane; render layer is not physical Z",
+      "player": {
+        "small": true,
+        "onGround": false,
+        "won": false,
+        "x": 9.640687,
+        "y": 1.0336984,
+        "dead": false,
+        "id": "c1ea2924-422f-3d89-9d54-3952d4b77c16"
+      }
+    },
+    {
+      "neural": {
+        "ticks": 0,
+        "ready": false,
+        "sharedCore": true
+      },
+      "objects": 115,
+      "visibleWindow": false,
+      "continuous": false,
+      "editorInitialized": false,
+      "frameSequence": 55,
+      "sessionId": "8c884089-f62b-4901-8261-82952b6ce02e",
+      "tick": 300,
+      "units": "legacy game units; XY plane; render layer is not physical Z",
+      "player": {
+        "small": true,
+        "onGround": true,
+        "won": false,
+        "x": 10.053284,
+        "y": 0.6325546,
+        "dead": false,
+        "id": "c1ea2924-422f-3d89-9d54-3952d4b77c16"
+      }
+    },
+    {
+      "neural": {
+        "ticks": 0,
+        "ready": false,
+        "sharedCore": true
+      },
+      "objects": 115,
+      "visibleWindow": false,
+      "continuous": false,
+      "editorInitialized": false,
+      "frameSequence": 56,
+      "sessionId": "8c884089-f62b-4901-8261-82952b6ce02e",
+      "tick": 312,
+      "units": "legacy game units; XY plane; render layer is not physical Z",
+      "player": {
+        "small": true,
+        "onGround": true,
+        "won": false,
+        "x": 10.466988,
+        "y": 0.6325546,
+        "dead": false,
+        "id": "c1ea2924-422f-3d89-9d54-3952d4b77c16"
+      }
+    },
+    {
+      "neural": {
+        "ticks": 0,
+        "ready": false,
+        "sharedCore": true
+      },
+      "objects": 115,
+      "visibleWindow": false,
+      "continuous": false,
+      "editorInitialized": false,
+      "frameSequence": 57,
+      "sessionId": "8c884089-f62b-4901-8261-82952b6ce02e",
+      "tick": 324,
+      "units": "legacy game units; XY plane; render layer is not physical Z",
+      "player": {
+        "small": true,
+        "onGround": true,
+        "won": false,
+        "x": 10.88033,
+        "y": 0.6347398,
+        "dead": false,
+        "id": "c1ea2924-422f-3d89-9d54-3952d4b77c16"
+      }
+    },
+    {
+      "neural": {
+        "ticks": 0,
+        "ready": false,
+        "sharedCore": true
+      },
+      "objects": 115,
+      "visibleWindow": false,
+      "continuous": false,
+      "editorInitialized": false,
+      "frameSequence": 58,
+      "sessionId": "8c884089-f62b-4901-8261-82952b6ce02e",
+      "tick": 336,
+      "units": "legacy game units; XY plane; render layer is not physical Z",
+      "player": {
+        "small": true,
+        "onGround": true,
+        "won": false,
+        "x": 11.294034,
+        "y": 0.6347398,
+        "dead": false,
+        "id": "c1ea2924-422f-3d89-9d54-3952d4b77c16"
+      }
+    },
+    {
+      "neural": {
+        "ticks": 0,
+        "ready": false,
+        "sharedCore": true
+      },
+      "objects": 115,
+      "visibleWindow": false,
+      "continuous": false,
+      "editorInitialized": false,
+      "frameSequence": 59,
+      "sessionId": "8c884089-f62b-4901-8261-82952b6ce02e",
+      "tick": 348,
+      "units": "legacy game units; XY plane; render layer is not physical Z",
+      "player": {
+        "small": true,
+        "onGround": true,
+        "won": false,
+        "x": 11.707738,
+        "y": 0.6347398,
+        "dead": false,
+        "id": "c1ea2924-422f-3d89-9d54-3952d4b77c16"
+      }
+    },
+    {
+      "neural": {
+        "ticks": 0,
+        "ready": false,
+        "sharedCore": true
+      },
+      "objects": 115,
+      "visibleWindow": false,
+      "continuous": false,
+      "editorInitialized": false,
+      "frameSequence": 60,
+      "sessionId": "8c884089-f62b-4901-8261-82952b6ce02e",
+      "tick": 360,
+      "units": "legacy game units; XY plane; render layer is not physical Z",
+      "player": {
+        "small": true,
+        "onGround": true,
+        "won": false,
+        "x": 12.121442,
+        "y": 0.6347398,
+        "dead": false,
+        "id": "c1ea2924-422f-3d89-9d54-3952d4b77c16"
+      }
+    },
+    {
+      "neural": {
+        "ticks": 0,
+        "ready": false,
+        "sharedCore": true
+      },
+      "objects": 115,
+      "visibleWindow": false,
+      "continuous": false,
+      "editorInitialized": false,
+      "frameSequence": 61,
+      "sessionId": "8c884089-f62b-4901-8261-82952b6ce02e",
+      "tick": 372,
+      "units": "legacy game units; XY plane; render layer is not physical Z",
+      "player": {
+        "small": true,
+        "onGround": true,
+        "won": false,
+        "x": 12.535146,
+        "y": 0.6347398,
+        "dead": false,
+        "id": "c1ea2924-422f-3d89-9d54-3952d4b77c16"
+      }
+    },
+    {
+      "neural": {
+        "ticks": 0,
+        "ready": false,
+        "sharedCore": true
+      },
+      "objects": 115,
+      "visibleWindow": false,
+      "continuous": false,
+      "editorInitialized": false,
+      "frameSequence": 62,
+      "sessionId": "8c884089-f62b-4901-8261-82952b6ce02e",
+      "tick": 384,
+      "units": "legacy game units; XY plane; render layer is not physical Z",
+      "player": {
+        "small": true,
+        "onGround": true,
+        "won": true,
+        "x": 12.949997,
+        "y": 0.6347398,
+        "dead": false,
+        "id": "c1ea2924-422f-3d89-9d54-3952d4b77c16"
+      }
+    }
+  ],
+  "reopened": {
+    "neural": {
+      "ticks": 0,
+      "ready": false,
+      "sharedCore": true
+    },
+    "objects": 115,
+    "visibleWindow": false,
+    "continuous": false,
+    "editorInitialized": false,
+    "frameSequence": 0,
+    "sessionId": "5edb7f69-2d79-4ec3-9fa5-2990eaa01e3c",
+    "tick": 0,
+    "units": "legacy game units; XY plane; render layer is not physical Z",
+    "player": {
+      "small": true,
+      "onGround": false,
+      "won": false,
+      "x": 0.875,
+      "y": 0.625,
+      "dead": false,
+      "id": "c1ea2924-422f-3d89-9d54-3952d4b77c16"
+    }
+  },
+  "refusals": [
+    "changed candidate bytes",
+    "unsupported gap width",
+    "path traversal"
+  ],
+  "rendererErrors": [],
+  "elapsedSeconds": 13.4515428
+}
