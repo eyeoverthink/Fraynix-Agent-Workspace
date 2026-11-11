@@ -43,4 +43,12 @@ public class GameChallenge118Test {
         Path checkpoint=project.resolve("game-tasks115/"+id+".json");var forged=AgentFiles042.loadChecked(checkpoint);forged.put("status","completed");AgentFiles042.saveChecked(checkpoint,forged);
         try(var game=new EmbeddedGameClient(repo,project);var tasks=new GameTask115(repo,project,game)){assertThrows(IllegalStateException.class,()->tasks.verify(id));}
     }
+    @Test public void enemyReferenceIsRefusedInsteadOfDroppingTheEnemy()throws Exception{
+        Path project=Files.createTempDirectory("challenge118-image"),out=Path.of("build/challenge118-image");Files.createDirectories(out);
+        try(var game=new EmbeddedGameClient(repo,project)){
+            var levels=new GameLevels114(repo,project);var m=levels.create115(UUID.randomUUID().toString(),new JSONObject().put("goombaTile",24));levels.launch(game,m.getString("id"));var frame=game.command(new JSONObject().put("action","overview"));
+            var refs=new GameReference115(repo,project);var ref=refs.importImage(new JSONObject().put("pngBase64",frame.getString("pngBase64")));Files.write(out.resolve("enemy-reference.png"),Base64.getDecoder().decode(frame.getString("pngBase64")));Files.writeString(out.resolve("result.json"),new JSONObject().put("project",project.toString()).put("reference",ref).toString(2));
+            assertFalse("Unsupported enemy image must not be silently simplified",ref.getBoolean("accepted"));assertThrows(IllegalArgumentException.class,()->refs.verify(ref.getString("id")));
+        }
+    }
 }
