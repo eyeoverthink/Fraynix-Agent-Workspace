@@ -1,3 +1,5 @@
+Current: [[docs/obsidian/124-measured-game-control.md]] · [[README-116.md]]
+
 Current: [[docs/obsidian/123-durable-level-tasks.md]] · [[README-115.md]]
 
 [[docs/obsidian/122-playable-level-creation|Edition114: playable level creation]]

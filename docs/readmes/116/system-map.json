@@ -1,0 +1,96 @@
+{
+  "modules": [
+    {
+      "id": "forecast",
+      "name": "Bounded landing forecasts",
+      "source": "src/main/java/agent/LandingGuard116.java",
+      "note": "docs/obsidian/124-measured-game-control.md"
+    },
+    {
+      "id": "control",
+      "name": "Observed input selection",
+      "source": "src/main/java/agent/GameInput.java",
+      "note": "docs/obsidian/124-measured-game-control.md"
+    },
+    {
+      "id": "render",
+      "name": "Portable original sprite rendering",
+      "source": "assets/shaders/default.glsl",
+      "note": "docs/obsidian/124-measured-game-control.md"
+    },
+    {
+      "id": "task",
+      "name": "Durable Java task and identity",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/GameTask115.java",
+      "note": "docs/obsidian/124-measured-game-control.md"
+    },
+    {
+      "id": "image",
+      "name": "Preserved known-sprite reconstruction",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/GameReference115.java",
+      "note": "docs/obsidian/124-measured-game-control.md"
+    },
+    {
+      "id": "runtime",
+      "name": "Actual renderer and bounded AI input",
+      "source": "src/main/java/runtime/EmbeddedGameRuntime.java",
+      "note": "docs/obsidian/124-measured-game-control.md"
+    },
+    {
+      "id": "proof",
+      "name": "Actual chat and restart trial",
+      "source": "workspace-desktop/test/game116-integration.cjs",
+      "note": "docs/obsidian/124-measured-game-control.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "docs/readmes/116/chat-level-completed.png",
+      "title": "chat-level-completed.png"
+    },
+    {
+      "path": "docs/readmes/116/retained-repairs.png",
+      "title": "retained-repairs.png"
+    },
+    {
+      "path": "docs/readmes/116/recovered-level.png",
+      "title": "recovered-level.png"
+    },
+    {
+      "path": "docs/readmes/116/reference-analysis.png",
+      "title": "reference-analysis.png"
+    },
+    {
+      "path": "docs/readmes/116/reference-playtested.png",
+      "title": "reference-playtested.png"
+    },
+    {
+      "path": "docs/readmes/116/level-1100.png",
+      "title": "level-1100.png"
+    },
+    {
+      "path": "docs/readmes/116/actual-reference.png",
+      "title": "actual-reference.png"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/readmes/116/actual-ui.json"
+    },
+    {
+      "path": "docs/readmes/116/reference-hardware.json"
+    },
+    {
+      "path": "docs/readmes/116/reference-software.json"
+    },
+    {
+      "path": "docs/readmes/116/measurements.json"
+    },
+    {
+      "path": "docs/readmes/116/verification.json"
+    },
+    {
+      "path": "docs/readmes/116/original-evidence.json"
+    }
+  ]
+}

@@ -1,0 +1,63 @@
+{
+  "passed": true,
+  "reviewedAtUtc": "2026-11-11T16:07:12.979886+00:00",
+  "method": "Actual image inspection after native UI trials and Playwright guide interaction checks.",
+  "observations": [
+    "Game and chat outcome visible at1600px; actual decoded tick0 review frame.",
+    "History expands with retained observed-gap repairs; it is folded for ordinary play.",
+    "Reference analysis shows matched outlines; adjacent prior refusal remains honestly visible.",
+    "1100px app wraps controls and preserves game/chat visibility.",
+    "Guide1440/390 has readable hierarchy, functioning selectors/filter and no horizontal page overflow.",
+    "Software-before frame is malformed; software-after and fresh reference contain original sprites."
+  ],
+  "limits": [
+    "1100px game is smaller; the app is not claimed to be a phone layout.",
+    "Guide mobile screenshot is a scaled illustration; original app PNGs are retained."
+  ],
+  "files": [
+    {
+      "path": "build/game116-ui/chat-level-completed.png",
+      "sha256": "d36d14ed183ac46bd736e3bfd68a1b71f0d197bf2ff1a2332fa0b6d1271cdb81"
+    },
+    {
+      "path": "build/game116-ui/retained-repairs.png",
+      "sha256": "e27b6acdbc2dcada06a5671aa02f4606a94217509d32e0fea993f8a0ff6cc287"
+    },
+    {
+      "path": "build/game116-ui/recovered-level.png",
+      "sha256": "ea2553f8ccb0504c0422a407d70523b10e987c43e125448c93754004586df6e7"
+    },
+    {
+      "path": "build/game116-ui/reference-analysis.png",
+      "sha256": "49494aecb9f01b6d2087d1c4abc93b3d71a1e67989c7b784884e65dc351e855f"
+    },
+    {
+      "path": "build/game116-ui/reference-playtested.png",
+      "sha256": "1332ce2f6e12bc47a31221bad9e77f7c656dbbd4d2734d1cca753dbcd25a76fe"
+    },
+    {
+      "path": "build/game116-ui/level-1100.png",
+      "sha256": "1279d55fb5e54ea4b3216a7c0285a321e28a565d25d20272820ac4c9e21548ab"
+    },
+    {
+      "path": "build/guide116-1440.png",
+      "sha256": "a1e73ad3290dec3611a186fef57a58b9d66521403f3317d90b4ef6b7e0109283"
+    },
+    {
+      "path": "build/guide116-390.png",
+      "sha256": "ea58aa44b3315484d42331a5d6c9ce173f81d10f7b743cc661096215b7a7c253"
+    },
+    {
+      "path": "docs/readmes/116/fresh-reference.png",
+      "sha256": "b17e0c408d8093275143b7c4b632fde43079ac3419babe83a658dc130f2bb614"
+    },
+    {
+      "path": "docs/readmes/116/software-before.png",
+      "sha256": "f4ebe8316a7c72af107656b03255d0e93a34fe90ccdf8425a9074456c447f06c"
+    },
+    {
+      "path": "docs/readmes/116/software-after.png",
+      "sha256": "534797f16820a95038b4aad5ff1263d24240d2c91cb20c25d8854d69150319c0"
+    }
+  ]
+}

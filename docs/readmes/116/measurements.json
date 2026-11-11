@@ -1,0 +1,176 @@
+{
+  "controllers": [
+    {
+      "partition": "development",
+      "policy": "simple",
+      "cases": 6,
+      "wins": 6,
+      "pickups": 0,
+      "trialSeconds": [
+        2.3985536,
+        2.2907562,
+        2.6361175,
+        2.8224478,
+        2.4690434,
+        2.6635356
+      ],
+      "medianSeconds": 2.55258045,
+      "landingChecks": 0,
+      "landingOverrides": 0,
+      "landingForecastMilliseconds": 0.0
+    },
+    {
+      "partition": "development",
+      "policy": "legacy115",
+      "cases": 6,
+      "wins": 2,
+      "pickups": 3,
+      "trialSeconds": [
+        2.0913325,
+        2.1260533,
+        3.2889669,
+        3.7031227,
+        9.359888,
+        2.1878109
+      ],
+      "medianSeconds": 2.7383889000000003,
+      "landingChecks": 0,
+      "landingOverrides": 0,
+      "landingForecastMilliseconds": 0.0
+    },
+    {
+      "partition": "development",
+      "policy": "landing116",
+      "cases": 6,
+      "wins": 6,
+      "pickups": 1,
+      "trialSeconds": [
+        3.1757753,
+        2.9089901,
+        3.4378883,
+        3.7374572,
+        5.3364224,
+        3.3399183
+      ],
+      "medianSeconds": 3.3889033,
+      "landingChecks": 907,
+      "landingOverrides": 107,
+      "landingForecastMilliseconds": 28.8241
+    },
+    {
+      "partition": "reserved",
+      "policy": "simple",
+      "cases": 6,
+      "wins": 6,
+      "pickups": 0,
+      "trialSeconds": [
+        2.288595,
+        2.6835997,
+        2.8562188,
+        2.4171331,
+        2.6938582,
+        2.8425546
+      ],
+      "medianSeconds": 2.68872895,
+      "landingChecks": 0,
+      "landingOverrides": 0,
+      "landingForecastMilliseconds": 0.0
+    },
+    {
+      "partition": "reserved",
+      "policy": "legacy115",
+      "cases": 6,
+      "wins": 3,
+      "pickups": 4,
+      "trialSeconds": [
+        2.7405937,
+        9.9707012,
+        2.0979345,
+        2.9832827,
+        2.265578,
+        3.7068012
+      ],
+      "medianSeconds": 2.8619382,
+      "landingChecks": 0,
+      "landingOverrides": 0,
+      "landingForecastMilliseconds": 0.0
+    },
+    {
+      "partition": "reserved",
+      "policy": "landing116",
+      "cases": 6,
+      "wins": 6,
+      "pickups": 1,
+      "trialSeconds": [
+        2.8073354,
+        5.5987079,
+        3.8217053,
+        3.1604784,
+        3.3755026,
+        3.7217326
+      ],
+      "medianSeconds": 3.5486176,
+      "landingChecks": 907,
+      "landingOverrides": 107,
+      "landingForecastMilliseconds": 28.6322
+    },
+    {
+      "partition": "software-reserved",
+      "policy": "simple",
+      "cases": 6,
+      "wins": 6,
+      "pickups": 0,
+      "trialSeconds": [
+        2.4845353,
+        2.7874632,
+        2.8886502,
+        2.5561355,
+        2.7404215,
+        3.0187243
+      ],
+      "medianSeconds": 2.7639423499999998,
+      "landingChecks": 0,
+      "landingOverrides": 0,
+      "landingForecastMilliseconds": 0.0
+    },
+    {
+      "partition": "software-reserved",
+      "policy": "legacy115",
+      "cases": 6,
+      "wins": 3,
+      "pickups": 4,
+      "trialSeconds": [
+        2.8401208,
+        9.9392666,
+        2.3299878,
+        3.1795044,
+        2.2555813,
+        3.6821815
+      ],
+      "medianSeconds": 3.0098126,
+      "landingChecks": 0,
+      "landingOverrides": 0,
+      "landingForecastMilliseconds": 0.0
+    },
+    {
+      "partition": "software-reserved",
+      "policy": "landing116",
+      "cases": 6,
+      "wins": 6,
+      "pickups": 1,
+      "trialSeconds": [
+        2.8899151,
+        5.7300854,
+        3.7388879,
+        3.2575922,
+        3.4914806,
+        3.803375
+      ],
+      "medianSeconds": 3.61518425,
+      "landingChecks": 907,
+      "landingOverrides": 107,
+      "landingForecastMilliseconds": 29.9168
+    }
+  ],
+  "timingScope": "One fresh trial per case/policy. Includes launch/reset, all input chunks and final observation; excludes writing retained PNG/JSON afterward. Not a repeated latency benchmark or whole-chat cost. Software cohort repeats the six reserved geometries on a different renderer; it is not six more unfamiliar layouts."
+}

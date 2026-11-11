@@ -1,3 +1,11 @@
+## Progress through edition116 — 2026-11-11
+
+The retained seed0 controller failure is corrected using owned Java landing forecasts and ordinary input, without editing physics or actor state. The original policy remains an explicit baseline. Final narrower-layout comparison: revised12/12, original5/12, simple12/12; power-ups2 versus7 original. Six reserved layouts repeat under software rendering. The wider reference cohort still reveals a five-tile-gap failure on seed15: simple finishes6/6 reconstructed levels, revised5/6. This is the next contact/landing-recovery case, alongside restoring safe pickup pursuit without losing finishes.
+
+CI-first investigation reproduced115's one failed reference test: invalid GLSL330 sampler indexing produced malformed frames on Mesa. Portable literal sampler branches and explicit shader exceptions fix the renderer; image thresholds and source/outcome checks remain. Six fresh native reference scenes, declared crops/shifts/scales, independent reconstruction parameters and actual playtests pass on both renderers; missing finish, incomplete floor, covered player and blank image refuse. No arbitrary web-image claim. Shader identity prevents reuse of old proofs as current evidence.
+
+[Edition116](../README-116.md) and [its contract](EDITION_116_CONTRACT.md) preserve complete costs, original failures, actual chat/restart evidence and remaining limits. Procedure retirement/reactivation with original provenance is still required before new admission into the unchanged32-slot bank. The phase descriptions below are the original roadmap, not claims that every broader item is delivered.
+
 ## Progress through edition115 — 2026-11-10
 
 The durable source-construction task is implemented in the existing Java chat owner: original component checks, actual simple-control playtests, at most two observed-gap repairs, existing-AI comparison and explicit fresh-session recovery. The first bounded reference front end is also implemented for known original sprites and the two-gap recipe. Images retain original bytes, grid/match measurements and explicit Powerup behavior; unsupported foreground and occluded actors refuse. This is the first bounded slice of phase116, not general screenshot reconstruction.

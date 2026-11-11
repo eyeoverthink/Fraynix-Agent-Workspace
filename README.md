@@ -1,126 +1,177 @@
-# Fraynix Agent Workspace — edition 115
+# Fraynix Agent Workspace — edition 116
 
-[Published and fetched verification receipt](docs/PUBLICATION_115.json) · [Release tag](https://github.com/eyeoverthink/Fraynix-Agent-Workspace/tree/readme-115)
+## Observe the failure. Change the controls. Test again.
 
-## One request, a real level, retained evidence
+Edition116 improves the Game Lab controller against the actual failure retained in [edition115](README-115.md). It forecasts a bounded landing from the player's current position and velocity, checks real collision geometry, and adjusts ordinary controls. At an observed edge it commits to a crossing instead of continuing an unsafe mushroom chase.
 
-Edition115 connects the existing Game Lab to the durable Java chat scheduler. A request constructs a separate component-based level, runs real physics, inspects the result, makes at most two justified gap repairs and checks the outcome again. A new reference-image importer reconstructs a supported course from its original sprite appearances and sends it through the same playtests.
+**Across twelve measured layouts, revised control finishes 12/12, the original controller 5/12, and simple control 12/12.** Completion improves, but power-up collection falls from seven to two. These are bounded course tests, not evidence of general game mastery or new model training.
 
-**The completion gate is actual finish contact.** Files, screenshots and a target-X crossing do not substitute for a successful trial. Failed candidates and unfinished sessions remain available. The final candidate opens at its starting point for review; its earlier playtest results remain separate.
+The first action was checking CI. Edition115's main run had one failing reference-image test. Reproducing its software renderer exposed an invalid shader that rendered missing sprites. That renderer defect is fixed; the original image recognizer and its refusal thresholds remain unchanged. Six fresh reference images reconstruct and playtest on each of two renderers, with four additional unsupported-image refusals on each.
 
-[Previous edition114](README-114.md) · [Full phased plan](docs/PLAYABLE_LEVEL_CREATION_PLAN.md) · [Acceptance contract](docs/EDITION_115_CONTRACT.md) · [Interactive offline guide](docs/readmes/115/index.html) · [Complete actual chat results](docs/readmes/115/actual-ui.json)
+[Previous edition115](README-115.md) · [Full phased plan](docs/PLAYABLE_LEVEL_CREATION_PLAN.md) · [Acceptance contract](docs/EDITION_116_CONTRACT.md) · [Offline interactive guide](docs/readmes/116/index.html) · [Validation record](docs/readmes/116/verification.json)
 
-![Actual completed chat request and the verified level reopened for review](docs/readmes/115/chat-level-completed.png)
+![Actual edition116 chat completion with the tested level reopened for review](docs/readmes/116/chat-level-completed.png)
 
-## Try it
+## What you can do now
 
-1. Prepare and start the workspace with the commands below. Use a closed, deliberately selected project when upgrading. Java 21 and Node.js are required; existing game dependencies remain.
-2. Open **Game Lab**. In chat, enter: `Create a playable Mario level gapTiles=10 repairLimit=2; construct, playtest and repair it.`
-3. Watch the real game and task progress. **Mission** provides Stop and explicit Resume. Each trial has its own session and original trace.
-4. Open **Level task history** to inspect the attempts, **Recheck evidence** to repeat source/outcome checks, or **Open verified result** to load its original starting state.
-5. For an image, download the [actual native overview](docs/readmes/115/actual-reference.png), expand **Create a level**, select that PNG and choose **Analyze reference**. Review the outlines, then choose **Prepare reconstruction request** and **Start task**.
+1. Ask chat to construct a supported playable level. Java creates a separate candidate from the original game components.
+2. Watch actual simulation and progress in the integrated **Game Lab**. Simple control tests the candidate first; revised game AI supplies a separately recorded comparison.
+3. Permit up to two repairs to observed gap failures. Each repair creates another candidate; prior failed trials remain.
+4. Recover an interrupted request through **Mission → Resume**. Java verifies the saved state and begins a fresh native trial, retaining the interrupted session.
+5. Import a supported PNG, inspect the component outlines, and prepare a reconstruction request. The image-derived candidate must pass the same source and actual outcome checks.
+6. Inspect **Level task history**, including final controller diagnostics, and choose **Recheck evidence** or **Open verified result**.
 
-For a new or updated checkout, prepare both Java runtimes before launching. Stop that checkout’s Java owner through the app first; a closed desktop alone does not mean Java has stopped. These commands run from the repository root:
+Start with:
+
+```text
+Create a playable Mario level gapTiles=10 repairLimit=2; construct, playtest and repair it.
+```
+
+For a shorter different course:
+
+```text
+Create a playable Mario level seed=4 lengthTiles=64 gapTiles=2 secondGapTiles=1.
+```
+
+Supported fields remain `seed=0..9999`, `lengthTiles=48..72`, `gapTiles=1..10`, `secondGapTiles=1..10`, and `repairLimit=0..2`. `without repairs` disables repairs. These fields configure the existing two-gap recipe. An image request cannot also override its geometry manually.
+
+To try image reconstruction, save this [actual native reference](docs/readmes/116/actual-reference.png), expand **Create a level**, choose the PNG and **Analyze reference**, inspect its outlines, then **Prepare reconstruction request → Start task**. Recognition identifies supported appearances; the original component definitions supply behavior. A picture alone does not establish collision rules or playability.
+
+## Prepare and run
+
+Java 21 and Node.js are required. Existing rendering, physics and desktop dependencies remain; the new controller and analysis logic are owned Java. From the repository root:
 
 ```powershell
 .\gradlew.bat prepareGameRuntime115 :workspace-engine:installDist
 .\scripts\Start-Agent-Workspace.ps1
 ```
 
-The [launcher](scripts/Start-Agent-Workspace.ps1) uses the existing project-selection settings; it does not migrate another project’s private data.
+Stop this installation's Java owner before upgrading its files. A closed desktop does not necessarily mean Java has stopped. Use a deliberately selected project; the launcher does not migrate another project's private data. The existing `prepareGameRuntime115` task name remains valid and prepares current code/assets without repeatedly copying historical documentation. Full distribution packaging still includes that history.
 
-Supported request fields are `seed=0..9999`, `lengthTiles=48..72`, `gapTiles=1..10`, `secondGapTiles=1..10`, and `repairLimit=0..2`. Defaults are seed0, length56, two gaps of width2 and two permitted repairs. `without repairs` sets the repair limit to zero. These fields configure the declared two-gap recipe; this is not arbitrary natural-language level design. Explicit image references cannot be mixed with manual geometry overrides.
+Old trials retain their original engine identities. A changed runtime, controller or shader requires a fresh playtest; an old successful trial is not silently relabelled as edition116 evidence.
 
-## What Java owns
+## Controller: bounded prediction and actual input
 
 ```mermaid
 flowchart LR
-  Request[Retained chat request] --> Source[Checked components or image]
-  Source --> Build[Separate candidate]
-  Build --> Trial[Actual simple-control playtest]
-  Trial --> Inspect[Observed finish or failure]
-  Inspect -->|justified repair within budget| Build
-  Inspect -->|finish contact| Compare[Existing AI comparison]
-  Compare --> Verify[Recheck original evidence]
-  Verify --> Review[Open candidate for review]
+    O[Actual player position and velocity] --> G[Current collision geometry]
+    G --> E[Observe edge and momentum]
+    E --> F[Forecast up to 90 ticks]
+    F --> C[Choose ordinary direction and jump]
+    C --> P[Original physics runtime]
+    P --> O
+    P --> V[Check actual finish or failure]
+    V --> H[Retain session and trace]
 ```
 
-The existing chat task remains the parent. Java advances one bounded stage at a time, maintains the candidate lineage and retains all input chunks, observations, source/asset/engine identities and trial images. Each control chunk is 12 game ticks; a trial is limited to 180 chunks. The simple controller uses the known gap positions and ordinary movement/jump inputs. The existing AI uses its original game logic through a new bounded stepping port. Neither controller teleports the actor to make a test pass.
+`LandingGuard116` projects up to 90 ticks at 1/60second using current velocity, the player's acceleration/braking limits and gravity. Three foot samples check support. It first evaluates the desired direction, then at most three alternatives: release, left or right. If no supported landing is found, it reports that limit rather than inventing ground. The forecast is approximate; actual physics remains the outcome authority.
 
-A repair is allowed only after an observed fall in a specific gap. It narrows that gap to two tiles, preserves the failed candidate and creates a fresh candidate. A failure outside that rule or after the repair budget is exhausted stops with the original reason. A construction check alone is never called a playability certificate.
+When ground support disappears ahead, the controller accounts for forward momentum, begins a bounded jump and holds its crossing direction until landing or timeout. Unsafe optional pursuit is deferred. A moving mushroom or flower is not mistaken for a structural ceiling. Descending motion is checked again every tick, so the next observation can revise the action.
 
-After an abrupt interruption, the original unfinished trace remains marked interrupted. Explicit Resume rechecks the same source and engine, then starts that trial in a new native session. Completed trials remain unchanged. Sessions are never stitched together to create a false completion.
+No actor position, terrain, gravity, finish condition or collision result is changed to manufacture success. Human controls remain available. `ai-step` retains `legacy115` for an explicit comparison; the default is `landing116`. A policy cannot be changed midway through one bounded AI trial. Final observations expose checks, corrections, estimated landing and actual input; they do not turn a forecast into proof.
 
-![Retained failures and measured repairs in the actual app](docs/readmes/115/retained-repairs.png)
+## Measured controller results
 
-## Reference-image reconstruction
+| Partition | Controller | Finish contact | Power-ups | Median complete trial |
+| --- | --- | ---: | ---: | ---: |
+| development | simple | 6/6 | 0 | 2.553 s |
+| development | legacy115 | 2/6 | 3 | 2.738 s |
+| development | landing116 | 6/6 | 1 | 3.389 s |
+| reserved | simple | 6/6 | 0 | 2.689 s |
+| reserved | legacy115 | 3/6 | 4 | 2.862 s |
+| reserved | landing116 | 6/6 | 1 | 3.549 s |
+| software-reserved | simple | 6/6 | 0 | 2.764 s |
+| software-reserved | legacy115 | 3/6 | 4 | 3.010 s |
+| software-reserved | landing116 | 6/6 | 1 | 3.615 s |
 
-The owned Java matcher reads a bounded PNG, estimates its tile grid and matches original terrain, player, question-block and finish sprites. It models the renderer's actual alpha blending, pixel-boundary sampling, and bounded nearest-neighbor resize hypotheses. Match error and background contrast are measurements, not probabilities of correctness. The interface draws Java's detected component boxes over a cropped preview; the complete original PNG and hash are retained.
+Development layouts use seeds 0, 1, 4, 8, 11, 17. The separately declared reserved layouts use 2, 5, 6, 10, 13, 16, with lengths 48–72 and independently varied gap widths. Every policy starts from a fresh candidate runtime; before/input/after states and final PNGs are retained. The simple baseline uses the declared gap positions. It is a useful lower-cost reference, not a general visual agent.
 
-The first supported domain is the source-derived **two-gap course**: 48–72 visible columns, two complete floor rows, the original player, one question block and a visible finish. Tiles must occupy 8–32 even pixels. PNG size is capped at 3 MB and 1536×864 pixels. Sixteen references can be retained. Unexplained foreground, missing actors, incomplete terrain and unsupported geometry refuse reconstruction. An image cannot reveal the hidden contents of a question block: this recipe explicitly uses the original **Powerup** behavior. It does not invent offscreen geometry or import arbitrary executable components.
+The hardware run reports this workstation's NVIDIA GeForce GTX 1660 Ti; the software run reports Mesa llvmpipe. The reserved six layouts repeat under software rendering. They are the same six geometries on another renderer, not six additional unfamiliar layouts. Each reported time is one fresh trial including launch/reset, control chunks and the final observation; writing the retained files afterward is excluded. These timings are not repeated statistical latency estimates. [Exact measurements and timing scope](docs/readmes/116/measurements.json).
 
-The recognizer returns a canonical matching layout seed, not evidence of the author's original seed. Any later repair is recorded as a change from the image-derived layout. A recognized picture still requires an actual constructed-scene playtest.
+**The tradeoff matters:** completing all twelve courses while collecting only two power-ups is conservative progress. The next controller improvement should recover safe collection without losing these finishes. The first landing-only prototype fixed seed0 but lost an original success on seed4; its traces remain in the archive. The final regression gate refuses any lost original success in the tested cohort.
 
-![Actual reference analysis and Java component outlines](docs/readmes/115/reference-analysis.png)
+## CI first: why the image test failed
 
-## Measured results
+Edition115 main [run42956804562](https://github.com/eyeoverthink/Fraynix-Agent-Workspace/actions/runs/42956804562) failed one of863 engine tests; two were skipped. Edition114 main passed. On the CI software renderer, GLSL330 rejected nonconstant sampler-array indexing. Disabled Java assertions allowed the failed shader to continue. The image recognizer then correctly refused a malformed overview.
 
-The final visible desktop trial used four fresh chat requests. It includes a forced Java-process interruption and explicit recovery, a refusal when repairs are forbidden, and fresh reconstruction from a native overview. Total request elapsed times include orchestration, file checks, rendering, repairs, controller comparison and recovery; they are not just inference timings.
+Both the visible sprite shader and the picking shader now select texture samplers through literal branches. Shader source, compilation and linking failures throw explicit exceptions. A hidden native OpenGL test compiles both and confirms an intentionally invalid shader fails clearly. Shader bytes also join the game-task engine identity and installed-asset comparison.
 
-| Actual request | Complete elapsed | Simple control | Existing AI | Repairs |
+![Original software-rendered failure: absent sprites and malformed image](docs/readmes/116/software-before.png)
+
+![Same reference test after correcting the shader](docs/readmes/116/software-after.png)
+
+Local reproduction uses the same checksum-verified Mesa26.2.5 package as CI, in a private test Java installation. The system Java installation is unchanged. The unchanged115 image test passes after the shader correction. Exact failed logs, CI report, images and corrected outputs are preserved. New CI artifact paths retain the native/reference output if a later run fails. Local results do not substitute for the new remote CI run, whose status is reported separately in the publication receipt.
+
+## Fresh image reconstruction
+
+Six new actual native scenes use seeds 1, 4, 8, 11, 15, 17, different lengths and gap widths. Their declared transformations include a sky crop, a seven-pixel horizontal shift, and 1×, 1.5× or 2× nearest-neighbor scaling. These are controlled reference images from this app, not unrelated web images.
+
+For each image, the recognizer's parameters must equal the independent original candidate's parameters. Java then constructs a different candidate, runs actual playtests and checks its outcome. The allowed repair budget remains two. Both hardware and software runs retain the source PNG, transformed PNG, transform parameters, recognized components and complete task record.
+
+![Fresh cropped, shifted and resized reference from a separate native scene](docs/readmes/116/fresh-reference.png)
+
+Four additional required refusals cover a missing finish segment, incomplete floor row, covered player and blank image. The original115 tests also retain changed-original and unknown-foreground refusals. Successful recognition never removes the source or outcome checks. [Hardware image evidence](docs/readmes/116/reference-hardware.json) · [Software image evidence](docs/readmes/116/reference-software.json).
+
+The wider image cohort also exposes a remaining controller failure. Simple control finishes all six reconstructed levels; revised AI finishes five and stalls on seed15's five-tile first gap. Its retained trace ends near x=5.142, y=0.539 with no supported landing found and a no-progress stop. The earlier 12/12 controller result concerns the separately declared narrower-gap layouts; it must not be generalized to this wider course. The completed reconstruction task reports both the verified simple-control finish and the failed AI comparison. This new case is the next landing/contact-recovery target.
+
+![Actual reference analysis and recognized component outlines in the workspace](docs/readmes/116/reference-analysis.png)
+
+## Durable chat, interruption and complete costs
+
+The actual Electron app and installed Java engine were tested through four visible requests. The restart test terminates only its own isolated Java process during an unfinished trial, reopens that same test project, and uses the visible Resume control. The interrupted session remains; the new trial has a different session identity. The verified result is reopened at tick 0 for review rather than showing a stale end frame.
+
+| Actual request | Complete elapsed | Simple control | Revised AI | Repairs |
 | --- | ---: | --- | --- | ---: |
-| Two measured gap repairs | 54.542 s | won | failed | 2 |
-| Abrupt restart and resume | 43.553 s | won | won | 0 |
-| Repairs disabled | 10.003 s | failed | not run | 0 |
-| Image reconstruction | 40.415 s | won | won | 0 |
+| Two observed gap repairs | 65.817 s | won | won | 2 |
+| Abrupt restart and resume | 45.168 s | won | won | 0 |
+| Repairs disabled | 10.039 s | failed | not run | 0 |
+| Image reconstruction | 44.118 s | won | won | 0 |
 
-The existing AI fails on the repaired seed0 course and succeeds on seed3. That counterexample is retained. The successful simple-control trial proves this candidate can be completed under the tested controls; it does not establish general AI mastery. The UI explicitly reports both outcomes.
+The no-repair request is an expected refusal after an actual failed trial. It is not counted as a completion. These whole-request timings include orchestration, persistence, checking and recovery where applicable. [Exact actual UI results](docs/readmes/116/actual-ui.json).
 
-Validation: **79 Java test methods**, **165 desktop regression checks**, actual Electron/Java/native-game trials, and source/candidate/image/checkpoint refusal tests. The image suite accepts a native overview, its resized version and a sky-only crop; it rejects an occluded player and an added foreground object. A separately constructed image-derived level reaches the finish. The original renderer and game tests remain included.
+![Recovered request with the actual candidate reopened](docs/readmes/116/recovered-level.png)
 
-**Zero planner/model calls** were needed for these bounded requests. A selected local model remains available for other tasks, but these results come from Java routing, image algorithms and actual simulation. No new model training, consciousness, universal visual recognition or autonomous procedure promotion is claimed. Remote GitHub CI is reported separately from passed local checks.
+Validation includes **143 distinct Java test methods**, 165 desktop regression checks, actual native game trials, four visible chat requests, abrupt recovery, and the offline guide at 1440 and 390 pixels. The source and original evidence index make those claims inspectable. The actual app is captured at 1600 and 1100 pixels; the guide's mobile layout is not a claim that the native workspace is a phone app.
 
-![Image-derived candidate after actual playtesting](docs/readmes/115/reference-playtested.png)
+These supported requests use **zero model calls**. The available local `gpt-oss:20b` catalog option is checked, but no new LLM inference or training result is claimed. Java routing, the owned controller and actual simulation produce these outcomes.
 
-## Preserved architecture and limits
+Run relevant checks serially from the repository root:
 
-The original `levels/mario-original.json` has 1,248 objects; root `level.txt` is a two-object example. Full original component and player animation definitions remain the construction source. Candidate JSON is data; the behavior lives in Java. Source hashes, exact generated structure, assets and installed game assets are checked before use.
+```powershell
+.\gradlew.bat :test :workspace-engine:test --tests 'fraymus.workspace.Game*Test' --console=plain --max-workers=2
+npm --prefix workspace-desktop test
+```
 
-Existing 24 chat-task and 32 candidate limits remain. The dedicated level-task history is also bounded at 24; recovery is limited to three explicit resumes. The active procedure bank remains 32 slots. Level task records and reconstruction evidence **do not automatically become saved skills**. Explicit retirement/reactivation with original provenance is still required before admitting more procedures into a full bank.
+The native tests require a working OpenGL context. [The CI workflow](.github/workflows/build.yml) provisions its checksum-pinned software renderer. `GameController116Test` defaults to the development set; a fresh run with JVM property `study116.validation=true` selects the reserved set. Set `study116.output` and `reference116.output` to fresh directories to retain previous measurements. The full local regression also includes existing embedded-game, spatial-game and chat-owner tests. [The actual UI recorder](workspace-desktop/test/game116-integration.cjs) requires the current build receipt and its declared local model catalog option; it refuses to overwrite an earlier output directory.
 
-Native tests now prepare the actual game code and assets without repeatedly copying 16 GB of historical documentation. The full release distribution rule still includes that history. The initial packaging attempts and all image-matching failures are retained in the [original evidence index](docs/readmes/115/original-evidence.json). The corrected matcher models the actual blend/sampling behavior; no successful observation was substituted for a failed one. An earlier recovery screenshot was captured before the first game frame loaded; that attempt remains retained. The final UI trial waits for a decoded frame showing the reopened level at tick zero before taking its screenshots.
+## Preserved boundaries and implementation map
 
-## Implementation map
+The original 1,248-object source remains unchanged. Root `level.txt` remains a small two-object example. Existing 24 chat slots, 24 level-task history slots, 32 candidate limit, three explicit resumes and 32 active saved procedures remain. New level records do not automatically enter the reusable procedure bank. Import and generated JSON are data, not new executable tools.
 
 ```text
-src/main/java/runtime/             original renderer and physics bridge
-workspace-engine/src/main/java/    Java task, candidate and image logic
-workspace-engine/src/test/java/    native and refusal checks
-workspace-desktop/renderer/        existing chat and integrated Game Lab
-workspace-desktop/test/            actual application trials
-levels/                           preserved original component source
-README-115.md                     this frozen edition
-docs/readmes/115/                 screenshots, measurements and original evidence
-docs/publication115/              documentation and publication checks
+src/main/java/agent/LandingGuard116.java       bounded landing model
+src/main/java/agent/GameInput.java             controller and original-policy comparison
+src/main/java/runtime/EmbeddedGameRuntime.java actual native observations and inputs
+src/main/java/renderer/Shader.java             explicit shader failure handling
+assets/shaders/                               portable sprite/picking shaders
+workspace-engine/src/main/java/               durable task, candidate and image checks
+workspace-engine/src/test/java/               actual controller/reference cohorts
+workspace-desktop/renderer/brain-game.js       integrated view and diagnostic history
+workspace-desktop/test/game116-integration.cjs actual chat/restart/screenshots
+README-116.md                                 frozen edition narrative
+docs/readmes/116/                              screenshots, measurements, original evidence
+docs/publication116/                          reproducible documentation/publication checks
 ```
 
-| Source | Responsibility |
-| --- | --- |
-| `GameTask115.java` | Durable stages, input budgets, failure-specific repairs, continuity and outcome audit |
-| `GameReference115.java` | Original PNG retention, known-sprite grid matching, confidence measurements and refusals |
-| `GameLevels114.java` | Source-derived candidates, independent gap parameters, deterministic task identity |
-| `Domain044.java` / `ChatPolicy044.java` | Connect the existing chat owner to the native child task |
-| `EmbeddedGameRuntime.java` | Original renderer/physics, bounded existing-AI input, paused overview capture |
-| `brain-game.js` | Import, component outlines, task history and checked result opening |
-| `game115-integration.cjs` | Actual UI requests, abrupt recovery, screenshots and complete costs |
+The larger system remains the same: Java owns durable goals, tools, world state, validation and memory; the desktop presents browser, canvas, chat and game surfaces. The native game uses the existing renderer and physics. This edition strengthens one measured perception/action loop; it does not replace the system with a separate demo.
 
-## Next phases
+## Next phases and acceptance gates
 
-1. **Broader image reconstruction:** separately validated grids/layouts, missing-content review, supported additional components, new images and measured false accept/refusal rates. Keep appearance, declared behavior and unknown content separate.
-2. **Improve the game AI against the retained failure:** compare obstacle and power-up choices against simple control on unfamiliar seeds. Measure success and complete cost before retaining a new policy.
-3. **Procedure lifecycle:** retire/reactivate saved procedures with their exact original evidence under the unchanged 32 active slots; then expose qualified level procedures for reuse.
-4. **Broader worlds:** transfer the same request→observation→action→verification pattern to supported 3D components and calibrated observations. Preserve units, uncertainty and source identities.
+1. **Wider-gap recovery and safe power-up pursuit:** investigate seed15's retained contact/no-progress trace, then evaluate reachable pickup routes and braking while preserving the 12 completion cases. Use new enemy/obstacle layouts and separate collection and survival scores. Promote only a policy that earns the tradeoff.
+2. **Broader reconstruction:** add explicitly supported components/layouts with independent images, false-accept/refusal measurements and review of unknown areas. Current evidence does not support arbitrary web screenshots, hidden geometry or generic level design.
+3. **Procedure lifecycle:** retire and reactivate procedures with original provenance under the unchanged 32 active slots. Qualify level procedures before reuse; keep runtime changes and historical proofs distinct.
+4. **Unified world experiments:** apply the same observe/predict/act/check/retain contract to supported 3D components and calibrated observations. Preserve units, uncertainty, causality and actual outcome evidence.
 
-The direction is one integrated system that can create an environment, act within it, see the measured result and retain what actually happened. The next improvement should be earned through new outcomes, not a larger capability claim.
+The useful direction is an agent that can inspect its environment, choose an action, see a result and keep an honest record across interruptions. Richer worlds and richer behavior should be earned through new measured tasks.
 
-[Project memory](docs/PROJECT_MEMORY.md) · [Development log](docs/DEVELOPMENT_LOG.md) · [Obsidian map](docs/obsidian/123-durable-level-tasks.md) · [All editions](docs/readmes/INDEX.md)
+[Original evidence index](docs/readmes/116/original-evidence.json) · [Project memory](docs/PROJECT_MEMORY.md) · [Development log](docs/DEVELOPMENT_LOG.md) · [Obsidian map](docs/obsidian/124-measured-game-control.md) · [All editions](docs/readmes/INDEX.md)
