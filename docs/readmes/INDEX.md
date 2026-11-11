@@ -1,3 +1,5 @@
+[Edition117 — wider-gap control and safe collection](../../README-117.md) · [Offline guide](117/index.html)
+
 [Edition116 — measured control and fresh reference images](../../README-116.md) · [Offline guide](116/index.html)
 
 [Edition115 — durable level tasks and checked references](../../README-115.md) · [Offline guide](115/index.html)

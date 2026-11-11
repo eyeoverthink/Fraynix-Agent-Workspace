@@ -1,3 +1,11 @@
+## Progress through edition117 — 2026-11-11
+
+The wider seed15 failure is corrected at its approach: bounded observed-item interception defers the optional chase jump while preserving the existing gap-safety jump. The original stalled contact/displacement trace remains. No physics, transform, collider or finish rule changed; generic escape from an already-wedged character is a separate future task.
+
+All24 declared hardware layouts finish with24 pickups and no damage. Twelve prior regressions, six wider development and six reserved cases; the reserved six repeat on software rendering. Six existing transformed-reference cases regenerated per renderer require simple and revised completion, while four unsupported images still refuse. Actual chat exposes checked pickup/damage outcomes and resumes a wider-gap task after abrupt interruption. Full costs and original failed/skipped checks remain in [edition117](../README-117.md) and [its contract](EDITION_117_CONTRACT.md).
+
+Next: declare enemy/obstacle layouts, unreachable and risky pickups, alternate heights and already-wedged states; compare completion, survival, collection and total work. Broader explicitly supported image components follow. Procedure retirement/reactivation with original provenance remains required before admission into the unchanged32-slot bank. The older roadmap below remains historical planning, not a claim that every item is delivered.
+
 ## Progress through edition116 — 2026-11-11
 
 The retained seed0 controller failure is corrected using owned Java landing forecasts and ordinary input, without editing physics or actor state. The original policy remains an explicit baseline. Final narrower-layout comparison: revised12/12, original5/12, simple12/12; power-ups2 versus7 original. Six reserved layouts repeat under software rendering. The wider reference cohort still reveals a five-tile-gap failure on seed15: simple finishes6/6 reconstructed levels, revised5/6. This is the next contact/landing-recovery case, alongside restoring safe pickup pursuit without losing finishes.

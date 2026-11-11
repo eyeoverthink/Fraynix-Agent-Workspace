@@ -1,3 +1,5 @@
+Current: [[docs/obsidian/125-safe-game-pursuit.md]] · [[README-117.md]]
+
 Current: [[docs/obsidian/124-measured-game-control.md]] · [[README-116.md]]
 
 Current: [[docs/obsidian/123-durable-level-tasks.md]] · [[README-115.md]]

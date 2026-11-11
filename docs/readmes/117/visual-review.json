@@ -1,0 +1,18 @@
+{
+  "passed": true,
+  "reviewedAtUtc": "2026-11-11T17:47:49.431317+00:00",
+  "actualApp": [
+    "collect-powerup.png",
+    "chat-level-completed.png",
+    "recovered-level.png",
+    "reference-analysis.png",
+    "reference-playtested.png",
+    "level-1100.png"
+  ],
+  "guideWidths": [
+    1440,
+    390
+  ],
+  "motionPlot": "Native seed15 observations every12ticks; simulation time explicitly labelled, no synthetic trajectory.",
+  "findings": "Actual powered-up sprite renders correctly; full checked chat outcomes readable; retained refusal visible beside reference analysis; review frame at tick0. App controls wrap at1100. Offline guide reads at1440/390 with functioning selectors and no horizontal overflow. Mobile screenshot is documentation, not a phone-app claim."
+}

@@ -1,0 +1,28 @@
+from pathlib import Path
+import json,subprocess,shutil
+r=Path.cwd();git=lambda *a:subprocess.check_output(['git',*a],text=True).strip();run=lambda *a:subprocess.run(a,check=True)
+audit=json.loads((r/'build/publication-audit117.json').read_text(encoding='utf8'));assert audit['passed'] and audit['remoteFetched']
+release=git('rev-parse','readme-117^{commit}');assert release==audit['commit']==git('rev-parse','HEAD')
+ui=json.loads((r/'docs/readmes/117/actual-ui.json').read_text(encoding='utf8'));v=json.loads((r/'docs/readmes/117/verification.json').read_text(encoding='utf8'))
+receipt={'edition':117,'releaseCommit':release,'annotatedTag':'readme-117','tagObject':git('rev-parse','readme-117'),'audit':audit,'validation':{'javaMethods':len(v['javaChecks']),'desktopChecks':v['desktopChecks'],'actualRequests':[{'request':x['prompt'],'status':x['task']['status'],'elapsedMs':x['elapsedMs'],'trialOutcomes':[t['status'] for t in x['child']['trials']],'audit':x['child'].get('audit')} for x in ui['requests']],'actualAbruptRecovery':True,'referenceChecks':v['referenceCases'],'controllerCases':v['controllerCases'],'referenceControllerResults':v['referenceControllerResults'],'modelCalls':v['modelCalls'],'guideWidths':[1440,390],'scope':v['scope']},'ci':{'scope':'CI checked before implementation. Prior116 main was running; local verification and fetched publication do not establish remote CI success.'}}
+ci=r/'build/release117-ci.json'
+if ci.exists():receipt['ci']['releaseCheck']=json.loads(ci.read_text(encoding='utf8'))
+(r/'docs/PUBLICATION_117.json').write_bytes((json.dumps(receipt,indent=2)+'\n').encode())
+old=v['controllerCases']['landing116']
+status=f'''## Edition117 — published and fetched back
+
+2026-11-11, America/Los_Angeles. Release {release}; annotated readme-117. Main, edition117 and tag pushed atomically and fetched. Verified {audit['canonicalSourceFiles']} canonical sources, {audit['frozenHashes']} frozen hashes across117 editions and {audit['original117EvidenceFiles']} original evidence entries. Wider seed15 stall reproduced with contacts/displacement. Bounded falling-mushroom intercept prevents its failed approach without changing physics. Hardware: safe117 finishes24/24, pickups24, damage0; landing116 {old['wins']}/24 and{old['pickups']} pickups. All12 old regressions retained; reserved six repeat on software rendering. Six transformed images per renderer now require both controls to finish, with four required refusals. Actual chat reports verified collection/damage. {len(v['javaChecks'])} Java methods,165 desktop checks, four actual requests, abrupt recovery and desktop/mobile guide pass. Original baseline and skipped test invocation retained; Gradle native inputs corrected. Zero model calls, no general enemy safety, jam escape, image recognition or training claim. CI checked first; current remote result separate. Preserve private owners33224/37676, original projects and frozen001–117. No delegation; heavy checks serial. Next: obstacle/enemy variation, risky pickups and separate corner recovery; then explicit image components and procedure lifecycle. See docs/PUBLICATION_117.json.
+
+'''
+for name in ['AGENTS.md','README-CONTRIBUTORS.md','docs/PROJECT_MEMORY.md','docs/DEVELOPMENT_LOG.md','docs/ARCHITECTURE.md']:
+ p=r/name;p.write_bytes((status+p.read_text(encoding='utf-8-sig')).encode())
+p=r/'README.md';first,rest=p.read_text(encoding='utf8').split('\n',1);link='[Published and fetched verification receipt](docs/PUBLICATION_117.json) · [Release tag](https://github.com/eyeoverthink/Fraynix-Agent-Workspace/tree/readme-117)';p.write_bytes((first+'\n\n'+link+'\n'+rest).encode())
+for name in ['push117.log','publication-audit117.json']:shutil.copy2(r/'build'/name,r/'docs/publication117'/name)
+files=['AGENTS.md','README-CONTRIBUTORS.md','README.md','docs/PROJECT_MEMORY.md','docs/DEVELOPMENT_LOG.md','docs/ARCHITECTURE.md','docs/PUBLICATION_117.json','docs/publication117']
+run('git','add',*files);run('git','add','-f','docs/publication117/push117.log');run('git','diff','--cached','--check','--','.',':!docs/publication117/*.log');run('git','-c','gc.auto=0','commit','-m','Record fetched edition 117 sources, outcomes and original evidence')
+assert not git('status','--porcelain');head=git('rev-parse','HEAD');changed=git('diff','--name-only',release,head).splitlines();assert all(n in files or n.startswith('docs/publication117/') for n in changed)
+run('git','-c','pack.threads=4','push','--atomic','origin','HEAD:refs/heads/main','HEAD:refs/heads/edition117')
+run('git','-c','gc.auto=0','fetch','origin','refs/heads/main:refs/verify/edition117-final-main','refs/heads/edition117:refs/verify/edition117-final-branch','refs/tags/readme-117:refs/verify/edition117-final-tag')
+assert head==git('rev-parse','refs/verify/edition117-final-main')==git('rev-parse','refs/verify/edition117-final-branch');assert receipt['tagObject']==git('rev-parse','refs/verify/edition117-final-tag');assert release==git('rev-parse','refs/verify/edition117-final-tag^{commit}')
+for name in changed:assert subprocess.check_output(['git','show',head+':'+name])==subprocess.check_output(['git','show','refs/verify/edition117-final-main:'+name]),name
+assert not git('status','--porcelain');result={'passed':True,'finalMain':head,'release':release,'tag':'readme-117','metadataFilesCompared':len(changed),'scope':'Changed metadata compared byte-for-byte with freshly fetched main; production and frozen evidence unchanged from complete fetched release audit.'};(r/'build/final-publication117.json').write_bytes((json.dumps(result,indent=2)+'\n').encode());print(json.dumps(result))

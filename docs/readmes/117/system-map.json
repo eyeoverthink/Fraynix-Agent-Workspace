@@ -1,0 +1,104 @@
+{
+  "modules": [
+    {
+      "id": "pursuit",
+      "name": "Bounded falling-item pursuit",
+      "source": "src/main/java/agent/Pursuit117.java",
+      "note": "docs/obsidian/125-safe-game-pursuit.md"
+    },
+    {
+      "id": "contacts",
+      "name": "Read-only native contacts",
+      "source": "src/main/java/agent/GameContact117.java",
+      "note": "docs/obsidian/125-safe-game-pursuit.md"
+    },
+    {
+      "id": "control",
+      "name": "Observed control with retained baselines",
+      "source": "src/main/java/agent/GameInput.java",
+      "note": "docs/obsidian/125-safe-game-pursuit.md"
+    },
+    {
+      "id": "task",
+      "name": "Verified durable outcomes",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/GameTask115.java",
+      "note": "docs/obsidian/125-safe-game-pursuit.md"
+    },
+    {
+      "id": "chat",
+      "name": "Verified chat summary",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/Domain044.java",
+      "note": "docs/obsidian/125-safe-game-pursuit.md"
+    },
+    {
+      "id": "runtime",
+      "name": "Actual native observations and inputs",
+      "source": "src/main/java/runtime/EmbeddedGameRuntime.java",
+      "note": "docs/obsidian/125-safe-game-pursuit.md"
+    },
+    {
+      "id": "proof",
+      "name": "Actual app and restart tests",
+      "source": "workspace-desktop/test/game117-integration.cjs",
+      "note": "docs/obsidian/125-safe-game-pursuit.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "docs/readmes/117/chat-level-completed.png",
+      "title": "chat-level-completed.png"
+    },
+    {
+      "path": "docs/readmes/117/collect-powerup.png",
+      "title": "collect-powerup.png"
+    },
+    {
+      "path": "docs/readmes/117/retained-repairs.png",
+      "title": "retained-repairs.png"
+    },
+    {
+      "path": "docs/readmes/117/recovered-level.png",
+      "title": "recovered-level.png"
+    },
+    {
+      "path": "docs/readmes/117/reference-analysis.png",
+      "title": "reference-analysis.png"
+    },
+    {
+      "path": "docs/readmes/117/reference-playtested.png",
+      "title": "reference-playtested.png"
+    },
+    {
+      "path": "docs/readmes/117/level-1100.png",
+      "title": "level-1100.png"
+    },
+    {
+      "path": "docs/readmes/117/actual-reference.png",
+      "title": "actual-reference.png"
+    },
+    {
+      "path": "docs/readmes/117/pickup-native.png",
+      "title": "pickup-native.png"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/readmes/117/actual-ui.json"
+    },
+    {
+      "path": "docs/readmes/117/reference-hardware.json"
+    },
+    {
+      "path": "docs/readmes/117/reference-software.json"
+    },
+    {
+      "path": "docs/readmes/117/measurements.json"
+    },
+    {
+      "path": "docs/readmes/117/verification.json"
+    },
+    {
+      "path": "docs/readmes/117/original-evidence.json"
+    }
+  ]
+}
