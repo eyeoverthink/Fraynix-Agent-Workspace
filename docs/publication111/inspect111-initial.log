@@ -1,0 +1,28 @@
+node:assert:152
+  throw new AssertionError(obj);
+  ^
+
+AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
++ actual - expected
+
++ 'd1aa50b91a561aada75170e8fdf91d3ab6b2ab836263dca6368c045bc3c038dc'
+- '63d834a959340e4ddf22416ed9f5f8f8ee12dbd9d31d34dd81fa65cdcf7a6776'
+
+    at inspect (S:\Codex-Work\fraynix-workspace-edition111\scripts\Inspect-GoalArchive111.cjs:56:195)
+    at Object.<anonymous> (S:\Codex-Work\fraynix-workspace-edition111\scripts\Inspect-GoalArchive111.cjs:113:140)
+    at Module._compile (node:internal/modules/cjs/loader:1812:14)
+    at Object..js (node:internal/modules/cjs/loader:1943:10)
+    at Module.load (node:internal/modules/cjs/loader:1533:32)
+    at Module._load (node:internal/modules/cjs/loader:1335:12)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)
+    at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:154:5)
+    at node:internal/main/run_main_module:33:47 {
+  generatedMessage: true,
+  code: 'ERR_ASSERTION',
+  actual: 'd1aa50b91a561aada75170e8fdf91d3ab6b2ab836263dca6368c045bc3c038dc',
+  expected: '63d834a959340e4ddf22416ed9f5f8f8ee12dbd9d31d34dd81fa65cdcf7a6776',
+  operator: 'strictEqual',
+  diff: 'simple'
+}
+
+Node.js v24.14.1

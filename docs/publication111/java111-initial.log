@@ -1,0 +1,74 @@
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/9.3.1/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build 
+> Task :brain-core:compileJava UP-TO-DATE
+> Task :brain-gpu:compileJava UP-TO-DATE
+> Task :factory-runtime:compileJava UP-TO-DATE
+> Task :factory-kernel:compileJava UP-TO-DATE
+> Task :factory-models:compileJava UP-TO-DATE
+> Task :geometry-core:compileJava UP-TO-DATE
+> Task :workspace-engine:compileJava UP-TO-DATE
+> Task :workspace-engine:processResources UP-TO-DATE
+> Task :workspace-engine:classes UP-TO-DATE
+> Task :workspace-engine:jar UP-TO-DATE
+> Task :brain-core:processResources NO-SOURCE
+> Task :brain-core:classes UP-TO-DATE
+> Task :brain-core:jar UP-TO-DATE
+> Task :brain-gpu:processResources NO-SOURCE
+> Task :brain-gpu:classes UP-TO-DATE
+> Task :brain-gpu:jar UP-TO-DATE
+> Task :factory-kernel:processResources NO-SOURCE
+> Task :factory-kernel:classes UP-TO-DATE
+> Task :factory-kernel:jar UP-TO-DATE
+> Task :factory-models:processResources NO-SOURCE
+> Task :factory-models:classes UP-TO-DATE
+> Task :factory-models:jar UP-TO-DATE
+> Task :factory-runtime:processResources NO-SOURCE
+> Task :factory-runtime:classes UP-TO-DATE
+> Task :factory-runtime:jar UP-TO-DATE
+> Task :geometry-core:processResources NO-SOURCE
+> Task :geometry-core:classes UP-TO-DATE
+> Task :geometry-core:jar UP-TO-DATE
+> Task :workspace-engine:compileTestJava UP-TO-DATE
+> Task :workspace-engine:processTestResources UP-TO-DATE
+> Task :workspace-engine:testClasses UP-TO-DATE
+> Task :workspace-engine:test
+
+Libbulletjme version 22.0.3 initializing
+
+> Task :workspace-engine:test
+
+Qualification108Test > originalCapacityLimitsApplyBeforeAnyNewCases FAILED
+    java.lang.AssertionError at Qualification108Test.java:52
+
+Qualification108Test > genuineEarlierEvidenceTransitionsWithFreshCasesAndColdPartialRecovery FAILED
+    java.lang.IllegalStateException at Qualification108Test.java:27
+
+Qualification108Test > changedHistoricalRawRevisionRefusesEvenWhenValuesMatch FAILED
+    java.lang.AssertionError at Qualification108Test.java:38
+
+Qualification108Test > oldProofIsRecheckedBeforePublishingNewSelectedSource FAILED
+    java.lang.IllegalStateException at Qualification108Test.java:41
+
+Qualification108Test > unsupportedVerifierChangesAndTamperedManifestsRefuse FAILED
+    java.lang.IllegalStateException at Qualification108Test.java:49
+
+Libbulletjme version 22.0.3 initializing
+Libbulletjme version 22.0.3 initializing
+
+
+> Task :workspace-engine:test
+150 tests completed, 5 failed
+
+> Task :workspace-engine:test FAILED
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':workspace-engine:test'.
+> There were failing tests. See the report at: file:///S:/Codex-Work/fraynix-workspace-edition111/workspace-engine/build/reports/tests/test/index.html
+
+* Try:
+> Run with --scan to get full insights from a Build Scan (powered by Develocity).
+
+BUILD FAILED in 15m 30s
+18 actionable tasks: 1 executed, 17 up-to-date

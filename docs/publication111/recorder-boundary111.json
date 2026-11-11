@@ -1,0 +1,7 @@
+{
+  "initialTrial": "build/archive111-native/result.json",
+  "sha256": "6bbf812e0227a70677462d0dee90bb364686bcb338ecfd38c830b3d457fc2f03",
+  "cohortWallMs": 68082.0,
+  "reason": "Native archive committed62 original children. Recorder compared compact goals/read display output with complete original payload and stopped. Full payloads and before/after checkpoints retained.",
+  "correction": "Read full original child records through child-read; remove only added archive view metadata, compare all original fields and exact payload bytes; separately compare standard display fields. Runtime unchanged. Rerun all17 requests from another closed original copy; no failed evidence discarded."
+}

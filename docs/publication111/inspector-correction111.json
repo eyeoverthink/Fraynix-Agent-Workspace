@@ -1,0 +1,9 @@
+{
+  "passed": true,
+  "at": "2026-11-11T00:01:23.223627+00:00",
+  "cause": "Independent inspector used JSON.stringify string quoting. Established MapCheckpoint.canonical uses JSON-java quoting, including HTML closing slash and U+007F..009F/U+2000..20FF escapes. Untouched chat history includes these characters.",
+  "correction": "Independently encode the exact established string format before recomputing original checkpoint and each journal hash. Entire original journal remains byte-identical. No application/runtime/evidence edits. All 24 altered-evidence cases refused.",
+  "initialScriptSha256": "0c488b0666b3b443e2457c445e5640aa0c622f54fb174b7f4ca0ffac8c06d3c1",
+  "initialFailureSha256": "5369a7f4947a465daf2625f2e13cdd410cfe756000fbd298a22f38c92d139709",
+  "finalInspectorSha256": "ec0fd2c6e9bff129f090ea17950e2c8cdc64e70e284cb69e346495af1c431007"
+}

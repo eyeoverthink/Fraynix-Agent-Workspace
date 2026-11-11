@@ -1,0 +1,22 @@
+{
+  "passed": true,
+  "scope": "Manual inspection of actual archive controls and narrow-screen capture, not a claim that every workflow screenshot is visually unobstructed.",
+  "reviewed": [
+    "original110-children-1600.png",
+    "current111-children-1600.png",
+    "recovered111-interrupted.png",
+    "archive111-1100.png",
+    "procedure-capacity-refusal-1600.png"
+  ],
+  "checks": [
+    "History shows original62 and current74 archived children with unchanged active64 ceiling.",
+    "Child archive, inspect and recheck controls visible; original JSON bounded and scrollable.",
+    "1100px History displays20 active/64 and74 archived; lower original controls available by scrolling.",
+    "Screenshots are actual app captures; recorded request/status/evidence outputs are the source for pass/refusal claims."
+  ],
+  "limitations": [
+    "Multiple nested scroll regions remain in expanded original details.",
+    "Some native-workflow task captures retain open History while native canvas preview overlays it; not used as visual proof of refusal.",
+    "Right chat card retains original110 history; these requests use native workflow controls, not new chat admission."
+  ]
+}
