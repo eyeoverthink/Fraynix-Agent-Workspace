@@ -1,0 +1,202 @@
+{
+  "edition": 116,
+  "releaseCommit": "8ce5ad752e6dc42bc73af5af37ec3970a9d35c26",
+  "annotatedTag": "readme-116",
+  "tagObject": "9b864b361ab868b7ce11b9b2341b74ba5f21cb26",
+  "audit": {
+    "passed": true,
+    "verifiedAtUtc": "2026-11-11T16:16:03.983535+00:00",
+    "remote": "https://github.com/eyeoverthink/Fraynix-Agent-Workspace.git",
+    "fetchedRef": "refs/verify/edition116-main",
+    "remoteFetched": true,
+    "commit": "8ce5ad752e6dc42bc73af5af37ec3970a9d35c26",
+    "canonicalSourceFiles": 1449,
+    "editions": 116,
+    "frozenHashes": 38150,
+    "original116EvidenceFiles": 330,
+    "distinctOriginalPayloads": 218,
+    "method": "Every enumerated blob read from the specified Git tree; remoteFetched identifies a fresh verification ref. Source byte counts and canonical UTF-8 LF/binary hashes checked. All frozen edition hashes checked. Each unique immutable Git archive blob is decompressed once; every logical original entry is compared to its verified compressed/raw byte counts and SHA-256. No mutable-file timestamp or runtime-proof shortcut."
+  },
+  "validation": {
+    "javaMethods": 143,
+    "desktopChecks": 165,
+    "actualRequests": [
+      {
+        "request": "Create a playable Mario level gapTiles=10 repairLimit=2; construct, playtest and repair it.",
+        "status": "completed",
+        "elapsedMs": 65817,
+        "trialOutcomes": [
+          "failed",
+          "failed",
+          "won",
+          "won"
+        ],
+        "audit": {
+          "wins": 2,
+          "existingAI": "won",
+          "failures": 2,
+          "trials": 4,
+          "simpleControl": "won",
+          "scope": "Actual finish contact on this candidate; comparison is not a guarantee for unfamiliar levels. No procedure-bank admission or model training.",
+          "traceSha256": "4dae9574ae9267eb05b5ef47f641c9c8265d11f3dffdad41b49468f8a073f356",
+          "passed": true,
+          "candidateId": "f9fb161c-1c23-33d5-9005-648f4fd6bac7",
+          "repairCount": 2,
+          "inputChunks": 115
+        }
+      },
+      {
+        "request": "Create a playable Mario level seed=4.",
+        "status": "completed",
+        "elapsedMs": 45168,
+        "trialOutcomes": [
+          "interrupted",
+          "won",
+          "won"
+        ],
+        "audit": {
+          "wins": 2,
+          "existingAI": "won",
+          "failures": 0,
+          "trials": 3,
+          "simpleControl": "won",
+          "scope": "Actual finish contact on this candidate; comparison is not a guarantee for unfamiliar levels. No procedure-bank admission or model training.",
+          "traceSha256": "c6ba803124cae91b0111587056a2c3e8eb0e5c253cfa3cedfa96534f42eb9e6e",
+          "passed": true,
+          "candidateId": "bdb80312-c65b-3af5-ae54-a5ee1ae2dce2",
+          "repairCount": 0,
+          "inputChunks": 73
+        }
+      },
+      {
+        "request": "Create a playable Mario level gapTiles=10 without repairs.",
+        "status": "interrupted",
+        "elapsedMs": 10039,
+        "trialOutcomes": [
+          "failed"
+        ],
+        "audit": null
+      },
+      {
+        "request": "Reconstruct a playable Mario level from reference=828aedea-3cd7-43f6-8d06-4dc236ae0fad; playtest and repair with repairLimit=2.",
+        "status": "completed",
+        "elapsedMs": 44118,
+        "trialOutcomes": [
+          "won",
+          "won"
+        ],
+        "audit": {
+          "wins": 2,
+          "existingAI": "won",
+          "failures": 0,
+          "trials": 2,
+          "simpleControl": "won",
+          "scope": "Actual finish contact on this candidate; comparison is not a guarantee for unfamiliar levels. No procedure-bank admission or model training.",
+          "traceSha256": "3aba5ec86af9fb62b34881735ce54c05ff27aae5130fdf14eff2e913962e55f0",
+          "passed": true,
+          "candidateId": "4ed4f204-49c9-3c01-ac70-957debba8889",
+          "repairCount": 0,
+          "inputChunks": 71
+        }
+      }
+    ],
+    "actualAbruptRecovery": true,
+    "referenceChecks": {
+      "freshNativeImagesPerRenderer": 6,
+      "freshRefusalsPerRenderer": 4,
+      "original115ReferenceRegression": true,
+      "shaderCompileAndFailure": true
+    },
+    "controllerCases": {
+      "distinctLayouts": 12,
+      "simpleWins": 12,
+      "originalWins": 5,
+      "revisedWins": 12,
+      "originalPickups": 7,
+      "revisedPickups": 2,
+      "softwareRepeatedReservedLayouts": 6
+    },
+    "referenceControllerResults": {
+      "hardware": {
+        "simpleWins": 6,
+        "revisedWins": 5,
+        "cases": 6,
+        "failureParameters": [
+          {
+            "seed": 15,
+            "gapTiles": 5,
+            "secondGapTiles": 2,
+            "lengthTiles": 56
+          }
+        ]
+      },
+      "software": {
+        "simpleWins": 6,
+        "revisedWins": 5,
+        "cases": 6,
+        "failureParameters": [
+          {
+            "seed": 15,
+            "gapTiles": 5,
+            "secondGapTiles": 2,
+            "lengthTiles": 56
+          }
+        ]
+      }
+    },
+    "modelCalls": 0,
+    "guideWidths": [
+      1440,
+      390
+    ],
+    "scope": "Known original sprites and bounded two-gap layouts. Current collision geometry and input-only control; actual native physics and finish contact. Conservative controller reduces power-up collection. No general image recognition, model training or universal playability claim."
+  },
+  "ci": {
+    "scope": "Local verification and fetched publication do not establish remote CI success. The prior115 failure was reproduced and corrected on the same software-renderer package.",
+    "releaseCheck": {
+      "checkedAtUtc": "2026-11-11T16:15:01.316256+00:00",
+      "runs": [
+        {
+          "id": 43056315420,
+          "head_sha": "8ce5ad752e6dc42bc73af5af37ec3970a9d35c26",
+          "event": "push",
+          "status": "in_progress",
+          "conclusion": null,
+          "html_url": "https://github.com/eyeoverthink/Fraynix-Agent-Workspace/actions/runs/43056315420",
+          "created_at": "2026-11-11T16:14:21Z",
+          "updated_at": "2026-11-11T16:14:26Z"
+        },
+        {
+          "id": 42956804562,
+          "head_sha": "2eae6260488d243ba8d1de825c1a3e751c1a7d22",
+          "event": "push",
+          "status": "completed",
+          "conclusion": "failure",
+          "html_url": "https://github.com/eyeoverthink/Fraynix-Agent-Workspace/actions/runs/42956804562",
+          "created_at": "2026-11-11T04:04:15Z",
+          "updated_at": "2026-11-11T07:08:21Z"
+        },
+        {
+          "id": 42956600357,
+          "head_sha": "8e17a75267dae287cf08a6ae3a0c7ef30e43e717",
+          "event": "push",
+          "status": "completed",
+          "conclusion": "failure",
+          "html_url": "https://github.com/eyeoverthink/Fraynix-Agent-Workspace/actions/runs/42956600357",
+          "created_at": "2026-11-11T04:02:23Z",
+          "updated_at": "2026-11-11T07:15:40Z"
+        },
+        {
+          "id": 42949135635,
+          "head_sha": "56d4423a4c206bc6cb083b65985624023756f7f7",
+          "event": "push",
+          "status": "completed",
+          "conclusion": "success",
+          "html_url": "https://github.com/eyeoverthink/Fraynix-Agent-Workspace/actions/runs/42949135635",
+          "created_at": "2026-11-11T02:54:11Z",
+          "updated_at": "2026-11-11T05:34:29Z"
+        }
+      ]
+    }
+  }
+}

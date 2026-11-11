@@ -1,5 +1,7 @@
 # Fraynix Agent Workspace — edition 116
 
+[Published and fetched verification receipt](docs/PUBLICATION_116.json) · [Release tag](https://github.com/eyeoverthink/Fraynix-Agent-Workspace/tree/readme-116)
+
 ## Observe the failure. Change the controls. Test again.
 
 Edition116 improves the Game Lab controller against the actual failure retained in [edition115](README-115.md). It forecasts a bounded landing from the player's current position and velocity, checks real collision geometry, and adjusts ordinary controls. At an observed edge it commits to a crossing instead of continuing an unsafe mushroom chase.
