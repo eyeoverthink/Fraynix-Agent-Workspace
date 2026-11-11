@@ -24,14 +24,17 @@ final class GameTask115 implements AutoCloseable {
     }
     static boolean requested(String text){return !ChatPolicy044.webCreation(text)&&!ChatPolicy044.has(text,"\\b(explain|describe|outline)\\b|\\b(do not|don.t|never)\\s+(create|build|construct|generate|reconstruct|make)\\b")&&ChatPolicy044.has(text,"\\b(make|build|create|construct|reconstruct|generate)\\b")&&ChatPolicy044.has(text,"\\b(mario|game lab|playable level|platformer)\\b");}
     static JSONObject request(String text){
-        var p=new JSONObject();for(String k:List.of("seed","lengthTiles","gapTiles","secondGapTiles","repairLimit")){
+        var p=new JSONObject();for(String k:List.of("seed","lengthTiles","gapTiles","secondGapTiles","repairLimit","goombaTile","turtleTile","obstacleTile","obstacleHeight","pickupTile")){
             var m=Pattern.compile("(?i)\\b"+k+"\\s*(?:=|:)\\s*([^\\s,;]+)").matcher(text);if(m.find()){try{p.put(k,Integer.parseInt(m.group(1).replaceFirst("(?<=\\d)\\.$","")));}catch(Exception e){throw new IllegalArgumentException(k+" needs a whole number");}if(m.find())throw new IllegalArgumentException("Duplicate "+k);}
         }
         if(ChatPolicy044.has(text,"\\b(no repairs|do not repair|without repairs)\\b"))p.put("repairLimit",0);
-        int limit=GameLevels114.integer(p,"repairLimit",2,0,2);p.remove("repairLimit");return new JSONObject().put("parameters",GameLevels114.parameters115(p)).put("repairLimit",limit);
+        boolean challenge=GameChallenge118.active(p);
+        if(!challenge&&ChatPolicy044.has(text,"\\b(enemies|enemy|goomba|turtle|obstacle|obstacles)\\b"))throw new IllegalArgumentException("Choose declared challenge positions: goombaTile, turtleTile, or obstacleTile with obstacleHeight. The Game Lab challenge selector prepares examples.");
+        int limit=GameLevels114.integer(p,"repairLimit",challenge?0:2,0,2);p.remove("repairLimit");
+        if(challenge&&limit!=0)throw new IllegalArgumentException("Challenge levels require repairLimit=0; failed enemy or obstacle trials are retained without changing terrain");return new JSONObject().put("parameters",GameLevels114.parameters115(p)).put("repairLimit",limit);
     }
     private JSONObject identity()throws Exception{
-        var result=new JSONObject();for(Class<?> type:List.of(GameTask115.class,GameLevels114.class,EmbeddedGameClient.class,GameReference115.class))try(var in=type.getResourceAsStream(type.getSimpleName()+".class")){if(in==null)throw new IllegalStateException("Compiled implementation missing");result.put(type.getSimpleName(),HexFormat.of().formatHex(MessageDigest.getInstance("SHA-256").digest(in.readAllBytes())));}
+        var result=new JSONObject();for(Class<?> type:List.of(GameTask115.class,GameLevels114.class,GameChallenge118.class,EmbeddedGameClient.class,GameReference115.class))try(var in=type.getResourceAsStream(type.getSimpleName()+".class")){if(in==null)throw new IllegalStateException("Compiled implementation missing");result.put(type.getSimpleName(),HexFormat.of().formatHex(MessageDigest.getInstance("SHA-256").digest(in.readAllBytes())));}
         for(String asset:List.of("assets/shaders/default.glsl","assets/shaders/pickingShader.glsl")){
             String hash=GameLevels114.hash(repo.resolve(asset));if(!hash.equals(GameLevels114.hash(repo.resolve("build/install/Fraynix-Studio").resolve(asset))))throw new IllegalStateException("Installed shader differs from source");result.put(asset,hash);
         }
@@ -49,10 +52,11 @@ final class GameTask115 implements AutoCloseable {
         if(busy())throw new IllegalStateException("Another level task owns the runtime");if(tasks.size()>=24)throw new IllegalStateException("Level task history is full (24); originals retained");
         var definition=request(text);JSONObject reference=null;
         var ref=Pattern.compile("(?i)\\breference\\s*=\\s*([0-9a-f-]{36})(?![0-9a-f-])").matcher(text);
-        if(ref.find()){String rid=ref.group(1);if(ref.find())throw new IllegalArgumentException("Choose one image reference");if(ChatPolicy044.has(text,"(?i)\\b(seed|lengthTiles|gapTiles|secondGapTiles)\\s*="))throw new IllegalArgumentException("Reference geometry and manual geometry cannot be mixed");reference=references.verify(rid);definition.put("parameters",reference.getJSONObject("analysis").getJSONObject("parameters"));}
+        if(ref.find()){String rid=ref.group(1);if(ref.find())throw new IllegalArgumentException("Choose one image reference");if(ChatPolicy044.has(text,"(?i)\\b(seed|lengthTiles|gapTiles|secondGapTiles|goombaTile|turtleTile|obstacleTile|obstacleHeight|pickupTile)\\s*="))throw new IllegalArgumentException("Reference geometry and manual geometry cannot be mixed");reference=references.verify(rid);definition.put("parameters",reference.getJSONObject("analysis").getJSONObject("parameters"));}
         else if(ChatPolicy044.has(text,"\\b(image|picture|screenshot|reference)\\b"))throw new IllegalArgumentException("Import a supported PNG in Game Lab and include its reference ID first");
         var t=new JSONObject().put("id",id).put("request",text).put("definition",definition).put("parameters",WorldFrames.copy(definition.getJSONObject("parameters"))).put("engine",identity()).put("source",levels.analyze()).put("status","running").put("stage","construct").put("attempt",0).put("restarts",0).put("trials",new JSONArray()).put("repairs",new JSONArray()).put("reason","Constructing a separate candidate").put("workNanos",0L).put("startedAt",java.time.Instant.now().toString());if(reference!=null)t.put("reference",reference);tasks.put(id,t);save(t);return read(id);
     }
+    private static boolean challenge(JSONObject t){return GameChallenge118.active(t.getJSONObject("parameters"));}
     private static JSONObject current(JSONObject t){return t.getJSONArray("trials").getJSONObject(t.getJSONArray("trials").length()-1);}
     private static String candidateId(JSONObject t){return UUID.nameUUIDFromBytes((t.getString("id")+":"+t.getInt("attempt")).getBytes(StandardCharsets.UTF_8)).toString();}
     private void capture(JSONObject t,JSONObject trial,JSONObject frame,String when)throws Exception{
@@ -85,8 +89,11 @@ final class GameTask115 implements AutoCloseable {
         var end=after.getJSONObject("player");boolean won=end.getBoolean("won"),failed=end.getBoolean("dead")||end.getDouble("y")<-.5||trial.getJSONArray("steps").length()>=180;
         if(!won&&!failed){t.put("reason","Playtesting "+trial.getString("control")+": tick "+after.getInt("tick")+", X "+String.format(Locale.ROOT,"%.2f",end.getDouble("x")));return;}
         trial.put("status",won?"won":"failed").put("final",after);capture(t,trial,frame,"finish");game.command(new JSONObject().put("action","pause"));
-        if(trial.getString("control").equals("existing-ai")){t.put("stage","finish");return;}
-        if(won){t.put("stage","open-ai");return;}
+        if(trial.getString("control").equals("existing-ai")){
+            if(challenge(t)&&!won){t.put("status","failed").put("reason","Challenge AI did not reach the finish; failed trial retained and no terrain repair permitted");return;}
+            t.put("stage","finish");return;
+        }
+        if(won||challenge(t)){t.put("stage","open-ai");return;}
         int gapIndex=-1;for(int i=0;i<m.getJSONArray("gaps").length();i++){var gap=m.getJSONArray("gaps").getJSONObject(i);if(end.getDouble("y")<.35&&end.getDouble("x")>=gap.getDouble("startX")-.3&&end.getDouble("x")<=gap.getDouble("endX")+.3)gapIndex=i;}
         String field=gapIndex==0?"gapTiles":"secondGapTiles";var params=t.getJSONObject("parameters");
         if(gapIndex<0||params.getInt(field)<=2||t.getJSONArray("repairs").length()>=t.getJSONObject("definition").getInt("repairLimit")){
@@ -95,7 +102,7 @@ final class GameTask115 implements AutoCloseable {
         t.getJSONArray("repairs").put(new JSONObject().put("trial",t.getJSONArray("trials").length()-1).put("field",field).put("before",params.getInt(field)).put("after",2).put("reason","Observed fall within this gap").put("observed",end));params.put(field,2);t.put("attempt",t.getInt("attempt")+1).put("stage","construct").put("reason","Repairing the observed gap; retaining failed candidate and trace");
     }
     private JSONObject verifyTrials(JSONObject t)throws Exception{
-        sources(t);if(t.has("reference"))references.verify(t.getJSONObject("reference").getString("id"));int wins=0,failed=0,steps=0,aiPickups=0,aiDamage=0;boolean simpleFinal=false,aiFinal=false;String aiOutcome="not-run";var sessions=new HashSet<String>();
+        sources(t);if(t.has("reference"))references.verify(t.getJSONObject("reference").getString("id"));int wins=0,failed=0,steps=0,aiPickups=0,aiDamage=0,aiPickupSkips=0;boolean simpleFinal=false,aiFinal=false,simpleCompared=false;String aiOutcome="not-run",simpleOutcome="not-run";JSONArray pickupDecisions=new JSONArray();var sessions=new HashSet<String>();
         for(Object raw:t.getJSONArray("trials")){
             var trial=(JSONObject)raw;var m=levels.verify(trial.getJSONObject("candidate").getString("id"));if(!m.similar(trial.getJSONObject("candidate")))throw new IllegalStateException("Original candidate binding changed");
             String session=trial.getString("sessionId");if(!sessions.add(session))throw new IllegalStateException("Repeated trial session");var previous=trial.getJSONObject("initial");if(previous.getInt("tick")!=0||previous.getJSONObject("player").getBoolean("won"))throw new IllegalStateException("Trial did not start at the original state");
@@ -103,11 +110,14 @@ final class GameTask115 implements AutoCloseable {
             for(String when:List.of("start","finish"))if(trial.has(when+"Image")){var image=trial.getJSONObject(when+"Image");String file=image.getString("file");if(!file.matches(Pattern.quote(t.getString("id"))+"-[0-9]+-(start|finish)-[0-9a-f-]{36}\\.png")||!image.getString("sha256").equals(GameLevels114.hash(root.resolve(file))))throw new IllegalStateException("Original trial image changed");}
             if(trial.getJSONArray("steps").length()>180)throw new IllegalStateException("Trial step budget exceeded");if(trial.has("final")&&!trial.getJSONObject("final").similar(previous))throw new IllegalStateException("Final state differs from original last input observation");
             boolean won=trial.getString("status").equals("won");if(won){if(!previous.getJSONObject("player").getBoolean("won")||previous.getJSONObject("player").getBoolean("dead"))throw new IllegalStateException("Missing actual finish contact");wins++;}else if(trial.getString("status").equals("failed"))failed++;
-            if(m.getString("id").equals(candidateId(t))){if(won&&trial.getString("control").equals("simple"))simpleFinal=true;if(Set.of("won","failed").contains(trial.getString("status"))&&trial.getString("control").equals("existing-ai")){aiFinal=true;aiOutcome=trial.getString("status");var controller=previous.getJSONObject("controller");aiPickups=controller.getInt("pickups");aiDamage=controller.getInt("damage");if(aiPickups<0||aiDamage<0)throw new IllegalStateException("Invalid collision outcome counters");}}
+            if(m.getString("id").equals(candidateId(t))){if(Set.of("won","failed").contains(trial.getString("status"))&&trial.getString("control").equals("simple")){simpleCompared=true;simpleOutcome=trial.getString("status");}if(won&&trial.getString("control").equals("simple"))simpleFinal=true;if(Set.of("won","failed").contains(trial.getString("status"))&&trial.getString("control").equals("existing-ai")){aiFinal=true;aiOutcome=trial.getString("status");var controller=previous.getJSONObject("controller");aiPickups=controller.getInt("pickups");aiDamage=controller.getInt("damage");aiPickupSkips=controller.getInt("pickupSkips");pickupDecisions=new JSONArray(controller.getJSONArray("pickupDecisions").toString());if(aiPickups<0||aiDamage<0||aiPickupSkips<0||pickupDecisions.length()>16||pickupDecisions.length()>aiPickupSkips)throw new IllegalStateException("Invalid collision outcome counters");}}
         }
-        verifyRepairs(t);if(!simpleFinal||!aiFinal)throw new IllegalStateException("Final candidate requires simple-control finish and a bounded AI comparison");
+        verifyRepairs(t);
+        if(challenge(t)){
+            if(!simpleCompared||!aiFinal||!aiOutcome.equals("won")||t.getJSONArray("repairs").length()!=0)throw new IllegalStateException("Challenge requires a retained simple comparison and actual AI finish without repairs");
+        }else if(!simpleFinal||!aiFinal)throw new IllegalStateException("Final candidate requires simple-control finish and a bounded AI comparison");
         if(t.getJSONArray("repairs").length()>t.getJSONObject("definition").getInt("repairLimit"))throw new IllegalStateException("Repair budget exceeded");
-        return new JSONObject().put("passed",true).put("candidateId",candidateId(t)).put("wins",wins).put("failures",failed).put("trials",t.getJSONArray("trials").length()).put("inputChunks",steps).put("repairCount",t.getJSONArray("repairs").length()).put("simpleControl","won").put("existingAI",aiOutcome).put("aiPickups",aiPickups).put("aiDamage",aiDamage).put("traceSha256",WorldFrames.hash(new JSONObject().put("trials",t.getJSONArray("trials")))).put("scope","Actual finish contact on this candidate; comparison is not a guarantee for unfamiliar levels. No procedure-bank admission or model training.");
+        return new JSONObject().put("passed",true).put("candidateId",candidateId(t)).put("wins",wins).put("failures",failed).put("trials",t.getJSONArray("trials").length()).put("inputChunks",steps).put("repairCount",t.getJSONArray("repairs").length()).put("simpleControl",simpleOutcome).put("completionControl",challenge(t)?"risk118":"simple").put("existingAI",aiOutcome).put("aiPickups",aiPickups).put("aiDamage",aiDamage).put("aiPickupSkips",aiPickupSkips).put("pickupDecisions",pickupDecisions).put("traceSha256",WorldFrames.hash(new JSONObject().put("trials",t.getJSONArray("trials")))).put("scope","Actual finish contact on this candidate; comparison is not a guarantee for unfamiliar levels. No procedure-bank admission or model training.");
     }
     private void verifyRepairs(JSONObject t)throws Exception{
         var parameters=WorldFrames.copy(t.getJSONObject("definition").getJSONObject("parameters"));int attempt=0;
