@@ -1,5 +1,7 @@
 # Fraynix Agent Workspace — edition 119
 
+[Published and fetched verification receipt](docs/PUBLICATION_119.json) · [Release tag](https://github.com/eyeoverthink/Fraynix-Agent-Workspace/tree/readme-119)
+
 ## Recover from the contact. Reconsider the opportunity. Verify the result.
 
 The integrated Game Lab now corrects both failures retained in [edition 118](README-118.md): the player lodged against a block after crossing a gap, and the player died after permanently skipping a power-up. The new owned Java policy, `recover119`, reads actual displacement and solid contact before choosing bounded retreat and jump inputs. It can defer an enemy-threatened pickup and inspect it again after the threat moves. It no longer reverses toward an enemy behind the player to attempt a stomp.
