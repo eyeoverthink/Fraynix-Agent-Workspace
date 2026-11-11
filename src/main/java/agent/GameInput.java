@@ -14,6 +14,10 @@ public final class GameInput {
     private static UUID episode, actor;
     private static boolean automatic;
     private static boolean landingGuard = true;
+    private static String policyName="safe117";
+    private static boolean safeCollection;
+    private static long fallingWaitTicks;
+    private static Pursuit117.Choice pursuit;
     private static long landingChecks, landingOverrides, landingNanos;
     private static LandingGuard116.Decision landingDecision;
     private static long edgeUntil, edgeCrossings;
@@ -58,8 +62,14 @@ public final class GameInput {
     public static void neuralJump(boolean value) { neuralJump=value; }
     public static float[] sensory() { return lastSensory.clone(); }
     public static void requestJump() { if (automatic) { jumpUntil=tick+27; lastJump=tick; } }
-    public static void start(Scene scene, float targetX) { start(scene,targetX,true); }
+    public static void start(Scene scene, float targetX) { start(scene,targetX,"safe117"); }
     public static void start(Scene scene, float targetX, boolean guarded) {
+        start(scene,targetX,guarded?"landing116":"legacy115");
+    }
+    public static void start(Scene scene, float targetX, String policy) {
+        if(!java.util.Set.of("legacy115","landing116","safe117").contains(policy))throw new IllegalArgumentException("Unknown game policy");
+        policyName=policy;safeCollection=policy.equals("safe117");fallingWaitTicks=0;pursuit=null;
+        boolean guarded=!policy.equals("legacy115");
         landingGuard=guarded;landingChecks=landingOverrides=landingNanos=0;landingDecision=null;edgeUntil=edgeCrossings=0;edgeLeftGround=false;
         GameObject player=scene.getGameObjectWith(PlayerController.class);
         if (player==null || !Float.isFinite(targetX)) throw new IllegalArgumentException("A live player and finite target are required");
@@ -105,6 +115,11 @@ public final class GameInput {
         var strategy=choices.computeIfAbsent(context,key->memory.choose(levelKey,key));
         reward(-.001);recovery.jumpTicks(strategy.jumpTicks);
         float localTarget=goal.x();
+        pursuit=null;
+        if(safeCollection&&goal.kind()==PowerupPlanner.Kind.COLLECT&&goal.object()!=null){
+            var item=goal.object().getComponent(physics2d.components.Rigidbody2D.class);
+            if(item!=null){pursuit=Pursuit117.choose(goal.x(),goal.y(),item.getVelocity().x,item.getVelocity().y,goal.object().getComponent(MushroomAI.class)!=null);localTarget=pursuit.targetX();}
+        }
         float direction=localTarget>=x?1:-1;
         var floor=scene.physics().raycastSolid(player,new Vector2f(x+direction*.32f,y+.04f),new Vector2f(x+direction*.32f,y-.5f));
         var wall=scene.physics().raycastSolid(player,new Vector2f(x,y-.04f),new Vector2f(x+direction*strategy.wallLookahead,y-.04f));
@@ -143,7 +158,8 @@ public final class GameInput {
             if(goal.kind()==PowerupPlanner.Kind.BUMP_BLOCK && Math.abs(localTarget-x)<.19f && controller.onGround
                 && tick-lastJump>40) {jumpUntil=tick+22;lastJump=tick;}
             if(goal.kind()==PowerupPlanner.Kind.COLLECT && goal.y()>y+.25f && Math.abs(localTarget-x)<1.2f
-                && controller.onGround && tick-lastJump>40 && !ceiling) {jumpUntil=tick+strategy.jumpTicks;lastJump=tick;}
+                && controller.onGround && tick-lastJump>40 && !ceiling && (pursuit==null||pursuit.allowJump())) {jumpUntil=tick+strategy.jumpTicks;lastJump=tick;}
+            if(pursuit!=null&&!pursuit.allowJump()){jumpUntil=0;fallingWaitTicks++;status+=" | "+pursuit.reason();}
             objectiveJump=tick<jumpUntil;
         }
         if(goal.kind()==PowerupPlanner.Kind.TRAVEL && enemy!=null && !controller.onGround && body.getVelocity().y<-.1f && y>enemy.transform.position.y+.25f
@@ -191,7 +207,8 @@ public final class GameInput {
         current=controls.at(tick);
     }
     public static java.util.Map<String,Object> observation116() {
-        var result=new java.util.LinkedHashMap<String,Object>();result.put("policy",landingGuard?"landing116":"legacy115");result.put("automatic",automatic);result.put("status",status);result.put("horizontal",current.horizontal());result.put("jump",current.jump());result.put("goal",goal==null?"none":goal.kind().name());result.put("pickups",pickups);result.put("edgeCrossings",edgeCrossings);result.put("landingChecks",landingChecks);result.put("landingOverrides",landingOverrides);result.put("landingNanos",landingNanos);
+        var result=new java.util.LinkedHashMap<String,Object>();result.put("policy",policyName);result.put("automatic",automatic);result.put("status",status);result.put("horizontal",current.horizontal());result.put("jump",current.jump());result.put("goal",goal==null?"none":goal.kind().name());result.put("pickups",pickups);result.put("edgeCrossings",edgeCrossings);result.put("landingChecks",landingChecks);result.put("landingOverrides",landingOverrides);result.put("landingNanos",landingNanos);result.put("fallingWaitTicks",fallingWaitTicks);
+        if(pursuit!=null){result.put("interceptX",pursuit.targetX());result.put("pursuitReason",pursuit.reason());}
         if(goal!=null){result.put("goalX",goal.x());result.put("goalY",goal.y());if(goal.object()!=null){var rb=goal.object().getComponent(physics2d.components.Rigidbody2D.class);if(rb!=null){result.put("goalVx",rb.getVelocity().x);result.put("goalVy",rb.getVelocity().y);}}}
         if(landingDecision!=null){result.put("landingReason",landingDecision.reason());result.put("predictedLandingX",landingDecision.planned().x());result.put("predictedLandingY",landingDecision.planned().y());result.put("predictedLandingTicks",landingDecision.planned().ticks());}
         return result;
