@@ -1,0 +1,135 @@
+From https://github.com/eyeoverthink/Fraynix-Agent-Workspace
+ * branch              main       -> FETCH_HEAD
+warning: in the working copy of 'AGENTS.md', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'README-CONTRIBUTORS.md', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'README.md', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'docs/ARCHITECTURE.md', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'docs/DEVELOPMENT_LOG.md', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'docs/EDITION_114_CONTRACT.md', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'docs/PROJECT_MEMORY.md', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'docs/obsidian/00-home.md', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'docs/readmes/INDEX.md', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'docs/readmes/editions.json', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'README-114.md', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'docs/obsidian/122-playable-level-creation.canvas', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'docs/obsidian/122-playable-level-creation.md', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'docs/publication114/audit-publication114.py', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'docs/publication114/document114.py', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'docs/publication114/documentation-check.json', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'docs/publication114/freeze114.py', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'docs/publication114/plan-publication.json', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'docs/publication114/visual-review.json', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'docs/publication114/visual114.cjs', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'docs/readmes/114/file-inventory.json', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'docs/readmes/114/index.html', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'docs/readmes/114/original-evidence.json', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'docs/readmes/114/plan114-publication.json', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'docs/readmes/114/system-map.json', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'docs/readmes/114/verification.json', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'docs/publication114/desktop114-extra.log', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'docs/publication114/desktop114-final.log', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'docs/publication114/documentation114-final.log', CRLF will be replaced by LF the next time Git touches it
+[edition114 2db1a24f] Document edition 114 playable level construction with actual runtime evidence
+ 105 files changed, 28796 insertions(+), 71 deletions(-)
+ create mode 100644 README-114.md
+ create mode 100644 docs/obsidian/122-playable-level-creation.canvas
+ create mode 100644 docs/obsidian/122-playable-level-creation.md
+ create mode 100644 docs/publication114/audit-publication114.py
+ create mode 100644 docs/publication114/desktop114-extra.log
+ create mode 100644 docs/publication114/desktop114-final.log
+ create mode 100644 docs/publication114/document114.py
+ create mode 100644 docs/publication114/documentation-check.json
+ create mode 100644 docs/publication114/documentation114-final.log
+ create mode 100644 docs/publication114/freeze114.py
+ create mode 100644 docs/publication114/parent-ci.json
+ create mode 100644 docs/publication114/plan-publication.json
+ create mode 100644 docs/publication114/visual-check.json
+ create mode 100644 docs/publication114/visual-review.json
+ create mode 100644 docs/publication114/visual114.cjs
+ create mode 100644 docs/readmes/114/actual-runtime.json
+ create mode 100644 docs/readmes/114/actual-ui.json
+ create mode 100644 docs/readmes/114/candidate-1100.png
+ create mode 100644 docs/readmes/114/candidate-finish.png
+ create mode 100644 docs/readmes/114/candidate-level.json
+ create mode 100644 docs/readmes/114/candidate-manifest.json
+ create mode 100644 docs/readmes/114/candidate-reopened.png
+ create mode 100644 docs/readmes/114/candidate-start.png
+ create mode 100644 docs/readmes/114/ci114-parent.json
+ create mode 100644 docs/readmes/114/file-inventory.json
+ create mode 100644 docs/readmes/114/index.html
+ create mode 100644 docs/readmes/114/original-evidence.json
+ create mode 100644 docs/readmes/114/originals/TEST-agent.MotorRecoveryTest.xml.gz
+ create mode 100644 docs/readmes/114/originals/TEST-agent.PowerupPlannerTest.xml.gz
+ create mode 100644 docs/readmes/114/originals/TEST-factory.FactorySceneIntegrationTest.xml.gz
+ create mode 100644 docs/readmes/114/originals/TEST-factory.FullMarioLevelTest.xml.gz
+ create mode 100644 docs/readmes/114/originals/TEST-factory.SceneAgentIntegrationTest.xml.gz
+ create mode 100644 docs/readmes/114/originals/TEST-fraymus.workspace.EmbeddedGameTest.xml.gz
+ create mode 100644 docs/readmes/114/originals/TEST-fraymus.workspace.GameLevelRuntime114Test.xml.gz
+ create mode 100644 docs/readmes/114/originals/TEST-fraymus.workspace.GameLevels114Test.xml.gz
+ create mode 100644 docs/readmes/114/originals/TEST-fraymus.workspace.SpatialGame040Test.xml.gz
+ create mode 100644 docs/readmes/114/originals/build--level114-initial-tests--TEST-fraymus.workspace.GameLevelRuntime114Test.xml.gz
+ create mode 100644 docs/readmes/114/originals/build--level114-initial-tests--TEST-fraymus.workspace.GameLevels114Test.xml.gz
+ create mode 100644 docs/readmes/114/originals/build--test-results--test--TEST-agent.MotorRecoveryTest.xml.gz
+ create mode 100644 docs/readmes/114/originals/build--test-results--test--TEST-agent.PowerupPlannerTest.xml.gz
+ create mode 100644 docs/readmes/114/originals/build--test-results--test--TEST-factory.FactorySceneIntegrationTest.xml.gz
+ create mode 100644 docs/readmes/114/originals/build--test-results--test--TEST-factory.FullMarioLevelTest.xml.gz
+ create mode 100644 docs/readmes/114/originals/build--test-results--test--TEST-factory.SceneAgentIntegrationTest.xml.gz
+ create mode 100644 docs/readmes/114/originals/desktop114-extra.log.gz
+ create mode 100644 docs/readmes/114/originals/desktop114.log.gz
+ create mode 100644 docs/readmes/114/originals/game-level114-first-pass--candidate-1100.png.gz
+ create mode 100644 docs/readmes/114/originals/game-level114-first-pass--candidate-finish.png.gz
+ create mode 100644 docs/readmes/114/originals/game-level114-first-pass--candidate-level.json.gz
+ create mode 100644 docs/readmes/114/originals/game-level114-first-pass--candidate-manifest.json.gz
+ create mode 100644 docs/readmes/114/originals/game-level114-first-pass--candidate-reopened.png.gz
+ create mode 100644 docs/readmes/114/originals/game-level114-first-pass--candidate-start.png.gz
+ create mode 100644 docs/readmes/114/originals/game-level114-first-pass--result.json.gz
+ create mode 100644 docs/readmes/114/originals/game-level114-first-pass--source-analysis.png.gz
+ create mode 100644 docs/readmes/114/originals/game-level114-second-pass--candidate-1100.png.gz
+ create mode 100644 docs/readmes/114/originals/game-level114-second-pass--candidate-finish.png.gz
+ create mode 100644 docs/readmes/114/originals/game-level114-second-pass--candidate-level.json.gz
+ create mode 100644 docs/readmes/114/originals/game-level114-second-pass--candidate-manifest.json.gz
+ create mode 100644 docs/readmes/114/originals/game-level114-second-pass--candidate-reopened.png.gz
+ create mode 100644 docs/readmes/114/originals/game-level114-second-pass--candidate-start.png.gz
+ create mode 100644 docs/readmes/114/originals/game-level114-second-pass--result.json.gz
+ create mode 100644 docs/readmes/114/originals/game-level114-second-pass--source-analysis.png.gz
+ create mode 100644 docs/readmes/114/originals/game-level114-startup-refused--desktop-startup.log.gz
+ create mode 100644 docs/readmes/114/originals/game-level114-startup-refused--result.json.gz
+ create mode 100644 docs/readmes/114/originals/game-level114-startup-refused--startup.log.gz
+ create mode 100644 docs/readmes/114/originals/game-level114-ui-final.log.gz
+ create mode 100644 docs/readmes/114/originals/game-level114-ui-verified.log.gz
+ create mode 100644 docs/readmes/114/originals/game-level114-ui-visible.log.gz
+ create mode 100644 docs/readmes/114/originals/game-level114-ui.log.gz
+ create mode 100644 docs/readmes/114/originals/guide114-final.log.gz
+ create mode 100644 docs/readmes/114/originals/guide114-first-attempt.json.gz
+ create mode 100644 docs/readmes/114/originals/guide114-overflow.json.gz
+ create mode 100644 docs/readmes/114/originals/level114-initial-runtime--candidate-level.json.gz
+ create mode 100644 docs/readmes/114/originals/level114-initial-runtime--candidate-manifest.json.gz
+ create mode 100644 docs/readmes/114/originals/level114-initial-runtime--finish.png.gz
+ create mode 100644 docs/readmes/114/originals/level114-initial-runtime--result.json.gz
+ create mode 100644 docs/readmes/114/originals/level114-initial-runtime--start.png.gz
+ create mode 100644 docs/readmes/114/originals/level114-tests-final.log.gz
+ create mode 100644 docs/readmes/114/originals/level114-tests-first.log.gz
+ create mode 100644 docs/readmes/114/originals/logs--desktop114-extra.log.gz
+ create mode 100644 docs/readmes/114/originals/logs--desktop114.log.gz
+ create mode 100644 docs/readmes/114/originals/logs--game-level114-ui-final.log.gz
+ create mode 100644 docs/readmes/114/originals/logs--game-level114-ui-verified.log.gz
+ create mode 100644 docs/readmes/114/originals/logs--game-level114-ui-visible.log.gz
+ create mode 100644 docs/readmes/114/originals/logs--game-level114-ui.log.gz
+ create mode 100644 docs/readmes/114/originals/logs--level114-tests-final.log.gz
+ create mode 100644 docs/readmes/114/originals/logs--level114-tests-first.log.gz
+ create mode 100644 docs/readmes/114/originals/workspace-engine--build--test-results--test--TEST-fraymus.workspace.EmbeddedGameTest.xml.gz
+ create mode 100644 docs/readmes/114/originals/workspace-engine--build--test-results--test--TEST-fraymus.workspace.GameLevelRuntime114Test.xml.gz
+ create mode 100644 docs/readmes/114/originals/workspace-engine--build--test-results--test--TEST-fraymus.workspace.GameLevels114Test.xml.gz
+ create mode 100644 docs/readmes/114/originals/workspace-engine--build--test-results--test--TEST-fraymus.workspace.SpatialGame040Test.xml.gz
+ create mode 100644 docs/readmes/114/plan114-publication.json
+ create mode 100644 docs/readmes/114/source-analysis.png
+ create mode 100644 docs/readmes/114/system-map.json
+ create mode 100644 docs/readmes/114/verification.json
+ create mode 100644 docs/readmes/114/visual-check.json
+Release 2db1a24fbef0fe5184056aadbff84a0c4bb3fb49
+{"passed": true, "verifiedAtUtc": "2026-11-11T02:50:37.682694+00:00", "remote": "https://github.com/eyeoverthink/Fraynix-Agent-Workspace.git", "fetchedRef": "HEAD", "remoteFetched": false, "commit": "2db1a24fbef0fe5184056aadbff84a0c4bb3fb49", "canonicalSourceFiles": 1435, "editions": 114, "frozenHashes": 37700, "original114EvidenceFiles": 63, "distinctOriginalPayloads": 63, "method": "Every enumerated blob read from the specified Git tree; remoteFetched identifies a fresh verification ref. Source byte counts and canonical UTF-8 LF/binary hashes checked. All frozen edition hashes checked. Each unique immutable Git archive blob is decompressed once; every logical original entry is compared to its verified compressed/raw byte counts and SHA-256. No mutable-file timestamp or runtime-proof shortcut."}
+Traceback (most recent call last):
+  File "S:\Codex-Work\fraynix-workspace-edition114\build\release114.py", line 23, in <module>
+    with (r/'build/push114.log').open('wb') as out:run('git','-c','pack.threads=4','push','--atomic','origin','HEAD:refs/heads/main','HEAD:refs/heads/edition114','refs/tags/readme-114',stdout=out,stderr=subprocess.STDOUT)
+                                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: <lambda>() got an unexpected keyword argument 'stdout'

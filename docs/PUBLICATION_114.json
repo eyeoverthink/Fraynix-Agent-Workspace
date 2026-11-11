@@ -1,0 +1,50 @@
+{
+  "edition": 114,
+  "releaseCommit": "2db1a24fbef0fe5184056aadbff84a0c4bb3fb49",
+  "annotatedTag": "readme-114",
+  "tagObject": "46073ecfdc5b7cdc1329d88bf7605e6cc903dcfd",
+  "audit": {
+    "passed": true,
+    "verifiedAtUtc": "2026-11-11T02:53:13.363744+00:00",
+    "remote": "https://github.com/eyeoverthink/Fraynix-Agent-Workspace.git",
+    "fetchedRef": "refs/verify/edition114-main",
+    "remoteFetched": true,
+    "commit": "2db1a24fbef0fe5184056aadbff84a0c4bb3fb49",
+    "canonicalSourceFiles": 1435,
+    "editions": 114,
+    "frozenHashes": 37700,
+    "original114EvidenceFiles": 63,
+    "distinctOriginalPayloads": 63,
+    "method": "Every enumerated blob read from the specified Git tree; remoteFetched identifies a fresh verification ref. Source byte counts and canonical UTF-8 LF/binary hashes checked. All frozen edition hashes checked. Each unique immutable Git archive blob is decompressed once; every logical original entry is compared to its verified compressed/raw byte counts and SHA-256. No mutable-file timestamp or runtime-proof shortcut."
+  },
+  "planPublication": {
+    "commit": "d2a40b674f830f728ab06cec071deb851d749f97",
+    "fetchedFiles": {
+      "docs/PLAYABLE_LEVEL_CREATION_PLAN.md": "3c79f9c8735381533c6b673d51027a87d1153efca3c0d825eb61a2dbae766097",
+      "docs/EDITION_114_CONTRACT.md": "b890964d01208e20585af8438819a0ac7d374050559b5526fdd202637e35019f"
+    },
+    "verified": true
+  },
+  "validation": {
+    "javaMethods": 38,
+    "desktopChecks": 165,
+    "actualRuntimePassed": true,
+    "actualDesktopPassed": true,
+    "actualDesktopSeconds": 13.4515428,
+    "standaloneRuntimeSeconds": 5.0586359,
+    "finishTick": 384,
+    "candidateObjects": 114,
+    "modelCalls": 0,
+    "guideWidths": [
+      1440,
+      390
+    ],
+    "scope": "One declared generated course completed and reopened; construction varied across three seeds. No held-out playability, screenshot reconstruction, chat-generation or training claim."
+  },
+  "ci": {
+    "scope": "Local checks are distinct from remote CI. The saved parent CI was still compiling/testing when checked; no remote CI pass is claimed.",
+    "releaseCheck": {
+      "statuses": []
+    }
+  }
+}

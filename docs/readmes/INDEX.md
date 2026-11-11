@@ -2,10 +2,6 @@
 
 [Edition113 — usable experience history](../../README-113.md) · [Offline guide](113/index.html)
 
-[Edition114 — source-based playable level creation](../../README-114.md) · [Offline guide](114/index.html)
-
-[Edition113 — usable experience history](../../README-113.md) · [Offline guide](113/index.html)
-
 [Edition112 — completed chat history](../../README-112.md) · [Offline guide](112/index.html)
 
 [Edition111 — completed child-goal archives](../../README-111.md) · [Offline guide](111/index.html)
@@ -56,27 +52,19 @@
 
 - [Edition089: paired memory and longer sequences](../../README-089.md) · [Offline results](089/index.html)
 
-
 - [Edition088: resources and calibration value](../../README-088.md) · [Offline results](088/index.html)
-
 
 - [Edition087: learned calibration allowances](../../README-087.md) · [Offline results](087/index.html)
 
-
 - [Edition086: calibration admission before spending](../../README-086.md) · [Offline results](086/index.html)
-
 
 - [Edition085: growing memory and calibration payback](../../README-085.md) · [Offline results](085/index.html)
 
-
 - [Edition 084: repeated complete-task calibration](../../README-084.md) · [Offline results](084/index.html)
-
 
 - [Edition 083: restart and skill-saving calibration](../../README-083.md) · [Offline results](083/index.html)
 
-
 - [Edition 082: resource budgets and continuing-world sequences](../../README-082.md) · [Offline results](082/index.html)
-
 
 Numbered editions preserve dated behavior and evidence. The root [README](../../README.md) remains the entry point.
 

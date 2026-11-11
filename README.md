@@ -1,5 +1,7 @@
 # Fraynix Agent Workspace — edition 114
 
+[Published and fetched verification receipt](docs/PUBLICATION_114.json) · [Release tag](https://github.com/eyeoverthink/Fraynix-Agent-Workspace/tree/readme-114)
+
 ## Create a separate level, then test what actually happens
 
 Edition 114 gives the existing Game Lab a source-based level constructor written in Java. It reads the full Mario scene, reuses working components and saves a new candidate without overwriting the original or the user's authored world. The candidate opens inside the workspace using the original renderer and physics.
