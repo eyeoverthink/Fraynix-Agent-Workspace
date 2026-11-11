@@ -1,0 +1,15 @@
+{
+  "scope": "Documentation-only correction after independently verified release publication. Runtime, source inventory, frozen README111 and evidence snapshots unchanged.",
+  "priorMain": "9084f299622ddf25b29573b3e01fc3d11aad8739",
+  "releaseCommit": "54ac6e1c01b826581eea19eeec5298e93d812f23",
+  "failure": "Publication-note helper read UTF-8 source using Windows default encoding during an earlier edit. Its em-dash heading became mojibake, so the expected-heading assertion refused before any note writes. Publication receipt/evidence files were already written and the separate metadata publisher committed those files.",
+  "correction": "Prevalidate all five UTF-8 note headings, update notes and front page explicitly, and repair the recorded helper encoding. No source/runtime/test evidence changes.",
+  "originalHelperSha256": "4eb7d243527d1a2d01ea77bf640ea576121c3b25b1ac7965befbd26b68192689",
+  "correctedHelperSha256": "a456318d06f93951c3b8425d62f564bd61fe44bfc0436239aeabaca792c5af96",
+  "checks": [
+    "All five note headings validated before edits.",
+    "Each note now links the already fetched, fully audited release receipt.",
+    "Annotated release tag remains unchanged.",
+    "Final publication must compare every changed metadata blob after fetch."
+  ]
+}

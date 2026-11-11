@@ -13,3 +13,5 @@ Java owns durable tasks, tools, worlds, memory, verification and recovery. Chat,
 The separate 24-task chat history remains full and unchanged: this study continues through existing native workflow controls, not fresh chat admission.
 
 **Next:** archive completed chat-task history with its evidence, then measure retrieval costs and define a saved-procedure lifecycle. No raised limits or model-training claim.
+
+Published to main. [Edition 111 fetched GitHub verification](docs/PUBLICATION_111.json).
