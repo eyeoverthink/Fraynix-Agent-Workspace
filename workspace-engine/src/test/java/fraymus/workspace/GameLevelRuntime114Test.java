@@ -22,7 +22,11 @@ public class GameLevelRuntime114Test {
             }
             result.put("final",frame.getJSONObject("state"));Files.write(out.resolve("finish.png"),Base64.getDecoder().decode(frame.getString("pngBase64")));
             assertTrue("Actual finish contact required; inspect preserved trace",frame.getJSONObject("state").getJSONObject("player").getBoolean("won"));
-            game.close();var reopened=store.launch(game,m.getString("id"));assertNotEquals(initial.getString("sessionId"),reopened.getJSONObject("state").getString("sessionId"));assertEquals(initial.getJSONObject("player").getDouble("x"),reopened.getJSONObject("state").getJSONObject("player").getDouble("x"),.001);assertFalse(reopened.getJSONObject("state").getJSONObject("player").getBoolean("won"));result.put("reopened",reopened.getJSONObject("state")).put("passed",true);
+            game.close();var reopened=store.launch(game,m.getString("id"));assertNotEquals(initial.getString("sessionId"),reopened.getJSONObject("state").getString("sessionId"));assertEquals(initial.getJSONObject("player").getDouble("x"),reopened.getJSONObject("state").getJSONObject("player").getDouble("x"),.001);assertFalse(reopened.getJSONObject("state").getJSONObject("player").getBoolean("won"));result.put("reopened",reopened.getJSONObject("state"));
+            Path saved=Path.of(m.getString("levelPath"));String original=Files.readString(saved);Files.writeString(saved,original+" ");
+            assertThrows(IllegalStateException.class,()->game.command(new JSONObject().put("action","reset")));
+            assertEquals(reopened.getJSONObject("state").getString("sessionId"),game.frame().getJSONObject("state").getString("sessionId"));
+            Files.writeString(saved,original);game.command(new JSONObject().put("action","reset"));result.put("changedResetRefusedWithoutReplacingSession",true).put("passed",true);
         }finally{result.put("elapsedSeconds",(System.nanoTime()-started)/1e9);Files.writeString(out.resolve("result.json"),result.toString(2));}
     }
 }
