@@ -37,6 +37,7 @@ async function main(){
   await page.locator('#game-task-history > summary').click();await page.locator('#game-task-refresh').click();await page.waitForFunction(()=>document.querySelector('#game-task-detail').textContent.includes('Insufficient clearance'));await capture('verified-decisions.png');await page.locator('#game-task-history > summary').click();
   await run('Create a playable Mario level gapTiles=10 pickupTile=17 goombaTile=45.',{failed:true});
   await request('gameRuntime','open-level',{id:recovered.checked.audit.candidateId});await app.evaluate(({BrowserWindow})=>BrowserWindow.getAllWindows().find(w=>w.isVisible()).setSize(1100,1000));await sleep(250);await capture('challenge-1100.png');assert(await page.locator('#game-frame').isVisible());
+  await page.locator('#game-ai').click();await sleep(250);record.manualPlay=await api('/api/game/frame');delete record.manualPlay.pngBase64;assert.equal(record.manualPlay.state.controller.policy,'safe117');await page.locator('#game-pause').click();
   assert(record.enemyFrame,"Actual enemy frame captured");assert(record.riskFrame,"Actual risk decision captured");assert.deepEqual(record.errors,[]);record.passed=true;await save();
  }finally{if(app)await app.close().catch(()=>{});record.finishedAt=new Date().toISOString();await save();}
  console.log(JSON.stringify({passed:true,requests:record.requests.map(r=>({id:r.id,status:r.task.status,elapsedMs:r.elapsedMs}))}));
