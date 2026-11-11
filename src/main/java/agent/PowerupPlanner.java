@@ -28,6 +28,7 @@ public final class PowerupPlanner {
         if(n>=3){declineForRun(goal);return false;}
         deferrals.put(id,n+1);deferredUntil.put(id,tick+60);if(id.equals(lastBlock))lastBlock=null;target=null;return true;
     }
+    public boolean remembered(UUID id,long tick){return deferrals.containsKey(id)&&!skipped.contains(id)&&tick>=deferredUntil.getOrDefault(id,0L);}
     public void abandon(Goal goal) {if(goal.object()!=null)skip(goal.object().getPersistentId());}
     public Goal step(Scene scene,GameObject player,float destination,long tick) {
         float x=player.transform.position.x,y=player.transform.position.y;
