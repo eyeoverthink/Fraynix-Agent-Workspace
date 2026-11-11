@@ -6,7 +6,7 @@ def read(p):return json.loads((r/p).read_text(encoding='utf8'))
 def write(p,v):p.parent.mkdir(parents=True,exist_ok=True);p.write_bytes((json.dumps(v,indent=2,ensure_ascii=False)+'\n').encode())
 def text(p,s):p.parent.mkdir(parents=True,exist_ok=True);p.write_bytes(s.encode())
 def sha(b):return hashlib.sha256(b).hexdigest()
-uiroot=r/'build/game119-ui';ui=read(uiroot/'result.json');assert ui['passed'] and all(ui[k] for k in ['contactFrame','deferralFrame','collectionFrame','riskFrame'])
+uiroot=r/'build/game119-ui-final';ui=read(uiroot/'result.json');assert ui['passed'] and all(ui[k] for k in ['contactFrame','deferralFrame','collectionFrame','riskFrame'])
 scope=read('build/edition119-scope.json')
 paths={'development':'controller119-prototype-b','development-first':'controller119-development','development-final':'controller119-final-development','reserved-first':'controller119-reserved','reserved':'controller119-final-reserved','software-reserved':'controller119-mesa-reserved','old-challenge-development':'controller119-final-old-development','old-challenge-reserved':'controller119-final-old-reserved','old-regression':'controller117-119-final-regression','old-wider':'controller117-119-final-wider','old-reserved':'controller117-119-final-reserved'}
 datasets={k:read('workspace-engine/build/'+v+'/result.json') for k,v in paths.items()};assert all(x['passed'] for x in datasets.values())

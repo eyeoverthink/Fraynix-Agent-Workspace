@@ -118,6 +118,8 @@ Actual visible chat requests include construction, retained comparisons, saving,
 
 [Measurements](docs/readmes/119/measurements.json) · [Actual UI records](docs/readmes/119/actual-ui.json) · [Validation](docs/readmes/119/verification.json) · [Original evidence](docs/readmes/119/original-evidence.json)
 
+The first visible review completed both repaired tasks but caught history selecting by restored filename order instead of task time. The history now orders requests by their saved start time and preserves an explicit selection. The complete visible review is repeated from a fresh project; the first attempt remains archived. No controller or verification change was needed for this display correction.
+
 The original baseline and first unsuccessful prototype are retained alongside the successful development candidate. Raw and compressed SHA-256 hashes preserve original logs, traces, screenshots and isolated test projects. Private projects, credentials, model weights and Java/Mesa binaries are excluded. CI was checked first; its 118 runs were pending. Hosted CI status is reported separately from local checks and fetched publication.
 
 ## Source map
