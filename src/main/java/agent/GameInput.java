@@ -14,7 +14,7 @@ public final class GameInput {
     private static UUID episode, actor;
     private static boolean automatic;
     private static boolean landingGuard = true;
-    private static String policyName="safe117";
+    private static String policyName="recover119";
     private static boolean safeCollection, riskAware, contactAware;
     private static ContactRecovery119 contactRecovery=new ContactRecovery119();
     private static long contactChecks,contactNanos,contactOverrides;
@@ -68,7 +68,7 @@ public final class GameInput {
     public static void neuralJump(boolean value) { neuralJump=value; }
     public static float[] sensory() { return lastSensory.clone(); }
     public static void requestJump() { if (automatic) { jumpUntil=tick+27; lastJump=tick; } }
-    public static void start(Scene scene, float targetX) { start(scene,targetX,"safe117"); }
+    public static void start(Scene scene, float targetX) { start(scene,targetX,"recover119"); }
     public static void start(Scene scene, float targetX, boolean guarded) {
         start(scene,targetX,guarded?"landing116":"legacy115");
     }
