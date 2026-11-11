@@ -1,5 +1,7 @@
 # Fraynix Agent Workspace — edition 120
 
+[Published and fetched verification receipt](docs/PUBLICATION_120.json) · [Release tag](https://github.com/eyeoverthink/Fraynix-Agent-Workspace/tree/readme-120)
+
 ## Wait when another observation can make the pickup worthwhile
 
 Three reserved courses in [edition119](README-119.md) finished without their optional item. Two had supported power-up blocks guarded by moving enemies. The third placed the power-up above a gap. Edition120 adds a small owned Java policy that can wait for a temporary threat, observe again, and pursue only after the actual approach clears. The unsupported gap remains a refusal.
