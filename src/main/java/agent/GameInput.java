@@ -15,7 +15,10 @@ public final class GameInput {
     private static boolean automatic;
     private static boolean landingGuard = true;
     private static String policyName="safe117";
-    private static boolean safeCollection, riskAware;
+    private static boolean safeCollection, riskAware, contactAware;
+    private static ContactRecovery119 contactRecovery=new ContactRecovery119();
+    private static long contactChecks,contactNanos,contactOverrides;
+    private static int pickupDeferrals;
     private static long pickupRiskChecks,pickupRiskNanos;
     private static int pickupSkips;
     private static final java.util.List<java.util.Map<String,Object>> pickupDecisions=new java.util.ArrayList<>();
@@ -70,8 +73,8 @@ public final class GameInput {
         start(scene,targetX,guarded?"landing116":"legacy115");
     }
     public static void start(Scene scene, float targetX, String policy) {
-        if(!java.util.Set.of("legacy115","landing116","safe117","risk118").contains(policy))throw new IllegalArgumentException("Unknown game policy");
-        policyName=policy;riskAware=policy.equals("risk118");safeCollection=policy.equals("safe117")||riskAware;pickupRiskChecks=pickupRiskNanos=0;pickupSkips=0;pickupDecisions.clear();fallingWaitTicks=0;pursuit=null;
+        if(!java.util.Set.of("legacy115","landing116","safe117","risk118","recover119").contains(policy))throw new IllegalArgumentException("Unknown game policy");
+        policyName=policy;contactAware=policy.equals("recover119");contactRecovery=new ContactRecovery119();contactChecks=contactNanos=contactOverrides=0;pickupDeferrals=0;riskAware=policy.equals("risk118")||contactAware;safeCollection=policy.equals("safe117")||riskAware;pickupRiskChecks=pickupRiskNanos=0;pickupSkips=0;pickupDecisions.clear();fallingWaitTicks=0;pursuit=null;
         boolean guarded=!policy.equals("legacy115");
         landingGuard=guarded;landingChecks=landingOverrides=landingNanos=0;landingDecision=null;edgeUntil=edgeCrossings=0;edgeLeftGround=false;
         GameObject player=scene.getGameObjectWith(PlayerController.class);
@@ -116,8 +119,9 @@ public final class GameInput {
         if(riskAware)for(;assessed<4&&nextGoal.kind()!=PowerupPlanner.Kind.TRAVEL;assessed++){
             long checked=System.nanoTime();var risk=PickupObserver118.assess(scene,player,nextGoal);pickupRiskChecks++;pickupRiskNanos+=System.nanoTime()-checked;
             if(risk.pursue()){accepted=true;break;}
-            pickupSkips++;if(pickupDecisions.size()<16){var row=new java.util.LinkedHashMap<String,Object>();row.put("tick",tick);row.put("objectId",nextGoal.object().getPersistentId().toString());row.put("kind",nextGoal.kind().name());row.put("targetX",nextGoal.x());row.put("targetY",nextGoal.y());row.put("reason",risk.reason());if(Float.isFinite(risk.supportY()))row.put("supportY",risk.supportY());row.put("clearance",risk.clearance());pickupDecisions.add(row);}
-            planner.declineForRun(nextGoal);nextGoal=planner.step(scene,player,goalX,tick);
+            boolean deferred=contactAware&&risk.reason().equals("Enemy motion intersects the pickup approach")&&planner.defer(nextGoal,tick);
+            if(deferred)pickupDeferrals++;else pickupSkips++;if(pickupDecisions.size()<16){var row=new java.util.LinkedHashMap<String,Object>();row.put("tick",tick);row.put("objectId",nextGoal.object().getPersistentId().toString());row.put("kind",nextGoal.kind().name());row.put("targetX",nextGoal.x());row.put("targetY",nextGoal.y());row.put("reason",risk.reason());if(contactAware)row.put("action",deferred?"deferred for fresh observation":"declined for run");if(Float.isFinite(risk.supportY()))row.put("supportY",risk.supportY());row.put("clearance",risk.clearance());pickupDecisions.add(row);}
+            if(!deferred)planner.declineForRun(nextGoal);nextGoal=planner.step(scene,player,goalX,tick);
         }
         if(riskAware && !accepted && assessed==4 && nextGoal.kind()!=PowerupPlanner.Kind.TRAVEL) nextGoal=new PowerupPlanner.Goal(PowerupPlanner.Kind.TRAVEL,null,goalX,y,"Pickup assessment budget reached; continue toward destination");
         if(goal==null || goal.kind()!=nextGoal.kind() || goal.object()!=nextGoal.object()) recovery=new MotorRecovery();
@@ -155,7 +159,13 @@ public final class GameInput {
         boolean wedged=stalledTicks>45 && Math.abs(body.getVelocity().y)<.05f;
         var decision=recovery.step(tick-startedTick,Math.abs(localTarget-x),direction,controller.onGround,obstacle,!floor.hit,hazard,ceiling,behind.hit,wedged);
         status="AI "+decision.phase()+" | "+goal.reason()+" | "+strategy+" | recovery "+decision.attempts()+"/3";
-        if(decision.phase()==MotorRecovery.Phase.BLOCKED) {
+        ContactRecovery119.Decision contactDecision=null;
+        if(contactAware){
+            long began=System.nanoTime();var observed=ContactObserver119.read(player,direction);
+            boolean rearThreat=enemy!=null&&(enemy.transform.position.x-x)*direction<0&&Math.abs(enemy.transform.position.x-x)<.9f;
+            contactDecision=contactRecovery.step(tick,x,y,direction,observed.support(),observed.opposing(),controller.onGround,ContactObserver119.retreatSupported(player,direction),ceiling,rearThreat);contactChecks++;contactNanos+=System.nanoTime()-began;
+        }
+        if(decision.phase()==MotorRecovery.Phase.BLOCKED && (contactDecision==null||!contactDecision.override())) {
             reward(-5);
             if(goal.kind()!=PowerupPlanner.Kind.TRAVEL) {
                 planner.abandon(goal);goal=null;recovery=new MotorRecovery();jumpUntil=0;
@@ -178,7 +188,7 @@ public final class GameInput {
             objectiveJump=tick<jumpUntil;
         }
         if(goal.kind()==PowerupPlanner.Kind.TRAVEL && enemy!=null && !controller.onGround && body.getVelocity().y<-.1f && y>enemy.transform.position.y+.25f
-            && Math.abs(enemy.transform.position.x-x)<1.5f) {
+            && Math.abs(enemy.transform.position.x-x)<1.5f && (!contactAware||(enemy.transform.position.x-x)*direction>.1f)) {
             float height=y-.13f-(enemy.transform.position.y+.12f),fallSpeed=-body.getVelocity().y;
             float landingTime=Math.min(.5f,Math.max(.02f,((float)Math.sqrt(fallSpeed*fallSpeed+14*Math.max(0,height))-fallSpeed)/7));
             float target=enemy.transform.position.x+enemy.getComponent(physics2d.components.Rigidbody2D.class).getVelocity().x*landingTime;
@@ -217,12 +227,15 @@ public final class GameInput {
             landingChecks++;landingNanos+=System.nanoTime()-forecastStarted;
             if(landingDecision.override()){landingCorrection=true;horizontal=landingDecision.horizontal();jumpUntil=0;objectiveJump=false;landingOverrides++;status+=" | landing correction";}
         }
-        ActorControls.Input input=new ActorControls.Input(horizontal,0,!landingCorrection&&(decision.jump()||objectiveJump||tick<jumpUntil),tick%30==0);
+        boolean jump=!landingCorrection&&(decision.jump()||objectiveJump||tick<jumpUntil);
+        if(contactDecision!=null&&contactDecision.override()){horizontal=contactDecision.horizontal();jump=contactDecision.jump();jumpUntil=0;edgeUntil=0;recovery=new MotorRecovery();contactOverrides++;status="AI contact recovery | "+contactDecision.reason();}
+        ActorControls.Input input=new ActorControls.Input(horizontal,0,jump,tick%30==0);
         controls.accept(new ActorControls.Lease(episode,actor,sequence++,tick,tick+1,input),tick);
         current=controls.at(tick);
     }
     public static java.util.Map<String,Object> observation116() {
         var result=new java.util.LinkedHashMap<String,Object>();result.put("policy",policyName);result.put("automatic",automatic);result.put("status",status);result.put("horizontal",current.horizontal());result.put("jump",current.jump());result.put("goal",goal==null?"none":goal.kind().name());result.put("pickups",pickups);result.put("damage",damage);result.put("edgeCrossings",edgeCrossings);result.put("landingChecks",landingChecks);result.put("landingOverrides",landingOverrides);result.put("landingNanos",landingNanos);result.put("fallingWaitTicks",fallingWaitTicks);result.put("pickupSkips",pickupSkips);result.put("pickupRiskChecks",pickupRiskChecks);result.put("pickupRiskNanos",pickupRiskNanos);result.put("pickupDecisions",new java.util.ArrayList<>(pickupDecisions));
+        if(contactAware){result.put("contactRecovery119",contactRecovery.observation());result.put("contactChecks",contactChecks);result.put("contactNanos",contactNanos);result.put("contactOverrides",contactOverrides);result.put("pickupDeferrals",pickupDeferrals);}
         if(pursuit!=null){result.put("interceptX",pursuit.targetX());result.put("pursuitReason",pursuit.reason());}
         if(goal!=null){result.put("goalX",goal.x());result.put("goalY",goal.y());if(goal.object()!=null){var rb=goal.object().getComponent(physics2d.components.Rigidbody2D.class);if(rb!=null){result.put("goalVx",rb.getVelocity().x);result.put("goalVy",rb.getVelocity().y);}}}
         if(landingDecision!=null){result.put("landingReason",landingDecision.reason());result.put("predictedLandingX",landingDecision.planned().x());result.put("predictedLandingY",landingDecision.planned().y());result.put("predictedLandingTicks",landingDecision.planned().ticks());}

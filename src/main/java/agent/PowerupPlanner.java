@@ -10,6 +10,8 @@ public final class PowerupPlanner {
     public enum Kind { TRAVEL, BUMP_BLOCK, COLLECT }
     public record Goal(Kind kind,GameObject object,float x,float y,String reason) {}
     private final Set<UUID> skipped=new HashSet<>();
+    private final Map<UUID,Long> deferredUntil=new HashMap<>();
+    private final Map<UUID,Integer> deferrals=new HashMap<>();
     private UUID target;
     private UUID lastBlock;
     private long since;
@@ -20,11 +22,17 @@ public final class PowerupPlanner {
     private void skip(UUID id) {skipped.add(id);failed.accept(lastBlock!=null?lastBlock:id);target=null;}
     /** Declining an opportunity is not a failed motor episode and does not poison saved learning. */
     public void declineForRun(Goal goal) {if(goal.object()!=null){var id=goal.object().getPersistentId();skipped.add(id);if(id.equals(lastBlock))lastBlock=null;target=null;}}
+    /** Reobserve a moving threat at most three times; never record deferral as motor failure. */
+    public boolean defer(Goal goal,long tick) {
+        if(goal.object()==null)return false;var id=goal.object().getPersistentId();int n=deferrals.getOrDefault(id,0);
+        if(n>=3){declineForRun(goal);return false;}
+        deferrals.put(id,n+1);deferredUntil.put(id,tick+60);if(id.equals(lastBlock))lastBlock=null;target=null;return true;
+    }
     public void abandon(Goal goal) {if(goal.object()!=null)skip(goal.object().getPersistentId());}
     public Goal step(Scene scene,GameObject player,float destination,long tick) {
         float x=player.transform.position.x,y=player.transform.position.y;
         PlayerController controller=player.getComponent(PlayerController.class);
-        GameObject choice=scene.getGameObjects().stream().filter(o->!o.isDead()&&!skipped.contains(o.getPersistentId())&&!avoided.test(o.getPersistentId()))
+        GameObject choice=scene.getGameObjects().stream().filter(o->!o.isDead()&&!skipped.contains(o.getPersistentId())&&tick>=deferredUntil.getOrDefault(o.getPersistentId(),0L)&&!avoided.test(o.getPersistentId()))
             .filter(o->o.getComponent(MushroomAI.class)!=null && controller.isSmall()
                 || o.getComponent(Flower.class)!=null && !controller.isFire())
             .filter(o->Math.abs(o.transform.position.x-x)<4 && Math.abs(o.transform.position.y-y)<1.5f)
@@ -32,7 +40,7 @@ public final class PowerupPlanner {
         Kind kind=Kind.COLLECT;
         if(choice==null && !controller.isFire()) {
             kind=Kind.BUMP_BLOCK;
-            choice=scene.getGameObjects().stream().filter(o->!o.isDead()&&!skipped.contains(o.getPersistentId())&&!avoided.test(o.getPersistentId()))
+            choice=scene.getGameObjects().stream().filter(o->!o.isDead()&&!skipped.contains(o.getPersistentId())&&tick>=deferredUntil.getOrDefault(o.getPersistentId(),0L)&&!avoided.test(o.getPersistentId()))
                 .filter(o->o.getComponent(QuestionBlock.class)!=null && o.getComponent(QuestionBlock.class).hasPowerup())
                 .filter(o->Math.abs(o.transform.position.x-x)<2.5f && o.transform.position.y-y>.25f && o.transform.position.y-y<1.6f
                     && (o.transform.position.x-x)*Math.signum(destination-x)>-.6f)

@@ -7,6 +7,14 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class PowerupPlannerTest {
+    @Test public void threatDeferralRechecksLaterWithAFiniteBudgetAndNoFalseLearning(){
+        var scene=new Scene(null);var player=scene.createGameObject("Mario");player.addComponent(new PlayerController());scene.addGameObjectToScene(player);
+        var block=scene.createGameObject("Block");block.addComponent(new com.google.gson.Gson().fromJson("{\"blockType\":\"Powerup\"}",QuestionBlock.class));block.transform.position.set(1,.8f);scene.addGameObjectToScene(block);
+        java.util.Set<java.util.UUID> failures=new java.util.HashSet<>();var planner=new PowerupPlanner(failures::contains,failures::add);
+        for(int t=1;t<=121;t+=60){var goal=planner.step(scene,player,20,t);assertEquals(PowerupPlanner.Kind.BUMP_BLOCK,goal.kind());assertTrue(planner.defer(goal,t));assertEquals(PowerupPlanner.Kind.TRAVEL,planner.step(scene,player,20,t+59).kind());}
+        assertFalse(planner.defer(planner.step(scene,player,20,181),181));
+        assertEquals(PowerupPlanner.Kind.TRAVEL,planner.step(scene,player,20,1000).kind());assertTrue(failures.isEmpty());
+    }
     @Test public void identifiesMushroomAndTimesOutUnreachablePickup() {
         var scene=new Scene(null);var player=scene.createGameObject("Mario");player.addComponent(new PlayerController());scene.addGameObjectToScene(player);
         var mushroom=scene.createGameObject("Mushroom");mushroom.addComponent(new MushroomAI());mushroom.transform.position.set(1,.25f);scene.addGameObjectToScene(mushroom);

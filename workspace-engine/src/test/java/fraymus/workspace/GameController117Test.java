@@ -45,8 +45,8 @@ public class GameController117Test {
                 if(partition.equals("regression"))assertTrue("Collection must improve on116",newPickups>previousPickups);
                 result.put("previousPickups",previousPickups).put("newPickups",newPickups);
             }
-            if(policies.contains("risk118"))for(Object v:result.getJSONArray("cases"))for(Object raw:((JSONObject)v).getJSONArray("trials")){
-                var trial=(JSONObject)raw;if(!trial.getString("policy").equals("risk118"))continue;
+            if(policies.contains("risk118")||policies.contains("recover119"))for(Object v:result.getJSONArray("cases"))for(Object raw:((JSONObject)v).getJSONArray("trials")){
+                var trial=(JSONObject)raw;if(!Set.of("risk118","recover119").contains(trial.getString("policy")))continue;
                 assertTrue("118 must preserve previous finish",trial.getBoolean("won"));var controller=trial.getJSONObject("final").getJSONObject("controller");
                 assertEquals("118 must preserve safe collection",1,controller.getInt("pickups"));assertEquals(0,controller.getInt("damage"));
             }
