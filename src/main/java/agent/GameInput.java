@@ -65,7 +65,7 @@ public final class GameInput {
     public static void neuralJump(boolean value) { neuralJump=value; }
     public static float[] sensory() { return lastSensory.clone(); }
     public static void requestJump() { if (automatic) { jumpUntil=tick+27; lastJump=tick; } }
-    public static void start(Scene scene, float targetX) { start(scene,targetX,"risk118"); }
+    public static void start(Scene scene, float targetX) { start(scene,targetX,"safe117"); }
     public static void start(Scene scene, float targetX, boolean guarded) {
         start(scene,targetX,guarded?"landing116":"legacy115");
     }
