@@ -8,13 +8,14 @@ import java.util.*;
 public class GameController122Test {
     static JSONObject c(String name,int seed,int length,int g1,int g2,int goomba,int turtle,int obstacle,int height,int pickup){return new JSONObject().put("name",name).put("parameters",new JSONObject().put("seed",seed).put("lengthTiles",length).put("gapTiles",g1).put("secondGapTiles",g2).put("goombaTile",goomba).put("turtleTile",turtle).put("obstacleTile",obstacle).put("obstacleHeight",height).put("pickupTile",pickup));}
     static List<JSONObject> cases(boolean reserved){return reserved?List.of(
-        c("fresh-close-goomba",181,72,2,3,42,0,0,0,40),c("fresh-late-turtle",191,76,3,2,0,45,0,0,41),c("fresh-high-edge",193,76,3,2,0,17,15,2,11),c("fresh-reversal",197,72,2,3,17,0,15,2,11),c("fresh-return-goomba",199,76,2,2,47,0,0,0,43),c("fresh-return-turtle",211,76,2,2,0,48,0,0,44),c("fresh-gap-refusal",223,76,3,2,29,0,26,2,18),c("fresh-two-enemies",227,80,3,3,43,48,62,2,40)):
+        c("fresh-close-goomba",181,72,2,3,42,0,0,0,40),c("fresh-late-turtle",191,72,3,2,0,45,0,0,41),c("fresh-high-edge",193,72,3,2,0,16,15,2,11),c("fresh-reversal",197,72,2,3,17,0,15,2,11),c("fresh-return-goomba",199,72,2,2,47,0,0,0,43),c("fresh-return-turtle",211,72,2,2,0,48,0,0,44),c("fresh-gap-refusal",223,72,3,2,29,0,26,2,18),c("fresh-two-enemies",227,72,3,3,43,48,62,2,40)):
         List.of(c("retained-near-guard",109,72,2,2,42,0,0,0,40),c("retained-late-turtle",113,72,2,2,0,44,0,0,40),c("retained-turtle-edge",157,72,3,2,0,16,14,2,11),c("return-room",127,72,2,2,46,0,60,1,42),c("return-goomba",137,72,2,3,46,0,0,0,42),c("return-turtle",139,72,3,2,0,47,0,0,43),c("reversal",110,64,2,2,15,0,13,1,10),c("high-edge",173,72,2,2,16,0,14,2,11));}
     static List<JSONObject> partitionCases(boolean reserved){return cases(reserved);}
     @Test public void compareContactRecoveryAndPickupDecisions()throws Exception{
         boolean reserved=Boolean.getBoolean("study122.reserved");String policies=System.getProperty("study122.policies","simple,revisit121,contact122"),only=System.getProperty("study122.only","");
         Path repo=Path.of("..").toAbsolutePath().normalize(),project=Files.createTempDirectory("controller122"),out=Path.of(System.getProperty("study122.output","build/controller122"));Files.createDirectories(out);
         var result=new JSONObject().put("passed",false).put("partition",System.getProperty("study122.partition",reserved?"reserved":"development")).put("project",project.toString()).put("cases",new JSONArray());
+        for(var row:partitionCases(reserved))GameChallenge118.parameters(row.getJSONObject("parameters"));
         try(var game=new EmbeddedGameClient(repo,project)){
             var levels=new GameLevels114(repo,project);
             for(var row:partitionCases(reserved)){

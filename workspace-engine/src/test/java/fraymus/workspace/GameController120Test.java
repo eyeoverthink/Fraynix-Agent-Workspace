@@ -33,7 +33,7 @@ public class GameController120Test {
                 }
             }
             if(Boolean.parseBoolean(System.getProperty("study120.requireWins","false")))for(Object raw:result.getJSONArray("cases"))for(Object value:((JSONObject)raw).getJSONArray("trials")){
-                var trial=(JSONObject)value;if(!Set.of("opportunity120","revisit121").contains(trial.getString("policy")))continue;
+                var trial=(JSONObject)value;if(!Set.of("opportunity120","revisit121","contact122").contains(trial.getString("policy")))continue;
                 assertTrue("Recovery regression: "+((JSONObject)raw).getString("name"),trial.getBoolean("won"));assertEquals(0,trial.getJSONObject("final").getJSONObject("controller").getInt("damage"));
                 String name=((JSONObject)raw).getString("name");if(Set.of("retained-two-enemies","retained-turtle").contains(name))assertEquals(1,trial.getJSONObject("final").getJSONObject("controller").getInt("pickups"));if(name.equals("retained-gap-refusal"))assertEquals(0,trial.getJSONObject("final").getJSONObject("controller").getInt("pickups"));
             }
