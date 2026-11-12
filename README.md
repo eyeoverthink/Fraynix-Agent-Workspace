@@ -1,5 +1,7 @@
 # Fraynix Agent Workspace · Edition 123
 
+[Published and fetched verification receipt](docs/PUBLICATION_123.json) · [Release tag](https://github.com/eyeoverthink/Fraynix-Agent-Workspace/tree/readme-123)
+
 **Measure the pickup benefit. Count the whole workflow. Keep safety ahead of speed.**
 
 2026-11-12 · Local Java decisions, original native physics, durable checked tasks.

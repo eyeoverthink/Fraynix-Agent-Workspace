@@ -1,0 +1,1783 @@
+{
+  "edition": 123,
+  "releaseCommit": "2083ce78e4f1f1f8d36f61b88e58199f03d04762",
+  "annotatedTag": "readme-123",
+  "tagObject": "133a2fab919e6c1d4c2ab67555893de030dfaa82",
+  "audit": {
+    "passed": true,
+    "verifiedAtUtc": "2026-11-12T13:52:48.867814+00:00",
+    "remote": "https://github.com/eyeoverthink/Fraynix-Agent-Workspace.git",
+    "fetchedRef": "refs/verify/edition123-main",
+    "remoteFetched": true,
+    "commit": "2083ce78e4f1f1f8d36f61b88e58199f03d04762",
+    "canonicalSourceFiles": 1508,
+    "editions": 123,
+    "frozenHashes": 43845,
+    "original123EvidenceFiles": 1281,
+    "distinctOriginalPayloads": 729,
+    "method": "Every enumerated blob read from the specified Git tree; remoteFetched identifies a fresh verification ref. Source byte counts and canonical UTF-8 LF/binary hashes checked. All frozen edition hashes checked. Each unique immutable Git archive blob is decompressed once; every logical original entry is compared to its verified compressed/raw byte counts and SHA-256. No mutable-file timestamp or runtime-proof shortcut."
+  },
+  "validation": {
+    "javaMethods": 195,
+    "desktopChecks": 168,
+    "launcher": {
+      "passed": true,
+      "scope": "Isolated PrepareOnly Offline; package receipt verified before and after actual UI."
+    },
+    "actualRequests": [
+      {
+        "request": "Create a playable Mario level seed=127 lengthTiles=72 gapTiles=2 secondGapTiles=2 pickupTile=42 goombaTile=46 obstacleTile=60 obstacleHeight=1 repairLimit=0 pickupStrategy=full; compare controls and report skipped pickups.",
+        "status": "completed",
+        "elapsedMs": 61884,
+        "trialOutcomes": [
+          "interrupted",
+          "failed",
+          "won"
+        ],
+        "audit": {
+          "wins": 1,
+          "aiPickups": 1,
+          "aiEnemyLanding": {
+            "chosenContact": false,
+            "reason": "No predicted enemy contact in descending approach",
+            "chosenSupported": true,
+            "nanos": 2652900,
+            "ticks": 10,
+            "overrides": 0,
+            "desiredContact": false,
+            "horizontal": 1,
+            "checks": 86,
+            "threatLimit": 64,
+            "horizonTicks": 60,
+            "edgeStarts": 0,
+            "x": 13.300469,
+            "y": 0.6143242,
+            "override": false
+          },
+          "failures": 1,
+          "aiDamage": 0,
+          "aiPickupDeferrals": 1,
+          "aiContactAttempts": 0,
+          "repairCount": 0,
+          "aiOpportunity": {
+            "phase": "TRAVEL",
+            "returnsEnabled123": true,
+            "reason": "Block changed; verify actual collection separately",
+            "waitTicks": 0,
+            "waitStarts": 0,
+            "revisitTicks": 155,
+            "decisions": [
+              {
+                "reason": "Nearby remembered pickup has continuous observed support and clear route",
+                "action": "return-started",
+                "plannedTicks": 0,
+                "tick": 429,
+                "objectId": "3829b921-0d74-35f9-bb07-5e861d3740ee"
+              },
+              {
+                "reason": "Block changed; verify actual collection separately",
+                "action": "return-ended",
+                "plannedTicks": 0,
+                "tick": 585,
+                "objectId": "3829b921-0d74-35f9-bb07-5e861d3740ee"
+              }
+            ],
+            "waitAborts": 0,
+            "waitsEnabled123": true,
+            "waitClears": 0,
+            "revisitStarts": 1,
+            "motion121": {
+              "reversals": 0,
+              "checks": 832,
+              "returnReach": 2.75,
+              "stabilityTicks": 30,
+              "tracked": 0,
+              "returnsEnabled": true,
+              "forecastRefusals": 0,
+              "events": []
+            }
+          },
+          "existingAI": "won",
+          "pickupDecisions": [
+            {
+              "reason": "Enemy motion intersects the pickup approach",
+              "kind": "BUMP_BLOCK",
+              "targetY": 1.375,
+              "supportY": 0.5,
+              "targetX": 10.625,
+              "action": "deferred for fresh observation",
+              "clearance": 0.75,
+              "tick": 284,
+              "objectId": "3829b921-0d74-35f9-bb07-5e861d3740ee"
+            }
+          ],
+          "trials": 3,
+          "simpleControl": "failed",
+          "pickupStrategy": "full",
+          "scope": "Actual finish contact on this candidate; comparison is not a guarantee for unfamiliar levels. No procedure-bank admission or model training.",
+          "aiPickupSkips": 0,
+          "traceSha256": "10ee95294734fe75aa830601665608441208e503219450f68734b69ae3926e44",
+          "passed": true,
+          "candidateId": "1bdb906d-926c-3831-9003-3b17480f569b",
+          "inputChunks": 99,
+          "completionControl": "contact122"
+        }
+      },
+      {
+        "request": "Create a playable Mario level seed=127 lengthTiles=72 gapTiles=2 secondGapTiles=2 pickupTile=42 goombaTile=46 obstacleTile=60 obstacleHeight=1 repairLimit=0 pickupStrategy=no-return; compare controls and report skipped pickups.",
+        "status": "completed",
+        "elapsedMs": 42047,
+        "trialOutcomes": [
+          "failed",
+          "won"
+        ],
+        "audit": {
+          "wins": 1,
+          "aiPickups": 0,
+          "aiEnemyLanding": {
+            "chosenContact": false,
+            "reason": "No predicted enemy contact in descending approach",
+            "chosenSupported": true,
+            "nanos": 2606700,
+            "ticks": 10,
+            "overrides": 0,
+            "desiredContact": false,
+            "horizontal": 1,
+            "checks": 86,
+            "threatLimit": 64,
+            "horizonTicks": 60,
+            "edgeStarts": 0,
+            "x": 13.300469,
+            "y": 0.6143242,
+            "override": false
+          },
+          "failures": 1,
+          "aiDamage": 0,
+          "aiPickupDeferrals": 1,
+          "aiContactAttempts": 0,
+          "repairCount": 0,
+          "aiOpportunity": {
+            "phase": "TRAVEL",
+            "returnsEnabled123": false,
+            "reason": "No optional wait or return",
+            "waitTicks": 0,
+            "waitStarts": 0,
+            "revisitTicks": 0,
+            "decisions": [],
+            "waitAborts": 0,
+            "waitsEnabled123": true,
+            "waitClears": 0,
+            "revisitStarts": 0,
+            "motion121": {
+              "reversals": 0,
+              "checks": 523,
+              "returnReach": 2.75,
+              "stabilityTicks": 30,
+              "tracked": 0,
+              "returnsEnabled": false,
+              "events": [],
+              "forecastRefusals": 0
+            }
+          },
+          "existingAI": "won",
+          "pickupDecisions": [
+            {
+              "reason": "Enemy motion intersects the pickup approach",
+              "kind": "BUMP_BLOCK",
+              "targetY": 1.375,
+              "supportY": 0.5,
+              "targetX": 10.625,
+              "action": "deferred for fresh observation",
+              "clearance": 0.75,
+              "tick": 284,
+              "objectId": "76c68221-9bb2-327d-a98a-ba7b34e3b4ad"
+            }
+          ],
+          "trials": 2,
+          "simpleControl": "failed",
+          "pickupStrategy": "no-return",
+          "scope": "Actual finish contact on this candidate; comparison is not a guarantee for unfamiliar levels. No procedure-bank admission or model training.",
+          "aiPickupSkips": 0,
+          "traceSha256": "506b9dd288f65828536f140f8951987748d3009466be16d71d385ffa53b154ca",
+          "passed": true,
+          "candidateId": "9e5d3fdc-c115-3973-8b7a-59914729976a",
+          "inputChunks": 71,
+          "completionControl": "contact123-no-return"
+        }
+      },
+      {
+        "request": "Create a playable Mario level seed=53 lengthTiles=64 gapTiles=2 secondGapTiles=2 turtleTile=15 obstacleTile=26 obstacleHeight=2 repairLimit=0 pickupStrategy=full; compare controls and report skipped pickups.",
+        "status": "completed",
+        "elapsedMs": 37779,
+        "trialOutcomes": [
+          "failed",
+          "won"
+        ],
+        "audit": {
+          "wins": 1,
+          "aiPickups": 1,
+          "aiEnemyLanding": {
+            "chosenContact": false,
+            "reason": "No predicted enemy contact in descending approach",
+            "chosenSupported": true,
+            "nanos": 2291700,
+            "ticks": 1,
+            "overrides": 0,
+            "desiredContact": false,
+            "horizontal": 1,
+            "checks": 48,
+            "threatLimit": 64,
+            "horizonTicks": 60,
+            "edgeStarts": 0,
+            "x": 3.6223307,
+            "y": 0.6228874,
+            "override": false
+          },
+          "failures": 1,
+          "aiDamage": 0,
+          "aiPickupDeferrals": 0,
+          "aiContactAttempts": 0,
+          "repairCount": 0,
+          "aiOpportunity": {
+            "phase": "TRAVEL",
+            "returnsEnabled123": true,
+            "reason": "Fresh observation confirms the approach cleared",
+            "waitTicks": 141,
+            "waitStarts": 1,
+            "revisitTicks": 0,
+            "decisions": [
+              {
+                "reason": "Threat predicted to clear within bounded waiting cost",
+                "plannedTicks": 138,
+                "action": "wait-started",
+                "tick": 3,
+                "objectId": "88169c3c-de30-382c-8eaf-6f56526c2018"
+              },
+              {
+                "reason": "Fresh observation confirms the approach cleared",
+                "plannedTicks": 138,
+                "action": "wait-cleared",
+                "tick": 144,
+                "objectId": "88169c3c-de30-382c-8eaf-6f56526c2018"
+              }
+            ],
+            "waitAborts": 0,
+            "waitsEnabled123": true,
+            "waitClears": 1,
+            "revisitStarts": 0,
+            "motion121": {
+              "reversals": 0,
+              "checks": 644,
+              "returnReach": 2.75,
+              "stabilityTicks": 30,
+              "tracked": 0,
+              "returnsEnabled": true,
+              "events": [],
+              "forecastRefusals": 0
+            }
+          },
+          "existingAI": "won",
+          "pickupDecisions": [],
+          "trials": 2,
+          "simpleControl": "failed",
+          "pickupStrategy": "full",
+          "scope": "Actual finish contact on this candidate; comparison is not a guarantee for unfamiliar levels. No procedure-bank admission or model training.",
+          "aiPickupSkips": 0,
+          "traceSha256": "f8f8185aa619690a50f7a333e69544c1d3de17db0e052283647720895ce2103c",
+          "passed": true,
+          "candidateId": "d198ba1f-72d7-333e-bd20-bbda5d912ca3",
+          "inputChunks": 62,
+          "completionControl": "contact122"
+        }
+      },
+      {
+        "request": "Create a playable Mario level seed=53 lengthTiles=64 gapTiles=2 secondGapTiles=2 turtleTile=15 obstacleTile=26 obstacleHeight=2 repairLimit=0 pickupStrategy=direct; compare controls and report skipped pickups.",
+        "status": "completed",
+        "elapsedMs": 29693,
+        "trialOutcomes": [
+          "failed",
+          "won"
+        ],
+        "audit": {
+          "wins": 1,
+          "aiPickups": 0,
+          "aiEnemyLanding": {
+            "chosenContact": false,
+            "reason": "No predicted enemy contact in descending approach",
+            "chosenSupported": true,
+            "nanos": 2069800,
+            "ticks": 29,
+            "overrides": 0,
+            "desiredContact": false,
+            "horizontal": 1,
+            "checks": 32,
+            "threatLimit": 64,
+            "horizonTicks": 60,
+            "edgeStarts": 0,
+            "x": 6.255897,
+            "y": 0.6006253,
+            "override": false
+          },
+          "failures": 1,
+          "aiDamage": 0,
+          "aiPickupDeferrals": 2,
+          "aiContactAttempts": 0,
+          "repairCount": 0,
+          "aiOpportunity": {
+            "phase": "TRAVEL",
+            "returnsEnabled123": false,
+            "reason": "No optional wait or return",
+            "waitTicks": 0,
+            "waitStarts": 0,
+            "revisitTicks": 0,
+            "decisions": [],
+            "waitAborts": 0,
+            "waitsEnabled123": false,
+            "waitClears": 0,
+            "revisitStarts": 0,
+            "motion121": {
+              "reversals": 0,
+              "checks": 472,
+              "returnReach": 2.75,
+              "stabilityTicks": 30,
+              "tracked": 0,
+              "returnsEnabled": false,
+              "forecastRefusals": 0,
+              "events": []
+            }
+          },
+          "existingAI": "won",
+          "pickupDecisions": [
+            {
+              "reason": "Enemy motion intersects the pickup approach",
+              "kind": "BUMP_BLOCK",
+              "targetY": 1.375,
+              "supportY": 0.5,
+              "targetX": 3.375,
+              "action": "deferred for fresh observation",
+              "clearance": 0.75,
+              "tick": 3,
+              "objectId": "0b65f3c3-f46d-3c4d-a711-e91299e5bbb1"
+            },
+            {
+              "reason": "Enemy motion intersects the pickup approach",
+              "kind": "BUMP_BLOCK",
+              "targetY": 1.375,
+              "supportY": 0.5,
+              "targetX": 3.375,
+              "action": "deferred for fresh observation",
+              "clearance": 0.75,
+              "tick": 63,
+              "objectId": "0b65f3c3-f46d-3c4d-a711-e91299e5bbb1"
+            }
+          ],
+          "trials": 2,
+          "simpleControl": "failed",
+          "pickupStrategy": "direct",
+          "scope": "Actual finish contact on this candidate; comparison is not a guarantee for unfamiliar levels. No procedure-bank admission or model training.",
+          "aiPickupSkips": 0,
+          "traceSha256": "20acc70143e0c29a15a692983ea05ad5d7d78815f05a0166c4a7c17882878bfd",
+          "passed": true,
+          "candidateId": "52219a48-f897-38c1-9ea2-2cc7ab79ae9d",
+          "inputChunks": 48,
+          "completionControl": "contact123-direct"
+        }
+      },
+      {
+        "request": "Create a playable Mario level seed=50 lengthTiles=72 gapTiles=3 secondGapTiles=2 pickupTile=18 goombaTile=28 obstacleTile=25 obstacleHeight=2 repairLimit=0 pickupStrategy=full",
+        "status": "completed",
+        "elapsedMs": 41149,
+        "trialOutcomes": [
+          "failed",
+          "won"
+        ],
+        "audit": {
+          "wins": 1,
+          "aiPickups": 0,
+          "aiEnemyLanding": {
+            "chosenContact": false,
+            "reason": "No predicted enemy contact in descending approach",
+            "chosenSupported": true,
+            "nanos": 2932800,
+            "ticks": 1,
+            "overrides": 0,
+            "desiredContact": false,
+            "horizontal": 1,
+            "checks": 96,
+            "threatLimit": 64,
+            "horizonTicks": 60,
+            "edgeStarts": 0,
+            "x": 9.038944,
+            "y": 0.6316163,
+            "override": false
+          },
+          "failures": 1,
+          "aiDamage": 0,
+          "aiPickupDeferrals": 0,
+          "aiContactAttempts": 0,
+          "repairCount": 0,
+          "aiOpportunity": {
+            "phase": "TRAVEL",
+            "returnsEnabled123": true,
+            "reason": "No optional wait or return",
+            "waitTicks": 0,
+            "waitStarts": 0,
+            "revisitTicks": 0,
+            "decisions": [],
+            "waitAborts": 0,
+            "waitsEnabled123": true,
+            "waitClears": 0,
+            "revisitStarts": 0,
+            "motion121": {
+              "reversals": 1,
+              "checks": 543,
+              "returnReach": 2.75,
+              "stabilityTicks": 30,
+              "tracked": 0,
+              "returnsEnabled": true,
+              "forecastRefusals": 0,
+              "events": [
+                {
+                  "afterVx": 0.6,
+                  "x": 6.6298227,
+                  "y": 0.6294743,
+                  "beforeVx": -0.6,
+                  "tick": 169,
+                  "objectId": "e6b05ad7-03e5-38db-ab9f-55284f6d8e8a"
+                }
+              ]
+            }
+          },
+          "existingAI": "won",
+          "pickupDecisions": [
+            {
+              "reason": "No observed ground beneath the pickup approach",
+              "kind": "BUMP_BLOCK",
+              "targetY": 1.375,
+              "targetX": 4.625,
+              "action": "declined for run",
+              "clearance": 0,
+              "tick": 71,
+              "objectId": "86622306-584a-359d-851c-0375b5be1a3b"
+            }
+          ],
+          "trials": 2,
+          "simpleControl": "failed",
+          "pickupStrategy": "full",
+          "scope": "Actual finish contact on this candidate; comparison is not a guarantee for unfamiliar levels. No procedure-bank admission or model training.",
+          "aiPickupSkips": 1,
+          "traceSha256": "51489d17e22fae8d1bcc295acc0c7cfd91744f876464fc07152e8168ad3cbbd8",
+          "passed": true,
+          "candidateId": "87f5c961-5ee6-3fd4-be21-e10780367a41",
+          "inputChunks": 67,
+          "completionControl": "contact122"
+        }
+      },
+      {
+        "request": "Create a playable Mario level gapTiles=10 pickupTile=17 goombaTile=45 pickupStrategy=direct.",
+        "status": "interrupted",
+        "elapsedMs": 19918,
+        "trialOutcomes": [
+          "failed",
+          "failed"
+        ],
+        "audit": null
+      }
+    ],
+    "actualAbruptRecovery": true,
+    "studyRows": 72,
+    "regressionExecutions": 18,
+    "measurements": {
+      "strategies": [
+        {
+          "wins": 3,
+          "damage": 0,
+          "wallSeconds": {
+            "min": 23.7078593,
+            "median": 23.976438,
+            "max": 24.1779129,
+            "mean": 23.954070066666663
+          },
+          "waitStarts": 0,
+          "pickups": 0,
+          "returnStarts": 0,
+          "strategy": "direct",
+          "repetitions": 3,
+          "deaths": 0,
+          "simulationSeconds": {
+            "min": 8.8,
+            "median": 8.8,
+            "max": 8.8,
+            "mean": 8.8
+          },
+          "partition": "development",
+          "case": "supported-return"
+        },
+        {
+          "wins": 3,
+          "damage": 0,
+          "wallSeconds": {
+            "min": 31.535012,
+            "median": 31.9737292,
+            "max": 32.2346142,
+            "mean": 31.9144518
+          },
+          "waitStarts": 0,
+          "pickups": 3,
+          "returnStarts": 3,
+          "strategy": "full",
+          "repetitions": 3,
+          "deaths": 0,
+          "simulationSeconds": {
+            "min": 14,
+            "median": 14,
+            "max": 14,
+            "mean": 14
+          },
+          "partition": "development",
+          "case": "supported-return"
+        },
+        {
+          "wins": 3,
+          "damage": 0,
+          "wallSeconds": {
+            "min": 23.8886901,
+            "median": 23.9522665,
+            "max": 24.0085388,
+            "mean": 23.9498318
+          },
+          "waitStarts": 0,
+          "pickups": 0,
+          "returnStarts": 0,
+          "strategy": "no-return",
+          "repetitions": 3,
+          "deaths": 0,
+          "simulationSeconds": {
+            "min": 8.8,
+            "median": 8.8,
+            "max": 8.8,
+            "mean": 8.8
+          },
+          "partition": "development",
+          "case": "supported-return"
+        },
+        {
+          "wins": 3,
+          "damage": 0,
+          "wallSeconds": {
+            "min": 31.7697328,
+            "median": 32.2210828,
+            "max": 32.4278742,
+            "mean": 32.13956326666666
+          },
+          "waitStarts": 0,
+          "pickups": 3,
+          "returnStarts": 3,
+          "strategy": "no-wait",
+          "repetitions": 3,
+          "deaths": 0,
+          "simulationSeconds": {
+            "min": 14,
+            "median": 14,
+            "max": 14,
+            "mean": 14
+          },
+          "partition": "development",
+          "case": "supported-return"
+        },
+        {
+          "wins": 3,
+          "damage": 0,
+          "wallSeconds": {
+            "min": 17.911127,
+            "median": 17.9991448,
+            "max": 18.3622644,
+            "mean": 18.090845400000003
+          },
+          "waitStarts": 0,
+          "pickups": 0,
+          "returnStarts": 0,
+          "strategy": "direct",
+          "repetitions": 3,
+          "deaths": 0,
+          "simulationSeconds": {
+            "min": 8,
+            "median": 8,
+            "max": 8,
+            "mean": 8
+          },
+          "partition": "development",
+          "case": "supported-wait"
+        },
+        {
+          "wins": 3,
+          "damage": 0,
+          "wallSeconds": {
+            "min": 22.1943917,
+            "median": 22.2614853,
+            "max": 24.7103632,
+            "mean": 23.055413400000003
+          },
+          "waitStarts": 3,
+          "pickups": 3,
+          "returnStarts": 0,
+          "strategy": "full",
+          "repetitions": 3,
+          "deaths": 0,
+          "simulationSeconds": {
+            "min": 10.8,
+            "median": 10.8,
+            "max": 10.8,
+            "mean": 10.800000000000002
+          },
+          "partition": "development",
+          "case": "supported-wait"
+        },
+        {
+          "wins": 3,
+          "damage": 0,
+          "wallSeconds": {
+            "min": 21.8133312,
+            "median": 22.2298064,
+            "max": 22.2796306,
+            "mean": 22.1075894
+          },
+          "waitStarts": 3,
+          "pickups": 3,
+          "returnStarts": 0,
+          "strategy": "no-return",
+          "repetitions": 3,
+          "deaths": 0,
+          "simulationSeconds": {
+            "min": 10.8,
+            "median": 10.8,
+            "max": 10.8,
+            "mean": 10.800000000000002
+          },
+          "partition": "development",
+          "case": "supported-wait"
+        },
+        {
+          "wins": 3,
+          "damage": 0,
+          "wallSeconds": {
+            "min": 18.0751272,
+            "median": 18.1303008,
+            "max": 18.4809444,
+            "mean": 18.2287908
+          },
+          "waitStarts": 0,
+          "pickups": 0,
+          "returnStarts": 0,
+          "strategy": "no-wait",
+          "repetitions": 3,
+          "deaths": 0,
+          "simulationSeconds": {
+            "min": 8,
+            "median": 8,
+            "max": 8,
+            "mean": 8
+          },
+          "partition": "development",
+          "case": "supported-wait"
+        },
+        {
+          "wins": 3,
+          "damage": 0,
+          "wallSeconds": {
+            "min": 22.7506869,
+            "median": 23.0687043,
+            "max": 23.1805135,
+            "mean": 22.999968233333334
+          },
+          "waitStarts": 0,
+          "pickups": 0,
+          "returnStarts": 0,
+          "strategy": "direct",
+          "repetitions": 3,
+          "deaths": 0,
+          "simulationSeconds": {
+            "min": 9.2,
+            "median": 9.2,
+            "max": 9.2,
+            "mean": 9.2
+          },
+          "partition": "development",
+          "case": "unsupported-pickup"
+        },
+        {
+          "wins": 3,
+          "damage": 0,
+          "wallSeconds": {
+            "min": 22.6438306,
+            "median": 22.9058392,
+            "max": 22.9856389,
+            "mean": 22.8451029
+          },
+          "waitStarts": 0,
+          "pickups": 0,
+          "returnStarts": 0,
+          "strategy": "full",
+          "repetitions": 3,
+          "deaths": 0,
+          "simulationSeconds": {
+            "min": 9.2,
+            "median": 9.2,
+            "max": 9.2,
+            "mean": 9.2
+          },
+          "partition": "development",
+          "case": "unsupported-pickup"
+        },
+        {
+          "wins": 3,
+          "damage": 0,
+          "wallSeconds": {
+            "min": 22.6193522,
+            "median": 22.9203952,
+            "max": 23.0470968,
+            "mean": 22.8622814
+          },
+          "waitStarts": 0,
+          "pickups": 0,
+          "returnStarts": 0,
+          "strategy": "no-return",
+          "repetitions": 3,
+          "deaths": 0,
+          "simulationSeconds": {
+            "min": 9.2,
+            "median": 9.2,
+            "max": 9.2,
+            "mean": 9.2
+          },
+          "partition": "development",
+          "case": "unsupported-pickup"
+        },
+        {
+          "wins": 3,
+          "damage": 0,
+          "wallSeconds": {
+            "min": 22.892396,
+            "median": 23.0001773,
+            "max": 23.244184,
+            "mean": 23.045585766666665
+          },
+          "waitStarts": 0,
+          "pickups": 0,
+          "returnStarts": 0,
+          "strategy": "no-wait",
+          "repetitions": 3,
+          "deaths": 0,
+          "simulationSeconds": {
+            "min": 9.2,
+            "median": 9.2,
+            "max": 9.2,
+            "mean": 9.2
+          },
+          "partition": "development",
+          "case": "unsupported-pickup"
+        },
+        {
+          "wins": 3,
+          "damage": 0,
+          "wallSeconds": {
+            "min": 25.0578395,
+            "median": 25.2945745,
+            "max": 25.5555413,
+            "mean": 25.302651766666667
+          },
+          "waitStarts": 0,
+          "pickups": 3,
+          "returnStarts": 0,
+          "strategy": "direct",
+          "repetitions": 3,
+          "deaths": 0,
+          "simulationSeconds": {
+            "min": 9.8,
+            "median": 9.8,
+            "max": 9.8,
+            "mean": 9.8
+          },
+          "partition": "reserved",
+          "case": "fresh-return"
+        },
+        {
+          "wins": 3,
+          "damage": 0,
+          "wallSeconds": {
+            "min": 25.4151398,
+            "median": 25.5019404,
+            "max": 26.1718933,
+            "mean": 25.6963245
+          },
+          "waitStarts": 0,
+          "pickups": 3,
+          "returnStarts": 0,
+          "strategy": "full",
+          "repetitions": 3,
+          "deaths": 0,
+          "simulationSeconds": {
+            "min": 9.8,
+            "median": 9.8,
+            "max": 9.8,
+            "mean": 9.8
+          },
+          "partition": "reserved",
+          "case": "fresh-return"
+        },
+        {
+          "wins": 3,
+          "damage": 0,
+          "wallSeconds": {
+            "min": 25.4742781,
+            "median": 25.5703852,
+            "max": 25.6593106,
+            "mean": 25.5679913
+          },
+          "waitStarts": 0,
+          "pickups": 3,
+          "returnStarts": 0,
+          "strategy": "no-return",
+          "repetitions": 3,
+          "deaths": 0,
+          "simulationSeconds": {
+            "min": 9.8,
+            "median": 9.8,
+            "max": 9.8,
+            "mean": 9.8
+          },
+          "partition": "reserved",
+          "case": "fresh-return"
+        },
+        {
+          "wins": 3,
+          "damage": 0,
+          "wallSeconds": {
+            "min": 25.389609,
+            "median": 25.4239627,
+            "max": 25.6605365,
+            "mean": 25.4913694
+          },
+          "waitStarts": 0,
+          "pickups": 3,
+          "returnStarts": 0,
+          "strategy": "no-wait",
+          "repetitions": 3,
+          "deaths": 0,
+          "simulationSeconds": {
+            "min": 9.8,
+            "median": 9.8,
+            "max": 9.8,
+            "mean": 9.8
+          },
+          "partition": "reserved",
+          "case": "fresh-return"
+        },
+        {
+          "wins": 3,
+          "damage": 0,
+          "wallSeconds": {
+            "min": 17.8664056,
+            "median": 18.009664,
+            "max": 18.1299841,
+            "mean": 18.002017900000002
+          },
+          "waitStarts": 0,
+          "pickups": 0,
+          "returnStarts": 0,
+          "strategy": "direct",
+          "repetitions": 3,
+          "deaths": 0,
+          "simulationSeconds": {
+            "min": 8,
+            "median": 8,
+            "max": 8,
+            "mean": 8
+          },
+          "partition": "reserved",
+          "case": "fresh-wait"
+        },
+        {
+          "wins": 3,
+          "damage": 0,
+          "wallSeconds": {
+            "min": 22.1263705,
+            "median": 22.8120528,
+            "max": 24.1151531,
+            "mean": 23.0178588
+          },
+          "waitStarts": 3,
+          "pickups": 3,
+          "returnStarts": 0,
+          "strategy": "full",
+          "repetitions": 3,
+          "deaths": 0,
+          "simulationSeconds": {
+            "min": 11.2,
+            "median": 11.2,
+            "max": 11.2,
+            "mean": 11.199999999999998
+          },
+          "partition": "reserved",
+          "case": "fresh-wait"
+        },
+        {
+          "wins": 3,
+          "damage": 0,
+          "wallSeconds": {
+            "min": 22.4119529,
+            "median": 22.5978306,
+            "max": 22.9003952,
+            "mean": 22.636726233333334
+          },
+          "waitStarts": 3,
+          "pickups": 3,
+          "returnStarts": 0,
+          "strategy": "no-return",
+          "repetitions": 3,
+          "deaths": 0,
+          "simulationSeconds": {
+            "min": 11.2,
+            "median": 11.2,
+            "max": 11.2,
+            "mean": 11.199999999999998
+          },
+          "partition": "reserved",
+          "case": "fresh-wait"
+        },
+        {
+          "wins": 3,
+          "damage": 0,
+          "wallSeconds": {
+            "min": 17.9363726,
+            "median": 18.1137615,
+            "max": 18.2098785,
+            "mean": 18.086670866666665
+          },
+          "waitStarts": 0,
+          "pickups": 0,
+          "returnStarts": 0,
+          "strategy": "no-wait",
+          "repetitions": 3,
+          "deaths": 0,
+          "simulationSeconds": {
+            "min": 8,
+            "median": 8,
+            "max": 8,
+            "mean": 8
+          },
+          "partition": "reserved",
+          "case": "fresh-wait"
+        },
+        {
+          "wins": 3,
+          "damage": 0,
+          "wallSeconds": {
+            "min": 25.6664373,
+            "median": 25.9713433,
+            "max": 26.3408692,
+            "mean": 25.992883266666666
+          },
+          "waitStarts": 0,
+          "pickups": 3,
+          "returnStarts": 0,
+          "strategy": "direct",
+          "repetitions": 3,
+          "deaths": 0,
+          "simulationSeconds": {
+            "min": 9.8,
+            "median": 9.8,
+            "max": 9.8,
+            "mean": 9.8
+          },
+          "partition": "software",
+          "case": "fresh-return"
+        },
+        {
+          "wins": 3,
+          "damage": 0,
+          "wallSeconds": {
+            "min": 25.7667058,
+            "median": 25.8947059,
+            "max": 27.4849332,
+            "mean": 26.382114966666666
+          },
+          "waitStarts": 0,
+          "pickups": 3,
+          "returnStarts": 0,
+          "strategy": "full",
+          "repetitions": 3,
+          "deaths": 0,
+          "simulationSeconds": {
+            "min": 9.8,
+            "median": 9.8,
+            "max": 9.8,
+            "mean": 9.8
+          },
+          "partition": "software",
+          "case": "fresh-return"
+        },
+        {
+          "wins": 3,
+          "damage": 0,
+          "wallSeconds": {
+            "min": 25.8202613,
+            "median": 25.8830133,
+            "max": 26.0954569,
+            "mean": 25.932910500000002
+          },
+          "waitStarts": 0,
+          "pickups": 3,
+          "returnStarts": 0,
+          "strategy": "no-return",
+          "repetitions": 3,
+          "deaths": 0,
+          "simulationSeconds": {
+            "min": 9.8,
+            "median": 9.8,
+            "max": 9.8,
+            "mean": 9.8
+          },
+          "partition": "software",
+          "case": "fresh-return"
+        },
+        {
+          "wins": 3,
+          "damage": 0,
+          "wallSeconds": {
+            "min": 25.9232941,
+            "median": 25.9423925,
+            "max": 26.3817158,
+            "mean": 26.082467466666667
+          },
+          "waitStarts": 0,
+          "pickups": 3,
+          "returnStarts": 0,
+          "strategy": "no-wait",
+          "repetitions": 3,
+          "deaths": 0,
+          "simulationSeconds": {
+            "min": 9.8,
+            "median": 9.8,
+            "max": 9.8,
+            "mean": 9.8
+          },
+          "partition": "software",
+          "case": "fresh-return"
+        }
+      ],
+      "comparisons": [
+        {
+          "elapsedDeltaSeconds": {
+            "min": -0.6860708,
+            "median": -0.454145,
+            "max": 0.4648814,
+            "mean": -0.22511146666666668
+          },
+          "safePairedFinishes": true,
+          "assessment": "No additional pickup benefit demonstrated",
+          "comparison": "no-wait",
+          "extraPickups": {
+            "min": 0,
+            "median": 0,
+            "max": 0,
+            "mean": 0
+          },
+          "enabled": "full",
+          "pairs": 3,
+          "partition": "development",
+          "case": "supported-return"
+        },
+        {
+          "elapsedDeltaSeconds": {
+            "min": 7.6463219,
+            "median": 7.9651904,
+            "max": 8.2823477,
+            "mean": 7.96462
+          },
+          "safePairedFinishes": true,
+          "assessment": "Extra pickup in every repeat: compare its value with the measured cost threshold",
+          "comparison": "no-return",
+          "extraPickups": {
+            "min": 1,
+            "median": 1,
+            "max": 1,
+            "mean": 1
+          },
+          "enabled": "full",
+          "pairs": 3,
+          "observedConservativeSecondsPerExtraPickup": 8.2823477,
+          "partition": "development",
+          "case": "supported-return"
+        },
+        {
+          "elapsedDeltaSeconds": {
+            "min": -0.2892228,
+            "median": 0.0321008,
+            "max": 0.2444072,
+            "mean": -0.004238266666666675
+          },
+          "safePairedFinishes": true,
+          "assessment": "No additional pickup benefit demonstrated",
+          "comparison": "direct",
+          "extraPickups": {
+            "min": 0,
+            "median": 0,
+            "max": 0,
+            "mean": 0
+          },
+          "enabled": "no-return",
+          "pairs": 3,
+          "partition": "development",
+          "case": "supported-return"
+        },
+        {
+          "elapsedDeltaSeconds": {
+            "min": 8.0431699,
+            "median": 8.0618735,
+            "max": 8.4514362,
+            "mean": 8.185493200000002
+          },
+          "safePairedFinishes": true,
+          "assessment": "Extra pickup in every repeat: compare its value with the measured cost threshold",
+          "comparison": "direct",
+          "extraPickups": {
+            "min": 1,
+            "median": 1,
+            "max": 1,
+            "mean": 1
+          },
+          "enabled": "no-wait",
+          "pairs": 3,
+          "observedConservativeSecondsPerExtraPickup": 8.4514362,
+          "partition": "development",
+          "case": "supported-return"
+        },
+        {
+          "elapsedDeltaSeconds": {
+            "min": 7.3570991,
+            "median": 7.9972912,
+            "max": 8.5267549,
+            "mean": 7.960381733333333
+          },
+          "safePairedFinishes": true,
+          "assessment": "Extra pickup in every repeat: compare its value with the measured cost threshold",
+          "comparison": "direct",
+          "extraPickups": {
+            "min": 1,
+            "median": 1,
+            "max": 1,
+            "mean": 1
+          },
+          "enabled": "full",
+          "pairs": 3,
+          "observedConservativeSecondsPerExtraPickup": 8.5267549,
+          "partition": "development",
+          "case": "supported-return"
+        },
+        {
+          "elapsedDeltaSeconds": {
+            "min": 4.0640909,
+            "median": 4.1863581,
+            "max": 6.2294188,
+            "mean": 4.8266226
+          },
+          "safePairedFinishes": true,
+          "assessment": "Extra pickup in every repeat: compare its value with the measured cost threshold",
+          "comparison": "no-wait",
+          "extraPickups": {
+            "min": 1,
+            "median": 1,
+            "max": 1,
+            "mean": 1
+          },
+          "enabled": "full",
+          "pairs": 3,
+          "observedConservativeSecondsPerExtraPickup": 6.2294188,
+          "partition": "development",
+          "case": "supported-wait"
+        },
+        {
+          "elapsedDeltaSeconds": {
+            "min": -0.0852389,
+            "median": 0.4481541,
+            "max": 2.4805568,
+            "mean": 0.9478239999999999
+          },
+          "safePairedFinishes": true,
+          "assessment": "No additional pickup benefit demonstrated",
+          "comparison": "no-return",
+          "extraPickups": {
+            "min": 0,
+            "median": 0,
+            "max": 0,
+            "mean": 0
+          },
+          "enabled": "full",
+          "pairs": 3,
+          "partition": "development",
+          "case": "supported-wait"
+        },
+        {
+          "elapsedDeltaSeconds": {
+            "min": 3.9022042,
+            "median": 3.9173662,
+            "max": 4.2306616,
+            "mean": 4.016744
+          },
+          "safePairedFinishes": true,
+          "assessment": "Extra pickup in every repeat: compare its value with the measured cost threshold",
+          "comparison": "direct",
+          "extraPickups": {
+            "min": 1,
+            "median": 1,
+            "max": 1,
+            "mean": 1
+          },
+          "enabled": "no-return",
+          "pairs": 3,
+          "observedConservativeSecondsPerExtraPickup": 4.2306616,
+          "partition": "development",
+          "case": "supported-wait"
+        },
+        {
+          "elapsedDeltaSeconds": {
+            "min": -0.2319636,
+            "median": 0.1640002,
+            "max": 0.4817996,
+            "mean": 0.1379454
+          },
+          "safePairedFinishes": true,
+          "assessment": "No additional pickup benefit demonstrated",
+          "comparison": "direct",
+          "extraPickups": {
+            "min": 0,
+            "median": 0,
+            "max": 0,
+            "mean": 0
+          },
+          "enabled": "no-wait",
+          "pairs": 3,
+          "partition": "development",
+          "case": "supported-wait"
+        },
+        {
+          "elapsedDeltaSeconds": {
+            "min": 3.8321273,
+            "median": 4.3503583,
+            "max": 6.7112184,
+            "mean": 4.964568
+          },
+          "safePairedFinishes": true,
+          "assessment": "Extra pickup in every repeat: compare its value with the measured cost threshold",
+          "comparison": "direct",
+          "extraPickups": {
+            "min": 1,
+            "median": 1,
+            "max": 1,
+            "mean": 1
+          },
+          "enabled": "full",
+          "pairs": 3,
+          "observedConservativeSecondsPerExtraPickup": 6.7112184,
+          "partition": "development",
+          "case": "supported-wait"
+        },
+        {
+          "elapsedDeltaSeconds": {
+            "min": -0.3563467,
+            "median": -0.3383448,
+            "max": 0.0932429,
+            "mean": -0.20048286666666668
+          },
+          "safePairedFinishes": true,
+          "assessment": "No additional pickup benefit demonstrated",
+          "comparison": "no-wait",
+          "extraPickups": {
+            "min": 0,
+            "median": 0,
+            "max": 0,
+            "mean": 0
+          },
+          "enabled": "full",
+          "pairs": 3,
+          "partition": "development",
+          "case": "unsupported-pickup"
+        },
+        {
+          "elapsedDeltaSeconds": {
+            "min": -0.4032662,
+            "median": -0.014556,
+            "max": 0.3662867,
+            "mean": -0.017178500000000003
+          },
+          "safePairedFinishes": true,
+          "assessment": "No additional pickup benefit demonstrated",
+          "comparison": "no-return",
+          "extraPickups": {
+            "min": 0,
+            "median": 0,
+            "max": 0,
+            "mean": 0
+          },
+          "enabled": "full",
+          "pairs": 3,
+          "partition": "development",
+          "case": "unsupported-pickup"
+        },
+        {
+          "elapsedDeltaSeconds": {
+            "min": -0.4493521,
+            "median": -0.1334167,
+            "max": 0.1697083,
+            "mean": -0.1376868333333333
+          },
+          "safePairedFinishes": true,
+          "assessment": "No additional pickup benefit demonstrated",
+          "comparison": "direct",
+          "extraPickups": {
+            "min": 0,
+            "median": 0,
+            "max": 0,
+            "mean": 0
+          },
+          "enabled": "no-return",
+          "pairs": 3,
+          "partition": "development",
+          "case": "unsupported-pickup"
+        },
+        {
+          "elapsedDeltaSeconds": {
+            "min": -0.1803362,
+            "median": -0.1763083,
+            "max": 0.4934971,
+            "mean": 0.04561753333333333
+          },
+          "safePairedFinishes": true,
+          "assessment": "No additional pickup benefit demonstrated",
+          "comparison": "direct",
+          "extraPickups": {
+            "min": 0,
+            "median": 0,
+            "max": 0,
+            "mean": 0
+          },
+          "enabled": "no-wait",
+          "pairs": 3,
+          "partition": "development",
+          "case": "unsupported-pickup"
+        },
+        {
+          "elapsedDeltaSeconds": {
+            "min": -0.5366829,
+            "median": -0.0830654,
+            "max": 0.1551523,
+            "mean": -0.15486533333333333
+          },
+          "safePairedFinishes": true,
+          "assessment": "No additional pickup benefit demonstrated",
+          "comparison": "direct",
+          "extraPickups": {
+            "min": 0,
+            "median": 0,
+            "max": 0,
+            "mean": 0
+          },
+          "enabled": "full",
+          "pairs": 3,
+          "partition": "development",
+          "case": "unsupported-pickup"
+        },
+        {
+          "elapsedDeltaSeconds": {
+            "min": -0.0088229,
+            "median": 0.1123314,
+            "max": 0.5113568,
+            "mean": 0.20495509999999997
+          },
+          "safePairedFinishes": true,
+          "assessment": "No additional pickup benefit demonstrated",
+          "comparison": "no-wait",
+          "extraPickups": {
+            "min": 0,
+            "median": 0,
+            "max": 0,
+            "mean": 0
+          },
+          "enabled": "full",
+          "pairs": 3,
+          "partition": "reserved",
+          "case": "fresh-return"
+        },
+        {
+          "elapsedDeltaSeconds": {
+            "min": -0.1552454,
+            "median": 0.0276623,
+            "max": 0.5125827,
+            "mean": 0.12833319999999998
+          },
+          "safePairedFinishes": true,
+          "assessment": "No additional pickup benefit demonstrated",
+          "comparison": "no-return",
+          "extraPickups": {
+            "min": 0,
+            "median": 0,
+            "max": 0,
+            "mean": 0
+          },
+          "enabled": "full",
+          "pairs": 3,
+          "partition": "reserved",
+          "case": "fresh-return"
+        },
+        {
+          "elapsedDeltaSeconds": {
+            "min": 0.0148439,
+            "median": 0.3647361,
+            "max": 0.4164386,
+            "mean": 0.2653395333333333
+          },
+          "safePairedFinishes": true,
+          "assessment": "No additional pickup benefit demonstrated",
+          "comparison": "direct",
+          "extraPickups": {
+            "min": 0,
+            "median": 0,
+            "max": 0,
+            "mean": 0
+          },
+          "enabled": "no-return",
+          "pairs": 3,
+          "partition": "reserved",
+          "case": "fresh-return"
+        },
+        {
+          "elapsedDeltaSeconds": {
+            "min": -0.1315786,
+            "median": 0.3317695,
+            "max": 0.365962,
+            "mean": 0.18871763333333336
+          },
+          "safePairedFinishes": true,
+          "assessment": "No additional pickup benefit demonstrated",
+          "comparison": "direct",
+          "extraPickups": {
+            "min": 0,
+            "median": 0,
+            "max": 0,
+            "mean": 0
+          },
+          "enabled": "no-wait",
+          "pairs": 3,
+          "partition": "reserved",
+          "case": "fresh-return"
+        },
+        {
+          "elapsedDeltaSeconds": {
+            "min": -0.1404015,
+            "median": 0.4441009,
+            "max": 0.8773188,
+            "mean": 0.39367273333333336
+          },
+          "safePairedFinishes": true,
+          "assessment": "No additional pickup benefit demonstrated",
+          "comparison": "direct",
+          "extraPickups": {
+            "min": 0,
+            "median": 0,
+            "max": 0,
+            "mean": 0
+          },
+          "enabled": "full",
+          "pairs": 3,
+          "partition": "reserved",
+          "case": "fresh-return"
+        },
+        {
+          "elapsedDeltaSeconds": {
+            "min": 3.916492,
+            "median": 4.6982913,
+            "max": 6.1787805,
+            "mean": 4.931187933333334
+          },
+          "safePairedFinishes": true,
+          "assessment": "Extra pickup in every repeat: compare its value with the measured cost threshold",
+          "comparison": "no-wait",
+          "extraPickups": {
+            "min": 1,
+            "median": 1,
+            "max": 1,
+            "mean": 1
+          },
+          "enabled": "full",
+          "pairs": 3,
+          "observedConservativeSecondsPerExtraPickup": 6.1787805,
+          "partition": "reserved",
+          "case": "fresh-wait"
+        },
+        {
+          "elapsedDeltaSeconds": {
+            "min": -0.4714601,
+            "median": 0.4000999,
+            "max": 1.2147579,
+            "mean": 0.3811325666666667
+          },
+          "safePairedFinishes": true,
+          "assessment": "No additional pickup benefit demonstrated",
+          "comparison": "no-return",
+          "extraPickups": {
+            "min": 0,
+            "median": 0,
+            "max": 0,
+            "mean": 0
+          },
+          "enabled": "full",
+          "pairs": 3,
+          "partition": "reserved",
+          "case": "fresh-wait"
+        },
+        {
+          "elapsedDeltaSeconds": {
+            "min": 4.2819688,
+            "median": 4.5881666,
+            "max": 5.0339896,
+            "mean": 4.634708333333333
+          },
+          "safePairedFinishes": true,
+          "assessment": "Extra pickup in every repeat: compare its value with the measured cost threshold",
+          "comparison": "direct",
+          "extraPickups": {
+            "min": 1,
+            "median": 1,
+            "max": 1,
+            "mean": 1
+          },
+          "enabled": "no-return",
+          "pairs": 3,
+          "observedConservativeSecondsPerExtraPickup": 5.0339896,
+          "partition": "reserved",
+          "case": "fresh-wait"
+        },
+        {
+          "elapsedDeltaSeconds": {
+            "min": -0.0162226,
+            "median": 0.069967,
+            "max": 0.2002145,
+            "mean": 0.08465296666666666
+          },
+          "safePairedFinishes": true,
+          "assessment": "No additional pickup benefit demonstrated",
+          "comparison": "direct",
+          "extraPickups": {
+            "min": 0,
+            "median": 0,
+            "max": 0,
+            "mean": 0
+          },
+          "enabled": "no-wait",
+          "pairs": 3,
+          "partition": "reserved",
+          "case": "fresh-wait"
+        },
+        {
+          "elapsedDeltaSeconds": {
+            "min": 4.1167065,
+            "median": 4.6820687,
+            "max": 6.2487475,
+            "mean": 5.015840900000001
+          },
+          "safePairedFinishes": true,
+          "assessment": "Extra pickup in every repeat: compare its value with the measured cost threshold",
+          "comparison": "direct",
+          "extraPickups": {
+            "min": 1,
+            "median": 1,
+            "max": 1,
+            "mean": 1
+          },
+          "enabled": "full",
+          "pairs": 3,
+          "observedConservativeSecondsPerExtraPickup": 6.2487475,
+          "partition": "reserved",
+          "case": "fresh-wait"
+        },
+        {
+          "elapsedDeltaSeconds": {
+            "min": -0.1756867,
+            "median": -0.0285882,
+            "max": 1.1032174,
+            "mean": 0.29964749999999996
+          },
+          "safePairedFinishes": true,
+          "assessment": "No additional pickup benefit demonstrated",
+          "comparison": "no-wait",
+          "extraPickups": {
+            "min": 0,
+            "median": 0,
+            "max": 0,
+            "mean": 0
+          },
+          "enabled": "full",
+          "pairs": 3,
+          "partition": "software",
+          "case": "fresh-return"
+        },
+        {
+          "elapsedDeltaSeconds": {
+            "min": -0.200751,
+            "median": -0.1163075,
+            "max": 1.6646719,
+            "mean": 0.44920446666666675
+          },
+          "safePairedFinishes": true,
+          "assessment": "No additional pickup benefit demonstrated",
+          "comparison": "no-return",
+          "extraPickups": {
+            "min": 0,
+            "median": 0,
+            "max": 0,
+            "mean": 0
+          },
+          "enabled": "full",
+          "pairs": 3,
+          "partition": "software",
+          "case": "fresh-return"
+        },
+        {
+          "elapsedDeltaSeconds": {
+            "min": -0.5206079,
+            "median": -0.08833,
+            "max": 0.4290196,
+            "mean": -0.05997276666666668
+          },
+          "safePairedFinishes": true,
+          "assessment": "No additional pickup benefit demonstrated",
+          "comparison": "direct",
+          "extraPickups": {
+            "min": 0,
+            "median": 0,
+            "max": 0,
+            "mean": 0
+          },
+          "enabled": "no-return",
+          "pairs": 3,
+          "partition": "software",
+          "case": "fresh-return"
+        },
+        {
+          "elapsedDeltaSeconds": {
+            "min": -0.0289508,
+            "median": 0.0408466,
+            "max": 0.2568568,
+            "mean": 0.0895842
+          },
+          "safePairedFinishes": true,
+          "assessment": "No additional pickup benefit demonstrated",
+          "comparison": "direct",
+          "extraPickups": {
+            "min": 0,
+            "median": 0,
+            "max": 0,
+            "mean": 0
+          },
+          "enabled": "no-wait",
+          "pairs": 3,
+          "partition": "software",
+          "case": "fresh-return"
+        },
+        {
+          "elapsedDeltaSeconds": {
+            "min": -0.2046375,
+            "median": 0.2282686,
+            "max": 1.144064,
+            "mean": 0.3892317
+          },
+          "safePairedFinishes": true,
+          "assessment": "No additional pickup benefit demonstrated",
+          "comparison": "direct",
+          "extraPickups": {
+            "min": 0,
+            "median": 0,
+            "max": 0,
+            "mean": 0
+          },
+          "enabled": "full",
+          "pairs": 3,
+          "partition": "software",
+          "case": "fresh-return"
+        }
+      ],
+      "scope": "Measured complete Java task calls, source/outcome verification, persistence and shutdown. UI scheduling and study report writing are separate. Observed ranges from repeated timings are not statistical confidence bounds. No automatic policy promotion or assigned user value.",
+      "rows": 72,
+      "repetitionsPerApproach": 3,
+      "pilotExcluded": true,
+      "controllerTunedAfterReserved": false
+    },
+    "referenceControllerResults": {
+      "hardware": {
+        "cases": 6,
+        "refusals": 4,
+        "aiWins": 6
+      },
+      "software": {
+        "cases": 6,
+        "refusals": 4,
+        "aiWins": 6
+      }
+    },
+    "modelCalls": 0,
+    "guideWidths": [
+      1440,
+      390
+    ],
+    "scope": "Same contact122 controller with explicit wait/return ablations. Full Java workflow timing and separate actual app timings. All source and outcome checks retained. No automatic cost policy, user value assumption, neural training or skill promotion."
+  },
+  "ci": {
+    "scope": "CI checked before implementation: edition122 main/release were running and completed edition121 runs succeeded. Local verification and fetched publication do not establish edition123 hosted CI success.",
+    "releaseCheck": {
+      "checkedAtUtc": "2026-11-12T13:52:32.453355+00:00",
+      "runs": [
+        {
+          "id": 43231218250,
+          "head_sha": "2083ce78e4f1f1f8d36f61b88e58199f03d04762",
+          "event": "push",
+          "status": "in_progress",
+          "conclusion": null,
+          "html_url": "https://github.com/eyeoverthink/Fraynix-Agent-Workspace/actions/runs/43231218250",
+          "created_at": "2026-11-12T13:50:53Z",
+          "updated_at": "2026-11-12T13:50:57Z"
+        },
+        {
+          "id": 43200530305,
+          "head_sha": "98d0724b049fcaab9ec451e626b256a785b0000d",
+          "event": "push",
+          "status": "in_progress",
+          "conclusion": null,
+          "html_url": "https://github.com/eyeoverthink/Fraynix-Agent-Workspace/actions/runs/43200530305",
+          "created_at": "2026-11-12T10:27:26Z",
+          "updated_at": "2026-11-12T10:27:30Z"
+        },
+        {
+          "id": 43200200568,
+          "head_sha": "5624de073acb0846928f6e397628ff0417fccb10",
+          "event": "push",
+          "status": "in_progress",
+          "conclusion": null,
+          "html_url": "https://github.com/eyeoverthink/Fraynix-Agent-Workspace/actions/runs/43200200568",
+          "created_at": "2026-11-12T10:25:11Z",
+          "updated_at": "2026-11-12T10:25:16Z"
+        },
+        {
+          "id": 43137995452,
+          "head_sha": "cdc5bdcb3ee8a4871a21be8bde876e233cc50a38",
+          "event": "push",
+          "status": "completed",
+          "conclusion": "success",
+          "html_url": "https://github.com/eyeoverthink/Fraynix-Agent-Workspace/actions/runs/43137995452",
+          "created_at": "2026-11-12T01:57:12Z",
+          "updated_at": "2026-11-12T05:58:53Z"
+        }
+      ]
+    }
+  }
+}
