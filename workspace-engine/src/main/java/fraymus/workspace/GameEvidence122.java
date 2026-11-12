@@ -3,7 +3,7 @@ import org.json.*;
 /** Additional bounded forecast receipt checks; original provenance and outcome gates still apply. */
 final class GameEvidence122 {
  static void verify(JSONObject c,int tick){
-  if(!c.getString("policy").equals("contact122"))return;
+  if(!GameStrategy123.applies(c.getString("policy")))return;
   GameEvidence121.verify(c,tick);var e=c.getJSONObject("enemyLanding122");
   long checks=e.getLong("checks"),overrides=e.getLong("overrides");int edges=e.getInt("edgeStarts");
   if(checks<0||checks>tick||overrides<0||overrides>checks||e.getLong("nanos")<0||e.getInt("horizonTicks")!=60||e.getInt("threatLimit")!=64||edges<0||edges>3||edges!=c.getJSONObject("contactRecovery119").getInt("edgeStarts122"))throw new IllegalStateException("Invalid bounded enemy landing counters");

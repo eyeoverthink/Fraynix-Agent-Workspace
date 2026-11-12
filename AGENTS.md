@@ -1,3 +1,7 @@
+## Edition123 - full-cost pickup study in progress
+
+Read docs/EDITION_123_CONTRACT.md. Isolated123 from98d0724b. CI122 still running; previous121 green. Same-controller four-way comparison, three repetitions, full durable costs, safety first. Default unchanged. No delegation/heavy overlap; private worlds and frozen001-122 preserved. Not published yet.
+
 ## Edition122 — published and fetched back
 
 2026-11-12 America/Los_Angeles. Isolated S:/Codex-Work/fraynix-workspace-edition122; parent cdc5bdcb. Source f271e30006e032e3ce0c553d8840be72754c5aad. CI first:121 main43137995452 and release43137761304 both SUCCESS. Release 5624de073acb0846928f6e397628ff0417fccb10; annotated readme-122. Main, edition122 and tag pushed atomically and fetched. Verified 1499 canonical sources, 43082 frozen hashes across122 editions and 1180 original evidence entries. See docs/PUBLICATION_122.json.

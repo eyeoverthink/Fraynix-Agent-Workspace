@@ -8,9 +8,10 @@ import java.util.*;
 /** One bounded wait/return per remembered object. Only observes physics and proposes goals. */
 public final class PickupOpportunity120 {
  private final OpportunityMotion121 motion;
- private final boolean returnsEnabled;
+ private final boolean returnsEnabled,waitsEnabled;
  public PickupOpportunity120(){this(false,true);}
- public PickupOpportunity120(boolean observedMotion,boolean returnsEnabled){this.motion=observedMotion?new OpportunityMotion121():null;this.returnsEnabled=returnsEnabled;}
+ public PickupOpportunity120(boolean observedMotion,boolean returnsEnabled){this(observedMotion,returnsEnabled,true);}
+ public PickupOpportunity120(boolean observedMotion,boolean returnsEnabled,boolean waitsEnabled){this.motion=observedMotion?new OpportunityMotion121():null;this.returnsEnabled=returnsEnabled;this.waitsEnabled=waitsEnabled;}
  private final Set<UUID> waited=new HashSet<>(),returned=new HashSet<>();
  private GameObject waiting,revisiting;private long until;private float holdX;
  private int waitTicks,waitStarts,waitClears,waitAborts,revisitTicks,revisitStarts,plannedTicks;
@@ -58,12 +59,12 @@ public final class PickupOpportunity120 {
    }
    waitTicks++;holding=true;return true;
   }
-  if(goal.kind()!=PowerupPlanner.Kind.BUMP_BLOCK||waited.contains(goal.object().getPersistentId())||waitStarts>=3||waitTicks>=360||!risk.reason().equals("Enemy motion intersects the pickup approach")||!holdSafe(scene,player))return false;
+  if(!waitsEnabled||goal.kind()!=PowerupPlanner.Kind.BUMP_BLOCK||waited.contains(goal.object().getPersistentId())||waitStarts>=3||waitTicks>=360||!risk.reason().equals("Enemy motion intersects the pickup approach")||!holdSafe(scene,player))return false;
   var plan=OpportunityTiming120.plan(player.transform.position.x,goal.x(),risk.supportY(),enemies(scene));
   if(!plan.worthwhile()||plan.ticks()>360-waitTicks||(motion!=null&&!motion.predictable(scene,player,goal.x(),plan.ticks(),tick)))return false;
   waited.add(goal.object().getPersistentId());waiting=goal.object();holdX=player.transform.position.x;until=tick+180;plannedTicks=plan.ticks();waitStarts++;waitTicks++;holding=true;record(tick,waiting,"wait-started",plan.reason());return true;
  }
  public boolean returning(){return motion!=null&&revisiting!=null;}
  public boolean holding(){return holding;}
- public Map<String,Object> observation(){var out=new LinkedHashMap<String,Object>();out.put("phase",holding?"WAIT":revisiting!=null?"REVISIT":"TRAVEL");out.put("waitTicks",waitTicks);out.put("waitStarts",waitStarts);out.put("waitClears",waitClears);out.put("waitAborts",waitAborts);out.put("revisitTicks",revisitTicks);out.put("revisitStarts",revisitStarts);out.put("reason",reason);out.put("decisions",new ArrayList<>(decisions));if(motion!=null)out.put("motion121",motion.observation(returnsEnabled));return out;}
+ public Map<String,Object> observation(){var out=new LinkedHashMap<String,Object>();out.put("waitsEnabled123",waitsEnabled);out.put("returnsEnabled123",returnsEnabled);out.put("phase",holding?"WAIT":revisiting!=null?"REVISIT":"TRAVEL");out.put("waitTicks",waitTicks);out.put("waitStarts",waitStarts);out.put("waitClears",waitClears);out.put("waitAborts",waitAborts);out.put("revisitTicks",revisitTicks);out.put("revisitStarts",revisitStarts);out.put("reason",reason);out.put("decisions",new ArrayList<>(decisions));if(motion!=null)out.put("motion121",motion.observation(returnsEnabled));return out;}
 }
