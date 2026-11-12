@@ -113,6 +113,8 @@ For explicit calibration use the same request with `pickupStrategy=direct` or `p
 
 {{VALIDATION}}
 
+The broad regression pass preceded the final admission-interruption guard. That guard receives a focused recheck, and final development/reserved/software datasets plus actual chat run with it. The native controller and original task verifier remain unchanged. Exact scope and earlier attempts are retained in the evidence.
+
 | Actual chat request | Elapsed seconds | Status | Verified pickups |
 | --- | --- | --- | --- |
 {{CHAT_ROWS}}

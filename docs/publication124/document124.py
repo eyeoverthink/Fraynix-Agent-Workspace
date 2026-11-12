@@ -9,6 +9,7 @@ def sha(b):return hashlib.sha256(b).hexdigest()
 datasets={k:read(f'workspace-engine/build/budget124-{k}/result.json') for k in ['development','reserved','software']}
 assert [len(datasets[k]['rows']) for k in datasets]==[27,4,9]
 assert all(d['passed'] for d in datasets.values())
+assert read('build/final-recheck124.json')['passed']
 uiroot=r/'build/game124-ui';ui=read(uiroot/'result.json');assert ui['passed'] and len(ui['requests'])==11
 shots=['budget-controls.png','budget-0.png','budget-4.png','budget-30.png','unknown-scene.png','failed-course.png','budget-1100.png','return-live.png','collected-after-return.png']
 for n in shots:shutil.copy2(uiroot/n,out/n)
@@ -40,7 +41,7 @@ for partition,d in datasets.items():
   rows.append({'partition':partition,'case':row['case'],'allowance':decision['allowance'],'selected':decision['selected'],'requiredSecondsPerPickup':full.get('requiredSecondsPerPickup'),'reason':full['reason'],'pickups':m['audit']['aiPickups'],'completionCertified':m['completionCertified'],'seconds':m['choice124']['seconds'],'externalSeconds':row['wallNanos']/1e9,'overheadSeconds':row['decision']['overheadSeconds'],'admissionSeconds':row['decision']['admissionSeconds'],'completionReserveSeconds':row['decision']['completionVerificationReserveSeconds'],'alternatives':decision['alternatives']})
 measurements={'rows':rows,'workflows':40,'development':27,'reserved':4,'software':9,'scope':'Admission through first verified outcome; external rows additionally include measurement re-audit. Later app shutdown excluded. Initial development pilot retained separately and excluded from final calibration. No probability or deadline guarantee.'}
 write(out/'measurements.json',measurements)
-v={'passed':True,'javaChecks':sorted(checks),'javaSuites':suites,'desktopChecks':168,'actualChatRequests':11,'actualAbruptRecovery':True,'actualAiFailureRefused':True,'regressionExecutions':18,'studyRows':40,'measurements':measurements,'referenceControllerResults':{'hardware':{'cases':len(refs['cases']),'refusals':len(refs['refusals'])}},'launcher':{'passed':True,'scope':'Isolated PrepareOnly Offline; package receipt verified before and after UI.'},'sourceCommit':ui['source'],'modelCalls':sum(x['task']['timing052']['modelCalls'] for x in ui['requests']),'scope':'Opt-in exact-condition cost/benefit envelope around unchanged GameTask115 and contact122. Current source and outcome checks retained. No general transfer, hard deadline, neural training or skill-bank promotion.'}
+v={'passed':True,'javaChecks':sorted(checks),'javaSuites':suites,'desktopChecks':168,'actualChatRequests':11,'actualAbruptRecovery':True,'actualAiFailureRefused':True,'regressionExecutions':18,'studyRows':40,'measurements':measurements,'referenceControllerResults':{'hardware':{'cases':len(refs['cases']),'refusals':len(refs['refusals'])}},'launcher':{'passed':True,'scope':'Isolated PrepareOnly Offline; package receipt verified before and after UI.'},'sourceCommit':ui['source'],'sourceValidationScope':read('build/validation-source124.json'),'modelCalls':sum(x['task']['timing052']['modelCalls'] for x in ui['requests']),'scope':'Opt-in exact-condition cost/benefit envelope around unchanged GameTask115 and contact122. Current source and outcome checks retained. No general transfer, hard deadline, neural training or skill-bank promotion.'}
 assert v['modelCalls']==0;write(out/'verification.json',v)
 originals=[];seen=set();projects=set()
 def preserve(p,logical):
@@ -72,7 +73,7 @@ for folder in sorted((r/'build').glob('game124-ui*')):
  for sub in ['game-tasks115','game-choices124','game-levels114','game-references115','agency-043','embedded-game']:
   for p in sorted((folder/'project'/sub).rglob('*')):
    if p.is_file() and p.suffix in ['.json','.jsonl','.png','.log']:preserve(p,p.relative_to(r).as_posix())
-for pattern in ['*124*.log','ci124*.json','pipeline124.json','study095-build*.json']:
+for pattern in ['*124*.log','ci124*.json','pipeline124.json','final-recheck124.json','validation-source124.json','study095-build*.json']:
  for p in sorted((r/'build').glob(pattern)):preserve(p,p.relative_to(r).as_posix())
 write(out/'original-evidence.json',{'files':originals,'scope':'Exact initial development pilot, final repeated workflows, regressions, failed-task refusal, restart and actual chat originals. Private worlds excluded.'})
 sourcePaths={x['path'] for x in read('docs/readmes/123/file-inventory.json')}

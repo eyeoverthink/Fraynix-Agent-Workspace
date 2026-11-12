@@ -14,6 +14,8 @@ if group in ['development','reserved','software']:
  if group=='software':
   env['JAVA_HOME']='S:/Codex-Work/fraynix-workspace-edition116/build/mesa116/jdk21';env['GALLIUM_DRIVER']='llvmpipe'
  run('budget124-'+group,[':workspace-engine:test','--tests','fraymus.workspace.GameBudgetStudy124Test'], '-Dstudy124.partition='+('smoke' if group=='software' else group)+' -Dstudy124.output=build/budget124-'+group)
+elif group=='final':
+ run('final124-wrapper',[':workspace-engine:test','--tests','fraymus.workspace.GameBudgetPolicy124Test','--tests','fraymus.workspace.GameBudgetTask124Test'])
 elif group=='unit':
  run('unit124',[':workspace-engine:test','--tests','fraymus.workspace.GameCost123Test','--tests','fraymus.workspace.GameBudgetPolicy124Test','--tests','fraymus.workspace.GameBudgetTask124Test','--tests','fraymus.workspace.GamePickupTask123Test'])
 elif group=='regression':
