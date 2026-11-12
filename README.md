@@ -1,5 +1,7 @@
 # Fraynix Agent Workspace · Edition 121
 
+[Published and fetched verification receipt](docs/PUBLICATION_121.json) · [Release tag](https://github.com/eyeoverthink/Fraynix-Agent-Workspace/tree/readme-121)
+
 **Observed enemy reversals, bounded returns, and an actual pickup benefit.**
 
 2026-11-11 · Java owns execution and evidence; the integrated desktop shows the world, chat and task history.

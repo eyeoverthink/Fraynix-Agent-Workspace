@@ -1,0 +1,941 @@
+{
+  "edition": 121,
+  "releaseCommit": "572969f3f91f01ae5e0ae7a56bb8a61195e0eb9d",
+  "annotatedTag": "readme-121",
+  "tagObject": "0b0831ed00a9869b2eea2b63ce3d54cff719b198",
+  "audit": {
+    "passed": true,
+    "verifiedAtUtc": "2026-11-12T01:56:59.347705+00:00",
+    "remote": "https://github.com/eyeoverthink/Fraynix-Agent-Workspace.git",
+    "fetchedRef": "refs/verify/edition121-main",
+    "remoteFetched": true,
+    "commit": "572969f3f91f01ae5e0ae7a56bb8a61195e0eb9d",
+    "canonicalSourceFiles": 1492,
+    "editions": 121,
+    "frozenHashes": 42165,
+    "original121EvidenceFiles": 1305,
+    "distinctOriginalPayloads": 884,
+    "method": "Every enumerated blob read from the specified Git tree; remoteFetched identifies a fresh verification ref. Source byte counts and canonical UTF-8 LF/binary hashes checked. All frozen edition hashes checked. Each unique immutable Git archive blob is decompressed once; every logical original entry is compared to its verified compressed/raw byte counts and SHA-256. No mutable-file timestamp or runtime-proof shortcut."
+  },
+  "validation": {
+    "javaMethods": 181,
+    "desktopChecks": 168,
+    "launcher": {
+      "passed": true,
+      "scope": "Labelled live-JVM installation-owner fixture. Launcher refuses a build for a different project while its installation is in use; original JAR bytes preserved. Owner stopped by this test only.",
+      "ownerPid": 137924,
+      "jarCount": 22,
+      "stoppedOwnerUpdate": true,
+      "prior120JarSha256": "0ff22c7735b0a504bf62b1c732fd72609b9f74949f215ea8bc1df674bff861fb",
+      "restored121JarSha256": "45dc5b9363a0420ee510cdcbab9a17f8b3345404b2ab20456e614c4868f6d965"
+    },
+    "actualRequests": [
+      {
+        "request": "Create a playable Mario level gapTiles=10 repairLimit=2; construct, playtest and repair it.",
+        "status": "completed",
+        "elapsedMs": 63915,
+        "trialOutcomes": [
+          "failed",
+          "failed",
+          "won",
+          "won"
+        ],
+        "audit": {
+          "wins": 2,
+          "aiPickups": 1,
+          "failures": 2,
+          "aiDamage": 0,
+          "aiPickupDeferrals": 0,
+          "aiContactAttempts": 0,
+          "repairCount": 2,
+          "aiOpportunity": {},
+          "existingAI": "won",
+          "pickupDecisions": [],
+          "trials": 4,
+          "simpleControl": "won",
+          "scope": "Actual finish contact on this candidate; comparison is not a guarantee for unfamiliar levels. No procedure-bank admission or model training.",
+          "aiPickupSkips": 0,
+          "traceSha256": "bde00029fabc12b3c44f5f4a22db31b327771812feb8672b58306a2dd0391d6c",
+          "passed": true,
+          "candidateId": "f04a61be-c2ca-358a-bc48-6e3cb5e5bebf",
+          "inputChunks": 111,
+          "completionControl": "simple"
+        }
+      },
+      {
+        "request": "Create a playable Mario level seed=127 lengthTiles=72 gapTiles=2 secondGapTiles=2 pickupTile=42 goombaTile=46 obstacleTile=60 obstacleHeight=1 repairLimit=0; compare controls and report skipped pickups.",
+        "status": "completed",
+        "elapsedMs": 60982,
+        "trialOutcomes": [
+          "interrupted",
+          "failed",
+          "won"
+        ],
+        "audit": {
+          "wins": 1,
+          "aiPickups": 1,
+          "failures": 1,
+          "aiDamage": 0,
+          "aiPickupDeferrals": 1,
+          "aiContactAttempts": 0,
+          "repairCount": 0,
+          "aiOpportunity": {
+            "phase": "TRAVEL",
+            "reason": "Block changed; verify actual collection separately",
+            "waitTicks": 0,
+            "waitStarts": 0,
+            "revisitTicks": 143,
+            "decisions": [
+              {
+                "reason": "Nearby remembered pickup has continuous observed support and clear route",
+                "action": "return-started",
+                "plannedTicks": 0,
+                "tick": 439,
+                "objectId": "c1872be5-4ded-361f-9dfe-23e3fe4e713c"
+              },
+              {
+                "reason": "Block changed; verify actual collection separately",
+                "action": "return-ended",
+                "plannedTicks": 0,
+                "tick": 583,
+                "objectId": "c1872be5-4ded-361f-9dfe-23e3fe4e713c"
+              }
+            ],
+            "waitAborts": 0,
+            "waitClears": 0,
+            "revisitStarts": 1,
+            "motion121": {
+              "reversals": 0,
+              "checks": 830,
+              "returnReach": 2.75,
+              "stabilityTicks": 30,
+              "tracked": 0,
+              "returnsEnabled": true,
+              "forecastRefusals": 0,
+              "events": []
+            }
+          },
+          "existingAI": "won",
+          "pickupDecisions": [
+            {
+              "reason": "Enemy motion intersects the pickup approach",
+              "kind": "BUMP_BLOCK",
+              "targetY": 1.375,
+              "supportY": 0.5,
+              "targetX": 10.625,
+              "action": "deferred for fresh observation",
+              "clearance": 0.75,
+              "tick": 284,
+              "objectId": "c1872be5-4ded-361f-9dfe-23e3fe4e713c"
+            }
+          ],
+          "trials": 3,
+          "simpleControl": "failed",
+          "scope": "Actual finish contact on this candidate; comparison is not a guarantee for unfamiliar levels. No procedure-bank admission or model training.",
+          "aiPickupSkips": 0,
+          "traceSha256": "72afe8299fe114bc48271357ed79e8a00865b5524e825b6d08d41f0ee9c0339b",
+          "passed": true,
+          "candidateId": "31546bae-252e-3909-976e-ad204353fac1",
+          "inputChunks": 99,
+          "completionControl": "revisit121"
+        }
+      },
+      {
+        "request": "Create a playable Mario level seed=110 lengthTiles=64 gapTiles=2 secondGapTiles=2 pickupTile=10 goombaTile=15 obstacleTile=13 obstacleHeight=1 repairLimit=0; compare controls and report skipped pickups.",
+        "status": "completed",
+        "elapsedMs": 120278,
+        "trialOutcomes": [
+          "failed",
+          "won"
+        ],
+        "audit": {
+          "wins": 1,
+          "aiPickups": 1,
+          "failures": 1,
+          "aiDamage": 0,
+          "aiPickupDeferrals": 1,
+          "aiContactAttempts": 0,
+          "repairCount": 0,
+          "aiOpportunity": {
+            "phase": "TRAVEL",
+            "reason": "No optional wait or return",
+            "waitTicks": 0,
+            "waitStarts": 0,
+            "revisitTicks": 0,
+            "decisions": [],
+            "waitAborts": 0,
+            "waitClears": 0,
+            "revisitStarts": 0,
+            "motion121": {
+              "reversals": 1,
+              "checks": 485,
+              "returnReach": 2.75,
+              "stabilityTicks": 30,
+              "tracked": 0,
+              "returnsEnabled": true,
+              "forecastRefusals": 0,
+              "events": [
+                {
+                  "afterVx": 0.6,
+                  "x": 3.6287248,
+                  "beforeVx": -0.6,
+                  "y": 0.6294742,
+                  "tick": 29,
+                  "objectId": "d5740382-0acf-362f-a8c6-a20dbfa4cb5b"
+                }
+              ]
+            }
+          },
+          "existingAI": "won",
+          "pickupDecisions": [
+            {
+              "reason": "Enemy motion intersects the pickup approach",
+              "kind": "BUMP_BLOCK",
+              "targetY": 1.375,
+              "supportY": 0.5,
+              "targetX": 2.625,
+              "action": "deferred for fresh observation",
+              "clearance": 0.75,
+              "tick": 2,
+              "objectId": "1a592307-fdac-3a2c-9ee1-91b9af35dccf"
+            }
+          ],
+          "trials": 2,
+          "simpleControl": "failed",
+          "scope": "Actual finish contact on this candidate; comparison is not a guarantee for unfamiliar levels. No procedure-bank admission or model training.",
+          "aiPickupSkips": 0,
+          "traceSha256": "cb85468a3c119a6621164e3cdfce9f46702489d80f585a9d38ae3f6135f665b9",
+          "passed": true,
+          "candidateId": "a2a06982-d877-367d-9236-6a78b6d8e941",
+          "inputChunks": 221,
+          "completionControl": "revisit121"
+        }
+      },
+      {
+        "request": "Create a playable Mario level seed=50 lengthTiles=72 gapTiles=3 secondGapTiles=2 pickupTile=18 goombaTile=28 obstacleTile=25 obstacleHeight=2 repairLimit=0",
+        "status": "completed",
+        "elapsedMs": 40684,
+        "trialOutcomes": [
+          "failed",
+          "won"
+        ],
+        "audit": {
+          "wins": 1,
+          "aiPickups": 0,
+          "failures": 1,
+          "aiDamage": 0,
+          "aiPickupDeferrals": 0,
+          "aiContactAttempts": 0,
+          "repairCount": 0,
+          "aiOpportunity": {
+            "phase": "TRAVEL",
+            "reason": "No optional wait or return",
+            "waitTicks": 0,
+            "waitStarts": 0,
+            "revisitTicks": 0,
+            "decisions": [],
+            "waitAborts": 0,
+            "waitClears": 0,
+            "revisitStarts": 0,
+            "motion121": {
+              "reversals": 1,
+              "checks": 543,
+              "returnReach": 2.75,
+              "stabilityTicks": 30,
+              "tracked": 0,
+              "returnsEnabled": true,
+              "forecastRefusals": 0,
+              "events": [
+                {
+                  "afterVx": 0.6,
+                  "x": 6.6298227,
+                  "y": 0.6294743,
+                  "beforeVx": -0.6,
+                  "tick": 169,
+                  "objectId": "78d5f85b-9410-3a25-9903-6e4f6bbd4a3e"
+                }
+              ]
+            }
+          },
+          "existingAI": "won",
+          "pickupDecisions": [
+            {
+              "reason": "No observed ground beneath the pickup approach",
+              "kind": "BUMP_BLOCK",
+              "targetY": 1.375,
+              "targetX": 4.625,
+              "action": "declined for run",
+              "clearance": 0,
+              "tick": 71,
+              "objectId": "23b527b9-06ce-3580-abbb-3fff6d5611ae"
+            }
+          ],
+          "trials": 2,
+          "simpleControl": "failed",
+          "scope": "Actual finish contact on this candidate; comparison is not a guarantee for unfamiliar levels. No procedure-bank admission or model training.",
+          "aiPickupSkips": 1,
+          "traceSha256": "a0052b0232fc21eb817495944fd0848122ab126f7affd1b31a8b7472db2ae4f9",
+          "passed": true,
+          "candidateId": "a347984c-acda-3b20-8c12-e3c7d6360eaf",
+          "inputChunks": 67,
+          "completionControl": "revisit121"
+        }
+      },
+      {
+        "request": "Create a playable Mario level gapTiles=10 pickupTile=17 goombaTile=45.",
+        "status": "interrupted",
+        "elapsedMs": 19965,
+        "trialOutcomes": [
+          "failed",
+          "failed"
+        ],
+        "audit": null
+      }
+    ],
+    "actualAbruptRecovery": true,
+    "referenceChecks": {
+      "freshNativeImagesPerRenderer": 6,
+      "freshRefusalsPerRenderer": 4,
+      "original115ReferenceRegression": true
+    },
+    "controllerCases": [
+      {
+        "partition": "development",
+        "policy": "observe121",
+        "cases": 8,
+        "wins": 6,
+        "pickups": 3,
+        "damage": 0,
+        "deaths": 2,
+        "waitTicks": 0,
+        "revisitTicks": 0,
+        "revisitStarts": 0,
+        "reversals": 3,
+        "forecastRefusals": 0,
+        "opportunityChecks": 3600,
+        "opportunityMilliseconds": 66.8847,
+        "trialSeconds": [
+          3.5353652,
+          2.5001217,
+          2.682827,
+          3.5389994,
+          3.1018073,
+          3.460086,
+          2.858094,
+          3.6552183
+        ],
+        "medianSeconds": 3.2809466499999997
+      },
+      {
+        "partition": "development",
+        "policy": "opportunity120",
+        "cases": 8,
+        "wins": 6,
+        "pickups": 3,
+        "damage": 0,
+        "deaths": 2,
+        "waitTicks": 0,
+        "revisitTicks": 0,
+        "revisitStarts": 0,
+        "reversals": 0,
+        "forecastRefusals": 0,
+        "opportunityChecks": 3600,
+        "opportunityMilliseconds": 29.3419,
+        "trialSeconds": [
+          3.345104,
+          2.4872324,
+          2.5524702,
+          3.4954488,
+          3.3137585,
+          3.1281822,
+          2.9170585,
+          3.8100905
+        ],
+        "medianSeconds": 3.22097035
+      },
+      {
+        "partition": "development",
+        "policy": "revisit121",
+        "cases": 8,
+        "wins": 6,
+        "pickups": 4,
+        "damage": 0,
+        "deaths": 2,
+        "waitTicks": 0,
+        "revisitTicks": 143,
+        "revisitStarts": 1,
+        "reversals": 3,
+        "forecastRefusals": 0,
+        "opportunityChecks": 3885,
+        "opportunityMilliseconds": 90.9875,
+        "trialSeconds": [
+          3.5421787,
+          2.5209853,
+          2.5669485,
+          4.8558092,
+          3.1302965,
+          3.341193,
+          3.0456682,
+          3.8192319
+        ],
+        "medianSeconds": 3.2357447500000003
+      },
+      {
+        "partition": "development",
+        "policy": "simple",
+        "cases": 8,
+        "wins": 1,
+        "pickups": null,
+        "damage": null,
+        "deaths": 5,
+        "waitTicks": 0,
+        "revisitTicks": 0,
+        "revisitStarts": 0,
+        "reversals": 0,
+        "forecastRefusals": 0,
+        "opportunityChecks": 0,
+        "opportunityMilliseconds": 0.0,
+        "trialSeconds": [
+          2.2854441,
+          2.8343349,
+          2.3437859,
+          2.3994723,
+          8.5656343,
+          8.3423301,
+          1.3899247,
+          2.4413282
+        ],
+        "medianSeconds": 2.42040025
+      },
+      {
+        "partition": "reserved",
+        "policy": "observe121",
+        "cases": 6,
+        "wins": 5,
+        "pickups": 2,
+        "damage": 0,
+        "deaths": 0,
+        "waitTicks": 0,
+        "revisitTicks": 0,
+        "revisitStarts": 0,
+        "reversals": 3,
+        "forecastRefusals": 0,
+        "opportunityChecks": 4214,
+        "opportunityMilliseconds": 59.2316,
+        "trialSeconds": [
+          3.5619795,
+          3.5409549,
+          3.2760647,
+          3.2770115,
+          10.1104199,
+          3.3679694
+        ],
+        "medianSeconds": 3.45446215
+      },
+      {
+        "partition": "reserved",
+        "policy": "opportunity120",
+        "cases": 6,
+        "wins": 5,
+        "pickups": 2,
+        "damage": 0,
+        "deaths": 0,
+        "waitTicks": 0,
+        "revisitTicks": 0,
+        "revisitStarts": 0,
+        "reversals": 0,
+        "forecastRefusals": 0,
+        "opportunityChecks": 4214,
+        "opportunityMilliseconds": 30.3631,
+        "trialSeconds": [
+          3.6073182,
+          3.5750156,
+          3.3016022,
+          3.3618397,
+          10.1738365,
+          3.4415399
+        ],
+        "medianSeconds": 3.50827775
+      },
+      {
+        "partition": "reserved",
+        "policy": "revisit121",
+        "cases": 6,
+        "wins": 5,
+        "pickups": 5,
+        "damage": 0,
+        "deaths": 0,
+        "waitTicks": 0,
+        "revisitTicks": 440,
+        "revisitStarts": 3,
+        "reversals": 3,
+        "forecastRefusals": 0,
+        "opportunityChecks": 5091,
+        "opportunityMilliseconds": 93.5031,
+        "trialSeconds": [
+          4.7350844,
+          4.6185042,
+          4.5833398,
+          3.1085067,
+          10.1753366,
+          3.4000102
+        ],
+        "medianSeconds": 4.600922000000001
+      },
+      {
+        "partition": "reserved",
+        "policy": "simple",
+        "cases": 6,
+        "wins": 0,
+        "pickups": null,
+        "damage": null,
+        "deaths": 4,
+        "waitTicks": 0,
+        "revisitTicks": 0,
+        "revisitStarts": 0,
+        "reversals": 0,
+        "forecastRefusals": 0,
+        "opportunityChecks": 0,
+        "opportunityMilliseconds": 0.0,
+        "trialSeconds": [
+          2.250947,
+          2.3571393,
+          2.3662524,
+          8.4585855,
+          8.6409826,
+          2.1286939
+        ],
+        "medianSeconds": 2.3616958500000003
+      },
+      {
+        "partition": "software-reserved",
+        "policy": "observe121",
+        "cases": 6,
+        "wins": 5,
+        "pickups": 2,
+        "damage": 0,
+        "deaths": 0,
+        "waitTicks": 0,
+        "revisitTicks": 0,
+        "revisitStarts": 0,
+        "reversals": 3,
+        "forecastRefusals": 0,
+        "opportunityChecks": 4214,
+        "opportunityMilliseconds": 62.1014,
+        "trialSeconds": [
+          3.6328802,
+          3.6441292,
+          3.3647644,
+          3.3812129,
+          9.9535694,
+          3.8179832
+        ],
+        "medianSeconds": 3.6385047
+      },
+      {
+        "partition": "software-reserved",
+        "policy": "opportunity120",
+        "cases": 6,
+        "wins": 5,
+        "pickups": 2,
+        "damage": 0,
+        "deaths": 0,
+        "waitTicks": 0,
+        "revisitTicks": 0,
+        "revisitStarts": 0,
+        "reversals": 0,
+        "forecastRefusals": 0,
+        "opportunityChecks": 4214,
+        "opportunityMilliseconds": 28.7022,
+        "trialSeconds": [
+          3.653642,
+          3.6417305,
+          3.3797293,
+          3.4043852,
+          9.9629648,
+          3.5062277
+        ],
+        "medianSeconds": 3.5739791
+      },
+      {
+        "partition": "software-reserved",
+        "policy": "revisit121",
+        "cases": 6,
+        "wins": 5,
+        "pickups": 5,
+        "damage": 0,
+        "deaths": 0,
+        "waitTicks": 0,
+        "revisitTicks": 440,
+        "revisitStarts": 3,
+        "reversals": 3,
+        "forecastRefusals": 0,
+        "opportunityChecks": 5091,
+        "opportunityMilliseconds": 96.0332,
+        "trialSeconds": [
+          4.5641347,
+          4.9004193,
+          4.6651519,
+          3.5405696,
+          9.1862035,
+          4.0037313
+        ],
+        "medianSeconds": 4.6146433
+      },
+      {
+        "partition": "software-reserved",
+        "policy": "simple",
+        "cases": 6,
+        "wins": 0,
+        "pickups": null,
+        "damage": null,
+        "deaths": 4,
+        "waitTicks": 0,
+        "revisitTicks": 0,
+        "revisitStarts": 0,
+        "reversals": 0,
+        "forecastRefusals": 0,
+        "opportunityChecks": 0,
+        "opportunityMilliseconds": 0.0,
+        "trialSeconds": [
+          2.4932921,
+          2.4265393,
+          2.4982834,
+          8.2575458,
+          8.2938738,
+          2.2338577
+        ],
+        "medianSeconds": 2.49578775
+      },
+      {
+        "partition": "regression-old119-development",
+        "policy": "revisit121",
+        "cases": 6,
+        "wins": 6,
+        "pickups": 6,
+        "damage": 0,
+        "deaths": 0,
+        "waitTicks": 371,
+        "revisitTicks": 0,
+        "revisitStarts": 0,
+        "reversals": 5,
+        "forecastRefusals": 0,
+        "opportunityChecks": 3590,
+        "opportunityMilliseconds": 74.3651,
+        "trialSeconds": [
+          4.0118077,
+          3.9521595,
+          3.4460871,
+          3.2232623,
+          4.2985488,
+          3.3948944
+        ],
+        "medianSeconds": 3.6991233
+      },
+      {
+        "partition": "regression-old119-reserved",
+        "policy": "revisit121",
+        "cases": 6,
+        "wins": 6,
+        "pickups": 5,
+        "damage": 0,
+        "deaths": 0,
+        "waitTicks": 397,
+        "revisitTicks": 0,
+        "revisitStarts": 0,
+        "reversals": 5,
+        "forecastRefusals": 0,
+        "opportunityChecks": 3567,
+        "opportunityMilliseconds": 77.2881,
+        "trialSeconds": [
+          3.626737,
+          4.4171552,
+          2.801247,
+          3.8648348,
+          3.5707612,
+          4.0593567
+        ],
+        "medianSeconds": 3.7457859
+      },
+      {
+        "partition": "regression-old118-development",
+        "policy": "revisit121",
+        "cases": 12,
+        "wins": 12,
+        "pickups": 5,
+        "damage": 0,
+        "deaths": 0,
+        "waitTicks": 0,
+        "revisitTicks": 0,
+        "revisitStarts": 0,
+        "reversals": 2,
+        "forecastRefusals": 0,
+        "opportunityChecks": 5053,
+        "opportunityMilliseconds": 93.3969,
+        "trialSeconds": [
+          2.8162841,
+          3.1382925,
+          2.8177043,
+          2.9296592,
+          3.0129655,
+          2.9666781,
+          2.920762,
+          2.8007512,
+          2.7971076,
+          2.78351,
+          3.0310922,
+          3.1883184
+        ],
+        "medianSeconds": 2.9252105999999998
+      },
+      {
+        "partition": "regression-old118-reserved",
+        "policy": "revisit121",
+        "cases": 6,
+        "wins": 6,
+        "pickups": 4,
+        "damage": 0,
+        "deaths": 0,
+        "waitTicks": 256,
+        "revisitTicks": 0,
+        "revisitStarts": 0,
+        "reversals": 7,
+        "forecastRefusals": 0,
+        "opportunityChecks": 3274,
+        "opportunityMilliseconds": 71.1155,
+        "trialSeconds": [
+          2.902697,
+          3.924069,
+          3.4176237,
+          3.2179016,
+          3.6093182,
+          3.851862
+        ],
+        "medianSeconds": 3.5134709500000003
+      },
+      {
+        "partition": "regression-new",
+        "policy": "revisit121",
+        "cases": 7,
+        "wins": 7,
+        "pickups": 3,
+        "damage": 0,
+        "deaths": 0,
+        "waitTicks": 449,
+        "revisitTicks": 0,
+        "revisitStarts": 0,
+        "reversals": 2,
+        "forecastRefusals": 0,
+        "opportunityChecks": 4033,
+        "opportunityMilliseconds": 92.3817,
+        "trialSeconds": [
+          4.5456265,
+          3.9690589,
+          3.5976304,
+          3.9454353,
+          3.6981589,
+          2.9019548,
+          2.8995752
+        ],
+        "medianSeconds": 3.6981589
+      },
+      {
+        "partition": "regression-early-probes",
+        "policy": "revisit121",
+        "cases": 4,
+        "wins": 4,
+        "pickups": 0,
+        "damage": 0,
+        "deaths": 0,
+        "waitTicks": 0,
+        "revisitTicks": 0,
+        "revisitStarts": 0,
+        "reversals": 0,
+        "forecastRefusals": 0,
+        "opportunityChecks": 1639,
+        "opportunityMilliseconds": 36.2664,
+        "trialSeconds": [
+          3.0276703,
+          2.8896513,
+          2.8554566,
+          2.8143656
+        ],
+        "medianSeconds": 2.8725539500000004
+      },
+      {
+        "partition": "regression-old120-reserved",
+        "policy": "revisit121",
+        "cases": 6,
+        "wins": 6,
+        "pickups": 3,
+        "damage": 0,
+        "deaths": 0,
+        "waitTicks": 501,
+        "revisitTicks": 0,
+        "revisitStarts": 0,
+        "reversals": 2,
+        "forecastRefusals": 0,
+        "opportunityChecks": 3606,
+        "opportunityMilliseconds": 84.8293,
+        "trialSeconds": [
+          4.0860024,
+          4.5486899,
+          4.2323783,
+          3.3848239,
+          3.6398886,
+          3.0035649
+        ],
+        "medianSeconds": 3.8629455
+      },
+      {
+        "partition": "regression-old117-regression",
+        "policy": "revisit121",
+        "cases": 12,
+        "wins": 12,
+        "pickups": 12,
+        "damage": 0,
+        "deaths": 0,
+        "waitTicks": 0,
+        "revisitTicks": 0,
+        "revisitStarts": 0,
+        "reversals": 0,
+        "forecastRefusals": 0,
+        "opportunityChecks": 5375,
+        "opportunityMilliseconds": 84.7479,
+        "trialSeconds": [
+          2.8136993,
+          2.7218244,
+          3.06206,
+          3.4302972,
+          2.8862827,
+          3.150767,
+          2.5946678,
+          3.2653609,
+          3.5125256,
+          2.8656595,
+          3.1964358,
+          3.4588066
+        ],
+        "medianSeconds": 3.1064135
+      },
+      {
+        "partition": "regression-old117-wider",
+        "policy": "revisit121",
+        "cases": 6,
+        "wins": 6,
+        "pickups": 6,
+        "damage": 0,
+        "deaths": 0,
+        "waitTicks": 0,
+        "revisitTicks": 0,
+        "revisitStarts": 0,
+        "reversals": 0,
+        "forecastRefusals": 0,
+        "opportunityChecks": 2620,
+        "opportunityMilliseconds": 37.5677,
+        "trialSeconds": [
+          2.9236698,
+          2.4957406,
+          3.0148755,
+          3.477933,
+          2.9705599,
+          3.0388723
+        ],
+        "medianSeconds": 2.9927177
+      },
+      {
+        "partition": "regression-old117-reserved",
+        "policy": "revisit121",
+        "cases": 6,
+        "wins": 6,
+        "pickups": 6,
+        "damage": 0,
+        "deaths": 0,
+        "waitTicks": 0,
+        "revisitTicks": 0,
+        "revisitStarts": 0,
+        "reversals": 0,
+        "forecastRefusals": 0,
+        "opportunityChecks": 2746,
+        "opportunityMilliseconds": 42.3126,
+        "trialSeconds": [
+          2.5320955,
+          3.0284075,
+          3.4076674,
+          2.8106034,
+          3.1617309,
+          3.3147436
+        ],
+        "medianSeconds": 3.0950692
+      }
+    ],
+    "referenceControllerResults": {
+      "hardware": {
+        "cases": 6,
+        "simpleWins": 6,
+        "revisedWins": 6,
+        "refusals": 4
+      },
+      "software": {
+        "cases": 6,
+        "simpleWins": 6,
+        "revisedWins": 6,
+        "refusals": 4
+      }
+    },
+    "modelCalls": 0,
+    "guideWidths": [
+      1440,
+      390
+    ],
+    "scope": "Bounded observed enemy motion and input-only pickup return; actual collection and full costs. Two development enemy-contact deaths remain. No physics edits, general recognition, LLM training or new procedure admission."
+  },
+  "ci": {
+    "scope": "CI checked before implementation. At the initial check, 119 main failed an interruption timing check;120 jobs were pending. Local verification and fetched publication do not establish remote CI success.",
+    "releaseCheck": {
+      "checkedAtUtc": "2026-11-12T01:56:04.280483+00:00",
+      "runs": [
+        {
+          "id": 43137761304,
+          "head_sha": "572969f3f91f01ae5e0ae7a56bb8a61195e0eb9d",
+          "event": "push",
+          "status": "in_progress",
+          "conclusion": null,
+          "html_url": "https://github.com/eyeoverthink/Fraynix-Agent-Workspace/actions/runs/43137761304",
+          "created_at": "2026-11-12T01:55:06Z",
+          "updated_at": "2026-11-12T01:55:10Z"
+        },
+        {
+          "id": 43115922490,
+          "head_sha": "6999d1a3ebf4fbca164f348d6c19d28e4973bba8",
+          "event": "push",
+          "status": "in_progress",
+          "conclusion": null,
+          "html_url": "https://github.com/eyeoverthink/Fraynix-Agent-Workspace/actions/runs/43115922490",
+          "created_at": "2026-11-11T22:56:47Z",
+          "updated_at": "2026-11-11T22:56:52Z"
+        },
+        {
+          "id": 43115639334,
+          "head_sha": "0a7d5d02d85f323153762bc5cd07096b4d39f533",
+          "event": "push",
+          "status": "in_progress",
+          "conclusion": null,
+          "html_url": "https://github.com/eyeoverthink/Fraynix-Agent-Workspace/actions/runs/43115639334",
+          "created_at": "2026-11-11T22:54:38Z",
+          "updated_at": "2026-11-11T22:54:43Z"
+        },
+        {
+          "id": 43104121657,
+          "head_sha": "483acb4447d30b184660c9559b988669303ecd62",
+          "event": "push",
+          "status": "completed",
+          "conclusion": "failure",
+          "html_url": "https://github.com/eyeoverthink/Fraynix-Agent-Workspace/actions/runs/43104121657",
+          "created_at": "2026-11-11T21:33:40Z",
+          "updated_at": "2026-11-12T00:18:03Z"
+        }
+      ]
+    }
+  }
+}
