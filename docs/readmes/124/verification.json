@@ -1,0 +1,957 @@
+{
+  "passed": true,
+  "javaChecks": [
+    "agent.ActorControlsTest.rejectsOldEpisodesDuplicateSequencesAndExpiredCommands",
+    "agent.ContactObserver119Test.changedGoalCannotSubstituteOppositeFloorForTheCommittedRetreat",
+    "agent.ContactObserver119Test.sensorsAndNonTerrainCannotJustifyARecoveryLanding",
+    "agent.ContactRecovery119Test.realDisplacementDistinguishesTravelFromLodgedContact",
+    "agent.ContactRecovery119Test.rearThreatWaitIsBoundedAndMustClearBeforeRetreat",
+    "agent.ContactRecovery119Test.repeatedTickAndNonFiniteObservationAreRejected",
+    "agent.ContactRecovery119Test.successfulEscapesDoNotResetTheTotalAttemptBudget",
+    "agent.ContactRecovery119Test.unsupportedRetreatAndCeilingNeverGrantAnInventedJump",
+    "agent.EnemyLanding122Test.distantEnemyDoesNotChangeOrdinaryInputAndNonfiniteInputIsRefused",
+    "agent.EnemyLanding122Test.missingSupportCannotBePromotedToSafeLanding",
+    "agent.EnemyLanding122Test.retainedDescendingApproachBrakesBeforeSideContact",
+    "agent.EnemyLanding122Test.stationarySupportedEdgeUsesBoundedRetreatWithoutInventingGroundedState",
+    "agent.EnemyLanding122Test.supportedEdgeNeverRetreatsWithoutGroundBehind",
+    "agent.LandingGuard116Test.clearGroundPreservesTheRequestedInput",
+    "agent.LandingGuard116Test.unknownFloorDoesNotInventASupportedLanding",
+    "agent.MotorRecoveryTest.blockedMovementBacksUpThenJumpsThroughNormalInputs",
+    "agent.MotorRecoveryTest.ceilingPreventsTheForwardJumpUntilThereIsRoom",
+    "agent.MotorRecoveryTest.repeatedFailuresAndUnsafeBackoffStopInsteadOfLooping",
+    "agent.OpportunityMotion121Test.nativeWallInvalidatesLinearClearancePrediction",
+    "agent.OpportunityMotion121Test.observedReversalInvalidatesNearbyForecastUntilFreshStableWindow",
+    "agent.OpportunityMotion121Test.returnDisabledPolicyCannotChooseAnOtherwiseSafeRememberedBlock",
+    "agent.OpportunityTiming120Test.pricesBothDirectionsAndRejectsStationaryOrUnboundedThreats",
+    "agent.OpportunityTiming120Test.prospectiveHoldCollisionAndUnknownMotionRefuse",
+    "agent.PickupOpportunity120Test.earlierWaitCannotOverrideLaterPermanentRefusal",
+    "agent.PickupOpportunity120Test.nativeFloorLossAbortsWaitingWithoutFakingCollection",
+    "agent.PickupOpportunity120Test.permanentRefusalCannotBeRevisited",
+    "agent.PickupOpportunity120Test.returnCannotSpendBrakingDistanceBeyondObservedPlatform",
+    "agent.PickupOpportunity120Test.returnRequiresWholeObservedGroundAndHasADeadline",
+    "agent.PickupOpportunity120Test.waitingExpiresEvenWhenReportedVelocityNeverProducesClearance",
+    "agent.PickupSafety118Test.considersApproachingMotionAndRetainsSafeOpportunities",
+    "agent.PickupSafety118Test.refusesUnsupportedBlockedAndLowClearanceTargets",
+    "agent.PickupSafety118Test.timesSmallPlayerJumpUsingClosingMotion",
+    "agent.PlayMemoryTest.corruptMemoryIsPreservedBeforeReplacement",
+    "agent.PlayMemoryTest.failedChoiceChangesNextRunAndSurvivesRestart",
+    "agent.PlayMemoryTest.keepsUsefulKnownRouteInsteadOfRandomlyChangingEverySuccessfulAction",
+    "agent.PlayMemoryTest.measuredRewardFavorsSuccessfulPolicyAfterExploration",
+    "agent.PowerupPlannerTest.declinedBlockDoesNotInheritAnotherItemsFailure",
+    "agent.PowerupPlannerTest.identifiesMushroomAndTimesOutUnreachablePickup",
+    "agent.PowerupPlannerTest.laterRunAvoidsPreviouslyUnreachableOptionalBlock",
+    "agent.PowerupPlannerTest.recognizesActivePowerupBlockAndStopsTargetingAfterUse",
+    "agent.PowerupPlannerTest.threatDeferralRechecksLaterWithAFiniteBudgetAndNoFalseLearning",
+    "agent.Pursuit117Test.descendingMushroomDoesNotInviteAnUnnecessaryJump",
+    "agent.Pursuit117Test.staticFlowerStillAllowsASupportedJumpAndPredictionIsBounded",
+    "editor.EditorCorrectionsTest.assetSelectionDoesNotInsertAndPlacementRequiresExplicitMode",
+    "editor.EditorCorrectionsTest.exportedOriginalLevelCanBeImportedAndInvalidTypesAreRejected",
+    "editor.FraynixWorkspaceTest.chatSceneBridgeDeserializesGsonGameObjectAndMovesSquare",
+    "editor.FraynixWorkspaceTest.liveChatSeparatesAttachmentsUsesOwnIdentityAndRestoresEvidence",
+    "editor.ModelAvailabilityTest.advertisedDecisionAndEmbeddingModelsAreNotOfferedForChat",
+    "editor.ModelAvailabilityTest.driveDiscoveryReportsMissingBlobsWithoutClaimingTheyAreServed",
+    "factory.EditorPhysicsRegressionTest.dynamicBoxFallsAndLandsOnStaticBox",
+    "factory.EditorPhysicsRegressionTest.editorChangesRefreshFixtureAndDoNotShiftObjectByColliderOffset",
+    "factory.EditorPhysicsRegressionTest.physicsValuesAndIdentitySurviveActualCheckpointDeserialization",
+    "factory.EditorPhysicsRegressionTest.repeatedInspectionKeepsOneStatusAndDoesNotAddSceneComponents",
+    "factory.EditorPhysicsRegressionTest.visibleEditorCommandsAreIdempotentAndRegisterLateComponents",
+    "factory.FactorySceneIntegrationTest.checkpointDoesNotPretendAnInterruptedWorkerIsStillRunning",
+    "factory.FactorySceneIntegrationTest.circleBodyUsesCircleFixture",
+    "factory.FactorySceneIntegrationTest.fixedStepConsumesElapsedTimeAndDoesNotAdvanceAtZero",
+    "factory.FactorySceneIntegrationTest.jsonPreservesIdentityAndCloneAllocatesFreshIdentity",
+    "factory.FactorySceneIntegrationTest.legacyDuplicateEditorHandlesAreMigratedWithoutChangingPersistentIds",
+    "factory.FactorySceneIntegrationTest.legacyJsonWithoutUuidIsMigrated",
+    "factory.FactorySceneIntegrationTest.legacySceneSaveIsAnIdentityPreservingRoundtrip",
+    "factory.FactorySceneIntegrationTest.localToolsUseTheLiveCapturedWorldWithoutAddingEntitiesAndRestoreReceipts",
+    "factory.FactorySceneIntegrationTest.negativeAndNonFiniteElapsedTimesAreRejected",
+    "factory.FactorySceneIntegrationTest.sceneAndActualKernelTaskSurviveSessionRestart",
+    "factory.FactorySceneIntegrationTest.sharedWorldCloneRemapsSceneAndPickingHandles",
+    "factory.FactorySceneIntegrationTest.typedWorldTransformEditsReachRestoredScene",
+    "factory.FactorySceneIntegrationTest.unregisteredClassesCannotBeLoadedAsComponents",
+    "factory.FullMarioLevelTest.importsEveryComponentAndRoundTripsTheOriginalLevel",
+    "factory.FullMarioLevelTest.originalAssetsResolveAndPillboxRegistersBothFixtures",
+    "factory.FullMarioLevelTest.transformClonePreservesRotationAndLayer",
+    "factory.GridPlacementRegressionTest.duplicatePressAndReleaseDoNotLeavePlacementDragging",
+    "factory.GridPlacementRegressionTest.pickingTracksViewportMoveResizePanAndZoom",
+    "factory.GridPlacementRegressionTest.rectangularCellsUseTheirOwnAxisSpacing",
+    "factory.GridPlacementRegressionTest.tileEdgesMatchTheGridOnBothSidesOfZero",
+    "factory.SceneAgentIntegrationTest.applicationIsGuardedAndUndoSurvivesRestart",
+    "factory.SceneAgentIntegrationTest.backgroundPreviewIdentityAllocationIsUniqueAcrossThreads",
+    "factory.SceneAgentIntegrationTest.failedSceneInstallationRestoresTheCheckpointAndKeepsOriginalWorld",
+    "factory.SceneAgentIntegrationTest.invalidOrExecutablePropertiesRejectTheWholeDraft",
+    "factory.SceneAgentIntegrationTest.modelQueriesFeedBackIntoARealAdapterProposalAndDetachedPreview",
+    "factory.SceneAgentIntegrationTest.observationIncludesCompleteComponentsRuntimeAndSelection",
+    "factory.SceneAgentIntegrationTest.rotatedColliderBoundsAndSpatialQueriesMatchActualLocalOffsets",
+    "factory.SceneAgentIntegrationTest.stagedCreationSimulatesRealCollisionWithoutChangingLiveScene",
+    "factory.SceneModelBudgetTest.fullLevelProducesBoundedValidJsonAndRetainsSelectedEntity",
+    "factory.SolidRaycastTest.sensorsAndTheActorDoNotHideTheNearestSolidBlock",
+    "fraymus.workspace.Agency043Test.actualStoredReceiptAndFrozenCounterStepsAreRequiredBeforeClaimIsConsumed",
+    "fraymus.workspace.Agency043Test.claimedHostInterruptionRejectsOldNonceAndExplicitResumeStartsFreshObservation",
+    "fraymus.workspace.Agency043Test.commitFailureAfterConsumingHostClaimInterruptsInsteadOfWaitingForever",
+    "fraymus.workspace.Agency043Test.explicitScreenQuestionUsesNativeInspectionAndCounterCreationUsesOnlyTheCreationStage",
+    "fraymus.workspace.Agency043Test.inspectionReportRequiresActualStoredMatchingReportAssertions",
+    "fraymus.workspace.Agency043Test.missingActionAuthorityRefusesClearlyWhilePureDefinitionReadsRemainPassive",
+    "fraymus.workspace.Agency043Test.prematureModelFinishCannotCreateAnArtifactOrVisualRoutine",
+    "fraymus.workspace.Agency043Test.queuedAndClaimedTasksRestoreAsInterruptedWithoutSilentReplay",
+    "fraymus.workspace.Agency043Test.registeredSchemasRejectInventedFieldsAndAssertionFreeTests",
+    "fraymus.workspace.Agency043Test.rejectedNativeModelSyntaxRetriesWithinBudgetWithoutExecutingRejectedArguments",
+    "fraymus.workspace.Agency043Test.unverifiedConversationIsNotPresentedAsVerifiedOutcomeToTheContinuingBrain",
+    "fraymus.workspace.ChatChain052Test.automaticCompletionRechecksCurrentArtifactInsteadOfTrustingOldSuccess",
+    "fraymus.workspace.ChatChain052Test.discoverySummaryKeepsExactBindingsAndBothEndsWithoutBreakingJson",
+    "fraymus.workspace.ChatChain052Test.duplicateWarningsKeepEveryOriginalOccurrenceBeyondRecentWindow",
+    "fraymus.workspace.ChatChain052Test.failedPlannerCallIsTimedAndDoesNotBecomeAnAction",
+    "fraymus.workspace.ChatChain052Test.largeRecentObservationHasExplicitOmissionHashAndKeepsFailure",
+    "fraymus.workspace.ChatChain052Test.legacyTaskDoesNotClaimCompleteTimingCoverage",
+    "fraymus.workspace.ChatChain052Test.numericRefusalExplainsOriginalBoundsWithoutChangingThem",
+    "fraymus.workspace.ChatChain052Test.oversizedRequirementsRefuseRatherThanBeingSilentlyTruncated",
+    "fraymus.workspace.ChatChain052Test.payloadHistoryProjectionRetainsPolicyRequirementsAndContraryOutcomes",
+    "fraymus.workspace.ChatChain052Test.providerMapMetadataIsRetainedWithoutUnrelatedFields",
+    "fraymus.workspace.ChatChain052Test.queuedObjectiveSealRefusesChangedRequest",
+    "fraymus.workspace.ChatChain052Test.summaryRetainsRejectedQualityAndDoesNotDumpMetrics",
+    "fraymus.workspace.Domain044Test.actualQueueCompletionRecordsTheVerifiedReportInTheSameLearningEpisode",
+    "fraymus.workspace.Domain044Test.constructionReuseExposesOnlyExplicitChangesAndKeepsOriginalLimits",
+    "fraymus.workspace.Domain044Test.creationPromptsAreOwnedBoundedAndKeepSourceReserved",
+    "fraymus.workspace.Domain044Test.interruptedChildCannotProduceSuccessfulCompletion",
+    "fraymus.workspace.Domain044Test.inventedHostFactsDoNotReplaceActualJavaRead",
+    "fraymus.workspace.Domain044Test.javaRoutesEveryFormerDesktopFamilyWithoutChangingWebCreation",
+    "fraymus.workspace.Domain044Test.nativeWaitUsesActualChildAndRetainsItsIdentity",
+    "fraymus.workspace.Domain044Test.reportMustHaveFrozenOriginalAssertionsAndExactSourceVersion",
+    "fraymus.workspace.Domain044Test.reportStageCannotSkipActualReads",
+    "fraymus.workspace.Domain044Test.retainedAppearancePolicyCannotChangeCategoryOrInstallDetectorOptions",
+    "fraymus.workspace.Domain044Test.retainedSkillSchemasKeepDefaultsOptionalAndHideBoundDetectorPolicy",
+    "fraymus.workspace.Domain044Test.retainedSkillSourceAndForceDefaultsCannotBeSilentlyChanged",
+    "fraymus.workspace.Domain044Test.savedGraphChatSelectsExactVersionAndWorkflowBeforePlanning",
+    "fraymus.workspace.Domain044Test.sourceFreeHostSuccessAndForeignChildrenAreRejected",
+    "fraymus.workspace.Domain044Test.typedOptionsPreserveExplicitValuesAndRejectContradictions",
+    "fraymus.workspace.Domain044Test.workflowBootstrapBindsDatasetAndSceneInJavaBeforeAnyHostAction",
+    "fraymus.workspace.EmbeddedGameTest.originalGameRunsHiddenWithoutEditorAndAcceptsActualRuntimeControls",
+    "fraymus.workspace.GameBudgetPolicy124Test.allDeclaredCoursesPassAdmission",
+    "fraymus.workspace.GameBudgetPolicy124Test.allowanceCoversVariationAndVerification",
+    "fraymus.workspace.GameBudgetPolicy124Test.cheaperVerifiedAlternativeWinsAndIncompleteDoesNot",
+    "fraymus.workspace.GameBudgetPolicy124Test.explicitBudgetIsRequiredAndOldDefaultsRemain",
+    "fraymus.workspace.GameBudgetPolicy124Test.invalidAndDuplicateSamplesCannotEnter",
+    "fraymus.workspace.GameBudgetPolicy124Test.unknownMixedBenefitFailuresAndTimingVariationAbstain",
+    "fraymus.workspace.GameBudgetStudy124Test.repeatedMeasurementsChooseWithinAllowanceAndKeepUncertainty",
+    "fraymus.workspace.GameBudgetTask124Test.interruptionBetweenTaskAndChoiceWritesCannotLoseBudgetAuthority",
+    "fraymus.workspace.GameBudgetTask124Test.oldFailedRecipeRetainsItsOriginalRefusalWithoutCalibration",
+    "fraymus.workspace.GameBudgetTask124Test.restartAndFailureCannotCalibrateAndLegacyCannotInventAClock",
+    "fraymus.workspace.GameChallenge118Test.actualAiFailureCannotBePublishedAsChallengeCompletion",
+    "fraymus.workspace.GameChallenge118Test.boundsDeclaredConstructionAndRefusesUnsupportedRequests",
+    "fraymus.workspace.GameChallenge118Test.challengeRequiresAiFinishAndPreservesRestartedSimpleFailure",
+    "fraymus.workspace.GameChallenge118Test.clonesOriginalBehaviorAndRefusesRelabelledGeometry",
+    "fraymus.workspace.GameChallenge118Test.enemyReferenceIsRefusedInsteadOfDroppingTheEnemy",
+    "fraymus.workspace.GameContact122Test.recordedContactFailuresFinishAfterRestartAndRejectAlteredForecasts",
+    "fraymus.workspace.GameController120Test.compareContactRecoveryAndPickupDecisions",
+    "fraymus.workspace.GameController122Test.compareContactRecoveryAndPickupDecisions",
+    "fraymus.workspace.GameCost123Test.conservativeBreakEvenUsesWorstObservedCostAndMinimumGain",
+    "fraymus.workspace.GameCost123Test.declaredCasesPassGeometryAdmission",
+    "fraymus.workspace.GameCost123Test.explicitStrategiesAreBoundedAndDefaultIsPreserved",
+    "fraymus.workspace.GameCost123Test.failedFinishRefusesEconomicRecommendationEvenWithMoreItems",
+    "fraymus.workspace.GameCost123Test.incompleteAndUnboundTimingsAreRejected",
+    "fraymus.workspace.GameCost123Test.sameOutcomeCanBeConsistentlyFaster",
+    "fraymus.workspace.GameCost123Test.timingNoiseDoesNotBecomeAClaimedSaving",
+    "fraymus.workspace.GameLevels114Test.analyzesFullSourceAndDistinguishesExample",
+    "fraymus.workspace.GameLevels114Test.refusesChangedSourceAndAssetsOnAnIsolatedCopy",
+    "fraymus.workspace.GameLevels114Test.refusesInvalidParametersAndTraversal",
+    "fraymus.workspace.GameLevels114Test.rejectsChangedCandidateEvenIfItsManifestHashIsUpdated",
+    "fraymus.workspace.GameLevels114Test.savesVariedReconstructibleCandidatesWithoutChangingSource",
+    "fraymus.workspace.GameOpportunity120Test.inventedExpiredOrRepeatedWaitingIsRefused",
+    "fraymus.workspace.GameOpportunity120Test.supportedPickupsCompleteAfterWaitAndRestartWithEveryReceiptChecked",
+    "fraymus.workspace.GameOpportunity121Test.inventedExpiredOrRepeatedWaitingIsRefused",
+    "fraymus.workspace.GameOpportunity121Test.supportedPickupsCompleteAfterWaitAndRestartWithEveryReceiptChecked",
+    "fraymus.workspace.GamePickupTask123Test.disabledReturnSurvivesRestartAndFailureIsMeasuredWithoutCompletion",
+    "fraymus.workspace.GameRecovery119Test.recoveryCountersCannotInventAttemptsOrUnboundedDeferrals",
+    "fraymus.workspace.GameRecovery119Test.retainedFailuresCompleteThroughVerifiedTaskAndRecovery",
+    "fraymus.workspace.GameReference115Test.actualOverviewReconstructsAndRunsWithFreshScaleAndOcclusionChecks",
+    "fraymus.workspace.GameReference116Test.freshNativeImagesReconstructAndPlayWithRefusalsRetained",
+    "fraymus.workspace.GameTask115Test.interruptionRestartsFreshSessionAndNoRepairBudgetReallyStops",
+    "fraymus.workspace.GameTask115Test.realPhysicsRepairsObservedFallsAndRechecksEvidence",
+    "fraymus.workspace.GameTask115Test.routesRequestsAndBoundsRepairs",
+    "fraymus.workspace.Load055Test.stopPreservesPartialEvidenceThenExplicitRestartReevaluatesAndRejectsTampering",
+    "fraymus.workspace.SpatialGame040Test.actualGameEntitiesAndOriginalRasterShareOneTickAndPlayerIdentity",
+    "nervous.NeuromorphicCoreTest.bothTimingDirectionsChangeWeightsAndFrozenEvaluationDoesNot",
+    "nervous.NeuromorphicCoreTest.causalAndAnticausalSpikePairsChangeActualSynapsesInOppositeDirections",
+    "nervous.NeuromorphicCoreTest.rejectsCorruptCheckpoint",
+    "nervous.NeuromorphicCoreTest.seededCoreAndCheckpointContinueIdentically",
+    "physics2dtmp.CollisionDetectorTests.pointInBox2DShouldReturnFalseTestOne",
+    "physics2dtmp.CollisionDetectorTests.pointInBox2DShouldReturnFalseTestTwo",
+    "physics2dtmp.CollisionDetectorTests.pointInBox2DShouldReturnTrueTestFour",
+    "physics2dtmp.CollisionDetectorTests.pointInBox2DShouldReturnTrueTestOne",
+    "physics2dtmp.CollisionDetectorTests.pointInBox2DShouldReturnTrueTestThree",
+    "physics2dtmp.CollisionDetectorTests.pointInBox2DShouldReturnTrueTestTwo",
+    "physics2dtmp.CollisionDetectorTests.pointInCircleShouldReturnFalseTestOne",
+    "physics2dtmp.CollisionDetectorTests.pointInCircleShouldReturnFalseTestTwo",
+    "physics2dtmp.CollisionDetectorTests.pointInCircleShouldReturnTrueTestFive",
+    "physics2dtmp.CollisionDetectorTests.pointInCircleShouldReturnTrueTestFour",
+    "physics2dtmp.CollisionDetectorTests.pointInCircleShouldReturnTrueTestOne",
+    "physics2dtmp.CollisionDetectorTests.pointInCircleShouldReturnTrueTestTwo",
+    "physics2dtmp.CollisionDetectorTests.pointInRotatedBox2DShouldReturnTrueTestOne",
+    "physics2dtmp.CollisionDetectorTests.pointInRotatedBox2DShouldReturnTrueTestThree",
+    "physics2dtmp.CollisionDetectorTests.pointInRotatedShouldReturnFalseTestOne",
+    "physics2dtmp.CollisionDetectorTests.pointInRotatedShouldReturnFalseTestTwo",
+    "physics2dtmp.CollisionDetectorTests.pointInRotatedShouldReturnTrueTestFour",
+    "physics2dtmp.CollisionDetectorTests.pointInRotatedShouldReturnTrueTestTwo",
+    "physics2dtmp.CollisionDetectorTests.pointOnLine2DShouldReturnTrueTest",
+    "physics2dtmp.CollisionDetectorTests.pointOnLine2DShouldReturnTrueTestTwo",
+    "physics2dtmp.CollisionDetectorTests.pointOnLineShouldReturnFalseTestOne",
+    "physics2dtmp.CollisionDetectorTests.pointOnLineShouldReturnFalseTestTwo",
+    "physics2dtmp.CollisionDetectorTests.pointOnLineShouldReturnTrueTestFour",
+    "physics2dtmp.CollisionDetectorTests.pointOnLineShouldReturnTrueTestOne",
+    "physics2dtmp.CollisionDetectorTests.pointOnLineShouldReturnTrueTestThree",
+    "physics2dtmp.CollisionDetectorTests.pointOnLineShouldReturnTrueTestTwo",
+    "physics2dtmp.CollisionDetectorTests.pointOnVerticalLineShouldReturnTrue",
+    "renderer.AnimationTextureBatchTest.animationSwitchRegistersNewTextureBeforeDrawing",
+    "renderer.AnimationTextureBatchTest.fullSamplerTableMovesAnimationInsteadOfUsingSlotZeroOrEight",
+    "renderer.ShaderPortability116Test.bothNativeShadersCompileAndInvalidShaderFailsExplicitly",
+    "renderer.ShaderSourceTest.loadsCrLfShaderWithoutAnOpenGlContext",
+    "renderer.ShaderSourceTest.loadsLfShaderWithoutAnOpenGlContext"
+  ],
+  "javaSuites": [
+    {
+      "name": "budget124-development-engine",
+      "executions": 1
+    },
+    {
+      "name": "budget124-development-engine-pilot",
+      "executions": 1
+    },
+    {
+      "name": "budget124-development-engine-pre-compatibility",
+      "executions": 1
+    },
+    {
+      "name": "budget124-development-root",
+      "executions": 120
+    },
+    {
+      "name": "budget124-reserved-engine",
+      "executions": 1
+    },
+    {
+      "name": "budget124-reserved-engine-pre-admission",
+      "executions": 1
+    },
+    {
+      "name": "budget124-reserved-root",
+      "executions": 120
+    },
+    {
+      "name": "budget124-software-engine",
+      "executions": 1
+    },
+    {
+      "name": "budget124-software-root",
+      "executions": 120
+    },
+    {
+      "name": "final124-wrapper-engine",
+      "executions": 9
+    },
+    {
+      "name": "final124-wrapper-root",
+      "executions": 120
+    },
+    {
+      "name": "hardware124-main-engine",
+      "executions": 80
+    },
+    {
+      "name": "hardware124-main-root",
+      "executions": 120
+    },
+    {
+      "name": "regression124-development-engine",
+      "executions": 1
+    },
+    {
+      "name": "regression124-reserved-engine",
+      "executions": 1
+    },
+    {
+      "name": "regression124-waits-engine",
+      "executions": 1
+    }
+  ],
+  "desktopChecks": 168,
+  "actualChatRequests": 12,
+  "actualAbruptRecovery": true,
+  "actualAiFailureRefused": true,
+  "regressionExecutions": 18,
+  "studyRows": 40,
+  "measurements": {
+    "rows": [
+      {
+        "partition": "development",
+        "case": "supported-wait",
+        "allowance": 0,
+        "selected": "direct",
+        "requiredSecondsPerPickup": null,
+        "reason": "At least three direct and three alternative measurements are required",
+        "pickups": 0,
+        "completionCertified": true,
+        "seconds": 19.3747518,
+        "externalSeconds": 19.7098041,
+        "overheadSeconds": 0.1504867,
+        "admissionSeconds": 0.1504867,
+        "completionReserveSeconds": 0,
+        "alternatives": [
+          {
+            "reason": "At least three direct and three alternative measurements are required",
+            "baselineSamples": 0,
+            "strategy": "no-return",
+            "samples": 0
+          },
+          {
+            "reason": "At least three direct and three alternative measurements are required",
+            "baselineSamples": 0,
+            "strategy": "no-wait",
+            "samples": 0
+          },
+          {
+            "reason": "At least three direct and three alternative measurements are required",
+            "baselineSamples": 0,
+            "strategy": "full",
+            "samples": 0
+          }
+        ]
+      },
+      {
+        "partition": "development",
+        "case": "supported-wait",
+        "allowance": 4,
+        "selected": "direct",
+        "requiredSecondsPerPickup": 10.819372899999998,
+        "reason": "Conservative estimate exceeds the allowance",
+        "pickups": 0,
+        "completionCertified": true,
+        "seconds": 23.5323258,
+        "externalSeconds": 25.6986803,
+        "overheadSeconds": 3.8276002,
+        "admissionSeconds": 2.00901,
+        "completionReserveSeconds": 1.8185902,
+        "alternatives": [
+          {
+            "reason": "At least three direct and three alternative measurements are required",
+            "baselineSamples": 3,
+            "strategy": "no-return",
+            "samples": 0
+          },
+          {
+            "reason": "At least three direct and three alternative measurements are required",
+            "baselineSamples": 3,
+            "strategy": "no-wait",
+            "samples": 0
+          },
+          {
+            "reason": "Conservative estimate exceeds the allowance",
+            "extraSecondsUpper": 5.0933972999999995,
+            "decisionOverheadSeconds": 3.8276002,
+            "alternative": {
+              "minSeconds": 23.7217549,
+              "maxPickups": 1,
+              "minPickups": 1,
+              "maxSeconds": 24.3355645
+            },
+            "baseline": {
+              "minSeconds": 19.2421672,
+              "maxPickups": 0,
+              "minPickups": 0,
+              "maxSeconds": 20.0663549
+            },
+            "samples": 3,
+            "benefitLower": 1,
+            "benefitUpper": 1,
+            "variationReserveSeconds": 1.648375399999999,
+            "requiredSecondsPerPickup": 10.819372899999998,
+            "baselineSamples": 3,
+            "strategy": "full",
+            "recordingReserveSeconds": 0.25,
+            "estimatedExtraSeconds": 10.819372899999998
+          }
+        ]
+      },
+      {
+        "partition": "development",
+        "case": "supported-wait",
+        "allowance": 30,
+        "selected": "full",
+        "requiredSecondsPerPickup": 10.8281988,
+        "reason": "Benefit remains positive across observations and estimated cost fits",
+        "pickups": 1,
+        "completionCertified": true,
+        "seconds": 27.8536372,
+        "externalSeconds": 30.0196213,
+        "overheadSeconds": 3.8364260999999997,
+        "admissionSeconds": 2.0173866,
+        "completionReserveSeconds": 1.8190395,
+        "alternatives": [
+          {
+            "reason": "At least three direct and three alternative measurements are required",
+            "baselineSamples": 3,
+            "strategy": "no-return",
+            "samples": 0
+          },
+          {
+            "reason": "At least three direct and three alternative measurements are required",
+            "baselineSamples": 3,
+            "strategy": "no-wait",
+            "samples": 0
+          },
+          {
+            "reason": "Benefit remains positive across observations and estimated cost fits",
+            "extraSecondsUpper": 5.0933972999999995,
+            "decisionOverheadSeconds": 3.8364260999999997,
+            "alternative": {
+              "minSeconds": 23.7217549,
+              "maxPickups": 1,
+              "minPickups": 1,
+              "maxSeconds": 24.3355645
+            },
+            "baseline": {
+              "minSeconds": 19.2421672,
+              "maxPickups": 0,
+              "minPickups": 0,
+              "maxSeconds": 20.0663549
+            },
+            "samples": 3,
+            "benefitLower": 1,
+            "benefitUpper": 1,
+            "variationReserveSeconds": 1.648375399999999,
+            "requiredSecondsPerPickup": 10.8281988,
+            "baselineSamples": 3,
+            "strategy": "full",
+            "recordingReserveSeconds": 0.25,
+            "estimatedExtraSeconds": 10.8281988
+          }
+        ]
+      },
+      {
+        "partition": "development",
+        "case": "supported-return",
+        "allowance": 0,
+        "selected": "direct",
+        "requiredSecondsPerPickup": null,
+        "reason": "At least three direct and three alternative measurements are required",
+        "pickups": 0,
+        "completionCertified": true,
+        "seconds": 27.2240768,
+        "externalSeconds": 27.5637751,
+        "overheadSeconds": 0.1900501,
+        "admissionSeconds": 0.1900501,
+        "completionReserveSeconds": 0,
+        "alternatives": [
+          {
+            "reason": "At least three direct and three alternative measurements are required",
+            "baselineSamples": 0,
+            "strategy": "no-return",
+            "samples": 0
+          },
+          {
+            "reason": "At least three direct and three alternative measurements are required",
+            "baselineSamples": 0,
+            "strategy": "no-wait",
+            "samples": 0
+          },
+          {
+            "reason": "At least three direct and three alternative measurements are required",
+            "baselineSamples": 0,
+            "strategy": "full",
+            "samples": 0
+          }
+        ]
+      },
+      {
+        "partition": "development",
+        "case": "supported-return",
+        "allowance": 4,
+        "selected": "direct",
+        "requiredSecondsPerPickup": 16.7240764,
+        "reason": "Conservative estimate exceeds the allowance",
+        "pickups": 0,
+        "completionCertified": true,
+        "seconds": 29.8033671,
+        "externalSeconds": 32.0535724,
+        "overheadSeconds": 4.0588193,
+        "admissionSeconds": 2.1408014,
+        "completionReserveSeconds": 1.9180179,
+        "alternatives": [
+          {
+            "reason": "At least three direct and three alternative measurements are required",
+            "baselineSamples": 3,
+            "strategy": "no-return",
+            "samples": 0
+          },
+          {
+            "reason": "At least three direct and three alternative measurements are required",
+            "baselineSamples": 3,
+            "strategy": "no-wait",
+            "samples": 0
+          },
+          {
+            "reason": "Conservative estimate exceeds the allowance",
+            "extraSecondsUpper": 10.607056099999998,
+            "decisionOverheadSeconds": 4.0588193,
+            "alternative": {
+              "minSeconds": 35.3885218,
+              "maxPickups": 1,
+              "minPickups": 1,
+              "maxSeconds": 36.1265976
+            },
+            "baseline": {
+              "minSeconds": 25.5195415,
+              "maxPickups": 0,
+              "minPickups": 0,
+              "maxSeconds": 26.423642
+            },
+            "samples": 3,
+            "benefitLower": 1,
+            "benefitUpper": 1,
+            "variationReserveSeconds": 1.808201000000004,
+            "requiredSecondsPerPickup": 16.7240764,
+            "baselineSamples": 3,
+            "strategy": "full",
+            "recordingReserveSeconds": 0.25,
+            "estimatedExtraSeconds": 16.7240764
+          }
+        ]
+      },
+      {
+        "partition": "development",
+        "case": "supported-return",
+        "allowance": 30,
+        "selected": "full",
+        "requiredSecondsPerPickup": 16.7694863,
+        "reason": "Benefit remains positive across observations and estimated cost fits",
+        "pickups": 1,
+        "completionCertified": true,
+        "seconds": 39.6348731,
+        "externalSeconds": 41.9160695,
+        "overheadSeconds": 4.1042292,
+        "admissionSeconds": 2.175734,
+        "completionReserveSeconds": 1.9284952,
+        "alternatives": [
+          {
+            "reason": "At least three direct and three alternative measurements are required",
+            "baselineSamples": 3,
+            "strategy": "no-return",
+            "samples": 0
+          },
+          {
+            "reason": "At least three direct and three alternative measurements are required",
+            "baselineSamples": 3,
+            "strategy": "no-wait",
+            "samples": 0
+          },
+          {
+            "reason": "Benefit remains positive across observations and estimated cost fits",
+            "extraSecondsUpper": 10.607056099999998,
+            "decisionOverheadSeconds": 4.1042292,
+            "alternative": {
+              "minSeconds": 35.3885218,
+              "maxPickups": 1,
+              "minPickups": 1,
+              "maxSeconds": 36.1265976
+            },
+            "baseline": {
+              "minSeconds": 25.5195415,
+              "maxPickups": 0,
+              "minPickups": 0,
+              "maxSeconds": 26.423642
+            },
+            "samples": 3,
+            "benefitLower": 1,
+            "benefitUpper": 1,
+            "variationReserveSeconds": 1.808201000000004,
+            "requiredSecondsPerPickup": 16.7694863,
+            "baselineSamples": 3,
+            "strategy": "full",
+            "recordingReserveSeconds": 0.25,
+            "estimatedExtraSeconds": 16.7694863
+          }
+        ]
+      },
+      {
+        "partition": "development",
+        "case": "no-gain",
+        "allowance": 0,
+        "selected": "direct",
+        "requiredSecondsPerPickup": null,
+        "reason": "At least three direct and three alternative measurements are required",
+        "pickups": 1,
+        "completionCertified": true,
+        "seconds": 28.1302574,
+        "externalSeconds": 28.4809162,
+        "overheadSeconds": 0.1720396,
+        "admissionSeconds": 0.1720396,
+        "completionReserveSeconds": 0,
+        "alternatives": [
+          {
+            "reason": "At least three direct and three alternative measurements are required",
+            "baselineSamples": 0,
+            "strategy": "no-return",
+            "samples": 0
+          },
+          {
+            "reason": "At least three direct and three alternative measurements are required",
+            "baselineSamples": 0,
+            "strategy": "no-wait",
+            "samples": 0
+          },
+          {
+            "reason": "At least three direct and three alternative measurements are required",
+            "baselineSamples": 0,
+            "strategy": "full",
+            "samples": 0
+          }
+        ]
+      },
+      {
+        "partition": "development",
+        "case": "no-gain",
+        "allowance": 4,
+        "selected": "direct",
+        "requiredSecondsPerPickup": null,
+        "reason": "No consistent additional pickup benefit",
+        "pickups": 1,
+        "completionCertified": true,
+        "seconds": 32.007407,
+        "externalSeconds": 34.2251082,
+        "overheadSeconds": 3.9450224,
+        "admissionSeconds": 2.0763616,
+        "completionReserveSeconds": 1.8686608,
+        "alternatives": [
+          {
+            "reason": "At least three direct and three alternative measurements are required",
+            "baselineSamples": 3,
+            "strategy": "no-return",
+            "samples": 0
+          },
+          {
+            "reason": "At least three direct and three alternative measurements are required",
+            "baselineSamples": 3,
+            "strategy": "no-wait",
+            "samples": 0
+          },
+          {
+            "reason": "No consistent additional pickup benefit",
+            "extraSecondsUpper": 0.5398828999999985,
+            "decisionOverheadSeconds": 3.9450224,
+            "alternative": {
+              "minSeconds": 27.7363447,
+              "maxPickups": 1,
+              "minPickups": 1,
+              "maxSeconds": 27.9837213
+            },
+            "baseline": {
+              "minSeconds": 27.4438384,
+              "maxPickups": 1,
+              "minPickups": 1,
+              "maxSeconds": 28.2719493
+            },
+            "samples": 3,
+            "benefitLower": 0,
+            "benefitUpper": 0,
+            "variationReserveSeconds": 1.6562217999999973,
+            "baselineSamples": 3,
+            "strategy": "full",
+            "recordingReserveSeconds": 0.25,
+            "estimatedExtraSeconds": 6.391127099999996
+          }
+        ]
+      },
+      {
+        "partition": "development",
+        "case": "no-gain",
+        "allowance": 30,
+        "selected": "direct",
+        "requiredSecondsPerPickup": null,
+        "reason": "No consistent additional pickup benefit",
+        "pickups": 1,
+        "completionCertified": true,
+        "seconds": 31.1741204,
+        "externalSeconds": 33.6034415,
+        "overheadSeconds": 3.972284,
+        "admissionSeconds": 2.103005,
+        "completionReserveSeconds": 1.869279,
+        "alternatives": [
+          {
+            "reason": "At least three direct and three alternative measurements are required",
+            "baselineSamples": 3,
+            "strategy": "no-return",
+            "samples": 0
+          },
+          {
+            "reason": "At least three direct and three alternative measurements are required",
+            "baselineSamples": 3,
+            "strategy": "no-wait",
+            "samples": 0
+          },
+          {
+            "reason": "No consistent additional pickup benefit",
+            "extraSecondsUpper": 0.5398828999999985,
+            "decisionOverheadSeconds": 3.972284,
+            "alternative": {
+              "minSeconds": 27.7363447,
+              "maxPickups": 1,
+              "minPickups": 1,
+              "maxSeconds": 27.9837213
+            },
+            "baseline": {
+              "minSeconds": 27.4438384,
+              "maxPickups": 1,
+              "minPickups": 1,
+              "maxSeconds": 28.2719493
+            },
+            "samples": 3,
+            "benefitLower": 0,
+            "benefitUpper": 0,
+            "variationReserveSeconds": 1.6562217999999973,
+            "baselineSamples": 3,
+            "strategy": "full",
+            "recordingReserveSeconds": 0.25,
+            "estimatedExtraSeconds": 6.418388699999996
+          }
+        ]
+      },
+      {
+        "partition": "reserved",
+        "case": "fresh-wait",
+        "allowance": 30,
+        "selected": "direct",
+        "requiredSecondsPerPickup": null,
+        "reason": "At least three direct and three alternative measurements are required",
+        "pickups": 0,
+        "completionCertified": true,
+        "seconds": 20.1381766,
+        "externalSeconds": 20.4713311,
+        "overheadSeconds": 0.00596,
+        "admissionSeconds": 0.00596,
+        "completionReserveSeconds": 0,
+        "alternatives": [
+          {
+            "reason": "At least three direct and three alternative measurements are required",
+            "baselineSamples": 0,
+            "strategy": "no-return",
+            "samples": 0
+          },
+          {
+            "reason": "At least three direct and three alternative measurements are required",
+            "baselineSamples": 0,
+            "strategy": "no-wait",
+            "samples": 0
+          },
+          {
+            "reason": "At least three direct and three alternative measurements are required",
+            "baselineSamples": 0,
+            "strategy": "full",
+            "samples": 0
+          }
+        ]
+      },
+      {
+        "partition": "reserved",
+        "case": "fresh-return",
+        "allowance": 30,
+        "selected": "direct",
+        "requiredSecondsPerPickup": null,
+        "reason": "At least three direct and three alternative measurements are required",
+        "pickups": 1,
+        "completionCertified": true,
+        "seconds": 36.1665241,
+        "externalSeconds": 36.5412479,
+        "overheadSeconds": 0.000381,
+        "admissionSeconds": 0.000381,
+        "completionReserveSeconds": 0,
+        "alternatives": [
+          {
+            "reason": "At least three direct and three alternative measurements are required",
+            "baselineSamples": 0,
+            "strategy": "no-return",
+            "samples": 0
+          },
+          {
+            "reason": "At least three direct and three alternative measurements are required",
+            "baselineSamples": 0,
+            "strategy": "no-wait",
+            "samples": 0
+          },
+          {
+            "reason": "At least three direct and three alternative measurements are required",
+            "baselineSamples": 0,
+            "strategy": "full",
+            "samples": 0
+          }
+        ]
+      },
+      {
+        "partition": "software",
+        "case": "supported-return",
+        "allowance": 0,
+        "selected": "direct",
+        "requiredSecondsPerPickup": null,
+        "reason": "At least three direct and three alternative measurements are required",
+        "pickups": 0,
+        "completionCertified": true,
+        "seconds": 26.4632943,
+        "externalSeconds": 26.8686823,
+        "overheadSeconds": 0.1964402,
+        "admissionSeconds": 0.1964402,
+        "completionReserveSeconds": 0,
+        "alternatives": [
+          {
+            "reason": "At least three direct and three alternative measurements are required",
+            "baselineSamples": 0,
+            "strategy": "no-return",
+            "samples": 0
+          },
+          {
+            "reason": "At least three direct and three alternative measurements are required",
+            "baselineSamples": 0,
+            "strategy": "no-wait",
+            "samples": 0
+          },
+          {
+            "reason": "At least three direct and three alternative measurements are required",
+            "baselineSamples": 0,
+            "strategy": "full",
+            "samples": 0
+          }
+        ]
+      },
+      {
+        "partition": "software",
+        "case": "supported-return",
+        "allowance": 4,
+        "selected": "direct",
+        "requiredSecondsPerPickup": 16.087638199999997,
+        "reason": "Conservative estimate exceeds the allowance",
+        "pickups": 0,
+        "completionCertified": true,
+        "seconds": 30.8051328,
+        "externalSeconds": 33.0422424,
+        "overheadSeconds": 4.0259662,
+        "admissionSeconds": 2.1350699,
+        "completionReserveSeconds": 1.8908963,
+        "alternatives": [
+          {
+            "reason": "At least three direct and three alternative measurements are required",
+            "baselineSamples": 3,
+            "strategy": "no-return",
+            "samples": 0
+          },
+          {
+            "reason": "At least three direct and three alternative measurements are required",
+            "baselineSamples": 3,
+            "strategy": "no-wait",
+            "samples": 0
+          },
+          {
+            "reason": "Conservative estimate exceeds the allowance",
+            "extraSecondsUpper": 10.522835599999997,
+            "decisionOverheadSeconds": 4.0259662,
+            "alternative": {
+              "minSeconds": 36.4345638,
+              "maxPickups": 1,
+              "minPickups": 1,
+              "maxSeconds": 36.8830074
+            },
+            "baseline": {
+              "minSeconds": 26.3601718,
+              "maxPickups": 0,
+              "minPickups": 0,
+              "maxSeconds": 27.00459
+            },
+            "samples": 3,
+            "benefitLower": 1,
+            "benefitUpper": 1,
+            "variationReserveSeconds": 1.288836400000001,
+            "requiredSecondsPerPickup": 16.087638199999997,
+            "baselineSamples": 3,
+            "strategy": "full",
+            "recordingReserveSeconds": 0.25,
+            "estimatedExtraSeconds": 16.087638199999997
+          }
+        ]
+      },
+      {
+        "partition": "software",
+        "case": "supported-return",
+        "allowance": 30,
+        "selected": "full",
+        "requiredSecondsPerPickup": 16.0963586,
+        "reason": "Benefit remains positive across observations and estimated cost fits",
+        "pickups": 1,
+        "completionCertified": true,
+        "seconds": 41.0121584,
+        "externalSeconds": 43.2877822,
+        "overheadSeconds": 4.034686600000001,
+        "admissionSeconds": 2.1387756,
+        "completionReserveSeconds": 1.895911,
+        "alternatives": [
+          {
+            "reason": "At least three direct and three alternative measurements are required",
+            "baselineSamples": 3,
+            "strategy": "no-return",
+            "samples": 0
+          },
+          {
+            "reason": "At least three direct and three alternative measurements are required",
+            "baselineSamples": 3,
+            "strategy": "no-wait",
+            "samples": 0
+          },
+          {
+            "reason": "Benefit remains positive across observations and estimated cost fits",
+            "extraSecondsUpper": 10.522835599999997,
+            "decisionOverheadSeconds": 4.034686600000001,
+            "alternative": {
+              "minSeconds": 36.4345638,
+              "maxPickups": 1,
+              "minPickups": 1,
+              "maxSeconds": 36.8830074
+            },
+            "baseline": {
+              "minSeconds": 26.3601718,
+              "maxPickups": 0,
+              "minPickups": 0,
+              "maxSeconds": 27.00459
+            },
+            "samples": 3,
+            "benefitLower": 1,
+            "benefitUpper": 1,
+            "variationReserveSeconds": 1.288836400000001,
+            "requiredSecondsPerPickup": 16.0963586,
+            "baselineSamples": 3,
+            "strategy": "full",
+            "recordingReserveSeconds": 0.25,
+            "estimatedExtraSeconds": 16.0963586
+          }
+        ]
+      }
+    ],
+    "workflows": 40,
+    "development": 27,
+    "reserved": 4,
+    "software": 9,
+    "scope": "Admission through first verified outcome; external rows additionally include measurement re-audit. Later app shutdown excluded. Initial development pilot retained separately and excluded from final calibration. No probability or deadline guarantee."
+  },
+  "referenceControllerResults": {
+    "hardware": {
+      "cases": 6,
+      "refusals": 4
+    }
+  },
+  "launcher": {
+    "passed": true,
+    "scope": "Isolated PrepareOnly Offline; package receipt verified before and after UI."
+  },
+  "sourceCommit": "1d36ccc2404041a23111b1ed4f7b04cf7e31d236",
+  "sourceValidationScope": {
+    "scope": "Broad regression compiled wrapper before admission guard; final guard receives focused tests and all final budget datasets/UI. Native controller and GameTask115 unchanged.",
+    "broadWrapperSourceCommit": "4de8bddb",
+    "compiledWrapperSha256": "5ba7dbe516bfcc8fe64289553c64b696e00b275baafe2e51e7dba426770c453c",
+    "finalGuardSourceCommit": "c1ec36d3"
+  },
+  "modelCalls": 0,
+  "scope": "Opt-in exact-condition cost/benefit envelope around unchanged GameTask115 and contact122. Current source and outcome checks retained. No general transfer, hard deadline, neural training or skill-bank promotion."
+}

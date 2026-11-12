@@ -1,3 +1,5 @@
+Current: [[docs/obsidian/132-budgeted-optional-actions.md]] · [[README-124.md]]
+
 Current: [[docs/obsidian/131-full-cost-pickup-choices.md]] · [[README-123.md]]
 
 Current: [[docs/obsidian/130-enemy-contact-and-supported-edge-recovery.md]] · [[README-122.md]]

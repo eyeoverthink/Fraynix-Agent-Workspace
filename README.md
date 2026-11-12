@@ -1,197 +1,221 @@
-# Fraynix Agent Workspace · Edition 123
+# Fraynix Agent Workspace · Edition 124
 
-[Published and fetched verification receipt](docs/PUBLICATION_123.json) · [Release tag](https://github.com/eyeoverthink/Fraynix-Agent-Workspace/tree/readme-123)
+**Choose extra work only when its verified benefit fits your time allowance.**
 
-**Measure the pickup benefit. Count the whole workflow. Keep safety ahead of speed.**
+2026-11-12 · Java-owned decisions, original game physics, durable verified tasks.
 
-2026-11-12 · Local Java decisions, original native physics, durable checked tasks.
+[Previous edition](README-123.md) · [All editions](docs/readmes/INDEX.md) · [Interactive evidence guide](docs/readmes/124/index.html) · [Acceptance contract](docs/EDITION_124_CONTRACT.md) · [Development phases](docs/PLAYABLE_LEVEL_CREATION_PLAN.md)
 
-[Previous edition](README-122.md) · [All editions](docs/readmes/INDEX.md) · [Interactive cost guide](docs/readmes/123/index.html) · [Acceptance contract](docs/EDITION_123_CONTRACT.md) · [Phased plan](docs/PLAYABLE_LEVEL_CREATION_PLAN.md)
+![Budget controls in the actual integrated app](docs/readmes/124/budget-controls.png)
 
-![Pickup approaches in the actual app](docs/readmes/123/pickup-controls.png)
+## What this system is
+
+Fraynix is a local agent workspace. Java owns persistent goals, typed tools, task execution, world state and verification. The desktop presents chat, the browser, creation/data tools and integrated game/3D views. An LLM can propose and explain; an observed physical outcome, source check or build/test result determines whether a task actually succeeded. These game requests use an explicit Java route, so they work without an LLM choosing each movement.
+
+The Game Lab is an executable environment for experiments: build a separate candidate, run real inputs through the original simulation, retain the frames and state changes, compare predictions with outcomes, and reopen the verified result. Edition124 adds a small decision layer around that existing runtime. It does not turn a reward estimate into permission to bypass a safety check.
 
 ## What changed
 
-Edition 122 fixed two recorded enemy-contact deaths and a supported-edge stall. Edition 123 asks a different question: when does waiting or returning for a power-up earn its extra work? It adds four explicit pickup approaches to the same controller, makes them available through durable chat requests, and measures repeated complete workflows. The default remains the edition 122 behavior.
+Edition123 measured the complete cost of waiting and returning for optional power-ups. Edition124 lets a request **choose an approach from current evidence**, using an explicit allowance and a conservative estimate of benefit and extra time.
 
-| Pickup approach | Optional waiting | Remembered returns | Preserved behavior |
-| --- | --- | --- | --- |
-| `full` | Enabled | Enabled | Existing default |
-| `no-wait` | Disabled | Enabled | Contact, terrain, risk and recovery checks |
-| `no-return` | Enabled | Disabled | Contact, terrain, risk and recovery checks |
-| `direct` | Disabled | Disabled | Safe forward pickups and every safety check |
+| Mode | Behavior |
+| --- | --- |
+| `full` | Existing optional waiting and remembered returns; still the default |
+| `no-wait` | Remembered returns permitted; optional waits disabled |
+| `no-return` | Optional waits permitted; remembered returns disabled |
+| `direct` | Skip optional waits and returns; retain safe forward pickups and collision recovery |
+| `budget` | Compare freshly verified approaches with your allowance; choose direct when evidence is missing, unsafe, inconsistent or too costly |
 
-These are controlled feature comparisons. `direct` does not mean blind forward motion, and disabling remembered returns does not prohibit every backward movement used by normal collision recovery. No physics, body transform, collectible counter or finish condition is overwritten.
+Only `budget` uses `pickupBudgetSeconds`. This is **estimated extra elapsed request seconds per additional pickup**, bounded to 0–120. It is not the total task duration or a hard deadline. The app shows the selected approach, allowance, sample counts and reasons. Existing manual modes and general AI Play keep their previous behavior.
 
-## Measured findings
+## How the decision works
 
-On development / supported-return, full versus no-return added 1.00–1.00 pickups per run; paired wall-time change was 7.65 to 8.28 seconds. On development / supported-wait, full versus no-wait added 1.00–1.00 pickups per run; paired wall-time change was 4.06 to 6.23 seconds. On reserved / fresh-return, full versus no-return added 0.00–0.00 pickups per run; paired wall-time change was -0.16 to 0.51 seconds. On reserved / fresh-wait, full versus no-wait added 1.00–1.00 pickups per run; paired wall-time change was 3.92 to 6.18 seconds. On software / fresh-return, full versus no-return added 0.00–0.00 pickups per run; paired wall-time change was -0.20 to 1.66 seconds. All negative and mixed comparisons remain below. Costs are measured on this host, not promised for another machine.
+1. Collect completed explicit-strategy tasks in the same saved project. At least **three direct and three alternative** observations are required.
+2. Match the entire declared geometry, including seed, and the current algorithm/resource context. Require the same renderer and evidence no older than seven days. Do not import old edition123 timings as new calibration.
+3. Recheck the original task, source, assets, engine identity, action traces and actual outcome. Keep matching failures in the sample set. A failed or damaged run prevents recommendation of that alternative.
+4. Bound benefit by `min(alternative pickups) − max(direct pickups)`. If that lower bound is zero or negative, do not recommend the extra work.
+5. Reject timing sets with `max / min > 1.5`. Add observed variation and verification costs to the extra-time estimate.
+6. Choose the qualifying alternative with the lowest estimated extra seconds per conservative additional pickup. Otherwise choose direct. Zero allowance skips expensive calibration lookup entirely.
 
-The table reports totals across repetitions. A pickup count of three means one pickup in each of three runs, not three objects in one course. Times are elapsed **complete Java workflow** seconds.
-
-| Partition / case | Approach | Finishes | Pickups total | Damage / deaths | Median wall seconds | Observed range |
-| --- | --- | --- | --- | --- | --- | --- |
-| development / supported-return | direct | 3/3 | 0 | 0 / 0 | 23.98 | 23.71–24.18 |
-| development / supported-return | full | 3/3 | 3 | 0 / 0 | 31.97 | 31.54–32.23 |
-| development / supported-return | no-return | 3/3 | 0 | 0 / 0 | 23.95 | 23.89–24.01 |
-| development / supported-return | no-wait | 3/3 | 3 | 0 / 0 | 32.22 | 31.77–32.43 |
-| development / supported-wait | direct | 3/3 | 0 | 0 / 0 | 18.00 | 17.91–18.36 |
-| development / supported-wait | full | 3/3 | 3 | 0 / 0 | 22.26 | 22.19–24.71 |
-| development / supported-wait | no-return | 3/3 | 3 | 0 / 0 | 22.23 | 21.81–22.28 |
-| development / supported-wait | no-wait | 3/3 | 0 | 0 / 0 | 18.13 | 18.08–18.48 |
-| development / unsupported-pickup | direct | 3/3 | 0 | 0 / 0 | 23.07 | 22.75–23.18 |
-| development / unsupported-pickup | full | 3/3 | 0 | 0 / 0 | 22.91 | 22.64–22.99 |
-| development / unsupported-pickup | no-return | 3/3 | 0 | 0 / 0 | 22.92 | 22.62–23.05 |
-| development / unsupported-pickup | no-wait | 3/3 | 0 | 0 / 0 | 23.00 | 22.89–23.24 |
-| reserved / fresh-return | direct | 3/3 | 3 | 0 / 0 | 25.29 | 25.06–25.56 |
-| reserved / fresh-return | full | 3/3 | 3 | 0 / 0 | 25.50 | 25.42–26.17 |
-| reserved / fresh-return | no-return | 3/3 | 3 | 0 / 0 | 25.57 | 25.47–25.66 |
-| reserved / fresh-return | no-wait | 3/3 | 3 | 0 / 0 | 25.42 | 25.39–25.66 |
-| reserved / fresh-wait | direct | 3/3 | 0 | 0 / 0 | 18.01 | 17.87–18.13 |
-| reserved / fresh-wait | full | 3/3 | 3 | 0 / 0 | 22.81 | 22.13–24.12 |
-| reserved / fresh-wait | no-return | 3/3 | 3 | 0 / 0 | 22.60 | 22.41–22.90 |
-| reserved / fresh-wait | no-wait | 3/3 | 0 | 0 / 0 | 18.11 | 17.94–18.21 |
-| software / fresh-return | direct | 3/3 | 3 | 0 / 0 | 25.97 | 25.67–26.34 |
-| software / fresh-return | full | 3/3 | 3 | 0 / 0 | 25.89 | 25.77–27.48 |
-| software / fresh-return | no-return | 3/3 | 3 | 0 / 0 | 25.88 | 25.82–26.10 |
-| software / fresh-return | no-wait | 3/3 | 3 | 0 / 0 | 25.94 | 25.92–26.38 |
-
-![Full workflow time and observed pickup benefit](docs/readmes/123/pickup-costs.png)
-
-## When is it worth it?
-
-A slower approach can be useful if it adds a pickup the user values enough. For comparisons with three safe paired finishes and an extra pickup in every pair, Java reports:
-
-`observed conservative threshold = max(0, largest measured elapsed-time increase) / smallest measured extra-pickup count`
-
-The [interactive guide](docs/readmes/123/index.html) lets you enter how many extra seconds you would allow per additional pickup and compare that allowance with the measured threshold. It does not change the controller. Three observations are not a statistical confidence bound or a prediction guarantee for another machine or level.
-
-| Partition / case | Enabled approach vs comparison | Extra pickups per pair (range) | Extra wall seconds (range) | Observed seconds per extra pickup | Assessment |
-| --- | --- | --- | --- | --- | --- |
-| development / supported-return | full vs no-wait | 0.00–0.00 | -0.69 to 0.46 | not established | No additional pickup benefit demonstrated |
-| development / supported-return | full vs no-return | 1.00–1.00 | 7.65 to 8.28 | 8.28 | Extra pickup in every repeat: compare its value with the measured cost threshold |
-| development / supported-return | no-return vs direct | 0.00–0.00 | -0.29 to 0.24 | not established | No additional pickup benefit demonstrated |
-| development / supported-return | no-wait vs direct | 1.00–1.00 | 8.04 to 8.45 | 8.45 | Extra pickup in every repeat: compare its value with the measured cost threshold |
-| development / supported-return | full vs direct | 1.00–1.00 | 7.36 to 8.53 | 8.53 | Extra pickup in every repeat: compare its value with the measured cost threshold |
-| development / supported-wait | full vs no-wait | 1.00–1.00 | 4.06 to 6.23 | 6.23 | Extra pickup in every repeat: compare its value with the measured cost threshold |
-| development / supported-wait | full vs no-return | 0.00–0.00 | -0.09 to 2.48 | not established | No additional pickup benefit demonstrated |
-| development / supported-wait | no-return vs direct | 1.00–1.00 | 3.90 to 4.23 | 4.23 | Extra pickup in every repeat: compare its value with the measured cost threshold |
-| development / supported-wait | no-wait vs direct | 0.00–0.00 | -0.23 to 0.48 | not established | No additional pickup benefit demonstrated |
-| development / supported-wait | full vs direct | 1.00–1.00 | 3.83 to 6.71 | 6.71 | Extra pickup in every repeat: compare its value with the measured cost threshold |
-| development / unsupported-pickup | full vs no-wait | 0.00–0.00 | -0.36 to 0.09 | not established | No additional pickup benefit demonstrated |
-| development / unsupported-pickup | full vs no-return | 0.00–0.00 | -0.40 to 0.37 | not established | No additional pickup benefit demonstrated |
-| development / unsupported-pickup | no-return vs direct | 0.00–0.00 | -0.45 to 0.17 | not established | No additional pickup benefit demonstrated |
-| development / unsupported-pickup | no-wait vs direct | 0.00–0.00 | -0.18 to 0.49 | not established | No additional pickup benefit demonstrated |
-| development / unsupported-pickup | full vs direct | 0.00–0.00 | -0.54 to 0.16 | not established | No additional pickup benefit demonstrated |
-| reserved / fresh-return | full vs no-wait | 0.00–0.00 | -0.01 to 0.51 | not established | No additional pickup benefit demonstrated |
-| reserved / fresh-return | full vs no-return | 0.00–0.00 | -0.16 to 0.51 | not established | No additional pickup benefit demonstrated |
-| reserved / fresh-return | no-return vs direct | 0.00–0.00 | 0.01 to 0.42 | not established | No additional pickup benefit demonstrated |
-| reserved / fresh-return | no-wait vs direct | 0.00–0.00 | -0.13 to 0.37 | not established | No additional pickup benefit demonstrated |
-| reserved / fresh-return | full vs direct | 0.00–0.00 | -0.14 to 0.88 | not established | No additional pickup benefit demonstrated |
-| reserved / fresh-wait | full vs no-wait | 1.00–1.00 | 3.92 to 6.18 | 6.18 | Extra pickup in every repeat: compare its value with the measured cost threshold |
-| reserved / fresh-wait | full vs no-return | 0.00–0.00 | -0.47 to 1.21 | not established | No additional pickup benefit demonstrated |
-| reserved / fresh-wait | no-return vs direct | 1.00–1.00 | 4.28 to 5.03 | 5.03 | Extra pickup in every repeat: compare its value with the measured cost threshold |
-| reserved / fresh-wait | no-wait vs direct | 0.00–0.00 | -0.02 to 0.20 | not established | No additional pickup benefit demonstrated |
-| reserved / fresh-wait | full vs direct | 1.00–1.00 | 4.12 to 6.25 | 6.25 | Extra pickup in every repeat: compare its value with the measured cost threshold |
-| software / fresh-return | full vs no-wait | 0.00–0.00 | -0.18 to 1.10 | not established | No additional pickup benefit demonstrated |
-| software / fresh-return | full vs no-return | 0.00–0.00 | -0.20 to 1.66 | not established | No additional pickup benefit demonstrated |
-| software / fresh-return | no-return vs direct | 0.00–0.00 | -0.52 to 0.43 | not established | No additional pickup benefit demonstrated |
-| software / fresh-return | no-wait vs direct | 0.00–0.00 | -0.03 to 0.26 | not established | No additional pickup benefit demonstrated |
-| software / fresh-return | full vs direct | 0.00–0.00 | -0.20 to 1.14 | not established | No additional pickup benefit demonstrated |
-
-If either approach fails to finish safely, the comparison refuses an economic recommendation. If no additional pickup is demonstrated, it says so. A consistently faster approach with no worse pickup count can still be useful. Mixed outcomes and overlapping timings remain visible; there is no invented single utility score.
-
-## What the clock includes
-
-Each measured row starts before creating its fresh project and task owner. It includes source checks, candidate construction, a fresh simple-control comparison, the AI trial, native frame capture, all durable task saves, final source/outcome verification, and closing the owned runtime. The phases are setup, task advancement, verification and shutdown. Advancement includes native execution **and** its surrounding validation, persistence and response construction.
-
-Simulation ticks are reported separately. The existing `workNanos` field is partial engine work and is not used as full wall time. UI scheduling, chat presentation, post-study cost analysis and study-report writing are outside the Java-workflow clock. Each study records its analysis time separately in `analysisNanos`. The Java workspace is already running when a request starts; outer Gradle/test-JVM startup is excluded, while the task-owned native game startup is included. Actual visible request timings are recorded separately below, including the request interrupted for the restart test. Explicit Java routes make zero model calls; these measurements are not LLM inference benchmarks.
-
-Measured native renderer: NVIDIA GeForce GTX 1660 Ti/PCIe/SSE2; Java 21.0.10. The test owner reports 4 processors and a 1024 MiB heap limit. The native child uses four processors and a 512 MiB heap. These are process limits, not a claim about total machine capacity. Software rendering is reported separately.
-
-All strategies use fresh memory and the same declared geometry. Order rotates over three repetitions; each strategy occupies three of four positions, not complete counterbalancing. File-system caches and unrelated machine load can still affect elapsed time. We retain ranges and individual measurements instead of claiming statistical certainty or removing inconvenient samples.
-
-## Cases and verification
-
-Development contains a supported wait, a supported return, and an unsupported pickup. The first pilot is retained separately and excluded from repeated statistics. Two new measurement cases were declared before running: seed 251 with a shifted turtle approach, and seed 257 with a supported remembered return. Software rendering repeats the seed 257 case on the same geometry; it is a portability repeat, not additional unseen evidence. The new wait case shifts the turtle; the new return case changes the seed while retaining the same return geometry. These are modest checks, not proof of generalization to arbitrary courses. No controller tuning follows their outcomes.
-
-Local checks passed: 195 distinct Java test methods, 168 desktop checks, 72 complete repeated workflows, 18 prior course executions with no damage, six transformed reference images and four refusal cases per renderer, plus the original reference regression. The actual app completed five requests, recovered its own interrupted Java process, and retained/refused an impossible sixth course. These edition123 regression counts are separate from the 85 executions documented in edition122.
-
-`GameEvidence123` checks that disabled actions stayed disabled. All previous source, asset, component, engine, owner, session, action, image, motion and outcome checks remain. Strategy identity is tied to the original request. Old proofs remain bound to their original engine identity. A failed trial can now be verified for **measurement**, with `completionCertified=false`; the ordinary completion verifier still refuses it. This does not promote failed tasks or bypass the task history limit of 24.
-
-CI was checked first: edition 122 main and release were still running, while the latest completed edition 121 runs had succeeded. Hosted CI status is recorded separately from local validation and the fetched publication audit.
-
-## Try it in the app
-
-1. Open the integrated **Game Lab**, then expand **Create a level from the original components**.
-2. Choose **Return to a cleared pickup** or the turtle/pickup course.
-3. Choose a **Pickup approach**, prepare the request, and send it through chat.
-4. Inspect the verified completion, actual pickups and the wait/return counters in task history. A completed candidate reopens at its start for review.
-5. Repeat the same course with another approach. Keep full timing separate from game ticks; use the measured guide for the edition's controlled comparisons.
-
-For example:
+The cost calculation is:
 
 ```text
-Create a playable Mario level seed=127 lengthTiles=72 gapTiles=2 secondGapTiles=2 pickupTile=42 goombaTile=46 obstacleTile=60 obstacleHeight=1 repairLimit=0 pickupStrategy=no-return
+extra = max(0, max(alternative seconds) − min(direct seconds))
+variation reserve = 2 × max(range(alternative seconds), range(direct seconds))
+overhead = measured decision admission + reserve for repeated completion source checks
+estimated extra seconds = extra + variation reserve + overhead + 0.25 recording reserve
+required allowance = estimated extra seconds / conservative additional pickups
 ```
 
-Unknown, empty or duplicate strategy choices are refused. Non-default strategies require explicitly declared challenge geometry. General AI Play and requests without a strategy retain the existing default.
+These are empirical engineering bounds from a small sample, **not statistical confidence intervals**. The zero-gain, unknown-scene and failed-evidence cases matter as much as the positive examples. Eligibility does not prove that a future run will earn a pickup. Live safety and actual finish checks remain authoritative.
 
-![Verified task result with returning enabled](docs/readmes/123/return-full.png)
-![Native frame after confirmed return collection](docs/readmes/123/collected-native.png)
-![The same course with remembered returns disabled](docs/readmes/123/return-disabled.png)
-![Actual waiting in the integrated game](docs/readmes/123/live-wait.png)
-![Verified strategy and retained attempts](docs/readmes/123/verified-strategy.png)
+## Measured results
 
-## Actual visible requests
+development/supported-wait: allowance 30 selected full, collected 1, first verified outcome 27.85s. development/supported-return: allowance 30 selected full, collected 1, first verified outcome 39.63s. development/no-gain: allowance 30 selected direct, collected 1, first verified outcome 31.17s. reserved/fresh-wait: allowance 30 selected direct, collected 0, first verified outcome 20.14s. reserved/fresh-return: allowance 30 selected direct, collected 1, first verified outcome 36.17s. software/supported-return: allowance 30 selected full, collected 1, first verified outcome 41.01s.
 
-These are separate end-to-end app observations, not pooled into the repeated Java timings. All screenshots are actual captures from an isolated review project.
+Each row below is an actual budgeted task. The estimate is the recorded full-versus-direct assessment; a missing threshold means no consistent benefit or insufficient evidence. External time includes the study's additional re-audit and result materialization, so it is deliberately distinguished from the calibrated first-outcome clock.
 
-| Request | Elapsed seconds | Final chat status | Verified AI pickups |
+| Partition / case | Allowance | Chosen approach | Full threshold | Actual pickups / finish | First verified outcome seconds | External request + re-audit seconds |
+| --- | --- | --- | --- | --- | --- | --- |
+| development / supported-wait | 0 | direct | not established | 0 / verified | 19.37 | 19.71 |
+| development / supported-wait | 4 | direct | 10.82 | 0 / verified | 23.53 | 25.70 |
+| development / supported-wait | 30 | full | 10.83 | 1 / verified | 27.85 | 30.02 |
+| development / supported-return | 0 | direct | not established | 0 / verified | 27.22 | 27.56 |
+| development / supported-return | 4 | direct | 16.72 | 0 / verified | 29.80 | 32.05 |
+| development / supported-return | 30 | full | 16.77 | 1 / verified | 39.63 | 41.92 |
+| development / no-gain | 0 | direct | not established | 1 / verified | 28.13 | 28.48 |
+| development / no-gain | 4 | direct | not established | 1 / verified | 32.01 | 34.23 |
+| development / no-gain | 30 | direct | not established | 1 / verified | 31.17 | 33.60 |
+| reserved / fresh-wait | 30 | direct | not established | 0 / verified | 20.14 | 20.47 |
+| reserved / fresh-return | 30 | direct | not established | 1 / verified | 36.17 | 36.54 |
+| software / supported-return | 0 | direct | not established | 0 / verified | 26.46 | 26.87 |
+| software / supported-return | 4 | direct | 16.09 | 0 / verified | 30.81 | 33.04 |
+| software / supported-return | 30 | full | 16.10 | 1 / verified | 41.01 | 43.29 |
+
+![Actual choices, time allowance and measured costs](docs/readmes/124/budget-costs.png)
+
+Three explicit runs per approach precede each development and software budget series; their order alternates. Fresh cases use budget mode before collecting comparison results, so they must abstain. The explicit calibration requests are upfront work, not hidden background runs. Their cost is not charged again to each later choice; this edition does not claim that calibration has earned back its acquisition cost. These are modest new conditions, not evidence of arbitrary-course generalization. The controller is not tuned against reserved results.
+
+Earlier development and reserved passes are preserved separately. Review identified a known repeated cost: calibration sources are checked again at completion. The final version reserves time for that second check and collects fresh calibration under its new algorithm identity. Compatibility review also preserved the original refusal for a failed older recipe that has no AI comparison. An interruption between the task write and decision write cannot resume without the missing original decision. Earlier passes do not qualify final decisions; development calibration is rerun with the final wrapper identity.
+
+### Unfamiliar-scene comparisons
+
+These are one budgeted request and one explicit full request per new scene. They show the observed cost of caution, without treating a single comparison as sufficient calibration.
+
+| New case | Budget choice: pickups / finish | Explicit full: pickups / finish | External time change, full minus budget |
 | --- | --- | --- | --- |
-| Create a playable Mario level seed=127 lengthTiles=72 gapTiles=2 secondGapTiles=2 pickupTile=42 goombaTile=46 obstacleTile=60 obstacleHeight=1 repairLimit=0 pickupStrategy=full; compare controls and report skipped pickups. | 61.884 | completed | 1 |
-| Create a playable Mario level seed=127 lengthTiles=72 gapTiles=2 secondGapTiles=2 pickupTile=42 goombaTile=46 obstacleTile=60 obstacleHeight=1 repairLimit=0 pickupStrategy=no-return; compare controls and report skipped pickups. | 42.047 | completed | 0 |
-| Create a playable Mario level seed=53 lengthTiles=64 gapTiles=2 secondGapTiles=2 turtleTile=15 obstacleTile=26 obstacleHeight=2 repairLimit=0 pickupStrategy=full; compare controls and report skipped pickups. | 37.779 | completed | 1 |
-| Create a playable Mario level seed=53 lengthTiles=64 gapTiles=2 secondGapTiles=2 turtleTile=15 obstacleTile=26 obstacleHeight=2 repairLimit=0 pickupStrategy=direct; compare controls and report skipped pickups. | 29.693 | completed | 0 |
-| Create a playable Mario level seed=50 lengthTiles=72 gapTiles=3 secondGapTiles=2 pickupTile=18 goombaTile=28 obstacleTile=25 obstacleHeight=2 repairLimit=0 pickupStrategy=full | 41.149 | completed | 0 |
-| Create a playable Mario level gapTiles=10 pickupTile=17 goombaTile=45 pickupStrategy=direct. | 19.918 | interrupted | not certified |
+| fresh-wait | 0 / verified | 1 / verified | 4.62s |
+| fresh-return | 1 / verified | 1 / verified | -0.38s |
 
-![An impossible course remains refused](docs/readmes/123/failed-course.png)
-![Compact integrated layout](docs/readmes/123/pickup-1100.png)
+### Calibration acquisition
+
+This is explicit upfront work, separate from later choice costs. The original observations remain inspectable; there is no claimed amortized saving yet.
+
+| Partition / case | Explicit examples | External elapsed seconds total |
+| --- | --- | --- |
+| development / supported-wait | 6 | 133.10 |
+| development / supported-return | 6 | 186.75 |
+| development / no-gain | 6 | 169.02 |
+| software / supported-return | 6 | 192.03 |
+
+## Timing and persistence
+
+The calibrated clock begins at Java admission and ends after the first verified terminal outcome. It includes construction, the simple-control comparison, actual AI simulation, frame capture, task saving, caller scheduling and source/outcome verification. The final timing-receipt write, subsequent audits and later application shutdown are outside that clock. The study additionally records the full request plus repeat audit. Actual chat elapsed times are reported separately and include presentation/polling and, where applicable, recovery.
+
+Interrupted or restarted timings remain in history but cannot calibrate later choices. Calibration currently accepts uninterrupted durations up to600seconds; longer observations remain retained outside that eligible workload range. Budget-selected runs are evaluation records, not self-qualifying training samples. A repeated start of an older task cannot invent a new fast clock. Choice receipts retain original and resolved requests, allowance, source hashes, samples, timing boundaries and decision. Restart and completion recheck these bindings. A changed renderer stops a learned choice before its AI inputs; a fresh direct request or new calibration is required.
+
+Checksummed receipts and owner checks detect accidental or tested alteration; they are not cryptographic attestation against an administrator rewriting the entire local project. The separate native verifier remains the authority for motion and completion. No physics, body position, collectible counter or finish condition is overwritten. Incompatible or damaged matched evidence is never silently discarded to obtain a favorable estimate. A new isolated project can collect fresh calibration after a runtime/resource change; the original project remains preserved. The existing **24 game-task history limit remains**.
+
+Measured hardware renderer: NVIDIA GeForce GTX 1660 Ti/PCIe/SSE2. Software rendering is a separate same-case repeat, not additional unseen evidence. Java21; study owner limited to four processors and1024MiB heap, native child four processors/512MiB. Actual chat owner uses two processors/512MiB. Context fingerprints prevent pooling these clocks.
+
+## Launch a review project
+
+From the checkout root, with JDK21 and Node.js available:
+
+```powershell
+$env:FRAYNIX_WORKSPACE_PROJECT = Join-Path $env:USERPROFILE '.fraynix-agent-workspace/projects/edition124-review'
+.\scripts\Start-Agent-Workspace.ps1
+```
+
+This uses a separate review project. The launcher builds the installed Java runtime and checks desktop dependencies. First preparation may download dependencies; after preparing the cache, `-Offline` avoids package downloads. Use the app's **Stop Java & close app** action before updating an installation it still owns; the launcher also checks for live owners. [Launcher source](scripts/Start-Agent-Workspace.ps1).
+
+## Try it
+
+1. Open the integrated **Game Lab** and expand **Create a level from the original components**.
+2. Choose **Return to a cleared pickup**. Run three requests with **Skip optional waits and returns**, and three with **Wait and return when safe**, in the same project. Alternating their order helps expose timing variation.
+3. Select **Choose using my allowance and evidence**, enter the extra seconds you would allow per additional pickup, and prepare/send the request.
+4. Open **Level task history**. Review **Optional-action decision**, then use **Recheck evidence**. The chat also states the chosen approach and allowance.
+5. Try zero allowance or a new seed. The result should choose direct when the necessary evidence is unavailable. The system does not silently spend extra time generating calibration trials.
+
+```text
+Create a playable Mario level seed=127 lengthTiles=72 gapTiles=2 secondGapTiles=2 pickupTile=42 goombaTile=46 obstacleTile=60 obstacleHeight=1 repairLimit=0 pickupStrategy=budget pickupBudgetSeconds=30
+```
+
+For explicit calibration use the same request with `pickupStrategy=direct` or `pickupStrategy=full` and omit `pickupBudgetSeconds`. Invalid, duplicate, missing or non-finite allowances are refused. The selected allowance is your preference; the system does not assign an intrinsic value to a pickup.
+
+![Tight allowance and recorded evidence](docs/readmes/124/budget-4.png)
+![Thirty-second allowance and retained uncertainty](docs/readmes/124/budget-30.png)
+![Larger explicit allowance and recovery](docs/readmes/124/budget-120.png)
+![New scene without matched evidence](docs/readmes/124/unknown-scene.png)
+
+## Validation and actual app review
+
+Local validation passed: 204 distinct Java methods,168 desktop checks,40 final native workflows,18 prior courses with no damage, six transformed reference images/four refusals, plus original reference regression. Native tests cover original checks, invalid allowances, uncertainty, failures, interrupted clocks, legacy restart, and altered choices/timing-source receipts. The actual app ran12 requests, recovered its deliberately interrupted Java owner, verified retained choice evidence and refused an impossible course. Zero LLM calls in these explicit Java routes; no model-training claim.
+
+The actual app showed greater timing variation than the isolated runner. Its30-second allowance was declined; the review then used an explicit120-second allowance without discarding any samples. The initial review driver incorrectly assumed30 must select full; its failed assertion and all original records are retained. The corrected driver checks the actual verified threshold.
+
+The broad regression pass preceded the final admission-interruption guard. That guard receives a focused recheck, and final development/reserved/software datasets plus actual chat run with it. The native controller and original task verifier remain unchanged. Exact scope and earlier attempts are retained in the evidence.
+
+| Actual chat request | Elapsed seconds | Status | Verified pickups |
+| --- | --- | --- | --- |
+| Create a playable Mario level seed=127 lengthTiles=72 gapTiles=2 secondGapTiles=2 pickupTile=42 goombaTile=46 obstacleTile=60 obstacleHeight=1 repairLimit=0 pickupStrategy=direct | 43.49 | completed | 0 |
+| Create a playable Mario level seed=127 lengthTiles=72 gapTiles=2 secondGapTiles=2 pickupTile=42 goombaTile=46 obstacleTile=60 obstacleHeight=1 repairLimit=0 pickupStrategy=full | 59.29 | completed | 1 |
+| Create a playable Mario level seed=127 lengthTiles=72 gapTiles=2 secondGapTiles=2 pickupTile=42 goombaTile=46 obstacleTile=60 obstacleHeight=1 repairLimit=0 pickupStrategy=full | 61.38 | completed | 1 |
+| Create a playable Mario level seed=127 lengthTiles=72 gapTiles=2 secondGapTiles=2 pickupTile=42 goombaTile=46 obstacleTile=60 obstacleHeight=1 repairLimit=0 pickupStrategy=direct | 50.36 | completed | 0 |
+| Create a playable Mario level seed=127 lengthTiles=72 gapTiles=2 secondGapTiles=2 pickupTile=42 goombaTile=46 obstacleTile=60 obstacleHeight=1 repairLimit=0 pickupStrategy=direct | 54.81 | completed | 0 |
+| Create a playable Mario level seed=127 lengthTiles=72 gapTiles=2 secondGapTiles=2 pickupTile=42 goombaTile=46 obstacleTile=60 obstacleHeight=1 repairLimit=0 pickupStrategy=full | 82.17 | completed | 1 |
+| Create a playable Mario level seed=127 lengthTiles=72 gapTiles=2 secondGapTiles=2 pickupTile=42 goombaTile=46 obstacleTile=60 obstacleHeight=1 repairLimit=0 pickupStrategy=budget pickupBudgetSeconds=0; compare controls and report skipped pickups. | 65.25 | completed | 0 |
+| Create a playable Mario level seed=127 lengthTiles=72 gapTiles=2 secondGapTiles=2 pickupTile=42 goombaTile=46 obstacleTile=60 obstacleHeight=1 repairLimit=0 pickupStrategy=budget pickupBudgetSeconds=4; compare controls and report skipped pickups. | 73.55 | completed | 0 |
+| Create a playable Mario level seed=127 lengthTiles=72 gapTiles=2 secondGapTiles=2 pickupTile=42 goombaTile=46 obstacleTile=60 obstacleHeight=1 repairLimit=0 pickupStrategy=budget pickupBudgetSeconds=30; compare controls and report skipped pickups. | 89.44 | completed | 0 |
+| Create a playable Mario level seed=127 lengthTiles=72 gapTiles=2 secondGapTiles=2 pickupTile=42 goombaTile=46 obstacleTile=60 obstacleHeight=1 repairLimit=0 pickupStrategy=budget pickupBudgetSeconds=120; compare controls and report skipped pickups. | 123.90 | completed | 1 |
+| Create a playable Mario level seed=319 lengthTiles=72 gapTiles=2 secondGapTiles=2 pickupTile=42 goombaTile=46 obstacleTile=60 obstacleHeight=1 repairLimit=0 pickupStrategy=budget pickupBudgetSeconds=30 | 90.94 | completed | 1 |
+| Create a playable Mario level gapTiles=10 pickupTile=17 goombaTile=45 pickupStrategy=budget pickupBudgetSeconds=30. | 42.41 | interrupted | not certified |
+
+![Failed course retained without completion](docs/readmes/124/failed-course.png)
+![Integrated compact view](docs/readmes/124/budget-1100.png)
+
+CI was checked before implementation: edition123 main/release and edition122 runs were still in progress. Latest recorded hosted status is kept in the publication receipt. Local test success and a fetched Git audit do not establish hosted CI success.
 
 ## Implementation and evidence
 
 ```mermaid
 flowchart LR
- Request[Chat request and explicit approach] --> Task[Durable Java task]
- Task --> Source[Source and candidate checks]
- Source --> Compare[Fresh simple comparison and AI trial]
- Compare --> Native[Original native physics]
- Native --> Verify[Actual outcome and action checks]
- Verify --> Measure[Complete workflow timing]
- Measure --> Analysis[Repeated cost and pickup comparison]
- Analysis --> Value[Observed threshold for a user allowance]
+  Request[Chat request and allowance] --> Choice[Java budget and uncertainty decision]
+  History[Matched verified timing and outcome records] --> Choice
+  Choice --> Task[Original durable GameTask115]
+  Task --> Runtime[Native physics and retained safety controller]
+  Runtime --> Verify[Original source and outcome verification]
+  Verify --> Receipt[Decision plus actual outcome and clock]
+  Receipt --> History
 ```
+
+Only eligible **explicit** runs feed calibration through that last link. No choice may qualify itself.
+
+| Source | Responsibility |
+| --- | --- |
+| `workspace-engine/.../GameBudgetPolicy124.java` | Strict request parsing, cost/benefit bounds and abstention |
+| `workspace-engine/.../GameChoices124.java` | Durable timing, source matching, restart and original verifier integration |
+| `workspace-engine/.../GameTask115.java` | Unchanged native task authority and completion checks |
+| `workspace-engine/.../GameBudgetStudy124Test.java` | Repeated actual native tasks and recovered/tampered receipt checks |
+| `workspace-desktop/renderer/brain-game.js` | Allowance input and human-readable decision evidence |
+| `workspace-desktop/test/game124-integration.cjs` | Actual chat, deliberate owned-process interruption and screenshots |
 
 ```text
-src/main/java/agent/PickupStrategy123.java          native feature choices
-src/main/java/agent/PickupOpportunity120.java      bounded wait/return behavior
-workspace-engine/.../GameStrategy123.java         request and policy binding
-workspace-engine/.../GameEvidence123.java         disabled-action checks
-workspace-engine/.../GameTask115.java             durable execution and measurement verification
-workspace-engine/.../GameCost123.java             repeated cost and benefit analysis
-workspace-engine/.../GamePickupStudy123Test.java  complete native study
-workspace-desktop/renderer/brain-game.js          integrated pickup selector
+workspace-engine/src/main/java/fraymus/workspace/
+  GameBudgetPolicy124.java   · decision math and strict request parsing
+  GameChoices124.java        · retained timing and evidence ownership
+  GameTask115.java           · original native execution and verification
+workspace-engine/src/test/java/fraymus/workspace/
+  GameBudgetPolicy124Test.java
+  GameBudgetStudy124Test.java
+  GameBudgetTask124Test.java
+workspace-desktop/
+  renderer/brain-game.js
+  test/game124-integration.cjs
+docs/readmes/124/            · screenshots, measurements, sources and originals
+docs/publication124/         · repeatable validation and publication helpers
 ```
 
-[Measurements](docs/readmes/123/measurements.json) · [Verification](docs/readmes/123/verification.json) · [Original evidence index](docs/readmes/123/original-evidence.json) · [Source inventory](docs/readmes/123/file-inventory.json)
+[Measurements](docs/readmes/124/measurements.json) · [Verification](docs/readmes/124/verification.json) · [Original evidence](docs/readmes/124/original-evidence.json) · [Source inventory](docs/readmes/124/file-inventory.json)
 
-No new external framework, automatic policy promotion, neural weight training or saved-skill admission is introduced. The app remains a local Java-controlled system with one integrated presentation. The evidence establishes the measured trade-offs, not a general valuation of health, survival or future levels.
+## Limits and next phases
 
-## Next phases
+This release selects among existing safe pickup approaches for exact declared courses. It does not yet value arbitrary browser actions, infer user utility, learn transferable timing across machines, train neural weights or promote procedures to the skill bank. Three observations give a useful conservative rule, not general intelligence or a formal risk guarantee. Exact matching can decline useful opportunities on unfamiliar scenes; the reserved comparisons expose that cost of caution.
 
-**124: preference-aware optional actions.** Use explicit user time allowances and an uncertainty-aware cost estimate, then test on new scenes before changing the default. Include cases where the estimate should abstain. Count the cost of estimating and verifying the decision itself.
+**125 — evaluate the decision itself.** Compare predicted extra cost with measured extra cost, account for late verification/recovery and quantify helpful opportunities missed by abstention. Investigate broader reuse only after held-out results justify it.
 
-**125: broader contact uncertainty.** Add declared moving-shell, enemy-reversal and changing-support cases. Keep actual contact, false alarms, missed hazards and bounded recovery visible. Earlier plans for broader image components and reusable verified procedures remain on the roadmap.
+**126 — broader contact uncertainty.** Moving shells, enemy reversals and changing supports; retain actual contacts, false alarms, missed hazards and bounded recovery. Then expand recognized image components and reusable verified procedures.
 
-[Architecture](docs/ARCHITECTURE.md) · [Project memory](docs/PROJECT_MEMORY.md) · [Development log](docs/DEVELOPMENT_LOG.md) · [Contributor handoff](README-CONTRIBUTORS.md) · [Obsidian map](docs/obsidian/131-full-cost-pickup-choices.canvas)
+The direction remains one integrated system: requests lead to real execution, observations, retained evidence and better bounded decisions. Improvement is established by useful outcomes and honest costs, not by adding labels or removing checks.
+
+[Architecture](docs/ARCHITECTURE.md) · [Project memory](docs/PROJECT_MEMORY.md) · [Development log](docs/DEVELOPMENT_LOG.md) · [Contributor handoff](README-CONTRIBUTORS.md) · [Obsidian map](docs/obsidian/132-budgeted-optional-actions.canvas)

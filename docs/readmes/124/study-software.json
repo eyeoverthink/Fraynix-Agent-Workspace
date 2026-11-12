@@ -1,0 +1,3317 @@
+{
+  "partition": "smoke",
+  "projects": [
+    "C:\\Users\\eyeka\\AppData\\Local\\Temp\\budget124304215620386308719"
+  ],
+  "startedAt": "2026-11-12T15:37:18.436103Z",
+  "passed": true,
+  "rows": [
+    {
+      "requested": "direct",
+      "wallNanos": 27319770400,
+      "project": "C:\\Users\\eyeka\\AppData\\Local\\Temp\\budget124304215620386308719",
+      "id": "e69d5fa5-dc34-438d-a2a2-36f1722af34b",
+      "measurement": {
+        "choice124": {
+          "original": "Create a playable Mario level seed=127 lengthTiles=72 gapTiles=2 secondGapTiles=2 goombaTile=46 obstacleTile=60 obstacleHeight=1 pickupTile=42 repairLimit=0 pickupStrategy=direct",
+          "fact": {
+            "seconds": 27.00459,
+            "renderer": "f9a19ef4dbac896d905be0e836ec0add1363c22623d009de0e3b924589ec17de",
+            "safe": true,
+            "id": "e69d5fa5-dc34-438d-a2a2-36f1722af34b",
+            "pickups": 0,
+            "strategy": "direct"
+          },
+          "timingStatus": "Measured through first verified terminal outcome; final receipt write and later shutdown excluded",
+          "budgeted": false,
+          "createdAt": "2026-11-12T15:37:18.853641800Z",
+          "seconds": 27.00459,
+          "trace": "4265fb1f0c83262f4245d22c6127e62d12ac150a241b4cd27a2dddc5d74309e6",
+          "restarted": false,
+          "eligible": true,
+          "host": "e24ce85856c00c1b069b1d094c92440d853acea288729cb89a43ddc2b0e98cbc",
+          "id": "e69d5fa5-dc34-438d-a2a2-36f1722af34b",
+          "boot": "8e15875f-e646-45cf-aa78-1d68db8ef6d4",
+          "parameters": {
+            "pickupTile": 42,
+            "turtleTile": 0,
+            "seed": 127,
+            "goombaTile": 46,
+            "gapTiles": 2,
+            "secondGapTiles": 2,
+            "obstacleHeight": 1,
+            "obstacleTile": 60,
+            "lengthTiles": 72
+          },
+          "resolved": "Create a playable Mario level seed=127 lengthTiles=72 gapTiles=2 secondGapTiles=2 goombaTile=46 obstacleTile=60 obstacleHeight=1 pickupTile=42 repairLimit=0 pickupStrategy=direct",
+          "algorithm": "c3c12624d94078e1f274edffc4919ab5476d782076c9a9894e0fd98c9855150a"
+        },
+        "completionCertified": true,
+        "audit": {
+          "wins": 1,
+          "aiPickups": 0,
+          "aiEnemyLanding": {
+            "chosenContact": false,
+            "reason": "No predicted enemy contact in descending approach",
+            "chosenSupported": true,
+            "nanos": 2777300,
+            "ticks": 10,
+            "overrides": 0,
+            "desiredContact": false,
+            "horizontal": 1,
+            "checks": 86,
+            "threatLimit": 64,
+            "horizonTicks": 60,
+            "edgeStarts": 0,
+            "x": 13.300469,
+            "y": 0.6143242,
+            "override": false
+          },
+          "failures": 1,
+          "aiDamage": 0,
+          "aiPickupDeferrals": 1,
+          "aiContactAttempts": 0,
+          "repairCount": 0,
+          "aiOpportunity": {
+            "phase": "TRAVEL",
+            "returnsEnabled123": false,
+            "reason": "No optional wait or return",
+            "waitTicks": 0,
+            "waitStarts": 0,
+            "revisitTicks": 0,
+            "decisions": [],
+            "waitAborts": 0,
+            "waitsEnabled123": false,
+            "waitClears": 0,
+            "revisitStarts": 0,
+            "motion121": {
+              "reversals": 0,
+              "checks": 523,
+              "returnReach": 2.75,
+              "stabilityTicks": 30,
+              "tracked": 0,
+              "returnsEnabled": false,
+              "forecastRefusals": 0,
+              "events": []
+            }
+          },
+          "existingAI": "won",
+          "pickupDecisions": [
+            {
+              "reason": "Enemy motion intersects the pickup approach",
+              "kind": "BUMP_BLOCK",
+              "targetY": 1.375,
+              "supportY": 0.5,
+              "targetX": 10.625,
+              "action": "deferred for fresh observation",
+              "clearance": 0.75,
+              "tick": 284,
+              "objectId": "584be49f-87fe-3601-8fc5-e9712823f624"
+            }
+          ],
+          "trials": 2,
+          "simpleControl": "failed",
+          "pickupStrategy": "direct",
+          "scope": "Actual finish contact on this candidate; comparison is not a guarantee for unfamiliar levels. No procedure-bank admission or model training.",
+          "aiPickupSkips": 0,
+          "traceSha256": "4265fb1f0c83262f4245d22c6127e62d12ac150a241b4cd27a2dddc5d74309e6",
+          "passed": true,
+          "candidateId": "1935b086-ac05-3efc-8451-47dc9ae01174",
+          "inputChunks": 71,
+          "completionControl": "contact123-direct"
+        },
+        "scope": "Verified outcome, including legitimate failed trials; failure is not completion. workNanos is partial engine work, not full wall time.",
+        "final": {
+          "contact117": {
+            "contactScanLimit": 32,
+            "bodyX": 16.75,
+            "contacts": [],
+            "bodyY": 1.1745354
+          },
+          "controller": {
+            "landingNanos": 5725800,
+            "opportunityNanos": 7891900,
+            "damage": 0,
+            "enemyLanding122": {
+              "chosenContact": false,
+              "reason": "No predicted enemy contact in descending approach",
+              "chosenSupported": true,
+              "nanos": 2777300,
+              "ticks": 10,
+              "overrides": 0,
+              "desiredContact": false,
+              "horizontal": 1,
+              "checks": 86,
+              "threatLimit": 64,
+              "horizonTicks": 60,
+              "edgeStarts": 0,
+              "x": 13.300469,
+              "y": 0.6143242,
+              "override": false
+            },
+            "landingOverrides": 0,
+            "predictedLandingX": 16.952074,
+            "predictedLandingY": 0.63786876,
+            "opportunity120": {
+              "phase": "TRAVEL",
+              "returnsEnabled123": false,
+              "reason": "No optional wait or return",
+              "waitTicks": 0,
+              "waitStarts": 0,
+              "revisitTicks": 0,
+              "decisions": [],
+              "waitAborts": 0,
+              "waitsEnabled123": false,
+              "waitClears": 0,
+              "revisitStarts": 0,
+              "motion121": {
+                "reversals": 0,
+                "checks": 523,
+                "returnReach": 2.75,
+                "stabilityTicks": 30,
+                "tracked": 0,
+                "returnsEnabled": false,
+                "forecastRefusals": 0,
+                "events": []
+              }
+            },
+            "contactNanos": 4179300,
+            "edgeCrossings": 3,
+            "contactRecovery119": {
+              "phase": "OBSERVE",
+              "opposingContact": false,
+              "supportContact": false,
+              "stillTicks": 0,
+              "edgeStarts122": 0,
+              "attempts": 0
+            },
+            "horizontal": 0,
+            "landingReason": "Desired input has a supported landing",
+            "pickupDeferrals": 1,
+            "pickupRiskNanos": 1026400,
+            "contactOverrides": 0,
+            "predictedLandingTicks": 12,
+            "policy": "contact123-direct",
+            "jump": false,
+            "landingChecks": 180,
+            "goal": "TRAVEL",
+            "pickupSkips": 0,
+            "opportunityChecks": 523,
+            "automatic": false,
+            "pickupDecisions": [
+              {
+                "reason": "Enemy motion intersects the pickup approach",
+                "kind": "BUMP_BLOCK",
+                "targetY": 1.375,
+                "supportY": 0.5,
+                "targetX": 10.625,
+                "action": "deferred for fresh observation",
+                "clearance": 0.75,
+                "tick": 284,
+                "objectId": "584be49f-87fe-3601-8fc5-e9712823f624"
+              }
+            ],
+            "fallingWaitTicks": 0,
+            "pickupRiskChecks": 1,
+            "goalY": 1.2578686,
+            "contactChecks": 523,
+            "goalX": 17.75,
+            "pickups": 0,
+            "status": "Flag reached; winning outcome saved"
+          },
+          "renderer": {
+            "vendor": "Mesa",
+            "name": "llvmpipe (LLVM 23.1.4, 256 bits)",
+            "version": "4.6 (Compatibility Profile) Mesa 26.2.5 (git-f25a43cbec)"
+          },
+          "neural": {
+            "ticks": 511,
+            "ready": true,
+            "sharedCore": true
+          },
+          "objects": 148,
+          "frameSequence": 514,
+          "sessionId": "e088a0e1-a804-40a0-b7ae-80d5cb886918",
+          "tick": 528,
+          "units": "legacy game units; XY plane; render layer is not physical Z",
+          "threats118": {
+            "total": 0,
+            "limit": 64,
+            "enemies": []
+          },
+          "visibleWindow": false,
+          "continuous": false,
+          "editorInitialized": false,
+          "player": {
+            "small": true,
+            "vx": 0,
+            "vy": 0,
+            "onGround": false,
+            "won": true,
+            "x": 16.75,
+            "y": 1.1578687,
+            "dead": false,
+            "id": "52248ebb-6a63-36df-a1ee-15b9d0053c6b"
+          }
+        },
+        "workNanos": 21553196600,
+        "strategy": "direct",
+        "parameters": {
+          "pickupTile": 42,
+          "turtleTile": 0,
+          "seed": 127,
+          "goombaTile": 46,
+          "gapTiles": 2,
+          "secondGapTiles": 2,
+          "obstacleHeight": 1,
+          "obstacleTile": 60,
+          "lengthTiles": 72
+        },
+        "taskId": "e69d5fa5-dc34-438d-a2a2-36f1722af34b",
+        "evidenceVerified": true,
+        "status": "completed"
+      },
+      "case": "supported-return"
+    },
+    {
+      "requested": "full",
+      "wallNanos": 37005261200,
+      "project": "C:\\Users\\eyeka\\AppData\\Local\\Temp\\budget124304215620386308719",
+      "id": "6b5e800a-099c-4bf5-80b6-f7ebbda49e2c",
+      "measurement": {
+        "choice124": {
+          "original": "Create a playable Mario level seed=127 lengthTiles=72 gapTiles=2 secondGapTiles=2 goombaTile=46 obstacleTile=60 obstacleHeight=1 pickupTile=42 repairLimit=0 pickupStrategy=full",
+          "fact": {
+            "seconds": 36.6638671,
+            "renderer": "f9a19ef4dbac896d905be0e836ec0add1363c22623d009de0e3b924589ec17de",
+            "safe": true,
+            "id": "6b5e800a-099c-4bf5-80b6-f7ebbda49e2c",
+            "pickups": 1,
+            "strategy": "full"
+          },
+          "timingStatus": "Measured through first verified terminal outcome; final receipt write and later shutdown excluded",
+          "budgeted": false,
+          "createdAt": "2026-11-12T15:37:46.081715800Z",
+          "seconds": 36.6638671,
+          "trace": "430d3f5d3c9a08fe1803cb4ee611d86c62b76e4fc1286718aeeafe31d24aad63",
+          "restarted": false,
+          "eligible": true,
+          "host": "e24ce85856c00c1b069b1d094c92440d853acea288729cb89a43ddc2b0e98cbc",
+          "id": "6b5e800a-099c-4bf5-80b6-f7ebbda49e2c",
+          "boot": "8e15875f-e646-45cf-aa78-1d68db8ef6d4",
+          "parameters": {
+            "pickupTile": 42,
+            "turtleTile": 0,
+            "seed": 127,
+            "goombaTile": 46,
+            "gapTiles": 2,
+            "secondGapTiles": 2,
+            "obstacleHeight": 1,
+            "obstacleTile": 60,
+            "lengthTiles": 72
+          },
+          "resolved": "Create a playable Mario level seed=127 lengthTiles=72 gapTiles=2 secondGapTiles=2 goombaTile=46 obstacleTile=60 obstacleHeight=1 pickupTile=42 repairLimit=0 pickupStrategy=full",
+          "algorithm": "c3c12624d94078e1f274edffc4919ab5476d782076c9a9894e0fd98c9855150a"
+        },
+        "completionCertified": true,
+        "audit": {
+          "wins": 1,
+          "aiPickups": 1,
+          "aiEnemyLanding": {
+            "chosenContact": false,
+            "reason": "No predicted enemy contact in descending approach",
+            "chosenSupported": true,
+            "nanos": 2701400,
+            "ticks": 10,
+            "overrides": 0,
+            "desiredContact": false,
+            "horizontal": 1,
+            "checks": 86,
+            "threatLimit": 64,
+            "horizonTicks": 60,
+            "edgeStarts": 0,
+            "x": 13.300469,
+            "y": 0.6143242,
+            "override": false
+          },
+          "failures": 1,
+          "aiDamage": 0,
+          "aiPickupDeferrals": 1,
+          "aiContactAttempts": 0,
+          "repairCount": 0,
+          "aiOpportunity": {
+            "phase": "TRAVEL",
+            "returnsEnabled123": true,
+            "reason": "Block changed; verify actual collection separately",
+            "waitTicks": 0,
+            "waitStarts": 0,
+            "revisitTicks": 155,
+            "decisions": [
+              {
+                "reason": "Nearby remembered pickup has continuous observed support and clear route",
+                "action": "return-started",
+                "plannedTicks": 0,
+                "tick": 429,
+                "objectId": "3bdff9d6-8f03-37d7-b089-2ce21f5248af"
+              },
+              {
+                "reason": "Block changed; verify actual collection separately",
+                "action": "return-ended",
+                "plannedTicks": 0,
+                "tick": 585,
+                "objectId": "3bdff9d6-8f03-37d7-b089-2ce21f5248af"
+              }
+            ],
+            "waitAborts": 0,
+            "waitsEnabled123": true,
+            "waitClears": 0,
+            "revisitStarts": 1,
+            "motion121": {
+              "reversals": 0,
+              "checks": 832,
+              "returnReach": 2.75,
+              "stabilityTicks": 30,
+              "tracked": 0,
+              "returnsEnabled": true,
+              "events": [],
+              "forecastRefusals": 0
+            }
+          },
+          "existingAI": "won",
+          "pickupDecisions": [
+            {
+              "reason": "Enemy motion intersects the pickup approach",
+              "kind": "BUMP_BLOCK",
+              "targetY": 1.375,
+              "supportY": 0.5,
+              "targetX": 10.625,
+              "action": "deferred for fresh observation",
+              "clearance": 0.75,
+              "tick": 284,
+              "objectId": "3bdff9d6-8f03-37d7-b089-2ce21f5248af"
+            }
+          ],
+          "trials": 2,
+          "simpleControl": "failed",
+          "pickupStrategy": "full",
+          "scope": "Actual finish contact on this candidate; comparison is not a guarantee for unfamiliar levels. No procedure-bank admission or model training.",
+          "aiPickupSkips": 0,
+          "traceSha256": "430d3f5d3c9a08fe1803cb4ee611d86c62b76e4fc1286718aeeafe31d24aad63",
+          "passed": true,
+          "candidateId": "b8ded051-4c3b-3b28-a1d9-5bad547c59c0",
+          "inputChunks": 97,
+          "completionControl": "contact122"
+        },
+        "scope": "Verified outcome, including legitimate failed trials; failure is not completion. workNanos is partial engine work, not full wall time.",
+        "final": {
+          "contact117": {
+            "contactScanLimit": 32,
+            "bodyX": 16.75,
+            "contacts": [],
+            "bodyY": 1.2192433
+          },
+          "controller": {
+            "landingNanos": 4999200,
+            "opportunityNanos": 13758700,
+            "damage": 0,
+            "enemyLanding122": {
+              "chosenContact": false,
+              "reason": "No predicted enemy contact in descending approach",
+              "chosenSupported": true,
+              "nanos": 2701400,
+              "ticks": 10,
+              "overrides": 0,
+              "desiredContact": false,
+              "horizontal": 1,
+              "checks": 86,
+              "threatLimit": 64,
+              "horizonTicks": 60,
+              "edgeStarts": 0,
+              "x": 13.300469,
+              "y": 0.6143242,
+              "override": false
+            },
+            "landingOverrides": 0,
+            "predictedLandingX": 16.990438,
+            "predictedLandingY": 0.68091005,
+            "opportunity120": {
+              "phase": "TRAVEL",
+              "returnsEnabled123": true,
+              "reason": "Block changed; verify actual collection separately",
+              "waitTicks": 0,
+              "waitStarts": 0,
+              "revisitTicks": 155,
+              "decisions": [
+                {
+                  "reason": "Nearby remembered pickup has continuous observed support and clear route",
+                  "action": "return-started",
+                  "plannedTicks": 0,
+                  "tick": 429,
+                  "objectId": "3bdff9d6-8f03-37d7-b089-2ce21f5248af"
+                },
+                {
+                  "reason": "Block changed; verify actual collection separately",
+                  "action": "return-ended",
+                  "plannedTicks": 0,
+                  "tick": 585,
+                  "objectId": "3bdff9d6-8f03-37d7-b089-2ce21f5248af"
+                }
+              ],
+              "waitAborts": 0,
+              "waitsEnabled123": true,
+              "waitClears": 0,
+              "revisitStarts": 1,
+              "motion121": {
+                "reversals": 0,
+                "checks": 832,
+                "returnReach": 2.75,
+                "stabilityTicks": 30,
+                "tracked": 0,
+                "returnsEnabled": true,
+                "events": [],
+                "forecastRefusals": 0
+              }
+            },
+            "contactNanos": 4738900,
+            "edgeCrossings": 3,
+            "contactRecovery119": {
+              "phase": "OBSERVE",
+              "opposingContact": false,
+              "supportContact": false,
+              "stillTicks": 0,
+              "edgeStarts122": 0,
+              "attempts": 0
+            },
+            "horizontal": 0,
+            "landingReason": "Desired input has a supported landing",
+            "pickupDeferrals": 1,
+            "pickupRiskNanos": 6139900,
+            "contactOverrides": 0,
+            "predictedLandingTicks": 13,
+            "policy": "contact122",
+            "jump": false,
+            "landingChecks": 202,
+            "goal": "TRAVEL",
+            "pickupSkips": 0,
+            "opportunityChecks": 832,
+            "automatic": false,
+            "pickupDecisions": [
+              {
+                "reason": "Enemy motion intersects the pickup approach",
+                "kind": "BUMP_BLOCK",
+                "targetY": 1.375,
+                "supportY": 0.5,
+                "targetX": 10.625,
+                "action": "deferred for fresh observation",
+                "clearance": 0.75,
+                "tick": 284,
+                "objectId": "3bdff9d6-8f03-37d7-b089-2ce21f5248af"
+              }
+            ],
+            "fallingWaitTicks": 32,
+            "pickupRiskChecks": 222,
+            "goalY": 1.3525765,
+            "contactChecks": 832,
+            "goalX": 17.75,
+            "pickups": 1,
+            "status": "Flag reached; winning outcome saved"
+          },
+          "renderer": {
+            "vendor": "Mesa",
+            "name": "llvmpipe (LLVM 23.1.4, 256 bits)",
+            "version": "4.6 (Compatibility Profile) Mesa 26.2.5 (git-f25a43cbec)"
+          },
+          "neural": {
+            "ticks": 820,
+            "ready": true,
+            "sharedCore": true
+          },
+          "objects": 148,
+          "frameSequence": 902,
+          "sessionId": "074b24f1-8bfc-46b2-b566-40bec0949a28",
+          "tick": 840,
+          "units": "legacy game units; XY plane; render layer is not physical Z",
+          "threats118": {
+            "total": 0,
+            "limit": 64,
+            "enemies": []
+          },
+          "visibleWindow": false,
+          "continuous": false,
+          "editorInitialized": false,
+          "player": {
+            "small": false,
+            "vx": 0,
+            "vy": 0,
+            "onGround": false,
+            "won": true,
+            "x": 16.75,
+            "y": 1.2025766,
+            "dead": false,
+            "id": "00dd1bd8-11d9-314d-bee8-d4f6bbc7cbee"
+          }
+        },
+        "workNanos": 27108871300,
+        "strategy": "full",
+        "parameters": {
+          "pickupTile": 42,
+          "turtleTile": 0,
+          "seed": 127,
+          "goombaTile": 46,
+          "gapTiles": 2,
+          "secondGapTiles": 2,
+          "obstacleHeight": 1,
+          "obstacleTile": 60,
+          "lengthTiles": 72
+        },
+        "taskId": "6b5e800a-099c-4bf5-80b6-f7ebbda49e2c",
+        "evidenceVerified": true,
+        "status": "completed"
+      },
+      "case": "supported-return"
+    },
+    {
+      "requested": "full",
+      "wallNanos": 37226849200,
+      "project": "C:\\Users\\eyeka\\AppData\\Local\\Temp\\budget124304215620386308719",
+      "id": "ea31b770-ebf7-41c4-a52c-3c467da40b25",
+      "measurement": {
+        "choice124": {
+          "original": "Create a playable Mario level seed=127 lengthTiles=72 gapTiles=2 secondGapTiles=2 goombaTile=46 obstacleTile=60 obstacleHeight=1 pickupTile=42 repairLimit=0 pickupStrategy=full",
+          "fact": {
+            "seconds": 36.8830074,
+            "renderer": "f9a19ef4dbac896d905be0e836ec0add1363c22623d009de0e3b924589ec17de",
+            "safe": true,
+            "id": "ea31b770-ebf7-41c4-a52c-3c467da40b25",
+            "pickups": 1,
+            "strategy": "full"
+          },
+          "timingStatus": "Measured through first verified terminal outcome; final receipt write and later shutdown excluded",
+          "budgeted": false,
+          "createdAt": "2026-11-12T15:38:23.123319600Z",
+          "seconds": 36.8830074,
+          "trace": "ac2b3bae52c6d6c5b9ebc3d59bfe51b7ea0caf9283fd0e86f95a8f5d69491fdc",
+          "restarted": false,
+          "eligible": true,
+          "host": "e24ce85856c00c1b069b1d094c92440d853acea288729cb89a43ddc2b0e98cbc",
+          "id": "ea31b770-ebf7-41c4-a52c-3c467da40b25",
+          "boot": "8e15875f-e646-45cf-aa78-1d68db8ef6d4",
+          "parameters": {
+            "pickupTile": 42,
+            "turtleTile": 0,
+            "seed": 127,
+            "goombaTile": 46,
+            "gapTiles": 2,
+            "secondGapTiles": 2,
+            "obstacleHeight": 1,
+            "obstacleTile": 60,
+            "lengthTiles": 72
+          },
+          "resolved": "Create a playable Mario level seed=127 lengthTiles=72 gapTiles=2 secondGapTiles=2 goombaTile=46 obstacleTile=60 obstacleHeight=1 pickupTile=42 repairLimit=0 pickupStrategy=full",
+          "algorithm": "c3c12624d94078e1f274edffc4919ab5476d782076c9a9894e0fd98c9855150a"
+        },
+        "completionCertified": true,
+        "audit": {
+          "wins": 1,
+          "aiPickups": 1,
+          "aiEnemyLanding": {
+            "chosenContact": false,
+            "reason": "No predicted enemy contact in descending approach",
+            "chosenSupported": true,
+            "nanos": 3587400,
+            "ticks": 10,
+            "overrides": 0,
+            "desiredContact": false,
+            "horizontal": 1,
+            "checks": 86,
+            "threatLimit": 64,
+            "horizonTicks": 60,
+            "edgeStarts": 0,
+            "x": 13.300469,
+            "y": 0.6143242,
+            "override": false
+          },
+          "failures": 1,
+          "aiDamage": 0,
+          "aiPickupDeferrals": 1,
+          "aiContactAttempts": 0,
+          "repairCount": 0,
+          "aiOpportunity": {
+            "phase": "TRAVEL",
+            "returnsEnabled123": true,
+            "reason": "Block changed; verify actual collection separately",
+            "waitTicks": 0,
+            "waitStarts": 0,
+            "revisitTicks": 155,
+            "decisions": [
+              {
+                "reason": "Nearby remembered pickup has continuous observed support and clear route",
+                "action": "return-started",
+                "plannedTicks": 0,
+                "tick": 429,
+                "objectId": "656fda64-9141-351b-b653-38eabcc792ac"
+              },
+              {
+                "reason": "Block changed; verify actual collection separately",
+                "action": "return-ended",
+                "plannedTicks": 0,
+                "tick": 585,
+                "objectId": "656fda64-9141-351b-b653-38eabcc792ac"
+              }
+            ],
+            "waitAborts": 0,
+            "waitsEnabled123": true,
+            "waitClears": 0,
+            "revisitStarts": 1,
+            "motion121": {
+              "reversals": 0,
+              "checks": 832,
+              "returnReach": 2.75,
+              "stabilityTicks": 30,
+              "tracked": 0,
+              "returnsEnabled": true,
+              "forecastRefusals": 0,
+              "events": []
+            }
+          },
+          "existingAI": "won",
+          "pickupDecisions": [
+            {
+              "reason": "Enemy motion intersects the pickup approach",
+              "kind": "BUMP_BLOCK",
+              "targetY": 1.375,
+              "supportY": 0.5,
+              "targetX": 10.625,
+              "action": "deferred for fresh observation",
+              "clearance": 0.75,
+              "tick": 284,
+              "objectId": "656fda64-9141-351b-b653-38eabcc792ac"
+            }
+          ],
+          "trials": 2,
+          "simpleControl": "failed",
+          "pickupStrategy": "full",
+          "scope": "Actual finish contact on this candidate; comparison is not a guarantee for unfamiliar levels. No procedure-bank admission or model training.",
+          "aiPickupSkips": 0,
+          "traceSha256": "ac2b3bae52c6d6c5b9ebc3d59bfe51b7ea0caf9283fd0e86f95a8f5d69491fdc",
+          "passed": true,
+          "candidateId": "02a20a67-5e0c-3584-8f6a-c967f43994e4",
+          "inputChunks": 97,
+          "completionControl": "contact122"
+        },
+        "scope": "Verified outcome, including legitimate failed trials; failure is not completion. workNanos is partial engine work, not full wall time.",
+        "final": {
+          "contact117": {
+            "contactScanLimit": 32,
+            "bodyX": 16.75,
+            "contacts": [],
+            "bodyY": 1.2192433
+          },
+          "controller": {
+            "landingNanos": 4593600,
+            "opportunityNanos": 13887100,
+            "damage": 0,
+            "enemyLanding122": {
+              "chosenContact": false,
+              "reason": "No predicted enemy contact in descending approach",
+              "chosenSupported": true,
+              "nanos": 3587400,
+              "ticks": 10,
+              "overrides": 0,
+              "desiredContact": false,
+              "horizontal": 1,
+              "checks": 86,
+              "threatLimit": 64,
+              "horizonTicks": 60,
+              "edgeStarts": 0,
+              "x": 13.300469,
+              "y": 0.6143242,
+              "override": false
+            },
+            "landingOverrides": 0,
+            "predictedLandingX": 16.990438,
+            "predictedLandingY": 0.68091005,
+            "opportunity120": {
+              "phase": "TRAVEL",
+              "returnsEnabled123": true,
+              "reason": "Block changed; verify actual collection separately",
+              "waitTicks": 0,
+              "waitStarts": 0,
+              "revisitTicks": 155,
+              "decisions": [
+                {
+                  "reason": "Nearby remembered pickup has continuous observed support and clear route",
+                  "action": "return-started",
+                  "plannedTicks": 0,
+                  "tick": 429,
+                  "objectId": "656fda64-9141-351b-b653-38eabcc792ac"
+                },
+                {
+                  "reason": "Block changed; verify actual collection separately",
+                  "action": "return-ended",
+                  "plannedTicks": 0,
+                  "tick": 585,
+                  "objectId": "656fda64-9141-351b-b653-38eabcc792ac"
+                }
+              ],
+              "waitAborts": 0,
+              "waitsEnabled123": true,
+              "waitClears": 0,
+              "revisitStarts": 1,
+              "motion121": {
+                "reversals": 0,
+                "checks": 832,
+                "returnReach": 2.75,
+                "stabilityTicks": 30,
+                "tracked": 0,
+                "returnsEnabled": true,
+                "forecastRefusals": 0,
+                "events": []
+              }
+            },
+            "contactNanos": 5162800,
+            "edgeCrossings": 3,
+            "contactRecovery119": {
+              "opposingContact": false,
+              "phase": "OBSERVE",
+              "supportContact": false,
+              "stillTicks": 0,
+              "edgeStarts122": 0,
+              "attempts": 0
+            },
+            "horizontal": 0,
+            "landingReason": "Desired input has a supported landing",
+            "pickupDeferrals": 1,
+            "pickupRiskNanos": 6024500,
+            "contactOverrides": 0,
+            "predictedLandingTicks": 13,
+            "policy": "contact122",
+            "jump": false,
+            "landingChecks": 202,
+            "goal": "TRAVEL",
+            "pickupSkips": 0,
+            "opportunityChecks": 832,
+            "automatic": false,
+            "pickupDecisions": [
+              {
+                "reason": "Enemy motion intersects the pickup approach",
+                "kind": "BUMP_BLOCK",
+                "targetY": 1.375,
+                "supportY": 0.5,
+                "targetX": 10.625,
+                "action": "deferred for fresh observation",
+                "clearance": 0.75,
+                "tick": 284,
+                "objectId": "656fda64-9141-351b-b653-38eabcc792ac"
+              }
+            ],
+            "fallingWaitTicks": 32,
+            "pickupRiskChecks": 222,
+            "goalY": 1.3525765,
+            "contactChecks": 832,
+            "goalX": 17.75,
+            "pickups": 1,
+            "status": "Flag reached; winning outcome saved"
+          },
+          "renderer": {
+            "vendor": "Mesa",
+            "name": "llvmpipe (LLVM 23.1.4, 256 bits)",
+            "version": "4.6 (Compatibility Profile) Mesa 26.2.5 (git-f25a43cbec)"
+          },
+          "neural": {
+            "ticks": 820,
+            "ready": true,
+            "sharedCore": true
+          },
+          "objects": 148,
+          "frameSequence": 909,
+          "sessionId": "bc456084-11f0-4918-bb7e-ffa16fa3bdcf",
+          "tick": 840,
+          "units": "legacy game units; XY plane; render layer is not physical Z",
+          "threats118": {
+            "total": 0,
+            "limit": 64,
+            "enemies": []
+          },
+          "visibleWindow": false,
+          "continuous": false,
+          "editorInitialized": false,
+          "player": {
+            "small": false,
+            "vx": 0,
+            "vy": 0,
+            "onGround": false,
+            "won": true,
+            "x": 16.75,
+            "y": 1.2025766,
+            "dead": false,
+            "id": "7c849074-5d89-372c-b673-fdc6f3ac97ac"
+          }
+        },
+        "workNanos": 26958839200,
+        "strategy": "full",
+        "parameters": {
+          "pickupTile": 42,
+          "turtleTile": 0,
+          "seed": 127,
+          "goombaTile": 46,
+          "gapTiles": 2,
+          "secondGapTiles": 2,
+          "obstacleHeight": 1,
+          "obstacleTile": 60,
+          "lengthTiles": 72
+        },
+        "taskId": "ea31b770-ebf7-41c4-a52c-3c467da40b25",
+        "evidenceVerified": true,
+        "status": "completed"
+      },
+      "case": "supported-return"
+    },
+    {
+      "requested": "direct",
+      "wallNanos": 27007418000,
+      "project": "C:\\Users\\eyeka\\AppData\\Local\\Temp\\budget124304215620386308719",
+      "id": "d5d87c18-f926-4ba9-aa97-7cc5d2ed0a7a",
+      "measurement": {
+        "choice124": {
+          "original": "Create a playable Mario level seed=127 lengthTiles=72 gapTiles=2 secondGapTiles=2 goombaTile=46 obstacleTile=60 obstacleHeight=1 pickupTile=42 repairLimit=0 pickupStrategy=direct",
+          "fact": {
+            "seconds": 26.6906796,
+            "renderer": "f9a19ef4dbac896d905be0e836ec0add1363c22623d009de0e3b924589ec17de",
+            "safe": true,
+            "id": "d5d87c18-f926-4ba9-aa97-7cc5d2ed0a7a",
+            "pickups": 0,
+            "strategy": "direct"
+          },
+          "timingStatus": "Measured through first verified terminal outcome; final receipt write and later shutdown excluded",
+          "budgeted": false,
+          "createdAt": "2026-11-12T15:39:00.434858200Z",
+          "seconds": 26.6906796,
+          "trace": "4d9dcfdca1067f749ebdb1bc99bb2830ee614d89961f73be0aa9d15faf5f5a7e",
+          "restarted": false,
+          "eligible": true,
+          "host": "e24ce85856c00c1b069b1d094c92440d853acea288729cb89a43ddc2b0e98cbc",
+          "id": "d5d87c18-f926-4ba9-aa97-7cc5d2ed0a7a",
+          "boot": "8e15875f-e646-45cf-aa78-1d68db8ef6d4",
+          "parameters": {
+            "pickupTile": 42,
+            "turtleTile": 0,
+            "seed": 127,
+            "goombaTile": 46,
+            "gapTiles": 2,
+            "secondGapTiles": 2,
+            "obstacleHeight": 1,
+            "obstacleTile": 60,
+            "lengthTiles": 72
+          },
+          "resolved": "Create a playable Mario level seed=127 lengthTiles=72 gapTiles=2 secondGapTiles=2 goombaTile=46 obstacleTile=60 obstacleHeight=1 pickupTile=42 repairLimit=0 pickupStrategy=direct",
+          "algorithm": "c3c12624d94078e1f274edffc4919ab5476d782076c9a9894e0fd98c9855150a"
+        },
+        "completionCertified": true,
+        "audit": {
+          "wins": 1,
+          "aiPickups": 0,
+          "aiEnemyLanding": {
+            "chosenContact": false,
+            "reason": "No predicted enemy contact in descending approach",
+            "chosenSupported": true,
+            "nanos": 3088500,
+            "ticks": 10,
+            "overrides": 0,
+            "desiredContact": false,
+            "horizontal": 1,
+            "checks": 86,
+            "threatLimit": 64,
+            "horizonTicks": 60,
+            "edgeStarts": 0,
+            "x": 13.300469,
+            "y": 0.6143242,
+            "override": false
+          },
+          "failures": 1,
+          "aiDamage": 0,
+          "aiPickupDeferrals": 1,
+          "aiContactAttempts": 0,
+          "repairCount": 0,
+          "aiOpportunity": {
+            "phase": "TRAVEL",
+            "returnsEnabled123": false,
+            "reason": "No optional wait or return",
+            "waitTicks": 0,
+            "waitStarts": 0,
+            "revisitTicks": 0,
+            "decisions": [],
+            "waitAborts": 0,
+            "waitsEnabled123": false,
+            "waitClears": 0,
+            "revisitStarts": 0,
+            "motion121": {
+              "reversals": 0,
+              "checks": 523,
+              "returnReach": 2.75,
+              "stabilityTicks": 30,
+              "tracked": 0,
+              "returnsEnabled": false,
+              "forecastRefusals": 0,
+              "events": []
+            }
+          },
+          "existingAI": "won",
+          "pickupDecisions": [
+            {
+              "reason": "Enemy motion intersects the pickup approach",
+              "kind": "BUMP_BLOCK",
+              "targetY": 1.375,
+              "supportY": 0.5,
+              "targetX": 10.625,
+              "action": "deferred for fresh observation",
+              "clearance": 0.75,
+              "tick": 284,
+              "objectId": "b74b1edc-b1be-3437-853d-db3b5764f5a2"
+            }
+          ],
+          "trials": 2,
+          "simpleControl": "failed",
+          "pickupStrategy": "direct",
+          "scope": "Actual finish contact on this candidate; comparison is not a guarantee for unfamiliar levels. No procedure-bank admission or model training.",
+          "aiPickupSkips": 0,
+          "traceSha256": "4d9dcfdca1067f749ebdb1bc99bb2830ee614d89961f73be0aa9d15faf5f5a7e",
+          "passed": true,
+          "candidateId": "9bfae4af-83f7-3f41-b5d2-c6bf4e39d60a",
+          "inputChunks": 71,
+          "completionControl": "contact123-direct"
+        },
+        "scope": "Verified outcome, including legitimate failed trials; failure is not completion. workNanos is partial engine work, not full wall time.",
+        "final": {
+          "contact117": {
+            "contactScanLimit": 32,
+            "bodyX": 16.75,
+            "contacts": [],
+            "bodyY": 1.1745354
+          },
+          "controller": {
+            "landingNanos": 5384000,
+            "opportunityNanos": 8209700,
+            "damage": 0,
+            "enemyLanding122": {
+              "chosenContact": false,
+              "reason": "No predicted enemy contact in descending approach",
+              "chosenSupported": true,
+              "nanos": 3088500,
+              "ticks": 10,
+              "overrides": 0,
+              "desiredContact": false,
+              "horizontal": 1,
+              "checks": 86,
+              "threatLimit": 64,
+              "horizonTicks": 60,
+              "edgeStarts": 0,
+              "x": 13.300469,
+              "y": 0.6143242,
+              "override": false
+            },
+            "landingOverrides": 0,
+            "predictedLandingX": 16.952074,
+            "predictedLandingY": 0.63786876,
+            "opportunity120": {
+              "phase": "TRAVEL",
+              "returnsEnabled123": false,
+              "reason": "No optional wait or return",
+              "waitTicks": 0,
+              "waitStarts": 0,
+              "revisitTicks": 0,
+              "decisions": [],
+              "waitAborts": 0,
+              "waitsEnabled123": false,
+              "waitClears": 0,
+              "revisitStarts": 0,
+              "motion121": {
+                "reversals": 0,
+                "checks": 523,
+                "returnReach": 2.75,
+                "stabilityTicks": 30,
+                "tracked": 0,
+                "returnsEnabled": false,
+                "forecastRefusals": 0,
+                "events": []
+              }
+            },
+            "contactNanos": 4256000,
+            "edgeCrossings": 3,
+            "contactRecovery119": {
+              "phase": "OBSERVE",
+              "opposingContact": false,
+              "supportContact": false,
+              "stillTicks": 0,
+              "edgeStarts122": 0,
+              "attempts": 0
+            },
+            "horizontal": 0,
+            "landingReason": "Desired input has a supported landing",
+            "pickupDeferrals": 1,
+            "pickupRiskNanos": 1024500,
+            "contactOverrides": 0,
+            "predictedLandingTicks": 12,
+            "policy": "contact123-direct",
+            "jump": false,
+            "landingChecks": 180,
+            "goal": "TRAVEL",
+            "pickupSkips": 0,
+            "opportunityChecks": 523,
+            "automatic": false,
+            "pickupDecisions": [
+              {
+                "reason": "Enemy motion intersects the pickup approach",
+                "kind": "BUMP_BLOCK",
+                "targetY": 1.375,
+                "supportY": 0.5,
+                "targetX": 10.625,
+                "action": "deferred for fresh observation",
+                "clearance": 0.75,
+                "tick": 284,
+                "objectId": "b74b1edc-b1be-3437-853d-db3b5764f5a2"
+              }
+            ],
+            "fallingWaitTicks": 0,
+            "pickupRiskChecks": 1,
+            "goalY": 1.2578686,
+            "contactChecks": 523,
+            "goalX": 17.75,
+            "pickups": 0,
+            "status": "Flag reached; winning outcome saved"
+          },
+          "renderer": {
+            "vendor": "Mesa",
+            "name": "llvmpipe (LLVM 23.1.4, 256 bits)",
+            "version": "4.6 (Compatibility Profile) Mesa 26.2.5 (git-f25a43cbec)"
+          },
+          "neural": {
+            "ticks": 511,
+            "ready": true,
+            "sharedCore": true
+          },
+          "objects": 148,
+          "frameSequence": 514,
+          "sessionId": "23569ea4-0065-4654-92b1-3fac01593f0d",
+          "tick": 528,
+          "units": "legacy game units; XY plane; render layer is not physical Z",
+          "threats118": {
+            "total": 0,
+            "limit": 64,
+            "enemies": []
+          },
+          "visibleWindow": false,
+          "continuous": false,
+          "editorInitialized": false,
+          "player": {
+            "small": true,
+            "vx": 0,
+            "vy": 0,
+            "onGround": false,
+            "won": true,
+            "x": 16.75,
+            "y": 1.1578687,
+            "dead": false,
+            "id": "47408fd3-c8e5-3d92-a62b-d3d6b33c92a8"
+          }
+        },
+        "workNanos": 21210676400,
+        "strategy": "direct",
+        "parameters": {
+          "pickupTile": 42,
+          "turtleTile": 0,
+          "seed": 127,
+          "goombaTile": 46,
+          "gapTiles": 2,
+          "secondGapTiles": 2,
+          "obstacleHeight": 1,
+          "obstacleTile": 60,
+          "lengthTiles": 72
+        },
+        "taskId": "d5d87c18-f926-4ba9-aa97-7cc5d2ed0a7a",
+        "evidenceVerified": true,
+        "status": "completed"
+      },
+      "case": "supported-return"
+    },
+    {
+      "requested": "direct",
+      "wallNanos": 26694066600,
+      "project": "C:\\Users\\eyeka\\AppData\\Local\\Temp\\budget124304215620386308719",
+      "id": "bc159f2a-cde9-4843-aec6-8f6456a6f74b",
+      "measurement": {
+        "choice124": {
+          "original": "Create a playable Mario level seed=127 lengthTiles=72 gapTiles=2 secondGapTiles=2 goombaTile=46 obstacleTile=60 obstacleHeight=1 pickupTile=42 repairLimit=0 pickupStrategy=direct",
+          "fact": {
+            "seconds": 26.3601718,
+            "renderer": "f9a19ef4dbac896d905be0e836ec0add1363c22623d009de0e3b924589ec17de",
+            "safe": true,
+            "id": "bc159f2a-cde9-4843-aec6-8f6456a6f74b",
+            "pickups": 0,
+            "strategy": "direct"
+          },
+          "timingStatus": "Measured through first verified terminal outcome; final receipt write and later shutdown excluded",
+          "budgeted": false,
+          "createdAt": "2026-11-12T15:39:27.424991400Z",
+          "seconds": 26.3601718,
+          "trace": "2af73aa734b71885aecd193d41775bb92b085a22de6018ca1ff0072a92851c56",
+          "restarted": false,
+          "eligible": true,
+          "host": "e24ce85856c00c1b069b1d094c92440d853acea288729cb89a43ddc2b0e98cbc",
+          "id": "bc159f2a-cde9-4843-aec6-8f6456a6f74b",
+          "boot": "8e15875f-e646-45cf-aa78-1d68db8ef6d4",
+          "parameters": {
+            "pickupTile": 42,
+            "turtleTile": 0,
+            "seed": 127,
+            "goombaTile": 46,
+            "gapTiles": 2,
+            "secondGapTiles": 2,
+            "obstacleHeight": 1,
+            "obstacleTile": 60,
+            "lengthTiles": 72
+          },
+          "resolved": "Create a playable Mario level seed=127 lengthTiles=72 gapTiles=2 secondGapTiles=2 goombaTile=46 obstacleTile=60 obstacleHeight=1 pickupTile=42 repairLimit=0 pickupStrategy=direct",
+          "algorithm": "c3c12624d94078e1f274edffc4919ab5476d782076c9a9894e0fd98c9855150a"
+        },
+        "completionCertified": true,
+        "audit": {
+          "wins": 1,
+          "aiPickups": 0,
+          "aiEnemyLanding": {
+            "chosenContact": false,
+            "reason": "No predicted enemy contact in descending approach",
+            "chosenSupported": true,
+            "nanos": 2696900,
+            "ticks": 10,
+            "overrides": 0,
+            "desiredContact": false,
+            "horizontal": 1,
+            "checks": 86,
+            "threatLimit": 64,
+            "horizonTicks": 60,
+            "edgeStarts": 0,
+            "x": 13.300469,
+            "y": 0.6143242,
+            "override": false
+          },
+          "failures": 1,
+          "aiDamage": 0,
+          "aiPickupDeferrals": 1,
+          "aiContactAttempts": 0,
+          "repairCount": 0,
+          "aiOpportunity": {
+            "phase": "TRAVEL",
+            "returnsEnabled123": false,
+            "reason": "No optional wait or return",
+            "waitTicks": 0,
+            "waitStarts": 0,
+            "revisitTicks": 0,
+            "decisions": [],
+            "waitAborts": 0,
+            "waitsEnabled123": false,
+            "waitClears": 0,
+            "revisitStarts": 0,
+            "motion121": {
+              "reversals": 0,
+              "checks": 523,
+              "returnReach": 2.75,
+              "stabilityTicks": 30,
+              "tracked": 0,
+              "returnsEnabled": false,
+              "events": [],
+              "forecastRefusals": 0
+            }
+          },
+          "existingAI": "won",
+          "pickupDecisions": [
+            {
+              "reason": "Enemy motion intersects the pickup approach",
+              "kind": "BUMP_BLOCK",
+              "targetY": 1.375,
+              "supportY": 0.5,
+              "targetX": 10.625,
+              "action": "deferred for fresh observation",
+              "clearance": 0.75,
+              "tick": 284,
+              "objectId": "44f5511c-9fbd-37b5-a757-70c6a3fcf6cb"
+            }
+          ],
+          "trials": 2,
+          "simpleControl": "failed",
+          "pickupStrategy": "direct",
+          "scope": "Actual finish contact on this candidate; comparison is not a guarantee for unfamiliar levels. No procedure-bank admission or model training.",
+          "aiPickupSkips": 0,
+          "traceSha256": "2af73aa734b71885aecd193d41775bb92b085a22de6018ca1ff0072a92851c56",
+          "passed": true,
+          "candidateId": "0fdce6c6-501a-3451-b43a-c85b503c77f9",
+          "inputChunks": 71,
+          "completionControl": "contact123-direct"
+        },
+        "scope": "Verified outcome, including legitimate failed trials; failure is not completion. workNanos is partial engine work, not full wall time.",
+        "final": {
+          "contact117": {
+            "contactScanLimit": 32,
+            "bodyX": 16.75,
+            "contacts": [],
+            "bodyY": 1.1745354
+          },
+          "controller": {
+            "landingNanos": 5216900,
+            "opportunityNanos": 8234600,
+            "damage": 0,
+            "enemyLanding122": {
+              "chosenContact": false,
+              "reason": "No predicted enemy contact in descending approach",
+              "chosenSupported": true,
+              "nanos": 2696900,
+              "ticks": 10,
+              "overrides": 0,
+              "desiredContact": false,
+              "horizontal": 1,
+              "checks": 86,
+              "threatLimit": 64,
+              "horizonTicks": 60,
+              "edgeStarts": 0,
+              "x": 13.300469,
+              "y": 0.6143242,
+              "override": false
+            },
+            "landingOverrides": 0,
+            "predictedLandingX": 16.952074,
+            "predictedLandingY": 0.63786876,
+            "opportunity120": {
+              "phase": "TRAVEL",
+              "returnsEnabled123": false,
+              "reason": "No optional wait or return",
+              "waitTicks": 0,
+              "waitStarts": 0,
+              "revisitTicks": 0,
+              "decisions": [],
+              "waitAborts": 0,
+              "waitsEnabled123": false,
+              "waitClears": 0,
+              "revisitStarts": 0,
+              "motion121": {
+                "reversals": 0,
+                "checks": 523,
+                "returnReach": 2.75,
+                "stabilityTicks": 30,
+                "tracked": 0,
+                "returnsEnabled": false,
+                "events": [],
+                "forecastRefusals": 0
+              }
+            },
+            "contactNanos": 5332200,
+            "edgeCrossings": 3,
+            "contactRecovery119": {
+              "phase": "OBSERVE",
+              "opposingContact": false,
+              "supportContact": false,
+              "stillTicks": 0,
+              "edgeStarts122": 0,
+              "attempts": 0
+            },
+            "horizontal": 0,
+            "landingReason": "Desired input has a supported landing",
+            "pickupDeferrals": 1,
+            "pickupRiskNanos": 1076100,
+            "contactOverrides": 0,
+            "predictedLandingTicks": 12,
+            "policy": "contact123-direct",
+            "jump": false,
+            "landingChecks": 180,
+            "goal": "TRAVEL",
+            "pickupSkips": 0,
+            "opportunityChecks": 523,
+            "automatic": false,
+            "pickupDecisions": [
+              {
+                "reason": "Enemy motion intersects the pickup approach",
+                "kind": "BUMP_BLOCK",
+                "targetY": 1.375,
+                "supportY": 0.5,
+                "targetX": 10.625,
+                "action": "deferred for fresh observation",
+                "clearance": 0.75,
+                "tick": 284,
+                "objectId": "44f5511c-9fbd-37b5-a757-70c6a3fcf6cb"
+              }
+            ],
+            "fallingWaitTicks": 0,
+            "pickupRiskChecks": 1,
+            "goalY": 1.2578686,
+            "contactChecks": 523,
+            "goalX": 17.75,
+            "pickups": 0,
+            "status": "Flag reached; winning outcome saved"
+          },
+          "renderer": {
+            "vendor": "Mesa",
+            "name": "llvmpipe (LLVM 23.1.4, 256 bits)",
+            "version": "4.6 (Compatibility Profile) Mesa 26.2.5 (git-f25a43cbec)"
+          },
+          "neural": {
+            "ticks": 511,
+            "ready": true,
+            "sharedCore": true
+          },
+          "objects": 148,
+          "frameSequence": 507,
+          "sessionId": "95ac3040-0dcd-4332-8104-ff473f9e0342",
+          "tick": 528,
+          "units": "legacy game units; XY plane; render layer is not physical Z",
+          "threats118": {
+            "total": 0,
+            "limit": 64,
+            "enemies": []
+          },
+          "visibleWindow": false,
+          "continuous": false,
+          "editorInitialized": false,
+          "player": {
+            "small": true,
+            "vx": 0,
+            "vy": 0,
+            "onGround": false,
+            "won": true,
+            "x": 16.75,
+            "y": 1.1578687,
+            "dead": false,
+            "id": "84bc862e-3a66-3594-a2f3-812adb3ec6f1"
+          }
+        },
+        "workNanos": 21014770400,
+        "strategy": "direct",
+        "parameters": {
+          "pickupTile": 42,
+          "turtleTile": 0,
+          "seed": 127,
+          "goombaTile": 46,
+          "gapTiles": 2,
+          "secondGapTiles": 2,
+          "obstacleHeight": 1,
+          "obstacleTile": 60,
+          "lengthTiles": 72
+        },
+        "taskId": "bc159f2a-cde9-4843-aec6-8f6456a6f74b",
+        "evidenceVerified": true,
+        "status": "completed"
+      },
+      "case": "supported-return"
+    },
+    {
+      "requested": "full",
+      "wallNanos": 36778833900,
+      "project": "C:\\Users\\eyeka\\AppData\\Local\\Temp\\budget124304215620386308719",
+      "id": "6a31dc18-5175-4a6c-99d6-cbf5be55b4d8",
+      "measurement": {
+        "choice124": {
+          "original": "Create a playable Mario level seed=127 lengthTiles=72 gapTiles=2 secondGapTiles=2 goombaTile=46 obstacleTile=60 obstacleHeight=1 pickupTile=42 repairLimit=0 pickupStrategy=full",
+          "fact": {
+            "seconds": 36.4345638,
+            "renderer": "f9a19ef4dbac896d905be0e836ec0add1363c22623d009de0e3b924589ec17de",
+            "safe": true,
+            "id": "6a31dc18-5175-4a6c-99d6-cbf5be55b4d8",
+            "pickups": 1,
+            "strategy": "full"
+          },
+          "timingStatus": "Measured through first verified terminal outcome; final receipt write and later shutdown excluded",
+          "budgeted": false,
+          "createdAt": "2026-11-12T15:39:54.147196600Z",
+          "seconds": 36.4345638,
+          "trace": "c3e4038599b056f5a7808907d61272427dd9fcce1cffa9c0b33afe849078e18a",
+          "restarted": false,
+          "eligible": true,
+          "host": "e24ce85856c00c1b069b1d094c92440d853acea288729cb89a43ddc2b0e98cbc",
+          "id": "6a31dc18-5175-4a6c-99d6-cbf5be55b4d8",
+          "boot": "8e15875f-e646-45cf-aa78-1d68db8ef6d4",
+          "parameters": {
+            "pickupTile": 42,
+            "turtleTile": 0,
+            "seed": 127,
+            "goombaTile": 46,
+            "gapTiles": 2,
+            "secondGapTiles": 2,
+            "obstacleHeight": 1,
+            "obstacleTile": 60,
+            "lengthTiles": 72
+          },
+          "resolved": "Create a playable Mario level seed=127 lengthTiles=72 gapTiles=2 secondGapTiles=2 goombaTile=46 obstacleTile=60 obstacleHeight=1 pickupTile=42 repairLimit=0 pickupStrategy=full",
+          "algorithm": "c3c12624d94078e1f274edffc4919ab5476d782076c9a9894e0fd98c9855150a"
+        },
+        "completionCertified": true,
+        "audit": {
+          "wins": 1,
+          "aiPickups": 1,
+          "aiEnemyLanding": {
+            "chosenContact": false,
+            "reason": "No predicted enemy contact in descending approach",
+            "chosenSupported": true,
+            "nanos": 3303600,
+            "ticks": 10,
+            "overrides": 0,
+            "desiredContact": false,
+            "horizontal": 1,
+            "checks": 86,
+            "threatLimit": 64,
+            "horizonTicks": 60,
+            "edgeStarts": 0,
+            "x": 13.300469,
+            "y": 0.6143242,
+            "override": false
+          },
+          "failures": 1,
+          "aiDamage": 0,
+          "aiPickupDeferrals": 1,
+          "aiContactAttempts": 0,
+          "repairCount": 0,
+          "aiOpportunity": {
+            "phase": "TRAVEL",
+            "returnsEnabled123": true,
+            "reason": "Block changed; verify actual collection separately",
+            "waitTicks": 0,
+            "waitStarts": 0,
+            "revisitTicks": 155,
+            "decisions": [
+              {
+                "reason": "Nearby remembered pickup has continuous observed support and clear route",
+                "action": "return-started",
+                "plannedTicks": 0,
+                "tick": 429,
+                "objectId": "dcd543d9-385a-3204-ae88-11366194e876"
+              },
+              {
+                "reason": "Block changed; verify actual collection separately",
+                "action": "return-ended",
+                "plannedTicks": 0,
+                "tick": 585,
+                "objectId": "dcd543d9-385a-3204-ae88-11366194e876"
+              }
+            ],
+            "waitAborts": 0,
+            "waitsEnabled123": true,
+            "waitClears": 0,
+            "revisitStarts": 1,
+            "motion121": {
+              "reversals": 0,
+              "checks": 832,
+              "returnReach": 2.75,
+              "stabilityTicks": 30,
+              "tracked": 0,
+              "returnsEnabled": true,
+              "forecastRefusals": 0,
+              "events": []
+            }
+          },
+          "existingAI": "won",
+          "pickupDecisions": [
+            {
+              "reason": "Enemy motion intersects the pickup approach",
+              "kind": "BUMP_BLOCK",
+              "targetY": 1.375,
+              "supportY": 0.5,
+              "targetX": 10.625,
+              "action": "deferred for fresh observation",
+              "clearance": 0.75,
+              "tick": 284,
+              "objectId": "dcd543d9-385a-3204-ae88-11366194e876"
+            }
+          ],
+          "trials": 2,
+          "simpleControl": "failed",
+          "pickupStrategy": "full",
+          "scope": "Actual finish contact on this candidate; comparison is not a guarantee for unfamiliar levels. No procedure-bank admission or model training.",
+          "aiPickupSkips": 0,
+          "traceSha256": "c3e4038599b056f5a7808907d61272427dd9fcce1cffa9c0b33afe849078e18a",
+          "passed": true,
+          "candidateId": "068ca529-6ba3-3033-8f10-3c0e9718c39c",
+          "inputChunks": 97,
+          "completionControl": "contact122"
+        },
+        "scope": "Verified outcome, including legitimate failed trials; failure is not completion. workNanos is partial engine work, not full wall time.",
+        "final": {
+          "contact117": {
+            "contactScanLimit": 32,
+            "bodyX": 16.75,
+            "contacts": [],
+            "bodyY": 1.2192433
+          },
+          "controller": {
+            "landingNanos": 6503300,
+            "opportunityNanos": 14324200,
+            "damage": 0,
+            "enemyLanding122": {
+              "chosenContact": false,
+              "reason": "No predicted enemy contact in descending approach",
+              "chosenSupported": true,
+              "nanos": 3303600,
+              "ticks": 10,
+              "overrides": 0,
+              "desiredContact": false,
+              "horizontal": 1,
+              "checks": 86,
+              "threatLimit": 64,
+              "horizonTicks": 60,
+              "edgeStarts": 0,
+              "x": 13.300469,
+              "y": 0.6143242,
+              "override": false
+            },
+            "landingOverrides": 0,
+            "predictedLandingX": 16.990438,
+            "predictedLandingY": 0.68091005,
+            "opportunity120": {
+              "phase": "TRAVEL",
+              "returnsEnabled123": true,
+              "reason": "Block changed; verify actual collection separately",
+              "waitTicks": 0,
+              "waitStarts": 0,
+              "revisitTicks": 155,
+              "decisions": [
+                {
+                  "reason": "Nearby remembered pickup has continuous observed support and clear route",
+                  "action": "return-started",
+                  "plannedTicks": 0,
+                  "tick": 429,
+                  "objectId": "dcd543d9-385a-3204-ae88-11366194e876"
+                },
+                {
+                  "reason": "Block changed; verify actual collection separately",
+                  "action": "return-ended",
+                  "plannedTicks": 0,
+                  "tick": 585,
+                  "objectId": "dcd543d9-385a-3204-ae88-11366194e876"
+                }
+              ],
+              "waitAborts": 0,
+              "waitsEnabled123": true,
+              "waitClears": 0,
+              "revisitStarts": 1,
+              "motion121": {
+                "reversals": 0,
+                "checks": 832,
+                "returnReach": 2.75,
+                "stabilityTicks": 30,
+                "tracked": 0,
+                "returnsEnabled": true,
+                "forecastRefusals": 0,
+                "events": []
+              }
+            },
+            "contactNanos": 5178500,
+            "edgeCrossings": 3,
+            "contactRecovery119": {
+              "opposingContact": false,
+              "phase": "OBSERVE",
+              "supportContact": false,
+              "stillTicks": 0,
+              "edgeStarts122": 0,
+              "attempts": 0
+            },
+            "horizontal": 0,
+            "landingReason": "Desired input has a supported landing",
+            "pickupDeferrals": 1,
+            "pickupRiskNanos": 6080300,
+            "contactOverrides": 0,
+            "predictedLandingTicks": 13,
+            "policy": "contact122",
+            "jump": false,
+            "landingChecks": 202,
+            "goal": "TRAVEL",
+            "pickupSkips": 0,
+            "opportunityChecks": 832,
+            "automatic": false,
+            "pickupDecisions": [
+              {
+                "reason": "Enemy motion intersects the pickup approach",
+                "kind": "BUMP_BLOCK",
+                "targetY": 1.375,
+                "supportY": 0.5,
+                "targetX": 10.625,
+                "action": "deferred for fresh observation",
+                "clearance": 0.75,
+                "tick": 284,
+                "objectId": "dcd543d9-385a-3204-ae88-11366194e876"
+              }
+            ],
+            "fallingWaitTicks": 32,
+            "pickupRiskChecks": 222,
+            "goalY": 1.3525765,
+            "contactChecks": 832,
+            "goalX": 17.75,
+            "pickups": 1,
+            "status": "Flag reached; winning outcome saved"
+          },
+          "renderer": {
+            "vendor": "Mesa",
+            "name": "llvmpipe (LLVM 23.1.4, 256 bits)",
+            "version": "4.6 (Compatibility Profile) Mesa 26.2.5 (git-f25a43cbec)"
+          },
+          "neural": {
+            "ticks": 820,
+            "ready": true,
+            "sharedCore": true
+          },
+          "objects": 148,
+          "frameSequence": 889,
+          "sessionId": "e9b3497a-2901-4e8f-9088-0bebfeae24e8",
+          "tick": 840,
+          "units": "legacy game units; XY plane; render layer is not physical Z",
+          "threats118": {
+            "total": 0,
+            "limit": 64,
+            "enemies": []
+          },
+          "visibleWindow": false,
+          "continuous": false,
+          "editorInitialized": false,
+          "player": {
+            "small": false,
+            "vx": 0,
+            "vy": 0,
+            "onGround": false,
+            "won": true,
+            "x": 16.75,
+            "y": 1.2025766,
+            "dead": false,
+            "id": "ea14be94-0988-3db2-aa35-cd58fce7f9ac"
+          }
+        },
+        "workNanos": 26996768900,
+        "strategy": "full",
+        "parameters": {
+          "pickupTile": 42,
+          "turtleTile": 0,
+          "seed": 127,
+          "goombaTile": 46,
+          "gapTiles": 2,
+          "secondGapTiles": 2,
+          "obstacleHeight": 1,
+          "obstacleTile": 60,
+          "lengthTiles": 72
+        },
+        "taskId": "6a31dc18-5175-4a6c-99d6-cbf5be55b4d8",
+        "evidenceVerified": true,
+        "status": "completed"
+      },
+      "case": "supported-return"
+    },
+    {
+      "requested": "budget pickupBudgetSeconds=0",
+      "wallNanos": 26868682300,
+      "decision": {
+        "result": {
+          "reason": "Zero extra allowance",
+          "scope": "Exact-condition empirical envelope; not a probability, hard deadline or safety guarantee. Ordinary safety checks remain authoritative.",
+          "alternatives": [
+            {
+              "reason": "At least three direct and three alternative measurements are required",
+              "baselineSamples": 0,
+              "strategy": "no-return",
+              "samples": 0
+            },
+            {
+              "reason": "At least three direct and three alternative measurements are required",
+              "baselineSamples": 0,
+              "strategy": "no-wait",
+              "samples": 0
+            },
+            {
+              "reason": "At least three direct and three alternative measurements are required",
+              "baselineSamples": 0,
+              "strategy": "full",
+              "samples": 0
+            }
+          ],
+          "allowance": 0,
+          "selected": "direct"
+        },
+        "analysisNanos": 31200,
+        "sources": [],
+        "rejected": [],
+        "admissionSeconds": 0.1964402,
+        "damagedRecords": 0,
+        "completionVerificationReserveSeconds": 0,
+        "overheadSeconds": 0.1964402,
+        "samples": []
+      },
+      "project": "C:\\Users\\eyeka\\AppData\\Local\\Temp\\budget124304215620386308719",
+      "id": "e8eaef1b-3fee-42bd-9511-030c71df317e",
+      "measurement": {
+        "choice124": {
+          "original": "Create a playable Mario level seed=127 lengthTiles=72 gapTiles=2 secondGapTiles=2 goombaTile=46 obstacleTile=60 obstacleHeight=1 pickupTile=42 repairLimit=0 pickupStrategy=budget pickupBudgetSeconds=0",
+          "fact": {
+            "seconds": 26.4632943,
+            "renderer": "f9a19ef4dbac896d905be0e836ec0add1363c22623d009de0e3b924589ec17de",
+            "safe": true,
+            "id": "e8eaef1b-3fee-42bd-9511-030c71df317e",
+            "pickups": 0,
+            "strategy": "direct"
+          },
+          "timingStatus": "Measured through first verified terminal outcome; final receipt write and later shutdown excluded",
+          "decision": {
+            "result": {
+              "reason": "Zero extra allowance",
+              "scope": "Exact-condition empirical envelope; not a probability, hard deadline or safety guarantee. Ordinary safety checks remain authoritative.",
+              "alternatives": [
+                {
+                  "reason": "At least three direct and three alternative measurements are required",
+                  "baselineSamples": 0,
+                  "strategy": "no-return",
+                  "samples": 0
+                },
+                {
+                  "reason": "At least three direct and three alternative measurements are required",
+                  "baselineSamples": 0,
+                  "strategy": "no-wait",
+                  "samples": 0
+                },
+                {
+                  "reason": "At least three direct and three alternative measurements are required",
+                  "baselineSamples": 0,
+                  "strategy": "full",
+                  "samples": 0
+                }
+              ],
+              "allowance": 0,
+              "selected": "direct"
+            },
+            "analysisNanos": 31200,
+            "sources": [],
+            "rejected": [],
+            "admissionSeconds": 0.1964402,
+            "damagedRecords": 0,
+            "completionVerificationReserveSeconds": 0,
+            "overheadSeconds": 0.1964402,
+            "samples": []
+          },
+          "budgeted": true,
+          "createdAt": "2026-11-12T15:40:30.968236400Z",
+          "seconds": 26.4632943,
+          "trace": "05311bed022fc292f226eeff59cb7227fbd039ff8e488efe9028d292d5934054",
+          "restarted": false,
+          "eligible": false,
+          "host": "e24ce85856c00c1b069b1d094c92440d853acea288729cb89a43ddc2b0e98cbc",
+          "id": "e8eaef1b-3fee-42bd-9511-030c71df317e",
+          "boot": "8e15875f-e646-45cf-aa78-1d68db8ef6d4",
+          "parameters": {
+            "pickupTile": 42,
+            "turtleTile": 0,
+            "seed": 127,
+            "goombaTile": 46,
+            "gapTiles": 2,
+            "secondGapTiles": 2,
+            "obstacleHeight": 1,
+            "obstacleTile": 60,
+            "lengthTiles": 72
+          },
+          "resolved": "Create a playable Mario level seed=127 lengthTiles=72 gapTiles=2 secondGapTiles=2 goombaTile=46 obstacleTile=60 obstacleHeight=1 pickupTile=42 repairLimit=0 pickupStrategy=direct pickupBudgetSeconds=0",
+          "algorithm": "c3c12624d94078e1f274edffc4919ab5476d782076c9a9894e0fd98c9855150a"
+        },
+        "completionCertified": true,
+        "audit": {
+          "wins": 1,
+          "aiPickups": 0,
+          "aiEnemyLanding": {
+            "chosenContact": false,
+            "reason": "No predicted enemy contact in descending approach",
+            "chosenSupported": true,
+            "nanos": 2780700,
+            "ticks": 10,
+            "overrides": 0,
+            "desiredContact": false,
+            "horizontal": 1,
+            "checks": 86,
+            "threatLimit": 64,
+            "horizonTicks": 60,
+            "edgeStarts": 0,
+            "x": 13.300469,
+            "y": 0.6143242,
+            "override": false
+          },
+          "failures": 1,
+          "aiDamage": 0,
+          "aiPickupDeferrals": 1,
+          "aiContactAttempts": 0,
+          "repairCount": 0,
+          "aiOpportunity": {
+            "phase": "TRAVEL",
+            "returnsEnabled123": false,
+            "reason": "No optional wait or return",
+            "waitTicks": 0,
+            "waitStarts": 0,
+            "revisitTicks": 0,
+            "decisions": [],
+            "waitAborts": 0,
+            "waitsEnabled123": false,
+            "waitClears": 0,
+            "revisitStarts": 0,
+            "motion121": {
+              "reversals": 0,
+              "checks": 523,
+              "returnReach": 2.75,
+              "stabilityTicks": 30,
+              "tracked": 0,
+              "returnsEnabled": false,
+              "events": [],
+              "forecastRefusals": 0
+            }
+          },
+          "existingAI": "won",
+          "pickupDecisions": [
+            {
+              "reason": "Enemy motion intersects the pickup approach",
+              "kind": "BUMP_BLOCK",
+              "targetY": 1.375,
+              "supportY": 0.5,
+              "targetX": 10.625,
+              "action": "deferred for fresh observation",
+              "clearance": 0.75,
+              "tick": 284,
+              "objectId": "5f4f5e47-72e8-3eb8-89d6-2bb10c7d92ce"
+            }
+          ],
+          "trials": 2,
+          "simpleControl": "failed",
+          "pickupStrategy": "direct",
+          "scope": "Actual finish contact on this candidate; comparison is not a guarantee for unfamiliar levels. No procedure-bank admission or model training.",
+          "aiPickupSkips": 0,
+          "traceSha256": "05311bed022fc292f226eeff59cb7227fbd039ff8e488efe9028d292d5934054",
+          "passed": true,
+          "candidateId": "c79ccd75-ef6b-3a1f-8ba3-ec87f3fd4294",
+          "inputChunks": 71,
+          "completionControl": "contact123-direct"
+        },
+        "scope": "Verified outcome, including legitimate failed trials; failure is not completion. workNanos is partial engine work, not full wall time.",
+        "final": {
+          "contact117": {
+            "contactScanLimit": 32,
+            "bodyX": 16.75,
+            "contacts": [],
+            "bodyY": 1.1745354
+          },
+          "controller": {
+            "landingNanos": 5132600,
+            "opportunityNanos": 8258700,
+            "damage": 0,
+            "enemyLanding122": {
+              "chosenContact": false,
+              "reason": "No predicted enemy contact in descending approach",
+              "chosenSupported": true,
+              "nanos": 2780700,
+              "ticks": 10,
+              "overrides": 0,
+              "desiredContact": false,
+              "horizontal": 1,
+              "checks": 86,
+              "threatLimit": 64,
+              "horizonTicks": 60,
+              "edgeStarts": 0,
+              "x": 13.300469,
+              "y": 0.6143242,
+              "override": false
+            },
+            "landingOverrides": 0,
+            "predictedLandingX": 16.952074,
+            "predictedLandingY": 0.63786876,
+            "opportunity120": {
+              "phase": "TRAVEL",
+              "returnsEnabled123": false,
+              "reason": "No optional wait or return",
+              "waitTicks": 0,
+              "waitStarts": 0,
+              "revisitTicks": 0,
+              "decisions": [],
+              "waitAborts": 0,
+              "waitsEnabled123": false,
+              "waitClears": 0,
+              "revisitStarts": 0,
+              "motion121": {
+                "reversals": 0,
+                "checks": 523,
+                "returnReach": 2.75,
+                "stabilityTicks": 30,
+                "tracked": 0,
+                "returnsEnabled": false,
+                "events": [],
+                "forecastRefusals": 0
+              }
+            },
+            "contactNanos": 4339900,
+            "edgeCrossings": 3,
+            "contactRecovery119": {
+              "phase": "OBSERVE",
+              "opposingContact": false,
+              "supportContact": false,
+              "stillTicks": 0,
+              "edgeStarts122": 0,
+              "attempts": 0
+            },
+            "horizontal": 0,
+            "landingReason": "Desired input has a supported landing",
+            "pickupDeferrals": 1,
+            "pickupRiskNanos": 1436800,
+            "contactOverrides": 0,
+            "predictedLandingTicks": 12,
+            "policy": "contact123-direct",
+            "jump": false,
+            "landingChecks": 180,
+            "goal": "TRAVEL",
+            "pickupSkips": 0,
+            "opportunityChecks": 523,
+            "automatic": false,
+            "pickupDecisions": [
+              {
+                "reason": "Enemy motion intersects the pickup approach",
+                "kind": "BUMP_BLOCK",
+                "targetY": 1.375,
+                "supportY": 0.5,
+                "targetX": 10.625,
+                "action": "deferred for fresh observation",
+                "clearance": 0.75,
+                "tick": 284,
+                "objectId": "5f4f5e47-72e8-3eb8-89d6-2bb10c7d92ce"
+              }
+            ],
+            "fallingWaitTicks": 0,
+            "pickupRiskChecks": 1,
+            "goalY": 1.2578686,
+            "contactChecks": 523,
+            "goalX": 17.75,
+            "pickups": 0,
+            "status": "Flag reached; winning outcome saved"
+          },
+          "renderer": {
+            "vendor": "Mesa",
+            "name": "llvmpipe (LLVM 23.1.4, 256 bits)",
+            "version": "4.6 (Compatibility Profile) Mesa 26.2.5 (git-f25a43cbec)"
+          },
+          "neural": {
+            "ticks": 511,
+            "ready": true,
+            "sharedCore": true
+          },
+          "objects": 148,
+          "frameSequence": 514,
+          "sessionId": "9c95a4a1-d563-446e-b548-5fcd95db902c",
+          "tick": 528,
+          "units": "legacy game units; XY plane; render layer is not physical Z",
+          "threats118": {
+            "total": 0,
+            "limit": 64,
+            "enemies": []
+          },
+          "visibleWindow": false,
+          "continuous": false,
+          "editorInitialized": false,
+          "player": {
+            "small": true,
+            "vx": 0,
+            "vy": 0,
+            "onGround": false,
+            "won": true,
+            "x": 16.75,
+            "y": 1.1578687,
+            "dead": false,
+            "id": "a110dbdc-548e-3f25-8880-26a91233884e"
+          }
+        },
+        "workNanos": 20776226000,
+        "strategy": "direct",
+        "parameters": {
+          "pickupTile": 42,
+          "turtleTile": 0,
+          "seed": 127,
+          "goombaTile": 46,
+          "gapTiles": 2,
+          "secondGapTiles": 2,
+          "obstacleHeight": 1,
+          "obstacleTile": 60,
+          "lengthTiles": 72
+        },
+        "taskId": "e8eaef1b-3fee-42bd-9511-030c71df317e",
+        "evidenceVerified": true,
+        "status": "completed"
+      },
+      "case": "supported-return"
+    },
+    {
+      "requested": "budget pickupBudgetSeconds=4",
+      "wallNanos": 33042242400,
+      "decision": {
+        "result": {
+          "reason": "Abstained from optional actions; see the retained evidence assessments",
+          "scope": "Exact-condition empirical envelope; not a probability, hard deadline or safety guarantee. Ordinary safety checks remain authoritative.",
+          "alternatives": [
+            {
+              "reason": "At least three direct and three alternative measurements are required",
+              "baselineSamples": 3,
+              "strategy": "no-return",
+              "samples": 0
+            },
+            {
+              "reason": "At least three direct and three alternative measurements are required",
+              "baselineSamples": 3,
+              "strategy": "no-wait",
+              "samples": 0
+            },
+            {
+              "reason": "Conservative estimate exceeds the allowance",
+              "extraSecondsUpper": 10.522835599999997,
+              "decisionOverheadSeconds": 4.0259662,
+              "alternative": {
+                "minSeconds": 36.4345638,
+                "maxPickups": 1,
+                "minPickups": 1,
+                "maxSeconds": 36.8830074
+              },
+              "baseline": {
+                "minSeconds": 26.3601718,
+                "maxPickups": 0,
+                "minPickups": 0,
+                "maxSeconds": 27.00459
+              },
+              "samples": 3,
+              "benefitLower": 1,
+              "benefitUpper": 1,
+              "variationReserveSeconds": 1.288836400000001,
+              "requiredSecondsPerPickup": 16.087638199999997,
+              "baselineSamples": 3,
+              "strategy": "full",
+              "recordingReserveSeconds": 0.25,
+              "estimatedExtraSeconds": 16.087638199999997
+            }
+          ],
+          "allowance": 4,
+          "selected": "direct"
+        },
+        "analysisNanos": 10771900,
+        "sources": [
+          {
+            "fact": {
+              "seconds": 27.00459,
+              "renderer": "f9a19ef4dbac896d905be0e836ec0add1363c22623d009de0e3b924589ec17de",
+              "safe": true,
+              "id": "e69d5fa5-dc34-438d-a2a2-36f1722af34b",
+              "pickups": 0,
+              "strategy": "direct"
+            },
+            "id": "e69d5fa5-dc34-438d-a2a2-36f1722af34b",
+            "recordSha256": "f5ab4db9867de2c985a90585cc85ab6144c526f2ff91b905c54d09bd40219a1f"
+          },
+          {
+            "fact": {
+              "seconds": 36.6638671,
+              "renderer": "f9a19ef4dbac896d905be0e836ec0add1363c22623d009de0e3b924589ec17de",
+              "safe": true,
+              "id": "6b5e800a-099c-4bf5-80b6-f7ebbda49e2c",
+              "pickups": 1,
+              "strategy": "full"
+            },
+            "id": "6b5e800a-099c-4bf5-80b6-f7ebbda49e2c",
+            "recordSha256": "220082708270fe7134f9e64138e87cb837357fc47acab596283b1fb9e6c4c68c"
+          },
+          {
+            "fact": {
+              "seconds": 36.8830074,
+              "renderer": "f9a19ef4dbac896d905be0e836ec0add1363c22623d009de0e3b924589ec17de",
+              "safe": true,
+              "id": "ea31b770-ebf7-41c4-a52c-3c467da40b25",
+              "pickups": 1,
+              "strategy": "full"
+            },
+            "id": "ea31b770-ebf7-41c4-a52c-3c467da40b25",
+            "recordSha256": "bc56fbffb28fd4342f48959affd785352d3ed2da452399c6b4b6bdcdd721429b"
+          },
+          {
+            "fact": {
+              "seconds": 26.6906796,
+              "renderer": "f9a19ef4dbac896d905be0e836ec0add1363c22623d009de0e3b924589ec17de",
+              "safe": true,
+              "id": "d5d87c18-f926-4ba9-aa97-7cc5d2ed0a7a",
+              "pickups": 0,
+              "strategy": "direct"
+            },
+            "id": "d5d87c18-f926-4ba9-aa97-7cc5d2ed0a7a",
+            "recordSha256": "2ab019e03e91b4fa0004155a1db720ff1b3a58a29a783c1073ec55f5c820328d"
+          },
+          {
+            "fact": {
+              "seconds": 26.3601718,
+              "renderer": "f9a19ef4dbac896d905be0e836ec0add1363c22623d009de0e3b924589ec17de",
+              "safe": true,
+              "id": "bc159f2a-cde9-4843-aec6-8f6456a6f74b",
+              "pickups": 0,
+              "strategy": "direct"
+            },
+            "id": "bc159f2a-cde9-4843-aec6-8f6456a6f74b",
+            "recordSha256": "0f3442f41f7ac08ded0ee1111023fa6de61704f9e4c291e4997bc03826c58f4c"
+          },
+          {
+            "fact": {
+              "seconds": 36.4345638,
+              "renderer": "f9a19ef4dbac896d905be0e836ec0add1363c22623d009de0e3b924589ec17de",
+              "safe": true,
+              "id": "6a31dc18-5175-4a6c-99d6-cbf5be55b4d8",
+              "pickups": 1,
+              "strategy": "full"
+            },
+            "id": "6a31dc18-5175-4a6c-99d6-cbf5be55b4d8",
+            "recordSha256": "8ac20ae46553c59c8c4defeeddf2379ed2cef4abdb1dc7aaa765b51b8b46e42b"
+          }
+        ],
+        "rejected": [],
+        "admissionSeconds": 2.1350699,
+        "damagedRecords": 0,
+        "completionVerificationReserveSeconds": 1.8908963,
+        "overheadSeconds": 4.0259662,
+        "samples": [
+          {
+            "seconds": 27.00459,
+            "renderer": "f9a19ef4dbac896d905be0e836ec0add1363c22623d009de0e3b924589ec17de",
+            "safe": true,
+            "id": "e69d5fa5-dc34-438d-a2a2-36f1722af34b",
+            "pickups": 0,
+            "strategy": "direct"
+          },
+          {
+            "seconds": 36.6638671,
+            "renderer": "f9a19ef4dbac896d905be0e836ec0add1363c22623d009de0e3b924589ec17de",
+            "safe": true,
+            "id": "6b5e800a-099c-4bf5-80b6-f7ebbda49e2c",
+            "pickups": 1,
+            "strategy": "full"
+          },
+          {
+            "seconds": 36.8830074,
+            "renderer": "f9a19ef4dbac896d905be0e836ec0add1363c22623d009de0e3b924589ec17de",
+            "safe": true,
+            "id": "ea31b770-ebf7-41c4-a52c-3c467da40b25",
+            "pickups": 1,
+            "strategy": "full"
+          },
+          {
+            "seconds": 26.6906796,
+            "renderer": "f9a19ef4dbac896d905be0e836ec0add1363c22623d009de0e3b924589ec17de",
+            "safe": true,
+            "id": "d5d87c18-f926-4ba9-aa97-7cc5d2ed0a7a",
+            "pickups": 0,
+            "strategy": "direct"
+          },
+          {
+            "seconds": 26.3601718,
+            "renderer": "f9a19ef4dbac896d905be0e836ec0add1363c22623d009de0e3b924589ec17de",
+            "safe": true,
+            "id": "bc159f2a-cde9-4843-aec6-8f6456a6f74b",
+            "pickups": 0,
+            "strategy": "direct"
+          },
+          {
+            "seconds": 36.4345638,
+            "renderer": "f9a19ef4dbac896d905be0e836ec0add1363c22623d009de0e3b924589ec17de",
+            "safe": true,
+            "id": "6a31dc18-5175-4a6c-99d6-cbf5be55b4d8",
+            "pickups": 1,
+            "strategy": "full"
+          }
+        ]
+      },
+      "project": "C:\\Users\\eyeka\\AppData\\Local\\Temp\\budget124304215620386308719",
+      "id": "0d65fbd3-b770-43ac-a446-3948c45eefd9",
+      "measurement": {
+        "choice124": {
+          "original": "Create a playable Mario level seed=127 lengthTiles=72 gapTiles=2 secondGapTiles=2 goombaTile=46 obstacleTile=60 obstacleHeight=1 pickupTile=42 repairLimit=0 pickupStrategy=budget pickupBudgetSeconds=4",
+          "fact": {
+            "seconds": 30.8051328,
+            "renderer": "f9a19ef4dbac896d905be0e836ec0add1363c22623d009de0e3b924589ec17de",
+            "safe": true,
+            "id": "0d65fbd3-b770-43ac-a446-3948c45eefd9",
+            "pickups": 0,
+            "strategy": "direct"
+          },
+          "timingStatus": "Measured through first verified terminal outcome; final receipt write and later shutdown excluded",
+          "decision": {
+            "result": {
+              "reason": "Abstained from optional actions; see the retained evidence assessments",
+              "scope": "Exact-condition empirical envelope; not a probability, hard deadline or safety guarantee. Ordinary safety checks remain authoritative.",
+              "alternatives": [
+                {
+                  "reason": "At least three direct and three alternative measurements are required",
+                  "baselineSamples": 3,
+                  "strategy": "no-return",
+                  "samples": 0
+                },
+                {
+                  "reason": "At least three direct and three alternative measurements are required",
+                  "baselineSamples": 3,
+                  "strategy": "no-wait",
+                  "samples": 0
+                },
+                {
+                  "reason": "Conservative estimate exceeds the allowance",
+                  "extraSecondsUpper": 10.522835599999997,
+                  "decisionOverheadSeconds": 4.0259662,
+                  "alternative": {
+                    "minSeconds": 36.4345638,
+                    "maxPickups": 1,
+                    "minPickups": 1,
+                    "maxSeconds": 36.8830074
+                  },
+                  "baseline": {
+                    "minSeconds": 26.3601718,
+                    "maxPickups": 0,
+                    "minPickups": 0,
+                    "maxSeconds": 27.00459
+                  },
+                  "samples": 3,
+                  "benefitLower": 1,
+                  "benefitUpper": 1,
+                  "variationReserveSeconds": 1.288836400000001,
+                  "requiredSecondsPerPickup": 16.087638199999997,
+                  "baselineSamples": 3,
+                  "strategy": "full",
+                  "recordingReserveSeconds": 0.25,
+                  "estimatedExtraSeconds": 16.087638199999997
+                }
+              ],
+              "allowance": 4,
+              "selected": "direct"
+            },
+            "analysisNanos": 10771900,
+            "sources": [
+              {
+                "fact": {
+                  "seconds": 27.00459,
+                  "renderer": "f9a19ef4dbac896d905be0e836ec0add1363c22623d009de0e3b924589ec17de",
+                  "safe": true,
+                  "id": "e69d5fa5-dc34-438d-a2a2-36f1722af34b",
+                  "pickups": 0,
+                  "strategy": "direct"
+                },
+                "id": "e69d5fa5-dc34-438d-a2a2-36f1722af34b",
+                "recordSha256": "f5ab4db9867de2c985a90585cc85ab6144c526f2ff91b905c54d09bd40219a1f"
+              },
+              {
+                "fact": {
+                  "seconds": 36.6638671,
+                  "renderer": "f9a19ef4dbac896d905be0e836ec0add1363c22623d009de0e3b924589ec17de",
+                  "safe": true,
+                  "id": "6b5e800a-099c-4bf5-80b6-f7ebbda49e2c",
+                  "pickups": 1,
+                  "strategy": "full"
+                },
+                "id": "6b5e800a-099c-4bf5-80b6-f7ebbda49e2c",
+                "recordSha256": "220082708270fe7134f9e64138e87cb837357fc47acab596283b1fb9e6c4c68c"
+              },
+              {
+                "fact": {
+                  "seconds": 36.8830074,
+                  "renderer": "f9a19ef4dbac896d905be0e836ec0add1363c22623d009de0e3b924589ec17de",
+                  "safe": true,
+                  "id": "ea31b770-ebf7-41c4-a52c-3c467da40b25",
+                  "pickups": 1,
+                  "strategy": "full"
+                },
+                "id": "ea31b770-ebf7-41c4-a52c-3c467da40b25",
+                "recordSha256": "bc56fbffb28fd4342f48959affd785352d3ed2da452399c6b4b6bdcdd721429b"
+              },
+              {
+                "fact": {
+                  "seconds": 26.6906796,
+                  "renderer": "f9a19ef4dbac896d905be0e836ec0add1363c22623d009de0e3b924589ec17de",
+                  "safe": true,
+                  "id": "d5d87c18-f926-4ba9-aa97-7cc5d2ed0a7a",
+                  "pickups": 0,
+                  "strategy": "direct"
+                },
+                "id": "d5d87c18-f926-4ba9-aa97-7cc5d2ed0a7a",
+                "recordSha256": "2ab019e03e91b4fa0004155a1db720ff1b3a58a29a783c1073ec55f5c820328d"
+              },
+              {
+                "fact": {
+                  "seconds": 26.3601718,
+                  "renderer": "f9a19ef4dbac896d905be0e836ec0add1363c22623d009de0e3b924589ec17de",
+                  "safe": true,
+                  "id": "bc159f2a-cde9-4843-aec6-8f6456a6f74b",
+                  "pickups": 0,
+                  "strategy": "direct"
+                },
+                "id": "bc159f2a-cde9-4843-aec6-8f6456a6f74b",
+                "recordSha256": "0f3442f41f7ac08ded0ee1111023fa6de61704f9e4c291e4997bc03826c58f4c"
+              },
+              {
+                "fact": {
+                  "seconds": 36.4345638,
+                  "renderer": "f9a19ef4dbac896d905be0e836ec0add1363c22623d009de0e3b924589ec17de",
+                  "safe": true,
+                  "id": "6a31dc18-5175-4a6c-99d6-cbf5be55b4d8",
+                  "pickups": 1,
+                  "strategy": "full"
+                },
+                "id": "6a31dc18-5175-4a6c-99d6-cbf5be55b4d8",
+                "recordSha256": "8ac20ae46553c59c8c4defeeddf2379ed2cef4abdb1dc7aaa765b51b8b46e42b"
+              }
+            ],
+            "rejected": [],
+            "admissionSeconds": 2.1350699,
+            "damagedRecords": 0,
+            "completionVerificationReserveSeconds": 1.8908963,
+            "overheadSeconds": 4.0259662,
+            "samples": [
+              {
+                "seconds": 27.00459,
+                "renderer": "f9a19ef4dbac896d905be0e836ec0add1363c22623d009de0e3b924589ec17de",
+                "safe": true,
+                "id": "e69d5fa5-dc34-438d-a2a2-36f1722af34b",
+                "pickups": 0,
+                "strategy": "direct"
+              },
+              {
+                "seconds": 36.6638671,
+                "renderer": "f9a19ef4dbac896d905be0e836ec0add1363c22623d009de0e3b924589ec17de",
+                "safe": true,
+                "id": "6b5e800a-099c-4bf5-80b6-f7ebbda49e2c",
+                "pickups": 1,
+                "strategy": "full"
+              },
+              {
+                "seconds": 36.8830074,
+                "renderer": "f9a19ef4dbac896d905be0e836ec0add1363c22623d009de0e3b924589ec17de",
+                "safe": true,
+                "id": "ea31b770-ebf7-41c4-a52c-3c467da40b25",
+                "pickups": 1,
+                "strategy": "full"
+              },
+              {
+                "seconds": 26.6906796,
+                "renderer": "f9a19ef4dbac896d905be0e836ec0add1363c22623d009de0e3b924589ec17de",
+                "safe": true,
+                "id": "d5d87c18-f926-4ba9-aa97-7cc5d2ed0a7a",
+                "pickups": 0,
+                "strategy": "direct"
+              },
+              {
+                "seconds": 26.3601718,
+                "renderer": "f9a19ef4dbac896d905be0e836ec0add1363c22623d009de0e3b924589ec17de",
+                "safe": true,
+                "id": "bc159f2a-cde9-4843-aec6-8f6456a6f74b",
+                "pickups": 0,
+                "strategy": "direct"
+              },
+              {
+                "seconds": 36.4345638,
+                "renderer": "f9a19ef4dbac896d905be0e836ec0add1363c22623d009de0e3b924589ec17de",
+                "safe": true,
+                "id": "6a31dc18-5175-4a6c-99d6-cbf5be55b4d8",
+                "pickups": 1,
+                "strategy": "full"
+              }
+            ]
+          },
+          "budgeted": true,
+          "createdAt": "2026-11-12T15:40:59.871549300Z",
+          "seconds": 30.8051328,
+          "trace": "5c6ae9df4bf21890cea4a46ad26f8c0ffbec5f23c98b6b8c6c341a62bd254272",
+          "restarted": false,
+          "eligible": false,
+          "host": "e24ce85856c00c1b069b1d094c92440d853acea288729cb89a43ddc2b0e98cbc",
+          "id": "0d65fbd3-b770-43ac-a446-3948c45eefd9",
+          "boot": "8e15875f-e646-45cf-aa78-1d68db8ef6d4",
+          "parameters": {
+            "pickupTile": 42,
+            "turtleTile": 0,
+            "seed": 127,
+            "goombaTile": 46,
+            "gapTiles": 2,
+            "secondGapTiles": 2,
+            "obstacleHeight": 1,
+            "obstacleTile": 60,
+            "lengthTiles": 72
+          },
+          "resolved": "Create a playable Mario level seed=127 lengthTiles=72 gapTiles=2 secondGapTiles=2 goombaTile=46 obstacleTile=60 obstacleHeight=1 pickupTile=42 repairLimit=0 pickupStrategy=direct pickupBudgetSeconds=4",
+          "algorithm": "c3c12624d94078e1f274edffc4919ab5476d782076c9a9894e0fd98c9855150a"
+        },
+        "completionCertified": true,
+        "audit": {
+          "wins": 1,
+          "aiPickups": 0,
+          "aiEnemyLanding": {
+            "chosenContact": false,
+            "reason": "No predicted enemy contact in descending approach",
+            "chosenSupported": true,
+            "nanos": 2702400,
+            "ticks": 10,
+            "overrides": 0,
+            "desiredContact": false,
+            "horizontal": 1,
+            "checks": 86,
+            "threatLimit": 64,
+            "horizonTicks": 60,
+            "edgeStarts": 0,
+            "x": 13.300469,
+            "y": 0.6143242,
+            "override": false
+          },
+          "failures": 1,
+          "aiDamage": 0,
+          "aiPickupDeferrals": 1,
+          "aiContactAttempts": 0,
+          "repairCount": 0,
+          "aiOpportunity": {
+            "phase": "TRAVEL",
+            "returnsEnabled123": false,
+            "reason": "No optional wait or return",
+            "waitTicks": 0,
+            "waitStarts": 0,
+            "revisitTicks": 0,
+            "decisions": [],
+            "waitAborts": 0,
+            "waitsEnabled123": false,
+            "waitClears": 0,
+            "revisitStarts": 0,
+            "motion121": {
+              "reversals": 0,
+              "checks": 523,
+              "returnReach": 2.75,
+              "stabilityTicks": 30,
+              "tracked": 0,
+              "returnsEnabled": false,
+              "forecastRefusals": 0,
+              "events": []
+            }
+          },
+          "existingAI": "won",
+          "pickupDecisions": [
+            {
+              "reason": "Enemy motion intersects the pickup approach",
+              "kind": "BUMP_BLOCK",
+              "targetY": 1.375,
+              "supportY": 0.5,
+              "targetX": 10.625,
+              "action": "deferred for fresh observation",
+              "clearance": 0.75,
+              "tick": 284,
+              "objectId": "b1065b13-f030-3407-a2e5-1aa83f0f7411"
+            }
+          ],
+          "trials": 2,
+          "simpleControl": "failed",
+          "pickupStrategy": "direct",
+          "scope": "Actual finish contact on this candidate; comparison is not a guarantee for unfamiliar levels. No procedure-bank admission or model training.",
+          "aiPickupSkips": 0,
+          "traceSha256": "5c6ae9df4bf21890cea4a46ad26f8c0ffbec5f23c98b6b8c6c341a62bd254272",
+          "passed": true,
+          "candidateId": "c9e950f7-2f76-3730-9f82-55f85b7962ef",
+          "inputChunks": 71,
+          "completionControl": "contact123-direct"
+        },
+        "scope": "Verified outcome, including legitimate failed trials; failure is not completion. workNanos is partial engine work, not full wall time.",
+        "final": {
+          "contact117": {
+            "contactScanLimit": 32,
+            "bodyX": 16.75,
+            "contacts": [],
+            "bodyY": 1.1745354
+          },
+          "controller": {
+            "landingNanos": 5431300,
+            "opportunityNanos": 8161800,
+            "damage": 0,
+            "enemyLanding122": {
+              "chosenContact": false,
+              "reason": "No predicted enemy contact in descending approach",
+              "chosenSupported": true,
+              "nanos": 2702400,
+              "ticks": 10,
+              "overrides": 0,
+              "desiredContact": false,
+              "horizontal": 1,
+              "checks": 86,
+              "threatLimit": 64,
+              "horizonTicks": 60,
+              "edgeStarts": 0,
+              "x": 13.300469,
+              "y": 0.6143242,
+              "override": false
+            },
+            "landingOverrides": 0,
+            "predictedLandingX": 16.952074,
+            "predictedLandingY": 0.63786876,
+            "opportunity120": {
+              "phase": "TRAVEL",
+              "returnsEnabled123": false,
+              "reason": "No optional wait or return",
+              "waitTicks": 0,
+              "waitStarts": 0,
+              "revisitTicks": 0,
+              "decisions": [],
+              "waitAborts": 0,
+              "waitsEnabled123": false,
+              "waitClears": 0,
+              "revisitStarts": 0,
+              "motion121": {
+                "reversals": 0,
+                "checks": 523,
+                "returnReach": 2.75,
+                "stabilityTicks": 30,
+                "tracked": 0,
+                "returnsEnabled": false,
+                "forecastRefusals": 0,
+                "events": []
+              }
+            },
+            "contactNanos": 4107500,
+            "edgeCrossings": 3,
+            "contactRecovery119": {
+              "phase": "OBSERVE",
+              "opposingContact": false,
+              "supportContact": false,
+              "stillTicks": 0,
+              "edgeStarts122": 0,
+              "attempts": 0
+            },
+            "horizontal": 0,
+            "landingReason": "Desired input has a supported landing",
+            "pickupDeferrals": 1,
+            "pickupRiskNanos": 1027300,
+            "contactOverrides": 0,
+            "predictedLandingTicks": 12,
+            "policy": "contact123-direct",
+            "jump": false,
+            "landingChecks": 180,
+            "goal": "TRAVEL",
+            "pickupSkips": 0,
+            "opportunityChecks": 523,
+            "automatic": false,
+            "pickupDecisions": [
+              {
+                "reason": "Enemy motion intersects the pickup approach",
+                "kind": "BUMP_BLOCK",
+                "targetY": 1.375,
+                "supportY": 0.5,
+                "targetX": 10.625,
+                "action": "deferred for fresh observation",
+                "clearance": 0.75,
+                "tick": 284,
+                "objectId": "b1065b13-f030-3407-a2e5-1aa83f0f7411"
+              }
+            ],
+            "fallingWaitTicks": 0,
+            "pickupRiskChecks": 1,
+            "goalY": 1.2578686,
+            "contactChecks": 523,
+            "goalX": 17.75,
+            "pickups": 0,
+            "status": "Flag reached; winning outcome saved"
+          },
+          "renderer": {
+            "vendor": "Mesa",
+            "name": "llvmpipe (LLVM 23.1.4, 256 bits)",
+            "version": "4.6 (Compatibility Profile) Mesa 26.2.5 (git-f25a43cbec)"
+          },
+          "neural": {
+            "ticks": 511,
+            "ready": true,
+            "sharedCore": true
+          },
+          "objects": 148,
+          "frameSequence": 509,
+          "sessionId": "72669046-d575-41b2-9444-4acb598a129e",
+          "tick": 528,
+          "units": "legacy game units; XY plane; render layer is not physical Z",
+          "threats118": {
+            "total": 0,
+            "limit": 64,
+            "enemies": []
+          },
+          "visibleWindow": false,
+          "continuous": false,
+          "editorInitialized": false,
+          "player": {
+            "small": true,
+            "vx": 0,
+            "vy": 0,
+            "onGround": false,
+            "won": true,
+            "x": 16.75,
+            "y": 1.1578687,
+            "dead": false,
+            "id": "2371d84c-63ea-3234-b1bc-eacd7bfb7652"
+          }
+        },
+        "workNanos": 21069622300,
+        "strategy": "direct",
+        "parameters": {
+          "pickupTile": 42,
+          "turtleTile": 0,
+          "seed": 127,
+          "goombaTile": 46,
+          "gapTiles": 2,
+          "secondGapTiles": 2,
+          "obstacleHeight": 1,
+          "obstacleTile": 60,
+          "lengthTiles": 72
+        },
+        "taskId": "0d65fbd3-b770-43ac-a446-3948c45eefd9",
+        "evidenceVerified": true,
+        "status": "completed"
+      },
+      "case": "supported-return"
+    },
+    {
+      "requested": "budget pickupBudgetSeconds=30",
+      "wallNanos": 43287782200,
+      "decision": {
+        "result": {
+          "reason": "Benefit remains positive across observations and estimated cost fits",
+          "scope": "Exact-condition empirical envelope; not a probability, hard deadline or safety guarantee. Ordinary safety checks remain authoritative.",
+          "alternatives": [
+            {
+              "reason": "At least three direct and three alternative measurements are required",
+              "baselineSamples": 3,
+              "strategy": "no-return",
+              "samples": 0
+            },
+            {
+              "reason": "At least three direct and three alternative measurements are required",
+              "baselineSamples": 3,
+              "strategy": "no-wait",
+              "samples": 0
+            },
+            {
+              "reason": "Benefit remains positive across observations and estimated cost fits",
+              "extraSecondsUpper": 10.522835599999997,
+              "decisionOverheadSeconds": 4.034686600000001,
+              "alternative": {
+                "minSeconds": 36.4345638,
+                "maxPickups": 1,
+                "minPickups": 1,
+                "maxSeconds": 36.8830074
+              },
+              "baseline": {
+                "minSeconds": 26.3601718,
+                "maxPickups": 0,
+                "minPickups": 0,
+                "maxSeconds": 27.00459
+              },
+              "samples": 3,
+              "benefitLower": 1,
+              "benefitUpper": 1,
+              "variationReserveSeconds": 1.288836400000001,
+              "requiredSecondsPerPickup": 16.0963586,
+              "baselineSamples": 3,
+              "strategy": "full",
+              "recordingReserveSeconds": 0.25,
+              "estimatedExtraSeconds": 16.0963586
+            }
+          ],
+          "allowance": 30,
+          "selected": "full"
+        },
+        "analysisNanos": 82200,
+        "sources": [
+          {
+            "fact": {
+              "seconds": 27.00459,
+              "renderer": "f9a19ef4dbac896d905be0e836ec0add1363c22623d009de0e3b924589ec17de",
+              "safe": true,
+              "id": "e69d5fa5-dc34-438d-a2a2-36f1722af34b",
+              "pickups": 0,
+              "strategy": "direct"
+            },
+            "id": "e69d5fa5-dc34-438d-a2a2-36f1722af34b",
+            "recordSha256": "f5ab4db9867de2c985a90585cc85ab6144c526f2ff91b905c54d09bd40219a1f"
+          },
+          {
+            "fact": {
+              "seconds": 36.6638671,
+              "renderer": "f9a19ef4dbac896d905be0e836ec0add1363c22623d009de0e3b924589ec17de",
+              "safe": true,
+              "id": "6b5e800a-099c-4bf5-80b6-f7ebbda49e2c",
+              "pickups": 1,
+              "strategy": "full"
+            },
+            "id": "6b5e800a-099c-4bf5-80b6-f7ebbda49e2c",
+            "recordSha256": "220082708270fe7134f9e64138e87cb837357fc47acab596283b1fb9e6c4c68c"
+          },
+          {
+            "fact": {
+              "seconds": 36.8830074,
+              "renderer": "f9a19ef4dbac896d905be0e836ec0add1363c22623d009de0e3b924589ec17de",
+              "safe": true,
+              "id": "ea31b770-ebf7-41c4-a52c-3c467da40b25",
+              "pickups": 1,
+              "strategy": "full"
+            },
+            "id": "ea31b770-ebf7-41c4-a52c-3c467da40b25",
+            "recordSha256": "bc56fbffb28fd4342f48959affd785352d3ed2da452399c6b4b6bdcdd721429b"
+          },
+          {
+            "fact": {
+              "seconds": 26.6906796,
+              "renderer": "f9a19ef4dbac896d905be0e836ec0add1363c22623d009de0e3b924589ec17de",
+              "safe": true,
+              "id": "d5d87c18-f926-4ba9-aa97-7cc5d2ed0a7a",
+              "pickups": 0,
+              "strategy": "direct"
+            },
+            "id": "d5d87c18-f926-4ba9-aa97-7cc5d2ed0a7a",
+            "recordSha256": "2ab019e03e91b4fa0004155a1db720ff1b3a58a29a783c1073ec55f5c820328d"
+          },
+          {
+            "fact": {
+              "seconds": 26.3601718,
+              "renderer": "f9a19ef4dbac896d905be0e836ec0add1363c22623d009de0e3b924589ec17de",
+              "safe": true,
+              "id": "bc159f2a-cde9-4843-aec6-8f6456a6f74b",
+              "pickups": 0,
+              "strategy": "direct"
+            },
+            "id": "bc159f2a-cde9-4843-aec6-8f6456a6f74b",
+            "recordSha256": "0f3442f41f7ac08ded0ee1111023fa6de61704f9e4c291e4997bc03826c58f4c"
+          },
+          {
+            "fact": {
+              "seconds": 36.4345638,
+              "renderer": "f9a19ef4dbac896d905be0e836ec0add1363c22623d009de0e3b924589ec17de",
+              "safe": true,
+              "id": "6a31dc18-5175-4a6c-99d6-cbf5be55b4d8",
+              "pickups": 1,
+              "strategy": "full"
+            },
+            "id": "6a31dc18-5175-4a6c-99d6-cbf5be55b4d8",
+            "recordSha256": "8ac20ae46553c59c8c4defeeddf2379ed2cef4abdb1dc7aaa765b51b8b46e42b"
+          }
+        ],
+        "rejected": [],
+        "admissionSeconds": 2.1387756,
+        "damagedRecords": 0,
+        "completionVerificationReserveSeconds": 1.895911,
+        "overheadSeconds": 4.034686600000001,
+        "samples": [
+          {
+            "seconds": 27.00459,
+            "renderer": "f9a19ef4dbac896d905be0e836ec0add1363c22623d009de0e3b924589ec17de",
+            "safe": true,
+            "id": "e69d5fa5-dc34-438d-a2a2-36f1722af34b",
+            "pickups": 0,
+            "strategy": "direct"
+          },
+          {
+            "seconds": 36.6638671,
+            "renderer": "f9a19ef4dbac896d905be0e836ec0add1363c22623d009de0e3b924589ec17de",
+            "safe": true,
+            "id": "6b5e800a-099c-4bf5-80b6-f7ebbda49e2c",
+            "pickups": 1,
+            "strategy": "full"
+          },
+          {
+            "seconds": 36.8830074,
+            "renderer": "f9a19ef4dbac896d905be0e836ec0add1363c22623d009de0e3b924589ec17de",
+            "safe": true,
+            "id": "ea31b770-ebf7-41c4-a52c-3c467da40b25",
+            "pickups": 1,
+            "strategy": "full"
+          },
+          {
+            "seconds": 26.6906796,
+            "renderer": "f9a19ef4dbac896d905be0e836ec0add1363c22623d009de0e3b924589ec17de",
+            "safe": true,
+            "id": "d5d87c18-f926-4ba9-aa97-7cc5d2ed0a7a",
+            "pickups": 0,
+            "strategy": "direct"
+          },
+          {
+            "seconds": 26.3601718,
+            "renderer": "f9a19ef4dbac896d905be0e836ec0add1363c22623d009de0e3b924589ec17de",
+            "safe": true,
+            "id": "bc159f2a-cde9-4843-aec6-8f6456a6f74b",
+            "pickups": 0,
+            "strategy": "direct"
+          },
+          {
+            "seconds": 36.4345638,
+            "renderer": "f9a19ef4dbac896d905be0e836ec0add1363c22623d009de0e3b924589ec17de",
+            "safe": true,
+            "id": "6a31dc18-5175-4a6c-99d6-cbf5be55b4d8",
+            "pickups": 1,
+            "strategy": "full"
+          }
+        ]
+      },
+      "project": "C:\\Users\\eyeka\\AppData\\Local\\Temp\\budget124304215620386308719",
+      "id": "32f2e6bd-dde9-427b-8311-eeb26113960e",
+      "measurement": {
+        "choice124": {
+          "original": "Create a playable Mario level seed=127 lengthTiles=72 gapTiles=2 secondGapTiles=2 goombaTile=46 obstacleTile=60 obstacleHeight=1 pickupTile=42 repairLimit=0 pickupStrategy=budget pickupBudgetSeconds=30",
+          "fact": {
+            "seconds": 41.0121584,
+            "renderer": "f9a19ef4dbac896d905be0e836ec0add1363c22623d009de0e3b924589ec17de",
+            "safe": true,
+            "id": "32f2e6bd-dde9-427b-8311-eeb26113960e",
+            "pickups": 1,
+            "strategy": "full"
+          },
+          "timingStatus": "Measured through first verified terminal outcome; final receipt write and later shutdown excluded",
+          "decision": {
+            "result": {
+              "reason": "Benefit remains positive across observations and estimated cost fits",
+              "scope": "Exact-condition empirical envelope; not a probability, hard deadline or safety guarantee. Ordinary safety checks remain authoritative.",
+              "alternatives": [
+                {
+                  "reason": "At least three direct and three alternative measurements are required",
+                  "baselineSamples": 3,
+                  "strategy": "no-return",
+                  "samples": 0
+                },
+                {
+                  "reason": "At least three direct and three alternative measurements are required",
+                  "baselineSamples": 3,
+                  "strategy": "no-wait",
+                  "samples": 0
+                },
+                {
+                  "reason": "Benefit remains positive across observations and estimated cost fits",
+                  "extraSecondsUpper": 10.522835599999997,
+                  "decisionOverheadSeconds": 4.034686600000001,
+                  "alternative": {
+                    "minSeconds": 36.4345638,
+                    "maxPickups": 1,
+                    "minPickups": 1,
+                    "maxSeconds": 36.8830074
+                  },
+                  "baseline": {
+                    "minSeconds": 26.3601718,
+                    "maxPickups": 0,
+                    "minPickups": 0,
+                    "maxSeconds": 27.00459
+                  },
+                  "samples": 3,
+                  "benefitLower": 1,
+                  "benefitUpper": 1,
+                  "variationReserveSeconds": 1.288836400000001,
+                  "requiredSecondsPerPickup": 16.0963586,
+                  "baselineSamples": 3,
+                  "strategy": "full",
+                  "recordingReserveSeconds": 0.25,
+                  "estimatedExtraSeconds": 16.0963586
+                }
+              ],
+              "allowance": 30,
+              "selected": "full"
+            },
+            "analysisNanos": 82200,
+            "sources": [
+              {
+                "fact": {
+                  "seconds": 27.00459,
+                  "renderer": "f9a19ef4dbac896d905be0e836ec0add1363c22623d009de0e3b924589ec17de",
+                  "safe": true,
+                  "id": "e69d5fa5-dc34-438d-a2a2-36f1722af34b",
+                  "pickups": 0,
+                  "strategy": "direct"
+                },
+                "id": "e69d5fa5-dc34-438d-a2a2-36f1722af34b",
+                "recordSha256": "f5ab4db9867de2c985a90585cc85ab6144c526f2ff91b905c54d09bd40219a1f"
+              },
+              {
+                "fact": {
+                  "seconds": 36.6638671,
+                  "renderer": "f9a19ef4dbac896d905be0e836ec0add1363c22623d009de0e3b924589ec17de",
+                  "safe": true,
+                  "id": "6b5e800a-099c-4bf5-80b6-f7ebbda49e2c",
+                  "pickups": 1,
+                  "strategy": "full"
+                },
+                "id": "6b5e800a-099c-4bf5-80b6-f7ebbda49e2c",
+                "recordSha256": "220082708270fe7134f9e64138e87cb837357fc47acab596283b1fb9e6c4c68c"
+              },
+              {
+                "fact": {
+                  "seconds": 36.8830074,
+                  "renderer": "f9a19ef4dbac896d905be0e836ec0add1363c22623d009de0e3b924589ec17de",
+                  "safe": true,
+                  "id": "ea31b770-ebf7-41c4-a52c-3c467da40b25",
+                  "pickups": 1,
+                  "strategy": "full"
+                },
+                "id": "ea31b770-ebf7-41c4-a52c-3c467da40b25",
+                "recordSha256": "bc56fbffb28fd4342f48959affd785352d3ed2da452399c6b4b6bdcdd721429b"
+              },
+              {
+                "fact": {
+                  "seconds": 26.6906796,
+                  "renderer": "f9a19ef4dbac896d905be0e836ec0add1363c22623d009de0e3b924589ec17de",
+                  "safe": true,
+                  "id": "d5d87c18-f926-4ba9-aa97-7cc5d2ed0a7a",
+                  "pickups": 0,
+                  "strategy": "direct"
+                },
+                "id": "d5d87c18-f926-4ba9-aa97-7cc5d2ed0a7a",
+                "recordSha256": "2ab019e03e91b4fa0004155a1db720ff1b3a58a29a783c1073ec55f5c820328d"
+              },
+              {
+                "fact": {
+                  "seconds": 26.3601718,
+                  "renderer": "f9a19ef4dbac896d905be0e836ec0add1363c22623d009de0e3b924589ec17de",
+                  "safe": true,
+                  "id": "bc159f2a-cde9-4843-aec6-8f6456a6f74b",
+                  "pickups": 0,
+                  "strategy": "direct"
+                },
+                "id": "bc159f2a-cde9-4843-aec6-8f6456a6f74b",
+                "recordSha256": "0f3442f41f7ac08ded0ee1111023fa6de61704f9e4c291e4997bc03826c58f4c"
+              },
+              {
+                "fact": {
+                  "seconds": 36.4345638,
+                  "renderer": "f9a19ef4dbac896d905be0e836ec0add1363c22623d009de0e3b924589ec17de",
+                  "safe": true,
+                  "id": "6a31dc18-5175-4a6c-99d6-cbf5be55b4d8",
+                  "pickups": 1,
+                  "strategy": "full"
+                },
+                "id": "6a31dc18-5175-4a6c-99d6-cbf5be55b4d8",
+                "recordSha256": "8ac20ae46553c59c8c4defeeddf2379ed2cef4abdb1dc7aaa765b51b8b46e42b"
+              }
+            ],
+            "rejected": [],
+            "admissionSeconds": 2.1387756,
+            "damagedRecords": 0,
+            "completionVerificationReserveSeconds": 1.895911,
+            "overheadSeconds": 4.034686600000001,
+            "samples": [
+              {
+                "seconds": 27.00459,
+                "renderer": "f9a19ef4dbac896d905be0e836ec0add1363c22623d009de0e3b924589ec17de",
+                "safe": true,
+                "id": "e69d5fa5-dc34-438d-a2a2-36f1722af34b",
+                "pickups": 0,
+                "strategy": "direct"
+              },
+              {
+                "seconds": 36.6638671,
+                "renderer": "f9a19ef4dbac896d905be0e836ec0add1363c22623d009de0e3b924589ec17de",
+                "safe": true,
+                "id": "6b5e800a-099c-4bf5-80b6-f7ebbda49e2c",
+                "pickups": 1,
+                "strategy": "full"
+              },
+              {
+                "seconds": 36.8830074,
+                "renderer": "f9a19ef4dbac896d905be0e836ec0add1363c22623d009de0e3b924589ec17de",
+                "safe": true,
+                "id": "ea31b770-ebf7-41c4-a52c-3c467da40b25",
+                "pickups": 1,
+                "strategy": "full"
+              },
+              {
+                "seconds": 26.6906796,
+                "renderer": "f9a19ef4dbac896d905be0e836ec0add1363c22623d009de0e3b924589ec17de",
+                "safe": true,
+                "id": "d5d87c18-f926-4ba9-aa97-7cc5d2ed0a7a",
+                "pickups": 0,
+                "strategy": "direct"
+              },
+              {
+                "seconds": 26.3601718,
+                "renderer": "f9a19ef4dbac896d905be0e836ec0add1363c22623d009de0e3b924589ec17de",
+                "safe": true,
+                "id": "bc159f2a-cde9-4843-aec6-8f6456a6f74b",
+                "pickups": 0,
+                "strategy": "direct"
+              },
+              {
+                "seconds": 36.4345638,
+                "renderer": "f9a19ef4dbac896d905be0e836ec0add1363c22623d009de0e3b924589ec17de",
+                "safe": true,
+                "id": "6a31dc18-5175-4a6c-99d6-cbf5be55b4d8",
+                "pickups": 1,
+                "strategy": "full"
+              }
+            ]
+          },
+          "budgeted": true,
+          "createdAt": "2026-11-12T15:41:32.826876600Z",
+          "seconds": 41.0121584,
+          "trace": "16aac4587416e21c002ddd646c516fcddadc0740951e84a647c1c4073bac327e",
+          "restarted": false,
+          "eligible": false,
+          "host": "e24ce85856c00c1b069b1d094c92440d853acea288729cb89a43ddc2b0e98cbc",
+          "id": "32f2e6bd-dde9-427b-8311-eeb26113960e",
+          "boot": "8e15875f-e646-45cf-aa78-1d68db8ef6d4",
+          "parameters": {
+            "pickupTile": 42,
+            "turtleTile": 0,
+            "seed": 127,
+            "goombaTile": 46,
+            "gapTiles": 2,
+            "secondGapTiles": 2,
+            "obstacleHeight": 1,
+            "obstacleTile": 60,
+            "lengthTiles": 72
+          },
+          "resolved": "Create a playable Mario level seed=127 lengthTiles=72 gapTiles=2 secondGapTiles=2 goombaTile=46 obstacleTile=60 obstacleHeight=1 pickupTile=42 repairLimit=0 pickupStrategy=full pickupBudgetSeconds=30",
+          "algorithm": "c3c12624d94078e1f274edffc4919ab5476d782076c9a9894e0fd98c9855150a"
+        },
+        "completionCertified": true,
+        "audit": {
+          "wins": 1,
+          "aiPickups": 1,
+          "aiEnemyLanding": {
+            "chosenContact": false,
+            "reason": "No predicted enemy contact in descending approach",
+            "chosenSupported": true,
+            "nanos": 2985400,
+            "ticks": 10,
+            "overrides": 0,
+            "desiredContact": false,
+            "horizontal": 1,
+            "checks": 86,
+            "threatLimit": 64,
+            "horizonTicks": 60,
+            "edgeStarts": 0,
+            "x": 13.300469,
+            "y": 0.6143242,
+            "override": false
+          },
+          "failures": 1,
+          "aiDamage": 0,
+          "aiPickupDeferrals": 1,
+          "aiContactAttempts": 0,
+          "repairCount": 0,
+          "aiOpportunity": {
+            "phase": "TRAVEL",
+            "returnsEnabled123": true,
+            "reason": "Block changed; verify actual collection separately",
+            "waitTicks": 0,
+            "waitStarts": 0,
+            "revisitTicks": 155,
+            "decisions": [
+              {
+                "reason": "Nearby remembered pickup has continuous observed support and clear route",
+                "plannedTicks": 0,
+                "action": "return-started",
+                "tick": 429,
+                "objectId": "4c8ce73c-0b26-3d34-a90a-303b406688af"
+              },
+              {
+                "reason": "Block changed; verify actual collection separately",
+                "plannedTicks": 0,
+                "action": "return-ended",
+                "tick": 585,
+                "objectId": "4c8ce73c-0b26-3d34-a90a-303b406688af"
+              }
+            ],
+            "waitAborts": 0,
+            "waitsEnabled123": true,
+            "waitClears": 0,
+            "revisitStarts": 1,
+            "motion121": {
+              "reversals": 0,
+              "checks": 832,
+              "returnReach": 2.75,
+              "stabilityTicks": 30,
+              "tracked": 0,
+              "returnsEnabled": true,
+              "forecastRefusals": 0,
+              "events": []
+            }
+          },
+          "existingAI": "won",
+          "pickupDecisions": [
+            {
+              "reason": "Enemy motion intersects the pickup approach",
+              "kind": "BUMP_BLOCK",
+              "targetY": 1.375,
+              "supportY": 0.5,
+              "targetX": 10.625,
+              "action": "deferred for fresh observation",
+              "clearance": 0.75,
+              "tick": 284,
+              "objectId": "4c8ce73c-0b26-3d34-a90a-303b406688af"
+            }
+          ],
+          "trials": 2,
+          "simpleControl": "failed",
+          "pickupStrategy": "full",
+          "scope": "Actual finish contact on this candidate; comparison is not a guarantee for unfamiliar levels. No procedure-bank admission or model training.",
+          "aiPickupSkips": 0,
+          "traceSha256": "16aac4587416e21c002ddd646c516fcddadc0740951e84a647c1c4073bac327e",
+          "passed": true,
+          "candidateId": "c953bb29-638f-32b8-8a59-4fe5b7da9771",
+          "inputChunks": 97,
+          "completionControl": "contact122"
+        },
+        "scope": "Verified outcome, including legitimate failed trials; failure is not completion. workNanos is partial engine work, not full wall time.",
+        "final": {
+          "contact117": {
+            "contactScanLimit": 32,
+            "bodyX": 16.75,
+            "contacts": [],
+            "bodyY": 1.2192433
+          },
+          "controller": {
+            "landingNanos": 4673900,
+            "opportunityNanos": 15807100,
+            "damage": 0,
+            "enemyLanding122": {
+              "chosenContact": false,
+              "reason": "No predicted enemy contact in descending approach",
+              "chosenSupported": true,
+              "nanos": 2985400,
+              "ticks": 10,
+              "overrides": 0,
+              "desiredContact": false,
+              "horizontal": 1,
+              "checks": 86,
+              "threatLimit": 64,
+              "horizonTicks": 60,
+              "edgeStarts": 0,
+              "x": 13.300469,
+              "y": 0.6143242,
+              "override": false
+            },
+            "landingOverrides": 0,
+            "predictedLandingX": 16.990438,
+            "predictedLandingY": 0.68091005,
+            "opportunity120": {
+              "phase": "TRAVEL",
+              "returnsEnabled123": true,
+              "reason": "Block changed; verify actual collection separately",
+              "waitTicks": 0,
+              "waitStarts": 0,
+              "revisitTicks": 155,
+              "decisions": [
+                {
+                  "reason": "Nearby remembered pickup has continuous observed support and clear route",
+                  "plannedTicks": 0,
+                  "action": "return-started",
+                  "tick": 429,
+                  "objectId": "4c8ce73c-0b26-3d34-a90a-303b406688af"
+                },
+                {
+                  "reason": "Block changed; verify actual collection separately",
+                  "plannedTicks": 0,
+                  "action": "return-ended",
+                  "tick": 585,
+                  "objectId": "4c8ce73c-0b26-3d34-a90a-303b406688af"
+                }
+              ],
+              "waitAborts": 0,
+              "waitsEnabled123": true,
+              "waitClears": 0,
+              "revisitStarts": 1,
+              "motion121": {
+                "reversals": 0,
+                "checks": 832,
+                "returnReach": 2.75,
+                "stabilityTicks": 30,
+                "tracked": 0,
+                "returnsEnabled": true,
+                "forecastRefusals": 0,
+                "events": []
+              }
+            },
+            "contactNanos": 4881800,
+            "edgeCrossings": 3,
+            "contactRecovery119": {
+              "opposingContact": false,
+              "phase": "OBSERVE",
+              "supportContact": false,
+              "stillTicks": 0,
+              "edgeStarts122": 0,
+              "attempts": 0
+            },
+            "horizontal": 0,
+            "landingReason": "Desired input has a supported landing",
+            "pickupDeferrals": 1,
+            "pickupRiskNanos": 6390900,
+            "contactOverrides": 0,
+            "predictedLandingTicks": 13,
+            "policy": "contact122",
+            "jump": false,
+            "landingChecks": 202,
+            "goal": "TRAVEL",
+            "pickupSkips": 0,
+            "opportunityChecks": 832,
+            "automatic": false,
+            "pickupDecisions": [
+              {
+                "reason": "Enemy motion intersects the pickup approach",
+                "kind": "BUMP_BLOCK",
+                "targetY": 1.375,
+                "supportY": 0.5,
+                "targetX": 10.625,
+                "action": "deferred for fresh observation",
+                "clearance": 0.75,
+                "tick": 284,
+                "objectId": "4c8ce73c-0b26-3d34-a90a-303b406688af"
+              }
+            ],
+            "fallingWaitTicks": 32,
+            "pickupRiskChecks": 222,
+            "goalY": 1.3525765,
+            "contactChecks": 832,
+            "goalX": 17.75,
+            "pickups": 1,
+            "status": "Flag reached; winning outcome saved"
+          },
+          "renderer": {
+            "vendor": "Mesa",
+            "name": "llvmpipe (LLVM 23.1.4, 256 bits)",
+            "version": "4.6 (Compatibility Profile) Mesa 26.2.5 (git-f25a43cbec)"
+          },
+          "neural": {
+            "ticks": 820,
+            "ready": true,
+            "sharedCore": true
+          },
+          "objects": 148,
+          "frameSequence": 906,
+          "sessionId": "58f4eb68-94ec-4039-bce6-4ff651f289d4",
+          "tick": 840,
+          "units": "legacy game units; XY plane; render layer is not physical Z",
+          "threats118": {
+            "total": 0,
+            "limit": 64,
+            "enemies": []
+          },
+          "visibleWindow": false,
+          "continuous": false,
+          "editorInitialized": false,
+          "player": {
+            "small": false,
+            "vx": 0,
+            "vy": 0,
+            "onGround": false,
+            "won": true,
+            "x": 16.75,
+            "y": 1.2025766,
+            "dead": false,
+            "id": "720c506a-1e0d-3ec9-8a74-0c84a555a3ce"
+          }
+        },
+        "workNanos": 26946762400,
+        "strategy": "full",
+        "parameters": {
+          "pickupTile": 42,
+          "turtleTile": 0,
+          "seed": 127,
+          "goombaTile": 46,
+          "gapTiles": 2,
+          "secondGapTiles": 2,
+          "obstacleHeight": 1,
+          "obstacleTile": 60,
+          "lengthTiles": 72
+        },
+        "taskId": "32f2e6bd-dde9-427b-8311-eeb26113960e",
+        "evidenceVerified": true,
+        "status": "completed"
+      },
+      "case": "supported-return"
+    }
+  ]
+}

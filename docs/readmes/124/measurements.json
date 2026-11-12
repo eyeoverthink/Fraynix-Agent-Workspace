@@ -1,0 +1,657 @@
+{
+  "rows": [
+    {
+      "partition": "development",
+      "case": "supported-wait",
+      "allowance": 0,
+      "selected": "direct",
+      "requiredSecondsPerPickup": null,
+      "reason": "At least three direct and three alternative measurements are required",
+      "pickups": 0,
+      "completionCertified": true,
+      "seconds": 19.3747518,
+      "externalSeconds": 19.7098041,
+      "overheadSeconds": 0.1504867,
+      "admissionSeconds": 0.1504867,
+      "completionReserveSeconds": 0,
+      "alternatives": [
+        {
+          "reason": "At least three direct and three alternative measurements are required",
+          "baselineSamples": 0,
+          "strategy": "no-return",
+          "samples": 0
+        },
+        {
+          "reason": "At least three direct and three alternative measurements are required",
+          "baselineSamples": 0,
+          "strategy": "no-wait",
+          "samples": 0
+        },
+        {
+          "reason": "At least three direct and three alternative measurements are required",
+          "baselineSamples": 0,
+          "strategy": "full",
+          "samples": 0
+        }
+      ]
+    },
+    {
+      "partition": "development",
+      "case": "supported-wait",
+      "allowance": 4,
+      "selected": "direct",
+      "requiredSecondsPerPickup": 10.819372899999998,
+      "reason": "Conservative estimate exceeds the allowance",
+      "pickups": 0,
+      "completionCertified": true,
+      "seconds": 23.5323258,
+      "externalSeconds": 25.6986803,
+      "overheadSeconds": 3.8276002,
+      "admissionSeconds": 2.00901,
+      "completionReserveSeconds": 1.8185902,
+      "alternatives": [
+        {
+          "reason": "At least three direct and three alternative measurements are required",
+          "baselineSamples": 3,
+          "strategy": "no-return",
+          "samples": 0
+        },
+        {
+          "reason": "At least three direct and three alternative measurements are required",
+          "baselineSamples": 3,
+          "strategy": "no-wait",
+          "samples": 0
+        },
+        {
+          "reason": "Conservative estimate exceeds the allowance",
+          "extraSecondsUpper": 5.0933972999999995,
+          "decisionOverheadSeconds": 3.8276002,
+          "alternative": {
+            "minSeconds": 23.7217549,
+            "maxPickups": 1,
+            "minPickups": 1,
+            "maxSeconds": 24.3355645
+          },
+          "baseline": {
+            "minSeconds": 19.2421672,
+            "maxPickups": 0,
+            "minPickups": 0,
+            "maxSeconds": 20.0663549
+          },
+          "samples": 3,
+          "benefitLower": 1,
+          "benefitUpper": 1,
+          "variationReserveSeconds": 1.648375399999999,
+          "requiredSecondsPerPickup": 10.819372899999998,
+          "baselineSamples": 3,
+          "strategy": "full",
+          "recordingReserveSeconds": 0.25,
+          "estimatedExtraSeconds": 10.819372899999998
+        }
+      ]
+    },
+    {
+      "partition": "development",
+      "case": "supported-wait",
+      "allowance": 30,
+      "selected": "full",
+      "requiredSecondsPerPickup": 10.8281988,
+      "reason": "Benefit remains positive across observations and estimated cost fits",
+      "pickups": 1,
+      "completionCertified": true,
+      "seconds": 27.8536372,
+      "externalSeconds": 30.0196213,
+      "overheadSeconds": 3.8364260999999997,
+      "admissionSeconds": 2.0173866,
+      "completionReserveSeconds": 1.8190395,
+      "alternatives": [
+        {
+          "reason": "At least three direct and three alternative measurements are required",
+          "baselineSamples": 3,
+          "strategy": "no-return",
+          "samples": 0
+        },
+        {
+          "reason": "At least three direct and three alternative measurements are required",
+          "baselineSamples": 3,
+          "strategy": "no-wait",
+          "samples": 0
+        },
+        {
+          "reason": "Benefit remains positive across observations and estimated cost fits",
+          "extraSecondsUpper": 5.0933972999999995,
+          "decisionOverheadSeconds": 3.8364260999999997,
+          "alternative": {
+            "minSeconds": 23.7217549,
+            "maxPickups": 1,
+            "minPickups": 1,
+            "maxSeconds": 24.3355645
+          },
+          "baseline": {
+            "minSeconds": 19.2421672,
+            "maxPickups": 0,
+            "minPickups": 0,
+            "maxSeconds": 20.0663549
+          },
+          "samples": 3,
+          "benefitLower": 1,
+          "benefitUpper": 1,
+          "variationReserveSeconds": 1.648375399999999,
+          "requiredSecondsPerPickup": 10.8281988,
+          "baselineSamples": 3,
+          "strategy": "full",
+          "recordingReserveSeconds": 0.25,
+          "estimatedExtraSeconds": 10.8281988
+        }
+      ]
+    },
+    {
+      "partition": "development",
+      "case": "supported-return",
+      "allowance": 0,
+      "selected": "direct",
+      "requiredSecondsPerPickup": null,
+      "reason": "At least three direct and three alternative measurements are required",
+      "pickups": 0,
+      "completionCertified": true,
+      "seconds": 27.2240768,
+      "externalSeconds": 27.5637751,
+      "overheadSeconds": 0.1900501,
+      "admissionSeconds": 0.1900501,
+      "completionReserveSeconds": 0,
+      "alternatives": [
+        {
+          "reason": "At least three direct and three alternative measurements are required",
+          "baselineSamples": 0,
+          "strategy": "no-return",
+          "samples": 0
+        },
+        {
+          "reason": "At least three direct and three alternative measurements are required",
+          "baselineSamples": 0,
+          "strategy": "no-wait",
+          "samples": 0
+        },
+        {
+          "reason": "At least three direct and three alternative measurements are required",
+          "baselineSamples": 0,
+          "strategy": "full",
+          "samples": 0
+        }
+      ]
+    },
+    {
+      "partition": "development",
+      "case": "supported-return",
+      "allowance": 4,
+      "selected": "direct",
+      "requiredSecondsPerPickup": 16.7240764,
+      "reason": "Conservative estimate exceeds the allowance",
+      "pickups": 0,
+      "completionCertified": true,
+      "seconds": 29.8033671,
+      "externalSeconds": 32.0535724,
+      "overheadSeconds": 4.0588193,
+      "admissionSeconds": 2.1408014,
+      "completionReserveSeconds": 1.9180179,
+      "alternatives": [
+        {
+          "reason": "At least three direct and three alternative measurements are required",
+          "baselineSamples": 3,
+          "strategy": "no-return",
+          "samples": 0
+        },
+        {
+          "reason": "At least three direct and three alternative measurements are required",
+          "baselineSamples": 3,
+          "strategy": "no-wait",
+          "samples": 0
+        },
+        {
+          "reason": "Conservative estimate exceeds the allowance",
+          "extraSecondsUpper": 10.607056099999998,
+          "decisionOverheadSeconds": 4.0588193,
+          "alternative": {
+            "minSeconds": 35.3885218,
+            "maxPickups": 1,
+            "minPickups": 1,
+            "maxSeconds": 36.1265976
+          },
+          "baseline": {
+            "minSeconds": 25.5195415,
+            "maxPickups": 0,
+            "minPickups": 0,
+            "maxSeconds": 26.423642
+          },
+          "samples": 3,
+          "benefitLower": 1,
+          "benefitUpper": 1,
+          "variationReserveSeconds": 1.808201000000004,
+          "requiredSecondsPerPickup": 16.7240764,
+          "baselineSamples": 3,
+          "strategy": "full",
+          "recordingReserveSeconds": 0.25,
+          "estimatedExtraSeconds": 16.7240764
+        }
+      ]
+    },
+    {
+      "partition": "development",
+      "case": "supported-return",
+      "allowance": 30,
+      "selected": "full",
+      "requiredSecondsPerPickup": 16.7694863,
+      "reason": "Benefit remains positive across observations and estimated cost fits",
+      "pickups": 1,
+      "completionCertified": true,
+      "seconds": 39.6348731,
+      "externalSeconds": 41.9160695,
+      "overheadSeconds": 4.1042292,
+      "admissionSeconds": 2.175734,
+      "completionReserveSeconds": 1.9284952,
+      "alternatives": [
+        {
+          "reason": "At least three direct and three alternative measurements are required",
+          "baselineSamples": 3,
+          "strategy": "no-return",
+          "samples": 0
+        },
+        {
+          "reason": "At least three direct and three alternative measurements are required",
+          "baselineSamples": 3,
+          "strategy": "no-wait",
+          "samples": 0
+        },
+        {
+          "reason": "Benefit remains positive across observations and estimated cost fits",
+          "extraSecondsUpper": 10.607056099999998,
+          "decisionOverheadSeconds": 4.1042292,
+          "alternative": {
+            "minSeconds": 35.3885218,
+            "maxPickups": 1,
+            "minPickups": 1,
+            "maxSeconds": 36.1265976
+          },
+          "baseline": {
+            "minSeconds": 25.5195415,
+            "maxPickups": 0,
+            "minPickups": 0,
+            "maxSeconds": 26.423642
+          },
+          "samples": 3,
+          "benefitLower": 1,
+          "benefitUpper": 1,
+          "variationReserveSeconds": 1.808201000000004,
+          "requiredSecondsPerPickup": 16.7694863,
+          "baselineSamples": 3,
+          "strategy": "full",
+          "recordingReserveSeconds": 0.25,
+          "estimatedExtraSeconds": 16.7694863
+        }
+      ]
+    },
+    {
+      "partition": "development",
+      "case": "no-gain",
+      "allowance": 0,
+      "selected": "direct",
+      "requiredSecondsPerPickup": null,
+      "reason": "At least three direct and three alternative measurements are required",
+      "pickups": 1,
+      "completionCertified": true,
+      "seconds": 28.1302574,
+      "externalSeconds": 28.4809162,
+      "overheadSeconds": 0.1720396,
+      "admissionSeconds": 0.1720396,
+      "completionReserveSeconds": 0,
+      "alternatives": [
+        {
+          "reason": "At least three direct and three alternative measurements are required",
+          "baselineSamples": 0,
+          "strategy": "no-return",
+          "samples": 0
+        },
+        {
+          "reason": "At least three direct and three alternative measurements are required",
+          "baselineSamples": 0,
+          "strategy": "no-wait",
+          "samples": 0
+        },
+        {
+          "reason": "At least three direct and three alternative measurements are required",
+          "baselineSamples": 0,
+          "strategy": "full",
+          "samples": 0
+        }
+      ]
+    },
+    {
+      "partition": "development",
+      "case": "no-gain",
+      "allowance": 4,
+      "selected": "direct",
+      "requiredSecondsPerPickup": null,
+      "reason": "No consistent additional pickup benefit",
+      "pickups": 1,
+      "completionCertified": true,
+      "seconds": 32.007407,
+      "externalSeconds": 34.2251082,
+      "overheadSeconds": 3.9450224,
+      "admissionSeconds": 2.0763616,
+      "completionReserveSeconds": 1.8686608,
+      "alternatives": [
+        {
+          "reason": "At least three direct and three alternative measurements are required",
+          "baselineSamples": 3,
+          "strategy": "no-return",
+          "samples": 0
+        },
+        {
+          "reason": "At least three direct and three alternative measurements are required",
+          "baselineSamples": 3,
+          "strategy": "no-wait",
+          "samples": 0
+        },
+        {
+          "reason": "No consistent additional pickup benefit",
+          "extraSecondsUpper": 0.5398828999999985,
+          "decisionOverheadSeconds": 3.9450224,
+          "alternative": {
+            "minSeconds": 27.7363447,
+            "maxPickups": 1,
+            "minPickups": 1,
+            "maxSeconds": 27.9837213
+          },
+          "baseline": {
+            "minSeconds": 27.4438384,
+            "maxPickups": 1,
+            "minPickups": 1,
+            "maxSeconds": 28.2719493
+          },
+          "samples": 3,
+          "benefitLower": 0,
+          "benefitUpper": 0,
+          "variationReserveSeconds": 1.6562217999999973,
+          "baselineSamples": 3,
+          "strategy": "full",
+          "recordingReserveSeconds": 0.25,
+          "estimatedExtraSeconds": 6.391127099999996
+        }
+      ]
+    },
+    {
+      "partition": "development",
+      "case": "no-gain",
+      "allowance": 30,
+      "selected": "direct",
+      "requiredSecondsPerPickup": null,
+      "reason": "No consistent additional pickup benefit",
+      "pickups": 1,
+      "completionCertified": true,
+      "seconds": 31.1741204,
+      "externalSeconds": 33.6034415,
+      "overheadSeconds": 3.972284,
+      "admissionSeconds": 2.103005,
+      "completionReserveSeconds": 1.869279,
+      "alternatives": [
+        {
+          "reason": "At least three direct and three alternative measurements are required",
+          "baselineSamples": 3,
+          "strategy": "no-return",
+          "samples": 0
+        },
+        {
+          "reason": "At least three direct and three alternative measurements are required",
+          "baselineSamples": 3,
+          "strategy": "no-wait",
+          "samples": 0
+        },
+        {
+          "reason": "No consistent additional pickup benefit",
+          "extraSecondsUpper": 0.5398828999999985,
+          "decisionOverheadSeconds": 3.972284,
+          "alternative": {
+            "minSeconds": 27.7363447,
+            "maxPickups": 1,
+            "minPickups": 1,
+            "maxSeconds": 27.9837213
+          },
+          "baseline": {
+            "minSeconds": 27.4438384,
+            "maxPickups": 1,
+            "minPickups": 1,
+            "maxSeconds": 28.2719493
+          },
+          "samples": 3,
+          "benefitLower": 0,
+          "benefitUpper": 0,
+          "variationReserveSeconds": 1.6562217999999973,
+          "baselineSamples": 3,
+          "strategy": "full",
+          "recordingReserveSeconds": 0.25,
+          "estimatedExtraSeconds": 6.418388699999996
+        }
+      ]
+    },
+    {
+      "partition": "reserved",
+      "case": "fresh-wait",
+      "allowance": 30,
+      "selected": "direct",
+      "requiredSecondsPerPickup": null,
+      "reason": "At least three direct and three alternative measurements are required",
+      "pickups": 0,
+      "completionCertified": true,
+      "seconds": 20.1381766,
+      "externalSeconds": 20.4713311,
+      "overheadSeconds": 0.00596,
+      "admissionSeconds": 0.00596,
+      "completionReserveSeconds": 0,
+      "alternatives": [
+        {
+          "reason": "At least three direct and three alternative measurements are required",
+          "baselineSamples": 0,
+          "strategy": "no-return",
+          "samples": 0
+        },
+        {
+          "reason": "At least three direct and three alternative measurements are required",
+          "baselineSamples": 0,
+          "strategy": "no-wait",
+          "samples": 0
+        },
+        {
+          "reason": "At least three direct and three alternative measurements are required",
+          "baselineSamples": 0,
+          "strategy": "full",
+          "samples": 0
+        }
+      ]
+    },
+    {
+      "partition": "reserved",
+      "case": "fresh-return",
+      "allowance": 30,
+      "selected": "direct",
+      "requiredSecondsPerPickup": null,
+      "reason": "At least three direct and three alternative measurements are required",
+      "pickups": 1,
+      "completionCertified": true,
+      "seconds": 36.1665241,
+      "externalSeconds": 36.5412479,
+      "overheadSeconds": 0.000381,
+      "admissionSeconds": 0.000381,
+      "completionReserveSeconds": 0,
+      "alternatives": [
+        {
+          "reason": "At least three direct and three alternative measurements are required",
+          "baselineSamples": 0,
+          "strategy": "no-return",
+          "samples": 0
+        },
+        {
+          "reason": "At least three direct and three alternative measurements are required",
+          "baselineSamples": 0,
+          "strategy": "no-wait",
+          "samples": 0
+        },
+        {
+          "reason": "At least three direct and three alternative measurements are required",
+          "baselineSamples": 0,
+          "strategy": "full",
+          "samples": 0
+        }
+      ]
+    },
+    {
+      "partition": "software",
+      "case": "supported-return",
+      "allowance": 0,
+      "selected": "direct",
+      "requiredSecondsPerPickup": null,
+      "reason": "At least three direct and three alternative measurements are required",
+      "pickups": 0,
+      "completionCertified": true,
+      "seconds": 26.4632943,
+      "externalSeconds": 26.8686823,
+      "overheadSeconds": 0.1964402,
+      "admissionSeconds": 0.1964402,
+      "completionReserveSeconds": 0,
+      "alternatives": [
+        {
+          "reason": "At least three direct and three alternative measurements are required",
+          "baselineSamples": 0,
+          "strategy": "no-return",
+          "samples": 0
+        },
+        {
+          "reason": "At least three direct and three alternative measurements are required",
+          "baselineSamples": 0,
+          "strategy": "no-wait",
+          "samples": 0
+        },
+        {
+          "reason": "At least three direct and three alternative measurements are required",
+          "baselineSamples": 0,
+          "strategy": "full",
+          "samples": 0
+        }
+      ]
+    },
+    {
+      "partition": "software",
+      "case": "supported-return",
+      "allowance": 4,
+      "selected": "direct",
+      "requiredSecondsPerPickup": 16.087638199999997,
+      "reason": "Conservative estimate exceeds the allowance",
+      "pickups": 0,
+      "completionCertified": true,
+      "seconds": 30.8051328,
+      "externalSeconds": 33.0422424,
+      "overheadSeconds": 4.0259662,
+      "admissionSeconds": 2.1350699,
+      "completionReserveSeconds": 1.8908963,
+      "alternatives": [
+        {
+          "reason": "At least three direct and three alternative measurements are required",
+          "baselineSamples": 3,
+          "strategy": "no-return",
+          "samples": 0
+        },
+        {
+          "reason": "At least three direct and three alternative measurements are required",
+          "baselineSamples": 3,
+          "strategy": "no-wait",
+          "samples": 0
+        },
+        {
+          "reason": "Conservative estimate exceeds the allowance",
+          "extraSecondsUpper": 10.522835599999997,
+          "decisionOverheadSeconds": 4.0259662,
+          "alternative": {
+            "minSeconds": 36.4345638,
+            "maxPickups": 1,
+            "minPickups": 1,
+            "maxSeconds": 36.8830074
+          },
+          "baseline": {
+            "minSeconds": 26.3601718,
+            "maxPickups": 0,
+            "minPickups": 0,
+            "maxSeconds": 27.00459
+          },
+          "samples": 3,
+          "benefitLower": 1,
+          "benefitUpper": 1,
+          "variationReserveSeconds": 1.288836400000001,
+          "requiredSecondsPerPickup": 16.087638199999997,
+          "baselineSamples": 3,
+          "strategy": "full",
+          "recordingReserveSeconds": 0.25,
+          "estimatedExtraSeconds": 16.087638199999997
+        }
+      ]
+    },
+    {
+      "partition": "software",
+      "case": "supported-return",
+      "allowance": 30,
+      "selected": "full",
+      "requiredSecondsPerPickup": 16.0963586,
+      "reason": "Benefit remains positive across observations and estimated cost fits",
+      "pickups": 1,
+      "completionCertified": true,
+      "seconds": 41.0121584,
+      "externalSeconds": 43.2877822,
+      "overheadSeconds": 4.034686600000001,
+      "admissionSeconds": 2.1387756,
+      "completionReserveSeconds": 1.895911,
+      "alternatives": [
+        {
+          "reason": "At least three direct and three alternative measurements are required",
+          "baselineSamples": 3,
+          "strategy": "no-return",
+          "samples": 0
+        },
+        {
+          "reason": "At least three direct and three alternative measurements are required",
+          "baselineSamples": 3,
+          "strategy": "no-wait",
+          "samples": 0
+        },
+        {
+          "reason": "Benefit remains positive across observations and estimated cost fits",
+          "extraSecondsUpper": 10.522835599999997,
+          "decisionOverheadSeconds": 4.034686600000001,
+          "alternative": {
+            "minSeconds": 36.4345638,
+            "maxPickups": 1,
+            "minPickups": 1,
+            "maxSeconds": 36.8830074
+          },
+          "baseline": {
+            "minSeconds": 26.3601718,
+            "maxPickups": 0,
+            "minPickups": 0,
+            "maxSeconds": 27.00459
+          },
+          "samples": 3,
+          "benefitLower": 1,
+          "benefitUpper": 1,
+          "variationReserveSeconds": 1.288836400000001,
+          "requiredSecondsPerPickup": 16.0963586,
+          "baselineSamples": 3,
+          "strategy": "full",
+          "recordingReserveSeconds": 0.25,
+          "estimatedExtraSeconds": 16.0963586
+        }
+      ]
+    }
+  ],
+  "workflows": 40,
+  "development": 27,
+  "reserved": 4,
+  "software": 9,
+  "scope": "Admission through first verified outcome; external rows additionally include measurement re-audit. Later app shutdown excluded. Initial development pilot retained separately and excluded from final calibration. No probability or deadline guarantee."
+}

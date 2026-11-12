@@ -1,3 +1,9 @@
+## Progress through edition124 — 2026-11-12
+
+[Edition124](../README-124.md) adds opt-in user allowance and conservative benefit/cost decisions around the unchanged native task verifier. Repeated fresh explicit calibration; no-benefit and unknown-scene abstention; original and recovered evidence stays authoritative. [Contract](EDITION_124_CONTRACT.md).
+
+Next125: measure prediction error and missed useful opportunities, including late verification and recovery costs, before broadening reuse. Next126: moving shells, reversals and changing supports. Then expand image components and reusable verified procedure lifecycles. Earlier entries are dated history.
+
 ## Progress through edition123 — 2026-11-12
 
 [Edition123](../README-123.md) measures complete workflow costs of optional waiting and returns with the same contact122 controller. Four explicit approaches;72 repeated fresh-project workflows, retained simple comparisons and failed-task measurement refusal. No default promotion, model training or automatic utility assignment. [Contract](EDITION_123_CONTRACT.md).

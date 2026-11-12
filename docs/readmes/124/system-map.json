@@ -1,0 +1,90 @@
+{
+  "modules": [
+    {
+      "id": "choice",
+      "name": "Allowance and benefit bounds",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/GameBudgetPolicy124.java",
+      "note": "docs/obsidian/132-budgeted-optional-actions.md"
+    },
+    {
+      "id": "memory",
+      "name": "Durable measured choices",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/GameChoices124.java",
+      "note": "docs/obsidian/132-budgeted-optional-actions.md"
+    },
+    {
+      "id": "runtime",
+      "name": "Original native simulation",
+      "source": "src/main/java/runtime/EmbeddedGameRuntime.java",
+      "note": "docs/obsidian/132-budgeted-optional-actions.md"
+    },
+    {
+      "id": "task",
+      "name": "Unchanged task verifier",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/GameTask115.java",
+      "note": "docs/obsidian/132-budgeted-optional-actions.md"
+    },
+    {
+      "id": "proof",
+      "name": "Actual visible review",
+      "source": "workspace-desktop/test/game124-integration.cjs",
+      "note": "docs/obsidian/132-budgeted-optional-actions.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "docs/readmes/124/budget-controls.png",
+      "title": "Explicit allowance in Game Lab"
+    },
+    {
+      "path": "docs/readmes/124/budget-0.png",
+      "title": "Zero allowance chooses direct"
+    },
+    {
+      "path": "docs/readmes/124/budget-4.png",
+      "title": "Tight allowance decision"
+    },
+    {
+      "path": "docs/readmes/124/budget-30.png",
+      "title": "Thirty-second allowance and uncertainty"
+    },
+    {
+      "path": "docs/readmes/124/budget-120.png",
+      "title": "Larger explicit allowance and recovery"
+    },
+    {
+      "path": "docs/readmes/124/unknown-scene.png",
+      "title": "New scene abstention"
+    },
+    {
+      "path": "docs/readmes/124/failed-course.png",
+      "title": "Impossible course retained"
+    },
+    {
+      "path": "docs/readmes/124/budget-1100.png",
+      "title": "Compact integrated layout"
+    },
+    {
+      "path": "docs/readmes/124/return-live.png",
+      "title": "Actual return in progress"
+    },
+    {
+      "path": "docs/readmes/124/collected-after-return.png",
+      "title": "Collection after return"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/readmes/124/actual-ui.json"
+    },
+    {
+      "path": "docs/readmes/124/measurements.json"
+    },
+    {
+      "path": "docs/readmes/124/verification.json"
+    },
+    {
+      "path": "docs/readmes/124/original-evidence.json"
+    }
+  ]
+}

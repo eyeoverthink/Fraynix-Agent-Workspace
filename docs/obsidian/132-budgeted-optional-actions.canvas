@@ -1,0 +1,71 @@
+{
+  "nodes": [
+    {
+      "id": "choice",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/GameBudgetPolicy124.java",
+      "x": 0,
+      "y": 0,
+      "width": 390,
+      "height": 190
+    },
+    {
+      "id": "memory",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/GameChoices124.java",
+      "x": 430,
+      "y": 0,
+      "width": 390,
+      "height": 190
+    },
+    {
+      "id": "runtime",
+      "type": "file",
+      "file": "src/main/java/runtime/EmbeddedGameRuntime.java",
+      "x": 860,
+      "y": 0,
+      "width": 390,
+      "height": 190
+    },
+    {
+      "id": "task",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/GameTask115.java",
+      "x": 0,
+      "y": 250,
+      "width": 390,
+      "height": 190
+    },
+    {
+      "id": "proof",
+      "type": "file",
+      "file": "workspace-desktop/test/game124-integration.cjs",
+      "x": 430,
+      "y": 250,
+      "width": 390,
+      "height": 190
+    }
+  ],
+  "edges": [
+    {
+      "id": "0",
+      "fromNode": "choice",
+      "toNode": "memory"
+    },
+    {
+      "id": "1",
+      "fromNode": "memory",
+      "toNode": "runtime"
+    },
+    {
+      "id": "2",
+      "fromNode": "runtime",
+      "toNode": "task"
+    },
+    {
+      "id": "3",
+      "fromNode": "task",
+      "toNode": "proof"
+    }
+  ]
+}
