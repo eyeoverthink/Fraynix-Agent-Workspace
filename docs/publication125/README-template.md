@@ -85,6 +85,8 @@ The final declared dataset contains 53 workflows: 26 development, 14 reserved an
 
 The actual integrated application creates levels through the existing Java chat route, reviews an initially insufficient comparison, gathers later trials, opens the saved result after an abrupt owned-process interruption and retains a failed course. These explicit requests make zero model calls. An installed local model is selected in the UI, but no fresh LLM reasoning or training is claimed by this trial.
 
+The first UI driver stopped after seven completed requests because its check incorrectly called the DOM `textContent` property as a function. That failed driver, log and result are retained. The corrected driver continued in the same saved project, rechecked the seven original outcomes and preserved their first-outcome clocks before adding the remaining requests. No calibration examples were discarded or rerun to improve the decision.
+
 | Request | Submission to terminal status (seconds) | Outcome |
 | --- | --- | --- |
 {{CHAT_ROWS}}
