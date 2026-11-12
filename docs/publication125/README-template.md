@@ -85,6 +85,8 @@ The final declared dataset contains 53 workflows: 26 development, 14 reserved an
 
 The actual integrated application creates levels through the existing Java chat route, reviews an initially insufficient comparison, gathers later trials, opens the saved result after an abrupt owned-process interruption and retains a failed course. These explicit requests make zero model calls. An installed local model is selected in the UI, but no fresh LLM reasoning or training is claimed by this trial.
 
+{{UI_REVIEW}}
+
 The first UI driver stopped after seven completed requests because its check incorrectly called the DOM `textContent` property as a function. That failed driver, log and result are retained. The corrected driver continued in the same saved project, rechecked the seven original outcomes and preserved their first-outcome clocks before adding the remaining requests. No calibration examples were discarded or rerun to improve the decision.
 
 That continuation exposed a real interface race: a delayed task-list response could clear a review that Java had already saved. Task-list refreshes now respect the same view generation as selection and review actions, so stale replies cannot overwrite the current result. The original blank-view diagnostic is retained; the corrected interaction is checked in the actual app. Java, the native controller and their measured studies were unchanged by this presentation fix.
