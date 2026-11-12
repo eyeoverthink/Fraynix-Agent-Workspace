@@ -73,7 +73,7 @@ for folder in sorted((r/'build').glob('game124-ui*')):
  for sub in ['game-tasks115','game-choices124','game-levels114','game-references115','agency-043','embedded-game']:
   for p in sorted((folder/'project'/sub).rglob('*')):
    if p.is_file() and p.suffix in ['.json','.jsonl','.png','.log']:preserve(p,p.relative_to(r).as_posix())
-for pattern in ['*124*.log','ci124*.json','pipeline124.json','final-recheck124.json','validation-source124.json','study095-build*.json']:
+for pattern in ['*124*.log','ci124*.json','pipeline124*.json','final-recheck124.json','validation-source124.json','study095-build*.json']:
  for p in sorted((r/'build').glob(pattern)):preserve(p,p.relative_to(r).as_posix())
 write(out/'original-evidence.json',{'files':originals,'scope':'Exact initial development pilot, final repeated workflows, regressions, failed-task refusal, restart and actual chat originals. Private worlds excluded.'})
 sourcePaths={x['path'] for x in read('docs/readmes/123/file-inventory.json')}
