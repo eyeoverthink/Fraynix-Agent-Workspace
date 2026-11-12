@@ -33,7 +33,7 @@ public class GameController122Test {
                     Files.write(out.resolve(row.getString("name")+"-"+policy+".png"),Base64.getDecoder().decode(frame.getString("pngBase64")));Files.writeString(out.resolve("result.json"),result.toString(2));game.close();
                 }
             }
-            if(Boolean.getBoolean("study122.requireWins"))for(Object raw:result.getJSONArray("cases"))for(Object row:((JSONObject)raw).getJSONArray("trials")){var t=(JSONObject)row;if(!t.getString("policy").equals("contact122"))continue;assertTrue(((JSONObject)raw).getString("name"),t.getBoolean("won"));assertEquals(0,t.getJSONObject("final").getJSONObject("controller").getInt("damage"));}
+            if(Boolean.parseBoolean(System.getProperty("study122.requireWins",reserved?"false":"true")))for(Object raw:result.getJSONArray("cases"))for(Object row:((JSONObject)raw).getJSONArray("trials")){var t=(JSONObject)row;if(!t.getString("policy").equals("contact122"))continue;assertTrue(((JSONObject)raw).getString("name"),t.getBoolean("won"));assertEquals(0,t.getJSONObject("final").getJSONObject("controller").getInt("damage"));}
             assertTrue(result.getJSONArray("cases").length()>0);result.put("passed",true).put("scope","Native input-only trials; explicit requireWins gate for final development; reserved cases retain all outcomes.");
         }finally{Files.writeString(out.resolve("result.json"),result.toString(2));}
     }

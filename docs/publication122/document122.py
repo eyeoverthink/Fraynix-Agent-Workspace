@@ -49,6 +49,12 @@ assert len(fixes)==3
 dev=next(m for m in metrics if m['partition']=='development' and m['policy']=='contact122');rr=next(m for m in metrics if m['partition']=='reserved' and m['policy']=='contact122');pr=next(m for m in metrics if m['partition']=='reserved' and m['policy']=='revisit121');sw=next(m for m in metrics if m['partition']=='software-reserved' and m['policy']=='contact122')
 assert dev['wins']==8 and dev['damage']==0
 assert rr['wins']>=pr['wins'] and rr['deaths']<=pr['deaths'] and rr['damage']<=pr['damage'],'No promotion with worse reserved outcomes'
+for label in ['reserved','software-reserved']:
+ for case in datasets[label]['cases']:
+  ts={t['policy']:t for t in case['trials']};a=ts['contact122'];b=ts['revisit121']
+  assert not b['won'] or a['won'],(label,case['name'])
+  assert a['final']['controller']['damage']<=b['final']['controller']['damage'],(label,case['name'])
+  assert not a['final']['player']['dead'] or b['final']['player']['dead'],(label,case['name'])
 referenceResults={label:{'cases':len(d['cases']),'simpleWins':sum(c['task']['audit']['simpleControl']=='won' for c in d['cases']),'revisedWins':sum(c['task']['audit']['existingAI']=='won' for c in d['cases']),'refusals':len(d['refusals'])} for label,d in refs.items()};assert all(v=={'cases':6,'simpleWins':6,'revisedWins':6,'refusals':4} for v in referenceResults.values())
 write(out/'measurements.json',{'controllers':metrics,'retainedFixes':fixes,'scope':'Fresh isolated native trials. Old121 reserved scenes are regressions. Eight fresh reserved scenes declared before tuning; two input-admission corrections and repeated first cases are documented in the contract. The controller was unchanged. Software repeats the same cases. Complete single-run costs are not statistical speed claims.'})
 recheck=read('build/receipt-recheck122.json');assert recheck['passed'] and recheck['trials']>=170
