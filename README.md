@@ -1,197 +1,173 @@
-# Fraynix Agent Workspace · Edition 121
+# Fraynix Agent Workspace · Edition 122
 
-[Published and fetched verification receipt](docs/PUBLICATION_121.json) · [Release tag](https://github.com/eyeoverthink/Fraynix-Agent-Workspace/tree/readme-121)
+**Avoid dangerous descending contact. Recover from a supported edge. Verify the actual finish.**
 
-**Observed enemy reversals, bounded returns, and an actual pickup benefit.**
+2026-11-12 · Local Java execution, original native physics and one integrated workspace.
 
-2026-11-11 · Java owns execution and evidence; the integrated desktop shows the world, chat and task history.
+[Previous edition](README-121.md) · [All editions](docs/readmes/INDEX.md) · [Offline interactive guide](docs/readmes/122/index.html) · [Acceptance contract](docs/EDITION_122_CONTRACT.md) · [Phased plan](docs/PLAYABLE_LEVEL_CREATION_PLAN.md)
 
-[Previous edition 120](README-120.md) · [All editions](docs/readmes/INDEX.md) · [Interactive offline guide](docs/readmes/121/index.html) · [Development contract](docs/EDITION_121_CONTRACT.md) · [Phased plan](docs/PLAYABLE_LEVEL_CREATION_PLAN.md)
+![The corrected edge course in the app](docs/readmes/122/edge-completed.png)
 
-![Actual completed return task](docs/readmes/121/return-completed.png)
+## What edition 122 changes
 
-## What changed
+Edition 121 established a useful return to missed pickups, but retained two enemy-contact deaths and a turtle course that stopped making progress. This edition works directly from those recorded failures. It adds a short enemy-contact forecast during descent and a bounded escape from stationary support at a block edge. Both issue ordinary controls. The original enemy collision rules, player movement, gravity, terrain and success conditions remain in force.
 
-Edition 120 proved that waiting for an enemy to clear could recover two previously missed optional pickups. It did **not** establish that returning to a missed pickup was useful. Edition 121 supplies that missing comparison on a declared development course: the revised controller goes back, hits the original question block, collects the released mushroom through native collision, and reaches the finish without damage. The same revised controller with returns disabled finishes without the item. The original 120 policy also finishes without it.
+The retained failures are development cases now, not new unseen tests. A separate set of eight reserved courses was declared before tuning. Its first run completed one valid case, then rejected a length outside the existing 48–72-tile builder limit. Six invalid lengths were corrected to 72 before their candidates could run; the controller, seeds, gaps, enemies and other settings stayed fixed. A second admission rejection found the high-edge turtle initially over its seed-dependent gap; it was placed at the adjacent supported tile before that candidate could launch. All declared inputs are then checked before any run. Both rejected attempts are retained, and repeating the first two valid cases is not additional unseen evidence. Their outcomes, the original failures and every comparison remain available below. A safer forecast is a decision aid; only native collision and finish evidence establish what happened.
 
-This is a measured improvement within a bounded game task. It does not mean every return is worthwhile or every enemy encounter is solved. Two of the eight new development courses still kill the player under both 120 and 121. A simple controller survives one of those. Those results remain in the report and define a useful next engineering target.
+## Try the corrected courses
 
-All 71 older regression courses finish without damage. These include the 54 original courses, 120's seven development and six reserved courses, and four early-return probes. The original 24 collection courses retain their pickups. The controller still refuses the unsupported gap item; larger reach is not permission to cross missing ground.
+1. Launch the workspace and open **Game Lab** in the integrated creation canvas.
+2. Expand the level-building controls and choose **Descending enemy approach**, **Late turtle approach**, or **Supported edge recovery**.
+3. Prepare and send the chat request. Java constructs an isolated candidate, runs the simple comparison and then the AI trial, and checks the outcome.
+4. Watch the live counters for descending-contact corrections and supported-edge escapes. The counters describe actions, not success.
+5. Open **Level task history** to inspect the retained attempts, actual finish and collected items. A successful candidate reopens at its start for review.
+6. Try **Return to a cleared pickup** to check that the previous return behavior remains available. The unsupported gap pickup still has a separate refusal case.
 
-## Try it in the app
+![Actual contact forecast in the native game](docs/readmes/122/contact-live.png)
 
-1. Open the workspace and select **Game Lab**. The original Java renderer appears within the integrated view.
-2. Expand the level-building controls. Choose **Return to a cleared pickup** and prepare the chat request.
-3. Start the task. Java constructs a separate, source-verified candidate, runs the simple comparison and the AI trial, and checks the result. The saved personal scene is not used for these experiments.
-4. Watch the return counter and the live player. A return attempt is not collection; the collision counter and final verification settle the outcome.
-5. Open saved task history to inspect the retained decisions and verification. The completed candidate reopens at its start for review.
-6. Try **Enemy reverses at a wall**. The enemy direction changes because of the existing collision behavior. The history records its actual velocity sign change.
-7. Try the gap refusal. The optional item remains uncollected when its approach lacks observed support.
+The explicit level-task route uses Java and makes zero model calls. Selecting an Ollama model in the interface does not mean it generated these actions. General chat retains its existing model routes. No model-weight training or automatic skill-bank admission is claimed here.
 
-The explicit chat route uses owned Java scheduling and zero model calls. Choosing an Ollama model in the interface does not imply it authored these controller actions. Natural-language routes outside the supported task grammar retain their existing model and verification boundaries.
+## Why the enemy deaths happened
 
-![Braking at the start of the verified return](docs/readmes/121/return-live.png)
+The original observations show the player descending toward an enemy while the controller tries to line up a landing. An enemy at a similar height can cause fatal side contact before the desired top contact occurs. In the late-turtle case the player reaches the ground too close to the enemy to recover reliably with the old timing.
 
-## Run or update from source
+`EnemyLanding122` evaluates at most three horizontal choices, using up to 60 fixed simulation steps per forecast. It reads current position, velocity, movement parameters and collision geometry. It checks a conservative enemy envelope along the descent and a short separation margin at touchdown. An alternative is chosen only if the predicted landing is supported and avoids the predicted contact. The next frame supplies a fresh observation.
 
-The supported Windows launcher is [Launch-Agent-Workspace.bat](Launch-Agent-Workspace.bat), backed by [Start-Agent-Workspace.ps1](scripts/Start-Agent-Workspace.ps1). It requires JDK 21 and Node.js LTS. Initial preparation downloads the locked Java and desktop dependencies; later prepared runs can use `-Offline`.
+The revised policy also stops using the older descending stomp-alignment heuristic. Existing policies remain selectable for comparison. These changes do not teleport the player, edit enemy speed, modify collision normals or force a stomp. If no supported contact-free alternative is found, the forecast records that limitation instead of manufacturing safety.
 
-Before updating an existing installation, use **Stop Java & close app**. Closing only the window may leave the durable Java owner running. The launcher protects that owner rather than rebuilding its loaded installation. Edition 121 also fixes the stopped-owner preparation path to refresh the native Game Lab code and assets together with the workspace engine; an existing game folder must not leave an older controller installed.
+The forecast is deliberately narrow: it approximates short enemy motion from current velocity. It is not a full prediction of all future wall reversals, shell behavior or multiple-body interactions. Native outcomes and the fresh reserved comparison remain necessary.
 
-For an isolated review, choose a new project directory rather than reusing a live personal world:
+## Why the turtle course stalled
+
+The player had collected a mushroom and was resting on a block edge. Its original grounding probe reported airborne and its controller reported downward velocity, but measured position stayed constant and the physics contact list showed real terrain support. The landing guard repeatedly selected zero horizontal movement. The older contact recovery required an opposing wall contact, which was no longer present at that edge.
+
+The revised recovery admits this additional observed condition: stationary position for at least 24 ticks, a real terrain support contact, and a missing grounded indication. It checks the ground behind before issuing a short retreat. Once ordinary motion reaches usable support, the existing recovery can jump forward. The original three-attempt limit and wait/retreat/jump deadlines remain. No grounded flag is written and no body is moved directly.
+
+![Supported-edge escape in progress](docs/readmes/122/edge-live.png)
+
+This distinction matters beyond this course: requested velocity is not proof of movement, and a single grounding probe is not the whole contact state. Recovery uses the combination of observed displacement, contacts and nearby support, then verifies subsequent progress.
+
+## Measured outcomes
+
+Development: 8/8 finishes, 8 pickups, 0 damage and 0 deaths. Fresh reserved: revised 8/8 finishes, 7 pickups, 0 damage, 0 deaths; previous 121 7/8, 6 pickups, 0 damage, 1 death. Software repeat: 8/8, 7 pickups, 0 damage, 0 deaths. No tuning against reserved results.
+
+| Partition | Controller | Finishes | Pickups | Damage | Deaths | Median complete trial time |
+| --- | --- | ---: | ---: | ---: | ---: | ---: |
+| development | contact122 | 8/8 | 8 | 0 | 0 | 4.155 s |
+| development | revisit121 | 4/8 | 6 | 0 | 2 | 4.762 s |
+| development | simple | 1/8 | n/a | n/a | 4 | 2.633 s |
+| reserved | contact122 | 8/8 | 7 | 0 | 0 | 4.073 s |
+| reserved | revisit121 | 7/8 | 6 | 0 | 1 | 3.589 s |
+| reserved | simple | 1/8 | n/a | n/a | 5 | 2.317 s |
+| software-reserved | contact122 | 8/8 | 7 | 0 | 0 | 4.254 s |
+| software-reserved | revisit121 | 7/8 | 6 | 0 | 1 | 3.775 s |
+| software-reserved | simple | 1/8 | n/a | n/a | 5 | 2.431 s |
+| baseline | revisit121 | 4/8 | 6 | 0 | 2 | 4.735 s |
+| baseline | simple | 1/8 | n/a | n/a | 4 | 2.757 s |
+
+Complete trial time includes the fresh native launch, simulation, rendering and bridge work through the final frame; later cleanup is excluded. These are individual runs, not a calibrated speed claim. The new forecast adds work and can change the route. Finishing and retaining useful pickups are evaluated separately.
+
+| Retained failure | Previous controller | Revised controller | Revised contact corrections | Edge escapes |
+| --- | --- | --- | ---: | ---: |
+| retained-near-guard | failed | finished | 28 | 0 |
+| retained-late-turtle | failed | finished | 14 | 0 |
+| retained-turtle-edge | failed | finished | 0 | 1 |
+
+![Original and revised native traces](docs/readmes/122/controller-motion.png)
+
+All 85 regression course executions finish without damage: the previous 71 courses plus the 14 edition 121 development/reserved courses. The original 24 pickup successes remain, and all three prior reserved return benefits still collect their item. Overlapping layouts are not additional unseen evidence.
+
+All eight fresh reserved courses finish in this declared set. This does not establish safety for arbitrary levels, moving shells or untested combinations.
+
+[Complete measurements](docs/readmes/122/measurements.json) · [Original evidence index](docs/readmes/122/original-evidence.json) · [Reserved results](docs/readmes/122/controller-reserved.json)
+
+## Verification and recovery
+
+The durable task still binds the source, component construction, assets, installed engine identity, native owner/session, bounded actions, frame receipts and observed outcome. `GameEvidence122` validates the additional forecast counters, horizon, enemy limit, selected input, support/contact conditions and edge-start bounds alongside the existing checks. A claimed safe override with an unsafe landing is rejected. A forecast without an observation is rejected. Changing retained evidence is rejected.
+
+Old proofs remain tied to their original compiled engine. They are never relabelled as evidence from this release. A failed trial remains a failure even if an item was collected. An interrupted trial stays recorded when a new native session resumes the durable request.
+
+Seven actual visible requests exercise old terrain repair, the three corrected courses, return after an abrupt owned-process interruption, unsupported-pickup refusal and an intentionally failed challenge. The failed challenge remains interrupted until explicitly cancelled; the system does not repair challenge terrain to force a pass.
+
+| Actual request | Wall time | Durable status | Certified AI pickups |
+| --- | ---: | --- | ---: |
+| Create a playable Mario level gapTiles=10 repairLimit=2; construct, playtest and repair it. | 63.937 s | completed | 1 |
+| Create a playable Mario level seed=127 lengthTiles=72 gapTiles=2 secondGapTiles=2 pickupTile=42 goombaTile=46 obstacleTile=60 obstacleHeight=1 repairLimit=0; compare controls and report skipped pickups. | 62.255 s | completed | 1 |
+| Create a playable Mario level seed=109 lengthTiles=72 gapTiles=2 secondGapTiles=2 pickupTile=40 goombaTile=42 repairLimit=0; compare controls and report skipped pickups. | 59.121 s | completed | 1 |
+| Create a playable Mario level seed=113 lengthTiles=72 gapTiles=2 secondGapTiles=2 pickupTile=40 turtleTile=44 repairLimit=0; compare controls and report skipped pickups. | 44.636 s | completed | 1 |
+| Create a playable Mario level seed=157 lengthTiles=72 gapTiles=3 secondGapTiles=2 pickupTile=11 turtleTile=16 obstacleTile=14 obstacleHeight=2 repairLimit=0; compare controls and report skipped pickups. | 132.875 s | completed | 1 |
+| Create a playable Mario level seed=50 lengthTiles=72 gapTiles=3 secondGapTiles=2 pickupTile=18 goombaTile=28 obstacleTile=25 obstacleHeight=2 repairLimit=0 | 45.984 s | completed | 0 |
+| Create a playable Mario level gapTiles=10 pickupTile=17 goombaTile=45. | 23.553 s | interrupted | not certified |
+
+![Saved evidence in the integrated workspace](docs/readmes/122/verified-contact.png)
+
+## Tests and CI
+
+CI was checked before implementation. Both edition 121 main and release jobs succeeded, including the corrected load-interruption test. The original status snapshot is retained. Edition 122 hosted CI is reported separately from local verification and publication.
+
+- 188 distinct Java test methods: native trials, boundary checks, provenance, restart and tampering refusal.
+- 168 desktop checks, seven visible requests, abrupt process recovery and a narrow desktop review.
+- Original reference-image checks remain: six transformed cases and four refusals on each renderer, plus the earlier reference regression.
+- The fresh reserved set is repeated with actual software rendering. This repeats the same scenes; it is not another unseen dataset.
+- Normal launcher preparation and build receipts are checked around the visible review.
+- Real screenshots, source inventory, exact compressed originals, linked documents and all historical edition hashes are verified before publication.
+
+[Validation record](docs/readmes/122/verification.json) · [Actual UI record](docs/readmes/122/actual-ui.json) · [Hardware references](docs/readmes/122/reference-hardware.json) · [Software references](docs/readmes/122/reference-software.json)
+
+## Running from source
+
+Use [Launch-Agent-Workspace.bat](Launch-Agent-Workspace.bat), backed by [Start-Agent-Workspace.ps1](scripts/Start-Agent-Workspace.ps1). JDK 21 and Node.js LTS are required. First preparation downloads locked dependencies; a prepared installation can use the offline mode.
+
+Before updating an installed build, use **Stop Java & close app**. Closing just the desktop may leave its durable Java owner alive. Preparation preserves running owners and refreshes both workspace and native Game Lab installations when stopped.
+
+For an isolated review, choose a new project directory:
 
 ```powershell
-$env:FRAYNIX_WORKSPACE_PROJECT = Join-Path $env:USERPROFILE '.fraynix-agent-workspace/projects/review-edition121'
+$env:FRAYNIX_WORKSPACE_PROJECT = Join-Path $env:USERPROFILE '.fraynix-agent-workspace/projects/review-edition122'
 .\Launch-Agent-Workspace.bat
 ```
 
-Use a distinct unused review name if that directory is already active. `-PrepareOnly` builds and checks dependencies without opening the desktop. Ollama remains optional for the explicit Java game-task grammar; general model chat uses the configured provider. This release does not install model weights.
+Use a different unused name if that project is already active. Existing personal worlds and databases are not test fixtures.
 
-## The experiment that proves return value
+## Architecture and direction
 
-A late supported block is initially deferred because of a moving enemy. After the encounter, the player lands farther than120's 1.75-unit return limit. The new policy considers up to 2.75 original game units, with the same 240-tick deadline, at most three return starts, once per object, continuous ground, braking room and fresh approach checks. The item remains identified by its persistent object ID.
-
-The comparison below uses the same declared scene and fresh runtime memory for every policy. **observe121** is the same new controller with returns disabled. It includes the observation and collectible-handling improvements, so the contrast isolates return availability.
-
-| Policy | Actual pickups | Total ticks | Return ticks | Complete trial time |
-| --- | ---: | ---: | ---: | ---: |
-| opportunity120 | 0 | 552 | 0 | 3.495 s |
-| observe121 | 0 | 552 | 0 | 3.539 s |
-| revisit121 | 1 | 840 | 143 | 4.856 s |
-
-Returning earns an item at extra time cost. It is useful for an objective that values the optional power-up; it is not a speed improvement. These are single complete-run timings through the final frame, including native simulation, rendering and bridge work; later process cleanup is excluded. Repeated timing distributions and a calibrated benefit gate remain future work.
-
-![Measured native motion and costs](docs/readmes/121/controller-motion.png)
-
-[All measurements](docs/readmes/121/measurements.json) · [Exact original evidence index](docs/readmes/121/original-evidence.json)
-
-## What the failures taught us
-
-The first longer-return prototype did not succeed. Braking away from forward travel caused the local recovery logic to count a stall before the player could turn. For 121, recovery is reset while the returning player is still braking away from the local goal. The return's fixed deadline remains in force, so this does not permit endless retries.
-
-The next run reached and hit the block but missed the released mushroom. The ordinary wall ray saw the collectible as an obstacle and triggered a jump over it. 121 excludes mushroom/flower bodies from obstacle jumping. It still uses the original body, collision, power-up and sprite behavior; no pickup counter or transform is edited to manufacture success.
-
-Both unsuccessful runs are retained. The final run establishes collection through actual native collision, then finish contact. Early unsupported/braking-limited returns remain refused. Two late-enemy contact deaths remain unresolved. Their player, enemy, velocity, timing and decision traces are included rather than converted into successful certificates.
-
-## Reversals and observation
-
-`OpportunityMotion121` remembers at most 64 live enemy identities and at most 16 detailed reversal events. It observes actual body velocities, removes departed identities, and requires increasing observation ticks. A nearby reversal makes a linear clearance estimate uncertain for 30 ticks. A forecast whose projected enemy path intersects observed ground geometry is also refused, because a wall may reverse that enemy before the predicted clearance occurs.
-
-The native wall courses record actual direction reversals and finish safely. Boundary tests separately demonstrate that a nearby reversal or a native wall invalidates an otherwise linear clearance forecast. These are different claims: recording reversals is proven in playable courses; a general survival advantage from the uncertainty guard is not established by those courses alone.
-
-Waiting keeps the existing 180 ticks per wait, 360 total and three-start bounds. Return and waiting cannot overlap. Permanent structural refusal remains authoritative. A recent threat or missing ground does not become acceptable because the controller remembers the object.
-
-## New development and reserved results
-
-Eight development courses were declared before tuning. Six finish under 121, with four pickups and two deaths; 120 and the return-disabled comparison retain six finishes and three pickups. Simple control's results are included as a meaningful baseline, including the course it finishes while the more elaborate controllers fail.
-
-Six reserved courses: revisit121 finishes 5/6 with 5 pickups, 0 damage and 0 deaths. Previous120 finishes 5/6 with 2 pickups, 0 damage and 0 deaths. Software repeat: 5/6, 5 pickups, 0 damage, 0 deaths. No tuning against these reserved outcomes.
-
-The reserved turtle-reversal course collects its optional item but then stalls for 25 seconds under 120, 121 and the return-disabled comparison. Its item is included in the pickup total, but the course is not a successful finish and is not certified as a completed task. This is a separate remaining gap from the two development deaths.
-
-The reserved return comparison below lists courses where both policies finish safely and enabling returns earns an extra item. The controller was fixed before these scenes ran.
-
-| Reserved course | With returns | Returns disabled | Extra total simulation ticks |
-| --- | ---: | ---: | ---: |
-| reserved-late-goomba | 1 | 0 | 288 |
-| reserved-late-turtle | 1 | 0 | 288 |
-| reserved-return-room | 1 | 0 | 312 |
-
-[Per-course return benefit](docs/readmes/121/reserved-return-benefit.json)
-
-
-| Partition | Policy | Finishes | Pickups | Deaths | Return ticks | Median complete time |
-| --- | --- | ---: | ---: | ---: | ---: | ---: |
-| development | observe121 | 6/8 | 3 | 2 | 0 | 3.281 s |
-| development | opportunity120 | 6/8 | 3 | 2 | 0 | 3.221 s |
-| development | revisit121 | 6/8 | 4 | 2 | 143 | 3.236 s |
-| development | simple | 1/8 | n/a | 5 | 0 | 2.420 s |
-| reserved | observe121 | 5/6 | 2 | 0 | 0 | 3.454 s |
-| reserved | opportunity120 | 5/6 | 2 | 0 | 0 | 3.508 s |
-| reserved | revisit121 | 5/6 | 5 | 0 | 440 | 4.601 s |
-| reserved | simple | 0/6 | n/a | 4 | 0 | 2.362 s |
-| software-reserved | observe121 | 5/6 | 2 | 0 | 0 | 3.639 s |
-| software-reserved | opportunity120 | 5/6 | 2 | 0 | 0 | 3.574 s |
-| software-reserved | revisit121 | 5/6 | 5 | 0 | 440 | 4.615 s |
-| software-reserved | simple | 0/6 | n/a | 4 | 0 | 2.496 s |
-
-The original game camera still activates and removes enemies according to its existing rules. The useful return is not evidence of avoiding a persistent off-screen enemy. Software rendering repeats the same reserved scenes; it does not create additional unseen examples. Native simulation is unchanged. Across eight development trials,121 used 3885 opportunity checks and 90.987 ms in that decision code. Complete trial median was 3.236 s. Timing is from single runs, not a statistical speed claim.
-
-## Durable chat, restart and verification
-
-The task runner still binds the original source and assets, constructed component lineage, installed engine identity, native owner/session, exact bounded actions, frame receipts and final outcome. `GameEvidence121` adds bounds and consistency checks for motion history, reversal events, return policy settings and the return-disabled comparison. It calls the existing waiting/contact verifiers; it does not replace them.
-
-Older proofs remain bound to their original compiled engine identity; this release does not relabel them as new evidence. Changing a counter, inventing a same-direction reversal, altering policy limits or tampering with a retained task remains refused. A completed result is recomputed from retained evidence. A process interruption does not relabel partial execution as success: explicit resume starts a fresh native trial and retains the interrupted one.
-
-Five actual visible requests cover old terrain repair, return with abrupt process recovery, wall reversal, unsupported pickup refusal and a genuinely failed challenge. Screenshots are dated captures from those isolated runs.
-
-| Actual request | Complete wall time | Durable status | Certified AI pickups |
-| --- | ---: | --- | ---: |
-| Create a playable Mario level gapTiles=10 repairLimit=2; construct, playtest and repair it. | 63.915 s | completed | 1 |
-| Create a playable Mario level seed=127 lengthTiles=72 gapTiles=2 secondGapTiles=2 pickupTile=42 goombaTile=46 obstacleTile=60 obstacleHeight=1 repairLimit=0; compare controls and report skipped pickups. | 60.982 s | completed | 1 |
-| Create a playable Mario level seed=110 lengthTiles=64 gapTiles=2 secondGapTiles=2 pickupTile=10 goombaTile=15 obstacleTile=13 obstacleHeight=1 repairLimit=0; compare controls and report skipped pickups. | 120.278 s | completed | 1 |
-| Create a playable Mario level seed=50 lengthTiles=72 gapTiles=3 secondGapTiles=2 pickupTile=18 goombaTile=28 obstacleTile=25 obstacleHeight=2 repairLimit=0 | 40.684 s | completed | 0 |
-| Create a playable Mario level gapTiles=10 pickupTile=17 goombaTile=45. | 19.965 s | interrupted | not certified |
-
-![Saved reversal-course evidence](docs/readmes/121/verified-return.png)
-
-## CI was checked first
-
-The edition119 main run43104121657 failed an older load interruption test. The test slept 30 milliseconds and assumed cancellation would occur inside an active simulation attempt. That assumption depends on scheduling. Edition 121 coordinates cancellation after a real durable native checkpoint, confirms retained partial rows, then checks interrupted status, restart, fresh completed evaluation and the existing force/gap/initial-state forgery refusals.
-
-Final publication review also restored the original UTF-8 punctuation in the older load-result label. The focused load check and complete visible review were repeated after this presentation correction; the controller and reserved outcomes were unchanged.
-
-The production entry point retains its existing behavior. A package-local checkpoint observer enables deterministic coordination at the actual checkpoint boundary. No simulation, verification or attempt budget is relaxed. A final repeat caught a second test race: cleanup could interrupt the worker again while it saved the stopped result. Cleanup now waits after the single requested cancellation and only forces shutdown if the test times out. Three fresh native repetitions retain the full stopped-state, restart and tampering assertions. The original CI log and both failed test reports are archived. A prior120 continuity note mistyped the119 run ID as43104121687; this edition records the correct43104121657 without rewriting frozen history.
-
-At implementation start,120 hosted jobs were still running. Local pass counts and a fetched Git publication do not establish hosted CI success. The publication receipt records the later observed status separately.
-
-## Validation scope
-
-- 181 distinct Java test methods, including native game trials, observed-motion boundaries, interruption coordination, task recovery, source verification and forged-evidence refusal.
-- 168 desktop checks and five actual visible chat requests, including abrupt termination of this test's own Java process.
-- Normal launcher preparation, replacement of an older installed game JAR, and refusal while a live Java owner uses the installation.
-- 71 older courses preserved; original 24 pickup successes retained.
-- Six transformed reference-image cases and four refusals per renderer, plus the original reference regression.
-- Real integrated game captures, narrow desktop review, and offline guide interaction at 1440 and 390 pixels.
-- Complete source inventory, original compressed evidence, immutable numbered editions, documentation validation and fetched Git byte audits.
-
-[Machine-readable scope](docs/readmes/121/verification.json) · [Actual UI record](docs/readmes/121/actual-ui.json) · [Hardware references](docs/readmes/121/reference-hardware.json) · [Software references](docs/readmes/121/reference-software.json)
-
-## Architecture and project direction
-
-The broader app remains a local Java-owned agent workspace with durable goals, verified procedures, persistent worlds, native physics, data/creation workflows, browser/canvas presentation and observed-camera experiments. Game Lab is one testable environment in that system. Its serialized objects expose state; their Java components provide behavior. JSON alone does not supply intelligence or physics.
+The app remains a local Java-owned agent workspace. Java maintains durable tasks, entities, actions and evidence. The desktop hosts the integrated game view, browser, canvas and chat. Game Lab supplies an observable environment with real native execution; serialized state makes experiments inspectable and reproducible.
 
 ```mermaid
 flowchart LR
- Chat[Chat request] --> Task[Java durable task]
- Task --> Source[Checked source construction]
- Source --> Runtime[Native game and physics]
- Runtime --> Observe[Objects contacts velocity history]
- Observe --> Policy[Bounded wait or return]
- Policy --> Input[Normal player controls]
- Input --> Runtime
- Runtime --> Verify[Source and outcome checks]
- Verify --> History[Retained episode and review]
+ Chat[Chat request] --> Task[Durable Java task]
+ Task --> Source[Verified candidate]
+ Source --> World[Original native physics]
+ World --> Observe[Position velocity contacts terrain]
+ Observe --> Forecast[Bounded descending-contact forecast]
+ Observe --> Recovery[Supported-edge recovery]
+ Forecast --> Input[Ordinary player controls]
+ Recovery --> Input
+ Input --> World
+ World --> Verify[Source and actual outcome checks]
+ Verify --> History[Retained evidence and review]
 ```
 
 ```text
-src/main/java/agent/OpportunityMotion121.java   observed enemy history
-src/main/java/agent/PickupOpportunity120.java   bounded optional goals
-src/main/java/agent/GameInput.java              ordinary control boundary
-workspace-engine/.../GameEvidence121.java       added receipt checks
-workspace-engine/.../GameTask115.java           durable execution and audit
-workspace-desktop/renderer/brain-game.js        integrated view and presets
-workspace-desktop/test/game121-integration.cjs  actual visible review
+src/main/java/agent/EnemyLanding122.java       short contact forecast
+src/main/java/agent/ContactRecovery119.java   opt-in supported-edge recovery
+src/main/java/agent/GameInput.java            bounded ordinary controls
+workspace-engine/.../GameEvidence122.java    added receipt checks
+workspace-engine/.../GameTask115.java         durable task and outcome audit
+workspace-desktop/renderer/brain-game.js      integrated controls and presets
+workspace-desktop/test/game122-integration.cjs actual visible review
 ```
 
-No new external framework or model is introduced. The original native physics/rendering dependencies remain. This edition is controller engineering and evidence retention, not transformer training, general intelligence, arbitrary image understanding or automatic admission of a new reusable procedure.
+A separate recorded-evidence pass rechecks every applicable controller receipt across the baseline, development, reserved, software and 85 regression executions. It checks native tick/session continuity as well as the existing controller bounds; it does not manufacture another live trial.
+
+No new external framework is added. Existing native rendering and physics dependencies remain. This edition is a measured controller improvement, not general visual recognition, general intelligence or neural training.
 
 ## Next phases
 
-**122: late-enemy survival and reversal-course stalls.** Use the retained deaths and turtle-course stall to study airborne landing/contact timing and when a pickup should remain abandoned. Declare new reserved courses first. Preserve the successful return and older-course gates; compare simple control again.
+**123: choose optional actions from measured value and cost.** Repeat complete tasks to measure variability. Compare finishing quickly against collecting useful power-ups, including cases where waiting, returning or extra observation costs more than it earns. Keep the return-disabled and simple-control comparisons.
 
-**123: value-aware optional goals.** Measure repeat runs and complete return cost, then let explicit task preference distinguish finishing quickly from collecting a useful power-up. Keep a return-disabled comparison and count cases where extra observation or return hurts.
+**124: richer contact uncertainty.** Use new declared cases for wall reversals during prediction, moving shells, mixed enemies and changing support. Compare predicted contact with actual contact and retain false alarms as well as missed hazards. Do not tune against a set while calling it unseen.
 
-**Later: broader creation and reusable procedures.** Expand supported image components with explicit unknown-region refusal, then qualify a versioned procedure only after source reconstruction, independent playtests, restart and changed-condition checks. The existing collection limits and provenance requirements remain.
+**Later: broader creation and verified procedures.** Expand explicitly supported image components, retain unknown-region refusal, and qualify reusable procedures only after reconstruction, changed-condition playtests, recovery and source/outcome verification. Existing collection limits remain.
 
-See [architecture](docs/ARCHITECTURE.md), [project memory](docs/PROJECT_MEMORY.md), [development log](docs/DEVELOPMENT_LOG.md), [contributor handoff](README-CONTRIBUTORS.md), and the [Obsidian map](docs/obsidian/129-enemy-reversals-and-return-value.canvas). Published numbered editions remain historical evidence; later changes belong in later editions.
+[Architecture](docs/ARCHITECTURE.md) · [Project memory](docs/PROJECT_MEMORY.md) · [Development log](docs/DEVELOPMENT_LOG.md) · [Contributor handoff](README-CONTRIBUTORS.md) · [Obsidian map](docs/obsidian/130-enemy-contact-and-supported-edge-recovery.canvas)

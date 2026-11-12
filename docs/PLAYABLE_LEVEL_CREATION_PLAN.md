@@ -1,3 +1,9 @@
+## Progress through edition122 — 2026-11-12
+
+[Edition122](../README-122.md) fixes the retained descending-contact deaths and supported-edge stall through ordinary input.85 older course executions finish without damage; original24 pickups and three previous return benefits remain. Fresh reserved outcomes and every comparison are retained in the edition. [Contract](EDITION_122_CONTRACT.md).
+
+General AI Play/challenges use contact122; old nonchallenge safe117 and explicit historical policies remain. No new model training or skill admission. Next123: repeated full costs and optional-goal value. Next124: richer observed contact uncertainty on new declared cases. Then broader image components and verified procedure lifecycle. Earlier entries below remain dated history.
+
 ## Progress through edition121 — 2026-11-11
 
 [Edition121](../README-121.md) establishes a useful return by actual collision/finish and a return-disabled comparison. One extra development pickup,71 older safe finishes, native wall reversals observed. Two development enemy-contact deaths remain. Reserved hardware/software outcomes and every unsuccessful prototype are retained. [Contract](EDITION_121_CONTRACT.md).

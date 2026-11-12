@@ -1,3 +1,5 @@
+Current: [[docs/obsidian/130-enemy-contact-and-supported-edge-recovery.md]] · [[README-122.md]]
+
 Current: [[docs/obsidian/129-enemy-reversals-and-return-value.md]] · [[README-121.md]]
 
 Current: [[docs/obsidian/128-pickup-waiting-and-return-cost.md]] · [[README-120.md]]
