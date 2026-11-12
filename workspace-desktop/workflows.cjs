@@ -13,7 +13,7 @@ function createWorkflows({api,canvas,openArtifact,emit,refresh,activity,getDatas
  let latest=null,timer,busy=false,stopped=false;
  async function update(w){latest=w;emit('javaGoal',w);return w;}
  async function audit(effect){
-  if(effect.kind==='workflow.observation-audit128'){const a=await api('/api/artifact/read',{id:effect.report.id});if(a.version!==effect.report.version)throw Error('Observation artifact changed');emit('view','preview');await openArtifact(a);return auditObservation128(canvas,effect);}
+  if(effect.kind==='workflow.observation-audit128'){const a=await api('/api/artifact/read',{id:effect.report.id});if(a.version!==effect.report.version)throw Error('Observation artifact changed');emit('view','preview');await openArtifact(a);return auditObservation128(canvas,effect,args=>api('/api/artifact/test',args));}
   if(['workflow.data-creation-audit101','workflow.data-summary-audit102'].includes(effect.kind)){const a=await api('/api/artifact/read',{id:effect.report.id});if(a.version!==effect.report.version)throw Error('Data explorer version changed');emit('view','preview');await openArtifact(a);return effect.kind==='workflow.data-summary-audit102'?auditSummary102(canvas,effect):auditData101(canvas,effect);}
   if(effect.kind==='workflow.graph-audit'){
    const a=await api('/api/artifact/read',{id:effect.report.id});if(a.version!==effect.report.version)throw Error('Graph report version changed');emit('view','preview');await openArtifact(a);
