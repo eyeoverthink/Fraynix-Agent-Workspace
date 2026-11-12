@@ -1,0 +1,1925 @@
+{
+  "edition": 124,
+  "releaseCommit": "b7b82fdd45ba40b6d1fabdd59aff2ab5d0bafb89",
+  "annotatedTag": "readme-124",
+  "tagObject": "8af5e2218b3d03c0c3bd2badccfa8e6e5bfc0e64",
+  "audit": {
+    "passed": true,
+    "verifiedAtUtc": "2026-11-12T16:28:44.354859+00:00",
+    "remote": "https://github.com/eyeoverthink/Fraynix-Agent-Workspace.git",
+    "fetchedRef": "refs/verify/edition124-main",
+    "remoteFetched": true,
+    "commit": "b7b82fdd45ba40b6d1fabdd59aff2ab5d0bafb89",
+    "canonicalSourceFiles": 1515,
+    "editions": 124,
+    "frozenHashes": 44758,
+    "original124EvidenceFiles": 1552,
+    "distinctOriginalPayloads": 889,
+    "method": "Every enumerated blob read from the specified Git tree; remoteFetched identifies a fresh verification ref. Source byte counts and canonical UTF-8 LF/binary hashes checked. All frozen edition hashes checked. Each unique immutable Git archive blob is decompressed once; every logical original entry is compared to its verified compressed/raw byte counts and SHA-256. No mutable-file timestamp or runtime-proof shortcut."
+  },
+  "validation": {
+    "javaMethods": 204,
+    "desktopChecks": 168,
+    "launcher": {
+      "passed": true,
+      "scope": "Isolated PrepareOnly Offline; package receipt verified before and after UI."
+    },
+    "actualRequests": [
+      {
+        "request": "Create a playable Mario level seed=127 lengthTiles=72 gapTiles=2 secondGapTiles=2 pickupTile=42 goombaTile=46 obstacleTile=60 obstacleHeight=1 repairLimit=0 pickupStrategy=direct",
+        "status": "completed",
+        "elapsedMs": 43494,
+        "trialOutcomes": [
+          "failed",
+          "won"
+        ],
+        "audit": {
+          "wins": 1,
+          "aiPickups": 0,
+          "aiEnemyLanding": {
+            "chosenContact": false,
+            "reason": "No predicted enemy contact in descending approach",
+            "chosenSupported": true,
+            "nanos": 2682200,
+            "ticks": 10,
+            "overrides": 0,
+            "desiredContact": false,
+            "horizontal": 1,
+            "checks": 86,
+            "threatLimit": 64,
+            "horizonTicks": 60,
+            "edgeStarts": 0,
+            "x": 13.300469,
+            "y": 0.6143242,
+            "override": false
+          },
+          "failures": 1,
+          "aiDamage": 0,
+          "aiPickupDeferrals": 1,
+          "aiContactAttempts": 0,
+          "repairCount": 0,
+          "aiOpportunity": {
+            "phase": "TRAVEL",
+            "returnsEnabled123": false,
+            "reason": "No optional wait or return",
+            "waitTicks": 0,
+            "waitStarts": 0,
+            "revisitTicks": 0,
+            "decisions": [],
+            "waitAborts": 0,
+            "waitsEnabled123": false,
+            "waitClears": 0,
+            "revisitStarts": 0,
+            "motion121": {
+              "reversals": 0,
+              "checks": 523,
+              "returnReach": 2.75,
+              "stabilityTicks": 30,
+              "tracked": 0,
+              "returnsEnabled": false,
+              "forecastRefusals": 0,
+              "events": []
+            }
+          },
+          "existingAI": "won",
+          "pickupDecisions": [
+            {
+              "reason": "Enemy motion intersects the pickup approach",
+              "kind": "BUMP_BLOCK",
+              "targetY": 1.375,
+              "supportY": 0.5,
+              "targetX": 10.625,
+              "action": "deferred for fresh observation",
+              "clearance": 0.75,
+              "tick": 284,
+              "objectId": "1f7a19f3-b811-3c3b-ba70-e299be1fec4b"
+            }
+          ],
+          "trials": 2,
+          "simpleControl": "failed",
+          "pickupStrategy": "direct",
+          "scope": "Actual finish contact on this candidate; comparison is not a guarantee for unfamiliar levels. No procedure-bank admission or model training.",
+          "aiPickupSkips": 0,
+          "traceSha256": "d5fadf7bc1b27ecf6026cdae27c3403e73c1405e332eb9950f60f62e799abce0",
+          "passed": true,
+          "candidateId": "6b2c7b4f-b0b3-3b88-9152-481c48cf04bd",
+          "inputChunks": 71,
+          "completionControl": "contact123-direct"
+        }
+      },
+      {
+        "request": "Create a playable Mario level seed=127 lengthTiles=72 gapTiles=2 secondGapTiles=2 pickupTile=42 goombaTile=46 obstacleTile=60 obstacleHeight=1 repairLimit=0 pickupStrategy=full",
+        "status": "completed",
+        "elapsedMs": 59294,
+        "trialOutcomes": [
+          "failed",
+          "won"
+        ],
+        "audit": {
+          "wins": 1,
+          "aiPickups": 1,
+          "aiEnemyLanding": {
+            "chosenContact": false,
+            "reason": "No predicted enemy contact in descending approach",
+            "chosenSupported": true,
+            "nanos": 2792900,
+            "ticks": 10,
+            "overrides": 0,
+            "desiredContact": false,
+            "horizontal": 1,
+            "checks": 86,
+            "threatLimit": 64,
+            "horizonTicks": 60,
+            "edgeStarts": 0,
+            "x": 13.300469,
+            "y": 0.6143242,
+            "override": false
+          },
+          "failures": 1,
+          "aiDamage": 0,
+          "aiPickupDeferrals": 1,
+          "aiContactAttempts": 0,
+          "repairCount": 0,
+          "aiOpportunity": {
+            "phase": "TRAVEL",
+            "returnsEnabled123": true,
+            "reason": "Block changed; verify actual collection separately",
+            "waitTicks": 0,
+            "waitStarts": 0,
+            "revisitTicks": 155,
+            "decisions": [
+              {
+                "reason": "Nearby remembered pickup has continuous observed support and clear route",
+                "action": "return-started",
+                "plannedTicks": 0,
+                "tick": 429,
+                "objectId": "dff4dfbe-d64d-310f-b1df-2de4ce6e87db"
+              },
+              {
+                "reason": "Block changed; verify actual collection separately",
+                "action": "return-ended",
+                "plannedTicks": 0,
+                "tick": 585,
+                "objectId": "dff4dfbe-d64d-310f-b1df-2de4ce6e87db"
+              }
+            ],
+            "waitAborts": 0,
+            "waitsEnabled123": true,
+            "waitClears": 0,
+            "revisitStarts": 1,
+            "motion121": {
+              "reversals": 0,
+              "checks": 832,
+              "returnReach": 2.75,
+              "stabilityTicks": 30,
+              "tracked": 0,
+              "returnsEnabled": true,
+              "forecastRefusals": 0,
+              "events": []
+            }
+          },
+          "existingAI": "won",
+          "pickupDecisions": [
+            {
+              "reason": "Enemy motion intersects the pickup approach",
+              "kind": "BUMP_BLOCK",
+              "targetY": 1.375,
+              "supportY": 0.5,
+              "targetX": 10.625,
+              "action": "deferred for fresh observation",
+              "clearance": 0.75,
+              "tick": 284,
+              "objectId": "dff4dfbe-d64d-310f-b1df-2de4ce6e87db"
+            }
+          ],
+          "trials": 2,
+          "simpleControl": "failed",
+          "pickupStrategy": "full",
+          "scope": "Actual finish contact on this candidate; comparison is not a guarantee for unfamiliar levels. No procedure-bank admission or model training.",
+          "aiPickupSkips": 0,
+          "traceSha256": "1f1d775b5dfee14f8627b4f505123030e554616a5db17f94163639c48b1197d8",
+          "passed": true,
+          "candidateId": "bc6f378c-aa26-3bae-b8eb-9025d28330fd",
+          "inputChunks": 97,
+          "completionControl": "contact122"
+        }
+      },
+      {
+        "request": "Create a playable Mario level seed=127 lengthTiles=72 gapTiles=2 secondGapTiles=2 pickupTile=42 goombaTile=46 obstacleTile=60 obstacleHeight=1 repairLimit=0 pickupStrategy=full",
+        "status": "completed",
+        "elapsedMs": 61379,
+        "trialOutcomes": [
+          "failed",
+          "won"
+        ],
+        "audit": {
+          "wins": 1,
+          "aiPickups": 1,
+          "aiEnemyLanding": {
+            "chosenContact": false,
+            "reason": "No predicted enemy contact in descending approach",
+            "chosenSupported": true,
+            "nanos": 2586600,
+            "ticks": 10,
+            "overrides": 0,
+            "desiredContact": false,
+            "horizontal": 1,
+            "checks": 86,
+            "threatLimit": 64,
+            "horizonTicks": 60,
+            "edgeStarts": 0,
+            "x": 13.300469,
+            "y": 0.6143242,
+            "override": false
+          },
+          "failures": 1,
+          "aiDamage": 0,
+          "aiPickupDeferrals": 1,
+          "aiContactAttempts": 0,
+          "repairCount": 0,
+          "aiOpportunity": {
+            "phase": "TRAVEL",
+            "returnsEnabled123": true,
+            "reason": "Block changed; verify actual collection separately",
+            "waitTicks": 0,
+            "waitStarts": 0,
+            "revisitTicks": 155,
+            "decisions": [
+              {
+                "reason": "Nearby remembered pickup has continuous observed support and clear route",
+                "action": "return-started",
+                "plannedTicks": 0,
+                "tick": 429,
+                "objectId": "4104b279-bd1f-3a57-a076-0f387a6919f9"
+              },
+              {
+                "reason": "Block changed; verify actual collection separately",
+                "action": "return-ended",
+                "plannedTicks": 0,
+                "tick": 585,
+                "objectId": "4104b279-bd1f-3a57-a076-0f387a6919f9"
+              }
+            ],
+            "waitAborts": 0,
+            "waitsEnabled123": true,
+            "waitClears": 0,
+            "revisitStarts": 1,
+            "motion121": {
+              "reversals": 0,
+              "checks": 832,
+              "returnReach": 2.75,
+              "stabilityTicks": 30,
+              "tracked": 0,
+              "returnsEnabled": true,
+              "forecastRefusals": 0,
+              "events": []
+            }
+          },
+          "existingAI": "won",
+          "pickupDecisions": [
+            {
+              "reason": "Enemy motion intersects the pickup approach",
+              "kind": "BUMP_BLOCK",
+              "targetY": 1.375,
+              "supportY": 0.5,
+              "targetX": 10.625,
+              "action": "deferred for fresh observation",
+              "clearance": 0.75,
+              "tick": 284,
+              "objectId": "4104b279-bd1f-3a57-a076-0f387a6919f9"
+            }
+          ],
+          "trials": 2,
+          "simpleControl": "failed",
+          "pickupStrategy": "full",
+          "scope": "Actual finish contact on this candidate; comparison is not a guarantee for unfamiliar levels. No procedure-bank admission or model training.",
+          "aiPickupSkips": 0,
+          "traceSha256": "26fd3f6576d604240a7d1457535f27eeec5be2417e91a631b13dab0d89b343c2",
+          "passed": true,
+          "candidateId": "9d4eec88-9d10-36de-901d-51632c28a530",
+          "inputChunks": 97,
+          "completionControl": "contact122"
+        }
+      },
+      {
+        "request": "Create a playable Mario level seed=127 lengthTiles=72 gapTiles=2 secondGapTiles=2 pickupTile=42 goombaTile=46 obstacleTile=60 obstacleHeight=1 repairLimit=0 pickupStrategy=direct",
+        "status": "completed",
+        "elapsedMs": 50359,
+        "trialOutcomes": [
+          "failed",
+          "won"
+        ],
+        "audit": {
+          "wins": 1,
+          "aiPickups": 0,
+          "aiEnemyLanding": {
+            "chosenContact": false,
+            "reason": "No predicted enemy contact in descending approach",
+            "chosenSupported": true,
+            "nanos": 2640200,
+            "ticks": 10,
+            "overrides": 0,
+            "desiredContact": false,
+            "horizontal": 1,
+            "checks": 86,
+            "threatLimit": 64,
+            "horizonTicks": 60,
+            "edgeStarts": 0,
+            "x": 13.300469,
+            "y": 0.6143242,
+            "override": false
+          },
+          "failures": 1,
+          "aiDamage": 0,
+          "aiPickupDeferrals": 1,
+          "aiContactAttempts": 0,
+          "repairCount": 0,
+          "aiOpportunity": {
+            "phase": "TRAVEL",
+            "returnsEnabled123": false,
+            "reason": "No optional wait or return",
+            "waitTicks": 0,
+            "waitStarts": 0,
+            "revisitTicks": 0,
+            "decisions": [],
+            "waitAborts": 0,
+            "waitsEnabled123": false,
+            "waitClears": 0,
+            "revisitStarts": 0,
+            "motion121": {
+              "reversals": 0,
+              "checks": 523,
+              "returnReach": 2.75,
+              "stabilityTicks": 30,
+              "tracked": 0,
+              "returnsEnabled": false,
+              "forecastRefusals": 0,
+              "events": []
+            }
+          },
+          "existingAI": "won",
+          "pickupDecisions": [
+            {
+              "reason": "Enemy motion intersects the pickup approach",
+              "kind": "BUMP_BLOCK",
+              "targetY": 1.375,
+              "supportY": 0.5,
+              "targetX": 10.625,
+              "action": "deferred for fresh observation",
+              "clearance": 0.75,
+              "tick": 284,
+              "objectId": "f73285d9-68dd-33db-857b-968127a04a6f"
+            }
+          ],
+          "trials": 2,
+          "simpleControl": "failed",
+          "pickupStrategy": "direct",
+          "scope": "Actual finish contact on this candidate; comparison is not a guarantee for unfamiliar levels. No procedure-bank admission or model training.",
+          "aiPickupSkips": 0,
+          "traceSha256": "ac9b784e5d73d19dcb0dfff970ee8e38d9edf90731595e5c4da37fe8f2dd8c51",
+          "passed": true,
+          "candidateId": "14d7ff17-5646-3d5a-a7c8-4ca248df96cd",
+          "inputChunks": 71,
+          "completionControl": "contact123-direct"
+        }
+      },
+      {
+        "request": "Create a playable Mario level seed=127 lengthTiles=72 gapTiles=2 secondGapTiles=2 pickupTile=42 goombaTile=46 obstacleTile=60 obstacleHeight=1 repairLimit=0 pickupStrategy=direct",
+        "status": "completed",
+        "elapsedMs": 54814,
+        "trialOutcomes": [
+          "failed",
+          "won"
+        ],
+        "audit": {
+          "wins": 1,
+          "aiPickups": 0,
+          "aiEnemyLanding": {
+            "chosenContact": false,
+            "reason": "No predicted enemy contact in descending approach",
+            "chosenSupported": true,
+            "nanos": 2615300,
+            "ticks": 10,
+            "overrides": 0,
+            "desiredContact": false,
+            "horizontal": 1,
+            "checks": 86,
+            "threatLimit": 64,
+            "horizonTicks": 60,
+            "edgeStarts": 0,
+            "x": 13.300469,
+            "y": 0.6143242,
+            "override": false
+          },
+          "failures": 1,
+          "aiDamage": 0,
+          "aiPickupDeferrals": 1,
+          "aiContactAttempts": 0,
+          "repairCount": 0,
+          "aiOpportunity": {
+            "phase": "TRAVEL",
+            "returnsEnabled123": false,
+            "reason": "No optional wait or return",
+            "waitTicks": 0,
+            "waitStarts": 0,
+            "revisitTicks": 0,
+            "decisions": [],
+            "waitAborts": 0,
+            "waitsEnabled123": false,
+            "waitClears": 0,
+            "revisitStarts": 0,
+            "motion121": {
+              "reversals": 0,
+              "checks": 523,
+              "returnReach": 2.75,
+              "stabilityTicks": 30,
+              "tracked": 0,
+              "returnsEnabled": false,
+              "events": [],
+              "forecastRefusals": 0
+            }
+          },
+          "existingAI": "won",
+          "pickupDecisions": [
+            {
+              "reason": "Enemy motion intersects the pickup approach",
+              "kind": "BUMP_BLOCK",
+              "targetY": 1.375,
+              "supportY": 0.5,
+              "targetX": 10.625,
+              "action": "deferred for fresh observation",
+              "clearance": 0.75,
+              "tick": 284,
+              "objectId": "92dbf35b-9686-3134-af63-9ce017f853fb"
+            }
+          ],
+          "trials": 2,
+          "simpleControl": "failed",
+          "pickupStrategy": "direct",
+          "scope": "Actual finish contact on this candidate; comparison is not a guarantee for unfamiliar levels. No procedure-bank admission or model training.",
+          "aiPickupSkips": 0,
+          "traceSha256": "cea686e295d1cb89f271205b3bccea9a7530418eacef59389062e0b0151d3813",
+          "passed": true,
+          "candidateId": "3ebfe297-f6cf-3b53-92ef-3fca376dc52f",
+          "inputChunks": 71,
+          "completionControl": "contact123-direct"
+        }
+      },
+      {
+        "request": "Create a playable Mario level seed=127 lengthTiles=72 gapTiles=2 secondGapTiles=2 pickupTile=42 goombaTile=46 obstacleTile=60 obstacleHeight=1 repairLimit=0 pickupStrategy=full",
+        "status": "completed",
+        "elapsedMs": 82174,
+        "trialOutcomes": [
+          "failed",
+          "won"
+        ],
+        "audit": {
+          "wins": 1,
+          "aiPickups": 1,
+          "aiEnemyLanding": {
+            "chosenContact": false,
+            "reason": "No predicted enemy contact in descending approach",
+            "chosenSupported": true,
+            "nanos": 3833900,
+            "ticks": 10,
+            "overrides": 0,
+            "desiredContact": false,
+            "horizontal": 1,
+            "checks": 86,
+            "threatLimit": 64,
+            "horizonTicks": 60,
+            "edgeStarts": 0,
+            "x": 13.300469,
+            "y": 0.6143242,
+            "override": false
+          },
+          "failures": 1,
+          "aiDamage": 0,
+          "aiPickupDeferrals": 1,
+          "aiContactAttempts": 0,
+          "repairCount": 0,
+          "aiOpportunity": {
+            "phase": "TRAVEL",
+            "returnsEnabled123": true,
+            "reason": "Block changed; verify actual collection separately",
+            "waitTicks": 0,
+            "waitStarts": 0,
+            "revisitTicks": 155,
+            "decisions": [
+              {
+                "reason": "Nearby remembered pickup has continuous observed support and clear route",
+                "plannedTicks": 0,
+                "action": "return-started",
+                "tick": 429,
+                "objectId": "2c21dd6b-c4fa-3b2d-a58f-9752d6ed35f0"
+              },
+              {
+                "reason": "Block changed; verify actual collection separately",
+                "plannedTicks": 0,
+                "action": "return-ended",
+                "tick": 585,
+                "objectId": "2c21dd6b-c4fa-3b2d-a58f-9752d6ed35f0"
+              }
+            ],
+            "waitAborts": 0,
+            "waitsEnabled123": true,
+            "waitClears": 0,
+            "revisitStarts": 1,
+            "motion121": {
+              "reversals": 0,
+              "checks": 832,
+              "returnReach": 2.75,
+              "stabilityTicks": 30,
+              "tracked": 0,
+              "returnsEnabled": true,
+              "events": [],
+              "forecastRefusals": 0
+            }
+          },
+          "existingAI": "won",
+          "pickupDecisions": [
+            {
+              "reason": "Enemy motion intersects the pickup approach",
+              "kind": "BUMP_BLOCK",
+              "targetY": 1.375,
+              "supportY": 0.5,
+              "targetX": 10.625,
+              "action": "deferred for fresh observation",
+              "clearance": 0.75,
+              "tick": 284,
+              "objectId": "2c21dd6b-c4fa-3b2d-a58f-9752d6ed35f0"
+            }
+          ],
+          "trials": 2,
+          "simpleControl": "failed",
+          "pickupStrategy": "full",
+          "scope": "Actual finish contact on this candidate; comparison is not a guarantee for unfamiliar levels. No procedure-bank admission or model training.",
+          "aiPickupSkips": 0,
+          "traceSha256": "02fe319e1c42c51160def1b7159a2ceb0f962f7fde9b4f6462d20eac53934596",
+          "passed": true,
+          "candidateId": "04353bbf-7890-3380-9f79-0e88f7ef9b10",
+          "inputChunks": 97,
+          "completionControl": "contact122"
+        }
+      },
+      {
+        "request": "Create a playable Mario level seed=127 lengthTiles=72 gapTiles=2 secondGapTiles=2 pickupTile=42 goombaTile=46 obstacleTile=60 obstacleHeight=1 repairLimit=0 pickupStrategy=budget pickupBudgetSeconds=0; compare controls and report skipped pickups.",
+        "status": "completed",
+        "elapsedMs": 65255,
+        "trialOutcomes": [
+          "failed",
+          "won"
+        ],
+        "audit": {
+          "wins": 1,
+          "aiPickups": 0,
+          "aiEnemyLanding": {
+            "chosenContact": false,
+            "reason": "No predicted enemy contact in descending approach",
+            "chosenSupported": true,
+            "nanos": 2596200,
+            "ticks": 10,
+            "overrides": 0,
+            "desiredContact": false,
+            "horizontal": 1,
+            "checks": 86,
+            "threatLimit": 64,
+            "horizonTicks": 60,
+            "edgeStarts": 0,
+            "x": 13.300469,
+            "y": 0.6143242,
+            "override": false
+          },
+          "failures": 1,
+          "aiDamage": 0,
+          "aiPickupDeferrals": 1,
+          "aiContactAttempts": 0,
+          "repairCount": 0,
+          "aiOpportunity": {
+            "phase": "TRAVEL",
+            "returnsEnabled123": false,
+            "reason": "No optional wait or return",
+            "waitTicks": 0,
+            "waitStarts": 0,
+            "revisitTicks": 0,
+            "decisions": [],
+            "waitAborts": 0,
+            "waitsEnabled123": false,
+            "waitClears": 0,
+            "revisitStarts": 0,
+            "motion121": {
+              "reversals": 0,
+              "checks": 523,
+              "returnReach": 2.75,
+              "stabilityTicks": 30,
+              "tracked": 0,
+              "returnsEnabled": false,
+              "forecastRefusals": 0,
+              "events": []
+            }
+          },
+          "existingAI": "won",
+          "pickupDecisions": [
+            {
+              "reason": "Enemy motion intersects the pickup approach",
+              "kind": "BUMP_BLOCK",
+              "targetY": 1.375,
+              "supportY": 0.5,
+              "targetX": 10.625,
+              "action": "deferred for fresh observation",
+              "clearance": 0.75,
+              "tick": 284,
+              "objectId": "05bddd10-7277-38dd-a7c2-362cdc302231"
+            }
+          ],
+          "trials": 2,
+          "simpleControl": "failed",
+          "pickupStrategy": "direct",
+          "scope": "Actual finish contact on this candidate; comparison is not a guarantee for unfamiliar levels. No procedure-bank admission or model training.",
+          "pickupChoice124": {
+            "reason": "Zero extra allowance",
+            "scope": "Exact-condition empirical envelope; not a probability, hard deadline or safety guarantee. Ordinary safety checks remain authoritative.",
+            "alternatives": [
+              {
+                "reason": "At least three direct and three alternative measurements are required",
+                "baselineSamples": 0,
+                "strategy": "no-return",
+                "samples": 0
+              },
+              {
+                "reason": "At least three direct and three alternative measurements are required",
+                "baselineSamples": 0,
+                "strategy": "no-wait",
+                "samples": 0
+              },
+              {
+                "reason": "At least three direct and three alternative measurements are required",
+                "baselineSamples": 0,
+                "strategy": "full",
+                "samples": 0
+              }
+            ],
+            "allowance": 0,
+            "selected": "direct"
+          },
+          "aiPickupSkips": 0,
+          "traceSha256": "9fde6a06b70ec29c46c2ee7345e6479006642aa2e1e4e6abcf730fbc76033519",
+          "passed": true,
+          "candidateId": "6ab46aa1-baf1-3ed8-8300-7bb9c54a2e33",
+          "inputChunks": 71,
+          "completionControl": "contact123-direct"
+        }
+      },
+      {
+        "request": "Create a playable Mario level seed=127 lengthTiles=72 gapTiles=2 secondGapTiles=2 pickupTile=42 goombaTile=46 obstacleTile=60 obstacleHeight=1 repairLimit=0 pickupStrategy=budget pickupBudgetSeconds=4; compare controls and report skipped pickups.",
+        "status": "completed",
+        "elapsedMs": 73548,
+        "trialOutcomes": [
+          "failed",
+          "won"
+        ],
+        "audit": {
+          "wins": 1,
+          "aiPickups": 0,
+          "aiEnemyLanding": {
+            "chosenContact": false,
+            "reason": "No predicted enemy contact in descending approach",
+            "chosenSupported": true,
+            "nanos": 2711200,
+            "ticks": 10,
+            "overrides": 0,
+            "desiredContact": false,
+            "horizontal": 1,
+            "checks": 86,
+            "threatLimit": 64,
+            "horizonTicks": 60,
+            "edgeStarts": 0,
+            "x": 13.300469,
+            "y": 0.6143242,
+            "override": false
+          },
+          "failures": 1,
+          "aiDamage": 0,
+          "aiPickupDeferrals": 1,
+          "aiContactAttempts": 0,
+          "repairCount": 0,
+          "aiOpportunity": {
+            "phase": "TRAVEL",
+            "returnsEnabled123": false,
+            "reason": "No optional wait or return",
+            "waitTicks": 0,
+            "waitStarts": 0,
+            "revisitTicks": 0,
+            "decisions": [],
+            "waitAborts": 0,
+            "waitsEnabled123": false,
+            "waitClears": 0,
+            "revisitStarts": 0,
+            "motion121": {
+              "reversals": 0,
+              "checks": 523,
+              "returnReach": 2.75,
+              "stabilityTicks": 30,
+              "tracked": 0,
+              "returnsEnabled": false,
+              "events": [],
+              "forecastRefusals": 0
+            }
+          },
+          "existingAI": "won",
+          "pickupDecisions": [
+            {
+              "reason": "Enemy motion intersects the pickup approach",
+              "kind": "BUMP_BLOCK",
+              "targetY": 1.375,
+              "supportY": 0.5,
+              "targetX": 10.625,
+              "action": "deferred for fresh observation",
+              "clearance": 0.75,
+              "tick": 284,
+              "objectId": "831c9651-401b-32c5-9a39-33a9af17b9e2"
+            }
+          ],
+          "trials": 2,
+          "simpleControl": "failed",
+          "pickupStrategy": "direct",
+          "scope": "Actual finish contact on this candidate; comparison is not a guarantee for unfamiliar levels. No procedure-bank admission or model training.",
+          "pickupChoice124": {
+            "reason": "Abstained from optional actions; see the retained evidence assessments",
+            "scope": "Exact-condition empirical envelope; not a probability, hard deadline or safety guarantee. Ordinary safety checks remain authoritative.",
+            "alternatives": [
+              {
+                "reason": "At least three direct and three alternative measurements are required",
+                "baselineSamples": 3,
+                "strategy": "no-return",
+                "samples": 0
+              },
+              {
+                "reason": "At least three direct and three alternative measurements are required",
+                "baselineSamples": 3,
+                "strategy": "no-wait",
+                "samples": 0
+              },
+              {
+                "reason": "Conservative estimate exceeds the allowance",
+                "extraSecondsUpper": 38.3804643,
+                "decisionOverheadSeconds": 3.9828947,
+                "alternative": {
+                  "minSeconds": 58.6732287,
+                  "maxPickups": 1,
+                  "minPickups": 1,
+                  "maxSeconds": 81.3973675
+                },
+                "baseline": {
+                  "minSeconds": 43.0169032,
+                  "maxPickups": 0,
+                  "minPickups": 0,
+                  "maxSeconds": 54.0624907
+                },
+                "samples": 3,
+                "benefitLower": 1,
+                "benefitUpper": 1,
+                "variationReserveSeconds": 45.4482776,
+                "requiredSecondsPerPickup": 88.0616366,
+                "baselineSamples": 3,
+                "strategy": "full",
+                "recordingReserveSeconds": 0.25,
+                "estimatedExtraSeconds": 88.0616366
+              }
+            ],
+            "allowance": 4,
+            "selected": "direct"
+          },
+          "aiPickupSkips": 0,
+          "traceSha256": "8c575a400fcd62f7c7e6c2206ec3f6e2e6e6733f00696ae5bdccbbdf95f32bb0",
+          "passed": true,
+          "candidateId": "ef9c9380-7ef8-31eb-887e-e55bfc353698",
+          "inputChunks": 71,
+          "completionControl": "contact123-direct"
+        }
+      },
+      {
+        "request": "Create a playable Mario level seed=127 lengthTiles=72 gapTiles=2 secondGapTiles=2 pickupTile=42 goombaTile=46 obstacleTile=60 obstacleHeight=1 repairLimit=0 pickupStrategy=budget pickupBudgetSeconds=30; compare controls and report skipped pickups.",
+        "status": "completed",
+        "elapsedMs": 89439,
+        "trialOutcomes": [
+          "interrupted",
+          "failed",
+          "won"
+        ],
+        "audit": {
+          "wins": 1,
+          "aiPickups": 0,
+          "aiEnemyLanding": {
+            "chosenContact": false,
+            "reason": "No predicted enemy contact in descending approach",
+            "chosenSupported": true,
+            "nanos": 2663000,
+            "ticks": 10,
+            "overrides": 0,
+            "desiredContact": false,
+            "horizontal": 1,
+            "checks": 86,
+            "threatLimit": 64,
+            "horizonTicks": 60,
+            "edgeStarts": 0,
+            "x": 13.300469,
+            "y": 0.6143242,
+            "override": false
+          },
+          "failures": 1,
+          "aiDamage": 0,
+          "aiPickupDeferrals": 1,
+          "aiContactAttempts": 0,
+          "repairCount": 0,
+          "aiOpportunity": {
+            "phase": "TRAVEL",
+            "returnsEnabled123": false,
+            "reason": "No optional wait or return",
+            "waitTicks": 0,
+            "waitStarts": 0,
+            "revisitTicks": 0,
+            "decisions": [],
+            "waitAborts": 0,
+            "waitsEnabled123": false,
+            "waitClears": 0,
+            "revisitStarts": 0,
+            "motion121": {
+              "reversals": 0,
+              "checks": 523,
+              "returnReach": 2.75,
+              "stabilityTicks": 30,
+              "tracked": 0,
+              "returnsEnabled": false,
+              "events": [],
+              "forecastRefusals": 0
+            }
+          },
+          "existingAI": "won",
+          "pickupDecisions": [
+            {
+              "reason": "Enemy motion intersects the pickup approach",
+              "kind": "BUMP_BLOCK",
+              "targetY": 1.375,
+              "supportY": 0.5,
+              "targetX": 10.625,
+              "action": "deferred for fresh observation",
+              "clearance": 0.75,
+              "tick": 284,
+              "objectId": "d24590a0-bc79-3dbd-a6af-1d65baea9f4d"
+            }
+          ],
+          "trials": 3,
+          "simpleControl": "failed",
+          "pickupStrategy": "direct",
+          "scope": "Actual finish contact on this candidate; comparison is not a guarantee for unfamiliar levels. No procedure-bank admission or model training.",
+          "pickupChoice124": {
+            "reason": "Abstained from optional actions; see the retained evidence assessments",
+            "scope": "Exact-condition empirical envelope; not a probability, hard deadline or safety guarantee. Ordinary safety checks remain authoritative.",
+            "alternatives": [
+              {
+                "reason": "At least three direct and three alternative measurements are required",
+                "baselineSamples": 3,
+                "strategy": "no-return",
+                "samples": 0
+              },
+              {
+                "reason": "At least three direct and three alternative measurements are required",
+                "baselineSamples": 3,
+                "strategy": "no-wait",
+                "samples": 0
+              },
+              {
+                "reason": "Conservative estimate exceeds the allowance",
+                "extraSecondsUpper": 38.3804643,
+                "decisionOverheadSeconds": 4.0200129,
+                "alternative": {
+                  "minSeconds": 58.6732287,
+                  "maxPickups": 1,
+                  "minPickups": 1,
+                  "maxSeconds": 81.3973675
+                },
+                "baseline": {
+                  "minSeconds": 43.0169032,
+                  "maxPickups": 0,
+                  "minPickups": 0,
+                  "maxSeconds": 54.0624907
+                },
+                "samples": 3,
+                "benefitLower": 1,
+                "benefitUpper": 1,
+                "variationReserveSeconds": 45.4482776,
+                "requiredSecondsPerPickup": 88.0987548,
+                "baselineSamples": 3,
+                "strategy": "full",
+                "recordingReserveSeconds": 0.25,
+                "estimatedExtraSeconds": 88.0987548
+              }
+            ],
+            "allowance": 30,
+            "selected": "direct"
+          },
+          "aiPickupSkips": 0,
+          "traceSha256": "a977c9c65916f2c04bd8876212d507b6c0377d9f1d0c93c48eb00ce5c67803cf",
+          "passed": true,
+          "candidateId": "be55bfde-c9cd-32eb-bf98-e4710e41f9da",
+          "inputChunks": 73,
+          "completionControl": "contact123-direct"
+        }
+      },
+      {
+        "request": "Create a playable Mario level seed=127 lengthTiles=72 gapTiles=2 secondGapTiles=2 pickupTile=42 goombaTile=46 obstacleTile=60 obstacleHeight=1 repairLimit=0 pickupStrategy=budget pickupBudgetSeconds=120; compare controls and report skipped pickups.",
+        "status": "completed",
+        "elapsedMs": 123899,
+        "trialOutcomes": [
+          "interrupted",
+          "failed",
+          "won"
+        ],
+        "audit": {
+          "wins": 1,
+          "aiPickups": 1,
+          "aiEnemyLanding": {
+            "chosenContact": false,
+            "reason": "No predicted enemy contact in descending approach",
+            "chosenSupported": true,
+            "nanos": 2710200,
+            "ticks": 10,
+            "overrides": 0,
+            "desiredContact": false,
+            "horizontal": 1,
+            "checks": 86,
+            "threatLimit": 64,
+            "horizonTicks": 60,
+            "edgeStarts": 0,
+            "x": 13.300469,
+            "y": 0.6143242,
+            "override": false
+          },
+          "failures": 1,
+          "aiDamage": 0,
+          "aiPickupDeferrals": 1,
+          "aiContactAttempts": 0,
+          "repairCount": 0,
+          "aiOpportunity": {
+            "phase": "TRAVEL",
+            "returnsEnabled123": true,
+            "reason": "Block changed; verify actual collection separately",
+            "waitTicks": 0,
+            "waitStarts": 0,
+            "revisitTicks": 155,
+            "decisions": [
+              {
+                "reason": "Nearby remembered pickup has continuous observed support and clear route",
+                "action": "return-started",
+                "plannedTicks": 0,
+                "tick": 429,
+                "objectId": "50c2b268-6fe6-3078-9743-e9f8b97a1ed0"
+              },
+              {
+                "reason": "Block changed; verify actual collection separately",
+                "action": "return-ended",
+                "plannedTicks": 0,
+                "tick": 585,
+                "objectId": "50c2b268-6fe6-3078-9743-e9f8b97a1ed0"
+              }
+            ],
+            "waitAborts": 0,
+            "waitsEnabled123": true,
+            "waitClears": 0,
+            "revisitStarts": 1,
+            "motion121": {
+              "reversals": 0,
+              "checks": 832,
+              "returnReach": 2.75,
+              "stabilityTicks": 30,
+              "tracked": 0,
+              "returnsEnabled": true,
+              "forecastRefusals": 0,
+              "events": []
+            }
+          },
+          "existingAI": "won",
+          "pickupDecisions": [
+            {
+              "reason": "Enemy motion intersects the pickup approach",
+              "kind": "BUMP_BLOCK",
+              "targetY": 1.375,
+              "supportY": 0.5,
+              "targetX": 10.625,
+              "action": "deferred for fresh observation",
+              "clearance": 0.75,
+              "tick": 284,
+              "objectId": "50c2b268-6fe6-3078-9743-e9f8b97a1ed0"
+            }
+          ],
+          "trials": 3,
+          "simpleControl": "failed",
+          "pickupStrategy": "full",
+          "scope": "Actual finish contact on this candidate; comparison is not a guarantee for unfamiliar levels. No procedure-bank admission or model training.",
+          "pickupChoice124": {
+            "reason": "Benefit remains positive across observations and estimated cost fits",
+            "scope": "Exact-condition empirical envelope; not a probability, hard deadline or safety guarantee. Ordinary safety checks remain authoritative.",
+            "alternatives": [
+              {
+                "reason": "At least three direct and three alternative measurements are required",
+                "baselineSamples": 3,
+                "strategy": "no-return",
+                "samples": 0
+              },
+              {
+                "reason": "At least three direct and three alternative measurements are required",
+                "baselineSamples": 3,
+                "strategy": "no-wait",
+                "samples": 0
+              },
+              {
+                "reason": "Benefit remains positive across observations and estimated cost fits",
+                "extraSecondsUpper": 38.3804643,
+                "decisionOverheadSeconds": 4.1308032,
+                "alternative": {
+                  "minSeconds": 58.6732287,
+                  "maxPickups": 1,
+                  "minPickups": 1,
+                  "maxSeconds": 81.3973675
+                },
+                "baseline": {
+                  "minSeconds": 43.0169032,
+                  "maxPickups": 0,
+                  "minPickups": 0,
+                  "maxSeconds": 54.0624907
+                },
+                "samples": 3,
+                "benefitLower": 1,
+                "benefitUpper": 1,
+                "variationReserveSeconds": 45.4482776,
+                "requiredSecondsPerPickup": 88.2095451,
+                "baselineSamples": 3,
+                "strategy": "full",
+                "recordingReserveSeconds": 0.25,
+                "estimatedExtraSeconds": 88.2095451
+              }
+            ],
+            "allowance": 120,
+            "selected": "full"
+          },
+          "aiPickupSkips": 0,
+          "traceSha256": "0b2070c30e167aeb0ecb92d9a3d0703d4bf348092a83832a6d4e9f6d59af729b",
+          "passed": true,
+          "candidateId": "4a029b11-a214-365e-a5a7-acae2b998814",
+          "inputChunks": 99,
+          "completionControl": "contact122"
+        }
+      },
+      {
+        "request": "Create a playable Mario level seed=319 lengthTiles=72 gapTiles=2 secondGapTiles=2 pickupTile=42 goombaTile=46 obstacleTile=60 obstacleHeight=1 repairLimit=0 pickupStrategy=budget pickupBudgetSeconds=30",
+        "status": "completed",
+        "elapsedMs": 90944,
+        "trialOutcomes": [
+          "failed",
+          "won"
+        ],
+        "audit": {
+          "wins": 1,
+          "aiPickups": 1,
+          "aiEnemyLanding": {
+            "chosenContact": true,
+            "reason": "No contact-free supported alternative; reobserve",
+            "chosenSupported": true,
+            "nanos": 3578700,
+            "ticks": 1,
+            "overrides": 0,
+            "desiredContact": true,
+            "horizontal": 1,
+            "checks": 61,
+            "threatLimit": 64,
+            "horizonTicks": 60,
+            "edgeStarts": 0,
+            "x": 11.184966,
+            "y": 0.6228874,
+            "override": false
+          },
+          "failures": 1,
+          "aiDamage": 0,
+          "aiPickupDeferrals": 2,
+          "aiContactAttempts": 0,
+          "repairCount": 0,
+          "aiOpportunity": {
+            "phase": "TRAVEL",
+            "returnsEnabled123": false,
+            "reason": "No optional wait or return",
+            "waitTicks": 0,
+            "waitStarts": 0,
+            "revisitTicks": 0,
+            "decisions": [],
+            "waitAborts": 0,
+            "waitsEnabled123": false,
+            "waitClears": 0,
+            "revisitStarts": 0,
+            "motion121": {
+              "reversals": 0,
+              "checks": 586,
+              "returnReach": 2.75,
+              "stabilityTicks": 30,
+              "tracked": 0,
+              "returnsEnabled": false,
+              "forecastRefusals": 0,
+              "events": []
+            }
+          },
+          "existingAI": "won",
+          "pickupDecisions": [
+            {
+              "reason": "Enemy motion intersects the pickup approach",
+              "kind": "BUMP_BLOCK",
+              "targetY": 1.375,
+              "supportY": 0.5,
+              "targetX": 10.625,
+              "action": "deferred for fresh observation",
+              "clearance": 0.75,
+              "tick": 291,
+              "objectId": "c06a8a97-c37e-3e25-95fe-f9964832caf0"
+            },
+            {
+              "reason": "Enemy motion intersects the pickup approach",
+              "kind": "COLLECT",
+              "targetY": 1.625,
+              "supportY": 0.5,
+              "targetX": 10.625,
+              "action": "deferred for fresh observation",
+              "clearance": 1,
+              "tick": 312,
+              "objectId": "05d77b2b-247d-44df-91bf-2c7de70ca64c"
+            }
+          ],
+          "trials": 2,
+          "simpleControl": "failed",
+          "pickupStrategy": "direct",
+          "scope": "Actual finish contact on this candidate; comparison is not a guarantee for unfamiliar levels. No procedure-bank admission or model training.",
+          "pickupChoice124": {
+            "reason": "Abstained from optional actions; see the retained evidence assessments",
+            "scope": "Exact-condition empirical envelope; not a probability, hard deadline or safety guarantee. Ordinary safety checks remain authoritative.",
+            "alternatives": [
+              {
+                "reason": "At least three direct and three alternative measurements are required",
+                "baselineSamples": 0,
+                "strategy": "no-return",
+                "samples": 0
+              },
+              {
+                "reason": "At least three direct and three alternative measurements are required",
+                "baselineSamples": 0,
+                "strategy": "no-wait",
+                "samples": 0
+              },
+              {
+                "reason": "At least three direct and three alternative measurements are required",
+                "baselineSamples": 0,
+                "strategy": "full",
+                "samples": 0
+              }
+            ],
+            "allowance": 30,
+            "selected": "direct"
+          },
+          "aiPickupSkips": 0,
+          "traceSha256": "4bc1912c3b03fb9faba904bb05f28770818a38655d6bd7e4fd0edce589fc8a65",
+          "passed": true,
+          "candidateId": "51b2394c-af12-3a98-851c-a0c7d81d604c",
+          "inputChunks": 76,
+          "completionControl": "contact123-direct"
+        }
+      },
+      {
+        "request": "Create a playable Mario level gapTiles=10 pickupTile=17 goombaTile=45 pickupStrategy=budget pickupBudgetSeconds=30.",
+        "status": "interrupted",
+        "elapsedMs": 42405,
+        "trialOutcomes": [
+          "failed",
+          "failed"
+        ],
+        "audit": null
+      }
+    ],
+    "actualAbruptRecovery": true,
+    "studyRows": 40,
+    "regressionExecutions": 18,
+    "measurements": {
+      "rows": [
+        {
+          "partition": "development",
+          "case": "supported-wait",
+          "allowance": 0,
+          "selected": "direct",
+          "requiredSecondsPerPickup": null,
+          "reason": "At least three direct and three alternative measurements are required",
+          "pickups": 0,
+          "completionCertified": true,
+          "seconds": 19.3747518,
+          "externalSeconds": 19.7098041,
+          "overheadSeconds": 0.1504867,
+          "admissionSeconds": 0.1504867,
+          "completionReserveSeconds": 0,
+          "alternatives": [
+            {
+              "reason": "At least three direct and three alternative measurements are required",
+              "baselineSamples": 0,
+              "strategy": "no-return",
+              "samples": 0
+            },
+            {
+              "reason": "At least three direct and three alternative measurements are required",
+              "baselineSamples": 0,
+              "strategy": "no-wait",
+              "samples": 0
+            },
+            {
+              "reason": "At least three direct and three alternative measurements are required",
+              "baselineSamples": 0,
+              "strategy": "full",
+              "samples": 0
+            }
+          ]
+        },
+        {
+          "partition": "development",
+          "case": "supported-wait",
+          "allowance": 4,
+          "selected": "direct",
+          "requiredSecondsPerPickup": 10.819372899999998,
+          "reason": "Conservative estimate exceeds the allowance",
+          "pickups": 0,
+          "completionCertified": true,
+          "seconds": 23.5323258,
+          "externalSeconds": 25.6986803,
+          "overheadSeconds": 3.8276002,
+          "admissionSeconds": 2.00901,
+          "completionReserveSeconds": 1.8185902,
+          "alternatives": [
+            {
+              "reason": "At least three direct and three alternative measurements are required",
+              "baselineSamples": 3,
+              "strategy": "no-return",
+              "samples": 0
+            },
+            {
+              "reason": "At least three direct and three alternative measurements are required",
+              "baselineSamples": 3,
+              "strategy": "no-wait",
+              "samples": 0
+            },
+            {
+              "reason": "Conservative estimate exceeds the allowance",
+              "extraSecondsUpper": 5.0933972999999995,
+              "decisionOverheadSeconds": 3.8276002,
+              "alternative": {
+                "minSeconds": 23.7217549,
+                "maxPickups": 1,
+                "minPickups": 1,
+                "maxSeconds": 24.3355645
+              },
+              "baseline": {
+                "minSeconds": 19.2421672,
+                "maxPickups": 0,
+                "minPickups": 0,
+                "maxSeconds": 20.0663549
+              },
+              "samples": 3,
+              "benefitLower": 1,
+              "benefitUpper": 1,
+              "variationReserveSeconds": 1.648375399999999,
+              "requiredSecondsPerPickup": 10.819372899999998,
+              "baselineSamples": 3,
+              "strategy": "full",
+              "recordingReserveSeconds": 0.25,
+              "estimatedExtraSeconds": 10.819372899999998
+            }
+          ]
+        },
+        {
+          "partition": "development",
+          "case": "supported-wait",
+          "allowance": 30,
+          "selected": "full",
+          "requiredSecondsPerPickup": 10.8281988,
+          "reason": "Benefit remains positive across observations and estimated cost fits",
+          "pickups": 1,
+          "completionCertified": true,
+          "seconds": 27.8536372,
+          "externalSeconds": 30.0196213,
+          "overheadSeconds": 3.8364260999999997,
+          "admissionSeconds": 2.0173866,
+          "completionReserveSeconds": 1.8190395,
+          "alternatives": [
+            {
+              "reason": "At least three direct and three alternative measurements are required",
+              "baselineSamples": 3,
+              "strategy": "no-return",
+              "samples": 0
+            },
+            {
+              "reason": "At least three direct and three alternative measurements are required",
+              "baselineSamples": 3,
+              "strategy": "no-wait",
+              "samples": 0
+            },
+            {
+              "reason": "Benefit remains positive across observations and estimated cost fits",
+              "extraSecondsUpper": 5.0933972999999995,
+              "decisionOverheadSeconds": 3.8364260999999997,
+              "alternative": {
+                "minSeconds": 23.7217549,
+                "maxPickups": 1,
+                "minPickups": 1,
+                "maxSeconds": 24.3355645
+              },
+              "baseline": {
+                "minSeconds": 19.2421672,
+                "maxPickups": 0,
+                "minPickups": 0,
+                "maxSeconds": 20.0663549
+              },
+              "samples": 3,
+              "benefitLower": 1,
+              "benefitUpper": 1,
+              "variationReserveSeconds": 1.648375399999999,
+              "requiredSecondsPerPickup": 10.8281988,
+              "baselineSamples": 3,
+              "strategy": "full",
+              "recordingReserveSeconds": 0.25,
+              "estimatedExtraSeconds": 10.8281988
+            }
+          ]
+        },
+        {
+          "partition": "development",
+          "case": "supported-return",
+          "allowance": 0,
+          "selected": "direct",
+          "requiredSecondsPerPickup": null,
+          "reason": "At least three direct and three alternative measurements are required",
+          "pickups": 0,
+          "completionCertified": true,
+          "seconds": 27.2240768,
+          "externalSeconds": 27.5637751,
+          "overheadSeconds": 0.1900501,
+          "admissionSeconds": 0.1900501,
+          "completionReserveSeconds": 0,
+          "alternatives": [
+            {
+              "reason": "At least three direct and three alternative measurements are required",
+              "baselineSamples": 0,
+              "strategy": "no-return",
+              "samples": 0
+            },
+            {
+              "reason": "At least three direct and three alternative measurements are required",
+              "baselineSamples": 0,
+              "strategy": "no-wait",
+              "samples": 0
+            },
+            {
+              "reason": "At least three direct and three alternative measurements are required",
+              "baselineSamples": 0,
+              "strategy": "full",
+              "samples": 0
+            }
+          ]
+        },
+        {
+          "partition": "development",
+          "case": "supported-return",
+          "allowance": 4,
+          "selected": "direct",
+          "requiredSecondsPerPickup": 16.7240764,
+          "reason": "Conservative estimate exceeds the allowance",
+          "pickups": 0,
+          "completionCertified": true,
+          "seconds": 29.8033671,
+          "externalSeconds": 32.0535724,
+          "overheadSeconds": 4.0588193,
+          "admissionSeconds": 2.1408014,
+          "completionReserveSeconds": 1.9180179,
+          "alternatives": [
+            {
+              "reason": "At least three direct and three alternative measurements are required",
+              "baselineSamples": 3,
+              "strategy": "no-return",
+              "samples": 0
+            },
+            {
+              "reason": "At least three direct and three alternative measurements are required",
+              "baselineSamples": 3,
+              "strategy": "no-wait",
+              "samples": 0
+            },
+            {
+              "reason": "Conservative estimate exceeds the allowance",
+              "extraSecondsUpper": 10.607056099999998,
+              "decisionOverheadSeconds": 4.0588193,
+              "alternative": {
+                "minSeconds": 35.3885218,
+                "maxPickups": 1,
+                "minPickups": 1,
+                "maxSeconds": 36.1265976
+              },
+              "baseline": {
+                "minSeconds": 25.5195415,
+                "maxPickups": 0,
+                "minPickups": 0,
+                "maxSeconds": 26.423642
+              },
+              "samples": 3,
+              "benefitLower": 1,
+              "benefitUpper": 1,
+              "variationReserveSeconds": 1.808201000000004,
+              "requiredSecondsPerPickup": 16.7240764,
+              "baselineSamples": 3,
+              "strategy": "full",
+              "recordingReserveSeconds": 0.25,
+              "estimatedExtraSeconds": 16.7240764
+            }
+          ]
+        },
+        {
+          "partition": "development",
+          "case": "supported-return",
+          "allowance": 30,
+          "selected": "full",
+          "requiredSecondsPerPickup": 16.7694863,
+          "reason": "Benefit remains positive across observations and estimated cost fits",
+          "pickups": 1,
+          "completionCertified": true,
+          "seconds": 39.6348731,
+          "externalSeconds": 41.9160695,
+          "overheadSeconds": 4.1042292,
+          "admissionSeconds": 2.175734,
+          "completionReserveSeconds": 1.9284952,
+          "alternatives": [
+            {
+              "reason": "At least three direct and three alternative measurements are required",
+              "baselineSamples": 3,
+              "strategy": "no-return",
+              "samples": 0
+            },
+            {
+              "reason": "At least three direct and three alternative measurements are required",
+              "baselineSamples": 3,
+              "strategy": "no-wait",
+              "samples": 0
+            },
+            {
+              "reason": "Benefit remains positive across observations and estimated cost fits",
+              "extraSecondsUpper": 10.607056099999998,
+              "decisionOverheadSeconds": 4.1042292,
+              "alternative": {
+                "minSeconds": 35.3885218,
+                "maxPickups": 1,
+                "minPickups": 1,
+                "maxSeconds": 36.1265976
+              },
+              "baseline": {
+                "minSeconds": 25.5195415,
+                "maxPickups": 0,
+                "minPickups": 0,
+                "maxSeconds": 26.423642
+              },
+              "samples": 3,
+              "benefitLower": 1,
+              "benefitUpper": 1,
+              "variationReserveSeconds": 1.808201000000004,
+              "requiredSecondsPerPickup": 16.7694863,
+              "baselineSamples": 3,
+              "strategy": "full",
+              "recordingReserveSeconds": 0.25,
+              "estimatedExtraSeconds": 16.7694863
+            }
+          ]
+        },
+        {
+          "partition": "development",
+          "case": "no-gain",
+          "allowance": 0,
+          "selected": "direct",
+          "requiredSecondsPerPickup": null,
+          "reason": "At least three direct and three alternative measurements are required",
+          "pickups": 1,
+          "completionCertified": true,
+          "seconds": 28.1302574,
+          "externalSeconds": 28.4809162,
+          "overheadSeconds": 0.1720396,
+          "admissionSeconds": 0.1720396,
+          "completionReserveSeconds": 0,
+          "alternatives": [
+            {
+              "reason": "At least three direct and three alternative measurements are required",
+              "baselineSamples": 0,
+              "strategy": "no-return",
+              "samples": 0
+            },
+            {
+              "reason": "At least three direct and three alternative measurements are required",
+              "baselineSamples": 0,
+              "strategy": "no-wait",
+              "samples": 0
+            },
+            {
+              "reason": "At least three direct and three alternative measurements are required",
+              "baselineSamples": 0,
+              "strategy": "full",
+              "samples": 0
+            }
+          ]
+        },
+        {
+          "partition": "development",
+          "case": "no-gain",
+          "allowance": 4,
+          "selected": "direct",
+          "requiredSecondsPerPickup": null,
+          "reason": "No consistent additional pickup benefit",
+          "pickups": 1,
+          "completionCertified": true,
+          "seconds": 32.007407,
+          "externalSeconds": 34.2251082,
+          "overheadSeconds": 3.9450224,
+          "admissionSeconds": 2.0763616,
+          "completionReserveSeconds": 1.8686608,
+          "alternatives": [
+            {
+              "reason": "At least three direct and three alternative measurements are required",
+              "baselineSamples": 3,
+              "strategy": "no-return",
+              "samples": 0
+            },
+            {
+              "reason": "At least three direct and three alternative measurements are required",
+              "baselineSamples": 3,
+              "strategy": "no-wait",
+              "samples": 0
+            },
+            {
+              "reason": "No consistent additional pickup benefit",
+              "extraSecondsUpper": 0.5398828999999985,
+              "decisionOverheadSeconds": 3.9450224,
+              "alternative": {
+                "minSeconds": 27.7363447,
+                "maxPickups": 1,
+                "minPickups": 1,
+                "maxSeconds": 27.9837213
+              },
+              "baseline": {
+                "minSeconds": 27.4438384,
+                "maxPickups": 1,
+                "minPickups": 1,
+                "maxSeconds": 28.2719493
+              },
+              "samples": 3,
+              "benefitLower": 0,
+              "benefitUpper": 0,
+              "variationReserveSeconds": 1.6562217999999973,
+              "baselineSamples": 3,
+              "strategy": "full",
+              "recordingReserveSeconds": 0.25,
+              "estimatedExtraSeconds": 6.391127099999996
+            }
+          ]
+        },
+        {
+          "partition": "development",
+          "case": "no-gain",
+          "allowance": 30,
+          "selected": "direct",
+          "requiredSecondsPerPickup": null,
+          "reason": "No consistent additional pickup benefit",
+          "pickups": 1,
+          "completionCertified": true,
+          "seconds": 31.1741204,
+          "externalSeconds": 33.6034415,
+          "overheadSeconds": 3.972284,
+          "admissionSeconds": 2.103005,
+          "completionReserveSeconds": 1.869279,
+          "alternatives": [
+            {
+              "reason": "At least three direct and three alternative measurements are required",
+              "baselineSamples": 3,
+              "strategy": "no-return",
+              "samples": 0
+            },
+            {
+              "reason": "At least three direct and three alternative measurements are required",
+              "baselineSamples": 3,
+              "strategy": "no-wait",
+              "samples": 0
+            },
+            {
+              "reason": "No consistent additional pickup benefit",
+              "extraSecondsUpper": 0.5398828999999985,
+              "decisionOverheadSeconds": 3.972284,
+              "alternative": {
+                "minSeconds": 27.7363447,
+                "maxPickups": 1,
+                "minPickups": 1,
+                "maxSeconds": 27.9837213
+              },
+              "baseline": {
+                "minSeconds": 27.4438384,
+                "maxPickups": 1,
+                "minPickups": 1,
+                "maxSeconds": 28.2719493
+              },
+              "samples": 3,
+              "benefitLower": 0,
+              "benefitUpper": 0,
+              "variationReserveSeconds": 1.6562217999999973,
+              "baselineSamples": 3,
+              "strategy": "full",
+              "recordingReserveSeconds": 0.25,
+              "estimatedExtraSeconds": 6.418388699999996
+            }
+          ]
+        },
+        {
+          "partition": "reserved",
+          "case": "fresh-wait",
+          "allowance": 30,
+          "selected": "direct",
+          "requiredSecondsPerPickup": null,
+          "reason": "At least three direct and three alternative measurements are required",
+          "pickups": 0,
+          "completionCertified": true,
+          "seconds": 20.1381766,
+          "externalSeconds": 20.4713311,
+          "overheadSeconds": 0.00596,
+          "admissionSeconds": 0.00596,
+          "completionReserveSeconds": 0,
+          "alternatives": [
+            {
+              "reason": "At least three direct and three alternative measurements are required",
+              "baselineSamples": 0,
+              "strategy": "no-return",
+              "samples": 0
+            },
+            {
+              "reason": "At least three direct and three alternative measurements are required",
+              "baselineSamples": 0,
+              "strategy": "no-wait",
+              "samples": 0
+            },
+            {
+              "reason": "At least three direct and three alternative measurements are required",
+              "baselineSamples": 0,
+              "strategy": "full",
+              "samples": 0
+            }
+          ]
+        },
+        {
+          "partition": "reserved",
+          "case": "fresh-return",
+          "allowance": 30,
+          "selected": "direct",
+          "requiredSecondsPerPickup": null,
+          "reason": "At least three direct and three alternative measurements are required",
+          "pickups": 1,
+          "completionCertified": true,
+          "seconds": 36.1665241,
+          "externalSeconds": 36.5412479,
+          "overheadSeconds": 0.000381,
+          "admissionSeconds": 0.000381,
+          "completionReserveSeconds": 0,
+          "alternatives": [
+            {
+              "reason": "At least three direct and three alternative measurements are required",
+              "baselineSamples": 0,
+              "strategy": "no-return",
+              "samples": 0
+            },
+            {
+              "reason": "At least three direct and three alternative measurements are required",
+              "baselineSamples": 0,
+              "strategy": "no-wait",
+              "samples": 0
+            },
+            {
+              "reason": "At least three direct and three alternative measurements are required",
+              "baselineSamples": 0,
+              "strategy": "full",
+              "samples": 0
+            }
+          ]
+        },
+        {
+          "partition": "software",
+          "case": "supported-return",
+          "allowance": 0,
+          "selected": "direct",
+          "requiredSecondsPerPickup": null,
+          "reason": "At least three direct and three alternative measurements are required",
+          "pickups": 0,
+          "completionCertified": true,
+          "seconds": 26.4632943,
+          "externalSeconds": 26.8686823,
+          "overheadSeconds": 0.1964402,
+          "admissionSeconds": 0.1964402,
+          "completionReserveSeconds": 0,
+          "alternatives": [
+            {
+              "reason": "At least three direct and three alternative measurements are required",
+              "baselineSamples": 0,
+              "strategy": "no-return",
+              "samples": 0
+            },
+            {
+              "reason": "At least three direct and three alternative measurements are required",
+              "baselineSamples": 0,
+              "strategy": "no-wait",
+              "samples": 0
+            },
+            {
+              "reason": "At least three direct and three alternative measurements are required",
+              "baselineSamples": 0,
+              "strategy": "full",
+              "samples": 0
+            }
+          ]
+        },
+        {
+          "partition": "software",
+          "case": "supported-return",
+          "allowance": 4,
+          "selected": "direct",
+          "requiredSecondsPerPickup": 16.087638199999997,
+          "reason": "Conservative estimate exceeds the allowance",
+          "pickups": 0,
+          "completionCertified": true,
+          "seconds": 30.8051328,
+          "externalSeconds": 33.0422424,
+          "overheadSeconds": 4.0259662,
+          "admissionSeconds": 2.1350699,
+          "completionReserveSeconds": 1.8908963,
+          "alternatives": [
+            {
+              "reason": "At least three direct and three alternative measurements are required",
+              "baselineSamples": 3,
+              "strategy": "no-return",
+              "samples": 0
+            },
+            {
+              "reason": "At least three direct and three alternative measurements are required",
+              "baselineSamples": 3,
+              "strategy": "no-wait",
+              "samples": 0
+            },
+            {
+              "reason": "Conservative estimate exceeds the allowance",
+              "extraSecondsUpper": 10.522835599999997,
+              "decisionOverheadSeconds": 4.0259662,
+              "alternative": {
+                "minSeconds": 36.4345638,
+                "maxPickups": 1,
+                "minPickups": 1,
+                "maxSeconds": 36.8830074
+              },
+              "baseline": {
+                "minSeconds": 26.3601718,
+                "maxPickups": 0,
+                "minPickups": 0,
+                "maxSeconds": 27.00459
+              },
+              "samples": 3,
+              "benefitLower": 1,
+              "benefitUpper": 1,
+              "variationReserveSeconds": 1.288836400000001,
+              "requiredSecondsPerPickup": 16.087638199999997,
+              "baselineSamples": 3,
+              "strategy": "full",
+              "recordingReserveSeconds": 0.25,
+              "estimatedExtraSeconds": 16.087638199999997
+            }
+          ]
+        },
+        {
+          "partition": "software",
+          "case": "supported-return",
+          "allowance": 30,
+          "selected": "full",
+          "requiredSecondsPerPickup": 16.0963586,
+          "reason": "Benefit remains positive across observations and estimated cost fits",
+          "pickups": 1,
+          "completionCertified": true,
+          "seconds": 41.0121584,
+          "externalSeconds": 43.2877822,
+          "overheadSeconds": 4.034686600000001,
+          "admissionSeconds": 2.1387756,
+          "completionReserveSeconds": 1.895911,
+          "alternatives": [
+            {
+              "reason": "At least three direct and three alternative measurements are required",
+              "baselineSamples": 3,
+              "strategy": "no-return",
+              "samples": 0
+            },
+            {
+              "reason": "At least three direct and three alternative measurements are required",
+              "baselineSamples": 3,
+              "strategy": "no-wait",
+              "samples": 0
+            },
+            {
+              "reason": "Benefit remains positive across observations and estimated cost fits",
+              "extraSecondsUpper": 10.522835599999997,
+              "decisionOverheadSeconds": 4.034686600000001,
+              "alternative": {
+                "minSeconds": 36.4345638,
+                "maxPickups": 1,
+                "minPickups": 1,
+                "maxSeconds": 36.8830074
+              },
+              "baseline": {
+                "minSeconds": 26.3601718,
+                "maxPickups": 0,
+                "minPickups": 0,
+                "maxSeconds": 27.00459
+              },
+              "samples": 3,
+              "benefitLower": 1,
+              "benefitUpper": 1,
+              "variationReserveSeconds": 1.288836400000001,
+              "requiredSecondsPerPickup": 16.0963586,
+              "baselineSamples": 3,
+              "strategy": "full",
+              "recordingReserveSeconds": 0.25,
+              "estimatedExtraSeconds": 16.0963586
+            }
+          ]
+        }
+      ],
+      "workflows": 40,
+      "development": 27,
+      "reserved": 4,
+      "software": 9,
+      "scope": "Admission through first verified outcome; external rows additionally include measurement re-audit. Later app shutdown excluded. Initial development pilot retained separately and excluded from final calibration. No probability or deadline guarantee."
+    },
+    "referenceControllerResults": {
+      "hardware": {
+        "cases": 6,
+        "refusals": 4
+      }
+    },
+    "modelCalls": 0,
+    "guideWidths": [
+      1440,
+      390
+    ],
+    "scope": "Opt-in exact-condition cost/benefit envelope around unchanged GameTask115 and contact122. Current source and outcome checks retained. No general transfer, hard deadline, neural training or skill-bank promotion."
+  },
+  "ci": {
+    "scope": "CI checked before implementation: edition123 main/release and edition122 runs were pending. Local verification and fetched publication do not establish edition124 hosted CI success.",
+    "releaseCheck": {
+      "checkedAtUtc": "2026-11-12T16:28:59.228188+00:00",
+      "runs": [
+        {
+          "id": 43258745720,
+          "head_sha": "b7b82fdd45ba40b6d1fabdd59aff2ab5d0bafb89",
+          "event": "push",
+          "status": "in_progress",
+          "conclusion": null,
+          "html_url": "https://github.com/eyeoverthink/Fraynix-Agent-Workspace/actions/runs/43258745720",
+          "created_at": "2026-11-12T16:26:48Z",
+          "updated_at": "2026-11-12T16:26:54Z"
+        },
+        {
+          "id": 43231743693,
+          "head_sha": "1d328f373c9e563b5ff62a46554df22e990c8f9f",
+          "event": "push",
+          "status": "in_progress",
+          "conclusion": null,
+          "html_url": "https://github.com/eyeoverthink/Fraynix-Agent-Workspace/actions/runs/43231743693",
+          "created_at": "2026-11-12T13:54:09Z",
+          "updated_at": "2026-11-12T13:54:13Z"
+        },
+        {
+          "id": 43231218250,
+          "head_sha": "2083ce78e4f1f1f8d36f61b88e58199f03d04762",
+          "event": "push",
+          "status": "in_progress",
+          "conclusion": null,
+          "html_url": "https://github.com/eyeoverthink/Fraynix-Agent-Workspace/actions/runs/43231218250",
+          "created_at": "2026-11-12T13:50:53Z",
+          "updated_at": "2026-11-12T13:50:57Z"
+        },
+        {
+          "id": 43200530305,
+          "head_sha": "98d0724b049fcaab9ec451e626b256a785b0000d",
+          "event": "push",
+          "status": "completed",
+          "conclusion": "success",
+          "html_url": "https://github.com/eyeoverthink/Fraynix-Agent-Workspace/actions/runs/43200530305",
+          "created_at": "2026-11-12T10:27:26Z",
+          "updated_at": "2026-11-12T15:25:33Z"
+        }
+      ]
+    }
+  }
+}

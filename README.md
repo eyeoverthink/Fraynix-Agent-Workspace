@@ -1,5 +1,7 @@
 # Fraynix Agent Workspace · Edition 124
 
+[Published and fetched verification receipt](docs/PUBLICATION_124.json) · [Release tag](https://github.com/eyeoverthink/Fraynix-Agent-Workspace/tree/readme-124)
+
 **Choose extra work only when its verified benefit fits your time allowance.**
 
 2026-11-12 · Java-owned decisions, original game physics, durable verified tasks.
