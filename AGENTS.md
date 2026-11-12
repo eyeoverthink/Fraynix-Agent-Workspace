@@ -1,3 +1,7 @@
+## Edition129 active — 2026-11-12
+
+Isolated S:/Codex-Work/fraynix-workspace-edition129; parent4b941ac6. CI checked first;128 pending. Read docs/EDITION_129_CONTRACT.md. Diagnose tracking drift and wide forecast bounds, compare against simpler control, lock candidates before fresh held cases, preserve every original source/outcome check. No delegation or overlapping heavy studies. Node junction read-only. Preserve private projects/frozen001–128. No129 publication yet.
+
 ## Edition128 — published and fetched back
 
 2026-11-12. Isolated S:/Codex-Work/fraynix-workspace-edition128; parent86886289; final production b983874b. Release 55b055add7f0705da36aa20140a65fff30d340d9; annotated readme-128. Main, edition128 and tag pushed atomically and fetched. Verified 1551 canonical sources, 46632 frozen hashes across128 editions and 259 original evidence entries. See docs/PUBLICATION_128.json.
