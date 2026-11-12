@@ -23,14 +23,10 @@ try {
     if($taskOwnerLive042){Write-Host 'Reconnecting to the continuing Java agent. Its running installation will not be rebuilt.'}
     else {
     # Incremental build refreshes an existing installation after Git updates.
-    $taskBuildArgs=@(':workspace-engine:installDist'); if ($Offline) { $taskBuildArgs+='--offline' }
+    $taskBuildArgs=@('prepareGameRuntime115',':workspace-engine:installDist'); if ($Offline) { $taskBuildArgs+='--offline' }
     & (Join-Path $repo 'gradlew.bat') @taskBuildArgs
     if ($LASTEXITCODE -ne 0) { throw 'Workspace engine build failed; see the Gradle diagnostics above.' }
-    if (!(Test-Path -LiteralPath (Join-Path $repo 'build/install/Fraynix-Studio/lib'))) {
-        $taskGameArgs=@('installDist'); if ($Offline) { $taskGameArgs+='--offline' }
-        & (Join-Path $repo 'gradlew.bat') @taskGameArgs
-        if ($LASTEXITCODE -ne 0) { throw 'Game Lab preparation failed.' }
-    }
+
     }
     $desktop = Join-Path $repo 'workspace-desktop'
     Push-Location -LiteralPath $desktop
