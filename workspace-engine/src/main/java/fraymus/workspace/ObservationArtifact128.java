@@ -30,7 +30,7 @@ final class ObservationArtifact128 {
         var run=observations.read(d.getString("runId"));
         if(!run.getString("status").equals("completed")||!run.getString("codeSha256").equals(WorldObservationStore.identity()))throw new IllegalStateException("Choose a completed observation from this tracking implementation");
         var dataset=observations.dataset(run.getString("datasetId"));var frames=dataset.getJSONArray("frames");
-        if(frames.length()<4||frames.length()>257||run.getInt("completedFrames")!=frames.length()-1)throw new IllegalStateException("Use a complete4..257-frame sequence; no hidden subsampling");
+        if(frames.length()<5||frames.length()>96||run.getInt("completedFrames")!=frames.length()-1)throw new IllegalStateException("Use a complete5..96-frame sequence; no hidden subsampling");
         String body=d.optString("bodyId","");if(body.isEmpty()){if(run.getJSONArray("bindings").length()!=1)throw new IllegalArgumentException("Select one body explicitly");body=run.getJSONArray("bindings").getJSONObject(0).getString("bodyId");}
         boolean bound=false;for(Object raw:run.getJSONArray("bindings"))if(((JSONObject)raw).getString("bodyId").equals(body))bound=true;if(!bound)throw new IllegalArgumentException("Body is not bound to this observation");
         var binding=run.getJSONObject("nativeBinding");if(current){var now=worlds.observe(binding.getString("worldId"));if(now.has("pending")||!now.getString("expectedHash").equals(binding.getString("expectedHash"))||now.getInt("expectedRevision")!=binding.getInt("expectedRevision"))throw new IllegalStateException("World changed; record and select a fresh observation binding");}
