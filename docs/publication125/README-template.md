@@ -41,7 +41,8 @@ The movement controller, optional-action selector and native task verifier are u
 | Recorded operations | Admission, execution, verification, measurement and recovery call durations | Each ending timing-record write is outside its call duration; overlapping categories must not be added to the first-outcome span |
 | Later checks | Recorded work after the first verified outcome | Kept separately; repeated rechecks never reset the original clock |
 | Recovered span | Wall-clock time across a restart | Clock continuity is unproven; not eligible for the calibrated comparison |
-| External request | Trial driver observes the whole request plus its final re-audit; actual chat also includes presentation/recovery | Different calling/resource contexts are reported separately |
+| External study request | Trial driver measures admission through completion/failure checks and final measurement | Later review creation and project shutdown are outside this span |
+| Visible chat request | Submission through the driver observing Java's terminal chat status; includes live presentation and recovery when exercised | Subsequent driver rechecks, screenshots and saved-review checks are outside the displayed elapsed value |
 
 A pending operation at interruption has unknown duration. It cannot become zero work or a successful event. Old tasks without edition 125 records remain readable without invented clocks. Changed records and invalid task transitions are refused. Retained local checksums are integrity checks, not independent attestation against an administrator rewriting all local evidence.
 
@@ -84,7 +85,7 @@ The final declared dataset contains 53 workflows: 26 development, 14 reserved an
 
 The actual integrated application creates levels through the existing Java chat route, reviews an initially insufficient comparison, gathers later trials, opens the saved result after an abrupt owned-process interruption and retains a failed course. These explicit requests make zero model calls. An installed local model is selected in the UI, but no fresh LLM reasoning or training is claimed by this trial.
 
-| Request | Complete visible seconds | Outcome |
+| Request | Submission to terminal status (seconds) | Outcome |
 | --- | --- | --- |
 {{CHAT_ROWS}}
 
