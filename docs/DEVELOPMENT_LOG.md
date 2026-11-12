@@ -1,3 +1,9 @@
+## Edition124 implementation checkpoint — 2026-11-12
+
+Continue in S:/Codex-Work/fraynix-workspace-edition124, branch edition124, parent1d328f37. Correct private target remains eyeoverthink/Fraynix-Agent-Workspace. Read docs/EDITION_124_CONTRACT.md. CI checked first:123/122 pending. Pure policy checks pass. Initial development native pass is running; preserve it as build/budget124-development-pilot once complete, then collect final calibration under the updated algorithm including a reserve for repeated completion source checks. Do not mix pilot timings with final profiles.
+
+GameChoices124 wraps unchanged GameTask115. Explicit allowance and exact-condition samples; uncertain/unknown/unsafe cases choose direct. Invalid transition cannot mutate a timing receipt; restart clocks ineligible. Native controller unchanged. Final acceptance:27development+4reserved+9software workflows, unit/restart/tamper checks,18native regressions, broad current checks,168desktop checks and11actual UI requests with owned-process interruption. Publication helpers under docs/publication124 are prepared but not run. No124 publication claimed yet. Finish docs/screenshots/guide/notes/freeze/Verify-Documentation then atomic push main/edition124/readme-124 and fresh fetched audit. Keep private user projects, prior live owners and frozen001–123 untouched. No subagents or overlapping heavy validation.
+
 ## Edition123 — published and fetched back
 
 2026-11-12 America/Los_Angeles. Isolated S:/Codex-Work/fraynix-workspace-edition123; parent98d0724b. Source 13908322dc55b9703e29748597a0e4bc265fef19. CI checked first:122 main43200530305/release43200200568 running, previous121 completed successfully. Release 2083ce78e4f1f1f8d36f61b88e58199f03d04762; annotated readme-123. Main, edition123 and tag pushed atomically and fetched. Verified 1508 canonical sources, 43845 frozen hashes across123 editions and 1281 original evidence entries. See docs/PUBLICATION_123.json.

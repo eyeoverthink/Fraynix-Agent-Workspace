@@ -29,16 +29,16 @@ final class GameChoices124 implements AutoCloseable {
   if(!fact.similar(r.getJSONObject("fact")))throw new IllegalStateException("Timing or outcome receipt changed");return fact;
  }
  private JSONObject choice(JSONObject request,long began)throws Exception{
-  var samples=new JSONArray();var refs=new JSONArray();var rejected=new JSONArray();double budget=request.getDouble("allowance");
+  var samples=new JSONArray();var refs=new JSONArray();var rejected=new JSONArray();double budget=request.getDouble("allowance");long sourceCheckNanos=0;
   if(budget>0&&damaged.isEmpty())for(String id:records.keySet()){
    var r=record(id);if(r.getBoolean("budgeted")||!r.getJSONObject("parameters").similar(request.getJSONObject("parameters")))continue;
    if(!r.optBoolean("eligible")||!host.equals(r.getString("host"))||!algorithm.equals(r.getString("algorithm"))||!fresh(r,Instant.now())){rejected.put(new JSONObject().put("id",id).put("reason","Incomplete, restarted, aged or different-context evidence"));continue;}
-   try{var f=fact(r);samples.put(f);refs.put(new JSONObject().put("id",id).put("recordSha256",GameLevels114.hash(file(id))).put("fact",f));}catch(Exception e){rejected.put(new JSONObject().put("id",id).put("reason",String.valueOf(e.getMessage())));}
+   try{long checking=System.nanoTime();var f=fact(r);sourceCheckNanos+=System.nanoTime()-checking;samples.put(f);refs.put(new JSONObject().put("id",id).put("recordSha256",GameLevels114.hash(file(id))).put("fact",f));}catch(Exception e){rejected.put(new JSONObject().put("id",id).put("reason",String.valueOf(e.getMessage())));}
   }
   // An invalid matched source prevents cherry-picking the remaining favorable observations.
   boolean invalid=rejected.toList().stream().anyMatch(x->!((Map<?,?>)x).get("reason").equals("Incomplete, restarted, aged or different-context evidence"));if(invalid||!damaged.isEmpty()){samples=new JSONArray();refs=new JSONArray();}
-  long analysis=System.nanoTime();GameBudgetPolicy124.choose(samples,budget,0);long analysisNanos=System.nanoTime()-analysis;double overhead=(System.nanoTime()-began+analysisNanos)/1e9;
-  var result=GameBudgetPolicy124.choose(samples,budget,overhead);return new JSONObject().put("result",result).put("samples",samples).put("sources",refs).put("rejected",rejected).put("damagedRecords",damaged.size()).put("overheadSeconds",overhead).put("analysisNanos",analysisNanos);
+  long analysis=System.nanoTime();GameBudgetPolicy124.choose(samples,budget,0);long analysisNanos=System.nanoTime()-analysis;double admissionSeconds=(System.nanoTime()-began+analysisNanos)/1e9;double completionReserveSeconds=sourceCheckNanos/1e9;double overhead=admissionSeconds+completionReserveSeconds;
+  var result=GameBudgetPolicy124.choose(samples,budget,overhead);return new JSONObject().put("result",result).put("samples",samples).put("sources",refs).put("rejected",rejected).put("damagedRecords",damaged.size()).put("overheadSeconds",overhead).put("admissionSeconds",admissionSeconds).put("completionVerificationReserveSeconds",completionReserveSeconds).put("analysisNanos",analysisNanos);
  }
  private void verifyChoice(JSONObject r,boolean resuming)throws Exception{
   if(!r.getBoolean("budgeted"))return;if(!algorithm.equals(r.getString("algorithm")))throw new IllegalStateException("Choice implementation changed; historical evidence is retained");
@@ -69,9 +69,13 @@ final class GameChoices124 implements AutoCloseable {
  }
  synchronized JSONObject verify(String id)throws Exception{var r=record(id);var t=tasks.verify(id);if(r!=null){if(!r.getString("resolved").equals(t.getString("request")))throw new IllegalStateException("Resolved request changed");verifyChoice(r,false);checkRenderer(r,t);finish(r,tasks.measure123(id));}return read(id);}
  synchronized JSONObject measure(String id)throws Exception{var r=record(id);var m=tasks.measure123(id);if(r!=null){verifyChoice(r,false);finish(r,m);m.put("choice124",WorldFrames.copy(r));}return m;}
- synchronized JSONObject control(String id,String action)throws Exception{var r=record(id);if(action.equals("resume")&&r!=null){if(r.has("blocked"))throw new IllegalStateException(r.getString("blocked"));verifyChoice(r,true);r.put("restarted",true).put("eligible",false).put("timingStatus","Restarted request: retained, excluded from calibration");clocks.remove(id);save(r);}tasks.control(id,action);return read(id);}
+ synchronized JSONObject control(String id,String action)throws Exception{
+  var r=record(id);if(action.equals("resume")&&r!=null){if(r.has("blocked"))throw new IllegalStateException(r.getString("blocked"));verifyChoice(r,true);}
+  tasks.control(id,action); // Validate the transition before changing a durable timing receipt.
+  if(action.equals("resume")&&r!=null){r.put("restarted",true).put("eligible",false).put("timingStatus","Restarted request: retained, excluded from calibration");clocks.remove(id);save(r);}return read(id);
+ }
  synchronized JSONObject read(String id)throws Exception{var t=tasks.read(id);var r=record(id);if(r!=null){t.put("pickupChoice124",WorldFrames.copy(r));if(r.has("blocked"))t.put("reason",r.getString("blocked"));if(t.has("audit")&&r.getBoolean("budgeted"))t.getJSONObject("audit").put("pickupChoice124",WorldFrames.copy(r.getJSONObject("decision").getJSONObject("result")));}return t;}
  synchronized JSONObject list()throws Exception{var result=tasks.list();var list=new JSONArray();for(Object raw:result.getJSONArray("tasks"))list.put(read(((JSONObject)raw).getString("id")));result.put("tasks",list).put("choiceRecordsNeedingAttention",damaged.size());return result;}
  synchronized boolean busy(){return tasks.busy();}
- @Override public synchronized void close(){tasks.close();clocks.clear();for(var r:records.values())if(r.getString("timingStatus").equals("pending"))try{r.put("eligible",false).put("restarted",true).put("timingStatus","Interrupted clock: excluded from calibration");save(r);}catch(Exception e){System.err.println("Choice timing could not close: "+e.getMessage());}}
+ @Override public synchronized void close(){tasks.close();clocks.clear();for(var r:records.values())if(r.getString("timingStatus").equals("pending"))try{record(r.getString("id"));r.put("eligible",false).put("restarted",true).put("timingStatus","Interrupted clock: excluded from calibration");save(r);}catch(Exception e){System.err.println("Choice timing could not close: "+e.getMessage());}}
 }
