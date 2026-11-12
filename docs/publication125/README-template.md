@@ -68,7 +68,7 @@ These are empirical comparisons, not confidence intervals or a guarantee. The ex
 
 Passing the validation checks means the app correctly preserved and assessed each result. It does not mean every course succeeded:
 
-| Partition / case | Actual workflows | Certified completions | Uncertified outcomes | Player deaths |
+| Partition / case | Actual workflows | Certified completions | Uncertified outcomes | AI player deaths |
 | --- | --- | --- | --- | --- |
 {{OUTCOME_ROWS}}
 
